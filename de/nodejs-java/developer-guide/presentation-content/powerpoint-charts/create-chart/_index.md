@@ -1,145 +1,97 @@
 ---
-title: PowerPoint‑Präsentationsdiagramme in JavaScript erstellen oder aktualisieren
-linktitle: Diagramm erstellen
+title: Erstellen oder Aktualisieren von PowerPoint-Präsentationsdiagrammen in JavaScript
+linktitle: Diagramme erstellen oder aktualisieren
 type: docs
 weight: 10
 url: /de/nodejs-java/create-chart/
-keywords: "Diagramm erstellen, gestreutes Diagramm, Kreisdiagramm, Baumkarten‑Diagramm, Aktien‑Diagramm, Box‑and‑Whisker‑Diagramm, Histogramm‑Diagramm, Trichter‑Diagramm, Sunburst‑Diagramm, Mehrkategorien‑Diagramm, PowerPoint‑Präsentation, Java, Aspose.Slides für Node.js via Java"
-description: "Diagramm in PowerPoint‑Präsentation in JavaScript erstellen"
+keywords:
+- Diagramm hinzufügen
+- Diagramm erstellen
+- Diagramm bearbeiten
+- Diagramm ändern
+- Diagramm aktualisieren
+- Streudiagramm
+- Kreisdiagramm
+- Liniendiagramm
+- Baumkartendiagramm
+- Börsendiagramm
+- Box-und-Whisker-Diagramm
+- Trichterdiagramm
+- Sonnenstrahl-Diagramm
+- Histogrammdiagramm
+- Radardiagramm
+- Mehrkategorien-Diagramm
+- PowerPoint
+- Präsentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Erstellen und Anpassen von Diagrammen in PowerPoint‑Präsentationen mit Aspose.Slides für Node.js. Diagramme hinzufügen, formatieren und bearbeiten mit praktischen Code‑Beispielen in JavaScript."
 ---
-
 ## **Übersicht**
 
-Dieser Artikel beschreibt, wie man **PowerPoint-Präsentationsdiagramme in Java** erstellt. Sie können die Diagramme auch **in JavaScript aktualisieren**. Er behandelt die folgenden Themen.
-
-_Chart_: **Normal**
-- [Java PowerPoint-Diagramm erstellen](#java-create-powerpoint-chart)
-- [Java Präsentationsdiagramm erstellen](#java-create-presentation-chart)
-- [Java PowerPoint-Präsentationsdiagramm erstellen](#java-create-powerpoint-presentation-chart)
-
-_Chart_: **Scattered**
-- [Java Streudiagramm erstellen](#java-create-scattered-chart)
-- [Java PowerPoint-Streudiagramm erstellen](#java-create-powerpoint-scattered-chart)
-- [Java PowerPoint-Präsentationsstreudiagramm erstellen](#java-create-powerpoint-presentation-scattered-chart)
-
-_Chart_: **Pie**
-- [Java Kreisdiagramm erstellen](#java-create-pie-chart)
-- [Java PowerPoint-Kreisdiagramm erstellen](#java-create-powerpoint-pie-chart)
-- [Java PowerPoint-Präsentationskreisdiagramm erstellen](#java-create-powerpoint-presentation-pie-chart)
-
-_Chart_: **Tree Map**
-- [Java Baumkarten-Diagramm erstellen](#java-create-tree-map-chart)
-- [Java PowerPoint-Baumkarten-Diagramm erstellen](#java-create-powerpoint-tree-map-chart)
-- [Java PowerPoint-Präsentations-Baumkarten-Diagramm erstellen](#java-create-powerpoint-presentation-tree-map-chart)
-
-_Chart_: **Stock**
-- [Java Aktien-Diagramm erstellen](#java-create-stock-chart)
-- [Java PowerPoint-Aktien-Diagramm erstellen](#java-create-powerpoint-stock-chart)
-- [Java PowerPoint-Präsentations-Aktien-Diagramm erstellen](#java-create-powerpoint-presentation-stock-chart)
-
-_Chart_: **Box and Whisker**
-- [Java Box‑and‑Whisker‑Diagramm erstellen](#java-create-box-and-whisker-chart)
-- [Java PowerPoint-Box‑and‑Whisker‑Diagramm erstellen](#java-create-powerpoint-box-and-whisker-chart)
-- [Java PowerPoint-Präsentations‑Box‑and‑Whisker‑Diagramm erstellen](#java-create-powerpoint-presentation-box-and-whisker-chart)
-
-_Chart_: **Funnel**
-- [Java Trichter‑Diagramm erstellen](#java-create-funnel-chart)
-- [Java PowerPoint‑Trichter‑Diagramm erstellen](#java-create-powerpoint-funnel-chart)
-- [Java PowerPoint‑Präsentations‑Trichter‑Diagramm erstellen](#java-create-powerpoint-presentation-funnel-chart)
-
-_Chart_: **Sunburst**
-- [Java Sunburst‑Diagramm erstellen](#java-create-sunburst-chart)
-- [Java PowerPoint‑Sunburst‑Diagramm erstellen](#java-create-powerpoint-sunburst-chart)
-- [Java PowerPoint‑Präsentations‑Sunburst‑Diagramm erstellen](#java-create-powerpoint-presentation-sunburst-chart)
-
-_Chart_: **Histogram**
-- [Java Histogramm‑Diagramm erstellen](#java-create-histogram-chart)
-- [Java PowerPoint‑Histogramm‑Diagramm erstellen](#java-create-powerpoint-histogram-chart)
-- [Java PowerPoint‑Präsentations‑Histogramm‑Diagramm erstellen](#java-create-powerpoint-presentation-histogram-chart)
-
-_Chart_: **Radar**
-- [Java Radar‑Diagramm erstellen](#java-create-radar-chart)
-- [Java PowerPoint‑Radar‑Diagramm erstellen](#java-create-powerpoint-radar-chart)
-- [Java PowerPoint‑Präsentations‑Radar‑Diagramm erstellen](#java-create-powerpoint-presentation-radar-chart)
-
-_Chart_: **Multi Category**
-- [Java Mehrkategorien‑Diagramm erstellen](#java-create-multi-category-chart)
-- [Java PowerPoint‑Mehrkategorien‑Diagramm erstellen](#java-create-powerpoint-multi-category-chart)
-- [Java PowerPoint‑Präsentations‑Mehrkategorien‑Diagramm erstellen](#java-create-powerpoint-presentation-multi-category-chart)
-
-_Chart_: **Map**
-- [Java Karten‑Diagramm erstellen](#java-create-map-chart)
-- [Java PowerPoint‑Karten‑Diagramm erstellen](#java-create-powerpoint-map-chart)
-- [Java PowerPoint‑Präsentations‑Karten‑Diagramm erstellen](#java-create-powerpoint-presentation-map-chart)
-
-_Action_: **Update Chart**
-- [Java PowerPoint‑Diagramm aktualisieren](#java-update-powerpoint-chart)
-- [Java Präsentations‑Diagramm aktualisieren](#java-update-presentation-chart)
-- [Java PowerPoint‑Präsentations‑Diagramm aktualisieren](#java-update-powerpoint-presentation-chart)
-
+Dieser Artikel bietet eine umfassende Anleitung, wie Sie Diagramme mit Aspose.Slides erstellen und anpassen. Sie lernen, wie Sie programmgesteuert ein Diagramm zu einer Folie hinzufügen, es mit Daten füllen und verschiedene Formatierungsoptionen anwenden, um Ihren spezifischen Designanforderungen zu entsprechen. Im gesamten Artikel veranschaulichen detaillierte Codebeispiele jeden Schritt, vom Initialisieren der Präsentation und des Diagrammobjekts bis hin zur Konfiguration von Reihen, Achsen und Legenden. Wenn Sie dieser Anleitung folgen, erhalten Sie ein solides Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre Anwendungen integrieren und den Prozess der Erstellung datenbasierter Präsentationen rationalisieren.
 
 ## **Diagramm erstellen**
-Diagramme helfen Menschen, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder Kalkulationstabelle nicht sofort ersichtlich sind. 
 
+Diagramme helfen Menschen, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder einem Spreadsheet nicht sofort ersichtlich sind.
 
 **Warum Diagramme erstellen?**
 
-Mit Diagrammen können Sie
+Mit Diagrammen können Sie:
 
-* große Datenmengen auf einer einzigen Folie einer Präsentation zusammenfassen, komprimieren oder zusammenfassen
-* Muster und Trends in den Daten aufdecken
-* die Richtung und das Momentum von Daten über die Zeit oder in Bezug auf eine bestimmte Maßeinheit ableiten
-* Ausreißer, Aberrationen, Abweichungen, Fehler, unsinnige Daten usw. erkennen
+* große Datenmengen auf einer einzigen Folie einer Präsentation aggregieren, kondensieren oder zusammenfassen
+* Muster und Trends in Daten aufzeigen
+* die Richtung und das Momentum von Daten über die Zeit oder in Bezug auf eine bestimmte Einheit ableiten
+* Ausreißer, Abweichungen, Fehler, unsinnige Daten usw. erkennen
 * komplexe Daten kommunizieren oder präsentieren
 
-In PowerPoint können Sie Diagramme über die Einfügefunktion erstellen, die Vorlagen für viele Diagrammtypen bereitstellt. Mit Aspose.Slides können Sie reguläre Diagramme (basierend auf gängigen Diagrammtypen) sowie benutzerdefinierte Diagramme erstellen. 
+In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für viele Diagrammtypen bereitstellt. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erstellen.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Um Diagramme zu erstellen, verwenden Sie die [ChartType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/)‑Klasse. Die Felder dieser Klasse entsprechen verschiedenen Diagrammtypen.
+{{% /alert %}}
 
-Um Diagramme zu erstellen, stellt Aspose.Slides die Klasse [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType) bereit. Die Felder dieser Klasse entsprechen verschiedenen Diagrammtypen.
+### **Erstellen von gruppierten Säulendiagrammen**
 
-{{% /alert %}} 
+Dieser Abschnitt erklärt, wie Sie gruppierte Säulendiagramme mit Aspose.Slides erstellen. Sie lernen, eine Präsentation zu initialisieren, ein Diagramm hinzuzufügen und Elemente wie Titel, Daten, Reihen, Kategorien und Stil anzupassen. Folgen Sie den Schritten unten, um zu sehen, wie ein Standard‑Gruppiertes‑Säulendiagramm erzeugt wird:
 
-### **Erstellen normaler Diagramme**
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation)‑Klasse.
+1. Rufen Sie über den Index eine Folie ab.
+1. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie den Typ `ChartType.ClusteredColumn` an.
+1. Fügen Sie dem Diagramm einen Titel hinzu.
+1. Greifen Sie auf das Daten‑Worksheet des Diagramms zu.
+1. Löschen Sie alle Standard‑Reihen und -Kategorien.
+1. Fügen Sie neue Reihen und Kategorien hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagrammreihen hinzu.
+1. Wenden Sie eine Füllfarbe auf die Diagrammreihe an.
+1. Fügen Sie Beschriftungen zur Diagrammreihe hinzu.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-_Schritte: Diagramm erstellen_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Schritte:</em> PowerPoint‑Diagramm in JavaScript erstellen</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Schritte:</em> Präsentations‑Diagramm in JavaScript erstellen</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Schritte:</em> PowerPoint‑Präsentations‑Diagramm in JavaScript erstellen</strong></a>
+Dieser C#‑Code demonstriert, wie ein gruppiertes Säulendiagramm erstellt wird:
 
-_Code‑Schritte:_
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Holen Sie sich eine Folienreferenz über deren Index.
-3. Fügen Sie ein Diagramm mit Daten hinzu und geben Sie Ihren bevorzugten Diagrammtyp an. 
-4. Fügen Sie dem Diagramm einen Titel hinzu. 
-5. Greifen Sie auf das Arbeitsblatt der Diagrammdaten zu. 
-6. Löschen Sie alle Standard‑Serien und -Kategorien. 
-7. Fügen Sie neue Serien und Kategorien hinzu. 
-8. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu. 
-9. Fügen Sie eine Füllfarbe für Diagrammserien hinzu. 
-10. Fügen Sie Beschriftungen für die Diagrammserien hinzu. 
-11. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
-
-Dieser JavaScript‑Code zeigt, wie man ein normales Diagramm erstellt:
 ```javascript
-// Instanziiert eine Präsentationsklasse, die eine PPTX-Datei darstellt
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Instanziiert eine Präsentationsklasse, die eine PPTX‑Datei darstellt
 var pres = new aspose.slides.Presentation();
 try {
     // Greift auf die erste Folie zu
     var sld = pres.getSlides().get_Item(0);
-    // Fügt ein Diagramm mit den Standarddaten hinzu
+    // Fügt ein Diagramm mit Standarddaten hinzu
     var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
     // Setzt den Diagrammtitel
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
-    // Konfiguriert die erste Serie, um Werte anzuzeigen
+    // Setzt die erste Serie so, dass Werte angezeigt werden
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
     // Setzt den Index für das Diagrammdatenblatt
     var defaultWorksheetIndex = 0;
-    // Holt das Diagrammdaten-Arbeitsblatt
+    // Holt das Diagrammdaten‑Worksheet
     var fact = chart.getChartData().getChartDataWorkbook();
     // Löscht die standardmäßig erzeugten Serien und Kategorien
     chart.getChartData().getSeries().clear();
@@ -155,7 +107,7 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     // Nimmt die erste Diagrammserie
     var series = chart.getChartData().getSeries().get_Item(0);
-    // Füllt nun die Seriendaten
+    // Befüllt jetzt die Seriendaten
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
@@ -164,7 +116,7 @@ try {
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     // Nimmt die zweite Diagrammserie
     series = chart.getChartData().getSeries().get_Item(1);
-    // Füllt die Seriendaten
+    // Befüllt die Seriendaten
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
@@ -191,43 +143,43 @@ try {
 }
 ```
 
+### **Erstellen von Streudiagrammen**
 
-### **Erstellen gestreuter Diagramme**
-Gestreute Diagramme (auch Streudiagramme oder X‑Y‑Diagramme genannt) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen zu demonstrieren. 
+Streudiagramme (auch Scatter‑Plots oder X‑Y‑Diagramme genannt) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen zu zeigen.
 
-Sie sollten ein gestreutes Diagramm verwenden, wenn 
+Verwenden Sie ein Streudiagramm, wenn:
 
 * Sie gepaarte numerische Daten haben
-* Sie 2 Variablen haben, die gut zusammenpassen
-* Sie feststellen möchten, ob 2 Variablen zusammenhängen
-* Sie eine unabhängige Variable haben, die für eine abhängige Variable mehrere Werte besitzt
+* Sie zwei Variablen haben, die gut zusammenpassen
+* Sie feststellen möchten, ob zwei Variablen miteinander verbunden sind
+* Sie eine unabhängige Variable mit mehreren Werten für eine abhängige Variable besitzen
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Schritte:</em> Gestreutes Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Schritte:</em> PowerPoint‑Gestreutes‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Schritte:</em> PowerPoint‑Präsentations‑Gestreutes‑Diagramm in JavaScript erstellen</strong></a>
+1. Folgen Sie den Schritten in [Erstellen von gruppierten Säulendiagrammen](#erstellen-von‑gruppen‑säulendiagrammen).
+2. Für den dritten Schritt fügen Sie ein Diagramm mit Daten hinzu und wählen einen der folgenden Diagrammtypen:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) – _Streudiagramm mit Markern._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) – _Streudiagramm, das durch Kurven verbunden ist, mit Datenmarkern._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) – _Streudiagramm, das durch Kurven verbunden ist, ohne Datenmarker._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) – _Streudiagramm, das durch gerade Linien verbunden ist, mit Datenmarkern._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) – _Streudiagramm, das durch gerade Linien verbunden ist, ohne Datenmarker._
 
-1. Bitte folgen Sie den oben genannten Schritten unter [Erstellen normaler Diagramme](#creating-normal-charts)  
-2. Für den dritten Schritt fügen Sie ein Diagramm mit Daten hinzu und geben Sie Ihren Diagrammtyp als einen der folgenden an  
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Stellt ein gestreutes Diagramm mit Markern dar._  
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Stellt ein gestreutes Diagramm mit glatten Linien und Markern dar._  
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Stellt ein gestreutes Diagramm mit glatten Linien ohne Marker dar._  
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Stellt ein gestreutes Diagramm mit geraden Linien und Markern dar._  
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Stellt ein gestreutes Diagramm mit geraden Linien ohne Marker dar._
+Dieser JavaScript‑Code zeigt, wie ein Streudiagramm mit unterschiedlichen Markern für jede Reihe erstellt wird:
 
-Dieser JavaScript‑Code zeigt, wie man gestreute Diagramme mit unterschiedlichen Marker‑Serien erstellt:
 ```javascript
-// Instanziert eine Präsentationsklasse, die eine PPTX-Datei darstellt
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Instanziiert eine Präsentationsklasse, die eine PPTX‑Datei darstellt
 var pres = new aspose.slides.Presentation();
 try {
     // Greift auf die erste Folie zu
     var slide = pres.getSlides().get_Item(0);
     // Erstellt das Standarddiagramm
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
-    // Ermittelt den Index des Standard-Datenarbeitsblatts des Diagramms
+    // Holt den Index des Standard‑Diagrammdaten‑Worksheets
     var defaultWorksheetIndex = 0;
-    // Holt das Datenarbeitsblatt des Diagramms
+    // Holt das Diagrammdaten‑Worksheet
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Löscht die Demo-Serien
+    // Löscht die Demo‑Serien
     chart.getChartData().getSeries().clear();
     // Fügt neue Serien hinzu
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
@@ -264,30 +216,30 @@ try {
 }
 ```
 
+### **Erstellen von Kreisdiagrammen**
 
-### **Erstellen Kreis‑Diagramme**
+Kreisdiagramme eignen sich am besten, um das Teil‑zu‑Ganz‑Verhältnis darzustellen, insbesondere wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Enthält Ihre Datenbasis jedoch viele Teile oder Beschriftungen, sollten Sie eher ein Balkendiagramm in Betracht ziehen.
 
-Kreis‑Diagramme eignen sich am besten, um das Verhältnis von Teil zu Ganzem darzustellen, insbesondere wenn die Daten kategoriale Beschriftungen mit numerischen Werten enthalten. Enthält Ihre Daten jedoch viele Teile oder Beschriftungen, sollten Sie stattdessen ein Balken‑Diagramm in Betracht ziehen.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
+2. Rufen Sie über den Index eine Folie ab.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Pie](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#Pie) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/) zu.
+5. Löschen Sie die Standard‑Reihen und -Kategorien.
+6. Fügen Sie neue Reihen und Kategorien hinzu.
+7. Fügen Sie neue Diagrammdaten für die Diagrammreihen hinzu.
+8. Fügen Sie neue Punkte für das Diagramm hinzu und wenden Sie benutzerdefinierte Farben für die Sektoren des Kreisdiagramms an.
+9. Setzen Sie Beschriftungen für die Reihen.
+10. Aktivieren Sie Führungs‑Linien für die Reihen‑Beschriftungen.
+11. Legen Sie den Rotationswinkel für die Sektoren des Kreisdiagramms fest.
+12. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Schritte:</em> Kreis‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Schritte:</em> PowerPoint‑Kreis‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Schritte:</em> PowerPoint‑Präsentations‑Kreis‑Diagramm in JavaScript erstellen</strong></a>
+Dieser JavaScript‑Code zeigt, wie ein Kreisdiagramm erstellt wird:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)-Klasse.  
-2. Holen Sie sich die Referenz einer Folie über deren Index.  
-3. Fügen Sie ein Diagramm mit Standarddaten und dem gewünschten Typ hinzu (hier: [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).Pie).  
-4. Greifen Sie auf die Diagrammdaten‑[ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook) zu.  
-5. Löschen Sie die Standard‑Serien und -Kategorien.  
-6. Fügen Sie neue Serien und Kategorien hinzu.  
-7. Fügen Sie neue Diagrammdaten für die Serien hinzu.  
-8. Fügen Sie neue Datenpunkte für das Diagramm hinzu und definieren Sie benutzerdefinierte Farben für die Sektoren des Kreis‑Diagramms.  
-9. Setzen Sie Beschriftungen für die Serien.  
-10. Setzen Sie Führungslinien für Serien‑Beschriftungen.  
-11. Setzen Sie den Rotationswinkel für das Kreis‑Diagramm.  
-12. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.
-
-Dieser JavaScript‑Code zeigt, wie man ein Kreis‑Diagramm erstellt:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instanziert eine Präsentationsklasse, die eine PPTX-Datei darstellt
 var pres = new aspose.slides.Presentation();
 try {
@@ -297,14 +249,14 @@ try {
     var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
     // Setzt den Diagrammtitel
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    // Setzt die erste Serie so, dass Werte angezeigt werden
+    // Setzt die erste Serie, um Werte anzuzeigen
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Setzt den Index für das Diagrammdatenblatt
+    // Setzt den Index für das Diagrammdaten-Arbeitsblatt
     var defaultWorksheetIndex = 0;
-    // Holt das Diagrammdaten-Arbeitsblatt
+    // Holt das Diagrammdaten-Worksheet
     var fact = chart.getChartData().getChartDataWorkbook();
     // Löscht die standardmäßig erzeugten Serien und Kategorien
     chart.getChartData().getSeries().clear();
@@ -320,36 +272,36 @@ try {
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     // Funktioniert in der neuen Version nicht
-    // Fügt neue Punkte hinzu und setzt die Sektorfarbe
+    // Hinzufügen neuer Punkte und Festlegen der Sektor-Farbe
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     var point = series.getDataPoints().get_Item(0);
     point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-    // Setzt den Sektorrand
+    // Setzt die Sektor-Randlinie
     point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     point.getFormat().getLine().setWidth(3.0);
-    point.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThick);
-    point.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    point.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThick));
+    point.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     var point1 = series.getDataPoints().get_Item(1);
     point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-    // Setzt den Sektorrand
+    // Setzt die Sektor-Randlinie
     point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     point1.getFormat().getLine().setWidth(3.0);
-    point1.getFormat().getLine().setStyle(aspose.slides.LineStyle.Single);
-    point1.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDot);
+    point1.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.Single));
+    point1.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDot));
     var point2 = series.getDataPoints().get_Item(2);
     point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-    // Setzt den Sektorrand
+    // Setzt die Sektor-Randlinie
     point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     point2.getFormat().getLine().setWidth(2.0);
-    point2.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThin);
-    point2.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDotDot);
+    point2.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
+    point2.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
     // Erstellt benutzerdefinierte Beschriftungen für jede Kategorie der neuen Serie
     var lbl1 = series.getDataPoints().get_Item(0).getLabel();
     // lbl.ShowCategoryName = true;
@@ -361,9 +313,9 @@ try {
     var lbl3 = series.getDataPoints().get_Item(2).getLabel();
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
-    // Zeigt Leitlinien für das Diagramm an
+    // Zeigt Führungs-Linien für das Diagramm an
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-    // Setzt den Rotationswinkel für die Kuchen-Chart-Sektoren
+    // Setzt den Rotationswinkel für die Sektoren des Kreisdiagramms
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     // Speichert die Präsentation mit einem Diagramm
     pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -374,22 +326,25 @@ try {
 }
 ```
 
+### **Erstellen von Liniendiagrammen**
 
-### **Erstellen Linien‑Diagramme**
+Liniendiagramme (auch Liniendiagramme genannt) eignen sich besonders, wenn Sie Änderungen von Werten über die Zeit demonstrieren möchten. Mit einem Liniendiagramm können Sie große Datenmengen gleichzeitig vergleichen, Veränderungen und Trends im Zeitverlauf verfolgen, Anomalien in Datenreihen hervorheben und mehr.
 
-Linien‑Diagramme (auch Liniendiagramme genannt) eignen sich am besten, um Werteänderungen über die Zeit darzustellen. Mit einem Linien‑Diagramm können Sie viele Daten gleichzeitig vergleichen, Änderungen und Trends über die Zeit verfolgen, Anomalien in Datenreihen hervorheben usw.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
+1. Rufen Sie über den Index eine Folie ab.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Line](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#Line) an.
+1. Greifen Sie auf das Diagramm‑Daten‑Workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/)) zu.
+1. Löschen Sie die Standard‑Reihen und -Kategorien.
+1. Fügen Sie neue Reihen und Kategorien hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagrammreihen hinzu.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)-Klasse.  
-1. Holen Sie sich die Referenz einer Folie über deren Index.  
-1. Fügen Sie ein Diagramm mit Standarddaten und dem gewünschten Typ hinzu (hier `ChartType.Line`).  
-1. Greifen Sie auf die Diagrammdaten‑IChartDataWorkbook zu.  
-1. Löschen Sie die Standard‑Serien und -Kategorien.  
-1. Fügen Sie neue Serien und Kategorien hinzu.  
-1. Fügen Sie neue Diagrammdaten für die Serien hinzu.  
-1. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.
+Dieser JavaScript‑Code zeigt, wie ein Liniendiagramm erstellt wird:
 
-Dieser JavaScript‑Code zeigt, wie man ein Linien‑Diagramm erstellt:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
@@ -401,36 +356,47 @@ try {
 }
 ```
 
+Standardmäßig werden Punkte in einem Liniendiagramm durch gerade, durchgehende Linien verbunden. Wenn Sie die Punkte stattdessen mit Strichen verbinden möchten, können Sie den gewünschten Strichtyp wie folgt angeben:
 
-Standardmäßig werden Punkte in einem Linien‑Diagramm durch gerade durchgehende Linien verbunden. Wenn Sie stattdessen gestrichelte Linien möchten, können Sie den gewünschten Strichtyp wie folgt angeben:
 ```javascript
-var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
-    let series = lineChart.getChartData().getSeries().get_Item(i);
-    series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Dash);
-});
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
+    for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
+        let series = lineChart.getChartData().getSeries().get_Item(i);
+        series.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
+    }
+    pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
+### **Erstellen von Baumkartendiagrammen**
 
-### **Erstellen Baumkarten‑Diagramme**
+Baumkartendiagramme eignen sich besonders für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und schnell Aufmerksamkeit auf große Beitragsleister innerhalb jeder Kategorie lenken möchten.
 
-Baumkarten‑Diagramme eignen sich besonders für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und gleichzeitig schnell auf große Beitragsleister jeder Kategorie aufmerksam machen möchten. 
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
+2. Rufen Sie über den Index eine Folie ab.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Treemap](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#Treemap) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/) zu.
+5. Löschen Sie die Standard‑Reihen und -Kategorien.
+6. Fügen Sie neue Reihen und Kategorien hinzu.
+7. Fügen Sie neue Diagrammdaten für die Diagrammreihen hinzu.
+8. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Schritte:</em> Baumkarten‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Schritte:</em> PowerPoint‑Baumkarten‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Schritte:</em> PowerPoint‑Präsentations‑Baumkarten‑Diagramm in JavaScript erstellen</strong></a>
+Dieser JavaScript‑Code zeigt, wie ein Baumkartendiagramm erstellt wird:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) Klasse.  
-2. Holen Sie sich die Referenz einer Folie über deren Index.  
-3. Fügen Sie ein Diagramm mit Standarddaten und dem gewünschten Typ hinzu (hier: [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).TreeMap).  
-4. Greifen Sie auf die Diagrammdaten‑[ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook) zu.  
-5. Löschen Sie die Standard‑Serien und -Kategorien.  
-6. Fügen Sie neue Serien und Kategorien hinzu.  
-7. Fügen Sie neue Diagrammdaten für die Serien hinzu.  
-8. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.
-
-Dieser JavaScript‑Code zeigt, wie man ein Baumkarten‑Diagramm erstellt:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
@@ -473,30 +439,33 @@ try {
 }
 ```
 
+### **Erstellen von Börsendiagrammen**
 
-### **Erstellen Aktien‑Diagramme**
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
+2. Rufen Sie über den Index eine Folie ab.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/) zu.
+5. Löschen Sie die Standard‑Reihen und -Kategorien.
+6. Fügen Sie neue Reihen und Kategorien hinzu.
+7. Fügen Sie neue Diagrammdaten für die Diagrammreihen hinzu.
+8. Legen Sie das Format für Hoch‑Niedrig‑Linien fest.
+9. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Schritte:</em> Aktien‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Schritte:</em> PowerPoint‑Aktien‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Schritte:</em> PowerPoint‑Präsentations‑Aktien‑Diagramm in JavaScript erstellen</strong></a>
+Dieser JavaScript‑Code zeigt, wie ein Börsendiagramm erstellt wird:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) Klasse.  
-2. Holen Sie sich die Referenz einer Folie über deren Index.  
-3. Fügen Sie ein Diagramm mit Standarddaten und dem gewünschten Typ hinzu ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).OpenHighLowClose).  
-4. Greifen Sie auf die Diagrammdaten‑[ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook) zu.  
-5. Löschen Sie die Standard‑Serien und -Kategorien.  
-6. Fügen Sie neue Serien und Kategorien hinzu.  
-7. Fügen Sie neue Diagrammdaten für die Serien hinzu.  
-8. Legen Sie das Format für HiLowLines fest.  
-9. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.
-
-Beispiel‑JavaScript‑Code zum Erstellen eines Aktien‑Diagramms:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400);
-  
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
     var wb = chart.getChartData().getChartDataWorkbook();
+    wb.clear(0);
     chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
     chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
     chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
@@ -534,24 +503,23 @@ try {
 }
 ```
 
+### **Erstellen von Box‑und‑Whisker‑Diagrammen**
 
-### **Erstellen Box‑and‑Whisker‑Diagramme**
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
+2. Rufen Sie über den Index eine Folie ab.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/) zu.
+5. Löschen Sie die Standard‑Reihen und -Kategorien.
+6. Fügen Sie neue Reihen und Kategorien hinzu.
+7. Fügen Sie neue Diagrammdaten für die Diagrammreihen hinzu.
+8. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Schritte:</em> Box‑and‑Whisker‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Schritte:</em> PowerPoint‑Box‑and‑Whisker‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Schritte:</em> PowerPoint‑Präsentations‑Box‑and‑Whisker‑Diagramm in JavaScript erstellen</strong></a>
+Dieser JavaScript‑Code zeigt, wie ein Box‑und‑Whisker‑Diagramm erstellt wird:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) Klasse.  
-2. Holen Sie sich die Referenz einer Folie über deren Index.  
-3. Fügen Sie ein Diagramm mit Standarddaten und dem gewünschten Typ hinzu ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).BoxAndWhisker).  
-4. Greifen Sie auf die Diagrammdaten‑[ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook) zu.  
-5. Löschen Sie die Standard‑Serien und -Kategorien.  
-6. Fügen Sie neue Serien und Kategorien hinzu.  
-7. Fügen Sie neue Diagrammdaten für die Serien hinzu.  
-8. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.
-
-Dieser JavaScript‑Code zeigt, wie man ein Box‑and‑Whisker‑Diagramm erstellt:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -585,21 +553,19 @@ try {
 }
 ```
 
+### **Erstellen von Trichterdiagrammen**
 
-### **Erstellen Trichter‑Diagramme**
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
+2. Rufen Sie über den Index eine Folie ab.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Funnel](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#Funnel) an.
+4. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Schritte:</em> Trichter‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Schritte:</em> PowerPoint‑Trichter‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Schritte:</em> PowerPoint‑Präsentations‑Trichter‑Diagramm in JavaScript erstellen</strong></a>
+Dieser JavaScript‑Code zeigt, wie ein Trichterdiagramm erstellt wird:
 
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) Klasse.  
-2. Holen Sie sich die Referenz einer Folie über deren Index.  
-3. Fügen Sie ein Diagramm mit Standarddaten und dem gewünschten Typ hinzu ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).Funnel).  
-4. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.
-
-Der JavaScript‑Code zeigt, wie man ein Trichter‑Diagramm erstellt:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
@@ -628,20 +594,19 @@ try {
 }
 ```
 
+### **Erstellen von Sonnenstrahl‑Diagrammen**
 
-### **Erstellen Sunburst‑Diagramme**
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
+2. Rufen Sie über den Index eine Folie ab.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Sunburst](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#Sunburst) an.
+4. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Schritte:</em> Sunburst‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Schritte:</em> PowerPoint‑Sunburst‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Schritte:</em> PowerPoint‑Präsentations‑Sunburst‑Diagramm in JavaScript erstellen</strong></a>
+Dieser JavaScript‑Code zeigt, wie ein Sonnenstrahl‑Diagramm erstellt wird:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) Klasse.  
-2. Holen Sie sich die Referenz einer Folie über deren Index.  
-3. Fügen Sie ein Diagramm mit Standarddaten und dem gewünschten Typ hinzu (hier: [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).sunburst).  
-4. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.
-
-Dieser JavaScript‑Code zeigt, wie man ein Sunburst‑Diagramm erstellt:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
@@ -683,23 +648,22 @@ try {
 }
 ```
 
+### **Erstellen von Histogrammdiagrammen**
 
-### **Erstellen Histogramm‑Diagramme**
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
+2. Rufen Sie über den Index eine Folie ab.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.Histogram](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#Histogram) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/) zu.
+5. Löschen Sie die Standard‑Reihen und -Kategorien.
+6. Fügen Sie neue Reihen und Kategorien hinzu.
+7. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Schritte:</em> Histogramm‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Schritte:</em> PowerPoint‑Histogramm‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Schritte:</em> PowerPoint‑Präsentations‑Histogramm‑Diagramm in JavaScript erstellen</strong></a>
+Dieser JavaScript‑Code zeigt, wie ein Histogrammdiagramm erstellt wird:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) Klasse.  
-2. Holen Sie sich die Referenz einer Folie über deren Index.  
-3. Fügen Sie ein Diagramm mit Standarddaten und dem gewünschten Typ hinzu ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).Histogram).  
-4. Greifen Sie auf die Diagrammdaten‑[ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook) zu.  
-5. Löschen Sie die Standard‑Serien und -Kategorien.  
-6. Fügen Sie neue Serien und Kategorien hinzu.  
-7. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.
-
-Dieser JavaScript‑Code zeigt, wie man ein Histogramm‑Diagramm erstellt:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
 chart.getChartData().getCategories().clear();
@@ -716,20 +680,19 @@ series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
 ```
 
+### **Erstellen von Radardiagrammen**
 
-### **Erstellen Radar‑Diagramme**
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
+2. Rufen Sie über den Index eine Folie ab.
+3. Fügen Sie ein Diagramm mit Daten hinzu und geben Sie Ihren bevorzugten Diagrammtyp ([ChartType.Radar](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#Radar)) an.
+4. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Schritte:</em> Radar‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Schritte:</em> PowerPoint‑Radar‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Schritte:</em> PowerPoint‑Präsentations‑Radar‑Diagramm in JavaScript erstellen</strong></a>
+Dieser JavaScript‑Code zeigt, wie ein Radardiagramm erstellt wird:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) Klasse.  
-2. Holen Sie sich die Referenz einer Folie über deren Index.  
-3. Fügen Sie ein Diagramm mit Daten hinzu und geben Sie Ihren bevorzugten Diagrammtyp an (`ChartType.Radar`).  
-4. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.
-
-Dieser JavaScript‑Code zeigt, wie man ein Radar‑Diagramm erstellt:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 400, 300);
@@ -741,24 +704,23 @@ try {
 }
 ```
 
+### **Erstellen von Mehrkategorien‑Diagrammen**
 
-### **Erstellen Mehrkategorien‑Diagramme**
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse.
+2. Rufen Sie über den Index eine Folie ab.
+3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ [ChartType.ClusteredColumn](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/#ClusteredColumn) an.
+4. Greifen Sie auf das Diagramm‑Daten‑Workbook [ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/) zu.
+5. Löschen Sie die Standard‑Reihen und -Kategorien.
+6. Fügen Sie neue Reihen und Kategorien hinzu.
+7. Fügen Sie neue Diagrammdaten für die Diagrammreihen hinzu.
+8. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Schritte:</em> Mehrkategorien‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Schritte:</em> PowerPoint‑Mehrkategorien‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Schritte:</em> PowerPoint‑Präsentations‑Mehrkategorien‑Diagramm in JavaScript erstellen</strong></a>
+Dieser JavaScript‑Code zeigt, wie ein Mehrkategorien‑Diagramm erstellt wird:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) Klasse.  
-2. Holen Sie sich die Referenz einer Folie über deren Index.  
-3. Fügen Sie ein Diagramm mit Standarddaten und dem gewünschten Typ hinzu ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).ClusteredColumn).  
-4. Greifen Sie auf die Diagrammdaten‑[ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook) zu.  
-5. Löschen Sie die Standard‑Serien und -Kategorien.  
-6. Fügen Sie neue Serien und Kategorien hinzu.  
-7. Fügen Sie neue Diagrammdaten für die Serien hinzu.  
-8. Schreiben Sie die geänderte Präsentation in eine PPTX‑Datei.
-
-Dieser JavaScript‑Code zeigt, wie man ein Mehrkategorien‑Diagramm erstellt:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var ch = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -779,7 +741,7 @@ try {
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c8", "G"));
     category.getGroupingLevels().setGroupingItem(1, "Group4");
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
-    // Serien hinzufügen
+    // Hinzufügen von Serien
     var series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"), aspose.slides.ChartType.ClusteredColumn);
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D2", 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D3", 20));
@@ -798,17 +760,16 @@ try {
 }
 ```
 
+### **Erstellen von Kartendiagrammen**
 
-### **Erstellen Karten‑Diagramme**
+Kartendiagramme visualisieren geografische Daten und helfen, Werte über Regionen hinweg zu vergleichen.
 
-Ein Karten‑Diagramm visualisiert ein Gebiet, das Daten enthält. Karten‑Diagramme eignen sich besonders, um Daten oder Werte über geografische Regionen zu vergleichen.
+Dieser JavaScript‑Code zeigt, wie ein Kartendiagramm erstellt wird:
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Schritte:</em> Karten‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Schritte:</em> PowerPoint‑Karten‑Diagramm in JavaScript erstellen</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Schritte:</em> PowerPoint‑Präsentations‑Karten‑Diagramm in JavaScript erstellen</strong></a>
-
-Dieser JavaScript‑Code zeigt, wie man ein Karten‑Diagramm erstellt:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pres = new aspose.slides.Presentation();
 try {
     let chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
@@ -820,15 +781,19 @@ try {
 }
 ```
 
+### **Erstellen von Kombinationsdiagrammen**
 
-### **Erstellen Kombinations‑Diagramme**
+Ein Kombinationsdiagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es Ihnen, Unterschiede zwischen mehreren Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen und so Beziehungen zwischen ihnen zu erkennen.
 
-Ein Kombinations‑Diagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es Ihnen, Unterschiede zwischen zwei oder mehr Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen und so Beziehungen zwischen ihnen zu erkennen.
+![Das Kombinationsdiagramm](combination_chart.png)
 
-![Das Kombinations‑Diagramm](combination_chart.png)
+Der folgende JavaScript‑Code zeigt, wie das oben dargestellte Kombinationsdiagramm in einer PowerPoint‑Präsentation erstellt wird:
 
-Der folgende JavaScript‑Code zeigt, wie man das oben abgebildete Kombinations‑Diagramm in einer PowerPoint‑Präsentation erstellt:
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function createComboChart() {
     let presentation = new aspose.slides.Presentation();
     let slide = presentation.getSlides().get_Item(0);
@@ -863,7 +828,7 @@ function createChartWithFirstSeries(slide) {
     chart.getLegend().setPosition(aspose.slides.LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12);
 
-    // Löscht die standardmäßig generierten Serien und Kategorien.
+    // Löscht die standardmäßig erzeugten Serien und Kategorien.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
@@ -937,7 +902,7 @@ function setPrimaryAxesFormat(chart) {
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Setzt die Farbe der vertikalen Hauptgitternetzlinien.
+    // Setzt die Farbe der vertikalen Hauptgitterlinien.
     let majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     majorGridLinesFormat.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 217, 217, 217));
@@ -973,60 +938,59 @@ function setAxisTitle(axis, axisTitle) {
 }
 ```
 
-
 ## **Diagramme aktualisieren**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Schritte:</em> PowerPoint‑Diagramm in JavaScript aktualisieren</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Schritte:</em> Präsentations‑Diagramm in JavaScript aktualisieren</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Schritte:</em> PowerPoint‑Präsentations‑Diagramm in JavaScript aktualisieren</strong></a>
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse, die die zu aktualisierende Diagramm‑Präsentation darstellt.
+2. Rufen Sie über den Index eine Folie ab.
+3. Durchsuchen Sie alle Formen, um das gewünschte Diagramm zu finden.
+4. Greifen Sie auf das Diagramm‑Daten‑Worksheet zu.
+5. Ändern Sie die Werte der Diagrammdaten‑Reihen.
+6. Fügen Sie eine neue Reihe hinzu und füllen Sie deren Daten.
+7. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-1. Instanziieren Sie eine [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)-Klasse, die die Präsentation repräsentiert, die das zu aktualisierende Diagramm enthält.  
-2. Holen Sie sich die Referenz einer Folie über deren Index.  
-3. Durchlaufen Sie alle Formen, um das gewünschte Diagramm zu finden.  
-4. Greifen Sie auf das Arbeitsblatt der Diagrammdaten zu.  
-5. Ändern Sie die Daten der Diagrammserien, indem Sie Serienwerte ändern.  
-6. Fügen Sie eine neue Serie hinzu und füllen Sie die Daten.  
-7. Schreiben Sie die geänderte Präsentation als PPTX‑Datei.
+Dieser JavaScript‑Code zeigt, wie ein Diagramm aktualisiert wird:
 
-Dieser JavaScript‑Code zeigt, wie man ein Diagramm aktualisiert:
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
-    // Greift auf den ersten Folienmarker zu
+    // Zugriff auf die erste Folie
     var sld = pres.getSlides().get_Item(0);
-    // Holt das Diagramm mit Standarddaten
+    // Diagramm mit Standarddaten abrufen
     var chart = sld.getShapes().get_Item(0);
-    // Setzt den Index des Diagrammdatenblatts
+    // Festlegen des Indexes des Diagramm‑Datenblatts
     var defaultWorksheetIndex = 0;
-    // Holt das Diagrammdaten-Arbeitsblatt
+    // Abrufen des Diagrammdaten‑Worksheets
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Ändert den Diagramm-Kategorienamen
+    // Ändern des Diagramm‑Kategorienamens
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
-    // Nimmt die erste Diagrammserie
+    // Erste Diagrammserie auswählen
     var series = chart.getChartData().getSeries().get_Item(0);
-    // Jetzt werden die Seriendaten aktualisiert
+    // Jetzt die Seriendaten aktualisieren
     fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Seriennamen ändern
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
-    // Nimmt die zweite Diagrammserie
+    // Zweite Diagrammserie auswählen
     series = chart.getChartData().getSeries().get_Item(1);
-    // Jetzt werden die Seriendaten aktualisiert
+    // Jetzt die Seriendaten aktualisieren
     fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Seriennamen ändern
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
-    // Jetzt wird eine neue Serie hinzugefügt
+    // Jetzt eine neue Serie hinzufügen
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
-    // Nimmt die dritte Diagrammserie
+    // Dritte Diagrammserie auswählen
     series = chart.getChartData().getSeries().get_Item(2);
-    // Jetzt werden die Seriendaten befüllt
+    // Jetzt die Seriendaten füllen
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
     chart.setType(aspose.slides.ChartType.ClusteredCylinder);
-    // Speichert die Präsentation mit Diagramm
+    // Präsentation mit Diagramm speichern
     pres.save("AsposeChartModified_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -1035,20 +999,23 @@ try {
 }
 ```
 
+## **Datenbereich für ein Diagramm festlegen**
 
-## **Datenbereich für Diagramme festlegen**
+So legen Sie den Datenbereich für ein Diagramm fest:
 
-Um den Datenbereich für ein Diagramm festzulegen, gehen Sie wie folgt vor:
-
-1. Instanziieren Sie eine [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)-Klasse, die die Präsentation repräsentiert, die das Diagramm enthält.  
-2. Holen Sie sich die Referenz einer Folie über deren Index.  
-3. Durchlaufen Sie alle Formen, um das gewünschte Diagramm zu finden.  
-4. Greifen Sie auf die Diagrammdaten zu und setzen Sie den Bereich.  
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse, die die Präsentation mit dem Diagramm enthält.
+2. Rufen Sie über den Index eine Folie ab.
+3. Durchsuchen Sie alle Formen, um das gewünschte Diagramm zu finden.
+4. Greifen Sie auf die Diagrammdaten zu und setzen Sie den Bereich.
 5. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser JavaScript‑Code zeigt, wie man den Datenbereich für ein Diagramm festlegt:
+Dieser JavaScript‑Code zeigt, wie der Datenbereich für ein Diagramm festgelegt wird:
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
     var chart = slide.getShapes().get_Item(0);
@@ -1061,12 +1028,16 @@ try {
 }
 ```
 
-
 ## **Standard‑Marker in Diagrammen verwenden**
-Wenn Sie einen Standard‑Marker in Diagrammen verwenden, erhält jede Diagrammserie automatisch ein anderes Standardsymbol.
 
-Dieser JavaScript‑Code zeigt, wie man einen Diagramm‑Serien‑Marker automatisch festlegt:
+Wenn Sie Standard‑Marker in Diagrammen verwenden, erhält jede Diagrammreihe automatisch ein anderes Markersymbol.
+
+Dieser JavaScript‑Code zeigt, wie ein Diagramm‑Reihen‑Marker automatisch gesetzt wird:
+
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -1085,9 +1056,9 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 4, 0, "C4"));
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // Nimmt die zweite Diagrammserie
+    // Nimm die zweite Diagrammserie
     var series2 = chart.getChartData().getSeries().get_Item(1);
-    // Jetzt werden die Seriendaten befüllt
+    // Jetzt die Seriendaten befüllen
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1102,21 +1073,20 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
 **Welche Diagrammtypen werden von Aspose.Slides unterstützt?**
 
-Aspose.Slides unterstützt eine breite Palette von Diagrammtypen, darunter Balken-, Linien-, Kreis-, Flächen-, Streu‑, Histogramm‑, Radar‑ und viele weitere. Diese Flexibilität ermöglicht es Ihnen, den am besten geeigneten Diagrammtyp für Ihre Datenvisualisierungsanforderungen auszuwählen.
+Aspose.Slides unterstützt eine Vielzahl von [Diagrammtypen](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/charttype/), darunter Balken, Linien, Kreis, Flächen, Streu, Histogramm, Radar und viele mehr. Diese Flexibilität ermöglicht es Ihnen, den am besten geeigneten Diagrammtyp für Ihre Datenvisualisierung auszuwählen.
 
 **Wie füge ich ein neues Diagramm zu einer Folie hinzu?**
 
-Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)‑Klasse, holen Sie die gewünschte Folie über deren Index und rufen dann die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
+Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/)‑Klasse, holen die gewünschte Folie über deren Index und rufen dann die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
 
 **Wie kann ich die in einem Diagramm angezeigten Daten aktualisieren?**
 
-Sie können die Daten eines Diagramms aktualisieren, indem Sie auf dessen Daten‑Workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)) zugreifen, alle Standard‑Serien und -Kategorien löschen und anschließend Ihre eigenen Daten hinzufügen. Dadurch lässt sich das Diagramm programmgesteuert aktualisieren, um die neuesten Daten widerzuspiegeln.
+Sie können die Daten eines Diagramms aktualisieren, indem Sie auf das zugehörige Daten‑Workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdataworkbook/)) zugreifen, vorhandene Standard‑Reihen und -Kategorien entfernen und anschließend Ihre benutzerdefinierten Daten hinzufügen. So können Sie das Diagramm programmgesteuert aktualisieren, um die neuesten Daten wiederzugeben.
 
 **Ist es möglich, das Aussehen des Diagramms anzupassen?**
 
-Ja, Aspose.Slides bietet umfangreiche Anpassungsoptionen. Sie können Farben, Schriftarten, Beschriftungen, Legenden und andere Formatierungselemente ändern, um das Diagramm an Ihre spezifischen Designanforderungen anzupassen.
+Ja, Aspose.Slides bietet umfangreiche Anpassungsoptionen. Sie können Farben, Schriftarten, Beschriftungen, Legenden und andere [Formatierungselemente](/slides/de/nodejs-java/chart-entities/) ändern, um das Erscheinungsbild des Diagramms an Ihre spezifischen Designanforderungen anzupassen.

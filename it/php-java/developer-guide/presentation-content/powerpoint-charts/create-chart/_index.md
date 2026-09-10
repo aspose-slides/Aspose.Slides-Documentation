@@ -1,6 +1,6 @@
 ---
-title: Crea o Aggiorna Grafici di Presentazioni PowerPoint in PHP
-linktitle: Crea o Aggiorna Grafici
+title: Crea o aggiorna grafici per presentazioni PowerPoint in PHP
+linktitle: Crea o aggiorna grafici
 type: docs
 weight: 10
 url: /it/php-java/create-chart/
@@ -17,64 +17,59 @@ keywords:
 - grafico azionario
 - grafico a scatola e baffi
 - grafico a imbuto
-- grafico a raggiera
+- grafico a raggi
 - grafico istogramma
 - grafico radar
-- grafico a più categorie
+- grafico multicategoria
 - PowerPoint
 - presentazione
 - PHP
 - Aspose.Slides
-description: "Crea e personalizza grafici nelle presentazioni PowerPoint usando Aspose.Slides per PHP tramite Java. Aggiungi, formatta e modifica i grafici con esempi di codice pratici."
+description: "Crea e personalizza grafici in presentazioni PowerPoint usando Aspose.Slides per PHP tramite Java. Aggiungi, formatta e modifica i grafici con esempi pratici di codice."
 ---
 ## **Panoramica**
 
-Questo articolo fornisce una guida completa su come creare e personalizzare grafici utilizzando Aspose.Slides. Imparerai a aggiungere programmaticamente un grafico a una diapositiva, a popolarlo con dati e ad applicare varie opzioni di formattazione per soddisfare i requisiti di design specifici. Nell'articolo, esempi di codice dettagliati illustrano ogni passaggio, dall'inizializzazione della presentazione e dell'oggetto grafico alla configurazione di serie, assi e legende. Seguendo questa guida, acquisirai una solida comprensione di come integrare la generazione dinamica di grafici nelle tue applicazioni, semplificando il processo di creazione di presentazioni basate sui dati.
+Questo articolo fornisce una guida completa su come creare e personalizzare i grafici usando Aspose.Slides. Imparerai a aggiungere programmaticamente un grafico a una diapositiva, a popolarlo con i dati e ad applicare varie opzioni di formattazione per soddisfare i requisiti di progettazione specifici. In tutto l’articolo, esempi di codice dettagliati illustrano ogni passaggio, dall’inizializzazione della presentazione e dell’oggetto chart alla configurazione di serie, assi e legende. Seguendo questa guida, otterrai una solida comprensione di come integrare la generazione dinamica di grafici nelle tue applicazioni, semplificando il processo di creazione di presentazioni basate sui dati.
 
 ## **Creare un grafico**
 
-I grafici aiutano le persone a visualizzare rapidamente i dati e a ricavare intuizioni, che potrebbero non risultare immediatamente evidenti da una tabella o da un foglio di calcolo. 
+I grafici aiutano le persone a visualizzare rapidamente i dati e a ottenere insight che potrebbero non essere immediatamente evidenti da una tabella o un foglio di calcolo.
 
 **Perché creare grafici?**
 
-Utilizzando i grafici, è possibile
+Usando i grafici, è possibile:
 
-* aggregare, condensare o riepilogare grandi quantità di dati in una singola diapositiva di una presentazione
+* aggregare, condensare o riassumere grandi quantità di dati in una singola diapositiva di una presentazione
 * evidenziare pattern e tendenze nei dati
-* dedurre la direzione e il momentum dei dati nel tempo o rispetto a un'unità di misura specifica 
-* individuare valori anomali, aberrazioni, deviazioni, errori, dati privi di senso, ecc. 
+* dedurre la direzione e il ritmo dei dati nel tempo o rispetto a una specifica unità di misura
+* individuare outlier, aberrazioni, deviazioni, errori, dati privi di senso, ecc.
 * comunicare o presentare dati complessi
 
-In PowerPoint, è possibile creare grafici tramite la funzione di inserimento, che fornisce modelli usati per progettare molti tipi di grafici. Utilizzando Aspose.Slides, è possibile creare grafici standard (basati su tipologie di grafico popolari) e grafici personalizzati. 
+In PowerPoint è possibile creare grafici tramite la funzione *Inserisci*, che fornisce modelli per la progettazione di molti tipi di grafici. Usando Aspose.Slides, è possibile creare sia grafici standard (basati su tipi di grafico popolari) sia grafici personalizzati.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Nota" %}}
 
-Per consentirti di creare grafici, Aspose.Slides fornisce la [ChartType](https://reference.aspose.com/slides/it/php-java/aspose.slides/ChartType) class. I campi di questa classe corrispondono a diversi tipi di grafico.
+Per creare grafici, utilizzare la classe [ChartType](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/). I campi di questa classe corrispondono a diversi tipi di grafico.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-### **Creare grafici normali**
+### **Creare grafici a colonne raggruppate**
 
-_Steps: Create Chart_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint </strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Passaggi:</em> Crea grafico di presentazione </strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint di presentazione </strong></a>
+Questa sezione spiega come creare grafici a colonne raggruppate usando Aspose.Slides. Imparerai a inizializzare una presentazione, aggiungere un grafico e personalizzare i suoi elementi come titolo, dati, serie, categorie e stile. Segui i passaggi seguenti per vedere come viene generato un grafico a colonne raggruppate standard:
 
-_Code Steps:_
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation).
+1. Ottenere un riferimento a una diapositiva usando il suo indice.
+1. Aggiungere un grafico con alcuni dati e specificare il tipo `ChartType::ClusteredColumn`.
+1. Aggiungere un titolo al grafico.
+1. Accedere al foglio di dati del grafico.
+1. Cancella tutte le serie e categorie predefinite.
+1. Aggiungere nuove serie e categorie.
+1. Aggiungere nuovi dati al grafico per le serie.
+1. Applicare un colore di riempimento alle serie del grafico.
+1. Aggiungere etichette alle serie del grafico.
+1. Salvare la presentazione modificata come file PPTX.
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation).
-2. Ottieni il riferimento di una diapositiva tramite il suo indice.
-3. Aggiungi un grafico con alcuni dati e specifica il tipo di grafico preferito. 
-4. Aggiungi un titolo al grafico. 
-5. Accedi al foglio di lavoro dei dati del grafico. 
-6. Cancella tutte le serie e le categorie predefinite. 
-7. Aggiungi nuove serie e categorie. 
-8. Aggiungi nuovi dati al grafico per le serie. 
-9. Aggiungi un colore di riempimento per le serie. 
-10. Aggiungi etichette per le serie. 
-11. Scrivi la presentazione modificata come file PPTX. 
-
-Questo codice PHP mostra come creare un grafico normale:
+Questo codice C# dimostra come creare un grafico a colonne raggruppate:
 
 ```php
   # Istanzia una classe di presentazione che rappresenta un file PPTX
@@ -125,7 +120,7 @@ Questo codice PHP mostra come creare un grafico normale:
     # Imposta il colore di riempimento per la serie
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    # Crea etichette personalizzate per ciascuna categoria della nuova serie
+    # Crea etichette personalizzate per ogni categoria della nuova serie
     # Imposta la prima etichetta per mostrare il nome della categoria
     $lbl = $series->getDataPoints()->get_Item(0)->getLabel();
     $lbl->getDataLabelFormat()->setShowCategoryName(true);
@@ -147,28 +142,24 @@ Questo codice PHP mostra come creare un grafico normale:
 
 ### **Creare grafici a dispersione**
 
-I grafici a dispersione (noti anche come scatter plot o grafici x‑y) sono spesso usati per verificare pattern o dimostrare correlazioni tra due variabili. 
+I grafici a dispersione (noti anche come scatter plot o grafici x‑y) sono spesso usati per verificare pattern o dimostrare correlazioni tra due variabili.
 
-Potresti voler usare un grafico a dispersione quando 
+Usa un grafico a dispersione quando:
 
 * hai dati numerici accoppiati
-* hai 2 variabili che si abbinano bene tra loro
-* vuoi determinare se 2 variabili sono correlate
-* hai una variabile indipendente con più valori per una variabile dipendente
+* hai due variabili che si abbinano bene
+* vuoi determinare se due variabili sono correlate
+* hai una variabile indipendente che ha più valori per una variabile dipendente
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Passaggi:</em> Crea grafico a dispersione </strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint a dispersione </strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint di presentazione a dispersione </strong></a>
-
-1. Segui i passaggi descritti in [Creare grafici normali](#creating-normal-charts)
-2. Per il terzo passaggio, aggiungi un grafico con alcuni dati e specifica il tipo di grafico come uno dei seguenti  
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Rappresenta un grafico a dispersione con marcatori._
+1. Segui i passaggi in [Creare grafici a colonne raggruppate](#creare-grafici-a-colonne-raggruppate).
+2. Per il terzo passaggio, aggiungi un grafico con alcuni dati e specifica il tipo di grafico come uno dei seguenti:
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Rappresenta un grafico a dispersione._
    2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Rappresenta un grafico a dispersione collegato da curve, con marcatori dati._
    3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Rappresenta un grafico a dispersione collegato da curve, senza marcatori dati._
    4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Rappresenta un grafico a dispersione collegato da linee, con marcatori dati._
    5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Rappresenta un grafico a dispersione collegato da linee, senza marcatori dati._
 
-Questo codice PHP mostra come creare grafici a dispersione con una serie diversa di marcatori:
+Questo codice PHP mostra come creare un grafico a dispersione con marcatori diversi per ciascuna serie:
 
 ```php
   # Istanzia una classe di presentazione che rappresenta un file PPTX
@@ -178,11 +169,11 @@ Questo codice PHP mostra come creare grafici a dispersione con una serie diversa
     $slide = $pres->getSlides()->get_Item(0);
     # Crea il grafico predefinito
     $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 0, 0, 400, 400);
-    # Ottiene l'indice del foglio dati predefinito del grafico
+    # Ottiene l'indice del foglio dati del grafico predefinito
     $defaultWorksheetIndex = 0;
     # Ottiene il foglio dati del grafico
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Elimina la serie demo
+    # Elimina le serie demo
     $chart->getChartData()->getSeries()->clear();
     # Aggiunge nuove serie
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
@@ -221,24 +212,20 @@ Questo codice PHP mostra come creare grafici a dispersione con una serie diversa
 
 ### **Creare grafici a torta**
 
-I grafici a torta sono ideali per mostrare la relazione parte‑intero nei dati, soprattutto quando i dati contengono etichette categoriali con valori numerici. Tuttavia, se i dati contengono molte parti o etichette, potresti considerare l'uso di un grafico a barre. 
+I grafici a torta sono ideali per mostrare la relazione parte‑intero nei dati, specialmente quando i dati contengono etichette categoriche con valori numerici. Tuttavia, se i dati contengono molte parti o etichette, potresti considerare l’uso di un grafico a barre.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Passaggi:</em> Crea grafico a torta </strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint a torta </strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint di presentazione a torta </strong></a>
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation). 
-2. Ottieni il riferimento di una diapositiva per indice. 
-3. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato (in questo caso, [ChartType](https://reference.aspose.com/slides/it/php-java/aspose.slides/ChartType).Pie). 
-4. Accedi al [ChartDataWorkbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdataworkbook/). 
-5. Cancella le serie e le categorie predefinite. 
-6. Aggiungi nuove serie e categorie. 
-7. Aggiungi nuovi dati per le serie del grafico. 
-8. Aggiungi nuovi punti per i grafici e colori personalizzati per i settori del grafico a torta. 
-9. Imposta le etichette per le serie. 
-10. Imposta le linee guida per le etichette delle serie. 
-11. Imposta l'angolo di rotazione per le diapositive del grafico a torta. 
-12. Scrivi la presentazione modificata in un file PPTX. 
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva usando il suo indice.
+3. Aggiungere un grafico con dati predefiniti e specificare il tipo [ChartType::Pie](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/#Pie).
+4. Accedere al foglio di lavoro dei dati del grafico [ChartDataWorkbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdataworkbook/).
+5. Cancellare le serie e le categorie predefinite.
+6. Aggiungere nuove serie e categorie.
+7. Aggiungere nuovi dati al grafico per le serie.
+8. Aggiungere nuovi punti al grafico e applicare colori personalizzati per i settori del grafico a torta.
+9. Impostare le etichette per le serie.
+10. Abilitare le linee guida per le etichette delle serie.
+11. Impostare l’angolo di rotazione per i settori del grafico a torta.
+12. Salvare la presentazione modificata come file PPTX.
 
 Questo codice PHP mostra come creare un grafico a torta:
 
@@ -259,7 +246,7 @@ Questo codice PHP mostra come creare un grafico a torta:
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     # Imposta l'indice per il foglio dati del grafico
     $defaultWorksheetIndex = 0;
-    # Ottiene il foglio dati del grafico
+    # Ottiene il foglio di lavoro dei dati del grafico
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # Elimina le serie e le categorie generate di default
     $chart->getChartData()->getSeries()->clear();
@@ -316,7 +303,7 @@ Questo codice PHP mostra come creare un grafico a torta:
     $lbl3 = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl3->getDataLabelFormat()->setShowSeriesName(true);
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
-    # Mostra le linee guida per il grafico
+    # Mostra le linee di collegamento per il grafico
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
     # Imposta l'angolo di rotazione per i settori del grafico a torta
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
@@ -331,16 +318,16 @@ Questo codice PHP mostra come creare un grafico a torta:
 
 ### **Creare grafici a linee**
 
-I grafici a linee (noti anche come grafici lineari) sono ideali quando vuoi mostrare cambiamenti di valore nel tempo. Con un grafico a linee, puoi confrontare molti dati contemporaneamente, tracciare variazioni e tendenze nel tempo, evidenziare anomalie nelle serie di dati, ecc. 
+I grafici a linee (noti anche come grafici a linee) sono ideali quando si desidera dimostrare variazioni di valore nel tempo. Usando un grafico a linee, è possibile confrontare una grande quantità di dati contemporaneamente, monitorare cambiamenti e tendenze nel tempo, evidenziare anomalie nelle serie di dati e altro ancora.
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation). 
-1. Ottieni il riferimento di una diapositiva per indice. 
-1. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato (in questo caso, `ChartType::Line`). 
-1. Accedi al foglio dati IChartDataWorkbook. 
-1. Cancella le serie e le categorie predefinite. 
-1. Aggiungi nuove serie e categorie. 
-1. Aggiungi nuovi dati per le serie del grafico. 
-1. Scrivi la presentazione modificata in un file PPTX. 
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
+1. Ottenere un riferimento a una diapositiva usando il suo indice.
+1. Aggiungere un grafico con dati predefiniti e specificare il tipo [ChartType::Line](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/#Line).
+1. Accedere al foglio di lavoro dei dati del grafico ([ChartDataWorkbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdataworkbook/)).
+1. Cancellare le serie e le categorie predefinite.
+1. Aggiungere nuove serie e categorie.
+1. Aggiungere nuovi dati al grafico per le serie.
+1. Salvare la presentazione modificata come file PPTX.
 
 Questo codice PHP mostra come creare un grafico a linee:
 
@@ -356,31 +343,36 @@ Questo codice PHP mostra come creare un grafico a linee:
   }
 ```
 
-Per impostazione predefinita, i punti di un grafico a linee sono collegati da linee continue dritte. Se desideri che i punti siano collegati da linee tratteggiate, puoi specificare il tipo di tratto preferito in questo modo:
+Per impostazione predefinita, i punti di un grafico a linee sono collegati da linee continue dritte. Se desideri che i punti siano collegati da linee tratteggiate, puoi specificare il tipo di tratto desiderato come segue:
 
 ```php
-  $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
-  foreach($lineChart->getChartData()->getSeries() as $series) {
-    $series->getFormat()->getLine()->setDashStyle(LineDashStyle->Dash);
+  $pres = new Presentation();
+  try {
+    $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
+    $seriesCollection = $lineChart->getChartData()->getSeries();
+    foreach ($seriesCollection as $series) {
+      $series->getFormat()->getLine()->setDashStyle(LineDashStyle::Dash);
+    }
+    $pres->save("lineChart.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
   }
 ```
 
-### **Creare grafici ad albero**
+### **Creare grafici ad albero (Tree Map)**
 
-I grafici ad albero sono ideali per dati di vendita quando vuoi mostrare la dimensione relativa delle categorie e, allo stesso tempo, evidenziare rapidamente gli elementi che contribuiscono maggiormente a ciascuna categoria. 
+I grafici ad albero sono ideali per dati di vendita quando vuoi mostrare la dimensione relativa delle categorie di dati e attirare rapidamente l’attenzione sugli elementi che contribuiscono maggiormente all’interno di ciascuna categoria.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Passaggi:</em> Crea grafico ad albero </strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint ad albero </strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint di presentazione ad albero </strong></a>
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation). 
-2. Ottieni il riferimento di una diapositiva per indice. 
-3. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato (in questo caso, [ChartType](https://reference.aspose.com/slides/it/php-java/aspose.slides/ChartType).TreeMap). 
-4. Accedi al [ChartDataWorkbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdataworkbook/). 
-5. Cancella le serie e le categorie predefinite. 
-6. Aggiungi nuove serie e categorie. 
-7. Aggiungi nuovi dati per le serie del grafico. 
-8. Scrivi la presentazione modificata in un file PPTX. 
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva usando il suo indice.
+3. Aggiungere un grafico con dati predefiniti e specificare il tipo [ChartType::Treemap](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/#Treemap).
+4. Accedere al foglio di lavoro dei dati del grafico [ChartDataWorkbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdataworkbook/).
+5. Cancellare le serie e le categorie predefinite.
+6. Aggiungere nuove serie e categorie.
+7. Aggiungere nuovi dati al grafico per le serie.
+8. Salvare la presentazione modificata come file PPTX.
 
 Questo codice PHP mostra come creare un grafico ad albero:
 
@@ -427,23 +419,19 @@ Questo codice PHP mostra come creare un grafico ad albero:
   }
 ```
 
-### **Creare grafici azionari**
+### **Creare grafici di tipo Stock**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Passaggi:</em> Crea grafico azionario </strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint azionario </strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint di presentazione azionario </strong></a>
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva usando il suo indice.
+3. Aggiungere un grafico con dati predefiniti e specificare il tipo [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/#OpenHighLowClose).
+4. Accedere al foglio di lavoro dei dati del grafico [ChartDataWorkbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdataworkbook/).
+5. Cancellare le serie e le categorie predefinite.
+6. Aggiungere nuove serie e categorie.
+7. Aggiungere nuovi dati al grafico per le serie.
+8. Specificare il formato delle linee high‑low.
+9. Salvare la presentazione modificata come file PPTX.
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation). 
-2. Ottieni il riferimento di una diapositiva per indice. 
-3. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato ([ChartType](https://reference.aspose.com/slides/it/php-java/aspose.slides/ChartType).OpenHighLowClose). 
-4. Accedi al [ChartDataWorkbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdataworkbook/). 
-5. Cancella le serie e le categorie predefinite. 
-6. Aggiungi nuove serie e categorie. 
-7. Aggiungi nuovi dati per le serie del grafico. 
-8. Specifica il formato HiLowLines. 
-9. Scrivi la presentazione modificata in un file PPTX. 
-
-Esempio di codice PHP usato per creare un grafico azionario:
+Questo codice PHP mostra come creare un grafico Stock:
 
 ```php
   $pres = new Presentation();
@@ -477,7 +465,8 @@ Esempio di codice PHP usato per creare un grafico azionario:
     $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 4, 50));
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    foreach($chart->getChartData()->getSeries() as $ser) {
+    $seriesCollection = $chart->getChartData()->getSeries();
+    foreach ($seriesCollection as $ser) {
       $ser->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     }
     $pres->save("output.pptx", SaveFormat::Pptx);
@@ -488,20 +477,16 @@ Esempio di codice PHP usato per creare un grafico azionario:
   }
 ```
 
-### **Creare grafici a scatola e baffi**
+### **Creare grafici a scatola e baffi (Box and Whisker)**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Passaggi:</em> Crea grafico a scatola e baffi </strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint a scatola e baffi </strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint di presentazione a scatola e baffi </strong></a>
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation). 
-2. Ottieni il riferimento di una diapositiva per indice. 
-3. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato ([ChartType](https://reference.aspose.com/slides/it/php-java/aspose.slides/ChartType).BoxAndWhisker). 
-4. Accedi al [ChartDataWorkbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdataworkbook/). 
-5. Cancella le serie e le categorie predefinite. 
-6. Aggiungi nuove serie e categorie. 
-7. Aggiungi nuovi dati per le serie del grafico. 
-8. Scrivi la presentazione modificata in un file PPTX. 
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva usando il suo indice.
+3. Aggiungere un grafico con dati predefiniti e specificare il tipo [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/#BoxAndWhisker).
+4. Accedere al foglio di lavoro dei dati del grafico [ChartDataWorkbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdataworkbook/).
+5. Cancellare le serie e le categorie predefinite.
+6. Aggiungere nuove serie e categorie.
+7. Aggiungere nuovi dati al grafico per le serie.
+8. Salvare la presentazione modificata come file PPTX.
 
 Questo codice PHP mostra come creare un grafico a scatola e baffi:
 
@@ -539,19 +524,14 @@ Questo codice PHP mostra come creare un grafico a scatola e baffi:
   }
 ```
 
-### **Creare grafici a imbuto**
+### **Creare grafici a imbuto (Funnel)**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Passaggi:</em> Crea grafico a imbuto </strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint a imbuto </strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint di presentazione a imbuto </strong></a>
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva usando il suo indice.
+3. Aggiungere un grafico con dati predefiniti e specificare il tipo [ChartType::Funnel](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/#Funnel).
+4. Salvare la presentazione modificata come file PPTX.
 
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation). 
-2. Ottieni il riferimento di una diapositiva per indice. 
-3. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato ([ChartType](https://reference.aspose.com/slides/it/php-java/aspose.slides/ChartType).Funnel). 
-4. Scrivi la presentazione modificata in un file PPTX. 
-
-Il codice PHP mostra come creare un grafico a imbuto:
+Questo codice PHP mostra come creare un grafico a imbuto:
 
 ```php
   $pres = new Presentation();
@@ -582,18 +562,14 @@ Il codice PHP mostra come creare un grafico a imbuto:
   }
 ```
 
-### **Creare grafici a raggiera**
+### **Creare grafici Sunburst**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Passaggi:</em> Crea grafico a raggiera </strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint a raggiera </strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint di presentazione a raggiera </strong></a>
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva usando il suo indice.
+3. Aggiungere un grafico con dati predefiniti e specificare il tipo [ChartType::Sunburst](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/#Sunburst).
+4. Salvare la presentazione modificata come file PPTX.
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation). 
-2. Ottieni il riferimento di una diapositiva per indice. 
-3. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato (in questo caso, [ChartType](https://reference.aspose.com/slides/it/php-java/aspose.slides/ChartType).sunburst). 
-4. Scrivi la presentazione modificata in un file PPTX. 
-
-Questo codice PHP mostra come creare un grafico a raggiera:
+Questo codice PHP mostra come creare un grafico Sunburst:
 
 ```php
   $pres = new Presentation();
@@ -637,21 +613,17 @@ Questo codice PHP mostra come creare un grafico a raggiera:
   }
 ```
 
-### **Creare istogrammi**
+### **Creare grafici istogramma (Histogram)**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Passaggi:</em> Crea istogramma </strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Passaggi:</em> Crea istogramma PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Passaggi:</em> Crea istogramma PowerPoint di presentazione </strong></a>
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva usando il suo indice.
+3. Aggiungere un grafico con dati predefiniti e specificare il tipo [ChartType::Histogram](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/#Histogram).
+4. Accedere al foglio di lavoro dei dati del grafico [ChartDataWorkbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdataworkbook/).
+5. Cancellare le serie e le categorie predefinite.
+6. Aggiungere nuove serie e categorie.
+7. Salvare la presentazione modificata come file PPTX.
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation). 
-2. Ottieni il riferimento di una diapositiva per indice. 
-3. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato ([ChartType](https://reference.aspose.com/slides/it/php-java/aspose.slides/ChartType).Histogram). 
-4. Accedi al [ChartDataWorkbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdataworkbook/). 
-5. Cancella le serie e le categorie predefinite. 
-6. Aggiungi nuove serie e categorie. 
-7. Scrivi la presentazione modificata in un file PPTX. 
-
-Questo codice PHP mostra come creare un istogramma:
+Questo codice PHP mostra come creare un grafico istogramma:
 
 ```php
   $pres = new Presentation();
@@ -672,14 +644,10 @@ Questo codice PHP mostra come creare un istogramma:
 
 ### **Creare grafici radar**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Passaggi:</em> Crea grafico radar </strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint radar </strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint di presentazione radar </strong></a>
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation). 
-2. Ottieni il riferimento di una diapositiva per indice. 
-3. Aggiungi un grafico con alcuni dati e specifica il tipo di grafico preferito (`ChartType::Radar` in questo caso). 
-4. Scrivi la presentazione modificata in un file PPTX. 
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva usando il suo indice.
+3. Aggiungere un grafico con alcuni dati e specificare il tipo di grafico preferito ([ChartType::Radar](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/#Radar) in questo caso).
+4. Salvare la presentazione modificata come file PPTX.
 
 Questo codice PHP mostra come creare un grafico radar:
 
@@ -695,22 +663,18 @@ Questo codice PHP mostra come creare un grafico radar:
   }
 ```
 
-### **Creare grafici a più categorie**
+### **Creare grafici multicategoria**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Passaggi:</em> Crea grafico a più categorie </strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint a più categorie </strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint di presentazione a più categorie </strong></a>
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva usando il suo indice.
+3. Aggiungere un grafico con dati predefiniti e specificare il tipo [ChartType::ClusteredColumn](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/#ClusteredColumn).
+4. Accedere al foglio di lavoro dei dati del grafico [ChartDataWorkbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdataworkbook/).
+5. Cancellare le serie e le categorie predefinite.
+6. Aggiungere nuove serie e categorie.
+7. Aggiungere nuovi dati al grafico per le serie.
+8. Salvare la presentazione modificata come file PPTX.
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation). 
-2. Ottieni il riferimento di una diapositiva per indice. 
-3. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato ([ChartType](https://reference.aspose.com/slides/it/php-java/aspose.slides/ChartType).ClusteredColumn). 
-4. Accedi al [ChartDataWorkbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdataworkbook/). 
-5. Cancella le serie e le categorie predefinite. 
-6. Aggiungi nuove serie e categorie. 
-7. Aggiungi nuovi dati per le serie del grafico. 
-8. Scrivi la presentazione modificata in un file PPTX. 
-
-Questo codice PHP mostra come creare un grafico a più categorie:
+Questo codice PHP mostra come creare un grafico multicategoria:
 
 ```php
   $pres = new Presentation();
@@ -733,7 +697,7 @@ Questo codice PHP mostra come creare un grafico a più categorie:
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c8", "G"));
     $category->getGroupingLevels()->setGroupingItem(1, "Group4");
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c9", "H"));
-    # Aggiunta Serie
+    # Aggiunta di serie
     $series = $ch->getChartData()->getSeries()->add($fact->getCell(0, "D1", "Series 1"), ChartType::ClusteredColumn);
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D2", 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D3", 20));
@@ -752,15 +716,11 @@ Questo codice PHP mostra come creare un grafico a più categorie:
   }
 ```
 
-### **Creare grafici mappa**
+### **Creare grafici geografici (Map)**
 
-Un grafico mappa è una visualizzazione di un'area contenente dati. I grafici mappa sono ideali per confrontare dati o valori tra regioni geografiche. 
+I grafici geografici visualizzano dati geografici e aiutano a confrontare i valori tra regioni.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Passaggi:</em> Crea grafico mappa </strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint mappa </strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint di presentazione mappa </strong></a>
-
-Questo codice PHP mostra come creare un grafico mappa:
+Questo codice PHP mostra come creare un grafico geografico:
 
 ```php
   $pres = new Presentation();
@@ -776,11 +736,11 @@ Questo codice PHP mostra come creare un grafico mappa:
 
 ### **Creare grafici combinati**
 
-Un grafico combinato (o grafico combo) combina due o più tipi di grafico in un unico diagramma. Questo grafico consente di evidenziare, confrontare o esaminare differenze tra due o più serie di dati, aiutandoti a identificare le relazioni tra di esse.
+Un grafico combinato (o combo) combina due o più tipi di grafico in un unico diagramma. Questo grafico consente di evidenziare, confrontare o esaminare le differenze tra due o più set di dati, aiutandoti a identificare le relazioni tra di essi.
 
-![Il grafico combinato](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Il codice PHP seguente mostra come creare il grafico combinato mostrato sopra in una presentazione PowerPoint:
+Il seguente codice PHP mostra come creare il grafico combinato mostrato sopra in una presentazione PowerPoint:
 
 ```php
 function createComboChart() {
@@ -929,17 +889,13 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **Aggiornare i grafici**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Passaggi:</em> Aggiorna grafico PowerPoint </strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Passaggi:</em> Aggiorna grafico di presentazione </strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Passaggi:</em> Aggiorna grafico PowerPoint di presentazione </strong></a>
-
-1. Istanzia una classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation) che rappresenta la presentazione contenente il grafico da aggiornare. 
-2. Ottieni il riferimento di una diapositiva utilizzando il suo indice. 
-3. Scorri tutte le forme per trovare il grafico desiderato. 
-4. Accedi al foglio di lavoro dei dati del grafico. 
-5. Modifica i dati delle serie del grafico cambiando i valori delle serie. 
-6. Aggiungi una nuova serie e popolala con i dati. 
-7. Scrivi la presentazione modificata in un file PPTX. 
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) che rappresenta la presentazione contenente il grafico da aggiornare.
+2. Ottenere un riferimento a una diapositiva usando il suo indice.
+3. Attraversare tutte le forme per trovare il grafico desiderato.
+4. Accedere al foglio di dati del grafico.
+5. Modificare le serie di dati del grafico cambiando i valori delle serie.
+6. Aggiungere una nuova serie e popolarne i dati.
+7. Salvare la presentazione modificata come file PPTX.
 
 Questo codice PHP mostra come aggiornare un grafico:
 
@@ -952,32 +908,32 @@ Questo codice PHP mostra come aggiornare un grafico:
     $chart = $sld->getShapes()->get_Item(0);
     # Imposta l'indice del foglio dati del grafico
     $defaultWorksheetIndex = 0;
-    # Ottieni il foglio di lavoro dei dati del grafico
+    # Recupera il foglio di lavoro dei dati del grafico
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # Modifica il nome della categoria del grafico
     $fact->getCell($defaultWorksheetIndex, 1, 0, "Modified Category 1");
     $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
     # Prendi la prima serie del grafico
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Ora aggiornando i dati della serie
-    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Modificando il nome della serie
+    # Aggiorna ora i dati della serie
+    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1"); // Modifica nome della serie
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(44);
     # Prendi la seconda serie del grafico
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Ora aggiornando i dati della serie
-    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Modificando il nome della serie
+    # Aggiorna ora i dati della serie
+    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2"); // Modifica nome della serie
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
-    # Ora, aggiungi una nuova serie
+    # Aggiungi ora una nuova serie
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "Series 3"), $chart->getType());
     # Prendi la terza serie del grafico
     $series = $chart->getChartData()->getSeries()->get_Item(2);
-    # Ora popolando i dati della serie
+    # Popola ora i dati della serie
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 3, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
@@ -991,17 +947,17 @@ Questo codice PHP mostra come aggiornare un grafico:
   }
 ```
 
-## **Impostare l'intervallo dati per un grafico**
+## **Impostare l’intervallo dati per un grafico**
 
-Per impostare l'intervallo dati per un grafico, esegui i seguenti passaggi:
+Per impostare l’intervallo dati per un grafico, esegui quanto segue:
 
-1. Istanzia una classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/Presentation) che rappresenta la presentazione contenente il grafico. 
-2. Ottieni il riferimento di una diapositiva per indice. 
-3. Scorri tutte le forme per trovare il grafico desiderato. 
-4. Accedi ai dati del grafico e imposta l'intervallo. 
-5. Salva la presentazione modificata in un file PPTX. 
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) che rappresenta la presentazione contenente il grafico.
+2. Ottenere un riferimento a una diapositiva usando il suo indice.
+3. Attraversare tutte le forme per trovare il grafico desiderato.
+4. Accedere ai dati del grafico e impostare l’intervallo.
+5. Salvare la presentazione modificata come file PPTX.
 
-Questo codice PHP mostra come impostare l'intervallo dati per un grafico:
+Questo codice PHP mostra come impostare l’intervallo dati per un grafico:
 
 ```php
   $pres = new Presentation();
@@ -1017,11 +973,11 @@ Questo codice PHP mostra come impostare l'intervallo dati per un grafico:
   }
 ```
 
-## **Utilizzare i marcatori predefiniti nei grafici**
+## **Usare i marcatori predefiniti nei grafici**
 
-Quando utilizzi un marcatore predefinito nei grafici, ogni serie del grafico ottiene automaticamente simboli di marcatore predefiniti diversi.
+Quando usi i marcatori predefiniti nei grafici, ogni serie del grafico ottiene automaticamente un simbolo di marcatore diverso.
 
-Questo codice PHP mostra come impostare automaticamente un marcatore di serie di grafico:
+Questo codice PHP mostra come impostare automaticamente un marcatore per una serie di grafico:
 
 ```php
   $pres = new Presentation();
@@ -1063,16 +1019,16 @@ Questo codice PHP mostra come impostare automaticamente un marcatore di serie di
 
 **Quali tipi di grafico sono supportati da Aspose.Slides?**
 
-Aspose.Slides supporta un'ampia gamma di [tipi di grafico](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/), tra cui barre, linee, torta, area, dispersione, istogramma, radar e molti altri. Questa flessibilità ti consente di scegliere il tipo di grafico più adatto alle tue esigenze di visualizzazione dei dati.
+Aspose.Slides supporta una vasta gamma di [tipi di grafico](https://reference.aspose.com/slides/it/php-java/aspose.slides/charttype/), tra cui barre, linee, torta, area, dispersione, istogramma, radar e molti altri. Questa flessibilità ti consente di scegliere il tipo di grafico più adatto alle esigenze di visualizzazione dei dati.
 
-**Come aggiungo un nuovo grafico a una diapositiva?**
+**Come aggiungere un nuovo grafico a una diapositiva?**
 
-Per aggiungere un grafico, crei prima un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) , recuperi la diapositiva desiderata usando il suo indice e poi chiami il metodo per aggiungere un grafico, specificando il tipo di grafico e i dati iniziali. Questo processo integra il grafico direttamente nella tua presentazione.
+Per aggiungere un grafico, prima crei un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/), recuperi la diapositiva desiderata usando il suo indice, quindi chiami il metodo per aggiungere un grafico, specificando il tipo di grafico e i dati iniziali. Questo processo integra il grafico direttamente nella presentazione.
 
 **Come posso aggiornare i dati visualizzati in un grafico?**
 
-Puoi aggiornare i dati di un grafico accedendo al suo workbook dei dati ([ChartDataWorkbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdataworkbook/)), cancellando eventuali serie e categorie predefinite, e aggiungendo i tuoi dati personalizzati. Questo ti permette di aggiornare il grafico per riflettere i dati più recenti.
+Puoi aggiornare i dati di un grafico accedendo al suo foglio di lavoro dei dati ([ChartDataWorkbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdataworkbook/)), cancellando le serie e le categorie predefinite e aggiungendo i tuoi dati personalizzati. Questo ti permette di aggiornare il grafico per riflettere i dati più recenti.
 
-**È possibile personalizzare l'aspetto del grafico?**
+**È possibile personalizzare l’aspetto del grafico?**
 
-Sì, Aspose.Slides offre ampie opzioni di personalizzazione. Puoi modificare colori, caratteri, etichette, legende e altri [elementi di formattazione](/slides/it/php-java/chart-entities/) per adattare l'aspetto del grafico ai tuoi requisiti di design specifici.
+Sì, Aspose.Slides fornisce ampie opzioni di personalizzazione. Puoi modificare colori, caratteri, etichette, legende e altri [elementi di formattazione](/slides/it/php-java/chart-entities/) per adattare l’aspetto del grafico ai requisiti di progettazione specifici.

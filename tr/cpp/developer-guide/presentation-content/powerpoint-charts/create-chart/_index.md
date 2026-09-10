@@ -1,62 +1,62 @@
 ---
-title: PowerPoint Sunum Grafiklerini С++'ta Oluşturma veya Güncelleme
-linktitle: Grafik Oluşturma veya Güncelleme
+title: C++ ile PowerPoint Sunum Grafiklerini Oluşturma veya Güncelleme
+linktitle: Grafikleri Oluştur veya Güncelle
 type: docs
 weight: 10
 url: /tr/cpp/create-chart/
+aliases:
+  - /cpp/update-chart/
 keywords:
 - grafik ekle
 - grafik oluştur
 - grafik düzenle
 - grafik değiştir
 - grafik güncelle
-- dağılım grafiği
-- pasta grafiği
-- çizgi grafiği
-- ağaç harita grafiği
-- hisse senedi grafiği
-- kutu ve bıyık grafiği
-- huni grafiği
-- güneş patlaması grafiği
-- histogram grafiği
-- radar grafiği
+- dağınık grafik
+- pasta grafik
+- çizgi grafik
+- ağaç harita grafik
+- hisse grafik
+- kutu ve çan grafik
+- huni grafik
+- güneş patlaması grafik
+- histogram grafik
+- radar grafik
 - çok kategorili grafik
 - PowerPoint
 - sunum
-- С++
+- C++
 - Aspose.Slides
-description: "Aspose.Slides for С++ kullanarak PowerPoint sunumlarında grafik oluşturun ve özelleştirin. Grafiklere pratik C++ kod örnekleriyle ekleme, biçimlendirme ve düzenleme yapın."
+description: "Aspose.Slides for C++ kullanarak PowerPoint sunumlarındaki grafikleri oluşturun ve özelleştirin. Grafikleri ekleyin, biçimlendirin ve C++ içinde pratik kod örnekleriyle düzenleyin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir grafiği programlı olarak bir slayta eklemeyi, verilerle doldurmayı ve belirli tasarım gereksinimlerinize uygun çeşitli biçimlendirme seçeneklerini uygulamayı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmaktan serileri, eksenleri ve lejantları yapılandırmaya kadar her adımı gösteren ayrıntılı kod örnekleri bulunur. Bu rehberi izleyerek, uygulamalarınıza dinamik grafik oluşturmayı entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
+Bu makale, Aspose.Slides kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir grafiği programlı olarak bir slayta eklemeyi, veri ile doldurmayı ve belirli tasarım gereksinimlerinize uygun çeşitli biçimlendirme seçeneklerini uygulamayı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmaktan seriler, eksenler ve açıklamalar (legends) yapılandırmaya kadar her adımı gösteren ayrıntılı kod örnekleri bulunur. Bu rehberi izleyerek, dinamik grafik üretimini uygulamalarınıza entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
 
-## **Bir Grafik Oluşturma**
+## **Grafik Oluşturma**
 
-Grafikler, verileri hızlıca görselleştirmenize ve bir tablo ya da elektronik tablodan hemen fark edilmeyen içgörüler elde etmenize yardımcı olur. 
+Grafikler, insanların verileri hızlı bir şekilde görselleştirip içgörü elde etmelerine yardımcı olur; bu da bir tablo ya da elektronik tablodan hemen anlaşılmayabilir.
 
-**Neden Grafik Oluşturulur?**
+**Grafik Neden Oluşturulmalı?**
 
-Grafikler sayesinde
+Grafikler kullanarak
 
-* büyük miktarda veriyi tek bir slaytta özetleyebilir,
-* veri içindeki kalıpları ve eğilimleri ortaya çıkarabilir,
-* zaman içinde veya belirli bir ölçüm birimiyle verinin yönünü ve ivmesini tahmin edebilir,
-* aykırı değerleri, sapmaları, hataları, mantıksız verileri vb. tespit edebilir,
-* karmaşık verileri etkili bir şekilde iletebilir ya da sunabilirsiniz.
+* bir sunumdaki tek bir slaytta büyük miktarda veriyi özetleyebilir, yoğunlaştırabilir veya derleyebilirsiniz
+* verideki desen ve eğilimleri ortaya çıkarabilirsiniz
+* zaman içinde ya da belirli bir ölçüm birimi açısından verinin yönünü ve ivmesini çıkarabilirsiniz
+* aykırı değerleri, sapmaları, hataları, mantıksız verileri vb. tespit edebilirsiniz
+* karmaşık verileri etkili bir şekilde iletişim kurabilir veya sunabilirsiniz
 
-PowerPoint’te, çeşitli şablonlar sunan ekleme işleviyle grafikler oluşturabilirsiniz. Aspose.Slides kullanarak normal grafikler (popüler grafik türlerine dayanır) ve özel grafikler oluşturabilirsiniz. 
+PowerPoint’te, birçok grafik türü tasarlamak için şablonlar sağlayan ekleme işlevi aracılığıyla grafik oluşturabilirsiniz. Aspose.Slides kullanarak, popüler grafik türlerine dayalı düzenli grafikler ve özel grafikler oluşturabilirsiniz.
 
-{{% alert color="primary" %}} 
-
-Grafik oluşturmanıza olanak tanımak için Aspose.Slides, [Aspose::Slides::Charts](https://reference.aspose.com/slides/tr/cpp/namespace/aspose.slides.charts/) ad alanı altında [ChartType](https://reference.aspose.com/slides/tr/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) enum sınıfını sağlar. Bu enum sınıfının değerleri farklı grafik türlerine karşılık gelir. 
-
+{{% alert color="info" %}} 
+Grafik oluşturmanıza olanak sağlamak için Aspose.Slides, [ChartType](https://reference.aspose.com/slides/tr/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) enum sınıfını [Aspose::Slides::Charts](https://reference.aspose.com/slides/tr/cpp/namespace/aspose.slides.charts/) ad alanı altında sunar. Bu enum sınıfındaki değerler farklı grafik türlerine karşılık gelir. 
 {{% /alert %}} 
 
 ### **Normal Grafikler Oluşturma**
 1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.  
-1. İndex üzerinden bir slayt referansı alın.  
-1. Bir grafik ekleyin, veri sağlayın ve tercih ettiğiniz grafik türünü belirtin.  
+1. İndeksi aracılığıyla bir slaydın referansını alın.  
+1. Bazı veri ekleyerek ve tercih ettiğiniz grafik türünü belirterek bir grafik ekleyin.  
 1. Grafiğe bir başlık ekleyin.  
 1. Grafik veri çalışma sayfasına erişin.  
 1. Tüm varsayılan serileri ve kategorileri temizleyin.  
@@ -64,110 +64,181 @@ Grafik oluşturmanıza olanak tanımak için Aspose.Slides, [Aspose::Slides::Cha
 1. Grafik serileri için yeni veri ekleyin.  
 1. Grafik serileri için dolgu rengi ekleyin.  
 1. Grafik serileri için etiketler ekleyin.  
-1. Değiştirilen sunumu PPTX dosyası olarak yazın.  
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.  
 
 Bu C++ kodu normal bir grafik oluşturmayı gösterir:
 
 ```c++
-	// Belgeler dizinine giden yol.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+// Belge dizinine giden yol.
 	const String outPath = u"../out/NormalCharts_out.pptx";
 
-	//PPTX dosyasını temsil eden bir sunum sınıfını örnekler
+	//PPTX dosyasını temsil eden bir sunum sınıfını örnekler.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//İlk slayta erişir
+	//İlk slayta erişir.
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Varsayılan verilerle bir grafik ekler
+	// Varsayılan verilerle bir grafik ekler.
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// Grafik veri sayfasının indeksini ayarlar
+	// Grafik veri sayfasının dizinini ayarlar.
 	int defaultWorksheetIndex = 0;
 
-	// Grafik veri çalışma sayfasını alır
+	// Grafik veri çalışma sayfasını alır.
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// Grafik başlığını ayarlar
+	// Grafik başlığını ayarlar.
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText ( NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle( true);
 
-	// Varsayılan oluşturulan serileri ve kategorileri siler
+	// Varsayılan oluşturulan serileri ve kategorileri siler.
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 	int s = chart->get_ChartData()->get_Series()->get_Count();
 	s = chart->get_ChartData()->get_Categories()->get_Count();
 
 
-	// Yeni bir seri ekler
+	// Yeni bir seri ekler.
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// Kategorileri ekler
+	// Kategoriler ekler.
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"Caetegoty 1")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"Caetegoty 2")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"Caetegoty 3")));
 
 	
-	// İlk grafik serisini alır
+	// İlk grafik serisini alır.
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// Seri verilerini doldurur
+	// Seri verilerini doldurur.
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
 
-	// Seri için dolgu rengini ayarlar
+	// Serinin dolgu rengini ayarlar.
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
 
-	// İkinci grafik serisini alır
+	// İkinci grafik serisini alır.
 	 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// Seri verilerini doldurur
+	// Seri verilerini doldurur.
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(30)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(10)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(60)));
 
-	// Seri için dolgu rengini ayarlar
+	// Serinin dolgu rengini ayarlar.
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
 
 
-	// İlk etiket kategori adını gösterecek şekilde ayarlanır
+	// İlk etiket kategori adını gösterecek şekilde ayarlanır.
 	SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(0)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowCategoryName(true);
 
 	lbl = series->get_DataPoints()->idx_get(1)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowSeriesName (true);
 
-	// Üçüncü etiket için değeri gösterir
+	// Üçüncü etiket için değeri gösterir.
 	lbl = series->get_DataPoints()->idx_get(2)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowValue (true);
 	lbl->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl->get_DataLabelFormat()->set_Separator (u"/");
 
-	// Sunumu kaydeder
+	// Sunumu kaydeder.
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
 ```
 
-### **Dağılım (Scattered) Grafikler Oluşturma**
-Dağılım grafikleri (scattered plots veya x‑y grafikleri olarak da bilinir), iki değişken arasındaki kalıpları kontrol etmek veya korelasyonları göstermek için sıkça kullanılır. 
+### **Dağınık (Scattered) Grafikler Oluşturma**
+Dağınık grafikler (dağınık diyagramlar veya x‑y grafikleri olarak da bilinir) genellikle iki değişken arasındaki desenleri kontrol etmek veya ilişkileri göstermek için kullanılır.  
 
-Aşağıdaki durumlarda bir dağılım grafiği tercih edebilirsiniz  
+Dağınık bir grafik kullanmak isteyebileceğiniz durumlar  
 
-* eşleştirilmiş sayısal verileriniz olduğunda  
-* birbiriyle iyi eşleşen iki değişkeniniz olduğunda  
-* iki değişkenin ilişkili olup olmadığını belirlemek istediğinizde  
-* bağımlı bir değişken için birden fazla değer alan bağımsız bir değişkeniniz olduğunda  
+* eşleştirilmiş sayısal verileriniz varsa  
+* birlikte iyi eşleşen 2 değişkeniniz varsa  
+* 2 değişkenin ilişkili olup olmadığını belirlemek istiyorsanız  
+* bağımlı bir değişken için bir bağımsız değişkenin birden çok değeri varsa  
 
-Bu C++ kodu farklı işaretçili serilerle bir dağılım grafiği oluşturmayı gösterir: 
+Bu C++ kodu farklı işaretçi serileriyle bir dağınık grafik oluşturmayı gösterir:  
 
 ```c++
-// Belgeler dizinine giden yol.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IMarker.h>
+#include <DOM/Chart/MarkerStyleType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/LineStyle.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+// Belge dizinine giden yol.
 	const String outPath = u"../out/ScatteredChart_out.pptx";
 
 	// PPTX dosyasını temsil eden bir sunum sınıfını örnekler
@@ -179,16 +250,16 @@ Bu C++ kodu farklı işaretçili serilerle bir dağılım grafiği oluşturmayı
 	// Varsayılan verilerle bir grafik ekler
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ScatterWithSmoothLines, 0, 0, 500, 500);
 
-	// Grafiğin başlığını ayarlar
+	// Grafik başlığını ayarlar
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// Varsayılan oluşturulan seriyi siler
+	// Varsayılan oluşturulan seriyi siler 
 	chart->get_ChartData()->get_Series()->Clear();
 	
-	// Grafik veri sayfasının indeksini ayarlar
+	// Grafik veri sayfası için dizini ayarlar
 	int defaultWorksheetIndex = 0;
 
 	// Grafik veri çalışma sayfasını alır
@@ -274,7 +345,7 @@ Bu C++ kodu farklı işaretçili serilerle bir dağılım grafiği oluşturmayı
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// Yeni serinin her kategorisi için özel etiketler oluşturur
+	// Yeni serinin her kategori için özel etiketleri oluşturur
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -291,10 +362,10 @@ Bu C++ kodu farklı işaretçili serilerle bir dağılım grafiği oluşturmayı
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Grafik için lider hatları gösterir
+	// Grafik için gösterge çizgilerini göster
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines(true);
 
-	// Pasta grafik dilimlerinin dönüş açısını ayarlar
+	// Pasta grafik dilimleri için döndürme açısını ayarlar
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle(180);
 
 
@@ -303,64 +374,101 @@ Bu C++ kodu farklı işaretçili serilerle bir dağılım grafiği oluşturmayı
 ```
 
 ### **Pasta (Pie) Grafikler Oluşturma**
-Pasta grafikler, özellikle veri kategorik etiketlere ve sayısal değerlere sahipse, parçanın bütüne oranını göstermek için en uygunudur. Ancak, veri çok fazla parçaya ya da etiketlere sahipse, bunun yerine çubuk grafik kullanmayı düşünebilirsiniz. 
+Pasta grafikler, özellikle sayısal değerlerle etiketlenmiş kategorik veriler içerdiğinde, verinin bütün‑içindeki oranını göstermek için en iyisidir. Ancak veriniz birçok parça veya etiket içeriyorsa, bunun yerine çubuk grafik kullanmayı düşünebilirsiniz.  
 
 1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.  
-1. İndex üzerinden bir slayt referansı alın.  
-1. İstenilen tür (bu örnekte `ChartType.Pie`) ile varsayılan veri ekleyerek bir grafik ekleyin.  
-1. Grafik verisi IChartDataWorkbook’a erişin.  
+1. İndeksi aracılığıyla bir slaydın referansını alın.  
+1. İstenen türle (bu örnekte `ChartType.Pie`) varsayılan veri ekleyerek bir grafik ekleyin.  
+1. Grafik verisini `IChartDataWorkbook` aracılığıyla erişin.  
 1. Varsayılan serileri ve kategorileri temizleyin.  
 1. Yeni seriler ve kategoriler ekleyin.  
 1. Grafik serileri için yeni veri ekleyin.  
-1. Pasta dilimlerine özel renkler ekleyerek yeni veri noktaları oluşturun.  
-1. Seri etiketlerini ayarlayın.  
-1. Seri etiketleri için lider çizgileri ayarlayın.  
-1. Pasta grafik slaytları için dönüş açısını ayarlayın.  
-1. Değiştirilen sunumu PPTX dosyasına yazın.  
+1. Pasta dilimlerine özel renkler ekleyerek yeni noktalar ekleyin.  
+1. Seriler için etiketler ayarlayın.  
+1. Seri etiketleri için gösterge çizgileri ayarlayın.  
+1. Pasta slaytının döndürme açısını ayarlayın.  
+1. Değiştirilmiş sunumu bir PPTX dosyasına yazın.  
 
 Bu C++ kodu bir pasta grafik oluşturmayı gösterir:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/LineStyle.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 	// Belgeler dizinine giden yol.
 	const String outPath = u"../out/PieChart_out.pptx";
 
-	//PPTX dosyasını temsil eden bir Presentation sınıfını örnekler
+	// PPTX dosyasını temsil eden bir Presentation sınıfını örnekler.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//İlk slayta erişir
+	// İlk slayta erişir.
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Varsayılan verilerle bir grafik ekler
+	// Varsayılan veriyle bir grafik ekler.
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Pie, 0, 0, 500, 500);
 
-	// Grafiğin başlığını ayarlar
+	// Grafik başlığını ayarlar.
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// Varsayılan oluşturulan serileri ve kategorileri siler
+	// Varsayılan oluşturulan serileri ve kategorileri siler.
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
-	// Grafik veri sayfasının indeksini ayarlar
+	// Grafik veri sayfasının dizinini ayarlar.
 	int defaultWorksheetIndex = 0;
 
-	// Grafik veri çalışma sayfasını alır
+	// Grafik veri çalışma sayfasını alır.
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// Kategorileri ekler
+	// Kategorileri ekler.
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"First Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"2nd Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"3ed Qtr")));
 
-	// Yeni bir seri ekler
+	// Yeni bir seri ekler.
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	
-	// İlk grafik serisini alır
+	// İlk grafik serisini alır.
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// Seri verilerini doldurur
+	// Seri verilerini doldurur.
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
@@ -370,7 +478,7 @@ Bu C++ kodu bir pasta grafik oluşturmayı gösterir:
 	SharedPtr<IChartDataPoint> point = series->get_DataPoints()->idx_get(0);
 	point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Cyan());
-	// Sektör kenarlığını ayarlar
+	// Sektör kenarlığını ayarlar.
 	point->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Gray());
 	point->get_Format()->get_Line()->set_Width ( 3.0);
@@ -381,7 +489,7 @@ Bu C++ kodu bir pasta grafik oluşturmayı gösterir:
 	point1->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Brown());
 
-	// Sektör kenarlığını ayarlar
+	// Sektör kenarlığını ayarlar.
 	point1->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 	point1->get_Format()->get_Line()->set_Width (3.0);
@@ -393,7 +501,7 @@ Bu C++ kodu bir pasta grafik oluşturmayı gösterir:
 	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
-	// Sektör kenarlığını ayarlar
+	// Sektör kenarlığını ayarlar.
 	point2->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 	point2->get_Format()->get_Line()->set_Width (2.0);
@@ -401,7 +509,7 @@ Bu C++ kodu bir pasta grafik oluşturmayı gösterir:
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// Yeni serinin her kategori için özel etiketler oluşturur
+	// Yeni serinin her kategori için özel etiketleri oluşturur.
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -418,42 +526,69 @@ Bu C++ kodu bir pasta grafik oluşturmayı gösterir:
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Serinin lider hatları göstermesini ayarlar
+	// Serinin grafik için gösterge çizgileri göstermesini ayarlar.
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines ( true);
 
-	// Pasta grafik dilimlerinin dönüş açısını ayarlar
+	// Pasta grafik dilimlerinin döndürme açısını ayarlar.
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle ( 180);
 
 
-	// Sunumu kaydeder
+	// Sunumu kaydeder.
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **Çizgi (Line) Grafikler Oluşturma**
-
-Çizgi grafikler (line graphs), zaman içinde değer değişimlerini göstermek istediğiniz durumlarda en uygunudur. Çizgi grafiği kullanarak aynı anda çok fazla veriyi karşılaştırabilir, zaman içinde değişimleri ve eğilimleri izleyebilir, veri serilerindeki anomalileri vurgulayabilirsiniz.
+Çizgi grafikler (çizgi diyagramları olarak da bilinir), değerlerin zaman içindeki değişimini göstermek istediğiniz durumlarda en iyisidir. Çizgi grafiği kullanarak aynı anda çok fazla veriyi karşılaştırabilir, zamanla değişimleri ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilirsiniz.  
 
 1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.  
-1. İndex üzerinden bir slayt referansı alın.  
-1. İstenilen tür (bu örnekte `ChartType::Line`) ile varsayılan veri ekleyerek bir grafik ekleyin.  
-1. Grafik verisi IChartDataWorkbook’a erişin.  
+1. İndeksi aracılığıyla bir slaydın referansını alın.  
+1. İstenen türle (bu örnekte `ChartType::Line`) varsayılan veri ekleyerek bir grafik ekleyin.  
+1. Grafik verisini `IChartDataWorkbook` aracılığıyla erişin.  
 1. Varsayılan serileri ve kategorileri temizleyin.  
 1. Yeni seriler ve kategoriler ekleyin.  
 1. Grafik serileri için yeni veri ekleyin.  
-1. Değiştirilen sunumu PPTX dosyasına yazın.  
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.  
 
 Bu C++ kodu bir çizgi grafik oluşturmayı gösterir:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
 pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Varsayılan olarak, çizgi grafik üzerindeki noktalar düz, kesintisiz çizgilerle bağlanır. Noktaların tireli bir çizgiyle bağlanmasını istiyorsanız, tercih ettiğiniz tire tipini şu şekilde belirtebilirsiniz:
+Varsayılan olarak, bir çizgi grafik üzerindeki noktalar düz kesintisiz çizgilerle birleştirilir. Noktaların kesikli çizgilerle birleştirilmesini istiyorsanız, tercih ettiğiniz kesik tipini aşağıdaki şekilde belirtebilirsiniz:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
+auto pres = System::MakeObject<Presentation>();
+
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
 for (auto&& series : lineChart->get_ChartData()->get_Series())
 {
@@ -462,25 +597,48 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 ```
 
 ### **Ağaç Haritası (Tree Map) Grafikler Oluşturma**
-
-Ağaç haritası grafikleri, satış verileri gibi kategorilerin göreceli boyutlarını göstermek ve aynı zamanda her kategoride büyük katkı sağlayan öğelere hızlıca dikkat çekmek istediğinizde idealdir. 
+Ağaç haritası grafikler, satış verileri gibi kategorilerin göreceli boyutunu göstermek ve aynı anda her kategoriye büyük katkı sağlayan öğelere hızlıca dikkat çekmek istediğinizde en iyisidir.  
 
 1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.  
-1. İndex üzerinden bir slayt referansı alın.  
-1. İstenilen tür (bu örnekte `ChartType.TreeMap`) ile varsayılan veri ekleyerek bir grafik ekleyin.  
-1. Grafik verisi IChartDataWorkbook’a erişin.  
+1. İndeksi aracılığıyla bir slaydın referansını alın.  
+1. İstenen türle (bu örnekte `ChartType.TreeMap`) varsayılan veri ekleyerek bir grafik ekleyin.  
+1. Grafik verisini `IChartDataWorkbook` aracılığıyla erişin.  
 1. Varsayılan serileri ve kategorileri temizleyin.  
 1. Yeni seriler ve kategoriler ekleyin.  
 1. Grafik serileri için yeni veri ekleyin.  
-1. Değiştirilen sunumu PPTX dosyasına yazın.  
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.  
 
-Bu C++ kodu bir ağaç haritası grafiği oluşturmayı gösterir:
+Bu C++ kodu bir ağaç haritası grafik oluşturmayı gösterir:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/ParentLabelLayoutType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Belgeler dizinine giden yol.
 	const String outPath = u"../out/TreemapChart_out.pptx";
 
-	//PPTX dosyasını temsil eden bir Presentation sınıfını örnekler
+	// PPTX dosyasını temsil eden bir Presentation sınıfını örnekler.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// İlk slayta erişir
@@ -536,34 +694,61 @@ Bu C++ kodu bir ağaç haritası grafiği oluşturmayı gösterir:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Hisse Senedi (Stock) Grafikler Oluşturma**
+### **Hisse (Stock) Grafikler Oluşturma**
 1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.  
-1. İndex üzerinden bir slayt referansı alın.  
-1. Varsayılan veri ekleyerek, istenilen tür (`ChartType.OpenHighLowClose`) ile bir grafik ekleyin.  
-1. Grafik verisi IChartDataWorkbook’a erişin.  
+1. İndeksi aracılığıyla bir slaydın referansını alın.  
+1. İstenen türle (ChartType.OpenHighLowClose) varsayılan veri ekleyerek bir grafik ekleyin.  
+1. Grafik verisini `IChartDataWorkbook` aracılığıyla erişin.  
 1. Varsayılan serileri ve kategorileri temizleyin.  
 1. Yeni seriler ve kategoriler ekleyin.  
 1. Grafik serileri için yeni veri ekleyin.  
 1. HiLowLines biçimini belirtin.  
-1. Değiştirilen sunumu PPTX dosyasına yazın.  
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.  
 
-Bu C++ kodu bir hisse senedi grafik oluşturmayı gösterir:
+Bir hisse grafik oluşturmak için kullanılan örnek C++ kodu:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IUpDownBarsManager.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// Belgeler dizinine giden yol.
 	const String outPath = u"../out/AddStockChart_out.pptx";
 
 	//PPTX dosyasını temsil eden bir Presentation sınıfını örnekler
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//İlk slayta erişir
+	// İlk slayta erişir
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Varsayılan verilerle bir grafik ekler
+	// Varsayılan veriyle bir grafik ekler
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::OpenHighLowClose, 0, 0, 500, 500);
 
 
-	// Grafik veri sayfasının indeksini ayarlar
+	// Grafik veri sayfasının dizinini ayarlar
 	int defaultWorksheetIndex = 0;
 
 	// Grafik veri çalışma sayfasını alır
@@ -588,32 +773,32 @@ Bu C++ kodu bir hisse senedi grafik oluşturmayı gösterir:
 
 	// İlk grafik serisini alır
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
-	// İlk seri verilerini doldurur
+	// İlk serinin verilerini doldurur
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(72)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(38)));
 
 
 	series = chart->get_ChartData()->get_Series()->idx_get(1);
-	// İkinci seri verilerini doldurur
+	// İkinci serinin verilerini doldurur
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(172)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(57)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(57)));
 
 	series = chart->get_ChartData()->get_Series()->idx_get(2);
-	// İkinci seri verilerini doldurur
+	// Üçüncü serinin verilerini doldurur
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(13)));
 
 
 	series = chart->get_ChartData()->get_Series()->idx_get(3);
-	// İkinci seri verilerini doldurur
+	// Dördüncü serinin verilerini doldurur
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 4, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(38)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(50)));
 
-	// Seri grubunu ayarlar
+	// Seriler grubunu ayarlar
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_UpDownBars()->set_HasUpDownBars (true);
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_HiLowLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 
@@ -628,26 +813,46 @@ Bu C++ kodu bir hisse senedi grafik oluşturmayı gösterir:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Kutu ve Bıyık (Box and Whisker) Grafikler Oluşturma**
+### **Kutu ve Çan (Box and Whisker) Grafikler Oluşturma**
 1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.  
-1. İndex üzerinden bir slayt referansı alın.  
-1. Varsayılan veri ekleyerek, istenilen tür (`ChartType.BoxAndWhisker`) ile bir grafik ekleyin.  
-1. Grafik verisi IChartDataWorkbook’a erişin.  
+1. İndeksi aracılığıyla bir slaydın referansını alın.  
+1. İstenen türle (ChartType.BoxAndWhisker) varsayılan veri ekleyerek bir grafik ekleyin.  
+1. Grafik verisini `IChartDataWorkbook` aracılığıyla erişin.  
 1. Varsayılan serileri ve kategorileri temizleyin.  
 1. Yeni seriler ve kategoriler ekleyin.  
 1. Grafik serileri için yeni veri ekleyin.  
-1. Değiştirilen sunumu PPTX dosyasına yazın.  
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.  
 
-Bu C++ kodu bir kutu ve bıyık grafik oluşturmayı gösterir:
+Bu C++ kodu bir kutu‑çan grafik oluşturmayı gösterir:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/QuartileMethodType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// Belgeler dizinine giden yol.
 	const String outPath = u"../out/BoxAndWhisker_out.pptx";
 
-	//PPTX dosyasını temsil eden bir Presentation sınıfını örnekler
+	// PPTX dosyasını temsil eden bir Presentation sınıfını örnekler
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//İlk slayta erişir
+	// İlk slayta erişir
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::BoxAndWhisker, 50, 50, 500, 400);
@@ -687,13 +892,32 @@ Bu C++ kodu bir kutu ve bıyık grafik oluşturmayı gösterir:
 
 ### **Huni (Funnel) Grafikler Oluşturma**
 1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.  
-1. İndex üzerinden bir slayt referansı alın.  
-1. Varsayılan veri ekleyerek, istenilen tür (`ChartType.Funnel`) ile bir grafik ekleyin.  
-1. Değiştirilen sunumu PPTX dosyasına yazın.  
+1. İndeksi aracılığıyla bir slaydın referansını alın.  
+1. İstenen türle (ChartType.Funnel) varsayılan veri ekleyerek bir grafik ekleyin.  
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.  
 
 Bu C++ kodu bir huni grafik oluşturmayı gösterir:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// Belgeler dizinine giden yol.
 	const String outPath = u"../out/FunnelChart_out.pptx";
 
@@ -734,17 +958,40 @@ Bu C++ kodu bir huni grafik oluşturmayı gösterir:
 
 ### **Güneş Patlaması (Sunburst) Grafikler Oluşturma**
 1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.  
-1. İndex üzerinden bir slayt referansı alın.  
-1. İstenilen tür (bu örnekte `ChartType.sunburst`) ile varsayılan veri ekleyerek bir grafik ekleyin.  
-1. Değiştirilen sunumu PPTX dosyasına yazın.  
+1. İndeksi aracılığıyla bir slaydın referansını alın.  
+1. İstenen türle (bu örnekte `ChartType.sunburst`) varsayılan veri ekleyerek bir grafik ekleyin.  
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.  
 
 Bu C++ kodu bir güneş patlaması grafik oluşturmayı gösterir:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// Belgeler dizinine giden yol.
 	const String outPath = u"../out/SunburstChart_out.pptx";
 
-	// PPTX dosyasını temsil eden bir Presentation sınıfını örnekler
+	// Bir PPTX dosyasını temsil eden Presentation sınıfını örnekler
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// İlk slayta erişir
@@ -793,29 +1040,52 @@ Bu C++ kodu bir güneş patlaması grafik oluşturmayı gösterir:
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D7", System::ObjectExt::Box<int32_t>(4)));
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D8", System::ObjectExt::Box<int32_t>(3)));
 
-	// Sunum dosyasını diske kaydeder
+	// Sunum dosyasını diske yazar
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
 ```
 
 ### **Histogram Grafikler Oluşturma**
 1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.  
-1. İndex üzerinden bir slayt referansı alın.  
-1. İstediğiniz grafik türünü (`ChartType.Histogram`) belirterek veri ekleyin ve bir grafik oluşturun.  
-1. Grafik verisi `IChartDataWorkbook`’a erişin.  
+1. İndeksi aracılığıyla bir slaydın referansını alın.  
+1. İstenen türle (bu örnekte `ChartType.Histogram`) bazı veri ekleyerek bir grafik ekleyin.  
+1. Grafik verisine `IChartDataWorkbook` aracılığıyla erişin.  
 1. Varsayılan serileri ve kategorileri temizleyin.  
 1. Yeni seriler ve kategoriler ekleyin.  
-1. Değiştirilen sunumu PPTX dosyasına yazın.  
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.  
 
 Bu C++ kodu bir histogram grafik oluşturmayı gösterir:
 
 ```c++
+#include <DOM/Chart/AxisAggregationType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// Belgeler dizinine giden yol.
 	const String outPath = u"../out/HistogramChart_out.pptx";
 
-	// PPTX dosyasını temsil eden bir Presentation sınıfını örnekler
+	// PPTX dosyasını temsil eden bir Presentation sınıfını örnekler.
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// İlk slayta erişir
+	// İlk slayta erişir.
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Histogram, 50, 50, 500, 400);
@@ -836,53 +1106,81 @@ Bu C++ kodu bir histogram grafik oluşturmayı gösterir:
 
 	chart->get_Axes()->get_HorizontalAxis()->set_AggregationType(Aspose::Slides::Charts::AxisAggregationType::Automatic);
 
-	// Sunumu kaydeder
+	// Sunumu kaydeder.
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **Radar Grafikler Oluşturma**
-
 1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.  
-1. İndex üzerinden bir slayt referansı alın.  
-1. İstediğiniz grafik türünü (`ChartType.Radar`) belirterek bir grafik ekleyin.  
-1. Değiştirilen sunumu PPTX dosyasına yazın.  
+1. İndeksi aracılığıyla bir slaydın referansını alın.  
+1. İstenen türle (bu örnekte `ChartType.Radar`) bazı veri ekleyerek bir grafik ekleyin.  
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.  
 
 Bu C++ kodu bir radar grafik oluşturmayı gösterir:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
 presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Radar, 20.0f, 20.0f, 400.0f, 300.0f);
 presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Çok Kategorili (Multi-Category) Grafikler Oluşturma**
-
+### **Çok‑Kategori Grafikler Oluşturma**
 1. [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfının bir örneğini oluşturun.  
-1. İndex üzerinden bir slayt referansı alın.  
-1. Varsayılan veri ekleyerek, istenilen tür (`ChartType.ClusteredColumn`) ile bir grafik ekleyin.  
-1. Grafik verisi IChartDataWorkbook’a erişin.  
+1. İndeksi aracılığıyla bir slaydın referansını alın.  
+1. İstenen türle (ChartType.ClusteredColumn) varsayılan veri ekleyerek bir grafik ekleyin.  
+1. Grafik verisini `IChartDataWorkbook` aracılığıyla erişin.  
 1. Varsayılan serileri ve kategorileri temizleyin.  
 1. Yeni seriler ve kategoriler ekleyin.  
 1. Grafik serileri için yeni veri ekleyin.  
-1. Değiştirilen sunumu PPTX dosyasına yazın.  
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.  
 
-Bu C++ kodu çok kategorili bir grafik oluşturmayı gösterir:
+Bu C++ kodu bir çok‑kategori grafik oluşturmayı gösterir:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// Belgeler dizinine giden yol.
 	const String outPath = u"../out/MultiCategoryChart_out.pptx";
 
-	// PPTX dosyasını temsil eden bir Presentation sınıfını örnekler
+	//PPTX dosyasını temsil eden bir Presentation sınıfını örnekler
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// İlk slayta erişir
+	//İlk slayta erişir
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Varsayılan verilerle bir grafik ekler
+	// Varsayılan veriyle bir grafik ekler
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
-	// Grafik veri sayfasının indeksini ayarlar
+	// Grafik veri sayfasının dizinini ayarlar
 	int defaultWorksheetIndex = 0;
 
 	// Grafik veri çalışma sayfasını alır
@@ -893,7 +1191,6 @@ Bu C++ kodu çok kategorili bir grafik oluşturmayı gösterir:
 
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
-
 
 	// Kategorileri ekler
 	SharedPtr<IChartCategory> category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c2", ObjectExt::Box<System::String>(u"A")));
@@ -907,7 +1204,6 @@ Bu C++ kodu çok kategorili bir grafik oluşturmayı gösterir:
 	category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c6", ObjectExt::Box<System::String>(u"E")));
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group3"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c7", ObjectExt::Box<System::String>(u"F")));
-
 
 	category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c8", ObjectExt::Box<System::String>(u"G")));
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group4"));
@@ -930,28 +1226,77 @@ Bu C++ kodu çok kategorili bir grafik oluşturmayı gösterir:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Harita (Map) Grafikler Oluşturma**
-
-Harita grafiği, veri içeren bir alanın görselleştirilmesidir. Harita grafikleri, coğrafi bölgeler arasında veri veya değerleri karşılaştırmak için en uygunudur.
+### **Harita Grafikler Oluşturma**
+Harita grafiği, verileri içeren bir bölgeyi görselleştirir. Harita grafikler, coğrafi bölgeler arasında veri ya da değerleri karşılaştırmak için en iyisidir.  
 
 Bu C++ kodu bir harita grafik oluşturmayı gösterir:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 50.0f, 50.0f, 500.0f, 400.0f);
 pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ```
 
-### **Kombinasyon (Combination) Grafikler Oluşturma**
-
-Kombinasyon grafiği (combo chart), tek bir grafikte iki veya daha fazla grafik türünü birleştirir. Bu grafik, birden çok veri kümesi arasındaki farkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır ve ilişkileri ortaya çıkarmanıza yardımcı olur.
+### **Kombinasyon Grafikler Oluşturma**
+Kombinasyon grafik (veya combo grafik), tek bir grafikte iki ya da daha fazla grafik türünü birleştirir. Bu grafik, birden çok veri kümesi arasındaki farklılıkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır ve aralarındaki ilişkileri tanımlamanıza yardımcı olur.  
 
 ![Kombinasyon grafiği](combination_chart.png)
 
-Aşağıdaki C++ kodu, yukarıdaki kombinasyon grafiğini bir PowerPoint sunumunda oluşturmayı gösterir:
+Aşağıdaki C++ kodu, PowerPoint sunumunda yukarıda gösterilen kombinasyon grafiğini nasıl oluşturacağınızı gösterir:
 
 ```cpp
+#include <DOM/Chart/AxisPositionType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/CrossesType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IAxisFormat.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/Chart/LegendPositionType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
 {
     auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
@@ -965,7 +1310,7 @@ static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
     titleFormat->set_FontBold(NullableBool::False);
     titleFormat->set_FontHeight(18.0);
 
-    // Grafik lejantını ayarlar.
+    // Grafik açıklamasını ayarlar.
     chart->get_Legend()->set_Position(LegendPositionType::Bottom);
     chart->get_Legend()->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
 
@@ -1056,7 +1401,7 @@ static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
 
     SetAxisTitle(verticalAxis, u"Y Axis 1");
 
-    // Dikey ana ızgara çizgileri rengini ayarlar.
+    // Dikey büyük ızgara çizgilerinin rengini ayarlar.
     auto majorGridLinesFormat = verticalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat();
     majorGridLinesFormat->set_FillType(FillType::Solid);
     majorGridLinesFormat->get_SolidFillColor()->set_Color(Color::FromArgb(217, 217, 217));
@@ -1102,19 +1447,35 @@ static void CreateComboChart()
 ```
 
 ## **Grafikleri Güncelleme**
-
-1. Grafiği içeren sunumu temsil eden bir [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfı örneği oluşturun.  
-2. İndex üzerinden bir slayt referansı alın.  
-3. Tüm şekilleri dolaşarak istenen grafiği bulun.  
+1. Grafiği içeren bir sunumu temsil eden bir [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfı örneği oluşturun.  
+2. İndeksi aracılığıyla bir slaydın referansını alın.  
+3. İstenen grafiği bulmak için tüm şekillerde dolaşın.  
 4. Grafik veri çalışma sayfasına erişin.  
-5. Seri değerlerini değiştirerek grafik veri serilerini güncelleyin.  
+5. Seri değerlerini değiştirerek grafik veri serisi verisini güncelleyin.  
 6. Yeni bir seri ekleyin ve verileri doldurun.  
-7. Değiştirilen sunumu PPTX dosyası olarak yazın.  
+7. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.  
 
-Bu C++ kodu bir grafiği güncelleme işlemini gösterir:
+Bu C++ kodu bir grafiği nasıl güncelleyeceğinizi gösterir:
 
 ```c++
-// PPTX dosyasını temsil eden bir Presentation sınıfını örnekler
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
+// Bir PPTX dosyasını temsil eden Presentation sınıfının bir örneğini oluşturur
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 
 // İlk slayta erişir
@@ -1123,14 +1484,14 @@ System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 // Varsayılan verilerle bir grafik ekler
 System::SharedPtr<IChart> chart = System::ExplicitCast<Aspose::Slides::Charts::IChart>(sld->get_Shapes()->idx_get(0));
 
-// Grafik veri sayfasının indeksini ayarlar
+// Grafik veri sayfasının dizinini ayarlar
 int32_t defaultWorksheetIndex = 0;
 
 // Grafik veri çalışma sayfasını alır
 System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-// Grafiğin kategori adını değiştirir
+// Grafik kategori adını değiştirir
 fact->GetCell(defaultWorksheetIndex, 1, 0, System::ObjectExt::Box<System::String>(u"Modified Category 1"));
 fact->GetCell(defaultWorksheetIndex, 2, 0, System::ObjectExt::Box<System::String>(u"Modified Category 2"));
 
@@ -1139,7 +1500,7 @@ System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->i
 
 // Seri verilerini günceller
 fact->GetCell(defaultWorksheetIndex, 0, 1, System::ObjectExt::Box<System::String>(u"New_Series1"));
-// Seri adını değiştiriyor
+// Seri adını değiştirir
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(90));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(123));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(44));
@@ -1149,13 +1510,13 @@ series = chart->get_ChartData()->get_Series()->idx_get(1);
 
 // Şimdi seri verileri güncelleniyor
 fact->GetCell(defaultWorksheetIndex, 0, 2, System::ObjectExt::Box<System::String>(u"New_Series2"));
-// Seri adını değiştiriyor
+// Seri adını değiştirir
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(23));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(67));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(99));
 
 
-// Şimdi yeni bir seri ekliyor
+// Şimdi yeni bir seri ekleniyor
 chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, System::ObjectExt::Box<System::String>(u"Series 3")), chart->get_Type());
 
 // Üçüncü grafik serisini al
@@ -1168,28 +1529,40 @@ series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorkshee
 
 chart->set_Type(Aspose::Slides::Charts::ChartType::ClusteredCylinder);
 
-// Grafikli sunumu kaydeder
+// Grafikli sunumu kaydet
 pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Grafikler İçin Veri Aralığını Ayarlama**
-
+## **Grafik İçin Veri Aralığını Belirleme**
 1. Grafiği içeren bir [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfı örneğini açın.  
-2. İndex üzerinden bir slayt referansı alın.  
-3. Tüm şekilleri dolaşarak istenen grafiği bulun.  
+2. İndeksi aracılığıyla bir slaydın referansını alın.  
+3. İstenen grafiği bulmak için tüm şekillerde dolaşın.  
 4. Grafik verisine erişin ve aralığı ayarlayın.  
-5. Değiştirilen sunumu PPTX dosyası olarak kaydedin.  
+5. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.  
 
-Bu C++ kodu bir grafiğin veri aralığını ayarlamayı gösterir:
+Bu C++ kodu bir grafiğin veri aralığını nasıl ayarlayacağınızı gösterir:
 
 ```cpp
-// Belgeler dizinine giden yol.
-String dataDir = GetDataPath();
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// PPTX dosyasını temsil eden bir Presentation sınıfını örnekler
+// Belgeler dizinine giden yol.
+String dataDir = u"../documents/";
+
+// PPTX dosyasını temsil eden bir Presentation sınıfını örnekler.
 auto presentation = System::MakeObject<Presentation>(dataDir + u"ExistingChart.pptx");
 
-// İlk slayta erişir ve varsayılan verilerle bir grafik ekler
+// İlk slayta erişir ve varsayılan veriyle bir grafik ekler.
 auto slide = presentation->get_Slides()->idx_get(0);
 auto chart = System::ExplicitCast<IChart>(slide->get_Shapes()->idx_get(0));
 chart->get_ChartData()->SetRange(u"Sheet1!A1:B4");
@@ -1197,13 +1570,34 @@ presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Grafiklerde Varsayılan İşaretçileri Kullanma**
-Grafiklerde varsayılan bir işaretçi kullandığınızda, her grafik serisi otomatik olarak farklı bir varsayılan işaretçi sembolü alır.
+Grafiklerde varsayılan bir işaretçi kullandığınızda, her grafik serisi otomatik olarak farklı varsayılan işaretçi sembolleri alır.  
 
-Bu C++ kodu bir grafik serisine işaretçiyi otomatik olarak ayarlamayı gösterir:
+Bu C++ kodu bir grafik serisine işaretçi otomatik olarak atamayı gösterir:
 
-```cpp
-// Belge dizinine giden yol.
-String dataDir = GetDataPath();
+``` cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Belgeler dizinine giden yol.
+String dataDir = u"../documents/";
 
 auto pres = System::MakeObject<Presentation>();
 
@@ -1247,16 +1641,16 @@ pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 
 **Aspose.Slides hangi grafik türlerini destekliyor?**
 
-Aspose.Slides, çubuk, çizgi, pasta, alan, dağılım, histogram, radar ve daha pek çok grafik türünü destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik türünü seçmenizi sağlar.
+Aspose.Slides, çubuk, çizgi, pasta, alan, dağınık, histogram, radar ve daha birçok grafik türünü destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik türünü seçmenize olanak tanır.  
 
 **Bir slayta yeni bir grafik nasıl eklenir?**
 
-Yeni bir grafik eklemek için önce bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfı örneği oluşturur, istenen slaytı indeks üzerinden alır ve ardından grafik türü ile başlangıç verilerini belirterek grafik ekleme metodunu çağırırsınız. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
+Grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturur, istediğiniz slaytı indeks üzerinden alır ve ardından grafik türü ve başlangıç verilerini belirterek grafik ekleme metodunu çağırırsınız. Bu işlem, grafiği doğrudan sunumunuza entegre eder.  
 
 **Grafikte gösterilen veriler nasıl güncellenir?**
 
-Grafiğin veri kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyebilir ve ardından kendi özelleştirilmiş verilerinizi ekleyebilirsiniz. Böylece grafiği programlı olarak en son verileri yansıtacak şekilde yenileyebilirsiniz.
+Grafiğin veri kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip kendi özel verilerinizi ekleyerek grafiğin verilerini güncelleyebilirsiniz. Bu sayede grafik, en son verilere göre programlı olarak yenilenir.  
 
 **Grafiğin görünümü özelleştirilebilir mi?**
 
-Evet, Aspose.Slides kapsamlı özelleştirme seçenekleri sunar. Renkleri, yazı tiplerini, etiketleri, lejantları ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü belirli tasarım gereksinimlerinize göre uyarlayabilirsiniz.
+Evet, Aspose.Slides kapsamlı özelleştirme seçenekleri sunar. Renkler, yazı tipleri, etiketler, açıklamalar ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü belirli tasarım gereksinimlerinize göre uyarlayabilirsiniz.

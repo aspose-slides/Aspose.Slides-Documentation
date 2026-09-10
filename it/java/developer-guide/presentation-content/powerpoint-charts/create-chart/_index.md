@@ -1,6 +1,6 @@
 ---
-title: Crea o Aggiorna Grafici di Presentazioni PowerPoint in Java
-linktitle: Crea o Aggiorna Grafici
+title: Crea o aggiorna grafici di presentazioni PowerPoint in Java
+linktitle: Crea o aggiorna grafici
 type: docs
 weight: 10
 url: /it/java/create-chart/
@@ -14,69 +14,65 @@ keywords:
 - grafico a torta
 - grafico a linee
 - grafico ad albero
-- grafico di borsa
+- grafico finanziario
 - grafico a scatola e baffi
 - grafico a imbuto
-- grafico a raggine
+- grafico a raggiera
 - grafico istogramma
 - grafico radar
-- grafico multicategoria
+- grafico a più categorie
 - PowerPoint
 - presentazione
 - Java
 - Aspose.Slides
-description: "Crea e personalizza i grafici nelle presentazioni PowerPoint usando Aspose.Slides per Java. Aggiungi, formatta e modifica i grafici con esempi pratici di codice in Java."
+description: "Crea e personalizza grafici nelle presentazioni PowerPoint usando Aspose.Slides per Java. Aggiungi, formatta e modifica i grafici con esempi pratici di codice in Java."
 ---
 ## **Panoramica**
 
-Questo articolo fornisce una guida completa su come creare e personalizzare i grafici con Aspose.Slides. Imparerai a inserire programmaticamente un grafico in una diapositiva, popolarlo con i dati e applicare varie opzioni di formattazione per soddisfare i requisiti di design specifici. Lungo tutto l’articolo, esempi di codice dettagliati illustrano ogni passaggio, dall’inizializzazione della presentazione e dell’oggetto grafico alla configurazione di serie, assi e legende. Seguendo questa guida, otterrai una solida comprensione di come integrare la generazione dinamica di grafici nelle tue applicazioni, semplificando il processo di creazione di presentazioni basate sui dati.
+Questo articolo fornisce una guida completa su come creare e personalizzare grafici usando Aspose.Slides. Imparerai a aggiungere programmaticamente un grafico a una diapositiva, popolarlo con dati e applicare varie opzioni di formattazione per soddisfare i requisiti di design specifici. Durante l'articolo, esempi di codice dettagliati illustrano ogni passaggio, dall'inizializzazione della presentazione e dell'oggetto grafico alla configurazione di serie, assi e legende. Seguendo questa guida, otterrai una solida comprensione di come integrare la generazione dinamica di grafici nelle tue applicazioni, semplificando il processo di creazione di presentazioni basate sui dati.
 
-## **Crea grafico**
-I grafici aiutano le persone a visualizzare rapidamente i dati e a trarre intuizioni, che potrebbero non essere immediatamente evidenti da una tabella o da un foglio di calcolo. 
+## **Creare un grafico**
 
+I grafici aiutano le persone a visualizzare rapidamente i dati e a ottenere intuizioni che potrebbero non essere immediatamente evidenti da una tabella o da un foglio di calcolo.
 
 **Perché creare grafici?**
 
-Utilizzando i grafici, puoi
+Usando i grafici, puoi:
 
-* aggregare, condensare o riassumere grandi quantità di dati in un’unica diapositiva di una presentazione
-* evidenziare schemi e tendenze nei dati
-* dedurre la direzione e la dinamica dei dati nel tempo o rispetto a un’unità di misura specifica 
-* individuare valori anomali, aberrazioni, deviazioni, errori, dati non sensati, ecc. 
+* aggregare, condensare o riassumere grandi quantità di dati in una singola diapositiva della presentazione
+* evidenziare pattern e tendenze nei dati
+* dedurre la direzione e lo slancio dei dati nel tempo o rispetto a un'unità di misura specifica
+* individuare outlier, aberrazioni, deviazioni, errori, dati non sensati, ecc.
 * comunicare o presentare dati complessi
 
-In PowerPoint, è possibile creare grafici tramite la funzione di inserimento, che fornisce modelli usati per progettare molti tipi di grafico. Con Aspose.Slides, è possibile creare grafici standard (basati su tipologie di grafico popolari) e grafici personalizzati. 
+In PowerPoint, puoi creare grafici tramite la funzione *Insert*, che fornisce template per progettare molti tipi di grafico. Usando Aspose.Slides, puoi creare sia grafici standard (basati su tipi di grafico popolari) sia grafici personalizzati.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Nota" %}}
+Per creare grafici, utilizza la classe [ChartType](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/). I campi di questa classe corrispondono a diversi tipi di grafico.
+{{% /alert %}}
 
-Per consentirti di creare grafici, Aspose.Slides fornisce la classe [ChartType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ChartType). I campi di questa classe corrispondono a diversi tipi di grafico. 
+### **Creare grafici a colonne raggruppate**
 
-{{% /alert %}} 
+Questa sezione spiega come creare grafici a colonne raggruppate usando Aspose.Slides. Imparerai a inizializzare una presentazione, aggiungere un grafico e personalizzare i suoi elementi come titolo, dati, serie, categorie e stile. Segui i passaggi seguenti per vedere come viene generato un grafico a colonne raggruppate standard:
 
-### **Crea grafici normali**
-
-_Passaggi: Crea grafico_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Passaggi:</em> Crea grafico PowerPoint in Java</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Passaggi:</em> Crea grafico di presentazione in Java</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Passaggi:</em> Crea grafico di presentazione PowerPoint in Java</strong></a>
-
-_Passaggi di codice:_
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation).
-2. Ottieni il riferimento di una diapositiva tramite il suo indice.
-3. Aggiungi un grafico con alcuni dati e specifica il tipo di grafico desiderato. 
-4. Aggiungi un titolo per il grafico. 
-5. Accedi al foglio di lavoro dei dati del grafico.
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con alcuni dati e specifica il tipo `ChartType.ClusteredColumn` .
+4. Aggiungi un titolo al grafico.
+5. Accedi al foglio dati del grafico.
 6. Cancella tutte le serie e le categorie predefinite.
 7. Aggiungi nuove serie e categorie.
 8. Aggiungi nuovi dati al grafico per le serie.
-9. Aggiungi un colore di riempimento per le serie del grafico.
-10. Aggiungi etichette per le serie del grafico. 
-11. Scrivi la presentazione modificata in un file PPTX.
+9. Applica un colore di riempimento alle serie del grafico.
+10. Aggiungi etichette alle serie del grafico.
+11. Salva la presentazione modificata come file PPTX.
 
-Questo codice Java mostra come creare un grafico normale:
+Questo codice C# dimostra come creare un grafico a colonne raggruppate:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Istanzia una classe di presentazione che rappresenta un file PPTX
 Presentation pres = new Presentation();
 try {
@@ -90,15 +86,12 @@ try {
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
-    
-    // Imposta la prima serie per mostrare i valori
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    chart.setTitle(true);
     
     // Imposta l'indice per il foglio dati del grafico
     int defaultWorksheetIndex = 0;
     
-    // Ottiene il foglio di lavoro dei dati del grafico
+    // Ottiene il foglio di dati del grafico
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
     // Elimina le serie e le categorie generate di default
@@ -140,7 +133,7 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    // Crea etichette personalizzate per ciascuna categoria per la nuova serie
+    //Crea etichette personalizzate per ogni categoria per la nuova serie
     // Imposta la prima etichetta per mostrare il nome della categoria
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
@@ -161,31 +154,30 @@ try {
 }
 ```
 
-### **Crea grafici a dispersione**
-I grafici a dispersione (noti anche come scatter plot o grafici x‑y) sono spesso usati per verificare schemi o dimostrare correlazioni tra due variabili. 
+### **Creare grafici a dispersione**
 
-Puoi voler utilizzare un grafico a dispersione quando 
+I grafici a dispersione (noti anche come scatter plot o grafici x‑y) sono spesso usati per verificare pattern o dimostrare correlazioni tra due variabili.
+
+Usa un grafico a dispersione quando:
 
 * hai dati numerici accoppiati
-* hai 2 variabili che si correlano bene tra loro
-* vuoi determinare se 2 variabili sono correlate
+* hai due variabili che si associano bene tra loro
+* vuoi determinare se due variabili sono correlate
 * hai una variabile indipendente che ha più valori per una variabile dipendente
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Passaggi:</em> Crea grafico a dispersione in Java</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Passaggi:</em> Crea grafico a dispersione PowerPoint in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Passaggi:</em> Crea grafico a dispersione di presentazione PowerPoint in Java</strong></a>
-
-1. Segui i passaggi indicati nella sezione [Crea grafici normali](#creating-normal-charts)
-2. Per il terzo passaggio, aggiungi un grafico con alcuni dati e specifica il tipo di grafico scegliendo una delle seguenti opzioni
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Rappresenta un grafico a dispersione con marcatori._
+1. Segui i passaggi in [Create Clustered Column Charts](#create-clustered-column-charts) .
+2. Per il terzo passaggio, aggiungi un grafico con alcuni dati e specifica il tuo tipo di grafico come uno dei seguenti:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Rappresenta un grafico a dispersione._
    2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Rappresenta un grafico a dispersione collegato da curve, con marcatori dati._
    3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Rappresenta un grafico a dispersione collegato da curve, senza marcatori dati._
    4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Rappresenta un grafico a dispersione collegato da linee, con marcatori dati._
    5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Rappresenta un grafico a dispersione collegato da linee, senza marcatori dati._
 
-Questo codice Java mostra come creare grafici a dispersione con diverse serie di marcatori: 
+Questo codice Java mostra come creare un grafico a dispersione con marcatori diversi per ogni serie:
 
 ```java
+import com.aspose.slides.*;
+
 // Istanzia una classe di presentazione che rappresenta un file PPTX
 Presentation pres = new Presentation();
 try {
@@ -195,20 +187,20 @@ try {
     // Crea il grafico predefinito
     IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     
-    // Ottiene l'indice del foglio di lavoro dei dati del grafico predefinito
+    // Ottiene l'indice del foglio dati del grafico predefinito
     int defaultWorksheetIndex = 0;
     
-    // Ottiene il foglio di lavoro dei dati del grafico
+    // Ottiene il foglio dati del grafico
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Elimina le serie di esempio
+    // Elimina le serie demo
     chart.getChartData().getSeries().clear();
     
     // Aggiunge nuove serie
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
     
-    // Prende la prima serie del grafico
+    // Preleva la prima serie del grafico
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
     // Aggiunge un nuovo punto (1:3) alla serie
@@ -217,14 +209,14 @@ try {
     // Aggiunge un nuovo punto (2:10)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
     
-    // Cambia il tipo di serie
+    // Modifica il tipo della serie
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
     
-    // Cambia il marcatore della serie del grafico
+    // Modifica il marcatore della serie del grafico
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
     
-    // Prende la seconda serie del grafico
+    // Preleva la seconda serie del grafico
     series = chart.getChartData().getSeries().get_Item(1);
     
     // Aggiunge un nuovo punto (5:2) lì
@@ -239,7 +231,7 @@ try {
     // Aggiunge un nuovo punto (5:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
     
-    // Cambia il marcatore della serie del grafico
+    // Modifica il marcatore della serie del grafico
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Circle);
     
@@ -249,30 +241,29 @@ try {
 }
 ```
 
-### **Crea grafici a torta**
+### **Creare grafici a torta**
 
-I grafici a torta sono ideali per mostrare la relazione parte‑intero nei dati, soprattutto quando i dati contengono etichette categoriche con valori numerici. Tuttavia, se i tuoi dati contengono molte parti o etichette, potresti considerare l’uso di un grafico a barre. 
+I grafici a torta sono ideali per mostrare la relazione parte‑intero nei dati, soprattutto quando i dati contengono etichette categoriche con valori numerici. Tuttavia, se i dati contengono molte parti o etichette, potresti considerare l'uso di un grafico a barre.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Passaggi:</em> Crea grafico a torta in Java</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Passaggi:</em> Crea grafico a torta PowerPoint in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Passaggi:</em> Crea grafico a torta di presentazione PowerPoint in Java</strong></a>
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation).
-2. Ottieni il riferimento di una diapositiva tramite il suo indice.
-3. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato (in questo caso, [ChartType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ChartType).Pie).
-4. Accedi ai dati del grafico tramite [IChartDataWorkbook](https://reference.aspose.com/slides/it/java/com.aspose.slides/IChartDataWorkbook).
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.Pie](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/#Pie) .
+4. Accedi al workbook dei dati del grafico [IChartDataWorkbook](https://reference.aspose.com/slides/it/java/com.aspose.slides/ichartdataworkbook/) .
 5. Cancella le serie e le categorie predefinite.
 6. Aggiungi nuove serie e categorie.
 7. Aggiungi nuovi dati al grafico per le serie.
-8. Aggiungi nuovi punti per i grafici e colori personalizzati per le sezioni del grafico a torta.
+8. Aggiungi nuovi punti al grafico e applica colori personalizzati per i settori del grafico a torta.
 9. Imposta le etichette per le serie.
-10. Imposta le linee guida per le etichette delle serie.
-11. Imposta l’angolo di rotazione per le diapositive del grafico a torta.
-12. Scrivi la presentazione modificata in un file PPTX
+10. Abilita le linee guida per le etichette delle serie.
+11. Imposta l'angolo di rotazione per i settori del grafico a torta.
+12. Salva la presentazione modificata come file PPTX.
 
 Questo codice Java mostra come creare un grafico a torta:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Istanzia una classe di presentazione che rappresenta un file PPTX
 Presentation pres = new Presentation();
 try {
@@ -288,13 +279,10 @@ try {
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // Imposta la prima serie per mostrare i valori
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
     // Imposta l'indice per il foglio dati del grafico
     int defaultWorksheetIndex = 0;
     
-    // Ottiene il foglio di lavoro dei dati del grafico
+    // Ottiene il foglio dati del grafico
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
     // Elimina le serie e le categorie generate di default
@@ -315,7 +303,7 @@ try {
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
     // Non funziona nella nuova versione
-    // Adding new points and setting sector color
+    // Aggiunta di nuovi punti e impostazione del colore del settore
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     
@@ -367,7 +355,7 @@ try {
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
     
-    // Mostra le linee guida per il grafico
+    // Mostra linee guida per il grafico
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
     // Imposta l'angolo di rotazione per i settori del grafico a torta
@@ -380,22 +368,20 @@ try {
 }
 ```
 
-### **Crea grafici a linee**
+### **Creare grafici a linee**
 
-I grafici a linee (noti anche come grafici lineari) sono ideali quando si desidera mostrare variazioni di valore nel tempo. Con un grafico a linee, è possibile confrontare molti dati contemporaneamente, monitorare cambiamenti e tendenze nel tempo, evidenziare anomalie nelle serie di dati, ecc.
+I grafici a linee (noti anche come line graph) sono ideali quando vuoi dimostrare variazioni di valore nel tempo. Con un grafico a linee, puoi confrontare una grande quantità di dati in una sola volta, monitorare cambiamenti e tendenze nel tempo, evidenziare anomalie nelle serie dati e altro ancora.
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation).
-1. Ottieni il riferimento di una diapositiva tramite il suo indice.
-1. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato (in questo caso, `ChartType.Line`).
-1. Accedi ai dati del grafico tramite IChartDataWorkbook.
-1. Cancella le serie e le categorie predefinite.
-1. Aggiungi nuove serie e categorie.
-1. Aggiungi nuovi dati al grafico per le serie.
-1. Scrivi la presentazione modificata in un file PPTX
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.Line](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/#Line) .
+4. Salva la presentazione modificata come file PPTX.
 
 Questo codice Java mostra come creare un grafico a linee:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
@@ -406,37 +392,44 @@ try {
 }
 ```
 
-Per impostazione predefinita, i punti di un grafico a linee sono collegati da linee continue rette. Se desideri che i punti siano collegati da tratteggi, puoi specificare il tipo di tratto desiderato in questo modo:
+Per impostazione predefinita, i punti su un grafico a linee sono collegati da linee continue dritte. Se desideri che i punti siano collegati da tratteggi, puoi specificare il tipo di tratto preferito come segue:
 
 ```java
-IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+import com.aspose.slides.*;
 
-for (IChartSeries series : lineChart.getChartData().getSeries())
-{
-    series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+Presentation pres = new Presentation();
+try {
+    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+
+    for (IChartSeries series : lineChart.getChartData().getSeries())
+    {
+        series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+    }
+
+    pres.save("lineChart.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
 }
 ```
 
-### **Crea grafici ad albero (Tree Map)**
+### **Creare grafici ad albero**
 
-I grafici ad albero sono ideali per dati di vendita quando si desidera mostrare la dimensione relativa delle categorie di dati e, allo stesso tempo, attirare rapidamente l'attenzione sugli elementi che contribuiscono maggiormente a ciascuna categoria. 
+I grafici ad albero sono ideali per dati di vendita quando vuoi mostrare la dimensione relativa delle categorie e attirare rapidamente l'attenzione sui componenti che contribuiscono maggiormente all'interno di ciascuna categoria.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Passaggi:</em> Crea grafico ad albero in Java</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Passaggi:</em> Crea grafico ad albero PowerPoint in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Passaggi:</em> Crea grafico ad albero di presentazione PowerPoint in Java</strong></a>
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation).
-2. Ottieni il riferimento di una diapositiva tramite il suo indice.
-3. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato (in questo caso, [ChartType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ChartType).TreeMap).
-4. Accedi ai dati del grafico tramite [IChartDataWorkbook](https://reference.aspose.com/slides/it/java/com.aspose.slides/IChartDataWorkbook).
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.Treemap](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/#Treemap) .
+4. Accedi al workbook dei dati del grafico [IChartDataWorkbook](https://reference.aspose.com/slides/it/java/com.aspose.slides/ichartdataworkbook/) .
 5. Cancella le serie e le categorie predefinite.
 6. Aggiungi nuove serie e categorie.
 7. Aggiungi nuovi dati al grafico per le serie.
-8. Scrivi la presentazione modificata in un file PPTX
+8. Salva la presentazione modificata come file PPTX.
 
 Questo codice Java mostra come creare un grafico ad albero:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Treemap, 50, 50, 500, 400);
@@ -489,25 +482,23 @@ try {
 }
 ```
 
-### **Crea grafici di borsa (Stock)**
+### **Creare grafici finanziari**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Passaggi:</em> Crea grafico di borsa in Java</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Passaggi:</em> Crea grafico di borsa PowerPoint in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Passaggi:</em> Crea grafico di borsa di presentazione PowerPoint in Java</strong></a>
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation).
-2. Ottieni il riferimento di una diapositiva tramite il suo indice.
-3. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato ([ChartType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ChartType).OpenHighLowClose).
-4. Accedi ai dati del grafico tramite [IChartDataWorkbook](https://reference.aspose.com/slides/it/java/com.aspose.slides/IChartDataWorkbook).
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/#OpenHighLowClose) .
+4. Accedi al workbook dei dati del grafico [IChartDataWorkbook](https://reference.aspose.com/slides/it/java/com.aspose.slides/ichartdataworkbook/) .
 5. Cancella le serie e le categorie predefinite.
 6. Aggiungi nuove serie e categorie.
 7. Aggiungi nuovi dati al grafico per le serie.
-8. Specifica il formato HiLowLines.
-9. Scrivi la presentazione modificata in un file PPTX
+8. Specifica il formato delle linee high‑low.
+9. Salva la presentazione modificata come file PPTX.
 
-Esempio di codice Java usato per creare un grafico di borsa:
+Questo codice Java mostra come creare un grafico finanziario:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
@@ -561,24 +552,22 @@ try {
 }
 ```
 
-### **Crea grafici a scatola e baffi (Box and Whisker)**
+### **Creare grafici a scatola e baffi**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Passaggi:</em> Crea grafico a scatola e baffi in Java</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Passaggi:</em> Crea grafico a scatola e baffi PowerPoint in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Passaggi:</em> Crea grafico a scatola e baffi di presentazione PowerPoint in Java</strong></a>
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation).
-2. Ottieni il riferimento di una diapositiva tramite il suo indice.
-3. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato ([ChartType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ChartType).BoxAndWhisker).
-4. Accedi ai dati del grafico tramite [IChartDataWorkbook](https://reference.aspose.com/slides/it/java/com.aspose.slides/IChartDataWorkbook).
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/#BoxAndWhisker) .
+4. Accedi al workbook dei dati del grafico [IChartDataWorkbook](https://reference.aspose.com/slides/it/java/com.aspose.slides/ichartdataworkbook/) .
 5. Cancella le serie e le categorie predefinite.
 6. Aggiungi nuove serie e categorie.
 7. Aggiungi nuovi dati al grafico per le serie.
-8. Scrivi la presentazione modificata in un file PPTX
+8. Salva la presentazione modificata come file PPTX.
 
 Questo codice Java mostra come creare un grafico a scatola e baffi:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -616,21 +605,18 @@ try {
 }
 ```
 
-### **Crea grafici a imbuto (Funnel)**
+### **Creare grafici a imbuto**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Passaggi:</em> Crea grafico a imbuto in Java</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Passaggi:</em> Crea grafico a imbuto PowerPoint in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Passaggi:</em> Crea grafico a imbuto di presentazione PowerPoint in Java</strong></a>
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.Funnel](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/#Funnel) .
+4. Salva la presentazione modificata come file PPTX.
 
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation).
-2. Ottieni il riferimento di una diapositiva tramite il suo indice.
-3. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato ([ChartType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ChartType).Funnel).
-4. Scrivi la presentazione modificata in un file PPTX
-
-Il codice Java mostra come creare un grafico a imbuto:
+Questo codice Java mostra come creare un grafico a imbuto:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -663,20 +649,18 @@ try {
 }
 ```
 
-### **Crea grafici a raggine (Sunburst)**
+### **Creare grafici a raggiera**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Passaggi:</em> Crea grafico a raggine in Java</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Passaggi:</em> Crea grafico a raggine PowerPoint in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Passaggi:</em> Crea grafico a raggine di presentazione PowerPoint in Java</strong></a>
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.Sunburst](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/#Sunburst) .
+4. Salva la presentazione modificata come file PPTX.
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation).
-2. Ottieni il riferimento di una diapositiva tramite il suo indice.
-3. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato (in questo caso, [ChartType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ChartType).sunburst).
-4. Scrivi la presentazione modificata in un file PPTX
-
-Questo codice Java mostra come creare un grafico a raggine:
+Questo codice Java mostra come creare un grafico a raggiera:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 50, 50, 500, 400);
@@ -727,23 +711,21 @@ try {
 }
 ```
 
-### **Crea grafici istogramma**
+### **Creare grafici istogramma**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Passaggi:</em> Crea grafico istogramma in Java</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Passaggi:</em> Crea grafico istogramma PowerPoint in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Passaggi:</em> Crea grafico istogramma di presentazione PowerPoint in Java</strong></a>
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation).
-2. Ottieni il riferimento di una diapositiva tramite il suo indice.
-3. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato ([ChartType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ChartType).Histogram).
-4. Accedi ai dati del grafico tramite [IChartDataWorkbook](https://reference.aspose.com/slides/it/java/com.aspose.slides/IChartDataWorkbook).
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.Histogram](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/#Histogram) .
+4. Accedi al workbook dei dati del grafico [IChartDataWorkbook](https://reference.aspose.com/slides/it/java/com.aspose.slides/ichartdataworkbook/) .
 5. Cancella le serie e le categorie predefinite.
 6. Aggiungi nuove serie e categorie.
-7. Scrivi la presentazione modificata in un file PPTX
+7. Salva la presentazione modificata come file PPTX.
 
 Questo codice Java mostra come creare un grafico istogramma:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Histogram, 50, 50, 500, 400);
@@ -761,7 +743,7 @@ try {
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic;)
+    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
 
     pres.save("Histogram.pptx", SaveFormat.Pptx);
 } finally {
@@ -769,20 +751,18 @@ try {
 }
 ```
 
-### **Crea grafici radar**
+### **Creare grafici radar**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Passaggi:</em> Crea grafico radar in Java</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Passaggi:</em> Crea grafico radar PowerPoint in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Passaggi:</em> Crea grafico radar di presentazione PowerPoint in Java</strong></a>
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation).
-2. Ottieni il riferimento di una diapositiva tramite il suo indice. 
-3. Aggiungi un grafico con alcuni dati e specifica il tipo di grafico desiderato (`ChartType.Radar` in questo caso).
-4. Scrivi la presentazione modificata in un file PPTX
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con alcuni dati e specifica il tipo di grafico preferito ([ChartType.Radar](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/#Radar) in questo caso).
+4. Salva la presentazione modificata come file PPTX.
 
 Questo codice Java mostra come creare un grafico radar:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300);
@@ -792,24 +772,22 @@ try {
 }
 ```
 
-### **Crea grafici multicatgoria**
+### **Creare grafici a più categorie**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Passaggi:</em> Crea grafico multicatgoria in Java</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Passaggi:</em> Crea grafico multicatgoria PowerPoint in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Passaggi:</em> Crea grafico multicatgoria di presentazione PowerPoint in Java</strong></a>
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation).
-2. Ottieni il riferimento di una diapositiva tramite il suo indice. 
-3. Aggiungi un grafico con dati predefiniti insieme al tipo desiderato ([ChartType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ChartType).ClusteredColumn).
-4. Accedi ai dati del grafico tramite [IChartDataWorkbook](https://reference.aspose.com/slides/it/java/com.aspose.slides/IChartDataWorkbook).
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.ClusteredColumn](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/#ClusteredColumn) .
+4. Accedi al workbook dei dati del grafico [IChartDataWorkbook](https://reference.aspose.com/slides/it/java/com.aspose.slides/ichartdataworkbook/) .
 5. Cancella le serie e le categorie predefinite.
 6. Aggiungi nuove serie e categorie.
 7. Aggiungi nuovi dati al grafico per le serie.
-8. Scrivi la presentazione modificata in un file PPTX.
+8. Salva la presentazione modificata come file PPTX.
 
-Questo codice Java mostra come creare un grafico multicatgoria:
+Questo codice Java mostra come creare un grafico a più categorie:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart ch = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -856,17 +834,15 @@ try {
 }
 ```
 
-### **Crea grafici mappa**
+### **Creare grafici mappa**
 
-Un grafico mappa è una visualizzazione di un’area contenente dati. I grafici mappa sono ideali per confrontare dati o valori tra regioni geografiche.
-
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Passaggi:</em> Crea grafico mappa in Java</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Passaggi:</em> Crea grafico mappa PowerPoint in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Passaggi:</em> Crea grafico mappa di presentazione PowerPoint in Java</strong></a>
+I grafici mappa visualizzano dati geografici e aiutano a confrontare valori tra regioni.
 
 Questo codice Java mostra come creare un grafico mappa:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Map, 50, 50, 500, 400);
@@ -876,15 +852,18 @@ try {
 }
 ```
 
-### **Crea grafici combinati**
+### **Creare grafici combinati**
 
-Un grafico combinato (o combo) combina due o più tipi di grafico in un unico diagramma. Questo grafico consente di evidenziare, confrontare o esaminare differenze tra due o più insiemi di dati, aiutandoti a identificare le relazioni tra essi.
+Un grafico combinato (o combo chart) combina due o più tipi di grafico in un unico diagramma. Questo grafico consente di evidenziare, confrontare o esaminare differenze tra due o più set di dati, aiutandoti a identificare le relazioni tra di essi.
 
 ![Il grafico combinato](combination_chart.png)
 
 Il codice Java seguente mostra come creare il grafico combinato mostrato sopra in una presentazione PowerPoint:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 static void createComboChart() {
     Presentation presentation = new Presentation();
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -915,7 +894,7 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     titleFormat.setFontBold(NullableBool.False);
     titleFormat.setFontHeight(18f);
 
-    // Imposta la legenda del grafico.
+    // Imposta la leggenda del grafico.
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
@@ -926,13 +905,13 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    // Aggiunge nuove categorie.
+    // Aggiungi nuove categorie.
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // Aggiunge la prima serie.
+    // Aggiungi la prima serie.
     IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
@@ -993,7 +972,7 @@ static void setPrimaryAxesFormat(IChart chart) {
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Imposta il colore delle linee di griglia principali verticali.
+    // Imposta il colore delle linee della griglia verticale principale.
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
@@ -1029,46 +1008,45 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 }
 ```
 
-## **Aggiorna grafici**
+## **Aggiornare i grafici**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Passaggi:</em> Aggiorna grafico PowerPoint in Java</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Passaggi:</em> Aggiorna grafico di presentazione in Java</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Passaggi:</em> Aggiorna grafico di presentazione PowerPoint in Java</strong></a>
-
-1. Istanzia una classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation) che rappresenta la presentazione contenente il grafico da aggiornare. 
-2. Ottieni il riferimento di una diapositiva usando il suo indice.
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) che rappresenta la presentazione contenente il grafico da aggiornare.
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
 3. Scorri tutte le forme per trovare il grafico desiderato.
-4. Accedi al foglio di lavoro dei dati del grafico.
-5. Modifica i valori della serie dati del grafico.
-6. Aggiungi una nuova serie e popola i dati al suo interno.
-7. Scrivi la presentazione modificata in un file PPTX.
+4. Accedi al foglio dati del grafico.
+5. Modifica le serie di dati del grafico modificando i valori delle serie.
+6. Aggiungi una nuova serie e popola i relativi dati.
+7. Salva la presentazione modificata come file PPTX.
 
 Questo codice Java mostra come aggiornare un grafico:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Apre la presentazione che contiene il grafico da aggiornare
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Accedi al primo slideMarker
+    // Accedi alla prima diapositiva
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Ottieni il grafico con dati predefiniti
+    // Ottieni il grafico dalla diapositiva
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // Impostazione dell'indice del foglio dati del grafico
+    // Imposta l'indice del foglio dati del grafico
     int defaultWorksheetIndex = 0;
 
-    // Ottenimento del foglio di lavoro dei dati del grafico
+    // Ottieni il foglio dati del grafico
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
-    // Modifica del nome della categoria del grafico
+    // Modifica il nome della categoria del grafico
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
     // Prendi la prima serie del grafico
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // Aggiornamento dei dati della serie
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Modifica del nome della serie
+    // Ora aggiorna i dati della serie
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Modifica il nome della serie
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
@@ -1076,8 +1054,8 @@ try {
     // Prendi la seconda serie del grafico
     series = chart.getChartData().getSeries().get_Item(1);
 
-    // Aggiornamento dei dati della serie
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Modifica del nome della serie
+    // Ora aggiorna i dati della serie
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Modifica il nome della serie
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
@@ -1088,7 +1066,7 @@ try {
     // Prendi la terza serie del grafico
     series = chart.getChartData().getSeries().get_Item(2);
 
-    // Ora popolando i dati della serie
+    // Ora popola i dati della serie
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
@@ -1102,20 +1080,23 @@ try {
 }
 ```
 
-## **Imposta intervallo dati per un grafico**
+## **Impostare l'intervallo dati per un grafico**
 
-Per impostare l’intervallo dati per un grafico, procedi così:
+Per impostare l'intervallo dati per un grafico, esegui i seguenti passaggi:
 
-1. Istanzia una classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation) che rappresenta la presentazione contenente il grafico.
-2. Ottieni il riferimento di una diapositiva tramite il suo indice.
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) che rappresenta la presentazione contenente il grafico.
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
 3. Scorri tutte le forme per trovare il grafico desiderato.
-4. Accedi ai dati del grafico e imposta l’intervallo.
-5. Salva la presentazione modificata in un file PPTX.
+4. Accedi ai dati del grafico e imposta l'intervallo.
+5. Salva la presentazione modificata come file PPTX.
 
-Questo codice Java mostra come impostare l’intervallo dati per un grafico:
+Questo codice Java mostra come impostare l'intervallo dati per un grafico:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Apre la presentazione che contiene il grafico
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IChart chart = (IChart)slide.getShapes().get_Item(0);
@@ -1128,12 +1109,16 @@ try {
 }
 ```
 
-## **Usa marcatori predefiniti nei grafici**
-Quando utilizzi un marcatore predefinito nei grafici, ogni serie di grafico ottiene automaticamente simboli di marcatore diversi.
+## **Utilizzare i marcatori predefiniti nei grafici**
+
+Quando usi i marcatori predefiniti nei grafici, ogni serie del grafico ottiene automaticamente un simbolo di marcatura diverso.
 
 Questo codice Java mostra come impostare automaticamente un marcatore per una serie di grafico:
 
 ```java
+import com.aspose.slides.*;
+
+// Apre la presentazione che contiene il grafico
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -1159,7 +1144,7 @@ try {
     //Prendi la seconda serie del grafico
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    //Ora popolando i dati della serie
+    //Ora popola i dati della serie
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1178,16 +1163,16 @@ try {
 
 **Quali tipi di grafico sono supportati da Aspose.Slides?**
 
-Aspose.Slides supporta una ampia gamma di [tipi di grafico](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/), tra cui barre, linee, torte, area, dispersione, istogramma, radar e molti altri. Questa flessibilità permette di scegliere il tipo di grafico più appropriato per le proprie esigenze di visualizzazione dei dati.
+Aspose.Slides supporta un'ampia gamma di [tipi di grafico](https://reference.aspose.com/slides/it/java/com.aspose.slides/charttype/), tra cui barre, linee, torta, area, dispersione, istogramma, radar e molti altri. Questa flessibilità ti consente di scegliere il tipo di grafico più appropriato per le tue esigenze di visualizzazione dei dati.
 
 **Come aggiungo un nuovo grafico a una diapositiva?**
 
-Per aggiungere un grafico, prima crei un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) , recuperi la diapositiva desiderata tramite il suo indice e poi chiami il metodo per aggiungere un grafico, specificando il tipo di grafico e i dati iniziali. Questo processo integra direttamente il grafico nella presentazione.
+Per aggiungere un grafico, prima crei un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) , recuperi la diapositiva desiderata tramite il suo indice e poi chiami il metodo per aggiungere un grafico, specificando il tipo di grafico e i dati iniziali. Questo processo integra il grafico direttamente nella tua presentazione.
 
 **Come posso aggiornare i dati visualizzati in un grafico?**
 
-Puoi aggiornare i dati di un grafico accedendo al suo workbook dei dati ([IChartDataWorkbook](https://reference.aspose.com/slides/it/java/com.aspose.slides/ichartdataworkbook/)), cancellando le serie e le categorie predefinite, quindi aggiungendo i tuoi dati personalizzati. Questo consente di aggiornare il grafico per riflettere i dati più recenti.
+Puoi aggiornare i dati di un grafico accedendo al suo workbook dei dati ([IChartDataWorkbook](https://reference.aspose.com/slides/it/java/com.aspose.slides/ichartdataworkbook/)), cancellando eventuali serie e categorie predefinite e quindi aggiungendo i tuoi dati personalizzati. Questo ti consente di aggiornare il grafico per riflettere i dati più recenti.
 
-**È possibile personalizzare l’aspetto del grafico?**
+**È possibile personalizzare l'aspetto del grafico?**
 
-Sì, Aspose.Slides offre ampie opzioni di personalizzazione. Puoi modificare colori, caratteri, etichette, legende e altri [elementi di formattazione](/slides/it/java/chart-entities/) per adattare l’aspetto del grafico ai requisiti di design specifici.
+Sì, Aspose.Slides offre ampie opzioni di personalizzazione. Puoi modificare colori, caratteri, etichette, legende e altri [elementi di formattazione](/slides/it/java/chart-entities/) per adattare l'aspetto del grafico ai requisiti di design specifici.

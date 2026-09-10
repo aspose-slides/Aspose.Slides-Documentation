@@ -1,6 +1,6 @@
 ---
-title: Utwórz lub zaktualizuj wykresy prezentacji PowerPoint w Pythonie
-linktitle: Utwórz lub zaktualizuj wykres
+title: Tworzenie lub aktualizacja wykresów prezentacji PowerPoint w języku Python
+linktitle: Tworzenie lub aktualizacja wykresów
 type: docs
 weight: 10
 url: /pl/python-net/create-chart/
@@ -14,59 +14,59 @@ keywords:
 - wykres kołowy
 - wykres liniowy
 - wykres mapy drzewa
-- wykres akcji
-- wykres pudełkowo‑wąsowy
+- wykres giełdowy
+- wykres pudełkowy i wąsowy
 - wykres lejkowy
-- wykres promieniowy
+- wykres promienisty
 - wykres histogramu
 - wykres radarowy
 - wykres wielokategorii
 - prezentacja PowerPoint
 - Python
 - Aspose.Slides
-description: "Dowiedz się, jak tworzyć i dostosowywać wykresy w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides for Python via .NET. Omówiono dodawanie, formatowanie i edytowanie wykresów w prezentacjach wraz z praktycznymi przykładami kodu w języku Python."
+description: "Dowiedz się, jak tworzyć i dostosowywać wykresy w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides for Python via .NET. Zawiera informacje o dodawaniu, formatowaniu i edytowaniu wykresów w prezentacjach oraz praktyczne przykłady kodu w języku Python."
 ---
 ## **Przegląd**
 
-Ten artykuł zawiera kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy za pomocą Aspose.Slides for Python via .NET. Nauczysz się programowo dodawać wykres do slajdu, wypełniać go danymi i stosować różne opcje formatowania, aby dopasować go do konkretnych wymagań projektowych. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidne zrozumienie, jak integrować dynamiczne generowanie wykresów w aplikacjach, usprawniając proces tworzenia prezentacji opartych na danych.
+Ten artykuł wyjaśnia, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides for Python via .NET. Nauczysz się, jak dodać wykres do slajdu, wypełnić go danymi oraz sformatować go zgodnie z wymaganiami projektowymi. Przykłady kodu obejmują tworzenie prezentacji i wykresów, konfigurowanie serii, osi i legend oraz integrację generowania wykresów w aplikacjach.
 
 ## **Utworzenie wykresu**
 
-Wykresy pomagają szybko wizualizować dane i uzyskać wnioski, które mogą nie być od razu oczywiste z tabeli lub arkusza kalkulacyjnego.
+Wykresy pomagają ludziom szybko wizualizować dane i uzyskiwać wnioski, które nie są od razu widoczne w tabeli lub arkuszu kalkulacyjnym.
 
 **Dlaczego tworzyć wykresy?**
 
 Używając wykresów, możesz:
 
-* agregować, konsolidować lub podsumowywać duże ilości danych na jednym slajdzie w prezentacji;
+* agregować, kondensować lub podsumowywać duże ilości danych na jednym slajdzie w prezentacji;
 * ujawniać wzorce i trendy w danych;
 * wyciągać wnioski o kierunku i dynamice danych w czasie lub w odniesieniu do określonej jednostki miary;
-* wykrywać odstające wartości, aberracje, odchylenia, błędy i nielogiczne dane;
-* komunikować lub prezentować złożone dane.
+* identyfikować wartości odstające, aberracje, odchylenia, błędy oraz nieprawidłowe dane;
+* przekazywać lub prezentować złożone dane.
 
-W PowerPoint możesz tworzyć wykresy za pomocą funkcji *Insert*, która udostępnia szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno standardowe wykresy (oparte na popularnych typach wykresów), jak i wykresy niestandardowe.
+W programie PowerPoint możesz tworzyć wykresy za pomocą funkcji *Insert*, która udostępnia szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno zwykłe wykresy (oparte na popularnych typach) jak i wykresy niestandardowe.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Use the [ChartType](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/charttype/) enumeration under the [Aspose.Slides.Charts](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/) namespace. The values in this enumeration correspond to different chart types.
+{{% /alert %}}
 
-Użyj wyliczenia [ChartType](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/charttype/) w przestrzeni nazw [Aspose.Slides.Charts](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/). Wartości w tym wyliczeniu odpowiadają różnym typom wykresów.
+### **Utworzenie grupowanych wykresów kolumnowych**
 
-{{% /alert %}} 
-
-### **Utworzenie wykresów kolumnowych grupowanych**
-
-Ta sekcja wyjaśnia, jak tworzyć wykresy kolumnowe grupowane za pomocą Aspose.Slides for Python via .NET. Nauczysz się inicjalizować prezentację, dodawać wykres i dostosowywać jego elementy, takie jak tytuł, dane, serie, kategorie i stylizację. Postępuj zgodnie z poniższymi krokami, aby zobaczyć, jak generowany jest standardowy wykres kolumnowy grupowany:
+Ten fragment wyjaśnia, jak utworzyć grupowane wykresy kolumnowe przy użyciu Aspose.Slides for Python via .NET. Nauczysz się inicjować prezentację, dodać wykres i dostosować jego elementy, takie jak tytuł, dane, serie, kategorie oraz styl. Postępuj zgodnie z poniższymi krokami, aby zobaczyć, jak generowany jest standardowy grupowany wykres kolumnowy:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu, używając jego indeksu.
-1. Dodaj wykres z pewnymi danymi i określ typ `ChartType.CLUSTERED_COLUMN`.
-1. Dodaj tytuł do wykresu.
-1. Uzyskaj dostęp do arkusza danych wykresu.
-1. Wyczyść wszystkie domyślne serie i kategorie.
-1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii wykresu.
-1. Zastosuj kolor wypełnienia do serii wykresu.
-1. Dodaj etykiety do serii wykresu.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
+3. Dodaj wykres z pewnymi danymi i określ typ `ChartType.CLUSTERED_COLUMN`.
+4. Dodaj tytuł do wykresu.
+5. Uzyskaj dostęp do arkusza danych wykresu.
+6. Wyczyść wszystkie domyślne serie i kategorie.
+7. Dodaj nowe serie i kategorie.
+8. Dodaj nowe dane wykresu dla serii wykresu.
+9. Zastosuj kolor wypełnienia do serii wykresu.
+10. Dodaj etykiety do serii wykresu.
+11. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+
+Ten kod w języku Python pokazuje, jak utworzyć grupowany wykres kolumnowy:
 
 ```py
 import aspose.slides.charts as charts
@@ -87,9 +87,6 @@ with slides.Presentation() as presentation:
     chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
     chart.chart_title.height = 20
     chart.has_title = True
-
-    # Ustaw pierwszą serię, aby wyświetlała wartości.
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
 
     # Ustaw indeks arkusza danych wykresu.
     worksheet_index = 0
@@ -153,11 +150,11 @@ with slides.Presentation() as presentation:
 
 Wynik:
 
-![Wykres kolumnowy grupowany](clustered_column_chart.png)
+![Skupiony wykres kolumnowy](clustered_column_chart.png)
 
 ### **Utworzenie wykresów punktowych**
 
-Wykresy punktowe (znane również jako wykresy rozproszenia lub grafy x‑y) są często używane do sprawdzania wzorców lub wykazywania korelacji między dwoma zmiennymi.
+Wykresy punktowe (znane również jako wykresy rozrzutu lub wykresy x‑y) są często używane do sprawdzania wzorców lub wykazywania korelacji między dwiema zmiennymi.
 
 Użyj wykresu punktowego, gdy:
 
@@ -165,6 +162,8 @@ Użyj wykresu punktowego, gdy:
 * Masz dwie zmienne, które dobrze ze sobą współgrają.
 * Chcesz określić, czy dwie zmienne są ze sobą powiązane.
 * Masz zmienną niezależną, która ma wiele wartości dla zmiennej zależnej.
+
+Ten kod w języku Python pokazuje, jak utworzyć wykres punktowy z różnymi markerami dla każdej serii:
 
 ```py
 import aspose.slides.charts as charts
@@ -237,20 +236,22 @@ Wynik:
 
 ### **Utworzenie wykresów kołowych**
 
-Wykresy kołowe są najlepsze do przedstawiania zależności części‑do‑całości w danych, szczególnie gdy dane zawierają etykiety kategoryczne z wartościami liczbowymi. Jednak jeśli dane zawierają wiele części lub etykiet, warto rozważyć użycie wykresu słupkowego.
+Wykresy kołowe najlepiej używać do pokazania zależności części do całości w danych, zwłaszcza gdy dane zawierają etykiety kategoryczne z wartościami liczbowymi. Jeśli jednak Twoje dane zawierają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu, używając jego indeksu.
-1. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.PIE`.
-1. Uzyskaj dostęp do arkusza danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. Wyczyść domyślne serie i kategorie.
-1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii.
-1. Dodaj nowe punkty do wykresu i zastosuj niestandardowe kolory do sektorów wykresu kołowego.
-1. Ustaw etykiety dla serii.
-1. Włącz linie prowadzące dla etykiet serii.
-1. Ustaw kąt obrotu wykresu kołowego.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.PIE`.
+4. Uzyskaj dostęp do skoroszytu danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/)).
+5. Wyczyść domyślne serie i kategorie.
+6. Dodaj nowe serie i kategorie.
+7. Dodaj nowe dane wykresu dla serii wykresu.
+8. Dodaj nowe punkty do wykresu i zastosuj niestandardowe kolory do sektorów wykresu kołowego.
+9. Ustaw etykiety dla serii.
+10. Włącz linie prowadzące dla etykiet serii.
+11. Ustaw kąt obrotu wykresu kołowego.
+12. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+
+Ten kod w języku Python pokazuje, jak utworzyć wykres kołowy:
 
 ```py
 import aspose.slides.charts as charts
@@ -271,9 +272,6 @@ with slides.Presentation() as presentation:
     chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
     chart.chart_title.height = 20
     chart.has_title = True
-
-    # Ustaw pierwszą serię, aby wyświetlała wartości.
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
 
     # Ustaw indeks arkusza danych wykresu.
     worksheet_index = 0
@@ -298,14 +296,14 @@ with slides.Presentation() as presentation:
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 2, 1, 50))
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 3, 1, 30))
 
-    # Ustaw kolor sektora.
+    # Ustaw kolor sekcji.
     chart.chart_data.series_groups[0].is_color_varied = True
 
     point = series.data_points[0]
     point.format.fill.fill_type = slides.FillType.SOLID
     point.format.fill.solid_fill_color.color = draw.Color.cyan
 
-    # Ustaw obramowanie sektora.
+    # Ustaw obramowanie sekcji.
     point.format.line.fill_format.fill_type = slides.FillType.SOLID
     point.format.line.fill_format.solid_fill_color.color = draw.Color.gray
     point.format.line.width = 3.0
@@ -316,7 +314,7 @@ with slides.Presentation() as presentation:
     point1.format.fill.fill_type = slides.FillType.SOLID
     point1.format.fill.solid_fill_color.color = draw.Color.brown
 
-    # Ustaw obramowanie sektora.
+    # Ustaw obramowanie sekcji.
     point1.format.line.fill_format.fill_type = slides.FillType.SOLID
     point1.format.line.fill_format.solid_fill_color.color = draw.Color.blue
     point1.format.line.width = 3.0
@@ -327,14 +325,14 @@ with slides.Presentation() as presentation:
     point2.format.fill.fill_type = slides.FillType.SOLID
     point2.format.fill.solid_fill_color.color = draw.Color.coral
 
-    # Ustaw obramowanie sektora.
+    # Ustaw obramowanie sekcji.
     point2.format.line.fill_format.fill_type = slides.FillType.SOLID
     point2.format.line.fill_format.solid_fill_color.color = draw.Color.red
     point2.format.line.width = 2.0
     point2.format.line.style = slides.LineStyle.THIN_THIN
     point2.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT_DOT
 
-    # Utwórz własne etykiety dla każdej kategorii w nowej serii.
+    # Utwórz niestandardowe etykiety dla każdej kategorii w nowej serii.
     label1 = series.data_points[0].label
 
     label1.data_label_format.show_value = True
@@ -364,16 +362,14 @@ Wynik:
 
 ### **Utworzenie wykresów liniowych**
 
-Wykresy liniowe (znane również jako wykresy liniowe) są najlepsze w sytuacjach, gdy chcesz pokazać zmiany wartości w czasie. Korzystając z wykresu liniowego, możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych i więcej.
+Wykresy liniowe (znane również jako wykresy liniowe) są najlepsze w sytuacjach, gdy chcesz pokazać zmiany wartości w czasie. Dzięki wykresowi liniowemu możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, podkreślać anomalie w seriach danych i nie tylko.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu, używając jego indeksu.
-1. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.LINE`.
-1. Uzyskaj dostęp do arkusza danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. Wyczyść domyślne serie i kategorie.
-1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.LINE`.
+4. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+
+Ten kod w języku Python pokazuje, jak utworzyć wykres liniowy:
 
 ```python
 import aspose.slides as slides
@@ -387,10 +383,15 @@ with slides.Presentation() as presentation:
 Domyślnie punkty na wykresie liniowym są łączone prostymi, ciągłymi liniami. Jeśli chcesz, aby punkty były łączone kreskami, możesz określić preferowany typ kreski w następujący sposób:
 
 ```python
-line_chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+import aspose.slides as slides
 
-for series in line_chart.chart_data.series:
-    series.format.line.dash_style = slides.charts.LineDashStyle.DASH
+with slides.Presentation() as presentation:
+    line_chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+
+    for series in line_chart.chart_data.series:
+        series.format.line.dash_style = slides.LineDashStyle.DASH
+
+    presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Wynik:
@@ -399,16 +400,18 @@ Wynik:
 
 ### **Utworzenie wykresów mapy drzewa**
 
-Wykresy mapy drzewa są najlepsze dla danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na elementy będące dużymi wkładami w każdej kategorii.
+Wykresy mapy drzewa najlepiej sprawdzają się przy danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na elementy, które wnoszą największy wkład w każdej kategorii.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu, używając jego indeksu.
-1. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.TREEMAP`.
-1. Uzyskaj dostęp do arkusza danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. Wyczyść domyślne serie i kategorie.
-1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.TREEMAP`.
+4. Uzyskaj dostęp do skoroszytu danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/)).
+5. Wyczyść domyślne serie i kategorie.
+6. Dodaj nowe serie i kategorie.
+7. Dodaj nowe dane wykresu dla serii wykresu.
+8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+
+Ten kod w języku Python pokazuje, jak utworzyć wykres mapy drzewa:
 
 ```py
 import aspose.slides.charts as charts
@@ -467,19 +470,21 @@ Wynik:
 
 ![Wykres mapy drzewa](treemap_chart.png)
 
-### **Utworzenie wykresów akcyjnych**
+### **Utworzenie wykresów giełdowych**
 
-Wykresy akcji są używane do wyświetlania danych finansowych, takich jak ceny otwarcia, wysokie, niskie i zamknięcia, pomagając analizować trendy rynkowe i zmienność. Dostarczają istotnych informacji o wynikach akcji, wspierając inwestorów i analityków w podejmowaniu świadomych decyzji.
+Wykresy giełdowe służą do wyświetlania danych finansowych, takich jak ceny otwarcia, maksymalne, minimalne i zamknięcia, pomagając analizować trendy rynkowe i zmienność. Dostarczają niezbędnych informacji o wynikach akcji, wspierając inwestorów i analityków w podejmowaniu świadomych decyzji.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu, używając jego indeksu.
-1. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.OPEN_HIGH_LOW_CLOSE`.
-1. Uzyskaj dostęp do arkusza danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. Wyczyść domyślne serie i kategorie.
-1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii.
-1. Określ format HiLowLines.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.OPEN_HIGH_LOW_CLOSE`.
+4. Uzyskaj dostęp do skoroszytu danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/)).
+5. Wyczyść domyślne serie i kategorie.
+6. Dodaj nowe serie i kategorie.
+7. Dodaj nowe dane wykresu dla serii wykresu.
+8. Określ format linii high‑low.
+9. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+
+Ten kod w języku Python pokazuje, jak utworzyć wykres giełdowy:
 
 ```py
 import aspose.slides.charts as charts
@@ -537,18 +542,20 @@ Wynik:
 
 ![Wykres giełdowy](stock_chart.png)
 
-### **Utworzenie wykresów pudełkowo‑wąsowych**
+### **Utworzenie wykresów pudełkowych**
 
-Wykresy pudełkowo‑wąsowe służą do wyświetlania rozkładu danych poprzez podsumowanie kluczowych miar statystycznych, takich jak mediana, kwartyle i potencjalne wartości odstające. Są szczególnie przydatne w eksploracyjnej analizie danych i badaniach statystycznych, umożliwiają szybkie zrozumienie zmienności danych i identyfikację anomalii.
+Wykresy pudełkowe służą do wyświetlania rozkładu danych poprzez podsumowanie kluczowych miar statystycznych, takich jak mediana, kwartyle i potencjalne wartości odstające. Są szczególnie przydatne w eksploracyjnej analizie danych i badaniach statystycznych, aby szybko zrozumieć zmienność danych i zidentyfikować ewentualne anomalie.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu, używając jego indeksu.
-1. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.BOX_AND_WHISKER`.
-1. Uzyskaj dostęp do arkusza danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. Wyczyść domyślne serie i kategorie.
-1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.BOX_AND_WHISKER`.
+4. Uzyskaj dostęp do skoroszytu danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/)).
+5. Wyczyść domyślne serie i kategorie.
+6. Dodaj nowe serie i kategorie.
+7. Dodaj nowe dane wykresu dla serii wykresu.
+8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+
+Ten kod w języku Python pokazuje, jak utworzyć wykres pudełkowy:
 
 ```py
 import aspose.slides.charts as charts
@@ -590,12 +597,14 @@ with slides.Presentation() as presentation:
 
 ### **Utworzenie wykresów lejkowych**
 
-Wykresy lejkowe służą do wizualizacji procesów obejmujących kolejne etapy, w których wolumen danych maleje wraz z przejściem z jednego kroku do następnego. Są szczególnie pomocne przy analizie wskaźników konwersji, identyfikacji wąskich gardeł i śledzeniu efektywności procesów sprzedaży lub marketingu.
+Wykresy lejkowe służą do wizualizacji procesów obejmujących kolejne etapy, w których wolumen danych maleje w miarę przechodzenia z jednego kroku do następnego. Są szczególnie pomocne przy analizie wskaźników konwersji, identyfikacji wąskich gardeł oraz śledzeniu efektywności procesów sprzedaży lub marketingu.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu, używając jego indeksu.
-1. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.FUNNEL`.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.FUNNEL`.
+4. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+
+Ten kod w języku Python pokazuje, jak utworzyć wykres lejkowy:
 
 ```py
 import aspose.slides.charts as charts
@@ -633,14 +642,16 @@ Wynik:
 
 ![Wykres lejkowy](funnel_chart.png)
 
-### **Utworzenie wykresów promieniowych (Sunburst)**
+### **Utworzenie wykresów promienistych**
 
-Wykresy promieniowe służą do wizualizacji danych hierarchicznych, wyświetlając poziomy jako koncentryczne pierścienie. Pomagają ilustrować zależności części‑do‑całości i są idealne do przedstawiania zagnieżdżonych kategorii i podkategorii w przejrzystym, zwartym formacie.
+Wykresy promieniste służą do wizualizacji danych hierarchicznych, wyświetlając poziomy jako koncentryczne pierścienie. Pomagają ilustrować zależności części do całości i są idealne do reprezentacji zagnieżdżonych kategorii i podkategorii w przejrzystym, kompaktowym formacie.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu, używając jego indeksu.
-1. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.SUNBURST`.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.SUNBURST`.
+4. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+
+Ten kod w języku Python pokazuje, jak utworzyć wykres promienisty:
 
 ```py
 import aspose.slides.charts as charts
@@ -695,19 +706,21 @@ with slides.Presentation() as presentation:
 
 Wynik:
 
-![Wykres promieniowy](sunburst_chart.png)
+![Wykres promienisty](sunburst_chart.png)
 
 ### **Utworzenie wykresów histogramu**
 
-Wykresy histogramu służą do przedstawiania rozkładu danych liczbowych poprzez grupowanie wartości w przedziały lub kosze. Są szczególnie przydatne do identyfikacji wzorców danych, takich jak częstotliwość, skośność i rozproszenie, oraz do wykrywania wartości odstających w zestawie danych.
+Histogramy służą do przedstawiania rozkładu danych liczbowych przez grupowanie wartości w przedziały (bin). Są szczególnie przydatne do identyfikacji wzorców w danych, takich jak częstość, skośność czy rozproszenie, oraz do wykrywania wartości odstających w zestawie danych.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu, używając jego indeksu.
-1. Dodaj wykres z pewnymi danymi i określ typ `ChartType.HISTOGRAM`.
-1. Uzyskaj dostęp do arkusza danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. Wyczyść domyślne serie i kategorie.
-1. Dodaj nowe serie i kategorie.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
+3. Dodaj wykres z pewnymi danymi i określ typ `ChartType.HISTOGRAM`.
+4. Uzyskaj dostęp do skoroszytu danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/)).
+5. Wyczyść domyślne serie i kategorie.
+6. Dodaj nową serię i wypełnij ją punktami danych. Histogram nie posiada kategorii; przedziały są obliczane na podstawie wartości.
+7. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+
+Ten kod w języku Python pokazuje, jak utworzyć wykres histogramu:
 
 ```py
 import aspose.slides.charts as charts
@@ -737,23 +750,25 @@ with slides.Presentation() as presentation:
 
 Wynik:
 
-![Wykres histogramu](histogram_chart.png)
+![Histogram](histogram_chart.png)
 
 ### **Utworzenie wykresów radarowych**
 
-Wykresy radarowe służą do wyświetlania danych wielowymiarowych w dwuwymiarowym formacie, umożliwiając łatwe porównanie kilku zmiennych jednocześnie. Są szczególnie przydatne do identyfikacji wzorców, mocnych i słabych stron w różnych metrykach wydajności lub cechach.
+Wykresy radarowe służą do wyświetlania danych wielowymiarowych w dwuwymiarowym formacie, umożliwiając łatwe porównanie kilku zmiennych jednocześnie. Są szczególnie przydatne do identyfikacji wzorców, mocnych i słabych stron w wielu miarach wydajności lub atrybutach.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu, używając jego indeksu.
-1. Dodaj wykres z pewnymi danymi i określ typ `ChartType.RADAR`.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
+3. Dodaj wykres z pewnymi danymi i określ typ `ChartType.RADAR`.
+4. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+
+Ten kod w języku Python pokazuje, jak utworzyć wykres radarowy:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     presentation.slides[0].shapes.add_chart(slides.charts.ChartType.RADAR, 20, 20, 500, 300)
-    presentation.save("RadarСhart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("RadarChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Wynik:
@@ -762,16 +777,18 @@ Wynik:
 
 ### **Utworzenie wykresów wielokategorii**
 
-Wykresy wielokategorii służą do wyświetlania danych obejmujących więcej niż jedną grupę kategoryczną, umożliwiając jednoczesne porównanie wartości w wielu wymiarach. Są szczególnie pomocne przy analizie trendów i zależności w złożonych, warstwowych zestawach danych.
+Wykresy wielokategorii służą do wyświetlania danych obejmujących więcej niż jedną grupę kategoryczną, umożliwiając jednoczesne porównanie wartości w wielu wymiarach. Są szczególnie przydatne, gdy trzeba analizować trendy i zależności w złożonych, wielowarstwowych zbiorach danych.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu, używając jego indeksu.
-1. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.CLUSTERED_COLUMN`.
-1. Uzyskaj dostęp do arkusza danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. Wyczyść domyślne serie i kategorie.
-1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ `ChartType.CLUSTERED_COLUMN`.
+4. Uzyskaj dostęp do skoroszytu danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/)).
+5. Wyczyść domyślne serie i kategorie.
+6. Dodaj nowe serie i kategorie.
+7. Dodaj nowe dane wykresu dla serii wykresu.
+8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+
+Ten kod w języku Python pokazuje, jak utworzyć wykres wielokategorii:
 
 ```py
 import aspose.slides.charts as charts
@@ -828,7 +845,9 @@ Wynik:
 
 ### **Utworzenie wykresów mapowych**
 
-Wykresy mapowe służą do wizualizacji danych geograficznych poprzez mapowanie informacji na konkretne lokalizacje, takie jak kraje, stany czy miasta. Są szczególnie przydatne przy analizie trendów regionalnych, danych demograficznych i rozkładów przestrzennych w przejrzysty, wizualnie angażujący sposób.
+Wykresy mapowe służą do wizualizacji danych geograficznych poprzez mapowanie informacji na konkretne lokalizacje, takie jak kraje, stany lub miasta. Są szczególnie przydatne przy analizie trendów regionalnych, danych demograficznych oraz rozkładów przestrzennych w przejrzysty, wizualnie atrakcyjny sposób.
+
+Ten kod w języku Python pokazuje, jak utworzyć wykres mapowy:
 
 ```python
 import aspose.slides as slides
@@ -844,13 +863,17 @@ Wynik:
 
 ### **Utworzenie wykresów kombinowanych**
 
-Wykres kombinowany (lub wykres combo) łączy dwa lub więcej typów wykresów w jednej grafice. Ten wykres pozwala wyróżnić, porównać lub zbadać różnice między dwoma lub więcej zestawami danych, pomagając zidentyfikować zależności między nimi.
+Wykres kombinowany (lub combo chart) łączy dwa lub więcej typów wykresów w jednym diagramie. Umożliwia podkreślenie, porównanie lub analizę różnic między dwoma lub więcej zestawami danych, pomagając zidentyfikować zależności między nimi.
 
 ![Wykres kombinowany](combination_chart.png)
 
-Poniższy kod Python pokazuje, jak stworzyć powyższy wykres kombinowany w prezentacji PowerPoint:
+Poniższy kod w języku Python pokazuje, jak utworzyć powyższy wykres kombinowany w prezentacji PowerPoint:
 
 ```python
+import aspose.slides.charts as charts
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
 def create_combo_chart():
     with slides.Presentation() as presentation:
         chart = create_chart_with_first_series(presentation.slides[0])
@@ -962,7 +985,7 @@ def set_primary_axes_format(chart):
 
 
 def set_secondary_axes_format(chart):
-    # Ustaw drugą oś poziomą.
+    # Ustaw drugorzędną oś poziomą.
     secondary_horizontal_axis = chart.axes.secondary_horizontal_axis
     secondary_horizontal_axis.position = charts.AxisPositionType.BOTTOM
     secondary_horizontal_axis.cross_type = charts.CrossesType.MAXIMUM
@@ -970,7 +993,7 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
     secondary_horizontal_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # Ustaw drugą oś pionową.
+    # Ustaw drugorzędną oś pionową.
     secondary_vertical_axis = chart.axes.secondary_vertical_axis
     secondary_vertical_axis.position = charts.AxisPositionType.RIGHT
     secondary_vertical_axis.text_format.portion_format.font_height = 12.0
@@ -991,15 +1014,17 @@ def set_axis_title(axis, axis_title):
 
 ## **Aktualizacja wykresów**
 
-Aspose.Slides for Python via .NET umożliwia aktualizację wykresów PowerPoint poprzez modyfikację danych wykresu, formatowania i stylizacji. Ta funkcjonalność upraszcza proces utrzymania prezentacji w aktualnym stanie z dynamiczną zawartością i zapewnia, że wykresy dokładnie odzwierciedlają bieżące dane oraz standardy wizualne.
+Aspose.Slides for Python via .NET umożliwia aktualizację danych wykresu, formatowania i stylu, aby prezentacje PowerPoint były aktualne.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/), która reprezentuje prezentację zawierającą wykres.
-1. Uzyskaj referencję do slajdu, używając jego indeksu.
-1. Przejdź przez wszystkie kształty, aby znaleźć wykres.
-1. Uzyskaj dostęp do arkusza danych wykresu.
-1. Zmodyfikuj serię danych wykresu, zmieniając wartości serii.
-1. Dodaj nową serię i wypełnij jej dane.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) w celu otwarcia prezentacji zawierającej wykres.
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
+3. Przejdź przez wszystkie kształty, aby znaleźć wykres.
+4. Uzyskaj dostęp do arkusza danych wykresu.
+5. Zmodyfikuj serię danych wykresu, zmieniając wartości serii.
+6. Dodaj nową serię i wypełnij ją danymi.
+7. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+
+Ten kod w języku Python pokazuje, jak zaktualizować wykres:
 
 ```py
 import aspose.slides.charts as charts
@@ -1060,15 +1085,17 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
             presentation.save("ModifiedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ustaw zakres danych dla wykresów**
+## **Ustawienie zakresu danych dla wykresu**
 
-Aspose.Slides for Python via .NET zapewnia elastyczność definiowania konkretnego zakresu danych z arkusza jako źródła danych wykresu. Oznacza to, że możesz bezpośrednio mapować część arkusza na wykres, kontrolując, które komórki przyczyniają się do serii i kategorii wykresu. W rezultacie możesz łatwo aktualizować i synchronizować wykresy z najnowszymi zmianami danych w arkuszu, zapewniając, że prezentacje PowerPoint odzwierciedlają aktualne i dokładne informacje.
+Aspose.Slides for Python via .NET pozwala używać określonego zakresu arkusza jako źródła danych dla wykresu. Kontroluje to, które komórki dostarczają serie i kategorie wykresu oraz umożliwia aktualizację wykresu w odpowiedzi na zmiany w arkuszu.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/), która reprezentuje prezentację zawierającą wykres.
-1. Uzyskaj referencję do slajdu, używając jego indeksu.
-1. Przejdź przez wszystkie kształty, aby znaleźć wykres.
-1. Uzyskaj dostęp do danych wykresu i ustaw zakres.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) w celu otwarcia prezentacji zawierającej wykres.
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
+3. Przejdź przez wszystkie kształty, aby znaleźć wykres.
+4. Uzyskaj dostęp do danych wykresu i ustaw zakres.
+5. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+
+Ten kod w języku Python pokazuje, jak ustawić zakres danych dla wykresu:
 
 ```py
 import aspose.slides.charts as charts
@@ -1091,9 +1118,11 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("DataRange.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Użyj domyślnych znaczników w wykresach**
+## **Używanie domyślnych znaczników w wykresach**
 
-Kiedy używasz domyślnych znaczników w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol znacznika.
+Gdy używasz domyślnych znaczników w wykresach, każda seria wykresu automatycznie otrzymuje inny symbol znacznika.
+
+Ten kod w języku Python pokazuje, jak automatycznie ustawić znacznik serii wykresu:
 
 ```py
 import aspose.slides.charts as charts
@@ -1145,12 +1174,12 @@ Aspose.Slides for Python via .NET obsługuje szeroką gamę typów wykresów, w 
 
 **Jak dodać nowy wykres do slajdu?**
 
-Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/), pobierasz żądany slajd przy użyciu jego indeksu, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu i początkowe dane. Proces ten integruje wykres bezpośrednio w Twojej prezentacji.
+Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/), pobierasz żądany slajd za pomocą jego indeksu, a następnie wywołujesz metodę dodawania wykresu, określając typ wykresu i początkowe dane. Proces ten integruje wykres bezpośrednio w twojej prezentacji.
 
-**Jak mogę zaktualizować dane wyświetlane na wykresie?**
+**Jak mogę zaktualizować dane wyświetlane w wykresie?**
 
-Możesz zaktualizować dane wykresu, uzyskując dostęp do jego arkusza danych ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/)), usuwając domyślne serie i kategorie, a następnie dodając własne dane. Dzięki temu możesz programowo odświeżać wykres, aby odzwierciedlał najnowsze informacje.
+Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/)), czyszcząc domyślne serie i kategorie, a następnie dodając własne dane. Umożliwia to programowe odświeżenie wykresu, aby odzwierciedlał najnowsze informacje.
 
 **Czy można dostosować wygląd wykresu?**
 
-Tak, Aspose.Slides for Python via .NET oferuje rozbudowane opcje dostosowywania. Możesz modyfikować kolory, czcionki, etykiety, legendy i inne elementy formatowania, aby dopasować wygląd wykresu do konkretnych wymagań projektowych.
+Tak, Aspose.Slides for Python via .NET zapewnia rozbudowane możliwości dostosowywania. Możesz modyfikować kolory, czcionki, etykiety, legendy oraz inne elementy formatowania, aby dopasować wygląd wykresu do konkretnych wymagań projektowych.

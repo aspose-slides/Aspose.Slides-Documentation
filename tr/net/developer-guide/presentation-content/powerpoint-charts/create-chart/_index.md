@@ -1,6 +1,6 @@
 ---
-title: PowerPoint Sunumu Grafiklerini .NET’te Oluşturma veya Güncelleme
-linktitle: Grafiklerini Oluşturma veya Güncelleme
+title: PowerPoint Sunum Grafiklerini .NET'te Oluşturma veya Güncelleme
+linktitle: Grafik Oluşturma veya Güncelleme
 type: docs
 weight: 10
 url: /tr/net/create-chart/
@@ -13,7 +13,7 @@ keywords:
 - dağılım grafik
 - pasta grafik
 - çizgi grafik
-- ağaç haritası grafik
+- ağaç harita grafik
 - hisse senedi grafik
 - kutu ve bıyık grafik
 - huni grafik
@@ -26,206 +26,212 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET kullanarak PowerPoint sunumlarında grafikler oluşturun ve özelleştirin. Grafikleri ekleyin, biçimlendirin ve C# içinde pratik kod örnekleriyle düzenleyin."
+description: "Aspose.Slides for .NET kullanarak PowerPoint sunumlarında grafik oluşturun ve özelleştirin. Grafikleri ekleyin, biçimlendirin ve C#'ta pratik kod örnekleriyle düzenleyin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for .NET kullanarak grafikler oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir slayta programlı olarak grafik eklemeyi, verilerle doldurmayı ve belirli tasarım gereksinimlerinize uygun çeşitli biçimlendirme seçeneklerini uygulamayı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmaktan seriler, eksenler ve açıklama kutularını yapılandırmaya kadar her adımı ayrıntılı kod örnekleriyle gösterilmektedir. Bu rehberi izleyerek, .NET uygulamalarınıza dinamik grafik üretimini entegre etme ve veri odaklı sunumlar oluşturma sürecini kolaylaştırma konusunda sağlam bir anlayış kazanacaksınız.
+Bu makale, Aspose.Slides for .NET kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir grafik eklemeyi, verileri doldurmayı ve belirli tasarım gereksinimlerinize uygun biçimlendirme seçeneklerini uygulamayı programlı olarak öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmadan serileri, eksenleri ve lejandları yapılandırmaya kadar her adımı detaylı kod örnekleriyle gösterir. Bu rehberi izleyerek, .NET uygulamalarınıza dinamik grafik oluşturmayı entegre etme ve veri odaklı sunumlar oluşturma sürecini kolaylaştırma konusunda sağlam bir anlayış kazanacaksınız.
 
 ## **Grafik Oluşturma**
 
-Grafikler, verileri hızlı bir şekilde görselleştirmenize ve bir tablo ya da elektronik tablodan hemen fark edilmeyen içgörüler elde etmenize yardımcı olur.
+Grafikler, insanların verileri hızlı bir şekilde görselleştirmesine ve bir tablo veya elektronik tabloyla hemen fark edilemeyen içgörüler elde etmesine yardımcı olur.
 
-**Grafik Oluşturmanın Nedenleri**
+**Grafik Oluşturmanın Nedenleri?**
 
-Grafiklerle şunları yapabilirsiniz:
+Grafikler kullanarak şunları yapabilirsiniz:
 
-* büyük miktarda veriyi tek bir slaytta özetlemek, sıkıştırmak veya derlemek;
-* veri içindeki kalıpları ve eğilimleri ortaya çıkarmak;
-* zaman içinde ya da belirli bir ölçü birimiyle veri yönünü ve ivmesini belirlemek;
-* aykırı değerleri, sapmaları, hataları ve mantıksız verileri tespit etmek;
-* karmaşık verileri iletişim kurmak veya sunmak.
+* büyük miktardaki veriyi tek bir slaytta birleştirebilir, özetleyebilir veya yoğunlaştırabilirsiniz;
+* veri içindeki kalıpları ve eğilimleri ortaya çıkarabilirsiniz;
+* zaman içinde ya da belirli bir ölçüm birimiyle veri yönünü ve ivmesini çıkarabilirsiniz;
+* aykırı değerleri, sapmaları, hataları ve anlamsız verileri fark edebilirsiniz;
+* karmaşık verileri iletişim kurabilir veya sunabilirsiniz.
 
-PowerPoint’te, *Insert* işlevi aracılığıyla pek çok grafik türü tasarlamak için şablonlar sağlar. Aspose.Slides kullanarak hem yaygın grafik türlerine dayalı normal grafikler hem de özel grafikler oluşturabilirsiniz.
+PowerPoint’te *Insert* işleviyle birçok grafik türü için şablonlar sunan grafikler oluşturabilirsiniz. Aspose.Slides kullanarak hem popüler grafik türlerine dayalı normal grafikler hem de özel grafikler oluşturabilirsiniz.
 
-{{% alert color="primary" %}} 
-[ChartType](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/charttype/) adlı sayım türünü, [Aspose.Slides.Charts](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/) ad alanı altında kullanın. Bu sayım türündeki değerler farklı grafik türlerine karşılık gelir.
+{{% alert color="info" %}} 
+ChartType sayımını [Aspose.Slides.Charts](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/) ad alanı altında kullanın. Bu sayımdaki değerler farklı grafik türlerine karşılık gelir. 
 {{% /alert %}} 
 
-### **Kümelenmiş Sütun Grafikleri Oluşturma**
+### **Küme Sütun Grafiklerini Oluşturma**
 
-Bu bölüm, Aspose.Slides for .NET kullanarak kümelenmiş sütun grafikleri oluşturmayı açıklar. Bir sunumu başlatmayı, bir grafik eklemeyi ve başlık, veri, seriler, kategoriler ve stil gibi öğeleri özelleştirmeyi öğreneceksiniz. Aşağıdaki adımları izleyerek standart bir kümelenmiş sütun grafiğinin nasıl oluşturulduğunu görebilirsiniz:
+Bu bölüm, Aspose.Slides for .NET ile küme sütun grafiği oluşturmayı açıklar. Sunumu başlatmayı, bir grafik eklemeyi ve başlık, veri, seriler, kategoriler ve stil gibi öğeleri özelleştirmeyi öğreneceksiniz. Aşağıdaki adımları izleyerek standart bir küme sütun grafiğinin nasıl oluşturulduğunu görebilirsiniz:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfı örneği oluşturun.  
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
 1. Dizini kullanarak bir slayta referans alın.  
-1. Bir grafik ekleyin, bazı veri ekleyin ve `ChartType.ClusteredColumn` türünü belirtin.  
+1. Bazı veriyle bir grafik ekleyin ve `ChartType.ClusteredColumn` türünü belirtin.  
 1. Grafik için bir başlık ekleyin.  
 1. Grafiğin veri çalışma sayfasına erişin.  
 1. Varsayılan tüm serileri ve kategorileri temizleyin.  
 1. Yeni seriler ve kategoriler ekleyin.  
 1. Grafik serileri için yeni grafik verileri ekleyin.  
 1. Grafik serilerine dolgu rengi uygulayın.  
-1. Grafik serilerine etiket ekleyin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.  
+1. Grafik serilerine etiketler ekleyin.  
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.  
 
-Bu C# kodu, bir kümelenmiş sütun grafiği oluşturmayı gösterir:
+Bu C# kodu, bir küme sütun grafiğinin nasıl oluşturulacağını gösterir:
 
 ```c#
-// Presentation sınıfını örnekle.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+// Presentation sınıfının bir örneğini oluşturun.
 using (Presentation presentation = new Presentation())
 {
-    // İlk slayta eriş.
+    // İlk slayta erişin.
     ISlide slide = presentation.Slides[0];
 
-    // Varsayılan verileriyle kümelenmiş sütun grafiği ekle.
+    // Varsayılan verileriyle bir küme sütun grafiği ekleyin.
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-    // Grafik başlığını ayarla.
+    // Grafik başlığını ayarlayın.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // İlk serinin değerleri göstermesini ayarla.
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-    // Grafik veri sayfasının indeksini ayarla.
+    // Grafik veri sayfasının dizinini ayarlayın.
     int worksheetIndex = 0;
 
-    // Grafik veri çalışma kitabını al.
+    // Grafik veri çalışma kitabını alın.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Varsayılan oluşturulan serileri ve kategorileri sil.
+    // Varsayılan oluşturulan serileri ve kategorileri silin.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    // Yeni seriler ekle.
+    // Yeni seriler ekleyin.
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-    // Yeni kategoriler ekle.
+    // Yeni kategoriler ekleyin.
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
 
-    // İlk grafik serisini al.
+    // İlk grafik serisini alın.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // Seri verilerini doldur.
+    // Seri verilerini doldurun.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // Serinin dolgu rengini ayarla.
+    // Serinin dolgu rengini ayarlayın.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-    // İkinci grafik serisini al.
+    // İkinci grafik serisini alın.
     series = chart.ChartData.Series[1];
 
-    // Seri verilerini doldur.
+    // Seri verilerini doldurun.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
 
-    // Serinin dolgu rengini ayarla.
+    // Serinin dolgu rengini ayarlayın.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-    // İlk etiketi kategori adını gösterecek şekilde ayarla.
+    // İlk etiketi kategori adını gösterecek şekilde ayarlayın.
     IDataLabel label = series.DataPoints[0].Label;
     label.DataLabelFormat.ShowCategoryName = true;
 
     label = series.DataPoints[1].Label;
     label.DataLabelFormat.ShowSeriesName = true;
 
-    // Üçüncü etiket için serinin değerini göstermesini ayarla.
+    // Seriyi üçüncü etiket için değeri gösterecek şekilde ayarlayın.
     label = series.DataPoints[2].Label;
     label.DataLabelFormat.ShowValue = true;
     label.DataLabelFormat.ShowSeriesName = true;
     label.DataLabelFormat.Separator = "/";
 
-    // Sunumu diske PPTX dosyası olarak kaydet.
+    // Sunumu diske PPTX dosyası olarak kaydedin.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 Sonuç:
 
-![Kümelenmiş Sütun Grafiği](clustered_column_chart.png)
+![Küme Sütun Grafiği](clustered_column_chart.png)
 
-### **Dağılım (Scatter) Grafikleri Oluşturma**
+### **Dağılım Grafiklerini Oluşturma**
 
-Dağılım grafikleri (scatter plot ya da x‑y grafiği olarak da bilinir), iki değişken arasındaki kalıpları kontrol etmek veya korelasyonları göstermek için sıkça kullanılır.
+Dağılım grafikleri (scatter plot veya x‑y grafiği olarak da bilinir) genellikle iki değişken arasındaki kalıpları kontrol etmek veya korelasyonları göstermek için kullanılır.
 
-Aşağıdaki durumlarda dağılım grafiklerini kullanın:
+Aşağıdaki durumlarda dağılım grafiği kullanın:
 
-* Eşlenmiş sayısal veriniz olduğunda.  
-* İyi bir şekilde eşleşen iki değişkeniniz olduğunda.  
-* İki değişkenin ilişkili olup olmadığını belirlemek istediğinizde.  
-* Bağımlı bir değişken için birden çok değer içeren bağımsız bir değişkeniniz olduğunda.  
+* eşleştirilmiş sayısal verileriniz olduğunda;  
+* iki değişken birlikte iyi eşleştiğinde;  
+* iki değişkenin ilişkili olup olmadığını belirlemek istediğinizde;  
+* bağımsız bir değişkenin bağımlı bir değişken için birden fazla değeri olduğunda.  
 
-Bu C# kodu, farklı işaretçi serileri içeren bir dağılım grafiği oluşturmayı gösterir:
+Bu C# kodu, farklı işaretçi serileriyle bir dağılım grafiği oluşturmayı gösterir:
 
 ```c#
-// Presentation sınıfını örnekle.
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+// Presentation sınıfının bir örneğini oluşturun.
 using (Presentation presentation = new Presentation())
 {
-    // İlk slayta eriş.
+    // İlk slayta erişin.
     ISlide slide = presentation.Slides[0];
 
-    // Varsayılan dağılım grafiğini oluştur.
+    // Varsayılan dağılım grafiğini oluşturun.
     IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    // Grafik veri sayfasının indeksini ayarla.
+    // Grafik veri sayfasının dizinini ayarlayın.
     int worksheetIndex = 0;
 
-    // Grafik veri çalışma kitabını al.
+    // Grafik veri çalışma kitabını alın.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Varsayılan seriyi sil.
+    // Varsayılan seriyi silin.
     chart.ChartData.Series.Clear();
 
-    // Yeni seriler ekle.
+    // Yeni seriler ekleyin.
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 3, "Series 2"), chart.Type);
 
-    // İlk grafik serisini al.
+    // İlk grafik serisini alın.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // Seriye yeni bir nokta (1:3) ekle.
+    // Seriye yeni bir nokta (1:3) ekleyin.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 1, 1), workbook.GetCell(worksheetIndex, 2, 2, 3));
 
-    // Yeni bir nokta (2:10) ekle.
+    // Yeni bir nokta (2:10) ekleyin.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
 
-    // Seri tipini değiştir.
+    // Seri tipini değiştirin.
     series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
-    // Grafik serisi işaretçisini değiştir.
+    // Grafik serisi işaretçisini değiştirin.
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Star;
 
-    // İkinci grafik serisini al.
+    // İkinci grafik serisini alın.
     series = chart.ChartData.Series[1];
 
-    // Grafik serisine yeni bir nokta (5:2) ekle.
+    // Seriye yeni bir nokta (5:2) ekleyin.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 3, 5), workbook.GetCell(worksheetIndex, 2, 4, 2));
 
-    // Yeni bir nokta (3:1) ekle.
+    // Yeni bir nokta (3:1) ekleyin.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 3, 3), workbook.GetCell(worksheetIndex, 3, 4, 1));
 
-    // Yeni bir nokta (2:2) ekle.
+    // Yeni bir nokta (2:2) ekleyin.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 4, 3, 2), workbook.GetCell(worksheetIndex, 4, 4, 2));
 
-    // Yeni bir nokta (5:1) ekle.
+    // Yeni bir nokta (5:1) ekleyin.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 5, 3, 5), workbook.GetCell(worksheetIndex, 5, 4, 1));
 
-    // Grafik serisi işaretçisini değiştir.
+    // Grafik serisi işaretçisini değiştirin.
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Circle;
 
-    // Sunumu diske PPTX dosyası olarak kaydet.
+    // Sunumu diske PPTX dosyası olarak kaydedin.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -234,75 +240,80 @@ Sonuç:
 
 ![Dağılım Grafiği](scatter_chart.png)
 
-### **Pasta (Pie) Grafikleri Oluşturma**
+### **Pasta Grafiklerini Oluşturma**
 
-Pasta grafikler, özellikle sayısal değerlerle kategorik etiketleri içeren verilerde, parçanın bütünle ilişkisini göstermek için en iyisidir. Ancak veriniz çok fazla parçaya ya da etikete sahipse, bir çubuk grafik kullanmayı düşünebilirsiniz.
+Pasta grafikleri, özellikle kategorik etiketlerle sayısal değerlerin bulunduğu verilerde, parçanın bütüne oranını göstermek için en uygunudur. Ancak veriniz çok sayıda parça veya etiket içeriyorsa, çubuk grafiği tercih edebilirsiniz.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfı örneği oluşturun.  
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
 1. Dizini kullanarak bir slayta referans alın.  
-1. Varsayılan verilerle bir grafik ekleyin ve `ChartType.Pie` türünü belirtin.  
-1. Grafiğin veri kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
+1. Varsayılan veriyle bir grafik ekleyin ve `ChartType.Pie` türünü belirtin.  
+1. Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
 1. Varsayılan serileri ve kategorileri temizleyin.  
 1. Yeni seriler ve kategoriler ekleyin.  
-1. Grafik serileri için yeni grafik verileri ekleyin.  
-1. Grafiğin dilimlerine yeni puanlar ekleyin ve özel renkler uygulayın.  
-1. Seriler için etiketleri ayarlayın.  
+1. Grafik serileri için yeni veri ekleyin.  
+1. Pasta grafik dilimlerine özel renkler uygulayın.  
+1. Seriler için etiketler ayarlayın.  
 1. Seri etiketleri için lider çizgileri etkinleştirin.  
-1. Pasta grafiği için dönüş açısını ayarlayın.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.  
+1. Pasta grafiğinin dönüş açısını ayarlayın.  
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.  
 
-Bu C# kodu, bir pasta grafiği oluşturmayı gösterir:
+Bu C# kodu, bir pasta grafiğinin nasıl oluşturulacağını gösterir:
 
 ```c#
-// Presentation sınıfını örnekle.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+// Presentation sınıfının bir örneğini oluşturun.
 using (Presentation presentation = new Presentation())
 {
-    // İlk slayta eriş.
+    // İlk slayta erişin.
     ISlide slide = presentation.Slides[0];
 
-    // Varsayılan verileriyle bir grafik ekle.
+    // Varsayılan verileriyle bir grafik ekleyin.
     IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
 
-    // Grafik başlığını ayarla.
+    // Grafik başlığını ayarlayın.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // İlk serinin değerleri göstermesini ayarla.
+    // İlk seriyi değerleri gösterecek şekilde ayarlayın.
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-    // Grafik veri sayfasının indeksini ayarla.
+    // Grafik veri sayfasının dizinini ayarlayın.
     int worksheetIndex = 0;
 
-    // Grafik veri çalışma kitabını al.
+    // Grafik veri çalışma kitabını alın.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Varsayılan oluşturulan serileri ve kategorileri sil.
+    // Varsayılan oluşturulan serileri ve kategorileri silin.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    // Yeni kategoriler ekle.
+    // Yeni kategoriler ekleyin.
     chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
     chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
     chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
 
-    // Yeni seriler ekle.
+    // Yeni seriler ekleyin.
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-    // Seri verilerini doldur.
+    // Seri verilerini doldurun.
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // Dilimin rengini ayarla.
+    // Dilimin rengini ayarlayın.
     chart.ChartData.SeriesGroups[0].IsColorVaried = true;
 
     IChartDataPoint point = series.DataPoints[0];
     point.Format.Fill.FillType = FillType.Solid;
     point.Format.Fill.SolidFillColor.Color = Color.Cyan;
 
-    // Dilimin kenarlığını ayarla.
+    // Dilim kenarlığını ayarlayın.
     point.Format.Line.FillFormat.FillType = FillType.Solid;
     point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
     point.Format.Line.Width = 3.0;
@@ -313,7 +324,7 @@ using (Presentation presentation = new Presentation())
     point1.Format.Fill.FillType = FillType.Solid;
     point1.Format.Fill.SolidFillColor.Color = Color.Brown;
 
-    // Dilimin kenarlığını ayarla.
+    // Dilim kenarlığını ayarlayın.
     point1.Format.Line.FillFormat.FillType = FillType.Solid;
     point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
     point1.Format.Line.Width = 3.0;
@@ -324,14 +335,14 @@ using (Presentation presentation = new Presentation())
     point2.Format.Fill.FillType = FillType.Solid;
     point2.Format.Fill.SolidFillColor.Color = Color.Coral;
 
-    // Dilimin kenarlığını ayarla.
+    // Dilim kenarlığını ayarlayın.
     point2.Format.Line.FillFormat.FillType = FillType.Solid;
     point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
     point2.Format.Line.Width = 2.0;
     point2.Format.Line.Style = LineStyle.ThinThin;
     point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
 
-    // Yeni serideki her kategori için özel etiketler oluştur.
+    // Yeni serideki her kategori için özel etiketler oluşturun.
     IDataLabel label1 = series.DataPoints[0].Label;
 
     label1.DataLabelFormat.ShowValue = true;
@@ -345,13 +356,13 @@ using (Presentation presentation = new Presentation())
     label3.DataLabelFormat.ShowSeriesName = true;
     label3.DataLabelFormat.ShowPercentage = true;
 
-    // Serinin grafik için lider çizgileri göstermesini ayarla.
+    // Seriyi grafik için lider çizgileri gösterecek şekilde ayarlayın.
     series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 
-    // Pasta dilimlerinin dönüş açısını ayarla.
+    // Pasta grafik dilimlerinin dönüş açısını ayarlayın.
     chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
 
-    // Sunumu diske PPTX dosyası olarak kaydet.
+    // Sunumu diske PPTX dosyası olarak kaydedin.
     presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -360,22 +371,26 @@ Sonuç:
 
 ![Pasta Grafiği](pie_chart.png)
 
-### **Çizgi (Line) Grafikleri Oluşturma**
+### **Çizgi Grafiklerini Oluşturma**
 
-Çizgi grafikler (line graphs), değerlerin zaman içindeki değişimini göstermek istediğiniz durumlarda en iyisidir. Çizgi grafiği kullanarak büyük miktarda veriyi bir defada karşılaştırabilir, zaman içinde değişimleri ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilirsiniz.
+Çizgi grafikler (line graph) zaman içinde değer değişimlerini göstermek istediğiniz durumlar için en uygunudur. Çizgi grafiği kullanarak büyük miktarda veriyi aynı anda karşılaştırabilir, zaman içindeki değişim ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilirsiniz.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfı örneği oluşturun.  
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
 1. Dizini kullanarak bir slayta referans alın.  
-1. Varsayılan verilerle bir grafik ekleyin ve `ChartType.Line` türünü belirtin.  
-1. Grafiğin veri kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
+1. Varsayılan veriyle bir grafik ekleyin ve `ChartType.Line` türünü belirtin.  
+1. Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
 1. Varsayılan serileri ve kategorileri temizleyin.  
 1. Yeni seriler ve kategoriler ekleyin.  
-1. Grafik serileri için yeni grafik verileri ekleyin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.  
+1. Grafik serileri için yeni veri ekleyin.  
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.  
 
-Bu C# kodu, bir çizgi grafiği oluşturmayı gösterir:
+Bu C# kodu, bir çizgi grafiğinin nasıl oluşturulacağını gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
@@ -384,12 +399,20 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Varsayılan olarak, çizgi grafiğindeki noktalar düz sürekli çizgilerle birleştirilir. Noktaların kesikli çizgilerle birleştirilmesini istiyorsanız, tercih ettiğiniz tire tipini aşağıdaki gibi belirtebilirsiniz:
+Varsayılan olarak, çizgi grafiğindeki noktalar kesintisiz düz çizgilerle birleştirilir. Noktaların tireli çizgilerle birleştirilmesini istiyorsanız, tercih ettiğiniz tire tipini aşağıdaki gibi belirtebilirsiniz:
 
 ```c#
-foreach (IChartSeries series in lineChart.ChartData.Series)
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using (Presentation presentation = new Presentation())
 {
-    series.Format.Line.DashStyle = LineDashStyle.Dash;
+    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+    foreach (IChartSeries series in lineChart.ChartData.Series)
+    {
+        series.Format.Line.DashStyle = LineDashStyle.Dash;
+    }
 }
 ```
 
@@ -397,22 +420,26 @@ Sonuç:
 
 ![Çizgi Grafiği](line_chart.png)
 
-### **Ağaç Haritası (Tree Map) Grafikleri Oluşturma**
+### **Ağaç Haritası Grafiklerini Oluşturma**
 
-Ağaç haritası grafikleri, satış verilerini göstermek ve her kategori içinde büyük katkı sağlayan öğelere hızlıca dikkat çekmek istediğinizde en iyisidir.
+Ağaç haritası grafikler, satış verileri gibi kategorilerin göreli boyutlarını göstermek ve her kategori içinde büyük katkıda bulunan öğelere dikkat çekmek için en uygundur.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfı örneği oluşturun.  
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
 1. Dizini kullanarak bir slayta referans alın.  
-1. Varsayılan verilerle bir grafik ekleyin ve `ChartType.Treemap` türünü belirtin.  
-1. Grafiğin veri kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
+1. Varsayılan veriyle bir grafik ekleyin ve `ChartType.Treemap` türünü belirtin.  
+1. Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
 1. Varsayılan serileri ve kategorileri temizleyin.  
 1. Yeni seriler ve kategoriler ekleyin.  
-1. Grafik serileri için yeni grafik verileri ekleyin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.  
+1. Grafik serileri için yeni veri ekleyin.  
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.  
 
-Bu C# kodu, bir ağaç haritası grafiği oluşturmayı gösterir:
+Bu C# kodu, bir ağaç haritası grafiğinin nasıl oluşturulacağını gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
@@ -422,7 +449,7 @@ using (Presentation presentation = new Presentation())
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
     workbook.Clear(0);
 
-    // Dal 1
+    // Şube 1
     IChartCategory leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C1", "Leaf1"));
     leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
     leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
@@ -434,7 +461,7 @@ using (Presentation presentation = new Presentation())
 
     chart.ChartData.Categories.Add(workbook.GetCell(0, "C4", "Leaf4"));
 
-    // Dal 2
+    // Şube 2
     leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C5", "Leaf5"));
     leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
     leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
@@ -467,23 +494,27 @@ Sonuç:
 
 ![Ağaç Haritası Grafiği](treemap_chart.png)
 
-### **Hisse Senedi (Stock) Grafikleri Oluşturma**
+### **Hisse Senedi Grafiklerini Oluşturma**
 
-Hisse senedi grafikleri, açılış, yüksek, düşük ve kapanış fiyatları gibi finansal verileri göstermek için kullanılır; piyasa eğilimlerini ve volatiliteyi analiz etmeye yardımcı olur. Yatırımcıların ve analistlerin bilinçli kararlar almasını sağlayan temel içgörüler sunar.
+Hisse senedi grafikler, açılış, yüksek, düşük ve kapanış fiyatları gibi finansal verileri göstererek piyasa eğilimlerini ve dalgalanmaları analiz etmeye yardımcı olur. Yatırımcılara ve analistlere, hisse performansı hakkında kritik içgörüler sağlar.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfı örneği oluşturun.  
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
 1. Dizini kullanarak bir slayta referans alın.  
-1. Varsayılan verilerle bir grafik ekleyin ve `ChartType.OpenHighLowClose` türünü belirtin.  
-1. Grafiğin veri kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
+1. Varsayılan veriyle bir grafik ekleyin ve `ChartType.OpenHighLowClose` türünü belirtin.  
+1. Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
 1. Varsayılan serileri ve kategorileri temizleyin.  
 1. Yeni seriler ve kategoriler ekleyin.  
-1. Grafik serileri için yeni grafik verileri ekleyin.  
+1. Grafik serileri için yeni veri ekleyin.  
 1. HiLowLines biçimini belirtin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.  
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.  
 
-Bu C# kodu, bir hisse senedi grafiği oluşturmayı gösterir:
+Bu C# kodu, bir hisse senedi grafiğinin nasıl oluşturulacağını gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
@@ -537,22 +568,26 @@ Sonuç:
 
 ![Hisse Senedi Grafiği](stock_chart.png)
 
-### **Kutu ve Bıyık (Box and Whisker) Grafikleri Oluşturma**
+### **Kutu ve Bıyık Grafiklerini Oluşturma**
 
-Kutu ve bıyık grafikleri, medyan, çeyrekler ve olası aykırı değerler gibi temel istatistikleri özetleyerek veri dağılımını gösterir. Keşifsel veri analizi ve istatistiksel çalışmalarda veri değişkenliğini hızlıca anlamak ve anormallikleri tespit etmek için özellikle yararlıdır.
+Kutu ve bıyık grafikler, medyan, çeyrekler ve olası aykırı değerler gibi temel istatistiksel ölçümleri özetleyerek veri dağılımını gösterir. Keşifsel veri analizi ve istatistiksel çalışmalar için veri değişkenliğini hızlıca anlamak ve anormallikleri tanımlamak açısından çok yararlıdır.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfı örneği oluşturun.  
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
 1. Dizini kullanarak bir slayta referans alın.  
-1. Varsayılan verilerle bir grafik ekleyin ve `ChartType.BoxAndWhisker` türünü belirtin.  
-1. Grafiğin veri kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
+1. Varsayılan veriyle bir grafik ekleyin ve `ChartType.BoxAndWhisker` türünü belirtin.  
+1. Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
 1. Varsayılan serileri ve kategorileri temizleyin.  
 1. Yeni seriler ve kategoriler ekleyin.  
-1. Grafik serileri için yeni grafik verileri ekleyin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.  
+1. Grafik serileri için yeni veri ekleyin.  
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.  
 
-Bu C# kodu, bir kutu ve bıyık grafiği oluşturmayı gösterir:
+Bu C# kodu, bir kutu ve bıyık grafiğinin nasıl oluşturulacağını gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
@@ -588,18 +623,22 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Huni (Funnel) Grafikleri Oluşturma**
+### **Huni Grafiklerini Oluşturma**
 
-Huni grafikler, her aşamada veri hacminin azaldığı sıralı süreçleri görselleştirmek için kullanılır. Dönüşüm oranlarını analiz etme, darboğazları belirleme ve satış ya da pazarlama süreçlerinin verimliliğini izleme konusunda özellikle faydalıdır.
+Huni grafikler, bir sürecin ardışık aşamalarını görselleştirir; veri hacmi bir adımdan bir sonraki adıma geçerken azalır. Dönüşüm oranlarını analiz etmek, darboğazları tespit etmek ve satış ya da pazarlama süreçlerinin verimliliğini izlemek için özellikle faydalıdır.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfı örneği oluşturun.  
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
 1. Dizini kullanarak bir slayta referans alın.  
-1. Varsayılan verilerle bir grafik ekleyin ve `ChartType.Funnel` türünü belirtin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.  
+1. Varsayılan veriyle bir grafik ekleyin ve `ChartType.Funnel` türünü belirtin.  
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.  
 
-Bu C# kodu, bir huni grafiği oluşturmayı gösterir:
+Bu C# kodu, bir huni grafiğinin nasıl oluşturulacağını gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("test.pptx"))
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -633,18 +672,22 @@ Sonuç:
 
 ![Huni Grafiği](funnel_chart.png)
 
-### **Güneş Patlaması (Sunburst) Grafikleri Oluşturma**
+### **Güneş Patlaması Grafiklerini Oluşturma**
 
-Güneş patlaması grafikleri, katmanları iç içe halkalar olarak gösteren hiyerarşik verileri görselleştirmek için kullanılır. Parçanın bütünle ilişkisini göstermeye yardımcı olur ve iç içe geçmiş kategorileri kompakt bir biçimde temsil eder.
+Güneş patlaması grafikler, hiyerarşik verileri dairesel halkalar halinde görselleştirir. Parçanın bütüne oranını göstermek ve iç içe geçmiş kategorileri kompakt bir biçimde temsil etmek için idealdir.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfı örneği oluşturun.  
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
 1. Dizini kullanarak bir slayta referans alın.  
-1. Varsayılan verilerle bir grafik ekleyin ve `ChartType.Sunburst` türünü belirtin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.  
+1. Varsayılan veriyle bir grafik ekleyin ve `ChartType.Sunburst` türünü belirtin.  
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.  
 
-Bu C# kodu, bir güneş patlaması grafiği oluşturmayı gösterir:
+Bu C# kodu, bir güneş patlaması grafiğinin nasıl oluşturulacağını gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
@@ -654,7 +697,7 @@ using (Presentation presentation = new Presentation())
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
     workbook.Clear(0);
 
-    // Dal 1
+    // Şube 1
     IChartCategory leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C1", "Leaf1"));
     leaf.GroupingLevels.SetGroupingItem(1, "Stem1");
     leaf.GroupingLevels.SetGroupingItem(2, "Branch1");
@@ -666,7 +709,7 @@ using (Presentation presentation = new Presentation())
 
     chart.ChartData.Categories.Add(workbook.GetCell(0, "C4", "Leaf4"));
 
-    // Dal 2
+    // Şube 2
     leaf = chart.ChartData.Categories.Add(workbook.GetCell(0, "C5", "Leaf5"));
     leaf.GroupingLevels.SetGroupingItem(1, "Stem3");
     leaf.GroupingLevels.SetGroupingItem(2, "Branch2");
@@ -697,21 +740,25 @@ Sonuç:
 
 ![Güneş Patlaması Grafiği](sunburst_chart.png)
 
-### **Histogram Grafikleri Oluşturma**
+### **Histogram Grafiklerini Oluşturma**
 
-Histogram grafikler, sayısal verileri aralıklara (bin) bölerek dağılımı gösterir. Veri sıklığı, çarpıklık, yayılım gibi kalıpları tanımlamak ve aykırı değerleri tespit etmek için özellikle yararlıdır.
+Histogram grafikler, sayısal verilerin dağılımını belirli aralıklara (bin) ayırarak gösterir. Veri frekansı, çarpıklık ve yayılım gibi kalıpları tanımlamak ve veri setindeki aykırı değerleri tespit etmek için özellikle yararlıdır.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfı örneği oluşturun.  
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
 1. Dizini kullanarak bir slayta referans alın.  
 1. Bazı veriyle bir grafik ekleyin ve `ChartType.Histogram` türünü belirtin.  
-1. Grafiğin veri kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
+1. Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
 1. Varsayılan serileri ve kategorileri temizleyin.  
 1. Yeni seriler ve kategoriler ekleyin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.  
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.  
 
-Bu C# kodu, bir histogram grafiği oluşturmayı gösterir:
+Bu C# kodu, bir histogram grafiğinin nasıl oluşturulacağını gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
@@ -739,18 +786,22 @@ Sonuç:
 
 ![Histogram Grafiği](histogram_chart.png)
 
-### **Radar Grafikleri Oluşturma**
+### **Radar Grafiklerini Oluşturma**
 
-Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta göstererek birden çok değişkeni aynı anda karşılaştırmayı kolaylaştırır. Performans ölçütleri veya özellikler arasındaki kalıpları, güçlü yanları ve zayıf yönleri belirlemek için özellikle uygundur.
+Radar grafikler, çok değişkenli verileri iki boyutlu bir formatta göstererek birden fazla değişkeni aynı anda karşılaştırmayı kolaylaştırır. Performans ölçütleri ya da nitelikler arasındaki güçlü ve zayıf yönleri ve kalıpları belirlemede özellikle etkilidir.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfı örneği oluşturun.  
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
 1. Dizini kullanarak bir slayta referans alın.  
 1. Bazı veriyle bir grafik ekleyin ve `ChartType.Radar` türünü belirtin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.  
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.  
 
-Bu C# kodu, bir radar grafiği oluşturmayı gösterir:
+Bu C# kodu, bir radar grafiğinin nasıl oluşturulacağını gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
@@ -764,20 +815,24 @@ Sonuç:
 
 ### **Çok Kategorili Grafikler Oluşturma**
 
-Çok kategorili grafikler, birden fazla kategorik gruplamayı içeren verileri göstermek için kullanılır; böylece değerleri aynı anda birden fazla boyutta karşılaştırabilirsiniz. Karmaşık, çok katmanlı veri setlerinde eğilimleri ve ilişkileri analiz etmek istediğinizde özellikle faydalıdır.
+Çok kategorili grafikler, birden fazla kategori grubu içeren verileri aynı anda birden çok boyutta karşılaştırmak için kullanılır. Karmaşık, çok katmanlı veri setlerinde eğilimleri ve ilişkileri analiz etmeniz gerektiğinde özellikle faydalıdır.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfı örneği oluşturun.  
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
 1. Dizini kullanarak bir slayta referans alın.  
-1. Varsayılan verilerle bir grafik ekleyin ve `ChartType.ClusteredColumn` türünü belirtin.  
-1. Grafiğin veri kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
+1. Varsayılan veriyle bir grafik ekleyin ve `ChartType.ClusteredColumn` türünü belirtin.  
+1. Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/)) erişin.  
 1. Varsayılan serileri ve kategorileri temizleyin.  
 1. Yeni seriler ve kategoriler ekleyin.  
-1. Grafik serileri için yeni grafik verileri ekleyin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.  
+1. Grafik serileri için yeni veri ekleyin.  
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.  
 
-Bu C# kodu, bir çok kategorili grafik oluşturmayı gösterir:
+Bu C# kodu, bir çok kategori grafiğinin nasıl oluşturulacağını gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -807,7 +862,7 @@ using (Presentation presentation = new Presentation())
     category.GroupingLevels.SetGroupingItem(1, "Group4");
     category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c9", "H"));
 
-    // Bir seri ekle.
+    // Bir seri ekleyin.
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, "D1", "Series 1"), ChartType.ClusteredColumn);
 
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D2", 10));
@@ -819,22 +874,26 @@ using (Presentation presentation = new Presentation())
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D8", 70));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D9", 80));
 
-    // Grafikle birlikte sunumu kaydet.
+    // Grafikli sunumu kaydedin.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 Sonuç:
 
-![Çok Kategorili Grafik](multi_category_chart.png)
+![Çok Kategori Grafiği](multi_category_chart.png)
 
-### **Harita Grafikleri Oluşturma**
+### **Harita Grafiklerini Oluşturma**
 
-Harita grafikleri, ülkeler, eyaletler veya şehirler gibi belirli konumlara veri eşleştirerek coğrafi verileri görselleştirir. Bölgesel eğilimleri, demografik bilgileri ve mekânsal dağılımları açık ve görsel açıdan çekici bir şekilde analiz etmenize yardımcı olur.
+Harita grafikler, ülkeler, eyaletler veya şehirler gibi belirli konumlara bilgi eşleştirerek coğrafi verileri görselleştirir. Bölgesel eğilimleri, demografik verileri ve mekansal dağılımları net ve görsel olarak çekici bir şekilde analiz etmek için idealdir.
 
-Bu C# kodu, bir harita grafiği oluşturmayı gösterir:
+Bu C# kodu, bir harita grafiğinin nasıl oluşturulacağını gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
@@ -846,15 +905,24 @@ Sonuç:
 
 ![Harita Grafiği](map_chart.png)
 
-### **Kombinasyon (Combination) Grafikleri Oluşturma**
+{{% alert color="info" %}} 
+Yukarıdaki resim, kaydedilen sunumun PowerPoint’te açılmış halini gösterir. Aspose.Slides harita grafiğini ve verilerini doğru olarak yazar, ancak harita grafiklerini kendisi çizmez: bir slayt harita grafiği içeriyorsa, bu slayt bir görüntüye dönüştürüldüğünde veya PDF ya da SVG’ye çevrildiğinde grafik alanı boş çıkar. Aynı slayttaki diğer şekiller etkilenmez. 
+{{% /alert %}} 
 
-Kombinasyon grafiği (combo chart), tek bir grafikte iki veya daha fazla grafik tipini birleştirir. Bu grafik, birden çok veri seti arasındaki farkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır; böylece ilişkileri daha rahat tanımlayabilirsiniz.
+### **Kombinasyon Grafiklerini Oluşturma**
+
+Kombinasyon (combo) grafiği, tek bir grafikte iki ya da daha fazla grafik türünü birleştirir. Bu grafik, iki ya da daha fazla veri seti arasındaki farklılıkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır ve aralarındaki ilişkileri tanımlamanıza yardımcı olur.
 
 ![Kombinasyon Grafiği](combination_chart.png)
 
-Aşağıdaki C# kodu, yukarıda gösterilen kombinasyon grafiğini bir PowerPoint sunumunda oluşturmayı gösterir:
+Aşağıdaki C# kodu, PowerPoint sunumunda yukarıda gösterilen kombinasyon grafiğinin nasıl oluşturulacağını gösterir:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 private static void CreateComboChart()
 {
     using (Presentation presentation = new Presentation())
@@ -884,7 +952,7 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
     portionFormat.FontBold = NullableBool.False;
     portionFormat.FontHeight = 18f;
 
-    // Grafiğin açıklama kutusunu ayarlar
+    // Grafiğin lejandını ayarlar
     chart.Legend.Position = LegendPositionType.Bottom;
     chart.Legend.TextFormat.PortionFormat.FontHeight = 12f;
 
@@ -965,7 +1033,7 @@ private static void SetPrimaryAxesFormat(IChart chart)
 
     SetAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Dikey ana ızgara çizgilerinin rengini ayarlar
+    // Dikey ana ızgara çizgileri rengini ayarlar
     ILineFillFormat majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
     majorGridLinesFormat.FillType = FillType.Solid;
     majorGridLinesFormat.SolidFillColor.Color = Color.FromArgb(217, 217, 217);
@@ -1005,55 +1073,59 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Grafikleri Güncelleme**
 
-Aspose.Slides for .NET, grafik verilerini, biçimlendirmesini ve stilini değiştirerek PowerPoint grafiklerini güncellemenizi sağlar. Bu işlevsellik, sunumların dinamik içerikle güncel kalmasını kolaylaştırır ve grafiklerin mevcut veri ve görsel standartları doğru yansıtmasını sağlar.
+Aspose.Slides for .NET, grafik verilerini, biçimlendirmesini ve stilini değiştirerek PowerPoint grafiklerini güncellemenizi sağlar. Bu özellik, sunumları dinamik içerikle güncel tutma sürecini basitleştirir ve grafiklerin mevcut veri ve görsel standartları doğru yansıtmasını garanti eder.
 
-1. Bir grafik içeren sunumu temsil eden [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfını örnekleyin.  
+1. Grafik içeren bir sunumu temsil eden [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
 1. Dizini kullanarak bir slayta referans alın.  
-1. Tüm şekiller arasında dolaşarak grafiği bulun.  
+1. Tüm şekiller arasında gezerek grafiği bulun.  
 1. Grafiğin veri çalışma sayfasına erişin.  
-1. Seri değerlerini değiştirerek grafik veri serisini düzenleyin.  
+1. Seri değerlerini değiştirerek grafik veri serilerini düzenleyin.  
 1. Yeni bir seri ekleyin ve verilerini doldurun.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.  
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.  
 
-Bu C# kodu, bir grafiği güncellemeyi gösterir:
+Bu C# kodu, bir grafiğin nasıl güncelleneceğini gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
-// PPTX dosyasını temsil eden Presentation sınıfını örnekle.
+// PPTX dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // İlk slayta eriş.
+    // İlk slayta erişin.
     ISlide slide = presentation.Slides[0];
 
     foreach (IShape shape in slide.Shapes)
     {
         if (shape is IChart chart && chart.Name == chartName)
         {
-            // Grafik veri sayfasının indeksini ayarla.
+            // Grafik veri sayfasının dizinini ayarlayın.
             int worksheetIndex = 0;
 
-            // Grafik veri çalışma kitabını al.
+            // Grafik veri çalışma kitabını alın.
             IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
             // Grafik kategori adlarını değiştir.
             workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
             workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
 
-            // İlk grafik serisini al.
+            // İlk grafik serisini alın.
             IChartSeries series = chart.ChartData.Series[0];
 
-            // Seri verilerini güncelle.
-            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Seri adını değiştirerek.
+            // Serinin verilerini güncelle.
+            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Seri adını değiştiriyor.
             series.DataPoints[0].Value.Data = 90;
             series.DataPoints[1].Value.Data = 123;
             series.DataPoints[2].Value.Data = 44;
 
-            // İkinci grafik serisini al.
+            // İkinci grafik serisini alın.
             series = chart.ChartData.Series[1];
 
-            // Seri verilerini güncelle.
-            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Seri adını değiştirerek.
+            // Serinin verilerini güncelle.
+            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Seri adını değiştiriyor.
             series.DataPoints[0].Value.Data = 23;
             series.DataPoints[1].Value.Data = 67;
             series.DataPoints[2].Value.Data = 99;
@@ -1061,7 +1133,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             // Yeni bir seri ekle.
             series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), chart.Type);
 
-            // Seri verilerini doldur.
+            // Serinin verilerini doldur.
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 3, 20));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 3, 50));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 3, 30));
@@ -1075,25 +1147,29 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 }
 ```
 
-## **Grafik İçin Veri Aralığını Ayarlama**
+## **Bir Grafik İçin Veri Aralığını Ayarlama**
 
-Aspose.Slides for .NET, bir grafik için veri kaynağı olarak çalışma sayfasından belirli bir veri aralığını tanımlama esnekliği sağlar. Bu, çalışma sayfanızın yalnızca bir bölümünü grafikle eşlemenize, hangi hücrelerin seri ve kategorilere katkıda bulunduğunu kontrol etmenize olanak tanır. Sonuç olarak, grafiklerinizi en son veri değişiklikleriyle kolayca güncelleyebilir ve senkronize edebilirsiniz; böylece PowerPoint sunumlarınız güncel ve doğru bilgiler içerir.
+Aspose.Slides for .NET, bir çalışma sayfasındaki belirli bir veri aralığını, grafiğinizin veri kaynağı olarak tanımlamanıza esneklik sağlar. Bu, çalışma sayfanızın yalnızca bir bölümünü doğrudan grafiğe eşlemenize, grafiğin serileri ve kategorileri için hangi hücrelerin katkıda bulunacağını kontrol etmenize imkan tanır. Sonuç olarak, grafiğinizi çalışma sayfanızdaki en son veri değişiklikleriyle kolayca güncelleyebilir ve senkronize edebilir, PowerPoint sunumlarınızın güncel ve doğru bilgi içermesini sağlayabilirsiniz.
 
-1. Bir grafik içeren sunumu temsil eden [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfını örnekleyin.  
+1. Grafik içeren bir sunumu temsil eden [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
 1. Dizini kullanarak bir slayta referans alın.  
-1. Tüm şekiller arasında dolaşarak grafiği bulun.  
+1. Tüm şekiller arasında gezerek grafiği bulun.  
 1. Grafik verisine erişin ve aralığı ayarlayın.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.  
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.  
 
-Bu C# kodu, bir grafik için veri aralığını ayarlamayı gösterir:
+Bu C# kodu, bir grafik için veri aralığının nasıl ayarlanacağını gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
-// PPTX dosyasını temsil eden Presentation sınıfını örnekle.
+// PPTX dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // İlk slayta eriş.
+    // İlk slayta erişin.
     ISlide slide = presentation.Slides[0];
 
     foreach (IShape shape in slide.Shapes)
@@ -1108,13 +1184,17 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 }
 ```
 
-## **Grafiklerde Varsayılan İşaretçiler Kullanma**
+## **Grafiklerde Varsayılan İşaretçileri Kullanma**
 
 Grafiklerde varsayılan işaretçileri kullandığınızda, her grafik serisine otomatik olarak farklı bir varsayılan işaretçi sembolü atanır.
 
-Bu C# kodu, bir grafik serisi işaretçisini otomatik olarak ayarlamayı gösterir:
+Bu C# kodu, bir grafik serisi işaretçisinin otomatik olarak nasıl ayarlanacağını gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -1141,7 +1221,7 @@ using (Presentation presentation = new Presentation())
 
     IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "Series 2"), chart.Type);
 
-    // Serinin verilerini doldur.
+    // Seri verilerini doldur.
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 2, 30));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 2, 10));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 2, 60));
@@ -1158,16 +1238,16 @@ using (Presentation presentation = new Presentation())
 
 **Aspose.Slides for .NET hangi grafik türlerini destekliyor?**
 
-Aspose.Slides for .NET, çubuk, çizgi, pasta, alan, dağılım, histogram, radar ve daha birçok grafik türünü destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik tipini seçmenizi sağlar.
+Aspose.Slides for .NET, çubuk, çizgi, pasta, alan, dağılım, histogram, radar ve daha birçok grafik türünü destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik türünü seçmenizi sağlar.
 
 **Bir slayta yeni bir grafik nasıl eklenir?**
 
-Yeni bir grafik eklemek için önce bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfı örneği oluşturur, istenen slayta diziniyle erişir ve ardından grafik tipini ve başlangıç verilerini belirterek grafik ekleme yöntemini çağırırsınız. Bu süreç, grafiği doğrudan sunumunuza entegre eder.
+Yeni bir grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturur, istenen slaytı indeksine göre alır ve ardından grafik ekleme metodunu çağırarak grafik türünü ve başlangıç verilerini belirtirsiniz. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
 
-**Grafikte görüntülenen veriler nasıl güncellenir?**
+**Grafikte gösterilen veri nasıl güncellenir?**
 
-Grafiğin verisini, veri kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip, kendi özel verilerinizi ekleyerek güncelleyebilirsiniz. Bu sayede grafik, en son verileri yansıtacak şekilde programlı olarak yenilenir.
+Grafiğin veri çalışma kitabına ([IChartDataWorkbook](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyebilir ve kendi özel verilerinizi ekleyebilirsiniz. Böylece grafiği programlı olarak en son verileri yansıtacak şekilde yenileyebilirsiniz.
 
 **Grafiğin görünümü özelleştirilebilir mi?**
 
-Evet, Aspose.Slides for .NET kapsamlı özelleştirme seçenekleri sunar. Renkler, yazı tipleri, etiketler, açıklama kutuları ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü belirli tasarım gereksinimlerinize göre uyarlayabilirsiniz.
+Evet, Aspose.Slides for .NET kapsamlı özelleştirme seçenekleri sunar. Renkler, yazı tipleri, etiketler, lejandlar ve diğer biçimlendirme öğelerini değiştirerek grafiğin görünümünü belirli tasarım gereksinimlerinize göre uyarlayabilirsiniz.

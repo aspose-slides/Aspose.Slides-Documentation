@@ -1,5 +1,5 @@
 ---
-title: PowerPoint Sunum Grafiklerini PHP'de Oluşturma veya Güncelleme
+title: PHP'de PowerPoint Sunum Grafiklerini Oluşturma veya Güncelleme
 linktitle: Grafik Oluşturma veya Güncelleme
 type: docs
 weight: 10
@@ -10,88 +10,79 @@ keywords:
 - grafik düzenle
 - grafik değiştir
 - grafik güncelle
-- dağılımlı grafik
-- pasta grafik
-- çizgi grafik
-- ağaç haritası grafik
-- hisse senedi grafik
-- kutu ve bıyık grafik
-- huni grafik
-- güneş patlaması grafik
-- histogram grafik
-- radar grafik
-- çok kategori grafik
+- dağılım grafiği
+- pasta grafiği
+- çizgi grafiği
+- ağaç haritası grafiği
+- hisse senedi grafiği
+- kutu ve bıyık grafiği
+- huni grafiği
+- güneş patlaması grafiği
+- histogram grafiği
+- radar grafiği
+- çok kategorili grafik
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java kullanarak PowerPoint sunumlarında grafik oluşturun ve özelleştirin. Pratik kod örnekleriyle grafik ekleyin, biçimlendirin ve düzenleyin."
+description: "Aspose.Slides for PHP via Java kullanarak PowerPoint sunumlarında grafikler oluşturun ve özelleştirin. Grafik ekleyin, biçimlendirin ve pratik kod örnekleriyle düzenleyin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak grafik oluşturma ve özelleştirme üzerine kapsamlı bir kılavuz sunar. Bir grafiği slayta programlı olarak nasıl ekleyeceğinizi, verileri nasıl dolduracağınızı ve belirli tasarım gereksinimlerinize uygun biçimlendirme seçeneklerini nasıl uygulayacağınızı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmaktan seriler, eksenler ve lejandları yapılandırmaya kadar her adımı gösteren ayrıntılı kod örnekleri bulunur. Bu kılavuzu takip ederek, dinamik grafik üretimini uygulamalarınıza entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
+Bu makale, Aspose.Slides kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Programatik olarak bir slayta grafik eklemeyi, verilerle doldurmayı ve belirli tasarım gereksinimlerinize uygun çeşitli biçimlendirme seçeneklerini uygulamayı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmaktan seriler, eksenler ve açıklamalar yapılandırmaya kadar her adımı gösteren ayrıntılı kod örnekleri bulunur. Bu rehberi izleyerek, dinamik grafik üretimini uygulamalarınıza entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
 
 ## **Grafik Oluşturma**
 
-Grafikler, verileri hızla görselleştirerek içgörüler elde etmeyi sağlar; bu, bir tablo ya da elektronik tabloda hemen görülmeyebilir.
+Grafikler, verileri hızlı bir şekilde görselleştirerek, bir tablo veya elektronik tablodan hemen anlaşılmayan içgörüler elde etmeye yardımcı olur.
 
-**Grafik Oluşturmanın Nedenleri**
+**Neden Grafik Oluşturulur?**
 
-Grafikler sayesinde
+* büyük miktarda veriyi tek bir slaytta toplamak, sıkıştırmak veya özetlemek  
+* verideki desenleri ve eğilimleri ortaya çıkarmak  
+* verinin zaman içindeki yönünü ve ivmesini veya belirli bir ölçüm birimine göre tahmin etmek  
+* aykırı değerleri, sapmaları, hataları, mantıksız verileri vb. tespit etmek  
+* karmaşık verileri iletmek veya sunmak  
 
-* büyük miktarda veriyi tek bir slaytta toplar, özetler veya sıkıştırırsınız
-* veri içinde desen ve eğilimleri ortaya çıkarırsınız
-* zaman içinde ya da belirli bir ölçü birimi bağlamında verinin yönünü ve ivmesini tahmin edersiniz
-* aykırı değerleri, sapmaları, hataları, mantıksız verileri vb. tespit edersiniz
-* karmaşık verileri iletişim kurmak ya da sunmak için kullanırsınız
+PowerPoint'te, *Insert* (Ekle) işleviyle birçok grafik türü için şablonlar sunan grafikler oluşturabilirsiniz. Aspose.Slides kullanarak hem standart grafikler (popüler grafik türlerine dayalı) hem de özel grafikler oluşturabilirsiniz.
 
-PowerPoint’te, birçok grafik türünü tasarlamak için şablonlar sağlayan ekle işleviyle grafik oluşturabilirsiniz. Aspose.Slides ile popüler grafik türlerine dayalı normal grafikler ve özel grafikler oluşturabilirsiniz.
+{{% alert color="info" title="Note" %}}
+Grafik oluşturmak için [ChartType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/) sınıfını kullanın. Bu sınıftaki alanlar farklı grafik türlerine karşılık gelir.
+{{% /alert %}}
 
-{{% alert color="primary" %}} 
+### **Kümelenmiş Sütun Grafikleri Oluşturma**
 
-Grafik oluşturmanıza olanak sağlamak için Aspose.Slides, [ChartType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ChartType) sınıfını sunar. Bu sınıfın alanları farklı grafik türlerine karşılık gelir.
+Bu bölüm, Aspose.Slides kullanarak kümelenmiş sütun grafikleri oluşturmayı açıklar. Bir sunumu başlatmayı, bir grafik eklemeyi ve başlık, veri, seri, kategoriler ve stil gibi öğeleri özelleştirmeyi öğreneceksiniz. Aşağıdaki adımları izleyerek standart bir kümelenmiş sütun grafiğinin nasıl oluşturulduğunu görebilirsiniz:
 
-{{% /alert %}} 
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation) sınıfı örneği oluşturun.  
+2. İndeksini kullanarak bir slayta referans alın.  
+3. Biraz veri içeren bir grafik ekleyin ve `ChartType::ClusteredColumn` türünü belirtin.  
+4. Grafiğe bir başlık ekleyin.  
+5. Grafiğin veri çalışma sayfasına erişin.  
+6. Varsayılan tüm serileri ve kategorileri temizleyin.  
+7. Yeni seriler ve kategoriler ekleyin.  
+8. Grafik serileri için yeni veri ekleyin.  
+9. Grafik serisine dolgu rengi uygulayın.  
+10. Grafik serisine etiketler ekleyin.  
+11. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-### **Normal Grafikler Oluşturma**
-
-_Adımlar: Grafik Oluştur_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Adımlar:</em> PowerPoint Grafik Oluştur </strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Adımlar:</em> Sunum Grafiği Oluştur </strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Adımlar:</em> PowerPoint Sunum Grafiği Oluştur </strong></a>
-
-_Kod Adımları:_
-
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaydın referansını indeks üzerinden alın.
-3. Veri ekleyerek ve tercih ettiğiniz grafik türünü belirterek bir grafik ekleyin. 
-4. Grafik için bir başlık ekleyin. 
-5. Grafik veri çalışma sayfasına erişin.
-6. Varsayılan tüm serileri ve kategorileri temizleyin.
-7. Yeni seriler ve kategoriler ekleyin.
-8. Grafik serileri için yeni veri ekleyin.
-9. Grafik serileri için dolgu rengi ekleyin.
-10. Grafik serileri için etiketler ekleyin. 
-11. Değiştirilmiş sunumu PPTX dosyası olarak yazın.
-
-Bu PHP kodu, normal bir grafik oluşturmayı gösterir:
+Bu C# kodu, bir kümelenmiş sütun grafiği oluşturmayı gösterir:
 
 ```php
-  # PPTX dosyasını temsil eden bir sunum sınıfını örnekler
+  # Bir PPTX dosyasını temsil eden sunum sınıfını örnekler
   $pres = new Presentation();
   try {
     # İlk slayta erişir
     $sld = $pres->getSlides()->get_Item(0);
     # Varsayılan verileriyle bir grafik ekler
     $chart = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 0, 0, 500, 500);
-    # Grafiğin başlığını ayarlar
+    # Grafik başlığını ayarlar
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->hasTitle();
     # İlk seriyi değerleri gösterecek şekilde ayarlar
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Grafik veri sayfası için indeksi ayarlar
+    # Grafik veri sayfası için indeks ayarlar
     $defaultWorksheetIndex = 0;
     # Grafik veri çalışma sayfasını alır
     $fact = $chart->getChartData()->getChartDataWorkbook();
@@ -113,7 +104,7 @@ Bu PHP kodu, normal bir grafik oluşturmayı gösterir:
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # Seri için dolgu rengi ayarlar
+    # Seri için dolgu rengini ayarlar
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     # İkinci grafik serisini alır
@@ -122,7 +113,7 @@ Bu PHP kodu, normal bir grafik oluşturmayı gösterir:
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    # Seri için dolgu rengi ayarlar
+    # Seri için dolgu rengini ayarlar
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     # Yeni seri için her kategoriye özel etiketler oluşturur
@@ -145,32 +136,29 @@ Bu PHP kodu, normal bir grafik oluşturmayı gösterir:
   }
 ```
 
-### **Dağılımlı Grafikler Oluşturma**
-Dağılımlı grafikler (scatter plot ya da x‑y grafiği olarak da bilinir) genellikle iki değişken arasındaki desenleri kontrol etmek veya korelasyonları göstermek için kullanılır.
+### **Dağılım Grafikleri Oluşturma**
 
-Aşağıdaki durumlarda dağılımlı grafik kullanmak isteyebilirsiniz
+Dağılım grafikleri (dağılım çizimleri veya x-y grafikleri olarak da bilinir) genellikle iki değişken arasındaki desenleri kontrol etmek veya korelasyonları göstermek için kullanılır.
 
-* eşleştirilmiş sayısal verileriniz varsa
-* birlikte iyi eşleşen iki değişkeniniz varsa
-* iki değişkenin ilişkili olup olmadığını belirlemek istiyorsanız
-* bağımsız bir değişkenin bağımlı bir değişken için birden çok değeri varsa
+Dağılım grafiği aşağıdaki durumlarda kullanılır:
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Adımlar:</em> Dağılımlı Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Adımlar:</em> PowerPoint Dağılımlı Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Adımlar:</em> PowerPoint Sunum Dağılımlı Grafik Oluştur </strong></a>
+* eşleşmiş sayısal verileriniz varsa  
+* birlikte iyi eşleşen iki değişkeniniz varsa  
+* iki değişkenin ilişkili olup olmadığını belirlemek istiyorsanız  
+* bağımlı bir değişken için birden fazla değere sahip bağımsız bir değişkeniniz varsa  
 
-1. Yukarıda **[Normal Grafikler Oluşturma](#creating-normal-charts)** bölümünde verilen adımları izleyin
-2. Üçüncü adımda, bir grafik ekleyin ve grafik türünü aşağıdakilerden biri olarak belirleyin
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Dağılımlı Grafiği Temsil eder._
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Eğrilerle bağlanan ve veri işaretçileri içeren Dağılımlı Grafiği Temsil eder._
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Eğrilerle bağlanan, veri işaretçileri olmayan Dağılımlı Grafiği Temsil eder._
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Çizgilerle bağlanan ve veri işaretçileri içeren Dağılımlı Grafiği Temsil eder._
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Çizgilerle bağlanan, veri işaretçileri olmayan Dağılımlı Grafiği Temsil eder._
+1. [Create Clustered Column Charts](#create-clustered-column-charts) bölümündeki adımları izleyin.  
+2. Üçüncü adım için, bazı veriler içeren bir grafik ekleyin ve grafik türünüzü aşağıdakilerden biri olarak belirtin:  
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Dağılım grafiğini temsil eder._  
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Veri işaretçileriyle eğimli çizgilerle bağlanmış bir dağılım grafiğini temsil eder._  
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Veri işaretçileri olmadan eğimli çizgilerle bağlanmış bir dağılım grafiğini temsil eder._  
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Veri işaretçileriyle düz çizgilerle bağlanmış bir dağılım grafiğini temsil eder._  
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Veri işaretçileri olmadan düz çizgilerle bağlanmış bir dağılım grafiğini temsil eder._
 
-Bu PHP kodu, farklı işaretçi serileriyle bir dağılımlı grafik oluşturmayı gösterir:
+Bu PHP kodu, her seri için farklı işaretçilerle bir dağılım grafiği oluşturmayı gösterir:
 
 ```php
-  # PPTX dosyasını temsil eden bir sunum sınıfını örnekler
+  # Bir PPTX dosyasını temsil eden sunum sınıfını örnekler
   $pres = new Presentation();
   try {
     # İlk slayta erişir
@@ -194,12 +182,12 @@ Bu PHP kodu, farklı işaretçi serileriyle bir dağılımlı grafik oluşturmay
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 2), $fact->getCell($defaultWorksheetIndex, 3, 2, 10));
     # Seri tipini değiştirir
     $series->setType(ChartType::ScatterWithStraightLinesAndMarkers);
-    # Grafik serisi işaretçisini değiştirir
+    # Grafik seri işaretçisini değiştirir
     $series->getMarker()->setSize(10);
     $series->getMarker()->setSymbol(MarkerStyleType::Star);
     # İkinci grafik serisini alır
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Orada yeni bir nokta (5:2) ekler
+    # Oraya yeni bir nokta (5:2) ekler
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 5), $fact->getCell($defaultWorksheetIndex, 2, 4, 2));
     # Yeni bir nokta (3:1) ekler
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 3), $fact->getCell($defaultWorksheetIndex, 3, 4, 1));
@@ -207,7 +195,7 @@ Bu PHP kodu, farklı işaretçi serileriyle bir dağılımlı grafik oluşturmay
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 4, 3, 2), $fact->getCell($defaultWorksheetIndex, 4, 4, 2));
     # Yeni bir nokta (5:1) ekler
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 5, 3, 5), $fact->getCell($defaultWorksheetIndex, 5, 4, 1));
-    # Grafik serisi işaretçisini değiştirir
+    # Grafik seri işaretçisini değiştirir
     $series->getMarker()->setSize(10);
     $series->getMarker()->setSymbol(MarkerStyleType::Circle);
     $pres->save("AsposeChart_out.pptx", SaveFormat::Pptx);
@@ -218,38 +206,34 @@ Bu PHP kodu, farklı işaretçi serileriyle bir dağılımlı grafik oluşturmay
   }
 ```
 
-### **Pasta Grafikler Oluşturma**
+### **Pasta Grafiklerini Oluşturma**
 
-Pasta grafikler, özellikle veri kategorik etiketler ve sayısal değerler içerdiğinde, parçanın bütünle ilişkisini göstermek için en uygunudur. Ancak veriniz çok sayıda parça ya da etiket içeriyorsa, bunun yerine çubuk grafik kullanmayı düşünebilirsiniz.
+Pasta grafikleri, özellikle sayısal değerlere sahip kategorik etiketler içeren verilerde, parça‑bütün ilişkisini göstermek için en iyisidir. Ancak verinizde çok sayıda parça veya etiket varsa, bir çubuk grafik kullanmayı düşünebilirsiniz.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Adımlar:</em> Pasta Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Adımlar:</em> PowerPoint Pasta Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Adımlar:</em> PowerPoint Sunum Pasta Grafik Oluştur </strong></a>
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı örneği oluşturun.  
+2. İndeksini kullanarak bir slayta referans alın.  
+3. Varsayılan verilerle bir grafik ekleyin ve [ChartType::Pie](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#Pie) türünü belirtin.  
+4. Grafik veri çalışma kitabına [ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/) erişin.  
+5. Varsayılan serileri ve kategorileri temizleyin.  
+6. Yeni seriler ve kategoriler ekleyin.  
+7. Grafik serileri için yeni veri ekleyin.  
+8. Grafiğe yeni noktalar ekleyin ve pasta dilimlerine özel renkler uygulayın.  
+9. Seriler için etiketler ayarlayın.  
+10. Seri etiketleri için gösterge hatlarını etkinleştirin.  
+11. Pasta dilimlerinin dönüş açısını ayarlayın.  
+12. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaydın referansını indeks üzerinden alın.
-3. İstenen tür (bu durumda [ChartType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ChartType).Pie) ile varsayılan veri ekleyerek bir grafik ekleyin.
-4. [ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/) nesnesine erişin.
-5. Varsayılan serileri ve kategorileri temizleyin.
-6. Yeni seriler ve kategoriler ekleyin.
-7. Grafik serileri için yeni veri ekleyin.
-8. Pasta dilimlerine özel renkler ekleyerek yeni noktalar ekleyin.
-9. Seriler için etiketler ayarlayın.
-10. Seri etiketleri için lider çizgileri ayarlayın.
-11. Pasta grafik slaytları için döndürme açısını ayarlayın.
-12. Değiştirilmiş sunumu PPTX dosyasına yazın.
-
-Bu PHP kodu, bir pasta grafik oluşturmayı gösterir:
+Bu PHP kodu, bir pasta grafiği oluşturmayı gösterir:
 
 ```php
-  # PPTX dosyasını temsil eden bir sunum sınıfını örnekler
+  # Bir PPTX dosyasını temsil eden sunum sınıfını örnekler
   $pres = new Presentation();
   try {
     # İlk slayta erişir
     $slides = $pres->getSlides()->get_Item(0);
-    # Varsayılan veri ile bir grafik ekler
+    # Varsayılan verilerle bir grafik ekler
     $chart = $slides->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
-    # Grafiğin başlığını ayarlar
+    # Grafik başlığını ayarlar
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
@@ -267,14 +251,14 @@ Bu PHP kodu, bir pasta grafik oluşturmayı gösterir:
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "First Qtr"));
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "2nd Qtr"));
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
-    # Yeni seri ekler
+    # Yeni seriler ekler
     $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
     # Seri verilerini doldurur
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
     # Yeni sürümde çalışmıyor
-    # Yeni noktalar ekleyerek dilim rengini ayarlar
+    # Yeni noktalar ekliyor ve dilim renklerini ayarlıyor
     # series.IsColorVaried = true;
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
     $point = $series->getDataPoints()->get_Item(0);
@@ -315,9 +299,9 @@ Bu PHP kodu, bir pasta grafik oluşturmayı gösterir:
     $lbl3 = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl3->getDataLabelFormat()->setShowSeriesName(true);
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
-    # Grafik için lider çizgileri gösterir
+    # Grafik için Lider Çizgileri gösterir
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
-    # Pasta grafik dilimleri için döndürme açısını ayarlar
+    # Pasta Grafik Dilimlerinin Döndürme Açısını ayarlar
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
     # Grafikli sunumu kaydeder
     $pres->save("PieChart_out.pptx", SaveFormat::Pptx);
@@ -328,20 +312,20 @@ Bu PHP kodu, bir pasta grafik oluşturmayı gösterir:
   }
 ```
 
-### **Çizgi Grafikler Oluşturma**
+### **Çizgi Grafiklerini Oluşturma**
 
-Çizgi grafikler (çizgi grafiği olarak da bilinir), değerlerin zaman içindeki değişimini göstermek istediğiniz durumlarda en uygunudur. Çizgi grafiği kullanarak çok sayıda veriyi aynı anda karşılaştırabilir, zaman içinde değişim ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilirsiniz.
+Çizgi grafikleri (çizgi grafikleri olarak da bilinir), zaman içinde değer değişikliklerini göstermek istediğiniz durumlarda en iyisidir. Bir çizgi grafiği kullanarak, büyük miktarda veriyi bir arada karşılaştırabilir, zaman içindeki değişimleri ve trendleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilirsiniz.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-1. Bir slaydın referansını indeks üzerinden alın.
-1. İstenen tür (`ChartType::Line`) ile varsayılan veri ekleyerek bir grafik ekleyin.
-1. IChartDataWorkbook nesnesine erişin.
-1. Varsayılan serileri ve kategorileri temizleyin.
-1. Yeni seriler ve kategoriler ekleyin.
-1. Grafik serileri için yeni veri ekleyin.
-1. Değiştirilmiş sunumu PPTX dosyasına yazın
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı örneği oluşturun.  
+1. İndeksini kullanarak bir slayta referans alın.  
+1. Varsayılan verilerle bir grafik ekleyin ve [ChartType::Line](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#Line) türünü belirtin.  
+1. Grafik veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/)) erişin.  
+1. Varsayılan serileri ve kategorileri temizleyin.  
+1. Yeni seriler ve kategoriler ekleyin.  
+1. Grafik serileri için yeni veri ekleyin.  
+1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu PHP kodu, bir çizgi grafik oluşturmayı gösterir:
+Bu PHP kodu, bir çizgi grafiği oluşturmayı gösterir:
 
 ```php
   $pres = new Presentation();
@@ -355,33 +339,38 @@ Bu PHP kodu, bir çizgi grafik oluşturmayı gösterir:
   }
 ```
 
-Varsayılan olarak, çizgi grafik üzerindeki noktalar düz sürekli çizgilerle bağlanır. Noktaların kesikli çizgilerle bağlanmasını istiyorsanız, tercih ettiğiniz kesik tipi aşağıdaki şekilde belirtebilirsiniz:
+Varsayılan olarak, bir çizgi grafiğindeki noktalar düz kesintisiz çizgilerle birleştirilir. Noktaların tireli çizgilerle birleştirilmesini isterseniz, tercih ettiğiniz tire türünü aşağıdaki gibi belirtebilirsiniz:
 
 ```php
-  $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
-  foreach($lineChart->getChartData()->getSeries() as $series) {
-    $series->getFormat()->getLine()->setDashStyle(LineDashStyle->Dash);
+  $pres = new Presentation();
+  try {
+    $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
+    $seriesCollection = $lineChart->getChartData()->getSeries();
+    foreach ($seriesCollection as $series) {
+      $series->getFormat()->getLine()->setDashStyle(LineDashStyle::Dash);
+    }
+    $pres->save("lineChart.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
   }
 ```
 
-### **Ağaç Haritası Grafikler Oluşturma**
+### **Ağaç Haritası Grafiklerini Oluşturma**
 
-Ağaç haritası grafikler, her bir kategori içindeki büyük katkı sağlayan öğelere hızlıca dikkat çekmek ve veri kategorilerinin göreceli boyutlarını göstermek istediğiniz satış verileri için en uygundur. 
+Ağaç haritası grafikleri, her kategori içinde büyük katkı sağlayan öğelere hızlıca dikkat çekmek istediğiniz satış verileri için en uygunudur.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Adımlar:</em> Ağaç Haritası Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Adımlar:</em> PowerPoint Ağaç Haritası Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Adımlar:</em> PowerPoint Sunum Ağaç Haritası Grafik Oluştur </strong></a>
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı örneği oluşturun.  
+2. İndeksini kullanarak bir slayta referans alın.  
+3. Varsayılan verilerle bir grafik ekleyin ve [ChartType::Treemap](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#Treemap) türünü belirtin.  
+4. Grafik veri çalışma kitabına [ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/) erişin.  
+5. Varsayılan serileri ve kategorileri temizleyin.  
+6. Yeni seriler ve kategoriler ekleyin.  
+7. Grafik serileri için yeni veri ekleyin.  
+8. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaydın referansını indeks üzerinden alın.
-3. İstenen tür (bu durumda [ChartType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ChartType).TreeMap) ile varsayılan veri ekleyerek bir grafik ekleyin.
-4. [ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/) nesnesine erişin.
-5. Varsayılan serileri ve kategorileri temizleyin.
-6. Yeni seriler ve kategoriler ekleyin.
-7. Grafik serileri için yeni veri ekleyin.
-8. Değiştirilmiş sunumu PPTX dosyasına yazın
-
-Bu PHP kodu, bir ağaç haritası grafik oluşturmayı gösterir:
+Bu PHP kodu, bir ağaç haritası grafiği oluşturmayı gösterir:
 
 ```php
   $pres = new Presentation();
@@ -426,23 +415,19 @@ Bu PHP kodu, bir ağaç haritası grafik oluşturmayı gösterir:
   }
 ```
 
-### **Hisse Senedi Grafikleri Oluşturma**
+### **Hisse Senedi Grafiklerini Oluşturma**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Adımlar:</em> Hisse Senedi Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Adımlar:</em> PowerPoint Hisse Senedi Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Adımlar:</em> PowerPoint Sunum Hisse Senedi Grafik Oluştur </strong></a>
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı örneği oluşturun.  
+2. İndeksini kullanarak bir slayta referans alın.  
+3. Varsayılan verilerle bir grafik ekleyin ve [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#OpenHighLowClose) türünü belirtin.  
+4. Grafik veri çalışma kitabına [ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/) erişin.  
+5. Varsayılan serileri ve kategorileri temizleyin.  
+6. Yeni seriler ve kategoriler ekleyin.  
+7. Grafik serileri için yeni veri ekleyin.  
+8. Yüksek-düşük çizgi biçimini belirtin.  
+9. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaydın referansını indeks üzerinden alın.
-3. İstenen tür ([ChartType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ChartType).OpenHighLowClose) ile varsayılan veri ekleyerek bir grafik ekleyin.
-4. [ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/) nesnesine erişin.
-5. Varsayılan serileri ve kategorileri temizleyin.
-6. Yeni seriler ve kategoriler ekleyin.
-7. Grafik serileri için yeni veri ekleyin.
-8. HiLowLines biçimini belirleyin.
-9. Değiştirilmiş sunumu PPTX dosyasına yazın
-
-Bir hisse senedi grafik oluşturmak için kullanılan örnek PHP kodu:
+Bu PHP kodu, bir hisse senedi grafiği oluşturmayı gösterir:
 
 ```php
   $pres = new Presentation();
@@ -476,7 +461,8 @@ Bir hisse senedi grafik oluşturmak için kullanılan örnek PHP kodu:
     $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 4, 50));
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    foreach($chart->getChartData()->getSeries() as $ser) {
+    $seriesCollection = $chart->getChartData()->getSeries();
+    foreach ($seriesCollection as $ser) {
       $ser->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     }
     $pres->save("output.pptx", SaveFormat::Pptx);
@@ -487,22 +473,18 @@ Bir hisse senedi grafik oluşturmak için kullanılan örnek PHP kodu:
   }
 ```
 
-### **Kutu ve Bıyık Grafikleri Oluşturma**
+### **Kutu ve Bıyık Grafiklerini Oluşturma**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Adımlar:</em> Kutu ve Bıyık Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Adımlar:</em> PowerPoint Kutu ve Bıyık Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Adımlar:</em> PowerPoint Sunum Kutu ve Bıyık Grafik Oluştur </strong></a>
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı örneği oluşturun.  
+2. İndeksini kullanarak bir slayta referans alın.  
+3. Varsayılan verilerle bir grafik ekleyin ve [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#BoxAndWhisker) türünü belirtin.  
+4. Grafik veri çalışma kitabına [ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/) erişin.  
+5. Varsayılan serileri ve kategorileri temizleyin.  
+6. Yeni seriler ve kategoriler ekleyin.  
+7. Grafik serileri için yeni veri ekleyin.  
+8. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaydın referansını indeks üzerinden alın.
-3. İstenen tür ([ChartType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ChartType).BoxAndWhisker) ile varsayılan veri ekleyerek bir grafik ekleyin.
-4. [ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/) nesnesine erişin.
-5. Varsayılan serileri ve kategorileri temizleyin.
-6. Yeni seriler ve kategoriler ekleyin.
-7. Grafik serileri için yeni veri ekleyin.
-8. Değiştirilmiş sunumu PPTX dosyasına yazın
-
-Bu PHP kodu, bir kutu ve bıyık grafik oluşturmayı gösterir:
+Bu PHP kodu, bir kutu ve bıyık grafiği oluşturmayı gösterir:
 
 ```php
   $pres = new Presentation();
@@ -538,18 +520,14 @@ Bu PHP kodu, bir kutu ve bıyık grafik oluşturmayı gösterir:
   }
 ```
 
-### **Huni Grafikleri Oluşturma**
+### **Huni Grafiklerini Oluşturma**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Adımlar:</em> Huni Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Adımlar:</em> PowerPoint Huni Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Adımlar:</em> PowerPoint Sunum Huni Grafik Oluştur </strong></a>
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı örneği oluşturun.  
+2. İndeksini kullanarak bir slayta referans alın.  
+3. Varsayılan verilerle bir grafik ekleyin ve [ChartType::Funnel](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#Funnel) türünü belirtin.  
+4. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaydın referansını indeks üzerinden alın.
-3. İstenen tür ([ChartType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ChartType).Funnel) ile varsayılan veri ekleyerek bir grafik ekleyin.
-4. Değiştirilmiş sunumu PPTX dosyasına yazın
-
-PHP kodu, bir huni grafik oluşturmayı gösterir:
+Bu PHP kodu, bir huni grafiği oluşturmayı gösterir:
 
 ```php
   $pres = new Presentation();
@@ -580,18 +558,14 @@ PHP kodu, bir huni grafik oluşturmayı gösterir:
   }
 ```
 
-### **Güneş Patlaması Grafikleri Oluşturma**
+### **Güneş Patlaması Grafiklerini Oluşturma**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Adımlar:</em> Güneş Patlaması Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Adımlar:</em> PowerPoint Güneş Patlaması Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Adımlar:</em> PowerPoint Sunum Güneş Patlaması Grafik Oluştur </strong></a>
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı örneği oluşturun.  
+2. İndeksini kullanarak bir slayta referans alın.  
+3. Varsayılan verilerle bir grafik ekleyin ve [ChartType::Sunburst](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#Sunburst) türünü belirtin.  
+4. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaydın referansını indeks üzerinden alın.
-3. İstenen tür (bu durumda [ChartType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ChartType).sunburst) ile varsayılan veri ekleyerek bir grafik ekleyin.
-4. Değiştirilmiş sunumu PPTX dosyasına yazın
-
-Bu PHP kodu, bir güneş patlaması grafik oluşturmayı gösterir:
+Bu PHP kodu, bir güneş patlaması grafiği oluşturmayı gösterir:
 
 ```php
   $pres = new Presentation();
@@ -635,21 +609,17 @@ Bu PHP kodu, bir güneş patlaması grafik oluşturmayı gösterir:
   }
 ```
 
-### **Histogram Grafikleri Oluşturma**
+### **Histogram Grafiklerini Oluşturma**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Adımlar:</em> Histogram Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Adımlar:</em> PowerPoint Histogram Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Adımlar:</em> PowerPoint Sunum Histogram Grafik Oluştur </strong></a>
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı örneği oluşturun.  
+2. İndeksini kullanarak bir slayta referans alın.  
+3. Varsayılan verilerle bir grafik ekleyin ve [ChartType::Histogram](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#Histogram) türünü belirtin.  
+4. Grafik veri çalışma kitabına [ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/) erişin.  
+5. Varsayılan serileri ve kategorileri temizleyin.  
+6. Yeni seriler ve kategoriler ekleyin.  
+7. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaydın referansını indeks üzerinden alın.
-3. İstenen tür ([ChartType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ChartType).Histogram) ile varsayılan veri ekleyerek bir grafik ekleyin.
-4. [ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/) nesnesine erişin.
-5. Varsayılan serileri ve kategorileri temizleyin.
-6. Yeni seriler ve kategoriler ekleyin.
-7. Değiştirilmiş sunumu PPTX dosyasına yazın
-
-Bu PHP kodu, bir histogram grafik oluşturmayı gösterir:
+Bu PHP kodu, bir histogram grafiği oluşturmayı gösterir:
 
 ```php
   $pres = new Presentation();
@@ -668,18 +638,14 @@ Bu PHP kodu, bir histogram grafik oluşturmayı gösterir:
   $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
 ```
 
-### **Radar Grafikleri Oluşturma**
+### **Radar Grafiklerini Oluşturma**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Adımlar:</em> Radar Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Adımlar:</em> PowerPoint Radar Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Adımlar:</em> PowerPoint Sunum Radar Grafik Oluştur </strong></a>
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı örneği oluşturun.  
+2. İndeksini kullanarak bir slayta referans alın.  
+3. Bazı verilerle bir grafik ekleyin ve bu durumda tercih ettiğiniz grafik türünü [ChartType::Radar](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#Radar) olarak belirtin.  
+4. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaydın referansını indeks üzerinden alın. 
-3. Bir grafik ekleyin ve tercih ettiğiniz grafik türünü (`ChartType::Radar`) belirtin.
-4. Değiştirilmiş sunumu PPTX dosyasına yazın
-
-Bu PHP kodu, bir radar grafik oluşturmayı gösterir:
+Bu PHP kodu, bir radar grafiği oluşturmayı gösterir:
 
 ```php
   $pres = new Presentation();
@@ -693,22 +659,18 @@ Bu PHP kodu, bir radar grafik oluşturmayı gösterir:
   }
 ```
 
-### **Çok Kategori Grafikler Oluşturma**
+### **Çok Kategorili Grafikler Oluşturma**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Adımlar:</em> Çok Kategori Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Adımlar:</em> PowerPoint Çok Kategori Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Adımlar:</em> PowerPoint Sunum Çok Kategori Grafik Oluştur </strong></a>
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı örneği oluşturun.  
+2. İndeksini kullanarak bir slayta referans alın.  
+3. Varsayılan verilerle bir grafik ekleyin ve [ChartType::ClusteredColumn](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/#ClusteredColumn) türünü belirtin.  
+4. Grafik veri çalışma kitabına [ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/) erişin.  
+5. Varsayılan serileri ve kategorileri temizleyin.  
+6. Yeni seriler ve kategoriler ekleyin.  
+7. Grafik serileri için yeni veri ekleyin.  
+8. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaydın referansını indeks üzerinden alın. 
-3. İstenen tür ([ChartType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ChartType).ClusteredColumn) ile varsayılan veri ekleyerek bir grafik ekleyin.
-4. [ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/) nesnesine erişin.
-5. Varsayılan serileri ve kategorileri temizleyin.
-6. Yeni seriler ve kategoriler ekleyin.
-7. Grafik serileri için yeni veri ekleyin.
-8. Değiştirilmiş sunumu PPTX dosyasına yazın.
-
-Bu PHP kodu, bir çok kategori grafik oluşturmayı gösterir:
+Bu PHP kodu, çok kategorili bir grafik oluşturmayı gösterir:
 
 ```php
   $pres = new Presentation();
@@ -750,15 +712,11 @@ Bu PHP kodu, bir çok kategori grafik oluşturmayı gösterir:
   }
 ```
 
-### **Harita Grafikler Oluşturma**
+### **Harita Grafiklerini Oluşturma**
 
-Harita grafiği, veri içeren bir alanın görselleştirilmesidir. Harita grafikler, coğrafi bölgeler arasında veri veya değerleri karşılaştırmak için en uygunudur.
+Harita grafikleri coğrafi verileri görselleştirir ve bölgeler arasındaki değerleri karşılaştırmaya yardımcı olur.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Adımlar:</em> Harita Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Adımlar:</em> PowerPoint Harita Grafik Oluştur </strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Adımlar:</em> PowerPoint Sunum Harita Grafik Oluştur </strong></a>
-
-Bu PHP kodu, bir harita grafik oluşturmayı gösterir:
+Bu PHP kodu, bir harita grafiği oluşturmayı gösterir:
 
 ```php
   $pres = new Presentation();
@@ -772,11 +730,11 @@ Bu PHP kodu, bir harita grafik oluşturmayı gösterir:
   }
 ```
 
-### **Kombinasyon Grafikler Oluşturma**
+### **Kombinasyon Grafiklerini Oluşturma**
 
-Kombinasyon grafiği (veya combo grafiği), tek bir grafikte iki veya daha fazla grafik türünü birleştirir. Bu grafik, iki ya da daha fazla veri kümesi arasındaki farkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır ve bunlar arasındaki ilişkileri tanımlamanıza yardımcı olur.
+Kombinasyon grafiği (veya combo grafiği), tek bir grafikte iki veya daha fazla grafik türünü birleştirir. Bu grafik, iki veya daha fazla veri kümesi arasındaki farkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır ve ilişkileri tanımlamanıza yardımcı olur.
 
-![The combination chart](combination_chart.png)
+![Kombinasyon grafiği](combination_chart.png)
 
 Aşağıdaki PHP kodu, yukarıda gösterilen kombinasyon grafiğini bir PowerPoint sunumunda oluşturmayı gösterir:
 
@@ -802,7 +760,7 @@ function createComboChart() {
 function createChartWithFirstSeries($slide) {
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
 
-    // Grafiğin başlığını ayarla.
+    // Grafik başlığını ayarlar.
     $chart->setTitle(true);
     $chart->getChartTitle()->addTextFrameForOverriding("Chart Title");
     $chart->getChartTitle()->setOverlay(false);
@@ -811,24 +769,24 @@ function createChartWithFirstSeries($slide) {
     $titleFormat->setFontBold(NullableBool::False);
     $titleFormat->setFontHeight(18);
     
-    // Grafiğin lejandını ayarla.
+    // Grafik açıklamasını ayarlar.
     $chart->getLegend()->setPosition(LegendPositionType::Bottom);
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(12);
 
-    // Varsayılan oluşturulan serileri ve kategorileri sil.
+    // Varsayılan oluşturulan serileri ve kategorileri siler.
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
 
     $worksheetIndex = 0;
     $workbook = $chart->getChartData()->getChartDataWorkbook();
 
-    // Yeni kategoriler ekle.
+    // Yeni kategoriler ekler.
     $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 1, 0, "Category 1"));
     $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 2, 0, "Category 2"));
     $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 3, 0, "Category 3"));
     $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 4, 0, "Category 4"));
 
-    // İlk seriyi ekle.
+    // İlk seriyi ekler.
     $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Series 1");
     $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
 
@@ -875,28 +833,28 @@ function addThirdSeriesToChart($chart) {
 }
 
 function setPrimaryAxesFormat($chart) {
-    // Yatay ekseni ayarla.
+    // Yatay ekseni ayarlar.
     $horizontalAxis = $chart->getAxes()->getHorizontalAxis();
     $horizontalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $horizontalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
     setAxisTitle($horizontalAxis, "X Axis");
 
-    // Dikey ekseni ayarla.
+    // Dikey ekseni ayarlar.
     $verticalAxis = $chart->getAxes()->getVerticalAxis();
     $verticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $verticalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
     setAxisTitle($verticalAxis, "Y Axis 1");
 
-    // Dikey ana ızgara çizgileri rengini ayarla.
+    // Dikey ana ızgara çizgilerinin rengini ayarlar.
     $majorGridLinesFormat = $verticalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat();
     $majorGridLinesFormat->setFillType(FillType::Solid);
     $majorGridLinesFormat->getSolidFillColor()->setColor(new java("java.awt.Color", 217, 217, 217));
 }
 
 function setSecondaryAxesFormat($chart) {
-    // İkincil yatay ekseni ayarla.
+    // İkincil yatay ekseni ayarlar.
     $secondaryHorizontalAxis = $chart->getAxes()->getSecondaryHorizontalAxis();
     $secondaryHorizontalAxis->setPosition(AxisPositionType::Bottom);
     $secondaryHorizontalAxis->setCrossType(CrossesType::Maximum);
@@ -904,7 +862,7 @@ function setSecondaryAxesFormat($chart) {
     $secondaryHorizontalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     $secondaryHorizontalAxis->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
-    // İkincil dikey ekseni ayarla.
+    // İkincil dikey ekseni ayarlar.
     $secondaryVerticalAxis = $chart->getAxes()->getSecondaryVerticalAxis();
     $secondaryVerticalAxis->setPosition(AxisPositionType::Right);
     $secondaryVerticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
@@ -927,19 +885,15 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **Grafikleri Güncelleme**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Adımlar:</em> PowerPoint Grafiğini Güncelle </strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Adımlar:</em> Sunum Grafiğini Güncelle </strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Adımlar:</em> PowerPoint Sunum Grafiğini Güncelle </strong></a>
+1. Grafik içeren sunumu temsil eden bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) örneği oluşturun.  
+2. İndeksini kullanarak bir slayta referans alın.  
+3. İstenen grafiği bulmak için tüm şekillerde dolaşın.  
+4. Grafik veri çalışma sayfasına erişin.  
+5. Seri değerlerini değiştirerek grafik veri serisini düzenleyin.  
+6. Yeni bir seri ekleyin ve verilerini doldurun.  
+7. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-1. Güncellemek istediğiniz grafiği içeren sunumu temsil eden bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfı örneği oluşturun.
-2. Index kullanarak bir slaydın referansını alın.
-3. Tüm şekilleri dolaşarak istenen grafiği bulun.
-4. Grafik veri çalışma sayfasına erişin.
-5. Seri değerlerini değiştirerek grafik veri serisini düzenleyin.
-6. Yeni bir seri ekleyin ve verileri doldurun.
-7. Değiştirilmiş sunumu PPTX dosyası olarak yazın.
-
-Bu PHP kodu, bir grafiği nasıl güncelleyeceğinizi gösterir:
+Bu PHP kodu, bir grafiği güncellemeyi gösterir:
 
 ```php
   $pres = new Presentation();
@@ -948,34 +902,34 @@ Bu PHP kodu, bir grafiği nasıl güncelleyeceğinizi gösterir:
     $sld = $pres->getSlides()->get_Item(0);
     # Varsayılan verilerle grafiği al
     $chart = $sld->getShapes()->get_Item(0);
-    # Grafik veri sayfasının indeksini ayarlama
+    # Grafik veri sayfasının indeksini ayarla
     $defaultWorksheetIndex = 0;
-    # Grafik veri çalışma sayfasını alıyor
+    # Grafik veri çalışma sayfasını al
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # Grafik kategori adını değiştir
     $fact->getCell($defaultWorksheetIndex, 1, 0, "Modified Category 1");
     $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
     # İlk grafik serisini al
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Şimdi seri verilerini güncelliyor
-    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Seri adını değiştiriyor
+    # Şimdi seri verilerini güncelle
+    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Serinin adını değiştiriyor
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(44);
     # İkinci grafik serisini al
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Şimdi seri verilerini güncelliyor
-    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Seri adını değiştiriyor
+    # Şimdi seri verilerini güncelle
+    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Serinin adını değiştiriyor
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
-    # Şimdi yeni bir seri ekliyor
+    # Şimdi yeni bir seri ekle
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "Series 3"), $chart->getType());
     # Üçüncü grafik serisini al
     $series = $chart->getChartData()->getSeries()->get_Item(2);
-    # Şimdi seri verilerini dolduruyor
+    # Şimdi seri verilerini doldur
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 3, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
@@ -989,17 +943,17 @@ Bu PHP kodu, bir grafiği nasıl güncelleyeceğinizi gösterir:
   }
 ```
 
-## **Bir Grafik için Veri Aralığını Ayarlama**
+## **Bir Grafik İçin Veri Aralığını Ayarlama**
 
 Bir grafik için veri aralığını ayarlamak için şu adımları izleyin:
 
-1. Grafiği içeren bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfı örneği oluşturun.
-2. Bir slaydın referansını indeks üzerinden alın.
-3. Tüm şekilleri dolaşarak istenen grafiği bulun.
-4. Grafik verisine erişin ve aralığı ayarlayın.
+1. Grafik içeren sunumu temsil eden bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) örneği oluşturun.  
+2. İndeksini kullanarak bir slayta referans alın.  
+3. İstenen grafiği bulmak için tüm şekillerde dolaşın.  
+4. Grafiğin verilerine erişin ve aralığı ayarlayın.  
 5. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu PHP kodu, bir grafik için veri aralığını nasıl ayarlayacağınızı gösterir:
+Bu PHP kodu, bir grafik için veri aralığını ayarlamayı gösterir:
 
 ```php
   $pres = new Presentation();
@@ -1016,7 +970,8 @@ Bu PHP kodu, bir grafik için veri aralığını nasıl ayarlayacağınızı gö
 ```
 
 ## **Grafiklerde Varsayılan İşaretçileri Kullanma**
-Grafiklerde varsayılan bir işaretçi kullandığınızda, her grafik serisi otomatik olarak farklı varsayılan işaretçi sembolleri alır.
+
+Grafiklerde varsayılan işaretçileri kullandığınızda, her grafik serisi otomatik olarak farklı bir işaretçi sembolü alır.
 
 Bu PHP kodu, bir grafik serisi işaretçisini otomatik olarak ayarlamayı gösterir:
 
@@ -1041,7 +996,7 @@ Bu PHP kodu, bir grafik serisi işaretçisini otomatik olarak ayarlamayı göste
     $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 2, "Series 2"), $chart->getType());
     # İkinci grafik serisini al
     $series2 = $chart->getChartData()->getSeries()->get_Item(1);
-    # Şimdi seri verileri dolduruluyor
+    # Şimdi seri verilerini dolduruyor
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 1, 2, 30));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 2, 2, 10));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 3, 2, 60));
@@ -1058,18 +1013,18 @@ Bu PHP kodu, bir grafik serisi işaretçisini otomatik olarak ayarlamayı göste
 
 ## **SSS**
 
-**Aspose.Slides hangi grafik türlerini destekliyor?**
+**Aspose.Slides tarafından hangi grafik türleri desteklenir?**
 
-Aspose.Slides, çubuk, çizgi, pasta, alan, dağılım, histogram, radar ve daha birçok [grafik türü](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/) destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik türünü seçmenizi sağlar.
+Aspose.Slides, çubuk, çizgi, pasta, alan, dağılım, histogram, radar ve daha birçok [grafik türünü](https://reference.aspose.com/slides/tr/php-java/aspose.slides/charttype/) destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınız için en uygun grafik türünü seçmenizi sağlar.
 
 **Bir slayta yeni bir grafik nasıl eklenir?**
 
-Yeni bir grafik eklemek için önce bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı örneği oluşturur, indeksini kullanarak istenen slaytı alır ve ardından grafik türü ve başlangıç verilerini belirterek grafiği ekleme yöntemini çağırırsınız. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
+Yeni bir grafik eklemek için önce bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı örneği oluşturur, istenen slaytı indeksle elde eder ve ardından grafik ekleme metodunu çağırarak grafik türünü ve başlangıç verilerini belirtirsiniz. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
 
-**Grafikte gösterilen veriler nasıl güncellenir?**
+**Bir grafikte gösterilen veriler nasıl güncellenir?**
 
-Grafiğin verilerini, veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip kendi özel verilerinizi ekleyerek güncelleyebilirsiniz. Bu sayede grafik, en son verilere göre yenilenir.
+Grafiğin verilerini, veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip, kendi özel verilerinizi ekleyerek güncelleyebilirsiniz. Böylece grafik, en yeni verileri yansıtacak şekilde yenilenir.
 
 **Grafiğin görünümü özelleştirilebilir mi?**
 
-Evet, Aspose.Slides kapsamlı özelleştirme seçenekleri sunar. Renkleri, yazı tiplerini, etiketleri, lejandları ve diğer [biçimlendirme öğelerini](/slides/tr/php-java/chart-entities/) projenizin belirli tasarım gereksinimlerine göre değiştirebilirsiniz.
+Evet, Aspose.Slides kapsamlı özelleştirme seçenekleri sunar. Renkler, yazı tipleri, etiketler, açıklamalar ve diğer [biçimlendirme öğeleri](/slides/tr/php-java/chart-entities/) değiştirilerek grafik, belirli tasarım gereksinimlerinize göre şekillendirilebilir.

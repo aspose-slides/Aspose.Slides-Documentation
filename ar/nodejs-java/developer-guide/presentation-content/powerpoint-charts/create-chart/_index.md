@@ -1,146 +1,95 @@
 ---
-title: إنشاء أو تحديث مخططات عرض تقديمي PowerPoint في JavaScript
-linktitle: إنشاء مخطط
+title: إنشاء أو تحديث مخططات عرض PowerPoint في JavaScript
+linktitle: إنشاء أو تحديث المخططات
 type: docs
 weight: 10
 url: /ar/nodejs-java/create-chart/
-keywords: "إنشاء مخطط, مخطط مبعثر, مخطط فطيرة, مخطط شجرة خريطة, مخطط مخزون, مخطط صندوق وشوكة, مخطط مُحَدِّت تَكرار, مخطط قمع, مخطط شعاع الشمس, مخطط متعدد الفئات, عرض تقديمي PowerPoint, Java, Aspose.Slides للـ Node.js عبر Java"
-description: "إنشاء مخطط في عرض تقديمي PowerPoint في JavaScript"
+keywords:
+- إضافة مخطط
+- إنشاء مخطط
+- تعديل مخطط
+- تغيير مخطط
+- تحديث مخطط
+- مخطط مبعثر
+- مخطط دائري
+- مخطط خطي
+- مخطط شجرة خريطة
+- مخطط أسهم
+- مخطط صندوق وشارب
+- مخطط قمع
+- مخطط شمسية
+- مخطط هيستوجرام
+- مخطط رادار
+- مخطط متعدد الفئات
+- PowerPoint
+- عرض تقديمي
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "إنشاء وتخصيص المخططات في عروض PowerPoint باستخدام Aspose.Slides للـ Node.js. إضافة، تنسيق، وتعديل المخططات مع أمثلة عملية للشفرة في JavaScript."
 ---
-
 ## **نظرة عامة**
 
-تصف هذه المقالة كيفية **إنشاء مخططات عروض تقديمية PowerPoint في Java**. يمكنك أيضًا **تحديث المخططات في JavaScript**. تغطي المواضيع التالية.
-
-_مخطط_: **عادي**
-- [Java إنشاء مخطط PowerPoint](#java-create-powerpoint-chart)
-- [Java إنشاء مخطط العروض التقديمية](#java-create-presentation-chart)
-- [Java إنشاء مخطط عرض تقديمي PowerPoint](#java-create-powerpoint-presentation-chart)
-
-_مخطط_: **مبعثر**
-- [Java إنشاء مخطط مبعثر](#java-create-scattered-chart)
-- [Java إنشاء مخطط PowerPoint مبعثر](#java-create-powerpoint-scattered-chart)
-- [Java إنشاء مخطط عرض تقديمي PowerPoint مبعثر](#java-create-powerpoint-presentation-scattered-chart)
-
-_مخطط_: **فطيرة**
-- [Java إنشاء مخطط فطيرة](#java-create-pie-chart)
-- [Java إنشاء مخطط PowerPoint فطيرة](#java-create-powerpoint-pie-chart)
-- [Java إنشاء مخطط عرض تقديمي PowerPoint فطيرة](#java-create-powerpoint-presentation-pie-chart)
-
-_مخطط_: **شجرة خريطة**
-- [Java إنشاء مخطط شجرة خريطة](#java-create-tree-map-chart)
-- [Java إنشاء مخطط PowerPoint شجرة خريطة](#java-create-powerpoint-tree-map-chart)
-- [Java إنشاء مخطط عرض تقديمي PowerPoint شجرة خريطة](#java-create-powerpoint-presentation-tree-map-chart)
-
-_مخطط_: **مخزون**
-- [Java إنشاء مخطط مخزون](#java-create-stock-chart)
-- [Java إنشاء مخطط PowerPoint مخزون](#java-create-powerpoint-stock-chart)
-- [Java إنشاء مخطط عرض تقديمي PowerPoint مخزون](#java-create-powerpoint-presentation-stock-chart)
-
-_مخطط_: **صندوق وشوكة**
-- [Java إنشاء مخطط صندوق وشوكة](#java-create-box-and-whisker-chart)
-- [Java إنشاء مخطط PowerPoint صندوق وشوكة](#java-create-powerpoint-box-and-whisker-chart)
-- [Java إنشاء مخطط عرض تقديمي PowerPoint صندوق وشوكة](#java-create-powerpoint-presentation-box-and-whisker-chart)
-
-_مخطط_: **قمع**
-- [Java إنشاء مخطط قمع](#java-create-funnel-chart)
-- [Java إنشاء مخطط PowerPoint قمع](#java-create-powerpoint-funnel-chart)
-- [Java إنشاء مخطط عرض تقديمي PowerPoint قمع](#java-create-powerpoint-presentation-funnel-chart)
-
-_مخطط_: **شعاع الشمس**
-- [Java إنشاء مخطط شعاع الشمس](#java-create-sunburst-chart)
-- [Java إنشاء مخطط PowerPoint شعاع الشمس](#java-create-powerpoint-sunburst-chart)
-- [Java إنشاء مخطط عرض تقديمي PowerPoint شعاع الشمس](#java-create-powerpoint-presentation-sunburst-chart)
-
-_مخطط_: **مُحَدِّد تَكرار**
-- [Java إنشاء مخطط مُحَدِّت تَكرار](#java-create-histogram-chart)
-- [Java إنشاء مخطط PowerPoint مُحَدِّت تَكرار](#java-create-powerpoint-histogram-chart)
-- [Java إنشاء مخطط عرض تقديمي PowerPoint مُحَدِّت تَكرار](#java-create-powerpoint-presentation-histogram-chart)
-
-_مخطط_: **رادار**
-- [Java إنشاء مخطط رادار](#java-create-radar-chart)
-- [Java إنشاء مخطط PowerPoint رادار](#java-create-powerpoint-radar-chart)
-- [Java إنشاء مخطط عرض تقديمي PowerPoint رادار](#java-create-powerpoint-presentation-radar-chart)
-
-_مخطط_: **متعدد الفئات**
-- [Java إنشاء مخطط متعدد الفئات](#java-create-multi-category-chart)
-- [Java إنشاء مخطط PowerPoint متعدد الفئات](#java-create-powerpoint-multi-category-chart)
-- [Java إنشاء مخطط عرض تقديمي PowerPoint متعدد الفئات](#java-create-powerpoint-presentation-multi-category-chart)
-
-_مخطط_: **خريطة**
-- [Java إنشاء مخطط خريطة](#java-create-map-chart)
-- [Java إنشاء مخطط PowerPoint خريطة](#java-create-powerpoint-map-chart)
-- [Java إنشاء مخطط عرض تقديمي PowerPoint خريطة](#java-create-powerpoint-presentation-map-chart)
-
-_إجراء_: **تحديث المخطط**
-- [Java تحديث مخطط PowerPoint](#java-update-powerpoint-chart)
-- [Java تحديث مخطط العروض التقديمية](#java-update-presentation-chart)
-- [Java تحديث مخطط عرض تقديمي PowerPoint](#java-update-powerpoint-presentation-chart)
-
+توفر هذه المقالة دليلاً شاملاً حول كيفية إنشاء المخططات وتخصيصها باستخدام Aspose.Slides. ستتعلم كيفية إضافة مخطط إلى شريحة برمجيًا، ملئه بالبيانات، وتطبيق خيارات تنسيق مختلفة لتتناسب مع متطلبات التصميم الخاصة بك. خلال المقالة، تُظهر أمثلة الشيفرة التفصيلية كل خطوة، بدءًا من تهيئة العرض وكائن المخطط إلى ضبط السلاسل والمحاور والوسائل الإيضاحية. باتباع هذا الدليل، ستحصل على فهم قوي لكيفية دمج إنشاء المخططات الديناميكية في تطبيقاتك، مما يُسهل عملية إنشاء عروض تقديمية مدفوعة بالبيانات.
 
 ## **إنشاء مخطط**
-تساعد المخططات الأشخاص على تصور البيانات بسرعة واستخلاص الأفكار، والتي قد لا تكون واضحة من جدول أو ورقة عمل.
+
+تساعد المخططات الأشخاص على تصور البيانات بسرعة واستخلاص رؤى قد لا تكون واضحة فورًا من جدول أو ورقة عمل.
 
 **لماذا إنشاء المخططات؟**
 
-باستخدام المخططات، يمكنك:
+* تجميع، تكثيف، أو تلخيص كميات كبيرة من البيانات في شريحة واحدة داخل عرض تقديمي  
+* كشف الأنماط والاتجاهات في البيانات  
+* استنتاج اتجاه وزخم البيانات بمرور الوقت أو بالنسبة لوحدة قياس معينة  
+* اكتشاف القيم المتطرفة، الشذوذ، الانحرافات، الأخطاء، البيانات غير المنطقية، إلخ  
+* نقل أو عرض البيانات المعقدة  
 
-* تجميع أو تكثيف أو تلخيص كميات كبيرة من البيانات في شريحة واحدة من العرض التقديمي
-* كشف الأنماط والاتجاهات في البيانات
-* استنتاج اتجاه وزخم البيانات بمرور الوقت أو بالنسبة لوحدة قياس معينة
-* الكشف عن القيم المتطرفة أو الأخطاء أو البيانات غير المنطقية
-* نقل أو تقديم بيانات معقدة
+في PowerPoint، يمكنك إنشاء المخططات عبر وظيفة *Insert*، التي توفر قوالب لتصميم أنواع عديدة من المخططات. باستخدام Aspose.Slides، يمكنك إنشاء كل من المخططات العادية (المستندة إلى أنواع المخططات الشائعة) والمخططات المخصصة.
 
-في PowerPoint، يمكنك إنشاء المخططات عبر وظيفة الإدراج، التي توفر قوالب لتصميم أنواع متعددة من المخططات. باستخدام Aspose.Slides، يمكنك إنشاء مخططات عادية (بحسب الأنواع الشائعة) ومخططات مخصصة.
+{{% alert color="info" title="Note" %}}
+لإنشاء المخططات، استخدم الفئة [ChartType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/) . الحقول في هذه الفئة تتطابق مع أنواع المخططات المختلفة.
+{{% /alert %}}
 
-{{% alert color="primary" %}} 
+### **إنشاء مخططات الأعمدة المتجمعة**
 
-للسماح بإنشاء المخططات، يوفر Aspose.Slides الفئة [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType). الحقول ضمن هذه الفئة تمثل أنواع المخططات المختلفة.
+يوضح هذا القسم كيفية إنشاء مخططات الأعمدة المتجمعة باستخدام Aspose.Slides. ستتعلم كيفية تهيئة عرض تقديمي، إضافة مخطط، وتخصيص عناصره مثل العنوان، البيانات، السلاسل، الفئات، والأنماط. اتبع الخطوات أدناه لرؤية كيفية إنشاء مخطط عمود متجمع قياسي:
 
-{{% /alert %}} 
-
-### **إنشاء مخططات عادية**
-
-_الخطوات: إنشاء مخطط_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint في JavaScript</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>الخطوات:</em> إنشاء مخطط العروض التقديمية في JavaScript</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint في JavaScript</strong></a>
-
-_خطوات الكود:_
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها.
-3. إضافة مخطط مع بعض البيانات وتحديد نوع المخطط المفضل.
-4. إضافة عنوان للمخطط.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation) .
+2. الحصول على مرجع لشريحة باستخدام فهرسها.
+3. إضافة مخطط مع بعض البيانات وتحديد النوع `ChartType.ClusteredColumn` .
+4. إضافة عنوان إلى المخطط.
 5. الوصول إلى ورقة بيانات المخطط.
 6. مسح جميع السلاسل والفئات الافتراضية.
 7. إضافة سلاسل وفئات جديدة.
 8. إضافة بيانات مخطط جديدة لسلسلة المخطط.
-9. إضافة لون تعبئة لسلسلة المخطط.
-10. إضافة تسميات لسلسلة المخطط.
-11. كتابة العرض التقديمي المعدل كملف PPTX.
+9. تطبيق لون تعبئة على سلسلة المخطط.
+10. إضافة تسميات إلى سلسلة المخطط.
+11. حفظ العرض المعدل كملف PPTX.
 
-هذا الكود JavaScript يوضح كيفية إنشاء مخطط عادي:
 ```javascript
-// يقوم بإنشاء كائن من فئة عرض تقديمي تمثل ملف PPTX
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// يُنشئ كائن فئة عرض تقديمي تمثّل ملف PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // الوصول إلى الشريحة الأولى
     var sld = pres.getSlides().get_Item(0);
-    // إضافة مخطط مع البيانات الافتراضية الخاصة به
+    // إضافة مخطط مع بياناته الافتراضية
     var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
     // تعيين عنوان المخطط
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
-    // تعيين السلسلة الأولى لإظهار القيم
+    // تعيين السلسلة الأولى لعرض القيم
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // تحديد الفهرس لورقة بيانات المخطط
+    // تعيين الفهرس لورقة بيانات المخطط
     var defaultWorksheetIndex = 0;
     // الحصول على ورقة عمل بيانات المخطط
     var fact = chart.getChartData().getChartDataWorkbook();
-    // حذف السلاسل والفئات المولدة افتراضيًا
+    // حذف السلاسل والفئات المُنشأة افتراضيًا
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     var s = chart.getChartData().getSeries().size();
@@ -158,7 +107,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // تحديد لون التعبئة للسلسلة
+    // تعيين لون التعبئة للسلسلة
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     // أخذ السلسلة الثانية للمخطط
@@ -167,16 +116,16 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // تحديد لون التعبئة للسلسلة
+    // تعيين لون التعبئة للسلسلة
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
     // إنشاء تسميات مخصصة لكل فئة للسلسلة الجديدة
-    // تعيين التسمية الأولى لإظهار اسم الفئة
+    // تعيين التسمية الأولى لعرض اسم الفئة
     var lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     lbl = series.getDataPoints().get_Item(1).getLabel();
     lbl.getDataLabelFormat().setShowSeriesName(true);
-    // إظهار القيمة للتسمية الثالثة
+    // عرض القيمة للتسمية الثالثة
     lbl = series.getDataPoints().get_Item(2).getLabel();
     lbl.getDataLabelFormat().setShowValue(true);
     lbl.getDataLabelFormat().setShowSeriesName(true);
@@ -190,69 +139,67 @@ try {
 }
 ```
 
+### **إنشاء مخططات التشتت**
 
-### **إنشاء مخططات مبعثرة**
-المخططات المبعثرة (المعروفة أيضًا بمخططات التشتت أو مخططات x‑y) تُستخدم غالبًا للتحقق من الأنماط أو إظهار الارتباطات بين متغيرين.
+مخططات التشتت (المعروفة أيضًا بمخططات التناثر أو رسوم x‑y) تُستخدم غالبًا للتحقق من الأنماط أو إظهار الارتباطات بين متغيرين.
 
-قد ترغب في استخدام مخطط مبعثر عندما:
+استخدم مخطط التشتت عندما:
 
-* لديك بيانات رقمية مزدوجة
-* لديك متغيران يتطابقان جيدًا
-* تريد معرفة ما إذا كان المتغيران مرتبطين
-* لديك متغير مستقل له قيم متعددة بالنسبة لمتغير تابع
+* لديك بيانات عددية مزدوجة  
+* لديك متغيران يتناسقان معًا  
+* ترغب في تحديد ما إذا كان المتغيران مرتبطين  
+* لديك متغير مستقل يحتوي على قيم متعددة للمتغير التابع  
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>الخطوات:</em> إنشاء مخطط مبعثر في JavaScript</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint مبعثر في JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint مبعثر في JavaScript</strong></a>
+1. اتبع الخطوات في [Create Clustered Column Charts](#create-clustered-column-charts).  
+2. في الخطوة الثالثة، أضف مخططًا مع بعض البيانات وحدد نوع المخطط كأحد الأنواع التالية:  
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _يمثل مخطط تشتت._  
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _يمثل مخطط تشتت متصل بمنحنيات، مع علامات بيانات._  
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _يمثل مخطط تشتت متصل بمنحنيات، بدون علامات بيانات._  
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _يمثل مخطط تشتت متصل بخطوط، مع علامات بيانات._  
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _يمثل مخطط تشتت متصل بخطوط، بدون علامات بيانات._
 
-1. يرجى اتباع الخطوات المذكورة أعلاه في [إنشاء مخططات عادية](#creating-normal-charts)
-2. للخطوة الثالثة، أضف مخططًا مع بعض البيانات وحدد نوع المخطط كواحد من التالي
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _يمثل مخطط تشتت مع علامات._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _يمثل مخطط تشتت متصل بخطوط منحنية وعلامات بيانات._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _يمثل مخطط تشتت متصل بخطوط منحنية دون علامات بيانات._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _يمثل مخطط تشتت متصل بخطوط مستقيمة وعلامات بيانات._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _يمثل مخطط تشتت متصل بخطوط مستقيمة دون علامات بيانات._
-
-هذا الكود JavaScript يوضح كيفية إنشاء مخططات مبعثرة بسلسلة علامات مختلفة:
 ```javascript
-// ينشئ كائنًا من فئة عرض تقديمي تمثّل ملف PPTX
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// يُنشئ كائن فئة عرض تقديمي يمثل ملف PPTX
 var pres = new aspose.slides.Presentation();
 try {
-    // يصل إلى الشريحة الأولى
+    // الوصول إلى الشريحة الأولى
     var slide = pres.getSlides().get_Item(0);
-    // ينشئ المخطط الافتراضي
+    // إنشاء المخطط الافتراضي
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
-    // يحصل على فهرس ورقة عمل بيانات المخطط الافتراضية
+    // الحصول على فهرس ورقة عمل بيانات المخطط الافتراضية
     var defaultWorksheetIndex = 0;
-    // يحصل على ورقة عمل بيانات المخطط
+    // الحصول على ورقة عمل بيانات المخطط
     var fact = chart.getChartData().getChartDataWorkbook();
-    // يحذف السلسلة التجريبية
+    // حذف السلسلة التجريبية
     chart.getChartData().getSeries().clear();
-    // يضيف سلاسل جديدة
+    // إضافة سلاسل جديدة
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
-    // يأخذ السلسلة الأولى للمخطط
+    // أخذ السلسلة الأولى للمخطط
     var series = chart.getChartData().getSeries().get_Item(0);
-    // يضيف نقطةً جديدة (1:3) إلى السلسلة
+    // إضافة نقطة جديدة (1:3) إلى السلسلة
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
-    // يضيف نقطةً جديدة (2:10)
+    // إضافة نقطة جديدة (2:10)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
-    // يغيّر نوع السلسلة
+    // تغيير نوع السلسلة
     series.setType(aspose.slides.ChartType.ScatterWithStraightLinesAndMarkers);
-    // يغيّر علامة سلسلة المخطط
+    // تغيير علامة سلسلة المخطط
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Star);
-    // يأخذ السلسلة الثانية للمخطط
+    // أخذ السلسلة الثانية للمخطط
     series = chart.getChartData().getSeries().get_Item(1);
-    // يضيف نقطةً جديدة (5:2) هناك
+    // إضافة نقطة جديدة (5:2) هناك
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
-    // يضيف نقطةً جديدة (3:1)
+    // إضافة نقطة جديدة (3:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
-    // يضيف نقطةً جديدة (2:2)
+    // إضافة نقطة جديدة (2:2)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
-    // يضيف نقطةً جديدة (5:1)
+    // إضافة نقطة جديدة (5:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
-    // يغيّر علامة سلسلة المخطط
+    // تغيير علامة سلسلة المخطط
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Circle);
     pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -263,93 +210,91 @@ try {
 }
 ```
 
+### **إنشاء مخططات الفطيرة**
 
-### **إنشاء مخططات فطيرة**
+تُستخدم مخططات الفطيرة بشكل أفضل لإظهار العلاقة بين الجزء والكل في البيانات، خاصةً عندما تحتوي البيانات على تسميات فئوية مع قيم عددية. ومع ذلك، إذا احتوت بياناتك على العديد من الأجزاء أو التسميات، قد ترغب في التفكير باستخدام مخطط شريطي بدلاً من ذلك.
 
-تُستعمل مخططات الفطيرة لتوضيح علاقة الجزء بالكل، خاصةً عندما تحتوي البيانات على تسميات فئوية مع قيم رقمية. إذا كان لديك الكثير من الأجزاء أو التسميات، قد تلجأ إلى مخطط شريطي بدلاً من ذلك.
-
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>الخطوات:</em> إنشاء مخطط فطيرة في JavaScript</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint فطيرة في JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint فطيرة في JavaScript</strong></a>
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).Pie).
-4. الوصول إلى ورقة بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) .
+2. الحصول على مرجع لشريحة باستخدام فهرسها.
+3. أضف مخططًا ببيانات افتراضية وحدد النوع [ChartType.Pie](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/#Pie) .
+4. الوصول إلى دفتر عمل بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
 7. إضافة بيانات مخطط جديدة لسلسلة المخطط.
-8. إضافة نقاط جديدة للمخطط وإعطاء ألوان مخصصة لأقسام الفطيرة.
-9. ضبط التسميات للسلسلة.
-10. ضبط خطوط القادة لتسميات السلسلة.
-11. ضبط زاوية الدوران لشريحة الفطيرة.
-12. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+8. إضافة نقاط جديدة للمخطط وتطبيق ألوان مخصصة لقطاعات مخطط الفطيرة.
+9. تعيين تسميات للسلسلة.
+10. تمكين خطوط ربط لتسميات السلسلة.
+11. تعيين زاوية الدوران لقطاعات مخطط الفطيرة.
+12. حفظ العرض المعدل كملف PPTX.
 
-هذا الكود JavaScript يوضح كيفية إنشاء مخطط فطيرة:
 ```javascript
-// ينشئ كائنًا من فئة عرض تقديمي تمثل ملف PPTX
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// يُنشئ فئة عرض تقديمي تمثل ملف PPTX
 var pres = new aspose.slides.Presentation();
 try {
-    // يصل إلى الشريحة الأولى
+    // الوصول إلى الشريحة الأولى
     var slides = pres.getSlides().get_Item(0);
-    // يضيف مخططًا بالبيانات الافتراضية
+    // إضافة مخطط مع البيانات الافتراضية
     var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
-    // يحدد عنوان المخطط
+    // تعيين عنوان المخطط
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    // يضبط السلسلة الأولى لإظهار القيم
+    // تعيين السلسلة الأولى لعرض القيم
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // يحدد الفهرس لورقة بيانات المخطط
+    // تعيين الفهرس لورقة بيانات المخطط
     var defaultWorksheetIndex = 0;
-    // يحصل على ورقة عمل بيانات المخطط
+    // الحصول على ورقة عمل بيانات المخطط
     var fact = chart.getChartData().getChartDataWorkbook();
-    // يحذف السلاسل والفئات المولدة افتراضيًا
+    // حذف السلسلة والفئات التي تم إنشاؤها افتراضيًا
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    // يضيف فئات جديدة
+    // إضافة فئات جديدة
     chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
-    // يضيف سلاسل جديدة
+    // إضافة سلاسل جديدة
     var series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    // يملأ بيانات السلسلة
+    // تعبئة بيانات السلسلة
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     // لا يعمل في الإصدار الجديد
-    // Adding new points and setting sector color
+    // إضافة نقاط جديدة وتعيين لون القطاع
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     var point = series.getDataPoints().get_Item(0);
     point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-    // يحدد حدود القطاع
+    // تعيين حد القطاع
     point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     point.getFormat().getLine().setWidth(3.0);
-    point.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThick);
-    point.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    point.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThick));
+    point.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     var point1 = series.getDataPoints().get_Item(1);
     point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-    // يحدد حدود القطاع
+    // تعيين حد القطاع
     point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     point1.getFormat().getLine().setWidth(3.0);
-    point1.getFormat().getLine().setStyle(aspose.slides.LineStyle.Single);
-    point1.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDot);
+    point1.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.Single));
+    point1.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDot));
     var point2 = series.getDataPoints().get_Item(2);
     point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-    // يحدد حدود القطاع
+    // تعيين حد القطاع
     point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     point2.getFormat().getLine().setWidth(2.0);
-    point2.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThin);
-    point2.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDotDot);
-    // ينشئ تسميات مخصصة لكل فئة في السلسلة الجديدة
+    point2.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
+    point2.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
+    // إنشاء تسميات مخصصة لكل فئة للسلسلة الجديدة
     var lbl1 = series.getDataPoints().get_Item(0).getLabel();
     // lbl.ShowCategoryName = true;
     lbl1.getDataLabelFormat().setShowValue(true);
@@ -360,11 +305,11 @@ try {
     var lbl3 = series.getDataPoints().get_Item(2).getLabel();
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
-    // يعرض خطوط القائد للمخطط
+    // إظهار خطوط القائد للمخطط
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-    // يحدد زاوية الدوران لشرائح مخطط الفطيرة
+    // تعيين زاوية الدوران لقطاعات مخطط الفطيرة
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
-    // يحفظ العرض التقديمي مع المخطط
+    // حفظ العرض التقديمي مع مخطط
     pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -373,22 +318,23 @@ try {
 }
 ```
 
+### **إنشاء مخططات الخط**
 
-### **إنشاء مخططات خطية**
+مخططات الخط (المعروفة أيضًا بخرائط الخط) تُستخدم بشكل أفضل في الحالات التي تريد فيها إظهار تغير القيم بمرور الوقت. باستخدام مخطط الخط، يمكنك مقارنة كمية كبيرة من البيانات مرة واحدة، تتبع التغييرات والاتجاهات بمرور الوقت، إبراز الشذوذ في سلاسل البيانات، وأكثر من ذلك.
 
-تُستعمل المخططات الخطية (المعروفة أيضًا بمخططات الخط) لتوضيح تغيّر القيم بمرور الوقت. باستخدام مخطط خطي، يمكنك مقارنة بيانات متعددة في آنٍ واحد، وتتبع التغيّرات والاتجاهات، وإبراز القيم الشاذة في السلسلة، وغيرها.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation) .
+2. الحصول على مرجع لشريحة باستخدام فهرسها.
+3. أضف مخططًا ببيانات افتراضية وحدد النوع [ChartType.Line](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/#Line) .
+4. الوصول إلى دفتر عمل بيانات المخطط ([ChartDataWorkbook](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdataworkbook/)) .
+5. مسح السلاسل والفئات الافتراضية.
+6. إضافة سلاسل وفئات جديدة.
+7. إضافة بيانات مخطط جديدة لسلسلة المخطط.
+8. حفظ العرض المعدل كملف PPTX.
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-1. الحصول على مرجع الشريحة عبر فهرسها.
-1. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (`ChartType.Line`).
-1. الوصول إلى ورقة بيانات المخطط IChartDataWorkbook.
-1. مسح السلاسل والفئات الافتراضية.
-1. إضافة سلاسل وفئات جديدة.
-1. إضافة بيانات مخطط جديدة لسلسلة المخطط.
-1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
-
-هذا الكود JavaScript يوضح كيفية إنشاء مخطط خطي:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
@@ -400,36 +346,43 @@ try {
 }
 ```
 
+افتراضيًا، يتم ربط نقاط مخطط الخط بخطوط مستقيمة مستمرة. إذا رغبت في ربط النقاط بخطوط متقطعة بدلاً من ذلك، يمكنك تحديد نوع الخط المتقطع المفضل كالتالي:
 
-افتراضيًا، تُربط نقاط المخطط الخطي بخطوط مستقيمة مستمرة. إذا رغبت في ربط النقاط بسطور متقطعة، يمكنك تحديد نوع الخط المتقطّع بهذه الطريقة:
 ```javascript
-var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
-    let series = lineChart.getChartData().getSeries().get_Item(i);
-    series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Dash);
-});
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
+    for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
+        let series = lineChart.getChartData().getSeries().get_Item(i);
+        series.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
+    }
+    pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
+### **إنشاء مخططات شجرة الخريطة**
 
-### **إنشاء مخططات شجرة خريطة**
-
-تُستعمل مخططات شجرة الخريطة لتمثيل بيانات المبيعات عندما تريد إظهار الحجم النسبي لفئات البيانات وفي الوقت نفسه جذب الانتباه إلى العناصر التي تساهم بأكبر قدر في كل فئة.
-
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط شجرة خريطة في JavaScript</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint شجرة خريطة في JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint شجرة خريطة في JavaScript</strong></a>
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).TreeMap).
-4. الوصول إلى ورقة بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation) .
+2. الحصول على مرجع لشريحة باستخدام فهرسها.
+3. أضف مخططًا ببيانات افتراضية وحدد النوع [ChartType.Treemap](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/#Treemap) .
+4. الوصول إلى دفتر عمل بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
 7. إضافة بيانات مخطط جديدة لسلسلة المخطط.
-8. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+8. حفظ العرض المعدل كملف PPTX.
 
-هذا الكود JavaScript يوضح كيفية إنشاء مخطط شجرة خريطة:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
@@ -472,30 +425,31 @@ try {
 }
 ```
 
+### **إنشاء مخططات الأسهم**
 
-### **إنشاء مخططات مخزون**
-
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>الخطوات:</em> إنشاء مخطط مخزون في JavaScript</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint مخزون في JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint مخزون في JavaScript</strong></a>
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).OpenHighLowClose).
-4. الوصول إلى ورقة بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation) .
+2. الحصول على مرجع لشريحة باستخدام فهرسها.
+3. أضف مخططًا ببيانات افتراضية وحدد النوع [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) .
+4. الوصول إلى دفتر عمل بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
 7. إضافة بيانات مخطط جديدة لسلسلة المخطط.
-8. تحديد تنسيق HiLowLines.
-9. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+8. تحديد تنسيق خطوط الارتفاع‑الانخفاض.
+9. حفظ العرض المعدل كملف PPTX.
 
-هذا الكود JavaScript يوضح كيفية إنشاء مخطط مخزون:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400);
-  
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
     var wb = chart.getChartData().getChartDataWorkbook();
+    wb.clear(0);
     chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
     chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
     chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
@@ -533,24 +487,21 @@ try {
 }
 ```
 
+### **إنشاء مخططات الصندوق والشارب**
 
-### **إنشاء مخططات صندوق وشوكة**
-
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>الخطوات:</em> إنشاء مخطط صندوق وشوكة في JavaScript</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint صندوق وشوكة في JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint صندوق وشوكة في JavaScript</strong></a>
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).BoxAndWhisker).
-4. الوصول إلى ورقة بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation) .
+2. الحصول على مرجع لشريحة باستخدام فهرسها.
+3. أضف مخططًا ببيانات افتراضية وحدد النوع [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) .
+4. الوصول إلى دفتر عمل بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
 7. إضافة بيانات مخطط جديدة لسلسلة المخطط.
-8. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+8. حفظ العرض المعدل كملف PPTX.
 
-هذا الكود JavaScript يوضح كيفية إنشاء مخطط صندوق وشوكة:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -584,20 +535,17 @@ try {
 }
 ```
 
+### **إنشاء مخططات القمع**
 
-### **إنشاء مخططات قمع**
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation) .
+2. الحصول على مرجع لشريحة باستخدام فهرسها.
+3. أضف مخططًا ببيانات افتراضية وحدد النوع [ChartType.Funnel](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/#Funnel) .
+4. حفظ العرض المعدل كملف PPTX.
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>الخطوات:</em> إنشاء مخطط قمع في JavaScript</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint قمع في JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint قمع في JavaScript</strong></a>
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).Funnel).
-4. كتابة العرض التقديمي المعدل إلى ملف PPTX.
-
-الكود JavaScript يوضح كيفية إنشاء مخطط قمع:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
@@ -626,20 +574,17 @@ try {
 }
 ```
 
+### **إنشاء مخططات Sunburst**
 
-### **إنشاء مخططات شعاع الشمس**
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation) .
+2. الحصول على مرجع لشريحة باستخدام فهرسها.
+3. أضف مخططًا ببيانات افتراضية وحدد النوع [ChartType.Sunburst](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/#Sunburst) .
+4. حفظ العرض المعدل كملف PPTX.
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>الخطوات:</em> إنشاء مخطط شعاع الشمس في JavaScript</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint شعاع الشمس في JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint شعاع الشمس في JavaScript</strong></a>
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).sunburst).
-4. كتابة العرض التقديمي المعدل إلى ملف PPTX.
-
-هذا الكود JavaScript يوضح كيفية إنشاء مخطط شعاع الشمس:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
@@ -681,23 +626,20 @@ try {
 }
 ```
 
+### **إنشاء مخططات الهيستوجرام**
 
-### **إنشاء مخططات مُحَدِّد تَكرار**
-
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>الخطوات:</em> إنشاء مخطط مُحَدِّت تَكرار في JavaScript</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint مُحَدِّت تَكرار في JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint مُحَدِّت تَكرار في JavaScript</strong></a>
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).Histogram).
-4. الوصول إلى ورقة بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation) .
+2. الحصول على مرجع لشريحة باستخدام فهرسها.
+3. أضف مخططًا ببيانات افتراضية وحدد النوع [ChartType.Histogram](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/#Histogram) .
+4. الوصول إلى دفتر عمل بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
-7. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+7. حفظ العرض المعدل كملف PPTX.
 
-هذا الكود JavaScript يوضح كيفية إنشاء مخطط مُحَدِّت تَكرار:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
 chart.getChartData().getCategories().clear();
@@ -714,20 +656,17 @@ series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
 ```
 
+### **إنشاء مخططات الرادار**
 
-### **إنشاء مخططات رادار**
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation) .
+2. الحصول على مرجع لشريحة باستخدام فهرسها.
+3. أضف مخططًا ببعض البيانات وحدد نوع المخطط المفضل ([ChartType.Radar](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/#Radar) في هذه الحالة).
+4. حفظ العرض المعدل كملف PPTX.
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>الخطوات:</em> إنشاء مخطط رادار في JavaScript</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint رادار في JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint رادار في JavaScript</strong></a>
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها.
-3. إضافة مخطط مع بعض البيانات وتحديد النوع المفضل (`ChartType.Radar` في هذه الحالة).
-4. كتابة العرض التقديمي المعدل إلى ملف PPTX.
-
-هذا الكود JavaScript يوضح كيفية إنشاء مخطط رادار:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 400, 300);
@@ -739,24 +678,21 @@ try {
 }
 ```
 
-
 ### **إنشاء مخططات متعددة الفئات**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>الخطوات:</em> إنشاء مخطط متعدد الفئات في JavaScript</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint متعدد الفئات في JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint متعدد الفئات في JavaScript</strong></a>
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).ClusteredColumn).
-4. الوصول إلى ورقة بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation) .
+2. الحصول على مرجع لشريحة باستخدام فهرسها.
+3. أضف مخططًا ببيانات افتراضية وحدد النوع [ChartType.ClusteredColumn](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/#ClusteredColumn) .
+4. الوصول إلى دفتر عمل بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
 7. إضافة بيانات مخطط جديدة لسلسلة المخطط.
-8. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+8. حفظ العرض المعدل كملف PPTX.
 
-هذا الكود JavaScript يوضح كيفية إنشاء مخطط متعدد الفئات:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var ch = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -777,7 +713,7 @@ try {
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c8", "G"));
     category.getGroupingLevels().setGroupingItem(1, "Group4");
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
-    // إضافة السلسلة
+    // إضافة سلسلة
     var series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"), aspose.slides.ChartType.ClusteredColumn);
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D2", 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D3", 20));
@@ -787,7 +723,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D7", 60));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
-    // Save presentation with chart
+    // حفظ العرض التقديمي مع المخطط
     pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -796,17 +732,14 @@ try {
 }
 ```
 
+### **إنشاء مخططات الخريطة**
 
-### **إنشاء مخططات خريطة**
+مخططات الخريطة تُظهر البيانات الجغرافية وتساعد في مقارنة القيم عبر المناطق.
 
-مخطط الخريطة هو تصور لمنطقة تحتوي على بيانات. تُستعمل مخططات الخريطة لمقارنة البيانات أو القيم عبر المناطق الجغرافية.
-
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط خريطة في JavaScript</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint خريطة في JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint خريطة في JavaScript</strong></a>
-
-هذا الكود JavaScript يوضح كيفية إنشاء مخطط خريطة:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pres = new aspose.slides.Presentation();
 try {
     let chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
@@ -818,15 +751,19 @@ try {
 }
 ```
 
-
 ### **إنشاء مخططات مركبة**
 
-المخطط المركب (أو مخطط المزيج) يجمع نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح لك هذا المخطط إبراز أو مقارنة أو فحص الفروق بين مجموعتين أو أكثر من البيانات، مما يساعدك على تحديد العلاقات بينها.
+مخطط مركب (أو مخطط مزيج) يجمع نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح لك هذا المخطط إبراز، مقارنة، أو فحص الفروق بين مجموعتين أو أكثر من البيانات، مما يساعدك على تحديد العلاقات بينها.
 
-![The combination chart](combination_chart.png)
+![مخطط مركب](combination_chart.png)
 
-الكود JavaScript التالي يوضح كيفية إنشاء المخطط المركب المعروض أعلاه في عرض تقديمي PowerPoint:
+الشيفرة التالية بلغة JavaScript توضح كيفية إنشاء مخطط المركب المعروض أعلاه في عرض PowerPoint:
+
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function createComboChart() {
     let presentation = new aspose.slides.Presentation();
     let slide = presentation.getSlides().get_Item(0);
@@ -861,7 +798,7 @@ function createChartWithFirstSeries(slide) {
     chart.getLegend().setPosition(aspose.slides.LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12);
 
-    // حذف السلاسل والفئات المولدة افتراضيًا.
+    // حذف السلاسل والفئات التي تم إنشاؤها افتراضيًا.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
@@ -971,55 +908,52 @@ function setAxisTitle(axis, axisTitle) {
 }
 ```
 
-
 ## **تحديث المخططات**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>الخطوات:</em> تحديث مخطط PowerPoint في JavaScript</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>الخطوات:</em> تحديث مخطط العروض التقديمية في JavaScript</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>الخطوات:</em> تحديث مخطط عرض تقديمي PowerPoint في JavaScript</strong></a>
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) التي تمثل العرض التقديمي الذي يحتوي على المخطط الذي تريد تحديثه.  
+2. الحصول على مرجع لشريحة باستخدام فهرسها.  
+3. التنقل عبر جميع الأشكال للعثور على المخطط المطلوب.  
+4. الوصول إلى ورقة بيانات المخطط.  
+5. تعديل سلاسل بيانات المخطط عن طريق تغيير قيم السلسلة.  
+6. إضافة سلسلة جديدة وتعبئة بياناتها.  
+7. حفظ العرض المعدل كملف PPTX.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) التي تمثل العرض التقديمي المحتوي على المخطط المراد تحديثه.
-2. الحصول على مرجع الشريحة باستخدام فهرستها.
-3. استعراض جميع الأشكال للعثور على المخطط المطلوب.
-4. الوصول إلى ورقة بيانات المخطط.
-5. تعديل بيانات سلسلة المخطط عن طريق تغيير قيم السلسلة.
-6. إضافة سلسلة جديدة وتعبئة البيانات فيها.
-7. كتابة العرض التقديمي المعدل كملف PPTX.
-
-هذا الكود JavaScript يوضح كيفية تحديث مخطط:
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
     // الوصول إلى أول شريحة
     var sld = pres.getSlides().get_Item(0);
-    // الحصول على المخطط بالبيانات الافتراضية
+    // الحصول على المخطط مع البيانات الافتراضية
     var chart = sld.getShapes().get_Item(0);
     // تعيين فهرس ورقة بيانات المخطط
     var defaultWorksheetIndex = 0;
     // الحصول على ورقة عمل بيانات المخطط
     var fact = chart.getChartData().getChartDataWorkbook();
-    // تعديل اسم فئة المخطط
+    // تغيير اسم فئة المخطط
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
-    // أخذ السلسلة الأولى للمخطط
+    // استخراج السلسلة الأولى للمخطط
     var series = chart.getChartData().getSeries().get_Item(0);
     // الآن يتم تحديث بيانات السلسلة
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// تعديل اسم السلسلة
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // تعديل اسم السلسلة
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
-    // أخذ السلسلة الثانية للمخطط
+    // استخراج السلسلة الثانية للمخطط
     series = chart.getChartData().getSeries().get_Item(1);
     // الآن يتم تحديث بيانات السلسلة
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// تعديل اسم السلسلة
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // تعديل اسم السلسلة
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
     // الآن، إضافة سلسلة جديدة
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
-    // أخذ السلسلة الثالثة للمخطط
+    // استخراج السلسلة الثالثة للمخطط
     series = chart.getChartData().getSeries().get_Item(2);
-    // الآن يتم ملء بيانات السلسلة
+    // الآن يتم تعبئة بيانات السلسلة
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
@@ -1033,20 +967,19 @@ try {
 }
 ```
 
+## **تحديد نطاق البيانات لمخطط**
 
-## **تعيين نطاق البيانات للمخططات**
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) التي تمثل العرض التقديمي الذي يحتوي على المخطط.  
+2. الحصول على مرجع لشريحة باستخدام فهرسها.  
+3. التنقل عبر جميع الأشكال للعثور على المخطط المطلوب.  
+4. الوصول إلى بيانات المخطط وتحديد النطاق.  
+5. حفظ العرض المعدل كملف PPTX.
 
-لتعيين نطاق البيانات لمخطط، قم بما يلي:
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) التي تمثل العرض التقديمي المحتوي على المخطط.
-2. الحصول على مرجع الشريحة عبر فهرسها.
-3. استعراض جميع الأشكال للعثور على المخطط المطلوب.
-4. الوصول إلى بيانات المخطط وتعيين النطاق.
-5. حفظ العرض التقديمي المعدل كملف PPTX.
-
-هذا الكود JavaScript يوضح كيفية تعيين نطاق البيانات لمخطط:
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
     var chart = slide.getShapes().get_Item(0);
@@ -1059,13 +992,14 @@ try {
 }
 ```
 
-
 ## **استخدام العلامات الافتراضية في المخططات**
 
-عند استخدام علامة افتراضية في المخططات، تحصل كل سلسلة مخطط على رموز علامة افتراضية مختلفة تلقائيًا.
+عند استخدام العلامات الافتراضية في المخططات، يحصل كل سلسلة مخطط تلقائيًا على رمز علامة مختلف.
 
-هذا الكود JavaScript يوضح كيفية تعيين علامة سلسلة مخطط تلقائيًا:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -1084,7 +1018,7 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 4, 0, "C4"));
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // خذ السلسلة الثانية للمخطط
+    // استخراج السلسلة الثانية للمخطط
     var series2 = chart.getChartData().getSeries().get_Item(1);
     // الآن يتم تعبئة بيانات السلسلة
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
@@ -1101,21 +1035,20 @@ try {
 }
 ```
 
-
 ## **الأسئلة المتكررة**
 
-**ما هي أنواع المخططات التي تدعمها Aspose.Slides؟**
+**ما هي أنواع المخططات التي يدعمها Aspose.Slides؟**
 
-تدعم Aspose.Slides مجموعة واسعة من أنواع المخططات، بما في ذلك العمودية، الخطية، الفطيرة، المساحية، التشتت، المُحَدِّد تَكرار، الرادار، والعديد غيرها. تتيح لك هذه المرونة اختيار النوع الأنسب لتصوير بياناتك.
+Aspose.Slides يدعم مجموعة واسعة من [أنواع المخططات](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/charttype/)، بما في ذلك الشريطية، الخطية، الدائرية، المساحية، التشتت، الهيستوجرام، الرادار، والعديد غيرها. تتيح لك هذه المرونة اختيار النوع الأنسب لتصور بياناتك.
 
-**كيف يمكن إضافة مخطط جديد إلى شريحة؟**
+**كيف يمكنني إضافة مخطط جديد إلى شريحة؟**
 
-لإضافة مخطط، تقوم أولاً بإنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)؛ ثم تسترجع الشريحة المطلوبة باستخدام فهرستها؛ ثم تستدعي الطريقة لإضافة مخطط، مع تحديد نوع المخطط والبيانات الأولية. يندمج المخطط مباشرةً في عرضك التقديمي.
+لإضافة مخطط، أولاً أنشئ نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/)، احصل على الشريحة المطلوبة باستخدام فهرسها، ثم استدعِ الطريقة لإضافة مخطط، مع تحديد نوع المخطط والبيانات الأولية. يدمج هذا العملية المخطط مباشرةً في عرضك التقديمي.
 
-**كيف يمكن تحديث البيانات المعروضة في مخطط؟**
+**كيف يمكنني تحديث البيانات المعروضة في مخطط؟**
 
-يمكنك تحديث بيانات المخطط من خلال الوصول إلى دفتر بياناته ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة بياناتك المخصصة. يتيح لك ذلك تجديد المخطط برمجياً لتعكس أحدث البيانات.
+يمكنك تحديث بيانات المخطط عن طريق الوصول إلى دفتر عمل البيانات الخاص به ([ChartDataWorkbook](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة البيانات المخصصة الخاصة بك. يتيح لك ذلك تجديد المخطط برمجيًا لتظهر أحدث البيانات.
 
 **هل يمكن تخصيص مظهر المخطط؟**
 
-نعم، تقدم Aspose.Slides خيارات تخصيص واسعة. يمكن تعديل الألوان، الخطوط، التسميات، الأساطير، وغيرها من عناصر التنسيق لتلائم متطلبات التصميم الخاصة بك.
+نعم، يوفر Aspose.Slides خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، الوسائل الإيضاحية، وغيرها من [عناصر التنسيق](/slides/ar/nodejs-java/chart-entities/) لتلائم متطلبات التصميم الخاصة بك.

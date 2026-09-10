@@ -1,6 +1,6 @@
 ---
-title: Diagramme in PowerPoint-Präsentationen mit Python erstellen oder aktualisieren
-linktitle: Diagramm erstellen oder aktualisieren
+title: Diagramme in PowerPoint-Präsentationen in Python erstellen oder aktualisieren
+linktitle: Diagramme erstellen oder aktualisieren
 type: docs
 weight: 10
 url: /de/python-net/create-chart/
@@ -13,59 +13,63 @@ keywords:
 - Streudiagramm
 - Kreisdiagramm
 - Liniendiagramm
-- Tree-Map-Diagramm
+- Baumkarte-Diagramm
 - Börsendiagramm
 - Box-und-Whisker-Diagramm
 - Trichterdiagramm
-- Sunburst-Diagramm
-- Histogramm-Diagramm
+- Sonnenstrahl-Diagramm
+- Histogramm
 - Radar-Diagramm
 - Mehrkategorie-Diagramm
 - PowerPoint-Präsentation
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagramme in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Python via .NET erstellen und anpassen. Der Leitfaden behandelt das Hinzufügen, Formatieren und Bearbeiten von Diagrammen in Präsentationen mit praxisnahen Codebeispielen in Python."
+description: "Erfahren Sie, wie Sie Diagramme in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Python via .NET erstellen und anpassen. Der Leitfaden behandelt das Hinzufügen, Formatieren und Bearbeiten von Diagrammen in Präsentationen mit praktischen Codebeispielen in Python."
 ---
-
 ## **Übersicht**
 
-Dieser Artikel bietet eine umfassende Anleitung zur Erstellung und Anpassung von Diagrammen mit Aspose.Slides für Python über .NET. Sie lernen, wie Sie programmgesteuert ein Diagramm zu einer Folie hinzufügen, es mit Daten füllen und verschiedene Formatierungsoptionen anwenden, um Ihren spezifischen Designanforderungen gerecht zu werden. Im gesamten Artikel veranschaulichen detaillierte Codebeispiele jeden Schritt, von der Initialisierung der Präsentation und des Diagrammobjekts bis zur Konfiguration von Serien, Achsen und Legenden. Wenn Sie dieser Anleitung folgen, erhalten Sie ein fundiertes Verständnis dafür, wie Sie die dynamische Diagrammerstellung in Ihre Anwendungen integrieren und den Prozess zur Erstellung datenbasierter Präsentationen rationalisieren.
+Dieser Artikel erklärt, wie Sie Diagramme mit Aspose.Slides für Python via .NET erstellen und anpassen. Sie lernen, wie Sie ein Diagramm zu einer Folie hinzufügen, es mit Daten füllen und formatieren, um Ihren Designanforderungen zu entsprechen. Die Codebeispiele behandeln das Erstellen von Präsentationen und Diagrammen, das Konfigurieren von Reihen, Achsen und Legenden sowie die Integration der Diagrammerstellung in Ihre Anwendungen.
 
 ## **Diagramm erstellen**
 
-Diagramme helfen, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder einem Tabellenblatt nicht sofort ersichtlich sind.
+Diagramme helfen Menschen, Daten schnell zu visualisieren und Einsichten zu gewinnen, die aus einer Tabelle oder einem Tabellenblatt nicht sofort ersichtlich sind.
 
 **Warum Diagramme erstellen?**
 
-* große Datenmengen auf einer einzigen Folie einer Präsentation aggregieren, komprimieren oder zusammenfassen;
-* Muster und Trends in den Daten aufzeigen;
-* die Richtung und das Momentum der Daten über die Zeit oder bezogen auf eine bestimmte Maßeinheit ableiten;
+Mit Diagrammen können Sie:
+
+* große Datenmengen auf einer einzigen Folie in einer Präsentation aggregieren, kondensieren oder zusammenfassen;
+* Muster und Trends in Daten aufzeigen;
+* die Richtung und das Momentum von Daten über die Zeit oder bezogen auf eine bestimmte Maßeinheit ableiten;
 * Ausreißer, Aberationen, Abweichungen, Fehler und unsinnige Daten erkennen;
 * komplexe Daten kommunizieren oder präsentieren.
 
-In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für die Gestaltung vieler Diagrammtypen bereitstellt. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erstellen.
+In PowerPoint können Sie Diagramme über die *Einfügen*-Funktion erstellen, die Vorlagen für viele Diagrammtypen bietet. Mit Aspose.Slides können Sie sowohl reguläre Diagramme (basierend auf gängigen Diagrammtypen) als auch benutzerdefinierte Diagramme erstellen.
 
-{{% alert color="primary" %}} 
-Verwenden Sie die [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) Aufzählung im Namensraum [Aspose.Slides.Charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/). Die Werte in dieser Aufzählung entsprechen verschiedenen Diagrammtypen.
-{{% /alert %}} 
+{{% alert color="info" title="Hinweis" %}}
 
-### **Gruppierte Säulendiagramme erstellen**
+Verwenden Sie die [ChartType](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/charttype/)‑Aufzählung im Namensraum [Aspose.Slides.Charts](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/). Die Werte dieser Aufzählung entsprechen verschiedenen Diagrammtypen.
 
-Dieser Abschnitt erklärt, wie man mit Aspose.Slides für Python über .NET gruppierte Säulendiagramme erstellt. Sie lernen, wie Sie eine Präsentation initialisieren, ein Diagramm hinzufügen und dessen Elemente wie Titel, Daten, Serien, Kategorien und Gestaltung anpassen. Befolgen Sie die nachstehenden Schritte, um zu sehen, wie ein Standard‑Gruppiertes‑Säulendiagramm erzeugt wird:
+{{% /alert %}}
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-3. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie den Typ `ChartType.CLUSTERED_COLUMN` an.
-4. Fügen Sie dem Diagramm einen Titel hinzu.
-5. Greifen Sie auf das Datenarbeitsblatt des Diagramms zu.
-6. Löschen Sie alle Standardserien und -kategorien.
-7. Fügen Sie neue Serien und Kategorien hinzu.
-8. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
-9. Wenden Sie eine Füllfarbe auf die Diagrammserien an.
-10. Fügen Sie den Diagrammserien Beschriftungen hinzu.
-11. Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+### **Erstellen von gruppierten Säulendiagrammen**
 
-Dieser Python‑Code demonstriert, wie man ein gruppiertes Säulendiagramm erstellt:
+Dieser Abschnitt erklärt, wie Sie gruppierte Säulendiagramme mit Aspose.Slides für Python via .NET erstellen. Sie lernen, eine Präsentation zu initialisieren, ein Diagramm hinzuzufügen und dessen Elemente wie Titel, Daten, Reihen, Kategorien und Stil anzupassen. Folgen Sie den Schritten, um zu sehen, wie ein standardmäßiges gruppiertes Säulendiagramm erzeugt wird:
+
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse.
+1. Holen Sie sich einen Verweis auf eine Folie anhand ihres Index.
+1. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie den Typ `ChartType.CLUSTERED_COLUMN` an.
+1. Fügen Sie dem Diagramm einen Titel hinzu.
+1. Greifen Sie auf das Daten‑Worksheet des Diagramms zu.
+1. Löschen Sie alle Standard‑Reihen und -Kategorien.
+1. Fügen Sie neue Reihen und Kategorien hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagramm‑Reihen hinzu.
+1. Wenden Sie eine Füllfarbe auf die Diagramm‑Reihen an.
+1. Fügen Sie den Reihen Beschriftungen hinzu.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+
+Dieser Python‑Code demonstriert, wie ein gruppiertes Säulendiagramm erstellt wird:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -74,32 +78,29 @@ import aspose.pydrawing as draw
 # Instanziieren Sie die Presentation-Klasse, die eine PPTX-Datei repräsentiert.
 with slides.Presentation() as presentation:
 
-    # Greifen Sie auf die erste Folie zu.
+    # Zugriff auf die erste Folie.
     slide = presentation.slides[0]
 
     # Fügen Sie ein gruppiertes Säulendiagramm mit den Standarddaten hinzu.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
-    # Legen Sie den Diagrammtitel fest.
+    # Diagrammtitel festlegen.
     chart.chart_title.add_text_frame_for_overriding("Sample Title")
     chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # Legen Sie fest, dass die erste Serie Werte anzeigt.
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-
-    # Legen Sie den Index des Diagrammdatentabellenblatts fest.
+    # Index des Diagrammdatenblatts festlegen.
     worksheet_index = 0
 
-    # Holen Sie das Diagrammdatentabellenbuch.
+    # Diagrammdaten-Workbook abrufen.
     workbook = chart.chart_data.chart_data_workbook
 
-    # Löschen Sie die standardmäßig erzeugten Serien und Kategorien.
+    # Standardmäßig generierte Reihen und Kategorien löschen.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    # Neue Serien hinzufügen.
+    # Neue Reihen hinzufügen.
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Series 1"), chart.type)
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Series 2"), chart.type)
 
@@ -108,64 +109,64 @@ with slides.Presentation() as presentation:
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
 
-    # Holen Sie die erste Diagrammserie.
+    # Erste Diagrammreihe abrufen.
     series = chart.chart_data.series[0]
 
-    # Füllen Sie die Seriendaten.
+    # Reihendaten befüllen.
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 20))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
 
-    # Legen Sie die Füllfarbe für die Serie fest.
+    # Füllfarbe für die Reihe festlegen.
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.red
 
-    # Holen Sie die zweite Diagrammserie.
+    # Zweite Diagrammreihe abrufen.
     series = chart.chart_data.series[1]
 
-    # Füllen Sie die Seriendaten.
+    # Reihendaten befüllen.
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 30))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
 
-    # Legen Sie die Füllfarbe für die Serie fest.
+    # Füllfarbe für die Reihe festlegen.
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.green
 
-    # Setzen Sie das erste Beschriftungsfeld so, dass der Kategoriename angezeigt wird.
+    # Erstes Beschriftungsfeld so einstellen, dass der Kategoriename angezeigt wird.
     label = series.data_points[0].label
     label.data_label_format.show_category_name = True
 
     label = series.data_points[1].label
     label.data_label_format.show_series_name = True
 
-    # Legen Sie fest, dass die Serie den Wert für die dritte Beschriftung anzeigt.
+    # Reihe so einstellen, dass der Wert für die dritte Beschriftung angezeigt wird.
     label = series.data_points[2].label
     label.data_label_format.show_value = True
     label.data_label_format.show_series_name = True
     label.data_label_format.separator = "/"
                 
-    # Speichern Sie die Präsentation als PPTX-Datei auf dem Datenträger.
+    # Präsentation als PPTX-Datei auf die Festplatte speichern.
     presentation.save("ClusteredColumnChart.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 Das Ergebnis:
 
 ![Das gruppierte Säulendiagramm](clustered_column_chart.png)
 
-### **Punktdiagramme erstellen**
+### **Erstellen von Streudiagrammen**
 
-Punktdiagramme (auch als Streudiagramme oder X‑Y‑Diagramme bezeichnet) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen zu veranschaulichen.
+Streudiagramme (auch Scatter‑Plots oder x‑y‑Diagramme genannt) werden häufig verwendet, um Muster zu prüfen oder Korrelationen zwischen zwei Variablen zu demonstrieren.
 
-Verwenden Sie ein Punktdiagramm, wenn:
+Verwenden Sie ein Streudiagramm, wenn:
 
-* Sie haben gepaarte numerische Daten.
-* Sie haben zwei Variablen, die gut zusammenpassen.
-* Sie möchten feststellen, ob die beiden Variablen miteinander in Beziehung stehen.
-* Sie haben eine unabhängige Variable, die mehrere Werte für eine abhängige Variable aufweist.
+* Sie gepaarte numerische Daten haben.
+* Sie zwei Variablen haben, die gut zusammenpassen.
+* Sie bestimmen möchten, ob die beiden Variablen miteinander verbunden sind.
+* Sie eine unabhängige Variable mit mehreren Werten für eine abhängige Variable besitzen.
 
-Dieser Python‑Code zeigt, wie man ein Punktdiagramm mit unterschiedlichen Markerserien erstellt:
+Dieser Python‑Code zeigt, wie ein Streudiagramm mit unterschiedlichen Markern für jede Reihe erstellt wird:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -174,86 +175,86 @@ import aspose.pydrawing as draw
 # Instanziieren Sie die Presentation-Klasse.
 with slides.Presentation() as presentation:
 
-    # Greifen Sie auf die erste Folie zu.
+    # Zugriff auf die erste Folie.
     slide = presentation.slides[0]
 
     # Erstellen Sie das Standard-Streudiagramm.
     chart = slide.shapes.add_chart(charts.ChartType.SCATTER_WITH_SMOOTH_LINES, 20, 20, 500, 300)
 
-    # Legen Sie den Index des Diagrammdatentabellenblatts fest.
+    # Index des Diagrammdatenblatts festlegen.
     worksheet_index = 0
 
-    # Holen Sie das Diagrammdatentabellenbuch.
+    # Diagrammdaten-Workbook abrufen.
     workbook = chart.chart_data.chart_data_workbook
 
-    # Löschen Sie die Standardserie.
+    # Standardreihe löschen.
     chart.chart_data.series.clear()
 
-    # Neue Serien hinzufügen.
+    # Neue Reihen hinzufügen.
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 1, 1, "Series 1"), chart.type)
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 1, 3, "Series 2"), chart.type)
 
-    # Holen Sie die erste Diagrammserie.
+    # Erste Diagrammreihe abrufen.
     series = chart.chart_data.series[0]
 
-    # Einen neuen Punkt (1:3) zur Serie hinzufügen.
+    # Neuen Punkt (1:3) zur Reihe hinzufügen.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 1, 1), workbook.get_cell(worksheet_index, 2, 2, 3))
 
-    # Einen neuen Punkt (2:10) hinzufügen.
+    # Neuen Punkt (2:10) hinzufügen.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 1, 2), workbook.get_cell(worksheet_index, 3, 2, 10))
 
-    # Serien-Typ ändern.
+    # Reihen-Typ ändern.
     series.type = charts.ChartType.SCATTER_WITH_STRAIGHT_LINES_AND_MARKERS
 
-    # Diagrammserien-Marker ändern.
+    # Markierung der Diagrammreihe ändern.
     series.marker.size = 10
     series.marker.symbol = charts.MarkerStyleType.STAR
 
-    # Holen Sie die zweite Diagrammserie.
+    # Zweite Diagrammreihe abrufen.
     series = chart.chart_data.series[1]
 
-    # Einen neuen Punkt (5:2) zur Diagrammserie hinzufügen.
+    # Neuen Punkt (5:2) zur Diagrammreihe hinzufügen.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 3, 5), workbook.get_cell(worksheet_index, 2, 4, 2))
 
-    # Einen neuen Punkt (3:1) hinzufügen.
+    # Neuen Punkt (3:1) hinzufügen.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 3, 3), workbook.get_cell(worksheet_index, 3, 4, 1))
 
-    # Einen neuen Punkt (2:2) hinzufügen.
+    # Neuen Punkt (2:2) hinzufügen.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 4, 3, 2), workbook.get_cell(worksheet_index, 4, 4, 2))
 
-    # Einen neuen Punkt (5:1) hinzufügen.
+    # Neuen Punkt (5:1) hinzufügen.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 5, 3, 5), workbook.get_cell(worksheet_index, 5, 4, 1))
 
-    # Diagrammserien-Marker ändern.
+    # Markierung der Diagrammreihe ändern.
     series.marker.size = 10
     series.marker.symbol = charts.MarkerStyleType.CIRCLE
 
     presentation.save("ScatterChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 Das Ergebnis:
 
-![Das Punktdiagramm](scatter_chart.png)
+![Das Streudiagramm](scatter_chart.png)
 
-### **Kreisdiagramme erstellen**
+### **Erstellen von Kreisdiagrammen**
 
-Kreisdiagramme eignen sich am besten, um das Teil‑zu‑Ganzes‑Verhältnis in Daten darzustellen, insbesondere wenn die Daten kategoriale Labels mit numerischen Werten enthalten. Enthält Ihre Daten jedoch viele Teile oder Beschriftungen, sollten Sie stattdessen ein Balkendiagramm in Betracht ziehen.
+Kreisdiagramme eignen sich am besten, um das Verhältnis von Teil zu Ganzem in Daten darzustellen, insbesondere wenn die Daten kategoriale Labels mit numerischen Werten enthalten. Enthält Ihre Daten jedoch viele Teile oder Labels, sollten Sie stattdessen ein Balkendiagramm in Betracht ziehen.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.PIE` an.
-4. Greifen Sie auf das Datenarbeitsbuch des Diagramms ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) zu.
-5. Löschen Sie die Standardserien und -kategorien.
-6. Fügen Sie neue Serien und Kategorien hinzu.
-7. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
-8. Fügen Sie neue Punkte für das Diagramm hinzu und wenden Sie benutzerdefinierte Farben auf die Sektoren des Kreisdiagramms an.
-9. Setzen Sie Beschriftungen für die Serien.
-10. Aktivieren Sie Führungslinien für die Serienbeschriftungen.
-11. Legen Sie den Rotationswinkel für das Kreisdiagramm fest.
-12. Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse.
+1. Holen Sie sich einen Verweis auf eine Folie anhand ihres Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.PIE` an.
+1. Greifen Sie auf das Daten‑Workbook des Diagramms ([ChartDataWorkbook](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdataworkbook/)) zu.
+1. Löschen Sie die Standard‑Reihen und -Kategorien.
+1. Fügen Sie neue Reihen und Kategorien hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagramm‑Reihen hinzu.
+1. Fügen Sie neue Punkte für das Diagramm hinzu und wenden Sie benutzerdefinierte Farben auf die Sektoren des Kreisdiagramms an.
+1. Setzen Sie Beschriftungen für die Reihen.
+1. Aktivieren Sie Hilfslinien für die Reihen‑Beschriftungen.
+1. Legen Sie den Rotationswinkel für das Kreisdiagramm fest.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser Python‑Code zeigt, wie man ein Kreisdiagramm erstellt:
+Dieser Python‑Code zeigt, wie ein Kreisdiagramm erstellt wird:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -262,28 +263,25 @@ import aspose.pydrawing as draw
 # Instanziieren Sie die Presentation-Klasse, die eine PPTX-Datei repräsentiert.
 with slides.Presentation() as presentation:
 
-    # Greifen Sie auf die erste Folie zu.
+    # Zugriff auf die erste Folie.
     slide = presentation.slides[0]
 
     # Fügen Sie ein Diagramm mit den Standarddaten hinzu.
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 20, 20, 500, 300)
 
-    # Legen Sie den Diagrammtitel fest.
+    # Diagrammtitel festlegen.
     chart.chart_title.add_text_frame_for_overriding("Sample Title")
     chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # Legen Sie fest, dass die erste Serie Werte anzeigt.
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-
-    # Legen Sie den Index des Diagrammdatentabellenblatts fest.
+    # Index des Diagrammdatenblatts festlegen.
     worksheet_index = 0
 
-    # Holen Sie das Diagrammdatentabellenbuch.
+    # Diagrammdaten-Workbook abrufen.
     workbook = chart.chart_data.chart_data_workbook
 
-    # Löschen Sie die standardmäßig erzeugten Serien und Kategorien.
+    # Standardmäßig generierte Reihen und Kategorien löschen.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
@@ -292,22 +290,22 @@ with slides.Presentation() as presentation:
     chart.chart_data.categories.add(workbook.get_cell(0, 2, 0, "2nd Qtr"))
     chart.chart_data.categories.add(workbook.get_cell(0, 3, 0, "3rd Qtr"))
 
-    # Neue Serie hinzufügen.
+    # Neue Reihen hinzufügen.
     series = chart.chart_data.series.add(workbook.get_cell(0, 0, 1, "Series 1"), chart.type)
 
-    # Füllen Sie die Seriendaten.
+    # Reihendaten befüllen.
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 1, 1, 20))
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 2, 1, 50))
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 3, 1, 30))
 
-    # Legen Sie die Sektorfarbe fest.
+    # Sektorfarbe festlegen.
     chart.chart_data.series_groups[0].is_color_varied = True
 
     point = series.data_points[0]
     point.format.fill.fill_type = slides.FillType.SOLID
     point.format.fill.solid_fill_color.color = draw.Color.cyan
 
-    # Legen Sie den Sektorrand fest.
+    # Sektorrand festlegen.
     point.format.line.fill_format.fill_type = slides.FillType.SOLID
     point.format.line.fill_format.solid_fill_color.color = draw.Color.gray
     point.format.line.width = 3.0
@@ -318,7 +316,7 @@ with slides.Presentation() as presentation:
     point1.format.fill.fill_type = slides.FillType.SOLID
     point1.format.fill.solid_fill_color.color = draw.Color.brown
 
-    # Legen Sie den Sektorrand fest.
+    # Sektorrand festlegen.
     point1.format.line.fill_format.fill_type = slides.FillType.SOLID
     point1.format.line.fill_format.solid_fill_color.color = draw.Color.blue
     point1.format.line.width = 3.0
@@ -329,14 +327,14 @@ with slides.Presentation() as presentation:
     point2.format.fill.fill_type = slides.FillType.SOLID
     point2.format.fill.solid_fill_color.color = draw.Color.coral
 
-    # Legen Sie den Sektorrand fest.
+    # Sektorrand festlegen.
     point2.format.line.fill_format.fill_type = slides.FillType.SOLID
     point2.format.line.fill_format.solid_fill_color.color = draw.Color.red
     point2.format.line.width = 2.0
     point2.format.line.style = slides.LineStyle.THIN_THIN
     point2.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT_DOT
 
-    # Erstellen Sie benutzerdefinierte Beschriftungen für jede Kategorie in der neuen Serie.
+    # Benutzerdefinierte Beschriftungen für jede Kategorie in der neuen Reihe erstellen.
     label1 = series.data_points[0].label
 
     label1.data_label_format.show_value = True
@@ -350,35 +348,31 @@ with slides.Presentation() as presentation:
     label3.data_label_format.show_series_name = True
     label3.data_label_format.show_percentage = True
 
-    # Legen Sie fest, dass die Serie Führungslinien für das Diagramm anzeigt.
+    # Reihe so einstellen, dass Leitlinien für das Diagramm angezeigt werden.
     series.labels.default_data_label_format.show_leader_lines = True
 
-    # Legen Sie den Rotationswinkel für die Kreisdiagramm‑Sektoren fest.
+    # Rotationswinkel für die Kuchen-Diagramm‑Sektoren festlegen.
     chart.chart_data.series_groups[0].first_slice_angle = 180
 
-    # Speichern Sie die Präsentation als PPTX-Datei auf dem Datenträger.
+    # Präsentation als PPTX-Datei auf die Festplatte speichern.
     presentation.save("PieChart.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 Das Ergebnis:
 
 ![Das Kreisdiagramm](pie_chart.png)
 
-### **Liniendiagramme erstellen**
+### **Erstellen von Liniendiagrammen**
 
-Liniendiagramme (auch als Liniendiagramme bezeichnet) eignen sich am besten, wenn Sie Änderungen von Werten im Zeitverlauf darstellen möchten. Mit einem Liniendiagramm können Sie große Datenmengen gleichzeitig vergleichen, Änderungen und Trends über die Zeit verfolgen, Anomalien in Datenserien hervorheben und mehr.
+Liniendiagramme (auch Liniengraphen genannt) eignen sich besonders für Situationen, in denen Sie Veränderungen von Werten über die Zeit demonstrieren möchten. Mit einem Liniendiagramm können Sie große Datenmengen gleichzeitig vergleichen, Änderungen und Trends im Zeitverlauf verfolgen, Anomalien in Datenreihen hervorheben und mehr.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.LINE` an.
-4. Greifen Sie auf das Datenarbeitsbuch des Diagramms ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) zu.
-5. Löschen Sie die Standardserien und -kategorien.
-6. Fügen Sie neue Serien und Kategorien hinzu.
-7. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
-8. Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse.
+1. Holen Sie sich einen Verweis auf eine Folie anhand ihres Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.LINE` an.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser Python‑Code zeigt, wie man ein Liniendiagramm erstellt:
+Dieser Python‑Code zeigt, wie ein Liniendiagramm erstellt wird:
+
 ```python
 import aspose.slides as slides
 
@@ -388,34 +382,39 @@ with slides.Presentation() as presentation:
     presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Standardmäßig werden Punkte in einem Liniendiagramm durch gerade kontinuierliche Linien verbunden. Wenn Sie die Punkte stattdessen mit Strichen verbinden möchten, können Sie den gewünschten Strichtyp wie folgt angeben:
 
-Standardmäßig werden Punkte in einem Liniendiagramm durch gerade, kontinuierliche Linien verbunden. Wenn Sie die Punkte stattdessen durch Striche verbinden möchten, können Sie Ihren bevorzugten Strichtyp wie folgt angeben:
 ```python
-line_chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+import aspose.slides as slides
 
-for series in line_chart.chart_data.series:
-    series.format.line.dash_style = slides.charts.LineDashStyle.DASH
+with slides.Presentation() as presentation:
+    line_chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+
+    for series in line_chart.chart_data.series:
+        series.format.line.dash_style = slides.LineDashStyle.DASH
+
+    presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 Das Ergebnis:
 
 ![Das Liniendiagramm](line_chart.png)
 
-### **Tree‑Map‑Diagramme erstellen**
+### **Erstellen von Baumkarte‑Diagrammen**
 
-Tree‑Map‑Diagramme eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien anzeigen und schnell die großen Beitragszahler innerhalb jeder Kategorie hervorheben möchten.
+Baumkarte‑Diagramme eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen und schnell die Elemente hervorheben möchten, die innerhalb jeder Kategorie große Beiträge leisten.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.TREEMAP` an.
-4. Greifen Sie auf das Datenarbeitsbuch des Diagramms ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) zu.
-5. Löschen Sie die Standardserien und -kategorien.
-6. Fügen Sie neue Serien und Kategorien hinzu.
-7. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
-8. Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse.
+1. Holen Sie sich einen Verweis auf eine Folie anhand ihres Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.TREEMAP` an.
+1. Greifen Sie auf das Daten‑Workbook des Diagramms ([ChartDataWorkbook](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdataworkbook/)) zu.
+1. Löschen Sie die Standard‑Reihen und -Kategorien.
+1. Fügen Sie neue Reihen und Kategorien hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagramm‑Reihen hinzu.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser Python‑Code zeigt, wie man ein Tree‑Map‑Diagramm erstellt:
+Dieser Python‑Code zeigt, wie ein Baumkarte‑Diagramm erstellt wird:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -469,26 +468,26 @@ with slides.Presentation() as presentation:
     presentation.save("TreeMap.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 Das Ergebnis:
 
-![Das Tree‑Map‑Diagramm](treemap_chart.png)
+![Das Baumkarte‑Diagramm](treemap_chart.png)
 
-### **Börsendiagramme erstellen**
+### **Erstellen von Börsendiagrammen**
 
-Börsendiagramme werden verwendet, um Finanzdaten wie Eröffnungs-, Höchst‑, Tief‑ und Schlusskurse anzuzeigen, und helfen dabei, Markttrends und Volatilität zu analysieren. Sie bieten wesentliche Einblicke in die Kursentwicklung und unterstützen Investoren und Analysten bei fundierten Entscheidungen.
+Börsendiagramme werden verwendet, um Finanzdaten wie Eröffnungs‑, Hoch‑, Tief‑ und Schlusskurse darzustellen und damit Markttrends sowie Schwankungen zu analysieren. Sie bieten wesentliche Einblicke in die Aktienperformance und unterstützen Investoren und Analysten bei fundierten Entscheidungen.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.OPEN_HIGH_LOW_CLOSE` an.
-4. Greifen Sie auf das Datenarbeitsbuch des Diagramms ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) zu.
-5. Löschen Sie die Standardserien und -kategorien.
-6. Fügen Sie neue Serien und Kategorien hinzu.
-7. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
-8. Geben Sie das Format für HiLowLines an.
-9. Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse.
+1. Holen Sie sich einen Verweis auf eine Folie anhand ihres Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.OPEN_HIGH_LOW_CLOSE` an.
+1. Greifen Sie auf das Daten‑Workbook des Diagramms ([ChartDataWorkbook](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdataworkbook/)) zu.
+1. Löschen Sie die Standard‑Reihen und -Kategorien.
+1. Fügen Sie neue Reihen und Kategorien hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagramm‑Reihen hinzu.
+1. Geben Sie das Format für Hoch‑Tief‑Linien an.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser Python‑Code zeigt, wie man ein Börsendiagramm erstellt:
+Dieser Python‑Code zeigt, wie ein Börsendiagramm erstellt wird:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -541,25 +540,25 @@ with slides.Presentation() as presentation:
     presentation.save("StockChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 Das Ergebnis:
 
 ![Das Börsendiagramm](stock_chart.png)
 
-### **Box‑und‑Whisker‑Diagramme erstellen**
+### **Erstellen von Box‑und‑Whisker‑Diagrammen**
 
-Box‑und‑Whisker‑Diagramme werden verwendet, um die Verteilung von Daten darzustellen, indem sie zentrale statistische Maße wie Median, Quartile und mögliche Ausreißer zusammenfassen. Sie sind besonders nützlich in der explorativen Datenanalyse und bei statistischen Studien, um schnell die Variabilität von Daten zu verstehen und Anomalien zu erkennen.
+Box‑und‑Whisker‑Diagramme werden verwendet, um die Verteilung von Daten darzustellen, indem sie zentrale statistische Maße wie Median, Quartile und potenzielle Ausreißer zusammenfassen. Sie sind besonders nützlich in der explorativen Datenanalyse und in statistischen Studien, um die Datenvariabilität schnell zu verstehen und Anomalien zu identifizieren.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.BOX_AND_WHISKER` an.
-4. Greifen Sie auf das Datenarbeitsbuch des Diagramms ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) zu.
-5. Löschen Sie die Standardserien und -kategorien.
-6. Fügen Sie neue Serien und Kategorien hinzu.
-7. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
-8. Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse.
+1. Holen Sie sich einen Verweis auf eine Folie anhand ihres Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.BOX_AND_WHISKER` an.
+1. Greifen Sie auf das Daten‑Workbook des Diagramms ([ChartDataWorkbook](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdataworkbook/)) zu.
+1. Löschen Sie die Standard‑Reihen und -Kategorien.
+1. Fügen Sie neue Reihen und Kategorien hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagramm‑Reihen hinzu.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser Python‑Code zeigt, wie man ein Box‑und‑Whisker‑Diagramm erstellt:
+Dieser Python‑Code zeigt, wie ein Box‑und‑Whisker‑Diagramm erstellt wird:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -598,17 +597,17 @@ with slides.Presentation() as presentation:
     presentation.save("BoxAndWhiskerChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Erstellen von Trichter‑Diagrammen**
 
-### **Trichterdiagramme erstellen**
+Trichter‑Diagramme werden verwendet, um Prozesse mit sequentiellen Stufen zu visualisieren, bei denen das Datenvolumen von einer Stufe zur nächsten abnimmt. Sie sind besonders hilfreich zur Analyse von Konversionsraten, zur Identifizierung von Engpässen und zur Verfolgung der Effizienz von Vertriebs‑ oder Marketing‑Prozessen.
 
-Trichterdiagramme werden verwendet, um Prozesse zu visualisieren, die sequenzielle Phasen umfassen, wobei das Datenvolumen von einer Stufe zur nächsten abnimmt. Sie sind besonders hilfreich zur Analyse von Konversionsraten, zur Identifizierung von Engpässen und zur Verfolgung der Effizienz von Vertriebs‑ oder Marketingprozessen.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse.
+1. Holen Sie sich einen Verweis auf eine Folie anhand ihres Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.FUNNEL` an.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.FUNNEL` an.
-4. Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+Dieser Python‑Code zeigt, wie ein Trichter‑Diagramm erstellt wird:
 
-Dieser Python‑Code zeigt, wie man ein Trichterdiagramm erstellt:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -641,21 +640,21 @@ with slides.Presentation() as presentation:
     presentation.save("FunnelChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 Das Ergebnis:
 
-![Das Trichterdiagramm](funnel_chart.png)
+![Das Trichter‑Diagramm](funnel_chart.png)
 
-### **Sunburst‑Diagramme erstellen**
+### **Erstellen von Sonnenstrahl‑Diagrammen**
 
-Sunburst‑Diagramme werden verwendet, um hierarchische Daten darzustellen, wobei Ebenen als konzentrische Ringe angezeigt werden. Sie veranschaulichen Teil‑zu‑Ganzes‑Beziehungen und eignen sich ideal zur Darstellung verschachtelter Kategorien und Unterkategorien in einem klaren, kompakten Format.
+Sonnenstrahl‑Diagramme werden verwendet, um hierarchische Daten zu visualisieren, wobei die Ebenen als konzentrische Ringe dargestellt werden. Sie veranschaulichen Teil‑zu‑Ganz‑Beziehungen und eignen sich ideal zur Darstellung verschachtelter Kategorien und Unterkategorien in einem kompakten Format.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.SUNBURST` an.
-4. Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse.
+1. Holen Sie sich einen Verweis auf eine Folie anhand ihres Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.SUNBURST` an.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser Python‑Code zeigt, wie man ein Sunburst‑Diagramm erstellt:
+Dieser Python‑Code zeigt, wie ein Sonnenstrahl‑Diagramm erstellt wird:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -707,24 +706,24 @@ with slides.Presentation() as presentation:
     presentation.save("SunburstChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 Das Ergebnis:
 
-![Das Sunburst‑Diagramm](sunburst_chart.png)
+![Das Sonnenstrahl‑Diagramm](sunburst_chart.png)
 
-### **Histogramm‑Diagramme erstellen**
+### **Erstellen von Histogramm‑Diagrammen**
 
-Histogramm‑Diagramme werden verwendet, um die Verteilung numerischer Daten darzustellen, indem Werte in Klassen (Bins) gruppiert werden. Sie sind besonders nützlich, um Datenmuster wie Häufigkeit, Schiefe und Streuung zu erkennen und Ausreißer in einem Datensatz zu identifizieren.
+Histogramm‑Diagramme werden verwendet, um die Verteilung numerischer Daten darzustellen, indem Werte in Bereiche oder Klassen (Bins) gruppiert werden. Sie sind besonders nützlich, um Datenmuster wie Häufigkeit, Schiefe und Streuung zu erkennen und Ausreißer in einem Datensatz zu identifizieren.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-3. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie den Typ `ChartType.HISTOGRAM` an.
-4. Greifen Sie auf das Datenarbeitsbuch des Diagramms ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) zu.
-5. Löschen Sie die Standardserien und -kategorien.
-6. Fügen Sie neue Serien und Kategorien hinzu.
-7. Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse.
+1. Holen Sie sich einen Verweis auf eine Folie anhand ihres Index.
+1. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie den Typ `ChartType.HISTOGRAM` an.
+1. Greifen Sie auf das Daten‑Workbook des Diagramms ([ChartDataWorkbook](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdataworkbook/)) zu.
+1. Löschen Sie die Standard‑Reihen und -Kategorien.
+1. Fügen Sie eine neue Reihe hinzu und füllen Sie sie mit Datenpunkten. Ein Histogramm hat keine Kategorien; die Bins werden aus den Werten berechnet.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser Python‑Code zeigt, wie man ein Histogramm‑Diagramm erstellt:
+Dieser Python‑Code zeigt, wie ein Histogramm‑Diagramm erstellt wird:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -751,48 +750,48 @@ with slides.Presentation() as presentation:
     presentation.save("HistogramChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 Das Ergebnis:
 
 ![Das Histogramm‑Diagramm](histogram_chart.png)
 
-### **Radar‑Diagramme erstellen**
+### **Erstellen von Radar‑Diagrammen**
 
-Radar‑Diagramme werden verwendet, um multivariate Daten in einem zweidimensionalen Format darzustellen, sodass mehrere Variablen gleichzeitig leicht vergleichbar sind. Sie sind besonders nützlich, um Muster, Stärken und Schwächen über mehrere Leistungsmetriken oder Attribute hinweg zu erkennen.
+Radar‑Diagramme werden verwendet, um multivariate Daten in einem zweidimensionalen Format darzustellen, wodurch ein einfacher Vergleich mehrerer Variablen gleichzeitig möglich ist. Sie sind besonders nützlich, um Muster, Stärken und Schwächen über mehrere Leistungskennzahlen oder Attribute hinweg zu erkennen.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-3. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie den Typ `ChartType.RADAR` an.
-4. Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse.
+1. Holen Sie sich einen Verweis auf eine Folie anhand ihres Index.
+1. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie den Typ `ChartType.RADAR` an.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser Python‑Code zeigt, wie man ein Radar‑Diagramm erstellt:
+Dieser Python‑Code zeigt, wie ein Radar‑Diagramm erstellt wird:
+
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     presentation.slides[0].shapes.add_chart(slides.charts.ChartType.RADAR, 20, 20, 500, 300)
-    presentation.save("RadarСhart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("RadarChart.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 Das Ergebnis:
 
 ![Das Radar‑Diagramm](radar_chart.png)
 
-### **Mehrkategorie‑Diagramme erstellen**
+### **Erstellen von Diagrammen mit mehreren Kategorien**
 
-Mehrkategorie‑Diagramme werden verwendet, um Daten darzustellen, die mehr als eine kategoriale Gruppierung umfassen, sodass Werte über mehrere Dimensionen gleichzeitig verglichen werden können. Sie sind besonders hilfreich, wenn Sie Trends und Beziehungen innerhalb komplexer, mehrschichtiger Datensätze analysieren müssen.
+Diagramme mit mehreren Kategorien werden verwendet, um Daten darzustellen, die mehr als eine kategoriale Gruppierung umfassen, sodass Sie Werte über mehrere Dimensionen gleichzeitig vergleichen können. Sie sind besonders hilfreich, wenn Sie Trends und Zusammenhänge in komplexen, mehrschichtigen Datensätzen analysieren müssen.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-3. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.CLUSTERED_COLUMN` an.
-4. Greifen Sie auf das Datenarbeitsbuch des Diagramms ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) zu.
-5. Löschen Sie die Standardserien und -kategorien.
-6. Fügen Sie neue Serien und Kategorien hinzu.
-7. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
-8. Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse.
+1. Holen Sie sich einen Verweis auf eine Folie anhand ihres Index.
+1. Fügen Sie ein Diagramm mit Standarddaten hinzu und geben Sie den Typ `ChartType.CLUSTERED_COLUMN` an.
+1. Greifen Sie auf das Daten‑Workbook des Diagramms ([ChartDataWorkbook](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdataworkbook/)) zu.
+1. Löschen Sie die Standard‑Reihen und -Kategorien.
+1. Fügen Sie neue Reihen und Kategorien hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagramm‑Reihen hinzu.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser Python‑Code zeigt, wie man ein Mehrkategorie‑Diagramm erstellt:
+Dieser Python‑Code zeigt, wie ein Diagramm mit mehreren Kategorien erstellt wird:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -826,7 +825,7 @@ with slides.Presentation() as presentation:
     category.grouping_levels.set_grouping_item(1, "Group4")
     category = chart.chart_data.categories.add(workbook.get_cell(0, "c9", "H"))
 
-    # Eine Serie hinzufügen.
+    # Reihe hinzufügen.
     series = chart.chart_data.series.add(workbook.get_cell(0, "D1", "Series 1"), charts.ChartType.CLUSTERED_COLUMN)
 
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D2", 10))
@@ -842,16 +841,16 @@ with slides.Presentation() as presentation:
     presentation.save("MultiCategoryChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 Das Ergebnis:
 
-![Das Mehrkategorie‑Diagramm](multi_category_chart.png)
+![Das Diagramm mit mehreren Kategorien](multi_category_chart.png)
 
-### **Karten‑Diagramme erstellen**
+### **Erstellen von Karten‑Diagrammen**
 
-Karten‑Diagramme werden verwendet, um geografische Daten zu visualisieren, indem Informationen spezifischen Standorten wie Ländern, Bundesländern oder Städten zugeordnet werden. Sie sind besonders nützlich, um regionale Trends, demografische Daten und räumliche Verteilungen klar und ansprechend zu analysieren.
+Karten‑Diagramme werden verwendet, um geografische Daten zu visualisieren, indem Informationen bestimmten Orten wie Ländern, Bundesländern oder Städten zugeordnet werden. Sie sind besonders nützlich, um regionale Trends, demografische Daten und räumliche Verteilungen klar und ansprechend darzustellen.
 
-Dieser Python‑Code zeigt, wie man ein Karten‑Diagramm erstellt:
+Dieser Python‑Code zeigt, wie ein Karten‑Diagramm erstellt wird:
+
 ```python
 import aspose.slides as slides
 
@@ -860,19 +859,23 @@ with slides.Presentation() as presentation:
     presentation.save("mapChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 Das Ergebnis:
 
 ![Das Karten‑Diagramm](map_chart.png)
 
-### **Kombinations‑Diagramme erstellen**
+### **Erstellen von Kombinations‑Diagrammen**
 
-Ein Kombinations‑Diagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es Ihnen, Unterschiede zwischen zwei oder mehr Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen, wodurch Beziehungen zwischen ihnen leichter erkennbar werden.
+Ein Kombinations‑Diagramm (oder Combo‑Diagramm) kombiniert zwei oder mehr Diagrammtypen in einem einzigen Diagramm. Dieses Diagramm ermöglicht es Ihnen, Unterschiede zwischen zwei oder mehreren Datensätzen hervorzuheben, zu vergleichen oder zu untersuchen und so Beziehungen zwischen ihnen zu erkennen.
 
 ![Das Kombinations‑Diagramm](combination_chart.png)
 
-Der folgende Python‑Code zeigt, wie man das oben gezeigte Kombinations‑Diagramm in einer PowerPoint‑Präsentation erstellt:
+Der folgende Python‑Code zeigt, wie das oben gezeigte Kombinations‑Diagramm in einer PowerPoint‑Präsentation erstellt wird:
+
 ```python
+import aspose.slides.charts as charts
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
 def create_combo_chart():
     with slides.Presentation() as presentation:
         chart = create_chart_with_first_series(presentation.slides[0])
@@ -903,7 +906,7 @@ def create_chart_with_first_series(slide):
     chart.legend.position = charts.LegendPositionType.BOTTOM
     chart.legend.text_format.portion_format.font_height = 12
 
-    # Standardmäßig erzeugte Serien und Kategorien löschen.
+    # Standardmäßig generierte Reihen und Kategorien löschen.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
@@ -916,7 +919,7 @@ def create_chart_with_first_series(slide):
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 4, 0, "Category 4"))
 
-    # Erste Serie hinzufügen.
+    # Erste Reihe hinzufügen.
     series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
     series = chart.chart_data.series.add(series_name_cell, chart.type)
 
@@ -977,7 +980,7 @@ def set_primary_axes_format(chart):
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # Farbe der vertikalen Hauptgitternetzlinien festlegen.
+    # Farbe der vertikalen Hauptgitterlinien festlegen.
     major_grid_lines_format = vertical_axis.major_grid_lines_format.line.fill_format
     major_grid_lines_format.fill_type = slides.FillType.SOLID
     major_grid_lines_format.solid_fill_color.color = draw.Color.from_argb(217, 217, 217)
@@ -1011,20 +1014,20 @@ def set_axis_title(axis, axis_title):
     title_portion_format.font_height = 12.0
 ```
 
-
 ## **Diagramme aktualisieren**
 
-Aspose.Slides für Python über .NET ermöglicht das Aktualisieren von PowerPoint‑Diagrammen durch Ändern von Diagrammdaten, Formatierungen und Stilen. Diese Funktionalität vereinfacht das Aktualisieren von Präsentationen mit dynamischen Inhalten und stellt sicher, dass Diagramme aktuelle Daten und visuelle Standards exakt wiedergeben.
+Aspose.Slides für Python via .NET ermöglicht das Aktualisieren von Diagrammdaten, Formatierungen und Stilen, um Ihre PowerPoint‑Präsentationen auf dem neuesten Stand zu halten.
 
-1. Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), die die Präsentation mit dem Diagramm repräsentiert.
-2. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-3. Durchlaufen Sie alle Formen, um das Diagramm zu finden.
-4. Greifen Sie auf das Datenarbeitsblatt des Diagramms zu.
-5. Ändern Sie die Diagrammdatenserie, indem Sie die Serienwerte anpassen.
-6. Fügen Sie eine neue Serie hinzu und füllen Sie deren Daten.
-7. Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse, um die Präsentation zu öffnen, die das Diagramm enthält.
+1. Holen Sie sich einen Verweis auf eine Folie anhand ihres Index.
+1. Durchlaufen Sie alle Formen, um das Diagramm zu finden.
+1. Greifen Sie auf das Daten‑Worksheet des Diagramms zu.
+1. Ändern Sie die Diagramm‑Datenreihen, indem Sie die Werte der Reihen anpassen.
+1. Fügen Sie eine neue Reihe hinzu und füllen Sie deren Daten.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-Dieser Python‑Code zeigt, wie man ein Diagramm aktualisiert:
+Dieser Python‑Code zeigt, wie ein Diagramm aktualisiert wird:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -1032,70 +1035,70 @@ import aspose.pydrawing as draw
 
 chart_name = "My chart"
 
-# Instanziieren Sie die Presentation-Klasse, die eine PPTX-Datei darstellt.
+# Instanziieren Sie die Presentation‑Klasse, die eine PPTX‑Datei repräsentiert.
 with slides.Presentation("ExistingChart.pptx") as presentation:
 
-    # Greifen Sie auf die erste Folie zu.
+    # Zugriff auf die erste Folie.
     slide = presentation.slides[0]
 
     for shape in slide.shapes:
         if isinstance(shape, charts.Chart) and shape.name == chart_name:
             chart = shape
 
-            # Legen Sie den Index des Diagrammdatentabellenblatts fest.
+            # Index des Diagrammdatenblatts festlegen.
             worksheet_index = 0
 
-            # Holen Sie das Diagramm-Datenarbeitsbuch.
+            # Diagrammdaten‑Workbook abrufen.
             workbook = chart.chart_data.chart_data_workbook
 
-            # Ändern Sie die Diagrammkategorienamen.
+            # Diagramm‑Kategorienamen ändern.
             workbook.get_cell(worksheet_index, 1, 0, "Modified Category 1")
             workbook.get_cell(worksheet_index, 2, 0, "Modified Category 2")
 
-            # Holen Sie die erste Diagrammserie.
+            # Erste Diagrammreihe abrufen.
             series = chart.chart_data.series[0]
 
-            # Aktualisieren Sie die Seriendaten.
-            workbook.get_cell(worksheet_index, 0, 1, "New_Series1")  # Ändern des Seriennamens.
+            # Reihen‑Daten aktualisieren.
+            workbook.get_cell(worksheet_index, 0, 1, "New_Series1")  # Seriennamen ändern.
             series.data_points[0].value.data = 90
             series.data_points[1].value.data = 123
             series.data_points[2].value.data = 44
 
-            # Holen Sie die zweite Diagrammserie.
+            # Zweite Diagrammreihe abrufen.
             series = chart.chart_data.series[1]
 
-            # Aktualisieren Sie die Seriendaten.
-            workbook.get_cell(worksheet_index, 0, 2, "New_Series2")  # Ändern des Seriennamens.
+            # Reihen‑Daten aktualisieren.
+            workbook.get_cell(worksheet_index, 0, 2, "New_Series2")  # Seriennamen ändern.
             series.data_points[0].value.data = 23
             series.data_points[1].value.data = 67
             series.data_points[2].value.data = 99
 
-            # Fügen Sie eine neue Serie hinzu.
+            # Eine neue Reihe hinzufügen.
             series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 3, "Series 3"), chart.type)
 
-            # Füllen Sie die Seriendaten.
+            # Reihen‑Daten befüllen.
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 3, 20))
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 3, 50))
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 3, 30))
 
             chart.type = charts.ChartType.CLUSTERED_CYLINDER
 
-            # Speichern Sie die Präsentation mit dem Diagramm.
+            # Präsentation mit dem Diagramm speichern.
             presentation.save("ModifiedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Datenbereich für ein Diagramm festlegen**
 
-## **Datenbereich für Diagramme festlegen**
+Aspose.Slides für Python via .NET ermöglicht die Verwendung eines bestimmten Arbeitsblattbereichs als Datenquelle für ein Diagramm. Dadurch wird gesteuert, welche Zellen die Reihen und Kategorien des Diagramms versorgen, und Sie können das Diagramm aktualisieren, um Änderungen im Arbeitsblatt widerzuspiegeln.
 
-Aspose.Slides für Python über .NET bietet die Flexibilität, einen bestimmten Datenbereich aus einem Arbeitsblatt als Quelle für die Diagrammdaten festzulegen. Dadurch können Sie einen Teil Ihres Arbeitsblatts direkt dem Diagramm zuordnen und steuern, welche Zellen zu den Serien und Kategorien des Diagramms beitragen. So lassen sich Diagramme einfach aktualisieren und mit den neuesten Daten im Arbeitsblatt synchronisieren, sodass Ihre PowerPoint‑Präsentationen stets aktuelle und genaue Informationen widerspiegeln.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse, um die Präsentation zu öffnen, die das Diagramm enthält.
+1. Holen Sie sich einen Verweis auf eine Folie anhand ihres Index.
+1. Durchlaufen Sie alle Formen, um das Diagramm zu finden.
+1. Greifen Sie auf die Diagrammdaten zu und legen Sie den Bereich fest.
+1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
 
-1. Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), die die Präsentation mit dem Diagramm repräsentiert.
-2. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-3. Durchlaufen Sie alle Formen, um das Diagramm zu finden.
-4. Greifen Sie auf die Diagrammdaten zu und setzen Sie den Bereich.
-5. Speichern Sie die modifizierte Präsentation als PPTX‑Datei.
+Dieser Python‑Code zeigt, wie der Datenbereich für ein Diagramm festgelegt wird:
 
-Dieser Python‑Code zeigt, wie man den Datenbereich für ein Diagramm festlegt:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -1106,7 +1109,7 @@ chart_name = "My chart"
 # Instanziieren Sie die Presentation-Klasse, die eine PPTX-Datei darstellt.
 with slides.Presentation("ExistingChart.pptx") as presentation:
 
-    # Greifen Sie auf die erste Folie zu.
+    # Zugriff auf die erste Folie.
     slide = presentation.slides[0]
 
     for shape in slide.shapes:
@@ -1117,12 +1120,12 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("DataRange.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **Standard‑Marker in Diagrammen verwenden**
 
-Wenn Sie Standard‑Marker in Diagrammen verwenden, erhält jede Diagrammserie automatisch ein unterschiedliches Standard‑Markersymbol.
+Wenn Sie Standard‑Marker in Diagrammen verwenden, erhält jede Diagramm‑Reihe automatisch ein unterschiedliches Markersymbol.
 
-Dieser Python‑Code zeigt, wie man einen Diagrammserien‑Marker automatisch festlegt:
+Dieser Python‑Code zeigt, wie ein Diagramm‑Reihen‑Marker automatisch festgelegt wird:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -1153,7 +1156,7 @@ with slides.Presentation() as presentation:
 
     series2 = chart.chart_data.series.add(workbook.get_cell(0, 0, 2, "Series 2"), chart.type)
 
-    # Seriendaten füllen.
+    # Reihendaten befüllen.
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 1, 2, 30))
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 2, 2, 10))
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 3, 2, 60))
@@ -1165,21 +1168,20 @@ with slides.Presentation() as presentation:
     presentation.save("DefaultMarkersInChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **FAQ**
 
-**Welche Diagrammtypen werden von Aspose.Slides für Python über .NET unterstützt?**
+**Welche Diagrammtypen werden von Aspose.Slides für Python via .NET unterstützt?**
 
-Aspose.Slides für Python über .NET unterstützt eine breite Palette von Diagrammtypen, darunter Balken-, Linien-, Kreis-, Flächen-, Punkt-, Histogramm-, Radar- und viele weitere. Diese Flexibilität ermöglicht Ihnen die Auswahl des am besten geeigneten Diagrammtyps für Ihre Datenvisualisierung.
+Aspose.Slides für Python via .NET unterstützt ein breites Spektrum an Diagrammtypen, darunter Balken, Linien, Kuchen, Flächen, Streu, Histogramm, Radar und vieles mehr. Diese Flexibilität erlaubt es Ihnen, den am besten geeigneten Diagrammtyp für Ihre Datenvisualisierung auszuwählen.
 
-**Wie füge ich einer Folie ein neues Diagramm hinzu?**
+**Wie füge ich ein neues Diagramm zu einer Folie hinzu?**
 
-Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), rufen die gewünschte Folie über deren Index ab und rufen dann die Methode zum Hinzufügen eines Diagramms auf, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
+Um ein Diagramm hinzuzufügen, erstellen Sie zunächst eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse, rufen die gewünschte Folie über ihren Index ab und rufen dann die Methode auf, um ein Diagramm hinzuzufügen, wobei Sie den Diagrammtyp und die Anfangsdaten angeben. Dieser Vorgang integriert das Diagramm direkt in Ihre Präsentation.
 
 **Wie kann ich die in einem Diagramm angezeigten Daten aktualisieren?**
 
-Sie können die Daten eines Diagramms aktualisieren, indem Sie auf das Datenarbeitsbuch des Diagramms ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)) zugreifen, sämtliche Standardserien und -kategorien löschen und anschließend Ihre eigenen Daten hinzufügen. So können Sie das Diagramm programmgesteuert aktualisieren, sodass es die neuesten Daten widerspiegelt.
+Sie können die Daten eines Diagramms aktualisieren, indem Sie auf dessen Daten‑Workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdataworkbook/)) zugreifen, alle Standard‑Reihen und -Kategorien löschen und anschließend Ihre eigenen Daten hinzufügen. So können Sie das Diagramm programmgesteuert auffrischen, um die neuesten Daten widerzuspiegeln.
 
 **Ist es möglich, das Erscheinungsbild des Diagramms anzupassen?**
 
-Ja, Aspose.Slides für Python über .NET bietet umfangreiche Anpassungsmöglichkeiten. Sie können Farben, Schriftarten, Beschriftungen, Legenden und andere Formatierungselemente ändern, um das Erscheinungsbild des Diagramms an Ihre spezifischen Designanforderungen anzupassen.
+Ja, Aspose.Slides für Python via .NET bietet umfangreiche Anpassungsoptionen. Sie können Farben, Schriftarten, Beschriftungen, Legenden und weitere Formatierungselemente ändern, um das Aussehen des Diagramms an Ihre spezifischen Designanforderungen anzupassen.

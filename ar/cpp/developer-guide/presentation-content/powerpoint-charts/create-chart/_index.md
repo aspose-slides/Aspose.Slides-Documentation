@@ -1,235 +1,305 @@
 ---
-title: إنشاء أو تحديث مخططات عروض PowerPoint في C++
-linktitle: إنشاء أو تحديث المخططات
+title: إنشاء أو تعديل مخططات عرض PowerPoint في C++
+linktitle: إنشاء أو تعديل المخططات
 type: docs
 weight: 10
 url: /ar/cpp/create-chart/
+aliases:
+  - /cpp/update-chart/
 keywords:
-- إضافة مخطط
-- إنشاء مخطط
-- تحرير مخطط
-- تغيير مخطط
-- تحديث مخطط
-- مخطط مبعثر
-- مخطط دائري
-- مخطط خطي
-- مخطط خريطة شجرية
-- مخطط أسهم
-- مخطط صندوق وشارب
-- مخطط قمع
-- مخطط شمسي
-- مخطط تكراري
-- مخطط راداري
-- مخطط متعدد الفئات
-- PowerPoint
-- عرض تقديمي
-- C++
-- Aspose.Slides
-description: "إنشاء وتخصيص المخططات في عروض PowerPoint باستخدام Aspose.Slides للغة C++. إضافة، تنسيق، وتعديل المخططات مع أمثلة شيفرة عملية في C++."
+  - إضافة مخطط
+  - إنشاء مخطط
+  - تعديل مخطط
+  - تغيير مخطط
+  - تحديث مخطط
+  - مخطط مبعثر
+  - مخطط دائري
+  - مخطط خطي
+  - مخطط خريطة شجرية
+  - مخطط أسهم
+  - مخطط صندوق وشوكة
+  - مخطط قمعي
+  - مخطط شمسية
+  - مخطط هيستوجرام
+  - مخطط راداري
+  - مخطط متعدد الفئات
+  - PowerPoint
+  - عرض تقديمي
+  - C++
+  - Aspose.Slides
+description: "إنشاء وتخصيص المخططات في عروض PowerPoint التقديمية باستخدام Aspose.Slides للـ C++. إضافة، تنسيق، وتعديل المخططات مع أمثلة شفرة عملية بلغة C++."
 ---
+## **نظرة عامة**
+
+توفر هذه المقالة دليلًا شاملاً حول كيفية إنشاء وتخصيص المخططات باستخدام Aspose.Slides. ستتعلم كيفية إضافة مخطط برمجيًا إلى شريحة، وتعبئته بالبيانات، وتطبيق خيارات تنسيق مختلفة لتتناسب مع متطلبات التصميم الخاصة بك. طوال المقالة، توضح أمثلة الشيفرة المفصلة كل خطوة، بدءًا من تهيئة العرض وكائن المخطط إلى تكوين السلاسل والمحاور والوسوم. باتباع هذا الدليل، ستحصل على فهم راسخ لكيفية دمج إنشاء المخططات الديناميكية في تطبيقاتك، مما يبسط عملية إنشاء عروض تقديمية قائمة على البيانات.
 
 ## **إنشاء مخطط**
 
-تساعد المخططات الأشخاص على تصور البيانات بسرعة واكتساب رؤى قد لا تكون واضحة فورًا من جدول أو جدول بيانات. 
+تساعد المخططات الأشخاص على تصور البيانات بسرعة واكتساب رؤى، قد لا تكون واضحة فورًا من جدول أو جدول بيانات.
 
-**لماذا إنشاء المخططات؟**
+**لماذا إنشاء مخططات؟**
 
 باستخدام المخططات، يمكنك
 
-* تجميع أو تكثيف أو تلخيص كميات كبيرة من البيانات في شريحة واحدة داخل عرض تقديمي
-* إظهار الأنماط والاتجاهات في البيانات
-* استنتاج اتجاه وتزايد البيانات عبر الوقت أو بالنسبة لوحدة قياس معينة 
-* اكتشاف القيم المتطرفة، الشذوذ، الانحرافات، الأخطاء، البيانات غير المنطقية، إلخ 
-* نقل أو تقديم البيانات المعقدة
+* تجميع أو تكثيف أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في عرض تقديمي
+* كشف الأنماط والاتجاهات في البيانات
+* استخلاص الاتجاه والزخم للبيانات عبر الزمن أو بالنسبة لوحدة قياس معينة
+* تحديد القيم المتطرفة، الانحرافات، الأخطاء، البيانات غير المنطقية، إلخ
+* نقل أو عرض البيانات المعقدة
 
-في PowerPoint، يمكنك إنشاء المخططات عبر وظيفة الإدراج، التي توفر قوالب تُستخدم لتصميم العديد من أنواع المخططات. باستخدام Aspose.Slides، يمكنك إنشاء مخططات عادية (استنادًا إلى أنواع المخططات الشائعة) ومخططات مخصصة. 
+في PowerPoint، يمكنك إنشاء المخططات عبر وظيفة الإدراج، التي توفر قوالب تُستخدم لتصميم العديد من أنواع المخططات. باستخدام Aspose.Slides، يمكنك إنشاء مخططات عادية (بناءً على أنواع المخططات الشائعة) ومخططات مخصصة.
 
-{{% alert color="primary" %}} 
-
-للسماح لك بإنشاء المخططات، توفر Aspose.Slides فئة تعداد [ChartType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) ضمن مساحة الاسم [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts/). القيم في هذه الفئة تمثل أنواع المخططات المختلفة. 
-
+{{% alert color="info" %}} 
+للسماح لك بإنشاء المخططات، توفر Aspose.Slides الفئة enum [ChartType](https://reference.aspose.com/slides/ar/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) تحت مساحة الأسماء [Aspose::Slides::Charts](https://reference.aspose.com/slides/ar/cpp/namespace/aspose.slides.charts/). القيم تحت هذه الفئة enum تت对应 إلى أنواع مخططات مختلفة. 
 {{% /alert %}} 
 
 ### **إنشاء مخططات عادية**
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation). 
-1. الحصول على مرجع الشريحة عبر فهرستها. 
-1. إضافة مخطط مع بعض البيانات وتحديد نوع المخطط المفضل. 
-1. إضافة عنوان للمخطط. 
-1. الوصول إلى ورقة عمل بيانات المخطط. 
-1. مسح جميع السلاسل والفئات الافتراضية. 
-1. إضافة سلاسل وفئات جديدة. 
-1. إضافة بعض البيانات الجديدة لسلسلة المخطط. 
-1. إضافة لون تعبئة لسلسلة المخطط. 
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) .
+1. احصل على مرجع الشريحة من خلال فهرستها.
+1. أضف مخططًا مع بعض البيانات وحدد نوع المخطط المفضل لديك. 
+1. أضف عنوانًا للمخطط. 
+1. الوصول إلى ورقة عمل بيانات المخطط.
+1. مسح جميع السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. إضافة بعض بيانات المخطط الجديدة لسلسلة المخطط.
+1. إضافة لون تعبئة لسلسلة المخطط.
 1. إضافة تسميات لسلسلة المخطط. 
-1. حفظ العرض التقديمي المعدل كملف PPTX. 
+1. احفظ العرض المعدل كملف PPTX.
 
-يعرض هذا الكود C++ كيفية إنشاء مخطط عادي:
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 // مسار دليل المستندات.
 	const String outPath = u"../out/NormalCharts_out.pptx";
 
-	//إنشاء كائن من فئة العرض التقديمي التي تمثل ملف PPTX
+	// ينشئ فئة عرض تقديمي تمثّل ملف PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//الوصول إلى الشريحة الأولى
+	// يصل إلى الشريحة الأولى
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// إضافة مخطط ببيانات افتراضية
+	// يضيف مخططًا ببيانات افتراضية
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// تعيين فهرس ورقة بيانات المخطط
+	// يحدد فهرس ورقة بيانات المخطط
 	int defaultWorksheetIndex = 0;
 
-	// الحصول على ورقة عمل بيانات المخطط
+	// يحصل على ورقة عمل بيانات المخطط
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// تعيين عنوان المخطط
+	// يحدد عنوان المخطط
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText ( NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle( true);
 
-	// حذف السلاسل والفئات التي تم إنشاؤها افتراضيًا
+	// يحذف السلاسل والفئات المُولدة تلقائيًا
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 	int s = chart->get_ChartData()->get_Series()->get_Count();
 	s = chart->get_ChartData()->get_Categories()->get_Count();
 
 
-	// إضافة سلسلة جديدة
+	// يضيف سلسلة جديدة
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// إضافة فئات
+	// يضيف الفئات
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"Caetegoty 1")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"Caetegoty 2")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"Caetegoty 3")));
 
 	
-	// أخذ السلسلة الأولى للمخطط
+	// يأخذ السلسلة الأولى للمخطط
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// ملء بيانات السلسلة
+	// يملأ بيانات السلسلة
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
 
-	// تعيين لون تعبئة السلسلة
+	// يحدد لون التعبئة للسلسلة
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
 
-	// أخذ السلسلة الثانية للمخطط
+	// يأخذ السلسلة الثانية للمخطط
 	 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// ملء بيانات السلسلة
+	// يملأ بيانات السلسلة
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(30)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(10)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(60)));
 
-	// تعيين لون تعبئة السلسلة
+	// يحدد لون التعبئة للسلسلة
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
 
 
-	// يتم تعيين التسمية الأولى لإظهار اسم الفئة
+	// تم ضبط التسمية الأولى لعرض اسم الفئة
 	SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(0)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowCategoryName(true);
 
 	lbl = series->get_DataPoints()->idx_get(1)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowSeriesName (true);
 
-	// إظهار القيمة للتسمية الثالثة
+	// يعرض القيمة للتسمية الثالثة
 	lbl = series->get_DataPoints()->idx_get(2)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowValue (true);
 	lbl->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl->get_DataLabelFormat()->set_Separator (u"/");
 
-	// حفظ العرض التقديمي
+	// يحفظ العرض التقديمي
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 ```
 
-
 ### **إنشاء مخططات مبعثرة**
-المخططات المبعثرة (المعروفة أيضًا بالمخططات المبعثرة أو رسومات x‑y) تُستخدم غالبًا للتحقق من الأنماط أو إظهار الارتباطات بين متغيرين. 
+تُستخدم المخططات المبعثرة (المعروفة أيضًا بالرسوم المبعثرة أو رسوم X-Y) غالبًا للتحقق من الأنماط أو إظهار الارتباطات بين متغيرين. 
 
-قد ترغب في استخدام مخطط مبعثر عندما 
+قد ترغب في استخدام مخطط مبعثرة عندما 
 
-* تتوفر لديك بيانات عددية مزدوجة
+* لديك بيانات رقمية مُقزوجة
 * لديك متغيران يتوافقان جيدًا معًا
 * تريد تحديد ما إذا كان المتغيران مرتبطين
-* لديك متغير مستقل له قيم متعددة للمتغير التابع 
+* لديك متغير مستقل له قيم متعددة للمتغير التابع
 
-يعرض هذا الكود C++ كيفية إنشاء مخططات مبعثرة مع مجموعة مختلفة من العلامات: 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IMarker.h>
+#include <DOM/Chart/MarkerStyleType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/LineStyle.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 // مسار دليل المستندات.
 	const String outPath = u"../out/ScatteredChart_out.pptx";
 
-	// إنشاء كائن من فئة العرض التقديمي التي تمثل ملف PPTX
+	// إنشاء فئة عرض تقديمي تمثّل ملف PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// الوصول إلى الشريحة الأولى
+	// يصل إلى الشريحة الأولى
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// إضافة مخطط ببيانات افتراضية
+	// يضيف مخططًا ببيانات افتراضية
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ScatterWithSmoothLines, 0, 0, 500, 500);
 
-	// تعيين عنوان المخطط
+	// يحدد عنوان المخطط
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// حذف السلاسل التي تم إنشاؤها افتراضيًا 
+	// يحذف السلاسل المُولدة افتراضيًا 
 	chart->get_ChartData()->get_Series()->Clear();
 	
-	// تعيين فهرس ورقة بيانات المخطط
+	// يحدد فهرس ورقة بيانات المخطط
 	int defaultWorksheetIndex = 0;
 
-	// الحصول على ورقة عمل بيانات المخطط
+	// يحصل على ورقة عمل بيانات المخطط
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// إضافة سلسلة جديدة
+	// يضيف سلسلة جديدة
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// أخذ السلسلة الأولى للمخطط
+	// يأخذ السلسلة الأولى للمخطط
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// إضافة نقطة جديدة (1:3)
+	// يضيف نقطة جديدة (1:3)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(1)), fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(3)));
 
-	// إضافة نقطة جديدة (2:10)
+	// يضيف نقطة جديدة (2:10)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(2)), fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(10)));
 
-	// تعديل نوع السلسلة
+	// يحرّر نوع السلسلة
 	series->set_Type (ChartType::ScatterWithStraightLinesAndMarkers);
 
-	// تغيير علامة سلسلة المخطط
+	// يغيّر علامة سلسلة المخطط
 	series->get_Marker()->set_Size  (10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Star);
 
 
 
-	// أخذ السلسلة الثانية للمخطط
+	// يأخذ السلسلة الثانية للمخطط
 	series  = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// إضافة نقطة جديدة (5:2)
+	// يضيف نقطة جديدة (5:2)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(2)));
 
-	// إضافة نقطة جديدة (3:1)
+	// يضيف نقطة جديدة (3:1)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(3)), fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(1)));
 
-	// إضافة نقطة جديدة (2:2)
+	// يضيف نقطة جديدة (2:2)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 4, 3, ObjectExt::Box<double>(2)), fact->GetCell(defaultWorksheetIndex, 4, 4, ObjectExt::Box<double>(2)));
 
-	// إضافة نقطة جديدة (5:1)
+	// يضيف نقطة جديدة (5:1)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 5, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 5, 4, ObjectExt::Box<double>(1)));
 
-	// تغيير علامة سلسلة المخطط
+	// يغيّر علامة سلسلة المخطط
 	series->get_Marker()->set_Size ( 10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Circle);
 
@@ -240,7 +310,7 @@ description: "إنشاء وتخصيص المخططات في عروض PowerPoint 
 	SharedPtr<IChartDataPoint> point = series->get_DataPoints()->idx_get(0);
 	point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Cyan());
-	// تعيين حدود القطاع
+	// يحدد حد القطاع
 	point->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Gray());
 	point->get_Format()->get_Line()->set_Width ( 3.0);
@@ -251,7 +321,7 @@ description: "إنشاء وتخصيص المخططات في عروض PowerPoint 
 	point1->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Brown());
 
-	// تعيين حدود القطاع
+	// يحدد حد القطاع
 	point1->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 	point1->get_Format()->get_Line()->set_Width (3.0);
@@ -263,7 +333,7 @@ description: "إنشاء وتخصيص المخططات في عروض PowerPoint 
 	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
-	// تعيين حدود القطاع
+	// يحدد حد القطاع
 	point2->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 	point2->get_Format()->get_Line()->set_Width ( 2.0);
@@ -271,7 +341,7 @@ description: "إنشاء وتخصيص المخططات في عروض PowerPoint 
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// إنشاء التسميات المخصصة لكل فئة من السلسلة الجديدة
+	// ينشئ التسميات المخصصة لكل فئة من السلسلة الجديدة
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -288,76 +358,111 @@ description: "إنشاء وتخصيص المخططات في عروض PowerPoint 
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// إظهار خطوط القائد للمخطط
+	// يعرض خطوط القائد للمخطط
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines(true);
 
-	// تعيين زاوية الدوران لقطاعات المخطط الدائري
+	// يحدد زاوية دوران قطاعات المخطط الدائري
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle(180);
 
 
-	// حفظ العرض التقديمي
+	// يحفظ العرض التقديمي
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ### **إنشاء مخططات دائرية**
-تُستخدم المخططات الدائرية لإظهار علاقة الجزء إلى الكل في البيانات، خاصةً عندما تحتوي البيانات على تسميات فئوية مع قيم عددية. ومع ذلك، إذا كانت بياناتك تحتوي على العديد من الأجزاء أو التسميات، قد تفضّل استخدام مخطط شريطي بدلاً من ذلك. 
+تُعد المخططات الدائرية الأفضل لعرض علاقة الجزء بالكل في البيانات، خاصة عندما تحتوي البيانات على تسميات فئوية مع قيم رقمية. ومع ذلك، إذا كانت بياناتك تحتوي على العديد من الأجزاء أو التسميات، قد ترغب في التفكير باستخدام مخطط شريطي بدلًا من ذلك. 
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation). 
-1. الحصول على مرجع الشريحة عبر فهرستها. 
-1. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، `ChartType.Pie`). 
-1. الوصول إلى بيانات المخطط IChartDataWorkbook. 
-1. مسح السلاسل والفئات الافتراضية. 
-1. إضافة سلاسل وفئات جديدة. 
-1. إضافة بيانات مخطط جديدة لسلسلة المخطط. 
-1. إضافة نقاط جديدة للمخططات وإضافة ألوان مخصصة لأقسام المخطط الدائري. 
-1. تعيين تسميات للسلسلة. 
-1. تعيين خطوط ربط لتسميات السلسلة. 
-1. تعيين زاوية الدوران لشرائح المخطط الدائري. 
-1. حفظ العرض التقديمي المعدل إلى ملف PPTX 
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) .
+1. احصل على مرجع الشريحة من خلال فهرستها.
+1. أضف مخططًا ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، `ChartType.Pie`).
+1. الوصول إلى بيانات المخطط IChartDataWorkbook.
+1. مسح السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. إضافة بيانات مخطط جديدة لسلسلة المخطط.
+1. إضافة نقاط جديدة للمخطط وإضافة ألوان مخصصة لقطاعات المخطط الدائري.
+1. ضبط التسميات للسلاسل.
+1. ضبط خطوط القائد لتسميات السلاسل.
+1. ضبط زاوية الدوران لشرائح المخطط الدائري.
+1. احفظ العرض المعدل كملف PPTX
 
-يعرض هذا الكود C++ كيفية إنشاء مخطط دائري:
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/LineStyle.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 	// مسار دليل المستندات.
 	const String outPath = u"../out/PieChart_out.pptx";
 
-	//إنشاء كائن من فئة Presentation الذي يمثل ملف PPTX
+	// إنشاء فئة عرض تقديمي تمثّل ملف PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//الوصول إلى الشريحة الأولى
+	// يصل إلى الشريحة الأولى
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// إضافة مخطط ببيانات افتراضية
+	// يضيف مخططًا ببيانات افتراضية
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Pie, 0, 0, 500, 500);
 
-	// تعيين عنوان المخطط
+	// يحدد عنوان المخطط
 	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Sample Title");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// حذف السلسلة والفئات التي تم إنشاؤها افتراضيًا
+	// يحذف السلاسل والفئات المُولدة افتراضيًا
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
-	// تعيين فهرس ورقة بيانات المخطط
+	// يحدد فهرس ورقة بيانات المخطط
 	int defaultWorksheetIndex = 0;
 
-	// الحصول على ورقة عمل بيانات المخطط
+	// يحصل على ورقة عمل بيانات المخطط
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// إضافة فئات
+	// يضيف الفئات
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"First Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"2nd Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"3ed Qtr")));
 
-	// إضافة سلسلة جديدة
+	// يضيف سلسلة جديدة
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	
-	// أخذ السلسلة الأولى للمخطط
+	// يأخذ السلسلة الأولى للمخطط
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// ملء بيانات السلسلة
+	// يملأ بيانات السلسلة
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
@@ -367,7 +472,7 @@ description: "إنشاء وتخصيص المخططات في عروض PowerPoint 
 	SharedPtr<IChartDataPoint> point = series->get_DataPoints()->idx_get(0);
 	point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Cyan());
-	// تعيين حدود القطاع
+	// يحدد حد القطاع
 	point->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Gray());
 	point->get_Format()->get_Line()->set_Width ( 3.0);
@@ -378,7 +483,7 @@ description: "إنشاء وتخصيص المخططات في عروض PowerPoint 
 	point1->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Brown());
 
-	// تعيين حدود القطاع
+	// يحدد حد القطاع
 	point1->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 	point1->get_Format()->get_Line()->set_Width (3.0);
@@ -390,7 +495,7 @@ description: "إنشاء وتخصيص المخططات في عروض PowerPoint 
 	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
-	// تعيين حدود القطاع
+	// يحدد حد القطاع
 	point2->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 	point2->get_Format()->get_Line()->set_Width (2.0);
@@ -398,7 +503,7 @@ description: "إنشاء وتخصيص المخططات في عروض PowerPoint 
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// إنشاء تسميات مخصصة لكل فئة من السلسلة الجديدة
+	// ينشئ تسميات مخصصة لكل فئة من السلسلة الجديدة
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -415,41 +520,67 @@ description: "إنشاء وتخصيص المخططات في عروض PowerPoint 
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// تعيين السلسلة لإظهار خطوط القائد للمخطط
+	// يحدد السلسلة لإظهار خطوط القائد للمخطط
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines ( true);
 
-	// تعيين زاوية الدوران لقطاعات المخطط الدائري
+	// يحدد زاوية دوران قطاعات المخطط الدائري
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle ( 180);
 
 
-	// حفظ العرض التقديمي
+	// يحفظ العرض التقديمي
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ### **إنشاء مخططات خطية**
-تُستخدم المخططات الخطية (المعروفة أيضًا بالرسوم الخطية) في الحالات التي تريد فيها إظهار تغيرات القيمة عبر الوقت. باستخدام مخطط خطي، يمكنك مقارنة كميات كبيرة من البيانات في وقت واحد، تتبع التغيرات والاتجاهات عبر الوقت، إبراز الشذوذ في سلاسل البيانات، إلخ. 
+تُعد المخططات الخطية (المعروفة أيضًا بالرسوم البيانية الخطية) الأفضل في الحالات التي تريد فيها إظهار التغيّر في القيمة بمرور الوقت. باستخدام مخطط خطي، يمكنك مقارنة الكثير من البيانات مرة واحدة، تتبع التغيّرات والاتجاهات بمرور الوقت، تسليط الضوء على الشذوذ في سلاسل البيانات، إلخ.
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation). 
-1. الحصول على مرجع الشريحة عبر فهرستها. 
-1. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، `ChartType::Line`). 
-1. الوصول إلى بيانات المخطط IChartDataWorkbook. 
-1. مسح السلاسل والفئات الافتراضية. 
-1. إضافة سلاسل وفئات جديدة. 
-1. إضافة بيانات مخطط جديدة لسلسلة المخطط. 
-1. حفظ العرض التقديمي المعدل إلى ملف PPTX 
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) .
+1. احصل على مرجع الشريحة من خلال فهرستها.
+1. أضف مخططًا ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، `ChartType::Line`).
+1. الوصول إلى بيانات المخطط IChartDataWorkbook.
+1. مسح السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. إضافة بيانات مخطط جديدة لسلسلة المخطط.
+1. احفظ العرض المعدل كملف PPTX
 
-يعرض هذا الكود C++ كيفية إنشاء مخطط خطي:
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
 pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
+بطبيعة الحال، يتم ربط النقاط في المخطط الخطي بخطوط مستمرة مستقيمة. إذا رغبت في ربط النقاط بخطوط متقطعة بدلاً من ذلك، يمكنك تحديد نوع الخط المتقطع المفضل لديك بهذه الطريقة:
 
-افتراضيًا، يتم ربط نقاط المخطط الخطي بخطوط مستقيمة مستمرة. إذا رغبت في ربط النقاط بخطوط متقطعة بدلاً من ذلك، يمكنك تحديد نوع الخط المتقطع المفضل بهذه الطريقة:
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
+auto pres = System::MakeObject<Presentation>();
+
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
 for (auto&& series : lineChart->get_ChartData()->get_Series())
 {
@@ -457,25 +588,47 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 }
 ```
 
-
 ### **إنشاء مخططات شجرية**
-مخططات شجرية تُستخدم بشكل أفضل لبيانات المبيعات عندما تريد إظهار الحجم النسبي لفئات البيانات وجذب الانتباه بسرعة إلى العناصر التي تساهم كثيرًا في كل فئة. 
+تُعد مخططات الشجرة الأفضل لبيانات المبيعات عندما تريد إظهار الحجم النسبي لفئات البيانات وفي الوقت نفسه جذب الانتباه بسرعة إلى العناصر التي تُشكّل مساهمات كبيرة لكل فئة. 
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation). 
-1. الحصول على مرجع الشريحة عبر فهرستها. 
-1. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، `ChartType.TreeMap`). 
-1. الوصول إلى بيانات المخطط IChartDataWorkbook. 
-1. مسح السلاسل والفئات الافتراضية. 
-1. إضافة سلاسل وفئات جديدة. 
-1. إضافة بيانات مخطط جديدة لسلسلة المخطط. 
-1. حفظ العرض التقديمي المعدل إلى ملف PPTX 
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) .
+1. احصل على مرجع الشريحة من خلال فهرستها.
+1. أضف مخططًا ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، `ChartType.TreeMap`).
+1. الوصول إلى بيانات المخطط IChartDataWorkbook.
+1. مسح السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. إضافة بيانات مخطط جديدة لسلسلة المخطط.
+1. احفظ العرض المعدل كملف PPTX
 
-يعرض هذا الكود C++ كيفية إنشاء مخطط شجري:
 ```c++
-	// مسار دليل المستندات.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/ParentLabelLayoutType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// مسار دليل المستندات.
 	const String outPath = u"../out/TreemapChart_out.pptx";
 
-	// ينشئ كائنًا من فئة Presentation الذي يمثل ملف PPTX
+	// ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// يصل إلى الشريحة الأولى
@@ -527,88 +680,113 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 
 	series->set_ParentLabelLayout(Aspose::Slides::Charts::ParentLabelLayoutType::Overlapping);
 
-	// حفظ العرض التقديمي
+	// يحفظ العرض التقديمي
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **إنشاء مخططات الأسهم**
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) .
+1. احصل على مرجع الشريحة من خلال فهرستها.
+1. أضف مخططًا ببيانات افتراضية مع النوع المطلوب (ChartType.OpenHighLowClose).
+1. الوصول إلى بيانات المخطط IChartDataWorkbook.
+1. مسح السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. إضافة بيانات مخطط جديدة لسلسلة المخطط.
+1. تحديد تنسيق HiLowLines.
+1. احفظ العرض المعدل كملف PPTX
 
-### **إنشاء مخططات أسهم**
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation). 
-1. الحصول على مرجع الشريحة عبر فهرستها. 
-1. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (ChartType.OpenHighLowClose). 
-1. الوصول إلى بيانات المخطط IChartDataWorkbook. 
-1. مسح السلاسل والفئات الافتراضية. 
-1. إضافة سلاسل وفئات جديدة. 
-1. إضافة بيانات مخطط جديدة لسلسلة المخطط. 
-1. تحديد تنسيق HiLowLines. 
-1. حفظ العرض التقديمي المعدل إلى ملف PPTX 
-
-عينة كود C++ لإنشاء مخطط أسهم:
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IUpDownBarsManager.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// مسار دليل المستندات.
 	const String outPath = u"../out/AddStockChart_out.pptx";
 
-	// إنشاء كائن من فئة Presentation يمثل ملف PPTX
+	// ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// الوصول إلى الشريحة الأولى
+	// يصل إلى الشريحة الأولى
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// إضافة مخطط ببيانات افتراضية
+	// يضيف مخططًا ببيانات افتراضية
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::OpenHighLowClose, 0, 0, 500, 500);
 
 
-	// تعيين الفهرس لورقة بيانات المخطط
+	// يحدد الفهرس لورقة بيانات المخطط
 	int defaultWorksheetIndex = 0;
 
-	// الحصول على ورقة عمل بيانات المخطط
+	// يحصل على ورقة عمل بيانات المخطط
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// حذف السلاسل والفئات التي تم إنشاؤها افتراضيًا
+	// يحذف السلاسل والفئات المولدة افتراضيًا
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
-	// إضافة الفئات
+	// يضيف الفئات
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"A")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"B")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"C")));
 
-	// إضافة سلسلة جديدة
+	// يضيف سلسلة جديدة
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Open")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"High")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, ObjectExt::Box<System::String>(u"Low")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 4, ObjectExt::Box<System::String>(u"Close")), chart->get_Type());
 
 
-	// أخذ السلسلة الأولى للمخطط
+	// يأخذ السلسلة الأولى للمخطط
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
-	// ملء بيانات السلسلة الأولى
+	// يملأ بيانات السلسلة الأولى
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(72)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(38)));
 
 
 	series = chart->get_ChartData()->get_Series()->idx_get(1);
-	// ملء بيانات السلسلة الثانية
+	// يملأ بيانات السلسلة الثانية
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(172)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(57)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(57)));
 
 	series = chart->get_ChartData()->get_Series()->idx_get(2);
-	// ملء بيانات السلسلة الثانية
+	// يملأ بيانات السلسلة الثالثة
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(13)));
 
 
 	series = chart->get_ChartData()->get_Series()->idx_get(3);
-	// ملء بيانات السلسلة الثانية
+	// يملأ بيانات السلسلة الرابعة
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 4, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(38)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(50)));
 
-	// تعيين مجموعة السلاسل
+	// يضبط مجموعة السلسلة
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_UpDownBars()->set_HasUpDownBars (true);
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_HiLowLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 
@@ -619,30 +797,48 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 		series->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 	}
 
-	// حفظ العرض التقديمي
+	// يحفظ العرض التقديمي
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ### **إنشاء مخططات الصندوق والشارب**
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation). 
-1. الحصول على مرجع الشريحة عبر فهرستها. 
-1. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (ChartType.BoxAndWhisker). 
-1. الوصول إلى بيانات المخطط IChartDataWorkbook. 
-1. مسح السلاسل والفئات الافتراضية. 
-1. إضافة سلاسل وفئات جديدة. 
-1. إضافة بيانات مخطط جديدة لسلسلة المخطط. 
-1. حفظ العرض التقديمي المعدل إلى ملف PPTX 
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) .
+1. احصل على مرجع الشريحة من خلال فهرستها.
+1. أضف مخططًا ببيانات افتراضية مع النوع المطلوب (ChartType.BoxAndWhisker).
+1. الوصول إلى بيانات المخطط IChartDataWorkbook.
+1. مسح السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. إضافة بيانات مخطط جديدة لسلسلة المخطط.
+1. احفظ العرض المعدل كملف PPTX
 
-يعرض هذا الكود C++ كيفية إنشاء مخطط الصندوق والشارب:
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/QuartileMethodType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// مسار دليل المستندات.
 	const String outPath = u"../out/BoxAndWhisker_out.pptx";
 
-	// إنشاء كائن من فئة Presentation يمثل ملف PPTX
+	//ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// الوصول إلى الشريحة الأولى
+	//يصل إلى الشريحة الأولى
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::BoxAndWhisker, 50, 50, 500, 400);
@@ -676,26 +872,43 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B6", System::ObjectExt::Box<int32_t>(16)));
 
 
-	// حفظ العرض التقديمي
+	// يحفظ العرض التقديمي
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ### **إنشاء مخططات القمع**
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation). 
-1. الحصول على مرجع الشريحة عبر فهرستها. 
-1. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (ChartType.Funnel). 
-1. حفظ العرض التقديمي المعدل إلى ملف PPTX 
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) .
+1. احصل على مرجع الشريحة من خلال فهرستها.
+1. أضف مخططًا ببيانات افتراضية مع النوع المطلوب (ChartType.Funnel).
+1. احفظ العرض المعدل كملف PPTX
 
-يعرض هذا الكود C++ كيفية إنشاء مخطط قمع:
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// مسار دليل المستندات.
 	const String outPath = u"../out/FunnelChart_out.pptx";
 
-	//إنشاء كائن من فئة Presentation يمثل ملف PPTX
+	// ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//الوصول إلى الشريحة الأولى
+	// يصل إلى الشريحة الأولى
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Funnel, 50, 50, 500, 400);
@@ -723,26 +936,47 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	series->get_DataPoints()->AddDataPointForFunnelSeries(wb->GetCell(0, u"B6", System::ObjectExt::Box<int32_t>(500)));
 
 
-	// حفظ العرض التقديمي
+	// يحفظ العرض التقديمي
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ### **إنشاء مخططات شمسية**
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation). 
-1. الحصول على مرجع الشريحة عبر فهرستها. 
-1. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، `ChartType.sunburst`). 
-1. حفظ العرض التقديمي المعدل إلى ملف PPTX 
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) .
+1. احصل على مرجع الشريحة من خلال فهرستها.
+1. أضف مخططًا ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، `ChartType.sunburst`).
+1. احفظ العرض المعدل كملف PPTX
 
-يعرض هذا الكود C++ كيفية إنشاء مخطط شمسي:
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// مسار دليل المستندات.
 	const String outPath = u"../out/SunburstChart_out.pptx";
 
 	// ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// الوصول إلى الشريحة الأولى
+	// يصل إلى الشريحة الأولى
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart=slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Sunburst, 50, 50, 500, 400);
@@ -788,29 +1022,50 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D7", System::ObjectExt::Box<int32_t>(4)));
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D8", System::ObjectExt::Box<int32_t>(3)));
 
-	// حفظ ملف العرض التقديمي إلى القرص
+	// احفظ ملف العرض التقديمي على القرص
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
 ```
 
+### **إنشاء مخططات هيستوجرام**
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) .
+1. احصل على مرجع الشريحة من خلال فهرستها. 
+1. أضف مخططًا ببيانات معينة وحدد نوع المخطط المفضل لديك (`ChartType.Histogram` في هذه الحالة).
+1. الوصول إلى بيانات المخطط `IChartDataWorkbook`.
+1. مسح السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. احفظ العرض المعدل كملف PPTX.
 
-### **إنشاء مخططات تكرارية**
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation). 
-1. الحصول على مرجع الشريحة عبر فهرستها. 
-1. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (`ChartType.Histogram` في هذه الحالة). 
-1. الوصول إلى بيانات المخطط `IChartDataWorkbook`. 
-1. مسح السلاسل والفئات الافتراضية. 
-1. إضافة سلاسل وفئات جديدة. 
-1. حفظ العرض التقديمي المعدل إلى ملف PPTX. 
-
-يعرض هذا الكود C++ كيفية إنشاء مخطط تكراري:
 ```c++
+#include <DOM/Chart/AxisAggregationType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// مسار دليل المستندات.
 	const String outPath = u"../out/HistogramChart_out.pptx";
 
-	// إنشاء كائن من فئة Presentation يمثل ملف PPTX
+	// ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// الوصول إلى الشريحة الأولى
+	// يصل إلى الشريحة الأولى
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Histogram, 50, 50, 500, 400);
@@ -831,64 +1086,83 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 
 	chart->get_Axes()->get_HorizontalAxis()->set_AggregationType(Aspose::Slides::Charts::AxisAggregationType::Automatic);
 
-	// حفظ العرض التقديمي
+	// يحفظ العرض التقديمي
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **إنشاء مخططات رادار**
 
-### **إنشاء مخططات رادارية**
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation). 
-1. الحصول على مرجع الشريحة عبر فهرستها. 
-1. إضافة مخطط ببيانات معينة وتحديد نوع المخطط المفضل (`ChartType.Radar` في هذه الحالة). 
-1. حفظ العرض التقديمي المعدل إلى ملف PPTX 
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) .
+1. احصل على مرجع الشريحة من خلال فهرستها. 
+1. أضف مخططًا ببيانات معينة وحدد نوع المخطط المفضل لديك (`ChartType.Radar` في هذه الحالة).
+1. احفظ العرض المعدل كملف PPTX
 
-يعرض هذا الكود C++ كيفية إنشاء مخطط راداري:
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
 presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Radar, 20.0f, 20.0f, 400.0f, 300.0f);
 presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ### **إنشاء مخططات متعددة الفئات**
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation). 
-1. الحصول على مرجع الشريحة عبر فهرستها. 
-1. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (ChartType.ClusteredColumn). 
-1. الوصول إلى بيانات المخطط IChartDataWorkbook. 
-1. مسح السلاسل والفئات الافتراضية. 
-1. إضافة سلاسل وفئات جديدة. 
-1. إضافة بيانات مخطط جديدة لسلسلة المخطط. 
-1. حفظ العرض التقديمي المعدل إلى ملف PPTX. 
 
-يعرض هذا الكود C++ كيفية إنشاء مخطط متعدد الفئات:
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) .
+1. احصل على مرجع الشريحة من خلال فهرستها.
+1. أضف مخططًا ببيانات افتراضية مع النوع المطلوب (ChartType.ClusteredColumn).
+1. الوصول إلى بيانات المخطط IChartDataWorkbook.
+1. مسح السلاسل والفئات الافتراضية.
+1. إضافة سلاسل وفئات جديدة.
+1. إضافة بيانات مخطط جديدة لسلسلة المخطط.
+1. احفظ العرض المعدل كملف PPTX.
+
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// مسار دليل المستندات.
 	const String outPath = u"../out/MultiCategoryChart_out.pptx";
 
 	// ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// الوصول إلى الشريحة الأولى
+	// يصل إلى الشريحة الأولى
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// إضافة مخطط ببيانات افتراضية
+	// يضيف مخططًا ببيانات افتراضية
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
-	// تعيين الفهرس لورقة بيانات المخطط
+	// يحدد الفهرس لورقة بيانات المخطط
 	int defaultWorksheetIndex = 0;
 
-	// الحصول على ورقة عمل بيانات المخطط
+	// يحصل على ورقة عمل بيانات المخطط
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// مسح دفتر العمل
+	// يمسح دفتر العمل
 	fact->Clear(defaultWorksheetIndex);
 
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
 
-	// إضافة الفئات
+	// يضيف الفئات
 	SharedPtr<IChartCategory> category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c2", ObjectExt::Box<System::String>(u"A")));
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group1"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c3", ObjectExt::Box<System::String>(u"B")));
@@ -906,7 +1180,7 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group4"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c9", ObjectExt::Box<System::String>(u"H")));
 
-	// إضافة سلسلة جديدة
+	// يضيف سلسلة جديدة
 	SharedPtr<IChartSeries>  series = chart->get_ChartData()->get_Series()->Add(fact->GetCell(0, u"D1", ObjectExt::Box<System::String>(u"Series 1")),
 		ChartType::ClusteredColumn);
 
@@ -919,29 +1193,39 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D8", ObjectExt::Box<double>(70)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, u"D9", ObjectExt::Box<double>(80)));
 
-	// حفظ العرض التقديمي
+	// يحفظ العرض التقديمي
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ### **إنشاء مخططات خريطة**
-مخطط الخريطة هو تصور لمنطقة تحتوي على بيانات. تُستخدم مخططات الخريطة بشكل أفضل لمقارنة البيانات أو القيم عبر المناطق الجغرافية. 
 
-يعرض هذا الكود C++ كيفية إنشاء مخطط خريطة:
+مخطط الخريطة هو تصور لمنطقة تحتوي على بيانات. تُستخدم مخططات الخريطة بشكل أفضل للمقارنة بين البيانات أو القيم عبر المناطق الجغرافية.
+
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 50.0f, 50.0f, 500.0f, 400.0f);
 pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ```
 
-
 ### **إنشاء مخططات مركبة**
-مخطط مركب (أو مخطط مشترك) يجمع نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح لك هذا المخطط إبراز أو مقارنة أو فحص الفروق بين مجموعتين أو أكثر من البيانات، مما يساعدك على تحديد العلاقات بينها. 
 
-![The combination chart](combination_chart.png)
+مخطط مركب (أو مخطط مزيج) يدمج نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح لك هذا المخطط إبراز أو مقارنة أو فحص الاختلافات بين مجموعتين أو أكثر من البيانات، مما يساعدك على تحديد العلاقات بينها.
 
-يعرض الكود C++ التالي كيفية إنشاء المخطط المركب الموضح أعلاه في عرض PowerPoint:
+![مخطط مركب](combination_chart.png)
+
+يظهر الكود C++ التالي كيفية إنشاء مخطط مركب كما هو موضح أعلاه في عرض PowerPoint:
+
 ```cpp
 static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
 {
@@ -960,7 +1244,7 @@ static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
     chart->get_Legend()->set_Position(LegendPositionType::Bottom);
     chart->get_Legend()->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
 
-    // حذف السلاسل والفئات التي تم إنشاؤها افتراضيًا.
+    // حذف السلاسل والفئات المولدة افتراضيًا.
     chart->get_ChartData()->get_Series()->Clear();
     chart->get_ChartData()->get_Categories()->Clear();
 
@@ -1040,7 +1324,7 @@ static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
 
     SetAxisTitle(horizontalAxis, u"X Axis");
 
-    // تعيين المحور العمودي.
+    // تعيين المحور الرأسي.
     auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
     verticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
     verticalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
@@ -1063,7 +1347,7 @@ static void SetSecondaryAxesFormat(SharedPtr<IChart> chart)
     secondaryHorizontalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
     secondaryHorizontalAxis->get_MinorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
-    // تعيين المحور العمودي الثانوي.
+    // تعيين المحور الرأسي الثانوي.
     auto secondaryVerticalAxis = chart->get_Axes()->get_SecondaryVerticalAxis();
     secondaryVerticalAxis->set_Position(AxisPositionType::Right);
     secondaryVerticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
@@ -1092,53 +1376,68 @@ static void CreateComboChart()
 }
 ```
 
-
 ## **تحديث المخططات**
 
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) التي تمثل العرض التقديمي المحتوي على المخطط. 
-2. الحصول على مرجع الشريحة عبر فهرستها. 
-3. استعراض جميع الأشكال للعثور على المخطط المطلوب. 
-4. الوصول إلى ورقة عمل بيانات المخطط. 
-5. تعديل بيانات سلسلة المخطط بتغيير قيم السلسلة. 
-6. إضافة سلسلة جديدة وتعبئة البيانات فيها. 
-7. حفظ العرض التقديمي المعدل كملف PPTX. 
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) التي تمثل العرض المحتوي على المخطط.
+2. احصل على مرجع الشريحة من خلال فهرستها.
+3. استعرض جميع الأشكال للعثور على المخطط المطلوب.
+4. الوصول إلى ورقة عمل بيانات المخطط.
+5. تعديل بيانات سلسلة المخطط بتغيير قيم السلسلة.
+6. إضافة سلسلة جديدة وتعبئة البيانات فيها.
+7. احفظ العرض المعدل كملف PPTX.
 
-يعرض هذا الكود C++ كيفية تحديث مخطط:
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
 // ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 
-// الوصول إلى الشريحة الأولى
+// يصل إلى الشريحة الأولى
 System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
 // يضيف مخططًا ببيانات افتراضية
 System::SharedPtr<IChart> chart = System::ExplicitCast<Aspose::Slides::Charts::IChart>(sld->get_Shapes()->idx_get(0));
 
-// تعيين الفهرس لورقة بيانات المخطط
+// يضبط الفهرس لورقة بيانات المخطط
 int32_t defaultWorksheetIndex = 0;
 
-// الحصول على ورقة عمل بيانات المخطط
+// يحصل على ورقة عمل بيانات المخطط
 System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-// تغيير اسم فئة المخطط
+// يغيّر اسم الفئة في المخطط
 fact->GetCell(defaultWorksheetIndex, 1, 0, System::ObjectExt::Box<System::String>(u"Modified Category 1"));
 fact->GetCell(defaultWorksheetIndex, 2, 0, System::ObjectExt::Box<System::String>(u"Modified Category 2"));
 
-// الحصول على السلسلة الأولى للمخطط
+// يأخذ السلسلة الأولى للمخطط
 System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-// تحديث بيانات السلسلة
+// يحدّث بيانات السلسلة
 fact->GetCell(defaultWorksheetIndex, 0, 1, System::ObjectExt::Box<System::String>(u"New_Series1"));
 // تعديل اسم السلسلة
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(90));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(123));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(44));
 
-// الحصول على السلسلة الثانية للمخطط
+// يأخذ السلسلة الثانية للمخطط
 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// الآن يتم تحديث بيانات السلسلة
+// يتم الآن تحديث بيانات السلسلة
 fact->GetCell(defaultWorksheetIndex, 0, 2, System::ObjectExt::Box<System::String>(u"New_Series2"));
 // تعديل اسم السلسلة
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(23));
@@ -1146,13 +1445,13 @@ series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::B
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(99));
 
 
-// الآن، إضافة سلسلة جديدة
+// يتم الآن إضافة سلسلة جديدة
 chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, System::ObjectExt::Box<System::String>(u"Series 3")), chart->get_Type());
 
-// الحصول على السلسلة الثالثة للمخطط
+// يأخذ السلسلة الثالثة للمخطط
 series = chart->get_ChartData()->get_Series()->idx_get(2);
 
-// الآن يتم تعبئة بيانات السلسلة
+// يتم الآن تعبئة بيانات السلسلة
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, System::ObjectExt::Box<int32_t>(20)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, System::ObjectExt::Box<int32_t>(50)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, System::ObjectExt::Box<int32_t>(30)));
@@ -1163,38 +1462,68 @@ chart->set_Type(Aspose::Slides::Charts::ChartType::ClusteredCylinder);
 pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+## **تحديد نطاق البيانات للمخططات**
 
-## **تعيين نطاق البيانات للمخططات**
+1. فتح مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) الذي يحتوي على المخطط.
+2. احصل على مرجع الشريحة من خلال فهرستها.
+3. استعرض جميع الأشكال للعثور على المخطط المطلوب.
+4. الوصول إلى بيانات المخطط وتحديد النطاق.
+5. احفظ العرض المعدل كملف PPTX.
 
-1. فتح مثال من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) التي تحتوي على المخطط. 
-2. الحصول على مرجع الشريحة عبر فهرستها. 
-3. استعراض جميع الأشكال للعثور على المخطط المطلوب. 
-4. الوصول إلى بيانات المخطط وتحديد النطاق. 
-5. حفظ العرض التقديمي المعدل كملف PPTX. 
+``` cpp
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-يعرض هذا الكود C++ كيفية تعيين نطاق البيانات لمخطط:
-```cpp
 // مسار دليل المستندات.
-String dataDir = GetDataPath();
+String dataDir = u"../documents/";
 
 // ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
 auto presentation = System::MakeObject<Presentation>(dataDir + u"ExistingChart.pptx");
 
-// الوصول إلى الشريحة الأولى وإضافة مخطط ببيانات افتراضية
+// يصل إلى الشريحة الأولى ويضيف مخططًا ببيانات افتراضية
 auto slide = presentation->get_Slides()->idx_get(0);
 auto chart = System::ExplicitCast<IChart>(slide->get_Shapes()->idx_get(0));
 chart->get_ChartData()->SetRange(u"Sheet1!A1:B4");
 presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **استخدام العلامات الافتراضية في المخططات**
-عند استخدام علامة افتراضية في المخططات، يحصل كل سلسلة مخطط على رموز علامة افتراضية مختلفة تلقائيًا. 
+عند استخدام علامة افتراضية في المخططات، يحصل كل سلسلة على رموز علامات افتراضية مختلفة تلقائيًا.
 
-يعرض هذا الكود C++ كيفية تعيين علامة سلسلة مخطط تلقائيًا:
-```cpp
+``` cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // مسار دليل المستندات.
-String dataDir = GetDataPath();
+String dataDir = u"../documents/";
 
 auto pres = System::MakeObject<Presentation>();
 
@@ -1222,7 +1551,7 @@ chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 2, ObjectExt::Box<St
 // يأخذ السلسلة الثانية للمخطط
 auto series2 = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// ملء بيانات السلسلة
+// يملأ بيانات السلسلة
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 2, ObjectExt::Box<int32_t>(30)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 2, ObjectExt::Box<int32_t>(10)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 2, ObjectExt::Box<int32_t>(60)));
@@ -1234,21 +1563,20 @@ chart->get_Legend()->set_Overlay(false);
 pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **الأسئلة المتكررة**
 
-**ما هي أنواع المخططات التي يدعمها Aspose.Slides؟**
+**ما هي أنواع المخططات التي تدعمها Aspose.Slides؟**
 
-يدعم Aspose.Slides مجموعة واسعة من أنواع المخططات، بما في ذلك المخططات الشريطية، الخطية، الدائرية، المساحية، المبعثرة، التكرارية، الرادارية، وغيرها الكثير. هذه المرونة تتيح لك اختيار النوع الأنسب لتصوير بياناتك.
+تدعم Aspose.Slides مجموعة واسعة من أنواع المخططات، بما في ذلك المخططات الشريطية، الخطية، الدائرية، المساحية، المبعثرة، الهيستوجرام، الرادار، وغيرها الكثير. هذه المرونة تمكنك من اختيار النوع الأنسب لاحتياجاتك في تصور البيانات.
 
 **كيف يمكنني إضافة مخطط جديد إلى شريحة؟**
 
-لإضافة مخطط، أولاً تُنشئ مثالًا من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)، ثم تُسترجع الشريحة المطلوبة باستخدام فهرستها، ثم تستدعي الطريقة لإضافة مخطط مع تحديد نوع المخطط والبيانات الأولية. يدمج هذا المخطط مباشرةً في عرضك التقديمي.
+لإضافة مخطط، تقوم أولاً بإنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/) ، ثم تسترجع الشريحة المطلوبة باستخدام فهرستها، ثم تستدعي الطريقة لإضافة مخطط مع تحديد نوع المخطط والبيانات الأولية. يدمج هذا العملية المخطط مباشرةً في العرض التقديمي.
 
-**كيف يمكنني تحديث البيانات المعروضة في المخطط؟**
+**كيف يمكنني تحديث البيانات المعروضة في مخطط؟**
 
-يمكنك تحديث بيانات المخطط بالوصول إلى دفتر عمل البيانات الخاص به ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/))، ثم مسح أي سلاسل وفئات افتراضية، ثم إضافة البيانات المخصصة الخاصة بك. يتيح لك ذلك تحديث المخطط برمجيًا ليعكس أحدث البيانات.
+يمكنك تحديث بيانات المخطط من خلال الوصول إلى دفتر بياناته ([IChartDataWorkbook](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة بياناتك المخصصة. يتيح لك ذلك تحديث المخطط برمجيًا ليعكس أحدث البيانات.
 
 **هل يمكن تخصيص مظهر المخطط؟**
 
-نعم، يوفر Aspose.Slides خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، وسيلة الإيضاح، وغيرها من عناصر التنسيق لتكييف مظهر المخطط وفقًا لمتطلبات التصميم الخاصة بك.
+نعم، توفر Aspose.Slides خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، الوسوم، والعناصر التنسيقية الأخرى لتلائم مظهر المخطط لمتطلبات التصميم الخاصة بك.

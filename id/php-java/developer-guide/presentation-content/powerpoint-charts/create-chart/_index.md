@@ -5,76 +5,71 @@ type: docs
 weight: 10
 url: /id/php-java/create-chart/
 keywords:
-- tambahkan diagram
-- buat diagram
-- edit diagram
-- ubah diagram
-- perbarui diagram
+- menambahkan diagram
+- membuat diagram
+- mengedit diagram
+- mengubah diagram
+- memperbarui diagram
 - diagram sebar
 - diagram pai
 - diagram garis
 - diagram peta pohon
-- diagram saham
+- diagram stok
 - diagram kotak dan whisker
 - diagram corong
 - diagram sunburst
 - diagram histogram
 - diagram radar
-- diagram multi-kategori
+- diagram multikategori
 - PowerPoint
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk PHP melalui Java. Tambahkan, format, dan edit diagram dengan contoh kode praktis."
+description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk PHP via Java. Tambahkan, format, dan edit diagram dengan contoh kode praktis."
 ---
-## **Gambaran Umum**
+## **Ringkasan**
 
-Artikel ini memberikan panduan lengkap tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides. Anda akan belajar cara menambahkan diagram secara programatis ke slide, mengisi data, dan menerapkan berbagai opsi pemformatan agar sesuai dengan kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci mengilustrasikan setiap langkah, mulai dari menginisialisasi presentasi dan objek diagram hingga mengkonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi Anda, menyederhanakan proses pembuatan presentasi berbasis data.
+Artikel ini memberikan panduan komprehensif tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides. Anda akan belajar cara menambahkan diagram secara programatik ke slide, mengisi data, dan menerapkan berbagai opsi pemformatan untuk memenuhi kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari menginisialisasi presentasi dan objek diagram hingga mengonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi Anda, mempermudah proses pembuatan presentasi berbasis data.
 
-## **Membuat Diagram**
+## **Buat Diagram**
 
-Diagram membantu orang dengan cepat memvisualisasikan data dan mendapatkan wawasan, yang mungkin tidak langsung terlihat dari tabel atau spreadsheet. 
+Diagram membantu orang dengan cepat memvisualisasikan data dan memperoleh wawasan yang mungkin tidak segera terlihat dari tabel atau spreadsheet.
 
 **Mengapa Membuat Diagram?**
 
-Dengan diagram, Anda dapat
+Dengan diagram, Anda dapat:
 
-* menggabungkan, merangkum, atau menyimpulkan sejumlah besar data dalam satu slide presentasi
+* menggabungkan, memadatkan, atau merangkum sejumlah besar data pada satu slide dalam sebuah presentasi
 * menampilkan pola dan tren dalam data
-* menyimpulkan arah dan momentum data seiring waktu atau terhadap satuan pengukuran tertentu 
-* menemukan nilai pencilan, penyimpangan, kesalahan, data yang tidak masuk akal, dll. 
-* mengkomunikasikan atau menyajikan data yang kompleks
+* menilai arah dan momentum data seiring waktu atau terhadap satuan pengukuran tertentu
+* menemukan nilai pencilan, penyimpangan, kesalahan, data yang tidak masuk akal, dll.
+* menyampaikan atau mempresentasikan data kompleks
 
-Di PowerPoint, Anda dapat membuat diagram melalui fungsi sisipkan, yang menyediakan templat untuk merancang banyak jenis diagram. Menggunakan Aspose.Slides, Anda dapat membuat diagram standar (berdasarkan tipe diagram populer) dan diagram khusus. 
+Di PowerPoint, Anda dapat membuat diagram melalui fungsi *Insert*, yang menyediakan templat untuk merancang berbagai jenis diagram. Dengan Aspose.Slides, Anda dapat membuat diagram reguler (berdasarkan tipe diagram populer) maupun diagram khusus.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Catatan" %}}
 
-Untuk memungkinkan Anda membuat diagram, Aspose.Slides menyediakan kelas [ChartType](https://reference.aspose.com/slides/id/php-java/aspose.slides/ChartType). Field di kelas ini sesuai dengan tipe diagram yang berbeda.
+Untuk membuat diagram, gunakan kelas [ChartType](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/). Bidang dalam kelas ini sesuai dengan berbagai tipe diagram.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-### **Membuat Diagram Normal**
+### **Buat Diagram Kolom Berkelompok**
 
-_Steps: Create Chart_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Steps:</em> Create PowerPoint Chart </strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Steps:</em> Create Presentation Chart </strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Chart </strong></a>
+Bagian ini menjelaskan cara membuat diagram kolom berkelompok menggunakan Aspose.Slides. Anda akan belajar menginisialisasi presentasi, menambahkan diagram, dan menyesuaikan elemen-elemennya seperti judul, data, seri, kategori, dan gaya. Ikuti langkah‑langkah di bawah ini untuk melihat bagaimana diagram kolom berkelompok standar dihasilkan:
 
-_Code Steps:_
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation).
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Tambahkan diagram dengan beberapa data dan tentukan tipe `ChartType::ClusteredColumn`.
+1. Tambahkan judul ke diagram.
+1. Akses lembar kerja data diagram.
+1. Hapus semua seri dan kategori default.
+1. Tambahkan seri dan kategori baru.
+1. Tambahkan data diagram baru untuk seri diagram.
+1. Terapkan warna isi ke seri diagram.
+1. Tambahkan label ke seri diagram.
+1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation).
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan beberapa data dan tentukan tipe diagram yang Anda inginkan. 
-4. Tambahkan judul untuk diagram. 
-5. Akses lembar kerja data diagram. 
-6. Hapus semua seri dan kategori default. 
-7. Tambahkan seri dan kategori baru. 
-8. Tambahkan data diagram baru untuk seri diagram. 
-9. Tambahkan warna isi untuk seri diagram. 
-10. Tambahkan label untuk seri diagram. 
-11. Tulis presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode PHP ini menunjukkan cara membuat diagram normal:
+Kode C# berikut menunjukkan cara membuat diagram kolom berkelompok:
 
 ```php
   # Membuat instance kelas presentasi yang mewakili file PPTX
@@ -84,14 +79,14 @@ Kode PHP ini menunjukkan cara membuat diagram normal:
     $sld = $pres->getSlides()->get_Item(0);
     # Menambahkan diagram dengan data defaultnya
     $chart = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 0, 0, 500, 500);
-    # Menetapkan Judul diagram
+    # Mengatur Judul diagram
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->hasTitle();
-    # Menetapkan seri pertama untuk menampilkan nilai
+    # Mengatur seri pertama untuk menampilkan nilai
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Menetapkan indeks untuk lembar data diagram
+    # Mengatur indeks untuk lembar data diagram
     $defaultWorksheetIndex = 0;
     # Mendapatkan WorkSheet data diagram
     $fact = $chart->getChartData()->getChartDataWorkbook();
@@ -113,7 +108,7 @@ Kode PHP ini menunjukkan cara membuat diagram normal:
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # Menetapkan warna isi untuk seri
+    # Mengatur warna isi untuk seri
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     # Mengambil seri diagram kedua
@@ -122,11 +117,11 @@ Kode PHP ini menunjukkan cara membuat diagram normal:
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    # Menetapkan warna isi untuk seri
+    # Mengatur warna isi untuk seri
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     # Membuat label khusus untuk setiap kategori pada seri baru
-    # Menetapkan label pertama untuk menampilkan nama Kategori
+    # Mengatur label pertama untuk menampilkan nama Kategori
     $lbl = $series->getDataPoints()->get_Item(0)->getLabel();
     $lbl->getDataLabelFormat()->setShowCategoryName(true);
     $lbl = $series->getDataPoints()->get_Item(1)->getLabel();
@@ -145,29 +140,26 @@ Kode PHP ini menunjukkan cara membuat diagram normal:
   }
 ```
 
-### **Membuat Diagram Sebar**
-Diagram sebar (juga dikenal sebagai plot sebar atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel. 
+### **Buat Diagram Sebar**
 
-Anda mungkin ingin menggunakan diagram sebar ketika 
+Diagram sebar (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
+
+Gunakan diagram sebar ketika:
 
 * Anda memiliki data numerik berpasangan
-* Anda memiliki 2 variabel yang saling berpasangan dengan baik
-* Anda ingin menentukan apakah 2 variabel saling terkait
+* Anda memiliki dua variabel yang saling berhubungan
+* Anda ingin menentukan apakah dua variabel terkait
 * Anda memiliki variabel independen yang memiliki banyak nilai untuk variabel dependen
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Steps:</em> Create Scattered Chart </strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Scattered Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Scattered Chart </strong></a>
+1. Ikuti langkah‑langkah pada [Buat Diagram Kolom Berkelompok](#buat-diagram-kolom-berkelompok).
+2. Pada langkah ketiga, tambahkan diagram dengan beberapa data dan tentukan tipe diagram Anda sebagai salah satu berikut:
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Mewakili diagram sebar._
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Mewakili diagram sebar yang dihubungkan oleh kurva, dengan penanda data._
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Mewakili diagram sebar yang dihubungkan oleh kurva, tanpa penanda data._
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Mewakili diagram sebar yang dihubungkan oleh garis lurus, dengan penanda data._
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Mewakili diagram sebar yang dihubungkan oleh garis lurus, tanpa penanda data._
 
-1. Ikuti langkah‑langkah yang disebutkan di atas dalam [Create Normal Charts](#creating-normal-charts)
-2. Pada langkah ketiga, Tambahkan diagram dengan beberapa data dan tentukan tipe diagram Anda sebagai salah satu berikut
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Mewakili Diagram Sebar._
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Mewakili Diagram Sebar yang dihubungkan oleh kurva, dengan penanda data._
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Mewakili Diagram Sebar yang dihubungkan oleh kurva, tanpa penanda data._
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Mewakili Diagram Sebar yang dihubungkan oleh garis lurus, dengan penanda data._
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Mewakili Diagram Sebar yang dihubungkan oleh garis lurus, tanpa penanda data._
-
-Kode PHP ini menunjukkan cara membuat diagram sebar dengan serangkaian penanda yang berbeda:
+Kode PHP berikut menunjukkan cara membuat diagram sebar dengan penanda yang berbeda untuk setiap seri:
 
 ```php
   # Membuat instance kelas presentasi yang mewakili file PPTX
@@ -177,9 +169,9 @@ Kode PHP ini menunjukkan cara membuat diagram sebar dengan serangkaian penanda y
     $slide = $pres->getSlides()->get_Item(0);
     # Membuat diagram default
     $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 0, 0, 400, 400);
-    # Mendapatkan indeks worksheet data diagram default
+    # Mendapatkan indeks lembar kerja data diagram default
     $defaultWorksheetIndex = 0;
-    # Mendapatkan worksheet data diagram
+    # Mendapatkan lembar kerja data diagram
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # Menghapus seri demo
     $chart->getChartData()->getSeries()->clear();
@@ -218,28 +210,24 @@ Kode PHP ini menunjukkan cara membuat diagram sebar dengan serangkaian penanda y
   }
 ```
 
-### **Membuat Diagram Pai**
+### **Buat Diagram Pai**
 
-Diagram pai paling cocok untuk menunjukkan hubungan bagian‑dengan‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, pertimbangkan untuk menggunakan diagram batang sebagai gantinya.
+Diagram pai paling baik digunakan untuk menunjukkan hubungan bagian‑ke‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, pertimbangkan menggunakan diagram batang sebagai gantinya.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Steps:</em> Create Pie Chart </strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Steps:</em> Create PowerPoint Pie Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Pie Chart </strong></a>
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation).
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam kasus ini, [ChartType](https://reference.aspose.com/slides/id/php-java/aspose.slides/ChartType).Pie).
-4. Akses [ChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/).
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType::Pie](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#Pie) .
+4. Akses buku kerja data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/) .
 5. Hapus seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
 7. Tambahkan data diagram baru untuk seri diagram.
-8. Tambahkan titik baru untuk diagram dan tambahkan warna khusus untuk sektor diagram pai.
+8. Tambahkan titik baru untuk diagram dan terapkan warna khusus untuk sektor diagram pai.
 9. Atur label untuk seri.
-10. Atur garis pemimpin untuk label seri.
-11. Atur sudut rotasi untuk slide diagram pai.
-12. Tulis presentasi yang telah dimodifikasi ke file PPTX.
+10. Aktifkan garis pemimpin untuk label seri.
+11. Atur sudut rotasi untuk sektor diagram pai.
+12. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
-Kode PHP ini menunjukkan cara membuat diagram pai:
+Kode PHP berikut menunjukkan cara membuat diagram pai:
 
 ```php
   # Membuat instance kelas presentasi yang mewakili file PPTX
@@ -249,16 +237,16 @@ Kode PHP ini menunjukkan cara membuat diagram pai:
     $slides = $pres->getSlides()->get_Item(0);
     # Menambahkan diagram dengan data default
     $chart = $slides->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
-    # Menetapkan Judul diagram
+    # Mengatur Judul diagram
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->setTitle(true);
-    # Menetapkan seri pertama untuk menampilkan nilai
+    # Mengatur seri pertama untuk menampilkan nilai
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Menetapkan indeks untuk lembar data diagram
+    # Mengatur indeks untuk lembar data diagram
     $defaultWorksheetIndex = 0;
-    # Mendapatkan worksheet data diagram
+    # Mendapatkan lembar kerja data diagram
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # Menghapus seri dan kategori default yang dihasilkan
     $chart->getChartData()->getSeries()->clear();
@@ -273,14 +261,14 @@ Kode PHP ini menunjukkan cara membuat diagram pai:
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # Tidak berfungsi pada versi baru
+    # Tidak bekerja di versi baru
     # Menambahkan titik baru dan mengatur warna sektor
     # series.IsColorVaried = true;
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
     $point = $series->getDataPoints()->get_Item(0);
     $point->getFormat()->getFill()->setFillType(FillType::Solid);
     $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-    # Menetapkan batas Sektor
+    # Mengatur batas Sektor
     $point->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     $point->getFormat()->getLine()->setWidth(3.0);
@@ -289,7 +277,7 @@ Kode PHP ini menunjukkan cara membuat diagram pai:
     $point1 = $series->getDataPoints()->get_Item(1);
     $point1->getFormat()->getFill()->setFillType(FillType::Solid);
     $point1->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
-    # Menetapkan batas Sektor
+    # Mengatur batas Sektor
     $point1->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point1->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $point1->getFormat()->getLine()->setWidth(3.0);
@@ -298,7 +286,7 @@ Kode PHP ini menunjukkan cara membuat diagram pai:
     $point2 = $series->getDataPoints()->get_Item(2);
     $point2->getFormat()->getFill()->setFillType(FillType::Solid);
     $point2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
-    # Menetapkan batas Sektor
+    # Mengatur batas Sektor
     $point2->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point2->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $point2->getFormat()->getLine()->setWidth(2.0);
@@ -317,7 +305,7 @@ Kode PHP ini menunjukkan cara membuat diagram pai:
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
     # Menampilkan Garis Pemimpin untuk Diagram
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
-    # Menetapkan Sudut Rotasi untuk Sektor Diagram Pai
+    # Mengatur Sudut Rotasi untuk Sektor Diagram Pai
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
     # Menyimpan presentasi dengan diagram
     $pres->save("PieChart_out.pptx", SaveFormat::Pptx);
@@ -328,20 +316,20 @@ Kode PHP ini menunjukkan cara membuat diagram pai:
   }
 ```
 
-### **Membuat Diagram Garis**
+### **Buat Diagram Garis**
 
-Diagram garis (juga dikenal sebagai grafik garis) paling cocok untuk situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan diagram garis, Anda dapat membandingkan banyak data sekaligus, melacak perubahan dan tren seiring waktu, menyoroti anomali dalam seri data, dll.
+Diagram garis (juga dikenal sebagai grafik garis) paling baik digunakan dalam situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan diagram garis, Anda dapat membandingkan banyak data sekaligus, melacak perubahan dan tren dari waktu ke waktu, menyoroti anomali dalam seri data, dan lain‑lain.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation).
-1. Dapatkan referensi slide melalui indeksnya.
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam kasus ini, `ChartType::Line`).
-1. Akses data diagram IChartDataWorkbook.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Tambahkan diagram dengan data default dan tentukan tipe [ChartType::Line](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#Line) .
+1. Akses buku kerja data diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/)).
 1. Hapus seri dan kategori default.
 1. Tambahkan seri dan kategori baru.
 1. Tambahkan data diagram baru untuk seri diagram.
-1. Tulis presentasi yang telah dimodifikasi ke file PPTX.
+1. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
-Kode PHP ini menunjukkan cara membuat diagram garis:
+Kode PHP berikut menunjukkan cara membuat diagram garis:
 
 ```php
   $pres = new Presentation();
@@ -355,33 +343,38 @@ Kode PHP ini menunjukkan cara membuat diagram garis:
   }
 ```
 
-Secara default, titik pada diagram garis dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik‑titik tersebut dihubungkan oleh garis putus‑putus, Anda dapat menentukan tipe dash yang diinginkan sebagai berikut:
+Secara default, titik‑titik pada diagram garis dihubungkan oleh garis kontinu lurus. Jika Anda ingin titik‑titik tersebut dihubungkan oleh garis putus‑putus, Anda dapat menentukan tipe dash yang diinginkan sebagai berikut:
 
 ```php
-  $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
-  foreach($lineChart->getChartData()->getSeries() as $series) {
-    $series->getFormat()->getLine()->setDashStyle(LineDashStyle->Dash);
+  $pres = new Presentation();
+  try {
+    $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
+    $seriesCollection = $lineChart->getChartData()->getSeries();
+    foreach ($seriesCollection as $series) {
+      $series->getFormat()->getLine()->setDashStyle(LineDashStyle::Dash);
+    }
+    $pres->save("lineChart.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
   }
 ```
 
-### **Membuat Diagram Peta Pohon**
+### **Buat Diagram Peta Pohon**
 
-Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan (pada saat yang sama) dengan cepat menarik perhatian ke item yang menjadi kontributor besar bagi masing‑masing kategori. 
+Diagram peta pohon paling baik digunakan untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan dengan cepat menarik perhatian ke item yang menjadi kontributor besar dalam masing‑masing kategori.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Steps:</em> Create Tree Map Chart </strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Tree Map Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Tree Map Chart </strong></a>
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam kasus ini, [ChartType](https://reference.aspose.com/slides/id/php-java/aspose.slides/ChartType).TreeMap).
-4. Akses [ChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/).
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType::Treemap](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#Treemap) .
+4. Akses buku kerja data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/) .
 5. Hapus seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
 7. Tambahkan data diagram baru untuk seri diagram.
-8. Tulis presentasi yang telah dimodifikasi ke file PPTX
+8. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
-Kode PHP ini menunjukkan cara membuat diagram peta pohon:
+Kode PHP berikut menunjukkan cara membuat diagram peta pohon:
 
 ```php
   $pres = new Presentation();
@@ -426,23 +419,19 @@ Kode PHP ini menunjukkan cara membuat diagram peta pohon:
   }
 ```
 
-### **Membuat Diagram Saham**
+### **Buat Diagram Stok**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Steps:</em> Create Stock Chart </strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Steps:</em> Create PowerPoint Stock Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Stock Chart </strong></a>
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan ([ChartType](https://reference.aspose.com/slides/id/php-java/aspose.slides/ChartType).OpenHighLowClose).
-4. Akses [ChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/).
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#OpenHighLowClose) .
+4. Akses buku kerja data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/) .
 5. Hapus seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
 7. Tambahkan data diagram baru untuk seri diagram.
-8. Tentukan format HiLowLines.
-9. Tulis presentasi yang telah dimodifikasi ke file PPTX
+8. Tentukan format garis tinggi‑rendah.
+9. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
-Contoh kode PHP yang digunakan untuk membuat diagram saham:
+Kode PHP berikut menunjukkan cara membuat diagram stok:
 
 ```php
   $pres = new Presentation();
@@ -476,7 +465,8 @@ Contoh kode PHP yang digunakan untuk membuat diagram saham:
     $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 4, 50));
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    foreach($chart->getChartData()->getSeries() as $ser) {
+    $seriesCollection = $chart->getChartData()->getSeries();
+    foreach ($seriesCollection as $ser) {
       $ser->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     }
     $pres->save("output.pptx", SaveFormat::Pptx);
@@ -487,22 +477,18 @@ Contoh kode PHP yang digunakan untuk membuat diagram saham:
   }
 ```
 
-### **Membuat Diagram Kotak‑dan‑Whisker**
+### **Buat Diagram Kotak‑dan‑Whisker**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Steps:</em> Create Box and Whisker Chart </strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Box and Whisker Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Box and Whisker Chart </strong></a>
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan ([ChartType](https://reference.aspose.com/slides/id/php-java/aspose.slides/ChartType).BoxAndWhisker).
-4. Akses [ChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/).
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#BoxAndWhisker) .
+4. Akses buku kerja data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/) .
 5. Hapus seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
 7. Tambahkan data diagram baru untuk seri diagram.
-8. Tulis presentasi yang telah dimodifikasi ke file PPTX
+8. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
-Kode PHP ini menunjukkan cara membuat diagram kotak‑dan‑whisker:
+Kode PHP berikut menunjukkan cara membuat diagram kotak‑dan‑whisker:
 
 ```php
   $pres = new Presentation();
@@ -538,19 +524,14 @@ Kode PHP ini menunjukkan cara membuat diagram kotak‑dan‑whisker:
   }
 ```
 
-### **Membuat Diagram Corong**
+### **Buat Diagram Corong**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Steps:</em> Create Funnel Chart </strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Funnel Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Funnel Chart </strong></a>
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType::Funnel](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#Funnel) .
+4. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan ([ChartType](https://reference.aspose.com/slides/id/php-java/aspose.slides/ChartType).Funnel).
-4. Tulis presentasi yang telah dimodifikasi ke file PPTX
-
-Kode PHP ini menunjukkan cara membuat diagram corong:
+Kode PHP berikut menunjukkan cara membuat diagram corong:
 
 ```php
   $pres = new Presentation();
@@ -581,18 +562,14 @@ Kode PHP ini menunjukkan cara membuat diagram corong:
   }
 ```
 
-### **Membuat Diagram Sunburst**
+### **Buat Diagram Sunburst**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Steps:</em> Create Sunburst Chart </strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Sunburst Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Sunburst Chart </strong></a>
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType::Sunburst](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#Sunburst) .
+4. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam kasus ini, [ChartType](https://reference.aspose.com/slides/id/php-java/aspose.slides/ChartType).sunburst).
-4. Tulis presentasi yang telah dimodifikasi ke file PPTX
-
-Kode PHP ini menunjukkan cara membuat diagram sunburst:
+Kode PHP berikut menunjukkan cara membuat diagram sunburst:
 
 ```php
   $pres = new Presentation();
@@ -636,21 +613,17 @@ Kode PHP ini menunjukkan cara membuat diagram sunburst:
   }
 ```
 
-### **Membuat Diagram Histogram**
+### **Buat Diagram Histogram**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Steps:</em> Create Histogram Chart </strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Histogram Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Histogram Chart </strong></a>
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan ([ChartType](https://reference.aspose.com/slides/id/php-java/aspose.slides/ChartType).Histogram).
-4. Akses [ChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/).
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType::Histogram](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#Histogram) .
+4. Akses buku kerja data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/) .
 5. Hapus seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
-7. Tulis presentasi yang telah dimodifikasi ke file PPTX
+7. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
-Kode PHP ini menunjukkan cara membuat diagram histogram:
+Kode PHP berikut menunjukkan cara membuat diagram histogram:
 
 ```php
   $pres = new Presentation();
@@ -669,18 +642,14 @@ Kode PHP ini menunjukkan cara membuat diagram histogram:
   $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
 ```
 
-### **Membuat Diagram Radar**
+### **Buat Diagram Radar**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Steps:</em> Create Radar Chart </strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Steps:</em> Create PowerPoint Radar Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Radar Chart </strong></a>
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan beberapa data dan tentukan tipe diagram pilihan Anda ([ChartType::Radar](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#Radar) dalam kasus ini).
+4. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya. 
-3. Tambahkan diagram dengan beberapa data dan tentukan tipe diagram yang Anda inginkan (`ChartType::Radar` dalam kasus ini).
-4. Tulis presentasi yang telah dimodifikasi ke file PPTX
-
-Kode PHP ini menunjukkan cara membuat diagram radar:
+Kode PHP berikut menunjukkan cara membuat diagram radar:
 
 ```php
   $pres = new Presentation();
@@ -694,22 +663,18 @@ Kode PHP ini menunjukkan cara membuat diagram radar:
   }
 ```
 
-### **Membuat Diagram Multi‑Kategori**
+### **Buat Diagram Multi‑Kategori**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Steps:</em> Create Multi Category Chart </strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Multi Category Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Multi Category Chart </strong></a>
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya. 
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan ([ChartType](https://reference.aspose.com/slides/id/php-java/aspose.slides/ChartType).ClusteredColumn).
-4. Akses [ChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/).
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType::ClusteredColumn](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/#ClusteredColumn) .
+4. Akses buku kerja data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/) .
 5. Hapus seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
 7. Tambahkan data diagram baru untuk seri diagram.
-8. Tulis presentasi yang telah dimodifikasi ke file PPTX.
+8. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
-Kode PHP ini menunjukkan cara membuat diagram multi‑kategori:
+Kode PHP berikut menunjukkan cara membuat diagram multi‑kategori:
 
 ```php
   $pres = new Presentation();
@@ -751,15 +716,11 @@ Kode PHP ini menunjukkan cara membuat diagram multi‑kategori:
   }
 ```
 
-### **Membuat Diagram Peta**
+### **Buat Diagram Peta**
 
-Diagram peta adalah visualisasi area yang berisi data. Diagram peta paling cocok untuk membandingkan data atau nilai di seluruh wilayah geografis.
+Diagram peta memvisualisasikan data geografis dan membantu membandingkan nilai antar wilayah.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Steps:</em> Create Map Chart </strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Steps:</em> Create PowerPoint Map Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Map Chart </strong></a>
-
-Kode PHP ini menunjukkan cara membuat diagram peta:
+Kode PHP berikut menunjukkan cara membuat diagram peta:
 
 ```php
   $pres = new Presentation();
@@ -773,9 +734,9 @@ Kode PHP ini menunjukkan cara membuat diagram peta:
   }
 ```
 
-### **Membuat Diagram Kombinasi**
+### **Buat Diagram Kombinasi**
 
-Diagram kombinasi (atau diagram combo) menggabungkan dua atau lebih tipe diagram dalam satu grafik. Diagram ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antara mereka.
+Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih tipe diagram dalam satu grafik. Diagram ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antaranya.
 
 ![The combination chart](combination_chart.png)
 
@@ -890,7 +851,7 @@ function setPrimaryAxesFormat($chart) {
 
     setAxisTitle($verticalAxis, "Y Axis 1");
 
-    // Atur warna garis kisi mayor vertikal.
+    // Atur warna garis kisi utama vertikal.
     $majorGridLinesFormat = $verticalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat();
     $majorGridLinesFormat->setFillType(FillType::Solid);
     $majorGridLinesFormat->getSolidFillColor()->setColor(new java("java.awt.Color", 217, 217, 217));
@@ -926,21 +887,17 @@ function setAxisTitle($axis, $axisTitle) {
 }
 ```
 
-## **Memperbarui Diagram**
+## **Perbarui Diagram**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Steps:</em> Update PowerPoint Chart </strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Steps:</em> Update Presentation Chart </strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Steps:</em> Update PowerPoint Presentation Chart </strong></a>
-
-1. Instansiasi kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation) yang mewakili presentasi yang berisi diagram yang ingin Anda perbarui.
-2. Dapatkan referensi slide dengan menggunakan Indeksnya.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) yang mewakili presentasi yang berisi diagram yang ingin Anda perbarui.
+2. Dapatkan referensi ke slide menggunakan indeksnya.
 3. Telusuri semua shape untuk menemukan diagram yang diinginkan.
 4. Akses lembar kerja data diagram.
-5. Ubah data seri diagram dengan mengubah nilai seri.
-6. Tambahkan seri baru dan isi data di dalamnya.
-7. Tulis presentasi yang telah dimodifikasi sebagai file PPTX.
+5. Ubah seri data diagram dengan mengubah nilai seri.
+6. Tambahkan seri baru dan isi datanya.
+7. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
-Kode PHP ini menunjukkan cara memperbarui diagram:
+Kode PHP berikut menunjukkan cara memperbarui diagram:
 
 ```php
   $pres = new Presentation();
@@ -949,9 +906,9 @@ Kode PHP ini menunjukkan cara memperbarui diagram:
     $sld = $pres->getSlides()->get_Item(0);
     # Dapatkan diagram dengan data default
     $chart = $sld->getShapes()->get_Item(0);
-    # Menetapkan indeks lembar data diagram
+    # Mengatur indeks lembar data diagram
     $defaultWorksheetIndex = 0;
-    # Mendapatkan worksheet data diagram
+    # Mendapatkan lembar kerja data diagram
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # Mengubah Nama Kategori diagram
     $fact->getCell($defaultWorksheetIndex, 1, 0, "Modified Category 1");
@@ -959,7 +916,7 @@ Kode PHP ini menunjukkan cara memperbarui diagram:
     # Ambil seri diagram pertama
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     # Sekarang memperbarui data seri
-    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Memodifikasi nama seri
+    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Mengubah nama seri
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
@@ -967,14 +924,14 @@ Kode PHP ini menunjukkan cara memperbarui diagram:
     # Ambil seri diagram kedua
     $series = $chart->getChartData()->getSeries()->get_Item(1);
     # Sekarang memperbarui data seri
-    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Memodifikasi nama seri
+    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Mengubah nama seri
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
-    # Sekarang, Menambahkan seri baru
+    # Sekarang, menambahkan seri baru
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "Series 3"), $chart->getType());
-    # Ambil seri diagram ke-3
+    # Ambil seri diagram ke‑3
     $series = $chart->getChartData()->getSeries()->get_Item(2);
     # Sekarang mengisi data seri
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 3, 20));
@@ -990,17 +947,17 @@ Kode PHP ini menunjukkan cara memperbarui diagram:
   }
 ```
 
-## **Mengatur Rentang Data untuk Diagram**
+## **Tentukan Rentang Data untuk Diagram**
 
-Untuk mengatur rentang data bagi sebuah diagram, lakukan hal berikut:
+Untuk menentukan rentang data bagi sebuah diagram, lakukan hal berikut:
 
-1. Instansiasi kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation) yang mewakili presentasi yang berisi diagram.
-2. Dapatkan referensi slide melalui indeksnya.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) yang mewakili presentasi yang berisi diagram.
+2. Dapatkan referensi ke slide menggunakan indeksnya.
 3. Telusuri semua shape untuk menemukan diagram yang diinginkan.
-4. Akses data diagram dan atur rentangnya.
-5. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+4. Akses data diagram dan tetapkan rentangnya.
+5. Simpan presentasi yang dimodifikasi sebagai file PPTX.
 
-Kode PHP ini menunjukkan cara mengatur rentang data untuk diagram:
+Kode PHP berikut menunjukkan cara menentukan rentang data untuk sebuah diagram:
 
 ```php
   $pres = new Presentation();
@@ -1010,16 +967,17 @@ Kode PHP ini menunjukkan cara mengatur rentang data untuk diagram:
     $chart->getChartData()->setRange("Sheet1!A1:B4");
     $pres->save("SetDataRange_out.pptx", SaveFormat::Pptx);
   } finally {
-    if (!java_is10_is_null($pres)) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
 ```
 
-## **Gunakan Penanda Default pada Diagram**
-Saat Anda menggunakan penanda default pada diagram, setiap seri diagram secara otomatis mendapatkan simbol penanda default yang berbeda.
+## **Gunakan Penanda Bawaan dalam Diagram**
 
-Kode PHP ini menunjukkan cara mengatur penanda seri diagram secara otomatis:
+Ketika Anda menggunakan penanda bawaan dalam diagram, setiap seri diagram secara otomatis mendapatkan simbol penanda yang berbeda.
+
+Kode PHP berikut menunjukkan cara mengatur penanda seri diagram secara otomatis:
 
 ```php
   $pres = new Presentation();
@@ -1059,18 +1017,18 @@ Kode PHP ini menunjukkan cara mengatur penanda seri diagram secara otomatis:
 
 ## **FAQ**
 
-**Jenis diagram apa saja yang didukung oleh Aspose.Slides?**
+**Jenis diagram apa yang didukung oleh Aspose.Slides?**
 
-Aspose.Slides mendukung berbagai [jenis diagram](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/), termasuk batang, garis, pai, area, sebar, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling tepat untuk kebutuhan visualisasi data Anda.
+Aspose.Slides mendukung beragam [jenis diagram](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/), termasuk batang, garis, pai, area, sebar, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling tepat untuk kebutuhan visualisasi data Anda.
 
 **Bagaimana cara menambahkan diagram baru ke slide?**
 
-Untuk menambahkan diagram, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) , ambil slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambahkan diagram dengan menentukan tipe diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
+Untuk menambahkan diagram, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) , ambil slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambahkan diagram, sambil menentukan tipe diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
 
 **Bagaimana cara memperbarui data yang ditampilkan dalam diagram?**
 
-Anda dapat memperbarui data diagram dengan mengakses workbook datanya ([ChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/)), menghapus semua seri dan kategori default, kemudian menambahkan data khusus Anda. Ini memungkinkan Anda menyegarkan diagram agar mencerminkan data terbaru.
+Anda dapat memperbarui data diagram dengan mengakses buku kerja datanya ([ChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/)), menghapus semua seri dan kategori default, lalu menambahkan data khusus Anda. Ini memungkinkan diagram menyegarkan tampilannya sesuai data terbaru.
 
 **Apakah memungkinkan menyesuaikan tampilan diagram?**
 
-Ya, Aspose.Slides menyediakan opsi penyesuaian yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen [pemformatan](/slides/id/php-java/chart-entities/) lainnya untuk menyesuaikan tampilan diagram dengan kebutuhan desain spesifik Anda.
+Ya, Aspose.Slides menyediakan opsi penyesuaian yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen [pemformatan](/slides/id/php-java/chart-entities/) lainnya untuk menyesuaikan tampilan diagram sesuai kebutuhan desain spesifik Anda.

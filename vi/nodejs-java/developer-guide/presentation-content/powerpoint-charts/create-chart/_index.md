@@ -1,6 +1,6 @@
 ---
-title: Tạo hoặc Cập nhật Biểu đồ PowerPoint Presentation trong JavaScript
-linktitle: Tạo hoặc Cập nhật Biểu đồ
+title: Tạo hoặc Cập nhật biểu đồ PowerPoint trong JavaScript
+linktitle: Tạo hoặc Cập nhật biểu đồ
 type: docs
 weight: 10
 url: /vi/nodejs-java/create-chart/
@@ -22,80 +22,76 @@ keywords:
 - biểu đồ radar
 - biểu đồ đa danh mục
 - PowerPoint
-- bản trình bày
+- bài thuyết trình
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Tạo và tùy chỉnh biểu đồ trong bản trình bày PowerPoint bằng Aspose.Slides cho Node.js. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tế trong JavaScript."
+description: "Tạo và tùy chỉnh biểu đồ trong bài thuyết trình PowerPoint với Aspose.Slides cho Node.js. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tế trong JavaScript."
 ---
 ## **Tổng quan**
 
-Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides. Bạn sẽ học cách thêm biểu đồ vào slide một cách lập trình, đưa dữ liệu vào và áp dụng các tùy chọn định dạng khác nhau để đáp ứng yêu cầu thiết kế cụ thể của bạn. Toàn bộ bài viết kèm các ví dụ mã chi tiết cho mỗi bước, từ khởi tạo Presentation và đối tượng biểu đồ đến cấu hình series, trục và legend. Khi theo dõi hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào ứng dụng, giúp đơn giản hoá quy trình tạo bản trình bày dựa trên dữ liệu.
+Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides. Bạn sẽ học cách thêm biểu đồ vào một slide bằng mã, cung cấp dữ liệu cho nó và áp dụng các tùy chọn định dạng khác nhau để đáp ứng yêu cầu thiết kế cụ thể của bạn. Trong suốt bài viết, các ví dụ mã chi tiết minh họa từng bước, từ việc khởi tạo đối tượng Presentation và Chart cho tới cấu hình series, trục và chú giải. Khi làm theo hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào ứng dụng của mình, tối ưu hoá quá trình tạo các bản thuyết trình dựa trên dữ liệu.
 
 ## **Tạo biểu đồ**
-Biểu đồ giúp người dùng nhanh chóng hình dung dữ liệu và rút ra những hiểu biết mà có thể không hiển thị rõ ràng trong bảng hoặc bảng tính.
 
-**Lý do tạo biểu đồ?**
+Biểu đồ giúp mọi người nhanh chóng trực quan hoá dữ liệu và nắm bắt những hiểu biết mà có thể không ngay lập tức rõ ràng từ một bảng hoặc bảng tính.
 
-Sử dụng biểu đồ, bạn có thể
+**Tại sao nên tạo biểu đồ?**
 
-* tổng hợp, rút gọn hoặc tóm tắt lượng dữ liệu lớn trên một slide trong bản trình bày
-* phát hiện các mẫu và xu hướng trong dữ liệu
-* suy ra hướng và động lượng của dữ liệu theo thời gian hoặc theo một đơn vị đo cụ thể
-* xác định các ngoại lệ, sai lệch, lỗi, dữ liệu vô nghĩa, v.v.
+* tổng hợp, cô nén hoặc tóm tắt lượng lớn dữ liệu trên một slide duy nhất trong bản thuyết trình
+* hiển thị các mẫu và xu hướng trong dữ liệu
+* suy ra hướng và động lực của dữ liệu theo thời gian hoặc so với một đơn vị đo cụ thể
+* phát hiện các giá trị ngoại lệ, sai lệch, lệch chuẩn, lỗi, dữ liệu vô nghĩa, v.v.
 * truyền đạt hoặc trình bày dữ liệu phức tạp
 
-Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng chèn, cung cấp các mẫu dùng để thiết kế nhiều loại biểu đồ. Với Aspose.Slides, bạn có thể tạo biểu đồ thường (dựa trên các loại biểu đồ phổ biến) và biểu đồ tùy chỉnh.
+Trong PowerPoint, bạn có thể tạo biểu đồ qua chức năng *Insert*, cung cấp các mẫu để thiết kế nhiều loại biểu đồ. Sử dụng Aspose.Slides, bạn có thể tạo cả biểu đồ thường (dựa trên các loại biểu đồ phổ biến) và biểu đồ tùy chỉnh.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+To create charts, use the [ChartType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/) class. The fields in this class correspond to different chart types.
+{{% /alert %}}
 
-Để cho phép bạn tạo biểu đồ, Aspose.Slides cung cấp lớp [ChartType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartType). Các trường trong lớp này tương ứng với các loại biểu đồ khác nhau.
+### **Tạo biểu đồ cột cụm**
 
-{{% /alert %}} 
+Phần này giải thích cách tạo biểu đồ cột cụm bằng Aspose.Slides. Bạn sẽ học cách khởi tạo một presentation, thêm một biểu đồ và tùy chỉnh các thành phần như tiêu đề, dữ liệu, series, danh mục và kiểu dáng. Thực hiện các bước dưới đây để xem cách một biểu đồ cột cụm tiêu chuẩn được tạo ra:
 
-### **Tạo biểu đồ bình thường**
-
-_Steps: Create Chart_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint bằng JavaScript</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Các bước:</em> Tạo biểu đồ Presentation bằng JavaScript</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Presentation bằng JavaScript</strong></a>
-
-_Code Steps:_
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide qua chỉ mục của nó.
-3. Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ ưa thích.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation) .
+2. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+3. Thêm một biểu đồ với một số dữ liệu và chỉ định kiểu `ChartType.ClusteredColumn` .
 4. Thêm tiêu đề cho biểu đồ.
-5. Truy cập worksheet dữ liệu biểu đồ.
-6. Xóa tất cả series và category mặc định.
-7. Thêm series và category mới.
+5. Truy cập worksheet dữ liệu của biểu đồ.
+6. Xóa tất cả series và danh mục mặc định.
+7. Thêm series và danh mục mới.
 8. Thêm dữ liệu biểu đồ mới cho series.
-9. Thêm màu nền cho series.
-10. Thêm nhãn cho series.
-11. Ghi bản trình bày đã chỉnh sửa thành file PPTX.
+9. Áp dụng màu nền cho series biểu đồ.
+10. Thêm nhãn cho series biểu đồ.
+11. Lưu presentation đã sửa thành tệp PPTX .
 
-Mã JavaScript dưới đây cho thấy cách tạo một biểu đồ bình thường:
+This C# code demonstrates how to create a clustered column chart:
 
 ```javascript
-// Tạo một đối tượng lớp Presentation đại diện cho tệp PPTX
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Khởi tạo một lớp presentation đại diện cho tệp PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Truy cập slide đầu tiên
     var sld = pres.getSlides().get_Item(0);
-    // Thêm biểu đồ với dữ liệu mặc định của nó
+    // Thêm một biểu đồ với dữ liệu mặc định của nó
     var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
     // Đặt tiêu đề cho biểu đồ
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
-    // Đặt series đầu tiên để hiển thị giá trị
+    // Đặt series đầu tiên hiển thị giá trị
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Đặt chỉ mục cho bảng dữ liệu biểu đồ
+    // Đặt chỉ mục cho sheet dữ liệu của biểu đồ
     var defaultWorksheetIndex = 0;
-    // Lấy WorkSheet dữ liệu của biểu đồ
+    // Lấy WorkSheet dữ liệu biểu đồ
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Xóa các series và category được tạo mặc định
+    // Xóa các series và danh mục được tạo mặc định
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     var s = chart.getChartData().getSeries().size();
@@ -103,7 +99,7 @@ try {
     // Thêm series mới
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    // Thêm category mới
+    // Thêm danh mục mới
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
@@ -125,8 +121,8 @@ try {
     // Đặt màu nền cho series
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-    // Tạo nhãn tùy chỉnh cho mỗi category cho series mới
-    // Đặt nhãn đầu tiên để hiển thị tên Category
+    // Tạo nhãn tùy chỉnh cho từng danh mục cho series mới
+    // Đặt nhãn đầu tiên hiển thị tên danh mục
     var lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     lbl = series.getDataPoints().get_Item(1).getLabel();
@@ -136,7 +132,7 @@ try {
     lbl.getDataLabelFormat().setShowValue(true);
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
-    // Lưu bản trình bày kèm biểu đồ
+    // Saves the presentation with chart
     pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -145,33 +141,32 @@ try {
 }
 ```
 
-### **Tạo biểu đồ Scatter**
+### **Tạo biểu đồ phân tán**
 
-Biểu đồ scatter (còn gọi là scatter plot hoặc đồ thị x‑y) thường được dùng để kiểm tra mẫu hoặc thể hiện mối tương quan giữa hai biến.
+Biểu đồ scatter (cũng được gọi là biểu đồ phân tán hoặc đồ thị x-y) thường được sử dụng để kiểm tra các mẫu hoặc chứng minh mối tương quan giữa hai biến.
 
-Bạn có thể muốn sử dụng biểu đồ scatter khi
+Use a scatter chart when:
 
-* bạn có dữ liệu số đôi
-* bạn có 2 biến liên quan chặt chẽ với nhau
-* bạn muốn xác định liệu 2 biến có liên quan hay không
+* bạn có dữ liệu số cặp đôi
+* bạn có hai biến tương thích với nhau
+* bạn muốn xác định liệu hai biến có liên quan hay không
 * bạn có một biến độc lập có nhiều giá trị cho một biến phụ thuộc
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Các bước:</em> Tạo biểu đồ Scatter bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Scatter bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Presentation Scatter bằng JavaScript</strong></a>
+1. Follow the steps in [Create Clustered Column Charts](#create-clustered-column-charts).
+2. For the third step, add a chart with some data and specify your chart type as one of the following:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Đại diện cho một biểu đồ scatter._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Đại diện cho một biểu đồ scatter được nối bằng các đường cong, có ký hiệu dữ liệu._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Đại diện cho một biểu đồ scatter được nối bằng các đường cong, không có ký hiệu dữ liệu._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Đại diện cho một biểu đồ scatter được nối bằng các đường thẳng, có ký hiệu dữ liệu._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Đại diện cho một biểu đồ scatter được nối bằng các đường thẳng, không có ký hiệu dữ liệu._
 
-1. Vui lòng làm theo các bước đã nêu ở mục [Creating Normal Charts](#creating-normal-charts)
-2. Ở bước ba, thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ là một trong các lựa chọn sau
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Biểu diễn Scatter Chart có dấu đánh dấu._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Biểu diễn Scatter Chart nối bằng đường cong, có dấu đánh dấu dữ liệu._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Biểu diễn Scatter Chart nối bằng đường cong, không có dấu đánh dấu dữ liệu._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Biểu diễn Scatter Chart nối bằng đường thẳng, có dấu đánh dấu dữ liệu._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Biểu diễn Scatter Chart nối bằng đường thẳng, không có dấu đánh dấu dữ liệu._
-
-Mã JavaScript dưới đây cho thấy cách tạo các biểu đồ scatter với các loại dấu đánh dấu khác nhau:
+This JavaScript code shows how to create a scatter chart with different markers for each series:
 
 ```javascript
-// Tạo một đối tượng lớp Presentation đại diện cho tệp PPTX
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Khởi tạo một lớp presentation đại diện cho tệp PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Truy cập slide đầu tiên
@@ -180,7 +175,7 @@ try {
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     // Lấy chỉ mục worksheet dữ liệu biểu đồ mặc định
     var defaultWorksheetIndex = 0;
-    // Lấy worksheet dữ liệu của biểu đồ
+    // Lấy worksheet dữ liệu biểu đồ
     var fact = chart.getChartData().getChartDataWorkbook();
     // Xóa series demo
     chart.getChartData().getSeries().clear();
@@ -200,7 +195,7 @@ try {
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Star);
     // Lấy series biểu đồ thứ hai
     series = chart.getChartData().getSeries().get_Item(1);
-    // Thêm một điểm mới (5:2) ở đó
+    // Thêm một điểm mới (5:2) tại đây
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
     // Thêm một điểm mới (3:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
@@ -219,31 +214,31 @@ try {
 }
 ```
 
-### **Tạo biểu đồ Pie**
+### **Tạo biểu đồ Tròn**
 
-Biểu đồ Pie thích hợp nhất để hiển thị mối quan hệ phần‑trong‑toàn trong dữ liệu, đặc biệt khi dữ liệu có nhãn phân loại kèm giá trị số. Tuy nhiên, nếu dữ liệu của bạn có quá nhiều phần hoặc nhãn, bạn có thể cân nhắc dùng biểu đồ cột thay thế.
+Biểu đồ tròn được sử dụng tốt nhất để hiển thị mối quan hệ phần/tràn trong dữ liệu, đặc biệt khi dữ liệu chứa các nhãn phân loại với giá trị số. Tuy nhiên, nếu dữ liệu của bạn có nhiều phần hoặc nhãn, bạn có thể cân nhắc sử dụng biểu đồ cột thay thế.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Các bước:</em> Tạo biểu đồ Pie bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Pie bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Presentation Pie bằng JavaScript</strong></a>
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide qua chỉ mục.
-3. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn (trong trường hợp này là [ChartType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartType).Pie).
-4. Truy cập dữ liệu biểu đồ qua [ChartDataWorkbook](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartDataWorkbook).
-5. Xóa series và category mặc định.
-6. Thêm series và category mới.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) .
+2. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.Pie](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#Pie) .
+4. Truy cập workbook dữ liệu biểu đồ [ChartDataWorkbook](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdataworkbook/) .
+5. Xóa series và danh mục mặc định.
+6. Thêm series và danh mục mới.
 7. Thêm dữ liệu biểu đồ mới cho series.
-8. Thêm các điểm mới cho biểu đồ và chỉ định màu tùy chỉnh cho các phần của biểu đồ Pie.
+8. Thêm các điểm mới cho biểu đồ và áp dụng màu tùy chỉnh cho các sector của biểu đồ tròn.
 9. Đặt nhãn cho series.
-10. Đặt đường dẫn dẫn cho nhãn series.
-11. Đặt góc quay cho các slide biểu đồ Pie.
-12. Ghi bản trình bày đã chỉnh sửa thành file PPTX.
+10. Bật đường dẫn (leader lines) cho nhãn series.
+11. Đặt góc quay cho các sector của biểu đồ tròn.
+12. Lưu presentation đã chỉnh sửa thành tệp PPTX .
 
-Mã JavaScript dưới đây cho thấy cách tạo một biểu đồ Pie:
+This JavaScript code shows how to create a pie chart:
 
 ```javascript
-// Tạo một đối tượng lớp Presentation đại diện cho tệp PPTX
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Khởi tạo một lớp presentation đại diện cho tệp PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Truy cập slide đầu tiên
@@ -252,19 +247,19 @@ try {
     var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
     // Đặt tiêu đề cho biểu đồ
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    // Đặt series đầu tiên để hiển thị giá trị
+    // Đặt series đầu tiên hiển thị giá trị
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Đặt chỉ mục cho worksheet dữ liệu của biểu đồ
+    // Đặt chỉ mục cho sheet dữ liệu của biểu đồ
     var defaultWorksheetIndex = 0;
-    // Lấy worksheet dữ liệu của biểu đồ
+    // Lấy worksheet dữ liệu biểu đồ
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Xóa các series và category được tạo mặc định
+    // Xóa các series và danh mục được tạo mặc định
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
-    // Thêm các category mới
+    // Thêm các danh mục mới
     chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
@@ -275,37 +270,37 @@ try {
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     // Không hoạt động trong phiên bản mới
-    // Thêm các điểm mới và thiết lập màu cho sector
+    // Thêm các điểm mới và đặt màu cho sector
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     var point = series.getDataPoints().get_Item(0);
     point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-    // Đặt đường viền cho sector
+    // Đặt biên giới của sector
     point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     point.getFormat().getLine().setWidth(3.0);
-    point.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThick);
-    point.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    point.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThick));
+    point.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     var point1 = series.getDataPoints().get_Item(1);
     point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-    // Đặt đường viền cho sector
+    // Đặt biên giới của sector
     point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     point1.getFormat().getLine().setWidth(3.0);
-    point1.getFormat().getLine().setStyle(aspose.slides.LineStyle.Single);
-    point1.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDot);
+    point1.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.Single));
+    point1.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDot));
     var point2 = series.getDataPoints().get_Item(2);
     point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-    // Đặt đường viền cho sector
+    // Đặt biên giới của sector
     point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     point2.getFormat().getLine().setWidth(2.0);
-    point2.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThin);
-    point2.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDotDot);
-    // Tạo nhãn tùy chỉnh cho mỗi category cho series mới
+    point2.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
+    point2.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
+    // Tạo nhãn tùy chỉnh cho từng danh mục cho series mới
     var lbl1 = series.getDataPoints().get_Item(0).getLabel();
     // lbl.ShowCategoryName = true;
     lbl1.getDataLabelFormat().setShowValue(true);
@@ -316,11 +311,11 @@ try {
     var lbl3 = series.getDataPoints().get_Item(2).getLabel();
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
-    // Hiển thị các Leader Line cho biểu đồ
+    // Hiển thị Leader Lines cho biểu đồ
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-    // Đặt góc xoay cho các sector của biểu đồ Pie
+    // Đặt góc quay cho các sector của biểu đồ tròn
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
-    // Lưu bản trình bày kèm biểu đồ
+    // Lưu presentation có biểu đồ
     pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -329,22 +324,25 @@ try {
 }
 ```
 
-### **Tạo biểu đồ Line**
+### **Tạo biểu đồ Đường**
 
-Biểu đồ Line (còn gọi là đồ thị đường) thích hợp trong các trường hợp bạn muốn minh họa sự thay đổi giá trị theo thời gian. Với biểu đồ line, bạn có thể so sánh nhiều dữ liệu cùng lúc, theo dõi xu hướng và thay đổi theo thời gian, nổi bật các bất thường trong series dữ liệu, v.v.
+Biểu đồ đường (còn gọi là đồ thị đường) được sử dụng tốt nhất trong các trường hợp bạn muốn minh họa sự thay đổi giá trị theo thời gian. Sử dụng biểu đồ đường, bạn có thể so sánh một lượng lớn dữ liệu cùng lúc, theo dõi thay đổi và xu hướng theo thời gian, làm nổi bật các bất thường trong series dữ liệu, và hơn thế nữa.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-1. Lấy tham chiếu của slide qua chỉ mục.
-1. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn (trong trường hợp này là `ChartType.Line`).
-1. Truy cập dữ liệu biểu đồ qua IChartDataWorkbook.
-1. Xóa series và category mặc định.
-1. Thêm series và category mới.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) .
+1. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+1. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.Line](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#Line) .
+1. Truy cập workbook dữ liệu biểu đồ ([ChartDataWorkbook](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdataworkbook/)).
+1. Xóa series và danh mục mặc định.
+1. Thêm series và danh mục mới.
 1. Thêm dữ liệu biểu đồ mới cho series.
-1. Ghi bản trình bày đã chỉnh sửa thành file PPTX.
+1. Lưu presentation đã chỉnh sửa thành tệp PPTX .
 
-Mã JavaScript dưới đây cho thấy cách tạo một biểu đồ Line:
+This JavaScript code shows how to create a line chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
@@ -356,36 +354,47 @@ try {
 }
 ```
 
-Mặc định, các điểm trên biểu đồ line được nối bằng các đường thẳng liên tục. Nếu bạn muốn các điểm được nối bằng dấu gạch, bạn có thể chỉ định kiểu gạch mong muốn như sau:
+Theo mặc định, các điểm trên biểu đồ đường được nối bằng các đường thẳng liên tục. Nếu bạn muốn các điểm được nối bằng các dấu gạch nối thay vì, bạn có thể chỉ định kiểu gạch nối ưa thích như sau:
 
 ```javascript
-var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
-    let series = lineChart.getChartData().getSeries().get_Item(i);
-    series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Dash);
-});
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
+    for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
+        let series = lineChart.getChartData().getSeries().get_Item(i);
+        series.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
+    }
+    pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ### **Tạo biểu đồ Tree Map**
 
-Biểu đồ Tree Map thích hợp cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và đồng thời nhanh chóng thu hút sự chú ý đến các mục đóng góp lớn cho mỗi danh mục.
+Biểu đồ cây được dùng tốt nhất cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và nhanh chóng thu hút sự chú ý đến các mục có đóng góp lớn trong mỗi danh mục.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Các bước:</em> Tạo biểu đồ Tree Map bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Tree Map bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Presentation Tree Map bằng JavaScript</strong></a>
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation) .
-2. Lấy tham chiếu của slide qua chỉ mục.
-3. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn (trong trường hợp này là [ChartType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartType).TreeMap).
-4. Truy cập dữ liệu biểu đồ qua [ChartDataWorkbook](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartDataWorkbook).
-5. Xóa series và category mặc định.
-6. Thêm series và category mới.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) .
+2. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.Treemap](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#Treemap) .
+4. Truy cập workbook dữ liệu biểu đồ [ChartDataWorkbook](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdataworkbook/) .
+5. Xóa series và danh mục mặc định.
+6. Thêm series và danh mục mới.
 7. Thêm dữ liệu biểu đồ mới cho series.
-8. Ghi bản trình bày đã chỉnh sửa thành file PPTX.
+8. Lưu presentation đã chỉnh sửa thành tệp PPTX .
 
-Mã JavaScript dưới đây cho thấy cách tạo một biểu đồ Tree Map:
+This JavaScript code shows how to create a tree map chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
@@ -428,30 +437,33 @@ try {
 }
 ```
 
-### **Tạo biểu đồ Stock**
+### **Tạo biểu đồ Cổ phiếu**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Các bước:</em> Tạo biểu đồ Stock bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Stock bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Presentation Stock bằng JavaScript</strong></a>
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation) .
-2. Lấy tham chiếu của slide qua chỉ mục.
-3. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn ([ChartType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartType).OpenHighLowClose).
-4. Truy cập dữ liệu biểu đồ qua [ChartDataWorkbook](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartDataWorkbook).
-5. Xóa series và category mặc định.
-6. Thêm series và category mới.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) .
+2. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) .
+4. Truy cập workbook dữ liệu biểu đồ [ChartDataWorkbook](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdataworkbook/) .
+5. Xóa series và danh mục mặc định.
+6. Thêm series và danh mục mới.
 7. Thêm dữ liệu biểu đồ mới cho series.
-8. Chỉ định định dạng HiLowLines.
-9. Ghi bản trình bày đã chỉnh sửa thành file PPTX.
+8. Chỉ định định dạng các đường cao-thấp.
+9. Lưu presentation đã chỉnh sửa thành tệp PPTX .
 
-Mã JavaScript mẫu dùng để tạo một biểu đồ Stock:
+This JavaScript code shows how to create a stock chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400);
-  
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
     var wb = chart.getChartData().getChartDataWorkbook();
+    wb.clear(0);
     chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
     chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
     chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
@@ -489,24 +501,23 @@ try {
 }
 ```
 
-### **Tạo biểu đồ Box and Whisker**
+### **Tạo biểu đồ hộp và râu**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Các bước:</em> Tạo biểu đồ Box and Whisker bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Box and Whisker bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Presentation Box and Whisker bằng JavaScript</strong></a>
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation) .
-2. Lấy tham chiếu của slide qua chỉ mục.
-3. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn ([ChartType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartType).BoxAndWhisker).
-4. Truy cập dữ liệu biểu đồ qua [ChartDataWorkbook](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartDataWorkbook).
-5. Xóa series và category mặc định.
-6. Thêm series và category mới.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) .
+2. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) .
+4. Truy cập workbook dữ liệu biểu đồ [ChartDataWorkbook](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdataworkbook/) .
+5. Xóa series và danh mục mặc định.
+6. Thêm series và danh mục mới.
 7. Thêm dữ liệu biểu đồ mới cho series.
-8. Ghi bản trình bày đã chỉnh sửa thành file PPTX.
+8. Lưu presentation đã chỉnh sửa thành tệp PPTX .
 
-Mã JavaScript dưới đây cho thấy cách tạo một biểu đồ Box and Whisker:
+This JavaScript code shows how to create a box and whisker chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -540,20 +551,19 @@ try {
 }
 ```
 
-### **Tạo biểu đồ Funnel**
+### **Tạo biểu đồ Phễu**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Các bước:</em> Tạo biểu đồ Funnel bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Funnel bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Presentation Funnel bằng JavaScript</strong></a>
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) .
+2. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.Funnel](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#Funnel) .
+4. Lưu presentation đã chỉnh sửa thành tệp PPTX .
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation) .
-2. Lấy tham chiếu của slide qua chỉ mục.
-3. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn ([ChartType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartType).Funnel).
-4. Ghi bản trình bày đã chỉnh sửa thành file PPTX.
-
-Mã JavaScript dưới đây cho thấy cách tạo một biểu đồ Funnel:
+This JavaScript code shows how to create a funnel chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
@@ -584,18 +594,17 @@ try {
 
 ### **Tạo biểu đồ Sunburst**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Các bước:</em> Tạo biểu đồ Sunburst bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Sunburst bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Presentation Sunburst bằng JavaScript</strong></a>
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) .
+2. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.Sunburst](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#Sunburst) .
+4. Lưu presentation đã chỉnh sửa thành tệp PPTX .
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation) .
-2. Lấy tham chiếu của slide qua chỉ mục.
-3. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn (trong trường hợp này là [ChartType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartType).sunburst).
-4. Ghi bản trình bày đã chỉnh sửa thành file PPTX.
-
-Mã JavaScript dưới đây cho thấy cách tạo một biểu đồ Sunburst:
+This JavaScript code shows how to create a sunburst chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
@@ -639,21 +648,20 @@ try {
 
 ### **Tạo biểu đồ Histogram**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Các bước:</em> Tạo biểu đồ Histogram bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Histogram bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Presentation Histogram bằng JavaScript</strong></a>
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) .
+2. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.Histogram](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#Histogram) .
+4. Truy cập workbook dữ liệu biểu đồ [ChartDataWorkbook](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdataworkbook/) .
+5. Xóa series và danh mục mặc định.
+6. Thêm series và danh mục mới.
+7. Lưu presentation đã chỉnh sửa thành tệp PPTX .
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation) .
-2. Lấy tham chiếu của slide qua chỉ mục.
-3. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn ([ChartType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartType).Histogram).
-4. Truy cập dữ liệu biểu đồ qua [ChartDataWorkbook](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartDataWorkbook).
-5. Xóa series và category mặc định.
-6. Thêm series và category mới.
-7. Ghi bản trình bày đã chỉnh sửa thành file PPTX.
-
-Mã JavaScript dưới đây cho thấy cách tạo một biểu đồ Histogram:
+This JavaScript code shows how to create a histogram chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
 chart.getChartData().getCategories().clear();
@@ -672,18 +680,17 @@ chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggrega
 
 ### **Tạo biểu đồ Radar**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Các bước:</em> Tạo biểu đồ Radar bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Radar bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Presentation Radar bằng JavaScript</strong></a>
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) .
+2. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+3. Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ ưa thích của bạn ([ChartType.Radar](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#Radar) trong trường hợp này).
+4. Lưu presentation đã chỉnh sửa thành tệp PPTX .
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation) .
-2. Lấy tham chiếu của slide qua chỉ mục. 
-3. Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ ưa thích (`ChartType.Radar` trong trường hợp này).
-4. Ghi bản trình bày đã chỉnh sửa thành file PPTX.
-
-Mã JavaScript dưới đây cho thấy cách tạo một biểu đồ Radar:
+This JavaScript code shows how to create a radar chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 400, 300);
@@ -695,24 +702,23 @@ try {
 }
 ```
 
-### **Tạo biểu đồ Multi Category**
+### **Tạo biểu đồ Đa Danh mục**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Các bước:</em> Tạo biểu đồ Multi Category bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Multi Category bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Presentation Multi Category bằng JavaScript</strong></a>
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation) .
-2. Lấy tham chiếu của slide qua chỉ mục. 
-3. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn ([ChartType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartType).ClusteredColumn).
-4. Truy cập dữ liệu biểu đồ qua [ChartDataWorkbook](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartDataWorkbook).
-5. Xóa series và category mặc định.
-6. Thêm series và category mới.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) .
+2. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định kiểu [ChartType.ClusteredColumn](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/#ClusteredColumn) .
+4. Truy cập workbook dữ liệu biểu đồ [ChartDataWorkbook](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdataworkbook/) .
+5. Xóa series và danh mục mặc định.
+6. Thêm series và danh mục mới.
 7. Thêm dữ liệu biểu đồ mới cho series.
-8. Ghi bản trình bày đã chỉnh sửa thành file PPTX.
+8. Lưu presentation đã chỉnh sửa thành tệp PPTX .
 
-Mã JavaScript dưới đây cho thấy cách tạo một biểu đồ Multi Category:
+This JavaScript code shows how to create a multicategory chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var ch = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -743,7 +749,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D7", 60));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
-    // Lưu bản trình bày kèm biểu đồ
+    // Lưu presentation có biểu đồ
     pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -752,17 +758,16 @@ try {
 }
 ```
 
-### **Tạo biểu đồ Map**
+### **Tạo biểu đồ Bản đồ**
 
-Biểu đồ Map là một hình ảnh trực quan của một khu vực chứa dữ liệu. Biểu đồ Map thích hợp để so sánh dữ liệu hoặc giá trị giữa các khu vực địa lý.
+Biểu đồ bản đồ hiển thị dữ liệu địa lý và giúp so sánh các giá trị giữa các khu vực.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Các bước:</em> Tạo biểu đồ Map bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Map bằng JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Các bước:</em> Tạo biểu đồ PowerPoint Presentation Map bằng JavaScript</strong></a>
-
-Mã JavaScript dưới đây cho thấy cách tạo một biểu đồ Map:
+This JavaScript code shows how to create a map chart:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pres = new aspose.slides.Presentation();
 try {
     let chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
@@ -774,15 +779,19 @@ try {
 }
 ```
 
-### **Tạo biểu đồ Combination**
+### **Tạo biểu đồ Kết hợp**
 
-Biểu đồ Combination (hoặc combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong một đồ thị duy nhất. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc kiểm tra sự khác biệt giữa hai hoặc nhiều bộ dữ liệu, giúp xác định mối quan hệ giữa chúng.
+Một biểu đồ kết hợp (hoặc combo chart) kết hợp hai hoặc hơn các loại biểu đồ trong một đồ thị duy nhất. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc kiểm tra sự khác nhau giữa hai hoặc nhiều bộ dữ liệu, giúp bạn xác định mối quan hệ giữa chúng.
 
-![The combination chart](combination_chart.png)
+![Biểu đồ kết hợp](combination_chart.png)
 
-Mã JavaScript dưới đây cho thấy cách tạo biểu đồ Combination như hình trên trong một bản trình bày PowerPoint:
+The following JavaScript code shows how to create the combination chart shown above in a PowerPoint presentation:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function createComboChart() {
     let presentation = new aspose.slides.Presentation();
     let slide = presentation.getSlides().get_Item(0);
@@ -817,14 +826,14 @@ function createChartWithFirstSeries(slide) {
     chart.getLegend().setPosition(aspose.slides.LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12);
 
-    // Xóa series và category được tạo mặc định.
+    // Xóa các series và danh mục được tạo mặc định.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
     const worksheetIndex = 0;
     let workbook = chart.getChartData().getChartDataWorkbook();
 
-    // Thêm các category mới.
+    // Thêm các danh mục mới.
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
@@ -891,7 +900,7 @@ function setPrimaryAxesFormat(chart) {
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Đặt màu cho đường lưới chính dọc.
+    // Đặt màu cho các đường lưới dọc chính.
     let majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     majorGridLinesFormat.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 217, 217, 217));
@@ -929,32 +938,31 @@ function setAxisTitle(axis, axisTitle) {
 
 ## **Cập nhật biểu đồ**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Các bước:</em> Cập nhật biểu đồ PowerPoint bằng JavaScript</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Các bước:</em> Cập nhật biểu đồ Presentation bằng JavaScript</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Các bước:</em> Cập nhật biểu đồ PowerPoint Presentation bằng JavaScript</strong></a>
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation) đại diện cho bản trình bày chứa biểu đồ cần cập nhật.
-2. Lấy tham chiếu của slide bằng chỉ mục.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) đại diện cho presentation chứa biểu đồ bạn muốn cập nhật.
+2. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
 3. Duyệt qua tất cả các shape để tìm biểu đồ mong muốn.
-4. Truy cập worksheet dữ liệu biểu đồ.
-5. Sửa dữ liệu series của biểu đồ bằng cách thay đổi giá trị series.
-6. Thêm một series mới và điền dữ liệu vào đó.
-7. Ghi bản trình bày đã chỉnh sửa thành file PPTX.
+4. Truy cập worksheet dữ liệu của biểu đồ.
+5. Sửa đổi series dữ liệu biểu đồ bằng cách thay đổi giá trị series.
+6. Thêm một series mới và điền dữ liệu cho nó.
+7. Lưu presentation đã chỉnh sửa thành tệp PPTX .
 
-Mã JavaScript dưới đây cho thấy cách cập nhật một biểu đồ:
+This JavaScript code shows how to update a chart:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
     // Truy cập slide đầu tiên
     var sld = pres.getSlides().get_Item(0);
     // Lấy biểu đồ với dữ liệu mặc định
     var chart = sld.getShapes().get_Item(0);
-    // Đặt chỉ mục của sheet dữ liệu biểu đồ
+    // Đặt chỉ mục cho sheet dữ liệu của biểu đồ
     var defaultWorksheetIndex = 0;
-    // Lấy worksheet dữ liệu biểu đồ
+    // Lấy worksheet dữ liệu của biểu đồ
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Thay đổi tên Category của biểu đồ
+    // Thay đổi tên danh mục của biểu đồ
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
     // Lấy series đầu tiên của biểu đồ
@@ -980,7 +988,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
     chart.setType(aspose.slides.ChartType.ClusteredCylinder);
-    // Lưu bản trình bày kèm biểu đồ
+    // Lưu presentation có biểu đồ
     pres.save("AsposeChartModified_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -993,16 +1001,19 @@ try {
 
 Để đặt phạm vi dữ liệu cho một biểu đồ, thực hiện các bước sau:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation) đại diện cho bản trình bày chứa biểu đồ.
-2. Lấy tham chiếu của slide qua chỉ mục.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) đại diện cho presentation chứa biểu đồ.
+2. Lấy tham chiếu đến một slide bằng chỉ mục của nó.
 3. Duyệt qua tất cả các shape để tìm biểu đồ mong muốn.
 4. Truy cập dữ liệu biểu đồ và đặt phạm vi.
-5. Lưu bản trình bày đã chỉnh sửa thành file PPTX.
+5. Lưu presentation đã chỉnh sửa thành tệp PPTX .
 
-Mã JavaScript dưới đây cho thấy cách đặt phạm vi dữ liệu cho một biểu đồ:
+This JavaScript code shows how to set the data range for a chart:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
     var chart = slide.getShapes().get_Item(0);
@@ -1015,12 +1026,16 @@ try {
 }
 ```
 
-## **Sử dụng marker mặc định trong biểu đồ**
-Khi bạn sử dụng marker mặc định trong biểu đồ, mỗi series sẽ tự động nhận được một ký hiệu marker mặc định khác nhau.
+## **Sử dụng ký hiệu mặc định trong biểu đồ**
 
-Mã JavaScript dưới đây cho thấy cách tự động đặt marker cho một series:
+Khi bạn sử dụng ký hiệu mặc định trong biểu đồ, mỗi series biểu đồ sẽ tự động nhận một ký hiệu khác nhau.
+
+This JavaScript code shows how to set a chart series marker automatically:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -1041,7 +1056,7 @@ try {
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
     // Lấy series thứ hai của biểu đồ
     var series2 = chart.getChartData().getSeries().get_Item(1);
-    // Bây giờ đang điền dữ liệu cho series
+    // Bây giờ điền dữ liệu cho series
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1056,20 +1071,20 @@ try {
 }
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
 **Các loại biểu đồ nào được Aspose.Slides hỗ trợ?**
 
-Aspose.Slides hỗ trợ đa dạng các loại biểu đồ, bao gồm bar, line, pie, area, scatter, histogram, radar và nhiều loại khác. Sự linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu của mình.
+Aspose.Slides hỗ trợ một loạt các [chart types](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/charttype/), bao gồm bar, line, pie, area, scatter, histogram, radar và nhiều hơn nữa. Sự linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu của mình.
 
-**Làm sao để thêm biểu đồ mới vào slide?**
+**Làm thế nào để thêm một biểu đồ mới vào slide?**
 
-Để thêm biểu đồ, trước tiên bạn tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) , lấy slide mong muốn bằng chỉ mục, sau đó gọi phương thức thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu ban đầu. Quá trình này tích hợp biểu đồ trực tiếp vào bản trình bày.
+Để thêm một biểu đồ, trước tiên bạn tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) , lấy slide mong muốn bằng chỉ mục, sau đó gọi phương thức để thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu ban đầu. Quy trình này tích hợp biểu đồ trực tiếp vào presentation của bạn.
 
 **Làm sao tôi có thể cập nhật dữ liệu hiển thị trong biểu đồ?**
 
-Bạn có thể cập nhật dữ liệu của biểu đồ bằng cách truy cập workbook dữ liệu của nó ([ChartDataWorkbook](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdataworkbook/)), xóa các series và category mặc định, sau đó thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn làm mới biểu đồ một cách lập trình để phản ánh dữ liệu mới nhất.
+Bạn có thể cập nhật dữ liệu của biểu đồ bằng cách truy cập workbook dữ liệu của nó ([ChartDataWorkbook](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdataworkbook/)), xóa bất kỳ series và danh mục mặc định nào, sau đó thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn lập trình làm mới biểu đồ để phản ánh dữ liệu mới nhất.
 
 **Có thể tùy chỉnh giao diện của biểu đồ không?**
 
-Có, Aspose.Slides cung cấp các tùy chọn tùy chỉnh phong phú. Bạn có thể thay đổi màu sắc, font, nhãn, legend và các yếu tố định dạng khác để điều chỉnh giao diện biểu đồ cho phù hợp với yêu cầu thiết kế của mình.
+Có, Aspose.Slides cung cấp nhiều tùy chọn tùy chỉnh. Bạn có thể chỉnh sửa màu sắc, phông chữ, nhãn, chú giải và các [formatting elements](/slides/vi/nodejs-java/chart-entities/) khác để điều chỉnh giao diện biểu đồ cho phù hợp với yêu cầu thiết kế cụ thể của bạn.

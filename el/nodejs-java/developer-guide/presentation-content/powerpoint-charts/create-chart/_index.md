@@ -1,82 +1,83 @@
 ---
-title: Δημιουργία ή ενημέρωση γραφημάτων παρουσίασης PowerPoint σε JavaScript
-linktitle: Δημιουργία ή ενημέρωση γραφημάτων
+title: Δημιουργία ή Ενημέρωση Διαγραμμάτων Παρουσίασης PowerPoint σε JavaScript
+linktitle: Δημιουργία ή Ενημέρωση Διαγραμμάτων
 type: docs
 weight: 10
 url: /el/nodejs-java/create-chart/
 keywords:
-- προσθήκη γραφήματος
-- δημιουργία γραφήματος
-- επεξεργασία γραφήματος
-- αλλαγή γραφήματος
-- ενημέρωση γραφήματος
-- διασκορπισμένο γράφημα
+- προσθήκη διαγράμματος
+- δημιουργία διαγράμματος
+- επεξεργασία διαγράμματος
+- αλλαγή διαγράμματος
+- ενημέρωση διαγράμματος
+- διασκορπιστικό διάγραμμα
 - διάγραμμα πίτας
 - γραμμικό διάγραμμα
-- διάγραμμα δένδρου χάρτη
+- διάγραμμα χάρτη δένδρου
 - διάγραμμα μετοχών
-- διάγραμμα box and whisker
+- διάγραμμα box‑and‑whisker
 - διάγραμμα χωνιού
-- διάγραμμα ηλιακού εκτυφώματος
-- ιστογράφημα
-- διάγραμμα ραντάρ
+- διάγραμμα ηλιακού ακτίνου
+- ιστόγραμμα
+- διάγραμμα ραδιογραφίας
 - πολυκατηγορικό διάγραμμα
 - PowerPoint
 - παρουσίαση
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Δημιουργήστε και προσαρμόστε γραφήματα σε παρουσιάσεις PowerPoint με Aspose.Slides για Node.js. Προσθέστε, μορφοποιήστε και επεξεργαστείτε γραφήματα με πρακτικά παραδείγματα κώδικα σε JavaScript."
+description: "Δημιουργήστε και προσαρμόστε διαγράμματα σε παρουσιάσεις PowerPoint με το Aspose.Slides για Node.js. Προσθέστε, μορφοποιήστε και επεξεργαστείτε διαγράμματα με πρακτικά παραδείγματα κώδικα σε JavaScript."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργήσετε και να προσαρμόσετε διαγράμματα χρησιμοποιώντας το Aspose.Slides. Θα μάθετε πώς να προσθέτετε προγραμματικά ένα διάγραμμα σε μια διαφάνεια, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζει στις συγκεκριμένες απαιτήσεις σχεδίασής σας. Στο άρθρο, αναλυτικά παραδείγματα κώδικα δείχνουν κάθε βήμα, από την αρχικοποίηση της παρουσίασης και του αντικειμένου διαγράμματος έως τη διαμόρφωση σειρών, αξόνων και υπομνήματος. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε καλή κατανόηση του πώς να ενσωματώνετε δυναμική δημιουργία διαγραμμάτων στις εφαρμογές σας, διευκολύνοντας τη δημιουργία παρουσιάσεων βασισμένων σε δεδομένα.
+Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργήσετε και να προσαρμόσετε διαγράμματα χρησιμοποιώντας το Aspose.Slides. Θα μάθετε πώς να προσθέτετε προγραμματιστικά ένα διάγραμμα σε μια διαφάνεια, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζει με τις συγκεκριμένες απαιτήσεις σχεδίασής σας. Σε όλο το άρθρο, λεπτομερή παραδείγματα κώδικα απεικονίζουν κάθε βήμα, από την αρχικοποίηση της παρουσίασης και του αντικειμένου διαγράμματος έως τη διαμόρφωση σειρών, αξόνων και υπομνήματος. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε σταθερή κατανόηση του πώς να ενσωματώσετε δυναμική δημιουργία διαγραμμάτων στις εφαρμογές σας, βελτιώνοντας τη διαδικασία δημιουργίας παρουσιάσεων βασισμένων σε δεδομένα.
 
 ## **Δημιουργία Διαγράμματος**
-Τα διαγράμματα βοηθούν τους ανθρώπους να οπτικοποιούν γρήγορα τα δεδομένα και να εξάγουν συμπεράσματα, τα οποία μπορεί να μην είναι άμεσα εμφανή από έναν πίνακα ή ένα φύλλο εργασίας. 
 
+Τα διαγράμματα βοηθούν τους ανθρώπους να οπτικοποιούν γρήγορα τα δεδομένα και να εξάγουν συμπεράσματα που μπορεί να μην είναι άμεσα εμφανή από έναν πίνακα ή λογιστικό φύλλο.
 
-**Γιατί να δημιουργούμε διαγράμματα;**
+**Γιατί να Δημιουργείτε Διαγράμματα;**
 
-Με τη χρήση διαγραμμάτων μπορείτε
+Με τη χρήση διαγραμμάτων, μπορείτε:
 
-* να συγκεντρώσετε, συμπιέσετε ή συνοψίσετε μεγάλους όγκους δεδομένων σε μία διαφάνεια της παρουσίασης
+* να συγκεντρώσετε, συμπτύξετε ή συνοψίσετε μεγάλα σύνολα δεδομένων σε μία μόνο διαφάνεια παρουσίασης
 * να αποκαλύψετε μοτίβα και τάσεις στα δεδομένα
-* να συναγάγετε τη κατεύθυνση και την ορμή των δεδομένων σε χρόνο ή ως προς μια συγκεκριμένη μονάδα μέτρησης
-* να εντοπίσετε ακραίες τιμές, αποκλίσεις, σφάλματα, μη λογικά δεδομένα κ.λπ.
+* να ανιχνεύσετε την κατεύθυνση και την ορμή των δεδομένων στο χρόνο ή σε σχέση με μια συγκεκριμένη μονάδα μέτρησης
+* να εντοπίσετε ακραίες τιμές, αποκλίσεις, σφάλματα, ακατανόητα δεδομένα κ.λπ.
 * να επικοινωνήσετε ή να παρουσιάσετε σύνθετα δεδομένα
 
-Στο PowerPoint, μπορείτε να δημιουργήσετε διαγράμματα μέσω της λειτουργίας εισαγωγής, η οποία παρέχει πρότυπα για το σχεδιασμό πολλών τύπων διαγραμμάτων. Χρησιμοποιώντας το Aspose.Slides, μπορείτε να δημιουργήσετε τυπικά διαγράμματα (βάσει δημοφιλών τύπων) και προσαρμοσμένα διαγράμματα. 
+Στο PowerPoint, μπορείτε να δημιουργείτε διαγράμματα μέσω της λειτουργίας *Insert*, η οποία παρέχει πρότυπα για το σχεδιασμό πολλών τύπων διαγραμμάτων. Χρησιμοποιώντας το Aspose.Slides, μπορείτε να δημιουργήσετε τόσο κανονικά διαγράμματα (βάσει δημοφιλών τύπων) όσο και προσαρμοσμένα διαγράμματα.
 
-{{% alert color="primary" %}} 
-Για να δημιουργήσετε διαγράμματα, το Aspose.Slides παρέχει την κλάση [ChartType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartType). Τα πεδία της κλάσης αντιστοιχούν σε διαφορετικούς τύπους διαγραμμάτων.
-{{% /alert %}} 
+{{% alert color="info" title="Σημείωση" %}}
 
-### **Δημιουργία Κανονικών Διαγραμμάτων**
+Για τη δημιουργία διαγραμμάτων, χρησιμοποιήστε την κλάση [ChartType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/). Τα πεδία σε αυτήν την κλάση αντιστοιχούν σε διαφορετικούς τύπους διαγραμμάτων.
 
-_Βήματα: Δημιουργία Διαγράμματος_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος PowerPoint σε JavaScript</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος παρουσίασης σε JavaScript</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος παρουσίασης PowerPoint σε JavaScript</strong></a>
+{{% /alert %}}
 
-_Βήματα κώδικα:_
+### **Δημιουργία Συσσώρευτων Στηλοειδών Διαγραμμάτων**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2. Λάβετε την αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και καθορίστε τον προτιμώμενο τύπο διαγράμματος. 
-4. Προσθέστε έναν τίτλο για το διάγραμμα. 
-5. Πρόσβαση στο φύλλο δεδομένων του διαγράμματος. 
-6. Καθαρίστε όλες τις προεπιλεγμένες σειρές και κατηγορίες. 
-7. Προσθέστε νέες σειρές και κατηγορίες. 
-8. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές. 
-9. Προσθέστε χρώμα γεμίσματος για τις σειρές. 
-10. Προσθέστε ετικέτες για τις σειρές. 
-11. Γράψτε την τροποποιημένη παρουσία ως αρχείο PPTX. 
+Αυτή η ενότητα εξηγεί πώς να δημιουργήσετε συσσωρευτικά στηλοειδή διαγράμματα χρησιμοποιώντας το Aspose.Slides. Θα μάθετε να αρχικοποιείτε μια παρουσίαση, να προσθέτετε ένα διάγραμμα και να προσαρμόζετε τα στοιχεία του όπως ο τίτλος, τα δεδομένα, οι σειρές, οι κατηγορίες και η μορφοποίηση. Ακολουθήστε τα παρακάτω βήματα για να δείτε πώς δημιουργείται ένα τυπικό συσσωρευτικό στήλοειδο διάγραμμα:
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα κανονικό διάγραμμα:
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation) .
+2. Λάβετε αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
+3. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και ορίστε τον τύπο `ChartType.ClusteredColumn` .
+4. Προσθέστε έναν τίτλο στο διάγραμμα.
+5. Πρόσβαση στο φύλλο δεδομένων του διαγράμματος.
+6. Καθαρίστε όλες τις προεπιλεγμένες σειρές και κατηγορίες.
+7. Προσθέστε νέες σειρές και κατηγορίες.
+8. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές.
+9. Εφαρμόστε χρώμα γεμίσματος στις σειρές του διαγράμματος.
+10. Προσθέστε ετικέτες στις σειρές του διαγράμματος.
+11. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+
+Αυτός ο κώδικας C# δείχνει πώς να δημιουργήσετε ένα συσσωρευτικό στήλοειδο διάγραμμα:
 
 ```javascript
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Δημιουργεί ένα αντικείμενο παρουσίασης που αντιπροσωπεύει αρχείο PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Προσπελάζει την πρώτη διαφάνεια
@@ -84,10 +85,10 @@ try {
     // Προσθέτει ένα διάγραμμα με τα προεπιλεγμένα δεδομένα του
     var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
     // Ορίζει τον τίτλο του διαγράμματος
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
     // Ορίζει την πρώτη σειρά να εμφανίζει τιμές
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
     // Ορίζει το δείκτη για το φύλλο δεδομένων του διαγράμματος
@@ -144,32 +145,32 @@ try {
 }
 ```
 
-### **Δημιουργία Διασκορπισμένων Διαγραμμάτων**
-Τα διασκορπισμένα διαγράμματα (γνωστά και ως scatter plots ή γραφήματα x‑y) χρησιμοποιούνται συχνά για τον έλεγχο μοτίβων ή την επίδειξη συσχετίσεων μεταξύ δύο μεταβλητών. 
+### **Δημιουργία Διασκορπιστικών Διαγραμμάτων**
 
-Μπορεί να θελήσετε να χρησιμοποιήσετε διασκορπισμένο διάγραμμα όταν 
+Διασκορπιστικά διαγράμματα (επίσης γνωστά ως scatter plots ή διαγράμματα x‑y) χρησιμοποιούνται συχνά για να ελέγχουν μοτίβα ή να αποδεικνύουν συσχετισμούς μεταξύ δύο μεταβλητών.
+
+Χρησιμοποιήστε διασκορπιστικό διάγραμμα όταν:
 
 * έχετε ζευγαρωμένα αριθμητικά δεδομένα
-* έχετε 2 μεταβλητές που ταιριάζουν καλά μαζί
-* θέλετε να δοκιμάσετε αν 2 μεταβλητές είναι σχετικές
-* έχετε ανεξάρτητη μεταβλητή με πολλαπλές τιμές για μια εξαρτημένη μεταβλητή
+* έχετε δύο μεταβλητές που ταιριάζουν καλά μεταξύ τους
+* θέλετε να καθορίσετε αν δύο μεταβλητές σχετίζονται
+* έχετε μια ανεξάρτητη μεταβλητή με πολλαπλές τιμές για μια εξαρτημένη μεταβλητή
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Βήματα:</em> Δημιουργία διασκορπισμένου διαγράμματος σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Βήματα:</em> Δημιουργία διασκορπισμένου διαγράμματος PowerPoint σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Βήματα:</em> Δημιουργία διασκορπισμένου διαγράμματος παρουσίασης PowerPoint σε JavaScript</strong></a>
+1. Ακολουθήστε τα βήματα στην ενότητα [Create Clustered Column Charts](#create-clustered-column-charts) .
+2. Στο τρίτο βήμα, προσθέστε ένα διάγραμμα με κάποια δεδομένα και ορίστε τον τύπο του διαγράμματος ως ένα από τα παρακάτω:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Αντιπροσωπεύει ένα διασκορπιστικό διάγραμμα με δείκτες._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Αντιπροσωπεύει ένα διασκορπιστικό διάγραμμα συνδεδεμένο με καμπύλες, με δείκτες δεδομένων._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Αντιπροσωπεύει ένα διασκορπιστικό διάγραμμα συνδεδεμένο με καμπύλες, χωρίς δείκτες δεδομένων._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Αντιπροσωπεύει ένα διασκορπιστικό διάγραμμα συνδεδεμένο με ευθείες γραμμές, με δείκτες δεδομένων._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Αντιπροσωπεύει ένα διασκορπιστικό διάγραμμα συνδεδεμένο με ευθείες γραμμές, χωρίς δείκτες δεδομένων._
 
-1. Ακολουθήστε τα βήματα που αναφέρονται παραπάνω στην ενότητα [Creating Normal Charts](#creating-normal-charts)
-2. Στο τρίτο βήμα, Προσθέστε ένα διάγραμμα με δεδομένα και καθορίστε τον τύπο ως έναν από τους ακόλουθους
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Αντιπροσωπεύει Scatter Chart._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Αντιπροσωπεύει Scatter Chart συνδεδεμένο με καμπύλες, με δείκτες δεδομένων._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Αντιπροσωπεύει Scatter Chart συνδεδεμένο με καμπύλες, χωρίς δείκτες δεδομένων._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Αντιπροσωπεύει Scatter Chart συνδεδεμένο με ευθείες γραμμές, με δείκτες δεδομένων._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Αντιπροσωπεύει Scatter Chart συνδεδεμένο με ευθείες γραμμές, χωρίς δείκτες δεδομένων._
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε διασκορπισμένα διαγράμματα με διαφορετικές σειρές δεικτών:
+Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα διασκορπιστικό διάγραμμα με διαφορετικούς δείκτες για κάθε σειρά:
 
 ```javascript
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Δημιουργεί ένα αντικείμενο παρουσίασης που αντιπροσωπεύει αρχείο PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Προσπελάζει την πρώτη διαφάνεια
@@ -178,9 +179,9 @@ try {
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     // Λαμβάνει το δείκτη του προεπιλεγμένου φύλλου δεδομένων του διαγράμματος
     var defaultWorksheetIndex = 0;
-    // Λαμβάνει το φύλλο εργασίας δεδομένων του διαγράμματος
+    // Λαμβάνει το φύλλο δεδομένων του διαγράμματος
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Διαγράφει τις σειρές επίδειξης
+    // Διαγράφει τις δοκιμαστικές σειρές
     chart.getChartData().getSeries().clear();
     // Προσθέτει νέες σειρές
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
@@ -193,7 +194,7 @@ try {
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
     // Αλλάζει τον τύπο της σειράς
     series.setType(aspose.slides.ChartType.ScatterWithStraightLinesAndMarkers);
-    // Αλλάζει το δείκτη σειράς του διαγράμματος
+    // Αλλάζει το δείκτη (marker) της σειράς διαγράμματος
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Star);
     // Παίρνει τη δεύτερη σειρά του διαγράμματος
@@ -206,7 +207,7 @@ try {
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
     // Προσθέτει νέο σημείο (5:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
-    // Αλλάζει το δείκτη σειράς του διαγράμματος
+    // Αλλάζει το δείκτη (marker) της σειράς διαγράμματος
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Circle);
     pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -219,29 +220,29 @@ try {
 
 ### **Δημιουργία Πίτας Διαγραμμάτων**
 
-Τα διαγράμματα πίτας είναι ιδανικά για την παρουσίαση της σχέσης μέρος‑συνολο στα δεδομένα, ειδικά όταν τα δεδομένα περιέχουν κατηγορηματικές ετικέτες με αριθμητικές τιμές. Ωστόσο, εάν τα δεδομένα περιέχουν πολλαπλά μέρη ή ετικέτες, ίσως θελήσετε να χρησιμοποιήσετε αντί αυτού ένα ραβδόγραμμα.
+Διαγράμματα πίτας χρησιμοποιούνται καλύτερα για να δείξουν τη σχέση μέρος‑συνολο στα δεδομένα, ειδικά όταν τα δεδομένα περιέχουν κατηγορηματικές ετικέτες με αριθμητικές τιμές. Ωστόσο, εάν τα δεδομένα σας περιλαμβάνουν πολλά τμήματα ή ετικέτες, ίσως θελήσετε να εξετάσετε τη χρήση ράβδου διαγράμματος αντί αυτού.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος πίτας σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος πίτας PowerPoint σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος πίτας παρουσίασης PowerPoint σε JavaScript</strong></a>
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2. Λάβετε την αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (σε αυτή την περίπτωση, [ChartType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartType).Pie).
-4. Πρόσβαση στα δεδομένα του διαγράμματος μέσω του [ChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) .
+2. Λάβετε αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.Pie](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#Pie) .
+4. Πρόσβαση στο βιβλίο εργασίας δεδομένων διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
 6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα για τις σειρές του διαγράμματος.
-8. Προσθέστε νέα σημεία και προσαρμοσμένα χρώματα για τα τμήματα της πίτας.
+7. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές.
+8. Προσθέστε νέα σημεία στο διάγραμμα και εφαρμόστε προσαρμοσμένα χρώματα για τους τομείς της πίτας.
 9. Ορίστε ετικέτες για τις σειρές.
-10. Ορίστε γραμμές οδηγού για τις ετικέτες των σειρών.
-11. Ορίστε τη γωνία περιστροφής για τις διαφάνειες με πίτα.
-12. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
+10. Ενεργοποιήστε τις γραμμές οδηγούς για τις ετικέτες των σειρών.
+11. Ορίστε τη γωνία περιστροφής για τους τομείς της πίτας.
+12. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα διάγραμμα πίτας:
 
 ```javascript
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Δημιουργεί ένα αντικείμενο παρουσίασης που αντιπροσωπεύει αρχείο PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Προσπελάζει την πρώτη διαφάνεια
@@ -250,14 +251,14 @@ try {
     var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
     // Ορίζει τον τίτλο του διαγράμματος
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     // Ορίζει την πρώτη σειρά να εμφανίζει τιμές
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
     // Ορίζει το δείκτη για το φύλλο δεδομένων του διαγράμματος
     var defaultWorksheetIndex = 0;
-    // Λαμβάνει το φύλλο εργασίας δεδομένων του διαγράμματος
+    // Λαμβάνει το φύλλο δεδομένων του διαγράμματος
     var fact = chart.getChartData().getChartDataWorkbook();
     // Διαγράφει τις προεπιλεγμένες δημιουργημένες σειρές και κατηγορίες
     chart.getChartData().getSeries().clear();
@@ -268,12 +269,12 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
     // Προσθέτει νέες σειρές
     var series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    // Συμπληρώνει τα δεδομένα της σειράς
+    // Γεμίζει τα δεδομένα της σειράς
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     // Δεν λειτουργεί στη νέα έκδοση
-    // Adding new points and setting sector color
+    // Προσθήκη νέων σημείων και ορισμός χρώματος τομέα
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     var point = series.getDataPoints().get_Item(0);
@@ -283,8 +284,8 @@ try {
     point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     point.getFormat().getLine().setWidth(3.0);
-    point.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThick);
-    point.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    point.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThick));
+    point.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     var point1 = series.getDataPoints().get_Item(1);
     point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
@@ -292,8 +293,8 @@ try {
     point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     point1.getFormat().getLine().setWidth(3.0);
-    point1.getFormat().getLine().setStyle(aspose.slides.LineStyle.Single);
-    point1.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDot);
+    point1.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.Single));
+    point1.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDot));
     var point2 = series.getDataPoints().get_Item(2);
     point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
@@ -301,8 +302,8 @@ try {
     point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     point2.getFormat().getLine().setWidth(2.0);
-    point2.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThin);
-    point2.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDotDot);
+    point2.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
+    point2.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
     // Δημιουργεί προσαρμοσμένες ετικέτες για κάθε κατηγορία της νέας σειράς
     var lbl1 = series.getDataPoints().get_Item(0).getLabel();
     // lbl.ShowCategoryName = true;
@@ -314,11 +315,11 @@ try {
     var lbl3 = series.getDataPoints().get_Item(2).getLabel();
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
-    // Εμφανίζει γραμμές οδηγού για το διάγραμμα
+    // Εμφανίζει γραμμές οδηγούς για το διάγραμμα
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     // Ορίζει τη γωνία περιστροφής για τους τομείς του διαγράμματος πίτας
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
-    // Αποθηκεύει την παρουσίαση με ένα διάγραμμα
+    // Αποθηκεύει την παρουσίαση με διάγραμμα
     pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -329,20 +330,23 @@ try {
 
 ### **Δημιουργία Γραμμικών Διαγραμμάτων**
 
-Τα γραμμικά διαγράμματα (ή γραφήματα γραμμών) είναι ιδανικά όταν θέλετε να παρουσιάσετε αλλαγές τιμής σε χρόνο. Με ένα γραμμικό διάγραμμα μπορείτε να συγκρίνετε πολλά δεδομένα ταυτόχρονα, να παρακολουθείτε αλλαγές και τάσεις, να επισημάνετε ανωμαλίες σε σειρές δεδομένων κ.λπ.
+Γραμμικά διαγράμματα (επίσης γνωστά ως line graphs) χρησιμοποιούνται καλύτερα σε καταστάσεις όπου θέλετε να παρουσιάσετε αλλαγές στην τιμή με την πάροδο του χρόνου. Με ένα γραμμικό διάγραμμα, μπορείτε να συγκρίνετε μεγάλο όγκο δεδομένων ταυτόχρονα, να παρακολουθείτε αλλαγές και τάσεις στο χρόνο, να επισημαίνετε ανωμαλίες σε σειρές δεδομένων και πολλά άλλα.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-1. Λάβετε την αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (σε αυτή την περίπτωση, `ChartType.Line`).
-1. Πρόσβαση στα δεδομένα του διαγράμματος μέσω του IChartDataWorkbook.
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) .
+1. Λάβετε αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
+1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.Line](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#Line) .
+1. Πρόσβαση στο βιβλίο εργασίας δεδομένων διαγράμματος ([ChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/)) .
 1. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
 1. Προσθέστε νέες σειρές και κατηγορίες.
-1. Προσθέστε νέα δεδομένα για τις σειρές του διαγράμματος.
-1. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
+1. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές.
+1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα γραμμικό διάγραμμα:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
@@ -354,36 +358,47 @@ try {
 }
 ```
 
-Από προεπιλογή, τα σημεία ενός γραμμικού διαγράμματος ενώνουνται με συνεχή ευθείες γραμμές. Εάν θέλετε τα σημεία να ενώνουνται με παύλες, μπορείτε να καθορίσετε τον προτιμώμενο τύπο παύλας ως εξής:
+Από προεπιλογή, τα σημεία ενός γραμμικού διαγράμματος ενώνουν συνεχείς ευθείες γραμμές. Εάν θέλετε τα σημεία να ενώνονται με παύλες, μπορείτε να ορίσετε τον επιθυμητό τύπο παύλας όπως παρακάτω:
 
 ```javascript
-var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
-    let series = lineChart.getChartData().getSeries().get_Item(i);
-    series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Dash);
-});
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
+    for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
+        let series = lineChart.getChartData().getSeries().get_Item(i);
+        series.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
+    }
+    pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
-### **Δημιουργία Διαγραμμάτων Δέντρο‑Χάρτη**
+### **Δημιουργία Διαγραμμάτων Δέντρου**
 
-Τα διαγράμματα δέντρο‑χάρτη είναι ιδανικά για δεδομένα πωλήσεων όταν θέλετε να εμφανίσετε το σχετικό μέγεθος των κατηγοριών δεδομένων και ταυτόχρονα να εστιάσετε σε στοιχεία που συνεισφέρουν σημαντικά σε κάθε κατηγορία. 
+Διαγράμματα δέντρου (tree map) χρησιμοποιούνται καλύτερα για δεδομένα πωλήσεων όταν θέλετε να δείξετε το σχετικό μέγεθος κατηγοριών δεδομένων και να τραβήξετε γρήγορα την προσοχή σε στοιχεία που είναι μεγάλοι συνεισφέροντες εντός κάθε κατηγορίας.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος Tree Map σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος Tree Map PowerPoint σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος Tree Map παρουσίασης PowerPoint σε JavaScript</strong></a>
-
-1. Δημιουργήστε μια παρουσία της [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) κλάσης.
-2. Λάβετε την αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (σε αυτή την περίπτωση, [ChartType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartType).TreeMap).
-4. Πρόσβαση στα δεδομένα μέσω του [ChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) .
+2. Λάβετε αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.Treemap](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#Treemap) .
+4. Πρόσβαση στο βιβλίο εργασίας δεδομένων διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
 6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα για τις σειρές του διαγράμματος.
-8. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
+7. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές.
+8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα διάγραμμα δέντρο‑χάρτη:
+Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα διάγραμμα δέντρου:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
@@ -426,30 +441,33 @@ try {
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Μετοχών**
+### **Δημιουργία Διαγραμμάτων Αποθεμάτων**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος μετοχών σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος μετοχών PowerPoint σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος μετοχών παρουσίασης PowerPoint σε JavaScript</strong></a>
-
-1. Δημιουργήστε μια παρουσία της [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) κλάσης.
-2. Λάβετε την αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartType).OpenHighLowClose).
-4. Πρόσβαση στα δεδομένα μέσω του [ChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) .
+2. Λάβετε αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) .
+4. Πρόσβαση στο βιβλίο εργασίας δεδομένων διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
 6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα για τις σειρές του διαγράμματος.
-8. Καθορίστε μορφή HiLowLines.
-9. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
+7. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές.
+8. Ορίστε τη μορφή των γραμμών υψηλής‑χαμηλής τιμής.
+9. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Δειγματικός κώδικας JavaScript για τη δημιουργία διαγράμματος μετοχών:
+Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα διάγραμμα αποθεμάτων:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400);
-  
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
     var wb = chart.getChartData().getChartDataWorkbook();
+    wb.clear(0);
     chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
     chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
     chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
@@ -487,24 +505,23 @@ try {
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Box and Whisker**
+### **Δημιουργία Διαγραμμάτων Box και Whisker**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος Box and Whisker σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος Box and Whisker PowerPoint σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος Box and Whisker παρουσίασης PowerPoint σε JavaScript</strong></a>
-
-1. Δημιουργήστε μια παρουσία της [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) κλάσης.
-2. Λάβετε την αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartType).BoxAndWhisker).
-4. Πρόσβαση στα δεδομένα μέσω του [ChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) .
+2. Λάβετε αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) .
+4. Πρόσβαση στο βιβλίο εργασίας δεδομένων διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
 6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα για τις σειρές του διαγράμματος.
-8. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
+7. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές.
+8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα διάγραμμα Box and Whisker:
+Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα διάγραμμα Box και Whisker:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -538,20 +555,19 @@ try {
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Funnel**
+### **Δημιουργία Διάγραμμα Σκούρας (Funnel)**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος Funnel σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος Funnel PowerPoint σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος Funnel παρουσίασης PowerPoint σε JavaScript</strong></a>
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) .
+2. Λάβετε αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.Funnel](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#Funnel) .
+4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-1. Δημιουργήστε μια παρουσία της [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) κλάσης.
-2. Λάβετε την αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartType).Funnel).
-4. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
-
-Ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα διάγραμμα Funnel:
+Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα διάγραμμα σκούρας:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
@@ -580,20 +596,19 @@ try {
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Sunburst**
+### **Δημιουργία Διάγραμμα Ηλιακού Ακτίνων (Sunburst)**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος Sunburst σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος Sunburst PowerPoint σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος Sunburst παρουσίασης PowerPoint σε JavaScript</strong></a>
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) .
+2. Λάβετε αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.Sunburst](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#Sunburst) .
+4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-1. Δημιουργήστε μια παρουσία της [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) κλάσης.
-2. Λάβετε την αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο (σε αυτή την περίπτωση, [ChartType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartType).sunburst).
-4. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα διάγραμμα Sunburst:
+Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα διάγραμμα ηλιακού ακτίνου:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
@@ -635,23 +650,22 @@ try {
 }
 ```
 
-### **Δημιουργία Ιστογραμματικών Διαγραμμάτων**
+### **Δημιουργία Ιστόγραμμα (Histogram)**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Βήματα:</em> Δημιουργία ιστογραμματικού διαγράμματος σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Βήματα:</em> Δημιουργία ιστογραμματικού διαγράμματος PowerPoint σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Βήματα:</em> Δημιουργία ιστογραμματικού διαγράμματος παρουσίασης PowerPoint σε JavaScript</strong></a>
-
-1. Δημιουργήστε μια παρουσία της [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) κλάσης.
-2. Λάβετε την αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartType).Histogram).
-4. Πρόσβαση στα δεδομένα μέσω του [ChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) .
+2. Λάβετε αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.Histogram](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#Histogram) .
+4. Πρόσβαση στο βιβλίο εργασίας δεδομένων διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
 6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
+7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα ιστογραμματικό διάγραμμα:
+Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα ιστόγραμμα:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
 chart.getChartData().getCategories().clear();
@@ -668,20 +682,19 @@ series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
 ```
 
-### **Δημιουργία Διαγραμμάτων Ραδιοτύπου**
+### **Δημιουργία Διαγραμμάτων Ραδιογραφίας (Radar)**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος Radar σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος Radar PowerPoint σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος Radar παρουσίασης PowerPoint σε JavaScript</strong></a>
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) .
+2. Λάβετε αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
+3. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και ορίστε τον επιθυμητό τύπο διαγράμματος ([ChartType.Radar](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#Radar) σε αυτήν την περίπτωση).
+4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-1. Δημιουργήστε μια παρουσία της [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) κλάσης.
-2. Λάβετε την αναφορά σε μια διαφάνεια μέσω του δείκτη της. 
-3. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και καθορίστε τον προτιμώμενο τύπο (`ChartType.Radar` σε αυτή την περίπτωση).
-4. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα διάγραμμα Radar:
+Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα διάγραμμα ραδιογραφίας:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 400, 300);
@@ -695,22 +708,21 @@ try {
 
 ### **Δημιουργία Πολυκατηγορικών Διαγραμμάτων**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Βήματα:</em> Δημιουργία πολυκατηγορικού διαγράμματος σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Βήματα:</em> Δημιουργία πολυκατηγορικού διαγράμματος PowerPoint σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Βήματα:</em> Δημιουργία πολυκατηγορικού διαγράμματος παρουσίασης PowerPoint σε JavaScript</strong></a>
-
-1. Δημιουργήστε μια παρουσία της [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) κλάσης.
-2. Λάβετε την αναφορά σε μια διαφάνεια μέσω του δείκτη της. 
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartType).ClusteredColumn).
-4. Πρόσβαση στα δεδομένα μέσω του [ChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) .
+2. Λάβετε αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και ορίστε τον τύπο [ChartType.ClusteredColumn](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/#ClusteredColumn) .
+4. Πρόσβαση στο βιβλίο εργασίας δεδομένων διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
 6. Προσθέστε νέες σειρές και κατηγορίες.
-7. Προσθέστε νέα δεδομένα για τις σειρές του διαγράμματος.
-8. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
+7. Προσθέστε νέα δεδομένα στο διάγραμμα για τις σειρές.
+8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα πολυκατηγορικό διάγραμμα:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var ch = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -750,17 +762,16 @@ try {
 }
 ```
 
-### **Δημιουργία Διαγραμμάτων Χάρτης**
+### **Δημιουργία Διαγραμμάτων Χάρτη**
 
-Ένα διάγραμμα χάρτη είναι οπτικοποίηση περιοχής με δεδομένα. Τα διαγράμματα χάρτη είναι ιδανικά για σύγκριση δεδομένων ή τιμών ανά γεωγραφική περιοχή.
-
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος χάρτη σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος χάρτη PowerPoint σε JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Βήματα:</em> Δημιουργία διαγράμματος χάρτη παρουσίασης PowerPoint σε JavaScript</strong></a>
+Τα διαγράμματα χάρτη απεικονίζουν γεωγραφικά δεδομένα και βοηθούν στη σύγκριση τιμών ανά περιοχές.
 
 Αυτός ο κώδικας JavaScript δείχνει πώς να δημιουργήσετε ένα διάγραμμα χάρτη:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pres = new aspose.slides.Presentation();
 try {
     let chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
@@ -774,13 +785,17 @@ try {
 
 ### **Δημιουργία Συνδυαστικών Διαγραμμάτων**
 
-Ένα συνδυαστικό διάγραμμα (ή combo chart) συνδυάζει δύο ή περισσότερους τύπους διαγραμμάτων σε ένα γράφημα. Αυτό το διάγραμμα σας επιτρέπει να τονίσετε, να συγκρίνετε ή να εξετάσετε διαφορές μεταξύ δύο ή περισσότερων συνόλων δεδομένων, βοηθώντας σας να εντοπίσετε σχέσεις μεταξύ τους.
+Ένα συνδυαστικό διάγραμμα (ή combo chart) συνδυάζει δύο ή περισσότερους τύπους διαγραμμάτων σε ένα γράφημα. Αυτό το διάγραμμα σας επιτρέπει να επισημάνετε, συγκρίνετε ή εξετάσετε διαφορές μεταξύ δύο ή περισσότερων συνόλων δεδομένων, βοηθώντας σας να εντοπίσετε σχέσεις μεταξύ τους.
 
-![Το συνδυαστικό διάγραμμα](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-Ο παρακάτω κώδικας JavaScript δείχνει πώς να δημιουργήσετε το συνδυαστικό διάγραμμα που φαίνεται παραπάνω σε μια παρουσίαση PowerPoint:
+Ο παρακάτω κώδικας JavaScript δείχνει πώς να δημιουργήσετε το συνδυαστικό διάγραμμα που εμφανίζεται παραπάνω σε μια παρουσίαση PowerPoint:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function createComboChart() {
     let presentation = new aspose.slides.Presentation();
     let slide = presentation.getSlides().get_Item(0);
@@ -802,7 +817,7 @@ function createComboChart() {
 function createChartWithFirstSeries(slide) {
     let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Ορίζει τον τίτλο του διαγράμματος.
+    // Ορισμός τίτλου διαγράμματος.
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
@@ -811,24 +826,24 @@ function createChartWithFirstSeries(slide) {
     titleFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
     titleFormat.setFontHeight(18);
 
-    // Ορίζει το υπόμνημα του διαγράμματος.
+    // Ορισμός υπομνήματος διαγράμματος.
     chart.getLegend().setPosition(aspose.slides.LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12);
 
-    // Διαγράφει τις προεπιλεγμένες δημιουργημένες σειρές και κατηγορίες.
+    // Διαγραφή των προεπιλεγμένων δημιουργημένων σειρών και κατηγοριών.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
     const worksheetIndex = 0;
     let workbook = chart.getChartData().getChartDataWorkbook();
 
-    // Προσθέτει νέες κατηγορίες.
+    // Προσθήκη νέων κατηγοριών.
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // Προσθέτει την πρώτη σειρά.
+    // Προσθήκη της πρώτης σειράς.
     let seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     let series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
@@ -875,28 +890,28 @@ function addThirdSeriesToChart(chart) {
 }
 
 function setPrimaryAxesFormat(chart) {
-    // Ορίζει τον οριζόντιο άξονα.
+    // Ορισμός οριζόντιου άξονα.
     let horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // Ορίζει τον κατακόρυφο άξονα.
+    // Ορισμός κάθετου άξονα.
     let verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Ορίζει το χρώμα των κύριων γραμμών πλέγματος του κατακόρυφου άξονα.
+    // Ορισμός χρώματος των κύριων κατακόρυφων γραμμών πλέγματος.
     let majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     majorGridLinesFormat.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 217, 217, 217));
 }
 
 function setSecondaryAxesFormat(chart) {
-    // Ορίζει το δευτερεύον οριζόντιο άξονα.
+    // Ορισμός δευτερεύοντος οριζόντιου άξονα.
     let secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(aspose.slides.AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(aspose.slides.CrossesType.Maximum);
@@ -904,7 +919,7 @@ function setSecondaryAxesFormat(chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
-    // Ορίζει το δευτερεύον κατακόρυφο άξονα.
+    // Ορισμός δευτερεύοντος κάθετου άξονα.
     let secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(aspose.slides.AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
@@ -927,58 +942,57 @@ function setAxisTitle(axis, axisTitle) {
 
 ## **Ενημέρωση Διαγραμμάτων**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Βήματα:</em> Ενημέρωση διαγράμματος PowerPoint σε JavaScript</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Βήματα:</em> Ενημέρωση διαγράμματος παρουσίασης σε JavaScript</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Βήματα:</em> Ενημέρωση διαγράμματος παρουσίασης PowerPoint σε JavaScript</strong></a>
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα που θέλετε να ενημερώσετε.
-2. Λάβετε την αναφορά σε μια διαφάνεια χρησιμοποιώντας τον δείκτη της.
-3. Περιηγηθείτε σε όλα τα σχήματα για να εντοπίσετε το επιθυμητό διάγραμμα.
-4. Πρόσβαση στο φύλλο εργασίας δεδομένων του διαγράμματος.
-5. Τροποποιήστε τα δεδομένα των σειρών του διαγράμματος αλλάζοντας τις τιμές.
-6. Προσθέστε μια νέα σειρά και γεμίστε τα δεδομένα της.
-7. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα που θέλετε να ενημερώσετε.
+2. Λάβετε αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
+3. Περπατήστε σε όλα τα σχήματα για να βρείτε το επιθυμητό διάγραμμα.
+4. Πρόσβαση στο φύλλο δεδομένων του διαγράμματος.
+5. Τροποποιήστε τις σειρές δεδομένων του διαγράμματος αλλάζοντας τις τιμές των σειρών.
+6. Προσθέστε μια νέα σειρά και συμπληρώστε τα δεδομένα της.
+7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 Αυτός ο κώδικας JavaScript δείχνει πώς να ενημερώσετε ένα διάγραμμα:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
-    // Πρόσβαση στον πρώτο διαφάνειας
+    // Πρόσβαση στην πρώτη διαφάνεια
     var sld = pres.getSlides().get_Item(0);
     // Λήψη διαγράμματος με προεπιλεγμένα δεδομένα
     var chart = sld.getShapes().get_Item(0);
     // Ορισμός του δείκτη του φύλλου δεδομένων του διαγράμματος
     var defaultWorksheetIndex = 0;
-    // Λήψη του φύλλου εργασίας δεδομένων του διαγράμματος
+    // Λήψη του φύλλου δεδομένων του διαγράμματος
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Αλλαγή του ονόματος της κατηγορίας του διαγράμματος
+    // Αλλαγή του ονόματος κατηγορίας του διαγράμματος
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
     // Λήψη της πρώτης σειράς του διαγράμματος
     var series = chart.getChartData().getSeries().get_Item(0);
-    // Τώρα ενημέρωση των δεδομένων της σειράς
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Τροποποίηση του ονόματος της σειράς
+    // Τώρα ενημέρωση δεδομένων σειράς
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Τροποποίηση ονόματος σειράς
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
     // Λήψη της δεύτερης σειράς του διαγράμματος
     series = chart.getChartData().getSeries().get_Item(1);
-    // Τώρα ενημέρωση των δεδομένων της σειράς
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Τροποποίηση του ονόματος της σειράς
+    // Τώρα ενημέρωση δεδομένων σειράς
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Τροποποίηση ονόματος σειράς
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
     // Τώρα, προσθήκη νέας σειράς
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
-    // Λήψη της τρίτης σειράς του διαγράμματος
+    // Λήψη της 3ης σειράς του διαγράμματος
     series = chart.getChartData().getSeries().get_Item(2);
-    // Τώρα συμπλήρωση των δεδομένων της σειράς
+    // Τώρα γεμίζοντας δεδομένα σειράς
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
     chart.setType(aspose.slides.ChartType.ClusteredCylinder);
-    // Αποθήκευση παρουσίασης με διάγραμμα
+    // Αποθήκευση παρουσίασης με το διάγραμμα
     pres.save("AsposeChartModified_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -987,20 +1001,23 @@ try {
 }
 ```
 
-## **Ορισμός Πεδίων Δεδομένων για Διαγράμματα**
+## **Ορισμός Περιοχής Δεδομένων για Διάγραμμα**
 
-Για να ορίσετε το εύρος δεδομένων ενός διαγράμματος, ακολουθήστε τα εξής:
+Για να ορίσετε την περιοχή δεδομένων ενός διαγράμματος, κάντε τα εξής:
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα.
-2. Λάβετε την αναφορά σε μια διαφάνεια μέσω του δείκτη της.
-3. Περιηγηθείτε σε όλα τα σχήματα για να εντοπίσετε το επιθυμητό διάγραμμα.
-4. Πρόσβαση στα δεδομένα του διαγράμματος και ορίστε το εύρος.
-5. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα.
+2. Λάβετε αναφορά σε μια διαφάνεια χρησιμοποιώντας το δείκτη της.
+3. Περπατήστε σε όλα τα σχήματα για να βρείτε το επιθυμητό διάγραμμα.
+4. Πρόσβαση στα δεδομένα του διαγράμματος και ορίστε την περιοχή.
+5. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να ορίσετε το εύρος δεδομένων για ένα διάγραμμα:
+Αυτός ο κώδικας JavaScript δείχνει πώς να ορίσετε την περιοχή δεδομένων για ένα διάγραμμα:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
     var chart = slide.getShapes().get_Item(0);
@@ -1014,11 +1031,15 @@ try {
 ```
 
 ## **Χρήση Προεπιλεγμένων Δεικτών σε Διαγράμματα**
-Όταν χρησιμοποιείτε προεπιλεγμένο δείκτη σε διαγράμματα, κάθε σειρά διαγράμματος λαμβάνει διαφορετικό προεπιλεγμένο σύμβολο αυτόματα.
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να ορίσετε αυτόματα δείκτη σειράς διαγράμματος:
+Όταν χρησιμοποιείτε προεπιλεγμένους δείκτες σε διαγράμματα, κάθε σειρά διαγράμματος λαμβάνει αυτόματα διαφορετικό σύμβολο δείκτη.
+
+Αυτός ο κώδικας JavaScript δείχνει πώς να ορίσετε αυτόματα έναν δείκτη σειράς διαγράμματος:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -1037,9 +1058,9 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 4, 0, "C4"));
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // Πάρε τη δεύτερη σειρά του διαγράμματος
+    // Λάβε τη δεύτερη σειρά του διαγράμματος
     var series2 = chart.getChartData().getSeries().get_Item(1);
-    // Τώρα συμπληρώνει τα δεδομένα της σειράς
+    // Τώρα γεμίζοντας τα δεδομένα της σειράς
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1058,16 +1079,16 @@ try {
 
 **Ποιοι τύποι διαγραμμάτων υποστηρίζονται από το Aspose.Slides;**
 
-Το Aspose.Slides υποστηρίζει μια ευρεία γκάμα τύπων διαγραμμάτων, όπως ραβδόγραμμα, γραμμικό, πίτα, περιοχικό, διασκορπισμένο, ιστογραμματικό, radar και πολλά άλλα. Αυτή η ευελιξία σάς επιτρέπει να επιλέξετε τον πλέον κατάλληλο τύπο για τις ανάγκες οπτικοποίησης των δεδομένων σας.
+Το Aspose.Slides υποστηρίζει ένα ευρύ φάσμα [chart types](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/charttype/), συμπεριλαμβανομένων bar, line, pie, area, scatter, histogram, radar και πολλών άλλων. Αυτή η ευελιξία σας επιτρέπει να επιλέξετε τον πιο κατάλληλο τύπο διαγράμματος για τις ανάγκες οπτικοποίησης των δεδομένων σας.
 
 **Πώς προσθέτω νέο διάγραμμα σε μια διαφάνεια;**
 
-Για να προσθέσετε ένα διάγραμμα, πρώτα δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) , ανακτήστε τη ζητούμενη διαφάνεια με το δείκτη της και, στη συνέχεια, καλέστε τη μέθοδο προσθήκης διαγράμματος, καθορίζοντας τον τύπο διαγράμματος και τα αρχικά δεδομένα. Αυτή η διαδικασία ενσωματώνει το διάγραμμα απευθείας στην παρουσίασή σας.
+Για να προσθέσετε διάγραμμα, πρώτα δημιουργείτε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) , ανακτάτε τη διαφάνεια που θέλετε χρησιμοποιώντας το δείκτη της και, στη συνέχεια, καλείτε τη μέθοδο προσθήκης διαγράμματος, προσδιορίζοντας τον τύπο διαγράμματος και τα αρχικά δεδομένα. Η διαδικασία αυτή ενσωματώνει το διάγραμμα απευθείας στην παρουσίασή σας.
 
 **Πώς μπορώ να ενημερώσω τα δεδομένα που εμφανίζονται σε ένα διάγραμμα;**
 
-Μπορείτε να ενημερώσετε τα δεδομένα ενός διαγράμματος προσπελάζοντάς το φύλλο εργασίας δεδομένων ([ChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/)), καθαρίζοντας τυχόν προεπιλεγμένες σειρές και κατηγορίες και προσθέτοντας τα δικά σας δεδομένα. Έτσι μπορείτε προγραμματικά να ανανεώσετε το διάγραμμα ώστε να αντανακλά τα πιο πρόσφατα δεδομένα.
+Μπορείτε να ενημερώσετε τα δεδομένα ενός διαγράμματος προσπελαύνοντας το βιβλίο εργασίας δεδομένων του ([ChartDataWorkbook](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartdataworkbook/)), καθαρίζοντας τις προεπιλεγμένες σειρές και κατηγορίες, και προσθέτοντας τα δικά σας προσαρμοσμένα δεδομένα. Αυτό σας επιτρέπει να ανανεώνετε προγραμματιστικά το διάγραμμα ώστε να αντανακλά τα πιο πρόσφατα δεδομένα.
 
 **Μπορεί να προσαρμοστεί η εμφάνιση του διαγράμματος;**
 
-Ναι, το Aspose.Slides παρέχει εκτενείς επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, υπομνήματα και άλλα στοιχεία μορφοποίησης ώστε να ταιριάζουν ακριβώς στις σχεδιαστικές απαιτήσεις σας.
+Ναι, το Aspose.Slides παρέχει εκτενείς επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, υπομνήματα και άλλα [formatting elements](/slides/el/nodejs-java/chart-entities/) ώστε να ταιριάζουν με τις συγκεκριμένες απαιτήσεις σχεδίασής σας.

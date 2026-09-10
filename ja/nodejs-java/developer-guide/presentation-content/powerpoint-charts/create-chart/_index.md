@@ -1,125 +1,76 @@
 ---
-title: JavaScript で PowerPoint プレゼンテーション チャートを作成または更新
-linktitle: チャート作成
+title: JavaScript で PowerPoint プレゼンテーションのチャートを作成または更新
+linktitle: チャートの作成または更新
 type: docs
 weight: 10
 url: /ja/nodejs-java/create-chart/
-keywords: "チャート作成, 散布図, 円グラフ, ツリーマップ, 株価チャート, 箱ひげ図, ヒストグラム, ファネルチャート, サンバーストチャート, マルチカテゴリチャート, PowerPoint プレゼンテーション, Java, Java を介した Node.js 用 Aspose.Slides"
-description: "JavaScript で PowerPoint プレゼンテーションにチャートを作成"
+keywords:
+- チャートを追加
+- チャートを作成
+- チャートを編集
+- チャートを変更
+- チャートを更新
+- 散布図
+- 円グラフ
+- 折れ線グラフ
+- ツリーマップチャート
+- 株価チャート
+- 箱ひげ図
+- ファンネルチャート
+- サンバーストチャート
+- ヒストグラム
+- レーダーチャート
+- マルチカテゴリチャート
+- PowerPoint
+- プレゼンテーション
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aspose.Slides for Node.js を使用して PowerPoint プレゼンテーション内のチャートを作成およびカスタマイズします。実用的な JavaScript のコード例とともに、チャートの追加、書式設定、編集が可能です。"
 ---
-
 ## **概要**
 
-この記事では、Javaで**PowerPoint プレゼンテーション チャートを作成**する方法について説明します。また、**JavaScript でチャートを更新**する方法も説明します。以下のトピックをカバーしています。
-
-_チャート_: **通常**
-- [Java PowerPoint Chartの作成](#java-create-powerpoint-chart)
-- [Java プレゼンテーション Chartの作成](#java-create-presentation-chart)
-- [Java PowerPoint プレゼンテーション Chartの作成](#java-create-powerpoint-presentation-chart)
-
-_チャート_: **散布図**
-- [Java 散布図の作成](#java-create-scattered-chart)
-- [Java PowerPoint 散布図の作成](#java-create-powerpoint-scattered-chart)
-- [Java PowerPoint プレゼンテーション 散布図の作成](#java-create-powerpoint-presentation-scattered-chart)
-
-_チャート_: **円グラフ**
-- [Java 円グラフの作成](#java-create-pie-chart)
-- [Java PowerPoint 円グラフの作成](#java-create-powerpoint-pie-chart)
-- [Java PowerPoint プレゼンテーション 円グラフの作成](#java-create-powerpoint-presentation-pie-chart)
-
-_チャート_: **ツリーマップ**
-- [Java ツリーマップの作成](#java-create-tree-map-chart)
-- [Java PowerPoint ツリーマップの作成](#java-create-powerpoint-tree-map-chart)
-- [Java PowerPoint プレゼンテーション ツリーマップの作成](#java-create-powerpoint-presentation-tree-map-chart)
-
-_チャート_: **株価**
-- [Java 株価チャートの作成](#java-create-stock-chart)
-- [Java PowerPoint 株価チャートの作成](#java-create-powerpoint-stock-chart)
-- [Java PowerPoint プレゼンテーション 株価チャートの作成](#java-create-powerpoint-presentation-stock-chart)
-
-_チャート_: **箱ひげ図**
-- [Java 箱ひげ図の作成](#java-create-box-and-whisker-chart)
-- [Java PowerPoint 箱ひげ図の作成](#java-create-powerpoint-box-and-whisker-chart)
-- [Java PowerPoint プレゼンテーション 箱ひげ図の作成](#java-create-powerpoint-presentation-box-and-whisker-chart)
-
-_チャート_: **ファネル**
-- [Java ファネルチャートの作成](#java-create-funnel-chart)
-- [Java PowerPoint ファネルチャートの作成](#java-create-powerpoint-funnel-chart)
-- [Java PowerPoint プレゼンテーション ファネルチャートの作成](#java-create-powerpoint-presentation-funnel-chart)
-
-_チャート_: **サンバースト**
-- [Java サンバーストチャートの作成](#java-create-sunburst-chart)
-- [Java PowerPoint サンバーストチャートの作成](#java-create-powerpoint-sunburst-chart)
-- [Java PowerPoint プレゼンテーション サンバーストチャートの作成](#java-create-powerpoint-presentation-sunburst-chart)
-
-_チャート_: **ヒストグラム**
-- [Java ヒストグラムの作成](#java-create-histogram-chart)
-- [Java PowerPoint ヒストグラムの作成](#java-create-powerpoint-histogram-chart)
-- [Java PowerPoint プレゼンテーション ヒストグラムの作成](#java-create-powerpoint-presentation-histogram-chart)
-
-_チャート_: **レーダー**
-- [Java レーダーチャートの作成](#java-create-radar-chart)
-- [Java PowerPoint レーダーチャートの作成](#java-create-powerpoint-radar-chart)
-- [Java PowerPoint プレゼンテーション レーダーチャートの作成](#java-create-powerpoint-presentation-radar-chart)
-
-_チャート_: **複数カテゴリ**
-- [Java 複数カテゴリチャートの作成](#java-create-multi-category-chart)
-- [Java PowerPoint 複数カテゴリチャートの作成](#java-create-powerpoint-multi-category-chart)
-- [Java PowerPoint プレゼンテーション 複数カテゴリチャートの作成](#java-create-powerpoint-presentation-multi-category-chart)
-
-_チャート_: **マップ**
-- [Java マップチャートの作成](#java-create-map-chart)
-- [Java PowerPoint マップチャートの作成](#java-create-powerpoint-map-chart)
-- [Java PowerPoint プレゼンテーション マップチャートの作成](#java-create-powerpoint-presentation-map-chart)
-
-_アクション_: **チャートの更新**
-- [Java PowerPoint チャートの更新](#java-update-powerpoint-chart)
-- [Java プレゼンテーション チャートの更新](#java-update-presentation-chart)
-- [Java PowerPoint プレゼンテーション チャートの更新](#java-update-powerpoint-presentation-chart)
-
+この記事では、Aspose.Slides を使用してチャートを作成およびカスタマイズするための包括的なガイドを提供します。スライドにプログラムでチャートを追加し、データを入力し、特定のデザイン要件に合わせてさまざまな書式設定オプションを適用する方法を学びます。記事全体で、プレゼンテーションとチャートオブジェクトの初期化から系列、軸、凡例の設定まで、各ステップを詳細なコード例で示します。このガイドに従うことで、アプリケーションに動的なチャート生成を統合する方法をしっかりと理解し、データ駆動型プレゼンテーションの作成プロセスを効率化できます。
 
 ## **チャートの作成**
-チャートは、データをすばやく可視化し、テーブルやスプレッドシートではすぐに分からない洞察を得るのに役立ちます。
 
-**なぜチャートを作成するのか？**
+チャートは、データを迅速に可視化し、表やスプレッドシートだけではすぐに分からない洞察を得るのに役立ります。
 
-チャートを使用すると
+**チャートを作成する理由**
 
-* 大量のデータをプレゼンテーションの 1 スライドに集約、要約できる
-* データのパターンやトレンドを明らかにできる
-* 時間経過や特定の測定単位に対するデータの方向性と勢いを推測できる
-* 外れ値、異常、エラー、無意味なデータなどを検出できる
-* 複雑なデータを効果的に伝達できる
+* プレゼンテーションの単一スライド上に大量のデータを集約、圧縮、または要約する  
+* データのパターンやトレンドを明らかにする  
+* 時間の経過や特定の測定単位に対するデータの方向性と勢いを推定する  
+* 外れ値、異常、偏差、エラー、無意味なデータなどを検出する  
+* 複雑なデータを伝達または提示する  
 
-PowerPoint では、挿入機能を使用して多数のテンプレートからチャートを作成できます。Aspose.Slides を使用すると、標準チャート（一般的なチャート種別）やカスタムチャートを作成できます。
+PowerPoint では、*Insert* 機能を使用してチャートを作成でき、さまざまなチャートタイプのテンプレートが提供されています。Aspose.Slides を使用すれば、一般的なチャートタイプに基づく標準チャートとカスタムチャートの両方を作成できます。
 
-{{% alert color="primary" %}}  
-チャート作成をサポートするため、Aspose.Slides は [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType) クラスを提供します。このクラスのフィールドはさまざまなチャート種別に対応しています。  
-{{% /alert %}}  
+{{% alert color="info" title="Note" %}}
+チャートを作成するには、[ChartType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/) クラスを使用します。このクラスのフィールドはさまざまなチャートタイプに対応しています。
+{{% /alert %}}
 
-### **通常チャートの作成**
+### **クラスター縦棒チャートの作成**
 
-_Steps: Create Chart_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Steps:</em> JavaScript で PowerPoint チャートを作成</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Steps:</em> JavaScript でプレゼンテーション チャートを作成</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Steps:</em> JavaScript で PowerPoint プレゼンテーション チャートを作成</strong></a>
+このセクションでは、Aspose.Slides を使用してクラスター化された縦棒チャートを作成する方法を説明します。プレゼンテーションの初期化、チャートの追加、タイトル、データ、系列、カテゴリ、スタイリングなどの要素のカスタマイズ方法を学びます。以下の手順に従って、標準的なクラスター縦棒チャートがどのように生成されるかをご確認ください。
 
-_コード手順:_
+1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. `ChartType.ClusteredColumn` タイプを指定して、データを含むチャートを追加します。  
+4. チャートにタイトルを追加します。  
+5. チャートのデータ ワークシートにアクセスします。  
+6. 既定の系列とカテゴリをすべてクリアします。  
+7. 新しい系列とカテゴリを追加します。  
+8. チャート系列の新しいデータを追加します。  
+9. チャート系列に塗りつぶしの色を適用します。  
+10. チャート系列にラベルを追加します。  
+11. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライド参照を取得します。
-3. データを指定し、希望のチャート種別でチャートを追加します。
-4. チャートにタイトルを追加します。
-5. チャート データ ワークシートにアクセスします。
-6. 既定の系列とカテゴリをすべてクリアします。
-7. 新しい系列とカテゴリを追加します。
-8. 系列用の新しいチャート データを追加します。
-9. 系列の塗りつぶし色を設定します。
-10. 系列のラベルを追加します。
-11. 変更済みプレゼンテーションを PPTX ファイルとして保存します。
-
-この JavaScript コードは通常チャートの作成方法を示しています:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します
 var pres = new aspose.slides.Presentation();
 try {
@@ -128,15 +79,15 @@ try {
     // デフォルト データでチャートを追加します
     var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
     // チャートのタイトルを設定します
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
     // 最初の系列に値を表示するよう設定します
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // チャート データ シートのインデックスを設定します
+    // チャート データシートのインデックスを設定します
     var defaultWorksheetIndex = 0;
-    // チャート データのワークシートを取得します
+    // チャート データ ワークシートを取得します
     var fact = chart.getChartData().getChartDataWorkbook();
     // デフォルトで生成された系列とカテゴリを削除します
     chart.getChartData().getSeries().clear();
@@ -152,7 +103,7 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     // 最初のチャート系列を取得します
     var series = chart.getChartData().getSeries().get_Item(0);
-    // 系列データを設定します
+    // 系列のデータを設定します
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
@@ -161,7 +112,7 @@ try {
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     // 2 番目のチャート系列を取得します
     series = chart.getChartData().getSeries().get_Item(1);
-    // 系列データを設定します
+    // 系列のデータを設定します
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
@@ -179,7 +130,7 @@ try {
     lbl.getDataLabelFormat().setShowValue(true);
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
-    // チャート付きプレゼンテーションを保存します
+    // チャート付きのプレゼンテーションを保存します
     pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -188,31 +139,29 @@ try {
 }
 ```
 
+### **散布図の作成**
 
-### **散布図チャートの作成**
-散布図（散布プロット、x‑y グラフ）は、2 つの変数間のパターンや相関を確認する際に使用されます。
+散布図（scatter plot または x‑y グラフとも呼ばれます）は、2 つの変数間のパターンや相関を確認するために使用されることが多いです。
 
-次の場合に散布図を使用します
+散布図を使用する場面は次のとおりです。
 
-* ペアになった数値データがあるとき
-* 2 つの変数が相互に関連しているとき
-* 2 変数の関係性を判定したいとき
-* 従属変数に対して独立変数が複数の値を持つとき
+* 数値データがペアになっている場合  
+* 相性の良い 2 つの変数がある場合  
+* 2 つの変数が関連しているかどうかを判断したい場合  
+* 従属変数に対して独立変数が複数の値を持つ場合  
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Steps:</em> JavaScript で散布図を作成</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Steps:</em> JavaScript で PowerPoint 散布図を作成</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Steps:</em> JavaScript で PowerPoint プレゼンテーション散布図を作成</strong></a>
+1. [Create Clustered Column Charts](#create-clustered-column-charts) の手順に従います。  
+2. 3 番目の手順で、データを含むチャートを追加し、次のいずれかのチャートタイプを指定します。  
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _散布図を表します。_  
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _曲線で接続された散布図で、データ マーカー付きです。_  
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _曲線で接続された散布図で、データ マーカーなしです。_  
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _直線で接続された散布図で、データ マーカー付きです。_  
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _直線で接続された散布図で、データ マーカーなしです。_  
 
-1. 前節 **通常チャートの作成** で示した手順を参照してください。
-2. 手順 3 で、チャート種別を以下のいずれかに設定します
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _散布チャート（マーカー付き）_
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _曲線で接続されたマーカー付き散布チャート_
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _曲線で接続されたマーカーなし散布チャート_
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _直線で接続されたマーカー付き散布チャート_
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _直線で接続されたマーカーなし散布チャート_
-
-この JavaScript コードは異なるマーカー系列を持つ散布図の作成方法を示しています:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します
 var pres = new aspose.slides.Presentation();
 try {
@@ -261,30 +210,28 @@ try {
 }
 ```
 
-
 ### **円グラフの作成**
 
-円グラフは、データ全体に対する構成比を示すのに適しています。カテゴリが多数ある場合は、棒グラフの使用を検討してください。
+円グラフは、データの全体に対する部分の関係を示すのに最適です。特に、カテゴリ ラベルと数値がある場合に有効です。ただし、データに多数の部分やラベルがある場合は、棒グラフの使用を検討してください。
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Steps:</em> JavaScript で円グラフを作成</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Steps:</em> JavaScript で PowerPoint 円グラフを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Steps:</em> JavaScript で PowerPoint プレゼンテーション円グラフを作成</strong></a>
+1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. デフォルト データでチャートを追加し、[ChartType.Pie](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/#Pie) タイプを指定します。  
+4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdataworkbook/) にアクセスします。  
+5. 既定の系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. チャート系列の新しいデータを追加します。  
+8. チャートに新しいポイントを追加し、円グラフのセクタにカスタム色を適用します。  
+9. 系列のラベルを設定します。  
+10. 系列ラベルのリーダーラインを有効にします。  
+11. 円グラフのセクタの回転角度を設定します。  
+12. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライド参照を取得します。
-3. デフォルトデータと希望の種別（この場合は [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).Pie）でチャートを追加します。
-4. [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook) にアクセスします。
-5. 既定の系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
-7. 系列用に新しいチャート データを追加します。
-8. 円グラフのセクタごとに新しいポイントとカスタム色を追加します。
-9. 系列のラベルを設定します。
-10. 系列ラベルのリーダーラインを設定します。
-11. 円グラフスライドの回転角度を設定します。
-12. 変更済みプレゼンテーションを PPTX ファイルとして保存します。
-
-この JavaScript コードは円グラフの作成方法を示しています:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // PPTX ファイルを表すプレゼンテーション クラスのインスタンスを作成します
 var pres = new aspose.slides.Presentation();
 try {
@@ -294,7 +241,7 @@ try {
     var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
     // チャートのタイトルを設定します
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     // 最初の系列に値を表示するよう設定します
@@ -312,11 +259,11 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
     // 新しい系列を追加します
     var series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-    // 系列データを設定します
+    // 系列のデータを設定します
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // 新しいバージョンでは機能しません
+    // 新しいバージョンでは動作しません
     // 新しいポイントを追加し、セクタの色を設定します
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
@@ -327,8 +274,8 @@ try {
     point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     point.getFormat().getLine().setWidth(3.0);
-    point.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThick);
-    point.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    point.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThick));
+    point.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     var point1 = series.getDataPoints().get_Item(1);
     point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
@@ -336,8 +283,8 @@ try {
     point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     point1.getFormat().getLine().setWidth(3.0);
-    point1.getFormat().getLine().setStyle(aspose.slides.LineStyle.Single);
-    point1.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDot);
+    point1.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.Single));
+    point1.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDot));
     var point2 = series.getDataPoints().get_Item(2);
     point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
@@ -345,8 +292,8 @@ try {
     point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     point2.getFormat().getLine().setWidth(2.0);
-    point2.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThin);
-    point2.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDotDot);
+    point2.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
+    point2.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
     // 新しい系列の各カテゴリにカスタム ラベルを作成します
     var lbl1 = series.getDataPoints().get_Item(0).getLabel();
     // lbl.ShowCategoryName = true;
@@ -360,9 +307,9 @@ try {
     lbl3.getDataLabelFormat().setShowPercentage(true);
     // チャートのリーダーラインを表示します
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-    // 円グラフ セクタの回転角度を設定します
+    // 円グラフセクタの回転角度を設定します
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
-    // チャート付きプレゼンテーションを保存します
+    // チャート付きのプレゼンテーションを保存します
     pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -371,22 +318,23 @@ try {
 }
 ```
 
-
 ### **折れ線グラフの作成**
 
-折れ線グラフは、時間経過による値の変化を示すのに最適です。大量のデータを比較したり、トレンドを追跡したり、異常をハイライトしたりできます。
+折れ線グラフ（line graph とも呼ばれます）は、時間経過に伴う値の変化を示すのに最適です。折れ線グラフを使用すると、膨大なデータを一度に比較し、時間に伴う変化やトレンドを追跡し、データ系列の異常を強調表示することができます。
 
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-1. インデックスでスライド参照を取得します。
-1. デフォルトデータと希望の種別（この場合は `ChartType.Line`）でチャートを追加します。
-1. `IChartDataWorkbook` にアクセスします。
-1. 既定の系列とカテゴリをクリアします。
-1. 新しい系列とカテゴリを追加します。
-1. 系列用に新しいチャート データを追加します。
-1. 変更済みプレゼンテーションを PPTX ファイルとして保存します。
+1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+1. インデックスを使用してスライドへの参照を取得します。  
+1. デフォルト データでチャートを追加し、[ChartType.Line](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/#Line) タイプを指定します。  
+1. チャート データ ワークブック ([ChartDataWorkbook](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdataworkbook/)) にアクセスします。  
+1. 既定の系列とカテゴリをクリアします。  
+1. 新しい系列とカテゴリを追加します。  
+1. チャート系列の新しいデータを追加します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-この JavaScript コードは折れ線グラフの作成方法を示しています:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
@@ -398,36 +346,45 @@ try {
 }
 ```
 
+既定では、折れ線グラフのポイントは直線で連結されます。ポイントを破線で結びたい場合は、以下のように好みの破線タイプを指定できます。
 
-デフォルトでは、折れ線グラフのポイントは直線で結ばれます。破線で結びたい場合は、次のように破線種別を指定できます:
 ```javascript
-var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
-    let series = lineChart.getChartData().getSeries().get_Item(i);
-    series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Dash);
-});
-```
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
+var pres = new aspose.slides.Presentation();
+try {
+    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
+    for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
+        let series = lineChart.getChartData().getSeries().get_Item(i);
+        series.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
+    }
+    pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
+```
 
 ### **ツリーマップチャートの作成**
 
-ツリーマップは、カテゴリ別の相対的なサイズを示し、同時に大きな寄与項目を強調したいときに有効です。
+ツリーマップチャートは、データカテゴリの相対的なサイズを示し、各カテゴリ内で大きく貢献している項目に素早く注意を引き付けたい販売データに最適です。
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Steps:</em> JavaScript でツリーマップチャートを作成</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Steps:</em> JavaScript で PowerPoint ツリーマップチャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Steps:</em> JavaScript で PowerPoint プレゼンテーションツリーマップチャートを作成</strong></a>
+1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. デフォルト データでチャートを追加し、[ChartType.Treemap](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/#Treemap) タイプを指定します。  
+4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdataworkbook/) にアクセスします。  
+5. 既定の系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. チャート系列の新しいデータを追加します。  
+8. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライド参照を取得します。
-3. デフォルトデータと希望の種別（この場合は [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).TreeMap）でチャートを追加します。
-4. [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook) にアクセスします。
-5. 既定の系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
-7. 系列用に新しいチャート データを追加します。
-8. 変更済みプレゼンテーションを PPTX ファイルとして保存します
-
-この JavaScript コードはツリーマップチャートの作成方法を示しています:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
@@ -470,30 +427,31 @@ try {
 }
 ```
 
-
 ### **株価チャートの作成**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Steps:</em> JavaScript で株価チャートを作成</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Steps:</em> JavaScript で PowerPoint 株価チャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Steps:</em> JavaScript で PowerPoint プレゼンテーション株価チャートを作成</strong></a>
+1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. デフォルト データでチャートを追加し、[ChartType.OpenHighLowClose](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) タイプを指定します。  
+4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdataworkbook/) にアクセスします。  
+5. 既定の系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. チャート系列の新しいデータを追加します。  
+8. 高低線の書式を指定します。  
+9. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライド参照を取得します。
-3. デフォルトデータと希望の種別（[ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).OpenHighLowClose）でチャートを追加します。
-4. [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook) にアクセスします。
-5. 既定の系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
-7. 系列用に新しいチャート データを追加します。
-8. HiLowLines の書式を指定します。
-9. 変更済みプレゼンテーションを PPTX ファイルとして保存します
-
-株価チャート作成サンプル JavaScript コード:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400);
-  
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
     var wb = chart.getChartData().getChartDataWorkbook();
+    wb.clear(0);
     chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
     chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
     chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
@@ -531,24 +489,21 @@ try {
 }
 ```
 
-
 ### **箱ひげ図の作成**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Steps:</em> JavaScript で箱ひげ図を作成</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Steps:</em> JavaScript で PowerPoint 箱ひげ図を作成</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Steps:</em> JavaScript で PowerPoint プレゼンテーション箱ひげ図を作成</strong></a>
+1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. デフォルト データでチャートを追加し、[ChartType.BoxAndWhisker](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) タイプを指定します。  
+4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdataworkbook/) にアクセスします。  
+5. 既定の系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. チャート系列の新しいデータを追加します。  
+8. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライド参照を取得します。
-3. デフォルトデータと希望の種別（[ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).BoxAndWhisker）でチャートを追加します。
-4. [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook) にアクセスします。
-5. 既定の系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
-7. 系列用に新しいチャート データを追加します。
-8. 変更済みプレゼンテーションを PPTX ファイルとして保存します
-
-この JavaScript コードは箱ひげ図の作成方法を示しています:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -582,20 +537,17 @@ try {
 }
 ```
 
+### **ファンネルチャートの作成**
 
-### **ファネルチャートの作成**
+1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. デフォルト データでチャートを追加し、[ChartType.Funnel](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/#Funnel) タイプを指定します。  
+4. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Steps:</em> JavaScript でファネルチャートを作成</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Steps:</em> JavaScript で PowerPoint ファネルチャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Steps:</em> JavaScript で PowerPoint プレゼンテーションファネルチャートを作成</strong></a>
-
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライド参照を取得します。
-3. デフォルトデータと希望の種別（[ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).Funnel）でチャートを追加します。
-4. 変更済みプレゼンテーションを PPTX ファイルとして保存します
-
-ファネルチャート作成サンプル JavaScript コード:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
@@ -624,20 +576,17 @@ try {
 }
 ```
 
-
 ### **サンバーストチャートの作成**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Steps:</em> JavaScript でサンバーストチャートを作成</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Steps:</em> JavaScript で PowerPoint サンバーストチャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Steps:</em> JavaScript で PowerPoint プレゼンテーションサンバーストチャートを作成</strong></a>
+1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. デフォルト データでチャートを追加し、[ChartType.Sunburst](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/#Sunburst) タイプを指定します。  
+4. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライド参照を取得します。
-3. デフォルトデータと希望の種別（この場合は [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).sunburst）でチャートを追加します。
-4. 変更済みプレゼンテーションを PPTX ファイルとして保存します
-
-サンバーストチャート作成サンプル JavaScript コード:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
@@ -679,23 +628,20 @@ try {
 }
 ```
 
-
 ### **ヒストグラムチャートの作成**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Steps:</em> JavaScript でヒストグラムチャートを作成</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Steps:</em> JavaScript で PowerPoint ヒストグラムチャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Steps:</em> JavaScript で PowerPoint プレゼンテーションヒストグラムチャートを作成</strong></a>
+1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. デフォルト データでチャートを追加し、[ChartType.Histogram](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/#Histogram) タイプを指定します。  
+4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdataworkbook/) にアクセスします。  
+5. 既定の系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライド参照を取得します。
-3. デフォルトデータと希望の種別（[ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).Histogram）でチャートを追加します。
-4. [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook) にアクセスします。
-5. 既定の系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
-7. 変更済みプレゼンテーションを PPTX ファイルとして保存します
-
-ヒストグラムチャート作成サンプル JavaScript コード:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
 chart.getChartData().getCategories().clear();
@@ -712,20 +658,17 @@ series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
 ```
 
-
 ### **レーダーチャートの作成**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Steps:</em> JavaScript でレーダーチャートを作成</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Steps:</em> JavaScript で PowerPoint レーダーチャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Steps:</em> JavaScript で PowerPoint プレゼンテーションレーダーチャートを作成</strong></a>
+1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. データを含むチャートを追加し、今回の例では [ChartType.Radar](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/#Radar) タイプを指定します。  
+4. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライド参照を取得します。
-3. データを指定し、希望の種別（この場合は `ChartType.Radar`）でチャートを追加します。
-4. 変更済みプレゼンテーションを PPTX ファイルとして保存します
-
-レーダーチャート作成サンプル JavaScript コード:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 400, 300);
@@ -737,24 +680,21 @@ try {
 }
 ```
 
+### **マルチカテゴリチャートの作成**
 
-### **複数カテゴリチャートの作成**
+1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. デフォルト データでチャートを追加し、[ChartType.ClusteredColumn](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/#ClusteredColumn) タイプを指定します。  
+4. チャート データ ワークブック [ChartDataWorkbook](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdataworkbook/) にアクセスします。  
+5. 既定の系列とカテゴリをクリアします。  
+6. 新しい系列とカテゴリを追加します。  
+7. チャート系列の新しいデータを追加します。  
+8. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Steps:</em> JavaScript で複数カテゴリチャートを作成</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Steps:</em> JavaScript で PowerPoint 複数カテゴリチャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Steps:</em> JavaScript で PowerPoint プレゼンテーション複数カテゴリチャートを作成</strong></a>
-
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライド参照を取得します。
-3. デフォルトデータと希望の種別（[ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).ClusteredColumn）でチャートを追加します。
-4. [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook) にアクセスします。
-5. 既定の系列とカテゴリをクリアします。
-6. 新しい系列とカテゴリを追加します。
-7. 系列用に新しいチャート データを追加します。
-8. 変更済みプレゼンテーションを PPTX ファイルとして保存します。
-
-複数カテゴリチャート作成サンプル JavaScript コード:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var ch = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -785,7 +725,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D7", 60));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
-    // Save presentation with chart
+    // チャート付きのプレゼンテーションを保存
     pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -794,17 +734,14 @@ try {
 }
 ```
 
-
 ### **マップチャートの作成**
 
-マップチャートはデータを含む領域を可視化します。地域ごとのデータ比較に最適です。
+マップチャートは地理データを可視化し、地域間の値を比較するのに役立ちます。
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Steps:</em> JavaScript でマップチャートを作成</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Steps:</em> JavaScript で PowerPoint マップチャートを作成</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Steps:</em> JavaScript で PowerPoint プレゼンテーションマップチャートを作成</strong></a>
-
-マップチャート作成サンプル JavaScript コード:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pres = new aspose.slides.Presentation();
 try {
     let chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
@@ -816,15 +753,19 @@ try {
 }
 ```
 
-
 ### **組み合わせチャートの作成**
 
-組み合わせチャート（コンボチャート）は、1 つのグラフに 2 種類以上のチャート種別を組み合わせます。データセット間の違いを強調・比較でき、関係性の把握に役立ちます。
+組み合わせチャート（コンボチャート）は、単一のグラフに2 つ以上のチャートタイプを組み合わせます。このチャートにより、2 つ以上のデータセット間の違いを強調、比較、検証でき、相互の関係を特定するのに役立ちます。
 
-![組み合わせチャート](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-以下の JavaScript コードは上記の組み合わせチャートを PowerPoint に作成する方法を示します:
+以下の JavaScript コードは、上記の組み合わせチャートを PowerPoint プレゼンテーションで作成する方法を示します。
+
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function createComboChart() {
     let presentation = new aspose.slides.Presentation();
     let slide = presentation.getSlides().get_Item(0);
@@ -933,14 +874,14 @@ function setPrimaryAxesFormat(chart) {
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // 垂直の主目盛り線の色を設定します。
+    // 垂直軸の主要グリッド線の色を設定します。
     let majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     majorGridLinesFormat.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 217, 217, 217));
 }
 
 function setSecondaryAxesFormat(chart) {
-    // 副水平軸を設定します。
+    // 二次水平軸を設定します。
     let secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(aspose.slides.AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(aspose.slides.CrossesType.Maximum);
@@ -948,7 +889,7 @@ function setSecondaryAxesFormat(chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
-    // 副垂直軸を設定します。
+    // 二次垂直軸を設定します。
     let secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(aspose.slides.AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
@@ -969,26 +910,23 @@ function setAxisTitle(axis, axisTitle) {
 }
 ```
 
-
 ## **チャートの更新**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Steps:</em> JavaScript で PowerPoint チャートを更新</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Steps:</em> JavaScript でプレゼンテーションチャートを更新</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Steps:</em> JavaScript で PowerPoint プレゼンテーションチャートを更新</strong></a>
+1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成し、更新したいチャートが含まれるプレゼンテーションを表します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. すべてのシェイプを走査して目的のチャートを見つけます。  
+4. チャートのデータ ワークシートにアクセスします。  
+5. 系列の値を変更してチャート データ系列を修正します。  
+6. 新しい系列を追加し、データを設定します。  
+7. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-1. 更新対象のチャートが含まれるプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライド参照を取得します。
-3. すべてのシェイプを走査して目的のチャートを見つけます。
-4. チャート データ ワークシートにアクセスします。
-5. 系列データの値を変更してチャート データを修正します。
-6. 新しい系列を追加し、データを入力します。
-7. 変更済みプレゼンテーションを PPTX ファイルとして保存します。
-
-チャート更新サンプル JavaScript コード:
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
-    // 最初のスライドマーカーにアクセス
+    // 最初のスライドにアクセス
     var sld = pres.getSlides().get_Item(0);
     // デフォルト データのチャートを取得
     var chart = sld.getShapes().get_Item(0);
@@ -1001,28 +939,28 @@ try {
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
     // 最初のチャート系列を取得
     var series = chart.getChartData().getSeries().get_Item(0);
-    // 系列データを更新しています
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// 系列名を変更
+    // 系列データを更新
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // 系列名を変更
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
     // 2 番目のチャート系列を取得
     series = chart.getChartData().getSeries().get_Item(1);
-    // 系列データを更新しています
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// 系列名を変更
+    // 系列データを更新
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // 系列名を変更
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
-    // 現在、新しい系列を追加しています
+    // 新しい系列を追加
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
     // 3 番目のチャート系列を取得
     series = chart.getChartData().getSeries().get_Item(2);
-    // 系列データを設定しています
+    // 系列データを設定
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
     chart.setType(aspose.slides.ChartType.ClusteredCylinder);
-    // チャート付きプレゼンテーションを保存
+    // チャート付きのプレゼンテーションを保存
     pres.save("AsposeChartModified_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -1031,20 +969,19 @@ try {
 }
 ```
 
-
 ## **チャートのデータ範囲の設定**
 
-チャートのデータ範囲を設定する手順:
+1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成し、チャートが含まれるプレゼンテーションを表します。  
+2. インデックスを使用してスライドへの参照を取得します。  
+3. すべてのシェイプを走査して目的のチャートを見つけます。  
+4. チャート データにアクセスし、範囲を設定します。  
+5. 変更したプレゼンテーションを PPTX ファイルとして保存します。  
 
-1. チャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスでスライド参照を取得します。
-3. すべてのシェイプを走査して目的のチャートを見つけます。
-4. チャート データにアクセスし、範囲を設定します。
-5. 変更済みプレゼンテーションを PPTX ファイルとして保存します。
-
-データ範囲設定サンプル JavaScript コード:
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
     var chart = slide.getShapes().get_Item(0);
@@ -1057,13 +994,14 @@ try {
 }
 ```
 
+## **チャートでデフォルトマーカーを使用する**
 
-## **チャートでデフォルトマーカーを使用する方法**
+チャートでデフォルトマーカーを使用すると、各系列に自動的に異なるマーカー記号が割り当てられます。
 
-デフォルトマーカーを使用すると、各系列に自動的に異なるマーカー記号が割り当てられます。
-
-デフォルトマーカー自動設定サンプル JavaScript コード:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -1082,9 +1020,9 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 4, 0, "C4"));
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // 2番目のチャート系列を取得
+    // 2 番目のチャート系列を取得
     var series2 = chart.getChartData().getSeries().get_Item(1);
-    // 現在、系列データを設定しています
+    // 現在、系列データを設定中
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1099,21 +1037,20 @@ try {
 }
 ```
 
+## **FAQ**
 
-## **よくある質問**
+**Aspose.Slides がサポートするチャートタイプは何ですか？**
 
-**Aspose.Slides がサポートするチャート種別は何ですか？**
+Aspose.Slides は、棒、折れ線、円、面、散布、ヒストグラム、レーダーなど、さまざまな[チャートタイプ](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/charttype/) をサポートしています。この柔軟性により、データ可視化のニーズに最適なチャートタイプを選択できます。
 
-Aspose.Slides は棒グラフ、折れ線グラフ、円グラフ、エリア、散布図、ヒストグラム、レーダーなど多数のチャート種別をサポートしています。この柔軟性により、データ可視化に最適なチャート種別を選択できます。
+**スライドに新しいチャートを追加するにはどうすればよいですか？**
 
-**スライドに新しいチャートを追加するには？**
+まず、[Presentation] クラスのインスタンスを作成し、インデックスで目的のスライドを取得します。次に、チャートタイプと初期データを指定してチャートを追加するメソッドを呼び出します。これにより、チャートがプレゼンテーションに直接統合されます。
 
-まず [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成し、インデックスで目的のスライドを取得します。その後、チャート種別と初期データを指定してチャート追加メソッドを呼び出すことで、チャートがプレゼンテーションに直接組み込まれます。
+**チャートに表示されるデータを更新するにはどうすればよいですか？**
 
-**チャートに表示されるデータを更新するには？**
+チャートのデータは、データ ワークブック ([ChartDataWorkbook](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartdataworkbook/)) にアクセスし、既定の系列とカテゴリをクリアしてから、カスタムデータを追加することで更新できます。これにより、最新のデータを反映するようにチャートをプログラムでリフレッシュできます。
 
-チャートのデータブック ([ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdataworkbook/)) にアクセスし、既定の系列とカテゴリをクリアしてからカスタムデータを追加することで、チャートのデータをプログラムで更新できます。
+**チャートの外観をカスタマイズすることは可能ですか？**
 
-**チャートの外観をカスタマイズできますか？**
-
-はい。Aspose.Slides では色、フォント、ラベル、凡例、その他の書式設定要素を変更でき、デザイン要件に合わせてチャートの外観を自由にカスタマイズできます。
+はい、Aspose.Slides は豊富なカスタマイズオプションを提供します。色、フォント、ラベル、凡例、その他の[書式設定要素](/slides/ja/nodejs-java/chart-entities/) を変更して、チャートの外観を特定のデザイン要件に合わせて調整できます。

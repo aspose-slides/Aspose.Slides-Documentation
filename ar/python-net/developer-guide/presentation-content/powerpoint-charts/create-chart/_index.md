@@ -1,6 +1,6 @@
 ---
-title: إنشاء أو تعديل مخططات عروض PowerPoint باستخدام Python
-linktitle: إنشاء أو تعديل مخطط
+title: إنشاء أو تحديث مخططات عرض PowerPoint في Python
+linktitle: إنشاء أو تحديث المخططات
 type: docs
 weight: 10
 url: /ar/python-net/create-chart/
@@ -13,73 +13,73 @@ keywords:
 - مخطط مبعثر
 - مخطط دائري
 - مخطط خطي
-- مخطط شجرة خريطة
+- مخطط شجري
 - مخطط أسهم
 - مخطط صندوق وشارب
-- مخطط قمع
+- مخطط قمعي
 - مخطط شمسي
-- مخطط توزيع تكراري
+- مخطط تدرجي
 - مخطط راداري
 - مخطط متعدد الفئات
 - عرض PowerPoint
 - بايثون
 - Aspose.Slides
-description: "تعلم كيفية إنشاء وتخصيص المخططات في عروض PowerPoint وعروض OpenDocument باستخدام Aspose.Slides للغة Python عبر .NET. يغطي إضافة وتنسيق وتحرير المخططات في العروض مع أمثلة عملية للشفرة بلغة Python."
+description: "تعرف على كيفية إنشاء وتخصيص المخططات في عروض PowerPoint و OpenDocument باستخدام Aspose.Slides for Python عبر .NET. يغطي ذلك إضافة وتنسيق وتحرير المخططات في العروض مع أمثلة عملية للكود بلغة Python."
 ---
-
 ## **نظرة عامة**
 
-توفر هذه المقالة دليلًا شاملًا حول كيفية إنشاء المخططات وتخصيصها باستخدام Aspose.Slides للغة Python عبر .NET. ستتعلم كيفية إضافة مخطط إلى شريحة برمجيًا، وتعبئته بالبيانات، وتطبيق خيارات تنسيق مختلفة لتتناسب مع متطلبات التصميم الخاصة بك. طوال المقالة، توضح أمثلة الكود التفصيلية كل خطوة، بدءًا من تهيئة العرض وكائن المخطط إلى تكوين السلاسل والمحاور والوسائل الإيضاحية. باتباع هذا الدليل، ستحصل على فهم قوي لكيفية دمج إنشاء المخططات الديناميكية في تطبيقاتك، مما يبسط عملية إنشاء عروض تقديمية مدفوعة بالبيانات.
+هذه المقالة توضح كيفية إنشاء الرسوم البيانية وتخصيصها باستخدام Aspose.Slides for Python via .NET. ستتعلم كيفية إضافة رسم بياني إلى شريحة، ملئه بالبيانات، وتنسيقه ليتوافق مع متطلبات التصميم الخاصة بك. تغطي أمثلة الشيفرة إنشاء العروض التقديمية والرسوم البيانية، تكوين السلاسل، المحاور، والوسوم، ودمج توليد الرسوم البيانية في تطبيقاتك.
 
-## **إنشاء مخطط**
+## **إنشاء رسم بياني**
 
-تساعد المخططات الأشخاص على تصور البيانات بسرعة واستخلاص رؤى قد لا تكون واضحة فورًا من جدول أو جدول بيانات.
+تساعد الرسوم البيانية الأشخاص على تصور البيانات بسرعة واكتساب رؤى قد لا تكون واضحة فوراً من جدول أو جدول بيانات.
 
-**لماذا إنشاء مخططات؟**
+**لماذا ننشئ الرسوم البيانية؟**
 
-باستخدام المخططات، يمكنك:
+باستخدام الرسوم البيانية، يمكنك:
 
-* تجميع أو تكثيف أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في العرض التقديمي؛
+* تجميع أو تكثيف أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في عرض تقديمي؛
 * كشف الأنماط والاتجاهات في البيانات؛
-* استنتاج اتجاه وزخم البيانات مع مرور الوقت أو بالنسبة لوحدة قياس محددة؛
-* اكتشاف القيم المتطرفة، والانحرافات، والأخطاء، والبيانات غير المنطقية؛
+* استنتاج الاتجاه والزخم للبيانات بمرور الوقت أو بالنسبة لوحدة قياس معينة؛
+* اكتشاف القيم المتطرفة، الانحرافات، الأخطاء، والبيانات غير المنطقية؛
 * التواصل أو عرض البيانات المعقدة.
 
-في PowerPoint، يمكنك إنشاء المخططات عبر وظيفة *Insert* التي توفر قوالب لتصميم أنواع متعددة من المخططات. باستخدام Aspose.Slides، يمكنك إنشاء مخططات عادية (المستندة إلى أنواع المخططات الشائعة) ومخططات مخصصة.
+في PowerPoint، يمكنك إنشاء الرسوم البيانية من خلال وظيفة *Insert* التي توفر قوالب لتصميم أنواع متعددة من الرسوم البيانية. باستخدام Aspose.Slides، يمكنك إنشاء كل من الرسوم البيانية العادية (المستندة إلى أنواع الرسوم الشائعة) والرسوم البيانية المخصصة.
 
-{{% alert color="primary" %}} 
-استخدم تعداد [ChartType](https://reference.aspose.com/slides/python-net/aspose.slides.charts/charttype/) ضمن مساحة الاسم [Aspose.Slides.Charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/). القيم في هذا التعداد تت对应 لأنواع المخططات المختلفة.
-{{% /alert %}} 
+{{% alert color="info" title="ملاحظة" %}}
+استخدم تعداد [ChartType](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/charttype/) ضمن مساحة الاسم [Aspose.Slides.Charts](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/). القيم في هذا التعداد تتوافق مع أنواع مختلفة من الرسوم البيانية.
+{{% /alert %}}
 
-### **إنشاء مخططات عمودية مجمعة**
+### **إنشاء رسوم عمودية متجمعة**
 
-يوضح هذا القسم كيفية إنشاء مخططات عمودية مجمعة باستخدام Aspose.Slides for Python via .NET. ستتعلم كيفية تهيئة عرض تقديمي، إضافة مخطط، وتخصيص عناصره مثل العنوان والبيانات والسلاسل والفئات والتنسيق. اتبع الخطوات أدناه لرؤية كيفية توليد مخطط عمودي مجمع قياسي:
+تشرح هذه الفقرة كيفية إنشاء رسوم عمودية متجمعة باستخدام Aspose.Slides for Python via .NET. ستتعلم كيفية تهيئة عرض تقديمي، إضافة رسم بياني، وتخصيص عناصره مثل العنوان، البيانات، السلاسل، الفئات، وتنسيقه. اتبع الخطوات أدناه لرؤية كيفية توليد رسم عمودي مجمع قياسي:
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
-1. إضافة مخطط ببيانات معينة وتحديد النوع `ChartType.CLUSTERED_COLUMN`.
-1. إضافة عنوان إلى المخطط.
-1. الوصول إلى ورقة بيانات المخطط.
-1. مسح جميع السلاسل والفئات الافتراضية.
-1. إضافة سلاسل وفئات جديدة.
-1. إضافة بيانات مخطط جديدة للسلسلة.
-1. تطبيق لون تعبئة على سلسلة المخطط.
-1. إضافة تسميات إلى سلسلة المخطط.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).  
+1. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.  
+1. إضافة رسم بياني ببعض البيانات وتحديد النوع `ChartType.CLUSTERED_COLUMN`.  
+1. إضافة عنوان إلى الرسم البياني.  
+1. الوصول إلى ورقة بيانات الرسم البياني.  
+1. مسح جميع السلاسل والفئات الافتراضية.  
+1. إضافة سلاسل وفئات جديدة.  
+1. إضافة بيانات رسم بياني جديدة لسلسلة الرسم.  
+1. تطبيق لون تعبئة على سلسلة الرسم.  
+1. إضافة تسميات إلى سلسلة الرسم.  
 1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود بلغة Python يوضح كيفية إنشاء مخطط عمودي مجمع:
+هذا الكود Python يوضح كيفية إنشاء رسم عمودي مجمع:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# إنشاء فئة Presentation التي تمثل ملف PPTX.
+# إنشاء كائن من فئة Presentation التي تمثل ملف PPTX.
 with slides.Presentation() as presentation:
 
     # الوصول إلى الشريحة الأولى.
     slide = presentation.slides[0]
 
-    # إضافة مخطط عمودي مجمع بالبيانات الافتراضية.
+    # إضافة مخطط عمودي مجمع مع البيانات الافتراضية.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
     # تعيين عنوان المخطط.
@@ -87,9 +87,6 @@ with slides.Presentation() as presentation:
     chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
     chart.chart_title.height = 20
     chart.has_title = True
-
-    # تعيين السلسلة الأولى لإظهار القيم.
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
 
     # تعيين فهرس ورقة بيانات المخطط.
     worksheet_index = 0
@@ -134,14 +131,14 @@ with slides.Presentation() as presentation:
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.green
 
-    # تعيين التسمية الأولى لإظهار اسم الفئة.
+    # تعيين التسمية الأولى لعرض اسم الفئة.
     label = series.data_points[0].label
     label.data_label_format.show_category_name = True
 
     label = series.data_points[1].label
     label.data_label_format.show_series_name = True
 
-    # تعيين السلسلة لإظهار القيمة للتسمية الثالثة.
+    # تعيين السلسلة لعرض القيمة للتسمية الثالثة.
     label = series.data_points[2].label
     label.data_label_format.show_value = True
     label.data_label_format.show_series_name = True
@@ -151,35 +148,35 @@ with slides.Presentation() as presentation:
     presentation.save("ClusteredColumnChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+الناتج:
 
-النتيجة:
+![The clustered column chart](clustered_column_chart.png)
 
-![مخطط عمودي مجمع](clustered_column_chart.png)
+### **إنشاء رسوم مبعثرة**
 
-### **إنشاء مخططات تبعثرة**
+تُستخدم الرسوم المبعثرة (المعروفة أيضاً باسم scatter plots أو x‑y graphs) غالباً للتحقق من الأنماط أو إظهار الارتباطات بين متغيرين.
 
-تُستخدم مخططات التبعثر (المعروفة أيضًا بمخططات التبعثر أو الرسوم البيانية x-y) عادةً للتحقق من الأنماط أو إظهار الارتباطات بين متغيرين.
+استخدم رسم مبعثر عندما:
 
-استخدم مخطط تبعثرة عندما:
+* لديك بيانات عددية مزدوجة.  
+* لديك متغيران يتطابقان معاً بشكل جيد.  
+* تريد تحديد ما إذا كان المتغيران مرتبطين.  
+* لديك متغير مستقل له قيم متعددة لمتغير تابع.
 
-* لديك بيانات عددية مرتبطة.
-* لديك متغيران يتوافقان جيدًا معًا.
-* تريد تحديد ما إذا كان المتغيران مرتبطين.
-* لديك متغير مستقل له قيم متعددة بالنسبة للمتغير التابع.
+هذا الكود Python يوضح كيفية إنشاء رسم مبعثر مع علامات مختلفة لكل سلسلة:
 
-هذا الكود بلغة Python يوضح كيفية إنشاء مخطط تبعثرة بسلسلة مختلفة من العلامات:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# إنشاء كائن فئة Presentation.
+# إنشاء كائن من فئة Presentation.
 with slides.Presentation() as presentation:
 
     # الوصول إلى الشريحة الأولى.
     slide = presentation.slides[0]
 
-    # إنشاء مخطط التبعثر الافتراضي.
+    # إنشاء مخطط مبعثر افتراضي.
     chart = slide.shapes.add_chart(charts.ChartType.SCATTER_WITH_SMOOTH_LINES, 20, 20, 500, 300)
 
     # تعيين فهرس ورقة بيانات المخطط.
@@ -233,41 +230,41 @@ with slides.Presentation() as presentation:
     presentation.save("ScatterChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+الناتج:
 
-النتيجة:
+![The scatter chart](scatter_chart.png)
 
-![مخطط تبعثرة](scatter_chart.png)
+### **إنشاء رسوم دائرية**
 
-### **إنشاء مخططات دائريه**
+تُعد الرسوم الدائرية الأفضل لإظهار علاقة الجزء إلى الكل في البيانات، خاصةً عندما تحتوي البيانات على تسميات فئوية مع قيم رقمية. ومع ذلك، إذا احتوت بياناتك على العديد من الأجزاء أو التسميات، قد ترغب في النظر إلى استخدام رسم شريطي بدلاً من ذلك.
 
-تُستخدم المخططات الدائرية لإظهار علاقة الجزء إلى الككل في البيانات، خاصة عندما تحتوي البيانات على تسميات فئوية مع قيم عددية. إذا احتوت بياناتك على أجزاء أو تسميات كثيرة، قد تفضل استخدام مخطط شريطي بدلاً منها.
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
-1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.PIE`.
-1. الوصول إلى دفتر بيانات المخطط ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. مسح السلاسل والفئات الافتراضية.
-1. إضافة سلاسل وفئات جديدة.
-1. إضافة بيانات مخطط جديدة للسلسلة.
-1. إضافة نقاط جديدة للمخطط وتطبيق ألوان مخصصة على قطاعات المخطط الدائري.
-1. تعيين تسميات للسلسلة.
-1. تمكين خطوط القادة لتسميات السلسلة.
-1. تعيين زاوية الدوران للمخطط الدائري.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).  
+1. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.  
+1. إضافة رسم بياني بالبيانات الافتراضية وتحديد النوع `ChartType.PIE`.  
+1. الوصول إلى دفتر بيانات الرسم ([ChartDataWorkbook](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/)).  
+1. مسح السلاسل والفئات الافتراضية.  
+1. إضافة سلاسل وفئات جديدة.  
+1. إضافة بيانات رسم بياني جديدة للسلسلة.  
+1. إضافة نقاط جديدة للرسم وتطبيق ألوان مخصصة على قطاعات الرسم الدائري.  
+1. ضبط التسميات للسلسلة.  
+1. تفعيل خطوط القائد لتسميات السلسلة.  
+1. ضبط زاوية الدوران للرسم الدائري.  
 1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود بلغة Python يوضح كيفية إنشاء مخطط دائري:
+هذا الكود Python يوضح كيفية إنشاء رسم دائري:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# إنشاء كائن فئة Presentation الذي يمثل ملف PPTX.
+# إنشاء كائن من فئة Presentation التي تمثل ملف PPTX.
 with slides.Presentation() as presentation:
 
     # الوصول إلى الشريحة الأولى.
     slide = presentation.slides[0]
 
-    # إضافة مخطط بالبيانات الافتراضية.
+    # إضافة مخطط مع بياناته الافتراضية.
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 20, 20, 500, 300)
 
     # تعيين عنوان المخطط.
@@ -275,9 +272,6 @@ with slides.Presentation() as presentation:
     chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
     chart.chart_title.height = 20
     chart.has_title = True
-
-    # تعيين السلسلة الأولى لإظهار القيم.
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
 
     # تعيين فهرس ورقة بيانات المخطط.
     worksheet_index = 0
@@ -297,7 +291,7 @@ with slides.Presentation() as presentation:
     # إضافة سلاسل جديدة.
     series = chart.chart_data.series.add(workbook.get_cell(0, 0, 1, "Series 1"), chart.type)
 
-    # تعبئة بيانات السلسلة.
+    # ملء بيانات السلسلة.
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 1, 1, 20))
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 2, 1, 50))
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 3, 1, 30))
@@ -309,7 +303,7 @@ with slides.Presentation() as presentation:
     point.format.fill.fill_type = slides.FillType.SOLID
     point.format.fill.solid_fill_color.color = draw.Color.cyan
 
-    # تعيين حدود القطاع.
+    # تعيين حد القطاع.
     point.format.line.fill_format.fill_type = slides.FillType.SOLID
     point.format.line.fill_format.solid_fill_color.color = draw.Color.gray
     point.format.line.width = 3.0
@@ -320,7 +314,7 @@ with slides.Presentation() as presentation:
     point1.format.fill.fill_type = slides.FillType.SOLID
     point1.format.fill.solid_fill_color.color = draw.Color.brown
 
-    # تعيين حدود القطاع.
+    # تعيين حد القطاع.
     point1.format.line.fill_format.fill_type = slides.FillType.SOLID
     point1.format.line.fill_format.solid_fill_color.color = draw.Color.blue
     point1.format.line.width = 3.0
@@ -331,7 +325,7 @@ with slides.Presentation() as presentation:
     point2.format.fill.fill_type = slides.FillType.SOLID
     point2.format.fill.solid_fill_color.color = draw.Color.coral
 
-    # تعيين حدود القطاع.
+    # تعيين حد القطاع.
     point2.format.line.fill_format.fill_type = slides.FillType.SOLID
     point2.format.line.fill_format.solid_fill_color.color = draw.Color.red
     point2.format.line.width = 2.0
@@ -352,35 +346,31 @@ with slides.Presentation() as presentation:
     label3.data_label_format.show_series_name = True
     label3.data_label_format.show_percentage = True
 
-    # تعيين السلسلة لإظهار خطوط الربط للمخطط.
+    # تعيين السلسلة لعرض خطوط القائد للمخطط.
     series.labels.default_data_label_format.show_leader_lines = True
 
-    # تعيين زاوية الدوران لقطاعات مخطط الفطيرة.
+    # تعيين زاوية الدوران لقطاعات المخطط الدائري.
     chart.chart_data.series_groups[0].first_slice_angle = 180
 
     # حفظ العرض التقديمي إلى القرص كملف PPTX.
     presentation.save("PieChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+الناتج:
 
-النتيجة:
+![The pie chart](pie_chart.png)
 
-![مخطط دائري](pie_chart.png)
+### **إنشاء رسوم خطية**
 
-### **إنشاء مخططات خطية**
+تُعد الرسوم الخطية (المعروفة أيضاً باسم line graphs) الأفضل في الحالات التي تريد فيها إظهار تغير القيم بمرور الوقت. باستخدام رسم خطي، يمكنك مقارنة كمية كبيرة من البيانات مرة واحدة، تعقب التغييرات والاتجاهات عبر الزمن، تسليط الضوء على الشذوذ في سلاسل البيانات، وأكثر من ذلك.
 
-تُستخدم المخططات الخطية (المعروفة أيضًا بالرسوم البيانية الخطية) عندما ترغب في توضيح تغير القيم مع مرور الوقت. باستخدام مخطط خطي، يمكنك مقارنة كمية كبيرة من البيانات في آنٍ واحد، تتبع التغييرات والاتجاهات بمرور الوقت، إبراز الشذوذ في سلاسل البيانات، وأكثر.
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
-1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.LINE`.
-1. الوصول إلى دفتر بيانات المخطط ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. مسح السلاسل والفئات الافتراضية.
-1. إضافة سلاسل وفئات جديدة.
-1. إضافة بيانات مخطط جديدة للسلسلة.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).  
+1. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.  
+1. إضافة رسم بياني بالبيانات الافتراضية وتحديد النوع `ChartType.LINE`.  
 1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود بلغة Python يوضح كيفية إنشاء مخطط خطي:
+هذا الكود Python يوضح كيفية إنشاء رسم خطي:
+
 ```python
 import aspose.slides as slides
 
@@ -390,34 +380,39 @@ with slides.Presentation() as presentation:
     presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+افتراضيًا، يتم ربط نقاط الرسم الخطي بخطوط مستمرة مستقيمة. إذا رغبت في ربط النقاط بخطوط متقطعة، يمكنك تحديد نوع الخط المتقطع المفضل كما يلي:
 
-بشكل افتراضي، تُربط النقاط في المخطط الخطي بخطوط مستمرة مستقيمة. إذا رغبت في ربط النقاط بخطوط متقطعة، يمكنك تحديد نوع الخط المتقطع كما يلي:
 ```python
-line_chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+import aspose.slides as slides
 
-for series in line_chart.chart_data.series:
-    series.format.line.dash_style = slides.charts.LineDashStyle.DASH
+with slides.Presentation() as presentation:
+    line_chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+
+    for series in line_chart.chart_data.series:
+        series.format.line.dash_style = slides.LineDashStyle.DASH
+
+    presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+الناتج:
 
-النتيجة:
+![The line chart](line_chart.png)
 
-![مخطط خطي](line_chart.png)
+### **إنشاء رسوم شجرية (Tree Map)**
 
-### **إنشاء مخططات شجرة خريطة**
+تُعد رسوم الشجرة (Tree Map) الأفضل لبيانات المبيعات عندما تريد إظهار الحجم النسبي لفئات البيانات وجذب الانتباه بسرعة إلى العناصر التي تُعد مساهمات كبيرة داخل كل فئة.
 
-تُستخدم مخططات شجرة الخريطة لعرض بيانات المبيعات عندما ترغب في إظهار الحجم النسبي لفئات البيانات وجذب الانتباه بسرعة إلى العناصر التي تُساهم بشكل كبير داخل كل فئة.
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
-1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.TREEMAP`.
-1. الوصول إلى دفتر بيانات المخطط ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. مسح السلاسل والفئات الافتراضية.
-1. إضافة سلاسل وفئات جديدة.
-1. إضافة بيانات مخطط جديدة للسلسلة.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).  
+1. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.  
+1. إضافة رسم بياني بالبيانات الافتراضية وتحديد النوع `ChartType.TREEMAP`.  
+1. الوصول إلى دفتر بيانات الرسم ([ChartDataWorkbook](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/)).  
+1. مسح السلاسل والفئات الافتراضية.  
+1. إضافة سلاسل وفئات جديدة.  
+1. إضافة بيانات رسم بياني جديدة للسلسلة.  
 1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود بلغة Python يوضح كيفية إنشاء مخطط شجرة خريطة:
+هذا الكود Python يوضح كيفية إنشاء رسم شجري:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -471,26 +466,26 @@ with slides.Presentation() as presentation:
     presentation.save("TreeMap.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+الناتج:
 
-النتيجة:
+![The treemap chart](treemap_chart.png)
 
-![مخطط شجرة خريطة](treemap_chart.png)
+### **إنشاء رسوم أسهم (Stock)**
 
-### **إنشاء مخططات الأسهم**
+تُستخدم رسوم الأسهم لعرض البيانات المالية مثل الأسعار الافتتاحية، العلوية، الدنيا، والإغلاق، مما يساعد على تحليل اتجاهات السوق وتقلباته. توفر رؤى أساسية حول أداء الأسهم، وتساعد المستثمرين والمحللين على اتخاذ قرارات مستنيرة.
 
-تُستخدم مخططات الأسهم لعرض البيانات المالية مثل أسعار الفتح، والارتفاع، والانخفاض، والإغلاق، ما يساعد في تحليل اتجاهات السوق وتقلباته. إنها توفر رؤى أساسية حول أداء الأسهم، مما يساعد المستثمرين والمحللين على اتخاذ قرارات مستنيرة.
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
-1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.OPEN_HIGH_LOW_CLOSE`.
-1. الوصول إلى دفتر بيانات المخطط ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. مسح السلاسل والفئات الافتراضية.
-1. إضافة سلاسل وفئات جديدة.
-1. إضافة بيانات مخطط جديدة للسلسلة.
-1. تحديد تنسيق HiLowLines.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).  
+1. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.  
+1. إضافة رسم بياني بالبيانات الافتراضية وتحديد النوع `ChartType.OPEN_HIGH_LOW_CLOSE`.  
+1. الوصول إلى دفتر بيانات الرسم ([ChartDataWorkbook](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/)).  
+1. مسح السلاسل والفئات الافتراضية.  
+1. إضافة سلاسل وفئات جديدة.  
+1. إضافة بيانات رسم بياني جديدة للسلسلة.  
+1. تحديد تنسيق خطوط العلو‑الدنيا.  
 1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود بلغة Python يوضح كيفية إنشاء مخطط أسهم:
+هذا الكود Python يوضح كيفية إنشاء رسم أسهم:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -543,25 +538,25 @@ with slides.Presentation() as presentation:
     presentation.save("StockChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+الناتج:
 
-النتيجة:
+![The stock chart](stock_chart.png)
 
-![مخطط أسهم](stock_chart.png)
+### **إنشاء رسوم الصندوق والشارب (Box and Whisker)**
 
-### **إنشاء مخططات الصندوق والشارب**
+تُستخدم رسوم الصندوق والشارب لعرض توزيع البيانات من خلال تلخيص مقاييس إحصائية رئيسية مثل الوسيط، الأرباع، والقيم المتطرفة المحتملة. هي مفيدة جداً في التحليل الاستكشافي للبيانات والدراسات الإحصائية لتفهّم تباين البيانات بسرعة وتحديد أي شذوذ.
 
-تُستخدم مخططات الصندوق والشارب لعرض توزيع البيانات من خلال تلخيص مقاييس إحصائية رئيسية مثل الوسيط والرباعيات والقيم المتطرفة المحتملة. إنها مفيدة بشكل خاص في التحليل الاستكشافي للبيانات والدراسات الإحصائية لفهم تباين البيانات بسرعة وتحديد أي شذوذ.
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
-1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.BOX_AND_WHISKER`.
-1. الوصول إلى دفتر بيانات المخطط ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. مسح السلاسل والفئات الافتراضية.
-1. إضافة سلاسل وفئات جديدة.
-1. إضافة بيانات مخطط جديدة للسلسلة.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).  
+1. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.  
+1. إضافة رسم بياني بالبيانات الافتراضية وتحديد النوع `ChartType.BOX_AND_WHISKER`.  
+1. الوصول إلى دفتر بيانات الرسم ([ChartDataWorkbook](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/)).  
+1. مسح السلاسل والفئات الافتراضية.  
+1. إضافة سلاسل وفئات جديدة.  
+1. إضافة بيانات رسم بياني جديدة للسلسلة.  
 1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود بلغة Python يوضح كيفية إنشاء مخطط صندوق وشارب:
+هذا الكود Python يوضح كيفية إنشاء رسم صندوق وشارب:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -600,17 +595,17 @@ with slides.Presentation() as presentation:
     presentation.save("BoxAndWhiskerChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **إنشاء رسوم قمعية (Funnel)**
 
-### **إنشاء مخططات القمع**
+تُستخدم الرسوم القمعية لتصوير عمليات تتضمن مراحل متتالية، حيث يقل حجم البيانات كلما انتقل من خطوة إلى أخرى. هي مفيدة خاصةً لتحليل معدلات التحويل، تحديد الاختناقات، وتتبع كفاءة عمليات المبيعات أو التسويق.
 
-تُستخدم مخططات القمع لتصور العمليات التي تتضمن مراحل متسلسلة، حيث يقل حجم البيانات كلما انتقل إلى الخطوة التالية. إنها مفيدة بشكل خاص لتحليل معدلات التحويل، وتحديد عنق الزجاجة، وتتبع كفاءة عمليات المبيعات أو التسويق.
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
-1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.FUNNEL`.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).  
+1. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.  
+1. إضافة رسم بياني بالبيانات الافتراضية وتحديد النوع `ChartType.FUNNEL`.  
 1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود بلغة Python يوضح كيفية إنشاء مخطط قمع:
+هذا الكود Python يوضح كيفية إنشاء رسم قمعي:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -643,21 +638,21 @@ with slides.Presentation() as presentation:
     presentation.save("FunnelChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+الناتج:
 
-النتيجة:
+![The funnel chart](funnel_chart.png)
 
-![مخطط قمع](funnel_chart.png)
+### **إنشاء رسوم شمسية (Sunburst)**
 
-### **إنشاء مخططات الشمسية**
+تُستخدم الرسوم الشمسية لتصوير البيانات الهرمية، حيث تُعرض المستويات كحلقات متراكبة. تساعد على توضيح علاقات الجزء إلى الكل وتُعد مثالية لتمثيل الفئات المتداخلة والفروع الفرعية بصورة واضحة ومضغوطة.
 
-تُستخدم المخططات الشمسية لتصور البيانات الهرمية، حيث تُعرض المستويات كحلقات متحدة المركز. تساعد في توضيح علاقات الجزء إلى الكل وتعد مثالية لتمثيل الفئات المتداخلة والفروع بصورة واضحة ومضغوطة.
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
-1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.SUNBURST`.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).  
+1. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.  
+1. إضافة رسم بياني بالبيانات الافتراضية وتحديد النوع `ChartType.SUNBURST`.  
 1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود بلغة Python يوضح كيفية إنشاء مخطط شمسي:
+هذا الكود Python يوضح كيفية إنشاء رسم شمسية:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -709,24 +704,24 @@ with slides.Presentation() as presentation:
     presentation.save("SunburstChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+الناتج:
 
-النتيجة:
+![The sunburst chart](sunburst_chart.png)
 
-![مخطط شمسي](sunburst_chart.png)
+### **إنشاء رسوم تدرجية (Histogram)**
 
-### **إنشاء مخططات التوزيع التكراري (Histogram)**
+تُستخدم الرسوم التدرجية لتصوير توزيع البيانات العددية من خلال تجميع القيم إلى فئات أو صناديق. هي مفيدة لتحديد أنماط البيانات مثل التردد، الانحراف، والانتشار، وللكشف عن القيم المتطرفة في مجموعة البيانات.
 
-تُستخدم مخططات التوزيع التكراري لتمثيل توزيع البيانات العددية عن طريق تجميع القيم في فواصل أو صنف. إنها مفيدة لتحديد أنماط البيانات مثل التكرار، والتماثل، والانتشار، واكتشاف القيم المتطرفة في مجموعة البيانات.
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
-1. إضافة مخطط ببيانات معينة وتحديد النوع `ChartType.HISTOGRAM`.
-1. الوصول إلى دفتر بيانات المخطط ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. مسح السلاسل والفئات الافتراضية.
-1. إضافة سلاسل وفئات جديدة.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).  
+1. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.  
+1. إضافة رسم بياني ببعض البيانات وتحديد النوع `ChartType.HISTOGRAM`.  
+1. الوصول إلى دفتر بيانات الرسم ([ChartDataWorkbook](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/)).  
+1. مسح السلاسل والفئات الافتراضية.  
+1. إضافة سلسلة جديدة وملئها بنقاط البيانات. لا توجد فئات في التدرج؛ يتم حساب الصناديق من القيم.  
 1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود بلغة Python يوضح كيفية إنشاء مخطط التوزيع التكراري:
+هذا الكود Python يوضح كيفية إنشاء رسم تدرجي:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -753,48 +748,48 @@ with slides.Presentation() as presentation:
     presentation.save("HistogramChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+الناتج:
 
-النتيجة:
+![The histogram chart](histogram_chart.png)
 
-![مخطط توزيع تكراري](histogram_chart.png)
+### **إنشاء رسوم رادارية (Radar)**
 
-### **إنشاء مخططات رادارية**
+تُستخدم الرسوم الرادارية لعرض بيانات متعددة المتغيرات في تنسيق ثنائي الأبعاد، مما يتيح مقارنة عدة متغيرات في آن واحد. هي مفيدة لتحديد الأنماط، النقاط القوية والضعيفة عبر مقاييس أداء أو خصائص متعددة.
 
-تُستخدم المخططات الرادارية لعرض بيانات متعددة المتغيرات في تنسيق ثنائي الأبعاد، مما يتيح المقارنة السهلة لعدة متغيرات في آنٍ واحد. إنها مفيدة لتحديد الأنماط، والقوة، والضعف عبر مقاييس أداء متعددة أو سمات مختلفة.
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
-1. إضافة مخطط ببيانات معينة وتحديد النوع `ChartType.RADAR`.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).  
+1. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.  
+1. إضافة رسم بياني ببعض البيانات وتحديد النوع `ChartType.RADAR`.  
 1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود بلغة Python يوضح كيفية إنشاء مخطط راداري:
+هذا الكود Python يوضح كيفية إنشاء رسم راداري:
+
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     presentation.slides[0].shapes.add_chart(slides.charts.ChartType.RADAR, 20, 20, 500, 300)
-    presentation.save("RadarСhart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("RadarChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+الناتج:
 
-النتيجة:
+![The radar chart](radar_chart.png)
 
-![مخطط راداري](radar_chart.png)
+### **إنشاء رسوم متعددة الفئات (Multi-Category)**
 
-### **إنشاء مخططات متعددة الفئات**
+تُستخدم الرسوم متعددة الفئات لعرض بيانات تتضمن أكثر من تجميع تصنيفي، مما يسمح بمقارنة القيم عبر أبعاد متعددة في آن واحد. هي مفيدة عندما تحتاج إلى تحليل الاتجاهات والعلاقات داخل مجموعات بيانات معقدة متعددة الطبقات.
 
-تُستخدم مخططات متعددة الفئات لعرض بيانات تتضمن أكثر من مجموعة فئوية واحدة، مما يتيح مقارنة القيم عبر أبعاد متعددة في آنٍ واحد. إنها مفيدة عندما تحتاج إلى تحليل الاتجاهات والعلاقات داخل مجموعات بيانات معقدة ومتعددة الطبقات.
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
-1. إضافة مخطط ببيانات افتراضية وتحديد النوع `ChartType.CLUSTERED_COLUMN`.
-1. الوصول إلى دفتر بيانات المخطط ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. مسح السلاسل والفئات الافتراضية.
-1. إضافة سلاسل وفئات جديدة.
-1. إضافة بيانات مخطط جديدة للسلسلة.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).  
+1. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.  
+1. إضافة رسم بياني بالبيانات الافتراضية وتحديد النوع `ChartType.CLUSTERED_COLUMN`.  
+1. الوصول إلى دفتر بيانات الرسم ([ChartDataWorkbook](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/)).  
+1. مسح السلاسل والفئات الافتراضية.  
+1. إضافة سلاسل وفئات جديدة.  
+1. إضافة بيانات رسم بياني جديدة للسلسلة.  
 1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود بلغة Python يوضح كيفية إنشاء مخطط متعدد الفئات:
+هذا الكود Python يوضح كيفية إنشاء رسم متعدد الفئات:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -844,16 +839,16 @@ with slides.Presentation() as presentation:
     presentation.save("MultiCategoryChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+الناتج:
 
-النتيجة:
+![The multi-category chart](multi_category_chart.png)
 
-![مخطط متعدد الفئات](multi_category_chart.png)
+### **إنشاء رسوم خرائط (Map)**
 
-### **إنشاء مخططات الخريطة**
+تُستخدم رسوم الخرائط لتصوير البيانات الجغرافية عن طريق ربط المعلومات بمواقع محددة مثل البلدان أو الولايات أو المدن. هي مفيدة لتحليل الاتجاهات الإقليمية، البيانات الديموغرافية، والتوزيعات المكانية بطريقة واضحة وجذابة بصرياً.
 
-تُستخدم مخططات الخريطة لتصوير البيانات الجغرافية عن طريق ربط المعلومات بمواقع محددة مثل دول أو ولايات أو مدن. إنها مفيدة لتحليل الاتجاهات الإقليمية، والبيانات الديموغرافية، وتوزيعات الفضاء بطريقة بصرية واضحة وجذابة.
+هذا الكود Python يوضح كيفية إنشاء رسم خريطة:
 
-هذا الكود بلغة Python يوضح كيفية إنشاء مخطط خريطة:
 ```python
 import aspose.slides as slides
 
@@ -862,19 +857,23 @@ with slides.Presentation() as presentation:
     presentation.save("mapChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+الناتج:
 
-النتيجة:
+![The map chart](map_chart.png)
 
-![مخطط خريطة](map_chart.png)
+### **إنشاء رسوم مركبة (Combination)**
 
-### **إنشاء مخططات مركبة**
+الرسم المركب (أو combo chart) يجمع نوعين أو أكثر من الرسوم البيانية في رسم بياني واحد. يتيح لك هذا الرسم تسليط الضوء، المقارنة، أو فحص الفروق بين مجموعتين أو أكثر من البيانات، مما يساعدك على تحديد العلاقات بينها.
 
-تجمع المخططات المركبة (أو مخططات الكمبو) نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح هذا المخطط تسليط الضوء على، أو مقارنة، أو فحص الفروق بين مجموعتين أو أكثر من البيانات، مما يساعدك على تحديد العلاقات بينها.
+![The combination chart](combination_chart.png)
 
-![مخطط مركب](combination_chart.png)
+الكود Python التالي يوضح كيفية إنشاء الرسم المركب المعروض أعلاه في عرض PowerPoint:
 
-الكود التالي بلغة Python يوضح كيفية إنشاء المخطط المركب المعروض أعلاه في عرض PowerPoint:
 ```python
+import aspose.slides.charts as charts
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
 def create_combo_chart():
     with slides.Presentation() as presentation:
         chart = create_chart_with_first_series(presentation.slides[0])
@@ -972,7 +971,7 @@ def set_primary_axes_format(chart):
 
     set_axis_title(horizontal_axis, "X Axis")
 
-    # تعيين المحور الرأسي.
+    # تعيين المحور العمودي.
     vertical_axis = chart.axes.vertical_axis
     vertical_axis.text_format.portion_format.font_height = 12.0
     vertical_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
@@ -994,7 +993,7 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
     secondary_horizontal_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # تعيين المحور الرأسي الثانوي.
+    # تعيين المحور العمودي الثانوي.
     secondary_vertical_axis = chart.axes.secondary_vertical_axis
     secondary_vertical_axis.position = charts.AxisPositionType.RIGHT
     secondary_vertical_axis.text_format.portion_format.font_height = 12.0
@@ -1013,20 +1012,20 @@ def set_axis_title(axis, axis_title):
     title_portion_format.font_height = 12.0
 ```
 
+## **تحديث الرسوم البيانية**
 
-## **تحديث المخططات**
+يتيح Aspose.Slides for Python via .NET تحديث بيانات الرسوم، التنسيق، والتنسيق لتبقى عروض PowerPoint الخاصة بك محدثة.
 
-تمكنك Aspose.Slides for Python via .NET من تحديث مخططات PowerPoint عبر تعديل بيانات المخطط وتنسيقه وتنسيقه البصري. تُبسّط هذه الوظيفة عملية الحفاظ على عروض تقديمية محدثة بمحتوى ديناميكي وتضمن أن المخططات تعكس بدقة البيانات الحالية والمعايير البصرية.
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) التي تمثل العرض التقديمي الذي يحتوي على مخطط.
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
-1. اجتياز جميع الأشكال للعثور على المخطط.
-1. الوصول إلى ورقة بيانات المخطط.
-1. تعديل سلسلة بيانات المخطط بتغيير قيم السلسلة.
-1. إضافة سلسلة جديدة وتعبئة بياناتها.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) لفتح العرض التقديمي الذي يحتوي على الرسم.  
+1. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.  
+1. استعراض جميع الأشكال للعثور على الرسم.  
+1. الوصول إلى ورقة بيانات الرسم.  
+1. تعديل سلاسل بيانات الرسم بتغيير قيم السلسلة.  
+1. إضافة سلسلة جديدة وتعبئة بياناتها.  
 1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود بلغة Python يوضح كيفية تحديث مخطط:
+هذا الكود Python يوضح كيفية تحديث رسم بياني:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -1034,7 +1033,7 @@ import aspose.pydrawing as draw
 
 chart_name = "My chart"
 
-# إنشاء كائن فئة Presentation التي تمثل ملف PPTX.
+# إنشاء كائن من فئة Presentation التي تمثل ملف PPTX.
 with slides.Presentation("ExistingChart.pptx") as presentation:
 
     # الوصول إلى الشريحة الأولى.
@@ -1075,7 +1074,7 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
             # إضافة سلسلة جديدة.
             series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 3, "Series 3"), chart.type)
 
-            # تعبئة بيانات السلسلة.
+            # ملء بيانات السلسلة.
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 3, 20))
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 3, 50))
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 3, 30))
@@ -1086,18 +1085,18 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
             presentation.save("ModifiedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **تحديد نطاق البيانات لرسم بياني**
 
-## **تحديد نطاق البيانات للمخططات**
+يتيح Aspose.Slides for Python via .NET استخدام نطاق ورقة عمل معين كمصدر بيانات للرسم البياني. يتحكم هذا في الخلايا التي تزود الرسم بسلسلة وفئات، ويسمح لك بتحديث الرسم ليعكس التغييرات في الورقة.
 
-توفر Aspose.Slides for Python via .NET المرونة لتحديد نطاق بيانات معين من ورقة العمل كمصدر لبيانات مخططك. يعني ذلك أنه يمكنك ربط جزء من ورقة العمل مباشرةً بالمخطط، مما يتيح لك التحكم في الخلايا التي تسهم في سلاسل وفئات المخطط. ونتيجة لذلك، يمكنك بسهولة تحديث ومزامنة مخططاتك مع أحدث تغييرات البيانات في ورقة العمل، وضمان أن عروض PowerPoint تعكس معلومات حديثة ودقيقة.
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) التي تمثل العرض التقديمي الذي يحتوي على مخطط.
-1. الحصول على مرجع إلى شريحة باستخدام فهرستها.
-1. اجتياز جميع الأشكال للعثور على المخطط.
-1. الوصول إلى بيانات المخطط وتحديد النطاق.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) لفتح العرض التقديمي الذي يحتوي على الرسم.  
+1. الحصول على مرجع إلى شريحة باستخدام الفهرس الخاص بها.  
+1. استعراض جميع الأشكال للعثور على الرسم.  
+1. الوصول إلى بيانات الرسم وتحديد النطاق.  
 1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود بلغة Python يوضح كيفية تحديد نطاق البيانات لمخطط:
+هذا الكود Python يوضح كيفية تحديد نطاق البيانات لرسم بياني:
+
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -1105,7 +1104,7 @@ import aspose.pydrawing as draw
 
 chart_name = "My chart"
 
-# إنشاء كائن فئة Presentation الذي يمثل ملف PPTX.
+# إنشاء كائن من فئة Presentation التي تمثل ملف PPTX.
 with slides.Presentation("ExistingChart.pptx") as presentation:
 
     # الوصول إلى الشريحة الأولى.
@@ -1119,12 +1118,12 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("DataRange.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **استخدام العلامات الافتراضية في الرسوم البيانية**
 
-## **استخدام العلامات الافتراضية في المخططات**
+عند استخدام العلامات الافتراضية في الرسوم البيانية، يحصل كل سلسلة على رمز علامة مختلف تلقائيًا.
 
-عند استخدام العلامات الافتراضية في المخططات، يحصل كل سلسلة مخطط على رمز علامة افتراضي مختلف تلقائيًا.
+هذا الكود Python يوضح كيفية تعيين علامة سلسلة رسم تلقائيًا:
 
-هذا الكود بلغة Python يوضح كيفية تعيين علامة سلسلة مخطط تلقائيًا:
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
@@ -1167,21 +1166,20 @@ with slides.Presentation() as presentation:
     presentation.save("DefaultMarkersInChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **الأسئلة المتكررة**
 
-## **الأسئلة الشائعة**
+**ما هي أنواع الرسوم البيانية المدعومة من قبل Aspose.Slides for Python via .NET؟**
 
-**ما أنواع المخططات التي تدعمها Aspose.Slides for Python via .NET؟**
+يدعم Aspose.Slides for Python via .NET مجموعة واسعة من أنواع الرسوم البيانية، بما في ذلك العمودية، الخطية، الدائرية، المساحية، المبعثرة، التدرجية، الرادارية، والعديد غيرها. تتيح لك هذه المرونة اختيار النوع الأنسب لاحتياجاتك في تصور البيانات.
 
-تدعم Aspose.Slides for Python via .NET مجموعة واسعة من أنواع المخططات، بما في ذلك المخططات الشريطية، الخطية، الدائرية، المساحية، التبعثر، التوزيع التكراري، الرادارية، والعديد غيرها. تتيح لك هذه المرونة اختيار النوع الأنسب لتصور بياناتك.
+**كيف يمكنني إضافة رسم بياني جديد إلى شريحة؟**
 
-**كيف يمكنني إضافة مخطط جديد إلى شريحة؟**
+لإضافة رسم بياني، تقوم أولاً بإنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/)، ثم تستعيد الشريحة المطلوبة باستخدام فهرسها، ثم تستدعي الطريقة لإضافة رسم بياني، مع تحديد نوع الرسم والبيانات الأولية. يدمج هذا العملية الرسم مباشرةً في العرض التقديمي.
 
-لإضافة مخطط، تقوم أولاً بإنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)، استرجاع الشريحة المطلوبة باستخدام فهرستها، ثم استدعاء الطريقة لإضافة مخطط مع تحديد نوع المخطط والبيانات الأولية. يدمج هذا العملية المخطط مباشرةً في العرض التقديمي.
+**كيف يمكنني تحديث البيانات المعروضة في رسم بياني؟**
 
-**كيف يمكنني تحديث البيانات المعروضة في مخطط؟**
+يمكنك تحديث بيانات الرسم من خلال الوصول إلى دفتر بياناته ([ChartDataWorkbook](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة بياناتك المخصصة. يتيح لك ذلك تحديث الرسم برمجيًا ليعكس أحدث البيانات.
 
-يمكنك تحديث بيانات المخطط عبر الوصول إلى دفتر بياناته ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة بياناتك المخصصة. يتيح لك ذلك تجديد المخطط برمجيًا لمطابقة أحدث البيانات.
+**هل يمكن تخصيص مظهر الرسم البياني؟**
 
-**هل يمكن تخصيص مظهر المخطط؟**
-
-نعم، توفر Aspose.Slides for Python via .NET خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، الوسائل الإيضاحية، وغيرها من عناصر التنسيق لتتناسب مع متطلبات التصميم الخاصة بك.
+نعم، يوفر Aspose.Slides for Python via .NET خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، الوسوم، وعناصر التنسيق الأخرى لتكييف مظهر الرسم وفقًا لمتطلبات التصميم الخاصة بك.

@@ -1,83 +1,80 @@
 ---
-title: Tworzenie lub aktualizacja wykresów w prezentacjach PowerPoint w JavaScript
-linktitle: Tworzenie lub aktualizacja wykresów
+title: Utwórz lub zaktualizuj wykresy w prezentacji PowerPoint w JavaScript
+linktitle: Utwórz lub zaktualizuj wykresy
 type: docs
 weight: 10
 url: /pl/nodejs-java/create-chart/
 keywords:
 - dodaj wykres
-- twórz wykres
+- utwórz wykres
 - edytuj wykres
 - zmień wykres
-- aktualizuj wykres
-- wykres rozproszony
+- zaktualizuj wykres
+- wykres punktowy
 - wykres kołowy
 - wykres liniowy
 - wykres mapy drzewa
 - wykres giełdowy
-- wykres pudełkowo‑wąsowy
+- wykres pudełkowy i wąsowy
 - wykres lejkowy
-- wykres promieniowy
-- wykres histogramu
+- wykres promienisty
+- wykres histogramowy
 - wykres radarowy
-- wykres wielokategorii
+- wykres wielokategorialny
 - PowerPoint
 - prezentacja
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Twórz i dostosowuj wykresy w prezentacjach PowerPoint za pomocą Aspose.Slides dla Node.js. Dodawaj, formatuj i edytuj wykresy z praktycznymi przykładami kodu w JavaScript."
+description: "Utwórz i dostosuj wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Node.js. Dodawaj, formatowuj i edytuj wykresy za pomocą praktycznych przykładów kodu w JavaScript."
 ---
 ## **Przegląd**
 
-Ten artykuł zapewnia kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides. Dowiesz się, jak programowo dodać wykres do slajdu, wypełnić go danymi oraz zastosować różne opcje formatowania, aby spełnić określone wymagania projektowe. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidne zrozumienie, jak integrować dynamiczne generowanie wykresów w aplikacjach, upraszczając proces tworzenia prezentacji opartych na danych.
+Ten artykuł zapewnia kompleksowy przewodnik, jak tworzyć i dostosowywać wykresy przy użyciu Aspose.Slides. Dowiesz się, jak programowo dodać wykres do slajdu, wypełnić go danymi oraz zastosować różne opcje formatowania, aby dopasować go do konkretnych wymagań projektowych. W całym artykule szczegółowe przykłady kodu ilustrują każdy krok, od inicjalizacji prezentacji i obiektu wykresu po konfigurowanie serii, osi i legend. Postępując zgodnie z tym przewodnikiem, zdobędziesz solidną wiedzę na temat integrowania dynamicznego generowania wykresów w aplikacjach, usprawniając proces tworzenia prezentacji opartych na danych.
 
-## **Tworzenie wykresu**
-Wykresy pomagają szybko wizualizować dane i uzyskiwać wnioski, które nie są od razu oczywiste z tabeli lub arkusza kalkulacyjnego. 
+## **Utwórz wykres**
 
+Wykresy pomagają szybko wizualizować dane i uzyskać wnioski, które mogą nie być od razu oczywiste z tabeli lub arkusza kalkulacyjnego.
 
 **Dlaczego tworzyć wykresy?**
 
-Korzystając z wykresów, możesz
+Korzystając z wykresów, możesz:
 
-* zagregować, skondensować lub podsumować duże ilości danych na jednym slajdzie w prezentacji
-* ujawnić wzorce i trendy w danych
-* wywnioskować kierunek i dynamikę danych w czasie lub w odniesieniu do określonej jednostki miary 
-* wykrywać wartości odstające, aberracje, odchylenia, błędy, nielogiczne dane itp.
-* przekazywać lub prezentować złożone dane
+* agregować, kondensować lub podsumowywać duże ilości danych na jednym slajdzie w prezentacji
+* ujawniać wzorce i trendy w danych
+* wywnioskować kierunek i dynamikę danych w czasie lub w odniesieniu do określonej jednostki miary
+* wykrywać wartości odstające, aberracje, odchylenia, błędy, dane nonsensowne itp.
+* komunikować lub prezentować złożone dane
 
-W programie PowerPoint możesz tworzyć wykresy za pomocą funkcji wstawiania, która udostępnia szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zwykłe wykresy (oparte na popularnych typach) oraz wykresy niestandardowe. 
+W PowerPoint możesz tworzyć wykresy za pomocą funkcji *Insert*, która zapewnia szablony do projektowania wielu typów wykresów. Korzystając z Aspose.Slides, możesz tworzyć zarówno zwykłe wykresy (oparte na popularnych typach) jak i wykresy niestandardowe.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Uwaga" %}}
+Aby tworzyć wykresy, użyj klasy [ChartType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/). Pola w tej klasie odpowiadają różnym typom wykresów.
+{{% /alert %}}
 
-Aby umożliwić tworzenie wykresów, Aspose.Slides udostępnia klasę [ChartType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartType). Pola w tej klasie odpowiadają różnym typom wykresów.
+### **Utwórz wykresy kolumnowe grupowane**
 
-{{% /alert %}} 
+Ta sekcja wyjaśnia, jak utworzyć wykresy kolumnowe grupowane przy użyciu Aspose.Slides. Nauczysz się inicjalizować prezentację, dodać wykres i dostosować jego elementy, takie jak tytuł, dane, serie, kategorie i stylizację. Postępuj zgodnie z poniższymi krokami, aby zobaczyć, jak generowany jest standardowy wykres kolumnowy grupowany:
 
-### **Tworzenie normalnych wykresów**
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation).
+1. Pobierz odniesienie do slajdu przy użyciu jego indeksu.
+1. Dodaj wykres z niektórymi danymi i określ typ `ChartType.ClusteredColumn`.
+1. Dodaj tytuł do wykresu.
+1. Uzyskaj dostęp do arkusza danych wykresu.
+1. Wyczyść wszystkie domyślne serie i kategorie.
+1. Dodaj nowe serie i kategorie.
+1. Dodaj nowe dane wykresu dla serii wykresu.
+1. Zastosuj kolor wypełnienia do serii wykresu.
+1. Dodaj etykiety do serii wykresu.
+1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-*_Kroki: Utwórz wykres_*
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Kroki:</em> Utwórz wykres PowerPoint w JavaScript</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Kroki:</em> Utwórz wykres prezentacji w JavaScript</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Kroki:</em> Utwórz wykres prezentacji PowerPoint w JavaScript</strong></a>
-
-_Kroki kodu:_
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).
-2. Pobierz odniesienie do slajdu za pomocą jego indeksu.
-3. Dodaj wykres z danymi i określ preferowany typ wykresu. 
-4. Dodaj tytuł wykresu. 
-5. Uzyskaj dostęp do arkusza danych wykresu.
-6. Wyczyść wszystkie domyślne serie i kategorie.
-7. Dodaj nowe serie i kategorie.
-8. Dodaj nowe dane wykresu dla serii.
-9. Dodaj kolor wypełnienia dla serii wykresu.
-10. Dodaj etykiety dla serii wykresu. 
-11. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Ten kod JavaScript pokazuje, jak utworzyć zwykły wykres:
+Ten kod C# demonstruje, jak utworzyć wykres kolumnowy grupowany:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Tworzy instancję klasy prezentacji, która reprezentuje plik PPTX
 var pres = new aspose.slides.Presentation();
 try {
@@ -86,10 +83,10 @@ try {
     // Dodaje wykres z domyślnymi danymi
     var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
     // Ustawia tytuł wykresu
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
     // Ustawia pierwszą serię, aby wyświetlała wartości
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
     // Ustawia indeks arkusza danych wykresu
@@ -126,7 +123,7 @@ try {
     // Ustawia kolor wypełnienia dla serii
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-    // Tworzy niestandardowe etykiety dla każdej kategorii dla nowej serii
+    // Tworzy własne etykiety dla każdej kategorii nowej serii
     // Ustawia pierwszą etykietę, aby wyświetlała nazwę kategorii
     var lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
@@ -146,31 +143,31 @@ try {
 }
 ```
 
-### **Tworzenie wykresów rozproszonych**
-Wykresy rozproszone (znane także jako wykresy punktowe lub wykresy x‑y) są często używane do sprawdzania wzorców lub demonstrowania korelacji pomiędzy dwoma zmiennymi. 
+### **Utwórz wykresy punktowe**
 
-Możesz chcieć użyć wykresu rozproszonego, gdy 
+Wykresy punktowe (znane również jako wykresy rozrzutu lub wykresy x‑y) są często używane do sprawdzania wzorców lub wykazywania korelacji między dwiema zmiennymi.
+
+Użyj wykresu punktowego, gdy:
 
 * masz sparowane dane liczbowe
-* masz 2 zmienne, które dobrze współgrają
-* chcesz określić, czy 2 zmienne są ze sobą powiązane
+* masz dwie zmienne, które dobrze ze sobą współgrają
+* chcesz określić, czy dwie zmienne są ze sobą powiązane
 * masz zmienną niezależną, która ma wiele wartości dla zmiennej zależnej
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Kroki:</em> Utwórz wykres rozproszony w JavaScript</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Kroki:</em> Utwórz wykres rozproszony PowerPoint w JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Kroki:</em> Utwórz wykres rozproszony w prezentacji PowerPoint w JavaScript</strong></a>
+1. Postępuj zgodnie z krokami w [Create Clustered Column Charts](#create-clustered-column-charts).
+2. Dla trzeciego kroku dodaj wykres z niektórymi danymi i określ typ wykresu jako jeden z następujących:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Reprezentuje wykres punktowy._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Reprezentuje wykres punktowy połączony krzywymi, z znacznikami danych._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Reprezentuje wykres punktowy połączony krzywymi, bez znaczników danych._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Reprezentuje wykres punktowy połączony liniami, z znacznikami danych._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Reprezentuje wykres punktowy połączony liniami, bez znaczników danych._
 
-1. Postępuj zgodnie z krokami opisanymi w sekcji [Tworzenie normalnych wykresów](#creating-normal-charts)
-2. W trzecim kroku dodaj wykres z danymi i określ typ wykresu jako jeden z następujących
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Reprezentuje wykres rozproszony z markerami._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Reprezentuje wykres rozproszony połączony krzywymi, z markerami danych._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Reprezentuje wykres rozproszony połączony krzywymi, bez markerów danych._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Reprezentuje wykres rozproszony połączony liniami, z markerami danych._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Reprezentuje wykres rozproszony połączony liniami, bez markerów danych._
-
-Ten kod JavaScript pokazuje, jak utworzyć wykresy rozproszone z różnymi seriami markerów:
+Ten kod JavaScript pokazuje, jak utworzyć wykres punktowy z różnymi znacznikami dla każdej serii:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Tworzy instancję klasy prezentacji, która reprezentuje plik PPTX
 var pres = new aspose.slides.Presentation();
 try {
@@ -200,7 +197,7 @@ try {
     series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Star);
     // Pobiera drugą serię wykresu
     series = chart.getChartData().getSeries().get_Item(1);
-    // Dodaje nowy punkt (5:2) tam
+    // Dodaje nowy punkt (5:2) w tym miejscu
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
     // Dodaje nowy punkt (3:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
@@ -219,30 +216,30 @@ try {
 }
 ```
 
-### **Tworzenie wykresów kołowych**
+### **Utwórz wykresy kołowe**
 
-Wykresy kołowe najlepiej służą do pokazania relacji część‑całość w danych, szczególnie gdy dane zawierają etykiety kategoryczne z wartościami liczbowymi. Jednakże, jeśli Twoje dane zawierają wiele części lub etykiet, rozważ użycie wykresu słupkowego.
+Wykresy kołowe najlepiej używać do pokazania relacji część‑całość w danych, szczególnie gdy dane zawierają etykiety kategorialne z wartościami liczbowymi. Jednak jeśli dane zawierają wiele części lub etykiet, warto rozważyć użycie wykresu słupkowego.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Kroki:</em> Utwórz wykres kołowy w JavaScript</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Kroki:</em> Utwórz wykres kołowy PowerPoint w JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Kroki:</em> Utwórz wykres kołowy w prezentacji PowerPoint w JavaScript</strong></a>
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).
-2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
-3. Dodaj wykres z domyślnymi danymi wraz z żądanym typem (w tym przypadku [ChartType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartType).Pie).
-4. Uzyskaj dostęp do danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) .
+2. Pobierz odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType.Pie](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#Pie).
+4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Wyczyść domyślne serie i kategorie.
 6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
-8. Dodaj nowe punkty dla wykresu i niestandardowe kolory dla sektorów wykresu kołowego.
+7. Dodaj nowe dane wykresu dla serii wykresu.
+8. Dodaj nowe punkty do wykresu i zastosuj niestandardowe kolory dla sektorów wykresu kołowego.
 9. Ustaw etykiety dla serii.
-10. Ustaw linie pomocnicze dla etykiet serii.
-11. Ustaw kąt obrotu dla slajdów wykresu kołowego.
+10. Włącz linie prowadzące dla etykiet serii.
+11. Ustaw kąt obrotu sektorów wykresu kołowego.
 12. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Ten kod JavaScript pokazuje, jak utworzyć wykres kołowy:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Tworzy instancję klasy prezentacji, która reprezentuje plik PPTX
 var pres = new aspose.slides.Presentation();
 try {
@@ -252,7 +249,7 @@ try {
     var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
     // Ustawia tytuł wykresu
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     // Ustawia pierwszą serię, aby wyświetlała wartości
@@ -275,7 +272,7 @@ try {
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     // Nie działa w nowej wersji
-    // Adding new points and setting sector color
+    // Dodawanie nowych punktów i ustawianie koloru sektora
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     var point = series.getDataPoints().get_Item(0);
@@ -285,8 +282,8 @@ try {
     point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     point.getFormat().getLine().setWidth(3.0);
-    point.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThick);
-    point.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    point.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThick));
+    point.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     var point1 = series.getDataPoints().get_Item(1);
     point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
@@ -294,8 +291,8 @@ try {
     point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     point1.getFormat().getLine().setWidth(3.0);
-    point1.getFormat().getLine().setStyle(aspose.slides.LineStyle.Single);
-    point1.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDot);
+    point1.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.Single));
+    point1.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDot));
     var point2 = series.getDataPoints().get_Item(2);
     point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
@@ -303,9 +300,9 @@ try {
     point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     point2.getFormat().getLine().setWidth(2.0);
-    point2.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThin);
-    point2.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDotDot);
-    // Tworzy niestandardowe etykiety dla każdej kategorii nowej serii
+    point2.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
+    point2.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
+    // Tworzy własne etykiety dla każdej kategorii nowej serii
     var lbl1 = series.getDataPoints().get_Item(0).getLabel();
     // lbl.ShowCategoryName = true;
     lbl1.getDataLabelFormat().setShowValue(true);
@@ -318,7 +315,7 @@ try {
     lbl3.getDataLabelFormat().setShowPercentage(true);
     // Wyświetla linie prowadzące dla wykresu
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-    // Ustawia kąt obrotu sektorów wykresu kołowego
+    // Ustawia kąt obrotu dla sektorów wykresu kołowego
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     // Zapisuje prezentację z wykresem
     pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -329,22 +326,25 @@ try {
 }
 ```
 
-### **Tworzenie wykresów liniowych**
+### **Utwórz wykresy liniowe**
 
-Wykresy liniowe (znane także jako wykresy liniowe) najlepiej sprawdzają się w sytuacjach, w których chcesz pokazać zmiany wartości w czasie. Dzięki wykresowi liniowemu możesz porównywać wiele danych jednocześnie, śledzić zmiany i trendy w czasie, uwydatniać anomalie w seriach danych itp.
+Wykresy liniowe (znane również jako wykresy liniowe) najlepiej stosować w sytuacjach, w których chcesz pokazać zmiany wartości w czasie. Dzięki wykresowi liniowemu możesz jednocześnie porównać dużą ilość danych, śledzić zmiany i trendy w czasie, wyróżniać anomalie w seriach danych i wiele więcej.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).
-1. Pobierz odniesienie do slajdu za pomocą jego indeksu.
-1. Dodaj wykres z domyślnymi danymi wraz z żądanym typem (w tym przypadku `ChartType.Line`).
-1. Uzyskaj dostęp do danych wykresu IChartDataWorkbook.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) .
+1. Pobierz odniesienie do slajdu przy użyciu jego indeksu.
+1. Dodaj wykres z domyślnymi danymi i określ typ [ChartType.Line](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#Line).
+1. Uzyskaj dostęp do skoroszytu danych wykresu ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/)).
 1. Wyczyść domyślne serie i kategorie.
 1. Dodaj nowe serie i kategorie.
-1. Dodaj nowe dane wykresu dla serii.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX
+1. Dodaj nowe dane wykresu dla serii wykresu.
+1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Ten kod JavaScript pokazuje, jak utworzyć wykres liniowy:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
@@ -356,36 +356,47 @@ try {
 }
 ```
 
-Domyślnie punkty na wykresie liniowym są połączone prostymi ciągłymi liniami. Jeśli chcesz, aby punkty były połączone kreskami, możesz określić preferowany typ kreski w następujący sposób:
+Domyślnie punkty na wykresie liniowym są łączone prostymi ciągłymi liniami. Jeśli chcesz, aby punkty były łączone kreskami, możesz określić preferowany typ kreski w następujący sposób:
 
 ```javascript
-var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
-    let series = lineChart.getChartData().getSeries().get_Item(i);
-    series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Dash);
-});
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
+    for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
+        let series = lineChart.getChartData().getSeries().get_Item(i);
+        series.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
+    }
+    pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
-### **Tworzenie wykresów mapy drzewa**
+### **Utwórz wykresy mapy drzewa**
 
-Wykresy mapy drzewa najlepiej sprawdzają się przy danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i jednocześnie szybko zwrócić uwagę na elementy, które są dużymi wkładami w każdą kategorię. 
+Wykresy mapy drzewa najlepiej używać dla danych sprzedażowych, gdy chcesz pokazać względny rozmiar kategorii danych i szybko zwrócić uwagę na elementy, które są dużymi contributorami w ramach każdej kategorii.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Kroki:</em> Utwórz wykres mapy drzewa w JavaScript</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Kroki:</em> Utwórz wykres mapy drzewa PowerPoint w JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Kroki:</em> Utwórz wykres mapy drzewa w prezentacji PowerPoint w JavaScript</strong></a>
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation) .
-2. Pobierz odniesienie do slajdu za pomocą jego indeksu.
-3. Dodaj wykres z domyślnymi danymi wraz z żądanym typem (w tym przypadku [ChartType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartType).TreeMap).
-4. Uzyskaj dostęp do danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) .
+2. Pobierz odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType.Treemap](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#Treemap).
+4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Wyczyść domyślne serie i kategorie.
 6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
-8. Zapisz zmodyfikowaną prezentację jako plik PPTX
+7. Dodaj nowe dane wykresu dla serii wykresu.
+8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Ten kod JavaScript pokazuje, jak utworzyć wykres mapy drzewa:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
@@ -428,30 +439,33 @@ try {
 }
 ```
 
-### **Tworzenie wykresów giełdowych**
+### **Utwórz wykresy giełdowe**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Kroki:</em> Utwórz wykres giełdowy w JavaScript</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Kroki:</em> Utwórz wykres giełdowy PowerPoint w JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Kroki:</em> Utwórz wykres giełdowy w prezentacji PowerPoint w JavaScript</strong></a>
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation) .
-2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
-3. Dodaj wykres z domyślnymi danymi wraz z żądanym typem ([ChartType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartType).OpenHighLowClose).
-4. Uzyskaj dostęp do danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) .
+2. Pobierz odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#OpenHighLowClose).
+4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Wyczyść domyślne serie i kategorie.
 6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
-8. Określ format HiLowLines.
-9. Zapisz zmodyfikowaną prezentację jako plik PPTX
+7. Dodaj nowe dane wykresu dla serii wykresu.
+8. Określ format linii high‑low.
+9. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-Przykładowy kod JavaScript używany do utworzenia wykresu giełdowego:
+Ten kod JavaScript pokazuje, jak utworzyć wykres giełdowy:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400);
-  
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
     var wb = chart.getChartData().getChartDataWorkbook();
+    wb.clear(0);
     chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
     chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
     chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
@@ -489,24 +503,23 @@ try {
 }
 ```
 
-### **Tworzenie wykresów pudełkowo‑wąsowych**
+### **Utwórz wykresy pudełkowe i wąsowe**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Kroki:</em> Utwórz wykres pudełkowo‑wąsowy w JavaScript</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Kroki:</em> Utwórz wykres pudełkowo‑wąsowy PowerPoint w JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Kroki:</em> Utwórz wykres pudełkowo‑wąsowy w prezentacji PowerPoint w JavaScript</strong></a>
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation) .
-2. Pobierz odniesienie do slajdu za pomocą jego indeksu.
-3. Dodaj wykres z domyślnymi danymi wraz z żądanym typem ([ChartType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartType).BoxAndWhisker).
-4. Uzyskaj dostęp do danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) .
+2. Pobierz odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#BoxAndWhisker).
+4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Wyczyść domyślne serie i kategorie.
 6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
-8. Zapisz zmodyfikowaną prezentację jako plik PPTX
+7. Dodaj nowe dane wykresu dla serii wykresu.
+8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-Ten kod JavaScript pokazuje, jak utworzyć wykres pudełkowo‑wąsowy:
+Ten kod JavaScript pokazuje, jak utworzyć wykres pudełkowy i wąsowy:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -540,21 +553,19 @@ try {
 }
 ```
 
-### **Tworzenie wykresów lejkowych**
+### **Utwórz wykresy lejkowe**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Kroki:</em> Utwórz wykres lejkowy w JavaScript</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Kroki:</em> Utwórz wykres lejkowy PowerPoint w JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Kroki:</em> Utwórz wykres lejkowy w prezentacji PowerPoint w JavaScript</strong></a>
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) .
+2. Pobierz odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType.Funnel](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#Funnel).
+4. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation) .
-2. Pobierz odniesienie do slajdu za pomocą jego indeksu.
-3. Dodaj wykres z domyślnymi danymi wraz z żądanym typem ([ChartType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartType).Funnel).
-4. Zapisz zmodyfikowaną prezentację jako plik PPTX
-
-Kod JavaScript pokazuje, jak utworzyć wykres lejkowy:
+Ten kod JavaScript pokazuje, jak utworzyć wykres lejkowy:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
@@ -583,20 +594,19 @@ try {
 }
 ```
 
-### **Tworzenie wykresów promieniowych**
+### **Utwórz wykresy promieniste**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Kroki:</em> Utwórz wykres promieniowy w JavaScript</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Kroki:</em> Utwórz wykres promieniowy PowerPoint w JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Kroki:</em> Utwórz wykres promieniowy w prezentacji PowerPoint w JavaScript</strong></a>
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) .
+2. Pobierz odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType.Sunburst](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#Sunburst).
+4. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation) .
-2. Pobierz odniesienie do slajdu za pomocą jego indeksu.
-3. Dodaj wykres z domyślnymi danymi wraz z żądanym typem (w tym przypadku [ChartType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartType).sunburst).
-4. Zapisz zmodyfikowaną prezentację jako plik PPTX
-
-Ten kod JavaScript pokazuje, jak utworzyć wykres promieniowy:
+Ten kod JavaScript pokazuje, jak utworzyć wykres promienisty:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
@@ -638,23 +648,22 @@ try {
 }
 ```
 
-### **Tworzenie wykresów histogramu**
+### **Utwórz wykresy histogramowe**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Kroki:</em> Utwórz wykres histogramu w JavaScript</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Kroki:</em> Utwórz wykres histogramu PowerPoint w JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Kroki:</em> Utwórz wykres histogramu w prezentacji PowerPoint w JavaScript</strong></a>
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation) .
-2. Pobierz odniesienie do slajdu za pomocą jego indeksu.
-3. Dodaj wykres z domyślnymi danymi wraz z żądanym typem ([ChartType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartType).Histogram).
-4. Uzyskaj dostęp do danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) .
+2. Pobierz odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType.Histogram](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#Histogram).
+4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Wyczyść domyślne serie i kategorie.
 6. Dodaj nowe serie i kategorie.
-7. Zapisz zmodyfikowaną prezentację jako plik PPTX
+7. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-Ten kod JavaScript pokazuje, jak utworzyć wykres histogramu:
+Ten kod JavaScript pokazuje, jak utworzyć wykres histogramowy:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
 chart.getChartData().getCategories().clear();
@@ -671,20 +680,19 @@ series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
 ```
 
-### **Tworzenie wykresów radarowych**
+### **Utwórz wykresy radarowe**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Kroki:</em> Utwórz wykres radarowy w JavaScript</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Kroki:</em> Utwórz wykres radarowy PowerPoint w JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Kroki:</em> Utwórz wykres radarowy w prezentacji PowerPoint w JavaScript</strong></a>
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation) .
-2. Pobierz odniesienie do slajdu za pomocą jego indeksu. 
-3. Dodaj wykres z danymi i określ preferowany typ wykresu (`ChartType.Radar` w tym przypadku).
-4. Zapisz zmodyfikowaną prezentację jako plik PPTX
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) .
+2. Pobierz odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z niektórymi danymi i określ preferowany typ wykresu ([ChartType.Radar](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#Radar) w tym przypadku).
+4. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Ten kod JavaScript pokazuje, jak utworzyć wykres radarowy:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 400, 300);
@@ -696,24 +704,23 @@ try {
 }
 ```
 
-### **Tworzenie wykresów wielokategorii**
+### **Utwórz wykresy wielokategorialne**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Kroki:</em> Utwórz wykres wielokategorii w JavaScript</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Kroki:</em> Utwórz wykres wielokategorii PowerPoint w JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Kroki:</em> Utwórz wykres wielokategorii w prezentacji PowerPoint w JavaScript</strong></a>
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation) .
-2. Pobierz odniesienie do slajdu za pomocą jego indeksu. 
-3. Dodaj wykres z domyślnymi danymi wraz z żądanym typem ([ChartType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartType).ClusteredColumn).
-4. Uzyskaj dostęp do danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) .
+2. Pobierz odniesienie do slajdu przy użyciu jego indeksu.
+3. Dodaj wykres z domyślnymi danymi i określ typ [ChartType.ClusteredColumn](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/#ClusteredColumn).
+4. Uzyskaj dostęp do skoroszytu danych wykresu [ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/).
 5. Wyczyść domyślne serie i kategorie.
 6. Dodaj nowe serie i kategorie.
-7. Dodaj nowe dane wykresu dla serii.
+7. Dodaj nowe dane wykresu dla serii wykresu.
 8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
-Ten kod JavaScript pokazuje, jak utworzyć wykres wielokategorii:
+Ten kod JavaScript pokazuje, jak utworzyć wykres wielokategorialny:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var ch = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -753,17 +760,16 @@ try {
 }
 ```
 
-### **Tworzenie wykresów mapowych**
+### **Utwórz wykresy mapowe**
 
-Wykres mapowy to wizualizacja obszaru zawierającego dane. Wykresy mapowe najlepiej służą do porównywania danych lub wartości w różnych regionach geograficznych.
-
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Kroki:</em> Utwórz wykres mapowy w JavaScript</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Kroki:</em> Utwórz wykres mapowy PowerPoint w JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Kroki:</em> Utwórz wykres mapowy w prezentacji PowerPoint w JavaScript</strong></a>
+Wykresy mapowe wizualizują dane geograficzne i pomagają porównywać wartości w różnych regionach.
 
 Ten kod JavaScript pokazuje, jak utworzyć wykres mapowy:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pres = new aspose.slides.Presentation();
 try {
     let chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
@@ -775,15 +781,19 @@ try {
 }
 ```
 
-### **Tworzenie wykresów kombinowanych**
+### **Utwórz wykresy kombinowane**
 
-Wykres kombinowany (lub wykres combo) łączy dwa lub więcej typów wykresów w jednym grafie. Ten wykres pozwala podkreślić, porównać lub zbadać różnice między dwoma lub więcej zestawami danych, pomagając zidentyfikować zależności między nimi.
+Wykres kombinowany (lub wykres combo) łączy dwa lub więcej typów wykresów w jednym diagramie. Ten wykres pozwala podkreślić, porównać lub przeanalizować różnice między dwoma lub większą liczbą zestawów danych, pomagając zidentyfikować zależności między nimi.
 
-![The combination chart](combination_chart.png)
+![Wykres kombinowany](combination_chart.png)
 
-Poniższy kod JavaScript pokazuje, jak stworzyć wykres kombinowany przedstawiony powyżej w prezentacji PowerPoint:
+Poniższy kod JavaScript pokazuje, jak utworzyć powyższy wykres kombinowany w prezentacji PowerPoint:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function createComboChart() {
     let presentation = new aspose.slides.Presentation();
     let slide = presentation.getSlides().get_Item(0);
@@ -928,24 +938,23 @@ function setAxisTitle(axis, axisTitle) {
 }
 ```
 
-## **Aktualizowanie wykresów**
+## **Aktualizuj wykresy**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Kroki:</em> Aktualizuj wykres PowerPoint w JavaScript</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Kroki:</em> Aktualizuj wykres prezentacji w JavaScript</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Kroki:</em> Aktualizuj wykres prezentacji PowerPoint w JavaScript</strong></a>
-
-1. Zainicjuj klasę [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation), która reprezentuje prezentację zawierającą wykres, który chcesz zaktualizować.
-2. Uzyskaj odniesienie do slajdu, używając jego indeksu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) reprezentującej prezentację zawierającą wykres, który chcesz zaktualizować.
+2. Pobierz odniesienie do slajdu przy użyciu jego indeksu.
 3. Przejdź przez wszystkie kształty, aby znaleźć żądany wykres.
 4. Uzyskaj dostęp do arkusza danych wykresu.
-5. Zmodyfikuj dane serii wykresu, zmieniając wartości serii.
-6. Dodaj nową serię i wypełnij ją danymi.
+5. Zmodyfikuj serię danych wykresu, zmieniając wartości serii.
+6. Dodaj nową serię i wypełnij jej dane.
 7. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Ten kod JavaScript pokazuje, jak zaktualizować wykres:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
     // Uzyskaj dostęp do pierwszego slajdu
     var sld = pres.getSlides().get_Item(0);
@@ -961,18 +970,18 @@ try {
     // Pobierz pierwszą serię wykresu
     var series = chart.getChartData().getSeries().get_Item(0);
     // Teraz aktualizowanie danych serii
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Modyfikacja nazwy serii
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Modyfikacja nazwy serii
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
     // Pobierz drugą serię wykresu
     series = chart.getChartData().getSeries().get_Item(1);
     // Teraz aktualizowanie danych serii
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Modyfikacja nazwy serii
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Modyfikacja nazwy serii
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
-    // Teraz, dodawanie nowej serii
+    // Teraz dodawanie nowej serii
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
     // Pobierz trzecią serię wykresu
     series = chart.getChartData().getSeries().get_Item(2);
@@ -990,12 +999,12 @@ try {
 }
 ```
 
-## **Ustawianie zakresu danych dla wykresów**
+## **Ustaw zakres danych dla wykresu**
 
 Aby ustawić zakres danych dla wykresu, wykonaj następujące kroki:
 
-1. Zainicjuj klasę [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation), która reprezentuje prezentację zawierającą wykres.
-2. Pobierz odniesienie do slajdu za pomocą jego indeksu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) reprezentującej prezentację zawierającą wykres.
+2. Pobierz odniesienie do slajdu przy użyciu jego indeksu.
 3. Przejdź przez wszystkie kształty, aby znaleźć żądany wykres.
 4. Uzyskaj dostęp do danych wykresu i ustaw zakres.
 5. Zapisz zmodyfikowaną prezentację jako plik PPTX.
@@ -1003,7 +1012,10 @@ Aby ustawić zakres danych dla wykresu, wykonaj następujące kroki:
 Ten kod JavaScript pokazuje, jak ustawić zakres danych dla wykresu:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
     var chart = slide.getShapes().get_Item(0);
@@ -1016,12 +1028,16 @@ try {
 }
 ```
 
-## **Używanie domyślnych markerów w wykresach**
-Gdy używasz domyślnego markera w wykresach, każda seria wykresu automatycznie otrzymuje inny domyślny symbol markera.
+## **Użyj domyślnych znaczników w wykresach**
 
-Ten kod JavaScript pokazuje, jak automatycznie ustawić marker serii wykresu:
+Gdy używasz domyślnych znaczników w wykresach, każda seria wykresu automatycznie otrzymuje inny symbol znacznika.
+
+Ten kod JavaScript pokazuje, jak automatycznie ustawić znacznik serii wykresu:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -1042,7 +1058,7 @@ try {
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
     // Pobierz drugą serię wykresu
     var series2 = chart.getChartData().getSeries().get_Item(1);
-    // Teraz wypełnianie danych serii
+    // Teraz wypełniam dane serii
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1057,20 +1073,20 @@ try {
 }
 ```
 
-## **FAQ**
+## **Najczęściej zadawane pytania**
 
 **Jakie typy wykresów są obsługiwane przez Aspose.Slides?**
 
-Aspose.Slides obsługuje szeroką gamę typów wykresów, w tym słupkowe, liniowe, kołowe, powierzchniowe, rozproszone, histogramy, radarowe i wiele innych. Ta elastyczność pozwala wybrać najodpowiedniejszy typ wykresu do potrzeb wizualizacji danych.
+Aspose.Slides obsługuje szeroką gamę [typów wykresów](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/charttype/), w tym słupkowe, liniowe, kołowe, obszarowe, punktowe, histogramowe, radarowe i wiele innych. Ta elastyczność pozwala wybrać najbardziej odpowiedni typ wykresu do potrzeb wizualizacji danych.
 
 **Jak dodać nowy wykres do slajdu?**
 
-Aby dodać wykres, najpierw utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/), pobierz żądany slajd przy użyciu jego indeksu, a następnie wywołaj metodę dodającą wykres, określając typ wykresu i początkowe dane. Proces ten integruje wykres bezpośrednio z prezentacją.
+Aby dodać wykres, najpierw tworzysz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/), pobierasz żądany slajd przy użyciu jego indeksu, a następnie wywołujesz metodę dodającą wykres, określając typ wykresu i początkowe dane. Ten proces integruje wykres bezpośrednio w prezentacji.
 
 **Jak mogę zaktualizować dane wyświetlane w wykresie?**
 
-Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/)), usuwając domyślne serie i kategorie, a następnie dodając własne dane. Umożliwia to programowe odświeżenie wykresu, aby odzwierciedlał najnowsze informacje.
+Możesz zaktualizować dane wykresu, uzyskując dostęp do jego skoroszytu danych ([ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/)), czyszcząc domyślne serie i kategorie, a następnie dodając własne dane. Pozwala to programowo odświeżyć wykres, aby odzwierciedlał najnowsze informacje.
 
 **Czy można dostosować wygląd wykresu?**
 
-Tak, Aspose.Slides oferuje rozbudowane opcje dostosowywania. Możesz modyfikować kolory, czcionki, etykiety, legendy i inne elementy formatowania, aby dopasować wygląd wykresu do konkretnych wymagań projektowych.
+Tak, Aspose.Slides oferuje rozbudowane opcje dostosowywania. Możesz modyfikować kolory, czcionki, etykiety, legendy oraz inne [elementy formatowania](/slides/pl/nodejs-java/chart-entities/), aby dopasować wygląd wykresu do konkretnych wymagań projektowych.

@@ -10,86 +10,79 @@ keywords:
 - 編輯圖表
 - 變更圖表
 - 更新圖表
-- 散佈圖表
-- 圓形圖表
-- 折線圖表
-- 樹狀圖表
+- 散佈圖
+- 圓餅圖
+- 折線圖
+- 樹狀圖
 - 股票圖表
-- 箱形與鬍鬚圖表
-- 漏斗圖表
-- 向心圖表
-- 直方圖表
-- 雷達圖表
+- 箱形鬚鬚圖
+- 漏斗圖
+- 放射圖
+- 直方圖
+- 雷達圖
 - 多類別圖表
 - PowerPoint
 - 簡報
 - PHP
 - Aspose.Slides
-description: "使用 Aspose.Slides for PHP（透過 Java）在 PowerPoint 簡報中建立與自訂圖表。提供實作範例以新增、格式化與編輯圖表。"
+description: "使用 Aspose.Slides for PHP 透過 Java 在 PowerPoint 簡報中建立與自訂圖表。提供實作範例，說明如何新增、格式化與編輯圖表。"
 ---
-## **概述**
+## **概觀**
 
-本文提供了使用 Aspose.Slides 建立與自訂圖表的完整指南。您將學習如何以程式方式將圖表加入投影片、填入資料，並套用各種格式設定以符合特定設計需求。全文透過詳細的程式碼範例說明每一步驟，從初始化簡報與圖表物件到設定系列、坐標軸與圖例。遵循本指南，您將能在應用程式中整合動態圖表產生，簡化資料驅動投影片的製作流程。
+本篇文章提供了使用 Aspose.Slides 建立與自訂圖表的完整指南。您將學習如何以程式方式將圖表新增至投影片、填入資料，並套用各種格式設定以符合特定的設計需求。整篇文章以詳細的程式碼範例說明每一步驟，從初始化簡報與圖表物件，到設定系列、座標軸與圖例。遵循本指南，您將能深入了解如何在應用程式中整合動態圖表產生，簡化資料驅動式簡報的建立流程。
 
 ## **建立圖表**
 
-圖表可協助使用者快速視覺化資料，並從中獲得在表格或試算表中不易立即看出的洞見。
+圖表可協助人們快速視覺化資料，並發掘在表格或試算表中不易立即看出的洞見。
 
 **為什麼要建立圖表？**
 
-使用圖表，您可以
+使用圖表，您可以：
 
-* 在單一投影片中彙整、濃縮或摘要大量資料
-* 顯示資料的模式與趨勢
-* 推斷資料隨時間或特定測量單位的方向與勢頭
-* 偵測異常值、偏差、錯誤或不合邏輯的資料
-* 傳達或呈現複雜資料
+* 在投影片上一頁中彙總、濃縮或概述大量資料
+* 顯示資料中的模式與趨勢
+* 推斷資料隨時間或特定測量單位的方向與動能
+* 發現異常值、偏差、錯誤、無意義的資料等
+* 傳達或呈現複雜的資料
 
-在 PowerPoint 中，您可以透過「插入」功能建立圖表，該功能提供眾多圖表樣板。使用 Aspose.Slides，您可以建立一般圖表（基於常見圖表類型）與自訂圖表。
+在 PowerPoint 中，您可以透過 *Insert* 功能建立圖表，該功能提供多種圖表樣式的範本。使用 Aspose.Slides，您可以建立一般圖表（基於常見圖表類型）以及自訂圖表。
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+要建立圖表，請使用 [ChartType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/) 類別。此類別中的欄位對應不同的圖表類型。
+{{% /alert %}}
 
-為了協助您建立圖表，Aspose.Slides 提供了 [ChartType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ChartType) 類別。此類別下的欄位對應不同的圖表類型。
+### **建立叢集柱狀圖**
 
-{{% /alert %}} 
+本節說明如何使用 Aspose.Slides 建立叢集柱狀圖。您將學習初始化簡報、加入圖表，並自訂標題、資料、系列、類別與樣式。依照以下步驟即可產生標準的叢集柱狀圖：
 
-### **建立常規圖表**
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation) 類別的實例。
+1. 依索引取得投影片參考。
+1. 加入圖表並指定 `ChartType::ClusteredColumn` 類型，同時提供一些資料。
+1. 為圖表新增標題。
+1. 取得圖表的資料工作表。
+1. 清除所有預設的系列與類別。
+1. 新增系列與類別。
+1. 為圖表系列新增資料。
+1. 為圖表系列套用填色。
+1. 為圖表系列加入標籤。
+1. 將修改後的簡報儲存為 PPTX 檔案。
 
-_步驟：建立圖表_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>步驟：</em> 建立 PowerPoint 圖表 </strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>步驟：</em> 建立簡報圖表 </strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>步驟：</em> 建立 PowerPoint 簡報圖表 </strong></a>
-
-**程式碼步驟：**
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/Presentation) 類別的實例。
-2. 透過索引取得投影片參考。
-3. 加入圖表並設定資料與您偏好的圖表類型。
-4. 為圖表新增標題。
-5. 取得圖表資料工作表。
-6. 清除所有預設的系列與類別。
-7. 新增系列與類別。
-8. 為圖表系列新增資料。
-9. 為圖表系列設定填色。
-10. 為圖表系列新增標籤。
-11. 將修改後的簡報寫入 PPTX 檔案。
-
-以下 PHP 程式碼示範如何建立常規圖表：
+以下 C# 程式碼示範如何建立叢集柱狀圖：
 
 ```php
-  # 實例化一個代表 PPTX 檔案的簡報類別
+  # 實例化代表 PPTX 檔案的簡報類別
   $pres = new Presentation();
   try {
     # 存取第一張投影片
     $sld = $pres->getSlides()->get_Item(0);
-    # 加入帶有預設資料的圖表
+    # 新增具有預設資料的圖表
     $chart = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 0, 0, 500, 500);
     # 設定圖表標題
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->hasTitle();
-    # 設定第一個系列顯示數值
+    # 設定第一個系列以顯示數值
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     # 設定圖表資料工作表的索引
     $defaultWorksheetIndex = 0;
@@ -100,10 +93,10 @@ _步驟：建立圖表_
     $chart->getChartData()->getCategories()->clear();
     $s = $chart->getChartData()->getSeries()->size();
     $s = $chart->getChartData()->getCategories()->size();
-    # 加入新系列
+    # 新增系列
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
-    # 加入新類別
+    # 新增類別
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
@@ -126,17 +119,17 @@ _步驟：建立圖表_
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     # 為新系列的每個類別建立自訂標籤
-    # 設定第一個標籤顯示類別名稱
+    # 設定第一個標籤以顯示類別名稱
     $lbl = $series->getDataPoints()->get_Item(0)->getLabel();
     $lbl->getDataLabelFormat()->setShowCategoryName(true);
     $lbl = $series->getDataPoints()->get_Item(1)->getLabel();
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
-    # 設定第三個標籤顯示數值
+    # 為第三個標籤顯示數值
     $lbl = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl->getDataLabelFormat()->setShowValue(true);
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
     $lbl->getDataLabelFormat()->setSeparator("/");
-    # 儲存含圖表的簡報
+    # 儲存包含圖表的簡報
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -145,33 +138,29 @@ _步驟：建立圖表_
   }
 ```
 
-### **建立散佈圖表**
+### **建立散佈圖**
 
-散佈圖（亦稱散點圖或 X‑Y 圖）常用於檢查模式或顯示兩個變數之間的相關性。
+散佈圖（亦稱散點圖或 x‑y 圖）常用於檢視模式或顯示兩個變數之間的相關性。
 
-您可能想在以下情況使用散佈圖
+使用散佈圖的情境：
 
-* 有成對的數值資料
-* 兩個變數彼此關聯良好
-* 想判斷兩個變數是否相關
-* 有一個自變數對於因變數有多個值
+* 您有成對的數值資料
+* 兩個變數之間具備良好的配對關係
+* 您想判斷兩個變數是否相關
+* 您有一個獨立變數對於相依變數擁有多個值
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>步驟：</em> 建立散佈圖 </strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>步驟：</em> 建立 PowerPoint 散佈圖 </strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>步驟：</em> 建立 PowerPoint 簡報散佈圖 </strong></a>
+1. 依照 [建立叢集柱狀圖](#create-clustered-column-charts) 的步驟執行。
+2. 在第三步加入圖表並指定以下任一圖表類型：
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _表示散佈圖。_
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _表示以曲線連接且帶有資料標記的散佈圖。_
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _表示以曲線連接且不帶資料標記的散佈圖。_
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _表示以直線連接且帶有資料標記的散佈圖。_
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _表示以直線連接且不帶資料標記的散佈圖。_
 
-1. 請依照前述的 [建立常規圖表](#creating-normal-charts) 步驟操作。
-2. 第三步，加入圖表並將圖表類型指定為以下之一
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _表示散佈圖，使用標記。_
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _表示以曲線連接且有資料標記的散佈圖。_
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _表示以曲線連接且無資料標記的散佈圖。_
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _表示以直線連接且有資料標記的散佈圖。_
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _表示以直線連接且無資料標記的散佈圖。_
-
-以下 PHP 程式碼示範如何建立具有不同標記系列的散佈圖表：
+以下 PHP 程式碼示範如何為每個系列建立不同標記的散佈圖：
 
 ```php
-  # 實例化一個代表 PPTX 檔案的簡報類別
+  # 實例化代表 PPTX 檔案的簡報類別
   $pres = new Presentation();
   try {
     # 存取第一張投影片
@@ -184,14 +173,14 @@ _步驟：建立圖表_
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # 刪除示範系列
     $chart->getChartData()->getSeries()->clear();
-    # 加入新系列
+    # 新增系列
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 3, "Series 2"), $chart->getType());
     # 取得第一個圖表系列
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # 為系列新增一個點 (1:3)
+    # 為系列新增一個新點 (1:3)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 1), $fact->getCell($defaultWorksheetIndex, 2, 2, 3));
-    # 新增一個點 (2:10)
+    # 新增一個新點 (2:10)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 2), $fact->getCell($defaultWorksheetIndex, 3, 2, 10));
     # 變更系列類型
     $series->setType(ChartType::ScatterWithStraightLinesAndMarkers);
@@ -200,13 +189,13 @@ _步驟：建立圖表_
     $series->getMarker()->setSymbol(MarkerStyleType::Star);
     # 取得第二個圖表系列
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # 在此新增一個點 (5:2)
+    # 在此新增一個新點 (5:2)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 5), $fact->getCell($defaultWorksheetIndex, 2, 4, 2));
-    # 新增一個點 (3:1)
+    # 新增一個新點 (3:1)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 3), $fact->getCell($defaultWorksheetIndex, 3, 4, 1));
-    # 新增一個點 (2:2)
+    # 新增一個新點 (2:2)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 4, 3, 2), $fact->getCell($defaultWorksheetIndex, 4, 4, 2));
-    # 新增一個點 (5:1)
+    # 新增一個新點 (5:1)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 5, 3, 5), $fact->getCell($defaultWorksheetIndex, 5, 4, 1));
     # 變更圖表系列標記
     $series->getMarker()->setSize(10);
@@ -219,43 +208,39 @@ _步驟：建立圖表_
   }
 ```
 
-### **建立圓形圖表**
+### **建立圓餅圖**
 
-圓形圖最適合顯示資料的部分與整體關係，特別是當資料包含帶有數值的分類標籤時。然而，若資料的部份或標籤過多，建議改用長條圖。
+圓餅圖最適合用來顯示資料的部份與整體之關係，特別是當資料包含帶有數值的類別標籤時。但若資料有過多部份或標籤，建議改用長條圖。
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>步驟：</em> 建立圓形圖 </strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>步驟：</em> 建立 PowerPoint 圓形圖 </strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>步驟：</em> 建立 PowerPoint 簡報圓形圖 </strong></a>
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/Presentation) 類別的實例。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
 2. 依索引取得投影片參考。
-3. 加入圖表並使用預設資料以及所需類型（此處使用 [ChartType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ChartType).Pie）。
-4. 取得 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/)。
+3. 加入圖表並指定 [ChartType::Pie](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#Pie) 類型，使用預設資料。
+4. 取得圖表資料工作簿 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/)。
 5. 清除預設的系列與類別。
 6. 新增系列與類別。
 7. 為圖表系列新增資料。
-8. 為圓形圖區段新增點並設定自訂顏色。
-9. 設定系列的標籤。
-10. 設定系列標籤的引線。
-11. 設定圓形圖的旋轉角度。
-12. 將修改後的簡報寫入 PPTX 檔案。
+8. 為圓餅圖的區段新增資料點並套用自訂顏色。
+9. 為系列設定標籤。
+10. 為系列標籤啟用引線。
+11. 設定圓餅圖區段的旋轉角度。
+12. 將修改後的簡報儲存為 PPTX 檔案。
 
-以下 PHP 程式碼示範如何建立圓形圖表：
+以下 PHP 程式碼示範如何建立圓餅圖：
 
 ```php
-  # 實例化一個代表 PPTX 檔案的簡報類別
+  # 實例化代表 PPTX 檔案的簡報類別
   $pres = new Presentation();
   try {
     # 存取第一張投影片
     $slides = $pres->getSlides()->get_Item(0);
-    # 加入預設資料的圖表
+    # 新增具有預設資料的圖表
     $chart = $slides->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
     # 設定圖表標題
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->setTitle(true);
-    # 設定第一個系列顯示數值
+    # 設定第一個系列以顯示數值
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     # 設定圖表資料工作表的索引
     $defaultWorksheetIndex = 0;
@@ -275,13 +260,13 @@ _步驟：建立圖表_
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
     # 在新版本中無法運作
-    # 新增點並設定區段顏色
+    # 新增資料點並設定區塊顏色
     # series.IsColorVaried = true;
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
     $point = $series->getDataPoints()->get_Item(0);
     $point->getFormat()->getFill()->setFillType(FillType::Solid);
     $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-    # 設定區段邊框
+    # 設定區塊邊框
     $point->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     $point->getFormat()->getLine()->setWidth(3.0);
@@ -290,7 +275,7 @@ _步驟：建立圖表_
     $point1 = $series->getDataPoints()->get_Item(1);
     $point1->getFormat()->getFill()->setFillType(FillType::Solid);
     $point1->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
-    # 設定區段邊框
+    # 設定區塊邊框
     $point1->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point1->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $point1->getFormat()->getLine()->setWidth(3.0);
@@ -299,7 +284,7 @@ _步驟：建立圖表_
     $point2 = $series->getDataPoints()->get_Item(2);
     $point2->getFormat()->getFill()->setFillType(FillType::Solid);
     $point2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
-    # 設定區段邊框
+    # 設定區塊邊框
     $point2->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point2->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $point2->getFormat()->getLine()->setWidth(2.0);
@@ -318,9 +303,9 @@ _步驟：建立圖表_
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
     # 為圖表顯示引線
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
-    # 設定圓形圖區段的旋轉角度
+    # 設定圓餅圖區塊的旋轉角度
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
-    # 儲存含圖表的簡報
+    # 儲存包含圖表的簡報
     $pres->save("PieChart_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -329,20 +314,20 @@ _步驟：建立圖表_
   }
 ```
 
-### **建立折線圖表**
+### **建立折線圖**
 
-折線圖（亦稱折線圖）最適合用於顯示隨時間變化的數值。透過折線圖，您可以同時比較大量資料、追蹤變化與趨勢、凸顯資料系列的異常等。
+折線圖（亦稱折線圖）最適合用於說明隨時間變化的數值。使用折線圖，您可以一次比較大量資料、追蹤時間趨勢、突顯資料系列的異常等。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/Presentation) 類別的實例。
-1. 透過索引取得投影片參考。
-1. 加入圖表並使用預設資料以及所需類型（此處為 `ChartType::Line`）。
-1. 取得圖表資料 IChartDataWorkbook。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
+1. 依索引取得投影片參考。
+1. 加入圖表並指定 [ChartType::Line](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#Line) 類型，使用預設資料。
+1. 取得圖表資料工作簿 ([ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/))。
 1. 清除預設的系列與類別。
 1. 新增系列與類別。
 1. 為圖表系列新增資料。
-1. 將修改後的簡報寫入 PPTX 檔案。
+1. 將修改後的簡報儲存為 PPTX 檔案。
 
-以下 PHP 程式碼示範如何建立折線圖表：
+以下 PHP 程式碼示範如何建立折線圖：
 
 ```php
   $pres = new Presentation();
@@ -356,33 +341,38 @@ _步驟：建立圖表_
   }
 ```
 
-預設情況下，折線圖的點會以直線相連。若想改為以虛線相連，可如此指定首選的虛線類型：
+預設情況下，折線圖的點會以直線連接。若想改為虛線，請如下指定虛線類型：
 
 ```php
-  $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
-  foreach($lineChart->getChartData()->getSeries() as $series) {
-    $series->getFormat()->getLine()->setDashStyle(LineDashStyle->Dash);
+  $pres = new Presentation();
+  try {
+    $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
+    $seriesCollection = $lineChart->getChartData()->getSeries();
+    foreach ($seriesCollection as $series) {
+      $series->getFormat()->getLine()->setDashStyle(LineDashStyle::Dash);
+    }
+    $pres->save("lineChart.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
   }
 ```
 
-### **建立樹狀圖表**
+### **建立樹狀圖**
 
-樹狀圖最適合用於銷售資料，可顯示資料類別的相對大小，並同時迅速突顯對每個類別貢獻大的項目。
+樹狀圖最適合用於銷售資料，能顯示資料類別的相對大小，並快速突顯每個類別中貢獻較大的項目。
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>步驟：</em> 建立樹狀圖 </strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>步驟：</em> 建立 PowerPoint 樹狀圖 </strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>步驟：</em> 建立 PowerPoint 簡報樹狀圖 </strong></a>
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/Presentation) 類別的實例。
-2. 透過索引取得投影片參考。
-3. 加入圖表並使用預設資料以及所需類型（此處為 [ChartType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ChartType).TreeMap）。
-4. 取得 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/)。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
+2. 依索引取得投影片參考。
+3. 加入圖表並指定 [ChartType::Treemap](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#Treemap) 類型，使用預設資料。
+4. 取得圖表資料工作簿 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/)。
 5. 清除預設的系列與類別。
 6. 新增系列與類別。
 7. 為圖表系列新增資料。
-8. 將修改後的簡報寫入 PPTX 檔案。
+8. 將修改後的簡報儲存為 PPTX 檔案。
 
-以下 PHP 程式碼示範如何建立樹狀圖表：
+以下 PHP 程式碼示範如何建立樹狀圖：
 
 ```php
   $pres = new Presentation();
@@ -429,19 +419,15 @@ _步驟：建立圖表_
 
 ### **建立股票圖表**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>步驟：</em> 建立股票圖表 </strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>步驟：</em> 建立 PowerPoint 股票圖表 </strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>步驟：</em> 建立 PowerPoint 簡報股票圖表 </strong></a>
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/Presentation) 類別的實例。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
 2. 依索引取得投影片參考。
-3. 加入圖表並使用預設資料以及所需類型（[ChartType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ChartType).OpenHighLowClose）。
-4. 取得 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/)。
+3. 加入圖表並指定 [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#OpenHighLowClose) 類型，使用預設資料。
+4. 取得圖表資料工作簿 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/)。
 5. 清除預設的系列與類別。
 6. 新增系列與類別。
 7. 為圖表系列新增資料。
-8. 指定 HiLowLines 格式。
-9. 將修改後的簡報寫入 PPTX 檔案。
+8. 設定高低線格式。
+9. 將修改後的簡報儲存為 PPTX 檔案。
 
 以下 PHP 程式碼示範如何建立股票圖表：
 
@@ -477,7 +463,8 @@ _步驟：建立圖表_
     $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 4, 50));
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    foreach($chart->getChartData()->getSeries() as $ser) {
+    $seriesCollection = $chart->getChartData()->getSeries();
+    foreach ($seriesCollection as $ser) {
       $ser->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     }
     $pres->save("output.pptx", SaveFormat::Pptx);
@@ -488,22 +475,18 @@ _步驟：建立圖表_
   }
 ```
 
-### **建立箱形與鬍鬚圖表**
+### **建立箱形圖與鬚鬚圖**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>步驟：</em> 建立箱形與鬍鬚圖表 </strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>步驟：</em> 建立 PowerPoint 箱形與鬍鬚圖表 </strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>步驟：</em> 建立 PowerPoint 簡報箱形與鬍鬚圖表 </strong></a>
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/Presentation) 類別的實例。
-2. 透過索引取得投影片參考。
-3. 加入圖表並使用預設資料以及所需類型（[ChartType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ChartType).BoxAndWhisker）。
-4. 取得 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/)。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
+2. 依索引取得投影片參考。
+3. 加入圖表並指定 [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#BoxAndWhisker) 類型，使用預設資料。
+4. 取得圖表資料工作簿 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/)。
 5. 清除預設的系列與類別。
 6. 新增系列與類別。
 7. 為圖表系列新增資料。
-8. 將修改後的簡報寫入 PPTX 檔案。
+8. 將修改後的簡報儲存為 PPTX 檔案。
 
-以下 PHP 程式碼示範如何建立箱形與鬍鬚圖表：
+以下 PHP 程式碼示範如何建立箱形圖與鬚鬚圖：
 
 ```php
   $pres = new Presentation();
@@ -539,18 +522,14 @@ _步驟：建立圖表_
   }
 ```
 
-### **建立漏斗圖表**
+### **建立漏斗圖**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>步驟：</em> 建立漏斗圖表 </strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>步驟：</em> 建立 PowerPoint 漏斗圖表 </strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>步驟：</em> 建立 PowerPoint 簡報漏斗圖表 </strong></a>
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
+2. 依索引取得投影片參考。
+3. 加入圖表並指定 [ChartType::Funnel](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#Funnel) 類型，使用預設資料。
+4. 將修改後的簡報儲存為 PPTX 檔案。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/Presentation) 類別的實例。
-2. 透過索引取得投影片參考。
-3. 加入圖表並使用預設資料以及所需類型（[ChartType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ChartType).Funnel）。
-4. 將修改後的簡報寫入 PPTX 檔案。
-
-以下 PHP 程式碼示範如何建立漏斗圖表：
+以下 PHP 程式碼示範如何建立漏斗圖：
 
 ```php
   $pres = new Presentation();
@@ -581,18 +560,14 @@ _步驟：建立圖表_
   }
 ```
 
-### **建立向心圖表**
+### **建立放射圖**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>步驟：</em> 建立向心圖表 </strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>步驟：</em> 建立 PowerPoint 向心圖表 </strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>步驟：</em> 建立 PowerPoint 簡報向心圖表 </strong></a>
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
+2. 依索引取得投影片參考。
+3. 加入圖表並指定 [ChartType::Sunburst](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#Sunburst) 類型，使用預設資料。
+4. 將修改後的簡報儲存為 PPTX 檔案。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/Presentation) 類別的實例。
-2. 透過索引取得投影片參考。
-3. 加入圖表並使用預設資料以及所需類型（此處為 [ChartType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ChartType).sunburst）。
-4. 將修改後的簡報寫入 PPTX 檔案。
-
-以下 PHP 程式碼示範如何建立向心圖表：
+以下 PHP 程式碼示範如何建立放射圖：
 
 ```php
   $pres = new Presentation();
@@ -636,21 +611,17 @@ _步驟：建立圖表_
   }
 ```
 
-### **建立直方圖表**
+### **建立直方圖**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>步驟：</em> 建立直方圖表 </strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>步驟：</em> 建立 PowerPoint 直方圖表 </strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>步驟：</em> 建立 PowerPoint 簡報直方圖表 </strong></a>
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/Presentation) 類別的實例。
-2. 透過索引取得投影片參考。
-3. 加入圖表並使用預設資料以及所需類型（[ChartType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ChartType).Histogram）。
-4. 取得 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/)。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
+2. 依索引取得投影片參考。
+3. 加入圖表並指定 [ChartType::Histogram](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#Histogram) 類型，使用預設資料。
+4. 取得圖表資料工作簿 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/)。
 5. 清除預設的系列與類別。
 6. 新增系列與類別。
-7. 將修改後的簡報寫入 PPTX 檔案。
+7. 將修改後的簡報儲存為 PPTX 檔案。
 
-以下 PHP 程式碼示範如何建立直方圖表：
+以下 PHP 程式碼示範如何建立直方圖：
 
 ```php
   $pres = new Presentation();
@@ -669,18 +640,14 @@ _步驟：建立圖表_
   $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
 ```
 
-### **建立雷達圖表**
+### **建立雷達圖**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>步驟：</em> 建立雷達圖表 </strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>步驟：</em> 建立 PowerPoint 雷達圖表 </strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>步驟：</em> 建立 PowerPoint 簡報雷達圖表 </strong></a>
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
+2. 依索引取得投影片參考。
+3. 加入圖表並指定您偏好的圖表類型（此處為 [ChartType::Radar](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#Radar)）。
+4. 將修改後的簡報儲存為 PPTX 檔案。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/Presentation) 類別的實例。
-2. 透過索引取得投影片參考。 
-3. 加入圖表並指定您偏好的圖表類型（此處為 `ChartType::Radar`）。
-4. 將修改後的簡報寫入 PPTX 檔案。
-
-以下 PHP 程式碼示範如何建立雷達圖表：
+以下 PHP 程式碼示範如何建立雷達圖：
 
 ```php
   $pres = new Presentation();
@@ -696,18 +663,14 @@ _步驟：建立圖表_
 
 ### **建立多類別圖表**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>步驟：</em> 建立多類別圖表 </strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>步驟：</em> 建立 PowerPoint 多類別圖表 </strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>步驟：</em> 建立 PowerPoint 簡報多類別圖表 </strong></a>
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/Presentation) 類別的實例。
-2. 透過索引取得投影片參考。 
-3. 加入圖表並使用預設資料以及所需類型（[ChartType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ChartType).ClusteredColumn）。
-4. 取得 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/)。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。
+2. 依索引取得投影片參考。
+3. 加入圖表並指定 [ChartType::ClusteredColumn](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/#ClusteredColumn) 類型，使用預設資料。
+4. 取得圖表資料工作簿 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/)。
 5. 清除預設的系列與類別。
 6. 新增系列與類別。
 7. 為圖表系列新增資料。
-8. 將修改後的簡報寫入 PPTX 檔案。
+8. 將修改後的簡報儲存為 PPTX 檔案。
 
 以下 PHP 程式碼示範如何建立多類別圖表：
 
@@ -753,11 +716,7 @@ _步驟：建立圖表_
 
 ### **建立地圖圖表**
 
-地圖圖表是顯示含有資料的區域的可視化方式。地圖圖表最適合比較不同地理區域的資料或數值。
-
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>步驟：</em> 建立地圖圖表 </strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>步驟：</em> 建立 PowerPoint 地圖圖表 </strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>步驟：</em> 建立 PowerPoint 簡報地圖圖表 </strong></a>
+地圖圖表可視覺化地理資料，協助比較不同區域的數值。
 
 以下 PHP 程式碼示範如何建立地圖圖表：
 
@@ -775,11 +734,11 @@ _步驟：建立圖表_
 
 ### **建立組合圖表**
 
-組合圖（或稱 Combo 圖）可在同一圖形中結合兩種或以上的圖表類型。此圖表讓您突顯、比較或檢視多個資料集之間的差異，協助辨識它們之間的關係。
+組合圖表（或稱 combo 圖表）可在同一張圖中合併兩種或以上的圖表類型。此圖表讓您突顯、比較或檢視多組資料之間的差異，協助找出它們的關聯性。
 
-![The combination chart](combination_chart.png)
+![組合圖表](combination_chart.png)
 
-以下 PHP 程式碼示範如何在 PowerPoint 簡報中建立上圖所示的組合圖：
+下列 PHP 程式碼示範如何在 PowerPoint 簡報中建立上方顯示的組合圖表：
 
 ```php
 function createComboChart() {
@@ -928,32 +887,28 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **更新圖表**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>步驟：</em> 更新 PowerPoint 圖表 </strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>步驟：</em> 更新簡報圖表 </strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>步驟：</em> 更新 PowerPoint 簡報圖表 </strong></a>
-
-1. 實例化一個代表包含欲更新圖表之簡報的 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/Presentation) 類別。
-2. 透過索引取得投影片參考。
-3. 巡覽所有圖形以找到目標圖表。
-4. 取得圖表資料工作表。
-5. 透過變更系列值來修改圖表資料系列。
+1. 建立代表欲更新圖表之簡報的 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別實例。
+2. 依索引取得投影片參考。
+3. 逐一檢查所有圖形以找到目標圖表。
+4. 取得圖表的資料工作表。
+5. 變更系列值以修改圖表資料系列。
 6. 新增系列並填入資料。
-7. 將修改後的簡報寫入 PPTX 檔案。
+7. 將修改後的簡報儲存為 PPTX 檔案。
 
 以下 PHP 程式碼示範如何更新圖表：
 
 ```php
   $pres = new Presentation();
   try {
-    # 取得第一張投影片
+    # 存取第一張投影片
     $sld = $pres->getSlides()->get_Item(0);
-    # 取得帶有預設資料的圖表
+    # 取得具有預設資料的圖表
     $chart = $sld->getShapes()->get_Item(0);
     # 設定圖表資料工作表的索引
     $defaultWorksheetIndex = 0;
     # 取得圖表資料工作表
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # 變更圖表類別名稱
+    # 更改圖表類別名稱
     $fact->getCell($defaultWorksheetIndex, 1, 0, "Modified Category 1");
     $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
     # 取得第一個圖表系列
@@ -981,7 +936,7 @@ function setAxisTitle($axis, $axisTitle) {
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
     $chart->setType(ChartType::ClusteredCylinder);
-    # 儲存含圖表的簡報
+    # 儲存包含圖表的簡報
     $pres->save("AsposeChartModified_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -994,9 +949,9 @@ function setAxisTitle($axis, $axisTitle) {
 
 設定圖表的資料範圍，請執行以下步驟：
 
-1. 實例化一個代表包含圖表之簡報的 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/Presentation) 類別。
-2. 透過索引取得投影片參考。
-3. 巡覽所有圖形以找到目標圖表。
+1. 建立代表含有目標圖表之簡報的 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別實例。
+2. 依索引取得投影片參考。
+3. 逐一檢查所有圖形以找到目標圖表。
 4. 取得圖表資料並設定範圍。
 5. 將修改後的簡報儲存為 PPTX 檔案。
 
@@ -1010,7 +965,7 @@ function setAxisTitle($axis, $axisTitle) {
     $chart->getChartData()->setRange("Sheet1!A1:B4");
     $pres->save("SetDataRange_out.pptx", SaveFormat::Pptx);
   } finally {
-    if (!java.get_???(pres)) {
+    if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
@@ -1018,7 +973,7 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **在圖表中使用預設標記**
 
-使用預設標記時，系統會自動為每個圖表系列指派不同的預設標記符號。
+使用預設標記時，每個圖表系列會自動取得不同的標記符號。
 
 以下 PHP 程式碼示範如何自動為圖表系列設定標記：
 
@@ -1062,16 +1017,16 @@ function setAxisTitle($axis, $axisTitle) {
 
 **Aspose.Slides 支援哪些圖表類型？**
 
-Aspose.Slides 支援廣泛的 [chart types](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/)，包括長條圖、折線圖、圓形圖、面積圖、散佈圖、直方圖、雷達圖等。此彈性讓您能依資料視覺化需求選擇最合適的圖表類型。
+Aspose.Slides 支援廣泛的 [圖表類型](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/charttype/)，包括長條圖、折線圖、圓餅圖、區域圖、散佈圖、直方圖、雷達圖等。此彈性讓您能依資料視覺化需求選擇最適合的圖表類型。
 
-**如何將新圖表加入投影片？**
+**如何在投影片中新增圖表？**
 
-首先建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例，依索引取得目標投影片，然後呼叫加入圖表的方法，指定圖表類型與初始資料，即可將圖表直接嵌入簡報。
+首先建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例，取得目標投影片，然後呼叫加入圖表的方法，指定圖表類型與初始資料，即可將圖表直接嵌入簡報。
 
 **如何更新圖表中顯示的資料？**
 
-您可以透過存取圖表的資料工作簿 ([ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/))，清除預設的系列與類別，然後加入自訂資料，以刷新圖表並顯示最新資料。
+透過取得圖表的資料工作簿 ([ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdataworkbook/))，清除預設的系列與類別，接著加入自訂資料，即可更新圖表以反映最新資料。
 
 **是否可以自訂圖表的外觀？**
 
-可以，Aspose.Slides 提供豐富的自訂選項，您可以修改顏色、字型、標籤、圖例及其他 [formatting elements](/slides/zh-hant/php-java/chart-entities/)，以符合特定的設計需求。
+可以。Aspose.Slides 提供豐富的自訂選項，您可以變更顏色、字型、標籤、圖例以及其他 [格式化元素](/slides/zh-hant/php-java/chart-entities/)，以符合特定的設計需求。

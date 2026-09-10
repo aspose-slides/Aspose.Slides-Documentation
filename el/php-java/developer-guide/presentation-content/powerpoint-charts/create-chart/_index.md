@@ -10,17 +10,17 @@ keywords:
 - επεξεργασία διαγράμματος
 - αλλαγή διαγράμματος
 - ενημέρωση διαγράμματος
-- διασκορπισμένο διάγραμμα
+- διασπορικό διάγραμμα
 - διάγραμμα πίτας
 - γραμμικό διάγραμμα
 - διάγραμμα χάρτη δέντρου
-- διάγραμμα μετοχών
-- διάγραμμα κουτιού και σαλαπιού
-- διάγραμμα χωνίου
-- διάγραμμα ηλιακού κύκλου
-- ιστόγραμμα
+- χρηματιστηριακό διάγραμμα
+- διάγραμμα box-and-whisker
+- διάγραμμα χωνιού
+- διάγραμμα sunburst
+- διάγραμμα ιστογράμματος
 - διάγραμμα ραντάρ
-- πολυκατηγορικό διάγραμμα
+- διάγραμμα πολλαπλών κατηγοριών
 - PowerPoint
 - παρουσίαση
 - PHP
@@ -29,85 +29,74 @@ description: "Δημιουργία και προσαρμογή διαγραμμ�
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργήσετε και να προσαρμόσετε διαγράμματα χρησιμοποιώντας το Aspose.Slides. Θα μάθετε πώς να προσθέσετε προγραμματιστικά ένα διάγραμμα σε μια διαφάνεια, να το γεμίσετε με δεδομένα και να εφαρμόσετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζει με τις συγκεκριμένες απαιτήσεις του σχεδίου σας. Σε όλο το άρθρο, λεπτομερή παραδείγματα κώδικα δείχνουν κάθε βήμα, από την αρχικοποίηση της παρουσίασης και του αντικειμένου διαγράμματος μέχρι τη διαμόρφωση σειρών, αξόνων και υπομνήματος. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε μια σταθερή κατανόηση του πώς να ενσωματώσετε τη δυναμική δημιουργία διαγραμμάτων στις εφαρμογές σας, απλοποιώντας τη διαδικασία δημιουργίας παρουσιάσεων βασισμένων σε δεδομένα.
+Αυτό το άρθρο παρέχει έναν ολοκληρωμένο οδηγό για το πώς να δημιουργήσετε και να προσαρμόσετε διαγράμματα χρησιμοποιώντας το Aspose.Slides. Θα μάθετε πώς να προσθέτετε προγραμματιστικά ένα διάγραμμα σε μια διαφάνεια, να το γεμίζετε με δεδομένα και να εφαρμόζετε διάφορες επιλογές μορφοποίησης ώστε να ταιριάζει με τις συγκεκριμένες απαιτήσεις σχεδίασής σας. Σε όλο το άρθρο, λεπτομερή παραδείγματα κώδικα δείχνουν κάθε βήμα, από την αρχικοποίηση της παρουσίασης και του αντικειμένου διαγράμματος έως τη ρύθμιση σειρών, αξόνων και υπομνήματος. Ακολουθώντας αυτόν τον οδηγό, θα αποκτήσετε στέρεη κατανόηση του πώς να ενσωματώσετε δυναμική δημιουργία διαγραμμάτων στις εφαρμογές σας, βελτιστοποιώντας τη διαδικασία δημιουργίας παρουσιάσεων βασισμένων σε δεδομένα.
 
 ## **Δημιουργία Διαγράμματος**
 
-Τα διαγράμματα βοηθούν τους ανθρώπους να οπτικοποιούν γρήγορα δεδομένα και να εξάγουν συμπεράσματα, κάτι που μπορεί να μην είναι άμεσα εμφανές από έναν πίνακα ή ένα υπολογιστικό φύλλο.
+Τα διαγράμματα βοηθούν τους ανθρώπους να οπτικοποιούν γρήγορα τα δεδομένα και να αποκτούν διορατικότητα που μπορεί να μην είναι άμεσα προφανής από έναν πίνακα ή ένα λογιστικό φύλλο.
 
-**Γιατί να δημιουργούμε διαγράμματα;**
+**Γιατί να δημιουργήσετε διαγράμματα;**
 
-Χρησιμοποιώντας διαγράμματα, μπορείτε να:
+* συγκεντρώνετε, συμπιέζετε ή συνοψίζετε μεγάλες ποσότητες δεδομένων σε μία ενιαία διαφάνεια σε μια παρουσίαση
+* εμφανίζετε μοτίβα και τάσεις στα δεδομένα
+* συμπεραίνετε την κατεύθυνση και την ορμή των δεδομένων με την πάροδο του χρόνου ή σε σχέση με μια συγκεκριμένη μονάδα μέτρησης
+* εντοπίζετε ακραίες τιμές, αποκλίσεις, σφάλματα, ασυνεπή δεδομένα κ.λπ.
+* επικοινωνείτε ή παρουσιάζετε πολύπλοκα δεδομένα
 
-* συγκεντρώσετε, συμπιέσετε ή συνοψίσετε μεγάλες ποσότητες δεδομένων σε μια μόνο διαφάνειά μιας παρουσίασης
-* αποκαλύψετε πρότυπα και τάσεις στα δεδομένα
-* εξακριβώσετε την κατεύθυνση και το ρυθμό των δεδομένων με την πάροδο του χρόνου ή σε σχέση με μια συγκεκριμένη μονάδα μέτρησης
-* εντοπίσετε ακραίες τιμές, αποκλίσεις, σφάλματα, μη λογικά δεδομένα κ.λπ.
-* επικοινωνήσετε ή παρουσιάσετε πολύπλοκα δεδομένα
+Στο PowerPoint, μπορείτε να δημιουργήσετε διαγράμματα μέσω της *Insert* λειτουργίας, η οποία παρέχει πρότυπα για το σχεδιασμό πολλών τύπων διαγραμμάτων. Χρησιμοποιώντας το Aspose.Slides, μπορείτε να δημιουργήσετε τόσο κανονικά διαγράμματα (βασισμένα σε δημοφιλείς τύπους) όσο και προσαρμοσμένα διαγράμματα.
 
-Στο PowerPoint, μπορείτε να δημιουργήσετε διαγράμματα μέσω της λειτουργίας εισαγωγής, η οποία παρέχει πρότυπα για το σχεδιασμό πολλών τύπων διαγραμμάτων. Χρησιμοποιώντας το Aspose.Slides, μπορείτε να δημιουργήσετε κανονικά διαγράμματα (βασισμένα σε δημοφιλείς τύπους διαγραμμάτων) και προσαρμοσμένα διαγράμματα.
+{{% alert color="info" title="Note" %}}
+Για τη δημιουργία διαγραμμάτων, χρησιμοποιήστε την κλάση [ChartType](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/). Τα πεδία σε αυτήν την κλάση αντιστοιχούν σε διαφορετικούς τύπους διαγραμμάτων.
+{{% /alert %}}
 
-{{% alert color="primary" %}} 
+### **Δημιουργία Συγκεντρωτικών Στήλης Διαγράμματος**
 
-Για να δημιουργήσετε διαγράμματα, το Aspose.Slides παρέχει την κλάση [ChartType](https://reference.aspose.com/slides/el/php-java/aspose.slides/ChartType). Τα πεδία αυτής της κλάσης αντιστοιχούν σε διαφορετικούς τύπους διαγραμμάτων.
+Αυτή η ενότητα εξηγεί πώς να δημιουργήσετε συγκεντρωτικά διαγράμματα στήλης χρησιμοποιώντας το Aspose.Slides. Θα μάθετε να αρχικοποιείτε μια παρουσίαση, να προσθέτετε ένα διάγραμμα και να προσαρμόζετε τα στοιχεία του, όπως τίτλο, δεδομένα, σειρές, κατηγορίες και στυλ. Ακολουθήστε τα παρακάτω βήματα για να δείτε πώς δημιουργείται ένα τυπικό συγκεντρωτικό διάγραμμα στήλης:
 
-{{% /alert %}} 
-
-### **Δημιουργία Κανονικών Διαγραμμάτων**
-
-_Βήματα: Δημιουργία Διαγράμματος_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος PowerPoint </strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Παρουσίασης </strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος PowerPoint Παρουσίασης </strong></a>
-
-_Κώδικας Βημάτων:_
-
-1. Δημιουργήστε ένα αντιτύπωμα της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation).
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και ορίστε τον προτιμώμενο τύπο διαγράμματος. 
-4. Προσθέστε έναν τίτλο για το διάγραμμα. 
-5. Πρόσβαση στο φύλλο δεδομένων του διαγράμματος. 
-6. Εκκαθάριση όλων των προεπιλεγμένων σειρών και κατηγοριών. 
-7. Προσθήκη νέων σειρών και κατηγοριών. 
-8. Προσθήκη νέων δεδομένων διαγράμματος για τις σειρές του διαγράμματος. 
-9. Προσθήκη χρώματος γεμίσματος για τις σειρές του διαγράμματος. 
-10. Προσθήκη ετικετών για τις σειρές του διαγράμματος. 
-11. Αποθήκευση της τροποποιημένης παρουσίασης ως αρχείο PPTX.
-
-Αυτός ο κώδικας PHP δείχνει πώς να δημιουργήσετε ένα κανονικό διάγραμμα:
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation).
+1. Αποκτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
+1. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και καθορίστε τον τύπο `ChartType::ClusteredColumn`.
+1. Προσθέστε έναν τίτλο στο διάγραμμα.
+1. Προσπελάστε το φύλλο εργασίας δεδομένων του διαγράμματος.
+1. Καθαρίστε όλες τις προεπιλεγμένες σειρές και κατηγορίες.
+1. Προσθέστε νέες σειρές και κατηγορίες.
+1. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές του διαγράμματος.
+1. Εφαρμόστε χρώμα γεμίσματος στις σειρές του διαγράμματος.
+1. Προσθέστε ετικέτες στις σειρές του διαγράμματος.
+1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 ```php
-  # Δημιουργεί αντικείμενο παρουσίασης που αντιπροσωπεύει αρχείο PPTX
+  # Δημιουργεί ένα αντικείμενο παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
   $pres = new Presentation();
   try {
     # Πρόσβαση στην πρώτη διαφάνεια
     $sld = $pres->getSlides()->get_Item(0);
-    # Προσθέτει διάγραμμα με τα προεπιλεγμένα του δεδομένα
+    # Προσθήκη διαγράμματος με τα προεπιλεγμένα δεδομένα του
     $chart = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 0, 0, 500, 500);
     # Ορίζει τον τίτλο του διαγράμματος
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->hasTitle();
-    # Ορίζει την πρώτη σειρά να εμφανίζει τιμές
+    # Ορίζει τη πρώτη σειρά να εμφανίζει τιμές
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Ορίζει τον δείκτη για το φύλλο δεδομένων του διαγράμματος
+    # Ορίζει το ευρετήριο για το φύλλο δεδομένων του διαγράμματος
     $defaultWorksheetIndex = 0;
-    # Αποκτά το φύλλο εργασίας δεδομένων του διαγράμματος
+    # Ανάκτηση του φύλλου εργασίας δεδομένων του διαγράμματος
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Διαγράφει τις προεπιλεγμένες παραγόμενες σειρές και κατηγορίες
+    # Διαγραφή των προεπιλεγμένων σειρών και κατηγοριών που δημιουργήθηκαν
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     $s = $chart->getChartData()->getSeries()->size();
     $s = $chart->getChartData()->getCategories()->size();
-    # Προσθέτει νέες σειρές
+    # Προσθήκη νέων σειρών
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
-    # Προσθέτει νέες κατηγορίες
+    # Προσθήκη νέων κατηγοριών
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    # Παίρνει την πρώτη σειρά του διαγράμματος
+    # Λήψη της πρώτης σειράς του διαγράμματος
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     # Τώρα γεμίζει τα δεδομένα της σειράς
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
@@ -116,7 +105,7 @@ _Κώδικας Βημάτων:_
     # Ορίζει το χρώμα γεμίσματος για τη σειρά
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Παίρνει τη δεύτερη σειρά του διαγράμματος
+    # Λήψη της δεύτερης σειράς του διαγράμματος
     $series = $chart->getChartData()->getSeries()->get_Item(1);
     # Γεμίζει τα δεδομένα της σειράς
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
@@ -125,7 +114,7 @@ _Κώδικας Βημάτων:_
     # Ορίζει το χρώμα γεμίσματος για τη σειρά
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    # Δημιουργεί προσαρμοσμένες ετικέτες για κάθε κατηγορία της νέας σειράς
+    # Δημιουργία προσαρμοσμένων ετικετών για κάθε κατηγορία της νέας σειράς
     # Ορίζει την πρώτη ετικέτα να εμφανίζει το όνομα της κατηγορίας
     $lbl = $series->getDataPoints()->get_Item(0)->getLabel();
     $lbl->getDataLabelFormat()->setShowCategoryName(true);
@@ -145,59 +134,54 @@ _Κώδικας Βημάτων:_
   }
 ```
 
-### **Δημιουργία Διαγραμμάτων Σκαρδάλισματος**
-Τα διαγράμματα σκαρδάλισματος (γνωστά επίσης ως scatter plots ή διαγράμματα x-y) χρησιμοποιούνται συχνά για να ελέγξουν πρότυπα ή να δείξουν συσχετίσεις μεταξύ δύο μεταβλητών.
+### **Δημιουργία Διασπορικών Διαγραμμάτων**
 
-Μπορεί να θέλετε να χρησιμοποιήσετε διάγραμμα σκαρδάλισματος όταν
+Τα διασπορικά διαγράμματα (γνωστά επίσης ως scatter plots ή x‑y γραφήματα) χρησιμοποιούνται συχνά για να ελέγξουν μοτίβα ή να αφηγηθούν συσχετίσεις μεταξύ δύο μεταβλητών.
 
-* έχετε ζευγάρια αριθμητικών δεδομένων
-* έχετε 2 μεταβλητές που ταιριάζουν καλά μεταξύ τους
-* θέλετε να διαπιστώσετε εάν 2 μεταβλητές είναι σχετικές
-* έχετε μια ανεξάρτητη μεταβλητή με πολλαπλές τιμές για μια εξαρτημένη μεταβλητή
+Χρησιμοποιήστε ένα διασπορικό διάγραμμα όταν:
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Βήματα:</em> Δημιουργία Σκαρδάλισματος </strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Βήματα:</em> Δημιουργία Σκαρδάλισματος PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Βήματα:</em> Δημιουργία Σκαρδάλισματος PowerPoint Παρουσίασης </strong></a>
+* διαθέτετε αριθμητικά ζευγαρωμένα δεδομένα
+* διαθέτετε δύο μεταβλητές που ταιριάζουν καλά μεταξύ τους
+* θέλετε να καθορίσετε εάν δύο μεταβλητές σχετίζονται
+* έχετε μια ανεξάρτητη μεταβλητή που έχει πολλές τιμές για μια εξαρτημένη μεταβλητή
 
-1. Παρακαλούμε ακολουθήστε τα βήματα που περιγράφονται παραπάνω στα [Create Normal Charts](#creating-normal-charts)
-2. Στο τρίτο βήμα, προσθέστε ένα διάγραμμα με κάποια δεδομένα και ορίστε τον τύπο διαγράμματος ως έναν από τους παρακάτω
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Αντιπροσωπεύει διάγραμμα σκαρδάλισματος με δείκτες._
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Αντιπροσωπεύει διάγραμμα σκαρδάλισματος συνδεδεμένο με καμπύλες, με δείκτες δεδομένων._
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Αντιπροσωπεύει διάγραμμα σκαρδάλισματος συνδεδεμένο με καμπύλες, χωρίς δείκτες δεδομένων._
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Αντιπροσωπεύει διάγραμμα σκαρδάλισματος συνδεδεμένο με ευθείες γραμμές, με δείκτες δεδομένων._
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Αντιπροσωπεύει διάγραμμα σκαρδάλισματος συνδεδεμένο με ευθείες γραμμές, χωρίς δείκτες δεδομένων._
-
-Αυτός ο κώδικας PHP δείχνει πώς να δημιουργήσετε σκαρδάλισμα με διαφορετικές σειρές δεικτών:
+1. Ακολουθήστε τα βήματα στο [Create Clustered Column Charts](#create-clustered-column-charts).
+2. Για το τρίτο βήμα, προσθέστε ένα διάγραμμα με κάποια δεδομένα και καθορίστε τον τύπο διαγράμματος ως έναν από τους παρακάτω:
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Αντιπροσωπεύει ένα διασπορικό διάγραμμα._
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Αντιπροσωπεύει ένα διασπορικό διάγραμμα συνδεδεμένο με καμπύλες, με σημεία δεδομένων._
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Αντιπροσωπεύει ένα διασπορικό διάγραμμα συνδεδεμένο με καμπύλες, χωρίς σημεία δεδομένων._
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Αντιπροσωπεύει ένα διασπορικό διάγραμμα συνδεδεμένο με ευθείες γραμμές, με σημεία δεδομένων._
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Αντιπροσωπεύει ένα διασπορικό διάγραμμα συνδεδεμένο με ευθείες γραμμές, χωρίς σημεία δεδομένων._
 
 ```php
-  # Δημιουργεί αντικείμενο παρουσίασης που αντιπροσωπεύει αρχείο PPTX
+  # Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
   $pres = new Presentation();
   try {
     # Πρόσβαση στην πρώτη διαφάνεια
     $slide = $pres->getSlides()->get_Item(0);
     # Δημιουργεί το προεπιλεγμένο διάγραμμα
     $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 0, 0, 400, 400);
-    # Αποκτά τον δείκτη του προεπιλεγμένου φύλλου δεδομένων του διαγράμματος
+    # Λαμβάνει το ευρετήριο του προεπιλεγμένου φύλλου δεδομένων του διαγράμματος
     $defaultWorksheetIndex = 0;
-    # Αποκτά το φύλλο δεδομένων του διαγράμματος
+    # Λαμβάνει το φύλλο δεδομένων του διαγράμματος
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Διαγράφει τις σειρές επίδειξης
+    # Διαγράφει τις σειρές demo
     $chart->getChartData()->getSeries()->clear();
     # Προσθέτει νέες σειρές
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 3, "Series 2"), $chart->getType());
-    # Πηγαίνει στην πρώτη σειρά του διαγράμματος
+    # Παίρνει την πρώτη σειρά του διαγράμματος
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     # Προσθέτει νέο σημείο (1:3) στη σειρά
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 1), $fact->getCell($defaultWorksheetIndex, 2, 2, 3));
     # Προσθέτει νέο σημείο (2:10)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 2), $fact->getCell($defaultWorksheetIndex, 3, 2, 10));
-    # Αλλάζει τον τύπο της σειράς
+    # Αλλαγή τύπου σειράς
     $series->setType(ChartType::ScatterWithStraightLinesAndMarkers);
-    # Αλλάζει το δείκτη (marker) της σειράς διαγράμματος
+    # Αλλάζει το σύμβολο σημεία της σειράς διαγράμματος
     $series->getMarker()->setSize(10);
     $series->getMarker()->setSymbol(MarkerStyleType::Star);
-    # Πηγαίνει στη δεύτερη σειρά του διαγράμματος
+    # Παίρνει τη δεύτερη σειρά του διαγράμματος
     $series = $chart->getChartData()->getSeries()->get_Item(1);
     # Προσθέτει νέο σημείο (5:2) εκεί
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 5), $fact->getCell($defaultWorksheetIndex, 2, 4, 2));
@@ -207,7 +191,7 @@ _Κώδικας Βημάτων:_
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 4, 3, 2), $fact->getCell($defaultWorksheetIndex, 4, 4, 2));
     # Προσθέτει νέο σημείο (5:1)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 5, 3, 5), $fact->getCell($defaultWorksheetIndex, 5, 4, 1));
-    # Αλλάζει το δείκτη (marker) της σειράς διαγράμματος
+    # Αλλάζει το σύμβολο σημεία της σειράς διαγράμματος
     $series->getMarker()->setSize(10);
     $series->getMarker()->setSymbol(MarkerStyleType::Circle);
     $pres->save("AsposeChart_out.pptx", SaveFormat::Pptx);
@@ -218,36 +202,30 @@ _Κώδικας Βημάτων:_
   }
 ```
 
-### **Δημιουργία Διάγραμμα Πίτας**
+### **Δημιουργία Πίτας Διαγραμμάτων**
 
-Τα διαγράμματα πίτας χρησιμοποιούνται καλύτερα για την εμφάνιση της σχέσης μέρος‑προς‑ολόκληρο σε δεδομένα, ειδικά όταν τα δεδομένα περιέχουν κατηγορικές ετικέτες με αριθμητικές τιμές. Ωστόσο, εάν τα δεδομένα σας περιέχουν πολλά τμήματα ή ετικέτες, ίσως θελήσετε να χρησιμοποιήσετε ένα διάγραμμα ράβδων αντί γι’ αυτό.
+Τα πίτα διαγράμματα είναι ιδανικά για την εμφάνιση της σχέσης μέρος‑προς‑ολόκληρο στα δεδομένα, ειδικά όταν τα δεδομένα περιέχουν κατηγοριοποιημένες ετικέτες με αριθμητικές τιμές. Ωστόσο, εάν τα δεδομένα σας περιλαμβάνουν πολλά μέρη ή ετικέτες, ίσως θελήσετε να χρησιμοποιήσετε ένα ραβδογράφημα αντ’ αυτού.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Πίτας </strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Πίτας PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Βήματα:</em> Δημιουργία Διαγράμματος Πίτας PowerPoint Παρουσίασης </strong></a>
-
-1. Δημιουργήστε ένα αντιτύπωμα της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation).
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο (σε αυτή την περίπτωση, [ChartType](https://reference.aspose.com/slides/el/php-java/aspose.slides/ChartType).Pie).
-4. Πρόσβαση στο [ChartDataWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdataworkbook/).
-5. Εκκαθάριση των προεπιλεγμένων σειρών και κατηγοριών.
-6. Προσθήκη νέων σειρών και κατηγοριών.
-7. Προσθήκη νέων δεδομένων διαγράμματος για τις σειρές του διαγράμματος.
-8. Προσθήκη νέων σημείων για τα διαγράμματα και προσαρμοσμένων χρωμάτων για τα τμήματα του διαγράμματος πίτας.
-9. Ορισμός ετικετών για τις σειρές.
-10. Ορισμός γραμμών οδηγού για τις ετικέτες των σειρών.
-11. Ορισμός γωνίας περιστροφής για τις διαφάνειες του διαγράμματος πίτας.
-12. Αποθήκευση της τροποποιημένης παρουσίασης σε αρχείο PPTX.
-
-Αυτός ο κώδικας PHP δείχνει πώς να δημιουργήσετε ένα διάγραμμα πίτας:
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Αποκτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType::Pie](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#Pie).
+4. Προσπελάστε το βιβλίο εργασίας δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdataworkbook/).
+5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
+6. Προσθέστε νέες σειρές και κατηγορίες.
+7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές του διαγράμματος.
+8. Προσθέστε νέα σημεία στο διάγραμμα και εφαρμόστε προσαρμοσμένα χρώματα για τους τομείς του πίτα διαγράμματος.
+9. Ορίστε ετικέτες για τις σειρές.
+10. Ενεργοποιήστε τις γραμμές οδηγούς για τις ετικέτες των σειρών.
+11. Ορίστε τη γωνία περιστροφής για τους τομείς του πίτα διαγράμματος.
+12. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 ```php
-  # Δημιουργεί αντικείμενο κλάσης παρουσίασης που αντιπροσωπεύει αρχείο PPTX
+  # Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο PPTX
   $pres = new Presentation();
   try {
     # Πρόσβαση στην πρώτη διαφάνεια
     $slides = $pres->getSlides()->get_Item(0);
-    # Προσθέτει διάγραμμα με προεπιλεγμένα δεδομένα
+    # Προσθέτει ένα διάγραμμα με προεπιλεγμένα δεδομένα
     $chart = $slides->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
     # Ορίζει τον τίτλο του διαγράμματος
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
@@ -256,11 +234,11 @@ _Κώδικας Βημάτων:_
     $chart->setTitle(true);
     # Ορίζει την πρώτη σειρά να εμφανίζει τιμές
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Ορίζει τον δείκτη για το φύλλο δεδομένων του διαγράμματος
+    # Ορίζει το ευρετήριο για το φύλλο δεδομένων του διαγράμματος
     $defaultWorksheetIndex = 0;
-    # Αποκτά το φύλλο εργασίας δεδομένων του διαγράμματος
+    # Λαμβάνει το φύλλο εργασίας δεδομένων του διαγράμματος
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Διαγράφει τις προεπιλεγμένες παραγόμενες σειρές και κατηγορίες
+    # Διαγράφει τις προεπιλεγμένες δημιουργημένες σειρές και κατηγορίες
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     # Προσθέτει νέες κατηγορίες
@@ -269,7 +247,7 @@ _Κώδικας Βημάτων:_
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
     # Προσθέτει νέες σειρές
     $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    # Συμπληρώνει τα δεδομένα της σειράς
+    # Γεμίζει τα δεδομένα της σειράς
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
@@ -304,7 +282,7 @@ _Κώδικας Βημάτων:_
     $point2->getFormat()->getLine()->setWidth(2.0);
     $point2->getFormat()->getLine()->setStyle(LineStyle->ThinThin);
     $point2->getFormat()->getLine()->setDashStyle(LineDashStyle->LargeDashDotDot);
-    # Δημιουργεί προσαρμοσμένες ετικέτες για κάθε κατηγορία της νέας σειράς
+    # Δημιουργεί προσαρμοσμένες ετικέτες για κάθε κατηγορία στη νέα σειρά
     $lbl1 = $series->getDataPoints()->get_Item(0)->getLabel();
     # lbl.ShowCategoryName = true;
     $lbl1->getDataLabelFormat()->setShowValue(true);
@@ -315,11 +293,11 @@ _Κώδικας Βημάτων:_
     $lbl3 = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl3->getDataLabelFormat()->setShowSeriesName(true);
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
-    # Εμφανίζει γραμμές οδηγού για το διάγραμμα
+    # Εμφανίζει γραμμές οδηγούς για το διάγραμμα
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
     # Ορίζει τη γωνία περιστροφής για τους τομείς του διαγράμματος πίτας
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
-    # Αποθηκεύει την παρουσίαση με το διάγραμμα
+    # Αποθηκεύει την παρουσίαση με ένα διάγραμμα
     $pres->save("PieChart_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -330,18 +308,16 @@ _Κώδικας Βημάτων:_
 
 ### **Δημιουργία Γραμμικών Διαγραμμάτων**
 
-Τα γραμμικά διαγράμματα (επίσης γνωστά ως γραμμικά γραφήματα) χρησιμοποιούνται καλύτερα σε περιπτώσεις όπου θέλετε να παρουσιάσετε αλλαγές τιμής με τον χρόνο. Με ένα γραμμικό διάγραμμα, μπορείτε να συγκρίνετε πολλά δεδομένα ταυτόχρονα, να παρακολουθείτε αλλαγές και τάσεις με την πάροδο του χρόνου, να επισημάνετε ανωμαλίες σε σειρές δεδομένων κ.λπ.
+Τα γραμμικά διαγράμματα (γνωστά επίσης ως line graphs) είναι ιδανικά σε καταστάσεις όπου θέλετε να δείξετε αλλαγές στην τιμή με την πάροδο του χρόνου. Με ένα γραμμικό διάγραμμα, μπορείτε να συγκρίνετε μεγάλο όγκο δεδομένων ταυτόχρονα, να παρακολουθείτε αλλαγές και τάσεις, να επισημαίνετε ανωμαλίες σε σειρές δεδομένων και πολλά άλλα.
 
-1. Δημιουργήστε ένα αντιτύπωμα της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation).
-1. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο (σε αυτή την περίπτωση, `ChartType::Line`).
-1. Πρόσβαση στο IChartDataWorkbook του διαγράμματος.
-1. Εκκαθάριση των προεπιλεγμένων σειρών και κατηγοριών.
-1. Προσθήκη νέων σειρών και κατηγοριών.
-1. Προσθήκη νέων δεδομένων διαγράμματος για τις σειρές του διαγράμματος.
-1. Αποθήκευση της τροποποιημένης παρουσίασης σε αρχείο PPTX
-
-Αυτός ο κώδικας PHP δείχνει πώς να δημιουργήσετε ένα γραμμικό διάγραμμα:
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+1. Αποκτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
+1. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType::Line](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#Line).
+1. Προσπελάστε το βιβλίο εργασίας δεδομένων του διαγράμματος ([ChartDataWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdataworkbook/)).
+1. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
+1. Προσθέστε νέες σειρές και κατηγορίες.
+1. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές του διαγράμματος.
+1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 ```php
   $pres = new Presentation();
@@ -355,33 +331,36 @@ _Κώδικας Βημάτων:_
   }
 ```
 
-Από προεπιλογή, τα σημεία σε ένα γραμμικό διάγραμμα ενώνουνται με ευθείες συνεχείς γραμμές. Αν θέλετε τα σημεία να ενώνουνται με παύλες, μπορείτε να ορίσετε τον προτιμώμενο τύπο παύλας ως εξής:
+Από προεπιλογή, τα σημεία σε ένα γραμμικό διάγραμμα ενώνονται με συνεχείς ευθείες γραμμές. Εάν θέλετε τα σημεία να ενωθούν με παύλες, μπορείτε να ορίσετε τον προτιμώμενο τύπο παύλας ως εξής:
 
 ```php
-  $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
-  foreach($lineChart->getChartData()->getSeries() as $series) {
-    $series->getFormat()->getLine()->setDashStyle(LineDashStyle->Dash);
+  $pres = new Presentation();
+  try {
+    $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
+    $seriesCollection = $lineChart->getChartData()->getSeries();
+    foreach ($seriesCollection as $series) {
+      $series->getFormat()->getLine()->setDashStyle(LineDashStyle::Dash);
+    }
+    $pres->save("lineChart.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
   }
 ```
 
-### **Δημιουργία Διαγραμμάτων Δέντρου (Tree Map)**
+### **Δημιουργία Διαγραμμάτων Tree Map**
 
-Τα διαγράμματα tree map χρησιμοποιούνται καλύτερα για δεδομένα πωλήσεων όταν θέλετε να δείξετε το σχετικό μέγεθος των κατηγοριών δεδομένων και (ταυτόχρονα) να τραβήξετε γρήγορα την προσοχή σε στοιχεία που συνεισφέρουν σημαντικά σε κάθε κατηγορία.
+Τα διαγράμματα Tree Map είναι ιδανικά για δεδομένα πωλήσεων όταν θέλετε να δείξετε το σχετικό μέγεθος των κατηγοριών δεδομένων και να εστιάσετε γρήγορα σε στοιχεία που αποτελούν μεγάλους συνεισφέρωντες σε κάθε κατηγορία.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Βήματα:</em> Δημιουργία Tree Map </strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Βήματα:</em> Δημιουργία Tree Map PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Βήματα:</em> Δημιουργία Tree Map PowerPoint Παρουσίασης </strong></a>
-
-1. Δημιουργήστε ένα αντιτύπωμα της [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) κλάσης.
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο (σε αυτή την περίπτωση, [ChartType](https://reference.aspose.com/slides/el/php-java/aspose.slides/ChartType).TreeMap).
-4. Πρόσβαση στο [ChartDataWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdataworkbook/).
-5. Εκκαθάριση των προεπιλεγμένων σειρών και κατηγοριών.
-6. Προσθήκη νέων σειρών και κατηγοριών.
-7. Προσθήκη νέων δεδομένων διαγράμματος για τις σειρές του διαγράμματος.
-8. Αποθήκευση της τροποποιημένης παρουσίασης σε αρχείο PPTX
-
-Αυτός ο κώδικας PHP δείχνει πώς να δημιουργήσετε ένα tree map διάγραμμα:
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Αποκτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType::Treemap](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#Treemap).
+4. Προσπελάστε το βιβλίο εργασίας δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdataworkbook/).
+5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
+6. Προσθέστε νέες σειρές και κατηγορίες.
+7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές του διαγράμματος.
+8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 ```php
   $pres = new Presentation();
@@ -391,7 +370,7 @@ _Κώδικας Βημάτων:_
     $chart->getChartData()->getSeries()->clear();
     $wb = $chart->getChartData()->getChartDataWorkbook();
     $wb->clear(0);
-    # κλάδος 1
+    # κλαδί 1
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "Leaf1"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem1");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch1");
@@ -399,7 +378,7 @@ _Κώδικας Βημάτων:_
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "Leaf3"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem2");
     $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "Leaf4"));
-    # κλάδος 2
+    # κλαδί 2
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "Leaf5"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem3");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch2");
@@ -426,23 +405,17 @@ _Κώδικας Βημάτων:_
   }
 ```
 
-### **Δημιουργία Διάγραμμα Απόθεσης (Stock Chart)**
+### **Δημιουργία Χρηματιστηριακών Διαγραμμάτων**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Βήματα:</em> Δημιουργία Stock Chart </strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Βήματα:</em> Δημιουργία Stock Chart PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Βήματα:</em> Δημιουργία Stock Chart PowerPoint Παρουσίασης </strong></a>
-
-1. Δημιουργήστε ένα αντιτύπωμα της [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) κλάσης.
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/php-java/aspose.slides/ChartType).OpenHighLowClose).
-4. Πρόσβαση στο [ChartDataWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdataworkbook/).
-5. Εκκαθάριση των προεπιλεγμένων σειρών και κατηγοριών.
-6. Προσθήκη νέων σειρών και κατηγοριών.
-7. Προσθήκη νέων δεδομένων διαγράμματος για τις σειρές του διαγράμματος.
-8. Προσδιορισμός μορφής HiLowLines.
-9. Αποθήκευση της τροποποιημένης παρουσίασης σε αρχείο PPTX
-
-Δείγμα κώδικα PHP για τη δημιουργία stock chart:
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Αποκτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#OpenHighLowClose).
+4. Προσπελάστε το βιβλίο εργασίας δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdataworkbook/).
+5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
+6. Προσθέστε νέες σειρές και κατηγορίες.
+7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές του διαγράμματος.
+8. Καθορίστε τη μορφή των γραμμών υψηλού‑χαμηλού.
+9. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 ```php
   $pres = new Presentation();
@@ -476,7 +449,8 @@ _Κώδικας Βημάτων:_
     $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 4, 50));
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    foreach($chart->getChartData()->getSeries() as $ser) {
+    $seriesCollection = $chart->getChartData()->getSeries();
+    foreach ($seriesCollection as $ser) {
       $ser->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     }
     $pres->save("output.pptx", SaveFormat::Pptx);
@@ -489,20 +463,14 @@ _Κώδικας Βημάτων:_
 
 ### **Δημιουργία Διαγραμμάτων Box and Whisker**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Βήματα:</em> Δημιουργία Box and Whisker Chart </strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Βήματα:</em> Δημιουργία Box and Whisker Chart PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Βήματα:</em> Δημιουργία Box and Whisker Chart PowerPoint Παρουσίασης </strong></a>
-
-1. Δημιουργήστε ένα αντιτύπωμα της [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) κλάσης.
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/php-java/aspose.slides/ChartType).BoxAndWhisker).
-4. Πρόσβαση στο [ChartDataWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdataworkbook/).
-5. Εκκαθάριση των προεπιλεγμένων σειρών και κατηγοριών.
-6. Προσθήκη νέων σειρών και κατηγοριών.
-7. Προσθήκη νέων δεδομένων διαγράμματος για τις σειρές του διαγράμματος.
-8. Αποθήκευση της τροποποιημένης παρουσίασης σε αρχείο PPTX
-
-Αυτός ο κώδικας PHP δείχνει πώς να δημιουργήσετε ένα διάγραμμα Box and Whisker:
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Αποκτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#BoxAndWhisker).
+4. Προσπελάστε το βιβλίο εργασίας δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdataworkbook/).
+5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
+6. Προσθέστε νέες σειρές και κατηγορίες.
+7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές του διαγράμματος.
+8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 ```php
   $pres = new Presentation();
@@ -538,19 +506,12 @@ _Κώδικας Βημάτων:_
   }
 ```
 
-### **Δημιουργία Διάγραμμα Χωνίου (Funnel Chart)**
+### **Δημιουργία Διαγράμματος Funnel**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Βήματα:</em> Δημιουργία Funnel Chart </strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Βήματα:</em> Δημιουργία Funnel Chart PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Βήματα:</em> Δημιουργία Funnel Chart PowerPoint Παρουσίασης </strong></a>
-
-
-1. Δημιουργήστε ένα αντιτύπωμα της [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) κλάσης.
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/php-java/aspose.slides/ChartType).Funnel).
-4. Αποθήκευση της τροποποιημένης παρουσίασης σε αρχείο PPTX
-
-Ο κώδικας PHP δείχνει πώς να δημιουργήσετε ένα funnel chart:
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Αποκτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType::Funnel](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#Funnel).
+4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 ```php
   $pres = new Presentation();
@@ -581,18 +542,12 @@ _Κώδικας Βημάτων:_
   }
 ```
 
-### **Δημιουργία Διάγραμμα Ηλιακού Κύκλου (Sunburst Chart)**
+### **Δημιουργία Διαγραμμάτων Sunburst**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Βήματα:</em> Δημιουργία Sunburst Chart </strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Βήματα:</em> Δημιουργία Sunburst Chart PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Βήματα:</em> Δημιουργία Sunburst Chart PowerPoint Παρουσίασης </strong></a>
-
-1. Δημιουργήστε ένα αντιτύπωμα της [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) κλάσης.
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο (σε αυτή την περίπτωση, [ChartType](https://reference.aspose.com/slides/el/php-java/aspose.slides/ChartType).sunburst).
-4. Αποθήκευση της τροποποιημένης παρουσίασης σε αρχείο PPTX
-
-Αυτός ο κώδικας PHP δείχνει πώς να δημιουργήσετε ένα sunburst chart:
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Αποκτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType::Sunburst](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#Sunburst).
+4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 ```php
   $pres = new Presentation();
@@ -602,7 +557,7 @@ _Κώδικας Βημάτων:_
     $chart->getChartData()->getSeries()->clear();
     $wb = $chart->getChartData()->getChartDataWorkbook();
     $wb->clear(0);
-    # κλάδος 1
+    # κλαδί 1
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "Leaf1"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem1");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch1");
@@ -610,7 +565,7 @@ _Κώδικας Βημάτων:_
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "Leaf3"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem2");
     $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "Leaf4"));
-    # κλάδος 2
+    # κλαδί 2
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "Leaf5"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem3");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch2");
@@ -636,21 +591,15 @@ _Κώδικας Βημάτων:_
   }
 ```
 
-### **Δημιουργία Ιστογράμματος (Histogram Chart)**
+### **Δημιουργία Ιστογραμμάτων**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Βήματα:</em> Δημιουργία Histogram Chart </strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Βήματα:</em> Δημιουργία Histogram Chart PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Βήματα:</em> Δημιουργία Histogram Chart PowerPoint Παρουσίασης </strong></a>
-
-1. Δημιουργήστε ένα αντιτύπωμα της [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) κλάσης.
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/php-java/aspose.slides/ChartType).Histogram).
-4. Πρόσβαση στο [ChartDataWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdataworkbook/).
-5. Εκκαθάριση των προεπιλεγμένων σειρών και κατηγοριών.
-6. Προσθήκη νέων σειρών και κατηγοριών.
-7. Αποθήκευση της τροποποιημένης παρουσίασης σε αρχείο PPTX
-
-Αυτός ο κώδικας PHP δείχνει πώς να δημιουργήσετε ένα histogram chart:
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Αποκτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType::Histogram](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#Histogram).
+4. Προσπελάστε το βιβλίο εργασίας δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdataworkbook/).
+5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
+6. Προσθέστε νέες σειρές και κατηγορίες.
+7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 ```php
   $pres = new Presentation();
@@ -667,21 +616,14 @@ _Κώδικας Βημάτων:_
   $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A5", -23));
   $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A6", 16));
   $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
-
 ```
 
-### **Δημιουργία Διάγραμμα Ραδίου (Radar Chart)**
+### **Δημιουργία Διαγραμμάτων Radar**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Βήματα:</em> Δημιουργία Radar Chart </strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Βήματα:</em> Δημιουργία Radar Chart PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Βήματα:</em> Δημιουργία Radar Chart PowerPoint Παρουσίασης </strong></a>
-
-1. Δημιουργήστε ένα αντιτύπωμα της [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) κλάσης.
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-3. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και ορίστε τον προτιμώμενο τύπο διαγράμματος (`ChartType::Radar` σε αυτή την περίπτωση).
-4. Αποθήκευση της τροποποιημένης παρουσίασης σε αρχείο PPTX
-
-Αυτός ο κώδικας PHP δείχνει πώς να δημιουργήσετε ένα radar chart:
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Αποκτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
+3. Προσθέστε ένα διάγραμμα με κάποια δεδομένα και καθορίστε τον προτιμώμενο τύπο διαγράμματος ([ChartType::Radar](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#Radar) σε αυτήν την περίπτωση).
+4. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 ```php
   $pres = new Presentation();
@@ -695,22 +637,16 @@ _Κώδικας Βημάτων:_
   }
 ```
 
-### **Δημιουργία Πολυ‑Κατηγορικών Διαγραμμάτων (Multi‑Category Chart)**
+### **Δημιουργία Διαγραμμάτων Πολλαπλών Κατηγοριών**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Βήματα:</em> Δημιουργία Multi‑Category Chart </strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Βήματα:</em> Δημιουργία Multi‑Category Chart PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Βήματα:</em> Δημιουργία Multi‑Category Chart PowerPoint Παρουσίασης </strong></a>
-
-1. Δημιουργήστε ένα αντιτύπωμα της [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) κλάσης.
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της. 
-3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα μαζί με τον επιθυμητό τύπο ([ChartType](https://reference.aspose.com/slides/el/php-java/aspose.slides/ChartType).ClusteredColumn).
-4. Πρόσβαση στο [ChartDataWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdataworkbook/).
-5. Εκκαθάριση των προεπιλεγμένων σειρών και κατηγοριών.
-6. Προσθήκη νέων σειρών και κατηγοριών.
-7. Προσθήκη νέων δεδομένων διαγράμματος για τις σειρές του διαγράμματος.
-8. Αποθήκευση της τροποποιημένης παρουσίασης σε αρχείο PPTX.
-
-Αυτός ο κώδικας PHP δείχνει πώς να δημιουργήσετε ένα multi‑category chart:
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Αποκτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
+3. Προσθέστε ένα διάγραμμα με προεπιλεγμένα δεδομένα και καθορίστε τον τύπο [ChartType::ClusteredColumn](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/#ClusteredColumn).
+4. Προσπελάστε το βιβλίο εργασίας δεδομένων του διαγράμματος [ChartDataWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdataworkbook/).
+5. Καθαρίστε τις προεπιλεγμένες σειρές και κατηγορίες.
+6. Προσθέστε νέες σειρές και κατηγορίες.
+7. Προσθέστε νέα δεδομένα διαγράμματος για τις σειρές του διαγράμματος.
+8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 ```php
   $pres = new Presentation();
@@ -752,15 +688,9 @@ _Κώδικας Βημάτων:_
   }
 ```
 
-### **Δημιουργία Χαρτογραφικών Διαγραμμάτων (Map Chart)**
+### **Δημιουργία Διαγραμμάτων Χάρτη**
 
-Ένα χάρτο‑διάγραμμα είναι η οπτικοποίηση μιας περιοχής που περιέχει δεδομένα. Τα χάρτο‑διαγράμματα χρησιμοποιούνται καλύτερα για σύγκριση δεδομένων ή τιμών μεταξύ γεωγραφικών περιοχών.
-
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Βήματα:</em> Δημιουργία Map Chart </strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Βήματα:</em> Δημιουργία Map Chart PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Βήματα:</em> Δημιουργία Map Chart PowerPoint Παρουσίασης </strong></a>
-
-Αυτός ο κώδικας PHP δείχνει πώς να δημιουργήσετε ένα map chart:
+Τα διαγράμματα χάρτη οπτικοποιούν γεωγραφικά δεδομένα και βοηθούν στη σύγκριση τιμών μεταξύ περιοχών.
 
 ```php
   $pres = new Presentation();
@@ -774,13 +704,13 @@ _Κώδικας Βημάτων:_
   }
 ```
 
-### **Δημιουργία Συνδυαστικών Διαγραμμάτων (Combination Chart)**
+### **Δημιουργία Συνδυαστικών Διαγραμμάτων**
 
-Ένα συνδυαστικό διάγραμμα (ή combo chart) συνδυάζει δύο ή περισσότερους τύπους διαγραμμάτων σε ένα ενιαίο γράφημα. Αυτό το διάγραμμα σας επιτρέπει να τονίσετε, να συγκρίνετε ή να εξετάσετε διαφορές μεταξύ δύο ή περισσότερων συνόλων δεδομένων, βοηθώντας σας να εντοπίσετε σχέσεις μεταξύ τους.
+Ένα συνδυαστικό διάγραμμα (ή combo chart) συνδυάζει δύο ή περισσότερους τύπους διαγραμμάτων σε ένα μόνο γράφημα. Αυτό το διάγραμμα σας επιτρέπει να τονίσετε, να συγκρίνετε ή να εξετάσετε διαφορές μεταξύ δύο ή περισσότερων συνόλων δεδομένων, βοηθώντας σας να εντοπίσετε σχέσεις μεταξύ τους.
 
-![The combination chart](combination_chart.png)
+![Το συνδυαστικό διάγραμμα](combination_chart.png)
 
-Ο παρακάτω κώδικας PHP δείχνει πώς να δημιουργήσετε το συνδυαστικό διάγραμμα που παρουσιάζεται παραπάνω σε μια παρουσίαση PowerPoint:
+Ο παρακάτω κώδικας PHP δείχνει πώς να δημιουργήσετε το συνδυαστικό διάγραμμα που φαίνεται παραπάνω σε μια παρουσίαση PowerPoint:
 
 ```php
 function createComboChart() {
@@ -804,7 +734,7 @@ function createComboChart() {
 function createChartWithFirstSeries($slide) {
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
 
-    // Ορίζει τον τίτλο του διαγράμματος.
+    // Ορίστε τον τίτλο του διαγράμματος.
     $chart->setTitle(true);
     $chart->getChartTitle()->addTextFrameForOverriding("Chart Title");
     $chart->getChartTitle()->setOverlay(false);
@@ -813,24 +743,24 @@ function createChartWithFirstSeries($slide) {
     $titleFormat->setFontBold(NullableBool::False);
     $titleFormat->setFontHeight(18);
     
-    // Ορίζει το υπόμνημα του διαγράμματος.
+    // Ορίστε το υπόμνημα του διαγράμματος.
     $chart->getLegend()->setPosition(LegendPositionType::Bottom);
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(12);
 
-    // Διαγράφει τις προεπιλεγμένες δημιουργημένες σειρές και κατηγορίες.
+    // Διαγράψτε τις προεπιλεγμένες δημιουργημένες σειρές και κατηγορίες.
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
 
     $worksheetIndex = 0;
     $workbook = $chart->getChartData()->getChartDataWorkbook();
 
-    // Προσθέτει νέες κατηγορίες.
+    // Προσθέστε νέες κατηγορίες.
     $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 1, 0, "Category 1"));
     $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 2, 0, "Category 2"));
     $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 3, 0, "Category 3"));
     $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 4, 0, "Category 4"));
 
-    // Προσθέτει την πρώτη σειρά.
+    // Προσθέστε την πρώτη σειρά.
     $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 1, "Series 1");
     $series = $chart->getChartData()->getSeries()->add($seriesNameCell, $chart->getType());
 
@@ -877,28 +807,28 @@ function addThirdSeriesToChart($chart) {
 }
 
 function setPrimaryAxesFormat($chart) {
-    // Ορίζει τον οριζόντιο άξονα.
+    // Ορίστε τον οριζόντιο άξονα.
     $horizontalAxis = $chart->getAxes()->getHorizontalAxis();
     $horizontalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $horizontalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
     setAxisTitle($horizontalAxis, "X Axis");
 
-    // Ορίζει τον κατακόρυφο άξονα.
+    // Ορίστε τον κάθετο άξονα.
     $verticalAxis = $chart->getAxes()->getVerticalAxis();
     $verticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $verticalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
     setAxisTitle($verticalAxis, "Y Axis 1");
 
-    // Ορίζει το χρώμα των κύριων γραμμών πλέγματος του κατακόρυφου άξονα.
+    // Ορίστε το χρώμα των κύριων γραμμών πλέγματος του κάθετου άξονα.
     $majorGridLinesFormat = $verticalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat();
     $majorGridLinesFormat->setFillType(FillType::Solid);
     $majorGridLinesFormat->getSolidFillColor()->setColor(new java("java.awt.Color", 217, 217, 217));
 }
 
 function setSecondaryAxesFormat($chart) {
-    // Ορίζει τον δευτερεύοντα οριζόντιο άξονα.
+    // Ορίστε τον δευτερεύοντα οριζόντιο άξονα.
     $secondaryHorizontalAxis = $chart->getAxes()->getSecondaryHorizontalAxis();
     $secondaryHorizontalAxis->setPosition(AxisPositionType::Bottom);
     $secondaryHorizontalAxis->setCrossType(CrossesType::Maximum);
@@ -906,7 +836,7 @@ function setSecondaryAxesFormat($chart) {
     $secondaryHorizontalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     $secondaryHorizontalAxis->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
-    // Ορίζει τον δευτερεύοντα κατακόρυφο άξονα.
+    // Ορίστε τον δευτερεύοντα κάθετο άξονα.
     $secondaryVerticalAxis = $chart->getAxes()->getSecondaryVerticalAxis();
     $secondaryVerticalAxis->setPosition(AxisPositionType::Right);
     $secondaryVerticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
@@ -929,19 +859,13 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **Ενημέρωση Διαγραμμάτων**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Βήματα:</em> Ενημέρωση PowerPoint Chart </strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Βήματα:</em> Ενημέρωση Presentation Chart </strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Βήματα:</em> Ενημέρωση PowerPoint Presentation Chart </strong></a>
-
-1. Δημιουργήστε μια παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα που θέλετε να ενημερώσετε.
-2. Λάβετε την αναφορά μιας διαφάνειας χρησιμοποιώντας το Index της.
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα που θέλετε να ενημερώσετε.
+2. Αποκτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
 3. Περιηγηθείτε σε όλα τα σχήματα για να βρείτε το επιθυμητό διάγραμμα.
-4. Πρόσβαση στο φύλλο δεδομένων του διαγράμματος.
-5. Τροποποιήστε τα δεδομένα των σειρών του διαγράμματος αλλάζοντας τις τιμές των σειρών.
-6. Προσθέστε μια νέα σειρά και γεμίστε την με δεδομένα.
-7. Αποθήκευση της τροποποιημένης παρουσίασης ως αρχείο PPTX.
-
-Αυτός ο κώδικας PHP δείχνει πώς να ενημερώσετε ένα διάγραμμα:
+4. Προσπελάστε το φύλλο εργασίας δεδομένων του διαγράμματος.
+5. Τροποποιήστε τις σειρές δεδομένων του διαγράμματος αλλάζοντας τις τιμές των σειρών.
+6. Προσθέστε μια νέα σειρά και γεμίστε τα δεδομένα της.
+7. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 ```php
   $pres = new Presentation();
@@ -950,16 +874,16 @@ function setAxisTitle($axis, $axisTitle) {
     $sld = $pres->getSlides()->get_Item(0);
     # Λήψη διαγράμματος με προεπιλεγμένα δεδομένα
     $chart = $sld->getShapes()->get_Item(0);
-    # Ορισμός του δείκτη του φύλλου δεδομένων του διαγράμματος
+    # Ορισμός του ευρετηρίου του φύλλου δεδομένων του διαγράμματος
     $defaultWorksheetIndex = 0;
-    # Λήψη του φύλλου εργασίας δεδομένων του διαγράμματος
+    # Λήψη του φύλλου δεδομένων του διαγράμματος
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Αλλαγή του ονόματος κατηγορίας του διαγράμματος
+    # Αλλαγή ονόματος κατηγορίας του διαγράμματος
     $fact->getCell($defaultWorksheetIndex, 1, 0, "Modified Category 1");
     $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
     # Λήψη της πρώτης σειράς του διαγράμματος
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Ενημέρωση δεδομένων σειράς
+    # Τώρα ενημερώνονται τα δεδομένα της σειράς
     $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Τροποποίηση ονόματος σειράς
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
@@ -967,7 +891,7 @@ function setAxisTitle($axis, $axisTitle) {
     $series->getDataPoints()->get_Item(2)->getValue()->setData(44);
     # Λήψη της δεύτερης σειράς του διαγράμματος
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Ενημέρωση δεδομένων σειράς
+    # Τώρα ενημερώνονται τα δεδομένα της σειράς
     $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Τροποποίηση ονόματος σειράς
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
@@ -975,9 +899,9 @@ function setAxisTitle($axis, $axisTitle) {
     $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
     # Τώρα, προσθήκη νέας σειράς
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "Series 3"), $chart->getType());
-    # Λήψη της τρίτης σειράς του διαγράμματος
+    # Λήψη της 3ης σειράς του διαγράμματος
     $series = $chart->getChartData()->getSeries()->get_Item(2);
-    # Συμπλήρωση δεδομένων σειράς
+    # Τώρα γεμίζονται τα δεδομένα της σειράς
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 3, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
@@ -991,17 +915,15 @@ function setAxisTitle($axis, $axisTitle) {
   }
 ```
 
-## **Ορισμός Πεδίου Δεδομένων για Διάγραμμα**
+## **Ορισμός Περιοχής Δεδομένων για Διάγραμμα**
 
-Για να ορίσετε το πεδίο δεδομένων ενός διαγράμματος, κάντε τα εξής:
+Για να ορίσετε την περιοχή δεδομένων για ένα διάγραμμα, κάντε τα εξής:
 
-1. Δημιουργήστε μια παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα.
-2. Λάβετε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
+1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) που αντιπροσωπεύει την παρουσίαση που περιέχει το διάγραμμα.
+2. Αποκτήστε μια αναφορά σε μια διαφάνεια χρησιμοποιώντας το ευρετήριο της.
 3. Περιηγηθείτε σε όλα τα σχήματα για να βρείτε το επιθυμητό διάγραμμα.
-4. Πρόσβαση στα δεδομένα του διαγράμματος και ορίστε το πεδίο.
-5. Αποθήκευση της τροποποιημένης παρουσίασης ως αρχείο PPTX.
-
-Αυτός ο κώδικας PHP δείχνει πώς να ορίσετε το πεδίο δεδομένων για ένα διάγραμμα:
+4. Προσπελάστε τα δεδομένα του διαγράμματος και ορίστε την περιοχή.
+5. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 ```php
   $pres = new Presentation();
@@ -1017,10 +939,9 @@ function setAxisTitle($axis, $axisTitle) {
   }
 ```
 
-## **Χρήση Προεπιλεγμένων Δεικτών σε Διαγράμματα**
-Όταν χρησιμοποιείτε έναν προεπιλεγμένο δείκτη σε διαγράμματα, κάθε σειρά διαγράμματος λαμβάνει αυτόματα διαφορετικό προεπιλεγμένο σύμβολο δείκτη.
+## **Χρήση Προεπιλεγμένων Σημαδιών σε Διαγράμματα**
 
-Αυτός ο κώδικας PHP δείχνει πώς να ορίσετε αυτόματα έναν δείκτη σειράς διαγράμματος:
+Όταν χρησιμοποιείτε προεπιλεγμένα σύμβολα σε διαγράμματα, κάθε σειρά διαγράμματος λαμβάνει αυτόματα διαφορετικό σύμβολο σημείου.
 
 ```php
   $pres = new Presentation();
@@ -1043,7 +964,7 @@ function setAxisTitle($axis, $axisTitle) {
     $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 2, "Series 2"), $chart->getType());
     # Λήψη της δεύτερης σειράς του διαγράμματος
     $series2 = $chart->getChartData()->getSeries()->get_Item(1);
-    # Τώρα συμπλήρωση δεδομένων της σειράς
+    # Τώρα γεμίζοντας τα δεδομένα της σειράς
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 1, 2, 30));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 2, 2, 10));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 3, 2, 60));
@@ -1058,20 +979,20 @@ function setAxisTitle($axis, $axisTitle) {
   }
 ```
 
-## **Συχνές Ερωτήσεις (FAQ)**
+## **FAQ**
 
-**Ποιοι τύποι διαγραμμάτων υποστηρίζει το Aspose.Slides;**
+**Ποιοι τύποι διαγραμμάτων υποστηρίζονται από το Aspose.Slides;**
 
 Το Aspose.Slides υποστηρίζει μια ευρεία γκάμα [chart types](https://reference.aspose.com/slides/el/php-java/aspose.slides/charttype/), συμπεριλαμβανομένων bar, line, pie, area, scatter, histogram, radar και πολλών άλλων. Αυτή η ευελιξία σας επιτρέπει να επιλέξετε τον πιο κατάλληλο τύπο διαγράμματος για τις ανάγκες οπτικοποίησης των δεδομένων σας.
 
-**Πώς προσθέτω ένα νέο διάγραμμα σε μια διαφάνεια;**
+**Πώς μπορώ να προσθέσω ένα νέο διάγραμμα σε μια διαφάνεια;**
 
-Για να προσθέσετε ένα διάγραμμα, πρώτα δημιουργήστε ένα αντιτύπωμα της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/)· ανακτήστε τη διαφάνεια που θέλετε μέσω του δείκτη της· έπειτα καλέστε τη μέθοδο για την προσθήκη διαγράμματος, ορίζοντας τον τύπο διαγράμματος και τα αρχικά δεδομένα. Αυτή η διαδικασία ενσωματώνει απευθείας το διάγραμμα στην παρουσίασή σας.
+Για να προσθέσετε ένα διάγραμμα, πρώτα δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/), ανακτήστε τη ζητούμενη διαφάνεια χρησιμοποιώντας το ευρετήριο της και, στη συνέχεια, καλέστε τη μέθοδο για προσθήκη διαγράμματος, καθορίζοντας τον τύπο διαγράμματος και τα αρχικά δεδομένα. Αυτή η διαδικασία ενσωματώνει το διάγραμμα απευθείας στην παρουσίασή σας.
 
 **Πώς μπορώ να ενημερώσω τα δεδομένα που εμφανίζονται σε ένα διάγραμμα;**
 
-Μπορείτε να ενημερώσετε τα δεδομένα ενός διαγράμματος προσπελάζοντας το βιβλίο εργασίας δεδομένων του ([ChartDataWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdataworkbook/)), εκκαθαρίζοντας τυχόν προεπιλεγμένες σειρές και κατηγορίες, και προσθέτοντας τα προσαρμοσμένα σας δεδομένα. Έτσι μπορείτε να ανανεώσετε το διάγραμμα ώστε να αντικατοπτρίζει τα πιο πρόσφατα δεδομένα.
+Μπορείτε να ενημερώσετε τα δεδομένα ενός διαγράμματος προσπερνώντας το βιβλίο εργασίας δεδομένων του ([ChartDataWorkbook](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdataworkbook/)), καθαρίζοντας τις προεπιλεγμένες σειρές και κατηγορίες και προσθέτοντας τα προσαρμοσμένα σας δεδομένα. Αυτό σάς επιτρέπει να ανανεώσετε το διάγραμμα ώστε να αντανακλά τα πιο πρόσφατα δεδομένα.
 
-**Μπορώ να προσαρμόσω την εμφάνιση του διαγράμματος;**
+**Μπορεί να προσαρμοστεί η εμφάνιση του διαγράμματος;**
 
-Ναι, το Aspose.Slides παρέχει εκτενείς επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, υπόμνημα και άλλα [formatting elements](/slides/el/php-java/chart-entities/) ώστε να προσαρμόσετε την εμφάνιση του διαγράμματος στις ειδικές σχεδιαστικές σας απαιτήσεις.
+Ναι, το Aspose.Slides παρέχει εκτενείς επιλογές προσαρμογής. Μπορείτε να τροποποιήσετε χρώματα, γραμματοσειρές, ετικέτες, υπομνήματα και άλλα [formatting elements](/slides/el/php-java/chart-entities/) ώστε να προσαρμόσετε την εμφάνιση του διαγράμματος στις συγκεκριμένες απαιτήσεις σχεδίας σας.

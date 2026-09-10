@@ -9,9 +9,9 @@ keywords:
 - สร้างแผนภูมิ
 - แก้ไขแผนภูมิ
 - เปลี่ยนแผนภูมิ
-- อัปเดตแผนภูมิ
+- ปรับปรุงแผนภูมิ
 - แผนภูมิกระจาย
-- แผนภูมิเวียน
+- แผนภูมิวงกลม
 - แผนภูมิเส้น
 - แผนภูมิ Tree Map
 - แผนภูมิสต็อก
@@ -20,80 +20,74 @@ keywords:
 - แผนภูมิ Sunburst
 - แผนภูมิ Histogram
 - แผนภูมิ Radar
-- แผนภูมิหลายหมวดหมู่
+- แผนภูมิมัลติ‑Category
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java. เพิ่ม, จัดรูปแบบ, และแก้ไขแผนภูมิด้วยตัวอย่างโค้ดที่ใช้งานจริง."
+description: "สร้างและปรับแต่งแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java เพิ่ม แก้ไขรูปแบบ และแก้ไขแผนภูมิกับตัวอย่างโค้ดที่ใช้งานได้จริง."
 ---
 ## **ภาพรวม**
 
-บทความนี้เป็นคำแนะนำที่ครบถ้วนเกี่ยวกับวิธีสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides คุณจะได้เรียนรู้วิธีเพิ่มแผนภูมิลงในสไลด์โดยใช้โค้ด, เติมข้อมูลให้แผนภูมิ, และใช้ตัวเลือกการจัดรูปแบบต่าง ๆ เพื่อให้ตรงกับความต้องการออกแบบของคุณ ทั้งหมดนี้มาพร้อมกับตัวอย่างโค้ดที่ละเอียด แสดงขั้นตอนตั้งแต่การเริ่มต้นพรีเซนเทชันและอ็อบเจกต์แผนภูมิ ไปจนถึงการกำหนดซีรีส์, แกน, และคำอธิบายโดยย่อ การทำตามคำแนะนำนี้จะทำให้คุณเข้าใจวิธีผสานการสร้างแผนภูมิดิจิทัลเข้ากับแอปพลิเคชันของคุณได้อย่างราบรื่น ส่งเสริมกระบวนการสร้างพรีเซนเทชันที่ขับเคลื่อนด้วยข้อมูล
+บทความนี้ให้คำแนะนำโดยละเอียดเกี่ยวกับวิธีสร้างและปรับแต่งแผนภูมิด้วย Aspose.Slides คุณจะได้เรียนรู้วิธีเพิ่มแผนภูมิลงในสไลด์โดยอัตโนมัติ เติมข้อมูลลงในแผนภูมิ และใช้ตัวเลือกการจัดรูปแบบต่าง ๆ เพื่อให้ตรงกับความต้องการออกแบบของคุณ ตัวอย่างโค้ดที่ละเอียดจะอธิบายขั้นตอนแต่ละขั้นตอน ตั้งแต่การเริ่มต้นพรีเซนเทชันและอ็อบเจกต์แผนภูมิ ไปจนถึงการกำหนดค่าซีรีส์, แกน, และคำอธิบาย โดยทำตามแนวทางนี้ คุณจะเข้าใจวิธีผสานการสร้างแผนภูมิแบบไดนามิกเข้ากับแอปพลิเคชันของคุณ ทำให้กระบวนการสร้างพรีเซนเทชันที่ขับเคลื่อนด้วยข้อมูลเป็นเรื่องง่ายขึ้น
 
 ## **สร้างแผนภูมิ**
 
-แผนภูมิช่วยให้ผู้ใช้มองเห็นข้อมูลได้อย่างรวดเร็วและได้รับอินไซต์ที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
+แผนภูมิกำหนดให้ผู้ใช้มองเห็นข้อมูลได้อย่างรวดเร็วและสรุปข้อมูลที่อาจไม่ชัดเจนจากตารางหรือสเปรดชีต
 
 **ทำไมต้องสร้างแผนภูมิ?**
 
-ด้วยแผนภูมิคุณสามารถ
-
-* รวม, บีบอัด, หรือสรุปข้อมูลจำนวนมากไว้ในสไลด์เดียวของพรีเซนเทชัน
-* เปิดเผยรูปแบบและแนวโน้มในข้อมูล
+การใช้แผนภูมิช่วยให้คุณทำได้:
+* รวม, ย่อ, หรือสรุปข้อมูลจำนวนมากบนสไลด์เดียวในพรีเซนเทชัน
+* เปิดเผยรูปแบบและแนวโน้มของข้อมูล
 * สรุปทิศทางและโมเมนตัมของข้อมูลตามเวลา หรือเทียบกับหน่วยวัดเฉพาะ
-* พบค่าผิดปกติ, การเบี่ยงเบน, ความผิดพลาด, หรือข้อมูลที่ไม่มีความหมาย
+* ตรวจพบค่าเบี่ยงเบน, ความผิดปกติ, ความคลาดเคลื่อน, ข้อผิดพลาด หรือข้อมูลที่ไม่มีเหตุผล
 * สื่อสารหรือแสดงข้อมูลที่ซับซ้อน
 
-ใน PowerPoint คุณสามารถสร้างแผนภูมิได้ผ่านฟังก์ชันแทรก ซึ่งให้เทมเพลตสำหรับออกแบบแผนภูมิต่าง ๆ มากมาย ด้วย Aspose.Slides คุณสามารถสร้างแผนภูมิปกติ (ตามประเภทแผนภูมิที่นิยม) และแผนภูกีกำหนดเองได้
+ใน PowerPoint คุณสามารถสร้างแผนภูมิผ่านฟังก์ชัน *Insert* ซึ่งมีแม่แบบสำหรับออกแบบแผนภูมิหลายประเภท ด้วย Aspose.Slides คุณสามารถสร้างทั้งแผนภูมิปกติ (ตามประเภทแผนภูมิยอดนิยม) และแผนภูมิที่กำหนดเองได้
 
-{{% alert color="primary" %}} 
-เพื่อให้คุณสร้างแผนภูมิได้ Aspose.Slides มีคลาส [ChartType](https://reference.aspose.com/slides/th/php-java/aspose.slides/ChartType) ฟิลด์ในคลาสนี้สอดคล้องกับประเภทแผนภูมิต่าง ๆ 
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+เพื่อสร้างแผนภูมิ ใช้คลาส [ChartType](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/) ฟิลด์ในคลาสนี้สอดคล้องกับประเภทแผนภูมิต่าง ๆ
+{{% /alert %}}
 
-### **สร้างแผนภูมิปกติ**
+### **สร้างแผนภูมิคอลัมน์แบบกลุ่ม**
 
-_ขั้นตอน: สร้างแผนภูมิ_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ PowerPoint </strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Presentation </strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ PowerPoint Presentation </strong></a>
+ส่วนนี้อธิบายวิธีสร้างแผนภูมิคอลัมน์แบบกลุ่มด้วย Aspose.Slides คุณจะได้เรียนรู้การเริ่มต้นพรีเซนเทชัน, การเพิ่มแผนภูมิ, และการปรับแต่งองค์ประกอบต่าง ๆ เช่น ชื่อเรื่อง, ข้อมูล, ซีรีส์, หมวดหมู่, และสไตล์ ทำตามขั้นตอนด้านล่างเพื่อดูวิธีการสร้างแผนภูมิคอลัมน์แบบกลุ่มมาตรฐาน:
 
-_ขั้นตอนโค้ด:_
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation) 
+1. รับอ้างอิงสไลด์โดยใช้ดัชนี
+1. เพิ่มแผนภูมิพร้อมข้อมูลบางส่วนและระบุประเภท `ChartType::ClusteredColumn`
+1. เพิ่มชื่อเรื่องให้แผนภูมิ
+1. เข้าถึง worksheet ของข้อมูลแผนภูมิ
+1. ลบซีรีส์และหมวดหมู่เริ่มต้นทั้งหมด
+1. เพิ่มซีรีส์และหมวดหมู่ใหม่
+1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์
+1. กำหนดสีพื้นหลังให้กับซีรีส์
+1. เพิ่มป้ายกำกับให้กับซีรีส์
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation) 
-2. ดึงอ้างอิงสไลด์ผ่านดัชนีของมัน 
-3. เพิ่มแผนภูมิพร้อมข้อมูลบางส่วนและระบุประเภทแผนภูมิที่ต้องการ 
-4. เพิ่มชื่อเรื่องให้แผนภูมิ 
-5. เข้าถึงใบงานข้อมูลแผนภูมิ 
-6. ล้างซีรีส์และหมวดหมู่เริ่มต้นทั้งหมด 
-7. เพิ่มซีรีส์และหมวดหมู่ใหม่ 
-8. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์ของแผนภูมิ 
-9. เพิ่มสีเติมสำหรับซีรีส์ของแผนภูมิ 
-10. เพิ่มป้ายกำกับสำหรับซีรีส์ของแผนภูมิ 
-11. เขียนพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX 
-
-โค้ด PHP นี้แสดงวิธีสร้างแผนภูมิปกติ:
+ตัวอย่างโค้ด C# นี้แสดงวิธีสร้างแผนภูมิคอลัมน์แบบกลุ่ม:
 
 ```php
-  # สร้างอินสแตนซ์ของคลาสพรีเซนเทชันที่แทนไฟล์ PPTX
+  # สร้างอินสแตนซ์ของคลาสการนำเสนอที่เป็นไฟล์ PPTX
   $pres = new Presentation();
   try {
     # เข้าถึงสไลด์แรก
     $sld = $pres->getSlides()->get_Item(0);
     # เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้น
     $chart = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 0, 0, 500, 500);
-    # ตั้งค่าชื่อแผนภูมิ
+    # ตั้งค่าชื่อเรื่องของแผนภูมิ
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->hasTitle();
-    # ตั้งค่าให้ซีรีส์แรกแสดงค่
+    # ตั้งค่าซีรีส์แรกให้แสดงค่า
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # ตั้งค่าดัชนีสำหรับแผ่นข้อมูลแผนภูมิ
+    # ตั้งดัชนีสำหรับชีตข้อมูลของแผนภูมิ
     $defaultWorksheetIndex = 0;
-    # ดึงแผ่นงานข้อมูลแผนภูมิ
+    # ดึง WorkSheet ของข้อมูลแผนภูมิ
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # ลบซีรีส์และหมวดหมู่ที่สร้างโดยอัตโนมัติ
+    # ลบซีรีส์และหมวดหมู่ที่สร้างขึ้นโดยอัตโนมัติ
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     $s = $chart->getChartData()->getSeries()->size();
@@ -134,7 +128,7 @@ _ขั้นตอนโค้ด:_
     $lbl->getDataLabelFormat()->setShowValue(true);
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
     $lbl->getDataLabelFormat()->setSeparator("/");
-    # บันทึกพรีเซนเทชันพร้อมแผนภูมิ
+    # บันทึกการนำเสนอพร้อมแผนภูมิ
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -145,47 +139,42 @@ _ขั้นตอนโค้ด:_
 
 ### **สร้างแผนภูมิกระจาย**
 
-แผนภูมิกระจาย (หรือที่รู้จักกันว่า scatter plot / กราฟ x‑y) มักใช้เพื่อหาลักษณะหรือแสดงความสัมพันธ์ระหว่างตัวแปรสองตัว
+แผนภูมิกระจาย (หรือ scatter plot, x‑y graph) มักใช้เพื่อตรวจสอบรูปแบบหรือความสัมพันธ์ระหว่างสองตัวแปร
 
-คุณอาจต้องการใช้แผนภูมิกระจายเมื่อ
-
-* มีข้อมูลตัวเลขเป็นคู่
+ใช้แผนภูมิกระจายเมื่อ:
+* คุณมีข้อมูลเชิงตัวเลขคู่
 * มีสองตัวแปรที่จับคู่กันได้ดี
-* ต้องการตรวจสอบว่าตัวแปรสองตัวมีความสัมพันธ์หรือไม่
-* มีตัวแปรอิสระที่มีค่าหลายค่า สำหรับตัวแปรตาม
+* คุณต้องการตรวจสอบว่าตัวแปรสองตัวเกี่ยวข้องกันหรือไม่
+* มีตัวแปรอิสระที่มีค่าหลายค่าเพื่อตัวแปรตาม
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิกระจาย </strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิกระจาย PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิกระจาย PowerPoint Presentation </strong></a>
+1. ทำตามขั้นตอนใน [Create Clustered Column Charts](#create-clustered-column-charts)  
+2. ในขั้นที่สาม ให้เพิ่มแผนภูมิพร้อมข้อมูลบางส่วนและระบุประเภทแผนภูมิโดยเลือกหนึ่งตัวเลือกต่อไปนี้:
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _แสดงแผนภูมิกระจาย_
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _แสดงแผนภูมิกระจายที่เชื่อมต่อด้วยเส้นโค้งพร้อมเครื่องหมายข้อมูล_
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _แสดงแผนภูมิกระจายที่เชื่อมต่อด้วยเส้นโค้งโดยไม่มีเครื่องหมายข้อมูล_
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _แสดงแผนภูมิกระจายที่เชื่อมต่อด้วยเส้นตรงพร้อมเครื่องหมายข้อมูล_
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _แสดงแผนภูมิกระจายที่เชื่อมต่อด้วยเส้นตรงโดยไม่มีเครื่องหมายข้อมูล_
 
-1. โปรดทำตามขั้นตอนที่ระบุในส่วน [สร้างแผนภูมิปกติ](#creating-normal-charts) 
-2. สำหรับขั้นตอนที่สาม ให้เพิ่มแผนภูมิพร้อมข้อมูลบางส่วนและระบุประเภทแผนภูมิเป็นหนึ่งในต่อไปนี้  
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _แสดงแผนภูมิกระจายที่มีตัวบ่งชี้_  
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _แสดงแผนภูมิกระจายเชื่อมต่อด้วยเส้นโค้งและมีตัวบ่งชี้_  
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _แสดงแผนภูมิกระจายเชื่อมต่อด้วยเส้นโค้งโดยไม่มีตัวบ่งชี้_  
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _แสดงแผนภูมิกระจายเชื่อมต่อด้วยเส้นตรงและมีตัวบ่งชี้_  
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _แสดงแผนภูมิกระจายเชื่อมต่อด้วยเส้นตรงโดยไม่มีตัวบ่งชี้_  
-
-โค้ด PHP นี้แสดงวิธีสร้างแผนภูมิกระจายโดยมีชุดตัวบ่งชี้ต่าง ๆ:
+ตัวอย่างโค้ด PHP นี้แสดงวิธีสร้างแผนภูมิกระจายโดยใช้เครื่องหมายที่แตกต่างกันสำหรับแต่ละซีรีส์:
 
 ```php
-  # สร้างอินสแตนซ์ของคลาสพรีเซนเทชันที่แทนไฟล์ PPTX
+  # สร้างอินสแตนซ์ของคลาสการนำเสนอที่เป็นไฟล์ PPTX
   $pres = new Presentation();
   try {
     # เข้าถึงสไลด์แรก
     $slide = $pres->getSlides()->get_Item(0);
-    # สร้างแผนภูมิตามค่าเริ่มต้น
+    # สร้างแผนภูมิเริ่มต้น
     $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 0, 0, 400, 400);
-    # ดึงดัชนีของแผ่นงานข้อมูลแผนภูมิเริ่มต้น
+    # ดึงดัชนีของ worksheet ข้อมูลแผนภูมิเริ่มต้น
     $defaultWorksheetIndex = 0;
-    # ดึงแผ่นงานข้อมูลแผนภูมิ
+    # ดึง worksheet ของข้อมูลแผนภูมิ
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # ลบซีรีส์ตัวอย่าง
     $chart->getChartData()->getSeries()->clear();
     # เพิ่มซีรีส์ใหม่
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 3, "Series 2"), $chart->getType());
-    # ดึงซีรีส์แผนภูมิเบื้องต้นแรก
+    # ดึงซีรีส์แผนภูมิแรก
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     # เพิ่มจุดใหม่ (1:3) ให้กับซีรีส์
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 1), $fact->getCell($defaultWorksheetIndex, 2, 2, 3));
@@ -193,7 +182,7 @@ _ขั้นตอนโค้ด:_
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 2), $fact->getCell($defaultWorksheetIndex, 3, 2, 10));
     # เปลี่ยนประเภทของซีรีส์
     $series->setType(ChartType::ScatterWithStraightLinesAndMarkers);
-    # เปลี่ยนเครื่องหมายของซีรีส์แผนภูมิ
+    # เปลี่ยนตัวทำเครื่องหมายของซีรีส์แผนภูมิ
     $series->getMarker()->setSize(10);
     $series->getMarker()->setSymbol(MarkerStyleType::Star);
     # ดึงซีรีส์แผนภูมิที่สอง
@@ -206,7 +195,7 @@ _ขั้นตอนโค้ด:_
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 4, 3, 2), $fact->getCell($defaultWorksheetIndex, 4, 4, 2));
     # เพิ่มจุดใหม่ (5:1)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 5, 3, 5), $fact->getCell($defaultWorksheetIndex, 5, 4, 1));
-    # เปลี่ยนเครื่องหมายของซีรีส์แผนภูมิ
+    # เปลี่ยนตัวทำเครื่องหมายของซีรีส์แผนภูมิ
     $series->getMarker()->setSize(10);
     $series->getMarker()->setSymbol(MarkerStyleType::Circle);
     $pres->save("AsposeChart_out.pptx", SaveFormat::Pptx);
@@ -219,45 +208,41 @@ _ขั้นตอนโค้ด:_
 
 ### **สร้างแผนภูมิวงกลม**
 
-แผนภูมิเวียน (pie chart) เหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนเต็มของข้อมูล โดยเฉพาะเมื่อข้อมูลมีป้ายประเภทพร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลของคุณมีหลายส่วนหรือหลายป้าย คุณอาจพิจารณาใช้แผนภูมิแท่งแทน
+แผนภูมิวงกลมเหมาะสำหรับแสดงความสัมพันธ์ส่วนต่อส่วนของข้อมูล โดยเฉพาะเมื่อข้อมูลมีฉลากเชิงประเภทพร้อมค่าตัวเลข อย่างไรก็ตาม หากข้อมูลของคุณมีส่วนหรือฉลากจำนวนมาก คุณอาจควรใช้แผนภูมิบาร์แทน
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิเวียน </strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิเวียน PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิเวียน PowerPoint Presentation </strong></a>
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
-2. ดึงอ้างอิงสไลด์ตามดัชนี  
-3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (ในกรณีนี้คือ [ChartType](https://reference.aspose.com/slides/th/php-java/aspose.slides/ChartType).Pie)  
-4. เข้าถึง [ChartDataWorkbook](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/)  
-5. ล้างซีรีส์และหมวดหมู่เริ่มต้น  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/)  
+2. รับอ้างอิงสไลด์โดยใช้ดัชนี  
+3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภท [ChartType::Pie](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#Pie)  
+4. เข้าถึง workbook ของข้อมูลแผนภูมิ [ChartDataWorkbook](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/)  
+5. ลบซีรีส์และหมวดหมู่เริ่มต้น  
 6. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์ของแผนภูมิ  
-8. เพิ่มจุดใหม่สำหรับแผนภูมิและกำหนดสีที่กำหนดเองสำหรับส่วนของแผนภูมิเวียน  
+7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์  
+8. เพิ่มจุดใหม่ให้แผนภูมิและกำหนดสีที่กำหนดเองสำหรับส่วนต่าง ๆ ของแผนภูมิวงกลม  
 9. ตั้งค่าป้ายกำกับสำหรับซีรีส์  
-10. ตั้งค่าเส้นนำสำหรับป้ายกำกับซีรีส์  
-11. ตั้งค่ามุมการหมุนของสไลด์แผนภูมิเวียน  
-12. เขียนพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
+10. เปิดใช้งานเส้นเชื่อมสำหรับป้ายกำกับซีรีส์  
+11. กำหนดมุมการหมุนของส่วนแผนภูมิวงกลม  
+12. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด PHP นี้แสดงวิธีสร้างแผนภูมิเวียน:
+ตัวอย่างโค้ด PHP นี้แสดงวิธีสร้างแผนภูมิวงกลม:
 
 ```php
-  # สร้างอินสแตนซ์ของคลาสพรีเซนเทชันที่แทนไฟล์ PPTX
+  # สร้างอินสแตนซ์ของคลาสการนำเสนอที่เป็นไฟล์ PPTX
   $pres = new Presentation();
   try {
     # เข้าถึงสไลด์แรก
     $slides = $pres->getSlides()->get_Item(0);
     # เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้น
     $chart = $slides->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
-    # ตั้งค่าชื่อแผนภูมิ
+    # ตั้งค่าชื่อเรื่องของแผนภูมิ
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->setTitle(true);
-    # ตั้งค่าให้ซีรีส์แรกแสดงค่
+    # ตั้งค่าซีรีส์แรกให้แสดงค่า
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # ตั้งค่าดัชนีสำหรับแผ่นข้อมูลแผนภูมิ
+    # ตั้งดัชนีสำหรับชีตข้อมูลของแผนภูมิ
     $defaultWorksheetIndex = 0;
-    # ดึงแผ่นงานข้อมูลแผนภูมิ
+    # ดึง worksheet ของข้อมูลแผนภูมิ
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # ลบซีรีส์และหมวดหมู่ที่สร้างโดยอัตโนมัติ
     $chart->getChartData()->getSeries()->clear();
@@ -273,13 +258,13 @@ _ขั้นตอนโค้ด:_
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
     # ไม่ทำงานในเวอร์ชันใหม่
-    # เพิ่มจุดใหม่และกำหนดสีส่วนของแผนภูมิ
+    # เพิ่มจุดใหม่และตั้งค่าสีส่วนของแผนภูมิ
     # series.IsColorVaried = true;
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
     $point = $series->getDataPoints()->get_Item(0);
     $point->getFormat()->getFill()->setFillType(FillType::Solid);
     $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-    # ตั้งค่าขอบส่วนของแผนภูมิ
+    # ตั้งค่าขอบของส่วน
     $point->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     $point->getFormat()->getLine()->setWidth(3.0);
@@ -288,7 +273,7 @@ _ขั้นตอนโค้ด:_
     $point1 = $series->getDataPoints()->get_Item(1);
     $point1->getFormat()->getFill()->setFillType(FillType::Solid);
     $point1->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
-    # ตั้งค่าขอบส่วนของแผนภูมิ
+    # ตั้งค่าขอบของส่วน
     $point1->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point1->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $point1->getFormat()->getLine()->setWidth(3.0);
@@ -297,13 +282,13 @@ _ขั้นตอนโค้ด:_
     $point2 = $series->getDataPoints()->get_Item(2);
     $point2->getFormat()->getFill()->setFillType(FillType::Solid);
     $point2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
-    # ตั้งค่าขอบส่วนของแผนภูมิ
+    # ตั้งค่าขอบของส่วน
     $point2->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point2->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $point2->getFormat()->getLine()->setWidth(2.0);
     $point2->getFormat()->getLine()->setStyle(LineStyle->ThinThin);
     $point2->getFormat()->getLine()->setDashStyle(LineDashStyle->LargeDashDotDot);
-    # สร้างป้ายกำหนดเองสำหรับแต่ละหมวดหมู่ของซีรีส์ใหม่
+    # สร้างป้ายกำกับแบบกำหนดเองสำหรับแต่ละหมวดหมู่ของซีรีส์ใหม่
     $lbl1 = $series->getDataPoints()->get_Item(0)->getLabel();
     # lbl.ShowCategoryName = true;
     $lbl1->getDataLabelFormat()->setShowValue(true);
@@ -316,9 +301,9 @@ _ขั้นตอนโค้ด:_
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
     # แสดงเส้นนำสำหรับแผนภูมิ
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
-    # ตั้งค่ามุมการหมุนสำหรับส่วนของแผนภูมิเวียน
+    # ตั้งค่ามุมการหมุนของส่วนในแผนภูมิวงกลม
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
-    # บันทึกพรีเซนเทชันพร้อมแผนภูมิ
+    # บันทึกการนำเสนอพร้อมแผนภูมิ
     $pres->save("PieChart_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -329,18 +314,18 @@ _ขั้นตอนโค้ด:_
 
 ### **สร้างแผนภูมิเส้น**
 
-แผนภูมิเส้น (line chart) เหมาะสำหรับการแสดงการเปลี่ยนแปลงของค่าเมื่อเวลาผ่านไป ใช้แผนภูมิเส้นคุณสามารถเปรียบเทียบข้อมูลจำนวนมากพร้อมกัน, ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, เน้นความผิดปกติในซีรีส์ข้อมูล ฯลฯ
+แผนภูมิเส้น (หรือ line graph) เหมาะสำหรับแสดงการเปลี่ยนแปลงค่าตามเวลา ใช้แผนภูมิเส้นเพื่อเปรียบเทียบข้อมูลจำนวนมากในคราวเดียว, ติดตามการเปลี่ยนแปลงและแนวโน้มตามเวลา, เน้นความผิดปกติในซีรีส์ข้อมูล ฯลฯ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
-1. ดึงอ้างอิงสไลด์ตามดัชนี  
-1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (ในกรณีนี้คือ `ChartType::Line`)  
-1. เข้าถึงแผนภูมิข้อมูล IChartDataWorkbook  
-1. ล้างซีรีส์และหมวดหมู่เริ่มต้น  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/)  
+1. รับอ้างอิงสไลด์โดยใช้ดัชนี  
+1. เพิ่มแผนภูมิโดยใช้ข้อมูลเริ่มต้นและระบุประเภท [ChartType::Line](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#Line)  
+1. เข้าถึง workbook ของข้อมูลแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/))  
+1. ลบซีรีส์และหมวดหมู่เริ่มต้น  
 1. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์ของแผนภูมิ  
-1. เขียนพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
+1. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์  
+1. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด PHP นี้แสดงวิธีสร้างแผนภูมิเส้น:
+ตัวอย่างโค้ด PHP นี้แสดงวิธีสร้างแผนภูมิเส้น:
 
 ```php
   $pres = new Presentation();
@@ -354,33 +339,38 @@ _ขั้นตอนโค้ด:_
   }
 ```
 
-โดยค่าเริ่มต้น จุดบนแผนภูมิเส้นจะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมต่อด้วยเส้นประ คุณสามารถระบุประเภทเส้นประที่ต้องการได้ดังนี้:
+โดยค่าเริ่มต้น จุดบนแผนภูมิเส้นจะเชื่อมต่อด้วยเส้นตรงต่อเนื่อง หากต้องการให้จุดเชื่อมต่อด้วยจุดขีดให้กำหนดประเภทเส้นที่ต้องการดังนี้:
 
 ```php
-  $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
-  foreach($lineChart->getChartData()->getSeries() as $series) {
-    $series->getFormat()->getLine()->setDashStyle(LineDashStyle->Dash);
+  $pres = new Presentation();
+  try {
+    $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
+    $seriesCollection = $lineChart->getChartData()->getSeries();
+    foreach ($seriesCollection as $series) {
+      $series->getFormat()->getLine()->setDashStyle(LineDashStyle::Dash);
+    }
+    $pres->save("lineChart.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
   }
 ```
 
-### **สร้างแผนภูมิ Tree Map**
+### **สร้างแผนภูมิเพิ่มต้น (Tree Map) **
 
-แผนภูมิ Tree Map เหมาะสำหรับข้อมูลการขายเมื่อต้องการแสดงขนาดสัมพัทธ์ของหมวดหมู่ข้อมูลและในเวลาเดียวกันดึงความสนใจไปยังรายการที่เป็นผู้สนับสนุนหลักของแต่ละหมวดหมู่
+แผนภูมิ Tree Map เหมาะสำหรับข้อมูลการขายเมื่อคุณต้องการแสดงขนาดสัมพัทธ์ของหมวดหมู่ข้อมูลและดึงความสนใจไปยังรายการที่เป็นผู้มีส่วนร่วมใหญ่ในแต่ละหมวดหมู่
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Tree Map </strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Tree Map PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Tree Map PowerPoint Presentation </strong></a>
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)   
-2. ดึงอ้างอิงสไลด์ตามดัชนี  
-3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (ในกรณีนี้คือ [ChartType](https://reference.aspose.com/slides/th/php-java/aspose.slides/ChartType).TreeMap)  
-4. เข้าถึง [ChartDataWorkbook](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/)  
-5. ล้างซีรีส์และหมวดหมู่เริ่มต้น  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/)  
+2. รับอ้างอิงสไลด์โดยใช้ดัชนี  
+3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภท [ChartType::Treemap](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#Treemap)  
+4. เข้าถึง workbook ของข้อมูลแผนภูมิ [ChartDataWorkbook](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/)  
+5. ลบซีรีส์และหมวดหมู่เริ่มต้น  
 6. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์ของแผนภูมิ  
-8. เขียนพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
+7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์  
+8. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด PHP นี้แสดงวิธีสร้างแผนภูมิ Tree Map:
+ตัวอย่างโค้ด PHP นี้แสดงวิธีสร้างแผนภูมิ Tree Map:
 
 ```php
   $pres = new Presentation();
@@ -425,23 +415,19 @@ _ขั้นตอนโค้ด:_
   }
 ```
 
-### **สร้างแผนภูมิ Stock**
+### **สร้างแผนภูมิสต็อก**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Stock </strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Stock PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Stock PowerPoint Presentation </strong></a>
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)   
-2. ดึงอ้างอิงสไลด์ตามดัชนี  
-3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ ([ChartType](https://reference.aspose.com/slides/th/php-java/aspose.slides/ChartType).OpenHighLowClose)  
-4. เข้าถึง [ChartDataWorkbook](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/)  
-5. ล้างซีรีส์และหมวดหมู่เริ่มต้น  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/)  
+2. รับอ้างอิงสไลด์โดยใช้ดัชนี  
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#OpenHighLowClose)  
+4. เข้าถึง workbook ของข้อมูลแผนภูมิ [ChartDataWorkbook](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/)  
+5. ลบซีรีส์และหมวดหมู่เริ่มต้น  
 6. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์ของแผนภูมิ  
-8. กำหนดรูปแบบ HiLowLines  
-9. เขียนพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
+7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์  
+8. กำหนดรูปแบบของเส้น high‑low  
+9. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด PHP ตัวอย่างสำหรับสร้างแผนภูมิ Stock:
+ตัวอย่างโค้ด PHP นี้แสดงวิธีสร้างแผนภูมิสต็อก:
 
 ```php
   $pres = new Presentation();
@@ -475,7 +461,8 @@ _ขั้นตอนโค้ด:_
     $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 4, 50));
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    foreach($chart->getChartData()->getSeries() as $ser) {
+    $seriesCollection = $chart->getChartData()->getSeries();
+    foreach ($seriesCollection as $ser) {
       $ser->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     }
     $pres->save("output.pptx", SaveFormat::Pptx);
@@ -488,20 +475,16 @@ _ขั้นตอนโค้ด:_
 
 ### **สร้างแผนภูมิ Box and Whisker**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Box and Whisker </strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Box and Whisker PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Box and Whisker PowerPoint Presentation </strong></a>
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)   
-2. ดึงอ้างอิงสไลด์ตามดัชนี  
-3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ ([ChartType](https://reference.aspose.com/slides/th/php-java/aspose.slides/ChartType).BoxAndWhisker)  
-4. เข้าถึง [ChartDataWorkbook](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/)  
-5. ล้างซีรีส์และหมวดหมู่เริ่มต้น  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/)  
+2. รับอ้างอิงสไลด์โดยใช้ดัชนี  
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#BoxAndWhisker)  
+4. เข้าถึง workbook ของข้อมูลแผนภูมิ [ChartDataWorkbook](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/)  
+5. ลบซีรีส์และหมวดหมู่เริ่มต้น  
 6. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์ของแผนภูมิ  
-8. เขียนพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
+7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์  
+8. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด PHP นี้แสดงวิธีสร้างแผนภูมิ Box and Whisker:
+ตัวอย่างโค้ด PHP นี้แสดงวิธีสร้างแผนภูมิ Box and Whisker:
 
 ```php
   $pres = new Presentation();
@@ -539,16 +522,12 @@ _ขั้นตอนโค้ด:_
 
 ### **สร้างแผนภูมิ Funnel**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Funnel </strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Funnel PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Funnel PowerPoint Presentation </strong></a>
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/)  
+2. รับอ้างอิงสไลด์โดยใช้ดัชนี  
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท [ChartType::Funnel](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#Funnel)  
+4. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)   
-2. ดึงอ้างอิงสไลด์ตามดัชนี  
-3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ ([ChartType](https://reference.aspose.com/slides/th/php-java/aspose.slides/ChartType).Funnel)  
-4. เขียนพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด PHP นี้แสดงวิธีสร้างแผนภูมิ Funnel:
+ตัวอย่างโค้ด PHP นี้แสดงวิธีสร้างแผนภูมิ Funnel:
 
 ```php
   $pres = new Presentation();
@@ -581,16 +560,12 @@ _ขั้นตอนโค้ด:_
 
 ### **สร้างแผนภูมิ Sunburst**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Sunburst </strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Sunburst PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Sunburst PowerPoint Presentation </strong></a>
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/)  
+2. รับอ้างอิงสไลด์โดยใช้ดัชนี  
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท [ChartType::Sunburst](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#Sunburst)  
+4. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)   
-2. ดึงอ้างอิงสไลด์ตามดัชนี  
-3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ (ในกรณีนี้คือ [ChartType](https://reference.aspose.com/slides/th/php-java/aspose.slides/ChartType).sunburst)  
-4. เขียนพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด PHP นี้แสดงวิธีสร้างแผนภูมิ Sunburst:
+ตัวอย่างโค้ด PHP นี้แสดงวิธีสร้างแผนภูมิ Sunburst:
 
 ```php
   $pres = new Presentation();
@@ -636,19 +611,15 @@ _ขั้นตอนโค้ด:_
 
 ### **สร้างแผนภูมิ Histogram**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Histogram </strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Histogram PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Histogram PowerPoint Presentation </strong></a>
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)   
-2. ดึงอ้างอิงสไลด์ตามดัชนี  
-3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ ([ChartType](https://reference.aspose.com/slides/th/php-java/aspose.slides/ChartType).Histogram)  
-4. เข้าถึง [ChartDataWorkbook](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/)  
-5. ล้างซีรีส์และหมวดหมู่เริ่มต้น  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/)  
+2. รับอ้างอิงสไลด์โดยใช้ดัชนี  
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท [ChartType::Histogram](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#Histogram)  
+4. เข้าถึง workbook ของข้อมูลแผนภูมิ [ChartDataWorkbook](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/)  
+5. ลบซีรีส์และหมวดหมู่เริ่มต้น  
 6. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-7. เขียนพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
+7. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด PHP นี้แสดงวิธีสร้างแผนภูมิ Histogram:
+ตัวอย่างโค้ด PHP นี้แสดงวิธีสร้างแผนภูมิ Histogram:
 
 ```php
   $pres = new Presentation();
@@ -665,20 +636,17 @@ _ขั้นตอนโค้ด:_
   $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A5", -23));
   $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A6", 16));
   $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
+
 ```
 
 ### **สร้างแผนภูมิ Radar**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Radar </strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Radar PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Radar PowerPoint Presentation </strong></a>
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/)  
+2. รับอ้างอิงสไลด์โดยใช้ดัชนี  
+3. เพิ่มแผนภูมิกับข้อมูลบางส่วนและระบุประเภทแผนภูมิที่ต้องการ ([ChartType::Radar](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#Radar))  
+4. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)   
-2. ดึงอ้างอิงสไลด์ตามดัชนี  
-3. เพิ่มแผนภูมิพร้อมข้อมูลบางส่วนและระบุประเภทที่ต้องการ (`ChartType::Radar` ในกรณีนี้)  
-4. เขียนพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด PHP นี้แสดงวิธีสร้างแผนภูมิ Radar:
+ตัวอย่างโค้ด PHP นี้แสดงวิธีสร้างแผนภูมิ Radar:
 
 ```php
   $pres = new Presentation();
@@ -692,22 +660,18 @@ _ขั้นตอนโค้ด:_
   }
 ```
 
-### **สร้างแผนภูมิ Multi‑Category**
+### **สร้างแผนภูมิหลายหมวดหมู่ (Multi‑Category)**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Multi Category </strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Multi Category PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Multi Category PowerPoint Presentation </strong></a>
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)   
-2. ดึงอ้างอิงสไลด์ตามดัชนี  
-3. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและระบุประเภทที่ต้องการ ([ChartType](https://reference.aspose.com/slides/th/php-java/aspose.slides/ChartType).ClusteredColumn)  
-4. เข้าถึง [ChartDataWorkbook](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/)  
-5. ล้างซีรีส์และหมวดหมู่เริ่มต้น  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/)  
+2. รับอ้างอิงสไลด์โดยใช้ดัชนี  
+3. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นและระบุประเภท [ChartType::ClusteredColumn](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/#ClusteredColumn)  
+4. เข้าถึง workbook ของข้อมูลแผนภูมิ [ChartDataWorkbook](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/)  
+5. ลบซีรีส์และหมวดหมู่เริ่มต้น  
 6. เพิ่มซีรีส์และหมวดหมู่ใหม่  
-7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์ของแผนภูมิ  
-8. เขียนพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
+7. เพิ่มข้อมูลแผนภูมิใหม่สำหรับซีรีส์  
+8. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด PHP นี้แสดงวิธีสร้างแผนภูมิ Multi‑Category:
+ตัวอย่างโค้ด PHP นี้แสดงวิธีสร้างแผนภูมิมัลติ‑Category:
 
 ```php
   $pres = new Presentation();
@@ -740,7 +704,7 @@ _ขั้นตอนโค้ด:_
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D7", 60));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D8", 70));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D9", 80));
-    # บันทึกพรีเซนเทชันพร้อมแผนภูมิ
+    # บันทึกการนำเสนอพร้อมแผนภูมิ
     $pres->save("AsposeChart_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -749,15 +713,11 @@ _ขั้นตอนโค้ด:_
   }
 ```
 
-### **สร้างแผนภูมิ Map**
+### **สร้างแผนภูมิแผนที่ (Map Charts)**
 
-แผนภูมิแผนที่เป็นการแสดงภาพข้อมูลบนพื้นที่เฉพาะ ใช้เปรียบเทียบข้อมูลหรือค่าต่าง ๆ ระหว่างภูมิภาคทางภูมิศาสตร์
+แผนภูมิแผนที่ช่วยให้คุณมองเห็นข้อมูลทางภูมิศาสตร์และเปรียบเทียบค่าในแต่ละภูมิภาค
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Map </strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Map PowerPoint </strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>ขั้นตอน:</em> สร้างแผนภูมิ Map PowerPoint Presentation </strong></a>
-
-โค้ด PHP นี้แสดงวิธีสร้างแผนภูมิ Map:
+ตัวอย่างโค้ด PHP นี้แสดงวิธีสร้างแผนภูมิแผนที่:
 
 ```php
   $pres = new Presentation();
@@ -771,13 +731,13 @@ _ขั้นตอนโค้ด:_
   }
 ```
 
-### **สร้างแผนภูมิ Combination**
+### **สร้างแผนภูมิแบบผสม (Combination Charts)**
 
-แผนภูมิผสม (หรือ combo chart) ผสานประเภทแผนภูมิสองประเภทหรือมากกว่าบนกราฟเดียว ช่วยให้คุณไฮไลท์, เปรียบเทียบ, หรือวิเคราะห์ความแตกต่างระหว่างชุดข้อมูลหลายชุดได้ง่ายขึ้น
+แผนภูมิแบบผสม (หรือ combo chart) รวมสองประเภทแผนภูมิหรือมากกว่าลงในกราฟเดียว แผนภูมินี้ช่วยให้คุณไฮไลท์, เปรียบเทียบ, หรือวิเคราะห์ความแตกต่างระหว่างชุดข้อมูลหลายชุด เพื่อระบุความสัมพันธ์ระหว่างข้อมูล
 
-![แผนภูมิแบบรวม](combination_chart.png)
+![แผนภูมิแบบผสม](combination_chart.png)
 
-โค้ด PHP ต่อไปนี้แสดงวิธีสร้างแผนภูมิกรวมที่แสดงในรูปด้านบนในพรีเซนเทชัน PowerPoint:
+โค้ด PHP ต่อไปนี้แสดงวิธีสร้างแผนภูมิแบบผสมตามที่แสดงในภาพด้านบนใน PowerPoint:
 
 ```php
 function createComboChart() {
@@ -801,7 +761,7 @@ function createComboChart() {
 function createChartWithFirstSeries($slide) {
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
 
-    // ตั้งค่าชื่อแผนภูมิ.
+    // ตั้งค่าชื่อเรื่องของแผนภูมิ.
     $chart->setTitle(true);
     $chart->getChartTitle()->addTextFrameForOverriding("Chart Title");
     $chart->getChartTitle()->setOverlay(false);
@@ -810,7 +770,7 @@ function createChartWithFirstSeries($slide) {
     $titleFormat->setFontBold(NullableBool::False);
     $titleFormat->setFontHeight(18);
     
-    // ตั้งค่าสัญลักษณ์อธิบายแผนภูมิ.
+    // ตั้งค่าตำนานแผนภูมิ.
     $chart->getLegend()->setPosition(LegendPositionType::Bottom);
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(12);
 
@@ -874,28 +834,28 @@ function addThirdSeriesToChart($chart) {
 }
 
 function setPrimaryAxesFormat($chart) {
-    // ตั้งแกนแนวนอน.
+    // ตั้งค่าแกนแนวนอน.
     $horizontalAxis = $chart->getAxes()->getHorizontalAxis();
     $horizontalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $horizontalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
     setAxisTitle($horizontalAxis, "X Axis");
 
-    // ตั้งแกนแนวตั้ง.
+    // ตั้งค่าแกนแนวตั้ง.
     $verticalAxis = $chart->getAxes()->getVerticalAxis();
     $verticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $verticalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
     setAxisTitle($verticalAxis, "Y Axis 1");
 
-    // ตั้งค่าสีของเส้นกริดแนวตั้งหลัก.
+    // ตั้งค่าสีเส้นกริดหลักแนวตั้ง.
     $majorGridLinesFormat = $verticalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat();
     $majorGridLinesFormat->setFillType(FillType::Solid);
     $majorGridLinesFormat->getSolidFillColor()->setColor(new java("java.awt.Color", 217, 217, 217));
 }
 
 function setSecondaryAxesFormat($chart) {
-    // ตั้งแกนแนวนอนรอง.
+    // ตั้งค่าแกนแนวนอนสำรอง.
     $secondaryHorizontalAxis = $chart->getAxes()->getSecondaryHorizontalAxis();
     $secondaryHorizontalAxis->setPosition(AxisPositionType::Bottom);
     $secondaryHorizontalAxis->setCrossType(CrossesType::Maximum);
@@ -903,7 +863,7 @@ function setSecondaryAxesFormat($chart) {
     $secondaryHorizontalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     $secondaryHorizontalAxis->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
-    // ตั้งแกนแนวตั้งรอง.
+    // ตั้งค่าแกนแนวตั้งสำรอง.
     $secondaryVerticalAxis = $chart->getAxes()->getSecondaryVerticalAxis();
     $secondaryVerticalAxis->setPosition(AxisPositionType::Right);
     $secondaryVerticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
@@ -926,19 +886,15 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **อัปเดตแผนภูมิ**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>ขั้นตอน:</em> อัปเดตแผนภูมิ PowerPoint </strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>ขั้นตอน:</em> อัปเดตแผนภูมิ Presentation </strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>ขั้นตอน:</em> อัปเดตแผนภูมิ PowerPoint Presentation </strong></a>
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) ซึ่งแสดงพรีเซนเทชันที่มีแผนภูมิที่ต้องการอัปเดต  
+2. รับอ้างอิงสไลด์โดยใช้ดัชนี  
+3. เดินทางผ่านรูปทรงทั้งหมดเพื่อค้นหาแผนภูมิที่ต้องการ  
+4. เข้าถึง worksheet ของข้อมูลแผนภูมิ  
+5. ปรับแก้ซีรีส์ของแผนภูมิโดยเปลี่ยนค่าซีรีส์  
+6. เพิ่มซีรีส์ใหม่และเติมข้อมูลลงในซีรีส์นั้น  
+7. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-1. สร้างอ็อบเจกต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation) ที่แทนพรีเซนเทชันที่มีแผนภูมิที่ต้องการอัปเดต  
-2. ดึงอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-3. วนลูปผ่านรูปร่างทั้งหมดเพื่อหากแผนภูมิที่ต้องการ  
-4. เข้าถึงแผนภูมิเวิร์กชีทข้อมูล  
-5. แก้ไขข้อมูลซีรีส์ของแผนภูมิโดยเปลี่ยนค่าของซีรีส์  
-6. เพิ่มซีรีส์ใหม่และเติมข้อมูลลงในนั้น  
-7. เขียนพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด PHP นี้แสดงวิธีอัปเดตแผนภูมิ:
+ตัวอย่างโค้ด PHP นี้แสดงวิธีอัปเดตแผนภูมิ:
 
 ```php
   $pres = new Presentation();
@@ -947,34 +903,34 @@ function setAxisTitle($axis, $axisTitle) {
     $sld = $pres->getSlides()->get_Item(0);
     # ดึงแผนภูมิพร้อมข้อมูลเริ่มต้น
     $chart = $sld->getShapes()->get_Item(0);
-    # ตั้งค่าดัชนีของแผ่นข้อมูลแผนภูมิ
+    # ตั้งค่าดัชนีของชีตข้อมูลแผนภูมิ
     $defaultWorksheetIndex = 0;
-    # ดึงแผ่นงานข้อมูลแผนภูมิ
+    # ดึง worksheet ของข้อมูลแผนภูมิ
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # เปลี่ยนชื่อหมวดหมู่ของแผนภูมิ
     $fact->getCell($defaultWorksheetIndex, 1, 0, "Modified Category 1");
     $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
-    # ดึงซีรีส์แรกของแผนภูมิ
+    # ดึงซีรีส์แผนภูมิแรก
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # ตอนนี้กำลังอัปเดตข้อมูลของซีรีส์
+    # กำลังอัปเดตข้อมูลซีรีส์
     $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// แก้ไขชื่อซีรีส์
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(44);
-    # ดึงซีรีส์ที่สองของแผนภูมิ
+    # ดึงซีรีส์แผนภูมิที่สอง
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # ตอนนี้กำลังอัปเดตข้อมูลของซีรีส์
+    # กำลังอัปเดตข้อมูลซีรีส์
     $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// แก้ไขชื่อซีรีส์
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
-    # ตอนนี้กำลังเพิ่มซีรีส์ใหม่
+    # ขณะนี้กำลังเพิ่มซีรีส์ใหม่
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "Series 3"), $chart->getType());
-    # ดึงซีรีส์ที่ 3 ของแผนภูมิ
+    # ดึงซีรีส์แผนภูมิที่สาม
     $series = $chart->getChartData()->getSeries()->get_Item(2);
-    # ตอนนี้กำลังเติมข้อมูลให้ซีรีส์
+    # กำลังเติมข้อมูลให้ซีรีส์
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 3, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
@@ -988,17 +944,17 @@ function setAxisTitle($axis, $axisTitle) {
   }
 ```
 
-## **ตั้งค่าช่วงข้อมูลสำหรับแผนภูมิ**
+## **กำหนดช่วงข้อมูลของแผนภูมิ**
 
-เพื่อกำหนดช่วงข้อมูลสำหรับแผนภูมิ ทำตามขั้นตอนต่อไปนี้:
+เพื่อกำหนดช่วงข้อมูลของแผนภูมิ ทำตามขั้นตอนต่อไปนี้:
 
-1. สร้างอ็อบเจกต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation) ที่แทนพรีเซนเทชันที่มีแผนภูมิ  
-2. ดึงอ้างอิงสไลด์โดยใช้ดัชนีของมัน  
-3. วนลูปผ่านรูปร่างทั้งหมดเพื่อหากแผนภูมิที่ต้องการ  
-4. เข้าถึงข้อมูลแผนภูมิและตั้งค่าช่วงข้อมูล  
-5. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) ที่เป็นพรีเซนเทชันที่มีแผนภูมิ  
+2. รับอ้างอิงสไลด์โดยใช้ดัชนี  
+3. เดินทางผ่านรูปทรงทั้งหมดเพื่อค้นหาแผนภูมิที่ต้องการ  
+4. เข้าถึงข้อมูลแผนภูมิและกำหนดช่วง  
+5. บันทึกพรีเซนเทชันที่แก้ไขเป็นไฟล์ PPTX
 
-โค้ด PHP นี้แสดงวิธีตั้งค่าช่วงข้อมูลสำหรับแผนภูมิ:
+ตัวอย่างโค้ด PHP นี้แสดงวิธีกำหนดช่วงข้อมูลของแผนภูมิ:
 
 ```php
   $pres = new Presentation();
@@ -1014,11 +970,11 @@ function setAxisTitle($axis, $axisTitle) {
   }
 ```
 
-## **ใช้เครื่องหมายเริ่มต้นในแผนภูมิ**
+## **ใช้ Marker เริ่มต้นในแผนภูมิ**
 
-เมื่อใช้เครื่องหมายเริ่มต้นในแผนภูมิ แต่ละซีรีส์ของแผนภูมิจะได้รับสัญลักษณ์เครื่องหมายเริ่มต้นที่แตกต่างกันโดยอัตโนมัติ
+เมื่อใช้ Marker เริ่มต้นในแผนภูมิแต่ละซีรีส์จะได้รับสัญลักษณ์ Marker ที่แตกต่างโดยอัตโนมัติ
 
-โค้ด PHP นี้แสดงวิธีตั้งค่าเครื่องหมายเริ่มต้นของซีรีส์แผนภูมิโดยอัตโนมัติ:
+ตัวอย่างโค้ด PHP นี้แสดงวิธีตั้งค่า Marker ของซีรีส์แผนภูมิโดยอัตโนมัติ:
 
 ```php
   $pres = new Presentation();
@@ -1039,9 +995,9 @@ function setAxisTitle($axis, $axisTitle) {
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 4, 0, "C4"));
     $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 4, 1, null));
     $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 2, "Series 2"), $chart->getType());
-    # ดึงซีรีส์ที่สองของแผนภูมิ
+    # ดึงซีรีส์แผนภูมิที่สอง
     $series2 = $chart->getChartData()->getSeries()->get_Item(1);
-    # ตอนนี้กำลังเติมข้อมูลให้ซีรีส์
+    # กำลังเติมข้อมูลให้ซีรีส์
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 1, 2, 30));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 2, 2, 10));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 3, 2, 60));
@@ -1056,20 +1012,20 @@ function setAxisTitle($axis, $axisTitle) {
   }
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย (FAQ)**
 
 **แผนภูมิประเภทใดบ้างที่ Aspose.Slides รองรับ?**
 
-Aspose.Slides รองรับแผนภูมิด้านหลากหลายประเภทเช่น แถบ, เส้น, วงกลม, พื้นที่, กระจาย, histogram, radar, และอื่น ๆ อีกมากมาย ความยืดหยุ่นนี้ช่วยให้คุณเลือกประเภทแผนภูมิที่เหมาะสมกับการแสดงผลข้อมูลของคุณที่สุด
+Aspose.Slides รองรับแผนภูมิ [หลายประเภท](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/) เช่น แถบ, เส้น, วงกลม, พื้นที่, กระจาย, ฮิสโตแกรม, เรดาร์ และอื่น ๆ อีกมาก ทำให้คุณเลือกประเภทแผนภูมิที่เหมาะสมกับการแสดงผลข้อมูลของคุณได้อย่างอิสระ
 
-**ฉันจะเพิ่มแผนภูมิใหม่ลงในสไลด์อย่างไร?**
+**ฉันจะเพิ่มแผนภูมิใหม่ลงในสไลด์ได้อย่างไร?**
 
-เพื่อเพิ่มแผนภูมิ คุณต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) ดึงสไลด์ที่ต้องการโดยใช้ดัชนี แล้วเรียกเมธอดเพื่อเพิ่มแผนภูมิ พร้อมระบุประเภทแผนภูมิและข้อมูลเริ่มต้น การทำเช่นนี้จะทำให้แผนภูมิถูกฝังลงในพรีเซนเทชันของคุณโดยตรง
+เพื่อเพิ่มแผนภูมิ คุณต้องสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/), ดึงสไลด์ที่ต้องการโดยใช้ดัชนี, แล้วเรียกเมธอดเพื่อเพิ่มแผนภูมิโดยระบุประเภทแผนภูมิและข้อมูลเริ่มต้น ขั้นตอนนี้จะผสานแผนภูมิเข้าไปในพรีเซนเทชันของคุณโดยตรง
 
-**ฉันสามารถอัปเดตข้อมูลที่แสดงในแผนภูมิได้อย่างไร?**
+**ฉันจะอัปเดตข้อมูลที่แสดงในแผนภูมิได้อย่างไร?**
 
-คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึงเวิร์กชีทข้อมูลของมัน ([ChartDataWorkbook](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/)) ล้างซีรีส์และหมวดหมู่เริ่มต้น แล้วเพิ่มข้อมูลที่กำหนดเองของคุณ ซึ่งทำให้แผนภูมิสะท้อนข้อมูลล่าสุดได้
+คุณสามารถอัปเดตข้อมูลของแผนภูมิได้โดยเข้าถึง workbook ของข้อมูลแผนภูมิ ([ChartDataWorkbook](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/)), ลบซีรีส์และหมวดหมู่เริ่มต้น, แล้วเพิ่มข้อมูลที่กำหนดเองของคุณเอง วิธีนี้ทำให้คุณรีเฟรชแผนภูมิเพื่อแสดงข้อมูลล่าสุดได้เสมอ
 
-**สามารถปรับแต่งรูปลักษณ์ของแผนภูมิได้หรือไม่?**
+**ฉันสามารถปรับแต่งลักษณะของแผนภูมิได้หรือไม่?**
 
-ใช่ Aspose.Slides มีตัวเลือกการปรับแต่งอย่างครอบคลุม คุณสามารถแก้ไขสี, ฟอนต์, ป้ายกำกับ, คำอธิบาย, และองค์ประกอบการจัดรูปแบบอื่น ๆ [/slides/th/php-java/chart-entities/] เพื่อให้แผนภูมิตรงกับความต้องการออกแบบของคุณอย่างแม่นยำ
+ได้, Aspose.Slides มีตัวเลือกการปรับแต่งที่ครอบคลุม คุณสามารถแก้ไขสี, ฟอนต์, ป้ายกำกับ, คำอธิบาย, และองค์ประกอบการจัดรูปแบบอื่น ๆ [/slides/th/php-java/chart-entities/] เพื่อให้แผนภูมิตรงกับความต้องการออกแบบของคุณอย่างแม่นยำ

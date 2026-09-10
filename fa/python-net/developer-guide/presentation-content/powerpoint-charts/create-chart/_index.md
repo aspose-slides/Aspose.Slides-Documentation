@@ -1,232 +1,229 @@
 ---
-title: "ایجاد یا به‌روزرسانی نمودارهای ارائه PowerPoint در پایتون"
-linktitle: "ایجاد یا به‌روزرسانی یک نمودار"
+title: ایجاد یا به‌روزرسانی نمودارهای ارائه PowerPoint در پایتون
+linktitle: ایجاد یا به‌روزرسانی نمودارها
 type: docs
 weight: 10
 url: /fa/python-net/create-chart/
 keywords:
-- "اضافه کردن نمودار"
-- "ایجاد نمودار"
-- "ویرایش نمودار"
-- "تغییر نمودار"
-- "به‌روزرسانی نمودار"
-- "نمودار پراکنده"
-- "نمودار دایره‌ای"
-- "نمودار خطی"
-- "نمودار درخت‌نقشه"
-- "نمودار سهام"
-- "نمودار جعبه‌ای و ویسکر"
-- "نمودار قیفی"
-- "نمودار خورشیدگرد"
-- "نمودار هیستوگرام"
-- "نمودار رادار"
-- "نمودار چنددسته‌ای"
-- "ارائه PowerPoint"
-- "پایتون"
-- "Aspose.Slides"
-description: "یاد بگیرید چگونه نمودارها را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای پایتون از طریق .NET ایجاد و سفارشی‌سازی کنید. این راهنما افزودن، قالب‌بندی و ویرایش نمودارها در ارائه‌ها را همراه با مثال‌های کد عملی در پایتون پوشش می‌دهد."
+- افزودن نمودار
+- ایجاد نمودار
+- ویرایش نمودار
+- تغییر نمودار
+- به‌روزرسانی نمودار
+- نمودار پراکنده
+- نمودار دایره‌ای
+- نمودار خطی
+- نمودار درخت‌نقشه
+- نمودار سهام
+- نمودار جعبه‌ای و ویسکر
+- نمودار قیفی
+- نمودار خورشیدی
+- نمودار هیستوگرام
+- نمودار رادار
+- نمودار چنددسته‌ای
+- ارائه PowerPoint
+- پایتون
+- Aspose.Slides
+description: "یاد بگیرید چگونه نمودارها را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای Python از طریق .NET ایجاد و سفارشی کنید. این مقاله افزودن، قالب‌بندی و ویرایش نمودارها در ارائه‌ها را همراه با نمونه‌های کد عملی در پایتون پوشش می‌دهد."
 ---
-## **مروری**
+## **مرور کلی**
 
-این مقاله راهنمای جامعی درباره نحوهٔ ایجاد و سفارشی‌سازی نمودارها با استفاده از Aspose.Slides برای Python از طریق .NET ارائه می‌دهد. شما می‌آموزید که چگونه به‌صورت برنامه‌نویسی یک نمودار را به اسلاید اضافه کنید، آن را با داده‌ها پر کنید و گزینه‌های قالب‌بندی مختلف را برای مطابقت با نیازهای طراحی خاص خود اعمال کنید. در سراسر مقاله، مثال‌های کد دقیق هر گام را نشان می‌دهند؛ از مقداردهی اولیهٔ ارائه و شیء نمودار تا پیکربندی سری‌ها، محور‌ها و افسانه‌ها. با پیروی از این راهنما، درک محکمی از چگونگی ادغام تولید دینامیک نمودار در برنامه‌های خود به دست می‌آورید و فرآیند ساخت ارائه‌های مبتنی بر داده را ساده می‌کنید.
+این مقاله توضیح می‌دهد که چگونه نمودارها را با استفاده از Aspose.Slides برای Python از طریق .NET ایجاد و سفارشی کنید. شما یاد خواهید گرفت چگونه یک نمودار را به اسلاید اضافه کنید، آن را با داده‌ها پر کنید و برای تطبیق با نیازهای طراحی خود قالب‌بندی کنید. نمونه‌های کد شامل ایجاد ارائه‌ها و نمودارها، پیکربندی سری‌ها، محورها و افسانه‌ها، و ادغام تولید نمودار در برنامه‌های شما می‌شود.
 
 ## **ایجاد نمودار**
 
-نمودارها به افراد کمک می‌کنند تا داده‌ها را سریعاً بصری‌سازی کنند و بینش‌هایی به دست آورند که ممکن است از یک جدول یا صفحه‌گسترده بلافاصله واضح نباشد.
+نمودارها به افراد کمک می‌کند داده‌ها را به سرعت بصری‌سازی کنند و بینش‌هایی به دست آورند که ممکن است از جدول یا صفحه‌گسترده به‌وضوح قابل مشاهده نباشند.
 
-**چرا ایجاد نمودار؟**
+**چرا نمودارها را ایجاد کنیم؟**
 
 با استفاده از نمودارها می‌توانید:
 
-* حجم زیادی از داده‌ها را در یک اسلاید جمع‌بندی، فشرده یا خلاصه کنید;
-* الگوها و روندهای داده را آشکار کنید;
-* جهت و گام‌به‌گام بودن داده را در طول زمان یا نسبت به یک واحد اندازه‌گیری خاص استنتاج کنید;
-* نقاط پرت، انحرافات، خطاها و داده‌های نامعقول را شناسایی کنید;
-* داده‌های پیچیده را ارتباط‌پذیر یا قابل ارائه کنید.
+* مقدار زیادی داده را در یک اسلاید جمع‌آوری، فشرده یا خلاصه کنید؛
+* الگوها و روندهای داده را آشکار کنید؛
+* جهت و شتاب داده‌ها را در طول زمان یا نسبت به یک واحد اندازه‌گیری خاص تشخیص دهید؛
+* نقاط دورافتاده، انحراف‌ها، خطاها و داده‌های نامعقول را شناسایی کنید؛
+* داده‌های پیچیده را ارتباط یا ارائه دهید.
 
-در PowerPoint می‌توانید نمودارها را از طریق عملکرد *Insert* ایجاد کنید که قالب‌هایی برای طراحی انواع مختلف نمودارها فراهم می‌آورد. با Aspose.Slides می‌توانید هم نمودارهای معمولی (بر پایهٔ انواع محبوب نمودار) و هم نمودارهای سفارشی ایجاد کنید.
+در PowerPoint می‌توانید نمودارها را از طریق عملکرد *Insert* ایجاد کنید که قالب‌های متعددی برای طراحی انواع مختلف نمودارها ارائه می‌دهد. با Aspose.Slides می‌توانید هر دو نوع نمودار معمولی (بر اساس انواع نمودارهای محبوب) و نمودارهای سفارشی ایجاد کنید.
 
-{{% alert color="primary" %}} 
-از شمارش‌گر [ChartType](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/charttype/) در فضای‌نامی [Aspose.Slides.Charts](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/) استفاده کنید. مقادیر این شمارش‌گر به انواع مختلف نمودارها مربوط می‌شوند.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+از شمارش‌گر [ChartType](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/charttype/) در فضای نام [Aspose.Slides.Charts](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/) استفاده کنید. مقادیر این شمارش‌گر به انواع مختلف نمودارها مربوط می‌شوند.
+{{% /alert %}}
 
 ### **ایجاد نمودارهای ستونی خوشه‌ای**
 
-این بخش توضیح می‌دهد چگونه نمودارهای ستونی خوشه‌ای را با Aspose.Slides برای Python از طریق .NET ایجاد کنید. شما نحوهٔ مقداردهی اولیهٔ ارائه، افزودن یک نمودار و سفارشی‌سازی عناصر آن مانند عنوان، داده‌ها، سری‌ها، دسته‌ها و استایل را یاد خواهید گرفت. مراحل زیر را دنبال کنید تا ببینید یک نمودار ستونی خوشه‌ای استاندارد چگونه تولید می‌شود:
+این بخش توضیح می‌دهد چگونه نمودارهای ستونی خوشه‌ای را با استفاده از Aspose.Slides برای Python از طریق .NET ایجاد کنید. شما می‌آموزید چگونه یک ارائه را مقداردهی اولیه کنید، نمودار اضافه کنید و عناصر آن مانند عنوان، داده‌ها، سری‌ها، دسته‌ها و سبک‌بندی را سفارشی کنید. مراحل زیر را دنبال کنید تا ببینید یک نمودار ستونی خوشه‌ای استاندارد چگونه تولید می‌شود:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.
-1. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-1. یک نمودار با برخی داده‌ها اضافه کنید و نوع `ChartType.CLUSTERED_COLUMN` را مشخص کنید.
-1. عنوانی به نمودار اضافه کنید.
-1. به ورکشیت دادهٔ نمودار دسترسی پیدا کنید.
-1. تمام سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
-1. سری‌ها و دسته‌های جدید اضافه کنید.
-1. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.
-1. رنگ پر کردن را به سری‌های نمودار اعمال کنید.
-1. برچسب‌ها را به سری‌های نمودار اضافه کنید.
-1. ارائهٔ اصلاح‌شده را به عنوان فایل PPTX ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.  
+1. با استفاده از ایندکس آن، به یک اسلاید ارجاع بگیرید.  
+1. یک نمودار با برخی داده‌ها اضافه کنید و نوع `ChartType.CLUSTERED_COLUMN` را مشخص کنید.  
+1. یک عنوان به نمودار اضافه کنید.  
+1. به کاربرگ داده‌های نمودار دسترسی پیدا کنید.  
+1. تمام سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
+1. رنگ پر را برای سری‌های نمودار اعمال کنید.  
+1. برچسب‌ها را به سری‌های نمودار اضافه کنید.  
+1. ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
 
-این کد Python نشان می‌دهد چگونه یک نمودار ستونی خوشه‌ای ایجاد شود:
+این کد پایتون نحوه ایجاد یک نمودار ستونی خوشه‌ای را نشان می‌دهد:
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# یک نمونه از کلاس Presentation که یک فایل PPTX را نشان می‌دهد ایجاد کنید.
+# نمونه‌ای از کلاس Presentation که نمایانگر یک فایل PPTX است.
 with slides.Presentation() as presentation:
 
-    # به اولین اسلاید دسترسی پیدا کنید.
+    # دسترسی به اولین اسلاید.
     slide = presentation.slides[0]
 
-    # یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض آن اضافه کنید.
+    # افزودن یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض آن.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
-    # عنوان نمودار را تنظیم کنید.
+    # تنظیم عنوان نمودار.
     chart.chart_title.add_text_frame_for_overriding("Sample Title")
     chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # سری اول را طوری تنظیم کنید که مقادیر را نشان دهد.
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-
-    # اندیس شیت داده نمودار را تنظیم کنید.
+    # تنظیم ایندکس برگه داده‌های نمودار.
     worksheet_index = 0
 
-    # کتاب کار داده نمودار را دریافت کنید.
+    # دریافت کاربرگ داده‌های نمودار.
     workbook = chart.chart_data.chart_data_workbook
 
-    # سری‌ها و دسته‌های پیش‌فرض تولید شده را حذف کنید.
+    # حذف سری‌ها و دسته‌های پیش‌فرض تولید شده.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    # سری‌های جدید اضافه کنید.
+    # افزودن سری‌های جدید.
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Series 1"), chart.type)
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Series 2"), chart.type)
 
-    # دسته‌های جدید اضافه کنید.
+    # افزودن دسته‌های جدید.
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
 
-    # سری اول نمودار را دریافت کنید.
+    # دریافت اولین سری نمودار.
     series = chart.chart_data.series[0]
 
-    # داده‌های سری را پر کنید.
+    # پر کردن داده‌های سری.
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 20))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
 
-    # رنگ پر کردن را برای سری تنظیم کنید.
+    # تنظیم رنگ پر برای سری.
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.red
 
-    # سری دوم نمودار را دریافت کنید.
+    # دریافت دومین سری نمودار.
     series = chart.chart_data.series[1]
 
-    # داده‌های سری را پر کنید.
+    # پر کردن داده‌های سری.
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 30))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
 
-    # رنگ پر کردن را برای سری تنظیم کنید.
+    # تنظیم رنگ پر برای سری.
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.green
 
-    # برچسب اول را طوری تنظیم کنید که نام دسته را نشان دهد.
+    # تنظیم اولین برچسب برای نمایش نام دسته.
     label = series.data_points[0].label
     label.data_label_format.show_category_name = True
 
     label = series.data_points[1].label
     label.data_label_format.show_series_name = True
 
-    # سری را طوری تنظیم کنید که مقدار را برای برچسب سوم نشان دهد.
+    # تنظیم سری برای نمایش مقدار برچسب سوم.
     label = series.data_points[2].label
     label.data_label_format.show_value = True
     label.data_label_format.show_series_name = True
     label.data_label_format.separator = "/"
                 
-    # ارائه را به‌صورت فایل PPTX بر روی دیسک ذخیره کنید.
+    # ذخیره ارائه به‌صورت فایل PPTX روی دیسک.
     presentation.save("ClusteredColumnChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 نتیجه:
 
-![نمودار ستون خوشه‌ای](clustered_column_chart.png)
+![نمودار ستونی خوشه‌ای](clustered_column_chart.png)
 
 ### **ایجاد نمودارهای پراکنده**
 
-نمودارهای پراکنده (که به‌عنوان scatter plot یا نمودار x‑y نیز شناخته می‌شوند) برای بررسی الگوها یا نشان دادن همبستگی بین دو متغیر استفاده می‌شوند.
+نمودارهای پراکنده (که به‌عنوان Scatter Plots یا نمودارهای x‑y نیز شناخته می‌شوند) برای بررسی الگوها یا نشان دادن همبستگی بین دو متغیر استفاده می‌شوند.
 
 از نمودار پراکنده زمانی استفاده کنید که:
 
-* داده‌های عددی جفت‌دار دارید.
-* دو متغیر دارید که به‌خوبی با هم جفت می‌شوند.
-* می‌خواهید تعیین کنید آیا دو متغیر مرتبط هستند یا خیر.
-* یک متغیر مستقل دارید که برای یک متغیر وابسته مقادیر متعددی دارد.
+* داده‌های عددی جفت‌گذاری‌شده دارید.  
+* دو متغیر دارید که به‌خوبی با هم جفت می‌شوند.  
+* می‌خواهید تعیین کنید آیا دو متغیر مرتبط هستند یا نه.  
+* یک متغیر مستقل دارید که برای هر مقدار متغیر وابسته، چند مقدار دارد.
 
-این کد Python نشان می‌دهد چگونه یک نمودار پراکنده با سری‌های مختلف نشانگرها ایجاد شود:
+این کد پایتون نشان می‌دهد چگونه یک نمودار پراکنده با نشانگرهای مختلف برای هر سری ایجاد کنید:
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# یک نمونه از کلاس Presentation ایجاد کنید.
+# یک نمونه از کلاس Presentation را ایجاد کنید.
 with slides.Presentation() as presentation:
 
-    # به اولین اسلاید دسترسی پیدا کنید.
+    # دسترسی به اولین اسلاید.
     slide = presentation.slides[0]
 
-    # نمودار پراکنده پیش‌فرض را ایجاد کنید.
+    # ایجاد نمودار پراکنده پیش‌فرض.
     chart = slide.shapes.add_chart(charts.ChartType.SCATTER_WITH_SMOOTH_LINES, 20, 20, 500, 300)
 
-    # اندیس شیت داده نمودار را تنظیم کنید.
+    # تنظیم ایندکس برگه داده‌های نمودار.
     worksheet_index = 0
 
-    # کتاب‌کار داده نمودار را دریافت کنید.
+    # دریافت کاربرگ داده‌های نمودار.
     workbook = chart.chart_data.chart_data_workbook
 
-    # سری پیش‌فرض را حذف کنید.
+    # حذف سری پیش‌فرض.
     chart.chart_data.series.clear()
 
-    # سری‌های جدید اضافه کنید.
+    # افزودن سری‌های جدید.
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 1, 1, "Series 1"), chart.type)
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 1, 3, "Series 2"), chart.type)
 
-    # سری اول نمودار را دریافت کنید.
+    # دریافت اولین سری نمودار.
     series = chart.chart_data.series[0]
 
-    # یک نقطه جدید (1:3) به سری اضافه کنید.
+    # افزودن نقطه جدید (1:3) به سری.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 1, 1), workbook.get_cell(worksheet_index, 2, 2, 3))
 
-    # یک نقطه جدید (2:10) اضافه کنید.
+    # افزودن نقطه جدید (2:10).
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 1, 2), workbook.get_cell(worksheet_index, 3, 2, 10))
 
-    # نوع سری را تغییر دهید.
+    # تغییر نوع سری.
     series.type = charts.ChartType.SCATTER_WITH_STRAIGHT_LINES_AND_MARKERS
 
-    # علامت‌گر سری نمودار را تغییر دهید.
+    # تغییر نشانگر سری نمودار.
     series.marker.size = 10
     series.marker.symbol = charts.MarkerStyleType.STAR
 
-    # سری دوم نمودار را دریافت کنید.
+    # دریافت دومین سری نمودار.
     series = chart.chart_data.series[1]
 
-    # یک نقطه جدید (5:2) به سری نمودار اضافه کنید.
+    # افزودن نقطه جدید (5:2) به سری نمودار.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 3, 5), workbook.get_cell(worksheet_index, 2, 4, 2))
 
-    # یک نقطه جدید (3:1) اضافه کنید.
+    # افزودن نقطه جدید (3:1).
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 3, 3), workbook.get_cell(worksheet_index, 3, 4, 1))
 
-    # یک نقطه جدید (2:2) اضافه کنید.
+    # افزودن نقطه جدید (2:2).
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 4, 3, 2), workbook.get_cell(worksheet_index, 4, 4, 2))
 
-    # یک نقطه جدید (5:1) اضافه کنید.
+    # افزودن نقطه جدید (5:1).
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 5, 3, 5), workbook.get_cell(worksheet_index, 5, 4, 1))
 
-    # علامت‌گر سری نمودار را تغییر دهید.
+    # تغییر نشانگر سری نمودار.
     series.marker.size = 10
     series.marker.symbol = charts.MarkerStyleType.CIRCLE
 
@@ -239,35 +236,35 @@ with slides.Presentation() as presentation:
 
 ### **ایجاد نمودارهای دایره‌ای**
 
-نمودارهای دایره‌ای برای نمایش رابطهٔ جزء به کل در داده‌ها مناسب هستند، به‌ویژه وقتی داده‌ها شامل برچسب‌های دسته‌ای با مقادیر عددی باشند. اگر داده‌های شما شامل تعداد زیادی بخش یا برچسب باشد، بهتر است به‌جای آن از نمودار ستون استفاده کنید.
+نمودارهای دایره‌ای بهترین استفاده را برای نشان دادن رابطه جزء به کل در داده‌ها دارند، به‌ویژه زمانی که داده‌ها شامل برچسب‌های دسته‌ای با مقادیر عددی باشند. اگر داده‌های شما بخش‌ها یا برچسب‌های بسیار زیادی داشته باشد، ممکن است بهتر باشد به جای آن از نمودار ستونی استفاده کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.
-1. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.PIE` را مشخص کنید.
-1. به کتاب‌کار دادهٔ نمودار ([ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/)) دسترسی پیدا کنید.
-1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
-1. سری‌ها و دسته‌های جدید اضافه کنید.
-1. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.
-1. نقاط جدیدی به نمودار اضافه کنید و رنگ‌های سفارشی به بخش‌های نمودار دایره‌ای اعمال کنید.
-1. برچسب‌ها را برای سری‌ها تنظیم کنید.
-1. خطوط رهبر (leader lines) را برای برچسب‌های سری فعال کنید.
-1. زاویهٔ چرخش نمودار دایره‌ای را تنظیم کنید.
-1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.  
+1. با استفاده از ایندکس آن، به یک اسلاید ارجاع بگیرید.  
+1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.PIE` را مشخص کنید.  
+1. به کاربرگ داده‌های نمودار ([ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/)) دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
+1. نقاط جدید برای نمودار اضافه کنید و رنگ‌های سفارشی را برای بخش‌های نمودار دایره‌ای اعمال کنید.  
+1. برچسب‌ها را برای سری‌ها تنظیم کنید.  
+1. خطوط رهبر را برای برچسب‌های سری فعال کنید.  
+1. زاویه چرخش برای نمودار دایره‌ای تنظیم کنید.  
+1. ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
 
-این کد Python نشان می‌دهد چگونه یک نمودار دایره‌ای ایجاد شود:
+این کد پایتون نحوه ایجاد یک نمودار دایره‌ای را نشان می‌دهد:
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# یک نمونه از کلاس Presentation که یک فایل PPTX را نشان می‌دهد ایجاد کنید.
+# یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد کنید.
 with slides.Presentation() as presentation:
 
-    # به اولین اسلاید دسترسی پیدا کنید.
+    # دسترسی به اولین اسلاید.
     slide = presentation.slides[0]
 
-    # یک نمودار با داده‌های پیش‌فرض آن اضافه کنید.
+    # یک نمودار با داده‌های پیش‌فرض آن را اضافه کنید.
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 20, 20, 500, 300)
 
     # عنوان نمودار را تنظیم کنید.
@@ -276,25 +273,22 @@ with slides.Presentation() as presentation:
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # سری اول را طوری تنظیم کنید که مقادیر را نشان دهد.
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-
-    # اندیس شیت داده نمودار را تنظیم کنید.
+    # ایندکس برگه داده‌های نمودار را تنظیم کنید.
     worksheet_index = 0
 
-    # کتاب‌کار داده نمودار را دریافت کنید.
+    # کاربرگ داده‌های نمودار را دریافت کنید.
     workbook = chart.chart_data.chart_data_workbook
 
-    # سری و دسته‌های پیش‌فرض تولید شده را حذف کنید.
+    # سری‌ها و دسته‌های پیش‌فرض تولید شده را حذف کنید.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    # دسته‌های جدید اضافه کنید.
+    # دسته‌های جدید را اضافه کنید.
     chart.chart_data.categories.add(workbook.get_cell(0, 1, 0, "First Qtr"))
     chart.chart_data.categories.add(workbook.get_cell(0, 2, 0, "2nd Qtr"))
     chart.chart_data.categories.add(workbook.get_cell(0, 3, 0, "3rd Qtr"))
 
-    # سری‌های جدید اضافه کنید.
+    # سری‌های جدید را اضافه کنید.
     series = chart.chart_data.series.add(workbook.get_cell(0, 0, 1, "Series 1"), chart.type)
 
     # داده‌های سری را پر کنید.
@@ -302,14 +296,14 @@ with slides.Presentation() as presentation:
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 2, 1, 50))
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 3, 1, 30))
 
-    # رنگ بخش (sector) را تنظیم کنید.
+    # رنگ بخش را تنظیم کنید.
     chart.chart_data.series_groups[0].is_color_varied = True
 
     point = series.data_points[0]
     point.format.fill.fill_type = slides.FillType.SOLID
     point.format.fill.solid_fill_color.color = draw.Color.cyan
 
-    # حد (border) بخش را تنظیم کنید.
+    # حاشیه بخش را تنظیم کنید.
     point.format.line.fill_format.fill_type = slides.FillType.SOLID
     point.format.line.fill_format.solid_fill_color.color = draw.Color.gray
     point.format.line.width = 3.0
@@ -320,7 +314,7 @@ with slides.Presentation() as presentation:
     point1.format.fill.fill_type = slides.FillType.SOLID
     point1.format.fill.solid_fill_color.color = draw.Color.brown
 
-    # حد (border) بخش را تنظیم کنید.
+    # حاشیه بخش را تنظیم کنید.
     point1.format.line.fill_format.fill_type = slides.FillType.SOLID
     point1.format.line.fill_format.solid_fill_color.color = draw.Color.blue
     point1.format.line.width = 3.0
@@ -331,7 +325,7 @@ with slides.Presentation() as presentation:
     point2.format.fill.fill_type = slides.FillType.SOLID
     point2.format.fill.solid_fill_color.color = draw.Color.coral
 
-    # حد (border) بخش را تنظیم کنید.
+    # حاشیه بخش را تنظیم کنید.
     point2.format.line.fill_format.fill_type = slides.FillType.SOLID
     point2.format.line.fill_format.solid_fill_color.color = draw.Color.red
     point2.format.line.width = 2.0
@@ -352,13 +346,13 @@ with slides.Presentation() as presentation:
     label3.data_label_format.show_series_name = True
     label3.data_label_format.show_percentage = True
 
-    # سری را طوری تنظیم کنید که خطوط راهنما (leader lines) را برای نمودار نشان دهد.
+    # سری را طوری تنظیم کنید که خطوط رهبری برای نمودار نشان داده شوند.
     series.labels.default_data_label_format.show_leader_lines = True
 
     # زاویه چرخش بخش‌های نمودار دایره‌ای را تنظیم کنید.
     chart.chart_data.series_groups[0].first_slice_angle = 180
 
-    # ارائه را به‌صورت فایل PPTX بر روی دیسک ذخیره کنید.
+    # ارائه را به‌صورت فایل PPTX روی دیسک ذخیره کنید.
     presentation.save("PieChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -368,18 +362,14 @@ with slides.Presentation() as presentation:
 
 ### **ایجاد نمودارهای خطی**
 
-نمودارهای خطی (معروف به line graphs) برای نمایش تغییرات مقدار در طول زمان مناسب هستند. با استفاده از یک نمودار خطی می‌توانید مقدار زیادی داده را همزمان مقایسه کنید، تغییرات و روندها را در طول زمان ردیابی کنید، ناهنجاری‌ها در سری‌های داده را برجسته کنید و ...
+نمودارهای خطی (که به‌عنوان Line Graphs نیز شناخته می‌شوند) بهترین استفاده را در موقعیت‌هایی دارند که می‌خواهید تغییرات مقدار را در طول زمان نشان دهید. با استفاده از یک نمودار خطی می‌توانید حجم زیادی از داده‌ها را به‌صورت همزمان مقایسه کنید، تغییرات و روندها را در طول زمان پیگیری کنید، ناهنجاری‌ها را در سری‌های داده برجسته کنید و غیره.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.
-1. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.LINE` را مشخص کنید.
-1. به کتاب‌کار دادهٔ نمودار ([ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/)) دسترسی پیدا کنید.
-1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
-1. سری‌ها و دسته‌های جدید اضافه کنید.
-1. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.
-1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.  
+1. با استفاده از ایندکس آن، به یک اسلاید ارجاع بگیرید.  
+1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.LINE` را مشخص کنید.  
+1. ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
 
-این کد Python نشان می‌دهد چگونه یک نمودار خطی ایجاد شود:
+این کد پایتون نحوه ایجاد یک نمودار خطی را نشان می‌دهد:
 
 ```python
 import aspose.slides as slides
@@ -390,13 +380,18 @@ with slides.Presentation() as presentation:
     presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-به‌طور پیش‌فرض، نقاط در یک نمودار خطی با خطوط مستقیم پیوسته به یکدیگر وصل می‌شوند. اگر می‌خواهید نقطه‌ها به‌جای خطوط پیوسته با خط‌دار (dash) وصل شوند، می‌توانید نوع dash موردنظر خود را به‌صورت زیر تعیین کنید:
+به‌صورت پیش‌فرض، نقاط در یک نمودار خطی توسط خطوط مستقیم پیوسته به‌هم وصل می‌شوند. اگر می‌خواهید به‌جای آن نقاط توسط خط تیره به‌هم وصل شوند، می‌توانید نوع خط تیره مورد نظر خود را به‌صورت زیر مشخص کنید:
 
 ```python
-line_chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+import aspose.slides as slides
 
-for series in line_chart.chart_data.series:
-    series.format.line.dash_style = slides.charts.LineDashStyle.DASH
+with slides.Presentation() as presentation:
+    line_chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+
+    for series in line_chart.chart_data.series:
+        series.format.line.dash_style = slides.LineDashStyle.DASH
+
+    presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 نتیجه:
@@ -405,18 +400,18 @@ for series in line_chart.chart_data.series:
 
 ### **ایجاد نمودارهای درخت‌نقشه (Tree Map)**
 
-نمودارهای درخت‌نقشه برای داده‌های فروش مناسب هستند وقتی می‌خواهید اندازه نسبی دسته‌های داده را نشان دهید و به‌سرعت توجه را به مواردی که سهم بزرگی در هر دسته دارند جلب کنید.
+نمودارهای درخت‌نقشه بهترین استفاده را برای داده‌های فروش دارند وقتی می‌خواهید اندازه نسبی دسته‌های داده را نشان دهید و به سرعت توجه را به مواردی که سهم بزرگی در هر دسته دارند جلب کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.
-1. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.TREEMAP` را مشخص کنید.
-1. به کتاب‌کار دادهٔ نمودار ([ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/)) دسترسی پیدا کنید.
-1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
-1. سری‌ها و دسته‌های جدید اضافه کنید.
-1. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.
-1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.  
+1. با استفاده از ایندکس آن، به یک اسلاید ارجاع بگیرید.  
+1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.TREEMAP` را مشخص کنید.  
+1. به کاربرگ داده‌های نمودار ([ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/)) دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
+1. ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
 
-این کد Python نشان می‌دهد چگونه یک نمودار درخت‌نقشه ایجاد شود:
+این کد پایتون نحوه ایجاد یک نمودار درخت‌نقشه را نشان می‌دهد:
 
 ```py
 import aspose.slides.charts as charts
@@ -477,19 +472,19 @@ with slides.Presentation() as presentation:
 
 ### **ایجاد نمودارهای سهام (Stock)**
 
-نمودارهای سهام برای نمایش داده‌های مالی مانند قیمت‌های باز، بالا، پایین و بسته استفاده می‌شوند و به تحلیل روندهای بازار و نوسان‌ها کمک می‌کنند. این نمودارها بینش‌های اساسی دربارهٔ عملکرد سهام ارائه می‌دهند و به سرمایه‌گذاران و تحلیل‌گران در اتخاذ تصمیم‌های آگاهانه یاری می‌رسانند.
+نمودارهای سهام برای نمایش داده‌های مالی مانند قیمت‌های باز، بالا، پایین و بسته استفاده می‌شوند و به تجزیه و تحلیل روندهای بازار و نوسان کمک می‌کنند. این نمودارها بینش‌های اساسی درباره عملکرد سهام ارائه می‌دهند و به سرمایه‌گذاران و تحلیل‌گران در اتخاذ تصمیمات آگاهانه کمک می‌کنند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.
-1. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.OPEN_HIGH_LOW_CLOSE` را مشخص کنید.
-1. به کتاب‌کار دادهٔ نمودار ([ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/)) دسترسی پیدا کنید.
-1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
-1. سری‌ها و دسته‌های جدید اضافه کنید.
-1. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.
-1. فرمت HiLowLines را مشخص کنید.
-1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.  
+1. با استفاده از ایندکس آن، به یک اسلاید ارجاع بگیرید.  
+1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.OPEN_HIGH_LOW_CLOSE` را مشخص کنید.  
+1. به کاربرگ داده‌های نمودار ([ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/)) دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
+1. قالب خطوط بالا‑پایین را مشخص کنید.  
+1. ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
 
-این کد Python نشان می‌دهد چگونه یک نمودار سهام ایجاد شود:
+این کد پایتون نحوه ایجاد یک نمودار سهام را نشان می‌دهد:
 
 ```py
 import aspose.slides.charts as charts
@@ -549,18 +544,18 @@ with slides.Presentation() as presentation:
 
 ### **ایجاد نمودارهای جعبه‌ای و ویسکر (Box and Whisker)**
 
-نمودارهای جعبه‌ای و ویسکر توزیع داده‌ها را با خلاصه‌سازی معیارهای آماری کلیدی مانند میانه، چارک‌ها و احتمالات نقاط پرت نشان می‌دهند. این نمودارها در تحلیل اکتشافی داده و مطالعات آماری برای درک سریع تغییرپذیری داده‌ها و شناسایی ناهنجاری‌ها مفید هستند.
+نمودارهای جعبه‌ای و ویسکر برای نمایش توزیع داده‌ها با خلاصه‌سازی معیارهای آماری کلیدی مانند میانه، چارک‌ها و نقاط دورافتاده استفاده می‌شوند. این نمودارها در تحلیل‌های اکتشافی داده‌ها و مطالعات آماری برای درک سریع تغییرپذیری داده‌ها و شناسایی ناهنجاری‌ها مفید هستند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.
-1. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.BOX_AND_WHISKER` را مشخص کنید.
-1. به کتاب‌کار دادهٔ نمودار ([ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/)) دسترسی پیدا کنید.
-1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
-1. سری‌ها و دسته‌های جدید اضافه کنید.
-1. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.
-1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.  
+1. با استفاده از ایندکس آن، به یک اسلاید ارجاع بگیرید.  
+1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.BOX_AND_WHISKER` را مشخص کنید.  
+1. به کاربرگ داده‌های نمودار ([ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/)) دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
+1. ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
 
-این کد Python نشان می‌دهد چگونه یک نمودار جعبه‌ای و ویسکر ایجاد شود:
+این کد پایتون نحوه ایجاد یک نمودار جعبه‌ای و ویسکر را نشان می‌دهد:
 
 ```py
 import aspose.slides.charts as charts
@@ -602,14 +597,14 @@ with slides.Presentation() as presentation:
 
 ### **ایجاد نمودارهای قیفی (Funnel)**
 
-نمودارهای قیفی برای بصری‌سازی فرآیندهایی که شامل مراحل متوالی هستند و حجم داده‌ها در هر مرحله کاهش می‌یابد، استفاده می‌شوند. این نمودارها به ویژه برای تحلیل نرخ تبدیل، شناسایی گلوگاه‌ها و ردیابی کارایی فرآیندهای فروش یا بازاریابی مفیدند.
+نمودارهای قیفی برای تجسم فرآیندهایی استفاده می‌شوند که شامل مراحل متوالی هستند و حجم داده‌ها به‌تدریج از یک مرحله به مرحله دیگر کاهش می‌یابد. این نمودارها به‌ویژه برای تحلیل نرخ تبدیل، شناسایی گلوگاه‌ها و پیگیری کارایی فرآیندهای فروش یا بازاریابی مفیدند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.
-1. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.FUNNEL` را مشخص کنید.
-1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.  
+1. با استفاده از ایندکس آن، به یک اسلاید ارجاع بگیرید.  
+1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.FUNNEL` را مشخص کنید.  
+1. ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
 
-این کد Python نشان می‌دهد چگونه یک نمودار قیفی ایجاد شود:
+این کد پایتون نحوه ایجاد یک نمودار قیفی را نشان می‌دهد:
 
 ```py
 import aspose.slides.charts as charts
@@ -647,16 +642,16 @@ with slides.Presentation() as presentation:
 
 ![نمودار قیفی](funnel_chart.png)
 
-### **ایجاد نمودارهای خورشیدگرد (Sunburst)**
+### **ایجاد نمودارهای خورشیدی (Sunburst)**
 
-نمودارهای خورشیدگرد برای بصری‌سازی داده‌های سلسله‌مراتبی استفاده می‌شوند و سطوح را به‌صورت حلقه‌های متحدالمرکز نمایش می‌دهند. این نمودارها رابطهٔ جزء به کل را نشان می‌دهند و برای نمایش دسته‌ها و زیرمجموعه‌های تو در تو در قالبی واضح و فشرده مناسب‌اند.
+نمودارهای خورشیدی برای تجسم داده‌های سلسله‌مراتبی استفاده می‌شوند و سطوح را به‌صورت حلقه‌های هم‌دور نمایش می‌دهند. این نمودارها رابطه جزء به کل را نشان می‌دهند و برای نمایش دسته‌ها و زیرمجموعه‌های تو در تو در قالبی واضح و فشرده مناسبند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.
-1. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.SUNBURST` را مشخص کنید.
-1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.  
+1. با استفاده از ایندکس آن، به یک اسلاید ارجاع بگیرید.  
+1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.SUNBURST` را مشخص کنید.  
+1. ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
 
-این کد Python نشان می‌دهد چگونه یک نمودار خورشیدگرد ایجاد شود:
+این کد پایتون نحوه ایجاد یک نمودار خورشیدی را نشان می‌دهد:
 
 ```py
 import aspose.slides.charts as charts
@@ -711,21 +706,21 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![نمودار خورشیدگرد](sunburst_chart.png)
+![نمودار خورشیدی](sunburst_chart.png)
 
-### **ایجاد نمودارهای هیستوگرام (Histogram)**
+### **ایجاد نمودارهای هیستوگرام**
 
-نمودارهای هیستوگرام توزیع داده‌های عددی را با گروه‌بندی مقادیر در بازه‌ها یا جعبه‌ها نشان می‌دهند. این نمودارها برای شناسایی الگوهای داده‌ای همچون فراوانی، غیرمتقارن بودن و پراکندگی و برای کشف نقاط پرت در یک مجموعه داده مفیدند.
+نمودارهای هیستوگرام برای نمایش توزیع داده‌های عددی با گروه‌بندی مقادیر به بازه‌ها یا بین‌ها استفاده می‌شوند. این نمودارها برای شناسایی الگوهایی مانند فراوانی، اسک skewness و گسترش، و نیز تشخیص نقاط دورافتاده در یک مجموعه داده مفیدند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.
-1. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-1. یک نمودار با داده‌های برخی اضافه کنید و نوع `ChartType.HISTOGRAM` را مشخص کنید.
-1. به کتاب‌کار دادهٔ نمودار ([ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/)) دسترسی پیدا کنید.
-1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
-1. سری‌ها و دسته‌های جدید اضافه کنید.
-1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.  
+1. با استفاده از ایندکس آن، به یک اسلاید ارجاع بگیرید.  
+1. یک نمودار با داده‌های برخی اضافه کنید و نوع `ChartType.HISTOGRAM` را مشخص کنید.  
+1. به کاربرگ داده‌های نمودار ([ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/)) دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
+1. یک سری جدید اضافه کنید و آن را با نقاط داده پر کنید. یک هیستوگرام دسته ندارد؛ بازه‌ها از مقادیر محاسبه می‌شوند.  
+1. ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
 
-این کد Python نشان می‌دهد چگونه یک نمودار هیستوگرام ایجاد شود:
+این کد پایتون نحوه ایجاد یک نمودار هیستوگرام را نشان می‌دهد:
 
 ```py
 import aspose.slides.charts as charts
@@ -757,43 +752,43 @@ with slides.Presentation() as presentation:
 
 ![نمودار هیستوگرام](histogram_chart.png)
 
-### **ایجاد نمودارهای رادار (Radar)**
+### **ایجاد نمودارهای رادار**
 
-نمودارهای رادار داده‌های چندمتغیره را در قالب دو‑بعدی نمایش می‌دهند و امکان مقایسهٔ همزمان چند متغیر را فراهم می‌کنند. این نمودارها برای شناسایی الگوها، نقاط قوت و ضعف در میان چند معیار عملکرد یا ویژگی بسیار مناسب‌اند.
+نمودارهای رادار برای نمایش داده‌های چندمتغیره در قالب دو‑بعدی استفاده می‌شوند و امکان مقایسه همزمان چندین متغیر را فراهم می‌کنند. این نمودارها برای شناسایی الگوها، قوت‌ها و ضعف‌ها در میان معیارهای عملکرد یا ویژگی‌های متعدد مفیدند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.
-1. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-1. یک نمودار با داده‌های برخی اضافه کنید و نوع `ChartType.RADAR` را مشخص کنید.
-1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.  
+1. با استفاده از ایندکس آن، به یک اسلاید ارجاع بگیرید.  
+1. یک نمودار با برخی داده‌ها اضافه کنید و نوع `ChartType.RADAR` را مشخص کنید.  
+1. ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
 
-این کد Python نشان می‌دهد چگونه یک نمودار رادار ایجاد شود:
+این کد پایتون نحوه ایجاد یک نمودار رادار را نشان می‌دهد:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     presentation.slides[0].shapes.add_chart(slides.charts.ChartType.RADAR, 20, 20, 500, 300)
-    presentation.save("RadarСhart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("RadarChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 نتیجه:
 
 ![نمودار رادار](radar_chart.png)
 
-### **ایجاد نمودارهای چنددسته‌ای (Multi Category)**
+### **ایجاد نمودارهای چنددسته‌ای**
 
-نمودارهای چنددسته‌ای برای نمایش داده‌هایی که شامل بیش از یک گروه‌بندی دسته‌ای هستند، استفاده می‌شوند و به شما اجازه می‌دهند مقادیر را در چند بُعد به‌طور همزمان مقایسه کنید. این نمودارها در تحلیل روندها و روابط در مجموعه‌ داده‌های چندلایه پیچیده مفیدند.
+نمودارهای چنددسته‌ای برای نمایش داده‌هایی که شامل بیش از یک گروه‌بندی دسته‌ای هستند استفاده می‌شوند و به شما امکان می‌دهند مقادیر را در چندین بعد به‌طور همزمان مقایسه کنید. این نمودارها زمانی مفیدند که نیاز به تحلیل روندها و روابط در مجموعه‌داده‌های چندلایه پیچیده داشته باشید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.
-1. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.CLUSTERED_COLUMN` را مشخص کنید.
-1. به کتاب‌کار دادهٔ نمودار ([ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/)) دسترسی پیدا کنید.
-1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
-1. سری‌ها و دسته‌های جدید اضافه کنید.
-1. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.
-1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.  
+1. با استفاده از ایندکس آن، به یک اسلاید ارجاع بگیرید.  
+1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.CLUSTERED_COLUMN` را مشخص کنید.  
+1. به کاربرگ داده‌های نمودار ([ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/)) دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
+1. ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
 
-این کد Python نشان می‌دهد چگونه یک نمودار چنددسته‌ای ایجاد شود:
+این کد پایتون نحوه ایجاد یک نمودار چنددسته‌ای را نشان می‌دهد:
 
 ```py
 import aspose.slides.charts as charts
@@ -828,7 +823,7 @@ with slides.Presentation() as presentation:
     category.grouping_levels.set_grouping_item(1, "Group4")
     category = chart.chart_data.categories.add(workbook.get_cell(0, "c9", "H"))
 
-    # یک سری اضافه کنید.
+    # افزودن یک سری.
     series = chart.chart_data.series.add(workbook.get_cell(0, "D1", "Series 1"), charts.ChartType.CLUSTERED_COLUMN)
 
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D2", 10))
@@ -840,7 +835,7 @@ with slides.Presentation() as presentation:
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D8", 70))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, "D9", 80))
 
-    # ارائه را به همراه نمودار ذخیره کنید.
+    # ذخیره ارائه همراه با نمودار.
     presentation.save("MultiCategoryChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -848,11 +843,11 @@ with slides.Presentation() as presentation:
 
 ![نمودار چنددسته‌ای](multi_category_chart.png)
 
-### **ایجاد نمودارهای نقشه (Map)**
+### **ایجاد نمودارهای نقشه‌ای**
 
-نمودارهای نقشه برای بصری‌سازی داده‌های جغرافیایی با انتساب اطلاعات به مکان‌های خاص مانند کشورها، ایالت‌ها یا شهرها استفاده می‌شوند. این نمودارها برای تحلیل روندهای منطقه‌ای، داده‌های جمعیتی و توزیع‌های فضایی به‌صورت واضح و جذاب تصویری مفیدند.
+نمودارهای نقشه‌ای برای تجسم داده‌های جغرافیایی با نگاشت اطلاعات به مکان‌های خاص مانند کشورها، ایالت‌ها یا شهرها استفاده می‌شوند. این نمودارها برای تحلیل روندهای منطقه‌ای، داده‌های جمعیتی و توزیع‌های فضایی به‌صورت واضح و جذاب بصری مفیدند.
 
-این کد Python نشان می‌دهد چگونه یک نمودار نقشه ایجاد شود:
+این کد پایتون نحوه ایجاد یک نمودار نقشه‌ای را نشان می‌دهد:
 
 ```python
 import aspose.slides as slides
@@ -864,17 +859,21 @@ with slides.Presentation() as presentation:
 
 نتیجه:
 
-![نمودار نقشه](map_chart.png)
+![نمودار نقشه‌ای](map_chart.png)
 
-### **ایجاد نمودارهای ترکیبی (Combination)**
+### **ایجاد نمودارهای ترکیبی**
 
-یک نمودار ترکیبی (یا combo chart) دو یا چند نوع نمودار را در یک گراف ترکیب می‌کند. این نمودار به شما امکان می‌دهد تا تفاوت‌ها یا روابط بین دو یا چند مجموعه داده را برجسته، مقایسه یا بررسی کنید.
+یک نمودار ترکیبی (یا combo chart) دو یا چند نوع نمودار را در یک نمودار ترکیب می‌کند. این نمودار به شما امکان می‌دهد تا نقاط قوت، مقایسه یا بررسی تفاوت‌های بین دو یا چند مجموعه داده را برجسته کنید و روابط بین آن‌ها را شناسایی نمایید.
 
 ![نمودار ترکیبی](combination_chart.png)
 
-کد Python زیر نشان می‌دهد چگونه نمودار ترکیبی نشان‌داده شده در بالا را در یک ارائه PowerPoint ایجاد کنید:
+کد پایتون زیر نشان می‌دهد چگونه نمودار ترکیبی نمایش داده‌شده در بالا را در یک ارائه PowerPoint ایجاد کنید:
 
 ```python
+import aspose.slides.charts as charts
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
 def create_combo_chart():
     with slides.Presentation() as presentation:
         chart = create_chart_with_first_series(presentation.slides[0])
@@ -891,7 +890,7 @@ def create_combo_chart():
 def create_chart_with_first_series(slide):
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
 
-    # عنوان نمودار را تنظیم کنید.
+    # تنظیم عنوان نمودار.
     chart.has_title = True
     chart.chart_title.add_text_frame_for_overriding("Chart Title")
     chart.chart_title.overlay = False
@@ -901,24 +900,24 @@ def create_chart_with_first_series(slide):
     title_format.font_bold = slides.NullableBool.FALSE
     title_format.font_height = 18
 
-    # افسانه نمودار را تنظیم کنید.
+    # تنظیم افسانه نمودار.
     chart.legend.position = charts.LegendPositionType.BOTTOM
     chart.legend.text_format.portion_format.font_height = 12
 
-    # سری‌ها و دسته‌های پیش‌فرض تولید شده را حذف کنید.
+    # حذف سری‌ها و دسته‌های پیش‌فرض تولید شده.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
     worksheet_index = 0
     workbook = chart.chart_data.chart_data_workbook
 
-    # دسته‌های جدید اضافه کنید.
+    # افزودن دسته‌های جدید.
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 4, 0, "Category 4"))
 
-    # سری اول را اضافه کنید.
+    # افزودن سری اول.
     series_name_cell = workbook.get_cell(worksheet_index, 0, 1, "Series 1")
     series = chart.chart_data.series.add(series_name_cell, chart.type)
 
@@ -965,28 +964,28 @@ def add_third_series_to_chart(chart):
 
 
 def set_primary_axes_format(chart):
-    # محور افقی را تنظیم کنید.
+    # تنظیم محور افقی.
     horizontal_axis = chart.axes.horizontal_axis
     horizontal_axis.text_format.portion_format.font_height = 12.0
     horizontal_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     set_axis_title(horizontal_axis, "X Axis")
 
-    # محور عمودی را تنظیم کنید.
+    # تنظیم محور عمودی.
     vertical_axis = chart.axes.vertical_axis
     vertical_axis.text_format.portion_format.font_height = 12.0
     vertical_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # رنگ خطوط شبکه اصلی عمودی را تنظیم کنید.
+    # تنظیم رنگ خطوط شبکه اصلی عمودی.
     major_grid_lines_format = vertical_axis.major_grid_lines_format.line.fill_format
     major_grid_lines_format.fill_type = slides.FillType.SOLID
     major_grid_lines_format.solid_fill_color.color = draw.Color.from_argb(217, 217, 217)
 
 
 def set_secondary_axes_format(chart):
-    # محور افقی ثانویه را تنظیم کنید.
+    # تنظیم محور افقی ثانویه.
     secondary_horizontal_axis = chart.axes.secondary_horizontal_axis
     secondary_horizontal_axis.position = charts.AxisPositionType.BOTTOM
     secondary_horizontal_axis.cross_type = charts.CrossesType.MAXIMUM
@@ -994,7 +993,7 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
     secondary_horizontal_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # محور عمودی ثانویه را تنظیم کنید.
+    # تنظیم محور عمودی ثانویه.
     secondary_vertical_axis = chart.axes.secondary_vertical_axis
     secondary_vertical_axis.position = charts.AxisPositionType.RIGHT
     secondary_vertical_axis.text_format.portion_format.font_height = 12.0
@@ -1015,17 +1014,17 @@ def set_axis_title(axis, axis_title):
 
 ## **به‌روزرسانی نمودارها**
 
-Aspose.Slides برای Python از طریق .NET به شما امکان می‌دهد نمودارهای PowerPoint را با اصلاح داده‌های نمودار، قالب‌بندی و استایل به‌روزرسانی کنید. این قابلیت فرآیند نگهداری ارائه‌ها با محتوای دینامیک را ساده می‌سازد و تضمین می‌کند که نمودارها به‌درستی داده‌ها و استانداردهای بصری جاری را منعکس کنند.
+Aspose.Slides برای Python از طریق .NET به شما امکان می‌دهد داده‌های نمودار، قالب‌بندی و سبک‌بندی را به‌روزرسانی کنید تا ارائه‌های PowerPoint خود را به‌روز نگه دارید.
 
-1. نمونه‌ای از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) که شامل نمودار است ایجاد کنید.
-1. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-1. تمام اشکال را مرور کنید تا نمودار را بیابید.
-1. به ورکشیت دادهٔ نمودار دسترسی پیدا کنید.
-1. سری‌های دادهٔ نمودار را با تغییر مقادیر سری‌ها اصلاح کنید.
-1. یک سری جدید اضافه کنید و داده‌های آن را پر کنید.
-1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید تا ارائه حاوی نمودار را باز کنید.  
+1. با استفاده از ایندکس آن، به یک اسلاید ارجاع بگیرید.  
+1. تمام اشکال را پیمایش کنید تا نمودار پیدا شود.  
+1. به کاربرگ داده‌های نمودار دسترسی پیدا کنید.  
+1. سری داده‌های نمودار را با تغییر مقادیر سری‌ها اصلاح کنید.  
+1. یک سری جدید اضافه کنید و داده‌های آن را پر کنید.  
+1. ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
 
-این کد Python نشان می‌دهد چگونه یک نمودار به‌روزرسانی شود:
+این کد پایتون نشان می‌دهد چگونه یک نمودار را به‌روزرسانی کنید:
 
 ```py
 import aspose.slides.charts as charts
@@ -1034,69 +1033,69 @@ import aspose.pydrawing as draw
 
 chart_name = "My chart"
 
-# یک نمونه از کلاس Presentation که یک فایل PPTX را نشان می‌دهد ایجاد کنید.
+# یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است.
 with slides.Presentation("ExistingChart.pptx") as presentation:
 
-    # به اولین اسلاید دسترسی پیدا کنید.
+    # دسترسی به اولین اسلاید.
     slide = presentation.slides[0]
 
     for shape in slide.shapes:
         if isinstance(shape, charts.Chart) and shape.name == chart_name:
             chart = shape
 
-            # اندیس شیت داده نمودار را تنظیم کنید.
+            # تنظیم ایندکس برگه داده‌های نمودار.
             worksheet_index = 0
 
-            # کتاب‌کار داده نمودار را دریافت کنید.
+            # دریافت کاربرگ داده‌های نمودار.
             workbook = chart.chart_data.chart_data_workbook
 
-            # نام‌های دسته‌های نمودار را تغییر دهید.
+            # تغییر نام دسته‌های نمودار.
             workbook.get_cell(worksheet_index, 1, 0, "Modified Category 1")
             workbook.get_cell(worksheet_index, 2, 0, "Modified Category 2")
 
-            # سری اول نمودار را دریافت کنید.
+            # دریافت اولین سری نمودار.
             series = chart.chart_data.series[0]
 
-            # داده‌های سری را به‌روزرسانی کنید.
-            workbook.get_cell(worksheet_index, 0, 1, "New_Series1")  # تغییر نام سری.
+            # به‌روزرسانی داده‌های سری.
+            workbook.get_cell(worksheet_index, 0, 1, "New_Series1")  # اصلاح نام سری.
             series.data_points[0].value.data = 90
             series.data_points[1].value.data = 123
             series.data_points[2].value.data = 44
 
-            # سری دوم نمودار را دریافت کنید.
+            # دریافت دومین سری نمودار.
             series = chart.chart_data.series[1]
 
-            # داده‌های سری را به‌روزرسانی کنید.
-            workbook.get_cell(worksheet_index, 0, 2, "New_Series2")  # تغییر نام سری.
+            # به‌روزرسانی داده‌های سری.
+            workbook.get_cell(worksheet_index, 0, 2, "New_Series2")  # اصلاح نام سری.
             series.data_points[0].value.data = 23
             series.data_points[1].value.data = 67
             series.data_points[2].value.data = 99
 
-            # یک سری جدید اضافه کنید.
+            # افزودن یک سری جدید.
             series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 3, "Series 3"), chart.type)
 
-            # داده‌های سری را پر کنید.
+            # پر کردن داده‌های سری.
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 3, 20))
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 3, 50))
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 3, 30))
 
             chart.type = charts.ChartType.CLUSTERED_CYLINDER
 
-            # ارائه را همراه با نمودار ذخیره کنید.
+            # ذخیره ارائه همراه با نمودار.
             presentation.save("ModifiedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تنظیم بازهٔ داده برای نمودارها**
+## **تنظیم بازه داده برای نمودار**
 
-Aspose.Slides برای Python از طریق .NET انعطاف‌پذیری تعریف یک بازهٔ دادهٔ خاص از یک ورکشیت به‌عنوان منبع دادهٔ نمودار را فراهم می‌کند. این به این معنی است که می‌توانید بخشی از ورکشیت خود را مستقیماً به نمودار نگاشت کنید و کنترل کنید که کدام سلول‌ها به سری‌ها و دسته‌های نمودار کمک می‌کنند. در نتیجه می‌توانید نمودارهای خود را به‌راحتی با آخرین تغییرات داده در ورکشیت به‌روزرسانی و همگام‌سازی کنید تا ارائه‌های PowerPoint شما اطلاعات دقیق و به‌روز را منعکس کنند.
+Aspose.Slides برای Python از طریق .NET به شما امکان می‌دهد از یک بازه کاربرگ خاص به‌عنوان منبع داده برای یک نمودار استفاده کنید. این کار کنترل می‌کند که کدام سلول‌ها سری‌ها و دسته‌های نمودار را تأمین می‌کنند و به‌روز‌رسانی نمودار را برای انعکاس تغییرات در کاربرگ ممکن می‌سازد.
 
-1. نمونه‌ای از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) که شامل نمودار است ایجاد کنید.
-1. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
-1. تمام اشکال را مرور کنید تا نمودار را بیابید.
-1. به دادهٔ نمودار دسترسی پیدا کنید و بازه را تنظیم کنید.
-1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید تا ارائه حاوی نمودار را باز کنید.  
+1. با استفاده از ایندکس آن، به یک اسلاید ارجاع بگیرید.  
+1. تمام اشکال را پیمایش کنید تا نمودار پیدا شود.  
+1. به داده‌های نمودار دسترسی پیدا کنید و بازه را تنظیم کنید.  
+1. ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
 
-این کد Python نشان می‌دهد چگونه بازهٔ داده برای یک نمودار تنظیم شود:
+این کد پایتون نشان می‌دهد چگونه بازه داده برای یک نمودار تنظیم شود:
 
 ```py
 import aspose.slides.charts as charts
@@ -1105,10 +1104,10 @@ import aspose.pydrawing as draw
 
 chart_name = "My chart"
 
-# یک نمونه از کلاس Presentation که یک فایل PPTX را نشان می‌دهد ایجاد کنید.
+# یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد کنید.
 with slides.Presentation("ExistingChart.pptx") as presentation:
 
-    # به اولین اسلاید دسترسی پیدا کنید.
+    # دسترسی به اولین اسلاید.
     slide = presentation.slides[0]
 
     for shape in slide.shapes:
@@ -1121,9 +1120,9 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 ## **استفاده از نشانگرهای پیش‌فرض در نمودارها**
 
-هنگامی که از نشانگرهای پیش‌فرض در نمودارها استفاده می‌کنید، هر سری نمودار به‌طور خودکار یک نماد نشانگر پیش‌فرض متفاوت دریافت می‌کند.
+هنگامی که از نشانگرهای پیش‌فرض در نمودارها استفاده می‌کنید، هر سری نمودار به‌صورت خودکار نماد نشانگر متفاوتی دریافت می‌کند.
 
-این کد Python نشان می‌دهد چگونه به‌صورت خودکار نشانگر سری نمودار را تنظیم کنید:
+این کد پایتون نشان می‌دهد چگونه نشانگر سری نمودار به‌صورت خودکار تنظیم شود:
 
 ```py
 import aspose.slides.charts as charts
@@ -1167,19 +1166,19 @@ with slides.Presentation() as presentation:
     presentation.save("DefaultMarkersInChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **سوالات متداول**
+## **سؤالات متدوال**
 
 **کدام انواع نمودارها توسط Aspose.Slides برای Python از طریق .NET پشتیبانی می‌شوند؟**
 
-Aspose.Slides برای Python از طریق .NET طیف گسترده‌ای از انواع نمودارها از جمله نوار، خط، دایره‌ای، مساحت، پراکنده، هیستوگرام، رادار و بسیاری دیگر را پشتیبانی می‌کند. این انعطاف‌پذیری به شما اجازه می‌دهد مناسب‌ترین نوع نمودار را برای نیازهای بصری‌سازی داده خود انتخاب کنید.
+Aspose.Slides برای Python از طریق .NET انواع گسترده‌ای از نمودارها شامل ستونی، خطی، دایره‌ای، مساحتی، پراکنده، هیستوگرام، رادار و بسیاری دیگر را پشتیبانی می‌کند. این انعطاف‌پذیری به شما اجازه می‌دهد مناسب‌ترین نوع نمودار را برای نیازهای تجسم داده‌های خود انتخاب کنید.
 
 **چگونه یک نمودار جدید به اسلاید اضافه کنم؟**
 
-برای افزودن نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید، اسلاید دلخواه را با ایندکس آن دریافت کنید و سپس متد افزودن نمودار را صدا بزنید، نوع نمودار و داده‌های اولیه را مشخص نمایید. این فرآیند نمودار را مستقیماً در ارائه شما ادغام می‌کند.
+برای افزودن یک نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد می‌کنید، اسلاید موردنظر را با ایندکس آن دریافت می‌کنید و سپس متدی را برای افزودن نمودار فراخوانی می‌کنید، نوع نمودار و داده‌های اولیه را مشخص می‌نمایید. این فرآیند نمودار را مستقیماً به ارائه شما ادغام می‌کند.
 
-**چگونه می‌توانم داده‌های نمایش‌داده‌شده در یک نمودار را به‌روزرسانی کنم؟**
+**چگونه می‌توانم داده‌های نمایش داده‌شده در یک نمودار را به‌روزرسانی کنم؟**
 
-می‌توانید با دسترسی به کتاب‌کار دادهٔ نمودار ([ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/))، سری‌ها و دسته‌های پیش‌فرض را پاک کرده و داده‌های سفارشی خود را اضافه کنید، دادهٔ نمودار را برنامه‌نویسی به‌روزرسانی کنید تا آخرین داده‌ها منعکس شوند.
+می‌توانید داده‌های یک نمودار را با دسترسی به کاربرگ داده‌های آن ([ChartDataWorkbook](https://reference.aspose.com/slides/fa/python-net/aspose.slides.charts/chartdataworkbook/))، پاک کردن سری‌ها و دسته‌های پیش‌فرض و سپس افزودن داده‌های سفارشی خود، به‌روزرسانی کنید. این امکان به‌صورت برنامه‌نویسی نمودار را برای انعکاس جدیدترین داده‌ها تازه می‌کند.
 
 **آیا امکان سفارشی‌سازی ظاهر نمودار وجود دارد؟**
 
