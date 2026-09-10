@@ -32,50 +32,45 @@ description: "Create and customize charts in PowerPoint presentations using Aspo
 
 This article provides a comprehensive guide on how to create and customize charts using Aspose.Slides. You will learn how to programmatically add a chart to a slide, populate it with data, and apply various formatting options to match your specific design requirements. Throughout the article, detailed code examples illustrate each step, from initializing the presentation and chart object to configuring series, axes, and legends. By following this guide, you'll gain a solid understanding of how to integrate dynamic chart generation into your applications, streamlining the process of creating data-driven presentations.
 
-## **Create Chart**
-Charts help people to quickly visualize data and gain insights, which may not be immediately obvious from a table or spreadsheet. 
+## **Create a Chart**
 
+Charts help people quickly visualize data and gain insights that may not be immediately obvious from a table or spreadsheet.
 
 **Why Create Charts?**
 
-Using charts, you get to
+Using charts, you can:
 
 * aggregate, condense, or summarize large amounts of data on a single slide in a presentation
 * expose patterns and trends in data
-* deduce the direction and momentum of data over time or with respect to a specific unit of measurement 
-* spots outliers, aberrations, deviations, errors, nonsensical data, etc. 
+* deduce the direction and momentum of data over time or with respect to a specific unit of measurement
+* spot outliers, aberrations, deviations, errors, nonsensical data, etc.
 * communicate or present complex data
 
-In PowerPoint, you can create charts through the insert function, which provides templates used to design many types of charts. Using Aspose.Slides, you can create regular charts (based on popular chart types) and custom charts. 
+In PowerPoint, you can create charts through the *Insert* function, which provides templates for designing many types of charts. Using Aspose.Slides, you can create both regular charts (based on popular chart types) and custom charts.
 
-{{% alert color="info" %}} 
+{{% alert color="info" title="Note" %}}
 
-To allow you create charts, Aspose.Slides provides the [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType) class. The fields under this class correspond to different chart types. 
+To create charts, use the [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/) class. The fields in this class correspond to different chart types.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-### **Create Normal Charts**
+### **Create Clustered Column Charts**
 
-_Steps: Create Chart_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Steps:</em> Create PowerPoint Chart in Java</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Steps:</em> Create Presentation Chart in Java</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Chart in Java</strong></a>
+This section explains how to create clustered column charts using Aspose.Slides. You'll learn to initialize a presentation, add a chart, and customize its elements such as title, data, series, categories, and styling. Follow the steps below to see how a standard clustered column chart is generated:
 
-_Code Steps:_
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
+1. Get a reference to a slide using its index.
+1. Add a chart with some data and specify the `ChartType.ClusteredColumn` type.
+1. Add a title to the chart.
+1. Access the chart's data worksheet.
+1. Clear all the default series and categories.
+1. Add new series and categories.
+1. Add new chart data for the chart series.
+1. Apply a fill color to the chart series.
+1. Add labels to the chart series.
+1. Save the modified presentation as a PPTX file.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get a slide's reference through its index.
-3. Add a chart with some data and specify your preferred chart type. 
-4. Add a title for the chart. 
-5. Access the chart data worksheet.
-6. Clear all the default series and categories.
-7. Add new series and categories.
-8. Add some new chart data for the chart series.
-9. Add a fill color for chart series.
-10. Add labels for the chart series. 
-11. Write the modified presentation as a PPTX file.
-
-This Java code shows you how to create a normal chart:
+This C# code demonstrates how to create a clustered column chart:
 
 ```java
 import com.aspose.slides.*;
@@ -162,29 +157,25 @@ try {
 }
 ```
 
-### **Create Scattered Charts**
-Scattered charts (also known as scattered plots or x-y graphs) are often used to check for patterns or demonstrate correlations between two variables. 
+### **Create Scatter Charts**
+Scatter charts (also known as scatter plots or x-y graphs) are often used to check for patterns or demonstrate correlations between two variables.
 
-You may want to use a scattered chart when 
+Use a scatter chart when:
 
 * you have paired numerical data
-* you have 2 variables that pair well together
-* you want to determine whether 2 variables are related
+* you have two variables that pair well together
+* you want to determine whether two variables are related
 * you have an independent variable that has multiple values for a dependent variable
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Steps:</em> Create Scattered Chart in Java</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Scattered Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Scattered Chart in Java</strong></a>
+1. Follow the steps in [Create Clustered Column Charts](#create-clustered-column-charts).
+2. For the third step, add a chart with some data and specify your chart type as one of the following:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Represents a scatter chart._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Represents a scatter chart connected by curves, with data markers._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Represents a scatter chart connected by curves, without data markers._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Represents a scatter chart connected by lines, with data markers._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Represents a scatter chart connected by lines, without data markers._
 
-1. Please follow the steps mentioned above in [Creating Normal Charts](#creating-normal-charts)
-2. For third step, Add a chart with some data and specify your chart type as one of the following
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Represents Scatter Chart._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Represents Scatter Chart connected by curves, with data markers._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Represents Scatter Chart connected by curves, without data markers._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Represents Scatter Chart connected by lines, with data markers._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Represents Scatter Chart connected by lines, without data markers._
-
-This Java code shows you how to create a scattered charts with a different series of markers: 
+This Java code shows how to create a scatter chart with different markers for each series:
 
 ```java
 import com.aspose.slides.*;
@@ -256,24 +247,20 @@ try {
 
 Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you may want to consider using a bar chart instead.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Steps:</em> Create Pie Chart in Java</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Steps:</em> Create PowerPoint Pie Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Pie Chart in Java</strong></a>
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Obtain a slide's reference by its index.
-3. Add a chart with default data along with the desired type (in this case, [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Pie).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+2. Get a reference to a slide using its index.
+3. Add a chart with default data and specify the [ChartType.Pie](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Pie) type.
+4. Access the chart data workbook [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
-8. Add new points for charts and add custom colors for the pie chart's sectors.
-9. Set labels for series.
-10. Set leader lines for series labels.
-11. Set the rotation angle for pie chart slides.
-12. Write the modified presentation to a PPTX file
+8. Add new points for the chart and apply custom colors for the pie chart's sectors.
+9. Set labels for the series.
+10. Enable leader lines for the series labels.
+11. Set the rotation angle for pie chart sectors.
+12. Save the modified presentation as a PPTX file.
 
-This Java code shows you how to create a pie chart:
+This Java code shows how to create a pie chart:
 
 ```java
 import com.aspose.slides.*;
@@ -385,14 +372,14 @@ try {
 
 ### **Create Line Charts**
 
-Line charts (also known as a line graphs) are best used in situations where you want demonstrate changes in value over time. Using a line chart, you can compare lots of data at once, track changes and trends over time, highlight anomalies in data series, etc.
+Line charts (also known as line graphs) are best used in situations where you want to demonstrate changes in value over time. Using a line chart, you can compare a large amount of data at once, track changes and trends over time, highlight anomalies in data series, and more.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Get a slide's reference through its index.
-1. Add a chart with default data along with the desired type (in this case, `ChartType.Line`).
-1. Write the modified presentation to a PPTX file
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide using its index.
+1. Add a chart with default data and specify the [ChartType.Line](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Line) type.
+1. Save the modified presentation as a PPTX file.
 
-This Java code shows you how to create a line chart:
+This Java code shows how to create a line chart:
 
 ```java
 import com.aspose.slides.*;
@@ -407,7 +394,7 @@ try {
 }
 ```
 
-By default, points on a line chart are joined by straight continuous lines. If you want to the points to be joined by dashes instead, you can specify your preferred dash type this way:
+By default, points on a line chart are joined by straight continuous lines. If you want the points to be joined by dashes instead, you can specify your preferred dash type as follows:
 
 ```java
 import com.aspose.slides.*;
@@ -429,22 +416,18 @@ try {
 
 ### **Create Tree Map Charts**
 
-Tree map charts are best used for sales data when you want to show the relative size of data categories and (at the same time) quickly draw attention to items that are large contributors to each category. 
+Tree map charts are best used for sales data when you want to show the relative size of data categories and quickly draw attention to items that are large contributors within each category.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Steps:</em> Create Tree Map Chart in Java</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Tree Map Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Tree Map Chart in Java</strong></a>
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get a slide's reference through its index.
-3. Add a chart with default data along with the desired type (in this case, [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).TreeMap).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+2. Get a reference to a slide using its index.
+3. Add a chart with default data and specify the [ChartType.Treemap](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Treemap) type.
+4. Access the chart data workbook [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
-8. Write the modified presentation to a PPTX file
+8. Save the modified presentation as a PPTX file.
 
-This Java code shows you how to create a tree map chart:
+This Java code shows how to create a tree map chart:
 
 ```java
 import com.aspose.slides.*;
@@ -503,21 +486,17 @@ try {
 
 ### **Create Stock Charts**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Steps:</em> Create Stock Chart in Java</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Steps:</em> Create PowerPoint Stock Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Stock Chart in Java</strong></a>
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Obtain a slide's reference by its index.
-3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).OpenHighLowClose).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+2. Get a reference to a slide using its index.
+3. Add a chart with default data and specify the [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#OpenHighLowClose) type.
+4. Access the chart data workbook [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
-8. Specify HiLowLines format.
-9. Write the modified presentation to a PPTX file
+8. Specify the high-low lines format.
+9. Save the modified presentation as a PPTX file.
 
-Sample Java code used to create a stock chart:
+This Java code shows how to create a stock chart:
 
 ```java
 import com.aspose.slides.*;
@@ -577,20 +556,16 @@ try {
 
 ### **Create Box and Whisker Charts**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Steps:</em> Create Box and Whisker Chart in Java</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Box and Whisker Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Box and Whisker Chart in Java</strong></a>
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get a slide's reference through its index.
-3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).BoxAndWhisker).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+2. Get a reference to a slide using its index.
+3. Add a chart with default data and specify the [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#BoxAndWhisker) type.
+4. Access the chart data workbook [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
-8. Write the modified presentation to a PPTX file
+8. Save the modified presentation as a PPTX file.
 
-This Java code shows you how to create a box and whisker chart:
+This Java code shows how to create a box and whisker chart:
 
 ```java
 import com.aspose.slides.*;
@@ -634,17 +609,12 @@ try {
 
 ### **Create Funnel Charts**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Steps:</em> Create Funnel Chart in Java</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Funnel Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Funnel Chart in Java</strong></a>
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+2. Get a reference to a slide using its index.
+3. Add a chart with default data and specify the [ChartType.Funnel](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Funnel) type.
+4. Save the modified presentation as a PPTX file.
 
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get a slide's reference through its index.
-3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Funnel).
-4. Write the modified presentation to a PPTX file
-
-The Java code shows you how to create a funnel chart:
+This Java code shows how to create a funnel chart:
 
 ```java
 import com.aspose.slides.*;
@@ -683,16 +653,12 @@ try {
 
 ### **Create Sunburst Charts**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Steps:</em> Create Sunburst Chart in Java</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Sunburst Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Sunburst Chart in Java</strong></a>
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+2. Get a reference to a slide using its index.
+3. Add a chart with default data and specify the [ChartType.Sunburst](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Sunburst) type.
+4. Save the modified presentation as a PPTX file.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get a slide's reference through its index.
-3. Add a chart with default data along with the desired type (in this case,[ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).sunburst).
-4. Write the modified presentation to a PPTX file
-
-This Java code shows you how to create a sunburst chart:
+This Java code shows how to create a sunburst chart:
 
 ```java
 import com.aspose.slides.*;
@@ -749,19 +715,15 @@ try {
 
 ### **Create Histogram Charts**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Steps:</em> Create Histogram Chart in Java</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Histogram Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Histogram Chart in Java</strong></a>
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get a slide's reference through its index.
-3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Histogram).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+2. Get a reference to a slide using its index.
+3. Add a chart with default data and specify the [ChartType.Histogram](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Histogram) type.
+4. Access the chart data workbook [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).
 5. Clear the default series and categories.
 6. Add new series and categories.
-7. Write the modified presentation to a PPTX file
+7. Save the modified presentation as a PPTX file.
 
-This Java code shows you how to create an histogram chart:
+This Java code shows how to create a histogram chart:
 
 ```java
 import com.aspose.slides.*;
@@ -793,16 +755,12 @@ try {
 
 ### **Create Radar Charts**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Steps:</em> Create Radar Chart in Java</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Steps:</em> Create PowerPoint Radar Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Radar Chart in Java</strong></a>
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+2. Get a reference to a slide using its index.
+3. Add a chart with some data and specify your preferred chart type ([ChartType.Radar](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#Radar) in this case).
+4. Save the modified presentation as a PPTX file.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get a slide's reference through its index. 
-3. Add a chart with some data and specify your preferred chart type (`ChartType.Radar` in this case).
-4. Write the modified presentation to a PPTX file
-
-This Java code shows you how to create an radar chart:
+This Java code shows how to create a radar chart:
 
 ```java
 import com.aspose.slides.*;
@@ -818,20 +776,16 @@ try {
 
 ### **Create Multi-Category Charts**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Steps:</em> Create Multi Category Chart in Java</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Multi Category Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Multi Category Chart in Java</strong></a>
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get a slide's reference through its index. 
-3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).ClusteredColumn).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+2. Get a reference to a slide using its index.
+3. Add a chart with default data and specify the [ChartType.ClusteredColumn](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ClusteredColumn) type.
+4. Access the chart data workbook [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
-8. Write the modified presentation to a PPTX file.
+8. Save the modified presentation as a PPTX file.
 
-This Java code shows you how to create a multicategory chart:
+This Java code shows how to create a multicategory chart:
 
 ```java
 import com.aspose.slides.*;
@@ -884,13 +838,9 @@ try {
 
 ### **Create Map Charts**
 
-A map chart is a visualization of an area containing data. Map charts are best used to compare data or values across geographical regions.
+Map charts visualize geographical data and help compare values across regions.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Steps:</em> Create Map Chart in Java</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Steps:</em> Create PowerPoint Map Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Map Chart in Java</strong></a>
-
-This Java code shows you how to create a map chart:
+This Java code shows how to create a map chart:
 
 ```java
 import com.aspose.slides.*;
@@ -1062,19 +1012,15 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 
 ## **Update Charts**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Steps:</em> Update PowerPoint Chart in Java</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Steps:</em> Update Presentation Chart in Java</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Steps:</em> Update PowerPoint Presentation Chart in Java</strong></a>
-
-1. Instantiate a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class that represents the presentation containing the chart you want to update. 
-2. Obtain the reference of a slide by using its Index.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class that represents the presentation containing the chart you want to update.
+2. Get a reference to a slide using its index.
 3. Traverse through all shapes to find the desired chart.
 4. Access the chart data worksheet.
-5. Modify the chart data series data by changing series values.
-6. Add a new series and populate the data in it.
-7. Write the modified presentation as a PPTX file.
+5. Modify the chart data series by changing the series values.
+6. Add a new series and populate its data.
+7. Save the modified presentation as a PPTX file.
 
-This Java code shows you how to update a chart:
+This Java code shows how to update a chart:
 
 ```java
 import com.aspose.slides.*;
@@ -1140,13 +1086,13 @@ try {
 
 To set the data range for a chart, do this:
 
-1. Instantiate a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class that represents the presentation containing the chart.
-2. Get a slide's reference through its index.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class that represents the presentation containing the chart.
+2. Get a reference to a slide using its index.
 3. Traverse through all shapes to find the desired chart.
 4. Access the chart data and set the range.
 5. Save the modified presentation as a PPTX file.
 
-This Java code shows you how to set the data range for a chart:
+This Java code shows how to set the data range for a chart:
 
 ```java
 import com.aspose.slides.*;
@@ -1166,9 +1112,10 @@ try {
 ```
 
 ## **Use Default Markers in Charts**
-When you use a default marker in charts, each chart series get different default marker symbols automatically.
 
-This Java code shows you how to set a chart series market automatically:
+When you use default markers in charts, each chart series automatically gets a different marker symbol.
+
+This Java code shows how to set a chart series marker automatically:
 
 ```java
 import com.aspose.slides.*;
@@ -1215,18 +1162,18 @@ try {
 
 ## **FAQ**
 
-### What chart types are supported by Aspose.Slides?
+**What chart types are supported by Aspose.Slides?**
 
 Aspose.Slides supports a wide range of [chart types](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/), including bar, line, pie, area, scatter, histogram, radar, and many more. This flexibility allows you to choose the most appropriate chart type for your data visualization needs.
 
-### How do I add a new chart to a slide?
+**How do I add a new chart to a slide?**
 
 To add a chart, you first create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class, retrieve the desired slide using its index, and then call the method to add a chart, specifying the chart type and initial data. This process integrates the chart directly into your presentation.
 
-### How can I update the data displayed in a chart?
+**How can I update the data displayed in a chart?**
 
 You can update a chart’s data by accessing its data workbook ([IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdataworkbook/)), clearing any default series and categories, and then adding your custom data. This allows you to refresh the chart to reflect the latest data.
 
-### Is it possible to customize the appearance of the chart?
+**Is it possible to customize the appearance of the chart?**
 
 Yes, Aspose.Slides provides extensive customization options. You can modify colors, fonts, labels, legends, and other [formatting elements](/slides/java/chart-entities/) to tailor the chart’s appearance to your specific design requirements.
