@@ -92,6 +92,8 @@ image->Dispose();
 presentation->Dispose();
 ```
 
+> **Note:** When using `ShapeThumbnailBounds::Shape` in versions prior to 26.8, line end decorations (e.g., oval line caps) may be cropped in the exported PNG image. Upgrade to Aspose.Slides for C++ 26.8 or later to resolve this issue.
+
 ## **Create a Bounds-Based Shape Appearance Thumbnail**
 This method for creating thumbnails of shapes allows developers to generate a thumbnail in the bounds of the shape's appearance. It takes into account all the shape effects. The generated shape thumbnail is restricted by the slide bounds. To generate a thumbnail of any slide shape in bound of its appearance, use following sample code:
 
