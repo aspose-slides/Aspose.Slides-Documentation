@@ -63,6 +63,10 @@ Try the free [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-t
 
 {{% /alert %}}
 
+{{% alert title="Limitation" color="warning" %}}
+When the source PDF contains charts that use gradient fills, semi-transparent fills, or picture fills (PDF Type 2 axial shadings), `slides.addFromPdf` may drop those chart shapes. The chart axes and text are imported, but the fill areas are missing. As a workaround, convert the PDF with Aspose.PDF (`Document.save(..., SaveFormat.Pptx)`) or modify the source charts to use opaque solid fills before generating the PDF.
+{{% /alert %}}
+
 ## **Import from HTML**
 
 Aspose.Slides can also create slides from an HTML document. The source can be supplied as HTML text or a stream. The following steps use a file stream:
