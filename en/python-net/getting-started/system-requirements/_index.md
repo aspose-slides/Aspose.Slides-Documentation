@@ -80,6 +80,10 @@ Aspose.Slides for Python supports Windows (32-bit and 64-bit), macOS, and 64-bit
 - For Python 3.5–3.7: the `pymalloc` build of Python is required. The `--with-pymalloc` build option is enabled by default. Typically, the `pymalloc` build of Python is marked with an `m` suffix in the filename.
 - The `libpython` shared library. The `--enable-shared` Python build option is disabled by default, and some Python distributions do not include the `libpython` shared library. On some Linux platforms, you can install the `libpython` shared library using the package manager (for example, `sudo apt-get install libpython3.7`). A common issue is that the `libpython` library is installed in a nonstandard location for shared libraries. You can resolve this by using Python build options to set alternate library paths when compiling Python, or by creating a symbolic link to the `libpython` library file in the system’s standard shared library location. Typically, the `libpython` shared library filename is `libpythonX.Ym.so.1.0` for Python 3.5–3.7 or `libpythonX.Y.so.1.0` for Python 3.8 or later (for example, `libpython3.7m.so.1.0`, `libpython3.9.so.1.0`).
 
+### Security Update
+
+Aspose.Slides for Python via .NET 26.8 bundled a private .NET runtime (10.0.0) and **System.Security.Cryptography.Xml** (8.0.2) that contain high-severity security findings. These components have been updated in version **26.8.1**, which includes .NET Runtime ≥ 10.0.11 and System.Security.Cryptography.Xml ≥ 8.0.4. Upgrade to the 26.8.1 wheel to eliminate the reported vulnerabilities.
+
 ## **FAQ**
 
 ### Do I need Microsoft PowerPoint installed for conversions and rendering?
