@@ -104,6 +104,8 @@ For example, you can change the license file name to *Aspose.Slides.lic.xml*. Th
 
 {{% /alert %}}
 
+> **Important:** New licenses are recognized only by recent Aspose.Slides for .NET releases. Upgrade to the latest version (e.g., 26.9.0). Versions older than 21.4, such as 20.6, may continue to display the evaluation watermark even after a valid license is applied. Ensure the license is set **before** creating any `Presentation` objects and verify that only one copy of `Aspose.Slides.dll` is referenced in your project.
+
 ### **Stream**
 You can load a license from a stream. This C# code shows you how to apply a license from a stream:
 
