@@ -1,0 +1,48 @@
+---
+title: Manage Fallback Fonts for Presentations in Python via Java
+linktitle: Fallback Font
+type: docs
+weight: 50
+url: /python-java/fallback-font/
+keywords:
+- fallback font
+- available font
+- glyph replacement
+- specify font
+- specify rule
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Java
+- Aspose.Slides
+description: "See how Aspose.Slides for Python via Java uses fallback fonts to keep text readable in PowerPoint and OpenDocument presentations when original fonts aren’t available."
+---
+
+## **Introduction**
+
+Fallback fonts are used when the font specified for text is available in the system but does not contain a required glyph. In this case, Aspose.Slides can use one of the specified fallback fonts to replace the missing glyph.
+
+## **Fallback Font**
+
+Aspose.Slides allows you to create fallback fonts, add them to a fallback font collection, set the fallback font collection for a certain presentation, remove fallback fonts from the presentation, specify the rules for applying fallback fonts, and perform other related operations.
+
+To get familiar with these features, use the following links:
+
+- [Create Fallback Font](/slides/python-java/create-fallback-font/)
+- [Create Fallback Fonts Collection](/slides/python-java/create-fallback-fonts-collection/)
+- [Render Presentation with Fallback Font](/slides/python-java/render-presentation-with-fallback-font/)
+
+## **FAQ**
+
+**How do fallback fonts differ from font substitution?**
+
+Fallback is applied per character or per range of Unicode when the primary font lacks specific glyphs; it fills just the missing characters. [Substitution](/slides/python-java/font-substitution/) replaces a missing or unavailable font for an entire run or text portion with another font. They can be combined, but their scope and selection logic are different.
+
+**Are fallback settings saved inside the presentation file?**
+
+No. Fallback configuration lives at processing/rendering time in the library and is not serialized into the PPTX. The presentation does not store your fallback rules.
+
+**Does fallback affect elements created by PowerPoint objects (SmartArt, charts, WordArt)?**
+
+Yes. Text inside these objects goes through the same rendering pipeline, so the same fallback rules apply to it as to regular text.
