@@ -1,0 +1,106 @@
+---
+title: Streamline Font Replacement in Presentations Using Python via Java
+linktitle: Font Replacement
+type: docs
+weight: 60
+url: /python-java/font-replacement/
+keywords:
+- font
+- replace font
+- font replacement
+- change font
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Java
+- Aspose.Slides
+description: "Seamlessly replace fonts in Aspose.Slides for Python via Java to ensure consistent typography in PowerPoint and OpenDocument presentations."
+---
+
+## **Overview**
+
+Aspose.Slides allows you to replace one font with another throughout a presentation. When a font is replaced, all instances of the original font are changed to the new font.
+
+To perform font replacement, load the presentation, define the source font and the replacement font, call the font replacement method, and save the modified presentation as a PPTX file. This approach is useful when you intentionally want to switch from one font family to another across the presentation.
+
+## **Replace Fonts**
+
+If you change your mind about using a font, you can replace that font with another font. All instances of the old font will be replaced by the new font. 
+
+Aspose.Slides allows you to replace a font this way:
+
+1. Load the relevant presentation. 
+2. Load the font that will be replaced.
+3. Load the new font. 
+4. Replace the font. 
+5. Write the modified presentation as a PPTX file.
+
+This Python code demonstrates font replacement:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FontData, Presentation, SaveFormat
+
+# Load a presentation.
+presentation = Presentation("Fonts.pptx")
+try:
+    # Load the source font that will be replaced.
+    source_font = FontData("Arial")
+
+    # Load the new font.
+    destination_font = FontData("Times New Roman")
+
+    # Replace the font.
+    presentation.getFontsManager().replaceFont(source_font, destination_font)
+
+    # Save the presentation.
+    presentation.save("UpdatedFont_out.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+{{% alert title="Note" color="info" %}} 
+
+To set rules that determine what happens in certain conditions (if a font cannot be accessed, for example), see [Font Substitution](/slides/python-java/font-substitution/). 
+
+{{% /alert %}}
+
+## **FAQ**
+
+**What is the difference between "font replacement", "font substitution", and "fallback fonts"?**
+
+Replacement is an intentional switch from one family to another across the whole document. [Substitution](/slides/python-java/font-substitution/) is a rule like "if the font is unavailable, use X." [Fallback](/slides/python-java/fallback-font/) is applied to individual missing glyphs when the base font is installed but does not contain the required characters.
+
+**Does replacement apply to master slides, layouts, notes, and comments?**
+
+Yes. Replacement affects all presentation objects that use the original font, including master slides and notes; comments are also part of the document and are taken into account by the font engine.
+
+**Will the font change inside embedded OLE objects (for example, Excel)?**
+
+No. [OLE content](/slides/python-java/manage-ole/) is controlled by its own application. Replacement in the presentation does not reformat the internal OLE data; it may be displayed as an image or as externally editable content.
+
+**Can I replace a font only in part of the presentation (by slides or regions)?**
+
+Targeted replacement is possible if you change the font at the level of the required objects/ranges rather than applying a global replacement to the entire document. The overall font selection logic during rendering remains the same.
+
+**How can I determine in advance which fonts the presentation uses?**
+
+Use the presentation’s [font manager](https://reference.aspose.com/slides/python-java/aspose.slides/fontsmanager/): it provides a list of the [families in use](https://reference.aspose.com/slides/python-java/aspose.slides/fontsmanager/#getFonts) and information about [substitutions/"unknown" fonts](https://reference.aspose.com/slides/python-java/aspose.slides/fontsmanager/#getSubstitutions), which helps plan the replacement.
+
+**Does font replacement work when converting to PDF/images?**
+
+Yes. During export, Aspose.Slides applies the same [font selection/substitution sequence](/slides/python-java/font-selection-sequence/), so a replacement performed in advance will be honored during conversion.
+
+**Do I need to install the target font in the system, or can I attach a fonts folder?**
+
+Installation is not required: the library allows [loading external fonts](/slides/python-java/custom-font/) from user folders for use during [rendering and export](/slides/python-java/convert-powerpoint/).
+
+**Will replacement fix "tofu" (squares) instead of characters?**
+
+Only if the target font actually contains the required glyphs. If not, [configure fallback](/slides/python-java/fallback-font/) to cover the missing characters.
