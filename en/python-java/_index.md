@@ -44,7 +44,7 @@ Aspose.Slides for Python via Java is ported from Aspose.Slides for Java, so you 
 
 Explore the following resources:
 
-- [Aspose.Slides for Python via Java Online Documentation](/slides/java/developer-guide/)
+- [Aspose.Slides for Python via Java Online Documentation](/slides/python-java/developer-guide/)
 - [Aspose.Slides for Python via Java Features](/slides/python-java/features-overview/)
 - [Aspose.Slides for Python via Java Limitations and API Differences](/slides/python-java/limitations-and-api-differences/)
 - [Aspose.Slides for Python via Java Release Notes](https://releases.aspose.com/slides/python-java/release-notes/)

@@ -46,9 +46,7 @@ The slide may retain the "EMBEDDED OLE OBJECT" message. Once you click the OLE o
 
 Now, you may want to save your presentation to ensure the image for the OLE Object gets updated correctly. This way, after saving the presentation, when you open the presentation again, you will NOT see the "EMBEDDED OLE OBJECT" message. 
 
-## **Other Solutions**
-
-### **Solution 1: Replace the "Embedded OLE Object" Message with an Image**
+## **Other Solution**
 
 If you do not want to remove the "EMBEDDED OLE OBJECT" message by opening the presentation in PowerPoint and then saving it, you can replace the message with your preferred preview image. These lines of code demonstrate the process:
 
@@ -78,7 +76,3 @@ try {
 The slide containing the `OleObjectFrame` then changes to this:
 
 ![New OLE object image](OLE_object_new_image.png)
-
-### **Solution 2: Create an Add-On for PowerPoint**
-
-You can also create an add-on for Microsoft PowerPoint that updates all OLE objects when you open presentations in the program.
