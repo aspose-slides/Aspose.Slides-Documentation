@@ -15,39 +15,41 @@ keywords:
 - KI-gesteuerte Funktionen
 - KI-Fähigkeiten
 - KI-Agent
-- Webclient
+- Web-Client
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Java
 - Aspose.Slides
-description: "PowerPoint-Folien mit KI über Aspose.Slides für Java übersetzen. PPT, PPTX und ODP lokalisieren und dabei das Layout beibehalten - schnell und entwicklerfreundlich. Probieren Sie es aus."
+description: "Übersetzen Sie PowerPoint-Folien mit KI unter Verwendung von Aspose.Slides für Java. Lokalisieren Sie PPT, PPTX und ODP und erhalten Sie das Layout - schnell und entwicklerfreundlich. Probieren Sie es aus."
 ---
+## **Einführung**
 
-## **Aspose.Slides Presentation Translation API: KI‑gestützte mehrsprachige Folienübersetzung**
-
-Aspose.Slides ist ein leistungsstarkes API zur programmatischen Verwaltung von PowerPoint‑Präsentationen. Neben dem Erstellen, Bearbeiten und Konvertieren von Folien bietet es KI‑gesteuerte Funktionen – zum Beispiel die Presentation Translation API für mehrsprachige Folieninhalte.
+Aspose.Slides ist eine leistungsstarke API zur programmatischen Verwaltung von PowerPoint‑Präsentationen. Zusätzlich zum Erstellen, Bearbeiten und Konvertieren von Folien bietet sie KI‑gestützte Funktionen – zum Beispiel die Presentation Translation API für mehrsprachige Folieninhalte.
 
 ## **Wie es funktioniert**
 
-Aspose.Slides enthält keine integrierten KI‑Fähigkeiten, sondern integriert externe KI‑Modelle über das Internet. Diese Funktionalität wird über die Klasse [SlidesAIAgent](https://reference.aspose.com/slides/java/com.aspose.slides/slidesaiagent/) bereitgestellt, die eine Implementierung des Interfaces [IAIWebClient](https://reference.aspose.com/slides/java/com.aspose.slides/iaiwebclient/) verwendet, um mit KI‑Diensten zu kommunizieren.
+Aspose.Slides enthält keine integrierten KI‑Funktionen, integriert sich jedoch über das Internet in externe KI‑Modelle. Diese Funktionalität wird über die Klasse [SlidesAIAgent](https://reference.aspose.com/slides/de/java/com.aspose.slides/slidesaiagent/) bereitgestellt, die eine Implementierung des Interfaces [IAIWebClient](https://reference.aspose.com/slides/de/java/com.aspose.slides/iaiwebclient/) verwendet, um mit KI‑Diensten zu kommunizieren.
 
-Sie können den integrierten [OpenAIWebClient](https://reference.aspose.com/slides/java/com.aspose.slides/openaiwebclient/) verwenden, um sich mit der OpenAI‑API zu verbinden, oder Ihre eigene Implementierung des [IAIWebClient](https://reference.aspose.com/slides/java/com.aspose.slides/iaiwebclient/) bereitstellen, um einen anderen KI‑Anbieter oder ein anderes Sprachmodell zu nutzen.
+Sie können den integrierten [OpenAIWebClient](https://reference.aspose.com/slides/de/java/com.aspose.slides/openaiwebclient/) verwenden, um sich mit der API von OpenAI zu verbinden, oder Ihr eigenes [IAIWebClient](https://reference.aspose.com/slides/de/java/com.aspose.slides/iaiwebclient/) implementieren, um einen anderen KI‑Anbieter oder ein anderes Sprachmodell zu nutzen.
 
-Aspose.Slides übernimmt die Kommunikation, analysiert die KI‑Antworten und fügt übersetzten Inhalt intelligent ein, wobei das ursprüngliche Folienlayout und die Formatierung erhalten bleiben.
+Aspose.Slides übernimmt die Kommunikation, analysiert die KI‑Antworten und fügt übersetzte Inhalte intelligent ein, wobei das ursprüngliche Folienlayout und die Formatierung erhalten bleiben.
 
-{{% alert color="primary" %}}
-Hinweis: Die OpenAI‑API ist ein kostenpflichtiger Dienst, daher müssen Sie ein Konto erstellen und Ihren API‑Schlüssel angeben, wenn Sie den integrierten [OpenAIWebClient](https://reference.aspose.com/slides/java/com.aspose.slides/openaiwebclient/) verwenden.
+{{% alert color="info" title="Note" %}}
+Beachten Sie, dass die OpenAI‑API ein kostenpflichtiger Dienst ist. Sie müssen daher ein Konto erstellen und Ihren API‑Schlüssel angeben, wenn Sie den integrierten [OpenAIWebClient](https://reference.aspose.com/slides/de/java/com.aspose.slides/openaiwebclient/) verwenden.
 {{% /alert %}}
 
 ## **Beispiel**
 
-In diesem Beispiel übersetzen wir eine PowerPoint‑Präsentation ins Japanische mithilfe des integrierten [OpenAIWebClient](https://reference.aspose.com/slides/java/com.aspose.slides/openaiwebclient/) und eines angegebenen OpenAI‑[Modells](https://platform.openai.com/docs/models).
+In diesem Beispiel übersetzen wir eine PowerPoint‑Präsentation ins Japanische, wobei wir den integrierten [OpenAIWebClient](https://reference.aspose.com/slides/de/java/com.aspose.slides/openaiwebclient/) mit einem angegebenen OpenAI‑[Modell](https://platform.openai.com/docs/models) verwenden.
+
 ```java
+import com.aspose.slides.*;
+
 // Lade eine Präsentation zum Übersetzen.
 Presentation presentation = new Presentation("sample.pptx");
 
-// Erstelle einen KI-Client mit OpenAIWebClient, wobei du dein Modell und den API-Schlüssel angibst.
+// Create an AI client with OpenAIWebClient, specifying your model and API key.
 OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null);
 
 try {
@@ -65,15 +67,52 @@ try {
 }
 ```
 
+Standardmäßig erstellt und verwaltet der integrierte [OpenAIWebClient](https://reference.aspose.com/slides/de/java/com.aspose.slides/openaiwebclient/) seine eigene interne [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html)‑Instanz und kümmert sich automatisch um deren Lebenszyklus. Wenn Sie jedoch die [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) selbst verwalten möchten – hauptsächlich um wichtige Einstellungen wie einen Proxy zu konfigurieren oder um eine [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) bzw. einen anderen [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) für ein besseres Ressourcenmanagement und Leistung zu nutzen – können Sie beim Erstellen des [OpenAIWebClient](https://reference.aspose.com/slides/de/java/com.aspose.slides/openaiwebclient/) Ihre eigene `HttpURLConnection`‑Instanz übergeben.
 
-Standardmäßig erstellt und verwaltet der integrierte [OpenAIWebClient](https://reference.aspose.com/slides/java/com.aspose.slides/openaiwebclient/) seine eigene interne Instanz von [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) und übernimmt deren Lebenszyklus automatisch. Wenn Sie jedoch die [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) selbst verwalten möchten – insbesondere, um wichtige Einstellungen wie einen Proxy zu konfigurieren oder einen [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) bzw. einen anderen [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) für ein besseres Ressourcenmanagement und eine höhere Leistung zu nutzen – können Sie beim Erstellen des [OpenAIWebClient](https://reference.aspose.com/slides/java/com.aspose.slides/openaiwebclient/) Ihre eigene `HttpURLConnection`‑Instanz übergeben.
 ```java
-// Angenommen, Sie haben eine vordefinierte HttpURLConnection-Instanz (z.B. mit benutzerdefinierten Timeouts, Proxy-Einstellungen usw.).
-HttpURLConnection urlConnection = yourPreconfiguredConnection;
+import com.aspose.slides.*;
+import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.URL;
+
+// Konfigurieren Sie selbst eine HttpURLConnection-Instanz (benutzerdefinierte Timeouts, Proxy-Einstellungen usw.).
+Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy.example.com", 8080));
+HttpURLConnection urlConnection = (HttpURLConnection)new URL("https://api.openai.com/v1/chat/completions").openConnection(proxy);
+urlConnection.setConnectTimeout(30000);
+urlConnection.setReadTimeout(60000);
+
 OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, urlConnection);
 ```
 
+### **Azure OpenAI Beispiel**
+
+Sie können den Übersetzer so konfigurieren, dass er Ihre Azure OpenAI‑Bereitstellung mit dem [OpenAICompatibleWebClient](https://reference.aspose.com/slides/de/java/com.aspose.slides/openaicompatiblewebclient/) verwendet.
+
+```java
+import com.aspose.slides.*;
+
+String model = "your-azure-deployment-name";
+String apiKey = "your-azure-api-key";
+String baseUrl = "https://your-resource.openai.azure.com/openai/v1/";
+
+OpenAICompatibleWebClient aiWebClient = new OpenAICompatibleWebClient(model, apiKey, baseUrl);
+try {
+    SlidesAIAgent aiAgent = new SlidesAIAgent(aiWebClient);
+    Presentation presentation = new Presentation("Presentation.pptx");
+    try {
+        aiAgent.translate(presentation, "spanish");
+        presentation.save("Translated.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    aiWebClient.dispose();
+}
+```
+
+Dieses Snippet demonstriert die Übersetzung einer Präsentation mit Ihrem Azure OpenAI‑Endpunkt. Ersetzen Sie die Platzhalterwerte durch Ihren Bereitstellungsnamen, API‑Schlüssel und die Endpunkt‑URL.
 
 ## **Wesentliche Vorteile**
 
-Die Aspose.Slides Presentation Translation API bietet eine KI‑gestützte Lösung für die Bereitstellung mehrsprachiger PowerPoint‑Präsentationen. Durch die Automatisierung der Übersetzung bei gleichzeitiger Erhaltung von Layout und Design spart sie Zeit und minimiert Fehler im Vergleich zu manuellen Arbeitsabläufen. Egal, ob Sie Entwickler, Dozent oder Geschäftsprofi sind – diese API ermöglicht es Ihnen, ansprechende, lokalisierte Präsentationen für ein globales Publikum zu erstellen, Ihre Reichweite zu erweitern und die Kommunikation zu verbessern.
+Die Aspose.Slides Presentation Translation API bietet eine KI‑gestützte Lösung zur Bereitstellung mehrsprachiger PowerPoint‑Präsentationen. Durch die Automatisierung der Übersetzung bei gleichzeitiger Erhaltung von Layout und Design spart sie Zeit und minimiert Fehler im Vergleich zu manuellen Arbeitsabläufen. Egal, ob Sie Entwickler, Lehrender oder Business‑Professional sind, ermöglicht diese API das Erstellen ansprechender, lokalisierter Präsentationen für ein globales Publikum – erweitert Ihre Reichweite und verbessert die Kommunikation.

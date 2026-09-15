@@ -13,7 +13,7 @@ keywords:
 - Traduction de présentation
 - Traduction de diapositive
 - Fonctionnalités pilotées par l'IA
-- Capacités IA
+- Capacités d'IA
 - Agent IA
 - Client Web
 - PowerPoint
@@ -22,33 +22,35 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Traduisez les diapositives PowerPoint avec l'IA en utilisant Aspose.Slides pour Android via Java. Localisez les fichiers PPT, PPTX et ODP tout en conservant la mise en page—rapide et convivial pour les développeurs. Essayez-le."
+description: "Traduisez les diapositives PowerPoint avec l'IA en utilisant Aspose.Slides pour Android via Java. Localisez les fichiers PPT, PPTX et ODP tout en préservant la mise en page—rapide et convivial pour les développeurs. Essayez-le."
 ---
+## **Introduction**
 
-## **Aspose.Slides Presentation Translation API : traduction multilingue de diapositives alimentée par l'IA**
-
-Aspose.Slides est une API puissante permettant de gérer programmatically les présentations PowerPoint. En plus de créer, modifier et convertir des diapositives, elle offre des fonctionnalités basées sur l'IA – comme l'API de traduction de présentations pour du contenu de diapositives multilingue.
+Aspose.Slides est une API puissante pour gérer programmatiquement des présentations PowerPoint. En plus de créer, modifier et convertir des diapositives, elle propose des fonctionnalités alimentées par l'IA – comme l'API de traduction de présentations pour un contenu de diapositives multilingue.
 
 ## **Comment ça fonctionne**
 
-Aspose.Slides ne comprend pas de capacités d'IA intégrées, mais s'intègre à des modèles d'IA externes via Internet. Cette fonctionnalité est exposée via la classe [SlidesAIAgent](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesaiagent/), qui utilise une implémentation de l'interface [IAIWebClient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaiwebclient/) pour communiquer avec les services d'IA.
+Aspose.Slides ne comprend pas de capacités d'IA intégrées mais s'intègre à des modèles d'IA externes via Internet. Cette fonctionnalité est exposée via la classe [SlidesAIAgent](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/slidesaiagent/) qui utilise une implémentation de l'interface [IAIWebClient](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iaiwebclient/) pour communiquer avec les services d'IA.
 
-Vous pouvez utiliser le [OpenAIWebClient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/openaiwebclient/) intégré pour vous connecter à l'API d'OpenAI ou implémenter votre propre [IAIWebClient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaiwebclient/) afin d'utiliser un autre fournisseur d'IA ou modèle de langue.
+Vous pouvez utiliser le [OpenAIWebClient](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/openaiwebclient/) intégré pour vous connecter à l'API d'OpenAI ou implémenter votre propre [IAIWebClient](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iaiwebclient/) afin d'utiliser un autre fournisseur d'IA ou modèle de langue.
 
-Aspose.Slides gère la communication, analyse les réponses de l'IA et insère intelligemment le contenu traduit tout en conservant la mise en page et le formatage originaux des diapositives.
+Aspose.Slides gère la communication, analyse les réponses de l'IA et insère intelligemment le contenu traduit tout en préservant la mise en page et le formatage originaux des diapositives.
 
-{{% alert color="primary" %}}
-Notez que l'API OpenAI est un service payant, vous devrez donc créer un compte et fournir votre clé d'API lors de l'utilisation du [OpenAIWebClient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/openaiwebclient/) intégré.
+{{% alert color="info" title="Remarque" %}}
+Notez que l'API OpenAI est un service payant, vous devrez donc créer un compte et fournir votre clé d'API lors de l'utilisation du [OpenAIWebClient](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/openaiwebclient/).
 {{% /alert %}}
 
 ## **Exemple**
 
-Dans cet exemple, nous traduisons une présentation PowerPoint en japonais à l'aide du [OpenAIWebClient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/openaiwebclient/) intégré avec un [modèle](https://platform.openai.com/docs/models) OpenAI spécifié.
+Dans cet exemple, nous traduisons une présentation PowerPoint en japonais à l'aide du [OpenAIWebClient](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/openaiwebclient/) intégré avec un [modèle](https://platform.openai.com/docs/models) OpenAI spécifié.
+
 ```java
+import com.aspose.slides.*;
+
 // Charger une présentation à traduire.
 Presentation presentation = new Presentation("sample.pptx");
 
-// Create an AI client with OpenAIWebClient, specifying your model and API key.
+// Créer un client IA avec OpenAIWebClient, en spécifiant votre modèle et votre clé API.
 OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null);
 
 try {
@@ -66,15 +68,57 @@ try {
 }
 ```
 
+Par défaut, le [OpenAIWebClient](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/openaiwebclient/) intégré crée et gère sa propre instance interne de [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html), gérant automatiquement son cycle de vie. Cependant, si vous préférez gérer vous‑même la [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) — principalement pour configurer des paramètres essentiels comme un proxy, ou pour utiliser un [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) ou un autre [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) afin d'améliorer la gestion des ressources et les performances — vous pouvez fournir votre propre instance `HttpURLConnection` lors de la construction du [OpenAIWebClient](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/openaiwebclient/).
 
-Par défaut, le [OpenAIWebClient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/openaiwebclient/) intégré crée et gère sa propre instance interne de [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html), gérant son cycle de vie automatiquement. Cependant, si vous préférez gérer vous‑même la [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) — principalement pour configurer des paramètres essentiels comme un proxy, ou pour utiliser un [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) ou un autre [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) afin d'améliorer la gestion des ressources et les performances — vous pouvez fournir votre propre instance `HttpURLConnection` lors de la construction du [OpenAIWebClient](https://reference.aspose.com/slides/androidjava/com.aspose.slides/openaiwebclient/).
 ```java
-// Supposez que vous disposez d'une instance HttpURLConnection préconfigurée (par exemple avec des délais d'attente personnalisés, des paramètres de proxy, etc.)
-HttpURLConnection urlConnection = yourPreconfiguredConnection;
-OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, urlConnection);
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URI;
+
+try {
+    // Configurer vous-même une instance HttpURLConnection (par exemple avec des délais d'attente personnalisés, des paramètres de proxy, etc.).
+    HttpURLConnection urlConnection = (HttpURLConnection) URI.create("https://api.openai.com/v1/chat/completions").toURL().openConnection();
+    urlConnection.setConnectTimeout(10000);
+    urlConnection.setReadTimeout(60000);
+
+    // Passer la connexion au constructeur OpenAIWebClient.
+    OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, urlConnection);
+} catch (IOException e) {
+    e.printStackTrace();
+}
 ```
 
+### **Exemple Azure OpenAI**
+
+Vous pouvez configurer le traducteur pour qu'il utilise votre déploiement Azure OpenAI avec le [OpenAICompatibleWebClient](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/openaicompatiblewebclient/).
+
+```java
+import com.aspose.slides.*;
+
+String model = "your-azure-deployment-name";
+String apiKey = "your-azure-api-key";
+String baseUrl = "https://your-resource.openai.azure.com/openai/v1/";
+
+OpenAICompatibleWebClient aiWebClient = new OpenAICompatibleWebClient(model, apiKey, baseUrl);
+try {
+    SlidesAIAgent aiAgent = new SlidesAIAgent(aiWebClient);
+    Presentation presentation = new Presentation("Presentation.pptx");
+    try {
+        aiAgent.translate(presentation, "spanish");
+        presentation.save("Translated.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    aiWebClient.dispose();
+}
+```
+
+Cet extrait montre la traduction d'une présentation en utilisant votre point de terminaison Azure OpenAI. Remplacez les valeurs de substitution par le nom de votre déploiement, votre clé d'API et l'URL du point de terminaison.
 
 ## **Principaux avantages**
 
-L'API de traduction de présentations Aspose.Slides offre une solution alimentée par l'IA pour fournir des présentations PowerPoint multilingues. En automatisant la traduction tout en préservant la mise en page et le design, elle fait gagner du temps et réduit les erreurs par rapport aux flux de travail manuels. Que vous soyez développeur, éducateur ou professionnel du business, cette API vous permet de créer des présentations attrayantes et localisées pour un public mondial — augmentant votre portée et améliorant la communication.
+L'API de traduction de présentations Aspose.Slides offre une solution propulsée par l'IA pour fournir des présentations PowerPoint multilingues. En automatisant la traduction tout en préservant la mise en page et le design, elle fait gagner du temps et réduit les erreurs par rapport aux flux de travail manuels. Que vous soyez développeur, éducateur ou professionnel, cette API vous permet de créer des présentations attractives et localisées pour un public mondial – élargissant votre portée et améliorant la communication.
+
+{{% /alert %}}

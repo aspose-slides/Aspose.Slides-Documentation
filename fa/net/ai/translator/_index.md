@@ -1,5 +1,5 @@
 ---
-title: مترجم ارائه‌های مبتنی بر هوش مصنوعی
+title: مترجم ارائه مبتنی بر هوش مصنوعی
 linktitle: مترجم مبتنی بر هوش مصنوعی
 type: docs
 weight: 20
@@ -7,47 +7,49 @@ url: /fa/net/ai/translator/
 keywords:
 - مترجم ارائه هوش مصنوعی
 - مترجم اسلاید هوش مصنوعی
-- قابلیت مبتنی بر هوش مصنوعی
+- ویژگی هوش مصنوعی
 - ارائه چندزبانه
 - اسلاید چندزبانه
 - ترجمه ارائه
 - ترجمه اسلاید
-- ویژگی‌های هدایت‌شده توسط هوش مصنوعی
-- توانایی‌های هوش مصنوعی
+- ویژگی‌های مبتنی بر هوش مصنوعی
+- قابلیت‌های هوش مصنوعی
 - عامل هوش مصنوعی
-- کلاینت وب
-- PowerPoint
-- OpenDocument
+- مشتری وب
+- پاورپوینت
+- سند باز
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "اسلایدهای PowerPoint را با هوش مصنوعی و با استفاده از Aspose.Slides برای .NET ترجمه کنید. فایل‌های PPT، PPTX و ODP را در حالی که چیدمان حفظ می‌شود، بومی‌سازی کنید — سریع و مناسب برای توسعه‌دهندگان. امتحان کنید."
+description: "اسلایدهای پاورپوینت را با هوش مصنوعی و استفاده از Aspose.Slides برای .NET ترجمه کنید. محلی‌سازی PPT، PPTX و ODP در حالی که طرح حفظ می‌شود—سریع و مناسب برای توسعه‌دهندگان. امتحان کنید."
 ---
-## **معرفی**
+## **مقدمه**
 
-Aspose.Slides یک API قدرتمند برای مدیریت برنامه‌نویسی ارائه‌های PowerPoint است. علاوه بر ایجاد، ویرایش و تبدیل اسلایدها، ویژگی‌های مبتنی بر هوش مصنوعی ارائه می‌دهد ‑ مانند [Presentation Translation API](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/) برای محتوای چندزبانه اسلاید.
+Aspose.Slides یک API قدرتمند برای مدیریت برنامه‌نویسی ارائه‌های PowerPoint است. علاوه بر ایجاد، ویرایش و تبدیل اسلایدها، ویژگی‌های مبتنی بر هوش مصنوعی مانند [Presentation Translation API](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/) را برای محتوای چندزبانه ارائه می‌دهد.
 
-## **نحوه کار**
+## **نحوه کارکرد**
 
-Aspose.Slides قابلیت‌های هوش مصنوعی داخلی ندارد، اما با مدل‌های هوش مصنوعی خارجی از طریق اینترنت یکپارچه می‌شود. این عملکرد از طریق کلاس [SlidesAIAgent](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/slidesaiagent) ارائه می‌شود که از یک پیاده‌سازی رابط [IAIWebClient](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/iaiwebclient/) برای ارتباط با سرویس‌های هوش مصنوعی استفاده می‌کند.
+Aspose.Slides قابلیت‌های هوش مصنوعی داخلی ندارد اما از طریق اینترنت با مدل‌های هوش مصنوعی خارجی یکپارچه می‌شود. این عملکرد از طریق کلاس [SlidesAIAgent](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/slidesaiagent) افشا می‌شود که از یک پیاده‌سازی رابط [IAIWebClient](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/iaiwebclient/) برای ارتباط با سرویس‌های هوش مصنوعی استفاده می‌کند.
 
-می‌توانید از [OpenAIWebClient](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/openaiwebclient/) داخلی برای اتصال به API OpenAI استفاده کنید یا پیاده‌سازی خودتان از [IAIWebClient](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/iaiwebclient/) را برای استفاده از یک ارائه‌دهنده هوش مصنوعی یا مدل زبانی دیگر بنویسید.
+می‌توانید از [OpenAIWebClient](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/openaiwebclient) پیش‌فرض برای اتصال به API اوپن‌ای‌آی استفاده کنید یا پیاده‌سازی خودتان از [IAIWebClient](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/iaiwebclient) را برای استفاده از ارائه‌دهنده یا مدل زبانی متفاوت پیاده کنید.
 
-Aspose.Slides ارتباط را مدیریت می‌کند، پاسخ‌های هوش مصنوعی را تجزیه می‌کند و به صورت هوشمند محتواهای ترجمه‌شده را درج می‌کند در حالی که چیدمان و قالب‌بندی اصلی اسلاید حفظ می‌شود.
+Aspose.Slides ارتباطات را مدیریت می‌کند، پاسخ‌های هوش مصنوعی را تجزیه می‌نماید و به‌صورت هوشمندانه محتوای ترجمه‌شده را در حالی که طرح و قالب‌بندی اسلاید اصلی را حفظ می‌کند، درج می‌کند.
 
-{{% alert color="primary" %}}
-
-توجه داشته باشید که API OpenAI یک سرویس پولی است، بنابراین برای استفاده از [OpenAIWebClient](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/openaiwebclient/) باید یک حساب کاربری ایجاد کنید و کلید API خود را فراهم کنید.
-
+{{% alert color="info" title="نکته" %}}
+نکته این است که API اوپن‌ای‌آی یک سرویس پرداختی است، بنابراین برای استفاده از [OpenAIWebClient](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/openaiwebclient) باید یک حساب کاربری ایجاد کنید و کلید API خود را ارائه دهید.
 {{% /alert %}}
 
 ## **مثال**
 
-در این مثال، یک ارائه PowerPoint را با استفاده از [OpenAIWebClient](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/openaiwebclient/) داخلی و یک [مدل](https://platform.openai.com/docs/models) مشخص OpenAI به زبان ژاپنی ترجمه می‌کنیم.
+در این مثال، یک ارائه PowerPoint را با استفاده از [OpenAIWebClient](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/openaiwebclient) پیش‌فرض و یک [model](https://platform.openai.com/docs/models) مشخص اوپن‌ای‌آی به زبان ژاپنی ترجمه می‌کنیم.
 
 ```csharp
-// یک ارائه برای ترجمه بارگذاری کنید.
+using Aspose.Slides;
+using Aspose.Slides.AI;
+using Aspose.Slides.Export;
+
+// یک ارائه را برای ترجمه بارگذاری کنید.
 using var presentation = new Presentation("sample.pptx");
 
 // یک کلاینت هوش مصنوعی با OpenAIWebClient ایجاد کنید و مدل و کلید API خود را مشخص کنید.
@@ -56,23 +58,49 @@ using var aiWebClient = new OpenAIWebClient(model: "gpt-4o-mini", apiKey: "apiKe
 // SlidesAIAgent را با کلاینت هوش مصنوعی مقداردهی اولیه کنید.
 var aiAgent = new SlidesAIAgent(aiWebClient);
 
-// ارائه را به ژاپنی ترجمه کنید.
+// ارائه را به زبان ژاپنی ترجمه کنید.
 await aiAgent.TranslateAsync(presentation, "japanese");
 
-// ارائه ترجمه‌شده را به‌صورت PDF ذخیره کنید.
+// ارائه ترجمه‌شده را به عنوان PDF ذخیره کنید.
 presentation.Save("sample_jp.pdf", SaveFormat.Pdf);
 ```
 
-به‌صورت پیش‌فرض، [OpenAIWebClient](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/openaiwebclient/) داخلی یک نمونه داخلی از `HttpClient` ایجاد و مدیریت می‌کند و به‌صورت خودکار دورهٔ حیات و حذف آن را کنترل می‌نماید. اما اگر مایل باشید خودتان `HttpClient` را مدیریت کنید ‑ برای مثال هنگام استفاده از یک [IHttpClientFactory](https://learn.microsoft.com/en-us/dotnet/core/extensions/httpclient-factory) برای بهبود مدیریت منابع و کارایی ‑ می‌توانید هنگام ساختن [OpenAIWebClient](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/openaiwebclient/)، نمونهٔ `HttpClient` خود را به‌عنوان پارامتر فراهم کنید.
+به‌طور پیش‌فرض، [OpenAIWebClient](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/openaiwebclient) یک نمونه داخلی [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) ایجاد و مدیریت می‌کند و چرخه عمر و حذف آن را به‌صورت خودکار انجام می‌دهد. با این حال، اگر ترجیح می‌دهید خودتان [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) را مدیریت کنید—مثلاً هنگام استفاده از یک [IHttpClientFactory](https://learn.microsoft.com/en-us/dotnet/core/extensions/httpclient-factory) برای مدیریت بهتر منابع و کارایی—می‌توانید نمونه `HttpClient` خود را هنگام ساختن [OpenAIWebClient](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/openaiwebclient) فراهم کنید.
 
 ```csharp
-// فرض کنید یک نمونه IHttpClientFactory دارید (مثلاً از طریق تزریق وابستگی).
-HttpClient httpClient = httpClientFactory.CreateClient();
+using System.Net.Http;
+using Aspose.Slides.AI;
+
+// از یک HttpClient که خودتان مدیریت می‌کنید استفاده کنید - برای مثال، یکی که توسط IHttpClientFactory ایجاد شده است
+// تزریق شده از طریق تزریق وابستگی.
+HttpClient httpClient = new HttpClient();
 using var aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, httpClient);
 ```
 
-Aspose.Slides عمدتاً در محیط‌های همزمان استفاده می‌شود. برای پشتیبانی از این امر، کلاس [SlidesAIAgent](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/slidesaiagent/) روش‌های همزمان و غیرهمزمان را ارائه می‌دهد ‑ به‌طوری که بتوانید رویکرد مناسب برای جریان کاری برنامه‌تان را انتخاب کنید.
+Aspose.Slides معمولاً در محیط‌های همزمان استفاده می‌شود. برای پشتیبانی از این موضوع، کلاس [SlidesAIAgent](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/slidesaiagent/) هر دو متد همزمان و ناهمزمان را ارائه می‌دهد—به‌طوری که می‌توانید رویکرد مناسب برای جریان کاری برنامه خود را انتخاب کنید.
 
-## **مزایای کلیدی**
+### **مثال Azure OpenAI**
 
-API [Presentation Translation API](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/) از Aspose.Slides یک راه‌حل مبتنی بر هوش مصنوعی برای ارائه‌های PowerPoint چندزبانه فراهم می‌کند. با خودکار کردن ترجمه در حالی که چیدمان و طراحی حفظ می‌شود، زمان را صرفه‌جویی کرده و خطاها را نسبت به روش‌های دستی کاهش می‌دهد. چه توسعه‌دهنده، معلم یا حرفه‌ای کسب‌وکار باشید، این API به شما امکان می‌دهد ارائه‌های جذاب و بومی‌سازی‌شده برای مخاطبان جهانی ایجاد کنید ‑ که دسترسی شما را گسترش داده و ارتباطات را بهبود می‌بخشد.
+Aspose.Slides برای .NET از ارائه‌دهندگان سازگار با OpenAI، از جمله Azure OpenAI، پشتیبانی می‌کند. می‌توانید مترجم را برای استفاده از استقرار داخلی Azure خود با [OpenAICompatibleWebClient](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/openaicompatiblewebclient) تنظیم کنید.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.AI;
+using Aspose.Slides.Export;
+
+var model = "your-azure-deployment-name";
+var apiKey = "your-azure-api-key";
+var baseUrl = "https://your-resource.openai.azure.com/openai/v1/";
+
+using var aiWebClient = new OpenAICompatibleWebClient(model, apiKey, baseUrl);
+var aiAgent = new SlidesAIAgent(aiWebClient);
+using var presentation = new Presentation("Presentation.pptx");
+aiAgent.Translate(presentation, "spanish");
+presentation.Save("Translated.pptx", SaveFormat.Pptx);
+```
+
+این کد نمونه نشان می‌دهد که چگونه یک ارائه را با استفاده از نقطه انتهایی Azure OpenAI خود ترجمه کنید. مقادیر جایگزین را با نام استقرار، کلید API و URL نقطه انتهایی خود جایگزین کنید.
+
+## **فواید کلیدی**
+
+API [Presentation Translation API](https://reference.aspose.com/slides/fa/net/aspose.slides.ai/) در Aspose.Slides یک راه‌حل مبتنی بر هوش مصنوعی برای ارائه‌های PowerPoint چندزبانه فراهم می‌کند. با خودکارسازی ترجمه در حالی که طرح و طراحی را حفظ می‌کند، زمان را صرفه‌جویی کرده و نسبت به کارهای دستی خطاها را به حداقل می‌رساند. چه توسعه‌دهنده، معلم یا حرفه‌ای کسب‌وکار باشید، این API به شما امکان می‌دهد ارائه‌های جذاب و بومی‌شده برای مخاطبین جهانی ایجاد کنید—دسترس‌پذیری خود را گسترش داده و ارتباطات را بهبود می‌بخشد.
