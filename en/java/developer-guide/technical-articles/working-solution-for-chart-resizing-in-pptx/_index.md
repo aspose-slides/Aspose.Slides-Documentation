@@ -214,4 +214,3 @@ The examples are designed for Excel charts created with Aspose.Cells, but the pr
 ## **Related Sections**
 
 - [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
-- [Update OLE Objects Automatically Using a PowerPoint Add-In](/slides/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
