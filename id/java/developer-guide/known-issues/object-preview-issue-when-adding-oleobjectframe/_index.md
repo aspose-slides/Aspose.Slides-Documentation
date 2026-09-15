@@ -7,9 +7,9 @@ url: /id/java/object-preview-issue-when-adding-oleobjectframe/
 keywords:
 - OLE
 - masalah pratinjau
-- menyisipkan objek
-- menyisipkan file
-- objek diubah
+- menyematkan objek
+- menyematkan berkas
+- objek berubah
 - pratinjau objek
 - PowerPoint
 - presentasi
@@ -19,7 +19,7 @@ description: "Pelajari mengapa EMBEDDED OLE OBJECT muncul saat menambahkan OleOb
 ---
 ## **Pendahuluan**
 
-Dengan menggunakan Aspose.Slides for Java, ketika Anda menambahkan [OleObjectFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/oleobjectframe/) ke slide, pesan "EMBEDDED OLE OBJECT" ditampilkan pada slide output. Pesan ini memang sengaja dan NOT a bug.
+Menggunakan Aspose.Slides for Java, ketika Anda menambahkan [OleObjectFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/oleobjectframe/) ke sebuah slide, pesan "EMBEDDED OLE OBJECT" ditampilkan pada slide output. Pesan ini memang disengaja dan BUKAN bug.
 
 Untuk informasi lebih lanjut tentang cara bekerja dengan objek OLE, lihat [Manage OLE](/slides/id/java/manage-ole/).
 
@@ -27,31 +27,31 @@ Untuk informasi lebih lanjut tentang cara bekerja dengan objek OLE, lihat [Manag
 
 Aspose.Slides menampilkan pesan "EMBEDDED OLE OBJECT" untuk memberi tahu Anda bahwa objek OLE telah diubah dan gambar pratinjau harus diperbarui. 
 
-Sebagai contoh, jika Anda menambahkan grafik Microsoft Excel sebagai [OleObjectFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/oleobjectframe/) ke slide (untuk detail lebih lanjut, lihat artikel "Manage OLE") dan kemudian membuka presentasi di Microsoft PowerPoint, Anda akan melihat gambar ini pada slide:
+Sebagai contoh, jika Anda menambahkan diagram Microsoft Excel sebagai [OleObjectFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/oleobjectframe/) ke sebuah slide (untuk detail lebih lanjut, lihat artikel "Manage OLE") dan kemudian membuka presentasi di Microsoft PowerPoint, Anda akan melihat gambar ini pada slide:
 
-![pesan objek OLE](OLE_object_message.png)
+![OLE object message](OLE_object_message.png)
 
-Jika Anda ingin memeriksa dan memastikan bahwa objek OLE Anda telah ditambahkan ke slide, Anda harus mengklik ganda pada pesan "EMBEDDED OLE OBJECT", atau Anda dapat mengklik kanan padanya dan memilih opsi **Object > Edit**.
+Jika Anda ingin memeriksa dan memastikan bahwa objek OLE Anda telah ditambahkan ke slide, Anda harus mengklik dua kali pada pesan "EMBEDDED OLE OBJECT", atau Anda dapat mengklik kanan padanya dan memilih opsi **Object > Edit**.
 
-![objek OLE > Edit](OLE_object_edit.png)
+![OLE object > Edit](OLE_object_edit.png)
 
 PowerPoint kemudian membuka objek OLE yang disematkan.
 
-![data objek OLE](OLE_object_data.png)
+![OLE object data](OLE_object_data.png)
 
-Slide mungkin masih menampilkan pesan "EMBEDDED OLE OBJECT". Setelah Anda mengklik objek OLE, pratinjau slide akan diperbarui dan pesan "EMBEDDED OLE OBJECT" digantikan oleh gambar sebenarnya untuk objek OLE.
+Slide tersebut mungkin tetap menampilkan pesan "EMBEDDED OLE OBJECT". Setelah Anda mengklik objek OLE, pratinjau slide diperbarui dan pesan "EMBEDDED OLE OBJECT" digantikan oleh gambar sebenarnya untuk objek OLE. 
 
-![pratinjau objek OLE](OLE_object_preview.png)
+![OLE object preview](OLE_object_preview.png)
 
-Sekarang, Anda mungkin ingin menyimpan presentasi Anda untuk memastikan gambar untuk Objek OLE diperbarui dengan benar. Dengan cara ini, setelah menyimpan presentasi, ketika Anda membuka kembali presentasi, Anda NOT see the "EMBEDDED OLE OBJECT" message.
+Sekarang, Anda mungkin ingin menyimpan presentasi Anda untuk memastikan gambar untuk Objek OLE diperbarui dengan benar. Dengan cara ini, setelah menyimpan presentasi, ketika Anda membuka presentasi lagi, Anda TIDAK akan melihat pesan "EMBEDDED OLE OBJECT". 
 
 ## **Solusi Lain**
 
-### **Solusi 1: Ganti Pesan "Embedded OLE Object" dengan Gambar**
-
-Jika Anda tidak ingin menghapus pesan "EMBEDDED OLE OBJECT" dengan membuka presentasi di PowerPoint dan kemudian menyimpannya, Anda dapat mengganti pesan tersebut dengan gambar pratinjau pilihan Anda. Baris kode berikut menunjukkan prosesnya:
+Jika Anda tidak ingin menghapus pesan "EMBEDDED OLE OBJECT" dengan membuka presentasi di PowerPoint lalu menyimpannya, Anda dapat mengganti pesan tersebut dengan gambar pratinjau pilihan Anda. Baris kode berikut menunjukkan prosesnya:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("embeddedOLE.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -74,8 +74,4 @@ try {
 
 Slide yang berisi `OleObjectFrame` kemudian berubah menjadi ini:
 
-![gambar objek OLE baru](OLE_object_new_image.png)
-
-### **Solusi 2: Buat Add-On untuk PowerPoint**
-
-Anda juga dapat membuat add-on untuk Microsoft PowerPoint yang memperbarui semua objek OLE saat Anda membuka presentasi di program tersebut.
+![New OLE object image](OLE_object_new_image.png)
