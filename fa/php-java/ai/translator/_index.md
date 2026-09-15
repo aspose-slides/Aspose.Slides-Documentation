@@ -7,51 +7,51 @@ url: /fa/php-java/ai/translator/
 keywords:
 - مترجم ارائه هوش مصنوعی
 - مترجم اسلاید هوش مصنوعی
-- ویژگی مجهز به هوش مصنوعی
+- قابلیت مبتنی بر هوش مصنوعی
 - ارائه چندزبانه
 - اسلاید چندزبانه
 - ترجمه ارائه
 - ترجمه اسلاید
-- ویژگی‌های هدایت‌شده توسط هوش مصنوعی
+- ویژگی‌های مبتنی بر هوش مصنوعی
 - قابلیت‌های هوش مصنوعی
 - عامل هوش مصنوعی
 - کلاینت وب
-- PowerPoint
-- OpenDocument
+- پاورپوینت
+- سند باز
 - ارائه
 - PHP
 - Aspose.Slides
-description: "اسلایدهای PowerPoint را با استفاده از هوش مصنوعی و Aspose.Slides برای PHP ترجمه کنید. PPT، PPTX و ODP را به‌صورت بومی‌سازی کنید در حالی که چیدمان حفظ می‌شود—سرعت بالا و مناسب برای توسعه‌دهندگان. امتحان کنید."
+description: "با استفاده از Aspose.Slides برای PHP، اسلایدهای پاورپوینت را با هوش مصنوعی ترجمه کنید. PPT، PPTX و ODP را در حین حفظ چیدمان بومی‌سازی کنید — سریع و مناسب برای توسعه‌دهندگان. امتحان کنید."
 ---
 ## **مقدمه**
 
-Aspose.Slides یک API قدرتمند برای مدیریت برنامه‌ای ارائه‌های PowerPoint است. علاوه بر ایجاد، ویرایش و تبدیل اسلایدها، ویژگی‌های مبتنی بر هوش مصنوعی مانند API ترجمه ارائه برای محتوای اسلایدهای چند زبانه را نیز ارائه می‌دهد.
+Aspose.Slides یک API قدرتمند برای مدیریت برنامه‌نویسی ارائه‌های PowerPoint است. علاوه بر ایجاد، ویرایش و تبدیل اسلایدها، ویژگی‌های مبتنی بر هوش مصنوعی مانند Presentation Translation API را برای محتوای چندزبانه اسلاید ارائه می‌دهد.
 
 ## **نحوه کار**
 
-Aspose.Slides قابلیت‌های هوش مصنوعی داخلی ندارد اما با مدل‌های هوش مصنوعی خارجی از طریق اینترنت ادغام می‌شود. این عملکرد از طریق کلاس [SlidesAIAgent](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slidesaiagent/) در دسترس است تا با سرویس‌های AI ارتباط برقرار کند.
+Aspose.Slides قابلیت‌های هوش مصنوعی داخلی ندارد اما با مدل‌های هوش مصنوعی خارجی از طریق اینترنت یکپارچه می‌شود. این عملکرد از طریق کلاس [SlidesAIAgent](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slidesaiagent/) برای ارتباط با سرویس‌های هوش مصنوعی در دسترس است.
 
-می‌توانید از [OpenAIWebClient](https://reference.aspose.com/slides/fa/php-java/aspose.slides/openaiwebclient/) داخلی برای اتصال به API OpenAI استفاده کنید.
+شما می‌توانید از [OpenAIWebClient](https://reference.aspose.com/slides/fa/php-java/aspose.slides/openaiwebclient/) پیش‌ساخته برای اتصال به API شرکت OpenAI استفاده کنید.
 
-Aspose.Slides ارتباط را مدیریت می‌کند، پاسخ‌های AI را تجزیه می‌کند و به‌صورت هوشمند محتوی ترجمه‌شده را وارد می‌نماید در حالی که چیدمان و قالب‌بندی اولیه اسلاید حفظ می‌شود.
+Aspose.Slides ارتباطات را مدیریت می‌کند، پاسخ‌های هوش مصنوعی را تجزیه می‌کند و به‌صورت هوشمند محتواهای ترجمه‌شده را وارد می‌کند در حالی که چیدمان و قالب‌بندی اصلی اسلایدها حفظ می‌شود.
 
-{{% alert color="primary" %}}
-توجه داشته باشید که API OpenAI یک سرویس پرداختی است، بنابراین برای استفاده از [OpenAIWebClient](https://reference.aspose.com/slides/fa/php-java/aspose.slides/openaiwebclient/) داخلی باید یک حساب کاربری ایجاد کنید و کلید API خود را فراهم نمایید.
+{{% alert color="info" title="Note" %}}
+توجه داشته باشید که API شرکت OpenAI یک سرویس پولی است، بنابراین برای استفاده از [OpenAIWebClient](https://reference.aspose.com/slides/fa/php-java/aspose.slides/openaiwebclient/) باید حساب کاربری ایجاد کنید و کلید API خود را فراهم نمایید.
 {{% /alert %}}
 
 ## **مثال**
 
-در این مثال، یک ارائه PowerPoint را با استفاده از [OpenAIWebClient](https://reference.aspose.com/slides/fa/php-java/aspose.slides/openaiwebclient/) داخلی به زبان ژاپنی ترجمه می‌کنیم، با مشخص کردن مدل OpenAI [مدل](https://platform.openai.com/docs/models).
+در این مثال، ارائه PowerPoint را با استفاده از [OpenAIWebClient](https://reference.aspose.com/slides/fa/php-java/aspose.slides/openaiwebclient/) و یک [model](https://platform.openai.com/docs/models) مشخص OpenAI به زبان ژاپنی ترجمه می‌کنیم.
 
 ```php
 // یک ارائه را برای ترجمه بارگذاری کنید.
 $presentation = new Presentation("sample.pptx");
 
-// یک مشتری هوش مصنوعی با OpenAIWebClient ایجاد کنید و مدل و کلید API خود را مشخص کنید.
+// یک کلاینت هوش مصنوعی با OpenAIWebClient ایجاد کنید، مدل و کلید API خود را مشخص کنید.
 $aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null);
 
 try {
-    // SlidesAIAgent را با مشتری هوش مصنوعی مقداردهی اولیه کنید.
+    // SlidesAIAgent را با کلاینت هوش مصنوعی مقداردهی اولیه کنید.
     $aiAgent = new SlidesAIAgent($aiWebClient);
 
     // ارائه را به زبان ژاپنی ترجمه کنید.
@@ -65,14 +65,50 @@ try {
 }
 ```
 
-به‌طور پیش‌فرض، [OpenAIWebClient](https://reference.aspose.com/slides/fa/php-java/aspose.slides/openaiwebclient/) داخلی یک نمونه داخلی [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) ایجاد و مدیریت می‌کند و چرخه حیات آن را به‌صورت خودکار مدیریت می‌نماید. با این حال، اگر ترجیح می‌دهید خودتان [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) را مدیریت کنید — عمدتاً برای پیکربندی تنظیمات ضروری مانند پروکسی، یا استفاده از [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) یا یک [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) متفاوت برای مدیریت بهتر منابع و کارایی — می‌توانید هنگام ساختن [OpenAIWebClient](https://reference.aspose.com/slides/fa/php-java/aspose.slides/openaiwebclient/) نمونه `HttpURLConnection` خود را ارائه دهید.
+به‌طور پیش‌فرض، [OpenAIWebClient](https://reference.aspose.com/slides/fa/php-java/aspose.slides/openaiwebclient/) داخلی یک نمونه [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) را ایجاد و مدیریت می‌کند و چرخه حیات آن را به‌صورت خودکار کنترل می‌کند. با این حال، اگر ترجیح می‌دهید خودتان [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) را مدیریت کنید — به‌ویژه برای پیکربندی تنظیمات ضروری مانند پروکسی، یا برای استفاده از [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) یا یک [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) متفاوت برای مدیریت بهینه منابع و عملکرد — می‌توانید نمونه `HttpURLConnection` خود را هنگام ساختن [OpenAIWebClient](https://reference.aspose.com/slides/fa/php-java/aspose.slides/openaiwebclient/) ارائه دهید.
 
 ```php
-// فرض کنید یک نمونه HttpURLConnection پیش‌پیکربندی شده دارید (مثلاً با زمان‌سنجی‌های سفارشی، تنظیمات پراکسی و غیره).
-$urlConnection = $yourPreconfiguredConnection;
+// یک نمونه HttpURLConnection خود را ایجاد و پیش‌پیکربندی کنید (زمان‌های انتظار سفارشی، تنظیمات پروکسی، و غیره).
+$url = new Java("java.net.URL", "https://api.openai.com/v1/chat/completions");
+$urlConnection = $url->openConnection();
+$urlConnection->setConnectTimeout(10000);
+$urlConnection->setReadTimeout(60000);
+
+// اتصال را به کلاینت هوش مصنوعی پاس دهید.
 $aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, $urlConnection);
 ```
 
-## **فواید کلیدی**
+### **مثال Azure OpenAI**
 
-API ترجمه ارائه Aspose.Slides یک راه‌حل مبتنی بر هوش مصنوعی برای ارائه‌های PowerPoint چند زبانه فراهم می‌کند. با خودکارسازی ترجمه در حالی که چیدمان و طراحی حفظ می‌شود، زمان را صرفه‌جویی می‌کند و خطاها را نسبت به جریان‌های کاری دستی به حداقل می‌رساند. چه توسعه‌دهنده، مدرس یا حرفه‌ای کسب‌وکار باشید، این API امکان ایجاد ارائه‌های جذاب و بومی‌شده برای مخاطبان جهانی را فراهم می‌آورد — دامنهٔ شما را گسترش می‌دهد و ارتباطات را بهبود می‌بخشد.
+می‌توانید مترجم را برای استفاده از استقرار Azure OpenAI خود با [OpenAICompatibleWebClient](https://reference.aspose.com/slides/fa/php-java/aspose.slides/openaicompatiblewebclient/) پیکربندی کنید.
+
+```php
+use aspose\slides\OpenAICompatibleWebClient;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlidesAIAgent;
+
+$model = "your-azure-deployment-name";
+$apiKey = "your-azure-api-key";
+$baseUrl = "https://your-resource.openai.azure.com/openai/v1/";
+
+$aiWebClient = new OpenAICompatibleWebClient($model, $apiKey, $baseUrl);
+try {
+    $aiAgent = new SlidesAIAgent($aiWebClient);
+    $presentation = new Presentation("Presentation.pptx");
+    try {
+        $aiAgent->translate($presentation, "spanish");
+        $presentation->save("Translated.pptx", SaveFormat::Pptx);
+    } finally {
+        $presentation->dispose();
+    }
+} finally {
+    $aiWebClient->dispose();
+}
+```
+
+این قطعه کد نشان می‌دهد که چگونه یک ارائه را با نقطه پایان Azure OpenAI خود ترجمه کنید. مقادیر جایگزین را با نام استقرار، کلید API و URL نقطه پایان خود جایگزین کنید.
+
+## **مزایای کلیدی**
+
+API Presentation Translation Aspose.Slides یک راه‌حل مبتنی بر هوش مصنوعی برای ارائه‌های چندزبانه PowerPoint ارائه می‌دهد. با خودکارسازی ترجمه در حالی که چیدمان و طراحی حفظ می‌شود، زمان صرفه‌جویی می‌کند و خطاها را نسبت به جریان کار دستی به‌حداقل می‌رساند. چه توسعه‌دهنده، معلم یا حرفه‌ای کسب‌وکار باشید، این API به شما امکان می‌دهد ارائه‌های جذاب و بومی‌سازی‌شده برای مخاطبان جهانی ایجاد کنید — دامنهٔ دسترسی‌تان را گسترش داده و ارتباطات را بهبود می‌بخشد.

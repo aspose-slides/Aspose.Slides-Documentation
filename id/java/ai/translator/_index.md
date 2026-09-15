@@ -10,9 +10,9 @@ keywords:
 - fitur berbasis AI
 - presentasi multibahasa
 - slide multibahasa
-- penerjemahan presentasi
-- penerjemahan slide
-- fitur AI yang digerakkan
+- terjemahan presentasi
+- terjemahan slide
+- fitur yang didorong AI
 - kemampuan AI
 - agen AI
 - klien web
@@ -21,7 +21,7 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Terjemahkan slide PowerPoint dengan AI menggunakan Aspose.Slides untuk Java. Lokalisisasi PPT, PPTX, dan ODP sambil mempertahankan tata letak—cepat dan ramah pengembang. Coba sekarang."
+description: "Terjemahkan slide PowerPoint dengan AI menggunakan Aspose.Slides untuk Java. Lokalisasi PPT, PPTX, dan ODP sambil mempertahankan tata letak—cepat dan ramah pengembang. Cobalah."
 ---
 ## **Pendahuluan**
 
@@ -29,14 +29,16 @@ Aspose.Slides adalah API yang kuat untuk mengelola presentasi PowerPoint secara 
 
 ## **Cara Kerja**
 
-Aspose.Slides tidak menyertakan kemampuan AI bawaan tetapi terintegrasi dengan model AI eksternal melalui internet. Fungsionalitas ini tersedia melalui kelas [SlidesAIAgent](https://reference.aspose.com/slides/id/java/com.aspose.slides/slidesaiagent/), yang menggunakan implementasi antarmuka [IAIWebClient](https://reference.aspose.com/slides/id/java/com.aspose.slides/iaiwebclient/) untuk berkomunikasi dengan layanan AI.
+Aspose.Slides tidak menyertakan kemampuan AI bawaan tetapi terintegrasi dengan model AI eksternal melalui internet. Fungsionalitas ini tersedia melalui kelas [SlidesAIAgent](https://reference.aspose.com/slides/id/java/com.aspose.slides/slidesaiagent/) yang menggunakan implementasi antarmuka [IAIWebClient](https://reference.aspose.com/slides/id/java/com.aspose.slides/iaiwebclient/) untuk berkomunikasi dengan layanan AI.
 
-Anda dapat menggunakan [OpenAIWebClient](https://reference.aspose.com/slides/id/java/com.aspose.slides/openaiwebclient/) bawaan untuk terhubung ke API OpenAI atau mengimplementasikan [IAIWebClient](https://reference.aspose.com/slides/id/java/com.aspose.slides/iaiwebclient/) Anda sendiri untuk menggunakan penyedia AI atau model bahasa yang berbeda.
+Anda dapat menggunakan [OpenAIWebClient](https://reference.aspose.com/slides/id/java/com.aspose.slides/openaiwebclient/) bawaan untuk terhubung ke API OpenAI atau mengimplementasikan [IAIWebClient](https://reference.aspose.com/slides/id/java/com.aspose.slides/iaiwebclient/) Anda sendiri untuk menggunakan penyedia AI atau model bahasa lain.
 
-Aspose.Slides menangani komunikasi, mengurai respons AI, dan secara cerdas menyisipkan konten terjemahan sambil mempertahankan tata letak dan format slide asli.
+Aspose.Slides menangani komunikasi, menganalisis respons AI, dan secara cerdas menyisipkan konten terjemahan sambil mempertahankan tata letak dan format slide asli.
 
-{{% alert color="primary" %}}
-Perhatikan bahwa API OpenAI merupakan layanan berbayar, jadi Anda harus membuat akun dan menyediakan kunci API Anda saat menggunakan [OpenAIWebClient](https://reference.aspose.com/slides/id/java/com.aspose.slides/openaiwebclient/) bawaan.
+{{% alert color="info" title="Note" %}}
+
+Perhatikan bahwa API OpenAI adalah layanan berbayar, jadi Anda harus membuat akun dan menyediakan kunci API Anda saat menggunakan [OpenAIWebClient](https://reference.aspose.com/slides/id/java/com.aspose.slides/openaiwebclient/) bawaan.
+
 {{% /alert %}}
 
 ## **Contoh**
@@ -44,6 +46,8 @@ Perhatikan bahwa API OpenAI merupakan layanan berbayar, jadi Anda harus membuat 
 Dalam contoh ini, kami menerjemahkan presentasi PowerPoint ke dalam bahasa Jepang menggunakan [OpenAIWebClient](https://reference.aspose.com/slides/id/java/com.aspose.slides/openaiwebclient/) bawaan dengan [model](https://platform.openai.com/docs/models) OpenAI tertentu.
 
 ```java
+import com.aspose.slides.*;
+
 // Muat presentasi untuk diterjemahkan.
 Presentation presentation = new Presentation("sample.pptx");
 
@@ -65,13 +69,51 @@ try {
 }
 ```
 
-Secara default, [OpenAIWebClient](https://reference.aspose.com/slides/id/java/com.aspose.slides/openaiwebclient/) bawaan membuat dan mengelola instansi internal [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) sendiri, menangani siklus hidupnya secara otomatis. Namun, bila Anda lebih memilih mengelola [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) secara manual — terutama untuk mengonfigurasi pengaturan penting seperti proxy, atau menggunakan [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) atau [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) yang berbeda untuk manajemen sumber daya dan kinerja yang lebih baik — Anda dapat menyediakan instansi `HttpURLConnection` Anda sendiri saat membangun [OpenAIWebClient](https://reference.aspose.com/slides/id/java/com.aspose.slides/openaiwebclient/).
+Secara default, [OpenAIWebClient](https://reference.aspose.com/slides/id/java/com.aspose.slides/openaiwebclient/) bawaan membuat dan mengelola instance [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) internalnya sendiri, menangani siklus hidupnya secara otomatis. Namun, jika Anda lebih suka mengelola [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) sendiri — terutama untuk mengonfigurasi pengaturan penting seperti proxy, atau menggunakan [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) atau [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) yang berbeda untuk pengelolaan sumber daya dan kinerja yang lebih baik — Anda dapat menyediakan instance `HttpURLConnection` milik Anda saat membuat [OpenAIWebClient](https://reference.aspose.com/slides/id/java/com.aspose.slides/openaiwebclient/).
 
 ```java
-// Asumsikan Anda memiliki instance HttpURLConnection yang sudah dikonfigurasi sebelumnya (misalnya, dengan timeout khusus, pengaturan proxy, dll.)
-HttpURLConnection urlConnection = yourPreconfiguredConnection;
+import com.aspose.slides.*;
+import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.URL;
+
+// Konfigurasikan instance HttpURLConnection sendiri (timeout khusus, pengaturan proxy, dll).
+Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy.example.com", 8080));
+HttpURLConnection urlConnection = (HttpURLConnection)new URL("https://api.openai.com/v1/chat/completions").openConnection(proxy);
+urlConnection.setConnectTimeout(30000);
+urlConnection.setReadTimeout(60000);
+
 OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, urlConnection);
 ```
+
+### **Contoh Azure OpenAI**
+
+Anda dapat mengonfigurasi penerjemah untuk menggunakan penyebaran Azure OpenAI Anda dengan [OpenAICompatibleWebClient](https://reference.aspose.com/slides/id/java/com.aspose.slides/openaicompatiblewebclient/).
+
+```java
+import com.aspose.slides.*;
+
+String model = "your-azure-deployment-name";
+String apiKey = "your-azure-api-key";
+String baseUrl = "https://your-resource.openai.azure.com/openai/v1/";
+
+OpenAICompatibleWebClient aiWebClient = new OpenAICompatibleWebClient(model, apiKey, baseUrl);
+try {
+    SlidesAIAgent aiAgent = new SlidesAIAgent(aiWebClient);
+    Presentation presentation = new Presentation("Presentation.pptx");
+    try {
+        aiAgent.translate(presentation, "spanish");
+        presentation.save("Translated.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    aiWebClient.dispose();
+}
+```
+
+Potongan kode ini memperlihatkan cara menerjemahkan presentasi menggunakan endpoint Azure OpenAI Anda. Ganti nilai placeholder dengan nama penyebaran, kunci API, dan URL endpoint Anda.
 
 ## **Manfaat Utama**
 

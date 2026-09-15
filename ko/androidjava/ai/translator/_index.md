@@ -13,7 +13,7 @@ keywords:
 - 프레젠테이션 번역
 - 슬라이드 번역
 - AI 구동 기능
-- AI 역량
+- AI 기능
 - AI 에이전트
 - 웹 클라이언트
 - PowerPoint
@@ -22,33 +22,37 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android를 Java로 사용하여 AI로 PowerPoint 슬라이드를 번역합니다. 레이아웃을 유지하면서 PPT, PPTX 및 ODP를 현지화하며—빠르고 개발자 친화적입니다. 사용해 보세요."
+description: "Java를 통해 Android용 Aspose.Slides를 사용하여 AI로 PowerPoint 슬라이드를 번역합니다. 레이아웃을 유지하면서 PPT, PPTX 및 ODP를 현지화—빠르고 개발자 친화적입니다. 지금 사용해 보세요."
 ---
 ## **소개**
 
-Aspose.Slides는 프로그래밍 방식으로 PowerPoint 프레젠테이션을 관리하는 강력한 API입니다. 슬라이드 생성, 편집 및 변환뿐만 아니라 다국어 슬라이드 콘텐츠를 위한 Presentation Translation API와 같은 AI 기반 기능도 제공합니다.
+Aspose.Slides는 PowerPoint 프레젠테이션을 프로그래밍 방식으로 관리할 수 있는 강력한 API입니다. 슬라이드 생성, 편집 및 변환 외에도 다국어 슬라이드 콘텐츠를 위한 Presentation Translation API와 같은 AI 기반 기능을 제공합니다.
 
 ## **작동 방식**
 
-Aspose.Slides는 기본 AI 기능을 포함하고 있지 않으며, 인터넷을 통해 외부 AI 모델과 통합됩니다. 이 기능은 [SlidesAIAgent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/slidesaiagent/) 클래스를 통해 제공되며, 해당 클래스는 AI 서비스와 통신하기 위해 [IAIWebClient](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iaiwebclient/) 인터페이스의 구현을 사용합니다.
+Aspose.Slides에는 기본 AI 기능이 포함되어 있지 않지만 인터넷을 통해 외부 AI 모델과 통합됩니다. 이 기능은 [SlidesAIAgent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/slidesaiagent/) 클래스를 통해 노출되며, AI 서비스와 통신하기 위해 [IAIWebClient](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iaiwebclient/) 인터페이스 구현을 사용합니다.
 
-내장된 [OpenAIWebClient](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/openaiwebclient/)를 사용하여 OpenAI API에 연결하거나, 다른 AI 제공자나 언어 모델을 사용하기 위해 자체 [IAIWebClient](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iaiwebclient/)를 구현할 수 있습니다.
+내장된 [OpenAIWebClient](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/openaiwebclient/)를 사용하여 OpenAI API에 연결하거나, 다른 AI 제공자나 언어 모델을 사용하려면 자체 [IAIWebClient](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iaiwebclient/)를 구현할 수 있습니다.
 
-Aspose.Slides는 통신을 처리하고 AI 응답을 파싱하며, 원래 슬라이드 레이아웃과 서식을 유지하면서 번역된 콘텐츠를 지능적으로 삽입합니다.
+Aspose.Slides는 통신을 처리하고 AI 응답을 파싱하며, 원본 슬라이드 레이아웃과 서식을 유지하면서 번역된 콘텐츠를 지능적으로 삽입합니다.
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Note" %}}
+
 OpenAI API는 유료 서비스이므로, 내장된 [OpenAIWebClient](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/openaiwebclient/)를 사용할 때 계정을 생성하고 API 키를 제공해야 합니다.
+
 {{% /alert %}}
 
-## **예시**
+## **예제**
 
-이 예시에서는 지정된 OpenAI [model](https://platform.openai.com/docs/models)을 사용하여 내장된 [OpenAIWebClient](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/openaiwebclient/)로 PowerPoint 프레젠테이션을 일본어로 번역합니다.
+이 예제에서는 지정된 OpenAI [model](https://platform.openai.com/docs/models)을 사용하여 내장된 [OpenAIWebClient](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/openaiwebclient/)으로 PowerPoint 프레젠테이션을 일본어로 번역합니다.
 
 ```java
-// 번역할 프레젠테이션을 로드합니다.
+import com.aspose.slides.*;
+
+// 번역할 프레젠테이션을 불러옵니다.
 Presentation presentation = new Presentation("sample.pptx");
 
-// 모델과 API 키를 지정하여 OpenAIWebClient로 AI 클라이언트를 생성합니다.
+// OpenAIWebClient로 AI 클라이언트를 생성하고 모델 및 API 키를 지정합니다.
 OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null);
 
 try {
@@ -66,14 +70,55 @@ try {
 }
 ```
 
-기본적으로, 내장된 [OpenAIWebClient](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/openaiwebclient/)은 자체 내부 [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) 인스턴스를 생성 및 관리하며, 수명 주기를 자동으로 처리합니다. 그러나 프록시와 같은 필수 설정을 구성하거나, 더 나은 리소스 관리와 성능을 위해 [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) 또는 다른 [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html)를 사용하고 싶다면, [OpenAIWebClient](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/openaiwebclient/)를 생성할 때 직접 `HttpURLConnection` 인스턴스를 제공할 수 있습니다.
+기본적으로 내장된 [OpenAIWebClient](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/openaiwebclient/)는 자체 내부 [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) 인스턴스를 생성하고 관리하며, 라이프사이클을 자동으로 처리합니다. 그러나 프록시와 같은 필수 설정을 구성하거나, [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) 또는 더 나은 리소스 관리와 성능을 위한 다른 [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html)를 사용하려는 경우, [OpenAIWebClient](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/openaiwebclient/)를 생성할 때 직접 `HttpURLConnection` 인스턴스를 제공할 수 있습니다.
 
 ```java
-// 사전 구성된 HttpURLConnection 인스턴스가 있다고 가정합니다(예: 사용자 지정 타임아웃, 프록시 설정 등)
-HttpURLConnection urlConnection = yourPreconfiguredConnection;
-OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, urlConnection);
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URI;
+
+try {
+    // HttpURLConnection 인스턴스를 직접 설정합니다 (예: 사용자 지정 타임아웃, 프록시 설정 등).
+    HttpURLConnection urlConnection = (HttpURLConnection) URI.create("https://api.openai.com/v1/chat/completions").toURL().openConnection();
+    urlConnection.setConnectTimeout(10000);
+    urlConnection.setReadTimeout(60000);
+
+    // 연결을 OpenAIWebClient 생성자에 전달합니다.
+    OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, urlConnection);
+} catch (IOException e) {
+    e.printStackTrace();
+}
 ```
+
+### **Azure OpenAI 예제**
+
+[OpenAICompatibleWebClient](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/openaicompatiblewebclient/)를 사용하여 Azure OpenAI 배포를 번역기에 연결하도록 구성할 수 있습니다.
+
+```java
+import com.aspose.slides.*;
+
+String model = "your-azure-deployment-name";
+String apiKey = "your-azure-api-key";
+String baseUrl = "https://your-resource.openai.azure.com/openai/v1/";
+
+OpenAICompatibleWebClient aiWebClient = new OpenAICompatibleWebClient(model, apiKey, baseUrl);
+try {
+    SlidesAIAgent aiAgent = new SlidesAIAgent(aiWebClient);
+    Presentation presentation = new Presentation("Presentation.pptx");
+    try {
+        aiAgent.translate(presentation, "spanish");
+        presentation.save("Translated.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    aiWebClient.dispose();
+}
+```
+
+이 스니펫은 Azure OpenAI 엔드포인트를 사용해 프레젠테이션을 번역하는 방법을 보여줍니다. 배포 이름, API 키 및 엔드포인트 URL을 실제 값으로 교체하십시오.
 
 ## **핵심 이점**
 
-Aspose.Slides Presentation Translation API는 다국어 PowerPoint 프레젠테이션을 제공하기 위한 AI 기반 솔루션을 제공합니다. 레이아웃과 디자인을 유지하면서 번역을 자동화함으로써 수작업 워크플로에 비해 시간 절약과 오류 최소화를 이루어냅니다. 개발자, 교육자, 비즈니스 전문가 등 누구든 이 API를 활용하여 전 세계 청중을 위한 매력적이고 현지화된 프레젠테이션을 만들 수 있어, 도달 범위를 확대하고 커뮤니케이션을 개선합니다.
+Aspose.Slides Presentation Translation API는 다국어 PowerPoint 프레젠테이션을 제공하기 위한 AI 기반 솔루션을 제공합니다. 레이아웃과 디자인을 유지하면서 번역을 자동화함으로써 시간을 절약하고 수동 작업에 비해 오류를 최소화합니다. 개발자, 교육자 또는 비즈니스 전문가이든, 이 API를 사용하면 전 세계 청중을 위한 매력적이고 현지화된 프레젠테이션을 손쉽게 만들 수 있어 도달 범위를 확대하고 커뮤니케이션을 향상시킬 수 있습니다.
