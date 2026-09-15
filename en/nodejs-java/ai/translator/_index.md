@@ -29,7 +29,7 @@ description: "Translate PowerPoint slides with AI using Aspose.Slides for Node.j
 
 Aspose.Slides is a powerful API for programmatically managing PowerPoint presentations. In addition to creating, editing, and converting slides, it offers AI-driven features - such as the Presentation Translation API for multilingual slide content.
 
-## **How it Works**
+## **How It Works**
 
 Aspose.Slides does not include built-in AI capabilities but integrates with external AI models over the internet. This functionality is exposed via the [SlidesAIAgent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesaiagent/) class to communicate with AI services.
 
@@ -37,7 +37,7 @@ You can use the built-in [OpenAIWebClient](https://reference.aspose.com/slides/n
 
 Aspose.Slides handles the communication, parses the AI responses, and intelligently inserts translated content while preserving the original slide layout and formatting.
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 Note that the OpenAI API is a paid service, so you will need to create an account and supply your API key when using the built-in [OpenAIWebClient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/openaiwebclient/).
 
@@ -72,7 +72,7 @@ try {
 }
 ```
 
-By default, the built-in [OpenAIWebClient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/openaiwebclient/) creates and manages its own internal [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) instance, handling its lifecycle automatically. However, if you prefer to manage the [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) yourself — primarily to configure essential settings like a proxy, or to use an [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) or a different [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) for better resource management and performance — you can provide your own `HttpURLConnection` instance when constructing the [OpenAIWebClient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/openaiwebclient/).
+By default, the built-in [OpenAIWebClient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/openaiwebclient/) creates and manages its own internal [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) instance, handling its lifecycle automatically. However, if you prefer to manage the [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) yourself — primarily to configure essential settings like a proxy, or to use a [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) or a different [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) for better resource management and performance — you can provide your own `HttpURLConnection` instance when constructing the [OpenAIWebClient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/openaiwebclient/).
 
 ```js
 var aspose = aspose || {};
@@ -87,6 +87,35 @@ urlConnection.setReadTimeout(60000);
 
 let aiWebClient = new aspose.slides.OpenAIWebClient("gpt-4o-mini", "apiKey", null, urlConnection);
 ```
+
+### **Azure OpenAI Example**
+
+You can configure the translator to use your Azure OpenAI deployment with the [OpenAICompatibleWebClient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/openaicompatiblewebclient/).
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let model = "your-azure-deployment-name";
+let apiKey = "your-azure-api-key";
+let baseUrl = "https://your-resource.openai.azure.com/openai/v1/";
+
+let aiWebClient = new aspose.slides.OpenAICompatibleWebClient(model, apiKey, baseUrl);
+try {
+    let aiAgent = new aspose.slides.SlidesAIAgent(aiWebClient);
+    let presentation = new aspose.slides.Presentation("presentation.pptx");
+    try {
+        aiAgent.translate(presentation, "spanish");
+        presentation.save("Translated.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    aiWebClient.dispose();
+}
+```
+
+This snippet demonstrates translating a presentation using your Azure OpenAI endpoint. Replace the placeholder values with your deployment name, API key, and endpoint URL.
 
 ## **Key Benefits**
 

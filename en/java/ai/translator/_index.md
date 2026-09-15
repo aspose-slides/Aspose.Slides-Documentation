@@ -36,7 +36,7 @@ You can use the built-in [OpenAIWebClient](https://reference.aspose.com/slides/j
 
 Aspose.Slides handles the communication, parses the AI responses, and intelligently inserts translated content while preserving the original slide layout and formatting.
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 Note that the OpenAI API is a paid service, so you will need to create an account and supply your API key when using the built-in [OpenAIWebClient](https://reference.aspose.com/slides/java/com.aspose.slides/openaiwebclient/).
 
@@ -70,7 +70,7 @@ try {
 }
 ```
 
-By default, the built-in [OpenAIWebClient](https://reference.aspose.com/slides/java/com.aspose.slides/openaiwebclient/) creates and manages its own internal [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) instance, handling its lifecycle automatically. However, if you prefer to manage the [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) yourself — primarily to configure essential settings like a proxy, or to use an [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) or a different [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) for better resource management and performance — you can provide your own `HttpURLConnection` instance when constructing the [OpenAIWebClient](https://reference.aspose.com/slides/java/com.aspose.slides/openaiwebclient/).
+By default, the built-in [OpenAIWebClient](https://reference.aspose.com/slides/java/com.aspose.slides/openaiwebclient/) creates and manages its own internal [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) instance, handling its lifecycle automatically. However, if you prefer to manage the [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) yourself — primarily to configure essential settings like a proxy, or to use a [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) or a different [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) for better resource management and performance — you can provide your own `HttpURLConnection` instance when constructing the [OpenAIWebClient](https://reference.aspose.com/slides/java/com.aspose.slides/openaiwebclient/).
 
 ```java
 import com.aspose.slides.*;
@@ -87,6 +87,34 @@ urlConnection.setReadTimeout(60000);
 
 OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, urlConnection);
 ```
+
+### **Azure OpenAI Example**
+
+You can configure the translator to use your Azure OpenAI deployment with the [OpenAICompatibleWebClient](https://reference.aspose.com/slides/java/com.aspose.slides/openaicompatiblewebclient/).
+
+```java
+import com.aspose.slides.*;
+
+String model = "your-azure-deployment-name";
+String apiKey = "your-azure-api-key";
+String baseUrl = "https://your-resource.openai.azure.com/openai/v1/";
+
+OpenAICompatibleWebClient aiWebClient = new OpenAICompatibleWebClient(model, apiKey, baseUrl);
+try {
+    SlidesAIAgent aiAgent = new SlidesAIAgent(aiWebClient);
+    Presentation presentation = new Presentation("Presentation.pptx");
+    try {
+        aiAgent.translate(presentation, "spanish");
+        presentation.save("Translated.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+} finally {
+    aiWebClient.dispose();
+}
+```
+
+This snippet demonstrates translating a presentation using your Azure OpenAI endpoint. Replace the placeholder values with your deployment name, API key, and endpoint URL.
 
 ## **Key Benefits**
 
