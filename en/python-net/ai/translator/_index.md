@@ -65,9 +65,9 @@ with slides.Presentation("sample.pptx") as presentation:
         presentation.save("sample_jp.pdf", slides.export.SaveFormat.PDF)
 ```
 
-### Azure OpenAI Example
+### **Azure OpenAI Example**
 
-Since version **26.7.0**, Aspose.Slides for Python via .NET supports OpenAI-compatible providers, including Azure OpenAI. You can configure the translator to use your in-house Azure deployment with the `OpenAICompatibleWebClient`.
+Since version **26.7.0**, Aspose.Slides for Python via .NET supports OpenAI-compatible providers, including Azure OpenAI. You can configure the translator to use your in-house Azure deployment with the [OpenAICompatibleWebClient](https://reference.aspose.com/slides/python-net/aspose.slides.ai/openaicompatiblewebclient/).
 
 ```py
 import aspose.slides as slides
@@ -76,11 +76,11 @@ model = "your-azure-deployment-name"
 api_key = "your-azure-api-key"
 base_url = "https://your-resource.openai.azure.com/openai/v1/"
 
-with slides.ai.OpenAICompatibleWebClient(model, api_key, base_url) as ai_client:
-    ai_agent = slides.ai.SlidesAIAgent(ai_client)
-    with slides.Presentation("Presentation.pptx") as pres:
-        ai_agent.translate(pres, "spanish")
-        pres.save("Translated.pptx", slides.export.SaveFormat.PPTX)
+with slides.ai.OpenAICompatibleWebClient(model, api_key, base_url) as ai_web_client:
+    ai_agent = slides.ai.SlidesAIAgent(ai_web_client)
+    with slides.Presentation("Presentation.pptx") as presentation:
+        ai_agent.translate(presentation, "spanish")
+        presentation.save("Translated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 This snippet demonstrates translating a presentation using your Azure OpenAI endpoint. Replace the placeholder values with your deployment name, API key, and endpoint URL.
