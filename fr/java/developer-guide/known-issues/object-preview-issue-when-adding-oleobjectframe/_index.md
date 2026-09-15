@@ -7,51 +7,51 @@ url: /fr/java/object-preview-issue-when-adding-oleobjectframe/
 keywords:
 - OLE
 - problème d'aperçu
-- objet intégré
-- fichier intégré
+- objet incorporé
+- fichier incorporé
 - objet modifié
-- aperçu d'objet
+- aperçu de l'objet
 - PowerPoint
 - présentation
 - Java
 - Aspose.Slides
-description: "Découvrez pourquoi EMBEDDED OLE OBJECT apparaît lors de l'ajout d'OleObjectFrame dans Aspose.Slides for Java et comment corriger les problèmes d'aperçu dans les présentations PPT, PPTX et ODP."
+description: "Découvrez pourquoi le message EMBEDDED OLE OBJECT apparaît lors de l'ajout d'OleObjectFrame dans Aspose.Slides pour Java et comment résoudre les problèmes d'aperçu dans les présentations PPT, PPTX et ODP."
 ---
-
 ## **Introduction**
 
-En utilisant Aspose.Slides for Java, lorsque vous ajoutez un [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/oleobjectframe/) à une diapositive, le message «EMBEDDED OLE OBJECT» apparaît sur la diapositive de sortie. Ce message est intentionnel et n’est pas un bug.
+En utilisant Aspose.Slides pour Java, lorsque vous ajoutez [OleObjectFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/oleobjectframe/) à une diapositive, un message « EMBEDDED OLE OBJECT » s’affiche sur la diapositive de sortie. Ce message est intentionnel et n’est PAS un bug.
 
-Pour plus d’informations sur la manipulation des objets OLE, consultez [Gérer OLE](/slides/fr/java/manage-ole/).
+Pour plus d’informations sur la manipulation des objets OLE, consultez [Manage OLE](/slides/fr/java/manage-ole/). 
 
 ## **Explication et solution**
 
-Aspose.Slides affiche le message «EMBEDDED OLE OBJECT» pour vous indiquer que l’objet OLE a été modifié et que l’image de prévisualisation doit être mise à jour.
+Aspose.Slides affiche le message « EMBEDDED OLE OBJECT » pour vous informer que l’objet OLE a été modifié et que l’image d’aperçu doit être mise à jour. 
 
-Par exemple, si vous ajoutez un graphique Microsoft Excel en tant que [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/oleobjectframe/) à une diapositive (pour plus de détails, voir l’article «Gérer OLE») puis ouvrez la présentation dans Microsoft PowerPoint, vous verrez cette image sur la diapositive :
+Par exemple, si vous ajoutez un graphique Microsoft Excel comme [OleObjectFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/oleobjectframe/) à une diapositive (pour plus de détails, voir l’article « Manage OLE ») puis ouvrez la présentation dans Microsoft PowerPoint, vous verrez cette image sur la diapositive :
 
-![Message d'objet OLE](OLE_object_message.png)
+![Message d’objet OLE](OLE_object_message.png)
 
-Si vous souhaitez vérifier et confirmer que votre objet OLE a bien été ajouté à la diapositive, vous devez double-cliquer sur le message «EMBEDDED OLE OBJECT», ou faire un clic droit dessus et choisir l’option **Objet > Modifier**.
+Si vous voulez vérifier et confirmer que votre objet OLE a bien été ajouté à la diapositive, vous devez double‑cliquer sur le message « EMBEDDED OLE OBJECT », ou vous pouvez faire un clic droit dessus et choisir l’option **Object > Edit**.
 
 ![Objet OLE > Modifier](OLE_object_edit.png)
 
-PowerPoint ouvre alors l’objet OLE intégré.
+PowerPoint ouvre alors l’objet OLE incorporé.
 
-![Données de l'objet OLE](OLE_object_data.png)
+![Données de l’objet OLE](OLE_object_data.png)
 
-La diapositive peut conserver le message «EMBEDDED OLE OBJECT». Une fois que vous cliquez sur l’objet OLE, la prévisualisation de la diapositive est mise à jour et le message «EMBEDDED OLE OBJECT» est remplacé par l’image réelle de l’objet OLE.
+La diapositive peut conserver le message « EMBEDDED OLE OBJECT ». Une fois que vous cliquez sur l’objet OLE, l’aperçu de la diapositive est mis à jour et le message « EMBEDDED OLE OBJECT » est remplacé par l’image réelle de l’objet OLE. 
 
-![Prévisualisation de l'objet OLE](OLE_object_preview.png)
+![Aperçu de l’objet OLE](OLE_object_preview.png)
 
-Vous pouvez maintenant enregistrer votre présentation pour vous assurer que l’image de l’objet OLE est correctement mise à jour. Ainsi, après avoir enregistré la présentation, lorsque vous l’ouvrirez à nouveau, vous ne verrez PAS le message «EMBEDDED OLE OBJECT».
+Vous pouvez maintenant enregistrer votre présentation afin que l’image de l’objet OLE soit correctement mise à jour. Ainsi, après avoir enregistré la présentation, lorsque vous l’ouvrirez à nouveau, vous ne verrez plus le message « EMBEDDED OLE OBJECT ». 
 
-## **Autres solutions**
+## **Autre solution**
 
-### **Solution 1: Remplacer le message «Embedded OLE Object» par une image**
+Si vous ne voulez pas supprimer le message « EMBEDDED OLE OBJECT » en ouvrant la présentation dans PowerPoint puis en l’enregistrant, vous pouvez remplacer le message par votre image d’aperçu préférée. Ces lignes de code illustrent le processus :
 
-Si vous ne souhaitez pas supprimer le message «EMBEDDED OLE OBJECT» en ouvrant la présentation dans PowerPoint puis en l’enregistrant, vous pouvez remplacer le message par votre image de prévisualisation préférée. Ces lignes de code illustrent le processus :
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("embeddedOLE.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -72,11 +72,6 @@ try {
 }
 ```
 
-
 La diapositive contenant le `OleObjectFrame` devient alors :
 
-![Nouvelle image d'objet OLE](OLE_object_new_image.png)
-
-### **Solution 2: Créer un module complémentaire pour PowerPoint**
-
-Vous pouvez également créer un module complémentaire pour Microsoft PowerPoint qui met à jour tous les objets OLE lorsque vous ouvrez des présentations dans le programme.
+![Nouvelle image d’objet OLE](OLE_object_new_image.png)

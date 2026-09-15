@@ -1,6 +1,6 @@
 ---
-title: Objektum Előnézeti Probléma OleObjectFrame Hozzáadásakor
-linktitle: OLE Objektum Probléma
+title: Objektum előnézeti probléma OleObjectFrame hozzáadása esetén
+linktitle: OLE objektum probléma
 type: docs
 weight: 10
 url: /hu/java/object-preview-issue-when-adding-oleobjectframe/
@@ -9,59 +9,59 @@ keywords:
 - előnézeti probléma
 - beágyazott objektum
 - beágyazott fájl
-- objektum módosult
+- objektum megváltozott
 - objektum előnézet
 - PowerPoint
-- bemutató
+- prezentáció
 - Java
 - Aspose.Slides
-description: "Ismerje meg, miért jelenik meg az EMBEDDED OLE OBJECT az OleObjectFrame hozzáadásakor az Aspose.Slides for Java-ban, és hogyan javítható az előnézeti probléma PPT, PPTX és ODP bemutatókban."
+description: "Ismerje meg, miért jelenik meg az EMBEDDED OLE OBJECT, amikor OleObjectFrame-et ad hozzá az Aspose.Slides for Java-ban, és hogyan lehet megoldani az előnézeti problémákat PPT, PPTX és ODP prezentációkban."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides for Java használatakor, amikor egy [OleObjectFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/oleobjectframe/) keretet ad hozzá egy diára, a kimeneti dián egy "EMBEDDED OLE OBJECT" üzenet jelenik meg. Ez az üzenet szándékos, és NEM hibáról van szó.
+Az Aspose.Slides for Java használatával, amikor egy [OleObjectFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/oleobjectframe/) keretet adsz egy diára, egy "EMBEDDED OLE OBJECT" üzenet jelenik meg a kimeneti dián. Ez az üzenet szándékos, és NEM hiba.
 
-További információkért az OLE objektumok használatáról, lásd a [Manage OLE](/slides/hu/java/manage-ole/) oldalt. 
+További információért az OLE objektumok kezeléséről, lásd a [Manage OLE](/slides/hu/java/manage-ole/) oldalt. 
 
 ## **Magyarázat és megoldás**
 
-Az Aspose.Slides a "EMBEDDED OLE OBJECT" üzenetet jeleníti meg, hogy jelezze, az OLE objektum módosult és a előnézeti képet frissíteni kell. 
+Az Aspose.Slides a "EMBEDDED OLE OBJECT" üzenetet jeleníti meg, hogy értesítsen arról, hogy az OLE objektum módosult, és a előnézeti képet frissíteni kell. 
 
-Például, ha egy Microsoft Excel ábrát ad hozzá egy [OleObjectFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/oleobjectframe/) keretként egy diára (további részletekért lásd a "Manage OLE" cikket), és ezt követően megnyitja a bemutatót a Microsoft PowerPointban, a dián ezt a képet fogja látni:
+Például, ha egy Microsoft Excel diagramot adsz hozzá egy [OleObjectFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/oleobjectframe/) keretként egy diára (további részletekért lásd a "Manage OLE" cikket), majd a prezentációt megnyitod a Microsoft PowerPointban, ezt a képet fogod látni a dián:
 
-![OLE object message](OLE_object_message.png)
+![OLE objektum üzenet](OLE_object_message.png)
 
-Ha ellenőrizni és megerősíteni szeretné, hogy az OLE objektum hozzá lett adva a diához, dupla-kattintással kell aktiválnia a "EMBEDDED OLE OBJECT" üzenetet, vagy jobb-kattintással a **Object > Edit** lehetőséget választhatja.
+Ha ellenőrizni és megerősíteni szeretnéd, hogy az OLE objektumod hozzá lett adva a diához, duplán kattints a "EMBEDDED OLE OBJECT" üzenetre, vagy jobb‑kattintással a **Object > Edit** lehetőséget válaszd.
 
-![OLE object > Edit](OLE_object_edit.png)
+![OLE objektum > Szerkesztés](OLE_object_edit.png)
 
-A PowerPoint ezután megnyitja a beágyazott OLE objektumot.
+A PowerPoint ekkor megnyitja a beágyazott OLE objektumot.
 
-![OLE object data](OLE_object_data.png)
+![OLE objektum adatai](OLE_object_data.png)
 
-A dia megtarthatja a "EMBEDDED OLE OBJECT" üzenetet. Amikor rákattint az OLE objektumra, a diá előnézete frissül, és a "EMBEDDED OLE OBJECT" üzenet helyét az OLE objektum tényleges képe veszi át. 
+A dia megtarthatja a "EMBEDDED OLE OBJECT" üzenetet. Miután rákattintasz az OLE objektumra, a dia előnézete frissül, és a "EMBEDDED OLE OBJECT" üzenet helyére az OLE objektum tényleges képe kerül. 
 
-![OLE object preview](OLE_object_preview.png)
+![OLE objektum előnézet](OLE_object_preview.png)
 
-Most érdemes menteni a bemutatót, hogy biztosítsa az OLE objektum képének helyes frissítését. Így a bemutató mentése után, amikor újból megnyitja, nem fogja látni a "EMBEDDED OLE OBJECT" üzenetet. 
+Most előfordulhat, hogy el akarod menteni a prezentációt, hogy biztosítsd az OLE objektum képének megfelelő frissítését. Így a prezentáció mentése után, amikor újra megnyitod, NEM fogod látni a "EMBEDDED OLE OBJECT" üzenetet. 
 
-## **Egyéb megoldások**
+## **Egyéb megoldás**
 
-### **Megoldás 1: A "Embedded OLE Object" üzenet cseréje képre**
-
-Ha nem szeretné eltávolítani a "EMBEDDED OLE OBJECT" üzenetet a bemutató PowerPointban való megnyitásával és mentésével, helyettesítheti az üzenetet a kívánt előnézeti képpel. Az alábbi kódsorok bemutatják a folyamatot:
+Ha nem szeretnéd eltávolítani a "EMBEDDED OLE OBJECT" üzenetet a prezentáció PowerPointban történő megnyitásával és mentésével, akkor helyettesítheted az üzenetet a kívánt előnézeti képpel. Az alábbi kódsorok mutatják a folyamatot:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("embeddedOLE.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
 
-    // Kép hozzáadása a bemutató erőforrásaihoz.
+    // Képet ad a prezentáció erőforrásaihoz.
     IImage image = Images.fromFile("myImage.png");
     IPPImage oleImage = presentation.getImages().addImage(image);
 
-    // Cím és kép beállítása az OLE objektum előnézetéhez.
+    // Beállít egy címet és a képet az OLE objektum előnézetéhez.
     oleFrame.setSubstitutePictureTitle("My title");
     oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
     oleFrame.setObjectIcon(false);
@@ -72,10 +72,6 @@ try {
 }
 ```
 
-A `OleObjectFrame`‑et tartalmazó dia ezután így néz ki:
+Ezután a `OleObjectFrame`‑t tartalmazó dia így néz ki:
 
-![New OLE object image](OLE_object_new_image.png)
-
-### **Megoldás 2: Kiegészítő létrehozása a PowerPointhoz**
-
-Létrehozhat egy kiegészítőt a Microsoft PowerPointhoz, amely a bemutatók megnyitásakor frissíti az összes OLE objektumot.
+![Új OLE objektum kép](OLE_object_new_image.png)

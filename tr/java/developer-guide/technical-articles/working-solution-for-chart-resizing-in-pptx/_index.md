@@ -1,50 +1,53 @@
 ---
-title: PPTX'te Çizelge Yeniden Boyutlandırma için Çözüm
+title: PPTX'te Grafik Yeniden Boyutlandırma İçin Çalışan Çözüm
 type: docs
 weight: 40
 url: /tr/java/working-solution-for-chart-resizing-in-pptx/
 keywords:
-- çizelge yeniden boyutlandırma
-- Excel çizelgesi
+- grafik yeniden boyutlandırma
+- Excel grafik
 - OLE nesnesi
-- çizelge gömme
+- grafik gömme
 - PowerPoint
 - OpenDocument
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile gömülü Excel OLE nesneleri kullanıldığında PPTX'te beklenmeyen çizelge yeniden boyutlandırmasını düzeltin. Boyutların tutarlı kalması için iki yöntem ve kod örnekleri öğrenin."
+description: "Aspose.Slides for Java ile gömülü Excel OLE nesneleri kullanıldığında PPTX'te beklenmeyen grafik yeniden boyutlandırmayı düzeltin. Boyutların tutarlı kalmasını sağlamak için kodla iki yöntemi öğrenin."
 ---
 ## **Arka Plan**
 
-Aspose bileşenleri aracılığıyla bir PowerPoint sunumuna OLE nesnesi olarak gömülen Excel çizelgelerinin ilk etkinleştirilmelerinden sonra belirlenmemiş bir ölçeğe yeniden boyutlandırıldığı gözlemlenmiştir. Bu davranış, çizelgenin etkinleştirme öncesi ve sonrası durumları arasında sunumda belirgin bir görsel fark oluşturur. Aspose ekibi sorunu ayrıntılı olarak araştırmış ve bir çözüm bulmuştur. Bu makale sorunun nedenlerini ve ilgili düzeltmeyi açıklamaktadır.
+Excel grafiklerinin Aspose bileşenleri aracılığıyla bir PowerPoint sunumunda OLE nesnesi olarak gömülmesi sonrasında, ilk etkinleştirilmelerinden sonra belirsiz bir ölçekte yeniden boyutlandırıldığı gözlemlenmiştir. Bu davranış, grafiğin etkinleştirilmeden önceki ve sonraki durumları arasında belirgin bir görsel fark yaratır. Aspose ekibi sorunu ayrıntılı olarak inceledi ve bir çözüm buldu. Bu makale sorunun nedenlerini ve ilgili düzeltmeyi açıklamaktadır.
 
-[Önceki makalede](/slides/tr/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) Aspose.Cells for Java ile bir Excel çizelgesi oluşturup, Aspose.Slides for Java kullanarak bunu bir PowerPoint sunumuna nasıl gömeceğimizi açıklamıştık. [Nesne önizleme sorunu](/slides/tr/java/object-preview-issue-when-adding-oleobjectframe/) ile başa çıkmak için çizelge resmini çizelgenin OLE nesne çerçevesine atadık. Çıktı sunumunda, çizelge resmini gösteren OLE nesne çerçevesine çift tıkladığınızda Excel çizelgesi etkinleştirilir. Son kullanıcılar, temel Excel çalışma kitabında istedikleri değişiklikleri yaptıktan sonra etkinleştirilen çalışma kitabının dışına tıklayarak ilgili slayta geri dönebilir. Kullanıcı slayta döndüğünde OLE nesne çerçevesinin boyutu değişir ve yeniden boyutlandırma faktörü, OLE nesne çerçevesi ile gömülü Excel çalışma kitabının orijinal boyutlarına bağlı olarak farklılık gösterir.
+[önceki makale](/slides/tr/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) adresinde, Aspose.Cells for Java ile bir Excel grafiği oluşturup Aspose.Slides for Java kullanarak bir PowerPoint sunumuna nasıl gömeceğinizi anlattık. [nesne önizleme sorunu](/slides/tr/java/object-preview-issue-when-adding-oleobjectframe/) (object preview issue) çözümü için grafiğin görüntüsünü OLE nesne çerçevesine atadık. Çıktı sunumunda, grafiğin görüntüsünü gösteren OLE nesne çerçevesine çift‑tıkladığınızda Excel grafiği etkinleştirilir. Son kullanıcılar, alttaki Excel çalışma kitabında istedikleri değişiklikleri yaptıktan sonra etkinleştirilen çalışma kitabının dışına tıklayarak ilgili slayta geri dönebilir. Kullanıcı slayta döndüğünde OLE nesne çerçevesinin boyutu değişir ve bu yeniden boyutlandırma faktörü, OLE nesne çerçevesinin ve gömülü Excel çalışma kitabının orijinal boyutlarına bağlı olarak değişir.
 
 ## **Yeniden Boyutlandırmanın Nedeni**
 
-Excel çalışma kitabının kendi pencere boyutu olduğu için ilk etkinleştirildiğinde orijinal boyutunu korumaya çalışır. OLE nesne çerçevesinin ise ayrı bir boyutu vardır. Microsoft'a göre, Excel çalışma kitabı etkinleştirildiğinde Excel ve PowerPoint boyutu müzakere eder ve gömme sürecinin bir parçası olarak doğru oranları korur. Excel pencere boyutu ile OLE nesne çerçevesinin boyut veya konum farklarına bağlı olarak yeniden boyutlandırma gerçekleşir.
+Excel çalışma kitabının kendi pencere boyutu olduğundan, ilk etkinleştirildiğinde orijinal boyutunu korumaya çalışır. OLE nesne çerçevesinin ise kendi boyutu vardır. Microsoft’a göre, Excel çalışma kitabı etkinleştirildiğinde, Excel ve PowerPoint boyutu müzakere eder ve gömme işleminin bir parçası olarak doğru oranları korur. Excel pencere boyutu ile OLE nesne çerçevesinin boyut veya konum farkına bağlı olarak yeniden boyutlandırma gerçekleşir.
 
 ## **Çözüm**
 
-Java için Aspose.Slides kullanarak PowerPoint sunumları oluşturmanın iki olası senaryosu vardır.
+PowerPoint sunumlarını Aspose.Slides for Java ile oluştururken iki olası senaryo vardır.
 
-**Senaryo 1:** Mevcut bir şablona dayalı bir sunum oluşturmak.
+**Senaryo 1:** Mevcut bir şablona dayanarak sunum oluşturma.
 
-**Senaryo 2:** Sıfırdan bir sunum oluşturmak.
+**Senaryo 2:** Sıfırdan yeni bir sunum oluşturma.
 
-Burada sunduğumuz çözüm her iki senaryoya da uygulanabilir. Tüm çözüm yaklaşımlarının temeli aynıdır: **gömülü OLE nesnesinin pencere boyutu, PowerPoint slaytındaki OLE nesne çerçevesiyle aynı olmalıdır**. Şimdi bu çözüme yönelik iki yaklaşımı tartışacağız.
+Burada sunduğumuz çözüm her iki senaryoya da uygulanabilir. Tüm çözüm yaklaşımlarının temeli aynıdır: **gömülü OLE nesnesinin pencere boyutu, PowerPoint slaydındaki OLE nesne çerçevesiyle aynı olmalıdır**. Şimdi bu çözümün iki yaklaşımını inceleyeceğiz.
 
-## **Birinci Yaklaşım**
+## **İlk Yaklaşım**
 
-Bu yaklaşımda, gömülü Excel çalışma kitabının pencere boyutunu PowerPoint slaytındaki OLE nesne çerçevesiyle aynı olacak şekilde nasıl ayarlayacağımızı öğreneceğiz.
+Bu yaklaşımda, gömülü Excel çalışma kitabının pencere boyutunu, PowerPoint slaydındaki OLE nesne çerçevesinin boyutuna eşit olacak şekilde ayarlamayı öğreneceğiz.
 
 **Senaryo 1**
 
-Bir şablon tanımladığımızı ve buna dayalı sunumlar oluşturmak istediğimizi varsayalım. Şablonda, indeks 2'de bir şekil olduğunu ve bu şekle gömülü bir Excel çalışma kitabı içeren bir OLE çerçevesi yerleştirmek istediğimizi düşünelim. Bu senaryoda OLE nesne çerçevesinin boyutu önceden tanımlanmıştır — şablondaki indeks 2'deki şeklin boyutuyla eşleşir. Tek yapmamız gereken, çalışma kitabının pencere boyutunu o şeklin boyutuna eşitlemektir. Aşağıdaki kod parçacığı bu amacı gerçekleştirir:
+Bir şablon tanımladığımızı ve bu şablona dayanarak sunumlar oluşturmak istediğimizi varsayalım. Şablonda indeks 2’de bir şekil var ve bu şeklin içine gömülü bir Excel çalışma kitabı içeren bir OLE çerçevesi yerleştirmek istiyoruz. Bu senaryoda OLE nesne çerçevesinin boyutu önceden tanımlıdır – indeks 2’deki şeklin boyutuyla aynıdır. Tek yapmamız gereken, çalışma kitabının pencere boyutunu bu şeklin boyutuna eşitlemektir. Aşağıdaki kod parçacığı bu amacı gerçekleştirir:
 
 ```java
-// Çalışma kitabının pencere genişliğini inç cinsinden ayarlayın (PowerPoint inç başına 576 piksel kullandığı için 576'ya bölünür).
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+
+// Çalışma kitabının pencere genişliğini inç cinsinden ayarlayın (PowerPoint 72 nokta/inç kullandığından 72'ye bölünür).
 workbook.getSettings().setWindowWidthInch(slide.getShapes().get_Item(2).getWidth() / 72f);
  
 // Çalışma kitabının pencere yüksekliğini inç cinsinden ayarlayın.
@@ -55,149 +58,158 @@ ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
 workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
  
 // Gömülü Excel verileriyle bir OLE nesne çerçevesi oluşturun.
+IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
     slide.getShapes().get_Item(2).getX(),
     slide.getShapes().get_Item (2).getY(),
     slide.getShapes().get_Item (2).getWidth(),
     slide.getShapes().get_Item (2).getHeight(),
-    "Excel.Sheet.8",
-    workbookStream.toByteArray());
+    dataInfo);
 ```
 
 **Senaryo 2**
 
-Sıfırdan bir sunum oluşturmak ve gömülü bir Excel çalışma kitabı içeren istediğiniz boyutta bir OLE nesne çerçevesi eklemek istediğinizi varsayalım. Aşağıdaki kod parçacığında, slayt üzerinde x = 0,5 inç ve y = 1 inç konumunda yüksekliği 4 inç, genişliği 9,5 inç olan bir OLE nesne çerçevesi oluşturuyoruz. Ardından Excel çalışma kitabı penceresini aynı boyuta — yüksekliği 4 inç, genişliği 9,5 inç — ayarlıyoruz.
+Sıfırdan bir sunum oluşturmak ve içinde herhangi bir boyutta, gömülü bir Excel çalışma kitabı bulunan bir OLE çerçevesi eklemek istediğimizi düşünelim. Aşağıdaki kodda, slaytta x = 0,5 inç ve y = 1 inç konumunda, yüksekliği 4 inç ve genişliği 9,5 inç olan bir OLE çerçevesi oluşturuyoruz. Ardından Excel çalışma kitabı penceresini aynı boyuta – yüksekliği 4 inç, genişliği 9,5 inç – ayarlıyoruz.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+
 // İstediğimiz yükseklik.
 int desiredHeight = 288; // 4 inç (4 * 72)
  
 // İstediğimiz genişlik.
 int desiredWidth = 684; // 9.5 inç (9.5 * 72)
  
-// Çizelge boyutunu bir pencere ile tanımla.
+// Pencere ile grafik boyutunu tanımla.
 chart.setSizeWithWindow(true);
  
-// Çalışma kitabının pencere genişliğini inç cinsinden ayarla (PowerPoint inç başına 576 piksel kullandığı için 576'ya bölünür).
-workbook.getSettings().setWindowWidthInch(desiredHeight / 72f);
+// Çalışma kitabının pencere genişliğini inç cinsinden ayarlayın (PowerPoint 72 nokta/inç kullandığından 72'ye bölünür).
+workbook.getSettings().setWindowWidthInch(desiredWidth / 72f);
  
-// Çalışma kitabının pencere yüksekliğini inç cinsinden ayarla.
-workbook.getSettings().setWindowHeightInch(desiredWidth / 72f);
+// Çalışma kitabının pencere yüksekliğini inç cinsinden ayarlayın.
+workbook.getSettings().setWindowHeightInch(desiredHeight / 72f);
  
-// Çalışma kitabını bir bellek akışına kaydet.
+// Çalışma kitabını bir bellek akışına kaydedin.
 ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
 workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
  
-// Gömülü Excel verileriyle bir OLE nesne çerçevesi oluştur.
+// Gömülü Excel verileriyle bir OLE nesne çerçevesi oluşturun.
+IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    288,
-    576,
+    36,  // x = 0.5 inç (0.5 * 72)
+    72,  // y = 1 inç (1 * 72)
     desiredWidth,
     desiredHeight,
-    "Excel.Sheet.8",
-    workbookStream.toByteArray());
+    dataInfo);
 ```
 
 ## **İkinci Yaklaşım**
 
-Bu yaklaşımda, gömülü Excel çalışma kitabındaki çizelgenin boyutunu PowerPoint slaytındaki OLE nesne çerçevesiyle aynı olacak şekilde nasıl ayarlayacağımızı öğreneceğiz. Bu yaklaşım, çizelge boyutunun önceden bilindiği ve değişmeyeceği durumlarda kullanışlıdır.
+Bu yaklaşımda, gömülü Excel çalışma kitabındaki grafiğin boyutunu, PowerPoint slaydındaki OLE nesne çerçevesinin boyutuna eşit olacak şekilde ayarlamayı öğreneceğiz. Bu yaklaşım, grafik boyutu önceden biliniyor ve değişmeyecekse kullanışlıdır.
 
 **Senaryo 1**
 
-Bir şablon tanımladığımızı ve buna dayalı sunumlar oluşturmak istediğimizi varsayalım. Şablonda, indeks 2'de bir şekil olduğunu ve bu şekle gömülü bir Excel çalışma kitabı içeren bir OLE çerçevesi yerleştirmek istediğimizi düşünelim. Bu senaryoda OLE çerçevesinin boyutu önceden tanımlanmıştır — şablondaki indeks 2'deki şeklin boyutuyla eşleşir. Tek yapmamız gereken, çalışma kitabındaki çizelge boyutunu o şeklin boyutuna eşitlemektir. Aşağıdaki kod parçacığı bu amacı gerçekleştirir:
+Bir şablon tanımladığımızı ve bu şablona dayanarak sunumlar oluşturmak istediğimizi varsayalım. Şablonda indeks 2’de bir şekil var ve bu şeklin içine gömülü bir Excel çalışma kitabı içeren bir OLE çerçevesi yerleştirmeyi planlıyoruz. Bu senaryoda OLE çerçevesinin boyutu önceden tanımlıdır – indeks 2’deki şeklin boyutuyla aynıdır. Tek yapmamız gereken, çalışma kitabındaki grafiğin boyutunu bu şeklin boyutuna eşitlemektir. Aşağıdaki kod parçacığı bu amacı gerçekleştirir:
 
 ```java
-// Pencere olmadan çizelge boyutunu tanımla.
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+
+// Pencere olmadan grafik boyutunu tanımla.
 chart.setSizeWithWindow(false);
  
-// Çizelge genişliğini piksel cinsinden ayarla (Excel inç başına 96 piksel kullandığı için 96 ile çarp).
+// Grafiğin genişliğini piksel cinsinden ayarla (Excel'in inç başına 96 piksel kullandığını göz önünde bulundurarak 96 ile çarpın).
 chart.getChartObject().setWidth((int)((slide.getShapes().get_Item(2).getWidth() / 72f) * 96f));
  
-// Çizelge yüksekliğini piksel cinsinden ayarla.
+// Grafiğin yüksekliğini piksel cinsinden ayarla.
 chart.getChartObject().setHeight((int)((slide.getShapes().get_Item(2).getHeight() / 72f) * 96f));
  
-// Çizelge baskı boyutunu tanımla.
-chart.setPrintSize(PrintSizeType.CUSTOM);
+// Grafik baskı boyutunu tanımla.
+chart.setPrintSize(com.aspose.cells.PrintSizeType.CUSTOM);
  
-// Çalışma kitabını bir bellek akışına kaydet.
+// Çalışma kitabını bir bellek akışına kaydedin.
 ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
 workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
  
-// Gömülü Excel verileriyle bir OLE nesne çerçevesi oluştur.
+// Gömülü Excel verileriyle bir OLE nesne çerçevesi oluşturun.
+IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
     slide.getShapes().get_Item(2).getX(),
     slide.getShapes().get_Item (2).getY(),
     slide.getShapes().get_Item (2).getWidth(),
     slide.getShapes().get_Item (2).getHeight(),
-    "Excel.Sheet.8",
-    workbookStream.toByteArray());
+    dataInfo);
 ```
 
 **Senaryo 2**:
 
-Sıfırdan bir sunum oluşturmak ve gömülü bir Excel çalışma kitabı içeren istediğiniz boyutta bir OLE nesne çerçevesi eklemek istediğinizi varsayalım. Aşağıdaki kod parçacığında, slayt üzerinde x = 0,5 inç ve y = 1 inç konumunda yüksekliği 4 inç, genişliği 9,5 inç olan bir OLE nesne çerçevesi oluşturuyoruz. Aynı ölçüleri çizelgeye de uyguluyoruz: yüksekliği 4 inç ve genişliği 9,5 inç.
+Sıfırdan bir sunum oluşturmak ve içinde herhangi bir boyutta, gömülü bir Excel çalışma kitabı bulunan bir OLE çerçevesi eklemek istediğimizi düşünelim. Aşağıdaki kodda, slaytta x = 0,5 inç ve y = 1 inç konumunda, yüksekliği 4 inç ve genişliği 9,5 inç olan bir OLE çerçevesi oluşturuyoruz. Aynı boyutları, yani yüksekliği 4 inç ve genişliği 9,5 inç, grafik boyutu olarak da ayarlıyoruz.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+
 // İstediğimiz yükseklik.
 int desiredHeight = 288; // 4 inç (4 * 72)
  
 // İstediğimiz genişlik.
 int desiredWidth = 684; // 9.5 inç (9.5 * 72)
  
-// Pencere olmadan çizelge boyutunu tanımla.
+// Pencere olmadan grafik boyutunu tanımla.
 chart.setSizeWithWindow(false);
  
-// Çizelge genişliğini piksel cinsinden ayarla (Excel inç başına 96 piksel kullandığı için 96 ile çarp).
-chart.getChartObject().setWidth((int)((slide.getShapes().get_Item(2).getWidth() / 576f) * 96f));
+// Grafiğin genişliğini piksel cinsinden ayarla (inç elde etmek için 72'ye bölün, Excel'in inç başına 96 piksel kullandığını göz önünde bulundurarak 96 ile çarpın).
+chart.getChartObject().setWidth((int)((desiredWidth / 72f) * 96f));
  
-// Çizelge yüksekliğini piksel cinsinden ayarla.
-chart.getChartObject().setHeight((int)((slide.getShapes().get_Item(2).getHeight() / 576f) * 96f));
+// Grafiğin yüksekliğini piksel cinsinden ayarla.
+chart.getChartObject().setHeight((int)((desiredHeight / 72f) * 96f));
  
-// Çalışma kitabını bir bellek akışına kaydet.
+// Çalışma kitabını bir bellek akışına kaydedin.
 ByteArrayOutputStream workbookStream = new ByteArrayOutputStream();
 workbook.save(workbookStream, com.aspose.cells.SaveFormat.EXCEL_97_TO_2003);
  
-// Gömülü Excel verileriyle bir OLE nesne çerçevesi oluştur.
+// Gömülü Excel verileriyle bir OLE nesne çerçevesi oluşturun.
+IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(workbookStream.toByteArray(), "xls");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(
-    288,
-    576,
+    36,  // x = 0.5 inç (0.5 * 72)
+    72,  // y = 1 inç (1 * 72)
     desiredWidth,
     desiredHeight,
-    "Excel.Sheet.8",
-    workbookStream.toByteArray());
+    dataInfo);
 ```
 
 ## **Sonuç**
 
-Çizelge yeniden boyutlandırma sorununu çözmek için iki yaklaşım bulunmaktadır. Yaklaşım seçimi gereksinimlere ve kullanım senaryosuna bağlıdır. Her iki yaklaşım da şablondan oluşturulan ya da sıfırdan oluşturulan sunumlarda aynı şekilde çalışır. Ayrıca bu çözümde OLE nesne çerçevesinin boyutu için bir sınırlama yoktur.
+Grafik yeniden boyutlandırma sorununu çözmek için iki yaklaşım vardır. Hangi yaklaşımın seçileceği gereksinimlere ve kullanım senaryosuna bağlıdır. Her iki yaklaşım da şablondan oluşturulmuş ya da sıfırdan oluşturulmuş sunumlarda aynı şekilde çalışır. Ayrıca bu çözümde OLE nesne çerçevesinin boyutu için bir üst sınır yoktur.
 
 ## **SSS**
 
-**Gömülü Excel çizelgem PowerPoint’te etkinleştirildikten sonra neden boyut değiştiriyor?**
+### Yerleşik Excel grafiğim PowerPoint'te etkinleştirildikten sonra neden boyut değiştiriyor?
 
-Excel, ilk etkinleştirildiğinde orijinal pencere boyutunu geri yüklemeye çalışırken, PowerPoint’teki OLE nesne çerçevesinin kendi boyutları vardır. PowerPoint ve Excel, en boy oranını korumak için boyutu müzakere eder ve bu durum yeniden boyutlandırmaya neden olabilir.
+Excel, ilk etkinleştirildiğinde orijinal pencere boyutunu geri yüklemeye çalışır; PowerPoint'teki OLE nesne çerçevesinin ise ayrı bir boyutu vardır. PowerPoint ve Excel, oranı korumak için boyutu müzakere eder ve bu da yeniden boyutlandırmaya yol açabilir.
 
-**Bu yeniden boyutlandırma sorununu tamamen önlemek mümkün mü?**
+### Bu yeniden boyutlandırma sorununu tamamen önlemek mümkün mü?
 
-Evet. Excel çalışma kitabı penceresinin veya çizelge boyutunun OLE nesne çerçevesi boyutuyla eşleşecek şekilde gömülmeden önce ayarlanması, çizelge boyutlarının tutarlı kalmasını sağlar.
+Evet. Excel çalışma kitabı pencere boyutunu veya grafik boyutunu OLE nesne çerçevesi boyutuna eşitleyerek gömmeden önce ayarlarsanız, grafik boyutları tutarlı kalır.
 
-**Hangi yaklaşımı seçmeliyim, pencere boyutunu mu yoksa çizelge boyutunu mu ayarlamalıyım?**
+### Hangi yaklaşımı tercih etmeliyim, çalışma kitabı pencere boyutunu ayarlamak mı yoksa grafik boyutunu ayarlamak mı?
 
-Çalışma kitabının en boy oranını korumak ve gerektiğinde yeniden boyutlandırmaya izin vermek istiyorsanız **Yaklaşım 1’i (pencere boyutu)** kullanın. Çizelge boyutları sabit ve gömülmeden sonra değişmeyecekse **Yaklaşım 2’yi (çizelge boyutu)** tercih edin.
+**Yaklaşım 1 (pencere boyutu)** kullanın; böylece çalışma kitabının oranı korunur ve gerektiğinde yeniden boyutlandırma yapılabilir.  
+**Yaklaşım 2 (grafik boyutu)** kullanın; grafik boyutları sabit ve gömüldükten sonra değişmeyecekse bu yöntemi tercih edin.
 
-**Bu yöntemler şablona dayalı sunumlar ve yeni oluşturulan sunumlar için de geçerli mi?**
+### Bu yöntemler hem şablon‑tabanlı hem de yeni oluşturulan sunumlarda çalışır mı?
 
-Evet. Her iki yaklaşım da şablondan oluşturulan ve sıfırdan oluşturulan sunumlarda aynı şekilde çalışır.
+Evet. Her iki yaklaşım da şablonlardan oluşturulan ve sıfırdan oluşturulan sunumlar için aynı şekilde çalışır.
 
-**OLE nesne çerçevesinin boyutu için bir sınırlama var mı?**
+### OLE nesne çerçevesinin boyutu için bir sınırlama var mı?
 
-Hayır. OLE çerçevesini, çalışma kitabı veya çizelge boyutuna uygun şekilde ölçeklenebildiği sürece istediğiniz boyuta ayarlayabilirsiniz.
+Hayır. OLE çerçevesini, çalışma kitabı veya grafik boyutuna uygun şekilde ölçeklendirdiğiniz sürece istediğiniz herhangi bir boyuta ayarlayabilirsiniz.
 
-**Bu yöntemleri diğer tablo programlarında oluşturulan çizelgelerle kullanabilir miyim?**
+### Bu yöntemleri diğer elektronik tablo programlarıyla oluşturulan grafiklerde kullanabilir miyim?
 
-Örnekler Excel çizelgeleri için Aspose.Cells kullanılarak hazırlanmıştır, ancak prensipler benzer boyutlandırma seçeneklerine sahip diğer OLE uyumlu tablo programları için de geçerlidir.
+Örnekler, Aspose.Cells ile oluşturulan Excel grafikleri için hazırlanmıştır; ancak prensipler, benzer boyutlandırma seçeneklerini destekleyen diğer OLE‑uyumlu elektronik tablo programları için de geçerlidir.
 
 ## **İlgili Bölümler**
 
-- [Excel Çizelgeleri Oluşturma ve Sunumlarda OLE Nesnesi Olarak Gömme](/slides/tr/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
-- [OLE Nesnelerini PowerPoint Eklentisiyle Otomatik Güncelleme](/slides/tr/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+- [Excel Grafiklerini Oluşturma ve Sunumlarda OLE Nesnesi Olarak Gömme](/slides/tr/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
