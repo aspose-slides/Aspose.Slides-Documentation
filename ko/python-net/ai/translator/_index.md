@@ -13,7 +13,7 @@ keywords:
 - 프레젠테이션 번역
 - 슬라이드 번역
 - AI 구동 기능
-- AI 기능
+- AI 역량
 - AI 에이전트
 - 웹 클라이언트
 - PowerPoint
@@ -21,29 +21,31 @@ keywords:
 - 프레젠테이션
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python을 사용하여 AI로 PowerPoint 슬라이드를 번역합니다. 레이아웃을 유지하면서 PPT, PPTX 및 ODP를 현지화하며—빠르고 개발자 친화적입니다. 사용해 보세요."
+description: "AI를 사용하여 Aspose.Slides for Python으로 PowerPoint 슬라이드를 번역합니다. 레이아웃을 유지하면서 PPT, PPTX 및 ODP를 현지화합니다—빠르고 개발자 친화적입니다. 사용해 보세요."
 ---
-## **Introduction**
+## **소개**
 
-Aspose.Slides는 프로그래밍 방식으로 PowerPoint 프레젠테이션을 관리할 수 있는 강력한 API입니다. 슬라이드 생성, 편집 및 변환뿐만 아니라 다국어 슬라이드 콘텐츠를 위한 [프레젠테이션 번역 API](https://reference.aspose.com/slides/ko/python-net/aspose.slides.ai/)와 같은 AI 기반 기능을 제공합니다.
+Aspose.Slides는 PowerPoint 프레젠테이션을 프로그래밍 방식으로 관리하기 위한 강력한 API입니다. 슬라이드 생성, 편집 및 변환 외에도 다국어 슬라이드 콘텐츠를 위한 [Presentation Translation API](https://reference.aspose.com/slides/ko/python-net/aspose.slides.ai/)와 같은 AI 기반 기능을 제공합니다.
 
-## **How it Works**
+## **작동 방식**
 
-Aspose.Slides에는 기본 AI 기능이 포함되어 있지 않지만 인터넷을 통해 외부 AI 모델과 통합됩니다. 이 기능은 [SlidesAIAgent](https://reference.aspose.com/slides/ko/python-net/aspose.slides.ai/slidesaiagent/) 클래스를 통해 노출되며, 해당 클래스는 AI 서비스와 통신하기 위해 [IAIWebClient](https://reference.aspose.com/slides/ko/python-net/aspose.slides.ai/iaiwebclient/) 하위 클래스를 사용합니다.
+Aspose.Slides에는 기본 AI 기능이 포함되어 있지 않지만 인터넷을 통해 외부 AI 모델과 통합됩니다. 이 기능은 [SlidesAIAgent](https://reference.aspose.com/slides/ko/python-net/aspose.slides.ai/slidesaiagent/) 클래스에서 제공되며, [IAIWebClient](https://reference.aspose.com/slides/ko/python-net/aspose.slides.ai/iaiwebclient/) 하위 클래스를 사용하여 AI 서비스와 통신합니다.
 
-내장된 [OpenAIWebClient](https://reference.aspose.com/slides/ko/python-net/aspose.slides.ai/openaiwebclient/)를 사용하여 OpenAI API에 연결하거나, 다른 AI 공급자 또는 언어 모델을 사용하기 위해 자체 [IAIWebClient](https://reference.aspose.com/slides/ko/python-net/aspose.slides.ai/iaiwebclient/)를 구현할 수 있습니다.
+내장된 [OpenAIWebClient](https://reference.aspose.com/slides/ko/python-net/aspose.slides.ai/openaiwebclient/)를 사용하여 OpenAI의 API에 연결하거나, 다른 AI 공급자 또는 언어 모델을 사용하기 위해 자체 [IAIWebClient](https://reference.aspose.com/slides/ko/python-net/aspose.slides.ai/iaiwebclient/)를 구현할 수 있습니다.
 
-Aspose.Slides는 통신을 처리하고 AI 응답을 분석하며, 원본 슬라이드 레이아웃과 서식을 유지하면서 번역된 콘텐츠를 지능적으로 삽입합니다.
+Aspose.Slides는 통신을 처리하고 AI 응답을 파싱한 뒤, 원본 슬라이드 레이아웃과 형식을 유지하면서 번역된 콘텐츠를 지능적으로 삽입합니다.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 OpenAI API는 유료 서비스이므로, 내장된 [OpenAIWebClient](https://reference.aspose.com/slides/ko/python-net/aspose.slides.ai/openaiwebclient/)를 사용할 때 계정을 생성하고 API 키를 제공해야 합니다.
 {{% /alert %}}
 
-## **Example**
+## **예제**
 
-이 예제에서는 지정된 OpenAI [모델](https://platform.openai.com/docs/models)을 사용하여 내장된 [OpenAIWebClient](https://reference.aspose.com/slides/ko/python-net/aspose.slides.ai/openaiwebclient/)으로 PowerPoint 프레젠테이션을 일본어로 번역합니다.
+이 예제에서는 지정된 OpenAI [model](https://platform.openai.com/docs/models)과 함께 내장된 [OpenAIWebClient](https://reference.aspose.com/slides/ko/python-net/aspose.slides.ai/openaiwebclient/)를 사용하여 PowerPoint 프레젠테이션을 일본어로 번역합니다.
 
 ```py
+import aspose.slides as slides
+
 # 프레젠테이션을 로드하여 번역합니다.
 with slides.Presentation("sample.pptx") as presentation:
 
@@ -60,6 +62,26 @@ with slides.Presentation("sample.pptx") as presentation:
         presentation.save("sample_jp.pdf", slides.export.SaveFormat.PDF)
 ```
 
-## **Key Benefits**
+### **Azure OpenAI 예제**
 
-Aspose.Slides [프레젠테이션 번역 API](https://reference.aspose.com/slides/ko/python-net/aspose.slides.ai/)는 다국어 PowerPoint 프레젠테이션을 제공하기 위한 AI 기반 솔루션을 제공합니다. 레이아웃과 디자인을 유지하면서 번역을 자동화함으로써 수동 작업에 비해 시간 절약과 오류 최소화를 실현합니다. 개발자, 교육자, 비즈니스 전문가 등 누구든지 이 API를 활용하여 글로벌 청중을 위한 매력적이고 현지화된 프레젠테이션을 만들어 범위를 확장하고 커뮤니케이션을 향상시킬 수 있습니다.
+버전 **26.7.0**부터 .NET을 통한 Python용 Aspose.Slides는 Azure OpenAI를 포함한 OpenAI 호환 공급자를 지원합니다. [OpenAICompatibleWebClient](https://reference.aspose.com/slides/ko/python-net/aspose.slides.ai/openaicompatiblewebclient/)를 사용하여 사내 Azure 배포를 번역기에 구성할 수 있습니다.
+
+```py
+import aspose.slides as slides
+
+model = "your-azure-deployment-name"
+api_key = "your-azure-api-key"
+base_url = "https://your-resource.openai.azure.com/openai/v1/"
+
+with slides.ai.OpenAICompatibleWebClient(model, api_key, base_url) as ai_web_client:
+    ai_agent = slides.ai.SlidesAIAgent(ai_web_client)
+    with slides.Presentation("Presentation.pptx") as presentation:
+        ai_agent.translate(presentation, "spanish")
+        presentation.save("Translated.pptx", slides.export.SaveFormat.PPTX)
+```
+
+이 코드 조각은 Azure OpenAI 엔드포인트를 사용하여 프레젠테이션을 번역하는 방법을 보여줍니다. 자리 표시자 값을 배포 이름, API 키 및 엔드포인트 URL로 교체하세요.
+
+## **주요 이점**
+
+Aspose.Slides [Presentation Translation API](https://reference.aspose.com/slides/ko/python-net/aspose.slides.ai/)는 다국어 PowerPoint 프레젠테이션을 제공하기 위한 AI 기반 솔루션을 제공합니다. 레이아웃과 디자인을 유지하면서 번역을 자동화함으로써 수동 작업에 비해 시간 절약 및 오류 최소화가 가능합니다. 개발자, 교육자, 비즈니스 전문가 등 누구이든 이 API를 사용해 전 세계 청중을 위한 매력적인 현지화 프레젠테이션을 만들 수 있어 도달 범위를 확대하고 커뮤니케이션을 향상시킵니다.

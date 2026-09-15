@@ -12,9 +12,9 @@ keywords:
 - çok dilli slayt
 - sunum çevirisi
 - slayt çevirisi
-- AI yönlendirmeli özellikler
+- AI odaklı özellikler
 - AI yetenekleri
-- AI ajan
+- AI ajanı
 - Web istemcisi
 - PowerPoint
 - OpenDocument
@@ -25,41 +25,63 @@ description: "Aspose.Slides for Python kullanarak AI ile PowerPoint slaytların�
 ---
 ## **Giriş**
 
-Aspose.Slides, PowerPoint sunumlarını programlı olarak yönetmek için güçlü bir API'dir. Slaytları oluşturma, düzenleme ve dönüştürmenin yanı sıra, çok dilli slayt içeriği için [Presentation Translation API](https://reference.aspose.com/slides/tr/python-net/aspose.slides.ai/) gibi yapay zeka destekli özellikler sunar.
+Aspose.Slides, PowerPoint sunumlarını programlı olarak yönetmek için güçlü bir API'dir. Slayt oluşturma, düzenleme ve dönüştürmenin yanı sıra, çok dilli slayt içeriği için [Presentation Translation API](https://reference.aspose.com/slides/tr/python-net/aspose.slides.ai/) gibi AI destekli özellikler sunar.
 
 ## **Nasıl Çalışır**
 
-Aspose.Slides yerleşik yapay zeka yeteneklerine sahip değildir, ancak internet üzerinden dış yapay zeka modelleriyle bütünleşir. Bu işlevsellik, [SlidesAIAgent](https://reference.aspose.com/slides/tr/python-net/aspose.slides.ai/slidesaiagent/) sınıfı aracılığıyla sunulur ve AI hizmetleriyle iletişim kurmak için [IAIWebClient](https://reference.aspose.com/slides/tr/python-net/aspose.slides.ai/iaiwebclient/) alt sınıflarını kullanır.
+Aspose.Slides yerleşik AI yeteneklerine sahip değildir, ancak internet üzerinden harici AI modelleriyle bütünleşir. Bu işlevsellik, AI hizmetleriyle iletişim kurmak için [IAIWebClient](https://reference.aspose.com/slides/tr/python-net/aspose.slides.ai/iaiwebclient/) alt sınıflarını kullanan [SlidesAIAgent](https://reference.aspose.com/slides/tr/python-net/aspose.slides.ai/slidesaiagent/) sınıfı aracılığıyla sunulur.
 
-Yerleşik [OpenAIWebClient](https://reference.aspose.com/slides/tr/python-net/aspose.slides.ai/openaiwebclient/)&#39;ı kullanarak OpenAI&#39;nin API&#39;sine bağlanabilir veya farklı bir AI sağlayıcısı ya da dil modeli kullanmak için kendi [IAIWebClient](https://reference.aspose.com/slides/tr/python-net/aspose.slides.ai/iaiwebclient/)&#39;ınızı uygulayabilirsiniz.
+Yerleşik [OpenAIWebClient](https://reference.aspose.com/slides/tr/python-net/aspose.slides.ai/openaiwebclient/)’ı OpenAI API'sine bağlanmak için kullanabilir veya farklı bir AI sağlayıcısı ya da dil modeli kullanmak için kendi [IAIWebClient](https://reference.aspose.com/slides/tr/python-net/aspose.slides.ai/iaiwebclient/)’ınızı uygulayabilirsiniz.
 
 Aspose.Slides iletişimi yönetir, AI yanıtlarını ayrıştırır ve orijinal slayt düzeni ve biçimlendirmesini koruyarak çevrilmiş içeriği akıllıca ekler.
 
-{{% alert color="primary" %}}
-OpenAI API&#39;nin ücretli bir hizmet olduğunu unutmayın; bu nedenle yerleşik [OpenAIWebClient](https://reference.aspose.com/slides/tr/python-net/aspose.slides.ai/openaiwebclient/)&#39;ı kullanırken bir hesap oluşturmalı ve API anahtarınızı sağlamalısınız.
+{{% alert color="info" %}}
+OpenAI API'sinin ücretli bir hizmet olduğunu unutmayın; bu nedenle yerleşik [OpenAIWebClient](https://reference.aspose.com/slides/tr/python-net/aspose.slides.ai/openaiwebclient/) kullanırken bir hesap oluşturmanız ve API anahtarınızı sağlamanız gerekir.
 {{% /alert %}}
 
 ## **Örnek**
 
-Bu örnekte, belirli bir OpenAI [model](https://platform.openai.com/docs/models) kullanarak yerleşik [OpenAIWebClient](https://reference.aspose.com/slides/tr/python-net/aspose.slides.ai/openaiwebclient/) ile bir PowerPoint sunumunu Japoncaya çeviriyoruz.
+Bu örnekte, belirli bir OpenAI [modeli](https://platform.openai.com/docs/models) ile yerleşik [OpenAIWebClient](https://reference.aspose.com/slides/tr/python-net/aspose.slides.ai/openaiwebclient/) kullanarak bir PowerPoint sunumunu Japoncaya çeviriyoruz.
 
 ```py
-# Çevrilecek bir sunumu yükle.
+import aspose.slides as slides
+
+# Çevrilecek bir sunumu yükleyin.
 with slides.Presentation("sample.pptx") as presentation:
 
-    # Modelinizi ve API anahtarınızı belirterek OpenAIWebClient ile bir AI istemcisi oluştur.
+    # Modelinizi ve API anahtarınızı belirterek OpenAIWebClient ile bir AI istemcisi oluşturun.
     with slides.ai.OpenAIWebClient("gpt-4o-mini", "apiKey", "") as ai_web_client:
 
-        # AI istemcisiyle SlidesAIAgent'ı başlat.
+        # AI istemcisiyle SlidesAIAgent'ı başlatın.
         ai_agent = slides.ai.SlidesAIAgent(ai_web_client)
 
-        # Sunumu Japoncaya çevir.
+        # Sunumu Japoncaya çevirin.
         ai_agent.translate(presentation, "japanese")
 
-        # Çevrilen sunumu PDF olarak kaydet.
+        # Çevrilen sunumu PDF olarak kaydedin.
         presentation.save("sample_jp.pdf", slides.export.SaveFormat.PDF)
 ```
 
-## **Temel Faydalar**
+### **Azure OpenAI Örneği**
 
-Aspose.Slides [Presentation Translation API](https://reference.aspose.com/slides/tr/python-net/aspose.slides.ai/), çok dilli PowerPoint sunumları sunmak için yapay zeka destekli bir çözüm sunar. Çeviriyi otomatikleştirerek düzen ve tasarımı korur, bu da zaman tasarrufu sağlar ve manuel iş akışlarına göre hataları en aza indirir. İster bir geliştirici, ister eğitimci, ister iş profesyoneli olun, bu API küresel izleyiciler için ilgi çekici, yerelleştirilmiş sunumlar oluşturmanızı sağlar – erişiminizi genişletir ve iletişimi iyileştirir.
+**26.7.0** sürümünden beri, .NET üzerinden Python için Aspose.Slides, Azure OpenAI dahil OpenAI uyumlu sağlayıcıları destekler. Çevirmeni, [OpenAICompatibleWebClient](https://reference.aspose.com/slides/tr/python-net/aspose.slides.ai/openaicompatiblewebclient/) ile kendi Azure dağıtımınızı kullanacak şekilde yapılandırabilirsiniz.
+
+```py
+import aspose.slides as slides
+
+model = "your-azure-deployment-name"
+api_key = "your-azure-api-key"
+base_url = "https://your-resource.openai.azure.com/openai/v1/"
+
+with slides.ai.OpenAICompatibleWebClient(model, api_key, base_url) as ai_web_client:
+    ai_agent = slides.ai.SlidesAIAgent(ai_web_client)
+    with slides.Presentation("Presentation.pptx") as presentation:
+        ai_agent.translate(presentation, "spanish")
+        presentation.save("Translated.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Bu kod parçacığı, Azure OpenAI uç noktanızı kullanarak bir sunumu nasıl çevireceğinizi gösterir. Yer tutucu değerleri dağıtım adınız, API anahtarınız ve uç nokta URL'niz ile değiştirin.
+
+## **Anahtar Faydalar**
+
+Aspose.Slides [Presentation Translation API](https://reference.aspose.com/slides/tr/python-net/aspose.slides.ai/) çok dilli PowerPoint sunumları sunmak için AI destekli bir çözüm sunar. Düzeni ve tasarımı koruyarak çeviriyi otomatikleştirdiği için manuel süreçlere göre zaman tasarrufu sağlar ve hataları en aza indirir. Geliştirici, eğitimci ya da iş profesyoneli olsanız da, bu API küresel izleyiciler için etkileyici, yerelleştirilmiş sunumlar oluşturmanızı sağlar – erişiminizi genişletir ve iletişimi iyileştirir.
