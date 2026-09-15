@@ -6,8 +6,8 @@ weight: 20
 url: /pt/python-net/ai/translator/
 keywords:
 - Tradutor de apresentação com IA
-- Tradutor de slide com IA
-- Recurso impulsionado por IA
+- Tradutor de slides com IA
+- Recurso alimentado por IA
 - Apresentação multilíngue
 - Slide multilíngue
 - Tradução de apresentação
@@ -21,31 +21,31 @@ keywords:
 - apresentação
 - Python
 - Aspose.Slides
-description: "Traduza slides do PowerPoint com IA usando Aspose.Slides para Python. Localize PPT, PPTX e ODP preservando o layout—rápido e amigável ao desenvolvedor. Experimente."
+description: "Traduza slides PowerPoint com IA usando Aspose.Slides para Python. Localize PPT, PPTX e ODP preservando o layout—rápido e amigável ao desenvolvedor. Experimente."
 ---
 ## **Introdução**
 
-O Aspose.Slides é uma API poderosa para gerenciar apresentações PowerPoint programaticamente. Além de criar, editar e converter slides, ele oferece recursos impulsionados por IA – como a Presentation Translation API para conteúdo de slides multilíngue.
+Aspose.Slides é uma API poderosa para gerenciar programaticamente apresentações PowerPoint. Além de criar, editar e converter slides, oferece recursos impulsionados por IA – como a [Presentation Translation API](https://reference.aspose.com/slides/pt/python-net/aspose.slides.ai/) para conteúdo de slides multilíngue.
 
 ## **Como funciona**
 
-O Aspose.Slides não inclui recursos de IA incorporados, mas integra-se a modelos de IA externos pela internet. Essa funcionalidade é exposta através da classe SlidesAIAgent, que usa subclasses de IAIWebClient para se comunicar com serviços de IA.
+Aspose.Slides não inclui recursos de IA incorporados, mas integra-se a modelos de IA externos pela internet. Essa funcionalidade é exposta via a classe [SlidesAIAgent](https://reference.aspose.com/slides/pt/python-net/aspose.slides.ai/slidesaiagent/) , que usa subclasses de [IAIWebClient](https://reference.aspose.com/slides/pt/python-net/aspose.slides.ai/iaiwebclient/) para comunicar-se com serviços de IA.
 
-Você pode usar o OpenAIWebClient incorporado para conectar-se à API da OpenAI ou implementar seu próprio IAIWebClient para utilizar outro provedor de IA ou modelo de linguagem.
+Você pode usar o [OpenAIWebClient](https://reference.aspose.com/slides/pt/python-net/aspose.slides.ai/openaiwebclient/) incorporado para conectar-se à API da OpenAI ou implementar seu próprio [IAIWebClient](https://reference.aspose.com/slides/pt/python-net/aspose.slides.ai/iaiwebclient/) para usar um fornecedor de IA ou modelo de linguagem diferente.
 
-O Aspose.Slides gerencia a comunicação, analisa as respostas da IA e insere de forma inteligente o conteúdo traduzido, preservando o layout e a formatação originais dos slides.
+Aspose.Slides gerencia a comunicação, analisa as respostas da IA e insere de forma inteligente o conteúdo traduzido, preservando o layout e a formatação originais dos slides.
 
-{{% alert color="primary" %}}
-
-Observe que a API da OpenAI é um serviço pago, portanto você precisará criar uma conta e fornecer sua chave de API ao usar o OpenAIWebClient incorporado.
-
+{{% alert color="info" %}}
+Observe que a API da OpenAI é um serviço pago, portanto você precisará criar uma conta e fornecer sua chave de API ao usar o [OpenAIWebClient](https://reference.aspose.com/slides/pt/python-net/aspose.slides.ai/openaiwebclient/).
 {{% /alert %}}
 
 ## **Exemplo**
 
-Neste exemplo, traduzimos uma apresentação PowerPoint para japonês usando o OpenAIWebClient incorporado com um modelo OpenAI especificado.
+Neste exemplo, traduzimos uma apresentação PowerPoint para japonês usando o [OpenAIWebClient](https://reference.aspose.com/slides/pt/python-net/aspose.slides.ai/openaiwebclient/) incorporado com um [modelo](https://platform.openai.com/docs/models) da OpenAI especificado.
 
 ```py
+import aspose.slides as slides
+
 # Carregue uma apresentação para traduzir.
 with slides.Presentation("sample.pptx") as presentation:
 
@@ -62,6 +62,26 @@ with slides.Presentation("sample.pptx") as presentation:
         presentation.save("sample_jp.pdf", slides.export.SaveFormat.PDF)
 ```
 
-## **Benefícios principais**
+### **Exemplo Azure OpenAI**
 
-A API Presentation Translation do Aspose.Slides oferece uma solução baseada em IA para disponibilizar apresentações PowerPoint multilíngues. Ao automatizar a tradução mantendo o layout e o design, ela economiza tempo e minimiza erros em comparação com fluxos de trabalho manuais. Seja você desenvolvedor, educador ou profissional de negócios, essa API permite criar apresentações envolventes e localizadas para públicos globais – ampliando seu alcance e melhorando a comunicação.
+Desde a versão **26.7.0**, Aspose.Slides para Python via .NET oferece suporte a provedores compatíveis com OpenAI, incluindo Azure OpenAI. Você pode configurar o tradutor para usar sua implantação interna do Azure com o [OpenAICompatibleWebClient](https://reference.aspose.com/slides/pt/python-net/aspose.slides.ai/openaicompatiblewebclient/).
+
+```py
+import aspose.slides as slides
+
+model = "your-azure-deployment-name"
+api_key = "your-azure-api-key"
+base_url = "https://your-resource.openai.azure.com/openai/v1/"
+
+with slides.ai.OpenAICompatibleWebClient(model, api_key, base_url) as ai_web_client:
+    ai_agent = slides.ai.SlidesAIAgent(ai_web_client)
+    with slides.Presentation("Presentation.pptx") as presentation:
+        ai_agent.translate(presentation, "spanish")
+        presentation.save("Translated.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Este trecho demonstra a tradução de uma apresentação usando seu endpoint Azure OpenAI. Substitua os valores de marcador de posição pelo nome da sua implantação, chave de API e URL do endpoint.
+
+## **Principais Benefícios**
+
+A [Presentation Translation API](https://reference.aspose.com/slides/pt/python-net/aspose.slides.ai/) do Aspose.Slides oferece uma solução alimentada por IA para disponibilizar apresentações PowerPoint multilíngues. Ao automatizar a tradução preservando o layout e o design, economiza tempo e minimiza erros em comparação com fluxos de trabalho manuais. Seja você desenvolvedor, educador ou profissional de negócios, essa API permite criar apresentações envolventes e localizadas para públicos globais – ampliando seu alcance e melhorando a comunicação.
