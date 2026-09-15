@@ -37,7 +37,7 @@ You can use the built-in [OpenAIWebClient](https://reference.aspose.com/slides/n
 
 Aspose.Slides handles the communication, parses the AI responses, and intelligently inserts translated content while preserving the original slide layout and formatting.
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 Note that the OpenAI API is a paid service, so you will need to create an account and supply your API key when using the built-in [OpenAIWebClient](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/).
 
@@ -81,6 +81,28 @@ using var aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, httpC
 ```
 
 Aspose.Slides is commonly used in synchronous environments. To support this, the [SlidesAIAgent](https://reference.aspose.com/slides/net/aspose.slides.ai/slidesaiagent/) class offers both synchronous and asynchronous methods - allowing you to choose the approach that best fits your application’s workflow.
+
+### **Azure OpenAI Example**
+
+Aspose.Slides for .NET supports OpenAI-compatible providers, including Azure OpenAI. You can configure the translator to use your in-house Azure deployment with the [OpenAICompatibleWebClient](https://reference.aspose.com/slides/net/aspose.slides.ai/openaicompatiblewebclient/).
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.AI;
+using Aspose.Slides.Export;
+
+var model = "your-azure-deployment-name";
+var apiKey = "your-azure-api-key";
+var baseUrl = "https://your-resource.openai.azure.com/openai/v1/";
+
+using var aiWebClient = new OpenAICompatibleWebClient(model, apiKey, baseUrl);
+var aiAgent = new SlidesAIAgent(aiWebClient);
+using var presentation = new Presentation("Presentation.pptx");
+aiAgent.Translate(presentation, "spanish");
+presentation.Save("Translated.pptx", SaveFormat.Pptx);
+```
+
+This snippet demonstrates translating a presentation using your Azure OpenAI endpoint. Replace the placeholder values with your deployment name, API key, and endpoint URL.
 
 ## **Key Benefits**
 
