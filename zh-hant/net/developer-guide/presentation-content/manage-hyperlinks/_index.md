@@ -14,345 +14,482 @@ keywords:
 - 文字超連結
 - 投影片超連結
 - 圖形超連結
-- 圖片超連結
+- 圖像超連結
 - 影片超連結
-- 可變超連結
+- 可變更超連結
 - PowerPoint
 - OpenDocument
 - 簡報
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET，輕鬆在 PowerPoint 與 OpenDocument 簡報中管理超連結──在數分鐘內提升互動性與工作流程。"
+description: "使用 C# 範例，透過 Aspose.Slides for .NET 在 PowerPoint 與 OpenDocument 簡報中新增、格式化、更新與移除超連結。"
 ---
 ## **簡介**
 
-超連結是對某個物件、資料或某處的參考。以下是 PowerPoint 簡報中常見的超連結：
+超連結將簡報內容連接到網站或簡報內的某個位置。在 PowerPoint 中，超連結通常有兩個用途：
 
-* 文字、圖形或媒體中的網站連結
-* 投影片連結
+* 從文字、圖案或媒體框架開啟網站。
+* 導覽至另一張投影片，例如從目錄。
 
-Aspose.Slides for .NET 允許您在簡報中執行許多與超連結相關的任務。
+Aspose.Slides for .NET 讓您可以新增這些連結、控制其外觀與聲音、更新其屬性並將其移除。以下範例說明如何在個別元素上使用超連結，以及如何在簡報、投影片或文字框層級存取超連結。
 
-{{% alert color="primary" %}} 
-
-您可能想要看看 Aspose 簡易的[免費線上 PowerPoint 編輯器](https://products.aspose.app/slides/zh-hant/editor)
-
+{{% alert color="info" title="Note" %}}
+您也可以使用 [免費線上 Aspose PowerPoint 編輯器](https://products.aspose.app/slides/zh-hant/editor) 編輯簡報。
 {{% /alert %}} 
 
 ## **新增 URL 超連結**
 
-### **將 URL 超連結新增至文字**
+您可以將網站 URL 指派給文字、圖案或媒體框架。指派超連結的元素決定可點擊的範圍：文字區段會連結所選文字，而圖案或框架則會連結整個投影片物件。
 
-以下 C# 程式碼示範如何將網站超連結新增至文字：
+### **新增 URL 超連結至文字**
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
-	shape1.AddTextFrame("Aspose: File Format APIs");
-	shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-	shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-	shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 32;
+若要將文字連結至網站，請將 [Hyperlink](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/hyperlink/) 指派給文字區段的 [HyperlinkClick](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/portionformat/hyperlinkclick/) 屬性，如下所示。僅該文字區段會變成可點擊。
 
-	presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var textShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
+textShape.AddTextFrame("Aspose: File Format APIs");
+var portionFormat = textShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+portionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+portionFormat.HyperlinkClick.Tooltip = "Explore Aspose file format APIs";
+portionFormat.FontHeight = 32;
+
+presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 ```
 
-### **將 URL 超連結新增至圖形或框架**
+### **新增 URL 超連結至圖案和媒體框架**
 
-以下 C# 範例程式碼示範如何將網站超連結新增至圖形：
+若要使圖案或框架可點擊，請設定其 [HyperlinkClick](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/shape/hyperlinkclick/) 屬性。超連結屬於該物件本身，而非其中的文字區段。
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
-    
-    shape.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    shape.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
+相同的做法適用於圖片、音訊和影片框架：將超連結指派給框架，必要時設定連結的 [Tooltip](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/tooltip/)。
 
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
+以下範例使矩形可點擊：
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
+
+shape.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+shape.HyperlinkClick.Tooltip = "Explore Aspose file format APIs";
+
+presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 ```
-
-### **將 URL 超連結新增至媒體**
-
-Aspose.Slides 允許您為圖片、音訊和視訊檔案新增超連結。 
-
-以下範例程式碼示範如何為**圖片**新增超連結：
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    // 將影像加入簡報
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    // 根據先前加入的影像在投影片 1 上建立圖片框
-    IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-
-    pictureFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    pictureFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
-```
-
-以下範例程式碼示範如何為**音訊檔案**新增超連結：
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
-    IAudioFrame audioFrame = pres.Slides[0].Shapes.AddAudioFrameEmbedded(10, 10, 100, 100, audio);
-
-    audioFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    audioFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
-```
-
-以下範例程式碼示範如何為**視訊**新增超連結：
-
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
-    IVideoFrame videoFrame = pres.Slides[0].Shapes.AddVideoFrame(10, 10, 100, 100, video);
-
-    videoFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    videoFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{%  alert  title="Tip"  color="primary"  %}} 
-
-您可能想看看 *[管理 OLE](https://docs.aspose.com/slides/zh-hant/net/manage-ole/)*。
-
-{{% /alert %}}
-
 
 ## **使用超連結建立目錄**
 
-由於超連結可讓您加入對物件或位置的參考，您可以使用它們建立目錄。 
+內部超連結讓讀者可從目錄跳至特定投影片。以下範例使用 [SetInternalHyperlinkClick](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) 將第一張投影片上的「Page 2」文字連結至第二張投影片。
 
-以下範例程式碼示範如何使用超連結建立目錄：
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (var presentation = new Presentation())
-{
-    var firstSlide = presentation.Slides[0];
-    var secondSlide = presentation.Slides.AddEmptySlide(firstSlide.LayoutSlide);
+using var presentation = new Presentation();
 
-    var contentTable = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 300, 100);
-    contentTable.FillFormat.FillType = FillType.NoFill;
-    contentTable.LineFormat.FillFormat.FillType = FillType.NoFill;
-    contentTable.TextFrame.Paragraphs.Clear();
+var firstSlide = presentation.Slides[0];
+var secondSlide = presentation.Slides.AddEmptySlide(firstSlide.LayoutSlide);
 
-    var paragraph = new Paragraph();
-    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    paragraph.Text = "Title of slide 2 .......... ";
+var tableOfContents = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 300, 100);
+tableOfContents.FillFormat.FillType = FillType.NoFill;
+tableOfContents.LineFormat.FillFormat.FillType = FillType.NoFill;
+tableOfContents.TextFrame.Paragraphs.Clear();
 
-    var linkPortion = new Portion();
-    linkPortion.Text = "Page 2";
-    linkPortion.PortionFormat.HyperlinkManager.SetInternalHyperlinkClick(secondSlide);
+var paragraph = new Paragraph();
+paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+paragraph.Text = "Title of slide 2 .......... ";
 
-    paragraph.Portions.Add(linkPortion);
-    contentTable.TextFrame.Paragraphs.Add(paragraph);
+var linkPortion = new Portion();
+linkPortion.Text = "Page 2";
+linkPortion.PortionFormat.HyperlinkManager.SetInternalHyperlinkClick(secondSlide);
 
-    presentation.Save("link_to_slide.pptx", SaveFormat.Pptx);
-}
+paragraph.Portions.Add(linkPortion);
+tableOfContents.TextFrame.Paragraphs.Add(paragraph);
+
+presentation.Save("link_to_slide.pptx", SaveFormat.Pptx);
 ```
 
 ## **格式化超連結**
 
 ### **顏色**
 
-使用介面 [IHyperlink](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink) 中的 [ColorSource](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/properties/colorsource) 屬性，您可以設定超連結的顏色，亦可取得超連結的顏色資訊。此功能首次於 PowerPoint 2019 引入，因此屬性相關的變更不適用於較舊的 PowerPoint 版本。
+[IHyperlink](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/) 的 [ColorSource](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/colorsource/) 屬性決定超連結是使用簡報的超連結顏色還是文字區段的格式。若要套用自訂文字顏色，請選取 [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/hyperlinkcolorsource/) 並設定區段的填滿顏色。此功能於 PowerPoint 2019 引入；舊版不會套用此設定。
 
-以下範例程式碼示範在同一投影片中新增不同顏色的超連結的操作：
+以下範例在同一張投影片上新增兩個文字超連結。第一個使用紅色文字填滿，第二個保留預設的超連結顏色。
 
-```c#
-using (Presentation presentation = new Presentation())
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var coloredShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
+coloredShape.AddTextFrame("This hyperlink uses a custom color.");
+var coloredPortionFormat = coloredShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+coloredPortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+coloredPortionFormat.HyperlinkClick.ColorSource = HyperlinkColorSource.PortionFormat;
+coloredPortionFormat.FillFormat.FillType = FillType.Solid;
+coloredPortionFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+var defaultShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
+defaultShape.AddTextFrame("This hyperlink uses the default color.");
+defaultShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+
+presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
+```
+### **聲音**
+
+超連結在被觸發時可以播放聲音，或停止已在播放的聲音。使用以下屬性來設定這些行為：
+
+- [IHyperlink.Sound](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/sound/) 指定與超連結相關聯的音訊。
+- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/stopsoundonclick/) 控制在觸發超連結時是否停止先前的聲音。
+
+#### **新增超連結聲音**
+
+以下範例載入 `sampleaudio.wav` 並將其與第一張投影片上的按鈕關聯。點擊按鈕會播放聲音並導覽至下一張投影片。該投影片上的第二個圖案在點擊時會停止先前的聲音，且不執行導覽動作。
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var audioData = File.ReadAllBytes("sampleaudio.wav");
+var hyperlinkSound = presentation.Audios.AddAudio(audioData);
+
+var firstSlide = presentation.Slides[0];
+
+var playButton = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
+playButton.HyperlinkClick = Hyperlink.NextSlide;
+
+if (!playButton.HyperlinkClick.StopSoundOnClick && playButton.HyperlinkClick.Sound == null)
 {
-    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
-    shape1.AddTextFrame("This is a sample of colored hyperlink.");
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.ColorSource = HyperlinkColorSource.PortionFormat;
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.FillType = FillType.Solid;
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.SolidFillColor.Color = Color.Red;
+    playButton.HyperlinkClick.Sound = hyperlinkSound;
+}
 
-    IAutoShape shape2 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
-    shape2.AddTextFrame("This is a sample of usual hyperlink.");
-    shape2.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+var secondSlide = presentation.Slides.AddEmptySlide(firstSlide.LayoutSlide);
 
-    presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
+var stopButton = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
+stopButton.HyperlinkClick = Hyperlink.NoAction;
+
+stopButton.HyperlinkClick.StopSoundOnClick = true;
+
+presentation.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
+```
+
+#### **擷取超連結聲音**
+
+以下範例開啟上述建立的簡報，並透過 [Sound](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/sound/) 與 [BinaryData](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iaudio/binarydata/) 讀取第一個圖案的超連結音訊至記憶體。
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("hyperlink-sound.pptx");
+
+if (presentation.Slides.Count > 0 && presentation.Slides[0].Shapes.Count > 0)
+{
+    var hyperlink = presentation.Slides[0].Shapes[0].HyperlinkClick;
+    var sound = hyperlink?.Sound;
+    if (sound != null)
+    {
+        var audioData = sound.BinaryData;
+        Console.WriteLine($"Extracted {audioData.Length} bytes of hyperlink audio.");
+    }
+    else
+    {
+        Console.WriteLine("The first shape has no hyperlink sound.");
+    }
+}
+else
+{
+    Console.WriteLine("The presentation has no first slide or shape to inspect.");
 }
 ```
-### **音效**
 
-Aspose.Slides 提供以下屬性，讓您以音效強調超連結：
+### **提示文字與互動設定**
 
-- [IHyperlink.Sound](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/properties/sound) 
-- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
+在將超連結指派給文字或圖案後，您可以更新以下 [IHyperlink](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/) 屬性：
 
-#### **新增超連結音效**
-
-以下 C# 程式碼示範如何設定在點擊時播放音效的超連結，並以另一個超連結停止音效：
-
-```c#
-using (Presentation pres = new Presentation())
-{
-	// 將新音訊加入簡報的音訊集合
-	IAudio playSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
-
-	ISlide firstSlide = pres.Slides[0];
-
-	// 新增具有前往下一張投影片超連結的圖形
-	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
-	firstShape.HyperlinkClick = Hyperlink.NextSlide;
-
-	// 檢查超連結是否為「無音效」
-	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
-	{
-		// 設定會播放音效的超連結
-		firstShape.HyperlinkClick.Sound = playSound;
-	}
-
-	// 新增空白投影片 
-	ISlide secondSlide = pres.Slides.AddEmptySlide(firstSlide.LayoutSlide);
-
-	// 新增具有 NoAction 超連結的圖形
-	IShape secondShape = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
-	secondShape.HyperlinkClick = Hyperlink.NoAction;
-
-	// 設定超連結「停止先前音效」旗標
-	secondShape.HyperlinkClick.StopSoundOnClick = true;
-
-	pres.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
-}
-```
-
-#### **擷取超連結音效**
-
-以下 C# 程式碼示範如何擷取超連結使用的音效：
-
-```c#
-using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
-{
-	ISlide firstSlide = pres.Slides[0];
-
-	// 取得第一個圖形的超連結
-	IHyperlink link = firstSlide.Shapes[0].HyperlinkClick;
-
-	if (link.Sound != null)
-	{
-		// 以位元組陣列擷取超連結音效
-		byte[] audioData = link.Sound.BinaryData;
-	}
-}
-```
+- [Tooltip](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/tooltip/) 設定觀者可顯示為連結提示的文字。
+- [TargetFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/targetframe/) 在適用時指定父 HTML frameset 中的目標框架。
+- [History](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/history/) 控制啟動連結時是否將其目的地加入已檢視超連結清單。
+- [HighlightClick](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/highlightclick/) 控制點擊時是否突出顯示超連結。
 
 ## **從簡報中移除超連結**
 
-### **從文字中移除超連結**
+在變更之前，使用 [GetAnyHyperlinks](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) 取得包括文字區段連結在內的超連結容器。以下範例從第一張投影片中移除兩種觸發類型。若僅移除單一類型，請僅呼叫 [RemoveHyperlinkClick](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) 或 [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/)；移除點擊動作不會移除其滑鼠懸停對應項目。
 
-以下 C# 程式碼示範如何從簡報投影片的文字中移除超連結：
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation("pres.pptx");
+
+if (presentation.Slides.Count > 0)
 {
-    ISlide slide = pres.Slides[0];
-    foreach (IShape shape in slide.Shapes)
+    var containers = presentation.Slides[0].HyperlinkQueries.GetAnyHyperlinks().ToList();
+    foreach (var container in containers)
     {
-        IAutoShape autoShape = shape as IAutoShape;
-        if (autoShape != null)
+        container.HyperlinkManager.RemoveHyperlinkClick();
+        container.HyperlinkManager.RemoveHyperlinkMouseOver();
+    }
+    presentation.Save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The presentation has no slides to process.");
+}
+```
+
+若需無條件移除，可使用 [RemoveAllHyperlinks](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) 在一次呼叫中移除所選範圍內的兩種觸發類型。若需選擇性清理並涵蓋母片、版面配置與備註，請參閱 [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)。
+
+## **建立完整的超連結清單**
+
+在發佈簡報之前，請對其互動動作與網路連結進行清點。[GetAnyHyperlinks](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) 會回傳 [IHyperlinkContainer](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkcontainer/) 物件，而非純粹的 URL 字串列表。請檢查每個容器的 [HyperlinkClick](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkcontainer/hyperlinkclick/) 與 [HyperlinkMouseOver](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkcontainer/hyperlinkmouseover/)。兩者相互獨立：同一容器可同時提供兩種動作，因此完整報告可能需要每個容器最多兩列。
+
+僅掃描圖案層級的超連結可能會遺漏附加於文字區段的連結。請改為查詢適當的範圍，並保留返回的容器，以便稍後更新或移除其動作。
+
+### **查詢簡報、投影片與文字框範圍**
+
+[IHyperlinkQueries](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkqueries/) 介面可透過 [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipresentation/hyperlinkqueries/)、[IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ibaseslide/hyperlinkqueries/) 與 [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/hyperlinkqueries/) 取得。每個範圍支援相同的查詢：
+
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) 回傳具點擊動作的容器。
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) 回傳具滑鼠懸停動作的容器。
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) 回傳具任一或兩種動作的容器。
+
+以下範例建立 `hyperlink-audit-input.pptx`，其中包含外部點擊連結、檔案滑鼠懸停連結、內部投影片導覽、文字滑鼠懸停連結與巨集動作。這些動作皆不會被執行。相同的三個查詢在每個範圍皆適用；計數指的是容器數量，而非動作總數。文字框範圍會排除其所屬圖案本身的連結。
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var destination = presentation.Slides.AddEmptySlide(slide.LayoutSlide);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 60);
+shape.TextFrame.Text = "Click the text to go to slide 2";
+shape.HyperlinkManager.SetExternalHyperlinkClick("https://example.com/");
+shape.HyperlinkClick.Tooltip = "Public website";
+shape.HyperlinkManager.SetExternalHyperlinkMouseOver("file:///C:/private/report.xlsx");
+
+var portionFormat = shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+portionFormat.HyperlinkManager.SetInternalHyperlinkClick(destination);
+portionFormat.HyperlinkManager.SetExternalHyperlinkMouseOver("https://example.com/help");
+var macroButton = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 120, 200, 60);
+macroButton.HyperlinkManager.SetMacroHyperlinkClick("ReviewPresentation");
+
+PrintCounts("Presentation", presentation.HyperlinkQueries);
+PrintCounts("Slide 1", slide.HyperlinkQueries);
+PrintCounts("Text frame", shape.TextFrame.HyperlinkQueries);
+presentation.Save("hyperlink-audit-input.pptx", SaveFormat.Pptx);
+
+static void PrintCounts(string scope, IHyperlinkQueries queries)
+{
+    var clickContainers = queries.GetHyperlinkClicks();
+    var mouseOverContainers = queries.GetHyperlinkMouseOvers();
+    var allContainers = queries.GetAnyHyperlinks();
+    Console.WriteLine($"{scope}: click={clickContainers.Count}, mouse-over={mouseOverContainers.Count}, any={allContainers.Count}");
+}
+```
+
+在此範例中，簡報與投影片查詢各報告三個點擊容器、兩個滑鼠懸停容器，以及三個具任一動作的容器。文字框查詢則在每個類別各報告一個容器。
+
+### **分類動作與目的地**
+
+使用 [IHyperlink.ActionType](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/actiontype/) 先解讀動作，再解讀其目的地。[HyperlinkActionType] 的值涵蓋不僅僅是網頁導覽：
+
+| Values | Meaning for an audit |
+| --- | --- |
+| `Hyperlink` | 外部超連結；檢查 URL 與其協定。 |
+| `JumpSpecificSlide` | 內部導覽至特定投影片。 |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | 內建投影片放映導覽，在投影片放映模式下解析。 |
+| `JumpEndShow`, `StartCustomSlideShow` | 結束目前的放映或啟動自訂放映。 |
+| `StartMacro` | 執行巨集。 |
+| `StartProgram` | 啟動程式。 |
+| `OpenFile`, `OpenPresentation` | 開啟檔案或另一份簡報；與網頁 URL 分開審查。 |
+| `StartStopMedia` | 開始或停止媒體播放。 |
+| `NoAction`, `Unknown` | 無導覽動作，或未辨識的動作，需要審查。 |
+
+從 [ExternalUrl](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/externalurl/) 讀取外部目的地，從 [TargetSlide](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/targetslide/) 讀取特定的內部目的地。內部動作與內建指令可能沒有外部 URL；空的 URL 並不代表容器沒有動作。當 [ExternalUrlOriginal](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/externalurloriginal/) 與正規化後的 URL 不同時，請保留它，且若有提供則包含 [Tooltip](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/tooltip/)。
+
+### **報告、清理與驗證超連結**
+
+以下 .NET 6+ 範例會讀取既有的簡報（使用上述建立的檔案），寫入 `hyperlink-audit.json`，套用政策，儲存為 `hyperlink-sanitized.pptx`，並重新開啟以再次檢查兩種觸發類型。它在變更前收集容器，並使用參考相等性避免重複處理同一容器。簡報查詢涵蓋普通投影片；若要進行整個套件的清點，亦會明確查詢母片、版面配置、備註，以及存在時的備註與講義母片。
+
+報告會記錄以 1 為起點的投影片索引與（若有）[SlideId](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ibaseslide/slideid/)。[ISlideComponent.Slide](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/islidecomponent/slide/) 為支援的容器提供所屬投影片。母片、版面配置與備註沒有普通投影片索引，以其範圍識別。圖案容器與文字區段格式容器會分別標記；其他容器類型保留其執行時類型名稱。每個容器會取得報告本地 ID，以便關聯其兩個動作。
+
+此刻意嚴格的應用政策僅允許絕對的 HTTPS URL 與有效的內部投影片目標。它會拒絕巨集、程式、檔案動作、其他投影片放映動作、未知動作以及其他 URL 協定。這些拒絕屬於政策決策，而非 Aspose.Slides 安全性的判斷。僅有 HTTPS 並不保證信任：請為您的應用程式加入主機白名單與其他檢查。會檢查原始與正規化後的外部 URL。此範例僅稽核中繼資料，未跟隨連結或執行動作。
+
+為了修正，容器的 [HyperlinkManager](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkcontainer/hyperlinkmanager/) 支援 [SetExternalHyperlinkClick](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/)、[RemoveHyperlinkClick](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) 與 [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/)。此處，受限的外部點擊連結會被固定的 HTTPS 登陸頁面取代；其他受限的點擊及受限的滑鼠懸停動作則分別移除。將 `replaceExternalClicks` 設為 `false` 即可改為移除所有政策違規。請於部署前選擇由應用程式提供的取代頁面。
+
+報告的匯出標記使用保守的 PDF 檢查政策：將滑鼠懸停動作以及除外部連結或特定投影片跳轉之外的所有項目標記為可能不支援。這只是一項檢查提示，並非功能測試或保證未標記的連結在匯出時仍能存活。支援的 [PDF](/slides/zh-hant/net/convert-powerpoint-to-pdf/) 與 [HTML](/slides/zh-hant/net/convert-powerpoint-to-html/) 匯出可能會保留超連結，取決於動作、匯出選項與檢視器。點陣 [images](/slides/zh-hant/net/convert-powerpoint-to-png/) 與 [video](/slides/zh-hant/net/convert-powerpoint-to-video/) 無法保留互動式超連結；在審核這些輸出時請將每個動作都標記。
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.Json;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const bool replaceExternalClicks = true;
+const string replacementUrl = "https://example.com/blocked-link";
+using var presentation = new Presentation("hyperlink-audit-input.pptx");
+var containers = CollectContainers(presentation);
+var rows = new List<object>();
+
+for (var index = 0; index < containers.Count; index++)
+{
+    var container = containers[index];
+    AddRow(container.HyperlinkClick, "click", container, index + 1);
+    AddRow(container.HyperlinkMouseOver, "mouse-over", container, index + 1);
+}
+
+var jsonOptions = new JsonSerializerOptions { WriteIndented = true };
+var json = JsonSerializer.Serialize(rows, jsonOptions);
+File.WriteAllText("hyperlink-audit.json", json);
+
+foreach (var container in containers)
+{
+    var click = container.HyperlinkClick;
+    if (PolicyViolation(click) != null)
+    {
+        if (replaceExternalClicks && click.ActionType == HyperlinkActionType.Hyperlink)
         {
-            foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs)
-            {
-                foreach (IPortion portion in paragraph.Portions)
-                {
-                    portion.PortionFormat.HyperlinkManager.RemoveHyperlinkClick();
-                }
-            }
+            container.HyperlinkManager.SetExternalHyperlinkClick(replacementUrl);
+        }
+        else
+        {
+            container.HyperlinkManager.RemoveHyperlinkClick();
         }
     }
-    
-    pres.Save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
+    if (PolicyViolation(container.HyperlinkMouseOver) != null)
+    {
+        container.HyperlinkManager.RemoveHyperlinkMouseOver();
+    }
+}
+
+presentation.Save("hyperlink-sanitized.pptx", SaveFormat.Pptx);
+using var reopened = new Presentation("hyperlink-sanitized.pptx");
+var remainingContainers = CollectContainers(reopened);
+var violations = 0;
+foreach (var container in remainingContainers)
+{
+    if (PolicyViolation(container.HyperlinkClick) != null) violations++;
+    if (PolicyViolation(container.HyperlinkMouseOver) != null) violations++;
+}
+Console.WriteLine($"Audit rows: {rows.Count}; prohibited actions after reopening: {violations}");
+if (violations != 0)
+{
+    Console.WriteLine("Verification failed: do not distribute the saved presentation.");
+    Environment.ExitCode = 1;
+}
+
+void AddRow(IHyperlink? link, string activation, IHyperlinkContainer container, int containerId)
+{
+    if (link == null) return;
+    var ownerSlide = (container as ISlideComponent)?.Slide;
+    var targetSlide = link.TargetSlide;
+    var violation = PolicyViolation(link);
+    var ownerType = container is IShape ? "Shape" : container is IPortionFormat ? "Text portion" : container.GetType().Name;
+    var ordinaryAction = link.ActionType == HyperlinkActionType.Hyperlink || link.ActionType == HyperlinkActionType.JumpSpecificSlide;
+    rows.Add(new
+    {
+        ContainerId = containerId,
+        SlideIndex = SlideIndex(presentation, ownerSlide),
+        SlideId = ownerSlide?.SlideId,
+        Scope = ownerSlide?.GetType().Name,
+        OwnerType = ownerType,
+        Activation = activation,
+        ActionType = link.ActionType.ToString(),
+        ExternalUrl = link.ExternalUrl,
+        TargetSlideIndex = SlideIndex(presentation, targetSlide),
+        TargetSlideId = targetSlide?.SlideId,
+        Tooltip = link.Tooltip,
+        OriginalExternalUrl = link.ExternalUrlOriginal != link.ExternalUrl ? link.ExternalUrlOriginal : null,
+        PotentiallyUnsafe = violation != null,
+        PolicyViolation = violation,
+        TargetExport = "PDF",
+        PotentiallyUnsupportedByExport = activation == "mouse-over" || !ordinaryAction
+    });
+}
+
+static int? SlideIndex(IPresentation presentation, IBaseSlide? slide)
+{
+    for (var index = 0; index < presentation.Slides.Count; index++)
+    {
+        if (ReferenceEquals(presentation.Slides[index], slide)) return index + 1;
+    }
+    return null;
+}
+
+static string? PolicyViolation(IHyperlink? link)
+{
+    if (link == null) return null;
+    if (link.ActionType == HyperlinkActionType.JumpSpecificSlide)
+    {
+        return link.TargetSlide == null ? "Missing target slide" : null;
+    }
+    if (link.ActionType != HyperlinkActionType.Hyperlink) return "Action is not allowed";
+    if (!IsHttps(link.ExternalUrl)) return "Normalized URL is not absolute HTTPS";
+    var original = link.ExternalUrlOriginal;
+    if (!string.IsNullOrEmpty(original) && !IsHttps(original)) return "Original URL is not absolute HTTPS";
+    return null;
+}
+
+static bool IsHttps(string? value)
+{
+    return Uri.TryCreate(value, UriKind.Absolute, out var uri) && uri.Scheme == Uri.UriSchemeHttps;
+}
+
+static List<IHyperlinkContainer> CollectContainers(IPresentation presentation)
+{
+    var found = new List<IHyperlinkContainer>();
+    found.AddRange(presentation.HyperlinkQueries.GetAnyHyperlinks());
+    foreach (var master in presentation.Masters) AddScope(master);
+    foreach (var layout in presentation.LayoutSlides) AddScope(layout);
+    foreach (var slide in presentation.Slides) AddScope(slide.NotesSlideManager.NotesSlide);
+    AddScope(presentation.MasterNotesSlideManager.MasterNotesSlide);
+    AddScope(presentation.MasterHandoutSlideManager.MasterHandoutSlide);
+    return found.Distinct<IHyperlinkContainer>(ReferenceEqualityComparer.Instance).ToList();
+
+    void AddScope(IBaseSlide? slide)
+    {
+        if (slide != null) found.AddRange(slide.HyperlinkQueries.GetAnyHyperlinks());
+    }
 }
 ```
 
-### **從圖形或框架中移除超連結**
+使用上述建立的輸入，報告包含五筆動作列。檔案滑鼠懸停連結與巨集點擊被移除，而 HTTPS 連結與內部投影片導覽則保留。驗證結果顯示零項違規動作。若輸入包含受限的外部點擊 URL，亦會執行取代分支。具允許點擊且受限滑鼠懸停的容器會保留其點擊動作。
 
-以下 C# 程式碼示範如何從簡報投影片的圖形中移除超連結： 
-
-``` csharp
-using (Presentation pres = new Presentation("demo.pptx")) 
-{ 
-   ISlide slide = pres.Slides[0]; 
-   foreach (IShape shape in slide.Shapes) 
-     { 
-       shape.HyperlinkManager.RemoveHyperlinkClick(); 
-     } 
-   pres.Save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx); 
-}
-```
-
-## **可變的 Hyperlink**
-
-[Hyperlink](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/hyperlink) 類別是可變的。使用此類別，您可以變更以下屬性的值：
-
-- [IHyperlink.TargetFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/properties/targetframe)
-- [IHyperlink.Tooltip](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/properties/tooltip)
-- [IHyperlink.History](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/properties/history)
-- [IHyperlink.HighlightClick](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlink/properties/highlightclick)
-
-以下程式碼片段示範如何在投影片中新增超連結，並稍後編輯其工具提示：
-
-```c#
-using (Presentation presentation = new Presentation())
-{   
-   IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
-    
-   shape1.AddTextFrame("Aspose: File Format APIs");
-    
-   shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-    
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 32;
-    
- presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **IHyperlinkQueries 中支援的屬性**
-
-您可以從簡報、投影片或定義了超連結的文字取得 IHyperlinkQueries。
-
-- [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipresentation/properties/hyperlinkqueries)
-- [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
-- [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/properties/hyperlinkqueries)
-
-[IHyperlinkQueries] 類別支援以下方法與屬性：
-
-- [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkclicks)
-- [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkmouseovers)
-- [IHyperlinkQueries.GetAnyHyperlinks();](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkqueries/methods/getanyhyperlinks)
-- [IHyperlinkQueries.RemoveAllHyperlinks();](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkqueries/methods/removeallhyperlinks)
+此選擇性清理與 [RemoveAllHyperlinks](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) 不同，後者會在所選範圍內無條件移除兩種觸發類型。此處的驗證僅檢查超連結動作；不會移除內嵌的 VBA 專案、OLE 物件或其他活躍內容，也不會驗證匯出的 PDF 或 HTML 檔案。
 
 ## **常見問題**
 
-**如何在簡報中建立不僅指向投影片，而是指向「節」或該節的第一張投影片的內部導覽？**
+**如何將連結指向區段或其第一張投影片？**
 
-PowerPoint 中的節是投影片的分組；導覽在技術上仍指向特定的投影片。若要「導覽至節」，通常會連結到該節的第一張投影片。
+PowerPoint 中的區段用於將投影片分組，但內部超連結會鎖定單一投影片。若要導覽至區段，請將連結指向該區段的第一張投影片。
 
-**我可以將超連結附加到母片元素，使其在所有投影片上均可使用嗎？**
+**我可以將超連結附加在母片元素上，使其在所有投影片上都有效嗎？**
 
-可以。母片與版面配置元素支援超連結。此類連結會出現在子投影片上，並在簡報放映時可點擊。
+可以。母片與版面配置元素支援超連結。這些元素上的連結會在投影片放映時於使用相應母片或版面配置的投影片上生效。
 
-**在匯出為 PDF、HTML、影像或影片時，超連結會被保留嗎？**
+**匯出為 PDF、HTML、影像或影片時，超連結會被保留嗎？**
 
-在 [PDF](/slides/zh-hant/net/convert-powerpoint-to-pdf/) 與 [HTML](/slides/zh-hant/net/convert-powerpoint-to-html/) 中，會保留連結；在匯出為 [影像](/slides/zh-hant/net/convert-powerpoint-to-png/) 與 [影片](/slides/zh-hant/net/convert-powerpoint-to-video/) 時，因為這些格式本質上是點陣框格/影片，不支援超連結，點擊功能將不會保留。
+支援的 PDF 與 HTML 匯出可能會保留超連結；點陣影像與影片則無法保留。請參閱 [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) 中的匯出考量。

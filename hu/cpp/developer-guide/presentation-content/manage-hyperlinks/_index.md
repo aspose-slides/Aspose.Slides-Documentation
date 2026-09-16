@@ -1,143 +1,157 @@
 ---
-title: "C++-ban a prezentáció hiperhivatkozásainak kezelése"
-linktitle: "Hiperhivatkozás kezelése"
+title: C++ prezentációs hiperhivatkozások kezelése
+linktitle: Hiperhivatkozások kezelése
 type: docs
 weight: 20
 url: /hu/cpp/manage-hyperlinks/
 keywords:
-- "URL hozzáadása"
-- "hiperhivatkozás hozzáadása"
-- "hiperhivatkozás létrehozása"
-- "hiperhivatkozás formázása"
-- "hiperhivatkozás eltávolítása"
-- "hiperhivatkozás frissítése"
-- "szöveges hiperhivatkozás"
-- "dia hiperhivatkozás"
-- "alakzat hiperhivatkozás"
-- "kép hiperhivatkozás"
-- "videó hiperhivatkozás"
-- "módosítható hiperhivatkozás"
-- "PowerPoint"
-- "OpenDocument"
-- "prezentáció"
-- "C++"
-- "Aspose.Slides"
-description: "Könnyedén kezelheti a hiperhivatkozásokat PowerPoint és OpenDocument prezentációkban az Aspose.Slides for C++ segítségével — fokozza az interaktivitást és a munkafolyamatot percek alatt."
+- URL hozzáadása
+- hiperhivatkozás hozzáadása
+- hiperhivatkozás létrehozása
+- hiperhivatkozás formázása
+- hiperhivatkozás eltávolítása
+- hiperhivatkozás frissítése
+- szöveges hiperhivatkozás
+- dia hiperhivatkozás
+- alakzati hiperhivatkozás
+- kép hiperhivatkozás
+- videó hiperhivatkozás
+- módosítható hiperhivatkozás
+- PowerPoint
+- OpenDocument
+- prezentáció
+- C++
+- Aspose.Slides
+description: "Hiperhivatkozások hozzáadása, formázása, frissítése és eltávolítása PowerPoint és OpenDocument prezentációkban az Aspose.Slides for C++ segítségével, C++ példákkal."
 ---
 ## **Bevezetés**
 
-A hiperhivatkozás egy objektumra, adatra vagy egy helyre való hivatkozás. Ezek a gyakori hiperhivatkozások a PowerPoint prezentációkban:
+A hiperhivatkozás a bemutató tartalmát kapcsolja össze egy weboldallal vagy a bemutatón belüli helyre. A PowerPoint-ban a hiperhivatkozások általában két célra szolgálnak:
 
-* Weboldalakra mutató hivatkozások szövegekben, alakzatokban vagy médiában
-* Dia linkek
+* Weboldal megnyitása szövegből, alakzatból vagy média keretből.
+* Navigálás egy másik diára, például egy tartalomjegyzékből.
 
-Az Aspose.Slides for C++ lehetővé teszi, hogy sok feladatot hajtson végre, amelyek hiperhivatkozásokat érintenek a prezentációkban. 
+Az Aspose.Slides for C++ lehetővé teszi ezen hivatkozások hozzáadását, megjelenésük és hangjuk szabályozását, beállításaik frissítését és eltávolítását. Az alábbi példák bemutatják, hogyan dolgozhatunk hiperhivatkozásokkal egyedi elemeknél, valamint hogyan érhetjük el a hiperhivatkozásokat a bemutató, dia vagy szövegkeret szintjén.
 
-{{% alert color="primary" %}} 
-Érdemes megnézni az Aspose egyszerű, [ingyenes online PowerPoint szerkesztő](https://products.aspose.app/slides/hu/editor)
+{{% alert color="info" title="Note" %}}
+A bemutatókat a [ingyenes online Aspose PowerPoint szerkesztő](https://products.aspose.app/slides/hu/editor) segítségével is szerkesztheti.
 {{% /alert %}} 
 
 ## **URL hiperhivatkozások hozzáadása**
 
+Weboldal URL-t adhat szöveghez, alakzathoz vagy média kerethez. Az a elem, amelyhez a hiperhivatkozást rendeli, meghatározza a kattintható területet: egy szövegrész a kiválasztott szöveget kapcsolja, míg egy alakzat vagy keret a dia objektumát kapcsolja.
+
 ### **URL hiperhivatkozások hozzáadása szöveghez**
 
-Ez a C++ kód bemutatja, hogyan adhatunk hozzá egy weboldal hiperhivatkozást egy szöveghez:
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f, false);
-shape->AddTextFrame(u"Aspose: File Format APIs");
+A szöveg weboldalra való hivatkozásához hozzon létre egy [Hyperlink](https://reference.aspose.com/slides/hu/cpp/aspose.slides/hyperlink/) objektumot, és rendelje azt a szövegrész [set_HyperlinkClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/portionformat/set_hyperlinkclick/) metódusával, az alábbiakban látható módon. Csak az adott szövegrész lesz kattintható.
 
-auto portionFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-portionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
-portionFormat->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
-portionFormat->set_FontHeight(32.0f);
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+
+auto textShape = presentation->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 600, 50, false);
+textShape->AddTextFrame(u"Aspose: File Format APIs");
+auto portionFormat = textShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionFormat();
+portionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+portionFormat->get_HyperlinkClick()->set_Tooltip(u"Explore Aspose file format APIs");
+portionFormat->set_FontHeight(32);
 
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **URL hiperhivatkozások hozzáadása alakzatokhoz vagy keretekhez**
+### **URL hiperhivatkozások hozzáadása alakzatokhoz és média keretekhez**
 
-Ez a C++ minta kód bemutatja, hogyan adhatunk hozzá egy weboldal hiperhivatkozást egy alakzathoz:
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f);
+Az alakzat vagy keret kattinthatóvá tételéhez használja annak [set_HyperlinkClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shape/set_hyperlinkclick/) metódusát. A hiperhivatkozás az objektumhoz tartozik, nem a benne lévő szövegrészhez.
+
+Ez a megközelítés a kép-, audio- és videókeretekre is vonatkozik: rendelje a hiperhivatkozást a kerethez, és ha szükséges, használja a [set_Tooltip](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/set_tooltip/) metódust a tipp hozzáadásához.
+
+A következő példa egy téglalapot tesz kattinthatóvá:
+
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+
+auto shape = presentation->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 600, 50);
 
 shape->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
-shape->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
+shape->get_HyperlinkClick()->set_Tooltip(u"Explore Aspose file format APIs");
 
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **URL hiperhivatkozások hozzáadása médiához**
+## **Hiperhivatkozások használata tartalomjegyzék létrehozásához**
 
-Az Aspose.Slides lehetővé teszi, hogy hiperhivatkozásokat adjunk hozzá képekhez, hang- és videofájlokhoz. 
+A belső hiperhivatkozások lehetővé teszik az olvasók számára, hogy a tartalomjegyzékből egy adott diára ugorjanak. Az alábbi példa a [SetInternalHyperlinkClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) metódust használja, hogy az első dián lévő „Page 2” szöveget a második diára linkelje.
 
-Ez a minta kód bemutatja, hogyan adhatunk hozzá egy hiperhivatkozást egy **képre**:
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-// Képet ad a prezentációhoz
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-// Létrehozza a képkockát az 1. dián a korábban hozzáadott kép alapján
-auto pictureFrame = shapes->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
 
-pictureFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
-pictureFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
-```
-
-Ez a minta kód bemutatja, hogyan adhatunk hozzá egy hiperhivatkozást egy **hangfájlhoz**:
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto audio = pres->get_Audios()->AddAudio(File::ReadAllBytes(u"audio.mp3"));
-auto audioFrame = shapes->AddAudioFrameEmbedded(10.0f, 10.0f, 100.0f, 100.0f, audio);
-
-audioFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
-audioFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
-
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
-```
-
-Ez a minta kód bemutatja, hogyan adhatunk hozzá egy hiperhivatkozást egy **videóhoz**:
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto video = pres->get_Videos()->AddVideo(File::ReadAllBytes(u"video.avi"));
-auto videoFrame = shapes->AddVideoFrame(10.0f, 10.0f, 100.0f, 100.0f, video);
-
-videoFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
-videoFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
-
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
-```
-
-{{%  alert  title="Tip"  color="primary"  %}} 
-Érdemes megnézni a *[OLE kezelése](https://docs.aspose.com/slides/hu/cpp/manage-ole/)*.
-{{% /alert %}}
-
-## **Hiperhivatkozások használata Tartalomjegyzék létrehozásához**
-
-Mivel a hiperhivatkozások lehetővé teszik objektumokra vagy helyekre mutató hivatkozások hozzáadását, használhatók tartalomjegyzék létrehozásához. 
-
-Ez a minta kód bemutatja, hogyan hozhat létre egy tartalomjegyzéket hiperhivatkozásokkal:
-``` cpp
 auto presentation = System::MakeObject<Presentation>();
-auto firstSlide = presentation->get_Slides()->idx_get(0);
+
+auto firstSlide = presentation->get_Slide(0);
 auto secondSlide = presentation->get_Slides()->AddEmptySlide(firstSlide->get_LayoutSlide());
 
-auto contentTable = firstSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40.0f, 40.0f, 300.0f, 100.0f);
-contentTable->get_FillFormat()->set_FillType(FillType::NoFill);
-contentTable->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
-contentTable->get_TextFrame()->get_Paragraphs()->Clear();
+auto tableOfContents = firstSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 40, 300, 100);
+tableOfContents->get_FillFormat()->set_FillType(FillType::NoFill);
+tableOfContents->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+tableOfContents->get_TextFrame()->get_Paragraphs()->Clear();
 
 auto paragraph = System::MakeObject<Paragraph>();
-auto paragraphFillFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat();
-paragraphFillFormat->set_FillType(FillType::Solid);
-paragraphFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
 paragraph->set_Text(u"Title of slide 2 .......... ");
 
 auto linkPortion = System::MakeObject<Portion>();
@@ -145,126 +159,511 @@ linkPortion->set_Text(u"Page 2");
 linkPortion->get_PortionFormat()->get_HyperlinkManager()->SetInternalHyperlinkClick(secondSlide);
 
 paragraph->get_Portions()->Add(linkPortion);
-contentTable->get_TextFrame()->get_Paragraphs()->Add(paragraph);
+tableOfContents->get_TextFrame()->get_Paragraphs()->Add(paragraph);
+
+presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 ```
 
 ## **Hiperhivatkozások formázása**
 
 ### **Szín**
 
-A [set_ColorSource()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_hyperlink#ab739ae21025485366d44a3b72e0d7dac) és a [get_ColorSource()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_hyperlink#af5370af1ba9fba7b22fcc8a7ce344494) metódusok az [IHyperlink](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_hyperlink) interfészben lehetővé teszik, hogy beállítsa a hiperhivatkozások színét, valamint lekérje a színinformációt a hiperhivatkozásokból. A funkció először a PowerPoint 2019-ben került bevezetésre, így a tulajdonságot érintő változások nem vonatkoznak a régebbi PowerPoint verziókra.
+A [set_ColorSource](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/set_colorsource/) metódus a [IHyperlink](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/) esetén határozza meg, hogy a hiperhivatkozás a bemutató hiperhivatkozás színét vagy a szövegrész formázását használja-e. Egy egyéni szövegszín alkalmazásához válassza a [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/hyperlinkcolorsource/) lehetőséget, és állítsa be a rész kitöltőszínét. Ez a funkció a PowerPoint 2019-ben került bevezetésre; a régebbi verziók nem alkalmazzák ezt a beállítást.
 
-Ez a minta kód bemutat egy műveletet, ahol különböző színű hiperhivatkozásokat adtak hozzá ugyanahhoz a diára:
-``` cpp
+A következő példa két szöveges hiperhivatkozást ad ugyanahhoz a diához. Az első piros szövegtöltést használ, míg a második megtartja az alapértelmezett hiperhivatkozás színét.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/Hyperlink.h>
+#include <DOM/HyperlinkColorSource.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
-auto shape1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 450.0f, 50.0f, false);
-shape1->AddTextFrame(u"This is a sample of colored hyperlink.");
-auto shape1PortionFormat = shape1->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shape1PortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
-shape1PortionFormat->get_HyperlinkClick()->set_ColorSource(HyperlinkColorSource::PortionFormat);
-shape1PortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
-shape1PortionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
 
-auto shape2 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 450.0f, 50.0f, false);
-shape2->AddTextFrame(u"This is a sample of usual hyperlink.");
-auto shape2PortionFormat = shape2->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shape2PortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+auto coloredShape = presentation->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 450, 50, false);
+coloredShape->AddTextFrame(u"This hyperlink uses a custom color.");
+auto coloredPortionFormat = coloredShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionFormat();
+coloredPortionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+coloredPortionFormat->get_HyperlinkClick()->set_ColorSource(HyperlinkColorSource::PortionFormat);
+coloredPortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
+coloredPortionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+
+auto defaultShape = presentation->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 450, 50, false);
+defaultShape->AddTextFrame(u"This hyperlink uses the default color.");
+defaultShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
+### **Hang**
 
-## **Hiperhivatkozások eltávolítása a prezentációkból**
+Hiperhivatkozás aktiváláskor lejátszhat hangot, vagy leállíthat egy már lejátszódó hangot. Az alábbi módszerekkel állíthatja be ezeket a viselkedéseket:
 
-### **Hiperhivatkozások eltávolítása szövegből**
+- [IHyperlink::set_Sound](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/set_sound/) határozza meg a hiperhivatkozáshoz társított hangot.
+- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) szabályozza, hogy a hiperhivatkozás aktiválása leállítsa-e az előző hangot.
 
-Ez a C++ kód bemutatja, hogyan távolítható el a hiperhivatkozás egy szövegből egy prezentáció dián:
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto slide = pres->get_Slides()->idx_get(0);
-for (const auto& shape : slide->get_Shapes())
+#### **Hiperhivatkozási hang hozzáadása**
+
+A következő példa betölti a `sampleaudio.wav` fájlt, és egy első dián lévő gombhoz rendeli. A gombra kattintva lejátszódik a hang és a következő diára navigál. A dián lévő második alakzat kattintásra leállítja az előző hangot, anélkül, hogy navigációs műveletet végezne.
+
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAudio.h>
+#include <DOM/IAudioCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+
+auto audioData = System::IO::File::ReadAllBytes(u"sampleaudio.wav");
+auto hyperlinkSound = presentation->get_Audios()->AddAudio(audioData);
+
+auto firstSlide = presentation->get_Slide(0);
+
+auto playButton = firstSlide->get_Shapes()->AddAutoShape(ShapeType::SoundButton, 100, 100, 100, 50);
+playButton->set_HyperlinkClick(Hyperlink::get_NextSlide());
+
+if (!playButton->get_HyperlinkClick()->get_StopSoundOnClick() && playButton->get_HyperlinkClick()->get_Sound() == nullptr)
 {
-    auto autoShape = System::AsCast<IAutoShape>(shape);
-    if (autoShape != nullptr)
+    playButton->get_HyperlinkClick()->set_Sound(hyperlinkSound);
+}
+
+auto secondSlide = presentation->get_Slides()->AddEmptySlide(firstSlide->get_LayoutSlide());
+
+auto stopButton = secondSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 100, 50);
+stopButton->set_HyperlinkClick(Hyperlink::get_NoAction());
+
+stopButton->get_HyperlinkClick()->set_StopSoundOnClick(true);
+
+presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
+```
+
+#### **Hiperhivatkozási hang kinyerése**
+
+A következő példa megnyitja a fent létrehozott bemutatót, és a [get_Sound](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/get_sound/) és a [get_BinaryData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iaudio/get_binarydata/) segítségével beolvassa az első alakzat hiperhivatkozás hangját a memóriába.
+
+```cpp
+#include <DOM/IAudio.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>(u"hyperlink-sound.pptx");
+
+if (presentation->get_Slides()->get_Count() > 0 && presentation->get_Slide(0)->get_Shapes()->get_Count() > 0)
+{
+    auto hyperlink = presentation->get_Slide(0)->get_Shape(0)->get_HyperlinkClick();
+    auto sound = hyperlink != nullptr ? hyperlink->get_Sound() : nullptr;
+    if (sound != nullptr)
     {
-        for (const auto& paragraph : autoShape->get_TextFrame()->get_Paragraphs())
-        {
-            for (const auto& portion : paragraph->get_Portions())
-            {
-                auto hyperlinkManager = portion->get_PortionFormat()->get_HyperlinkManager();
-                hyperlinkManager->RemoveHyperlinkClick();
-            }
-        }
+        auto audioData = sound->get_BinaryData();
+        System::Console::WriteLine(u"Extracted {0} bytes of hyperlink audio.", audioData->get_Length());
+    }
+    else
+    {
+        System::Console::WriteLine(u"The first shape has no hyperlink sound.");
     }
 }
-
-pres->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
-```
-
-### **Hiperhivatkozások eltávolítása alakzatokból vagy keretekből**
-
-Ez a C++ kód bemutatja, hogyan távolítható el a hiperhivatkozás egy alakzatról egy prezentáció dián: 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"demo.pptx");
-auto slide = pres->get_Slides()->idx_get(0);
-for (const auto& shape : slide->get_Shapes())
+else
 {
-    shape->get_HyperlinkManager()->RemoveHyperlinkClick();
+    System::Console::WriteLine(u"The presentation has no first slide or shape to inspect.");
 }
-pres->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
 ```
 
-## **Módosítható hiperhivatkozás**
+### **Buborékablak és interakciós beállítások**
 
-A [Hyperlink](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.hyperlink) osztály módosítható. Ezzel az osztállyal megváltoztathatja ezeknek a metódusoknak az értékeit:
+Miután hiperhivatkozást rendelt szöveghez vagy alakzathoz, a következő [IHyperlink](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/) beállításokat módosíthatja ezekkel a módszerekkel:
 
-- [IHyperlink::set_TargetFrame()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_hyperlink#af2d9c5672517d98afe5868903a5a637f)
-- [IHyperlink::set_Tooltip()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_hyperlink#adf1c8eee89bd292292293e58da79a6f2)
-- [IHyperlink.set_History()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_hyperlink#a1a4a96d280f54b641e3ada3557b6688d)
-- [IHyperlink.set_HighlightClick()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_hyperlink#ac48a0fa4106cff14cb5772269399587e)
-- [IHyperlink.set_StopSoundOnClick()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_hyperlink#ad0db04da8009b329d2c79019642aaa43)
+- [set_Tooltip](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/set_tooltip/) beállítja a szöveget, amelyet a néző a hivatkozás tippjeként jeleníthet meg.
+- [set_TargetFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/set_targetframe/) meghatározza a célkeretet a szülő HTML keretcsoportban, ha alkalmazható.
+- [set_History](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/set_history/) szabályozza, hogy a hivatkozás aktiválása felveszi-e a célját a megtekintett hiperhivatkozások listájába.
+- [set_HighlightClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/set_highlightclick/) szabályozza, hogy a hiperhivatkozás ki legyen-e emelve kattintáskor.
 
-A kódrészlet bemutatja, hogyan adhat hiperhivatkozást egy diára, és később szerkesztheti a tooltipjét:
-``` cpp
+## **Hiperhivatkozások eltávolítása a bemutatókból**
+
+A [GetAnyHyperlinks](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) használatával gyűjtheti össze a hiperhivatkozás konténereket, beleértve a szövegrész hivatkozásokat is, a módosításuk előtt. Az alábbi példa eltávolítja mindkét aktiválási típust az első diáról. Ha csak egy típust szeretne eltávolítani, hívja csak a [RemoveHyperlinkClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) vagy a [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) metódust; a kattintási művelet eltávolítása nem távolítja el az egér‑felül eseményt.
+
+```cpp
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IHyperlinkQueries.h>
+#include <DOM/IHyperlinkContainer.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/collections/ilist.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+
+if (presentation->get_Slides()->get_Count() > 0)
+{
+    auto containers = presentation->get_Slide(0)->get_HyperlinkQueries()->GetAnyHyperlinks();
+    for (const auto& container : containers)
+    {
+        container->get_HyperlinkManager()->RemoveHyperlinkClick();
+        container->get_HyperlinkManager()->RemoveHyperlinkMouseOver();
+    }
+    presentation->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
+}
+else
+{
+    System::Console::WriteLine(u"The presentation has no slides to process.");
+}
+```
+
+Feltétlen eltávolításhoz a [RemoveAllHyperlinks](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) mindkét aktiválási típust eltávolítja a kiválasztott körben egy hívással. Szelektív tisztításhoz és a mester‑, elrendezés‑ és jegyzet‑diák lefedéséhez lásd a [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) részt.
+
+## **Teljes hiperhivatkozás leltár felépítése**
+
+A bemutató közzététele előtt készítsen leltárt az interaktív műveleteiről és webes hivatkozásairól. A [GetAnyHyperlinks](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) [IHyperlinkContainer](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkcontainer/) objektumokat ad vissza, nem egy egyszerű URL karakterláncok listáját. Minden konténeren ellenőrizze mind a [get_HyperlinkClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) , mind a [get_HyperlinkMouseOver](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) metódust. Függetlenek: ugyanaz a konténer is tartalmazhatja mindkét műveletet, ezért egy teljes jelentéshez egy konténerre akár két sor is szükséges.
+
+Csak az alakzatszintű hiperhivatkozások beolvasása kihagyhatja a szövegrészekhez csatolt hivatkozásokat. Inkább a megfelelő körben kérdezze le, és őrizze meg a visszakapott konténereket, hogy később frissíthesse vagy eltávolíthassa azok műveleteit.
+
+### **Bemutató, dia és szövegkeret körök lekérdezése**
+
+Az [IHyperlinkQueries](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkqueries/) felület elérhető az [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) és [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) metódusokon keresztül. Minden kör ugyanazokat a lekérdezéseket támogatja:
+
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) konténereket ad vissza kattintásos művelettel.
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) konténereket ad vissza egér‑felül művelettel.
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) konténereket ad vissza, amelyek bármelyik vagy mindkét műveletet tartalmazzák.
+
+A következő példa létrehozza a `hyperlink-audit-input.pptx` fájlt, amely egy külső kattintási hivatkozást, egy fájl egér‑felül hivatkozást, belső dia navigációt, egy szöveg egér‑felül hivatkozást és egy makró műveletet tartalmaz. Ezek egyikét sem hajtja végre. Ugyanaz a három lekérdezés minden körben működik; a számlálók konténereket írnak le, nem a műveletek összegét. A szövegkeret kör kizárja a körülvevő alakzat saját hivatkozásait.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IHyperlinkQueries.h>
+#include <DOM/IHyperlinkContainer.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/collections/ilist.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto printCounts = [](System::String scope, System::SharedPtr<IHyperlinkQueries> queries)
+{
+    auto clickContainers = queries->GetHyperlinkClicks();
+    auto mouseOverContainers = queries->GetHyperlinkMouseOvers();
+    auto allContainers = queries->GetAnyHyperlinks();
+    System::Console::WriteLine(u"{0}: click={1}, mouse-over={2}, any={3}", scope, clickContainers->get_Count(), mouseOverContainers->get_Count(), allContainers->get_Count());
+};
+
 auto presentation = System::MakeObject<Presentation>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f, false);
+auto slide = presentation->get_Slide(0);
+auto destination = presentation->get_Slides()->AddEmptySlide(slide->get_LayoutSlide());
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 400, 60);
+shape->get_TextFrame()->set_Text(u"Click the text to go to slide 2");
+shape->get_HyperlinkManager()->SetExternalHyperlinkClick(u"https://example.com/");
+shape->get_HyperlinkClick()->set_Tooltip(u"Public website");
+shape->get_HyperlinkManager()->SetExternalHyperlinkMouseOver(u"file:///C:/private/report.xlsx");
 
-shape->AddTextFrame(u"Aspose: File Format APIs");
+auto portionFormat = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionFormat();
+portionFormat->get_HyperlinkManager()->SetInternalHyperlinkClick(destination);
+portionFormat->get_HyperlinkManager()->SetExternalHyperlinkMouseOver(u"https://example.com/help");
+auto macroButton = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 120, 200, 60);
+macroButton->get_HyperlinkManager()->SetMacroHyperlinkClick(u"ReviewPresentation");
 
-auto shapePortionFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shapePortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
-shapePortionFormat->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
-shapePortionFormat->set_FontHeight(32.0f);
-
-presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
+printCounts(u"Presentation", presentation->get_HyperlinkQueries());
+printCounts(u"Slide 1", slide->get_HyperlinkQueries());
+printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
+presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
-## **Támogatott metódusok az IHyperlinkQueries-ben**
+Ebben a példában a bemutató és a dia lekérdezések három kattintási konténert, két egér‑felül konténert, és három konténert jelentettek, amelyek bármelyik művelettel rendelkeznek. A szövegkeret lekérdezés egy konténert jelent mindhárom kategóriában.
 
-Az IHyperlinkQueries-t elérheti egy prezentációból, diáiból vagy szövegből, amelyhez a hiperhivatkozás definiálva van. 
+### **Műveletek és célok osztályozása**
 
-- [IPresentation::get_HyperlinkQueries()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_presentation#a7e84086f34ddc742ea9124ab11727691)
-- [IBaseSlide::get_HyperlinkQueries()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_base_slide#a8593a5a5f6b7e051aa859ec373c66421)
-- [ITextFrame::get_HyperlinkQueries()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_text_frame#a1303ef71d3c50d471e35434dcaaa2e4e)
+A [IHyperlink::get_ActionType](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/get_actiontype/) használatával értelmezze a műveletet, mielőtt a célját vizsgálná. A [HyperlinkActionType](https://reference.aspose.com/slides/hu/cpp/aspose.slides/hyperlinkactiontype/) értékek a webes navigáción túl is kiterjednek:
 
-Az IHyperlinkQueries osztály támogatja ezeket a metódusokat: 
+| Értékek | Jelentés az auditban |
+| --- | --- |
+| `Hyperlink` | Külső hiperhivatkozás; vizsgálja meg az URL-t és annak sémáját. |
+| `JumpSpecificSlide` | Belső navigáció egy adott diára. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Beépített diavetítés navigáció, a diavetítés kontextusában értelmezve. |
+| `JumpEndShow`, `StartCustomSlideShow` | Az aktuális bemutató befejezése vagy egy egyéni bemutató indítása. |
+| `StartMacro` | Makró végrehajtása. |
+| `StartProgram` | Program indítása. |
+| `OpenFile`, `OpenPresentation` | Fájl vagy másik bemutató megnyitása; külön kell vizsgálni a webes URL-eket. |
+| `StartStopMedia` | Média lejátszás indítása vagy leállítása. |
+| `NoAction`, `Unknown` | Nincs navigációs művelet, vagy egy ismeretlen művelet, amely felülvizsgálatot igényel. |
 
-- [IHyperlinkQueries::GetHyperlinkClicks()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_hyperlink_queries#aaea0b1b68ff2e65240612fb1f08361c1)
-- [IHyperlinkQueries::GetHyperlinkMouseOvers()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_hyperlink_queries#ac68ac55d183323f11e604b40760b0e4b)
-- [IHyperlinkQueries::GetAnyHyperlinks()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_hyperlink_queries#acaf9ded3920056054e0e70c24129d73a)
-- [IHyperlinkQueries::RemoveAllHyperlinks()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_hyperlink_queries#a289f52c992f939fe46282536cec7222d)
+Az external célpontokat a [get_ExternalUrl](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/get_externalurl/) segítségével, a konkrét belső célpontokat pedig a [get_TargetSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/get_targetslide/) metódussal olvassa ki. Belső műveletek és beépített parancsok esetén előfordulhat, hogy nincs külső URL; egy üres URL nem jelenti azt, hogy a konténernek nincs művelete. Tartsa meg a [get_ExternalUrlOriginal](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) értékét, ha az eltér a normalizált URL-től, és vegye fel a [get_Tooltip](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/get_tooltip/) által visszaadott buborékablakot, ha elérhető.
+
+### **Hiperhivatkozások jelentése, tisztítása és ellenőrzése**
+
+A következő C++ példa beolvas egy meglévő bemutatót (használja a fent létrehozott fájlt), kiírja a `hyperlink-audit.json`-t, egy szabályzatot alkalmaz, elmenti a `hyperlink-sanitized.pptx`-t, majd újra megnyitja, hogy újra ellenőrizze mindkét aktiválási típust. A módosítás előtt összegyűjti a konténereket, és pointer‑identitást használ, hogy elkerülje ugyanazon konténer kétszeri feldolgozását. A bemutató lekérdezések a szokásos diákra vonatkoznak; csomagszintű leltár esetén kifejezetten lekérdezi a mestereket, elrendezéseket, jegyzeteket, valamint a jegyzet‑ és szórólap‑mestereket, ha jelen vannak.
+
+A jelentés egy egytől kezdődő dia indexet és a [get_SlideId](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibaseslide/get_slideid/) értéket rögzíti, ha elérhető. Az [ISlideComponent::get_Slide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidecomponent/get_slide/) a támogatott konténerekhez a tulajdonos diát adja meg. A mesterek, elrendezések és jegyzetek nem rendelkeznek hagyományos dia indexszel, és a körük alapján azonosíthatók. Az alakzat konténereket és a szövegrész formázási konténereket külön jelölik; más konténer típusok megtartják a futási időbeli típusnevüket. Minden konténer kap egy jelentés‑helyi azonosítót, hogy a két művelete összekapcsolható legyen.
+
+Ez a szándékosan szigorú alkalmazási szabályzat csak abszolút HTTPS URL-eket és érvényes belső dia célpontokat engedélyez. Elutasítja a makrókat, programokat, fájl műveleteket, egyéb diavetítési műveleteket, ismeretlen műveleteket és más URL sémákat. Ezek az elutasítások szabályzat döntések, nem az Aspose.Slides biztonsági ítélete. A HTTPS önmagában nem teremt bizalmat: adjon hozzá host engedélylistákat és egyéb ellenőrzéseket az alkalmazásához. Mind az eredeti, mind a normalizált külső URL-ek ellenőrzésre kerülnek. A példa metaadatokat auditál anélkül, hogy linkeket követne vagy műveleteket hajtana végre.
+
+A javításhoz a konténer [get_HyperlinkManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) [SetExternalHyperlinkClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) és [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) metódusokat támogatja. Itt a tiltott külső kattintási hivatkozásokat egy rögzített HTTPS kezdőoldallal helyettesítik; a többi tiltott kattintást és egér‑felül műveletet külön-külön eltávolítják. Állítsa a `replaceExternalClicks` értékét `false`‑ra, ha az összes szabályzat‑sértést el akarja távolítani. Válasszon egy alkalmazás‑tulajdonú helyettesítő oldalt a telepítés előtt.
+
+A jelentés exportálási jelzője egy konzervatív PDF felülvizsgálati szabályzatot használ: egér‑felül műveleteket és mindent, ami nem külső hivatkozás vagy konkrét dia ugrás, potenciálisan nem támogatottként jelöl. Ez egy felülvizsgálati tipp, nem képességteszt vagy garancia arra, hogy a jelöletlen hivatkozások megmaradnak az exportálás során. A támogatott [PDF](/slides/hu/cpp/convert-powerpoint-to-pdf/) és [HTML](/slides/hu/cpp/convert-powerpoint-to-html/) exportok megőrizhetik a hiperhivatkozásokat, a művelettől, export beállításoktól és a megjelenítőtől függően. A raszteres [képek](/slides/hu/cpp/convert-powerpoint-to-png/) és [videók](/slides/hu/cpp/convert-powerpoint-to-video/) nem tudják megőrizni az interaktív hiperhivatkozásokat; az ilyen kimenetek auditálásakor minden műveletet jelöljön.
+
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/HyperlinkActionType.h>
+#include <DOM/IBaseSlide.h>
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IHyperlinkQueries.h>
+#include <DOM/IHyperlinkContainer.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterHandoutSlide.h>
+#include <DOM/IMasterHandoutSlideManager.h>
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/INotesSlide.h>
+#include <DOM/INotesSlideManager.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPresentation.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideComponent.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/uri.h>
+#include <system/environment.h>
+#include <fstream>
+#include <sstream>
+#include <iomanip>
+#include <vector>
+#include <unordered_set>
+#include <system/collections/ilist.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+const auto replaceExternalClicks = true;
+const System::String replacementUrl = u"https://example.com/blocked-link";
+auto presentation = System::MakeObject<Presentation>(u"hyperlink-audit-input.pptx");
+
+auto collectContainers = [](System::SharedPtr<IPresentation> source)
+{
+    std::vector<System::SharedPtr<IHyperlinkContainer>> found;
+    std::unordered_set<IHyperlinkContainer*> seen;
+    auto addQueries = [&](System::SharedPtr<IHyperlinkQueries> queries)
+    {
+        auto containers = queries->GetAnyHyperlinks();
+        for (const auto& container : containers)
+        {
+            if (seen.insert(container.get()).second) found.push_back(container);
+        }
+    };
+    auto addScope = [&](System::SharedPtr<IBaseSlide> slide)
+    {
+        if (slide != nullptr) addQueries(slide->get_HyperlinkQueries());
+    };
+    addQueries(source->get_HyperlinkQueries());
+    for (const auto& master : source->get_Masters()) addScope(master);
+    for (const auto& layout : source->get_LayoutSlides()) addScope(layout);
+    for (const auto& slide : source->get_Slides()) addScope(slide->get_NotesSlideManager()->get_NotesSlide());
+    addScope(source->get_MasterNotesSlideManager()->get_MasterNotesSlide());
+    addScope(source->get_MasterHandoutSlideManager()->get_MasterHandoutSlide());
+    return found;
+};
+
+auto isHttps = [](System::String value)
+{
+    System::SharedPtr<System::Uri> uri;
+    return System::Uri::TryCreate(value, System::UriKind::Absolute, uri) && uri->get_Scheme() == System::Uri::UriSchemeHttps;
+};
+auto policyViolation = [&](System::SharedPtr<IHyperlink> link) -> System::String
+{
+    if (link == nullptr) return u"";
+    if (link->get_ActionType() == HyperlinkActionType::JumpSpecificSlide)
+    {
+        return link->get_TargetSlide() == nullptr ? u"Missing target slide" : u"";
+    }
+    if (link->get_ActionType() != HyperlinkActionType::Hyperlink) return u"Action is not allowed";
+    if (!isHttps(link->get_ExternalUrl())) return u"Normalized URL is not absolute HTTPS";
+    auto original = link->get_ExternalUrlOriginal();
+    if (!original.IsNullOrEmpty() && !isHttps(original)) return u"Original URL is not absolute HTTPS";
+    return u"";
+};
+auto slideIndex = [&](System::SharedPtr<IBaseSlide> slide)
+{
+    for (auto index = 0; index < presentation->get_Slides()->get_Count(); index++)
+    {
+        if (presentation->get_Slide(index) == slide) return index + 1;
+    }
+    return 0;
+};
+auto jsonString = [](System::String value)
+{
+    std::ostringstream escaped;
+    escaped << '"';
+    for (unsigned char character : value.ToUtf8String())
+    {
+        if (character == '"' || character == '\\') escaped << '\\' << character;
+        else if (character < 0x20) escaped << "\\u" << std::hex << std::setw(4) << std::setfill('0') << static_cast<int>(character);
+        else escaped << character;
+    }
+    escaped << '"';
+    return escaped.str();
+};
+auto containers = collectContainers(presentation);
+std::ofstream report("hyperlink-audit.json", std::ios::binary);
+if (!report)
+{
+    System::Console::WriteLine(u"Cannot open the audit report for writing.");
+    System::Environment::set_ExitCode(1);
+    return;
+}
+auto rowCount = 0;
+report << "[\n";
+auto addRow = [&](System::SharedPtr<IHyperlink> link, System::String activation, System::SharedPtr<IHyperlinkContainer> container, size_t containerId)
+{
+    if (link == nullptr) return;
+    auto component = System::AsCast<ISlideComponent>(container);
+    auto ownerSlide = component != nullptr ? component->get_Slide() : nullptr;
+    auto targetSlide = link->get_TargetSlide();
+    auto violation = policyViolation(link);
+    auto shape = System::AsCast<IShape>(container);
+    auto portionFormat = System::AsCast<IPortionFormat>(container);
+    auto ownerType = shape != nullptr ? System::String(u"Shape") : portionFormat != nullptr ? System::String(u"Text portion") : container->GetType().get_Name();
+    auto ordinaryAction = link->get_ActionType() == HyperlinkActionType::Hyperlink || link->get_ActionType() == HyperlinkActionType::JumpSpecificSlide;
+    auto ownerIndex = slideIndex(ownerSlide);
+    auto targetIndex = slideIndex(targetSlide);
+    if (rowCount++ != 0) report << ",\n";
+    report << "  {\"ContainerId\":" << containerId;
+    report << ",\"SlideIndex\":" << (ownerIndex != 0 ? std::to_string(ownerIndex) : "null");
+    report << ",\"SlideId\":" << (ownerSlide != nullptr ? std::to_string(ownerSlide->get_SlideId()) : "null");
+    report << ",\"Scope\":" << (ownerSlide != nullptr ? jsonString(ownerSlide->GetType().get_Name()) : "null");
+    report << ",\"OwnerType\":" << jsonString(ownerType);
+    report << ",\"Activation\":" << jsonString(activation);
+    report << ",\"ActionType\":" << jsonString(System::ObjectExt::ToString(link->get_ActionType()));
+    report << ",\"ExternalUrl\":" << jsonString(link->get_ExternalUrl());
+    report << ",\"TargetSlideIndex\":" << (targetIndex != 0 ? std::to_string(targetIndex) : "null");
+    report << ",\"TargetSlideId\":" << (targetSlide != nullptr ? std::to_string(targetSlide->get_SlideId()) : "null");
+    report << ",\"Tooltip\":" << jsonString(link->get_Tooltip());
+    report << ",\"OriginalExternalUrl\":" << (link->get_ExternalUrlOriginal() != link->get_ExternalUrl() ? jsonString(link->get_ExternalUrlOriginal()) : "null");
+    report << ",\"PotentiallyUnsafe\":" << (!violation.IsNullOrEmpty() ? "true" : "false");
+    report << ",\"PolicyViolation\":" << (!violation.IsNullOrEmpty() ? jsonString(violation) : "null");
+    report << ",\"TargetExport\":\"PDF\",\"PotentiallyUnsupportedByExport\":" << (activation == u"mouse-over" || !ordinaryAction ? "true" : "false") << "}";
+};
+for (auto index = size_t{0}; index < containers.size(); index++)
+{
+    auto container = containers[index];
+    addRow(container->get_HyperlinkClick(), u"click", container, index + 1);
+    addRow(container->get_HyperlinkMouseOver(), u"mouse-over", container, index + 1);
+}
+report << "\n]\n";
+report.close();
+if (!report)
+{
+    System::Console::WriteLine(u"The audit report could not be written completely.");
+    System::Environment::set_ExitCode(1);
+    return;
+}
+
+for (const auto& container : containers)
+{
+    auto click = container->get_HyperlinkClick();
+    if (!policyViolation(click).IsNullOrEmpty())
+    {
+        if (replaceExternalClicks && click->get_ActionType() == HyperlinkActionType::Hyperlink)
+        {
+            container->get_HyperlinkManager()->SetExternalHyperlinkClick(replacementUrl);
+        }
+        else
+        {
+            container->get_HyperlinkManager()->RemoveHyperlinkClick();
+        }
+    }
+    if (!policyViolation(container->get_HyperlinkMouseOver()).IsNullOrEmpty())
+    {
+        container->get_HyperlinkManager()->RemoveHyperlinkMouseOver();
+    }
+}
+presentation->Save(u"hyperlink-sanitized.pptx", SaveFormat::Pptx);
+auto reopened = System::MakeObject<Presentation>(u"hyperlink-sanitized.pptx");
+auto remainingContainers = collectContainers(reopened);
+auto violations = 0;
+for (const auto& container : remainingContainers)
+{
+    if (!policyViolation(container->get_HyperlinkClick()).IsNullOrEmpty()) violations++;
+    if (!policyViolation(container->get_HyperlinkMouseOver()).IsNullOrEmpty()) violations++;
+}
+System::Console::WriteLine(u"Audit rows: {0}; prohibited actions after reopening: {1}", rowCount, violations);
+if (violations != 0)
+{
+    System::Console::WriteLine(u"Verification failed: do not distribute the saved presentation.");
+    System::Environment::set_ExitCode(1);
+}
+```
+
+A fent létrehozott bemenettel a jelentés öt műveleti sort tartalmaz. A fájl egér‑felül hivatkozás és a makró kattintás eltávolításra kerül, míg a HTTPS hivatkozások és a belső dia navigáció megmarad. Az ellenőrzés nulla tiltott műveletet jelez. Egy tiltott külső kattintási URL-t tartalmazó bemenet a helyettesítő ágat is végrehajtja. Egy olyan konténer, amelynek engedélyezett a kattintás, de tiltott az egér‑felül, megtartja a kattintási műveletét.
+
+Ez a szelektív tisztítás különbözik a [RemoveAllHyperlinks](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) módszertől, amely a kiválasztott körben mindkét aktiválási típust eltávolítja a szabályzattól függetlenül. Az itt végzett ellenőrzés csak a hiperhivatkozás műveleteket vizsgálja; nem távolítja el a beágyazott VBA projekteket, OLE objektumokat vagy egyéb aktív tartalmakat, és nem validálja az exportált PDF vagy HTML fájlt.
 
 ## **GYIK**
 
-**Hogyan hozhatok létre belső navigációt nem csak egy diára, hanem egy "szakaszra" vagy a szakasz első diájára?**
+**Hogyan linkelhetek egy szakaszra vagy annak első diájára?**
 
-A PowerPoint szakaszok a diák csoportosításai; a navigáció technikailag egy konkrét diát céloz. A "szakaszra navigáláshoz" általában az első diájára hivatkozunk.
+A PowerPoint szakaszok a diákat csoportosítják, de egy belső hiperhivatkozás egyetlen diát céloz meg. Egy szakasz navigációjának létrehozásához a szakasz első diájára kell hivatkozni.
 
-**Csatolhatok hiperhivatkozást a mesterdia elemeihez, hogy minden dián működjön?**
+**Csatolhatok hiperhivatkozást a mester dia elemeihez, hogy minden dián működjön?**
 
-Igen. A mesterdia és elrendezés elemei támogatják a hiperhivatkozásokat. Az ilyen linkek megjelennek az aloldalakon, és a diavetítés során kattinthatók.
+Igen. A mester diák és elrendezés elemei támogatják a hiperhivatkozásokat. Ezeken az elemeken lévő hivatkozások a diavetítés során elérhetők azokon a diákon, amelyek a megfelelő mestert vagy elrendezést használják.
 
-**Megmaradnak a hiperhivatkozások PDF, HTML, képek vagy videó exportálásakor?**
+**Megmaradnak a hiperhivatkozások PDF, HTML, képek vagy videó formátumba exportáláskor?**
 
-A [PDF](/slides/hu/cpp/convert-powerpoint-to-pdf/) és [HTML](/slides/hu/cpp/convert-powerpoint-to-html/) esetén igen – a linkek általában megmaradnak. A [képek](/slides/hu/cpp/convert-powerpoint-to-png/) és [videó](/slides/hu/cpp/convert-powerpoint-to-video/) exportálásakor a kattintási lehetőség nem marad meg a formátumok természetéből adódóan (a raszteres képkockák/videó nem támogatják a hiperhivatkozásokat).
+A támogatott PDF és HTML exportok megőrizhetik a hiperhivatkozásokat; a raszteres képek és videók nem. Tekintse meg az exportálási szempontokat a [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) részben.

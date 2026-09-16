@@ -1,151 +1,157 @@
 ---
-title: "Quản lý Siêu liên kết trong Bản trình chiếu bằng C++"
-linktitle: "Quản lý Siêu liên kết"
+title: Quản lý Siêu Liên Kết Bản Trình Chiếu trong C++
+linktitle: Quản Lý Siêu Liên Kết
 type: docs
 weight: 20
 url: /vi/cpp/manage-hyperlinks/
 keywords:
-- "thêm URL"
-- "thêm siêu liên kết"
-- "tạo siêu liên kết"
-- "định dạng siêu liên kết"
-- "xóa siêu liên kết"
-- "cập nhật siêu liên kết"
-- "siêu liên kết văn bản"
-- "siêu liên kết slide"
-- "siêu liên kết hình dạng"
-- "siêu liên kết hình ảnh"
-- "siêu liên kết video"
-- "siêu liên kết có thể thay đổi"
-- "PowerPoint"
-- "OpenDocument"
-- "bản trình chiếu"
-- "C++"
-- "Aspose.Slides"
-description: "Quản lý siêu liên kết trong các bản trình chiếu PowerPoint và OpenDocument một cách dễ dàng với Aspose.Slides cho C++ - tăng cường tính tương tác và quy trình làm việc trong vài phút."
+- thêm URL
+- thêm siêu liên kết
+- tạo siêu liên kết
+- định dạng siêu liên kết
+- xóa siêu liên kết
+- cập nhật siêu liên kết
+- siêu liên kết văn bản
+- siêu liên kết slide
+- siêu liên kết hình dạng
+- siêu liên kết hình ảnh
+- siêu liên kết video
+- siêu liên kết có thể thay đổi
+- PowerPoint
+- OpenDocument
+- bản trình chiếu
+- C++
+- Aspose.Slides
+description: "Thêm, định dạng, cập nhật và xóa siêu liên kết trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho C++, sử dụng các ví dụ C++."
 ---
 ## **Giới thiệu**
 
-Siêu liên kết là một tham chiếu tới một đối tượng hoặc dữ liệu hoặc một vị trí trong một tài liệu. Đây là các siêu liên kết phổ biến trong các bản trình chiếu PowerPoint:
+Một siêu liên kết kết nối nội dung bản trình chiếu với một trang web hoặc một vị trí trong bản trình chiếu. Trong PowerPoint, siêu liên kết thường phục vụ hai mục đích:
 
-* Liên kết tới các trang web trong văn bản, hình dạng hoặc phương tiện
-* Liên kết tới các slide
+* Mở một trang web từ văn bản, hình dạng hoặc khung phương tiện.
+* Điều hướng đến một slide khác, ví dụ, từ mục lục.
 
-Aspose.Slides cho C++ cho phép bạn thực hiện nhiều tác vụ liên quan đến siêu liên kết trong bài thuyết trình.
+Aspose.Slides for C++ cho phép bạn thêm các liên kết này, kiểm soát giao diện và âm thanh của chúng, cập nhật cài đặt và xóa chúng. Các ví dụ dưới đây cho thấy cách làm việc với siêu liên kết trên các phần tử riêng lẻ và cách truy cập siêu liên kết ở cấp độ bản trình chiếu, slide hoặc khung văn bản.
 
-{{% alert color="primary" %}} 
-Bạn có thể muốn kiểm tra Aspose đơn giản, [trình chỉnh sửa PowerPoint trực tuyến miễn phí.](https://products.aspose.app/slides/vi/editor)
+{{% alert color="info" title="Note" %}}
+Bạn cũng có thể chỉnh sửa bản trình chiếu với [trình chỉnh sửa PowerPoint trực tuyến miễn phí của Aspose](https://products.aspose.app/slides/vi/editor).
 {{% /alert %}} 
 
-## **Thêm Siêu liên kết URL**
+## **Thêm Siêu Liên Kết URL**
 
-### **Thêm Siêu liên kết URL vào Văn bản**
+Bạn có thể gán một URL trang web cho văn bản, hình dạng hoặc khung phương tiện. Phần tử mà bạn gán siêu liên kết sẽ quyết định vùng có thể nhấp: một phần văn bản sẽ liên kết văn bản đã chọn, trong khi một hình dạng hoặc khung sẽ liên kết đối tượng slide.
 
-Mã C++ này cho bạn thấy cách thêm một siêu liên kết trang web vào văn bản:
+### **Thêm Siêu Liên Kết URL vào Văn Bản**
 
-``` cpp
+Để liên kết văn bản với một trang web, tạo một [Hyperlink](https://reference.aspose.com/slides/vi/cpp/aspose.slides/hyperlink/) và gán nó bằng phương thức [set_HyperlinkClick](https://reference.aspose.com/slides/vi/cpp/aspose.slides/portionformat/set_hyperlinkclick/) của phần văn bản, như được minh họa bên dưới. Chỉ phần văn bản đó sẽ trở thành có thể nhấp.
+
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f, false);
-shape->AddTextFrame(u"Aspose: File Format APIs");
 
-auto portionFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-portionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
-portionFormat->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
-portionFormat->set_FontHeight(32.0f);
+auto textShape = presentation->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 600, 50, false);
+textShape->AddTextFrame(u"Aspose: File Format APIs");
+auto portionFormat = textShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionFormat();
+portionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+portionFormat->get_HyperlinkClick()->set_Tooltip(u"Explore Aspose file format APIs");
+portionFormat->set_FontHeight(32);
 
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **Thêm Siêu liên kết URL vào Hình dạng hoặc Khung**
+### **Thêm Siêu Liên Kết URL vào Hình Dạng và Khung Phương Tiện**
 
-Mã mẫu này bằng C++ cho bạn thấy cách thêm một siêu liên kết trang web vào một hình dạng:
+Để làm cho một hình dạng hoặc khung có thể nhấp, sử dụng phương thức [set_HyperlinkClick](https://reference.aspose.com/slides/vi/cpp/aspose.slides/shape/set_hyperlinkclick/) của nó. Siêu liên kết thuộc về đối tượng đó thay vì một phần văn bản bên trong.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f);
+Cùng một cách tiếp cận áp dụng cho khung ảnh, âm thanh và video: gán siêu liên kết cho khung và sử dụng [set_Tooltip](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlink/set_tooltip/) để thêm gợi ý nếu cần.
+
+Ví dụ dưới đây làm cho một hình chữ nhật có thể nhấp:
+
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+
+auto shape = presentation->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 600, 50);
 
 shape->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
-shape->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
+shape->get_HyperlinkClick()->set_Tooltip(u"Explore Aspose file format APIs");
 
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **Thêm Siêu liên kết URL vào Phương tiện**
+## **Sử Dụng Siêu Liên Kết Để Tạo Mục Lục**
 
-Aspose.Slides cho phép bạn thêm siêu liên kết vào hình ảnh, tệp âm thanh và video.
+Siêu liên kết nội bộ cho phép người đọc nhảy từ mục lục đến một slide cụ thể. Ví dụ dưới đây sử dụng [SetInternalHyperlinkClick](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) để liên kết văn bản “Page 2” trên slide đầu tiên tới slide thứ hai.
 
-Mã mẫu này cho bạn thấy cách thêm một siêu liên kết vào **hình ảnh**:
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-// Thêm hình ảnh vào bản trình chiếu
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-// Creates picture frame on slide 1 based on previously added image
-auto pictureFrame = shapes->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-pictureFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
-pictureFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
-
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
-```
-
-Mã mẫu này cho bạn thấy cách thêm một siêu liên kết vào **tệp âm thanh**:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto audio = pres->get_Audios()->AddAudio(File::ReadAllBytes(u"audio.mp3"));
-auto audioFrame = shapes->AddAudioFrameEmbedded(10.0f, 10.0f, 100.0f, 100.0f, audio);
-
-audioFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
-audioFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
-
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
-```
-
-Mã mẫu này cho bạn thấy cách thêm một siêu liên kết vào **video**:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto video = pres->get_Videos()->AddVideo(File::ReadAllBytes(u"video.avi"));
-auto videoFrame = shapes->AddVideoFrame(10.0f, 10.0f, 100.0f, 100.0f, video);
-
-videoFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
-videoFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
-
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
-```
-
-{{%  alert  title="Tip"  color="primary"  %}} 
-Bạn có thể muốn xem *[Quản lý OLE](https://docs.aspose.com/slides/vi/cpp/manage-ole/)*.
-{{% /alert %}}
-
-
-
-## **Sử dụng Siêu liên kết để Tạo Mục Lục**
-
-Vì siêu liên kết cho phép bạn thêm tham chiếu tới các đối tượng hoặc vị trí, bạn có thể sử dụng chúng để tạo một mục lục.
-
-Mã mẫu này cho bạn thấy cách tạo một mục lục với các siêu liên kết:
-
-``` cpp
 auto presentation = System::MakeObject<Presentation>();
-auto firstSlide = presentation->get_Slides()->idx_get(0);
+
+auto firstSlide = presentation->get_Slide(0);
 auto secondSlide = presentation->get_Slides()->AddEmptySlide(firstSlide->get_LayoutSlide());
 
-auto contentTable = firstSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40.0f, 40.0f, 300.0f, 100.0f);
-contentTable->get_FillFormat()->set_FillType(FillType::NoFill);
-contentTable->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
-contentTable->get_TextFrame()->get_Paragraphs()->Clear();
+auto tableOfContents = firstSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 40, 300, 100);
+tableOfContents->get_FillFormat()->set_FillType(FillType::NoFill);
+tableOfContents->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+tableOfContents->get_TextFrame()->get_Paragraphs()->Clear();
 
 auto paragraph = System::MakeObject<Paragraph>();
-auto paragraphFillFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat();
-paragraphFillFormat->set_FillType(FillType::Solid);
-paragraphFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
 paragraph->set_Text(u"Title of slide 2 .......... ");
 
 auto linkPortion = System::MakeObject<Portion>();
@@ -153,137 +159,511 @@ linkPortion->set_Text(u"Page 2");
 linkPortion->get_PortionFormat()->get_HyperlinkManager()->SetInternalHyperlinkClick(secondSlide);
 
 paragraph->get_Portions()->Add(linkPortion);
-contentTable->get_TextFrame()->get_Paragraphs()->Add(paragraph);
+tableOfContents->get_TextFrame()->get_Paragraphs()->Add(paragraph);
+
+presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 ```
 
-
-## **Định dạng Siêu liên kết**
+## **Định Dạng Siêu Liên Kết**
 
 ### **Màu**
 
-Với các phương thức [set_ColorSource()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_hyperlink#ab739ae21025485366d44a3b72e0d7dac) và [get_ColorSource()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_hyperlink#af5370af1ba9fba7b22fcc8a7ce344494) trong giao diện [IHyperlink](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_hyperlink), bạn có thể đặt màu cho siêu liên kết và cũng có thể lấy thông tin màu từ siêu liên kết. Tính năng này được giới thiệu lần đầu trong PowerPoint 2019, vì vậy các thay đổi liên quan đến thuộc tính này không áp dụng cho các phiên bản PowerPoint cũ hơn.
+Phương thức [set_ColorSource](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlink/set_colorsource/) của [IHyperlink](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlink/) quyết định liệu siêu liên kết có sử dụng màu siêu liên kết của bản trình chiếu hay định dạng của phần văn bản. Để áp dụng màu văn bản tùy chỉnh, chọn [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/hyperlinkcolorsource/) và đặt màu nền cho phần. Tính năng này được giới thiệu trong PowerPoint 2019; các phiên bản cũ hơn không áp dụng cài đặt này.
 
-Mã mẫu này minh họa một thao tác trong đó các siêu liên kết có màu sắc khác nhau được thêm vào cùng một slide:
+Ví dụ dưới đây thêm hai siêu liên kết văn bản vào cùng một slide. Siêu liên kết đầu tiên sử dụng màu nền văn bản đỏ, trong khi siêu liên kết thứ hai giữ màu siêu liên kết mặc định.
 
-``` cpp
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/Hyperlink.h>
+#include <DOM/HyperlinkColorSource.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
-auto shape1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 450.0f, 50.0f, false);
-shape1->AddTextFrame(u"This is a sample of colored hyperlink.");
-auto shape1PortionFormat = shape1->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shape1PortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
-shape1PortionFormat->get_HyperlinkClick()->set_ColorSource(HyperlinkColorSource::PortionFormat);
-shape1PortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
-shape1PortionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
 
-auto shape2 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 450.0f, 50.0f, false);
-shape2->AddTextFrame(u"This is a sample of usual hyperlink.");
-auto shape2PortionFormat = shape2->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shape2PortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+auto coloredShape = presentation->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 450, 50, false);
+coloredShape->AddTextFrame(u"This hyperlink uses a custom color.");
+auto coloredPortionFormat = coloredShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionFormat();
+coloredPortionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+coloredPortionFormat->get_HyperlinkClick()->set_ColorSource(HyperlinkColorSource::PortionFormat);
+coloredPortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
+coloredPortionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
+
+auto defaultShape = presentation->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 200, 450, 50, false);
+defaultShape->AddTextFrame(u"This hyperlink uses the default color.");
+defaultShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
+### **Âm Thanh**
 
+Một siêu liên kết có thể phát âm thanh khi được kích hoạt hoặc dừng âm thanh đang phát. Sử dụng các phương thức sau để cấu hình các hành vi này:
 
-## **Xóa Siêu liên kết khỏi Bài thuyết trình**
+- [IHyperlink::set_Sound](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlink/set_sound/) xác định âm thanh liên kết với siêu liên kết.
+- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) kiểm soát việc kích hoạt siêu liên kết có dừng âm thanh trước đó hay không.
 
-### **Xóa Siêu liên kết khỏi Văn bản**
+#### **Thêm Âm Thanh Siêu Liên Kết**
 
-Mã C++ này cho bạn thấy cách xóa siêu liên kết khỏi một văn bản trong slide bài thuyết trình:
+Ví dụ dưới đây tải `sampleaudio.wav` và gán nó với một nút trên slide đầu tiên. Khi nhấp vào nút, âm thanh phát và chuyển đến slide tiếp theo. Một hình dạng thứ hai trên slide đó dừng âm thanh trước khi nhấp, mà không thực hiện hành động điều hướng nào.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto slide = pres->get_Slides()->idx_get(0);
-for (const auto& shape : slide->get_Shapes())
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAudio.h>
+#include <DOM/IAudioCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+
+auto audioData = System::IO::File::ReadAllBytes(u"sampleaudio.wav");
+auto hyperlinkSound = presentation->get_Audios()->AddAudio(audioData);
+
+auto firstSlide = presentation->get_Slide(0);
+
+auto playButton = firstSlide->get_Shapes()->AddAutoShape(ShapeType::SoundButton, 100, 100, 100, 50);
+playButton->set_HyperlinkClick(Hyperlink::get_NextSlide());
+
+if (!playButton->get_HyperlinkClick()->get_StopSoundOnClick() && playButton->get_HyperlinkClick()->get_Sound() == nullptr)
 {
-    auto autoShape = System::AsCast<IAutoShape>(shape);
-    if (autoShape != nullptr)
+    playButton->get_HyperlinkClick()->set_Sound(hyperlinkSound);
+}
+
+auto secondSlide = presentation->get_Slides()->AddEmptySlide(firstSlide->get_LayoutSlide());
+
+auto stopButton = secondSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 100, 50);
+stopButton->set_HyperlinkClick(Hyperlink::get_NoAction());
+
+stopButton->get_HyperlinkClick()->set_StopSoundOnClick(true);
+
+presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
+```
+
+#### **Trích Xuất Âm Thanh Siêu Liên Kết**
+
+Ví dụ dưới đây mở bản trình chiếu đã được tạo ở trên và đọc âm thanh siêu liên kết của hình dạng đầu tiên vào bộ nhớ thông qua [get_Sound](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlink/get_sound/) và [get_BinaryData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iaudio/get_binarydata/).
+
+```cpp
+#include <DOM/IAudio.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>(u"hyperlink-sound.pptx");
+
+if (presentation->get_Slides()->get_Count() > 0 && presentation->get_Slide(0)->get_Shapes()->get_Count() > 0)
+{
+    auto hyperlink = presentation->get_Slide(0)->get_Shape(0)->get_HyperlinkClick();
+    auto sound = hyperlink != nullptr ? hyperlink->get_Sound() : nullptr;
+    if (sound != nullptr)
     {
-        for (const auto& paragraph : autoShape->get_TextFrame()->get_Paragraphs())
-        {
-            for (const auto& portion : paragraph->get_Portions())
-            {
-                auto hyperlinkManager = portion->get_PortionFormat()->get_HyperlinkManager();
-                hyperlinkManager->RemoveHyperlinkClick();
-            }
-        }
+        auto audioData = sound->get_BinaryData();
+        System::Console::WriteLine(u"Extracted {0} bytes of hyperlink audio.", audioData->get_Length());
+    }
+    else
+    {
+        System::Console::WriteLine(u"The first shape has no hyperlink sound.");
     }
 }
-
-pres->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
-```
-
-### **Xóa Siêu liên kết khỏi Hình dạng hoặc Khung**
-
-Mã C++ này cho bạn thấy cách xóa siêu liên kết khỏi một hình dạng trong slide bài thuyết trình: 
-
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"demo.pptx");
-auto slide = pres->get_Slides()->idx_get(0);
-for (const auto& shape : slide->get_Shapes())
+else
 {
-    shape->get_HyperlinkManager()->RemoveHyperlinkClick();
+    System::Console::WriteLine(u"The presentation has no first slide or shape to inspect.");
 }
-pres->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
 ```
 
+### **Tooltip và Cài Đặt Tương Tác**
 
+Bạn có thể cập nhật các cài đặt [IHyperlink] sau thông qua các phương thức này sau khi gán một siêu liên kết cho văn bản hoặc hình dạng:
 
-## **Siêu liên kết có thể thay đổi**
+- [set_Tooltip](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlink/set_tooltip/) đặt văn bản mà người xem có thể hiển thị như một gợi ý cho liên kết.
+- [set_TargetFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlink/set_targetframe/) xác định khung mục tiêu trong một khung HTML cha, nếu có.
+- [set_History](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlink/set_history/) kiểm soát việc kích hoạt liên kết có đưa đích của nó vào danh sách các siêu liên kết đã xem hay không.
+- [set_HighlightClick](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlink/set_highlightclick/) kiểm soát việc siêu liên kết có được tô sáng khi nhấp hay không.
 
-Lớp [Hyperlink](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.hyperlink) có thể thay đổi. Với lớp này, bạn có thể thay đổi giá trị cho các phương thức sau:
+## **Xóa Siêu Liên Kết Khỏi Bản Trình Chiếu**
 
-- [IHyperlink::set_TargetFrame()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_hyperlink#af2d9c5672517d98afe5868903a5a637f)
-- [IHyperlink::set_Tooltip()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_hyperlink#adf1c8eee89bd292292293e58da79a6f2)
-- [IHyperlink.set_History()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_hyperlink#a1a4a96d280f54b641e3ada3557b6688d)
-- [IHyperlink.set_HighlightClick()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_hyperlink#ac48a0fa4106cff14cb5772269399587e)
-- [IHyperlink.set_StopSoundOnClick()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_hyperlink#ad0db04da8009b329d2c79019642aaa43)
+Sử dụng [GetAnyHyperlinks](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) để thu thập các container siêu liên kết, bao gồm các liên kết phần văn bản, trước khi thay đổi chúng. Ví dụ dưới đây xóa cả hai loại kích hoạt khỏi slide đầu tiên. Để xóa chỉ một loại, chỉ gọi [RemoveHyperlinkClick](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) hoặc [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); việc xóa hành động nhấp không xóa hành động di chuột.
 
-Đoạn mã này cho bạn thấy cách thêm một siêu liên kết vào slide và chỉnh sửa chú giải (tooltip) của nó sau này:
+```cpp
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IHyperlinkQueries.h>
+#include <DOM/IHyperlinkContainer.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/collections/ilist.h>
 
-``` cpp
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
+
+if (presentation->get_Slides()->get_Count() > 0)
+{
+    auto containers = presentation->get_Slide(0)->get_HyperlinkQueries()->GetAnyHyperlinks();
+    for (const auto& container : containers)
+    {
+        container->get_HyperlinkManager()->RemoveHyperlinkClick();
+        container->get_HyperlinkManager()->RemoveHyperlinkMouseOver();
+    }
+    presentation->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
+}
+else
+{
+    System::Console::WriteLine(u"The presentation has no slides to process.");
+}
+```
+
+Đối với việc xóa không điều kiện, [RemoveAllHyperlinks](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) xóa cả hai loại kích hoạt trong phạm vi đã chọn trong một lần gọi. Đối với việc dọn dẹp chọn lọc và bao phủ các master, layout và ghi chú, xem mục [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+
+## **Xây Dựng Kiểm Kê Siêu Liên Kết Đầy Đủ**
+
+Trước khi phát hành một bản trình chiếu, hãy kiểm kê các hành động tương tác cũng như các liên kết web của nó. [GetAnyHyperlinks](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) trả về các đối tượng [IHyperlinkContainer](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkcontainer/), không phải danh sách phẳng các chuỗi URL. Kiểm tra cả [get_HyperlinkClick](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) và [get_HyperlinkMouseOver](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) trên mỗi container. Chúng là độc lập: cùng một container có thể hiển thị cả hai hành động, vì vậy báo cáo đầy đủ có thể cần tới hai hàng cho mỗi container.
+
+Quét chỉ các siêu liên kết ở mức hình dạng có thể bỏ lỡ các liên kết được đính kèm vào các phần văn bản. Thay vào đó, truy vấn phạm vi thích hợp và giữ lại các container trả về để bạn có thể cập nhật hoặc xóa các hành động của chúng sau này.
+
+### **Truy Vấn Phạm Vi Bản Trình Chiếu, Slide và Khung Văn Bản**
+
+Giao diện [IHyperlinkQueries](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkqueries/) có sẵn qua [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/), và [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/get_hyperlinkqueries/). Mỗi phạm vi hỗ trợ cùng các truy vấn:
+
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) trả về các container có hành động nhấp.
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) trả về các container có hành động di chuột.
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) trả về các container có một trong hai hoặc cả hai hành động.
+
+Ví dụ dưới đây tạo `hyperlink-audit-input.pptx` với một liên kết nhấp ngoài, một liên kết di chuột tệp, điều hướng slide nội bộ, một liên kết di chuột văn bản, và một hành động macro. Nó không thực thi bất kỳ hành động nào trong số này. Cả ba truy vấn đều hoạt động ở mọi phạm vi; các số đếm mô tả các container, không phải tổng số hành động. Phạm vi khung văn bản loại trừ các liên kết riêng của hình dạng bao quanh.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IHyperlinkQueries.h>
+#include <DOM/IHyperlinkContainer.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/collections/ilist.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto printCounts = [](System::String scope, System::SharedPtr<IHyperlinkQueries> queries)
+{
+    auto clickContainers = queries->GetHyperlinkClicks();
+    auto mouseOverContainers = queries->GetHyperlinkMouseOvers();
+    auto allContainers = queries->GetAnyHyperlinks();
+    System::Console::WriteLine(u"{0}: click={1}, mouse-over={2}, any={3}", scope, clickContainers->get_Count(), mouseOverContainers->get_Count(), allContainers->get_Count());
+};
+
 auto presentation = System::MakeObject<Presentation>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
-auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f, false);
+auto slide = presentation->get_Slide(0);
+auto destination = presentation->get_Slides()->AddEmptySlide(slide->get_LayoutSlide());
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 400, 60);
+shape->get_TextFrame()->set_Text(u"Click the text to go to slide 2");
+shape->get_HyperlinkManager()->SetExternalHyperlinkClick(u"https://example.com/");
+shape->get_HyperlinkClick()->set_Tooltip(u"Public website");
+shape->get_HyperlinkManager()->SetExternalHyperlinkMouseOver(u"file:///C:/private/report.xlsx");
 
-shape->AddTextFrame(u"Aspose: File Format APIs");
+auto portionFormat = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionFormat();
+portionFormat->get_HyperlinkManager()->SetInternalHyperlinkClick(destination);
+portionFormat->get_HyperlinkManager()->SetExternalHyperlinkMouseOver(u"https://example.com/help");
+auto macroButton = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 120, 200, 60);
+macroButton->get_HyperlinkManager()->SetMacroHyperlinkClick(u"ReviewPresentation");
 
-auto shapePortionFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shapePortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
-shapePortionFormat->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
-shapePortionFormat->set_FontHeight(32.0f);
-
-presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
+printCounts(u"Presentation", presentation->get_HyperlinkQueries());
+printCounts(u"Slide 1", slide->get_HyperlinkQueries());
+printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
+presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
+Đối với ví dụ này, các truy vấn bản trình chiếu và slide mỗi đều báo cáo ba container nhấp, hai container di chuột, và ba container có một trong hai hành động. Truy vấn khung văn bản báo cáo một container trong mỗi danh mục.
 
+### **Phân Loại Hành Động và Đích Đến**
 
+Sử dụng [IHyperlink::get_ActionType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlink/get_actiontype/) để giải thích một hành động trước khi giải thích đích đến của nó. Các giá trị [HyperlinkActionType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/hyperlinkactiontype/) bao gồm hơn chỉ việc điều hướng web:
 
-## **Các phương thức được hỗ trợ trong IHyperlinkQueries**
+| Giá Trị | Ý Nghĩa cho Kiểm Kê |
+| --- | --- |
+| `Hyperlink` | Siêu liên kết ngoại; kiểm tra URL và scheme của nó. |
+| `JumpSpecificSlide` | Điều hướng nội bộ đến một slide cụ thể. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Điều hướng trình chiếu tích hợp, được giải quyết trong ngữ cảnh trình chiếu. |
+| `JumpEndShow`, `StartCustomSlideShow` | Kết thúc trình chiếu hiện tại hoặc bắt đầu một trình chiếu tùy chỉnh. |
+| `StartMacro` | Thực thi một macro. |
+| `StartProgram` | Khởi chạy một chương trình. |
+| `OpenFile`, `OpenPresentation` | Mở một tệp hoặc một bản trình chiếu khác; xem xét riêng so với URL web. |
+| `StartStopMedia` | Bắt đầu hoặc dừng phát media. |
+| `NoAction`, `Unknown` | Không có hành động điều hướng, hoặc một hành động không xác định cần xem xét. |
 
-Bạn có thể truy cập IHyperlinkQueries từ một bài thuyết trình, slide hoặc văn bản mà siêu liên kết được định nghĩa. 
+Đọc đích ngoại từ [get_ExternalUrl](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlink/get_externalurl/) và đích nội bộ cụ thể từ [get_TargetSlide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlink/get_targetslide/). Các hành động nội bộ và lệnh tích hợp có thể không có URL ngoại; URL rỗng không có nghĩa là container không có hành động. Bảo tồn [get_ExternalUrlOriginal](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) khi nó khác với URL đã chuẩn hoá, và bao gồm tooltip trả về bởi [get_Tooltip](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlink/get_tooltip/) khi có.
 
-- [IPresentation::get_HyperlinkQueries()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_presentation#a7e84086f34ddc742ea9124ab11727691)
-- [IBaseSlide::get_HyperlinkQueries()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_base_slide#a8593a5a5f6b7e051aa859ec373c66421)
-- [ITextFrame::get_HyperlinkQueries()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_text_frame#a1303ef71d3c50d471e35434dcaaa2e4e)
+### **Báo Cáo, Làm Sạch và Xác Nhận Siêu Liên Kết**
 
-Lớp IHyperlinkQueries hỗ trợ các phương thức sau: 
+Ví dụ C++ dưới đây đọc một bản trình chiếu hiện có (sử dụng tệp đã tạo ở trên), ghi `hyperlink-audit.json`, áp dụng chính sách, lưu `hyperlink-sanitized.pptx`, và mở lại để kiểm tra cả hai loại kích hoạt một lần nữa. Nó thu thập các container trước khi thay đổi và sử dụng định danh con trỏ để tránh xử lý cùng một container hai lần. Các truy vấn bản trình chiếu bao phủ các slide thường; để có một kiểm kê toàn gói, nó cũng truy vấn một cách rõ ràng các master, layout, notes và các master notes và handout khi có.
 
-- [IHyperlinkQueries::GetHyperlinkClicks()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_hyperlink_queries#aaea0b1b68ff2e65240612fb1f08361c1)
-- [IHyperlinkQueries::GetHyperlinkMouseOvers()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_hyperlink_queries#ac68ac55d183323f11e604b40760b0e4b)
-- [IHyperlinkQueries::GetAnyHyperlinks()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_hyperlink_queries#acaf9ded3920056054e0e70c24129d73a)
-- [IHyperlinkQueries::RemoveAllHyperlinks()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_hyperlink_queries#a289f52c992f939fe46282536cec7222d)
+Báo cáo ghi lại chỉ mục slide bắt đầu từ 1 và [get_SlideId](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseslide/get_slideid/) khi có. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/islidecomponent/get_slide/) cung cấp slide sở hữu cho các container được hỗ trợ. Các master, layout và notes không có chỉ mục slide thường và được xác định bằng phạm vi của chúng. Các container hình dạng và container định dạng phần văn bản được gắn nhãn riêng; các loại container khác giữ tên kiểu thời gian chạy. Mỗi container nhận một ID cục bộ trong báo cáo để hai hành động của nó có thể được liên kết.
 
-## **Câu hỏi thường gặp**
+Chính sách ứng dụng có tính hạn chế này chỉ cho phép URL HTTPS tuyệt đối và các đích slide nội bộ hợp lệ. Nó loại bỏ macro, chương trình, hành động tệp, các hành động trình chiếu khác, hành động không xác định và các scheme URL khác. Những loại loại bỏ này là quyết định chính sách, không phải phán quyết an toàn của Aspose.Slides. HTTPS một mình không tạo niềm tin: hãy thêm danh sách cho phép host và các kiểm tra khác cho ứng dụng của bạn. Cả URL ngoại gốc và đã chuẩn hoá đều được kiểm tra. Ví dụ kiểm toán siêu dữ liệu mà không theo liên kết hay chạy hành động.
 
-**Làm thế nào tôi có thể tạo điều hướng nội bộ không chỉ tới một slide, mà còn tới một “phần” hoặc slide đầu tiên của một phần?**
+Để khắc phục, [get_HyperlinkManager](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) của container hỗ trợ [SetExternalHyperlinkClick](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) và [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Ở đây, các liên kết nhấp ngoại bị cấm được thay thế bằng một trang đích HTTPS cố định; các nhấp và hành động di chuột bị cấm khác được xóa độc lập. Đặt `replaceExternalClicks` thành `false` để xóa tất cả vi phạm chính sách. Chọn một trang thay thế do ứng dụng sở hữu trước khi triển khai.
 
-Các phần trong PowerPoint là các nhóm slide; điều hướng về mặt kỹ thuật nhắm tới một slide cụ thể. Để “điều hướng tới một phần”, bạn thường liên kết tới slide đầu tiên của phần đó.
+Cờ xuất báo cáo sử dụng chính sách xem xét PDF bảo thủ: đánh dấu các hành động di chuột và bất kỳ gì không phải là liên kết ngoại hoặc chuyển đến slide cụ thể là có khả năng không được hỗ trợ. Đây là gợi ý xem xét, không phải kiểm tra khả năng hay bảo đảm các liên kết chưa được đánh dấu sẽ tồn tại khi xuất. Các xuất PDF và HTML được hỗ trợ có thể giữ lại siêu liên kết, tùy thuộc vào hành động, tùy chọn xuất và trình xem. Các ảnh raster và video không thể giữ lại siêu liên kết tương tác; hãy đánh dấu mọi hành động khi kiểm toán cho các đầu ra đó.
 
-**Tôi có thể gắn siêu liên kết vào các thành phần của slide chủ để nó hoạt động trên tất cả các slide không?**
+```cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/HyperlinkActionType.h>
+#include <DOM/IBaseSlide.h>
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/IHyperlink.h>
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IHyperlinkQueries.h>
+#include <DOM/IHyperlinkContainer.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterHandoutSlide.h>
+#include <DOM/IMasterHandoutSlideManager.h>
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/INotesSlide.h>
+#include <DOM/INotesSlideManager.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPresentation.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideComponent.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/uri.h>
+#include <system/environment.h>
+#include <fstream>
+#include <sstream>
+#include <iomanip>
+#include <vector>
+#include <unordered_set>
+#include <system/collections/ilist.h>
 
-Có. Các thành phần của slide chủ và bố cục hỗ trợ siêu liên kết. Những liên kết này xuất hiện trên các slide con và có thể nhấp được trong chế độ trình chiếu.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-**Liệu các siêu liên kết có được giữ lại khi xuất sang PDF, HTML, hình ảnh hoặc video không?**
+const auto replaceExternalClicks = true;
+const System::String replacementUrl = u"https://example.com/blocked-link";
+auto presentation = System::MakeObject<Presentation>(u"hyperlink-audit-input.pptx");
 
-Trong [PDF](/slides/vi/cpp/convert-powerpoint-to-pdf/) và [HTML](/slides/vi/cpp/convert-powerpoint-to-html/), có—liên kết thường được giữ lại. Khi xuất sang [hình ảnh](/slides/vi/cpp/convert-powerpoint-to-png/) và [video](/slides/vi/cpp/convert-powerpoint-to-video/), khả năng nhấp sẽ không được chuyển tiếp do bản chất của các định dạng đó (khung raster/video không hỗ trợ siêu liên kết).
+auto collectContainers = [](System::SharedPtr<IPresentation> source)
+{
+    std::vector<System::SharedPtr<IHyperlinkContainer>> found;
+    std::unordered_set<IHyperlinkContainer*> seen;
+    auto addQueries = [&](System::SharedPtr<IHyperlinkQueries> queries)
+    {
+        auto containers = queries->GetAnyHyperlinks();
+        for (const auto& container : containers)
+        {
+            if (seen.insert(container.get()).second) found.push_back(container);
+        }
+    };
+    auto addScope = [&](System::SharedPtr<IBaseSlide> slide)
+    {
+        if (slide != nullptr) addQueries(slide->get_HyperlinkQueries());
+    };
+    addQueries(source->get_HyperlinkQueries());
+    for (const auto& master : source->get_Masters()) addScope(master);
+    for (const auto& layout : source->get_LayoutSlides()) addScope(layout);
+    for (const auto& slide : source->get_Slides()) addScope(slide->get_NotesSlideManager()->get_NotesSlide());
+    addScope(source->get_MasterNotesSlideManager()->get_MasterNotesSlide());
+    addScope(source->get_MasterHandoutSlideManager()->get_MasterHandoutSlide());
+    return found;
+};
+
+auto isHttps = [](System::String value)
+{
+    System::SharedPtr<System::Uri> uri;
+    return System::Uri::TryCreate(value, System::UriKind::Absolute, uri) && uri->get_Scheme() == System::Uri::UriSchemeHttps;
+};
+auto policyViolation = [&](System::SharedPtr<IHyperlink> link) -> System::String
+{
+    if (link == nullptr) return u"";
+    if (link->get_ActionType() == HyperlinkActionType::JumpSpecificSlide)
+    {
+        return link->get_TargetSlide() == nullptr ? u"Missing target slide" : u"";
+    }
+    if (link->get_ActionType() != HyperlinkActionType::Hyperlink) return u"Action is not allowed";
+    if (!isHttps(link->get_ExternalUrl())) return u"Normalized URL is not absolute HTTPS";
+    auto original = link->get_ExternalUrlOriginal();
+    if (!original.IsNullOrEmpty() && !isHttps(original)) return u"Original URL is not absolute HTTPS";
+    return u"";
+};
+auto slideIndex = [&](System::SharedPtr<IBaseSlide> slide)
+{
+    for (auto index = 0; index < presentation->get_Slides()->get_Count(); index++)
+    {
+        if (presentation->get_Slide(index) == slide) return index + 1;
+    }
+    return 0;
+};
+auto jsonString = [](System::String value)
+{
+    std::ostringstream escaped;
+    escaped << '"';
+    for (unsigned char character : value.ToUtf8String())
+    {
+        if (character == '"' || character == '\\') escaped << '\\' << character;
+        else if (character < 0x20) escaped << "\\u" << std::hex << std::setw(4) << std::setfill('0') << static_cast<int>(character);
+        else escaped << character;
+    }
+    escaped << '"';
+    return escaped.str();
+};
+auto containers = collectContainers(presentation);
+std::ofstream report("hyperlink-audit.json", std::ios::binary);
+if (!report)
+{
+    System::Console::WriteLine(u"Cannot open the audit report for writing.");
+    System::Environment::set_ExitCode(1);
+    return;
+}
+auto rowCount = 0;
+report << "[\n";
+auto addRow = [&](System::SharedPtr<IHyperlink> link, System::String activation, System::SharedPtr<IHyperlinkContainer> container, size_t containerId)
+{
+    if (link == nullptr) return;
+    auto component = System::AsCast<ISlideComponent>(container);
+    auto ownerSlide = component != nullptr ? component->get_Slide() : nullptr;
+    auto targetSlide = link->get_TargetSlide();
+    auto violation = policyViolation(link);
+    auto shape = System::AsCast<IShape>(container);
+    auto portionFormat = System::AsCast<IPortionFormat>(container);
+    auto ownerType = shape != nullptr ? System::String(u"Shape") : portionFormat != nullptr ? System::String(u"Text portion") : container->GetType().get_Name();
+    auto ordinaryAction = link->get_ActionType() == HyperlinkActionType::Hyperlink || link->get_ActionType() == HyperlinkActionType::JumpSpecificSlide;
+    auto ownerIndex = slideIndex(ownerSlide);
+    auto targetIndex = slideIndex(targetSlide);
+    if (rowCount++ != 0) report << ",\n";
+    report << "  {\"ContainerId\":" << containerId;
+    report << ",\"SlideIndex\":" << (ownerIndex != 0 ? std::to_string(ownerIndex) : "null");
+    report << ",\"SlideId\":" << (ownerSlide != nullptr ? std::to_string(ownerSlide->get_SlideId()) : "null");
+    report << ",\"Scope\":" << (ownerSlide != nullptr ? jsonString(ownerSlide->GetType().get_Name()) : "null");
+    report << ",\"OwnerType\":" << jsonString(ownerType);
+    report << ",\"Activation\":" << jsonString(activation);
+    report << ",\"ActionType\":" << jsonString(System::ObjectExt::ToString(link->get_ActionType()));
+    report << ",\"ExternalUrl\":" << jsonString(link->get_ExternalUrl());
+    report << ",\"TargetSlideIndex\":" << (targetIndex != 0 ? std::to_string(targetIndex) : "null");
+    report << ",\"TargetSlideId\":" << (targetSlide != nullptr ? std::to_string(targetSlide->get_SlideId()) : "null");
+    report << ",\"Tooltip\":" << jsonString(link->get_Tooltip());
+    report << ",\"OriginalExternalUrl\":" << (link->get_ExternalUrlOriginal() != link->get_ExternalUrl() ? jsonString(link->get_ExternalUrlOriginal()) : "null");
+    report << ",\"PotentiallyUnsafe\":" << (!violation.IsNullOrEmpty() ? "true" : "false");
+    report << ",\"PolicyViolation\":" << (!violation.IsNullOrEmpty() ? jsonString(violation) : "null");
+    report << ",\"TargetExport\":\"PDF\",\"PotentiallyUnsupportedByExport\":" << (activation == u"mouse-over" || !ordinaryAction ? "true" : "false") << "}";
+};
+for (auto index = size_t{0}; index < containers.size(); index++)
+{
+    auto container = containers[index];
+    addRow(container->get_HyperlinkClick(), u"click", container, index + 1);
+    addRow(container->get_HyperlinkMouseOver(), u"mouse-over", container, index + 1);
+}
+report << "\n]\n";
+report.close();
+if (!report)
+{
+    System::Console::WriteLine(u"The audit report could not be written completely.");
+    System::Environment::set_ExitCode(1);
+    return;
+}
+
+for (const auto& container : containers)
+{
+    auto click = container->get_HyperlinkClick();
+    if (!policyViolation(click).IsNullOrEmpty())
+    {
+        if (replaceExternalClicks && click->get_ActionType() == HyperlinkActionType::Hyperlink)
+        {
+            container->get_HyperlinkManager()->SetExternalHyperlinkClick(replacementUrl);
+        }
+        else
+        {
+            container->get_HyperlinkManager()->RemoveHyperlinkClick();
+        }
+    }
+    if (!policyViolation(container->get_HyperlinkMouseOver()).IsNullOrEmpty())
+    {
+        container->get_HyperlinkManager()->RemoveHyperlinkMouseOver();
+    }
+}
+presentation->Save(u"hyperlink-sanitized.pptx", SaveFormat::Pptx);
+auto reopened = System::MakeObject<Presentation>(u"hyperlink-sanitized.pptx");
+auto remainingContainers = collectContainers(reopened);
+auto violations = 0;
+for (const auto& container : remainingContainers)
+{
+    if (!policyViolation(container->get_HyperlinkClick()).IsNullOrEmpty()) violations++;
+    if (!policyViolation(container->get_HyperlinkMouseOver()).IsNullOrEmpty()) violations++;
+}
+System::Console::WriteLine(u"Audit rows: {0}; prohibited actions after reopening: {1}", rowCount, violations);
+if (violations != 0)
+{
+    System::Console::WriteLine(u"Verification failed: do not distribute the saved presentation.");
+    System::Environment::set_ExitCode(1);
+}
+```
+
+Với dữ liệu đầu vào đã tạo ở trên, báo cáo chứa năm hàng hành động. Liên kết di chuột tệp và macro nhấp bị xóa, trong khi các liên kết HTTPS và điều hướng slide nội bộ vẫn còn. Kiểm tra in ra không có hành động bị cấm. Một đầu vào chứa URL nhấp ngoại bị cấm cũng kích hoạt nhánh thay thế. Một container có nhấp được cho phép và di chuột bị cấm vẫn giữ hành động nhấp.
+
+Sự dọn dẹp chọn lọc này khác với [RemoveAllHyperlinks](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), cái mà xóa cả hai loại kích hoạt trong phạm vi đã chọn bất kể chính sách. Kiểm tra ở đây chỉ xem xét các hành động siêu liên kết; nó không xóa các dự án VBA nhúng, đối tượng OLE hoặc nội dung hoạt động khác, và không xác thực tệp PDF hoặc HTML đã xuất.
+
+## **Câu Hỏi Thường Gặp**
+
+**Làm sao tôi có thể liên kết tới một phần hoặc slide đầu tiên của nó?**
+
+Các phần trong PowerPoint nhóm các slide lại với nhau, nhưng một siêu liên kết nội bộ chỉ nhắm tới một slide riêng lẻ. Để tạo điều hướng tới một phần, hãy liên kết tới slide đầu tiên trong phần đó.
+
+**Tôi có thể gắn siêu liên kết vào các yếu tố slide master để nó hoạt động trên tất cả các slide không?**
+
+Có. Các yếu tố slide master và layout hỗ trợ siêu liên kết. Các liên kết trên những yếu tố này sẽ có sẵn trong chế độ trình chiếu trên các slide sử dụng master hoặc layout tương ứng.
+
+**Liệu siêu liên kết có được giữ lại khi xuất ra PDF, HTML, hình ảnh hoặc video không?**
+
+Các xuất PDF và HTML được hỗ trợ có thể giữ lại siêu liên kết; hình ảnh raster và video không thể. Xem các lưu ý xuất trong [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).

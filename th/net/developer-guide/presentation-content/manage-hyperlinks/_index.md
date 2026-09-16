@@ -1,353 +1,495 @@
 ---
-title: จัดการไฮเปอร์ลิงก์ในงานนำเสนอด้วย .NET
-linktitle: จัดการไฮเปอร์ลิงก์
+title: จัดการ Hyperlink ของงานนำเสนอใน .NET
+linktitle: จัดการ Hyperlink
 type: docs
 weight: 20
 url: /th/net/manage-hyperlinks/
 keywords:
 - เพิ่ม URL
-- เพิ่มไฮเปอร์ลิงก์
-- สร้างไฮเปอร์ลิงก์
-- จัดรูปแบบไฮเปอร์ลิงก์
-- ลบไฮเปอร์ลิงก์
-- อัปเดตไฮเปอร์ลิงก์
-- ไฮเปอร์ลิงก์ข้อความ
-- ไฮเปอร์ลิงก์สไลด์
-- ไฮเปอร์ลิงก์รูปร่าง
-- ไฮเปอร์ลิงก์รูปภาพ
-- ไฮเปอร์ลิงก์วิดีโอ
-- ไฮเปอร์ลิงก์ที่แก้ไขได้
+- เพิ่ม Hyperlink
+- สร้าง Hyperlink
+- รูปแบบ Hyperlink
+- ลบ Hyperlink
+- ปรับปรุง Hyperlink
+- Hyperlink ข้อความ
+- Hyperlink สไลด์
+- Hyperlink รูปร่าง
+- Hyperlink รูปภาพ
+- Hyperlink วิดีโอ
+- Hyperlink ที่ปรับเปลี่ยนได้
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "จัดการไฮเปอร์ลิงก์ในงานนำเสนอ PowerPoint และ OpenDocument อย่างง่ายดายด้วย Aspose.Slides สำหรับ .NET—เพิ่มความโต้ตอบและกระบวนการทำงานในไม่กี่นาที."
+description: "เพิ่ม, กำหนดรูปแบบ, ปรับปรุง, และลบ Hyperlink ในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ .NET, ใช้ตัวอย่าง C#."
 ---
 ## **บทนำ**
 
-Hyperlink คือการอ้างอิงถึงวัตถุหรือข้อมูลหรือสถานที่ในบางอย่าง นี่คือไฮเปอร์ลิงก์ทั่วไปในงานนำเสนอ PowerPoint:
+Hyperlink เชื่อมต่อเนื้อหาในงานนำเสนอไปยังเว็บไซต์หรือสถานที่ภายในงานนำเสนอเอง ใน PowerPoint Hyperlink มักใช้เพื่อสองวัตถุประสงค์หลัก:
 
-* ลิงก์ไปยังเว็บไซต์ในข้อความ, รูปร่าง หรือสื่อ
-* ลิงก์ไปยังสไลด์
+* เปิดเว็บไซต์จากข้อความ, รูปร่าง, หรือกรอบสื่อ
+* นำทางไปยังสไลด์อื่น, ตัวอย่างเช่น จากสารบัญ
 
-Aspose.Slides for .NET ช่วยให้คุณทำงานหลายอย่างที่เกี่ยวกับไฮเปอร์ลิงก์ในงานนำเสนอได้
+Aspose.Slides for .NET ให้คุณเพิ่มลิงก์เหล่านี้, ควบคุมลักษณะและเสียง, ปรับปรุงคุณสมบัติ, และลบออก ตัวอย่างด้านล่างแสดงวิธีทำงานกับ Hyperlink บนองค์ประกอบแต่ละตัวและวิธีเข้าถึง Hyperlink ระดับงานนำเสนอ, สไลด์, หรือกรอบข้อความ
 
-{{% alert color="primary" %}} 
-คุณอาจต้องการตรวจสอบ Aspose อย่างง่าย, [ตัวแก้ไข PowerPoint ออนไลน์ฟรี.](https://products.aspose.app/slides/th/editor)
+{{% alert color="info" title="หมายเหตุ" %}}
+คุณสามารถแก้ไขงานนำเสนอได้ด้วย [เครื่องมือแก้ไข PowerPoint ออนไลน์ฟรีของ Aspose](https://products.aspose.app/slides/th/editor)
 {{% /alert %}} 
 
-## **เพิ่มไฮเปอร์ลิงก์ URL**
+## **เพิ่ม Hyperlink URL**
 
-### **เพิ่มไฮเปอร์ลิงก์ URL ไปยังข้อความ**
+คุณสามารถกำหนด URL ของเว็บไซต์ให้กับข้อความ, รูปร่าง, หรือกรอบสื่อได้ พื้นที่ที่คลิกได้จะถูกกำหนดโดยองค์ประกอบที่คุณกำหนด Hyperlink: ส่วนของข้อความเชื่อมต่อกับข้อความที่เลือก, ขณะที่รูปร่างหรือกรอบเชื่อมต่อกับออบเจ็กต์สไลด์
 
-โค้ด C# นี้แสดงวิธีเพิ่มไฮเปอร์ลิงก์เว็บไซต์ไปยังข้อความ:
+### **เพิ่ม Hyperlink URL ให้กับข้อความ**
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
-	shape1.AddTextFrame("Aspose: File Format APIs");
-	shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-	shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-	shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 32;
+เพื่อเชื่อมข้อความกับเว็บไซต์, ให้กำหนด [Hyperlink](https://reference.aspose.com/slides/th/net/aspose.slides/hyperlink/) ให้กับคุณสมบัติ [HyperlinkClick](https://reference.aspose.com/slides/th/net/aspose.slides/portionformat/hyperlinkclick/) ของส่วนข้อความ, ตามตัวอย่างด้านล่าง ส่วนข้อความนั้นจะกลายเป็นคลิกได้เท่านั้น
 
-	presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var textShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
+textShape.AddTextFrame("Aspose: File Format APIs");
+var portionFormat = textShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+portionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+portionFormat.HyperlinkClick.Tooltip = "Explore Aspose file format APIs";
+portionFormat.FontHeight = 32;
+
+presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 ```
 
-### **เพิ่มไฮเปอร์ลิงก์ URL ไปยังรูปร่างหรือเฟรม**
+### **เพิ่ม Hyperlink URL ให้กับรูปร่างและกรอบสื่อ**
 
-ตัวอย่างโค้ด C# นี้แสดงวิธีเพิ่มไฮเปอร์ลิงก์เว็บไซต์ไปยังรูปร่าง:
+เพื่อทำให้รูปร่างหรือกรอบคลิกได้, ให้ตั้งค่าคุณสมบัติ [HyperlinkClick](https://reference.aspose.com/slides/th/net/aspose.slides/shape/hyperlinkclick/) ของมัน Hyperlink จะเป็นของออบเจ็กต์เอง ไม่ใช่ของส่วนข้อความภายใน
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
-    
-    shape.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    shape.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
+แนวทางเดียวกันใช้กับกรอบรูป, เสียง, และวิดีโอ: กำหนด Hyperlink ให้กับกรอบและตั้งค่า [Tooltip](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/tooltip/) ของลิงก์หากต้องการ
 
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
+ตัวอย่างต่อไปทำให้สี่เหลี่ยมคลิกได้:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
+
+shape.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+shape.HyperlinkClick.Tooltip = "Explore Aspose file format APIs";
+
+presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 ```
 
-### **เพิ่มไฮเปอร์ลิงก์ URL ไปยังสื่อ**
+## **ใช้ Hyperlink สร้างสารบัญ**
 
-Aspose.Slides ให้คุณเพิ่มไฮเปอร์ลิงก์ไปยังรูปภาพ, ไฟล์เสียง, และวิดีโอได้
+Hyperlink ภายในทำให้ผู้อ่านกระโดดจากสารบัญไปยังสไลด์เฉพาะ ตัวอย่างต่อไปใช้ [SetInternalHyperlinkClick](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) เพื่อเชื่อมข้อความ “Page 2” บนสไลด์แรกไปยังสไลด์ที่สอง
 
-ตัวอย่างโค้ดนี้แสดงวิธีเพิ่มไฮเปอร์ลิงก์ไปยัง **รูปภาพ**:
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    // เพิ่มรูปภาพลงในงานนำเสนอ
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    // สร้างเฟรมรูปภาพบนสไลด์ 1 จากรูปภาพที่เพิ่มก่อนหน้า
-    IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
+using var presentation = new Presentation();
 
-    pictureFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    pictureFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
+var firstSlide = presentation.Slides[0];
+var secondSlide = presentation.Slides.AddEmptySlide(firstSlide.LayoutSlide);
 
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
+var tableOfContents = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 300, 100);
+tableOfContents.FillFormat.FillType = FillType.NoFill;
+tableOfContents.LineFormat.FillFormat.FillType = FillType.NoFill;
+tableOfContents.TextFrame.Paragraphs.Clear();
+
+var paragraph = new Paragraph();
+paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+paragraph.Text = "Title of slide 2 .......... ";
+
+var linkPortion = new Portion();
+linkPortion.Text = "Page 2";
+linkPortion.PortionFormat.HyperlinkManager.SetInternalHyperlinkClick(secondSlide);
+
+paragraph.Portions.Add(linkPortion);
+tableOfContents.TextFrame.Paragraphs.Add(paragraph);
+
+presentation.Save("link_to_slide.pptx", SaveFormat.Pptx);
 ```
 
-ตัวอย่างโค้ดนี้แสดงวิธีเพิ่มไฮเปอร์ลิงก์ไปยัง **ไฟล์เสียง**:
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
-    IAudioFrame audioFrame = pres.Slides[0].Shapes.AddAudioFrameEmbedded(10, 10, 100, 100, audio);
-
-    audioFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    audioFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
-```
-
-ตัวอย่างโค้ดนี้แสดงวิธีเพิ่มไฮเปอร์ลิงก์ไปยัง **วิดีโอ**:
-
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
-    IVideoFrame videoFrame = pres.Slides[0].Shapes.AddVideoFrame(10, 10, 100, 100, video);
-
-    videoFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    videoFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{%  alert  title="Tip"  color="primary"  %}} 
-คุณอาจต้องการดู *[การจัดการ OLE](https://docs.aspose.com/slides/th/net/manage-ole/)*.
-{{% /alert %}}
-
-## **ใช้ไฮเปอร์ลิงก์สร้างสารบัญ**
-
-เนื่องจากไฮเปอร์ลิงก์ทำให้คุณเพิ่มการอ้างอิงถึงวัตถุหรือสถานที่ได้ คุณจึงสามารถใช้มันสร้างสารบัญได้
-
-ตัวอย่างโค้ดนี้แสดงวิธีสร้างสารบัญโดยใช้ไฮเปอร์ลิงก์:
-
-```c#
-using (var presentation = new Presentation())
-{
-    var firstSlide = presentation.Slides[0];
-    var secondSlide = presentation.Slides.AddEmptySlide(firstSlide.LayoutSlide);
-
-    var contentTable = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 300, 100);
-    contentTable.FillFormat.FillType = FillType.NoFill;
-    contentTable.LineFormat.FillFormat.FillType = FillType.NoFill;
-    contentTable.TextFrame.Paragraphs.Clear();
-
-    var paragraph = new Paragraph();
-    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    paragraph.Text = "Title of slide 2 .......... ";
-
-    var linkPortion = new Portion();
-    linkPortion.Text = "Page 2";
-    linkPortion.PortionFormat.HyperlinkManager.SetInternalHyperlinkClick(secondSlide);
-
-    paragraph.Portions.Add(linkPortion);
-    contentTable.TextFrame.Paragraphs.Add(paragraph);
-
-    presentation.Save("link_to_slide.pptx", SaveFormat.Pptx);
-}
-```
-
-## **จัดรูปแบบไฮเปอร์ลิงก์**
+## **จัดรูปแบบ Hyperlink**
 
 ### **สี**
 
-ด้วย property [ColorSource](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/properties/colorsource) ใน interface [IHyperlink](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink) คุณสามารถตั้งค่าสีสำหรับไฮเปอร์ลิงก์และยังสามารถดึงข้อมูลสีจากไฮเปอร์ลิงก์ได้ ฟีเจอร์นี้ถูกแนะนำครั้งแรกใน PowerPoint 2019 ดังนั้นการเปลี่ยนแปลงที่เกี่ยวข้องกับ property นี้จะไม่ทำงานกับเวอร์ชัน PowerPoint ที่เก่ากว่า
+คุณสมบัติ [ColorSource](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/colorsource/) ของ [IHyperlink](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/) กำหนดว่า Hyperlink จะใช้สี Hyperlink ของงานนำเสนอหรือการจัดรูปแบบของส่วนข้อความหรือไม่ เพื่อกำหนดสีข้อความแบบกำหนดเอง, เลือก [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/th/net/aspose.slides/hyperlinkcolorsource/) แล้วตั้งค่าสีเติมของส่วนนั้น ฟีเจอร์นี้เริ่มต้นใน PowerPoint 2019; เวอร์ชันก่อนหน้าจะไม่ใช้การตั้งค่านี้
 
-ตัวอย่างโค้ดนี้แสดงการดำเนินการที่เพิ่มไฮเปอร์ลิงก์หลายสีลงในสไลด์เดียว:
+ตัวอย่างต่อไปเพิ่ม Hyperlink ข้อความสองลิงก์ในสไลด์เดียว ลิงก์แรกใช้สีเติมข้อความสีแดง, ส่วนลิงก์ที่สองใช้สี Hyperlink เริ่มต้น
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
-    shape1.AddTextFrame("This is a sample of colored hyperlink.");
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.ColorSource = HyperlinkColorSource.PortionFormat;
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.FillType = FillType.Solid;
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.SolidFillColor.Color = Color.Red;
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    IAutoShape shape2 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
-    shape2.AddTextFrame("This is a sample of usual hyperlink.");
-    shape2.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+using var presentation = new Presentation();
 
-    presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
-}
+var coloredShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
+coloredShape.AddTextFrame("This hyperlink uses a custom color.");
+var coloredPortionFormat = coloredShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+coloredPortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+coloredPortionFormat.HyperlinkClick.ColorSource = HyperlinkColorSource.PortionFormat;
+coloredPortionFormat.FillFormat.FillType = FillType.Solid;
+coloredPortionFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+var defaultShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
+defaultShape.AddTextFrame("This hyperlink uses the default color.");
+defaultShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+
+presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 ```
 ### **เสียง**
 
-Aspose.Slides มี property เหล่านี้เพื่อให้คุณเน้นไฮเปอร์ลิงก์ด้วยเสียง:
+Hyperlink สามารถเล่นเสียงเมื่อเปิดใช้งานหรือหยุดเสียงที่กำลังเล่นอยู่ ใช้คุณสมบัติดังต่อไปนี้เพื่อกำหนดพฤติกรรม:
 
-- [IHyperlink.Sound](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/properties/sound) 
-- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
+- [IHyperlink.Sound](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/sound/) ระบุไฟล์เสียงที่เชื่อมกับ Hyperlink
+- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/stopsoundonclick/) ควบคุมว่าการคลิก Hyperlink จะหยุดเสียงก่อนหน้าหรือไม่
 
-#### **เพิ่มเสียงไฮเปอร์ลิงก์**
+#### **เพิ่มเสียงให้ Hyperlink**
 
-โค้ด C# นี้แสดงวิธีตั้งค่าไฮเปอร์ลิงก์ให้เล่นเสียงและหยุดเสียงด้วยไฮเปอร์ลิงก์อื่น:
+ตัวอย่างต่อไปโหลด `sampleaudio.wav` และเชื่อมกับปุ่มบนสไลด์แรก การคลิกปุ่มจะเล่นเสียงและนำทางไปยังสไลด์ถัดไป รูปแบบที่สองบนสไลด์เดียวกันจะหยุดเสียงก่อนหน้าเมื่อคลิกโดยไม่ทำการนำทาง
 
-```c#
-using (Presentation pres = new Presentation())
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var audioData = File.ReadAllBytes("sampleaudio.wav");
+var hyperlinkSound = presentation.Audios.AddAudio(audioData);
+
+var firstSlide = presentation.Slides[0];
+
+var playButton = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
+playButton.HyperlinkClick = Hyperlink.NextSlide;
+
+if (!playButton.HyperlinkClick.StopSoundOnClick && playButton.HyperlinkClick.Sound == null)
 {
-	// เพิ่มเสียงใหม่ลงในคอลเลกชันเสียงของงานนำเสนอ
-	IAudio playSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
-
-	ISlide firstSlide = pres.Slides[0];
-
-	// เพิ่มรูปร่างใหม่พร้อมไฮเปอร์ลิงก์ไปยังสไลด์ต่อไป
-	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
-	firstShape.HyperlinkClick = Hyperlink.NextSlide;
-
-	// ตรวจสอบไฮเปอร์ลิงก์สำหรับ "ไม่มีเสียง"
-	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
-	{
-		// ตั้งค่าไฮเปอร์ลิงก์ที่เล่นเสียง
-		firstShape.HyperlinkClick.Sound = playSound;
-	}
-
-	// เพิ่มสไลด์เปล่า 
-	ISlide secondSlide = pres.Slides.AddEmptySlide(firstSlide.LayoutSlide);
-
-	// เพิ่มรูปร่างใหม่พร้อมไฮเปอร์ลิงก์ NoAction
-	IShape secondShape = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
-	secondShape.HyperlinkClick = Hyperlink.NoAction;
-
-	// ตั้งค่าสถานะไฮเปอร์ลิงก์ "หยุดเสียงก่อนหน้า"
-	secondShape.HyperlinkClick.StopSoundOnClick = true;
-
-	pres.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
+    playButton.HyperlinkClick.Sound = hyperlinkSound;
 }
+
+var secondSlide = presentation.Slides.AddEmptySlide(firstSlide.LayoutSlide);
+
+var stopButton = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
+stopButton.HyperlinkClick = Hyperlink.NoAction;
+
+stopButton.HyperlinkClick.StopSoundOnClick = true;
+
+presentation.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
 ```
 
-#### **ดึงเสียงจากไฮเปอร์ลิงก์**
+#### **ดึงข้อความเสียงจาก Hyperlink**
 
-โค้ด C# นี้แสดงวิธีดึงเสียงที่ใช้ในไฮเปอร์ลิงก์:
+ตัวอย่างต่อไปเปิดงานนำเสนอที่สร้างไว้ข้างต้นและอ่านเสียง Hyperlink ของรูปร่างแรกเข้าสู่หน่วยความจำโดยใช้ [Sound](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/sound/) และ [BinaryData](https://reference.aspose.com/slides/th/net/aspose.slides/iaudio/binarydata/)
 
-```c#
-using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("hyperlink-sound.pptx");
+
+if (presentation.Slides.Count > 0 && presentation.Slides[0].Shapes.Count > 0)
 {
-	ISlide firstSlide = pres.Slides[0];
-
-	// ดึงไฮเปอร์ลิงก์ของรูปร่างแรก
-	IHyperlink link = firstSlide.Shapes[0].HyperlinkClick;
-
-	if (link.Sound != null)
-	{
-		// ดึงเอาเสียงของไฮเปอร์ลิงก์เป็นอาร์เรย์ไบต์
-		byte[] audioData = link.Sound.BinaryData;
-	}
-}
-```
-
-## **ลบไฮเปอร์ลิงก์ออกจากงานนำเสนอ**
-
-### **ลบไฮเปอร์ลิงก์จากข้อความ**
-
-โค้ด C# นี้แสดงวิธีลบไฮเปอร์ลิงก์จากข้อความในสไลด์งานนำเสนอ:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    ISlide slide = pres.Slides[0];
-    foreach (IShape shape in slide.Shapes)
+    var hyperlink = presentation.Slides[0].Shapes[0].HyperlinkClick;
+    var sound = hyperlink?.Sound;
+    if (sound != null)
     {
-        IAutoShape autoShape = shape as IAutoShape;
-        if (autoShape != null)
+        var audioData = sound.BinaryData;
+        Console.WriteLine($"Extracted {audioData.Length} bytes of hyperlink audio.");
+    }
+    else
+    {
+        Console.WriteLine("The first shape has no hyperlink sound.");
+    }
+}
+else
+{
+    Console.WriteLine("The presentation has no first slide or shape to inspect.");
+}
+```
+
+### **Tooltip และการตั้งค่าการโต้ตอบ**
+
+คุณสามารถอัปเดตคุณสมบัติเบื้องต้นของ [IHyperlink](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/) หลังจากกำหนด Hyperlink ให้กับข้อความหรือรูปร่าง:
+
+- [Tooltip](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/tooltip/) ตั้งข้อความที่ผู้ดูสามารถแสดงเป็นคำแนะนำสำหรับลิงก์
+- [TargetFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/targetframe/) ระบุเฟรมเป้าหมายภายในชุดเฟรม HTML ของพาเรนต์ (หากมี)
+- [History](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/history/) ควบคุมว่าการเปิดลิงก์จะเพิ่มเป้าหมายลงในรายการ Hyperlink ที่ดูแล้วหรือไม่
+- [HighlightClick](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/highlightclick/) ควบคุมว่าลิงก์จะไฮไลต์เมื่อคลิกหรือไม่
+
+## **ลบ Hyperlink ออกจากงานนำเสนอ**
+
+ใช้ [GetAnyHyperlinks](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) เพื่อรวบรวมคอนเทนเนอร์ของ Hyperlink, รวมถึงลิงก์ส่วนข้อความ, ก่อนทำการเปลี่ยนแปลง ตัวอย่างต่อไปลบประเภทการเปิดใช้งานทั้งสองจากสไลด์แรก หากต้องการลบประเภทเดียวให้เรียกเฉพาะ [RemoveHyperlinkClick](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) หรือ [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); การลบการคลิกจะไม่ลบการเม้าส์โอเวอร์ที่สอดคล้อง
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("pres.pptx");
+
+if (presentation.Slides.Count > 0)
+{
+    var containers = presentation.Slides[0].HyperlinkQueries.GetAnyHyperlinks().ToList();
+    foreach (var container in containers)
+    {
+        container.HyperlinkManager.RemoveHyperlinkClick();
+        container.HyperlinkManager.RemoveHyperlinkMouseOver();
+    }
+    presentation.Save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The presentation has no slides to process.");
+}
+```
+
+สำหรับการลบแบบไม่มีเงื่อนไข, [RemoveAllHyperlinks](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) จะลบทั้งสองประเภทในขอบเขตที่เลือกในครั้งเดียว สำหรับการทำความสะอาดแบบเลือกและครอบคลุมมาสเตอร์, เลย์เอาต์, และโน๊ต, ดูหัวข้อ [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)
+
+## **สร้างรายการตรวจสอบ Hyperlink อย่างสมบูรณ์**
+
+ก่อนแจกจ่ายงานนำเสนอ, ควรทำรายการตรวจสอบการกระทำเชิงโต้ตอบและลิงก์เว็บของมัน [GetAnyHyperlinks](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) คืนค่าอ็อบเจ็กต์ [IHyperlinkContainer](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkcontainer/) ไม่ใช่รายการแบนของสตริง URL ตรวจสอบทั้ง [HyperlinkClick](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkcontainer/hyperlinkclick/) และ [HyperlinkMouseOver](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkcontainer/hyperlinkmouseover/) ในแต่ละคอนเทนเนอร์ พวกมันเป็นอิสระ: คอนเทนเนอร์เดียวกันอาจเปิดเผยการกระทำทั้งสอง, ดังนั้นรายงานที่สมบูรณ์อาจต้องมีสองแถวต่อคอนเทนเนอร์
+
+การตรวจสอบเฉพาะระดับรูปร่างอาจพลาดลิงก์ที่แนบกับส่วนข้อความ ให้สอบถามในขอบเขตที่เหมาะสมแทนและเก็บคอนเทนเนอร์ที่ได้เพื่อให้สามารถอัปเดตหรือถอนการกระทำในภายหลังได้
+
+### **สอบถามขอบเขต Presentation, Slide, และ Text‑Frame**
+
+อินเทอร์เฟซ [IHyperlinkQueries](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/) มีให้ผ่าน [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentation/hyperlinkqueries/), [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseslide/hyperlinkqueries/), และ [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/hyperlinkqueries/). แต่ละขอบเขตสนับสนุนคำถามเดียวกัน:
+
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) คืนคอนเทนเนอร์ที่มีการกระทำคลิก
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) คืนคอนเทนเนอร์ที่มีการกระทำเม้าส์โอเวอร์
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) คืนคอนเทนเนอร์ที่มีอย่างใดอย่างหนึ่งหรือทั้งสอง
+
+ตัวอย่างต่อไปสร้าง `hyperlink-audit-input.pptx` พร้อมลิงก์คลิกภายนอก, ลิงก์เม้าส์โอเวอร์ไฟล์, การนำทางสไลด์ภายใน, ลิงก์เม้าส์โอเวอร์ข้อความ, และการกระทำแมโคร ตัวอย่างนี้ไม่ได้เรียกใช้การกระทำใดๆ คำถามสามประเภททำงานที่ทุกขอบเขต; จำนวนที่แสดงเป็นจำนวนคอนเทนเนอร์ ไม่ใช่จำนวนการกระทำรวม ขอบเขต Text‑Frame จะละเว้นลิงก์ของรูปร่างที่หุ้มเอง
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var destination = presentation.Slides.AddEmptySlide(slide.LayoutSlide);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 60);
+shape.TextFrame.Text = "Click the text to go to slide 2";
+shape.HyperlinkManager.SetExternalHyperlinkClick("https://example.com/");
+shape.HyperlinkClick.Tooltip = "Public website";
+shape.HyperlinkManager.SetExternalHyperlinkMouseOver("file:///C:/private/report.xlsx");
+
+var portionFormat = shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+portionFormat.HyperlinkManager.SetInternalHyperlinkClick(destination);
+portionFormat.HyperlinkManager.SetExternalHyperlinkMouseOver("https://example.com/help");
+var macroButton = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 120, 200, 60);
+macroButton.HyperlinkManager.SetMacroHyperlinkClick("ReviewPresentation");
+
+PrintCounts("Presentation", presentation.HyperlinkQueries);
+PrintCounts("Slide 1", slide.HyperlinkQueries);
+PrintCounts("Text frame", shape.TextFrame.HyperlinkQueries);
+presentation.Save("hyperlink-audit-input.pptx", SaveFormat.Pptx);
+
+static void PrintCounts(string scope, IHyperlinkQueries queries)
+{
+    var clickContainers = queries.GetHyperlinkClicks();
+    var mouseOverContainers = queries.GetHyperlinkMouseOvers();
+    var allContainers = queries.GetAnyHyperlinks();
+    Console.WriteLine($"{scope}: click={clickContainers.Count}, mouse-over={mouseOverContainers.Count}, any={allContainers.Count}");
+}
+```
+
+ในตัวอย่างนี้, คำถามระดับ Presentation และ Slide แต่ละอันรายงานคอนเทนเนอร์คลิกสามรายการ, คอนเทนเนอร์เม้าส์โอเวอร์สองรายการ, และคอนเทนเนอร์ที่มีอย่างใดอย่างหนึ่งสามรายการ ขอบเขต Text‑Frame รายงานคอนเทนเนอร์หนึ่งรายการในแต่ละหมวด
+
+### **จำแนกการกระทำและปลายทาง**
+
+ใช้ [IHyperlink.ActionType](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/actiontype/) เพื่อแปลความหมายของการกระทำก่อนแปลความหมายของปลายทาง ค่า [HyperlinkActionType](https://reference.aspose.com/slides/th/net/aspose.slides/hyperlinkactiontype/) ครอบคลุมมากกว่าการนำทางเว็บ:
+
+| Values | ความหมายสำหรับการตรวจสอบ |
+| --- | --- |
+| `Hyperlink` | Hyperlink ภายนอก; ตรวจสอบ URL และ scheme |
+| `JumpSpecificSlide` | การนำทางภายในไปยังสไลด์เฉพาะ |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | การนำทางสไลด์โชว์ที่มีมาในตัว, แก้ไขตามบริบทของการแสดง |
+| `JumpEndShow`, `StartCustomSlideShow` | จบการแสดงปัจจุบันหรือเริ่มการแสดงที่กำหนดเอง |
+| `StartMacro` | เรียกใช้งานแมโคร |
+| `StartProgram` | เริ่มโปรแกรม |
+| `OpenFile`, `OpenPresentation` | เปิดไฟล์หรือการนำเสนออื่น; แยกตรวจสอบจาก URL เว็บ |
+| `StartStopMedia` | เริ่มหรือหยุดการเล่นสื่อ |
+| `NoAction`, `Unknown` | ไม่มีการนำทางหรือการกระทำที่ไม่รู้จักต้องตรวจสอบ |
+
+อ่านปลายทางภายนอกจาก [ExternalUrl](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/externalurl/) และปลายทางภายในเฉพาะจาก [TargetSlide](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/targetslide/). การกระทำภายในและคำสั่งในตัวอาจไม่มี URL ภายนอก; URL ว่างไม่ได้หมายความว่าคอนเทนเนอร์ไม่มีการกระทำ เก็บ [ExternalUrlOriginal](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/externalurloriginal/) ไว้เมื่อแตกต่างจาก URL ที่ทำให้เป็นมาตรฐาน และรวม [Tooltip](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/tooltip/) เมื่อมี
+
+### **รายงาน, ทำความสะอาด, และตรวจสอบ Hyperlink**
+
+ตัวอย่าง .NET 6+ ต่อไปนี้อ่านงานนำเสนอที่มีอยู่ (ใช้ไฟล์ที่สร้างข้างต้น), เขียนไฟล์ `hyperlink-audit.json`, ใช้นโยบาย, บันทึกเป็น `hyperlink-sanitized.pptx`, แล้วเปิดใหม่เพื่อเช็กการกระทำทั้งสองประเภทอีกครั้ง มันรวบรวมคอนเทนเนอร์ก่อนเปลี่ยนและใช้การเปรียบเทียบอ้างอิงเพื่อหลีกเลี่ยงการประมวลผลคอนเทนเนอร์เดียวกันซ้ำ คำถาม Presentation ครอบคลุมสไลด์ทั่วไป; สำหรับรายการตรวจสอบทั่วแพ็กเกจ จะสอบถามมาสเตอร์, เลย์เอาต์, โน๊ต, และมาสเตอร์โน๊ตและใบแจกเมื่อมี
+
+รายงานบันทึกดัชนีสไลด์ที่เริ่มจาก 1 และ [SlideId](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseslide/slideid/) เมื่อมีให้ [ISlideComponent.Slide](https://reference.aspose.com/slides/th/net/aspose.slides/islidecomponent/slide/) ให้สไลด์เจ้าของสำหรับคอนเทนเนอร์ที่สนับสนุน มาสเตอร์, เลย์เอาต์, และโน๊ตไม่มีดัชนีสไลด์ปกติและจะระบุด้วยขอบเขตของตนเอง คอนเทนเนอร์รูปร่างและคอนเทนเนอร์การจัดรูปแบบส่วนข้อความจะมีป้ายชื่อแยกกัน; ประเภทคอนเทนเนอร์อื่นจะคงชื่อชนิดรันไทม์ของตน แต่ละคอนเทนเนอร์จะได้รับ ID ในรายงานเพื่อให้การกระทำสองอย่างสามารถเชื่อมโยงกันได้
+
+นโยบายแอปพลิเคชันที่เข้มงวดนี้อนุญาตเฉพาะ URL HTTPS แบบเต็มและเป้าหมายสไลด์ภายในที่ถูกต้อง มันปฏิเสธแมโคร, โปรแกรม, การกระทำไฟล์, การกระทำสไลด์โชว์อื่น ๆ, การกระทำที่ไม่รู้จัก, และสกีม URL อื่น การปฏิเสธเหล่านี้เป็นการตัดสินใจของนโยบาย ไม่ใช่ข้อสรุปด้านความปลอดภัยของ Aspose.Slides HTTPS เพียงอย่างเดียวไม่รับประกันความน่าเชื่อถือ: ควรเพิ่มรายการอนุญาตโฮสต์และการตรวจสอบอื่น ๆ สำหรับแอปของคุณ ทั้ง URL ภายนอกต้นฉบับและที่ทำให้เป็นมาตรฐานจะถูกตรวจสอบ ตัวอย่างนี้ตรวจสอบเมตาดาต้าโดยไม่ตามลิงก์หรือเรียกการกระทำ
+
+สำหรับการแก้ไข, [HyperlinkManager](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkcontainer/hyperlinkmanager/) ของคอนเทนเนอร์สนับสนุน [SetExternalHyperlinkClick](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/), และ [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). ที่นี่ ลิงก์คลิกภายนอกที่ไม่ได้รับอนุญาตจะถูกแทนที่ด้วยหน้าแลนดิ้ง HTTPS คงที่; การคลิกที่ไม่ได้รับอนุญาตและการเม้าส์โอเวอร์ที่ไม่ได้รับอนุญาตอื่น ๆ จะถูกลบแยกกัน ตั้งค่า `replaceExternalClicks` เป็น `false` เพื่อเอาออกทั้งหมดแทนเลือกหน้าที่แทนที่ที่เป็นของแอปก่อนปรับใช้
+
+ค่าสถานะส่งออกของรายงานใช้แนวนโยบายการตรวจสอบ PDF อย่างระมัดระวัง: ทำเครื่องหมายการกระทำเม้าส์โอเวอร์และสิ่งใดที่ไม่ใช่ลิงก์ภายนอกหรือการกระโดดสไลด์เฉพาะว่าอาจไม่รองรับ เป็นเพียงคำแนะนำการตรวจสอบ ไม่ใช่การทดสอบความสามารถหรือการรับประกันว่าลิงก์ที่ไม่ได้ทำเครื่องหมายจะคงอยู่ในการส่งออก การส่งออก PDF และ HTML ที่รองรับอาจคง Hyperlink ขึ้นอยู่กับการกระทำ, ตัวเลือกการส่งออก, และโปรแกรมดูภาพ Raster เช่น [images](/slides/th/net/convert-powerpoint-to-png/) และ [video](/slides/th/net/convert-powerpoint-to-video/) ไม่สามารถคง Hyperlink เชิงโต้ตอบได้; ทำเครื่องหมายทุกการกระทำเมื่อทำการตรวจสอบสำหรับเอาต์พุตเหล่านั้น
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.Json;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const bool replaceExternalClicks = true;
+const string replacementUrl = "https://example.com/blocked-link";
+using var presentation = new Presentation("hyperlink-audit-input.pptx");
+var containers = CollectContainers(presentation);
+var rows = new List<object>();
+
+for (var index = 0; index < containers.Count; index++)
+{
+    var container = containers[index];
+    AddRow(container.HyperlinkClick, "click", container, index + 1);
+    AddRow(container.HyperlinkMouseOver, "mouse-over", container, index + 1);
+}
+
+var jsonOptions = new JsonSerializerOptions { WriteIndented = true };
+var json = JsonSerializer.Serialize(rows, jsonOptions);
+File.WriteAllText("hyperlink-audit.json", json);
+
+foreach (var container in containers)
+{
+    var click = container.HyperlinkClick;
+    if (PolicyViolation(click) != null)
+    {
+        if (replaceExternalClicks && click.ActionType == HyperlinkActionType.Hyperlink)
         {
-            foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs)
-            {
-                foreach (IPortion portion in paragraph.Portions)
-                {
-                    portion.PortionFormat.HyperlinkManager.RemoveHyperlinkClick();
-                }
-            }
+            container.HyperlinkManager.SetExternalHyperlinkClick(replacementUrl);
+        }
+        else
+        {
+            container.HyperlinkManager.RemoveHyperlinkClick();
         }
     }
-    
-    pres.Save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
+    if (PolicyViolation(container.HyperlinkMouseOver) != null)
+    {
+        container.HyperlinkManager.RemoveHyperlinkMouseOver();
+    }
+}
+
+presentation.Save("hyperlink-sanitized.pptx", SaveFormat.Pptx);
+using var reopened = new Presentation("hyperlink-sanitized.pptx");
+var remainingContainers = CollectContainers(reopened);
+var violations = 0;
+foreach (var container in remainingContainers)
+{
+    if (PolicyViolation(container.HyperlinkClick) != null) violations++;
+    if (PolicyViolation(container.HyperlinkMouseOver) != null) violations++;
+}
+Console.WriteLine($"Audit rows: {rows.Count}; prohibited actions after reopening: {violations}");
+if (violations != 0)
+{
+    Console.WriteLine("Verification failed: do not distribute the saved presentation.");
+    Environment.ExitCode = 1;
+}
+
+void AddRow(IHyperlink? link, string activation, IHyperlinkContainer container, int containerId)
+{
+    if (link == null) return;
+    var ownerSlide = (container as ISlideComponent)?.Slide;
+    var targetSlide = link.TargetSlide;
+    var violation = PolicyViolation(link);
+    var ownerType = container is IShape ? "Shape" : container is IPortionFormat ? "Text portion" : container.GetType().Name;
+    var ordinaryAction = link.ActionType == HyperlinkActionType.Hyperlink || link.ActionType == HyperlinkActionType.JumpSpecificSlide;
+    rows.Add(new
+    {
+        ContainerId = containerId,
+        SlideIndex = SlideIndex(presentation, ownerSlide),
+        SlideId = ownerSlide?.SlideId,
+        Scope = ownerSlide?.GetType().Name,
+        OwnerType = ownerType,
+        Activation = activation,
+        ActionType = link.ActionType.ToString(),
+        ExternalUrl = link.ExternalUrl,
+        TargetSlideIndex = SlideIndex(presentation, targetSlide),
+        TargetSlideId = targetSlide?.SlideId,
+        Tooltip = link.Tooltip,
+        OriginalExternalUrl = link.ExternalUrlOriginal != link.ExternalUrl ? link.ExternalUrlOriginal : null,
+        PotentiallyUnsafe = violation != null,
+        PolicyViolation = violation,
+        TargetExport = "PDF",
+        PotentiallyUnsupportedByExport = activation == "mouse-over" || !ordinaryAction
+    });
+}
+
+static int? SlideIndex(IPresentation presentation, IBaseSlide? slide)
+{
+    for (var index = 0; index < presentation.Slides.Count; index++)
+    {
+        if (ReferenceEquals(presentation.Slides[index], slide)) return index + 1;
+    }
+    return null;
+}
+
+static string? PolicyViolation(IHyperlink? link)
+{
+    if (link == null) return null;
+    if (link.ActionType == HyperlinkActionType.JumpSpecificSlide)
+    {
+        return link.TargetSlide == null ? "Missing target slide" : null;
+    }
+    if (link.ActionType != HyperlinkActionType.Hyperlink) return "Action is not allowed";
+    if (!IsHttps(link.ExternalUrl)) return "Normalized URL is not absolute HTTPS";
+    var original = link.ExternalUrlOriginal;
+    if (!string.IsNullOrEmpty(original) && !IsHttps(original)) return "Original URL is not absolute HTTPS";
+    return null;
+}
+
+static bool IsHttps(string? value)
+{
+    return Uri.TryCreate(value, UriKind.Absolute, out var uri) && uri.Scheme == Uri.UriSchemeHttps;
+}
+
+static List<IHyperlinkContainer> CollectContainers(IPresentation presentation)
+{
+    var found = new List<IHyperlinkContainer>();
+    found.AddRange(presentation.HyperlinkQueries.GetAnyHyperlinks());
+    foreach (var master in presentation.Masters) AddScope(master);
+    foreach (var layout in presentation.LayoutSlides) AddScope(layout);
+    foreach (var slide in presentation.Slides) AddScope(slide.NotesSlideManager.NotesSlide);
+    AddScope(presentation.MasterNotesSlideManager.MasterNotesSlide);
+    AddScope(presentation.MasterHandoutSlideManager.MasterHandoutSlide);
+    return found.Distinct<IHyperlinkContainer>(ReferenceEqualityComparer.Instance).ToList();
+
+    void AddScope(IBaseSlide? slide)
+    {
+        if (slide != null) found.AddRange(slide.HyperlinkQueries.GetAnyHyperlinks());
+    }
 }
 ```
 
-### **ลบไฮเปอร์ลิงก์จากรูปร่างหรือเฟรม**
+ด้วยอินพุตที่สร้างไว้ข้างต้น รายงานประกอบด้วยแถวการกระทำห้าแถว ลิงก์เม้าส์โอเวอร์ไฟล์และแมโครคลิกจะถูกลบ, ในขณะที่ลิงก์ HTTPS และการนำทางสไลด์ภายในยังคงอยู่ การตรวจสอบพิมพ์จำนวนการกระทำที่ผิดกฎเป็นศูนย์ อินพุตที่มี URL คลิกภายนอกที่ผิดกฎยังแสดงสาขาการแทนที่ คอนเทนเนอร์ที่มีคลิกที่อนุญาตและเม้าส์โอเวอร์ที่ไม่ได้รับอนุญาตจะคงคลิกไว้
 
-โค้ด C# นี้แสดงวิธีลบไฮเปอร์ลิงก์จากรูปร่างในสไลด์งานนำเสนอ: 
+การทำความสะอาดแบบเลือกนี้แตกต่างจาก [RemoveAllHyperlinks](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) ซึ่งลบการกระทำทั้งสองประเภทในขอบเขตที่เลือกโดยไม่คำนึงถึงนโยบาย การตรวจสอบที่นี่ตรวจสอบเพียงการกระทำของ Hyperlink; ไม่ได้ลบ VBA ฝัง, OLE object, หรือเนื้อหาเชิงโต้ตอบอื่น ๆ, และไม่ตรวจสอบไฟล์ PDF หรือ HTML ที่ส่งออก
 
-``` csharp
-using (Presentation pres = new Presentation("demo.pptx")) 
-{ 
-   ISlide slide = pres.Slides[0]; 
-   foreach (IShape shape in slide.Shapes) 
-     { 
-       shape.HyperlinkManager.RemoveHyperlinkClick(); 
-     } 
-   pres.Save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx); 
-}
-```
+## **FAQ**
 
-## **ไฮเปอร์ลิงก์ที่แก้ไขได้**
+**ฉันจะลิงก์ไปยังส่วนหรือสไลด์แรกของส่วนได้อย่างไร?**
 
-คลาส [Hyperlink](https://reference.aspose.com/slides/th/net/aspose.slides/hyperlink) สามารถแก้ไขได้ ด้วยคลาสนี้คุณสามารถเปลี่ยนค่าของ property เหล่านี้ได้:
+ส่วนใน PowerPoint จัดกลุ่มสไลด์, แต่ Hyperlink ภายในจะชี้ไปยังสไลด์เดียว การสร้างการนำทางไปยังส่วนให้ลิงก์ไปยังสไลด์แรกของส่วนนั้น
 
-- [IHyperlink.TargetFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/properties/targetframe)
-- [IHyperlink.Tooltip](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/properties/tooltip)
-- [IHyperlink.History](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/properties/history)
-- [IHyperlink.HighlightClick](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/properties/highlightclick)
+**ฉันสามารถแนบ Hyperlink ให้กับองค์ประกอบมาสเตอร์สไลด์เพื่อให้ทำงานบนทุกสไลด์ได้ไหม?**
 
-ส่วนโค้ดนี้แสดงวิธีเพิ่มไฮเปอร์ลิงก์ไปยังสไลด์และแก้ไข tooltip ของมันภายหลัง:
+ได้ ด้านมาสเตอร์สไลด์และเลย์เอาต์รองรับ Hyperlink ลิงก์บนองค์ประกอบเหล่านี้จะพร้อมใช้งานในระหว่างการแสดงสไลด์บนสไลด์ที่ใช้มาสเตอร์หรือเลย์เอาต์นั้น
 
-```c#
-using (Presentation presentation = new Presentation())
-{   
-   IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
-    
-   shape1.AddTextFrame("Aspose: File Format APIs");
-    
-   shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-    
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 32;
-    
- presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
-```
+**Hyperlink จะคงอยู่หรือไม่เมื่อส่งออกเป็น PDF, HTML, ภาพ หรือวิดีโอ?**
 
-## **คุณสมบัติที่สนับสนุนใน IHyperlinkQueries**
-
-คุณสามารถเข้าถึง IHyperlinkQueries จากงานนำเสนอ, สไลด์ หรือข้อความที่กำหนดไฮเปอร์ลิงก์ไว้ได้.
-
-- [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentation/properties/hyperlinkqueries)
-- [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
-- [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/properties/hyperlinkqueries)
-
-คลาส IHyperlinkQueries รองรับเมธอดและ property เหล่านี้: 
-
-- [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkclicks)
-- [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkmouseovers)
-- [IHyperlinkQueries.GetAnyHyperlinks();](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/methods/getanyhyperlinks)
-- [IHyperlinkQueries.RemoveAllHyperlinks();](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/methods/removeallhyperlinks)
-
-## **คำถามที่พบบ่อย**
-
-**ฉันจะสร้างการนำทางภายในไม่ใช่แค่ไปยังสไลด์ แต่ไปยัง "ส่วน" หรือสไลด์แรกของส่วนได้อย่างไร?**
-
-Sections ใน PowerPoint เป็นการจัดกลุ่มสไลด์; การนำทางโดยเทคนิคจะชี้ไปยังสไลด์เฉพาะ เพื่อ "ไปยังส่วน" คุณมักจะลิงก์ไปยังสไลด์แรกของส่วนนั้น
-
-**ฉันสามารถแนบไฮเปอร์ลิงก์กับองค์ประกอบของมาสเตอร์สไลด์ได้หรือไม่เพื่อให้ทำงานบนทุกสไลด์?**
-
-ใช่. องค์ประกอบของมาสเตอร์สไลด์และเลย์เอาต์รองรับไฮเปอร์ลิงก์ ลิงก์เหล่านี้จะแสดงบนสไลด์ลูกและสามารถคลิกได้ระหว่างการนำเสนอ
-
-**ไฮเปอร์ลิงก์จะถูกเก็บรักษาไว้เมื่อส่งออกเป็น PDF, HTML, รูปภาพ หรือวิดีโอหรือไม่?**
-
-ใน [PDF](/slides/th/net/convert-powerpoint-to-pdf/) และ [HTML](/slides/th/net/convert-powerpoint-to-html/) ใช่—ลิงก์มักจะถูกเก็บไว้ เมื่อส่งออกเป็น [images](/slides/th/net/convert-powerpoint-to-png/) และ [video](/slides/th/net/convert-powerpoint-to-video/) ความสามารถในการคลิกจะไม่ถ่ายโอนเนื่องจากลักษณะของรูปแบบเหล่านั้น (เฟรมเรสเตอร์/วิดีโอไม่รองรับไฮเปอร์ลิงก์).
+การส่งออก PDF และ HTML ที่รองรับอาจคง Hyperlink ไว้; ภาพเรสเตอร์และวิดีโอไม่สามารถคง Hyperlink เชิงโต้ตอบได้ ดูข้อพิจารณาการส่งออกในหัวข้อ [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)
