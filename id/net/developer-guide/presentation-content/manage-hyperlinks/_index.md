@@ -23,334 +23,474 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Kelola hyperlink dalam presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk .NET secara mudah—tingkatkan interaktivitas dan alur kerja dalam hitungan menit."
+description: "Menambahkan, memformat, memperbarui, dan menghapus hyperlink dalam presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk .NET, menggunakan contoh C#."
 ---
 ## **Pendahuluan**
 
-Hyperlink adalah referensi ke sebuah objek atau data atau sebuah tempat dalam sesuatu. Berikut ini adalah hyperlink umum dalam Presentasi PowerPoint:
+Hyperlink menghubungkan konten presentasi ke situs web atau lokasi dalam presentasi. Di PowerPoint, hyperlink biasanya melayani dua tujuan:
 
-* Tautan ke situs web di dalam teks, bentuk, atau media
-* Tautan ke slide
+* Membuka situs web dari teks, bentuk, atau bingkai media.
+* Menavigasi ke slide lain, misalnya, dari daftar isi.
 
-Aspose.Slides untuk .NET memungkinkan Anda melakukan banyak tugas yang melibatkan hyperlink dalam presentasi. 
+Aspose.Slides for .NET memungkinkan Anda menambahkan tautan ini, mengontrol tampilan dan suaranya, memperbarui propertinya, dan menghapusnya. Contoh-contoh di bawah ini menunjukkan cara bekerja dengan hyperlink pada elemen individual dan cara mengakses hyperlink pada tingkat presentasi, slide, atau bingkai teks.
 
-{{% alert color="primary" %}} 
-
-Anda mungkin ingin melihat Aspose sederhana, [editor PowerPoint online gratis.](https://products.aspose.app/slides/id/editor)
-
+{{% alert color="info" title="Note" %}}
+Anda juga dapat mengedit presentasi dengan [editor Aspose PowerPoint online gratis](https://products.aspose.app/slides/id/editor).
 {{% /alert %}} 
 
-## **Menambahkan Hyperlink URL**
+## **Tambahkan Hyperlink URL**
 
-### **Menambahkan Hyperlink URL ke Teks**
+Anda dapat menetapkan URL situs web ke teks, bentuk, atau bingkai media. Elemen yang Anda tetapkan hyperlink menentukan area yang dapat diklik: bagian teks menautkan teks yang dipilih, sedangkan bentuk atau bingkai menautkan objek slide.
 
-Kode C# ini menunjukkan cara menambahkan hyperlink situs web ke teks:
+### **Tambahkan Hyperlink URL ke Teks**
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
-	shape1.AddTextFrame("Aspose: File Format APIs");
-	shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-	shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-	shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 32;
+Untuk menautkan teks ke situs web, tetapkan sebuah [Hyperlink](https://reference.aspose.com/slides/id/net/aspose.slides/hyperlink/) ke properti [HyperlinkClick](https://reference.aspose.com/slides/id/net/aspose.slides/portionformat/hyperlinkclick/) pada bagian teks, seperti yang ditunjukkan di bawah. Hanya bagian teks tersebut yang menjadi dapat diklik.
 
-	presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var textShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
+textShape.AddTextFrame("Aspose: File Format APIs");
+var portionFormat = textShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+portionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+portionFormat.HyperlinkClick.Tooltip = "Explore Aspose file format APIs";
+portionFormat.FontHeight = 32;
+
+presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 ```
 
-### **Menambahkan Hyperlink URL ke Bentuk atau Bingkai**
+### **Tambahkan Hyperlink URL ke Bentuk dan Bingkai Media**
 
-Contoh kode ini dalam C# menunjukkan cara menambahkan hyperlink situs web ke sebuah bentuk:
+Untuk membuat bentuk atau bingkai dapat diklik, atur properti [HyperlinkClick](https://reference.aspose.com/slides/id/net/aspose.slides/shape/hyperlinkclick/)‑nya. Hyperlink merupakan milik objek itu sendiri, bukan pada bagian teks di dalamnya.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
-    
-    shape.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    shape.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
+Pendekatan yang sama berlaku untuk bingkai gambar, audio, dan video: tetapkan hyperlink ke bingkai dan atur [Tooltip](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/tooltip/) tautan jika diperlukan.
 
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
+Contoh berikut membuat sebuah persegi panjang dapat diklik:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
+
+shape.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+shape.HyperlinkClick.Tooltip = "Explore Aspose file format APIs";
+
+presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 ```
 
-### **Menambahkan Hyperlink URL ke Media**
+## **Gunakan Hyperlink untuk Membuat Daftar Isi**
 
-Aspose.Slides memungkinkan Anda menambahkan hyperlink ke file gambar, audio, dan video. 
+Hyperlink internal memungkinkan pembaca melompat dari daftar isi ke slide tertentu. Contoh berikut menggunakan [SetInternalHyperlinkClick](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) untuk menautkan teks "Page 2" pada slide pertama ke slide kedua.
 
-Contoh kode ini menunjukkan cara menambahkan hyperlink ke **gambar**:
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    // Menambahkan gambar ke presentasi
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    // Membuat bingkai gambar pada slide 1 berdasarkan gambar yang sebelumnya ditambahkan
-    IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
+using var presentation = new Presentation();
 
-    pictureFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    pictureFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
+var firstSlide = presentation.Slides[0];
+var secondSlide = presentation.Slides.AddEmptySlide(firstSlide.LayoutSlide);
 
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
+var tableOfContents = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 300, 100);
+tableOfContents.FillFormat.FillType = FillType.NoFill;
+tableOfContents.LineFormat.FillFormat.FillType = FillType.NoFill;
+tableOfContents.TextFrame.Paragraphs.Clear();
+
+var paragraph = new Paragraph();
+paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+paragraph.Text = "Title of slide 2 .......... ";
+
+var linkPortion = new Portion();
+linkPortion.Text = "Page 2";
+linkPortion.PortionFormat.HyperlinkManager.SetInternalHyperlinkClick(secondSlide);
+
+paragraph.Portions.Add(linkPortion);
+tableOfContents.TextFrame.Paragraphs.Add(paragraph);
+
+presentation.Save("link_to_slide.pptx", SaveFormat.Pptx);
 ```
 
-Contoh kode ini menunjukkan cara menambahkan hyperlink ke **file audio**:
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
-    IAudioFrame audioFrame = pres.Slides[0].Shapes.AddAudioFrameEmbedded(10, 10, 100, 100, audio);
-
-    audioFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    audioFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
-```
-
-Contoh kode ini menunjukkan cara menambahkan hyperlink ke **video**:
-
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
-    IVideoFrame videoFrame = pres.Slides[0].Shapes.AddVideoFrame(10, 10, 100, 100, video);
-
-    videoFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    videoFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{%  alert  title="Tip"  color="primary"  %}} 
-
-Anda mungkin ingin melihat *[Kelola OLE](https://docs.aspose.com/slides/id/net/manage-ole/)*.
-
-{{% /alert %}}
-
-## **Menggunakan Hyperlink untuk Membuat Daftar Isi**
-
-Karena hyperlink memungkinkan Anda menambahkan referensi ke objek atau tempat, Anda dapat menggunakannya untuk membuat daftar isi. 
-
-Contoh kode ini menunjukkan cara membuat daftar isi dengan hyperlink:
-
-```c#
-using (var presentation = new Presentation())
-{
-    var firstSlide = presentation.Slides[0];
-    var secondSlide = presentation.Slides.AddEmptySlide(firstSlide.LayoutSlide);
-
-    var contentTable = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 300, 100);
-    contentTable.FillFormat.FillType = FillType.NoFill;
-    contentTable.LineFormat.FillFormat.FillType = FillType.NoFill;
-    contentTable.TextFrame.Paragraphs.Clear();
-
-    var paragraph = new Paragraph();
-    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    paragraph.Text = "Title of slide 2 .......... ";
-
-    var linkPortion = new Portion();
-    linkPortion.Text = "Page 2";
-    linkPortion.PortionFormat.HyperlinkManager.SetInternalHyperlinkClick(secondSlide);
-
-    paragraph.Portions.Add(linkPortion);
-    contentTable.TextFrame.Paragraphs.Add(paragraph);
-
-    presentation.Save("link_to_slide.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Memformat Hyperlink**
+## **Format Hyperlink**
 
 ### **Warna**
 
-Dengan properti [ColorSource](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/properties/colorsource) di antarmuka [IHyperlink](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink), Anda dapat mengatur warna untuk hyperlink dan juga mendapatkan informasi warna dari hyperlink. Fitur ini pertama kali diperkenalkan di PowerPoint 2019, sehingga perubahan yang melibatkan properti ini tidak berlaku untuk versi PowerPoint yang lebih lama.
+Properti [ColorSource](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/colorsource/) dari [IHyperlink](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/) menentukan apakah hyperlink menggunakan warna hyperlink presentasi atau format bagian teks. Untuk menerapkan warna teks khusus, pilih [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/id/net/aspose.slides/hyperlinkcolorsource/) dan atur warna isi bagian tersebut. Fitur ini diperkenalkan di PowerPoint 2019; versi lama tidak menerapkan pengaturan ini.
 
-Contoh kode ini mendemonstrasikan operasi di mana hyperlink dengan warna berbeda ditambahkan ke slide yang sama:
+Contoh berikut menambahkan dua hyperlink teks ke slide yang sama. Hyperlink pertama menggunakan isi teks merah, sementara yang kedua mempertahankan warna hyperlink default.
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
-    shape1.AddTextFrame("This is a sample of colored hyperlink.");
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.ColorSource = HyperlinkColorSource.PortionFormat;
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.FillType = FillType.Solid;
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.SolidFillColor.Color = Color.Red;
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    IAutoShape shape2 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
-    shape2.AddTextFrame("This is a sample of usual hyperlink.");
-    shape2.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+using var presentation = new Presentation();
 
-    presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
-}
+var coloredShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
+coloredShape.AddTextFrame("This hyperlink uses a custom color.");
+var coloredPortionFormat = coloredShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+coloredPortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+coloredPortionFormat.HyperlinkClick.ColorSource = HyperlinkColorSource.PortionFormat;
+coloredPortionFormat.FillFormat.FillType = FillType.Solid;
+coloredPortionFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+var defaultShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
+defaultShape.AddTextFrame("This hyperlink uses the default color.");
+defaultShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+
+presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 ```
+
 ### **Suara**
 
-Aspose.Slides menyediakan properti-properti ini agar Anda dapat menekankan hyperlink dengan suara:
-- [IHyperlink.Sound](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/properties/sound) 
-- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
+Sebuah hyperlink dapat memutar suara saat diaktifkan atau menghentikan suara yang sedang diputar. Gunakan properti berikut untuk mengkonfigurasi perilaku ini:
 
-#### **Menambahkan Suara pada Hyperlink**
+- [IHyperlink.Sound](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/sound/) menentukan audio yang terkait dengan hyperlink.
+- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/stopsoundonclick/) mengontrol apakah mengaktifkan hyperlink menghentikan suara sebelumnya.
 
-Kode C# ini menunjukkan cara mengatur hyperlink yang memutar suara dan menghentikannya dengan hyperlink lain:
+#### **Tambahkan Suara Hyperlink**
 
-```c#
-using (Presentation pres = new Presentation())
+Contoh berikut memuat `sampleaudio.wav` dan mengaitkannya dengan tombol pada slide pertama. Mengklik tombol memutar suara dan menavigasi ke slide berikutnya. Bentuk kedua pada slide tersebut menghentikan suara sebelumnya saat diklik, tanpa melakukan aksi navigasi.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var audioData = File.ReadAllBytes("sampleaudio.wav");
+var hyperlinkSound = presentation.Audios.AddAudio(audioData);
+
+var firstSlide = presentation.Slides[0];
+
+var playButton = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
+playButton.HyperlinkClick = Hyperlink.NextSlide;
+
+if (!playButton.HyperlinkClick.StopSoundOnClick && playButton.HyperlinkClick.Sound == null)
 {
-	// Menambahkan audio baru ke koleksi audio presentasi
-	IAudio playSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
-
-	ISlide firstSlide = pres.Slides[0];
-
-	// Menambahkan bentuk baru dengan hyperlink ke slide berikutnya
-	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
-	firstShape.HyperlinkClick = Hyperlink.NextSlide;
-
-	// Memeriksa hyperlink untuk "No Sound"
-	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
-	{
-		// Mengatur hyperlink yang memutar suara
-		firstShape.HyperlinkClick.Sound = playSound;
-	}
-
-	// Menambahkan slide kosong 
-	ISlide secondSlide = pres.Slides.AddEmptySlide(firstSlide.LayoutSlide);
-
-	// Menambahkan bentuk baru dengan hyperlink NoAction
-	IShape secondShape = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
-	secondShape.HyperlinkClick = Hyperlink.NoAction;
-
-	// Mengatur flag hyperlink "Stop previous sound"
-	secondShape.HyperlinkClick.StopSoundOnClick = true;
-
-	pres.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
+    playButton.HyperlinkClick.Sound = hyperlinkSound;
 }
+
+var secondSlide = presentation.Slides.AddEmptySlide(firstSlide.LayoutSlide);
+
+var stopButton = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
+stopButton.HyperlinkClick = Hyperlink.NoAction;
+
+stopButton.HyperlinkClick.StopSoundOnClick = true;
+
+presentation.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
 ```
 
-#### **Mengekstrak Suara Hyperlink**
+#### **Ekstrak Suara Hyperlink**
 
-Kode C# ini menunjukkan cara mengekstrak suara yang digunakan dalam sebuah hyperlink:
+Contoh berikut membuka presentasi yang dibuat di atas dan membaca audio hyperlink bentuk pertama ke memori melalui [Sound](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/sound/) dan [BinaryData](https://reference.aspose.com/slides/id/net/aspose.slides/iaudio/binarydata/).
 
-```c#
-using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("hyperlink-sound.pptx");
+
+if (presentation.Slides.Count > 0 && presentation.Slides[0].Shapes.Count > 0)
 {
-	ISlide firstSlide = pres.Slides[0];
-
-	// Mendapatkan hyperlink bentuk pertama
-	IHyperlink link = firstSlide.Shapes[0].HyperlinkClick;
-
-	if (link.Sound != null)
-	{
-		// Mengekstrak suara hyperlink dalam array byte
-		byte[] audioData = link.Sound.BinaryData;
-	}
-}
-```
-
-## **Menghapus Hyperlink dari Presentasi**
-
-### **Menghapus Hyperlink dari Teks**
-
-Kode C# ini menunjukkan cara menghapus hyperlink dari teks dalam slide presentasi:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    ISlide slide = pres.Slides[0];
-    foreach (IShape shape in slide.Shapes)
+    var hyperlink = presentation.Slides[0].Shapes[0].HyperlinkClick;
+    var sound = hyperlink?.Sound;
+    if (sound != null)
     {
-        IAutoShape autoShape = shape as IAutoShape;
-        if (autoShape != null)
+        var audioData = sound.BinaryData;
+        Console.WriteLine($"Extracted {audioData.Length} bytes of hyperlink audio.");
+    }
+    else
+    {
+        Console.WriteLine("The first shape has no hyperlink sound.");
+    }
+}
+else
+{
+    Console.WriteLine("The presentation has no first slide or shape to inspect.");
+}
+```
+
+### **Pengaturan Tooltip dan Interaksi**
+
+Anda dapat memperbarui properti [IHyperlink](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/) berikut setelah menetapkan hyperlink ke teks atau bentuk:
+
+- [Tooltip](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/tooltip/) menetapkan teks yang dapat ditampilkan penonton sebagai petunjuk untuk tautan.
+- [TargetFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/targetframe/) menentukan bingkai target dalam frameset HTML induk, bila berlaku.
+- [History](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/history/) mengontrol apakah mengaktifkan tautan menambahkan destinasinya ke daftar hyperlink yang telah dilihat.
+- [HighlightClick](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/highlightclick/) mengontrol apakah hyperlink disorot saat diklik.
+
+## **Hapus Hyperlink dari Presentasi**
+
+Gunakan [GetAnyHyperlinks](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) untuk mengumpulkan kontainer hyperlink, termasuk tautan bagian teks, sebelum mengubahnya. Contoh berikut menghapus kedua tipe aktivasi dari slide pertama. Untuk menghapus hanya satu tipe, panggil hanya [RemoveHyperlinkClick](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) atau [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); menghapus aksi klik tidak menghapus pasangan mouse-over-nya.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("pres.pptx");
+
+if (presentation.Slides.Count > 0)
+{
+    var containers = presentation.Slides[0].HyperlinkQueries.GetAnyHyperlinks().ToList();
+    foreach (var container in containers)
+    {
+        container.HyperlinkManager.RemoveHyperlinkClick();
+        container.HyperlinkManager.RemoveHyperlinkMouseOver();
+    }
+    presentation.Save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The presentation has no slides to process.");
+}
+```
+
+Untuk penghapusan tanpa syarat, [RemoveAllHyperlinks](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) menghapus kedua tipe aktivasi dalam ruang lingkup yang dipilih dalam satu panggilan. Untuk pembersihan selektif dan cakupan master, tata letak, serta catatan, lihat [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+
+## **Bangun Inventaris Hyperlink Lengkap**
+
+Sebelum mendistribusikan presentasi, inventarisasi tindakan interaktifnya serta tautan webnya. [GetAnyHyperlinks](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) mengembalikan objek [IHyperlinkContainer](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkcontainer/), bukan daftar datar string URL. Periksa baik [HyperlinkClick](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkcontainer/hyperlinkclick/) maupun [HyperlinkMouseOver](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkcontainer/hyperlinkmouseover/) pada setiap kontainer. Mereka bersifat independen: kontainer yang sama dapat mengungkapkan kedua aksi, sehingga laporan lengkap membutuhkan hingga dua baris per kontainer.
+
+Pemindaian hanya hyperlink tingkat bentuk dapat melewatkan tautan yang terlampir pada bagian teks. Sebaiknya kueri ruang lingkup yang tepat, dan simpan kontainer yang dikembalikan sehingga Anda dapat memperbarui atau menghapus aksinya nanti.
+
+### **Kueri Ruang Lingkup Presentasi, Slide, dan Bingkai Teks**
+
+Antarmuka [IHyperlinkQueries](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkqueries/) tersedia melalui [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentation/hyperlinkqueries/), [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/id/net/aspose.slides/ibaseslide/hyperlinkqueries/), dan [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/hyperlinkqueries/). Setiap ruang lingkup mendukung kueri yang sama:
+
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) mengembalikan kontainer dengan aksi klik.
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) mengembalikan kontainer dengan aksi mouse-over.
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) mengembalikan kontainer dengan salah satu atau kedua aksi.
+
+Contoh berikut membuat `hyperlink-audit-input.pptx` dengan tautan klik eksternal, tautan mouse-over berkas, navigasi slide internal, tautan mouse-over teks, dan aksi makro. Contoh ini tidak menjalankan aksi apa pun. Tiga kueri yang sama berfungsi pada setiap ruang lingkup; hitungan menggambarkan kontainer, bukan total aksi. Ruang lingkup bingkai teks mengecualikan tautan milik bentuk yang membungkusnya.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var destination = presentation.Slides.AddEmptySlide(slide.LayoutSlide);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 60);
+shape.TextFrame.Text = "Click the text to go to slide 2";
+shape.HyperlinkManager.SetExternalHyperlinkClick("https://example.com/");
+shape.HyperlinkClick.Tooltip = "Public website";
+shape.HyperlinkManager.SetExternalHyperlinkMouseOver("file:///C:/private/report.xlsx");
+
+var portionFormat = shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+portionFormat.HyperlinkManager.SetInternalHyperlinkClick(destination);
+portionFormat.HyperlinkManager.SetExternalHyperlinkMouseOver("https://example.com/help");
+var macroButton = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 120, 200, 60);
+macroButton.HyperlinkManager.SetMacroHyperlinkClick("ReviewPresentation");
+
+PrintCounts("Presentation", presentation.HyperlinkQueries);
+PrintCounts("Slide 1", slide.HyperlinkQueries);
+PrintCounts("Text frame", shape.TextFrame.HyperlinkQueries);
+presentation.Save("hyperlink-audit-input.pptx", SaveFormat.Pptx);
+
+static void PrintCounts(string scope, IHyperlinkQueries queries)
+{
+    var clickContainers = queries.GetHyperlinkClicks();
+    var mouseOverContainers = queries.GetHyperlinkMouseOvers();
+    var allContainers = queries.GetAnyHyperlinks();
+    Console.WriteLine($"{scope}: click={clickContainers.Count}, mouse-over={mouseOverContainers.Count}, any={allContainers.Count}");
+}
+```
+
+Untuk contoh ini, kueri presentasi dan slide masing-masing melaporkan tiga kontainer klik, dua kontainer mouse-over, dan tiga kontainer dengan salah satu aksi. Kueri bingkai teks melaporkan satu kontainer di tiap kategori.
+
+### **Klasifikasikan Aksi dan Tujuan**
+
+Gunakan [IHyperlink.ActionType](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/actiontype/) untuk menafsirkan sebuah aksi sebelum menafsirkan tujuannya. Nilai [HyperlinkActionType](https://reference.aspose.com/slides/id/net/aspose.slides/hyperlinkactiontype/) mencakup lebih dari navigasi web:
+
+| Nilai | Makna untuk audit |
+| --- | --- |
+| `Hyperlink` | Hyperlink eksternal; periksa URL dan skemanya. |
+| `JumpSpecificSlide` | Navigasi internal ke slide tertentu. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Navigasi slideshow bawaan, diselesaikan dalam konteks slideshow. |
+| `JumpEndShow`, `StartCustomSlideShow` | Mengakhiri pertunjukan saat ini atau memulai pertunjukan khusus. |
+| `StartMacro` | Menjalankan makro. |
+| `StartProgram` | Meluncurkan program. |
+| `OpenFile`, `OpenPresentation` | Membuka berkas atau presentasi lain; tinjau terpisah dari URL web. |
+| `StartStopMedia` | Memulai atau menghentikan pemutaran media. |
+| `NoAction`, `Unknown` | Tidak ada aksi navigasi, atau aksi tidak dikenal yang memerlukan tinjauan. |
+
+Baca tujuan eksternal dari [ExternalUrl](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/externalurl/) dan tujuan internal spesifik dari [TargetSlide](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/targetslide/). Aksi internal dan perintah bawaan mungkin tidak memiliki URL eksternal; URL kosong tidak berarti kontainer tidak memiliki aksi. Pertahankan [ExternalUrlOriginal](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/externalurloriginal/) bila berbeda dari URL yang dinormalisasi, dan sertakan [Tooltip](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/tooltip/) bila tersedia.
+
+### **Laporan, Sanitasi, dan Verifikasi Hyperlink**
+
+Contoh .NET 6+ berikut membaca presentasi yang ada (gunakan berkas yang dibuat di atas), menulis `hyperlink-audit.json`, menerapkan kebijakan, menyimpan `hyperlink-sanitized.pptx`, dan membuka kembali untuk memeriksa kedua tipe aktivasi lagi. Ia mengumpulkan kontainer sebelum mengubahnya dan menggunakan kesetaraan referensi untuk menghindari memproses kontainer yang sama dua kali. Kueri presentasi mencakup slide biasa; untuk inventarisasi seluruh paket, juga secara eksplisit mengkueri master, tata letak, catatan, serta master catatan dan handout bila ada.
+
+Laporan mencatat indeks slide berbasis satu dan [SlideId](https://reference.aspose.com/slides/id/net/aspose.slides/ibaseslide/slideid/) bila tersedia. [ISlideComponent.Slide](https://reference.aspose.com/slides/id/net/aspose.slides/islidecomponent/slide/) menyediakan slide pemilik untuk kontainer yang didukung. Master, tata letak, dan catatan tidak memiliki indeks slide biasa dan diidentifikasi berdasarkan ruang lingkupnya. Kontainer bentuk dan kontainer format bagian teks diberi label terpisah; tipe kontainer lain mempertahankan nama tipe runtime mereka. Setiap kontainer mendapatkan ID lokal laporan sehingga dua aksinya dapat dikorelasikan.
+
+Kebijakan aplikasi yang sengaja restriktif ini hanya memperbolehkan URL HTTPS absolut dan target slide internal yang valid. Ia menolak makro, program, aksi berkas, aksi slideshow lainnya, aksi tidak dikenal, dan skema URL lain. Penolakan ini adalah keputusan kebijakan, bukan keputusan keamanan Aspose.Slides. HTTPS saja tidak menjamin kepercayaan: tambahkan daftar izinkan host dan pemeriksaan lain untuk aplikasi Anda. Baik URL eksternal asli maupun yang dinormalisasi diperiksa. Contoh ini mengaudit metadata tanpa mengikuti tautan atau menjalankan aksi.
+
+Untuk perbaikan, [HyperlinkManager](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkcontainer/hyperlinkmanager/) kontainer mendukung [SetExternalHyperlinkClick](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/), dan [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Di sini, tautan klik eksternal yang dilarang diganti dengan halaman landing HTTPS tetap; klik yang dilarang lainnya dan aksi mouse-over yang dilarang dihapus secara independen. Atur `replaceExternalClicks` ke `false` untuk menghapus semua pelanggaran kebijakan. Pilih halaman pengganti milik aplikasi sebelum penyebaran.
+
+Flag ekspor laporan menggunakan kebijakan peninjauan PDF yang konservatif: beri tanda pada aksi mouse-over dan apa pun selain tautan eksternal atau lompat slide spesifik sebagai kemungkinan tidak didukung. Itu hanyalah petunjuk peninjauan, bukan uji kemampuan atau jaminan bahwa tautan yang tidak ditandai akan bertahan pada ekspor. Ekspor PDF dan HTML yang didukung [PDF](/slides/id/net/convert-powerpoint-to-pdf/) dan [HTML](/slides/id/net/convert-powerpoint-to-html/) dapat mempertahankan hyperlink, tergantung pada aksi, opsi ekspor, dan penampil. Gambar raster [images](/slides/id/net/convert-powerpoint-to-png/) dan [video](/slides/id/net/convert-powerpoint-to-video/) tidak dapat mempertahankan hyperlink interaktif; beri tanda pada setiap aksi saat mengaudit output tersebut.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.Json;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const bool replaceExternalClicks = true;
+const string replacementUrl = "https://example.com/blocked-link";
+using var presentation = new Presentation("hyperlink-audit-input.pptx");
+var containers = CollectContainers(presentation);
+var rows = new List<object>();
+
+for (var index = 0; index < containers.Count; index++)
+{
+    var container = containers[index];
+    AddRow(container.HyperlinkClick, "click", container, index + 1);
+    AddRow(container.HyperlinkMouseOver, "mouse-over", container, index + 1);
+}
+
+var jsonOptions = new JsonSerializerOptions { WriteIndented = true };
+var json = JsonSerializer.Serialize(rows, jsonOptions);
+File.WriteAllText("hyperlink-audit.json", json);
+
+foreach (var container in containers)
+{
+    var click = container.HyperlinkClick;
+    if (PolicyViolation(click) != null)
+    {
+        if (replaceExternalClicks && click.ActionType == HyperlinkActionType.Hyperlink)
         {
-            foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs)
-            {
-                foreach (IPortion portion in paragraph.Portions)
-                {
-                    portion.PortionFormat.HyperlinkManager.RemoveHyperlinkClick();
-                }
-            }
+            container.HyperlinkManager.SetExternalHyperlinkClick(replacementUrl);
+        }
+        else
+        {
+            container.HyperlinkManager.RemoveHyperlinkClick();
         }
     }
-    
-    pres.Save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
+    if (PolicyViolation(container.HyperlinkMouseOver) != null)
+    {
+        container.HyperlinkManager.RemoveHyperlinkMouseOver();
+    }
+}
+
+presentation.Save("hyperlink-sanitized.pptx", SaveFormat.Pptx);
+using var reopened = new Presentation("hyperlink-sanitized.pptx");
+var remainingContainers = CollectContainers(reopened);
+var violations = 0;
+foreach (var container in remainingContainers)
+{
+    if (PolicyViolation(container.HyperlinkClick) != null) violations++;
+    if (PolicyViolation(container.HyperlinkMouseOver) != null) violations++;
+}
+Console.WriteLine($"Audit rows: {rows.Count}; prohibited actions after reopening: {violations}");
+if (violations != 0)
+{
+    Console.WriteLine("Verification failed: do not distribute the saved presentation.");
+    Environment.ExitCode = 1;
+}
+
+void AddRow(IHyperlink? link, string activation, IHyperlinkContainer container, int containerId)
+{
+    if (link == null) return;
+    var ownerSlide = (container as ISlideComponent)?.Slide;
+    var targetSlide = link.TargetSlide;
+    var violation = PolicyViolation(link);
+    var ownerType = container is IShape ? "Shape" : container is IPortionFormat ? "Text portion" : container.GetType().Name;
+    var ordinaryAction = link.ActionType == HyperlinkActionType.Hyperlink || link.ActionType == HyperlinkActionType.JumpSpecificSlide;
+    rows.Add(new
+    {
+        ContainerId = containerId,
+        SlideIndex = SlideIndex(presentation, ownerSlide),
+        SlideId = ownerSlide?.SlideId,
+        Scope = ownerSlide?.GetType().Name,
+        OwnerType = ownerType,
+        Activation = activation,
+        ActionType = link.ActionType.ToString(),
+        ExternalUrl = link.ExternalUrl,
+        TargetSlideIndex = SlideIndex(presentation, targetSlide),
+        TargetSlideId = targetSlide?.SlideId,
+        Tooltip = link.Tooltip,
+        OriginalExternalUrl = link.ExternalUrlOriginal != link.ExternalUrl ? link.ExternalUrlOriginal : null,
+        PotentiallyUnsafe = violation != null,
+        PolicyViolation = violation,
+        TargetExport = "PDF",
+        PotentiallyUnsupportedByExport = activation == "mouse-over" || !ordinaryAction
+    });
+}
+
+static int? SlideIndex(IPresentation presentation, IBaseSlide? slide)
+{
+    for (var index = 0; index < presentation.Slides.Count; index++)
+    {
+        if (ReferenceEquals(presentation.Slides[index], slide)) return index + 1;
+    }
+    return null;
+}
+
+static string? PolicyViolation(IHyperlink? link)
+{
+    if (link == null) return null;
+    if (link.ActionType == HyperlinkActionType.JumpSpecificSlide)
+    {
+        return link.TargetSlide == null ? "Missing target slide" : null;
+    }
+    if (link.ActionType != HyperlinkActionType.Hyperlink) return "Action is not allowed";
+    if (!IsHttps(link.ExternalUrl)) return "Normalized URL is not absolute HTTPS";
+    var original = link.ExternalUrlOriginal;
+    if (!string.IsNullOrEmpty(original) && !IsHttps(original)) return "Original URL is not absolute HTTPS";
+    return null;
+}
+
+static bool IsHttps(string? value)
+{
+    return Uri.TryCreate(value, UriKind.Absolute, out var uri) && uri.Scheme == Uri.UriSchemeHttps;
+}
+
+static List<IHyperlinkContainer> CollectContainers(IPresentation presentation)
+{
+    var found = new List<IHyperlinkContainer>();
+    found.AddRange(presentation.HyperlinkQueries.GetAnyHyperlinks());
+    foreach (var master in presentation.Masters) AddScope(master);
+    foreach (var layout in presentation.LayoutSlides) AddScope(layout);
+    foreach (var slide in presentation.Slides) AddScope(slide.NotesSlideManager.NotesSlide);
+    AddScope(presentation.MasterNotesSlideManager.MasterNotesSlide);
+    AddScope(presentation.MasterHandoutSlideManager.MasterHandoutSlide);
+    return found.Distinct<IHyperlinkContainer>(ReferenceEqualityComparer.Instance).ToList();
+
+    void AddScope(IBaseSlide? slide)
+    {
+        if (slide != null) found.AddRange(slide.HyperlinkQueries.GetAnyHyperlinks());
+    }
 }
 ```
 
-### **Menghapus Hyperlink dari Bentuk atau Bingkai**
+Dengan input yang dibuat di atas, laporan berisi lima baris aksi. Tautan mouse-over berkas dan klik makro dihapus, sementara tautan HTTPS dan navigasi slide internal tetap. Verifikasi mencetak nol aksi yang dilarang. Input yang berisi URL klik eksternal yang dilarang juga menguji cabang penggantian. Kontainer dengan klik yang diizinkan dan mouse-over yang dilarang mempertahankan aksi kliknya.
 
-Kode C# ini menunjukkan cara menghapus hyperlink dari sebuah bentuk dalam slide presentasi: 
-
-``` csharp
-using (Presentation pres = new Presentation("demo.pptx")) 
-{ 
-   ISlide slide = pres.Slides[0]; 
-   foreach (IShape shape in slide.Shapes) 
-     { 
-       shape.HyperlinkManager.RemoveHyperlinkClick(); 
-     } 
-   pres.Save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx); 
-}
-```
-
-## **Hyperlink yang Dapat Diubah**
-
-Kelas [Hyperlink](https://reference.aspose.com/slides/id/net/aspose.slides/hyperlink) bersifat mutable. Dengan kelas ini, Anda dapat mengubah nilai properti-properti berikut:
-
-- [IHyperlink.TargetFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/properties/targetframe)
-- [IHyperlink.Tooltip](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/properties/tooltip)
-- [IHyperlink.History](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/properties/history)
-- [IHyperlink.HighlightClick](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlink/properties/highlightclick)
-
-Potongan kode ini menunjukkan cara menambahkan hyperlink ke slide dan mengedit tooltip-nya kemudian:
-
-```c#
-using (Presentation presentation = new Presentation())
-{   
-   IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
-    
-   shape1.AddTextFrame("Aspose: File Format APIs");
-    
-   shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-    
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 32;
-    
- presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Properti yang Didukung dalam IHyperlinkQueries**
-
-Anda dapat mengakses IHyperlinkQueries dari presentasi, slide, atau teks tempat hyperlink didefinisikan. 
-
-- [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentation/properties/hyperlinkqueries)
-- [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/id/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
-- [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/properties/hyperlinkqueries)
-
-Kelas IHyperlinkQueries mendukung metode dan properti berikut: 
-
-- [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkclicks)
-- [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkmouseovers)
-- [IHyperlinkQueries.GetAnyHyperlinks();](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkqueries/methods/getanyhyperlinks)
-- [IHyperlinkQueries.RemoveAllHyperlinks();](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkqueries/methods/removeallhyperlinks)
+Pembersihan selektif ini berbeda dari [RemoveAllHyperlinks](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), yang menghapus kedua tipe aktivasi di seluruh ruang lingkup yang dipilih tanpa memandang kebijakan. Verifikasi di sini hanya memeriksa aksi hyperlink; tidak menghapus proyek VBA tertanam, objek OLE, atau konten aktif lainnya, dan tidak memvalidasi berkas PDF atau HTML yang diekspor.
 
 ## **FAQ**
 
-**Bagaimana saya dapat membuat navigasi internal bukan hanya ke slide, tetapi ke "bagian" atau slide pertama dari sebuah bagian?**
+**Bagaimana saya dapat menautkan ke sebuah seksi atau slide pertamanya?**
 
-Bagian dalam PowerPoint adalah pengelompokan slide; navigasi secara teknis menargetkan slide tertentu. Untuk "menavigasi ke sebuah bagian", Anda biasanya menautkan ke slide pertamanya.
+Seksi di PowerPoint mengelompokkan slide, tetapi hyperlink internal menargetkan satu slide saja. Untuk membuat navigasi ke sebuah seksi, tautkan ke slide pertama dalam seksi tersebut.
 
-**Apakah saya dapat menempelkan hyperlink ke elemen master slide sehingga berfungsi di semua slide?**
+**Bisakah saya menempelkan hyperlink pada elemen master slide sehingga berfungsi pada semua slide?**
 
-Ya. Elemen master slide dan layout mendukung hyperlink. Tautan tersebut muncul pada slide anak dan dapat diklik selama presentasi.
+Ya. Elemen master slide dan tata letak mendukung hyperlink. Tautan pada elemen tersebut tersedia selama presentasi pada slide yang menggunakan master atau tata letak yang bersangkutan.
 
 **Apakah hyperlink akan dipertahankan saat mengekspor ke PDF, HTML, gambar, atau video?**
 
-Dalam [PDF](/slides/id/net/convert-powerpoint-to-pdf/) dan [HTML](/slides/id/net/convert-powerpoint-to-html/), ya—tautan biasanya dipertahankan. Saat mengekspor ke [gambar](/slides/id/net/convert-powerpoint-to-png/) dan [video](/slides/id/net/convert-powerpoint-to-video/), kemampuan mengklik tidak akan terbawa karena sifat format tersebut (frame raster/video tidak mendukung hyperlink).
+Ekspor PDF dan HTML yang didukung dapat mempertahankan hyperlink; gambar raster dan video tidak dapat. Lihat pertimbangan ekspor di [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).

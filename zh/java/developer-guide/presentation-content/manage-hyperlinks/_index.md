@@ -9,12 +9,12 @@ keywords:
 - 添加超链接
 - 创建超链接
 - 格式化超链接
-- 移除超链接
+- 删除超链接
 - 更新超链接
 - 文本超链接
 - 幻灯片超链接
 - 形状超链接
-- 图像超链接
+- 图片超链接
 - 视频超链接
 - 可变超链接
 - PowerPoint
@@ -22,302 +22,536 @@ keywords:
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Java，轻松管理 PowerPoint 和 OpenDocument 演示文稿中的超链接——在几分钟内提升交互性和工作流。"
+description: "使用 Aspose.Slides for Java，通过 Java 示例在 PowerPoint 和 OpenDocument 演示文稿中添加、格式化、更新和删除超链接。"
 ---
+## **简介**
 
-超链接是对对象、数据或某处位置的引用。这些是在 PowerPoint 演示文稿中常见的超链接：
+超链接将演示文稿内容连接到网站或演示文稿内的某个位置。在 PowerPoint 中，超链接通常有两个用途：
 
-* 链接到文本、形状或媒体中的网站
-* 链接到幻灯片
+* 从文本、形状或媒体框打开网站。
+* 从目录等跳转到另一张幻灯片。
 
-Aspose.Slides for Java 允许您在演示文稿中执行许多涉及超链接的任务。 
+Aspose.Slides for Java 允许您添加这些链接、控制其外观和声音、更新属性并将其删除。下面的示例展示了如何在单个元素上使用超链接以及如何在演示文稿、幻灯片或文本框级别访问超链接。
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-您可能想查看 Aspose 简单版，[免费在线 PowerPoint 编辑器](https://products.aspose.app/slides/editor)
+您还可以使用[免费在线 Aspose PowerPoint 编辑器](https://products.aspose.app/slides/zh/editor)编辑演示文稿。
 
 {{% /alert %}} 
 
 ## **添加 URL 超链接**
 
+您可以将网站 URL 分配给文本、形状或媒体框。分配超链接的元素决定可点击区域：文本部分链接所选文本，形状或框则链接整个幻灯片对象。
+
 ### **向文本添加 URL 超链接**
 
-以下 Java 代码展示了如何向文本添加网站超链接：
+要将文本链接到网站，请将[Hyperlink](https://reference.aspose.com/slides/zh/java/com.aspose.slides/hyperlink/)传递给文本段落的[setHyperlinkClick](https://reference.aspose.com/slides/zh/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-)方法，如下所示。只有该段文本可点击。
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
-	shape1.addTextFrame("Aspose: File Format APIs");
-	
-	IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat(); 
-	portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-	portionFormat.setFontHeight(32);
+    IAutoShape textShape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
+    textShape.addTextFrame("Aspose: File Format APIs");
+    IPortionFormat portionFormat = textShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+    portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
+    portionFormat.getHyperlinkClick().setTooltip("Explore Aspose file format APIs");
+    portionFormat.setFontHeight(32);
 
-	presentation.save("presentation-out.pptx", SaveFormat.Pptx);
+    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
-	if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
+### **向形状和媒体框添加 URL 超链接**
 
-### **向形状或框架添加 URL 超链接**
+要使形状或框可点击，调用其[setHyperlinkClick](https://reference.aspose.com/slides/zh/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-)方法。超链接属于对象本身，而不是其中的文本段落。
 
-以下 Java 示例代码演示了如何向形状添加网站超链接：
+同样的方法适用于图片、音频和视频框：将超链接分配给框并在需要时调用[setTooltip](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-)。
+
+下面的示例使一个矩形可点击：
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
+    IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
 
-	shape.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	shape.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
+    shape.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
+    shape.getHyperlinkClick().setTooltip("Explore Aspose file format APIs");
 
-	pres.save("pres-out.pptx", SaveFormat.Pptx);
+    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
-
-### **向媒体添加 URL 超链接**
-
-Aspose.Slides 允许您向图像、音频和视频文件添加超链接。 
-
-以下示例代码展示了如何向 **图像** 添加超链接：
-```java
-Presentation pres = new Presentation();
-try {
-	// 添加图像到演示文稿
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-    picture = pres.getImages().addImage(picture);
-    } finally {
-          if (image != null) image.dispose();
-    }
-	// 在第1张幻灯片上基于先前添加的图像创建图片框
-	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-
-	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-
-以下示例代码展示了如何向 **音频文件** 添加超链接：
-```java
-Presentation pres = new Presentation();
-try {
-	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
-	IAudioFrame audioFrame = pres.getSlides().get_Item(0).getShapes().addAudioFrameEmbedded(10, 10, 100, 100, audio);
-
-	audioFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	audioFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-
-	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-
-以下示例代码展示了如何向 **视频** 添加超链接：
-```java
-Presentation pres = new Presentation();
-try {
-	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
-	IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
-
-	videoFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	videoFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-
-	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-
-{{%  alert  title="Tip"  color="primary"  %}} 
-
-您可能想查看 *[管理 OLE](/slides/zh/java/manage-ole/)*。
-
-{{% /alert %}}
 
 ## **使用超链接创建目录**
 
-由于超链接允许您添加对对象或位置的引用，您可以使用它们创建目录。 
+内部超链接允许读者从目录跳转到特定幻灯片。下面的示例使用[setInternalHyperlinkClick](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-)将第一张幻灯片上的“Page 2”文本链接到第二张幻灯片。
 
-以下示例代码展示了如何使用超链接创建目录：
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-	ISlide firstSlide = pres.getSlides().get_Item(0);
-	ISlide secondSlide = pres.getSlides().addEmptySlide(firstSlide.getLayoutSlide());
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ISlide secondSlide = presentation.getSlides().addEmptySlide(firstSlide.getLayoutSlide());
 
-	IAutoShape contentTable = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 300, 100);
-	contentTable.getFillFormat().setFillType(FillType.NoFill);
-	contentTable.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
-	contentTable.getTextFrame().getParagraphs().clear();
+    IAutoShape tableOfContents = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 300, 100);
+    tableOfContents.getFillFormat().setFillType(FillType.NoFill);
+    tableOfContents.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+    tableOfContents.getTextFrame().getParagraphs().clear();
 
-	Paragraph paragraph = new Paragraph();
-	paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-	paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-	paragraph.setText("Title of slide 2 .......... ");
+    Paragraph paragraph = new Paragraph();
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    paragraph.setText("Title of slide 2 .......... ");
 
-	Portion linkPortion = new Portion();
-	linkPortion.setText("Page 2");
-	linkPortion.getPortionFormat().getHyperlinkManager().setInternalHyperlinkClick(secondSlide);
+    Portion linkPortion = new Portion();
+    linkPortion.setText("Page 2");
+    linkPortion.getPortionFormat().getHyperlinkManager().setInternalHyperlinkClick(secondSlide);
 
-	paragraph.getPortions().add(linkPortion);
-	contentTable.getTextFrame().getParagraphs().add(paragraph);
+    paragraph.getPortions().add(linkPortion);
+    tableOfContents.getTextFrame().getParagraphs().add(paragraph);
 
-	pres.save("link_to_slide.pptx", SaveFormat.Pptx);
+    presentation.save("link_to_slide.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **格式化超链接**
 
 ### **颜色**
 
-通过在 [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink) 接口中的 [ColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink#setColorSource-int-) 属性，您可以设置超链接的颜色并获取超链接的颜色信息。此功能首次在 PowerPoint 2019 中引入，因此涉及该属性的更改不适用于旧版本的 PowerPoint。 
+[IHyperlink](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlink/)的[setColorSource](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlink/#setColorSource-int-)方法决定超链接是使用演示文稿的超链接颜色还是文本段落的格式。要应用自定义文本颜色，请选择[HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/hyperlinkcolorsource/)并设置段落的填充颜色。此功能在 PowerPoint 2019 中引入；旧版本不支持此设置。
 
-以下示例代码演示了在同一幻灯片中添加不同颜色的超链接的操作：
+以下示例向同一张幻灯片添加了两个文本超链接。第一个使用红色文本填充，第二个保留默认超链接颜色。
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
-	shape1.addTextFrame("This is a sample of colored hyperlink.");
-	IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
-	portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	portionFormat.getHyperlinkClick().setColorSource(HyperlinkColorSource.PortionFormat);
-	portionFormat.getFillFormat().setFillType(FillType.Solid);
-	portionFormat.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    IAutoShape coloredShape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
+    coloredShape.addTextFrame("This hyperlink uses a custom color.");
+    IPortionFormat coloredPortionFormat = coloredShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+    coloredPortionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
+    coloredPortionFormat.getHyperlinkClick().setColorSource(HyperlinkColorSource.PortionFormat);
+    coloredPortionFormat.getFillFormat().setFillType(FillType.Solid);
+    coloredPortionFormat.getFillFormat().getSolidFillColor().setColor(Color.RED);
 
-	IAutoShape shape2 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
-	shape2.addTextFrame("This is a sample of usual hyperlink.");
-	shape2.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
+    IAutoShape defaultShape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
+    defaultShape.addTextFrame("This hyperlink uses the default color.");
+    defaultShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 
-	pres.save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
+    presentation.save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+### **声音**
+
+超链接在激活时可以播放声音，或停止已在播放的声音。使用以下方法配置这些行为：
+
+- [IHyperlink.setSound](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) 指定与超链接关联的音频。
+- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) 控制激活超链接时是否停止先前的声音。
+
+#### **添加超链接声音**
+
+以下示例加载 `sampleaudio.wav` 并将其关联到第一张幻灯片上的一个按钮。单击该按钮会播放声音并跳转到下一张幻灯片。同一幻灯片上的第二个形状在单击时停止先前的声音，但不执行导航操作。
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
+try {
+    byte[] audioData = Files.readAllBytes(Paths.get("sampleaudio.wav"));
+    IAudio hyperlinkSound = presentation.getAudios().addAudio(audioData);
+
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+
+    IAutoShape playButton = firstSlide.getShapes().addAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
+    playButton.setHyperlinkClick(Hyperlink.getNextSlide());
+
+    if (!playButton.getHyperlinkClick().getStopSoundOnClick() && playButton.getHyperlinkClick().getSound() == null)
+    {
+        playButton.getHyperlinkClick().setSound(hyperlinkSound);
+    }
+
+    ISlide secondSlide = presentation.getSlides().addEmptySlide(firstSlide.getLayoutSlide());
+
+    IAutoShape stopButton = secondSlide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
+    stopButton.setHyperlinkClick(Hyperlink.getNoAction());
+
+    stopButton.getHyperlinkClick().setStopSoundOnClick(true);
+
+    presentation.save("hyperlink-sound.pptx", SaveFormat.Pptx);
+} catch (IOException exception) {
+    System.out.println("Unable to read the audio file: " + exception.getMessage());
+} finally {
+    presentation.dispose();
 }
 ```
 
+#### **提取超链接声音**
 
-## **从演示文稿中移除超链接**
+以下示例打开前面创建的演示文稿，并通过[getSound](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlink/#getSound--) 和 [getBinaryData](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iaudio/#getBinaryData--) 将第一个形状的超链接音频读取到内存中。
 
-### **从文本中移除超链接**
-
-以下 Java 代码演示了如何从演示文稿幻灯片的文本中移除超链接：
 ```java
-Presentation pres = new Presentation();
-try {
-	ISlide slide = pres.getSlides().get_Item(0);
-	for (IShape shape : slide.getShapes())
-	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
-		{
-			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
-			{
-				for (IPortion portion : paragraph.getPortions())
-				{
-					portion.getPortionFormat().getHyperlinkManager().removeHyperlinkClick();
-				}
-			}
-		}
-	}
+import com.aspose.slides.*;
 
-	pres.save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
+Presentation presentation = new Presentation("hyperlink-sound.pptx");
+try {
+    if (presentation.getSlides().size() > 0 && presentation.getSlides().get_Item(0).getShapes().size() > 0) {
+        IHyperlink hyperlink = presentation.getSlides().get_Item(0).getShapes().get_Item(0).getHyperlinkClick();
+        IAudio sound = hyperlink == null ? null : hyperlink.getSound();
+        if (sound != null) {
+            byte[] audioData = sound.getBinaryData();
+            System.out.println("Extracted " + audioData.length + " bytes of hyperlink audio.");
+        } else {
+            System.out.println("The first shape has no hyperlink sound.");
+        }
+    } else {
+        System.out.println("The presentation has no first slide or shape to inspect.");
+    }
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+### **提示文本和交互设置**
 
-### **从形状或框架中移除超链接**
+在为文本或形状分配超链接后，您可以调用以下[IHyperlink](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlink/)方法：
 
-以下 Java 代码演示了如何从演示文稿幻灯片的形状中移除超链接： 
+- [setTooltip](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) 设置观众在悬停时看到的提示文本。
+- [setTargetFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) 在适用时指定父 HTML frameset 中的目标帧。
+- [setHistory](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) 控制激活链接后是否将其目标加入已查看超链接列表。
+- [setHighlightClick](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) 控制点击时是否突出显示该超链接。
+
+## **从演示文稿中删除超链接**
+
+使用[getAnyHyperlinks](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) 收集包括文本段落链接在内的所有超链接容器，然后再进行修改。下面的示例删除第一张幻灯片的两种激活类型。若只想删除一种类型，只调用[removeHyperlinkClick](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--)或[removeHyperlinkMouseOver](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--)；删除点击操作不会同时删除鼠标悬停对应的操作。
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.util.ArrayList;
+import java.util.List;
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-	ISlide slide = pres.getSlides().get_Item(0);
-	for (IShape shape : slide.getShapes())
-	{
-		shape.getHyperlinkManager().removeHyperlinkClick();
-	}
-	pres.save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
+    if (presentation.getSlides().size() > 0) {
+        List<IHyperlinkContainer> containers = new ArrayList<>();
+        for (IHyperlinkContainer container : presentation.getSlides().get_Item(0).getHyperlinkQueries().getAnyHyperlinks()) {
+            containers.add(container);
+        }
+        for (IHyperlinkContainer container : containers) {
+            container.getHyperlinkManager().removeHyperlinkClick();
+            container.getHyperlinkManager().removeHyperlinkMouseOver();
+        }
+        presentation.save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The presentation has no slides to process.");
+    }
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+若要无条件删除，[removeAllHyperlinks](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) 在一次调用中删除所选范围内的两种激活类型。若需有选择地清理并覆盖母版、版式和备注，请参见[报告、清理和验证超链接](#report-sanitize-and-verify-hyperlinks)。
 
-## **可变超链接**
+## **构建完整的超链接清单**
 
-[Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink) 类是可变的。使用此类，您可以更改以下属性的值：
+在分发演示文稿之前，需清点其交互操作以及网络链接。[getAnyHyperlinks](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) 返回[IHyperlinkContainer](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkcontainer/)对象，而不是单纯的 URL 字符串列表。请检查每个容器的[getHyperlinkClick](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) 和[getHyperlinkMouseOver](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--)。它们是独立的：同一容器可以同时暴露两种操作，因此完整报告可能需要每个容器两行。
 
-- [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
-- [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
-- [IHyperlink.setHistory(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setHistory-boolean-)
-- [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
-- [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
+仅扫描形状级别的超链接可能遗漏附加在文本段落上的链接。请改为查询适当的范围，并保留返回的容器，以便后续更新或删除其操作。
 
-以下代码片段展示了如何向幻灯片添加超链接并随后编辑其工具提示：
+### **查询演示文稿、幻灯片和文本框范围**
+
+[IHyperlinkQueries](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkqueries/) 接口可通过[IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ipresentation/#getHyperlinkQueries--)、[IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) 和[ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itextframe/#getHyperlinkQueries--) 访问。每个范围支持相同的查询：
+
+- [getHyperlinkClicks](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) 返回包含点击操作的容器。
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) 返回包含鼠标悬停操作的容器。
+- [getAnyHyperlinks](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) 返回包含任一或两种操作的容器。
+
+以下示例创建 `hyperlink-audit-input.pptx`，其中包含外部点击链接、文件鼠标悬停链接、内部幻灯片导航、文本鼠标悬停链接和宏操作。示例本身不执行任何这些操作。三种查询在每个范围内均可使用；计数描述的是容器数量，而非操作总数。文本框范围不包括其所属形状的链接。
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+class QueryCounts {
+    void print(String scope, IHyperlinkQueries queries) {
+        int clickCount = queries.getHyperlinkClicks().size();
+        int mouseOverCount = queries.getHyperlinkMouseOvers().size();
+        int anyCount = queries.getAnyHyperlinks().size();
+        System.out.println(scope + ": click=" + clickCount + ", mouse-over=" + mouseOverCount + ", any=" + anyCount);
+    }
+}
+
+QueryCounts counts = new QueryCounts();
+Presentation presentation = new Presentation();
 try {
-	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
-	shape1.addTextFrame("Aspose: File Format APIs");
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ISlide destination = presentation.getSlides().addEmptySlide(slide.getLayoutSlide());
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 60);
+    shape.getTextFrame().setText("Click the text to go to slide 2");
+    shape.getHyperlinkManager().setExternalHyperlinkClick("https://example.com/");
+    shape.getHyperlinkClick().setTooltip("Public website");
+    shape.getHyperlinkManager().setExternalHyperlinkMouseOver("file:///C:/private/report.xlsx");
 
-	IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat(); 
-	portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-	portionFormat.setFontHeight(32);
+    IPortionFormat portionFormat = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+    portionFormat.getHyperlinkManager().setInternalHyperlinkClick(destination);
+    portionFormat.getHyperlinkManager().setExternalHyperlinkMouseOver("https://example.com/help");
+    IAutoShape macroButton = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 120, 200, 60);
+    macroButton.getHyperlinkManager().setMacroHyperlinkClick("ReviewPresentation");
 
-	pres.save("presentation-out.pptx", SaveFormat.Pptx);
+    counts.print("Presentation", presentation.getHyperlinkQueries());
+    counts.print("Slide 1", slide.getHyperlinkQueries());
+    counts.print("Text frame", shape.getTextFrame().getHyperlinkQueries());
+    presentation.save("hyperlink-audit-input.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+在本示例中，演示文稿和幻灯片查询各报告 3 个点击容器、2 个鼠标悬停容器以及 3 个任一操作的容器。文本框查询在每个类别中各报告 1 个容器。
 
-## **IHyperlinkQueries 中支持的属性**
+### **对操作和目标进行分类**
 
-您可以从定义了超链接的演示文稿、幻灯片或文本访问 [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries)。 
+使用 [IHyperlink.getActionType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlink/#getActionType--) 在解析目标之前先解释操作。[HyperlinkActionType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/hyperlinkactiontype/) 包含的值超出单纯的网络导航：
 
-- [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
-- [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
-- [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
+| 值 | 审计含义 |
+| --- | --- |
+| `Hyperlink` | 外部超链接；检查 URL 及其协议。 |
+| `JumpSpecificSlide` | 跳转到特定幻灯片的内部导航。 |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | 幻灯片放映内置导航，在放映上下文中解析。 |
+| `JumpEndShow`, `StartCustomSlideShow` | 结束当前放映或启动自定义放映。 |
+| `StartMacro` | 执行宏。 |
+| `StartProgram` | 启动程序。 |
+| `OpenFile`, `OpenPresentation` | 打开文件或其他演示文稿；需单独审查，区别于网络 URL。 |
+| `StartStopMedia` | 开始或停止媒体播放。 |
+| `NoAction`, `Unknown` | 无导航操作，或需审查的未识别操作。 |
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) 类支持以下方法和属性： 
+通过 [getExternalUrl](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlink/#getExternalUrl--) 读取外部目标，使用 [getTargetSlide](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlink/#getTargetSlide--) 读取具体内部目标。内部操作和内置命令可能没有外部 URL；空 URL 并不表示容器没有操作。若 [getExternalUrlOriginal](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) 返回的值与规范化 URL 不同，请保留原始值；若有提示文本，请使用 [getTooltip](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlink/#getTooltip--) 返回的内容。
 
-- [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
-- [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
-- [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
-- [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
+### **报告、清理和验证超链接**
 
-## **常见问题**
+下面的 Java 示例读取已有演示文稿（使用上面创建的文件），写入 `hyperlink-audit.json`，应用策略，保存为 `hyperlink-sanitized.pptx`，随后重新打开再次检查两种激活类型。示例在修改前收集容器并使用引用相等性避免重复处理。演示文稿查询覆盖普通幻灯片；若需对整个包进行清点，还显式查询母版、版式、备注以及备注和讲义母版（若存在）。
 
-**如何创建不仅指向幻灯片，还指向“章节”或章节第一张幻灯片的内部导航？**
+报告记录基于 1 的幻灯片索引以及在可能的情况下的 [getSlideId](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ibaseslide/#getSlideId--)。对于受支持的容器，可通过 [ISlideComponent.getSlide](https://reference.aspose.com/slides/zh/java/com.aspose.slides/islidecomponent/#getSlide--) 获取所属幻灯片。母版、版式和备注没有普通幻灯片索引，以其范围标识。形状容器和文本段落格式容器分别标记；其他容器类型保留其运行时类型名。每个容器获得报告本地 ID，以便关联其两种操作。报告将操作类型存为 Java 枚举定义的整数常量。
 
-PowerPoint 中的章节是幻灯片的分组；导航在技术上是定位到特定幻灯片。要“导航到章节”，通常链接到该章节的第一张幻灯片。
+该策略仅允许绝对 HTTPS URL 和有效的内部幻灯片目标。它会拒绝宏、程序、文件操作、其他放映操作、未知操作以及其他 URL 协议。这些拒绝是策略决定，而非 Aspose.Slides 安全性判断。仅 HTTPS 并不等同于信任：请在您的应用中加入主机白名单等检查。原始和规范化的外部 URL 均会被检查。示例在不实际访问链接或执行操作的情况下审计元数据。
 
-**我可以将超链接附加到母版幻灯片元素上，使其在所有幻灯片上都有效吗？**
+若需修正，容器的 [getHyperlinkManager](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) 支持 [setExternalHyperlinkClick](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-)、[removeHyperlinkClick](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) 和 [removeHyperlinkMouseOver](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--)。示例中，将被禁止的外部点击链接替换为固定的 HTTPS 着陆页；其他被禁止的点击和鼠标悬停操作则分别删除。将 `replaceExternalClicks` 设置为 `false` 可删除所有违规项。请在部署前准备好应用拥有的替换页面。
 
-可以。母版幻灯片和版式元素支持超链接。这些链接会出现在子幻灯片上，并在放映时可点击。
+报告的导出标记采用保守的 PDF 审核策略：将鼠标悬停操作以及除外部链接或特定幻灯片跳转之外的所有操作标记为可能不受支持。这只是审查提示，而非功能测试，也不保证未标记的链接在导出后一定能保存。受支持的[PDF](/slides/zh/java/convert-powerpoint-to-pdf/)和[HTML](/slides/zh/java/convert-powerpoint-to-html/) 导出可能保留超链接，具体取决于操作、导出选项和阅读器。栅格[图像](/slides/zh/java/convert-powerpoint-to-png/)和[视频](/slides/zh/java/convert-powerpoint-to-video/) 则无法保留交互式超链接；在审计这些输出时请对每个操作都进行标记。
 
-**导出为 PDF、HTML、图像或视频时，超链接会被保留吗？**
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.IdentityHashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
-在 [PDF](/slides/zh/java/convert-powerpoint-to-pdf/) 和 [HTML](/slides/zh/java/convert-powerpoint-to-html/) 中，会保留超链接。导出为 [图像](/slides/zh/java/convert-powerpoint-to-png/) 和 [视频](/slides/zh/java/convert-powerpoint-to-video/) 时，由于这些格式的特性（光栅帧/视频不支持超链接），点击功能将不会保留。
+class HyperlinkAudit {
+    Integer slideIndex(IPresentation presentation, IBaseSlide slide) {
+        for (int index = 0; index < presentation.getSlides().size(); index++) {
+            if (presentation.getSlides().get_Item(index) == slide) return index + 1;
+        }
+        return null;
+    }
+
+    boolean isHttps(String value) {
+        if (value == null || value.isEmpty()) return false;
+        try {
+            URI uri = new URI(value);
+            return uri.isAbsolute() && "https".equalsIgnoreCase(uri.getScheme()) && uri.getHost() != null;
+        } catch (URISyntaxException exception) {
+            return false;
+        }
+    }
+
+    String policyViolation(IHyperlink link) {
+        if (link == null) return null;
+        if (link.getActionType() == HyperlinkActionType.JumpSpecificSlide) {
+            return link.getTargetSlide() == null ? "Missing target slide" : null;
+        }
+        if (link.getActionType() != HyperlinkActionType.Hyperlink) return "Action is not allowed";
+        if (!isHttps(link.getExternalUrl())) return "Normalized URL is not absolute HTTPS";
+        String original = link.getExternalUrlOriginal();
+        if (original != null && !original.isEmpty() && !isHttps(original)) return "Original URL is not absolute HTTPS";
+        return null;
+    }
+
+    void addScope(List<IHyperlinkContainer> found, IBaseSlide slide) {
+        if (slide != null) {
+            for (IHyperlinkContainer container : slide.getHyperlinkQueries().getAnyHyperlinks()) {
+                found.add(container);
+            }
+        }
+    }
+
+    List<IHyperlinkContainer> collectContainers(IPresentation presentation) {
+        List<IHyperlinkContainer> found = new ArrayList<>();
+        for (IHyperlinkContainer container : presentation.getHyperlinkQueries().getAnyHyperlinks()) {
+            found.add(container);
+        }
+        for (IMasterSlide master : presentation.getMasters()) addScope(found, master);
+        for (ILayoutSlide layout : presentation.getLayoutSlides()) addScope(found, layout);
+        for (ISlide slide : presentation.getSlides()) addScope(found, slide.getNotesSlideManager().getNotesSlide());
+        addScope(found, presentation.getMasterNotesSlideManager().getMasterNotesSlide());
+        addScope(found, presentation.getMasterHandoutSlideManager().getMasterHandoutSlide());
+        Set<IHyperlinkContainer> seen = Collections.newSetFromMap(new IdentityHashMap<IHyperlinkContainer, Boolean>());
+        List<IHyperlinkContainer> unique = new ArrayList<>();
+        for (IHyperlinkContainer container : found) {
+            if (seen.add(container)) unique.add(container);
+        }
+        return unique;
+    }
+
+    void addRow(List<Map<String, Object>> rows, IPresentation presentation, IHyperlink link, String activation, IHyperlinkContainer container, int containerId) {
+        if (link == null) return;
+        IBaseSlide ownerSlide = container instanceof ISlideComponent ? ((ISlideComponent) container).getSlide() : null;
+        ISlide targetSlide = link.getTargetSlide();
+        String violation = policyViolation(link);
+        String ownerType = container instanceof IShape ? "Shape" : container instanceof IPortionFormat ? "Text portion" : container.getClass().getSimpleName();
+        boolean ordinaryAction = link.getActionType() == HyperlinkActionType.Hyperlink || link.getActionType() == HyperlinkActionType.JumpSpecificSlide;
+        Map<String, Object> row = new LinkedHashMap<>();
+        row.put("ContainerId", containerId);
+        row.put("SlideIndex", slideIndex(presentation, ownerSlide));
+        row.put("SlideId", ownerSlide == null ? null : ownerSlide.getSlideId());
+        row.put("Scope", ownerSlide == null ? null : ownerSlide.getClass().getSimpleName());
+        row.put("OwnerType", ownerType);
+        row.put("Activation", activation);
+        row.put("ActionType", link.getActionType());
+        row.put("ExternalUrl", link.getExternalUrl());
+        row.put("TargetSlideIndex", slideIndex(presentation, targetSlide));
+        row.put("TargetSlideId", targetSlide == null ? null : targetSlide.getSlideId());
+        row.put("Tooltip", link.getTooltip());
+        row.put("OriginalExternalUrl", Objects.equals(link.getExternalUrlOriginal(), link.getExternalUrl()) ? null : link.getExternalUrlOriginal());
+        row.put("PotentiallyUnsafe", violation != null);
+        row.put("PolicyViolation", violation);
+        row.put("TargetExport", "PDF");
+        row.put("PotentiallyUnsupportedByExport", "mouse-over".equals(activation) || !ordinaryAction);
+        rows.add(row);
+    }
+
+    // 在不使用额外 JSON 依赖的情况下序列化此报告的平面行。
+    String jsonValue(Object value) {
+        if (value == null) return "null";
+        if (value instanceof Number || value instanceof Boolean) return value.toString();
+        StringBuilder escaped = new StringBuilder("\"");
+        for (char character : value.toString().toCharArray()) {
+            if (character == '"' || character == '\\') {
+                escaped.append('\\').append(character);
+            } else if (character < 0x20 || Character.isSurrogate(character)) {
+                escaped.append(String.format("\\u%04x", (int) character));
+            } else {
+                escaped.append(character);
+            }
+        }
+        return escaped.append('"').toString();
+    }
+
+    String toJson(List<Map<String, Object>> rows) {
+        List<String> objects = new ArrayList<>();
+        for (Map<String, Object> row : rows) {
+            List<String> fields = new ArrayList<>();
+            for (Map.Entry<String, Object> field : row.entrySet()) {
+                fields.add("    " + jsonValue(field.getKey()) + ": " + jsonValue(field.getValue()));
+            }
+            objects.add("  {\n" + String.join(",\n", fields) + "\n  }");
+        }
+        return "[\n" + String.join(",\n", objects) + "\n]\n";
+    }
+}
+
+boolean replaceExternalClicks = true;
+String replacementUrl = "https://example.com/blocked-link";
+HyperlinkAudit audit = new HyperlinkAudit();
+Presentation presentation = new Presentation("hyperlink-audit-input.pptx");
+try {
+    List<IHyperlinkContainer> containers = audit.collectContainers(presentation);
+    List<Map<String, Object>> rows = new ArrayList<>();
+    for (int index = 0; index < containers.size(); index++) {
+        IHyperlinkContainer container = containers.get(index);
+        audit.addRow(rows, presentation, container.getHyperlinkClick(), "click", container, index + 1);
+        audit.addRow(rows, presentation, container.getHyperlinkMouseOver(), "mouse-over", container, index + 1);
+    }
+    String json = audit.toJson(rows);
+    byte[] jsonData = json.getBytes(StandardCharsets.UTF_8);
+    Files.write(Paths.get("hyperlink-audit.json"), jsonData);
+
+    for (IHyperlinkContainer container : containers) {
+        IHyperlink click = container.getHyperlinkClick();
+        if (audit.policyViolation(click) != null) {
+            if (replaceExternalClicks && click.getActionType() == HyperlinkActionType.Hyperlink) {
+                container.getHyperlinkManager().setExternalHyperlinkClick(replacementUrl);
+            } else {
+                container.getHyperlinkManager().removeHyperlinkClick();
+            }
+        }
+        if (audit.policyViolation(container.getHyperlinkMouseOver()) != null) {
+            container.getHyperlinkManager().removeHyperlinkMouseOver();
+        }
+    }
+    presentation.save("hyperlink-sanitized.pptx", SaveFormat.Pptx);
+
+    Presentation reopened = new Presentation("hyperlink-sanitized.pptx");
+    try {
+        List<IHyperlinkContainer> remainingContainers = audit.collectContainers(reopened);
+        int violations = 0;
+        for (IHyperlinkContainer container : remainingContainers) {
+            if (audit.policyViolation(container.getHyperlinkClick()) != null) violations++;
+            if (audit.policyViolation(container.getHyperlinkMouseOver()) != null) violations++;
+        }
+        System.out.println("Audit rows: " + rows.size() + "; prohibited actions after reopening: " + violations);
+        if (violations != 0) {
+            System.out.println("Verification failed: do not distribute the saved presentation.");
+        }
+    } finally {
+        reopened.dispose();
+    }
+} catch (IOException exception) {
+    System.out.println("Unable to write the audit report: " + exception.getMessage());
+} finally {
+    presentation.dispose();
+}
+```
+
+使用上述输入，报告包含五行操作。文件鼠标悬停链接和宏点击被删除，HTTPS 链接和内部幻灯片导航保留。验证阶段打印零个违规操作。若输入包含被禁止的外部点击 URL，示例会演示替换分支。一个容器若同时具备允许的点击和被禁止的鼠标悬停，则保留点击操作并删除鼠标悬停。
+
+此类有选择的清理不同于 [removeAllHyperlinks](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--)，后者会在选定范围内不顾策略一律删除两种激活类型。这里的验证仅检查超链接操作，不会删除嵌入的 VBA 项目、OLE 对象或其他活动内容，也不对导出的 PDF 或 HTML 文件进行校验。
+
+## **常见问题解答**
+
+**如何链接到某个章节或其第一张幻灯片？**
+
+PowerPoint 中的章节用于分组幻灯片，但内部超链接只能定位到单张幻灯片。要实现跳转到章节，请链接到该章节的第一张幻灯片。
+
+**我可以将超链接附加到母版幻灯片元素，使其在所有幻灯片上生效吗？**
+
+可以。母版幻灯片和版式元素都支持超链接。使用这些元素的幻灯片在放映时会保留相应链接。
+
+**导出为 PDF、HTML、图像或视频时超链接会被保留吗？**
+
+受支持的 PDF 和 HTML 导出可能保留超链接；栅格图像和视频则不会。请参阅[报告、清理和验证超链接](#report-sanitize-and-verify-hyperlinks) 中的导出注意事项。

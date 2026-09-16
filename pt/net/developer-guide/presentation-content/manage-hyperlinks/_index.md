@@ -1,6 +1,6 @@
 ---
 title: Gerenciar hyperlinks de apresentação em .NET
-linktitle: Gerenciar hyperlink
+linktitle: Gerenciar hyperlinks
 type: docs
 weight: 20
 url: /pt/net/manage-hyperlinks/
@@ -23,335 +23,473 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Gerencie hyperlinks em apresentações PowerPoint e OpenDocument com Aspose.Slides para .NET de forma fácil—melhore a interatividade e o fluxo de trabalho em minutos."
+description: "Adicionar, formatar, atualizar e remover hyperlinks em apresentações PowerPoint e OpenDocument com Aspose.Slides para .NET, usando exemplos em C#."
 ---
 ## **Introdução**
 
-Um hyperlink é uma referência a um objeto, dado ou a um local em algo. Estes são hyperlinks comuns em Apresentações do PowerPoint:
+Um hyperlink conecta o conteúdo da apresentação a um site ou a um local dentro da apresentação. No PowerPoint, os hyperlinks normalmente servem a dois propósitos:
 
-* Links para sites dentro de textos, formas ou mídias
-* Links para slides
+* Abrir um site a partir de texto, forma ou moldura de mídia.
+* Navegar para outro slide, por exemplo, a partir de um índice.
 
-Aspose.Slides for .NET permite que você execute muitas tarefas envolvendo hyperlinks em apresentações. 
+Aspose.Slides for .NET permite adicionar esses links, controlar sua aparência e som, atualizar suas propriedades e removê-los. Os exemplos abaixo mostram como trabalhar com hyperlinks em elementos individuais e como acessar hyperlinks no nível da apresentação, slide ou quadro de texto.
 
-{{% alert color="primary" %}} 
-
-Você pode querer conferir o Aspose Simple, [editor online gratuito de PowerPoint.](https://products.aspose.app/slides/pt/editor)
-
+{{% alert color="info" title="Nota" %}}
+Você também pode editar apresentações com o [editor online gratuito do Aspose PowerPoint](https://products.aspose.app/slides/pt/editor).
 {{% /alert %}} 
 
 ## **Adicionar hyperlinks de URL**
 
+Você pode atribuir uma URL de site a texto, forma ou moldura de mídia. O elemento ao qual você atribui o hyperlink determina a área clicável: uma parte de texto vincula o texto selecionado, enquanto uma forma ou moldura vincula o objeto do slide.
+
 ### **Adicionar hyperlinks de URL ao texto**
 
-Este código C# mostra como adicionar um hyperlink de site a um texto:
+Para vincular texto a um site, atribua um [Hyperlink](https://reference.aspose.com/slides/pt/net/aspose.slides/hyperlink/) à propriedade [HyperlinkClick](https://reference.aspose.com/slides/pt/net/aspose.slides/portionformat/hyperlinkclick/) da parte de texto, conforme mostrado abaixo. Apenas essa parte do texto se torna clicável.
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
-	shape1.AddTextFrame("Aspose: File Format APIs");
-	shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-	shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-	shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 32;
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-	presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+
+var textShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
+textShape.AddTextFrame("Aspose: File Format APIs");
+var portionFormat = textShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+portionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+portionFormat.HyperlinkClick.Tooltip = "Explore Aspose file format APIs";
+portionFormat.FontHeight = 32;
+
+presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 ```
 
-### **Adicionar hyperlinks de URL a formas ou quadros**
+### **Adicionar hyperlinks de URL a formas e molduras de mídia**
 
-Este código de exemplo em C# mostra como adicionar um hyperlink de site a uma forma:
+Para tornar uma forma ou moldura clicável, defina sua propriedade [HyperlinkClick](https://reference.aspose.com/slides/pt/net/aspose.slides/shape/hyperlinkclick/). O hyperlink pertence ao próprio objeto, e não a uma parte de texto dentro dele.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
-    
-    shape.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    shape.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
+A mesma abordagem se aplica a molduras de imagem, áudio e vídeo: atribua o hyperlink à moldura e, se necessário, defina o [Tooltip](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/tooltip/) do link.
 
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
+O exemplo a seguir torna um retângulo clicável:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
+
+shape.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+shape.HyperlinkClick.Tooltip = "Explore Aspose file format APIs";
+
+presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 ```
-
-### **Adicionar hyperlinks de URL a mídia**
-
-Aspose.Slides permite que você adicione hyperlinks a imagens, arquivos de áudio e vídeo. 
-
-Este código de exemplo mostra como adicionar um hyperlink a uma **imagem**:
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    // Adiciona imagem à apresentação
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    // Cria quadro de imagem no slide 1 com base na imagem adicionada anteriormente
-    IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-
-    pictureFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    pictureFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
-```
-
-Este código de exemplo mostra como adicionar um hyperlink a um **arquivo de áudio**:
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
-    IAudioFrame audioFrame = pres.Slides[0].Shapes.AddAudioFrameEmbedded(10, 10, 100, 100, audio);
-
-    audioFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    audioFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
-```
-
-Este código de exemplo mostra como adicionar um hyperlink a um **vídeo**:
-
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
-    IVideoFrame videoFrame = pres.Slides[0].Shapes.AddVideoFrame(10, 10, 100, 100, video);
-
-    videoFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    videoFrame.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{%  alert  title="Tip"  color="primary"  %}} 
-
-Você pode querer ver *[Gerenciar OLE](https://docs.aspose.com/slides/pt/net/manage-ole/)*.
-
-{{% /alert %}}
-
 
 ## **Usar hyperlinks para criar um índice**
 
-Como os hyperlinks permitem adicionar referências a objetos ou locais, você pode usá‑los para criar um índice. 
+Hyperlinks internos permitem que o leitor pule de um índice para um slide específico. O exemplo a seguir usa [SetInternalHyperlinkClick](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) para vincular o texto “Page 2” no primeiro slide ao segundo slide.
 
-Este código de exemplo mostra como criar um índice com hyperlinks:
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (var presentation = new Presentation())
-{
-    var firstSlide = presentation.Slides[0];
-    var secondSlide = presentation.Slides.AddEmptySlide(firstSlide.LayoutSlide);
+using var presentation = new Presentation();
 
-    var contentTable = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 300, 100);
-    contentTable.FillFormat.FillType = FillType.NoFill;
-    contentTable.LineFormat.FillFormat.FillType = FillType.NoFill;
-    contentTable.TextFrame.Paragraphs.Clear();
+var firstSlide = presentation.Slides[0];
+var secondSlide = presentation.Slides.AddEmptySlide(firstSlide.LayoutSlide);
 
-    var paragraph = new Paragraph();
-    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-    paragraph.Text = "Title of slide 2 .......... ";
+var tableOfContents = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 300, 100);
+tableOfContents.FillFormat.FillType = FillType.NoFill;
+tableOfContents.LineFormat.FillFormat.FillType = FillType.NoFill;
+tableOfContents.TextFrame.Paragraphs.Clear();
 
-    var linkPortion = new Portion();
-    linkPortion.Text = "Page 2";
-    linkPortion.PortionFormat.HyperlinkManager.SetInternalHyperlinkClick(secondSlide);
+var paragraph = new Paragraph();
+paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+paragraph.Text = "Title of slide 2 .......... ";
 
-    paragraph.Portions.Add(linkPortion);
-    contentTable.TextFrame.Paragraphs.Add(paragraph);
+var linkPortion = new Portion();
+linkPortion.Text = "Page 2";
+linkPortion.PortionFormat.HyperlinkManager.SetInternalHyperlinkClick(secondSlide);
 
-    presentation.Save("link_to_slide.pptx", SaveFormat.Pptx);
-}
+paragraph.Portions.Add(linkPortion);
+tableOfContents.TextFrame.Paragraphs.Add(paragraph);
+
+presentation.Save("link_to_slide.pptx", SaveFormat.Pptx);
 ```
 
 ## **Formatar hyperlinks**
 
 ### **Cor**
 
-Com a propriedade [ColorSource](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/properties/colorsource) na interface [IHyperlink](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink), você pode definir a cor dos hyperlinks e também obter as informações de cor dos hyperlinks. O recurso foi introduzido pela primeira vez no PowerPoint 2019, portanto alterações envolvendo a propriedade não se aplicam a versões anteriores do PowerPoint.
+A propriedade [ColorSource](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/colorsource/) de [IHyperlink](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/) determina se um hyperlink usa a cor de hyperlink da apresentação ou a formatação da parte de texto. Para aplicar uma cor de texto personalizada, selecione [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/pt/net/aspose.slides/hyperlinkcolorsource/) e defina a cor de preenchimento da parte. Esse recurso foi introduzido no PowerPoint 2019; versões mais antigas não aplicam essa configuração.
 
-Este código de exemplo demonstra uma operação onde hyperlinks com cores diferentes foram adicionados ao mesmo slide:
+O exemplo a seguir adiciona dois hyperlinks de texto ao mesmo slide. O primeiro usa preenchimento de texto vermelho, enquanto o segundo mantém a cor padrão de hyperlink.
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
-    shape1.AddTextFrame("This is a sample of colored hyperlink.");
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.ColorSource = HyperlinkColorSource.PortionFormat;
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.FillType = FillType.Solid;
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FillFormat.SolidFillColor.Color = Color.Red;
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    IAutoShape shape2 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
-    shape2.AddTextFrame("This is a sample of usual hyperlink.");
-    shape2.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+using var presentation = new Presentation();
 
-    presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
-}
+var coloredShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
+coloredShape.AddTextFrame("This hyperlink uses a custom color.");
+var coloredPortionFormat = coloredShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+coloredPortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+coloredPortionFormat.HyperlinkClick.ColorSource = HyperlinkColorSource.PortionFormat;
+coloredPortionFormat.FillFormat.FillType = FillType.Solid;
+coloredPortionFormat.FillFormat.SolidFillColor.Color = Color.Red;
+
+var defaultShape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
+defaultShape.AddTextFrame("This hyperlink uses the default color.");
+defaultShape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
+
+presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 ```
 ### **Som**
 
-Aspose.Slides fornece estas propriedades para permitir que você enfatize um hyperlink com um som:
-- [IHyperlink.Sound](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/properties/sound) 
-- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
+Um hyperlink pode reproduzir um som ao ser ativado ou parar um som que já esteja sendo reproduzido. Use as propriedades abaixo para configurar esses comportamentos:
 
-#### **Adicionar som a um hyperlink**
+- [IHyperlink.Sound](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/sound/) especifica o áudio associado ao hyperlink.
+- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/stopsoundonclick/) controla se a ativação do hyperlink interrompe o som anterior.
 
-Este código C# mostra como definir o hyperlink que reproduz um som e pará‑lo com outro hyperlink:
+#### **Adicionar um som ao hyperlink**
 
-```c#
-using (Presentation pres = new Presentation())
+O exemplo a seguir carrega `sampleaudio.wav` e o associa a um botão no primeiro slide. Clicar no botão reproduz o som e navega para o próximo slide. Uma segunda forma naquele slide interrompe o som anterior quando clicada, sem executar nenhuma ação de navegação.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var audioData = File.ReadAllBytes("sampleaudio.wav");
+var hyperlinkSound = presentation.Audios.AddAudio(audioData);
+
+var firstSlide = presentation.Slides[0];
+
+var playButton = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
+playButton.HyperlinkClick = Hyperlink.NextSlide;
+
+if (!playButton.HyperlinkClick.StopSoundOnClick && playButton.HyperlinkClick.Sound == null)
 {
-	// Adiciona novo áudio à coleção de áudio da apresentação
-	IAudio playSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
+    playButton.HyperlinkClick.Sound = hyperlinkSound;
+}
 
-	ISlide firstSlide = pres.Slides[0];
+var secondSlide = presentation.Slides.AddEmptySlide(firstSlide.LayoutSlide);
 
-	// Adiciona nova forma com o hyperlink para o próximo slide
-	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
-	firstShape.HyperlinkClick = Hyperlink.NextSlide;
+var stopButton = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
+stopButton.HyperlinkClick = Hyperlink.NoAction;
 
-	// Verifica o hyperlink para "No Sound"
-	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
-	{
-		// Define o hyperlink que reproduz som
-		firstShape.HyperlinkClick.Sound = playSound;
-	}
+stopButton.HyperlinkClick.StopSoundOnClick = true;
 
-	// Adiciona o slide vazio 
-	ISlide secondSlide = pres.Slides.AddEmptySlide(firstSlide.LayoutSlide);
+presentation.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
+```
 
-	// Adiciona nova forma com o hyperlink NoAction
-	IShape secondShape = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
-	secondShape.HyperlinkClick = Hyperlink.NoAction;
+#### **Extrair o som de um hyperlink**
 
-	// Define a flag do hyperlink "Stop previous sound"
-	secondShape.HyperlinkClick.StopSoundOnClick = true;
+O exemplo a seguir abre a apresentação criada acima e lê o áudio do hyperlink da primeira forma para a memória através de [Sound](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/sound/) e [BinaryData](https://reference.aspose.com/slides/pt/net/aspose.slides/iaudio/binarydata/).
 
-	pres.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("hyperlink-sound.pptx");
+
+if (presentation.Slides.Count > 0 && presentation.Slides[0].Shapes.Count > 0)
+{
+    var hyperlink = presentation.Slides[0].Shapes[0].HyperlinkClick;
+    var sound = hyperlink?.Sound;
+    if (sound != null)
+    {
+        var audioData = sound.BinaryData;
+        Console.WriteLine($"Extracted {audioData.Length} bytes of hyperlink audio.");
+    }
+    else
+    {
+        Console.WriteLine("The first shape has no hyperlink sound.");
+    }
+}
+else
+{
+    Console.WriteLine("The presentation has no first slide or shape to inspect.");
 }
 ```
 
-#### **Extrair som de um hyperlink**
+### **Configurações de Tooltip e Interação**
 
-Este código C# mostra como extrair o som usado em um hyperlink:
+Você pode atualizar as propriedades a seguir de [IHyperlink] após atribuir um hyperlink a texto ou forma:
 
-```c#
-using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
-{
-	ISlide firstSlide = pres.Slides[0];
-
-	// Obtém o hyperlink da primeira forma
-	IHyperlink link = firstSlide.Shapes[0].HyperlinkClick;
-
-	if (link.Sound != null)
-	{
-		// Extrai o som do hyperlink em array de bytes
-		byte[] audioData = link.Sound.BinaryData;
-	}
-}
-```
+- [Tooltip](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/tooltip/) define o texto que o visualizador pode exibir como dica para o link.
+- [TargetFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/targetframe/) especifica o quadro de destino dentro de um frameset HTML pai, quando aplicável.
+- [History](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/history/) controla se a ativação do link adiciona seu destino à lista de hyperlinks visualizados.
+- [HighlightClick](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/highlightclick/) controla se o hyperlink é destacado ao ser clicado.
 
 ## **Remover hyperlinks de apresentações**
 
-### **Remover hyperlinks de texto**
+Use [GetAnyHyperlinks](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) para coletar contêineres de hyperlink, incluindo links de partes de texto, antes de alterá‑los. O exemplo a seguir remove ambos os tipos de ativação do primeiro slide. Para remover apenas um tipo, chame somente [RemoveHyperlinkClick](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) ou [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); remover a ação de clique não remove seu equivalente mouse‑over.
 
-Este código C# mostra como remover o hyperlink de um texto em um slide de apresentação:
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation("pres.pptx");
+
+if (presentation.Slides.Count > 0)
 {
-    ISlide slide = pres.Slides[0];
-    foreach (IShape shape in slide.Shapes)
+    var containers = presentation.Slides[0].HyperlinkQueries.GetAnyHyperlinks().ToList();
+    foreach (var container in containers)
     {
-        IAutoShape autoShape = shape as IAutoShape;
-        if (autoShape != null)
+        container.HyperlinkManager.RemoveHyperlinkClick();
+        container.HyperlinkManager.RemoveHyperlinkMouseOver();
+    }
+    presentation.Save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The presentation has no slides to process.");
+}
+```
+
+Para remoção incondicional, [RemoveAllHyperlinks](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) elimina ambos os tipos de ativação no escopo selecionado em uma única chamada. Para limpeza seletiva e cobertura de mestres, layouts e notas, veja [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+
+## **Criar um inventário completo de hyperlinks**
+
+Antes de distribuir uma apresentação, faça um inventário de suas ações interativas e de seus links web. [GetAnyHyperlinks](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) devolve objetos [IHyperlinkContainer](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkcontainer/), não uma lista plana de strings de URL. Inspecione tanto [HyperlinkClick](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkcontainer/hyperlinkclick/) quanto [HyperlinkMouseOver](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkcontainer/hyperlinkmouseover/) em cada contêiner. Eles são independentes: o mesmo contêiner pode expor ambas as ações, portanto um relatório completo precisa de até duas linhas por contêiner.
+
+Escanear apenas hyperlinks em nível de forma pode deixar de detectar links anexados a partes de texto. Consulte o escopo apropriado e retenha os contêineres devolvidos para que você possa atualizar ou remover suas ações posteriormente.
+
+### **Consultar escopos de apresentação, slide e quadro de texto**
+
+A interface [IHyperlinkQueries](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkqueries/) está disponível através de [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/pt/net/aspose.slides/ipresentation/hyperlinkqueries/), [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/pt/net/aspose.slides/ibaseslide/hyperlinkqueries/) e [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframe/hyperlinkqueries/). Cada escopo oferece as mesmas consultas:
+
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) retorna contêineres com uma ação de clique.
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) retorna contêineres com uma ação de mouse‑over.
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) retorna contêineres com uma ou ambas as ações.
+
+O exemplo a seguir cria `hyperlink-audit-input.pptx` com um link externo de clique, um link de mouse‑over de arquivo, navegação interna de slide, um link de mouse‑over de texto e uma ação de macro. Ele não executa nenhuma dessas ações. As três consultas funcionam em todos os escopos; as contagens descrevem contêineres, não o total de ações. O escopo de quadro de texto exclui os próprios links da forma que o contém.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var destination = presentation.Slides.AddEmptySlide(slide.LayoutSlide);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 60);
+shape.TextFrame.Text = "Click the text to go to slide 2";
+shape.HyperlinkManager.SetExternalHyperlinkClick("https://example.com/");
+shape.HyperlinkClick.Tooltip = "Public website";
+shape.HyperlinkManager.SetExternalHyperlinkMouseOver("file:///C:/private/report.xlsx");
+
+var portionFormat = shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat;
+portionFormat.HyperlinkManager.SetInternalHyperlinkClick(destination);
+portionFormat.HyperlinkManager.SetExternalHyperlinkMouseOver("https://example.com/help");
+var macroButton = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 120, 200, 60);
+macroButton.HyperlinkManager.SetMacroHyperlinkClick("ReviewPresentation");
+
+PrintCounts("Presentation", presentation.HyperlinkQueries);
+PrintCounts("Slide 1", slide.HyperlinkQueries);
+PrintCounts("Text frame", shape.TextFrame.HyperlinkQueries);
+presentation.Save("hyperlink-audit-input.pptx", SaveFormat.Pptx);
+
+static void PrintCounts(string scope, IHyperlinkQueries queries)
+{
+    var clickContainers = queries.GetHyperlinkClicks();
+    var mouseOverContainers = queries.GetHyperlinkMouseOvers();
+    var allContainers = queries.GetAnyHyperlinks();
+    Console.WriteLine($"{scope}: click={clickContainers.Count}, mouse-over={mouseOverContainers.Count}, any={allContainers.Count}");
+}
+```
+
+Para este exemplo, as consultas de apresentação e slide relatam três contêineres de clique, dois de mouse‑over e três contêineres com qualquer ação. A consulta de quadro de texto relata um contêiner em cada categoria.
+
+### **Classificar ações e destinos**
+
+Use [IHyperlink.ActionType](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/actiontype/) para interpretar uma ação antes de interpretar seu destino. Os valores de [HyperlinkActionType](https://reference.aspose.com/slides/pt/net/aspose.slides/hyperlinkactiontype/) cobrem mais que navegação web:
+
+| Valores | Significado para auditoria |
+| --- | --- |
+| `Hyperlink` | Hyperlink externo; inspecione a URL e seu esquema. |
+| `JumpSpecificSlide` | Navegação interna para um slide específico. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Navegação de slideshow incorporada, resolvida no contexto da apresentação. |
+| `JumpEndShow`, `StartCustomSlideShow` | Encerrar a apresentação atual ou iniciar uma apresentação personalizada. |
+| `StartMacro` | Executar uma macro. |
+| `StartProgram` | Iniciar um programa. |
+| `OpenFile`, `OpenPresentation` | Abrir um arquivo ou outra apresentação; revisar separadamente de URLs web. |
+| `StartStopMedia` | Iniciar ou parar a reprodução de mídia. |
+| `NoAction`, `Unknown` | Nenhuma ação de navegação, ou ação não reconhecida que requer revisão. |
+
+Leia destinos externos de [ExternalUrl](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/externalurl/) e destinos internos específicos de [TargetSlide](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/targetslide/). Ações internas e comandos incorporados podem não ter URL externa; uma URL vazia não significa que o contêiner não possua ação. Preserve [ExternalUrlOriginal](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/externalurloriginal/) quando for diferente da URL normalizada e inclua o [Tooltip](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/tooltip/) quando disponível.
+
+### **Relatar, sanitizar e verificar hyperlinks**
+
+O exemplo .NET 6+ a seguir lê uma apresentação existente (use o arquivo criado acima), grava `hyperlink-audit.json`, aplica uma política, salva `hyperlink-sanitized.pptx` e o reabre para verificar novamente ambos os tipos de ativação. Ele coleta contêineres antes de alterá‑los e usa igualdade de referência para evitar processar o mesmo contêiner duas vezes. Consultas de apresentação cobrem slides ordinários; para um inventário de todo o pacote, ele também consulta explicitamente mestres, layouts, notas e os mestres de notas e folhetos quando presentes.
+
+O relatório registra um índice de slide baseado em 1 e [SlideId](https://reference.aspose.com/slides/pt/net/aspose.slides/ibaseslide/slideid/) onde disponível. [ISlideComponent.Slide](https://reference.aspose.com/slides/pt/net/aspose.slides/islidecomponent/slide/) fornece o slide proprietário para contêineres suportados. Mestres, layouts e notas não têm índice de slide ordinário e são identificados pelo seu escopo. Contêineres de forma e de formatação de parte de texto recebem rótulos separados; outros tipos de contêiner retêm seu nome de tipo em tempo de execução. Cada contêiner recebe um ID local ao relatório para que suas duas ações possam ser correlacionadas.
+
+Esta política de aplicação deliberadamente restritiva permite apenas URLs HTTPS absolutas e destinos internos de slide válidos. Ela rejeita macros, programas, ações de arquivo, outras ações de slideshow, ações desconhecidas e outros esquemas de URL. Essas rejeições são decisões de política, não um veredicto de segurança do Aspose.Slides. HTTPS por si só não estabelece confiança: adicione listas de permissões de host e outras verificações para sua aplicação. Tanto URLs externas originais quanto normalizadas são verificadas. O exemplo audita metadados sem seguir links ou executar ações.
+
+Para remediação, o [HyperlinkManager](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkcontainer/hyperlinkmanager/) do contêiner suporta [SetExternalHyperlinkClick](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) e [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Aqui, links externos de clique proibidos são substituídos por uma página de destino HTTPS fixa; outros cliques proibidos e ações de mouse‑over proibidas são removidos independentemente. Defina `replaceExternalClicks` como `false` para remover todas as violações de política. Escolha uma página de substituição controlada pela aplicação antes da implantação.
+
+A flag de exportação do relatório usa uma política conservadora de revisão PDF: sinaliza ações de mouse‑over e tudo que não seja um link externo ou salto de slide específico como potencialmente não suportado. É uma dica de revisão, não um teste de capacidade ou garantia de que links não sinalizados sobreviverão à exportação. Exportações suportadas para [PDF](/slides/pt/net/convert-powerpoint-to-pdf/) e [HTML](/slides/pt/net/convert-powerpoint-to-html/) podem preservar hyperlinks, dependendo da ação, opções de exportação e visualizador. Imagens raster [images](/slides/pt/net/convert-powerpoint-to-png/) e [video](/slides/pt/net/convert-powerpoint-to-video/) não podem preservar hyperlinks interativos; sinalize toda ação ao auditar para esses resultados.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.Json;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const bool replaceExternalClicks = true;
+const string replacementUrl = "https://example.com/blocked-link";
+using var presentation = new Presentation("hyperlink-audit-input.pptx");
+var containers = CollectContainers(presentation);
+var rows = new List<object>();
+
+for (var index = 0; index < containers.Count; index++)
+{
+    var container = containers[index];
+    AddRow(container.HyperlinkClick, "click", container, index + 1);
+    AddRow(container.HyperlinkMouseOver, "mouse-over", container, index + 1);
+}
+
+var jsonOptions = new JsonSerializerOptions { WriteIndented = true };
+var json = JsonSerializer.Serialize(rows, jsonOptions);
+File.WriteAllText("hyperlink-audit.json", json);
+
+foreach (var container in containers)
+{
+    var click = container.HyperlinkClick;
+    if (PolicyViolation(click) != null)
+    {
+        if (replaceExternalClicks && click.ActionType == HyperlinkActionType.Hyperlink)
         {
-            foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs)
-            {
-                foreach (IPortion portion in paragraph.Portions)
-                {
-                    portion.PortionFormat.HyperlinkManager.RemoveHyperlinkClick();
-                }
-            }
+            container.HyperlinkManager.SetExternalHyperlinkClick(replacementUrl);
+        }
+        else
+        {
+            container.HyperlinkManager.RemoveHyperlinkClick();
         }
     }
-    
-    pres.Save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
+    if (PolicyViolation(container.HyperlinkMouseOver) != null)
+    {
+        container.HyperlinkManager.RemoveHyperlinkMouseOver();
+    }
+}
+
+presentation.Save("hyperlink-sanitized.pptx", SaveFormat.Pptx);
+using var reopened = new Presentation("hyperlink-sanitized.pptx");
+var remainingContainers = CollectContainers(reopened);
+var violations = 0;
+foreach (var container in remainingContainers)
+{
+    if (PolicyViolation(container.HyperlinkClick) != null) violations++;
+    if (PolicyViolation(container.HyperlinkMouseOver) != null) violations++;
+}
+Console.WriteLine($"Audit rows: {rows.Count}; prohibited actions after reopening: {violations}");
+if (violations != 0)
+{
+    Console.WriteLine("Verification failed: do not distribute the saved presentation.");
+    Environment.ExitCode = 1;
+}
+
+void AddRow(IHyperlink? link, string activation, IHyperlinkContainer container, int containerId)
+{
+    if (link == null) return;
+    var ownerSlide = (container as ISlideComponent)?.Slide;
+    var targetSlide = link.TargetSlide;
+    var violation = PolicyViolation(link);
+    var ownerType = container is IShape ? "Shape" : container is IPortionFormat ? "Text portion" : container.GetType().Name;
+    var ordinaryAction = link.ActionType == HyperlinkActionType.Hyperlink || link.ActionType == HyperlinkActionType.JumpSpecificSlide;
+    rows.Add(new
+    {
+        ContainerId = containerId,
+        SlideIndex = SlideIndex(presentation, ownerSlide),
+        SlideId = ownerSlide?.SlideId,
+        Scope = ownerSlide?.GetType().Name,
+        OwnerType = ownerType,
+        Activation = activation,
+        ActionType = link.ActionType.ToString(),
+        ExternalUrl = link.ExternalUrl,
+        TargetSlideIndex = SlideIndex(presentation, targetSlide),
+        TargetSlideId = targetSlide?.SlideId,
+        Tooltip = link.Tooltip,
+        OriginalExternalUrl = link.ExternalUrlOriginal != link.ExternalUrl ? link.ExternalUrlOriginal : null,
+        PotentiallyUnsafe = violation != null,
+        PolicyViolation = violation,
+        TargetExport = "PDF",
+        PotentiallyUnsupportedByExport = activation == "mouse-over" || !ordinaryAction
+    });
+}
+
+static int? SlideIndex(IPresentation presentation, IBaseSlide? slide)
+{
+    for (var index = 0; index < presentation.Slides.Count; index++)
+    {
+        if (ReferenceEquals(presentation.Slides[index], slide)) return index + 1;
+    }
+    return null;
+}
+
+static string? PolicyViolation(IHyperlink? link)
+{
+    if (link == null) return null;
+    if (link.ActionType == HyperlinkActionType.JumpSpecificSlide)
+    {
+        return link.TargetSlide == null ? "Missing target slide" : null;
+    }
+    if (link.ActionType != HyperlinkActionType.Hyperlink) return "Action is not allowed";
+    if (!IsHttps(link.ExternalUrl)) return "Normalized URL is not absolute HTTPS";
+    var original = link.ExternalUrlOriginal;
+    if (!string.IsNullOrEmpty(original) && !IsHttps(original)) return "Original URL is not absolute HTTPS";
+    return null;
+}
+
+static bool IsHttps(string? value)
+{
+    return Uri.TryCreate(value, UriKind.Absolute, out var uri) && uri.Scheme == Uri.UriSchemeHttps;
+}
+
+static List<IHyperlinkContainer> CollectContainers(IPresentation presentation)
+{
+    var found = new List<IHyperlinkContainer>();
+    found.AddRange(presentation.HyperlinkQueries.GetAnyHyperlinks());
+    foreach (var master in presentation.Masters) AddScope(master);
+    foreach (var layout in presentation.LayoutSlides) AddScope(layout);
+    foreach (var slide in presentation.Slides) AddScope(slide.NotesSlideManager.NotesSlide);
+    AddScope(presentation.MasterNotesSlideManager.MasterNotesSlide);
+    AddScope(presentation.MasterHandoutSlideManager.MasterHandoutSlide);
+    return found.Distinct<IHyperlinkContainer>(ReferenceEqualityComparer.Instance).ToList();
+
+    void AddScope(IBaseSlide? slide)
+    {
+        if (slide != null) found.AddRange(slide.HyperlinkQueries.GetAnyHyperlinks());
+    }
 }
 ```
 
-### **Remover hyperlinks de formas ou quadros**
+Com a entrada criada acima, o relatório contém cinco linhas de ação. O link de mouse‑over de arquivo e a macro de clique são removidos, enquanto os links HTTPS e a navegação interna de slide permanecem. A verificação imprime zero ações proibidas. Uma entrada contendo uma URL externa de clique proibida também exercita a ramificação de substituição. Um contêiner com clique permitido e mouse‑over proibido mantém sua ação de clique.
 
-Este código C# mostra como remover o hyperlink de uma forma em um slide de apresentação: 
+Essa limpeza seletiva difere de [RemoveAllHyperlinks](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), que remove ambos os tipos de ativação em todo o escopo selecionado independentemente da política. A verificação aqui checa apenas as ações de hyperlink; não remove projetos VBA incorporados, objetos OLE ou outro conteúdo ativo, nem valida um PDF ou HTML exportado.
 
-``` csharp
-using (Presentation pres = new Presentation("demo.pptx")) 
-{ 
-   ISlide slide = pres.Slides[0]; 
-   foreach (IShape shape in slide.Shapes) 
-     { 
-       shape.HyperlinkManager.RemoveHyperlinkClick(); 
-     } 
-   pres.Save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx); 
-}
-```
+## **FAQ**
 
-## **Hyperlink mutável**
+**Como posso vincular a uma seção ou ao seu primeiro slide?**
 
-A classe [Hyperlink](https://reference.aspose.com/slides/pt/net/aspose.slides/hyperlink) é mutável. Com esta classe, você pode alterar os valores dessas propriedades:
-
-- [IHyperlink.TargetFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/properties/targetframe)
-- [IHyperlink.Tooltip](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/properties/tooltip)
-- [IHyperlink.History](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/properties/history)
-- [IHyperlink.HighlightClick](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlink/properties/highlightclick)
-
-O trecho de código mostra como adicionar um hyperlink a um slide e editar seu tooltip posteriormente:
-
-```c#
-using (Presentation presentation = new Presentation())
-{   
-   IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
-    
-   shape1.AddTextFrame("Aspose: File Format APIs");
-    
-   shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
-    
-    shape1.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 32;
-    
- presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Propriedades suportadas em IHyperlinkQueries**
-
-Você pode acessar IHyperlinkQueries a partir de uma apresentação, slide ou texto para o qual o hyperlink está definido. 
-
-- [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/pt/net/aspose.slides/ipresentation/properties/hyperlinkqueries)
-- [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/pt/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
-- [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/pt/net/aspose.slides/itextframe/properties/hyperlinkqueries)
-
-A classe IHyperlinkQueries suporta estes métodos e propriedades: 
-
-- [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkclicks)
-- [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkmouseovers)
-- [IHyperlinkQueries.GetAnyHyperlinks();](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkqueries/methods/getanyhyperlinks)
-- [IHyperlinkQueries.RemoveAllHyperlinks();](https://reference.aspose.com/slides/pt/net/aspose.slides/ihyperlinkqueries/methods/removeallhyperlinks)
-
-## **Perguntas frequentes**
-
-**Como posso criar navegação interna não apenas para um slide, mas para uma "seção" ou o primeiro slide de uma seção?**
-
-Seções no PowerPoint são agrupamentos de slides; a navegação tecnicamente aponta para um slide específico. Para "navegar para uma seção", normalmente você vincula ao seu primeiro slide.
+Seções no PowerPoint agrupam slides, mas um hyperlink interno aponta para um slide individual. Para criar navegação para uma seção, vincule ao primeiro slide dessa seção.
 
 **Posso anexar um hyperlink a elementos do slide mestre para que funcione em todos os slides?**
 
-Sim. Elementos do slide mestre e layouts suportam hyperlinks. Esses links aparecem nos slides filhos e são clicáveis durante a apresentação de slides.
+Sim. Elementos de slide mestre e de layout suportam hyperlinks. Links nesses elementos ficam disponíveis durante a apresentação nos slides que utilizam o mestre ou layout correspondente.
 
 **Os hyperlinks serão preservados ao exportar para PDF, HTML, imagens ou vídeo?**
 
-Em [PDF](/slides/pt/net/convert-powerpoint-to-pdf/) e [HTML](/slides/pt/net/convert-powerpoint-to-html/), sim — os links geralmente são preservados. Ao exportar para [imagens](/slides/pt/net/convert-powerpoint-to-png/) e [vídeo](/slides/pt/net/convert-powerpoint-to-video/), a capacidade de clique não será mantida devido à natureza desses formatos (quadros raster/vídeo não suportam hyperlinks).
+Exportações de PDF e HTML suportadas podem preservar hyperlinks; imagens raster e vídeo não podem. Consulte as considerações de exportação em [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).

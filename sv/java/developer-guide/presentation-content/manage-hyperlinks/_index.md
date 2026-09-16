@@ -1,6 +1,6 @@
 ---
-title: "Hantera presentationshyperlänkar i Java"
-linktitle: "Hantera hyperlänk"
+title: Hantera presentationshyperlänkar i Java
+linktitle: Hantera hyperlänkar
 type: docs
 weight: 20
 url: /sv/java/manage-hyperlinks/
@@ -12,178 +12,114 @@ keywords:
 - ta bort hyperlänk
 - uppdatera hyperlänk
 - texthyperlänk
-- bildhyperlänk
+- bildhyperlänk (bildspel)
 - formhyperlänk
-- bildhyperlänk
+- bildhyperlänk (bild)
 - videohyperlänk
-- muterbar hyperlänk
+- modifierbar hyperlänk
 - PowerPoint
 - OpenDocument
 - presentation
 - Java
 - Aspose.Slides
-description: "Hantera hyperlänkar i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för Java utan ansträngning – förbättra interaktiviteten och arbetsflödet på bara några minuter."
+description: "Lägg till, formatera, uppdatera och ta bort hyperlänkar i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för Java, med Java-exempel."
 ---
 ## **Introduktion**
 
-En hyperlänk är en referens till ett objekt eller data eller en plats i något. Detta är vanliga hyperlänkar i PowerPoint‑presentationer:
+En hyperlänk kopplar presentationsinnehåll till en webbplats eller en plats inom presentationen. I PowerPoint används hyperlänkar vanligtvis för två ändamål:
 
-* Länkar till webbplatser i texter, former eller media
-* Länkar till bilder
+* Öppna en webbplats från text, en form eller en mediaram.
+* Navigera till en annan bild, till exempel från en innehållsförteckning.
 
-Aspose.Slides for Java låter dig utföra många uppgifter som involverar hyperlänkar i presentationer. 
+Aspose.Slides för Java låter dig lägga till dessa länkar, kontrollera deras utseende och ljud, uppdatera deras egenskaper och ta bort dem. Exemplen nedan visar hur du arbetar med hyperlänkar på enskilda element och hur du får åtkomst till hyperlänkar på presentations-, bild- eller text‑ramnivå.
 
-{{% alert color="primary" %}} 
-
-Du kanske vill prova Aspose Simple, [gratis online PowerPoint‑redigerare.](https://products.aspose.app/slides/sv/editor)
-
+{{% alert color="info" title="Obs" %}}
+Du kan även redigera presentationer med den [gratis onlineredigeraren för Aspose PowerPoint](https://products.aspose.app/slides/sv/editor).
 {{% /alert %}} 
 
 ## **Lägg till URL‑hyperlänkar**
 
+Du kan tilldela en webbplats‑URL till text, en form eller en mediaram. Det element du tilldelar hyperlänken avgör det klickbara området: ett textavsnitt länkar den markerade texten, medan en form eller ram länkar bildobjektet.
+
 ### **Lägg till URL‑hyperlänkar till text**
 
-Denna Java‑kod visar hur du lägger till en webbplats‑hyperlänk i en text:
+För att länka text till en webbplats, skicka en [Hyperlink](https://reference.aspose.com/slides/sv/java/com.aspose.slides/hyperlink/) till textavsnittets [setHyperlinkClick](https://reference.aspose.com/slides/sv/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) metod, som visas nedan. Endast det textavsnittet blir klickbart.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
-	shape1.addTextFrame("Aspose: File Format APIs");
-	
-	IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat(); 
-	portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-	portionFormat.setFontHeight(32);
+    IAutoShape textShape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
+    textShape.addTextFrame("Aspose: File Format APIs");
+    IPortionFormat portionFormat = textShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+    portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
+    portionFormat.getHyperlinkClick().setTooltip("Explore Aspose file format APIs");
+    portionFormat.setFontHeight(32);
 
-	presentation.save("presentation-out.pptx", SaveFormat.Pptx);
+    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
-	if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-### **Lägg till URL‑hyperlänkar till former eller ramar**
+### **Lägg till URL‑hyperlänkar till former och mediaramar**
 
-Detta exempel i Java visar hur du lägger till en webbplats‑hyperlänk i en form:
+För att göra en form eller ram klickbar, anropa dess [setHyperlinkClick](https://reference.aspose.com/slides/sv/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) metod. Hyperlänken tillhör själva objektet snarare än ett textavsnitt i det.
+
+Samma tillvägagångssätt gäller för bild‑, ljud‑ och videoram: tilldela hyperlänken till ramen och anropa [setTooltip](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) om det behövs.
+
+Följande exempel gör en rektangel klickbar:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
+    IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
 
-	shape.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	shape.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
+    shape.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
+    shape.getHyperlinkClick().setTooltip("Explore Aspose file format APIs");
 
-	pres.save("pres-out.pptx", SaveFormat.Pptx);
+    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
-### **Lägg till URL‑hyperlänkar till media**
-
-Aspose.Slides låter dig lägga till hyperlänkar till bilder, ljud‑ och videofiler. 
-
-Detta exempel visar hur du lägger till en hyperlänk till en **bild**:
-
-```java
-Presentation pres = new Presentation();
-try {
-	// Lägger till bild i presentationen
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-    picture = pres.getImages().addImage(picture);
-    } finally {
-          if (image != null) image.dispose();
-    }
-	// Skapar bildram på bild 1 baserat på tidigare tillagd bild
-	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-
-	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-Detta exempel visar hur du lägger till en hyperlänk till en **ljudfil**:
-
-```java
-Presentation pres = new Presentation();
-try {
-	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
-	IAudioFrame audioFrame = pres.getSlides().get_Item(0).getShapes().addAudioFrameEmbedded(10, 10, 100, 100, audio);
-
-	audioFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	audioFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-
-	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-Detta exempel visar hur du lägger till en hyperlänk till en **video**:
-
-```java
-Presentation pres = new Presentation();
-try {
-	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
-	IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
-
-	videoFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	videoFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-
-	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-{{%  alert  title="Tip"  color="primary"  %}} 
-
-Du kanske vill se *[Hantera OLE](/slides/sv/java/manage-ole/)*.
-
-{{% /alert %}}
 
 ## **Använd hyperlänkar för att skapa en innehållsförteckning**
 
-Eftersom hyperlänkar låter dig lägga till referenser till objekt eller platser kan du använda dem för att skapa en innehållsförteckning. 
-
-Detta exempel visar hur du skapar en innehållsförteckning med hyperlänkar:
+Interna hyperlänkar låter läsare hoppa från en innehållsförteckning till en specifik bild. Följande exempel använder [setInternalHyperlinkClick](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) för att länka texten ”Page 2” på den första bilden till den andra bilden.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-	ISlide firstSlide = pres.getSlides().get_Item(0);
-	ISlide secondSlide = pres.getSlides().addEmptySlide(firstSlide.getLayoutSlide());
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ISlide secondSlide = presentation.getSlides().addEmptySlide(firstSlide.getLayoutSlide());
 
-	IAutoShape contentTable = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 300, 100);
-	contentTable.getFillFormat().setFillType(FillType.NoFill);
-	contentTable.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
-	contentTable.getTextFrame().getParagraphs().clear();
+    IAutoShape tableOfContents = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 300, 100);
+    tableOfContents.getFillFormat().setFillType(FillType.NoFill);
+    tableOfContents.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+    tableOfContents.getTextFrame().getParagraphs().clear();
 
-	Paragraph paragraph = new Paragraph();
-	paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-	paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-	paragraph.setText("Title of slide 2 .......... ");
+    Paragraph paragraph = new Paragraph();
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    paragraph.setText("Title of slide 2 .......... ");
 
-	Portion linkPortion = new Portion();
-	linkPortion.setText("Page 2");
-	linkPortion.getPortionFormat().getHyperlinkManager().setInternalHyperlinkClick(secondSlide);
+    Portion linkPortion = new Portion();
+    linkPortion.setText("Page 2");
+    linkPortion.getPortionFormat().getHyperlinkManager().setInternalHyperlinkClick(secondSlide);
 
-	paragraph.getPortions().add(linkPortion);
-	contentTable.getTextFrame().getParagraphs().add(paragraph);
+    paragraph.getPortions().add(linkPortion);
+    tableOfContents.getTextFrame().getParagraphs().add(paragraph);
 
-	pres.save("link_to_slide.pptx", SaveFormat.Pptx);
+    presentation.save("link_to_slide.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
@@ -191,134 +127,429 @@ try {
 
 ### **Färg**
 
-Med egenskapen [ColorSource](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Hyperlink#setColorSource-int-) i gränssnittet [IHyperlink](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IHyperlink) kan du ange färg för hyperlänkar och även hämta färginformation från hyperlänkar. Funktionen introducerades först i PowerPoint 2019, så ändringar som involverar egenskapen gäller inte äldre PowerPoint‑versioner.
+Metoden [setColorSource](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlink/#setColorSource-int-) för [IHyperlink](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlink/) bestämmer om en hyperlänk använder presentationens hyperlänkfärg eller textavsnittets formatering. För att använda en anpassad textfärg, välj [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/hyperlinkcolorsource/) och ange avsnittets fyllningsfärg. Denna funktion introducerades i PowerPoint 2019; äldre versioner tillämpar inte denna inställning.
 
-Detta exempel demonstrerar en operation där hyperlänkar med olika färger lades till på samma bild:
+Följande exempel lägger till två texthyperlänkar på samma bild. Den första använder en röd textfyllning, medan den andra behåller standardhyperlänkfärgen.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
-	shape1.addTextFrame("This is a sample of colored hyperlink.");
-	IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
-	portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	portionFormat.getHyperlinkClick().setColorSource(HyperlinkColorSource.PortionFormat);
-	portionFormat.getFillFormat().setFillType(FillType.Solid);
-	portionFormat.getFillFormat().getSolidFillColor().setColor(Color.RED);
+    IAutoShape coloredShape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
+    coloredShape.addTextFrame("This hyperlink uses a custom color.");
+    IPortionFormat coloredPortionFormat = coloredShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+    coloredPortionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
+    coloredPortionFormat.getHyperlinkClick().setColorSource(HyperlinkColorSource.PortionFormat);
+    coloredPortionFormat.getFillFormat().setFillType(FillType.Solid);
+    coloredPortionFormat.getFillFormat().getSolidFillColor().setColor(Color.RED);
 
-	IAutoShape shape2 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
-	shape2.addTextFrame("This is a sample of usual hyperlink.");
-	shape2.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
+    IAutoShape defaultShape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
+    defaultShape.addTextFrame("This hyperlink uses the default color.");
+    defaultShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 
-	pres.save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
+    presentation.save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+### **Ljud**
+
+En hyperlänk kan spela ett ljud när den aktiveras eller stoppa ett ljud som redan spelas. Använd följande metoder för att konfigurera dessa beteenden:
+
+- [IHyperlink.setSound](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) specificerar ljudet som är associerat med hyperlänken.
+- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) styr om aktivering av hyperlänken stoppar föregående ljud.
+
+#### **Lägg till ett hyperlänkljud**
+
+Följande exempel laddar `sampleaudio.wav` och associerar den med en knapp på den första bilden. När knappen klickas spelas ljudet upp och navigerar till nästa bild. En andra form på den bilden stoppar det föregående ljudet när den klickas, utan att utföra någon navigationsåtgärd.
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
+try {
+    byte[] audioData = Files.readAllBytes(Paths.get("sampleaudio.wav"));
+    IAudio hyperlinkSound = presentation.getAudios().addAudio(audioData);
+
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+
+    IAutoShape playButton = firstSlide.getShapes().addAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
+    playButton.setHyperlinkClick(Hyperlink.getNextSlide());
+
+    if (!playButton.getHyperlinkClick().getStopSoundOnClick() && playButton.getHyperlinkClick().getSound() == null)
+    {
+        playButton.getHyperlinkClick().setSound(hyperlinkSound);
+    }
+
+    ISlide secondSlide = presentation.getSlides().addEmptySlide(firstSlide.getLayoutSlide());
+
+    IAutoShape stopButton = secondSlide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
+    stopButton.setHyperlinkClick(Hyperlink.getNoAction());
+
+    stopButton.getHyperlinkClick().setStopSoundOnClick(true);
+
+    presentation.save("hyperlink-sound.pptx", SaveFormat.Pptx);
+} catch (IOException exception) {
+    System.out.println("Unable to read the audio file: " + exception.getMessage());
+} finally {
+    presentation.dispose();
+}
+```
+
+#### **Extrahera hyperlänkljud**
+
+Följande exempel öppnar presentationen som skapades ovan och läser den första formens hyperlänks ljud till minnet via [getSound](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlink/#getSound--) och [getBinaryData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iaudio/#getBinaryData--).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("hyperlink-sound.pptx");
+try {
+    if (presentation.getSlides().size() > 0 && presentation.getSlides().get_Item(0).getShapes().size() > 0) {
+        IHyperlink hyperlink = presentation.getSlides().get_Item(0).getShapes().get_Item(0).getHyperlinkClick();
+        IAudio sound = hyperlink == null ? null : hyperlink.getSound();
+        if (sound != null) {
+            byte[] audioData = sound.getBinaryData();
+            System.out.println("Extracted " + audioData.length + " bytes of hyperlink audio.");
+        } else {
+            System.out.println("The first shape has no hyperlink sound.");
+        }
+    } else {
+        System.out.println("The presentation has no first slide or shape to inspect.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Verktygstips och interaktionsinställningar**
+
+Du kan anropa följande [IHyperlink](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlink/) metoder efter att du har tilldelat en hyperlänk till text eller en form:
+
+- [setTooltip](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) anger den text som en betraktare kan visa som ett tips för länken.
+- [setTargetFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) specificerar målramen inom ett överordnat HTML‑ramverk, när tillämpligt.
+- [setHistory](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) styr om aktivering av länken lägger till dess destination i listan över visade hyperlänkar.
+- [setHighlightClick](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) styr om hyperlänken markeras när den klickas.
 
 ## **Ta bort hyperlänkar från presentationer**
 
-### **Ta bort hyperlänkar från text**
-
-Denna Java‑kod visar hur du tar bort hyperlänken från en text i en presentationsbild:
+Använd [getAnyHyperlinks](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) för att samla in hyperlänksbehållare, inklusive länkar i textavsnitt, innan du ändrar dem. Följande exempel tar bort båda aktiverings typerna från den första bilden. För att ta bort endast en typ, anropa bara [removeHyperlinkClick](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) eller [removeHyperlinkMouseOver](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); att ta bort en klickåtgärd tar inte bort dess mus‑över‑motsvarighet.
 
 ```java
-Presentation pres = new Presentation();
-try {
-	ISlide slide = pres.getSlides().get_Item(0);
-	for (IShape shape : slide.getShapes())
-	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
-		{
-			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
-			{
-				for (IPortion portion : paragraph.getPortions())
-				{
-					portion.getPortionFormat().getHyperlinkManager().removeHyperlinkClick();
-				}
-			}
-		}
-	}
+import com.aspose.slides.*;
+import java.util.ArrayList;
+import java.util.List;
 
-	pres.save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
+Presentation presentation = new Presentation("pres.pptx");
+try {
+    if (presentation.getSlides().size() > 0) {
+        List<IHyperlinkContainer> containers = new ArrayList<>();
+        for (IHyperlinkContainer container : presentation.getSlides().get_Item(0).getHyperlinkQueries().getAnyHyperlinks()) {
+            containers.add(container);
+        }
+        for (IHyperlinkContainer container : containers) {
+            container.getHyperlinkManager().removeHyperlinkClick();
+            container.getHyperlinkManager().removeHyperlinkMouseOver();
+        }
+        presentation.save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The presentation has no slides to process.");
+    }
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-### **Ta bort hyperlänkar från former eller ramar**
+För villkorsfri borttagning tar [removeAllHyperlinks](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) bort båda aktiveringstyperna i det valda omfånget i ett anrop. För selektiv rensning och täckning av master‑bilder, layout och anteckningar, se [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-Denna Java‑kod visar hur du tar bort hyperlänken från en form i en presentationsbild: 
+## **Bygg ett komplett hyperlänkinventarium**
+
+Innan du distribuerar en presentation, inventera dess interaktiva åtgärder samt dess webblänkar. [getAnyHyperlinks](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) returnerar [IHyperlinkContainer](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkcontainer/)‑objekt, inte en enkel lista med URL‑strängar. Inspektera både [getHyperlinkClick](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) och [getHyperlinkMouseOver](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) på varje behållare. De är oberoende: samma behållare kan exponera båda åtgärderna, så en komplett rapport kan behöva upp till två rader per behållare.
+
+Att bara skanna hyperlänkar på formnivå kan missa länkar som är fästa vid textavsnitt. Fråga istället det lämpliga omfånget och behåll de returnerade behållarna så att du senare kan uppdatera eller ta bort deras åtgärder.
+
+### **Fråga presentations-, bild- och text‑ram‑omfång**
+
+Gränssnittet [IHyperlinkQueries](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkqueries/) är tillgängligt via [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--), och [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itextframe/#getHyperlinkQueries--). Varje omfång stödjer samma frågor:
+
+- [getHyperlinkClicks](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) returnerar behållare med en klickåtgärd.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) returnerar behållare med en mus‑över‑åtgärd.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) returnerar behållare med antingen eller båda åtgärderna.
+
+Följande exempel skapar `hyperlink-audit-input.pptx` med en extern klicklänk, en fil‑mus‑över‑länk, intern bildnavigering, en textrams‑mus‑över‑länk och en makroåtgärd. Det utför inte någon av dessa åtgärder. Samma tre frågor fungerar i varje omfång; räknarna beskriver behållare, inte antalet åtgärder. Text‑ram‑omfånget exkluderar den omgivande formens egna länkar.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+class QueryCounts {
+    void print(String scope, IHyperlinkQueries queries) {
+        int clickCount = queries.getHyperlinkClicks().size();
+        int mouseOverCount = queries.getHyperlinkMouseOvers().size();
+        int anyCount = queries.getAnyHyperlinks().size();
+        System.out.println(scope + ": click=" + clickCount + ", mouse-over=" + mouseOverCount + ", any=" + anyCount);
+    }
+}
+
+QueryCounts counts = new QueryCounts();
+Presentation presentation = new Presentation();
 try {
-	ISlide slide = pres.getSlides().get_Item(0);
-	for (IShape shape : slide.getShapes())
-	{
-		shape.getHyperlinkManager().removeHyperlinkClick();
-	}
-	pres.save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ISlide destination = presentation.getSlides().addEmptySlide(slide.getLayoutSlide());
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 60);
+    shape.getTextFrame().setText("Click the text to go to slide 2");
+    shape.getHyperlinkManager().setExternalHyperlinkClick("https://example.com/");
+    shape.getHyperlinkClick().setTooltip("Public website");
+    shape.getHyperlinkManager().setExternalHyperlinkMouseOver("file:///C:/private/report.xlsx");
+
+    IPortionFormat portionFormat = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+    portionFormat.getHyperlinkManager().setInternalHyperlinkClick(destination);
+    portionFormat.getHyperlinkManager().setExternalHyperlinkMouseOver("https://example.com/help");
+    IAutoShape macroButton = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 120, 200, 60);
+    macroButton.getHyperlinkManager().setMacroHyperlinkClick("ReviewPresentation");
+
+    counts.print("Presentation", presentation.getHyperlinkQueries());
+    counts.print("Slide 1", slide.getHyperlinkQueries());
+    counts.print("Text frame", shape.getTextFrame().getHyperlinkQueries());
+    presentation.save("hyperlink-audit-input.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Muterbar hyperlänk**
+För detta exempel rapporterar presentations‑ och bild‑frågor vardera tre klickbehållare, två mus‑över‑behållare och tre behållare med antingen åtgärd. Text‑ram‑frågan rapporterar en behållare i varje kategori.
 
-Klassen [Hyperlink](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Hyperlink) är muterbar. Med denna klass kan du ändra värdena för följande egenskaper:
+### **Klassificera åtgärder och destinationer**
 
-- [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
-- [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
-- [IHyperlink.setHistory(boolean value)](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IHyperlink#setHistory-boolean-)
-- [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
-- [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
+Använd [IHyperlink.getActionType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlink/#getActionType--) för att tolka en åtgärd innan du tolkar dess destination. Värdena i [HyperlinkActionType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/hyperlinkactiontype/) täcker mer än webbnavigering:
 
-Kodsnutten visar hur du lägger till en hyperlänk i en bild och redigerar dess verktygstips senare:
+| Värden | Betydelse för en granskning |
+| --- | --- |
+| `Hyperlink` | Extern hyperlänk; inspektera URL‑en och dess schema. |
+| `JumpSpecificSlide` | Intern navigering till en specifik bild. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Inbyggd bildspelsnavigering, löst i bildspelskontext. |
+| `JumpEndShow`, `StartCustomSlideShow` | Avsluta det aktuella showet eller starta ett anpassat show. |
+| `StartMacro` | Kör ett makro. |
+| `StartProgram` | Starta ett program. |
+| `OpenFile`, `OpenPresentation` | Öppna en fil eller en annan presentation; granska separat från web‑URL:er. |
+| `StartStopMedia` | Starta eller stoppa medieuppspelning. |
+| `NoAction`, `Unknown` | Ingen navigeringsåtgärd, eller en okänd åtgärd som kräver granskning. |
+
+Läs externa destinationer från [getExternalUrl](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlink/#getExternalUrl--) och specifika interna destinationer från [getTargetSlide](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlink/#getTargetSlide--). Interna åtgärder och inbyggda kommandon kan sakna extern URL; en tom URL betyder inte att behållaren saknar åtgärd. Bevara värdet som returneras av [getExternalUrlOriginal](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) när det skiljer sig från den normaliserade URL‑en, och inkludera verktygstipset från [getTooltip](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlink/#getTooltip--) när det finns tillgängligt.
+
+### **Rapportera, sanera och verifiera hyperlänkar**
+
+Följande Java‑exempel läser en befintlig presentation (använd filen som skapades ovan), skriver `hyperlink-audit.json`, tillämpar en policy, sparar `hyperlink-sanitized.pptx` och öppnar den igen för att kontrollera båda aktiverings typerna igen. Det samlar in behållare innan de ändras och använder referenslikhet för att undvika att behandla samma behållare två gånger. Presentations‑frågor täcker vanliga bilder; för ett paket‑omfattande inventarium frågar den också explicit master‑bilder, layouter, anteckningar samt antecknings‑ och utdelnings‑master när de finns.
+
+Rapporten registrerar ett bildindex med start på ett och [getSlideId](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ibaseslide/#getSlideId--) där det är tillgängligt. [ISlideComponent.getSlide](https://reference.aspose.com/slides/sv/java/com.aspose.slides/islidecomponent/#getSlide--) anger den ägande bilden för stödjade behållare. Master‑bilder, layouter och anteckningar har inget ordinarie bildindex och identifieras efter deras omfång. Formbehållare och textråds‑formateringsbehållare märks separat; andra behållartyper behåller sitt kör‑tidstypnamn. Varje behållare får ett rapport‑lokalt ID så att dess två åtgärder kan korreleras. Rapporten lagrar åtgärdstyper som de heltalkonstanter som definieras av Java‑enumerationen.
+
+Denna avsiktligt restriktiva applikationspolicy tillåter endast absoluta HTTPS‑URL:er och giltiga interna bildmål. Den avvisar makron, program, fil‑åtgärder, andra bildspelsåtgärder, okända åtgärder och andra URL‑scheman. Dessa avslag är policybeslut, inte ett Aspose.Slides‑säkerhetsbeslut. Enbart HTTPS skapar inte förtroende: lägg till värd‑tillåtelselistor och andra kontroller för din applikation. Både original‑ och normaliserade externa URL:er kontrolleras. Exemplet granskar metadata utan att följa länkar eller köra åtgärder.
+
+För åtgärd stöder behållarens [getHyperlinkManager](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager) [setExternalHyperlinkClick](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) och [removeHyperlinkMouseOver](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Här ersätts förbjudna externa klicklänkar med en fast HTTPS‑landningssida; andra förbjudna klick och förbjudna mus‑över‑åtgärder tas bort oberoende. Sätt `replaceExternalClicks` till `false` för att ta bort alla policy‑överträdelser istället. Välj en applikationsägd ersättningssida innan distribution.
+
+Rapportens exportflagga använder en konservativ PDF‑granskningspolicy: flagga mus‑över‑åtgärder och allt annat än en extern länk eller specifikt bildhopp som potentiellt o‑stöttat. Det är en granskningshint, inte ett kapacitetstest eller en garanti för att o‑flagade länkar överlever export. Stödda [PDF](/slides/sv/java/convert-powerpoint-to-pdf/)‑ och [HTML](/slides/sv/java/convert-powerpoint-to-html/)‑exporter kan bevara hyperlänkar, beroende på åtgärd, exportalternativ och visare. Raster-[bilder](/slides/sv/java/convert-powerpoint-to-png/) och [video](/slides/sv/java/convert-powerpoint-to-video/) kan inte bevara interaktiva hyperlänkar; flagga varje åtgärd vid granskning för dessa utdata.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.IdentityHashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+
+class HyperlinkAudit {
+    Integer slideIndex(IPresentation presentation, IBaseSlide slide) {
+        for (int index = 0; index < presentation.getSlides().size(); index++) {
+            if (presentation.getSlides().get_Item(index) == slide) return index + 1;
+        }
+        return null;
+    }
+
+    boolean isHttps(String value) {
+        if (value == null || value.isEmpty()) return false;
+        try {
+            URI uri = new URI(value);
+            return uri.isAbsolute() && "https".equalsIgnoreCase(uri.getScheme()) && uri.getHost() != null;
+        } catch (URISyntaxException exception) {
+            return false;
+        }
+    }
+
+    String policyViolation(IHyperlink link) {
+        if (link == null) return null;
+        if (link.getActionType() == HyperlinkActionType.JumpSpecificSlide) {
+            return link.getTargetSlide() == null ? "Missing target slide" : null;
+        }
+        if (link.getActionType() != HyperlinkActionType.Hyperlink) return "Action is not allowed";
+        if (!isHttps(link.getExternalUrl())) return "Normalized URL is not absolute HTTPS";
+        String original = link.getExternalUrlOriginal();
+        if (original != null && !original.isEmpty() && !isHttps(original)) return "Original URL is not absolute HTTPS";
+        return null;
+    }
+
+    void addScope(List<IHyperlinkContainer> found, IBaseSlide slide) {
+        if (slide != null) {
+            for (IHyperlinkContainer container : slide.getHyperlinkQueries().getAnyHyperlinks()) {
+                found.add(container);
+            }
+        }
+    }
+
+    List<IHyperlinkContainer> collectContainers(IPresentation presentation) {
+        List<IHyperlinkContainer> found = new ArrayList<>();
+        for (IHyperlinkContainer container : presentation.getHyperlinkQueries().getAnyHyperlinks()) {
+            found.add(container);
+        }
+        for (IMasterSlide master : presentation.getMasters()) addScope(found, master);
+        for (ILayoutSlide layout : presentation.getLayoutSlides()) addScope(found, layout);
+        for (ISlide slide : presentation.getSlides()) addScope(found, slide.getNotesSlideManager().getNotesSlide());
+        addScope(found, presentation.getMasterNotesSlideManager().getMasterNotesSlide());
+        addScope(found, presentation.getMasterHandoutSlideManager().getMasterHandoutSlide());
+        Set<IHyperlinkContainer> seen = Collections.newSetFromMap(new IdentityHashMap<IHyperlinkContainer, Boolean>());
+        List<IHyperlinkContainer> unique = new ArrayList<>();
+        for (IHyperlinkContainer container : found) {
+            if (seen.add(container)) unique.add(container);
+        }
+        return unique;
+    }
+
+    void addRow(List<Map<String, Object>> rows, IPresentation presentation, IHyperlink link, String activation, IHyperlinkContainer container, int containerId) {
+        if (link == null) return;
+        IBaseSlide ownerSlide = container instanceof ISlideComponent ? ((ISlideComponent) container).getSlide() : null;
+        ISlide targetSlide = link.getTargetSlide();
+        String violation = policyViolation(link);
+        String ownerType = container instanceof IShape ? "Shape" : container instanceof IPortionFormat ? "Text portion" : container.getClass().getSimpleName();
+        boolean ordinaryAction = link.getActionType() == HyperlinkActionType.Hyperlink || link.getActionType() == HyperlinkActionType.JumpSpecificSlide;
+        Map<String, Object> row = new LinkedHashMap<>();
+        row.put("ContainerId", containerId);
+        row.put("SlideIndex", slideIndex(presentation, ownerSlide));
+        row.put("SlideId", ownerSlide == null ? null : ownerSlide.getSlideId());
+        row.put("Scope", ownerSlide == null ? null : ownerSlide.getClass().getSimpleName());
+        row.put("OwnerType", ownerType);
+        row.put("Activation", activation);
+        row.put("ActionType", link.getActionType());
+        row.put("ExternalUrl", link.getExternalUrl());
+        row.put("TargetSlideIndex", slideIndex(presentation, targetSlide));
+        row.put("TargetSlideId", targetSlide == null ? null : targetSlide.getSlideId());
+        row.put("Tooltip", link.getTooltip());
+        row.put("OriginalExternalUrl", Objects.equals(link.getExternalUrlOriginal(), link.getExternalUrl()) ? null : link.getExternalUrlOriginal());
+        row.put("PotentiallyUnsafe", violation != null);
+        row.put("PolicyViolation", violation);
+        row.put("TargetExport", "PDF");
+        row.put("PotentiallyUnsupportedByExport", "mouse-over".equals(activation) || !ordinaryAction);
+        rows.add(row);
+    }
+
+    // Serialisera den här rapportens platta rader utan ett extra JSON-beroende.
+    String jsonValue(Object value) {
+        if (value == null) return "null";
+        if (value instanceof Number || value instanceof Boolean) return value.toString();
+        StringBuilder escaped = new StringBuilder("\"");
+        for (char character : value.toString().toCharArray()) {
+            if (character == '"' || character == '\\') {
+                escaped.append('\\').append(character);
+            } else if (character < 0x20 || Character.isSurrogate(character)) {
+                escaped.append(String.format("\\u%04x", (int) character));
+            } else {
+                escaped.append(character);
+            }
+        }
+        return escaped.append('"').toString();
+    }
+
+    String toJson(List<Map<String, Object>> rows) {
+        List<String> objects = new ArrayList<>();
+        for (Map<String, Object> row : rows) {
+            List<String> fields = new ArrayList<>();
+            for (Map.Entry<String, Object> field : row.entrySet()) {
+                fields.add("    " + jsonValue(field.getKey()) + ": " + jsonValue(field.getValue()));
+            }
+            objects.add("  {\n" + String.join(",\n", fields) + "\n  }");
+        }
+        return "[\n" + String.join(",\n", objects) + "\n]\n";
+    }
+}
+
+boolean replaceExternalClicks = true;
+String replacementUrl = "https://example.com/blocked-link";
+HyperlinkAudit audit = new HyperlinkAudit();
+Presentation presentation = new Presentation("hyperlink-audit-input.pptx");
 try {
-	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
-	shape1.addTextFrame("Aspose: File Format APIs");
+    List<IHyperlinkContainer> containers = audit.collectContainers(presentation);
+    List<Map<String, Object>> rows = new ArrayList<>();
+    for (int index = 0; index < containers.size(); index++) {
+        IHyperlinkContainer container = containers.get(index);
+        audit.addRow(rows, presentation, container.getHyperlinkClick(), "click", container, index + 1);
+        audit.addRow(rows, presentation, container.getHyperlinkMouseOver(), "mouse-over", container, index + 1);
+    }
+    String json = audit.toJson(rows);
+    byte[] jsonData = json.getBytes(StandardCharsets.UTF_8);
+    Files.write(Paths.get("hyperlink-audit.json"), jsonData);
 
-	IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat(); 
-	portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-	portionFormat.setFontHeight(32);
+    for (IHyperlinkContainer container : containers) {
+        IHyperlink click = container.getHyperlinkClick();
+        if (audit.policyViolation(click) != null) {
+            if (replaceExternalClicks && click.getActionType() == HyperlinkActionType.Hyperlink) {
+                container.getHyperlinkManager().setExternalHyperlinkClick(replacementUrl);
+            } else {
+                container.getHyperlinkManager().removeHyperlinkClick();
+            }
+        }
+        if (audit.policyViolation(container.getHyperlinkMouseOver()) != null) {
+            container.getHyperlinkManager().removeHyperlinkMouseOver();
+        }
+    }
+    presentation.save("hyperlink-sanitized.pptx", SaveFormat.Pptx);
 
-	pres.save("presentation-out.pptx", SaveFormat.Pptx);
+    Presentation reopened = new Presentation("hyperlink-sanitized.pptx");
+    try {
+        List<IHyperlinkContainer> remainingContainers = audit.collectContainers(reopened);
+        int violations = 0;
+        for (IHyperlinkContainer container : remainingContainers) {
+            if (audit.policyViolation(container.getHyperlinkClick()) != null) violations++;
+            if (audit.policyViolation(container.getHyperlinkMouseOver()) != null) violations++;
+        }
+        System.out.println("Audit rows: " + rows.size() + "; prohibited actions after reopening: " + violations);
+        if (violations != 0) {
+            System.out.println("Verification failed: do not distribute the saved presentation.");
+        }
+    } finally {
+        reopened.dispose();
+    }
+} catch (IOException exception) {
+    System.out.println("Unable to write the audit report: " + exception.getMessage());
 } finally {
-	if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Stödda egenskaper i IHyperlinkQueries**
+Med den indata som skapades ovan innehåller rapporten fem åtgärdsrader. Fil‑mus‑över‑länken och makroklicken tas bort, medan HTTPS‑länkarna och den interna bildnavigeringen kvarstår. Verifieringen skriver ut noll förbjudna åtgärder. En indata som innehåller en förbjuden extern klick‑URL testar även ersättningsgrenen. En behållare med ett tillåtet klick och en förbjuden mus‑över behåller sin klickåtgärd.
 
-Du kan komma åt [IHyperlinkQueries](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IHyperlinkQueries) från en presentation, bild eller text som hyperlänken är definierad för. 
+Denna selektiva rensning skiljer sig från [removeAllHyperlinks](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--), som tar bort båda aktiveringstyperna i hela det valda omfånget oavsett policy. Verifieringen här kontrollerar endast hyperlänksåtgärder; den tar inte bort inbäddade VBA‑projekt, OLE‑objekt eller annat aktivt innehåll, och den validerar inte en exporterad PDF‑ eller HTML‑fil.
 
-- [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
-- [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
-- [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
+## **Vanliga frågor**
 
-Klassen [IHyperlinkQueries](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IHyperlinkQueries) stödjer dessa metoder och egenskaper: 
+**Hur kan jag länka till ett avsnitt eller dess första bild?**
 
-- [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
-- [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
-- [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
-- [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
+Avsnitt i PowerPoint grupperar bilder, men en intern hyperlänk riktar sig till en enskild bild. För att skapa navigering till ett avsnitt, länka till den första bilden i det avsnittet.
 
-## **FAQ**
+**Kan jag bifoga en hyperlänk till master‑bildselement så att den fungerar på alla bilder?**
 
-**Hur kan jag skapa intern navigation inte bara till en bild, utan till ett "avsnitt" eller den första bilden i ett avsnitt?**
+Ja. Master‑bilder och layout‑element stöder hyperlänkar. Länkar på dessa element är tillgängliga under bildspelet på bilder som använder motsvarande master eller layout.
 
-Avsnitt i PowerPoint är grupperingar av bilder; navigationen riktar sig tekniskt sett till en specifik bild. För att "navigera till ett avsnitt" länkar du vanligtvis till dess första bild.
+**Kommer hyperlänkar att bevaras vid export till PDF, HTML, bilder eller video?**
 
-**Kan jag bifoga en hyperlänk till master‑bildens element så att den fungerar på alla bilder?**
-
-Ja. Master‑bildens och layout‑element stödjer hyperlänkar. Sådana länkar visas på underliggande bilder och är klickbara under bildspelet.
-
-**Behålls hyperlänkar när man exporterar till PDF, HTML, bilder eller video?**
-
-Ja, i [PDF](/slides/sv/java/convert-powerpoint-to-pdf/) och [HTML](/slides/sv/java/convert-powerpoint-to-html/) bevaras länkarna i allmänhet. Vid export till [bilder](/slides/sv/java/convert-powerpoint-to-png/) och [video](/slides/sv/java/convert-powerpoint-to-video/) överförs inte klickbarheten eftersom dessa format (rasterbilder/video) inte stödjer hyperlänkar.
+Stödda PDF‑ och HTML‑exporter kan bevara hyperlänkar; rasterbilder och video kan inte. Se exportaspekterna i [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
