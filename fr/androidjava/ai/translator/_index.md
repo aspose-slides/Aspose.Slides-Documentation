@@ -120,5 +120,3 @@ Cet extrait montre la traduction d'une présentation en utilisant votre point de
 ## **Principaux avantages**
 
 L'API de traduction de présentations Aspose.Slides offre une solution propulsée par l'IA pour fournir des présentations PowerPoint multilingues. En automatisant la traduction tout en préservant la mise en page et le design, elle fait gagner du temps et réduit les erreurs par rapport aux flux de travail manuels. Que vous soyez développeur, éducateur ou professionnel, cette API vous permet de créer des présentations attractives et localisées pour un public mondial – élargissant votre portée et améliorant la communication.
-
-{{% /alert %}}
