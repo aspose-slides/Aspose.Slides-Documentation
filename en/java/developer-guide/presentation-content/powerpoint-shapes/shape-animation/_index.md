@@ -27,6 +27,8 @@ description: "Learn how to add, inspect, and customize shape animations, timing,
 
 ## **Overview**
 
+To work with the individual behaviors inside an effect or edit motion-path segments, see [Custom Animation](/slides/java/custom-animation/).
+
 Aspose.Slides for Java represents slide animations as effects in a slide timeline. An effect has a target shape, an animation type and subtype, a trigger, timing settings, and optional properties such as sound or after-animation behavior.
 
 The timeline contains two kinds of sequences:

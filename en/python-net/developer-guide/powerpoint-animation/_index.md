@@ -96,15 +96,17 @@ Additionally, these animation effects can be combined with the following effects
 
 ## **Custom Animation**
 
+For complete Python examples that create, inspect, and modify behaviors and editable motion paths, see [Custom Animation](/slides/python-net/custom-animation/).
+
 You can create your own **custom animations** in Aspose.Slides by combining multiple behaviors into a single effect.
 
-[Behavior](https://reference.aspose.com/slides/python-net/aspose.slides.animation/behavior/) is the basic building block of any PowerPoint animation effect. Every animation effect is essentially a set of behaviors arranged into one strategy or timeline. You can assemble behaviors into a custom animation once and reuse it across other presentations. If you add a new behavior to a standard PowerPoint animation effect, it becomes a custom animation—for example, adding a repeat behavior to make the animation play several times.
+[Behavior](https://reference.aspose.com/slides/python-net/aspose.slides.animation/behavior/) is a building block of a PowerPoint animation effect. Combine behaviors to customize an effect, or add a behavior to extend a predefined effect. Repetition is configured through timing settings rather than a separate repeat behavior.
 
 [Animation Point](https://reference.aspose.com/slides/python-net/aspose.slides.animation/point/) marks the moment or position at which a behavior is applied (a keyframe).
 
 ## **Animation Time Line**
 
-[Sequence](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) is a collection of animation effects applied to a specific shape.
+[Sequence](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) is a collection of animation effects that can target different shapes.
 
 [Timeline](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animationtimeline/) is the set of sequences used on a specific slide. It was introduced in PowerPoint 2002. In earlier versions of PowerPoint, adding animation effects was difficult and often required workarounds. Timeline replaces the old `AnimationSettings` class and provides a clearer object model for PowerPoint animation. Each slide can have only one animation timeline.
 
@@ -116,7 +118,7 @@ You can create your own **custom animations** in Aspose.Slides by combining mult
 
 Aspose.Slides lets you apply animations to shapes—such as text, rectangles, lines, frames, OLE objects, and more.
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 Read more [**About Shape Animation**](/slides/python-net/shape-animation/).
 
@@ -126,17 +128,17 @@ Read more [**About Shape Animation**](/slides/python-net/shape-animation/).
 
 To create animated charts, use the same classes as you do for shapes. However, PowerPoint animations can be applied only to chart categories or chart series. You can also apply an animation effect to an individual category element or series element.
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 Read more [**About Animated Charts**](/slides/python-net/animated-charts/).
 
 {{% /alert %}}
 
-## **Animated text**
+## **Animated Text**
 
 In addition to animating text, you can apply animation to a paragraph.
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 Read more [**About Animated Text**](/slides/python-net/animated-text/).
 
@@ -144,14 +146,14 @@ Read more [**About Animated Text**](/slides/python-net/animated-text/).
 
 ## **FAQ**
 
-### Will animations be preserved when exporting to PDF?
+**Will animations be preserved when exporting to PDF?**
 
 No. PDF is a static format, so animations and [slide transitions](/slides/python-net/slide-transition/) don’t play. If you need motion, export to [HTML5](/slides/python-net/export-to-html5/), [animated GIF](/slides/python-net/convert-powerpoint-to-animated-gif/), or [video](/slides/python-net/convert-powerpoint-to-video/) instead.
 
-### Can I turn an animated presentation into a video and control the frame rate and frame size?
+**Can I turn an animated presentation into a video and control the frame rate and frame size?**
 
 Yes. You can [render the presentation as frames](/slides/python-net/convert-powerpoint-to-video/) and encode them into a video (e.g., via ffmpeg), choosing the FPS and resolution. Animations and slide transitions are played during rendering.
 
-### Will animations remain intact when working with ODP (not just PPTX)?
+**Will animations remain intact when working with ODP (not just PPTX)?**
 
-PPT, PPTX, and ODP are supported for [reading](/slides/python-net/open-presentation/) and [writing](/slides/python-net/save-presentation/), but format differences mean certain effects may look or behave slightly differently. Validate critical cases with real samples.
+PPT, PPTX, and ODP are supported for [reading](/slides/python-net/open-presentation/) and [writing](/slides/python-net/save-presentation/), but this does not guarantee animation preservation. Custom animation data can be lost when converting to ODP. See [Custom Animation](/slides/python-net/custom-animation/) for examples and guidance on checking format compatibility.

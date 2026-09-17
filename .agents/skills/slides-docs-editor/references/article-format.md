@@ -30,6 +30,8 @@ wording verbatim does.
 
 ## Headings and FAQ
 
+- Every new article must begin its body with a `## **Overview**` or `## **Introduction**` section
+  that briefly explains the article's purpose and scope. Use the localized equivalent in translations.
 - Bold all article section headings below the page title: `## **Overview**`, `### **Task**`, and so on.
 - Every new article must include a `## **FAQ**` section with concise, article-specific questions and
   answers. Do not add placeholder or generic questions solely to satisfy this requirement.

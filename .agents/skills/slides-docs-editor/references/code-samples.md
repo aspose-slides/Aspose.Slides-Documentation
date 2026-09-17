@@ -12,6 +12,17 @@ to the platform API Reference member page when one exists. Verify the target.
 When mentioning a method in prose, omit trailing parentheses from its name, including in link labels:
 write `Fonts::GetScriptFont`, not `Fonts::GetScriptFont()`.
 
+## Explain the examples
+
+Every code example must have enough surrounding prose to explain its purpose, the important
+settings or decisions, and the expected result. State required input files and assumptions about
+their contents when relevant. Explain non-obvious values, units, indices, or API interactions so
+readers can adapt the example rather than merely copy it.
+
+Do not leave examples with only a generic introduction such as "The following code shows how to..."
+or a list of API names. Scale the explanation to the example's complexity; avoid line-by-line
+paraphrases, repeated setup descriptions, and filler added solely to increase length.
+
 ## Shared style
 
 - Use clear, descriptive variable names instead of abbreviations, such as `presentation` instead of
