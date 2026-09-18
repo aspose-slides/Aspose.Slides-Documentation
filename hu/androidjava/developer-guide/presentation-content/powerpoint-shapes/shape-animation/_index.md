@@ -1,6 +1,6 @@
 ---
-title: Alakzatanimációk alkalmazása Android prezentációkban
-linktitle: Alakzatanimáció
+title: Alkalmazzon alakzat animációkat Androidon a prezentációkban
+linktitle: Alakzat animáció
 type: docs
 weight: 60
 url: /hu/androidjava/shape-animation/
@@ -23,24 +23,26 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan adhat hozzá, vizsgálhat meg és testreszabhat alakzatanimációkat, időzítést, hangokat, animáció utáni viselkedést és animált szöveget az Aspose.Slides for Android via Java segítségével."
+description: "Ismerje meg, hogyan adhat hozzá, vizsgálhat meg és testreszabhat alakzati animációkat, időzítést, hangokat, az animáció utáni viselkedést és animált szöveget az Aspose.Slides for Android via Java használatával."
 ---
 ## **Áttekintés**
 
-Aspose.Slides for Android via Java a diavetítési animációkat effektusokként ábrázolja egy diát idővonalban. Egy effektusnak van cél objektuma, animáció típusa és altípusa, egy trigger, időzítési beállítások, és opcionális tulajdonságok, például hang vagy animáció utáni viselkedés.
+Az effektusok egyedi viselkedésével való munkához vagy a mozgásútvonal-szegmensek szerkesztéséhez, lásd a [Custom Animation for Java](/slides/hu/java/custom-animation/).
 
-Az idővonal kétféle szekvenciát tartalmaz:
+Az Aspose.Slides for Android via Java a diaanimációkat effektusokként jeleníti meg egy diaidővonalon. Egy effektusnak van célalakja, animáció típusa és altípusa, egy trigger, időzítési beállítások, valamint opcionális tulajdonságok, például hang vagy az animáció utáni viselkedés.
 
-- A **fő szekvencia** a dia előrehaladtával játszódik.
-- Egy **interaktív szekvencia** akkor indul, amikor a trigger alakra kattintanak.
+Az idővonal kétféle sorozatot tartalmaz:
 
-Mivel a szövegdobozok, képek, diagramok, táblázatok és egyéb diára helyezett objektumok implementálják az [IShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/), ezért a legtöbb diatartalomhoz ugyanazt a [ISequence.addEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) metódust használhatja. A rendelkezésre álló effektusok a [EffectType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/effecttype/) osztályban listázhatók.
+- A **fő sorozat** a dia haladtával játszódik le.
+- Egy **interaktív sorozat** akkor indul, amikor a trigger alakra kattintanak.
+
+Mivel a szövegdobozok, képek, diagramok, táblázatok és egyéb diaobjektumok a [IShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) interfészt valósítják meg, a legtöbb diaelemhez ugyanazt a [ISequence.addEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) metódust használhatja. Az elérhető effektusok a [EffectType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/effecttype/) osztályban vannak felsorolva.
 
 ## **Alakzatanimációk hozzáadása**
 
-Animáció hozzáadásához szerezze meg a dia fő szekvenciáját, és hívja meg az [ISequence.addEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) metódust a cél alakkal, az effektus típusával, altípusával és a triggerrel. Ha egy effektus akkor kezdődik, amikor egy másik alakra kattintanak, hozzon létre egy interaktív szekvenciát, amelynek triggerje az a másik alak.
+Animáció hozzáadásához szerezze meg a dia fő sorozatát, és hívja meg a [ISequence.addEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) metódust a célalak, az effektustípus, az altípus és a trigger megadásával. Ha egy effektust úgy szeretne indítani, hogy egy másik alakra kattintanak, hozzon létre egy interaktív sorozatot, amelynek triggerje ez a másik alak.
 
-A következő példa mindkét típusú animációt létrehozza, és az eredményt a `shape-animations.pptx` fájlba menti.
+Az alábbi példa mindkét típusú animációt létrehozza, és az eredményt a `shape-animations.pptx` fájlba menti.
 
 ```java
 import com.aspose.slides.*;
@@ -72,19 +74,19 @@ public class AddShapeAnimations {
 }
 ```
 
-A trigger szabályozza, hogy egy effektus mikor indul:
+A trigger határozza meg, mikor kezdődik egy effektus:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/effecttriggertype/#OnClick) a fő szekvenciában egy kattintásra, vagy egy interaktív szekvenciában a trigger alakra kattintásra vár.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/effecttriggertype/#OnClick) a fő sorozatban kattintásra vagy az interaktív sorozat trigger alakjára vár.
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) az előző effektussal együtt indul.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) akkor indul, amikor az előző effektus befejeződik.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) akkor kezdődik, amikor az előző effektus befejeződik.
 
-Kép, diagram vagy más alakzat animálásához adja át azt az objektumot az [ISequence.addEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) metódusnak a `targetShape` helyett. Diagram-specifikus csoportosítási beállításokért lásd a [Animated Charts](/slides/hu/androidjava/animated-charts/) oldalt.
+Kép, diagram vagy más alakzat animálásához adja át azt az objektumot a [ISequence.addEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) metódusnak a `targetShape` helyett. A diagramokra vonatkozó csoportosítási lehetőségekért lásd a [Animated Charts](/slides/hu/androidjava/animated-charts/).
 
 ## **Alakzatanimációk olvasása**
 
-Használja az [ISequence.getEffectsByShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) metódust, ha ismeri a cél alakot. Az összes effektus megtekintéséhez sorolja fel a fő szekvenciát és minden interaktív szekvenciát. A felsorolás elkerüli annak feltételezését, hogy egy szekvencia az `0` indexű effektust tartalmazza.
+Használja a [ISequence.getEffectsByShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) metódust, ha ismeri a célalakot. Minden effektus megtekintéséhez járja be a fő sorozatot és minden interaktív sorozatot. A feltérképezés elkerüli annak a feltételezését, hogy egy sorozat a `0` indexű effektust tartalmazza.
 
-A következő példa egy alakzatot hoz létre fő-szekvenciás és interaktív effektusokkal, lekéri az alakzatra ható effektusokat, majd felsorolja a dia minden szekvenciáját.
+Az alábbi példa egy alakzatot hoz létre fő- és interaktív effektusokkal, lekéri az alakzatot célzó effektusokat, majd végigjárja a dián lévő összes sorozatot.
 
 ```java
 import com.aspose.slides.*;
@@ -138,21 +140,21 @@ public class ReadShapeAnimations {
 }
 ```
 
-Ha csak egy alakzatra vonatkozó effektusokra van szüksége, először azonosítsa az alakzatot név, helyfoglaló típus vagy más stabil tulajdonság alapján; ezután hívja meg az [ISequence.getEffectsByShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) metódust. Ne feltételezze, hogy a [IShapeCollection.get_Item](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) `0` indexe mindig a kívánt objektum.
+Ha csak egy alakzatra van szüksége, először azonosítsa az alakzatot név, helykitöltő típus vagy más stabil tulajdonság alapján; ezután hívja meg a [ISequence.getEffectsByShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) metódust. Ne feltételezze, hogy a [IShapeCollection.get_Item](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) a `0` indexen mindig a kívánt objektum.
 
-## **Örökölt helyfoglaló effektusok kezelése**
+## **Örökölt helykitöltő hatások kezelése**
 
-Egy normál dián lévő helyfoglaló örökölheti az animációs viselkedést a hozzá tartozó elrendezés-dián és a mester-dián lévő megfelelő helyfoglalótól. Az [IShape.getBasePlaceholder](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) visszaadja azt a szülőhelyfoglalót, vagy `null` értéket, ha nincs szülő.
+Egy helykitöltő a normál dián örökölheti az animációs viselkedést a megfelelő helykitöltőtől a master‑diáról vagy a layout‑diáról. A [IShape.getBasePlaceholder](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) visszaadja ezt a szülőhelykitöltőt, vagy `null`‑t, ha nincs szülő.
 
-A következő példaprezentációban a lábléc **Random Bars** animációt kap a normál dián, **Split** animációt az elrendezés-dián, és **Fly In** animációt a mester-dián.
+Az alábbi példa‑prezentációban a láblécnek **Random Bars** animációja van a normál dián, **Split** a layout‑dián, és **Fly In** a master‑dián.
 
 ![Lábléc animációs effektus a normál dián](slide-shape-animation.png)
 
-![Lábléc helyfoglaló animációs effektus az elrendezés dián](layout-shape-animation.png)
+![Lábléc helykitöltő animációja a layout‑dián](layout-shape-animation.png)
 
-![Lábléc helyfoglaló animációs effektus a mester dián](master-shape-animation.png)
+![Lábléc helykitöltő animációja a master‑dián](master-shape-animation.png)
 
-A következő példa egy új prezentáció helyfoglaló hierarchiáját használja. Effektusokat ad egy mester helyfoglalóhoz, egy elrendezés helyfoglalóhoz és a megfelelő helyfoglalóhoz a normál dián. Minden [IShape.getBasePlaceholder](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) hívást ellenőriznek, mielőtt a visszakapott alakzatot felhasználnák.
+A következő példa egy új prezentáció helykitöltő‑hierarchiáját használja. Effektusokat ad egy master‑helykitöltőhöz, egy layout‑helykitöltőhöz és a megfelelő helykitöltőhöz a normál dián. Minden [IShape.getBasePlaceholder](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) hívás ellenőrzésre kerül, mielőtt a visszakapott alakzatot felhasználnák.
 
 ```java
 import com.aspose.slides.*;
@@ -232,17 +234,17 @@ public class InheritedPlaceholderAnimations {
 
 ## **Animáció időzítésének módosítása**
 
-A PowerPoint **Timing** (Időzítés) párbeszédablaka a [ITiming](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/) tulajdonságaira vonatkozik.
+A PowerPoint **Timing** párbeszédablaka a [ITiming](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/) tulajdonságaira térképeződik.
 
 ![PowerPoint időzítési párbeszédablak egy animációs effektushoz](shape-animation.png)
 
-- **Start** a [ITiming.getTriggerType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#getTriggerType--) -re térképeződik.
-- **Duration** a [ITiming.getDuration](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#getDuration--) -re térképeződik, másodpercben.
-- **Delay** a [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--) -re térképeződik, másodpercben.
-- **Repeat** a [ITiming.getRepeatCount](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), vagy [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--) -re térképeződik.
-- **Rewind when done playing** a [ITiming.getRewind](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#getRewind--) -re térképeződik.
+- **Start** a [ITiming.getTriggerType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#getTriggerType--) értékére vonatkozik.
+- **Duration** a [ITiming.getDuration](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#getDuration--) értékét jelenti másodpercben.
+- **Delay** a [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--) értékét jelenti másodpercben.
+- **Repeat** a [ITiming.getRepeatCount](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#getRepeatCount--), a [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--) vagy a [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--) beállításokra vonatkozik.
+- **Rewind when done playing** a [ITiming.getRewind](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#getRewind--) értékét jelenti.
 
-Ez az önálló példa egy effektust ad hozzá, megváltoztatja annak időzítését az [ISequence.addEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) által visszaadott objektumon keresztül, és elmenti az eredményt. A visszakapott [IEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/) hivatkozás megtartása elkerüli a felesleges gyűjtemény index használatát.
+Ez a független példa egy effektust ad hozzá, a [ISequence.addEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) által visszaadott objektummal módosítja az időzítését, és elmenti az eredményt. A visszakapott [IEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/) hivatkozás megtartása elkerüli a felesleges gyűjtemény‑indexelést.
 
 ```java
 import com.aspose.slides.*;
@@ -272,15 +274,15 @@ public class ChangeAnimationTiming {
 }
 ```
 
-Használjon egy ismétlési módot szándékosan. A repeat count (ismétlésszám) kombinálása egy „until” (eddig) jelzővel különböző megjelenítőben zavaró eredményeket okozhat. Ismétlési módok módosításakor állítsa be a [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) és a [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) metódusokat a [ITiming.setRepeatCount](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-) előtt, mivel bármely jelző beállítása módosítja az aktív ismétlési módot.
+Használjon egy ismétlési módot szándékosan. Az ismétlésszám és egy „until” zászló együttes használata zavaró eredményeket okozhat különböző lejátszókban. Amikor ismétlési módokat változtat, állítsa be először a [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) és a [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) értékét, majd a [ITiming.setRepeatCount](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-) metódust, mivel bármelyik zászló beállítása automatikusan módosítja az aktív ismétlési módot.
 
 ## **Animációs hangok hozzáadása és kinyerése**
 
-Egy animációs effektus beágyazott hangra hivatkozhat a [IEffect.getSound](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/#getSound--) segítségével. A [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) azt mondja az effektusnak, hogy állítsa le az előző effektus által elindított hangot.
+Egy animációs effektus beágyazott audióra hivatkozhat a [IEffect.getSound](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/#getSound--) metódussal. A [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) megmondja egy effektusnak, hogy állítsa le az előző effektus által indított hangot.
 
 ### **Hang hozzáadása egy effektushoz**
 
-A következő példa egy `animation-sound.wav` nevű helyi hangfájlt vár. Két effektust hoz létre, az első effektus hangjaként beágyazza a fájlt, és a második effektust úgy konfigurálja, hogy leállítsa a hangot. A [ISequence.addEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) által visszaadott objektumokat használja, így nem szükséges szekvencia index.
+Az alábbi példa egy helyi `animation-sound.wav` nevű hangfájlt vár. Két effektust hoz létre, az első effektushoz beágyazza ezt a fájlt hangként, a második effektust pedig úgy konfigurálja, hogy leállítsa a hangot. A [ISequence.addEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) által visszaadott objektumokat használja, így nem szükséges sorozat‑indexet megadni.
 
 ```java
 import com.aspose.slides.*;
@@ -315,9 +317,9 @@ public class AddAnimationSound {
 }
 ```
 
-### **Beágyazott effektus hangok kinyerése**
+### **Beágyazott effektushangok kinyerése**
 
-A következő példa egy `presentation-with-animation-sounds.pptx` nevű helyi prezentációt vár. Átvizsgálja a fő és az interaktív szekvenciákat, és minden beágyazott effektus hangot a `extracted-animation-sounds` könyvtárba ír. A kiterjesztést az [IAudio.getContentType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iaudio/#getContentType--) által szolgáltatott audio MIME-típus alapján választja ki.
+Az alábbi példa egy helyi `presentation-with-animation-sounds.pptx` nevű prezentációt vár. Bejárja a fő és az interaktív sorozatokat, és minden beágyazott effektushangot a `extracted-animation-sounds` könyvtárba ír ki. A kiterjesztés a [IAudio.getContentType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iaudio/#getContentType--) által visszaadott audio MIME‑típus alapján kerül kiválasztásra.
 
 ```java
 import com.aspose.slides.*;
@@ -391,17 +393,17 @@ public class ExtractAnimationSounds {
 }
 ```
 
-Nagy audio objektumok esetén használja a [IAudio.getStream](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iaudio/#getStream--) metódust, és a streamet másolja egy fájlba a teljes objektum byte tömbbe töltése helyett.
+Nagy audio objektumok esetén használja a [IAudio.getStream](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iaudio/#getStream--) metódust, és másolja a streamet egy fájlba ahelyett, hogy az egész objektumot byte‑tömbbe töltené be.
 
-## **Animáció utáni viselkedés beállítása**
+## **Az animáció utáni viselkedés beállítása**
 
-Az **After animation** (Animáció után) opció szabályozza, mi történik egy alakzattal, miután az effektusa befejeződik.
+Az **After animation** beállítás szabályozza, mi történik egy alakzattal az effektus befejezése után.
 
-![PowerPoint effektus beállítások párbeszédablak mutatja az After animation beállításait](shape-after-animation.png)
+![PowerPoint effektusbeállítások párbeszédablak az After animation beállításokkal](shape-after-animation.png)
 
-Az [AfterAnimationType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/afteranimationtype/) osztály támogatja az alakzat változatlanul hagyását, színének módosítását, az animáció után elrejtését, vagy a következő kattintásnál való elrejtését. Ha a típus a [AfterAnimationType.Color](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/afteranimationtype/#Color), akkor állítsa be a [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--) értékét is.
+Az [AfterAnimationType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/afteranimationtype/) osztály támogatja a forma változatlan hagyását, a szín módosítását, a forma elrejtését az animáció után, vagy a következő kattintásra történő elrejtést. Ha a típus [AfterAnimationType.Color](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/afteranimationtype/#Color), akkor a [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--) is beállítható.
 
-Ez az önálló példa egy effektust hoz létre, beállítja annak animáció utáni viselkedését a visszakapott effektus objektumon keresztül, és elmenti az eredményt.
+Ez a független példa egy effektust hoz létre, a visszakapott effektusobjektummal beállítja az animáció utáni viselkedést, és elmenti az eredményt.
 
 ```java
 import com.aspose.slides.*;
@@ -427,16 +429,16 @@ public class SetAfterAnimationBehavior {
 }
 ```
 
-A [AfterAnimationType.Color](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/afteranimationtype/#Color) típusról való eltérés törli az animáció utáni szín beállítást.
+A típus [AfterAnimationType.Color](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/afteranimationtype/#Color)‑ról való eltávolítása törli az after‑animation színbeállítást.
 
 ## **Szöveg animálása**
 
 A szöveganimációnak két kapcsolódó vezérlése van:
 
-- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextanimation/#getBuildType--) szabályozza, hogy a bekezdések egyszerre vagy bekezdésenként jelenjenek meg.
-- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) szabályozza, hogy a szöveg egyszerre, szó szerint vagy betű szerint jelenjen meg. A [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) beállítja a szavak vagy betűk közötti késleltetést. A pozitív érték a effektus időtartamának százaléka; a negatív érték másodpercben megadott késleltetés.
+- A [ITextAnimation.getBuildType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextanimation/#getBuildType--) szabályozza, hogy a bekezdések egyszerre vagy bekezdésenként jelenjenek meg.
+- Az [IEffect.getAnimateTextType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) határozza meg, hogy a szöveg egyszerre, szó szerint vagy betű szerint jelenjen meg. A [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) a szavak vagy betűk közti késleltetést állítja be. A pozitív érték az effektus időtartamának százalékában, a negatív érték másodpercben megadott késleltetés.
 
-A következő önálló példa a szövegdoboz szavait animálja. A [BuildType.AsOneObject](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/buildtype/#AsOneObject) letiltja a bekezdésenkénti építést, így a szó beállítás a teljes szövegkeretre vonatkozik.
+Az alábbi független példa a szövegdoboz szavait animálja. A [BuildType.AsOneObject](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/buildtype/#AsOneObject) letiltja a bekezdésenkénti építést, így a szó‑beállítás az egész szövegkeretre vonatkozik.
 
 ```java
 import com.aspose.slides.*;
@@ -462,23 +464,26 @@ public class AnimateTextByWord {
 }
 ```
 
-A szövegdoboz bekezdésenkénti felépítéséhez állítsa be a [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (vagy más bekezdés szintet). Egyetlen bekezdés egyedi effektusának célzásához használja az [ISequence.addEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) túlterhelését, amely egy [IParagraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraph/) paramétert fogad. Lásd a [Animated Text](/slides/hu/androidjava/animated-text/) oldalt bekezdés-szintű példákért.
+A szövegdoboz bekezdésenkénti építéséhez állítsa be a [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (vagy másik bekezdés‑szint) értéket. Egyetlen bekezdéshez, saját effektussal, használja az [ISequence.addEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) túlterhelt változatát, amely egy [IParagraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraph/) objektumot fogad. Lásd az [Animated Text](/slides/hu/androidjava/animated-text/) oldalt a bekezdés‑szintű példákért.
 
-## **Exportálási és kompatibilitási megjegyzések**
+## **Exportálás és kompatibilitási megjegyzések**
 
-- A PPT vagy PPTX formátumba mentés megőrzi az animációs modellt, de a végső lejátszást a prezentáció megjelenítője szabályozza.
-- A PDF és a statikus képek nem játszanak animációt. Használjon [HTML5 export](/slides/hu/androidjava/export-to-html5/), animált GIF-et vagy [videó konverziót](/slides/hu/androidjava/convert-powerpoint-to-video/), ha a kimenetnek mozgást kell mutatnia.
-- HTML5 esetén engedélyezze a [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) és szükség esetén a [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) beállításait.
-- A videó renderelés sok általános belépési, hangsúlyozó, kilépési és mozgásúti effektust támogat, de nem minden PowerPoint effektus támogatott. Ellenőrizze a jelenlegi [supported animations and effects](/slides/hu/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) listát, és tesztelje a kritikus prezentációkat a cél Aspose.Slides verzióval.
-- A fejlett egyedi effektusok és más prezentációs formátumokból importált effektusok megmaradhatnak a fájlban, de másként jelennek meg PowerPointban, HTML5-ben vagy videóban. Ellenőrizze az exportált eredményt, ne csak az effektus nevére támaszkodjon.
+- PPT vagy PPTX mentése megőrzi az animációs modellt, de a végső lejátszást a prezentáció‑megtekintő szabályozza.
+- A PDF és a statikus képek nem játszanak le animációkat. Használjon [HTML5 export](/slides/hu/androidjava/export-to-html5/), animált GIF‑et vagy [videókonverziót](/slides/hu/androidjava/convert-powerpoint-to-video/), ha a kimenetnek mozgást kell mutatnia.
+- HTML5 esetén engedélyezze a [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) és szükség esetén a [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) beállításokat.
+- A videórenderelés sok gyakori belépő, hangsúlyozó, kilépő és mozgásútvonal‑effektust támogat, de nem minden PowerPoint‑effektus érhető el. Ellenőrizze az aktuális [támogatott animációkat és effektusokat](/slides/hu/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) és tesztelje a kritikus prezentációkat a cél Aspose.Slides verzióval.
+- Az egyedi hatások és más formátumokból importált hatások megmaradhatnak a fájlban, de PowerPoint‑ban, HTML5‑ben vagy videóban eltérően jelenhetnek meg. Ellenőrizze az exportált eredményt, ne csak a hatás nevét vegye alapul.
 
 ## **GYIK**
 
-**Miért jelenik meg egy animáció a PowerPointban, de nem a PDF-ben?**  
-A PDF statikus formátum, ezért az animációk és diaátmenetek nem játszódnak le. Exportáljon HTML5-re, animált GIF-re vagy videóra, ha a mozgást meg kell őrizni.
+**Miért jelenik meg egy animáció a PowerPointban, de nem a PDF‑ben?**
 
-**Miért játszódik le egy effektus másképp videóban?**  
-A videóexport animációkat renderel, nem a PowerPoint eredeti viselkedését tárolja. Néhány fejlett effektus nem támogatott vagy csak közelítőleg jelenik meg. Tekintse át a támogatott effektusok táblázatát, és tesztelje a tényleges prezentációt a gyártás előtt.
+A PDF egy statikus formátum, ezért az animációk és diaváltások nem játszhatók le. Exportáljon HTML5‑re, animált GIF‑re vagy videóra, ha a mozgást meg kell őrizni.
 
-**Az alakzat előre vagy hátra mozgatása megváltoztatja az animáció sorrendjét?**  
-Nem. Az alakzat z-rendje csak a rétegezést (átfedést) szabályozza, míg a szekvencia sorrend és a triggerek irányítják az animáció lejátszását. Módosítsa az idővonalat, ha más lejátszási sorrendre van szükség.
+**Miért játszódik le egy effektus másként egy videóban?**
+
+A videóexport animációkat renderel, a helyett, hogy az eredeti PowerPoint‑viselkedést tárolná. Néhány fejlett effektus nem támogatott vagy csak közelítően jelenik meg. Tekintse meg a támogatott‑effektus táblázatot és tesztelje a tényleges prezentációt a termelés előtt.
+
+**Megváltoztatja egy alakzat előre vagy hátra helyezése az animáció sorrendjét?**
+
+Nem. Az alakzat z‑rendje csak az átfedést szabályozza, míútt a sorozatrend és a triggerek az animáció lejátszását. Ha más lejátszási sorrendre van szükség, módosítsa az idővonalat.

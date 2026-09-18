@@ -10,13 +10,13 @@ keywords:
 - animatie wijzigen
 - animatie verwijderen
 - animatie beheren
-- animatie controleren
+- animatie regelen
 - animatie-effect
 - PowerPoint-animatie
 - animatie-tijdlijn
 - interactieve animatie
 - aangepaste animatie
-- vorm-animatie
+- vormanimatie
 - geanimeerde grafiek
 - geanimeerde tekst
 - geanimeerde vorm
@@ -28,26 +28,26 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Ontdek de mogelijkheden van Aspose.Slides for Android via Java voor het verwerken van PowerPoint-animaties. Dit algemene overzicht belicht de belangrijkste functies."
+description: "Ontdek de mogelijkheden van Aspose.Slides voor Android via Java bij het verwerken van PowerPoint-animaties. Dit algemene overzicht belicht de belangrijkste functies."
 ---
 ## **Introductie**
 
-Aangezien presentaties bedoeld zijn om iets te presenteren, wordt hun visuele uitstraling en interactieve gedrag altijd in overweging genomen bij het maken ervan.
+Aangezien presentaties bedoeld zijn om iets te presenteren, wordt hun visuele uiterlijk en interactieve gedrag altijd in rekening gebracht tijdens het maken.
 
-**PowerPoint-animatie** speelt een belangrijke rol om een presentatie opvallend en aantrekkelijk te maken voor de kijkers. Aspose.Slides for Android via Java biedt een breed scala aan opties om animatie toe te voegen aan een PowerPoint-presentatie:
+**PowerPoint-animatie** speelt een belangrijke rol bij het aantrekkelijk en boeiend maken van een presentatie voor de kijkers. Aspose.Slides biedt een breed scala aan opties om animaties toe te voegen aan PowerPoint‑presentaties:
 
-- doe verschillende soorten PowerPoint-animatie-effecten toe op vormen, diagrammen, tabellen, OLE-objecten en andere presentatie‑elementen.
-- gebruik meerdere PowerPoint-animatie-effecten op één vorm.
-- gebruik een animatietijdlijn om animatie‑effecten te beheren.
-- maak aangepaste animaties.
+- Pas verschillende soorten PowerPoint‑animatie‑effecten toe op vormen, grafieken, tabellen, OLE‑objecten en andere presentatie‑elementen.
+- Gebruik meerdere PowerPoint‑animatie‑effecten op één vorm.
+- Gebruik de animatietijdlijn om animatie‑effecten te regelen.
+- Maak aangepaste animaties.
 
-In Aspose.Slides for Android via Java kunnen diverse animatie‑effecten op de vormen worden toegepast. Aangezien elk element op de dia, inclusief tekst, afbeeldingen, OLE‑object, tabel enz., wordt beschouwd als een vorm, betekent dit dat we animatie‑effecten op elk element van een dia kunnen toepassen.
+In Aspose.Slides kunnen verschillende animatie‑effecten op vormen worden toegepast. Aangezien elk element op een dia, inclusief tekst, afbeeldingen, OLE‑objecten en tabellen, als een vorm wordt beschouwd, kunnen animatie‑effecten op elk element op de dia worden toegepast.
 
 ## **Animatie‑effecten**
 
-Aspose.Slides ondersteunt **meer dan 150 animatie‑effecten**, waaronder basis‑animatie‑effecten zoals Bounce, PathFootball, Zoom‑effect en specifieke animatie‑effecten zoals OLEObjectShow, OLEObjectOpen. Een volledige lijst van animatie‑effecten vind je in de **EffectType**‑enumeratie.
+Aspose.Slides ondersteunt **meer dan 150 animatie‑effecten**, waaronder basis­effecten zoals Bounce, PathFootball en Zoom, en specifieke effecten zoals OLEObjectShow en OLEObjectOpen. Een volledige lijst vindt u in de klasse [EffectType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/effecttype/).
 
-Bovendien kunnen deze animatie‑effecten in combinatie ermee worden gebruikt:
+Daarnaast kunnen deze animatie‑effecten in combinatie met de volgende gedragstypen worden gebruikt:
 
 - [ColorEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/CommandEffect)
@@ -60,56 +60,53 @@ Bovendien kunnen deze animatie‑effecten in combinatie ermee worden gebruikt:
 
 ## **Aangepaste animatie**
 
-Het is mogelijk om je eigen **aangepaste animaties** te maken in Aspose.Slides. Dit kan worden bereikt door verschillende gedragingen samen te voegen tot een nieuwe aangepaste animatie.
+Voor volledige Java‑voorbeelden die gedragingen en bewerkbare bewegingspaden maken, inspecteren en wijzigen, zie [Aangepaste animatie](/slides/nl/java/custom-animation/).
 
-[**Behavior**](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Behavior) is een bouwsteen van elk PowerPoint‑animatie‑effect. Alle animatie‑effecten bestaan eigenlijk uit een set van gedragingen die tot één strategie zijn samengevoegd. Je kunt gedragingen combineren tot een aangepaste animatie en deze vervolgens in andere presentaties hergebruiken. Als je een nieuwe gedraging toevoegt aan een standaard PowerPoint‑animatie‑effect, ontstaat er een andere aangepaste animatie. Bijvoorbeeld, je kunt een herhalings‑gedrag aan een animatie toevoegen zodat deze een paar keer wordt herhaald.
+Het is mogelijk om uw eigen **aangepaste animaties** te maken in Aspose.Slides. Dit kan worden bereikt door meerdere gedragingen te combineren tot een nieuwe aangepaste animatie.
 
-[**Animation Point**](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Point) is een punt waarop een gedrag moet worden toegepast.
+[Behavior](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/behavior/) is een bouwsteen van een PowerPoint‑animatie‑effect. Combineer gedragingen om een effect aan te passen, of voeg een gedrag toe om een vooraf gedefinieerd effect uit te breiden. Herhaling wordt geconfigureerd via timing‑instellingen in plaats van een apart herhaal‑gedrag.
 
-## **Animatie‑tijdlijn**
+[Animation Point](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/point/) is een punt waarop een gedrag moet worden toegepast.
 
-[**Sequence**](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Sequence) is een verzameling animatie‑effecten, toegepast op een specifieke vorm.
+## **Animatietijdlijn**
+[Sequence](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/sequence/) is een verzameling animatie‑effecten die verschillende vormen kunnen targeten.
 
-[**Timeline**](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/AnimationTimeLine) is een set van Sequences die in een specifieke dia worden gebruikt. Het is een animatie‑engine die bestaat sinds PowerPoint 2002. In eerdere PowerPoint‑versies was het moeilijk om animatie‑effecten aan een presentatie toe te voegen; dit kon alleen met verschillende workarounds. Timeline vervangt de oude AnimationSettings‑klasse en biedt een duidelijker object‑model voor PowerPoint‑animaties. Eén dia kan maar één animatie‑tijdlijn hebben.
+[Timeline](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/animationtimeline/) is een set van sequenties die in een specifieke dia worden gebruikt. Het is een animatie‑engine die werd geïntroduceerd in PowerPoint 2002. In eerdere versies van PowerPoint was het toevoegen van animatie‑effecten aan presentaties uitdagend en kon alleen worden bereikt met diverse workarounds. De tijdlijn biedt een duidelijker objectmodel voor PowerPoint‑animaties. Een dia kan slechts één animatietijdlijn bevatten.
 
 ## **Interactieve animatie**
+[Trigger](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/effecttriggertype/) stelt u in staat om gebruikersacties te definiëren, zoals een klik op een knop, die een bepaalde animatie starten.
 
-[**Trigger**](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/EffectTriggerType) maakt het mogelijk om gebruikersacties (bijv. klik op een knop) te definiëren die een bepaalde animatie starten. Triggers zijn alleen toegevoegd in de nieuwste PowerPoint‑versie.
+## **Vormanimatie**
+Aspose.Slides stelt u in staat om animaties toe te passen op vormen, die onder meer tekst, rechthoeken, lijnen, kaders, OLE‑objecten en meer kunnen bevatten.
 
-## **Vorm‑animatie**
-
-Aspose.Slides maakt het mogelijk om animatie toe te passen op vormen, die bijvoorbeeld tekst, rechthoek, lijn, frame, OLE‑object enz. kunnen zijn.
-
-{{% alert color="primary" %}} 
-Lees meer [**Over Vorm‑animatie**](/slides/nl/androidjava/shape-animation/).
+{{% alert color="info" title="Note" %}}
+Lees meer [**Over vormanimatie**](/slides/nl/androidjava/shape-animation/).
 {{% /alert %}}
 
 ## **Geanimeerde grafieken**
+Om geanimeerde grafieken te maken, moet u dezelfde klassen gebruiken als voor vormen. Echter, PowerPoint‑animaties kunnen alleen worden toegepast op grafiek‑categorieën of grafiek‑reeksen. U kunt ook animatie‑effecten toepassen op een categorie‑element of een serie‑element.
 
-Om geanimeerde grafieken te maken, moet je dezelfde klassen gebruiken als voor de vormen. Het is echter mogelijk om PowerPoint‑animatie alleen toe te passen op grafiek‑categorieën of grafiek‑reeksen. Je kunt ook een animatie‑effect toepassen op een categorie‑element of een reeks‑element.
-
-{{% alert color="primary" %}} 
-Lees meer [**Over Geanimeerde grafieken**](/slides/nl/androidjava/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Lees meer [**Over geanimeerde grafieken**](/slides/nl/androidjava/animated-charts/).
 {{% /alert %}}
 
 ## **Geanimeerde tekst**
+Naast het animeren van tekst kunt u ook animatie toepassen op een alinea.
 
-Naast geanimeerde tekst is het ook mogelijk om animatie toe te passen op een alinea.
-
-{{% alert color="primary" %}} 
-Lees meer [**Over Geanimeerde tekst**](/slides/nl/androidjava/animated-text/).
+{{% alert color="info" title="Note" %}}
+Lees meer [**Over geanimeerde tekst**](/slides/nl/androidjava/animated-text/).
 {{% /alert %}}
 
 ## **FAQ**
 
 **Worden animaties behouden bij exporteren naar PDF?**
 
-Nee. PDF is een statisch formaat, dus animaties en [slide transitions](/slides/nl/androidjava/slide-transition/) worden niet afgespeeld. Als je beweging nodig hebt, exporteer dan naar [HTML5](/slides/nl/androidjava/export-to-html5/), [animated GIF](/slides/nl/androidjava/convert-powerpoint-to-animated-gif/), of [video](/slides/nl/androidjava/convert-powerpoint-to-video/) in plaats daarvan.
+Nee. PDF is een statisch formaat, dus animaties en [dia‑overgangen](/slides/nl/androidjava/slide-transition/) worden niet afgespeeld. Als u beweging nodig hebt, exporteer dan naar [HTML5](/slides/nl/androidjava/export-to-html5/), [geanimeerde GIF](/slides/nl/androidjava/convert-powerpoint-to-animated-gif/), of [video](/slides/nl/androidjava/convert-powerpoint-to-video/) in plaats daarvan.
 
-**Kan ik een geanimeerde presentatie omzetten naar een video en de framesnelheid en framegrootte regelen?**
+**Kan ik een geanimeerde presentatie omzetten naar een video en de framesnelheid en frame‑grootte bepalen?**
 
-Ja. Je kunt de presentatie [renderen als frames](/slides/nl/androidjava/convert-powerpoint-to-video/) en deze coderen naar een video (bijv. via ffmpeg), waarbij je FPS en resolutie kiest. Animaties en slide transitions worden tijdens het renderen afgespeeld.
+Ja. U kunt de presentatie [renderen als afzonderlijke frames](/slides/nl/androidjava/convert-powerpoint-to-video/) en deze coderen tot een video (bijv. via ffmpeg), waarbij u de fps en resolutie kiest. Animaties en dia‑overgangen worden afgespeeld tijdens het renderen.
 
 **Blijven animaties behouden bij het werken met ODP (niet alleen PPTX)?**
 
-PPT, PPTX en ODP worden ondersteund voor [lezen](/slides/nl/androidjava/open-presentation/) en [schrijven](/slides/nl/androidjava/save-presentation/), maar formatverschillen kunnen ertoe leiden dat bepaalde effecten er iets anders uitzien of zich iets anders gedragen. Controleer kritieke gevallen met echte voorbeelden.
+PPT, PPTX en ODP worden ondersteund voor [lezen](/slides/nl/androidjava/open-presentation/) en [schrijven](/slides/nl/androidjava/save-presentation/), maar dit garandeert niet dat animaties behouden blijven. Aangepaste animatie‑gegevens kunnen verloren gaan bij conversie naar ODP. Zie [Aangepaste animatie voor Java](/slides/nl/java/custom-animation/) voor voorbeelden en richtlijnen om de compatibiliteit van het formaat te controleren.

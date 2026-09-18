@@ -20,28 +20,28 @@ keywords:
 - 애니메이션 차트
 - 애니메이션 텍스트
 - 애니메이션 도형
-- 애니메이션 OLE 개체
+- 애니메이션 OLE 객체
 - 애니메이션 이미지
 - 애니메이션 표
 - PowerPoint 프레젠테이션
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET이 PowerPoint 애니메이션을 처리하는 기능을 살펴보세요. 이 일반 개요에서는 주요 기능을 강조하고 프레젠테이션을 향상시키기 위한 통찰을 제공합니다."
+description: "Aspose.Slides for Python via .NET이 PowerPoint 애니메이션을 처리하는 기능을 살펴보세요. 이 일반 개요는 주요 기능을 강조하고 프레젠테이션을 향상시키기 위한 인사이트를 제공합니다."
 ---
 ## **소개**
 
-프레젠테이션은 정보를 전달하기 위해 설계되므로 시각적 모습과 인터랙티브 동작이 핵심 고려 사항입니다.
+프레젠테이션은 정보를 전달하도록 설계되었으며, 따라서 시각적 외관과 상호 작용 동작이 제작 시 핵심 고려 사항입니다.
 
-**PowerPoint 애니메이션**은 프레젠테이션을 눈에 띄고 흥미롭게 만드는 중요한 역할을 합니다. Aspose.Slides for Python via .NET은 PowerPoint 프레젠테이션에 애니메이션을 추가할 수 있는 다양한 옵션을 제공합니다. 다음을 수행할 수 있습니다:
+**PowerPoint 애니메이션**은 프레젠테이션을 눈에 띄고 관객에게 매력적으로 만드는 데 중요한 역할을 합니다. Aspose.Slides for Python via .NET은 PowerPoint 프레젠테이션에 애니메이션을 추가할 수 있는 다양한 옵션을 제공합니다. 다음을 수행할 수 있습니다:
 
 - 도형, 차트, 표, OLE 개체 및 기타 요소에 다양한 애니메이션 효과 적용
 - 하나의 도형에 여러 애니메이션 효과 적용
 - 애니메이션 타임라인을 통해 효과 제어
 - 사용자 정의 애니메이션 생성
 
-Aspose.Slides for Python via .NET에서는 도형에 애니메이션 효과를 적용할 수 있습니다. 슬라이드의 모든 요소—텍스트, 그림, OLE 개체, 표—가 도형으로 취급되기 때문에 슬라이드의 어떤 요소에도 애니메이션 효과를 적용할 수 있습니다.
+Aspose.Slides for Python via .NET에서는 도형에 애니메이션 효과를 적용할 수 있습니다. 슬라이드의 모든 요소—텍스트, 그림, OLE 개체, 표—는 도형으로 간주되므로 슬라이드의 어느 요소에도 애니메이션 효과를 적용할 수 있습니다.
 
-[aspose.slides.animation](https://reference.aspose.com/slides/ko/python-net/aspose.slides.animation/) 네임스페이스는 PowerPoint 애니메이션을 다루는 클래스를 제공합니다.
+[aspose.slides.animation](https://reference.aspose.com/slides/ko/python-net/aspose.slides.animation/) 네임스페이스는 PowerPoint 애니메이션 작업을 위한 클래스를 제공합니다.
 
 ## **설치**
 
@@ -51,7 +51,7 @@ pip install aspose.slides
 
 ## **Python에서 도형에 애니메이션 효과 추가**
 
-애니메이션 효과는 슬라이드의 메인 시퀀스에 존재합니다. 도형을 추가한 다음 `slide.timeline.main_sequence`의 `add_effect`를 호출하고, 효과 유형, 하위 유형, 트리거를 전달합니다.
+애니메이션 효과는 슬라이드의 메인 시퀀스에 존재합니다. 도형을 추가한 다음 `slide.timeline.main_sequence`에서 `add_effect`를 호출하고, 효과 유형, 서브 유형 및 트리거를 전달합니다.
 
 ```python
 import aspose.slides as slides
@@ -73,11 +73,11 @@ with slides.Presentation() as presentation:
     presentation.save("animated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-저장된 파일에는 첫 번째 슬라이드에 하나의 효과가 포함됩니다: 사각형이 왼쪽에서 날아와 2초 동안 표시되고 발표자가 클릭하면 재생됩니다. 파일을 다시 열어 `slide.timeline.main_sequence`를 읽으면 해당 효과가 반환되므로, 애니메이션은 메모리에서만 존재하지 않고 라운드 트립을 통해 유지됩니다.
+저장된 파일에는 첫 번째 슬라이드에 하나의 효과가 포함됩니다: 사각형이 왼쪽에서 2초 동안 날아오와 발표자가 클릭할 때 재생됩니다. 파일을 다시 열어 `slide.timeline.main_sequence`를 읽으면 해당 효과가 반환되므로, 애니메이션은 메모리 내에만 존재하지 않고 라운드 트립을 통해 유지됩니다.
 
 ## **애니메이션 효과**
 
-Aspose.Slides는 **150개 이상의 애니메이션 효과**를 지원합니다. Bounce, PathFootball, Zoom과 같은 기본 효과는 물론 OLEObjectShow, OLEObjectOpen과 같은 특수 효과도 포함됩니다. 전체 목록은 [EffectType](https://reference.aspose.com/slides/ko/python-net/aspose.slides.animation/effecttype/) 열거형에서 확인할 수 있습니다.
+Aspose.Slides는 **150개 이상의 애니메이션 효과**를 지원합니다. 여기에는 Bounce, PathFootball, Zoom과 같은 기본 효과와 OLEObjectShow, OLEObjectOpen과 같은 특수 효과가 포함됩니다. 전체 목록은 [EffectType](https://reference.aspose.com/slides/ko/python-net/aspose.slides.animation/effecttype/) 열거형에서 확인할 수 있습니다.
 
 또한 다음 효과와 결합하여 사용할 수 있습니다:
 
@@ -92,56 +92,58 @@ Aspose.Slides는 **150개 이상의 애니메이션 효과**를 지원합니다.
 
 ## **사용자 정의 애니메이션**
 
-여러 동작을 하나의 효과로 결합하여 **사용자 정의 애니메이션**을 만들 수 있습니다.
+전체 Python 예제(생성, 검사 및 동작 및 편집 가능한 모션 경로 수정)는 [Custom Animation](/slides/ko/python-net/custom-animation/)를 참조하십시오.
 
-[Behavior](https://reference.aspose.com/slides/ko/python-net/aspose.slides.animation/behavior/)은 모든 PowerPoint 애니메이션 효과의 기본 빌딩 블록입니다. 각 애니메이션 효과는 본질적으로 하나의 전략이나 타임라인에 배치된 동작 집합입니다. 동작을 한 번 조합해 사용자 정의 애니메이션을 만든 뒤 다른 프레젠테이션에서 재사용할 수 있습니다. 표준 PowerPoint 애니메이션에 새 동작을 추가하면 사용자 정의 애니메이션이 됩니다—예를 들어 반복 동작을 추가해 애니메이션을 여러 번 재생하도록 할 수 있습니다.
+Aspose.Slides에서 **사용자 정의 애니메이션**을 만들려면 여러 동작을 단일 효과로 결합하면 됩니다.
 
-[Animation Point](https://reference.aspose.com/slides/ko/python-net/aspose.slides.animation/point/)은 동작이 적용되는 순간이나 위치(키프레임)를 표시합니다.
+[Behavior](https://reference.aspose.com/slides/ko/python-net/aspose.slides.animation/behavior/)은 PowerPoint 애니메이션 효과의 구성 요소입니다. 동작을 결합하여 효과를 맞춤화하거나, 미리 정의된 효과를 확장하기 위해 동작을 추가합니다. 반복은 별도의 반복 동작이 아니라 타이밍 설정을 통해 구성됩니다.
+
+[Animation Point](https://reference.aspose.com/slides/ko/python-net/aspose.slides.animation/point/)은 동작이 적용되는 순간 또는 위치(키프레임)를 나타냅니다.
 
 ## **애니메이션 타임라인**
 
-[Sequence](https://reference.aspose.com/slides/ko/python-net/aspose.slides.animation/sequence/)은 특정 도형에 적용되는 애니메이션 효과들의 컬렉션입니다.
+[Sequence](https://reference.aspose.com/slides/ko/python-net/aspose.slides.animation/sequence/)은 서로 다른 도형을 대상으로 할 수 있는 애니메이션 효과의 컬렉션입니다.
 
-[Timeline](https://reference.aspose.com/slides/ko/python-net/aspose.slides.animation/animationtimeline/)은 특정 슬라이드에서 사용되는 시퀀스 집합입니다. PowerPoint 2002에서 도입되었습니다. 이전 버전에서는 애니메이션 효과를 추가하기가 어려웠고 종종 우회 방법이 필요했습니다. Timeline은 기존 `AnimationSettings` 클래스를 대체하고 PowerPoint 애니메이션을 위한 더 명확한 객체 모델을 제공합니다. 각 슬라이드에는 하나의 애니메이션 타임라인만 존재할 수 있습니다.
+[Timeline](https://reference.aspose.com/slides/ko/python-net/aspose.slides.animation/animationtimeline/)은 특정 슬라이드에서 사용되는 시퀀스 집합입니다. PowerPoint 2002에서 도입되었으며, 이전 버전에서는 애니메이션 효과 추가가 어렵고 종종 우회 방법이 필요했습니다. 타임라인은 이전 `AnimationSettings` 클래스를 대체하고 PowerPoint 애니메이션에 대한 더 명확한 객체 모델을 제공합니다. 각 슬라이드에는 하나의 애니메이션 타임라인만 존재할 수 있습니다.
 
-## **상호 작용 애니메이션**
+## **인터랙티브 애니메이션**
 
-[Trigger](https://reference.aspose.com/slides/ko/python-net/aspose.slides.animation/effecttriggertype/)를 사용하면 사용자 동작(예: 버튼 클릭)으로 특정 애니메이션을 시작하도록 정의할 수 있습니다. 트리거는 최신 버전의 PowerPoint에서만 추가되었습니다.
+[Trigger](https://reference.aspose.com/slides/ko/python-net/aspose.slides.animation/effecttriggertype/)를 사용하면 사용자가 수행하는 동작(예: 버튼 클릭)으로 특정 애니메이션을 시작하도록 정의할 수 있습니다. 트리거는 최신 버전의 PowerPoint에만 추가되었습니다.
 
 ## **도형 애니메이션**
 
 Aspose.Slides를 사용하면 텍스트, 사각형, 선, 프레임, OLE 개체 등 다양한 도형에 애니메이션을 적용할 수 있습니다.
 
-{{% alert color="primary" %}}
-More reading [**About Shape Animation**](/slides/ko/python-net/shape-animation/).
+{{% alert color="info" title="Note" %}}
+자세히 읽기 [**About Shape Animation**](/slides/ko/python-net/shape-animation/).
 {{% /alert %}}
 
 ## **애니메이션 차트**
 
-애니메이션 차트를 만들려면 도형에 사용하는 것과 동일한 클래스를 사용합니다. 단, PowerPoint 애니메이션은 차트 카테고리 또는 차트 시리즈에만 적용될 수 있습니다. 개별 카테고리 요소나 시리즈 요소에도 애니메이션 효과를 적용할 수 있습니다.
+애니메이션 차트를 만들려면 도형에 사용하는 것과 동일한 클래스를 사용합니다. 단, PowerPoint 애니메이션은 차트 범주 또는 차트 시리즈에만 적용할 수 있습니다. 또한 개별 범주 요소나 시리즈 요소에도 애니메이션 효과를 적용할 수 있습니다.
 
-{{% alert color="primary" %}}
-More reading [**About Animated Charts**](/slides/ko/python-net/animated-charts/).
+{{% alert color="info" title="Note" %}}
+자세히 읽기 [**About Animated Charts**](/slides/ko/python-net/animated-charts/).
 {{% /alert %}}
 
 ## **애니메이션 텍스트**
 
 텍스트를 애니메이션하는 것 외에도 단락에 애니메이션을 적용할 수 있습니다.
 
-{{% alert color="primary" %}}
-More reading [**About Animated Text**](/slides/ko/python-net/animated-text/).
+{{% alert color="info" title="Note" %}}
+자세히 읽기 [**About Animated Text**](/slides/ko/python-net/animated-text/).
 {{% /alert %}}
 
 ## **FAQ**
 
-### PDF로 내보낼 때 애니메이션이 유지되나요?
+**Will animations be preserved when exporting to PDF?**
 
-아니요. PDF는 정적 형식이므로 애니메이션과 [슬라이드 전환](/slides/ko/python-net/slide-transition/)이 재생되지 않습니다. 움직임이 필요하면 [HTML5](/slides/ko/python-net/export-to-html5/), [animated GIF](/slides/ko/python-net/convert-powerpoint-to-animated-gif/), 또는 [비디오](/slides/ko/python-net/convert-powerpoint-to-video/)로 내보내세요.
+아니요. PDF는 정적인 형식이므로 애니메이션과 [슬라이드 전환](/slides/ko/python-net/slide-transition/)이 재생되지 않습니다. 움직임이 필요하면 [HTML5](/slides/ko/python-net/export-to-html5/), [animated GIF](/slides/ko/python-net/convert-powerpoint-to-animated-gif/), 또는 [비디오](/slides/ko/python-net/convert-powerpoint-to-video/)로 내보내십시오.
 
-### 애니메이션 프레젠테이션을 비디오로 변환하고 프레임 레이트와 프레임 크기를 제어할 수 있나요?
+**Can I turn an animated presentation into a video and control the frame rate and frame size?**
 
-네. 프레젠테이션을 프레임으로 [렌더링](/slides/ko/python-net/convert-powerpoint-to-video/)한 뒤 ffmpeg 등으로 비디오를 인코딩하면서 FPS와 해상도를 선택할 수 있습니다. 렌더링 과정에서 애니메이션과 슬라이드 전환이 재생됩니다.
+예. 프레젠테이션을 프레임으로 [렌더링](/slides/ko/python-net/convert-powerpoint-to-video/)하고 ffmpeg 등으로 비디오로 인코딩하면서 FPS와 해상도를 선택할 수 있습니다. 렌더링 중에 애니메이션과 슬라이드 전환이 재생됩니다.
 
-### ODP(단순히 PPTX가 아니라)와 작업할 때도 애니메이션이 그대로 유지되나요?
+**Will animations remain intact when working with ODP (not just PPTX)?**
 
-PPT, PPTX, ODP는 [읽기](/slides/ko/python-net/open-presentation/) 및 [쓰기](/slides/ko/python-net/save-presentation/)를 지원하지만, 포맷 차이로 인해 일부 효과가 약간 다르게 보이거나 동작할 수 있습니다. 중요한 경우 실제 샘플로 검증하세요.
+PPT, PPTX 및 ODP는 [읽기](/slides/ko/python-net/open-presentation/)와 [쓰기](/slides/ko/python-net/save-presentation/)를 지원하지만 애니메이션 보존이 보장되지 않습니다. ODP로 변환할 때 사용자 정의 애니메이션 데이터가 손실될 수 있습니다. 형식 호환성을 확인하는 방법은 [Custom Animation](/slides/ko/python-net/custom-animation/) 예제를 참고하십시오.

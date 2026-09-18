@@ -1,6 +1,6 @@
 ---
 title: Alakzatanimációk alkalmazása prezentációkban JavaScript használatával
-linktitle: Alakzatanimáció
+linktitle: Alakzat animáció
 type: docs
 weight: 60
 url: /hu/nodejs-java/shape-animation/
@@ -23,24 +23,26 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ismerje meg, hogyan lehet hozzáadni, ellenőrizni és testre szabni az alakzatanimációkat, az időzítést, a hangokat, az animáció utáni viselkedést és az animált szöveget az Aspose.Slides for Node.js via Java segítségével."
+description: "Tanulja meg, hogyan adhat hozzá, vizsgálhat és testreszabhat alakzatanimációkat, időzítést, hangokat, az animáció utáni viselkedést és animált szöveget az Aspose.Slides for Node.js Java segítségével."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for Node.js via Java a diavetítéseken a slide animációkat effektusokként jeleníti meg egy dia idővonalában. Egy effektusnak van célforma, animáció típusa és altípusa, egy trigger, időzítési beállítások, valamint opcionális tulajdonságai, mint például hang vagy az animáció utáni viselkedés.
+Az effektusokon belüli egyedi viselkedések kezeléséhez vagy a mozgásút-szegmensek szerkesztéséhez lásd a [Custom Animation](/slides/hu/nodejs-java/custom-animation/) oldalt.
 
-Az idővonal kétféle sorozatot tartalmaz:
+Az Aspose.Slides for Node.js via Java a diavetítéseket animációs effektusokként jeleníti meg a diák idővonalán. Egy effektus rendelkezik célobjektummal, animáció típusával és altípusával, aktiválóval, időzítési beállításokkal, valamint opcionális tulajdonságokkal, például hanggal vagy az animáció utáni viselkedéssel.
 
-- A **fő sorozat** játszódik le, amikor a dia előrehalad.
-- Egy **interaktív sorozat** akkor indul, amikor a hozzá tartozó trigger forma rákattintanak.
+Az idővonal kétféle szekvenciát tartalmaz:
 
-Mivel a szövegdobozok, képek, diagramok, táblázatok és egyéb diaobjektumok [Shape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/) objektumok, ugyanazt a [Sequence.addEffect](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sequence/#addEffect) metódust használja a legtöbb diatartalomhoz. A rendelkezésre álló effektusok a [EffectType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effecttype/) felsorolásban találhatók.
+- A **main sequence** a dia előrehaladtával játszódik le.
+- Egy **interactive sequence** akkor indul, amikor a hozzá tartozó aktiváló alakzatot rákattintják.
+
+Mivel a szövegdobozok, képek, diagramok, táblázatok és egyéb diaelemek [Shape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/) objektumok, ezért a legtöbb dia tartalomhoz ugyanazt a [Sequence.addEffect](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sequence/#addEffect) metódust használjuk. A rendelkezésre álló effektusok a [EffectType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effecttype/) felsorolásban találhatók.
 
 ## **Alakzatanimációk hozzáadása**
 
-Az animáció hozzáadásához szerezze meg a dia fő sorozatát, és hívja meg a [Sequence.addEffect](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sequence/#addEffect) metódust a célformával, az effektus típusával, altípusával és triggerrel. Olyan efektushoz, amely egy másik forma kattintásakor indul, hozzon létre egy interaktív sorozatot, amelynek triggerje ez a másik forma.
+Animáció hozzáadásához szerezze be a dia fő szekvenciáját, és hívja meg a [Sequence.addEffect](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sequence/#addEffect) metódust a célalakzattal, effektustípussal, altípussal és aktiválóval. Ha egy effektusnak egy másik alakzat kattintásakor kell elindulnia, hozzon létre egy interaktív szekvenciát, amelynek aktiválója ez a másik alakzat.
 
-Az alábbi példa mindkét típusú animációt létrehozza, és a `shape-animations.pptx` fájlba menti az eredményt.
+Az alábbi példában mindkét típusú animációt létrehozzuk, és az eredményt a `shape-animations.pptx` fájlba mentjük.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -69,19 +71,19 @@ try {
 }
 ```
 
-A trigger szabályozza, mikor indul egy effektus:
+Az aktiváló szabályozza, hogy mikor indul egy effektus:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effecttriggertype/#OnClick) egy kattintásra vár a fő sorozatban, vagy a trigger forma kattintására egy interaktív sorozatban.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effecttriggertype/#OnClick) a fő szekvenciában egy kattintásra, vagy egy interaktív szekvenciában a aktiváló alakzatra vár.
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) az előző effektussal együtt indul.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) az előző effektus befejeződésekor indul.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) az előző effektus befejeződésekor kezdődik.
 
-Kép, diagram vagy más forma animálásához adja át azt az objektumot a [Sequence.addEffect](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sequence/#addEffect) metódusnak a `targetShape` helyett. Diagram-specifikus csoportosítási lehetőségekért tekintse meg a [Animated Charts](/slides/hu/nodejs-java/animated-charts/) oldalt.
+Kép, diagram vagy más alakzat animálásához adja át azt az objektumot a [Sequence.addEffect](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sequence/#addEffect) metódusnak a `targetShape` helyett. Diagram-specifikus csoportosítási lehetőségekért lásd az [Animated Charts](/slides/hu/nodejs-java/animated-charts/) oldalt.
 
 ## **Alakzatanimációk olvasása**
 
-Használja a [Sequence.getEffectsByShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sequence/#getEffectsByShape) metódust, ha ismeri a célformát. Minden effektus megtekintéséhez enumerálja a fő sorozatot és minden interaktív sorozatot. Az enumerálás megakadályozza, hogy feltételezze, egy sorozat tartalmaz effektust a `0` indexen.
+Ha ismeri a célalakzatot, használja a [Sequence.getEffectsByShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sequence/#getEffectsByShape) metódust. Minden effektus megtekintéséhez sorolja fel a fő szekvenciát és minden interaktív szekvenciát. Az enumerálás elkerüli azt a feltételezést, hogy egy szekvenciában index `0`‑nál szerepel egy effektus.
 
-Az alábbi példa egy formát hoz létre fő‑sorozati és interaktív effektusokkal, lekéri a formát célozó effektusokat, majd minden sorozatot enumerál a dián.
+Az alábbi példában egy alakzatot hozunk létre fő szekvenciás és interaktív effektusokkal, lekérjük az alakzatra irányuló effektusokat, majd felsoroljuk a dia összes szekvenciáját.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -140,21 +142,21 @@ try {
 }
 ```
 
-Ha csak egy forma effektusaira van szüksége, először azonosítsa a formát név, helyőrző típus vagy más stabil tulajdonság alapján; ezután hívja meg a [Sequence.getEffectsByShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sequence/#getEffectsByShape) metódust. Ne feltételezze, hogy a [ShapeCollection.get_Item](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/#get_Item) a `0` indexen mindig a kívánt objektum.
+Ha csak egy alakzatra van szüksége, először azonosítsa az alakzatot név, helykitöltő típusa vagy más stabil tulajdonság alapján; majd hívja meg a [Sequence.getEffectsByShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sequence/#getEffectsByShape) metódust. Ne feltételezze, hogy a [ShapeCollection.get_Item](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/#get_Item) a `0`‑s indexen mindig a kívánt objektum.
 
-## **Örökölt helyőrző effektusok kezelése**
+## **Az örökölt helykitöltő effektusok használata**
 
-Egy normál dián lévő helyőrző örökölheti az animációs viselkedést a megfelelő helyőrzőtől a diaelrendezésen és a mesterdián. A [Shape.getBasePlaceholder](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/#getBasePlaceholder) visszaadja ezt a szülőhelyőrzőt, vagy `null`‑t, ha nincs szülő.
+Egy szokásos dián lévő helykitöltő örökölheti az animációs viselkedést a hozzá tartozó helykitöltőből az elrendezés diákról és a mester diáról. A [Shape.getBasePlaceholder](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/#getBasePlaceholder) visszaadja azt a szülőhelykitöltőt, vagy `null`‑t, ha nincs szülő.
 
-Az alábbi példaprezentációban a lábléc **Random Bars** effektust kap a normál dián, **Split**‑et az elrendezés dián, és **Fly In**‑t a mester dián.
+Az alábbi példaprezentációban a lábléc **Random Bars** animációt tartalmaz a szokásos dián, **Split**‑et az elrendezés dián, és **Fly In**‑t a mester dián.
 
-![Lábléc animációs effektus a normál dián](slide-shape-animation.png)
+![Lábléc animációs effektus a szokásos dián](slide-shape-animation.png)
 
-![Lábléc helyőrző animációs effektus az elrendezés dián](layout-shape-animation.png)
+![Lábléc helykitöltő animációs effektus az elrendezés dián](layout-shape-animation.png)
 
-![Lábléc helyőrző animációs effektus a mester dián](master-shape-animation.png)
+![Lábléc helykitöltő animációs effektus a mester dián](master-shape-animation.png)
 
-A következő példa egy új prezentáció helyőrzőhierarchiáját használja. Effektusokat ad egy mester helyőrzőhöz, egy elrendezés helyőrzőhöz és a megfelelő helyőrzőhöz a normál dián. Minden meghívás előtt ellenőrzi a [Shape.getBasePlaceholder](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/#getBasePlaceholder) visszatérési értékét.
+A következő példa egy új prezentáció helykitöltő hierarchiáját használja. Effektusokat ad egy mester helykitöltőhöz, egy elrendezés helykitöltőhöz és a megfelelő helykitöltőhöz a szokásos dián. Minden [Shape.getBasePlaceholder](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/#getBasePlaceholder) hívás előtt ellenőrzik a visszakapott alakzatot.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -240,17 +242,17 @@ try {
 
 ## **Animáció időzítésének módosítása**
 
-A PowerPoint **Timing** párbeszédablaka a [Timing](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/) tulajdonságaira leképeződik.
+A PowerPoint **Timing** párbeszédablaka a [Timing](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/) tulajdonságaira térképeződik.
 
-![PowerPoint Időzítés párbeszédablak egy animációs effektushoz](shape-animation.png)
+![PowerPoint Időzítés párbeszédablaka egy animációs effektushoz](shape-animation.png)
 
-- **Indítás** a [Timing.getTriggerType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#getTriggerType) értékre tér vissza.
-- **Időtartam** a [Timing.getDuration](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#getDuration) értékre tér vissza, másodpercben.
-- **Késleltetés** a [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#getTriggerDelayTime) értékre tér vissza, másodpercben.
-- **Ismétlés** a [Timing.getRepeatCount](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) vagy [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide) értékekre tér vissza.
-- **Visszatekerés a lejátszás befejezése után** a [Timing.getRewind](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#getRewind) értékére tér vissza.
+- **Start** a [Timing.getTriggerType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#getTriggerType) metódusra térképeződik.
+- **Duration** a [Timing.getDuration](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#getDuration) metódusra térképeződik, másodpercben.
+- **Delay** a [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#getTriggerDelayTime) metódusra térképeződik, másodpercben.
+- **Repeat** a [Timing.getRepeatCount](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) vagy [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide) metódusokra térképeződik.
+- **Rewind when done playing** a [Timing.getRewind](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#getRewind) metódusra térképeződik.
 
-Ez a különálló példa hozzáad egy effektust, módosítja annak időzítését a [Sequence.addEffect](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sequence/#addEffect) által visszaadott objektumon keresztül, majd elmenti az eredményt. A visszakapott [Effect](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effect/) hivatkozás megtartása elkerüli a felesleges gyűjtemény index használatát.
+Ez a független példa egy effektust ad hozzá, a [Sequence.addEffect](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sequence/#addEffect) által visszaadott objektumon keresztül megváltoztatja annak időzítését, majd menti az eredményt. A visszakapott [Effect](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effect/) hivatkozás megtartása elkerüli a felesleges gyűjtemény indexelést.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -277,15 +279,15 @@ try {
 }
 ```
 
-Használjon egy ismétlési módot szándékosan. Egy ismétlésszám kombinálása egy „until” jelzővel zavaró eredményeket okozhat különböző megjelenítőkben. Ismétlési módok módosításakor állítsa be a [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) és a [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) értékeket a [Timing.setRepeatCount](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#setRepeatCount) előtt, mivel bármely jelző beállítása megváltoztatja az aktív ismétlési módot.
+Használjon szándékosan egy ismétlési módot. Az ismétlési szám és egy "until" jelző kombinálása zavaró eredményeket okozhat különböző megjelenítőkben. Ismétlési módok módosításakor először állítsa be a [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) és a [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) metódusokat, majd a [Timing.setRepeatCount](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/timing/#setRepeatCount)‑t, mivel bármely jelző beállítása is módosítja az aktív ismétlési módot.
 
 ## **Animációs hangok hozzáadása és kinyerése**
 
-Egy animációs effektus hivatkozhat beágyazott hangra a [Effect.getSound](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effect/#getSound) segítségével. A [Effect.setStopPreviousSound](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effect/#setStopPreviousSound) azt mondja az effektusnak, hogy állítsa le az előző effektus által indított hangot.
+Egy animációs effektus beágyazott hangot hivatkozhat a [Effect.getSound](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effect/#getSound) segítségével. A [Effect.setStopPreviousSound](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effect/#setStopPreviousSound) megmondja az effektusnak, hogy állítsa le a korábbi effektus által elindított hangot.
 
-### **Effektushoz hang hozzáadása**
+### **Hang hozzáadása egy effektushoz**
 
-Az alábbi példa egy helyi `animation-sound.wav` hangfájlt vár. Két effektust hoz létre, az elsőhez beágyazza a fájlt hangként, a másodikat úgy konfigurálja, hogy leállítsa a hangot. A [Sequence.addEffect](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sequence/#addEffect) által visszaadott objektumokat használja, így nincs szükség sorozat indexre.
+Az alábbi példában egy helyi `animation-sound.wav` nevű hangfájlra van szükség. Két effektust hoz létre, az első effektus hangjaként beágyazza ezt a fájlt, a második effektust úgy állítja be, hogy leállítsa a hangot. A [Sequence.addEffect](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sequence/#addEffect) által visszaadott objektumokat használja, így nincs szükség szekvencia indexre.
 
 ```javascript
 const fs = require("fs");
@@ -317,7 +319,7 @@ try {
 
 ### **Beágyazott effektus hangok kinyerése**
 
-Az alábbi példa egy helyi `presentation-with-animation-sounds.pptx` prezentációt vár. Mind a fő, mind az interaktív sorozatot átvizsgálja, és minden beágyazott effektushangot a `extracted-animation-sounds` könyvtárba ír. A kiterjesztés a [Audio.getContentType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audio/#getContentType) által visszaadott audio MIME típus alapján kerül kiválasztásra.
+Az alábbi példában egy helyi `presentation-with-animation-sounds.pptx` nevű prezentációra van szükség. A fő és interaktív szekvenciákat átvizsgálja, és minden beágyazott effektus hangot a `extracted-animation-sounds` könyvtárba ír. A kiterjesztést a [Audio.getContentType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audio/#getContentType) által megadott audio MIME típus alapján választja.
 
 ```javascript
 const fs = require("fs");
@@ -386,17 +388,17 @@ try {
 }
 ```
 
-Nagy audio objektumok esetén használja a [Audio.getStream](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audio/#getStream) metódust, és másolja a streamet fájlba a teljes objektum byte‑tömbbe való betöltése helyett.
+Nagy audio objektumok esetén használja a [Audio.getStream](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/audio/#getStream) metódust, és másolja a streamet fájlba ahelyett, hogy az egész objektumot byte tömbbe töltené.
 
 ## **Az animáció utáni viselkedés beállítása**
 
-A **After animation** opció szabályozza, mi történik a formával, miután az effektus befejeződik.
+A **After animation** opció szabályozza, mi történik egy alakzattal az effektus befejezése után.
 
-![PowerPoint Effektus beállítások párbeszédablak, az animáció utáni beállítások megjelenítése](shape-after-animation.png)
+![PowerPoint Effektus beállítások párbeszédablaka az After animation beállításokkal](shape-after-animation.png)
 
-Az [AfterAnimationType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/afteranimationtype/) felsorolás támogatja a forma érintetlenül hagyását, a színének változtatását, az animáció után való elrejtését vagy a következő kattintásra történő elrejtését. Ha a típus [AfterAnimationType.Color](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/afteranimationtype/#Color), állítsa be a [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effect/#getAfterAnimationColor) értéket is.
+A [AfterAnimationType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/afteranimationtype/) felsorolás támogatja, hogy az alakzat változatlan maradjon, megváltoztassa a színét, a animáció után elrejtse, vagy a következő kattintáskor rejtse el. Ha a típus [AfterAnimationType.Color](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/afteranimationtype/#Color), akkor állítsa be a [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effect/#getAfterAnimationColor) értéket is.
 
-Ez a különálló példa létrehoz egy effektust, a visszakapott objektumon keresztül beállítja az animáció utáni viselkedést, majd elmenti az eredményt.
+Ez a független példa egy effektust hoz létre, a visszaadott effektus objektumon keresztül beállítja annak animáció utáni viselkedését, majd menti az eredményt.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -418,16 +420,16 @@ try {
 }
 ```
 
-A típus [AfterAnimationType.Color](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/afteranimationtype/#Color)-ról való eltávolítása törli az animáció utáni színbeállítást.
+A [AfterAnimationType.Color] típusról eltérés törli az animáció utáni színbeállítást.
 
 ## **Szöveg animálása**
 
-A szöveganimációnak két kapcsolódó vezérlése van:
+A szöveg animáció két kapcsolódó beállítással rendelkezik:
 
-- [TextAnimation.getBuildType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textanimation/#getBuildType) szabályozza, hogy a bekezdések együtt vagy bekezdésenként jelenjenek meg.
-- [Effect.getAnimateTextType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effect/#getAnimateTextType) szabályozza, hogy a szöveg egyszerre, szóként vagy betűként jelenjen meg. A [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) a szavak vagy betűk közti késleltetést állítja be. A pozitív érték az effektus időtartamának százalékát jelenti; a negatív érték másodpercben megadott késleltetés.
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textanimation/#getBuildType) szabályozza, hogy a bekezdések egyszerre vagy bekezdésenként jelenjenek meg.
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effect/#getAnimateTextType) szabályozza, hogy a szöveg egyszerre, szó szerint vagy betű szerint jelenik meg. A [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) beállítja a szavak vagy betűk közti késleltetést. A pozitív érték a effektus időtartamának százaléka; a negatív érték másodpercben megadott késleltetés.
 
-Az alábbi különálló példa a szövegdoboz szavait animálja. A [BuildType.AsOneObject](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/buildtype/#AsOneObject) letiltja a bekezdés‑ről‑bekezdésre építést, így a szó beállítás a teljes szövegdobozra vonatkozik.
+Az alábbi független példa a szövegdoboz szavait animálja. A [BuildType.AsOneObject](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/buildtype/#AsOneObject) letiltja a bekezdésenkénti építést, így a szó beállítás az egész szövegkeretre vonatkozik.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -450,26 +452,26 @@ try {
 }
 ```
 
-A szövegdoboz bekezdésenkénti építéséhez állítsa be a [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (vagy egy másik bekezdés‑szintet). Egyetlen bekezdés önálló effektussal történő célzásához használja a [Sequence.addEffect](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sequence/#addEffect) túlterhelt változatát, amely egy [Paragraph](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/paragraph/) paramétert fogad. Lásd a [Animated Text](/slides/hu/nodejs-java/animated-text/) oldalt bekezdés‑szintű példákért.
+A szövegdoboz bekezdésenkénti felépítéséhez állítsa be a [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (vagy más bekezdés szint). Egyetlen bekezdés saját effektushoz való célzásához használja a [Sequence.addEffect](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/sequence/#addEffect) olyan overload-ját, amely [Paragraph](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/paragraph/) típusú paramétert fogad. Példákért lásd az [Animated Text](/slides/hu/nodejs-java/animated-text/) oldalt.
 
 ## **Exportálási és kompatibilitási megjegyzések**
 
 - A PPT vagy PPTX formátumba mentés megőrzi az animációs modellt, de a végső lejátszást a prezentációs megjelenítő irányítja.
-- A PDF és a statikus képek nem játszanak le animációkat. Használjon [HTML5 export](/slides/hu/nodejs-java/export-to-html5/), animált GIF‑et vagy [videó konverziót](/slides/hu/nodejs-java/convert-powerpoint-to-video/)‑t, ha a kimenetnek mozgást kell mutatnia.
-- HTML5 esetén engedélyezze a [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/html5options/#setAnimateShapes) és szükség esetén a [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/html5options/#setAnimateTransitions) beállítását.
-- A videó renderelés számos gyakori belépő, hangsúly, kilépő és mozgáspálya effektust támogat, de nem minden PowerPoint effektus támogatott. Ellenőrizze a jelenlegi [supported animations and effects](/slides/hu/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) oldalt, és tesztelje a kritikus prezentációkat a cél Aspose.Slides verzióval.
-- A fejlett egyedi effektusok és más prezentációs formátumokból importált effektusok megmaradhatnak a fájlban, de eltérően jelenhetnek meg PowerPointban, HTML5‑ben vagy videóban. Ellenőrizze az exportált eredményt, ne csak az effektus nevére támaszkodjon.
+- A PDF és a statikus képek nem játszanak le animációkat. Használja a [HTML5 export](/slides/hu/nodejs-java/export-to-html5/), animált GIF vagy [videó konverzió](/slides/hu/nodejs-java/convert-powerpoint-to-video/) opciót, ha a kimenet mozgást kell mutasson.
+- HTML5 esetén engedélyezze a [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/html5options/#setAnimateShapes) beállítást, és szükség esetén a [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/html5options/#setAnimateTransitions)‑t.
+- A videó renderelés számos gyakori belépési, hangsúlyozási, kilépési és mozgásút effektust támogat, de nem minden PowerPoint efektus van támogatva. Ellenőrizze a jelenlegi [supported animations and effects](/slides/hu/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) oldalt, és tesztelje a kritikus prezentációkat a cél Aspose.Slides verzióval.
+- A fejlett egyedi effektusok és más prezentációs formátumokból importált effektusok megmaradhatnak a fájlban, de a PowerPoint, HTML5 vagy videó esetén másként jelenhetnek meg. Ellenőrizze az exportált eredményt, ne csak az effektus nevére hagyatkozzon.
 
 ## **GYIK**
 
 **Miért jelenik meg egy animáció a PowerPointban, de nem a PDF‑ben?**
 
-A PDF egy statikus formátum, ezért az animációk és diaátmenetek nem játszanak le. Exportáljon HTML5‑re, animált GIF‑re vagy videóra, ha a mozgást meg kell őrizni.
+A PDF statikus formátum, ezért az animációk és diaátmenetek nem játszhatók le. Exportáljon HTML5‑re, animált GIF‑re vagy videóra, ha a mozgást meg kell őrizni.
 
-**Miért játszódik le egy effektus másképp a videóban?**
+**Miért játszódik le egy effektus másként a videóban?**
 
-A videó exportálás az animációkat rendereli, nem tárolja az eredeti PowerPoint viselkedést. Néhány fejlett effektus nem támogatott vagy csak közelítőleg jelenik meg. Tekintse meg a támogatott‑effektusok táblázatát, és tesztelje a prezentációt a tényleges felhasználás előtt.
+A videó export animációkat renderel, nem az eredeti PowerPoint viselkedést tárolja. Egyes fejlett effektusok nem támogatottak vagy csak közelítőek. Tekintse át a támogatott effektusok táblázatát, és tesztelje a tényleges prezentációt a termelés előtt.
 
-**Megváltoztatja-e egy forma előre vagy hátra helyezése az animáció sorrendjét?**
+**Megtöri egy alakzat előre vagy hátra helyezése az animáció sorrendjét?**
 
-Nem. A forma Z‑rendje a átfedést szabályozza, míözben a sorozat sorrendje és a triggerek az animáció lejátszását irányítják. Módosítsa az idővonalat, ha más lejátszási sorrendre van szüksége.
+Nem. Az alakzat z‑rendje az átfedést szabályozza, míint a szekvencia sorrend és az aktiválók szabályozzák az animáció lejátszását. Ha más lejátszási sorrendre van szüksége, módosítsa az idővonalat.

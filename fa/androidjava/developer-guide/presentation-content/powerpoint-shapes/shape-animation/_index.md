@@ -1,5 +1,5 @@
 ---
-title: اعمال انیمیشن اشکال در ارائه‌های Android
+title: اعمال انیمیشن شکل‌ها در ارائه‌ها بر روی Android
 linktitle: انیمیشن شکل
 type: docs
 weight: 60
@@ -9,7 +9,7 @@ keywords:
 - انیمیشن
 - اثر
 - شکل متحرک
-- متن متحرک
+- متن انیمیشنی
 - افزودن انیمیشن
 - دریافت انیمیشن
 - استخراج انیمیشن
@@ -23,22 +23,26 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "یاد بگیرید چگونه انیمیشن‌های شکل را اضافه، بررسی و سفارشی‌سازی کنید، زمان‌بندی، صداها، رفتار پس از انیمیشن و متن‌های متحرک را با Aspose.Slides برای Android از طریق Java."
+description: "بیاموزید چگونه انیمیشن‌های شکل را اضافه، بازرسی و سفارشی‌سازی کنید، زمان‌بندی، صداها، رفتار پس از انیمیشن و متن انیمیشنی را با Aspose.Slides برای Android از طریق Java."
 ---
-## **نمای کلی**
+## **مرور کلی**
 
-Aspose.Slides for Android via Java انیمیشن‌های اسلاید را به‌عنوان افکت‌ها در جدول زمانی اسلاید نشان می‌دهد. یک افکت دارای شکل هدف، نوع و زیرنوع انیمیشن، یک محرک، تنظیمات زمان‌بندی و خصوصیات اختیاری مانند صدا یا رفتار پس از انیمیشن است.
+برای کار با رفتارهای فردی داخل یک اثر یا ویرایش بخش‌های مسیر حرکت، به [Custom Animation for Java](/slides/fa/java/custom-animation/) مراجعه کنید.
 
-جدول زمانی دو نوع دنباله دارد:
+Aspose.Slides برای Android از طریق Java انیمیشن‌های اسلاید را به‌عنوان اثرها در یک جدول زمانی اسلاید نمایش می‌دهد. یک اثر شامل شکل هدف، نوع و زیرنوع انیمیشن، یک محرک، تنظیمات زمان‌بندی و ویژگی‌های اختیاری مانند صدا یا رفتار پس از انیمیشن است.
 
-- **دنباله اصلی** هنگام پیشرفت اسلاید اجرا می‌شود.
-- **دنباله تعاملی** هنگامی که شکل محرک آن کلیک شود آغاز می‌شود.
+جدول زمانی دو نوع توالی را شامل می‌شود:
 
-چون جعبه‌های متن، تصاویر، نمودارها، جدول‌ها و سایر اشیای اسلاید رابط [IShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/) را پیاده‌سازی می‌کنند، برای اکثر محتوای اسلاید از همان متد [ISequence.addEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) استفاده می‌کنید. افکت‌های موجود در کلاس [EffectType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/effecttype/) فهرست شده‌اند.
+- توالی **اصلی** هنگام پیشروی اسلاید اجرا می‌شود.
+- توالی **تعاملی** زمانی شروع می‌شود که شکل محرک آن کلیک شود.
 
-## **افزودن انیمیشن اشکال**
+از آنجا که جعبه‌های متن، تصاویر، نمودارها، جدول‌ها و سایر اشیای اسلاید [IShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/) را پیاده‌سازی می‌کنند، برای بیشتر محتوای اسلاید از همان متد [ISequence.addEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) استفاده می‌کنید. اثرهای موجود در کلاس [EffectType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/effecttype/) فهرست شده‌اند.
 
-برای افزودن انیمیشن، دنباله اصلی اسلاید را به‌دست آورده و متد [ISequence.addEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) را با شکل هدف، نوع افکت، زیرنوع و محرک فراخوانی کنید. برای افکتی که هنگام کلیک روی شکل دیگر آغاز می‌شود، یک دنباله تعاملی بسازید که محرکش همان شکل دیگر باشد.
+## **افزودن انیمیشن به اشکال**
+
+برای افزودن یک انیمیشن، توالی اصلی اسلاید را دریافت کنید و متد [ISequence.addEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) را با شکل هدف، نوع اثر، زیرنوع و محرک صدا بزنید. برای یک اثر که هنگام کلیک روی شکل دیگری شروع می‌شود، یک توالی تعاملی ایجاد کنید که محرکش همان شکل دیگر باشد.
+
+مثال زیر هر دو نوع انیمیشن را ایجاد می‌کند و نتیجه را در `shape-animations.pptx` ذخیره می‌گردد.
 
 ```java
 import com.aspose.slides.*;
@@ -70,17 +74,19 @@ public class AddShapeAnimations {
 }
 ```
 
-محرک تعیین می‌کند افکت چه زمانی شروع شود:
+محرک تعیین می‌کند که یک اثر چه زمانی شروع شود:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/effecttriggertype/#OnClick) برای کلیک در دنباله اصلی یا کلیک روی شکل محرک در دنباله تعاملی صبر می‌کند.
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) همراه با افکت قبلی آغاز می‌شود.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) پس از اتمام افکت قبلی شروع می‌شود.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/effecttriggertype/#OnClick) منتظر کلیک در توالی اصلی یا کلیک روی شکل محرک در توالی تعاملی می‌ماند.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) همزمان با اثر قبلی شروع می‌شود.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) زمانی که اثر قبلی تمام می‌شود، شروع می‌شود.
 
-برای انیمیشن تصویر، نمودار یا هر نوع شکل دیگری، به جای `targetShape` آن شیء را به متد [ISequence.addEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) پاس دهید. برای گزینه‌های گروه‌بندی مخصوص نمودارها، به [Animated Charts](/slides/fa/androidjava/animated-charts/) مراجعه کنید.
+برای انیمیشن یک تصویر، نمودار یا نوع دیگری از شکل، به جای `targetShape` آن شیء را به [ISequence.addEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) پاس می‌دهید. برای گزینه‌های گروه‌بندی خاص نمودارها، به [Animated Charts](/slides/fa/androidjava/animated-charts/) مراجعه کنید.
 
-## **خواندن انیمیشن‌های اشکال**
+## **خواندن انیمیشن‌های شکل**
 
-زمانی که شکل هدف را می‌دانید از [ISequence.getEffectsByShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) استفاده کنید. برای بررسی هر افکت، دنباله اصلی و تمام دنباله‌های تعاملی را پیمایش کنید. این پیمایش از فرض وجود افکت در اندیس `0` جلوگیری می‌کند.
+از [ISequence.getEffectsByShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) زمانی که شکل هدف را می‌دانید استفاده کنید. برای بررسی هر اثر، توالی اصلی و تمام توالی‌های تعاملی را مرور کنید. مرور (enumeration) از فرض داشتن یک اثر در ایندکس `0` جلوگیری می‌کند.
+
+مثال زیر یک شکل با اثرهای توالی اصلی و تعاملی ایجاد می‌کند، اثرهایی که هدف آن شکل هستند را دریافت می‌کند و سپس تمام توالی‌های موجود در اسلاید را مرور می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -134,21 +140,21 @@ public class ReadShapeAnimations {
 }
 ```
 
-اگر فقط به افکت‌های یک شکل نیاز دارید، ابتدا شکل را با نام، نوع جایگزین یا ویژگی ثابت دیگری شناسایی کنید؛ سپس [ISequence.getEffectsByShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) را فراخوانی کنید. فرض نکنید که [IShapeCollection.get_Item](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) در اندیس `0` همیشه شیء موردنظر است.
+اگر فقط به اثرهای یک شکل نیاز دارید، ابتدا شکل را بر اساس نام، نوع placeholder یا ویژگی پایدار دیگری شناسایی کنید؛ سپس [ISequence.getEffectsByShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) را فراخوانی کنید. فرض نکنید که [IShapeCollection.get_Item](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) در ایندکس `0` همیشه شیء مورد نظر است.
 
-## **کار با افکت‌های جایگزین ارث‌برده**
+## **کار با اثرهای Placeholder ارث‌بری شده**
 
-یک جایگزین در اسلاید عادی می‌تواند رفتار انیمیشن را از جایگزین متناظر در اسلاید طرح‌بندی یا اسلاید اصلی به ارث ببرد. متد [IShape.getBasePlaceholder](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) آن جایگزین والد را برمی‌گرداند یا وقتی والد وجود نداشته باشد `null`.
+یک placeholder روی یک اسلاید عادی می‌تواند رفتار انیمیشن را از placeholder متناظر روی اسلاید طرح‌بندی و اسلاید اصلی به ارث ببرد. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) آن placeholder والد را برمی‌گرداند یا وقتی والد وجود نداشته باشد `null`.
 
-در ارائه مثال زیر، پابرگ در اسلاید عادی دارای **Random Bars**، در اسلاید طرح‌بندی دارای **Split** و در اسلاید اصلی دارای **Fly In** است.
+در ارائه مثال زیر، پابرگ دارای **Random Bars** روی اسلاید عادی، **Split** روی اسلاید طرح‌بندی، و **Fly In** روی اسلاید اصلی است.
 
-![انیمیشن پابرگ در اسلاید عادی](slide-shape-animation.png)
+![اثر انیمیشن پابرگ در اسلاید عادی](slide-shape-animation.png)
 
-![انیمیشن پابرگ در اسلاید طرح‌بندی](layout-shape-animation.png)
+![اثر انیمیشن placeholder پابرگ در اسلاید طرح‌بندی](layout-shape-animation.png)
 
-![انیمیشن پابرگ در اسلاید اصلی](master-shape-animation.png)
+![اثر انیمیشن placeholder پابرگ در اسلاید اصلی](master-shape-animation.png)
 
-مثال بعدی از سلسله‌مراتبی جایگزین در یک ارائه جدید استفاده می‌کند. افکت‌ها را به جایگزین اصلی، جایگزین طرح‌بندی و جایگزین متناظر در اسلاید عادی اضافه می‌کند. هر بار قبل از استفاده از شکل برگشتی، فراخوانی [IShape.getBasePlaceholder](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) بررسی می‌شود.
+مثال بعدی از یک سلسله‌مراتبی placeholder در یک ارائه جدید استفاده می‌کند. اثرهایی به یک placeholder اصلی، یک placeholder طرح‌بندی و placeholder متناظر در اسلاید عادی اضافه می‌کند. هر فراخوانی به [IShape.getBasePlaceholder](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) پیش از استفاده از شکل برگردانده شده بررسی می‌شود.
 
 ```java
 import com.aspose.slides.*;
@@ -228,17 +234,17 @@ public class InheritedPlaceholderAnimations {
 
 ## **تغییر زمان‌بندی انیمیشن**
 
-کادر گفتگوی **Timing** در PowerPoint به ویژگی‌های [ITiming](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/) مرتبط است.
+پنجره **Timing** در PowerPoint به ویژگی‌های [ITiming](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/) نگاشت می‌شود.
 
-![کادر گفتگوی Timing در PowerPoint برای یک افکت انیمیشن](shape-animation.png)
+![پنجره Timing در PowerPoint برای یک اثر انیمیشن](shape-animation.png)
 
-- **Start** به [ITiming.getTriggerType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#getTriggerType--) مرتبط است.
-- **Duration** به [ITiming.getDuration](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#getDuration--) مرتبط است و بر حسب ثانیه است.
-- **Delay** به [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--) مرتبط است و بر حسب ثانیه است.
-- **Repeat** به [ITiming.getRepeatCount](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), یا [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--) مرتبط است.
-- **Rewind when done playing** به [ITiming.getRewind](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#getRewind--) مرتبط است.
+- **شروع** به [ITiming.getTriggerType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#getTriggerType--) نگاشت می‌شود.
+- **مدت** به [ITiming.getDuration](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#getDuration--) ، بر حسب ثانیه، نگاشت می‌شود.
+- **تاخیر** به [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--) ، بر حسب ثانیه، نگاشت می‌شود.
+- **تکرار** به [ITiming.getRepeatCount](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#getRepeatCount--)، [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--) یا [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--) نگاشت می‌شود.
+- **پس از پایان پخش به عقب برگرداندن** به [ITiming.getRewind](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#getRewind--) نگاشت می‌شود.
 
-این مثال مستقل یک افکت اضافه می‌کند، زمان‌بندی آن را از طریق شیء بازگشتی توسط [ISequence.addEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) تغییر می‌دهد و نتیجه را ذخیره می‌کند. نگه داشتن مرجع [IEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ieffect/) بازگشتی از بروز شاخص غیرضروری در مجموعه جلوگیری می‌کند.
+این مثال مستقل یک اثر اضافه می‌کند، زمان‌بندی آن را از طریق شیء بازگشتی توسط [ISequence.addEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) تغییر می‌دهد و نتیجه را ذخیره می‌کند. نگه داشتن مرجع بازگشتی [IEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ieffect/) از یک ایندکس‌گذاری غیرضروری جمع‌آوری جلوگیری می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -268,15 +274,15 @@ public class ChangeAnimationTiming {
 }
 ```
 
-به‌صورت عمدی از یک حالت تکرار استفاده کنید. ترکیب شمارش تکرار با پرچم «until» می‌تواند در نمایش‌دهندگان مختلف نتایج گیج‌کننده‌ای ایجاد کند. هنگام تغییر حالت‌های تکرار، ابتدا [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) و [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) را تنظیم کنید و سپس [ITiming.setRepeatCount](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-) را صدا بزنید، زیرا تنظیم هر یک از پرچم‌ها حالت تکرار فعال را تغییر می‌دهد.
+به‌صورت عمدی فقط از یک حالت تکرار استفاده کنید. ترکیب یک شمارش تکرار با پرچم «until» می‌تواند نتایج گیج‌کننده‌ای در نمایشگرهای مختلف ایجاد کند. هنگام تغییر حالت‌های تکرار، قبل از [ITiming.setRepeatCount](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-) ابتدا [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) و [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) را تنظیم کنید، زیرا تنظیم هر یک از پرچم‌ها حالت فعال تکرار را نیز تغییر می‌دهد.
 
 ## **افزودن و استخراج صداهای انیمیشن**
 
-یک افکت انیمیشن می‌تواند صداهای جاسازی‌شده را از طریق [IEffect.getSound](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ieffect/#getSound--) ارجاع دهد. متد [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) به افکت می‌گوید صداهای شروع‌شده توسط افکت قبلی را متوقف کند.
+یک اثر انیمیشن می‌تواند از طریق [IEffect.getSound](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ieffect/#getSound--) به صداهای توکار ارجاع دهد. [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) به یک اثر می‌گوید صداهای شروع‌شده توسط اثر قبلی را متوقف کند.
 
-### **افزودن صدا به یک افکت**
+### **افزودن صدا به یک اثر**
 
-مثال زیر انتظار دارد فایلی صوتی محلی به نام `animation-sound.wav` موجود باشد. دو افکت ایجاد می‌کند، آن فایل را به‌عنوان صدا برای اولین افکت جاسازی می‌کند و افکت دوم را طوری تنظیم می‌کند که صدا را متوقف کند. از اشیای بازگشتی توسط [ISequence.addEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) استفاده می‌کند، بنابراین نیازی به اندیس دنباله نیست.
+مثال زیر انتظار دارد یک فایل صوتی محلی به نام `animation-sound.wav` وجود داشته باشد. دو اثر ایجاد می‌کند، آن فایل را به‌عنوان صدا برای اولین اثر توکار می‌کند و اثر دوم را تنظیم می‌کند تا صدا را متوقف کند. از اشیای بازگشتی توسط [ISequence.addEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) استفاده می‌کند، بنابراین نیازی به ایندکس توالی نیست.
 
 ```java
 import com.aspose.slides.*;
@@ -311,9 +317,9 @@ public class AddAnimationSound {
 }
 ```
 
-### **استخراج صداهای جاسازی‌شده افکت**
+### **استخراج صداهای توکار اثر**
 
-مثال زیر انتظار دارد یک ارائه محلی به نام `presentation-with-animation-sounds.pptx` موجود باشد. هر دو دنباله اصلی و تعاملی را اسکن می‌کند و تمام صداهای جاسازی‌شده افکت‌ها را در پوشه `extracted-animation-sounds` می‌نویسد. پسوند بر اساس نوع MIME صوتی که توسط [IAudio.getContentType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iaudio/#getContentType--) ارائه می‌شود انتخاب می‌شود.
+مثال زیر انتظار دارد یک ارائه محلی به نام `presentation-with-animation-sounds.pptx` وجود داشته باشد. هر دو توالی اصلی و تعاملی را اسکن می‌کند و تمام صداهای توکار اثرها را در پوشه `extracted-animation-sounds` می‌نویسد. پسوند از نوع MIME صوتی که توسط [IAudio.getContentType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iaudio/#getContentType--) ارائه شده انتخاب می‌شود.
 
 ```java
 import com.aspose.slides.*;
@@ -387,17 +393,17 @@ public class ExtractAnimationSounds {
 }
 ```
 
-برای اشیای صوتی بزرگ، از [IAudio.getStream](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iaudio/#getStream--) استفاده کنید و جریان را به یک فایل کپی کنید به جای اینکه کل شیء را در یک آرایه بایت بارگذاری کنید.
+برای اشیای صوتی بزرگ، از [IAudio.getStream](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iaudio/#getStream--) استفاده کنید و به‌جای بارگذاری کل شیء در یک آرایه بایت، جریان را به یک فایل کپی کنید.
 
 ## **تنظیم رفتار پس از انیمیشن**
 
-گزینه **After animation** تعیین می‌کند پس از اتمام افکت، چه اتفاقی برای شکل می‌افتد.
+گزینه **After animation** تعیین می‌کند پس از پایان اثر، چه اتفاقی برای شکل می‌افتد.
 
-![کادر گفتگوی گزینه‌های افکت در PowerPoint که تنظیمات After animation را نشان می‌دهد](shape-after-animation.png)
+![پنجره تنظیمات گزینه‌های اثر PowerPoint که تنظیمات After animation را نشان می‌دهد](shape-after-animation.png)
 
-کلاس [AfterAnimationType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/afteranimationtype/) امکان نگه داشتن شکل بدون تغییر، تغییر رنگ آن، مخفی کردن پس از انیمیشن یا مخفی کردن در کلیک بعدی را فراهم می‌کند. وقتی نوع برابر با [AfterAnimationType.Color](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/afteranimationtype/#Color) باشد، باید [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--) نیز تنظیم شود.
+کلاس [AfterAnimationType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/afteranimationtype/) پشتیبانی می‌کند از عدم تغییر شکل، تغییر رنگ آن، مخفی کردن آن پس از انیمیشن، یا مخفی کردن آن در کلیک بعدی. هنگامی که نوع برابر با [AfterAnimationType.Color](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/afteranimationtype/#Color) باشد، همچنین [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--) را تنظیم کنید.
 
-این مثال مستقل یک افکت ایجاد می‌کند، رفتار پس از انیمیشن آن را از طریق شیء افکت بازگشتی تنظیم می‌کند و نتیجه را ذخیره می‌نماید.
+این مثال مستقل یک اثر ایجاد می‌کند، رفتار پس از انیمیشن آن را از طریق شیء اثر بازگشتی تنظیم می‌کند و نتیجه را ذخیره می‌نماید.
 
 ```java
 import com.aspose.slides.*;
@@ -429,10 +435,10 @@ public class SetAfterAnimationBehavior {
 
 انیمیشن متن دو کنترل مرتبط دارد:
 
-- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextanimation/#getBuildType--) تعیین می‌کند پاراگراف‌ها به‌صورت یکجا یا به‌صورت سطح پاراگراف ظاهر شوند.
-- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) تعیین می‌کند متن به‌یکباره، به‌صورت کلمه یا به‌صورت حرف ظاهر شود. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) تاخیر بین کلمات یا حروف را تنظیم می‌کند. مقدار مثبت درصدی از مدت افکت است؛ مقدار منفی تاخیر بر حسب ثانیه است.
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextanimation/#getBuildType--) تعیین می‌کند که پاراگراف‌ها به‌صورت همزمان یا به‌سطح پاراگراف ظاهر شوند.
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) تعیین می‌کند که متن به‌صورت یک‌باره، به‌واحد کلمه یا به‌واحد حرف ظاهر شود. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) تاخیر بین کلمات یا حروف را تنظیم می‌کند. مقدار مثبت درصدی از مدت اثر است؛ مقدار منفی تاخیر برحسب ثانیه.
 
-مثال مستقل زیر کلمات موجود در یک جعبه متن را انیمیشن می‌کند. [BuildType.AsOneObject](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/buildtype/#AsOneObject) ساخت پاراگراف به پاراگراف را غیرفعال می‌کند تا تنظیم کلمه برای تمام قاب متن اعمال شود.
+مثال مستقل زیر کلمات داخل یک جعبه متن را انیمیشن می‌کند. [BuildType.AsOneObject](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/buildtype/#AsOneObject) ساختن به‌صورت پاراگراف به پاراگراف را غیرفعال می‌کند تا تنظیم کلمه برای تمام قاب متن اعمال شود.
 
 ```java
 import com.aspose.slides.*;
@@ -458,26 +464,26 @@ public class AnimateTextByWord {
 }
 ```
 
-برای ساخت جعبه متن به‌صورت پاراگراف، [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (یا سطح پاراگراف دیگر) را تنظیم کنید. برای هدف‌گذاری یک پاراگراف واحد با افکت مخصوص به آن، از نسخهٔ overload متد [ISequence.addEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) که یک [IParagraph](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraph/) می‌پذیرد استفاده کنید. برای مثال‌های سطح پاراگراف به [Animated Text](/slides/fa/androidjava/animated-text/) مراجعه کنید.
+برای ساختن یک جعبه متن به‌صورت پاراگراف، [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (یا سطح پاراگراف دیگری) را تنظیم کنید. برای هدف‌گیری یک پاراگراف واحد با اثر خاص خود، از overload متد [ISequence.addEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) که یک [IParagraph](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iparagraph/) می‌پذیرد استفاده کنید. برای مثال‌های سطح پاراگراف به [Animated Text](/slides/fa/androidjava/animated-text/) مراجعه کنید.
 
-## **نکات صادر کردن و سازگاری**
+## **نکات خروجی و سازگاری**
 
-- ذخیره به فرمت PPT یا PPTX مدل انیمیشن را حفظ می‌کند، اما پخش نهایی توسط نرم‌افزار نمایش ارائه کنترل می‌شود.
-- PDF و تصاویر ثابت انیمیشن را اجرا نمی‌کنند. وقتی خروجی باید حرکت را نشان دهد، از [HTML5 export](/slides/fa/androidjava/export-to-html5/)، GIF متحرک یا [video conversion](/slides/fa/androidjava/convert-powerpoint-to-video/) استفاده کنید.
-- برای HTML5، [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) را فعال کنید و در صورت نیاز [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) را تنظیم کنید.
-- رندر ویدئو بسیاری از افکت‌های ورودی، تأکید، خروج و مسیر حرکتی رایج را پشتیبانی می‌کند، اما همه افکت‌های PowerPoint پشتیبانی نمی‌شوند. [supported animations and effects](/slides/fa/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) فعلی را بررسی کنید و ارائه‌های مهم را با نسخه هدف Aspose.Slides خود تست کنید.
-- افکت‌های سفارشی پیشرفته و افکتی که از سایر فرمت‌های ارائه وارد شده‌اند ممکن است در فایل حفظ شوند اما در PowerPoint، HTML5 یا ویدئو به‌صورت متفاوت رندر شوند. نتیجهٔ صادرشده را اعتبارسنجی کنید نه صرفاً به نام افکت اطمینان داشته باشید.
+- ذخیره به‌صورت PPT یا PPTX مدل انیمیشن را حفظ می‌کند، اما پخش نهایی توسط نرم‌افزار نمایش‌دهنده ارائه کنترل می‌شود.
+- PDF و تصاویر ثابت انیمیشن‌ها را پخش نمی‌کنند. هنگامی که خروجی باید حرکت را نشان دهد، از [HTML5 export](/slides/fa/androidjava/export-to-html5/)، GIF متحرک یا [video conversion](/slides/fa/androidjava/convert-powerpoint-to-video/) استفاده کنید.
+- برای HTML5، [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) را فعال کنید و در صورت نیاز [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) را نیز فعال کنید.
+- رندر ویدئو از بسیاری از اثرهای ورودی، تأکیدی، خروجی و مسیر حرکت معمول پشتیبانی می‌کند، اما همه اثرهای PowerPoint پشتیبانی نمی‌شوند. [supported animations and effects](/slides/fa/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) فعلی را بررسی کنید و ارائه‌های حیاتی را با نسخه هدف Aspose.Slides خود تست کنید.
+- اثرهای سفارشی پیشرفته و اثرهایی که از قالب‌های ارائه دیگر وارد شده‌اند ممکن است در فایل حفظ شوند اما در PowerPoint، HTML5 یا ویدئو به‌صورت متفاوتی رندر شوند. به‌جای تکیه صرف بر نام اثر، نتیجه خروجی را اعتبارسنجی کنید.
 
-## **سوالات متداول**
+## **FAQ**
 
 **چرا یک انیمیشن در PowerPoint ظاهر می‌شود اما در PDF نیست؟**
 
-PDF یک فرمت ایستا است، بنابراین انیمیشن‌ها و انتقال‌های اسلاید اجرا نمی‌شوند. برای حفظ حرکت، به HTML5، GIF متحرک یا ویدئو خروجی بدهید.
+PDF یک فرمت ثابت است، بنابراین انیمیشن‌ها و انتقال‌های اسلاید اجرا نمی‌شوند. هنگامی که نیاز به حفظ حرکت دارید، به HTML5، GIF متحرک یا ویدئو صادر کنید.
 
-**چرا یک افکت در ویدئو به‌طرز متفاوتی اجرا می‌شود؟**
+**چرا یک اثر در ویدئو به‌طوری متفاوت اجرا می‌شود؟**
 
-خروجی ویدئو انیمیشن‌ها را رندر می‌کند و رفتار اصلی PowerPoint را ذخیره نمی‌کند. برخی افکت‌های پیشرفته پشتیبانی نمی‌شوند یا به‌صورت تخمینی اجرا می‌شوند. جدول افکت‌های پشتیبانی‌شده را مرور کنید و پیش از استفادهٔ تولیدی، ارائهٔ واقعی را تست کنید.
+صادرکردن به‌صورت ویدئو، انیمیشن‌ها را رندر می‌کند نه اینکه رفتار اصلی PowerPoint را ذخیره کند. برخی اثرهای پیشرفته پشتیبانی نمی‌شوند یا به‌صورت تخمینی اعمال می‌شوند. جدول اثرهای پشتیبانی‌شده را بررسی کنید و ارائه واقعی را پیش از استفاده در تولید تست نمایید.
 
-**آیا جابه‌جایی یک شکل به جلو یا عقب ترتیب انیمیشن آن را تغییر می‌دهد؟**
+**آیا جابجایی یک شکل به جلو یا عقب ترتیب انیمیشن آن را تغییر می‌دهد؟**
 
-خیر. ترتیب لایه (z-order) فقط بر هم‌پوشانی کنترل می‌کند، در حالی که ترتیب دنباله و محرک‌ها بر پخش انیمیشن تأثیر دارند. اگر به ترتیب پخش متفاوت نیاز دارید، جدول زمانی را تغییر دهید.
+خیر. ترتیب z-order شکل فقط نحوه هم‌پوشانی را کنترل می‌کند، در حالی که ترتیب توالی و محرک‌ها پخش انیمیشن را تعیین می‌کنند. اگر نیاز به ترتیب پخش متفاوت دارید، جدول زمانی را تغییر دهید.

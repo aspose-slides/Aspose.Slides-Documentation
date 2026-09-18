@@ -1,6 +1,6 @@
 ---
-title: Βελτιώστε τις παρουσιάσεις PowerPoint με κινήσεις σε C++
-linktitle: Κίνηση PowerPoint
+title: "Βελτιώστε τις παρουσιάσεις PowerPoint με κινήσεις σε C++"
+linktitle: "Κίνηση PowerPoint"
 type: docs
 weight: 150
 url: /el/cpp/powerpoint-animation/
@@ -13,97 +13,106 @@ keywords:
 - έλεγχος κίνησης
 - εφέ κίνησης
 - κίνηση PowerPoint
-- χρονοδιάγραμμα κίνησης
+- χρονογραμμή κίνησης
 - διαδραστική κίνηση
 - προσαρμοσμένη κίνηση
 - κίνηση σχήματος
-- κινούμενο διάγραμμα
-- κινούμενο κείμενο
-- κινούμενο σχήμα
-- κινούμενο αντικείμενο OLE
-- κινούμενη εικόνα
-- κινούμενος πίνακας
+- διάγραμμα με κίνηση
+- κείμενο με κίνηση
+- σχήμα με κίνηση
+- αντικείμενο OLE με κίνηση
+- εικόνα με κίνηση
+- πίνακας με κίνηση
 - PowerPoint
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε και να ελέγχετε προχωρημένα εφέ κίνησης στο Aspose.Slides για C++ για να δημιουργείτε δυναμικές παρουσιάσεις PowerPoint και OpenDocument."
+description: "Μάθετε πώς να προσθέτετε και να ελέγχετε προχωρημένα εφέ κίνησης στην Aspose.Slides για C++ ώστε να δημιουργείτε δυναμικές παρουσιάσεις PowerPoint και OpenDocument."
 ---
 ## **Εισαγωγή**
 
-Δεδομένου ότι οι παρουσιάσεις προορίζονται να παρουσιάζουν κάτι, η οπτική τους εμφάνιση και η διαδραστική συμπεριφορά τους λαμβάνονται πάντα υπόψη κατά τη δημιουργία τους.
+Δεδομένου ότι οι παρουσιάσεις προορίζονται να παρουσιάζουν κάτι, η οπτική τους εμφάνιση και η διαδραστική συμπεριφορά λαμβάνονται πάντα υπόψη κατά τη δημιουργία.
 
-**PowerPoint animation** παίζει σημαντικό ρόλο ώστε η παρουσίαση να είναι εντυπωσιακή και ελκυστική για τους θεατές. Aspose.Slides for C++ προσφέρει ένα ευρύ φάσμα επιλογών για να **προσθέσετε κίνηση** σε παρουσίαση PowerPoint:
+**PowerPoint animation** παίζει σημαντικό ρόλο στο να κάνει μια παρουσίαση ελκυστική και ενδιαφέρουσα για τους θεατές. Η Aspose.Slides παρέχει μια ευρεία γκάμα επιλογών για την προσθήκη κινήσεων σε παρουσιάσεις PowerPoint:
 
-- Εφαρμόστε διάφορους τύπους εφέ κίνησης PowerPoint σε σχήματα, διαγράμματα, πίνακες, αντικείμενα OLE και άλλα στοιχεία της παρουσίασης.  
-- Χρησιμοποιήστε πολλαπλά εφέ κίνησης PowerPoint σε ένα σχήμα.  
-- Χρησιμοποιήστε τη γραμμή χρόνου κίνησης για να ελέγξετε τα εφέ κίνησης.  
-- Δημιουργήστε προσαρμοσμένη κίνηση.
+- Εφαρμόζετε διάφορους τύπους εφέ κίνησης PowerPoint σε σχήματα, διαγράμματα, πίνακες, αντικείμενα OLE και άλλα στοιχεία παρουσίασης.
+- Χρησιμοποιείτε πολλαπλά εφέ κίνησης PowerPoint σε ένα μόνο σχήμα.
+- Χρησιμοποιείτε τη χρονογραμμή κίνησης για να ελέγχετε τα εφέ κίνησης.
+- Δημιουργείτε προσαρμοσμένες κινήσεις.
 
-Στο Aspose.Slides for C++ μπορούν να εφαρμοστούν διάφορα εφέ κίνησης στα σχήματα. Καθώς κάθε στοιχείο στη διαφάνεια, συμπεριλαμβανομένου κειμένου, εικόνων, αντικειμένου OLE, πίνακα κ.λπ., θεωρείται σχήμα, σημαίνει ότι μπορούμε να εφαρμόσουμε εφέ κίνησης σε κάθε στοιχείο μιας διαφάνειας.
+Στην Aspose.Slides, μπορούν να εφαρμοστούν διάφορα εφέ κίνησης σε σχήματα. Δεδομένου ότι κάθε στοιχείο σε μια διαφάνεια, συμπεριλαμβανομένου του κειμένου, των εικόνων, των αντικειμένων OLE και των πινάκων, θεωρείται σχήμα, τα εφέ κίνησης μπορούν να εφαρμοστούν σε οποιοδήποτε στοιχείο της διαφάνειας.
 
-[**Aspose.Slides.Animation**](https://reference.aspose.com/slides/el/cpp/namespace/aspose.slides.animation) **namespace** παρέχει κλάσεις για εργασία με τις κινούμενες παρουσιάσεις PowerPoint.
+Ο χώρος ονομάτων [Aspose::Slides::Animation](https://reference.aspose.com/slides/el/cpp/aspose.slides.animation/) παρέχει κλάσεις για εργασία με κινήσεις PowerPoint.
 
 ## **Εφέ Κίνησης**
-Το Aspose.Slides υποστηρίζει **150+ εφέ κίνησης**, συμπεριλαμβανομένων βασικών εφέ όπως Bounce, PathFootball, εφέ Ζουμ και συγκεκριμένων εφέ όπως OLEObjectShow, OLEObjectOpen. Μπορείτε να βρείτε μια πλήρη λίστα των εφέ κίνησης στην [**EffectType**](https://reference.aspose.com/slides/el/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31) αρίθμηση.
 
-Επιπλέον, αυτά τα εφέ κίνησης μπορούν να χρησιμοποιηθούν σε συνδυασμό μεταξύ τους:
+Η Aspose.Slides υποστηρίζει **150+ εφέ κίνησης**, συμπεριλαμβανομένων βασικών εφέ όπως Bounce, PathFootball και Zoom, καθώς και συγκεκριμένων εφέ όπως OLEObjectShow και OLEObjectOpen. Μπορείτε να βρείτε μια πλήρη λίστα στην απαρίθμηση [EffectType](https://reference.aspose.com/slides/el/cpp/aspose.slides.animation/effecttype/).
+
+Επιπλέον, αυτά τα εφέ κίνησης μπορούν να χρησιμοποιηθούν σε συνδυασμό με τις ακόλουθες συμπεριφορές:
 
 - [ColorEffect](https://reference.aspose.com/slides/el/cpp/aspose.slides.animation/coloreffect/)
-- [CommandEffect](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.animation.command_effect)
-- [FilterEffect](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.animation.filter_effect)
-- [MotionEffect](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.animation.motion_effect)
-- [PropertyEffect](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.animation.property_effect)
-- [RotationEffect](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.animation.rotation_effect)
-- [ScaleEffect](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.animation.scale_effect)
-- [SetEffect](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.animation.set_effect)
+- [CommandEffect](https://reference.aspose.com/slides/el/cpp/aspose.slides.animation/commandeffect/)
+- [FilterEffect](https://reference.aspose.com/slides/el/cpp/aspose.slides.animation/filtereffect/)
+- [MotionEffect](https://reference.aspose.com/slides/el/cpp/aspose.slides.animation/motioneffect/)
+- [PropertyEffect](https://reference.aspose.com/slides/el/cpp/aspose.slides.animation/propertyeffect/)
+- [RotationEffect](https://reference.aspose.com/slides/el/cpp/aspose.slides.animation/rotationeffect/)
+- [ScaleEffect](https://reference.aspose.com/slides/el/cpp/aspose.slides.animation/scaleeffect/)
+- [SetEffect](https://reference.aspose.com/slides/el/cpp/aspose.slides.animation/seteffect/)
 
 ## **Προσαρμοσμένη Κίνηση**
-Μπορείτε να δημιουργήσετε τις δικές σας **προσαρμοσμένες κινήσεις** στο Aspose.Slides. Αυτό μπορεί να επιτευχθεί εάν συνδυάσετε πολλές συμπεριφορές σε μια νέα προσαρμοσμένη κίνηση.
 
-[**Behavior**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.animation.behavior) είναι η δομική μονάδα κάθε εφέ κίνησης PowerPoint. Όλα τα εφέ κίνησης είναι στην πραγματικότητα ένα σύνολο συμπεριφορών που συντίθενται σε μία στρατηγική. Μπορείτε να συνδυάσετε συμπεριφορές σε μια προσαρμοσμένη κίνηση μία φορά και να την επαναχρησιμοποιήσετε σε άλλες παρουσιάσεις. Αν προσθέσετε μια νέα συμπεριφορά σε ένα τυπικό εφέ κίνησης PowerPoint, θα προκύψει μια άλλη προσαρμοσμένη κίνηση. Για παράδειγμα, μπορείτε να προσθέσετε συμπεριφορά επανάληψης σε μια κίνηση ώστε να επαναλαμβάνεται λίγες φορές.
+Για πλήρη παραδείγματα C++ που δημιουργούν, επιθεωρούν και τροποποιούν συμπεριφορές και επεξεργάσιμες διαδρομές κίνησης, δείτε [Custom Animation](/slides/el/cpp/custom-animation/).
 
-[**Animation Point**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.animation.point) είναι ένα σημείο όπου πρέπει να εφαρμοστεί η συμπεριφορά.
+Είναι δυνατόν να δημιουργήσετε τις δικές σας **προσαρμοσμένες κινήσεις** στην Aspose.Slides. Αυτό μπορεί να επιτευχθεί συνδυάζοντας αρκετές συμπεριφορές σε μια νέα προσαρμοσμένη κίνηση.
 
-## **Γραμμή Χρόνου Κίνησης**
-[**Sequence**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.animation.sequence) είναι μια συλλογή εφέ κίνησης, εφαρμοσμένων σε ένα συγκεκριμένο σχήμα.
+[Behavior](https://reference.aspose.com/slides/el/cpp/aspose.slides.animation/behavior/) είναι ένα δομικό στοιχείο ενός εφέ κίνησης PowerPoint. Συνδυάστε συμπεριφορές για να προσαρμόσετε ένα εφέ ή προσθέστε μια συμπεριφορά για να επεκτείνετε ένα προ-ορισμένο εφέ. Η επανάληψη ρυθμίζεται μέσω των ρυθμίσεων χρονομέτρησης και όχι μέσω ξεχωριστής συμπεριφοράς επανάληψης.
 
-[**AnimationTimeLine**](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.animation.animation_time_line) είναι ένα σύνολο ακολουθιών (Sequences) που χρησιμοποιείται σε μια συγκεκριμένη διαφάνεια. Είναι ένας κινητήρας κίνησης που υλοποιήθηκε από το PowerPoint 2002. Σε προηγούμενες εκδόσεις του PowerPoint ήταν δύσκολο να προστεθούν εφέ κίνησης στην παρουσίαση, κάτι που μπορούσε να γίνει μόνο με διάφορες εναλλακτικές λύσεις. Η γραμμή χρόνου αντικαθιστά την παλιά κλάση AnimationSettings και παρέχει πιο σαφή μοντέλο αντικειμένων για την κίνηση PowerPoint. Μία διαφάνεια μπορεί να έχει μόνο μία γραμμή χρόνου κίνησης.
+[Animation Point](https://reference.aspose.com/slides/el/cpp/aspose.slides.animation/point/) είναι ένα σημείο στο οποίο πρέπει να εφαρμοστεί μια συμπεριφορά.
+
+## **Χρονογραμμή Κίνησης**
+
+[Sequence](https://reference.aspose.com/slides/el/cpp/aspose.slides.animation/sequence/) είναι μια συλλογή εφέ κίνησης που μπορούν να στοχεύσουν διαφορετικά σχήματα.
+
+[IAnimationTimeLine](https://reference.aspose.com/slides/el/cpp/aspose.slides/ianimationtimeline/) είναι ένα σύνολο ακολουθιών που χρησιμοποιείται σε μια συγκεκριμένη διαφάνεια. Είναι μια μηχανή κίνησης που εισήχθη στο PowerPoint 2002. Σε προηγούμενες εκδόσεις του PowerPoint, η προσθήκη εφέ κίνησης σε παρουσιάσεις ήταν δύσκολη και μπορούσε να επιτευχθεί μόνο με διάφορες παρακάμπτες λύσεις. Η χρονογραμμή παρέχει ένα πιο σαφές μοντέλο αντικειμένων για τις κινήσεις PowerPoint. Μια διαφάνεια μπορεί να έχει μόνο μία χρονογραμμή κίνησης.
 
 ## **Διαδραστική Κίνηση**
-[**EffectTriggerType**](https://reference.aspose.com/slides/el/cpp/namespace/aspose.slides.animation#add24fb49dd44eb3227aeeb3641fd2e81) επιτρέπει τον ορισμό ενεργειών χρήστη (π.χ. κλικ κουμπιού), που θα ξεκινήσουν μια συγκεκριμένη κίνηση. Οι ενεργοποιητές προστέθηκαν μόνο στην τελευταία έκδοση του PowerPoint.
+
+[Trigger](https://reference.aspose.com/slides/el/cpp/aspose.slides.animation/effecttriggertype/) σας επιτρέπει να ορίσετε ενέργειες χρήστη, όπως κλικ σε κουμπί, που εκκινούν μια συγκεκριμένη κίνηση.
 
 ## **Κίνηση Σχήματος**
-Aspose.Slides επιτρέπει την εφαρμογή κίνησης σε σχήματα, τα οποία μπορεί στην πραγματικότητα να είναι κείμενο, ορθογώνιο, γραμμή, πλαίσιο, αντικείμενο OLE κ.λπ.
 
-{{% alert color="primary" %}} 
-Διαβάστε περισσότερα [**About Shape Animation**](/slides/el/cpp/shape-animation/).
+Η Aspose.Slides σας επιτρέπει να εφαρμόζετε κινήσεις σε σχήματα, τα οποία μπορούν να περιλαμβάνουν κείμενο, ορθογώνια, γραμμές, πλαίσια, αντικείμενα OLE και άλλα.
+
+{{% alert color="info" title="Note" %}}
+Διαβάστε περισσότερα [**Σχετικά με την Κίνηση Σχήματος**](/slides/el/cpp/shape-animation/).
 {{% /alert %}}
 
-## **Κινούμενα Διαγράμματα**
-Για να δημιουργήσετε κινούμενα διαγράμματα, πρέπει να χρησιμοποιήσετε τις ίδιες κλάσεις όπως και για τα σχήματα. Ωστόσο, είναι δυνατόν να χρησιμοποιήσετε την κίνηση PowerPoint μόνο σε κατηγορίες ή σειρές διαγράμματος. Μπορείτε επίσης να εφαρμόσετε εφέ κίνησης σε ένα στοιχείο κατηγορίας ή σε ένα στοιχείο σειράς.
+## **Διαγράμματα με Κίνηση**
 
-{{% alert color="primary" %}} 
-Διαβάστε περισσότερα [**About Animated Charts**](/slides/el/cpp/animated-charts/).
+Για να δημιουργήσετε διαγράμματα με κίνηση, πρέπει να χρησιμοποιήσετε τις ίδιες κλάσεις όπως για σχήματα. Ωστόσο, οι κινήσεις PowerPoint μπορούν να εφαρμοστούν μόνο σε κατηγορίες διαγράμματος ή σειρές διαγράμματος. Μπορείτε επίσης να εφαρμόσετε εφέ κίνησης σε ένα στοιχείο κατηγορίας ή σε ένα στοιχείο σειράς.
+
+{{% alert color="info" title="Note" %}}
+Διαβάστε περισσότερα [**Σχετικά με τα Διαγράμματα με Κίνηση**](/slides/el/cpp/animated-charts/).
 {{% /alert %}}
 
-## **Κινούμενο Κείμενο**
-Εκτός από το κινούμενο κείμενο, είναι επίσης δυνατό να εφαρμόσετε κίνηση σε μια παράγραφο.
+## **Κείμενο με Κίνηση**
 
-{{% alert color="primary" %}} 
-Διαβάστε περισσότερα [**About Animated Text**](/slides/el/cpp/animated-text/).
+Εκτός από την κίνηση κειμένου, μπορείτε να εφαρμόσετε κίνηση σε μια παράγραφο.
+
+{{% alert color="info" title="Note" %}}
+Διαβάστε περισσότερα [**Σχετικά με το Κείμενο με Κίνηση**](/slides/el/cpp/animated-text/).
 {{% /alert %}}
 
 ## **Συχνές Ερωτήσεις**
 
-**Θα διατηρηθούν τα εφέ κίνησης κατά την εξαγωγή σε PDF;**
+**Θα διατηρηθούν οι κινήσεις κατά την εξαγωγή σε PDF;**
 
-Όχι. Το PDF είναι στατικό φορμάτ, επομένως τα εφέ κίνησης και οι [μεταβάσεις διαφανειών](/slides/el/cpp/slide-transition/) δεν αναπαράγονται. Αν χρειάζεστε κίνηση, εξάγετε σε [HTML5](/slides/el/cpp/export-to-html5/), [animated GIF](/slides/el/cpp/convert-powerpoint-to-animated-gif/) ή [video](/slides/el/cpp/convert-powerpoint-to-video/) αντί για αυτό.
+Όχι. Το PDF είναι μια στατική μορφή, έτσι οι κινήσεις και οι [slide transitions](/slides/el/cpp/slide-transition/) δεν εκτελούνται. Αν χρειάζεστε κίνηση, εξάγετε σε [HTML5](/slides/el/cpp/export-to-html5/), [animated GIF](/slides/el/cpp/convert-powerpoint-to-animated-gif/) ή [video](/slides/el/cpp/convert-powerpoint-to-video/) αντί.
 
-**Μπορώ να μετατρέψω μια κινούμενη παρουσίαση σε βίντεο και να ελέγξω το ρυθμό καρέ και το μέγεθος του καρέ;**
+**Μπορώ να μετατρέψω μια παρουσίαση με κίνηση σε βίντεο και να ελέγξω το ρυθμό καρέ και το μέγεθος του καρέ;**
 
-Ναι. Μπορείτε να [render the presentation as frames](/slides/el/cpp/convert-powerpoint-to-video/) και να τα κωδικοποιήσετε σε βίντεο (π.χ., μέσω ffmpeg), επιλέγοντας FPS και ανάλυση. Τα εφέ κίνησης και οι μεταβάσεις διαφανειών αναπαράγονται κατά τη διαδικασία rendering.
+Ναι. Μπορείτε να [render the presentation as frames](/slides/el/cpp/convert-powerpoint-to-video/) και να τα κωδικοποιήσετε σε βίντεο (π.χ., μέσω ffmpeg), επιλέγοντας τα FPS και την ανάλυση. Οι κινήσεις και οι μεταβάσεις διαφάνειας εκτελούνται κατά τη διαδικασία απόδοσης.
 
-**Θα παραμείνουν αμετάβλητα τα εφέ κίνησης όταν δουλεύω με ODP (όχι μόνο PPTX);**
+**Θα παραμείνουν οι κινήσεις αμετάβλητες όταν εργάζεστε με ODP (όχι μόνο PPTX);**
 
-Τα PPT, PPTX και ODP υποστηρίζονται για [reading](/slides/el/cpp/open-presentation/) και [writing](/slides/el/cpp/save-presentation/), αλλά οι διαφορές μορφών σημαίνουν ότι ορισμένα εφέ μπορεί να εμφανίζονται ή να συμπεριφέρονται ελαφρώς διαφορετικά. Επικυρώστε κρίσιμες περιπτώσεις με πραγματικά δείγματα.
+Τα PPT, PPTX και ODP υποστηρίζονται για [reading](/slides/el/cpp/open-presentation/) και [writing](/slides/el/cpp/save-presentation/), αλλά αυτό δεν εγγυάται τη διατήρηση των κινήσεων. Τα δεδομένα προσαρμοσμένων κινήσεων μπορεί να χαθούν κατά τη μετατροπή σε ODP. Δείτε το [Custom Animation](/slides/el/cpp/custom-animation/) για παραδείγματα και οδηγίες σχετικά με τον έλεγχο της συμβατότητας μορφής.

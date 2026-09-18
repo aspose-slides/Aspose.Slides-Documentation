@@ -8,8 +8,8 @@ keywords:
 - شکل
 - انیمیشن
 - افکت
-- شکل متحرک
-- متن متحرک
+- شکل انیمیشن‌دار
+- متن انیمیشن‌دار
 - افزودن انیمیشن
 - دریافت انیمیشن
 - استخراج انیمیشن
@@ -23,24 +23,26 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "یاد بگیرید چگونه انیمیشن‌های شکل، زمان‌بندی، صداها، رفتار پس‌از‑انیمیشن و متن‌های انیمیشنی را با Aspose.Slides برای Python از طریق Java اضافه، بررسی و سفارشی‌سازی کنید."
+description: "یاد بگیرید چگونه انیمیشن‌های شکل را اضافه، بررسی و سفارشی‌سازی کنید، زمان‌بندی، صداها، رفتار پس از انیمیشن و متن انیمیشن‌دار را با Aspose.Slides برای Python از طریق Java."
 ---
 ## **بررسی کلی**
 
-Aspose.Slides for Python via Java نمایانگر انیمیشن‌های اسلاید به‌عنوان افکت‌ها در جدول زمانی اسلاید است. یک افکت شامل یک شکل هدف، نوع و زیرنوع انیمیشن، یک تحریک‌کننده، تنظیمات زمان‌بندی و ویژگی‌های اختیاری مانند صدا یا رفتار پس از انیمیشن است.
+برای کار با رفتارهای تک‌تک داخل یک افکت یا ویرایش بخش‌های مسیر حرکتی، به [انیمیشن سفارشی](/slides/fa/python-java/custom-animation/) مراجعه کنید.
+
+Aspose.Slides برای Python از طریق Java انیمیشن‌های اسلاید را به‌عنوان افکت‌ها در جدول زمانی اسلاید نشان می‌دهد. یک افکت شامل شکل هدف، نوع و زیرنوع انیمیشن، یک محرک، تنظیمات زمان‌بندی و ویژگی‌های اختیاری مانند صدا یا رفتار پس از انیمیشن است.
 
 جدول زمانی دو نوع دنباله دارد:
 
 - **دنباله اصلی** هنگام پیشرفت اسلاید اجرا می‌شود.
-- **دنباله تعاملی** زمانی شروع می‌شود که شکل تحریک‌کننده‌اش کلیک شود.
+- **دنباله تعاملی** زمانی که شکل محرک آن کلیک شود، شروع می‌شود.
 
-چون جعبه‌های متن، تصاویر، نمودارها، جداول و سایر اشیای اسلاید از کلاس [Shape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shape/) ارث می‌برند، برای اکثر محتوای اسلاید از همان متد [Sequence.addEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/sequence/#addEffect) استفاده می‌کنید. افکت‌های موجود در کلاس [EffectType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/effecttype/) فهرست شده‌اند.
+از آنجا که جعبه‌های متن، تصاویر، نمودارها، جدول‌ها و سایر اشیای اسلاید از [Shape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shape/) ارث می‌برند، برای اکثر محتوای اسلاید از همان متد [Sequence.addEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/sequence/#addEffect) استفاده می‌کنید. افکت‌های موجود در کلاس [EffectType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/effecttype/) فهرست شده‌اند.
 
-## **افزودن انیمیشن‌های شکل**
+## **افکت‌های انیمیشن شکل‌ها را اضافه کنید**
 
-برای افزودن انیمیشن، دنباله اصلی اسلاید را دریافت کنید و با متد [Sequence.addEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/sequence/#addEffect) شکل هدف، نوع افکت، زیرنوع و تحریک‌کننده را پاس دهید. برای افکتی که با کلیک روی شکل دیگر شروع می‌شود، یک دنباله تعاملی ایجاد کنید که تحریک‌کننده آن همان شکل دیگر باشد.
+برای افزودن انیمیشن، دنباله اصلی اسلاید را دریافت کنید و متد [Sequence.addEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/sequence/#addEffect) را همراه با شکل هدف، نوع افکت، زیرنوع و محرک صدا بزنید. برای افکتی که هنگام کلیک بر روی شکل دیگری آغاز می‌شود، یک دنباله تعاملی ایجاد کنید که محرک آن همان شکل دیگر باشد.
 
-مثال زیر هر دو نوع انیمیشن را ایجاد کرده و نتیجه را در فایل `shape-animations.pptx` ذخیره می‌کند.
+مثال زیر هر دو نوع انیمیشن را ایجاد می‌کند و نتیجه را در `shape-animations.pptx` ذخیره می‌نماید.
 
 ```python
 import jpype
@@ -73,19 +75,19 @@ finally:
     presentation.dispose()
 ```
 
-تحریک‌کننده تعیین می‌کند که افکت کی شروع شود:
+محرک زمان شروع افکت را تعیین می‌کند:
 
-- `EffectTriggerType.OnClick` برای کلیک در دنباله اصلی یا برای کلیک بر روی شکل تحریک‌کننده در دنباله تعاملی انتظار می‌کشد.
-- `EffectTriggerType.WithPrevious` با افکت قبلی شروع می‌شود.
-- `EffectTriggerType.AfterPrevious` پس از اتمام افکت قبلی آغاز می‌گردد.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/fa/python-java/aspose.slides/effecttriggertype/#OnClick) برای کلیک در دنباله اصلی یا کلیک بر روی شکل محرک در دنباله تعاملی صبر می‌کند.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/fa/python-java/aspose.slides/effecttriggertype/#WithPrevious) همراه با افکت قبلی شروع می‌شود.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/fa/python-java/aspose.slides/effecttriggertype/#AfterPrevious) پس از اتمام افکت قبلی آغاز می‌شود.
 
-برای انیمیشن یک تصویر، نمودار یا نوع دیگری از شکل، آن شیء را به‌جای `target_shape` به متد [Sequence.addEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/sequence/#addEffect) پاس دهید. برای گزینه‌های گروه‌بندی مخصوص نمودار، به [Animated Charts](/slides/fa/python-java/animated-charts/) مراجعه کنید.
+برای انیمیشن تصویر، نمودار یا هر نوع شکل دیگر، به جای `target_shape` همان شیء را به [Sequence.addEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/sequence/#addEffect) بدهید. برای گزینه‌های گروه‌بندی خاص نمودار، به [نمودارهای انیمیشن‌دار](/slides/fa/python-java/animated-charts/) مراجعه کنید.
 
-## **خواندن انیمیشن‌های شکل**
+## **افکت‌های انیمیشن شکل‌ها را بخوانید**
 
-زمانی که شکل هدف را می‌دانید، از [Sequence.getEffectsByShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/sequence/#getEffectsByShape) استفاده کنید. برای بررسی هر افکت، دنباله اصلی و تمام دنباله‌های تعاملی را پیمایش کنید. پیمایش از این‌که فرض کنید دنباله‌ای در شاخص `0` حتماً افکتی دارد جلوگیری می‌کند.
+وقتی شکل هدف را می‌دانید از [Sequence.getEffectsByShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/sequence/#getEffectsByShape) استفاده کنید. برای بررسی هر افکت، هر دنباله اصلی و هر دنباله تعاملی را پیمایش کنید. پیمایش این‌گونه از فرض وجود افکتی در اندیس `0` جلوگیری می‌کند.
 
-مثال زیر یک شکل با افکت‌های دنباله اصلی و تعاملی ایجاد می‌کند، افکت‌های هدف‌دار به شکل را دریافت می‌کند و سپس تمام دنباله‌های اسلاید را پیمایش می‌کند.
+مثال زیر یک شکل با افکت‌های دنباله اصلی و تعاملی ایجاد می‌کند، افکت‌های هدف‌دار شکل را می‌گیرد و سپس تمام دنباله‌های اسلاید را پیمایش می‌کند.
 
 ```python
 import jpype
@@ -136,21 +138,21 @@ finally:
     presentation.dispose()
 ```
 
-اگر فقط به افکت‌های یک شکل نیاز دارید، ابتدا شکل را بر اساس نام، نوع محل‌نگهدار یا ویژگی ثابت دیگر شناسایی کنید؛ سپس [Sequence.getEffectsByShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/sequence/#getEffectsByShape) را فراخوانی کنید. فرض نکنید که [ShapeCollection.get_Item](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shapecollection/#get_Item) در شاخص `0` همیشه شیء موردنظر است.
+اگر فقط به افکت‌های یک شکل نیاز دارید، ابتدا شکل را بر اساس نام، نوع جای‌نگهدار یا ویژگی ثابت دیگری شناسایی کنید؛ سپس [Sequence.getEffectsByShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/sequence/#getEffectsByShape) را فراخوانی کنید. فرض نکنید که [ShapeCollection.get_Item](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shapecollection/#get_Item) در اندیس `0` همیشه شیء مورد نظر است.
 
-## **کار با افکت‌های مکان‌نگهدار ارث‌برده‌شده**
+## **کار با افکت‌های جای‌نگهدار ارث‌برده**
 
-یک مکان‌نگهدار در اسلاید عادی می‌تواند رفتار انیمیشنی خود را از مکان‌نگهدار متناظر در اسلاید طرح‌بندی و اسلاید اصلی به ارث ببرد. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shape/#getBasePlaceholder) آن مکان‌نگهدار والد را برمی‌گرداند یا `None` وقتی والد وجود نداشته باشد.
+یک جای‌نگهدار در اسلاید عادی می‌تواند رفتار انیمیشن را از جای‌نگهدار متناظر در اسلاید طرح‌بندی و اسلاید اصلی به ارث ببرد. متد [Shape.getBasePlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shape/#getBasePlaceholder) آن جای‌نگهدار والد را برمی‌گرداند یا `None` زمانی که والد وجود نداشته باشد.
 
-در ارائه نمونه زیر، فوتر دارای **Random Bars** در اسلاید عادی، **Split** در اسلاید طرح‌بندی و **Fly In** در اسلاید اصلی است.
+در ارائه مثال زیر، پاصفحه (footer) در اسلاید عادی دارای **Random Bars**، در اسلاید طرح‌بندی **Split** و در اسلاید اصلی **Fly In** دارد.
 
-![اثر انیمیشن فوتر در اسلاید عادی](slide-shape-animation.png)
+![اثر انیمیشن پاصفحه در اسلاید عادی](slide-shape-animation.png)
 
-![اثر انیمیشن فوتر در اسلاید طرح‌بندی](layout-shape-animation.png)
+![اثر انیمیشن پاصفحه در اسلاید طرح‌بندی](layout-shape-animation.png)
 
-![اثر انیمیشن فوتر در اسلاید اصلی](master-shape-animation.png)
+![اثر انیمیشن پاصفحه در اسلاید اصلی](master-shape-animation.png)
 
-مثال بعدی از یک سلسله‌مراتب مکان‌نگهدار در یک ارائه جدید استفاده می‌کند. افکت‌ها به یک مکان‌نگهدار اصلی، یک مکان‌نگهدار طرح‌بندی و مکان‌نگهدار متناظر در اسلاید عادی اضافه می‌شود. قبل از استفاده از شکل بازگردانده‌شده، هر بار [Shape.getBasePlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shape/#getBasePlaceholder) بررسی می‌شود.
+مثال بعدی از یک سلسله مراتب جای‌نگهدار در یک ارائه جدید استفاده می‌کند. افکت‌ها به یک جای‌نگهدار اصلی، یک جای‌نگهدار طرح‌بندی و جای‌نگهدار متناظر در اسلاید عادی اضافه می‌شوند. قبل از استفاده از شکل بازگردانده شده، هر بار از [Shape.getBasePlaceholder](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shape/#getBasePlaceholder) بررسی می‌شود.
 
 ```python
 import jpype
@@ -214,17 +216,17 @@ finally:
 
 ## **تغییر زمان‌بندی انیمیشن**
 
-دیالوگ **Timing** در پاورپوینت به خصوصیات [Timing](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/) نگاشته می‌شود.
+پنجره **Timing** در PowerPoint به خصوصیات کلاس [Timing](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/) نگاشت می‌شود.
 
-![دیالوگ Timing در پاورپوینت برای یک افکت انیمیشن](shape-animation.png)
+![پنجره Timing در PowerPoint برای یک افکت انیمیشن](shape-animation.png)
 
-- **شروع** به [Timing.getTriggerType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#getTriggerType) نگاشته می‌شود.
-- **مدت** به [Timing.getDuration](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#getDuration) نگاشته می‌شود (بر حسب ثانیه).
-- **تاخیر** به [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#getTriggerDelayTime) نگاشته می‌شود (بر حسب ثانیه).
-- **تکرار** به [Timing.getRepeatCount](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#getRepeatCount)، [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#getRepeatUntilNextClick) یا [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#getRepeatUntilEndSlide) نگاشته می‌شود.
-- **بازگرداندن پس از اتمام پخش** به [Timing.getRewind](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#getRewind) نگاشته می‌شود.
+- **Start** به [Timing.getTriggerType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#getTriggerType) نگاشت می‌شود.
+- **Duration** به [Timing.getDuration](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#getDuration) (بر حسب ثانیه) نگاشت می‌شود.
+- **Delay** به [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#getTriggerDelayTime) (بر حسب ثانیه) نگاشت می‌شود.
+- **Repeat** به [Timing.getRepeatCount](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#getRepeatCount)، [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#getRepeatUntilNextClick) یا [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#getRepeatUntilEndSlide) نگاشت می‌شود.
+- **Rewind when done playing** به [Timing.getRewind](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#getRewind) نگاشت می‌شود.
 
-این مثال مستقل یک افکت اضافه می‌کند، زمان‌بندی آن را از طریق شیء بازگردانده‌شده توسط [Sequence.addEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/sequence/#addEffect) تغییر می‌دهد و نتیجه را ذخیره می‌کند. نگه‌داشتن مرجع بازگردانده‌شده [Effect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/effect/) از ایجاد ایندکس غیرضروری در مجموعه جلوگیری می‌کند.
+این مثال مستقل یک افکت اضافه می‌کند، زمان‌بندی آن را از طریق شیء بازگشتی توسط [Sequence.addEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/sequence/#addEffect) تغییر می‌دهد و نتیجه را ذخیره می‌کند. نگه داشتن مرجع [Effect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/effect/) بازگشتی از ایجاد ایندکس‌گذاری ناخواسته جلوگیری می‌کند.
 
 ```python
 import jpype
@@ -255,15 +257,15 @@ finally:
     presentation.dispose()
 ```
 
-یک حالت تکرار را عاقلانه انتخاب کنید. ترکیب شمارش تکرار با پرچم «تا» می‌تواند در نماشگرهای مختلف نتایج گیج‌کننده‌ای ایجاد کند. هنگام تغییر حالت‌های تکرار، ابتدا [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#setRepeatUntilNextClick) و [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) را تنظیم کنید و سپس [Timing.setRepeatCount](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#setRepeatCount) را صدا بزنید، زیرا تنظیم هر یک از پرچم‌ها حالت تکرار فعال را نیز تغییر می‌دهد.
+یک حالت تکرار را به‌صورت هدفمند استفاده کنید. ترکیب شمارش تکرار با پرچم «until» می‌تواند نتایج گیج‌کننده‌ای در نمایش‌گرهای مختلف ایجاد کند. هنگام تغییر حالت‌های تکرار، ابتدا [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#setRepeatUntilNextClick) و [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) را تنظیم کنید و سپس [Timing.setRepeatCount](https://reference.aspose.com/slides/fa/python-java/aspose.slides/timing/#setRepeatCount) را صدا بزنید، زیرا تنظیم هر کدام از پرچم‌ها حالت تکرار فعال را نیز تغییر می‌دهد.
 
-## **افزودن و استخراج صداهای انیمیشن**
+## **افزودن و استخراج صداهای افکت**
 
-یک افکت انیمیشن می‌تواند صداهای جاسازی‌شده را از طریق [Effect.getSound](https://reference.aspose.com/slides/fa/python-java/aspose.slides/effect/#getSound) ارجاع دهد. [Effect.setStopPreviousSound](https://reference.aspose.com/slides/fa/python-java/aspose.slides/effect/#setStopPreviousSound) به افکت می‌گوید که صداهایی که توسط افکت قبلی آغاز شده‌اند را متوقف کند.
+یک افکت انیمیشن می‌تواند به صوتی جاسازی‌شده از طریق [Effect.getSound](https://reference.aspose.com/slides/fa/python-java/aspose.slides/effect/#getSound) ارجاع دهد. متد [Effect.setStopPreviousSound](https://reference.aspose.com/slides/fa/python-java/aspose.slides/effect/#setStopPreviousSound) به افکت می‌گوید صوتی را که توسط افکت قبلی شروع شده است، متوقف کند.
 
 ### **افزودن صدا به یک افکت**
 
-مثال زیر انتظار دارد فایل صوتی محلی به نام `animation-sound.wav` وجود داشته باشد. دو افکت ایجاد می‌کند، فایل را به‌عنوان صدا برای اولین افکت جاسازی می‌کند و افکت دوم را طوری تنظیم می‌کند که صدا را متوقف کند. این مثال از اشیائی که توسط [Sequence.addEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/sequence/#addEffect) بازگردانده می‌شوند استفاده می‌کند، بنابراین نیازی به ایندکس دنباله نیست.
+مثال زیر انتظار دارد فایل صوتی محلی با نام `animation-sound.wav` موجود باشد. دو افکت ایجاد می‌کند، آن فایل را به عنوان صدا برای اولین افکت جاسازی می‌کند و دومین افکت را طوری تنظیم می‌کند که صدا را متوقف کند. از اشیایی که توسط [Sequence.addEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/sequence/#addEffect) بازگردانده می‌شوند استفاده می‌کند، بنابراین نیازی به ایندکس دنباله نیست.
 
 ```python
 import jpype
@@ -297,9 +299,9 @@ finally:
     presentation.dispose()
 ```
 
-### **استخراج صداهای جاسازی‌شده افکت**
+### **استخراج صداهای جاسازی‌شده در افکت**
 
-مثال زیر انتظار دارد ارائه محلی به نام `presentation-with-animation-sounds.pptx` وجود داشته باشد. هر دو دنباله اصلی و تعاملی را اسکن می‌کند و تمام صداهای جاسازی‌شده افکت را در پوشه `extracted-animation-sounds` می‌نویسد. پسوند بر اساس نوع MIME صوتی که توسط [Audio.getContentType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audio/#getContentType) ارائه می‌شود، انتخاب می‌شود.
+مثال زیر انتظار دارد ارائه محلی با نام `presentation-with-animation-sounds.pptx` موجود باشد. هر دو دنباله اصلی و تعاملی را اسکن می‌کند و تمام صداهای افکت جاسازی‌شده را در پوشه `extracted-animation-sounds` می‌نویسد. پسوند بر اساس نوع MIME صوتی که توسط [Audio.getContentType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audio/#getContentType) بازگردانده می‌شود، انتخاب می‌شود.
 
 ```python
 import jpype
@@ -353,17 +355,17 @@ finally:
     presentation.dispose()
 ```
 
-برای اشیای صوتی بزرگ، از [Audio.getStream](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audio/#getStream) استفاده کنید و به‌جای بارگذاری کل شیء در یک آرایه بایت، جریان را به فایل کپی کنید.
+برای اشیای صوتی بزرگ، از [Audio.getStream](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audio/#getStream) استفاده کنید و جریان را به یک فایل کپی کنید به‌جای بارگذاری کل شیء در آرایه بایت.
 
 ## **تنظیم رفتار پس از انیمیشن**
 
-گزینه **After animation** کنترل می‌کند که پس از اتمام افکت، شکل چه کاری انجام دهد.
+گزینه **After animation** تعیین می‌کند پس از اتمام افکت چه اتفاقی برای شکل می‌افتد.
 
-![دیالوگ گزینه‌های افکت پاورپوینت نشان دهنده تنظیمات After animation](shape-after-animation.png)
+![پنجره گزینه‌های افکت PowerPoint که تنظیمات After animation را نشان می‌دهد](shape-after-animation.png)
 
-کلاس [AfterAnimationType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/afteranimationtype/) از باقی‌ماندن شکل به‌همین صورت، تغییر رنگ، مخفی کردن پس از انیمیشن یا مخفی کردن در کلیک بعدی پشتیبانی می‌کند. زمانی که نوع برابر با [AfterAnimationType.Color](https://reference.aspose.com/slides/fa/python-java/aspose.slides/afteranimationtype/#Color) باشد، باید [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/fa/python-java/aspose.slides/effect/#getAfterAnimationColor) نیز تنظیم شود.
+کلاس [AfterAnimationType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/afteranimationtype/) امکان نگه داشتن شکل بدون تغییر، تغییر رنگ، مخفی کردن پس از انیمیشن یا مخفی کردن در کلیک بعدی را فراهم می‌کند. هنگامی که نوع برابر [AfterAnimationType.Color](https://reference.aspose.com/slides/fa/python-java/aspose.slides/afteranimationtype/#Color) است، همچنین [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/fa/python-java/aspose.slides/effect/#getAfterAnimationColor) تنظیم شود.
 
-این مثال مستقل یک افکت ایجاد می‌کند، رفتار پس‌از‑انیمیشن آن را از طریق شیء افکت بازگردانده تنظیم می‌کند و نتیجه را ذخیره می‌نماید.
+این مثال مستقل یک افکت ایجاد می‌کند، رفتار پس از انیمیشن آن را از طریق شیء افکت بازگشتی تنظیم می‌کند و نتیجه را ذخیره می‌کند.
 
 ```python
 import jpype
@@ -390,16 +392,16 @@ finally:
     presentation.dispose()
 ```
 
-تغییر نوع از [AfterAnimationType.Color](https://reference.aspose.com/slides/fa/python-java/aspose.slides/afteranimationtype/#Color) باعث پاک‌سازی تنظیم رنگ پس از انیمیشن می‌شود.
+تغییر نوع از [AfterAnimationType.Color](https://reference.aspose.com/slides/fa/python-java/aspose.slides/afteranimationtype/#Color) تنظیم رنگ پس از انیمیشن را پاک می‌کند.
 
 ## **انیمیشن متن**
 
 انیمیشن متن دو کنترل مرتبط دارد:
 
-- [TextAnimation.getBuildType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/textanimation/#getBuildType) تعیین می‌کند که پاراگراف‌ها همزمان یا به‌صورت سطح‑پاراگراف ظاهر شوند.
-- [Effect.getAnimateTextType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/effect/#getAnimateTextType) تعیین می‌کند که متن به‌صورت یکجا، به‌صورت کلمه یا به‌صورت حرف ظاهر شود. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/fa/python-java/aspose.slides/effect/#getDelayBetweenTextParts) تاخیر بین کلمات یا حروف را تنظیم می‌کند. مقدار مثبت درصدی از مدت افکت است؛ مقدار منفی تاخیر بر حسب ثانیه.
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/textanimation/#getBuildType) تعیین می‌کند پاراگراف‌ها به‌صورت یکجا یا به‌صورت سطح پاراگراف ظاهر شوند.
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/fa/python-java/aspose.slides/effect/#getAnimateTextType) تعیین می‌کند متن به‌صورت یکجا، به‌صورت واژه یا به‌صورت حرف ظاهر شود. متد [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/fa/python-java/aspose.slides/effect/#getDelayBetweenTextParts) تاخیر بین واژه‌ها یا حروف را تنظیم می‌کند. مقدار مثبت درصدی از مدت افکت است؛ مقدار منفی تاخیر بر حسب ثانیه است.
 
-مثال مستقل زیر کلمات داخل یک جعبه متن را انیمیشن می‌کند. [BuildType.AsOneObject](https://reference.aspose.com/slides/fa/python-java/aspose.slides/buildtype/#AsOneObject) ساختن پاراگراف به‌صورت پی در پی را غیرفعال می‌کند تا تنظیم کلمه برای تمام قاب متن اعمال شود.
+مثال مستقل زیر واژه‌های یک جعبه متن را انیمیشن می‌کند. [BuildType.AsOneObject](https://reference.aspose.com/slides/fa/python-java/aspose.slides/buildtype/#AsOneObject) ساختن بر اساس پاراگراف را غیرفعال می‌کند تا تنظیم واژه برای تمام قاب متن اعمال شود.
 
 ```python
 import jpype
@@ -426,26 +428,26 @@ finally:
     presentation.dispose()
 ```
 
-برای ساختن جعبه متن به‌صورت پاراگراف، [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/fa/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) (یا سطح‑پاراگراف دیگری) را تنظیم کنید. برای هدف‌گیری یک پاراگراف منفرد با افکت اختصاصی، از overload متد [Sequence.addEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/sequence/#addEffect) که یک [Paragraph](https://reference.aspose.com/slides/fa/python-java/aspose.slides/paragraph/) می‌گیرد استفاده کنید. برای مثال‌های سطح‑پاراگراف به [Animated Text](/slides/fa/python-java/animated-text/) مراجعه کنید.
+برای ساختن جعبه متن به‌صورت پاراگرافی، [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/fa/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) (یا سطح پاراگراف دیگری) را تنظیم کنید. برای هدف قرار دادن یک پاراگراف به‌صورت تک‌تک با افکت مخصوص خود، از متد overload [Sequence.addEffect](https://reference.aspose.com/slides/fa/python-java/aspose.slides/sequence/#addEffect) که یک [Paragraph](https://reference.aspose.com/slides/fa/python-java/aspose.slides/paragraph/) می‌گیرد، استفاده کنید. برای مثال‌های سطح پاراگراف به [نوشته‌های انیمیشن‌دار](/slides/fa/python-java/animated-text/) مراجعه کنید.
 
 ## **صادرات و نکات سازگاری**
 
-- ذخیره به‌صورت PPT یا PPTX مدل انیمیشن را حفظ می‌کند، اما پخش نهایی توسط نرم‌افزار نمایش‌کننده ارائه کنترل می‌شود.
-- PDF و تصویرهای ثابت انیمیشن را پخش نمی‌کنند. هنگامی که خروجی باید حرکت را نشان دهد، از [HTML5 export](/slides/fa/python-java/export-to-html5/)، GIF متحرک یا [تبدیل به ویدئو](/slides/fa/python-java/convert-powerpoint-to-video/) استفاده کنید.
-- برای HTML5، [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/fa/python-java/aspose.slides/html5options/#setAnimateShapes) را فعال کنید و در صورت نیاز [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/html5options/#setAnimateTransitions) را تنظیم کنید.
-- رندر ویدئو بسیاری از افکت‌های ورودی، تأکید، خروجی و مسیر حرکت رایج را پشتیبانی می‌کند، اما تمام افکت‌های پاورپوینت پشتیبانی نمی‌شوند. جدول [انیمیشن‌ها و افکت‌های پشتیبانی‌شده](/slides/fa/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) را بررسی کنید و ارائه‌های مهم را با نسخه Aspose.Slides هدف خود آزمایش کنید.
-- افکت‌های سفارشی پیشرفته و افکت‌های وارد شده از قالب‌های ارائه دیگر ممکن است در فایل حفظ شوند اما در پاورپوینت، HTML5 یا ویدئو به‌صورت متفاوت رندر شوند. نتیجه صادرات را معتبر‌سنجی کنید نه فقط بر پایه نام افکت.
+- ذخیره به قالب PPT یا PPTX مدل انیمیشن را حفظ می‌کند، اما پخش نهایی توسط نمایشگر ارائه کنترل می‌شود.
+- PDF و تصاویر ثابت انیمیشن را پخش نمی‌کنند. وقتی خروجی باید حرکت را نشان دهد، از [صادرات به HTML5](/slides/fa/python-java/export-to-html5/)، GIF انیمیشن‌دار یا [تبدیل به ویدیو](/slides/fa/python-java/convert-powerpoint-to-video/) استفاده کنید.
+- برای HTML5، متد [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/fa/python-java/aspose.slides/html5options/#setAnimateShapes) را فعال کنید و در صورت نیاز [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/html5options/#setAnimateTransitions) را تنظیم کنید.
+- رندر ویدیو بسیاری از افکت‌های ورودی، تأکیدی، خروجی و مسیر حرکتی رایج را پشتیبانی می‌کند، اما همه افکت‌های PowerPoint پشتیبانی نمی‌شوند. جدول [انیمیشن‌ها و افکت‌های پشتیبانی‌شده](/slides/fa/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) را بررسی کنید و ارائه‌های مهم را با نسخه Aspose.Slides هدف‌تان تست کنید.
+- افکت‌های سفارشی پیشرفته و افکت‌های واردشده از فرمت‌های دیگر ممکن است در فایل حفظ شوند اما در PowerPoint، HTML5 یا ویدیو به‌صورت متفاوتی رندر شوند. نتیجهٔ صادرشده را اعتبارسنجی کنید نه تنها بر پایهٔ نام افکت.
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**چرا یک انیمیشن در پاورپوینت نمایش داده می‌شود اما در PDF نه؟**
+**چرا یک انیمیشن در PowerPoint دیده می‌شود اما در PDF نیست؟**
 
-PDF یک قالب ثابت است، بنابراین انیمیشن‌ها و انتقال‌های اسلاید اجرا نمی‌شوند. برای حفظ حرکت، به HTML5، GIF متحرک یا ویدئو صادر کنید.
+PDF یک قالب ثابت است، بنابراین انیمیشن‌ها و انتقال‌های اسلاید اجرا نمی‌شوند. وقتی نیاز به حفظ حرکت است، به HTML5، GIF انیمیشن‌دار یا ویدیو صادر شوید.
 
-**چرا یک افکت در ویدئو متفاوت پخش می‌شود؟**
+**چرا یک افکت در ویدیو به‌صورت متفاوتی اجرا می‌شود؟**
 
-صادرات ویدئو انیمیشن‌ها را رندر می‌کند نه اینکه رفتار اصلی پاورپوینت را ذخیره کند. برخی افکت‌های پیشرفته پشتیبانی نمی‌شوند یا به‌صورت تخمینی اجرا می‌شوند. جدول افکت‌های پشتیبانی‌شده را مرور کنید و قبل از استفاده در تولید، ارائه واقعی را تست کنید.
+صادر به ویدیو انیمیشن‌ها را رندر می‌کند نه اینکه رفتار اصلی PowerPoint را ذخیره کند. برخی افکت‌های پیشرفته پشتیبانی نمی‌شوند یا به‌صورت تخمینی اجرا می‌شوند. جدول افکت‌های پشتیبانی‌شده را مرور کنید و قبل از استفادهٔ تولیدی، ارائه واقعی را تست کنید.
 
-**آیا جابجایی یک شکل به جلو یا عقب ترتیب انیمیشن آن را تغییر می‌دهد؟**
+**آیا جابه‌جایی یک شکل به‌سوی جلو یا عقب ترتیب انیمیشن آن را تغییر می‌دهد؟**
 
-خیر. ترتیب لایه (z‑order) فقط کنترل هم‌پوشانی را انجام می‌دهد، در حالی که ترتیب دنباله و تحریک‌کننده‌ها پخش انیمیشن را تعیین می‌کنند. اگر به ترتیب پخش متفاوت نیاز دارید، جدول زمان‌بندی را تغییر دهید.
+خیر. ترتیب لایهٔ Z شکل فقط پوشش همپوشانی را کنترل می‌کند، در حالی که ترتیب دنباله و محرک‌ها ترتیب پخش انیمیشن را تعیین می‌کنند. اگر به ترتیب پخش متفاوت نیاز دارید، جدول زمان را تغییر دهید.

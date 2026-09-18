@@ -1,6 +1,6 @@
 ---
-title: Áp dụng Hoạt ảnh Hình dạng trong Bản trình bày sử dụng Java
-linktitle: Hoạt ảnh Hình dạng
+title: Áp dụng hoạt ảnh hình dạng trong các bản trình chiếu bằng Java
+linktitle: Hoạt ảnh hình dạng
 type: docs
 weight: 60
 url: /vi/java/shape-animation/
@@ -19,25 +19,27 @@ keywords:
 - âm thanh hiệu ứng
 - áp dụng hoạt ảnh
 - PowerPoint
-- bản trình bày
+- bản trình chiếu
 - Java
 - Aspose.Slides
 description: "Tìm hiểu cách thêm, kiểm tra và tùy chỉnh hoạt ảnh hình dạng, thời gian, âm thanh, hành vi sau hoạt ảnh và văn bản động với Aspose.Slides cho Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides for Java đại diện cho các hiệu ứng chuyển động trên slide như các hiệu ứng trong một dòng thời gian slide. Một hiệu ứng có một hình dạng mục tiêu, một loại và phụ loại hoạt ảnh, một trình kích hoạt, cài đặt thời gian, và các thuộc tính tùy chọn như âm thanh hoặc hành vi sau hoạt ảnh.
+Để làm việc với các hành vi riêng lẻ bên trong một hiệu ứng hoặc chỉnh sửa các đoạn đường chuyển động, xem [Tùy chỉnh hoạt ảnh](/slides/vi/java/custom-animation/).
+
+Aspose.Slides for Java biểu diễn hoạt ảnh slide dưới dạng các hiệu ứng trong một dòng thời gian slide. Một hiệu ứng có hình dạng mục tiêu, kiểu và phụ hiệu ứng, trình kích hoạt, cài đặt thời gian, và các thuộc tính tùy chọn như âm thanh hoặc hành vi sau hoạt ảnh.
 
 Dòng thời gian chứa hai loại chuỗi:
 
-- **Chuỗi chính** chạy khi slide tiến tới.
-- **Chuỗi tương tác** bắt đầu khi hình dạng kích hoạt của nó được nhấp.
+- **Chuỗi chính** phát khi slide tiến lên.
+- **Chuỗi tương tác** bắt đầu khi hình dạng kích hoạt của nó được nhấn.
 
-Vì các hộp văn bản, hình ảnh, biểu đồ, bảng và các đối tượng slide khác thực thi [IShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/), bạn sử dụng cùng một phương thức [ISequence.addEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) cho phần lớn nội dung slide. Các hiệu ứng khả dụng được liệt kê trong lớp [EffectType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/effecttype/).
+Vì các hộp văn bản, hình ảnh, biểu đồ, bảng và các đối tượng slide khác thực hiện [IShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/), bạn sử dụng cùng một phương thức [ISequence.addEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) cho hầu hết nội dung slide. Các hiệu ứng khả dụng được liệt kê trong lớp [EffectType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/effecttype/).
 
-## **Thêm Hoạt Ảnh Cho Hình**
+## **Thêm hoạt ảnh cho hình dạng**
 
-Để thêm một hoạt ảnh, lấy chuỗi chính của slide và gọi [ISequence.addEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) với hình dạng mục tiêu, loại hiệu ứng, phụ loại và trình kích hoạt. Đối với một hiệu ứng bắt đầu khi một hình dạng khác được nhấp, tạo một chuỗi tương tác mà trình kích hoạt là hình dạng khác đó.
+Để thêm một hoạt ảnh, lấy chuỗi chính của slide và gọi [ISequence.addEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) với hình dạng mục tiêu, kiểu hiệu ứng, phụ hiệu ứng và trình kích hoạt. Đối với hiệu ứng bắt đầu khi một hình dạng khác được nhấn, tạo một chuỗi tương tác mà trình kích hoạt là hình dạng khác đó.
 
 Ví dụ sau tạo cả hai loại hoạt ảnh và lưu kết quả vào `shape-animations.pptx`.
 
@@ -71,19 +73,19 @@ public class AddShapeAnimations {
 }
 ```
 
-Trình kích hoạt kiểm soát thời điểm một hiệu ứng bắt đầu:
+Trình kích hoạt điều khiển thời điểm một hiệu ứng bắt đầu:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/effecttriggertype/#OnClick) chờ một cú nhấp trong chuỗi chính, hoặc một cú nhấp vào hình dạng kích hoạt trong chuỗi tương tác.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/effecttriggertype/#OnClick) chờ một cú nhấp trong chuỗi chính, hoặc chờ một cú nhấp vào hình dạng kích hoạt trong chuỗi tương tác.
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/vi/java/com.aspose.slides/effecttriggertype/#WithPrevious) bắt đầu cùng với hiệu ứng trước đó.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/vi/java/com.aspose.slides/effecttriggertype/#AfterPrevious) bắt đầu khi hiệu ứng trước đó kết thúc.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/vi/java/com.aspose.slides/effecttriggertype/#AfterPrevious) bắt đầu khi hiệu ứng trước kết thúc.
 
-Để tạo hoạt ảnh cho hình ảnh, biểu đồ hoặc một loại hình dạng khác, truyền đối tượng đó vào [ISequence.addEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) thay vì `targetShape`. Đối với các tùy chọn nhóm riêng cho biểu đồ, xem [Animated Charts](/slides/vi/java/animated-charts/).
+Để tạo hoạt ảnh cho hình ảnh, biểu đồ hoặc loại hình dạng khác, truyền đối tượng đó vào [ISequence.addEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) thay vì `targetShape`. Đối với các tùy chọn nhóm riêng cho biểu đồ, xem [Biểu đồ động](/slides/vi/java/animated-charts/).
 
-## **Đọc Hoạt Ảnh Cho Hình**
+## **Đọc hoạt ảnh hình dạng**
 
-Sử dụng [ISequence.getEffectsByShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) khi bạn biết hình dạng mục tiêu. Để kiểm tra mọi hiệu ứng, liệt kê chuỗi chính và mọi chuỗi tương tác. Việc liệt kê tránh giả định rằng một chuỗi chứa hiệu ứng tại chỉ số `0`.
+Sử dụng [ISequence.getEffectsByShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) khi bạn biết hình dạng mục tiêu. Để kiểm tra mọi hiệu ứng, duyệt chuỗi chính và mọi chuỗi tương tác. Việc duyệt tránh giả định rằng một chuỗi chứa hiệu ứng tại chỉ mục `0`.
 
-Ví dụ sau tạo một hình dạng với các hiệu ứng trong chuỗi chính và chuỗi tương tác, lấy các hiệu ứng mục tiêu hình dạng, và sau đó liệt kê mọi chuỗi trên slide.
+Ví dụ sau tạo một hình dạng có hiệu ứng chuỗi chính và chuỗi tương tác, lấy các hiệu ứng nhắm vào hình dạng đó, rồi duyệt mọi chuỗi trên slide.
 
 ```java
 import com.aspose.slides.*;
@@ -137,21 +139,21 @@ public class ReadShapeAnimations {
 }
 ```
 
-Nếu bạn chỉ cần các hiệu ứng cho một hình dạng, trước tiên xác định hình dạng bằng tên, kiểu placeholder, hoặc thuộc tính ổn định khác; sau đó gọi [ISequence.getEffectsByShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Không giả định rằng [IShapeCollection.get_Item](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#get_Item-int-) tại chỉ số `0` luôn là đối tượng mong muốn.
+Nếu bạn chỉ cần các hiệu ứng cho một hình dạng, trước hết xác định hình dạng bằng tên, kiểu trình giữ chỗ, hoặc thuộc tính ổn định khác; sau đó gọi [ISequence.getEffectsByShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Không giả định rằng [IShapeCollection.get_Item](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#get_Item-int-) tại chỉ mục `0` luôn là đối tượng mong muốn.
 
-## **Làm việc với Hiệu Ứng Placeholder Kế Thừa**
+## **Làm việc với hiệu ứng trình giữ chỗ kế thừa**
 
-Một placeholder trên slide bình thường có thể kế thừa hành vi hoạt ảnh từ placeholder tương ứng trên slide bố cục và slide chủ. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getBasePlaceholder--) trả về placeholder cha đó, hoặc `null` khi không có cha.
+Một trình giữ chỗ trên slide bình thường có thể kế thừa hành vi hoạt ảnh từ trình giữ chỗ tương ứng trên slide bố cục và slide mẹ. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getBasePlaceholder--) trả về trình giữ chỗ cha đó, hoặc `null` khi không có cha.
 
-Trong bản trình bày mẫu dưới đây, phần chân trang có **Random Bars** trên slide bình thường, **Split** trên slide bố cục, và **Fly In** trên slide chủ.
+Trong bản trình bày mẫu dưới đây, phần chân trang có **Random Bars** trên slide bình thường, **Split** trên slide bố cục, và **Fly In** trên slide mẹ.
 
 ![Hiệu ứng hoạt ảnh chân trang trên slide bình thường](slide-shape-animation.png)
 
-![Hiệu ứng hoạt ảnh placeholder chân trang trên slide bố cục](layout-shape-animation.png)
+![Hiệu ứng hoạt ảnh trình giữ chỗ chân trang trên slide bố cục](layout-shape-animation.png)
 
-![Hiệu ứng hoạt ảnh placeholder chân trang trên slide chủ](master-shape-animation.png)
+![Hiệu ứng hoạt ảnh trình giữ chỗ chân trang trên slide mẹ](master-shape-animation.png)
 
-Ví dụ tiếp theo sử dụng một cây hierarchy placeholder từ một bản trình bày mới. Nó thêm các hiệu ứng vào một placeholder chủ, một placeholder bố cục, và placeholder tương ứng trên một slide bình thường. Mọi lần gọi [IShape.getBasePlaceholder](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getBasePlaceholder--) đều được kiểm tra trước khi sử dụng hình dạng trả về.
+Ví dụ tiếp theo sử dụng một cây trình giữ chỗ từ một bản trình bày mới. Nó thêm hiệu ứng vào một trình giữ chỗ mẹ, một trình giữ chỗ bố cục, và trình giữ chỗ tương ứng trên slide bình thường. Mọi lời gọi tới [IShape.getBasePlaceholder](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/#getBasePlaceholder--) đều được kiểm tra trước khi sử dụng hình dạng trả về.
 
 ```java
 import com.aspose.slides.*;
@@ -229,19 +231,19 @@ public class InheritedPlaceholderAnimations {
 }
 ```
 
-## **Thay Đổi Thời Gian Hoạt Ảnh**
+## **Thay đổi thời gian hoạt ảnh**
 
-Hộp thoại **Timing** của PowerPoint ánh xạ đến các thuộc tính của [ITiming](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/).
+Hộp thoại **Timing** của PowerPoint ánh xạ tới các thuộc tính của [ITiming](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/).
 
 ![Hộp thoại Timing của PowerPoint cho một hiệu ứng hoạt ảnh](shape-animation.png)
 
-- **Start** ánh xạ đến [ITiming.getTriggerType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#getTriggerType--).
-- **Duration** ánh xạ đến [ITiming.getDuration](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#getDuration--), tính bằng giây.
-- **Delay** ánh xạ đến [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#getTriggerDelayTime--), tính bằng giây.
-- **Repeat** ánh xạ đến [ITiming.getRepeatCount](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#getRepeatUntilNextClick--), hoặc [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
-- **Rewind when done playing** ánh xạ đến [ITiming.getRewind](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#getRewind--).
+- **Start** ánh xạ tới [ITiming.getTriggerType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#getTriggerType--).
+- **Duration** ánh xạ tới [ITiming.getDuration](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#getDuration--), tính bằng giây.
+- **Delay** ánh xạ tới [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#getTriggerDelayTime--), tính bằng giây.
+- **Repeat** ánh xạ tới [ITiming.getRepeatCount](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#getRepeatUntilNextClick--), hoặc [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
+- **Rewind when done playing** ánh xạ tới [ITiming.getRewind](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#getRewind--).
 
-Ví dụ độc lập này thêm một hiệu ứng, thay đổi thời gian của nó thông qua đối tượng trả về bởi [ISequence.addEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), và lưu kết quả. Giữ tham chiếu [IEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ieffect/) trả về giúp tránh một chỉ mục bộ sưu tập không cần thiết.
+Ví dụ độc lập này thêm một hiệu ứng, thay đổi thời gian của nó thông qua đối tượng trả về bởi [ISequence.addEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), và lưu kết quả. Giữ tham chiếu tới [IEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ieffect/) trả về tránh một chỉ mục bộ sưu tập không cần thiết.
 
 ```java
 import com.aspose.slides.*;
@@ -271,15 +273,15 @@ public class ChangeAnimationTiming {
 }
 ```
 
-Sử dụng một chế độ lặp lại duy nhất có chủ đích. Kết hợp số lần lặp với cờ “until” có thể tạo ra kết quả gây nhầm lẫn trên các trình xem khác nhau. Khi thay đổi chế độ lặp lại, hãy đặt [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) và [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) trước [ITiming.setRepeatCount](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#setRepeatCount-float-), vì việc đặt bất kỳ cờ nào cũng sẽ thay đổi chế độ lặp hiện hoạt.
+Sử dụng một chế độ lặp duy nhất. Kết hợp số lần lặp với cờ “until” có thể gây ra kết quả khó hiểu trên các trình xem khác nhau. Khi thay đổi chế độ lặp, đặt [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) và [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) trước khi gọi [ITiming.setRepeatCount](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itiming/#setRepeatCount-float-), vì việc đặt bất kỳ cờ nào cũng sẽ thay đổi chế độ lặp đang hoạt động.
 
-## **Thêm và Trích Xuất Âm Thanh Hoạt Ảnh**
+## **Thêm và trích xuất âm thanh hoạt ảnh**
 
-Một hiệu ứng hoạt ảnh có thể tham chiếu âm thanh nhúng qua [IEffect.getSound](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ieffect/#getSound--). [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) cho hiệu ứng biết dừng âm thanh đã được bắt đầu bởi hiệu ứng trước.
+Một hiệu ứng hoạt ảnh có thể tham chiếu âm thanh nhúng thông qua [IEffect.getSound](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ieffect/#getSound--). [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) yêu cầu hiệu ứng dừng âm thanh đã được khởi động bởi một hiệu ứng trước đó.
 
-### **Thêm Âm Thanh Vào Một Hiệu Ứng**
+### **Thêm âm thanh vào hiệu ứng**
 
-Ví dụ sau yêu cầu một tệp âm thanh cục bộ có tên `animation-sound.wav`. Nó tạo hai hiệu ứng, nhúng tệp đó làm âm thanh cho hiệu ứng đầu tiên, và cấu hình hiệu ứng thứ hai để dừng âm thanh. Nó sử dụng các đối tượng trả về bởi [ISequence.addEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), vì vậy không cần chỉ mục chuỗi.
+Ví dụ sau yêu cầu một file âm thanh cục bộ có tên `animation-sound.wav`. Nó tạo hai hiệu ứng, nhúng file đó làm âm thanh cho hiệu ứng đầu tiên, và cấu hình hiệu ứng thứ hai để dừng âm thanh. Nó sử dụng các đối tượng trả về bởi [ISequence.addEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), vì vậy không cần chỉ mục chuỗi.
 
 ```java
 import com.aspose.slides.*;
@@ -314,9 +316,9 @@ public class AddAnimationSound {
 }
 ```
 
-### **Trích Xuất Âm Thanh Nhúng Của Hiệu Ứng**
+### **Trích xuất âm thanh hiệu ứng đã nhúng**
 
-Ví dụ sau yêu cầu một bản trình bày cục bộ có tên `presentation-with-animation-sounds.pptx`. Nó quét cả chuỗi chính và chuỗi tương tác và ghi mọi âm thanh hiệu ứng nhúng vào thư mục `extracted-animation-sounds`. Phần mở rộng được chọn dựa trên loại MIME âm thanh được cung cấp bởi [IAudio.getContentType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iaudio/#getContentType--).
+Ví dụ sau yêu cầu một bản trình bày cục bộ có tên `presentation-with-animation-sounds.pptx`. Nó quét cả chuỗi chính và chuỗi tương tác và ghi mỗi âm thanh hiệu ứng đã nhúng vào thư mục `extracted-animation-sounds`. Phần mở rộng được chọn dựa trên loại MIME âm thanh được cung cấp bởi [IAudio.getContentType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iaudio/#getContentType--).
 
 ```java
 import com.aspose.slides.*;
@@ -390,15 +392,15 @@ public class ExtractAnimationSounds {
 }
 ```
 
-Đối với các đối tượng âm thanh lớn, sử dụng [IAudio.getStream](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iaudio/#getStream--) và sao chép luồng tới tệp thay vì tải toàn bộ đối tượng vào mảng byte.
+Đối với các đối tượng âm thanh lớn, sử dụng [IAudio.getStream](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iaudio/#getStream--) và sao chép luồng vào file thay vì tải toàn bộ đối tượng vào mảng byte.
 
-## **Đặt Hành Vi Sau Hoạt Ảnh**
+## **Đặt hành vi sau hoạt ảnh**
 
-Tùy chọn **After animation** kiểm soát những gì xảy ra với một hình dạng sau khi hiệu ứng của nó kết thúc.
+Tùy chọn **After animation** điều khiển gì xảy ra với một hình dạng sau khi hiệu ứng của nó kết thúc.
 
 ![Hộp thoại tùy chọn hiệu ứng PowerPoint hiển thị cài đặt After animation](shape-after-animation.png)
 
-Lớp [AfterAnimationType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/afteranimationtype/) hỗ trợ giữ nguyên hình dạng, thay đổi màu, ẩn nó sau hoạt ảnh, hoặc ẩn nó khi nhấp tiếp theo. Khi loại là [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/java/com.aspose.slides/afteranimationtype/#Color), cũng đặt [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ieffect/#getAfterAnimationColor--).
+Lớp [AfterAnimationType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/afteranimationtype/) hỗ trợ để lại hình dạng không thay đổi, đổi màu, ẩn nó sau hoạt ảnh, hoặc ẩn nó khi cú nhấp tiếp theo. Khi kiểu là [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/java/com.aspose.slides/afteranimationtype/#Color), cũng đặt [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ieffect/#getAfterAnimationColor--).
 
 Ví dụ độc lập này tạo một hiệu ứng, đặt hành vi sau hoạt ảnh thông qua đối tượng hiệu ứng trả về, và lưu kết quả.
 
@@ -426,16 +428,16 @@ public class SetAfterAnimationBehavior {
 }
 ```
 
-Thay đổi loại khỏi [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/java/com.aspose.slides/afteranimationtype/#Color) sẽ xóa thiết lập màu sau hoạt ảnh.
+Thay đổi kiểu khỏi [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/java/com.aspose.slides/afteranimationtype/#Color) sẽ xóa cài đặt màu sau hoạt ảnh.
 
-## **Hoạt Ảnh Văn Bản**
+## **Hoạt ảnh văn bản**
 
 Hoạt ảnh văn bản có hai điều khiển liên quan:
 
-- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextanimation/#getBuildType--) kiểm soát liệu các đoạn văn hiện cùng nhau hay theo mức độ đoạn.
-- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ieffect/#getAnimateTextType--) kiểm soát liệu văn bản hiện toàn bộ, theo từ, hoặc theo ký tự. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) đặt độ trễ giữa các từ hoặc ký tự. Giá trị dương là phần trăm của thời lượng hiệu ứng; giá trị âm là độ trễ tính bằng giây.
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextanimation/#getBuildType--) kiểm soát việc các đoạn văn xuất hiện cùng nhau hay theo mức đoạn văn.
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ieffect/#getAnimateTextType--) kiểm soát việc văn bản xuất hiện một lúc, theo từ hoặc theo ký tự. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) đặt độ trễ giữa các từ hoặc ký tự. Giá trị dương là phần trăm của thời lượng hiệu ứng; giá trị âm là độ trễ tính bằng giây.
 
-Ví dụ độc lập sau hoạt ảnh các từ trong một hộp văn bản. [BuildType.AsOneObject](https://reference.aspose.com/slides/vi/java/com.aspose.slides/buildtype/#AsOneObject) tắt việc xây dựng đoạn theo đoạn để cài đặt từ áp dụng cho toàn bộ khung văn bản.
+Ví dụ độc lập sau hoạt ảnh các từ trong một hộp văn bản. [BuildType.AsOneObject](https://reference.aspose.com/slides/vi/java/com.aspose.slides/buildtype/#AsOneObject) tắt việc xây dựng đoạn văn theo đoạn, vì vậy cài đặt từ áp dụng cho toàn bộ khung văn bản.
 
 ```java
 import com.aspose.slides.*;
@@ -461,26 +463,26 @@ public class AnimateTextByWord {
 }
 ```
 
-Để xây dựng một hộp văn bản theo đoạn, đặt [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/vi/java/com.aspose.slides/buildtype/#ByLevelParagraphs1) (hoặc mức độ đoạn khác). Để mục tiêu một đoạn riêng biệt với hiệu ứng riêng, sử dụng phương thức quá tải [ISequence.addEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) chấp nhận một [IParagraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/). Xem [Animated Text](/slides/vi/java/animated-text/) để biết các ví dụ mức độ đoạn.
+Để xây dựng một hộp văn bản theo đoạn, đặt [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/vi/java/com.aspose.slides/buildtype/#ByLevelParagraphs1) (hoặc mức đoạn khác). Để nhắm tới một đoạn riêng với hiệu ứng riêng, sử dụng phương thức overload [ISequence.addEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) chấp nhận một [IParagraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/). Xem [Văn bản động](/slides/vi/java/animated-text/) để biết các ví dụ mức đoạn.
 
-## **Xuất và Ghi chú Tương Thích**
+## **Ghi chú xuất và tính tương thích**
 
-- Lưu thành PPT hoặc PPTX giữ mô hình hoạt ảnh, nhưng việc phát lại cuối cùng được điều khiển bởi trình xem bản trình bày.
-- PDF và hình ảnh tĩnh không phát hoạt ảnh. Sử dụng [HTML5 export](/slides/vi/java/export-to-html5/), GIF động, hoặc [video conversion](/slides/vi/java/convert-powerpoint-to-video/) khi đầu ra phải hiển thị chuyển động.
+- Lưu dưới dạng PPT hoặc PPTX giữ nguyên mô hình hoạt ảnh, nhưng việc phát cuối cùng do trình xem bản trình bày điều khiển.
+- PDF và hình ảnh tĩnh không phát hoạt ảnh. Sử dụng [HTML5 export](/slides/vi/java/export-to-html5/), GIF hoạt ảnh, hoặc [chuyển đổi video](/slides/vi/java/convert-powerpoint-to-video/) khi đầu ra phải hiển thị chuyển động.
 - Đối với HTML5, bật [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) và, khi cần, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
-- Kết xuất video hỗ trợ nhiều hiệu ứng vào, nhấn mạnh, ra và đường chuyển động phổ biến, nhưng không phải mọi hiệu ứng PowerPoint đều được hỗ trợ. Kiểm tra [supported animations and effects](/slides/vi/java/convert-powerpoint-to-video/#supported-animations-and-effects) hiện tại và thử nghiệm các bản trình bày quan trọng với phiên bản Aspose.Slides mục tiêu của bạn.
-- Các hiệu ứng tùy chỉnh nâng cao và các hiệu ứng được nhập từ các định dạng bản trình bày khác có thể được giữ trong tệp nhưng hiển thị khác nhau trong PowerPoint, HTML5 hoặc video. Xác thực kết quả xuất thay vì chỉ dựa vào tên hiệu ứng.
+- Kết xuất video hỗ trợ nhiều hiệu ứng vào, nhấn mạnh, thoát và đường chuyển động phổ biến, nhưng không phải mọi hiệu ứng PowerPoint đều được hỗ trợ. Kiểm tra bảng [các hoạt ảnh và hiệu ứng được hỗ trợ](/slides/vi/java/convert-powerpoint-to-video/#supported-animations-and-effects) hiện tại và thử nghiệm các bản trình bày quan trọng với phiên bản Aspose.Slides mục tiêu của bạn.
+- Các hiệu ứng tùy chỉnh nâng cao và các hiệu ứng được nhập từ các định dạng bản trình bày khác có thể được giữ trong file nhưng hiển thị khác nhau trong PowerPoint, HTML5 hoặc video. Xác thực kết quả xuất thay vì chỉ dựa vào tên hiệu ứng.
 
-## **Câu Hỏi Thường Gặp**
+## **Câu hỏi thường gặp**
 
-**Tại sao một hoạt ảnh xuất hiện trong PowerPoint nhưng không trong PDF?**
+**Tại sao một hoạt ảnh xuất hiện trong PowerPoint mà không xuất hiện trong PDF?**
 
-PDF là định dạng tĩnh, vì vậy hoạt ảnh và chuyển tiếp slide không được phát. Xuất sang HTML5, GIF động, hoặc video khi cần giữ chuyển động.
+PDF là định dạng tĩnh, vì vậy hoạt ảnh và chuyển đổi slide không được phát. Xuất sang HTML5, GIF động, hoặc video khi cần bảo lưu chuyển động.
 
-**Tại sao một hiệu ứng phát khác nhau trong video?**
+**Tại sao một hiệu ứng hoạt động khác nhau trong video?**
 
-Xuất video render hoạt ảnh thay vì lưu trữ hành vi PowerPoint gốc. Một số hiệu ứng nâng cao không được hỗ trợ hoặc chỉ được ước tính. Xem bảng các hiệu ứng được hỗ trợ và thử nghiệm bản trình bày thực tế trước khi dùng trong sản xuất.
+Xuất video render hoạt ảnh thay vì lưu nguyên hành vi PowerPoint. Một số hiệu ứng nâng cao không được hỗ trợ hoặc chỉ được xấp xỉ. Kiểm tra bảng hiệu ứng được hỗ trợ và thử nghiệm bản trình bày thực tế trước khi sử dụng trong sản xuất.
 
-**Di chuyển một hình dạng lên phía trước hoặc phía sau có thay đổi thứ tự hoạt ảnh không?**
+**Việc di chuyển một hình dạng lên trước hoặc xuống sau có thay đổi thứ tự hoạt ảnh không?**
 
-Không. Thứ tự z-order của hình dạng kiểm soát chồng lặp, trong khi thứ tự chuỗi và trình kích hoạt kiểm soát việc phát hoạt ảnh. Thay đổi dòng thời gian nếu bạn cần một thứ tự phát khác.
+Không. Thứ tự z-order của hình dạng chỉ điều khiển chồng lấn, trong khi thứ tự chuỗi và trình kích hoạt quyết định thứ tự phát hoạt ảnh. Thay đổi dòng thời gian nếu bạn cần một thứ tự phát khác.

@@ -1,5 +1,5 @@
 ---
-title: Toepassen van vormanimaties in presentaties met JavaScript
+title: Vormanimaties toepassen in presentaties met JavaScript
 linktitle: Vormanimatie
 type: docs
 weight: 60
@@ -23,24 +23,26 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Leer hoe u vormanimaties, timing, geluiden, gedrag na animatie en geanimeerde tekst kunt toevoegen, inspecteren en aanpassen met Aspose.Slides voor Node.js via Java."
+description: "Leer hoe je vormanimaties, timing, geluiden, gedrag na animatie en geanimeerde tekst kunt toevoegen, inspecteren en aanpassen met Aspose.Slides voor Node.js via Java."
 ---
 ## **Overzicht**
 
-Aspose.Slides for Node.js via Java stelt dia‑animaties voor als effecten in een diatijdlijn. Een effect heeft een doelvorm, een animatietype en subtype, een trigger, timinginstellingen en optionele eigenschappen zoals geluid of gedrag na de animatie.
+Om met de individuele gedragingen binnen een effect te werken of motion‑path‑segmenten te bewerken, zie [Aangepaste animatie](/slides/nl/nodejs-java/custom-animation/).
+
+Aspose.Slides for Node.js via Java vertegenwoordigt dia‑animaties als effecten in een dia‑tijdlijn. Een effect heeft een doelfiguur, een animatietype en subtype, een trigger, timinginstellingen en optionele eigenschappen zoals geluid of gedrag na de animatie.
 
 De tijdlijn bevat twee soorten sequenties:
 
-- De **hoofdsequentie** speelt af terwijl de dia vordert.
-- Een **interactieve sequentie** begint wanneer de triggervorm wordt aangeklikt.
+- De **hoofd‑sequentie** wordt afgespeeld terwijl de dia vooruitgaat.
+- Een **interactieve sequentie** start wanneer de trigger‑figuur wordt aangeklikt.
 
-Omdat tekstvakken, afbeeldingen, grafieken, tabellen en andere dia‑objecten [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/)‑objecten zijn, gebruik je dezelfde [Sequence.addEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/sequence/#addEffect)‑methode voor de meeste dia‑inhoud. De beschikbare effecten staan opgesomd in de [EffectType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effecttype/)‑enumeratie.
+Omdat tekstvakken, afbeeldingen, grafieken, tabellen en andere dia‑objecten [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/) objecten zijn, gebruik je dezelfde [Sequence.addEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/sequence/#addEffect)‑methode voor de meeste dia‑inhoud. De beschikbare effecten staan opgesomd in de [EffectType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effecttype/)‑enumeratie.
 
 ## **Vormanimaties toevoegen**
 
-Om een animatie toe te voegen, haal je de hoofdsequentie van de dia op en roep je [Sequence.addEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/sequence/#addEffect) aan met de doelvorm, het effecttype, subtype en trigger. Voor een effect dat start wanneer een andere vorm wordt aangeklikt, maak je een interactieve sequentie aan waarvan de trigger die andere vorm is.
+Om een animatie toe te voegen, haal je de hoofd‑sequentie van de dia op en roep je [Sequence.addEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/sequence/#addEffect) aan met de doelfiguur, het effecttype, subtype en trigger. Voor een effect dat start wanneer een andere figuur wordt aangeklikt, maak je een interactieve sequentie waarvan de trigger die andere figuur is.
 
-Het volgende voorbeeld maakt beide soorten animatie en slaat het resultaat op als `shape-animations.pptx`.
+Het volgende voorbeeld maakt beide soorten animaties en slaat het resultaat op in `shape-animations.pptx`.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -71,17 +73,17 @@ try {
 
 De trigger bepaalt wanneer een effect start:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effecttriggertype/#OnClick) wacht op een klik in de hoofdsequentie, of op een klik op de triggervorm in een interactieve sequentie.
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) start samen met het voorafgaande effect.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) start wanneer het voorafgaande effect eindigt.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effecttriggertype/#OnClick) wacht op een klik in de hoofd‑sequentie, of op een klik op de trigger‑figuur in een interactieve sequentie.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) start samen met het voorgaande effect.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) start wanneer het voorgaande effect eindigt.
 
-Om een afbeelding, grafiek of een ander type vorm te animeren, geef je dat object door aan [Sequence.addEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/sequence/#addEffect) in plaats van `targetShape`. Voor specifieke groeperingsopties voor grafieken, zie [Animated Charts](/slides/nl/nodejs-java/animated-charts/).
+Om een afbeelding, grafiek of een ander figuurtype te animeren, geef je dat object door aan [Sequence.addEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/sequence/#addEffect) in plaats van `targetShape`. Voor grafiek‑specifieke groeperingsopties, zie [Geanimeerde grafieken](/slides/nl/nodejs-java/animated-charts/).
 
 ## **Vormanimaties lezen**
 
-Gebruik [Sequence.getEffectsByShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/sequence/#getEffectsByShape) wanneer je de doelvorm kent. Om elk effect te inspecteren, doorloop je de hoofdsequentie en elke interactieve sequentie. Enumeratie voorkomt dat je aanneemt dat een sequentie een effect bevat op index `0`.
+Gebruik [Sequence.getEffectsByShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/sequence/#getEffectsByShape) wanneer je de doelfiguur kent. Om elk effect te inspecteren, doorloop je de hoofd‑sequentie en elke interactieve sequentie. Enumeratie voorkomt de veronderstelling dat een sequentie een effect bevat op index `0`.
 
-Het volgende voorbeeld maakt een vorm met hoofd‑ en interactieve effecten, haalt de effecten op die op de vorm gericht zijn, en doorloopt vervolgens elke sequentie op de dia.
+Het volgende voorbeeld maakt een figuur met hoofd‑sequentie‑ en interactieve effecten, haalt de effecten op die op de figuur richten en doorloopt vervolgens elke sequentie op de dia.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -140,21 +142,21 @@ try {
 }
 ```
 
-Als je alleen de effecten voor één vorm nodig hebt, identificeer dan eerst de vorm op naam, placeholder‑type of een andere stabiele eigenschap; roep daarna [Sequence.getEffectsByShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/sequence/#getEffectsByShape) aan. Ga niet ervan uit dat [ShapeCollection.get_Item](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapecollection/#get_Item) op index `0` altijd het beoogde object is.
+Als je alleen de effecten voor één figuur nodig hebt, identificeer dan eerst de figuur op naam, placeholder‑type of een andere stabiele eigenschap; roep vervolgens [Sequence.getEffectsByShape] aan. Ga er niet van uit dat [ShapeCollection.get_Item] op index `0` altijd het beoogde object is.
 
-## **Werken met overgeërfde placeholder‑effecten**
+## **Werken met geërfde placeholder‑effecten**
 
-Een placeholder op een gewone dia kan het animatiegedrag erven van de overeenkomstige placeholder op de lay‑outdia en de mastersdia. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#getBasePlaceholder) retourneert die bovenliggende placeholder, of `null` wanneer er geen bovenligger bestaat.
+Een placeholder op een normale dia kan animatiegedrag overnemen van de overeenkomstige placeholder op de lay‑outdia en de master‑dia. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#getBasePlaceholder) retourneert die bovenliggende placeholder, of `null` wanneer er geen bovenligger bestaat.
 
-In de volgende voorbeeldpresentatie heeft de voettekst **Random Bars** op de gewone dia, **Split** op de lay‑outdia en **Fly In** op de mastersdia.
+In de volgende voorbeeldpresentatie heeft de voettekst **Random Bars** op de normale dia, **Split** op de lay‑outdia en **Fly In** op de master‑dia.
 
-![Animatie‑effect van de voettekst op de gewone dia](slide-shape-animation.png)
+![Animatie‑effect van de voettekst op de normale dia](slide-shape-animation.png)
 
 ![Animatie‑effect van de voettekst‑placeholder op de lay‑outdia](layout-shape-animation.png)
 
-![Animatie‑effect van de voettekst‑placeholder op de mastersdia](master-shape-animation.png)
+![Animatie‑effect van de voettekst‑placeholder op de master‑dia](master-shape-animation.png)
 
-Het volgende voorbeeld gebruikt een placeholder‑hiërarchie uit een nieuwe presentatie. Het voegt effecten toe aan een master‑placeholder, een lay‑out‑placeholder en de overeenkomstige placeholder op een gewone dia. Elke oproep aan [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#getBasePlaceholder) wordt gecontroleerd voordat de geretourneerde vorm wordt gebruikt.
+Het volgende voorbeeld gebruikt een placeholder‑hiërarchie uit een nieuwe presentatie. Het voegt effecten toe aan een master‑placeholder, een lay‑out‑placeholder en de overeenkomstige placeholder op een normale dia. Elke aanroep van [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#getBasePlaceholder) wordt gecontroleerd voordat de geretourneerde figuur wordt gebruikt.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -244,13 +246,13 @@ Het PowerPoint **Timing**‑dialoogvenster correspondeert met de eigenschappen v
 
 ![PowerPoint‑timingdialoog voor een animatie‑effect](shape-animation.png)
 
-- **Start** komt overeen met [Timing.getTriggerType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#getTriggerType).
-- **Duur** komt overeen met [Timing.getDuration](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#getDuration), in seconden.
-- **Vertraging** komt overeen met [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#getTriggerDelayTime), in seconden.
-- **Herhalen** komt overeen met [Timing.getRepeatCount](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick), of [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide).
-- **Terugspoelen na afspelen** komt overeen met [Timing.getRewind](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#getRewind).
+- **Start** correspondeert met [Timing.getTriggerType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#getTriggerType).
+- **Duur** correspondeert met [Timing.getDuration](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#getDuration), in seconden.
+- **Vertraging** correspondeert met [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#getTriggerDelayTime), in seconden.
+- **Herhalen** correspondeert met [Timing.getRepeatCount](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) of [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide).
+- **Terugspoelen bij voltooid** correspondeert met [Timing.getRewind](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#getRewind).
 
-Dit onafhankelijke voorbeeld voegt een effect toe, wijzigt de timing via het object dat wordt geretourneerd door [Sequence.addEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/sequence/#addEffect), en slaat het resultaat op. Het bewaren van de geretourneerde [Effect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effect/)‑referentie voorkomt een onnodige collecties‑index.
+Dit zelfstandige voorbeeld voegt een effect toe, wijzigt de timing via het object dat wordt geretourneerd door [Sequence.addEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/sequence/#addEffect), en slaat het resultaat op. Het behouden van de geretourneerde [Effect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effect/)‑referentie voorkomt een onnodige collectie‑index.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -277,15 +279,15 @@ try {
 }
 ```
 
-Gebruik bewust één herhaalmodus. Het combineren van een herhaaltaantal met een “until”‑vlag kan verwarrende resultaten geven in verschillende weergave‑programma’s. Wanneer je herhaalmodi wijzigt, stel je [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) en [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) in vóór [Timing.setRepeatCount](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#setRepeatCount), omdat het instellen van een van de vlaggen ook de actieve herhaalmodus wijzigt.
+Gebruik opzettelijk één herhaal‑modus. Het combineren van een herhaal‑aantal met een "until"‑vlag kan verwarrende resultaten geven in verschillende weergaveprogramma's. Bij het wijzigen van herhaal‑modi, stel eerst [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) en [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) in alvorens [Timing.setRepeatCount](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/timing/#setRepeatCount) aan te roepen, omdat het instellen van een van beide vlaggen de actieve herhaal‑modus wijzigt.
 
 ## **Animatiegeluiden toevoegen en extraheren**
 
-Een animatie‑effect kan via [Effect.getSound](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effect/#getSound) naar ingesloten audio verwijzen. [Effect.setStopPreviousSound](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effect/#setStopPreviousSound) geeft een effect de opdracht om audio die door een eerder effect is gestart te stoppen.
+Een animatie‑effect kan ingebedde audio refereren via [Effect.getSound](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effect/#setStopPreviousSound) vertelt een effect om audio te stoppen die door een eerder effect is gestart.
 
 ### **Een geluid aan een effect toevoegen**
 
-Het volgende voorbeeld verwacht een lokaal audiobestand met de naam `animation-sound.wav`. Het maakt twee effecten, embed het bestand als geluid voor het eerste effect, en configureert het tweede effect om het geluid te stoppen. Het gebruikt de objecten die worden geretourneerd door [Sequence.addEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/sequence/#addEffect), dus een sequentie‑index is niet nodig.
+Het volgende voorbeeld verwacht een lokaal audiobestand met de naam `animation-sound.wav`. Het maakt twee effecten, embedden dat bestand als geluid voor het eerste effect, en configureert het tweede effect om het geluid te stoppen. Het gebruikt de objecten die worden geretourneerd door [Sequence.addEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/sequence/#addEffect), zodat geen sequentie‑index nodig is.
 
 ```javascript
 const fs = require("fs");
@@ -315,9 +317,9 @@ try {
 }
 ```
 
-### **Ingesloten effectgeluiden extraheren**
+### **Ingebedde effectgeluiden extraheren**
 
-Het volgende voorbeeld verwacht een lokale presentatie met de naam `presentation-with-animation-sounds.pptx`. Het scant zowel de hoofd‑ als interactieve sequenties en schrijft elk ingesloten effectgeluid weg naar de map `extracted-animation-sounds`. De extensie wordt gekozen op basis van het audio‑MIME‑type dat wordt blootgesteld door [Audio.getContentType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/audio/#getContentType).
+Het volgende voorbeeld verwacht een lokale presentatie met de naam `presentation-with-animation-sounds.pptx`. Het doorzoekt zowel de hoofd‑ als interactieve sequenties en schrijft elk ingebed effectgeluid naar de map `extracted-animation-sounds`. De extensie wordt gekozen op basis van het audio‑MIME‑type dat wordt blootgesteld door [Audio.getContentType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/audio/#getContentType).
 
 ```javascript
 const fs = require("fs");
@@ -386,17 +388,17 @@ try {
 }
 ```
 
-Voor grote audio‑objecten, gebruik [Audio.getStream](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/audio/#getStream) en kopieer de stream naar een bestand in plaats van het volledige object in een byte‑array te laden.
+Voor grote audio‑objecten, gebruik [Audio.getStream](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/audio/#getStream) en kopieer de stream naar een bestand in plaats van het gehele object in een byte‑array te laden.
 
 ## **Gedrag na animatie instellen**
 
-De optie **After animation** bepaalt wat er met een vorm gebeurt nadat het effect is voltooid.
+De optie **After animation** bepaalt wat er met een figuur gebeurt nadat het effect is voltooid.
 
-![PowerPoint‑effectoptiedialoog met instellingen voor After animation](shape-after-animation.png)
+![PowerPoint‑effectopties‑dialoog met After‑animation‑instellingen](shape-after-animation.png)
 
-De [AfterAnimationType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/afteranimationtype/)‑enumeratie biedt de mogelijkheid om de vorm ongewijzigd te laten, de kleur te wijzigen, deze na de animatie te verbergen, of te verbergen bij de volgende klik. Wanneer het type [AfterAnimationType.Color](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/afteranimationtype/#Color) is, stel dan ook [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effect/#getAfterAnimationColor) in.
+De [AfterAnimationType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/afteranimationtype/)‑enumeratie ondersteunt het ongewijzigd laten van de figuur, het wijzigen van de kleur, het verbergen na de animatie, of het verbergen bij de volgende klik. Wanneer het type [AfterAnimationType.Color](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/afteranimationtype/#Color) is, stel dan ook [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effect/#getAfterAnimationColor) in.
 
-Dit onafhankelijke voorbeeld creëert een effect, stelt het gedrag na de animatie in via het geretourneerde effect‑object, en slaat het resultaat op.
+Dit zelfstandige voorbeeld maakt een effect, stelt het gedrag na animatie in via het geretourneerde effect‑object, en slaat het resultaat op.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -418,16 +420,16 @@ try {
 }
 ```
 
-Het wijzigen van het type van [AfterAnimationType.Color](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/afteranimationtype/#Color) wist de kleurinstelling voor after‑animation.
+Het wijzigen van het type van [AfterAnimationType.Color] wist de after‑animation‑kleurinstelling.
 
 ## **Tekst animeren**
 
-Tekstanimatie heeft twee gerelateerde besturingen:
+Tekst‑animatie heeft twee gerelateerde instellingen:
 
-- [TextAnimation.getBuildType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textanimation/#getBuildType) bepaalt of alinea’s samen of per alinea‑niveau verschijnen.
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textanimation/#getBuildType) bepaalt of alinea's tegelijk of per alinea‑niveau verschijnen.
 - [Effect.getAnimateTextType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effect/#getAnimateTextType) bepaalt of tekst in één keer, per woord of per letter verschijnt. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) stelt de vertraging tussen woorden of letters in. Een positieve waarde is een percentage van de effectduur; een negatieve waarde is een vertraging in seconden.
 
-Het volgende onafhankelijke voorbeeld animeert de woorden in een tekstvak. [BuildType.AsOneObject](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/buildtype/#AsOneObject) schakelt het opbouwen per alinea uit zodat de woordinstelling van toepassing is op het gehele tekstframe.
+Het volgende zelfstandige voorbeeld animeert de woorden in een tekstvak. [BuildType.AsOneObject](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/buildtype/#AsOneObject) schakelt opbouw per alinea uit zodat de woord‑instelling van toepassing is op het hele tekstframe.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -450,26 +452,26 @@ try {
 }
 ```
 
-Om een tekstvak per alinea op te bouwen, stel je [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) in (of een ander alinea‑niveau). Om een enkele alinea met een eigen effect te targeten, gebruik je de overload van [Sequence.addEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/sequence/#addEffect) die een [Paragraph](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraph/) accepteert. Zie [Animated Text](/slides/nl/nodejs-java/animated-text/) voor voorbeelden op alinea‑niveau.
+Om een tekstvak per alinea op te bouwen, stel je [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (of een ander alinea‑niveau) in. Om een enkele alinea met een eigen effect te richten, gebruik je de overload van [Sequence.addEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/sequence/#addEffect) die een [Paragraph](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/paragraph/) accepteert. Zie [Geanimeerde tekst](/slides/nl/nodejs-java/animated-text/) voor voorbeelden op alinea‑niveau.
 
 ## **Export‑ en compatibiliteitsopmerkingen**
 
-- Opslaan als PPT of PPTX behoudt het animatiemodel, maar de uiteindelijke weergave wordt bepaald door de presentatieweergave.
-- PDF en statische afbeeldingen spelen geen animaties af. Gebruik [HTML5 export](/slides/nl/nodejs-java/export-to-html5/), geanimeerde GIF, of [video conversion](/slides/nl/nodejs-java/convert-powerpoint-to-video/) wanneer de output beweging moet tonen.
+- Opslaan als PPT of PPTX behoudt het animatiemodel, maar de uiteindelijke weergave wordt beheerd door de presentatiewerker.
+- PDF en statische afbeeldingen spelen geen animaties af. Gebruik [HTML5-export](/slides/nl/nodejs-java/export-to-html5/), geanimeerde GIF of [video‑conversie](/slides/nl/nodejs-java/convert-powerpoint-to-video/) wanneer de uitvoer beweging moet tonen.
 - Voor HTML5, schakel [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/html5options/#setAnimateShapes) in en, indien nodig, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/html5options/#setAnimateTransitions).
-- Video‑rendering ondersteunt veel gangbare ingang‑, nadruk‑, uitgang‑ en bewegings‑path‑effecten, maar niet elk PowerPoint‑effect wordt ondersteund. Controleer de huidige [supported animations and effects](/slides/nl/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) en test kritieke presentaties met de beoogde Aspose.Slides‑versie.
-- Geavanceerde aangepaste effecten en effecten geïmporteerd uit andere presentatieformaten kunnen in het bestand behouden blijven maar anders worden gerenderd in PowerPoint, HTML5 of video. Valideer het geëxporteerde resultaat in plaats van alleen op de effectnaam te vertrouwen.
+- Video‑rendering ondersteunt veel gangbare ingang‑, nadruk‑, exit‑ en motion‑path‑effecten, maar niet elk PowerPoint‑effect wordt ondersteund. Controleer de actuele [ondersteunde animaties en effecten](/slides/nl/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) en test kritieke presentaties met uw beoogde Aspose.Slides‑versie.
+- Geavanceerde aangepaste effecten en effecten geïmporteerd uit andere presentatie‑formaten kunnen in het bestand worden bewaard maar anders worden gerenderd in PowerPoint, HTML5 of video. Valideer het geëxporteerde resultaat in plaats van alleen op de effectnaam te vertrouwen.
 
 ## **FAQ**
 
 **Waarom verschijnt een animatie in PowerPoint maar niet in een PDF?**
 
-PDF is een statisch formaat, dus animaties en dia‑overgangen worden niet afgespeeld. Exporteer naar HTML5, een geanimeerde GIF, of video wanneer beweging behouden moet blijven.
+PDF is een statisch formaat, dus animaties en dia‑overgangen worden niet afgespeeld. Exporteer naar HTML5, een geanimeerde GIF of video wanneer beweging bewaard moet blijven.
 
 **Waarom wordt een effect anders afgespeeld in een video?**
 
-Video‑export rendert animaties in plaats van het originele PowerPoint‑gedrag op te slaan. Sommige geavanceerde effecten worden niet ondersteund of benaderd. Bekijk de tabel met ondersteunde effecten en test de daadwerkelijke presentatie voordat je deze in productie neemt.
+Video‑export renderen animaties in plaats van het originele PowerPoint‑gedrag op te slaan. Sommige geavanceerde effecten worden niet ondersteund of benaderd. Bekijk de tabel met ondersteunde effecten en test de werkelijke presentatie voordat u deze in productie gebruikt.
 
-**Verandert het naar voren of naar achteren verplaatsen van een vorm de volgorde van de animatie?**
+**Verandert het verplaatsen van een figuur naar voren of naar achteren de volgorde van de animatie?**
 
-Nee. De z‑volgorde van een vorm bepaalt de overlap, terwijl de volgorde van de sequentie en triggers de afspeelvolgorde van de animatie bepalen. Pas de tijdlijn aan als je een andere afspeelvolgorde nodig hebt.
+Nee. De z‑orde van de figuur bepaalt de overlap, terwijl de volgorde van de sequentie en triggers de weergave van de animatie bepalen. Pas de tijdlijn aan als u een andere afspeelvolgorde nodig heeft.

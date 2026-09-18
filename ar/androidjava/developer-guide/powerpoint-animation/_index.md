@@ -1,20 +1,20 @@
 ---
-title: "تعزيز عروض PowerPoint التقديمية بالرسوم المتحركة على Android"
-linktitle: "الرسوم المتحركة في PowerPoint"
+title: تحسين عروض PowerPoint التقديمية مع الرسوم المتحركة على Android
+linktitle: رسوم متحركة PowerPoint
 type: docs
 weight: 150
 url: /ar/androidjava/powerpoint-animation/
 keywords:
-- إضافة الرسوم المتحركة
+- إضافة رسوم متحركة
 - تحديث الرسوم المتحركة
 - تغيير الرسوم المتحركة
 - إزالة الرسوم المتحركة
 - إدارة الرسوم المتحركة
 - التحكم في الرسوم المتحركة
 - تأثير الرسوم المتحركة
-- رسوم متحركة لبرنامج PowerPoint
-- خط زمن الرسوم المتحركة
-- الرسوم المتحركة التفاعلية
+- رسوم متحركة PowerPoint
+- الجدول الزمني للرسوم المتحركة
+- رسوم متحركة تفاعلية
 - رسوم متحركة مخصصة
 - رسوم متحركة للأشكال
 - مخطط متحرك
@@ -28,80 +28,84 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "استكشف قدرات Aspose.Slides للـ Android عبر Java في معالجة الرسوم المتحركة لملفات PowerPoint. يوفر هذا الملخص العام أبرز الميزات."
+description: "استكشف إمكانات Aspose.Slides لنظام Android عبر Java في معالجة رسوم متحركة PowerPoint. يسلط هذا الاستعراض العام الضوء على الميزات الرئيسية."
 ---
+## **المقدمة**
 
-نظرًا لأن العروض التقديمية مصممة لتقديم شيء ما، فإن مظهرها البصري وسلوكها التفاعلي يُؤخذان دائمًا في الاعتبار أثناء إنشائها.
+بما أن العروض التقديمية تهدف إلى عرض شيء ما، فإن المظهر البصري والسلوك التفاعلي لها يُؤخذ دائمًا بعين الاعتبار أثناء الإنشاء.
 
-**PowerPoint animation** يلعب دورًا مهمًا لجعل العرض جذابًا وممتعًا للمشاهدين. يوفر Aspose.Slides for Android via Java مجموعة واسعة من الخيارات لإضافة الرسوم المتحركة إلى عرض PowerPoint:
+**PowerPoint animation** يلعب دورًا مهمًا في جعل العرض التقديمي جذابًا وملفتًا للانتباه للمشاهدين. يوفر Aspose.Slides مجموعة واسعة من الخيارات لإضافة الرسوم المتحركة إلى عروض PowerPoint:
 
-- تطبيق أنواع مختلفة من تأثيرات الرسوم المتحركة على الأشكال والمخططات والجداول وكائنات OLE والعناصر الأخرى في العرض.
-- استخدام تأثيرات رسومية متعددة على شكل واحد.
-- استخدام خط الزمن للرسوم المتحركة للتحكم في التأثيرات.
-- إنشاء رسومات متحركة مخصصة.
+- تطبيق أنواع مختلفة من تأثيرات PowerPoint animation على الأشكال، المخططات، الجداول، كائنات OLE، وعناصر العرض الأخرى.
+- استخدام تأثيرات PowerPoint animation متعددة على شكل واحد.
+- الاستفادة من جدول زمني للرسوم المتحركة للتحكم في تأثيرات الرسوم المتحركة.
+- إنشاء رسوم متحركة مخصصة.
 
-في Aspose.Slides for Android via Java، يمكن تطبيق تأثيرات رسومية مختلفة على الأشكال. بما أن كل عنصر في الشريحة بما في ذلك النصوص والصور وكائن OLE والجدول وما إلى ذلك يُعتبر شكلًا، فهذا يعني أنه يمكننا تطبيق تأثير الرسوم المتحركة على كل عنصر في الشريحة.
+في Aspose.Slides، يمكن تطبيق تأثيرات رسوم متحركة مختلفة على الأشكال. نظرًا لأن كل عنصر على الشريحة، بما في ذلك النصوص، الصور، كائنات OLE، والجداول، يُعتبر شكلًا، يمكن تطبيق تأثيرات الرسوم المتحركة على أي عنصر في الشريحة.
 
-## **تأثيرات الرسوم المتحركة**
-يدعم Aspose.Slides **150+ تأثيرًا للرسوم المتحركة**، بما في ذلك التأثيرات الأساسية مثل Bounce وPathFootball وتأثير التكبير، وتأثيرات رسومية محددة مثل OLEObjectShow وOLEObjectOpen. يمكنك العثور على قائمة كاملة لتأثيرات الرسوم المتحركة في [**EffectType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effecttype/) enumeration.
+## **Animation Effects**
+يدعم Aspose.Slides **أكثر من 150 تأثيرًا للرسوم المتحركة**، بما في ذلك التأثيرات الأساسية مثل Bounce و PathFootball و Zoom، والتأثيرات الخاصة مثل OLEObjectShow و OLEObjectOpen. يمكنك العثور على القائمة الكاملة في فئة [EffectType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/effecttype/).
 
-بالإضافة إلى ذلك، يمكن استخدام هذه التأثيرات بالاشتراك مع:
+بالإضافة إلى ذلك، يمكن استخدام هذه التأثيرات مع السلوكيات التالية:
 
-- [ColorEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ColorEffect)
-- [CommandEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommandEffect)
-- [FilterEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FilterEffect)
-- [MotionEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MotionEffect)
-- [PropertyEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PropertyEffect)
-- [RotationEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/RotationEffect)
-- [ScaleEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ScaleEffect)
-- [SetEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SetEffect)
+- [ColorEffect](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ColorEffect)
+- [CommandEffect](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/CommandEffect)
+- [FilterEffect](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/FilterEffect)
+- [MotionEffect](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/MotionEffect)
+- [PropertyEffect](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/PropertyEffect)
+- [RotationEffect](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/RotationEffect)
+- [ScaleEffect](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ScaleEffect)
+- [SetEffect](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SetEffect)
 
-## **رسوم متحركة مخصصة**
-يمكن إنشاء **رسوم متحركة مخصصة** خاصة بك في Aspose.Slides. يمكن تحقيق ذلك بدمج سلوكيات متعددة معًا في رسم متحرك مخصص جديد.
+## **Custom Animation**
 
-[**Behavior**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Behavior) هو وحدة بناء لأي تأثير رسوم متحركة في PowerPoint. جميع تأثيرات الرسوم المتحركة هي في الواقع مجموعة من السلوكيات المجمعة في استراتيجية واحدة. يمكنك دمج السلوكيات في رسم متحرك مخصص مرة واحدة وإعادة استخدامها في عروض تقديمية أخرى. إذا أضفت سلوكًا جديدًا إلى تأثير رسوم متحركة قياسي في PowerPoint - سيصبح رسمًا متحركًا مخصصًا آخر. على سبيل المثال، يمكنك إضافة سلوك تكرار إلى رسم متحرك لجعله يتكرر عدة مرات.
+للأمثلة الكاملة بلغة Java التي تنشئ وتفحص وتُعدل السلوكيات ومسارات الحركة القابلة للتحرير، راجع [Custom Animation](/slides/ar/java/custom-animation/).
 
-[**Animation Point**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Point) هو النقطة التي يجب تطبيق السلوك فيها.
+يمكنك إنشاء **رسوم متحركة مخصصة** خاصة بك في Aspose.Slides. يتم ذلك بدمج عدة سلوكيات في رسم متحرك مخصص جديد.
 
-## **خط زمن الرسوم المتحركة**
-[**Sequence**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Sequence) هو مجموعة من تأثيرات الرسوم المتحركة، تُطبق على شكل معين.
+[Behavior](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/behavior/) هو وحدة بناء لتأثير الرسوم المتحركة في PowerPoint. قم بدمج السلوكيات لتخصيص تأثير، أو أضف سلوكًا لتوسيع تأثير مُعرّف مسبقًا. يتم تكوين التكرار من خلال إعدادات التوقيت بدلاً من سلوك التكرار المنفصل.
 
-[**Timeline**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AnimationTimeLine) هو مجموعة من الـSequences تُستخدم في شريحة معينة. يُمثل محرك الرسوم المتحركة منذ PowerPoint 2002. في إصدارات PowerPoint السابقة، كان من الصعب إضافة تأثيرات الرسوم المتحركة إلى العرض، وكان يمكن تحقيق ذلك فقط عبر حلول بديلة مختلفة. يأتي الـTimeline ليحل محل فئة AnimationSettings القديمة ويوفر نموذج كائن أوضح للرسوم المتحركة في PowerPoint. يمكن أن تحتوي شريحة واحدة على **خط زمن واحد** فقط.
+[Animation Point](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/point/) هو نقطة يُطبق عندها السلوك.
 
-## **رسوم متحركة تفاعلية**
-[**Trigger**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectTriggerType) يسمح بتعريف إجراءات المستخدم (مثل النقر على زر) التي ستجعل رسمًا متحركًا معينًا يبدأ. تم إضافة المشغلات فقط في أحدث إصدارات PowerPoint.
+## **Animation Time Line**
+[Sequence](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/sequence/) هي مجموعة من تأثيرات الرسوم المتحركة التي يمكن أن تستهدف أشكالًا مختلفة.
 
-## **رسوم متحركة للأشكال**
-يسمح Aspose.Slides بتطبيق الرسوم المتحركة على الأشكال، والتي قد تكون نصًا أو مستطيلًا أو خطًا أو إطارًا أو كائن OLE، إلخ.
+[Timeline](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/animationtimeline/) هي مجموعة من السلاسل المستخدمة في شريحة معينة. إنه محرك رسوم متحركة تم تقديمه في PowerPoint 2002. في الإصدارات السابقة من PowerPoint، كان إضافة تأثيرات الرسوم المتحركة إلى العروض صعبًا ولا يمكن تحقيقه إلا عبر حلول بديلة مختلفة. يوفر الجدول الزمني نموذج كائن أوضح للرسوم المتحركة في PowerPoint. يمكن أن تحتوي الشريحة على جدول زمني للرسوم المتحركة واحد فقط.
 
-{{% alert color="primary" %}} 
-اقرأ المزيد [**About Shape Animation**](/slides/ar/androidjava/shape-animation/).
+## **Interactive Animation**
+[Trigger](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/effecttriggertype/) يتيح لك تعريف إجراءات المستخدم، مثل نقرة زر، التي تبدأ رسمًا متحركًا معينًا.
+
+## **Shape Animation**
+يسمح Aspose.Slides لك بتطبيق الرسوم المتحركة على الأشكال، والتي يمكن أن تشمل النصوص، المستطيلات، الخطوط، الإطارات، كائنات OLE، والمزيد.
+
+{{% alert color="info" title="Note" %}}
+Read more [**About Shape Animation**](/slides/ar/androidjava/shape-animation/).
 {{% /alert %}}
 
-## **مخططات متحركة**
-لإنشاء مخططات متحركة، يجب استخدام نفس الفئات المستخدمة للأشكال. ومع ذلك، يمكن استخدام الرسوم المتحركة في PowerPoint فقط على فئات المخطط أو سلاسل المخطط. يمكنك أيضًا تطبيق تأثير الرسوم المتحركة على عنصر فئة أو عنصر سلسلة.
+## **Animated Charts**
+لإنشاء مخططات متحركة، يجب استخدام نفس الفئات الخاصة بالأشكال. ومع ذلك، يمكن تطبيق رسوم متحركة PowerPoint فقط على فئات المخطط أو سلاسل المخطط. يمكنك أيضًا تطبيق تأثيرات الرسوم المتحركة على عنصر فئة أو عنصر سلسلة.
 
-{{% alert color="primary" %}} 
-اقرأ المزيد [**About Animated Charts**](/slides/ar/androidjava/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Read more [**About Animated Charts**](/slides/ar/androidjava/animated-charts/).
 {{% /alert %}}
 
-## **نص متحرك**
-إلى جانب النص المتحرك، يمكن أيضًا تطبيق الرسوم المتحركة على فقرة.
+## **Animated Text**
+بالإضافة إلى تحريك النص، يمكنك تطبيق الرسوم المتحركة على الفقرة.
 
-{{% alert color="primary" %}} 
-اقرأ المزيد [**About Animated Text**](/slides/ar/androidjava/animated-text/).
+{{% alert color="info" title="Note" %}}
+Read more [**About Animated Text**](/slides/ar/androidjava/animated-text/).
 {{% /alert %}}
 
-## **الأسئلة الشائعة**
+## **FAQ**
 
-**هل سيتم الاحتفاظ بالرسوم المتحركة عند التصدير إلى PDF؟**
+**Will animations be preserved when exporting to PDF?**
 
-لا. PDF هو تنسيق ثابت، لذلك لا تُشغل الرسوم المتحركة و[انتقالات الشرائح](/slides/ar/androidjava/slide-transition/). إذا كنت تحتاج إلى حركة، صدّر إلى [HTML5](/slides/ar/androidjava/export-to-html5/)، [GIF متحرك](/slides/ar/androidjava/convert-powerpoint-to-animated-gif/)، أو [فيديو](/slides/ar/androidjava/convert-powerpoint-to-video/) بدلاً من ذلك.
+لا. PDF هو تنسيق ثابت، لذلك لا تُشغل الرسوم المتحركة و[slide transitions](/slides/ar/androidjava/slide-transition/). إذا كنت تحتاج إلى حركة، صدِّر إلى [HTML5](/slides/ar/androidjava/export-to-html5/)، [animated GIF](/slides/ar/androidjava/convert-powerpoint-to-animated-gif/)، أو [video](/slides/ar/androidjava/convert-powerpoint-to-video/) بدلاً من ذلك.
 
-**هل يمكنني تحويل عرض تقديمي متحرك إلى فيديو والتحكم في معدل الإطارات وحجم الإطار؟**
+**Can I turn an animated presentation into a video and control the frame rate and frame size?**
 
-نعم. يمكنك [تصيير العرض كإطارات](/slides/ar/androidjava/convert-powerpoint-to-video/) وترميزها إلى فيديو (مثلاً باستخدام ffmpeg)، مع اختيار FPS والدقة. تُشغل الرسوم المتحركة وانتقالات الشرائح أثناء التصيير.
+نعم. يمكنك [render the presentation as frames](/slides/ar/androidjava/convert-powerpoint-to-video/) وترميزها إلى فيديو (على سبيل المثال عبر ffmpeg)، مع اختيار عدد الإطارات في الثانية والدقة. تُشغل الرسوم المتحركة وانتقالات الشرائح أثناء عملية التصيير.
 
-**هل ستظل الرسوم المتحركة سليمة عند العمل مع ODP (ليس فقط PPTX)؟**
+**Will animations remain intact when working with ODP (not just PPTX)?**
 
-تُدعم صيغ PPT وPPTX وODP لل[القراءة](/slides/ar/androidjava/open-presentation/) و[الكتابة](/slides/ar/androidjava/save-presentation/)، لكن اختلافات الصيغ قد تجعل بعض التأثيرات تظهر أو تتصرف بشكل مختلف قليلًا. تحقق من الحالات الحرجة باستخدام عينات فعلية.
+يتم دعم PPT وPPTX وODP لل[reading](/slides/ar/androidjava/open-presentation/) و[writing](/slides/ar/androidjava/save-presentation/)، لكن ذلك لا يضمن الحفاظ على الرسوم المتحركة. قد تُفقد بيانات الرسوم المتحركة المخصصة عند التحويل إلى ODP. راجع [Custom Animation for Java](/slides/ar/java/custom-animation/) للحصول على أمثلة وإرشادات حول التحقق من توافق الصيغة.

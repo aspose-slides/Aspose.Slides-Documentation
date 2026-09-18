@@ -1,5 +1,5 @@
 ---
-title: Zastosuj animacje kształtów w prezentacjach przy użyciu C++
+title: Zastosowanie animacji kształtów w prezentacjach przy użyciu C++
 linktitle: Animacja kształtu
 type: docs
 weight: 60
@@ -22,24 +22,26 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Dowiedz się, jak dodawać, sprawdzać i dostosowywać animacje kształtów, czasy, dźwięki, zachowanie po animacji oraz animowany tekst w Aspose.Slides dla C++."
+description: "Dowiedz się, jak dodawać, przeglądać i dostosowywać animacje kształtów, czasy, dźwięki, zachowanie po animacji oraz animowany tekst przy użyciu Aspose.Slides dla C++."
 ---
 ## **Przegląd**
 
-Aspose.Slides for C++ reprezentuje animacje slajdów jako efekty w osi czasu slajdu. Efekt posiada docelowy kształt, typ i podtyp animacji, wyzwalacz, ustawienia czasowe oraz opcjonalne właściwości, takie jak dźwięk lub zachowanie po animacji.
+Aby pracować z pojedynczymi zachowaniami wewnątrz efektu lub edytować segmenty ścieżki ruchu, zobacz [Custom Animation](/slides/pl/cpp/custom-animation/).
+
+Aspose.Slides for C++ przedstawia animacje slajdów jako efekty w osi czasu slajdu. Efekt ma docelowy kształt, typ i podtyp animacji, wyzwalacz, ustawienia czasu oraz opcjonalne właściwości, takie jak dźwięk lub zachowanie po animacji.
 
 Oś czasu zawiera dwa rodzaje sekwencji:
 
-- **Główna sekwencja** odtwarzana jest podczas przechodzenia slajdu.  
-- **Sekwencja interaktywna** rozpoczyna się, gdy jej kształt wyzwalający zostanie kliknięty.
+- **główną sekwencję**, która odtwarza się w miarę przechodzenia slajdu,
+- **sekwencję interaktywną**, która rozpoczyna się po kliknięciu kształtu wyzwalającego.
 
-Ponieważ pola tekstowe, obrazy, wykresy, tabele i inne obiekty slajdu implementują [IShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/), używasz tej samej metody [ISequence::AddEffect](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/isequence/addeffect/) dla większości treści slajdu. Dostępne efekty są wymienione w wyliczeniu [EffectType](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/effecttype/).
+Ponieważ pola tekstowe, obrazy, wykresy, tabele i inne obiekty slajdu implementują [IShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/), używasz tej samej metody [ISequence::AddEffect](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/isequence/addeffect/) dla większości zawartości slajdu. Dostępne efekty są wymienione w wyliczeniu [EffectType](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/effecttype/).
 
 ## **Dodawanie animacji kształtów**
 
 Aby dodać animację, pobierz główną sekwencję slajdu i wywołaj [ISequence::AddEffect](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/isequence/addeffect/) z docelowym kształtem, typem efektu, podtypem i wyzwalaczem. Dla efektu, który rozpoczyna się po kliknięciu innego kształtu, utwórz sekwencję interaktywną, której wyzwalaczem jest ten inny kształt.
 
-Poniższy przykład tworzy oba typy animacji i zapisuje wynik do pliku `shape-animations.pptx`.
+Poniższy przykład tworzy oba typy animacji i zapisuje wynik do `shape-animations.pptx`.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -86,17 +88,17 @@ presentation->Dispose();
 
 Wyzwalacz określa, kiedy efekt się rozpoczyna:
 
-- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/effecttriggertype/) oczekuje na kliknięcie w głównej sekwencji lub na kliknięcie kształtu wyzwalającego w sekwencji interaktywnej.  
-- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/effecttriggertype/) rozpoczyna się razem z poprzedzającym efektem.  
-- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/effecttriggertype/) rozpoczyna się po zakończeniu poprzedzającego efektu.
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/effecttriggertype/) czeka na kliknięcie w głównej sekwencji lub na kliknięcie kształtu wyzwalającego w sekwencji interaktywnej.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/effecttriggertype/) rozpoczyna się jednocześnie z poprzednim efektem.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/effecttriggertype/) rozpoczyna się po zakończeniu poprzedniego efektu.
 
-Aby animować obraz, wykres lub inny typ kształtu, przekaż ten obiekt do [ISequence::AddEffect](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/isequence/addeffect/) zamiast `targetShape`. Aby uzyskać opcje grupowania specyficzne dla wykresów, zobacz [Animowane wykresy](/slides/pl/cpp/animated-charts/).
+Aby animować obraz, wykres lub inny typ kształtu, przekaż ten obiekt do [ISequence::AddEffect](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/isequence/addeffect/) zamiast `targetShape`. Opcje grupowania specyficzne dla wykresów znajdują się w sekcji [Animated Charts](/slides/pl/cpp/animated-charts/).
 
 ## **Odczytywanie animacji kształtów**
 
-Użyj [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) gdy znasz docelowy kształt. Aby przejrzeć każdy efekt, wyliczaj główną sekwencję oraz wszystkie sekwencje interaktywne. Wyliczanie zapobiega zakładaniu, że sekwencja zawiera efekt o indeksie `0`.
+Użyj [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) gdy znasz docelowy kształt. Aby przejrzeć każdy efekt, wyliczaj główną sekwencję oraz wszystkie sekwencje interaktywne. Wyliczanie zapobiega zakładaniu, że sekwencja zawiera efekt pod indeksem `0`.
 
-Poniższy przykład tworzy kształt z efektami w głównej sekwencji i sekwencji interaktywnej, pobiera efekty skierowane do tego kształtu, a następnie wylicza wszystkie sekwencje na slajdzie.
+Poniższy przykład tworzy kształt z efektami w głównej i interaktywnej sekwencji, pobiera efekty skierowane do tego kształtu, a następnie wylicza każdą sekwencję na slajdzie.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -165,21 +167,21 @@ for (const auto& sequence : slide->get_Timeline()->get_InteractiveSequences())
 presentation->Dispose();
 ```
 
-Jeśli potrzebujesz efektów tylko dla jednego kształtu, najpierw zidentyfikuj kształt według nazwy, typu placeholdera lub innej stabilnej właściwości; następnie wywołaj [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/isequence/geteffectsbyshape/). Nie zakładaj, że [IShapeCollection::idx_get](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/idx_get/) o indeksie `0` jest zawsze zamierzonym obiektem.
+Jeśli potrzebujesz efektów tylko dla jednego kształtu, najpierw zidentyfikuj kształt po nazwie, typie placeholdera lub innej stabilnej właściwości; potem wywołaj [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/isequence/geteffectsbyshape/). Nie zakładaj, że [IShapeCollection::idx_get](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/idx_get/) pod indeksem `0` jest zawsze właściwym obiektem.
 
-## **Praca z odziedziczonymi efektami placeholderów**
+## **Praca z dziedziczonymi efektami placeholderów**
 
-Placeholder na zwykłym slajdzie może dziedziczyć zachowanie animacji z odpowiadającego mu placeholdera na slajdzie układu i slajdzie nadrzędnym. [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/getbaseplaceholder/) zwraca ten nadrzędny placeholder lub `nullptr`, gdy nie istnieje rodzic.
+Placeholder na zwykłym slajdzie może dziedziczyć zachowanie animacji z odpowiadającego mu placeholdera na slajdzie układu i slajdzie głównym. [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/getbaseplaceholder/) zwraca ten nadrzędny placeholder lub `nullptr`, gdy nie ma rodzica.
 
-W poniższej prezentacji przykład, stopka ma **Random Bars** na zwykłym slajdzie, **Split** na slajdzie układu oraz **Fly In** na slajdzie nadrzędnym.
+W poniższej prezentacji stopka ma **Random Bars** na zwykłym slajdzie, **Split** na slajdzie układu i **Fly In** na slajdzie głównym.
 
 ![Efekt animacji stopki na zwykłym slajdzie](slide-shape-animation.png)
 
 ![Efekt animacji placeholdera stopki na slajdzie układu](layout-shape-animation.png)
 
-![Efekt animacji placeholdera stopki na slajdzie nadrzędnym](master-shape-animation.png)
+![Efekt animacji placeholdera stopki na slajdzie głównym](master-shape-animation.png)
 
-Następny przykład buduje samą hierarchię placeholderów. Dodaje efekty do placeholdera nadrzędnego, placeholdera układu oraz odpowiadającego mu placeholdera na zwykłym slajdzie. Każde wywołanie [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/getbaseplaceholder/) jest sprawdzane przed użyciem zwróconego kształtu.
+Kolejny przykład buduje samą hierarchię placeholderów. Dodaje efekty do placeholdera głównego, placeholdera układu oraz odpowiadającego mu placeholdera na zwykłym slajdzie. Każde wywołanie [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/getbaseplaceholder/) jest sprawdzane przed użyciem zwróconego kształtu.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -266,17 +268,17 @@ presentation->Dispose();
 
 ## **Zmiana czasu animacji**
 
-Okno dialogowe PowerPoint **Timing** (Czas) odnosi się do metod [ITiming](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/).
+Okno dialogowe PowerPoint **Timing** odpowiada metodom [ITiming](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/).
 
 ![Okno dialogowe PowerPoint Timing dla efektu animacji](shape-animation.png)
 
-- **Start** mapuje do [ITiming::set_TriggerType](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_triggertype/).  
-- **Duration** mapuje do [ITiming::set_Duration](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_duration/), w sekundach.  
-- **Delay** mapuje do [ITiming::set_TriggerDelayTime](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_triggerdelaytime/), w sekundach.  
-- **Repeat** mapuje do [ITiming::set_RepeatCount](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_repeatcount/), [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/), lub [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/).  
-- **Rewind when done playing** mapuje do [ITiming::set_Rewind](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_rewind/).
+- **Start** odpowiada [ITiming::set_TriggerType](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_triggertype/).
+- **Duration** odpowiada [ITiming::set_Duration](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_duration/), w sekundach.
+- **Delay** odpowiada [ITiming::set_TriggerDelayTime](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_triggerdelaytime/), w sekundach.
+- **Repeat** odpowiada [ITiming::set_RepeatCount](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_repeatcount/), [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) lub [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/).
+- **Rewind when done playing** odpowiada [ITiming::set_Rewind](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_rewind/).
 
-Ten niezależny przykład dodaje efekt, zmienia jego czas przy użyciu obiektu zwróconego przez [ISequence::AddEffect](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/isequence/addeffect/), i zapisuje wynik. Zachowanie zwróconego odwołania do [IEffect](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/ieffect/) zapobiega konieczności użycia niepotrzebnego indeksu kolekcji.
+Ten niezależny przykład dodaje efekt, zmienia jego czas za pomocą obiektu zwróconego przez [ISequence::AddEffect](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/isequence/addeffect/), i zapisuje wynik. Przechowywanie zwróconego odwołania do [IEffect](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/ieffect/) eliminuje konieczność używania indeksu kolekcji.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -318,15 +320,15 @@ presentation->Save(u"shape-animation-timing.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Używaj jednego trybu powtarzania świadomie. Łączenie liczby powtórzeń z flagą „until” może powodować niejasne wyniki w różnych odtwarzaczach. Przy zmianie trybów powtarzania wywołaj [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) i [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) przed [ITiming::set_RepeatCount](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_repeatcount/), ponieważ ustawienie którejkolwiek flagi zmienia aktywny tryb powtarzania.
+Używaj jednego trybu powtarzania świadomie. Łączenie licznika powtórzeń z flagą „until” może dawać mylące wyniki w różnych odtwarzaczach. Przy zmianie trybów powtarzania wywołaj najpierw [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) i [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/), a dopiero potem [ITiming::set_RepeatCount](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itiming/set_repeatcount/), ponieważ ustawienie którejkolwiek flagi zmienia aktywny tryb powtarzania.
 
 ## **Dodawanie i wyodrębnianie dźwięków animacji**
 
-Efekt animacji może odwoływać się do osadzonego dźwięku za pomocą [IEffect::set_Sound](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/ieffect/set_sound/). [IEffect::set_StopPreviousSound](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/ieffect/set_stopprevioussound/) instruuje efekt, aby zatrzymał dźwięk rozpoczęty przez wcześniejszy efekt.
+Efekt animacji może odwoływać się do osadzonego dźwięku poprzez [IEffect::set_Sound](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/ieffect/set_sound/). [IEffect::set_StopPreviousSound](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/ieffect/set_stopprevioussound/) nakazuje efektowi zatrzymać dźwięk rozpoczęty przez wcześniejszy efekt.
 
-### **Dodaj dźwięk do efektu**
+### **Dodanie dźwięku do efektu**
 
-Poniższy przykład wymaga lokalnego pliku audio o nazwie `animation-sound.wav`. Tworzy dwa efekty, osadza ten plik jako dźwięk pierwszego efektu i konfiguruje drugi efekt, aby zatrzymywał dźwięk. Używa obiektów zwróconych przez [ISequence::AddEffect](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/isequence/addeffect/), więc nie jest wymagany indeks sekwencji.
+Poniższy przykład oczekuje lokalnego pliku audio o nazwie `animation-sound.wav`. Tworzy dwa efekty, osadza ten plik jako dźwięk pierwszego efektu i konfiguruje drugi efekt, aby zatrzymywał dźwięk. Używa obiektów zwróconych przez [ISequence::AddEffect](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/isequence/addeffect/), więc nie jest wymagany indeks sekwencji.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -373,9 +375,9 @@ presentation->Save(u"shape-animation-sound.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Wyodrębnij osadzone dźwięki efektów**
+### **Wyodrębnianie osadzonych dźwięków efektów**
 
-Poniższy przykład wymaga lokalnej prezentacji o nazwie `presentation-with-animation-sounds.pptx`. Przeszukuje zarówno główne, jak i interaktywne sekwencje i zapisuje każdy osadzony dźwięk efektu do katalogu `extracted-animation-sounds`. Rozszerzenie jest wybrane na podstawie typu MIME audio udostępnionego przez [IAudio::get_ContentType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iaudio/get_contenttype/).
+Poniższy przykład oczekuje lokalnej prezentacji o nazwie `presentation-with-animation-sounds.pptx`. Przeszukuje zarówno główną, jak i interaktywną sekwencję i zapisuje każdy osadzony dźwięk efektu do katalogu `extracted-animation-sounds`. Rozszerzenie jest wybierane na podstawie typu MIME audio udostępnianego przez [IAudio::get_ContentType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iaudio/get_contenttype/).
 
 ```cpp
 #include <DOM/Animation/IEffect.h>
@@ -452,15 +454,15 @@ presentation->Dispose();
 
 Dla dużych obiektów audio użyj [IAudio::GetStream](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iaudio/getstream/) i skopiuj strumień do pliku zamiast ładować cały obiekt do tablicy bajtów.
 
-## **Ustaw zachowanie po animacji**
+## **Ustawienie zachowania po animacji**
 
-Opcja **After animation** (Po animacji) kontroluje, co dzieje się z kształtem po zakończeniu jego efektu.
+Opcja **After animation** kontroluje, co się stanie z kształtem po zakończeniu efektu.
 
 ![Okno dialogowe PowerPoint Effect Options pokazujące ustawienia After animation](shape-after-animation.png)
 
 Wyliczenie [AfterAnimationType](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/afteranimationtype/) obsługuje pozostawienie kształtu niezmienionego, zmianę jego koloru, ukrycie po animacji lub ukrycie przy następnym kliknięciu. Gdy typ jest [AfterAnimationType::Color](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/afteranimationtype/), wywołaj [IEffect::get_AfterAnimationColor](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/ieffect/get_afteranimationcolor/), aby ustawić również kolor.
 
-Ten niezależny przykład tworzy efekt, ustawia jego zachowanie po animacji przy użyciu zwróconego obiektu efektu i zapisuje wynik.
+Ten niezależny przykład tworzy efekt, ustawia jego zachowanie po animacji poprzez zwrócony obiekt efektu i zapisuje wynik.
 
 ```cpp
 #include <DOM/Animation/AfterAnimationType.h>
@@ -504,10 +506,10 @@ Zmiana typu z [AfterAnimationType::Color](https://reference.aspose.com/slides/pl
 
 ## **Animowanie tekstu**
 
-Animacja tekstu posiada dwa powiązane elementy sterujące:
+Animacja tekstu ma dwa powiązane ustawienia:
 
-- [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itextanimation/set_buildtype/) kontroluje, czy akapity pojawiają się jednocześnie, czy poziomowo.  
-- [IEffect::set_AnimateTextType](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) kontroluje, czy tekst pojawia się jednorazowo, słowo po słowie lub litera po literze. [IEffect::set_DelayBetweenTextParts](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) ustawia opóźnienie między słowami lub literami. Wartość dodatnia jest procentem czasu trwania efektu; wartość ujemna jest opóźnieniem w sekundach.
+- [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itextanimation/set_buildtype/) kontroluje, czy akapity pojawiają się razem czy poziomowo.
+- [IEffect::set_AnimateTextType](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) określa, czy tekst pojawia się jednocześnie, słowami czy literami. [IEffect::set_DelayBetweenTextParts](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) ustawia opóźnienie między słowami lub literami. Dodatnia wartość jest procentem czasu trwania efektu; ujemna wartość oznacza opóźnienie w sekundach.
 
 Poniższy niezależny przykład animuje słowa w polu tekstowym. [BuildType::AsOneObject](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/buildtype/) wyłącza budowanie akapit po akapicie, tak aby ustawienie słowa dotyczyło całej ramki tekstowej.
 
@@ -549,26 +551,26 @@ presentation->Save(u"animated-text.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Aby budować pole tekstowe akapit po akapicie, użyj [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itextanimation/set_buildtype/) z [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/buildtype/) lub innym poziomem akapitu. Aby skierować pojedynczy akapit do własnego efektu, użyj przeciążenia [ISequence::AddEffect](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/isequence/addeffect/) akceptującego [IParagraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/). Zobacz [Animowany tekst](/slides/pl/cpp/animated-text/) po przykłady na poziomie akapitu.
+Aby budować pole tekstowe akapit po akapicie, użyj [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/itextanimation/set_buildtype/) z [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/buildtype/) lub innym poziomem akapitu. Aby skierować pojedynczy akapit z własnym efektem, użyj przeciążenia [ISequence::AddEffect](https://reference.aspose.com/slides/pl/cpp/aspose.slides.animation/isequence/addeffect/) akceptującego [IParagraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/). Zobacz [Animated Text](/slides/pl/cpp/animated-text/) po przykłady na poziomie akapitu.
 
-## **Uwagi dotyczące eksportu i kompatybilności**
+## **Eksport i uwagi dotyczące kompatybilności**
 
-- Zapisywanie do PPT lub PPTX zachowuje model animacji, ale ostateczne odtwarzanie jest kontrolowane przez przeglądarkę prezentacji.  
-- PDF i obrazy statyczne nie odtwarzają animacji. Użyj [Eksport HTML5](/slides/pl/cpp/export-to-html5/), animowanego GIF lub [konwersji wideo](/slides/pl/cpp/convert-powerpoint-to-video/), gdy wyjście musi pokazywać ruch.  
-- Dla HTML5 włącz [Html5Options::set_AnimateShapes](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/html5options/set_animateshapes/) oraz, w razie potrzeby, [Html5Options::set_AnimateTransitions](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/html5options/set_animatetransitions/).  
-- Renderowanie wideo obsługuje wiele popularnych efektów wejścia, podkreślenia, wyjścia i ścieżek ruchu, ale nie każdy efekt PowerPoint jest obsługiwany. Sprawdź bieżącą [obsługiwane animacje i efekty](/slides/pl/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) i przetestuj krytyczne prezentacje w wersji Aspose.Slides, której używasz.  
-- Zaawansowane efekty niestandardowe i efekty zaimportowane z innych formatów prezentacji mogą być zachowane w pliku, ale renderowane inaczej w PowerPoint, HTML5 lub wideo. Zweryfikuj wyeksportowany rezultat, zamiast polegać wyłącznie na nazwie efektu.
+- Zapis do PPT lub PPTX zachowuje model animacji, ale ostateczne odtwarzanie kontrolowane jest przez przeglądarkę prezentacji.
+- PDF i obrazy statyczne nie odtwarzają animacji. Użyj [HTML5 export](/slides/pl/cpp/export-to-html5/), animowanego GIF lub [video conversion](/slides/pl/cpp/convert-powerpoint-to-video/), gdy wyjście musi pokazywać ruch.
+- Dla HTML5 włącz [Html5Options::set_AnimateShapes](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/html5options/set_animateshapes/) i w razie potrzeby [Html5Options::set_AnimateTransitions](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/html5options/set_animatetransitions/).
+- Renderowanie wideo obsługuje wiele popularnych efektów wejścia, podkreślenia, wyjścia i ścieżek ruchu, ale nie każdy efekt PowerPoint jest wspierany. Sprawdź bieżącą listę [supported animations and effects](/slides/pl/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) i przetestuj kluczowe prezentacje z docelową wersją Aspose.Slides.
+- Zaawansowane efekty niestandardowe oraz efekty importowane z innych formatów prezentacji mogą być zachowane w pliku, ale renderowane inaczej w PowerPoint, HTML5 lub wideo. Zweryfikuj wyeksportowany wynik zamiast polegać wyłącznie na nazwie efektu.
 
 ## **FAQ**
 
-**Dlaczego animacja pojawia się w PowerPoint, ale nie w PDF?**
+**Dlaczego animacja pojawia się w PowerPoint, a nie w PDF?**
 
-PDF jest formatem statycznym, więc animacje i przejścia slajdów nie są odtwarzane. Eksportuj do HTML5, animowanego GIF lub wideo, gdy wymagana jest zachowanie ruchu.
+PDF jest formatem statycznym, więc animacje i przejścia slajdów nie są odtwarzane. Eksportuj do HTML5, animowanego GIF lub wideo, gdy ruch musi zostać zachowany.
 
-**Dlaczego efekt odtwarza się inaczej w wideo?**
+**Dlaczego efekt odtwarzany jest inaczej w wideo?**
 
-Eksport wideo renderuje animacje zamiast przechowywać oryginalne zachowanie PowerPoint. Niektóre zaawansowane efekty są nieobsługiwane lub przybliżone. Przejrzyj tabelę obsługiwanych efektów i przetestuj rzeczywistą prezentację przed użyciem produkcyjnym.
+Eksport wideo renderuje animacje zamiast przechowywać oryginalne zachowanie PowerPoint. Niektóre zaawansowane efekty nie są obsługiwane lub są przybliżane. Przejrzyj tabelę obsługiwanych efektów i przetestuj rzeczywistą prezentację przed użyciem produkcyjnym.
 
 **Czy przeniesienie kształtu do przodu lub do tyłu zmienia kolejność jego animacji?**
 
-Nie. Z‑order kształtu kontroluje nakładanie się, podczas gdy kolejność sekwencji i wyzwalacze kontrolują odtwarzanie animacji. Zmień oś czasu, jeśli potrzebujesz innej kolejności odtwarzania.
+Nie. Z‑order kształtu kontroluje nakładanie się, podczas gdy kolejność sekwencji i wyzwalacze kontrolują odtwarzanie animacji. Zmodyfikuj oś czasu, jeśli potrzebujesz innej kolejności odtwarzania.

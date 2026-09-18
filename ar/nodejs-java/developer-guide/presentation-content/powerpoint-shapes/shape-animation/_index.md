@@ -1,46 +1,48 @@
 ---
-title: تطبيق حركات الشكل في العروض التقديمية باستخدام JavaScript
-linktitle: حركة الشكل
+title: تطبيق رسومات الأشكال المتحركة في العروض التقديمية باستخدام JavaScript
+linktitle: تحريك الشكل
 type: docs
 weight: 60
 url: /ar/nodejs-java/shape-animation/
 keywords:
 - شكل
-- حركة
+- رسوم متحركة
 - تأثير
 - شكل متحرك
 - نص متحرك
-- إضافة حركة
-- الحصول على حركة
-- استخراج حركة
+- إضافة رسوم متحركة
+- الحصول على رسوم متحركة
+- استخراج رسوم متحركة
 - إضافة تأثير
 - الحصول على تأثير
 - استخراج تأثير
 - صوت التأثير
-- تطبيق حركة
+- تطبيق رسوم متحركة
 - PowerPoint
 - عرض تقديمي
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تعلم كيفية إضافة، وفحص، وتخصيص حركات الأشكال، وتوقيتها، وأصواتها، وسلوك ما بعد الحركة، والنص المتحرك باستخدام Aspose.Slides for Node.js عبر Java."
+description: "تعلم كيفية إضافة، وفحص، وتخصيص رسومات الأشكال المتحركة، والتوقيت، والأصوات، وسلوك ما بعد الرسوم المتحركة، والنص المتحرك باستخدام Aspose.Slides للـ Node.js عبر Java."
 ---
 ## **نظرة عامة**
 
-تمثل Aspose.Slides for Node.js عبر Java حركات الشرائح كـ **effects** في جدول زمني للشريحة. يحتوي الـ effect على الشكل الهدف، ونوع الحركة والفرع الفرعي، ومشغل، وإعدادات التوقيت، وخصائص اختيارية مثل الصوت أو سلوك ما بعد الحركة.
+للعمل مع السلوكيات الفردية داخل تأثير أو تحرير أقسام مسار الحركة، انظر [رسوم متحركة مخصصة](/slides/ar/nodejs-java/custom-animation/).
 
-يحتوي الجدول الزمني على نوعين من السلاسل:
+Aspose.Slides for Node.js via Java يمثل الرسوم المتحركة للشرائح كـ تأثيرات في جدول زمني للشرائح. يحتوي التأثير على شكل الهدف، نوع الرسوم المتحركة والفرع الفرعي، مشغل، إعدادات التوقيت، وخصائص اختيارية مثل الصوت أو سلوك ما بعد الرسوم المتحركة.
 
-- **السلسلة الرئيسية** تُشغل عندما تتقدم الشريحة.
-- **السلسلة التفاعلية** تبدأ عندما يُنقر على الشكل المشغل.
+الجدول الزمني يحتوي على نوعين من التسلسلات:
 
-نظرًا لأن صناديق النصوص، والصور، والمخططات، والجداول، وغيرها من كائنات الشريحة هي كائنات [Shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/) ، فإنك تستخدم نفس طريقة [Sequence.addEffect](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sequence/#addEffect) لمعظم محتوى الشريحة. تُدرج التأثيرات المتاحة في تعداد [EffectType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effecttype/).
+- **التسلسل الرئيسي** يُشغَل عندما تتقدم الشريحة.
+- **التسلسل التفاعلي** يبدأ عندما يتم النقر على الشكل المشغل.
 
-## **إضافة حركات الشكل**
+نظرًا لأن مربعات النص، والصور، والرسوم البيانية، والجداول، وغيرها من عناصر الشريحة هي كائنات [Shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/)، فإنك تستخدم نفس طريقة [Sequence.addEffect](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sequence/#addEffect) لمعظم محتوى الشريحة. تُدرج التأثيرات المتاحة في تعداد [EffectType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effecttype/).
 
-لإضافة حركة، احصل على السلسلة الرئيسية للشرائح واستدعِ [Sequence.addEffect](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sequence/#addEffect) مع الشكل الهدف، ونوع الـ effect، والفرع الفرعي، والمشغل. لتأثير يبدأ عندما يُنقر على شكل آخر، أنشئ سلسلة تفاعلية يكون مشغلها ذلك الشكل الآخر.
+## **إضافة رسوم متحركة للشكل**
 
-المثال التالي ينشئ كلا النوعين من الحركات ويحفظ النتيجة في الملف `shape-animations.pptx`.
+لإضافة رسوم متحركة، احصل على التسلسل الرئيسي للشرائح واستدعِ [Sequence.addEffect](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sequence/#addEffect) مع شكل الهدف، نوع التأثير، النوع الفرعي، والمشغل. لتأثير يبدأ عندما يتم النقر على شكل آخر، أنشئ تسلسلًا تفاعليًا يكون مشغله ذلك الشكل الآخر.
+
+المثال التالي ينشئ كلا نوعي الرسوم المتحركة ويحفظ النتيجة إلى `shape-animations.pptx`.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -69,19 +71,19 @@ try {
 }
 ```
 
-المشغل يتحكم متى يبدأ الـ effect:
+المشغل يتحكم متى يبدأ التأثير:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effecttriggertype/#OnClick) ينتظر النقر في السلسلة الرئيسية، أو النقر على الشكل المشغل في سلسلة تفاعلية.
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) يبدأ مع الـ effect السابق.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) يبدأ عندما ينتهي الـ effect السابق.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effecttriggertype/#OnClick) ينتظر نقرة في التسلسل الرئيسي، أو نقرة على الشكل المشغل في تسلسل تفاعلي.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) يبدأ مع التأثير السابق.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) يبدأ عندما ينتهي التأثير السابق.
 
-لتحريك صورة أو مخطط أو أي نوع آخر من الأشكال، مرّر ذلك الكائن إلى [Sequence.addEffect](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sequence/#addEffect) بدلاً من `targetShape`. للحصول على خيارات تجميع خاصة بالمخططات، راجع [Animated Charts](/slides/ar/nodejs-java/animated-charts/).
+لتحريك صورة أو رسم بياني أو أي نوع آخر من الأشكال، قم بتمرير ذلك الكائن إلى [Sequence.addEffect](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sequence/#addEffect) بدلاً من `targetShape`. للحصول على خيارات تجميع خاصة بالرسوم البيانية، انظر [الرسوم البيانية المتحركة](/slides/ar/nodejs-java/animated-charts/).
 
-## **قراءة حركات الشكل**
+## **قراءة الرسوم المتحركة للأشكال**
 
-استخدم [Sequence.getEffectsByShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sequence/#getEffectsByShape) عندما تعرف الشكل الهدف. لتفقد كل تأثير، عدّ السلسلة الرئيسية وكل سلسلة تفاعلية. العدّ يمنع الافتراض بأن السلسلة تحتوي على تأثير في الفهرس `0`.
+استخدم [Sequence.getEffectsByShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sequence/#getEffectsByShape) عندما تعرف شكل الهدف. لتفقد كل تأثير، قم بتعداد التسلسل الرئيسي وكل تسلسل تفاعلي. التعداد يمنع الافتراض بأن التسلسل يحتوي على تأثير في الفهرس `0`.
 
-المثال التالي ينشئ شكلاً به تأثيرات في السلسلة الرئيسية وتفاعلية، يحصل على التأثيرات التي تستهدف الشكل، ثم يعدّ كل سلسلة على الشريحة.
+المثال التالي ينشئ شكلاً يحتوي على تأثيرات في التسلسل الرئيسي وتفاعلية، يحصل على التأثيرات التي تستهدف الشكل، ثم يعدد كل تسلسل على الشريحة.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -140,21 +142,19 @@ try {
 }
 ```
 
-إذا كنت بحاجة فقط إلى التأثيرات لشكل واحد، حدّد الشكل أولًا بالاسم أو نوع العنصر النائب أو أي خاصية ثابتة أخرى؛ ثم استدعِ [Sequence.getEffectsByShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sequence/#getEffectsByShape). لا تفترض أن [ShapeCollection.get_Item](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapecollection/#get_Item) في الفهرس `0` هو دائمًا الكائن المقصود.
+إذا كنت تحتاج فقط إلى التأثيرات لشكل واحد، حدد الشكل أولاً بالاسم أو نوع العنصر النائب أو أي خاصية مستقرة أخرى؛ ثم استدعِ [Sequence.getEffectsByShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sequence/#getEffectsByShape). لا تفترض أن [ShapeCollection.get_Item](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapecollection/#get_Item) في الفهرس `0` هو دائمًا الكائن المقصود.
 
 ## **العمل مع تأثيرات العنصر النائب الموروثة**
 
-يمكن لعنصر نائب في شريحة عادية أن يرث سلوك الحركة من العنصر النائب المقابل في شريحة التخطيط وشريحة القالب. تُعيد الدالة [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/#getBasePlaceholder) ذلك العنصر النائب الأصلي، أو `null` عندما لا يوجد عنصر أب.
+يمكن للعنصر النائب في شريحة عادية أن يرث سلوك الرسوم المتحركة من العنصر النائب المقابل في شريحة التخطيط والشريحة الرئيسية. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/#getBasePlaceholder) يُعيد ذلك العنصر النائب الأب، أو `null` إذا لم يكن هناك أب.
 
-في عرض الشرائح التالي، يحتوي التذييل على **Random Bars** في الشريحة العادية، و**Split** في شريحة التخطيط، و**Fly In** في شريحة القالب.
+في عرض الشرائح التالي، يحتوي التذييل على **Random Bars** في الشريحة العادية، و**Split** في شريحة التخطيط، و**Fly In** في الشريحة الرئيسية.
 
-![تأثير حركة التذييل على الشريحة العادية](slide-shape-animation.png)
+![تأثير حركة التذييل في الشريحة العادية](slide-shape-animation.png)
+![تأثير حركة العنصر النائب للتذييل في شريحة التخطيط](layout-shape-animation.png)
+![تأثير حركة العنصر النائب للتذييل في الشريحة الرئيسية](master-shape-animation.png)
 
-![تأثير حركة عنصر نائب التذييل على شريحة التخطيط](layout-shape-animation.png)
-
-![تأثير حركة عنصر نائب التذييل على شريحة القالب](master-shape-animation.png)
-
-المثال التالي يستخدم تسلسلًا هرميًا للعنصر النائب من عرض تقديم جديد. يضيف تأثيرات إلى عنصر نائب في القالب، وعنصر نائب في التخطيط، والعنصر النائب المقابل على شريحة عادية. يتم فحص كل استدعاء لـ [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/#getBasePlaceholder) قبل استخدام الشكل المرتجع.
+المثال التالي يستخدم هيكلية عناصر نائبة من عرض تقديمي جديد. يضيف تأثيرات إلى عنصر نائب رئيسي، وعنصر نائب تخطيط، والعنصر النائب المقابل في شريحة عادية. يتم التحقق من كل استدعاء لـ [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/#getBasePlaceholder) قبل استخدام الشكل المعاد.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -238,19 +238,19 @@ try {
 }
 ```
 
-## **تغيير توقيت الحركة**
+## **تغيير توقيت الرسوم المتحركة**
 
-حوار **Timing** في PowerPoint يطابق خصائص [Timing](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/).
+حوار PowerPoint **Timing** يتطابق مع خصائص [Timing](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/).
 
-![حوار توقيت PowerPoint لتأثير الحركة](shape-animation.png)
+![حوار توقيت PowerPoint لتأثير الرسوم المتحركة](shape-animation.png)
 
-- **Start** يطابق [Timing.getTriggerType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#getTriggerType).
-- **Duration** يطابق [Timing.getDuration](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#getDuration) بالثواني.
-- **Delay** يطابق [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#getTriggerDelayTime) بالثواني.
-- **Repeat** يطابق [Timing.getRepeatCount](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#getRepeatCount)، أو [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick)، أو [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide).
-- **Rewind when done playing** يطابق [Timing.getRewind](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#getRewind).
+- **Start** يتطابق مع [Timing.getTriggerType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#getTriggerType).
+- **Duration** يتطابق مع [Timing.getDuration](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#getDuration)، بالثواني.
+- **Delay** يتطابق مع [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#getTriggerDelayTime)، بالثواني.
+- **Repeat** يتطابق مع [Timing.getRepeatCount](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#getRepeatCount)، [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick)، أو [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide).
+- **Rewind when done playing** يتطابق مع [Timing.getRewind](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#getRewind).
 
-هذا المثال المستقل يضيف تأثيرًا، يغيّر توقيته عبر الكائن المرتجع من [Sequence.addEffect](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sequence/#addEffect)، ويحفظ النتيجة. حفظ مرجع الـ [Effect](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effect/) المرتجع يجنّب فهرس مجموعة غير ضروري.
+هذا المثال المستقل يضيف تأثيرًا، يغير توقيته عبر الكائن المعاد من [Sequence.addEffect](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sequence/#addEffect)، ويحفظ النتيجة. الحفاظ على مرجع [Effect](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effect/) المعاد يتجنب فهرس جمع غير ضروري.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -277,15 +277,15 @@ try {
 }
 ```
 
-استخدم وضع تكرار واحد فقط. الجمع بين عدّ التكرار وعلم "حتى" قد ينتج عنه نتائج مربكة في مشغلات مختلفة. عند تغيير أوضاع التكرار، اضبط [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) و[Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) قبل [Timing.setRepeatCount](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#setRepeatCount)، لأن ضبط أي علم يغيّر أيضًا وضع التكرار النشط.
+استخدم وضعية تكرار واحدة عن قصد. الجمع بين عدد التكرار وعلامة "until" قد ينتج عنه نتائج مربكة في عارضات مختلفة. عند تغيير أوضاع التكرار، اضبط [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) و[Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) قبل [Timing.setRepeatCount](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/timing/#setRepeatCount)، لأن تعيين أيٍ من العلامتين يغيّر أيضًا وضعية التكرار النشطة.
 
-## **إضافة واستخراج أصوات الحركة**
+## **إضافة واستخراج أصوات الرسوم المتحركة**
 
-يمكن لتأثير الحركة أن يشير إلى صوت مدمج عبر [Effect.getSound](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effect/#getSound). تُخبر الدالة [Effect.setStopPreviousSound](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effect/#setStopPreviousSound) التأثير بإيقاف الصوت الذي بدأه تأثير سابق.
+يمكن لتأثير الرسوم المتحركة الإشارة إلى صوت مضمّن عبر [Effect.getSound](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effect/#setStopPreviousSound) يخبر التأثير بوقف الصوت الذي بدأه تأثير سابق.
 
 ### **إضافة صوت إلى تأثير**
 
-المثال التالي يتوقع وجود ملف صوت محلي باسم `animation-sound.wav`. ينشئ تأثيرين، يدمج ذلك الملف كصوت للتأثير الأول، ويضبط التأثير الثاني لإيقاف الصوت. يستخدم الكائنات المرتجعة من [Sequence.addEffect](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sequence/#addEffect)، لذا لا يلزم فهرس السلسلة.
+المثال التالي يتوقع ملف صوتي محلي باسم `animation-sound.wav`. ينشئ تأثيرين، يضمّن هذا الملف كصوت للتأثير الأول، ويكوّن التأثير الثاني لإيقاف الصوت. يستخدم الكائنات المعادة من [Sequence.addEffect](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sequence/#addEffect)، لذا لا يلزم فهرس للتسلسل.
 
 ```javascript
 const fs = require("fs");
@@ -315,9 +315,9 @@ try {
 }
 ```
 
-### **استخراج أصوات التأثير المدمجة**
+### **استخراج الأصوات المضمنة للتأثير**
 
-المثال التالي يتوقع وجود عرض تقديمي محلي باسم `presentation-with-animation-sounds.pptx`. يفحص كل من السلاسل الرئيسية والتفاعلية ويكتب كل صوت تأثير مدمج إلى مجلد `extracted-animation-sounds`. يتم اختيار الامتداد من نوع MIME للصوت الذي تُعيده الدالة [Audio.getContentType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/audio/#getContentType).
+المثال التالي يتوقع عرض تقديمي محلي باسم `presentation-with-animation-sounds.pptx`. يفحص كل من التسلسل الرئيسي والتسلسلات التفاعلية ويكتب كل صوت مدمج لتأثير في دليل `extracted-animation-sounds`. يتم اختيار الامتداد من نوع MIME الصوتي المعرّف عبر [Audio.getContentType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/audio/#getContentType).
 
 ```javascript
 const fs = require("fs");
@@ -386,17 +386,17 @@ try {
 }
 ```
 
-للكائنات الصوتية الكبيرة، استخدم [Audio.getStream](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/audio/#getStream) وانسخ الدفق إلى ملف بدلاً من تحميل الكائن بالكامل إلى مصفوفة بايت.
+بالنسبة لكائنات الصوت الكبيرة، استخدم [Audio.getStream](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/audio/#getStream) وانسخ الدفق إلى ملف بدلاً من تحميل الكائن بالكامل إلى مصفوفة بايت.
 
-## **تعيين سلوك ما بعد الحركة**
+## **تحديد سلوك ما بعد الرسوم المتحركة**
 
-خيار **After animation** يتحكم في ما يحدث للشكل بعد انتهاء تأثيره.
+خيار **After animation** يتحكم فيما يحدث للشكل بعد انتهاء التأثير.
 
 ![حوار خيارات تأثير PowerPoint يظهر إعدادات After animation](shape-after-animation.png)
 
-يُدعم تعداد [AfterAnimationType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/afteranimationtype/) ترك الشكل دون تغيير، أو تغيير لونه، أو إخفائه بعد الحركة، أو إخفائه عند النقر التالي. عندما يكون النوع هو [AfterAnimationType.Color](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/afteranimationtype/#Color)، اضبط أيضًا [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effect/#getAfterAnimationColor).
+- تعداد [AfterAnimationType] يدعم ترك الشكل دون تغيير، تغيير لونه، إخفائه بعد الرسوم المتحركة، أو إخفائه عند النقر التالي. عندما يكون النوع هو [AfterAnimationType.Color]، اضبط أيضًا [Effect.getAfterAnimationColor].
 
-هذا المثال المستقل يخلق تأثيرًا، يضبط سلوك ما بعد الحركة عبر كائن الـ effect المرتجع، ويحفظ النتيجة.
+هذا المثال المستقل ينشئ تأثيرًا، يضبط سلوك ما بعد الرسوم المتحركة عبر كائن التأثير المعاد، ويحفظ النتيجة.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -418,16 +418,16 @@ try {
 }
 ```
 
-تغيير النوع بعيدًا عن [AfterAnimationType.Color](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/afteranimationtype/#Color) يمسح إعداد لون ما بعد الحركة.
+تغيير النوع بعيدًا عن [AfterAnimationType.Color] يمسح إعداد لون ما بعد الرسوم المتحركة.
 
 ## **تحريك النص**
 
-لتحريك النص توجد تحكمان مرتبطان:
+تحريك النص يحتوي على تحكمين مرتبطين:
 
-- [TextAnimation.getBuildType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textanimation/#getBuildType) يتحكم ما إذا كانت الفقرات تظهر معًا أو بمستوى الفقرة.
-- [Effect.getAnimateTextType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effect/#getAnimateTextType) يتحكم ما إذا كان النص يظهر دفعة واحدة، أو كلمة بكلمة، أو حرف بحرف. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) يحدد التأخير بين الكلمات أو الأحرف. القيمة الموجبة هي نسبة مئوية من مدة الـ effect؛ القيمة السالبة هي تأخير بالثواني.
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textanimation/#getBuildType) يتحكم ما إذا كانت الفقرات تظهر معًا أو على مستوى الفقرة.
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effect/#getAnimateTextType) يتحكم ما إذا ظهر النص كله مرة واحدة، أو كلمةً بكلمة، أو حرفًا بحرف. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) يحدد التأخير بين الكلمات أو الأحرف. القيمة الإيجابية هي نسبة مئوية من مدة التأثير؛ القيمة السالبة هي تأخير بالثواني.
 
-المثال المستقل التالي يحرك الكلمات داخل صندوق نص. يوقف [BuildType.AsOneObject](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/buildtype/#AsOneObject) بناء الفقرة‑بفقرة بحيث يُطبق إعداد الكلمة على الإطار النصي بأكمله.
+المثال المستقل التالي يحرك الكلمات داخل مربع نص. [BuildType.AsOneObject] يعطل بناء الفقرة بفقرة بحيث يطبق إعداد الكلمة على كامل إطار النص.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -450,26 +450,26 @@ try {
 }
 ```
 
-لبناء صندوق نص حسب الفقرة، اضبط [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (أو مستوى فقرة آخر). لاستهداف فقرة واحدة بتأثير خاص، استخدم نسخة [Sequence.addEffect](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sequence/#addEffect) التي تقبل كائنًا من نوع [Paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/paragraph/). راجع [Animated Text](/slides/ar/nodejs-java/animated-text/) لأمثلة على مستوى الفقرة.
+لبناء مربع نص وفقًا للفقرة، اضبط [BuildType.ByLevelParagraphs1] (أو مستوى فقرة آخر). لاستهداف فقرة واحدة بتأثير خاص بها، استخدم نسخة [Sequence.addEffect] التي تقبل كائنًا من نوع [Paragraph]. راجع [Animated Text](/slides/ar/nodejs-java/animated-text/) لأمثلة على مستوى الفقرة.
 
 ## **ملاحظات التصدير والتوافق**
 
-- الحفظ إلى PPT أو PPTX يحافظ على نموذج الحركة، لكن تشغيله النهائي يتحكم به عارض العرض.
-- PDF والصور الثابتة لا تشغل الحركات. استخدم [HTML5 export](/slides/ar/nodejs-java/export-to-html5/)، GIF متحرك، أو [تحويل الفيديو](/slides/ar/nodejs-java/convert-powerpoint-to-video/) عندما يجب إظهار الحركة.
-- لتصدير HTML5، فعِّل [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/html5options/#setAnimateShapes) وعند الحاجة [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/html5options/#setAnimateTransitions).
-- يدعم تصيّر الفيديو العديد من تأثيرات الدخول، والتأكيد، والخروج، ومسار الحركة الشائعة، لكن ليس كل تأثير PowerPoint مدعوم. تحقق من جدول [التحركات والتأثيرات المدعومة](/slides/ar/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) واختبر العروض الحرجة مع نسخة Aspose.Slides المستهدفة.
-- قد تُحفظ التأثيرات المخصّصة المتقدّمة أو المستوردة من صيغ عروض تقديمية أخرى في الملف ولكن تُظهر بشكل مختلف في PowerPoint أو HTML5 أو الفيديو. تحقق من النتيجة المصدّرة بدلاً من الاعتماد فقط على اسم التأثير.
+- الحفظ إلى PPT أو PPTX يحتفظ بنموذج الرسوم المتحركة، لكن التشغيل النهائي يتحكم فيه عارض العرض التقديمي.
+- PDF والصور الثابتة لا تشغل الرسوم المتحركة. استخدم [HTML5 export](/slides/ar/nodejs-java/export-to-html5/)، GIF متحرك، أو [video conversion](/slides/ar/nodejs-java/convert-powerpoint-to-video/) عندما يجب أن يظهر المخرج حركة.
+- بالنسبة لـ HTML5، فعّل [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/html5options/#setAnimateShapes)، وعند الحاجة، [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/html5options/#setAnimateTransitions).
+- يدعم تصيير الفيديو العديد من تأثيرات الدخول، والتأكيد، والخروج، ومسارات الحركة الشائعة، لكن ليس كل تأثير في PowerPoint مدعوم. تحقق من [supported animations and effects](/slides/ar/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) الحالي واختبر العروض التقديمية الحرجة مع نسخة Aspose.Slides المستهدفة.
+- قد تُحافظ التأثيرات المخصصة المتقدمة والتأثيرات المستوردة من صيغ عروض تقديمية أخرى في الملف ولكنها تُظهر بشكل مختلف في PowerPoint أو HTML5 أو الفيديو. تحقق من النتيجة المصدرة بدلاً من الاعتماد فقط على اسم التأثير.
 
 ## **الأسئلة المتكررة**
 
-**لماذا تظهر الحركة في PowerPoint ولكن ليس في PDF؟**
+**لماذا يظهر تأثير في PowerPoint لكن لا يظهر في PDF؟**
 
-PDF هو تنسيق ثابت، لذا لا تُشغل الحركات ولا انتقالات الشرائح. صدّر إلى HTML5 أو GIF متحرك أو فيديو عندما يجب الحفاظ على الحركة.
+PDF هو تنسيق ثابت، لذا لا تُشغل الرسوم المتحركة وانتقالات الشرائح. صدّر إلى HTML5 أو GIF متحرك أو فيديو عندما يجب الحفاظ على الحركة.
 
-**لماذا يعمل تأثير بشكل مختلف في الفيديو؟**
+**لماذا يُشغل تأثير بشكل مختلف في الفيديو؟**
 
-تصدير الفيديو يُعيد رسم الحركات بدلًا من تخزين سلوك PowerPoint الأصلي. بعض التأثيرات المتقدّمة غير مدعومة أو تُقرب من الأصل. راجع جدول التأثيرات المدعومة واختبر العرض الفعلي قبل الاستخدام الإنتاجي.
+تصدير الفيديو يُعيد رسم الرسوم المتحركة بدلاً من حفظ سلوك PowerPoint الأصلي. بعض التأثيرات المتقدمة غير مدعومة أو مُقربة. راجع جدول التأثيرات المدعومة واختبر العرض التقديمي الفعلي قبل الاستخدام الإنتاجي.
 
-**هل تغيير موضع الشكل إلى أمام أو خلف يغيّر ترتيب حركته؟**
+**هل تغيير موضع الشكل للأمام أو الخلف يغيّر ترتيب رسوماته المتحركة؟**
 
-لا. يتحكم ترتيب الـ z للshape في التراكب، بينما يتحكم ترتيب السلسلة والمشغلات في تشغيل الحركات. غير الخط الزمني إذا كنت بحاجة إلى ترتيب تشغيل مختلف.
+لا. ترتيب Z للشكل يتحكم في التداخل، بينما يتحكم ترتيب التسلسل والمشغلات في تشغيل الرسوم المتحركة. عدّل الجدول الزمني إذا كنت تحتاج ترتيب تشغيل مختلف.

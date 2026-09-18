@@ -1,15 +1,15 @@
 ---
-title: PHP का उपयोग करके प्रस्तुतियों में आकृति एनीमेशन लागू करना
-linktitle: आकृति एनीमेशन
+title: PHP का उपयोग करके प्रस्तुतियों में आकार एनीमेशन लागू करें
+linktitle: आकार एनीमेशन
 type: docs
 weight: 60
 url: /hi/php-java/shape-animation/
 keywords:
-- आकृति
+- आकार
 - एनीमेशन
 - प्रभाव
-- एनिमेटेड आकृति
-- एनिमेटेड पाठ
+- एनीमेटेड आकार
+- एनीमेटेड पाठ
 - एनीमेशन जोड़ें
 - एनीमेशन प्राप्त करें
 - एनीमेशन निकालें
@@ -22,24 +22,26 @@ keywords:
 - प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java के साथ आकृति एनीमेशन, टाइमिंग, ध्वनियों, एनीमेशन‑के‑बाद व्यवहार, और एनिमेटेड टेक्स्ट को जोड़ना, निरीक्षण करना और अनुकूलित करना सीखें।"
+description: "Aspose.Slides for PHP via Java के साथ आकार एनीमेशन, टाइमिंग, ध्वनियों, एनीमेशन‑के‑बाद व्यवहार, और एनीमेटेड टेक्स्ट को जोड़ना, निरीक्षण करना और अनुकूलित करना सीखें।"
 ---
 ## **अवलोकन**
 
-Aspose.Slides for PHP via Java स्लाइड एनिमेशन को स्लाइड टाइमलाइन में इफ़ेक्ट्स के रूप में प्रस्तुत करता है। एक इफ़ेक्ट में लक्ष्य आकृति, एनीमेशन प्रकार और उपप्रकार, ट्रिगर, टाइमिंग सेटिंग्स, और वैकल्पिक गुण जैसे ध्वनि या एनीमेशन‑के‑बाद का व्यवहार शामिल होते हैं।
+एक प्रभाव के भीतर व्यक्तिगत व्यवहारों के साथ काम करने या मोशन‑पाथ खंडों को संपादित करने के लिए, देखें [कस्टम एनीमेशन](/slides/hi/php-java/custom-animation/)।
 
-टाइमलाइन दो प्रकार के अनुक्रम रखती है:
+Aspose.Slides for PHP via Java स्लाइड एनीमेशन को स्लाइड टाइमलाइन में प्रभावों (effects) के रूप में दर्शाता है। एक प्रभाव में लक्ष्य आकार, एनीमेशन प्रकार और उपप्रकार, ट्रिगर, टाइमिंग सेटिंग्स, और वैकल्पिक गुण जैसे ध्वनि या एनीमेशन‑के‑बाद व्यवहार होते हैं।
 
-- **मुख्य अनुक्रम** स्लाइड आगे बढ़ते समय चलता है।
-- **इंटरैक्टिव अनुक्रम** तब शुरू होता है जब उसका ट्रिगर आकृति क्लिक की जाती है।
+टाइमलाइन में दो प्रकार के क्रम होते हैं:
 
-क्योंकि टेक्स्ट बॉक्स, चित्र, चार्ट, तालिका और अन्य स्लाइड वस्तुएँ आकृतियों के रूप में होती हैं, आप अधिकांश स्लाइड सामग्री के लिए वही [Sequence::addEffect](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sequence/addeffect/) विधि का उपयोग करते हैं। उपलब्ध इफ़ेक्ट्स [EffectType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effecttype/) वर्ग में सूचीबद्ध हैं।
+- **मुख्य क्रम** स्लाइड आगे बढ़ते समय चलता है।
+- **इंटरएक्टिव क्रम** तब शुरू होता है जब उसके ट्रिगर आकार पर क्लिक किया जाता है।
 
-## **आकृति एनीमेशन जोड़ें**
+क्योंकि टेक्स्ट बॉक्स, चित्र, चार्ट, तालिकाएँ और अन्य स्लाइड वस्तुएँ आकार (shapes) हैं, आप अधिकांश स्लाइड सामग्री के लिए वही [Sequence::addEffect](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sequence/addeffect/) मेथड उपयोग करते हैं। उपलब्ध प्रभावों की सूची [EffectType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effecttype/) क्लास में दी गई है।
 
-एक एनीमेशन जोड़ने के लिए, स्लाइड के मुख्य अनुक्रम को प्राप्त करें और लक्ष्य आकृति, इफ़ेक्ट प्रकार, उपप्रकार और ट्रिगर के साथ [Sequence::addEffect](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sequence/addeffect/) को कॉल करें। किसी ऐसे इफ़ेक्ट के लिए जो दूसरे आकृति पर क्लिक करने पर शुरू होता है, एक इंटरैक्टिव अनुक्रम बनाएं जिसका ट्रिगर वह अन्य आकृति हो।
+## **शेप एनीमेशन जोड़ें**
 
-निम्न उदाहरण दोनों प्रकार के एनीमेशन बनाता है और परिणाम को `shape-animations.pptx` में सहेजता है।
+एक एनीमेशन जोड़ने के लिए, स्लाइड के मुख्य क्रम को प्राप्त करें और लक्ष्य आकार, प्रभाव प्रकार, उपप्रकार, और ट्रिगर के साथ [Sequence::addEffect](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sequence/addeffect/) कॉल करें। किसी प्रभाव को तभी शुरू करने के लिए जब कोई अन्य आकार क्लिक किया जाए, उस अन्य आकार को ट्रिगर बनाकर एक इंटरएक्टिव क्रम बनाएं।
+
+निम्न उदाहरण दोनों प्रकार का एनीमेशन बनाता है और परिणाम को `shape-animations.pptx` में सहेजता है।
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -72,19 +74,19 @@ try {
 }
 ```
 
-ट्रिगर नियंत्रित करता है कि इफ़ेक्ट कब शुरू होता है:
+ट्रिगर नियंत्रित करता है कि प्रभाव कब शुरू होता है:
 
-- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effecttriggertype/) मुख्य अनुक्रम में क्लिक की प्रतीक्षा करता है, या इंटरैक्टिव अनुक्रम में ट्रिगर आकृति पर क्लिक।
-- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effecttriggertype/) पिछले इफ़ेक्ट के साथ शुरू होता है।
-- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effecttriggertype/) जब पूर्व इफ़ेक्ट समाप्त हो जाता है, तब शुरू होता है।
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effecttriggertype/) मुख्य क्रम में क्लिक या इंटरएक्टिव क्रम में ट्रिगर आकार पर क्लिक का इंतजार करता है।
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effecttriggertype/) पूर्व प्रभाव के साथ शुरू होता है।
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effecttriggertype/) पूर्व प्रभाव समाप्त होने पर शुरू होता है।
 
-एक चित्र, चार्ट या अन्य आकृति प्रकार को एनीमेट करने के लिए, `$targetShape` के बजाय उस वस्तु को [Sequence::addEffect](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sequence/addeffect/) को पास करें। चार्ट‑विशिष्ट समूह विकल्पों के लिए देखें [Animated Charts](/slides/hi/php-java/animated-charts/)।
+एक चित्र, चार्ट, या अन्य कोई आकार एनीमेट करने के लिए, `$targetShape` के बजाय उस वस्तु को [Sequence::addEffect](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sequence/addeffect/) में पास करें। चार्ट‑विशिष्ट ग्रुपिंग विकल्पों के लिए देखें [एनिमेटेड चार्ट](/slides/hi/php-java/animated-charts/)।
 
-## **आकृति एनीमेशन पढ़ें**
+## **शेप एनीमेशन पढ़ें**
 
-जब आपको लक्ष्य आकृति पता हो, तो [Sequence::getEffectsByShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sequence/geteffectsbyshape/) का उपयोग करें। सभी इफ़ेक्ट्स की जाँच करने हेतु मुख्य अनुक्रम और प्रत्येक इंटरैक्टिव अनुक्रम को क्रमबद्ध करें। क्रमबद्ध करना यह मानने से बचाता है कि अनुक्रम में इंडेक्स `0` पर हमेशा एक इफ़ेक्ट मौजूद हो।
+जब आप लक्ष्य आकार जानते हैं, तो [Sequence::getEffectsByShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sequence/geteffectsbyshape/) का उपयोग करें। सभी प्रभावों का निरीक्षण करने के लिए, मुख्य क्रम और प्रत्येक इंटरएक्टिव क्रम को क्रमबद्ध करें। क्रमबद्ध करना इस धारणा से बचता है कि किसी क्रम में इंडेक्स `0` पर प्रभाव मौजूद है।
 
-निम्न उदाहरण एक आकृति के साथ मुख्य‑अनुक्रम और इंटरैक्टिव इफ़ेक्ट्स बनाता है, आकृति को लक्षित करने वाले इफ़ेक्ट्स प्राप्त करता है, और फिर स्लाइड पर प्रत्येक अनुक्रम को क्रमबद्ध करता है।
+निम्न उदाहरण मुख्य‑क्रम और इंटरएक्टिव प्रभावों के साथ एक आकार बनाता है, आकार को लक्षित करने वाले प्रभाव प्राप्त करता है, और फिर स्लाइड पर प्रत्येक क्रम को क्रमबद्ध करता है।
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -144,21 +146,21 @@ try {
 }
 ```
 
-यदि आपको केवल एक आकृति के इफ़ेक्ट्स चाहिए, तो पहले आकृति को नाम, प्लेसहोल्डर प्रकार या किसी स्थिर गुण से पहचानें; फिर [Sequence::getEffectsByShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sequence/geteffectsbyshape/) को कॉल करें। यह मान लेना सुरक्षित नहीं है कि [ShapeCollection::get_Item](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/get_item/) में इंडेक्स `0` हमेशा इच्छित वस्तु है।
+यदि आपको केवल एक आकार के प्रभाव चाहिए, तो पहले नाम, प्लेसहोल्डर प्रकार, या किसी अन्य स्थिर गुण से आकार की पहचान करें; फिर [Sequence::getEffectsByShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sequence/geteffectsbyshape/) को कॉल करें। यह न मानें कि इंडेक्स `0` पर स्थित [ShapeCollection::get_Item](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shapecollection/get_item/) हमेशा इच्छित वस्तु है।
 
-## **विरासत वाले प्लेसहोल्डर इफ़ेक्ट्स के साथ काम करें**
+## **उत्तराधिकारित प्लेसहोल्डर प्रभावों के साथ काम करें**
 
-सामान्य स्लाइड पर एक प्लेसहोल्डर अपने लेआउट स्लाइड और मास्टर स्लाइड पर संबंधित प्लेसहोल्डर से एनीमेशन व्यवहार विरासत में ले सकता है। [Shape::getBasePlaceholder](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getbaseplaceholder/) वह पैरेंट प्लेसहोल्डर लौटाता है, या जब कोई पैरेंट न हो तो `null`।
+सामान्य स्लाइड पर एक प्लेसहोल्डर अपने लेआउट स्लाइड और मास्टर स्लाइड पर संबंधित प्लेसहोल्डर से एनीमेशन व्यवहार को विरासत में ले सकता है। [Shape::getBasePlaceholder](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getbaseplaceholder/) वह पैरेन्ट प्लेसहोल्डर लौटाता है, या जब कोई पैरेंट न हो तो `null` लौटाता है।
 
-निम्न उदाहरण प्रस्तुति में, फुटर के पास सामान्य स्लाइड पर **Random Bars**, लेआउट स्लाइड पर **Split**, और मास्टर स्लाइड पर **Fly In** है।
+निम्न उदाहरण प्रस्तुति में, फुटर में सामान्य स्लाइड पर **Random Bars**, लेआउट स्लाइड पर **Split**, और मास्टर स्लाइड पर **Fly In** हैं।
 
-![सामान्य स्लाइड पर फुटर एनीमेशन इफ़ेक्ट](slide-shape-animation.png)
+![साधारण स्लाइड पर फुटर एनीमेशन प्रभाव](slide-shape-animation.png)
 
-![लेआउट स्लाइड पर फुटर प्लेसहोल्डर एनीमेशन इफ़ेक्ट](layout-shape-animation.png)
+![लेआउट स्लाइड पर फुटर प्लेसहोल्डर एनीमेशन प्रभाव](layout-shape-animation.png)
 
-![मास्टर स्लाइड पर फुटर प्लेसहोल्डर एनीमेशन इफ़ेक्ट](master-shape-animation.png)
+![मास्टर स्लाइड पर फुटर प्लेसहोल्डर एनीमेशन प्रभाव](master-shape-animation.png)
 
-अगला उदाहरण नई प्रस्तुति से एक प्लेसहोल्डर पदानुक्रम का उपयोग करता है। यह मास्टर प्लेसहोल्डर, लेआउट प्लेसहोल्डर और सामान्य स्लाइड पर संबंधित प्लेसहोल्डर को इफ़ेक्ट्स जोड़ता है। प्रत्येक बार [Shape::getBasePlaceholder](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getbaseplaceholder/) को कॉल करने से पहले परिणाम की जाँच की जाती है।
+अगला उदाहरण नई प्रस्तुति से एक प्लेसहोल्डर पदानुक्रम का उपयोग करता है। यह मास्टर प्लेसहोल्डर, लेआउट प्लेसहोल्डर, और सामान्य स्लाइड पर संबंधित प्लेसहोल्डर को प्रभाव जोड़ता है। प्रत्येक बार [Shape::getBasePlaceholder](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/getbaseplaceholder/) को कॉल करने से पहले वापसी आकार की जाँच की जाती है।
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -248,17 +250,17 @@ try {
 
 ## **एनीमेशन टाइमिंग बदलें**
 
-PowerPoint **Timing** संवाद [Timing](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/) की विशेषताओं से मैप होता है।
+PowerPoint **Timing** डायलॉग [Timing](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/) की प्रॉपर्टीज़ से मैप होता है।
 
-![एनीमेशन इफ़ेक्ट के लिए PowerPoint Timing संवाद](shape-animation.png)
+![एनिमेशन प्रभाव के लिए PowerPoint टाइमिंग डायलॉग](shape-animation.png)
 
-- **Start** का मानचित्रण [Timing::getTriggerType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/gettriggertype/) से होता है।
-- **Duration** का मानचित्रण [Timing::getDuration](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/getduration/) से है, सेकंड में।
-- **Delay** का मानचित्रण [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/gettriggerdelaytime/) से है, सेकंड में।
-- **Repeat** का मानचित्रण [Timing::getRepeatCount](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/getrepeatuntilnextclick/) या [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/getrepeatuntilendslide/) से है।
-- **Rewind when done playing** का मानचित्रण [Timing::getRewind](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/getrewind/) से है।
+- **Start** को [Timing::getTriggerType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/gettriggertype/) से मैप किया जाता है।
+- **Duration** को [Timing::getDuration](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/getduration/) से मैप किया जाता है, सेकंड में।
+- **Delay** को [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/gettriggerdelaytime/) से मैप किया जाता है, सेकंड में।
+- **Repeat** को [Timing::getRepeatCount](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/getrepeatuntilnextclick/), या [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/getrepeatuntilendslide/) से मैप किया जाता है।
+- **Rewind when done playing** को [Timing::getRewind](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/getrewind/) से मैप किया जाता है।
 
-यह स्वतंत्र उदाहरण एक इफ़ेक्ट जोड़ता है, उसे [Sequence::addEffect](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sequence/addeffect/) द्वारा लौटाए गए ऑब्जेक्ट के माध्यम से टाइमिंग बदलता है, और परिणाम सहेजता है। लौटाए गए [Effect](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effect/) संदर्भ को रख कर अनावश्यक संग्रह इंडेक्स से बचा जाता है।
+यह स्वतंत्र उदाहरण एक प्रभाव जोड़ता है, उसके टाइमिंग को [Sequence::addEffect](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sequence/addeffect/) द्वारा लौटाए गए ऑब्जेक्ट के माध्यम से बदलता है, और परिणाम सहेजता है। लौटाए गए [Effect](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effect/) रेफ़रेंस को रखकर अनावश्यक संग्रह इंडेक्स से बचा जाता है।
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -289,15 +291,15 @@ try {
 }
 ```
 
-एक ही रिपीट मोड का इरादे से उपयोग करें। रिपीट काउंट को "until" फ़्लैग के साथ मिलाने से विभिन्न व्यूअर्स में भ्रमित करने वाले परिणाम मिल सकते हैं। रिपीट मोड बदलते समय पहले [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/setrepeatuntilnextclick/) और [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/setrepeatuntilendslide/) को सेट करें, फिर [Timing::setRepeatCount](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/setrepeatcount/) को सेट करें, क्योंकि किसी भी फ़्लैग को सेट करने से सक्रिय रिपीट मोड भी बदल जाता है।
+एक ही रिपीट मोड का जानबूझकर उपयोग करें। रिपीट कॉउंट को “until” फ़्लैग के साथ मिलाने से विभिन्न व्यूअर्स में भ्रमित करने वाला परिणाम मिल सकता है। रिपीट मोड बदलते समय पहले [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/setrepeatuntilnextclick/) और [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/setrepeatuntilendslide/) सेट करें, फिर [Timing::setRepeatCount](https://reference.aspose.com/slides/hi/php-java/aspose.slides/timing/setrepeatcount/) सेट करें, क्योंकि किसी भी फ़्लैग को सेट करने से सक्रिय रिपीट मोड बदल जाता है।
 
-## **एनीमेशन ध्वनि जोड़ें और निकालें**
+## **एनीमेशन साउंड जोड़ें और निकालें**
 
-एक एनीमेशन इफ़ेक्ट एम्बेडेड ऑडियो को [Effect::getSound](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effect/getsound/) के माध्यम से संदर्भित कर सकता है। [Effect::setStopPreviousSound](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effect/setstopprevioussound/) किसी इफ़ेक्ट को बताता है कि वह पूर्व इफ़ेक्ट द्वारा शुरू की गई ध्वनि को रोक दे।
+एक एनीमेशन प्रभाव एम्बेडेड ऑडियो को [Effect::getSound](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effect/getsound/) के माध्यम से संदर्भित कर सकता है। [Effect::setStopPreviousSound](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effect/setstopprevioussound/) प्रभाव को बताता है कि पहले शुरू हुए ऑडियो को रोकना है।
 
-### **इफ़ेक्ट में ध्वनि जोड़ें**
+### **एक प्रभाव में साउंड जोड़ें**
 
-निम्न उदाहरण एक स्थानीय ऑडियो फ़ाइल `animation-sound.wav` की अपेक्षा करता है। यह दो इफ़ेक्ट बनाता है, पहली इफ़ेक्ट के लिए उस फ़ाइल को ध्वनि के रूप में एम्बेड करता है, और दूसरी इफ़ेक्ट को ध्वनि रोकने के लिए कॉन्फ़िगर करता है। यह [Sequence::addEffect](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sequence/addeffect/) द्वारा लौटाए गए ऑब्जेक्ट का उपयोग करता है, इसलिए कोई अनुक्रम इंडेक्स आवश्यक नहीं है।
+निम्न उदाहरण एक स्थानीय ऑडियो फ़ाइल `animation-sound.wav` की अपेक्षा करता है। यह दो प्रभाव बनाता है, पहली प्रभाव के लिए उस फ़ाइल को साउंड के रूप में एम्बेड करता है, और दूसरे प्रभाव को साउंड रोकने के लिए कॉन्फ़िगर करता है। यह [Sequence::addEffect](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sequence/addeffect/) द्वारा लौटाए गए ऑब्जेक्ट्स का उपयोग करता है, इसलिए क्रम इंडेक्स की आवश्यकता नहीं है।
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -334,9 +336,9 @@ try {
 }
 ```
 
-### **एम्बेडेड इफ़ेक्ट ध्वनियों को निकालें**
+### **एम्बेडेड इफेक्ट साउंड निकालें**
 
-निम्न उदाहरण एक स्थानीय प्रस्तुति `presentation-with-animation-sounds.pptx` की अपेक्षा करता है। यह मुख्य और इंटरैक्टिव दोनों अनुक्रमों को स्कैन करता है और प्रत्येक एम्बेडेड इफ़ेक्ट ध्वनि को `extracted-animation-sounds` निर्देशिका में लिखता है। एक्सटेंशन ऑडियो MIME टाइप से चुना जाता है जो [Audio::getContentType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/audio/getcontenttype/) द्वारा प्रदर्शित होता है।
+निम्न उदाहरण एक स्थानीय प्रस्तुति `presentation-with-animation-sounds.pptx` की अपेक्षा करता है। यह मुख्य और इंटरएक्टिव दोनों क्रमों को स्कैन करता है और प्रत्येक एम्बेडेड इफेक्ट साउंड को `extracted-animation-sounds` निर्देशिका में लिखता है। एक्सटेंशन ऑडियो MIME प्रकार से चुना जाता है जो [Audio::getContentType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/audio/getcontenttype/) द्वारा उपलब्ध कराया गया है।
 
 ```php
 use aspose\slides\Presentation;
@@ -420,17 +422,17 @@ try {
 }
 ```
 
-बड़ी ऑडियो वस्तुओं के लिए, [Audio::getStream](https://reference.aspose.com/slides/hi/php-java/aspose.slides/audio/getstream/) का उपयोग करके स्ट्रीम को फ़ाइल में कॉपी करें, बजाय पूरी वस्तु को बाइट एरे में लोड किए।
+बड़ी ऑडियो वस्तुओं के लिए, [Audio::getStream](https://reference.aspose.com/slides/hi/php-java/aspose.slides/audio/getstream/) का उपयोग करें और पूरे ऑब्जेक्ट को बाइट एरे में लोड करने के बजाय स्ट्रीम को फ़ाइल में कॉपी करें।
 
 ## **एनीमेशन‑के‑बाद व्यवहार सेट करें**
 
-**After animation** विकल्प नियंत्रित करता है कि इफ़ेक्ट समाप्त होने के बाद आकृति के साथ क्या होता है।
+**After animation** विकल्प नियंत्रित करता है कि प्रभाव समाप्त होने के बाद आकार के साथ क्या होता है।
 
-![PowerPoint Effect Options संवाद जिसमें After animation सेटिंग्स दिखायी गई हैं](shape-after-animation.png)
+![After animation सेटिंग्स दिखाता हुआ PowerPoint इफ़ेक्ट ऑप्शन डायलॉग](shape-after-animation.png)
 
-[AfterAnimationType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/afteranimationtype/) वर्ग आकृति को अपरिवर्तनित रहने, उसका रंग बदलने, एनीमेशन के बाद छिपाने, या अगले क्लिक पर छिपाने की अनुमति देता है। जब प्रकार [AfterAnimationType::Color](https://reference.aspose.com/slides/hi/php-java/aspose.slides/afteranimationtype/) हो, तो साथ ही [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effect/getafteranimationcolor/) सेट करें।
+[AfterAnimationType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/afteranimationtype/) क्लास आकार को अपरिवर्तित रखने, उसके रंग को बदलने, एनीमेशन के बाद छुपाने, या अगले क्लिक पर छुपाने का समर्थन करता है। जब प्रकार [AfterAnimationType::Color](https://reference.aspose.com/slides/hi/php-java/aspose.slides/afteranimationtype/) हो, तो साथ ही [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effect/getafteranimationcolor/) सेट करें।
 
-यह स्वतंत्र उदाहरण एक इफ़ेक्ट बनाता है, लौटाए गए इफ़ेक्ट ऑब्जेक्ट के माध्यम से उसके एनीमेशन‑के‑बाद व्यवहार को सेट करता है, और परिणाम सहेजता है।
+यह स्वतंत्र उदाहरण एक प्रभाव बनाता है, लौटाए गए प्रभाव ऑब्जेक्ट के माध्यम से उसके एनीमेशन‑के‑बाद व्यवहार को सेट करता है, और परिणाम सहेजता है।
 
 ```php
 use aspose\slides\AfterAnimationType;
@@ -457,16 +459,16 @@ try {
 }
 ```
 
-[AfterAnimationType::Color](https://reference.aspose.com/slides/hi/php-java/aspose.slides/afteranimationtype/) से प्रकार बदलने पर एनीमेशन‑के‑बाद रंग सेटिंग साफ़ हो जाती है।
+[AfterAnimationType::Color] से प्रकार बदलने पर एनीमेशन‑के‑बाद रंग सेटिंग साफ हो जाती है।
 
 ## **टेक्स्ट एनीमेट करें**
 
-टेक्स्ट एनीमेशन के दो संबंधित नियंत्रण हैं:
+टेक्स्ट एनीमेशन में दो संबंधित नियंत्रण होते हैं:
 
-- [TextAnimation::getBuildType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textanimation/getbuildtype/) निर्धारित करता है कि अनुच्छेद एक साथ दिखें या पैराग्राफ स्तर पर।
-- [Effect::getAnimateTextType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effect/getanimatetexttype/) निर्धारित करता है कि टेक्स्ट एक बार, शब्द‑वाक्य‑पर‑शब्द या अक्षर‑पर‑अक्षर दिखे। [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effect/getdelaybetweentextparts/) शब्दों या अक्षरों के बीच देरी निर्धारित करता है। सकारात्मक मान इफ़ेक्ट अवधि का प्रतिशत है; नकारात्मक मान सेकंड में देरी है।
+- [TextAnimation::getBuildType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textanimation/getbuildtype/) नियंत्रित करता है कि पैराग्राफ एक साथ दिखें या पैराग्राफ स्तर पर।
+- [Effect::getAnimateTextType](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effect/getanimatetexttype/) नियंत्रित करता है कि टेक्स्ट एक बार में, शब्द द्वारा, या अक्षर द्वारा दिखे। [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/hi/php-java/aspose.slides/effect/getdelaybetweentextparts/) शब्दों या अक्षरों के बीच देरी सेट करता है। सकारात्मक मान प्रभाव अवधि का प्रतिशत होता है; नकारात्मक मान सेकंड में देरी होता है।
 
-निम्न स्वतंत्र उदाहरण एक टेक्स्ट बॉक्स के शब्दों को एनीमेट करता है। [BuildType::AsOneObject](https://reference.aspose.com/slides/hi/php-java/aspose.slides/buildtype/) पैराग्राफ‑बाय‑पैराग्राफ निर्माण को निष्क्रिय करता है ताकि शब्द सेटिंग पूरे टेक्स्ट फ्रेम पर लागू हो।
+निम्न स्वतंत्र उदाहरण टेक्स्ट बॉक्स में शब्दों को एनीमेट करता है। [BuildType::AsOneObject](https://reference.aspose.com/slides/hi/php-java/aspose.slides/buildtype/) पैराग्राफ‑दर‑पैराग्राफ बिल्डिंग को निष्क्रिय करता है ताकि शब्द सेटिंग पूरे टेक्स्ट फ्रेम पर लागू हो।
 
 ```php
 use aspose\slides\AnimateTextType;
@@ -495,26 +497,26 @@ try {
 }
 ```
 
-पैराग्राफ द्वारा टेक्स्ट बॉक्स बनाने के लिए, [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/hi/php-java/aspose.slides/buildtype/) (या कोई अन्य पैराग्राफ स्तर) सेट करें। एक ही पैराग्राफ को उसके अपने इफ़ेक्ट के साथ लक्ष्य करने के लिए, उस [Sequence::addEffect](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sequence/addeffect/) ओवरलोड का उपयोग करें जो एक [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) स्वीकार करता है। पैराग्राफ‑स्तर के उदाहरणों के लिये देखें [Animated Text](/slides/hi/php-java/animated-text/)।
+पैराग्राफ द्वारा टेक्स्ट बॉक्स बनाने के लिए, [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/hi/php-java/aspose.slides/buildtype/) (या कोई अन्य पैराग्राफ स्तर) सेट करें। किसी एक पैराग्राफ को उसके स्वयं के प्रभाव के साथ लक्षित करने के लिए, वह [Sequence::addEffect](https://reference.aspose.com/slides/hi/php-java/aspose.slides/sequence/addeffect/) ओवरलोड उपयोग करें जो एक [Paragraph](https://reference.aspose.com/slides/hi/php-java/aspose.slides/paragraph/) को स्वीकार करता है। पैराग्राफ‑स्तर के उदाहरणों के लिए देखें [एनिमेटेड टेक्स्ट](/slides/hi/php-java/animated-text/)।
 
 ## **निर्यात और संगतता नोट्स**
 
-- PPT या PPTX में सहेजने से एनीमेशन मॉडल संरक्षित रहता है, लेकिन अंतिम प्लेबैक प्रस्तुति दर्शक द्वारा नियंत्रित होता है।
-- PDF और स्थिर छवियों में एनीमेशन नहीं चलते। जब आउटपुट में गति दिखानी हो, तो [HTML5 export](/slides/hi/php-java/export-to-html5/), एनिमेटेड GIF, या [वीडियो रूपांतरण](/slides/hi/php-java/convert-powerpoint-to-video/) का उपयोग करें।
-- HTML5 के लिये, [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/hi/php-java/aspose.slides/html5options/setanimateshapes/) को सक्षम करें और आवश्यक होने पर [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/html5options/setanimatetransitions/) को भी।
-- वीडियो रेंडरिंग कई सामान्य प्रवेश, ज़ोर, निकास, और मोशन‑पाथ इफ़ेक्ट्स को सपोर्ट करता है, परन्तु हर PowerPoint इफ़ेक्ट समर्थित नहीं है। वर्तमान [supported animations and effects](/slides/hi/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) देखें और अपने लक्षित Aspose.Slides संस्करण के साथ महत्वपूर्ण प्रस्तुतियों का परीक्षण करें।
-- उन्नत कस्टम इफ़ेक्ट्स और अन्य प्रस्तुतियों से आयातित इफ़ेक्ट्स फ़ाइल में संरक्षित रह सकते हैं, पर PowerPoint, HTML5, या वीडियो में अलग‑अलग रेंडर हो सकते हैं। केवल इफ़ेक्ट नाम पर भरोसा करने के बजाय निर्यातित परिणाम को सत्यापित करें।
+- PPT या PPTX में सहेजने से एनीमेशन मॉडल बरकरार रहता है, लेकिन अंतिम प्लेबैक प्रस्तुति व्यूअर द्वारा नियंत्रित होता है।
+- PDF और स्थैतिक चित्र एनीमेशन नहीं चलाते। जब गति दिखाना आवश्यक हो, तो [HTML5 export](/slides/hi/php-java/export-to-html5/), एनिमेटेड GIF, या [video conversion](/slides/hi/php-java/convert-powerpoint-to-video/) का उपयोग करें।
+- HTML5 के लिए, [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/hi/php-java/aspose.slides/html5options/setanimateshapes/) सक्षम करें और आवश्यक होने पर [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/html5options/setanimatetransitions/) सक्षम करें।
+- वीडियो रेंडरिंग कई सामान्य प्रवेश, ज़ोर, निकास, और मोशन‑पाथ प्रभावों को समर्थन देता है, लेकिन हर PowerPoint प्रभाव समर्थित नहीं है। वर्तमान [supported animations and effects](/slides/hi/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) देखें और अपने लक्ष्य Aspose.Slides संस्करण के साथ महत्वपूर्ण प्रस्तुतियों का परीक्षण करें।
+- उन्नत कस्टम प्रभाव और अन्य प्रस्तुति स्वरूपों से आयात किए गए प्रभाव फ़ाइल में संरक्षित रह सकते हैं लेकिन PowerPoint, HTML5, या वीडियो में अलग तरह से रेंडर हो सकते हैं। केवल प्रभाव नाम पर भरोसा न करके निर्यात परिणाम का सत्यापन करें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**PowerPoint में एनीमेशन दिखता है लेकिन PDF में क्यों नहीं?**
+**PowerPoint में एनीमेशन दिखाई देता है लेकिन PDF में नहीं दिखता, क्यों?**
 
-PDF एक स्थिर स्वरूप है, इसलिए एनीमेशन और स्लाइड ट्रांज़िशन नहीं चलते। जब गति बरकरार रखनी हो तो HTML5, एनिमेटेड GIF, या वीडियो में निर्यात करें।
+PDF एक स्थैतिक स्वरूप है, इसलिए एनीमेशन और स्लाइड ट्रांज़िशन नहीं चलतीं। गतिशीलता बनाए रखने के लिए HTML5, एनिमेटेड GIF, या वीडियो निर्यात करें।
 
-**वीडियो में इफ़ेक्ट अलग‑अलग क्यों चलता है?**
+**वीडियो में प्रभाव अलग तरीके से चलता है, क्यों?**
 
-वीडियो निर्यात एनीमेशन को रेंडर करता है, न कि मूल PowerPoint व्यवहार को संग्रहीत करता। कुछ उन्नत इफ़ेक्ट्स असमर्थित या मोटा‑मोटा अनुमानित होते हैं। समर्थित‑इफ़ेक्ट तालिका देखें और उत्पादन उपयोग से पहले वास्तविक प्रस्तुति का परीक्षण करें।
+वीडियो निर्यात एनीमेशन को रेंडर करता है, मूल PowerPoint व्यवहार को नहीं। कुछ उन्नत प्रभाव असमर्थित या अनुमानित होते हैं। निर्यात से पहले समर्थित‑इफ़ेक्ट तालिका देखें और वास्तविक प्रस्तुति का परीक्षण करें।
 
-**क्या आकृति को आगे या पीछे ले जाने से उसकी एनीमेशन क्रम बदलता है?**
+**क्या आकार को आगे या पीछे ले जाने से उसकी एनीमेशन क्रम बदलता है?**
 
-नहीं। आकृति का z‑order ओवरलैप को नियंत्रित करता है, जबकि अनुक्रम क्रम और ट्रिगर एनीमेशन प्लेबैक को नियंत्रित करते हैं। यदि अलग प्लेबैक क्रम चाहिए तो टाइमलाइन बदलें।
+नहीं। आकार का z‑order ओवरलैप को नियंत्रित करता है, जबकि क्रम और ट्रिगर एनीमेशन प्लेबैक को नियंत्रित करते हैं। अलग प्लेबैक क्रम चाहिए तो टाइमलाइन बदलें।

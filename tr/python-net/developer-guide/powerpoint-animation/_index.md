@@ -1,5 +1,5 @@
 ---
-title: PowerPoint Sunumlarını Python'da Animasyonlarla Geliştirin
+title: Python'da Animasyonlarla PowerPoint Sunumlarını Geliştirin
 linktitle: PowerPoint Animasyonu
 type: docs
 weight: 150
@@ -11,7 +11,7 @@ keywords:
 - animasyonu kaldır
 - animasyonu yönet
 - animasyonu kontrol et
-- animasyon efekti
+- animasyon etkisi
 - PowerPoint animasyonu
 - animasyon zaman çizelgesi
 - etkileşimli animasyon
@@ -26,20 +26,20 @@ keywords:
 - PowerPoint sunumu
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET'in PowerPoint animasyonlarını yönetme yeteneklerini keşfedin. Bu genel bakış, temel özellikleri vurgular ve sunumlarınızı geliştirmeniz için içgörüler sunar."
+description: "Aspose.Slides for Python via .NET'in PowerPoint animasyonlarını yönetme yeteneklerini keşfedin. Bu genel bakış, temel özellikleri vurgular ve sunumlarınızı geliştirmek için içgörüler sunar."
 ---
 ## **Giriş**
 
-Sunumlar bilgi iletmeyi amaçlar, bu nedenle görsel görünüşleri ve etkileşimli davranışları oluşturulurken temel hususlar arasında yer alır.
+Sunumlar bilgi aktarmak amacıyla tasarlanır; bu nedenle görsel görünüm ve etkileşimli davranışlar oluşturulurken temel dikkate alınması gereken unsurlardır.
 
-**PowerPoint animation** sunumun izleyiciler için göz alıcı ve ilgi çekici olmasını sağlamakta önemli bir rol oynar. Aspose.Slides for Python via .NET, bir PowerPoint sunumuna animasyon eklemek için geniş bir seçenek yelpazesi sunar. Şunları yapabilirsiniz:
+**PowerPoint animasyonu**, bir sunumu izleyiciler için çarpıcı ve ilgi çekici hale getirmede önemli bir rol oynar. Aspose.Slides for Python via .NET, PowerPoint sunumuna animasyon eklemek için geniş bir seçenek yelpazesi sunar. Şunları yapabilirsiniz:
 
 - Şekillere, grafiklere, tablolara, OLE nesnelerine ve diğer öğelere çeşitli animasyon efektleri uygulayın.
-- Tek bir şekil üzerinde birden fazla animasyon efekti kullanın.
+- Tek bir şekle birden çok animasyon efekti ekleyin.
 - Animasyon zaman çizelgesi aracılığıyla efektleri kontrol edin.
 - Özel animasyonlar oluşturun.
 
-Aspose.Slides for Python via .NET içinde animasyon efektleri şekillere uygulanabilir. Bir slayttaki her öğe—metin, resimler, OLE nesneleri ve tablolar dahil—bir şekil olarak kabul edildiği için, slayttaki herhangi bir öğeye animasyon efekti uygulayabilirsiniz.
+Aspose.Slides for Python via .NET’te animasyon efektleri şekillere uygulanabilir. Bir slayttaki her öğe—metin, resim, OLE nesnesi ve tablo dahil—şekil olarak kabul edildiği için slayttaki herhangi bir öğeye animasyon efekti uygulayabilirsiniz.
 
 [aspose.slides.animation](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/) ad alanı, PowerPoint animasyonlarıyla çalışmak için sınıfları sağlar.
 
@@ -51,7 +51,7 @@ pip install aspose.slides
 
 ## **Python'da Bir Şekle Animasyon Efekti Ekleme**
 
-Animasyon efektleri bir slaydın ana sırasına yerleştirilir. Bir şekil ekleyin, ardından `slide.timeline.main_sequence` üzerinde `add_effect` metodunu çağırarak efekt tipini, alt tipini ve başlatan trigger'ı iletin.
+Animasyon efektleri bir slaytın ana sırasına yerleştirilir. Bir şekil ekleyin, ardından `slide.timeline.main_sequence` üzerinde `add_effect` metodunu çağırarak, efekt tipini, alt tipini ve başlatıcıyı iletin.
 
 ```python
 import aspose.slides as slides
@@ -73,13 +73,13 @@ with slides.Presentation() as presentation:
     presentation.save("animated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kaydedilen dosya, ilk slaytta bir efekt içerir: dikdörtgen, sunucu tıkladığında iki saniye içinde soldan uçarak gelir. Dosyayı yeniden açıp `slide.timeline.main_sequence` okununca aynı efekt döndürülür, böylece animasyon yalnızca bellek içinde kalmayıp dosyada da korunur.
+Kaydedilen dosya, ilk slaytta bir efekt içerir: sunucu tıkladığında dikdörtgen iki saniye içinde soldan uçar. Dosyayı yeniden açıp `slide.timeline.main_sequence` okununca aynı efekt geri döner; böylece animasyon yalnızca bellek içinde kalmaz, turu tamamlar.
 
 ## **Animasyon Efektleri**
 
-Aspose.Slides **150+ animasyon efekti** desteği sunar; Bounce, PathFootball ve Zoom gibi temel efektlerin yanı sıra OLEObjectShow ve OLEObjectOpen gibi özel efektler de mevcuttur. Tam listeye [EffectType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/effecttype/) sayımında ulaşabilirsiniz.
+Aspose.Slides **150+ animasyon efekti** destekler; Bounce, PathFootball ve Zoom gibi temel efektlerin yanı sıra OLEObjectShow ve OLEObjectOpen gibi özel efektler de vardır. Tam listeyi [EffectType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/effecttype/) enum’ında bulabilirsiniz.
 
-Ayrıca, bu animasyon efektleri aşağıdaki efektlerle birleştirilebilir:
+Ayrıca bu animasyon efektleri aşağıdaki efektlerle birleştirilebilir:
 
 - [ColorEffect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/coloreffect/)
 - [CommandEffect](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/commandeffect/)
@@ -92,53 +92,58 @@ Ayrıca, bu animasyon efektleri aşağıdaki efektlerle birleştirilebilir:
 
 ## **Özel Animasyon**
 
-Aspose.Slides içinde birden fazla davranışı tek bir efekt haline getirerek kendi **özel animasyonlarınızı** oluşturabilirsiniz.
+Tam Python örnekleri için, davranışları oluşturma, inceleme ve düzenleme ayrıca düzenlenebilir hareket yolları hakkında bilgi almak isterseniz [Custom Animation](/slides/tr/python-net/custom-animation/) sayfasına bakın.
 
-[Behavior](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/behavior/) herhangi bir PowerPoint animasyon efektinin temel yapı taşıdır. Her animasyon efekti temelde bir zaman çizelgesi ya da strateji içinde düzenlenmiş davranışlar kümesidir. Davranışları bir kez birleştirip bir özel animasyon oluşturabilir ve bunu diğer sunumlarda yeniden kullanabilirsiniz. Standart bir PowerPoint animasyon efektine yeni bir davranış eklediğinizde, bu bir özel animasyon haline gelir; örneğin, animasyonun birkaç kez tekrarlanmasını sağlamak için bir tekrar davranışı eklemek.
+Aspose.Slides’te **özel animasyonlar** oluşturabilir, birden fazla davranışı tek bir efekt içinde birleştirebilirsiniz.
 
-[Animation Point](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/point/) bir davranışın uygulandığı anı veya konumu (ana kare) işaretler.
+[Behavior](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/behavior/) bir PowerPoint animasyon efektinin yapı taşıdır. Bir efekti özelleştirmek için davranışları birleştirin veya önceden tanımlı bir efekti genişletmek için bir davranış ekleyin. Tekrarlama, ayrı bir tekrarlama davranışı yerine zamanlama ayarlarıyla yapılandırılır.
+
+[Animation Point](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/point/) bir davranışın uygulandığı anı veya konumu (anahtar kare) işaretler.
 
 ## **Animasyon Zaman Çizelgesi**
 
-[Sequence](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/sequence/) belirli bir şekle uygulanan animasyon efektlerinin bir koleksiyonudur.
+[Sequence](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/sequence/) farklı şekillere hedeflenebilen bir animasyon efekti koleksiyonudur.
 
-[Timeline](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/animationtimeline/) belirli bir slaytta kullanılan sekansların kümesidir. PowerPoint 2002'de tanıtıldı. PowerPoint'in önceki sürümlerinde animasyon efektleri eklemek zordu ve genellikle geçici çözümler gerekirti. Timeline, eski `AnimationSettings` sınıfının yerini alır ve PowerPoint animasyonu için daha net bir nesne modeli sunar. Her slayt yalnızca bir animasyon zaman çizelgesine sahip olabilir.
+[Timeline](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/animationtimeline/) belirli bir slaytta kullanılan sıra setidir. PowerPoint 2002’de tanıtılmıştır. Önceki PowerPoint sürümlerinde animasyon eklemek zordu ve genellikle çözümler gerektiriyordu. Timeline, eski `AnimationSettings` sınıfının yerini alır ve PowerPoint animasyonu için daha net bir nesne modeli sunar. Her slayt yalnızca bir animasyon zaman çizelgesine sahip olabilir.
 
 ## **Etkileşimli Animasyon**
 
-[Trigger](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/effecttriggertype/) belirli bir animasyonu başlatan kullanıcı eylemlerini (örn. bir düğmeye tıklama) tanımlamanıza olanak sağlar. Trigger'lar yalnızca PowerPoint'in son sürümlerine eklenmiştir.
+[Trigger](https://reference.aspose.com/slides/tr/python-net/aspose.slides.animation/effecttriggertype/) belirli bir animasyonu başlatan kullanıcı eylemlerini (ör. bir düğmeye tıklama) tanımlamanıza olanak verir. Tetikleyiciler yalnızca en yeni PowerPoint sürümlerinde eklenmiştir.
 
 ## **Şekil Animasyonu**
 
-Aspose.Slides, metin, dikdörtgen, çizgi, çerçeve, OLE nesnesi ve daha fazlası gibi şekillere animasyon uygulamanıza olanak tanır.
+Aspose.Slides, metin, dikdörtgen, çizgi, çerçeve, OLE nesnesi ve daha fazlası gibi şekillere animasyon uygulamanızı sağlar.
 
-{{% alert color="primary" %}}
-Daha fazla bilgi [**Şekil Animasyonu Hakkında**](/slides/tr/python-net/shape-animation/).
+{{% alert color="info" title="Note" %}}
+Read more [**Şekil Animasyonu Hakkında**](/slides/tr/python-net/shape-animation/)
 {{% /alert %}}
 
 ## **Animasyonlu Grafikler**
 
-Animasyonlu grafikler oluşturmak için şekillerde kullandığınız aynı sınıfları kullanın. Ancak PowerPoint animasyonları yalnızca grafik kategorilerine veya seri gruplarına uygulanabilir. Ayrıca bir kategori öğesine veya seri öğesine ayrı ayrı animasyon efekti uygulayabilirsiniz.
+Animasyonlu grafikler oluşturmak için şekillerde kullandığınız sınıfları kullanın. Ancak PowerPoint animasyonları yalnızca grafik kategorilerine veya grafik serilerine uygulanabilir. Tek bir kategori öğesine veya seri öğesine de animasyon efekti uygulayabilirsiniz.
 
-{{% alert color="primary" %}}
-Daha fazla bilgi [**Animasyonlu Grafikler Hakkında**](/slides/tr/python-net/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Read more [**Animasyonlu Grafikler Hakkında**](/slides/tr/python-net/animated-charts/)
 {{% /alert %}}
 
 ## **Animasyonlu Metin**
 
-Metni hareket ettirmenin yanı sıra bir paragraf üzerine de animasyon uygulayabilirsiniz.
+Metni animasyonlamanın yanı sıra bir paragrafı da animasyonlayabilirsiniz.
 
-{{% alert color="primary" %}}
-Daha fazla bilgi [**Animasyonlu Metin Hakkında**](/slides/tr/python-net/animated-text/).
+{{% alert color="info" title="Note" %}}
+Read more [**Animasyonlu Metin Hakkında**](/slides/tr/python-net/animated-text/)
 {{% /alert %}}
 
 ## **SSS**
 
-### PDF'ye dışa aktarırken animasyonlar korunur mu?
-Hayır. PDF statik bir format olduğundan animasyonlar ve [slide transitions](/slides/tr/python-net/slide-transition/) oynatılmaz. Hareketli içerik gerekiyorsa, bunun yerine [HTML5](/slides/tr/python-net/export-to-html5/), [animated GIF](/slides/tr/python-net/convert-powerpoint-to-animated-gif/) veya [video](/slides/tr/python-net/convert-powerpoint-to-video/) formatına dışa aktarın.
+**Animasyonlar PDF'ye dışa aktarılırken korunacak mı?**
 
-### Animasyonlu bir sunumu videoya dönüştürüp kare hızı ve boyutunu kontrol edebilir miyim?
-Evet. Sunumu [render the presentation as frames](/slides/tr/python-net/convert-powerpoint-to-video/) olarak render edip videoya (ör. ffmpeg ile) kodlayabilir, FPS ve çözünürlüğü seçebilirsiniz. Animasyonlar ve slayt geçişleri render sırasında oynatılır.
+Hayır. PDF statik bir formattır, bu yüzden animasyonlar ve [slide transitions](/slides/tr/python-net/slide-transition/) oynatılmaz. Hareket ihtiyacınız varsa, bunun yerine [HTML5](/slides/tr/python-net/export-to-html5/), [animated GIF](/slides/tr/python-net/convert-powerpoint-to-animated-gif/) veya [video](/slides/tr/python-net/convert-powerpoint-to-video/) formatlarına dışa aktarın.
 
-### ODP (sadece PPTX değil) ile çalışırken animasyonlar aynı kalır mı?
-PPT, PPTX ve ODP, [reading](/slides/tr/python-net/open-presentation/) ve [writing](/slides/tr/python-net/save-presentation/) için desteklenir, ancak format farkları bazı efektlerin biraz farklı görünmesine veya davranmasına neden olabilir. Kritik durumları gerçek örneklerle doğrulayın.
+**Animasyonlu bir sunumu videoya dönüştürüp kare hızı ve kare boyutunu kontrol edebilir miyim?**
+
+Evet. Sunumu [render the presentation as frames](/slides/tr/python-net/convert-powerpoint-to-video/) şeklinde karelere dönüştürüp, ffmpeg gibi bir araçla video olarak kodlayabilir, FPS ve çözünürlüğü seçebilirsiniz. Render sırasında animasyonlar ve slayt geçişleri oynatılır.
+
+**ODP (sadece PPTX değil) ile çalışırken animasyonlar aynı kalacak mı?**
+
+PPT, PPTX ve ODP, [reading](/slides/tr/python-net/open-presentation/) ve [writing](/slides/tr/python-net/save-presentation/) için desteklenir, ancak bu animasyonların korunacağı anlamına gelmez. ODP’ye dönüştürürken özel animasyon verileri kaybolabilir. Format uyumluluğunu kontrol etmek için örnekler ve rehberlik almak üzere [Custom Animation](/slides/tr/python-net/custom-animation/) sayfasına bakın.

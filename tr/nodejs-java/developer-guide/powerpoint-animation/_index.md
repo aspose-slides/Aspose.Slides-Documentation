@@ -1,16 +1,16 @@
 ---
-title: JavaScript'te Animasyonlarla PowerPoint Sunumlarını Geliştirin
+title: JavaScript ile Animasyonlar Kullanarak PowerPoint Sunumlarını Geliştirin
 linktitle: PowerPoint Animasyonu
 type: docs
 weight: 150
 url: /tr/nodejs-java/powerpoint-animation/
 keywords:
 - animasyon ekle
-- animasyonu güncelle
-- animasyonu değiştir
-- animasyonu kaldır
+- animasyon güncelle
+- animasyon değiştir
+- animasyon kaldır
 - animasyonu yönet
-- animasyonu kontrol
+- animasyonu kontrol et
 - animasyon efekti
 - PowerPoint animasyonu
 - animasyon zaman çizelgesi
@@ -21,33 +21,32 @@ keywords:
 - animasyonlu metin
 - animasyonlu şekil
 - animasyonlu OLE nesnesi
-- animasyonlu resim
+- animasyonlu görüntü
 - animasyonlu tablo
 - PowerPoint
 - sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "PowerPoint animasyonlarını yönetmek için Node.js via Java için Aspose.Slides kullanın. Bu genel bakış, temel özellikleri vurgular ve sunumlarınızı geliştirmek için içgörüler sunar."
+description: "Aspose.Slides for Node.js via Java kullanarak PowerPoint animasyonlarını yönetin. Bu genel bakış, temel özellikleri vurgular ve sunumlarınızı geliştirmek için içgörüler sunar."
 ---
 ## **Giriş**
 
 Sunumlar bir şeyi sunmak için tasarlandığından, görsel görünümleri ve etkileşimli davranışları her zaman oluşturulurken dikkate alınır.
 
-**PowerPoint animasyonu**, sunumu izleyiciler için çekici ve ilgi çekici hâle getirmek için önemli bir rol oynar. Aspose.Slides for Node.js via Java, PowerPoint sunumuna animasyon eklemek için geniş bir seçenek yelpazesi sunar:
+**PowerPoint animasyonu** sunumu izleyiciler için dikkat çekici ve ilgi çekici hâle getirmede önemli bir rol oynar. Aspose.Slides for Node.js via Java, PowerPoint sunumlarına animasyon eklemek için geniş bir seçenek yelpazesi sunar:
 
-- şekiller, grafikler, tablolar, OLE Nesneleri ve diğer sunum öğeleri üzerinde çeşitli PowerPoint animasyon efektleri uygulayın.
-- bir şekil üzerinde birden fazla PowerPoint animasyon efekti kullanın.
-- animasyon efektlerini kontrol etmek için animasyon zaman çizelgesini kullanın.
-- özel animasyon oluşturun.
+- Şekillere, grafiklere, tablolara, OLE nesnelerine ve diğer sunum öğelerine çeşitli PowerPoint animasyon efektleri uygulayın.
+- Tek bir şekil üzerinde birden fazla PowerPoint animasyon efekti kullanın.
+- Animasyon efektlerini kontrol etmek için animasyon zaman çizelgesini kullanın.
+- Özel animasyonlar oluşturun.
 
-Aspose.Slides for Node.js via Java'da, şekiller üzerinde çeşitli animasyon efektleri uygulanabilir. Slayttaki metin, resimler, OLE Nesnesi, tablo vb. dahil tüm öğeler şekil olarak kabul edildiğinden, bir slaydın her öğesine animasyon efekti uygulayabiliriz.
+Aspose.Slides for Node.js via Java'da, şekillere çeşitli animasyon efektleri uygulanabilir. Metin, resimler, OLE nesneleri ve tablolar dahil bir slayttaki her öğe bir şekil olarak kabul edildiğinden, animasyon efektleri slayttaki herhangi bir öğeye uygulanabilir.
 
 ## **Animasyon Efektleri**
-Aspose.Slides **150+ animasyon efekti** destekler; Bounce, PathFootball, Zoom efekti gibi temel animasyon efektlerinin yanı sıra OLEObjectShow, OLEObjectOpen gibi özel animasyon efektleri de bulunur. Tam animasyon efekti listesini **EffectType** enum'unda bulabilirsiniz.  
-[**EffectType**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effecttype/)
+Aspose.Slides **150+ animasyon efekti** destekler; Bounce, PathFootball ve Zoom gibi temel efektlerin yanı sıra OLEObjectShow ve OLEObjectOpen gibi özel efektler de bulunur. Tam listeyi [EffectType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effecttype/) enumarasyonunda bulabilirsiniz.
 
-Ek olarak, bu animasyon efektleri aşağıdaki efektlerle birleştirilebilir:
+Ayrıca bu animasyon efektleri aşağıdaki davranışlarla birleştirilebilir:
 
 - [ColorEffect](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/CommandEffect)
@@ -59,51 +58,54 @@ Ek olarak, bu animasyon efektleri aşağıdaki efektlerle birleştirilebilir:
 - [SetEffect](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/SetEffect)
 
 ## **Özel Animasyon**
-Aspose.Slides'de kendi **özel animasyonlarınızı** oluşturabilirsiniz. Bu, birden fazla davranışı bir araya getirerek yeni bir özel animasyon oluşturmanızla mümkündür.
 
-[**Behavior**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Behavior) herhangi bir PowerPoint animasyon efektinin yapı taşıdır. Tüm animasyon efektleri aslında bir strateji içinde birleştirilmiş davranışlar kümesidir. Davranışları bir kez birleştirip özel animasyon oluşturabilir ve diğer sunumlarda yeniden kullanabilirsiniz. Standart bir PowerPoint animasyon efektine yeni bir davranış eklerseniz – bu başka bir özel animasyon olur. Örneğin, bir animasyona tekrar davranışı ekleyerek birkaç kez tekrarlanmasını sağlayabilirsiniz.
+Davranışları ve düzenlenebilir hareket yollarını oluşturma, inceleme ve değiştirme için tam JavaScript örneklerine [Custom Animation](/slides/tr/nodejs-java/custom-animation/) adresinden bakabilirsiniz.
 
-[**Animation Point**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Point) davranışın uygulanması gereken bir noktadır.
+Aspose.Slides içinde kendi **özel animasyonlarınızı** oluşturmak mümkündür. Bu, birkaç davranışı yeni bir özel animasyona birleştirerek sağlanabilir.
+
+[Behavior](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/behavior/) bir PowerPoint animasyon efektinin yapı taşıdır. Bir efekti özelleştirmek için davranışları birleştirin veya önceden tanımlı bir efekti genişletmek için bir davranış ekleyin. Tekrar, ayrı bir tekrar davranışı yerine zamanlama ayarlarıyla yapılandırılır.
+
+[Animation Point](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/point/) bir davranışın uygulanması gereken noktadır.
 
 ## **Animasyon Zaman Çizelgesi**
-[**Sequence**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Sequence) belirli bir şekle uygulanan animasyon efektlerinin bir koleksiyonudur.
+[Sequence](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/sequence/) farklı şekillere hedeflenebilen animasyon efektlerinin bir koleksiyonudur.
 
-[**Timeline**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/AnimationTimeLine) belirli bir slaytta kullanılan bir dizi Sequence'ten oluşur. PowerPoint 2002'den beri bulunan bir animasyon motorudur. Önceki PowerPoint sürümlerinde animasyon efektlerini eklemek zordu ve yalnızca çeşitli geçici çözümlerle mümkün olabiliyordu. Timeline, eski AnimationSettings sınıfının yerini alarak PowerPoint animasyonu için daha net bir nesne modeli sunar. Bir slayt yalnızca bir animasyon zaman çizelgesine sahip olabilir.
+[Timeline](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/animationtimeline/) belirli bir slaytta kullanılan bir dizi sekanstır. PowerPoint 2002'de tanıtılan bir animasyon motorudur. PowerPoint'in önceki sürümlerinde, sunumlara animasyon efekti eklemek zordu ve yalnızca çeşitli geçici çözümlerle mümkün olabiliyordu. Zaman çizelgesi, PowerPoint animasyonları için daha net bir nesne modeli sunar. Bir slaytta yalnızca bir animasyon zaman çizelgesi bulunabilir.
 
 ## **Etkileşimli Animasyon**
-[**Trigger**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/EffectTriggerType) belirli bir animasyonun başlamasını sağlayacak kullanıcı eylemlerini (ör. düğme tıklaması) tanımlamaya olanak verir. Tetikleyiciler yalnızca en son PowerPoint sürümüne eklenmiştir.
+[Trigger](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effecttriggertype/) belirli bir animasyonu başlatan bir düğme tıklaması gibi kullanıcı eylemlerini tanımlamanıza olanak sağlar.
 
 ## **Şekil Animasyonu**
-Aspose.Slides, şekillere animasyon uygulamaya olanak tanır; bu şekiller aslında metin, dikdörtgen, çizgi, çerçeve, OLE Nesnesi vb. olabilir.
+Aspose.Slides, metin, dikdörtgen, çizgi, çerçeve, OLE nesnesi ve daha fazlasını içerebilen şekillere animasyon uygulamanıza izin verir.
 
-{{% alert color="primary" %}} 
-Read more [**Şekil Animasyonu Hakkında**](/slides/tr/nodejs-java/shape-animation/).
+{{% alert color="info" title="Note" %}}
+Daha fazla okuyun [**Şekil Animasyonu Hakkında**](/slides/tr/nodejs-java/shape-animation/).
 {{% /alert %}}
 
 ## **Animasyonlu Grafikler**
-Animasyonlu grafikler oluşturmak için şekillerde kullandığınız aynı sınıfları kullanmalısınız. Ancak PowerPoint animasyonunu yalnızca grafik kategorileri veya seri üzerine uygulamak mümkündür. Bir kategori öğesine veya seri öğesine de animasyon efekti uygulayabilirsiniz.
+Animasyonlu grafikler oluşturmak için şekillerde kullanılan aynı sınıfları kullanmalısınız. Ancak, PowerPoint animasyonları yalnızca grafik kategorilerine veya grafik serilerine uygulanabilir. Bir kategori öğesine veya bir seri öğesine de animasyon efektleri uygulayabilirsiniz.
 
-{{% alert color="primary" %}} 
-Read more [**Animasyonlu Grafikler Hakkında**](/slides/tr/nodejs-java/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Daha fazla okuyun [**Animasyonlu Grafikler Hakkında**](/slides/tr/nodejs-java/animated-charts/).
 {{% /alert %}}
 
 ## **Animasyonlu Metin**
-Animasyonlu metnin yanı sıra bir paragraf'a da animasyon uygulamak mümkündür.
+Metni animasyonlamanın yanı sıra bir paragrafa da animasyon uygulayabilirsiniz.
 
-{{% alert color="primary" %}} 
-Read more [**Animasyonlu Metin Hakkında**](/slides/tr/nodejs-java/animated-text/).
+{{% alert color="info" title="Note" %}}
+Daha fazla okuyun [**Animasyonlu Metin Hakkında**](/slides/tr/nodejs-java/animated-text/).
 {{% /alert %}}
 
-## **FAQ**
+## **SSS**
 
-**Animasyonlar PDF'ye dışa aktarılırken korunur mu?**
+**PDF'ye dışa aktarırken animasyonlar korunacak mı?**
 
-Hayır. PDF sabit bir formattır, bu yüzden animasyonlar ve [slide transitions](/slides/tr/nodejs-java/slide-transition/) oynatılmaz. Eğer hareket gerekiyorsa, bunun yerine [HTML5](/slides/tr/nodejs-java/export-to-html5/), [animated GIF](/slides/tr/nodejs-java/convert-powerpoint-to-animated-gif/) veya [video](/slides/tr/nodejs-java/convert-powerpoint-to-video/) formatına dışa aktarın.
+Hayır. PDF statik bir format olduğundan animasyonlar ve [slide transitions](/slides/tr/nodejs-java/slide-transition/) oynatılmaz. Hareket gerektiriyorsa, bunun yerine [HTML5](/slides/tr/nodejs-java/export-to-html5/), [animated GIF](/slides/tr/nodejs-java/convert-powerpoint-to-animated-gif/) veya [video](/slides/tr/nodejs-java/convert-powerpoint-to-video/) olarak dışa aktarın.
 
 **Animasyonlu bir sunumu video haline getirip kare hızı ve kare boyutunu kontrol edebilir miyim?**
 
-Evet. Sunumu [sunumu kareler olarak render et](/slides/tr/nodejs-java/convert-powerpoint-to-video/) yapabilir ve bunları bir video olarak kodlayabilirsiniz (ör. ffmpeg ile), FPS ve çözünürlüğü seçerek. Animasyonlar ve slayt geçişleri render sırasında oynatılır.
+Evet. Sunumu [render the presentation as frames](/slides/tr/nodejs-java/convert-powerpoint-to-video/) olarak karelere dönüştürebilir ve bunları bir videoya (ör. ffmpeg ile) kodlayabilirsiniz; FPS ve çözünürlüğü seçebilirsiniz. Animasyonlar ve slayt geçişleri render sırasında oynatılır.
 
-**Animasyonlar ODP (sadece PPTX değil) ile çalışırken aynı kalır mı?**
+**ODP (sadece PPTX değil) ile çalışırken animasyonlar aynı kalır mı?**
 
-PPT, PPTX ve ODP, [okuma](/slides/tr/nodejs-java/open-presentation/) ve [kaydetme](/slides/tr/nodejs-java/save-presentation/) için desteklenir, ancak format farklılıkları bazı efektlerin biraz farklı görünmesine veya davranmasına neden olabilir. Kritik durumları gerçek örneklerle doğrulayın.
+PPT, PPTX ve ODP, [reading](/slides/tr/nodejs-java/open-presentation/) ve [writing](/slides/tr/nodejs-java/save-presentation/) için desteklenir, ancak bu animasyonların korunacağını garanti etmez. ODP'ye dönüştürülürken özel animasyon verileri kaybolabilir. Format uyumluluğunu kontrol etme konusunda örnekler ve rehberlik için [Custom Animation](/slides/tr/nodejs-java/custom-animation/) sayfasına bakın.

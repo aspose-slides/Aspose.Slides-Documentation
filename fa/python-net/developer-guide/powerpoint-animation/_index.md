@@ -1,6 +1,6 @@
 ---
-title: بهبود ارائه‌های PowerPoint با انیمیشن‌ها در Python
-linktitle: انیمیشن PowerPoint
+title: تقویت ارائه‌های پاورپوینت با انیمیشن‌ها در پایتون
+linktitle: انیمیشن پاورپوینت
 type: docs
 weight: 150
 url: /fa/python-net/powerpoint-animation/
@@ -12,8 +12,8 @@ keywords:
 - مدیریت انیمیشن
 - کنترل انیمیشن
 - اثر انیمیشن
-- انیمیشن PowerPoint
-- جدول زمان‌بندی انیمیشن
+- انیمیشن پاورپوینت
+- خط زمانی انیمیشن
 - انیمیشن تعاملی
 - انیمیشن سفارشی
 - انیمیشن شکل
@@ -23,25 +23,24 @@ keywords:
 - شیء OLE انیمیشنی
 - تصویر انیمیشنی
 - جدول انیمیشنی
-- ارائه PowerPoint
-- Python
+- ارائه پاورپوینت
+- پایتون
 - Aspose.Slides
-description: "قابلیت‌های Aspose.Slides برای Python از طریق .NET در پردازش انیمیشن‌های PowerPoint را بررسی کنید. این مرور کلی ویژگی‌های کلیدی را برجسته می‌کند و بینش‌هایی برای بهبود ارائه‌های شما ارائه می‌دهد."
+description: "قابلیت‌های Aspose.Slides برای پایتون از طریق .NET در مدیریت انیمیشن‌های پاورپوینت را بررسی کنید. این مرور کلی ویژگی‌های کلیدی را برجسته می‌سازد و بینش‌هایی برای بهبود ارائه‌های شما ارائه می‌دهد."
 ---
-## **مقدمه**
+## **معرفی**
 
-ارایه‌ها به‌منظور انتقال اطلاعات طراحی می‌شوند، بنابراین ظاهر بصری و رفتار تعاملی آن‌ها از نکات کلیدی در هنگام ایجاد هستند.
+ارائه‌ها برای انتقال اطلاعات طراحی شده‌اند، بنابراین ظاهر بصری و رفتار تعاملی آنها از ملاحظات کلیدی هنگام ایجاد هستند.
 
-**انیمیشن PowerPoint** نقش مهمی در جذاب و جلب توجه بینندگان به ارائه دارد. Aspose.Slides for Python via .NET گزینه‌های گسترده‌ای برای افزودن انیمیشن به یک ارائه PowerPoint ارائه می‌دهد. شما می‌توانید:
-
-- اعمال اثرات انیمیشن مختلف به اشکال، نمودارها، جدول‌ها، اشیای OLE و سایر عناصر.
-- استفاده از چندین اثر انیمیشن روی یک شکل.
-- کنترل اثرات از طریق جدول زمانبندی انیمیشن.
+**انیمیشن PowerPoint** نقش مهمی در جذاب و جلب توجه بینندگان به ارائه دارد. Aspose.Slides برای Python از طریق .NET گزینه‌های متنوعی برای افزودن انیمیشن به یک ارائه PowerPoint فراهم می‌کند. شما می‌توانید:
+- اعمال انواع مختلف افکت‌های انیمیشن به اشکال، نمودارها، جداول، اشیای OLE و سایر عناصر.
+- استفاده از چندین افکت انیمیشن بر روی یک شکل.
+- کنترل افکت‌ها از طریق خط زمان انیمیشن.
 - ایجاد انیمیشن‌های سفارشی.
 
-در Aspose.Slides for Python via .NET، می‌توان اثرات انیمیشن را بر روی اشکال اعمال کرد. چون هر عنصر در یک اسلاید — شامل متن، تصاویر، اشیای OLE و جدول‌ها — به‌عنوان یک شکل در نظر گرفته می‌شود، می‌توانید اثرات انیمیشن را بر روی هر عنصر در اسلاید اعمال کنید.
+در Aspose.Slides برای Python از طریق .NET، می‌توان افکت‌های انیمیشن را به اشکال اعمال کرد. از آنجا که هر عنصر در اسلاید—از جمله متن، تصاویر، اشیای OLE و جداول—به عنوان یک شکل در نظر گرفته می‌شود، می‌توانید افکت‌های انیمیشن را به هر عنصر در اسلاید اعمال کنید.
 
-فضای‌نام [aspose.slides.animation](https://reference.aspose.com/slides/fa/python-net/aspose.slides.animation/) کلاس‌هایی برای کار با انیمیشن‌های PowerPoint فراهم می‌کند.
+فضای نامی [aspose.slides.animation](https://reference.aspose.com/slides/fa/python-net/aspose.slides.animation/) کلاس‌های مورد نیاز برای کار با انیمیشن‌های PowerPoint را فراهم می‌کند.
 
 ## **نصب**
 
@@ -49,9 +48,9 @@ description: "قابلیت‌های Aspose.Slides برای Python از طریق 
 pip install aspose.slides
 ```
 
-## **افزودن اثر انیمیشن به یک شکل در Python**
+## **افزودن افکت انیمیشن به یک شکل در Python**
 
-اثرهای انیمیشن در توالی اصلی یک اسلاید قرار می‌گیرند. یک شکل اضافه کنید، سپس `add_effect` را روی `slide.timeline.main_sequence` صدا بزنید و نوع اثر، زیرنوع آن و ماشقی که آن را شروع می‌کند را پاس بدهید.
+افکت‌های انیمیشن در توالی اصلی اسلاید قرار می‌گیرند. یک شکل اضافه کنید، سپس `add_effect` را بر روی `slide.timeline.main_sequence` صدا بزنید و نوع افکت، زیرنوع آن و ماشینی که آن را شروع می‌کند را به عنوان پارامتر پاس کنید.
 
 ```python
 import aspose.slides as slides
@@ -73,14 +72,13 @@ with slides.Presentation() as presentation:
     presentation.save("animated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-فایل ذخیره‌شده شامل یک اثر در اسلاید اول است: مستطیل از سمت چپ پرواز می‌کند و در طول دو ثانیه هنگام کلیک ارائه‌دهنده ظاهر می‌شود. بازگشایی مجدد و خواندن `slide.timeline.main_sequence` همان اثر را برمی‌گرداند، بنابراین انیمیشن پس از رفت و آمد حفظ می‌شود و فقط در حافظه باقی نمی‌ماند.
+فایل ذخیره‌شده شامل یک افکت در اسلاید اول است: مستطیل از سمت چپ به مدت دو ثانیه پرواز می‌کند وقتی ارائه‌دهنده کلیک می‌کند. با باز کردن مجدد آن و خواندن `slide.timeline.main_sequence` همان افکت بازگردانده می‌شود، بنابراین انیمیشن پس از گذر دورانی در حافظه باقی می‌ماند و فقط در حافظه ذخیره نمی‌شود.
 
-## **اثرهای انیمیشن**
+## **افکت‌های انیمیشن**
 
-Aspose.Slides از **بیش از 150 اثر انیمیشن** پشتیبانی می‌کند، از جمله اثرات پایه‌ای مانند Bounce، PathFootball و Zoom، و همچنین اثرات تخصصی مانند OLEObjectShow و OLEObjectOpen. می‌توانید فهرست کامل را در شمارش [EffectType](https://reference.aspose.com/slides/fa/python-net/aspose.slides.animation/effecttype/) بیابید.
+Aspose.Slides از **بیش از 150 افکت انیمیشن** پشتیبانی می‌کند، از جمله افکت‌های پایه‌ای همچون Bounce، PathFootball و Zoom، و همچنین افکت‌های تخصصی مانند OLEObjectShow و OLEObjectOpen. می‌توانید لیست کامل را در شمارش‌گر [EffectType](https://reference.aspose.com/slides/fa/python-net/aspose.slides.animation/effecttype/) بیابید.
 
-علاوه بر این، این اثرهای انیمیشن می‌توانند با اثرهای زیر ترکیب شوند:
-
+علاوه بر این، این افکت‌های انیمیشن می‌توانند با افکت‌های زیر ترکیب شوند:
 - [ColorEffect](https://reference.aspose.com/slides/fa/python-net/aspose.slides.animation/coloreffect/)
 - [CommandEffect](https://reference.aspose.com/slides/fa/python-net/aspose.slides.animation/commandeffect/)
 - [FilterEffect](https://reference.aspose.com/slides/fa/python-net/aspose.slides.animation/filtereffect/)
@@ -92,56 +90,58 @@ Aspose.Slides از **بیش از 150 اثر انیمیشن** پشتیبانی م
 
 ## **انیمیشن سفارشی**
 
-می‌توانید **انیمیشن‌های سفارشی** خود را در Aspose.Slides با ترکیب چند رفتار در یک اثر ایجاد کنید.
+برای مثال‌های کامل Python که ایجاد، بررسی و تغییر رفتارها و مسیرهای حرکتی قابل ویرایش را نشان می‌دهند، به [انیمیشن سفارشی](/slides/fa/python-net/custom-animation/) مراجعه کنید.
 
-[Behavior](https://reference.aspose.com/slides/fa/python-net/aspose.slides.animation/behavior/) بلوک ساختاری پایه هر اثر انیمیشن PowerPoint است. هر اثر انیمیشن در اصل مجموعه‌ای از رفتارهاست که در یک استراتژی یا جدول زمان‌بندی چیدمان می‌شوند. می‌توانید رفتارها را یک‌بار در یک انیمیشن سفارشی ترکیب کنید و سپس در ارائه‌های دیگر باز استفاده کنید. اگر رفتار جدیدی به یک اثر انیمیشن استاندارد PowerPoint اضافه کنید، آن تبدیل به انیمیشن سفارشی می‌شود — برای مثال، افزودن رفتار تکرار برای پخش چندبارهٔ انیمیشن.
+شما می‌توانید **انیمیشن‌های سفارشی** خود را در Aspose.Slides با ترکیب چند رفتار در یک افکت ایجاد کنید.
 
-[Animation Point](https://reference.aspose.com/slides/fa/python-net/aspose.slides.animation/point/) لحظه یا موقعیتی را نشان می‌دهد که در آن یک رفتار اعمال می‌شود (یک فریم کلیدی).
+`[Behavior](https://reference.aspose.com/slides/fa/python-net/aspose.slides.animation/behavior/)` یک قسمت سازنده افکت انیمیشن PowerPoint است. با ترکیب رفتارها می‌توانید یک افکت را سفارشی کنید، یا یک رفتار اضافه کنید تا افکت از پیش تعریف‌شده را گسترش دهید. تکرار از طریق تنظیمات زمان‌بندی پیکربندی می‌شود نه از طریق رفتار جداگانه‌ی تکرار.
 
-## **خط زمان انیمیشن**
+`[Animation Point](https://reference.aspose.com/slides/fa/python-net/aspose.slides.animation/point/)` لحظه یا موقعیتی را که رفتار در آن اعمال می‌شود (یک فریم کلیدی) نشان می‌دهد.
 
-[Sequence](https://reference.aspose.com/slides/fa/python-net/aspose.slides.animation/sequence/) مجموعه‌ای از اثرهای انیمیشن است که بر روی یک شکل خاص اعمال می‌شوند.
+## **خط زمانی انیمیشن**
 
-[Timeline](https://reference.aspose.com/slides/fa/python-net/aspose.slides.animation/animationtimeline/) مجموعه‌ای از توالی‌هاست که در یک اسلاید خاص استفاده می‌شود. این ویژگی در PowerPoint 2002 معرفی شد. در نسخه‌های قبلی PowerPoint، افزودن اثرهای انیمیشن دشوار بود و اغلب نیاز به راه‌حل‌های جایگزین داشت. Timeline جایگزین کلاس قدیمی `AnimationSettings` می‌شود و مدلی واضح‌تر از اشیاء انیمیشن PowerPoint ارائه می‌دهد. هر اسلاید می‌تواند فقط یک جدول زمانبندی انیمیشن داشته باشد.
+`[Sequence](https://reference.aspose.com/slides/fa/python-net/aspose.slides.animation/sequence/)` مجموعه‌ای از افکت‌های انیمیشن است که می‌توانند به اشکال مختلف هدف‌گذاری شوند.
+
+`[Timeline](https://reference.aspose.com/slides/fa/python-net/aspose.slides.animation/animationtimeline/)` مجموعه‌ای از توالی‌ها است که در یک اسلاید خاص استفاده می‌شود. این قابلیت در PowerPoint 2002 معرفی شد. در نسخه‌های قبلی PowerPoint، افزودن افکت‌های انیمیشن دشوار بود و اغلب نیاز به راه‌حل‌های جایگزین داشت. Timeline جایگزین کلاس `AnimationSettings` قدیمی شده و مدل شیء واضح‌تری برای انیمیشن PowerPoint فراهم می‌کند. هر اسلاید فقط می‌تواند یک خط زمانی انیمیشن داشته باشد.
 
 ## **انیمیشن تعاملی**
 
-[Trigger](https://reference.aspose.com/slides/fa/python-net/aspose.slides.animation/effecttriggertype/) به شما اجازه می‌دهد تا اقدامات کاربر (مانند کلیک روی یک دکمه) را که یک انیمیشن خاص را آغاز می‌کند، تعریف کنید. ماشه‌ها تنها در نسخه‌های جدید PowerPoint اضافه شده‌اند.
+`[Trigger](https://reference.aspose.com/slides/fa/python-net/aspose.slides.animation/effecttriggertype/)` به شما امکان می‌دهد اعمال کاربر (مانند کلیک یک دکمه) را که یک انیمیشن خاص را شروع می‌کند، تعریف کنید. Triggerها فقط در آخرین نسخه‌های PowerPoint اضافه شدند.
 
-## **انیمیشن شکل‌ها**
+## **انیمیشن شکل**
 
-Aspose.Slides به شما امکان می‌دهد انیمیشن‌ها را بر روی اشکال اعمال کنید — مانند متن، مستطیل‌ها، خطوط، فریم‌ها، اشیای OLE و غیره.
+Aspose.Slides به شما اجازه می‌دهد انیمیشن‌ها را به شکل‌ها—مانند متن، مستطیل‌ها، خطوط، قاب‌ها، اشیای OLE و موارد دیگر—اعمال کنید.
 
-{{% alert color="primary" %}}
-ادامه مطلب [**About Shape Animation**](/slides/fa/python-net/shape-animation/)
+{{% alert color="info" title="Note" %}}
+بیشتر بخوانید [**درباره انیمیشن شکل**](/slides/fa/python-net/shape-animation/).
 {{% /alert %}}
 
 ## **نمودارهای انیمیشنی**
 
-برای ایجاد نمودارهای انیمیشنی، از همان کلاس‌هایی که برای اشکال استفاده می‌کنید بهره ببرید. اما انیمیشن‌های PowerPoint فقط می‌توانند بر روی دسته‌های نمودار یا سری‌های نمودار اعمال شوند. همچنین می‌توانید یک اثر انیمیشن را بر روی یک عنصر دسته‌ای یا عنصر سری‌ای به‌صورت جداگانه اعمال کنید.
+برای ایجاد نمودارهای انیمیشنی، از همان کلاس‌هایی که برای شکل‌ها استفاده می‌کنید، بهره بگیرید. با این حال، انیمیشن‌های PowerPoint فقط می‌توانند به دسته‌های نمودار یا سری‌های نمودار اعمال شوند. همچنین می‌توانید یک افکت انیمیشن را به عنصر دسته‌ای یا عنصر سری‌ای منفرد اعمال کنید.
 
-{{% alert color="primary" %}}
-ادامه مطلب [**About Animated Charts**](/slides/fa/python-net/animated-charts/)
+{{% alert color="info" title="Note" %}}
+بیشتر بخوانید [**درباره نمودارهای انیمیشنی**](/slides/fa/python-net/animated-charts/).
 {{% /alert %}}
 
 ## **متن انیمیشنی**
 
-علاوه بر انیمیشن متن، می‌توانید انیمیشن را بر روی یک پاراگراف اعمال کنید.
+علاوه بر انیمیشن متن، می‌توانید انیمیشن را به یک پاراگراف نیز اعمال کنید.
 
-{{% alert color="primary" %}}
-ادامه مطلب [**About Animated Text**](/slides/fa/python-net/animated-text/)
+{{% alert color="info" title="Note" %}}
+بیشتر بخوانید [**درباره متن انیمیشنی**](/slides/fa/python-net/animated-text/).
 {{% /alert %}}
 
 ## **سوالات متداول**
 
-### آیا انیمیشن‌ها هنگام صادرات به PDF حفظ می‌شوند؟
+**آیا انیمیشن‌ها هنگام صادرات به PDF حفظ می‌شوند؟**
 
-خیر. PDF یک قالب ثابت است، بنابراین انیمیشن‌ها و [slide transitions](/slides/fa/python-net/slide-transition/) اجرا نمی‌شوند. اگر به حرکت نیاز دارید، به جای آن به [HTML5](/slides/fa/python-net/export-to-html5/)، [animated GIF](/slides/fa/python-net/convert-powerpoint-to-animated-gif/)، یا [video](/slides/fa/python-net/convert-powerpoint-to-video/) صادر کنید.
+خیر. PDF یک قالب ثابت است، بنابراین انیمیشن‌ها و [انتقالات اسلاید](/slides/fa/python-net/slide-transition/) پخش نمی‌شوند. اگر به حرکت نیاز دارید، به جای آن به [HTML5](/slides/fa/python-net/export-to-html5/)، [animated GIF](/slides/fa/python-net/convert-powerpoint-to-animated-gif/) یا [video](/slides/fa/python-net/convert-powerpoint-to-video/) صادر کنید.
 
-### آیا می‌توانم یک ارائه انیمیشنی را به ویدیو تبدیل کنم و نرخ فریم و اندازه فریم را کنترل کنم؟
+**آیا می‌توانم یک ارائه انیمیشنی را به ویدئو تبدیل کنم و نرخ فریم و اندازه فریم را کنترل کنم؟**
 
-بله. می‌توانید [render the presentation as frames](/slides/fa/python-net/convert-powerpoint-to-video/) را اجرا کنید و آنها را به یک ویدیو (مثلاً با ffmpeg) تبدیل کنید، ضمن انتخاب FPS و وضوح تصویر. در طول رندر، انیمیشن‌ها و انتقال اسلاید اجرا می‌شوند.
+بله. می‌توانید [رندر کردن ارائه به فریم‌ها](/slides/fa/python-net/convert-powerpoint-to-video/) را انجام داده و آنها را با استفاده از ابزارهایی مانند ffmpeg به یک ویدئو تبدیل کنید، در حالی که FPS و وضوح را تنظیم می‌کنید. انیمیشن‌ها و انتقال‌های اسلاید در طول رندر پخش می‌شوند.
 
-### آیا انیمیشن‌ها هنگام کار با ODP (نه فقط PPTX) دست نخورده می‌مانند؟
+**آیا انیمیشن‌ها هنگام کار با ODP (نه فقط PPTX) دست نخورده می‌مانند؟**
 
-قالب‌های PPT، PPTX و ODP برای [reading](/slides/fa/python-net/open-presentation/) و [writing](/slides/fa/python-net/save-presentation/) پشتیبانی می‌شوند، اما تفاوت‌های قالب می‌تواند باعث شود برخی اثرها کمی متفاوت ظاهر شوند یا رفتار کنند. موارد بحرانی را با نمونه‌های واقعی اعتبارسنجی کنید.
+PPT، PPTX و ODP برای [خواندن](/slides/fa/python-net/open-presentation/) و [نوشتن](/slides/fa/python-net/save-presentation/) پشتیبانی می‌شوند، اما این به معنای حفظ انیمیشن‌ها نیست. داده‌های انیمیشن سفارشی ممکن است هنگام تبدیل به ODP از دست بروند. برای مثال‌ها و راهنمایی درباره‌ بررسی سازگاری فرمت، به [انیمیشن سفارشی](/slides/fa/python-net/custom-animation/) مراجعه کنید.

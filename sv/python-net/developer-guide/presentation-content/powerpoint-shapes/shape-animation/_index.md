@@ -1,5 +1,5 @@
 ---
-title: Applicera formanimationer i presentationer med Python
+title: Tillämpa formanimationer i presentationer med Python
 linktitle: Formanimation
 type: docs
 weight: 60
@@ -10,14 +10,14 @@ keywords:
 - effekt
 - animerad form
 - animerad text
-- lägg till animation
+- lägga till animation
 - hämta animation
 - extrahera animation
-- lägg till effekt
+- lägga till effekt
 - hämta effekt
 - extrahera effekt
 - effektljud
-- applicera animation
+- tillämpa animation
 - PowerPoint
 - presentation
 - Python
@@ -26,18 +26,20 @@ description: "Lär dig hur du lägger till, granskar och anpassar formanimatione
 ---
 ## **Översikt**
 
-Aspose.Slides för Python via .NET representerar bildanimationer som effekter i en bildtidslinje. En effekt har en målform, en animationstyp och -undertyp, en trigger, tidsinställningar och valfria egenskaper såsom ljud eller beteende efter animationen.
+För att arbeta med de enskilda beteendena inne i en effekt eller redigera rörelse‑bansegment, se [Anpassad animation](/slides/sv/python-net/custom-animation/).
+
+Aspose.Slides för Python via .NET representerar bildanimationer som effekter i en bildtidslinje. En effekt har en målform, en animationstyp och undertyp, en utlösare, tidsinställningar och valfria egenskaper såsom ljud eller beteende efter animationen.
 
 Tidslinjen innehåller två typer av sekvenser:
 
-- Den **huvudsekvensen** spelas upp när bilden avancerar.
-- En **interaktiv sekvens** startar när dess triggerform klickas.
+- **Huvudsekvensen** spelas när bilden avancerar.
+- En **interaktiv sekvens** startar när dess utlösande form klickas.
 
-Eftersom textrutor, bilder, diagram, tabeller och andra bildobjekt implementerar [IShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ishape/), använder du samma [Sequence.add_effect](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/sequence/add_effect/) metod för de flesta bildinnehåll. De tillgängliga effekterna listas i uppräkningen [EffectType](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/effecttype/).
+Eftersom textrutor, bilder, diagram, tabeller och andra bildobjekt implementerar [IShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ishape/), använder du samma metod [Sequence.add_effect](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/sequence/add_effect/) för de flesta bildinnehåll. De tillgängliga effekterna listas i uppräkningen [EffectType](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/effecttype/).
 
 ## **Lägg till formanimationer**
 
-För att lägga till en animation, hämta bildens huvudsekvens och anropa [Sequence.add_effect](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/sequence/add_effect/) med målformen, effekttypen, undertypen och triggern. För en effekt som startar när en annan form klickas, skapa en interaktiv sekvens vars trigger är den andra formen.
+För att lägga till en animation, hämta bildens huvudsekvens och anropa [Sequence.add_effect](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/sequence/add_effect/) med målformen, effekttypen, undertypen och utlösaren. För en effekt som startar när en annan form klickas, skapa en interaktiv sekvens vars utlösare är den andra formen.
 
 Följande exempel skapar båda typerna av animation och sparar resultatet till `shape-animations.pptx`.
 
@@ -64,19 +66,19 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Triggern styr när en effekt startar:
+Utlösaren styr när en effekt startar:
 
-- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/effecttriggertype/) väntar på ett klick i huvudsekvensen, eller på ett klick på triggerformen i en interaktiv sekvens.
-- [EffectTriggerType.WITH_PREVIOUS](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/effecttriggertype/) startar tillsammans med föregående effekt.
-- [EffectTriggerType.AFTER_PREVIOUS](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/effecttriggertype/) startar när föregående effekt avslutas.
+- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/effecttriggertype/) väntar på ett klick i huvudsekvensen, eller på ett klick på utlösande form i en interaktiv sekvens.
+- [EffectTriggerType.WITH_PREVIOUS](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/effecttriggertype/) startar med föregående effekt.
+- [EffectTriggerType.AFTER_PREVIOUS](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/effecttriggertype/) startar när den föregående effekten avslutas.
 
 För att animera en bild, ett diagram eller en annan formtyp, skicka det objektet till [Sequence.add_effect](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/sequence/add_effect/) istället för `target_shape`. För diagramspecifika grupperingsalternativ, se [Animated Charts](/slides/sv/python-net/animated-charts/).
 
 ## **Läs formanimationer**
 
-Använd [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/sequence/get_effects_by_shape/) när du känner till målformen. För att inspektera varje effekt, iterera genom huvudsekvensen och varje interaktiv sekvens. Iteration undviker att anta att en sekvens innehåller en effekt på index `0`.
+Använd [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/sequence/get_effects_by_shape/) när du känner till målformen. För att inspektera varje effekt, iterera genom huvudsekvensen och varje interaktiv sekvens. Iteration undviker antagandet att en sekvens innehåller en effekt på index `0`.
 
-Följande exempel skapar en form med huvudsekvens- och interaktiva effekter, hämtar de effekter som riktar sig mot formen, och itererar sedan igenom varje sekvens på bilden.
+Följande exempel skapar en form med huvudsekvens‑ och interaktiva effekter, hämtar de effekter som riktar sig mot formen, och itererar sedan genom varje sekvens på bilden.
 
 ```python
 import aspose.slides as slides
@@ -120,17 +122,17 @@ Om du bara behöver effekterna för en form, identifiera först formen efter nam
 
 ## **Arbeta med ärvda platshållareffekter**
 
-En platshållare på en normal bild kan ärva animationsegenskaper från motsvarande platshållare på dess layoutbild och mastern. [Shape.get_base_placeholder](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/get_base_placeholder/) returnerar den överordnade platshållaren, eller `None` när ingen förälder finns.
+En platshållare på en normal bild kan ärva animationsegenskaper från motsvarande platshållare på dess layoutbild och mastern. [Shape.get_base_placeholder](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/get_base_placeholder/) returnerar den föräldraplatshållaren, eller `None` när ingen förälder finns.
 
-I den följande exempelpresentationen har footern **Random Bars** på den normala bilden, **Split** på layoutbilden och **Fly In** på masterbilden.
+I den följande exempelpresentationen har sidfoten **Random Bars** på den normala bilden, **Split** på layoutbilden och **Fly In** på mastern.
 
-![Footer-animeringseffekt på den normala bilden](slide-shape-animation.png)
+![Sidfotens animationseffekt på den normala bilden](slide-shape-animation.png)
 
-![Footer-platshållaranimeringseffekt på layoutbilden](layout-shape-animation.png)
+![Sidfotens platshållareanimationseffekt på layoutbilden](layout-shape-animation.png)
 
-![Footer-platshållaranimeringseffekt på masterbilden](master-shape-animation.png)
+![Sidfotens platshållareanimationseffekt på mastern](master-shape-animation.png)
 
-Nästa exempel bygger själva platshållarhierarkin. Det lägger till effekter på en master-platshållare, en layout-platshållare och motsvarande platshållare på en normal bild. Varje anrop till [Shape.get_base_placeholder](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/get_base_placeholder/) kontrolleras innan den returnerade formen används.
+Det nästa exemplet bygger själva platshållarhierarkin. Det lägger till effekter på en master‑platshållare, en layout‑platshållare och motsvarande platshållare på en normal bild. Varje anrop till [Shape.get_base_placeholder](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/get_base_placeholder/) kontrolleras innan den returnerade formen används.
 
 ```python
 import aspose.slides as slides
@@ -185,7 +187,7 @@ with slides.Presentation() as presentation:
 
 PowerPoint‑dialogen **Timing** motsvarar egenskaperna i [Timing](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/timing/).
 
-![PowerPoint Timing‑dialog för en animationseffekt](shape-animation.png)
+![PowerPoint‑timingsdialog för en animationseffekt](shape-animation.png)
 
 - **Start** motsvarar [Timing.trigger_type](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/timing/trigger_type/).
 - **Duration** motsvarar [Timing.duration](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/timing/duration/), i sekunder.
@@ -216,7 +218,7 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-timing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Använd ett repetitionsläge med avsikt. Att kombinera ett repetitionsantal med en ”until”-flagga kan ge förvirrande resultat i olika visare. När du ändrar repetitionslägen, sätt [Timing.repeat_until_next_click](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/timing/repeat_until_next_click/) och [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/timing/repeat_until_end_slide/) innan [Timing.repeat_count](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/timing/repeat_count/), eftersom att sätta någon av flaggorna också ändrar det aktiva repetitionsläget.
+Använd ett repeteringsläge med avsikt. Att kombinera ett repetitionsantal med ett ”until”‑flagga kan ge förvirrande resultat i olika visare. När du ändrar repeteringslägen, sätt [Timing.repeat_until_next_click](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/timing/repeat_until_next_click/) och [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/timing/repeat_until_end_slide/) före [Timing.repeat_count](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/timing/repeat_count/), eftersom att sätta någon av flaggorna också ändrar det aktiva repeteringsläget.
 
 ## **Lägg till och extrahera animationsljud**
 
@@ -224,7 +226,7 @@ En animationseffekt kan referera till inbäddat ljud via [Effect.sound](https://
 
 ### **Lägg till ett ljud till en effekt**
 
-Följande exempel förväntar sig en lokal ljudfil med namn `animation-sound.wav`. Det skapar två effekter, bäddar in den filen som ljud för den första effekten, och konfigurerar den andra effekten att stoppa ljudet. Det använder objekten som returneras av [Sequence.add_effect](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/sequence/add_effect/), så inget sekvensindex behövs.
+Följande exempel förväntar en lokal ljudfil med namnet `animation-sound.wav`. Det skapar två effekter, bäddar in den filen som ljud för den första effekten, och konfigurerar den andra effekten att stoppa ljudet. Det använder objekten som returneras av [Sequence.add_effect](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/sequence/add_effect/), så inget sekvensindex behövs.
 
 ```python
 import aspose.slides as slides
@@ -252,7 +254,7 @@ with slides.Presentation() as presentation:
 
 ### **Extrahera inbäddade effektljud**
 
-Följande exempel förväntar sig en lokal presentation med namnet `presentation-with-animation-sounds.pptx`. Det skannar både huvud- och interaktiva sekvenser och skriver varje inbäddat effektljud till katalogen `extracted-animation-sounds`. Filändelsen väljs utifrån den ljud‑MIME‑typ som exponeras av [Audio.content_type](https://reference.aspose.com/slides/sv/python-net/aspose.slides/audio/content_type/).
+Följande exempel förväntar en lokal presentation med namnet `presentation-with-animation-sounds.pptx`. Det skannar både huvud‑ och interaktiva sekvenser och skriver varje inbäddat effektljud till katalogen `extracted-animation-sounds`. Filändelsen väljs från ljudets MIME‑typ som exponeras av [Audio.content_type](https://reference.aspose.com/slides/sv/python-net/aspose.slides/audio/content_type/).
 
 ```python
 import os
@@ -308,15 +310,15 @@ print(f"Extracted {sound_index - 1} sound file(s) to {os.path.abspath(output_dir
 
 För stora ljudobjekt, använd [Audio.get_stream](https://reference.aspose.com/slides/sv/python-net/aspose.slides/audio/get_stream/) och kopiera strömmen till en fil i stället för att ladda hela objektet i en byte‑array.
 
-## **Ange efter‑animationbeteende**
+## **Ställ in beteende efter animation**
 
 **After animation**‑alternativet styr vad som händer med en form efter att dess effekt avslutats.
 
-![PowerPoint‑dialog för effektalternativ som visar After animation‑inställningar](shape-after-animation.png)
+![PowerPoint‑effektalternativdialog som visar inställningar för After animation](shape-after-animation.png)
 
-Uppräkningen [AfterAnimationType](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/afteranimationtype/) stödjer att låta formen förbli oförändrad, ändra dess färg, dölja den efter animationen eller dölja den vid nästa klick. När typen är [AfterAnimationType.COLOR](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/afteranimationtype/), sätt även [Effect.after_animation_color](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/effect/after_animation_color/).
+[AfterAnimationType](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/afteranimationtype/)‑uppräkningen stöder att låta formen förbli oförändrad, ändra dess färg, dölja den efter animationen, eller dölja den vid nästa klick. När typen är [AfterAnimationType.COLOR](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/afteranimationtype/), sätt även [Effect.after_animation_color](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/effect/after_animation_color/) .
 
-Detta fristående exempel skapar en effekt, sätter dess efter‑animationbeteende via den returnerade effekt‑objektet, och sparar resultatet.
+Detta fristående exempel skapar en effekt, sätter dess after‑animation‑beteende via den returnerade effekt‑objektet, och sparar resultatet.
 
 ```python
 import aspose.pydrawing as draw
@@ -335,16 +337,16 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-after-effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Att ändra typen från [AfterAnimationType.COLOR](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/afteranimationtype/) rensar inställningen för efter‑animationens färg.
+Att ändra typen från [AfterAnimationType.COLOR](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/afteranimationtype/) rensar inställningen för after‑animation‑färg.
 
 ## **Animera text**
 
 Textanimation har två relaterade kontroller:
 
 - [TextAnimation.build_type](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/textanimation/build_type/) styr om stycken visas tillsammans eller på stycknivå.
-- [Effect.animate_text_type](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/effect/animate_text_type/) styr om text visas på en gång, per ord eller per bokstav. [Effect.delay_between_text_parts](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/effect/delay_between_text_parts/) anger fördröjningen mellan ord eller bokstäver. Ett positivt värde är en procent av effektens varaktighet; ett negativt värde är en fördröjning i sekunder.
+- [Effect.animate_text_type](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/effect/animate_text_type/) styr om text visas på en gång, ord för ord eller bokstav för bokstav. [Effect.delay_between_text_parts](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/effect/delay_between_text_parts/) anger fördröjningen mellan ord eller bokstäver. Ett positivt värde är en procentandel av effektens varaktighet; ett negativt värde är en fördröjning i sekunder.
 
-Följande fristående exempel animera orden i en textruta. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/buildtype/) inaktiverar uppbyggnad stycke för stycke så att ordinställningen gäller hela textrutan.
+Följande fristående exempel animera orden i en textruta. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/buildtype/) inaktiverar byggandet stycke för stycke så att ordinställningen gäller för hela textramen.
 
 ```python
 import aspose.slides as slides
@@ -363,15 +365,15 @@ with slides.Presentation() as presentation:
     presentation.save("animated-text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-För att bygga en textruta stycke för stycke, sätt [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/buildtype/) (eller en annan stycknivå). För att rikta in ett enskilt stycke med sin egen effekt, använd överbelastningen av [Sequence.add_effect](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/sequence/add_effect/) som accepterar ett [IParagraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/iparagraph/). Se [Animated Text](/slides/sv/python-net/animated-text/) för exempel på stycknivå.
+För att bygga en textruta stycke för stycke, sätt [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/buildtype/) (eller en annan stycknivå). För att rikta en enskild stycke med egen effekt, använd [Sequence.add_effect](https://reference.aspose.com/slides/sv/python-net/aspose.slides.animation/sequence/add_effect/)‑översättningen som accepterar ett [IParagraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/iparagraph/). Se [Animated Text](/slides/sv/python-net/animated-text/) för exempel på stycknivå.
 
-## **Export‑ och kompatibilitetsanteckningar**
+## **Export‑ och kompatibilitetsnoteringar**
 
-- Att spara till PPT eller PPTX bevarar animationsmodellen, men den slutgiltiga uppspelningen styrs av presentationsvisaren.
+- Att spara till PPT eller PPTX bevarar animationsmodellen, men den slutliga uppspelningen styrs av presentationsvisaren.
 - PDF och statiska bilder spelar inte upp animationer. Använd [HTML5 export](/slides/sv/python-net/export-to-html5/), animerad GIF eller [video conversion](/slides/sv/python-net/convert-powerpoint-to-video/) när utdata måste visa rörelse.
-- För HTML5, aktivera [Html5Options.animate_shapes](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/html5options/animate_shapes/) och, vid behov, [Html5Options.animate_transitions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/html5options/animate_transitions/).
-- Videorendering stöder många vanliga entré‑, betoning‑, avslutnings‑ och rörelsespårseffekter, men inte alla PowerPoint‑effekter stöds. Kontrollera de aktuella [supported animations and effects](/slides/sv/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) och testa kritiska presentationer med din mål‑Aspose.Slides‑version.
-- Avancerade anpassade effekter och effekter importerade från andra presentationsformat kan bevaras i filen men renderas olika i PowerPoint, HTML5 eller video. Validera det exporterade resultatet istället för att enbart förlita dig på effektens namn.
+- För HTML5, aktivera [Html5Options.animate_shapes](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/html5options/animate_shapes/) och, vid behov, [Html5Options.animate_transitions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/html5options/animate_transitions/) .
+- Videorendering stöder många vanliga ingångs‑, betoning‑, utgångs‑ och rörelse‑baneeffekter, men inte varje PowerPoint‑effekt stöds. Kontrollera de aktuella [supported animations and effects](/slides/sv/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) och testa kritiska presentationer med din målanpassade Aspose.Slides‑version.
+- Avancerade anpassade effekter och effekter som importeras från andra presentationsformat kan bevaras i filen men renderas annorlunda i PowerPoint, HTML5 eller video. Validera det exporterade resultatet snarare än att enbart förlita sig på effektens namn.
 
 ## **FAQ**
 
@@ -381,8 +383,8 @@ PDF är ett statiskt format, så animationer och bildövergångar spelas inte up
 
 **Varför spelas en effekt annorlunda i en video?**
 
-Videoexport renderar animationer istället för att lagra det ursprungliga PowerPoint‑beteendet. Vissa avancerade effekter stöds inte eller approximeras. Granska tabellen med stödjade effekter och testa den faktiska presentationen innan produktionsanvändning.
+Videoexport renderar animationer snarare än att lagra det ursprungliga PowerPoint‑beteendet. Vissa avancerade effekter stöds inte eller approximeras. Granska tabellen över stödda effekter och testa den faktiska presentationen innan produktion.
 
-**Påverkar det att flytta en form framåt eller bakåt dess animationsordning?**
+**Ändrar flyttning av en form framåt eller bakåt dess animationsordning?**
 
-Nej. Formens z‑ordning styr överlappning, medan sekvensordning och trigger styr animationsuppspelning. Ändra tidslinjen om du behöver en annan uppspelningsordning.
+Nej. Formens z‑ordning styr överlappning, medan sekvensordning och utlösare styr animationsuppspelning. Ändra tidslinjen om du behöver en annan uppspelningsordning.

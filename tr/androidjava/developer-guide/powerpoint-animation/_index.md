@@ -21,32 +21,32 @@ keywords:
 - animasyonlu metin
 - animasyonlu şekil
 - animasyonlu OLE nesnesi
-- animasyonlu resim
+- animasyonlu görüntü
 - animasyonlu tablo
 - PowerPoint
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java'in PowerPoint animasyonlarını yönetmedeki yeteneklerini keşfedin. Bu genel bakış temel özellikleri vurgular."
+description: "Aspose.Slides'ın Android için Java üzerinden PowerPoint animasyonlarını yönetme yeteneklerini keşfedin. Bu genel bakış temel özellikleri vurgular."
 ---
 ## **Giriş**
 
-Sunumlar bir şey sunmak için tasarlandığından, oluşturulurken görsel görünümleri ve etkileşimli davranışları her zaman göz önünde bulundurulur.
+Sunumların bir şeyi sunmak için tasarlandığından, görsel görünümleri ve etkileşimli davranışları her zaman oluşturulma sırasında dikkate alınır.
 
-**PowerPoint animation** izleyiciler için sunumu göz alıcı ve çekici hâle getirmek amacıyla önemli bir rol oynar. Aspose.Slides for Android via Java, PowerPoint sunumuna animasyon eklemek için geniş bir seçenek yelpazesi sunar:
+**PowerPoint animasyonu** bir sunumu izleyiciler için çekici ve etkileşimli hâle getirmede önemli bir rol oynar. Aspose.Slides, PowerPoint sunumlarına animasyon eklemek için geniş bir seçenek yelpazesi sunar:
 
-- şekiller, grafikler, tablolar, OLE Nesneleri ve diğer sunum öğeleri üzerinde çeşitli PowerPoint animasyon efekti türlerini uygula.
-- bir şekil üzerinde birden fazla PowerPoint animasyon efekti kullan.
-- animasyon efektlerini kontrol etmek için animasyon zaman çizelgesini kullan.
-- özel animasyon oluştur.
-
-Aspose.Slides for Android via Java’da, şekiller üzerinde çeşitli animasyon efektleri uygulanabilir. Metin, resim, OLE Nesnesi, tablo vb. dahil slayttaki her öğe bir şekil olarak kabul edildiğinden, bir slaydın tüm öğelerine animasyon efekti uygulayabiliriz.
+- Şekillere, grafiklere, tablolara, OLE nesnelerine ve diğer sunum öğelerine çeşitli PowerPoint animasyon efekti türlerini uygulayın.
+- Tek bir şekil üzerinde birden çok PowerPoint animasyon efekti kullanın.
+- Animasyon efektlerini kontrol etmek için animasyon zaman çizelgesini kullanın.
+- Özel animasyonlar oluşturun.
 
 ## **Animasyon Efektleri**
-Aspose.Slides **150+ animasyon efekti**'ni destekler; Bounce, PathFootball, Zoom efekti gibi temel animasyon efektlerinin yanı sıra OLEObjectShow, OLEObjectOpen gibi belirli animasyon efektlerini de içerir. Animasyon efektlerinin tam listesini [**EffectType**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/effecttype/) enumerasyonunda bulabilirsiniz.
 
-Ayrıca, bu animasyon efektleri aşağıdaki öğelerle birleştirilebilir:
+Aspose.Slides **150+ animasyon efekti** destekler; Bounce, PathFootball ve Zoom gibi temel efektlerin yanı sıra OLEObjectShow ve OLEObjectOpen gibi özel efektler de bulunur. Tam listeyi [EffectType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/effecttype/) sınıfında bulabilirsiniz.
+
+Ayrıca, bu animasyon efektleri aşağıdaki davranışlarla birleştirilebilir:
+
 - [ColorEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/CommandEffect)
 - [FilterEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/FilterEffect)
@@ -57,51 +57,59 @@ Ayrıca, bu animasyon efektleri aşağıdaki öğelerle birleştirilebilir:
 - [SetEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/SetEffect)
 
 ## **Özel Animasyon**
-Aspose.Slides içinde kendi **özel animasyonlarınızı** oluşturabilirsiniz. Bunun için birkaç davranışı bir araya getirerek yeni bir özel animasyon oluşturabilirsiniz.
 
-[**Behavior**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/Behavior) herhangi bir PowerPoint animasyon efektinin yapı taşıdır. Tüm animasyon efektleri aslında bir strateji içinde birleştirilen bir dizi davranıştan oluşur. Davranışları bir kez birleştirerek özel bir animasyon oluşturabilir ve bunu diğer sunumlarda tekrar kullanabilirsiniz. Standart bir PowerPoint animasyon efektine yeni bir davranış eklediğinizde – bu başka bir özel animasyon olur. Örneğin, bir animasyona tekrarlama davranışı ekleyerek animasyonun birkaç kez tekrarlanmasını sağlayabilirsiniz.
+Davranışları ve düzenlenebilir hareket yollarını oluşturan, inceleyen ve değiştiren tam Java örnekleri için [Custom Animation](/slides/tr/java/custom-animation/) sayfasına bakın.
 
-[**Animation Point**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/Point) davranışın uygulanması gereken noktadır.
+Aspose.Slides içinde kendi **özel animasyonlarınızı** oluşturabilirsiniz. Bu, birden fazla davranışı yeni bir özel animasyona birleştirerek gerçekleştirilebilir.
+
+[Behavior](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/behavior/) bir PowerPoint animasyon efekti yapı taşıdır. Bir efekti özelleştirmek için davranışları birleştirin veya önceden tanımlı bir efekti genişletmek için bir davranış ekleyin. Tekrar, ayrı bir tekrar davranışı yerine zamanlama ayarlarıyla yapılandırılır.
+
+[Animation Point](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/point/) bir davranışın uygulanması gereken noktadır.
 
 ## **Animasyon Zaman Çizelgesi**
-[**Sequence**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/Sequence) belirli bir şekle uygulanan animasyon efektlerinin bir koleksiyonudur.
 
-[**Timeline**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/AnimationTimeLine) belirli bir slaytta kullanılan bir dizi Sequence'tir. PowerPoint 2002'den beri temsil edilen bir animasyon motorudur. Önceki PowerPoint sürümlerinde, sunuma animasyon efekti eklemek zordu ve yalnızca çeşitli geçici çözümlerle mümkün oluyordu. Timeline, eski AnimationSettings sınıfının yerini alır ve PowerPoint animasyonu için daha açık bir nesne modeli sağlar. Bir slayt yalnızca bir animasyon zaman çizelgesine sahip olabilir.
+[Sequence](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/sequence/) farklı şekilleri hedefleyebilen animasyon efektlerinin bir koleksiyonudur.
+
+[Timeline](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/animationtimeline/) belirli bir slaytta kullanılan dizi setidir. PowerPoint 2002'de tanıtılan bir animasyon motorudur. PowerPoint'in önceki sürümlerinde sunumlara animasyon efekti eklemek zordu ve sadece çeşitli geçici çözümlerle mümkün olabiliyordu. Zaman çizelgesi, PowerPoint animasyonları için daha net bir nesne modeli sağlar. Bir slaytta yalnızca bir animasyon zaman çizelgesi bulunabilir.
 
 ## **Etkileşimli Animasyon**
-[**Trigger**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/EffectTriggerType) belirli bir animasyonun başlamasını sağlayacak kullanıcı eylemlerini (ör. düğme tıklaması) tanımlamaya olanak verir. Trigger'lar yalnızca en son PowerPoint sürümüne eklenmiştir.
+
+[Trigger](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/effecttriggertype/) bir düğme tıklaması gibi belirli bir animasyonu başlatan kullanıcı eylemlerini tanımlamanıza olanak tanır.
 
 ## **Şekil Animasyonu**
-Aspose.Slides, aslında metin, dikdörtgen, çizgi, çerçeve, OLE Nesnesi vb. olabilen şekillere animasyon uygulamaya izin verir.
 
-{{% alert color="primary" %}} 
-Daha fazla okuyun [**Şekil Animasyonu Hakkında**](/slides/tr/androidjava/shape-animation/).
+Aspose.Slides, metin, dikdörtgen, çizgi, çerçeve, OLE nesnesi ve daha fazlasını içerebilen şekillere animasyon uygulamanıza izin verir.
+
+{{% alert color="info" title="Note" %}}
+Daha fazla bilgi için [**About Shape Animation**](/slides/tr/androidjava/shape-animation/).
 {{% /alert %}}
 
 ## **Animasyonlu Grafikler**
-Animasyonlu grafikler oluşturmak için şekillerde kullanılan aynı sınıfları kullanmalısınız. Ancak, PowerPoint animasyonunu yalnızca grafik kategorileri veya seri'lerine uygulamak mümkündür. Ayrıca bir kategori öğesine veya seri öğesine animasyon efekti uygulayabilirsiniz.
 
-{{% alert color="primary" %}} 
-Daha fazla okuyun [**Animasyonlu Grafikler Hakkında**](/slides/tr/androidjava/animated-charts/).
+Animasyonlu grafikler oluşturmak için şekillerde kullanılan aynı sınıfları kullanmalısınız. Ancak PowerPoint animasyonları yalnızca grafik kategorilerine veya grafik serilerine uygulanabilir. Bir kategori öğesine veya bir seri öğesine de animasyon efekti uygulayabilirsiniz.
+
+{{% alert color="info" title="Note" %}}
+Daha fazla bilgi için [**About Animated Charts**](/slides/tr/androidjava/animated-charts/).
 {{% /alert %}}
 
 ## **Animasyonlu Metin**
-Animasyonlu metin dışında, bir paragrafa da animasyon uygulamak mümkündür.
 
-{{% alert color="primary" %}} 
-Daha fazla okuyun [**Animasyonlu Metin Hakkında**](/slides/tr/androidjava/animated-text/).
+Metni animasyonlamanın yanı sıra bir paragrafı da animasyona tabi tutabilirsiniz.
+
+{{% alert color="info" title="Note" %}}
+Daha fazla bilgi için [**About Animated Text**](/slides/tr/androidjava/animated-text/).
 {{% /alert %}}
 
 ## **SSS**
 
-**PDF'ye dışa aktarırken animasyonlar korunacak mı?**
+**PDF'ye dışa aktarırken animasyonlar korunur mu?**
 
-Hayır. PDF statik bir formattır, bu yüzden animasyonlar ve [slide transitions](/slides/tr/androidjava/slide-transition/) oynatılmaz. Hareket gerekiyorsa, bunun yerine [HTML5](/slides/tr/androidjava/export-to-html5/), [animated GIF](/slides/tr/androidjava/convert-powerpoint-to-animated-gif/) veya [video](/slides/tr/androidjava/convert-powerpoint-to-video/) formatına dışa aktarın.
+Hayır. PDF statik bir format olduğundan animasyonlar ve [slide transitions](/slides/tr/androidjava/slide-transition/) oynatılmaz. Hareket gerekiyorsa, bunun yerine [HTML5](/slides/tr/androidjava/export-to-html5/), [animated GIF](/slides/tr/androidjava/convert-powerpoint-to-animated-gif/) veya [video](/slides/tr/androidjava/convert-powerpoint-to-video/) formatına dışa aktarın.
 
-**Animasyonlu bir sunumu video haline getirip kare hızı ve kare boyutunu kontrol edebilir miyim?**
+**Animasyonlu bir sunumu videoya dönüştürüp kare hızı ve kare boyutunu kontrol edebilir miyim?**
 
-Evet. Sunumu [kareler olarak işleyin](/slides/tr/androidjava/convert-powerpoint-to-video/) ve bunları bir video (ör. ffmpeg) olarak kodlayabilirsiniz; FPS ve çözünürlüğü seçebilirsiniz. Render sırasında animasyonlar ve slide geçişleri oynatılır.
+Evet. Sunumu [render the presentation as frames](/slides/tr/androidjava/convert-powerpoint-to-video/) olarak karelere dönüştürüp ffmpeg gibi bir araçla video haline getirebilir, FPS ve çözünürlüğü seçebilirsiniz. Render sırasında animasyonlar ve slayt geçişleri oynatılır.
 
-**ODP (sadece PPTX değil) ile çalışırken animasyonlar aynı kalacak mı?**
+**ODP (sadece PPTX değil) ile çalışırken animasyonlar aynı kalır mı?**
 
-PPT, PPTX ve ODP, [reading](/slides/tr/androidjava/open-presentation/) ve [writing](/slides/tr/androidjava/save-presentation/) işlemleri için desteklenir, ancak format farklılıkları bazı efektlerin biraz farklı görünmesine veya davranmasına neden olabilir. Kritik durumları gerçek örneklerle doğrulayın.
+PPT, PPTX ve ODP, [okuma](/slides/tr/androidjava/open-presentation/) ve [yazma](/slides/tr/androidjava/save-presentation/) için desteklenir, ancak bu animasyonların korunacağını garanti etmez. ODP'ye dönüştürülürken özel animasyon verileri kaybolabilir. Format uyumluluğunu kontrol etmek için örnekler ve rehberlik için [Custom Animation for Java](/slides/tr/java/custom-animation/) sayfasına bakın.

@@ -1,5 +1,5 @@
 ---
-title: Vormanimaties toepassen in presentaties met C++
+title: Toepassen van vormanimaties in presentaties met C++
 linktitle: Vormanimatie
 type: docs
 weight: 60
@@ -26,20 +26,22 @@ description: "Leer hoe u vormanimaties, timing, geluiden, gedrag na animatie en 
 ---
 ## **Overzicht**
 
-Aspose.Slides for C++ vertegenwoordigt dia‑animaties als effecten in een dia‑tijdlijn. Een effect heeft een doelvorm, een animatietype en subtype, een trigger, timing‑instellingen en optionele eigenschappen zoals geluid of gedrag na de animatie.
+Om met de afzonderlijke gedragingen binnen een effect te werken of om segmenten van bewegingspaden te bewerken, zie [Aangepaste animatie](/slides/nl/cpp/custom-animation/).
 
-De tijdlijn bevat twee soorten reeksen:
+Aspose.Slides for C++ vertegenwoordigt dia‑animaties als effecte in een diatijdlijn. Een effect heeft een doelvorm, een animatietype en subtype, een trigger, timinginstellingen en optionele eigenschappen zoals geluid of gedrag na de animatie.
 
-- De **hoofdreeks** speelt af terwijl de dia vordert.
-- Een **interactieve reeks** start wanneer de trigger‑vorm wordt aangeklikt.
+De tijdlijn bevat twee soorten sequenties:
 
-Omdat tekstvakken, afbeeldingen, grafieken, tabellen en andere dia‑objecten [IShape] implementeren, gebruik je dezelfde [ISequence::AddEffect]-methode voor de meeste dia‑inhoud. De beschikbare effecten staan opgesomd in de enumeratie [EffectType].
+- De **hoofdsequentie** wordt afgespeeld terwijl de dia vordert.
+- Een **interactieve sequentie** start wanneer de trigger‑vorm wordt aangeklikt.
 
-## **Vormanimaties Toevoegen**
+Omdat tekstvakken, afbeeldingen, grafieken, tabellen en andere dia‑objecten [IShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/) implementeren, gebruik je dezelfde [ISequence::AddEffect](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/isequence/addeffect/)‑methode voor de meeste dia‑inhoud. De beschikbare effecte staan opgesomd in de [EffectType](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/effecttype/)-enumeratie.
 
-Om een animatie toe te voegen, haal je de hoofdreeks van de dia op en roep je [ISequence::AddEffect] aan met de doelvorm, het effecttype, subtype en trigger. Voor een effect dat start wanneer een andere vorm wordt aangeklikt, maak je een interactieve reeks waarvan de trigger die andere vorm is.
+## **Vormanimaties toevoegen**
 
-Het volgende voorbeeld maakt beide soorten animatie en slaat het resultaat op in `shape-animations.pptx`.
+Om een animatie toe te voegen, haal je de hoofdsequentie van de dia op en roep je [ISequence::AddEffect](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/isequence/addeffect/) aan met de doelvorm, het effecttype, subtype en trigger. Voor een effect dat start wanneer een andere vorm wordt aangeklikt, maak je een interactieve sequentie aan waarvan de trigger die andere vorm is.
+
+Het volgende voorbeeld maakt beide soorten animaties en slaat het resultaat op in `shape-animations.pptx`.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -86,17 +88,17 @@ presentation->Dispose();
 
 De trigger bepaalt wanneer een effect start:
 
-- [EffectTriggerType::OnClick] wacht op een klik in de hoofdreeks, of op een klik op de trigger‑vorm in een interactieve reeks.
-- [EffectTriggerType::WithPrevious] start tegelijk met het voorafgaande effect.
-- [EffectTriggerType::AfterPrevious] start nadat het voorafgaande effect is voltooid.
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/effecttriggertype/) wacht op een klik in de hoofdsequentie, of op een klik op de trigger‑vorm in een interactieve sequentie.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/effecttriggertype/) start samen met het vorige effect.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/effecttriggertype/) start wanneer het vorige effect eindigt.
 
-Om een afbeelding, grafiek of een ander type vorm te animeren, geef je dat object door aan [ISequence::AddEffect] in plaats van `targetShape`. Voor chart‑specifieke groepeeropties, zie [Animated Charts](/slides/nl/cpp/animated-charts/).
+Om een afbeelding, grafiek of een ander type vorm te animeren, geef je dat object door aan [ISequence::AddEffect](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/isequence/addeffect/) in plaats van `targetShape`. Voor grafiek‑specifieke groepeeropties, zie [Geanimeerde grafieken](/slides/nl/cpp/animated-charts/).
 
-## **Vormanimaties Lezen**
+## **Vormanimaties lezen**
 
-Gebruik [ISequence::GetEffectsByShape] wanneer je de doelvorm kent. Om elk effect te inspecteren, enumerateer je de hoofdreeks en elke interactieve reeks. Enumeratie voorkomt de veronderstelling dat een reeks een effect op index `0` bevat.
+Gebruik [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) wanneer je de doelvorm kent. Om elk effect te inspecteren, doorloop je de hoofdsequentie en elke interactieve sequentie. Enumeratie voorkomt de veronderstelling dat een sequentie een effect op index `0` bevat.
 
-Het volgende voorbeeld maakt een vorm met hoofd‑ en interactieve effecten, haalt de effecten op die de vorm targeten, en doorloopt vervolgens elke reeks op de dia.
+Het volgende voorbeeld maakt een vorm met hoofd‑ en interactieve effects, haalt de effecten op die de vorm als doel hebben, en doorloopt vervolgens elke sequentie op de dia.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -165,21 +167,19 @@ for (const auto& sequence : slide->get_Timeline()->get_InteractiveSequences())
 presentation->Dispose();
 ```
 
-Als je alleen de effecten voor één vorm nodig hebt, identificeer dan eerst de vorm op naam, placeholder‑type of een andere stabiele eigenschap; roep daarna [ISequence::GetEffectsByShape] aan. Ga niet ervan uit dat [IShapeCollection::idx_get] op index `0` altijd het bedoelde object is.
+Als je alleen de effecten voor één vorm nodig hebt, identificeer dan eerst de vorm op naam, placeholder‑type of een andere stabiele eigenschap; roep vervolgens [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) aan. Ga niet ervan uit dat [IShapeCollection::idx_get](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/idx_get/) op index `0` altijd het beoogde object is.
 
-## **Werken met Geërfde Placeholder‑Effecten**
+## **Werken met overgeërfde placeholder‑effecten**
 
-Een placeholder op een gewone dia kan animatiegedrag overerven van de overeenkomstige placeholder op de lay‑out‑dia en master‑dia. [IShape::GetBasePlaceholder] retourneert die bovenliggende placeholder, of `nullptr` wanneer er geen bovenliggende bestaat.
+Een placeholder op een normale dia kan het animatiegedrag overerven van de overeenkomstige placeholder op de lay-outdia en de mastersdia. [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/getbaseplaceholder/) retourneert die bovenliggende placeholder, of `nullptr` wanneer er geen bovenliggende bestaat.
 
-In de volgende voorbeeldpresentatie heeft de voettekst **Random Bars** op de gewone dia, **Split** op de lay‑out‑dia en **Fly In** op de master‑dia.
+In de volgende voorbeeldpresentatie heeft de voettekst **Random Bars** op de normale dia, **Split** op de lay-outdia en **Fly In** op de masterdia.
 
-![Footer animatie‑effect op de gewone dia](slide-shape-animation.png)
+![Footer animatie‑effect op de normale dia](slide-shape-animation.png)
+![Footer placeholder‑animatie‑effect op de lay-outdia](layout-shape-animation.png)
+![Footer placeholder‑animatie‑effect op de masterdia](master-shape-animation.png)
 
-![Footer placeholder‑animatie‑effect op de lay‑out‑dia](layout-shape-animation.png)
-
-![Footer placeholder‑animatie‑effect op de master‑dia](master-shape-animation.png)
-
-Het volgende voorbeeld bouwt zelf de placeholder‑hiërarchie. Het voegt effecten toe aan een master‑placeholder, een lay‑out‑placeholder en de overeenkomstige placeholder op een gewone dia. Elke oproep naar [IShape::GetBasePlaceholder] wordt gecontroleerd voordat de geretourneerde vorm wordt gebruikt.
+Het volgende voorbeeld bouwt de placeholder‑hiërarchie zelf op. Het voegt effecte toe aan een master‑placeholder, een lay-out‑placeholder en de overeenkomstige placeholder op een normale dia. Elke oproep van [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/getbaseplaceholder/) wordt gecontroleerd voordat de geretourneerde vorm wordt gebruikt.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -264,19 +264,19 @@ presentation->Save(u"placeholder-animations.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Animatietiming Wijzigen**
+## **Animatietiming wijzigen**
 
-De PowerPoint **Timing**‑dialoog komt overeen met de methoden van [ITiming].
+Het PowerPoint **Timing**‑dialoogvenster komt overeen met de methoden van [ITiming](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/itiming/).
 
 ![PowerPoint Timing‑dialoog voor een animatie‑effect](shape-animation.png)
 
-- **Start** komt overeen met [ITiming::set_TriggerType].
-- **Duration** komt overeen met [ITiming::set_Duration], in seconden.
-- **Delay** komt overeen met [ITiming::set_TriggerDelayTime], in seconden.
-- **Repeat** komt overeen met [ITiming::set_RepeatCount], [ITiming::set_RepeatUntilNextClick] of [ITiming::set_RepeatUntilEndSlide].
-- **Rewind when done playing** komt overeen met [ITiming::set_Rewind].
+- **Start** komt overeen met [ITiming::set_TriggerType](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/itiming/set_triggertype/).
+- **Duur** komt overeen met [ITiming::set_Duration](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/itiming/set_duration/), in seconden.
+- **Vertraging** komt overeen met [ITiming::set_TriggerDelayTime](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/itiming/set_triggerdelaytime/), in seconden.
+- **Herhalen** komt overeen met [ITiming::set_RepeatCount](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/itiming/set_repeatcount/), [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/), of [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/).
+- **Terugspoelen na afspelen** komt overeen met [ITiming::set_Rewind](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/itiming/set_rewind/).
 
-Dit zelfstandige voorbeeld voegt een effect toe, wijzigt de timing via het object dat wordt geretourneerd door [ISequence::AddEffect], en slaat het resultaat op. Het behouden van de geretourneerde [IEffect]-referentie voorkomt een overbodige collectie‑index.
+Dit zelfstandige voorbeeld voegt een effect toe, wijzigt de timing via het object dat wordt geretourneerd door [ISequence::AddEffect](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/isequence/addeffect/), en slaat het resultaat op. Het behouden van de geretourneerde [IEffect](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/ieffect/)‑referentie voorkomt een onnodige collectie's index.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -318,15 +318,15 @@ presentation->Save(u"shape-animation-timing.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Gebruik één herhaalmodus bewust. Het combineren van een herhaaltaantal met een “until”‑vlag kan verwarrende resultaten opleveren in verschillende viewers. Bij het wijzigen van herhaalmodi roep je [ITiming::set_RepeatUntilNextClick] en [ITiming::set_RepeatUntilEndSlide] aan vóór [ITiming::set_RepeatCount], omdat het instellen van een van de vlaggen tevens de actieve herhaalmodus wijzigt.
+Gebruik bewust één repeat‑modus. Het combineren van een repeat‑aantal met een "until"‑vlag kan verwarrende resultaten opleveren in verschillende weergave‑programma's. Wanneer je repeat‑modi wijzigt, roep je [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) en [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) aan vóór [ITiming::set_RepeatCount](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/itiming/set_repeatcount/), omdat het instellen van een van beide vlaggen tevens de actieve repeat‑modus wijzigt.
 
-## **Animatiegeluiden Toevoegen en Extraheren**
+## **Animatiegeluiden toevoegen en extraheren**
 
-Een animatie‑effect kan via [IEffect::set_Sound] verwijzen naar ingebedde audio. [IEffect::set_StopPreviousSound] vertelt een effect om audio die door een eerder effect is gestart, te stoppen.
+Een animatie‑effect kan ingebedde audio refereren via [IEffect::set_Sound](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/ieffect/set_sound/). [IEffect::set_StopPreviousSound](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/ieffect/set_stopprevioussound/) instrueert een effect om audio die door een eerder effect is gestart te stoppen.
 
-### **Een Geluid aan een Effect Toevoegen**
+### **Geluid aan een effect toevoegen**
 
-Het volgende voorbeeld verwacht een lokaal audiobestand met de naam `animation-sound.wav`. Het maakt twee effecten, embedt dat bestand als geluid voor het eerste effect, en configureert het tweede effect om het geluid te stoppen. Het gebruikt de objecten die worden geretourneerd door [ISequence::AddEffect], dus een reeks‑index is niet nodig.
+Het volgende voorbeeld verwacht een lokaal audiobestand met de naam `animation-sound.wav`. Het maakt twee effecte, embed het bestand als geluid voor het eerste effect, en configureert het tweede effect om het geluid te stoppen. Het gebruikt de objecten die worden geretourneerd door [ISequence::AddEffect](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/isequence/addeffect/), dus er is geen sequentie‑index vereist.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -373,9 +373,9 @@ presentation->Save(u"shape-animation-sound.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Ingebedde Effectgeluiden Extraheren**
+### **Ingebedde effectgeluiden extraheren**
 
-Het volgende voorbeeld verwacht een lokale presentatie met de naam `presentation-with-animation-sounds.pptx`. Het scant zowel de hoofd‑ als de interactieve reeksen en schrijft elk ingebed effectgeluid naar de map `extracted-animation-sounds`. De extensie wordt gekozen op basis van het audio‑MIME‑type dat wordt aangeboden door [IAudio::get_ContentType].
+Het volgende voorbeeld verwacht een lokale presentatie met de naam `presentation-with-animation-sounds.pptx`. Het scant zowel de hoofd‑ als de interactieve sequenties en schrijft elk ingebed effectgeluid weg naar de map `extracted-animation-sounds`. De extensie wordt gekozen op basis van het audio‑MIME‑type dat wordt blootgesteld door [IAudio::get_ContentType](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iaudio/get_contenttype/).
 
 ```cpp
 #include <DOM/Animation/IEffect.h>
@@ -450,17 +450,17 @@ Console::WriteLine(String::Format(u"Extracted {0} sound file(s) to {1}.", soundI
 presentation->Dispose();
 ```
 
-Voor grote audio‑objecten, gebruik [IAudio::GetStream] en kopieer de stream naar een bestand in plaats van het volledige object in een byte‑array te laden.
+Voor grote audio‑objecten, gebruik [IAudio::GetStream](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iaudio/getstream/) en kopieer de stream naar een bestand in plaats van het volledige object in een byte‑array te laden.
 
-## **Gedrag Na Animatie Instellen**
+## **Instellen van gedrag na animatie**
 
-De **After animation**‑optie bepaalt wat er met een vorm gebeurt nadat het effect is voltooid.
+De optie **After animation** bepaalt wat er met een vorm gebeurt nadat het effect is voltooid.
 
-![PowerPoint Effect Options‑dialoog die After‑animatie‑instellingen toont](shape-after-animation.png)
+![PowerPoint Effect Options‑dialoog die After‑animatie-instellingen toont](shape-after-animation.png)
 
-De enumeratie [AfterAnimationType] ondersteunt het ongewijzigd laten van de vorm, het wijzigen van de kleur, het verbergen na de animatie, of het verbergen bij de volgende klik. Wanneer het type [AfterAnimationType::Color] is, roep je [IEffect::get_AfterAnimationColor] aan om ook de kleur in te stellen.
+De [AfterAnimationType](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/afteranimationtype/)‑enumeratie ondersteunt het ongewijzigd laten van de vorm, het wijzigen van de kleur, deze verbergen na de animatie, of verbergen bij de volgende klik. Wanneer het type [AfterAnimationType::Color](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/afteranimationtype/) is, roep je [IEffect::get_AfterAnimationColor](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/ieffect/get_afteranimationcolor/) aan om de kleur ook in te stellen.
 
-Dit zelfstandige voorbeeld maakt een effect, stelt het gedrag na de animatie in via het geretourneerde effect‑object, en slaat het resultaat op.
+Dit zelfstandige voorbeeld maakt een effect, stelt het gedrag na animatie in via het geretourneerde effectobject, en slaat het resultaat op.
 
 ```cpp
 #include <DOM/Animation/AfterAnimationType.h>
@@ -500,16 +500,16 @@ presentation->Save(u"shape-animation-after-effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Het wijzigen van het type van [AfterAnimationType::Color] wist de after‑animation‑kleurinstelling.
+Het wijzigen van het type van [AfterAnimationType::Color](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/afteranimationtype/) wist de after‑animation‑kleurinstelling.
 
-## **Tekst Animeren**
+## **Tekst animeren**
 
-Tekst‑animatie heeft twee verwante bedieningselementen:
+Tekstanimatie heeft twee gerelateerde besturingselementen:
 
-- [ITextAnimation::set_BuildType] bepaalt of alinea’s tegelijk verschijnen of per alinea‑niveau.
-- [IEffect::set_AnimateTextType] bepaalt of tekst in één keer, per woord of per letter verschijnt. [IEffect::set_DelayBetweenTextParts] stelt de vertraging tussen woorden of letters in. Een positieve waarde is een percentage van de effectduur; een negatieve waarde is een vertraging in seconden.
+- [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/itextanimation/set_buildtype/) bepaalt of alinea's samen verschijnen of per alinea.
+- [IEffect::set_AnimateTextType](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) bepaalt of tekst in één keer, per woord of per letter verschijnt. [IEffect::set_DelayBetweenTextParts](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) stelt de vertraging tussen woorden of letters in. Een positieve waarde is een percentage van de effectduur; een negatieve waarde is een vertraging in seconden.
 
-Het volgende zelfstandige voorbeeld animeert de woorden in een tekstvak. [BuildType::AsOneObject] schakelt het per‑paragraaf‑bouwen uit zodat de woord‑instelling geldt voor het volledige tekstkader.
+Het volgende zelfstandige voorbeeld animeert de woorden in een tekstvak. [BuildType::AsOneObject](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/buildtype/) schakelt het per‑alinea opbouwen uit zodat de woordinstelling van toepassing is op het gehele tekstframe.
 
 ```cpp
 #include <DOM/Animation/AnimateTextType.h>
@@ -549,26 +549,26 @@ presentation->Save(u"animated-text.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Om een tekstvak per alinea te bouwen, gebruik je [ITextAnimation::set_BuildType] met [BuildType::ByLevelParagraphs1] of een ander alinea‑niveau. Om een enkele alinea met een eigen effect te targeten, gebruik je de overload van [ISequence::AddEffect] die een [IParagraph] accepteert. Zie [Animated Text](/slides/nl/cpp/animated-text/) voor alinea‑niveau voorbeelden.
+Om een tekstvak per alinea op te bouwen, gebruik je [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/itextanimation/set_buildtype/) met [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/buildtype/) of een ander alinea‑niveau. Om een enkele alinea met een eigen effect te targeten, gebruik je de overload van [ISequence::AddEffect](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/isequence/addeffect/) die een [IParagraph](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iparagraph/) accepteert. Zie [Geanimeerde tekst](/slides/nl/cpp/animated-text/) voor voorbeelden op alinea‑niveau.
 
-## **Export‑ en Compatibiliteitsopmerkingen**
+## **Export‑ en compatibiliteitsopmerkingen**
 
-- Opslaan als PPT of PPTX behoudt het animatiemodel, maar de uiteindelijke weergave wordt bestuurd door de presentatie‑viewer.
-- PDF en statische afbeeldingen spelen geen animaties af. Gebruik [HTML5 export](/slides/nl/cpp/export-to-html5/), geanimeerde GIF of [video conversion](/slides/nl/cpp/convert-powerpoint-to-video/) wanneer de output beweging moet tonen.
-- Voor HTML5, schakel [Html5Options::set_AnimateShapes] in en, indien nodig, [Html5Options::set_AnimateTransitions].
-- Video‑rendering ondersteunt vele gangbare entree‑, nadruk‑, exit‑ en bewegings‑pad‑effecten, maar niet elk PowerPoint‑effect wordt ondersteund. Controleer de huidige [supported animations and effects](/slides/nl/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) en test kritische presentaties met de gewenste versie van Aspose.Slides.
-- Geavanceerde aangepaste effect­en en effect­en geïmporteerd uit andere presentatie‑formaten kunnen in het bestand bewaard blijven, maar anders worden weergegeven in PowerPoint, HTML5 of video. Valideer het geëxporteerde resultaat in plaats van alleen op de effectnaam te vertrouwen.
+- Opslaan als PPT of PPTX behoudt het animatiemodel, maar de uiteindelijke afspeling wordt aangestuurd door de presentatieweergave.
+- PDF en statische afbeeldingen spelen geen animaties af. Gebruik [HTML5 export](/slides/nl/cpp/export-to-html5/), geanimeerde GIF of [video‑conversie](/slides/nl/cpp/convert-powerpoint-to-video/) wanneer de output beweging moet tonen.
+- Voor HTML5, schakel [Html5Options::set_AnimateShapes](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/html5options/set_animateshapes/) in en, indien nodig, [Html5Options::set_AnimateTransitions](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/html5options/set_animatetransitions/).
+- Videorendering ondersteunt veel gangbare ingang-, nadruk‑, uitgang‑ en bewegingspad‑effecten, maar niet elk PowerPoint‑effect wordt ondersteund. Controleer de huidige [supported animations and effects](/slides/nl/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) en test kritieke presentaties met de beoogde Aspose.Slides‑versie.
+- Geavanceerde aangepaste effecte en effecte geïmporteerd uit andere presentatieformaten kunnen in het bestand bewaard blijven maar anders worden gerenderd in PowerPoint, HTML5 of video. Valideer het geëxporteerde resultaat in plaats van alleen op de effectnaam te vertrouwen.
 
 ## **FAQ**
 
 **Waarom verschijnt een animatie in PowerPoint maar niet in een PDF?**
 
-PDF is een statisch formaat, dus animaties en dia‑overgangen worden niet afgespeeld. Exporteer naar HTML5, geanimeerde GIF of video wanneer beweging behouden moet blijven.
+PDF is een statisch formaat, dus animaties en dia‑overgangen worden niet afgespeeld. Exporteer naar HTML5, een geanimeerde GIF of video wanneer beweging behouden moet blijven.
 
 **Waarom wordt een effect anders afgespeeld in een video?**
 
-Video‑export rendert animaties in plaats van het originele PowerPoint‑gedrag op te slaan. Sommige geavanceerde effecten worden niet ondersteund of benaderd. Bekijk de tabel met ondersteunde effect­en en test de daadwerkelijke presentatie vóór productie‑gebruik.
+Video‑export rendert animaties in plaats van het originele PowerPoint‑gedrag op te slaan. Sommige geavanceerde effecte worden niet ondersteund of benaderd. Bekijk de tabel met ondersteunde effecte en test de daadwerkelijke presentatie vóór productie‑gebruik.
 
-**Verandert het naar voren of achteren verplaatsen van een vorm de animatievolgorde?**
+**Verandert het verplaatsen van een vorm naar voren of naar achteren de animatievolgorde?**
 
-Nee. De z‑volgorde van een vorm bepaalt de overlapping, terwijl de volgorde van reeksen en triggers de afspeelvolgorde van animaties bepalen. Pas de tijdlijn aan als je een andere afspeelvolgorde nodig hebt.
+Nee. De z‑volgorde van vormen bepaalt de overlapping, terwijl de volgorde van sequenties en triggers de animatie‑afspeelvolgorde bepalen. Pas de tijdlijn aan als je een andere afspeelvolgorde nodig hebt.

@@ -8,8 +8,8 @@ keywords:
 - σχήμα
 - κίνηση
 - εφέ
-- σχήμα με κίνηση
-- κείμενο με κίνηση
+- κινούμενο σχήμα
+- κινούμενο κείμενο
 - προσθήκη κίνησης
 - λήψη κίνησης
 - εξαγωγή κίνησης
@@ -23,24 +23,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε, ελέγχετε και προσαρμόζετε κινήσεις σχημάτων, χρονισμούς, ήχους, συμπεριφορά μετά την κίνηση και κείμενο με κίνηση με το Aspose.Slides για .NET."
+description: "Μάθετε πώς να προσθέτετε, ελέγχετε και προσαρμόζετε τις κινήσεις σχημάτων, το χρονισμό, τους ήχους, τη συμπεριφορά μετά το εφέ και το κείμενο με κινήσεις, χρησιμοποιώντας το Aspose.Slides για .NET."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides for .NET αντιπροσωπεύει τις κινήσεις διαφάνειας ως εφέ σε χρονοδιάγραμμα διαφάνειας. Ένα εφέ έχει σχήμα-στόχο, τύπο κίνησης και υποτύπο, ένα ενεργοποιητή, ρυθμίσεις χρονισμού και προαιρετικές ιδιότητες όπως ήχος ή συμπεριφορά μετά το εφέ.
+Για να δουλέψετε με τις μεμονωμένες συμπεριφορές μέσα σε ένα εφέ ή επεξεργαστείτε τμήματα διαδρομής κίνησης, δείτε [Προσαρμοσμένη Κίνηση](/slides/el/net/custom-animation/).
+
+Το Aspose.Slides for .NET αντιπροσωπεύει τις κινήσεις των διαφανειών ως εφέ σε χρονοδιάγραμμα διαφάνειας. Ένα εφέ έχει ένα σχήμα‑στόχο, έναν τύπο κίνησης και υποτύπο, έναν ενεργοποιητή, ρυθμίσεις χρονισμού και προαιρετικές ιδιότητες όπως ήχος ή συμπεριφορά μετά το εφέ.
 
 Το χρονοδιάγραμμα περιέχει δύο είδη ακολουθιών:
 
 - Η **κύρια ακολουθία** παίζει καθώς προχωρά η διαφάνεια.
-- Μια **διαδραστική ακολουθία** ξεκινά όταν κάνει κλικ στο σχήμα-ενεργοποιητή της.
+- Μία **διαδραστική ακολουθία** ξεκινά όταν κλικάρεται το σχήμα‑ενεργοποιητής.
 
-Επειδή πλαίσια κειμένου, εικόνες, γραφήματα, πίνακες και άλλα αντικείμενα διαφάνειας υλοποιούν το [IShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/), χρησιμοποιείτε την ίδια μέθοδο [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/) για το μεγαλύτερο μέρος του περιεχομένου διαφάνειας. Τα διαθέσιμα εφέ αναφέρονται στην απαρίθμηση [EffectType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effecttype/).
+Επειδή τα πλαίσια κειμένου, οι εικόνες, τα διαγράμματα, οι πίνακες και άλλα αντικείμενα διαφάνειας υλοποιούν το [IShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/), χρησιμοποιείτε την ίδια μέθοδο [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/) για τα περισσότερα περιεχόμενα διαφάνειας. Τα διαθέσιμα εφέ παρατίθενται στην απαρίθμηση [EffectType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effecttype/).
 
 ## **Προσθήκη Κινήσεων Σχημάτων**
 
-Για να προσθέσετε μια κίνηση, λάβετε την κύρια ακολουθία της διαφάνειας και καλέστε την [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/) με το σχήμα-στόχο, τον τύπο εφέ, τον υποτύπο και τον ενεργοποιητή. Για ένα εφέ που ξεκινά όταν κάνει κλικ σε άλλο σχήμα, δημιουργήστε μια διαδραστική ακολουθία της οποίας ο ενεργοποιητής είναι το συγκεκριμένο σχήμα.
+Για να προσθέσετε μια κίνηση, πάρτε την κύρια ακολουθία της διαφάνειας και καλέστε την [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/) με το σχήμα‑στόχο, τον τύπο εφέ, το υποτύπο και τον ενεργοποιητή. Για ένα εφέ που ξεκινά όταν κλικάρεται κάποιο άλλο σχήμα, δημιουργήστε μια διαδραστική ακολουθία της οποίας ο ενεργοποιητής είναι αυτό το άλλο σχήμα.
 
-Το παρακάτω παράδειγμα δημιουργεί και τους δύο τύπους κίνησης και αποθηκεύει το αποτέλεσμα στο `shape-animations.pptx`.
+Το παρακάτω παράδειγμα δημιουργεί και τους δύο τύπους κινήσεων και αποθηκεύει το αποτέλεσμα στο `shape-animations.pptx`.
 
 ```csharp
 using Aspose.Slides;
@@ -66,19 +68,19 @@ interactiveSequence.AddEffect(targetShape, EffectType.PathFootball, EffectSubtyp
 presentation.Save("shape-animations.pptx", SaveFormat.Pptx);
 ```
 
-Ο ενεργοποιητής ελέγχει πότε αρχίζει ένα εφέ:
+Ο ενεργοποιητής ελέγχει πότε ξεκινά ένα εφέ:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effecttriggertype/) περιμένει κλικ στη κύρια ακολουθία ή κλικ στο σχήμα-ενεργοποιητή σε διαδραστική ακολουθία.
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effecttriggertype/) ξεκινά με το προηγούμενο εφέ.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effecttriggertype/) ξεκινά όταν ολοκληρωθεί το προηγούμενο εφέ.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effecttriggertype/) περιμένει κλικ στην κύρια ακολουθία ή κλικ στο σχήμα‑ενεργοποιητή σε μια διαδραστική ακολουθία.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effecttriggertype/) αρχίζει με το προηγούμενο εφέ.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effecttriggertype/) αρχίζει όταν το προηγούμενο εφέ ολοκληρώνεται.
 
-Για να ανιματίσετε μια εικόνα, ένα γράφημα ή άλλο τύπο σχήματος, περάστε το αντικείμενο αυτό στην [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/) αντί για το `targetShape`. Για επιλογές ομαδοποίησης ειδικές για γραφήματα, δείτε το [Animated Charts](/slides/el/net/animated-charts/).
+Για να κινήσετε μια εικόνα, ένα γράφημα ή κάποιον άλλο τύπο σχήματος, περάστε αυτό το αντικείμενο στην [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/) αντί για `targetShape`. Για επιλογές ομαδοποίησης ειδικές για γραφήματα, δείτε [Γραφήματα με Κίνηση](/slides/el/net/animated-charts/).
 
 ## **Ανάγνωση Κινήσεων Σχημάτων**
 
-Χρησιμοποιήστε την [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/geteffectsbyshape/) όταν γνωρίζετε το σχήμα-στόχο. Για να ελέγξετε κάθε εφέ, κάντε επανάληψη στη κύρια ακολουθία και σε κάθε διαδραστική ακολουθία. Η επανάληψη αποφεύγει την υπόθεση ότι μια ακολουθία περιέχει εφέ στο ευρετήριο `0`.
+Χρησιμοποιήστε το [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/geteffectsbyshape/) όταν γνωρίζετε το σχήμα‑στόχο. Για να εξετάσετε κάθε εφέ, απαριθμήστε την κύρια ακολουθία και κάθε διαδραστική ακολουθία. Η απαρίθμηση αποτρέπει την υπόθεση ότι μια ακολουθία περιέχει εφέ στη θέση `0`.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα με εφέ κύριας ακολουθίας και διαδραστικής ακολουθίας, παίρνει τα εφέ που στοχεύουν το σχήμα και, στη συνέχεια, κάνει επανάληψη σε κάθε ακολουθία της διαφάνειας.
+Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα με εφέ κύριας και διαδραστικής ακολουθίας, λαμβάνει τα εφέ που στοχεύουν στο σχήμα και στη συνέχεια απαριθμεί κάθε ακολουθία στη διαφάνεια.
 
 ```csharp
 using System;
@@ -126,21 +128,21 @@ static void PrintSequence(string label, ISequence sequence)
 }
 ```
 
-Αν χρειάζεστε μόνο τα εφέ για ένα σχήμα, προσδιορίστε πρώτα το σχήμα με όνομα, τύπο placeholder ή άλλη σταθερή ιδιότητα· έπειτα καλέστε την [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/geteffectsbyshape/). Μην υποθέτετε ότι το [IShapeCollection.Item](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/item/) στο ευρετήριο `0` είναι πάντα το επιθυμητό αντικείμενο.
+Αν χρειάζεστε μόνο τα εφέ για ένα σχήμα, πρώτα προσδιορίστε το σχήμα με όνομα, τύπο σύμβολου ή άλλη σταθερή ιδιότητα· έπειτα καλέστε το [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/geteffectsbyshape/). Μην υποθέτετε ότι το [IShapeCollection.Item](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/item/) στη θέση `0` είναι πάντα το επιθυμητό αντικείμενο.
 
-## **Εργασία με Κληρονομημένα Εφέ Placeholder**
+## **Εργασία με Κληρονομημένα Εφέ Σύμβολων**
 
-Ένα placeholder σε κανονική διαφάνεια μπορεί να κληρονομήσει τη συμπεριφορά κίνησης από το αντίστοιχο placeholder στη διάταξη και στο master. Η [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/getbaseplaceholder/) επιστρέφει το γονικό placeholder ή `null` όταν δεν υπάρχει γονέας.
+Ένα σύμβολο σε μια κανονική διαφάνεια μπορεί να κληρονομήσει τη συμπεριφορά κίνησης από το αντίστοιχο σύμβολο στη διαφάνεια διάταξης και στην κύρια διαφάνεια. Το [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/getbaseplaceholder/) επιστρέφει εκείνο το γονικό σύμβολο ή `null` όταν δεν υπάρχει γονέας.
 
-Στο παρακάτω παράδειγμα παρουσίασης, το υποσέλιδο έχει **Random Bars** στη κανονική διαφάνεια, **Split** στη διαφάνεια διάταξης και **Fly In** στη master.
+Στην παρακάτω παρουσίαση παραδείγματος, το υποσέλιδο έχει **Random Bars** στη φυσική διαφάνεια, **Split** στη διαφάνεια διάταξης και **Fly In** στη κύρια διαφάνεια.
 
-![Footer animation effect on the normal slide](slide-shape-animation.png)
+![Εφέ κίνησης υποσέλιδου στη φυσική διαφάνεια](slide‑shape‑animation.png)
 
-![Footer placeholder animation effect on the layout slide](layout-shape-animation.png)
+![Εφέ κίνησης σύμβολου υποσέλιδου στη διαφάνεια διάταξης](layout‑shape‑animation.png)
 
-![Footer placeholder animation effect on the master slide](master-shape-animation.png)
+![Εφέ κίνησης σύμβολου υποσέλιδου στη κύρια διαφάνεια](master‑shape‑animation.png)
 
-Το επόμενο παράδειγμα κατασκευάζει τη ιεραρχία των placeholder. Προσθέτει εφέ σε ένα master placeholder, ένα layout placeholder και το αντίστοιχο placeholder σε κανονική διαφάνεια. Κάθε κλήση στην [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/getbaseplaceholder/) ελέγχεται πριν χρησιμοποιηθεί το επιστρεφόμενο σχήμα.
+Το επόμενο παράδειγμα δημιουργεί την ιεραρχία των συμβόλων. Προσθέτει εφέ σε ένα σύμβολο κύριας διαφάνειας, ένα σύμβολο διάταξης και το αντίστοιχο σύμβολο σε μια κανονική διαφάνεια. Κάθε κλήση στο [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/getbaseplaceholder/) ελέγχεται πριν χρησιμοποιηθεί το επιστρεφόμενο σχήμα.
 
 ```csharp
 using System;
@@ -211,17 +213,17 @@ static void PrintEffects(string source, IEffect[] effects)
 
 ## **Αλλαγή Χρονισμού Κίνησης**
 
-Το διάλογο **Timing** του PowerPoint αντιστοιχεί στις ιδιότητες της [ITiming](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/).
+Ο διάλογος **Timing** του PowerPoint αντιστοιχεί στις ιδιότητες του [ITiming](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/).
 
-![PowerPoint Timing dialog for an animation effect](shape-animation.png)
+![Διάλογος Χρόνου PowerPoint για ένα εφέ κίνησης](shape‑animation.png)
 
-- **Start** αντιστοιχεί στο [ITiming.TriggerType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/triggertype/).
-- **Duration** αντιστοιχεί στο [ITiming.Duration](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/duration/), σε δευτερόλεπτα.
-- **Delay** αντιστοιχεί στο [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/triggerdelaytime/), σε δευτερόλεπτα.
-- **Repeat** αντιστοιχεί στο [ITiming.RepeatCount](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatcount/), στο [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatuntilnextclick/) ή στο [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatuntilendslide/).
-- **Rewind when done playing** αντιστοιχεί στο [ITiming.Rewind](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/rewind/).
+- Η **Έναρξη** αντιστοιχεί στο [ITiming.TriggerType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/triggertype/).
+- Η **Δ διάρκεια** αντιστοιχεί στο [ITiming.Duration](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/duration/), σε δευτερόλεπτα.
+- Η **Καθυστέρηση** αντιστοιχεί στο [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/triggerdelaytime/), σε δευτερόλεπτα.
+- Η **Επανάληψη** αντιστοιχεί στο [ITiming.RepeatCount](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatcount/), [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatuntilnextclick/), ή [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatuntilendslide/).
+- Η **Επαναφορά όταν ολοκληρωθεί η αναπαραγωγή** αντιστοιχεί στο [ITiming.Rewind](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/rewind/).
 
-Αυτό το ανεξάρτητο παράδειγμα προσθέτει ένα εφέ, αλλάζει το χρονισμό του μέσω του αντικειμένου που επιστρέφει η [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/), και αποθηκεύει το αποτέλεσμα. Η διατήρηση της αναφοράς προς το [IEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/) αποτρέπει μια περιττή πρόσβαση σε δείκτη συλλογής.
+Αυτό το ανεξάρτητο παράδειγμα προσθέτει ένα εφέ, αλλάζει το χρονισμό του μέσω του αντικειμένου που επιστρέφεται από το [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/), και αποθηκεύει το αποτέλεσμα. Η διατήρηση της επιστρεφόμενης αναφοράς [IEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/) αποτρέπει έναν μη απαραίτητο δείκτη συλλογής.
 
 ```csharp
 using Aspose.Slides;
@@ -245,15 +247,15 @@ effect.Timing.Rewind = true;
 presentation.Save("shape-animation-timing.pptx", SaveFormat.Pptx);
 ```
 
-Χρησιμοποιήστε έναν τρόπο επανάληψης σκόπιμα. Ο συνδυασμός μετρήτρου επανάληψης με σημείο «μέχρι» μπορεί να οδηγήσει σε ασάφια σε διαφορετικούς προβολείς. Κατά την αλλαγή τρόπων επανάληψης, ορίστε πρώτα το [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatuntilnextclick/) και το [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatuntilendslide/) πριν το [ITiming.RepeatCount](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatcount/), καθώς η ρύθμιση οποιουδήποτε σημαίας αλλάζει επίσης τη λειτουργική κατάσταση επανάληψης.
+Χρησιμοποιήστε έναν τρόπο επανάληψης σκόπιμα. Ο συνδυασμός μετρήματος επανάληψης με σημαία «until» μπορεί να παράγει συγκεχυμένα αποτελέσματα σε διαφορετικούς προβολείς. Όταν αλλάζετε τους τρόπους επανάληψης, ορίστε πρώτα το [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatuntilnextclick/) και το [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatuntilendslide/) πριν το [ITiming.RepeatCount](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatcount/), επειδή ο ορισμός οποιασδήποτε σημαίας αλλάζει επίσης τον ενεργό τρόπο επανάληψης.
 
 ## **Προσθήκη και Εξαγωγή Ήχων Κίνησης**
 
-Ένα εφέ κίνησης μπορεί να παραπέμπει σε ενσωματωμένο ήχο μέσω του [IEffect.Sound](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/sound/). Το [IEffect.StopPreviousSound](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/stopprevioussound/) λέει στο εφέ να διακόψει ήχο που ξεκίνησε ένα προηγούμενο εφέ.
+Ένα εφέ κίνησης μπορεί να αναφέρεται σε ενσωματωμένο ήχο μέσω του [IEffect.Sound](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/sound/). Το [IEffect.StopPreviousSound](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/stopprevioussound/) λέει σε ένα εφέ να σταματήσει ήχο που είχε ξεκινήσει ένα προηγούμενο εφέ.
 
-### **Προσθήκη Ήχου σε Εφέ**
+### **Προσθήκη Ήχου σε Ένα Εφέ**
 
-Το παρακάτω παράδειγμα απαιτεί τοπικό αρχείο ήχου ονόματι `animation-sound.wav`. Δημιουργεί δύο εφέ, ενσωματώνει το αρχείο ως ήχο για το πρώτο εφέ και ρυθμίζει το δεύτερο εφέ να σταματά τον ήχο. Χρησιμοποιεί τα αντικείμενα που επιστρέφει η [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/), οπότε δεν απαιτείται δείκτης ακολουθίας.
+Το παρακάτω παράδειγμα περιμένει ένα τοπικό αρχείο ήχου με όνομα `animation-sound.wav`. Δημιουργεί δύο εφέ, ενσωματώνει το αρχείο ως ήχο για το πρώτο εφέ και ρυθμίζει το δεύτερο εφέ να σταματάει τον ήχο. Χρησιμοποιεί τα αντικείμενα που επιστρέφονται από το [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/), έτσι δεν απαιτείται δείκτης ακολουθίας.
 
 ```csharp
 using System.IO;
@@ -282,7 +284,7 @@ presentation.Save("shape-animation-sound.pptx", SaveFormat.Pptx);
 
 ### **Εξαγωγή Ενσωματωμένων Ήχων Εφέ**
 
-Το παρακάτω παράδειγμα απαιτεί μια τοπική παρουσίαση ονόματι `presentation-with-animation-sounds.pptx`. Σαρώνει τόσο την κύρια όσο και τη διαδραστική ακολουθία και γράφει κάθε ενσωματωμένο ήχο εφέ στον φάκελο `extracted-animation-sounds`. Η επέκταση επιλέγεται από τον τύπο MIME του ήχου που εκθέτει το [IAudio.ContentType](https://reference.aspose.com/slides/el/net/aspose.slides/iaudio/contenttype/).
+Το παρακάτω παράδειγμα περιμένει μια τοπική παρουσίαση με όνομα `presentation-with-animation-sounds.pptx`. Σαρώνει τόσο τις κύριες όσο και τις διαδραστικές ακολουθίες και γράφει κάθε ενσωματωμένο ήχο εφέ στον φάκελο `extracted-animation-sounds`. Η επέκταση επιλέγεται από τον τύπο MIME του ήχου που εκτίθεται από το [IAudio.ContentType](https://reference.aspose.com/slides/el/net/aspose.slides/iaudio/contenttype/).
 
 ```csharp
 using System;
@@ -344,17 +346,17 @@ static string GetAudioExtension(string contentType)
 }
 ```
 
-Για μεγάλα αντικείμενα ήχου, χρησιμοποιήστε το [IAudio.GetStream](https://reference.aspose.com/slides/el/net/aspose.slides/iaudio/getstream/) και αντιγράψτε τη ροή σε αρχείο αντί να φορτώσετε ολόκληρο το αντικείμενο σε πίνακα byte.
+Για μεγάλα αρχεία ήχου, χρησιμοποιήστε το [IAudio.GetStream](https://reference.aspose.com/slides/el/net/aspose.slides/iaudio/getstream/) και αντιγράψτε τη ροή σε ένα αρχείο αντί να φορτώσετε ολόκληρο το αντικείμενο σε έναν πίνακα byte.
 
-## **Ορισμός Συμπεριφοράς Μετά την Κίνηση**
+## **Ορισμός Συμπεριφοράς Μετά το Εφέ**
 
-Η επιλογή **After animation** ελέγχει τι συμβαίνει με ένα σχήμα μετά το τέλος του εφέ.
+Η επιλογή **After animation** ελέγχει τι συμβαίνει με ένα σχήμα μετά το τέλος του εφέ του.
 
-![PowerPoint Effect Options dialog showing After animation settings](shape-after-animation.png)
+![Διάλογος Επιλογών Εφέ PowerPoint που εμφανίζει τις ρυθμίσεις Μετά το εφέ](shape‑after‑animation.png)
 
-Η απαρίθμηση [AfterAnimationType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/afteranimationtype/) υποστηρίζει την διατήρηση του σχήματος αμετάβλητου, την αλλαγή του χρώματος, την απόκρυψη του μετά την κίνηση ή την απόκρυψη του με το επόμενο κλικ. Όταν ο τύπος είναι [AfterAnimationType.Color](https://reference.aspose.com/slides/el/net/aspose.slides.animation/afteranimationtype/), ορίστε επίσης το [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/afteranimationcolor/).
+Η απαρίθμηση [AfterAnimationType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/afteranimationtype/) υποστηρίζει την διατήρηση του σχήματος αμετάβλητο, την αλλαγή του χρώματός του, την απόκρυψή του μετά την κίνηση, ή την απόκρυψή του στο επόμενο κλικ. Όταν ο τύπος είναι [AfterAnimationType.Color](https://reference.aspose.com/slides/el/net/aspose.slides.animation/afteranimationtype/), ορίστε επίσης το [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/afteranimationcolor/).
 
-Αυτό το ανεξάρτητο παράδειγμα δημιουργεί ένα εφέ, ορίζει τη συμπεριφορά μετά την κίνηση μέσω του αντικειμένου εφέ που επιστρέφεται, και αποθηκεύει το αποτέλεσμα.
+Αυτό το ανεξάρτητο παράδειγμα δημιουργεί ένα εφέ, ορίζει τη συμπεριφορά μετά το εφέ μέσω του επιστρεφόμενου αντικειμένου εφέ και αποθηκεύει το αποτέλεσμα.
 
 ```csharp
 using System.Drawing;
@@ -374,16 +376,16 @@ effect.AfterAnimationColor.Color = Color.LightGray;
 presentation.Save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
 ```
 
-Η αλλαγή του τύπου από το [AfterAnimationType.Color](https://reference.aspose.com/slides/el/net/aspose.slides.animation/afteranimationtype/) καθαρίζει τη ρύθμιση χρώματος μετά την κίνηση.
+Η αλλαγή του τύπου από το [AfterAnimationType.Color](https://reference.aspose.com/slides/el/net/aspose.slides.animation/afteranimationtype/) καθαρίζει τη ρύθμιση χρώματος μετά το εφέ.
 
 ## **Κίνηση Κειμένου**
 
-Η κίνηση κειμένου διαθέτει δύο σχετιζόμενους ελέγχους:
+Η κίνηση κειμένου έχει δύο σχετικούς ελέγχους:
 
-- Το [ITextAnimation.BuildType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itextanimation/buildtype/) ελέγχει αν οι παράγραφοι εμφανίζονται μαζί ή ανά επίπεδο παραγράφου.
-- Το [IEffect.AnimateTextType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/animatetexttype/) ελέγχει αν το κείμενο εμφανίζεται ολόκληρο, ανά λέξη ή ανά γράμμα. Το [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/delaybetweentextparts/) ορίζει την καθυστέρηση μεταξύ λέξεων ή γραμμάτων. Μία θετική τιμή είναι ποσοστό της διάρκειας του εφέ· μια αρνητική τιμή είναι καθυστέρηση σε δευτερόλεπτα.
+- Το [ITextAnimation.BuildType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itextanimation/buildtype/) ελέγχει εάν οι παράγραφοι εμφανίζονται μαζί ή ανά επίπεδο παραγράφου.
+- Το [IEffect.AnimateTextType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/animatetexttype/) ελέγχει εάν το κείμενο εμφανίζεται ολόκληρο μονομιάς, λέξη‑με‑λέξη ή γράμμα‑με‑γράμμα. Το [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/delaybetweentextparts/) ορίζει την καθυστέρηση μεταξύ λέξεων ή γραμμάτων. Μια θετική τιμή είναι ποσοστό της διάρκεια του εφέ· μια αρνητική τιμή είναι καθυστέρηση σε δευτερόλεπτα.
 
-Το παρακάτω ανεξάρτητο παράδειγμα κινεί τις λέξεις σε ένα πλαίσιο κειμένου. Το [BuildType.AsOneObject](https://reference.aspose.com/slides/el/net/aspose.slides.animation/buildtype/) απενεργοποιεί το χτίσιμο ανά παράγραφο ώστε η ρύθμιση λέξης να ισχύει για όλο το κείμενο.
+Το παρακάτω ανεξάρτητο παράδειγμα κινεί τις λέξεις σε ένα πλαίσιο κειμένου. Το [BuildType.AsOneObject](https://reference.aspose.com/slides/el/net/aspose.slides.animation/buildtype/) απενεργοποιεί την κατασκευή παράγραφος‑από‑παράγραφο, ώστε η ρύθμιση λέξης να ισχύει για ολόκληρο το πλαίσιο κειμένου.
 
 ```csharp
 using Aspose.Slides;
@@ -403,26 +405,26 @@ effect.DelayBetweenTextParts = 20.0f;
 presentation.Save("animated-text.pptx", SaveFormat.Pptx);
 ```
 
-Για χτίσιμο πλαισίου κειμένου ανά παράγραφο, ορίστε το [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/el/net/aspose.slides.animation/buildtype/) (ή άλλο επίπεδο παραγράφου). Για να στοχεύσετε μία μόνο παράγραφο με δικό της εφέ, χρησιμοποιήστε την υπερφόρτωση της [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/) που δέχεται ένα [IParagraph](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/). Δείτε το [Animated Text](/slides/el/net/animated-text/) για παραδείγματα επιπέδου παραγράφου.
+Για να χτίσετε ένα πλαίσιο κειμένου παράγραφο‑ προς‑ παράγραφο, ορίστε το [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/el/net/aspose.slides.animation/buildtype/) (ή κάποιο άλλο επίπεδο παραγράφου). Για να στοχεύσετε μια ενιαία παράγραφο με δικό της εφέ, χρησιμοποιήστε την υπερφόρτωση του [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/) που δέχεται ένα [IParagraph](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/). Δείτε το [Animated Text](/slides/el/net/animated-text/) για παραδείγματα επιπέδου παραγράφου.
 
-## **Εξαγωγή και Σημειώσεις Συμβατότητας**
+## **Σημειώσεις Εξαγωγής και Συμβατότητας**
 
 - Η αποθήκευση σε PPT ή PPTX διατηρεί το μοντέλο κίνησης, αλλά η τελική αναπαραγωγή ελέγχεται από τον προβολέα παρουσίασης.
-- Τα PDF και οι στατικές εικόνες δεν παίζουν κίνησεις. Χρησιμοποιήστε την [HTML5 export](/slides/el/net/export-to-html5/), animated GIF ή τη [video conversion](/slides/el/net/convert-powerpoint-to-video/) όταν η έξοδος πρέπει να δείχνει κίνηση.
-- Για HTML5, ενεργοποιήστε το [Html5Options.AnimateShapes](https://reference.aspose.com/slides/el/net/aspose.slides.export/html5options/animateshapes/) και, κατά ανάγκη, το [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/el/net/aspose.slides.export/html5options/animatetransitions/).
-- Η απόδοση βίντεο υποστηρίζει πολλούς συνηθισμένους εφέ είσοδος, έμφαση, έξοδος και διαδρομές κίνησης, αλλά δεν υποστηρίζει κάθε εφέ του PowerPoint. Ελέγξτε τις τρέχουσες [supported animations and effects](/slides/el/net/convert-powerpoint-to-video/#supported-animations-and-effects) και δοκιμάστε κρίσιμες παρουσιάσεις με την έκδοση Aspose.Slides που χρησιμοποιείτε.
-- Προηγμένα προσαρμοσμένα εφέ και εφέ που έχουν εισαχθεί από άλλες μορφές παρουσίασης μπορεί να διατηρηθούν στο αρχείο αλλά να αποδοθούν διαφορετικά σε PowerPoint, HTML5 ή βίντεο. Επαληθεύστε το εξαγόμενο αποτέλεσμα αντί να βασίζεστε μόνο στο όνομα του εφέ.
+- Το PDF και οι στατικές εικόνες δεν εκτελούν κινήσεις. Χρησιμοποιήστε την [HTML5 export](/slides/el/net/export-to-html5/), animated GIF ή τη [video conversion](/slides/el/net/convert-powerpoint-to-video/) όταν η έξοδος πρέπει να δείχνει κίνηση.
+- Για HTML5, ενεργοποιήστε το [Html5Options.AnimateShapes](https://reference.aspose.com/slides/el/net/aspose.slides.export/html5options/animateshapes/) και, εφόσον χρειάζεται, το [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/el/net/aspose.slides.export/html5options/animatetransitions/).
+- Η απόδοση βίντεο υποστηρίζει πολλά κοινά εφέ εισόδου, έμφασης, εξόδου και διαδρομής κίνησης, αλλά δεν υποστηρίζονται όλα τα εφέ του PowerPoint. Ελέγξτε τις τρέχουσες [supported animations and effects](/slides/el/net/convert-powerpoint-to-video/#supported-animations-and-effects) και δοκιμάστε κρίσιμες παρουσιάσεις με την έκδοση του Aspose.Slides που στοχεύετε.
+- Προηγμένα προσαρμοσμένα εφέ και εφέ που εισάγονται από άλλες μορφές παρουσίασης μπορεί να διατηρηθούν στο αρχείο αλλά να αποδοθούν διαφορετικά στο PowerPoint, HTML5 ή βίντεο. Επικυρώστε το εξαγόμενο αποτέλεσμα αντί να βασίζεστε μόνο στο όνομα του εφέ.
 
-## **Συχνές Ερωτήσεις**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Γιατί ένα εφέ εμφανίζεται στο PowerPoint αλλά όχι σε PDF;**
+**Γιατί εμφανίζεται μια κίνηση στο PowerPoint αλλά όχι σε PDF;**
 
-Το PDF είναι στατική μορφή, επομένως οι κινήσεις και οι μεταβάσεις διαφάνειας δεν παίζουν. Εξάγετε σε HTML5, animated GIF ή βίντεο όταν πρέπει να διατηρηθεί η κίνηση.
+Το PDF είναι στατική μορφή, επομένως οι κινήσεις και οι μεταβάσεις διαφάνειας δεν εκτελούνται. Εξάγετε σε HTML5, animated GIF ή βίντεο όταν πρέπει να διατηρηθεί η κίνηση.
 
 **Γιατί ένα εφέ παίζει διαφορετικά σε βίντεο;**
 
-Η εξαγωγή βίντεο αποδίδει τις κινήσεις αντί να αποθηκεύει την αρχική συμπεριφορά του PowerPoint. Ορισμένα προχωρημένα εφέ δεν υποστηρίζονται ή προσεγγίζονται. Εξετάστε τον πίνακα υποστηριζόμενων εφέ και δοκιμάστε την παρουσίαση πριν από την παραγωγική χρήση.
+Η εξαγωγή βίντεο αποδίδει τις κινήσεις αντί να αποθηκεύει τη συμπεριφορά του αρχικού PowerPoint. Ορισμένα προχωρημένα εφέ δεν υποστηρίζονται ή προσεγγίζονται. Εξετάστε τον πίνακα των υποστηριζόμενων εφέ και δοκιμάστε την πραγματική παρουσίαση πριν τη χρήση στην παραγωγή.
 
-**Αλλάζει η μετατόπιση ενός σχήματος προς τα εμπρός ή προς τα πίσω τη σειρά των κινήσεων;**
+**Αλλάζει η μετακίνηση ενός σχήματος προς τα εμπρός ή προς τα πίσω τη σειρά των κινήσεων του;**
 
-Όχι. Η σειρά z-order ελέγχει την επικάλυψη, ενώ η σειρά ακολουθίας και οι ενεργοποιητές ελέγχουν την αναπαραγωγή των κινήσεων. Αλλάξτε το χρονοδιάγραμμα αν χρειάζεστε διαφορετική σειρά αναπαραγωγής.
+Όχι. Η σειρά z‑order του σχήματος ελέγχει την επικάλυψη, ενώ η σειρά των ακολουθιών και οι ενεργοποιητές ελέγχουν την αναπαραγωγή της κίνησης. Αλλάξτε το χρονοδιάγραμμα αν χρειάζεστε διαφορετική σειρά αναπαραγωγής.

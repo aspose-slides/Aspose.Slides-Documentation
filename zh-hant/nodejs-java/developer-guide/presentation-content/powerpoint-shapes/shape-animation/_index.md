@@ -23,24 +23,26 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Node.js via Java 添加、檢查與自訂形狀動畫、時間設定、音效、動畫後行為，以及動畫文字。"
+description: "了解如何使用 Aspose.Slides for Node.js via Java 新增、檢查並自訂形狀動畫、時間設定、音效、動畫結束後的行為，以及動畫文字。"
 ---
-## **概觀**
+## **概述**
 
-Aspose.Slides for Node.js via Java 以幻燈片時間軸中的效果來表示幻燈片動畫。每個效果具有目標形狀、動畫類型和子類型、觸發器、時間設定，以及諸如音效或動畫後行為等可選屬性。
+若要處理效果內的各項行為或編輯運動路徑段，請參閱[自訂動畫](/slides/zh-hant/nodejs-java/custom-animation/)。
 
-時間軸包含兩種類型的序列：
+Aspose.Slides for Node.js via Java 將投影片動畫表示為投影片時間軸中的效果。每個效果都有目標形狀、動畫類型與子類型、觸發條件、時間設定，以及可選屬性（例如音效或動畫結束後的行為）。
 
-- **主序列** 在幻燈片前進時播放。
-- **互動序列** 在其觸發形狀被點擊時開始。
+時間軸包含兩種序列：
 
-由於文字方塊、圖片、圖表、表格和其他幻燈片物件都是 [Shape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shape/) 物件，您可以對大多數幻燈片內容使用相同的 [Sequence.addEffect](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sequence/#addEffect) 方法。可用的效果列在 [EffectType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effecttype/) 列舉中。
+- **主序列** 隨投影片前進時播放。
+- **互動序列** 於觸發形狀被點擊時開始。
 
-## **添加形狀動畫**
+由於文字方塊、圖片、圖表、表格以及其他投影片物件皆為 [Shape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shape/) 物件，您可以對大多數投影片內容使用相同的 [Sequence.addEffect](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sequence/#addEffect) 方法。可用的效果列於 [EffectType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effecttype/) 列舉中。
 
-要新增動畫，取得投影片的主序列，並使用目標形狀、效果類型、子類型和觸發器呼叫 [Sequence.addEffect](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sequence/#addEffect)。若要在另一個形狀被點擊時開始的效果，請建立觸發該其他形狀的互動序列。
+## **新增形狀動畫**
 
-以下範例建立兩種類型的動畫，並將結果儲存為 `shape-animations.pptx`。
+若要新增動畫，先取得投影片的主序列，並以目標形狀、效果類型、子類型與觸發條件呼叫 [Sequence.addEffect](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sequence/#addEffect)。若要在點擊其他形狀時開始的效果，請建立一個觸發形狀為該其他形狀的互動序列。
+
+以下範例會建立兩種動畫，並將結果儲存為 `shape-animations.pptx`。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -69,19 +71,19 @@ try {
 }
 ```
 
-觸發器控制效果何時開始：
+觸發條件決定效果何時開始：
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effecttriggertype/#OnClick) 在主序列中等待點擊，或在互動序列中等待對觸發形狀的點擊。
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) 隨前一個效果一起開始。
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) 在前一個效果完成時開始。
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effecttriggertype/#OnClick) 於主序列中等待點擊，或於互動序列中等待於觸發形狀的點擊。
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) 與前一個效果同時開始。
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) 在前一個效果結束後開始。
 
-若要對圖片、圖表或其他形狀類型進行動畫，請將該物件傳遞給 [Sequence.addEffect](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sequence/#addEffect) 取代 `targetShape`。有關圖表特定的分組選項，請參閱 [Animated Charts](/slides/zh-hant/nodejs-java/animated-charts/)。
+若要對圖片、圖表或其他形狀類型動畫，請將該物件傳給 [Sequence.addEffect](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sequence/#addEffect) 以取代 `targetShape`。針對圖表的分組選項，請參閱[動畫圖表](/slides/zh-hant/nodejs-java/animated-charts/)。
 
 ## **讀取形狀動畫**
 
-在已知目標形狀時，使用 [Sequence.getEffectsByShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sequence/#getEffectsByShape)。若要檢查每個效果，請列舉主序列與所有互動序列。列舉可避免假設序列在索引 `0` 處包含效果。
+當已知目標形狀時，使用 [Sequence.getEffectsByShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sequence/#getEffectsByShape)。若要檢查每個效果，請列舉主序列與所有互動序列。列舉可避免假設序列在索引 `0` 處一定有效果。
 
-以下範例建立一個具有主序列與互動效果的形狀，取得針對該形狀的效果，然後列舉投影片上的每個序列。
+以下範例會建立具有主序列與互動效果的形狀，取得針對該形狀的效果，然後列舉投影片上的每個序列。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -140,21 +142,21 @@ try {
 }
 ```
 
-如果只需要單一形狀的效果，請先依名稱、占位類型或其他穩定屬性識別該形狀；接著呼叫 [Sequence.getEffectsByShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sequence/#getEffectsByShape)。不要假設索引 `0` 的 [ShapeCollection.get_Item](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shapecollection/#get_Item) 總是目標物件。
+如果只需要單一形狀的效果，請先依名稱、占位符類型或其他穩定屬性識別該形狀；然後呼叫 [Sequence.getEffectsByShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sequence/#getEffectsByShape)。不要假設索引 `0` 處的 [ShapeCollection.get_Item](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shapecollection/#get_Item) 永遠是目標物件。
 
-## **使用繼承的占位符效果**
+## **處理繼承的占位符效果**
 
-普通投影片上的占位符可以從其版面投影片和母片上對應的占位符繼承動畫行為。[Shape.getBasePlaceholder](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shape/#getBasePlaceholder) 會回傳該父占位符，若不存在父占位符則回傳 `null`。
+普通投影片上的占位符可以繼承其版面投影片與母片投影片上對應占位符的動畫行為。[Shape.getBasePlaceholder](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shape/#getBasePlaceholder) 會傳回該父占位符，若不存在則回傳 `null`。
 
-在以下範例簡報中，頁腳在普通投影片上為 **Random Bars**，在版面投影片上為 **Split**，在母片上為 **Fly In**。
+在以下範例簡報中，頁腳在普通投影片上為 **Random Bars**、在版面投影片上為 **Split**，在母片投影片上為 **Fly In**。
 
 ![普通投影片上的頁腳動畫效果](slide-shape-animation.png)
 
 ![版面投影片上的頁腳占位符動畫效果](layout-shape-animation.png)
 
-![母片上的頁腳占位符動畫效果](master-shape-animation.png)
+![母片投影片上的頁腳占位符動畫效果](master-shape-animation.png)
 
-下一個範例使用新簡報中的占位符層級。它將效果新增至母片占位符、版面占位符以及普通投影片上相對應的占位符。每次呼叫 [Shape.getBasePlaceholder](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shape/#getBasePlaceholder) 前，都會檢查回傳的形狀是否為 null。
+下一個範例使用新簡報中的占位符層級結構。它會對母片占位符、版面占位符以及普通投影片上的相應占位符加入效果。在使用傳回的形狀之前，皆會檢查對 [Shape.getBasePlaceholder](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shape/#getBasePlaceholder) 的呼叫結果。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -240,17 +242,17 @@ try {
 
 ## **變更動畫時間設定**
 
-PowerPoint **Timing** 對話框對應到 [Timing](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/) 的屬性。
+PowerPoint 的 **Timing** 對話方塊對應到 [Timing](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/) 的屬性。
 
-![動畫效果的 PowerPoint Timing 對話框](shape-animation.png)
+![動畫效果的 PowerPoint 計時對話方塊](shape-animation.png)
 
-- **Start** 對應到 [Timing.getTriggerType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#getTriggerType)。
-- **Duration** 對應到 [Timing.getDuration](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#getDuration)，單位為秒。
-- **Delay** 對應到 [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#getTriggerDelayTime)，單位為秒。
-- **Repeat** 對應到 [Timing.getRepeatCount](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#getRepeatCount)、[Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) 或 [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide)。
-- **Rewind when done playing** 對應到 [Timing.getRewind](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#getRewind)。
+- **開始** 對應到 [Timing.getTriggerType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#getTriggerType)。
+- **持續時間** 對應到 [Timing.getDuration](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#getDuration)（以秒為單位）。
+- **延遲** 對應到 [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#getTriggerDelayTime)（以秒為單位）。
+- **重複** 對應到 [Timing.getRepeatCount](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#getRepeatCount)、[Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) 或 [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide)。
+- **播放完畢後倒轉** 對應到 [Timing.getRewind](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#getRewind)。
 
-此獨立範例加入一個效果，透過 [Sequence.addEffect](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sequence/#addEffect) 回傳的物件變更其時間設定，並儲存結果。保留回傳的 [Effect](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effect/) 參考可避免不必要的集合索引。
+此獨立範例會加入一個效果，透過 [Sequence.addEffect](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sequence/#addEffect) 回傳的物件變更其時間設定，並儲存結果。保留回傳的 [Effect](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effect/) 參考可避免不必要的集合索引。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -277,15 +279,15 @@ try {
 }
 ```
 
-請有意使用單一重複模式。將重複次數與「直到」旗標結合可能在不同的檢視器中產生混亂結果。變更重複模式時，請先設定 [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) 和 [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide)，再設定 [Timing.setRepeatCount](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#setRepeatCount)，因為設定任一旗標都會同時變更已啟用的重複模式。
+請刻意僅使用一種重複模式。將重複計數與「直到」旗標結合可能在不同的檢視器中產生混淆結果。變更重複模式時，先設定 [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) 與 [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide)，再呼叫 [Timing.setRepeatCount](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/timing/#setRepeatCount)，因為設定任一旗標也會改變目前的重複模式。
 
 ## **新增與擷取動畫音效**
 
-動畫效果可以透過 [Effect.getSound](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effect/#getSound) 參考嵌入的音訊。[Effect.setStopPreviousSound](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effect/#setStopPreviousSound) 可指示效果停止先前效果所啟動的音訊。
+動畫效果可以透過 [Effect.getSound](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effect/#getSound) 參考嵌入的音訊。[Effect.setStopPreviousSound](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effect/#setStopPreviousSound) 會指示效果停止先前效果所啟動的音訊。
 
-### **新增音效至效果**
+### **為效果新增音效**
 
-以下範例假設本機有名為 `animation-sound.wav` 的音訊檔案。它建立兩個效果，將該檔案嵌入為第一個效果的音效，並設定第二個效果停止該音效。它使用由 [Sequence.addEffect](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sequence/#addEffect) 回傳的物件，無需序列索引。
+以下範例需要本機名為 `animation-sound.wav` 的音訊檔案。它會建立兩個效果，將該檔案嵌入為第一個效果的音效，並設定第二個效果停止音效。它使用 [Sequence.addEffect](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sequence/#addEffect) 回傳的物件，因此不需要序列索引。
 
 ```javascript
 const fs = require("fs");
@@ -317,7 +319,7 @@ try {
 
 ### **擷取嵌入的效果音效**
 
-以下範例假設本機有名為 `presentation-with-animation-sounds.pptx` 的簡報。它掃描主序列與互動序列，並將每個嵌入的效果音訊寫入 `extracted-animation-sounds` 目錄。副檔名根據 [Audio.getContentType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/audio/#getContentType) 所揭露的音訊 MIME 類型選擇。
+以下範例需要本機名為 `presentation-with-animation-sounds.pptx` 的簡報。它會掃描主序列與互動序列，並將每個嵌入的效果音效寫入 `extracted-animation-sounds` 目錄。副檔名會根據 [Audio.getContentType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/audio/#getContentType) 所揭示的音訊 MIME 類型選取。
 
 ```javascript
 const fs = require("fs");
@@ -386,17 +388,17 @@ try {
 }
 ```
 
-對於大型音訊物件，請使用 [Audio.getStream](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/audio/#getStream) 並將串流複製到檔案，而不是將整個物件載入為位元組陣列。
+對於大型音訊物件，請使用 [Audio.getStream](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/audio/#getStream) 並將串流複製到檔案，而非將整個物件載入至位元組陣列中。
 
 ## **設定動畫結束後的行為**
 
-**After animation** 選項控制形狀在其效果結束後的處理方式。
+**After animation** 選項控制形狀在效果結束後的處理方式。
 
-![顯示 After animation 設定的 PowerPoint 效果選項對話框](shape-after-animation.png)
+![PowerPoint 效果選項對話方塊顯示「After animation」設定](shape-after-animation.png)
 
-[AfterAnimationType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/afteranimationtype/) 列舉支援保持形狀不變、更改其顏色、動畫結束後隱藏，或在下次點擊時隱藏。當類型為 [AfterAnimationType.Color](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/afteranimationtype/#Color) 時，還需設定 [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effect/#getAfterAnimationColor)。
+[AfterAnimationType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/afteranimationtype/) 列舉支援保持形狀不變、變更其顏色、在動畫後隱藏，或在下一次點擊時隱藏。當類型為 [AfterAnimationType.Color](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/afteranimationtype/#Color) 時，亦需設定 [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effect/#getAfterAnimationColor)。
 
-此獨立範例建立一個效果，透過回傳的 effect 物件設定其動畫結束後的行為，並儲存結果。
+此獨立範例會建立一個效果，透過回傳的效果物件設定其動畫結束後的行為，並儲存結果。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -418,16 +420,16 @@ try {
 }
 ```
 
-將類型從 [AfterAnimationType.Color] 變更會清除動畫結束後的顏色設定。
+將類型改為非 [AfterAnimationType.Color](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/afteranimationtype/#Color) 會清除動畫結束後的顏色設定。
 
 ## **文字動畫**
 
-文字動畫有兩個相關控制項：
+文字動畫有兩個相關的控制項：
 
-- [TextAnimation.getBuildType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textanimation/#getBuildType) 控制段落是一起出現還是依段落級別顯示。
-- [Effect.getAnimateTextType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effect/#getAnimateTextType) 控制文字是一次性顯示、逐字或逐字母顯示。[Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) 設定字詞或字母之間的延遲。正值為效果持續時間的百分比；負值為以秒為單位的延遲。
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textanimation/#getBuildType) 控制段落是同時顯示還是逐段落顯示。
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effect/#getAnimateTextType) 控制文字是一次顯示、逐字或逐字母顯示。[Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) 設定字或字母之間的延遲。正值表示效果持續時間的百分比，負值則表示以秒為單位的延遲。
 
-以下獨立範例為文字方塊中的單詞添加動畫。[BuildType.AsOneObject](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/buildtype/#AsOneObject) 會停用段落逐段建構，使單詞設定套用於整個文字框。
+以下獨立範例會對文字方塊中的文字逐字動畫。[BuildType.AsOneObject](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/buildtype/#AsOneObject) 會停用逐段落建構，使字詞設定套用於整個文字框。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -450,26 +452,26 @@ try {
 }
 ```
 
-若要依段落建構文字方塊，請設定 [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1)（或其他段落級別）。若要針對單一段落套用其自身效果，請使用接受 [Paragraph](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraph/) 的 [Sequence.addEffect](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sequence/#addEffect) 版本。請參閱 [Animated Text](/slides/zh-hant/nodejs-java/animated-text/) 取得段落層級的範例。
+若要逐段落建構文字方塊，請設定 [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1)（或其他段落層級）。若要針對單一段落套用其專屬效果，請使用接受 [Paragraph](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/paragraph/) 的 [Sequence.addEffect](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sequence/#addEffect) 重載。請參閱[動畫文字](/slides/zh-hant/nodejs-java/animated-text/) 取得段落層級範例。
 
 ## **匯出與相容性說明**
 
 - 儲存為 PPT 或 PPTX 會保留動畫模型，但最終播放由簡報檢視器控制。
-- PDF 與靜態影像不會播放動畫。若需顯示動作，請使用 [HTML5 export](/slides/zh-hant/nodejs-java/export-to-html5/)、動畫 GIF，或 [video conversion](/slides/zh-hant/nodejs-java/convert-powerpoint-to-video/)。
-- HTML5 需要啟用 [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/html5options/#setAnimateShapes)，必要時亦啟用 [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/html5options/#setAnimateTransitions)。
-- 影片轉譯支援許多常見的進入、強調、退出與路徑動畫效果，但並非所有 PowerPoint 效果皆受支援。請檢查目前的 [supported animations and effects](/slides/zh-hant/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) 並以目標 Aspose.Slides 版本測試關鍵簡報。
-- 進階自訂效果及從其他簡報格式匯入的效果可能在檔案中保留，但在 PowerPoint、HTML5 或影片中呈現方式可能不同。請驗證匯出結果，而非僅依賴效果名稱。
+- PDF 與靜態影像不會播放動畫。若輸出必須顯示動作，請使用[HTML5 匯出](/slides/zh-hant/nodejs-java/export-to-html5/)、動畫 GIF，或[影片轉換](/slides/zh-hant/nodejs-java/convert-powerpoint-to-video/)。
+- 對於 HTML5，請啟用 [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/html5options/#setAnimateShapes)，必要時亦啟用 [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/html5options/#setAnimateTransitions)。
+- 影片轉譯支援許多常見的進入、強調、退出與運動路徑效果，但並非所有 PowerPoint 效果皆受支援。請檢查目前的[支援動畫與效果](/slides/zh-hant/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects)，並使用目標 Aspose.Slides 版本測試關鍵簡報。
+- 進階自訂效果以及從其他簡報格式匯入的效果可能會保留於檔案中，但在 PowerPoint、HTML5 或影片中呈現方式可能不同。請驗證匯出結果，而非僅依賴效果名稱。
 
 ## **常見問題**
 
-**為什麼動畫在 PowerPoint 中出現，但在 PDF 中不會出現？**
+**為何動畫在 PowerPoint 中會顯示，但在 PDF 中不會顯示？**
 
-PDF 為靜態格式，因此不會播放動畫與投影片轉場。若必須保留動作，請匯出為 HTML5、動畫 GIF 或影片。
+PDF 為靜態格式，故不會播放動畫與投影片切換。若必須保留動作，請匯出為 HTML5、動畫 GIF 或影片。
 
-**為什麼效果在影片中播放會不同？**
+**為何效果在影片中播放會不同？**
 
-影片匯出會渲染動畫，而不是儲存原始 PowerPoint 行為。某些進階效果不受支援或僅為近似。請檢查受支援的效果表，並在正式使用前測試實際簡報。
+影片匯出會渲染動畫，而非儲存原始 PowerPoint 行為。某些進階效果不受支援或會被近似。請檢視支援效果表，並在正式使用前測試實際簡報。
 
 **將形狀前移或後移會改變其動畫順序嗎？**
 
-不會。形狀的 Z 軸順序僅控制重疊，動畫播放順序由序列順序與觸發器決定。如需不同的播放順序，請調整時間軸。
+不會。形狀的 Z 軸順序僅控制重疊，序列順序與觸發條件才決定動畫播放。若需要不同的播放順序，請調整時間軸。

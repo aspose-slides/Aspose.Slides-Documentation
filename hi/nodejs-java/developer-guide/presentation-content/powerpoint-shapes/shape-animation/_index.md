@@ -1,6 +1,6 @@
 ---
-title: "JavaScript का उपयोग करके प्रस्तुतियों में आकार एनीमेशन लागू करें"
-linktitle: "आकार एनीमेशन"
+title: प्रेज़ेंटेशन में जावास्क्रिप्ट का उपयोग करके शेप एनीमेशन लागू करें
+linktitle: शेप एनीमेशन
 type: docs
 weight: 60
 url: /hi/nodejs-java/shape-animation/
@@ -19,28 +19,30 @@ keywords:
 - प्रभाव ध्वनि
 - एनीमेशन लागू करें
 - PowerPoint
-- प्रस्तुति
+- प्रेज़ेंटेशन
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java के साथ आकार एनीमेशन, टाइमिंग, साउंड, एनीमेशन‑के‑बाद व्यवहार, और एनिमेटेड टेक्स्ट को जोड़ना, जांचना और अनुकूलित करना सीखें।"
+description: "Aspose.Slides for Node.js via Java के साथ आकार एनीमेशन, टाइमिंग, आवाज़, एनीमेशन‑के‑बाद व्यवहार, और एनिमेटेड टेक्स्ट को जोड़ना, निरीक्षण करना और अनुकूलित करना सीखें।"
 ---
 ## **अवलोकन**
 
-Aspose.Slides for Node.js via Java स्लाइड एनीमेशन को स्लाइड टाइमलाइन में इफ़ेक्ट के रूप में दर्शाता है। एक इफ़ेक्ट में लक्ष्य आकार, एनीमेशन प्रकार और उपप्रकार, ट्रिगर, टाइमिंग सेटिंग्स, और वैकल्पिक गुण जैसे साउंड या एनीमेशन‑के‑बाद व्यवहार शामिल होते हैं।
+एक प्रभाव के भीतर व्यक्तिगत व्यवहारों के साथ काम करने या मोशन‑पाथ खंडों को संपादित करने के लिए, देखें [कस्टम एनीमेशन](/slides/hi/nodejs-java/custom-animation/)।
 
-टाइमलाइन में दो प्रकार की सीक्वेंसेज़ होती हैं:
+Aspose.Slides for Node.js via Java स्लाइड एनीमेशन को स्लाइड टाइमलाइन में इफ़ेक्ट के रूप में दर्शाता है। एक इफ़ेक्ट का लक्ष्य आकार, एनीमेशन प्रकार और उपप्रकार, ट्रिगर, टाइमिंग सेटिंग्स, तथा वैकल्पिक गुण जैसे साउंड या एनीमेशन‑के‑बाद व्यवहार होते हैं।
 
-- **मुख्य सीक्वेंस** स्लाइड आगे बढ़ते समय चलता है।
-- एक **इंटरैक्टिव सीक्वेंस** तब शुरू होता है जब उसका ट्रिगर आकार क्लिक किया जाता है।
+टाइमलाइन दो प्रकार की क्रम श्रृंखलाएँ रखती है:
 
-क्योंकि टेक्स्ट बॉक्स, चित्र, चार्ट, टेबल और अन्य स्लाइड ऑब्जेक्ट्स [Shape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/) ऑब्जेक्ट होते हैं, आप अधिकांश स्लाइड सामग्री के लिए वही [Sequence.addEffect](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/sequence/#addEffect) मेथड उपयोग करते हैं। उपलब्ध इफ़ेक्ट्स की सूची [EffectType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effecttype/) एनिुमरेशन में दी गई है।
+- **मुख्य क्रम** स्लाइड आगे बढ़ने पर चलता है।  
+- **इंटरैक्टिव क्रम** तब शुरू होता है जब उसका ट्रिगर आकार क्लिक किया जाता है।
 
-## **शेप एनीमेशन जोड़ें**
+चूँकि टेक्स्ट बॉक्स, चित्र, चार्ट, तालिका और अन्य स्लाइड वस्तुएँ [Shape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/) वस्तुएँ हैं, आप अधिकांश स्लाइड सामग्री के लिए वही [Sequence.addEffect](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/sequence/#addEffect) मेथड उपयोग करते हैं। उपलब्ध इफ़ेक्ट्स [EffectType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effecttype/) एनेमरेशन में सूचीबद्ध हैं।
 
-एनीमेशन जोड़ने के लिए, स्लाइड की मुख्य सीक्वेंस प्राप्त करें और लक्ष्य आकार, इफ़ेक्ट प्रकार, उपप्रकार, और ट्रिगर के साथ [Sequence.addEffect](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/sequence/#addEffect) कॉल करें। किसी ऐसे इफ़ेक्ट के लिए जो अन्य आकार पर क्लिक करने पर शुरू होता है, एक इंटरैक्टिव सीक्वेंस बनाएं जिसका ट्रिगर वह अन्य आकार हो।
+## **Shape एनीमेशन जोड़ें**
 
-निम्नलिखित उदाहरण दोनों प्रकार के एनीमेशन बनाता है और परिणाम को `shape-animations.pptx` में सहेजता है।
+एनीमेशन जोड़ने के लिए, स्लाइड की मुख्य क्रम प्राप्त करें और लक्ष्य आकार, इफ़ेक्ट प्रकार, उपप्रकार और ट्रिगर के साथ [Sequence.addEffect](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/sequence/#addEffect) को कॉल करें। किसी अन्य आकार पर क्लिक करने से शुरू होने वाले इफ़ेक्ट के लिए, उस अन्य आकार को ट्रिगर बनाते हुए एक इंटरैक्टिव क्रम बनाएँ।
+
+निम्न उदाहरण दोनों प्रकार के एनीमेशन बनाता है और परिणाम `shape-animations.pptx` में सहेजता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -69,19 +71,19 @@ try {
 }
 ```
 
-ट्रिगर नियंत्रित करता है कि इफ़ेक्ट कब शुरू होता है:
+ट्रिगर निर्धारित करता है कि इफ़ेक्ट कब शुरू होता है:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effecttriggertype/#OnClick) मुख्य सीक्वेंस में क्लिक या इंटरैक्टिव सीक्वेंस में ट्रिगर आकार पर क्लिक की प्रतीक्षा करता है।
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) पूर्ववर्ती इफ़ेक्ट के साथ शुरू होता है।
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) जब पूर्ववर्ती इफ़ेक्ट समाप्त हो जाता है तब शुरू होता है।
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effecttriggertype/#OnClick) मुख्य क्रम में क्लिक या इंटरैक्टिव क्रम में ट्रिगर आकार पर क्लिक की प्रतीक्षा करता है।  
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) पूर्व इफ़ेक्ट के साथ शुरू होता है।  
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) जब पूर्व इफ़ेक्ट समाप्त होता है तब शुरू होता है।
 
-एक चित्र, चार्ट या किसी अन्य आकार को एनीमेट करने के लिए, `targetShape` के बजाय उस ऑब्जेक्ट को [Sequence.addEffect](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/sequence/#addEffect) में पास करें। चार्ट‑विशिष्ट ग्रुपिंग विकल्पों के लिए देखें [Animated Charts](/slides/hi/nodejs-java/animated-charts/)।
+चित्र, चार्ट या किसी अन्य आकार को एनीमेट करने के लिए, `targetShape` के बजाय उस वस्तु को [Sequence.addEffect](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/sequence/#addEffect) में पास करें। चार्ट‑विशिष्ट समूह विकल्पों के लिए, देखें [एनिमेटेड चार्ट्स](/slides/hi/nodejs-java/animated-charts/)।
 
-## **शेप एनीमेशन पढ़ें**
+## **Shape एनीमेशन पढ़ें**
 
-जब आपको लक्ष्य आकार पता हो, तो [Sequence.getEffectsByShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/sequence/#getEffectsByShape) प्रयोग करें। सभी इफ़ेक्ट्स का निरीक्षण करने के लिए, मुख्य सीक्वेंस और प्रत्येक इंटरैक्टिव सीक्वेंस को एनेमरेट करें। एनेमरेशन इस बात को मानने से बचाती है कि किसी सीक्वेंस में इंडेक्स `0` पर इफ़ेक्ट मौजूद है।
+जब आपको लक्ष्य आकार पता हो, तब [Sequence.getEffectsByShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/sequence/#getEffectsByShape) का उपयोग करें। सभी इफ़ेक्ट्स की जाँच करने के लिए, मुख्य क्रम और प्रत्येक इंटरैक्टिव क्रम को क्रमबद्ध रूप से परिक्रमा करें। क्रमबद्ध परिक्रमा यह मानने से बचती है कि किसी क्रम में सूचकांक `0` पर इफ़ेक्ट मौजूद है।
 
-निम्नलिखित उदाहरण एक आकार को मुख्य‑सीक्वेंस और इंटरैक्टिव इफ़ेक्ट्स के साथ बनाता है, आकार को लक्षित करने वाले इफ़ेक्ट्स प्राप्त करता है, और फिर स्लाइड पर प्रत्येक सीक्वेंस को एनेमरेट करता है।
+निम्न उदाहरण एक आकार बनाता है जिसमें मुख्य‑क्रम और इंटरैक्टिव इफ़ेक्ट्स होते हैं, फिर आकार को लक्षित करने वाले इफ़ेक्ट्स प्राप्त करता है और अंत में स्लाइड की सभी क्रमों को परिक्रमा करता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -140,21 +142,21 @@ try {
 }
 ```
 
-यदि आपको केवल एक आकार के लिए इफ़ेक्ट्स चाहिए, तो पहले नाम, प्लेसहोल्डर प्रकार, या किसी अन्य स्थिर गुण से आकार की पहचान करें; फिर [Sequence.getEffectsByShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/sequence/#getEffectsByShape) कॉल करें। यह न मानें कि [ShapeCollection.get_Item](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shapecollection/#get_Item) इंडेक्स `0` पर हमेशा इच्छित ऑब्जेक्ट है।
+यदि आपको केवल एक आकार के इफ़ेक्ट चाहिए, तो पहले आकार को नाम, प्लेसहोल्डर प्रकार या किसी अन्य स्थिर गुण से पहचानें; फिर [Sequence.getEffectsByShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/sequence/#getEffectsByShape) को कॉल करें। यह न मानें कि [ShapeCollection.get_Item](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shapecollection/#get_Item) सूचकांक `0` पर हमेशा इच्छित वस्तु है।
 
-## **विरासत वाले प्लेसहोल्डर एफ़ेक्ट्स के साथ काम करें**
+## **निर्धारित प्लेसहोल्डर इफ़ेक्ट्स के साथ काम करें**
 
-सामान्य स्लाइड पर एक प्लेसहोल्डर अपने लेआउट स्लाइड और मास्टर स्लाइड पर संबंधित प्लेसहोल्डर से एनीमेशन व्यवहार विरासत में ले सकता है। [Shape.getBasePlaceholder](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/#getBasePlaceholder) वह पैरेंट प्लेसहोल्डर लौटाता है, या जब कोई पैरेंट न हो तो `null`।
+सामान्य स्लाइड पर एक प्लेसहोल्डर अपने लेआउट स्लाइड और मास्टर स्लाइड पर स्थित समान प्लेसहोल्डर से एनीमेशन व्यवहार विरासत में ले सकता है। [Shape.getBasePlaceholder](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/#getBasePlaceholder) वह पैरेंट प्लेसहोल्डर लौटाता है, या जब कोई पैरेंट न हो तो `null`।
 
-निम्नलिखित उदाहरण प्रस्तुति में, फ़ूटर के पास सामान्य स्लाइड पर **Random Bars**, लेआउट स्लाइड पर **Split**, और मास्टर स्लाइड पर **Fly In** हैं।
+निम्न उदाहरण प्रस्तुति में, फुटर पर सामान्य स्लाइड में **Random Bars**, लेआउट स्लाइड में **Split**, और मास्टर स्लाइड में **Fly In** होते हैं।
 
-![सामान्य स्लाइड पर फ़ूटर एनीमेशन इफ़ेक्ट](slide-shape-animation.png)
+![सामान्य स्लाइड पर फुटर एनीमेशन इफ़ेक्ट](slide-shape-animation.png)
 
-![लेआउट स्लाइड पर फ़ूटर प्लेसहोल्डर एनीमेशन इफ़ेक्ट](layout-shape-animation.png)
+![लेआउट स्लाइड पर फुटर प्लेसहोल्डर एनीमेशन इफ़ेक्ट](layout-shape-animation.png)
 
-![मास्टर स्लाइड पर फ़ूटर प्लेसहोल्डर एनीमेशन इफ़ेक्ट](master-shape-animation.png)
+![मास्टर स्लाइड पर फुटर प्लेसहोल्डर एनीमेशन इफ़ेक्ट](master-shape-animation.png)
 
-अगला उदाहरण नई प्रस्तुति से एक प्लेसहोल्डर पदानुक्रम का उपयोग करता है। यह मास्टर प्लेसहोल्डर, लेआउट प्लेसहोल्डर और सामान्य स्लाइड पर संबंधित प्लेसहोल्डर में इफ़ेक्ट्स जोड़ता है। प्रत्येक बार [Shape.getBasePlaceholder](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/#getBasePlaceholder) को कॉल करने से पहले जाँच की जाती है।
+अगला उदाहरण एक नई प्रस्तुति की प्लेसहोल्डर पदानुक्रम का उपयोग करता है। यह एक मास्टर प्लेसहोल्डर, एक लेआउट प्लेसहोल्डर और सामान्य स्लाइड पर संबंधित प्लेसहोल्डर में इफ़ेक्ट्स जोड़ता है। प्रत्येक बार [Shape.getBasePlaceholder](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/#getBasePlaceholder) को कॉल करने के बाद ही लौटाए गए आकार का उपयोग किया जाता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -240,17 +242,17 @@ try {
 
 ## **एनीमेशन टाइमिंग बदलें**
 
-PowerPoint **Timing** डायलॉग [Timing](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/) की प्रॉपर्टीज़ से मैप होता है।
+PowerPoint **Timing** संवाद [Timing](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/) की गुणधर्मों से मेल खाता है।
 
-![एनीमेशन इफ़ेक्ट के लिए PowerPoint टाइमिंग डायलॉग](shape-animation.png)
+![एक एनीमेशन इफ़ेक्ट के लिए PowerPoint टाइमिंग संवाद](shape-animation.png)
 
-- **Start** को [Timing.getTriggerType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#getTriggerType) से मैप किया जाता है।
-- **Duration** को [Timing.getDuration](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#getDuration) से मैप किया जाता है, सेकंड में।
-- **Delay** को [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#getTriggerDelayTime) से मैप किया जाता है, सेकंड में।
-- **Repeat** को [Timing.getRepeatCount](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) या [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide) से मैप किया जाता है।
+- **Start** को [Timing.getTriggerType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#getTriggerType) से मैप किया जाता है।  
+- **Duration** को [Timing.getDuration](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#getDuration) से मैप किया जाता है, सेकंड में।  
+- **Delay** को [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#getTriggerDelayTime) से मैप किया जाता है, सेकंड में।  
+- **Repeat** को [Timing.getRepeatCount](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) या [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide) से मैप किया जाता है।  
 - **Rewind when done playing** को [Timing.getRewind](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#getRewind) से मैप किया जाता है।
 
-यह स्वतंत्र उदाहरण एक इफ़ेक्ट जोड़ता है, [Sequence.addEffect](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/sequence/#addEffect) द्वारा लौटाए गये ऑब्जेक्ट के माध्यम से उसकी टाइमिंग बदलता है, और परिणाम सहेजता है। लौटाए गये [Effect](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effect/) रेफ़रेंस को बनाए रखना अनावश्यक कलेक्शन इंडेक्स से बचाता है।
+यह स्वतंत्र उदाहरण एक इफ़ेक्ट जोड़ता है, उसे [Sequence.addEffect](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/sequence/#addEffect) द्वारा लौटाए गए वस्तु के माध्यम से टाइमिंग बदलता है, और परिणाम सहेजता है। लौटाए गए [Effect](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effect/) संदर्भ को रखने से अनावश्यक कलेक्शन सूचकांक से बचा जाता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -277,15 +279,15 @@ try {
 }
 ```
 
-एक पुनरावृत्ति मोड को जानबूझकर उपयोग करें। पुनरावृत्ति गिनती को “until” फ्रैग के साथ मिलाने से विभिन्न व्यूअर्स में भ्रमित करने वाले परिणाम उत्पन्न हो सकते हैं। पुनरावृत्ति मोड बदलते समय, पहले [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) और [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) सेट करें, फिर [Timing.setRepeatCount](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#setRepeatCount) सेट करें, क्योंकि किसी भी फ्रैग को सेट करने से सक्रिय पुनरावृत्ति मोड भी बदल जाता है।
+एक बार में केवल एक रीपीट मोड का इरादा से उपयोग करें। रीपीट काउंट को “until” फ़्लैग के साथ मिलाने से विभिन्न व्यूअर्स में भ्रमित करने वाले परिणाम उत्पन्न हो सकते हैं। रीपीट मोड बदलते समय, पहले [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) और [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) सेट करें, फिर [Timing.setRepeatCount](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/timing/#setRepeatCount) को कॉल करें, क्योंकि किसी भी फ़्लैग को सेट करने से सक्रिय रीपीट मोड बदल जाता है।
 
 ## **एनीमेशन साउंड जोड़ें और निकालें**
 
-एक एनीमेशन इफ़ेक्ट एम्बेडेड ऑडियो को [Effect.getSound](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effect/#getSound) के माध्यम से संदर्भित कर सकता है। [Effect.setStopPreviousSound](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effect/#setStopPreviousSound) इफ़ेक्ट को बताता है कि वह पहले शुरू हुए ऑडियो को रोक दे।
+एक एनीमेशन इफ़ेक्ट एम्बेडेड ऑडियो का संदर्भ [Effect.getSound](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effect/#getSound) द्वारा रख सकता है। [Effect.setStopPreviousSound](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effect/#setStopPreviousSound) एक इफ़ेक्ट को पहले वाले इफ़ेक्ट द्वारा शुरू किए गए ऑडियो को रोकने के लिए कहता है।
 
 ### **इफ़ेक्ट में साउंड जोड़ें**
 
-निम्नलिखित उदाहरण एक स्थानीय ऑडियो फ़ाइल `animation-sound.wav` की अपेक्षा करता है। यह दो इफ़ेक्ट बनाता है, पहली इफ़ेक्ट के साउंड के रूप में फ़ाइल को एम्बेड करता है, और दूसरी इफ़ेक्ट को साउंड रोकने के लिए कॉन्फ़िगर करता है। यह [Sequence.addEffect](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/sequence/#addEffect) द्वारा लौटाए गये ऑब्जेक्ट का उपयोग करता है, इसलिए सीक्वेंस इंडेक्स की आवश्यकता नहीं होती।
+निम्न उदाहरण स्थानीय ऑडियो फाइल `animation-sound.wav` की उम्मीद करता है। यह दो इफ़ेक्ट बनाता है, पहली इफ़ेक्ट के लिए उस फाइल को साउंड के रूप में एम्बेड करता है, और दूसरी इफ़ेक्ट को साउंड को रोकने के लिए कॉन्फ़िगर करता है। यह [Sequence.addEffect](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/sequence/#addEffect) द्वारा लौटाए गए वस्तुओं का उपयोग करता है, इसलिए कोई क्रम सूचकांक आवश्यक नहीं है।
 
 ```javascript
 const fs = require("fs");
@@ -317,7 +319,7 @@ try {
 
 ### **एम्बेडेड इफ़ेक्ट साउंड निकालें**
 
-निम्नलिखित उदाहरण एक स्थानीय प्रस्तुति `presentation-with-animation-sounds.pptx` की अपेक्षा करता है। यह मुख्य और इंटरैक्टिव दोनों सीक्वेंस को स्कैन करता है और प्रत्येक एम्बेडेड इफ़ेक्ट साउंड को `extracted-animation-sounds` निर्देशिका में लिखता है। एक्सटेंशन ऑडियो MIME टाइप से चुना जाता है जो [Audio.getContentType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/audio/#getContentType) द्वारा प्रदर्शित होता है।
+निम्न उदाहरण स्थानीय प्रस्तुति `presentation-with-animation-sounds.pptx` की उम्मीद करता है। यह मुख्य और इंटरैक्टिव दोनों क्रमों को स्कैन करता है और प्रत्येक एम्बेडेड इफ़ेक्ट साउंड को `extracted-animation-sounds` निर्देशिका में लिखता है। एक्सटेंशन ऑडियो MIME प्रकार से निकाला जाता है जो [Audio.getContentType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/audio/#getContentType) द्वारा उपलब्ध कराया जाता है।
 
 ```javascript
 const fs = require("fs");
@@ -386,17 +388,17 @@ try {
 }
 ```
 
-बड़ी ऑडियो ऑब्जेक्ट्स के लिए, [Audio.getStream](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/audio/#getStream) का उपयोग करें और पूरे ऑब्जेक्ट को बाइट एरे में लोड करने के बजाय स्ट्रीम को फ़ाइल में कॉपी करें।
+बड़ी ऑडियो वस्तुओं के लिए, [Audio.getStream](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/audio/#getStream) का उपयोग करके स्ट्रीम को फ़ाइल में कॉपी करें, बजाय पूरी वस्तु को बाइट ऐरे में लोड करने के।
 
-## **एनीमेशन‑के‑बाद व्यवहार सेट करें**
+## **After-Animation व्यवहार सेट करें**
 
-**After animation** विकल्प नियंत्रित करता है कि इफ़ेक्ट समाप्त होने के बाद आकार पर क्या होता है।
+**After animation** विकल्प निर्धारित करता है कि इफ़ेक्ट समाप्त होने के बाद आकार के साथ क्या होता है।
 
-![After animation settings दिखाते हुए PowerPoint Effect Options डायलॉग](shape-after-animation.png)
+![PowerPoint इफ़ेक्ट विकल्प संवाद जिसमें After animation सेटिंग दिखती है](shape-after-animation.png)
 
-[AfterAnimationType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/afteranimationtype/) एनिुमरेशन आकार को अपरिवर्तित रखने, उसका रंग बदलने, एनीमेशन के बाद छिपाने, या अगले क्लिक पर छिपाने का समर्थन करता है। जब प्रकार [AfterAnimationType.Color](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/afteranimationtype/#Color) हो, तो साथ में [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effect/#getAfterAnimationColor) भी सेट करें।
+[AfterAnimationType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/afteranimationtype/) एनेमरेशन आकार को अपरिवर्तित रहने, उसका रंग बदलने, एनीमेशन के बाद छिपाने या अगले क्लिक पर छिपाने का समर्थन करता है। जब प्रकार [AfterAnimationType.Color](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/afteranimationtype/#Color) हो, तो साथ ही [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effect/#getAfterAnimationColor) सेट करें।
 
-यह स्वतंत्र उदाहरण एक इफ़ेक्ट बनाता है, लौटाए गये इफ़ेक्ट ऑब्जेक्ट के माध्यम से उसकी एनीमेशन‑के‑बाद व्यवहार सेट करता है, और परिणाम सहेजता है।
+यह स्वतंत्र उदाहरण एक इफ़ेक्ट बनाता है, लौटाए गए इफ़ेक्ट ऑब्जेक्ट के माध्यम से उसके After‑Animation व्यवहार को सेट करता है, और परिणाम सहेजता है।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -418,16 +420,16 @@ try {
 }
 ```
 
-[AfterAnimationType.Color](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/afteranimationtype/#Color) प्रकार को बदलने से एनीमेशन‑के‑बाद रंग सेटिंग साफ़ हो जाती है।
+[AfterAnimationType.Color](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/afteranimationtype/#Color) से प्रकार बदलने पर After‑Animation रंग सेटिंग साफ़ हो जाती है।
 
-## **टेक्स्ट एनीमेट करें**
+## **पाठ को एनीमेट करें**
 
-टेक्स्ट एनीमेशन के दो संबंधित नियंत्रण होते हैं:
+पाठ एनीमेशन दो संबंधित नियंत्रणों से बना है:
 
-- [TextAnimation.getBuildType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textanimation/#getBuildType) नियंत्रित करता है कि पैराग्राफ एक साथ दिखें या पैराग्राफ स्तर पर।
-- [Effect.getAnimateTextType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effect/#getAnimateTextType) नियंत्रित करता है कि टेक्स्ट एक साथ, शब्द दर शब्द, या अक्षर दर अक्षर दिखे। [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) शब्दों या अक्षरों के बीच देरी सेट करता है। सकारात्मक मान इफ़ेक्ट की अवधि का प्रतिशत है; नकारात्मक मान सेकंड में देरी है।
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textanimation/#getBuildType) निर्धारित करता है कि अनुच्छेद एक साथ दिखें या अनुच्छेद‑स्तर पर।  
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effect/#getAnimateTextType) निर्धारित करता है कि पाठ एक साथ, शब्द‑दर‑शब्द या अक्षर‑दर‑अक्षर दिखे। [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) शब्द या अक्षर के बीच देरी सेट करता है। सकारात्मक मान इफ़ेक्ट अवधि का प्रतिशत है; नकारात्मक मान सेकंड में देरी है।
 
-निम्नलिखित स्वतंत्र उदाहरण टेक्स्ट बॉक्स में शब्दों को एनीमेट करता है। [BuildType.AsOneObject](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/buildtype/#AsOneObject) पैराग्राफ‑दर‑पैराग्राफ बिल्डिंग को निष्क्रिय करता है ताकि शब्द सेटिंग पूरे टेक्स्ट फ्रेम पर लागू हो।
+निम्न स्वतंत्र उदाहरण एक टेक्स्ट बॉक्स में शब्दों को एनीमेट करता है। [BuildType.AsOneObject](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/buildtype/#AsOneObject) पैराग्राफ‑दर‑पैराग्राफ निर्माण को निष्क्रिय करता है ताकि शब्द सेटिंग पूरे टेक्स्ट फ्रेम पर लागू हो।
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -450,26 +452,26 @@ try {
 }
 ```
 
-पैराग्राफ‑दर‑पैराग्राफ टेक्स्ट बॉक्स बनाने के लिए, [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (या अन्य पैराग्राफ स्तर) सेट करें। किसी एकल पैराग्राफ को अपना इफ़ेक्ट देने के लिए, वह [Sequence.addEffect](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/sequence/#addEffect) ओवरलोड उपयोग करें जो एक [Paragraph](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraph/) को स्वीकार करता है। पैराग्राफ‑स्तर के उदाहरणों के लिए देखें [Animated Text](/slides/hi/nodejs-java/animated-text/)।
+पैराग्राफ‑दर‑पैराग्राफ टेक्स्ट बॉक्स बनाने के लिए, [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (या कोई अन्य पैराग्राफ स्तर) सेट करें। एकल पैराग्राफ को उसके स्वयं के इफ़ेक्ट से लक्षित करने के लिए, वह [Sequence.addEffect](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/sequence/#addEffect) ओवरलोड उपयोग करें जो [Paragraph](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraph/) को स्वीकार करता है। पैराग्राफ‑स्तर उदाहरणों के लिये देखें [Animated Text](/slides/hi/nodejs-java/animated-text/)।
 
 ## **निर्यात और संगतता नोट्स**
 
-- PPT या PPTX में सहेजने से एनीमेशन मॉडल संरक्षित रहता है, लेकिन अंतिम प्लेबैक प्रस्तुति व्यूअर द्वारा नियंत्रित होता है।
-- PDF और स्थैतिक छवियां एनीमेशन नहीं चलाती हैं। जब आउटपुट में गति दिखानी हो तो [HTML5 export](/slides/hi/nodejs-java/export-to-html5/), एनिमेटेड GIF, या [video conversion](/slides/hi/nodejs-java/convert-powerpoint-to-video/) का उपयोग करें।
-- HTML5 के लिये, [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/html5options/#setAnimateShapes) को सक्षम करें और आवश्यकता पड़ने पर [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/html5options/#setAnimateTransitions) को भी सक्षम करें।
-- वीडियो रेंडरिंग कई सामान्य एंट्रेंस, इम्प्रेस, एक्ज़िट और मोशन‑पाथ इफ़ेक्ट्स को सपोर्ट करती है, लेकिन सभी PowerPoint इफ़ेक्ट्स समर्थित नहीं हैं। वर्तमान [supported animations and effects](/slides/hi/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) देखें और अपने लक्ष्य Aspose.Slides संस्करण के साथ महत्वपूर्ण प्रस्तुतियों का परीक्षण करें।
-- उन्नत कस्टम इफ़ेक्ट्स और अन्य प्रस्तुति फ़ॉर्मेट से आयात किए गए इफ़ेक्ट्स फ़ाइल में संरक्षित रह सकते हैं लेकिन PowerPoint, HTML5, या वीडियो में अलग ढंग से रेंडर हो सकते हैं। केवल इफ़ेक्ट नाम पर भरोसा न करें, निर्यातित परिणाम को मान्य करें।
+- PPT या PPTX में सहेजने से एनीमेशन मॉडल संरक्षित रहता है, परन्तु अंतिम प्लेबैक प्रस्तुति दर्शक द्वारा नियंत्रित होता है।  
+- PDF और स्थिर छवियाँ एनीमेशन नहीं चलातीं। जब गति दिखानी आवश्यक हो तो [HTML5 निर्यात](/slides/hi/nodejs-java/export-to-html5/), एनीमेटेड GIF, या [वीडियो रूपांतरण](/slides/hi/nodejs-java/convert-powerpoint-to-video/) का उपयोग करें।  
+- HTML5 के लिये, [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/html5options/#setAnimateShapes) को सक्षम करें और आवश्यकतानुसार [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/html5options/#setAnimateTransitions) को सक्रिय करें।  
+- वीडियो रेंडरिंग कई सामान्य प्रवेश, ज़ोर, निकास और मोशन‑पाथ इफ़ेक्ट्स को समर्थन देता है, परन्तु हर PowerPoint इफ़ेक्ट समर्थित नहीं है। वर्तमान [समर्थित एनीमेशन और इफ़ेक्ट्स](/slides/hi/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) देखें और अपने लक्ष्य Aspose.Slides संस्करण के साथ महत्वपूर्ण प्रस्तुतियों का परीक्षण करें।  
+- उन्नत कस्टम इफ़ेक्ट्स और अन्य प्रस्तुति स्वरूपों से आयातित इफ़ेक्ट्स फ़ाइल में संरक्षित हो सकते हैं, परन्तु PowerPoint, HTML5 या वीडियो में अलग तरह से रेंडर हो सकते हैं। निर्यात परिणाम को मान्य करें, केवल इफ़ेक्ट नाम पर भरोसा न करें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**PowerPoint में एनीमेशन दिखता है लेकिन PDF में नहीं क्यों दिखता?**
+**PowerPoint में एनीमेशन दिखता है लेकिन PDF में नहीं दिखता, क्यों?**
 
-PDF एक स्थैतिक फ़ॉर्मेट है, इसलिए एनीमेशन और स्लाइड ट्रांज़िशन नहीं चलतीं। जब गति को संरक्षित रखना हो तो HTML5, एनिमेटेड GIF, या वीडियो के रूप में निर्यात करें।
+PDF एक स्थिर स्वरूप है, इसलिए एनीमेशन और स्लाइड ट्रांज़िशन चलाए नहीं जाते। जब गति चाहिए तो HTML5, एनीमेटेड GIF या वीडियो में निर्यात करें।
 
-**वीडियो में इफ़ेक्ट अलग ढंग से क्यों चलता है?**
+**वीडियो में इफ़ेक्ट अलग तरह से चलती है, क्यों?**
 
-वीडियो निर्यात एनीमेशन को रेंडर करता है बजाय मूल PowerPoint व्यवहार को संग्रहीत किए। कुछ उन्नत इफ़ेक्ट्स असमर्थित या अनुमानित होते हैं। समर्थित‑इफ़ेक्ट्स तालिका देखें और उत्पादन उपयोग से पहले वास्तविक प्रस्तुति का परीक्षण करें।
+वीडियो निर्यात एनीमेशन को रेंडर करता है, मूल PowerPoint व्यवहार को नहीं रखता। कुछ उन्नत इफ़ेक्ट्स असमर्थित या अनुमानित होते हैं। समर्थित‑इफ़ेक्ट्स तालिका देखें और उत्पादन उपयोग से पहले वास्तविक प्रस्तुति का परीक्षण करें।
 
 **क्या आकार को आगे या पीछे ले जाने से उसकी एनीमेशन क्रम बदलता है?**
 
-नहीं। आकार का Z‑ऑर्डर ओवरलैप नियंत्रित करता है, जबकि सीक्वेंस क्रम और ट्रिगर एनीमेशन प्लेबैक नियंत्रित करते हैं। यदि आपको अलग प्लेबैक क्रम चाहिए तो टाइमलाइन बदलें।
+नहीं। आकार का z‑order ओवरलैप को नियंत्रित करता है, जबकि क्रम और ट्रिगर एनीमेशन प्लेबैक को नियंत्रित करते हैं। यदि अलग प्लेबैक क्रम चाहिए तो टाइमलाइन को बदलें।

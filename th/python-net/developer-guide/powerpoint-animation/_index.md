@@ -1,46 +1,47 @@
 ---
-title: ปรับปรุงงานนำเสนอ PowerPoint ด้วยอนิเมชันใน Python
-linktitle: อนิเมชัน PowerPoint
+title: เพิ่มประสิทธิภาพการนำเสนอ PowerPoint ด้วยแอนิเมชันใน Python
+linktitle: แอนิเมชัน PowerPoint
 type: docs
 weight: 150
 url: /th/python-net/powerpoint-animation/
 keywords:
-- เพิ่มอนิเมชัน
-- อัปเดตอนิเมชัน
-- เปลี่ยนอนิเมชัน
-- ลบอนิเมชัน
-- จัดการอนิเมชัน
-- ควบคุมอนิเมชัน
-- เอฟเฟกต์อนิเมชัน
-- อนิเมชัน PowerPoint
-- ไทม์ไลน์อนิเมชัน
-- อนิเมชันเชิงโต้ตอบ
-- อนิเมชันแบบกำหนดเอง
-- อนิเมชันรูปทรง
-- แผนภูมิที่มีอนิเมชัน
-- ข้อความที่มีอนิเมชัน
-- รูปทรงที่มีอนิเมชัน
-- วัตถุ OLE ที่มีอนิเมชัน
-- รูปภาพที่มีอนิเมชัน
-- ตารางที่มีอนิเมชัน
-- งานนำเสนอ PowerPoint
+- เพิ่มแอนิเมชัน
+- ปรับปรุงแอนิเมชัน
+- เปลี่ยนแอนิเมชัน
+- ลบแอนิเมชัน
+- จัดการแอนิเมชัน
+- ควบคุมแอนิเมชัน
+- เอฟเฟกต์แอนิเมชัน
+- แอนิเมชัน PowerPoint
+- ไทม์ไลน์แอนิเมชัน
+- แอนิเมชันเชิงโต้ตอบ
+- แอนิเมชันแบบกำหนดเอง
+- แอนิเมชันรูปทรง
+- แผนภูมิแบบแอนิเมชัน
+- ข้อความแบบแอนิเมชัน
+- รูปทรงแบบแอนิเมชัน
+- วัตถุ OLE แบบแอนิเมชัน
+- รูปภาพแบบแอนิเมชัน
+- ตารางแบบแอนิเมชัน
+- การนำเสนอ PowerPoint
 - Python
 - Aspose.Slides
-description: "สำรวจความสามารถของ Aspose.Slides สำหรับ Python ผ่าน .NET ในการจัดการอนิเมชัน PowerPoint ภาพรวมทั่วไปนี้เน้นคุณลักษณะหลักและให้แนวคิดเพื่อปรับปรุงงานนำเสนอของคุณ"
+description: "สำรวจความสามารถของ Aspose.Slides สำหรับ Python via .NET ในการจัดการแอนิเมชัน PowerPoint ภาพรวมทั่วไปนี้เน้นคุณลักษณะสำคัญและให้ข้อมูลเชิงลึกเพื่อเพิ่มคุณภาพการนำเสนอของคุณ"
 ---
 ## **บทนำ**
 
-งานนำเสนอถูกออกแบบเพื่อสื่อสารข้อมูล ดังนั้นลักษณะภาพและพฤติกรรมเชิงโต้ตอบจึงเป็นสิ่งสำคัญที่ต้องคำนึงถึงระหว่างการสร้าง
+การนำเสนอออกแบบมาเพื่อสื่อสารข้อมูล ดังนั้นลักษณะทางภาพและพฤติกรรมแบบโต้ตอบจึงเป็นสิ่งที่ต้องคำนึงถึงอย่างสำคัญระหว่างการสร้าง
 
-**PowerPoint animation** มีบทบาทสำคัญในการทำให้งานนำเสนอน่าสนใจและดึงดูดผู้ชม Aspose.Slides for Python via .NET มีตัวเลือกหลากหลายในการเพิ่มอนิเมชันให้กับงานนำเสนอ PowerPoint คุณสามารถ:
-- ใช้เอฟเฟกต์อนิเมชันต่างๆ กับรูปทรง แผนภูมิ ตาราง วัตถุ OLE และองค์ประกอบอื่นๆ
-- ใช้หลายเอฟเฟกต์อนิเมชันบนรูปทรงเดียว
-- ควบคุมเอฟเฟกต์ผ่านไทม์ไลน์ของอนิเมชัน
-- สร้างอนิเมชันแบบกำหนดเอง
+**PowerPoint animation** มีบทบาทสำคัญในการทำให้การนำเสดงดึงดูดความสนใจและน่าสนใจสำหรับผู้ชม Aspose.Slides for Python via .NET มีตัวเลือกหลากหลายเพื่อเพิ่มแอนิเมชันให้กับการนำเสนอ PowerPoint คุณสามารถ:
 
-ใน Aspose.Slides for Python via .NET สามารถใช้เอฟเฟกต์อนิเมชันกับรูปทรงได้ เนื่องจากทุกองค์ประกอบบนสไลด์—including ข้อความ รูปภาพ วัตถุ OLE และตาราง—ถูกพิจารณาเป็นรูปทรง คุณจึงสามารถใช้เอฟเฟกต์อนิเมชันกับองค์ประกอบใดก็ได้บนสไลด์
+- ใช้เอฟเฟกต์แอนิเมชันต่าง ๆ ไปใช้กับรูปทรง, แผนภูมิ, ตาราง, วัตถุ OLE และองค์ประกอบอื่น ๆ
+- ใช้หลายเอฟเฟกต์แอนิเมชันบนรูปทรงเดียว
+- ควบคุมเอฟเฟกต์ผ่านไทม์ไลน์ของแอนิเมชัน
+- สร้างแอนิเมชันแบบกำหนดเอง
 
-เนมสเปซ [aspose.slides.animation](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/) ให้คลาสสำหรับทำงานกับอนิเมชัน PowerPoint
+ใน Aspose.Slides for Python via .NET เอฟเฟกต์แอนิเมชันสามารถนำไปใช้กับรูปทรงได้ เพราะทุกองค์ประกอบบนสไลด์รวมถึงข้อความ, รูปภาพ, วัตถุ OLE และตารางถือเป็นรูปทรง คุณจึงสามารถนำเอฟเฟกต์แอนิเมชันไปใช้กับองค์ประกอบใด ๆ บนสไลด์ได้
+
+[aspose.slides.animation](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/) namespace ให้คลาสสำหรับทำงานกับแอนิเมชัน PowerPoint
 
 ## **การติดตั้ง**
 
@@ -48,9 +49,9 @@ description: "สำรวจความสามารถของ Aspose.Slid
 pip install aspose.slides
 ```
 
-## **เพิ่มเอฟเฟกต์อนิเมชันให้กับรูปทรงใน Python**
+## **เพิ่มเอฟเฟกต์แอนิเมชันให้กับรูปทรงใน Python**
 
-เอฟเฟกต์อนิเมชันอยู่ในลำดับหลักของสไลด์ เพิ่มรูปทรง แล้วเรียก `add_effect` บน `slide.timeline.main_sequence` พร้อมระบุประเภทของเอฟเฟกต์ ชนิดย่อย และทริกเกอร์ที่เริ่มต้นมัน
+เอฟเฟกต์แอนิเมชันอยู่ในลำดับหลักของสไลด์ เพิ่มรูปทรงแล้วเรียก `add_effect` บน `slide.timeline.main_sequence` โดยส่งประเภทเอฟเฟกต์, ชนิดย่อย และทริกเกอร์ที่เริ่มต้นมัน
 
 ```python
 import aspose.slides as slides
@@ -72,13 +73,14 @@ with slides.Presentation() as presentation:
     presentation.save("animated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-ไฟล์ที่บันทึกจะมีเอฟเฟกต์หนึ่งบนสไลด์แรก: สี่เหลี่ยมจะบินเข้ามาจากด้านซ้ายในระยะเวลา 2 วินาทีเมื่อผู้เสนอคลิก การเปิดไฟล์ใหม่และอ่าน `slide.timeline.main_sequence` จะส่งคืนเอฟเฟกต์นั้น ทำให้อนิเมชันคงอยู่ระหว่างการบันทึกและเปิดใหม่ ไม่ใช่แค่ในหน่วยความจำ
+ไฟล์ที่บันทึกไว้มีเอฟเฟกต์หนึ่งตัวบนสไลด์แรก: สี่เหลี่ยมผืนผ้าบินเข้าจากด้านซ้ายในระยะสองวินาทีเมื่อผู้นำเสนอคลิก การเปิดไฟล์อีกครั้งและอ่าน `slide.timeline.main_sequence` จะคืนค่าเอฟเฟกต์นั้น ทำให้แอนิเมชันคงอยู่ในการเดินทางรอบแทนที่จะมีแค่ในหน่วยความจำเท่านั้น
 
-## **เอฟเฟกต์อนิเมชัน**
+## **เอฟเฟกต์แอนิเมชัน**
 
-Aspose.Slides รองรับ **เอฟเฟกต์อนิเมชันกว่า 150 รายการ** รวมถึงเอฟเฟกต์พื้นฐานเช่น Bounce, PathFootball, และ Zoom รวมถึงเอฟเฟกต์เฉพาะเช่น OLEObjectShow และ OLEObjectOpen คุณสามารถดูรายการเต็มได้ใน enumeration [EffectType](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effecttype/)
+Aspose.Slides รองรับ **150+ animation effects** รวมถึงเอฟเฟกต์พื้นฐานเช่น Bounce, PathFootball, และ Zoom รวมถึงเอฟเฟกต์พิเศษเช่น OLEObjectShow และ OLEObjectOpen คุณสามารถดูรายการทั้งหมดได้ใน enumeration [EffectType](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effecttype/)
 
-นอกจากนี้ เอฟเฟกต์อนิเมชันเหล่านี้สามารถผสานกับเอฟเฟกต์ต่อไปนี้ได้:
+นอกจากนี้เอฟเฟกต์แอนิเมชันเหล่านี้ยังสามารถรวมกับเอฟเฟกต์ต่อไปนี้ได้:
+
 - [ColorEffect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/coloreffect/)
 - [CommandEffect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/commandeffect/)
 - [FilterEffect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/filtereffect/)
@@ -88,58 +90,60 @@ Aspose.Slides รองรับ **เอฟเฟกต์อนิเมชั
 - [ScaleEffect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/scaleeffect/)
 - [SetEffect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/seteffect/)
 
-## **อนิเมชันแบบกำหนดเอง**
+## **แอนิเมชันแบบกำหนดเอง**
 
-คุณสามารถสร้าง **อนิเมชันแบบกำหนดเอง** ของคุณใน Aspose.Slides ได้โดยการรวมพฤติกรรมหลายอย่างเป็นเอฟเฟกต์เดียว
+สำหรับตัวอย่าง Python ที่สมบูรณ์ซึ่งสร้าง, ตรวจสอบ, และแก้ไขพฤติกรรมและเส้นทางการเคลื่อนที่ที่แก้ไขได้ ดูที่ [Custom Animation](/slides/th/python-net/custom-animation/)
 
-[Behavior](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/behavior/) คือบล็อกพื้นฐานของเอฟเฟ็กต์อนิเมชัน PowerPoint ทุกเอฟเฟกต์อนิเมชันโดยพื้นฐานคือชุดของพฤติกรรมที่จัดเรียงเป็นกลยุทธ์หรือไทม์ไลน์หนึ่ง คุณสามารถประกอบพฤติกรรมเป็นอนิเมชันแบบกำหนดเองหนึ่งครั้งแล้วนำไปใช้ซ้ำในงานนำเสนออื่น หากคุณเพิ่มพฤติกรรมใหม่ให้กับเอฟเฟกต์อนิเมชัน PowerPoint มาตรฐาน มันจะกลายเป็นอนิเมชันแบบกำหนดเอง เช่น การเพิ่มพฤติกรรม repeat เพื่อให้อนิเมชันเล่นหลายครั้ง
+คุณสามารถสร้าง **custom animations** ของคุณเองใน Aspose.Slides โดยการรวมหลายพฤติกรรมเข้าด้วยกันเป็นเอฟเฟกต์เดียว
 
-[Animation Point](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/point/) ระบุตำแหน่งหรือช่วงเวลาที่พฤติกรรมถูกนำมาใช้ (คีย์เฟรม)
+[Behavior](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/behavior/) คือบล็อคการสร้างของเอฟเฟกต์แอนิเมชัน PowerPoint ผสานพฤติกรรมเพื่อปรับแต่งเอฟเฟกต์ หรือเพิ่มพฤติกรรมเพื่อขยายเอฟเฟกต์ที่กำหนดไว้ล่วงหน้า การทำซ้ำถูกกำหนดผ่านการตั้งค่าตามเวลาแทนการใช้พฤติกรรมซ้ำแยกกัน
 
-## **ไทม์ไลน์ของอนิเมชัน**
+[Animation Point](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/point/) เป็นจุดที่ระบุช่วงเวลา หรือ ตำแหน่งที่พฤติกรรมถูกนำไปใช้ (คีย์เฟรม)
 
-[Sequence](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/) คือชุดของเอฟเฟกต์อนิเมชันที่นำไปใช้กับรูปทรงเฉพาะ
+## **ไทม์ไลน์ของแอนิเมชัน**
 
-[Timeline](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/animationtimeline/) คือชุดของ sequence ที่ใช้บนสไลด์เฉพาะ มันถูกแนะนำใน PowerPoint 2002 ในเวอร์ชันก่อนของ PowerPoint การเพิ่มเอฟเฟกต์อนิเมชันทำได้ยากและมักต้องใช้วิธีแก้ไข Timeline แทนคลาส `AnimationSettings` เก่และให้โมเดลวัตถุที่ชัดเจนขึ้นสำหรับอนิเมชัน PowerPoint แต่ละสไลด์สามารถมีไทม์ไลน์ของอนิเมชันได้เพียงหนึ่งชุด
+[Sequence](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/) คือคอล렉ชันของเอฟเฟกต์แอนิเมชันที่สามารถทำเป้าหมายกับรูปทรงต่าง ๆ
 
-## **อนิเมชันเชิงโต้ตอบ**
+[Timeline](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/animationtimeline/) คือชุดของลำดับที่ใช้บนสไลด์เฉพาะ มันถูกนำมาใช้ครั้งแรกใน PowerPoint 2002 ในเวอร์ชันก่อนหน้านี้ของ PowerPoint การเพิ่มเอฟเฟกต์แอนิเมชันทำได้ยากและมักต้องใช้วิธีแก้ปัญหาไทม์ไลน์แทนคลาส `AnimationSettings` เก่าและให้โมเดลวัตถุที่ชัดเจนขึ้นสำหรับแอนิเมชัน PowerPoint แต่ละสไลด์สามารถมีไทม์ไลน์แอนิเมชันได้เพียงหนึ่งลำดับ
 
-[Trigger](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effecttriggertype/) ให้คุณกำหนดการกระทำของผู้ใช้ (เช่น การคลิกปุ่ม) ที่เริ่มต้นอนิเมชันเฉพาะ Trigger ถูกเพิ่มเข้ามาในเวอร์ชันล่าสุดของ PowerPoint เท่านั้น
+## **แอนิเมชันแบบโต้ตอบ**
 
-## **อนิเมชันรูปทรง**
+[Trigger](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effecttriggertype/) ช่วยให้คุณกำหนดการกระทำของผู้ใช้ (เช่น การคลิกปุ่ม) ที่เริ่มแอนิเมชันเฉพาะ การเพิ่ม Trigger มีเฉพาะในเวอร์ชันล่าสุดของ PowerPoint
 
-Aspose.Slides ให้คุณนำอนิเมชันไปใช้กับรูปทรงต่างๆ เช่น ข้อความ สี่เหลี่ยม เส้น กรอบ วัตถุ OLE และอื่นๆ
+## **แอนิเมชันรูปทรง**
 
-{{% alert color="primary" %}}
-อ่านเพิ่มเติม [**เกี่ยวกับอนิเมชันรูปทรง**](/slides/th/python-net/shape-animation/)
+Aspose.Slides ทำให้คุณสามารถนำแอนิเมชันไปใช้กับรูปทรง—เช่น ข้อความ, สี่เหลี่ยม, เส้น, เฟรม, วัตถุ OLE และอื่น ๆ
+
+{{% alert color="info" title="Note" %}}
+อ่านเพิ่มเติม [**About Shape Animation**](/slides/th/python-net/shape-animation/)
 {{% /alert %}}
 
-## **แผนภูมิที่มีอนิเมชัน**
+## **แผนภูมิแอนิเมชัน**
 
-ในการสร้างแผนภูมิที่มีอนิเมชัน ให้ใช้คลาสเดียวกับที่ใช้กับรูปทรง อย่างไรก็ตาม อนิเมชัน PowerPoint สามารถนำไปใช้ได้เฉพาะกับหมวดหมู่ของแผนภูมิหรือซีรีส์ของแผนภูมิ คุณยังสามารถใช้เอฟเฟกต์อนิเมชันกับองค์ประกอบหมวดหมู่หรือซีรีส์เดี่ยวได้
+เพื่อสร้างแผนภูมิที่มีแอนิเมชัน ให้ใช้คลาสเดียวกันกับที่ใช้กับรูปทรง อย่างไรก็ตามแอนิเมชัน PowerPoint สามารถนำไปใช้ได้เฉพาะกับประเภทของแผนภูมิหรือซีรีส์ของแผนภูมิเท่านั้น คุณยังสามารถนำเอฟเฟกต์แอนิเมชันไปใช้กับองค์ประกอบประเภทเดียวหรือซีรีส์เดียวได้
 
-{{% alert color="primary" %}}
-อ่านเพิ่มเติม [**เกี่ยวกับแผนภูมิที่มีอนิเมชัน**](/slides/th/python-net/animated-charts/)
+{{% alert color="info" title="Note" %}}
+อ่านเพิ่มเติม [**About Animated Charts**](/slides/th/python-net/animated-charts/)
 {{% /alert %}}
 
-## **ข้อความที่มีอนิเมชัน**
+## **ข้อความแอนิเมชัน**
 
-นอกจากการทำอนิเมชันให้กับข้อความแล้ว คุณยังสามารถนำอนิเมชันไปใช้กับย่อหน้าด้วย
+นอกจากการทำแอนิเมชันกับข้อความแล้ว คุณยังสามารถนำแอนิเมชันไปใช้กับย่อหน้าได้
 
-{{% alert color="primary" %}}
-อ่านเพิ่มเติม [**เกี่ยวกับข้อความที่มีอนิเมชัน**](/slides/th/python-net/animated-text/)
+{{% alert color="info" title="Note" %}}
+อ่านเพิ่มเติม [**About Animated Text**](/slides/th/python-net/animated-text/)
 {{% /alert %}}
 
 ## **คำถามที่พบบ่อย**
 
-### การแปลงเป็น PDF จะคงอนิเมชันไว้หรือไม่?
+**Will animations be preserved when exporting to PDF?**
 
-ไม่ PDF เป็นรูปแบบคงที่ ดังนั้นอนิเมชันและ [slide transitions](/slides/th/python-net/slide-transition/) จะไม่เล่น หากคุณต้องการการเคลื่อนไหว ให้แปลงเป็น [HTML5](/slides/th/python-net/export-to-html5/), [animated GIF](/slides/th/python-net/convert-powerpoint-to-animated-gif/), หรือ [video](/slides/th/python-net/convert-powerpoint-to-video/) แทน
+ไม่. PDF เป็นรูปแบบคงที่ ดังนั้นแอนิเมชันและ [slide transitions](/slides/th/python-net/slide-transition/) จะไม่เล่น หากต้องการเคลื่อนไหวให้ส่งออกเป็น [HTML5](/slides/th/python-net/export-to-html5/), [animated GIF](/slides/th/python-net/convert-powerpoint-to-animated-gif/), หรือ [video](/slides/th/python-net/convert-powerpoint-to-video/) แทน
 
-### ฉันสามารถแปลงงานนำเสนอที่มีอนิเมชันเป็นวิดีโอและควบคุมอัตราเฟรมและขนาดเฟรมได้หรือไม่?
+**Can I turn an animated presentation into a video and control the frame rate and frame size?**
 
-ใช่ คุณสามารถ [render the presentation as frames](/slides/th/python-net/convert-powerpoint-to-video/) แล้วเข้ารหัสเป็นวิดีโอ (เช่น ใช้ ffmpeg) โดยเลือก FPS และความละเอียด การเล่นอนิเมชันและ slide transitions จะทำในระหว่างการเรนเดอร์
+ได้ คุณสามารถ [render the presentation as frames](/slides/th/python-net/convert-powerpoint-to-video/) และเข้ารหัสเป็นวิดีโอ (เช่น ผ่าน ffmpeg) โดยเลือก FPS และความละเอียด แอนิเมชันและการเปลี่ยนสไลด์จะเล่นระหว่างการเรนเดอร์
 
-### การทำงานกับ ODP จะคงอนิเมชันไว้เหมือนกับ PPTX หรือไม่?
+**Will animations remain intact when working with ODP (not just PPTX)?**
 
-PPT, PPTX, และ ODP รองรับการ [reading](/slides/th/python-net/open-presentation/) และ [writing](/slides/th/python-net/save-presentation/) แต่ความแตกต่างของรูปแบบอาจทำให้บางเอฟเฟกต์ดูหรือทำงานแตกต่างกันเล็กน้อย ตรวจสอบกรณีสำคัญด้วยตัวอย่างจริง
+PPT, PPTX, และ ODP รองรับการ [reading](/slides/th/python-net/open-presentation/) และ [writing](/slides/th/python-net/save-presentation/) แต่ไม่ได้รับการรับประกันว่าจะแอนิเมชันจะคงอยู่ ข้อมูลแอนิเมชันแบบกำหนดเองอาจหายไปเมื่อแปลงเป็น ODP ดู [Custom Animation](/slides/th/python-net/custom-animation/) สำหรับตัวอย่างและแนวทางการตรวจสอบความเข้ากันได้ของรูปแบบ

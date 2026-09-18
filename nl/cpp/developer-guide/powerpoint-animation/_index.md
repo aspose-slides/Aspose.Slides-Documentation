@@ -1,6 +1,6 @@
 ---
-title: Animaties toevoegen aan PowerPoint‑presentaties in C++
-linktitle: PowerPoint‑animatie
+title: Verbeter PowerPoint-presentaties met animaties in C++
+linktitle: PowerPoint-animatie
 type: docs
 weight: 150
 url: /nl/cpp/powerpoint-animation/
@@ -10,106 +10,103 @@ keywords:
 - animatie wijzigen
 - animatie verwijderen
 - animatie beheren
-- animatie regelen
-- animatie‑effect
-- PowerPoint‑animatie
-- animatie‑tijdlijn
+- animatie controleren
+- animatie-effect
+- PowerPoint-animatie
+- animatietijdlijn
 - interactieve animatie
 - aangepaste animatie
 - vormanimatie
 - geanimeerde grafiek
 - geanimeerde tekst
 - geanimeerde vorm
-- geanimeerd OLE‑object
+- geanimeerd OLE-object
 - geanimeerde afbeelding
 - geanimeerde tabel
 - PowerPoint
 - presentatie
 - C++
 - Aspose.Slides
-description: "Leer hoe u geavanceerde animatie‑effecten kunt toevoegen en beheren in Aspose.Slides voor C++ om dynamische PowerPoint‑ en OpenDocument‑presentaties te maken."
+description: "Leer hoe je geavanceerde animatie‑effecten kunt toevoegen en beheren in Aspose.Slides voor C++ om dynamische PowerPoint‑ en OpenDocument‑presentaties te maken."
 ---
 ## **Inleiding**
 
-Aangezien presentaties bedoeld zijn om iets te presenteren, wordt hun visuele uiterlijk en interactieve gedrag altijd in overweging genomen bij het maken ervan.
+Aangezien presentaties bedoeld zijn om iets te presenteren, worden hun visuele uitstraling en interactieve gedrag altijd in overweging genomen tijdens het maken.
 
-**PowerPoint-animatie** speelt een belangrijke rol om een presentatie opvallend en aantrekkelijk voor de kijkers te maken. Aspose.Slides voor C++ biedt een breed scala aan opties om animatie aan een PowerPoint-presentatie toe te voegen:
+**PowerPoint-animatie** speelt een belangrijke rol bij het aantrekkelijk en boeiend maken van een presentatie voor kijkers. Aspose.Slides biedt een breed scala aan mogelijkheden om animaties aan PowerPoint-presentaties toe te voegen:
 
-- verschillende soorten PowerPoint-animatie-effecten toepassen op vormen, diagrammen, tabellen, OLE‑objecten en andere presentatie‑elementen.
-- meerdere PowerPoint-animatie-effecten gebruiken op een vorm.
-- de animatietijdlijn gebruiken om animatie-effecten te regelen.
-- aangepaste animatie maken.
+- Pas verschillende typen PowerPoint-animatie-effecten toe op vormen, grafieken, tabellen, OLE-objecten en andere presentaties-elementen.
+- Gebruik meerdere PowerPoint-animatie-effecten op één vorm.
+- Gebruik de animatietijdlijn om animatie-effecten te regelen.
+- Maak aangepaste animaties.
 
-In Aspose.Slides voor C++ kunnen verschillende animatie-effecten op de vormen worden toegepast. Aangezien elk element op de dia, inclusief tekst, afbeeldingen, OLE‑object, tabel enz., wordt beschouwd als een vorm, betekent dit dat we animatie-effecten op elk element van een dia kunnen toepassen.
+In Aspose.Slides kunnen verschillende animatie-effecten worden toegepast op vormen. Aangezien elk element op een dia, inclusief tekst, afbeeldingen, OLE-objecten en tabellen, wordt beschouwd als een vorm, kunnen animatie-effecten op elk element op de dia worden toegepast.
 
-[**Aspose.Slides.Animation**](https://reference.aspose.com/slides/nl/cpp/namespace/aspose.slides.animation) **namespace** biedt klassen om met PowerPoint-animaties te werken.
+De [Aspose::Slides::Animation](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/) namespace biedt klassen voor het werken met PowerPoint-animaties.
+
 ## **Animatie-effecten**
+Aspose.Slides ondersteunt **meer dan 150 animatie-effecten**, inclusief basis-effecten zoals Bounce, PathFootball en Zoom, en specifieke effecten zoals OLEObjectShow en OLEObjectOpen. Een volledige lijst vind je in de enumeratie [EffectType](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/effecttype/).
 
-Aspose.Slides ondersteunt **meer dan 150 animatie-effecten**, waaronder basisanimatie-effecten zoals Bounce, PathFootball, Zoom-effect en specifieke animatie-effecten zoals OLEObjectShow, OLEObjectOpen. Een volledige lijst van animatie-effecten kun je vinden in de [**EffectType**](https://reference.aspose.com/slides/nl/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31) enumeratie.
+Daarnaast kunnen deze animatie-effecten in combinatie met de volgende gedragingen worden gebruikt:
 
-Daarnaast kunnen deze animatie-effecten in combinatie met elkaar worden gebruikt:
-- [KleurEffect](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/coloreffect/)
-- [OpdrachtEffect](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.animation.command_effect)
-- [FilterEffect](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.animation.filter_effect)
-- [BewegingsEffect](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.animation.motion_effect)
-- [EigenschapEffect](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.animation.property_effect)
-- [RotatieEffect](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.animation.rotation_effect)
-- [SchaalEffect](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.animation.scale_effect)
-- [InstellingEffect](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.animation.set_effect)
+- [ColorEffect](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/coloreffect/)
+- [CommandEffect](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/commandeffect/)
+- [FilterEffect](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/filtereffect/)
+- [MotionEffect](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/motioneffect/)
+- [PropertyEffect](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/propertyeffect/)
+- [RotationEffect](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/rotationeffect/)
+- [ScaleEffect](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/scaleeffect/)
+- [SetEffect](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/seteffect/)
 
 ## **Aangepaste animatie**
 
-Het is mogelijk om je eigen **aangepaste animaties** te maken in Aspose.Slides. 
-Dit kan worden bereikt door verschillende gedragspatronen samen te voegen tot een nieuwe aangepaste animatie.
+Voor volledige C++-voorbeelden die gedragingen en bewerkbare bewegingspaden maken, inspecteren en wijzigen, zie [Aangepaste animatie](/slides/nl/cpp/custom-animation/).
 
-[**Behavior**](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.animation.behavior) is een bouwsteen van elk PowerPoint-animatie-effect. Alle animatie-effecten zijn in feite een verzameling gedragspatronen die tot één strategie zijn samengesteld. Je kunt gedragspatronen combineren tot een aangepaste animatie en deze vervolgens in andere presentaties hergebruiken. Als je een nieuw gedragspatroon toevoegt aan een standaard PowerPoint-animatie-effect, ontstaat er een andere aangepaste animatie. Bijvoorbeeld, je kunt een herhaal‑gedrag toevoegen aan een animatie om deze een paar keer te herhalen.
+Het is mogelijk om je eigen **aangepaste animaties** te maken in Aspose.Slides. Dit kan worden bereikt door verschillende gedragingen te combineren tot een nieuwe aangepaste animatie.
 
-[**Animation Point**](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.animation.point) is een punt waarop gedrag moet worden toegepast.
+[Behavior](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/behavior/) is een bouwsteen van een PowerPoint-animatie-effect. Combineer gedragingen om een effect aan te passen, of voeg een gedrag toe om een vooraf gedefinieerd effect uit te breiden. Herhaling wordt ingesteld via tijdsinstellingen in plaats van een aparte repeat-gedrag.
 
-## **Animatie‑tijdlijn**
+[Animation Point](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/point/) is een punt waarop een gedrag moet worden toegepast.
 
-[**Sequence**](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.animation.sequence) is een verzameling animatie-effecten, toegepast op een concrete vorm.
+## **Animatie-tijdlijn**
+[Sequence](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/sequence/) is een verzameling animatie-effecten die op verschillende vormen kunnen worden toegepast.
 
-[**AnimationTimeLine**](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.animation.animation_time_line) is een set van Sequenties die worden gebruikt in een concrete dia. Het is een animatie‑engine die sinds PowerPoint 2002 bestaat. In eerdere PowerPoint‑versies was het lastig om animatie-effecten aan een presentatie toe te voegen; dit kon alleen met verschillende workarounds. De tijdlijn vervangt de oude AnimationSettings‑klasse en biedt een duidelijker objectmodel voor PowerPoint-animatie. Eén dia kan slechts één animatie‑tijdlijn hebben.
+[IAnimationTimeLine](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ianimationtimeline/) is een set van sequenties die in een specifieke dia worden gebruikt. Het is een animatie-engine geïntroduceerd in PowerPoint 2002. In eerdere versies van PowerPoint was het toevoegen van animatie-effecten aan presentaties lastig en alleen mogelijk met diverse workarounds. De tijdlijn biedt een duidelijker objectmodel voor PowerPoint-animaties. Een dia kan slechts één animatie-tijdlijn hebben.
 
 ## **Interactieve animatie**
+[Trigger](https://reference.aspose.com/slides/nl/cpp/aspose.slides.animation/effecttriggertype/) stelt je in staat om gebruikersacties, zoals een knop-klik, te definiëren die een bepaalde animatie starten.
 
-[**EffectTriggerType**](https://reference.aspose.com/slides/nl/cpp/namespace/aspose.slides.animation#add24fb49dd44eb3227aeeb3641fd2e81) maakt het mogelijk om gebruikersacties (bijv. een knop‑klik) te definiëren die een bepaalde animatie starten. Triggers zijn alleen toegevoegd in de nieuwste PowerPoint‑versie.
+## **Vorm-animatie**
+Aspose.Slides stelt je in staat om animaties toe te passen op vormen, die tekst, rechthoeken, lijnen, kaders, OLE-objecten en meer kunnen omvatten.
 
-## **Vorm‑animatie**
-
-Aspose.Slides maakt het mogelijk om animatie toe te passen op vormen, die daadwerkelijk tekst, rechthoek, lijn, frame, OLE‑object, enz. kunnen zijn.
-
-{{% alert color="primary" %}} 
-Lees meer [**Over vorm‑animatie**](/slides/nl/cpp/shape-animation/).
+{{% alert color="info" title="Opmerking" %}}
+Lees meer [**Over vorm-animatie**](/slides/nl/cpp/shape-animation/).
 {{% /alert %}}
 
 ## **Geanimeerde diagrammen**
+Om geanimeerde diagrammen te maken, moet je dezelfde klassen gebruiken als voor vormen. Echter, PowerPoint-animaties kunnen alleen worden toegepast op diagramcategorieën of diagramreeksen. Je kunt animatie-effecten ook toepassen op een categorie-element of een reeks-element.
 
-Om geanimeerde diagrammen te maken, moet je dezelfde klassen gebruiken als voor vormen. Het is echter mogelijk om PowerPoint‑animatie alleen toe te passen op diagramcategorieën of diagramreeksen. Je kunt ook een animatie‑effect toepassen op een categorie‑element of reeks‑element.
-
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Opmerking" %}}
 Lees meer [**Over geanimeerde diagrammen**](/slides/nl/cpp/animated-charts/).
 {{% /alert %}}
 
 ## **Geanimeerde tekst**
+Naast het animeren van tekst kun je animatie toepassen op een alinea.
 
-Naast geanimeerde tekst is het ook mogelijk om animatie toe te passen op een alinea.
-
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Opmerking" %}}
 Lees meer [**Over geanimeerde tekst**](/slides/nl/cpp/animated-text/).
 {{% /alert %}}
 
 ## **FAQ**
 
-**Worden animaties behouden bij exporteren naar PDF?**
+**Worden animaties behouden bij het exporteren naar PDF?**
 
-Nee. PDF is een statisch formaat, dus animaties en [dia‑overgangen](/slides/nl/cpp/slide-transition/) worden niet afgespeeld. Als je beweging nodig hebt, exporteer dan naar [HTML5](/slides/nl/cpp/export-to-html5/), [animatie‑GIF](/slides/nl/cpp/convert-powerpoint-to-animated-gif/) of [video](/slides/nl/cpp/convert-powerpoint-to-video/) in plaats daarvan.
+Nee. PDF is een statisch formaat, dus animaties en [dia-overgangen](/slides/nl/cpp/slide-transition/) worden niet afgespeeld. Als je beweging nodig hebt, exporteer dan naar [HTML5](/slides/nl/cpp/export-to-html5/), [geanimeerde GIF](/slides/nl/cpp/convert-powerpoint-to-animated-gif/), of [video](/slides/nl/cpp/convert-powerpoint-to-video/) in plaats daarvan.
 
-**Kan ik een geanimeerde presentatie omzetten naar een video en de framesnelheid en frame‑grootte controleren?**
+**Kan ik een geanimeerde presentatie omzetten naar een video en de framesnelheid en framegrootte beheersen?**
 
-Ja. Je kunt de presentatie [renderen als frames](/slides/nl/cpp/convert-powerpoint-to-video/) en deze coderen naar een video (bijv. via ffmpeg), waarbij je FPS en resolutie kiest. Animaties en dia‑overgangen worden afgespeeld tijdens het renderen.
+Ja. Je kunt de presentatie [renderen als frames](/slides/nl/cpp/convert-powerpoint-to-video/) en deze coderen naar een video (bijv. via ffmpeg), waarbij je de FPS en resolutie kiest. Animaties en dia-overgangen worden tijdens het renderen afgespeeld.
 
-**Blijven animaties intact bij het werken met ODP (niet alleen PPTX)?**
+**Blijven animaties behouden bij het werken met ODP (niet alleen PPTX)?**
 
-PPT, PPTX en ODP worden ondersteund voor [lezen](/slides/nl/cpp/open-presentation/) en [schrijven](/slides/nl/cpp/save-presentation/), maar formatverschillen kunnen ertoe leiden dat bepaalde effecten er iets anders uitzien of anders gedragen. Valideer kritieke gevallen met echte voorbeelden.
+PPT, PPTX en ODP worden ondersteund voor [lezen](/slides/nl/cpp/open-presentation/) en [schrijven](/slides/nl/cpp/save-presentation/), maar dit garandeert geen behoud van animaties. Aangepaste animatie-gegevens kunnen verloren gaan bij conversie naar ODP. Zie [Aangepaste animatie](/slides/nl/cpp/custom-animation/) voor voorbeelden en richtlijnen om de compatibiliteit van het formaat te controleren.

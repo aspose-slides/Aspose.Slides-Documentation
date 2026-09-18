@@ -1,5 +1,5 @@
 ---
-title: PHP を使用したプレゼンテーションへのシェイプ アニメーションの適用
+title: PHP を使用してプレゼンテーションにシェイプ アニメーションを適用する
 linktitle: シェイプ アニメーション
 type: docs
 weight: 60
@@ -7,37 +7,39 @@ url: /ja/php-java/shape-animation/
 keywords:
 - シェイプ
 - アニメーション
-- 効果
-- アニメーション シェイプ
-- アニメーション テキスト
-- アニメーションの追加
-- アニメーションの取得
-- アニメーションの抽出
-- 効果の追加
-- 効果の取得
-- 効果の抽出
-- 効果サウンド
-- アニメーションの適用
+- エフェクト
+- アニメーションシェイプ
+- アニメーションテキスト
+- アニメーションを追加
+- アニメーションを取得
+- アニメーションを抽出
+- エフェクトを追加
+- エフェクトを取得
+- エフェクトを抽出
+- エフェクト サウンド
+- アニメーションを適用
 - PowerPoint
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java を使用して、シェイプ アニメーション、タイミング、サウンド、アフターアニメーションの動作、アニメーション テキストの追加、検査、カスタマイズ方法を学びます。"
+description: "Aspose.Slides for PHP via Java を使用して、シェイプ アニメーション、タイミング、サウンド、アフターアニメーションの動作、アニメーションテキストの追加、検査、カスタマイズ方法を学びます。"
 ---
 ## **概要**
 
-Aspose.Slides for PHP via Java は、スライドアニメーションをスライドタイムライン上のエフェクトとして表現します。エフェクトには対象シェイプ、アニメーションの種類とサブタイプ、トリガー、タイミング設定、そしてサウンドやアフターアニメーション動作といったオプションプロパティがあります。
+エフェクト内の個々の動作を操作したり、モーションパス セグメントを編集したりするには、[Custom Animation](/slides/ja/php-java/custom-animation/) を参照してください。
 
-タイムラインには 2 種類のシーケンスがあります：
+Aspose.Slides for PHP via Java はスライドアニメーションをスライドのタイムライン上のエフェクトとして表現します。エフェクトには対象シェイプ、アニメーションのタイプとサブタイプ、トリガー、タイミング設定、およびサウンドやアフターアニメーション動作などのオプションプロパティがあります。
+
+タイムラインには 2 種類のシーケンスがあります:
 
 - **メインシーケンス** はスライドが進むと再生されます。
 - **インタラクティブシーケンス** はトリガーシェイプがクリックされたときに開始します。
 
-テキストボックス、画像、チャート、テーブル、その他のスライドオブジェクトはすべてシェイプであるため、ほとんどのスライドコンテンツには同じ[Sequence::addEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/sequence/addeffect/)メソッドを使用します。利用可能なエフェクトは[EffectType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effecttype/)クラスに一覧表示されています。
+テキストボックス、画像、チャート、表、その他のスライドオブジェクトはシェイプであるため、ほとんどのスライドコンテンツに同じ [Sequence::addEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/sequence/addeffect/) メソッドを使用します。利用可能なエフェクトは [EffectType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effecttype/) クラスに一覧されています。
 
 ## **シェイプ アニメーションの追加**
 
-アニメーションを追加するには、スライドのメインシーケンスを取得し、対象シェイプ、エフェクトタイプ、サブタイプ、トリガーを指定して[Sequence::addEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/sequence/addeffect/)を呼び出します。他のシェイプがクリックされたときに開始するエフェクトの場合、そのシェイプをトリガーとしたインタラクティブシーケンスを作成します。
+アニメーションを追加するには、スライドのメインシーケンスを取得し、対象シェイプ、エフェクトタイプ、サブタイプ、トリガーを指定して [Sequence::addEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/sequence/addeffect/) を呼び出します。他のシェイプがクリックされたときに開始するエフェクトの場合、そのシェイプをトリガーとしたインタラクティブシーケンスを作成します。
 
 以下の例は両方のタイプのアニメーションを作成し、結果を `shape-animations.pptx` に保存します。
 
@@ -72,19 +74,19 @@ try {
 }
 ```
 
-トリガーはエフェクトの開始時期を制御します：
+トリガーはエフェクトの開始タイミングを制御します:
 
-- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effecttriggertype/) はメインシーケンスでのクリック、またはインタラクティブシーケンスでトリガーシェイプのクリックを待ちます。
-- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effecttriggertype/) は前のエフェクトと同時に開始します。
-- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effecttriggertype/) は前のエフェクトが終了したときに開始します。
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effecttriggertype/) メインシーケンスでクリック、またはインタラクティブシーケンスでトリガーシェイプのクリックを待機します。
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effecttriggertype/) 前のエフェクトと同時に開始します。
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effecttriggertype/) 前のエフェクトが終了したときに開始します。
 
-画像、チャート、その他のシェイプタイプをアニメーションさせるには、`$targetShape` の代わりにそのオブジェクトを[Sequence::addEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/sequence/addeffect/)に渡します。チャート固有のグループ化オプションについては[Animated Charts](/slides/ja/php-java/animated-charts/)をご覧ください。
+画像、チャート、その他のシェイプタイプをアニメーション化するには、`$targetShape` の代わりにそのオブジェクトを [Sequence::addEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/sequence/addeffect/) に渡します。チャート固有のグループ化オプションについては、[Animated Charts](/slides/ja/php-java/animated-charts/) を参照してください。
 
 ## **シェイプ アニメーションの読み取り**
 
-対象シェイプが分かっている場合は[Sequence::getEffectsByShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/sequence/geteffectsbyshape/)を使用します。すべてのエフェクトを確認するには、メインシーケンスとすべてのインタラクティブシーケンスを列挙します。列挙することでシーケンスがインデックス `0` にエフェクトを持つと仮定することを防げます。
+対象シェイプが分かっている場合は [Sequence::getEffectsByShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/sequence/geteffectsbyshape/) を使用します。すべてのエフェクトを確認するには、メインシーケンスとすべてのインタラクティブシーケンスを列挙します。列挙することで、シーケンスがインデックス `0` にエフェクトを持つと仮定することを防げます。
 
-以下の例はメインシーケンスとインタラクティブエフェクトを持つシェイプを作成し、シェイプを対象としたエフェクトを取得し、さらにスライド上のすべてのシーケンスを列挙します。
+以下の例は、メインシーケンスとインタラクティブエフェクトを持つシェイプを作成し、そのシェイプを対象とするエフェクトを取得し、さらにスライド上のすべてのシーケンスを列挙します。
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -144,21 +146,21 @@ try {
 }
 ```
 
-1 つのシェイプに対するエフェクトだけが必要な場合は、まず名前、プレースホルダータイプ、または他の安定したプロパティでシェイプを特定し、次に[Sequence::getEffectsByShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/sequence/geteffectsbyshape/)を呼び出します。[ShapeCollection::get_Item](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/get_item/) のインデックス `0` が常に目的のオブジェクトであると仮定しないでください。
+1 つのシェイプのエフェクトだけが必要な場合は、まず名前、プレースホルダータイプ、またはその他の安定したプロパティでシェイプを特定し、次に [Sequence::getEffectsByShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/sequence/geteffectsbyshape/) を呼び出します。[ShapeCollection::get_Item](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/get_item/) がインデックス `0` に常に目的のオブジェクトがあると仮定しないでください。
 
-## **継承されたプレースホルダー エフェクトの操作**
+## **継承プレースホルダー エフェクトの操作**
 
-通常のスライド上のプレースホルダーは、レイアウトスライドやマスタースライド上の対応するプレースホルダーからアニメーション動作を継承できます。[Shape::getBasePlaceholder](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/getbaseplaceholder/) はその親プレースホルダーを返し、親が存在しない場合は `null` を返します。
+標準スライド上のプレースホルダーは、レイアウトスライドおよびマスタースライド上の対応するプレースホルダーからアニメーション動作を継承できます。[Shape::getBasePlaceholder](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/getbaseplaceholder/) はその親プレースホルダーを返します。親が存在しない場合は `null` を返します。
 
-以下の例のプレゼンテーションでは、フッターは通常のスライドで**Random Bars**、レイアウトスライドで**Split**、マスタースライドで**Fly In** のアニメーションを持ちます。
+以下の例のプレゼンテーションでは、フッターは標準スライドで **Random Bars**、レイアウトスライドで **Split**、マスタースライドで **Fly In** を持っています。
 
-![通常のスライド上のフッター アニメーション効果](slide-shape-animation.png)
+![標準スライド上のフッター アニメーション効果](slide-shape-animation.png)
 
 ![レイアウトスライド上のフッター プレースホルダー アニメーション効果](layout-shape-animation.png)
 
 ![マスタースライド上のフッター プレースホルダー アニメーション効果](master-shape-animation.png)
 
-次の例は新しいプレゼンテーションからのプレースホルダー階層を使用します。マスタープレースホルダー、レイアウトプレースホルダー、および通常スライド上の対応するプレースホルダーにエフェクトを追加します。[Shape::getBasePlaceholder](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/getbaseplaceholder/) の呼び出しは、返されたシェイプが使用される前に必ずチェックされます。
+次の例は新しいプレゼンテーションからのプレースホルダー階層を使用します。マスタープレースホルダー、レイアウトプレースホルダー、および標準スライド上の対応するプレースホルダーにエフェクトを追加します。[Shape::getBasePlaceholder](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/getbaseplaceholder/) の呼び出しはすべて、返されたシェイプを使用する前にチェックされます。
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -248,17 +250,17 @@ try {
 
 ## **アニメーション タイミングの変更**
 
-PowerPoint の**Timing** ダイアログは[Timing](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/) のプロパティに対応しています。
+PowerPoint の **Timing** ダイアログは [Timing](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/) のプロパティに対応しています。
 
-![アニメーション効果の PowerPoint タイミング ダイアログ](shape-animation.png)
+![アニメーション エフェクトの PowerPoint タイミング ダイアログ](shape-animation.png)
 
-- **開始** は[Timing::getTriggerType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/gettriggertype/) に対応します。
-- **期間** は[Timing::getDuration](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/getduration/) に対応し、秒単位です。
-- **遅延** は[Timing::getTriggerDelayTime](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/gettriggerdelaytime/) に対応し、秒単位です。
-- **繰り返し** は[Timing::getRepeatCount](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/getrepeatuntilnextclick/), または[Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/getrepeatuntilendslide/) に対応します。
-- **再生完了後に巻き戻す** は[Timing::getRewind](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/getrewind/) に対応します。
+- **Start** は [Timing::getTriggerType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/gettriggertype/) に対応します。
+- **Duration** は秒単位で [Timing::getDuration](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/getduration/) に対応します。
+- **Delay** は秒単位で [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/gettriggerdelaytime/) に対応します。
+- **Repeat** は [Timing::getRepeatCount](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/getrepeatcount/)、[Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/getrepeatuntilnextclick/)、または [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/getrepeatuntilendslide/) に対応します。
+- **Rewind when done playing** は [Timing::getRewind](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/getrewind/) に対応します。
 
-この独立した例はエフェクトを追加し、[Sequence::addEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/sequence/addeffect/) が返すオブジェクトを通じてそのタイミングを変更し、結果を保存します。返された[Effect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effect/) の参照を保持することで不要なコレクションインデックスを避けられます。
+この独立した例はエフェクトを追加し、[Sequence::addEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/sequence/addeffect/) で返されたオブジェクトを介してそのタイミングを変更し、結果を保存します。返された [Effect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effect/) の参照を保持することで不要なコレクションインデックスを回避できます。
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -289,15 +291,15 @@ try {
 }
 ```
 
-意図的に 1 つのリピートモードのみを使用してください。リピート回数と「until」フラグを組み合わせると、ビューアーによって混乱する結果になることがあります。リピートモードを変更する際は、[Timing::setRepeatCount](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/setrepeatcount/) の前に[Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/setrepeatuntilnextclick/) と[Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/setrepeatuntilendslide/) を設定してください。これらのフラグの設定はアクティブなリピートモードも変更します。
+意図的に 1 つのリピートモードだけを使用してください。リピート回数と「until」フラグを組み合わせると、ビューアーによって混乱する結果になる可能性があります。リピートモードを変更する際は、[Timing::setRepeatCount](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/setrepeatcount/) を呼ぶ前に、[Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/setrepeatuntilnextclick/) と [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/timing/setrepeatuntilendslide/) を設定してください。どちらかのフラグを設定すると、アクティブなリピートモードも変更されます。
 
-## **アニメーションサウンドの追加と抽出**
+## **アニメーション サウンドの追加と抽出**
 
-アニメーションエフェクトは[Effect::getSound](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effect/getsound/) を使用して埋め込み音声を参照できます。[Effect::setStopPreviousSound](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effect/setstopprevioussound/) は、以前のエフェクトで開始された音声を停止するようエフェクトに指示します。
+アニメーションエフェクトは [Effect::getSound](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effect/getsound/) を使用して埋め込まれたオーディオを参照できます。[Effect::setStopPreviousSound](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effect/setstopprevioussound/) は、以前のエフェクトで開始されたオーディオを停止するようエフェクトに指示します。
 
 ### **エフェクトにサウンドを追加**
 
-以下の例は `animation-sound.wav` というローカル音声ファイルを前提とします。2 つのエフェクトを作成し、最初のエフェクトのサウンドとしてそのファイルを埋め込み、2 番目のエフェクトがサウンドを停止するよう構成します。[Sequence::addEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/sequence/addeffect/) が返すオブジェクトを使用するため、シーケンスインデックスは不要です。
+以下の例は `animation-sound.wav` というローカルオーディオファイルがあることを前提としています。2 つのエフェクトを作成し、最初のエフェクトのサウンドとしてそのファイルを埋め込み、2 番目のエフェクトがサウンドを停止するよう構成します。[Sequence::addEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/sequence/addeffect/) で返されたオブジェクトを使用するため、シーケンスインデックスは不要です。
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -336,7 +338,7 @@ try {
 
 ### **埋め込みエフェクトサウンドの抽出**
 
-以下の例は `presentation-with-animation-sounds.pptx` というローカルプレゼンテーションを前提とします。メインシーケンスとインタラクティブシーケンスの両方を走査し、埋め込まれたエフェクトサウンドをすべて `extracted-animation-sounds` ディレクトリに書き出します。拡張子は[Audio::getContentType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/audio/getcontenttype/) が提供する音声 MIME タイプから選択されます。
+以下の例は `presentation-with-animation-sounds.pptx` というローカルプレゼンテーションがあることを前提としています。メインシーケンスとインタラクティブシーケンスの両方を走査し、すべての埋め込みエフェクトサウンドを `extracted-animation-sounds` ディレクトリに書き出します。拡張子は [Audio::getContentType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/audio/getcontenttype/) が提供するオーディオ MIME タイプから選択されます。
 
 ```php
 use aspose\slides\Presentation;
@@ -420,15 +422,15 @@ try {
 }
 ```
 
-大きな音声オブジェクトの場合は、[Audio::getStream](https://reference.aspose.com/slides/ja/php-java/aspose.slides/audio/getstream/) を使用し、全体をバイト配列に読み込むのではなくストリームをファイルにコピーしてください。
+大きなオーディオオブジェクトの場合は、[Audio::getStream](https://reference.aspose.com/slides/ja/php-java/aspose.slides/audio/getstream/) を使用してストリームを取得し、バイト配列に全体をロードする代わりにストリームをファイルにコピーしてください。
 
-## **アフターアニメーション 動作の設定**
+## **アフターアニメーション動作の設定**
 
-**After animation** オプションは、エフェクトが終了した後にシェイプに何が起こるかを制御します。
+**After animation** オプションは、エフェクトが完了した後にシェイプに何が起こるかを制御します。
 
-![After animation 設定を示す PowerPoint エフェクトオプション ダイアログ](shape-after-animation.png)
+![After animation 設定を示す PowerPoint エフェクト オプション ダイアログ](shape-after-animation.png)
 
-[AfterAnimationType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/afteranimationtype/) クラスは、シェイプを変更せずに保持する、色を変更する、アニメーション後に非表示にする、または次のクリックで非表示にする、という動作をサポートします。タイプが[AfterAnimationType::Color](https://reference.aspose.com/slides/ja/php-java/aspose.slides/afteranimationtype/) の場合は、[Effect::getAfterAnimationColor](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effect/getafteranimationcolor/) も設定してください。
+[AfterAnimationType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/afteranimationtype/) クラスは、シェイプを変更せずに残す、色を変更する、アニメーション後に非表示にする、または次のクリックで非表示にする、という動作をサポートします。タイプが [AfterAnimationType::Color](https://reference.aspose.com/slides/ja/php-java/aspose.slides/afteranimationtype/) の場合は、[Effect::getAfterAnimationColor](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effect/getafteranimationcolor/) も設定してください。
 
 この独立した例はエフェクトを作成し、返されたエフェクトオブジェクトを通じてアフターアニメーション動作を設定し、結果を保存します。
 
@@ -457,16 +459,16 @@ try {
 }
 ```
 
-[AfterAnimationType::Color](https://reference.aspose.com/slides/ja/php-java/aspose.slides/afteranimationtype/) 以外のタイプに変更すると、アフターアニメーションのカラー設定はクリアされます。
+[AfterAnimationType::Color] 以外のタイプに変更すると、アフターアニメーションの色設定はクリアされます。
 
-## **テキスト アニメーション**
+## **テキストのアニメーション**
 
-テキストアニメーションには 2 つの関連する制御があります：
+テキストアニメーションには関連する 2 つの制御があります:
 
-- [TextAnimation::getBuildType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textanimation/getbuildtype/) は段落がまとめて表示されるか段落レベルで表示されるかを制御します。
-- [Effect::getAnimateTextType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effect/getanimatetexttype/) はテキストが一度に表示されるか、単語ごと、または文字ごとに表示されるかを制御します。[Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effect/getdelaybetweentextparts/) は単語または文字間の遅延を設定します。正の値はエフェクト期間のパーセンテージ、負の値は秒単位の遅延です。
+- [TextAnimation::getBuildType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/textanimation/getbuildtype/) は段落が一緒に表示されるか、段落レベルで表示されるかを制御します。
+- [Effect::getAnimateTextType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effect/getanimatetexttype/) はテキストが一度に表示されるか、単語単位か、文字単位かを制御します。[Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effect/getdelaybetweentextparts/) は単語や文字間の遅延を設定します。正の値はエフェクト期間のパーセンテージ、負の値は秒単位の遅延です。
 
-以下の独立した例はテキストボックス内の単語をアニメーション化します。[BuildType::AsOneObject](https://reference.aspose.com/slides/ja/php-java/aspose.slides/buildtype/) は段落ごとのビルドを無効にし、単語設定がテキストフレーム全体に適用されるようにします。
+以下の独立した例はテキストボックス内の単語にアニメーションを適用します。[BuildType::AsOneObject](https://reference.aspose.com/slides/ja/php-java/aspose.slides/buildtype/) は段落ごとのビルドを無効にし、単語設定がテキストフレーム全体に適用されるようにします。
 
 ```php
 use aspose\slides\AnimateTextType;
@@ -495,26 +497,26 @@ try {
 }
 ```
 
-段落単位でテキストボックスをビルドするには、[BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/ja/php-java/aspose.slides/buildtype/)（または他の段落レベル）を設定します。単一の段落に固有のエフェクトを適用するには、[Paragraph](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraph/) を受け取る[Sequence::addEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/sequence/addeffect/) のオーバーロードを使用してください。段落レベルの例については[Animated Text](/slides/ja/php-java/animated-text/)をご覧ください。
+段落単位でテキストボックスを構築するには、[BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/ja/php-java/aspose.slides/buildtype/)（または別の段落レベル）を設定します。単一の段落に個別のエフェクトを適用するには、[Paragraph](https://reference.aspose.com/slides/ja/php-java/aspose.slides/paragraph/) を受け取る [Sequence::addEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/sequence/addeffect/) のオーバーロードを使用してください。段落レベルの例については、[Animated Text](/slides/ja/php-java/animated-text/) を参照してください。
 
-## **エクスポートと互換性に関する注意点**
+## **エクスポートと互換性に関する注意事項**
 
-- PPT または PPTX への保存はアニメーションモデルを保持しますが、最終的な再生はプレゼンテーションビューアーが制御します。
-- PDF や静止画像はアニメーションを再生しません。出力に動きが必要な場合は[HTML5 export](/slides/ja/php-java/export-to-html5/)、アニメーション GIF、または[video conversion](/slides/ja/php-java/convert-powerpoint-to-video/) を使用してください。
-- HTML5 用には[Html5Options::setAnimateShapes](https://reference.aspose.com/slides/ja/php-java/aspose.slides/html5options/setanimateshapes/) を有効にし、必要に応じて[Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/ja/php-java/aspose.slides/html5options/setanimatetransitions/) を設定してください。
-- ビデオレンダリングは多数の一般的な入場、強調、退出、モーションパスエフェクトをサポートしますが、すべての PowerPoint エフェクトがサポートされているわけではありません。現在の[supported animations and effects](/slides/ja/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) を確認し、重要なプレゼンテーションを対象の Aspose.Slides バージョンでテストしてください。
-- 高度なカスタムエフェクトや他のプレゼンテーション形式からインポートされたエフェクトはファイル内で保持される場合がありますが、PowerPoint、HTML5、またはビデオでのレンダリングが異なることがあります。エフェクト名のみで判断せず、エクスポート結果を検証してください。
+- PPT または PPTX に保存するとアニメーションモデルは保持されますが、最終的な再生はプレゼンテーション ビューアーが制御します。
+- PDF および静止画像ではアニメーションは再生されません。出力に動きを表示する必要がある場合は、[HTML5 export](/slides/ja/php-java/export-to-html5/)、アニメーション GIF、または [video conversion](/slides/ja/php-java/convert-powerpoint-to-video/) を使用してください。
+- HTML5 では、[Html5Options::setAnimateShapes](https://reference.aspose.com/slides/ja/php-java/aspose.slides/html5options/setanimateshapes/) を有効にし、必要に応じて [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/ja/php-java/aspose.slides/html5options/setanimatetransitions/) を有効にしてください。
+- ビデオレンダリングは多くの一般的な入場、強調、退出、モーションパス エフェクトをサポートしますが、すべての PowerPoint エフェクトがサポートされているわけではありません。現在の [supported animations and effects](/slides/ja/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) を確認し、対象の Aspose.Slides バージョンで重要なプレゼンテーションをテストしてください。
+- 高度なカスタムエフェクトや他のプレゼンテーション形式からインポートされたエフェクトはファイル内に保持される場合がありますが、PowerPoint、HTML5、またはビデオでのレンダリングが異なることがあります。エフェクト名だけに依存せず、エクスポート結果を検証してください。
 
-## **よくある質問**
+## **FAQ**
 
-**なぜアニメーションは PowerPoint では表示されるが PDF では表示されないのですか？**
+**Why does an animation appear in PowerPoint but not in a PDF?**
 
-PDF は静的な形式であるため、アニメーションやスライド遷移は再生されません。動きを保持する必要がある場合は、HTML5、アニメーション GIF、またはビデオにエクスポートしてください。
+PDF は静的フォーマットであるため、アニメーションやスライド遷移は再生されません。動きを保持する必要がある場合は、HTML5、アニメーション GIF、またはビデオにエクスポートしてください。
 
-**なぜエフェクトはビデオで異なる再生になるのですか？**
+**Why does an effect play differently in a video?**
 
-ビデオエクスポートはアニメーションをレンダリングし、元の PowerPoint の動作を保持しません。一部の高度なエフェクトはサポートされていないか、近似されています。サポートされているエフェクトの表を確認し、実際のプレゼンテーションを本番使用前にテストしてください。
+ビデオエクスポートはアニメーションをレンダリングするもので、元の PowerPoint の動作を保存するわけではありません。いくつかの高度なエフェクトはサポートされていないか、近似されます。サポートされているエフェクトの表を確認し、実際のプレゼンテーションをテストしてから本番で使用してください。
 
-**シェイプを前方または後方に移動するとアニメーションの順序が変わりますか？**
+**Does moving a shape forward or backward change its animation order?**
 
-いいえ。シェイプの Z 順序は重なりを制御し、シーケンスの順序とトリガーがアニメーションの再生を制御します。再生順序を変更したい場合は、タイムラインを調整してください。
+いいえ。シェイプの Z オーダーは重なりを制御し、シーケンスの順序とトリガーがアニメーションの再生順序を制御します。再生順序を変更したい場合は、タイムラインを変更してください。

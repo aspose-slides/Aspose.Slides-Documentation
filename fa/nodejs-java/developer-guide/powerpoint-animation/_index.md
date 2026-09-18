@@ -1,5 +1,5 @@
 ---
-title: بهبود ارائه‌های PowerPoint با انیمیشن‌ها در JavaScript
+title: بهبود ارائه‌های PowerPoint با انیمیشن‌ها در جاوااسکریپت
 linktitle: انیمیشن PowerPoint
 type: docs
 weight: 150
@@ -13,7 +13,7 @@ keywords:
 - کنترل انیمیشن
 - افکت انیمیشن
 - انیمیشن PowerPoint
-- خط زمان انیمیشن
+- جدول زمان‌بندی انیمیشن
 - انیمیشن تعاملی
 - انیمیشن سفارشی
 - انیمیشن شکل
@@ -26,26 +26,28 @@ keywords:
 - PowerPoint
 - ارائه
 - Node.js
-- JavaScript
+- جاوااسکریپت
 - Aspose.Slides
-description: "از Aspose.Slides برای Node.js از طریق Java برای پردازش انیمیشن‌های PowerPoint استفاده کنید. این مرور نکات کلیدی را برجسته می‌کند و بینش‌هایی برای بهبود ارائه‌های شما ارائه می‌دهد."
+description: "از Aspose.Slides برای Node.js از طریق Java برای مدیریت انیمیشن‌های PowerPoint استفاده کنید. این مرور کلی ویژگی‌های کلیدی را برجسته می‌کند و بینش‌هایی برای بهبود ارائه‌های شما ارائه می‌دهد."
 ---
-## **معرفی**
+## **مقدمه**
 
-از آنجا که ارائه‌ها برای نشان دادن چیزی ایجاد می‌شوند، ظاهر بصری و رفتار تعاملی آن‌ها همواره هنگام ساختن مورد توجه قرار می‌گیرد.
+از آنجا که ارائه‌ها برای نمایش چیزی ایجاد می‌شوند، ظاهر بصری و رفتار تعاملی آن‌ها همواره در زمان ساخت در نظر گرفته می‌شود.
 
-**PowerPoint animation** نقش مهمی در جذاب و چشم‌نواز کردن ارائه برای بینندگان ایفا می‌کند. Aspose.Slides for Node.js via Java گزینه‌های متنوعی برای افزودن انیمیشن به ارائه PowerPoint فراهم می‌کند:
-- اعمال انواع مختلف افکت‌های انیمیشن PowerPoint روی اشکال، نمودارها، جداول، اشیای OLE و سایر عناصر ارائه.
-- استفاده از چندین افکت انیمیشن PowerPoint روی یک شکل.
-- استفاده از زمان‌بندی انیمیشن برای کنترل افکت‌های انیمیشن.
-- ایجاد انیمیشن سفارشی.
+**انیمیشن PowerPoint** نقش مهمی در جذاب و گیرای کردن ارائه برای مخاطبان ایفا می‌کند. Aspose.Slides for Node.js via Java گزینه‌های گسترده‌ای برای افزودن انیمیشن به ارائه‌های PowerPoint فراهم می‌کند:
 
-در Aspose.Slides for Node.js via Java، می‌توان افکت‌های مختلف انیمیشن را بر روی اشکال اعمال کرد. چون هر عنصر در اسلاید شامل متن، تصویر، شیء OLE، جدول و غیره به‌عنوان یک شکل در نظر گرفته می‌شود، می‌توانیم افکت انیمیشن را بر روی هر عنصر اسلاید اعمال کنیم.
+- اعمال انواع مختلف افکت‌های انیمیشن PowerPoint روی اشکال، نمودارها، جدول‌ها، اشیای OLE و سایر عناصر ارائه.
+- استفاده از چندین افکت انیمیشن PowerPoint بر روی یک شکل.
+- بهره‌گیری از جدول زمان‌بندی انیمیشن برای کنترل افکت‌های انیمیشن.
+- ایجاد انیمیشن‌های سفارشی.
+
+در Aspose.Slides for Node.js via Java، می‌توان انواع مختلف افکت‌های انیمیشن را بر روی اشکال اعمال کرد. چون هر عنصر در یک اسلاید، از جمله متن، تصاویر، اشیای OLE و جدول‌ها، به عنوان یک شکل در نظر گرفته می‌شود، می‌توان افکت‌های انیمیشن را بر روی هر عنصر در اسلاید اعمال کرد.
 
 ## **افکت‌های انیمیشن**
-Aspose.Slides از **بیش از 150 افکت انیمیشن** پشتیبانی می‌کند، که شامل افکت‌های اساسی مانند Bounce، PathFootball، Zoom و افکت‌های خاصی مانند OLEObjectShow، OLEObjectOpen می‌شود. می‌توانید فهرست کامل افکت‌های انیمیشن را در شمارش‌گر [**EffectType**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/effecttype/) پیدا کنید.
+Aspose.Slides از **بیش از 150 افکت انیمیشن** پشتیبانی می‌کند، از جمله افکت‌های پایه‌ای مانند Bounce، PathFootball و Zoom، و افکت‌های خاصی مانند OLEObjectShow و OLEObjectOpen. می‌توانید فهرست کامل را در شمارش‌گر [EffectType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/effecttype/) پیدا کنید.
 
-علاوه بر این، می‌توان این افکت‌های انیمیشن را با یکدیگر ترکیب کرد:
+علاوه بر این، این افکت‌های انیمیشن می‌توانند همراه با رفتارهای زیر استفاده شوند:
+
 - [ColorEffect](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/CommandEffect)
 - [FilterEffect](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/FilterEffect)
@@ -56,51 +58,54 @@ Aspose.Slides از **بیش از 150 افکت انیمیشن** پشتیبانی 
 - [SetEffect](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SetEffect)
 
 ## **انیمیشن سفارشی**
-می‌توان **انیمیشن‌های سفارشی** خود را در Aspose.Slides ایجاد کرد. این کار با ترکیب چند رفتار به‌صورت یک انیمیشن سفارشی جدید امکان‌پذیر است.
 
-[**Behavior**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Behavior) واحد ساختاری هر افکت انیمیشن PowerPoint است. تمام افکت‌های انیمیشن در واقع مجموعه‌ای از رفتارها هستند که در یک استراتژی ترکیب می‌شوند. می‌توانید رفتارها را در یک انیمیشن سفارشی ترکیب کنید و سپس در ارائه‌های دیگر دوباره استفاده کنید. اگر یک رفتار جدید به یک افکت انیمیشن استاندارد PowerPoint اضافه کنید، یک انیمیشن سفارشی دیگر ایجاد می‌شود. برای مثال، می‌توانید رفتار تکرار را به یک انیمیشن اضافه کنید تا چند بار تکرار شود.
+برای مثال‌های کامل JavaScript که رفتارها و مسیرهای حرکتی قابل ویرایش را ایجاد، بررسی و اصلاح می‌کنند، به [Custom Animation](/slides/fa/nodejs-java/custom-animation/) مراجعه کنید.
 
-[**Animation Point**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Point) نقطه‌ای است که رفتار باید در آن اعمال شود.
+در Aspose.Slides می‌توان **انیمیشن‌های سفارشی** خود را ایجاد کرد. این کار با ترکیب چندین رفتار در یک انیمیشن سفارشی جدید امکان‌پذیر است.
 
-## **خط زمان انیمیشن**
-[**Sequence**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Sequence) مجموعه‌ای از افکت‌های انیمیشن است که بر روی یک شکل خاص اعمال می‌شود.
+[Behavior](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/behavior/) بلوکی سازنده یک افکت انیمیشن PowerPoint است. برای سفارشی‌سازی یک افکت، رفتارها را ترکیب کنید یا یک رفتار اضافه کنید تا یک افکت از پیش تعریف شده را گسترش دهید. تکرار از طریق تنظیمات زمان‌بندی پیکربندی می‌شود نه از طریق یک رفتار تکرار جداگانه.
 
-[**Timeline**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/AnimationTimeLine) مجموعه‌ای از Sequenceها است که در یک اسلاید خاص استفاده می‌شود. این یک موتور انیمیشن است که از PowerPoint 2002 معرفی شده است. در نسخه‌های قبلی PowerPoint اضافه کردن افکت‌های انیمیشن به ارائه دشوار بود و فقط با روش‌های جایگزین می‌توانست انجام شود. Timeline جایگزین کلاس قدیمی AnimationSettings شده و مدل شیء واضح‌تری برای انیمیشن PowerPoint فراهم می‌کند. یک اسلاید فقط می‌تواند یک خط زمان انیمیشن داشته باشد.
+[Animation Point](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/point/) نقطه‌ای است که در آن یک رفتار باید اعمال شود.
+
+## **جدول زمان‌بندی انیمیشن**
+[Sequence](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/sequence/) مجموعه‌ای از افکت‌های انیمیشن است که می‌تواند به اشکال مختلف هدف‌گذاری شود.
+
+[Timeline](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/animationtimeline/) مجموعه‌ای از توالی‌ها است که در یک اسلاید خاص استفاده می‌شود. این موتور انیمیشن در PowerPoint 2002 معرفی شد. در نسخه‌های قبلی PowerPoint، افزودن افکت‌های انیمیشن به ارائه‌ها چالش‌برانگیز بود و فقط می‌توانست با راه‌حل‌های مختلف انجام شود. جدول زمان‌بندی مدلی واضح‌تر از اشیاء برای انیمیشن‌های PowerPoint فراهم می‌کند. یک اسلاید فقط می‌تواند یک جدول زمان‌بندی انیمیشن داشته باشد.
 
 ## **انیمیشن تعاملی**
-[**Trigger**](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/EffectTriggerType) امکان تعریف اقدامات کاربر (مانند کلیک دکمه) را فراهم می‌کند که باعث شروع یک انیمیشن خاص می‌شود. Triggerها فقط در آخرین نسخه PowerPoint اضافه شده‌اند.
+[Trigger](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/effecttriggertype/) به شما امکان می‌دهد اقدام کاربر، مانند کلیک روی دکمه، را تعریف کنید که یک انیمیشن خاص را آغاز می‌کند.
 
 ## **انیمیشن شکل**
-Aspose.Slides امکان اعمال انیمیشن بر روی اشکال را می‌دهد؛ این اشکال می‌توانند متن، مستطیل، خط، فریم، شیء OLE و غیره باشند.
+Aspose.Slides به شما امکان می‌دهد انیمیشن‌ها را بر روی اشکال اعمال کنید که می‌توانند شامل متن، مستطیل‌ها، خطوط، فریم‌ها، اشیای OLE و موارد دیگر باشند.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 بیشتر بخوانید [**درباره انیمیشن شکل**](/slides/fa/nodejs-java/shape-animation/).
 {{% /alert %}}
 
 ## **نمودارهای انیمیشنی**
-برای ایجاد نمودارهای انیمیشنی باید از همان کلاس‌های مورد استفاده برای اشکال بهره ببرید. با این حال، می‌توان انیمیشن PowerPoint را فقط بر روی دسته‌های نمودار یا سری‌های نمودار اعمال کرد. همچنین می‌توانید افکت انیمیشن را بر روی عنصر یک دسته یا یک سری اعمال کنید.
+برای ایجاد نمودارهای انیمیشنی، باید از همان کلاس‌هایی که برای اشکال استفاده می‌شود، بهره ببرید. با این حال، انیمیشن‌های PowerPoint فقط می‌توانند بر روی دسته‌های نمودار یا سری‌های نمودار اعمال شوند. می‌توانید افکت‌های انیمیشن را بر روی یک عنصر دسته یا یک عنصر سری نیز اعمال کنید.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 بیشتر بخوانید [**درباره نمودارهای انیمیشنی**](/slides/fa/nodejs-java/animated-charts/).
 {{% /alert %}}
 
 ## **متن انیمیشنی**
-علاوه بر متن انیمیشنی، می‌توان انیمیشن را بر روی یک پاراگراف نیز اعمال کرد.
+علاوه بر انیمیشن متن، می‌توانید انیمیشن را بر روی یک پاراگراف نیز اعمال کنید.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 بیشتر بخوانید [**درباره متن انیمیشنی**](/slides/fa/nodejs-java/animated-text/).
 {{% /alert %}}
 
-## **سؤال‌های متداول**
+## **سؤالات متداول**
 
-**آیا انیمیشن‌ها هنگام صادرات به PDF حفظ می‌شوند؟**
+**آیا انیمیشن‌ها هنگام export به PDF حفظ می‌شوند؟**
 
-خیر. PDF یک فرمت ایستا است، بنابراین انیمیشن‌ها و [slide transitions](/slides/fa/nodejs-java/slide-transition/) اجرا نمی‌شوند. اگر به حرکت نیاز دارید، به‌جای آن به [HTML5](/slides/fa/nodejs-java/export-to-html5/)، [animated GIF](/slides/fa/nodejs-java/convert-powerpoint-to-animated-gif/) یا [video](/slides/fa/nodejs-java/convert-powerpoint-to-video/) صادر کنید.
+خیر. PDF یک فرمت ثابت است، بنابراین انیمیشن‌ها و [انتقال اسلاید](/slides/fa/nodejs-java/slide-transition/) اجرا نمی‌شوند. اگر به حرکت نیاز دارید، به جای آن به [HTML5](/slides/fa/nodejs-java/export-to-html5/)، [GIF متحرک](/slides/fa/nodejs-java/convert-powerpoint-to-animated-gif/) یا [ویدیو](/slides/fa/nodejs-java/convert-powerpoint-to-video/) export کنید.
 
 **آیا می‌توانم یک ارائه انیمیشنی را به ویدیو تبدیل کنم و نرخ فریم و اندازه فریم را کنترل کنم؟**
 
-بله. می‌توانید [رندر کردن ارائه به‌عنوان فریم‌ها](/slides/fa/nodejs-java/convert-powerpoint-to-video/) را انجام دهید و آنها را به یک ویدیو (مثلاً با ffmpeg) کدگذاری کنید، با انتخاب FPS و رزولوشن. انیمیشن‌ها و slide transitions در طول رندرینگ اجرا می‌شوند.
+بله. می‌توانید [ارائه را به‌صورت فریم‌ها رندر کنید](/slides/fa/nodejs-java/convert-powerpoint-to-video/) را انجام دهید و آن‌ها را به یک ویدیو (مثلاً با ffmpeg) کدگذاری کنید، با انتخاب FPS و رزولوشن. انیمیشن‌ها و انتقال اسلایدها در طول رندر اجرا می‌شوند.
 
-**آیا انیمیشن‌ها هنگام کار با ODP (نه فقط PPTX) دست نخورده می‌مانند؟**
+**آیا انیمیشن‌ها هنگام کار با ODP (نه فقط PPTX) دست نخواهند خورد؟**
 
-PPT، PPTX و ODP برای [خواندن](/slides/fa/nodejs-java/open-presentation/) و [نوشتن](/slides/fa/nodejs-java/save-presentation/) پشتیبانی می‌شوند، اما تفاوت‌های فرمت ممکن است باعث شود برخی افکت‌ها کمی متفاوت ظاهر شوند یا رفتار کنند. موارد مهم را با نمونه‌های واقعی اعتبارسنجی کنید.
+فرمت‌های PPT، PPTX و ODP برای [خواندن](/slides/fa/nodejs-java/open-presentation/) و [نوشتن](/slides/fa/nodejs-java/save-presentation/) پشتیبانی می‌شوند، اما این تضمین‌کننده حفظ انیمیشن‌ها نیست. داده‌های انیمیشن سفارشی ممکن است هنگام تبدیل به ODP از دست بروند. برای مثال‌ها و راهنمایی درباره بررسی سازگاری فرمت، به [انیمیشن سفارشی](/slides/fa/nodejs-java/custom-animation/) مراجعه کنید.

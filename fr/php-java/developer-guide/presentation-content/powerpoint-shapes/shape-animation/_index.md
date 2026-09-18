@@ -10,34 +10,36 @@ keywords:
 - effet
 - forme animée
 - texte animé
-- ajouter une animation
-- obtenir une animation
-- extraire l'animation
-- ajouter un effet
-- obtenir un effet
-- extraire un effet
+- ajouter animation
+- obtenir animation
+- extraire animation
+- ajouter effet
+- obtenir effet
+- extraire effet
 - son d'effet
-- appliquer une animation
+- appliquer animation
 - PowerPoint
 - présentation
 - PHP
 - Aspose.Slides
-description: "Apprenez comment ajouter, inspecter et personnaliser les animations de forme, le minutage, les sons, le comportement après l'animation et le texte animé avec Aspose.Slides pour PHP via Java."
+description: "Apprenez à ajouter, inspecter et personnaliser les animations de forme, la synchronisation, les sons, le comportement après l'animation et le texte animé avec Aspose.Slides pour PHP via Java."
 ---
 ## **Vue d'ensemble**
 
-Aspose.Slides for PHP via Java représente les animations de diapositives sous forme d'effets dans une chronologie de diapositive. Un effet possède une forme cible, un type et sous‑type d'animation, un déclencheur, des paramètres de synchronisation et des propriétés facultatives telles que le son ou le comportement après l'animation.
+Pour travailler avec les comportements individuels à l'intérieur d'un effet ou modifier des segments de trajectoire de mouvement, voir [Custom Animation](/slides/fr/php-java/custom-animation/).
+
+Aspose.Slides for PHP via Java représente les animations de diapositives sous forme d'effets dans une chronologie de diapositive. Un effet possède une forme cible, un type et un sous‑type d'animation, un déclencheur, des paramètres de synchronisation et des propriétés optionnelles telles que le son ou le comportement après l'animation.
 
 La chronologie contient deux types de séquences :
 
-- La **séquence principale** se joue lorsque la diapositive progresse.  
+- La **séquence principale** se lit au fur et à mesure que la diapositive avance.
 - Une **séquence interactive** démarre lorsque sa forme déclencheur est cliquée.
 
-Comme les zones de texte, les images, les graphiques, les tableaux et les autres objets de diapositive sont des formes, vous utilisez la même [Sequence::addEffect](https://reference.aspose.com/slides/fr/php-java/aspose.slides/sequence/addeffect/) pour la plupart du contenu de diapositive. Les effets disponibles sont répertoriés dans la classe [EffectType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/effecttype/).
+Comme les zones de texte, les images, les graphiques, les tableaux et les autres objets de diapositive sont des formes, vous utilisez la même méthode [Sequence::addEffect](https://reference.aspose.com/slides/fr/php-java/aspose.slides/sequence/addeffect/) pour la plupart du contenu de diapositive. Les effets disponibles sont répertoriés dans la classe [EffectType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/effecttype/).
 
 ## **Ajouter des animations de forme**
 
-Pour ajouter une animation, récupérez la séquence principale de la diapositive et appelez [Sequence::addEffect](https://reference.aspose.com/slides/fr/php-java/aspose.slides/sequence/addeffect/) avec la forme cible, le type d'effet, le sous‑type et le déclencheur. Pour un effet qui commence lorsqu'une autre forme est cliquée, créez une séquence interactive dont le déclencheur est cette autre forme.
+Pour ajouter une animation, récupérez la séquence principale de la diapositive et appelez [Sequence::addEffect](https://reference.aspose.com/slides/fr/php-java/aspose.slides/sequence/addeffect/) avec la forme cible, le type d'effet, le sous‑type et le déclencheur. Pour un effet qui démarre lorsqu'une autre forme est cliquée, créez une séquence interactive dont le déclencheur est cette autre forme.
 
 L'exemple suivant crée les deux types d'animation et enregistre le résultat dans `shape-animations.pptx`.
 
@@ -74,17 +76,15 @@ try {
 
 Le déclencheur contrôle le moment où un effet démarre :
 
-- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/fr/php-java/aspose.slides/effecttriggertype/) attend un clic dans la séquence principale, ou un clic sur la forme déclencheur dans une séquence interactive.  
-- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/fr/php-java/aspose.slides/effecttriggertype/) démarre avec l'effet précédent.  
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/fr/php-java/aspose.slides/effecttriggertype/) attend un clic dans la séquence principale, ou un clic sur la forme déclencheur dans une séquence interactive.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/fr/php-java/aspose.slides/effecttriggertype/) démarre avec l'effet précédent.
 - [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/fr/php-java/aspose.slides/effecttriggertype/) démarre lorsque l'effet précédent se termine.
 
-Pour animer une image, un graphique ou un autre type de forme, transmettez cet objet à [Sequence::addEffect](https://reference.aspose.com/slides/fr/php-java/aspose.slides/sequence/addeffect/) au lieu de `$targetShape`. Pour les options de groupement spécifiques aux graphiques, voir [Animated Charts](/slides/fr/php-java/animated-charts/).
+Pour animer une image, un graphique ou un autre type de forme, passez cet objet à [Sequence::addEffect](https://reference.aspose.com/slides/fr/php-java/aspose.slides/sequence/addeffect/) au lieu de `$targetShape`. Pour des options de groupement spécifiques aux graphiques, consultez [Animated Charts](/slides/fr/php-java/animated-charts/).
 
 ## **Lire les animations de forme**
 
-Utilisez [Sequence::getEffectsByShape](https://reference.aspose.com/slides/fr/php-java/aspose.slides/sequence/geteffectsbyshape/) lorsque vous connaissez la forme cible. Pour inspecter chaque effet, parcourez la séquence principale et chaque séquence interactive. L'énumération évite de supposer qu'une séquence contient un effet à l'index `0`.
-
-L'exemple suivant crée une forme avec des effets de séquence principale et interactive, récupère les effets qui ciblent la forme, puis parcourt chaque séquence de la diapositive.
+Utilisez [Sequence::getEffectsByShape](https://reference.aspose.com/slides/fr/php-java/aspose.slides/sequence/geteffectsbyshape/) lorsque vous connaissez la forme cible. Pour inspecter chaque effet, énumérez la séquence principale et chaque séquence interactive. L'énumération évite de supposer qu'une séquence contient un effet à l'index `0`.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -144,21 +144,21 @@ try {
 }
 ```
 
-Si vous avez besoin uniquement des effets pour une forme, identifiez d'abord la forme par son nom, son type d'espace réservé ou une autre propriété stable ; puis appelez [Sequence::getEffectsByShape](https://reference.aspose.com/slides/fr/php-java/aspose.slides/sequence/geteffectsbyshape/). Ne supposez pas que [ShapeCollection::get_Item](https://reference.aspose.com/slides/fr/php-java/aspose.slides/shapecollection/get_item/) à l'index `0` soit toujours l'objet souhaité.
+Si vous avez seulement besoin des effets d'une forme, identifiez d'abord la forme par son nom, son type de zone réservée ou une autre propriété stable ; puis appelez [Sequence::getEffectsByShape](https://reference.aspose.com/slides/fr/php-java/aspose.slides/sequence/geteffectsbyshape/). Ne supposez pas que [ShapeCollection::get_Item](https://reference.aspose.com/slides/fr/php-java/aspose.slides/shapecollection/get_item/) à l'index `0` soit toujours l'objet prévu.
 
-## **Travailler avec les effets d'espace réservé hérités**
+## **Travailler avec les effets de zones réservées hérités**
 
-Un espace réservé sur une diapositive normale peut hériter du comportement d'animation de l'espace réservé correspondant sur la diapositive de mise en page et sur la diapositive maître. [Shape::getBasePlaceholder](https://reference.aspose.com/slides/fr/php-java/aspose.slides/shape/getbaseplaceholder/) renvoie cet espace réservé parent, ou `null` lorsqu'aucun parent n'existe.
+Une zone réservée sur une diapositive normale peut hériter du comportement d'animation de la zone réservée correspondante sur sa diapositive de disposition et sa diapositive maîtresse. [Shape::getBasePlaceholder](https://reference.aspose.com/slides/fr/php-java/aspose.slides/shape/getbaseplaceholder/) renvoie cette zone réservée parent, ou `null` lorsqu'aucun parent n'existe.
 
-Dans la présentation d'exemple suivante, le pied de page possède **Random Bars** sur la diapositive normale, **Split** sur la diapositive de mise en page et **Fly In** sur la diapositive maître.
+Dans la présentation d'exemple suivante, le pied de page possède **Random Bars** sur la diapositive normale, **Split** sur la diapositive de disposition et **Fly In** sur la diapositive maîtresse.
 
 ![Effet d'animation du pied de page sur la diapositive normale](slide-shape-animation.png)
 
-![Effet d'animation du pied de page sur la diapositive de mise en page](layout-shape-animation.png)
+![Effet d'animation de la zone réservée du pied de page sur la diapositive de disposition](layout-shape-animation.png)
 
-![Effet d'animation du pied de page sur la diapositive maître](master-shape-animation.png)
+![Effet d'animation de la zone réservée du pied de page sur la diapositive maîtresse](master-shape-animation.png)
 
-L'exemple suivant utilise une hiérarchie d'espaces réservés provenant d'une nouvelle présentation. Il ajoute des effets à un espace réservé maître, à un espace réservé de mise en page et à l'espace réservé correspondant sur une diapositive normale. Chaque appel à [Shape::getBasePlaceholder](https://reference.aspose.com/slides/fr/php-java/aspose.slides/shape/getbaseplaceholder/) est vérifié avant d'utiliser la forme renvoyée.
+L'exemple suivant utilise une hiérarchie de zones réservées provenant d'une nouvelle présentation. Il ajoute des effets à une zone réservée maîtresse, une zone réservée de disposition et la zone réservée correspondante sur une diapositive normale. Chaque appel à [Shape::getBasePlaceholder](https://reference.aspose.com/slides/fr/php-java/aspose.slides/shape/getbaseplaceholder/) est vérifié avant d'utiliser la forme renvoyée.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -246,19 +246,19 @@ try {
 }
 ```
 
-## **Modifier le minutage de l'animation**
+## **Modifier la synchronisation des animations**
 
-La boîte de dialogue PowerPoint **Timing** correspond aux propriétés de [Timing](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/).
+La boîte de dialogue **Timing** de PowerPoint correspond aux propriétés de [Timing](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/).
 
 ![Boîte de dialogue Timing de PowerPoint pour un effet d'animation](shape-animation.png)
 
-- **Start** correspond à [Timing::getTriggerType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/gettriggertype/).  
-- **Duration** correspond à [Timing::getDuration](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/getduration/), en secondes.  
-- **Delay** correspond à [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/gettriggerdelaytime/), en secondes.  
-- **Repeat** correspond à [Timing::getRepeatCount](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/getrepeatuntilnextclick/) ou [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/getrepeatuntilendslide/).  
-- **Rewind when done playing** correspond à [Timing::getRewind](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/getrewind/).
+- **Démarrage** correspond à [Timing::getTriggerType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/gettriggertype/).
+- **Durée** correspond à [Timing::getDuration](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/getduration/), en secondes.
+- **Retard** correspond à [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/gettriggerdelaytime/), en secondes.
+- **Répéter** correspond à [Timing::getRepeatCount](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/getrepeatuntilnextclick/), ou [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/getrepeatuntilendslide/).
+- **Rembobiner à la fin** correspond à [Timing::getRewind](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/getrewind/).
 
-Cet exemple indépendant ajoute un effet, modifie son minutage via l'objet renvoyé par [Sequence::addEffect](https://reference.aspose.com/slides/fr/php-java/aspose.slides/sequence/addeffect/), et enregistre le résultat. Conserver la référence à l'[Effect](https://reference.aspose.com/slides/fr/php-java/aspose.slides/effect/) renvoyée évite d'utiliser un index de collection inutile.
+Cet exemple indépendant ajoute un effet, modifie sa synchronisation via l'objet renvoyé par [Sequence::addEffect](https://reference.aspose.com/slides/fr/php-java/aspose.slides/sequence/addeffect/), puis enregistre le résultat. Conserver la référence renvoyée à [Effect](https://reference.aspose.com/slides/fr/php-java/aspose.slides/effect/) évite un accès inutile par indice de collection.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -289,7 +289,7 @@ try {
 }
 ```
 
-Utilisez un mode de répétition de façon intentionnelle. Combiner un nombre de répétitions avec un drapeau « until » peut produire des résultats déroutants selon le lecteur. Lors du changement de modes de répétition, définissez [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/setrepeatuntilnextclick/) et [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/setrepeatuntilendslide/) avant [Timing::setRepeatCount](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/setrepeatcount/), car la définition de l'un des drapeaux modifie également le mode de répétition actif.
+Utilisez un seul mode de répétition intentionnellement. Combiner un compte de répétition avec un indicateur « until » peut produire des résultats déroutants dans différents lecteurs. Lors du changement de mode de répétition, définissez d'abord [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/setrepeatuntilnextclick/) et [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/setrepeatuntilendslide/) avant [Timing::setRepeatCount](https://reference.aspose.com/slides/fr/php-java/aspose.slides/timing/setrepeatcount/), car la définition de l'un de ces indicateurs modifie également le mode de répétition actif.
 
 ## **Ajouter et extraire des sons d'animation**
 
@@ -297,7 +297,7 @@ Un effet d'animation peut référencer un audio intégré via [Effect::getSound]
 
 ### **Ajouter un son à un effet**
 
-L'exemple suivant suppose un fichier audio local nommé `animation-sound.wav`. Il crée deux effets, intègre ce fichier comme son du premier effet et configure le second effet pour arrêter le son. Il utilise les objets renvoyés par [Sequence::addEffect](https://reference.aspose.com/slides/fr/php-java/aspose.slides/sequence/addeffect/), ainsi aucun index de séquence n'est nécessaire.
+L'exemple suivant attend un fichier audio local nommé `animation-sound.wav`. Il crée deux effets, intègre ce fichier comme son du premier effet et configure le deuxième effet pour arrêter le son. Il utilise les objets renvoyés par [Sequence::addEffect](https://reference.aspose.com/slides/fr/php-java/aspose.slides/sequence/addeffect/), aucune indexation de séquence n'est requise.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -334,9 +334,9 @@ try {
 }
 ```
 
-### **Extraire les sons d'effet intégrés**
+### **Extraire les sons intégrés d'un effet**
 
-L'exemple suivant suppose une présentation locale nommée `presentation-with-animation-sounds.pptx`. Il parcourt les séquences principale et interactive et écrit chaque son d'effet intégré dans le répertoire `extracted-animation-sounds`. L'extension est choisie à partir du type MIME audio renvoyé par [Audio::getContentType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/audio/getcontenttype/).
+L'exemple suivant attend une présentation locale nommée `presentation-with-animation-sounds.pptx`. Il parcourt les séquences principales et interactives et écrit chaque son d'effet intégré dans le répertoire `extracted-animation-sounds`. L'extension est sélectionnée à partir du type MIME audio exposé par [Audio::getContentType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/audio/getcontenttype/).
 
 ```php
 use aspose\slides\Presentation;
@@ -420,17 +420,17 @@ try {
 }
 ```
 
-Pour de gros objets audio, utilisez [Audio::getStream](https://reference.aspose.com/slides/fr/php-java/aspose.slides/audio/getstream/) et copiez le flux vers un fichier au lieu de charger tout l'objet dans un tableau d'octets.
+Pour de gros objets audio, utilisez [Audio::getStream](https://reference.aspose.com/slides/fr/php-java/aspose.slides/audio/getstream/) et copiez le flux dans un fichier au lieu de charger l'objet entier dans un tableau d'octets.
 
 ## **Définir le comportement après l'animation**
 
-L'option **After animation** contrôle ce qui arrive à une forme après la fin de son effet.
+L'option **After animation** détermine ce qui arrive à une forme après la fin de son effet.
 
-![Boîte de dialogue Options d'effet de PowerPoint affichant les paramètres After animation](shape-after-animation.png)
+![Boîte de dialogue des options d'effet de PowerPoint affichant les paramètres After animation](shape-after-animation.png)
 
-La classe [AfterAnimationType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/afteranimationtype/) prend en charge le fait de laisser la forme inchangée, de changer sa couleur, de la masquer après l'animation ou de la masquer au clic suivant. Lorsque le type est [AfterAnimationType::Color](https://reference.aspose.com/slides/fr/php-java/aspose.slides/afteranimationtype/), définissez également [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/fr/php-java/aspose.slides/effect/getafteranimationcolor/).
+La classe [AfterAnimationType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/afteranimationtype/) permet de laisser la forme inchangée, de changer sa couleur, de la masquer après l'animation, ou de la masquer au clic suivant. Lorsque le type est [AfterAnimationType::Color](https://reference.aspose.com/slides/fr/php-java/aspose.slides/afteranimationtype/), définissez également [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/fr/php-java/aspose.slides/effect/getafteranimationcolor/).
 
-Cet exemple indépendant crée un effet, définit son comportement après l'animation via l'objet effet renvoyé, et enregistre le résultat.
+Cet exemple indépendant crée un effet, définit son comportement après l'animation via l'objet effet renvoyé, puis enregistre le résultat.
 
 ```php
 use aspose\slides\AfterAnimationType;
@@ -457,16 +457,16 @@ try {
 }
 ```
 
-Changer le type hors de [AfterAnimationType::Color](https://reference.aspose.com/slides/fr/php-java/aspose.slides/afteranimationtype/) efface le paramètre de couleur après l'animation.
+Modifier le type en dehors de [AfterAnimationType::Color](https://reference.aspose.com/slides/fr/php-java/aspose.slides/afteranimationtype/) supprime le paramètre de couleur après l'animation.
 
-## **Animer le texte**
+## **Animer du texte**
 
 L'animation du texte possède deux contrôles liés :
 
-- [TextAnimation::getBuildType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/textanimation/getbuildtype/) contrôle si les paragraphes apparaissent ensemble ou par niveau de paragraphe.  
-- [Effect::getAnimateTextType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/effect/getanimatetexttype/) contrôle si le texte apparaît en une fois, par mot ou par lettre. [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/fr/php-java/aspose.slides/effect/getdelaybetweentextparts/) définit le délai entre les mots ou les lettres. Une valeur positive est un pourcentage de la durée de l'effet ; une valeur négative est un délai en secondes.
+- [TextAnimation::getBuildType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/textanimation/getbuildtype/) détermine si les paragraphes apparaissent ensemble ou par niveau de paragraphe.
+- [Effect::getAnimateTextType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/effect/getanimatetexttype/) détermine si le texte apparaît d'un seul coup, par mot ou par lettre. [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/fr/php-java/aspose.slides/effect/getdelaybetweentextparts/) fixe le délai entre les mots ou les lettres. Une valeur positive représente un pourcentage de la durée de l'effet ; une valeur négative représente un délai en secondes.
 
-L'exemple indépendant suivant anime les mots d'une zone de texte. [BuildType::AsOneObject](https://reference.aspose.com/slides/fr/php-java/aspose.slides/buildtype/) désactive le montage paragraphe par paragraphe afin que le paramètre de mot s'applique à tout le cadre de texte.
+L'exemple indépendant suivant anime les mots d'une zone de texte. [BuildType::AsOneObject](https://reference.aspose.com/slides/fr/php-java/aspose.slides/buildtype/) désactive la construction paragraphe par paragraphe afin que le réglage par mot s'applique à tout le cadre de texte.
 
 ```php
 use aspose\slides\AnimateTextType;
@@ -495,26 +495,26 @@ try {
 }
 ```
 
-Pour construire une zone de texte paragraphe par paragraphe, définissez [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/fr/php-java/aspose.slides/buildtype/) (ou un autre niveau de paragraphe). Pour cibler un seul paragraphe avec son propre effet, utilisez la surcharge de [Sequence::addEffect](https://reference.aspose.com/slides/fr/php-java/aspose.slides/sequence/addeffect/) qui accepte un [Paragraph](https://reference.aspose.com/slides/fr/php-java/aspose.slides/paragraph/). Voir [Animated Text](/slides/fr/php-java/animated-text/) pour des exemples au niveau du paragraphe.
+Pour construire une zone de texte paragraphe par paragraphe, définissez [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/fr/php-java/aspose.slides/buildtype/) (ou un autre niveau de paragraphe). Pour cibler un seul paragraphe avec son propre effet, utilisez la surcharge de [Sequence::addEffect] qui accepte un [Paragraph](https://reference.aspose.com/slides/fr/php-java/aspose.slides/paragraph/). Consultez [Animated Text](/slides/fr/php-java/animated-text/) pour des exemples au niveau du paragraphe.
 
-## **Exportation et notes de compatibilité**
+## **Notes d'exportation et de compatibilité**
 
-- L'enregistrement au format PPT ou PPTX préserve le modèle d'animation, mais la lecture finale dépend du visualiseur de présentation.  
-- PDF et images statiques ne lisent pas les animations. Utilisez l'[exportation HTML5](/slides/fr/php-java/export-to-html5/), GIF animé ou [conversion vidéo](/slides/fr/php-java/convert-powerpoint-to-video/) lorsque la sortie doit montrer du mouvement.  
-- Pour HTML5, activez [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/fr/php-java/aspose.slides/html5options/setanimateshapes/) et, si nécessaire, [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/fr/php-java/aspose.slides/html5options/setanimatetransitions/).  
-- Le rendu vidéo prend en charge de nombreux effets d'entrée, d'emphase, de sortie et de trajectoire, mais tous les effets PowerPoint ne sont pas pris en charge. Vérifiez la page [animations et effets pris en charge](/slides/fr/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) et testez les présentations critiques avec votre version cible d'Aspose.Slides.  
-- Les effets personnalisés avancés et les effets importés d'autres formats de présentation peuvent être conservés dans le fichier mais rendus différemment dans PowerPoint, HTML5 ou vidéo. Validez le résultat exporté plutôt que de vous fier uniquement au nom de l'effet.
+- Enregistrement en PPT ou PPTX conserve le modèle d'animation, mais la lecture finale est contrôlée par le visualiseur de présentation.
+- PDF et images statiques ne lisent pas les animations. Utilisez [HTML5 export](/slides/fr/php-java/export-to-html5/), GIF animé, ou [video conversion](/slides/fr/php-java/convert-powerpoint-to-video/) lorsque la sortie doit montrer le mouvement.
+- Pour HTML5, activez [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/fr/php-java/aspose.slides/html5options/setanimateshapes/) et, si nécessaire, [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/fr/php-java/aspose.slides/html5options/setanimatetransitions/).
+- Le rendu vidéo prend en charge de nombreux effets d'entrée, d'emphase, de sortie et de trajectoire, mais tous les effets PowerPoint ne sont pas pris en charge. Vérifiez la page [supported animations and effects](/slides/fr/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) et testez les présentations critiques avec votre version d'Aspose.Slides.
+- Les effets personnalisés avancés et les effets importés d'autres formats peuvent être conservés dans le fichier mais rendus différemment dans PowerPoint, HTML5 ou vidéo. Validez le résultat exporté plutôt que de vous fier uniquement au nom de l'effet.
 
 ## **FAQ**
 
 **Pourquoi une animation apparaît‑elle dans PowerPoint mais pas dans un PDF ?**
 
-PDF est un format statique, les animations et transitions de diapositive ne sont pas lues. Exportez vers HTML5, GIF animé ou vidéo lorsque le mouvement doit être conservé.
+Le PDF est un format statique, donc les animations et les transitions de diapositives ne sont pas lues. Exportez en HTML5, GIF animé ou vidéo lorsque le mouvement doit être conservé.
 
-**Pourquoi un effet se comporte‑t‑il différemment dans une vidéo ?**
+**Pourquoi un effet est‑il lu différemment dans une vidéo ?**
 
-L'exportation vidéo rend les animations plutôt que de stocker le comportement original de PowerPoint. Certains effets avancés ne sont pas pris en charge ou sont approximés. Consultez le tableau des effets pris en charge et testez la présentation réelle avant une utilisation en production.
+L'exportation vidéo rend les animations plutôt que de conserver le comportement original de PowerPoint. Certains effets avancés ne sont pas pris en charge ou sont approximés. Consultez le tableau des effets pris en charge et testez la présentation réelle avant de la mettre en production.
 
-**Le déplacement d'une forme vers l'avant ou l'arrière modifie‑t‑il son ordre d'animation ?**
+**Déplacer une forme vers l'avant ou l'arrière change‑t‑il son ordre d'animation ?**
 
-Non. L'ordre Z contrôle le chevauchement, tandis que l'ordre des séquences et les déclencheurs contrôlent la lecture des animations. Modifiez la chronologie si vous avez besoin d'un ordre de lecture différent.
+Non. L'ordre de superposition (z‑order) contrôle le chevauchement, tandis que l'ordre des séquences et les déclencheurs contrôlent la lecture des animations. Modifiez la chronologie si vous avez besoin d'un ordre de lecture différent.

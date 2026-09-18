@@ -22,24 +22,26 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تعرف على كيفية إضافة وفحص وتخصيص الرسوم المتحركة للأشكال، والتوقيت، والأصوات، وسلوك ما بعد الرسوم المتحركة، والنص المتحرك باستخدام Aspose.Slides لـ PHP عبر Java."
+description: "تعرف على كيفية إضافة وفحص وتخصيص الرسوم المتحركة للأشكال، والتوقيت، والأصوات، وسلوك ما بعد الرسوم المتحركة، والنص المتحرك باستخدام Aspose.Slides for PHP عبر Java."
 ---
 ## **نظرة عامة**
 
-Aspose.Slides for PHP via Java يمثل الرسوم المتحركة للشرائح كـ Effects في مخطط الزمن للشرائح. كل Effect له شكل مستهدف، نوع الرسوم المتحركة وتحت النوع، مشغّل، إعدادات التوقيت، وخصائص اختيارية مثل الصوت أو سلوك ما بعد الرسوم المتحركة.
+للتعامل مع السلوكيات الفردية داخل تأثير أو تحرير مقاطع مسار الحركة، راجع [الرسوم المتحركة المخصصة](/slides/ar/php-java/custom-animation/).
 
-يحتوي مخطط الزمن على نوعين من التسلسلات:
+تمثل Aspose.Slides for PHP via Java الرسوم المتحركة للشرائح كـ Effects في مخطط زمني للشفرة. يحتوي Effect على الشكل الهدف، نوع الرسوم المتحركة والفرع، المشغل، إعدادات التوقيت، وخصائص اختيارية مثل الصوت أو سلوك ما بعد الرسوم المتحركة.
 
-- التسلسل **الرئيسي** يُشغل عندما يتقدم الشريحة.
-- التسلسل **التفاعلي** يبدأ عندما يتم النقر على الشكل المشغّل.
+يحتوي المخطط الزمني على نوعين من التسلسلات:
 
-نظرًا لأن مربعات النص، الصور، المخططات، الجداول، وغيرها من كائنات الشريحة هي أشكال، تستخدم نفس [Sequence::addEffect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/sequence/addeffect/) لمعظم محتوى الشريحة. تم سرد التأثيرات المتاحة في فئة [EffectType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effecttype/).
+- **التسلسلة الرئيسية** تُشغل عندما تتقدم الشريحة.
+- **التسلسلة التفاعلية** تبدأ عندما يتم النقر على الشكل المشغل.
+
+نظرًا لأن مربعات النص والصور والمخططات والجداول وغيرها من كائنات الشريحة هي أشكال، يمكنك استخدام نفس طريقة [Sequence::addEffect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/sequence/addeffect/) لمعظم محتوى الشريحة. تُدرج التأثيرات المتاحة في الفئة [EffectType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effecttype/).
 
 ## **إضافة رسوم متحركة للأشكال**
 
-لإضافة رسوم متحركة، احصل على التسلسل الرئيسي للشريحة واستدعِ [Sequence::addEffect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/sequence/addeffect/) مع الشكل المستهدف، نوع الـ Effect، تحت النوع، والمشغّل. لتأثير يبدأ عندما يُنقر على شكل آخر، أنشئ تسلسلًا تفاعليًا يكون مشغّله ذلك الشكل الآخر.
+لإضافة رسم متحرك، احصل على التسلسل الرئيسي للشريحة واستدعِ [Sequence::addEffect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/sequence/addeffect/) مع الشكل الهدف، نوع التأثير، الفرع، والمشغل. بالنسبة لتأثير يبدأ عندما يتم النقر على شكل آخر، أنشئ تسلسلاً تفاعليًا يكون مشغله ذلك الشكل الآخر.
 
-المثال التالي ينشئ كلا النوعين من الرسوم المتحركة ويحفظ النتيجة إلى `shape-animations.pptx`.
+المثال التالي يُنشئ كلا النوعين من الرسوم المتحركة ويحفظ النتيجة في `shape-animations.pptx`.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -72,19 +74,19 @@ try {
 }
 ```
 
-المشغّل يتحكم في وقت بدء الـ Effect:
+المشغل يتحكم بموعد بدء التأثير:
 
-- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effecttriggertype/) ينتظر نقرة في التسلسل الرئيسي، أو نقرة على الشكل المشغّل في تسلسل تفاعلي.
-- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effecttriggertype/) يبدأ مع الـ Effect السابق.
-- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effecttriggertype/) يبدأ عندما ينتهي الـ Effect السابق.
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effecttriggertype/) ينتظر النقر في التسلسل الرئيسي، أو النقر على الشكل المشغل في التسلسل التفاعلي.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effecttriggertype/) يبدأ مع التأثير السابق.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effecttriggertype/) يبدأ عندما ينتهي التأثير السابق.
 
-لتحريك صورة أو مخطط أو أي شكل آخر، مرّر ذلك الكائن إلى [Sequence::addEffect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/sequence/addeffect/) بدلاً من `$targetShape`. لخيارات تجميع خاصة بالمخططات، راجع [الرسوم المتحركة للرسوم البيانية](/slides/ar/php-java/animated-charts/).
+لتحريك صورة أو مخطط أو نوع شكل آخر، مرّر ذلك الكائن إلى [Sequence::addEffect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/sequence/addeffect/) بدلاً من `$targetShape`. للحصول على خيارات تجميع خاصة بالمخططات، راجع [الرسوم المتحركة للمخططات](/slides/ar/php-java/animated-charts/).
 
-## **قراءة الرسوم المتحركة للأشكال**
+## **قراءة رسوم متحركة للأشكال**
 
-استخدم [Sequence::getEffectsByShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/sequence/geteffectsbyshape/) عندما تعرف الشكل المستهدف. لتفقد كل Effect، عدّ التسلسل الرئيسي وكل تسلسل تفاعلي. العدّ يمنع الافتراض بأن التسلسل يحتوي على Effect في الفهرس `0`.
+استخدم [Sequence::getEffectsByShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/sequence/geteffectsbyshape/) عندما تعرف الشكل الهدف. لاستعراض كل تأثير، قم بتعداد التسلسل الرئيسي وكل تسلسل تفاعلي. يضمن التعداد عدم الافتراض بأن التسلسل يحتوي على تأثير في الفهرس `0`.
 
-المثال التالي ينشئ شكلاً به تأثيرات في التسلسل الرئيسي وتفاعلية، يحصل على الـ Effects التي تستهدف الشكل، ثم يعدّ كل تسلسل على الشريحة.
+المثال التالي يُنشئ شكلاً به تأثيرات تسلسل رئيسي وتفاعلية، يحصل على التأثيرات التي تستهدف الشكل، ثم يعدد كل تسلسل على الشريحة.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -144,21 +146,21 @@ try {
 }
 ```
 
-إذا كنت تحتاج فقط إلى Effects لشكل واحد، حدد الشكل أولاً بالاسم أو نوع العنصر النائب أو خاصية ثابتة أخرى؛ ثم استدعِ [Sequence::getEffectsByShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/sequence/geteffectsbyshape/). لا تفترض أن [ShapeCollection::get_Item](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/get_item/) في الفهرس `0` هو دائمًا الكائن المقصود.
+إذا كنت تحتاج فقط إلى التأثيرات لشكل واحد، حدد الشكل أولاً بالاسم أو نوع العنصر النائب أو خاصية ثابتة أخرى؛ ثم استدعِ [Sequence::getEffectsByShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/sequence/geteffectsbyshape/). لا تفترض أن [ShapeCollection::get_Item](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/get_item/) في الفهرس `0` هو دائمًا الكائن المقصود.
 
-## **العمل مع تأثيرات العنصر النائب الموروثة**
+## **التعامل مع تأثيرات العناصر النائبة الموروثة**
 
-يمكن لعنصر نائب في شريحة عادية أن يرث سلوك الرسوم المتحركة من العنصر النائب المقابل في شريحة التخطيط وشريحة القالب. [Shape::getBasePlaceholder](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getbaseplaceholder/) يرجع ذلك العنصر النائب الأصلي، أو `null` إذا لم يكن هناك أصل.
+يمكن للعنصر النائب على شريحة عادية أن يرث سلوك الرسوم المتحركة من العنصر النائب المقابل على شريحة التخطيط والشريحة الرئيسة. تُعيد [Shape::getBasePlaceholder](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getbaseplaceholder/) ذلك العنصر النائب الأب، أو `null` عندما لا يكون هناك أب.
 
-في عرض الشرائح التالي، يحتوي التذييل على **Random Bars** في الشريحة العادية، **Split** في شريحة التخطيط، و**Fly In** في شريحة القالب.
+في عرض الشرائح المثال التالي، يحتوي التذييل على **Random Bars** على الشريحة العادية، **Split** على شريحة التخطيط، و**Fly In** على الشريحة الرئيسة.
 
-![تأثير حركة التذييل في الشريحة العادية](slide-shape-animation.png)
+![تأثير الرسوم المتحركة للتذييل على الشريحة العادية](slide-shape-animation.png)
 
-![تأثير حركة عنصر نائب التذييل في شريحة التخطيط](layout-shape-animation.png)
+![تأثير الرسوم المتحركة للعنصر النائب في التذييل على شريحة التخطيط](layout-shape-animation.png)
 
-![تأثير حركة عنصر نائب التذييل في شريحة القالب](master-shape-animation.png)
+![تأثير الرسوم المتحركة للعنصر النائب في التذييل على الشريحة الرئيسة](master-shape-animation.png)
 
-المثال التالي يستخدم تسلسلًا هرميًا لعناصر نائب من عرض تقديم جديد. يضيف تأثيرات إلى عنصر نائب القالب، عنصر نائب التخطيط، والعنصر النائب المقابل في الشريحة العادية. يتم فحص كل استدعاء لـ [Shape::getBasePlaceholder](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getbaseplaceholder/) قبل استخدام الشكل المرتجع.
+المثال التالي يستخدم هيكلية عناصر نائبة من عرض تقديمي جديد. يضيف تأثيرات إلى عنصر نائب رئيسي، عنصر نائب تخطيط، والعنصر النائب المقابل على شريحة عادية. يتم فحص كل استدعاء لـ [Shape::getBasePlaceholder](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getbaseplaceholder/) قبل استخدام الشكل المرتجع.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -248,17 +250,17 @@ try {
 
 ## **تغيير توقيت الرسوم المتحركة**
 
-حوار **Timing** في PowerPoint يطابق خصائص فئة [Timing](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/).
+يتطابق مربع حوار PowerPoint **Timing** مع خصائص [Timing](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/).
 
-![حوار توقيت PowerPoint لتأثير الرسوم المتحركة](shape-animation.png)
+![مربع حوار توقيت PowerPoint لتأثير الرسوم المتحركة](shape-animation.png)
 
-- **Start** يطابق [Timing::getTriggerType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/gettriggertype/).
-- **Duration** يطابق [Timing::getDuration](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/getduration/)، بالثواني.
-- **Delay** يطابق [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/gettriggerdelaytime/)، بالثواني.
-- **Repeat** يطابق [Timing::getRepeatCount](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/getrepeatcount/)، [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/getrepeatuntilnextclick/)، أو [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/getrepeatuntilendslide/).
-- **Rewind when done playing** يطابق [Timing::getRewind](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/getrewind/).
+- **Start** يتطابق مع [Timing::getTriggerType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/gettriggertype/).
+- **Duration** يتطابق مع [Timing::getDuration](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/getduration/)، بالثواني.
+- **Delay** يتطابق مع [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/gettriggerdelaytime/)، بالثواني.
+- **Repeat** يتطابق مع [Timing::getRepeatCount](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/getrepeatcount/)، [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/getrepeatuntilnextclick/)، أو [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/getrepeatuntilendslide/).
+- **Rewind when done playing** يتطابق مع [Timing::getRewind](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/getrewind/).
 
-هذا المثال المستقل يضيف Effect، يغيّر توقيته عبر الكائن المرتجع من [Sequence::addEffect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/sequence/addeffect/)، ويحفظ النتيجة. الحفاظ على مرجع [Effect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effect/) المرتجع يمنع الحاجة إلى فهرس مجموعة غير ضروري.
+هذا المثال المستقل يضيف تأثيرًا، يغيّر توقيته عبر الكائن المرتجع من [Sequence::addEffect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/sequence/addeffect/)، ويحفظ النتيجة. إن الحفاظ على مرجع [Effect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effect/) المرتجع يجنب الحاجة إلى فهرس مجموعة غير ضروري.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -289,15 +291,15 @@ try {
 }
 ```
 
-استخدم وضع تكرار واحد فقط بنية. الجمع بين عدد التكرار وعلامة "حتى" قد ينتج عنه نتائج مربكة في مشغلات مختلفة. عند تغيير أوضاع التكرار، عيّن [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/setrepeatuntilnextclick/) و[Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/setrepeatuntilendslide/) قبل [Timing::setRepeatCount](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/setrepeatcount/)، لأن تعيين أيٍ من العلامتين يغيّر وضع التكرار النشط.
+استخدم وضعية تكرار واحدة فقط. الجمع بين عدد التكرارات وعلم “until” قد ينتج عنه نتائج مربكة في عارضات مختلفة. عند تغيير أوضاع التكرار، اضبط [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/setrepeatuntilnextclick/) و[Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/setrepeatuntilendslide/) قبل [Timing::setRepeatCount](https://reference.aspose.com/slides/ar/php-java/aspose.slides/timing/setrepeatcount/)، لأن ضبط أي علم يغير وضعية التكرار النشطة.
 
 ## **إضافة واستخراج أصوات الرسوم المتحركة**
 
-يمكن لتأثير الرسوم المتحركة الإشارة إلى صوت مدمج عبر [Effect::getSound](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effect/getsound/). [Effect::setStopPreviousSound](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effect/setstopprevioussound/) يطلب من تأثير إيقاف الصوت الذي بدأه تأثير سابق.
+يمكن لتأثير الرسوم المتحركة الإشارة إلى صوت مدمج عبر [Effect::getSound](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effect/getsound/). يُخبر [Effect::setStopPreviousSound](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effect/setstopprevioussound/) التأثير بإيقاف الصوت الذي بدأه تأثير سابق.
 
 ### **إضافة صوت إلى تأثير**
 
-المثال التالي يتوقع ملف صوت محلي اسمه `animation-sound.wav`. ينشئ تأثيرين، يدمج ذلك الملف كصوت للتأثير الأول، ويضبط التأثير الثاني لإيقاف الصوت. يستخدم الكائنات المرتجعة من [Sequence::addEffect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/sequence/addeffect/)، لذلك لا يلزم فهرس تسلسل.
+المثال التالي يتوقع ملف صوت محلي اسمه `animation-sound.wav`. ينشئ تأثيرين، يدمج ذلك الملف كصوت للتأثير الأول، ويضبط التأثير الثاني لإيقاف الصوت. يستخدم الكائنات المرتجعة من [Sequence::addEffect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/sequence/addeffect/)، لذا لا يحتاج إلى فهرس تسلسل.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -334,9 +336,9 @@ try {
 }
 ```
 
-### **استخراج أصوات التأثير المدمجة**
+### **استخراج أصوات التأثيرات المدمجة**
 
-المثال التالي يتوقع عرضًا محليًا اسمه `presentation-with-animation-sounds.pptx`. يفحص كل من التسلسل الرئيسي والتفاعلي ويكتب كل صوت تأثير مدمج إلى دليل `extracted-animation-sounds`. يتم اختيار الامتداد من نوع MIME الصوتي الذي يُظهره [Audio::getContentType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/audio/getcontenttype/).
+المثال التالي يتوقع عرض تقديمي محلي اسمه `presentation-with-animation-sounds.pptx`. يقوم بمسح كل من التسلسلات الرئيسية والتفاعلية ويكتب كل صوت تأثير مدمج إلى دليل `extracted-animation-sounds`. يتم اختيار الامتداد بناءً على نوع MIME الصوتي الذي تُعيده [Audio::getContentType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/audio/getcontenttype/).
 
 ```php
 use aspose\slides\Presentation;
@@ -420,17 +422,17 @@ try {
 }
 ```
 
-للكائنات الصوتية الكبيرة، استخدم [Audio::getStream](https://reference.aspose.com/slides/ar/php-java/aspose.slides/audio/getstream/) وانسخ الدفق إلى ملف بدلًا من تحميل الكائن بالكامل إلى مصفوفة بايت.
+للكائنات الصوتية الكبيرة، استخدم [Audio::getStream](https://reference.aspose.com/slides/ar/php-java/aspose.slides/audio/getstream/) وانسخ الدفق إلى ملف بدلاً من تحميل الكائن بالكامل في مصفوفة بايت.
 
 ## **تعيين سلوك ما بعد الرسوم المتحركة**
 
-خيار **After animation** يتحكم في ما يحدث للشكل بعد انتهاء تأثيره.
+خيار **After animation** يتحكم بما يحدث للشكل بعد انتهاء تأثيره.
 
-![حوار خيارات تأثير PowerPoint يظهر إعدادات After animation](shape-after-animation.png)
+![مربع حوار خيارات تأثير PowerPoint يظهر إعدادات After animation](shape-after-animation.png)
 
-فئة [AfterAnimationType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/afteranimationtype/) تدعم ترك الشكل دون تغيير، تغيير لونه، إخفائه بعد الرسوم المتحركة، أو إخفائه عند النقرة التالية. عندما يكون النوع هو [AfterAnimationType::Color](https://reference.aspose.com/slides/ar/php-java/aspose.slides/afteranimationtype/)، عيّن أيضًا [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effect/getafteranimationcolor/).
+تدعم فئة [AfterAnimationType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/afteranimationtype/) ترك الشكل دون تغيير، تغيير لونه، إخفائه بعد الرسوم المتحركة، أو إخفائه عند النقر التالي. عندما يكون النوع [AfterAnimationType::Color](https://reference.aspose.com/slides/ar/php-java/aspose.slides/afteranimationtype/)، اضبط أيضًا [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effect/getafteranimationcolor/).
 
-هذا المثال المستقل ينشئ Effect، يضبط سلوكه ما بعد الرسوم المتحركة عبر كائن Effect المرتجع، ويحفظ النتيجة.
+هذا المثال المستقل ينشئ تأثيرًا، يحدد سلوك ما بعد الرسوم المتحركة عبر كائن التأثير المرتجع، ويحفظ النتيجة.
 
 ```php
 use aspose\slides\AfterAnimationType;
@@ -461,12 +463,12 @@ try {
 
 ## **تحريك النص**
 
-تحريك النص يحتوي على عنصرين مرتبطين:
+لتحريك النص تحكمان مرتبطان:
 
-- [TextAnimation::getBuildType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textanimation/getbuildtype/) يتحكم فيما إذا كانت الفقرات تظهر معًا أو مستوى الفقرة.
-- [Effect::getAnimateTextType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effect/getanimatetexttype/) يتحكم فيما إذا كان النص يظهر دفعة واحدة، كلمة بكلمة، أو حرفًا بحرف. [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effect/getdelaybetweentextparts/) يحدد التأخير بين الكلمات أو الأحرف. القيمة الإيجابية هي نسبة مئوية من مدة الـ Effect؛ القيمة السلبية هي تأخير بالثواني.
+- [TextAnimation::getBuildType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textanimation/getbuildtype/) يتحكم فيما إذا كانت الفقرات تظهر معًا أو بحسب مستوى الفقرة.
+- [Effect::getAnimateTextType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effect/getanimatetexttype/) يتحكم فيما إذا كان النص يظهر دفعة واحدة، بالكلمة، أو بالحرف. تُحدد [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/effect/getdelaybetweentextparts/) الفاصل الزمني بين الكلمات أو الأحرف. القيمة الموجبة هي نسبة مئوية من مدة التأثير؛ القيمة السالبة هي تأخير بالثواني.
 
-المثال المستقل التالي يحرك الكلمات داخل مربع نص. [BuildType::AsOneObject](https://reference.aspose.com/slides/ar/php-java/aspose.slides/buildtype/) يعطّل بناء الفقرات واحدة تلو الأخرى بحيث ينطبق إعداد الكلمة على الإطار النصي بأكمله.
+المثال المستقل التالي يحرك الكلمات داخل مربع نص. يوقف [BuildType::AsOneObject](https://reference.aspose.com/slides/ar/php-java/aspose.slides/buildtype/) بناء الفقرة‑بفقرة بحيث يُطبق إعداد الكلمة على كامل إطار النص.
 
 ```php
 use aspose\slides\AnimateTextType;
@@ -495,26 +497,26 @@ try {
 }
 ```
 
-لبناء مربع نص وفقًا للفقرات، عيّن [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/ar/php-java/aspose.slides/buildtype/) (أو مستوى فقرة آخر). لاستهداف فقرة واحدة بتأثيرها الخاص، استخدم نسخة [Sequence::addEffect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/sequence/addeffect/) التي تقبل [Paragraph](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/). راجع [النص المتحرك](/slides/ar/php-java/animated-text/) لأمثلة على مستوى الفقرة.
+لبناء مربع نص بحسب الفقرة، اضبط [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/ar/php-java/aspose.slides/buildtype/) (أو مستوى فقرة آخر). لاستهداف فقرة واحدة بتأثير خاص بها، استخدم نسخة [Sequence::addEffect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/sequence/addeffect/) التي تقبل [Paragraph](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/). راجع [النص المتحرك](/slides/ar/php-java/animated-text/) لأمثلة على مستوى الفقرة.
 
-## **ملاحظات التصدير والتوافق**
+## **تصدير وملاحظات التوافق**
 
-- حفظ الملف إلى PPT أو PPTX يحافظ على نموذج الرسوم المتحركة، لكن تشغيله النهائي يتحكم فيه عارض العروض.
-- PDF والصور الثابتة لا تشغل الرسوم المتحركة. استخدم [تصدير HTML5](/slides/ar/php-java/export-to-html5/)، GIF متحرك، أو [تحويل إلى فيديو](/slides/ar/php-java/convert-powerpoint-to-video/) عندما يجب إظهار الحركة.
-- بالنسبة إلى HTML5، فعّل [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/html5options/setanimateshapes/) وعند الحاجة [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/html5options/setanimatetransitions/).
-- يدعم تصيير الفيديو العديد من تأثيرات الدخول، التأكيد، الخروج، ومسار الحركة الشائعة، لكن ليس كل تأثير في PowerPoint مدعوم. تحقق من جدول [الرسوم المتحركة والتأثيرات المدعومة](/slides/ar/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) واختبر العروض الحرجة مع نسخة Aspose.Slides المستهدفة.
-- قد تُحفظ التأثيرات المخصصة المتقدمة والتأثيرات المستوردة من صيغ عروض أخرى في الملف ولكنها تُعرض بشكل مختلف في PowerPoint أو HTML5 أو الفيديو. تحقق من النتيجة المصدرة بدلاً من الاعتماد فقط على اسم التأثير.
+- حفظ إلى PPT أو PPTX يحافظ على نموذج الرسوم المتحركة، لكن تشغيله النهائي يتحكم فيه عارض العرض.
+- PDF والصور الثابتة لا تشغل الرسوم المتحركة. استخدم [تصدير HTML5](/slides/ar/php-java/export-to-html5/)، GIF متحرك، أو [تحويل الفيديو](/slides/ar/php-java/convert-powerpoint-to-video/) عندما يجب إظهار الحركة.
+- لـ HTML5، فعل [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/html5options/setanimateshapes/) وعند الحاجة [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/html5options/setanimatetransitions/).
+- يدعم تصيير الفيديو العديد من تأثيرات الدخول والتأكيد والخروج ومسار الحركة الشائعة، لكن ليس كل تأثير PowerPoint مدعوم. تحقق من [الرسوم المتحركة والتأثيرات المدعومة](/slides/ar/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) الحالي واختبر العروض الحرجة مع نسخة Aspose.Slides المستهدفة.
+- قد تُحافظ التأثيرات المخصصة المتقدمة والتأثيرات المستوردة من صيغ عروض تقديمية أخرى في الملف ولكن تُظهر بشكل مختلف في PowerPoint أو HTML5 أو الفيديو. تحقق من النتيجة المصدرة بدلاً من الاعتماد فقط على اسم التأثير.
 
 ## **الأسئلة المتكررة**
 
-**لماذا يظهر تأثير الرسوم المتحركة في PowerPoint لكن لا يظهر في PDF؟**
+**لماذا يظهر تأثير في PowerPoint لكنه غير موجود في PDF؟**
 
-PDF هو تنسيق ثابت، لذلك لا تُشغل الرسوم المتحركة وانتقالات الشرائح. صدّر إلى HTML5 أو GIF متحرك أو فيديو عندما يجب حفظ الحركة.
+PDF تنسيق ثابت، لذلك لا تُشغل الرسوم المتحركة وانتقالات الشرائح. صدّر إلى HTML5 أو GIF متحرك أو فيديو عندما يجب الحفاظ على الحركة.
 
-**لماذا يُعرض تأثير بطريقة مختلفة في الفيديو؟**
+**لماذا يُعرض تأثير بشكل مختلف في الفيديو؟**
 
-تصدير الفيديو يُعيد رسم الرسوم المتحركة بدلًا من تخزين سلوك PowerPoint الأصلي. بعض التأثيرات المتقدمة غير مدعومة أو يتم تقريبها. راجع جدول التأثيرات المدعومة واختبر العرض الفعلي قبل الاستخدام الإنتاجي.
+تصدير الفيديو يُعيد رسم الرسوم المتحركة بدلاً من حفظ سلوك PowerPoint الأصلي. بعض التأثيرات المتقدمة غير مدعومة أو يتم تقريبها. راجع جدول التأثيرات المدعومة واختبر العرض الفعلي قبل الاستخدام في الإنتاج.
 
-**هل يؤدي نقل الشكل للأمام أو الخلف إلى تغيير ترتيب الرسوم المتحركة؟**
+**هل تغيير ترتيب الشكل إلى أمام أو خلف يؤثر على ترتيب الرسوم المتحركة؟**
 
-لا. يتحكم ترتيب Z للشكل في التراكب، بينما يتحكم ترتيب التسلسل والمشغلات في تشغيل الرسوم المتحركة. غير مخطط الزمن إذا كنت بحاجة إلى ترتيب تشغيل مختلف.
+لا. يتحكم ترتيب Z للأشكال في التراكب، بينما يتحكم ترتيب التسلسل والمشغلات في تشغيل الرسوم المتحركة. غيّر المخطط الزمني إذا كنت تحتاج ترتيب تشغيل مختلف.

@@ -1,46 +1,48 @@
 ---
-title: ใช้การเคลื่อนไหวของรูปร่างในงานนำเสนอด้วย Python ผ่าน Java
-linktitle: การเคลื่อนไหวของรูปร่าง
+title: ใช้การเคลื่อนไหวรูปทรงในงานนำเสนอด้วย Python ผ่าน Java
+linktitle: การเคลื่อนไหวรูปทรง
 type: docs
 weight: 60
 url: /th/python-java/shape-animation/
 keywords:
-- รูปร่าง
-- การเคลื่อนที่
+- รูปทรง
+- การเคลื่อนไหว
 - เอฟเฟกต์
-- รูปร่างเคลื่อนไหว
+- รูปทรงเคลื่อนไหว
 - ข้อความเคลื่อนไหว
-- เพิ่มการเคลื่อนที่
-- รับการเคลื่อนที่
-- สกัดการเคลื่อนที่
+- เพิ่มการเคลื่อนไหว
+- รับการเคลื่อนไหว
+- ดึงการเคลื่อนไหว
 - เพิ่มเอฟเฟกต์
 - รับเอฟเฟกต์
-- สกัดเอฟเฟกต์
+- ดึงเอฟเฟกต์
 - เสียงเอฟเฟกต์
-- ใช้การเคลื่อนที่
+- ใช้การเคลื่อนไหว
 - PowerPoint
 - งานนำเสนอ
 - Python
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่ม, ตรวจสอบ, และปรับแต่งการเคลื่อนไหวของรูปร่าง, เวลา, เสียง, พฤติกรรมหลังการเคลื่อนไหว, และข้อความเคลื่อนไหวด้วย Aspose.Slides สำหรับ Python ผ่าน Java."
+description: "เรียนรู้วิธีเพิ่ม, ตรวจสอบและกำหนดรูปแบบการเคลื่อนไหวรูปทรง, เวลาการทำงาน, เสียง, พฤติกรรมหลังการเคลื่อนไหว, และข้อความเคลื่อนไหวด้วย Aspose.Slides สำหรับ Python ผ่าน Java."
 ---
-## **ภาพรวม**
+## **Overview**
 
-Aspose.Slides for Python via Java แสดงการเคลื่อนที่ของสไลด์เป็นเอฟเฟกต์ในไทม์ไลน์ของสไลด์. เอฟเฟกต์หนึ่งมีรูปทรงเป้าหมาย, ประเภทและชนิดย่อยของการเคลื่อนที่, ตัวกระตุ้น, การตั้งค่าเวลา, และคุณสมบัติเสริมเช่น เสียงหรือพฤติกรรมหลังการเคลื่อนที่.
+เพื่อทำงานกับพฤติกรรมแต่ละอย่างภายในเอฟเฟกต์หรือแก้ไขส่วนของ motion-path ให้ดูที่ [Custom Animation](/slides/th/python-java/custom-animation/).
 
-ไทม์ไลน์มีสองประเภทของลำดับ:
+Aspose.Slides สำหรับ Python ผ่าน Java แสดงการเคลื่อนไหวของสไลด์เป็นเอฟเฟกต์ในไทม์ไลน์ของสไลด์ เอฟเฟกต์หนึ่งจะมีรูปทรงเป้าหมาย, ชนิดและรูปแบบย่อยของการเคลื่อนไหว, ตัวกระตุ้น, การตั้งค่าเวลา, และคุณสมบัติเสริมเช่นเสียงหรือพฤติกรรมหลังการเคลื่อนไหว.
 
-- **ลำดับหลัก** เล่นเมื่อสไลด์ดำเนินไป.
-- **ลำดับเชิงโต้ตอบ** เริ่มเมื่อคลิกที่รูปทรงตัวกระตุ้น.
+ไทม์ไลน์มีลำดับสองประเภท:
 
-เนื่องจากกล่องข้อความ, รูปภาพ, แผนภูมิ, ตารางและวัตถุสไลด์อื่น ๆ สืบทอดจาก [Shape](https://reference.aspose.com/slides/th/python-java/aspose.slides/shape/), คุณใช้เมธอด [Sequence.addEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/sequence/#addEffect) เดียวกันสำหรับเนื้อหาสไลด์ส่วนใหญ่. เอฟเฟกต์ที่มีให้ดูได้ในคลาส [EffectType](https://reference.aspose.com/slides/th/python-java/aspose.slides/effecttype/).
+- **ลำดับหลัก** จะเล่นเมื่อสไลด์ก้าวหน้า.
+- **ลำดับโต้ตอบ** จะเริ่มเมื่อรูปทรงตัวกระตุ้นถูกคลิก.
 
-## **เพิ่มการเคลื่อนที่ของรูปทรง**
+เนื่องจากกล่องข้อความ, รูปภาพ, แผนภูมิ, ตาราง, และวัตถุสไลด์อื่น ๆ สืบทอดจาก [Shape](https://reference.aspose.com/slides/th/python-java/aspose.slides/shape/), คุณจึงใช้วิธีเดียวกันคือ [Sequence.addEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/sequence/#addEffect) สำหรับเนื้อหาสไลด์ส่วนใหญ่ เอฟเฟกต์ที่ใช้ได้จะระบุในคลาส [EffectType](https://reference.aspose.com/slides/th/python-java/aspose.slides/effecttype/).
 
-เพื่อเพิ่มการเคลื่อนที่, รับลำดับหลักของสไลด์และเรียก [Sequence.addEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/sequence/#addEffect) พร้อมรูปทรงเป้าหมาย, ประเภทเอฟเฟกต์, ชนิดย่อยและตัวกระตุ้น. สำหรับเอฟเฟกต์ที่เริ่มเมื่อคลิกรูปทรงอื่น, สร้างลำดับเชิงโต้ตอบที่ตัวกระตุ้นคือรูปทรงนั้น.
+## **Add Shape Animations**
 
-ตัวอย่างต่อไปนี้สร้างการเคลื่อนที่ทั้งสองประเภทและบันทึกผลลัพธ์เป็น `shape-animations.pptx`.
+เพื่อเพิ่มการเคลื่อนไหว, รับลำดับหลักของสไลด์และเรียก [Sequence.addEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/sequence/#addEffect) พร้อมรูปทรงเป้าหมาย, ชนิดเอฟเฟกต์, รูปแบบย่อย, และตัวกระตุ้น สำหรับเอฟเฟกต์ที่เริ่มเมื่อรูปทรงอื่นถูกคลิก, ให้สร้างลำดับโต้ตอบที่ตัวกระตุ้นคือรูปทรงนั้น.
+
+ตัวอย่างต่อไปนี้สร้างการเคลื่อนไหวทั้งสองประเภทและบันทึกผลลัพธ์เป็น `shape-animations.pptx`.
 
 ```python
 import jpype
@@ -73,19 +75,17 @@ finally:
     presentation.dispose()
 ```
 
-ตัวกระตุ้นกำหนดว่าเอฟเฟกต์เริ่มเมื่อใด:
+ตัวกระตุ้นควบคุมว่าเอฟเฟกต์เริ่มเมื่อใด:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/th/python-java/aspose.slides/effecttriggertype/#OnClick) รอการคลิกในลำดับหลัก, หรือการคลิกบนรูปทรงตัวกระตุ้นในลำดับเชิงโต้ตอบ.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/th/python-java/aspose.slides/effecttriggertype/#OnClick) รอการคลิกในลำดับหลัก, หรือการคลิกบนรูปทรงตัวกระตุ้นในลำดับโต้ตอบ.
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/th/python-java/aspose.slides/effecttriggertype/#WithPrevious) เริ่มพร้อมกับเอฟเฟกต์ก่อนหน้า.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/th/python-java/aspose.slides/effecttriggertype/#AfterPrevious) เริ่มเมื่อเอฟเฟกต์ก่อนหน้าสิ้นสุด.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/th/python-java/aspose.slides/effecttriggertype/#AfterPrevious) เริ่มเมื่อเอฟเฟกต์ก่อนหน้าจบ.
 
-เพื่อเคลื่อนที่รูปภาพ, แผนภูมิ หรือรูปทรงประเภทอื่น, ส่งออบเจ็กต์นั้นไปยัง [Sequence.addEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/sequence/#addEffect) แทน `target_shape`. สำหรับตัวเลือกการจัดกลุ่มเฉพาะแผนภูมิ, ดู [Animated Charts](/slides/th/python-java/animated-charts/).
+เพื่อเคลื่อนไหวรูปภาพ, แผนภูมิ, หรือรูปทรงประเภทอื่น, ส่งอ็อบเจ็กต์นั้นไปที่ [Sequence.addEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/sequence/#addEffect) แทน `target_shape`. สำหรับตัวเลือกการจัดกลุ่มเฉพาะแผนภูมิ, ดู [Animated Charts](/slides/th/python-java/animated-charts/).
 
-## **อ่านการเคลื่อนที่ของรูปทรง**
+## **Read Shape Animations**
 
-ใช้ [Sequence.getEffectsByShape](https://reference.aspose.com/slides/th/python-java/aspose.slides/sequence/#getEffectsByShape) เมื่อคุณทราบรูปทรงเป้าหมาย. หากต้องตรวจสอบทุกเอฟเฟกต์, ให้ทำการวนซ้ำลำดับหลักและลำดับเชิงโต้ตอบทุกลำดับ. การวนซ้ำช่วยหลีกเลี่ยงการสันนิษฐานว่าลำดับมีเอฟเฟกต์ที่ดัชนี `0`.
-
-ตัวอย่างต่อไปนี้สร้างรูปทรงที่มีเอฟเฟกต์ลำดับหลักและเชิงโต้ตอบ, ดึงเอฟเฟกต์ที่เป้าหมายเป็นรูปทรงนั้น, แล้ววนซ้ำทุกลำดับบนสไลด์.
+ใช้ [Sequence.getEffectsByShape](https://reference.aspose.com/slides/th/python-java/aspose.slides/sequence/#getEffectsByShape) เมื่อคุณรู้รูปทรงเป้าหมาย. เพื่อตรวจสอบทุกเอฟเฟกต์, ให้วนลำดับหลักและลำดับโต้ตอบแต่ละอัน. การวนลูปช่วยหลีกเลี่ยงการสันนิษฐานว่าลำดับมีเอฟเฟกต์ที่ตำแหน่ง `0`.
 
 ```python
 import jpype
@@ -136,21 +136,21 @@ finally:
     presentation.dispose()
 ```
 
-หากคุณต้องการเอฟเฟกต์สำหรับรูปทรงเดียว, ให้ระบุตัวรูปทรงโดยชื่อ, ประเภท placeholder, หรือคุณสมบัติที่คงที่อื่น ๆ; จากนั้นเรียก [Sequence.getEffectsByShape](https://reference.aspose.com/slides/th/python-java/aspose.slides/sequence/#getEffectsByShape). อย่าสันนิษฐานว่า [ShapeCollection.get_Item](https://reference.aspose.com/slides/th/python-java/aspose.slides/shapecollection/#get_Item) ที่ดัชนี `0` เป็นออบเจ็กต์ที่ต้องการเสมอ.
+หากคุณต้องการเอฟเฟกต์เฉพาะรูปทรงเดียว, ให้ระบุตัวรูปทรงโดยชื่อ, ประเภท placeholder, หรือคุณสมบัติที่คงที่อื่น; แล้วเรียก [Sequence.getEffectsByShape](https://reference.aspose.com/slides/th/python-java/aspose.slides/sequence/#getEffectsByShape). อย่าสันนิษฐานว่า [ShapeCollection.get_Item](https://reference.aspose.com/slides/th/python-java/aspose.slides/shapecollection/#get_Item) ที่ตำแหน่ง `0` จะเป็นวัตถุที่ต้องการเสมอ.
 
-## **ทำงานกับเอฟเฟกต์ Placeholder ที่สืบทอด**
+## **Work with Inherited Placeholder Effects**
 
-Placeholder บนสไลด์ปกติสามารถสืบทอดพฤติกรรมการเคลื่อนที่จาก placeholder ที่สอดคล้องบนสไลด์เลเอาต์และสไลด์มาสเตอร์. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/th/python-java/aspose.slides/shape/#getBasePlaceholder) จะคืนค่า placeholder พาเรนต์นั้น, หรือ `None` หากไม่มีพาเรนต์.
+Placeholder บนสไลด์ปกติสามารถสืบทอดพฤติกรรมการเคลื่อนไหวจาก placeholder ที่สอดคล้องบนสไลด์เลเอาท์และมาสเตอร์ได้. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/th/python-java/aspose.slides/shape/#getBasePlaceholder) จะคืน placeholder พ่อแม่, หรือ `None` หากไม่มีพ่อแม่.
 
-ในตัวอย่างงานนำเสนอต่อไปนี้, ส่วนท้าย (footer) มี **Random Bars** บนสไลด์ปกติ, **Split** บนสไลด์เลเอาต์, และ **Fly In** บนสไลด์มาสเตอร์.
+ในตัวอย่างการนำเสนอด้านล่าง, ส่วนท้ายมี **Random Bars** บนสไลด์ปกติ, **Split** บนสไลด์เลเอาท์, และ **Fly In** บนสไลด์มาสเตอร์.
 
-![เอฟเฟกต์การเคลื่อนที่ของ Footer บนสไลด์ปกติ](slide-shape-animation.png)
+![เอฟเฟกต์การเคลื่อนไหวของส่วนท้ายบนสไลด์ปกติ](slide-shape-animation.png)
 
-![เอฟเฟกต์การเคลื่อนที่ของ Footer Placeholder บนสไลด์เลเอาต์](layout-shape-animation.png)
+![เอฟเฟกต์การเคลื่อนไหวของส่วนท้ายบนสไลด์เลเอาท์](layout-shape-animation.png)
 
-![เอฟเฟกต์การเคลื่อนที่ของ Footer Placeholder บนสไลด์มาสเตอร์](master-shape-animation.png)
+![เอฟเฟกต์การเคลื่อนไหวของส่วนท้ายบนสไลด์มาสเตอร์](master-shape-animation.png)
 
-ตัวอย่างต่อไปใช้โครงสร้าง hierarchy ของ placeholder จากงานนำเสนอโฉมใหม่. มันเพิ่มเอฟเฟกต์ให้กับ placeholder ของมาสเตอร์, placeholder ของเลเอาต์, และ placeholder ที่สอดคล้องบนสไลด์ปกติ. ทุกการเรียก [Shape.getBasePlaceholder](https://reference.aspose.com/slides/th/python-java/aspose.slides/shape/#getBasePlaceholder) จะตรวจสอบก่อนนำรูปทรงที่คืนค่าไปใช้.
+ตัวอย่างต่อไปนี้ใช้โครงสร้าง hierarchy ของ placeholder จากการนำเสนอใหม่. มันเพิ่มเอฟเฟกต์ให้กับ placeholder ของมาสเตอร์, placeholder ของเลเอาท์, และ placeholder ที่สอดคล้องบนสไลด์ปกติ. ทุกการเรียก [Shape.getBasePlaceholder](https://reference.aspose.com/slides/th/python-java/aspose.slides/shape/#getBasePlaceholder) จะถูกตรวจสอบก่อนใช้รูปทรงที่คืนค่า.
 
 ```python
 import jpype
@@ -212,19 +212,19 @@ finally:
     presentation.dispose()
 ```
 
-## **เปลี่ยนแปลงเวลาการเคลื่อนที่**
+## **Change Animation Timing**
 
-กล่องโต้ตอบ **Timing** ของ PowerPoint สอดคล้องกับคุณสมบัติของ [Timing](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/).
+ไดอะล็อก **Timing** ของ PowerPoint แสดงเป็นคุณสมบัติของ [Timing](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/).
 
-![กล่องโต้ตอบ Timing ของ PowerPoint สำหรับเอฟเฟกต์การเคลื่อนที่](shape-animation.png)
+![ไดอะล็อก Timing ของ PowerPoint สำหรับเอฟเฟกต์การเคลื่อนไหว](shape-animation.png)
 
 - **Start** สอดคล้องกับ [Timing.getTriggerType](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#getTriggerType).
-- **Duration** สอดคล้องกับ [Timing.getDuration](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#getDuration) (เป็นวินาที).
-- **Delay** สอดคล้องกับ [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#getTriggerDelayTime) (เป็นวินาที).
-- **Repeat** สอดคล้องกับ [Timing.getRepeatCount](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#getRepeatUntilNextClick) หรือ [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#getRepeatUntilEndSlide).
+- **Duration** สอดคล้องกับ [Timing.getDuration](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#getDuration) หน่วยเป็นวินาที.
+- **Delay** สอดคล้องกับ [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#getTriggerDelayTime) หน่วยเป็นวินาที.
+- **Repeat** สอดคล้องกับ [Timing.getRepeatCount](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#getRepeatUntilNextClick), หรือ [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#getRepeatUntilEndSlide).
 - **Rewind when done playing** สอดคล้องกับ [Timing.getRewind](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#getRewind).
 
-ตัวอย่างอิสระนี้เพิ่มเอฟเฟกต์, เปลี่ยนแปลงเวลาผ่านออบเจ็กต์ที่คืนจาก [Sequence.addEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/sequence/#addEffect), แล้วบันทึกผลลัพธ์. การเก็บอ้างอิงของ [Effect](https://reference.aspose.com/slides/th/python-java/aspose.slides/effect/) ที่คืนช่วยหลีกเลี่ยงการอ้างอิงดัชนีคอลเล็กชั่นที่ไม่จำเป็น.
+ตัวอย่างอิสระนี้เพิ่มเอฟเฟกต์, เปลี่ยนเวลาผ่านอ็อบเจ็กต์ที่คืนจาก [Sequence.addEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/sequence/#addEffect), แล้วบันทึกผลลัพธ์. การเก็บอ้างอิง [Effect](https://reference.aspose.com/slides/th/python-java/aspose.slides/effect/) ที่คืนค่าช่วยหลีกเลี่ยงการอ้างอิงดัชนีคอลเล็กชันที่ไม่จำเป็น.
 
 ```python
 import jpype
@@ -255,15 +255,15 @@ finally:
     presentation.dispose()
 ```
 
-ใช้โหมดการทำซ้ำแบบใดแบบหนึ่งเท่านั้น. การผสานจำนวนครั้งกับฟลัก “until” อาจทำให้ผลลัพธ์สับสนในโปรแกรมดูต่าง ๆ. เมื่อเปลี่ยนโหมดการทำซ้ำ, ให้ตั้งค่า [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#setRepeatUntilNextClick) และ [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) ก่อน [Timing.setRepeatCount](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#setRepeatCount), เพราะการตั้งค่าใดฟลักหนึ่งจะเปลี่ยนโหมดการทำซ้ำที่ใช้งานอยู่ด้วย.
+ใช้โหมดการทำซ้ำเพียงหนึ่งแบบเท่านั้น. การผสมจำนวนการทำซ้ำกับธง “until” อาจทำให้ผลลัพธ์สับสนในโปรแกรมแสดงผลต่าง ๆ. เมื่อต้องเปลี่ยนโหมดทำซ้ำ, ให้ตั้งค่า [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#setRepeatUntilNextClick) และ [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) ก่อน [Timing.setRepeatCount](https://reference.aspose.com/slides/th/python-java/aspose.slides/timing/#setRepeatCount), เพราะการตั้งค่าใด ๆ หนึ่งจะเปลี่ยนโหมดทำซ้ำที่ใช้งานอยู่.
 
-## **เพิ่มและดึงเสียงของการเคลื่อนที่**
+## **Add and Extract Animation Sounds**
 
-เอฟเฟกต์การเคลื่อนที่สามารถอ้างอิงไฟล์เสียงฝังอยู่ผ่าน [Effect.getSound](https://reference.aspose.com/slides/th/python-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/th/python-java/aspose.slides/effect/#setStopPreviousSound) บอกให้เอฟเฟกต์หยุดเสียงที่เริ่มโดยเอฟเฟกต์ก่อนหน้า.
+เอฟเฟกต์การเคลื่อนไหวสามารถอ้างอิงไฟล์เสียงฝังด้วย [Effect.getSound](https://reference.aspose.com/slides/th/python-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/th/python-java/aspose.slides/effect/#setStopPreviousSound) บอกเอฟเฟกต์ให้หยุดเสียงที่เริ่มโดยเอฟเฟกต์ก่อนหน้า.
 
-### **เพิ่มเสียงให้กับเอฟเฟกต์**
+### **Add a Sound to an Effect**
 
-ตัวอย่างต่อไปนี้คาดว่าจะมีไฟล์เสียงท้องถิ่นชื่อ `animation-sound.wav`. มันสร้างเอฟเฟกต์สองรายการ, ฝังไฟล์นั้นเป็นเสียงสำหรับเอฟเฟกต์แรก, และตั้งค่าให้เอฟเฟกต์ที่สองหยุดเสียง. ตัวอย่างใช้ออบเจ็กต์ที่คืนจาก [Sequence.addEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/sequence/#addEffect), ดังนั้นไม่ต้องระบุดัชนีลำดับ.
+ตัวอย่างต่อไปนี้คาดหวังไฟล์เสียงในเครื่องชื่อ `animation-sound.wav`. มันสร้างเอฟเฟกต์สองรายการ, ฝังไฟล์นั้นเป็นเสียงสำหรับเอฟเฟกต์แรก, และกำหนดค่าให้เอฟเฟกต์ที่สองหยุดเสียง. ใช้อ็อบเจ็กต์ที่คืนจาก [Sequence.addEffect], ดังนั้นไม่ต้องระบุดัชนีของลำดับ.
 
 ```python
 import jpype
@@ -297,9 +297,9 @@ finally:
     presentation.dispose()
 ```
 
-### **ดึงเสียงเอฟเฟกต์ที่ฝังอยู่**
+### **Extract Embedded Effect Sounds**
 
-ตัวอย่างต่อไปนี้คาดว่าจะมีงานนำเสนอท้องถิ่นชื่อ `presentation-with-animation-sounds.pptx`. มันสแกนลำดับหลักและเชิงโต้ตอบ ทั้งหมดและเขียนเสียงเอฟเฟกต์ที่ฝังอยู่ทุกไฟล์ลงในไดเรกทอรี `extracted-animation-sounds`. นามสกุลไฟล์เลือกจาก MIME type ของเสียงที่ส่งกลับโดย [Audio.getContentType](https://reference.aspose.com/slides/th/python-java/aspose.slides/audio/#getContentType).
+ตัวอย่างต่อไปนี้คาดหวังการนำเสนอในเครื่องชื่อ `presentation-with-animation-sounds.pptx`. มันสแกนทั้งลำดับหลักและลำดับโต้ตอบและเขียนเสียงเอฟเฟกต์ที่ฝังทั้งหมดไปยังโฟลเดอร์ `extracted-animation-sounds`. ส่วนขยายไฟล์จะเลือกจาก MIME type ของเสียงที่เปิดเผยโดย [Audio.getContentType](https://reference.aspose.com/slides/th/python-java/aspose.slides/audio/#getContentType).
 
 ```python
 import jpype
@@ -353,17 +353,17 @@ finally:
     presentation.dispose()
 ```
 
-สำหรับออบเจ็กต์เสียงขนาดใหญ่, ใช้ [Audio.getStream](https://reference.aspose.com/slides/th/python-java/aspose.slides/audio/#getStream) แล้วคัดลอกสตรีมไปยังไฟล์แทนการโหลดออบเจ็กต์ทั้งหมดเข้าสู่ array ของไบต์.
+สำหรับอ็อบเจ็กต์เสียงขนาดใหญ่, ใช้ [Audio.getStream](https://reference.aspose.com/slides/th/python-java/aspose.slides/audio/#getStream) แล้วคัดลอกสตรีมไปยังไฟล์แทนการโหลดอ็อบเจ็กต์ทั้งหมดเข้าสู่ byte array.
 
-## **ตั้งค่าพฤติกรรมหลังการเคลื่อนที่**
+## **Set After-Animation Behavior**
 
-ตัวเลือก **After animation** ควบคุมสิ่งที่จะเกิดขึ้นกับรูปทรงหลังจากเอฟเฟกต์สิ้นสุด.
+ตัวเลือก **After animation** ควบคุมว่าอะไรจะเกิดขึ้นกับรูปทรงหลังจากเอฟเฟกต์จบลง.
 
-![หน้าต่าง Options ของ PowerPoint แสดงการตั้งค่า After animation](shape-after-animation.png)
+![ไดอะล็อก PowerPoint Effect Options แสดงการตั้งค่า After animation](shape-after-animation.png)
 
-คลาส [AfterAnimationType](https://reference.aspose.com/slides/th/python-java/aspose.slides/afteranimationtype/) รองรับการปล่อยให้รูปทรงคงสภาพ, เปลี่ยนสี, ซ่อนหลังการเคลื่อนที่, หรือซ่อนเมื่อคลิกครั้งต่อไป. เมื่อประเภทเป็น [AfterAnimationType.Color](https://reference.aspose.com/slides/th/python-java/aspose.slides/afteranimationtype/#Color), ให้ตั้งค่า [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/th/python-java/aspose.slides/effect/#getAfterAnimationColor) ด้วย.
+คลาส [AfterAnimationType](https://reference.aspose.com/slides/th/python-java/aspose.slides/afteranimationtype/) รองรับการทิ้งรูปทรงไว้โดยไม่เปลี่ยน, การเปลี่ยนสี, การซ่อนหลังการเคลื่อนไหว, หรือการซ่อนเมื่อคลิกครั้งต่อไป. เมื่อประเภทคือ [AfterAnimationType.Color](https://reference.aspose.com/slides/th/python-java/aspose.slides/afteranimationtype/#Color), ให้ตั้งค่า [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/th/python-java/aspose.slides/effect/#getAfterAnimationColor) ด้วย.
 
-ตัวอย่างอิสระนี้สร้างเอฟเฟกต์, ตั้งค่าพฤติกรรมหลังการเคลื่อนที่ผ่านออบเจ็กต์เอฟเฟกต์ที่คืน, แล้วบันทึกผลลัพธ์.
+ตัวอย่างอิสระนี้สร้างเอฟเฟกต์, ตั้งค่าพฤติกรรมหลังการเคลื่อนไหวผ่านอ็อบเจ็กต์เอฟเฟกต์ที่คืนค่า, แล้วบันทึกผลลัพธ์.
 
 ```python
 import jpype
@@ -390,16 +390,16 @@ finally:
     presentation.dispose()
 ```
 
-การเปลี่ยนประเภทจาก [AfterAnimationType.Color](https://reference.aspose.com/slides/th/python-java/aspose.slides/afteranimationtype/#Color) จะล้างการตั้งค่าสีหลังการเคลื่อนที่.
+การเปลี่ยนประเภทออกจาก [AfterAnimationType.Color](https://reference.aspose.com/slides/th/python-java/aspose.slides/afteranimationtype/#Color) จะล้างการตั้งค่าสีหลังการเคลื่อนไหว.
 
-## **เคลื่อนที่ข้อความ**
+## **Animate Text**
 
-การเคลื่อนที่ของข้อความมีการควบคุมสองอย่างที่เกี่ยวข้อง:
+การเคลื่อนไหวข้อความมีการควบคุมสองส่วนที่เกี่ยวข้อง:
 
-- [TextAnimation.getBuildType](https://reference.aspose.com/slides/th/python-java/aspose.slides/textanimation/#getBuildType) ควบคุมว่าข้อความย่อยปรากฏพร้อมกันหรือระดับย่อหน้า.
-- [Effect.getAnimateTextType](https://reference.aspose.com/slides/th/python-java/aspose.slides/effect/#getAnimateTextType) ควบคุมว่าข้อความปรากฏทั้งหมดพร้อมกัน, ตามคำ, หรือตามตัวอักษร. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/th/python-java/aspose.slides/effect/#getDelayBetweenTextParts) ตั้งค่าความล่าช้าระหว่างคำหรืออักษร. ค่าเป็นบวกหมายถึงเปอร์เซ็นต์ของระยะเวลาของเอฟเฟกต์; ค่าเป็นลบหมายถึงความล่าช้าทีี่เป็นวินาที.
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/th/python-java/aspose.slides/textanimation/#getBuildType) ควบคุมว่าข้อความย่อหน้าแสดงพร้อมกันหรือแยกตามระดับย่อหน้า.
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/th/python-java/aspose.slides/effect/#getAnimateTextType) ควบคุมว่าข้อความแสดงทั้งหมดพร้อมกัน, ตามคำ, หรือ ตามตัวอักษร. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/th/python-java/aspose.slides/effect/#getDelayBetweenTextParts) กำหนดค่าหน่วงเวลาระหว่างคำหรืออักษร. ค่าเป็นบวกหมายถึงเปอร์เซ็นต์ของระยะเวลาเอฟเฟกต์; ค่าเป็นลบหมายถึงหน่วงเวลาเป็นวินาที.
 
-ตัวอย่างอิสระต่อไปนี้เคลื่อนที่คำในกล่องข้อความ. [BuildType.AsOneObject](https://reference.aspose.com/slides/th/python-java/aspose.slides/buildtype/#AsOneObject) ปิดการสร้างแบบย่อหน้าตามย่อหน้าเพื่อให้การตั้งค่าคำใช้กับเฟรมข้อความทั้งหมด.
+ตัวอย่างอิสระต่อไปนี้เคลื่อนไหวคำในกล่องข้อความ. [BuildType.AsOneObject](https://reference.aspose.com/slides/th/python-java/aspose.slides/buildtype/#AsOneObject) ปิดการสร้างแบบย่อยตามย่อหน้าเพื่อให้การตั้งค่าคำใช้กับเฟรมข้อความทั้งหมด.
 
 ```python
 import jpype
@@ -426,26 +426,26 @@ finally:
     presentation.dispose()
 ```
 
-เพื่อสร้างกล่องข้อความโดยย่อหน้า, ตั้งค่า [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/th/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) (หรือระดับย่อหน้าอื่น). เพื่อกำหนดเอฟเฟกต์ให้กับย่อหน้าเดี่ยวที่มีเอฟเฟกต์ของตัวเอง, ใช้ overload ของ [Sequence.addEffect](https://reference.aspose.com/slides/th/python-java/aspose.slides/sequence/#addEffect) ที่รับ [Paragraph](https://reference.aspose.com/slides/th/python-java/aspose.slides/paragraph/). ดู [Animated Text](/slides/th/python-java/animated-text/) สำหรับตัวอย่างระดับย่อหน้า.
+หากต้องการสร้างกล่องข้อความตามย่อหน้า, ให้ตั้งค่า [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/th/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) (หรือระดับย่อหน้าอื่น). เพื่อให้ย่อหน้าหนึ่งมีเอฟเฟกต์ของตนเอง, ใช้การโอเวอร์โหลดของ [Sequence.addEffect] ที่รับ [Paragraph](https://reference.aspose.com/slides/th/python-java/aspose.slides/paragraph/). ดู [Animated Text](/slides/th/python-java/animated-text/) สำหรับตัวอย่างระดับย่อหน้า.
 
-## **การส่งออกและบันทึกย่อข้อควรระวัง**
+## **Export and Compatibility Notes**
 
-- การบันทึกเป็น PPT หรือ PPTX จะรักษาโมเดลการเคลื่อนที่, แต่การเล่นสุดท้ายขึ้นอยู่กับโปรแกรมดูงานนำเสนอ.
-- PDF และภาพนิ่งจะไม่เล่นการเคลื่อนที่. ใช้ [HTML5 export](/slides/th/python-java/export-to-html5/), GIF เคลื่อนที่, หรือ [video conversion](/slides/th/python-java/convert-powerpoint-to-video/) เมื่อผลลัพธ์ต้องแสดงการเคลื่อนที่.
+- การบันทึกเป็น PPT หรือ PPTX จะคงโมเดลการเคลื่อนไหวไว้, แต่การเล่นขั้นสุดท้ายขึ้นกับโปรแกรมแสดงผลของการนำเสนอ.
+- PDF และภาพคงที่จะไม่เล่นการเคลื่อนไหว. ใช้ [HTML5 export](/slides/th/python-java/export-to-html5/), GIF เคลื่อนไหว, หรือ [video conversion](/slides/th/python-java/convert-powerpoint-to-video/) เมื่อผลลัพธ์ต้องแสดงการเคลื่อนไหว.
 - สำหรับ HTML5, เปิดใช้งาน [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/#setAnimateShapes) และเมื่อจำเป็น, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/#setAnimateTransitions).
-- การเรนเดอร์วิดีโอสนับสนุนเอฟเฟกต์การเข้าสู่, เน้น, ออกจาก, และเส้นทางการเคลื่อนที่หลายแบบทั่วไป, แต่ไม่ได้สนับสนุนทุกเอฟเฟกต์ของ PowerPoint. ตรวจสอบ [supported animations and effects](/slides/th/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) ปัจจุบันและทดสอบงานนำเสนอที่สำคัญกับเวอร์ชัน Aspose.Slides ที่คุณใช้.
-- เอฟเฟกต์แบบกำหนดเองขั้นสูงและเอฟเฟกต์ที่นำเข้าจากรูปแบบงานนำเสนออื่นอาจถูกเก็บในไฟล์แต่แสดงผลต่างกันใน PowerPoint, HTML5 หรือวิดีโอ. ตรวจสอบผลลัพธ์การส่งออกแทนการอิงแค่ชื่อเอฟเฟกต์.
+- การเรนเดอร์วิดีโอรองรับเอฟเฟกต์การเข้ามา, เน้น, ออก, และ motion-path ที่พบมาก, แต่ไม่รองรับเอฟเฟกต์ PowerPoint ทุกอย่าง. ตรวจสอบ [supported animations and effects](/slides/th/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) ปัจจุบันและทดสอบการนำเสนอสำคัญกับเวอร์ชัน Aspose.Slides ที่คุณใช้.
+- เอฟเฟกต์กำหนดเองขั้นสูงและเอฟเฟกต์ที่นำเข้าจากรูปแบบการนำเสนออื่นอาจถูกเก็บไว้ในไฟล์แต่แสดงผลต่างกันใน PowerPoint, HTML5, หรือวิดีโอ. ตรวจสอบผลลัพธ์ที่ส่งออกแทนการพึ่งพาแค่ชื่อเอฟเฟกต์.
 
 ## **FAQ**
 
-**ทำไมการเคลื่อนที่จึงปรากฏใน PowerPoint แต่ไม่แสดงใน PDF?**
+**ทำไมการเคลื่อนไหวจะแสดงใน PowerPoint แต่ไม่แสดงใน PDF?**
 
-PDF เป็นรูปแบบนิ่ง, ดังนั้นการเคลื่อนที่และการเปลี่ยนสไลด์จะไม่เล่น. ส่งออกเป็น HTML5, GIF เคลื่อนที่, หรือวิดีโอเมื่อจำเป็นต้องรักษาการเคลื่อนที่.
+PDF เป็นรูปแบบคงที่, ดังนั้นการเคลื่อนไหวและการเปลี่ยนสไลด์จะไม่เล่น. ส่งออกเป็น HTML5, GIF เคลื่อนไหว, หรือวิดีโอเมื่อจำเป็นต้องคงการเคลื่อนที่.
 
-**ทำไมเอฟเฟกต์จึงแสดงผลแตกต่างในวิดีโอ?**
+**ทำไมเอฟเฟกต์จึงเล่นต่างกันในวิดีโอ?**
 
-การส่งออกวิดีโอเรนเดอร์การเคลื่อนที่แทนการเก็บพฤติกรรมดั้งเดิมของ PowerPoint. เอฟเฟกต์ขั้นสูงบางอย่างอาจไม่รองรับหรือถูกประมาณค่า. ตรวจสอบตารางเอฟเฟกต์ที่รองรับและทดสอบงานนำเสนอจริงก่อนใช้งานจริง.
+การส่งออกวิดีโอทำการเรนเดอร์การเคลื่อนไหวแทนการเก็บพฤติกรรมเดิมของ PowerPoint. เอฟเฟกต์ขั้นสูงบางอย่างไม่ได้สนับสนุนหรือจะถูกประมาณค่า. ตรวจสอบตารางเอฟเฟกต์ที่สนับสนุนและทดสอบการนำเสนอจริงก่อนใช้งานจริง.
 
-**การย้ายรูปทรงไปข้างหน้าหรือข้างหลังจะเปลี่ยนลำดับการเคลื่อนที่หรือไม่?**
+**การย้ายรูปทรงไปข้างหน้าหรือข้างหลังเปลี่ยนลำดับการเคลื่อนไหวหรือไม่?**
 
-ไม่. การจัดลำดับ z-order ของรูปทรงควบคุมการซ้อนกัน, ส่วนลำดับของลำดับและตัวกระตุ้นควบคุมการเล่นการเคลื่อนที่. ปรับไทม์ไลน์หากต้องการลำดับการเล่นที่แตกต่าง.
+ไม่. การจัดเรียง z-order ของรูปทรงควบคุมการทับซ้อน, ส่วนลำดับของลำดับและตัวกระตุ้นควบคุมการเล่นการเคลื่อนไหว. ปรับไทม์ไลน์หากต้องการลำดับการเล่นที่แตกต่าง.

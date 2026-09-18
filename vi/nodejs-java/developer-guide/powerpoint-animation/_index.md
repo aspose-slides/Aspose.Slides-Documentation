@@ -1,22 +1,22 @@
 ---
-title: Cải thiện các bản trình chiếu PowerPoint với hoạt hình trong JavaScript
-linktitle: Hoạt hình PowerPoint
+title: Nâng cao bản thuyết trình PowerPoint với hoạt ảnh trong JavaScript
+linktitle: Hoạt ảnh PowerPoint
 type: docs
 weight: 150
 url: /vi/nodejs-java/powerpoint-animation/
 keywords:
-- thêm hoạt hình
-- cập nhật hoạt hình
-- thay đổi hoạt hình
-- xóa hoạt hình
-- quản lý hoạt hình
-- kiểm soát hoạt hình
-- hiệu ứng hoạt hình
-- hoạt hình PowerPoint
-- dòng thời gian hoạt hình
-- hoạt hình tương tác
-- hoạt hình tùy chỉnh
-- hoạt hình hình dạng
+- thêm hoạt ảnh
+- cập nhật hoạt ảnh
+- thay đổi hoạt ảnh
+- xóa hoạt ảnh
+- quản lý hoạt ảnh
+- kiểm soát hoạt ảnh
+- hiệu ứng hoạt ảnh
+- hoạt ảnh PowerPoint
+- dòng thời gian hoạt ảnh
+- hoạt ảnh tương tác
+- hoạt ảnh tùy chỉnh
+- hoạt ảnh hình dạng
 - biểu đồ động
 - văn bản động
 - hình dạng động
@@ -24,29 +24,29 @@ keywords:
 - hình ảnh động
 - bảng động
 - PowerPoint
-- bản trình chiếu
+- bản thuyết trình
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Sử dụng Aspose.Slides cho Node.js qua Java để xử lý hoạt hình PowerPoint. Tổng quan này nêu bật các tính năng chính và cung cấp những hiểu biết để cải thiện các bản trình chiếu của bạn."
+description: "Sử dụng Aspose.Slides cho Node.js qua Java để xử lý hoạt ảnh PowerPoint. Tổng quan này nêu bật các tính năng chính và cung cấp những hiểu biết để nâng cao bản thuyết trình của bạn."
 ---
 ## **Giới thiệu**
 
-Vì các bài thuyết trình nhằm mục đích trình bày một nội dung, nên hình thức trực quan và hành vi tương tác luôn được cân nhắc khi tạo chúng.
+Vì các bản thuyết trình được tạo ra để trình bày nội dung, nên hình thức trực quan và hành vi tương tác của chúng luôn được cân nhắc trong quá trình tạo.
 
-**PowerPoint animation** đóng vai trò quan trọng để làm cho bài thuyết trình hấp dẫn và thu hút người xem. Aspose.Slides cho Node.js qua Java cung cấp nhiều tùy chọn để thêm hoạt hình vào bản trình chiếu PowerPoint:
+**Hoạt ảnh PowerPoint** đóng vai trò quan trọng trong việc làm cho bản thuyết trình hấp dẫn và thu hút người xem. Aspose.Slides for Node.js via Java cung cấp nhiều tùy chọn để thêm hoạt ảnh vào các bản trình chiếu PowerPoint:
 
-- áp dụng các loại hiệu ứng hoạt hình PowerPoint khác nhau lên các hình dạng, biểu đồ, bảng, Đối tượng OLE và các yếu tố khác của bản trình chiếu.
-- sử dụng nhiều hiệu ứng hoạt hình PowerPoint trên một hình dạng.
-- sử dụng dòng thời gian hoạt hình để kiểm soát các hiệu ứng hoạt hình.
-- tạo hoạt hình tùy chỉnh.
+- Áp dụng các loại hiệu ứng hoạt ảnh PowerPoint khác nhau cho hình dạng, biểu đồ, bảng, đối tượng OLE và các yếu tố khác của bản thuyết trình.  
+- Sử dụng nhiều hiệu ứng hoạt ảnh PowerPoint trên một hình dạng duy nhất.  
+- Sử dụng dòng thời gian hoạt ảnh để kiểm soát các hiệu ứng hoạt ảnh.  
+- Tạo hoạt ảnh tùy chỉnh.
 
-Trong Aspose.Slides cho Node.js qua Java, các hiệu ứng hoạt hình khác nhau có thể được áp dụng lên các hình dạng. Vì mọi yếu tố trên slide, bao gồm văn bản, hình ảnh, Đối tượng OLE, bảng, vv, đều được coi là một hình dạng, nên chúng ta có thể áp dụng hiệu ứng hoạt hình lên mọi yếu tố của một slide.
+Trong Aspose.Slides for Node.js via Java, có thể áp dụng các hiệu ứng hoạt ảnh khác nhau cho các hình dạng. Vì mọi yếu tố trên một slide, bao gồm văn bản, hình ảnh, đối tượng OLE và bảng, đều được coi là một hình dạng, nên các hiệu ứng hoạt ảnh có thể được áp dụng cho bất kỳ yếu tố nào trên slide.
 
-## **Hiệu ứng hoạt hình**
-Aspose.Slides hỗ trợ **hơn 150 hiệu ứng hoạt hình**, bao gồm các hiệu ứng cơ bản như Bounce, PathFootball, Zoom và các hiệu ứng đặc biệt như OLEObjectShow, OLEObjectOpen. Bạn có thể xem danh sách đầy đủ các hiệu ứng hoạt hình trong liệt kê[**EffectType**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effecttype/) .
+## **Animation Effects**
+Aspose.Slides hỗ trợ **150+ animation effects**, bao gồm các hiệu ứng cơ bản như Bounce, PathFootball và Zoom, và các hiệu ứng đặc biệt như OLEObjectShow và OLEObjectOpen. Bạn có thể xem danh sách đầy đủ trong [EffectType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effecttype/) enumeration.
 
-Ngoài ra, các hiệu ứng hoạt hình này có thể được sử dụng kết hợp với chúng:
+Ngoài ra, các hiệu ứng hoạt ảnh này có thể được sử dụng kết hợp với các hành vi sau:
 
 - [ColorEffect](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/CommandEffect)
@@ -57,52 +57,54 @@ Ngoài ra, các hiệu ứng hoạt hình này có thể được sử dụng k�
 - [ScaleEffect](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ScaleEffect)
 - [SetEffect](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/SetEffect)
 
-## **Hoạt hình tùy chỉnh**
-Bạn có thể tạo **hoạt hình tùy chỉnh** của riêng mình trong Aspose.Slides. Điều này có thể thực hiện được khi bạn kết hợp một số hành vi lại thành một hoạt hình tùy chỉnh mới.
+## **Hoạt ảnh tùy chỉnh**
+Đối với các ví dụ JavaScript đầy đủ về tạo, kiểm tra và sửa đổi hành vi và đường chuyển động có thể chỉnh sửa, xem [Hoạt ảnh tùy chỉnh](/slides/vi/nodejs-java/custom-animation/).
 
-[**Behavior**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Behavior) là đơn vị cấu thành của bất kỳ hiệu ứng hoạt hình PowerPoint nào. Tất cả các hiệu ứng hoạt hình thực chất là một tập hợp các hành vi được kết hợp thành một chiến lược. Bạn có thể kết hợp các hành vi thành một hoạt hình tùy chỉnh một lần và tái sử dụng nó trong các bản trình chiếu khác. Nếu bạn thêm một hành vi mới vào một hiệu ứng hoạt hình PowerPoint tiêu chuẩn - nó sẽ trở thành một hoạt hình tùy chỉnh khác. Ví dụ, bạn có thể thêm hành vi lặp lại vào một hoạt hình để làm cho nó lặp lại vài lần.
+Bạn có thể tạo **hoạt ảnh tùy chỉnh** trong Aspose.Slides. Điều này có thể thực hiện bằng cách kết hợp nhiều hành vi thành một hoạt ảnh tùy chỉnh mới.
 
-[**Animation Point**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Point) là điểm mà hành vi sẽ được áp dụng.
+[Behavior](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/behavior/) là khối xây dựng của một hiệu ứng hoạt ảnh PowerPoint. Kết hợp các hành vi để tùy chỉnh một hiệu ứng, hoặc thêm một hành vi để mở rộng một hiệu ứng đã định nghĩa trước. Việc lặp lại được cấu hình thông qua cài đặt thời gian chứ không phải một hành vi lặp riêng.
 
-## **Dòng thời gian hoạt hình**
-[**Sequence**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Sequence) là một tập hợp các hiệu ứng hoạt hình, được áp dụng lên một hình dạng cụ thể.
+[Animation Point](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/point/) là điểm mà một hành vi nên được áp dụng.
 
-[**Timeline**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/AnimationTimeLine) là một tập hợp các Sequence được sử dụng trong một slide cụ thể. Đây là một engine hoạt hình được giới thiệu từ PowerPoint 2002. Trong các phiên bản PowerPoint trước đây, việc thêm hiệu ứng hoạt hình vào bản trình chiếu gặp nhiều khó khăn và chỉ có thể thực hiện bằng các cách giải quyết khác nhau. Timeline được đưa ra để thay thế lớp AnimationSettings cũ và cung cấp mô hình đối tượng rõ ràng hơn cho hoạt hình PowerPoint. Một slide chỉ có thể có một dòng thời gian hoạt hình.
+## **Dòng thời gian hoạt ảnh**
+[Sequence](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/sequence/) là tập hợp các hiệu ứng hoạt ảnh có thể nhắm tới các hình dạng khác nhau.
 
-## **Hoạt hình tương tác**
-[**Trigger**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/EffectTriggerType) cho phép định nghĩa các hành động của người dùng (ví dụ: nhấp nút), sẽ làm cho một hoạt hình nhất định bắt đầu. Triggers chỉ được bổ sung trong phiên bản PowerPoint mới nhất.
+[Timeline](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/animationtimeline/) là một tập hợp các chuỗi được sử dụng trong một slide cụ thể. Đó là một động cơ hoạt ảnh được giới thiệu trong PowerPoint 2002. Trong các phiên bản PowerPoint trước đó, việc thêm hiệu ứng hoạt ảnh vào bản thuyết trình gặp nhiều khó khăn và chỉ có thể thực hiện thông qua các cách khắc phục khác nhau. Dòng thời gian cung cấp một mô hình đối tượng rõ ràng hơn cho các hoạt ảnh PowerPoint. Một slide chỉ có thể có một dòng thời gian hoạt ảnh.
 
-## **Hoạt hình hình dạng**
-Aspose.Slides cho phép áp dụng hoạt hình cho các hình dạng, có thể là văn bản, hình chữ nhật, đường thẳng, khung, Đối tượng OLE, v.v.
+## **Hoạt ảnh tương tác**
+[Trigger](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/effecttriggertype/) cho phép bạn định nghĩa các hành động của người dùng, chẳng hạn như nhấp chuột vào nút, để khởi động một hoạt ảnh cụ thể.
 
-{{% alert color="primary" %}} 
-Đọc thêm [**Về Hoạt hình Hình dạng**](/slides/vi/nodejs-java/shape-animation/).
+## **Hoạt ảnh hình dạng**
+Aspose.Slides cho phép bạn áp dụng hoạt ảnh cho các hình dạng, bao gồm văn bản, hình chữ nhật, đường thẳng, khung, đối tượng OLE và hơn thế nữa.
+
+{{% alert color="info" title="Note" %}}
+Đọc thêm [**Về hoạt ảnh hình dạng**](/slides/vi/nodejs-java/shape-animation/).
 {{% /alert %}}
 
 ## **Biểu đồ động**
-Để tạo biểu đồ động, bạn nên sử dụng cùng các lớp như với các hình dạng. Tuy nhiên, có thể áp dụng hoạt hình PowerPoint chỉ trên các danh mục biểu đồ hoặc các chuỗi biểu đồ. Bạn cũng có thể áp dụng hiệu ứng hoạt hình lên một phần tử danh mục hoặc phần tử chuỗi.
+Để tạo biểu đồ động, bạn nên sử dụng cùng các lớp như đối với hình dạng. Tuy nhiên, các hoạt ảnh PowerPoint chỉ có thể được áp dụng cho các danh mục biểu đồ hoặc các chuỗi biểu đồ. Bạn cũng có thể áp dụng hiệu ứng hoạt ảnh cho một yếu tố danh mục hoặc một yếu tố chuỗi.
 
-{{% alert color="primary" %}} 
-Đọc thêm [**Về Biểu đồ Động**](/slides/vi/nodejs-java/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Đọc thêm [**Về biểu đồ động**](/slides/vi/nodejs-java/animated-charts/).
 {{% /alert %}}
 
 ## **Văn bản động**
-Ngoài văn bản động, bạn cũng có thể áp dụng hoạt hình cho một đoạn văn.
+Ngoài việc hoạt ảnh văn bản, bạn cũng có thể áp dụng hoạt ảnh cho một đoạn văn.
 
-{{% alert color="primary" %}} 
-Đọc thêm [**Về Văn bản Động**](/slides/vi/nodejs-java/animated-text/).
+{{% alert color="info" title="Note" %}}
+Đọc thêm [**Về văn bản động**](/slides/vi/nodejs-java/animated-text/).
 {{% /alert %}}
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Các hoạt hình có được giữ lại khi xuất ra PDF không?**
+**Các hoạt ảnh có được giữ lại khi xuất sang PDF không?**
 
-Không. PDF là định dạng tĩnh, vì vậy các hoạt hình và [chuyển đổi slide](/slides/vi/nodejs-java/slide-transition/) không được phát. Nếu bạn cần chuyển động, hãy xuất ra [HTML5](/slides/vi/nodejs-java/export-to-html5/), [animated GIF](/slides/vi/nodejs-java/convert-powerpoint-to-animated-gif/), hoặc [video](/slides/vi/nodejs-java/convert-powerpoint-to-video/) thay thế.
+Không. PDF là định dạng tĩnh, vì vậy các hoạt ảnh và [slide transitions](/slides/vi/nodejs-java/slide-transition/) không phát. Nếu bạn cần chuyển động, hãy xuất sang [HTML5](/slides/vi/nodejs-java/export-to-html5/), [animated GIF](/slides/vi/nodejs-java/convert-powerpoint-to-animated-gif/) hoặc [video](/slides/vi/nodejs-java/convert-powerpoint-to-video/) thay thế.
 
-**Tôi có thể chuyển một bản trình chiếu động thành video và điều chỉnh tốc độ khung và kích thước khung hình không?**
+**Tôi có thể chuyển bản trình chiếu động sang video và điều chỉnh tốc độ khung hình và kích thước khung hình không?**
 
-Có. Bạn có thể [kết xuất bản trình chiếu thành khung](/slides/vi/nodejs-java/convert-powerpoint-to-video/) và mã hoá chúng thành video (ví dụ: bằng ffmpeg), chọn FPS và độ phân giải. Các hoạt hình và chuyển đổi slide được phát trong quá trình render.
+Có. Bạn có thể [render the presentation as frames](/slides/vi/nodejs-java/convert-powerpoint-to-video/) và mã hoá chúng thành một video (ví dụ: bằng ffmpeg), chọn FPS và độ phân giải. Các hoạt ảnh và chuyển đổi slide sẽ được phát trong quá trình render.
 
-**Các hoạt hình có giữ nguyên khi làm việc với ODP (không chỉ PPTX) không?**
+**Các hoạt ảnh có vẫn được giữ nguyên khi làm việc với ODP (không chỉ PPTX) không?**
 
-PPT, PPTX và ODP được hỗ trợ để [đọc](/slides/vi/nodejs-java/open-presentation/) và [ghi](/slides/vi/nodejs-java/save-presentation/), nhưng sự khác biệt về định dạng có nghĩa là một số hiệu ứng có thể hiển thị hoặc hoạt động hơi khác nhau. Hãy xác thực các trường hợp quan trọng bằng các mẫu thực tế.
+PPT, PPTX và ODP đều được hỗ trợ cho [reading](/slides/vi/nodejs-java/open-presentation/) và [writing](/slides/vi/nodejs-java/save-presentation/), nhưng điều này không đảm bảo việc bảo tồn hoạt ảnh. Dữ liệu hoạt ảnh tùy chỉnh có thể bị mất khi chuyển đổi sang ODP. Xem [Hoạt ảnh tùy chỉnh](/slides/vi/nodejs-java/custom-animation/) để biết ví dụ và hướng dẫn kiểm tra tính tương thích của định dạng.

@@ -1,45 +1,47 @@
 ---
-title: ใช้การเคลื่อนไหวรูปทรงในงานนำเสนอด้วย PHP
-linktitle: การเคลื่อนไหวรูปทรง
+title: นำการเคลื่อนไหวของรูปร่างไปใช้ในงานนำเสนอด้วย PHP
+linktitle: การเคลื่อนไหวของรูปร่าง
 type: docs
 weight: 60
 url: /th/php-java/shape-animation/
 keywords:
-- รูปทรง
+- รูปร่าง
 - การเคลื่อนไหว
 - เอฟเฟกต์
-- รูปทรงเคลื่อนไหว
-- ข้อความเคลื่อนไหว
+- รูปร่างที่เคลื่อนไหว
+- ข้อความที่เคลื่อนไหว
 - เพิ่มการเคลื่อนไหว
 - รับการเคลื่อนไหว
-- ดึงการเคลื่อนไหว
-- เพิ่มเอฟเฟ็กต์
-- รับเอฟเฟ็กต์
-- ดึงเอฟเฟ็กต์
-- เสียงของเอฟเฟ็กต์
-- ประยุกต์ใช้การเคลื่อนไหว
+- สกัดการเคลื่อนไหว
+- เพิ่มเอฟเฟกต์
+- รับเอฟเฟกต์
+- สกัดเอฟเฟกต์
+- เสียงของเอฟเฟกต์
+- ใช้การเคลื่อนไหว
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่ม ตรวจสอบ และปรับแต่งการเคลื่อนไหวของรูปทรง, การตั้งเวลา, เสียง, พฤติกรรมหลังการเคลื่อนไหว, และข้อความเคลื่อนไหวด้วย Aspose.Slides สำหรับ PHP ผ่าน Java."
+description: "เรียนรู้วิธีเพิ่ม ตรวจสอบ และปรับแต่งการเคลื่อนไหวของรูปร่าง, เวลา, เสียง, พฤติกรรมหลังการเคลื่อนไหว และข้อความที่เคลื่อนไหวด้วย Aspose.Slides สำหรับ PHP ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for PHP via Java แสดงการเคลื่อนไหวของสไลด์เป็นเอฟเฟกต์ในไทม์ไลน์ของสไลด์ เอฟเฟกต์หนึ่งมีรูปทรงเป้าหมาย, ชนิดและประเภทย่อยของการเคลื่อนไหว, ตัวกระตุ้น, การตั้งค่าเวลา, และคุณสมบัติเสริมเช่นเสียงหรือพฤติกรรมหลังการเคลื่อนไหว
+หากต้องการทำงานกับพฤติกรรมแต่ละอย่างภายในเอฟเฟกต์หรือแก้ไขส่วนของเส้นทางการเคลื่อนที่ ให้ดูที่ [การเคลื่อนไหวแบบกำหนดเอง](/slides/th/php-java/custom-animation/)  
 
-ไทม์ไลน์มีลำดับสองประเภท:
+Aspose.Slides for PHP via Java แสดงการเคลื่อนไหวของสไลด์เป็นเอฟเฟกต์ในไทม์ไลน์ของสไลด์ เอฟเฟกต์มีรูปร่างเป้าหมาย ประเภทและชนิดย่อยของการเคลื่อนไหว ตัวกระตุ้น การตั้งค่าเวลา และคุณสมบัติเสริมเช่นเสียงหรือพฤติกรรมหลังการเคลื่อนไหว  
 
-- **ลำดับหลัก** เล่นเมื่อสไลด์เดินหน้า
-- **ลำดับโต้ตอบ** เริ่มเมื่อรูปทรงตัวกระตุ้นถูกคลิก
+ไทม์ไลน์ประกอบด้วยลำดับสองประเภท:
 
-เนื่องจากกล่องข้อความ, รูปภาพ, แผนภูมิ, ตารางและวัตถุสไลด์อื่น ๆ เป็นรูปทรง คุณจึงใช้เมธอด [Sequence::addEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/sequence/addeffect/) เดียวกันสำหรับเนื้อหาในสไลด์ส่วนใหญ่ เอฟเฟกต์ที่ใช้ได้ถูกระบุในคลาส [EffectType](https://reference.aspose.com/slides/th/php-java/aspose.slides/effecttype/)
+- **ลำดับหลัก** จะเล่นเมื่อสไลด์ก้าวหน้า
+- **ลำดับโต้ตอบ** จะเริ่มเมื่อรูปร่างตัวกระตุ้นถูกคลิก  
 
-## **เพิ่มการเคลื่อนไหวรูปทรง**
+เนื่องจากกล่องข้อความ รูปภาพ แผนภูมิ ตาราง และออบเจกต์สไลด์อื่น ๆ เป็นรูปร่าง คุณจึงใช้เมธอด [Sequence::addEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/sequence/addeffect/) เดียวกันสำหรับเนื้อหาสไลด์ส่วนใหญ่ เอฟเฟกต์ที่มีให้จะถูกแสดงในคลาส [EffectType](https://reference.aspose.com/slides/th/php-java/aspose.slides/effecttype/)  
 
-เพื่อเพิ่มการเคลื่อนไหว ให้ดึงลำดับหลักของสไลด์และเรียก [Sequence::addEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/sequence/addeffect/) พร้อมกับรูปทรงเป้าหมาย, ชนิดเอฟเฟกต์, ประเภทย่อยและตัวกระตุ้น สำหรับเอฟเฟกต์ที่เริ่มเมื่อรูปทรงอื่นถูกคลิก ให้สร้างลำดับโต้ตอบที่ตัวกระตุ้นคือรูปทรงนั้น
+## **เพิ่มการเคลื่อนไหวของรูปร่าง**
 
-ตัวอย่างต่อไปนี้สร้างการเคลื่อนไหวทั้งสองประเภทและบันทึกผลลัพธ์เป็น `shape-animations.pptx`
+เพื่อเพิ่มการเคลื่อนไหว ให้รับลำดับหลักของสไลด์และเรียกเมธอด [Sequence::addEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/sequence/addeffect/) พร้อมด้วยรูปร่างเป้าหมาย ประเภทเอฟเฟกต์ ชนิดย่อยและตัวกระตุ้น สำหรับเอฟเฟกต์ที่เริ่มเมื่อรูปร่างอื่นถูกคลิก ให้สร้างลำดับโต้ตอบที่ตัวกระตุ้นคือรูปร่างอื่นนั้น  
+
+ตัวอย่างต่อไปนี้สร้างการเคลื่อนไหวสองประเภทและบันทึกผลลัพธ์เป็น `shape-animations.pptx`  
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -74,17 +76,17 @@ try {
 
 ตัวกระตุ้นกำหนดว่าเอฟเฟกต์จะเริ่มเมื่อใด:
 
-- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/th/php-java/aspose.slides/effecttriggertype/) รอการคลิกในลำดับหลัก หรือการคลิกบนรูปทรงตัวกระตุ้นในลำดับโต้ตอบ
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/th/php-java/aspose.slides/effecttriggertype/) รอการคลิกในลำดับหลัก หรือรอการคลิกบนรูปร่างตัวกระตุ้นในลำดับโต้ตอบ
 - [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/th/php-java/aspose.slides/effecttriggertype/) เริ่มพร้อมกับเอฟเฟกต์ก่อนหน้า
-- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/th/php-java/aspose.slides/effecttriggertype/) เริ่มเมื่อเอฟเฟกต์ก่อนหน้าจบ
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/th/php-java/aspose.slides/effecttriggertype/) เริ่มเมื่อเอฟเฟกต์ก่อนหน้าสิ้นสุด  
 
-เพื่อเคลื่อนไหวรูปภาพ, แผนภูมิ หรือรูปทรงประเภทอื่น ให้ส่งออบเจ็กต์นั้นไปยัง [Sequence::addEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/sequence/addeffect/) แทน `$targetShape` สำหรับตัวเลือกการจัดกลุ่มเฉพาะแผนภูมิ ดูที่ [Animated Charts](/slides/th/php-java/animated-charts/)
+เพื่อเคลื่อนไหวรูปภาพ แผนภูมิ หรือรูปร่างประเภทอื่น ให้ส่งออบเจกต์นั้นไปยัง [Sequence::addEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/sequence/addeffect/) แทน `$targetShape` สำหรับตัวเลือกการจัดกลุ่มเฉพาะแผนภูมิ ให้ดูที่ [Animated Charts](/slides/th/php-java/animated-charts/)  
 
-## **อ่านการเคลื่อนไหวรูปทรง**
+## **อ่านการเคลื่อนไหวของรูปร่าง**
 
-ใช้ [Sequence::getEffectsByShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/sequence/geteffectsbyshape/) เมื่อคุณทราบรูปทรงเป้าหมาย เพื่อดูทุกเอฟเฟกต์ ให้วนลูปผ่านลำดับหลักและลำดับโต้ตอบทั้งหมด การวนลูปหลีกเลี่ยงการสันนิษฐานว่าลำดับมีเอฟเฟกต์ที่ตำแหน่ง `0`
+ใช้ [Sequence::getEffectsByShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/sequence/geteffectsbyshape/) เมื่อคุณรู้จักรูปร่างเป้าหมาย หากต้องการตรวจสอบทุกเอฟเฟกต์ ให้วนลูปลำดับหลักและลำดับโต้ตอบทั้งหมด การวนลูปหลีกเลี่ยงการสันนิษฐานว่าลำดับมีเอฟเฟกต์ที่ดัชนี `0`  
 
-ตัวอย่างต่อไปนี้สร้างรูปทรงที่มีเอฟเฟกต์ในลำดับหลักและโต้ตอบ, ดึงเอฟเฟกต์ที่เป้าหมายเป็นรูปทรุงนั้น, แล้ววนลูปทุกลำดับบนสไลด์
+ตัวอย่างต่อไปนี้สร้างรูปร่างที่มีเอฟเฟกต์ลำดับหลักและโต้ตอบ แล้วดึงเอฟเฟกต์ที่เป้าหมายเป็นรูปร่างนั้น จากนั้นวนลูปทุกลำดับในสไลด์  
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -144,21 +146,21 @@ try {
 }
 ```
 
-หากคุณต้องการเอฟเฟกต์สำหรับรูปทรงเดียว ให้ระบุตัวรูปทรงด้วยชื่อ, ชนิด placeholder, หรือคุณสมบัติที่คงที่อื่น ๆ; แล้วเรียก [Sequence::getEffectsByShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/sequence/geteffectsbyshape/) อย่าสันนิษฐานว่า [ShapeCollection::get_Item](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/get_item/) ที่ตำแหน่ง `0` เป็นออบเจ็กต์ที่ต้องการเสมอ
+หากคุณต้องการเอฟเฟกต์สำหรับรูปร่างเดียว ให้ระบุรูปร่างด้วยชื่อ ประเภท placeholder หรือคุณสมบัติสเตเบิลอื่น ๆ ก่อน แล้วเรียก [Sequence::getEffectsByShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/sequence/geteffectsbyshape/) อย่าแ assumesว่า [ShapeCollection::get_Item](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/get_item/) ที่ดัชนี `0` เป็นออบเจกต์ที่ต้องการเสมอ  
 
 ## **ทำงานกับเอฟเฟกต์ Placeholder ที่สืบทอด**
 
-placeholder บนสไลด์ปกติเสริมพฤติกรรมการเคลื่อนไหวจาก placeholder ที่สอดคล้องบนสไลด์เลเอาต์และมาสเตอร์ [Shape::getBasePlaceholder](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/getbaseplaceholder/) คืนค่า placeholder พ่อแม่ หรือ `null` หากไม่มีพ่อแม่
+Placeholder บนสไลด์ปกติสามารถสืบทอดพฤติกรรมการเคลื่อนไหวจาก Placeholder ที่สอดคล้องบนสไลด์เลายเอาต์และมาสเตอร์ได้ [Shape::getBasePlaceholder](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/getbaseplaceholder/) จะคืนค่า Placeholder พ่อแม่ หรือ `null` หากไม่มีพ่อแม่  
 
-ในตัวอย่างพรีเซนเทชันต่อไป, ส่วนท้าย (footer) มี **Random Bars** บนสไลด์ปกติ, **Split** บนสไลด์เลเอาต์, และ **Fly In** บนสไลด์มาสเตอร์
+ในตัวอย่างการนำเสนอด้านล่าง ส่วนท้ายมี **Random Bars** บนสไลด์ปกติ, **Split** บนสไลด์เลายเอาต์, และ **Fly In** บนสไลด์มาสเตอร์  
 
-![เอฟเฟกต์การเคลื่อนไหวของส่วนท้ายบนสไลด์ปกติ](slide-shape-animation.png)
+![เอฟเฟกต์การเคลื่อนไหวของส่วนท้ายในสไลด์ปกติ](slide-shape-animation.png)
 
-![เอฟเฟกต์การเคลื่อนไหวของ placeholder ส่วนท้ายบนสไลด์เลเอาต์](layout-shape-animation.png)
+![เอฟเฟกต์การเคลื่อนไหวของส่วนท้ายบนสไลด์เลายเอาต์](layout-shape-animation.png)
 
-![เอฟเฟกต์การเคลื่อนไหวของ placeholder ส่วนท้ายบนสไลด์มาสเตอร์](master-shape-animation.png)
+![เอฟเฟกต์การเคลื่อนไหวของส่วนท้ายบนสไลด์มาสเตอร์](master-shape-animation.png)
 
-ตัวอย่างต่อไปนี้ใช้ลำดับ hierarchy ของ placeholder จากพรีเซนเทชันใหม่ เพิ่มเอฟเฟกต์ให้กับ placeholder ของมาสเตอร์, placeholder ของเลเอาต์, และ placeholder ที่สอดคล้องบนสไลด์ปกติ ทุกการเรียก [Shape::getBasePlaceholder](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/getbaseplaceholder/) จะตรวจสอบก่อนนำ shape ที่คืนค่ามาใช้
+ตัวอย่างต่อไปใช้โครงสร้าง placeholder จากการนำเสนอใหม่ โดยเพิ่มเอฟเฟกต์ให้กับ placeholder ของมาสเตอร์, placeholder ของเลายเอาต์ และ placeholder ที่สอดคล้องบนสไลด์ปกติ ทุกการเรียก [Shape::getBasePlaceholder](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/getbaseplaceholder/) จะตรวจสอบก่อนใช้รูปร่างที่คืนค่า  
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -246,19 +248,19 @@ try {
 }
 ```
 
-## **เปลี่ยนการตั้งค่าเวลาเคลื่อนไหว**
+## **เปลี่ยนการตั้งค่าเวลาในการเคลื่อนไหว**
 
-กล่องโต้ตอบ **Timing** ของ PowerPoint แมพไปยังคุณสมบัติของ [Timing](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/)
+กล่องโต้ตอบ **Timing** ของ PowerPoint จับคู่กับคุณสมบัติของ [Timing](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/)  
 
 ![กล่องโต้ตอบ Timing ของ PowerPoint สำหรับเอฟเฟกต์การเคลื่อนไหว](shape-animation.png)
 
-- **Start** แมพไปยัง [Timing::getTriggerType](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/gettriggertype/)
-- **Duration** แมพไปยัง [Timing::getDuration](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/getduration/) หน่วยเป็นวินาที
-- **Delay** แมพไปยัง [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/gettriggerdelaytime/) หน่วยเป็นวินาที
-- **Repeat** แมพไปยัง [Timing::getRepeatCount](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/getrepeatuntilnextclick/) หรือ [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/getrepeatuntilendslide/)
-- **Rewind when done playing** แมพไปยัง [Timing::getRewind](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/getrewind/)
+- **เริ่ม** จับคู่กับ [Timing::getTriggerType](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/gettriggertype/)
+- **ระยะเวลา** จับคู่กับ [Timing::getDuration](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/getduration/) (หน่วยวินาที)
+- **หน่วงเวลา** จับคู่กับ [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/gettriggerdelaytime/) (หน่วยวินาที)
+- **ทำซ้ำ** จับคู่กับ [Timing::getRepeatCount](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/getrepeatuntilnextclick/) หรือ [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/getrepeatuntilendslide/)
+- **ย้อนกลับเมื่อเล่นเสร็จ** จับคู่กับ [Timing::getRewind](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/getrewind/)
 
-ตัวอย่างอิสระนี้เพิ่มเอฟเฟกต์, เปลี่ยนเวลาผ่านออบเจ็กต์ที่คืนจาก [Sequence::addEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/sequence/addeffect/), แล้วบันทึกผลลัพธ์ การเก็บอ้างอิง [Effect](https://reference.aspose.com/slides/th/php-java/aspose.slides/effect/) ที่คืนมาช่วยหลีกเลี่ยงการอ้างอิงตำแหน่งคอลเลกชันที่ไม่จำเป็น
+ตัวอย่างอิสระนี้เพิ่มเอฟเฟกต์ ปรับเวลาผ่านออบเจกต์ที่คืนจาก [Sequence::addEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/sequence/addeffect/) และบันทึกผลลัพธ์ การเก็บอ้างอิง [Effect](https://reference.aspose.com/slides/th/php-java/aspose.slides/effect/) ที่คืนค่าไว้ช่วยหลีกเลี่ยงการอ้างอิงดัชนีคอลเลกชันที่ไม่จำเป็น  
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -289,15 +291,15 @@ try {
 }
 ```
 
-ใช้โหมดการทำซ้ำหนึ่งแบบเท่านั้น การผสมจำนวนการทำซ้ำกับแฟล็ก “until” อาจทำให้ผลลัพธ์สับสนในโปรแกรมอ่านต่าง ๆ เมื่อเปลี่ยนโหมดการทำซ้ำ ให้ตั้งค่า [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/setrepeatuntilnextclick/) และ [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/setrepeatuntilendslide/) ก่อน [Timing::setRepeatCount](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/setrepeatcount/) เนื่องจากการตั้งค่าแฟล็กใดแฟล็กหนึ่งจะเปลี่ยนโหมดการทำซ้ำที่ใช้งาน
+ใช้โหมดทำซ้ำแบบใดแบบหนึ่งเท่านั้น การผสานจำนวนการทำซ้ำกับแฟล็ก “until” อาจทำให้ผลลัพธ์สับสนในโปรแกรมดูต่าง ๆ เมื่อตั้งค่าโหมดทำซ้ำ ให้เรียก [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/setrepeatuntilnextclick/) และ [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/setrepeatuntilendslide/) ก่อน [Timing::setRepeatCount](https://reference.aspose.com/slides/th/php-java/aspose.slides/timing/setrepeatcount/) เพราะการตั้งค่าแฟล็กใดแฟล็กหนึ่งจะเปลี่ยนโหมดทำซ้ำที่ใช้งานอยู่  
 
 ## **เพิ่มและดึงเสียงการเคลื่อนไหว**
 
-เอฟเฟกต์การเคลื่อนไหวสามารถอ้างอิงเสียงที่ฝังไว้ผ่าน [Effect::getSound](https://reference.aspose.com/slides/th/php-java/aspose.slides/effect/getsound/) [Effect::setStopPreviousSound](https://reference.aspose.com/slides/th/php-java/aspose.slides/effect/setstopprevioussound/) บอกให้เอฟเฟกต์หยุดเสียงที่เริ่มโดยเอฟเฟกต์ก่อนหน้า
+เอฟเฟกต์การเคลื่อนไหวสามารถอ้างอิงไฟล์เสียงฝังอยู่ผ่าน [Effect::getSound](https://reference.aspose.com/slides/th/php-java/aspose.slides/effect/getsound/) [Effect::setStopPreviousSound](https://reference.aspose.com/slides/th/php-java/aspose.slides/effect/setstopprevioussound/) บอกให้เอฟเฟกต์หยุดเสียงที่เริ่มจากเอฟเฟกต์ก่อนหน้า  
 
 ### **เพิ่มเสียงให้กับเอฟเฟกต์**
 
-ตัวอย่างต่อไปนี้คาดว่ามีไฟล์เสียงโลคัลชื่อ `animation-sound.wav` สร้างเอฟเฟกต์สองรายการ ฝังไฟล์เป็นเสียงสำหรับเอฟเฟกต์แรกและตั้งค่าให้เอฟเฟกต์ที่สองหยุดเสียง ใช้ออบเจ็กต์ที่คืนจาก [Sequence::addEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/sequence/addeffect/) ดังนั้นไม่ต้องระบุตำแหน่งลำดับ
+ตัวอย่างต่อไปนี้คาดว่าไฟล์เสียงท้องถิ่นชื่อ `animation-sound.wav` จะสร้างเอฟเฟกต์สองอัน ฝังไฟล์นั้นเป็นเสียงของเอฟเฟกต์แรก และตั้งค่าให้เอฟเฟกต์ที่สองหยุดเสียง ใช้ออบเจกต์ที่คืนจาก [Sequence::addEffect] จึงไม่ต้องระบุดัชนีลำดับ  
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -334,9 +336,9 @@ try {
 }
 ```
 
-### **ดึงเสียงเอฟเฟกต์ที่ฝังไว้**
+### **ดึงเสียงที่ฝังไว้ในเอฟเฟกต์**
 
-ตัวอย่างต่อไปนี้คาดว่ามีพรีเซนเทชันโลคัลชื่อ `presentation-with-animation-sounds.pptx` มันสแกนลำดับหลักและโต้ตอบทั้งหมดและบันทึกเสียงเอฟเฟกต์ที่ฝังไว้ทุกไฟล์ลงในโฟลเดอร์ `extracted-animation-sounds` ส่วนขยายไฟล์เลือกจาก MIME type ของเสียงที่ให้โดย [Audio::getContentType](https://reference.aspose.com/slides/th/php-java/aspose.slides/audio/getcontenttype/)
+ตัวอย่างต่อไปนี้คาดว่าไฟล์นำเสนอท้องถิ่นชื่อ `presentation-with-animation-sounds.pptx` จะสแกนลำดับหลักและโต้ตอบทั้งหมดและเขียนเสียงเอฟเฟกต์ที่ฝังไว้ทุกไฟล์ลงในโฟลเดอร์ `extracted-animation-sounds` ส่วนขยายไฟล์จะเลือกจาก MIME type ของเสียงที่ `Audio::getContentType` คืนค่า  
 
 ```php
 use aspose\slides\Presentation;
@@ -420,17 +422,17 @@ try {
 }
 ```
 
-สำหรับออบเจ็กต์เสียงขนาดใหญ่ ให้ใช้ [Audio::getStream](https://reference.aspose.com/slides/th/php-java/aspose.slides/audio/getstream/) แล้วคัดลอกสตรีมไปยังไฟล์แทนการโหลดออบเจ็กต์ทั้งหมดเข้าสู่ byte array
+สำหรับออบเจกต์เสียงขนาดใหญ่ ให้ใช้ [Audio::getStream](https://reference.aspose.com/slides/th/php-java/aspose.slides/audio/getstream/) แล้วคัดลอกสตรีมไปยังไฟล์แทนการโหลดออบเจกต์ทั้งหมดเข้าสู่ byte array  
 
 ## **ตั้งค่าพฤติกรรมหลังการเคลื่อนไหว**
 
-ตัวเลือก **After animation** ควบคุมว่ารูปทรงจะทำอย่างไรหลังจากเอฟเฟกต์จบ
+ตัวเลือก **After animation** ควบคุมว่ารูปร่างจะทำอย่างไรหลังจากเอฟเฟกต์เสร็จสิ้น  
 
-![กล่องโต้ตอบตัวเลือกเอฟเฟกต์ของ PowerPoint แสดงการตั้งค่า After animation](shape-after-animation.png)
+![กล่องโต้ตอบตัวเลือกเอฟเฟกต์ของ PowerPoint แสดงการตั้งค่าหลังการเคลื่อนไหว](shape-after-animation.png)
 
-คลาส [AfterAnimationType](https://reference.aspose.com/slides/th/php-java/aspose.slides/afteranimationtype/) รองรับการคงรูปทรงเดิม, เปลี่ยนสี, ซ่อนหลังการเคลื่อนไหว, หรือซ่อนเมื่อคลิกครั้งต่อไป เมื่อประเภทเป็น [AfterAnimationType::Color](https://reference.aspose.com/slides/th/php-java/aspose.slides/afteranimationtype/) ให้ตั้งค่า [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/th/php-java/aspose.slides/effect/getafteranimationcolor/) ด้วย
+คลาส [AfterAnimationType](https://reference.aspose.com/slides/th/php-java/aspose.slides/afteranimationtype/) รองรับการทิ้งรูปร่างไว้โดยไม่เปลี่ยน แก้สี ซ่อนหลังการเคลื่อนไหว หรือซ่อนเมื่อคลิกต่อไป เมื่อประเภทเป็น [AfterAnimationType::Color](https://reference.aspose.com/slides/th/php-java/aspose.slides/afteranimationtype/) ให้ตั้งค่า [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/th/php-java/aspose.slides/effect/getafteranimationcolor/) ด้วย  
 
-ตัวอย่างอิสระนี้สร้างเอฟเฟกต์, ตั้งค่าพฤติกรรมหลังการเคลื่อนไหวผ่านออบเจ็กต์เอฟเฟกต์ที่คืนมา, แล้วบันทึกผลลัพธ์
+ตัวอย่างอิสระนี้สร้างเอฟเฟกต์ ตั้งค่าพฤติกรรมหลังการเคลื่อนไหวผ่านออบเจกต์เอฟเฟกต์ที่คืนค่า แล้วบันทึกผลลัพธ์  
 
 ```php
 use aspose\slides\AfterAnimationType;
@@ -457,16 +459,16 @@ try {
 }
 ```
 
-การเปลี่ยนประเภทออกจาก [AfterAnimationType::Color](https://reference.aspose.com/slides/th/php-java/aspose.slides/afteranimationtype/) จะล้างการตั้งค่าสีหลังการเคลื่อนไหว
+การเปลี่ยนประเภทออกจาก [AfterAnimationType::Color](https://reference.aspose.com/slides/th/php-java/aspose.slides/afteranimationtype/) จะล้างการตั้งค่าสีหลังการเคลื่อนไหว  
 
 ## **เคลื่อนไหวข้อความ**
 
-การเคลื่อนไหวข้อความมีการควบคุมสองส่วนที่เกี่ยวข้อง:
+การเคลื่อนไหวของข้อความมีการควบคุมสองส่วนที่เกี่ยวข้อง:
 
-- [TextAnimation::getBuildType](https://reference.aspose.com/slides/th/php-java/aspose.slides/textanimation/getbuildtype/) ควบคุมว่าพารากราฟปรากฏพร้อมกันหรือระดับพารากราฟ
-- [Effect::getAnimateTextType](https://reference.aspose.com/slides/th/php-java/aspose.slides/effect/getanimatetexttype/) ควบคุมว่าข้อความปรากฏทั้งหมด, คำต่อคำ, หรืออักษรต่ออักษร [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/th/php-java/aspose.slides/effect/getdelaybetweentextparts/) ตั้งค่าการหน่วงเวลาระหว่างคำหรืออักษร ค่าบวกเป็นเปอร์เซ็นต์ของระยะเวลาเอฟเฟกต์; ค่าลบเป็นการหน่วงเวลาเป็นวินาที
+- [TextAnimation::getBuildType](https://reference.aspose.com/slides/th/php-java/aspose.slides/textanimation/getbuildtype/) ควบคุมว่าพารากราฟจะปรากฏพร้อมกันหรือเป็นระดับพารากราฟ
+- [Effect::getAnimateTextType](https://reference.aspose.com/slides/th/php-java/aspose.slides/effect/getanimatetexttype/) ควบคุมว่าข้อความจะแสดงทั้งหมด, แบ่งตามคำ, หรือแบ่งตามอักษร [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/th/php-java/aspose.slides/effect/getdelaybetweentextparts/) ตั้งค่าหน่วงระหว่างคำหรืออักษร ค่าบวกเป็นเปอร์เซ็นต์ของระยะเวลาเอฟเฟกต์; ค่าลบเป็นหน่วงเวลาเป็นวินาที  
 
-ตัวอย่างอิสระต่อไปนี้เคลื่อนไหวคำในกล่องข้อความ [BuildType::AsOneObject](https://reference.aspose.com/slides/th/php-java/aspose.slides/buildtype/) ปิดการสร้างตามพารากราฟเพื่อให้การตั้งค่าคำใช้กับกรอบข้อความทั้งหมด
+ตัวอย่างอิสระต่อไปนี้เคลื่อนไหวคำในกล่องข้อความ [BuildType::AsOneObject](https://reference.aspose.com/slides/th/php-java/aspose.slides/buildtype/) ปิดการสร้างพารากราฟต่อพารากราฟเพื่อให้การตั้งค่าคำใช้กับกรอบข้อความทั้งหมด  
 
 ```php
 use aspose\slides\AnimateTextType;
@@ -495,26 +497,26 @@ try {
 }
 ```
 
-เพื่อสร้างกล่องข้อความตามพารากราฟ ให้ตั้งค่า [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/th/php-java/aspose.slides/buildtype/) (หรือระดับพารากราฟอื่น) เพื่อให้พารากราฟเดี่ยวมีเอฟเฟกต์ของตนเอง ใช้โอเวอร์โหลดของ [Sequence::addEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/sequence/addeffect/) ที่รับ [Paragraph](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraph/) ดูที่ [Animated Text](/slides/th/php-java/animated-text/) เพื่อดูตัวอย่างระดับพารากราฟ
+หากต้องการสร้างกล่องข้อความตามพารากราฟ ให้ตั้งค่า [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/th/php-java/aspose.slides/buildtype/) (หรือตามระดับพารากราฟอื่น) เพื่อให้เอฟเฟกต์ที่แยกสำหรับพารากราฟเดียว ให้ใช้การ overload ของ [Sequence::addEffect](https://reference.aspose.com/slides/th/php-java/aspose.slides/sequence/addeffect/) ที่รับ [Paragraph](https://reference.aspose.com/slides/th/php-java/aspose.slides/paragraph/) ดูตัวอย่างระดับพารากราฟที่ [Animated Text](/slides/th/php-java/animated-text/)  
 
-## **การส่งออกและหมายเหตุเกี่ยวกับความเข้ากันได้**
+## **ส่งออกและหมายเหตุความเข้ากันได้**
 
-- การบันทึกเป็น PPT หรือ PPTX รักษาโมเดลการเคลื่อนไหว แต่การเล่นสุดท้ายถูกควบคุมโดยโปรแกรมอ่านพรีเซนเทชัน
-- PDF และรูปภาพคงที่ไม่เล่นการเคลื่อนไหว ใช้ [HTML5 export](/slides/th/php-java/export-to-html5/), GIF เคลื่อนไหว, หรือ [video conversion](/slides/th/php-java/convert-powerpoint-to-video/) เมื่อผลลัพธ์ต้องแสดงการเคลื่อนไหว
-- สำหรับ HTML5 ให้เปิดใช้งาน [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/th/php-java/aspose.slides/html5options/setanimateshapes/) และหากต้องการ [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/th/php-java/aspose.slides/html5options/setanimatetransitions/)
-- การเรนเดอร์วิดีโอรองรับเอฟเฟกต์การเข้าตา, เน้น, ออกจาก, และเส้นทางการเคลื่อนไหวทั่วไปหลายประเภท แต่ไม่รองรับเอฟเฟกต์ PowerPoint ทุกประเภท ตรวจสอบ [supported animations and effects](/slides/th/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) ปัจจุบันและทดสอบพรีเซนเทชันสำคัญกับเวอร์ชัน Aspose.Slides ที่คุณใช้
-- เอฟเฟกต์ที่กำหนดเองขั้นสูงและเอฟเฟกต์ที่นำเข้าจากรูปแบบพรีเซนเทชันอื่นอาจถูกเก็บไว้ในไฟล์แต่แสดงผลต่างกันใน PowerPoint, HTML5 หรือวิดีโอ ตรวจสอบผลการส่งออกแทนการพึ่งพาชื่อเอฟเฟกต์อย่างเดียว
+- การบันทึกเป็น PPT หรือ PPTX จะคงโมเดลการเคลื่อนไหวไว้ แต่การเล่นขั้นสุดท้ายขึ้นอยู่กับโปรแกรมดูสไลด์
+- PDF และภาพคงที่ไม่เล่นการเคลื่อนไหว ใช้ [การส่งออกเป็น HTML5](/slides/th/php-java/export-to-html5/), GIF เคลื่อนไหว หรือ [การแปลงเป็นวิดีโอ](/slides/th/php-java/convert-powerpoint-to-video/) เมื่อผลลัพธ์ต้องแสดงการเคลื่อนที่
+- สำหรับ HTML5 เปิดใช้งาน [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/th/php-java/aspose.slides/html5options/setanimateshapes/) และเมื่อจำเป็นให้เปิด [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/th/php-java/aspose.slides/html5options/setanimatetransitions/)
+- การเรนเดอร์วิดีโอรองรับเอฟเฟกต์การเข้าสู่, เน้น, ออก, และเส้นทางการเคลื่อนที่ที่เป็นที่นิยมหลายประเภท แต่ไม่ใช่ทุกเอฟเฟกต์ของ PowerPoint จะรองรับ ตรวจสอบ [การสนับสนุนการเคลื่อนไหวและเอฟเฟกต์](/slides/th/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) เวอร์ชันปัจจุบันและทดสอบการนำเสนอสำคัญกับเวอร์ชัน Aspose.Slides ของคุณ
+- เอฟเฟกต์ที่กำหนดเองขั้นสูงและเอฟเฟกต์ที่นำเข้าจากรูปแบบการนำเสนออื่น ๆ อาจถูกเก็บไว้ในไฟล์แต่แสดงผลต่างกันใน PowerPoint, HTML5 หรือวิดีโอ ตรวจสอบผลลัพธ์ที่ส่งออกแทนการพึ่งพาชื่อเอฟเฟกต์อย่างเดียว  
 
 ## **คำถามที่พบบ่อย**
 
-**ทำไมการเคลื่อนไหวจึงแสดงใน PowerPoint แต่ไม่แสดงใน PDF?**
+**ทำไมการเคลื่อนไหวถึงปรากฏใน PowerPoint แต่ไม่แสดงใน PDF?**  
 
-PDF เป็นรูปแบบคงที่ ดังนั้นการเคลื่อนไหวและการเปลี่ยนสไลด์จะไม่เล่น ส่งออกเป็น HTML5, GIF เคลื่อนไหว, หรือวิดีโอเมื่อจำเป็นต้องรักษาการเคลื่อนไหว
+PDF เป็นรูปแบบคงที่ ดังนั้นการเคลื่อนไหวและการเปลี่ยนสไลด์จะไม่ทำงาน ให้ส่งออกเป็น HTML5, GIF เคลื่อนไหว หรือวิดีโอเมื่อจำเป็นต้องเก็บการเคลื่อนที่ไว้  
 
-**ทำไมเอฟเฟกต์จึงเล่นต่างกันในวิดีโอ?**
+**ทำไมเอฟเฟกต์จึงเล่นแตกต่างกันในวิดีโอ?**  
 
-การส่งออกวิดีโอเรนเดอร์การเคลื่อนไหวแทนการเก็บพฤติกรรมเดิมของ PowerPoint บางเอฟเฟกต์ขั้นสูงไม่ได้รับการสนับสนุนหรือถูกประมาณค่า ตรวจสอบตารางเอฟเฟกต์ที่สนับสนุนและทดสอบพรีเซนเทชันจริงก่อนการใช้งานจริง
+การส่งออกเป็นวิดีโอทำการเรนเดอร์การเคลื่อนไหวแทนการเก็บพฤติกรรมดั้งเดิมของ PowerPoint บางเอฟเฟกต์ขั้นสูงอาจไม่รองรับหรือถูกประมาณค่า ตรวจสอบตารางเอฟเฟกต์ที่รองรับและทดสอบการนำเสนอจริงก่อนใช้งานจริง  
 
-**การย้ายรูปทรงไปข้างหน้าหรือข้างหลังจะเปลี่ยนลำดับการเคลื่อนไหวหรือไม่?**
+**การย้ายรูปร่างไปข้างหน้า或ข้างหลังเปลี่ยนลำดับการเคลื่อนไหวหรือไม่?**  
 
-ไม่ การจัดลำดับ z‑order ของรูปทรงควบคุมการทับซ้อน ส่วนลำดับและตัวกระตุ้นของลำดับควบคุมการเล่นการเคลื่อนไหว ปรับไทม์ไลน์หากต้องการลำดับการเล่นที่ต่างออกไป
+ไม่ การจัดลำดับ z‑order ของรูปร่างควบคุมการทับกัน ส่วนลำดับของลำดับและตัวกระตุ้นควบคุมการเล่นการเคลื่อนไหว หากต้องการลำดับการเล่นที่ต่างออกไป ให้ปรับไทม์ไลน์ของลำดับ**

@@ -8,8 +8,8 @@ keywords:
 - bentuk
 - animasi
 - efek
-- bentuk animasi
-- teks animasi
+- bentuk beranimasi
+- teks beranimasi
 - tambahkan animasi
 - dapatkan animasi
 - ekstrak animasi
@@ -23,24 +23,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Pelajari cara menambahkan, memeriksa, dan menyesuaikan animasi bentuk, waktu, suara, perilaku setelah animasi, serta teks animasi dengan Aspose.Slides untuk .NET."
+description: "Pelajari cara menambahkan, memeriksa, dan menyesuaikan animasi bentuk, waktu, suara, perilaku setelah animasi, serta teks beranimasi dengan Aspose.Slides untuk .NET."
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides untuk .NET merepresentasikan animasi slide sebagai efek dalam timeline slide. Sebuah efek memiliki bentuk target, jenis dan subtipe animasi, pemicu, pengaturan waktu, dan properti opsional seperti suara atau perilaku setelah animasi.
+Untuk bekerja dengan perilaku individual di dalam sebuah efek atau mengedit segmen jalur gerak, lihat [Animasi Kustom](/slides/id/net/custom-animation/).
+
+Aspose.Slides for .NET merepresentasikan animasi slide sebagai efek dalam timeline slide. Sebuah efek memiliki bentuk target, tipe dan subtipe animasi, pemicu, pengaturan waktu, dan properti opsional seperti suara atau perilaku setelah animasi.
 
 Timeline berisi dua jenis urutan:
 
-- **Urutan utama** diputar saat slide maju.
-- **Urutan interaktif** dimulai ketika bentuk pemicunya diklik.
+- Urutan **utama** diputar saat slide maju.  
+- Urutan **interaktif** dimulai ketika bentuk pemicunya diklik.
 
-Karena kotak teks, gambar, diagram, tabel, dan objek slide lainnya mengimplementasikan [IShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/), Anda menggunakan metode [ISequence.AddEffect](https://reference.aspose.com/slides/id/net/aspose.slides.animation/isequence/addeffect/) yang sama untuk sebagian besar konten slide. Efek yang tersedia tercantum dalam enumerasi [EffectType](https://reference.aspose.com/slides/id/net/aspose.slides.animation/effecttype/).
+Karena kotak teks, gambar, diagram, tabel, dan objek slide lainnya mengimplementasikan [IShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/), Anda menggunakan metode [ISequence.AddEffect](https://reference.aspose.com/slides/id/net/aspose.slides.animation/isequence/addeffect/) yang sama untuk kebanyakan konten slide. Efek yang tersedia tercantum dalam enumerasi [EffectType](https://reference.aspose.com/slides/id/net/aspose.slides.animation/effecttype/).
 
-## **Menambahkan Animasi Bentuk**
+## **Tambahkan Animasi Bentuk**
 
-Untuk menambahkan animasi, dapatkan urutan utama slide dan panggil [ISequence.AddEffect](https://reference.aspose.com/slides/id/net/aspose.slides.animation/isequence/addeffect/) dengan bentuk target, jenis efek, subtipe, dan pemicu. Untuk efek yang dimulai ketika bentuk lain diklik, buat urutan interaktif yang pemicunya adalah bentuk lain tersebut.
+Untuk menambahkan animasi, dapatkan urutan utama slide dan panggil [ISequence.AddEffect](https://reference.aspose.com/slides/id/net/aspose.slides.animation/isequence/addeffect/) dengan bentuk target, tipe efek, subtipe, dan pemicu. Untuk efek yang dimulai ketika bentuk lain diklik, buat urutan interaktif yang pemicunya adalah bentuk lain tersebut.
 
-Contoh berikut membuat kedua jenis animasi dan menyimpan hasilnya ke `shape-animations.pptx`.
+Contoh berikut membuat kedua tipe animasi dan menyimpan hasilnya ke `shape-animations.pptx`.
 
 ```csharp
 using Aspose.Slides;
@@ -66,19 +68,19 @@ interactiveSequence.AddEffect(targetShape, EffectType.PathFootball, EffectSubtyp
 presentation.Save("shape-animations.pptx", SaveFormat.Pptx);
 ```
 
-Pemicu mengontrol kapan suatu efek dimulai:
+Pemicu mengontrol kapan efek dimulai:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/id/net/aspose.slides.animation/effecttriggertype/) menunggu klik pada urutan utama, atau klik pada bentuk pemicu pada urutan interaktif.
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/id/net/aspose.slides.animation/effecttriggertype/) dimulai bersamaan dengan efek sebelumnya.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/id/net/aspose.slides.animation/effecttriggertype/) menunggu klik dalam urutan utama, atau klik pada bentuk pemicu dalam urutan interaktif.  
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/id/net/aspose.slides.animation/effecttriggertype/) dimulai bersama efek sebelumnya.  
 - [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/id/net/aspose.slides.animation/effecttriggertype/) dimulai ketika efek sebelumnya selesai.
 
-Untuk menganimasikan gambar, diagram, atau jenis bentuk lainnya, berikan objek tersebut ke [ISequence.AddEffect](https://reference.aspose.com/slides/id/net/aspose.slides.animation/isequence/addeffect/) alih-alih `targetShape`. Untuk opsi pengelompokan khusus diagram, lihat [Diagram Animasi](/slides/id/net/animated-charts/).
+Untuk menganimasikan gambar, diagram, atau tipe bentuk lain, berikan objek tersebut ke [ISequence.AddEffect](https://reference.aspose.com/slides/id/net/aspose.slides.animation/isequence/addeffect/) alih-alih `targetShape`. Untuk opsi pengelompokan khusus diagram, lihat [Animated Charts](/slides/id/net/animated-charts/).
 
-## **Membaca Animasi Bentuk**
+## **Baca Animasi Bentuk**
 
-Gunakan [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/id/net/aspose.slides.animation/isequence/geteffectsbyshape/) ketika Anda mengetahui bentuk target. Untuk memeriksa setiap efek, enumerasikan urutan utama dan setiap urutan interaktif. Enumerasi menghindari asumsi bahwa suatu urutan berisi efek pada indeks `0`.
+Gunakan [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/id/net/aspose.slides.animation/isequence/geteffectsbyshape/) ketika Anda mengetahui bentuk target. Untuk memeriksa setiap efek, iterasi urutan utama dan setiap urutan interaktif. Enumerasi menghindari asumsi bahwa urutan berisi efek pada indeks `0`.
 
-Contoh berikut membuat sebuah bentuk dengan efek urutan utama dan interaktif, mengambil efek yang menargetkan bentuk tersebut, dan kemudian mengenumerasikan setiap urutan pada slide.
+Contoh berikut membuat sebuah bentuk dengan efek urutan utama dan interaktif, mengambil efek yang menargetkan bentuk tersebut, lalu mengiterasi setiap urutan pada slide.
 
 ```csharp
 using System;
@@ -126,19 +128,21 @@ static void PrintSequence(string label, ISequence sequence)
 }
 ```
 
-Jika Anda hanya membutuhkan efek untuk satu bentuk, pertama identifikasi bentuk tersebut berdasarkan nama, tipe placeholder, atau properti stabil lainnya; kemudian panggil [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/id/net/aspose.slides.animation/isequence/geteffectsbyshape/). Jangan mengasumsikan bahwa [IShapeCollection.Item](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/item/) pada indeks `0` selalu merupakan objek yang dimaksud.
+Jika Anda hanya memerlukan efek untuk satu bentuk, pertama identifikasi bentuk tersebut berdasarkan nama, tipe placeholder, atau properti stabil lainnya; kemudian panggil [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/id/net/aspose.slides.animation/isequence/geteffectsbyshape/). Jangan mengasumsikan bahwa [IShapeCollection.Item](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/item/) pada indeks `0` selalu objek yang dimaksud.
 
-## **Bekerja dengan Efek Placeholder yang Diwariskan**
+## **Bekerja dengan Efek Placeholder yang Diwarisi**
 
-Placeholder pada slide biasa dapat mewarisi perilaku animasi dari placeholder yang sesuai pada slide tata letak dan slide master. [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/getbaseplaceholder/) mengembalikan placeholder induk tersebut, atau `null` bila tidak ada induk.
+Placeholder pada slide normal dapat mewarisi perilaku animasi dari placeholder yang bersesuaian pada slide tata letak dan master. [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/getbaseplaceholder/) mengembalikan placeholder induk tersebut, atau `null` bila tidak ada induk.
 
-Pada contoh presentasi berikut, footer memiliki **Random Bars** pada slide biasa, **Split** pada slide tata letak, dan **Fly In** pada slide master.
+Pada contoh presentasi berikut, footer memiliki **Random Bars** pada slide normal, **Split** pada slide tata letak, dan **Fly In** pada slide master.
 
-![Efek animasi footer pada slide biasa](slide-shape-animation.png)
-![Efek animasi placeholder footer pada slide tata letak](layout-shape-animation.png)
-![Efek animasi placeholder footer pada slide master](master-shape-animation.png)
+![Animasi efek footer pada slide normal](slide-shape-animation.png)
 
-Contoh berikutnya membangun hierarki placeholder itu sendiri. Ia menambahkan efek ke placeholder master, placeholder tata letak, dan placeholder yang sesuai pada slide biasa. Setiap pemanggilan [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/id/net/aspose.slides.ishape/getbaseplaceholder/) diperiksa sebelum bentuk yang dikembalikan digunakan.
+![Animasi efek placeholder footer pada slide tata letak](layout-shape-animation.png)
+
+![Animasi efek placeholder footer pada slide master](master-shape-animation.png)
+
+Contoh berikut membangun hierarki placeholder itu sendiri. Ia menambahkan efek ke placeholder master, placeholder tata letak, dan placeholder yang bersesuaian pada slide normal. Setiap pemanggilan [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/getbaseplaceholder/) diperiksa sebelum bentuk yang dikembalikan digunakan.
 
 ```csharp
 using System;
@@ -207,19 +211,19 @@ static void PrintEffects(string source, IEffect[] effects)
 }
 ```
 
-## **Mengubah Timing Animasi**
+## **Ubah Waktu Animasi**
 
 Dialog **Timing** PowerPoint dipetakan ke properti [ITiming](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/).
 
-![Dialog Timing PowerPoint untuk efek animasi](shape-animation.png)
+![Dialog Timing PowerPoint untuk sebuah efek animasi](shape-animation.png)
 
-- **Start** dipetakan ke [ITiming.TriggerType](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/triggertype/).
-- **Duration** dipetakan ke [ITiming.Duration](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/duration/), dalam detik.
-- **Delay** dipetakan ke [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/triggerdelaytime/), dalam detik.
-- **Repeat** dipetakan ke [ITiming.RepeatCount](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/repeatcount/), [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/repeatuntilnextclick/), atau [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/repeatuntilendslide/).
+- **Start** dipetakan ke [ITiming.TriggerType](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/triggertype/).  
+- **Duration** dipetakan ke [ITiming.Duration](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/duration/), dalam detik.  
+- **Delay** dipetakan ke [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/triggerdelaytime/), dalam detik.  
+- **Repeat** dipetakan ke [ITiming.RepeatCount](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/repeatcount/), [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/repeatuntilnextclick/), atau [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/repeatuntilendslide/).  
 - **Rewind when done playing** dipetakan ke [ITiming.Rewind](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/rewind/).
 
-Contoh independen ini menambahkan sebuah efek, mengubah timing-nya melalui objek yang dikembalikan oleh [ISequence.AddEffect](https://reference.aspose.com/slides/id/net/aspose.slides.animation/isequence/addeffect/), dan menyimpan hasilnya. Menjaga referensi [IEffect](https://reference.aspose.com/slides/id/net/aspose.slides.animation/ieffect/) yang dikembalikan menghindari indeks koleksi yang tidak diperlukan.
+Contoh independen ini menambahkan sebuah efek, mengubah waktunya melalui objek yang dikembalikan oleh [ISequence.AddEffect](https://reference.aspose.com/slides/id/net/aspose.slides.animation/isequence/addeffect/), dan menyimpan hasilnya. Menyimpan referensi [IEffect](https://reference.aspose.com/slides/id/net/aspose.slides.animation/ieffect/) yang dikembalikan menghindari indeks koleksi yang tidak perlu.
 
 ```csharp
 using Aspose.Slides;
@@ -243,15 +247,15 @@ effect.Timing.Rewind = true;
 presentation.Save("shape-animation-timing.pptx", SaveFormat.Pptx);
 ```
 
-Gunakan satu mode pengulangan secara sengaja. Menggabungkan jumlah pengulangan dengan flag "until" dapat menghasilkan hasil yang membingungkan pada penampil yang berbeda. Saat mengubah mode pengulangan, atur [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/repeatuntilnextclick/) dan [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/repeatuntilendslide/) sebelum [ITiming.RepeatCount](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/repeatcount/), karena mengatur salah satu flag juga mengubah mode pengulangan yang aktif.
+Gunakan satu mode pengulangan secara sengaja. Menggabungkan hitungan pengulangan dengan flag “until” dapat menghasilkan hasil yang membingungkan pada pemutar yang berbeda. Saat mengubah mode pengulangan, atur [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/repeatuntilnextclick/) dan [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/repeatuntilendslide/) sebelum [ITiming.RepeatCount](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itiming/repeatcount/), karena mengatur salah satu flag juga mengubah mode pengulangan aktif.
 
-## **Menambahkan dan Mengekstrak Suara Animasi**
+## **Tambahkan dan Ekstrak Suara Animasi**
 
-Sebuah efek animasi dapat merujuk audio tersemat melalui [IEffect.Sound](https://reference.aspose.com/slides/id/net/aspose.slides.animation/ieffect/sound/). [IEffect.StopPreviousSound](https://reference.aspose.com/slides/id/net/aspose.slides.animation/ieffect/stopprevioussound/) memberi tahu sebuah efek untuk menghentikan audio yang dimulai oleh efek sebelumnya.
+Sebuah efek animasi dapat merujuk audio tersemat melalui [IEffect.Sound](https://reference.aspose.com/slides/id/net/aspose.slides.animation/ieffect/sound/). [IEffect.StopPreviousSound](https://reference.aspose.com/slides/id/net/aspose.slides.animation/ieffect/stopprevioussound/) memberi tahu efek untuk menghentikan audio yang dimulai oleh efek sebelumnya.
 
-### **Menambahkan Suara ke Efek**
+### **Tambahkan Suara ke Efek**
 
-Contoh berikut mengharapkan file audio lokal bernama `animation-sound.wav`. Ia membuat dua efek, menyematkan file tersebut sebagai suara untuk efek pertama, dan mengonfigurasi efek kedua untuk menghentikan suara. Ia menggunakan objek yang dikembalikan oleh [ISequence.AddEffect](https://reference.aspose.com/slides/id/net/aspose.slides.animation/isequence/addeffect/), jadi tidak diperlukan indeks urutan.
+Contoh berikut mengharapkan file audio lokal bernama `animation-sound.wav`. Ia membuat dua efek, menyematkan file tersebut sebagai suara untuk efek pertama, dan mengonfigurasi efek kedua untuk menghentikan suara. Ia menggunakan objek yang dikembalikan oleh [ISequence.AddEffect](https://reference.aspose.com/slides/id/net/aspose.slides.animation/isequence/addeffect/), sehingga tidak diperlukan indeks urutan.
 
 ```csharp
 using System.IO;
@@ -278,9 +282,9 @@ secondEffect.StopPreviousSound = true;
 presentation.Save("shape-animation-sound.pptx", SaveFormat.Pptx);
 ```
 
-### **Mengekstrak Suara Efek Tersemat**
+### **Ekstrak Suara Efek Tersemat**
 
-Contoh berikut mengharapkan presentasi lokal bernama `presentation-with-animation-sounds.pptx`. Ia memindai kedua urutan utama dan interaktif serta menulis setiap suara efek tersemat ke direktori `extracted-animation-sounds`. Ekstensi dipilih dari tipe MIME audio yang ditampilkan oleh [IAudio.ContentType](https://reference.aspose.com/slides/id/net/aspose.slides/iaudio/contenttype/).
+Contoh berikut mengharapkan presentasi lokal bernama `presentation-with-animation-sounds.pptx`. Ia memindai urutan utama dan interaktif serta menulis setiap suara efek tersemat ke direktori `extracted-animation-sounds`. Ekstensi dipilih dari tipe MIME audio yang diekspor oleh [IAudio.ContentType](https://reference.aspose.com/slides/id/net/aspose.slides/iaudio/contenttype/).
 
 ```csharp
 using System;
@@ -342,17 +346,17 @@ static string GetAudioExtension(string contentType)
 }
 ```
 
-Untuk objek audio besar, gunakan [IAudio.GetStream](https://reference.aspose.com/slides/id/net/aspose.slides/iaudio/getstream/) dan salin aliran ke file alih-alih memuat seluruh objek ke dalam array byte.
+Untuk objek audio besar, gunakan [IAudio.GetStream](https://reference.aspose.com/slides/id/net/aspose.slides/iaudio/getstream/) dan salin stream ke file alih-alih memuat seluruh objek ke dalam array byte.
 
-## **Mengatur Perilaku Setelah Animasi**
+## **Atur Perilaku Setelah Animasi**
 
-Opsi **After animation** mengontrol apa yang terjadi pada sebuah bentuk setelah efeknya selesai.
+Opsi **After animation** mengontrol apa yang terjadi pada bentuk setelah efeknya selesai.
 
-![Dialog Opsi Efek PowerPoint menampilkan pengaturan After animation](shape-after-animation.png)
+![Dialog Opsi Efek PowerPoint yang menampilkan pengaturan After animation](shape-after-animation.png)
 
 Enumerasi [AfterAnimationType](https://reference.aspose.com/slides/id/net/aspose.slides.animation/afteranimationtype/) mendukung membiarkan bentuk tidak berubah, mengubah warnanya, menyembunyikannya setelah animasi, atau menyembunyikannya pada klik berikutnya. Ketika tipe adalah [AfterAnimationType.Color](https://reference.aspose.com/slides/id/net/aspose.slides.animation/afteranimationtype/), atur juga [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/id/net/aspose.slides.animation/ieffect/afteranimationcolor/).
 
-Contoh independen ini membuat sebuah efek, mengatur perilaku after-animation melalui objek efek yang dikembalikan, dan menyimpan hasilnya.
+Contoh independen ini membuat sebuah efek, mengatur perilaku setelah animasinya melalui objek efek yang dikembalikan, dan menyimpan hasilnya.
 
 ```csharp
 using System.Drawing;
@@ -372,16 +376,16 @@ effect.AfterAnimationColor.Color = Color.LightGray;
 presentation.Save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
 ```
 
-Mengubah tipe dari [AfterAnimationType.Color](https://reference.aspose.com/slides/id/net/aspose.slides.animation/afteranimationtype/) menghapus pengaturan warna after-animation.
+Mengubah tipe dari [AfterAnimationType.Color](https://reference.aspose.com/slides/id/net/aspose.slides.animation/afteranimationtype/) menghapus pengaturan warna after‑animation.
 
-## **Menganimasikan Teks**
+## **Animasi Teks**
 
 Animasi teks memiliki dua kontrol terkait:
 
-- [ITextAnimation.BuildType](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itextanimation/buildtype/) mengontrol apakah paragraf muncul bersama-sama atau per level paragraf.
-- [IEffect.AnimateTextType](https://reference.aspose.com/slides/id/net/aspose.slides.animation/ieffect/animatetexttype/) mengontrol apakah teks muncul sekaligus, per kata, atau per huruf. [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/id/net/aspose.slides.animation/ieffect/delaybetweentextparts/) mengatur jeda antara kata atau huruf. Nilai positif adalah persentase dari durasi efek; nilai negatif adalah jeda dalam detik.
+- [ITextAnimation.BuildType](https://reference.aspose.com/slides/id/net/aspose.slides.animation/itextanimation/buildtype/) mengontrol apakah paragraf muncul bersamaan atau per tingkat paragraf.  
+- [IEffect.AnimateTextType](https://reference.aspose.com/slides/id/net/aspose.slides.animation/ieffect/animatetexttype/) mengontrol apakah teks muncul sekaligus, per kata, atau per huruf. [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/id/net/aspose.slides.animation/ieffect/delaybetweentextparts/) mengatur jeda antara kata atau huruf. Nilai positif adalah persentase durasi efek; nilai negatif adalah jeda dalam detik.
 
-Contoh independen berikut menganimasikan kata-kata dalam kotak teks. [BuildType.AsOneObject](https://reference.aspose.com/slides/id/net/aspose.slides.animation/buildtype/) menonaktifkan pembangunan per paragraf sehingga pengaturan kata berlaku untuk seluruh bingkai teks.
+Contoh independen berikut menganimasikan kata‑kata dalam kotak teks. [BuildType.AsOneObject](https://reference.aspose.com/slides/id/net/aspose.slides.animation/buildtype/) menonaktifkan pembuatan per paragraf sehingga pengaturan kata berlaku untuk seluruh bingkai teks.
 
 ```csharp
 using Aspose.Slides;
@@ -401,26 +405,26 @@ effect.DelayBetweenTextParts = 20.0f;
 presentation.Save("animated-text.pptx", SaveFormat.Pptx);
 ```
 
-Untuk membangun kotak teks per paragraf, atur [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/id/net/aspose.slides.animation/buildtype/) (atau level paragraf lainnya). Untuk menargetkan satu paragraf dengan efeknya sendiri, gunakan overload [ISequence.AddEffect](https://reference.aspose.com/slides/id/net/aspose.slides.animation/isequence/addeffect/) yang menerima sebuah [IParagraph](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/). Lihat [Animated Text](/slides/id/net/animated-text/) untuk contoh tingkat paragraf.
+Untuk membangun kotak teks per paragraf, atur [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/id/net/aspose.slides.animation/buildtype/) (atau tingkat paragraf lainnya). Untuk menargetkan satu paragraf dengan efeknya sendiri, gunakan overload [ISequence.AddEffect](https://reference.aspose.com/slides/id/net/aspose.slides.animation/isequence/addeffect/) yang menerima sebuah [IParagraph](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/). Lihat [Animated Text](/slides/id/net/animated-text/) untuk contoh level paragraf.
 
-## **Catatan Ekspor dan Kompatibilitas**
+## **Ekspor dan Catatan Kecocokan**
 
-- Menyimpan ke PPT atau PPTX mempertahankan model animasi, namun pemutaran akhir dikendalikan oleh penampil presentasi.
-- PDF dan gambar statis tidak memutar animasi. Gunakan [HTML5 export](/slides/id/net/export-to-html5/), GIF animasi, atau [video conversion](/slides/id/net/convert-powerpoint-to-video/) ketika output harus menunjukkan gerakan.
-- Untuk HTML5, aktifkan [Html5Options.AnimateShapes](https://reference.aspose.com/slides/id/net/aspose.slides.export/html5options/animateshapes/) dan, bila diperlukan, [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/id/net/aspose.slides.export/html5options/animatetransitions/).
-- Rendering video mendukung banyak efek masuk, penekanan, keluar, dan jalur-gerakan yang umum, tetapi tidak semua efek PowerPoint didukung. Periksa [supported animations and effects](/slides/id/net/convert-powerpoint-to-video/#supported-animations-and-effects) saat ini dan uji presentasi kritis dengan versi Aspose.Slides target Anda.
-- Efek khusus lanjutan dan efek yang diimpor dari format presentasi lain mungkin dipertahankan dalam file tetapi dirender secara berbeda di PowerPoint, HTML5, atau video. Validasi hasil ekspor daripada hanya mengandalkan nama efek.
+- Menyimpan ke PPT atau PPTX mempertahankan model animasi, tetapi pemutaran akhir dikendalikan oleh penampil presentasi.  
+- PDF dan gambar statis tidak memutar animasi. Gunakan [HTML5 export](/slides/id/net/export-to-html5/), GIF animasi, atau [video conversion](/slides/id/net/convert-powerpoint-to-video/) ketika output harus menampilkan gerakan.  
+- Untuk HTML5, aktifkan [Html5Options.AnimateShapes](https://reference.aspose.com/slides/id/net/aspose.slides.export/html5options/animateshapes/) dan, bila diperlukan, [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/id/net/aspose.slides.export/html5options/animatetransitions/).  
+- Rendering video mendukung banyak efek masuk, penekanan, keluar, dan jalur gerak umum, tetapi tidak semua efek PowerPoint didukung. Periksa [supported animations and effects](/slides/id/net/convert-powerpoint-to-video/#supported-animations-and-effects) terkini dan uji presentasi kritis dengan versi Aspose.Slides target Anda.  
+- Efek kustom lanjutan dan efek yang diimpor dari format presentasi lain mungkin dipertahankan dalam file tetapi dirender berbeda di PowerPoint, HTML5, atau video. Validasi hasil ekspor alih-alih hanya mengandalkan nama efek.
 
 ## **FAQ**
 
-**Mengapa animasi muncul di PowerPoint tetapi tidak di PDF?**
+**Mengapa sebuah animasi muncul di PowerPoint tetapi tidak di PDF?**
 
-PDF adalah format statis, sehingga animasi dan transisi slide tidak diputar. Ekspor ke HTML5, GIF animasi, atau video ketika gerakan harus dipertahankan.
+PDF adalah format statis, jadi animasi dan transisi slide tidak diputar. Ekspor ke HTML5, GIF animasi, atau video ketika gerakan harus dipertahankan.
 
 **Mengapa sebuah efek diputar berbeda dalam video?**
 
-Ekspor video merender animasi daripada menyimpan perilaku PowerPoint asli. Beberapa efek lanjutan tidak didukung atau hanya diperkirakan. Tinjau tabel efek yang didukung dan uji presentasi sebenarnya sebelum penggunaan produksi.
+Ekspor video merender animasi alih-alih menyimpan perilaku PowerPoint asli. Beberapa efek lanjutan tidak didukung atau hanya diperkirakan. Tinjau tabel efek yang didukung dan uji presentasi sebenarnya sebelum penggunaan produksi.
 
 **Apakah memindahkan sebuah bentuk ke depan atau ke belakang mengubah urutan animasinya?**
 
-Tidak. Z-order bentuk mengontrol tumpang tindih, sementara urutan urutan dan pemicu mengontrol pemutaran animasi. Ubah timeline jika Anda memerlukan urutan pemutaran yang berbeda.
+Tidak. Z‑order bentuk mengontrol tumpang tindih, sementara urutan urutan dan pemicu mengontrol pemutaran animasi. Ubah timeline jika Anda memerlukan urutan pemutaran yang berbeda.

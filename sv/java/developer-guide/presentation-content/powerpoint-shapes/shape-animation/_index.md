@@ -26,18 +26,20 @@ description: "Lär dig hur du lägger till, granskar och anpassar formanimatione
 ---
 ## **Översikt**
 
-Aspose.Slides for Java representerar bildanimationer som effekter i en bildtidslinje. En effekt har en målform, en animationstyp och undertyp, en utlösare, tidsinställningar och valfria egenskaper såsom ljud eller efter‑animation‑beteende.
+För att arbeta med de enskilda beteendena i en effekt eller redigera rörelsebansegment, se [Anpassad animation](/slides/sv/java/custom-animation/).
+
+Aspose.Slides för Java representerar bildanimationer som effekter i en bildtidslinje. En effekt har en målform, en animationstyp och undertyp, en utlösare, tidsinställningar och valfria egenskaper såsom ljud eller efter‑animation beteende.
 
 Tidslinjen innehåller två typer av sekvenser:
 
-- Den **huvudsekvensen** spelas när bilden avancerar.
+- **Huvudsekvensen** spelas när bilden avancerar.
 - En **interaktiv sekvens** startar när dess utlösande form klickas.
 
-Eftersom textrutor, bilder, diagram, tabeller och andra bildobjekt implementerar [IShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/), använder du samma [ISequence.addEffect](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)‑metod för det mesta bildinnehåll. De tillgängliga effekterna listas i klassen [EffectType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/effecttype/).
+Eftersom textrutor, bilder, diagram, tabeller och andra bildobjekt implementerar [IShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/), använder du samma [ISequence.addEffect](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) metod för det mesta bildinnehåll. De tillgängliga effekterna listas i klassen [EffectType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/effecttype/).
 
 ## **Lägg till formanimationer**
 
-För att lägga till en animation, hämta bildens huvudsekvens och anropa [ISequence.addEffect](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) med målformen, effekttypen, undertypen och utlösaren. För en effekt som startar när en annan form klickas, skapa en interaktiv sekvens vars utlösare är den andra formen.
+För att lägga till en animation, hämta bildens huvudsekvens och anropa [ISequence.addEffect](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) med målformen, effekt‑typen, undertypen och utlösaren. För en effekt som startar när en annan form klickas, skapa en interaktiv sekvens vars utlösare är den andra formen.
 
 Följande exempel skapar båda typerna av animation och sparar resultatet till `shape-animations.pptx`.
 
@@ -74,16 +76,14 @@ public class AddShapeAnimations {
 Utlösaren styr när en effekt startar:
 
 - [EffectTriggerType.OnClick](https://reference.aspose.com/slides/sv/java/com.aspose.slides/effecttriggertype/#OnClick) väntar på ett klick i huvudsekvensen, eller på ett klick på utlösande form i en interaktiv sekvens.
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/sv/java/com.aspose.slides/effecttriggertype/#WithPrevious) startar med den föregående effekten.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/sv/java/com.aspose.slides/effecttriggertype/#AfterPrevious) startar när den föregående effekten avslutas.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/sv/java/com.aspose.slides/effecttriggertype/#WithPrevious) startar med föregående effekt.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/sv/java/com.aspose.slides/effecttriggertype/#AfterPrevious) startar när föregående effekt slutar.
 
-För att animera en bild, diagram eller en annan formtyp, skicka det objektet till [ISequence.addEffect](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) istället för `targetShape`. För diagramspecifika grupperingalternativ, se [Animated Charts](/slides/sv/java/animated-charts/).
+För att animera en bild, ett diagram eller en annan formtyp, skicka det objektet till [ISequence.addEffect](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) i stället för `targetShape`. För diagramspecifika grupperingsalternativ, se [Animera diagram](/slides/sv/java/animated-charts/).
 
 ## **Läs formanimationer**
 
-Använd [ISequence.getEffectsByShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) när du känner till målformen. För att inspektera varje effekt, iterera huvudsekvensen och varje interaktiv sekvens. Iteration undviker att anta att en sekvens innehåller en effekt på index `0`.
-
-Följande exempel skapar en form med huvud‑sekvens‑ och interaktiva effekter, hämtar de effekter som riktar sig mot formen, och itererar sedan igenom varje sekvens på bilden.
+Använd [ISequence.getEffectsByShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) när du känner till målformen. För att inspektera varje effekt, enumerera huvudsekvensen och varje interaktiv sekvens. Enumerering undviker antagandet att en sekvens innehåller en effekt på index `0`.
 
 ```java
 import com.aspose.slides.*;
@@ -137,21 +137,21 @@ public class ReadShapeAnimations {
 }
 ```
 
-Om du bara behöver effekterna för en form, identifiera först formen efter namn, platshållartyp eller en annan stabil egenskap; anropa sedan [ISequence.getEffectsByShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Anta inte att [IShapeCollection.get_Item](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishapecollection/#get_Item-int-) på index `0` alltid är det avsedda objektet.
+Om du bara behöver effekterna för en form, identifiera först formen efter namn, platshållartyp eller en annan stabil egenskap; anropa därefter [ISequence.getEffectsByShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Anta inte att [IShapeCollection.get_Item](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishapecollection/#get_Item-int-) på index `0` alltid är det avsedda objektet.
 
 ## **Arbeta med ärvda platshållareffekter**
 
-En platshållare på en normal bild kan ärva animationsbeteende från motsvarande platshållare på dess layoutbild och mastern. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/#getBasePlaceholder--) returnerar den överordnade platshållaren, eller `null` när ingen förälder finns.
+En platshållare på en normal bild kan ärva animationsbeteende från motsvarande platshållare på dess layout‑bild och master‑bild. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/#getBasePlaceholder--) returnerar den överordnade platshållaren, eller `null` när ingen förälder finns.
 
-I den följande exempelpresentationen har fotnoten **Random Bars** på den normala bilden, **Split** på layoutbilden och **Fly In** på mastern.
+I följande exempelpresentation har sidfoten **Random Bars** på den vanliga bilden, **Split** på layout‑bilden och **Fly In** på master‑bilden.
 
-![Fotnoteanimationseffekt på den normala bilden](slide-shape-animation.png)
+![Fotanimationseffekt på normal bild](slide-shape-animation.png)
 
-![Fotnotplatshållarens animationseffekt på layoutbilden](layout-shape-animation.png)
+![Fotplatshållare animationseffekt på layoutbild](layout-shape-animation.png)
 
-![Fotnotplatshållarens animationseffekt på mastern](master-shape-animation.png)
+![Fotplatshållare animationseffekt på masterbild](master-shape-animation.png)
 
-Nästa exempel använder en platshållar‑hierarki från en ny presentation. Det lägger till effekter på en master‑platshållare, en layout‑platshållare och motsvarande platshållare på en normal bild. Varje anrop till [IShape.getBasePlaceholder](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/#getBasePlaceholder--) kontrolleras innan den returnerade formen används.
+Nästa exempel använder en platshållar‑hierarki från en ny presentation. Det lägger till effekter på en master‑platshållare, en layout‑platshållare och den motsvarande platshållaren på en normal bild. Varje anrop till [IShape.getBasePlaceholder](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/#getBasePlaceholder--) kontrolleras innan den returnerade formen används.
 
 ```java
 import com.aspose.slides.*;
@@ -231,15 +231,15 @@ public class InheritedPlaceholderAnimations {
 
 ## **Ändra animationstiming**
 
-PowerPoint‑dialogrutan **Timing** motsvarar egenskaperna i [ITiming](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiming/).
+PowerPoint **Timing**‑dialogen motsvarar egenskaperna i [ITiming](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiming/).
 
-![PowerPoint‑timmingdialog för en animationseffekt](shape-animation.png)
+![PowerPoint Timing-dialog för en animationseffekt](shape-animation.png)
 
 - **Start** motsvarar [ITiming.getTriggerType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiming/#getTriggerType--).
 - **Varaktighet** motsvarar [ITiming.getDuration](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiming/#getDuration--), i sekunder.
 - **Fördröjning** motsvarar [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiming/#getTriggerDelayTime--), i sekunder.
 - **Upprepning** motsvarar [ITiming.getRepeatCount](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiming/#getRepeatUntilNextClick--), eller [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
-- **Spola tillbaka när klar** motsvarar [ITiming.getRewind](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiming/#getRewind--).
+- **Spola tillbaka när spelning är klar** motsvarar [ITiming.getRewind](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiming/#getRewind--).
 
 Detta fristående exempel lägger till en effekt, ändrar dess timing via objektet som returneras av [ISequence.addEffect](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), och sparar resultatet. Att behålla den returnerade [IEffect](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ieffect/)‑referensen undviker ett onödigt samlingsindex.
 
@@ -271,7 +271,7 @@ public class ChangeAnimationTiming {
 }
 ```
 
-Använd ett upprepningsläge med avsikt. Att kombinera ett upprepningsantal med ett ”until”-flagga kan ge förvirrande resultat i olika visare. När du ändrar upprepningslägen, sätt [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) och [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) innan du anropar [ITiming.setRepeatCount](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiming/#setRepeatCount-float-), eftersom att sätta någon av flaggorna också ändrar det aktiva upprepningsläget.
+Använd ett upprepningsläge medvetet. Att kombinera ett upprepningsantal med ett “tills”-flagga kan ge förvirrande resultat i olika visare. När du byter upprepningslägen, sätt [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) och [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) innan du anropar [ITiming.setRepeatCount](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiming/#setRepeatCount-float-), eftersom att sätta antingen flagga också ändrar det aktiva upprepningsläget.
 
 ## **Lägg till och extrahera animationsljud**
 
@@ -279,7 +279,7 @@ En animationseffekt kan referera till inbäddat ljud via [IEffect.getSound](http
 
 ### **Lägg till ett ljud till en effekt**
 
-Följande exempel förväntar sig en lokal ljudfil med namnet `animation-sound.wav`. Det skapar två effekter, bäddar in den filen som ljud för den första effekten, och konfigurerar den andra effekten att stoppa ljudet. Det använder de objekt som returneras av [ISequence.addEffect](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), så inget sekvensindex krävs.
+Följande exempel förutsätter en lokal ljudfil med namnet `animation-sound.wav`. Det skapar två effekter, bäddar in den filen som ljud för den första effekten, och konfigurerar den andra effekten att stoppa ljudet. Det använder objekten som returneras av [ISequence.addEffect](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), så inget sekvensindex krävs.
 
 ```java
 import com.aspose.slides.*;
@@ -314,9 +314,9 @@ public class AddAnimationSound {
 }
 ```
 
-### **Extrahera inbäddade effektljud**
+### **Extrahera inbäddade effektsljud**
 
-Följande exempel förväntar sig en lokal presentation med namnet `presentation-with-animation-sounds.pptx`. Det skannar både huvud‑ och interaktiva sekvenser och skriver varje inbäddat effektljud till katalogen `extracted-animation-sounds`. Filändelsen väljs utifrån ljud‑MIME‑typen som exponeras av [IAudio.getContentType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iaudio/#getContentType--).
+Följande exempel förutsätter en lokal presentation med namnet `presentation-with-animation-sounds.pptx`. Det skannar både huvud‑ och interaktiva sekvenser och skriver varje inbäddat effektsljud till katalogen `extracted-animation-sounds`. Filändelsen väljs utifrån ljud‑MIME‑typen som exponeras av [IAudio.getContentType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iaudio/#getContentType--).
 
 ```java
 import com.aspose.slides.*;
@@ -392,15 +392,15 @@ public class ExtractAnimationSounds {
 
 För stora ljudobjekt, använd [IAudio.getStream](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iaudio/#getStream--) och kopiera strömmen till en fil istället för att ladda hela objektet i en byte‑array.
 
-## **Ställ in efter‑animation‑beteende**
+## **Ställ in efter‑animation beteende**
 
-Alternativet **After animation** styr vad som händer med en form efter att dess effekt har avslutats.
+**After animation**‑alternativet styr vad som händer med en form efter att dess effekt har avslutats.
 
-![PowerPoint‑effektalternativ‑dialog som visar efter‑animationsinställningar](shape-after-animation.png)
+![PowerPoint effektalternativdialog som visar efter‑animation inställningar](shape-after-animation.png)
 
 Klassen [AfterAnimationType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/afteranimationtype/) stödjer att låta formen förbli oförändrad, ändra dess färg, dölja den efter animationen, eller dölja den vid nästa klick. När typen är [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/java/com.aspose.slides/afteranimationtype/#Color), sätt även [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ieffect/#getAfterAnimationColor--).
 
-Detta fristående exempel skapar en effekt, anger dess efter‑animation‑beteende via det returnerade effektobjektet, och sparar resultatet.
+Detta fristående exempel skapar en effekt, sätter dess efter‑animation beteende via det returnerade effekt‑objektet, och sparar resultatet.
 
 ```java
 import com.aspose.slides.*;
@@ -426,16 +426,16 @@ public class SetAfterAnimationBehavior {
 }
 ```
 
-Att ändra typen från [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/java/com.aspose.slides/afteranimationtype/#Color) rensar efter‑animation‑färginställningen.
+Att ändra typen från [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/java/com.aspose.slides/afteranimationtype/#Color) rensar inställningen för efter‑animation färg.
 
 ## **Animera text**
 
 Textanimation har två relaterade kontroller:
 
-- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itextanimation/#getBuildType--) styr om stycken visas tillsammans eller på styckennivå.
-- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ieffect/#getAnimateTextType--) styr om text visas på en gång, per ord eller per bokstav. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) anger fördröjningen mellan ord eller bokstäver. Ett positivt värde är en procentandel av effektens varaktighet; ett negativt värde är en fördröjning i sekunder.
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itextanimation/#getBuildType--) styr huruvida stycken visas tillsammans eller per styckenivå.
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ieffect/#getAnimateTextType--) styr huruvida text visas på en gång, per ord eller per bokstav. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) anger fördröjningen mellan ord eller bokstäver. Ett positivt värde är en procentandel av effektens varaktighet; ett negativt värde är en fördröjning i sekunder.
 
-Följande fristående exempel animera orden i en textruta. [BuildType.AsOneObject](https://reference.aspose.com/slides/sv/java/com.aspose.slides/buildtype/#AsOneObject) inaktiverar byggnad stil stycke‑för‑stycke så att ordinställningen gäller hela textramen.
+Följande fristående exempel animerar orden i en textruta. [BuildType.AsOneObject](https://reference.aspose.com/slides/sv/java/com.aspose.slides/buildtype/#AsOneObject) inaktiverar stycke‑för‑stycke‑byggnad så att ordinställningen gäller hela textramen.
 
 ```java
 import com.aspose.slides.*;
@@ -461,15 +461,15 @@ public class AnimateTextByWord {
 }
 ```
 
-För att bygga en textruta stycke för stycke, sätt [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/sv/java/com.aspose.slides/buildtype/#ByLevelParagraphs1) (eller en annan styckennivå). För att rikta en enskild stycke med en egen effekt, använd [ISequence.addEffect](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-)‑överladdningen som accepterar ett [IParagraph](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iparagraph/). Se [Animated Text](/slides/sv/java/animated-text/) för exempel på styckennivå.
+För att bygga en textruta per stycke, sätt [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/sv/java/com.aspose.slides/buildtype/#ByLevelParagraphs1) (eller en annan styckenivå). För att rikta en enskild paragraf med sin egen effekt, använd den [ISequence.addEffect](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) överlagring som accepterar ett [IParagraph](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iparagraph/). Se [Animera text](/slides/sv/java/animated-text/) för exempel på styckenivå.
 
-## **Export‑ och kompatibilitetsanteckningar**
+## **Export- och kompatibilitetsanteckningar**
 
 - Att spara till PPT eller PPTX bevarar animationsmodellen, men den slutliga uppspelningen styrs av presentationsvisaren.
-- PDF och statiska bilder spelar inte upp animationer. Använd [HTML5 export](/slides/sv/java/export-to-html5/), animerad GIF eller [video conversion](/slides/sv/java/convert-powerpoint-to-video/) när utdata måste visa rörelse.
+- PDF och statiska bilder spelar inte upp animationer. Använd [HTML5-export](/slides/sv/java/export-to-html5/), animerad GIF eller [videokonvertering](/slides/sv/java/convert-powerpoint-to-video/) när utdata måste visa rörelse.
 - För HTML5, aktivera [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/sv/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) och, vid behov, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/sv/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
-- Videorendering stödjer många vanliga ingångs-, betoning-, exit‑ och rörelsesökvägseffekter, men inte varje PowerPoint‑effekt stöds. Kontrollera de aktuella [supported animations and effects](/slides/sv/java/convert-powerpoint-to-video/#supported-animations-and-effects) och testa kritiska presentationer med din mål‑Aspose.Slides‑version.
-- Avancerade anpassade effekter och effekter importerade från andra presentationsformat kan bevaras i filen men renderas annorlunda i PowerPoint, HTML5 eller video. Validera det exporterade resultatet snarare än att förlita sig enbart på effektens namn.
+- Videorendering stöder många vanliga inträdes‑, betoning‑, utgångs‑ och rörelse‑ban‑effekter, men inte varje PowerPoint‑effekt stöds. Kontrollera de aktuella [stödda animationerna och effekterna](/slides/sv/java/convert-powerpoint-to-video/#supported-animations-and-effects) och testa kritiska presentationer med din mål‑Aspose.Slides‑version.
+- Avancerade anpassade effekter och effekter importerade från andra presentationsformat kan bevaras i filen men renderas annorlunda i PowerPoint, HTML5 eller video. Validera det exporterade resultatet snarare än att enbart lita på effektens namn.
 
 ## **FAQ**
 
@@ -479,7 +479,7 @@ PDF är ett statiskt format, så animationer och bildövergångar spelas inte up
 
 **Varför spelas en effekt annorlunda i en video?**
 
-Videoexport renderar animationer snarare än att lagra det ursprungliga PowerPoint‑beteendet. Vissa avancerade effekter stöds inte eller approximeras. Granska tabellen med stödda effekter och testa den faktiska presentationen innan produktionsbruk.
+Videosexport renderar animationer snarare än att lagra det ursprungliga PowerPoint‑beteendet. Vissa avancerade effekter stöds inte eller approximeras. Granska tabellen med stödda effekter och testa den faktiska presentationen innan produktionsanvändning.
 
 **Ändrar flyttning av en form framåt eller bakåt dess animationsordning?**
 

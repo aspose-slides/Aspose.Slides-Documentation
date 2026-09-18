@@ -13,40 +13,41 @@ keywords:
 - کنترل انیمیشن
 - اثر انیمیشن
 - انیمیشن PowerPoint
-- جدول زمانی انیمیشن
+- خط زمان انیمیشن
 - انیمیشن تعاملی
 - انیمیشن سفارشی
 - انیمیشن شکل
-- نمودار متحرک
-- متن متحرک
-- شکل متحرک
-- شیء OLE متحرک
-- تصویر متحرک
-- جدول متحرک
+- نمودار انیمیشنی
+- متن انیمیشنی
+- شکل انیمیشنی
+- شیء OLE انیمیشنی
+- تصویر انیمیشنی
+- جدول انیمیشنی
 - PowerPoint
 - ارائه
 - Android
 - Java
 - Aspose.Slides
-description: "قابلیت‌های Aspose.Slides برای Android از طریق Java در مدیریت انیمیشن‌های PowerPoint را بررسی کنید. این مرور کلی ویژگی‌های کلیدی را برجسته می‌کند."
+description: "قابلیت‌های Aspose.Slides برای Android از طریق Java در مدیریت انیمیشن‌های PowerPoint را کشف کنید. این مرور کلی ویژگی‌های کلیدی را برجسته می‌کند."
 ---
-## **مقدمه**
+## **معرفی**
 
-از آنجا که ارائه‌ها برای نمایش چیزی ساخته می‌شوند، ظاهر بصری و رفتار تعاملی آن‌ها همیشه در حین ایجاد در نظر گرفته می‌شود.
+از آنجا که ارائه‌ها برای نمایش یک مطلب طراحی شده‌اند، ظاهر بصری و رفتار تعاملی آن‌ها همواره هنگام ساخت در نظر گرفته می‌شود.
 
-**انیمیشن PowerPoint** نقش مهمی در جذاب و دیدنی کردن ارائه برای بینندگان ایفا می‌کند. Aspose.Slides for Android via Java گزینه‌های متنوعی برای افزودن انیمیشن به ارائه PowerPoint ارائه می‌دهد:
+**PowerPoint animation** نقش مهمی در جذاب و شفاف کردن ارائه برای بینندگان ایفا می‌کند. Aspose.Slides گزینه‌های متنوعی برای افزودن انیمیشن به ارائه‌های PowerPoint فراهم می‌کند:
 
-- اعمال انواع مختلف افکت‌های انیمیشن PowerPoint بر روی اشکال، نمودارها، جداول، اشیای OLE و سایر عناصر ارائه.
-- استفاده از چندین افکت انیمیشن PowerPoint بر یک شکل.
-- استفاده از جدول زمانی انیمیشن برای کنترل افکت‌های انیمیشن.
-- ایجاد انیمیشن سفارشی.
+- اعمال انواع مختلف اثرهای انیمیشن PowerPoint به اشکال، نمودارها، جدول‌ها، اشیاء OLE و سایر عناصر ارائه.
+- استفاده از چندین اثر انیمیشن PowerPoint روی یک شکل.
+- بهره‌گیری از خط زمان انیمیشن برای کنترل اثرهای انیمیشن.
+- ساخت انیمیشن‌های سفارشی.
 
-در Aspose.Slides for Android via Java، می‌توان انواع مختلف افکت‌های انیمیشن را بر روی اشکال اعمال کرد. از آنجا که هر عنصر روی اسلاید شامل متن، تصویر، شیء OLE، جدول و غیره به عنوان یک شکل در نظر گرفته می‌شود، یعنی می‌توانیم افکت انیمیشن را بر روی هر عنصر اسلاید اعمال کنیم.
+در Aspose.Slides، اثرهای انیمیشن مختلف می‌توانند به اشکال اعمال شوند. از آنجا که هر عنصر روی اسلاید، شامل متن، تصویر، اشیاء OLE و جدول‌ها، به‌عنوان یک شکل در نظر گرفته می‌شود، می‌توان اثرهای انیمیشن را به هر عنصر روی اسلاید اعمال کرد.
 
-## **افکت‌های انیمیشن**
-Aspose.Slides از **بیش از 150 افکت انیمیشن** پشتیبانی می‌کند، از جمله افکت‌های پایه‌ای مانند Bounce، PathFootball، افکت Zoom و افکت‌های خاص مانند OLEObjectShow، OLEObjectOpen. می‌توانید فہرست کامل افکت‌های انیمیشن را در enumeration [**EffectType**](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/effecttype/) پیدا کنید.
+## **اثرهای انیمیشن**
+Aspose.Slides از **150+ اثر انیمیشن** پشتیبانی می‌کند، از جمله اثرهای پایه‌ای مانند Bounce، PathFootball و Zoom و اثرهای خاص مانند OLEObjectShow و OLEObjectOpen. می‌توانید فهرست کامل را در کلاس [EffectType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/effecttype/) بیابید.
 
-علاوه بر این، این افکت‌های انیمیشن می‌توانند به‌صورت ترکیبی استفاده شوند:
+علاوه بر این، این اثرهای انیمیشن می‌توانند همراه با رفتارهای زیر استفاده شوند:
+
 - [ColorEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/CommandEffect)
 - [FilterEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/FilterEffect)
@@ -57,51 +58,54 @@ Aspose.Slides از **بیش از 150 افکت انیمیشن** پشتیبانی 
 - [SetEffect](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/SetEffect)
 
 ## **انیمیشن سفارشی**
-امکان ایجاد **انیمیشن‌های سفارشی** خود در Aspose.Slides وجود دارد. این کار با ترکیب چند رفتار به یک انیمیشن سفارشی جدید قابل انجام است.
 
-[**Behavior**](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Behavior) یک واحد ساختمانی هر افکت انیمیشن PowerPoint است. تمام افکت‌های انیمیشن در واقع مجموعه‌ای از رفتارها هستند که در یک استراتژی ترکیب می‌شوند. می‌توانید رفتارها را یک‌بار در یک انیمیشن سفارشی ترکیب کنید و در ارائه‌های دیگر دوباره استفاده نمایید. اگر یک رفتار جدید به یک افکت انیمیشن استاندارد PowerPoint اضافه کنید – یک انیمیشن سفارشی دیگر به‌دست می‌آید. به عنوان مثال، می‌توانید رفتار تکرار را به یک انیمیشن اضافه کنید تا چند بار تکرار شود.
+برای مثال‌های کامل جاوا که رفتارها و مسیرهای حرکتی قابل ویرایش را ایجاد، بررسی و تغییر می‌دهند، به [انیمیشن سفارشی](/slides/fa/java/custom-animation/) مراجعه کنید.
 
-[**Animation Point**](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Point) نقطه‌ای است که رفتار باید در آن اعمال شود.
+قابل ایجاد است تا **انیمیشن‌های سفارشی** خود را در Aspose.Slides بسازید. این کار با ترکیب چندین رفتار در یک انیمیشن سفارشی جدید امکان‌پذیر است.
+
+[Behavior](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/behavior/) یک بلوک سازندهٔ اثر انیمیشن PowerPoint است. رفتارها را ترکیب کنید تا یک اثر را سفارشی کنید یا رفتار جدیدی اضافه کنید تا اثر پیش‌فرض گسترش یابد. تکرار از طریق تنظیمات زمان‌بندی پیکربندی می‌شود، نه از طریق رفتار تکراری جداگانه.
+
+[Animation Point](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/point/) نقطه‌ای است که در آن یک رفتار باید اعمال شود.
 
 ## **خط زمان انیمیشن**
-[**Sequence**](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Sequence) مجموعه‌ای از افکت‌های انیمیشن است که بر روی یک شکل مشخص اعمال می‌شود.
+[Sequence](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/sequence/) مجموعه‌ای از اثرهای انیمیشن است که می‌تواند هدف‌گیری‌های متفاوتی روی اشکال داشته باشد.
 
-[**Timeline**](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/AnimationTimeLine) مجموعه‌ای از Sequence‌هاست که در یک اسلاید مشخص استفاده می‌شود. این یک موتور انیمیشن است که از PowerPoint 2002 به بعد معرفی شده است. در نسخه‌های قبلی PowerPoint، افزودن افکت‌های انیمیشن به ارائه دشوار بود و فقط با روش‌های مختلفی می‌توانست انجام شود. Timeline جایگزین کلاس قدیمی AnimationSettings شده و مدل شیء واضح‌تری برای انیمیشن PowerPoint فراهم می‌کند. یک اسلاید می‌تواند فقط یک خط زمان انیمیشن داشته باشد.
+[Timeline](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/animationtimeline/) مجموعه‌ای از توالی‌ها است که در یک اسلاید خاص استفاده می‌شود. این یک موتور انیمیشن است که در PowerPoint 2002 معرفی شد. در نسخه‌های قبلی PowerPoint، افزودن اثرهای انیمیشن به ارائه‌ها دشوار بود و فقط با راه‌حل‌های مختلف قابل انجام بود. خط زمان یک مدل شیء واضح‌تر برای انیمیشن‌های PowerPoint فراهم می‌کند. یک اسلاید می‌تواند تنها یک خط زمان انیمیشن داشته باشد.
 
 ## **انیمیشن تعاملی**
-[**Trigger**](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/EffectTriggerType) امکان تعریف اقدامات کاربر (مثلاً کلیک دکمه) را فراهم می‌کند که باعث شروع یک انیمیشن خاص می‌شود. Triggerها تنها در آخرین نسخه PowerPoint اضافه شده‌اند.
+[Trigger](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/effecttriggertype/) به شما امکان می‌دهد اقداماتی کاربری مانند کلیک روی دکمه را تعریف کنید که یک انیمیشن خاص را آغاز می‌کند.
 
 ## **انیمیشن شکل**
-Aspose.Slides امکان اعمال انیمیشن بر روی اشکال را فراهم می‌کند، که می‌توانند در واقع متن، مستطیل، خط، فریم، شیء OLE و غیره باشند.
+Aspose.Slides به شما اجازه می‌دهد انیمیشن‌ها را به اشکال اعمال کنید، که می‌تواند شامل متن، مستطیل‌ها، خطوط، قاب‌ها، اشیاء OLE و غیره باشد.
 
-{{% alert color="primary" %}} 
-بیشتر بخوانید [**درباره انیمیشن شکل**](/slides/fa/androidjava/shape-animation/).
+{{% alert color="info" title="Note" %}}
+بیشتر بخوانید [**دربارهٔ انیمیشن شکل**](/slides/fa/androidjava/shape-animation/).
 {{% /alert %}}
 
-## **نمودارهای متحرک**
-برای ایجاد نمودارهای متحرک، باید از همان کلاس‌هایی که برای اشکال استفاده می‌شود، استفاده کنید. با این حال، می‌توانید انیمیشن PowerPoint را فقط بر روی دسته‌های نمودار یا سری‌های نمودار به کار ببرید. همچنین می‌توانید افکت انیمیشن را بر روی یک عنصر دسته یا عنصر سری اعمال کنید.
+## **نمودارهای انیمیشنی**
+برای ایجاد نمودارهای انیمیشنی، باید از همان کلاس‌ها همانند اشکال استفاده کنید. با این حال، انیمیشن‌های PowerPoint فقط می‌توانند بر روی دسته‌بندی‌های نمودار یا سری‌های نمودار اعمال شوند. می‌توانید اثرهای انیمیشن را بر روی یک عنصر دسته یا یک عنصر سری نیز اعمال کنید.
 
-{{% alert color="primary" %}} 
-بیشتر بخوانید [**درباره نمودارهای متحرک**](/slides/fa/androidjava/animated-charts/).
+{{% alert color="info" title="Note" %}}
+بیشتر بخوانید [**دربارهٔ نمودارهای انیمیشنی**](/slides/fa/androidjava/animated-charts/).
 {{% /alert %}}
 
-## **متن متحرک**
-علاوه بر متن متحرک، امکان اعمال انیمیشن بر روی یک پاراگراف نیز وجود دارد.
+## **متن انیمیشنی**
+علاوه بر انیمیشن متن، می‌توانید انیمیشن را به یک پاراگراف نیز اعمال کنید.
 
-{{% alert color="primary" %}} 
-بیشتر بخوانید [**درباره متن متحرک**](/slides/fa/androidjava/animated-text/).
+{{% alert color="info" title="Note" %}}
+بیشتر بخوانید [**دربارهٔ متن انیمیشنی**](/slides/fa/androidjava/animated-text/).
 {{% /alert %}}
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**آیا انیمیشن‌ها هنگام صادرات به PDF حفظ می‌شوند؟**
+**آیا هنگام خروجی به PDF، انیمیشن‌ها حفظ می‌شوند؟**
 
-خیر. PDF یک فرمت ثابت است، بنابراین انیمیشن‌ها و [slide transitions](/slides/fa/androidjava/slide-transition/) پخش نمی‌شوند. اگر به حرکت نیاز دارید، به جای آن به [HTML5](/slides/fa/androidjava/export-to-html5/)، [animated GIF](/slides/fa/androidjava/convert-powerpoint-to-animated-gif/)، یا [video](/slides/fa/androidjava/convert-powerpoint-to-video/) صادر کنید.
+خیر. PDF یک قالب ثابت است، بنابراین انیمیشن‌ها و [انتقال اسلاید](/slides/fa/androidjava/slide-transition/) اجرا نمی‌شوند. اگر به حرکت نیاز دارید، به جای آن به [HTML5](/slides/fa/androidjava/export-to-html5/)، [GIF انیمیشنی](/slides/fa/androidjava/convert-powerpoint-to-animated-gif/) یا [ویدئو](/slides/fa/androidjava/convert-powerpoint-to-video/) خروجی بدهید.
 
-**آیا می‌توانم یک ارائه متحرک را به ویدئو تبدیل کنم و نرخ فریم و اندازه فریم را کنترل کنم؟**
+**آیا می‌توانم یک ارائهٔ انیمیشنی را به ویدئو تبدیل کنم و نرخ فریم و اندازه فریم را کنترل کنم؟**
 
-بله. می‌توانید [render the presentation as frames](/slides/fa/androidjava/convert-powerpoint-to-video/) را انجام داده و آن‌ها را به یک ویدئو (مثلاً با ffmpeg) کدگذاری کنید، با انتخاب FPS و وضوح تصویر. انیمیشن‌ها و slide transitions هنگام رندر پخش می‌شوند.
+بله. می‌توانید [ارائه را به فریم‌ها رندر کنید](/slides/fa/androidjava/convert-powerpoint-to-video/) و آن‌ها را به یک ویدئو (مثلاً با ffmpeg) تبدیل کنید، با انتخاب FPS و وضوح دلخواه. در هنگام رندر، انیمیشن‌ها و انتقال اسلایدها اجرا می‌شوند.
 
 **آیا انیمیشن‌ها هنگام کار با ODP (نه فقط PPTX) دست نخورده می‌مانند؟**
 
-PPT، PPTX و ODP برای [reading](/slides/fa/androidjava/open-presentation/) و [writing](/slides/fa/androidjava/save-presentation/) پشتیبانی می‌شوند، اما تفاوت‌های فرمت به این معنی است که برخی افکت‌ها ممکن است کمی متفاوت ظاهر شوند یا رفتار کنند. موارد حیاتی را با نمونه‌های واقعی اعتبارسنجی کنید.
+PPT، PPTX و ODP برای [خواندن](/slides/fa/androidjava/open-presentation/) و [نوشتن](/slides/fa/androidjava/save-presentation/) پشتیبانی می‌شوند، اما این به معنای حفظ انیمیشن‌ها نیست. داده‌های انیمیشن سفارشی ممکن است هنگام تبدیل به ODP از دست بروند. برای مثال‌ها و راهنمایی در مورد بررسی سازگاری فرمت، به [انیمیشن سفارشی برای جاوا](/slides/fa/java/custom-animation/) مراجعه کنید.

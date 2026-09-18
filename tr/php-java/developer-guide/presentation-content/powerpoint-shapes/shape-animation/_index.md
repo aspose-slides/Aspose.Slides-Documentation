@@ -1,5 +1,5 @@
 ---
-title: PHP ile Sunumlarda Şekil Animasyonlarını Uygulama
+title: Sunumlarda PHP Kullanarak Şekil Animasyonlarını Uygulama
 linktitle: Şekil Animasyonu
 type: docs
 weight: 60
@@ -12,34 +12,36 @@ keywords:
 - animasyonlu metin
 - animasyon ekle
 - animasyon al
-- animasyon çıkar
+- animasyonu çıkar
 - efekt ekle
 - efekt al
-- efekt çıkar
+- efekti çıkar
 - efekt sesi
-- animasyon uygula
+- animasyonu uygula
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java ile şekil animasyonlarını, zamanlamayı, sesleri, animasyon sonrası davranışı ve animasyonlu metni ekleme, inceleme ve özelleştirme yöntemlerini öğrenin."
+description: "Aspose.Slides for PHP via Java ile şekil animasyonlarını ekleme, inceleme ve özelleştirme, zamanlama, sesler, animasyon sonrası davranış ve animasyonlu metin hakkında bilgi edinin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for PHP via Java, slayt animasyonlarını bir slayt zaman çizelgesindeki efektler olarak temsil eder. Bir efekt, hedef şekil, animasyon türü ve alt türü, tetikleyici, zamanlama ayarları ve isteğe bağlı olarak ses ya da animasyon sonrası davranış gibi özelliklere sahiptir.
+Bir etki içindeki bireysel davranışlarla çalışmak veya hareket yolu bölümlerini düzenlemek için [Custom Animation](/slides/tr/php-java/custom-animation/) sayfasına bakın.
 
-Zaman çizelgesi iki çeşit sıra içerir:
+Aspose.Slides for PHP via Java, slayt animasyonlarını bir slayt zaman çizelgesindeki etkiler olarak temsil eder. Bir etki, hedef şekil, bir animasyon tipi ve alt tipi, bir tetikleyici, zamanlama ayarları ve ses veya animasyon sonrası davranış gibi isteğe bağlı özelliklere sahiptir.
 
-- **ana sıra**, slayt ilerlediğinde oynatılır.
-- **etkileşimli sıra**, tetikleyici şekli tıklandığında başlar.
+Zaman çizelgesi iki tür dizi içerir:
 
-Metin kutuları, resimler, grafikler, tablolar ve diğer slayt nesneleri şekil olduğundan, çoğu slayt içeriği için aynı [Sequence::addEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sequence/addeffect/) metodunu kullanırsınız. Kullanılabilir efektler [EffectType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effecttype/) sınıfında listelenmiştir.
+- **ana dizi** slayt ilerledikçe oynar.
+- **etkileşimli dizi** tetikleyici şekli tıklandığında başlar.
+
+Metin kutuları, resimler, grafikler, tablolar ve diğer slayt nesneleri şekil olduğundan, çoğu slayt içeriği için aynı [Sequence::addEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sequence/addeffect/) metodunu kullanırsınız. Mevcut etkiler [EffectType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effecttype/) sınıfında listelenmiştir.
 
 ## **Şekil Animasyonları Ekle**
 
-Bir animasyon eklemek için slaydın ana sırasını alın ve [Sequence::addEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sequence/addeffect/) metodunu hedef şekil, efekt türü, alt tür ve tetikleyici ile çağırın. Başka bir şekil tıklandığında başlayan bir efekt için, tetikleyicisi o diğer şekil olan bir etkileşimli sıra oluşturun.
+Bir animasyon eklemek için slaydın ana dizisini alın ve [Sequence::addEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sequence/addeffect/) metodunu hedef şekil, etki tipi, alt tip ve tetikleyici ile çağırın. Başka bir şekil tıklandığında başlayan bir etki için, tetikleyicisi o diğer şekil olan bir etkileşimli dizi oluşturun.
 
-Aşağıdaki örnek her iki animasyon tipini oluşturur ve sonucu `shape-animations.pptx` dosyasına kaydeder.
+Aşağıdaki örnek her iki tür animasyonu oluşturur ve sonucu `shape-animations.pptx` dosyasına kaydeder.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -72,19 +74,19 @@ try {
 }
 ```
 
-Tetikleyici, bir efektin ne zaman başlayacağını kontrol eder:
+Tetikleyici, bir etkinin ne zaman başlayacağını kontrol eder:
 
-- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effecttriggertype/) ana sırada bir tıklama ya da etkileşimli sırada tetikleyici şekle tıklanmasını bekler.
-- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effecttriggertype/) önceki efektle birlikte başlar.
-- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effecttriggertype/) önceki efekt bittiğinde başlar.
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effecttriggertype/) ana dizide bir tıklama veya etkileşimli dizide tetikleyici şekle bir tıklama bekler.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effecttriggertype/) önceki etkiyle birlikte başlar.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effecttriggertype/) önceki etki bittiğinde başlar.
 
-Bir resmi, grafiği ya da başka bir şekil tipini animasyonlamak için `$targetShape` yerine o nesneyi [Sequence::addEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sequence/addeffect/) metoduna geçirin. Grafik‑özel grup seçenekleri için [Animated Charts](/slides/tr/php-java/animated-charts/) bölümüne bakın.
+Bir resmi, grafiği veya başka bir şekil tipini animasyonlu hale getirmek için `$targetShape` yerine o nesneyi [Sequence::addEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sequence/addeffect/) metoduna iletin. Grafiklere özgü gruplama seçenekleri için [Animated Charts](/slides/tr/php-java/animated-charts/) sayfasına bakın.
 
 ## **Şekil Animasyonlarını Oku**
 
-Hedef şekli bildiğinizde [Sequence::getEffectsByShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sequence/geteffectsbyshape/) metodunu kullanın. Tüm efektleri incelemek için ana sırayı ve her etkileşimli sırayı döngüye alın. Döngü, bir sıranın `0` indeksinde bir efekt olduğu varsayımını ortadan kaldırır.
+Hedef şekli bildiğinizde [Sequence::getEffectsByShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sequence/geteffectsbyshape/) metodunu kullanın. Tüm etkileri incelemek için ana diziyi ve her etkileşimli diziyi döngüyle gezinin. Dizi içinde `0` indeksindeki bir etkinin olduğunu varsımaktan kaçının.
 
-Aşağıdaki örnek bir şekil oluşturur, hem ana‑sıra hem de etkileşimli etkileri ekler, şekli hedefleyen efektleri alır ve ardından slayttaki tüm sıraları döngüye alır.
+Aşağıdaki örnek, ana-dizi ve etkileşimli etkileri olan bir şekil oluşturur, şekle hedeflenen etkileri alır ve ardından slayttaki her diziyi döngüyle gezerek listeler.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -144,21 +146,21 @@ try {
 }
 ```
 
-Yalnızca tek bir şeklin efektlerine ihtiyacınız varsa, önce şekli ad, yer tutucu türü ya da başka sabit bir özellik ile tanımlayın; ardından [Sequence::getEffectsByShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sequence/geteffectsbyshape/) metodunu çağırın. [ShapeCollection::get_Item](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/get_item/) metodunun `0` indeksindeki öğesinin her zaman istenen nesne olduğunu varsaymayın.
+Yalnızca tek bir şekil için etkileri gerekiyorsanız, önce şekli ad, yer tutucu türü veya başka bir sabit özellik ile tanımlayın; ardından [Sequence::getEffectsByShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sequence/geteffectsbyshape/) metodunu çağırın. [ShapeCollection::get_Item](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/get_item/) metodunun `0` indeksindeki öğesinin her zaman istenen nesne olduğunu varsımayın.
 
 ## **Kalıtılmış Yer Tutucu Efektleriyle Çalışma**
 
-Normal bir slayttaki yer tutucu, düzen slaytı ve ana slayttaki karşılık gelen yer tutucudan animasyon davranışı miras alabilir. [Shape::getBasePlaceholder](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getbaseplaceholder/) bu üst yer tutucuyu döndürür; üst yer tutucu yoksa `null` döner.
+Normal bir slayttaki bir yer tutucu, düzen slaytı ve ana slayttaki karşılık gelen yer tutucudan animasyon davranışını devralabilir. [Shape::getBasePlaceholder](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getbaseplaceholder/) bu üst yer tutucusunu döndürür; üst yoksa `null` döner.
 
-Aşağıdaki örnek sunumda, alt bilgi normal slaytta **Random Bars**, düzen slaytta **Split** ve ana slaytta **Fly In** efektlerine sahiptir.
+Aşağıdaki örnek sunumda alt bilgi, normal slaytta **Random Bars**, düzen slaytında **Split** ve ana slaytta **Fly In** etkisine sahiptir.
 
-![Normal slaytta altbilgi animasyon etkisi](slide-shape-animation.png)
+![Normal slayttaki alt bilgi animasyon efekti](slide-shape-animation.png)
 
-![Düzen slaytta altbilgi yer tutucu animasyon etkisi](layout-shape-animation.png)
+![Düzen slaytındaki alt bilgi yer tutucu animasyon efekti](layout-shape-animation.png)
 
-![Ana slaytta altbilgi yer tutucu animasyon etkisi](master-shape-animation.png)
+![Ana slayttaki alt bilgi yer tutucu animasyon efekti](master-shape-animation.png)
 
-Sonraki örnek, yeni bir sunumda yer tutucu hiyerarşisi kullanır. Bir ana yer tutucuya, bir düzen yer tutucuya ve normal bir slayttaki karşılık gelen yer tutucuya efektler ekler. Her [Shape::getBasePlaceholder](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getbaseplaceholder/) çağrısı, döndürülen şekil kullanılmadan önce kontrol edilir.
+Sonraki örnek, yeni bir sunumdan bir yer tutucu hiyerarşisi kullanır. Bir ana yer tutucuya, bir düzen yer tutucuya ve normal slayttaki karşılık gelen yer tutucuya efekt ekler. Döndürülen şekil kullanılmadan önce her [Shape::getBasePlaceholder](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getbaseplaceholder/) çağrısı kontrol edilir.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -248,17 +250,17 @@ try {
 
 ## **Animasyon Zamanlamasını Değiştir**
 
-PowerPoint **Timing** iletişim kutusu, [Timing](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/) sınıfının özelliklerine karşılık gelir.
+PowerPoint **Timing** iletişim kutusu, [Timing](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/) özelliklerine karşılık gelir.
 
 ![Bir animasyon efekti için PowerPoint Zamanlama iletişim kutusu](shape-animation.png)
 
-- **Start** [Timing::getTriggerType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/gettriggertype/) ile eşleşir.
-- **Duration** [Timing::getDuration](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/getduration/) ile eşleşir, saniye cinsindendir.
-- **Delay** [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/gettriggerdelaytime/) ile eşleşir, saniye cinsindendir.
-- **Repeat** [Timing::getRepeatCount](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/getrepeatuntilnextclick/) veya [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/getrepeatuntilendslide/) ile eşleşir.
-- **Rewind when done playing** [Timing::getRewind](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/getrewind/) ile eşleşir.
+- **Başlat** [Timing::getTriggerType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/gettriggertype/) ile eşleşir.
+- **Süre** [Timing::getDuration](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/getduration/) ile eşleşir, saniye cinsinden.
+- **Gecikme** [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/gettriggerdelaytime/) ile eşleşir, saniye cinsinden.
+- **Tekrar** [Timing::getRepeatCount](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/getrepeatuntilnextclick/) veya [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/getrepeatuntilendslide/) ile eşleşir.
+- **Oynatma tamamlandığında geri sar** [Timing::getRewind](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/getrewind/) ile eşleşir.
 
-Bu bağımsız örnek bir efekt ekler, zamanlamasını [Sequence::addEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sequence/addeffect/) tarafından döndürülen nesne üzerinden değiştirir ve sonucu kaydeder. Döndürülen [Effect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effect/) referansını tutmak, gereksiz bir koleksiyon indeksinden kaçınır.
+Bu bağımsız örnek bir efekt ekler, zamanlamasını [Sequence::addEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sequence/addeffect/) tarafından döndürülen nesne aracılığıyla değiştirir ve sonucu kaydeder. Döndürülen [Effect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effect/) referansını tutmak gereksiz bir koleksiyon indeksi oluşumunu engeller.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -289,15 +291,15 @@ try {
 }
 ```
 
-Tek bir tekrar modunu kasıtlı olarak kullanın. Tekrar sayısını bir “until” bayrağı ile birleştirmek, farklı izleyicilerde kafa karıştırıcı sonuçlar doğurabilir. Tekrar modlarını değiştirirken, önce [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/setrepeatuntilnextclick/) ve [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/setrepeatuntilendslide/) ardından [Timing::setRepeatCount](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/setrepeatcount/) ayarlayın; çünkü herhangi bir bayrağın ayarlanması aktif tekrar modunu değiştirir.
+Bilerek tek bir tekrar modunu kullanın. Tekrar sayısını bir "until" bayrağıyla birleştirmek farklı görüntüleyicilerde kafa karıştırıcı sonuçlar verebilir. Tekrar modlarını değiştirirken, önce [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/setrepeatuntilnextclick/) ve [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/setrepeatuntilendslide/) metodlarını, ardından [Timing::setRepeatCount](https://reference.aspose.com/slides/tr/php-java/aspose.slides/timing/setrepeatcount/) metodunu ayarlayın; çünkü herhangi bir bayrağın ayarlanması aktif tekrar modunu da değiştirir.
 
 ## **Animasyon Seslerini Ekle ve Çıkar**
 
-Bir animasyon efekti, [Effect::getSound](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effect/getsound/) aracılığıyla gömülü ses referansına sahip olabilir. [Effect::setStopPreviousSound](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effect/setstopprevioussound/) bir efektin daha önceki bir efekt tarafından başlatılan sesi durdurmasını söyler.
+Bir animasyon efekti, gömülü sesi [Effect::getSound](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effect/getsound/) aracılığıyla referans alabilir. [Effect::setStopPreviousSound](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effect/setstopprevioussound/) bir etkinin önceki bir etkiden başlayan sesleri durdurmasını sağlar.
 
-### **Bir Efekte Ses Ekle**
+### **Bir Etkine Ses Ekle**
 
-Aşağıdaki örnek, `animation-sound.wav` adlı yerel bir ses dosyası varsayar. İki efekt oluşturur, bu dosyayı ilk efektin sesi olarak gömer ve ikinci efekti sesi durduracak şekilde yapılandırır. [Sequence::addEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sequence/addeffect/) tarafından döndürülen nesneler kullanıldığı için sıra indeksi gerekmez.
+Aşağıdaki örnek, `animation-sound.wav` adlı yerel bir ses dosyası bekler. İki efekt oluşturur, bu dosyayı birinci efektin sesi olarak gömer ve ikinci efekti sesi durduracak şekilde yapılandırır. [Sequence::addEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sequence/addeffect/) tarafından döndürülen nesneleri kullandığından dizi indeksi gerekmez.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -336,7 +338,7 @@ try {
 
 ### **Gömülü Efekt Seslerini Çıkar**
 
-Aşağıdaki örnek, `presentation-with-animation-sounds.pptx` adlı yerel bir sunum varsayar. Hem ana hem de etkileşimli sıraları tarar ve her gömülü efekt sesini `extracted-animation-sounds` dizinine yazar. Uzantı, [Audio::getContentType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/audio/getcontenttype/) tarafından sağlanan ses MIME tipinden seçilir.
+Aşağıdaki örnek, `presentation-with-animation-sounds.pptx` adlı yerel bir sunum bekler. Hem ana hem de etkileşimli dizileri tarar ve her gömülü efekt sesini `extracted-animation-sounds` dizinine yazar. Uzantı, [Audio::getContentType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/audio/getcontenttype/) tarafından sağlanan ses MIME tipinden seçilir.
 
 ```php
 use aspose\slides\Presentation;
@@ -420,17 +422,17 @@ try {
 }
 ```
 
-Büyük ses nesneleri için, tüm nesneyi bir byte dizisine yüklemek yerine [Audio::getStream](https://reference.aspose.com/slides/tr/php-java/aspose.slides/audio/getstream/) kullanıp akışı bir dosyaya kopyayın.
+Büyük ses nesneleri için, nesneyi bir bayt dizisine yüklemek yerine [Audio::getStream](https://reference.aspose.com/slides/tr/php-java/aspose.slides/audio/getstream/) kullanarak akışı bir dosyaya kopyalayın.
 
 ## **Animasyon Sonrası Davranışı Ayarla**
 
-**After animation** seçeneği, bir şeklin efekt tamamlandıktan sonra ne olacağını belirler.
+**After animation** seçeneği, bir şeklin efekti bittikten sonra ne olacağını kontrol eder.
 
-![PowerPoint Efekt Seçenekleri iletişim kutusunda After animation ayarları gösteriliyor](shape-after-animation.png)
+![After animation ayarlarını gösteren PowerPoint Efekt Seçenekleri iletişim kutusu](shape-after-animation.png)
 
-[AfterAnimationType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/afteranimationtype/) sınıfı, şekli değişmeden bırakma, rengini değiştirme, animasyondan sonra gizleme ya da bir sonraki tıklamada gizleme seçeneklerini destekler. Tür [AfterAnimationType::Color](https://reference.aspose.com/slides/tr/php-java/aspose.slides/afteranimationtype/) olduğunda, aynı zamanda [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effect/getafteranimationcolor/) de ayarlanmalıdır.
+[AfterAnimationType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/afteranimationtype/) sınıfı, şekli değişmeden bırakmayı, rengini değiştirmeyi, animasyondan sonra gizlemeyi veya bir sonraki tıklamada gizlemeyi destekler. Tür [AfterAnimationType::Color](https://reference.aspose.com/slides/tr/php-java/aspose.slides/afteranimationtype/) ise, ayrıca [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effect/getafteranimationcolor/) ayarlanmalıdır.
 
-Bu bağımsız örnek bir efekt oluşturur, döndürülen efekt nesnesi üzerinden animasyon sonrası davranışı ayarlar ve sonucu kaydeder.
+Bu bağımsız örnek bir efekt oluşturur, after-animation davranışını döndürülen efekt nesnesi aracılığıyla ayarlar ve sonucu kaydeder.
 
 ```php
 use aspose\slides\AfterAnimationType;
@@ -457,16 +459,16 @@ try {
 }
 ```
 
-[AfterAnimationType::Color](https://reference.aspose.com/slides/tr/php-java/aspose.slides/afteranimationtype/) dışına bir tür değiştirildiğinde, animasyon sonrası renk ayarı temizlenir.
+[AfterAnimationType::Color](https://reference.aspose.com/slides/tr/php-java/aspose.slides/afteranimationtype/) dışına bir tür değiştirildiğinde after-animation renk ayarı temizlenir.
 
-## **Metni Animasyonla**
+## **Metni Animasyonlu Hale Getir**
 
-Metin animasyonunun iki ilgili kontrolü vardır:
+Metin animasyonu iki ilgili kontrol içerir:
 
-- [TextAnimation::getBuildType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textanimation/getbuildtype/) paragraf düzeyinde mi yoksa toplu mu görüneceğini kontrol eder.
-- [Effect::getAnimateTextType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effect/getanimatetexttype/) metnin bir kerede, kelime bazında ya da harf bazında görüneceğini kontrol eder. [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effect/getdelaybetweentextparts/) kelime ya da harf arasındaki gecikmeyi ayarlar. Pozitif bir değer, efekt süresinin yüzdesi; negatif bir değer saniye cinsinden gecikmedir.
+- [TextAnimation::getBuildType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textanimation/getbuildtype/) paragrafların birlikte mi yoksa paragraf seviyesinde mi görüneceğini kontrol eder.
+- [Effect::getAnimateTextType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effect/getanimatetexttype/) metnin tamamının, kelime kelime veya harf harf görünmesini kontrol eder. [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effect/getdelaybetweentextparts/) kelimeler veya harfler arasındaki gecikmeyi ayarlar. Pozitif bir değer, etkinin süresinin yüzdesi; negatif bir değer ise saniye cinsinden gecikmedir.
 
-Aşağıdaki bağımsız örnek, bir metin kutusundaki kelimeleri animasyonlar. [BuildType::AsOneObject](https://reference.aspose.com/slides/tr/php-java/aspose.slides/buildtype/) paragraf‑paragraf oluşturmayı devre dışı bırakır, böylece kelime ayarı tüm metin çerçevesine uygulanır.
+Aşağıdaki bağımsız örnek, bir metin kutusundaki kelimeleri animasyonlu hale getirir. [BuildType::AsOneObject](https://reference.aspose.com/slides/tr/php-java/aspose.slides/buildtype/) paragraf paragraf oluşturmayı devre dışı bırakarak kelime ayarının tüm metin çerçevesine uygulanmasını sağlar.
 
 ```php
 use aspose\slides\AnimateTextType;
@@ -495,26 +497,26 @@ try {
 }
 ```
 
-Paragraf bazlı bir metin kutusu oluşturmak için [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/tr/php-java/aspose.slides/buildtype/) (veya başka bir paragraf seviyesi) ayarlayın. Tek bir paragrafı kendi efektiyle hedeflemek için bir [Paragraph](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraph/) kabul eden [Sequence::addEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sequence/addeffect/) aşırı yüklemesini kullanın. Paragraf‑seviyesi örnekleri için [Animated Text](/slides/tr/php-java/animated-text/) bölümüne bakın.
+Bir metin kutusunu paragraf bazında oluşturmak için [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/tr/php-java/aspose.slides/buildtype/) (veya başka bir paragraf seviyesi) ayarlayın. Tek bir paragrafı kendi etkisiyle hedeflemek için [Sequence::addEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sequence/addeffect/) metodunun [Paragraph](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraph/) kabul eden aşırı yüklemesini kullanın. Paragraf seviyesindeki örnekler için [Animated Text](/slides/tr/php-java/animated-text/) sayfasına bakın.
 
-## **Dışa Aktarım ve Uyumluluk Notları**
+## **Dışa Aktarma ve Uyumluluk Notları**
 
-- PPT veya PPTX olarak kaydetmek animasyon modelini korur, ancak nihai oynatma sunum görüntüleyicisi tarafından yönetilir.
-- PDF ve sabit görüntüler animasyonları oynatmaz. Çıktı hareket göstermeli ise [HTML5 dışa aktarımı](/slides/tr/php-java/export-to-html5/), animasyonlu GIF veya [video dönüşümü](/slides/tr/php-java/convert-powerpoint-to-video/) kullanın.
-- HTML5 için [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/html5options/setanimateshapes/) etkinleştirin ve gerektiğinde [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/html5options/setanimatetransitions/) kullanın.
-- Video işleme, birçok yaygın giriş, vurgu, çıkış ve hareket‑yolu efektini desteklese de her PowerPoint efekti desteklenmez. Güncel [desteklenen animasyonlar ve efektler](/slides/tr/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) sayfasını kontrol edin ve kritik sunumları hedef Aspose.Slides sürümünüzle test edin.
-- Gelişmiş özel efektler ve diğer sunum biçimlerinden içe aktarılan efektler dosyada korunabilir ancak PowerPoint, HTML5 veya video ortamında farklı renderlanabilir. Etki adının kendisine güvenmek yerine dışa aktarılan sonucu doğrulayın.
+- PPT veya PPTX formatına kaydetmek animasyon modelini korur, ancak nihai oynatma sunum görüntüleyicisi tarafından kontrol edilir.
+- PDF ve statik görüntüler animasyonları oynatmaz. Çıktının hareket göstermesi gerektiğinde [HTML5 export](/slides/tr/php-java/export-to-html5/), animasyonlu GIF veya [video conversion](/slides/tr/php-java/convert-powerpoint-to-video/) kullanın.
+- HTML5 için, [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/html5options/setanimateshapes/) etkinleştirin ve gerektiğinde [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/html5options/setanimatetransitions/) kullanın.
+- Video oluşturma, birçok yaygın giriş, vurgu, çıkış ve hareket yolu efektini destekler, ancak tüm PowerPoint efektleri desteklenmez. Güncel [supported animations and effects](/slides/tr/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) sayfasını kontrol edin ve kritik sunumları hedef Aspose.Slides sürümünüzle test edin.
+- Gelişmiş özel efektler ve diğer sunum formatlarından içe aktarılan efektler dosyada korunabilir ancak PowerPoint, HTML5 veya videoda farklı renderlanabilir. Sonucu sadece efekt adına dayanarak değil, dışa aktarılan sonucu doğrulayın.
 
 ## **SSS**
 
-**Bir animasyon PowerPoint’te görünürken PDF’de neden görünmüyor?**
+**Bir animasyon PowerPoint'te görünüyor ancak PDF'de neden görünmüyor?**
 
-PDF statik bir formattır; bu nedenle animasyonlar ve slayt geçişleri oynatılmaz. Hareketin korunması gerektiğinde HTML5, animasyonlu GIF veya video olarak dışa aktarın.
+PDF statik bir format olduğu için animasyonlar ve slayt geçişleri oynatılmaz. Hareketin korunması gerektiğinde HTML5, animasyonlu GIF veya video olarak dışa aktarın.
 
-**Bir efekt video olarak farklı nasıl oynatılıyor?**
+**Bir efekt video içinde farklı nasıl oynatılıyor?**
 
-Video dışa aktarımı, animasyonları render eder; orijinal PowerPoint davranışını saklamaz. Bazı gelişmiş efektler desteklenmez ya da yaklaşık olarak işlenir. Desteklenen‑efektler tablosunu inceleyin ve üretim öncesinde gerçek sunumu test edin.
+Video dışa aktarımı, orijinal PowerPoint davranışını saklamak yerine animasyonları renderlar. Bazı gelişmiş efektler desteklenmez veya yaklaşık olarak işlenir. Desteklenen efektler tablosunu inceleyin ve üretim öncesinde gerçek sunumu test edin.
 
 **Bir şekli öne ya da arkaya taşımak animasyon sırasını değiştirir mi?**
 
-Hayır. Şekil z‑order’ı örtüşmeyi kontrol eder, sıra düzeni ve tetikleyiciler animasyon oynatımını belirler. Farklı bir oynatma sırası gerekiyorsa zaman çizelgesini değiştirin.
+Hayır. Şeklin z-sırası üst üste binmeyi kontrol eder, dizi sırası ve tetikleyiciler ise animasyon oynatımını kontrol eder. Farklı bir oynatma sırası gerekiyorsa zaman çizelgesini değiştirin.

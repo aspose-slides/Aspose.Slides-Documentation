@@ -1,5 +1,5 @@
 ---
-title: Vylepšete PowerPoint prezentace animacemi na Androidu
+title: Vylepšete prezentace PowerPoint pomocí animací na Androidu
 linktitle: Animace PowerPoint
 type: docs
 weight: 150
@@ -10,7 +10,7 @@ keywords:
 - změnit animaci
 - odstranit animaci
 - spravovat animaci
-- řídit animaci
+- ovládat animaci
 - efekt animace
 - animace PowerPoint
 - časová osa animace
@@ -28,25 +28,24 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Prozkoumejte možnosti Aspose.Slides pro Android via Java při práci s animacemi PowerPoint. Tento obecný přehled zdůrazňuje klíčové funkce."
+description: "Prozkoumejte možnosti Aspose.Slides pro Android pomocí Javy při zpracování animací PowerPoint. Tento obecný přehled zdůrazňuje klíčové funkce."
 ---
 ## **Úvod**
 
-Protože prezentace mají sloužit k předvedení něčeho, jejich vizuální vzhled a interaktivní chování jsou při jejich vytváření vždy zohledňovány.
+Protože prezentace mají představovat něco, jejich vizuální vzhled a interaktivní chování jsou při tvorbě vždy zohledňovány.
 
-**PowerPoint animation** hraje důležitou roli, aby byla prezentace poutavá a atraktivní pro diváky. Aspose.Slides for Android via Java nabízí širokou škálu možností, jak přidat animaci do PowerPoint prezentace:
+**PowerPoint animation** hraje důležitou roli při tom, aby byla prezentace pro diváky poutavá a zajímavá. Aspose.Slides poskytuje širokou škálu možností, jak přidat animace do prezentací PowerPoint:
 
-- aplikovat různé typy efektů animace PowerPointu na tvary, grafy, tabulky, OLE objekty a další prvky prezentace.
-- použít více efektů animace PowerPointu na jeden tvar.
-- použít časovou osu animace k řízení efektů animace.
-- vytvořit vlastní animaci.
+- Použít různé typy efektů animace PowerPoint na tvary, grafy, tabulky, OLE objekty a další prvky prezentace.
+- Použít několik efektů animace PowerPoint na jeden tvar.
+- Využít časovou osu animace k řízení efektů animace.
+- Vytvářet vlastní animace.
 
-V Aspose.Slides for Android via Java lze na tvary použít různé animační efekty. Protože každý prvek na snímku včetně textu, obrázků, OLE objektu, tabulky atd. je považován za tvar, můžeme aplikovat animační efekt na každý prvek snímku.
+## **Efekty animace**
+Aspose.Slides podporuje **více než 150 efektů animace**, včetně základních efektů jako Bounce, PathFootball a Zoom a specifických efektů jako OLEObjectShow a OLEObjectOpen. Úplný seznam najdete ve třídě [EffectType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/effecttype/).
 
-## **Animační efekty**
-Aspose.Slides podporuje **150+ animačních efektů**, včetně základních animačních efektů jako Bounce, PathFootball, Zoom a specifických animačních efektů jako OLEObjectShow, OLEObjectOpen. Kompletní seznam animačních efektů najdete v enumeraci [**EffectType**](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/effecttype/).
+Navíc lze tyto efekty animace použít v kombinaci s následujícími chováními:
 
-Navíc lze tyto animační efekty kombinovat s nimi:
 - [ColorEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/CommandEffect)
 - [FilterEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/FilterEffect)
@@ -57,51 +56,53 @@ Navíc lze tyto animační efekty kombinovat s nimi:
 - [SetEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SetEffect)
 
 ## **Vlastní animace**
+Úplné ukázky v Javě, které vytvářejí, zkoumají a upravují chování a editovatelné pohybové cesty, najdete na [Custom Animation](/slides/cs/java/custom-animation/).
+
 Je možné vytvořit vlastní **vlastní animace** v Aspose.Slides. To lze dosáhnout kombinací několika chování do nové vlastní animace.
 
-[**Behavior**](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Behavior) je stavební jednotka jakéhokoli animačního efektu PowerPointu. Všechny animační efekty jsou ve skutečnosti sadou chování složených do jedné strategie. Chování můžete sloučit do vlastní animace jednou a znovu ji použít v dalších prezentacích. Pokud přidáte nové chování do standardního animačního efektu PowerPointu, vznikne další vlastní animace. Například můžete přidat opakování chování do animace, aby se několikrát opakovala.
+[Behavior](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/behavior/) je stavební blok efektu animace PowerPoint. Kombinujte chování pro úpravu efektu nebo přidejte chování pro rozšíření předdefinovaného efektu. Opakování se konfiguruje pomocí nastavení časování namísto samostatného opakovacího chování.
 
-[**Animation Point**](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Point) je bod, kde by mělo být aplikováno chování.
+[Animation Point](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/point/) je bod, ve kterém by mělo být aplikováno chování.
 
 ## **Časová osa animace**
-[**Sequence**](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Sequence) je sbírka animačních efektů, aplikovaných na konkrétní tvar.
+[Sequence](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/sequence/) je sbírka efektů animace, které mohou cílit na různé tvary.
 
-[**Timeline**](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/AnimationTimeLine) je sada sekvencí používaných v konkrétním snímku. Je to animační engine představovaný od PowerPointu 2002. Ve starších verzích PowerPointu bylo obtížné přidávat animační efekty do prezentace, což bylo možné jen pomocí různých workaroundů. Timeline nahrazuje starou třídu AnimationSettings a poskytuje přehlednější objektový model pro animaci v PowerPointu. Jeden snímek může mít pouze jednu časovou osu animace.
+[Timeline](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/animationtimeline/) je sada sekvencí používaných v konkrétním snímku. Jedná se o animační engine zavedený v PowerPoint 2002. Ve starších verzích PowerPointu bylo přidávání efektů animace do prezentací obtížné a šlo jej realizovat jen pomocí různých obcházek. Časová osa poskytuje přehlednější objektový model pro animace PowerPointu. Snímek může mít pouze jednu časovou osu animace.
 
 ## **Interaktivní animace**
-[**Trigger**](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/EffectTriggerType) umožňuje definovat uživatelské akce (např. kliknutí na tlačítko), které spustí konkrétní animaci. Spouštěče byly přidány pouze do nejnovější verze PowerPointu.
+[Trigger](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/effecttriggertype/) umožňuje definovat uživatelské akce, například kliknutí na tlačítko, které spustí konkrétní animaci.
 
-## **Animace tvarů**
-Aspose.Slides umožňuje aplikovat animaci na tvary, kterými mohou být text, obdélník, čára, rámeček, OLE objekt atd.
+## **Animace tvaru**
+Aspose.Slides vám umožňuje aplikovat animace na tvary, které mohou zahrnovat text, obdélníky, čáry, rámy, OLE objekty a další.
 
-{{% alert color="primary" %}} 
-Přečtěte si více [**O animaci tvarů**](/slides/cs/androidjava/shape-animation/).
+{{% alert color="info" title="Note" %}}
+Přečtěte si více [**O animaci tvaru**](/slides/cs/androidjava/shape-animation/).
 {{% /alert %}}
 
 ## **Animované grafy**
-Pro vytvoření animovaných grafů byste měli použít stejné třídy jako pro tvary. Nicméně je možné použít animaci PowerPointu pouze na kategorie grafu nebo série grafu. Můžete také aplikovat animační efekt na prvek kategorie nebo prvek série.
+Pro vytvoření animovaných grafů byste měli použít stejné třídy jako pro tvary. Animace PowerPoint však lze aplikovat pouze na kategorie grafu nebo řady grafu. Můžete také použít efekty animace na prvek kategorie nebo prvek řady.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 Přečtěte si více [**O animovaných grafech**](/slides/cs/androidjava/animated-charts/).
 {{% /alert %}}
 
 ## **Animovaný text**
-Kromě animovaného textu je také možné aplikovat animaci na odstavec.
+Kromě animace textu můžete animaci aplikovat i na odstavec.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 Přečtěte si více [**O animovaném textu**](/slides/cs/androidjava/animated-text/).
 {{% /alert %}}
 
-## **FAQ**
+## **Často kladené otázky**
 
 **Zůstanou animace zachovány při exportu do PDF?**
 
-Ne. PDF je statický formát, takže animace a [přechody snímků](/slides/cs/androidjava/slide-transition/) se nepřehrávají. Pokud potřebujete pohyb, exportujte místo toho do [HTML5](/slides/cs/androidjava/export-to-html5/), [animovaný GIF](/slides/cs/androidjava/convert-powerpoint-to-animated-gif/) nebo [video](/slides/cs/androidjava/convert-powerpoint-to-video/).
+Ne. PDF je statický formát, takže animace a [slide transitions](/slides/cs/androidjava/slide-transition/) se nepřehrávají. Pokud potřebujete pohyb, místo toho exportujte do [HTML5](/slides/cs/androidjava/export-to-html5/), [animated GIF](/slides/cs/androidjava/convert-powerpoint-to-animated-gif/) nebo [video](/slides/cs/androidjava/convert-powerpoint-to-video/).
 
-**Mohu převést animovanou prezentaci na video a ovládat snímkovou frekvenci a velikost rámců?**
+**Mohu převést animovanou prezentaci na video a kontrolovat snímkovou frekvenci a velikost snímků?**
 
-Ano. Můžete [renderovat prezentaci do snímků](/slides/cs/androidjava/convert-powerpoint-to-video/) a zakódovat je do videa (např. pomocí ffmpeg), přičemž zvolíte FPS a rozlišení. Během renderování jsou přehrávány animace a přechody snímků.
+Ano. Můžete [render the presentation as frames](/slides/cs/androidjava/convert-powerpoint-to-video/) a zakódovat je do videa (např. pomocí ffmpeg), přičemž si vyberete FPS a rozlišení. Během renderování jsou přehrávány animace a přechody mezi snímky.
 
-**Zůstanou animace neporušené při práci s ODP (nejen PPTX)?**
+**Zůstanou animace zachovány při práci s ODP (nejen PPTX)?**
 
-PPT, PPTX a ODP jsou podporovány pro [čtení](/slides/cs/androidjava/open-presentation/) a [zápis](/slides/cs/androidjava/save-presentation/), ale rozdíly ve formátu znamenají, že některé efekty mohou vypadat nebo se chovat mírně odlišně. Ověřte kritické případy pomocí reálných vzorků.
+Formáty PPT, PPTX a ODP jsou podporovány pro [reading](/slides/cs/androidjava/open-presentation/) a [writing](/slides/cs/androidjava/save-presentation/), avšak to nezaručuje zachování animací. Při převodu na ODP mohou být ztracena data vlastních animací. Viz [Custom Animation for Java](/slides/cs/java/custom-animation/) pro příklady a návody, jak ověřit kompatibilitu formátu.

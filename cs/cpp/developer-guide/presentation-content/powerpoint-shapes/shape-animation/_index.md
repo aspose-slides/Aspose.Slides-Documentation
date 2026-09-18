@@ -22,24 +22,26 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Naučte se, jak přidávat, kontrolovat a přizpůsobovat animace tvarů, časování, zvuky, chování po animaci a animovaný text pomocí Aspose.Slides pro C++."
+description: "Zjistěte, jak přidávat, kontrolovat a přizpůsobovat animace tvarů, časování, zvuky, chování po animaci a animovaný text s Aspose.Slides pro C++."
 ---
 ## **Přehled**
 
-Aspose.Slides pro C++ představuje animace snímků jako efekty v časové ose snímku. Efekt má cílový tvar, typ a podtyp animace, spouštěč, nastavení časování a volitelné vlastnosti, jako je zvuk nebo chování po animaci.
+Pro práci s jednotlivými chováními uvnitř efektu nebo úpravou segmentů dráhy pohybu viz [Custom Animation](/slides/cs/cpp/custom-animation/).
+
+Aspose.Slides pro C++ představuje animace snímku jako efekty v časové ose snímku. Efekt má cílový tvar, typ a podtyp animace, spouštěč, nastavení časování a volitelné vlastnosti, jako je zvuk nebo chování po animaci.
 
 Časová osa obsahuje dva typy sekvencí:
 
-- **Hlavní sekvence** se přehrává při postupu snímku.  
-- **Interaktivní sekvence** se spustí, když je kliknuto na její spouštěcí tvar.
+- **hlavní sekvence** přehrává se při postupu snímku.
+- **interaktivní sekvence** začíná, když je kliknuto na spouštěcí tvar.
 
-Protože textová pole, obrázky, grafy, tabulky a další objekty snímku implementují [IShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/), používáte stejnou metodu [ISequence::AddEffect](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/addeffect/) pro většinu obsahu snímku. Dostupné efekty jsou vyjmenovány ve výčtu [EffectType](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/effecttype/).
+Protože textová pole, obrázky, grafy, tabulky a další objekty snímku implementují [IShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/), používáte stejnou metodu [ISequence::AddEffect](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/addeffect/) pro většinu obsahu snímku. Dostupné efekty jsou uvedeny v výčtu [EffectType](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/effecttype/).
 
 ## **Přidání animací tvarů**
 
-Chcete‑li přidat animaci, získejte hlavní sekvenci snímku a zavolejte [ISequence::AddEffect](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/addeffect/) s cílovým tvarem, typem efektu, podtypem a spouštěčem. Pro efekt, který začne po kliknutí na jiný tvar, vytvořte interaktivní sekvenci, jejímž spouštěčem je tento jiný tvar.
+Pro přidání animace získejte hlavní sekvenci snímku a zavolejte [ISequence::AddEffect](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/addeffect/) s cílovým tvarem, typem efektu, podtypem a spouštěčem. Pro efekt, který začíná po kliknutí na jiný tvar, vytvořte interaktivní sekvenci, jejímž spouštěčem je tento jiný tvar.
 
-Následující příklad vytvoří oba typy animací a výsledek uloží do souboru `shape-animations.pptx`.
+Následující příklad vytvoří oba typy animací a uloží výsledek do `shape-animations.pptx`.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -84,19 +86,19 @@ presentation->Save(u"shape-animations.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Spouštěč určuje, kdy efekt začne:
+Spouštěč určuje, kdy se efekt spustí:
 
-- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/effecttriggertype/) čeká na kliknutí v hlavní sekvenci nebo na kliknutí na spouštěcí tvar v interaktivní sekvenci.  
-- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/effecttriggertype/) spustí se spolu s předchozím efektem.  
-- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/effecttriggertype/) spustí se po dokončení předchozího efektu.
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/effecttriggertype/) čeká na kliknutí v hlavní sekvenci nebo na kliknutí na spouštěcí tvar v interaktivní sekvenci.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/effecttriggertype/) začíná současně s předchozím efektem.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/effecttriggertype/) začíná po dokončení předchozího efektu.
 
-Chcete‑li animovat obrázek, graf nebo jiný typ tvaru, předávejte tento objekt metodě [ISequence::AddEffect](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/addeffect/) místo `targetShape`. Pro možnosti seskupování specifické pro grafy viz [Animated Charts](/slides/cs/cpp/animated-charts/).
+Pro animaci obrázku, grafu nebo jiného typu tvaru předávejte tento objekt metodě [ISequence::AddEffect](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/addeffect/) místo `targetShape`. Pro možnosti seskupování specifické pro grafy viz [Animated Charts](/slides/cs/cpp/animated-charts/).
 
 ## **Čtení animací tvarů**
 
-Použijte [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/geteffectsbyshape/), pokud znáte cílový tvar. Pro kontrolu všech efektů projděte hlavní sekvenci i všechny interaktivní sekvence. Enumerace zabraňuje předpokladu, že sekvence obsahuje efekt na indexu `0`.
+Použijte [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) pokud znáte cílový tvar. Pro prohlížení každého efektu enumerujte hlavní sekvenci a každou interaktivní sekvenci. Enumerace zabraňuje předpokladu, že sekvence obsahuje efekt na indexu `0`.
 
-Následující příklad vytvoří tvar s efekty hlavní a interaktivní sekvence, získá efekty zaměřené na tento tvar a následně projde všechny sekvence na snímku.
+Následující příklad vytvoří tvar s hlavními a interaktivními efekty, získá efekty, které cílí na tvar, a poté enumeruje každou sekvenci na snímku.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -165,21 +167,21 @@ for (const auto& sequence : slide->get_Timeline()->get_InteractiveSequences())
 presentation->Dispose();
 ```
 
-Pokud potřebujete efekty pouze pro jeden tvar, nejprve identifikujte tvar podle názvu, typu zástupného objektu nebo jiné stabilní vlastnosti; pak zavolejte [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/geteffectsbyshape/). Nepředpokládejte, že [IShapeCollection::idx_get](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapecollection/idx_get/) na indexu `0` vždy odkazuje na požadovaný objekt.
+Pokud potřebujete efekty jen pro jeden tvar, nejprve identifikujte tvar podle názvu, typu zástupného symbolu nebo jiné stabilní vlastnosti; potom zavolejte [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/geteffectsbyshape/). Nepředpokládejte, že [IShapeCollection::idx_get](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapecollection/idx_get/) na indexu `0` je vždy zamýšlený objekt.
 
-## **Práce s děděnými efekty zástupných objektů**
+## **Práce s děděnými efekty zástupných symbolů**
 
-Zástupný objekt na běžném snímku může zdědit chování animace od odpovídajícího zástupného objektu na rozložení snímku a hlavním snímku. [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/getbaseplaceholder/) vrací tento nadřazený zástupný objekt nebo `nullptr`, pokud nadřazený neexistuje.
+Zástupný symbol na normálním snímku může dědit chování animace ze odpovídajícího zástupného symbolu na rozložení snímku a hlavním snímku. [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/getbaseplaceholder/) vrací tento nadřazený zástupný symbol nebo `nullptr`, pokud žádný nadřazený neexistuje.
 
-V následujícím příkladu prezentace má zápatí **Random Bars** na běžném snímku, **Split** na snímku rozložení a **Fly In** na hlavním snímku.
+V následující ukázkové prezentaci má zápatí **Random Bars** na normálním snímku, **Split** na snímku rozložení a **Fly In** na hlavním snímku.
 
-![Animace zápatí na běžném snímku](slide-shape-animation.png)
+![Footer animation effect on the normal slide](slide-shape-animation.png)
 
-![Animace zápatí na snímku rozložení](layout-shape-animation.png)
+![Footer placeholder animation effect on the layout slide](layout-shape-animation.png)
 
-![Animace zápatí na hlavním snímku](master-shape-animation.png)
+![Footer placeholder animation effect on the master slide](master-shape-animation.png)
 
-Další příklad vytvoří samotnou hierarchii zástupných objektů. Přidá efekty k hlavnímu zástupnému objektu, zástupnému objektu rozložení a odpovídajícímu zástupnému objektu na běžném snímku. Každé volání [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/getbaseplaceholder/) je před použitím vráceného tvaru ověřeno.
+Další příklad vytváří samotnou hierarchii zástupných symbolů. Přidává efekty do hlavního zástupného symbolu, zástupného symbolu rozložení a odpovídajícího zástupného symbolu na normálním snímku. Každé volání [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/getbaseplaceholder/) je zkontrolováno, než je vrácený tvar použit.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -266,17 +268,17 @@ presentation->Dispose();
 
 ## **Změna časování animace**
 
-Dialog PowerPoint **Timing** odpovídá metodám rozhraní [ITiming](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/).
+Dialog PowerPoint **Timing** se mapuje na metody [ITiming](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/).
 
-![Dialog PowerPoint Timing pro efekt animace](shape-animation.png)
+![PowerPoint Timing dialog for an animation effect](shape-animation.png)
 
-- **Start** odpovídá metodě [ITiming::set_TriggerType](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_triggertype/).  
-- **Duration** odpovídá metodě [ITiming::set_Duration](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_duration/), v sekundách.  
-- **Delay** odpovídá metodě [ITiming::set_TriggerDelayTime](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_triggerdelaytime/), v sekundách.  
-- **Repeat** odpovídá metodám [ITiming::set_RepeatCount](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_repeatcount/), [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) nebo [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/).  
-- **Rewind when done playing** odpovídá metodě [ITiming::set_Rewind](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_rewind/).
+- **Start** mapuje na [ITiming::set_TriggerType](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_triggertype/).
+- **Duration** mapuje na [ITiming::set_Duration](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_duration/), v sekundách.
+- **Delay** mapuje na [ITiming::set_TriggerDelayTime](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_triggerdelaytime/), v sekundách.
+- **Repeat** mapuje na [ITiming::set_RepeatCount](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_repeatcount/), [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/), nebo [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/).
+- **Rewind when done playing** mapuje na [ITiming::set_Rewind](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_rewind/).
 
-Tento samostatný příklad přidá efekt, změní jeho časování pomocí objektu vráceného metodou [ISequence::AddEffect](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/addeffect/) a výsledek uloží. Zachování reference na vrácený [IEffect](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/) zabraňuje zbytečnému přístupu kolekci podle indexu.
+Tento samostatný příklad přidá efekt, změní jeho časování pomocí objektu vráceného metodou [ISequence::AddEffect](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/addeffect/), a uloží výsledek. Uchování vrácené reference [IEffect](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/) zabraňuje zbytečnému indexování kolekce.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -318,15 +320,15 @@ presentation->Save(u"shape-animation-timing.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Používejte pouze jeden režim opakování. Kombinace počtu opakování s příznakem „do“ může v různých prohlížečích vést k nejasným výsledkům. Při změně režimu opakování zavolejte nejprve [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) a [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) a až poté [ITiming::set_RepeatCount](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_repeatcount/), protože nastavení jednoho z příznaků také mění aktivní režim opakování.
+Používejte jeden režim opakování záměrně. Kombinace počtu opakování s příznakem „until“ může vést k nejasným výsledkům v různých prohlížečích. Při změně režimů opakování nejprve zavolejte [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) a [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/), pak [ITiming::set_RepeatCount](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itiming/set_repeatcount/), protože nastavení kteréhokoli příznaku také mění aktivní režim opakování.
 
-## **Přidání a extrakce zvuků animací**
+## **Přidání a extrahování zvuků animací**
 
-Efekt animace může odkazovat na vložený zvuk pomocí [IEffect::set_Sound](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_sound/). [IEffect::set_StopPreviousSound](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_stopprevioussound/) říká efektu, aby zastavil zvuk spuštěný dřívějším efektem.
+Efekt animace může odkazovat na vložený zvuk pomocí [IEffect::set_Sound](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_sound/). [IEffect::set_StopPreviousSound](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_stopprevioussound/) říká efektu, aby zastavil zvuk zahájený předchozím efektem.
 
 ### **Přidání zvuku k efektu**
 
-Následující příklad očekává místní audio soubor s názvem `animation-sound.wav`. Vytvoří dva efekty, vloží tento soubor jako zvuk pro první efekt a nastaví, aby druhý efekt zvuk zastavil. Používá objekty vrácené metodou [ISequence::AddEffect](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/addeffect/), takže není potřeba index sekvence.
+Následující příklad očekává lokální zvukový soubor pojmenovaný `animation-sound.wav`. Vytvoří dva efekty, vloží tento soubor jako zvuk pro první efekt a nakonfiguruje druhý efekt, aby zvuk zastavil. Používá objekty vrácené metodou [ISequence::AddEffect](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/addeffect/), takže není potřeba index sekvence.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -375,7 +377,7 @@ presentation->Dispose();
 
 ### **Extrahování vložených zvuků efektů**
 
-Následující příklad očekává místní prezentaci s názvem `presentation-with-animation-sounds.pptx`. Prohledá hlavní i interaktivní sekvence a zapíše každý vložený zvuk efektu do adresáře `extracted-animation-sounds`. Přípona je vybrána podle MIME typu audia, který poskytuje [IAudio::get_ContentType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iaudio/get_contenttype/).
+Následující příklad očekává lokální prezentaci pojmenovanou `presentation-with-animation-sounds.pptx`. Prohledá jak hlavní, tak interaktivní sekvence a zapíše každý vložený zvuk efektu do adresáře `extracted-animation-sounds`. Přípona je vybrána z MIME typu zvuku, který poskytuje [IAudio::get_ContentType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iaudio/get_contenttype/).
 
 ```cpp
 #include <DOM/Animation/IEffect.h>
@@ -450,17 +452,17 @@ Console::WriteLine(String::Format(u"Extracted {0} sound file(s) to {1}.", soundI
 presentation->Dispose();
 ```
 
-U velkých audio objektů použijte [IAudio::GetStream](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iaudio/getstream/) a zkopírujte stream do souboru místo načítání celého objektu do pole bajtů.
+Pro velké zvukové objekty použijte [IAudio::GetStream](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iaudio/getstream/) a zkopírujte proud do souboru místo načítání celého objektu do pole bajtů.
 
 ## **Nastavení chování po animaci**
 
 Možnost **After animation** určuje, co se stane s tvarem po dokončení jeho efektu.
 
-![Dialog PowerPoint Effect Options zobrazující nastavení After animation](shape-after-animation.png)
+![PowerPoint Effect Options dialog showing After animation settings](shape-after-animation.png)
 
-Výčet [AfterAnimationType](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/afteranimationtype/) podporuje ponechání tvaru beze změny, změnu jeho barvy, skrytí po animaci nebo skrytí při dalším kliknutí. Když je typ [AfterAnimationType::Color](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/afteranimationtype/), použijte [IEffect::get_AfterAnimationColor](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/get_afteranimationcolor/) k nastavení barvy.
+Výčet [AfterAnimationType](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/afteranimationtype/) podporuje ponechání tvaru beze změny, změnu jeho barvy, skrytí po animaci nebo skrytí při dalším kliknutí. Když je typ [AfterAnimationType::Color](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/afteranimationtype/), zavolejte [IEffect::get_AfterAnimationColor](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/get_afteranimationcolor/) pro nastavení barvy.
 
-Tento samostatný příklad vytvoří efekt, nastaví jeho chování po animaci pomocí vráceného objektu efektu a výsledek uloží.
+Tento samostatný příklad vytvoří efekt, nastaví jeho chování po animaci pomocí vráceného objektu efektu a uloží výsledek.
 
 ```cpp
 #include <DOM/Animation/AfterAnimationType.h>
@@ -504,12 +506,12 @@ Změna typu od [AfterAnimationType::Color](https://reference.aspose.com/slides/c
 
 ## **Animace textu**
 
-Animace textu má dva související ovladače:
+Animace textu má dvě související nastavení:
 
-- [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itextanimation/set_buildtype/) určuje, zda se odstavce objevují najednou nebo po úrovních odstavců.  
-- [IEffect::set_AnimateTextType](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) určuje, zda se text objeví najednou, po slovech nebo po jednotlivých písmenech. [IEffect::set_DelayBetweenTextParts](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) nastavuje zpoždění mezi slovy nebo písmeny. Kladná hodnota představuje procento trvání efektu; záporná hodnota je zpoždění v sekundách.
+- [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itextanimation/set_buildtype/) určuje, zda se odstavce zobrazují společně nebo po úrovních odstavců.
+- [IEffect::set_AnimateTextType](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) určuje, zda se text zobrazuje najednou, po slovech nebo po písmenkách. [IEffect::set_DelayBetweenTextParts](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) nastavuje prodlevu mezi slovy nebo písmenky. Kladná hodnota je procento trvání efektu; záporná hodnota je prodleva v sekundách.
 
-Následující samostatný příklad animuje slova v textovém poli. [BuildType::AsOneObject](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/buildtype/) zakáže budování po odstavcích, takže nastavení pro slova se použije na celý textový rámec.
+Následující samostatný příklad animuje slova v textovém poli. [BuildType::AsOneObject](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/buildtype/) vypne budování po odstavcích, takže nastavení pro slova se použije na celý textový rámec.
 
 ```cpp
 #include <DOM/Animation/AnimateTextType.h>
@@ -549,26 +551,26 @@ presentation->Save(u"animated-text.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Pro budování textového pole po odstavcích použijte [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itextanimation/set_buildtype/) s [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/buildtype/) nebo jinou úrovní odstavců. Chcete‑li zaměřit jediný odstavec s vlastním efektem, použijte přetížení [ISequence::AddEffect](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/addeffect/) přijímající [IParagraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/). Viz [Animated Text](/slides/cs/cpp/animated-text/) pro příklady na úrovni odstavců.
+Pro budování textového pole po odstavcích použijte [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/itextanimation/set_buildtype/) s [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/buildtype/) nebo jinou úrovní odstavce. Pro cílení na jediný odstavec s vlastním efektem použijte přetížení [ISequence::AddEffect](https://reference.aspose.com/slides/cs/cpp/aspose.slides.animation/isequence/addeffect/) akceptující [IParagraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/). Viz [Animated Text](/slides/cs/cpp/animated-text/) pro příklady na úrovni odstavců.
 
 ## **Export a poznámky o kompatibilitě**
 
-- Uložení do formátu PPT nebo PPTX zachovává model animace, ale finální přehrávání řídí prohlížeč prezentací.  
-- PDF a statické obrázky animace nepřehrávají. Použijte [HTML5 export](/slides/cs/cpp/export-to-html5/), animovaný GIF nebo [konverzi do videa](/slides/cs/cpp/convert-powerpoint-to-video/), když výstup musí zobrazovat pohyb.  
-- Pro HTML5 povolte [Html5Options::set_AnimateShapes](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/html5options/set_animateshapes/) a podle potřeby [Html5Options::set_AnimateTransitions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/html5options/set_animatetransitions/).  
-- Rendering videa podporuje mnoho běžných efektů vstupu, důrazu, odchodu a pohybových cest, ale ne všechny efekty PowerPointu jsou podporovány. Zkontrolujte aktuální [supported animations and effects](/slides/cs/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) a otestujte kritické prezentace s vaší cílovou verzí Aspose.Slides.  
-- Pokročilé vlastní efekty a efekty importované z jiných formátů prezentací mohou být v souboru zachovány, ale v PowerPointu, HTML5 nebo videu se mohou zobrazit odlišně. Ověřte exportovaný výsledek místo spoléhání se pouze na název efektu.
+- Ukládání do PPT nebo PPTX zachovává model animací, ale finální přehrávání řídí prohlížeč prezentací.
+- PDF a statické obrázky animace nepřehrávají. Použijte [HTML5 export](/slides/cs/cpp/export-to-html5/), animovaný GIF nebo [převod na video](/slides/cs/cpp/convert-powerpoint-to-video/), pokud výstup musí zobrazovat pohyb.
+- Pro HTML5 povolte [Html5Options::set_AnimateShapes](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/html5options/set_animateshapes/) a podle potřeby [Html5Options::set_AnimateTransitions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/html5options/set_animatetransitions/).
+- Rendering videa podporuje mnoho běžných vstupních, zdůrazňovacích, výstupních a dráhových efektů, ale ne každý efekt PowerPointu je podporován. Zkontrolujte aktuální [supported animations and effects](/slides/cs/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) a otestujte kritické prezentace s vaší cílovou verzí Aspose.Slides.
+- Pokročilé vlastní efekty a efekty importované z jiných formátů prezentací mohou být v souboru zachovány, ale vykreslí se odlišně v PowerPointu, HTML5 nebo videu. Ověřte exportovaný výsledek namísto spoléhaní se pouze na název efektu.
 
 ## **Často kladené otázky**
 
-**Proč se animace zobrazuje v PowerPointu, ale ne v PDF?**
+**Proč se animace zobrazí v PowerPointu, ale ne v PDF?**
 
-PDF je statický formát, takže animace a přechody snímků se nepřehrávají. Exportujte do HTML5, animovaného GIFu nebo videa, pokud je třeba zachovat pohyb.
+PDF je statický formát, takže animace a přechody snímků se nepřehrávají. Exportujte do HTML5, animovaného GIFu nebo videa, pokud je potřeba zachovat pohyb.
 
-**Proč se efekt v videu přehrává jinak?**
+**Proč se efekt přehrává jinak ve videu?**
 
-Export do videa renderuje animace místo toho, aby ukládal původní chování PowerPointu. Některé pokročilé efekty nejsou podporovány nebo jsou aproximovány. Prohlédněte si tabulku podporovaných efektů a před výrobou otestujte skutečnou prezentaci.
+Export do videa renderuje animace místo ukládání původního chování PowerPointu. Některé pokročilé efekty nejsou podporovány nebo jsou aproximovány. Prohlédněte si tabulku podporovaných efektů a otestujte skutečnou prezentaci před produkčním použitím.
 
-**Mění posunutí tvaru dopředu nebo dozadu jeho pořadí animace?**
+**Mění přesunutí tvaru dopředu nebo dozadu jeho pořadí animace?**
 
-Ne. Z‑řazení tvaru (z‑order) určuje překrývání, zatímco pořadí sekvence a spouštěče řídí přehrávání animace. Změňte časovou osu, pokud potřebujete jiný pořádek přehrávání.
+Ne. Z‑order tvaru řídí překrytí, zatímco pořadí sekvencí a spouštěče řídí přehrávání animace. Změňte časovou osu, pokud potřebujete jiný pořadí přehrávání.

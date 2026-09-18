@@ -1,5 +1,5 @@
 ---
-title: 透過 Java 在 Python 中增強 PowerPoint 簡報的動畫功能
+title: 使用 Python 透過 Java 為 PowerPoint 簡報添加動畫
 linktitle: PowerPoint 動畫
 type: docs
 weight: 150
@@ -16,10 +16,10 @@ keywords:
 - 動畫時間軸
 - 互動動畫
 - 自訂動畫
-- 圖形動畫
+- 形狀動畫
 - 動畫圖表
 - 動畫文字
-- 動畫圖形
+- 動畫形狀
 - 動畫 OLE 物件
 - 動畫影像
 - 動畫表格
@@ -28,25 +28,26 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "探索 Aspose.Slides for Python via Java 在處理 PowerPoint 動畫方面的功能。此概覽突顯關鍵特性，並提供深入見解以增強您的簡報。"
+description: "探索 Aspose.Slides 於 Python 透過 Java 處理 PowerPoint 動畫的功能。此概覽概述了主要特點，並提供提升簡報的見解。"
 ---
 ## **簡介**
 
-在建立簡報時，同時會考慮視覺外觀與互動行為。
+在建立簡報時會同時考慮視覺外觀與互動行為。
 
-**PowerPoint 動畫** 在使簡報引人注目且吸引觀眾方面扮演重要角色。Aspose.Slides 提供多種選項將動畫加入 PowerPoint 簡報：
+**PowerPoint 動畫** 在讓簡報吸引觀眾目光並具有互動性方面扮演重要角色。Aspose.Slides 提供廣泛的選項，以在 PowerPoint 簡報中加入動畫：
 
-- 將各種 PowerPoint 動畫效果套用到圖形、圖表、表格、OLE 物件及其他簡報元素。
-- 在單一圖形上使用多個 PowerPoint 動畫效果。
-- 使用動畫時間軸來控制動畫效果。
+- 套用各種類型的 PowerPoint 動畫效果於形狀、圖表、表格、OLE 物件及其他簡報元素。
+- 在單一形狀上使用多個 PowerPoint 動畫效果。
+- 利用動畫時間軸來控制動畫效果。
 - 建立自訂動畫。
 
-在 Aspose.Slides 中，可將各種動畫效果套用到圖形。由於投影片上的每個元素（包括文字、圖片、OLE 物件與表格）皆視為圖形，動畫效果可套用至投影片上的任何元素。
+在 Aspose.Slides 中，可將各種動畫效果套用於形狀。由於投影片上的每個元素（包括文字、圖片、OLE 物件與表格）皆視為形狀，因此動畫效果可套用至投影片上的任何元素。
 
 ## **動畫效果**
-Aspose.Slides 支援 **150+ 動畫效果**，包括像 Bounce、PathFootball、Zoom 等基本動畫效果，以及 OLEObjectShow、OLEObjectOpen 等專門效果。您可以在 [EffectType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/effecttype/) 列舉中找到完整的動畫效果清單。
 
-此外，以下動畫效果可與上述列出的效果結合使用：
+Aspose.Slides 支援 **150+ 個動畫效果**，包括 Bounce、PathFootball、Zoom 等基本效果，以及 OLEObjectShow、OLEObjectOpen 等特定效果。你可以在 [EffectType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/effecttype/) 類別中找到完整清單。
+
+此外，這些動畫效果可與下列行為結合使用：
 
 - [ColorEffect](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/coloreffect/)
 - [CommandEffect](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/commandeffect/)
@@ -58,51 +59,59 @@ Aspose.Slides 支援 **150+ 動畫效果**，包括像 Bounce、PathFootball、Z
 - [SetEffect](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/seteffect/)
 
 ## **自訂動畫**
-在 Aspose.Slides 中可以建立您自己的 **自訂動畫**。您可以透過結合多個行為來創建新的自訂動畫。
 
-[Behavior](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/behavior/) 是任何 PowerPoint 動畫效果的組成基礎。每個動畫效果由一組行為組合而成，形成單一策略。您可以將行為組合成自訂動畫，並在其他簡報中重複使用。將新行為加入標準 PowerPoint 動畫效果即會產生另一個自訂動畫。例如，您可以新增 repeat 行為，使動畫重複多次。
+欲取得使用 Python 透過 Java 的完整範例，請參閱 [自訂動畫](/slides/zh-hant/python-java/custom-animation/)。
 
-[Point](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/point/) 是應套用行為的點。
+在 Aspose.Slides 中可以建立自己的 **自訂動畫**。這可以透過將多個行為組合成新的自訂動畫來實現。
+
+[Behavior](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/behavior/) 是 PowerPoint 動畫效果的組成元素。將行為組合以自訂效果，或加入行為以擴充預定義效果。重複次數是透過時間設定配置，而非使用單獨的重複行為。
+
+[Point](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/point/) 是應用行為的點。
 
 ## **動畫時間軸**
-[Sequence](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/sequence/) 是套用於特定圖形的動畫效果集合。
 
-[AnimationTimeLine](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/animationtimeline/) 是在特定投影片上使用的序列集合。它代表 PowerPoint 2002 引入的動畫引擎。在較早的 PowerPoint 版本中，向簡報加入動畫效果非常困難且需使用變通方法。時間軸取代了舊的 AnimationSettings 類別，提供了更清晰的 PowerPoint 動畫物件模型。一張投影片只能擁有一個動畫時間軸。
+[Sequence](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/sequence/) 是可針對不同形狀的動畫效果集合。
+
+[AnimationTimeLine](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/animationtimeline/) 是用於特定投影片的序列集合。它代表在 PowerPoint 2002 中引入的動畫引擎。早期的 PowerPoint 版本在為簡報新增動畫效果時相當困難且需要變通方法。時間軸提供了更清晰的物件模型來處理 PowerPoint 動畫。每張投影片只能有一個動畫時間軸。
 
 ## **互動動畫**
-[EffectTriggerType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/effecttriggertype/) 允許您定義使用者操作（例如按鈕點擊）以啟動特定動畫。觸發器僅在最新的 PowerPoint 版本中加入。
 
-## **圖形動畫**
-Aspose.Slides 允許您將動畫套用到圖形，圖形可以代表文字、矩形、線條、框架、OLE 物件及其他元素。
+[EffectTriggerType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/effecttriggertype/) 允許您定義使用者操作（例如按鈕點擊），以啟動特定動畫。
 
-{{% alert color="info" title="注意" %}}
-閱讀更多[關於圖形動畫](/slides/zh-hant/python-java/shape-animation/)。
+## **形狀動畫**
+
+Aspose.Slides 允許您對形狀套用動畫，形狀可以代表文字、矩形、線條、框架、OLE 物件及其他元素。
+
+{{% alert color="info" title="Note" %}}
+閱讀更多[關於形狀動畫](/slides/zh-hant/python-java/shape-animation/)。
 {{% /alert %}}
 
 ## **動畫圖表**
-若要建立動畫圖表，請使用與圖形相同的類別。但 PowerPoint 動畫僅能套用於圖表類別或圖表系列。您也可以將動畫效果套用到類別元素或系列元素。
 
-{{% alert color="info" title="注意" %}}
+若要建立動畫圖表，請使用與形狀相同的類別。然而，PowerPoint 動畫只能套用於圖表的類別或系列。您也可以對類別元素或系列元素套用動畫效果。
+
+{{% alert color="info" title="Note" %}}
 閱讀更多[關於動畫圖表](/slides/zh-hant/python-java/animated-charts/)。
 {{% /alert %}}
 
 ## **動畫文字**
-除了為文字添加動畫之外，您還可以對段落套用動畫。
 
-{{% alert color="info" title="注意" %}}
+除了動畫文字外，您還可以對段落套用動畫。
+
+{{% alert color="info" title="Note" %}}
 閱讀更多[關於動畫文字](/slides/zh-hant/python-java/animated-text/)。
 {{% /alert %}}
 
-## **常見問題**
+## **常見問答**
 
-**匯出為 PDF 時，動畫會被保留嗎？**
+**匯出為 PDF 時會保留動畫嗎？**
 
-不會。PDF 是靜態格式，因此動畫和[投影片過渡](/slides/zh-hant/python-java/slide-transition/)不會播放。如果需要動態效果，請改為匯出至[HTML5](/slides/zh-hant/python-java/export-to-html5/)、[動畫 GIF](/slides/zh-hant/python-java/convert-powerpoint-to-animated-gif/)或[影片](/slides/zh-hant/python-java/convert-powerpoint-to-video/)。
+不會。PDF 為靜態格式，動畫與[投影片過場](/slides/zh-hant/python-java/slide-transition/)不會播放。若需要動態效果，請改為匯出至[HTML5](/slides/zh-hant/python-java/export-to-html5/)、[animated GIF](/slides/zh-hant/python-java/convert-powerpoint-to-animated-gif/)或[video](/slides/zh-hant/python-java/convert-powerpoint-to-video/)。
 
-**我可以將動畫簡報轉換為影片，並控制影格速率與尺寸嗎？**
+**我可以將動畫簡報轉換成影片，並控制幀率與幀大小嗎？**
 
-可以。您可以[將簡報渲染為影格](/slides/zh-hant/python-java/convert-powerpoint-to-video/)，然後將其編碼成影片（例如使用 ffmpeg），自行選擇 FPS 與解析度。渲染過程中會播放動畫與投影片過渡。
+可以。您可以[將簡報渲染為幀](/slides/zh-hant/python-java/convert-powerpoint-to-video/)，再使用如 ffmpeg 的工具將其編碼為影片，並自行選擇 FPS 與解析度。渲染過程中會播放動畫與投影片過場。
 
-**在處理 ODP（不僅是 PPTX）時，動畫會保持完整嗎？**
+**在處理 ODP（不僅是 PPTX）時動畫會保持完整嗎？**
 
-支援對 PPT、PPTX 和 ODP 進行[讀取](/slides/zh-hant/python-java/open-presentation/)以及[寫入](/slides/zh-hant/python-java/save-presentation/)，但格式差異可能導致某些效果在外觀或行為上略有不同。請使用真實樣本驗證關鍵情況。
+PPT、PPTX 與 ODP 均支援[讀取](/slides/zh-hant/python-java/open-presentation/)與[寫入](/slides/zh-hant/python-java/save-presentation/)，但這不保證動畫會被保留。將檔案轉換為 ODP 時，自訂動畫資料可能會遺失。請參考[自訂動畫](/slides/zh-hant/python-java/custom-animation/)以取得範例與檢查格式相容性的指引。

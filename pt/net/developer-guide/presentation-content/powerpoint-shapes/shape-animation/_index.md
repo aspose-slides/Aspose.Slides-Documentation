@@ -1,5 +1,5 @@
 ---
-title: Aplicar Animações de Forma em Apresentações em .NET
+title: Aplicar animações de formas em apresentações em .NET
 linktitle: Animação de Forma
 type: docs
 weight: 60
@@ -23,24 +23,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda a adicionar, inspecionar e personalizar animações de forma, temporização, sons, comportamento pós-animação e texto animado com Aspose.Slides para .NET."
+description: "Aprenda como adicionar, inspecionar e personalizar animações de formas, temporização, sons, comportamento pós-animação e texto animado com Aspose.Slides para .NET."
 ---
 ## **Visão geral**
 
-Aspose.Slides for .NET representa animações de slide como efeitos em uma linha de tempo do slide. Um efeito tem uma forma de destino, um tipo e subtipo de animação, um gatilho, configurações de temporização e propriedades opcionais, como som ou comportamento pós-animação.
+Para trabalhar com os comportamentos individuais dentro de um efeito ou editar segmentos de caminho de movimento, veja [Animação personalizada](/slides/pt/net/custom-animation/).
 
-A linha de tempo contém dois tipos de sequências:
+Aspose.Slides for .NET representa animações de slides como efeitos em uma linha do tempo do slide. Um efeito tem uma forma de destino, um tipo e subtipo de animação, um gatilho, configurações de tempo e propriedades opcionais, como som ou comportamento pós-animação.
 
-- A **sequência principal** é reproduzida à medida que o slide avança.  
+A linha do tempo contém dois tipos de sequências:
+
+- A **sequência principal** reproduz‑se conforme o slide avança.
 - Uma **sequência interativa** inicia quando sua forma de gatilho é clicada.
 
-Como caixas de texto, imagens, gráficos, tabelas e outros objetos de slide implementam [IShape](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape/), você usa o mesmo método [ISequence.AddEffect](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/isequence/addeffect/) para a maioria do conteúdo do slide. Os efeitos disponíveis estão listados na enumeração [EffectType](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/effecttype/).
+Como caixas de texto, imagens, gráficos, tabelas e outros objetos de slide implementam [IShape](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape/), você usa o mesmo método [ISequence.AddEffect](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/isequence/addeffect/) para a maioria do conteúdo do slide. Os efeitos disponíveis são listados na enumeração [EffectType](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/effecttype/).
 
-## **Adicionar animações de forma**
+## **Adicionar animações de formas**
 
-Para adicionar uma animação, obtenha a sequência principal do slide e chame [ISequence.AddEffect](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/isequence/addeffect/) com a forma de destino, tipo de efeito, subtipo e gatilho. Para um efeito que inicia quando outra forma é clicada, crie uma sequência interativa cujo gatilho seja essa outra forma.
+Para adicionar uma animação, obtenha a sequência principal do slide e chame [ISequence.AddEffect](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/isequence/addeffect/) com a forma de destino, o tipo de efeito, subtipo e gatilho. Para um efeito que inicia quando outra forma é clicada, crie uma sequência interativa cujo gatilho seja essa outra forma.
 
-O exemplo a seguir cria os dois tipos de animação e salva o resultado em `shape-animations.pptx`.
+O exemplo a seguir cria ambos os tipos de animação e salva o resultado em `shape-animations.pptx`.
 
 ```csharp
 using Aspose.Slides;
@@ -68,17 +70,17 @@ presentation.Save("shape-animations.pptx", SaveFormat.Pptx);
 
 O gatilho controla quando um efeito inicia:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/effecttriggertype/) aguarda um clique na sequência principal ou um clique na forma de gatilho em uma sequência interativa.  
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/effecttriggertype/) inicia juntamente com o efeito anterior.  
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/effecttriggertype/) espera um clique na sequência principal, ou um clique na forma de gatilho em uma sequência interativa.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/effecttriggertype/) inicia com o efeito anterior.
 - [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/effecttriggertype/) inicia quando o efeito anterior termina.
 
-Para animar uma imagem, gráfico ou outro tipo de forma, passe esse objeto para [ISequence.AddEffect](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/isequence/addeffect/) em vez de `targetShape`. Para opções de agrupamento específicas de gráficos, veja [Animated Charts](/slides/pt/net/animated-charts/).
+Para animar uma imagem, gráfico ou outro tipo de forma, passe esse objeto para [ISequence.AddEffect](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/isequence/addeffect/) em vez de `targetShape`. Para opções de agrupamento específicas de gráfico, veja [Animated Charts](/slides/pt/net/animated-charts/).
 
-## **Ler animações de forma**
+## **Ler animações de formas**
 
-Use [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/isequence/geteffectsbyshape/) quando souber a forma de destino. Para inspecionar cada efeito, enumere a sequência principal e todas as sequências interativas. A enumeração evita assumir que uma sequência contém um efeito no índice `0`.
+Use [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/isequence/geteffectsbyshape/) quando você souber a forma de destino. Para inspecionar cada efeito, enumere a sequência principal e cada sequência interativa. A enumeração evita presumir que uma sequência contenha um efeito no índice `0`.
 
-O exemplo a seguir cria uma forma com efeitos de sequência principal e interativa, obtém os efeitos que têm a forma como alvo e, em seguida, enumera todas as sequências no slide.
+O exemplo a seguir cria uma forma com efeitos de sequência principal e interativa, obtém os efeitos que têm a forma como alvo e, em seguida, enumera cada sequência no slide.
 
 ```csharp
 using System;
@@ -126,11 +128,11 @@ static void PrintSequence(string label, ISequence sequence)
 }
 ```
 
-Se precisar apenas dos efeitos para uma única forma, primeiro identifique a forma por nome, tipo de placeholder ou outra propriedade estável; então chame [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/isequence/geteffectsbyshape/). Não presuma que [IShapeCollection.Item](https://reference.aspose.com/slides/pt/net/aspose.slides/ishapecollection/item/) no índice `0` seja sempre o objeto desejado.
+Se você precisar apenas dos efeitos de uma forma, primeiro identifique a forma por nome, tipo de placeholder ou outra propriedade estável; então chame [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/isequence/geteffectsbyshape/). Não presuma que [IShapeCollection.Item](https://reference.aspose.com/slides/pt/net/aspose.slides/ishapecollection/item/) no índice `0` seja sempre o objeto desejado.
 
 ## **Trabalhar com efeitos de placeholder herdados**
 
-Um placeholder em um slide normal pode herdar comportamento de animação do placeholder correspondente no slide de layout e no slide mestre. [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape/getbaseplaceholder/) devolve esse placeholder pai, ou `null` quando não há pai.
+Um placeholder em um slide normal pode herdar o comportamento de animação do placeholder correspondente no slide de layout e no slide mestre. [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape/getbaseplaceholder/) devolve esse placeholder pai, ou `null` quando não há pai.
 
 Na apresentação de exemplo a seguir, o rodapé tem **Random Bars** no slide normal, **Split** no slide de layout e **Fly In** no slide mestre.
 
@@ -140,7 +142,7 @@ Na apresentação de exemplo a seguir, o rodapé tem **Random Bars** no slide no
 
 ![Efeito de animação do placeholder de rodapé no slide mestre](master-shape-animation.png)
 
-O próximo exemplo constrói a hierarquia de placeholders. Ele adiciona efeitos a um placeholder mestre, a um placeholder de layout e ao placeholder correspondente em um slide normal. Cada chamada a [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape/getbaseplaceholder/) é verificada antes de usar a forma retornada.
+O próximo exemplo constrói a hierarquia de placeholders. Ele adiciona efeitos a um placeholder mestre, a um placeholder de layout e ao placeholder correspondente em um slide normal. Cada chamada a [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape/getbaseplaceholder/) é verificada antes que a forma retornada seja usada.
 
 ```csharp
 using System;
@@ -211,17 +213,17 @@ static void PrintEffects(string source, IEffect[] effects)
 
 ## **Alterar temporização da animação**
 
-A caixa de diálogo **Timing** do PowerPoint corresponde às propriedades de [ITiming](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/).
+O diálogo **Timing** do PowerPoint corresponde às propriedades de [ITiming](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/).
 
-![Caixa de diálogo de Temporização do PowerPoint para um efeito de animação](shape-animation.png)
+![Diálogo Temporização do PowerPoint para um efeito de animação](shape-animation.png)
 
-- **Início** corresponde a [ITiming.TriggerType](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/triggertype/).  
-- **Duração** corresponde a [ITiming.Duration](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/duration/), em segundos.  
-- **Atraso** corresponde a [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/triggerdelaytime/), em segundos.  
-- **Repetir** corresponde a [ITiming.RepeatCount](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/repeatcount/), [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/repeatuntilnextclick/) ou [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/repeatuntilendslide/).  
-- **Retroceder ao terminar a reprodução** corresponde a [ITiming.Rewind](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/rewind/).
+- **Início** mapeia para [ITiming.TriggerType](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/triggertype/).
+- **Duração** mapeia para [ITiming.Duration](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/duration/), em segundos.
+- **Atraso** mapeia para [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/triggerdelaytime/), em segundos.
+- **Repetir** mapeia para [ITiming.RepeatCount](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/repeatcount/), [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/repeatuntilnextclick/) ou [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/repeatuntilendslide/).
+- **Rebobinar ao terminar a reprodução** mapeia para [ITiming.Rewind](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/rewind/).
 
-Este exemplo independente adiciona um efeito, altera sua temporização por meio do objeto retornado por [ISequence.AddEffect](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/isequence/addeffect/) e salva o resultado. Manter a referência ao [IEffect](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/ieffect/) devolvido evita um índice de coleção desnecessário.
+Este exemplo independente adiciona um efeito, altera sua temporização por meio do objeto retornado por [ISequence.AddEffect](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/isequence/addeffect/) e salva o resultado. Manter a referência ao [IEffect](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/ieffect/) retornado evita um índice de coleção desnecessário.
 
 ```csharp
 using Aspose.Slides;
@@ -245,15 +247,15 @@ effect.Timing.Rewind = true;
 presentation.Save("shape-animation-timing.pptx", SaveFormat.Pptx);
 ```
 
-Use apenas um modo de repetição intencionalmente. Combinar um contador de repetições com uma flag “até” pode produzir resultados confusos em diferentes visualizadores. Ao mudar os modos de repetição, defina [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/repeatuntilnextclick/) e [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/repeatuntilendslide/) antes de [ITiming.RepeatCount](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/repeatcount/), pois definir qualquer uma das flags também altera o modo de repetição ativo.
+Use um modo de repetição de forma intencional. Combinar um contador de repetições com uma flag “until” pode gerar resultados confusos em diferentes visualizadores. Ao mudar os modos de repetição, ajuste [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/repeatuntilnextclick/) e [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/repeatuntilendslide/) antes de [ITiming.RepeatCount](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itiming/repeatcount/), pois a definição de qualquer flag também altera o modo de repetição ativo.
 
 ## **Adicionar e extrair sons de animação**
 
-Um efeito de animação pode referenciar áudio incorporado por meio de [IEffect.Sound](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/ieffect/sound/). [IEffect.StopPreviousSound](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/ieffect/stopprevioussound/) indica que um efeito deve parar o áudio iniciado por um efeito anterior.
+Um efeito de animação pode referenciar áudio incorporado através de [IEffect.Sound](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/ieffect/sound/). [IEffect.StopPreviousSound](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/ieffect/stopprevioussound/) instrui um efeito a parar o áudio iniciado por um efeito anterior.
 
 ### **Adicionar um som a um efeito**
 
-O exemplo a seguir presume um arquivo de áudio local chamado `animation-sound.wav`. Ele cria dois efeitos, incorpora esse arquivo como som do primeiro efeito e configura o segundo efeito para parar o som. Usa os objetos devolvidos por [ISequence.AddEffect](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/isequence/addeffect/), portanto nenhum índice de sequência é necessário.
+O exemplo a seguir espera um arquivo de áudio local chamado `animation-sound.wav`. Ele cria dois efeitos, incorpora esse arquivo como som do primeiro efeito e configura o segundo efeito para parar o som. Usa os objetos retornados por [ISequence.AddEffect](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/isequence/addeffect/), portanto nenhum índice de sequência é necessário.
 
 ```csharp
 using System.IO;
@@ -280,9 +282,9 @@ secondEffect.StopPreviousSound = true;
 presentation.Save("shape-animation-sound.pptx", SaveFormat.Pptx);
 ```
 
-### **Extrair sons de efeito incorporados**
+### **Extrair sons de efeitos incorporados**
 
-O exemplo a seguir presume uma apresentação local chamada `presentation-with-animation-sounds.pptx`. Ele varre as sequências principal e interativa e grava cada som de efeito incorporado no diretório `extracted-animation-sounds`. A extensão é selecionada a partir do tipo MIME de áudio exposto por [IAudio.ContentType](https://reference.aspose.com/slides/pt/net/aspose.slides/iaudio/contenttype/).
+O exemplo a seguir espera uma apresentação local chamada `presentation-with-animation-sounds.pptx`. Ele analisa as sequências principal e interativa e grava cada som de efeito incorporado no diretório `extracted-animation-sounds`. A extensão é selecionada a partir do tipo MIME de áudio exposto por [IAudio.ContentType](https://reference.aspose.com/slides/pt/net/aspose.slides/iaudio/contenttype/).
 
 ```csharp
 using System;
@@ -348,13 +350,13 @@ Para objetos de áudio grandes, use [IAudio.GetStream](https://reference.aspose.
 
 ## **Definir comportamento pós-animação**
 
-A opção **After animation** controla o que acontece com uma forma depois que seu efeito termina.
+A opção **After animation** controla o que acontece com uma forma após o término do seu efeito.
 
-![Caixa de diálogo de Opções de Efeito do PowerPoint mostrando configurações de Pós-animação](shape-after-animation.png)
+![Diálogo Opções de efeito do PowerPoint exibindo configurações de Pós‑animação](shape-after-animation.png)
 
-A enumeração [AfterAnimationType](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/afteranimationtype/) oferece deixar a forma inalterada, mudar sua cor, ocultá‑la após a animação ou ocultá‑la no próximo clique. Quando o tipo é [AfterAnimationType.Color](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/afteranimationtype/), defina também [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/ieffect/afteranimationcolor/).
+A enumeração [AfterAnimationType](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/afteranimationtype/) oferece deixar a forma inalterada, mudar sua cor, ocultá‑la após a animação ou ocultá‑la no próximo clique. Quando o tipo for [AfterAnimationType.Color](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/afteranimationtype/), defina também [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/ieffect/afteranimationcolor/).
 
-Este exemplo independente cria um efeito, define seu comportamento pós-animação por meio do objeto de efeito devolvido e salva o resultado.
+Este exemplo independente cria um efeito, define seu comportamento pós‑animação por meio do objeto de efeito retornado e salva o resultado.
 
 ```csharp
 using System.Drawing;
@@ -374,16 +376,16 @@ effect.AfterAnimationColor.Color = Color.LightGray;
 presentation.Save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
 ```
 
-Alterar o tipo para algo diferente de [AfterAnimationType.Color](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/afteranimationtype/) limpa a configuração de cor pós‑animação.
+Alterar o tipo de [AfterAnimationType.Color](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/afteranimationtype/) limpa a configuração de cor pós‑animação.
 
 ## **Animar texto**
 
-A animação de texto possui dois controles relacionados:
+A animação de texto tem dois controles relacionados:
 
-- [ITextAnimation.BuildType](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itextanimation/buildtype/) controla se os parágrafos aparecem juntos ou por nível de parágrafo.  
+- [ITextAnimation.BuildType](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/itextanimation/buildtype/) controla se os parágrafos aparecem juntos ou por nível de parágrafo.
 - [IEffect.AnimateTextType](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/ieffect/animatetexttype/) controla se o texto aparece tudo de uma vez, por palavra ou por letra. [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/ieffect/delaybetweentextparts/) define o atraso entre palavras ou letras. Um valor positivo é uma porcentagem da duração do efeito; um valor negativo é um atraso em segundos.
 
-O exemplo independente a seguir anima as palavras em uma caixa de texto. [BuildType.AsOneObject](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/buildtype/) desativa a construção parágrafo a parágrafo, de modo que a configuração de palavra se aplica a todo o quadro de texto.
+O exemplo independente a seguir anima as palavras em uma caixa de texto. [BuildType.AsOneObject](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/buildtype/) desativa a construção parágrafo a parágrafo, de modo que a configuração de palavra se aplique a todo o quadro de texto.
 
 ```csharp
 using Aspose.Slides;
@@ -405,24 +407,24 @@ presentation.Save("animated-text.pptx", SaveFormat.Pptx);
 
 Para construir uma caixa de texto por parágrafo, defina [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/buildtype/) (ou outro nível de parágrafo). Para direcionar um único parágrafo com seu próprio efeito, use a sobrecarga de [ISequence.AddEffect](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/isequence/addeffect/) que aceita um [IParagraph](https://reference.aspose.com/slides/pt/net/aspose.slides/iparagraph/). Veja [Animated Text](/slides/pt/net/animated-text/) para exemplos ao nível de parágrafo.
 
-## **Notas de exportação e compatibilidade**
+## **Exportar e notas de compatibilidade**
 
-- Salvar em PPT ou PPTX preserva o modelo de animação, mas a reprodução final é controlada pelo visualizador da apresentação.  
-- PDF e imagens estáticas não reproduzem animações. Use [HTML5 export](/slides/pt/net/export-to-html5/), GIF animado ou [conversão para vídeo](/slides/pt/net/convert-powerpoint-to-video/) quando a saída precisar mostrar movimento.  
-- Para HTML5, habilite [Html5Options.AnimateShapes](https://reference.aspose.com/slides/pt/net/aspose.slides.export/html5options/animateshapes/) e, quando necessário, [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/pt/net/aspose.slides.export/html5options/animatetransitions/).  
-- A renderização de vídeo suporta muitos efeitos comuns de entrada, ênfase, saída e caminho de movimento, mas nem todo efeito do PowerPoint é suportado. Verifique a lista atual de [animações e efeitos suportados](/slides/pt/net/convert-powerpoint-to-video/#supported-animations-and-effects) e teste apresentações críticas com a versão do Aspose.Slides que você usa.  
-- Efeitos customizados avançados e efeitos importados de outros formatos de apresentação podem ser preservados no arquivo, porém renderizados de forma diferente no PowerPoint, HTML5 ou vídeo. Valide o resultado exportado em vez de confiar apenas no nome do efeito.
+- Salvar como PPT ou PPTX preserva o modelo de animação, mas a reprodução final é controlada pelo visualizador da apresentação.
+- PDF e imagens estáticas não reproduzem animações. Use [HTML5 export](/slides/pt/net/export-to-html5/), GIF animado ou [video conversion](/slides/pt/net/convert-powerpoint-to-video/) quando a saída precisar mostrar movimento.
+- Para HTML5, habilite [Html5Options.AnimateShapes](https://reference.aspose.com/slides/pt/net/aspose.slides.export/html5options/animateshapes/) e, quando necessário, [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/pt/net/aspose.slides.export/html5options/animatetransitions/).
+- A renderização de vídeo suporta muitos efeitos comuns de entrada, ênfase, saída e caminho de movimento, mas nem todo efeito do PowerPoint é suportado. Verifique a lista atual de [supported animations and effects](/slides/pt/net/convert-powerpoint-to-video/#supported-animations-and-effects) e teste apresentações críticas com a versão do Aspose.Slides que você está usando.
+- Efeitos personalizados avançados e efeitos importados de outros formatos de apresentação podem ser preservados no arquivo, mas serem renderizados diferentemente no PowerPoint, HTML5 ou vídeo. Valide o resultado exportado em vez de confiar apenas no nome do efeito.
 
-## **Perguntas frequentes**
+## **Perguntas Frequentes**
 
-**Por que uma animação aparece no PowerPoint mas não em um PDF?**
+**Por que uma animação aparece no PowerPoint, mas não em um PDF?**
 
-PDF é um formato estático, portanto animações e transições de slide não são reproduzidas. Exporte para HTML5, GIF animado ou vídeo quando o movimento precisar ser mantido.
+PDF é um formato estático, portanto animações e transições de slide não são reproduzidas. Exporte para HTML5, GIF animado ou vídeo quando o movimento precisar ser preservado.
 
 **Por que um efeito é reproduzido de forma diferente em um vídeo?**
 
-A exportação para vídeo renderiza animações em vez de armazenar o comportamento original do PowerPoint. Alguns efeitos avançados não são suportados ou são aproximados. Consulte a tabela de efeitos suportados e teste a apresentação real antes do uso em produção.
+A exportação para vídeo renderiza as animações em vez de armazenar o comportamento original do PowerPoint. Alguns efeitos avançados não são suportados ou são aproximados. Consulte a tabela de efeitos suportados e teste a apresentação real antes de usá‑la em produção.
 
 **Mover uma forma para frente ou para trás altera a ordem da animação?**
 
-Não. A ordem Z da forma controla a sobreposição, enquanto a ordem da sequência e os gatilhos controlam a reprodução da animação. Altere a linha de tempo se precisar de uma ordem de reprodução diferente.
+Não. A ordem Z da forma controla a sobreposição, enquanto a ordem da sequência e os gatilhos controlam a reprodução da animação. Modifique a linha do tempo se precisar de uma ordem de reprodução diferente.

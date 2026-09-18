@@ -1,5 +1,5 @@
 ---
-title: Android'de Sunumlarda Şekil Animasyonlarını Uygulama
+title: Android'de Sunumlara Şekil Animasyonları Uygulama
 linktitle: Şekil Animasyonu
 type: docs
 weight: 60
@@ -12,35 +12,36 @@ keywords:
 - animasyonlu metin
 - animasyon ekle
 - animasyon al
-- animasyonu çıkar
+- animasyon çıkar
 - efekt ekle
-- efekti al
-- efekti çıkar
+- efekt al
+- efekt çıkar
 - efekt sesi
-- animasyonu uygula
+- animasyon uygula
 - PowerPoint
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java ile şekil animasyonları, zamanlama, sesler, animasyon sonrası davranış ve animasyonlu metin ekleme, inceleme ve özelleştirme konularını öğrenin."
+description: "Aspose.Slides for Android via Java ile şekil animasyonlarını, zamanlamayı, sesleri, animasyon sonrası davranışı ve animasyonlu metni nasıl ekleyeceğinizi, inceleyeceğinizi ve özelleştireceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Android via Java, slayt animasyonlarını bir slayt zaman çizelgesindeki efektler olarak temsil eder. Bir efektin hedef şekli, animasyon türü ve alt türü, tetikleyicisi, zamanlama ayarları ve ses ya da animasyon sonrası davranış gibi isteğe bağlı özellikleri vardır.
+Bir efekt içindeki bireysel davranışlarla çalışmak veya hareket yolu bölümlerini düzenlemek için, [Java için Özel Animasyon](/slides/tr/java/custom-animation/) sayfasına bakın.
+
+Aspose.Slides for Android via Java, slayt animasyonlarını bir slayt zaman çizelgesindeki efektler olarak temsil eder. Bir efektin hedef şekli, bir animasyon türü ve alt türü, bir tetikleyicisi, zamanlama ayarları ve ses ya da animasyon sonrası davranış gibi isteğe bağlı özellikleri vardır.
 
 Zaman çizelgesi iki tür dizi içerir:
+- **Ana dizi**, slayt ilerledikçe oynar.
+- **Etkileşimli dizi**, tetikleyici şekli tıklandığında başlar.
 
-- **Ana dizi** slayt ilerledikçe oynatılır.
-- **Etkileşimli dizi** tetikleyici şekli tıklandığında başlar.
+Metin kutuları, resimler, grafikler, tablolar ve diğer slayt nesneleri [IShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/) arayüzünü uyguladığından, çoğu slayt içeriği için aynı [ISequence.addEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) yöntemini kullanırsınız. Kullanılabilir efektler [EffectType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/effecttype/) sınıfında listelenir.
 
-Metin kutuları, resimler, grafikler, tablolar ve diğer slayt nesneleri [IShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/) uyguladığından, çoğu slayt içeriği için aynı [ISequence.addEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) yöntemini kullanırsınız. Mevcut efektler [EffectType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/effecttype/) sınıfında listelenmiştir.
+## **Şekil Animasyonları Ekleme**
 
-## **Şekil Animasyonları Ekle**
+Bir animasyon eklemek için, slaytın ana dizisini alın ve hedef şekli, efekt türünü, alt türü ve tetikleyiciyi belirterek [ISequence.addEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) metodunu çağırın. Başka bir şekil tıklandığında başlayan bir efekt için, tetikleyicisi o diğer şekil olan bir etkileşimli dizi oluşturun.
 
-Bir animasyon eklemek için slaydın ana dizisini alın ve hedef şekil, efekt türü, alt tür ve tetikleyici ile [ISequence.addEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) yöntemini çağırın. Başka bir şekil tıklandığında başlayan bir efekt için, tetikleyicisi o diğer şekil olan bir etkileşimli dizi oluşturun.
-
-Aşağıdaki örnek her iki tip animasyonu oluşturur ve sonucu `shape-animations.pptx` dosyasına kaydeder.
+Aşağıdaki örnek her iki tür animasyonu oluşturur ve sonucu `shape-animations.pptx` dosyasına kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -72,19 +73,16 @@ public class AddShapeAnimations {
 }
 ```
 
-Tetikleyici, bir efektin ne zaman başlayacağını kontrol eder:
-
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/effecttriggertype/#OnClick) ana dizide bir tıklama ya da etkileşimli dizide tetikleyici şekle tıklanmasını bekler.
+Tetikleyici, bir efektin ne zaman başlayacağını belirler:
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/effecttriggertype/#OnClick) ana dizide bir tıklama veya etkileşimli dizide tetikleyici şekle tıklama bekler.
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) önceki efektle birlikte başlar.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) önceki efekt bitince başlar.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) önceki efekt bittiğinde başlar.
 
-Bir resmi, grafiği veya başka bir şekil türünü canlandırmak için, `targetShape` yerine o nesneyi [ISequence.addEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) yöntemine geçirin. Grafik‑özel grup seçenekleri için [Animated Charts](/slides/tr/androidjava/animated-charts/) bölümüne bakın.
+Bir resmi, grafiği veya başka bir şekil türünü animasyonlamak için, o nesneyi `targetShape` yerine [ISequence.addEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) metoduna aktarın. Grafik‑özel grup seçenekleri için [Animasyonlu Grafikler](/slides/tr/androidjava/animated-charts/) sayfasına bakın.
 
-## **Şekil Animasyonlarını Oku**
+## **Şekil Animasyonlarını Okuma**
 
-Hedef şekli bildiğinizde [ISequence.getEffectsByShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) yöntemini kullanın. Tüm efektleri incelemek için ana diziyi ve her etkileşimli diziyi dolaşın. Dizi taraması, bir dizinin `0` indeksinde bir efekt olduğu varsayımını ortadan kaldırır.
-
-Aşağıdaki örnek bir şekil oluşturur, ana‑dizi ve etkileşimli efektler ekler, şekle hedeflenen efektleri alır ve ardından slayttaki tüm dizileri dolaşır.
+Hedef şekli bildiğinizde [ISequence.getEffectsByShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) metodunu kullanın. Tüm efektleri incelemek için ana diziyi ve her etkileşimli diziyi döngüyle gezinin. Dizinleme, bir dizinin `0` indeksinde bir efekt olduğunu varsaymaktan kaçınır.
 
 ```java
 import com.aspose.slides.*;
@@ -138,21 +136,21 @@ public class ReadShapeAnimations {
 }
 ```
 
-Yalnızca tek bir şekil için efektlere ihtiyacınız varsa, şekli önce adı, yer tutucu tipi veya başka bir sabit özelliğiyle tanımlayın; ardından [ISequence.getEffectsByShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) metodunu çağırın. `[IShapeCollection.get_Item](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-)` metodunun `0` indeksindeki öğesinin her zaman istenen nesne olduğunu varsamamalısınız.
+Yalnızca bir şeklin efektlerine ihtiyacınız varsa, önce şekli adı, yer tutucu türü veya başka sabit bir özelliğiyle tanımlayın; ardından [ISequence.getEffectsByShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) metodunu çağırın. [IShapeCollection.get_Item](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) metodunun `0` indeksindeki nesnenin her zaman istenen nesne olduğunu varsamayın.
 
-## **Kalıtılmış Yer Tutucu Efektleriyle Çalışma**
+## **Kalıtılan Yer Tutucu Efektleriyle Çalışma**
 
-Normal bir slayttaki bir yer tutucu, düzen slaytı ve ana slayttaki karşılık gelen yer tutucudan animasyon davranışı miras alabilir. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) yöntemi bu üst yer tutucuyu döndürür; üst yoksa `null` döner.
+Normal bir slayttaki bir yer tutucu, görünüm slaytı ve ana slayttaki ilgili yer tutucudan animasyon davranışını devralabilir. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) bu üst yer tutucuyu döndürür; üst yoksa `null` döner.
 
-Aşağıdaki örnek sunumda, alt bilgi normal slaytta **Random Bars**, düzen slaytında **Split** ve ana slaytta **Fly In** efekti alır.
+Aşağıdaki örnek sunumda, altbilgi normal slaytta **Random Bars**, görünüm slaytında **Split**, ana slaytta ise **Fly In** efektine sahiptir.
 
-![Normal slaytta altbilgi animasyon efekti](slide-shape-animation.png)
+![Normal slayttaki altbilgi animasyon efekti](slide-shape-animation.png)
 
-![Düzen slaytındaki altbilgi yer tutucu animasyon efekti](layout-shape-animation.png)
+![Görünüm slaytındaki altbilgi yer tutucu animasyon efekti](layout-shape-animation.png)
 
 ![Ana slayttaki altbilgi yer tutucu animasyon efekti](master-shape-animation.png)
 
-Sonraki örnek yeni bir sunumdan bir yer tutucu hiyerarşisi kullanır. Bir ana yer tutucuya, bir düzen yer tutucuya ve normal slayttaki karşılık gelen yer tutucuya efekt ekler. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) çağrısı, döndürülen şekil kullanılmadan önce kontrol edilir.
+Sonraki örnek, yeni bir sunumdan bir yer tutucu hiyerarşisi kullanır. Bir ana yer tutucu, bir görünüm yer tutucu ve normal bir slayttaki karşılık gelen yer tutucuya efekt ekler. Her [IShape.getBasePlaceholder](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) çağrısı, döndürülen şekil kullanılmadan önce kontrol edilir.
 
 ```java
 import com.aspose.slides.*;
@@ -230,19 +228,19 @@ public class InheritedPlaceholderAnimations {
 }
 ```
 
-## **Animasyon Zamanlamasını Değiştir**
+## **Animasyon Zamanlamasını Değiştirme**
 
-PowerPoint **Timing** (Zamanlama) iletişim kutusu, [ITiming](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/) özelliklerine karşılık gelir.
+PowerPoint **Timing** iletişim kutusu, [ITiming](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/) özelliklerine karşılık gelir.
 
 ![Bir animasyon efekti için PowerPoint Zamanlama iletişim kutusu](shape-animation.png)
 
-- **Başlat** [ITiming.getTriggerType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#getTriggerType--) ile eşleştirilir.
-- **Süre** [ITiming.getDuration](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#getDuration--) ile eşleştirilir, saniye cinsinden.
-- **Gecikme** [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--) ile eşleştirilir, saniye cinsinden.
-- **Tekrar** [ITiming.getRepeatCount](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), veya [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--) ile eşleştirilir.
-- **Oynatma tamamlandığında geri sar** [ITiming.getRewind](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#getRewind--) ile eşleştirilir.
+- **Start** [ITiming.getTriggerType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#getTriggerType--) ile eşleştirilir.
+- **Duration** [ITiming.getDuration](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#getDuration--) ile eşleştirilir, saniye cinsindendir.
+- **Delay** [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--) ile eşleştirilir, saniye cinsindendir.
+- **Repeat** [ITiming.getRepeatCount](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#getRepeatCount--) , [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--) veya [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--) ile eşleştirilir.
+- **Rewind when done playing** [ITiming.getRewind](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#getRewind--) ile eşleştirilir.
 
-Bu bağımsız örnek bir efekt ekler, zamanlamasını [ISequence.addEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) tarafından döndürülen nesne aracılığıyla değiştirir ve sonucu kaydeder. Döndürülen [IEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ieffect/) referansının tutulması gereksiz bir koleksiyon indeksinden kaçınır.
+Bu bağımsız örnek bir efekt ekler, zamanlamasını [ISequence.addEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) ile dönen nesne üzerinden değiştirir ve sonucu kaydeder. Dönen [IEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ieffect/) referansını tutmak, gereksiz bir koleksiyon indeksi kullanımını önler.
 
 ```java
 import com.aspose.slides.*;
@@ -272,15 +270,15 @@ public class ChangeAnimationTiming {
 }
 ```
 
-Tek bir tekrar modunu kasıtlı olarak kullanın. Tekrar sayısını bir “until” bayrağıyla birleştirmek, farklı görüntüleyicilerde kafa karıştırıcı sonuçlar doğurabilir. Tekrar modlarını değiştirirken, önce [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) ve [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) ayarlarını, ardından [ITiming.setRepeatCount](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-) yöntemini çağırın; çünkü bu bayraklardan birini ayarlamak aktif tekrar modunu da değiştirir.
+Tek bir tekrar modunu bilinçli olarak kullanın. Bir tekrar sayısını bir “until” bayrağıyla birleştirmek, farklı izleyicilerde kafa karıştırıcı sonuçlar verebilir. Tekrar modlarını değiştirirken, önce [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) ve [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) metodlarını, ardından [ITiming.setRepeatCount](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-) metodunu çağırın; çünkü bu bayraklardan birini ayarlamak aktif tekrar modunu da değiştirir.
 
-## **Animasyon Seslerini Ekle ve Çıkar**
+## **Animasyon Sesleri Ekleme ve Çıkarma**
 
-Bir animasyon efekti, gömülü sesi [IEffect.getSound](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ieffect/#getSound--) aracılığıyla referans gösterebilir. [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) bir efektin önceki bir efekt tarafından başlatılan sesi durdurmasını sağlar.
+Bir animasyon efekti, gömülü sesleri [IEffect.getSound](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ieffect/#getSound--) aracılığıyla referans alabilir. [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) bir etkinin önceki bir etkiden başlayan sesi durdurmasını sağlar.
 
-### **Bir Efekte Ses Ekle**
+### **Bir Efekte Ses Ekleme**
 
-Aşağıdaki örnek, `animation-sound.wav` adlı yerel bir ses dosyası bekler. İki efekt oluşturur, bu dosyayı ilk efektin sesi olarak gömer ve ikinci efekti sesi durduracak şekilde yapılandırır. [ISequence.addEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) tarafından döndürülen nesneler kullanıldığından dizi indeksine ihtiyaç yoktur.
+Aşağıdaki örnek, `animation-sound.wav` adlı yerel bir ses dosyası bekler. İki efekt oluşturur, bu dosyayı birinci efektin sesi olarak gömer ve ikinci efekti sesi durduracak şekilde yapılandırır. [ISequence.addEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) tarafından döndürülen nesneleri kullandığından bir dizi indeksi gerekli değildir.
 
 ```java
 import com.aspose.slides.*;
@@ -315,9 +313,9 @@ public class AddAnimationSound {
 }
 ```
 
-### **Gömülü Efekt Seslerini Çıkar**
+### **Gömülü Efekt Seslerini Çıkarma**
 
-Aşağıdaki örnek, `presentation-with-animation-sounds.pptx` adlı yerel bir sunum bekler. Hem ana hem de etkileşimli dizileri tarar ve gömülü her efekti `extracted-animation-sounds` dizinine yazar. Uzantı, [IAudio.getContentType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iaudio/#getContentType--) tarafından sağlanan ses MIME tipinden seçilir.
+Aşağıdaki örnek, `presentation-with-animation-sounds.pptx` adlı yerel bir sunum bekler. Hem ana hem de etkileşimli dizileri tarar ve her gömülü efekt sesini `extracted-animation-sounds` dizinine yazar. Uzantı, [IAudio.getContentType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iaudio/#getContentType--) tarafından sağlanan ses MIME tipinden seçilir.
 
 ```java
 import com.aspose.slides.*;
@@ -391,17 +389,17 @@ public class ExtractAnimationSounds {
 }
 ```
 
-Büyük ses nesneleri için, tüm nesneyi bayt dizisine yüklemek yerine [IAudio.getStream](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iaudio/#getStream--) ile akışı alın ve bir dosyaya kopyalayın.
+Büyük ses nesneleri için, [IAudio.getStream](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iaudio/#getStream--) kullanın ve nesneyi bir bayt dizisine yüklemek yerine akışı bir dosyaya kopyalayın.
 
-## **Animasyon Sonrası Davranışı Ayarla**
+## **Animasyon Sonrası Davranışı Ayarlama**
 
-**After animation** (Animasyon Sonrası) seçeneği, bir şeklin efekt bitiminde ne olacağını denetler.
+**After animation** seçeneği, bir efekt bitince şeklin ne olacağını kontrol eder.
 
-![PowerPoint Efekt Seçenekleri iletişim kutusunda After animation ayarlarını gösteriyor](shape-after-animation.png)
+![After animation ayarlarını gösteren PowerPoint Efekt Seçenekleri iletişim kutusu](shape-after-animation.png)
 
-[AfterAnimationType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/afteranimationtype/) sınıfı, şekli değişmeden bırakma, rengini değiştirme, animasyondan sonra gizleme veya bir sonraki tıklamada gizleme seçeneklerini destekler. Tür [AfterAnimationType.Color](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/afteranimationtype/#Color) ise, ayrıca [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--) ayarlanmalıdır.
+[AfterAnimationType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/afteranimationtype/) sınıfı, şeklin değişmeden kalmasını, renginin değişmesini, animasyondan sonra gizlenmesini veya sonraki tıklamada gizlenmesini destekler. Tür [AfterAnimationType.Color](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/afteranimationtype/#Color) olduğunda, ayrıca [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--) ayarlanmalıdır.
 
-Bu bağımsız örnek bir efekt oluşturur, döndürülen efekt nesnesi aracılığıyla animasyon sonrası davranışını ayarlar ve sonucu kaydeder.
+Bu bağımsız örnek bir efekt oluşturur, dönen efekt nesnesi aracılığıyla animasyon‑sonrası davranışı ayarlar ve sonucu kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -427,16 +425,15 @@ public class SetAfterAnimationBehavior {
 }
 ```
 
-[AfterAnimationType.Color](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/afteranimationtype/#Color) dışına bir tür değiştirildiğinde, animasyon sonrası renk ayarı temizlenir.
+[AfterAnimationType.Color](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/afteranimationtype/#Color) dışına bir tür değiştirmek, animasyon‑sonrası renk ayarını temizler.
 
-## **Metni Canlandır**
+## **Metni Animasyonla**
 
-Metin animasyonu iki ilgili kontrol içerir:
+Metin animasyonunda iki ilgili kontrol bulunur:
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextanimation/#getBuildType--) paragrafın toplu mı yoksa paragraf seviyesinde mi görüneceğini kontrol eder.
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) metnin hepsinin bir anda, kelime kelime veya harf harf görünmesini kontrol eder. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) kelimeler ya da harfler arasındaki gecikmeyi ayarlar. Pozitif değer, efekt süresinin bir yüzdesi; negatif değer saniye cinsinden bir gecikmedir.
 
-- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itextanimation/#getBuildType--) paragrafın topluca mı yoksa paragraf seviyesinde mi görüneceğini denetler.
-- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) metnin bir seferde, kelime bazında veya harf bazında görüneceğini denetler. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) kelime ya da harfler arasındaki gecikmeyi ayarlar. Pozitif değer, efekt süresinin yüzdesi; negatif değer ise saniye cinsinden gecikmedir.
-
-Aşağıdaki bağımsız örnek bir metin kutusundaki kelimeleri canlandırır. [BuildType.AsOneObject](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/buildtype/#AsOneObject) paragraf‑paragraf oluşturmayı devre dışı bırakır, böylece kelime ayarı tüm metin çerçevesine uygulanır.
+Aşağıdaki bağımsız örnek bir metin kutusundaki kelimeleri animasyonlar. [BuildType.AsOneObject](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/buildtype/#AsOneObject) paragraf‑paragraf oluşturmayı devre dışı bırakır, böylece kelime ayarı tüm metin çerçevesine uygulanır.
 
 ```java
 import com.aspose.slides.*;
@@ -462,23 +459,26 @@ public class AnimateTextByWord {
 }
 ```
 
-Paragraf bazında bir metin kutusu oluşturmak için [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (veya başka bir paragraf seviyesi) ayarlayın. Tek bir paragrafı kendi efektine hedeflemek için, bir [IParagraph](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/) kabul eden [ISequence.addEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) aşırı yüklemesini kullanın. Paragraf‑seviyesindeki örnekler için [Animated Text](/slides/tr/androidjava/animated-text/) bölümüne bakın.
+Metin kutusunu paragraf bazında oluşturmak için [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (veya başka bir paragraf seviyesi) ayarlayın. Tek bir paragrafı kendi efektiyle hedeflemek için, bir [IParagraph](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iparagraph/) kabul eden [ISequence.addEffect](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) aşırı yüklemesini kullanın. Paragraf‑seviyesindeki örnekler için [Animasyonlu Metin](/slides/tr/androidjava/animated-text/) sayfasına bakın.
 
-## **Dışa Aktarma ve Uyumluluk Notları**
+## **Dışa Aktarım ve Uyumluluk Notları**
 
 - PPT veya PPTX olarak kaydetmek animasyon modelini korur, ancak nihai oynatma sunum görüntüleyicisi tarafından kontrol edilir.
-- PDF ve statik görüntüler animasyonları oynatmaz. Çıktının hareket göstermesi gerektiğinde [HTML5 export](/slides/tr/androidjava/export-to-html5/), animasyonlu GIF veya [video conversion](/slides/tr/androidjava/convert-powerpoint-to-video/) kullanın.
-- HTML5 için, gerektiğinde [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) ve [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) özelliklerini etkinleştirin.
-- Video renderlama, birçok yaygın giriş, vurgu, çıkış ve hareket‑yolu efektini destekler, ancak tüm PowerPoint efektleri desteklenmez. Güncel [supported animations and effects](/slides/tr/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) sayfasını kontrol edin ve kritik sunumları hedef Aspose.Slides sürümünüzle test edin.
-- Gelişmiş özel efektler ve diğer sunum formatlarından içe aktarılan efektler dosyada korunabilir ancak PowerPoint, HTML5 veya videoda farklı renderlenebilir. Efekt adına yalnızca güvenmek yerine dışa aktarılan sonucu doğrulayın.
+- PDF ve sabit görüntüler animasyon oynatmaz. Çıktının hareket içermesi gerektiğinde [HTML5 dışa aktarımı](/slides/tr/androidjava/export-to-html5/), animasyonlu GIF veya [video dönüşümü](/slides/tr/androidjava/convert-powerpoint-to-video/) kullanın.
+- HTML5 için, [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) özelliğini ve gerektiğinde [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) özelliğini etkinleştirin.
+- Video işleme birçok ortak giriş, vurgu, çıkış ve hareket‑yolu efektini destekler, ancak her PowerPoint efekti desteklenmez. Mevcut [desteklenen animasyonlar ve efektler](/slides/tr/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) sayfasını kontrol edin ve kritik sunumları hedef Aspose.Slides sürümünüzle test edin.
+- Gelişmiş özel efektler ve diğer sunum formatlarından içe aktarılan efektler dosyada korunabilir ancak PowerPoint, HTML5 veya videoda farklı renderlanabilir. Sonucu yalnızca efekt adına güvenmek yerine dışa aktarılan sonucu doğrulayın.
 
 ## **SSS**
 
-**Bir animasyon PowerPoint’te görünürken PDF’de neden görünmüyor?**  
-PDF statik bir format olduğundan animasyonlar ve slayt geçişleri oynatılmaz. Hareketin korunması gerektiğinde HTML5, animasyonlu GIF veya video olarak dışa aktarın.
+**Neden bir animasyon PowerPoint'te görünür ancak PDF'de görünmez?**
 
-**Bir efekt video içinde farklı şekilde neden oynatılıyor?**  
-Video dışa aktarımı, animasyonları renderlar ve orijinal PowerPoint davranışını depolamaz. Bazı gelişmiş efektler desteklenmez veya yaklaşık olarak uygulanır. Desteklenen‑efektler tablosunu inceleyin ve üretime geçmeden önce gerçek sunumu test edin.
+PDF statik bir format olduğundan, animasyonlar ve slayt geçişleri oynatılmaz. Hareketin korunması gerektiğinde HTML5, animasyonlu GIF veya video olarak dışa aktarın.
 
-**Bir şekli öne ya da arkaya taşımak animasyon sırasını değiştirir mi?**  
-Hayır. Şekil z‑order’ı örtüşmeyi kontrol eder, dizi sırası ve tetikleyiciler animasyon oynatımını belirler. Farklı bir oynatma sırası gerekiyorsa zaman çizelgesini değiştirin.
+**Neden bir efekt videoda farklı oynatılır?**
+
+Video dışa aktarımı animasyonları renderlar, orijinal PowerPoint davranışını saklamaz. Bazı gelişmiş efektler desteklenmez veya yaklaşık olarak uygulanır. Desteklenen efektler tablosunu inceleyin ve üretime geçmeden önce gerçek sunumu test edin.
+
+**Bir şekli öne ya da arkaya taşımak animasyon sırasını değiştirir mi?**
+
+Hayır. Şeklin z‑order'ı örtüşmeyi kontrol eder, dizi sırası ve tetikleyiciler animasyon oynatımını belirler. Farklı bir oynatma sırası gerekiyorsa zaman çizelgesini değiştirin.

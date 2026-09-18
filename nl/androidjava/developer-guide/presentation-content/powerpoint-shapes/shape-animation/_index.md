@@ -23,24 +23,26 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Leer hoe u vormanimaties, timing, geluiden, gedrag na animatie, en geanimeerde tekst kunt toevoegen, inspecteren en aanpassen met Aspose.Slides voor Android via Java."
+description: "Leer hoe u vormanimaties, timing, geluiden, gedrag na animatie en geanimeerde tekst kunt toevoegen, inspecteren en aanpassen met Aspose.Slides voor Android via Java."
 ---
 ## **Overzicht**
 
-Aspose.Slides for Android via Java stelt dia‑animaties voor als effecten op een diatijdlijn. Een effect heeft een doelvorm, een animatietype en sub‑type, een trigger, timinginstellingen en optionele eigenschappen zoals geluid of gedrag na de animatie.
+Om te werken met de afzonderlijke gedragingen binnen een effect of trajectsegmenten van beweging te bewerken, zie [Aangepaste animatie voor Java](/slides/nl/java/custom-animation/).
+
+Aspose.Slides voor Android via Java stelt dia‑animaties voor als effecten in een diatijdlijn. Een effect heeft een doel‑vorm, een animatietype en subtype, een trigger, timing‑instellingen en optionele eigenschappen zoals geluid of gedrag na de animatie.
 
 De tijdlijn bevat twee soorten reeksen:
 
 - De **hoofdreeks** wordt afgespeeld terwijl de dia wordt gepresenteerd.
 - Een **interactieve reeks** start wanneer de trigger‑vorm wordt aangeklikt.
 
-Omdat tekstvakken, afbeeldingen, grafieken, tabellen en andere dia‑objecten [IShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/) implementeren, gebruik je dezelfde [ISequence.addEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)‑methode voor de meeste dia‑inhoud. De beschikbare effecten staan opgesomd in de klasse [EffectType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/effecttype/).
+Omdat tekstvakken, afbeeldingen, diagrammen, tabellen en andere dia‑objecten [IShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/) implementeren, gebruik je dezelfde [ISequence.addEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) methode voor de meeste dia‑inhoud. De beschikbare effecten staan opgesomd in de klasse [EffectType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/effecttype/).
 
 ## **Vormanimaties toevoegen**
 
-Om een animatie toe te voegen, haal je de hoofdreeks van de dia op en roep je [ISequence.addEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) aan met de doelvorm, het effecttype, het subtype en de trigger. Voor een effect dat start wanneer een andere vorm wordt aangeklikt, maak je een interactieve reeks waarvan de trigger die andere vorm is.
+Om een animatie toe te voegen, haal je de hoofdreeks van de dia op en roep je [ISequence.addEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) aan met de doel‑vorm, het effecttype, subtype en trigger. Voor een effect dat start wanneer een andere vorm wordt aangeklikt, maak je een interactieve reeks waarvan de trigger die andere vorm is.
 
-Het volgende voorbeeld maakt beide soorten animatie aan en slaat het resultaat op in `shape-animations.pptx`.
+Het volgende voorbeeld maakt beide typen animaties en slaat het resultaat op in `shape-animations.pptx`.
 
 ```java
 import com.aspose.slides.*;
@@ -75,16 +77,16 @@ public class AddShapeAnimations {
 De trigger bepaalt wanneer een effect start:
 
 - [EffectTriggerType.OnClick](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/effecttriggertype/#OnClick) wacht op een klik in de hoofdreeks, of op een klik op de trigger‑vorm in een interactieve reeks.
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) start tegelijk met het voorgaande effect.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) start wanneer het voorgaande effect eindigt.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) start gelijktijdig met het voorgaande effect.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) start wanneer het voorgaande effect is voltooid.
 
-Om een afbeelding, grafiek of een ander vormtype te animeren, geef je dat object door aan [ISequence.addEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) in plaats van `targetShape`. Voor grafiekspecifieke groepeeropties, zie [Geanimeerde grafieken](/slides/nl/androidjava/animated-charts/).
+Om een afbeelding, diagram of een ander type vorm te animeren, geef je dat object door aan [ISequence.addEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) in plaats van `targetShape`. Voor diagram‑specifieke groeperingsopties, zie [Geanimeerde diagrammen](/slides/nl/androidjava/animated-charts/).
 
 ## **Vormanimaties lezen**
 
-Gebruik [ISequence.getEffectsByShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) wanneer je de doelvorm kent. Om elk effect te inspecteren, doorloop je de hoofdreeks en elke interactieve reeks. Doorlopen voorkomt de aanname dat een reeks een effect bevat op index `0`.
+Gebruik [ISequence.getEffectsByShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) wanneer je de doel‑vorm kent. Om elk effect te inspecteren, doorloop je de hoofdreeks en elke interactieve reeks. Enumeratie voorkomt dat je aanneemt dat een reeks een effect op index `0` bevat.
 
-Het volgende voorbeeld maakt een vorm met hoofd‑ en interactieve effecten, haalt de effecten op die de vorm targeten, en doorloopt vervolgens elke reeks op de dia.
+Het volgende voorbeeld maakt een vorm met hoofd‑ en interactieve effecten, haalt de effecten op die op de vorm gericht zijn, en doorloopt vervolgens elke reeks op de dia.
 
 ```java
 import com.aspose.slides.*;
@@ -138,19 +140,19 @@ public class ReadShapeAnimations {
 }
 ```
 
-Als je alleen de effecten voor één vorm nodig hebt, identificeer dan eerst de vorm op naam, placeholder‑type of een andere stabiele eigenschap; roep daarna [ISequence.getEffectsByShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) aan. Ga er niet vanuit dat [IShapeCollection.get_Item](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) op index `0` altijd het beoogde object is.
+Als je alleen de effecten voor één vorm nodig hebt, identificeer je eerst de vorm op naam, placeholder‑type of een andere stabiele eigenschap; roep daarna [ISequence.getEffectsByShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) aan. Ga er niet vanuit dat [IShapeCollection.get_Item](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) op index `0` altijd het bedoelde object is.
 
 ## **Werken met geërfde placeholder‑effecten**
 
-Een placeholder op een gewone dia kan animatiegedrag erven van de overeenkomstige placeholder op de lay‑outdia en de master‑dia. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) retourneert die bovenliggende placeholder, of `null` wanneer er geen bovenliggend object bestaat.
+Een placeholder op een gewone dia kan animatiegedrag erven van de overeenkomstige placeholder op de lay‑outdia en de master‑dia. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) geeft die bovenliggende placeholder terug, of `null` wanneer er geen bovenliggend object bestaat.
 
 In de volgende voorbeeldpresentatie heeft de voettekst **Random Bars** op de gewone dia, **Split** op de lay‑outdia en **Fly In** op de master‑dia.
 
-![Voettekst‑animatie‑effect op de gewone dia](slide-shape-animation.png)
+![Animatie‑effect van voettekst op de gewone dia](slide-shape-animation.png)
 
-![Voettekst‑placeholder‑animatie‑effect op de lay‑outdia](layout-shape-animation.png)
+![Animatie‑effect van voettekst‑placeholder op de lay‑outdia](layout-shape-animation.png)
 
-![Voettekst‑placeholder‑animatie‑effect op de master‑dia](master-shape-animation.png)
+![Animatie‑effect van voettekst‑placeholder op de master‑dia](master-shape-animation.png)
 
 Het volgende voorbeeld gebruikt een placeholder‑hiërarchie uit een nieuwe presentatie. Het voegt effecten toe aan een master‑placeholder, een lay‑out‑placeholder en de overeenkomstige placeholder op een gewone dia. Elke aanroep van [IShape.getBasePlaceholder](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) wordt gecontroleerd voordat de geretourneerde vorm wordt gebruikt.
 
@@ -234,15 +236,15 @@ public class InheritedPlaceholderAnimations {
 
 Het PowerPoint **Timing**‑dialoogvenster komt overeen met de eigenschappen van [ITiming](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/).
 
-![PowerPoint‑timing‑dialoog voor een animatie‑effect](shape-animation.png)
+![PowerPoint Timing‑dialoog voor een animatie‑effect](shape-animation.png)
 
 - **Start** komt overeen met [ITiming.getTriggerType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#getTriggerType--).
-- **Duration** komt overeen met [ITiming.getDuration](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#getDuration--), in seconden.
-- **Delay** komt overeen met [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--), in seconden.
-- **Repeat** komt overeen met [ITiming.getRepeatCount](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), of [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
-- **Rewind when done playing** komt overeen met [ITiming.getRewind](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#getRewind--).
+- **Duration** (duur) komt overeen met [ITiming.getDuration](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#getDuration--), in seconden.
+- **Delay** (vertraging) komt overeen met [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--), in seconden.
+- **Repeat** (herhalen) komt overeen met [ITiming.getRepeatCount](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), of [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
+- **Rewind when done playing** (terugspoelen bij voltooid) komt overeen met [ITiming.getRewind](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#getRewind--).
 
-Dit afzonderlijke voorbeeld voegt een effect toe, wijzigt de timing via het object dat wordt teruggegeven door [ISequence.addEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), en slaat het resultaat op. Het bewaren van de geretourneerde [IEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ieffect/)‑referentie voorkomt een onnodige collectie‑index.
+Dit zelfstandige voorbeeld voegt een effect toe, wijzigt de timing via het object dat wordt geretourneerd door [ISequence.addEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), en slaat het resultaat op. Het behouden van de geretourneerde [IEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ieffect/)‑referentie voorkomt een onnodige collectie‑index.
 
 ```java
 import com.aspose.slides.*;
@@ -272,15 +274,15 @@ public class ChangeAnimationTiming {
 }
 ```
 
-Gebruik één herhaalmodus bewust. Het combineren van een herhaal‑aantal met een “until”‑vlag kan verwarrende resultaten opleveren in verschillende weergave‑programma’s. Wanneer je de herhaal‑modi wijzigt, zet je eerst [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) en [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) vóór [ITiming.setRepeatCount](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-), omdat het instellen van een van de vlaggen ook de actieve herhaalmodus wijzigt.
+Gebruik één herhaal‑modus bewust. Het combineren van een herhaal‑aantal met een “until”‑vlag kan verwarrende resultaten geven in verschillende viewers. Bij het wijzigen van herhaal‑modi, stel [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) en [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) in vóór [ITiming.setRepeatCount](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-), omdat het instellen van één van die vlaggen ook de actieve herhaal‑modus wijzigt.
 
 ## **Animatiegeluiden toevoegen en extraheren**
 
-Een animatie‑effect kan een ingebedde audio‑referentie bevatten via [IEffect.getSound](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ieffect/#getSound--). [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) vertelt een effect om audio te stoppen die door een eerder effect is gestart.
+Een animatie‑effect kan een ingebed audio‑bestand refereren via [IEffect.getSound](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ieffect/#getSound--). [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) vertelt een effect om het eerder gestart geluid te stoppen.
 
 ### **Een geluid aan een effect toevoegen**
 
-Het volgende voorbeeld verwacht een lokaal audiobestand met de naam `animation-sound.wav`. Het maakt twee effecten, embedt dat bestand als geluid voor het eerste effect, en configureert het tweede effect om het geluid te stoppen. Het gebruikt de objecten die worden teruggegeven door [ISequence.addEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), dus er is geen reeks‑index vereist.
+Het volgende voorbeeld verwacht een lokaal audiobestand met de naam `animation-sound.wav`. Het maakt twee effecten, embedt dat bestand als geluid voor het eerste effect, en configureert het tweede effect om het geluid te stoppen. Het gebruikt de objecten die worden geretourneerd door [ISequence.addEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), zodat er geen reeksen‑index nodig is.
 
 ```java
 import com.aspose.slides.*;
@@ -317,7 +319,7 @@ public class AddAnimationSound {
 
 ### **Ingebedde effectgeluiden extraheren**
 
-Het volgende voorbeeld verwacht een lokale presentatie met de naam `presentation-with-animation-sounds.pptx`. Het scant zowel hoofd‑ als interactieve reeksen en schrijft elk ingebed effectgeluid weg naar de map `extracted-animation-sounds`. De extensie wordt gekozen op basis van het audio‑MIME‑type dat wordt geleverd door [IAudio.getContentType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iaudio/#getContentType--).
+Het volgende voorbeeld verwacht een lokale presentatie met de naam `presentation-with-animation-sounds.pptx`. Het doorzoekt zowel de hoofd‑ als de interactieve reeksen en schrijft elk ingebed effectgeluid weg naar de map `extracted-animation-sounds`. De extensie wordt gekozen op basis van het audiomime‑type dat wordt teruggegeven door [IAudio.getContentType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iaudio/#getContentType--).
 
 ```java
 import com.aspose.slides.*;
@@ -397,11 +399,11 @@ Voor grote audio‑objecten, gebruik [IAudio.getStream](https://reference.aspose
 
 De **After animation**‑optie bepaalt wat er met een vorm gebeurt nadat het effect is voltooid.
 
-![PowerPoint‑effect‑opties‑dialoog met Instellingen voor na‑animatie](shape-after-animation.png)
+![PowerPoint Effect Options‑dialoog met After‑animation‑instellingen](shape-after-animation.png)
 
-De klasse [AfterAnimationType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/afteranimationtype/) ondersteunt het ongewijzigd laten van de vorm, het wijzigen van de kleur, het verbergen na de animatie, of het verbergen bij de volgende klik. Wanneer het type [AfterAnimationType.Color](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/afteranimationtype/#Color) is, stel je ook [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--) in.
+De klasse [AfterAnimationType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/afteranimationtype/) ondersteunt het ongewijzigd laten van de vorm, het wijzigen van de kleur, het verbergen na de animatie, of het verbergen bij de volgende klik. Wanneer het type [AfterAnimationType.Color](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/afteranimationtype/#Color) is, stel je tevens [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--) in.
 
-Dit onafhankelijke voorbeeld maakt een effect, stelt het gedrag na animatie in via het geretourneerde effect‑object, en slaat het resultaat op.
+Dit zelfstandige voorbeeld maakt een effect, stelt het gedrag na de animatie in via het geretourneerde effectobject, en slaat het resultaat op.
 
 ```java
 import com.aspose.slides.*;
@@ -431,12 +433,12 @@ Het wijzigen van het type van [AfterAnimationType.Color](https://reference.aspos
 
 ## **Tekst animeren**
 
-Tekstanimatie heeft twee gerelateerde besturingen:
+Tekstanimatie heeft twee gerelateerde instellingen:
 
 - [ITextAnimation.getBuildType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextanimation/#getBuildType--) bepaalt of alinea’s tegelijk of per alinea‑niveau verschijnen.
 - [IEffect.getAnimateTextType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) bepaalt of tekst in één keer, per woord of per letter verschijnt. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) stelt de vertraging tussen woorden of letters in. Een positieve waarde is een percentage van de effectduur; een negatieve waarde is een vertraging in seconden.
 
-Het volgende onafhankelijke voorbeeld animeert de woorden in een tekstvak. [BuildType.AsOneObject](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/buildtype/#AsOneObject) schakelt het per‑alinea‑opbouwen uit zodat de woordinstelling van toepassing is op het volledige tekstkader.
+Het volgende zelfstandige voorbeeld animeert de woorden in een tekstvak. [BuildType.AsOneObject](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/buildtype/#AsOneObject) schakelt het op‑alinea‑basis bouwen uit zodat de woordinstelling van toepassing is op het volledige tekstkader.
 
 ```java
 import com.aspose.slides.*;
@@ -462,15 +464,15 @@ public class AnimateTextByWord {
 }
 ```
 
-Om een tekstvak per alinea op te bouwen, stel je [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (of een ander alinea‑niveau) in. Om een enkele alinea met een eigen effect te targeten, gebruik je de overload van [ISequence.addEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) die een [IParagraph](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iparagraph/) accepteert. Zie [Geanimeerde tekst](/slides/nl/androidjava/animated-text/) voor voorbeelden per alinea‑niveau.
+Om een tekstvak per alinea op te bouwen, stel je [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (of een ander alinea‑niveau) in. Om een enkele alinea met een eigen effect te targeten, gebruik je de overload van [ISequence.addEffect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) die een [IParagraph](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iparagraph/) accepteert. Zie [Geanimeerde tekst](/slides/nl/androidjava/animated-text/) voor voorbeelden op alinea‑niveau.
 
-## **Export en compatibiliteitsopmerkingen**
+## **Export‑ en compatibiliteitsopmerkingen**
 
-- Opslaan als PPT of PPTX behoudt het animatiemodel, maar de uiteindelijke weergave wordt bepaald door de presentatiewiewer.
-- PDF en statische afbeeldingen spelen geen animaties af. Gebruik [HTML5-export](/slides/nl/androidjava/export-to-html5/), geanimeerde GIF of [video conversion](/slides/nl/androidjava/convert-powerpoint-to-video/) wanneer de output beweging moet tonen.
+- Opslaan als PPT of PPTX behoudt het animatiemodel, maar de uiteindelijke weergave wordt bepaald door de presentatie‑viewer.
+- PDF en statische afbeeldingen spelen geen animaties af. Gebruik [HTML5‑export](/slides/nl/androidjava/export-to-html5/), een geanimeerde GIF of [video‑conversie](/slides/nl/androidjava/convert-powerpoint-to-video/) wanneer de output beweging moet tonen.
 - Voor HTML5, schakel [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) in en, indien nodig, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
-- Video‑rendering ondersteunt veel gangbare ingang‑, nadruk‑, uitgang‑ en bewegings‑pad‑effecten, maar niet elk PowerPoint‑effect wordt ondersteund. Controleer de huidige [ondersteunde animaties en effecten](/slides/nl/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) en test kritieke presentaties met jouw doel‑Aspose.Slides‑versie.
-- Geavanceerde aangepaste effecten en effecten geïmporteerd uit andere presentatieformaten kunnen behouden blijven in het bestand maar anders worden gerenderd in PowerPoint, HTML5 of video. Valideer het geëxporteerde resultaat in plaats van alleen op de effectnaam te vertrouwen.
+- Videoweergave ondersteunt veel gangbare binnenkomende, nadruk‑, uitgangs‑ en bewegings‑pad‑effecten, maar niet elk PowerPoint‑effect wordt ondersteund. Controleer de huidige [ondersteunde animaties en effecten](/slides/nl/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) en test kritieke presentaties met de versie van Aspose.Slides die je gebruikt.
+- Geavanceerde aangepaste effecten en effecten die zijn geïmporteerd uit andere presentatieformaten kunnen in het bestand behouden blijven, maar anders worden weergegeven in PowerPoint, HTML5 of video. Valideer het geëxporteerde resultaat in plaats van alleen te vertrouwen op de effectnaam.
 
 ## **FAQ**
 
@@ -480,8 +482,8 @@ PDF is een statisch formaat, dus animaties en dia‑overgangen worden niet afges
 
 **Waarom wordt een effect anders afgespeeld in een video?**
 
-Video‑export rendert animaties in plaats van het oorspronkelijke PowerPoint‑gedrag op te slaan. Sommige geavanceerde effecten worden niet ondersteund of benaderd. Bekijk de tabel met ondersteunde effecten en test de daadwerkelijke presentatie vóór productie.
+Video‑export rendert animaties in plaats van het oorspronkelijke PowerPoint‑gedrag op te slaan. Sommige geavanceerde effecten worden niet ondersteund of alleen benaderd. Bekijk de tabel met ondersteunde effecten en test de daadwerkelijke presentatie voordat je deze in productie gebruikt.
 
 **Verandert het naar voren of naar achteren verplaatsen van een vorm de animatievolgorde?**
 
-Nee. De z‑order van een vorm bepaalt overlap, terwijl de reeks‑volgorde en triggers de animatie‑afspeelvolgorde bepalen. Pas de tijdlijn aan als je een andere afspeelvolgorde nodig hebt.
+Nee. De z‑order van een vorm bepaalt de overlapping, terwijl de volgorde van de reeksen en triggers de animatie‑afspeelvolgorde bepalen. Pas de tijdlijn aan als je een andere afspeelvolgorde nodig hebt.

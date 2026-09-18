@@ -1,43 +1,45 @@
 ---
-title: Java का उपयोग करके प्रस्तुतियों में आकार एनीमेशन लागू करें
-linktitle: आकार एनीमेशन
+title: जावा का उपयोग करके प्रस्तुतियों में शेप एनीमेशन लागू करें
+linktitle: शेप एनीमेशन
 type: docs
 weight: 60
 url: /hi/java/shape-animation/
 keywords:
 - आकार
 - एनीमेशन
-- प्रभाव
-- ऐनिमेटेड आकार
-- ऐनिमेटेड टेक्स्ट
+- इफ़ेक्ट
+- एनीमेटेड आकार
+- एनीमेटेड टेक्स्ट
 - एनीमेशन जोड़ें
 - एनीमेशन प्राप्त करें
 - एनीमेशन निकालें
-- प्रभाव जोड़ें
-- प्रभाव प्राप्त करें
-- प्रभाव निकालें
-- प्रभाव ध्वनि
+- इफ़ेक्ट जोड़ें
+- इफ़ेक्ट प्राप्त करें
+- इफ़ेक्ट निकालें
+- इफ़ेक्ट ध्वनि
 - एनीमेशन लागू करें
 - PowerPoint
 - प्रस्तुति
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java के साथ आकार एनीमेशन, टाइमिंग, ध्वनियों, एनीमेशन-के-बाद व्यवहार, और ऐनिमेटेड टेक्स्ट को जोड़ना, निरीक्षण करना और अनुकूलित करना सीखें।"
+description: "Aspose.Slides for Java के साथ शेप एनीमेशन, टाइमिंग, ध्वनियों, एनीमेशन‑के‑बाद व्यवहार और एनीमेटेड टेक्स्ट को जोड़ने, निरीक्षण करने और अनुकूलित करने के तरीके सीखें।"
 ---
-## **अवलोकन**
+## **परिचय**
 
-Aspose.Slides for Java स्लाइड एनीमेशन को स्लाइड टाइमलाइन में इफ़ेक्ट्स के रूप में दर्शाता है। एक इफ़ेक्ट में लक्ष्य आकृति, एनीमेशन प्रकार और उपप्रकार, ट्रिगर, टाइमिंग सेटिंग्स, तथा वैकल्पिक गुण जैसे ध्वनि या एनीमेशन‑के‑बाद का व्यवहार शामिल होता है।
+एक प्रभाव के भीतर व्यक्तिगत व्यवहारों के साथ काम करने या मोशन‑पाथ खंडों को संपादित करने के लिए, देखें [कस्टम एनीमेशन](/slides/hi/java/custom-animation/)।
 
-टाइमलाइन दो प्रकार के अनुक्रम शामिल करता है:
+Aspose.Slides for Java स्लाइड एनीमेशन को स्लाइड टाइमलाइन में इफ़ेक्ट्स के रूप में दर्शाता है। एक इफ़ेक्ट में लक्ष्य आकार, एनीमेशन प्रकार और उपप्रकार, ट्रिगर, टाइमिंग सेटिंग्स, तथा वैकल्पिक गुण जैसे ध्वनि या एनीमेशन‑के‑बाद व्यवहार होते हैं।
 
-- **मुख्य अनुक्रम** स्लाइड के आगे बढ़ने पर चलता है।
-- **इंटरैक्टिव अनुक्रम** तब शुरू होता है जब उसका ट्रिगर आकार क्लिक किया जाता है।
+टाइमलाइन में दो प्रकार के क्रम होते हैं:
 
-चूँकि टेक्स्ट बॉक्स, चित्र, चार्ट, तालिकाएँ और अन्य स्लाइड ऑब्जेक्ट्स [IShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/) को लागू करते हैं, आप अधिकांश स्लाइड सामग्री के लिए वही [ISequence.addEffect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) मेथड उपयोग करते हैं। उपलब्ध इफ़ेक्ट्स [EffectType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/effecttype/) क्लास में सूचीबद्ध हैं।
+- **मुख्य क्रम** स्लाइड आगे बढ़ते समय चलता है।
+- **इंटरएक्टिव क्रम** तब शुरू होता है जब उसका ट्रिगर आकार क्लिक किया जाता है।
 
-## **आकार एनीमेशन जोड़ें**
+क्योंकि टेक्स्ट बॉक्स, चित्र, चार्ट, तालिकाएँ और अन्य स्लाइड ऑब्जेक्ट [IShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/) को लागू करते हैं, आप अधिकांश स्लाइड सामग्री के लिए वही [ISequence.addEffect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) मेथड का उपयोग करते हैं। उपलब्ध इफ़ेक्ट्स [EffectType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/effecttype/) क्लास में सूचीबद्ध हैं।
 
-एनीमेशन जोड़ने के लिए स्लाइड के मुख्य अनुक्रम को प्राप्त करें और लक्ष्य आकृति, इफ़ेक्ट प्रकार, उपप्रकार, तथा ट्रिगर के साथ [ISequence.addEffect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) को कॉल करें। किसी इफ़ेक्ट को जब दूसरे आकार पर क्लिक करने पर शुरू करना हो, तो ऐसा इंटरैक्टिव अनुक्रम बनाएं जिसका ट्रिगर वह दूसरा आकार हो।
+## **शेप एनीमेशन जोड़ें**
+
+एक एनीमेशन जोड़ने के लिए, स्लाइड की मुख्य क्रम प्राप्त करें और लक्ष्य आकार, इफ़ेक्ट प्रकार, उपप्रकार और ट्रिगर के साथ [ISequence.addEffect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) को कॉल करें। उस इफ़ेक्ट के लिए जो किसी अन्य आकार के क्लिक पर शुरू होता है, एक इंटरएक्टिव क्रम बनाएं जिसका ट्रिगर वह अन्य आकार हो।
 
 नीचे दिया गया उदाहरण दोनों प्रकार के एनीमेशन बनाता है और परिणाम को `shape-animations.pptx` में सहेजता है।
 
@@ -71,19 +73,19 @@ public class AddShapeAnimations {
 }
 ```
 
-ट्रिगर यह नियंत्रित करता है कि इफ़ेक्ट कब शुरू होता है:
+ट्रिगर नियंत्रित करता है कि इफ़ेक्ट कब शुरू होता है:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/hi/java/com.aspose.slides/effecttriggertype/#OnClick) मुख्य अनुक्रम में क्लिक या इंटरैक्टिव अनुक्रम में ट्रिगर आकार पर क्लिक की प्रतीक्षा करता है।
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/hi/java/com.aspose.slides/effecttriggertype/#WithPrevious) पहले वाले इफ़ेक्ट के साथ शुरू होता है।
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/hi/java/com.aspose.slides/effecttriggertype/#AfterPrevious) पहले वाले इफ़ेक्ट के समाप्त होने पर शुरू होता है।
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/hi/java/com.aspose.slides/effecttriggertype/#OnClick) मुख्य क्रम में क्लिक का इंतजार करता है, या इंटरएक्टिव क्रम में ट्रिगर आकार पर क्लिक का।
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/hi/java/com.aspose.slides/effecttriggertype/#WithPrevious) पिछले इफ़ेक्ट के साथ शुरू होता है।
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/hi/java/com.aspose.slides/effecttriggertype/#AfterPrevious) जब पूर्व इफ़ेक्ट समाप्त हो जाता है, तब शुरू होता है।
 
-चित्र, चार्ट या किसी अन्य आकार को एनीमेट करने के लिए `targetShape` के बजाय उस ऑब्जेक्ट को [ISequence.addEffect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) को पास करें। चार्ट‑विशिष्ट ग्रुपिंग विकल्पों के लिए देखें [Animated Charts](/slides/hi/java/animated-charts/)।
+चित्र, चार्ट, या किसी अन्य आकार प्रकार को एनीमेट करने के लिए, `targetShape` के बजाय उस ऑब्जेक्ट को [ISequence.addEffect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) को पास करें। चार्ट‑विशिष्ट ग्रुपिंग विकल्पों के लिए, देखें [एनिमेटेड चार्ट](/slides/hi/java/animated-charts/)।
 
-## **आकार एनीमेशन पढ़ें**
+## **शेप एनीमेशन पढ़ें**
 
-जब आप लक्ष्य आकार जानते हों तो [ISequence.getEffectsByShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) का उपयोग करें। सभी इफ़ेक्ट्स का निरीक्षण करने के लिए मुख्य अनुक्रम और प्रत्येक इंटरैक्टिव अनुक्रम को क्रमबद्ध करें। क्रमबद्ध करने से यह मानने से बचा जाता है कि अनुक्रम के इंडेक्स `0` पर हमेशा कोई इफ़ेक्ट मौजूद है।
+जब आपको लक्ष्य आकार पता हो, तब [ISequence.getEffectsByShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) का उपयोग करें। सभी इफ़ेक्ट्स को निरीक्षण करने के लिए, मुख्य क्रम और प्रत्येक इंटरएक्टिव क्रम को क्रमबद्ध करें। क्रमबद्ध करना यह अनुमान लगाने से बचाता है कि क्रम में इंडेक्स `0` पर कोई इफ़ेक्ट मौजूद है।
 
-नीचे दिया गया उदाहरण मुख्य‑अनुक्रम और इंटरैक्टिव इफ़ेक्ट्स वाले एक आकार को बनाता है, आकार को लक्षित करने वाले इफ़ेक्ट्स प्राप्त करता है, और फिर स्लाइड पर प्रत्येक अनुक्रम को क्रमबद्ध करता है।
+नीचे दिया गया उदाहरण मुख्य‑क्रम और इंटरएक्टिव इफ़ेक्ट्स वाले एक आकार को बनाता है, आकार को लक्षित करने वाले इफ़ेक्ट्स प्राप्त करता है, और फिर स्लाइड पर प्रत्येक क्रम को क्रमबद्ध करता है।
 
 ```java
 import com.aspose.slides.*;
@@ -137,21 +139,21 @@ public class ReadShapeAnimations {
 }
 ```
 
-यदि आपको केवल एक ही आकार के लिए इफ़ेक्ट्स चाहिए, तो पहले आकार को नाम, प्लेसहोल्डर प्रकार या किसी अन्य स्थिर प्रॉपर्टी से पहचानें; फिर [ISequence.getEffectsByShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) को कॉल करें। यह मान कर न चलें कि [IShapeCollection.get_Item](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishapecollection/#get_Item-int-) का इंडेक्स `0` हमेशा इच्छित ऑब्जेक्ट होता है।
+यदि आपको केवल एक आकार के लिए इफ़ेक्ट्स चाहिए, तो पहले आकार को नाम, प्लेसहोल्डर प्रकार, या किसी अन्य स्थिर गुण से पहचाने; फिर [ISequence.getEffectsByShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) को कॉल करें। यह न मानें कि इंडेक्स `0` पर [IShapeCollection.get_Item](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishapecollection/#get_Item-int-) हमेशा इच्छित ऑब्जेक्ट है।
 
-## **विरासत में मिले प्लेसहोल्डर इफ़ेक्ट्स के साथ काम करें**
+## **इनहेरिटेड प्लेसहोल्डर इफ़ेक्ट्स के साथ काम करना**
 
-सामान्य स्लाइड पर एक प्लेसहोल्डर अपने लेआउट स्लाइड और मास्टर स्लाइड पर स्थित समान प्लेसहोल्डर से एनीमेशन व्यवहार को विरासत में ले सकता है। [IShape.getBasePlaceholder](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/#getBasePlaceholder--) वह पैरेंट प्लेसहोल्डर लौटाता है, या जब कोई पैरेंट न हो तो `null`।
+सामान्य स्लाइड पर एक प्लेसहोल्डर अपने लेआउट स्लाइड और मास्टर स्लाइड पर संबंधित प्लेसहोल्डर से एनीमेशन व्यवहार को इनहेरिट कर सकता है। [IShape.getBasePlaceholder](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/#getBasePlaceholder--) वह पैरेंट प्लेसहोल्डर लौटाता है, या जब कोई पैरेंट नहीं होता तो `null`।
 
-निम्न उदाहरण प्रस्तुति में फ़ूटर में सामान्य स्लाइड पर **Random Bars**, लेआउट स्लाइड पर **Split**, और मास्टर स्लाइड पर **Fly In** हैं।
+निम्नलिखित उदाहरण प्रस्तुति में, फुटर पर सामान्य स्लाइड में **Random Bars**, लेआउट स्लाइड में **Split**, और मास्टर स्लाइड में **Fly In** है।
 
-![सामान्य स्लाइड पर फ़ूटर एनीमेशन प्रभाव](slide-shape-animation.png)
+![सामान्य स्लाइड पर फुटर एनीमेशन प्रभाव](slide-shape-animation.png)
 
-![लेआउट स्लाइड पर फ़ूटर प्लेसहोल्डर एनीमेशन प्रभाव](layout-shape-animation.png)
+![लेआउट स्लाइड पर फुटर प्लेसहोल्डर एनीमेशन प्रभाव](layout-shape-animation.png)
 
-![मास्टर स्लाइड पर फ़ूटर प्लेसहोल्डर एनीमेशन प्रभाव](master-shape-animation.png)
+![मास्टर स्लाइड पर फुटर प्लेसहोल्डर एनीमेशन प्रभाव](master-shape-animation.png)
 
-अगला उदाहरण नई प्रस्तुति से एक प्लेसहोल्डर पदानुक्रम का उपयोग करता है। यह मास्टर प्लेसहोल्डर, लेआउट प्लेसहोल्डर और सामान्य स्लाइड पर संबंधित प्लेसहोल्डर में इफ़ेक्ट्स जोड़ता है। प्रत्येक बार [IShape.getBasePlaceholder](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/#getBasePlaceholder--) को कॉल करने से पहले जाँच की जाती है।
+अगला उदाहरण एक नई प्रस्तुति की प्लेसहोल्डर पदानुक्रम का उपयोग करता है। यह एक मास्टर प्लेसहोल्डर, एक लेआउट प्लेसहोल्डर, और सामान्य स्लाइड पर संबंधित प्लेसहोल्डर में इफ़ेक्ट्स जोड़ता है। प्रत्येक बार [IShape.getBasePlaceholder](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/#getBasePlaceholder--) को कॉल करने से पहले जाँच की जाती है।
 
 ```java
 import com.aspose.slides.*;
@@ -231,9 +233,9 @@ public class InheritedPlaceholderAnimations {
 
 ## **एनीमेशन टाइमिंग बदलें**
 
-PowerPoint **Timing** संवाद [ITiming](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itiming/) की प्रॉपर्टीज़ से मेल खाता है।
+PowerPoint **Timing** डायलॉग [ITiming](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itiming/) की प्रॉपर्टीज़ से मैप करता है।
 
-![एनीमेशन इफ़ेक्ट के लिए PowerPoint Timing संवाद](shape-animation.png)
+![एनीमेशन इफ़ेक्ट के लिए PowerPoint टाइमिंग डायलॉग](shape-animation.png)
 
 - **Start** को [ITiming.getTriggerType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itiming/#getTriggerType--) से मैप किया जाता है।
 - **Duration** को [ITiming.getDuration](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itiming/#getDuration--) से मैप किया जाता है, सेकंड में।
@@ -241,7 +243,7 @@ PowerPoint **Timing** संवाद [ITiming](https://reference.aspose.com/sli
 - **Repeat** को [ITiming.getRepeatCount](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itiming/#getRepeatCount--) , [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itiming/#getRepeatUntilNextClick--) या [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itiming/#getRepeatUntilEndSlide--) से मैप किया जाता है।
 - **Rewind when done playing** को [ITiming.getRewind](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itiming/#getRewind--) से मैप किया जाता है।
 
-यह स्वतंत्र उदाहरण एक इफ़ेक्ट जोड़ता है, उसे [ISequence.addEffect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) द्वारा लौटाए गए ऑब्जेक्ट के माध्यम से उसका टाइमिंग बदलता है, और परिणाम को सहेजता है। लौटाए गए [IEffect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ieffect/) संदर्भ को रखना अनावश्यक कलेक्शन इंडेक्स से बचाता है।
+यह स्वतंत्र उदाहरण एक इफ़ेक्ट जोड़ता है, उसे [ISequence.addEffect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) द्वारा लौटाए गए ऑब्जेक्ट के माध्यम से टाइमिंग बदलता है, और परिणाम को सहेजता है। लौटाए गए [IEffect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ieffect/) रेफ़रेंस को रखना अनावश्यक कलेक्शन इंडेक्स से बचाता है।
 
 ```java
 import com.aspose.slides.*;
@@ -271,15 +273,15 @@ public class ChangeAnimationTiming {
 }
 ```
 
-एक ही रिपीट मोड का जानबूझकर उपयोग करें। एक रिपीट काउंट को “until” फ्लैग के साथ मिलाने से विभिन्न दर्शकों में भ्रमित करने वाले परिणाम मिल सकते हैं। रिपीट मोड बदलते समय पहले [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) और [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) सेट करें, फिर [ITiming.setRepeatCount](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itiming/#setRepeatCount-float-) को सेट करें, क्योंकि किसी भी फ्लैग को सेट करने से सक्रिय रिपीट मोड बदल जाता है।
+एक रिपीट मोड को जानबूझकर उपयोग करें। रिपीट काउंट को “until” फ़्लैग के साथ मिलाने से विभिन्न व्यूअर्स में भ्रमित करने वाले परिणाम मिल सकते हैं। रिपीट मोड बदलते समय, पहले [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) और [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) सेट करें, फिर [ITiming.setRepeatCount](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itiming/#setRepeatCount-float-) को कॉल करें, क्योंकि किसी फ़्लैग को सेट करने से सक्रिय रिपीट मोड भी बदल जाता है।
 
-## **एनीमेशन ध्वनियों को जोड़ें और निकालें**
+## **एनीमेशन साउंड जोड़ें और निकालें**
 
-एक एनीमेशन इफ़ेक्ट अंतर्निहित ऑडियो को [IEffect.getSound](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ieffect/#getSound--) के माध्यम से संदर्भित कर सकता है। [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) किसी इफ़ेक्ट को बताता है कि वह पहले के इफ़ेक्ट द्वारा शुरू की गई ध्वनि को रोक दे।
+एक एनीमेशन इफ़ेक्ट एम्बेडेड ऑडियो को [IEffect.getSound](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ieffect/#getSound--) के माध्यम से संदर्भित कर सकता है। [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) इफ़ेक्ट को बताता है कि वह पूर्व इफ़ेक्ट द्वारा शुरू किए गए ऑडियो को बंद करे।
 
-### **इफ़ेक्ट में ध्वनि जोड़ें**
+### **इफ़ेक्ट में साउंड जोड़ें**
 
-नीचे दिया गया उदाहरण स्थानीय ऑडियो फ़ाइल `animation-sound.wav` की अपेक्षा करता है। यह दो इफ़ेक्ट बनाता है, पहली इफ़ेक्ट के लिए उस फ़ाइल को ध्वनि के रूप में एम्बेड करता है, और दूसरी इफ़ेक्ट को ध्वनि रोकने के लिए कॉन्फ़िगर करता है। यह [ISequence.addEffect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) द्वारा लौटाए गए ऑब्जेक्ट का उपयोग करता है, इसलिए अनुक्रम इंडेक्स की आवश्यकता नहीं होती।
+निम्नलिखित उदाहरण एक स्थानीय ऑडियो फ़ाइल `animation-sound.wav` की अपेक्षा करता है। यह दो इफ़ेक्ट बनाता है, पहली इफ़ेक्ट के लिए उस फ़ाइल को साउंड के रूप में एम्बेड करता है, और दूसरी इफ़ेक्ट को साउंड को रोकने के लिए कॉन्फ़िगर करता है। यह [ISequence.addEffect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) द्वारा लौटाए गए ऑब्जेक्ट का उपयोग करता है, इसलिए अनुक्रम इंडेक्स की आवश्यकता नहीं है।
 
 ```java
 import com.aspose.slides.*;
@@ -314,9 +316,9 @@ public class AddAnimationSound {
 }
 ```
 
-### **एम्बेडेड इफ़ेक्ट ध्वनियों को निकालें**
+### **एम्बेडेड इफ़ेक्ट साउंड निकालें**
 
-नीचे दिया गया उदाहरण स्थानीय प्रस्तुति `presentation-with-animation-sounds.pptx` की अपेक्षा करता है। यह मुख्य और इंटरैक्टिव दोनों अनुक्रमों को स्कैन करता है और प्रत्येक एम्बेडेड इफ़ेक्ट ध्वनि को `extracted-animation-sounds` निर्देशिका में लिखता है। एक्सटेंशन ऑडियो MIME टाइप से प्राप्त किया जाता है, जिसे [IAudio.getContentType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iaudio/#getContentType--) के माध्यम से उपलब्ध कराया जाता है।
+निम्नलिखित उदाहरण स्थानीय प्रस्तुति `presentation-with-animation-sounds.pptx` की अपेक्षा करता है। यह मुख्य और इंटरएक्टिव दोनों क्रमों को स्कैन करता है और प्रत्येक एम्बेडेड इफ़ेक्ट साउंड को `extracted-animation-sounds` डायरेक्टरी में लिखता है। एक्सटेंशन ऑडियो MIME टाइप से चुना जाता है जो [IAudio.getContentType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iaudio/#getContentType--) द्वारा प्रदान किया जाता है।
 
 ```java
 import com.aspose.slides.*;
@@ -390,17 +392,17 @@ public class ExtractAnimationSounds {
 }
 ```
 
-बड़ी ऑडियो ऑब्जेक्ट्स के लिए, पूरी ऑब्जेक्ट को बाइट एरे में लोड करने के बजाय [IAudio.getStream](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iaudio/#getStream--) का उपयोग करें और स्ट्रीम को फ़ाइल में कॉपी करें।
+बड़े ऑडियो ऑब्जेक्ट्स के लिए, [IAudio.getStream](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iaudio/#getStream--) का उपयोग करें और पूरे ऑब्जेक्ट को बाइट एरे में लोड करने के बजाय स्ट्रीम को फ़ाइल में कॉपी करें।
 
 ## **एनीमेशन‑के‑बाद व्यवहार सेट करें**
 
 **After animation** विकल्प नियंत्रित करता है कि इफ़ेक्ट समाप्त होने के बाद आकार के साथ क्या होता है।
 
-![After animation सेटिंग्स दिखाते हुए PowerPoint Effect Options संवाद](shape-after-animation.png)
+![After animation सेटिंग दिखाते हुए PowerPoint इफ़ेक्ट विकल्प डायलॉग](shape-after-animation.png)
 
-[AfterAnimationType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/afteranimationtype/) क्लास आकार को अपरिवर्तित छोड़ने, उसका रंग बदलने, एनीमेशन के बाद छिपाने, या अगले क्लिक पर छिपाने का समर्थन करता है। जब प्रकार [AfterAnimationType.Color](https://reference.aspose.com/slides/hi/java/com.aspose.slides/afteranimationtype/#Color) हो, तो साथ में [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ieffect/#getAfterAnimationColor--) सेट करें।
+[AfterAnimationType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/afteranimationtype/) क्लास आकार को अपरिवर्तित रखने, उसका रंग बदलने, एनीमेशन के बाद छुपाने, या अगले क्लिक पर छुपाने के विकल्प प्रदान करता है। जब प्रकार [AfterAnimationType.Color](https://reference.aspose.com/slides/hi/java/com.aspose.slides/afteranimationtype/#Color) हो, तो साथ में [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ieffect/#getAfterAnimationColor--) भी सेट करें।
 
-यह स्वतंत्र उदाहरण एक इफ़ेक्ट बनाता है, लौटाए गए इफ़ेक्ट ऑब्जेक्ट के माध्यम से उसके एनीमेशन‑के‑बाद व्यवहार को सेट करता है, और परिणाम को सहेजता है।
+यह स्वतंत्र उदाहरण एक इफ़ेक्ट बनाता है, लौटाए गए इफ़ेक्ट ऑब्जेक्ट के माध्यम से उसके एनीमेशन‑के‑बाद व्यवहार को सेट करता है, और परिणाम सहेजता है।
 
 ```java
 import com.aspose.slides.*;
@@ -430,12 +432,12 @@ public class SetAfterAnimationBehavior {
 
 ## **टेक्स्ट एनीमेट करें**
 
-टेक्स्ट एनीमेशन में दो संबंधित नियंत्रण हैं:
+टेक्स्ट एनीमेशन में दो संबंधित नियंत्रण होते हैं:
 
-- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextanimation/#getBuildType--) यह निर्धारित करता है कि अनुच्छेद एक साथ दिखें या अनुच्छेद‑स्तर में।
-- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ieffect/#getAnimateTextType--) यह निर्धारित करता है कि टेक्स्ट एक बार में, शब्द‑दर‑शब्द या अक्षर‑दर‑अक्षर दिखे। [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) शब्दों या अक्षरों के बीच देरी सेट करता है। सकारात्मक मान प्रभाव अवधि का प्रतिशत होता है; नकारात्मक मान सेकंड में देरी का प्रतिनिधित्व करता है।
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextanimation/#getBuildType--) यह निर्धारित करता है कि पैराग्राफ एक साथ दिखें या पैराग्राफ स्तर पर।
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ieffect/#getAnimateTextType--) यह निर्धारित करता है कि टेक्स्ट सभी एक साथ, शब्द‑दर‑शब्द या अक्षर‑दर‑अक्षर दिखे। [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) शब्दों या अक्षरों के बीच देरी सेट करता है। सकारात्मक मान इफ़ेक्ट अवधि का प्रतिशत है; नकारात्मक मान सेकंड में देरी है।
 
-निम्न स्वतंत्र उदाहरण एक टेक्स्ट बॉक्स के शब्दों को एनीमेट करता है। [BuildType.AsOneObject](https://reference.aspose.com/slides/hi/java/com.aspose.slides/buildtype/#AsOneObject) पैराग्राफ‑दर‑पैराग्राफ निर्माण को निष्क्रिय करता है, जिससे शब्द सेटिंग पूरे टेक्स्ट फ्रेम पर लागू होती है।
+निम्नलिखित स्वतंत्र उदाहरण टेक्स्ट बॉक्स में शब्दों को एनीमेट करता है। [BuildType.AsOneObject](https://reference.aspose.com/slides/hi/java/com.aspose.slides/buildtype/#AsOneObject) पैराग्राफ‑दर‑पैराग्राफ निर्माण को अक्षम करता है ताकि शब्द सेटिंग पूरे टेक्स्ट फ़्रेम पर लागू हो।
 
 ```java
 import com.aspose.slides.*;
@@ -461,26 +463,26 @@ public class AnimateTextByWord {
 }
 ```
 
-पैराग्राफ‑दर‑पैराग्राफ बॉक्स बनाने के लिए, [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/hi/java/com.aspose.slides/buildtype/#ByLevelParagraphs1) (या कोई अन्य पैराग्राफ‑स्तर) सेट करें। किसी एकल पैराग्राफ को उसका अपना इफ़ेक्ट देने के लिए, [ISequence.addEffect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) ओवरलोड का उपयोग करें जो [IParagraph](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iparagraph/) को स्वीकार करता है। पैराग्राफ‑स्तर के उदाहरणों के लिए देखें [Animated Text](/slides/hi/java/animated-text/)।
+पैराग्राफ‑दर‑पैराग्राफ टेक्स्ट बॉक्स बनाने के लिए, [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/hi/java/com.aspose.slides/buildtype/#ByLevelParagraphs1) (या अन्य पैराग्राफ स्तर) सेट करें। किसी एक पैराग्राफ को उसके स्वयं के इफ़ेक्ट के साथ लक्षित करने के लिए, उस [ISequence.addEffect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) ओवरलोड का उपयोग करें जो [IParagraph](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iparagraph/) को स्वीकार करता है। पैराग्राफ‑स्तर के उदाहरणों के लिए देखें [एनिमेटेड टेक्स्ट](/slides/hi/java/animated-text/)।
 
 ## **निर्यात और संगतता नोट्स**
 
-- PPT या PPTX में सहेजने से एनीमेशन मॉडल बना रहता है, लेकिन अंतिम प्लेबैक प्रस्तुति दर्शक द्वारा नियंत्रित होता है।
-- PDF और स्थिर छवियों में एनीमेशन नहीं चलता। जब आउटपुट को गति दिखानी हो, तो [HTML5 export](/slides/hi/java/export-to-html5/), एनिमेटेड GIF, या [video conversion](/slides/hi/java/convert-powerpoint-to-video/) का उपयोग करें।
-- HTML5 के लिए, [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/hi/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) सक्षम करें और आवश्यकता पड़ने पर [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/hi/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) को सेट करें।
-- वीडियो रेंडरिंग कई सामान्य प्रवेश, ज़ोर, निकास, और मोशन‑पाथ इफ़ेक्ट्स को सपोर्ट करता है, लेकिन हर PowerPoint इफ़ेक्ट समर्थित नहीं है। वर्तमान [supported animations and effects](/slides/hi/java/convert-powerpoint-to-video/#supported-animations-and-effects) देखें और अपने लक्ष्य Aspose.Slides संस्करण के साथ महत्वपूर्ण प्रस्तुतियों का परीक्षण करें।
-- उन्नत कस्टम इफ़ेक्ट्स और अन्य प्रस्तुति स्वरूपों से आयात किए गए इफ़ेक्ट्स फ़ाइल में संरक्षित हो सकते हैं, लेकिन PowerPoint, HTML5, या वीडियो में अलग तरह से रेंडर हो सकते हैं। प्रभाव नाम पर केवल भरोसा न करके निर्यात परिणाम को वैधता जांचें।
+- PPT या PPTX में सहेजने से एनीमेशन मॉडल संरक्षित रहता है, लेकिन अंतिम प्लेबैक प्रस्तुति व्यूअर द्वारा नियंत्रित होता है।
+- PDF और स्थिर छवियाँ एनीमेशन नहीं चलातीं। जब आउटपुट में गति दिखानी हो, तो [HTML5 निर्यात](/slides/hi/java/export-to-html5/), एनिमेटेड GIF, या [वीडियो रूपांतरण](/slides/hi/java/convert-powerpoint-to-video/) का उपयोग करें।
+- HTML5 के लिए, [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/hi/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) को सक्षम करें और आवश्यकतानुसार [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/hi/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) को सक्षम करें।
+- वीडियो रेंडरिंग कई सामान्य प्रवेश, ज़ोर, निकास और मोशन‑पाथ इफ़ेक्ट्स का समर्थन करता है, लेकिन प्रत्येक PowerPoint इफ़ेक्ट समर्थित नहीं है। वर्तमान [समर्थित एनीमेशन और इफ़ेक्ट्स](/slides/hi/java/convert-powerpoint-to-video/#supported-animations-and-effects) देखें और लक्ष्य Aspose.Slides संस्करण के साथ महत्वपूर्ण प्रस्तुतियों का परीक्षण करें।
+- कस्टम इफ़ेक्ट्स और अन्य प्रस्तुति स्वरूपों से आयातित इफ़ेक्ट्स फ़ाइल में संरक्षित रह सकते हैं, लेकिन PowerPoint, HTML5, या वीडियो में अलग तरह से रेंडर हो सकते हैं। केवल इफ़ेक्ट नाम पर भरोसा करने की बजाय निर्यात परिणाम को सत्यापित करें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्यों एक एनीमेशन PowerPoint में दिखता है लेकिन PDF में नहीं?**
+**PowerPoint में एनीमेशन दिखता है लेकिन PDF में नहीं दिखता, क्यों?**
 
-PDF एक स्थिर स्वरूप है, इसलिए एनीमेशन और स्लाइड ट्रांज़िशन नहीं चलते। जब गति को संरक्षित करना हो तो HTML5, एनिमेटेड GIF, या वीडियो में निर्यात करें।
+PDF एक स्थिर स्वरूप है, इसलिए एनीमेशन और स्लाइड ट्रांज़िशन नहीं चलतीं। जब गति बनाए रखनी हो, तो HTML5, एनिमेटेड GIF, या वीडियो में निर्यात करें।
 
-**क्यों एक इफ़ेक्ट वीडियो में अलग तरह से चलता है?**
+**एक इफ़ेक्ट वीडियो में अलग तरह से क्यों चलता है?**
 
-वीडियो निर्यात एनीमेशन को रेंडर करता है, मूल PowerPoint व्यवहार को नहीं। कुछ उन्नत इफ़ेक्ट्स असमर्थित या अनुमानित होते हैं। समर्थित‑इफ़ेक्ट्स तालिका देखें और उत्पादन उपयोग से पहले वास्तविक प्रस्तुति का परीक्षण करें।
+वीडियो निर्यात एनीमेशन को रेंडर करता है, मूल PowerPoint व्यवहार को नहीं सहेजता। कुछ उन्नत इफ़ेक्ट्स असमर्थित या अनुमानित होते हैं। समर्थित‑इफ़ेक्ट्स तालिका देखें और उत्पादन उपयोग से पहले वास्तविक प्रस्तुति का परीक्षण करें।
 
 **क्या आकार को आगे या पीछे ले जाने से उसकी एनीमेशन क्रम बदलता है?**
 
-नहीं। आकार का z‑order ओवरलैप नियंत्रित करता है, जबकि अनुक्रम क्रम और ट्रिगर एनीमेशन प्लेबैक नियंत्रित करते हैं। यदि अलग प्लेबैक क्रम चाहिए तो टाइमलाइन बदलेँ।
+नहीं। आकार का z‑order ओवरलैप को नियंत्रित करता है, जबकि क्रम और ट्रिगर एनीमेशन प्लेबैक को नियंत्रित करते हैं। यदि अलग प्लेबैक क्रम चाहिए तो टाइमलाइन बदलें।

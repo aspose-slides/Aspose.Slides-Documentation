@@ -10,13 +10,13 @@ keywords:
 - animáció módosítása
 - animáció eltávolítása
 - animáció kezelése
-- animáció irányítása
+- animáció vezérlése
 - animációs effektus
 - PowerPoint animáció
 - animációs idővonal
 - interaktív animáció
 - egyéni animáció
-- alakzat animáció
+- alakzatanimáció
 - animált diagram
 - animált szöveg
 - animált alakzat
@@ -27,75 +27,79 @@ keywords:
 - bemutató
 - C++
 - Aspose.Slides
-description: "Ismerje meg, hogyan adhat hozzá és irányíthat fejlett animációs effektusokat az Aspose.Slides for C++ segítségével, hogy dinamikus PowerPoint és OpenDocument bemutatókat hozzon létre."
+description: "Ismerje meg, hogyan adhat hozzá és vezérelhet fejlett animációs effektusokat az Aspose.Slides C++ változatában, hogy dinamikus PowerPoint és OpenDocument bemutatókat hozzon létre."
 ---
 ## **Bevezetés**
 
-Mivel a bemutatók célja valami bemutatása, a megjelenésük és az interaktív viselkedésük mindig figyelembe van véve a létrehozásuk során.
+Mivel a bemutatók valamit bemutatni szolgálnak, a vizuális megjelenésüket és interaktív viselkedésüket mindig figyelembe veszik a létrehozás során.
 
-**PowerPoint animáció** fontos szerepet játszik a bemutató látványos és vonzó megjelenése érdekében a nézők számára. Az Aspose.Slides for C++ széles körű lehetőségeket kínál a PowerPoint bemutató animációjának hozzáadásához:
+**PowerPoint animáció** fontos szerepet játszik abban, hogy egy bemutató figyelemfelkeltő és vonzó legyen a nézők számára. Az Aspose.Slides széles körű lehetőségeket biztosít a PowerPoint prezentációkhoz animációk hozzáadásához:
 
-- különböző típusú PowerPoint animációs effektusok alkalmazása alakzatokra, diagramokra, táblázatokra, OLE objektumokra és egyéb bemutatóelemekre.
-- több PowerPoint animációs effektus használata egy alakzaton.
-- animáció idővonal használata az animációs effektusok vezérléséhez.
-- egyéni animáció létrehozása.
+- Alkalmazzon különféle PowerPoint animációs effektusokat alakzatokra, diagramokra, táblázatokra, OLE objektumokra és egyéb bemutatóelemekre.
+- Használjon több PowerPoint animációs efekttet a egyetlen alakzaton.
+- Használja az animáció idővonalát az animációs effektusok vezérléséhez.
+- Hozzon létre egyéni animációkat.
 
-Az Aspose.Slides for C++ esetén különböző animációs effektusok alkalmazhatók az alakzatokra. Mivel a dia minden eleme, beleértve a szöveget, képeket, OLE objektumot, táblázatot stb., alakzatnak számít, ezért animációs effektust alkalmazhatunk a dia minden elemére.
+Az Aspose.Slides-ben különféle animációs effektusok alkalmazhatók alakzatokra. Mivel a dia minden eleme, beleértve a szöveget, képeket, OLE objektumokat és táblázatokat, alakzatnak számít, az animációs effektusok bármely elemre alkalmazhatók a dián.
 
-[**Aspose.Slides.Animation**](https://reference.aspose.com/slides/hu/cpp/namespace/aspose.slides.animation) **névtér** osztályokat biztosít a PowerPoint animációk kezeléséhez.
-## **Animációs effektusok**
-Az Aspose.Slides **150+ animációs effektust** támogat, beleértve az alapvető effektusokat, mint a Bounce, PathFootball, a Zoom effektus és a speciális effektusokat, mint az OLEObjectShow, OLEObjectOpen. A teljes animációs effektuslista megtalálható a [**EffectType**](https://reference.aspose.com/slides/hu/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31) felsorolásban.
+Az [Aspose::Slides::Animation](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/) névtér osztályokat biztosít a PowerPoint animációkkal való munkához.
 
-Ezen animációs effektusok kombinálhatók a következőkkel:
+## **Animációs hatások**
 
+Az Aspose.Slides **150+ animációs effektust** támogat, beleértve az egyszerű efektusokat, mint a Bounce, PathFootball és a Zoom, valamint a specifikus effektusokat, mint az OLEObjectShow és OLEObjectOpen. A teljes felsorolást megtalálja a [EffectType](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/effecttype/) felsorolásban.
+
+Ezen animációs effektusok a következő viselkedésekkel kombinálhatók:
 - [ColorEffect](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/coloreffect/)
-- [CommandEffect](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.animation.command_effect)
-- [FilterEffect](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.animation.filter_effect)
-- [MotionEffect](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.animation.motion_effect)
-- [PropertyEffect](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.animation.property_effect)
-- [RotationEffect](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.animation.rotation_effect)
-- [ScaleEffect](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.animation.scale_effect)
-- [SetEffect](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.animation.set_effect)
+- [CommandEffect](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/commandeffect/)
+- [FilterEffect](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/filtereffect/)
+- [MotionEffect](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/motioneffect/)
+- [PropertyEffect](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/propertyeffect/)
+- [RotationEffect](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/rotationeffect/)
+- [ScaleEffect](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/scaleeffect/)
+- [SetEffect](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/seteffect/)
 
 ## **Egyéni animáció**
-Lehetséges saját **egyéni animációkat** létrehozni az Aspose.Slides-ben.  
-Ezt úgy érhetjük el, ha több viselkedést kombinálunk egy új egyéni animációba.
 
-[**Behavior**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.animation.behavior) bármely PowerPoint animációs effektus építőeleme.  
-Az összes animációs effektus valójában egy viselkedésekből álló halmaz, amely egy stratégia szerint van összerakva.  
-Egy egyéni animációba egyszerűen kombinálhatja a viselkedéseket, és újra felhasználhatja más bemutatókban.  
-Ha új viselkedést ad hozzá egy szabványos PowerPoint animációs effektushoz – az egy újabb egyéni animáció lesz.  
-Például hozzáadhat ismétlődő viselkedést egy animációhoz, hogy néhányszor megismétlődjön.
+A teljes C++ példa, amely létrehozza, ellenőrzi és módosítja a viselkedéseket és a szerkeszthető mozgási útvonalakat, megtalálható a [Custom Animation](/slides/hu/cpp/custom-animation/) oldalon.
 
-[**Animation Point**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.animation.point) az a pont, ahol a viselkedést alkalmazni kell.
+Lehetséges saját **egyéni animációkat** létrehozni az Aspose.Slides-ben. Ezt több viselkedés kombinálásával egy új egyéni animációba lehet elérni.
+
+[Behavior](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/behavior/) a PowerPoint animációs effektus építőköve. Kombinálja a viselkedéseket egy effektus testreszabásához, vagy adjon hozzá egy viselkedést egy előre definiált effektus kibővítéséhez. Az ismétlés az időzítési beállításokkal konfigurálható, nem egy külön ismétlő viselkedéssel.
+
+[Animation Point](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/point/) egy pont, ahol egy viselkedést kell alkalmazni.
 
 ## **Animációs idővonal**
-[**Sequence**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.animation.sequence) egy konkrét alakzatra alkalmazott animációs effektusok gyűjteménye.
 
-[**AnimationTimeLine**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.animation.animation_time_line) egy konkrét dián használt Szekvenciák halmaza. Ez egy animációs motor, amely a PowerPoint 2002-es verziója óta létezik. Korábbi PowerPoint verziókban nehéz volt animációs effektusokat hozzáadni a bemutatóhoz, ami csak különböző megkerülő megoldásokkal volt lehetséges. Az idővonal a régi AnimationSettings osztályt helyettesíti, és egyértelműbb objektummodellt biztosít a PowerPoint animációkhoz. Egy diának csak egy animációs idővonal lehet.
+[Sequence](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/sequence/) animációs effektusok gyűjteménye, amelyek különböző alakzatokra célozhatók.
+
+[IAnimationTimeLine](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ianimationtimeline/) egy adott dián használt sorozatok halmaza. Ez egy animációs motor, amelyet a PowerPoint 2002-ben vezettek be. A korábbi PowerPoint verziókban az animációs effektusok hozzáadása a prezentációkhoz nehézkes volt, és csak különféle megkerülésekkel volt lehetséges. Az idővonal tisztább objektummodellt biztosít a PowerPoint animációkhoz. Egy diának csak egy animációs idővonal lehet.
 
 ## **Interaktív animáció**
-[**EffectTriggerType**](https://reference.aspose.com/slides/hu/cpp/namespace/aspose.slides.animation#add24fb49dd44eb3227aeeb3641fd2e81) lehetővé teszi felhasználói műveletek (például gombkattintás) definiálását, amelyek elindítanak egy adott animációt. A triggerek csak a legújabb PowerPoint verzióban lettek hozzáadva.
+
+[Trigger](https://reference.aspose.com/slides/hu/cpp/aspose.slides.animation/effecttriggertype/) lehetővé teszi felhasználói műveletek, például gombkattintás meghatározását, amelyek elindítanak egy adott animációt.
 
 ## **Alakzat animáció**
-Aspose.Slides lehetővé teszi animációk alkalmazását alakzatokra, amelyek lehetnek szöveg, téglalap, vonal, keret, OLE objektum stb.
 
-{{% alert color="primary" %}} 
-További információ [**Az alakzat animációjáról**](/slides/hu/cpp/shape-animation/).
+Az Aspose.Slides lehetővé teszi animációk alkalmazását alakzatokra, amelyek tartalmazhatnak szöveget, téglalapokat, vonalakat, kereteket, OLE objektumokat és egyebeket.
+
+{{% alert color="info" title="Note" %}}
+Olvassa tovább [**Az alakzatanimációról**](/slides/hu/cpp/shape-animation/).
 {{% /alert %}}
 
 ## **Animált diagramok**
-Animált diagramok létrehozásához ugyanazokat az osztályokat kell használni, mint az alakzatoknál. Azonban a PowerPoint animáció csak diagramkategóriákra vagy diagram sorozatokra alkalmazható. Animációs effektust alkalmazhat kategóriaelemre vagy sorozatelemre is.
 
-{{% alert color="primary" %}} 
-További információ [**Animált diagramokról**](/slides/hu/cpp/animated-charts/).
+Animált diagramok létrehozásához ugyanazokat az osztályokat kell használni, mint az alakzatoknál. Azonban a PowerPoint animációk csak diagramkategóriákra vagy diagramsorozatokra alkalmazhatók. Animációs effektusokat alkalmazhat egy kategóriaelemre vagy egy sorozatelemre is.
+
+{{% alert color="info" title="Note" %}}
+Olvassa tovább [**Az animált diagramokról**](/slides/hu/cpp/animated-charts/).
 {{% /alert %}}
 
 ## **Animált szöveg**
-Az animált szövegen kívül animációt is alkalmazhat bekezdésre.
 
-{{% alert color="primary" %}} 
-További információ [**Az animált szövegről**](/slides/hu/cpp/animated-text/).
+A szöveg animálása mellett animációt alkalmazhat bekezdésre is.
+
+{{% alert color="info" title="Note" %}}
+Olvassa tovább [**Az animált szövegről**](/slides/hu/cpp/animated-text/).
 {{% /alert %}}
 
 ## **GYIK**
@@ -106,8 +110,8 @@ Nem. A PDF egy statikus formátum, így az animációk és a [diaátmenetek](/sl
 
 **Átalakíthatom-e az animált bemutatót videóvá, és vezérelhetem a képkockasebességet és a képkockaméretet?**
 
-Igen. A [bemutatót képkockákra renderelheti](/slides/hu/cpp/convert-powerpoint-to-video/), majd videóvá (például ffmpeg segítségével) kódolhatja, kiválasztva a FPS-t és a felbontást. Az animációk és a diaátmenetek a renderelés során lejátszásra kerülnek.
+Igen. A [bemutató renderelhető képkockáként](/slides/hu/cpp/convert-powerpoint-to-video/) és kódolható videóvá (például ffmpeg‑kel), a FPS és a felbontás kiválasztásával. Az animációk és diaátmenetek a renderelés során lejátszásra kerülnek.
 
-**Megmaradnak-e az animációk az ODP-vel (nem csak PPTX) való munkavégzéskor?**
+**Megmaradnak-e az animációk ODP‑vel (nem csak PPTX) dolgozva?**
 
-A PPT, PPTX és ODP támogatott a [olvasáshoz](/slides/hu/cpp/open-presentation/) és a [íráshoz](/slides/hu/cpp/save-presentation/), de a formátumkülönbségek miatt bizonyos effektusok kicsit másként nézhetnek ki vagy viselkedhetnek. Kritikus eseteket valós mintákkal ellenőrizze.
+A PPT, PPTX és ODP támogatott a [olvasáshoz](/slides/hu/cpp/open-presentation/) és a [íráshoz](/slides/hu/cpp/save-presentation/), de ez nem garantálja az animációk megőrzését. Az egyéni animációs adatok elveszhetnek ODP‑re konvertálás közben. Tekintse meg a [Custom Animation](/slides/hu/cpp/custom-animation/) oldalt példákért és útmutatásért a formátumkompatibilitás ellenőrzéséhez.

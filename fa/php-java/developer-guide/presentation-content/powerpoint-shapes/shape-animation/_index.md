@@ -16,30 +16,32 @@ keywords:
 - افزودن اثر
 - دریافت اثر
 - استخراج اثر
-- صدا اثر
+- صدای اثر
 - اعمال انیمیشن
 - PowerPoint
 - ارائه
 - PHP
 - Aspose.Slides
-description: "یاد بگیرید چگونه انیمیشن‌های شکل را اضافه، بررسی و سفارشی‌سازی کنید، زمان‌بندی، صداها، رفتار پس از انیمیشن و متن‌های متحرک را با Aspose.Slides برای PHP از طریق Java."
+description: "بیاموزید چگونه انیمیشن‌های شکل، زمان‌بندی، صداها، رفتار پس از انیمیشن و متن‌های متحرک را با Aspose.Slides برای PHP از طریق Java اضافه، بررسی و سفارشی‌سازی کنید."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-Aspose.Slides for PHP via Java انیمیشن‌های اسلاید را به‌صورت افکت‌ها در جدول زمانی اسلاید نمایش می‌دهد. هر افکت دارای شکل هدف، نوع و زیرنوع انیمیشن، محرک، تنظیمات زمان‌بندی و ویژگی‌های اختیاری نظیر صدا یا رفتار پس از انیمیشن است.
+برای کار با رفتارهای فردی داخل یک اثر یا ویرایش بخش‌های مسیر حرکتی، به [انیمیشن سفارشی](/slides/fa/php-java/custom-animation/) مراجعه کنید.
 
-جدول زمانی شامل دو نوع توالی است:
+Aspose.Slides for PHP via Java انیمیشن‌های اسلاید را به‌عنوان اثرها در جدول زمانی اسلاید نشان می‌دهد. یک اثر دارای شکل هدف، نوع و زیرنوع انیمیشن، محرک، تنظیمات زمان‌بندی و ویژگی‌های اختیاری مانند صدا یا رفتار پس از انیمیشن است.
 
-- **توالی اصلی** هنگام پیشرفت اسلاید پخش می‌شود.
-- **توالی تعاملی** زمانی که شکل محرک‌اش کلیک شود، آغاز می‌گردد.
+جدول زمانی دو نوع دنباله دارد:
 
-چون جعبه‌های متن، تصویرها، نمودارها، جدول‌ها و سایر اشیاء اسلاید همه به‌عنوان شکل محسوب می‌شوند، برای اکثر محتوای اسلاید از همان روش [Sequence::addEffect](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sequence/addeffect/) استفاده می‌کنید. افکت‌های قابل استفاده در کلاس [EffectType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effecttype/) فهرست شده‌اند.
+- **دنباله اصلی** هنگام پیشروی اسلاید اجرا می‌شود.
+- **دنباله تعاملی** زمانی شروع می‌شود که شکل محرک آن کلیک شود.
+
+چون جعبه‌های متن، تصویرها، نمودارها، جدول‌ها و سایر اشیای اسلاید همگی شکل هستند، برای اکثر محتویات اسلاید از همان متد [Sequence::addEffect](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sequence/addeffect/) استفاده می‌کنید. اثرهای موجود در کلاس [EffectType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effecttype/) فهرست شده‌اند.
 
 ## **افزودن انیمیشن به شکل‌ها**
 
-برای افزودن انیمیشن، توالی اصلی اسلاید را دریافت کنید و با استفاده از [Sequence::addEffect](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sequence/addeffect/) شکل هدف، نوع افکت، زیرنوع و محرک را مشخص کنید. برای افکتی که با کلیک روی شکل دیگر شروع می‌شود، یک توالی تعاملی ایجاد کنید که محرکش همان شکل دیگر باشد.
+برای افزودن انیمیشن، دنباله اصلی اسلاید را دریافت کرده و متد [Sequence::addEffect](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sequence/addeffect/) را با شکل هدف، نوع اثر، زیرنوع و محرک صدا بزنید. برای اثری که هنگام کلیک بر شکل دیگری شروع می‌شود، یک دنباله تعاملی ایجاد کنید که محرک آن همان شکل دیگر باشد.
 
-مثال زیر هر دو نوع انیمیشن را ایجاد می‌کند و نتیجه را در فایل `shape-animations.pptx` ذخیره می‌سازد.
+مثال زیر هر دو نوع انیمیشن را ایجاد کرده و نتیجه را در `shape-animations.pptx` ذخیره می‌کند.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -72,19 +74,19 @@ try {
 }
 ```
 
-محرک تعیین می‌کند افکت چه زمانی آغاز شود:
+محرک تعیین می‌کند اثر چه زمانی آغاز شود:
 
-- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effecttriggertype/) در توالی اصلی به‌دنبال کلیک یا در توالی تعاملی به‌دنبال کلیک روی شکل محرک انتظار می‌کشد.
-- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effecttriggertype/) همزمان با افکت قبلی شروع می‌شود.
-- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effecttriggertype/) پس از پایان افکت قبلی آغاز می‌گردد.
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effecttriggertype/) در دنباله اصلی منتظر کلیک می‌ماند یا در دنباله تعاملی منتظر کلیک روی شکل محرک است.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effecttriggertype/) همراه با اثر قبلی آغاز می‌شود.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effecttriggertype/) پس از پایان اثر قبلی شروع می‌شود.
 
-برای انیمیشن تصویر، نمودار یا هر نوع شکل دیگری، به‌جای `$targetShape` همان شیء را به [Sequence::addEffect](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sequence/addeffect/) پاس بدهید. برای گزینه‌های گروه‌بندی خاص نمودار، به بخش [Animated Charts](/slides/fa/php-java/animated-charts/) مراجعه کنید.
+برای انیمیشن تصویر، نمودار یا هر نوع شکل دیگر، به‌جای `$targetShape` همان شیء را به متد [Sequence::addEffect](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sequence/addeffect/) پاس دهید. برای گزینه‌های گروه‌بندی مخصوص نمودارها، به [نمودارهای انیمیشنی](/slides/fa/php-java/animated-charts/) مراجعه کنید.
 
 ## **خواندن انیمیشن‌های شکل**
 
-زمانی که شکل هدف را می‌دانید، از [Sequence::getEffectsByShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sequence/geteffectsbyshape/) استفاده کنید. برای بررسی هر افکت، توالی اصلی و تمام توالی‌های تعاملی را پیمایش کنید. پیمایش از این‌جهت انجام می‌شود که فرض نکنید توالی حتماً افکتی در اندیس `0` دارد.
+زمانی که شکل هدف را می‌دانید، از [Sequence::getEffectsByShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sequence/geteffectsbyshape/) استفاده کنید. برای بررسی تمام اثرها، دنباله اصلی و هر دنباله تعاملی را پیمایش کنید. پیمایش از این‌رو از فرض وجود اثر در ایندکس `0` جلوگیری می‌کند.
 
-مثال زیر یک شکل با افکت‌های توالی اصلی و تعاملی ایجاد می‌کند، افکت‌های هدفش را دریافت می‌کند و سپس همه توالی‌های اسلاید را پیمایش می‌نماید.
+مثال زیر یک شکل با اثرهای دنباله اصلی و تعاملی ایجاد می‌کند، اثرهای هدف‌دار به شکل را می‌گیرد و سپس تمام دنباله‌های اسلاید را پیمایش می‌کند.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -144,21 +146,21 @@ try {
 }
 ```
 
-اگر فقط به افکت‌های یک شکل نیاز دارید، ابتدا شکل را با نام، نوع نگه‌دارنده یا ویژگی پایدار دیگری شناسایی کنید؛ سپس [Sequence::getEffectsByShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sequence/geteffectsbyshape/) را فراخوانی کنید. فرض نکنید که [ShapeCollection::get_Item](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/get_item/) در اندیس `0` همیشه شیء موردنظر است.
+اگر فقط به اثرهای یک شکل نیاز دارید، ابتدا شکل را بر اساس نام، نوع جای‌دار یا ویژگی ثابت دیگری شناسایی کنید؛ سپس متد [Sequence::getEffectsByShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sequence/geteffectsbyshape/) را صدا بزنید. فرض نکنید که [ShapeCollection::get_Item](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/get_item/) در ایندکس `0` همیشه شیء موردنظر است.
 
-## **کار با افکت‌های نگه‌دارنده ارث‌برده‌شده**
+## **کار با اثرهای جای‌دار ارث‌بری‌شده**
 
-یک نگه‌دارنده در اسلاید عادی می‌تواند رفتار انیمیشن را از نگه‌دارنده متناظر در اسلاید طرح‌بندی و اسلاید اصلی به‌ارث ببرد. [Shape::getBasePlaceholder](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/getbaseplaceholder/) همان نگه‌دارنده والد را برمی‌گرداند یا `null` وقتی والد وجود ندارد.
+یک جای‌دار در اسلاید معمولی می‌تواند رفتار انیمیشن را از جای‌دار متناظر در اسلاید طرح‌بندی و اسلاید مستر به ارث ببرد. متد [Shape::getBasePlaceholder](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/getbaseplaceholder/) آن جای‌دار والد را باز می‌گرداند یا `null` اگر والد وجود نداشته باشد.
 
-در ارائهٔ نمونهٔ زیر، پاورقی دارای **Random Bars** در اسلاید عادی، **Split** در اسلاید طرح‌بندی و **Fly In** در اسلاید اصلی است.
+در ارائه مثال زیر، پاورقی بر اسلاید معمولی دارای **نوارهای تصادفی**، بر اسلاید طرح‌بندی دارای **تقسیم** و بر اسلاید مستر دارای **پرواز به داخل** است.
 
-![پیشنویس انیمیشن پاورقی در اسلاید عادی](slide-shape-animation.png)
+![اثر انیمیشن فوتر در اسلاید معمولی](slide-shape-animation.png)
 
-![پیشنویس انیمیشن پاورقی در اسلاید طرح‌بندی](layout-shape-animation.png)
+![اثر انیمیشن فوتر در اسلاید طرح‌بندی](layout-shape-animation.png)
 
-![پیشنویس انیمیشن پاورقی در اسلاید اصلی](master-shape-animation.png)
+![اثر انیمیشن فوتر در اسلاید مستر](master-shape-animation.png)
 
-مثال بعدی از سلسله‌مراتب نگه‌دارنده‌ها در یک ارائهٔ جدید استفاده می‌کند. افکت‌ها را به یک نگه‌دارندهٔ اصلی، یک نگه‌دارندهٔ طرح‌بندی و نگه‌دارندهٔ متناظر در اسلاید عادی اضافه می‌کند. هر بار قبل از استفاده از شیء بازگشت‌شده، وجود آن با [Shape::getBasePlaceholder](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/getbaseplaceholder/) بررسی می‌شود.
+مثال بعدی از یک سلسله مراتب جای‌دار در یک ارائه جدید استفاده می‌کند. اثرها به جای‌دار مستر، جای‌دار طرح‌بندی و جای‌دار متناظر در اسلاید معمولی اضافه می‌شود. قبل از استفاده از شکل بازگشتی، هر بار متد [Shape::getBasePlaceholder](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/getbaseplaceholder/) بررسی می‌شود.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -248,17 +250,17 @@ try {
 
 ## **تغییر زمان‌بندی انیمیشن**
 
-پنجرهٔ **Timing** در PowerPoint به ویژگی‌های [Timing](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/) نگاشته می‌شود.
+دیالوگ **Timing** در پاورپوینت به خواص [Timing](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/) نقشه می‌شود.
 
-![پنجره زمان‌بندی PowerPoint برای یک افکت انیمیشن](shape-animation.png)
+![دیالوگ Timing در پاورپوینت برای یک اثر انیمیشن](shape-animation.png)
 
-- **Start** به [Timing::getTriggerType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/gettriggertype/) نگاشت می‌شود.
-- **Duration** به [Timing::getDuration](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/getduration/) (ثانیه) نگاشت می‌شود.
-- **Delay** به [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/gettriggerdelaytime/) (ثانیه) نگاشت می‌شود.
-- **Repeat** به [Timing::getRepeatCount](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/getrepeatcount/)، [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/getrepeatuntilnextclick/) یا [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/getrepeatuntilendslide/) نگاشت می‌شود.
-- **Rewind when done playing** به [Timing::getRewind](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/getrewind/) نگاشت می‌شود.
+- **Start** به [Timing::getTriggerType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/gettriggertype/) نقشه می‌شود.
+- **Duration** به [Timing::getDuration](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/getduration/) (ثانیه) نقشه می‌شود.
+- **Delay** به [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/gettriggerdelaytime/) (ثانیه) نقشه می‌شود.
+- **Repeat** به [Timing::getRepeatCount](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/getrepeatcount/)، [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/getrepeatuntilnextclick/) یا [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/getrepeatuntilendslide/) نقشه می‌شود.
+- **Rewind when done playing** به [Timing::getRewind](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/getrewind/) نقشه می‌شود.
 
-این مثال مستقل یک افکت افزود، زمان‌بندی آن را از طریق شیء برگردانده‌شده توسط [Sequence::addEffect](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sequence/addeffect/) تغییر داد و نتیجه را ذخیره کرد. نگه داشتن مرجع [Effect](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effect/) بازگشت‌شده از ایجاد یک شاخص مجموعهٔ غیرضروری جلوگیری می‌کند.
+این مثال مستقل یک اثر را اضافه می‌کند، زمان‌بندی آن را از طریق شیء بازگردانده‌شده توسط [Sequence::addEffect](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sequence/addeffect/) تغییر می‌دهد و نتیجه را ذخیره می‌کند. نگهداری مرجع بازگردانده‌شدهٔ [Effect](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effect/) از یک ایندکس مجموعه غیرضروری جلوگیری می‌کند.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -289,15 +291,15 @@ try {
 }
 ```
 
-یک حالت تکرار را به‌صورت عمدی استفاده کنید. ترکیب شمارش تکرار با پرچم «تا» می‌تواند نتایج گیج‌کننده‌ای در نمایشگرهای مختلف ایجاد کند. هنگام تغییر حالت‌های تکرار، ابتدا [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/setrepeatuntilnextclick/) و [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/setrepeatuntilendslide/) را تنظیم کنید و سپس [Timing::setRepeatCount](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/setrepeatcount/) را صدا بزنید، زیرا تنظیم هرکدام از پرچم‌ها حالت تکرار فعال را نیز تغییر می‌دهد.
+یک حالت تکرار را به‌صورت عمدی استفاده کنید. ترکیب تعداد تکرار با پرچم «until» می‌تواند نتایج مبهمی در نمایشگرهای مختلف ایجاد کند. هنگام تغییر حالت‌های تکرار، ابتدا [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/setrepeatuntilnextclick/) و [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/setrepeatuntilendslide/) را تنظیم کنید و سپس [Timing::setRepeatCount](https://reference.aspose.com/slides/fa/php-java/aspose.slides/timing/setrepeatcount/) را صدا بزنید، چرا که تنظیم هر یک از پرچم‌ها حالت تکرار فعال را نیز تغییر می‌دهد.
 
 ## **افزودن و استخراج صداهای انیمیشن**
 
-یک افکت انیمیشن می‌تواند صداهای جاسازی‌شده را از طریق [Effect::getSound](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effect/getsound/) ارجاع دهد. [Effect::setStopPreviousSound](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effect/setstopprevioussound/) به افکتی می‌گوید صداهای شروع‌شده توسط افکت‌های قبلی را متوقف کند.
+یک اثر انیمیشن می‌تواند به صداهای توکار از طریق [Effect::getSound](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effect/getsound/) ارجاع دهد. متد [Effect::setStopPreviousSound](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effect/setstopprevioussound/) به یک اثر می‌گوید صداهای شروع‌شده توسط اثر قبلی را متوقف کند.
 
-### **افزودن صدا به یک افکت**
+### **افزودن صدا به یک اثر**
 
-مثال زیر انتظار دارد فایل صوتی محلی با نام `animation-sound.wav` موجود باشد. دو افکت ایجاد می‌کند، آن فایل را به عنوان صدا برای اولین افکت جاسازی می‌کند و دومین افکت را طوری تنظیم می‌کند که صدا را متوقف کند. از اشیاء بازگشت‌شده توسط [Sequence::addEffect](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sequence/addeffect/) استفاده می‌کند، بنابراین نیازی به اندیس توالی نیست.
+مثال زیر انتظار دارد فایلی صوتی محلی به نام `animation-sound.wav` موجود باشد. دو اثر ایجاد می‌کند، آن فایل را به عنوان صدای اثر اول تعبیه می‌کند و اثر دوم را طوری تنظیم می‌کند که صدا را متوقف کند. از اشیائی که توسط [Sequence::addEffect](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sequence/addeffect/) بازگردانده می‌شوند استفاده می‌شود، بنابراین نیازی به ایندکس دنباله نیست.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -334,9 +336,9 @@ try {
 }
 ```
 
-### **استخراج صداهای افکت جاسازی‌شده**
+### **استخراج صداهای توکار اثر**
 
-مثال زیر انتظار دارد ارائهٔ محلی به نام `presentation-with-animation-sounds.pptx` وجود داشته باشد. توالی‌های اصلی و تعاملی را اسکن می‌کند و هر صداهای افکت جاسازی‌شده را در پوشهٔ `extracted-animation-sounds` می‌نویسد. پسوند بر اساس MIME type صوتی که توسط [Audio::getContentType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/audio/getcontenttype/) ارائه می‌شود، انتخاب می‌شود.
+مثال زیر انتظار دارد ارائه‌ای محلی به نام `presentation-with-animation-sounds.pptx` وجود داشته باشد. هر دو دنباله اصلی و تعاملی را اسکن می‌کند و هر صدای توکار اثر را در پوشه `extracted-animation-sounds` می‌نویسد. پسوند از نوع MIME صوتی که توسط [Audio::getContentType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/audio/getcontenttype/) در دسترس است، انتخاب می‌شود.
 
 ```php
 use aspose\slides\Presentation;
@@ -420,17 +422,17 @@ try {
 }
 ```
 
-برای اشیاء صوتی بزرگ، از [Audio::getStream](https://reference.aspose.com/slides/fa/php-java/aspose.slides/audio/getstream/) استفاده کنید و جریان را به یک فایل کپی کنید به‌جای اینکه کل شیء را در یک آرایه بایت بارگذاری کنید.
+برای اشیای صوتی بزرگ، از [Audio::getStream](https://reference.aspose.com/slides/fa/php-java/aspose.slides/audio/getstream/) استفاده کنید و جریان را به یک فایل کپی کنید به‌جای بارگذاری کامل شیء در آرایه بایت.
 
 ## **تنظیم رفتار پس از انیمیشن**
 
-گزینه **After animation** مشخص می‌کند پس از پایان افکت چه اتفاقی برای شکل بیفتد.
+گزینه **After animation** تعیین می‌کند پس از پایان اثر چه اتفاقی برای شکل می‌افتد.
 
-![پنجره گزینه‌های افکت PowerPoint که تنظیمات After animation را نشان می‌دهد](shape-after-animation.png)
+![دیالوگ گزینه‌های اثر در پاورپوینت نشان‌دهنده تنظیمات After animation](shape-after-animation.png)
 
-کلاس [AfterAnimationType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/afteranimationtype/) از باقی‌ماندهٔ شکل بدون تغییر، تغییر رنگ، مخفی کردن پس از انیمیشن یا مخفی کردن در کلیک بعدی پشتیبانی می‌کند. وقتی نوع برابر با [AfterAnimationType::Color](https://reference.aspose.com/slides/fa/php-java/aspose.slides/afteranimationtype/) باشد، باید [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effect/getafteranimationcolor/) نیز تنظیم شود.
+کلاس [AfterAnimationType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/afteranimationtype/) حمایت می‌کند از باقی‌ماندن شکل بدون تغییر، تغییر رنگ، مخفی شدن پس از انیمیشن یا مخفی شدن در کلیک بعدی. وقتی نوع برابر با [AfterAnimationType::Color](https://reference.aspose.com/slides/fa/php-java/aspose.slides/afteranimationtype/) باشد، همچنین [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effect/getafteranimationcolor/) را تنظیم کنید.
 
-این مثال مستقل یک افکت ایجاد می‌کند، رفتار پس از انیمیشن را از طریق شیء افکت بازگردانده تنظیم می‌کند و نتیجه را ذخیره می‌سازد.
+این مثال مستقل یک اثر می‌سازد، رفتار پس از انیمیشن را از طریق شیء اثر بازگردانده تنظیم می‌کند و نتیجه را ذخیره می‌نماید.
 
 ```php
 use aspose\slides\AfterAnimationType;
@@ -463,10 +465,10 @@ try {
 
 انیمیشن متن دو کنترل مرتبط دارد:
 
-- [TextAnimation::getBuildType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/textanimation/getbuildtype/) تعیین می‌کند پاراگراف‌ها به‌صورت یکجا یا به‌سطح پاراگراف ظاهر شوند.
-- [Effect::getAnimateTextType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effect/getanimatetexttype/) تعیین می‌کند متن به‌صورت یکجا، به‌واحد کلمه یا به‌واحد حرف ظاهر شود. [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effect/getdelaybetweentextparts/) تأخیر بین کلمات یا حروف را تنظیم می‌کند. مقدار مثبت درصدی از مدت افکت است؛ مقدار منفی تأخیر بر حسب ثانیه محسوب می‌شود.
+- [TextAnimation::getBuildType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/textanimation/getbuildtype/) تعیین می‌کند پاراگراف‌ها به‌صورت گروهی یا به‌صورت سطح پاراگراف ظاهر شوند.
+- [Effect::getAnimateTextType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effect/getanimatetexttype/) تعیین می‌کند متن به‌صورت یک‌باره، به‌صورت کلمه یا به‌صورت حرف ظاهر شود. متد [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/fa/php-java/aspose.slides/effect/getdelaybetweentextparts/) تأخیر بین کلمات یا حروف را تنظیم می‌کند. مقدار مثبت درصدی از مدت اثر است؛ مقدار منفی تأخیری بر حسب ثانیه.
 
-مثال مستقل زیر کلمات یک جعبهٔ متن را انیمیشن می‌دهد. [BuildType::AsOneObject](https://reference.aspose.com/slides/fa/php-java/aspose.slides/buildtype/) ساخت پاراگراف به‌پاراگراف را غیرفعال می‌کند تا تنظیم کلمه روی تمام فریم متن اعمال شود.
+مثال مستقل زیر کلمات یک جعبه متن را انیمیشن می‌دهد. [BuildType::AsOneObject](https://reference.aspose.com/slides/fa/php-java/aspose.slides/buildtype/) ساخت پاراگراف به‌پارگراف را غیرفعال می‌کند تا تنظیم کلمه برای کل فریم متن اعمال شود.
 
 ```php
 use aspose\slides\AnimateTextType;
@@ -495,26 +497,26 @@ try {
 }
 ```
 
-برای ساخت جعبهٔ متن بر پایهٔ پاراگراف، [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/fa/php-java/aspose.slides/buildtype/) (یا سطح پاراگراف دیگری) را تنظیم کنید. برای هدف‌گذاری یک پاراگراف منفرد با افکت خاص، از overload متد [Sequence::addEffect](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sequence/addeffect/) که یک [Paragraph](https://reference.aspose.com/slides/fa/php-java/aspose.slides/paragraph/) می‌پذیرد، استفاده کنید. برای مثال‌های سطح پاراگراف به بخش [Animated Text](/slides/fa/php-java/animated-text/) مراجعه کنید.
+برای ساخت جعبه متن به‌صورت پاراگراف، [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/fa/php-java/aspose.slides/buildtype/) (یا سطح پاراگراف دیگر) را تنظیم کنید. برای هدف‌گیری یک پاراگراف منفرد با اثر مخصوص خود، از اورلود متد [Sequence::addEffect](https://reference.aspose.com/slides/fa/php-java/aspose.slides/sequence/addeffect/) که یک [Paragraph](https://reference.aspose.com/slides/fa/php-java/aspose.slides/paragraph/) می‌پذیرد، استفاده کنید. برای مثال‌های سطح پاراگراف به [متن انیمیشنی](/slides/fa/php-java/animated-text/) مراجعه کنید.
 
 ## **صادرات و نکات سازگاری**
 
-- ذخیره به‌صورت PPT یا PPTX مدل انیمیشن را حفظ می‌کند، اما پخش نهایی توسط مشاهده‌کنندهٔ ارائه کنترل می‌شود.
-- PDF و تصاویر ثابت انیمیشن پخش نمی‌کنند. برای نمایش حرکت، از [HTML5 export](/slides/fa/php-java/export-to-html5/)، GIF متحرک یا [تبدیل به ویدیو](/slides/fa/php-java/convert-powerpoint-to-video/) استفاده کنید.
-- برای HTML5، [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/fa/php-java/aspose.slides/html5options/setanimateshapes/) را فعال کنید و در صورت نیاز [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/html5options/setanimatetransitions/) را نیز تنظیم کنید.
-- رندر ویدیو بسیاری از افکت‌های ورودی، تأکید، خروج و مسیر حرکتی را پشتیبانی می‌کند، اما تمام افکت‌های PowerPoint پشتیبانی نمی‌شوند. جدول [انیمیشن‌ها و افکت‌های پشتیبانی‌شده](/slides/fa/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) را بررسی کنید و ارائه‌های مهم را با نسخهٔ هدف Aspose.Slides خود آزمایش کنید.
-- افکت‌های سفارشی پیشرفته و افکت‌های واردشده از قالب‌های دیگر ممکن است در فایل حفظ شوند اما در PowerPoint، HTML5 یا ویدیو به‌صورت متفاوت رندر شوند. نتیجهٔ صادرات را اعتبارسنجی کنید نه فقط بر اساس نام افکت.
+- ذخیره به قالب PPT یا PPTX مدل انیمیشن را حفظ می‌کند، اما پخش نهایی توسط نمایشگر ارائه کنترل می‌شود.
+- PDF و تصاویر ثابت انیمیشن را اجرا نمی‌کنند. هنگام نیاز به نمایش حرکت، از [صادرات به HTML5](/slides/fa/php-java/export-to-html5/)، GIFهای متحرک یا [تبدیل به ویدیو](/slides/fa/php-java/convert-powerpoint-to-video/) استفاده کنید.
+- برای HTML5، متد [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/fa/php-java/aspose.slides/html5options/setanimateshapes/) را فعال کنید و در صورت نیاز، [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/html5options/setanimatetransitions/) را نیز تنظیم نمایید.
+- رندر ویدیو از بسیاری از اثرهای ورود، تأکید، خروج و مسیر حرکتی رایج پشتیبانی می‌کند، اما همهٔ اثرهای PowerPoint پشتیبانی نمی‌شوند. جدول [انیمیشن‌ها و اثرهای پشتیبانی‌شده](/slides/fa/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) را بررسی کنید و ارائه‌های حیاتی را با نسخه Aspose.Slides هدف خود تست کنید.
+- اثرهای سفارشی پیشرفته و اثرهایی که از فرمت‌های ارائه دیگر وارد شده‌اند ممکن است در فایل حفظ شوند اما در PowerPoint، HTML5 یا ویدیو به‌صورت متفاوتی رندر شوند. نتیجهٔ صادرشده را اعتبارسنجی کنید نه فقط بر اساس نام اثر.
 
-## **سؤالات متداول**
+## **سوالات متداول**
 
 **چرا یک انیمیشن در PowerPoint ظاهر می‌شود اما در PDF نیست؟**
 
-PDF یک قالب ثابت است، بنابراین انیمیشن‌ها و انتقال اسلاید اجرا نمی‌شوند. برای حفظ حرکت، به HTML5، GIF متحرک یا ویدیو خروجی دهید.
+PDF یک قالب ثابت است، بنابراین انیمیشن‌ها و انتقال‌های اسلاید اجرا نمی‌شوند. هنگام نیاز به حفظ حرکت، به HTML5، GIF متحرک یا ویدیو خروجی بدهید.
 
-**چرا یک افکت در ویدیو به‌طور متفاوتی پخش می‌شود؟**
+**چرا یک اثر در ویدیو به‌صورت متفاوتی اجرا می‌شود؟**
 
-در خروجی ویدیو، انیمیشن‌ها رندر می‌شوند نه اینکه رفتار اصلی PowerPoint ذخیره شود. برخی افکت‌های پیشرفته پشتیبانی یا تقریباً شبیه‌سازی می‌شوند. جدول افکت‌های پشتیبانی‌شده را مرور کنید و ارائهٔ واقعی را قبل از استفادهٔ تولیدی تست کنید.
+صادرات ویدیو انیمیشن‌ها را رندر می‌کند نه اینکه رفتار اصلی PowerPoint را ذخیره کند. برخی اثرهای پیشرفته پشتیبانی نشده یا به‌صورت تخمینی اجرا می‌شوند. جدول اثرهای پشتیبانی‌شده را مرور کنید و پیش از استفاده در تولید، ارائه واقعی را تست کنید.
 
 **آیا جابه‌جایی یک شکل به جلو یا عقب ترتیب انیمیشن آن را تغییر می‌دهد؟**
 
-نه. ترتیب لایهٔ Z شکل فقط همپوشانی را کنترل می‌کند، در حالی که ترتیب توالی و محرک‌ها ترتیب پخش انیمیشن را تعیین می‌کنند. اگر به ترتیب پخش متفاوتی نیاز دارید، جدول زمانی را تغییر دهید.
+نه. ترتیب لایه (z-order) شکل فقط کنترل همپوشانی را دارد، در حالی که ترتیب دنباله و محرک‌ها کنترل پخش انیمیشن را دارند. اگر به ترتیب پخش متفاوتی نیاز دارید، جدول زمانی را تغییر دهید.

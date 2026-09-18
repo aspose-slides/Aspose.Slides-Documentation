@@ -1,5 +1,5 @@
 ---
-title: Εφαρμογή Κινήσεων Σχημάτων σε Παρουσιάσεις με Python μέσω Java
+title: Εφαρμογή Κινήσεων Σχημάτων σε Παρουσιάσεις Χρησιμοποιώντας Python μέσω Java
 linktitle: Κίνηση Σχήματος
 type: docs
 weight: 60
@@ -23,24 +23,26 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε, να ελέγχετε και να προσαρμόζετε τις κινήσεις σχημάτων, το χρονισμό, τους ήχους, τη συμπεριφορά μετά την κίνηση και το κείμενο με κίνηση με το Aspose.Slides για Python μέσω Java."
+description: "Μάθετε πώς να προσθέτετε, να ελέγχετε και να προσαρμόζετε τις κινήσεις σχημάτων, τον χρονισμό, τους ήχους, τη συμπεριφορά μετά το εφέ και το κινούμενο κείμενο με το Aspose.Slides για Python μέσω Java."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides for Python via Java αναπαριστά τις κινήσεις των διαφανειών ως εφέ σε χρονοδιάγραμμα διαφάνειας. Ένα εφέ διαθέτει ένα σχήμα‑στόχο, έναν τύπο κίνησης και υπό‑τύπο, ένα ερέθισμα, ρυθμίσεις χρονισμού και προαιρετικές ιδιότητες όπως ήχος ή συμπεριφορά μετά την κίνηση.
+Για να εργάζεστε με τις μεμονωμένες συμπεριφορές μέσα σε ένα εφέ ή να επεξεργαστείτε τμήματα διαδρομής κίνησης, δείτε [Προσαρμοσμένη Κίνηση](/slides/el/python-java/custom-animation/).
+
+Aspose.Slides for Python via Java αντιπροσωπεύει τις κινήσεις των διαφανειών ως εφέ σε χρονοδιάγραμμα διαφάνειας. Ένα εφέ έχει ένα σχήμα-στόχο, τύπο κίνησης και υποτύπο, ένα ενεργοποιητή, ρυθμίσεις χρονομέτρησης και προαιρετικές ιδιότητες όπως ήχο ή συμπεριφορά μετά το εφέ.
 
 Το χρονοδιάγραμμα περιέχει δύο είδη ακολουθιών:
 
-- Η **κύρια ακολουθία** εκτελείται καθώς προχωρά η διαφάνεια.
-- Μια **διαδραστική ακολουθία** ξεκινά όταν κάνετε κλικ στο σχήμα‑ερέθισμα.
+- Η **κύρια ακολουθία** παίζει καθώς η διαφάνεια προχωρά.
+- Μια **διαδραστική ακολουθία** ξεκινά όταν το σχήμα-ενεργοποιητής κλικαριστεί.
 
-Επειδή τα πλαίσια κειμένου, οι εικόνες, τα διαγράμματα, οι πίνακες και άλλα αντικείμενα της διαφάνειας κληρονομούν από το [Shape](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/), χρησιμοποιείτε τη ίδια μέθοδο [Sequence.addEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/#addEffect) για το μεγαλύτερο μέρος του περιεχομένου της διαφάνειας. Τα διαθέσιμα εφέ εμφανίζονται στην κλάση [EffectType](https://reference.aspose.com/slides/el/python-java/aspose.slides/effecttype/).
+Επειδή τα πλαίσια κειμένου, οι εικόνες, τα διαγράμματα, οι πίνακες και άλλα αντικείμενα διαφάνειας κληρονομούν από το [Shape](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/), χρησιμοποιείτε την ίδια μέθοδο [Sequence.addEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/#addEffect) για το μεγαλύτερο μέρος του περιεχομένου της διαφάνειας. Τα διαθέσιμα εφέ αναγράφονται στην κλάση [EffectType](https://reference.aspose.com/slides/el/python-java/aspose.slides/effecttype/).
 
-## **Προσθήκη Κινήσεων Σχήματος**
+## **Προσθήκη Κινήσεων σε Σχήματα**
 
-Για να προσθέσετε μια κίνηση, αποκτήστε την κύρια ακολουθία της διαφάνειας και καλέστε τη μέθοδο [Sequence.addEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/#addEffect) με το σχήμα‑στόχο, τον τύπο εφέ, το υπό‑τύπο και το ερέθισμα. Για ένα εφέ που ξεκινά όταν κλικάρεται ένα άλλο σχήμα, δημιουργήστε μια διαδραστική ακολουθία της οποίας το ερέθισμα είναι το συγκεκριμένο σχήμα.
+Για να προσθέσετε μια κίνηση, λάβετε την κύρια ακολουθία της διαφάνειας και καλέστε την [Sequence.addEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/#addEffect) με το σχήμα-στόχο, τον τύπο εφέ, τον υποτύπο και τον ενεργοποιητή. Για ένα εφέ που ξεκινά όταν κλικαριστεί ένα άλλο σχήμα, δημιουργήστε μια διαδραστική ακολουθία του οποίου ο ενεργοποιητής είναι αυτό το άλλο σχήμα.
 
-Το παρακάτω παράδειγμα δημιουργεί και τους δύο τύπους κίνησης και αποθηκεύει το αποτέλεσμα στο `shape-animations.pptx`.
+Το παρακάτω παράδειγμα δημιουργεί και τα δύο τύπους κίνησης και αποθηκεύει το αποτέλεσμα στο `shape-animations.pptx`.
 
 ```python
 import jpype
@@ -73,19 +75,19 @@ finally:
     presentation.dispose()
 ```
 
-Το ερέθισμα ελέγχει πότε ξεκινά ένα εφέ:
+Ο ενεργοποιητής ελέγχει πότε ξεκινά ένα εφέ:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/el/python-java/aspose.slides/effecttriggertype/#OnClick) περιμένει κλικ στην κύρια ακολουθία ή κλικ στο σχήμα‑ερέθισμα σε μια διαδραστική ακολουθία.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/el/python-java/aspose.slides/effecttriggertype/#OnClick) περιμένει κλικ στην κύρια ακολουθία ή κλικ στο σχήμα-ενεργοποιητή σε μια διαδραστική ακολουθία.
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/el/python-java/aspose.slides/effecttriggertype/#WithPrevious) ξεκινά με το προηγούμενο εφέ.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/el/python-java/aspose.slides/effecttriggertype/#AfterPrevious) ξεκινά όταν ολοκληρωθεί το προηγούμενο εφέ.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/el/python-java/aspose.slides/effecttriggertype/#AfterPrevious) ξεκινά όταν το προηγούμενο εφέ ολοκληρωθεί.
 
-Για να δημιουργήσετε κίνηση σε εικόνα, διάγραμμα ή άλλο τύπο σχήματος, περάστε αυτό το αντικείμενο στη μέθοδο [Sequence.addEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/#addEffect) αντί για `target_shape`. Για επιλογές ομαδοποίησης ειδικές για διαγράμματα, δείτε το [Animated Charts](/slides/el/python-java/animated-charts/).
+Για να μετακινήσετε μια εικόνα, διάγραμμα ή άλλο τύπο σχήματος, περάστε εκείνο το αντικείμενο στην [Sequence.addEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/#addEffect) αντί του `target_shape`. Για επιλογές ομαδοποίησης ειδικές για διαγράμματα, δείτε [Animated Charts](/slides/el/python-java/animated-charts/).
 
 ## **Ανάγνωση Κινήσεων Σχήματος**
 
-Χρησιμοποιήστε τη μέθοδο [Sequence.getEffectsByShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/#getEffectsByShape) όταν γνωρίζετε το σχήμα‑στόχο. Για να εξετάσετε κάθε εφέ, επαναλάβετε την κύρια ακολουθία και κάθε διαδραστική ακολουθία. Η επανάληψη αποφεύγει την υπόθεση ότι μια ακολουθία περιέχει εφέ στη θέση `0`.
+Χρησιμοποιήστε την [Sequence.getEffectsByShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/#getEffectsByShape) όταν γνωρίζετε το σχήμα-στόχο. Για να εξετάσετε κάθε εφέ, επαναλάβετε την κύρια ακολουθία και κάθε διαδραστική ακολουθία. Η επανάληψη αποφεύγει την υπόθεση ότι μια ακολουθία περιέχει εφέ στο ευρετήριο `0`.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα με εφέ κυρίως‑ακολουθίας και διαδραστικής ακολουθίας, λαμβάνει τα εφέ που στοχεύουν το σχήμα και, στη συνέχεια, επαναλαμβάνει κάθε ακολουθία στη διαφάνεια.
+Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα με κύριες και διαδραστικές ενέργειες, λαμβάνει τα εφέ που στοχεύουν το σχήμα και, στη συνέχεια, επαναλαμβάνει κάθε ακολουθία στη διαφάνεια.
 
 ```python
 import jpype
@@ -136,21 +138,21 @@ finally:
     presentation.dispose()
 ```
 
-Εάν χρειάζεστε τα εφέ μόνο για ένα σχήμα, πρώτα προσδιορίστε το σχήμα με το όνομα, τον τύπο placeholder ή κάποια άλλη σταθερή ιδιότητα· στη συνέχεια καλέστε τη μέθοδο [Sequence.getEffectsByShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/#getEffectsByShape). Μην υποθέτετε ότι το [ShapeCollection.get_Item](https://reference.aspose.com/slides/el/python-java/aspose.slides/shapecollection/#get_Item) στη θέση `0` είναι πάντα το επιθυμητό αντικείμενο.
+Αν χρειάζεστε μόνο τα εφέ για ένα σχήμα, πρώτα προσδιορίστε το σχήμα κατά όνομα, τύπο πλατφόρμας ή άλλη σταθερή ιδιότητα· στη συνέχεια καλέστε την [Sequence.getEffectsByShape](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/#getEffectsByShape). Μην θεωρείτε ότι η [ShapeCollection.get_Item](https://reference.aspose.com/slides/el/python-java/aspose.slides/shapecollection/#get_Item) στο ευρετήριο `0` είναι πάντα το επιθυμητό αντικείμενο.
 
-## **Δουλειά με Κληρονομημένα Εφέ Placeholder**
+## **Δουλειά με Κληρονομημένα Εφέ Πλατφόρμας**
 
-Ένα placeholder σε μια κανονική διαφάνεια μπορεί να κληρονομήσει τη συμπεριφορά κίνησης από το αντίστοιχο placeholder στη διαφάνεια διάταξης και στη διαφάνεια μάστερ. Η μέθοδος [Shape.getBasePlaceholder](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getBasePlaceholder) επιστρέφει το γονικό placeholder, ή `None` εάν δεν υπάρχει γονέας.
+Ένα placeholder σε μια κανονική διαφάνεια μπορεί να κληρονομήσει τη συμπεριφορά κίνησης από το αντίστοιχο placeholder στη διαφάνεια διάταξης και στο master. Η μέθοδος [Shape.getBasePlaceholder](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getBasePlaceholder) επιστρέφει το γονικό placeholder, ή `None` όταν δεν υπάρχει γονέας.
 
-Στην παρακάτω παρουσίαση παραδείγματος, το υποσέλιδο έχει **Random Bars** στη κανονική διαφάνεια, **Split** στη διαφάνεια διάταξης και **Fly In** στη διαφάνεια μάστερ.
+Στο παρακάτω παράδειγμα παρουσίασης, το υποσέλιδο έχει **Random Bars** στη κανονική διαφάνεια, **Split** στη διαφάνεια διάταξης και **Fly In** στη master διαφάνεια.
 
-![Εφέ κίνησης υποσέλιδου στη κανονική διαφάνεια](slide-shape-animation.png)
+![Περιγραφή εφέ animation στο υποσέλιδο της κανονικής διαφάνειας](slide-shape-animation.png)
 
-![Εφέ κίνησης placeholder υποσέλιδου στη διαφάνεια διάταξης](layout-shape-animation.png)
+![Περιγραφή εφέ animation στο υποσέλιδο της διαφάνειας διάταξης](layout-shape-animation.png)
 
-![Εφέ κίνησης placeholder υποσέλιδου στη διαφάνεια μάστερ](master-shape-animation.png)
+![Περιγραφή εφέ animation στο υποσέλιδο της master διαφάνειας](master-shape-animation.png)
 
-Το επόμενο παράδειγμα χρησιμοποιεί μια ιεραρχία placeholders από μια νέα παρουσίαση. Προσθέτει εφέ σε ένα master placeholder, ένα layout placeholder και το αντίστοιχο placeholder σε μια κανονική διαφάνεια. Κάθε κλήση στη μέθοδο [Shape.getBasePlaceholder](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getBasePlaceholder) ελέγχεται πριν χρησιμοποιηθεί το επιστρεφόμενο σχήμα.
+Το επόμενο παράδειγμα χρησιμοποιεί μια ιεραρχία placeholder από μια νέα παρουσίαση. Προσθέτει εφέ σε ένα master placeholder, ένα layout placeholder και το αντίστοιχο placeholder σε μια κανονική διαφάνεια. Κάθε κλήση στη [Shape.getBasePlaceholder](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getBasePlaceholder) ελέγχεται πριν το επιστρεφόμενο σχήμα χρησιμοποιηθεί.
 
 ```python
 import jpype
@@ -214,17 +216,17 @@ finally:
 
 ## **Αλλαγή Χρονισμού Κίνησης**
 
-Το παράθυρο διαλόγου **Timing** του PowerPoint αντιστοιχεί στις ιδιότητες του [Timing](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/).
+Ο διάλογος **Timing** του PowerPoint αντιστοιχεί στις ιδιότητες του [Timing](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/).
 
 ![Διάλογος Timing του PowerPoint για ένα εφέ κίνησης](shape-animation.png)
 
-- **Start** αντιστοιχεί στο [Timing.getTriggerType](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#getTriggerType).
-- **Duration** αντιστοιχεί στο [Timing.getDuration](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#getDuration), σε δευτερόλεπτα.
-- **Delay** αντιστοιχεί στο [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#getTriggerDelayTime), σε δευτερόλεπτα.
-- **Repeat** αντιστοιχεί στα [Timing.getRepeatCount](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#getRepeatUntilNextClick) ή [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#getRepeatUntilEndSlide).
-- **Rewind when done playing** αντιστοιχεί στο [Timing.getRewind](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#getRewind).
+- **Start** αντιστοιχεί στη [Timing.getTriggerType](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#getTriggerType).
+- **Duration** αντιστοιχεί στη [Timing.getDuration](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#getDuration), σε δευτερόλεπτα.
+- **Delay** αντιστοιχεί στη [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#getTriggerDelayTime), σε δευτερόλεπτα.
+- **Repeat** αντιστοιχεί στη [Timing.getRepeatCount](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#getRepeatUntilNextClick) ή [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#getRepeatUntilEndSlide).
+- **Rewind when done playing** αντιστοιχεί στη [Timing.getRewind](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#getRewind).
 
-Αυτό το ανεξάρτητο παράδειγμα προσθέτει ένα εφέ, αλλάζει τον χρονισμό του μέσω του αντικειμένου που επιστρέφει η [Sequence.addEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/#addEffect) και αποθηκεύει το αποτέλεσμα. Η διατήρηση της επιστρεφόμενης αναφοράς [Effect](https://reference.aspose.com/slides/el/python-java/aspose.slides/effect/) αποτρέπει την ανάγκη μη απαραίτητου δείκτη συλλογής.
+Αυτό το ανεξάρτητο παράδειγμα προσθέτει ένα εφέ, αλλάζει το χρονισμό του μέσω του αντικειμένου που επιστρέφει η [Sequence.addEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/#addEffect) και αποθηκεύει το αποτέλεσμα. Η διατήρηση της αναφοράς του επιστρεφόμενου [Effect](https://reference.aspose.com/slides/el/python-java/aspose.slides/effect/) αποτρέπει την περιττή συλλογή ευρετηρίου.
 
 ```python
 import jpype
@@ -255,15 +257,15 @@ finally:
     presentation.dispose()
 ```
 
-Χρησιμοποιήστε μια μόνο λειτουργία επανάληψης σκόπιμα. Ο συνδυασμός μετρητή επανάληψης με σημαία «until» μπορεί να οδηγήσει σε συγκεχυμένα αποτελέσματα σε διαφορετικούς προβολείς. Όταν αλλάζετε λειτουργίες επανάληψης, ορίστε πρώτα το [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#setRepeatUntilNextClick) και το [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) πριν το [Timing.setRepeatCount](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#setRepeatCount), επειδή ο ορισμός οποιασδήποτε σημαίας αλλάζει και τη ενεργή λειτουργία επανάληψης.
+Χρησιμοποιήστε έναν τρόπο επανάληψης σκόπιμα. Ο συνδυασμός αριθμού επανάληψης με μια σημαία «until» μπορεί να παράγει συγκεχυμένα αποτελέσματα σε διαφορετικούς προσαρμογείς. Καθώς αλλάζετε τους τρόπους επανάληψης, ορίστε πρώτα τη [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#setRepeatUntilNextClick) και τη [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) πριν τη [Timing.setRepeatCount](https://reference.aspose.com/slides/el/python-java/aspose.slides/timing/#setRepeatCount), επειδή ο ορισμός οποιασδήποτε σημαίας αλλάζει επίσης τη δραστήρια λειτουργία επανάληψης.
 
 ## **Προσθήκη και Εξαγωγή Ήχων Κίνησης**
 
-Ένα εφέ κίνησης μπορεί να αναφέρει ενσωματωμένο ήχο μέσω της [Effect.getSound](https://reference.aspose.com/slides/el/python-java/aspose.slides/effect/#getSound). Η [Effect.setStopPreviousSound](https://reference.aspose.com/slides/el/python-java/aspose.slides/effect/#setStopPreviousSound) λέει σε ένα εφέ να σταματήσει ήχο που έχει ξεκινήσει ένα προηγούμενο εφέ.
+Ένα εφέ κίνησης μπορεί να αναφέρει ενσωματωμένο ήχο μέσω της [Effect.getSound](https://reference.aspose.com/slides/el/python-java/aspose.slides/effect/#getSound). Η [Effect.setStopPreviousSound](https://reference.aspose.com/slides/el/python-java/aspose.slides/effect/#setStopPreviousSound) λέει σε ένα εφέ να σταματήσει ήχο που ξεκίνησε από προηγούμενο εφέ.
 
 ### **Προσθήκη Ήχου σε Εφέ**
 
-Το παρακάτω παράδειγμα απαιτεί ένα τοπικό αρχείο ήχου με όνομα `animation-sound.wav`. Δημιουργεί δύο εφέ, ενσωματώνει το αρχείο ως ήχο για το πρώτο εφέ και ρυθμίζει το δεύτερο εφέ να σταματήσει τον ήχο. Χρησιμοποιεί τα αντικείμενα που επιστρέφει η [Sequence.addEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/#addEffect), οπότε δεν απαιτείται δείκτης ακολουθίας.
+Το παρακάτω παράδειγμα υποθέτει ότι υπάρχει τοπικό αρχείο ήχου με όνομα `animation-sound.wav`. Δημιουργεί δύο εφέ, ενσωματώνει το αρχείο ως ήχο για το πρώτο εφέ και ρυθμίζει το δεύτερο εφέ να σταματά τον ήχο. Χρησιμοποιεί τα αντικείμενα που επιστρέφει η [Sequence.addEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/#addEffect), επομένως δεν απαιτείται ευρετήριο ακολουθίας.
 
 ```python
 import jpype
@@ -299,7 +301,7 @@ finally:
 
 ### **Εξαγωγή Ενσωματωμένων Ήχων Εφέ**
 
-Το παρακάτω παράδειγμα απαιτεί μια τοπική παρουσίαση με όνομα `presentation-with-animation-sounds.pptx`. Σαρώνει τόσο την κύρια όσο και τη διαδραστική ακολουθία και γράφει κάθε ενσωματωμένο ήχο εφέ στον φάκελο `extracted-animation-sounds`. Η επέκταση επιλέγεται από τον τύπο MIME του ήχου που εκθέτει η [Audio.getContentType](https://reference.aspose.com/slides/el/python-java/aspose.slides/audio/#getContentType).
+Το παρακάτω παράδειγμα υποθέτει μια τοπική παρουσίαση με όνομα `presentation-with-animation-sounds.pptx`. Σαρώνει τόσο τις κύριες όσο και τις διαδραστικές ακολουθίες και γράφει κάθε ενσωματωμένο ήχο εφέ στον φάκελο `extracted-animation-sounds`. Η επέκταση επιλέγεται από τον τύπο MIME του ήχου που εκτίθεται από την [Audio.getContentType](https://reference.aspose.com/slides/el/python-java/aspose.slides/audio/#getContentType).
 
 ```python
 import jpype
@@ -353,17 +355,17 @@ finally:
     presentation.dispose()
 ```
 
-Για μεγάλα αντικείμενα ήχου, χρησιμοποιήστε την [Audio.getStream](https://reference.aspose.com/slides/el/python-java/aspose.slides/audio/#getStream) και αντιγράψτε το ρεύμα σε αρχείο αντί να φορτώσετε ολόκληρο το αντικείμενο σε έναν πίνακα byte.
+Για μεγάλα αντικείμενα ήχου, χρησιμοποιήστε την [Audio.getStream](https://reference.aspose.com/slides/el/python-java/aspose.slides/audio/#getStream) και αντιγράψτε τη ροή σε αρχείο αντί να φορτώνετε ολόκληρο το αντικείμενο σε byte array.
 
-## **Ορισμός Συμπεριφορας Μετά την Κίνηση**
+## **Ορισμός Συμπεριφοράς Μετά το Εφέ**
 
 Η επιλογή **After animation** ελέγχει τι συμβαίνει με ένα σχήμα μετά το τέλος του εφέ.
 
-![Διάλογος επιλογών εφέ του PowerPoint που εμφανίζει ρυθμίσεις After animation](shape-after-animation.png)
+![Διάλογος Επιλογών Εφέ του PowerPoint που δείχνει τις ρυθμίσεις After animation](shape-after-animation.png)
 
-Η κλάση [AfterAnimationType](https://reference.aspose.com/slides/el/python-java/aspose.slides/afteranimationtype/) υποστηρίζει την παραμονή του σχήματος αμετάβλητο, την αλλαγή του χρώματος, την απόκρυψη του μετά την κίνηση ή την απόκρυψη του με το επόμενο κλικ. Όταν ο τύπος είναι [AfterAnimationType.Color](https://reference.aspose.com/slides/el/python-java/aspose.slides/afteranimationtype/#Color), ορίστε επίσης το [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/el/python-java/aspose.slides/effect/#getAfterAnimationColor).
+Η κλάση [AfterAnimationType](https://reference.aspose.com/slides/el/python-java/aspose.slides/afteranimationtype/) υποστηρίζει την διατήρηση του σχήματος αμετάβλητου, την αλλαγή του χρώματός του, την απόκρυψή του μετά την κίνηση ή την απόκρυψή του με το επόμενο κλικ. Όταν ο τύπος είναι [AfterAnimationType.Color](https://reference.aspose.com/slides/el/python-java/aspose.slides/afteranimationtype/#Color), ορίστε επίσης την [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/el/python-java/aspose.slides/effect/#getAfterAnimationColor).
 
-Αυτό το ανεξάρτητο παράδειγμα δημιουργεί ένα εφέ, ορίζει τη συμπεριφορά του μετά την κίνηση μέσω του επιστρεφόμενου αντικειμένου εφέ και αποθηκεύει το αποτέλεσμα.
+Αυτό το ανεξάρτητο παράδειγμα δημιουργεί ένα εφέ, ορίζει τη συμπεριφορά μετά την κίνηση μέσω του αντικειμένου εφέ που επιστρέφεται και αποθηκεύει το αποτέλεσμα.
 
 ```python
 import jpype
@@ -390,16 +392,16 @@ finally:
     presentation.dispose()
 ```
 
-Η αλλαγή του τύπου από το [AfterAnimationType.Color](https://reference.aspose.com/slides/el/python-java/aspose.slides/afteranimationtype/#Color) καθαρίζει τη ρύθμιση χρώματος μετά την κίνηση.
+Η αλλαγή του τύπου από [AfterAnimationType.Color](https://reference.aspose.com/slides/el/python-java/aspose.slides/afteranimationtype/#Color) αφαιρεί τη ρύθμιση χρώματος μετά το εφέ.
 
 ## **Κίνηση Κειμένου**
 
-Η κίνηση κειμένου έχει δύο σχετικούς ελέγχους:
+Η κίνηση κειμένου έχει δύο συναφή ελέγχους:
 
-- Η μέθοδος [TextAnimation.getBuildType](https://reference.aspose.com/slides/el/python-java/aspose.slides/textanimation/#getBuildType) ελέγχει αν οι παράγραφοι εμφανίζονται μαζί ή ανά επίπεδο παραγράφου.
-- Η μέθοδος [Effect.getAnimateTextType](https://reference.aspose.com/slides/el/python-java/aspose.slides/effect/#getAnimateTextType) ελέγχει αν το κείμενο εμφανίζεται όλο μονομιάς, ανά λέξη ή ανά γράμμα. Η [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/el/python-java/aspose.slides/effect/#getDelayBetweenTextParts) ορίζει την καθυστέρηση μεταξύ λέξεων ή γραμμάτων. Μία θετική τιμή είναι ποσοστό της διάρκειας του εφέ· μια αρνητική τιμή είναι καθυστέρηση σε δευτερόλεπτα.
+- Η μέθοδος [TextAnimation.getBuildType](https://reference.aspose.com/slides/el/python-java/aspose.slides/textanimation/#getBuildType) ελέγχει εάν οι παράγραφοι εμφανίζονται μαζί ή ανά επίπεδο παραγράφου.
+- Η μέθοδος [Effect.getAnimateTextType](https://reference.aspose.com/slides/el/python-java/aspose.slides/effect/#getAnimateTextType) ελέγχει εάν το κείμενο εμφανίζεται όλο μαζί, λέξη-λέξη ή γράμμα-γράμμα. Η [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/el/python-java/aspose.slides/effect/#getDelayBetweenTextParts) ορίζει την καθυστέρηση μεταξύ λέξεων ή γραμμάτων. Μια θετική τιμή είναι ποσοστό της διάρκειας του εφέ· μια αρνητική τιμή είναι καθυστέρηση σε δευτερόλεπτα.
 
-Το παρακάτω ανεξάρτητο παράδειγμα κινεί τις λέξεις σε ένα πλαίσιο κειμένου. Το [BuildType.AsOneObject](https://reference.aspose.com/slides/el/python-java/aspose.slides/buildtype/#AsOneObject) απενεργοποιεί την κατασκευή παράγραφος‑κατά‑παράγραφο ώστε η ρύθμιση λέξης να ισχύει για ολόκληρο το πλαίσιο κειμένου.
+Το παρακάτω ανεξάρτητο παράδειγμα κουνά τις λέξεις σε ένα πλαίσιο κειμένου. Το [BuildType.AsOneObject](https://reference.aspose.com/slides/el/python-java/aspose.slides/buildtype/#AsOneObject) απενεργοποιεί τη δημιουργία παραγράφου-παράγραφος έτσι ώστε η ρύθμιση λέξης να ισχύει για ολόκληρο το πλαίσιο κειμένου.
 
 ```python
 import jpype
@@ -426,26 +428,26 @@ finally:
     presentation.dispose()
 ```
 
-Για να χτίσετε ένα πλαίσιο κειμένου ανά παράγραφο, ορίστε το [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/el/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) (ή κάποιο άλλο επίπεδο παραγράφου). Για να στοχεύσετε μία συγκεκριμένη παράγραφο με δικό της εφέ, χρησιμοποιήστε την υπερφόρτωση της [Sequence.addEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/#addEffect) που δέχεται ένα αντικείμενο [Paragraph](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/). Δείτε το [Animated Text](/slides/el/python-java/animated-text/) για παραδείγματα επιπέδου παραγράφου.
+Για να δημιουργήσετε ένα πλαίσιο κειμένου παράγραφο-παράγραφο, ορίστε το [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/el/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) (ή κάποιο άλλο επίπεδο παραγράφου). Για να στοχεύσετε μια μοναδική παράγραφο με δικό της εφέ, χρησιμοποιήστε την υπερφόρτωση της [Sequence.addEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/#addEffect) που δέχεται ένα [Paragraph](https://reference.aspose.com/slides/el/python-java/aspose.slides/paragraph/). Δείτε το [Animated Text](/slides/el/python-java/animated-text/) για παραδείγματα επιπέδου παραγράφου.
 
-## **Σημειώσεις Εξαγωγής και Συμβατότητας**
+## **Εξαγωγή και Σημειώσεις Συμβατότητας**
 
-- Η αποθήκευση σε PPT ή PPTX διατηρεί το μοντέλο κίνησης, αλλά η τελική αναπαραγωγή ελέγχεται από τον προβολέα παρουσίασης.
-- Τα PDF και οι στατικές εικόνες δεν αναπαράγουν κίνησεις. Χρησιμοποιήστε την [HTML5 export](/slides/el/python-java/export-to-html5/), GIF animation ή τη [video conversion](/slides/el/python-java/convert-powerpoint-to-video/) όταν η έξοδος πρέπει να δείχνει κίνηση.
-- Για HTML5, ενεργοποιήστε το [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/el/python-java/aspose.slides/html5options/#setAnimateShapes) και, εφόσον χρειαστεί, το [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/el/python-java/aspose.slides/html5options/#setAnimateTransitions).
-- Η απόδοση βίντεο υποστηρίζει πολλές κοινές εφέ εισαγωγής, έμφασης, εξόδου και διαδρομής κίνησης, αλλά δεν υποστηρίζει κάθε εφέ του PowerPoint. Ελέγξτε τις τρέχουσες [supported animations and effects](/slides/el/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) και δοκιμάστε κρίσιμες παρουσιάσεις με την έκδοση του Aspose.Slides που χρησιμοποιείτε.
-- Τα προσαρμοσμένα εφέ και τα εφέ που εισάγονται από άλλες μορφές παρουσίασης μπορεί να διατηρηθούν στο αρχείο, αλλά να αποδοθούν διαφορετικά στο PowerPoint, HTML5 ή βίντεο. Επαληθεύστε το εξαγόμενο αποτέλεσμα αντί να βασίζεστε μόνο στο όνομα του εφέ.
+- Η αποθήκευση σε PPT ή PPTX διατηρεί το μοντέλο κίνησης, αλλά η τελική αναπαραγωγή ελέγχεται από τον προγυμναστή παρουσίασης.
+- Τα PDF και οι στατικές εικόνες δεν παίζουν κίνησεις. Χρησιμοποιήστε την [HTML5 export](/slides/el/python-java/export-to-html5/), animated GIF ή [video conversion](/slides/el/python-java/convert-powerpoint-to-video/) όταν η έξοδος πρέπει να δείχνει κίνηση.
+- Για HTML5, ενεργοποιήστε την [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/el/python-java/aspose.slides/html5options/#setAnimateShapes) και, όταν χρειάζεται, την [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/el/python-java/aspose.slides/html5options/#setAnimateTransitions).
+- Η απόδοση βίντεο υποστηρίζει πολλά κοινά εφέ εισόδου, έμφασης, εξόδου και διαδρομής κίνησης, αλλά δεν υποστηρίζονται όλα τα εφέ του PowerPoint. Ελέγξτε τις τρέχουσες [supported animations and effects](/slides/el/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) και δοκιμάστε κρίσιμες παρουσιάσεις με την έκδοση Aspose.Slides που στοχεύετε.
+- Προηγμένα προσαρμοσμένα εφέ και εφέ που εισάγονται από άλλες μορφές παρουσίασης μπορεί να διατηρηθούν στο αρχείο αλλά να αποδοθούν διαφορετικά σε PowerPoint, HTML5 ή βίντεο. Επικυρώστε το εξαγόμενο αποτέλεσμα αντί να βασίζεστε μόνο στο όνομα του εφέ.
 
-## **Συχνές Ερωτήσεις**
+## **FAQ**
 
-**Γιατί εμφανίζεται μια κίνηση στο PowerPoint αλλά όχι σε PDF;**
+**Γιατί ένα animation εμφανίζεται στο PowerPoint αλλά όχι σε PDF;**
 
-Το PDF είναι στατική μορφή, επομένως οι κινήσεις και οι μεταβάσεις διαφανειών δεν παίζονται. Εξάγετε σε HTML5, animated GIF ή βίντεο όταν είναι απαραίτητη η κίνηση.
+Το PDF είναι στατική μορφή, έτσι τα animation και οι μεταβάσεις διαφανειών δεν παίζονται. Εξάγετε σε HTML5, animated GIF ή βίντεο όταν η κίνηση πρέπει να διατηρηθεί.
 
 **Γιατί ένα εφέ παίζει διαφορετικά σε βίντεο;**
 
-Η εξαγωγή βίντεο αποδίδει τις κινήσεις αντί να αποθηκεύει τη συμπεριφορά του αρχικού PowerPoint. Ορισμένα προχωρημένα εφέ δεν υποστηρίζονται ή προσεγγίζονται. Ελέγξτε τον πίνακα των υποστηριζόμενων εφέ και δοκιμάστε την πραγματική παρουσίαση πριν τη χρήση σε παραγωγή.
+Η εξαγωγή βίντεο αποδίδει τα animation αντί να αποθηκεύει τη συμπεριφορά του αρχικού PowerPoint. Ορισμένα προχωρημένα εφέ δεν υποστηρίζονται ή προσεγγίζονται κατά προσέγγιση. Ελέγξτε τον πίνακα των υποστηριζόμενων εφέ και δοκιμάστε την πραγματική παρουσίαση πριν την παραγωγική χρήση.
 
-**Αλλάζει η σειρά των κινήσεων όταν μετακινείται ένα σχήμα εμπρός ή πίσω;**
+**Αλλάζει η προώθηση ή η ανάθεση ενός σχήματος τη σειρά των animation;**
 
-Όχι. Η σειρά z‑order ελέγχει την επικάλυψη, ενώ η σειρά ακολουθίας και τα ερεθίσματα ελέγχουν την αναπαραγωγή της κίνησης. Αλλάξτε το χρονοδιάγραμμα εάν χρειάζεστε διαφορετική σειρά αναπαραγωγής.
+Όχι. Η σειρά z-order ενός σχήματος ελέγχει την επικάλυψη, ενώ η σειρά ακολουθίας και οι ενεργοποιητές ελέγχουν την αναπαραγωγή των animation. Αλλάξτε το χρονοδιάγραμμα εάν χρειάζεστε διαφορετική σειρά αναπαραγωγής.

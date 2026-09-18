@@ -1,25 +1,25 @@
 ---
-title: PHPでアニメーションを使用してPowerPointプレゼンテーションを強化
+title: PHP で PowerPoint プレゼンテーションにアニメーションを追加して強化する
 linktitle: PowerPoint アニメーション
 type: docs
 weight: 150
 url: /ja/php-java/powerpoint-animation/
 keywords:
-- アニメーションを追加
-- アニメーションを更新
-- アニメーションを変更
-- アニメーションを削除
-- アニメーションを管理
-- アニメーションを制御
+- アニメーションの追加
+- アニメーションの更新
+- アニメーションの変更
+- アニメーションの削除
+- アニメーションの管理
+- アニメーションの制御
 - アニメーション効果
 - PowerPoint アニメーション
-- アニメーションタイムライン
-- インタラクティブアニメーション
-- カスタムアニメーション
-- シェイプアニメーション
+- アニメーション タイムライン
+- インタラクティブ アニメーション
+- カスタム アニメーション
+- 図形アニメーション
 - アニメーションチャート
 - アニメーションテキスト
-- アニメーションシェイプ
+- アニメーション図形
 - アニメーション OLE オブジェクト
 - アニメーション画像
 - アニメーションテーブル
@@ -27,80 +27,90 @@ keywords:
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java が PowerPoint アニメーションを処理する機能を探求します。プレゼンテーションを強化するための主要機能と洞察。"
+description: "Aspose.Slides for PHP via Java が PowerPoint アニメーションを処理する機能を探求してください。プレゼンテーションを強化するための主要な機能と洞察を提供します。"
 ---
+## **はじめに**
 
-プレゼンテーションは何かを提示するために作られるため、作成時には常にそのビジュアル外観とインタラクティブな動作が考慮されます。
+プレゼンテーションは何かを提示することが目的であるため、作成時には常に視覚的な外観とインタラクティブな動作が考慮されます。
 
-**PowerPoint animation** は、プレゼンテーションを視覚的に魅力的にするために重要な役割を果たします。Aspose.Slides for PHP via Java は、PowerPoint プレゼンテーションにアニメーションを追加するための多彩なオプションを提供します。
+**PowerPoint アニメーション** は、プレゼンテーションを目を引く魅力的なものにする上で重要な役割を果たします。Aspose.Slides for PHP via Java は、PowerPoint プレゼンテーションにアニメーションを追加するための幅広いオプションを提供します：
 
-- さまざまな種類の PowerPoint アニメーション効果を図形、チャート、テーブル、OLE オブジェクト、その他のプレゼンテーション要素に適用します。
-- 1 つの図形に複数の PowerPoint アニメーション効果を使用します。
-- アニメーション タイムラインを使用してアニメーション効果を制御します。
-- カスタム アニメーションを作成します。
+- さまざまな種類の PowerPoint アニメーション効果を、図形、チャート、テーブル、OLE オブジェクト、およびその他のプレゼンテーション要素に適用する。
+- 1 つの図形に複数の PowerPoint アニメーション効果を使用する。
+- アニメーション タイムラインを利用してアニメーション効果を制御する。
+- カスタム アニメーションを作成する。
 
-Aspose.Slides for PHP via Java では、図形にさまざまなアニメーション効果を適用できます。スライド上のテキスト、画像、OLE オブジェクト、テーブルなどすべての要素は図形として扱われるため、スライド上のすべての要素にアニメーション効果を適用できることを意味します。
+Aspose.Slides for PHP via Java では、さまざまなアニメーション効果を図形に適用できます。テキスト、画像、OLE オブジェクト、テーブルなど、スライド上のすべての要素は図形とみなされるため、スライド上の任意の要素にアニメーション効果を適用できます。
 
-## **Animation Effects**
-Aspose.Slides は **150 以上のアニメーション効果** をサポートしており、Bounce や PathFootball、Zoom などの基本的な効果や OLEObjectShow、OLEObjectOpen といった特定の効果が含まれます。完全な一覧は [**EffectType**](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttype) 列挙体で確認できます。
+## **アニメーション効果**
 
-さらに、これらのアニメーション効果は以下と組み合わせて使用できます。
+Aspose.Slides は **150 を超えるアニメーション効果** をサポートしており、Bounce、PathFootball、Zoom などの基本効果や、OLEObjectShow、OLEObjectOpen などの特定の効果が含まれます。完全な一覧は [EffectType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effecttype/) クラスで確認できます。
 
-- [ColorEffect](https://reference.aspose.com/slides/php-java/aspose.slides/ColorEffect)
-- [CommandEffect](https://reference.aspose.com/slides/php-java/aspose.slides/CommandEffect)
-- [FilterEffect](https://reference.aspose.com/slides/php-java/aspose.slides/FilterEffect)
-- [MotionEffect](https://reference.aspose.com/slides/php-java/aspose.slides/MotionEffect)
-- [PropertyEffect](https://reference.aspose.com/slides/php-java/aspose.slides/PropertyEffect)
-- [RotationEffect](https://reference.aspose.com/slides/php-java/aspose.slides/RotationEffect)
-- [ScaleEffect](https://reference.aspose.com/slides/php-java/aspose.slides/ScaleEffect)
-- [SetEffect](https://reference.aspose.com/slides/php-java/aspose.slides/SetEffect)
+さらに、これらのアニメーション効果は以下の動作と組み合わせて使用できます：
 
-## **Custom Animation**
-Aspose.Slides では **カスタム アニメーション** を作成できます。複数のビヘイビアを組み合わせて新しいカスタム アニメーションを作成することで実現します。
+- [ColorEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/ColorEffect)
+- [CommandEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/CommandEffect)
+- [FilterEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/FilterEffect)
+- [MotionEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/MotionEffect)
+- [PropertyEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/PropertyEffect)
+- [RotationEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/RotationEffect)
+- [ScaleEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/ScaleEffect)
+- [SetEffect](https://reference.aspose.com/slides/ja/php-java/aspose.slides/SetEffect)
 
-[**Behavior**](https://reference.aspose.com/slides/php-java/aspose.slides/Behavior) は任意の PowerPoint アニメーション効果の構成要素です。すべてのアニメーション効果は、実質的にビヘイビアの集合として構成されています。ビヘイビアをカスタム アニメーションに一度組み合わせれば、他のプレゼンテーションでも再利用できます。標準の PowerPoint アニメーション効果に新しいビヘイビアを追加すれば、別のカスタム アニメーションが生成されます。たとえば、リピート ビヘイビアを追加してアニメーションを数回繰り返すことが可能です。
+## **カスタム アニメーション**
 
-[**Animation Point**](https://reference.aspose.com/slides/php-java/aspose.slides/Point) はビヘイビアが適用される場所を示すポイントです。
+動作や編集可能なモーション パスの作成、検査、変更に関する完全な PHP サンプルについては、[カスタム アニメーション](/slides/ja/php-java/custom-animation/) を参照してください。
 
-## **Animation Time Line**
-[**Sequence**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence) は、特定の図形に適用されるアニメーション効果のコレクションです。
+Aspose.Slides で独自の **カスタム アニメーション** を作成することが可能です。これは、複数の動作を組み合わせて新しいカスタム アニメーションを作成することで実現できます。
 
-[**Timeline**](https://reference.aspose.com/slides/php-java/aspose.slides/AnimationTimeLine) は、具体的なスライドで使用されるシーケンスの集合です。PowerPoint 2002 以降で導入されたアニメーション エンジンで、従来の AnimationSettings クラスに代わり、より明快なオブジェクト モデルを提供します。1 スライドに設定できるアニメーション タイムラインは **1 つだけ** です。
+[Behavior](https://reference.aspose.com/slides/ja/php-java/aspose.slides/behavior/) は PowerPoint アニメーション効果の構成要素です。動作を組み合わせて効果をカスタマイズしたり、既存の効果を拡張するために動作を追加したりできます。繰り返しは、別個のリピート動作ではなく、タイミング設定で構成されます。
 
-## **Interactive Animation**
-[**Trigger**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectTriggerType) を使用すると、ユーザー操作（例: ボタン クリック）に応じて特定のアニメーションを開始させることができます。トリガーは最新の PowerPoint バージョンでのみ追加されました。
+[Animation Point](https://reference.aspose.com/slides/ja/php-java/aspose.slides/point/) は、動作を適用すべきポイントです。
 
-## **Shape Animation**
-Aspose.Slides は、テキスト、矩形、線、フレーム、OLE オブジェクトなど、実質的にすべての図形にアニメーションを適用できるようにします。
+## **アニメーション タイムライン**
 
-{{% alert color="primary" %}} 
-Read more [**シェイプ アニメーションについて**](/slides/ja/php-java/shape-animation/).
+[Sequence](https://reference.aspose.com/slides/ja/php-java/aspose.slides/sequence/) は、異なる図形を対象にできるアニメーション効果のコレクションです。
+
+[Timeline](https://reference.aspose.com/slides/ja/php-java/aspose.slides/animationtimeline/) は、特定のスライドで使用されるシーケンスの集合です。これは PowerPoint 2002 で導入されたアニメーション エンジンです。以前のバージョンの PowerPoint では、プレゼンテーションにアニメーション効果を追加することが困難で、さまざまな回避策が必要でした。タイムラインは PowerPoint アニメーションのオブジェクト モデルをより明確にします。スライドには 1 つのアニメーション タイムラインしか設定できません。
+
+## **インタラクティブ アニメーション**
+
+[Trigger](https://reference.aspose.com/slides/ja/php-java/aspose.slides/effecttriggertype/) を使用すると、ボタンのクリックなどのユーザー操作を定義して、特定のアニメーションを開始させることができます。
+
+## **図形 アニメーション**
+
+Aspose.Slides を使用すると、テキスト、矩形、線、フレーム、OLE オブジェクトなど、さまざまな図形にアニメーションを適用できます。
+
+{{% alert color="info" title="Note" %}}
+詳細は [**図形 アニメーションについて**](/slides/ja/php-java/shape-animation/) をご覧ください。
 {{% /alert %}}
 
-## **Animated Charts**
-アニメーション チャートを作成するには、図形と同じクラスを使用します。ただし、PowerPoint アニメーションはチャートのカテゴリまたはシリーズにのみ適用でき、カテゴリ要素やシリーズ要素にアニメーション効果を付与できます。
+## **アニメーション チャート**
 
-{{% alert color="primary" %}} 
-Read more [**アニメーション チャートについて**](/slides/ja/php-java/animated-charts/).
+アニメーション チャートを作成するには、図形と同じクラスを使用する必要があります。ただし、PowerPoint のアニメーションはチャートのカテゴリまたはシリーズにのみ適用でき、カテゴリ要素やシリーズ要素にもアニメーション効果を適用できます。
+
+{{% alert color="info" title="Note" %}}
+詳細は [**アニメーション チャートについて**](/slides/ja/php-java/animated-charts/) をご覧ください。
 {{% /alert %}}
 
-## **Animated Text**
-アニメーション テキストだけでなく、段落単位でアニメーションを適用することも可能です。
+## **アニメーション テキスト**
 
-{{% alert color="primary" %}} 
-Read more [**アニメーション テキストについて**](/slides/ja/php-java/animated-text/).
+テキストのアニメーションに加えて、段落にもアニメーションを適用できます。
+
+{{% alert color="info" title="Note" %}}
+詳細は [**アニメーション テキストについて**](/slides/ja/php-java/animated-text/) をご覧ください。
 {{% /alert %}}
 
 ## **FAQ**
 
-**Will animations be preserved when exporting to PDF?**
+**PDF にエクスポートしたときにアニメーションは保持されますか？**
 
-No. PDF is a static format, so animations and [slide transitions](/slides/ja/php-java/slide-transition/) don’t play. If you need motion, export to [HTML5](/slides/ja/php-java/export-to-html5/), [animated GIF](/slides/ja/php-java/convert-powerpoint-to-animated-gif/), or [video](/slides/ja/php-java/convert-powerpoint-to-video/) instead.
+いいえ。PDF は静的フォーマットであるため、アニメーションや [slide transitions](/slides/ja/php-java/slide-transition/) は再生されません。動きを必要とする場合は、代わりに [HTML5](/slides/ja/php-java/export-to-html5/)、[animated GIF](/slides/ja/php-java/convert-powerpoint-to-animated-gif/)、または [video](/slides/ja/php-java/convert-powerpoint-to-video/) にエクスポートしてください。
 
-**Can I turn an animated presentation into a video and control the frame rate and frame size?**
+**アニメーション付きプレゼンテーションをビデオに変換し、フレームレートやフレームサイズを制御できますか？**
 
-Yes. You can [render the presentation as frames](/slides/ja/php-java/convert-powerpoint-to-video/) and encode them into a video (e.g., via ffmpeg), choosing the FPS and resolution. Animations and slide transitions are played during rendering.
+はい。プレゼンテーションをフレームとして [render the presentation as frames](/slides/ja/php-java/convert-powerpoint-to-video/) し、ビデオ（例: ffmpeg を使用）にエンコードすることで、FPS や解像度を選択できます。レンダリング中にアニメーションとスライド トランジションが再生されます。
 
-**Will animations remain intact when working with ODP (not just PPTX)?**
+**ODP（PPTX だけでなく）で作業する際にアニメーションは保持されますか？**
 
-PPT, PPTX, and ODP are supported for [reading](/slides/ja/php-java/open-presentation/) and [writing](/slides/ja/php-java/save-presentation/), but format differences mean certain effects may look or behave slightly differently. Validate critical cases with real samples.
+PPT、PPTX、ODP は [reading](/slides/ja/php-java/open-presentation/) と [writing](/slides/ja/php-java/save-presentation/) をサポートしていますが、アニメーションが保持されることは保証されません。ODP に変換する際にカスタム アニメーション データが失われる可能性があります。形式の互換性を確認する方法については、[Custom Animation](/slides/ja/php-java/custom-animation/) の例をご参照ください。

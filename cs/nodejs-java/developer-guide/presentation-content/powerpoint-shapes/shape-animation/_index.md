@@ -23,24 +23,26 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Zjistěte, jak přidávat, kontrolovat a přizpůsobovat animace tvarů, časování, zvuky, chování po animaci a animovaný text pomocí Aspose.Slides pro Node.js přes Java."
+description: "Naučte se, jak přidávat, kontrolovat a přizpůsobovat animace tvarů, časování, zvuky, chování po animaci a animovaný text pomocí Aspose.Slides pro Node.js přes Java."
 ---
 ## **Přehled**
 
-Aspose.Slides pro Node.js přes Java představuje animace snímků jako efekty v časové ose snímku. Efekt má cílový tvar, typ a podtyp animace, spouštěč, nastavení časování a volitelné vlastnosti, jako je zvuk nebo chování po animaci.
+Chcete-li pracovat s jednotlivými chováními uvnitř efektu nebo upravovat segmenty dráhy pohybu, podívejte se na [Vlastní animaci](/slides/cs/nodejs-java/custom-animation/).
+
+Aspose.Slides pro Node.js prostřednictvím Java představuje animace snímků jako efekty v časové ose snímku. Efekt má cílový tvar, typ a podtyp animace, spouštěč, nastavení časování a volitelné vlastnosti, jako je zvuk nebo chování po animaci.
 
 Časová osa obsahuje dva typy sekvencí:
 
-- **Hlavní sekvence** se přehrává při postupu snímku.
-- **Interaktivní sekvence** začíná, když je kliknuto na spouštěcí tvar.
+- **hlavní sekvence** se přehrává, když snímek postupuje.
+- **interaktivní sekvence** se spustí, když je kliknuto na její spouštěcí tvar.
 
-Protože textová pole, obrázky, grafy, tabulky a další objekty snímku jsou objekty [Shape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/) , používáte stejnou metodu [Sequence.addEffect](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/sequence/#addEffect) pro většinu obsahu snímku. Dostupné efekty jsou vypsány v výčtu [EffectType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effecttype/) .
+Protože textová pole, obrázky, grafy, tabulky a další objekty snímku jsou objekty [Shape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/) , používáte stejnou metodu [Sequence.addEffect](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/sequence/#addEffect) pro většinu obsahu snímku. Dostupné efekty jsou uvedeny v výčtu [EffectType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effecttype/).
 
-## **Přidání animací tvaru**
+## **Přidání animací tvarů**
 
-Chcete-li přidat animaci, získejte hlavní sekvenci snímku a zavolejte [Sequence.addEffect](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/sequence/#addEffect) s cílovým tvarem, typem efektu, podtypem a spouštěčem. Pro efekt, který se spustí po kliknutí na jiný tvar, vytvořte interaktivní sekvenci, jejíž spouštěč je tento jiný tvar.
+Chcete-li přidat animaci, získejte hlavní sekvenci snímku a zavolejte [Sequence.addEffect](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/sequence/#addEffect) s cílovým tvarem, typem efektu, podtypem a spouštěčem. Pro efekt, který se spustí po kliknutí na jiný tvar, vytvořte interaktivní sekvenci, jejíž spouštěčem je ten jiný tvar.
 
-Následující příklad vytvoří oba typy animací a uloží výsledek do souboru `shape-animations.pptx`.
+Následující příklad vytvoří oba typy animací a výsledek uloží do `shape-animations.pptx`.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -69,19 +71,19 @@ try {
 }
 ```
 
-Spouštěč řídí, kdy se efekt spustí:
+Spouštěč řídí, kdy efekt začne:
 
 - [EffectTriggerType.OnClick](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effecttriggertype/#OnClick) čeká na kliknutí v hlavní sekvenci nebo na kliknutí na spouštěcí tvar v interaktivní sekvenci.
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) se spustí spolu s předchozím efektem.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) se spustí po dokončení předchozího efektu.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) začne spolu s předchozím efektem.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) začne po dokončení předchozího efektu.
 
 Chcete-li animovat obrázek, graf nebo jiný typ tvaru, předávejte tento objekt metodě [Sequence.addEffect](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/sequence/#addEffect) místo `targetShape`. Pro možnosti seskupování specifické pro grafy viz [Animated Charts](/slides/cs/nodejs-java/animated-charts/).
 
-## **Čtení animací tvaru**
+## **Čtení animací tvarů**
 
-Použijte [Sequence.getEffectsByShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/sequence/#getEffectsByShape), pokud znáte cílový tvar. Pro prohlížení všech efektů enumerujte hlavní sekvenci a každou interaktivní sekvenci. Enumerace zabraňuje předpokladu, že sekvence obsahuje efekt na indexu `0`.
+Použijte [Sequence.getEffectsByShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/sequence/#getEffectsByShape), když znáte cílový tvar. Chcete‑li prozkoumat každý efekt, enumerujte hlavní sekvenci i všechny interaktivní sekvence. Enumerace zabraňuje předpokladu, že sekvence obsahuje efekt na indexu `0`.
 
-Následující příklad vytvoří tvar s efekty v hlavní sekvenci a interaktivními efekty, získá efekty cílené na tvar a poté enumeruje každou sekvenci na snímku.
+Následující příklad vytvoří tvar s hlavními a interaktivními efekty, získá efekty, které cílí na tvar, a poté enumeruje každou sekvenci na snímku.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -140,21 +142,21 @@ try {
 }
 ```
 
-Pokud potřebujete efekty jen pro jeden tvar, nejprve identifikujte tvar podle názvu, typu zástupného symbolu nebo jiné stabilní vlastnosti; poté zavolejte [Sequence.getEffectsByShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/sequence/#getEffectsByShape). Nepředpokládejte, že [ShapeCollection.get_Item](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shapecollection/#get_Item) na indexu `0` je vždy požadovaný objekt.
+Pokud potřebujete efekty jen pro jeden tvar, nejprve identifikujte tvar podle názvu, typu zástupného znaku nebo jiné stabilní vlastnosti; pak zavolejte [Sequence.getEffectsByShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/sequence/#getEffectsByShape). Nepředpokládejte, že [ShapeCollection.get_Item](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shapecollection/#get_Item) na indexu `0` je vždy zamýšlený objekt.
 
-## **Práce s děděnými efekty zástupných symbolů**
+## **Práce s děděnými efekty zástupných znaků**
 
-Zástupný symbol na normálním snímku může zdědit chování animace z odpovídajícího zástupného symbolu na rozvržení snímku a na hlavním snímku. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/#getBasePlaceholder) vrací tento nadřazený zástupný symbol nebo `null`, pokud žádný nadřazený neexistuje.
+Zástupný znak na normálním snímku může dědit chování animace ze odpovídajícího zástupného znaku na rozvržení snímku a hlavním snímku. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/#getBasePlaceholder) vrací tento nadřazený zástupný znak nebo `null`, pokud žádný nadřazený neexistuje.
 
-V následujícím ukázkovém prezentaci má zápatí **Random Bars** na normálním snímku, **Split** na snímku rozvržení a **Fly In** na hlavním snímku.
+V následující ukázkové prezentaci má zápatí **Random Bars** na normálním snímku, **Split** na snímku rozvržení a **Fly In** na hlavním snímku.
 
-![Footer animation effect on the normal slide](slide-shape-animation.png)
+![Animace zápatí na normálním snímku](slide-shape-animation.png)
 
-![Footer placeholder animation effect on the layout slide](layout-shape-animation.png)
+![Animace zástupného znaku zápatí na rozvržení snímku](layout-shape-animation.png)
 
-![Footer placeholder animation effect on the master slide](master-shape-animation.png)
+![Animace zástupného znaku zápatí na hlavním snímku](master-shape-animation.png)
 
-Následující příklad používá hierarchii zástupných symbolů z nového prezentace. Přidává efekty k hlavnímu zástupnému symbolu, zástupnému symbolu rozvržení a odpovídajícímu zástupnému symbolu na normálním snímku. Každé volání [Shape.getBasePlaceholder](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/#getBasePlaceholder) je před použitím vráceného tvaru zkontrolováno.
+Další příklad používá hierarchii zástupných znaků z nové prezentace. Přidává efekty k hlavnímu zástupnému znaku, zástupnému znaku rozvržení a odpovídajícímu zástupnému znaku na normálním snímku. Každé volání [Shape.getBasePlaceholder](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/#getBasePlaceholder) je zkontrolováno před použitím vráceného tvaru.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -240,17 +242,17 @@ try {
 
 ## **Změna časování animace**
 
-Dialog PowerPoint **Timing** odpovídá vlastnostem třídy [Timing](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/) .
+Dialog **Timing** v PowerPointu mapuje na vlastnosti [Timing](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/).
 
-![PowerPoint Timing dialog for an animation effect](shape-animation.png)
+![Dialog Časování v PowerPointu pro animační efekt](shape-animation.png)
 
-- **Start** odpovídá [Timing.getTriggerType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#getTriggerType) .
-- **Duration** odpovídá [Timing.getDuration](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#getDuration) , v sekundách.
-- **Delay** odpovídá [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#getTriggerDelayTime) , v sekundách.
-- **Repeat** odpovídá [Timing.getRepeatCount](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#getRepeatCount) , [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) nebo [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide) .
-- **Rewind when done playing** odpovídá [Timing.getRewind](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#getRewind) .
+- **Start** mapuje na [Timing.getTriggerType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#getTriggerType).
+- **Duration** mapuje na [Timing.getDuration](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#getDuration) v sekundách.
+- **Delay** mapuje na [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#getTriggerDelayTime) v sekundách.
+- **Repeat** mapuje na [Timing.getRepeatCount](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) nebo [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide).
+- **Rewind when done playing** mapuje na [Timing.getRewind](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#getRewind).
 
-Tento samostatný příklad přidá efekt, změní jeho časování pomocí objektu vráceného metodou [Sequence.addEffect](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/sequence/#addEffect) , a uloží výsledek. Uchování vrácené reference [Effect](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effect/) zabraňuje zbytečnému indexu kolekce.
+Tento samostatný příklad přidá efekt, změní jeho časování pomocí objektu vráceného metodou [Sequence.addEffect](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/sequence/#addEffect) a výsledek uloží. Uložení reference na vrácený [Effect](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effect/) zabraňuje zbytečnému indexování kolekce.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -277,15 +279,15 @@ try {
 }
 ```
 
-Záměrně používejte jeden režim opakování. Kombinace počtu opakování s příznakem „until“ může v různých prohlížečích vést k zmateným výsledkům. Při změně režimů opakování nastavte [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) a [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) před [Timing.setRepeatCount](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#setRepeatCount) , protože nastavení libovolného příznaku také mění aktivní režim opakování.
+Používejte jediný režim opakování úmyslně. Kombinace počtu opakování s příznakem „until“ může v různých přehrávačích způsobit matoucí výsledky. Při změně režimů opakování nastavte [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) a [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) před [Timing.setRepeatCount](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/timing/#setRepeatCount), protože nastavení kterékoli z těchto příznaků také mění aktivní režim opakování.
 
 ## **Přidání a extrakce zvuků animace**
 
-Animovaný efekt může odkazovat na vložený zvuk pomocí [Effect.getSound](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effect/#getSound) . [Effect.setStopPreviousSound](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effect/#setStopPreviousSound) říká efektu, aby zastavil zvuk spuštěný předchozím efektem.
+Animovaný efekt může odkazovat na vložený zvuk pomocí [Effect.getSound](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effect/#setStopPreviousSound) říká efektu, aby zastavil zvuk zahájený předchozím efektem.
 
-### **Přidání zvuku k efektu**
+### **Přidat zvuk k efektu**
 
-Následující příklad očekává lokální audio soubor pojmenovaný `animation-sound.wav` . Vytvoří dva efekty, vloží tento soubor jako zvuk pro první efekt a nakonfiguruje druhý efekt, aby zvuk zastavil. Používá objekty vrácené metodou [Sequence.addEffect](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/sequence/#addEffect) , takže není potřeba index sekvence.
+Následující příklad očekává lokální zvukový soubor pojmenovaný `animation-sound.wav`. Vytvoří dva efekty, vloží tento soubor jako zvuk pro první efekt a nastaví druhý efekt tak, aby zvuk zastavil. Využívá objekty vrácené metodou [Sequence.addEffect](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/sequence/#addEffect), takže není vyžadován index sekvence.
 
 ```javascript
 const fs = require("fs");
@@ -315,9 +317,9 @@ try {
 }
 ```
 
-### **Extrahování vložených zvuků efektu**
+### **Extrahovat vložené zvuky efektů**
 
-Následující příklad očekává lokální prezentaci pojmenovanou `presentation-with-animation-sounds.pptx` . Prohledá hlavní i interaktivní sekvence a zapíše každý vložený zvuk efektu do adresáře `extracted-animation-sounds` . Přípona je vybrána podle audio MIME typu vráceného pomocí [Audio.getContentType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audio/#getContentType) .
+Následující příklad očekává lokální prezentaci pojmenovanou `presentation-with-animation-sounds.pptx`. Prohledá hlavní i interaktivní sekvence a zapíše každý vložený zvuk efektu do adresáře `extracted-animation-sounds`. Přípona je vybrána z MIME typu zvuku vráceného metodou [Audio.getContentType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audio/#getContentType).
 
 ```javascript
 const fs = require("fs");
@@ -386,17 +388,17 @@ try {
 }
 ```
 
-Pro velké audio objekty použijte [Audio.getStream](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audio/#getStream) a zkopírujte proud do souboru místo načítání celého objektu do pole bajtů.
+U velkých zvukových objektů použijte [Audio.getStream](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/audio/#getStream) a zkopírujte proud do souboru místo načítání celého objektu do pole bajtů.
 
 ## **Nastavení chování po animaci**
 
-Volba **After animation** řídí, co se stane s tvarem po dokončení jeho efektu.
+Možnost **After animation** určuje, co se stane s tvarem po dokončení jeho efektu.
 
-![PowerPoint Effect Options dialog showing After animation settings](shape-after-animation.png)
+![Dialog možností efektu PowerPointu zobrazující nastavení Po animaci](shape-after-animation.png)
 
-Výčet [AfterAnimationType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/afteranimationtype/) podporuje ponechání tvaru nezměněného, změnu jeho barvy, skrytí po animaci nebo skrytí při dalším kliknutí. Když je typ [AfterAnimationType.Color](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/afteranimationtype/#Color) , nastavte také [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effect/#getAfterAnimationColor) .
+Výčet [AfterAnimationType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/afteranimationtype/) podporuje ponechání tvaru beze změny, změnu jeho barvy, skrytí po animaci nebo skrytí při dalším kliknutí. Když je typ [AfterAnimationType.Color](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/afteranimationtype/#Color), nastavte také [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effect/#getAfterAnimationColor).
 
-Tento samostatný příklad vytvoří efekt, nastaví jeho chování po animaci pomocí vráceného objektu efektu a uloží výsledek.
+Tento samostatný příklad vytvoří efekt, nastaví jeho chování po animaci pomocí vráceného objektu efektu a výsledek uloží.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -420,14 +422,14 @@ try {
 
 Změna typu od [AfterAnimationType.Color](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/afteranimationtype/#Color) vymaže nastavení barvy po animaci.
 
-## **Animace textu**
+## **Animovat text**
 
 Animace textu má dva související ovladače:
 
-- [TextAnimation.getBuildType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textanimation/#getBuildType) řídí, zda se odstavce zobrazují společně nebo po úrovni odstavců.
-- [Effect.getAnimateTextType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effect/#getAnimateTextType) řídí, zda se text zobrazí najednou, po slovech nebo po znacích. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) nastavuje zpoždění mezi slovy nebo znaky. Kladná hodnota je procento trvání efektu; záporná hodnota je zpoždění v sekundách.
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textanimation/#getBuildType) určuje, zda se odstavce zobrazují najednou nebo po úrovních odstavců.
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effect/#getAnimateTextType) určuje, zda se text zobrazí najednou, po slovech nebo po písmenech. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) nastavuje zpoždění mezi slovy nebo písmeny. Kladná hodnota je procento trvání efektu; záporná hodnota je zpoždění v sekundách.
 
-Následující samostatný příklad animuje slova v textovém poli. [BuildType.AsOneObject](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/buildtype/#AsOneObject) zakáže stavbu po odstavcích, takže nastavení pro slova se použije na celý textový rámec.
+Následující samostatný příklad animuje slova v textovém poli. [BuildType.AsOneObject](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/buildtype/#AsOneObject) zakáže budování po odstavcích, takže se nastavení slov použije na celý textový rámec.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -450,26 +452,26 @@ try {
 }
 ```
 
-Pro stavbu textového pole po odstavcích nastavte [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (nebo jinou úroveň odstavce). Pro cílení na jeden odstavec s vlastním efektem použijte přetížení [Sequence.addEffect](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/sequence/#addEffect) , které přijímá [Paragraph](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraph/) . Viz [Animated Text](/slides/cs/nodejs-java/animated-text/) pro příklady na úrovni odstavce.
+Pro budování textového pole po odstavcích nastavte [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (nebo jinou úroveň odstavce). Chcete‑li cílit na jeden odstavec s vlastním efektem, použijte přetížení [Sequence.addEffect](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/sequence/#addEffect), které přijímá [Paragraph](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/paragraph/). Viz [Animated Text](/slides/cs/nodejs-java/animated-text/) pro příklady na úrovni odstavců.
 
 ## **Export a poznámky o kompatibilitě**
 
-- Ukládání do PPT nebo PPTX zachovává model animací, ale finální přehrávání řídí prohlížeč prezentací.
-- PDF a statické obrázky nepřehrávají animace. Použijte [HTML5 export](/slides/cs/nodejs-java/export-to-html5/), animovaný GIF nebo [video conversion](/slides/cs/nodejs-java/convert-powerpoint-to-video/) , pokud výstup musí zobrazovat pohyb.
-- Pro HTML5 povolte [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/html5options/#setAnimateShapes) a podle potřeby [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/html5options/#setAnimateTransitions) .
-- Vykreslování videa podporuje mnoho běžných efektů vstupu, zdůraznění, odchodu a pohybových drah, ale ne každý PowerPoint efekt je podporován. Zkontrolujte aktuální [supported animations and effects](/slides/cs/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) a otestujte kritické prezentace s vaší cílovou verzí Aspose.Slides.
-- Pokročilé vlastní efekty a efekty importované z jiných formátů prezentací mohou být v souboru zachovány, ale v PowerPointu, HTML5 nebo videu se vykreslují jinak. Ověřte exportovaný výsledek místo spoléhaní se jen na název efektu.
+- Ukládání do PPT nebo PPTX zachovává model animací, ale finální přehrávání řídí prohlížeč prezentace.
+- PDF a statické obrázky animace nepřehrávají. Použijte [HTML5 export](/slides/cs/nodejs-java/export-to-html5/), animovaný GIF nebo [video konverzi](/slides/cs/nodejs-java/convert-powerpoint-to-video/), když výstup musí zobrazovat pohyb.
+- Pro HTML5 povolte [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/html5options/#setAnimateShapes) a podle potřeby [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/html5options/#setAnimateTransitions).
+- Video rendering podporuje mnoho běžných vstupních, zdůrazňovacích, odchozích a dráhových efektů, ale ne každý efekt PowerPointu je podporován. Zkontrolujte aktuální [supported animations and effects](/slides/cs/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) a otestujte kritické prezentace s verzí Aspose.Slides, kterou používáte.
+- Pokročilé vlastní efekty a efekty importované z jiných formátů prezentací mohou být v souboru zachovány, ale vykreslí se odlišně v PowerPointu, HTML5 nebo videu. Ověřte exportovaný výsledek místo spoléhání se jen na název efektu.
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Proč se animace zobrazí v PowerPointu, ale ne v PDF?**
+**Proč se animace zobrazuje v PowerPointu, ale ne v PDF?**
 
-PDF je statický formát, takže se animace a přechody snímků nepřehrávají. Exportujte do HTML5, animovaného GIFu nebo videa, pokud je třeba zachovat pohyb.
+PDF je statický formát, takže animace a přechody snímků se nepřehrávají. Exportujte do HTML5, animovaného GIFu nebo videa, když je potřeba zachovat pohyb.
 
 **Proč se efekt přehrává jinak ve videu?**
 
-Export do videa renderuje animace místo ukládání původního chování PowerPointu. Některé pokročilé efekty nejsou podporovány nebo jsou aproximovány. Prohlédněte si tabulku podporovaných efektů a otestujte skutečnou prezentaci před použitím ve výrobě.
+Export do videa renderuje animace místo uložení původního chování PowerPointu. Některé pokročilé efekty nejsou podporovány nebo jsou aproximovány. Prostudujte tabulku podporovaných efektů a otestujte skutečnou prezentaci před produkčním nasazením.
 
 **Mění přesunutí tvaru dopředu nebo dozadu pořadí jeho animace?**
 
-Ne. Z‑order tvaru řídí překrývání, zatímco pořadí sekvence a spouštěče řídí přehrávání animace. Změňte časovou osu, pokud potřebujete odlišné pořadí přehrávání.
+Ne. Z‑order tvaru určuje překrytí, zatímco pořadí sekvence a spouštěče řídí přehrávání animací. Změňte časovou osu, pokud potřebujete jiný pořádek přehrávání.

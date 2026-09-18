@@ -22,24 +22,26 @@ keywords:
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε, ελέγχετε και προσαρμόζετε τις κινήσεις σχημάτων, το χρονισμό, τους ήχους, τη συμπεριφορά μετά την κίνηση και το κείμενο με κίνηση με το Aspose.Slides για Java."
+description: "Μάθετε πώς να προσθέτετε, εξετάζετε και προσαρμόζετε τις κινήσεις σχημάτων, το χρονισμό, τους ήχους, τη συμπεριφορά μετά την κίνηση και το κινούμενο κείμενο με το Aspose.Slides για Java."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides for Java αντιπροσωπεύει τις κινήσεις των διαφανειών ως εφέ σε μια χρονογραμμή διαφάνειας. Ένα εφέ έχει ένα σχήμα‑στόχο, έναν τύπο και υποτύπο κίνησης, έναν ενεργοποιητή, ρυθμίσεις χρονισμού και προαιρετικές ιδιότητες όπως ήχο ή συμπεριφορά μετά την κίνηση.
+Για να εργαστείτε με τις μεμονωμένες συμπεριφορές μέσα σε ένα εφέ ή να επεξεργαστείτε τμήματα διαδρομής κίνησης, δείτε [Προσαρμοσμένη Κίνηση](/slides/el/java/custom-animation/).
 
-Η χρονογραμμή περιέχει δύο είδη ακολουθιών:
+Το Aspose.Slides for Java αντιπροσωπεύει τις κινήσεις των διαφανειών ως εφέ σε χρονοδιάγραμμα διαφάνειας. Ένα εφέ διαθέτει σχήμα‑στόχο, τύπο και υπό‑τύπο κίνησης, ένα ενεργοποιητή, ρυθμίσεις χρονισμού και προαιρετικές ιδιότητες όπως ήχος ή συμπεριφορά μετά την κίνηση.
+
+Το χρονοδιάγραμμα περιέχει δύο είδη ακολουθιών:
 
 - Η **κύρια ακολουθία** παίζει καθώς η διαφάνεια προχωρά.
-- Μια **διαδραστική ακολουθία** ξεκινά όταν το σχήμα‑ενεργοποιητής της γίνεται κλικ.
+- Μια **διαδραστική ακολουθία** ξεκινά όταν το σχήμα‑ενεργοποιητής πατιέται.
 
-Επειδή τα πλαίσια κειμένου, οι εικόνες, τα διαγράμματα, οι πίνακες και άλλα αντικείμενα διαφάνειας υλοποιούν το [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/), χρησιμοποιείτε την ίδια μέθοδο [ISequence.addEffect](https://reference.aspose.com/slides/el/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) για το μεγαλύτερο μέρος του περιεχομένου της διαφάνειας. Τα διαθέσιμα εφέ αναφέρονται στην κλάση [EffectType](https://reference.aspose.com/slides/el/java/com.aspose.slides/effecttype/).
+Επειδή τα πλαίσια κειμένου, οι εικόνες, τα διαγράμματα, οι πίνακες και άλλα αντικείμενα διαφάνειας υλοποιούν το [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/), χρησιμοποιείτε την ίδια μέθοδο [ISequence.addEffect](https://reference.aspose.com/slides/el/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) για το μεγαλύτερο μέρος του περιεχομένου της διαφάνειας. Τα διαθέσιμα εφέ παρατίθενται στην κλάση [EffectType](https://reference.aspose.com/slides/el/java/com.aspose.slides/effecttype/) class.
 
-## **Προσθήκη Κινήσεων Σχημάτων**
+## **Προσθήκη Κινήσεων Σχήματος**
 
-Για να προσθέσετε μια κίνηση, λάβετε την κύρια ακολουθία της διαφάνειας και καλέστε τη μέθοδο [ISequence.addEffect](https://reference.aspose.com/slides/el/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) με το σχήμα‑στόχο, τον τύπο εφέ, τον υποτύπο και τον ενεργοποιητή. Για ένα εφέ που ξεκινά όταν γίνεται κλικ σε άλλο σχήμα, δημιουργήστε μια διαδραστική ακολουθία της οποίας ο ενεργοποιητής είναι αυτό το άλλο σχήμα.
+Για να προσθέσετε μια κίνηση, αποκτήστε την κύρια ακολουθία της διαφάνειας και καλέστε την [ISequence.addEffect](https://reference.aspose.com/slides/el/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) με το σχήμα‑στόχο, τον τύπο εφέ, τον υπό‑τύπο και τον ενεργοποιητή. Για ένα εφέ που ξεκινά όταν πατιέται ένα άλλο σχήμα, δημιουργήστε μια διαδραστική ακολουθία του οποίου ο ενεργοποιητής είναι το εν λόγω σχήμα.
 
-Το παρακάτω παράδειγμα δημιουργεί και τους δύο τύπους κίνησης και αποθηκεύει το αποτέλεσμα στο αρχείο `shape-animations.pptx`.
+Το παρακάτω παράδειγμα δημιουργεί και τις δύο τύπους κίνησης και αποθηκεύει το αποτέλεσμα στο αρχείο `shape-animations.pptx`.
 
 ```java
 import com.aspose.slides.*;
@@ -75,15 +77,13 @@ public class AddShapeAnimations {
 
 - [EffectTriggerType.OnClick](https://reference.aspose.com/slides/el/java/com.aspose.slides/effecttriggertype/#OnClick) περιμένει ένα κλικ στην κύρια ακολουθία ή ένα κλικ στο σχήμα‑ενεργοποιητή σε μια διαδραστική ακολουθία.
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/el/java/com.aspose.slides/effecttriggertype/#WithPrevious) ξεκινά με το προηγούμενο εφέ.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/el/java/com.aspose.slides/effecttriggertype/#AfterPrevious) ξεκινά όταν ολοκληρωθεί το προηγούμενο εφέ.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/el/java/com.aspose.slides/effecttriggertype/#AfterPrevious) ξεκινά όταν το προηγούμενο εφέ ολοκληρωθεί.
 
-Για να κινήσετε μια εικόνα, διάγραμμα ή άλλο τύπο σχήματος, περάστε αυτό το αντικείμενο στη μέθοδο [ISequence.addEffect](https://reference.aspose.com/slides/el/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) αντί για `targetShape`. Για επιλογές ομαδοποίησης που αφορούν τα διαγράμματα, δείτε το [Animated Charts](/slides/el/java/animated-charts/).
+Για να ανιχνεύσετε μια εικόνα, διάγραμμα ή άλλο τύπο σχήματος, περάστε αυτό το αντικείμενο στην [ISequence.addEffect](https://reference.aspose.com/slides/el/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) αντί για `targetShape`. Για επιλογές ομαδοποίησης ειδικές για διαγράμματα, δείτε [Κινούμενα Διαγράμματα](/slides/el/java/animated-charts/).
 
-## **Ανάγνωση Κινήσεων Σχημάτων**
+## **Ανάγνωση Κινήσεων Σχήματος**
 
-Χρησιμοποιήστε τη μέθοδο [ISequence.getEffectsByShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) όταν γνωρίζετε το σχήμα‑στόχο. Για να εξετάσετε κάθε εφέ, κάντε επανάληψη στην κύρια ακολουθία και σε κάθε διαδραστική ακολουθία. Η επανάληψη αποτρέπει την παραδοχή ότι μια ακολουθία περιέχει εφέ στο δείκτη `0`.
-
-Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα με εφέ στην κύρια ακολουθία και σε διαδραστική ακολουθία, λαμβάνει τα εφέ που στοχεύουν το σχήμα και στη συνέχεια επαναλαμβάνει κάθε ακολουθία στην διαφάνεια.
+Χρησιμοποιήστε το [ISequence.getEffectsByShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) όταν γνωρίζετε το σχήμα‑στόχο. Για να επιθεωρήσετε κάθε εφέ, απαριθμήστε την κύρια ακολουθία και κάθε διαδραστική ακολουθία. Η απαριθμηση αποτρέπει την υπόθεση ότι μια ακολουθία περιέχει εφέ στο δείκτη `0`.
 
 ```java
 import com.aspose.slides.*;
@@ -137,21 +137,21 @@ public class ReadShapeAnimations {
 }
 ```
 
-Αν χρειάζεστε μόνο τα εφέ για ένα σχήμα, πρώτα προσδιορίστε το σχήμα με όνομα, τύπο placeholder ή άλλη σταθερή ιδιότητα· στη συνέχεια καλέστε τη μέθοδο [ISequence.getEffectsByShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Μην υποθέτετε ότι το [IShapeCollection.get_Item](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishapecollection/#get_Item-int-) στο δείκτη `0` είναι πάντα το επιθυμητό αντικείμενο.
+Αν χρειάζεστε τα εφέ μόνο για ένα σχήμα, πρώτα προσδιορίστε το σχήμα με το όνομα, τον τύπο του placeholder ή κάποια άλλη σταθερή ιδιότητα·, μετά καλέστε το [ISequence.getEffectsByShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Μην υποθέτετε ότι το [IShapeCollection.get_Item](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishapecollection/#get_Item-int-) στο δείκτη `0` είναι πάντα το ζητούμενο αντικείμενο.
 
-## **Διαχείριση Κληρονομισμένων Εφέ Placeholder**
+## **Εργασία με Κληρονομημένα Εφέ Συμπληρωματικών Στοιχείων**
 
-Ένα placeholder σε κανονική διαφάνεια μπορεί να κληρονομήσει τη συμπεριφορά κίνησης από το αντίστοιχο placeholder στη διαφάνεια διάταξης και στον κύριο πρότυπο. Η μέθοδος [IShape.getBasePlaceholder](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#getBasePlaceholder--) επιστρέφει αυτό το γονικό placeholder ή `null` όταν δεν υπάρχει γονέας.
+Ένα placeholder σε κανονική διαφάνεια μπορεί να κληρονομήσει τη συμπεριφορά κίνησης από το αντίστοιχο placeholder στη διαφάνεια διάταξης και στο master slide. Το [IShape.getBasePlaceholder](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#getBasePlaceholder--) επιστρέφει εκείνο το γονικό placeholder, ή `null` όταν δεν υπάρχει γονέας.
 
-Στην παρακάτω παρουσίαση παραδείγματος, το υποσέλιδο έχει **Random Bars** στη κανονική διαφάνεια, **Split** στη διαφάνεια διάταξης και **Fly In** στον κύριο πρότυπο.
+Στην παρακάτω παρουσίαση παράδειγμα, το υποσέλιδο έχει **Random Bars** στην κανονική διαφάνεια, **Split** στη διαφάνεια διάταξης και **Fly In** στο master slide.
 
-![Εφέ κίνησης υποσέλιδου στη κανονική διαφάνεια](slide-shape-animation.png)
+![Εφέ κίνησης υποσέλιδου στην κανονική διαφάνεια](slide-shape-animation.png)
 
-![Εφέ κίνησης placeholder υποσέλιδου στη διαφάνεια διάταξης](layout-shape-animation.png)
+![Εφέ κίνησης υποσέλιδου στο πρότυπο διάταξης](layout-shape-animation.png)
 
-![Εφέ κίνησης placeholder υποσέλιδου στη κύρια διαφάνεια](master-shape-animation.png)
+![Εφέ κίνησης υποσέλιδου στο κύριο πρότυπο](master-shape-animation.png)
 
-Το επόμενο παράδειγμα χρησιμοποιεί μια ιεραρχία placeholder από μια νέα παρουσίαση. Προσθέτει εφέ σε ένα master placeholder, ένα layout placeholder και το αντίστοιχο placeholder σε μια κανονική διαφάνεια. Κάθε κλήση στη μέθοδο [IShape.getBasePlaceholder](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#getBasePlaceholder--) ελέγχεται πριν χρησιμοποιηθεί το επιστραφέν σχήμα.
+Το επόμενο παράδειγμα χρησιμοποιεί μια ιεραρχία placeholder από νέα παρουσίαση. Προσθέτει εφέ σε ένα master placeholder, σε ένα layout placeholder και στο αντίστοιχο placeholder σε μια κανονική διαφάνεια. Κάθε κλήση στο [IShape.getBasePlaceholder](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#getBasePlaceholder--) ελέγχεται πριν χρησιμοποιηθεί το επιστραφεί shape.
 
 ```java
 import com.aspose.slides.*;
@@ -231,17 +231,17 @@ public class InheritedPlaceholderAnimations {
 
 ## **Αλλαγή Χρονισμού Κίνησης**
 
-Το παράθυρο διαλόγου **Timing** του PowerPoint αντιστοιχεί στις ιδιότητες του [ITiming](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/).
+Ο διάλογος **Timing** του PowerPoint αντιστοιχεί στις ιδιότητες του [ITiming](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/).
 
-![Διάλογος Timing του PowerPoint για ένα εφέ κίνησης](shape-animation.png)
+![Διάλογος Χρονισμού του PowerPoint για εφέ κίνησης](shape-animation.png)
 
-- **Start** αντιστοιχεί στο [ITiming.getTriggerType](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#getTriggerType--).
-- **Duration** αντιστοιχεί στο [ITiming.getDuration](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#getDuration--), σε δευτερόλεπτα.
-- **Delay** αντιστοιχεί στο [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#getTriggerDelayTime--), σε δευτερόλεπτα.
-- **Repeat** αντιστοιχεί στο [ITiming.getRepeatCount](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#getRepeatUntilNextClick--), ή [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
-- **Rewind when done playing** αντιστοιχεί στο [ITiming.getRewind](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#getRewind--).
+- **Έναρξη** αντιστοιχεί στο [ITiming.getTriggerType](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#getTriggerType--).
+- **Διάρκεια** αντιστοιχεί στο [ITiming.getDuration](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#getDuration--), σε δευτερόλεπτα.
+- **Καθυστέρηση** αντιστοιχεί στο [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#getTriggerDelayTime--), σε δευτερόλεπτα.
+- **Επανάληψη** αντιστοιχεί στο [ITiming.getRepeatCount](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#getRepeatUntilNextClick--), ή [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
+- **Αναπαραγωγή προς τα πίσω όταν ολοκληρωθεί** αντιστοιχεί στο [ITiming.getRewind](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#getRewind--).
 
-Αυτό το ανεξάρτητο παράδειγμα προσθέτει ένα εφέ, αλλάζει το χρονισμό του μέσω του αντικειμένου που επιστρέφει η μέθοδος [ISequence.addEffect](https://reference.aspose.com/slides/el/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), και αποθηκεύει το αποτέλεσμα. Η διατήρηση της επιστρεφόμενης αναφοράς [IEffect](https://reference.aspose.com/slides/el/java/com.aspose.slides/ieffect/) αποτρέπει την ανάγκη για περιττό δείκτη συλλογής.
+Αυτό το ανεξάρτητο παράδειγμα προσθέτει ένα εφέ, αλλάζει τον χρονισμό του μέσω του αντικειμένου που επιστρέφει η [ISequence.addEffect](https://reference.aspose.com/slides/el/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), και αποθηκεύει το αποτέλεσμα. Η διατήρηση της επιστρεφόμενης αναφοράς [IEffect](https://reference.aspose.com/slides/el/java/com.aspose.slides/ieffect/) αποτρέπει την άσκοπη χρήση δείκτη συλλογής.
 
 ```java
 import com.aspose.slides.*;
@@ -271,15 +271,15 @@ public class ChangeAnimationTiming {
 }
 ```
 
-Χρησιμοποιήστε μόνο έναν τρόπο επανάληψης επίτηδες. Ο συνδυασμός αριθμού επαναλήψεων με σημαία «until» μπορεί να δημιουργήσει συγκεχυμένα αποτελέσματα σε διαφορετικούς προβολείς. Κατά την αλλαγή των τρόπων επανάληψης, ορίστε πρώτα τις μεθόδους [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) και [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) πριν την [ITiming.setRepeatCount](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#setRepeatCount-float-), επειδή ο ορισμός οποιασδήποτε από τις σημαίες αλλάζει επίσης τον ενεργό τρόπο επανάληψης.
+Χρησιμοποιήστε μία κατάσταση επανάληψης σκόπιμα. Ο συνδυασμός ενός πλήθους επαναλήψεων με σημείο “μέχρι” μπορεί να προκαλέσει συγκεχυμένα αποτελέσματα σε διαφορετικούς προβολείς. Κατά την αλλαγή των καταστάσεων επανάληψης, ορίστε πρώτα το [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) και το [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) πριν το [ITiming.setRepeatCount](https://reference.aspose.com/slides/el/java/com.aspose.slides/itiming/#setRepeatCount-float-), επειδή η ρύθμιση οποιουδήποτε σημείου αλλάζει επίσης τη δραστική κατάσταση επανάληψης.
 
 ## **Προσθήκη και Εξαγωγή Ήχων Κίνησης**
 
-Ένα εφέ κίνησης μπορεί να αναφερθεί σε ενσωματωμένο ήχο μέσω του [IEffect.getSound](https://reference.aspose.com/slides/el/java/com.aspose.slides/ieffect/#getSound--). Η μέθοδος [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/el/java/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) λέει σε ένα εφέ να σταματήσει ήχο που ξεκίνησε από προηγούμενο εφέ.
+Ένα εφέ κίνησης μπορεί να παραπέμπει σε ενσωματωμένο ήχο μέσω του [IEffect.getSound](https://reference.aspose.com/slides/el/java/com.aspose.slides/ieffect/#getSound--). Το [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/el/java/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) αναγγέλλει σε ένα εφέ να σταματήσει ήχο που ξεκίνησε ένα προηγούμενο εφέ.
 
-### **Προσθήκη Ήχου σε Εφέ**
+### **Προσθήκη Ήχου σε Ένα Εφέ**
 
-Το παρακάτω παράδειγμα απαιτεί ένα τοπικό αρχείο ήχου με όνομα `animation-sound.wav`. Δημιουργεί δύο εφέ, ενσωματώνει αυτό το αρχείο ως ήχο για το πρώτο εφέ και διαμορφώνει το δεύτερο εφέ ώστε να σταματά τον ήχο. Χρησιμοποιεί τα αντικείμενα που επιστρέφει η μέθοδος [ISequence.addEffect](https://reference.aspose.com/slides/el/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), έτσι δεν απαιτείται δείκτης ακολουθίας.
+Το παρακάτω παράδειγμα περιμένει τοπικό αρχείο ήχου με όνομα `animation-sound.wav`. Δημιουργεί δύο εφέ, ενσωματώνει το αρχείο ως ήχο για το πρώτο εφέ και ρυθμίζει το δεύτερο εφέ να σταματά τον ήχο. Χρησιμοποιεί τα αντικείμενα που επιστρέφει η [ISequence.addEffect](https://reference.aspose.com/slides/el/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), επομένως δεν απαιτείται δείκτης ακολουθίας.
 
 ```java
 import com.aspose.slides.*;
@@ -316,7 +316,7 @@ public class AddAnimationSound {
 
 ### **Εξαγωγή Ενσωματωμένων Ήχων Εφέ**
 
-Το παρακάτω παράδειγμα απαιτεί μια τοπική παρουσίαση με όνομα `presentation-with-animation-sounds.pptx`. Σαρώνει τόσο την κύρια όσο και τις διαδραστικές ακολουθίες και γράφει κάθε ενσωματωμένο ήχο εφέ στον κατάλογο `extracted-animation-sounds`. Η επέκταση επιλέγεται από τον τύπο MIME του ήχου που εκτίθεται από το [IAudio.getContentType](https://reference.aspose.com/slides/el/java/com.aspose.slides/iaudio/#getContentType--).
+Το παρακάτω παράδειγμα περιμένει τοπική παρουσίαση με όνομα `presentation-with-animation-sounds.pptx`. Σαρώνει τόσο τις κύριες όσο και τις διαδραστικές ακολουθίες και γράφει κάθε ενσωματωμένο ήχο εφέ στον φάκελο `extracted-animation-sounds`. Η επέκταση επιλέγεται από τον τύπο MIME του ήχου που εκθέτει το [IAudio.getContentType](https://reference.aspose.com/slides/el/java/com.aspose.slides/iaudio/#getContentType--).
 
 ```java
 import com.aspose.slides.*;
@@ -390,17 +390,17 @@ public class ExtractAnimationSounds {
 }
 ```
 
-Για μεγάλα αντικείμενα ήχου, χρησιμοποιήστε το [IAudio.getStream](https://reference.aspose.com/slides/el/java/com.aspose.slides/iaudio/#getStream--) και αντιγράψτε τη ροή σε αρχείο αντί να φορτώσετε ολόκληρο το αντικείμενο σε έναν πίνακα byte.
+Για μεγάλα αντικείμενα ήχου, χρησιμοποιήστε το [IAudio.getStream](https://reference.aspose.com/slides/el/java/com.aspose.slides/iaudio/#getStream--) και αντιγράψτε το ρεύμα σε αρχείο αντί να φορτώσετε ολόκληρο το αντικείμενο σε πίνακα byte.
 
 ## **Ορισμός Συμπεριφοράς Μετά την Κίνηση**
 
 Η επιλογή **After animation** ελέγχει τι συμβαίνει σε ένα σχήμα μετά το τέλος του εφέ.
 
-![Διάλογος Επιλογών Εφέ του PowerPoint που εμφανίζει τις ρυθμίσεις After animation](shape-after-animation.png)
+![Διάλογος Επιλογών Εφέ του PowerPoint που εμφανίζει τις ρυθμίσεις Μετά την κίνηση](shape-after-animation.png)
 
-Η κλάση [AfterAnimationType](https://reference.aspose.com/slides/el/java/com.aspose.slides/afteranimationtype/) υποστηρίζει τη διατήρηση του σχήματος αμετάβλητο, την αλλαγή του χρώματος του, την απόκρυψή του μετά την κίνηση, ή την απόκρυψή του στο επόμενο κλικ. Όταν ο τύπος είναι [AfterAnimationType.Color](https://reference.aspose.com/slides/el/java/com.aspose.slides/afteranimationtype/#Color), ορίστε επίσης το [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/el/java/com.aspose.slides/ieffect/#getAfterAnimationColor--) .
+Η κλάση [AfterAnimationType](https://reference.aspose.com/slides/el/java/com.aspose.slides/afteranimationtype/) υποστηρίζει να αφήνετε το σχήμα αμετάβλητο, να αλλάζετε το χρώμα του, να το κρύβετε μετά την κίνηση ή να το κρύβετε στο επόμενο κλικ. Όταν ο τύπος είναι [AfterAnimationType.Color](https://reference.aspose.com/slides/el/java/com.aspose.slides/afteranimationtype/#Color), ορίστε επίσης το [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/el/java/com.aspose.slides/ieffect/#getAfterAnimationColor--).
 
-Αυτό το ανεξάρτητο παράδειγμα δημιουργεί ένα εφέ, ορίζει τη συμπεριφορά μετά την κίνηση μέσω του επιστρεφόμενου αντικειμένου εφέ, και αποθηκεύει το αποτέλεσμα.
+Αυτό το ανεξάρτητο παράδειγμα δημιουργεί ένα εφέ, ορίζει τη συμπεριφορά μετά την κίνηση μέσω του αντικειμένου εφέ που επιστρέφει, και αποθηκεύει το αποτέλεσμα.
 
 ```java
 import com.aspose.slides.*;
@@ -426,16 +426,16 @@ public class SetAfterAnimationBehavior {
 }
 ```
 
-Η αλλαγή του τύπου από το [AfterAnimationType.Color](https://reference.aspose.com/slides/el/java/com.aspose.slides/afteranimationtype/#Color) αφαιρεί τη ρύθμιση χρώματος μετά την κίνηση.
+Αλλάζοντας τον τύπο από [AfterAnimationType.Color](https://reference.aspose.com/slides/el/java/com.aspose.slides/afteranimationtype/#Color) διαγράφει τη ρύθμιση του χρώματος μετά την κίνηση.
 
 ## **Κίνηση Κειμένου**
 
-Η κίνηση κειμένου έχει δύο σχετικούς ελέγχους:
+Η κίνηση κειμένου έχει δύο σχετικές ρυθμίσεις:
 
-- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextanimation/#getBuildType--) ελέγχει αν οι παράγραφοι εμφανίζονται μαζί ή ανά επίπεδο παραγράφου.
-- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/el/java/com.aspose.slides/ieffect/#getAnimateTextType--) ελέγχει αν το κείμενο εμφανίζεται ολόκληρο, ανά λέξη ή ανά γράμμα. Το [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/el/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) ορίζει την καθυστέρηση μεταξύ λέξεων ή γραμμάτων. Μια θετική τιμή είναι ποσοστό της διάρκειας του εφέ· μια αρνητική τιμή είναι καθυστέρηση σε δευτερόλεπτα.
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextanimation/#getBuildType--) ελέγχει εάν οι παράγραφοι εμφανίζονται μαζί ή ανά επίπεδο παραγράφου.
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/el/java/com.aspose.slides/ieffect/#getAnimateTextType--) ελέγχει εάν το κείμενο εμφανίζεται ολόκληρο, ανά λέξη ή ανά γράμμα. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/el/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) ορίζει την καθυστέρηση μεταξύ λέξεων ή γραμμάτων. Μια θετική τιμή είναι ποσοστό της διάρκειας του εφέ· μια αρνητική τιμή είναι καθυστέρηση σε δευτερόλεπτα.
 
-Το παρακάτω ανεξάρτητο παράδειγμα κινεί τις λέξεις σε ένα πλαίσιο κειμένου. Η επιλογή [BuildType.AsOneObject](https://reference.aspose.com/slides/el/java/com.aspose.slides/buildtype/#AsOneObject) απενεργοποιεί την κατασκευή παράγραφος‑κατά‑παράγραφο ώστε η ρύθμιση λέξης να ισχύει για ολόκληρο το πλαίσιο κειμένου.
+Το παρακάτω ανεξάρτητο παράδειγμα κινεί τις λέξεις σε ένα πλαίσιο κειμένου. Το [BuildType.AsOneObject](https://reference.aspose.com/slides/el/java/com.aspose.slides/buildtype/#AsOneObject) απενεργοποιεί τη δημιουργία παραγράφου‑παράγραφος ώστε η ρύθμιση λέξης να ισχύει σε όλο το πλαίσιο κειμένου.
 
 ```java
 import com.aspose.slides.*;
@@ -461,26 +461,26 @@ public class AnimateTextByWord {
 }
 ```
 
-Για να δημιουργήσετε ένα πλαίσιο κειμένου ανά παράγραφο, ορίστε το [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/el/java/com.aspose.slides/buildtype/#ByLevelParagraphs1) (ή άλλο επίπεδο παραγράφου). Για να στοχεύσετε μια μόνο παράγραφο με δικό της εφέ, χρησιμοποιήστε την υπερφόρτωση της [ISequence.addEffect](https://reference.aspose.com/slides/el/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) που δέχεται ένα [IParagraph](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraph/). Δείτε το [Animated Text](/slides/el/java/animated-text/) για παραδείγματα επιπέδου παραγράφου.
+Για να δημιουργήσετε ένα πλαίσιο κειμένου παράγραφος‑πρώτα, ορίστε το [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/el/java/com.aspose.slides/buildtype/#ByLevelParagraphs1) (ή κάποιο άλλο επίπεδο παραγράφου). Για να στοχεύσετε μια μόνο παράγραφο με δικό της εφέ, χρησιμοποιήστε την υπερφόρτωση του [ISequence.addEffect](https://reference.aspose.com/slides/el/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) που δέχεται ένα [IParagraph](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraph/). Δείτε το [Animated Text](/slides/el/java/animated-text/) για παραδείγματα επιπέδου παραγράφου.
 
-## **Σημειώματα Εξαγωγής και Συμβατότητας**
+## **Σημειώσεις Εξαγωγής και Συμβατότητας**
 
 - Η αποθήκευση σε PPT ή PPTX διατηρεί το μοντέλο κίνησης, αλλά η τελική αναπαραγωγή ελέγχεται από το πρόγραμμα προβολής παρουσίασης.
-- Τα PDF και οι στατικές εικόνες δεν παίζουν κινήσεις. Χρησιμοποιήστε την [HTML5 export](/slides/el/java/export-to-html5/), animated GIF, ή [video conversion](/slides/el/java/convert-powerpoint-to-video/) όταν η έξοδος πρέπει να δείχνει κίνηση.
+- Τα PDF και οι στατικές εικόνες δεν αναπαράγουν κινήσεις. Χρησιμοποιήστε [HTML5 export](/slides/el/java/export-to-html5/), κινούμενο GIF ή [video conversion](/slides/el/java/convert-powerpoint-to-video/) όταν η έξοδος πρέπει να δείχνει κίνηση.
 - Για HTML5, ενεργοποιήστε το [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/el/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) και, όταν χρειάζεται, το [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/el/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
-- Η απόδοση βίντεο υποστηρίζει πολλές κοινές εφέ εισόδου, έμφασης, εξόδου και διαδρομής κίνησης, αλλά δεν υποστηρίζονται όλα τα εφέ του PowerPoint. Ελέγξτε τις τρέχουσες [supported animations and effects](/slides/el/java/convert-powerpoint-to-video/#supported-animations-and-effects) και δοκιμάστε κρίσιμες παρουσιάσεις με την έκδοση Aspose.Slides που χρησιμοποιείτε.
-- Οι προχωρημένες προσαρμοσμένες εφέ και εφέ που εισάγονται από άλλες μορφές παρουσίασης ενδέχεται να διατηρηθούν στο αρχείο αλλά να αποδοθούν διαφορετικά στο PowerPoint, HTML5 ή βίντεο. Επικυρώστε το εξαγόμενο αποτέλεσμα αντί να βασίζεστε μόνο στο όνομα του εφέ.
+- Η απόδοση βίντεο υποστηρίζει πολλά κοινά εφέ εισόδου, έμφασης, εξόδου και διαδρομής κίνησης, αλλά δεν υποστηρίζονται όλα τα εφέ του PowerPoint. Ελέγξτε τα τρέχοντα [supported animations and effects](/slides/el/java/convert-powerpoint-to-video/#supported-animations-and-effects) και δοκιμάστε κρίσιμες παρουσιάσεις με την έκδοση Aspose.Slides που στοχεύετε.
+- Προηγμένα προσαρμοσμένα εφέ και εφέ που εισάγονται από άλλες μορφές παρουσίασης μπορεί να διατηρηθούν στο αρχείο αλλά να αποδίδονται διαφορετικά σε PowerPoint, HTML5 ή βίντεο. Επαληθεύστε το εξαγόμενο αποτέλεσμα αντί να βασίζεστε μόνο στο όνομα του εφέ.
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+## **Συχνές Ερωτήσεις**
 
-**Γιατί εμφανίζεται μια κίνηση στο PowerPoint αλλά όχι σε PDF;**
+**Γιατί ένα εφέ εμφανίζεται στο PowerPoint αλλά όχι σε PDF;**
 
-Το PDF είναι στατική μορφή, επομένως οι κινήσεις και οι μεταβάσεις διαφανειών δεν παίζουν. Εξαγάγετε σε HTML5, animated GIF ή βίντεο όταν πρέπει να διατηρηθεί η κίνηση.
+Το PDF είναι στατική μορφή, έτσι οι κινήσεις και οι μεταβάσεις διαφανειών δεν αναπαράγονται. Εξάγετε σε HTML5, κινούμενο GIF ή βίντεο όταν πρέπει να διατηρηθεί η κίνηση.
 
-**Γιατί ένα εφέ αποδίδεται διαφορετικά σε βίντεο;**
+**Γιατί ένα εφέ παίζει διαφορετικά σε βίντεο;**
 
-Η εξαγωγή βίντεο αποδίδει τις κινήσεις αντί να αποθηκεύει τη συμπεριφορά του αρχικού PowerPoint. Ορισμένα προχωρημένα εφέ δεν υποστηρίζονται ή προσεγγίζονται προσεγγιστικά. Εξετάστε τον πίνακα των υποστηριζόμενων εφέ και δοκιμάστε την πραγματική παρουσίαση πριν από τη χρήση στην παραγωγή.
+Η εξαγωγή βίντεο αποδίδει τις κινήσεις αντί να αποθηκεύει τη συμπεριφορά του αρχικού PowerPoint. Ορισμένα προχωρημένα εφέ δεν υποστηρίζονται ή προσεγγίζονται κατά προσέγγιση. Ελέγξτε τον πίνακα των υποστηριζόμενων εφέ και δοκιμάστε την πραγματική παρουσίαση πριν τη χρήση στην παραγωγή.
 
-**Αλλάζει η μετακίνηση ενός σχήματος προς τα εμπρός ή πίσω τη σειρά κίνησης του;**
+**Αλλάζει η μετακίνηση ενός σχήματος προς τα εμπρός ή προς τα πίσω τη σειρά των κινήσεων;**
 
-Όχι. Η σειρά z‑order του σχήματος ελέγχει την επικάλυψη, ενώ η σειρά ακολουθίας και οι ενεργοποιητές ελέγχουν την αναπαραγωγή της κίνησης. Αλλάξτε τη χρονογραμμή αν χρειάζεστε διαφορετική σειρά αναπαραγωγής.
+Όχι. Η σειρά z του σχήματος ελέγχει την επικάλυψη, ενώ η σειρά των ακολουθιών και οι ενεργοποιητές ελέγχουν την αναπαραγωγή της κίνησης. Αλλάξτε το χρονοδιάγραμμα εάν χρειάζεστε διαφορετική σειρά αναπαραγωγής.

@@ -1,5 +1,5 @@
 ---
-title: Nâng cao bài thuyết trình PowerPoint với hoạt ảnh trong Java
+title: Nâng cao bản trình bày PowerPoint với hoạt ảnh trong Java
 linktitle: Hoạt ảnh PowerPoint
 type: docs
 weight: 150
@@ -10,10 +10,10 @@ keywords:
 - thay đổi hoạt ảnh
 - xóa hoạt ảnh
 - quản lý hoạt ảnh
-- điều khiển hoạt ảnh
+- kiểm soát hoạt ảnh
 - hiệu ứng hoạt ảnh
 - hoạt ảnh PowerPoint
-- timeline hoạt ảnh
+- dòng thời gian hoạt ảnh
 - hoạt ảnh tương tác
 - hoạt ảnh tùy chỉnh
 - hoạt ảnh hình dạng
@@ -24,29 +24,27 @@ keywords:
 - hình ảnh động
 - bảng động
 - PowerPoint
-- bài thuyết trình
+- bản trình bày
 - Java
 - Aspose.Slides
-description: "Khám phá khả năng của Aspose.Slides cho Java trong việc xử lý hoạt ảnh PowerPoint. Tổng quan này nêu bật các tính năng chính và cung cấp góc nhìn để nâng cao các bài thuyết trình của bạn."
+description: "Khám phá khả năng của Aspose.Slides cho Java trong việc xử lý hoạt ảnh PowerPoint. Tổng quan chung này nêu bật các tính năng chính và cung cấp những hiểu biết để nâng cao các bản trình bày của bạn."
 ---
 ## **Giới thiệu**
 
-Vì các bài thuyết trình được tạo ra để trình bày nội dung, nên vẻ ngoài trực quan và hành vi tương tác luôn được cân nhắc khi tạo.
+Vì các bài thuyết trình được tạo ra để trình bày một nội dung nào đó, nên diện mạo trực quan và hành vi tương tác luôn được cân nhắc trong quá trình tạo.
 
-**PowerPoint animation** đóng vai trò quan trọng trong việc làm cho bài thuyết trình hấp dẫn và thu hút người xem. Aspose.Slides cung cấp đa dạng các tùy chọn để thêm hoạt ảnh vào các bài thuyết trình PowerPoint:
+**PowerPoint animation** đóng vai trò quan trọng trong việc làm cho bài thuyết trình thu hút và gây hứng thú cho người xem. Aspose.Slides cung cấp nhiều tùy chọn để thêm hoạt ảnh vào các bài thuyết trình PowerPoint:
 
-- Áp dụng các loại hiệu ứng hoạt ảnh PowerPoint khác nhau cho các hình dạng, biểu đồ, bảng, đối tượng OLE và các thành phần khác của bài thuyết trình.
-- Sử dụng nhiều hiệu ứng hoạt ảnh PowerPoint trên cùng một hình dạng.
-- Tận dụng Timeline hoạt ảnh để kiểm soát các hiệu ứng hoạt ảnh.
+- Áp dụng các loại hiệu ứng hoạt ảnh PowerPoint khác nhau cho các hình dạng, biểu đồ, bảng, đối tượng OLE và các yếu tố khác của bài thuyết trình.
+- Sử dụng nhiều hiệu ứng hoạt ảnh PowerPoint trên một hình dạng duy nhất.
+- Sử dụng dòng thời gian hoạt ảnh để điều khiển các hiệu ứng.
 - Tạo hoạt ảnh tùy chỉnh.
 
-Trong Aspose.Slides, có thể áp dụng các hiệu ứng hoạt ảnh khác nhau cho các hình dạng. Vì mọi thành phần trên một slide, bao gồm văn bản, hình ảnh, đối tượng OLE và bảng, đều được xem là một hình dạng, nên các hiệu ứng hoạt ảnh có thể được áp dụng cho bất kỳ thành phần nào trên slide.
+## **Hiệu ứng hoạt ảnh**
 
-## **Hiệu Ứng Hoạt Ảnh**
+Aspose.Slides hỗ trợ **hơn 150 hiệu ứng hoạt ảnh**, bao gồm các hiệu ứng cơ bản như Bounce, PathFootball và Zoom, và các hiệu ứng cụ thể như OLEObjectShow và OLEObjectOpen. Bạn có thể tìm danh sách đầy đủ trong lớp [EffectType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/effecttype/).
 
-Aspose.Slides hỗ trợ **hơn 150 hiệu ứng hoạt ảnh**, bao gồm các hiệu ứng cơ bản như Bounce, PathFootball, hiệu ứng Zoom và các hiệu ứng đặc thù như OLEObjectShow, OLEObjectOpen. Bạn có thể xem danh sách đầy đủ các hiệu ứng hoạt ảnh trong [**EffectType**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/effecttype/) enumeration.
-
-Ngoài ra, những hiệu ứng hoạt ảnh này có thể được kết hợp với chúng:
+Ngoài ra, các hiệu ứng hoạt ảnh này có thể được sử dụng kết hợp với các hành vi sau:
 
 - [ColorEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/CommandEffect)
@@ -57,58 +55,60 @@ Ngoài ra, những hiệu ứng hoạt ảnh này có thể được kết hợp
 - [ScaleEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ScaleEffect)
 - [SetEffect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/SetEffect)
 
-## **Hoạt Ảnh Tùy Chỉnh**
+## **Hoạt ảnh tùy chỉnh**
 
-Bạn có thể tạo **hoạt ảnh tùy chỉnh** của riêng mình trong Aspose.Slides. Điều này có thể đạt được khi bạn kết hợp một số hành vi lại với nhau thành một hoạt ảnh tùy chỉnh mới.
+Đối với các ví dụ Java đầy đủ tạo, kiểm tra và sửa đổi hành vi và các đường chuyển động có thể chỉnh sửa, xem [Hoạt ảnh tùy chỉnh](/slides/vi/java/custom-animation/).
 
-[**Behavior**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Behavior) là đơn vị cấu thành của bất kỳ hiệu ứng hoạt ảnh PowerPoint nào. Tất cả các hiệu ứng hoạt ảnh thực chất là một tập hợp các hành vi được kết hợp thành một chiến lược. Bạn có thể kết hợp các hành vi thành một hoạt ảnh tùy chỉnh một lần và tái sử dụng nó trong các bài thuyết trình khác. Nếu bạn thêm một hành vi mới vào một hiệu ứng hoạt ảnh PowerPoint tiêu chuẩn - nó sẽ trở thành một hoạt ảnh tùy chỉnh khác. Ví dụ, bạn có thể thêm hành vi lặp lại vào một hoạt ảnh để nó lặp lại vài lần.
+Bạn có thể tạo **hoạt ảnh tùy chỉnh** của riêng mình trong Aspose.Slides. Điều này có thể thực hiện bằng cách kết hợp một số hành vi thành một hoạt ảnh tùy chỉnh mới.
 
-[**Animation Point**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Point) là một điểm nơi hành vi sẽ được áp dụng.
+[Behavior](https://reference.aspose.com/slides/vi/java/com.aspose.slides/behavior/) là khối xây dựng của một hiệu ứng hoạt ảnh PowerPoint. Kết hợp các hành vi để tùy chỉnh một hiệu ứng, hoặc thêm một hành vi để mở rộng một hiệu ứng đã định nghĩa trước. Việc lặp lại được cấu hình thông qua cài đặt thời gian thay vì một hành vi lặp riêng biệt.
 
-## **Dòng Thời Gian Hoạt Ảnh**
+[Animation Point](https://reference.aspose.com/slides/vi/java/com.aspose.slides/point/) là điểm mà tại đó một hành vi nên được áp dụng.
 
-[**Sequence**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Sequence) là một tập hợp các hiệu ứng hoạt ảnh, được áp dụng cho một hình dạng cụ thể.
+## **Dòng thời gian hoạt ảnh**
 
-[**Timeline**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/AnimationTimeLine) là một tập hợp các Sequence được sử dụng trong một slide cụ thể. Đây là một động cơ hoạt ảnh được giới thiệu từ PowerPoint 2002. Trong các phiên bản PowerPoint trước, việc thêm hiệu ứng hoạt ảnh vào bài thuyết trình rất khó khăn và chỉ có thể thực hiện qua các giải pháp tạm thời. Timeline được đưa ra để thay thế lớp AnimationSettings cũ và cung cấp mô hình đối tượng rõ ràng hơn cho hoạt ảnh PowerPoint. Mỗi slide chỉ có thể có một timeline hoạt ảnh duy nhất.
+[Sequence](https://reference.aspose.com/slides/vi/java/com.aspose.slides/sequence/) là một tập hợp các hiệu ứng hoạt ảnh có thể nhắm mục tiêu đến các hình dạng khác nhau.
 
-## **Hoạt Ảnh Tương Tác**
+[Timeline](https://reference.aspose.com/slides/vi/java/com.aspose.slides/animationtimeline/) là một tập hợp các sequence được sử dụng trong một slide cụ thể. Đây là một động cơ hoạt ảnh được giới thiệu trong PowerPoint 2002. Trong các phiên bản PowerPoint trước đó, việc thêm hiệu ứng hoạt ảnh vào bài thuyết trình khá khó khăn và chỉ có thể thực hiện bằng nhiều cách khắc phục khác nhau. Dòng thời gian cung cấp một mô hình đối tượng rõ ràng hơn cho các hoạt ảnh PowerPoint. Một slide chỉ có thể có một dòng thời gian hoạt ảnh.
 
-[**Trigger**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/EffectTriggerType) cho phép định nghĩa các hành động của người dùng (ví dụ: nhấp chuột vào nút), khiến một hoạt ảnh nhất định bắt đầu. Triggers chỉ được thêm vào phiên bản PowerPoint mới nhất.
+## **Hoạt ảnh tương tác**
 
-## **Hoạt Ảnh Hình Dạng**
+[Trigger](https://reference.aspose.com/slides/vi/java/com.aspose.slides/effecttriggertype/) cho phép bạn định nghĩa các hành động người dùng, chẳng hạn như nhấn nút, để bắt đầu một hoạt ảnh cụ thể.
 
-Aspose.Slides cho phép áp dụng hoạt ảnh cho các hình dạng, có thể là văn bản, hình chữ nhật, đường, khung, đối tượng OLE, v.v.
+## **Hoạt ảnh hình dạng**
 
-{{% alert color="primary" %}} 
-Đọc thêm [**Về Hoạt Ảnh Hình Dạng**](/slides/vi/java/shape-animation/).
+Aspose.Slides cho phép bạn áp dụng hoạt ảnh cho các hình dạng, có thể bao gồm văn bản, hình chữ nhật, đường, khung, đối tượng OLE và nhiều hơn nữa.
+
+{{% alert color="info" title="Note" %}}
+Đọc thêm [**Về Hoạt ảnh Hình dạng**](/slides/vi/java/shape-animation/).
 {{% /alert %}}
 
-## **Biểu Đồ Được Hoạt Ảnh**
+## **Biểu đồ động**
 
-Để tạo biểu đồ động, bạn nên sử dụng cùng các lớp như với các hình dạng. Tuy nhiên, bạn chỉ có thể áp dụng hoạt ảnh PowerPoint cho các danh mục biểu đồ hoặc các chuỗi biểu đồ. Bạn cũng có thể áp dụng hiệu ứng hoạt ảnh cho một phần tử danh mục hoặc phần tử chuỗi.
+Để tạo biểu đồ động, bạn nên sử dụng cùng các lớp như đối với hình dạng. Tuy nhiên, hoạt ảnh PowerPoint chỉ có thể được áp dụng cho các danh mục biểu đồ hoặc chuỗi biểu đồ. Bạn cũng có thể áp dụng hiệu ứng hoạt ảnh cho một phần tử danh mục hoặc một phần tử chuỗi.
 
-{{% alert color="primary" %}} 
-Đọc thêm [**Về Biểu Đồ Động**](/slides/vi/java/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Đọc thêm [**Về Biểu đồ Động**](/slides/vi/java/animated-charts/).
 {{% /alert %}}
 
-## **Văn Bản Được Hoạt Ảnh**
+## **Văn bản động**
 
-Ngoài văn bản được hoạt ảnh, bạn cũng có thể áp dụng hoạt ảnh cho một đoạn văn.
+Ngoài việc hoạt ảnh văn bản, bạn còn có thể áp dụng hoạt ảnh cho một đoạn văn.
 
-{{% alert color="primary" %}} 
-Đọc thêm [**Về Văn Bản Động**](/slides/vi/java/animated-text/).
+{{% alert color="info" title="Note" %}}
+Đọc thêm [**Về Văn bản Động**](/slides/vi/java/animated-text/).
 {{% /alert %}}
 
-## **Câu Hỏi Thường Gặp**
+## **Câu hỏi thường gặp**
 
-**Các hoạt ảnh có được giữ lại khi xuất sang PDF không?**
+**Hoạt ảnh có được giữ lại khi xuất sang PDF không?**
 
-Không. PDF là định dạng tĩnh, vì vậy các hoạt ảnh và [slide transitions](/slides/vi/java/slide-transition/) sẽ không phát. Nếu bạn cần chuyển động, hãy xuất sang [HTML5](/slides/vi/java/export-to-html5/), [animated GIF](/slides/vi/java/convert-powerpoint-to-animated-gif/), hoặc [video](/slides/vi/java/convert-powerpoint-to-video/) thay thế.
+Không. PDF là định dạng tĩnh, vì vậy hoạt ảnh và [slide transitions](/slides/vi/java/slide-transition/) không được phát. Nếu bạn cần chuyển động, hãy xuất sang [HTML5](/slides/vi/java/export-to-html5/), [animated GIF](/slides/vi/java/convert-powerpoint-to-animated-gif/), hoặc [video](/slides/vi/java/convert-powerpoint-to-video/) thay vào đó.
 
-**Tôi có thể chuyển một bài thuyết trình động thành video và kiểm soát tốc độ khung hình và kích thước khung hình không?**
+**Tôi có thể chuyển một bài thuyết trình động thành video và kiểm soát tốc độ khung và kích thước khung hình không?**
 
-Có. Bạn có thể [render the presentation as frames](/slides/vi/java/convert-powerpoint-to-video/) và mã hóa chúng thành video (ví dụ: qua ffmpeg), chọn FPS và độ phân giải. Các hoạt ảnh và slide transitions sẽ được phát trong quá trình render.
+Có. Bạn có thể [render the presentation as frames](/slides/vi/java/convert-powerpoint-to-video/) và mã hoá chúng thành video (ví dụ, bằng ffmpeg), lựa chọn FPS và độ phân giải. Các hoạt ảnh và chuyển tiếp slide được phát trong quá trình render.
 
-**Các hoạt ảnh có giữ nguyên khi làm việc với ODP (không chỉ PPTX) không?**
+**Hoạt ảnh có vẫn giữ nguyên khi làm việc với ODP (không chỉ PPTX) không?**
 
-PPT, PPTX và ODP đều được hỗ trợ để [reading](/slides/vi/java/open-presentation/) và [writing](/slides/vi/java/save-presentation/), nhưng sự khác biệt về định dạng có nghĩa là một số hiệu ứng có thể trông hoặc hoạt động hơi khác. Hãy kiểm tra các trường hợp quan trọng bằng các mẫu thực tế.
+PPT, PPTX và ODP được hỗ trợ để [reading](/slides/vi/java/open-presentation/) và [writing](/slides/vi/java/save-presentation/), nhưng điều này không đảm bảo việc giữ lại hoạt ảnh. Dữ liệu hoạt ảnh tùy chỉnh có thể bị mất khi chuyển đổi sang ODP. Xem [Custom Animation](/slides/vi/java/custom-animation/) để biết ví dụ và hướng dẫn kiểm tra tính tương thích định dạng.

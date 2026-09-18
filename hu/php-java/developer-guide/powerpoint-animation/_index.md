@@ -1,5 +1,5 @@
 ---
-title: PowerPoint prezentációk fejlesztése animációkkal PHP-ben
+title: PowerPoint bemutatók fejlesztése animációkkal PHP-ben
 linktitle: PowerPoint animáció
 type: docs
 weight: 150
@@ -15,7 +15,7 @@ keywords:
 - PowerPoint animáció
 - animációs idővonal
 - interaktív animáció
-- egyedi animáció
+- egyéni animáció
 - alakzat animáció
 - animált diagram
 - animált szöveg
@@ -24,29 +24,30 @@ keywords:
 - animált kép
 - animált táblázat
 - PowerPoint
-- prezentáció
+- bemutató
 - PHP
 - Aspose.Slides
-description: "Fedezze fel az Aspose.Slides for PHP via Java képességeit a PowerPoint animációk kezelése terén. Kulcsfontosságú funkciók és betekintések a prezentációk fejlesztéséhez."
+description: "Fedezze fel az Aspose.Slides for PHP via Java képességeit a PowerPoint animációk kezelésében. Kulcsfontosságú funkciók és betekintések a bemutatók fejlesztéséhez."
 ---
 ## **Bevezetés**
 
-Mivel a bemutatók valamit kell, hogy bemutassanak, ezért a vizuális megjelenésüket és interaktív viselkedésüket mindig figyelembe veszik a készítésük során.
+Mivel a bemutatók célja, hogy valamit bemutassanak, a vizuális megjelenésüket és interaktív viselkedésüket mindig figyelembe veszik a létrehozás során.
 
-**PowerPoint animáció** fontos szerepet játszik a bemutató szemrevaló és vonzóvá tételében a nézők számára. Az Aspose.Slides for PHP via Java széles körű lehetőséget kínál a PowerPoint bemutatóhoz való animáció hozzáadására:
+**PowerPoint animáció** fontos szerepet játszik abban, hogy egy bemutató figyelemfelkeltő és lebilincselő legyen a nézők számára. Az Aspose.Slides for PHP via Java számos lehetőséget kínál a PowerPoint bemutatók animációinak hozzáadásához:
 
-- alkalmazzon különféle típusú PowerPoint animációs effektusokat alakzatokra, diagramokra, táblázatokra, OLE objektumokra és egyéb bemutatóelemekre.
-- használjon több PowerPoint animációs effektust egy alakzaton.
-- használja az animáció idővonalát az effektusok vezérléséhez.
-- hozzon létre egyedi animációt.
+- Alkalmazzon különféle típusú PowerPoint animációs hatásokat alakzatokra, diagramokra, táblázatokra, OLE objektumokra és egyéb bemutatóelemekre.
+- Használjon több PowerPoint animációs hatást egyetlen alakzaton.
+- Használja az animáció idővonalát az animációs hatások vezérléséhez.
+- Készítsen egyéni animációkat.
 
-Az Aspose.Slides for PHP via Java-ban különféle animációs effektusok alkalmazhatók az alakzatokra. Mivel a dián lévő minden elem, beleértve a szöveget, képeket, OLE objektumot, táblázatot stb., alakzatnak tekinthető, ez azt jelenti, hogy animációs effektust alkalmazhatunk a dia minden elemére.
+Az Aspose.Slides for PHP via Java-ban különféle animációs hatásokat lehet alkalmazni alakzatokra. Mivel egy dián minden elem, beleértve a szöveget, képeket, OLE objektumokat és táblázatokat, alakzatnak tekinthető, az animációs hatások bármely diára lévő elemre alkalmazhatók.
 
-## **Animációs effektusok**
+## **Animációs hatások**
 
-Az Aspose.Slides támogatja a **150+ animációs effektust**, beleértve az alapvető effekteket, mint a Bounce, a PathFootball, a Zoom effektus, valamint a speciális effekteket, mint az OLEObjectShow, OLEObjectOpen. A teljes animációs effektus lista megtalálható a [**EffectType**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effecttype/) enumerációban.
+Aspose.Slides támogat **150+ animációs hatást**, beleértve az alapvető hatásokat, mint a Bounce, a PathFootball és a Zoom, valamint specifikus hatásokat, mint az OLEObjectShow és az OLEObjectOpen. A teljes felsorolást megtalálja a [EffectType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effecttype/) osztályban.
 
-Ezenkívül ezeket az animációs effektusokat kombinálhatjuk velük:
+Emellett ezeket az animációs hatásokat a következő viselkedésekkel kombinálva is használhatja:
+
 - [ColorEffect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/CommandEffect)
 - [FilterEffect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/FilterEffect)
@@ -56,59 +57,60 @@ Ezenkívül ezeket az animációs effektusokat kombinálhatjuk velük:
 - [ScaleEffect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ScaleEffect)
 - [SetEffect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/SetEffect)
 
-## **Egyedi animáció**
+## **Egyéni animáció**
 
-Lehetséges saját **egyedi animációkat** létrehozni az Aspose.Slides-ban. 
-Ez úgy érhető el, ha több viselkedést egyesítünk egy új egyedi animációba.
+A viselkedések és szerkeszthető mozgásútvonalak létrehozásával, ellenőrzésével és módosításával kapcsolatos teljes PHP példákért tekintse meg a [Custom Animation](/slides/hu/php-java/custom-animation/) oldalt.
 
-[**Behavior**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Behavior) egy építőeleme bármely PowerPoint animációs effektusnak. Az összes animációs effektus valójában egy viselkedéssorozat, amely egy stratégiába van összefűzve. Egyszer kombinálhatja a viselkedéseket egy egyedi animációba, és újra felhasználhatja más bemutatókban. Ha új viselkedést ad hozzá egy szabványos PowerPoint animációs effektushoz, akkor egy újabb egyedi animáció jön létre. Például hozzáadhat ismétlődő viselkedést egy animációhoz, hogy néhányszor megismétlődjön.
+Lehetséges saját **egyéni animációkat** létrehozni az Aspose.Slides-ban. Ez több viselkedés kombinálásával egy új egyéni animációban érhető el.
 
-[**Animation Point**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Point) egy pont, ahol a viselkedést alkalmazni kell.
+[Behavior](https://reference.aspose.com/slides/hu/php-java/aspose.slides/behavior/) a PowerPoint animációs hatás építőeleme. Kombinálja a viselkedéseket egy hatás testreszabásához, vagy adjon hozzá egy viselkedést egy előre definiált hatás kibővítéséhez. A ismétlődést az időzítési beállításokkal konfigurálják, nem különálló ismétlés‑viselkedéssel.
+
+[Animation Point](https://reference.aspose.com/slides/hu/php-java/aspose.slides/point/) egy pont, ahol egy viselkedést kell alkalmazni.
 
 ## **Animációs idővonal**
 
-[**Sequence**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/Sequence) egy animációs effektusok gyűjteménye, amely egy konkrét alakzatra van alkalmazva.
+[Sequence](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sequence/) animációs hatások gyűjteménye, amely különböző alakzatokat célozhat meg.
 
-[**Timeline**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/AnimationTimeLine) egy sorozatot tartalmazó halmaz, amely egy konkrét dián használatos. Ez egy animációs motor, amely a PowerPoint 2002-től van jelen. A korábbi PowerPoint verziókban nehéz volt animációs effektusokat hozzáadni a bemutatóhoz, ami csak különféle megoldásokkal volt lehetséges. A Timeline lecseréli a régi AnimationSettings osztályt, és egyértelműbb objektummodellt biztosít a PowerPoint animációhoz. Egy diához csak egy animációs idővonal rendelkedhet.
+[Timeline](https://reference.aspose.com/slides/hu/php-java/aspose.slides/animationtimeline/) egy sorozat, amelyet egy adott dián használnak. Ez egy animációs motor, amelyet a PowerPoint 2002-ben vezettek be. A korábbi PowerPoint verziókban az animációs hatások hozzáadása a bemutatókhoz nehézkes volt, és különféle megoldásokra volt szükség. Az idővonal egy világosabb objektummodellt biztosít a PowerPoint animációkhoz. Egy diának csak egy animációs idővonal lehet.
 
 ## **Interaktív animáció**
 
-[**Trigger**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/EffectTriggerType) lehetővé teszi felhasználói műveletek (pl. gombkattintás) definiálását, amelyek egy adott animációt indítanak el. A triggerek csak a legújabb PowerPoint verzióban kerültek be.
+[Trigger](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effecttriggertype/) lehetővé teszi felhasználói műveletek, például egy gombkattintás meghatározását, amelyek egy adott animációt indítanak.
 
 ## **Alakzat animáció**
 
-Az Aspose.Slides lehetővé teszi animáció alkalmazását alakzatokra, amelyek lehetnek szöveg, téglalap, vonal, keret, OLE objektum stb.
+Az Aspose.Slides lehetővé teszi animációk alkalmazását alakzatokra, amelyek közé tartozhat a szöveg, téglalapok, vonalak, keretek, OLE objektumok és egyéb elemek.
 
-{{% alert color="primary" %}} 
-Olvasd tovább [**Az alakzat animációjáról**](/slides/hu/php-java/shape-animation/).
+{{% alert color="info" title="Note" %}}
+További információ [**Az alakzat animációjáról**](/slides/hu/php-java/shape-animation/).
 {{% /alert %}}
 
 ## **Animált diagramok**
 
-Animált diagramok létrehozásához ugyanazokat az osztályokat kell használni, mint az alakzatoknál. Azonban a PowerPoint animáció csak a diagramkategóriákra vagy -sorozatokra alkalmazható. Animációs effektust alkalmazhat egy kategóriaelemre vagy sorozatelemre is.
+Animált diagramok létrehozásához ugyanazokat az osztályokat kell használni, mint az alakzatok esetén. A PowerPoint animációk azonban csak diagramkategóriákra vagy diagramsorozatokra alkalmazhatók. Animációs hatásokat alkalmazhat egy kategóriaelemen vagy egy sorozatelemen is.
 
-{{% alert color="primary" %}} 
-Olvasd tovább [**Az animált diagramokról**](/slides/hu/php-java/animated-charts/).
+{{% alert color="info" title="Note" %}}
+További információ [**Az animált diagramokról**](/slides/hu/php-java/animated-charts/).
 {{% /alert %}}
 
 ## **Animált szöveg**
 
-Az animált szövegen kívül animációt lehet alkalmazni egy bekezdésre is.
+A szöveg animálása mellett animációt alkalmazhat egy bekezdésre is.
 
-{{% alert color="primary" %}} 
-Olvasd tovább [**Az animált szövegről**](/slides/hu/php-java/animated-text/).
+{{% alert color="info" title="Note" %}}
+További információ [**Az animált szövegről**](/slides/hu/php-java/animated-text/).
 {{% /alert %}}
 
 ## **GYIK**
 
-**Megmaradnak-e az animációk PDF-re exportáláskor?**
+**Megmaradnak-e az animációk PDF exportálásakor?**
 
-Nem. A PDF egy statikus formátum, ezért az animációk és a [diaátmenetek](/slides/hu/php-java/slide-transition/) nem játszódnak le. Ha mozgásra van szükség, exportáljon [HTML5](/slides/hu/php-java/export-to-html5/), [animált GIF](/slides/hu/php-java/convert-powerpoint-to-animated-gif/) vagy [videó](/slides/hu/php-java/convert-powerpoint-to-video/) formátumba.
+Nem. A PDF egy statikus formátum, így az animációk és a [slide transitions](/slides/hu/php-java/slide-transition/) nem játszódnak le. Ha mozgásra van szükség, exportáljon [HTML5](/slides/hu/php-java/export-to-html5/), [animated GIF](/slides/hu/php-java/convert-powerpoint-to-animated-gif/) vagy [video](/slides/hu/php-java/convert-powerpoint-to-video/) formátumba.
 
-**Átalakíthatom-e az animált bemutatót videóvá, és szabályozhatom a képkocka sebességet és méretet?**
+**Átalakíthatom az animált bemutatót videóvá, és szabályozhatom a képkockasebességet és a képkockaméretet?**
 
-Igen. A [bemutató képkockákká renderelésével](/slides/hu/php-java/convert-powerpoint-to-video/) és azokat videóvá (például ffmpeg segítségével) kódolhatja, kiválasztva a FPS-t és a felbontást. Az animációk és a diaátmenetek a renderelés során lejátszásra kerülnek.
+Igen. A [render the presentation as frames](/slides/hu/php-java/convert-powerpoint-to-video/) segítségével a bemutatót képkockákra bontva kódolhatja videóvá (pl. ffmpeg használatával), megadva a FPS-t és a felbontást. Az animációk és a diaátmenetek a renderelés során lejátszásra kerülnek.
 
-**Megmaradnak-e az animációk ODP-vel dolgozva (nem csak PPTX)?**
+**Megmaradnak-e az animációk ODP-vel történő munkavégzés során (nem csak PPTX esetén)?**
 
-A PPT, PPTX és ODP formátumok támogatottak a [beolvasáshoz](/slides/hu/php-java/open-presentation/) és a [mentéshez](/slides/hu/php-java/save-presentation/), de a formátumkülönbségek miatt egyes effektusok kissé eltérőnek tűnhetnek vagy viselkedhetnek. A kritikus eseteket valós mintákkal ellenőrizze.
+A PPT, PPTX és ODP támogatott [reading](/slides/hu/php-java/open-presentation/) és [writing](/slides/hu/php-java/save-presentation/) céljára, de ez nem garantálja az animációk megőrzését. Az egyéni animációs adatok elveszhetnek ODP-re konvertáláskor. Tekintse meg a [Custom Animation](/slides/hu/php-java/custom-animation/) oldalt példákért és útmutatásért a formátum kompatibilitás ellenőrzéséhez.

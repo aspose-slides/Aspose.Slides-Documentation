@@ -27,26 +27,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Explore as capacidades do Aspose.Slides para .NET no tratamento de animações PowerPoint. Esta visão geral destaca os principais recursos e oferece insights para aprimorar suas apresentações."
+description: "Explore as capacidades do Aspose.Slides para .NET no tratamento de animações do PowerPoint. Esta visão geral destaca recursos principais e oferece insights para aprimorar suas apresentações."
 ---
 ## **Introdução**
 
-Como as apresentações têm o objetivo de apresentar algo, sua aparência visual e comportamento interativo são sempre levados em consideração durante a criação.
+Como as apresentações destinam‑se a apresentar algo, sua aparência visual e comportamento interativo são sempre levados em consideração durante a criação.
 
-**Animação do PowerPoint** desempenha um papel importante ao tornar uma apresentação atraente e envolvente para os espectadores. Aspose.Slides for .NET oferece uma ampla variedade de opções para adicionar animações a apresentações do PowerPoint:
+**Animação do PowerPoint** desempenha um papel importante em tornar uma apresentação atraente e envolvente para os espectadores. Aspose.Slides for .NET oferece uma ampla variedade de opções para adicionar animações a apresentações do PowerPoint:
 
 - Aplicar vários tipos de efeitos de animação do PowerPoint a formas, gráficos, tabelas, objetos OLE e outros elementos da apresentação.
 - Usar múltiplos efeitos de animação do PowerPoint em uma única forma.
-- Utilizar a linha de tempo de animação para controlar os efeitos de animação.
+- Utilizar a linha do tempo de animação para controlar os efeitos de animação.
 - Criar animações personalizadas.
 
-No Aspose.Slides for .NET, vários efeitos de animação podem ser aplicados a formas. Como todo elemento em um slide, incluindo texto, imagens, objetos OLE e tabelas, é considerado uma forma, os efeitos de animação podem ser aplicados a qualquer elemento no slide.
+No Aspose.Slides for .NET, vários efeitos de animação podem ser aplicados a formas. Como cada elemento em um slide, incluindo texto, imagens, objetos OLE e tabelas, é considerado uma forma, os efeitos de animação podem ser aplicados a qualquer elemento do slide.
 
-[Aspose.Slides.Animation](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/) namespace fornece classes para trabalhar com animações do PowerPoint.
+O namespace [Aspose.Slides.Animation](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/) fornece classes para trabalhar com animações do PowerPoint.
 
 ## **Efeitos de Animação**
 
-Aspose.Slides suporta **mais de 150 efeitos de animação**, incluindo efeitos básicos como Bounce, PathFootball e Zoom, bem como efeitos específicos como OLEObjectShow e OLEObjectOpen. Você pode encontrar uma lista completa de efeitos de animação na enumeração [EffectType](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/effecttype).
+Aspose.Slides oferece suporte a **mais de 150 efeitos de animação**, incluindo efeitos básicos como Bounce, PathFootball e Zoom, bem como efeitos específicos como OLEObjectShow e OLEObjectOpen. Você pode encontrar uma lista completa de efeitos de animação na enumeração [EffectType](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/effecttype).
 
 Além disso, esses efeitos de animação podem ser usados em combinação com os seguintes:
 
@@ -61,27 +61,29 @@ Além disso, esses efeitos de animação podem ser usados em combinação com os
 
 ## **Animação Personalizada**
 
-É possível criar suas próprias **animações personalizadas** no Aspose.Slides. Isso pode ser alcançado combinando vários comportamentos em uma nova animação personalizada.
+Para exemplos completos em C# que criam, inspecionam e modificam comportamentos e trajetórias de movimento editáveis, veja [Animação Personalizada](/slides/pt/net/custom-animation/).
 
-[Behaviour](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/behavior) é um bloco de construção de qualquer efeito de animação do PowerPoint. Todos os efeitos de animação são essencialmente um conjunto de comportamentos compostos em uma única estratégia. Você pode combinar comportamentos em uma animação personalizada uma vez e reutilizá‑la em outras apresentações. Se você adicionar um novo comportamento a um efeito de animação padrão do PowerPoint, ele se tornará outra animação personalizada. Por exemplo, você pode adicionar um comportamento de repetição a uma animação para que ela se repita algumas vezes.
+É possível criar suas próprias **animações personalizadas** no Aspose.Slides. Isso pode ser conseguido combinando vários comportamentos em uma nova animação personalizada.
+
+[Behavior](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/behavior) é um bloco de construção de um efeito de animação do PowerPoint. Combine comportamentos para personalizar um efeito ou adicione um comportamento para estender um efeito predefinido. A repetição é configurada por meio das configurações de tempo e não por um comportamento de repetição separado.
 
 [Animation Point](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/point) é um ponto no qual um comportamento deve ser aplicado.
 
 ## **Linha do Tempo de Animação**
 
-[Sequence](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/sequence) é uma coleção de efeitos de animação aplicados a uma forma específica.
+[Sequence](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/sequence) é uma coleção de efeitos de animação que podem ter como alvo diferentes formas.
 
-[Timeline](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/animationtimeline) é um conjunto de sequências usadas em um slide específico. É um mecanismo de animação introduzido no PowerPoint 2002. Nas versões anteriores do PowerPoint, adicionar efeitos de animação às apresentações era desafiador e só podia ser alcançado com várias soluções alternativas. A linha do tempo substitui a antiga classe AnimationSettings e fornece um modelo de objeto mais claro para animações do PowerPoint. Um slide pode ter apenas uma linha do tempo de animação.
+[Timeline](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/animationtimeline) é um conjunto de sequências usadas em um slide específico. É um mecanismo de animação introduzido no PowerPoint 2002. Nas versões anteriores do PowerPoint, adicionar efeitos de animação a apresentações era desafiador e só podia ser conseguido com várias soluções alternativas. A linha do tempo substitui a antiga classe AnimationSettings e fornece um modelo de objetos mais claro para animações do PowerPoint. Um slide pode ter apenas uma linha do tempo de animação.
 
 ## **Animação Interativa**
 
-[Trigger](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/effecttriggertype) permite definir ações do usuário (por exemplo, um clique de botão) que iniciarão uma animação específica. Gatilhos foram introduzidos na versão mais recente do PowerPoint.
+[Trigger](https://reference.aspose.com/slides/pt/net/aspose.slides.animation/effecttriggertype) permite definir ações do usuário (por exemplo, um clique em botão) que iniciarão uma animação específica. Os gatilhos foram introduzidos na versão mais recente do PowerPoint.
 
 ## **Animação de Forma**
 
-Aspose.Slides permite aplicar animações a formas, que podem incluir texto, retângulos, linhas, quadros, objetos OLE e muito mais.
+Aspose.Slides permite aplicar animações a formas, que podem incluir texto, retângulos, linhas, quadros, objetos OLE e mais.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 Leia mais [**Sobre Animação de Forma**](/slides/pt/net/shape-animation/).
 {{% /alert %}}
 
@@ -89,15 +91,15 @@ Leia mais [**Sobre Animação de Forma**](/slides/pt/net/shape-animation/).
 
 Para criar gráficos animados, você deve usar as mesmas classes que para as formas. No entanto, as animações do PowerPoint só podem ser aplicadas a categorias de gráfico ou séries de gráfico. Você também pode aplicar efeitos de animação a um elemento de categoria ou a um elemento de série.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 Leia mais [**Sobre Gráficos Animados**](/slides/pt/net/animated-charts/).
 {{% /alert %}}
 
 ## **Texto Animado**
 
-Além do texto animado, também é possível aplicar animação a um parágrafo.
+Além de animar texto, você pode aplicar animação a um parágrafo.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 Leia mais [**Sobre Texto Animado**](/slides/pt/net/animated-text/).
 {{% /alert %}}
 
@@ -105,12 +107,12 @@ Leia mais [**Sobre Texto Animado**](/slides/pt/net/animated-text/).
 
 **As animações serão preservadas ao exportar para PDF?**
 
-Não. PDF é um formato estático, portanto animações e [transições de slide](/slides/pt/net/slide-transition/) não são reproduzidas. Se precisar de movimento, exporte para [HTML5](/slides/pt/net/export-to-html5/), [GIF animado](/slides/pt/net/convert-powerpoint-to-animated-gif/), ou [vídeo](/slides/pt/net/convert-powerpoint-to-video/) em vez disso.
+Não. PDF é um formato estático, portanto animações e [transições de slide](/slides/pt/net/slide-transition/) não são reproduzidas. Se precisar de movimento, exporte para [HTML5](/slides/pt/net/export-to-html5/), [GIF animado](/slides/pt/net/convert-powerpoint-to-animated-gif/) ou [vídeo](/slides/pt/net/convert-powerpoint-to-video/) em vez disso.
 
-**Posso transformar uma apresentação animada em vídeo e controlar a taxa de quadros e o tamanho do quadro?**
+**Posso converter uma apresentação animada em vídeo e controlar a taxa de quadros e o tamanho do quadro?**
 
 Sim. Você pode [renderizar a apresentação como quadros](/slides/pt/net/convert-powerpoint-to-video/) e codificá‑los em um vídeo (por exemplo, via ffmpeg), escolhendo FPS e resolução. Animações e transições de slide são reproduzidas durante a renderização.
 
 **As animações permanecerão intactas ao trabalhar com ODP (não apenas PPTX)?**
 
-PPT, PPTX e ODP são suportados para [leitura](/slides/pt/net/open-presentation/) e [gravação](/slides/pt/net/save-presentation/), mas diferenças de formato podem fazer com que certos efeitos pareçam ou se comportem ligeiramente diferentes. Valide casos críticos com amostras reais.
+PPT, PPTX e ODP são suportados para [leitura](/slides/pt/net/open-presentation/) e [gravação](/slides/pt/net/save-presentation/), mas isso não garante a preservação das animações. Dados de animação personalizada podem ser perdidos ao converter para ODP. Consulte [Animação Personalizada](/slides/pt/net/custom-animation/) para um exemplo testado e limitações de formato.

@@ -1,52 +1,52 @@
 ---
-title: Tingkatkan Presentasi PowerPoint dengan Animasi di Android
+title: Meningkatkan Presentasi PowerPoint dengan Animasi di Android
 linktitle: Animasi PowerPoint
 type: docs
 weight: 150
 url: /id/androidjava/powerpoint-animation/
 keywords:
-- tambahkan animasi
-- perbarui animasi
-- ubah animasi
-- hapus animasi
-- kelola animasi
-- kontrol animasi
+- menambahkan animasi
+- memperbarui animasi
+- mengubah animasi
+- menghapus animasi
+- mengelola animasi
+- mengendalikan animasi
 - efek animasi
 - animasi PowerPoint
 - garis waktu animasi
 - animasi interaktif
 - animasi kustom
 - animasi bentuk
-- diagram animasi
-- teks animasi
-- bentuk animasi
-- objek OLE animasi
-- gambar animasi
-- tabel animasi
+- animasi grafik
+- animasi teks
+- animasi bentuk
+- animasi objek OLE
+- animasi gambar
+- animasi tabel
 - PowerPoint
 - presentasi
 - Android
 - Java
 - Aspose.Slides
-description: "Jelajahi kemampuan Aspose.Slides untuk Android via Java dalam menangani animasi PowerPoint. Ikhtisar umum ini menyoroti fitur utama."
+description: "Jelajahi kemampuan Aspose.Slides untuk Android melalui Java dalam menangani animasi PowerPoint. Ikhtisar umum ini menyoroti fitur utama."
 ---
 ## **Pendahuluan**
 
-Karena presentasi dimaksudkan untuk menyajikan sesuatu, tampilan visual dan perilaku interaktifnya selalu dipertimbangkan saat membuatnya.
+Karena presentasi dimaksudkan untuk menyajikan sesuatu, penampilan visual dan perilaku interaktifnya selalu dipertimbangkan selama pembuatan.
 
-**PowerPoint animation** memainkan peran penting untuk membuat presentasi menarik dan menawan bagi penonton. Aspose.Slides for Android via Java menawarkan berbagai pilihan untuk menambahkan animasi ke presentasi PowerPoint:
+**Animasi PowerPoint** berperan penting dalam membuat presentasi menarik dan memikat penonton. Aspose.Slides menyediakan berbagai opsi untuk menambahkan animasi ke presentasi PowerPoint:
 
-- menerapkan berbagai jenis efek animasi PowerPoint pada bentuk, diagram, tabel, OLE Object, dan elemen presentasi lainnya.
-- menggunakan beberapa efek animasi PowerPoint pada satu bentuk.
-- menggunakan timeline animasi untuk mengontrol efek animasi.
-- membuat animasi kustom.
+- Gunakan berbagai jenis efek animasi PowerPoint pada shape, chart, tabel, objek OLE, dan elemen presentasi lainnya.
+- Gunakan beberapa efek animasi PowerPoint pada satu shape.
+- Manfaatkan timeline animasi untuk mengontrol efek animasi.
+- Buat animasi kustom.
 
-Di Aspose.Slides for Android via Java, berbagai efek animasi dapat diterapkan pada bentuk. Karena setiap elemen pada slide termasuk teks, gambar, OLE Object, tabel, dll dianggap sebagai bentuk, berarti kita dapat menerapkan efek animasi pada setiap elemen slide.
+Di Aspose.Slides, berbagai efek animasi dapat diterapkan pada shape. Karena setiap elemen pada slide, termasuk teks, gambar, objek OLE, dan tabel, dianggap sebagai shape, efek animasi dapat diterapkan pada elemen apa pun di slide.
 
 ## **Efek Animasi**
-Aspose.Slides mendukung **lebih dari 150 efek animasi**, termasuk efek animasi dasar seperti Bounce, PathFootball, efek Zoom, dan efek animasi khusus seperti OLEObjectShow, OLEObjectOpen. Anda dapat menemukan daftar lengkap efek animasi di enumerasi [**EffectType**](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/effecttype/).
+Aspose.Slides mendukung **lebih dari 150 efek animasi**, termasuk efek dasar seperti Bounce, PathFootball, dan Zoom, serta efek khusus seperti OLEObjectShow dan OLEObjectOpen. Anda dapat menemukan daftar lengkapnya di kelas [EffectType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/effecttype/).
 
-Selain itu, efek animasi ini dapat digunakan dalam kombinasi dengan:
+Selain itu, efek animasi ini dapat digunakan bersama dengan perilaku berikut:
 
 - [ColorEffect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/CommandEffect)
@@ -58,39 +58,41 @@ Selain itu, efek animasi ini dapat digunakan dalam kombinasi dengan:
 - [SetEffect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/SetEffect)
 
 ## **Animasi Kustom**
-Anda dapat membuat **animasi kustom** Anda sendiri di Aspose.Slides. 
-Hal ini dapat dicapai dengan menggabungkan beberapa perilaku menjadi satu animasi kustom baru.
 
-[**Behavior**](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Behavior) adalah unit pembangun dari setiap efek animasi PowerPoint. Semua efek animasi sebenarnya merupakan kumpulan perilaku yang digabung menjadi satu strategi. Anda dapat menggabungkan perilaku menjadi animasi kustom sekali dan menggunakannya kembali di presentasi lain. Jika Anda menambahkan perilaku baru ke efek animasi PowerPoint standar - itu akan menjadi animasi kustom lainnya. Misalnya, Anda dapat menambahkan perilaku pengulangan ke animasi agar animasi tersebut berulang beberapa kali.
+Untuk contoh Java lengkap yang membuat, memeriksa, dan mengubah perilaku serta jalur gerak yang dapat diedit, lihat [Custom Animation](/slides/id/java/custom-animation/).
 
-[**Animation Point**](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Point) adalah titik di mana perilaku harus diterapkan.
+Dimungkinkan untuk membuat **animasi kustom** Anda sendiri di Aspose.Slides. Hal ini dapat dicapai dengan menggabungkan beberapa perilaku menjadi animasi kustom baru.
+
+[Behavior](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/behavior/) adalah blok bangunan efek animasi PowerPoint. Gabungkan perilaku untuk menyesuaikan efek, atau tambahkan perilaku untuk memperluas efek yang telah ditentukan. Pengulangan dikonfigurasi melalui pengaturan timing bukan melalui perilaku pengulangan terpisah.
+
+[Animation Point](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/point/) adalah titik di mana perilaku harus diterapkan.
 
 ## **Garis Waktu Animasi**
-[**Sequence**](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Sequence) adalah kumpulan efek animasi, yang diterapkan pada bentuk tertentu.
+[Sequence](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/sequence/) adalah kumpulan efek animasi yang dapat menargetkan shape yang berbeda.
 
-[**Timeline**](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/AnimationTimeLine) adalah sekumpulan Sequence yang digunakan dalam sebuah slide tertentu. Itu merupakan mesin animasi yang telah ada sejak PowerPoint 2002. Pada versi PowerPoint sebelumnya, menambahkan efek animasi ke presentasi cukup sulit dan hanya dapat dilakukan dengan berbagai solusi alternatif. Timeline menggantikan kelas AnimationSettings yang lama dan memberikan model objek yang lebih jelas untuk animasi PowerPoint. Satu slide hanya dapat memiliki satu timeline animasi.
+[Timeline](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/animationtimeline/) adalah sekumpulan urutan yang digunakan dalam slide tertentu. Ini adalah mesin animasi yang diperkenalkan di PowerPoint 2002. Pada versi PowerPoint sebelumnya, menambahkan efek animasi ke presentasi merupakan tantangan dan hanya dapat dicapai dengan berbagai solusi kerja. Timeline menyediakan model objek yang lebih jelas untuk animasi PowerPoint. Sebuah slide hanya dapat memiliki satu timeline animasi.
 
 ## **Animasi Interaktif**
-[**Trigger**](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/EffectTriggerType) memungkinkan mendefinisikan aksi pengguna (misalnya klik tombol), yang akan memulai animasi tertentu. Trigger hanya ditambahkan pada versi PowerPoint terbaru.
+[Trigger](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/effecttriggertype/) memungkinkan Anda mendefinisikan aksi pengguna, seperti klik tombol, yang memulai animasi tertentu.
 
-## **Animasi Bentuk**
-Aspose.Slides memungkinkan menerapkan animasi pada bentuk, yang dapat berupa teks, persegi panjang, garis, bingkai, OLE Object, dll.
+## **Animasi Shape**
+Aspose.Slides memungkinkan Anda menerapkan animasi pada shape, yang dapat mencakup teks, persegi panjang, garis, bingkai, objek OLE, dan lainnya.
 
-{{% alert color="primary" %}} 
-Baca selengkapnya [**Tentang Animasi Bentuk**](/slides/id/androidjava/shape-animation/).
+{{% alert color="info" title="Note" %}}
+Baca selengkapnya [**Tentang Animasi Shape**](/slides/id/androidjava/shape-animation/).
 {{% /alert %}}
 
-## **Diagram Animasi**
-Untuk membuat diagram animasi, Anda harus menggunakan semua kelas yang sama seperti untuk bentuk. Namun, hanya dapat menggunakan animasi PowerPoint pada kategori diagram atau seri diagram. Anda juga dapat menerapkan efek animasi pada elemen kategori atau elemen seri.
+## **Chart Animasi**
+Untuk membuat chart animasi, Anda harus menggunakan kelas yang sama seperti untuk shape. Namun, animasi PowerPoint hanya dapat diterapkan pada kategori chart atau seri chart. Anda juga dapat menerapkan efek animasi pada elemen kategori atau elemen seri.
 
-{{% alert color="primary" %}} 
-Baca selengkapnya [**Tentang Diagram Animasi**](/slides/id/androidjava/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Baca selengkapnya [**Tentang Chart Animasi**](/slides/id/androidjava/animated-charts/).
 {{% /alert %}}
 
 ## **Teks Animasi**
-Selain teks animasi, Anda juga dapat menerapkan animasi pada paragraf.
+Selain menganimasi teks, Anda dapat menerapkan animasi pada paragraf.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 Baca selengkapnya [**Tentang Teks Animasi**](/slides/id/androidjava/animated-text/).
 {{% /alert %}}
 
@@ -98,12 +100,12 @@ Baca selengkapnya [**Tentang Teks Animasi**](/slides/id/androidjava/animated-tex
 
 **Apakah animasi akan dipertahankan saat mengekspor ke PDF?**
 
-Tidak. PDF adalah format statis, sehingga animasi dan [transisi slide](/slides/id/androidjava/slide-transition/) tidak diputar. Jika Anda memerlukan gerakan, ekspor ke [HTML5](/slides/id/androidjava/export-to-html5/), [GIF animasi](/slides/id/androidjava/convert-powerpoint-to-animated-gif/), atau [video](/slides/id/androidjava/convert-powerpoint-to-video/) sebagai gantinya.
+Tidak. PDF adalah format statis, sehingga animasi dan [slide transitions](/slides/id/androidjava/slide-transition/) tidak diputar. Jika Anda membutuhkan gerakan, ekspor ke [HTML5](/slides/id/androidjava/export-to-html5/), [animated GIF](/slides/id/androidjava/convert-powerpoint-to-animated-gif/), atau [video](/slides/id/androidjava/convert-powerpoint-to-video/) sebagai gantinya.
 
 **Apakah saya dapat mengubah presentasi animasi menjadi video dan mengontrol frame rate serta ukuran frame?**
 
-Ya. Anda dapat [memrender presentasi menjadi frame](/slides/id/androidjava/convert-powerpoint-to-video/) dan mengenkodenya menjadi video (misalnya melalui ffmpeg), dengan memilih FPS dan resolusi. Animasi serta transisi slide diputar selama proses render.
+Ya. Anda dapat [render the presentation as frames](/slides/id/androidjava/convert-powerpoint-to-video/) dan mengenkodenya menjadi video (misalnya, melalui ffmpeg), memilih FPS dan resolusi. Animasi dan transisi slide diputar selama proses rendering.
 
 **Apakah animasi akan tetap utuh saat bekerja dengan ODP (bukan hanya PPTX)?**
 
-PPT, PPTX, dan ODP didukung untuk [pembacaan](/slides/id/androidjava/open-presentation/) dan [penulisan](/slides/id/androidjava/save-presentation/), namun perbedaan format berarti beberapa efek dapat terlihat atau berperilaku sedikit berbeda. Validasikan kasus kritis dengan contoh nyata.
+PPT, PPTX, dan ODP didukung untuk [reading](/slides/id/androidjava/open-presentation/) dan [writing](/slides/id/androidjava/save-presentation/), tetapi ini tidak menjamin preservasi animasi. Data animasi kustom dapat hilang saat mengonversi ke ODP. Lihat [Custom Animation for Java](/slides/id/java/custom-animation/) untuk contoh dan panduan memeriksa kompatibilitas format.

@@ -1,5 +1,5 @@
 ---
-title: C++ में एनीमेशन के साथ PowerPoint प्रस्तुतियों को उन्नत बनाएं
+title: C++ में एनीमेशन के साथ PowerPoint प्रस्तुतियों को बेहतर बनाएं
 linktitle: PowerPoint एनीमेशन
 type: docs
 weight: 150
@@ -11,15 +11,15 @@ keywords:
 - एनीमेशन हटाएँ
 - एनीमेशन प्रबंधित करें
 - एनीमेशन नियंत्रित करें
-- एनीमेशन प्रभाव
+- एनीमेशन इफ़ेक्ट
 - PowerPoint एनीमेशन
 - एनीमेशन टाइमलाइन
 - इंटरैक्टिव एनीमेशन
 - कस्टम एनीमेशन
-- शैप एनीमेशन
+- आकार एनीमेशन
 - एनिमेटेड चार्ट
 - एनिमेटेड टेक्स्ट
-- एनिमेटेड शैप
+- एनिमेटेड आकार
 - एनिमेटेड OLE ऑब्जेक्ट
 - एनिमेटेड इमेज
 - एनिमेटेड टेबल
@@ -27,84 +27,92 @@ keywords:
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ में उन्नत एनीमेशन प्रभाव जोड़ने और नियंत्रित करने के तरीके सीखें, ताकि गतिशील PowerPoint और OpenDocument प्रस्तुतियों का निर्माण कर सकें।"
+description: "Aspose.Slides for C++ में उन्नत एनीमेशन इफ़ेक्ट जोड़ना और नियंत्रित करना सीखें, ताकि डायनेमिक PowerPoint और OpenDocument प्रस्तुतियाँ बनाई जा सकें।"
 ---
 ## **परिचय**
 
-चूंकि प्रस्तुतियों का उद्देश्य कुछ प्रस्तुत करना है, इसलिए उन्हें बनाते समय उनका दृश्य रूप और इंटरैक्टिव व्यवहार हमेशा ध्यान में रखा जाता है।
+चूँकि प्रस्तुतियों का उद्देश्य कुछ प्रस्तुत करना होता है, उनके दृश्य स्वरूप और इंटरैक्टिव व्यवहार को निर्माण के दौरान हमेशा ध्यान में रखा जाता है।
 
-**PowerPoint एनीमेशन** प्रस्तुतियों को दर्शकों के लिए आकर्षक और आँखों को पकड़ने वाला बनाने में एक महत्वपूर्ण भूमिका निभाता है। Aspose.Slides for C++ PowerPoint प्रस्तुति में एनीमेशन जोड़ने के लिए कई विकल्प प्रदान करता है:
+**PowerPoint animation** प्रस्तुतियों को आकर्षक और दर्शकों के लिए रोचक बनाने में महत्वपूर्ण भूमिका निभाता है। Aspose.Slides PowerPoint प्रस्तुतियों में एनिमेशन जोड़ने के लिए कई विकल्प प्रदान करता है:
 
-- विभिन्न प्रकार के PowerPoint एनीमेशन इफ़ेक्ट्स को शैप्स, चार्ट्स, टेबल्स, OLE ऑब्जेक्ट्स और अन्य प्रस्तुति तत्वों पर लागू करें।
-- एक शैप पर कई PowerPoint एनीमेशन इफ़ेक्ट्स का प्रयोग करें।
-- एनीमेशन इफ़ेक्ट्स को नियंत्रित करने के लिए एनीमेशन टाइमलाइन का उपयोग करें।
-- कस्टम एनीमेशन बनाएं।
+- आकार, चार्ट, तालिकाएँ, OLE ऑब्जेक्ट और अन्य प्रस्तुति तत्वों पर विभिन्न प्रकार के PowerPoint एनिमेशन इफ़ेक्ट लागू करें।
+- एक ही आकार पर कई PowerPoint एनिमेशन इफ़ेक्ट का उपयोग करें।
+- एनिमेशन इफ़ेक्ट को नियंत्रित करने के लिए एनीमेशन टाइमलाइन का उपयोग करें।
+- कस्टम एनिमेशन बनाएँ।
 
-Aspose.Slides for C++ में विभिन्न एनीमेशन इफ़ेक्ट्स को शैप्स पर लागू किया जा सकता है। स्लाइड पर प्रत्येक तत्व, जैसे टेक्स्ट, चित्र, OLE ऑब्जेक्ट, टेबल आदि, को शैप माना जाता है, इसलिए हम स्लाइड के हर तत्व पर एनीमेशन इफ़ेक्ट लागू कर सकते हैं।
+Aspose.Slides में विभिन्न एनिमेशन इफ़ेक्ट आकारों पर लागू किए जा सकते हैं। क्योंकि स्लाइड में हर तत्व, जिसमें पाठ, चित्र, OLE ऑब्जेक्ट और तालिकाएँ शामिल हैं, को आकार माना जाता है, इसलिए एनिमेशन इफ़ेक्ट स्लाइड के किसी भी तत्व पर लागू किए जा सकते हैं।
 
-[**Aspose.Slides.Animation**](https://reference.aspose.com/slides/hi/cpp/namespace/aspose.slides.animation) **namespace** PowerPoint एनीमेशन के साथ काम करने के लिए क्लासेस प्रदान करता है।
+[Aspose::Slides::Animation](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/) नामस्थान PowerPoint एनिमेशन के साथ काम करने के लिए क्लासेज़ प्रदान करता है।
 
-## **एनीमेशन इफ़ेक्ट्स**
-Aspose.Slides **150+ एनीमेशन इफ़ेक्ट्स** का समर्थन करता है, जिसमें बुनियादी एनीमेशन इफ़ेक्ट्स जैसे Bounce, PathFootball, Zoom इफ़ेक्ट और विशिष्ट एनीमेशन इफ़ेक्ट्स जैसे OLEObjectShow, OLEObjectOpen शामिल हैं। आप एनीमेशन इफ़ेक्ट्स की पूरी सूची [**EffectType**](https://reference.aspose.com/slides/hi/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31) एनेमरेशन में पा सकते हैं।
+## **एनिमेशन प्रभाव**
 
-इसके अतिरिक्त, इन एनीमेशन इफ़ेक्ट्स को एक साथ उपयोग किया जा सकता है:
+Aspose.Slides **150+ एनिमेशन इफ़ेक्ट्स** का समर्थन करता है, जिसमें बाउंस, PathFootball, और ज़ूम जैसे बुनियादी इफ़ेक्ट्स और OLEObjectShow तथा OLEObjectOpen जैसे विशिष्ट इफ़ेक्ट्स शामिल हैं। आप पूरी सूची [EffectType](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/effecttype/) enumeration में पा सकते हैं।
+
+इसके अतिरिक्त, इन एनिमेशन इफ़ेक्ट्स को निम्नलिखित व्यवहारों के साथ संयोजन में उपयोग किया जा सकता है:
 
 - [ColorEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/coloreffect/)
-- [CommandEffect](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.animation.command_effect)
-- [FilterEffect](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.animation.filter_effect)
-- [MotionEffect](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.animation.motion_effect)
-- [PropertyEffect](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.animation.property_effect)
-- [RotationEffect](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.animation.rotation_effect)
-- [ScaleEffect](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.animation.scale_effect)
-- [SetEffect](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.animation.set_effect)
+- [CommandEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/commandeffect/)
+- [FilterEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/filtereffect/)
+- [MotionEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/motioneffect/)
+- [PropertyEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/propertyeffect/)
+- [RotationEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/rotationeffect/)
+- [ScaleEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/scaleeffect/)
+- [SetEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/seteffect/)
 
-## **कस्टम एनीमेशन**
-Aspose.Slides में अपनी स्वयं की **कस्टम एनीमेशन** बनाना संभव है।  
-यदि आप कई व्यवहारों को मिलाकर नया कस्टम एनीमेशन बनाते हैं तो यह प्राप्त किया जा सकता है।
+## **कस्टम एनिमेशन**
 
-[**Behavior**](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.animation.behavior) किसी भी PowerPoint एनीमेशन इफ़ेक्ट की निर्माण इकाई है। सभी एनीमेशन इफ़ेक्ट्स मूलतः व्यवहारों का सेट होते हैं जो एक रणनीति में संयोजित होते हैं। आप व्यवहारों को एक बार कस्टम एनीमेशन में जोड़ सकते हैं और इसे अन्य प्रस्तुतियों में पुनः उपयोग कर सकते हैं। यदि आप किसी मानक PowerPoint एनीमेशन इफ़ेक्ट में नया व्यवहार जोड़ते हैं - तो वह एक और कस्टम एनीमेशन बन जाता है। उदाहरण के तौर पर, आप एनीमेशन में रिपीट व्यवहार जोड़ सकते हैं ताकि वह कुछ बार दोहराए।
+C++ में पूर्ण उदाहरणों के लिए जो व्यवहारों और संपादन योग्य मोशन पाथ को बनाते, जांचते और संशोधित करते हैं, देखें [Custom Animation](/slides/hi/cpp/custom-animation/)।
 
-[**Animation Point**](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.animation.point) वह बिंदु है जहाँ व्यवहार लागू किया जाना चाहिए।
+Aspose.Slides में आप अपने स्वयं के **कस्टम एनिमेशन** बना सकते हैं। इसे कई व्यवहारों को मिलाकर एक नया कस्टम एनिमेशन बनाकर हासिल किया जा सकता है।
 
-## **एनीमेशन टाइमलाइन**
-[**Sequence**](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.animation.sequence) एक ठोस शैप पर लागू किए गए एनीमेशन इफ़ेक्ट्स का संग्रह है।
+[Behavior](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/behavior/) PowerPoint एनिमेशन इफ़ेक्ट का निर्माण ब्लॉक है। प्रभाव को अनुकूलित करने के लिए व्यवहारों को मिलाएँ, या पहले से निर्धारित इफ़ेक्ट को विस्तारित करने के लिए एक व्यवहार जोड़ें। पुनरावृत्ति को अलग पुनरावृत्ति व्यवहार के बजाय टाइमिंग सेटिंग्स के माध्यम से कॉन्फ़िगर किया जाता है।
 
-[**AnimationTimeLine**](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.animation.animation_time_line) एक ठोस स्लाइड में उपयोग की जाने वाली सीक्वेंसेज़ का सेट है। यह PowerPoint 2002 से मौजूद एक एनीमेशन इंजन है। पिछले PowerPoint संस्करणों में प्रस्तुति में एनीमेशन इफ़ेक्ट्स जोड़ना कठिन था, जिसे केवल विभिन्न वर्कअराउंड्स के माध्यम से ही किया जा सकता था। टाइमलाइन ने पुराने AnimationSettings क्लास को प्रतिस्थापित किया और PowerPoint एनीमेशन के लिए अधिक स्पष्ट ऑब्जेक्ट मॉडल प्रदान किया। एक स्लाइड में केवल एक एनीमेशन टाइमलाइन हो सकती है।
+[Animation Point](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/point/) वह बिंदु है जहाँ एक व्यवहार लागू किया जाना चाहिए।
 
-## **इंटरएक्टिव एनीमेशन**
-[**EffectTriggerType**](https://reference.aspose.com/slides/hi/cpp/namespace/aspose.slides.animation#add24fb49dd44eb3227aeeb3641fd2e81) उपयोगकर्ता क्रियाएँ (जैसे बटन क्लिक) परिभाषित करने की अनुमति देता है, जो किसी विशिष्ट एनीमेशन को शुरू कराएगी। ट्रिगर्स केवल नवीनतम PowerPoint संस्करण में जोड़े गए हैं।
+## **एनिमेशन टाइमलाइन**
 
-## **शेप एनीमेशन**
-Aspose.Slides शैप्स, जो वास्तविक में टेक्स्ट, आयत, रेखा, फ्रेम, OLE ऑब्जेक्ट आदि हो सकते हैं, पर एनीमेशन लागू करने की अनुमति देता है।
+[Sequence](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/sequence/) विभिन्न आकारों को लक्षित करने वाले एनिमेशन इफ़ेक्ट्स का संग्रह है।
 
-{{% alert color="primary" %}} 
-और पढ़ें [**शेप एनीमेशन के बारे में**](/slides/hi/cpp/shape-animation/).
+[IAnimationTimeLine](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ianimationtimeline/) एक विशिष्ट स्लाइड में प्रयुक्त अनुक्रमों का सेट है। यह PowerPoint 2002 में प्रस्तुत किया गया एक एनिमेशन इंजन है। PowerPoint के पिछले संस्करणों में प्रस्तुतियों में एनिमेशन इफ़ेक्ट जोड़ना चुनौतीपूर्ण था और इसे विभिन्न वैकल्पिक उपायों से ही हासिल किया जा सकता था। टाइमलाइन PowerPoint एनिमेशन के लिए स्पष्ट ऑब्जेक्ट मॉडल प्रदान करती है। एक स्लाइड में केवल एक ही एनिमेशन टाइमलाइन हो सकती है।
+
+## **इंटरैक्टिव एनिमेशन**
+
+[Trigger](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/effecttriggertype/) आपको उपयोगकर्ता क्रियाएँ परिभाषित करने की अनुमति देता है, जैसे बटन क्लिक, जो किसी विशेष एनिमेशन को शुरू करती हैं।
+
+## **आकार एनिमेशन**
+
+Aspose.Slides आपको आकारों पर एनिमेशन लागू करने की सुविधा देता है, जिसमें पाठ, आयत, रेखाएँ, फ्रेम, OLE ऑब्जेक्ट और अधिक शामिल हो सकते हैं।
+
+{{% alert color="info" title="Note" %}}
+और पढ़ें [**Shape Animation के बारे में**](/slides/hi/cpp/shape-animation/).
 {{% /alert %}}
 
 ## **एनिमेटेड चार्ट्स**
-एनिमेटेड चार्ट्स बनाने के लिए आपको शैप्स के समान सभी क्लासेस का उपयोग करना चाहिए। हालांकि, PowerPoint एनीमेशन को केवल चार्ट श्रेणियों या चार्ट सीरीज पर ही उपयोग किया जा सकता है। आप श्रेणी तत्व या सीरीज़ तत्व पर भी एनीमेशन इफ़ेक्ट लागू कर सकते हैं।
 
-{{% alert color="primary" %}} 
+एनिमेटेड चार्ट्स बनाने के लिए, आपको आकारों के लिए उपयोग किए जाने वाले समान क्लासेज़ का उपयोग करना चाहिए। हालांकि, PowerPoint एनिमेशन केवल चार्ट श्रेणियों या चार्ट श्रृंखलाओं पर लागू किए जा सकते हैं। आप श्रेणी तत्व या श्रृंखला तत्व पर भी एनिमेशन इफ़ेक्ट लागू कर सकते हैं।
+
+{{% alert color="info" title="Note" %}}
 और पढ़ें [**एनिमेटेड चार्ट्स के बारे में**](/slides/hi/cpp/animated-charts/).
 {{% /alert %}}
 
-## **एनिमेटेड टेक्स्ट**
-एनिमेटेड टेक्स्ट के अलावा, पैराग्राफ पर भी एनीमेशन लागू करना संभव है।
+## **एनिमेटेड पाठ**
 
-{{% alert color="primary" %}} 
+पाठ को एनीमेट करने के अलावा, आप पैराग्राफ़ पर भी एनीमेशन लागू कर सकते हैं।
+
+{{% alert color="info" title="Note" %}}
 और पढ़ें [**एनिमेटेड टेक्स्ट के बारे में**](/slides/hi/cpp/animated-text/).
 {{% /alert %}}
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या एनीमेशन PDF में निर्यात करने पर संरक्षित रहेंगे?**
+**क्या PDF में निर्यात करने पर एनीमेशन संरक्षित रहेंगे?**
 
-नहीं। PDF एक स्थैतिक फ़ॉर्मेट है, इसलिए एनीमेशन और [स्लाइड ट्रांज़िशन](/slides/hi/cpp/slide-transition/) नहीं चलते। यदि आपको गति चाहिए, तो इसके बजाय [HTML5](/slides/hi/cpp/export-to-html5/), [एनिमेटेड GIF](/slides/hi/cpp/convert-powerpoint-to-animated-gif/), या [वीडियो](/slides/hi/cpp/convert-powerpoint-to-video/) में निर्यात करें।
+नहीं। PDF एक स्थैतिक प्रारूप है, इसलिए एनीमेशन और [slide transitions](/slides/hi/cpp/slide-transition/) नहीं चलते। यदि आपको मोशन चाहिए, तो इसके बजाय [HTML5](/slides/hi/cpp/export-to-html5/), [animated GIF](/slides/hi/cpp/convert-powerpoint-to-animated-gif/), या [video](/slides/hi/cpp/convert-powerpoint-to-video/) में निर्यात करें।
 
-**क्या मैं एनिमेटेड प्रस्तुति को वीडियो में परिवर्तित कर फ्रेम रेट और फ्रेम आकार को नियंत्रित कर सकता हूँ?**
+**क्या मैं एनीमेटेड प्रस्तुति को वीडियो में बदल सकता हूँ और फ्रेम रेट और फ्रेम आकार को नियंत्रित कर सकता हूँ?**
 
-हाँ। आप [प्रस्तुति को फ्रेम्स के रूप में रेंडर](/slides/hi/cpp/convert-powerpoint-to-video/) कर सकते हैं और उन्हें वीडियो (उदा., ffmpeg के माध्यम से) में एन्कोड कर सकते हैं, FPS और रिज़ॉल्यूशन चुनते हुए। रेंडरिंग के दौरान एनीमेशन और स्लाइड ट्रांज़िशन चलाए जाते हैं।
+हाँ। आप [render the presentation as frames](/slides/hi/cpp/convert-powerpoint-to-video/) का उपयोग करके प्रस्तुति को फ्रेम्स के रूप में रेंडर कर सकते हैं और उन्हें वीडियो में एन्कोड कर सकते हैं (जैसे ffmpeg के माध्यम से), FPS और रिज़ॉल्यूशन चुनते हुए। रेंडरिंग के दौरान एनीमेशन और स्लाइड ट्रांज़िशन चलाए जाते हैं।
 
-**क्या ODP (केवल PPTX नहीं) के साथ काम करते समय एनीमेशन वही रहेंगी?**
+**क्या ODP (केवल PPTX नहीं) के साथ काम करते समय एनीमेशन उसी रूप में रहेंगे?**
 
-PPT, PPTX, और ODP को [पढ़ने](/slides/hi/cpp/open-presentation/) और [लिखने](/slides/hi/cpp/save-presentation/) के लिए सपोर्ट किया जाता है, लेकिन फ़ॉर्मेट अंतर के कारण कुछ इफ़ेक्ट्स थोड़ा अलग दिख सकते हैं या व्यवहार कर सकते हैं। महत्वपूर्ण मामलों को वास्तविक नमूनों के साथ सत्यापित करें।
+PPT, PPTX, और ODP को [reading](/slides/hi/cpp/open-presentation/) और [writing](/slides/hi/cpp/save-presentation/) के लिए समर्थित किया गया है, लेकिन यह एनीमेशन के संरक्षण की गारंटी नहीं देता। ODP में रूपांतरण करते समय कस्टम एनीमेशन डेटा खो सकता है। उदाहरण और फ़ॉर्मेट संगतता जाँचने के लिए मार्गदर्शन हेतु देखें [Custom Animation](/slides/hi/cpp/custom-animation/)।

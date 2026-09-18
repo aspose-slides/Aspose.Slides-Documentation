@@ -1,5 +1,5 @@
 ---
-title: Aplicar animaciones de forma en presentaciones usando Python mediante Java
+title: Aplicar animaciones de forma en presentaciones usando Python vía Java
 linktitle: Animación de forma
 type: docs
 weight: 60
@@ -23,22 +23,24 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aprenda a añadir, inspeccionar y personalizar animaciones de formas, sincronización, sonidos, comportamiento posterior a la animación y texto animado con Aspose.Slides para Python mediante Java."
+description: "Aprenda a añadir, inspeccionar y personalizar animaciones de forma, temporización, sonidos, comportamiento después de la animación y texto animado con Aspose.Slides para Python vía Java."
 ---
-## **Resumen**
+## **Visión general**
 
-Aspose.Slides for Python via Java representa las animaciones de diapositiva como efectos en una línea de tiempo de la diapositiva. Un efecto tiene una forma objetivo, un tipo y subtipo de animación, un desencadenador, configuraciones de tiempo y propiedades opcionales como sonido o comportamiento posterior a la animación.
+Para trabajar con los comportamientos individuales dentro de un efecto o editar segmentos de ruta de movimiento, consulte [Animación personalizada](/slides/es/python-java/custom-animation/).
+
+Aspose.Slides for Python via Java representa las animaciones de diapositiva como efectos en la línea de tiempo de una diapositiva. Un efecto tiene una forma objetivo, un tipo y subtipo de animación, un disparador, ajustes de temporización y propiedades opcionales como sonido o comportamiento después de la animación.
 
 La línea de tiempo contiene dos tipos de secuencias:
 
 - La **secuencia principal** se reproduce a medida que avanza la diapositiva.
-- Una **secuencia interactiva** comienza cuando se hace clic en su forma desencadenante.
+- Una **secuencia interactiva** comienza cuando se hace clic en su forma disparadora.
 
-Porque los cuadros de texto, imágenes, gráficos, tablas y otros objetos de diapositiva derivan de [Forma](https://reference.aspose.com/slides/es/python-java/aspose.slides/shape/), usa el mismo método [Sequence.addEffect](https://reference.aspose.com/slides/es/python-java/aspose.slides/sequence/#addEffect) para la mayor parte del contenido de la diapositiva. Los efectos disponibles se enumeran en la clase [EffectType](https://reference.aspose.com/slides/es/python-java/aspose.slides/effecttype/).
+Dado que los cuadros de texto, imágenes, gráficos, tablas y otros objetos de diapositiva derivan de [Shape](https://reference.aspose.com/slides/es/python-java/aspose.slides/shape/), utiliza el mismo método [Sequence.addEffect](https://reference.aspose.com/slides/es/python-java/aspose.slides/sequence/#addEffect) para la mayoría del contenido de la diapositiva. Los efectos disponibles se enumeran en la clase [EffectType](https://reference.aspose.com/slides/es/python-java/aspose.slides/effecttype/).
 
-## **Añadir animaciones a formas**
+## **Agregar animaciones a formas**
 
-Para añadir una animación, obtenga la secuencia principal de la diapositiva y llame a [Sequence.addEffect](https://reference.aspose.com/slides/es/python-java/aspose.slides/sequence/#addEffect) con la forma objetivo, el tipo de efecto, el subtipo y el desencadenador. Para un efecto que comience cuando se haga clic en otra forma, cree una secuencia interactiva cuyo desencadenador sea esa otra forma.
+Para agregar una animación, obtenga la secuencia principal de la diapositiva y llame a [Sequence.addEffect](https://reference.aspose.com/slides/es/python-java/aspose.slides/sequence/#addEffect) con la forma objetivo, el tipo de efecto, el subtipo y el disparador. Para un efecto que comienza cuando se hace clic en otra forma, cree una secuencia interactiva cuyo disparador sea esa otra forma.
 
 El siguiente ejemplo crea ambos tipos de animación y guarda el resultado en `shape-animations.pptx`.
 
@@ -73,19 +75,19 @@ finally:
     presentation.dispose()
 ```
 
-El desencadenador controla cuándo comienza un efecto:
+El disparador controla cuándo comienza un efecto:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/es/python-java/aspose.slides/effecttriggertype/#OnClick) espera a que se haga clic en la secuencia principal, o a que se haga clic en la forma desencadenante en una secuencia interactiva.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/es/python-java/aspose.slides/effecttriggertype/#OnClick) espera un clic en la secuencia principal, o un clic en la forma disparadora en una secuencia interactiva.
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/es/python-java/aspose.slides/effecttriggertype/#WithPrevious) comienza con el efecto anterior.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/es/python-java/aspose.slides/effecttriggertype/#AfterPrevious) comienza cuando termina el efecto anterior.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/es/python-java/aspose.slides/effecttriggertype/#AfterPrevious) comienza cuando el efecto anterior finaliza.
 
-Para animar una imagen, un gráfico u otro tipo de forma, pase ese objeto a [Sequence.addEffect](https://reference.aspose.com/slides/es/python-java/aspose.slides/sequence/#addEffect) en lugar de `target_shape`. Para opciones de agrupamiento específicas de gráficos, consulte [Gráficos animados](/slides/es/python-java/animated-charts/).
+Para animar una imagen, un gráfico o cualquier otro tipo de forma, pase ese objeto a [Sequence.addEffect](https://reference.aspose.com/slides/es/python-java/aspose.slides/sequence/#addEffect) en lugar de `target_shape`. Para opciones de agrupación específicas de gráficos, consulte [Gráficos animados](/slides/es/python-java/animated-charts/).
 
-## **Leer animaciones de formas**
+## **Leer animaciones de forma**
 
-Utilice [Sequence.getEffectsByShape](https://reference.aspose.com/slides/es/python-java/aspose.slides/sequence/#getEffectsByShape) cuando conozca la forma objetivo. Para inspeccionar cada efecto, enumere la secuencia principal y cada secuencia interactiva. La enumeración evita suponer que una secuencia contiene un efecto en el índice `0`.
+Utilice [Sequence.getEffectsByShape](https://reference.aspose.com/slides/es/python-java/aspose.slides/sequence/#getEffectsByShape) cuando conozca la forma objetivo. Para inspeccionar cada efecto, recorra la secuencia principal y cada secuencia interactiva. Recorrer evita asumir que una secuencia contiene un efecto en el índice `0`.
 
-El siguiente ejemplo crea una forma con efectos en la secuencia principal e interactiva, obtiene los efectos que apuntan a la forma y luego enumera todas las secuencias de la diapositiva.
+El siguiente ejemplo crea una forma con efectos de secuencia principal e interactiva, obtiene los efectos que apuntan a la forma y luego recorre cada secuencia en la diapositiva.
 
 ```python
 import jpype
@@ -136,11 +138,11 @@ finally:
     presentation.dispose()
 ```
 
-Si solo necesita los efectos de una forma, primero identifique la forma por nombre, tipo de marcador de posición u otra propiedad estable; luego llame a [Sequence.getEffectsByShape](https://reference.aspose.com/slides/es/python-java/aspose.slides/sequence/#getEffectsByShape). No asuma que [ShapeCollection.get_Item](https://reference.aspose.com/slides/es/python-java/aspose.slides/shapecollection/#get_Item) en el índice `0` sea siempre el objeto deseado.
+Si solo necesita los efectos para una forma, primero identifique la forma por nombre, tipo de marcador de posición u otra propiedad estable; a continuación, llame a [Sequence.getEffectsByShape](https://reference.aspose.com/slides/es/python-java/aspose.slides/sequence/#getEffectsByShape). No asuma que [ShapeCollection.get_Item](https://reference.aspose.com/slides/es/python-java/aspose.slides/shapecollection/#get_Item) en el índice `0` sea siempre el objeto deseado.
 
-## **Trabajar con efectos heredados de marcadores de posición**
+## **Trabajar con efectos de marcador de posición heredados**
 
-Un marcador de posición en una diapositiva normal puede heredar el comportamiento de animación del marcador de posición correspondiente en su diapositiva de diseño y en la diapositiva maestra. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/es/python-java/aspose.slides/shape/#getBasePlaceholder) devuelve ese marcador de posición padre, o `None` cuando no existe padre.
+Un marcador de posición en una diapositiva normal puede heredar el comportamiento de animación del marcador de posición correspondiente en su diapositiva de diseño y diapositiva maestra. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/es/python-java/aspose.slides/shape/#getBasePlaceholder) devuelve ese marcador de posición padre, o `None` cuando no existe padre alguno.
 
 En la presentación de ejemplo siguiente, el pie de página tiene **Random Bars** en la diapositiva normal, **Split** en la diapositiva de diseño y **Fly In** en la diapositiva maestra.
 
@@ -150,7 +152,7 @@ En la presentación de ejemplo siguiente, el pie de página tiene **Random Bars*
 
 ![Efecto de animación del marcador de posición del pie de página en la diapositiva maestra](master-shape-animation.png)
 
-El siguiente ejemplo utiliza una jerarquía de marcadores de posición de una presentación nueva. Añade efectos a un marcador de posición maestro, a un marcador de posición de diseño y al marcador de posición correspondiente en una diapositiva normal. Cada llamada a [Shape.getBasePlaceholder](https://reference.aspose.com/slides/es/python-java/aspose.slides/shape/#getBasePlaceholder) se verifica antes de usar la forma devuelta.
+El siguiente ejemplo utiliza una jerarquía de marcadores de posición de una nueva presentación. Añade efectos a un marcador de posición maestro, a un marcador de posición de diseño y al marcador de posición correspondiente en una diapositiva normal. Cada llamada a [Shape.getBasePlaceholder](https://reference.aspose.com/slides/es/python-java/aspose.slides/shape/#getBasePlaceholder) se verifica antes de utilizar la forma devuelta.
 
 ```python
 import jpype
@@ -212,19 +214,19 @@ finally:
     presentation.dispose()
 ```
 
-## **Cambiar la sincronización de la animación**
+## **Cambiar la temporización de la animación**
 
 El cuadro de diálogo **Timing** de PowerPoint se corresponde con las propiedades de [Timing](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/).
 
-![Cuadro de diálogo Timing de PowerPoint para un efecto de animación](shape-animation.png)
+![Cuadro de diálogo de Temporización de PowerPoint para un efecto de animación](shape-animation.png)
 
-- **Start** se corresponde con [Timing.getTriggerType](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#getTriggerType).
-- **Duration** se corresponde con [Timing.getDuration](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#getDuration), en segundos.
-- **Delay** se corresponde con [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#getTriggerDelayTime), en segundos.
-- **Repeat** se corresponde con [Timing.getRepeatCount](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#getRepeatUntilNextClick) o [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#getRepeatUntilEndSlide).
-- **Rewind when done playing** se corresponde con [Timing.getRewind](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#getRewind).
+- **Inicio** se corresponde con [Timing.getTriggerType](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#getTriggerType).
+- **Duración** se corresponde con [Timing.getDuration](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#getDuration), en segundos.
+- **Retraso** se corresponde con [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#getTriggerDelayTime), en segundos.
+- **Repetir** se corresponde con [Timing.getRepeatCount](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#getRepeatUntilNextClick) o [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#getRepeatUntilEndSlide).
+- **Retroceder al finalizar la reproducción** se corresponde con [Timing.getRewind](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#getRewind).
 
-Este ejemplo independiente añade un efecto, cambia su sincronización mediante el objeto devuelto por [Sequence.addEffect](https://reference.aspose.com/slides/es/python-java/aspose.slides/sequence/#addEffect) y guarda el resultado. Mantener la referencia al [Effect](https://reference.aspose.com/slides/es/python-java/aspose.slides/effect/) devuelta evita un índice de colección innecesario.
+Este ejemplo independiente añade un efecto, cambia su temporización mediante el objeto devuelto por [Sequence.addEffect](https://reference.aspose.com/slides/es/python-java/aspose.slides/sequence/#addEffect) y guarda el resultado. Mantener la referencia al [Effect](https://reference.aspose.com/slides/es/python-java/aspose.slides/effect/) devuelto evita un índice de colección innecesario.
 
 ```python
 import jpype
@@ -255,15 +257,15 @@ finally:
     presentation.dispose()
 ```
 
-Utilice un modo de repetición de forma intencionada. Combinar un recuento de repeticiones con una bandera "until" puede producir resultados confusos en distintos visores. Al cambiar los modos de repetición, establezca [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#setRepeatUntilNextClick) y [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) antes de [Timing.setRepeatCount](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#setRepeatCount), porque establecer cualquiera de las banderas también cambia el modo de repetición activo.
+Utilice un modo de repetición intencionalmente. Combinar un recuento de repeticiones con una bandera “until” puede producir resultados confusos en diferentes visores. Al cambiar los modos de repetición, establezca [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#setRepeatUntilNextClick) y [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) antes de [Timing.setRepeatCount](https://reference.aspose.com/slides/es/python-java/aspose.slides/timing/#setRepeatCount), porque establecer cualquiera de las banderas también cambia el modo de repetición activo.
 
-## **Añadir y extraer sonidos de animación**
+## **Agregar y extraer sonidos de animación**
 
-Un efecto de animación puede hacer referencia a audio incrustado a través de [Effect.getSound](https://reference.aspose.com/slides/es/python-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/es/python-java/aspose.slides/effect/#setStopPreviousSound) indica a un efecto que detenga el audio iniciado por un efecto anterior.
+Un efecto de animación puede referenciar audio incrustado mediante [Effect.getSound](https://reference.aspose.com/slides/es/python-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/es/python-java/aspose.slides/effect/#setStopPreviousSound) indica a un efecto que detenga el audio iniciado por un efecto anterior.
 
-### **Añadir un sonido a un efecto**
+### **Agregar un sonido a un efecto**
 
-El siguiente ejemplo espera un archivo de audio local llamado `animation-sound.wav`. Crea dos efectos, incrusta ese archivo como sonido del primer efecto y configura el segundo efecto para detener el sonido. Utiliza los objetos devueltos por [Sequence.addEffect](https://reference.aspose.com/slides/es/python-java/aspose.slides/sequence/#addEffect), por lo que no se requiere un índice de secuencia.
+El siguiente ejemplo espera un archivo de audio local llamado `animation-sound.wav`. Crea dos efectos, incrusta ese archivo como sonido del primer efecto y configura el segundo efecto para detener el sonido. Utiliza los objetos devueltos por [Sequence.addEffect](https://reference.aspose.com/slides/es/python-java/aspose.slides/sequence/#addEffect), por lo que no se necesita un índice de secuencia.
 
 ```python
 import jpype
@@ -297,9 +299,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Extraer sonidos incrustados de efectos**
+### **Extraer sonidos de efecto incrustados**
 
-El siguiente ejemplo espera una presentación local llamada `presentation-with-animation-sounds.pptx`. Analiza tanto las secuencias principales como las interactivas y escribe cada sonido incrustado de efecto en el directorio `extracted-animation-sounds`. La extensión se selecciona a partir del tipo MIME de audio expuesto por [Audio.getContentType](https://reference.aspose.com/slides/es/python-java/aspose.slides/audio/#getContentType).
+El siguiente ejemplo espera una presentación local llamada `presentation-with-animation-sounds.pptx`. Analiza tanto las secuencias principales como las interactivas y escribe cada sonido de efecto incrustado en el directorio `extracted-animation-sounds`. La extensión se selecciona a partir del tipo MIME de audio expuesto por [Audio.getContentType](https://reference.aspose.com/slides/es/python-java/aspose.slides/audio/#getContentType).
 
 ```python
 import jpype
@@ -353,24 +355,24 @@ finally:
     presentation.dispose()
 ```
 
-Para objetos de audio grandes, utilice [Audio.getStream](https://reference.aspose.com/slides/es/python-java/aspose.slides/audio/#getStream) y copie la secuencia a un archivo en lugar de cargar todo el objeto en una matriz de bytes.
+Para objetos de audio grandes, use [Audio.getStream](https://reference.aspose.com/slides/es/python-java/aspose.slides/audio/#getStream) y copie el flujo a un archivo en lugar de cargar todo el objeto en una matriz de bytes.
 
-## **Establecer comportamiento posterior a la animación**
+## **Establecer comportamiento después de la animación**
 
-La opción **After animation** controla lo que ocurre con una forma después de que finalice su efecto.
+La opción **After animation** controla qué ocurre con una forma después de que su efecto finaliza.
 
-![Cuadro de diálogo de opciones de efecto de PowerPoint que muestra la configuración After animation](shape-after-animation.png)
+![Cuadro de diálogo de Opciones de efecto de PowerPoint que muestra la configuración After animation](shape-after-animation.png)
 
-La clase [AfterAnimationType](https://reference.aspose.com/slides/es/python-java/aspose.slides/afteranimationtype/) permite dejar la forma sin cambios, cambiar su color, ocultarla después de la animación o ocultarla al siguiente clic. Cuando el tipo es [AfterAnimationType.Color](https://reference.aspose.com/slides/es/python-java/aspose.slides/afteranimationtype/#Color), también establezca [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/es/python-java/aspose.slides/effect/#getAfterAnimationColor).
+La clase [AfterAnimationType](https://reference.aspose.com/slides/es/python-java/aspose.slides/afteranimationtype/) admite dejar la forma sin cambios, cambiar su color, ocultarla después de la animación o ocultarla en el siguiente clic. Cuando el tipo es [AfterAnimationType.Color](https://reference.aspose.com/slides/es/python-java/aspose.slides/afteranimationtype/#Color), establezca también [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/es/python-java/aspose.slides/effect/#getAfterAnimationColor).
 
-Este ejemplo independiente crea un efecto, establece su comportamiento posterior a la animación mediante el objeto efecto devuelto y guarda el resultado.
+Este ejemplo independiente crea un efecto, establece su comportamiento después de la animación mediante el objeto de efecto devuelto y guarda el resultado.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpime.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import AfterAnimationType, EffectSubtype, EffectTriggerType, EffectType, Presentation, SaveFormat, ShapeType
 from java.awt import Color
@@ -390,16 +392,16 @@ finally:
     presentation.dispose()
 ```
 
-Cambiar el tipo de [AfterAnimationType.Color] a otro elimina la configuración de color posterior a la animación.
+Cambiar el tipo fuera de [AfterAnimationType.Color](https://reference.aspose.com/slides/es/python-java/aspose.slides/afteranimationtype/#Color) borra la configuración del color después de la animación.
 
 ## **Animar texto**
 
 La animación de texto tiene dos controles relacionados:
 
 - [TextAnimation.getBuildType](https://reference.aspose.com/slides/es/python-java/aspose.slides/textanimation/#getBuildType) controla si los párrafos aparecen juntos o por nivel de párrafo.
-- [Effect.getAnimateTextType](https://reference.aspose.com/slides/es/python-java/aspose.slides/effect/#getAnimateTextType) controla si el texto aparece todo de una vez, por palabra o por letra. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/es/python-java/aspose.slides/effect/#getDelayBetweenTextParts) establece el retraso entre palabras o letras. Un valor positivo es un porcentaje de la duración del efecto; un valor negativo es un retraso en segundos.
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/es/python-java/aspose.slides/effect/#getAnimateTextType) controla si el texto aparece todo a la vez, por palabra o por letra. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/es/python-java/aspose.slides/effect/#getDelayBetweenTextParts) define el retraso entre palabras o letras. Un valor positivo es un porcentaje de la duración del efecto; un valor negativo es un retraso en segundos.
 
-El siguiente ejemplo independiente anima las palabras en un cuadro de texto. [BuildType.AsOneObject](https://reference.aspose.com/slides/es/python-java/aspose.slides/buildtype/#AsOneObject) desactiva la generación párrafo a párrafo para que la configuración de palabras se aplique a todo el marco de texto.
+El siguiente ejemplo independiente anima las palabras en un cuadro de texto. [BuildType.AsOneObject](https://reference.aspose.com/slides/es/python-java/aspose.slides/buildtype/#AsOneObject) desactiva la construcción párrafo a párrafo para que la configuración de palabras se aplique a todo el marco de texto.
 
 ```python
 import jpype
@@ -426,26 +428,26 @@ finally:
     presentation.dispose()
 ```
 
-Para construir un cuadro de texto por párrafo, establezca [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/es/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) (u otro nivel de párrafo). Para dirigir un único párrafo con su propio efecto, use la sobrecarga de [Sequence.addEffect](https://reference.aspose.com/slides/es/python-java/aspose.slides/sequence/#addEffect) que acepta un [Paragraph](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraph/). Consulte [Texto animado](/slides/es/python-java/animated-text/) para ejemplos a nivel de párrafo.
+Para construir un cuadro de texto por párrafo, establezca [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/es/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) (o otro nivel de párrafo). Para dirigirse a un solo párrafo con su propio efecto, utilice la sobrecarga de [Sequence.addEffect](https://reference.aspose.com/slides/es/python-java/aspose.slides/sequence/#addEffect) que acepta un [Paragraph](https://reference.aspose.com/slides/es/python-java/aspose.slides/paragraph/). Consulte [Texto animado](/slides/es/python-java/animated-text/) para ejemplos a nivel de párrafo.
 
-## **Notas de exportación y compatibilidad**
+## **Exportar y notas de compatibilidad**
 
-- Guardar en PPT o PPTX conserva el modelo de animación, pero la reproducción final está controlada por el visor de presentaciones.
+- Guardar como PPT o PPTX preserva el modelo de animación, pero la reproducción final está controlada por el visor de la presentación.
 - PDF e imágenes estáticas no reproducen animaciones. Utilice [exportación a HTML5](/slides/es/python-java/export-to-html5/), GIF animado o [conversión a video](/slides/es/python-java/convert-powerpoint-to-video/) cuando la salida deba mostrar movimiento.
-- Para HTML5, active [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/es/python-java/aspose.slides/html5options/#setAnimateShapes) y, cuando sea necesario, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/es/python-java/aspose.slides/html5options/#setAnimateTransitions).
-- La renderización de video admite muchos efectos comunes de entrada, énfasis, salida y ruta de movimiento, pero no todos los efectos de PowerPoint están soportados. Consulte la tabla actual de [animaciones y efectos compatibles](/slides/es/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) y pruebe presentaciones críticas con la versión de Aspose.Slides que vaya a usar.
-- Los efectos personalizados avanzados y los efectos importados de otros formatos de presentación pueden conservarse en el archivo pero renderizarse de forma distinta en PowerPoint, HTML5 o video. Valide el resultado exportado en lugar de confiar únicamente en el nombre del efecto.
+- Para HTML5, habilite [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/es/python-java/aspose.slides/html5options/#setAnimateShapes) y, cuando sea necesario, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/es/python-java/aspose.slides/html5options/#setAnimateTransitions).
+- La renderización de video admite muchos efectos de entrada, énfasis, salida y ruta de movimiento habituales, pero no todos los efectos de PowerPoint están soportados. Consulte la tabla actual de [animaciones y efectos soportados](/slides/es/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) y pruebe presentaciones críticas con la versión de Aspose.Slides que utilice.
+- Los efectos personalizados avanzados y los efectos importados de otros formatos de presentación pueden preservarse en el archivo pero renderizarse de forma diferente en PowerPoint, HTML5 o video. Valide el resultado exportado en lugar de confiar únicamente en el nombre del efecto.
 
-## **Preguntas frecuentes**
+## **FAQ**
 
 **¿Por qué una animación aparece en PowerPoint pero no en un PDF?**
 
-El PDF es un formato estático, por lo que las animaciones y transiciones de diapositiva no se reproducen. Exporte a HTML5, GIF animado o video cuando sea necesario conservar el movimiento.
+PDF es un formato estático, por lo que las animaciones y transiciones de diapositiva no se reproducen. Exporte a HTML5, GIF animado o video cuando el movimiento deba conservarse.
 
 **¿Por qué un efecto se reproduce de forma diferente en un video?**
 
-La exportación a video renderiza las animaciones en lugar de almacenar el comportamiento original de PowerPoint. Algunos efectos avanzados no son compatibles o se aproximan. Revise la tabla de efectos compatibles y pruebe la presentación real antes de usarla en producción.
+La exportación a video renderiza las animaciones en lugar de almacenar el comportamiento original de PowerPoint. Algunos efectos avanzados no son compatibles o se aproximan. Revise la tabla de efectos soportados y pruebe la presentación real antes de su uso en producción.
 
-**¿Mover una forma hacia adelante o hacia atrás cambia su orden de animación?**
+**¿Mover una forma hacia adelante o atrás cambia su orden de animación?**
 
-No. El orden Z de la forma controla la superposición, mientras que el orden de la secuencia y los desencadenadores controlan la reproducción de la animación. Cambie la línea de tiempo si necesita un orden de reproducción diferente.
+No. El orden Z de la forma controla la superposición, mientras que el orden de la secuencia y los disparadores controlan la reproducción de la animación. Cambie la línea de tiempo si necesita un orden de reproducción distinto.

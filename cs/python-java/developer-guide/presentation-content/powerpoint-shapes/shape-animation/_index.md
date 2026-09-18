@@ -1,46 +1,48 @@
 ---
-title: "Použít animace tvarů v prezentacích pomocí Pythonu přes Java"
-linktitle: "Animace tvaru"
+title: Použití animací tvarů v prezentacích pomocí Pythonu přes Java
+linktitle: Animace tvaru
 type: docs
 weight: 60
 url: /cs/python-java/shape-animation/
 keywords:
-- "tvar"
-- "animace"
-- "efekt"
-- "animovaný tvar"
-- "animovaný text"
-- "přidat animaci"
-- "získat animaci"
-- "extrahovat animaci"
-- "přidat efekt"
-- "získat efekt"
-- "extrahovat efekt"
-- "zvuk efektu"
-- "použít animaci"
-- "PowerPoint"
-- "prezentace"
-- "Python"
-- "Java"
-- "Aspose.Slides"
-description: "Naučte se přidávat, prohlížet a přizpůsobovat animace tvarů, časování, zvuky, chování po animaci a animovaný text pomocí Aspose.Slides pro Python přes Java."
+- tvar
+- animace
+- efekt
+- animovaný tvar
+- animovaný text
+- přidat animaci
+- získat animaci
+- extrahovat animaci
+- přidat efekt
+- získat efekt
+- extrahovat efekt
+- zvuk efektu
+- aplikovat animaci
+- PowerPoint
+- prezentace
+- Python
+- Java
+- Aspose.Slides
+description: "Cílem je naučit se přidávat, zkoumat a přizpůsobovat animace tvarů, časování, zvuky, chování po animaci a animovaný text pomocí Aspose.Slides pro Python přes Java."
 ---
 ## **Přehled**
 
-Aspose.Slides pro Python prostřednictvím Java představuje animace snímků jako efekty v časové ose snímku. Efekt má cílový tvar, typ a podtyp animace, spouštěč, nastavení časování a volitelné vlastnosti, jako je zvuk nebo chování po animaci.
+Chcete‑li pracovat s jednotlivými chováními uvnitř efektu nebo upravovat segmenty trajektorie pohybu, podívejte se na [Vlastní animace](/slides/cs/python-java/custom-animation/).
 
-Časová osa obsahuje dva druhy sekvencí:
+Aspose.Slides for Python via Java představuje animace snímků jako efekty v časové ose snímku. Efekt má cílový tvar, typ a podtyp animace, spouštěč, nastavení časování a volitelné vlastnosti, jako je zvuk nebo chování po animaci.
 
-- **Hlavní sekvence** se přehrává při postupu snímku.
-- **Interaktivní sekvence** začíná, když se klikne na její spouštěcí tvar.
+Časová osa obsahuje dva typy sekvencí:
 
-Protože textová pole, obrázky, grafy, tabulky a další objekty snímku jsou odvozeny od [Shape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/), používáte stejnou metodu [Sequence.addEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#addEffect) pro většinu obsahu snímku. Dostupné efekty jsou uvedeny ve třídě [EffectType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effecttype/).
+- **hlavní sekvence** se přehrává při postupu snímku.
+- **interaktivní sekvence** začne, když je kliknuta spouštěcí forma.
+
+Protože textová pole, obrázky, grafy, tabulky a další objekty snímku odvozují od [Shape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/), používáte stejnou metodu [Sequence.addEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#addEffect) pro většinu obsahu snímku. Dostupné efekty jsou vypsány ve třídě [EffectType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effecttype/).
 
 ## **Přidání animací tvarů**
 
-Chcete-li přidat animaci, získejte hlavní sekvenci snímku a zavolejte [Sequence.addEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#addEffect) s cílovým tvarem, typem efektu, podtypem a spouštěčem. Pro efekt, který začíná po kliknutí na jiný tvar, vytvořte interaktivní sekvenci, jejíž spouštěčem je tento jiný tvar.
+Chcete‑li přidat animaci, získejte hlavní sekvenci snímku a zavolejte [Sequence.addEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#addEffect) s cílovým tvarem, typem efektu, podtypem a spouštěčem. Pro efekt, který začne po kliknutí na jiný tvar, vytvořte interaktivní sekvenci, jejíž spouštěčem je tento jiný tvar.
 
-Následující příklad vytvoří oba typy animací a uloží výsledek do souboru `shape-animations.pptx`.
+Následující příklad vytvoří oba typy animací a uloží výsledek do `shape-animations.pptx`.
 
 ```python
 import jpype
@@ -73,19 +75,19 @@ finally:
     presentation.dispose()
 ```
 
-Spouštěč určuje, kdy efekt začíná:
+Spouštěč určuje, kdy efekt začne:
 
 - [EffectTriggerType.OnClick](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effecttriggertype/#OnClick) čeká na kliknutí v hlavní sekvenci nebo na kliknutí na spouštěcí tvar v interaktivní sekvenci.
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effecttriggertype/#WithPrevious) začíná spolu s předchozím efektem.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effecttriggertype/#AfterPrevious) začíná po dokončení předchozího efektu.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effecttriggertype/#WithPrevious) začne současně s předchozím efektem.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effecttriggertype/#AfterPrevious) začne po dokončení předchozího efektu.
 
-Chcete-li animovat obrázek, graf nebo jiný typ tvaru, předávejte tento objekt metodě [Sequence.addEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#addEffect), namísto `target_shape`. Pro možnosti seskupování specifické pro grafy viz [Animované grafy](/slides/cs/python-java/animated-charts/).
+Chcete‑li animovat obrázek, graf nebo jiný typ tvaru, předávejte tento objekt metodě [Sequence.addEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#addEffect) místo `target_shape`. Pro specifické skupinové možnosti grafu viz [Animated Charts](/slides/cs/python-java/animated-charts/).
 
 ## **Čtení animací tvarů**
 
-Použijte [Sequence.getEffectsByShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#getEffectsByShape), když znáte cílový tvar. Chcete-li prozkoumat každý efekt, projděte hlavní sekvenci a všechny interaktivní sekvence. Enumerace zabraňuje předpokladu, že sekvence obsahuje efekt na indexu `0`.
+Použijte [Sequence.getEffectsByShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#getEffectsByShape), pokud znáte cílový tvar. Chcete‑li prozkoumat každý efekt, enumerujte hlavní sekvenci i všechny interaktivní sekvence. Enumerace zabraňuje předpokladu, že sekvence obsahuje efekt na indexu `0`.
 
-Následující příklad vytvoří tvar s efekty v hlavní a interaktivní sekvenci, získá efekty, které cílí na tvar, a poté projde všechny sekvence na snímku.
+Následující příklad vytvoří tvar s hlavními i interaktivními efekty, získá efekty cílící na tvar a poté enumeruje všechny sekvence na snímku.
 
 ```python
 import jpype
@@ -136,21 +138,21 @@ finally:
     presentation.dispose()
 ```
 
-Pokud potřebujete efekty pouze pro jeden tvar, nejprve identifikujte tvar podle názvu, typu zástupce nebo jiné stabilní vlastnosti; poté zavolejte [Sequence.getEffectsByShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#getEffectsByShape). Nepředpokládejte, že [ShapeCollection.get_Item](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shapecollection/#get_Item) na indexu `0` je vždy požadovaný objekt.
+Pokud potřebujete efekty jen pro jeden tvar, nejprve identifikujte tvar podle názvu, typu zástupného objektu nebo jiné stabilní vlastnosti; poté zavolejte [Sequence.getEffectsByShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#getEffectsByShape). Nepředpokládejte, že [ShapeCollection.get_Item](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shapecollection/#get_Item) na indexu `0` je vždy požadovaný objekt.
 
-## **Práce s děděnými efekty zástupců**
+## **Práce s děděnými efekty zástupných objektů**
 
-Zástupce na normálním snímku může zdědit chování animace z odpovídajícího zástupce na snímku rozvržení a hlavním snímku. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getBasePlaceholder) vrací tento nadřazený zástupce, nebo `None`, pokud žádný nadřazený neexistuje.
+Zástupný objekt na běžném snímku může dědit chování animace z odpovídajícího zástupného objektu na návrhovém snímku a hlavním snímku. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getBasePlaceholder) vrací tento nadřazený zástupný objekt, nebo `None`, pokud nadřazený neexistuje.
 
-V následujícím příkladu prezentace má zápatí **Random Bars** na normálním snímku, **Split** na snímku rozvržení a **Fly In** na hlavním snímku.
+V následující příkladové prezentaci má zápatí **Random Bars** na běžném snímku, **Split** na návrhovém snímku a **Fly In** na hlavním snímku.
 
-![Efekt animace zápatí na normálním snímku](slide-shape-animation.png)
+![Animace patičky na běžném snímku](slide-shape-animation.png)
 
-![Efekt animace zástupce zápatí na snímku rozvržení](layout-shape-animation.png)
+![Animace patičky na návrhovém snímku](layout-shape-animation.png)
 
-![Efekt animace zástupce zápatí na hlavním snímku](master-shape-animation.png)
+![Animace patičky na hlavním snímku](master-shape-animation.png)
 
-Následující příklad používá hierarchii zástupců z nové prezentace. Přidává efekty k hlavnímu zástupci, zástupci v rozvržení a odpovídajícímu zástupci na normálním snímku. Každé volání [Shape.getBasePlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getBasePlaceholder) je před použitím vráceného tvaru zkontrolováno.
+Další příklad používá hierarchii zástupných objektů z nové prezentace. Přidá efekty do hlavního zástupného objektu, do zástupného objektu na návrhovém snímku a do odpovídajícího zástupného objektu na běžném snímku. Každé volání [Shape.getBasePlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getBasePlaceholder) je před použitím vráceného tvaru zkontrolováno.
 
 ```python
 import jpype
@@ -214,17 +216,17 @@ finally:
 
 ## **Změna časování animace**
 
-Dialog PowerPoint **Timing** se mapuje na vlastnosti třídy [Timing](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/).
+Dialog **Timing** v PowerPointu mapuje na vlastnosti třídy [Timing](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/).
 
-![Dialog PowerPoint Timing pro efekt animace](shape-animation.png)
+![Dialog Timing v PowerPointu pro efekt animace](shape-animation.png)
 
 - **Start** mapuje na [Timing.getTriggerType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#getTriggerType).
-- **Duration** mapuje na [Timing.getDuration](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#getDuration), v sekundách.
-- **Delay** mapuje na [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#getTriggerDelayTime), v sekundách.
-- **Repeat** mapuje na [Timing.getRepeatCount](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#getRepeatUntilNextClick), nebo [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#getRepeatUntilEndSlide).
+- **Duration** mapuje na [Timing.getDuration](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#getDuration) v sekundách.
+- **Delay** mapuje na [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#getTriggerDelayTime) v sekundách.
+- **Repeat** mapuje na [Timing.getRepeatCount](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#getRepeatUntilNextClick) nebo [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#getRepeatUntilEndSlide).
 - **Rewind when done playing** mapuje na [Timing.getRewind](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#getRewind).
 
-Tento samostatný příklad přidá efekt, změní jeho časování pomocí objektu vráceného metodou [Sequence.addEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#addEffect), a uloží výsledek. Udržení reference na vrácený objekt [Effect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effect/) zabraňuje zbytečnému indexu v kolekci.
+Tento samostatný příklad přidá efekt, změní jeho časování pomocí objektu vráceného metodou [Sequence.addEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#addEffect) a výsledek uloží. Udržení reference na vrácený [Effect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effect/) zabraňuje zbytečnému indexování kolekce.
 
 ```python
 import jpype
@@ -255,15 +257,15 @@ finally:
     presentation.dispose()
 ```
 
-Úmyslně používejte jeden režim opakování. Kombinace počtu opakování s příznakem „until“ může v různých prohlížečích vést k matoucím výsledkům. Při změně režimů opakování nastavte [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#setRepeatUntilNextClick) a [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) před [Timing.setRepeatCount](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#setRepeatCount), protože nastavení některého z příznaků také mění aktivní režim opakování.
+Používejte jeden režim opakování úmyslně. Kombinace počtu opakování s příznakem „until“ může v různých přehrávačích vést k matoucím výsledkům. Při změně režimů opakování nastavte nejprve [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#setRepeatUntilNextClick) a [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) a až poté [Timing.setRepeatCount](https://reference.aspose.com/slides/cs/python-java/aspose.slides/timing/#setRepeatCount), protože nastavení některého z příznaků zároveň mění aktivní režim opakování.
 
-## **Přidání a extrahování zvuků animace**
+## **Přidání a extrahování zvuků animací**
 
-Efekt animace může odkazovat na vložený zvuk pomocí [Effect.getSound](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effect/#setStopPreviousSound) říká efektu, aby zastavil zvuk spuštěný předchozím efektem.
+Efekt animace může odkazovat na vložený zvuk pomocí [Effect.getSound](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effect/#setStopPreviousSound) říká efektu, aby zastavil zvuk zahájený předchozím efektem.
 
 ### **Přidání zvuku k efektu**
 
-Následující příklad očekává lokální audio soubor pojmenovaný `animation-sound.wav`. Vytvoří dva efekty, vloží tento soubor jako zvuk pro první efekt a nastaví druhý efekt tak, aby zvuk zastavil. Používá objekty vrácené metodou [Sequence.addEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#addEffect), takže není potřeba index sekvence.
+Následující příklad očekává místní audio soubor pojmenovaný `animation-sound.wav`. Vytvoří dva efekty, vloží tento soubor jako zvuk pro první efekt a nastaví druhý efekt tak, aby zvuk zastavil. Používá objekty vrácené metodou [Sequence.addEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#addEffect), takže není potřeba index sekvence.
 
 ```python
 import jpype
@@ -297,9 +299,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Extrahování vložených zvuků efektu**
+### **Extrahování vložených zvuků efektů**
 
-Následující příklad očekává lokální prezentaci pojmenovanou `presentation-with-animation-sounds.pptx`. Prohledá hlavní i interaktivní sekvence a zapíše každý vložený zvuk efektu do adresáře `extracted-animation-sounds`. Přípona je vybrána podle audio MIME typu poskytovaného metodou [Audio.getContentType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audio/#getContentType).
+Následující příklad očekává místní prezentaci pojmenovanou `presentation-with-animation-sounds.pptx`. Prohledá hlavní i interaktivní sekvence a zapíše každý vložený zvuk efektu do adresáře `extracted-animation-sounds`. Přípona je vybrána podle MIME typu audia, který poskytuje [Audio.getContentType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audio/#getContentType).
 
 ```python
 import jpype
@@ -353,17 +355,17 @@ finally:
     presentation.dispose()
 ```
 
-Pro velké audio objekty použijte [Audio.getStream](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audio/#getStream) a zkopírujte stream do souboru místo načtení celého objektu do pole bajtů.
+U velkých audio objektů použijte [Audio.getStream](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audio/#getStream) a zkopírujte proud do souboru místo načítání celého objektu do pole bajtů.
 
 ## **Nastavení chování po animaci**
 
-Volba **After animation** určuje, co se stane s tvarem po dokončení jeho efektu.
+Možnost **After animation** určuje, co se stane s tvarem po dokončení jeho efektu.
 
-![Dialog PowerPoint Effect Options zobrazující nastavení After animation](shape-after-animation.png)
+![Dialog možností efektu v PowerPointu ukazující nastavení After animation](shape-after-animation.png)
 
 Třída [AfterAnimationType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/afteranimationtype/) podporuje ponechání tvaru beze změny, změnu jeho barvy, skrytí po animaci nebo skrytí při dalším kliknutí. Když je typ [AfterAnimationType.Color](https://reference.aspose.com/slides/cs/python-java/aspose.slides/afteranimationtype/#Color), nastavte také [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effect/#getAfterAnimationColor).
 
-Tento samostatný příklad vytvoří efekt, nastaví jeho chování po animaci pomocí vráceného objektu efektu a uloží výsledek.
+Tento samostatný příklad vytvoří efekt, nastaví jeho chování po animaci pomocí vráceného objektu efektu a výsledek uloží.
 
 ```python
 import jpype
@@ -396,10 +398,10 @@ Změna typu od [AfterAnimationType.Color](https://reference.aspose.com/slides/cs
 
 Animace textu má dva související ovladače:
 
-- [TextAnimation.getBuildType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textanimation/#getBuildType) určuje, zda se odstavce zobrazí najednou nebo po úrovních odstavců.
-- [Effect.getAnimateTextType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effect/#getAnimateTextType) určuje, zda se text zobrazí najednou, po slovech nebo po písmenech. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effect/#getDelayBetweenTextParts) nastavuje zpoždění mezi slovy nebo písmeny. Kladná hodnota je procento trvání efektu; záporná hodnota je zpoždění v sekundách.
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textanimation/#getBuildType) určuje, zda se odstavce objevují najednou nebo po úrovních odstavců.
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effect/#getAnimateTextType) určuje, zda se text objeví najednou, po slovech nebo po písmenech. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effect/#getDelayBetweenTextParts) nastavuje prodlevu mezi slovy nebo písmeny. Kladná hodnota je procento trvání efektu; záporná hodnota je prodleva v sekundách.
 
-Následující samostatný příklad animuje slova v textovém poli. [BuildType.AsOneObject](https://reference.aspose.com/slides/cs/python-java/aspose.slides/buildtype/#AsOneObject) zakáže sestavování po odstavcích, takže nastavení slov se použije na celý textový rámec.
+Následující samostatný příklad animuje slova v textovém poli. [BuildType.AsOneObject](https://reference.aspose.com/slides/cs/python-java/aspose.slides/buildtype/#AsOneObject) zakáže budování po odstavcích, takže nastavení pro slova se použije na celý textový rámec.
 
 ```python
 import jpype
@@ -426,26 +428,26 @@ finally:
     presentation.dispose()
 ```
 
-Chcete-li sestavit textové pole po odstavcích, nastavte [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/cs/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) (nebo jinou úroveň odstavce). Pro cílení jediného odstavce s vlastním efektem použijte přetížení [Sequence.addEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#addEffect), které přijímá [Paragraph](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/). Viz [Animovaný text](/slides/cs/python-java/animated-text/) pro příklady na úrovni odstavce.
+Pro budování textového pole po odstavcích nastavte [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/cs/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) (nebo jinou úroveň odstavců). Chcete‑li cílit na jeden odstavec s vlastním efektem, použijte přetíženou metodu [Sequence.addEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#addEffect), která přijímá [Paragraph](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/). Viz [Animated Text](/slides/cs/python-java/animated-text/) pro příklady na úrovni odstavců.
 
 ## **Export a poznámky o kompatibilitě**
 
-- Uložení do PPT nebo PPTX zachovává animační model, ale finální přehrávání řídí prohlížeč prezentace.
-- PDF a statické obrázky nepřehrávají animace. Použijte [HTML5 export](/slides/cs/python-java/export-to-html5/), animovaný GIF nebo [video conversion](/slides/cs/python-java/convert-powerpoint-to-video/), když výstup musí ukazovat pohyb.
-- Pro HTML5 povolte [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/cs/python-java/aspose.slides/html5options/#setAnimateShapes) a v případě potřeby [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/html5options/#setAnimateTransitions).
-- Rendering videa podporuje mnoho běžných efektů vstupu, důrazu, odchodu a pohybových drah, ale ne každý PowerPoint efekt je podporován. Zkontrolujte aktuální [podporované animace a efekty](/slides/cs/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) a otestujte kritické prezentace s vaší cílovou verzí Aspose.Slides.
-- Pokročilé vlastní efekty a efekty importované z jiných formátů prezentací mohou být v souboru zachovány, ale renderují se odlišně v PowerPointu, HTML5 nebo videu. Ověřte exportovaný výsledek místo spoléhaní se pouze na název efektu.
+- Ukládání do PPT nebo PPTX zachovává model animací, ale finální přehrávání řídí prohlížeč prezentací.
+- PDF a statické obrázky animace nepřehrávají. Použijte [HTML5 export](/slides/cs/python-java/export-to-html5/), animovaný GIF nebo [konverzi videa](/slides/cs/python-java/convert-powerpoint-to-video/), když výstup musí ukazovat pohyb.
+- Pro HTML5 povolte [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/cs/python-java/aspose.slides/html5options/#setAnimateShapes) a podle potřeby [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/html5options/#setAnimateTransitions).
+- Rendering videa podporuje mnoho běžných vstupních, důrazových, výstupních a trajektorií pohybu, ale ne každý efekt PowerPointu je podporován. Zkontrolujte aktuální [supported animations and effects](/slides/cs/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) a otestujte kritické prezentace s verzí Aspose.Slides, kterou používáte.
+- Pokročilé vlastní efekty a efekty importované z jiných formátů prezentací mohou být v souboru zachovány, ale renderovány odlišně v PowerPointu, HTML5 nebo videu. Ověřte exportovaný výsledek místo spoléhaní se jen na název efektu.
 
-## **FAQ**
+## **Často kladené otázky**
 
 **Proč se animace zobrazí v PowerPointu, ale ne v PDF?**
 
-PDF je statický formát, takže animace a přechody snímků se nepřehrávají. Exportujte do HTML5, animovaného GIFu nebo videa, když je nutný pohyb.
+PDF je statický formát, takže animace a přechody snímků se nepřehrávají. Exportujte do HTML5, animovaného GIFu nebo videa, když je třeba zachovat pohyb.
 
-**Proč se efekt přehrává odlišně ve videu?**
+**Proč se efekt v videu přehrává jinak?**
 
-Export do videa vykresluje animace místo ukládání původního chování PowerPointu. Některé pokročilé efekty nejsou podporovány nebo jsou aproximovány. Prostudujte tabulku podporovaných efektů a otestujte skutečnou prezentaci před použitím ve výrobě.
+Export videa renderuje animace místo ukládání původního chování PowerPointu. Některé pokročilé efekty nejsou podporovány nebo jsou aproximovány. Prohlédněte si tabulku podporovaných efektů a před produkčním nasazením otestujte skutečnou prezentaci.
 
-**Změní posunutí tvaru dopředu nebo dozadu pořadí jeho animací?**
+**Mění přesunutí tvaru dopředu nebo dozadu jeho pořadí animace?**
 
-Ne. Z‑order tvaru řídí překrývání, zatímco pořadí sekvence a spouštěče řídí přehrávání animací. Změňte časovou osu, pokud potřebujete jiný pořádek přehrávání.
+Ne. Z‑order tvaru řídí překrývání, zatímco pořadí sekvencí a spouštěče řídí přehrávání animací. Změňte časovou osu, pokud potřebujete jiný pořádek přehrávání.

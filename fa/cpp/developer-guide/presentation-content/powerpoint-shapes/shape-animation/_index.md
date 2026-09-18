@@ -7,39 +7,41 @@ url: /fa/cpp/shape-animation/
 keywords:
 - شکل
 - انیمیشن
-- افکت
-- شکل انیمیشن‌شده
-- متن انیمیشن‌شده
+- اثر
+- شکل متحرک
+- متن متحرک
 - افزودن انیمیشن
 - دریافت انیمیشن
 - استخراج انیمیشن
-- افزودن افکت
-- دریافت افکت
-- استخراج افکت
-- صدای افکت
+- افزودن اثر
+- دریافت اثر
+- استخراج اثر
+- صدای اثر
 - اعمال انیمیشن
-- پاورپوینت
+- PowerPoint
 - ارائه
 - C++
 - Aspose.Slides
-description: "یاد بگیرید چگونه انیمیشن‌های شکل را اضافه، بررسی و سفارشی‌سازی کنید، زمان‌بندی، صداها، رفتار پس از انیمیشن و متن انیمیشن‌شده را با Aspose.Slides برای C++."
+description: "نحوهٔ افزودن، بازرسی و سفارشی‌سازی انیمیشن‌های شکل، زمان‌بندی، صداها، رفتار پس از انیمیشن و متن متحرک را با Aspose.Slides برای C++ بیاموزید."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-Aspose.Slides برای C++ انیمیشن‌های اسلاید را به‌صورت افکت‌ها در جدول‌زمان اسلاید نمایش می‌دهد. یک افکت شامل شکل هدف، نوع و زیرنوع انیمیشن، یک محرک، تنظیمات زمان‌بندی و ویژگی‌های اختیاری مانند صدا یا رفتار پس از انیمیشن است.
+برای کار با رفتارهای فردی داخل یک افکت یا ویرایش بخش‌های مسیر حرکتی، به [انیمیشن سفارشی](/slides/fa/cpp/custom-animation/) مراجعه کنید.
 
-جدول‌زمان دو نوع دنباله دارد:
+Aspose.Slides for C++ انیمیشن‌های اسلاید را به‌عنوان افکت‌ها در جدول زمان‌بندی اسلاید نمایش می‌دهد. یک افکت شامل شکل هدف، نوع و زیرنوع انیمیشن، یک محرک، تنظیمات زمان‌بندی، و ویژگی‌های اختیاری مانند صدا یا رفتار پس از انیمیشن است.
 
-- دنباله **اصلی** هنگام پیشرفت اسلاید پخش می‌شود.
-- دنباله **تعاملی** هنگامی که شکل محرک آن کلیک شود، آغاز می‌شود.
+جدول زمان‌بندی دو نوع توالی را در بر می‌گیرد:
 
-از آنجا که جعبه‌های متن، تصاویر، نمودارها، جداول و سایر اشیای اسلاید [IShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/) را پیاده‌سازی می‌کنند، برای بیشتر محتوای اسلاید از همان متد [ISequence::AddEffect](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/isequence/addeffect/) استفاده می‌کنید. افکت‌های موجود در شمارش‌نامی [EffectType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/effecttype/) فهرست شده‌اند.
+- توالی **اصلی** هنگام پیشروی اسلاید اجرا می‌شود.
+- توالی **تعاملی** زمانی شروع می‌شود که شکل محرک آن کلیک شود.
+
+از آنجا که جعبه‌های متن، تصاویر، نمودارها، جداول و سایر اشیای اسلاید پیاده‌سازی [IShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/) را انجام می‌دهند، برای اکثر محتوای اسلاید از همان متد [ISequence::AddEffect](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/isequence/addeffect/) استفاده می‌کنید. افکت‌های موجود در شمارش‌گر [EffectType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/effecttype/) فهرست شده‌اند.
 
 ## **افزودن انیمیشن‌های شکل**
 
-برای افزودن یک انیمیشن، دنبالهٔ اصلی اسلاید را به دست آورده و متد [ISequence::AddEffect](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/isequence/addeffect/) را با شکل هدف، نوع افکت، زیرنوع و محرک فراخوانی کنید. برای افکتی که هنگام کلیک روی شکل دیگری شروع می‌شود، یک دنبالهٔ تعاملی ایجاد کنید که محرک آن همان شکل دیگر باشد.
+برای افزودن یک انیمیشن، توالی اصلی اسلاید را دریافت کنید و متد [ISequence::AddEffect](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/isequence/addeffect/) را با شکل هدف، نوع افکت، زیرنوع و محرک صدا بزنید. برای افکتی که هنگام کلیک بر روی شکل دیگری شروع می‌شود، توالی تعاملی‌ای ایجاد کنید که محرکش همان شکل دیگر باشد.
 
-مثال زیر هر دو نوع انیمیشن را ایجاد کرده و نتیجه را در فایل `shape-animations.pptx` ذخیره می‌کند.
+مثال زیر هر دو نوع انیمیشن را ایجاد می‌کند و نتیجه را در `shape-animations.pptx` ذخیره می‌نماید.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -84,19 +86,17 @@ presentation->Save(u"shape-animations.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-محرک زمان شروع افکت را تعیین می‌کند:
+محرک تعیین می‌کند افکت چه زمانی شروع شود:
 
-- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/effecttriggertype/) صبر می‌کند تا در دنبالهٔ اصلی کلیک شود، یا تا در دنبالهٔ تعاملی روی شکل محرک کلیک شود.
-- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/effecttriggertype/) همزمان با افکت قبلی آغاز می‌شود.
-- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/effecttriggertype/) پس از اتمام افکت قبلی شروع می‌شود.
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/effecttriggertype/) برای کلیک در توالی اصلی یا کلیک بر روی شکل محرک در توالی تعاملی صبر می‌کند.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/effecttriggertype/) همراه با اثر قبلی شروع می‌شود.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/effecttriggertype/) زمانی که اثر قبلی تمام شد، شروع می‌شود.
 
-برای انیمیشن تصویر، نمودار یا هر نوع شکل دیگر، به جای `targetShape` همان شیء را به [ISequence::AddEffect](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/isequence/addeffect/) پاس دهید. برای گزینه‌های گروه‌بندی مخصوص نمودارها، بخش [Animated Charts](/slides/fa/cpp/animated-charts/) را ببینید.
+برای انیمیشن یک تصویر، نمودار یا نوع دیگری از شکل، به جای `targetShape` همان شیء را به متد [ISequence::AddEffect](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/isequence/addeffect/) پاس دهید. برای گزینه‌های گروه‌بندی مخصوص نمودارها، به [Animated Charts](/slides/fa/cpp/animated-charts/) مراجعه کنید.
 
 ## **خواندن انیمیشن‌های شکل**
 
-هنگامی که شکل هدف را می‌دانید، از [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) استفاده کنید. برای بررسی همهٔ افکت‌ها، دنبالهٔ اصلی و همهٔ دنباله‌های تعاملی را مرور کنید. این روش از فرض اینکه یک دنباله حتماً افکتی در ایندکس `0` دارد، جلوگیری می‌کند.
-
-مثال زیر یک شکل با افکت‌های دنبالهٔ اصلی و تعاملی ایجاد می‌کند، افکت‌های هدف‌دار به آن شکل را دریافت می‌کند و سپس همهٔ دنباله‌ها را در اسلاید مرور می‌کند.
+از [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) زمانی که شکل هدف را می‌دانید استفاده کنید. برای بررسی هر افکت، توالی اصلی و هر توالی تعاملی را enumeration کنید. enumeration از این فرض جلوگیری می‌کند که توالی دارای افکتی در ایندکس `0` باشد.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -165,21 +165,21 @@ for (const auto& sequence : slide->get_Timeline()->get_InteractiveSequences())
 presentation->Dispose();
 ```
 
-اگر فقط به افکت‌های یک شکل نیاز دارید، ابتدا شکل را بر اساس نام، نوع جای‌دار یا ویژگی پایدار دیگری شناسایی کنید؛ سپس [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) را فراخوانی کنید. فرض نکنید که [IShapeCollection::idx_get](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/idx_get/) در ایندکس `0` همیشه شیء مورد نظر است.
+اگر فقط به افکت‌های یک شکل نیاز دارید، ابتدا شکل را بر اساس نام، نوع placeholder یا ویژگی پایدار دیگری شناسایی کنید؛ سپس متد [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) را فراخوانی کنید. فرض نکنید که [IShapeCollection::idx_get](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/idx_get/) در ایندکس `0` همیشه شیء مورد نظر است.
 
-## **کار با افکت‌های جای‌دار ارث‌برده**
+## **کار با افکت‌های حامل به ارث‌برده**
 
-یک جای‌دار در اسلاید معمولی می‌تواند رفتار انیمیشن را از جای‌دار متناظر در اسلاید چیدمان و اسلاید مستر به ارث ببرد. [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/getbaseplaceholder/) آن جای‌دار والد را برمی‌گرداند یا زمانی که والد وجود نداشته باشد `nullptr` می‌دهد.
+یک placeholder در یک اسلاید عادی می‌تواند رفتار انیمیشن را از placeholder متناظر در اسلاید طرح‌بندی و اسلاید اصلی به ارث ببرد. [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/getbaseplaceholder/) آن placeholder والد را باز می‌گرداند یا `nullptr` زمانی که والد وجود نداشته باشد.
 
-در ارائهٔ نمونهٔ زیر، پانویس در اسلاید معمولی **Random Bars** دارد، در اسلاید چیدمان **Split** و در اسلاید مستر **Fly In** دارد.
+در ارائهٔ مثال زیر، پاورقی در اسلاید عادی دارای **Random Bars**، در اسلاید طرح‌بندی **Split** و در اسلاید اصلی **Fly In** دارد.
 
-![اثر انیمیشن پابرگ در اسلاید عادی](slide-shape-animation.png)
+![افکت انیمیشن پاورقی در اسلاید معمولی](slide-shape-animation.png)
 
-![اثر انیمیشن جای‌دار پابرگ در اسلاید چیدمان](layout-shape-animation.png)
+![افکت انیمیشن حامل پاورقی در اسلاید طرح‌بندی](layout-shape-animation.png)
 
-![اثر انیمیشن جای‌دار پابرگ در اسلاید مستر](master-shape-animation.png)
+![افکت انیمیشن حامل پاورقی در اسلاید اصلی](master-shape-animation.png)
 
-مثال بعدی سلسله‌مراتب جای‌دار را می‌سازد. افکت‌ها به یک جای‌دار مستر، یک جای‌دار چیدمان و جای‌دار متناظر در اسلاید معمولی اضافه می‌شود. قبل از استفاده از شکل برگردانده‌شده، هر بار [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/getbaseplaceholder/) بررسی می‌شود.
+مثال بعدی خود سلسله‌مراتبۀ placeholder را می‌سازد. افکت‌هایی به یک placeholder اصلی، یک placeholder طرح‌بندی و placeholder متناظر در اسلاید عادی اضافه می‌کند. قبل از استفاده از شکل برگردانده شده، هر بار فراخوانی [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/getbaseplaceholder/) بررسی می‌شود.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -266,17 +266,17 @@ presentation->Dispose();
 
 ## **تغییر زمان‌بندی انیمیشن**
 
-دیالوگ **Timing** در PowerPoint به متدهای [ITiming](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/) نگاشته می‌شود.
+دیالوگ **Timing** پاورپوینت به متدهای [ITiming](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/) مطابقت دارد.
 
-![دیالوگ زمان‌بندی PowerPoint برای یک افکت انیمیشن](shape-animation.png)
+![دیالوگ تنظیم زمان‌بندی پاورپوینت برای یک افکت انیمیشن](shape-animation.png)
 
-- **شروع** به [ITiming::set_TriggerType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_triggertype/) نگاشته می‌شود.
-- **مدت** به [ITiming::set_Duration](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_duration/) در ثانیه‌ها نگاشته می‌شود.
-- **تاخیر** به [ITiming::set_TriggerDelayTime](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_triggerdelaytime/) در ثانیه‌ها نگاشته می‌شود.
-- **تکرار** به [ITiming::set_RepeatCount](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_repeatcount/)، [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) یا [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) نگاشته می‌شود.
-- **بازگرداندن پس از پخش** به [ITiming::set_Rewind](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_rewind/) نگاشته می‌شود.
+- **Start** به [ITiming::set_TriggerType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_triggertype/) مطابقت دارد.
+- **Duration** به [ITiming::set_Duration](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_duration/) مطابقت دارد، بر حسب ثانیه.
+- **Delay** به [ITiming::set_TriggerDelayTime](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_triggerdelaytime/) مطابقت دارد، بر حسب ثانیه.
+- **Repeat** به [ITiming::set_RepeatCount](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_repeatcount/)، [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) یا [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) مطابقت دارد.
+- **Rewind when done playing** به [ITiming::set_Rewind](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_rewind/) مطابقت دارد.
 
-این مثال مستقل یک افکت اضافه می‌کند، زمان‌بندی آن را از طریق شیء برگردانده‌شده توسط [ISequence::AddEffect](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/isequence/addeffect/) تغییر می‌دهد و نتیجه را ذخیره می‌کند. نگه داشتن مرجع [IEffect](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/ieffect/) جلوگیری از نیاز به ایندکس‌گذاری غیرضروری در مجموعه می‌کند.
+این مثال مستقل یک افکت اضافه می‌کند، زمان‌بندی آن را از طریق شیء بازگردانده‌شده توسط [ISequence::AddEffect](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/isequence/addeffect/) تغییر می‌دهد و نتیجه را ذخیره می‌کند. نگه‌داشتن مرجع بازگردانده‌شدهٔ [IEffect](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/ieffect/) از نیاز به ایندکس مجموعهٔ غیرضروری جلوگیری می‌کند.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -318,15 +318,15 @@ presentation->Save(u"shape-animation-timing.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-یک حالت تکرار را به‌طور عمدی انتخاب کنید. ترکیب شمارش تکرار با پرچم «تا» می‌تواند نتایج گیج‌کننده‌ای در نماینده‌های مختلف ایجاد کند. هنگام تغییر حالت‌های تکرار، ابتدا [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) و [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) را صدا بزنید و سپس [ITiming::set_RepeatCount](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_repeatcount/) را فراخوانی کنید، زیرا تنظیم هر یک از پرچم‌ها حالت تکرار فعال را نیز تغییر می‌دهد.
+یک حالت تکرار را به‌صورت عمدی استفاده کنید. ترکیب شمارش تکرار با پرچم «until» می‌تواند نتایج گمراه‌کننده‌ای در نمایشگرهای مختلف ایجاد کند. هنگام تغییر حالت‌های تکرار، ابتدا [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) و [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) را فراخوانی کنید و سپس [ITiming::set_RepeatCount](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itiming/set_repeatcount/) را تنظیم کنید، زیرا تنظیم هر کدام از پرچم‌ها حالت تکرار فعال را نیز تغییر می‌دهد.
 
 ## **افزودن و استخراج صداهای انیمیشن**
 
-یک افکت انیمیشن می‌تواند صوتی جاسازی‌شده را از طریق [IEffect::set_Sound](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/ieffect/set_sound/) ارجاع دهد. [IEffect::set_StopPreviousSound](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/ieffect/set_stopprevioussound/) به افکت می‌گوید صدای شروع شده توسط افکت قبلی را متوقف کند.
+یک افکت انیمیشن می‌تواند صوت تعبیه‌شده را از طریق [IEffect::set_Sound](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/ieffect/set_sound/) ارجاع دهد. [IEffect::set_StopPreviousSound](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/ieffect/set_stopprevioussound/) به یک افکت می‌گوید صداهایی را که توسط افکت قبلی شروع شده‌اند، متوقف کند.
 
 ### **افزودن صدا به یک افکت**
 
-مثال زیر انتظار دارد فایل صوتی محلی به نام `animation-sound.wav` موجود باشد. دو افکت ایجاد می‌کند، آن فایل را به عنوان صدا برای اولین افکت جاسازی می‌کند و افکت دوم را طوری تنظیم می‌کند که صدای آن را متوقف کند. از اشیایی که توسط [ISequence::AddEffect](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/isequence/addeffect/) برگردانده می‌شوند استفاده می‌شود، بنابراین نیازی به ایندکس دنباله نیست.
+مثال زیر انتظار دارد فایلی صوتی محلی با نام `animation-sound.wav` موجود باشد. دو افکت ایجاد می‌کند، آن فایل را به‌عنوان صدا برای اولین افکت تعبیه می‌کند و افکت دوم را تنظیم می‌کند تا صدا را متوقف کند. این مثال از اشیائی که توسط [ISequence::AddEffect](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/isequence/addeffect/) بازگردانده می‌شوند استفاده می‌کند، بنابراین نیازی به ایندکس توالی نیست.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -373,9 +373,9 @@ presentation->Save(u"shape-animation-sound.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **استخراج صداهای افکت‌های جاسازی‌شده**
+### **استخراج صداهای تعبیه‌شدهٔ افکت**
 
-مثال زیر انتظار دارد ارائهٔ محلی به نام `presentation-with-animation-sounds.pptx` موجود باشد. هر دو دنبالهٔ اصلی و تعاملی را اسکن می‌کند و هر صداِ افکت جاسازی‌شده را در پوشهٔ `extracted-animation-sounds` می‌نویسد. پسوند بر اساس MIME type صوتی که توسط [IAudio::get_ContentType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iaudio/get_contenttype/) ارائه می‌شود، انتخاب می‌شود.
+مثال زیر انتظار دارد ارائهٔ محلی با نام `presentation-with-animation-sounds.pptx` موجود باشد. هر دو توالی اصلی و تعاملی را اسکن می‌کند و هر صداهای تعبیه‌شدهٔ افکت را در پوشهٔ `extracted-animation-sounds` می‌نویسد. پسوند بر اساس نوع MIME صوتی که توسط [IAudio::get_ContentType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iaudio/get_contenttype/) مشخص می‌شود، انتخاب می‌گردد.
 
 ```cpp
 #include <DOM/Animation/IEffect.h>
@@ -450,17 +450,17 @@ Console::WriteLine(String::Format(u"Extracted {0} sound file(s) to {1}.", soundI
 presentation->Dispose();
 ```
 
-برای اشیای صوتی بزرگ، از [IAudio::GetStream](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iaudio/getstream/) استفاده کنید و جریان را به یک فایل کپی کنید به‌جای بارگذاری کل شیء در یک آرایه بایت.
+برای اشیای صوتی بزرگ، از [IAudio::GetStream](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iaudio/getstream/) استفاده کنید و جریان را به یک فایل کپی کنید به‌جای اینکه کل شیء را به‌صورت آرایه بایت بارگذاری کنید.
 
 ## **تنظیم رفتار پس از انیمیشن**
 
-گزینه **After animation** تعیین می‌کند پس از اتمام افکت، با شکل چه‌کار شود.
+گزینه **After animation** تعیین می‌کند پس از پایان اثر، چه عملی بر روی شکل انجام شود.
 
-![دیالوگ گزینه‌های افکت PowerPoint که تنظیمات After animation را نشان می‌دهد](shape-after-animation.png)
+![دیالوگ گزینه‌های اثر پاورپوینت که تنظیمات پس از انیمیشن را نشان می‌دهد](shape-after-animation.png)
 
-شمارش‌نامی [AfterAnimationType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/afteranimationtype/) پشتیبانی می‌کند که شکل بدون تغییر بماند، رنگ آن تغییر کند، پس از انیمیشن مخفی شود یا در کلیک بعدی مخفی بماند. وقتی نوع [AfterAnimationType::Color](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/afteranimationtype/) باشد، برای تنظیم رنگ باید [IEffect::get_AfterAnimationColor](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/ieffect/get_afteranimationcolor/) فراخوانی شود.
+شمارش‌گر [AfterAnimationType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/afteranimationtype/) امکان ترک شکل به‌همین‌صورت، تغییر رنگ آن، مخفی کردن پس از انیمیشن یا مخفی کردن آن در کلیک بعدی را فراهم می‌کند. وقتی نوع به [AfterAnimationType::Color](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/afteranimationtype/) تنظیم شده باشد، برای تنظیم رنگ نیز باید از [IEffect::get_AfterAnimationColor](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/ieffect/get_afteranimationcolor/) استفاده کنید.
 
-این مثال مستقل یک افکت ایجاد می‌کند، رفتار پس از انیمیشن آن را از طریق شیء افکت برگردانده‌شده تنظیم می‌کند و نتیجه را ذخیره می‌نماید.
+این مثال مستقل یک افکت ایجاد می‌کند، رفتار پس از انیمیشن را از طریق شیء بازگرداندهٔ افکت تنظیم می‌کند و نتیجه را ذخیره می‌کند.
 
 ```cpp
 #include <DOM/Animation/AfterAnimationType.h>
@@ -500,16 +500,16 @@ presentation->Save(u"shape-animation-after-effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-تغییر نوع از [AfterAnimationType::Color](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/afteranimationtype/) باعث پاک‌سازی تنظیم رنگ پس از انیمیشن می‌شود.
+تغییر نوع از [AfterAnimationType::Color](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/afteranimationtype/) تنظیم رنگ پس از انیمیشن را پاک می‌کند.
 
 ## **انیمیشن متن**
 
 انیمیشن متن دو کنترل مرتبط دارد:
 
-- [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itextanimation/set_buildtype/) تعیین می‌کند که پاراگراف‌ها به‌صورت همزمان یا به‌صورت سطح‌پاراگراف ظاهر شوند.
-- [IEffect::set_AnimateTextType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) تعیین می‌کند که متن به‌صورت کل، کلمه به کلمه یا حرف به حرف ظاهر شود. [IEffect::set_DelayBetweenTextParts](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) تأخیر بین کلمات یا حروف را تنظیم می‌کند. مقدار مثبت درصدی از مدت افکت است؛ مقدار منفی مقدار تأخیر بر حسب ثانیه است.
+- [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itextanimation/set_buildtype/) تعیین می‌کند آیا پاراگراف‌ها به‌صورت جمعی یا بر پایهٔ سطح پاراگراف ظاهر شوند.
+- [IEffect::set_AnimateTextType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) تعیین می‌کند متن به‌صورت یکجا، به‌صورت کلمه یا به‌صورت حرف ظاهر شود. [IEffect::set_DelayBetweenTextParts](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) تاخیر بین کلمات یا حروف را تنظیم می‌کند. مقدار مثبت درصدی از مدت زمان افکت است؛ مقدار منفی تاخیر بر حسب ثانیه است.
 
-مثال مستقل زیر کلمات موجود در یک جعبهٔ متن را انیمیشن می‌دهد. [BuildType::AsOneObject](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/buildtype/) ساختن پاراگراف به‌صورت پیوسته را غیرفعال می‌کند تا تنظیم کلمه برای کل فریم متن اعمال شود.
+مثال مستقل زیر کلمات موجود در یک جعبه متن را انیمیشن می‌دهد. [BuildType::AsOneObject](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/buildtype/) ساختن پاراگراف به‌صورت پاراگراف‑به‑پاراگراف را غیرفعال می‌کند تا تنظیم کلمه برای کل قاب متن اعمال شود.
 
 ```cpp
 #include <DOM/Animation/AnimateTextType.h>
@@ -549,26 +549,26 @@ presentation->Save(u"animated-text.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-برای ساختن جعبهٔ متن به‌صورت پاراگراف، از [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itextanimation/set_buildtype/) همراه با [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/buildtype/) یا سطح پاراگراف دیگری استفاده کنید. برای هدف‌گیری یک پاراگراف منفرد با افکت خاص، از overload متد [ISequence::AddEffect](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/isequence/addeffect/) که یک [IParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/) می‌پذیرد، بهره ببرید. برای مثال‌های سطح‑پاراگراف به بخش [Animated Text](/slides/fa/cpp/animated-text/) مراجعه کنید.
+برای ساختن جعبه متن بر پایهٔ پاراگراف، از [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/itextanimation/set_buildtype/) همراه با [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/buildtype/) یا سطح پاراگراف دیگری استفاده کنید. برای هدف‌گذاری یک پاراگراف واحد با افکت خاص، بارگذاری [ISequence::AddEffect](https://reference.aspose.com/slides/fa/cpp/aspose.slides.animation/isequence/addeffect/) را که یک [IParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/) می‌گیرد به کار ببرید. برای مثال‌های سطح پاراگراف به [Animated Text](/slides/fa/cpp/animated-text/) مراجعه کنید.
 
-## **یادداشت‌های خروجی و سازگاری**
+## **نکات صادرات و سازگاری**
 
-- ذخیره به فرمت PPT یا PPTX مدل انیمیشن را حفظ می‌کند، اما پخش نهایی توسط برنامهٔ مشاهدهٔ ارائه کنترل می‌شود.
-- PDF و تصاویر ثابت انیمیشن پخش نمی‌کنند. برای نمایش حرکت، از [HTML5 export](/slides/fa/cpp/export-to-html5/)، GIF متحرک یا [تبدیل به ویدیو](/slides/fa/cpp/convert-powerpoint-to-video/) استفاده کنید.
-- برای HTML5، [Html5Options::set_AnimateShapes](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/html5options/set_animateshapes/) و در صورت نیاز [Html5Options::set_AnimateTransitions](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/html5options/set_animatetransitions/) را فعال کنید.
-- رندرینگ ویدیو بسیاری از افکت‌های ورودی، تأکید، خروجی و مسیر حرکت را پشتیبانی می‌کند، اما همهٔ افکت‌های PowerPoint پشتیبانی نمی‌شوند. جدول [انیمیشن‌ها و افکت‌های پشتیبانی‌شده](/slides/fa/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) را بررسی کنید و ارائه‌های مهم را با نسخهٔ موردنظر Aspose.Slides خود تست کنید.
-- افکت‌های سفارشی پیشرفته و افکت‌های وارد شده از فرمت‌های دیگر ممکن است در فایل حفظ شوند ولی در PowerPoint، HTML5 یا ویدیو به‌صورت متفاوت رندر شوند. نتیجهٔ خروجی را اعتبارسنجی کنید نه فقط بر روی نام افکت تکیه کنید.
+- ذخیره‌سازی به فرمت PPT یا PPTX مدل انیمیشن را حفظ می‌کند، اما پخش نهایی توسط نمایشگر ارائه کنترل می‌شود.
+- PDF و تصاویر ثابت انیمیشن را پخش نمی‌کنند. هنگامی که برای حفظ حرکات نیاز به خروجی است، از [HTML5 export](/slides/fa/cpp/export-to-html5/)، GIF متحرک یا [video conversion](/slides/fa/cpp/convert-powerpoint-to-video/) استفاده کنید.
+- برای HTML5، [Html5Options::set_AnimateShapes](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/html5options/set_animateshapes/) را فعال کنید و در صورت نیاز [Html5Options::set_AnimateTransitions](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/html5options/set_animatetransitions/) را تنظیم کنید.
+- رندر ویدئو بسیاری از افکت‌های ورودی، تأکید، خروج و مسیر حرکتی رایج را پشتیبانی می‌کند، اما همه افکت‌های پاورپوینت پشتیبانی نمی‌شوند. جدول [supported animations and effects](/slides/fa/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) جاری را بررسی کنید و ارائه‌های مهم را با نسخهٔ هدف Aspose.Slides خود تست نمایید.
+- افکت‌های سفارشی پیشرفته و افکت‌های وارد شده از فرمت‌های ارائهٔ دیگر ممکن است در فایل حفظ شوند اما در پاورپوینت، HTML5 یا ویدئو به‑طرز متفاوتی نمایش داده شوند. نتیجهٔ صادرشده را اعتبارسنجی کنید نه فقط بر اساس نام افکت.
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**چرا یک انیمیشن در PowerPoint نشان داده می‌شود اما در PDF نیست؟**
+**چرا یک انیمیشن در پاورپوینت ظاهر می‌شود اما در PDF نیست؟**
 
-PDF یک فرمت ثابت است، بنابراین انیمیشن‌ها و انتقال‌های اسلاید پخش نمی‌شوند. برای حفظ حرکت، به HTML5، GIF متحرک یا ویدیو خروجی بدهید.
+PDF یک قالب ثابت است، بنابراین انیمیشن‌ها و انتقال‌های اسلاید پخش نمی‌شوند. برای حفظ حرکت از HTML5، GIF متحرک یا ویدئو استفاده کنید.
 
-**چرا یک افکت در ویدیو به‌صورت متفاوتی پخش می‌شود؟**
+**چرا یک افکت در ویدئو به‌صورت متفاوتی اجرا می‌شود؟**
 
-خروجی ویدیو انیمیشن‌ها را رندر می‌کند نه اینکه رفتار اصلی PowerPoint را ذخیره کند. برخی افکت‌های پیشرفته پشتیبانی نمی‌شوند یا به‌صورت تخمینی اجرا می‌شوند. جدول افکت‌های پشتیبانی‌شده را مرور کنید و ارائهٔ واقعی را قبل از استفاده در تولید تست کنید.
+صادر ویدئو انیمیشن‌ها را رندر می‌کند نه اینکه رفتار اصلی پاورپوینت را ذخیره کند. برخی افکت‌های پیشرفته پشتیبانی نشده یا به‌صورت تقریبی اعمال می‌شوند. جدول افکت‌های پشتیبانی‌شده را بررسی کنید و ارائهٔ واقعی را قبل از استفادهٔ تولیدی تست کنید.
 
-**آیا جابجایی یک شکل به جلو یا عقب ترتیب انیمیشن آن را تغییر می‌دهد؟**
+**آیا جابه‌جایی یک شکل به جلو یا عقب ترتیب انیمیشن آن را تغییر می‌دهد؟**
 
-نه. ترتیب لایهٔ Z شکل فقط پوشش را تعیین می‌کند، در حالی که ترتیب دنباله و محرک‌ها پخش انیمیشن را کنترل می‌کنند. اگر به ترتیب پخش متفاوتی نیاز دارید، جدول‌زمان را تغییر دهید.
+نه. ترتیب z‑order شکل فقط پوشش‌دهی را کنترل می‌کند، در حالی که ترتیب توالی و محرک‌ها اجرای انیمیشن را تعیین می‌کنند. اگر به ترتیب پخش متفاوتی نیاز دارید، جدول زمان‌بندی را تغییر دهید.

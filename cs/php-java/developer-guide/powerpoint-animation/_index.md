@@ -1,5 +1,5 @@
 ---
-title: Vylepšete prezentace PowerPoint pomocí animací v PHP
+title: Vylepšete PowerPoint prezentace pomocí animací v PHP
 linktitle: PowerPoint animace
 type: docs
 weight: 150
@@ -10,7 +10,7 @@ keywords:
 - změnit animaci
 - odstranit animaci
 - spravovat animaci
-- ovládat animaci
+- řídit animaci
 - efekt animace
 - PowerPoint animace
 - časová osa animace
@@ -27,25 +27,25 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Prozkoumejte možnosti Aspose.Slides for PHP via Java při práci s animacemi v PowerPointu. Klíčové funkce a poznatky pro vylepšení vašich prezentací."
+description: "Prozkoumejte možnosti Aspose.Slides pro PHP prostřednictvím Java při práci s PowerPoint animacemi. Klíčové funkce a poznatky k vylepšení vašich prezentací."
 ---
 ## **Úvod**
 
-Protože prezentace slouží k představení něčeho, jejich vizuální vzhled a interaktivní chování jsou při jejich vytváření vždy brány v úvahu.
+Protože prezentace mají něco předvést, jejich vizuální vzhled a interaktivní chování jsou při tvorbě vždy brány v úvahu.
 
-**PowerPoint animace** hraje důležitou roli při tom, aby byla prezentace poutavá a atraktivní pro diváky. Aspose.Slides for PHP via Java nabízí širokou škálu možností, jak přidat animaci do PowerPoint prezentace:
+**PowerPoint animace** hraje důležitou roli při tom, aby byla prezentace poutavá a zajímavá pro diváky. Aspose.Slides for PHP via Java nabízí širokou škálu možností, jak do PowerPointových prezentací přidat animace:
 
-- aplikovat různé typy efektů PowerPoint animace na tvary, grafy, tabulky, OLE objekty a další prvky prezentace.
-- použít více efektů PowerPoint animace na jeden tvar.
-- použít časovou osu animace k řízení efektů animace.
-- vytvořit vlastní animaci.
+- Použijte různé typy PowerPoint animací na tvary, grafy, tabulky, OLE objekty a další prvky prezentace.
+- Použijte více PowerPoint animací na jeden tvar.
+- Využijte časovou osu animací k řízení animačních efektů.
+- Vytvořte vlastní animace.
 
-V Aspose.Slides for PHP via Java lze na tvary použít různé efekty animace. Jelikož je každý prvek na snímku, včetně textu, obrázků, OLE objektu, tabulky atd., považován za tvar, lze tak aplikovat efekt animace na každý prvek snímku.
+V Aspose.Slides for PHP via Java lze na tvary aplikovat různé animační efekty. Protože každý prvek na snímku, včetně textu, obrázků, OLE objektů a tabulek, je považován za tvar, lze animační efekty použít na libovolný prvek snímku.
 
 ## **Efekty animace**
-Aspose.Slides podporuje **více než 150 efektů animace**, včetně základních efektů jako Bounce, PathFootball, zoom a specifických efektů jako OLEObjectShow, OLEObjectOpen. Kompletní seznam efektů animace najdete v enumeraci [**EffectType**](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effecttype/).
+Aspose.Slides podporuje **více než 150 animačních efektů**, včetně základních efektů jako Bounce, PathFootball a Zoom a specifických efektů jako OLEObjectShow a OLEObjectOpen. Úplný seznam najdete ve třídě [EffectType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effecttype/).
 
-Navíc lze tyto efekty animace kombinovat s:
+Tyto animační efekty lze dále kombinovat s následujícími chováními:
 
 - [ColorEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/CommandEffect)
@@ -57,39 +57,41 @@ Navíc lze tyto efekty animace kombinovat s:
 - [SetEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/SetEffect)
 
 ## **Vlastní animace**
-Je možné vytvořit vlastní **vlastní animace** v Aspose.Slides.  
-Toho lze dosáhnout, pokud spojíte několik chování do nové vlastní animace.
 
-[**Behavior**](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Behavior) je stavební jednotka jakéhokoli efektu PowerPoint animace. Všechny efekty animace jsou ve skutečnosti souborem chování složených do jedné strategie. Chování můžete spojit do vlastní animace jednou a znovu ji použít v dalších prezentacích. Pokud přidáte nové chování do standardního efektu PowerPoint animace, vznikne další vlastní animace. Například můžete přidat opakování chování do animace, aby se několikrát opakovala.
+Kompletní příklady v PHP, které vytvářejí, zkoumají a upravují chování a editovatelné pohybové cesty, najdete v [Custom Animation](/slides/cs/php-java/custom-animation/).
 
-[**Animation Point**](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Point) je bod, kde by mělo být použito chování.
+V Aspose.Slides můžete vytvořit své **vlastní animace**. Toho lze dosáhnout kombinací několika chování do nové vlastní animace.
+
+[Behavior](https://reference.aspose.com/slides/cs/php-java/aspose.slides/behavior/) je stavební blok PowerPoint animačního efektu. Kombinujte chování pro přizpůsobení efektu nebo přidejte chování pro rozšíření předdefinovaného efektu. Opakování se konfiguruje pomocí časování místo samostatného opakovacího chování.
+
+[Animation Point](https://reference.aspose.com/slides/cs/php-java/aspose.slides/point/) je místo, kde by mělo být chování použito.
 
 ## **Časová osa animace**
-[**Sequence**](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Sequence) je kolekce efektů animace aplikovaná na konkrétní tvar.
+[Sequence](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/) je kolekce animačních efektů, které mohou cílit na různé tvary.
 
-[**Timeline**](https://reference.aspose.com/slides/cs/php-java/aspose.slides/AnimationTimeLine) je sada sekvencí používaných v konkrétním snímku. Jedná se o animační engine, který je součástí od PowerPoint 2002. Ve starších verzích PowerPointu bylo obtížné přidávat efekty animace do prezentace, což bylo možné pouze pomocí různých obcházek. Timeline nahrazuje starou třídu AnimationSettings a poskytuje přehlednější objektový model pro PowerPoint animaci. Jeden snímek může mít pouze jednu časovou osu animace.
+[Timeline](https://reference.aspose.com/slides/cs/php-java/aspose.slides/animationtimeline/) je sada sekvencí používaných v konkrétním snímku. Je to animační engine zavedený v PowerPoint 2002. Ve starších verzích PowerPointu bylo přidávání animačních efektů do prezentací obtížné a mohlo být dosaženo jen různými obcházeními. Časová osa poskytuje přehlednější objektový model pro PowerPoint animace. Jeden snímek může mít pouze jednu časovou osu animace.
 
 ## **Interaktivní animace**
-[**Trigger**](https://reference.aspose.com/slides/cs/php-java/aspose.slides/EffectTriggerType) umožňuje definovat uživatelské akce (např. kliknutí na tlačítko), které spustí určitou animaci. Spouštěče (triggery) byly přidány pouze v nejnovější verzi PowerPointu.
+[Trigger](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effecttriggertype/) umožňuje definovat uživatelské akce, například kliknutí na tlačítko, které spustí konkrétní animaci.
 
 ## **Animace tvaru**
-Aspose.Slides umožňuje aplikovat animaci na tvary, kterými mohou být text, obdélník, čára, rámeček, OLE objekt atd.
+Aspose.Slides umožňuje aplikovat animace na tvary, mezi které patří text, obdélníky, čáry, rámy, OLE objekty a další.
 
-{{% alert color="primary" %}} 
-Přečtěte si více [**O animaci tvarů**](/slides/cs/php-java/shape-animation/).
+{{% alert color="info" title="Poznámka" %}}
+Přečtěte si více [**O animaci tvaru**](/slides/cs/php-java/shape-animation/).
 {{% /alert %}}
 
 ## **Animované grafy**
-Pro vytvoření animovaných grafů byste měli použít stejné třídy jako pro tvary. Je však možné použít PowerPoint animaci pouze na kategorie grafu nebo řady grafu. Můžete také aplikovat efekt animace na prvek kategorie nebo řady.
+Pro vytvoření animovaných grafů byste měli použít stejné třídy jako pro tvary. Nicméně PowerPoint animace lze aplikovat jen na kategorie grafu nebo na řady grafu. Můžete také aplikovat animační efekty na prvek kategorie nebo na prvek řady.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Poznámka" %}}
 Přečtěte si více [**O animovaných grafech**](/slides/cs/php-java/animated-charts/).
 {{% /alert %}}
 
 ## **Animovaný text**
-Kromě animovaného textu je také možné aplikovat animaci na odstavec.
+Kromě animace textu můžete aplikovat animaci i na odstavec.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Poznámka" %}}
 Přečtěte si více [**O animovaném textu**](/slides/cs/php-java/animated-text/).
 {{% /alert %}}
 
@@ -97,12 +99,12 @@ Přečtěte si více [**O animovaném textu**](/slides/cs/php-java/animated-text
 
 **Zůstanou animace zachovány při exportu do PDF?**
 
-Ne. PDF je statický formát, takže animace a [přechody snímků](/slides/cs/php-java/slide-transition/) se nepřehrávají. Pokud potřebujete pohyb, exportujte místo toho do [HTML5](/slides/cs/php-java/export-to-html5/), [animovaného GIF](/slides/cs/php-java/convert-powerpoint-to-animated-gif/) nebo [videa](/slides/cs/php-java/convert-powerpoint-to-video/).
+Ne. PDF je statický formát, takže animace a [přechody snímků](/slides/cs/php-java/slide-transition/) se nepřehrají. Pokud potřebujete pohyb, exportujte do [HTML5](/slides/cs/php-java/export-to-html5/), [animovaného GIFu](/slides/cs/php-java/convert-powerpoint-to-animated-gif/) nebo [videa](/slides/cs/php-java/convert-powerpoint-to-video/) místo toho.
 
-**Mohu převést animovanou prezentaci na video a řídit snímkovou frekvenci a velikost snímku?**
+**Mohu převést animovanou prezentaci na video a ovládat snímkovou frekvenci a velikost snímku?**
 
-Ano. Můžete [vykreslit prezentaci po snímcích](/slides/cs/php-java/convert-powerpoint-to-video/) a zakódovat je do videa (např. pomocí ffmpeg), přičemž si zvolíte FPS a rozlišení. Animace a přechody snímků jsou během vykreslování přehrávány.
+Ano. Můžete [vyrenderovat prezentaci jako snímky](/slides/cs/php-java/convert-powerpoint-to-video/) a zakódovat je do videa (např. pomocí ffmpeg), přičemž si zvolíte FPS a rozlišení. Během renderování se přehrávají animace i přechody snímků.
 
-**Zůstanou animace zachovány při práci s ODP (nejen PPTX)?**
+**Zůstanou animace neporušené při práci s ODP (nejen PPTX)?**
 
-Formáty PPT, PPTX a ODP jsou podporovány pro [čtení](/slides/cs/php-java/open-presentation/) a [zápis](/slides/cs/php-java/save-presentation/), ale rozdíly ve formátu mohou způsobit, že některé efekty budou vypadat nebo fungovat mírně odlišně. Ověřte kritické případy pomocí skutečných vzorků.
+PPT, PPTX a ODP jsou podporovány pro [čtení](/slides/cs/php-java/open-presentation/) i [zápis](/slides/cs/php-java/save-presentation/), avšak to nezaručuje zachování animací. Vlastní animační data mohou být ztracena při konverzi do ODP. Viz [Custom Animation](/slides/cs/php-java/custom-animation/) pro příklady a návod, jak zkontrolovat kompatibilitu formátu.

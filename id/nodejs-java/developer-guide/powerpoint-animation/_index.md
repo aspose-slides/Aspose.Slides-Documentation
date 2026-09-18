@@ -1,16 +1,16 @@
 ---
-title: Meningkatkan Presentasi PowerPoint dengan Animasi di JavaScript
+title: Tingkatkan Presentasi PowerPoint dengan Animasi dalam JavaScript
 linktitle: Animasi PowerPoint
 type: docs
 weight: 150
 url: /id/nodejs-java/powerpoint-animation/
 keywords:
-- menambahkan animasi
-- memperbarui animasi
-- mengubah animasi
-- menghapus animasi
-- mengelola animasi
-- mengendalikan animasi
+- tambahkan animasi
+- perbarui animasi
+- ubah animasi
+- hapus animasi
+- kelola animasi
+- kontrol animasi
 - efek animasi
 - animasi PowerPoint
 - timeline animasi
@@ -28,26 +28,26 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Gunakan Aspose.Slides for Node.js via Java untuk menangani animasi PowerPoint. Ikhtisar ini menyoroti fitur utama dan menawarkan wawasan untuk meningkatkan presentasi Anda."
+description: "Gunakan Aspose.Slides untuk Node.js via Java untuk menangani animasi PowerPoint. Ikhtisar ini menyoroti fitur utama dan memberikan wawasan untuk meningkatkan presentasi Anda."
 ---
 ## **Pendahuluan**
 
-Karena presentasi dimaksudkan untuk menyajikan sesuatu, penampilan visual dan perilaku interaktifnya selalu dipertimbangkan saat membuatnya.
+Karena presentasi dimaksudkan untuk menyajikan sesuatu, tampilan visual dan perilaku interaktifnya selalu dipertimbangkan selama pembuatan.
 
-**Animasi PowerPoint** memainkan peran penting untuk membuat presentasi menarik dan memikat bagi penonton. Aspose.Slides for Node.js via Java menawarkan berbagai pilihan untuk menambahkan animasi ke presentasi PowerPoint:
+**PowerPoint animation** memainkan peran penting dalam membuat presentasi menarik perhatian dan melibatkan penonton. Aspose.Slides for Node.js via Java menyediakan berbagai pilihan untuk menambahkan animasi ke presentasi PowerPoint:
 
-- menerapkan berbagai jenis efek animasi PowerPoint pada bentuk, grafik, tabel, OLE Object, dan elemen presentasi lainnya.
-- menggunakan beberapa efek animasi PowerPoint pada satu bentuk.
-- menggunakan timeline animasi untuk mengontrol efek animasi.
-- membuat animasi kustom.
+- Terapkan berbagai jenis efek animasi PowerPoint pada bentuk, diagram, tabel, objek OLE, dan elemen presentasi lainnya.
+- Gunakan banyak efek animasi PowerPoint pada satu bentuk.
+- Manfaatkan timeline animasi untuk mengontrol efek animasi.
+- Buat animasi kustom.
 
-Di Aspose.Slides for Node.js via Java, berbagai efek animasi dapat diterapkan pada bentuk. Karena setiap elemen pada slide termasuk teks, gambar, OLE Object, tabel, dll dianggap sebagai bentuk, artinya kita dapat menerapkan efek animasi pada setiap elemen slide.
+Di Aspose.Slides for Node.js via Java, berbagai efek animasi dapat diterapkan pada bentuk. Karena setiap elemen pada slide, termasuk teks, gambar, objek OLE, dan tabel, dianggap sebagai bentuk, efek animasi dapat diterapkan pada elemen apa pun pada slide.
 
 ## **Efek Animasi**
 
-Aspose.Slides mendukung **lebih dari 150 efek animasi**, termasuk efek animasi dasar seperti Bounce, PathFootball, efek Zoom, dan efek animasi khusus seperti OLEObjectShow, OLEObjectOpen. Anda dapat menemukan daftar lengkap efek animasi di enumerasi [**EffectType**](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effecttype/).
+Aspose.Slides mendukung **lebih dari 150 efek animasi**, termasuk efek dasar seperti Bounce, PathFootball, dan Zoom, serta efek khusus seperti OLEObjectShow dan OLEObjectOpen. Anda dapat menemukan daftar lengkapnya di enumerasi [EffectType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effecttype/).
 
-Selain itu, efek animasi ini dapat digunakan dalam kombinasi dengan:
+Selain itu, efek animasi ini dapat digunakan bersama dengan perilaku berikut:
 
 - [ColorEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/CommandEffect)
@@ -60,57 +60,58 @@ Selain itu, efek animasi ini dapat digunakan dalam kombinasi dengan:
 
 ## **Animasi Kustom**
 
-Dimungkinkan untuk membuat **animasi kustom** Anda sendiri di Aspose.Slides. 
-Hal ini dapat dicapai jika Anda menggabungkan beberapa perilaku menjadi sebuah animasi kustom baru.
+Untuk contoh JavaScript lengkap yang membuat, memeriksa, dan memodifikasi perilaku serta jalur gerak yang dapat disunting, lihat [Animasi Kustom](/slides/id/nodejs-java/custom-animation/).
 
-[**Behavior**](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Behavior) adalah unit dasar dari setiap efek animasi PowerPoint. Semua efek animasi pada kenyataannya merupakan sekumpulan perilaku yang disusun menjadi satu strategi. Anda dapat menggabungkan perilaku menjadi sebuah animasi kustom sekali dan menggunakannya kembali dalam presentasi lain. Jika Anda menambahkan perilaku baru ke dalam efek animasi PowerPoint standar—itu akan menjadi animasi kustom lain. Misalnya, Anda dapat menambahkan perilaku ulang pada sebuah animasi agar animasi tersebut diputar beberapa kali.
+Dimungkinkan untuk membuat **animasi kustom** Anda sendiri di Aspose.Slides. Hal ini dapat dicapai dengan menggabungkan beberapa perilaku menjadi animasi kustom baru.
 
-[**Animation Point**](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Point) adalah titik di mana perilaku harus diterapkan.
+[Behavior](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/behavior/) adalah blok penyusun efek animasi PowerPoint. Gabungkan perilaku untuk menyesuaikan efek, atau tambahkan perilaku untuk memperluas efek yang telah didefinisikan. Pengulangan diatur melalui pengaturan waktu bukan melalui perilaku ulang terpisah.
 
-## **Garis Waktu Animasi**
+[Animation Point](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/point/) adalah titik di mana sebuah perilaku harus diterapkan.
 
-[**Sequence**](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Sequence) adalah kumpulan efek animasi, yang diterapkan pada sebuah bentuk tertentu.
+## **Timeline Animasi**
 
-[**Timeline**](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/AnimationTimeLine) adalah kumpulan Sequence yang digunakan dalam sebuah slide tertentu. Ini merupakan mesin animasi yang telah ada sejak PowerPoint 2002. Pada versi PowerPoint sebelumnya, menambahkan efek animasi ke presentasi cukup sulit dan hanya dapat dilakukan dengan berbagai solusi alternatif. Timeline menggantikan kelas AnimationSettings yang lama dan menyediakan model objek yang lebih jelas untuk animasi PowerPoint. Satu slide hanya dapat memiliki satu timeline animasi.
+[Sequence](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sequence/) adalah kumpulan efek animasi yang dapat menargetkan bentuk yang berbeda.
+
+[Timeline](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/animationtimeline/) adalah sekumpulan urutan yang digunakan dalam slide tertentu. Ini adalah mesin animasi yang diperkenalkan di PowerPoint 2002. Pada versi PowerPoint sebelumnya, menambahkan efek animasi ke presentasi sulit dan hanya dapat dicapai dengan berbagai solusi kerja. Timeline menyediakan model objek yang lebih jelas untuk animasi PowerPoint. Sebuah slide hanya dapat memiliki satu timeline animasi.
 
 ## **Animasi Interaktif**
 
-[**Trigger**](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/EffectTriggerType) memungkinkan mendefinisikan aksi pengguna (mis. klik tombol), yang akan memulai animasi tertentu. Trigger hanya ditambahkan pada versi PowerPoint terbaru.
+[Trigger](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effecttriggertype/) memungkinkan Anda mendefinisikan aksi pengguna, seperti klik tombol, yang memulai animasi tertentu.
 
 ## **Animasi Bentuk**
 
-Aspose.Slides memungkinkan penerapan animasi pada bentuk, yang dapat berupa teks, persegi panjang, garis, bingkai, OLE Object, dll.
+Aspose.Slides memungkinkan Anda menerapkan animasi pada bentuk, yang dapat mencakup teks, persegi panjang, garis, bingkai, objek OLE, dan lainnya.
 
-{{% alert color="primary" %}} 
-Baca lebih lanjut [**Tentang Animasi Bentuk**](/slides/id/nodejs-java/shape-animation/).
+{{% alert color="info" title="Note" %}}
+Baca selengkapnya [**Tentang Animasi Bentuk**](/slides/id/nodejs-java/shape-animation/).
 {{% /alert %}}
 
 ## **Diagram Beranimasi**
 
-Untuk membuat diagram beranimasi, Anda harus menggunakan semua kelas yang sama seperti untuk bentuk. Namun, animasi PowerPoint hanya dapat diterapkan pada kategori diagram atau seri diagram. Anda juga dapat menerapkan efek animasi pada elemen kategori atau elemen seri.
+Untuk membuat diagram beranimasi, Anda harus menggunakan kelas yang sama seperti untuk bentuk. Namun, animasi PowerPoint hanya dapat diterapkan pada kategori diagram atau seri diagram. Anda juga dapat menerapkan efek animasi pada elemen kategori atau elemen seri.
 
-{{% alert color="primary" %}} 
-Baca lebih lanjut [**Tentang Diagram Beranimasi**](/slides/id/nodejs-java/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Baca selengkapnya [**Tentang Diagram Beranimasi**](/slides/id/nodejs-java/animated-charts/).
 {{% /alert %}}
 
 ## **Teks Beranimasi**
 
-Selain teks beranimasi, Anda juga dapat menerapkan animasi pada paragraf.
+Selain menganimasikan teks, Anda dapat menerapkan animasi pada paragraf.
 
-{{% alert color="primary" %}} 
-Baca lebih lanjut [**Tentang Teks Beranimasi**](/slides/id/nodejs-java/animated-text/).
+{{% alert color="info" title="Note" %}}
+Baca selengkapnya [**Tentang Teks Beranimasi**](/slides/id/nodejs-java/animated-text/).
 {{% /alert %}}
 
 ## **FAQ**
 
 **Apakah animasi akan dipertahankan saat mengekspor ke PDF?**
 
-Tidak. PDF adalah format statis, sehingga animasi dan [transisi slide](/slides/id/nodejs-java/slide-transition/) tidak diputar. Jika Anda memerlukan gerakan, ekspor ke [HTML5](/slides/id/nodejs-java/export-to-html5/), [GIF beranimasi](/slides/id/nodejs-java/convert-powerpoint-to-animated-gif/), atau [video](/slides/id/nodejs-java/convert-powerpoint-to-video/) sebagai gantinya.
+Tidak. PDF adalah format statis, sehingga animasi dan [slide transitions](/slides/id/nodejs-java/slide-transition/) tidak diputar. Jika Anda membutuhkan gerakan, ekspor ke [HTML5](/slides/id/nodejs-java/export-to-html5/), [animated GIF](/slides/id/nodejs-java/convert-powerpoint-to-animated-gif/), atau [video](/slides/id/nodejs-java/convert-powerpoint-to-video/) sebagai gantinya.
 
-**Apakah saya dapat mengubah presentasi beranimasi menjadi video dan mengontrol frame rate serta ukuran frame?**
+**Bisakah saya mengubah presentasi beranimasi menjadi video dan mengontrol frame rate serta ukuran frame?**
 
-Ya. Anda dapat [merender presentasi sebagai frame](/slides/id/nodejs-java/convert-powerpoint-to-video/) dan mengkodekannya menjadi video (mis., melalui ffmpeg), dengan memilih FPS dan resolusi. Animasi dan transisi slide diputar selama proses rendering.
+Ya. Anda dapat [render presentasi sebagai frame](/slides/id/nodejs-java/convert-powerpoint-to-video/) dan mengkodekannya menjadi video (misalnya, melalui ffmpeg), memilih FPS dan resolusi. Animasi dan transisi slide diputar selama proses rendering.
 
 **Apakah animasi tetap utuh saat bekerja dengan ODP (bukan hanya PPTX)?**
 
-PPT, PPTX, dan ODP didukung untuk [pembacaan](/slides/id/nodejs-java/open-presentation/) dan [penulisan](/slides/id/nodejs-java/save-presentation/), namun perbedaan format berarti beberapa efek dapat terlihat atau berperilaku sedikit berbeda. Validasi kasus kritis dengan contoh nyata.
+PPT, PPTX, dan ODP didukung untuk [reading](/slides/id/nodejs-java/open-presentation/) dan [writing](/slides/id/nodejs-java/save-presentation/), tetapi ini tidak menjamin preservasi animasi. Data animasi kustom dapat hilang saat mengonversi ke ODP. Lihat [Custom Animation](/slides/id/nodejs-java/custom-animation/) untuk contoh dan panduan memeriksa kompatibilitas format.

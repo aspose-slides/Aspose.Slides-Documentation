@@ -1,6 +1,6 @@
 ---
-title: "Tillämpa formanimationer i presentationer med C++"
-linktitle: "Formanimation"
+title: Applicera formanimationer i presentationer med C++
+linktitle: Formanimation
 type: docs
 weight: 60
 url: /sv/cpp/shape-animation/
@@ -22,22 +22,24 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Lär dig hur du lägger till, granskar och anpassar formanimationer, timing, ljud, efter‑animationsbeteende och animerad text med Aspose.Slides för C++."
+description: "Lär dig hur du lägger till, granskar och anpassar formanimationer, timing, ljud, efter-animationsbeteende och animerad text med Aspose.Slides för C++."
 ---
-## **Översikt**
+## **Overview**
 
-Aspose.Slides för C++ representerar bildanimationer som effekter i en bildspels tidslinje. En effekt har ett målform, en animationstyp och undertyp, en trigger, tidsinställningar och valfria egenskaper såsom ljud eller efter‑animationsbeteende.
+För att arbeta med de enskilda beteendena i en effekt eller redigera rörelsebansegment, se [Custom Animation](/slides/sv/cpp/custom-animation/).
+
+Aspose.Slides för C++ representerar bildanimationer som effekter i en bildtidslinje. En effekt har en målform, en animationstyp och undertyp, en trigger, tidinställningar och valfria egenskaper såsom ljud eller efteranimationsbeteende.
 
 Tidslinjen innehåller två typer av sekvenser:
 
 - Den **huvudsekvensen** spelas när bilden avancerar.
-- En **interaktiv sekvens** startar när dess trigger‑form klickas.
+- En **interaktiv sekvens** startar när dess triggerform klickas.
 
-Eftersom textrutor, bilder, diagram, tabeller och andra bildobjekt implementerar [IShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/), använder du samma metod [ISequence::AddEffect](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/isequence/addeffect/) för det mesta bildinnehåll. De tillgängliga effekterna listas i uppräkningen [EffectType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/effecttype/).
+Eftersom textrutor, bilder, diagram, tabeller och andra bildobjekt implementerar [IShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/), använder du samma [ISequence::AddEffect](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/isequence/addeffect/)‑metod för de flesta bildinnehåll. De tillgängliga effekterna listas i uppräkningen [EffectType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/effecttype/).
 
-## **Lägg till formanimationer**
+## **Add Shape Animations**
 
-För att lägga till en animation, hämta bildens huvudsekvens och anropa [ISequence::AddEffect](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/isequence/addeffect/) med målformen, effekt‑typ, undertyp och trigger. För en effekt som startar när en annan form klickas, skapa en interaktiv sekvens vars trigger är den andra formen.
+För att lägga till en animation, hämta bildens huvudsekvens och anropa [ISequence::AddEffect](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/isequence/addeffect/) med målformen, effekttypen, undertypen och triggern. För en effekt som startar när en annan form klickas, skapa en interaktiv sekvens vars trigger är den andra formen.
 
 Följande exempel skapar båda typerna av animation och sparar resultatet till `shape-animations.pptx`.
 
@@ -86,17 +88,17 @@ presentation->Dispose();
 
 Triggern styr när en effekt startar:
 
-- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/effecttriggertype/) väntar på ett klick i huvudsekvensen, eller på ett klick på trigger‑formen i en interaktiv sekvens.
-- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/effecttriggertype/) startar med föregående effekt.
-- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/effecttriggertype/) startar när föregående effekt avslutas.
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/effecttriggertype/) väntar på ett klick i huvudsekvensen, eller på ett klick på triggerformen i en interaktiv sekvens.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/effecttriggertype/) startar med den föregående effekten.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/effecttriggertype/) startar när den föregående effekten avslutas.
 
-För att animera en bild, ett diagram eller en annan formtyp, skicka det objektet till [ISequence::AddEffect](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/isequence/addeffect/) i stället för `targetShape`. För diagram‑specifika grupperingalternativ, se [Animerade diagram](/slides/sv/cpp/animated-charts/).
+För att animera en bild, ett diagram eller en annan formtyp, skicka det objektet till [ISequence::AddEffect](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/isequence/addeffect/) istället för `targetShape`. För diagramspecifika grupperingsalternativ, se [Animated Charts](/slides/sv/cpp/animated-charts/).
 
-## **Läs formanimationer**
+## **Read Shape Animations**
 
-Använd [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) när du känner till målformen. För att inspektera varje effekt, iterera över huvudsekvensen och varje interaktiv sekvens. Iteration undviker antagandet att en sekvens innehåller en effekt på index `0`.
+Använd [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) när du känner till målformen. För att inspektera varje effekt, enumerera huvudsekvensen och varje interaktiv sekvens. Enumerering undviker att anta att en sekvens innehåller en effekt på index `0`.
 
-Följande exempel skapar en form med huvud‑ och interaktiva effekter, hämtar effekterna som riktar sig mot formen och itererar sedan över varje sekvens på bilden.
+Följande exempel skapar en form med huvudsekvens‑ och interaktiva effekter, hämtar de effekter som riktar sig mot formen och enumererar sedan varje sekvens på bilden.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -167,19 +169,19 @@ presentation->Dispose();
 
 Om du bara behöver effekterna för en form, identifiera först formen efter namn, platshållartyp eller en annan stabil egenskap; anropa sedan [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/isequence/geteffectsbyshape/). Anta inte att [IShapeCollection::idx_get](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishapecollection/idx_get/) på index `0` alltid är det avsedda objektet.
 
-## **Arbeta med ärvda platshållareffekter**
+## **Work with Inherited Placeholder Effects**
 
-En platshållare på en normal bild kan ärva animationsbeteende från motsvarande platshållare på dess layout‑bild och huvudsakliga bild. [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/getbaseplaceholder/) returnerar den föräldraplatshållaren, eller `nullptr` när ingen förälder finns.
+En platshållare på en normal bild kan ärva animationsbeteende från motsvarande platshållare på bildlayouten och mästaren. [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/getbaseplaceholder/) returnerar den överordnade platshållaren, eller `nullptr` när ingen förälder finns.
 
-I den följande exempelpresentationen har sidfoten **Random Bars** på den normala bilden, **Split** på layout‑bilden och **Fly In** på huvud‑bilden.
+I den följande exempelpresentationen har sidfoten **Random Bars** på den normala bilden, **Split** på layoutbilden och **Fly In** på mästarbilden.
 
-![Fotanimationseffekt på den normala bilden](slide-shape-animation.png)
+![Sidfotens animationseffekt på den normala bilden](slide-shape-animation.png)
 
-![Fotplatshållaranimationseffekt på layout‑bilden](layout-shape-animation.png)
+![Sidfotens platshållaranimationseffekt på layoutbilden](layout-shape-animation.png)
 
-![Fotplatshållaranimationseffekt på huvud‑bilden](master-shape-animation.png)
+![Sidfotens platshållaranimationseffekt på mästarbilden](master-shape-animation.png)
 
-Nästa exempel bygger själva platshållar­hierarkin. Det lägger till effekter på en huvud‑platshållare, en layout‑platshållare och motsvarande platshållare på en normal bild. Varje anrop till [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/getbaseplaceholder/) kontrolleras innan den returnerade formen används.
+Nästa exempel bygger själva platshållar‑hierarkin. Det lägger till effekter på en mästarpplatshållare, en layout‑platshållare och motsvarande platshållare på en normal bild. Varje anrop till [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/getbaseplaceholder/) kontrolleras innan den returnerade formen används.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -264,19 +266,19 @@ presentation->Save(u"placeholder-animations.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Ändra animationstiming**
+## **Change Animation Timing**
 
-PowerPoint‑dialogrutan **Timing** motsvarar metoderna i [ITiming](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/).
+PowerPoint‑dialogen **Timing** motsvarar metoderna i [ITiming](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/).
 
-![PowerPoint Timing‑dialog för en animationseffekt](shape-animation.png)
+![PowerPoint‑timingsdialog för en animationseffekt](shape-animation.png)
 
 - **Start** motsvarar [ITiming::set_TriggerType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/set_triggertype/).
 - **Varaktighet** motsvarar [ITiming::set_Duration](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/set_duration/), i sekunder.
 - **Fördröjning** motsvarar [ITiming::set_TriggerDelayTime](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/set_triggerdelaytime/), i sekunder.
-- **Upprepa** motsvarar [ITiming::set_RepeatCount](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/set_repeatcount/), [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/), eller [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/).
+- **Upprepning** motsvarar [ITiming::set_RepeatCount](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/set_repeatcount/), [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/), eller [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/).
 - **Spola tillbaka när uppspelning är klar** motsvarar [ITiming::set_Rewind](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/set_rewind/).
 
-Detta fristående exempel lägger till en effekt, ändrar dess timing via objektet som returneras av [ISequence::AddEffect](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/isequence/addeffect/), och sparar resultatet. Att behålla den returnerade [IEffect](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/ieffect/)-referensen undviker ett onödigt samlingsindex.
+Detta fristående exempel lägger till en effekt, ändrar dess timing via objektet som returneras av [ISequence::AddEffect](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/isequence/addeffect/), och sparar resultatet. Att behålla den returnerade [IEffect](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/ieffect/)‑referensen undviker ett onödigt kollektionsindex.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -318,15 +320,15 @@ presentation->Save(u"shape-animation-timing.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Använd endast ett upprepningsläge med avsikt. Att kombinera ett upprepningsantal med en ”till‑”‑flagga kan ge förvirrande resultat i olika visare. När du byter upprepningsläge, anropa först [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) och [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) innan du anropar [ITiming::set_RepeatCount](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/set_repeatcount/), eftersom att sätta någon av flaggorna också ändrar det aktiva upprepningsläget.
+Använd ett upprepningsläge med avsikt. Att kombinera ett upprepningsantal med en “tills”-flagga kan ge förvirrande resultat i olika visare. När du byter upprepningsläge, anropa [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) och [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) innan du anropar [ITiming::set_RepeatCount](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itiming/set_repeatcount/), eftersom inställning av någon av flaggorna också ändrar det aktiva upprepningsläget.
 
-## **Lägg till och extrahera animationsljud**
+## **Add and Extract Animation Sounds**
 
-En animationseffekt kan referera till inbäddat ljud via [IEffect::set_Sound](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/ieffect/set_sound/). [IEffect::set_StopPreviousSound](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/ieffect/set_stopprevioussound/) får en effekt att stoppa ljud som startats av en tidigare effekt.
+En animationseffekt kan referera till inbäddat ljud via [IEffect::set_Sound](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/ieffect/set_sound/). [IEffect::set_StopPreviousSound](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/ieffect/set_stopprevioussound/) talar om för en effekt att stoppa ljud som startats av en tidigare effekt.
 
-### **Lägg till ljud till en effekt**
+### **Add a Sound to an Effect**
 
-Följande exempel förutsätter en lokal ljudfil med namn `animation-sound.wav`. Det skapar två effekter, bäddar in den filen som ljud för den första effekten och konfigurerar den andra effekten att stoppa ljudet. Det använder objekten som returneras av [ISequence::AddEffect](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/isequence/addeffect/), så inget sekvensindex krävs.
+Följande exempel förväntar sig en lokal ljudfil med namnet `animation-sound.wav`. Det skapar två effekter, bäddar in den filen som ljud för den första effekten, och konfigurerar den andra effekten att stoppa ljudet. Det använder objekten som returneras av [ISequence::AddEffect](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/isequence/addeffect/), så inget sekvensindex behövs.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -373,9 +375,9 @@ presentation->Save(u"shape-animation-sound.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Extrahera inbäddade effektljud**
+### **Extract Embedded Effect Sounds**
 
-Följande exempel förutsätter en lokal presentation med namn `presentation-with-animation-sounds.pptx`. Det skannar både huvud‑ och interaktiva sekvenser och skriver varje inbäddat effektljud till katalogen `extracted-animation-sounds`. Filändelsen väljs utifrån ljud‑MIME‑typen som exponeras av [IAudio::get_ContentType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iaudio/get_contenttype/).
+Följande exempel förväntar sig en lokal presentation med namnet `presentation-with-animation-sounds.pptx`. Det skannar både huvud‑ och interaktiva sekvenser och skriver varje inbäddat effektljud till katalogen `extracted-animation-sounds`. Filändelsen väljs utifrån ljud‑MIME‑typen som exponeras av [IAudio::get_ContentType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iaudio/get_contenttype/).
 
 ```cpp
 #include <DOM/Animation/IEffect.h>
@@ -450,17 +452,17 @@ Console::WriteLine(String::Format(u"Extracted {0} sound file(s) to {1}.", soundI
 presentation->Dispose();
 ```
 
-För stora ljudobjekt, använd [IAudio::GetStream](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iaudio/getstream/) och kopiera strömmen till en fil i stället för att ladda hela objektet i en byte‑array.
+För stora ljudobjekt, använd [IAudio::GetStream](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iaudio/getstream/) och kopiera strömmen till en fil istället för att ladda hela objektet i en byte‑array.
 
-## **Ställ in efter‑animation beteende**
+## **Set After-Animation Behavior**
 
-Alternativet **After animation** styr vad som händer med en form efter att dess effekt avslutats.
+**After animation**‑alternativet styr vad som händer med en form efter att dess effekt avslutats.
 
-![PowerPoint Effect Options‑dialog som visar efter‑animationsinställningar](shape-after-animation.png)
+![PowerPoint‑effektalternativdialog som visar Efter‑animation‑inställningar](shape-after-animation.png)
 
-[AfterAnimationType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/afteranimationtype/)-uppräkningen stödjer att låta formen förbli oförändrad, ändra dess färg, dölja den efter animationen, eller dölja den vid nästa klick. När typen är [AfterAnimationType::Color](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/afteranimationtype/), anropa [IEffect::get_AfterAnimationColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/ieffect/get_afteranimationcolor/) för att även sätta färgen.
+[AfterAnimationType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/afteranimationtype/)‑uppräkningen stödjer att låta formen förbli oförändrad, ändra dess färg, gömma den efter animationen, eller gömma den vid nästa klick. När typen är [AfterAnimationType::Color](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/afteranimationtype/), anropa [IEffect::get_AfterAnimationColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/ieffect/get_afteranimationcolor/) för att även sätta färgen.
 
-Detta fristående exempel skapar en effekt, sätter dess efter‑animation beteende via det returnerade effektobjektet, och sparar resultatet.
+Detta fristående exempel skapar en effekt, sätter dess efter‑animationsbeteende via den returnerade effekt‑objektet, och sparar resultatet.
 
 ```cpp
 #include <DOM/Animation/AfterAnimationType.h>
@@ -502,14 +504,14 @@ presentation->Dispose();
 
 Att byta typ från [AfterAnimationType::Color](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/afteranimationtype/) rensar inställningen för efter‑animationsfärg.
 
-## **Animera text**
+## **Animate Text**
 
 Textanimation har två relaterade kontroller:
 
-- [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itextanimation/set_buildtype/) styr om stycken visas tillsammans eller per styckennivå.
-- [IEffect::set_AnimateTextType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) styr om text visas på en gång, per ord eller per bokstav. [IEffect::set_DelayBetweenTextParts](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) sätter fördröjningen mellan ord eller bokstäver. Ett positivt värde är en procentandel av effektens varaktighet; ett negativt värde är en fördröjning i sekunder.
+- [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itextanimation/set_buildtype/) styr om stycken visas tillsammans eller på stycknivå.
+- [IEffect::set_AnimateTextType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) styr om text visas på en gång, per ord eller per bokstav. [IEffect::set_DelayBetweenTextParts](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) anger fördröjningen mellan ord eller bokstäver. Ett positivt värde är en procentandel av effektens varaktighet; ett negativt värde är en fördröjning i sekunder.
 
-Följande fristående exempel animerar orden i en textruta. [BuildType::AsOneObject](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/buildtype/) inaktiverar byggande stycke för stycke så att ordinställningen gäller hela textramen.
+Följande fristående exempel animerar orden i en textruta. [BuildType::AsOneObject](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/buildtype/) inaktiverar stycke‑för‑stycke‑uppbyggnad så att ordinställningen gäller hela textramen.
 
 ```cpp
 #include <DOM/Animation/AnimateTextType.h>
@@ -549,15 +551,15 @@ presentation->Save(u"animated-text.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-För att bygga en textruta per stycke, använd [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itextanimation/set_buildtype/) med [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/buildtype/) eller en annan styckennivå. För att rikta en enskild paragraf med sin egen effekt, använd överlagringen av [ISequence::AddEffect](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/isequence/addeffect/) som accepterar ett [IParagraph](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraph/). Se [Animerad text](/slides/sv/cpp/animated-text/) för exempel på paragrafnivå.
+För att bygga en textruta stycke för stycke, använd [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/itextanimation/set_buildtype/) med [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/buildtype/) eller någon annan stycknivå. För att rikta en enskild paragraf med sin egen effekt, använd den [ISequence::AddEffect](https://reference.aspose.com/slides/sv/cpp/aspose.slides.animation/isequence/addeffect/)‑överladdning som accepterar ett [IParagraph](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iparagraph/). Se [Animated Text](/slides/sv/cpp/animated-text/) för exempel på stycknivå.
 
-## **Export‑ och kompatibilitetsnoteringar**
+## **Export and Compatibility Notes**
 
-- Att spara till PPT eller PPTX bevarar animationsmodellen, men den slutliga uppspelningen styrs av presentationsvisaren.
-- PDF och statiska bilder spelar inte upp animationer. Använd [HTML5‑export](/slides/sv/cpp/export-to-html5/), animerad GIF eller [videokonvertering](/slides/sv/cpp/convert-powerpoint-to-video/) när utdata måste visa rörelse.
+- Att spara till PPT eller PPTX bevarar animationsmodellen, men den slutgiltiga uppspelningen styrs av presentationsvisaren.
+- PDF och statiska bilder spelar inte upp animationer. Använd [HTML5 export](/slides/sv/cpp/export-to-html5/), animerad GIF eller [videokonvertering](/slides/sv/cpp/convert-powerpoint-to-video/) när utskriften måste visa rörelse.
 - För HTML5, aktivera [Html5Options::set_AnimateShapes](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/html5options/set_animateshapes/) och, vid behov, [Html5Options::set_AnimateTransitions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/html5options/set_animatetransitions/).
-- Videorendering stödjer många vanliga inträde‑, betoning‑, utgångs‑ och rörelsespårs‑effekter, men inte varje PowerPoint‑effekt stöds. Kontrollera den aktuella [stödda animationer och effekter](/slides/sv/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) och testa kritiska presentationer med den Aspose.Slides‑version du planerar att använda.
-- Avancerade anpassade effekter och effekter importerade från andra presentationsformat kan bevaras i filen men renderas annorlunda i PowerPoint, HTML5 eller video. Validera det exporterade resultatet istället för att enbart förlita dig på effektens namn.
+- Videorendering stöder många vanliga ingångs‑, betoning‑, utgångs‑ och rörelseban‑effekter, men inte alla PowerPoint‑effekter stöds. Kontrollera de aktuella [supported animations and effects](/slides/sv/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) och testa kritiska presentationer med den Aspose.Slides‑version du använder.
+- Avancerade anpassade effekter och effekter importerade från andra presentationsformat kan bevaras i filen men renderas annorlunda i PowerPoint, HTML5 eller video. Validera det exporterade resultatet snarare än att enbart lita på effektens namn.
 
 ## **FAQ**
 
@@ -567,8 +569,8 @@ PDF är ett statiskt format, så animationer och bildövergångar spelas inte up
 
 **Varför spelas en effekt annorlunda i en video?**
 
-Videoexport renderar animationer istället för att lagra det ursprungliga PowerPoint‑beteendet. Vissa avancerade effekter stöds inte eller approximeras. Granska tabellen över stödda effekter och testa den faktiska presentationen innan produktionsanvändning.
+Videokonvertering renderar animationer istället för att lagra det ursprungliga PowerPoint‑beteendet. Vissa avancerade effekter stöds inte eller approximeras. Granska tabellen med stöd för effekter och testa den faktiska presentationen innan produktion.
 
-**Ändrar flyttning av en form framåt eller bakåt dess animationsordning?**
+**Ändrar det animationens ordning om en form flyttas framåt eller bakåt?**
 
 Nej. Formens z‑ordning styr överlappning, medan sekvensordning och triggers styr animationsuppspelning. Ändra tidslinjen om du behöver en annan uppspelningsordning.

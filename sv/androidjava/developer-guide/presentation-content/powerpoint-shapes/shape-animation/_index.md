@@ -8,8 +8,8 @@ keywords:
 - form
 - animation
 - effekt
-- animerad form
-- animerad text
+- animera form
+- animera text
 - lägga till animation
 - hämta animation
 - extrahera animation
@@ -23,22 +23,24 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Lär dig hur du lägger till, granskar och anpassar formanimationer, tidsinställningar, ljud, efter-animationsbeteende och animerad text med Aspose.Slides för Android via Java."
+description: "Lär dig hur du lägger till, granskar och anpassar formanimationer, timing, ljud, beteende efter animation och animerad text med Aspose.Slides för Android via Java."
 ---
 ## **Översikt**
 
-Aspose.Slides för Android via Java representerar bildanimationer som effekter i en bildtidslinje. En effekt har en målform, en animationstyp och undertyp, en trigger, tidsinställningar och valfria egenskaper som ljud eller beteende efter animationen.
+För att arbeta med de enskilda beteendena i en effekt eller redigera rörelsesökvägssegment, se [Anpassad animation för Java](/slides/sv/java/custom-animation/).
+
+Aspose.Slides for Android via Java representerar bildanimationer som effekter i en bildtidslinje. En effekt har en målform, en animationstyp och undertyp, en utlösare, tidsinställningar och valfria egenskaper som ljud eller beteende efter animation.
 
 Tidslinjen innehåller två typer av sekvenser:
 
-- **huvudsekvensen** spelas när bilden avancerar.
-- En **interaktiv sekvens** startar när dess trigger‑form klickas.
+- Den **huvudsekvensen** spelas när bilden avancerar.
+- En **interaktiv sekvens** startar när dess utlösande form klickas.
 
-Eftersom textrutor, bilder, diagram, tabeller och andra bildobjekt implementerar [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/), använder du samma metod [ISequence.addEffect](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) för de flesta bildinnehåll. De tillgängliga effekterna finns listade i klassen [EffectType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/effecttype/).
+Eftersom textrutor, bilder, diagram, tabeller och andra bildobjekt implementerar [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/), använder du samma [ISequence.addEffect](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) metod för de flesta bildinnehåll. De tillgängliga effekterna listas i klassen [EffectType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/effecttype/).
 
 ## **Lägg till formanimationer**
 
-För att lägga till en animation, hämta bildens huvudsekvens och anropa [ISequence.addEffect](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) med målformen, effekt‑typen, undertypen och triggern. För en effekt som startar när en annan form klickas, skapa en interaktiv sekvens vars trigger är den andra formen.
+För att lägga till en animation, hämta bildens huvudsekvens och anropa [ISequence.addEffect](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) med målformen, effektens typ, undertyp och utlösare. För en effekt som startar när en annan form klickas, skapa en interaktiv sekvens vars utlösare är den andra formen.
 
 Följande exempel skapar båda typerna av animation och sparar resultatet till `shape-animations.pptx`.
 
@@ -72,19 +74,19 @@ public class AddShapeAnimations {
 }
 ```
 
-Triggern styr när en effekt startar:
+Utlösaren styr när en effekt startar:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/effecttriggertype/#OnClick) väntar på ett klick i huvudsekvensen, eller på ett klick på trigger‑formen i en interaktiv sekvens.
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) startar tillsammans med föregående effekt.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) startar när föregående effekt avslutas.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/effecttriggertype/#OnClick) väntar på ett klick i huvudsekvensen, eller på ett klick på utlösande form i en interaktiv sekvens.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) startar med den föregående effekten.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) startar när den föregående effekten avslutas.
 
-För att animera en bild, ett diagram eller en annan formtyp, skicka det objektet till [ISequence.addEffect](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) istället för `targetShape`. För diagramspecifika grupperingsalternativ, se [Animated Charts](/slides/sv/androidjava/animated-charts/).
+För att animera en bild, ett diagram eller en annan formtyp, skicka det objektet till [ISequence.addEffect](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) i stället för `targetShape`. För diagramspecifika grupperingsalternativ, se [Animated Charts](/slides/sv/androidjava/animated-charts/).
 
 ## **Läs formanimationer**
 
-Använd [ISequence.getEffectsByShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) när du känner till målformen. För att inspektera varje effekt, iterera över huvudsekvensen och varje interaktiv sekvens. Iteration undviker antagandet att en sekvens innehåller en effekt på index `0`.
+Använd [ISequence.getEffectsByShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) när du känner till målformen. För att inspektera varje effekt, iterera huvudsekvensen och varje interaktiv sekvens. Iteration undviker antagandet att en sekvens innehåller en effekt på index `0`.
 
-Följande exempel skapar en form med huvud‑ och interaktiva effekter, hämtar effekterna som riktar sig mot formen och itererar sedan över varje sekvens på bilden.
+Följande exempel skapar en form med huvudsekvens‑ och interaktiva effekter, hämtar effekterna som riktar sig mot formen och itererar sedan alla sekvenser på bilden.
 
 ```java
 import com.aspose.slides.*;
@@ -138,21 +140,21 @@ public class ReadShapeAnimations {
 }
 ```
 
-Om du bara behöver effekterna för en form, identifiera först formen efter namn, platshållartyp eller någon annan stabil egenskap; anropa därefter [ISequence.getEffectsByShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Anta inte att [IShapeCollection.get_Item](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) på index `0` alltid är det avsedda objektet.
+Om du endast behöver effekterna för en form, identifiera först formen efter namn, platshållartyp eller annan stabil egenskap; anropa sedan [ISequence.getEffectsByShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Anta inte att [IShapeCollection.get_Item](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) på index `0` alltid är det avsedda objektet.
 
 ## **Arbeta med ärvda platshållareffekter**
 
-En platshållare på en normal bild kan ärva animationsegenskaper från motsvarande platshållare på dess layout‑bild och master‑bild. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) returnerar den överordnade platshållaren, eller `null` när ingen förälder finns.
+En platshållare på en normal bild kan ärva animationsbeteende från motsvarande platshållare på dess layoutbild och mastern. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) returnerar den överordnade platshållaren, eller `null` när ingen förälder finns.
 
-I den följande exempelpresentationen har sidfoten **Random Bars** på den normala bilden, **Split** på layout‑bilden och **Fly In** på master‑bilden.
+I den följande presentationsexemplet har sidfoten **Random Bars** på den normala bilden, **Split** på layoutbilden och **Fly In** på mastern.
 
-![Sidfotens animationseffekt på den normala bilden](slide-shape-animation.png)
+![Fotanimationseffekt på den normala bilden](slide-shape-animation.png)
 
-![Sidfotens platshållaranimationseffekt på layout‑bilden](layout-shape-animation.png)
+![Fotplatshållaranimationseffekt på layoutbilden](layout-shape-animation.png)
 
-![Sidfotens platshållaranimationseffekt på master‑bilden](master-shape-animation.png)
+![Fotplatshållaranimationseffekt på mastern](master-shape-animation.png)
 
-Nästa exempel använder en platshållar‑hierarki från en ny presentation. Det lägger till effekter på en master‑platshållare, en layout‑platshållare och motsvarande platshållare på en normal bild. Varje anrop till [IShape.getBasePlaceholder](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) kontrolleras innan den returnerade formen används.
+Nästa exempel använder en platshållarhierarki från en ny presentation. Det lägger till effekter på en master‑platshållare, en layout‑platshållare och motsvarande platshållare på en normal bild. Varje anrop till [IShape.getBasePlaceholder](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) kontrolleras innan den returnerade formen används.
 
 ```java
 import com.aspose.slides.*;
@@ -230,11 +232,11 @@ public class InheritedPlaceholderAnimations {
 }
 ```
 
-## **Ändra animationens tidsinställningar**
+## **Ändra animationstiming**
 
-PowerPoint‑dialogrutan **Timing** motsvarar egenskaperna i [ITiming](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itiming/).
+PowerPoint‑dialogen **Timing** motsvarar egenskaperna i [ITiming](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itiming/).
 
-![PowerPoint Timing‑dialog för en animationseffekt](shape-animation.png)
+![PowerPoint‑timingsdialog för en animationseffekt](shape-animation.png)
 
 - **Start** motsvarar [ITiming.getTriggerType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itiming/#getTriggerType--).
 - **Duration** motsvarar [ITiming.getDuration](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itiming/#getDuration--), i sekunder.
@@ -242,7 +244,7 @@ PowerPoint‑dialogrutan **Timing** motsvarar egenskaperna i [ITiming](https://r
 - **Repeat** motsvarar [ITiming.getRepeatCount](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), eller [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
 - **Rewind when done playing** motsvarar [ITiming.getRewind](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itiming/#getRewind--).
 
-Detta fristående exempel lägger till en effekt, ändrar dess timing via objektet som returneras av [ISequence.addEffect](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), och sparar resultatet. Att behålla den returnerade [IEffect](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ieffect/)‑referensen undviker onödig samlings‑indexering.
+Detta fristående exempel lägger till en effekt, ändrar dess timing via objektet som returneras av [ISequence.addEffect](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), och sparar resultatet. Att behålla den returnerade [IEffect](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ieffect/)‑referensen undviker ett onödigt samlingsindex.
 
 ```java
 import com.aspose.slides.*;
@@ -272,15 +274,15 @@ public class ChangeAnimationTiming {
 }
 ```
 
-Använd endast ett upprepningsläge. Att kombinera ett upprepningsantal med en ”till‑tills”‑flagga kan ge förvirrande resultat i olika visare. När du ändrar upprepningslägen, anropa först [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) och [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) innan du anropar [ITiming.setRepeatCount](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-), eftersom den ena flaggan också ändrar det aktiva upprepningsläget.
+Använd endast ett upprepningsläge med avsikt. Att kombinera ett upprepningsantal med ett “tills”‑flagga kan ge förvirrande resultat i olika visare. När du ändrar upprepningslägen, sätt [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) och [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) innan du anropar [ITiming.setRepeatCount](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-), eftersom sättning av någon av flaggorna också ändrar det aktiva upprepningsläget.
 
 ## **Lägg till och extrahera animationsljud**
 
-En animationseffekt kan referera till inbäddat ljud via [IEffect.getSound](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ieffect/#getSound--). [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) instruerar en effekt att stoppa ljud som startats av en tidigare effekt.
+En animationseffekt kan referera inbäddat ljud via [IEffect.getSound](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ieffect/#getSound--). [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) talar om för en effekt att stoppa ljud som startats av en tidigare effekt.
 
 ### **Lägg till ett ljud till en effekt**
 
-Följande exempel förutsätter en lokal ljudfil med namnet `animation-sound.wav`. Det skapar två effekter, bäddar in den filen som ljud för den första effekten och konfigurerar den andra effekten att stoppa ljudet. Det använder objekten som returneras av [ISequence.addEffect](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), så inget sekvens‑index behövs.
+Följande exempel förväntar sig en lokal ljudfil med namnet `animation-sound.wav`. Det skapar två effekter, bäddar in den filen som ljud för den första effekten och konfigurerar den andra effekten att stoppa ljudet. Det använder de objekt som returneras av [ISequence.addEffect](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), så inget sekvensindex krävs.
 
 ```java
 import com.aspose.slides.*;
@@ -317,7 +319,7 @@ public class AddAnimationSound {
 
 ### **Extrahera inbäddade effektljud**
 
-Följande exempel förutsätter en lokal presentation med namnet `presentation-with-animation-sounds.pptx`. Det skannar både huvud‑ och interaktiva sekvenser och skriver varje inbäddat effektljud till katalogen `extracted-animation-sounds`. Filändelsen väljs utifrån ljud‑MIME‑typen som exponeras av [IAudio.getContentType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iaudio/#getContentType--).
+Följande exempel förväntar sig en lokal presentation med namnet `presentation-with-animation-sounds.pptx`. Det skannar både huvud‑ och interaktiva sekvenser och skriver varje inbäddat effektljud till katalogen `extracted-animation-sounds`. Filändelsen väljs utifrån ljud‑MIME‑typen som exponeras av [IAudio.getContentType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iaudio/#getContentType--).
 
 ```java
 import com.aspose.slides.*;
@@ -391,17 +393,17 @@ public class ExtractAnimationSounds {
 }
 ```
 
-För stora ljudobjekt, använd [IAudio.getStream](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iaudio/#getStream--) och kopiera strömmen till en fil istället för att läsa in hela objektet i en byte‑array.
+För stora ljudobjekt, använd [IAudio.getStream](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iaudio/#getStream--) och kopiera strömmen till en fil i stället för att ladda hela objektet i en byte‑array.
 
-## **Ställ in After‑Animation‑beteende**
+## **Ställ in beteende efter animation**
 
-Alternativet **After animation** styr vad som händer med en form efter att dess effekt avslutats.
+Alternativet **After animation** styr vad som händer med en form när dess effekt avslutas.
 
-![PowerPoint Effect Options‑dialog som visar After‑animation‑inställningar](shape-after-animation.png)
+![PowerPoint‑effektalternativdialog som visar inställningar för After animation](shape-after-animation.png)
 
-Klassen [AfterAnimationType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/afteranimationtype/) stödjer att låta formen vara oförändrad, ändra dess färg, gömma den efter animationen eller gömma den vid nästa klick. När typen är [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/afteranimationtype/#Color), sätt även [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--).
+Klassen [AfterAnimationType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/afteranimationtype/) stödjer att låta formen förbli oförändrad, ändra dess färg, dölja den efter animationen, eller dölja den vid nästa klick. När typen är [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/afteranimationtype/#Color), sätt även [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--).
 
-Detta fristående exempel skapar en effekt, sätter dess after‑animation‑beteende via det returnerade effekt‑objektet och sparar resultatet.
+Detta fristående exempel skapar en effekt, anger dess efter‑animationsbeteende via det returnerade effektobjektet, och sparar resultatet.
 
 ```java
 import com.aspose.slides.*;
@@ -427,16 +429,16 @@ public class SetAfterAnimationBehavior {
 }
 ```
 
-Att byta typ från [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/afteranimationtype/#Color) rensar inställningen för after‑animation‑färgen.
+Att ändra typen från [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/afteranimationtype/#Color) rensar efter‑animationsfärgsinställningen.
 
 ## **Animera text**
 
 Textanimation har två relaterade kontroller:
 
-- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextanimation/#getBuildType--) styr om stycken visas tillsammans eller stycke för stycke.
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextanimation/#getBuildType--) styr om stycken visas tillsammans eller på stycknivå.
 - [IEffect.getAnimateTextType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) styr om text visas på en gång, ord för ord eller bokstav för bokstav. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) anger fördröjningen mellan ord eller bokstäver. Ett positivt värde är en procentandel av effektens varaktighet; ett negativt värde är en fördröjning i sekunder.
 
-Följande fristående exempel animerar orden i en textruta. [BuildType.AsOneObject](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/buildtype/#AsOneObject) inaktiverar stycke‑för‑stycke‑byggande så att ordinställningen gäller hela textramen.
+Följande fristående exempel animerar orden i en textruta. [BuildType.AsOneObject](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/buildtype/#AsOneObject) inaktiverar byggande stycke för stycke så att ordinställningen gäller hela textramen.
 
 ```java
 import com.aspose.slides.*;
@@ -462,15 +464,15 @@ public class AnimateTextByWord {
 }
 ```
 
-För att bygga en textruta stycke för stycke, sätt [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (eller en annan stycknivå). För att rikta en enda paragraf med sin egen effekt, använd overload‑metoden [ISequence.addEffect](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) som accepterar ett [IParagraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraph/). Se [Animated Text](/slides/sv/androidjava/animated-text/) för exempel på stycknivå.
+För att bygga en textruta stycke för stycke, sätt [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (eller en annan stycknivå). För att rikta en enskild paragraf med egen effekt, använd överlagringen [ISequence.addEffect](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) som accepterar ett [IParagraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iparagraph/). Se [Animated Text](/slides/sv/androidjava/animated-text/) för exempel på paragrafnivå.
 
-## **Export och kompatibilitetsanmärkningar**
+## **Export och kompatibilitetsanteckningar**
 
 - Att spara till PPT eller PPTX bevarar animationsmodellen, men den slutgiltiga uppspelningen styrs av presentationsvisaren.
-- PDF och statiska bilder spelar inte upp animationer. Använd [HTML5‑export](/slides/sv/androidjava/export-to-html5/), animerad GIF eller [videokonvertering](/slides/sv/androidjava/convert-powerpoint-to-video/) när utdata måste visa rörelse.
+- PDF och statiska bilder spelar inte upp animationer. Använd [HTML5 export](/slides/sv/androidjava/export-to-html5/), animerad GIF eller [videokonvertering](/slides/sv/androidjava/convert-powerpoint-to-video/) när utdata måste visa rörelse.
 - För HTML5, aktivera [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) och, vid behov, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
-- Videorendering stöder många vanliga inträdes‑, betoning‑, avsluts‑ och rörelsesträcks‑effekter, men inte alla PowerPoint‑effekter stöds. Kontrollera den aktuella [supported animations and effects](/slides/sv/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) och testa kritiska presentationer med din mål‑version av Aspose.Slides.
-- Avancerade anpassade effekter och effekter importerade från andra presentationsformat kan bevaras i filen men renderas annorlunda i PowerPoint, HTML5 eller video. Validera det exporterade resultatet i stället för att enbart förlita dig på effekt‑namnet.
+- Videorendering stöder många vanliga ingångs-, betoning‑, utgångs‑ och rörelsesökvägseffekter, men inte alla PowerPoint‑effekter stöds. Kontrollera aktuell [supported animations and effects](/slides/sv/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) och testa kritiska presentationer med din mål‑Aspose.Slides‑version.
+- Avancerade anpassade effekter och effekter importerade från andra presentationsformat kan bevaras i filen men renderas annorlunda i PowerPoint, HTML5 eller video. Validera det exporterade resultatet snarare än att förlita dig enbart på effektnamnet.
 
 ## **FAQ**
 
@@ -480,8 +482,8 @@ PDF är ett statiskt format, så animationer och bildövergångar spelas inte up
 
 **Varför spelas en effekt annorlunda i en video?**
 
-Videexport renderar animationer istället för att lagra det ursprungliga PowerPoint‑beteendet. Vissa avancerade effekter stöds inte eller approximeras. Granska tabellen med stödjade effekter och testa den faktiska presentationen innan produktion.
+Videexport renderar animationer snarare än att lagra PowerPoints ursprungliga beteende. Vissa avancerade effekter stöds inte eller approximeras. Granska tabellen över stödde effekter och testa den faktiska presentationen innan produktion.
 
-**Ändrar flyttning av en form framåt eller bakåt dess animationsordning?**
+**Ändrar det att flytta en form framåt eller bakåt dess animationsordning?**
 
-Nej. Formens z‑order styr överlappning, medan sekvensordning och triggers styr hur animationen spelas upp. Ändra tidslinjen om du behöver en annan uppspelningsordning.
+Nej. Formens z‑ordning styr överlappning, medan sekvensordning och utlösare styr animationsuppspelning. Ändra tidslinjen om du behöver en annan uppspelningsordning.

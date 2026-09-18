@@ -1,6 +1,6 @@
 ---
-title: "Vormanimaties toepassen in presentaties met Python via Java"
-linktitle: "Vormanimatie"
+title: Vormanimaties toepassen in presentaties met Python via Java
+linktitle: Vormanimatie
 type: docs
 weight: 60
 url: /nl/python-java/shape-animation/
@@ -23,24 +23,26 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Leer hoe u vormanimaties, timing, geluiden, gedrag na animatie en geanimeerde tekst kunt toevoegen, inspecteren en aanpassen met Aspose.Slides voor Python via Java."
+description: "Leer hoe u vormanimaties kunt toevoegen, inspecteren en aanpassen, timing, geluiden, gedrag na animatie en geanimeerde tekst met Aspose.Slides voor Python via Java."
 ---
 ## **Overzicht**
 
-Aspose.Slides for Python via Java stelt dia‑animaties voor als effecten in een diatijdlijn. Een effect heeft een doelvorm, een animatietype en -subtype, een trigger, timing‑instellingen en optionele eigenschappen zoals geluid of gedrag na de animatie.
+Om met de individuele gedrag binnen een effect te werken of motion‑path segmenten te bewerken, zie [Aangepaste animatie](/slides/nl/python-java/custom-animation/).
 
-De tijdlijn bevat twee soorten reeksen:
+Aspose.Slides for Python via Java stelt dia‑animaties voor als effecten in een diatijdlijn. Een effect heeft een doelvorm, een animatietype en subtype, een trigger, timinginstellingen en optionele eigenschappen zoals geluid of gedrag na de animatie.
 
-- De **hoofdreeks** wordt afgespeeld wanneer de dia wordt voortgezet.
-- Een **interactieve reeks** start wanneer de trigger‑vorm wordt aangeklikt.
+De tijdlijn bevat twee soorten sequenties:
 
-Omdat tekstvakken, afbeeldingen, diagrammen, tabellen en andere dia‑objecten afstammen van [Shape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/), gebruik je dezelfde [Sequence.addEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/sequence/#addEffect)‑methode voor de meeste dia‑inhoud. De beschikbare effecten worden opgesomd in de klasse [EffectType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effecttype/).
+- De **hoofdsequentie** wordt afgespeeld terwijl de dia voortschrijdt.
+- Een **interactieve sequentie** start wanneer de trigger‑vorm erop wordt geklikt.
 
-## **Vormanimaties toevoegen**
+Omdat tekstvakken, afbeeldingen, grafieken, tabellen en andere dia‑objecten afstammen van [Shape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/), gebruik je dezelfde [Sequence.addEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/sequence/#addEffect) methode voor de meeste dia‑inhoud. De beschikbare effecten staan vermeld in de klasse [EffectType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effecttype/) .
 
-Om een animatie toe te voegen, haal je de hoofdreeks van de dia op en roep je [Sequence.addEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/sequence/#addEffect) aan met de doelvorm, het effecttype, subtype en trigger. Voor een effect dat start wanneer een andere vorm wordt aangeklikt, maak je een interactieve reeks waarvan de trigger die andere vorm is.
+## **Animaties aan vormen toevoegen**
 
-Het volgende voorbeeld maakt beide soorten animaties en slaat het resultaat op in `shape-animations.pptx`.
+Om een animatie toe te voegen, haal je de hoofdsequentie van de dia op en roep je [Sequence.addEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/sequence/#addEffect) aan met de doelvorm, het effecttype, het subtype en de trigger. Voor een effect dat start wanneer op een andere vorm wordt geklikt, creëer je een interactieve sequentie waarvan de trigger die andere vorm is.
+
+Het volgende voorbeeld maakt beide soorten animatie en slaat het resultaat op in `shape-animations.pptx`.
 
 ```python
 import jpype
@@ -75,17 +77,17 @@ finally:
 
 De trigger bepaalt wanneer een effect start:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effecttriggertype/#OnClick) wacht op een klik in de hoofdreeks, of op een klik op de trigger‑vorm in een interactieve reeks.
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effecttriggertype/#WithPrevious) start met het voorgaande effect.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effecttriggertype/#AfterPrevious) start wanneer het voorgaande effect eindigt.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effecttriggertype/#OnClick) wacht op een klik in de hoofdsequentie, of op een klik op de trigger‑vorm in een interactieve sequentie.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effecttriggertype/#WithPrevious) start met het vorige effect.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effecttriggertype/#AfterPrevious) start wanneer het vorige effect eindigt.
 
-Om een afbeelding, diagram of een ander vormtype te animeren, geef je dat object door aan [Sequence.addEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/sequence/#addEffect) in plaats van `target_shape`. Voor diagram‑specifieke groepeeralternatieven, zie [Geanimeerde diagrammen](/slides/nl/python-java/animated-charts/).
+Om een afbeelding, grafiek of een ander vormtype te animeren, geef je dat object door aan [Sequence.addEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/sequence/#addEffect) in plaats van `target_shape`. Voor grafiekspecifieke groepeeropties, zie [Animated Charts](/slides/nl/python-java/animated-charts/).
 
 ## **Vormanimaties lezen**
 
-Gebruik [Sequence.getEffectsByShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/sequence/#getEffectsByShape) wanneer je de doelvorm kent. Om elk effect te inspecteren, doorloop je de hoofdreeks en elke interactieve reeks. Doorlopen voorkomt dat je aanneemt dat een reeks een effect bevat op index `0`.
+Gebruik [Sequence.getEffectsByShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/sequence/#getEffectsByShape) wanneer je de doelvorm kent. Om elk effect te inspecteren, doorloop je de hoofdsequentie en elke interactieve sequentie. Enumeratie voorkomt de veronderstelling dat een sequentie een effect op index `0` bevat.
 
-Het volgende voorbeeld maakt een vorm met hoofd‑ en interactieve effecten, haalt de effecten op die de vorm targeten, en doorloopt vervolgens elke reeks op de dia.
+Het volgende voorbeeld maakt een vorm met hoofd‑ en interactieve effecten, haalt de effecten op die de vorm targeten, en doorloopt vervolgens elke sequentie op de dia.
 
 ```python
 import jpype
@@ -136,21 +138,21 @@ finally:
     presentation.dispose()
 ```
 
-Als je alleen de effecten voor één vorm nodig hebt, identificeer dan eerst de vorm op naam, placeholder‑type of een andere stabiele eigenschap; roep vervolgens [Sequence.getEffectsByShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/sequence/#getEffectsByShape) aan. Ga niet automatisch uit van [ShapeCollection.get_Item](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shapecollection/#get_Item) op index `0` als het beoogde object.
+Als je alleen de effecten voor één vorm nodig hebt, identificeer je de vorm eerst op naam, placeholder‑type of een andere stabiele eigenschap; roep daarna [Sequence.getEffectsByShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/sequence/#getEffectsByShape) aan. Neem niet aan dat [ShapeCollection.get_Item](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shapecollection/#get_Item) op index `0` altijd het bedoelde object is.
 
 ## **Werken met geërfde placeholder‑effecten**
 
-Een placeholder op een normale dia kan animatiegedrag overnemen van de overeenkomstige placeholder op zijn lay-outdia en master‑dia. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/#getBasePlaceholder) retourneert die bovenliggende placeholder, of `None` als er geen bovenliggende bestaat.
+Een placeholder op een normale dia kan animatiegedrag erven van de overeenkomstige placeholder op de lay‑outdia en master‑dia. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/#getBasePlaceholder) geeft die bovenliggende placeholder terug, of `None` wanneer er geen bovenliggend element bestaat.
 
-In de volgende voorbeeldpresentatie heeft de voettekst **Random Bars** op de normale dia, **Split** op de lay-outdia, en **Fly In** op de master‑dia.
+In de volgende voorbeeldpresentatie heeft de voettekst **Random Bars** op de normale dia, **Split** op de lay‑outdia en **Fly In** op de master‑dia.
 
-![Voettekstanimatie‑effect op de normale dia](slide-shape-animation.png)
+![Voettekstanimatie-effect op de normale dia](slide-shape-animation.png)
 
-![Voettekst‑placeholderanimatie‑effect op de lay-outdia](layout-shape-animation.png)
+![Voettekst‑placeholder‑animatie‑effect op de lay‑outdia](layout-shape-animation.png)
 
-![Voettekst‑placeholderanimatie‑effect op de master‑dia](master-shape-animation.png)
+![Voettekst‑placeholder‑animatie‑effect op de master‑dia](master-shape-animation.png)
 
-Het volgende voorbeeld gebruikt een placeholder‑hiërarchie uit een nieuwe presentatie. Het voegt effecten toe aan een master‑placeholder, een lay-out‑placeholder en de overeenkomstige placeholder op een normale dia. Elke aanroep van [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/#getBasePlaceholder) wordt gecontroleerd voordat de geretourneerde vorm wordt gebruikt.
+Het volgende voorbeeld gebruikt een placeholder‑hiërarchie uit een nieuwe presentatie. Het voegt effecten toe aan een master‑placeholder, een lay‑out‑placeholder en de overeenkomstige placeholder op een normale dia. Elke oproep naar [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/#getBasePlaceholder) wordt gecontroleerd voordat de geretourneerde vorm wordt gebruikt.
 
 ```python
 import jpype
@@ -214,17 +216,17 @@ finally:
 
 ## **Animatietiming wijzigen**
 
-Het PowerPoint **Timing**‑dialoogvenster correspondeert met de eigenschappen van [Timing](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/).
+Het PowerPoint **Timing**‑dialoogvenster komt overeen met de eigenschappen van [Timing](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/).
 
-![PowerPoint Timing‑dialoog voor een animatie‑effect](shape-animation.png)
+![PowerPoint Timing-dialoog voor een animatie‑effect](shape-animation.png)
 
-- **Start** correspondeert met [Timing.getTriggerType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#getTriggerType).
-- **Duur** correspondeert met [Timing.getDuration](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#getDuration), in seconden.
-- **Vertraging** correspondeert met [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#getTriggerDelayTime), in seconden.
-- **Herhaal** correspondeert met [Timing.getRepeatCount](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#getRepeatUntilNextClick), of [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#getRepeatUntilEndSlide).
-- **Terugspoelen bij voltooid afspelen** correspondeert met [Timing.getRewind](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#getRewind).
+- **Start** komt overeen met [Timing.getTriggerType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#getTriggerType).
+- **Duration** komt overeen met [Timing.getDuration](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#getDuration), in seconden.
+- **Delay** komt overeen met [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#getTriggerDelayTime), in seconden.
+- **Repeat** komt overeen met [Timing.getRepeatCount](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#getRepeatUntilNextClick) of [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#getRepeatUntilEndSlide).
+- **Rewind when done playing** komt overeen met [Timing.getRewind](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#getRewind).
 
-Dit zelfstandige voorbeeld voegt een effect toe, wijzigt de timing via het object dat wordt geretourneerd door [Sequence.addEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/sequence/#addEffect), en slaat het resultaat op. Het behouden van de geretourneerde [Effect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effect/)‑referentie voorkomt een onnodige collectie‑index.
+Dit onafhankelijke voorbeeld voegt een effect toe, wijzigt de timing via het object dat wordt geretourneerd door [Sequence.addEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/sequence/#addEffect), en slaat het resultaat op. Het bewaren van de geretourneerde [Effect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effect/)‑referentie voorkomt een onnodige verzameling‑index.
 
 ```python
 import jpype
@@ -255,15 +257,15 @@ finally:
     presentation.dispose()
 ```
 
-Gebruik bewust één herhaal‑modus. Het combineren van een herhaal‑aantal met een “until”-vlag kan verwarrende resultaten opleveren in verschillende weergaveprogramma's. Bij het wijzigen van herhaal‑modi, stel je [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#setRepeatUntilNextClick) en [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) in vóór [Timing.setRepeatCount](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#setRepeatCount), omdat het instellen van een van beide vlaggen ook de actieve herhaal‑modus wijzigt.
+Gebruik één herhaalmodus bewust. Het combineren van een herhaaltaantal met een “until”‑vlag kan verwarrende resultaten opleveren in verschillende viewers. Wanneer je herhaalmodi wijzigt, stel je eerst [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#setRepeatUntilNextClick) en [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) in, en daarna [Timing.setRepeatCount](https://reference.aspose.com/slides/nl/python-java/aspose.slides/timing/#setRepeatCount), omdat het instellen van een van de vlaggen ook de actieve herhaalmodus wijzigt.
 
 ## **Animatiegeluiden toevoegen en extraheren**
 
-Een animatie‑effect kan verwezen naar ingebedde audio via [Effect.getSound](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effect/#setStopPreviousSound) instrueert een effect om audio te stoppen die is gestart door een eerder effect.
+Een animatie‑effect kan een ingebed audio‑bestand refereren via [Effect.getSound](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effect/#setStopPreviousSound) vertelt een effect om audio te stoppen die door een eerder effect is gestart.
 
 ### **Geluid aan een effect toevoegen**
 
-Het volgende voorbeeld verwacht een lokaal audiobestand met de naam `animation-sound.wav`. Het maakt twee effecten, embed het bestand als geluid voor het eerste effect, en configureert het tweede effect om het geluid te stoppen. Het gebruikt de objecten die worden geretourneerd door [Sequence.addEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/sequence/#addEffect), dus een reeks‑index is niet nodig.
+Het volgende voorbeeld verwacht een lokaal audio‑bestand met de naam `animation-sound.wav`. Het maakt twee effecten, embedt dat bestand als geluid voor het eerste effect, en configureert het tweede effect om het geluid te stoppen. Het gebruikt de objecten die worden geretourneerd door [Sequence.addEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/sequence/#addEffect), dus een sequentie‑index is niet nodig.
 
 ```python
 import jpype
@@ -299,7 +301,7 @@ finally:
 
 ### **Ingebedde effectgeluiden extraheren**
 
-Het volgende voorbeeld verwacht een lokale presentatie met de naam `presentation-with-animation-sounds.pptx`. Het scant zowel de hoofd‑ als de interactieve reeksen en schrijft elk ingebed effectgeluid naar de map `extracted-animation-sounds`. De extensie wordt gekozen op basis van het audio‑MIME‑type dat wordt blootgesteld door [Audio.getContentType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audio/#getContentType).
+Het volgende voorbeeld verwacht een lokale presentatie met de naam `presentation-with-animation-sounds.pptx`. Het scant zowel hoofd‑ als interactieve sequenties en schrijft elk ingebed effectgeluid naar de map `extracted-animation-sounds`. De extensie wordt gekozen op basis van het audio‑MIME‑type dat wordt blootgesteld door [Audio.getContentType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audio/#getContentType).
 
 ```python
 import jpype
@@ -357,13 +359,13 @@ Voor grote audio‑objecten, gebruik [Audio.getStream](https://reference.aspose.
 
 ## **Gedrag na animatie instellen**
 
-De optie **After animation** bepaalt wat er met een vorm gebeurt nadat het effect is voltooid.
+De **After animation**‑optie bepaalt wat er met een vorm gebeurt nadat het effect is voltooid.
 
-![PowerPoint Effect Options‑dialoog met instellingen voor After animation](shape-after-animation.png)
+![PowerPoint Effectopties‑dialoog die instellingen voor na‑animatie toont](shape-after-animation.png)
 
-De klasse [AfterAnimationType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/afteranimationtype/) ondersteunt het onveranderd laten van de vorm, het wijzigen van de kleur, verbergen na de animatie, of verbergen bij de volgende klik. Wanneer het type [AfterAnimationType.Color](https://reference.aspose.com/slides/nl/python-java/aspose.slides/afteranimationtype/#Color) is, stel dan ook [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effect/#getAfterAnimationColor) in.
+De klasse [AfterAnimationType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/afteranimationtype/) ondersteunt het behouden van de vorm ongewijzigd, het wijzigen van de kleur, het verbergen na de animatie, of het verbergen bij de volgende klik. Wanneer het type [AfterAnimationType.Color](https://reference.aspose.com/slides/nl/python-java/aspose.slides/afteranimationtype/#Color) is, stel je ook [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effect/#getAfterAnimationColor) in.
 
-Dit zelfstandige voorbeeld maakt een effect, stelt het gedrag na de animatie in via het geretourneerde effectobject, en slaat het resultaat op.
+Dit onafhankelijke voorbeeld maakt een effect, stelt het gedrag na animatie in via het geretourneerde effect‑object, en slaat het resultaat op.
 
 ```python
 import jpype
@@ -390,16 +392,16 @@ finally:
     presentation.dispose()
 ```
 
-Het wijzigen van het type weg van [AfterAnimationType.Color](https://reference.aspose.com/slides/nl/python-java/aspose.slides/afteranimationtype/#Color) wist de after‑animation‑kleurinstelling.
+Het wijzigen van het type van [AfterAnimationType.Color](https://reference.aspose.com/slides/nl/python-java/aspose.slides/afteranimationtype/#Color) wist de ingestelde kleur voor na‑animatie.
 
 ## **Tekst animeren**
 
 Tekstanimatie heeft twee gerelateerde instellingen:
 
-- [TextAnimation.getBuildType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textanimation/#getBuildType) bepaalt of alinea's samen verschijnen of per alinea‑niveau.
-- [Effect.getAnimateTextType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effect/#getAnimateTextType) bepaalt of tekst in één keer, per woord, of per letter verschijnt. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effect/#getDelayBetweenTextParts) stelt de vertraging tussen woorden of letters in. Een positieve waarde is een percentage van de effectduur; een negatieve waarde is een vertraging in seconden.
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textanimation/#getBuildType) bepaalt of alinea’s samen of per alinea‑niveau verschijnen.
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effect/#getAnimateTextType) bepaalt of tekst in één keer, per woord of per letter verschijnt. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/nl/python-java/aspose.slides/effect/#getDelayBetweenTextParts) stelt de vertraging tussen woorden of letters in. Een positieve waarde is een percentage van de effectduur; een negatieve waarde is een vertraging in seconden.
 
-Het volgende zelfstandige voorbeeld animeert de woorden in een tekstvak. [BuildType.AsOneObject](https://reference.aspose.com/slides/nl/python-java/aspose.slides/buildtype/#AsOneObject) schakelt opbouw per alinea uit zodat de woordinstelling wordt toegepast op het volledige tekstframe.
+Het volgende onafhankelijke voorbeeld animeert de woorden in een tekstvak. [BuildType.AsOneObject](https://reference.aspose.com/slides/nl/python-java/aspose.slides/buildtype/#AsOneObject) schakelt bouwen per alinea uit zodat de woordinstelling op het volledige tekstframe van toepassing is.
 
 ```python
 import jpype
@@ -426,26 +428,26 @@ finally:
     presentation.dispose()
 ```
 
-Om een tekstvak per alinea op te bouwen, stel je [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/nl/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) in (of een ander alinea‑niveau). Om een enkele alinea met een eigen effect te targeten, gebruik je de [Sequence.addEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/sequence/#addEffect)‑overload die een [Paragraph](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/) accepteert. Zie [Geanimeerde tekst](/slides/nl/python-java/animated-text/) voor voorbeelden per alinea.
+Om een tekstvak per alinea te bouwen, stel je [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/nl/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) (of een ander alinea‑niveau) in. Om een enkele alinea met een eigen effect te targeten, gebruik je de overload van [Sequence.addEffect](https://reference.aspose.com/slides/nl/python-java/aspose.slides/sequence/#addEffect) die een [Paragraph](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/) accepteert. Zie [Animated Text](/slides/nl/python-java/animated-text/) voor voorbeelden op alinea‑niveau.
 
-## **Export‑ en compatibiliteitsopmerkingen**
+## **Export‑ en compatibiliteitsnotities**
 
 - Opslaan als PPT of PPTX behoudt het animatiemodel, maar de uiteindelijke weergave wordt gecontroleerd door de presentatie‑viewer.
-- PDF en statische afbeeldingen spelen geen animaties af. Gebruik [HTML5 export](/slides/nl/python-java/export-to-html5/), geanimeerde GIF, of [video conversion](/slides/nl/python-java/convert-powerpoint-to-video/) wanneer de output beweging moet weergeven.
-- Voor HTML5, schakel [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/nl/python-java/aspose.slides/html5options/#setAnimateShapes) in en, indien nodig, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/html5options/#setAnimateTransitions).
-- Video‑rendering ondersteunt veel gangbare ingang‑, nadruk‑, uitstap‑ en bewegings‑pad‑effecten, maar niet elk PowerPoint‑effect wordt ondersteund. Controleer de huidige [supported animations and effects](/slides/nl/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) en test kritieke presentaties met de beoogde Aspose.Slides‑versie.
-- Geavanceerde aangepaste effecten en effecten die zijn geïmporteerd uit andere presentatie‑formaten kunnen behouden blijven in het bestand, maar anders worden gerenderd in PowerPoint, HTML5 of video. Valideer het geëxporteerde resultaat in plaats van alleen op de effectnaam te vertrouwen.
+- PDF en statische afbeeldingen spelen geen animaties af. Gebruik [HTML5 export](/slides/nl/python-java/export-to-html5/), geanimeerde GIF, of [video‑conversie](/slides/nl/python-java/convert-powerpoint-to-video/) wanneer de uitvoer beweging moet weergeven.
+- Voor HTML5, activeer [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/nl/python-java/aspose.slides/html5options/#setAnimateShapes) en, indien nodig, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/html5options/#setAnimateTransitions).
+- Video‑rendering ondersteunt veel gangbare ingang‑, nadruk‑, uitgang‑ en motion‑path‑effecten, maar niet elk PowerPoint‑effect wordt ondersteund. Controleer de huidige [supported animations and effects](/slides/nl/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) en test kritieke presentaties met jouw doel‑Aspose.Slides‑versie.
+- Geavanceerde aangepaste effect­en en effect­en geïmporteerd uit andere presentatiesformaat­en kunnen in het bestand bewaard blijven maar anders renderen in PowerPoint, HTML5 of video. Valideer het geëxporteerde resultaat in plaats van alleen op de effectnaam te vertrouwen.
 
 ## **FAQ**
 
 **Waarom verschijnt een animatie in PowerPoint maar niet in een PDF?**
 
-PDF is een statisch formaat, dus animaties en dia‑overgangen worden niet afgespeeld. Exporteer naar HTML5, geanimeerde GIF, of video wanneer beweging behouden moet blijven.
+PDF is een statisch formaat, dus animaties en dia‑overgangen worden niet afgespeeld. Exporteer naar HTML5, geanimeerde GIF of video wanneer beweging behouden moet blijven.
 
-**Waarom wordt een effect anders afgespeeld in een video?**
+**Waarom speelt een effect anders in een video?**
 
-Video‑export rendert animaties in plaats van het originele PowerPoint‑gedrag op te slaan. Sommige geavanceerde effecten worden niet ondersteund of slechts benaderd. Bekijk de tabel met ondersteunde effecten en test de daadwerkelijke presentatie voordat je het gebruikt in productie.
+Video‑export rendert animaties in plaats van het oorspronkelijke PowerPoint‑gedrag op te slaan. Sommige geavanceerde effect­en worden niet ondersteund of benaderd. Bekijk de tabel met ondersteunde effect­en en test de werkelijke presentatie vóór productiegebruik.
 
 **Verandert het naar voren of naar achteren verplaatsen van een vorm de animatievolgorde?**
 
-Nee. De z‑order van een vorm bepaalt de overlap, terwijl de volgorde van reeksen en triggers de animatie‑afspeelvolgorde bepalen. Wijzig de tijdlijn als je een andere afspeelvolgorde nodig hebt.
+Nee. De z‑order van een vorm bepaalt overlappen, terwijl de volgorde van de sequentie en triggers de afspeelvolgorde van animaties bepalen. Pas de tijdlijn aan als je een andere afspeelvolgorde nodig hebt.

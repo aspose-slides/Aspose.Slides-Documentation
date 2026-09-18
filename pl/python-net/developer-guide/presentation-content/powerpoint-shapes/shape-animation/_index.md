@@ -1,6 +1,6 @@
 ---
 title: Zastosowanie animacji kształtów w prezentacjach przy użyciu Pythona
-linktitle: Animacja Kształtu
+linktitle: Animacja kształtu
 type: docs
 weight: 60
 url: /pl/python-net/shape-animation/
@@ -22,22 +22,24 @@ keywords:
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Dowiedz się, jak dodawać, sprawdzać i dostosowywać animacje kształtów, czasowanie, dźwięki, zachowanie po animacji oraz animowany tekst przy użyciu Aspose.Slides dla Pythona w środowisku .NET."
+description: "Dowiedz się, jak dodawać, przeglądać i dostosowywać animacje kształtów, ich czas, dźwięki, zachowanie po animacji oraz animowany tekst za pomocą Aspose.Slides dla Pythona poprzez .NET."
 ---
 ## **Przegląd**
 
-Aspose.Slides for Python via .NET reprezentuje animacje slajdów jako efekty w osi czasu slajdu. Efekt ma docelowy kształt, typ i podtyp animacji, wyzwalacz, ustawienia czasu oraz opcjonalne właściwości, takie jak dźwięk lub zachowanie po zakończeniu animacji.
+Aby pracować z poszczególnymi zachowaniami wewnątrz efektu lub edytować segmenty trasy ruchu, zobacz [Custom Animation](/slides/pl/python-net/custom-animation/).
 
-Oś czasu zawiera dwa rodzaje sekwencji:
+Aspose.Slides for Python via .NET reprezentuje animacje slajdów jako efekty na osi czasu slajdu. Efekt posiada docelowy kształt, typ i podtyp animacji, wyzwalacz, ustawienia czasu oraz opcjonalne właściwości, takie jak dźwięk lub zachowanie po animacji.
 
-- **główna sekwencja** odtwarzana jest przy przechodzeniu do slajdu,
-- **sekwencja interaktywna** rozpoczyna się po kliknięciu kształtu wyzwalającego.
+Linia czasowa zawiera dwa rodzaje sekwencji:
 
-Ponieważ pola tekstowe, obrazy, wykresy, tabele i inne obiekty slajdu implementują [IShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/ishape/), do większości treści slajdu używasz tej samej metody [Sequence.add_effect](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/sequence/add_effect/). Dostępne efekty są wymienione w wyliczeniu [EffectType](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effecttype/).
+- **Główna sekwencja** odtwarzana jest podczas przechodzenia slajdu.
+- **Sekwencja interaktywna** rozpoczyna się, gdy jej kształt wyzwalający zostanie kliknięty.
+
+Ponieważ pola tekstowe, obrazy, wykresy, tabele i inne obiekty slajdu implementują [IShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/ishape/), używasz tej samej metody [Sequence.add_effect](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/sequence/add_effect/) dla większości treści slajdu. Dostępne efekty są wymienione w wyliczeniu [EffectType](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effecttype/).
 
 ## **Dodawanie animacji kształtów**
 
-Aby dodać animację, pobierz główną sekwencję slajdu i wywołaj [Sequence.add_effect](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/sequence/add_effect/) z docelowym kształtem, typem efektu, podtypem i wyzwalaczem. Aby uzyskać efekt rozpoczynający się po kliknięciu innego kształtu, utwórz sekwencję interaktywną, której wyzwalaczem jest ten drugi kształt.
+Aby dodać animację, pobierz główną sekwencję slajdu i wywołaj [Sequence.add_effect](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/sequence/add_effect/) z docelowym kształtem, typem efektu, podtypem i wyzwalaczem. Dla efektu, który zaczyna się po kliknięciu innego kształtu, utwórz sekwencję interaktywną, której wyzwalaczem jest ten inny kształt.
 
 Poniższy przykład tworzy oba typy animacji i zapisuje wynik do `shape-animations.pptx`.
 
@@ -64,19 +66,19 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Wyzwalacz określa, kiedy efekt się rozpoczyna:
+Wyzwalacz kontroluje, kiedy efekt się rozpoczyna:
 
-- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effecttriggertype/) czeka na kliknięcie w głównej sekwencji lub na kliknięcie w kształt wyzwalający w sekwencji interaktywnej,
-- [EffectTriggerType.WITH_PREVIOUS](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effecttriggertype/) rozpoczyna się jednocześnie z poprzednim efektem,
-- [EffectTriggerType.AFTER_PREVIOUS](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effecttriggertype/) rozpoczyna się po zakończeniu poprzedniego efektu.
+- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effecttriggertype/) oczekuje na kliknięcie w głównej sekwencji lub na kliknięcie kształtu wyzwalającego w sekwencji interaktywnej.
+- [EffectTriggerType.WITH_PREVIOUS](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effecttriggertype/) rozpoczyna się razem z poprzedzającym efektem.
+- [EffectTriggerType.AFTER_PREVIOUS](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effecttriggertype/) rozpoczyna się po zakończeniu poprzedzającego efektu.
 
-Aby animować obraz, wykres lub inny typ kształtu, przekaż ten obiekt do [Sequence.add_effect](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/sequence/add_effect/) zamiast `target_shape`. Opcje grupowania specyficzne dla wykresów znajdziesz w sekcji [Animated Charts](/slides/pl/python-net/animated-charts/).
+Aby animować obraz, wykres lub inny rodzaj kształtu, przekaż ten obiekt do [Sequence.add_effect](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/sequence/add_effect/) zamiast `target_shape`. Opcje grupowania specyficzne dla wykresów znajdziesz w sekcji [Animated Charts](/slides/pl/python-net/animated-charts/).
 
-## **Odczyt animacji kształtów**
+## **Odczytywanie animacji kształtów**
 
-Użyj [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/sequence/get_effects_by_shape/), gdy znasz docelowy kształt. Aby sprawdzić każdy efekt, iteruj po głównej sekwencji oraz po wszystkich sekwencjach interaktywnych. Iteracja zapobiega zakładaniu, że w sekwencji znajduje się efekt pod indeksem `0`.
+Użyj [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/sequence/get_effects_by_shape/), gdy znasz docelowy kształt. Aby przejrzeć każdy efekt, iteruj po głównej sekwencji i po każdej sekwencji interaktywnej. Iteracja zapobiega przyjmowaniu, że sekwencja zawiera efekt pod indeksem `0`.
 
-Poniższy przykład tworzy kształt z efektami w głównej i interaktywnej sekwencji, pobiera efekty skierowane do tego kształtu, a następnie iteruje po wszystkich sekwencjach na slajdzie.
+Poniższy przykład tworzy kształt z efektami w głównej i interaktywnej sekwencji, pobiera efekty skierowane do tego kształtu i następnie iteruje po każdej sekwencji na slajdzie.
 
 ```python
 import aspose.slides as slides
@@ -116,21 +118,21 @@ with slides.Presentation() as presentation:
         print_sequence(sequence_label, sequence)
 ```
 
-Jeśli potrzebujesz efektów tylko dla jednego kształtu, najpierw zidentyfikuj kształt po nazwie, typie placeholdera lub innej stabilnej właściwości; dopiero potem wywołaj [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/sequence/get_effects_by_shape/). Nie zakładaj, że kształt pod indeksem `0` jest zawsze tym, którego szukasz.
+Jeśli potrzebujesz efektów tylko dla jednego kształtu, najpierw zidentyfikuj kształt po nazwie, typie symbolu zastępczego lub innej stabilnej właściwości; potem wywołaj [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/sequence/get_effects_by_shape/). Nie zakładaj, że kształt pod indeksem `0` jest zawsze pożądanym obiektem.
 
-## **Praca z dziedziczonymi efektami placeholderów**
+## **Praca z dziedziczonymi efektami symboli zastępczych**
 
-Placeholder na zwykłym slajdzie może dziedziczyć zachowanie animacji z odpowiadającego mu placeholdera na slajdzie układu i slajdzie mastera. Metoda [Shape.get_base_placeholder](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/get_base_placeholder/) zwraca tego rodzica lub `None`, gdy nie istnieje.
+Symbol zastępczy na normalnym slajdzie może dziedziczyć zachowanie animacji z odpowiadającego mu symbolu zastępczego na slajdzie układu i slajdzie nadrzędnym. [Shape.get_base_placeholder](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/get_base_placeholder/) zwraca ten nadrzędny symbol, lub `None`, gdy nie istnieje rodzic.
 
-W przykładowej prezentacji stopka ma **Random Bars** na slajdzie zwykłym, **Split** na slajdzie układu i **Fly In** na slajdzie mastera.
+W poniższej przykładowej prezentacji stopka ma **Random Bars** na normalnym slajdzie, **Split** na slajdzie układu i **Fly In** na slajdzie nadrzędnym.
 
-![Efekt animacji stopki na zwykłym slajdzie](slide-shape-animation.png)
+![Efekt animacji stopki na normalnym slajdzie](slide-shape-animation.png)
 
-![Efekt animacji stopki placeholdera na slajdzie układu](layout-shape-animation.png)
+![Efekt animacji stopki na slajdzie układu](layout-shape-animation.png)
 
-![Efekt animacji stopki placeholdera na slajdzie mastera](master-shape-animation.png)
+![Efekt animacji stopki na slajdzie nadrzędnym](master-shape-animation.png)
 
-Następny przykład buduje samą hierarchię placeholderów. Dodaje efekty do placeholdera mastera, placeholdera układu i odpowiadającego placeholdera na slajdzie zwykłym. Każde wywołanie [Shape.get_base_placeholder](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/get_base_placeholder/) jest sprawdzane przed użyciem zwróconego kształtu.
+Kolejny przykład buduje samą hierarchię symboli zastępczych. Dodaje efekty do symbolu głównego, symbolu układu i odpowiadającego mu symbolu na normalnym slajdzie. Każde wywołanie [Shape.get_base_placeholder](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/get_base_placeholder/) jest sprawdzane przed użyciem zwróconego kształtu.
 
 ```python
 import aspose.slides as slides
@@ -181,19 +183,19 @@ with slides.Presentation() as presentation:
     presentation.save("placeholder-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Zmiana czasu trwania animacji**
+## **Zmiana czasu animacji**
 
-Dialog PowerPoint **Timing** odpowiada właściwościom klasy [Timing](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/).
+Okno dialogowe PowerPoint **Timing** odpowiada właściwościom [Timing](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/).
 
-![Dialog Timing w PowerPoint dla efektu animacji](shape-animation.png)
+![Okno dialogowe PowerPoint Timing dla efektu animacji](shape-animation.png)
 
-- **Start** odpowiada [Timing.trigger_type](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/trigger_type/),
-- **Duration** odpowiada [Timing.duration](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/duration/), w sekundach,
-- **Delay** odpowiada [Timing.trigger_delay_time](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/trigger_delay_time/), w sekundach,
-- **Repeat** odpowiada [Timing.repeat_count](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/repeat_count/), [Timing.repeat_until_next_click](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/repeat_until_next_click/) lub [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/repeat_until_end_slide/),
+- **Start** odpowiada [Timing.trigger_type](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/trigger_type/).
+- **Duration** odpowiada [Timing.duration](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/duration/), w sekundach.
+- **Delay** odpowiada [Timing.trigger_delay_time](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/trigger_delay_time/), w sekundach.
+- **Repeat** odpowiada [Timing.repeat_count](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/repeat_count/), [Timing.repeat_until_next_click](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/repeat_until_next_click/), lub [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/repeat_until_end_slide/).
 - **Rewind when done playing** odpowiada [Timing.rewind](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/rewind/).
 
-Ten niezależny przykład dodaje efekt, zmienia jego czas przy pomocy obiektu zwróconego przez [Sequence.add_effect](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/sequence/add_effect/), i zapisuje wynik. Przechowywanie zwróconego odwołania do [Effect](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effect/) eliminuje konieczność niepotrzebnego indeksowania kolekcji.
+Ten niezależny przykład dodaje efekt, zmienia jego czas za pośrednictwem obiektu zwróconego przez [Sequence.add_effect](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/sequence/add_effect/), i zapisuje wynik. Przechowywanie zwróconego odnośnika do [Effect](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effect/) zapobiega niepotrzebnemu odwołaniu do indeksu kolekcji.
 
 ```python
 import aspose.slides as slides
@@ -216,15 +218,15 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-timing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Używaj jednego trybu powtarzania celowo. Łączenie liczby powtórzeń z flagą „until” może prowadzić do niejasnych rezultatów w różnych odtwarzaczach. Przy zmianie trybu powtarzania najpierw ustaw [Timing.repeat_until_next_click](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/repeat_until_next_click/) i [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/repeat_until_end_slide/), a dopiero potem [Timing.repeat_count](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/repeat_count/), ponieważ ustawienie jednej z flag automatycznie zmienia aktywny tryb powtarzania.
+Używaj jednego trybu powtarzania zamierzenie. Łączenie liczby powtórzeń z flagą „until” może powodować mylące wyniki w różnych odtwarzaczach. Przy zmianie trybów powtarzania najpierw ustaw [Timing.repeat_until_next_click](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/repeat_until_next_click/) i [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/repeat_until_end_slide/), a dopiero potem [Timing.repeat_count](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/timing/repeat_count/), ponieważ ustawienie którejkolwiek flagi zmienia także aktywny tryb powtarzania.
 
 ## **Dodawanie i wyodrębnianie dźwięków animacji**
 
-Efekt animacji może odwoływać się do osadzonego audio za pośrednictwem [Effect.sound](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effect/sound/). Metoda [Effect.stop_previous_sound](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effect/stop_previous_sound/) instruuje efekt, aby zatrzymał dźwięk rozpoczęty przez wcześniejszy efekt.
+Efekt animacji może odwoływać się do osadzonego dźwięku za pośrednictwem [Effect.sound](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effect/sound/). [Effect.stop_previous_sound](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effect/stop_previous_sound/) instruuje efekt, aby zatrzymał dźwięk rozpoczęty przez wcześniejszy efekt.
 
-### **Dodanie dźwięku do efektu**
+### **Dodaj dźwięk do efektu**
 
-Poniższy przykład zakłada, że w katalogu znajduje się lokalny plik audio `animation-sound.wav`. Tworzy dwa efekty, osadza ten plik jako dźwięk pierwszego efektu i konfiguruje drugi efekt tak, aby zatrzymywał dźwięk. Używa obiektów zwróconych przez [Sequence.add_effect](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/sequence/add_effect/), więc nie jest wymagany indeks sekwencji.
+Poniższy przykład oczekuje lokalnego pliku audio o nazwie `animation-sound.wav`. Tworzy dwa efekty, osadza ten plik jako dźwięk dla pierwszego efektu i konfiguruje drugi efekt, aby zatrzymał dźwięk. Używa obiektów zwróconych przez [Sequence.add_effect](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/sequence/add_effect/), więc nie jest wymagany indeks sekwencji.
 
 ```python
 import aspose.slides as slides
@@ -250,9 +252,9 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-sound.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Wyodrębnianie osadzonych dźwięków efektów**
+### **Wyodrębnij osadzone dźwięki efektów**
 
-Poniższy przykład oczekuje lokalnej prezentacji `presentation-with-animation-sounds.pptx`. Przeszukuje zarówno główne, jak i interaktywne sekwencje i zapisuje każdy osadzony dźwięk efektu do katalogu `extracted-animation-sounds`. Rozszerzenie pliku jest wybierane na podstawie typu MIME audio udostępnionego przez [Audio.content_type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audio/content_type/).
+Poniższy przykład oczekuje lokalnej prezentacji o nazwie `presentation-with-animation-sounds.pptx`. Przeszukuje zarówno główne, jak i interaktywne sekwencje i zapisuje każdy osadzony dźwięk efektu do katalogu `extracted-animation-sounds`. Rozszerzenie jest wybierane na podstawie typu MIME audio udostępnianego przez [Audio.content_type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audio/content_type/).
 
 ```python
 import os
@@ -306,15 +308,15 @@ with slides.Presentation(input_path) as presentation:
 print(f"Extracted {sound_index - 1} sound file(s) to {os.path.abspath(output_directory)}.")
 ```
 
-W przypadku dużych obiektów audio użyj [Audio.get_stream](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audio/get_stream/) i skopiuj strumień do pliku zamiast ładować cały obiekt do tablicy bajtów.
+Dla dużych obiektów audio użyj [Audio.get_stream](https://reference.aspose.com/slides/pl/python-net/aspose.slides/audio/get_stream/) i skopiuj strumień do pliku zamiast ładować cały obiekt do tablicy bajtów.
 
-## **Ustawienie zachowania po zakończeniu animacji**
+## **Ustaw zachowanie po animacji**
 
-Opcja **After animation** określa, co sta się z kształtem po zakończeniu jego efektu.
+Opcja **After animation** kontroluje, co się dzieje z kształtem po zakończeniu jego efektu.
 
-![Dialog opcji efektu w PowerPoint pokazujący ustawienia After animation](shape-after-animation.png)
+![Okno dialogowe PowerPoint Effect Options pokazujące ustawienia After animation](shape-after-animation.png)
 
-Wyliczenie [AfterAnimationType](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/afteranimationtype/) umożliwia pozostawienie kształtu niezmienionego, zmianę jego koloru, ukrycie po animacji lub ukrycie przy następnym kliknięciu. Gdy typ jest [AfterAnimationType.COLOR](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/afteranimationtype/), należy także ustawić [Effect.after_animation_color](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effect/after_animation_color/).
+Wyliczenie [AfterAnimationType](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/afteranimationtype/) obsługuje pozostawienie kształtu niezmienionego, zmianę jego koloru, ukrycie go po animacji lub ukrycie przy następnym kliknięciu. Gdy typ to [AfterAnimationType.COLOR](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/afteranimationtype/), ustaw także [Effect.after_animation_color](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effect/after_animation_color/).
 
 Ten niezależny przykład tworzy efekt, ustawia jego zachowanie po animacji poprzez zwrócony obiekt efektu i zapisuje wynik.
 
@@ -335,16 +337,16 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-after-effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Zmiana typu z [AfterAnimationType.COLOR](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/afteranimationtype/) usuwa ustawienie koloru po animacji.
+Zmienienie typu z [AfterAnimationType.COLOR](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/afteranimationtype/) usuwa ustawienie koloru po animacji.
 
-## **Animacja tekstu**
+## **Animowanie tekstu**
 
-Animacja tekstu posiada dwa powiązane elementy sterujące:
+Animacja tekstu ma dwa powiązane kontrolki:
 
-- [TextAnimation.build_type](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/textanimation/build_type/) określa, czy akapity pojawiają się razem, czy poziomowo,
-- [Effect.animate_text_type](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effect/animate_text_type/) określa, czy tekst pojawia się jednocześnie, słowo po słowie lub litera po literze. [Effect.delay_between_text_parts](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effect/delay_between_text_parts/) ustawia opóźnienie między słowami lub literami. Wartość dodatnia jest procentem czasu trwania efektu; wartość ujemna oznacza opóźnienie w sekundach.
+- [TextAnimation.build_type](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/textanimation/build_type/) kontroluje, czy akapity pojawiają się razem, czy poziomowo.
+- [Effect.animate_text_type](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effect/animate_text_type/) kontroluje, czy tekst pojawia się jednocześnie, słowo po słowie lub litera po literze. [Effect.delay_between_text_parts](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/effect/delay_between_text_parts/) ustawia opóźnienie między słowami lub literami. Wartość dodatnia to procent czasu trwania efektu; wartość ujemna to opóźnienie w sekundach.
 
-Poniższy niezależny przykład animuje słowa w polu tekstowym. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/buildtype/) wyłącza budowanie akapit po akapicie, dzięki czemu ustawienie słów obowiązuje dla całej ramki tekstowej.
+Poniższy niezależny przykład animuje słowa w polu tekstowym. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/buildtype/) wyłącza budowanie akapit po akapicie, tak aby ustawienie słowa obowiązywało dla całej ramki tekstowej.
 
 ```python
 import aspose.slides as slides
@@ -363,26 +365,26 @@ with slides.Presentation() as presentation:
     presentation.save("animated-text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Aby budować pole tekstowe akapit po akapicie, ustaw [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/buildtype/) (lub inny poziom akapitu). Aby skierować pojedynczy akapit z własnym efektem, użyj przeciążenia [Sequence.add_effect](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/sequence/add_effect/), które przyjmuje [IParagraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iparagraph/). Zobacz [Animated Text](/slides/pl/python-net/animated-text/) dla przykładów na poziomie akapitu.
+Aby budować pole tekstowe akapit po akapicie, ustaw [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/buildtype/) (lub inny poziom akapitu). Aby skierować pojedynczy akapit z własnym efektem, użyj przeciążenia [Sequence.add_effect](https://reference.aspose.com/slides/pl/python-net/aspose.slides.animation/sequence/add_effect/), które przyjmuje [IParagraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iparagraph/). Zobacz [Animated Text](/slides/pl/python-net/animated-text/) po przykłady na poziomie akapitu.
 
-## **Eksport i uwagi dotyczące kompatybilności**
+## **Uwagi dotyczące eksportu i kompatybilności**
 
-- Zapis do formatu PPT lub PPTX zachowuje model animacji, ale ostateczne odtwarzanie zależy od używanego odtwarzacza prezentacji.
-- PDF i obrazy statyczne nie odtwarzają animacji. Użyj [eksportu do HTML5](/slides/pl/python-net/export-to-html5/), animowanego GIF‑a lub [konwersji do wideo](/slides/pl/python-net/convert-powerpoint-to-video/), gdy wyjście musi zawierać ruch.
-- Dla HTML5 włącz [Html5Options.animate_shapes](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/html5options/animate_shapes/) oraz, w razie potrzeby, [Html5Options.animate_transitions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/html5options/animate_transitions/).
-- Renderowanie wideo obsługuje wiele typowych efektów wejścia, podkreślenia, wyjścia i ścieżek ruchu, ale nie wszystkie efekty PowerPoint są obsługiwane. Sprawdź aktualną listę [obsługiwanych animacji i efektów](/slides/pl/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) i przetestuj krytyczne prezentacje w docelowej wersji Aspose.Slides.
-- Zaawansowane efekty niestandardowe oraz efekty zaimportowane z innych formatów mogą być zachowane w pliku, ale renderowane inaczej w PowerPoint, HTML5 lub wideo. Zweryfikuj wyeksportowany rezultat, zamiast polegać wyłącznie na nazwie efektu.
+- Zapis do PPT lub PPTX zachowuje model animacji, ale ostateczne odtwarzanie kontrolowane jest przez przeglądarkę prezentacji.
+- PDF i obrazy statyczne nie odtwarzają animacji. Użyj [HTML5 export](/slides/pl/python-net/export-to-html5/), animowanego GIFa lub [video conversion](/slides/pl/python-net/convert-powerpoint-to-video/), gdy wyjście musi pokazywać ruch.
+- Dla HTML5 włącz [Html5Options.animate_shapes](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/html5options/animate_shapes/) i, w razie potrzeby, [Html5Options.animate_transitions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/html5options/animate_transitions/).
+- Renderowanie wideo obsługuje wiele popularnych efektów wejścia, podkreślenia, wyjścia i ścieżek ruchu, ale nie każdy efekt PowerPoint jest obsługiwany. Sprawdź aktualną listę [supported animations and effects](/slides/pl/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) i przetestuj krytyczne prezentacje z wersją Aspose.Slides, której używasz.
+- Zaawansowane efekty niestandardowe oraz efekty importowane z innych formatów prezentacji mogą być zachowane w pliku, ale renderowane inaczej w PowerPoint, HTML5 lub wideo. Zweryfikuj wyeksportowany wynik, zamiast polegać wyłącznie na nazwie efektu.
 
 ## **FAQ**
 
 **Dlaczego animacja pojawia się w PowerPoint, a nie w PDF?**
 
-PDF jest formatem statycznym, więc animacje i przejścia slajdów nie są odtwarzane. Eksportuj do HTML5, animowanego GIF‑a lub wideo, gdy ruch musi zostać zachowany.
+PDF jest formatem statycznym, więc animacje i przejścia slajdów nie są odtwarzane. Eksportuj do HTML5, animowanego GIFa lub wideo, gdy ruch musi być zachowany.
 
 **Dlaczego efekt odtwarzany jest inaczej w wideo?**
 
-Eksport do wideo renderuje animacje zamiast przechowywać pierwotne zachowanie PowerPoint. Niektóre zaawansowane efekty nie są obsługiwane lub są przybliżane. Przejrzyj tabelę obsługiwanych efektów i przetestuj rzeczywistą prezentację przed użyciem w produkcji.
+Eksport wideo renderuje animacje zamiast przechowywać oryginalne zachowanie PowerPoint. Niektóre zaawansowane efekty nie są obsługiwane lub są przybliżane. Przejrzyj tabelę obsługiwanych efektów i przetestuj rzeczywistą prezentację przed użyciem produkcyjnym.
 
 **Czy przeniesienie kształtu do przodu lub do tyłu zmienia kolejność jego animacji?**
 
-Nie. Kolejność warstw (z‑order) kontroluje nakładanie się kształtów, natomiast kolejność sekwencji i wyzwalacze kontrolują odtwarzanie animacji. Zmień oś czasu, jeśli potrzebna jest inna kolejność odtwarzania.
+Nie. Z‑order kształtu kontroluje nakładanie się, natomiast kolejność w sekwencji i wyzwalacze kontrolują odtwarzanie animacji. Zmień oś czasu, jeśli potrzebna jest inna kolejność odtwarzania.
