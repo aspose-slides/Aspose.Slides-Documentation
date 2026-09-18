@@ -1,5 +1,5 @@
 ---
-title: Tillämpa formanimationer i presentationer med Python via Java
+title: Applicera formanimationer i presentationer med Python via Java
 linktitle: Formanimation
 type: docs
 weight: 60
@@ -10,35 +10,37 @@ keywords:
 - effekt
 - animerad form
 - animerad text
-- lägga till animation
+- lägg till animation
 - hämta animation
 - extrahera animation
-- lägga till effekt
+- lägg till effekt
 - hämta effekt
 - extrahera effekt
-- effektsound
+- effektljud
 - tillämpa animation
 - PowerPoint
 - presentation
 - Python
 - Java
 - Aspose.Slides
-description: "Lär dig hur du lägger till, granskar och anpassar formanimationer, timing, ljud, efter‑animationsbeteende och animerad text med Aspose.Slides för Python via Java."
+description: "Lär dig hur du lägger till, granskar och anpassar formanimationer, timing, ljud, efter‑animation‑beteende samt animerad text med Aspose.Slides för Python via Java."
 ---
 ## **Översikt**
 
-Aspose.Slides for Python via Java representerar bildanimationer som effekter i en bildtidslinje. En effekt har ett målobjekt, en animationstyp och undertyp, en trigger, tidsinställningar samt valfria egenskaper såsom ljud eller efter‑animationsbeteende.
+För att arbeta med de individuella beteendena i en effekt eller redigera rörelsespårsegment, se [Anpassad animation](/slides/sv/python-java/custom-animation/).
+
+Aspose.Slides for Python via Java representerar bildanimationer som effekter i en bildtidslinje. En effekt har en målform, en animationstyp och -subtyp, en trigger, tidsinställningar och valfria egenskaper såsom ljud eller efter‑animation‑beteende.
 
 Tidslinjen innehåller två typer av sekvenser:
 
-- Den **huvudsekvensen** spelas när bilden avancerar.
-- En **interaktiv sekvens** startar när dess trigger‑form klickas.
+- **Huvudsekvensen** spelas när bilden fortskrider.
+- En **interaktiv sekvens** startar när dess triggerform klickas.
 
-Eftersom textrutor, bilder, diagram, tabeller och andra bildobjekt härstammar från [Shape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shape/), använder du samma [Sequence.addEffect](https://reference.aspose.com/slides/sv/python-java/aspose.slides/sequence/#addEffect) metod för det mesta av bildinnehållet. De tillgängliga effekterna listas i klassen [EffectType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effecttype/).
+Eftersom textrutor, bilder, diagram, tabeller och andra slide‑objekt ärver från [Shape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shape/), använder du samma metod [Sequence.addEffect](https://reference.aspose.com/slides/sv/python-java/aspose.slides/sequence/#addEffect) för de flesta slide‑innehåll. Tillgängliga effekter listas i klassen [EffectType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effecttype/).
 
 ## **Lägg till formanimationer**
 
-För att lägga till en animation, hämta bildens huvudsekvens och anropa [Sequence.addEffect](https://reference.aspose.com/slides/sv/python-java/aspose.slides/sequence/#addEffect) med målformen, effekt‑typ, undertyp och trigger. För en effekt som startar när en annan form klickas, skapa en interaktiv sekvens vars trigger är den andra formen.
+För att lägga till en animation, hämta bildens huvudsekvens och anropa [Sequence.addEffect](https://reference.aspose.com/slides/sv/python-java/aspose.slides/sequence/#addEffect) med målformen, effekt‑typen, subtypen och triggern. För en effekt som startar när en annan form klickas, skapa en interaktiv sekvens vars trigger är den andra formen.
 
 Följande exempel skapar båda typerna av animation och sparar resultatet till `shape-animations.pptx`.
 
@@ -75,15 +77,17 @@ finally:
 
 Triggern styr när en effekt startar:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effecttriggertype/#OnClick) väntar på ett klick i huvudsekvensen, eller på ett klick på trigger‑formen i en interaktiv sekvens.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effecttriggertype/#OnClick) väntar på ett klick i huvudsekvensen, eller på ett klick på triggerformen i en interaktiv sekvens.
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effecttriggertype/#WithPrevious) startar med föregående effekt.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effecttriggertype/#AfterPrevious) startar när föregående effekt slutar.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effecttriggertype/#AfterPrevious) startar när föregående effekt avslutas.
 
-För att animera en bild, ett diagram eller en annan formtyp, skicka det objektet till [Sequence.addEffect](https://reference.aspose.com/slides/sv/python-java/aspose.slides/sequence/#addEffect) istället för `target_shape`. För diagramspecifika grupperingsalternativ, se [Animera diagram](/slides/sv/python-java/animated-charts/).
+För att animera en bild, ett diagram eller en annan formtyp, skicka det objektet till [Sequence.addEffect](https://reference.aspose.com/slides/sv/python-java/aspose.slides/sequence/#addEffect) istället för `target_shape`. För diagram‑specifika grupperingsalternativ, se [Animated Charts](/slides/sv/python-java/animated-charts/).
 
 ## **Läs formanimationer**
 
-Använd [Sequence.getEffectsByShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/sequence/#getEffectsByShape) när du känner till målformen. För att inspektera varje effekt, enumerera huvudsekvensen och varje interaktiv sekvens. Enumerering undviker antagandet att en sekvens innehåller en effekt på index `0`.
+Använd [Sequence.getEffectsByShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/sequence/#getEffectsByShape) när du vet målformen. För att inspektera varje effekt, enumerera huvudsekvensen och varje interaktiv sekvens. Enumeration undviker antagandet att en sekvens innehåller en effekt på index `0`.
+
+Följande exempel skapar en form med huvud‑ och interaktiva effekter, hämtar effekterna som riktar sig mot formen och enumererar sedan varje sekvens på bilden.
 
 ```python
 import jpype
@@ -138,15 +142,17 @@ Om du bara behöver effekterna för en form, identifiera först formen efter nam
 
 ## **Arbeta med ärvda platshållareffekter**
 
-En platshållare på en normal bild kan ärva animationsbeteende från motsvarande platshållare på dess layout‑bild och mastern. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shape/#getBasePlaceholder) returnerar den överordnade platshållaren, eller `None` när ingen förälder finns.
+En platshållare på en normal bild kan ärva animationsbeteende från motsvarande platshållare på dess layout‑bild och mästarbild. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shape/#getBasePlaceholder) returnerar den överordnade platshållaren, eller `None` när ingen förälder finns.
 
-I den följande exempelpresentationen har sidfoten **Random Bars** på den vanliga bilden, **Split** på layout‑bilden och **Fly In** på mastern.
+I följande exempelpresentation har footern **Random Bars** på den normala bilden, **Split** på layout‑bilden och **Fly In** på mästarbilden.
 
-![Fotanimationseffekt på den vanliga bilden](slide-shape-animation.png)
-![Fotplatshållareffekt på layout‑bilden](layout-shape-animation.png)
-![Fotplatshållareffekt på mastern](master-shape-animation.png)
+![Footer‑animeringseffekt på den normala bilden](slide-shape-animation.png)
 
-Nästa exempel använder en platshållar‑hierarki från en ny presentation. Det lägger till effekter på en master‑platshållare, en layout‑platshållare och motsvarande platshållare på en normal bild. Varje anrop till [Shape.getBasePlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shape/#getBasePlaceholder) kontrolleras innan den returnerade formen används.
+![Footer‑platshållareffekt på layout‑bilden](layout-shape-animation.png)
+
+![Footer‑platshållareffekt på mästarbilden](master-shape-animation.png)
+
+Nästa exempel använder en platshållar‑hierarki från en ny presentation. Det lägger till effekter på en mästar‑platshållare, en layout‑platshållare och motsvarande platshållare på en normal bild. Varje anrop till [Shape.getBasePlaceholder](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shape/#getBasePlaceholder) kontrolleras innan den returnerade formen används.
 
 ```python
 import jpype
@@ -208,19 +214,19 @@ finally:
     presentation.dispose()
 ```
 
-## **Ändra animationstiming**
+## **Ändra animeringstiming**
 
-PowerPoint‑dialogen **Timing** motsvarar egenskaperna i [Timing](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/).
+PowerPoint **Timing**‑dialogen motsvarar egenskaperna i [Timing](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/).
 
-![PowerPoint Timing‑dialog för en animationseffekt](shape-animation.png)
+![PowerPoint Timing dialog för en animationseffekt](shape-animation.png)
 
-- **Start** mappar till [Timing.getTriggerType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#getTriggerType).
-- **Varaktighet** mappar till [Timing.getDuration](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#getDuration), i sekunder.
-- **Fördröjning** mappar till [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#getTriggerDelayTime), i sekunder.
-- **Upprepning** mappar till [Timing.getRepeatCount](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#getRepeatUntilNextClick) eller [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#getRepeatUntilEndSlide).
-- **Spola tillbaka när uppspelning är klar** mappar till [Timing.getRewind](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#getRewind).
+- **Start** motsvarar [Timing.getTriggerType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#getTriggerType).
+- **Duration** motsvarar [Timing.getDuration](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#getDuration) i sekunder.
+- **Delay** motsvarar [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#getTriggerDelayTime) i sekunder.
+- **Repeat** motsvarar [Timing.getRepeatCount](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#getRepeatUntilNextClick) eller [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#getRepeatUntilEndSlide).
+- **Rewind when done playing** motsvarar [Timing.getRewind](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#getRewind).
 
-Detta fristående exempel lägger till en effekt, ändrar dess timing via objektet som returneras av [Sequence.addEffect](https://reference.aspose.com/slides/sv/python-java/aspose.slides/sequence/#addEffect), och sparar resultatet. Att behålla den returnerade [Effect](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effect/)‑referensen undviker ett onödigt samlingsindex.
+Detta oberoende exempel lägger till en effekt, ändrar dess timing via objektet som returneras av [Sequence.addEffect](https://reference.aspose.com/slides/sv/python-java/aspose.slides/sequence/#addEffect) och sparar resultatet. Att behålla den returnerade [Effect](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effect/)‑referensen undviker en onödig samlings‑indexering.
 
 ```python
 import jpype
@@ -251,15 +257,15 @@ finally:
     presentation.dispose()
 ```
 
-Använd ett upprepningsläge med avsikt. Att kombinera ett upprepningsantal med ett ”until”‑flagg kan ge förvirrande resultat i olika visare. När du ändrar upprepningslägen, sätt [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#setRepeatUntilNextClick) och [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) innan du anropar [Timing.setRepeatCount](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#setRepeatCount), eftersom inställning av något av flaggorna också ändrar det aktiva upprepningsläget.
+Använd ett upprepningsläge med avsikt. Att kombinera ett repetitionsantal med ett ”tills”-flagga kan ge förvirrande resultat i olika visare. När du ändrar repetitionslägen, anropa först [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#setRepeatUntilNextClick) och [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) innan du anropar [Timing.setRepeatCount](https://reference.aspose.com/slides/sv/python-java/aspose.slides/timing/#setRepeatCount), eftersom inställning av någon av flaggorna också ändrar det aktiva repetitionsläget.
 
 ## **Lägg till och extrahera animationsljud**
 
-En animationseffekt kan referera till inbäddat ljud via [Effect.getSound](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effect/#setStopPreviousSound) talar om för en effekt att stoppa ljud som startats av en tidigare effekt.
+En animationseffekt kan referera inbäddat ljud via [Effect.getSound](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effect/#setStopPreviousSound) instruerar en effekt att stoppa ljud som startats av en tidigare effekt.
 
 ### **Lägg till ett ljud till en effekt**
 
-Följande exempel förutsätter en lokal ljudfil med namnet `animation-sound.wav`. Det skapar två effekter, bäddar in filen som ljud för den första effekten och konfigurerar den andra effekten att stoppa ljudet. Det använder objekten som returneras av [Sequence.addEffect](https://reference.aspose.com/slides/sv/python-java/aspose.slides/sequence/#addEffect), så inget sekvensindex behövs.
+Följande exempel förväntar sig en lokal ljudfil med namnet `animation-sound.wav`. Det skapar två effekter, bäddar in den filen som ljud för den första effekten och konfigurerar den andra effekten att stoppa ljudet. Det använder de objekt som returneras av [Sequence.addEffect], så inget sekvens‑index behövs.
 
 ```python
 import jpype
@@ -295,7 +301,7 @@ finally:
 
 ### **Extrahera inbäddade effektljud**
 
-Följande exempel förutsätter en lokal presentation med namnet `presentation-with-animation-sounds.pptx`. Det skannar både huvud‑ och interaktiva sekvenser och skriver varje inbäddat effektljud till katalogen `extracted-animation-sounds`. Filändelsen väljs utifrån ljud‑MIME‑typen som exponeras av [Audio.getContentType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/audio/#getContentType).
+Följande exempel förväntar sig en lokal presentation med namnet `presentation-with-animation-sounds.pptx`. Det skannar både huvud‑ och interaktiva sekvenser och skriver varje inbäddat effektljud till katalogen `extracted-animation-sounds`. Filändelsen väljs utifrån ljud‑MIME‑typen som exponeras av [Audio.getContentType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/audio/#getContentType).
 
 ```python
 import jpype
@@ -349,17 +355,17 @@ finally:
     presentation.dispose()
 ```
 
-För stora ljudobjekt, använd [Audio.getStream](https://reference.aspose.com/slides/sv/python-java/aspose.slides/audio/#getStream) och kopiera strömmen till en fil istället för att ladda hela objektet i en byte‑array.
+För stora ljudobjekt, använd [Audio.getStream](https://reference.aspose.com/slides/sv/python-java/aspose.slides/audio/#getStream) och kopiera strömmen till en fil istället för att läsa in hela objektet i en byte‑array.
 
-## **Ställ in efter‑animationsbeteende**
+## **Ange efter‑animation‑beteende**
 
-Alternativet **After animation** styr vad som händer med en form när dess effekt avslutas.
+**Efter animation**‑alternativet styr vad som händer med en form efter att dess effekt har avslutats.
 
-![PowerPoint Effektalternativdialog som visar efter‑animationsinställningar](shape-after-animation.png)
+![PowerPoint Effect Options dialog showing After animation settings](shape-after-animation.png)
 
-Klassen [AfterAnimationType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/afteranimationtype/) stödjer att låta formen vara oförändrad, ändra dess färg, dölja den efter animationen eller dölja den vid nästa klick. När typen är [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/python-java/aspose.slides/afteranimationtype/#Color), sätt även [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effect/#getAfterAnimationColor).
+Klassen [AfterAnimationType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/afteranimationtype/) stödjer att låta formen förbli oförändrad, ändra dess färg, dölja den efter animationen eller dölja den vid nästa klick. När typen är [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/python-java/aspose.slides/afteranimationtype/#Color) ska även [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effect/#getAfterAnimationColor) sättas.
 
-Detta fristående exempel skapar en effekt, sätter dess efter‑animationsbeteende via det returnerade effekt‑objektet, och sparar resultatet.
+Detta oberoende exempel skapar en effekt, anger dess efter‑animation‑beteende via det returnerade effekt‑objektet och sparar resultatet.
 
 ```python
 import jpype
@@ -386,16 +392,16 @@ finally:
     presentation.dispose()
 ```
 
-Att byta typ från [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/python-java/aspose.slides/afteranimationtype/#Color) rensar inställningen för efter‑animationsfärgen.
+Att ändra typen från [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/python-java/aspose.slides/afteranimationtype/#Color) rensar efter‑animation‑färginställningen.
 
 ## **Animera text**
 
 Textanimation har två relaterade kontroller:
 
-- [TextAnimation.getBuildType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/textanimation/#getBuildType) styr om stycken visas tillsammans eller på styckesnivå.
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/textanimation/#getBuildType) styr om stycken visas tillsammans eller på styckennivå.
 - [Effect.getAnimateTextType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effect/#getAnimateTextType) styr om text visas på en gång, ord för ord eller bokstav för bokstav. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/sv/python-java/aspose.slides/effect/#getDelayBetweenTextParts) anger fördröjningen mellan ord eller bokstäver. Ett positivt värde är en procentandel av effektens varaktighet; ett negativt värde är en fördröjning i sekunder.
 
-Följande fristående exempel animerar orden i en textruta. [BuildType.AsOneObject](https://reference.aspose.com/slides/sv/python-java/aspose.slides/buildtype/#AsOneObject) inaktiverar byggande stycke för stycke så att ordinställningen gäller för hela textramen.
+Följande oberoende exempel animera orden i en textruta. [BuildType.AsOneObject](https://reference.aspose.com/slides/sv/python-java/aspose.slides/buildtype/#AsOneObject) inaktiverar stycke‑för‑stycke‑byggnad så att ordinställningen gäller för hela textramen.
 
 ```python
 import jpype
@@ -422,17 +428,17 @@ finally:
     presentation.dispose()
 ```
 
-För att bygga en textruta stycke för stycke, sätt [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/sv/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) (eller en annan styckesnivå). För att rikta en enskild paragraf med egen effekt, använd överlagringen av [Sequence.addEffect](https://reference.aspose.com/slides/sv/python-java/aspose.slides/sequence/#addEffect) som accepterar ett [Paragraph](https://reference.aspose.com/slides/sv/python-java/aspose.slides/paragraph/). Se [Animera text](/slides/sv/python-java/animated-text/) för exempel på styckesnivå.
+För att bygga en textruta stycke för stycke, sätt [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/sv/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) (eller en annan styckennivå). För att rikta en enskild paragraf med egen effekt, använd överlagringen av [Sequence.addEffect] som accepterar ett [Paragraph](https://reference.aspose.com/slides/sv/python-java/aspose.slides/paragraph/). Se [Animated Text](/slides/sv/python-java/animated-text/) för exempel på styckennivå.
 
-## **Export- och kompatibilitetsanteckningar**
+## **Export‑ och kompatibilitetsnoteringar**
 
-- Att spara som PPT eller PPTX bevarar animationsmodellen, men den slutgiltiga uppspelningen styrs av presentationsvisaren.
-- PDF och statiska bilder spelar inte upp animationer. Använd [HTML5‑export](/slides/sv/python-java/export-to-html5/), animerad GIF eller [videokonvertering](/slides/sv/python-java/convert-powerpoint-to-video/) när utdata måste visa rörelse.
+- Att spara till PPT eller PPTX bevarar animationsmodellen, men den slutgiltiga uppspelningen styrs av presentationsvisaren.
+- PDF och statiska bilder spelar inga animationer. Använd [HTML5 export](/slides/sv/python-java/export-to-html5/), animerad GIF eller [video conversion](/slides/sv/python-java/convert-powerpoint-to-video/) när utskriften måste visa rörelse.
 - För HTML5, aktivera [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/sv/python-java/aspose.slides/html5options/#setAnimateShapes) och, vid behov, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/html5options/#setAnimateTransitions).
-- Videorendering stöder många vanliga inträde-, betoning-, utgångs‑ och rörelsesök‑effekter, men inte varje PowerPoint‑effekt stöds. Kontrollera de aktuella [stödda animationerna och effekterna](/slides/sv/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) och testa kritiska presentationer med din mål‑Aspose.Slides‑version.
-- Avancerade anpassade effekter och effekter importerade från andra presentationsformat kan bevaras i filen men renderas annorlunda i PowerPoint, HTML5 eller video. Validera det exporterade resultatet snarare än att enbart lita på effektens namn.
+- Videorendering stödjer många vanliga inträde-, betoning-, avslutnings‑ och rörelse‑ban‑effekter, men inte varje PowerPoint‑effekt stöds. Kontrollera de aktuella [supported animations and effects](/slides/sv/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) och testa kritiska presentationer med din mål‑Aspose.Slides‑version.
+- Avancerade anpassade effekter och effekter importerade från andra presentationsformat kan bevaras i filen men renderas annorlunda i PowerPoint, HTML5 eller video. Validera det exporterade resultatet snarare än att förlita sig enbart på effektens namn.
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Varför visas en animation i PowerPoint men inte i en PDF?**
 
@@ -440,8 +446,8 @@ PDF är ett statiskt format, så animationer och bildövergångar spelas inte up
 
 **Varför spelas en effekt annorlunda i en video?**
 
-Video‑export renderar animationer istället för att lagra det ursprungliga PowerPoint‑beteendet. Vissa avancerade effekter stöds inte eller approximeras. Granska tabellen över stödda effekter och testa den faktiska presentationen innan produktionsanvändning.
+Videoexport renderar animationer istället för att lagra det ursprungliga PowerPoint‑beteendet. Vissa avancerade effekter stöds inte eller approximeras. Granska tabellen med stödda effekter och testa den faktiska presentationen innan produktion.
 
-**Ändrar flyttning av en form framåt eller bakåt dess animationsordning?**
+**Är det så att flytta en form framåt eller bakåt ändrar dess animationsordning?**
 
-Nej. Formens z‑ordning styr överlappning, medan sekvensordning och trigger styr animationsuppspelning. Ändra tidslinjen om du behöver en annan uppspelningsordning.
+Nej. Formens z‑ordning styr överlappning, medan sekvensordning och triggers styr animeringsuppspelning. Ändra tidslinjen om du behöver en annan uppspelningsordning.

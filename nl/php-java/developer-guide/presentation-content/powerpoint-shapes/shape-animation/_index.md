@@ -1,5 +1,5 @@
 ---
-title: Toepassen van Vormanimaties in Presentaties met PHP
+title: Vormanimaties toepassen in presentaties met PHP
 linktitle: Vormanimatie
 type: docs
 weight: 60
@@ -16,7 +16,7 @@ keywords:
 - effect toevoegen
 - effect ophalen
 - effect extraheren
-- geluidseffect
+- effectgeluid
 - animatie toepassen
 - PowerPoint
 - presentatie
@@ -26,20 +26,22 @@ description: "Leer hoe u vormanimaties, timing, geluiden, gedrag na animatie en 
 ---
 ## **Overzicht**
 
-Aspose.Slides voor PHP via Java stelt dia‑animaties voor als effecten in een diatijdlijn. Een effect heeft een doelvorm, een animatietype en subtype, een trigger, timing‑instellingen en optionele eigenschappen zoals geluid of gedrag na de animatie.
+Om te werken met de individuele gedragingen binnen een effect of om motion‑path‑segmenten te bewerken, zie [Aangepaste animatie](/slides/nl/php-java/custom-animation/).
+
+Aspose.Slides for PHP via Java vertegenwoordigt dia‑animaties als effecten in een diatijdlijn. Een effect heeft een doelvorm, een animatietype en subtype, een trigger, timing‑instellingen en optionele eigenschappen zoals geluid of gedrag na de animatie.
 
 De tijdlijn bevat twee soorten sequenties:
 
 - De **hoofdsequentie** speelt af terwijl de dia vordert.
-- Een **interactieve sequentie** start wanneer de triggervorm wordt aangeklikt.
+- Een **interactieve sequentie** start wanneer de trigger‑vorm wordt aangeklikt.
 
-Omdat tekstvakken, afbeeldingen, grafieken, tabellen en andere dia‑objecten vormen zijn, gebruik je dezelfde [Sequence::addEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/sequence/addeffect/) methode voor de meeste dia‑inhoud. De beschikbare effecten staan opgesomd in de klasse [EffectType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effecttype/).
+Omdat tekstvakken, afbeeldingen, grafieken, tabellen en andere dia‑objecten vormen zijn, gebruik je dezelfde [Sequence::addEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/sequence/addeffect/) methode voor de meeste dia‑inhoud. De beschikbare effecten staan vermeld in de [EffectType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effecttype/) klasse.
 
 ## **Vormanimaties toevoegen**
 
 Om een animatie toe te voegen, haal je de hoofdsequentie van de dia op en roep je [Sequence::addEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/sequence/addeffect/) aan met de doelvorm, het effecttype, subtype en trigger. Voor een effect dat start wanneer een andere vorm wordt aangeklikt, maak je een interactieve sequentie aan waarvan de trigger die andere vorm is.
 
-Het volgende voorbeeld maakt beide soorten animatie en slaat het resultaat op als `shape-animations.pptx`.
+Het volgende voorbeeld maakt beide soorten animatie aan en slaat het resultaat op in `shape-animations.pptx`.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -74,17 +76,17 @@ try {
 
 De trigger bepaalt wanneer een effect start:
 
-- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effecttriggertype/) wacht op een klik in de hoofdsequentie, of op een klik op de triggervorm in een interactieve sequentie.
-- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effecttriggertype/) start gelijktijdig met het vorige effect.
-- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effecttriggertype/) start wanneer het vorige effect eindigt.
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effecttriggertype/) wacht op een klik in de hoofdsequentie, of op een klik op de trigger‑vorm in een interactieve sequentie.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effecttriggertype/) start samen met het vorige effect.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effecttriggertype/) start wanneer het vorige effect voltooid is.
 
-Om een afbeelding, grafiek of een ander type vorm te animeren, geef je dat object door aan [Sequence::addEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/sequence/addeffect/) in plaats van `$targetShape`. Voor grafiek‑specifieke groepeer‑opties, zie [Animated Charts](/slides/nl/php-java/animated-charts/).
+Om een afbeelding, grafiek of een ander vormtype te animeren, geef je dat object door aan [Sequence::addEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/sequence/addeffect/) in plaats van `$targetShape`. Voor specifieke groepeeropties voor grafieken, zie [Geanimeerde grafieken](/slides/nl/php-java/animated-charts/).
 
 ## **Vormanimaties lezen**
 
-Gebruik [Sequence::getEffectsByShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/sequence/geteffectsbyshape/) wanneer je de doelvorm kent. Om elk effect te inspecteren, enumerateer je de hoofdsequentie en elke interactieve sequentie. Enumeratie voorkomt de veronderstelling dat een sequentie een effect bevat op index `0`.
+Gebruik [Sequence::getEffectsByShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/sequence/geteffectsbyshape/) wanneer je de doelvorm kent. Om elk effect te inspecteren, doorloop je de hoofdsequentie en elke interactieve sequentie. Enumeratie voorkomt de veronderstelling dat een sequentie een effect bevat op index `0`.
 
-Het volgende voorbeeld maakt een vorm met hoofd‑sequentie‑ en interactieve effecten, haalt de effecten op die op de vorm zijn gericht, en enumerateert vervolgens elke sequentie op de dia.
+Het volgende voorbeeld maakt een vorm met hoofd‑ en interactieve effecten, haalt de effecten op die op de vorm zijn gericht, en doorloopt vervolgens elke sequentie op de dia.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -144,21 +146,21 @@ try {
 }
 ```
 
-Als je alleen de effecten voor één vorm nodig hebt, identificeer dan eerst de vorm op naam, placeholder‑type of een andere stabiele eigenschap; roep daarna [Sequence::getEffectsByShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/sequence/geteffectsbyshape/) aan. Neem niet aan dat [ShapeCollection::get_Item](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shapecollection/get_item/) op index `0` altijd het beoogde object is.
+Als je alleen de effecten voor één vorm nodig hebt, identificeer dan eerst de vorm op naam, placeholder‑type of een andere stabiele eigenschap; roep daarna [Sequence::getEffectsByShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/sequence/geteffectsbyshape/) aan. Ga niet uit van het feit dat [ShapeCollection::get_Item](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shapecollection/get_item/) op index `0` altijd het beoogde object is.
 
 ## **Werken met geërfde placeholder‑effecten**
 
-Een placeholder op een normale dia kan animatiegedrag overnemen van de overeenkomstige placeholder op de lay‑outdia en de master‑dia. [Shape::getBasePlaceholder](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/getbaseplaceholder/) retourneert die bovenliggende placeholder, of `null` wanneer er geen bovenliggend element bestaat.
+Een placeholder op een normale dia kan animatiegedrag erven van de overeenkomstige placeholder op de lay‑out‑dia en master‑dia. [Shape::getBasePlaceholder](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/getbaseplaceholder/) retourneert die bovenliggende placeholder, of `null` wanneer er geen bovenligger bestaat.
 
-In de volgende voorbeeldpresentatie heeft de voettekst **Random Bars** op de normale dia, **Split** op de lay‑outdia en **Fly In** op de master‑dia.
+In de volgende voorbeeldpresentatie heeft de voettekst **Random Bars** op de normale dia, **Split** op de lay‑out‑dia en **Fly In** op de master‑dia.
 
-![Voettekstanimatie‑effect op de normale dia](slide-shape-animation.png)
+![Voettekst animatie-effect op de normale dia](slide-shape-animation.png)
 
-![Voettekst‑placeholder‑animatie‑effect op de lay‑outdia](layout-shape-animation.png)
+![Voettekst placeholder animatie-effect op de lay‑out‑dia](layout-shape-animation.png)
 
-![Voettekst‑placeholder‑animatie‑effect op de master‑dia](master-shape-animation.png)
+![Voettekst placeholder animatie-effect op de master‑dia](master-shape-animation.png)
 
-Het volgende voorbeeld gebruikt een placeholder‑hiërarchie uit een nieuwe presentatie. Het voegt effecten toe aan een master‑placeholder, een lay‑out‑placeholder en de overeenkomstige placeholder op een normale dia. Elke oproep van [Shape::getBasePlaceholder](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/getbaseplaceholder/) wordt gecontroleerd voordat de geretourneerde vorm wordt gebruikt.
+Het volgende voorbeeld gebruikt een placeholder‑hiërarchie van een nieuwe presentatie. Het voegt effecten toe aan een master‑placeholder, een lay‑out‑placeholder en de overeenkomstige placeholder op een normale dia. Elke oproep naar [Shape::getBasePlaceholder](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/getbaseplaceholder/) wordt gecontroleerd voordat de geretourneerde vorm wordt gebruikt.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -250,7 +252,7 @@ try {
 
 Het PowerPoint **Timing**‑dialoogvenster correspondeert met de eigenschappen van [Timing](https://reference.aspose.com/slides/nl/php-java/aspose.slides/timing/).
 
-![PowerPoint Timing‑dialoogvenster voor een animatie‑effect](shape-animation.png)
+![PowerPoint Timing dialoog voor een animatie‑effect](shape-animation.png)
 
 - **Start** correspondeert met [Timing::getTriggerType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/timing/gettriggertype/).
 - **Duur** correspondeert met [Timing::getDuration](https://reference.aspose.com/slides/nl/php-java/aspose.slides/timing/getduration/), in seconden.
@@ -258,7 +260,7 @@ Het PowerPoint **Timing**‑dialoogvenster correspondeert met de eigenschappen v
 - **Herhalen** correspondeert met [Timing::getRepeatCount](https://reference.aspose.com/slides/nl/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/nl/php-java/aspose.slides/timing/getrepeatuntilnextclick/), of [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/timing/getrepeatuntilendslide/).
 - **Terugspoelen na afspelen** correspondeert met [Timing::getRewind](https://reference.aspose.com/slides/nl/php-java/aspose.slides/timing/getrewind/).
 
-Dit zelfstandige voorbeeld voegt een effect toe, wijzigt de timing via het object dat wordt geretourneerd door [Sequence::addEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/sequence/addeffect/), en slaat het resultaat op. Het behouden van de geretourneerde [Effect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effect/) referentie voorkomt een onnodige collectie‑index.
+Dit zelfstandige voorbeeld voegt een effect toe, wijzigt de timing via het object dat wordt geretourneerd door [Sequence::addEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/sequence/addeffect/), en slaat het resultaat op. Het behouden van de geretourneerde [Effect]‑referentie voorkomt een onnodige collectie‑index.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -289,15 +291,15 @@ try {
 }
 ```
 
-Gebruik bewust één herhaal‑modus. Het combineren van een herhaaltaantal met een „until“-vlag kan verwarrende resultaten opleveren in verschillende weergaveprogramma's. Bij het wijzigen van herhaal‑modi, stel eerst [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/nl/php-java/aspose.slides/timing/setrepeatuntilnextclick/) en [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/timing/setrepeatuntilendslide/) in vóór [Timing::setRepeatCount](https://reference.aspose.com/slides/nl/php-java/aspose.slides/timing/setrepeatcount/), omdat het instellen van een van beide vlaggen ook de actieve herhaal‑modus wijzigt.
+Gebruik bewust één herhaal‑modus. Het combineren van een herhaal‑aantal met een “until”‑vlag kan verwarrende resultaten geven in verschillende viewers. Bij het wijzigen van herhaal‑modi, stel [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/nl/php-java/aspose.slides/timing/setrepeatuntilnextclick/) en [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/timing/setrepeatuntilendslide/) in vóór [Timing::setRepeatCount](https://reference.aspose.com/slides/nl/php-java/aspose.slides/timing/setrepeatcount/), omdat het instellen van een van de vlaggen ook de actieve herhaal‑modus wijzigt.
 
 ## **Animatiegeluiden toevoegen en extraheren**
 
-Een animatie‑effect kan via [Effect::getSound](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effect/getsound/) naar ingesloten audio verwijzen. [Effect::setStopPreviousSound](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effect/setstopprevioussound/) instrueert een effect om audio te stoppen die door een eerder effect is gestart.
+Een animatie‑effect kan verwijzen naar ingesloten audio via [Effect::getSound](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effect/getsound/). [Effect::setStopPreviousSound](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effect/setstopprevioussound/) geeft een effect de opdracht om audio te stoppen die door een eerder effect is gestart.
 
-### **Geluid toevoegen aan een effect**
+### **Een geluid aan een effect toevoegen**
 
-Het volgende voorbeeld verwacht een lokaal audiobestand met de naam `animation-sound.wav`. Het maakt twee effecten, embedt dat bestand als geluid voor het eerste effect en configureert het tweede effect om het geluid te stoppen. Het gebruikt de objecten die worden geretourneerd door [Sequence::addEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/sequence/addeffect/), dus er is geen sequentie‑index nodig.
+Het volgende voorbeeld verwacht een lokaal audiobestand met de naam `animation-sound.wav`. Het maakt twee effecten, embed het bestand als geluid voor het eerste effect, en configureert het tweede effect om het geluid te stoppen. Het gebruikt de objecten die worden geretourneerd door [Sequence::addEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/sequence/addeffect/), dus een sequentie‑index is niet nodig.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -336,7 +338,7 @@ try {
 
 ### **Ingesloten effectgeluiden extraheren**
 
-Het volgende voorbeeld verwacht een lokale presentatie met de naam `presentation-with-animation-sounds.pptx`. Het scant zowel de hoofd‑ als de interactieve sequenties en schrijft elk ingesloten effectgeluid naar de map `extracted-animation-sounds`. De extensie wordt gekozen op basis van het audio‑MIME‑type dat wordt blootgesteld door [Audio::getContentType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/audio/getcontenttype/).
+Het volgende voorbeeld verwacht een lokale presentatie met de naam `presentation-with-animation-sounds.pptx`. Het scant zowel de hoofd‑ als de interactieve sequenties en schrijft elk ingesloten effectgeluid naar de `extracted-animation-sounds` map. De extensie wordt gekozen op basis van het audio‑MIME‑type dat wordt blootgesteld door [Audio::getContentType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/audio/getcontenttype/).
 
 ```php
 use aspose\slides\Presentation;
@@ -422,15 +424,15 @@ try {
 
 Voor grote audio‑objecten, gebruik [Audio::getStream](https://reference.aspose.com/slides/nl/php-java/aspose.slides/audio/getstream/) en kopieer de stream naar een bestand in plaats van het volledige object in een byte‑array te laden.
 
-## **Nabewerkingsgedrag instellen**
+## **Gedrag na animatie instellen**
 
-De optie **After animation** bepaalt wat er met een vorm gebeurt nadat het effect is voltooid.
+De **After animation**‑optie bepaalt wat er met een vorm gebeurt nadat het effect is voltooid.
 
-![PowerPoint Effect‑opties dialoogvenster waar de After‑animation‑instellingen worden getoond](shape-after-animation.png)
+![PowerPoint Effecten‑opties‑dialoog die After‑animatie‑instellingen toont](shape-after-animation.png)
 
-De klasse [AfterAnimationType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/afteranimationtype/) ondersteunt het onveranderd laten van de vorm, het wijzigen van de kleur, het verbergen na de animatie, of het verbergen bij de volgende klik. Wanneer het type [AfterAnimationType::Color](https://reference.aspose.com/slides/nl/php-java/aspose.slides/afteranimationtype/) is, stel ook [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effect/getafteranimationcolor/) in.
+De [AfterAnimationType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/afteranimationtype/) klasse ondersteunt het ongewijzigd laten van de vorm, het wijzigen van de kleur, het verbergen ervan na de animatie, of het verbergen bij de volgende klik. Wanneer het type [AfterAnimationType::Color](https://reference.aspose.com/slides/nl/php-java/aspose.slides/afteranimationtype/) is, stel dan ook [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effect/getafteranimationcolor/) in.
 
-Dit zelfstandige voorbeeld maakt een effect, stelt het nabewerkingsgedrag in via het geretourneerde effect‑object, en slaat het resultaat op.
+Dit zelfstandige voorbeeld maakt een effect, stelt het gedrag na de animatie in via het geretourneerde effect‑object, en slaat het resultaat op.
 
 ```php
 use aspose\slides\AfterAnimationType;
@@ -457,16 +459,16 @@ try {
 }
 ```
 
-Het veranderen van het type van [AfterAnimationType::Color](https://reference.aspose.com/slides/nl/php-java/aspose.slides/afteranimationtype/) wist de After‑animation‑kleurinstelling.
+Het wijzigen van het type van [AfterAnimationType::Color](https://reference.aspose.com/slides/nl/php-java/aspose.slides/afteranimationtype/) wist de after‑animation‑kleurinstelling.
 
 ## **Tekst animeren**
 
 Tekstanimatie heeft twee gerelateerde instellingen:
 
 - [TextAnimation::getBuildType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/textanimation/getbuildtype/) bepaalt of alinea's samen verschijnen of per alinea‑niveau.
-- [Effect::getAnimateTextType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effect/getanimatetexttype/) bepaalt of tekst in één keer, woord voor woord, of letter voor letter verschijnt. [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effect/getdelaybetweentextparts/) stelt de vertraging tussen woorden of letters in. Een positieve waarde is een percentage van de effectduur; een negatieve waarde is een vertraging in seconden.
+- [Effect::getAnimateTextType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effect/getanimatetexttype/) bepaalt of tekst in één keer, per woord, of per letter verschijnt. [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/nl/php-java/aspose.slides/effect/getdelaybetweentextparts/) stelt de vertraging tussen woorden of letters in. Een positieve waarde is een percentage van de effectduur; een negatieve waarde is een vertraging in seconden.
 
-Het volgende zelfstandige voorbeeld animeert de woorden in een tekstvak. [BuildType::AsOneObject](https://reference.aspose.com/slides/nl/php-java/aspose.slides/buildtype/) schakelt paragrafen‑per‑paragraaf bouwen uit, zodat de woordinstelling geldt voor het gehele tekstframe.
+Het volgende zelfstandige voorbeeld animeert de woorden in een tekstvak. [BuildType::AsOneObject](https://reference.aspose.com/slides/nl/php-java/aspose.slides/buildtype/) schakelt het per‑alinea‑bouwen uit zodat de woordinstelling op het volledige tekstkader wordt toegepast.
 
 ```php
 use aspose\slides\AnimateTextType;
@@ -495,26 +497,26 @@ try {
 }
 ```
 
-Om een tekstvak per alinea op te bouwen, stel je [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/nl/php-java/aspose.slides/buildtype/) (of een ander alinea‑niveau) in. Om een enkele alinea met een eigen effect te targeten, gebruik je de overload van [Sequence::addEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/sequence/addeffect/) die een [Paragraph](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraph/) accepteert. Zie [Animated Text](/slides/nl/php-java/animated-text/) voor voorbeelden op alinea‑niveau.
+Om een tekstvak per alinea op te bouwen, stel je [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/nl/php-java/aspose.slides/buildtype/) (of een ander alinea‑niveau) in. Om een enkele alinea met een eigen effect te targeten, gebruik je de [Sequence::addEffect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/sequence/addeffect/) overload die een [Paragraph](https://reference.aspose.com/slides/nl/php-java/aspose.slides/paragraph/) accepteert. Zie [Geanimeerde tekst](/slides/nl/php-java/animated-text/) voor voorbeelden op alinea‑niveau.
 
 ## **Export‑ en compatibiliteitsopmerkingen**
 
-- Het opslaan naar PPT of PPTX behoudt het animatiemodel, maar de uiteindelijke weergave wordt beheerd door de presentatiewĳzer.
-- PDF en statische afbeeldingen spelen geen animaties af. Gebruik [HTML5 export](/slides/nl/php-java/export-to-html5/), een geanimeerde GIF, of [video conversion](/slides/nl/php-java/convert-powerpoint-to-video/) wanneer de output beweging moet tonen.
+- Opslaan als PPT of PPTX behoudt het animatiemodel, maar de uiteindelijke weergave wordt bepaald door de presentatiewerker.
+- PDF en statische afbeeldingen spelen geen animaties af. Gebruik [HTML5 export](/slides/nl/php-java/export-to-html5/), een geanimeerde GIF, of [videoconversie](/slides/nl/php-java/convert-powerpoint-to-video/) wanneer de uitvoer beweging moet tonen.
 - Voor HTML5, schakel [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/nl/php-java/aspose.slides/html5options/setanimateshapes/) in en, indien nodig, [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/html5options/setanimatetransitions/).
-- Videoweergave ondersteunt vele veelvoorkomende in‑, nadruk‑, uit‑ en bewegings‑pad‑effecten, maar niet elk PowerPoint‑effect wordt ondersteund. Controleer de huidige [supported animations and effects](/slides/nl/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) en test kritieke presentaties met uw target Aspose.Slides‑versie.
-- Gevorderde aangepaste effecten en effecten geïmporteerd uit andere presentaties kunnen in het bestand worden bewaard maar anders worden gerenderd in PowerPoint, HTML5 of video. Valideer het geëxporteerde resultaat in plaats van alleen op de effectnaam te vertrouwen.
+- Video‑rendering ondersteunt veel gangbare ingang-, nadruk-, uitgang- en motion‑path‑effecten, maar niet elk PowerPoint‑effect wordt ondersteund. Controleer de actuele [ondersteunde animaties en effecten](/slides/nl/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) en test kritieke presentaties met de beoogde versie van Aspose.Slides.
+- Geavanceerde aangepaste effecten en effecten die geïmporteerd zijn uit andere presentaties‑formaten kunnen in het bestand bewaard blijven maar anders worden weergegeven in PowerPoint, HTML5 of video. Valideer het geëxporteerde resultaat in plaats van alleen op de effectnaam te vertrouwen.
 
 ## **FAQ**
 
 **Waarom verschijnt een animatie in PowerPoint maar niet in een PDF?**
 
-PDF is een statisch formaat, dus animaties en dia‑overgangen worden niet afgespeeld. Exporteer naar HTML5, een geanimeerde GIF, of video wanneer beweging behouden moet blijven.
+PDF is een statisch formaat, dus animaties en dia‑overgangen worden niet afgespeeld. Exporteer naar HTML5, een geanimeerde GIF of video wanneer beweging moet worden behouden.
 
 **Waarom wordt een effect anders afgespeeld in een video?**
 
-Video‑export rendert animaties in plaats van het oorspronkelijke PowerPoint‑gedrag op te slaan. Sommige geavanceerde effecten worden niet ondersteund of benaderd. Bekijk de tabel met ondersteunde effecten en test de daadwerkelijke presentatie vóór productiegebruik.
+Video‑export rendert animaties in plaats van het oorspronkelijke PowerPoint‑gedrag op te slaan. Sommige geavanceerde effecten worden niet ondersteund of benaderd. Bekijk de tabel met ondersteunde effecten en test de daadwerkelijke presentatie vóór productie.
 
 **Verandert het naar voren of naar achteren verplaatsen van een vorm haar animatievolgorde?**
 
-Nee. De z‑volgorde van de vorm bepaalt de overlappende weergave, terwijl de volgorde van de sequentie en triggers de animatie‑afspeelvolgorde bepalen. Pas de tijdlijn aan als je een andere afspeelvolgorde nodig hebt.
+Nee. De z‑volgorde van een vorm bepaalt de overlap, terwijl de volgorde van de sequentie en triggers de animatie‑afspeelvolgorde bepalen. Pas de tijdlijn aan als je een andere afspeelvolgorde nodig hebt.

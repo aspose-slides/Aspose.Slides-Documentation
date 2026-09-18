@@ -23,24 +23,26 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Android via Java 添加、检查和自定义形状动画、计时、声音、动画结束后行为以及动画文本。"
+description: "了解如何使用 Aspose.Slides for Android via Java 添加、检查和自定义形状动画、时间设置、声音、后动画行为以及动画文本。"
 ---
 ## **概述**
 
-Aspose.Slides for Android via Java 将幻灯片动画表示为幻灯片时间轴中的效果。每个效果具有目标形状、动画类型和子类型、触发器、计时设置以及诸如声音或动画结束后行为等可选属性。
+要处理效果内部的各个行为或编辑运动路径段，请参阅 [Java 自定义动画](/slides/zh/java/custom-animation/)。
+
+Aspose.Slides for Android via Java 将幻灯片动画表示为幻灯片时间轴中的效果。每个效果都有目标形状、动画类型和子类型、触发器、时间设置以及可选属性（如声音或后动画行为）。
 
 时间轴包含两种序列：
 
 - **主序列** 在幻灯片前进时播放。
-- **交互式序列** 在其触发形状被点击时启动。
+- **交互序列** 在其触发形状被点击时启动。
 
-由于文本框、图片、图表、表格和其他幻灯片对象实现了[IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/)，您可以对大多数幻灯片内容使用相同的[ISequence.addEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) 方法。可用的效果列在[EffectType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/effecttype/) 类中。
+由于文本框、图片、图表、表格等幻灯片对象实现了 [IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/)，因此对大多数幻灯片内容使用相同的 [ISequence.addEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) 方法。可用的效果列在 [EffectType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/effecttype/) 类中。
 
 ## **添加形状动画**
 
-要添加动画，获取幻灯片的主序列并调用[ISequence.addEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) ，传入目标形状、效果类型、子类型和触发器。对于在另一个形状被点击时启动的效果，创建一个触发器为该形状的交互式序列。
+要添加动画，获取幻灯片的主序列并调用 [ISequence.addEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) ，参数为目标形状、效果类型、子类型和触发器。对于在另一个形状被点击时启动的效果，创建一个触发器为该形状的交互序列。
 
-下面的示例创建了两种类型的动画并将结果保存为 `shape-animations.pptx`。
+下面的示例创建了两种动画并将结果保存为 `shape-animations.pptx`。
 
 ```java
 import com.aspose.slides.*;
@@ -72,19 +74,19 @@ public class AddShapeAnimations {
 }
 ```
 
-触发器控制效果何时开始：
+触发器决定效果何时开始：
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/effecttriggertype/#OnClick) 在主序列中等待点击，或在交互式序列中等待触发形状的点击。
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/effecttriggertype/#OnClick) 在主序列中等待点击，或在交互序列中等待对触发形状的点击。
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) 与前一个效果同时开始。
 - [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) 在前一个效果完成后开始。
 
-要为图片、图表或其他形状类型设置动画，请将该对象传递给[ISequence.addEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)，而不是 `targetShape`。有关图表特定的分组选项，请参阅[动画图表](/slides/zh/androidjava/animated-charts/)。
+要为图片、图表或其他形状类型添加动画，将该对象传递给 [ISequence.addEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) 而不是 `targetShape`。有关图表特定的分组选项，请参阅 [动画图表](/slides/zh/androidjava/animated-charts/)。
 
 ## **读取形状动画**
 
-当您已知目标形状时，使用[ISequence.getEffectsByShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-)。若要检查每个效果，请枚举主序列和所有交互式序列。枚举能够避免假设序列在索引 `0` 处一定存在效果。
+当已知目标形状时，使用 [ISequence.getEffectsByShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-)。要检查每个效果，遍历主序列以及所有交互序列。遍历可以避免假设序列在索引 `0` 处一定有效果。
 
-下面的示例创建了一个具有主序列和交互式效果的形状，获取针对该形状的效果，然后枚举幻灯片上的每个序列。
+下面的示例创建了一个具有主序列和交互效果的形状，获取针对该形状的效果，然后遍历幻灯片上的每个序列。
 
 ```java
 import com.aspose.slides.*;
@@ -138,21 +140,21 @@ public class ReadShapeAnimations {
 }
 ```
 
-如果只需要单个形状的效果，首先通过名称、占位符类型或其他稳定属性识别该形状；然后调用[ISequence.getEffectsByShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-)。不要假设[IShapeCollection.get_Item](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) 在索引 `0` 处始终是目标对象。
+如果只需要某个形状的效果，首先通过名称、占位符类型或其他稳定属性定位该形状；然后调用 [ISequence.getEffectsByShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-)。不要假设在索引 `0` 处的 [IShapeCollection.get_Item](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) 必定是目标对象。
 
-## **使用继承的占位符效果**
+## **处理继承的占位符效果**
 
-普通幻灯片上的占位符可以继承其版式幻灯片和母版上对应占位符的动画行为。[IShape.getBasePlaceholder](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) 返回该父占位符，若不存在父占位符则返回 `null`。
+普通幻灯片上的占位符可以继承其布局幻灯片和母版幻灯片上对应占位符的动画行为。 [IShape.getBasePlaceholder](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) 返回该父占位符；如果不存在父占位符，则返回 `null`。
 
-在下面的示例演示文稿中，页脚在普通幻灯片上使用 **Random Bars**，在版式幻灯片上使用 **Split**，在母版上使用 **Fly In**。
+在下面的示例演示文稿中，页脚在普通幻灯片上使用 **Random Bars**，在布局幻灯片上使用 **Split**，在母版幻灯片上使用 **Fly In**。
 
 ![普通幻灯片上的页脚动画效果](slide-shape-animation.png)
 
-![版式幻灯片上的页脚占位符动画效果](layout-shape-animation.png)
+![布局幻灯片上的页脚占位符动画效果](layout-shape-animation.png)
 
 ![母版幻灯片上的页脚占位符动画效果](master-shape-animation.png)
 
-下面的示例使用新演示文稿中的占位符层次结构。它向母版占位符、版式占位符以及普通幻灯片上的对应占位符添加效果。在使用返回的形状之前，都会检查[IShape.getBasePlaceholder](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) 的返回值。
+下一个示例使用新演示文稿中的占位符层次结构。它向母版占位符、布局占位符以及普通幻灯片上的相应占位符添加效果。每次在使用返回的形状之前都会检查 [IShape.getBasePlaceholder](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) 的返回值。
 
 ```java
 import com.aspose.slides.*;
@@ -230,19 +232,19 @@ public class InheritedPlaceholderAnimations {
 }
 ```
 
-## **更改动画时间**
+## **更改动画时间设置**
 
-PowerPoint **计时** 对话框映射到[ITiming](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/) 的属性。
+PowerPoint **Timing** 对话框对应 [ITiming](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/) 的属性。
 
-![动画效果的 PowerPoint 计时对话框](shape-animation.png)
+![PowerPoint 动画效果的 Timing 对话框](shape-animation.png)
 
-- **开始** 映射到[ITiming.getTriggerType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#getTriggerType--)。
-- **持续时间** 映射到[ITiming.getDuration](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#getDuration--)，单位为秒。
-- **延迟** 映射到[ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--)，单位为秒。
-- **重复** 映射到[ITiming.getRepeatCount](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#getRepeatCount--)、[ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--)或[ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--)。
-- **播放完成后倒带** 映射到[ITiming.getRewind](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#getRewind--)。
+- **Start** 对应 [ITiming.getTriggerType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#getTriggerType--)。
+- **Duration** 对应 [ITiming.getDuration](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#getDuration--)（秒）。
+- **Delay** 对应 [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--)（秒）。
+- **Repeat** 对应 [ITiming.getRepeatCount](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#getRepeatCount--)、[ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--) 或 [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--)。
+- **Rewind when done playing** 对应 [ITiming.getRewind](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#getRewind--)。
 
-此独立示例添加一个效果，通过[ISequence.addEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) 返回的对象更改其计时，并保存结果。保留返回的[IEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ieffect/) 引用可避免不必要的集合索引。
+此独立示例添加一个效果，通过 [ISequence.addEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) 返回的对象修改其时间设置，并保存结果。保留返回的 [IEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ieffect/) 引用可避免不必要的集合索引。
 
 ```java
 import com.aspose.slides.*;
@@ -272,15 +274,15 @@ public class ChangeAnimationTiming {
 }
 ```
 
-请有意使用一种重复模式。将重复计数与 “直到” 标志组合可能在不同的查看器中产生混乱的结果。更改重复模式时，请先调用[ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) 和 [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-)，再调用[ITiming.setRepeatCount](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-)，因为设置任一标志也会改变活动的重复模式。
+请仅使用一种重复模式。将重复计数与 “until” 标志组合可能在不同查看器中产生混乱的结果。更改重复模式时，先调用 [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) 与 [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-)，再调用 [ITiming.setRepeatCount](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-)；因为设置任一标志也会改变当前的重复模式。
 
 ## **添加和提取动画声音**
 
-动画效果可以通过[IEffect.getSound](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ieffect/#getSound--) 引用嵌入的音频。[IEffect.setStopPreviousSound](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) 告诉效果停止先前效果启动的音频。
+动画效果可以通过 [IEffect.getSound](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ieffect/#getSound--) 引用嵌入的音频。[IEffect.setStopPreviousSound](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) 用于让效果停止先前效果启动的音频。
 
-### **向效果添加声音**
+### **为效果添加声音**
 
-下面的示例需要一个名为 `animation-sound.wav` 的本地音频文件。它创建两个效果，将该文件嵌入为第一个效果的声音，并配置第二个效果停止该声音。示例使用[ISequence.addEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) 返回的对象，因此不需要序列索引。
+下面的示例需要一个名为 `animation-sound.wav` 的本地音频文件。它创建两个效果，将该文件嵌入为第一个效果的声音，并配置第二个效果停止该声音。它使用 [ISequence.addEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) 返回的对象，因此不需要序列索引。
 
 ```java
 import com.aspose.slides.*;
@@ -317,7 +319,7 @@ public class AddAnimationSound {
 
 ### **提取嵌入的效果声音**
 
-下面的示例需要一个名为 `presentation-with-animation-sounds.pptx` 的本地演示文稿。它扫描主序列和交互式序列，并将每个嵌入的效果声音写入 `extracted-animation-sounds` 目录。文件扩展名根据[IAudio.getContentType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iaudio/#getContentType--) 返回的音频 MIME 类型选择。
+下面的示例需要一个名为 `presentation-with-animation-sounds.pptx` 的本地演示文稿。它扫描主序列和交互序列，将每个嵌入的效果声音写入 `extracted-animation-sounds` 目录。扩展名根据 [IAudio.getContentType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iaudio/#getContentType--) 返回的音频 MIME 类型选择。
 
 ```java
 import com.aspose.slides.*;
@@ -391,17 +393,17 @@ public class ExtractAnimationSounds {
 }
 ```
 
-对于大型音频对象，请使用[IAudio.getStream](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iaudio/#getStream--) 并将流复制到文件，而不是将整个对象加载到字节数组中。
+对于大型音频对象，请使用 [IAudio.getStream](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iaudio/#getStream--) 并将流复制到文件，而不是将整个对象加载到字节数组中。
 
-## **设置动画结束后的行为**
+## **设置后动画行为**
 
-**After animation** 选项控制形状在其效果结束后会发生什么。
+**After animation** 选项控制形状在其效果完成后如何处理。
 
-![显示 After animation 设置的 PowerPoint 效果选项对话框](shape-after-animation.png)
+![PowerPoint 效果选项对话框显示 “After animation” 设置](shape-after-animation.png)
 
-[AfterAnimationType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/afteranimationtype/) 类支持保持形状不变、改变颜色、在动画后隐藏或在下一次点击时隐藏。当类型为[AfterAnimationType.Color](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/afteranimationtype/#Color) 时，还需设置[IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--)。
+[AfterAnimationType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/afteranimationtype/) 类支持保持形状不变、改变颜色、在动画后隐藏，或在下一次点击时隐藏。当类型为 [AfterAnimationType.Color](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/afteranimationtype/#Color) 时，还需要设置 [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--)。
 
-此独立示例创建一个效果，通过返回的效果对象设置其动画结束后行为，并保存结果。
+此独立示例创建一个效果，通过返回的效果对象设置其后动画行为，并保存结果。
 
 ```java
 import com.aspose.slides.*;
@@ -427,16 +429,16 @@ public class SetAfterAnimationBehavior {
 }
 ```
 
-将类型从[AfterAnimationType.Color](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/afteranimationtype/#Color) 更改为其他值会清除动画结束后的颜色设置。
+将类型更改为非 [AfterAnimationType.Color](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/afteranimationtype/#Color) 时，会清除后动画颜色设置。
 
 ## **动画文本**
 
 文本动画有两个相关控制：
 
-- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextanimation/#getBuildType--) 控制段落是整体出现还是按段落级别出现。
-- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) 控制文本是一次性出现、按单词还是按字母出现。[IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) 设置单词或字母之间的延迟。正值为效果持续时间的百分比，负值为秒数延迟。
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextanimation/#getBuildType--) 控制段落是一起出现还是逐段出现。
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) 控制文本是一次性出现、逐词还是逐字出现。[IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) 设置词或字之间的延迟。正值表示效果持续时间的百分比，负值表示秒数延迟。
 
-下面的独立示例对文本框中的单词进行动画。[BuildType.AsOneObject](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/buildtype/#AsOneObject) 禁用段落逐段构建，使单词设置适用于整个文本框。
+下面的独立示例为文本框中的单词添加动画。使用 [BuildType.AsOneObject](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/buildtype/#AsOneObject) 可关闭逐段构建，使单词设置适用于整个文本框。
 
 ```java
 import com.aspose.slides.*;
@@ -462,26 +464,26 @@ public class AnimateTextByWord {
 }
 ```
 
-若要按段落构建文本框，请设置[BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1)（或其他段落级别）。若要为单个段落单独设置效果，请使用接受[IParagraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraph/) 参数的[ISequence.addEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) 重载。有关段落级别示例，请参阅[动画文本](/slides/zh/androidjava/animated-text/)。
+若要按段落构建文本框，请设置 [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1)（或其他段落级别）。若要对单个段落使用独立效果，请使用接受 [IParagraph](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iparagraph/) 的 [ISequence.addEffect](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) 重载。有关段落级别示例，请参阅 [动画文本](/slides/zh/androidjava/animated-text/)。
 
-## **导出和兼容性说明**
+## **导出与兼容性说明**
 
 - 保存为 PPT 或 PPTX 会保留动画模型，但最终播放由演示文稿查看器控制。
-- PDF 和静态图像不播放动画。需要显示运动时，请使用[HTML5 导出](/slides/zh/androidjava/export-to-html5/)、动画 GIF 或[视频转换](/slides/zh/androidjava/convert-powerpoint-to-video/)。
-- 对于 HTML5，启用[Html5Options.setAnimateShapes](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-)；如需动画切换，还需启用[Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-)。
-- 视频渲染支持许多常见的进入、强调、退出和运动路径效果，但并非所有 PowerPoint 效果都受支持。请查看当前的[受支持动画和效果](/slides/zh/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) 并使用目标 Aspose.Slides 版本对关键演示文稿进行测试。
-- 高级自定义效果以及从其他演示文稿格式导入的效果可能在文件中保留，但在 PowerPoint、HTML5 或视频中呈现方式不同。请验证导出结果，而不仅依赖于效果名称。
+- PDF 和静态图像不会播放动画。需要展示运动时，请使用 [HTML5 导出](/slides/zh/androidjava/export-to-html5/)、动画 GIF 或 [视频转换](/slides/zh/androidjava/convert-powerpoint-to-video/)。
+- 对于 HTML5，启用 [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) ，在需要时还可启用 [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-)。
+- 视频渲染支持许多常见的进入、强调、退出和运动路径效果，但并非所有 PowerPoint 效果都受支持。请查看当前的 [受支持的动画和效果](/slides/zh/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) 并使用目标 Aspose.Slides 版本对关键演示文稿进行测试。
+- 高级自定义效果以及从其他演示文稿格式导入的效果可能会在文件中保留，但在 PowerPoint、HTML5 或视频中呈现方式不同。请验证导出结果，而不要仅依赖效果名称。
 
-## **常见问题**
+## **常见问题解答**
 
-**为什么动画在 PowerPoint 中可以看到，但在 PDF 中没有？**
+**为什么动画在 PowerPoint 中可见，但在 PDF 中不可见？**
 
-PDF 是静态格式，动画和幻灯片切换不会播放。需要保留运动时请导出为 HTML5、动画 GIF 或视频。
+PDF 是静态格式，动画和幻灯片切换不会播放。需要保留运动时，请导出为 HTML5、动画 GIF 或视频。
 
 **为什么同一效果在视频中播放效果不同？**
 
-视频导出会渲染动画，而不是存储原始 PowerPoint 行为。某些高级效果不受支持或被近似。请查阅受支持效果表并在生产使用前对实际演示文稿进行测试。
+视频导出会渲染动画，而不是存储原始 PowerPoint 行为。某些高级效果不受支持或会被近似。请查看受支持的效果表，并在生产使用前对实际演示文稿进行测试。
 
-**移动形状的前置或后置会改变其动画顺序吗？**
+**移动形状前后顺序会改变其动画播放顺序吗？**
 
-不会。形状的 Z 顺序控制覆盖关系，序列顺序和触发器控制动画播放。若需更改播放顺序，请调整时间轴。
+不会。形状的 Z 顺序控制重叠，序列顺序和触发器控制动画播放。若需更改播放顺序，请修改时间轴。

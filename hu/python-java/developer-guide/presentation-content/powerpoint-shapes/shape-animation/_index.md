@@ -1,6 +1,6 @@
 ---
-title: Alakzatanimációk alkalmazása prezentációkban Python (Java) használatával
-linktitle: Alakzat animáció
+title: Alakzatanimációk alkalmazása prezentációkban Python via Java segítségével
+linktitle: Alakzatanimáció
 type: docs
 weight: 60
 url: /hu/python-java/shape-animation/
@@ -11,36 +11,38 @@ keywords:
 - animált alakzat
 - animált szöveg
 - animáció hozzáadása
-- animáció lekérése
+- animáció lekérdezése
 - animáció kinyerése
 - effektus hozzáadása
-- effektus lekérése
+- effektus lekérdezése
 - effektus kinyerése
-- effektus hang
+- effektus hangja
 - animáció alkalmazása
 - PowerPoint
 - prezentáció
 - Python
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan adhat hozzá, ellenőrizhet és testre szabhat alakzatanimációkat, időzítést, hangokat, az animáció utáni viselkedést, valamint animált szöveget az Aspose.Slides for Python via Java segítségével."
+description: "Tanulja meg, hogyan adjon hozzá, vizsgáljon meg és testre szabjon alakzatanimációkat, időzítést, hangokat, az animáció utáni viselkedést és animált szöveget az Aspose.Slides for Python via Java segítségével."
 ---
 ## **Áttekintés**
 
-Aspose.Slides for Python via Java a diaanimációkat effektusokként ábrázolja egy diavető idővonalában. Egy effektusnak van célforma, animációtípusa és altípusa, egy aktiválója, időzítési beállításai, valamint opcionális tulajdonságai, például hang vagy animáció utáni viselkedés.
+Az egyes viselkedések egy effektuson belül való kezeléséhez vagy a mozgásút szegmensek szerkesztéséhez lásd a [Custom Animation](/slides/hu/python-java/custom-animation/) oldalt.
 
-Az idővonal kétféle szekvenciát tartalmaz:
+Az Aspose.Slides for Python via Java a diavetítések animációit effektusként ábrázolja egy diátimeline-ben. Egy effektusnak van cél alakzata, animáció típusa és altípusa, egy trigger, időzítési beállítások, valamint opcionális tulajdonságai, például hang vagy az animáció utáni viselkedés.
 
-- A **fő szekvencia** a dia előrehaladtával játszódik le.
-- Az **interaktív szekvencia** akkor indul, amikor a hozzá tartozó aktiváló forma rá van kattintva.
+A timeline kétféle szekvenciát tartalmaz:
 
-Mivel a szövegdobozok, képek, diagramok, táblázatok és egyéb diaképek a [Shape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/) típusból származnak, a legtöbb diaelemet a [Sequence.addEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sequence/#addEffect) metódussal kezelheted. A rendelkezésre álló effektusok a [EffectType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effecttype/) osztályban vannak felsorolva.
+- A **main sequence** a dia előrehaladtával lejátszódik.
+- Az **interactive sequence** akkor kezdődik, amikor a trigger alakzatát rákattintanak.
+
+Mivel a szövegdobozok, képek, diagramok, táblázatok és egyéb diaobjektumok a [Shape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/) osztályból származnak, a legtöbb diaelemnél ugyanazt a [Sequence.addEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sequence/#addEffect) metódust használhatod. Az elérhető effektusok a [EffectType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effecttype/) osztályban vannak felsorolva.
 
 ## **Alakzatanimációk hozzáadása**
 
-Animáció hozzáadásához vedd a dia fő szekvenciáját, és hívd meg a [Sequence.addEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sequence/#addEffect) metódust a célformával, effektustípussal, altípussal és aktiválóval. Olyan effektus esetén, amely egy másik forma kattintására kezdődik, hozz létre egy interaktív szekvenciát, amelynek aktiválója az a másik forma.
+Animáció hozzáadásához szerezd meg a dia fő szekvenciáját, és hívd meg a [Sequence.addEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sequence/#addEffect) metódust a cél alakzattal, effektustípussal, altípussal és triggerrel. Egy olyan effektushoz, amely egy másik alakzat kattintására indul, hozz létre egy interactive sequence‑t, amelynek a triggerje az a másik alakzat.
 
-A következő példa létrehozza mindkét típusú animációt, és elmenti az eredményt a `shape-animations.pptx` fájlba.
+Az alábbi példa létrehozza mindkét típusú animációt, és a `shape-animations.pptx` fájlba menti az eredményt.
 
 ```python
 import jpype
@@ -73,19 +75,19 @@ finally:
     presentation.dispose()
 ```
 
-A trigger szabályozza, mikor indul egy effektus:
+A trigger határozza meg, mikor kezdődik egy effektus:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effecttriggertype/#OnClick) a fő szekvenciában egy kattintásra vár, vagy egy interaktív szekvenciában a trigger formára kattintásra.
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effecttriggertype/#WithPrevious) az előző effektussal együtt kezdődik.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effecttriggertype/#AfterPrevious) akkor indul, amikor az előző effektus befejeződik.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effecttriggertype/#OnClick) a fő szekvenciában kattintásra vár, vagy egy interactive sequence‑ben a trigger alakzatra.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effecttriggertype/#WithPrevious) az előző effektussal együtt indul.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effecttriggertype/#AfterPrevious) az előző effektus befejezése után kezdődik.
 
-Kép, diagram vagy más alakzat animálásához add át azt az objektumot a [Sequence.addEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sequence/#addEffect) hívásnak a `target_shape` helyett. Diagram-specifikus csoportosítási beállításokért lásd a [Animated Charts](/slides/hu/python-java/animated-charts/) oldalt.
+Kép, diagram vagy más alakzat animálásához add át azt az objektumot a [Sequence.addEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sequence/#addEffect) metódusnak a `target_shape` helyett. Diagram-specifikus csoportosítási beállításokért lásd az [Animated Charts](/slides/hu/python-java/animated-charts/).
 
 ## **Alakzatanimációk olvasása**
 
-Használd a [Sequence.getEffectsByShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sequence/#getEffectsByShape) metódust, ha ismered a célformát. Minden effektus megtekintéséhez sorold fel a fő szekvenciát és minden interaktív szekvenciát. A felsorolás elkerüli azt a feltételezést, hogy egy szekvencia a `0` indexen tartalmaz effektust.
+Használd a [Sequence.getEffectsByShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sequence/#getEffectsByShape) metódust, ha ismered a cél alakzatot. Minden effektus megtekintéséhez sorold fel a fő szekvenciát és minden interactive sequence‑t. A felsorolás elkerüli annak feltételezését, hogy egy szekvencia a `0` indexű effektust tartalmazza.
 
-A következő példa egy alakzatot hoz létre fő-szekvenciás és interaktív effektusokkal, lekéri azok az effektusok, amelyek a alakzatra céloznak, majd felsorolja a dia minden szekvenciáját.
+Az alábbi példa létrehozza egy alakzatot fő‑ és interactive effektusokkal, lekéri a alakzatra mutató effektusokat, majd felsorolja a dia minden szekvenciáját.
 
 ```python
 import jpype
@@ -136,21 +138,21 @@ finally:
     presentation.dispose()
 ```
 
-Ha csak egy alakzathoz szükségesek az effektusok, először azonosítsd az alakzatot név, placeholder típus vagy más stabil tulajdonság alapján; ezután hívd a [Sequence.getEffectsByShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sequence/#getEffectsByShape) metódust. Ne feltételezd, hogy a [ShapeCollection.get_Item](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapecollection/#get_Item) a `0` indexen mindig a kívánt objektum.
+Ha csak egy alakzathoz szükségesek az effektusok, először azonosítsd az alakzatot név, helyőrző típus vagy más stabil tulajdonság alapján; ezután hívd meg a [Sequence.getEffectsByShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sequence/#getEffectsByShape) metódust. Ne feltételezd, hogy a [ShapeCollection.get_Item](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapecollection/#get_Item) a `0` indexen mindig a kívánt objektum.
 
-## **Örökölt placeholder effektusok kezelése**
+## **Örökölt helyőrző effektusok kezelése**
 
-Egy normál dián található placeholder örökölheti az animációs viselkedést a megfelelő placeholderről a layout dián és a mesterdián. A [Shape.getBasePlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getBasePlaceholder) visszaadja a szülő placeholdert, vagy `None`-t, ha nincs szülő.
+Egy normál dián található helyőrző örökölheti az animációs viselkedést a hozzá tartozó elrendezés‑ és mesterdián lévő helyőrzőtől. A [Shape.getBasePlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getBasePlaceholder) visszaadja ezt a szülőhelyőrzőt, vagy `None`‑t, ha nincs szülő.
 
-A következő példaprezentációban a lábléc **Random Bars** animációval rendelkezik a normál dián, **Split** animációval a layout dián és **Fly In** animációval a mesterdián.
+Az alábbi példaprezentációban a lábléc **Random Bars** animációval rendelkezik a normál dián, **Split**‑el az elrendezés‑dián, és **Fly In**‑el a mester‑dián.
 
 ![Lábléc animációs effektus a normál dián](slide-shape-animation.png)
 
-![Lábléc placeholder animációs effektus a layout dián](layout-shape-animation.png)
+![Lábléc helyőrző animációs effektus az elrendezés‑dián](layout-shape-animation.png)
 
-![Lábléc placeholder animációs effektus a mesterdián](master-shape-animation.png)
+![Lábléc helyőrző animációs effektus a mester‑dián](master-shape-animation.png)
 
-A következő példa egy új prezentáció placeholder hierarchiáját használja. Effektusokat ad egy mesterplaceholderhez, egy layout placeholderhez és a megfelelő placeholderhez a normál dián. Minden [Shape.getBasePlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getBasePlaceholder) hívás ellenőrzésre kerül, mielőtt a visszakapott forma felhasználásra kerül.
+A következő példa egy új prezentáció helyőrző‑hierarchiáját használja. Effektusokat ad egy mesterhelyőrzőhöz, egy elrendezéshelyőrzőhöz és a megfelelő helyőrzőhöz a normál dián. Minden [Shape.getBasePlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getBasePlaceholder) hívás előtt ellenőrzés történik, mielőtt a visszakapott alakzatot felhasználnák.
 
 ```python
 import jpype
@@ -218,13 +220,13 @@ A PowerPoint **Timing** párbeszédpanel a [Timing](https://reference.aspose.com
 
 ![PowerPoint Timing párbeszédpanel egy animációs effektushoz](shape-animation.png)
 
-- **Indítás** a [Timing.getTriggerType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#getTriggerType) -re mutat.
-- **Időtartam** a [Timing.getDuration](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#getDuration) -re mutat, másodpercben.
-- **Késleltetés** a [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#getTriggerDelayTime) -re mutat, másodpercben.
-- **Ismétlés** a [Timing.getRepeatCount](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#getRepeatCount), a [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#getRepeatUntilNextClick) vagy a [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#getRepeatUntilEndSlide) -re mutat.
-- **Visszatekerés lejátszás után** a [Timing.getRewind](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#getRewind) -re mutat.
+- **Start** a [Timing.getTriggerType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#getTriggerType) értékéhez van rendelve.
+- **Duration** a [Timing.getDuration](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#getDuration) értékéhez van rendelve, másodpercben.
+- **Delay** a [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#getTriggerDelayTime) értékéhez van rendelve, másodpercben.
+- **Repeat** a [Timing.getRepeatCount](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#getRepeatCount), a [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#getRepeatUntilNextClick) vagy a [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#getRepeatUntilEndSlide) értékéhez van rendelve.
+- **Rewind when done playing** a [Timing.getRewind](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#getRewind) értékéhez van rendelve.
 
-Ez a független példa egy effektust ad hozzá, módosítja annak időzítését a [Sequence.addEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sequence/#addEffect) által visszaadott objektumon keresztül, majd elmenti az eredményt. A visszakapott [Effect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effect/) hivatkozás megtartása elkerüli a felesleges gyűjtemény index használatát.
+Ez az önálló példa egy effektust ad hozzá, a [Sequence.addEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sequence/#addEffect) által visszaadott objektummal módosítja annak időzítését, és menti az eredményt. A visszakapott [Effect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effect/) hivatkozás megtartása elkerüli a felesleges kollekció‑index használatát.
 
 ```python
 import jpype
@@ -255,15 +257,15 @@ finally:
     presentation.dispose()
 ```
 
-Használj egy ismétlési módot szándékosan. Egy ismétlési szám és egy “until” jelző kombinálása zavaró eredményeket okozhat különböző megjelenítőkben. Ismétlési módok módosításakor állítsd be a [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#setRepeatUntilNextClick) és a [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) metódusokat a [Timing.setRepeatCount](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#setRepeatCount) előtt, mivel bármelyik jelző beállítása is módosítja az aktív ismétlési módot.
+Használj egy ismert ismétlési módot. Egy ismétlési szám és egy „until” (amíg) jelző kombinálása zavaró eredményeket produkálhat különböző lejátszókban. Ismétlési módok módosításakor állítsd be a [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#setRepeatUntilNextClick) és a [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) értékeket a [Timing.setRepeatCount](https://reference.aspose.com/slides/hu/python-java/aspose.slides/timing/#setRepeatCount) előtt, mivel bármelyik jelző beállítása megváltoztatja az aktív ismétlési módot.
 
 ## **Animációs hangok hozzáadása és kinyerése**
 
-Egy animációs effektus beágyazott hangot hivatkozhat a [Effect.getSound](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effect/#getSound) segítségével. A [Effect.setStopPreviousSound](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effect/#setStopPreviousSound) azt mondja az effektusnak, hogy állítsa le az előző effektus által elindított hangot.
+Egy animációs effektus beágyazott hangra hivatkozhat a [Effect.getSound](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effect/#getSound) segítségével. A [Effect.setStopPreviousSound](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effect/#setStopPreviousSound) azt mondja az effektusnak, hogy állítsa le az előző effektus által indított hangot.
 
 ### **Hang hozzáadása egy effektushoz**
 
-A következő példa egy helyi `animation-sound.wav` nevű hangfájlra számít. Két effektust hoz létre, az első effektus hangjaként beágyazza ezt a fájlt, és a második effektust úgy állítja be, hogy leállítsa a hangot. A [Sequence.addEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sequence/#addEffect) által visszaadott objektumokat használja, így nincs szükség szekvencia indexre.
+Az alábbi példa egy helyi `animation-sound.wav` nevű hangfájlt vár. Két effektust hoz létre, beágyazza a fájlt az első effektus hangjaként, és beállítja a második effektust a hang leállítására. A [Sequence.addEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sequence/#addEffect) által visszaadott objektumokat használja, ezért nincs szükség szekvencia‑indexre.
 
 ```python
 import jpype
@@ -299,7 +301,7 @@ finally:
 
 ### **Beágyazott effektus hangok kinyerése**
 
-A következő példa egy helyi `presentation-with-animation-sounds.pptx` nevű prezentációra számít. Átvizsgálja a fő és interaktív szekvenciákat, és minden beágyazott effektus hangot a `extracted-animation-sounds` könyvtárba ír. A kiterjesztést az [Audio.getContentType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audio/#getContentType) által megadott hang MIME-típus alapján választja.
+Az alábbi példa egy helyi `presentation-with-animation-sounds.pptx` nevű prezentációt vár. Átvizsgálja a fő és az interactive szekvenciákat, és minden beágyazott effektushangot a `extracted-animation-sounds` könyvtárba ír. A kiterjesztést az [Audio.getContentType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audio/#getContentType) által visszaadott audio MIME‑típus alapján választja.
 
 ```python
 import jpype
@@ -353,17 +355,17 @@ finally:
     presentation.dispose()
 ```
 
-Nagy hangobjektumok esetén használd az [Audio.getStream](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audio/#getStream) metódust, és másold a streamet fájlba a teljes objektum bájt tömbbe betöltése helyett.
+Nagy audioobjektumok esetén használd az [Audio.getStream](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audio/#getStream) metódust, és másold a streamet fájlba ahelyett, hogy az egész objektumot egy byte‑tömbbe töltenéd be.
 
-## **Animáció utáni viselkedés beállítása**
+## **Az animáció utáni viselkedés beállítása**
 
-Az **After animation** (Animáció után) opció azt szabályozza, mi történik egy alakzattal az effektus befejezése után.
+A **After animation** beállítás azt szabályozza, mi történik az alakzattal, amikor az effektus befejeződik.
 
-![PowerPoint Effektek beállítási párbeszédpanel az After animation beállításokkal](shape-after-animation.png)
+![PowerPoint Effect Options párbeszédpanel az After animation beállításokkal](shape-after-animation.png)
 
-A [AfterAnimationType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/afteranimationtype/) osztály támogatja az alakzat változatlanul hagyását, színének módosítását, az animáció után történő elrejtését, vagy a következő kattintásra történő elrejtését. Ha a típus [AfterAnimationType.Color](https://reference.aspose.com/slides/hu/python-java/aspose.slides/afteranimationtype/#Color), akkor a [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effect/#getAfterAnimationColor) is beállítható.
+Az [AfterAnimationType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/afteranimationtype/) osztály lehetővé teszi, hogy az alakzat változatlan maradjon, színe megváltozzon, az animáció után elrejtődjön, vagy a következő kattintásra tűnjön el. Ha a típus [AfterAnimationType.Color](https://reference.aspose.com/slides/hu/python-java/aspose.slides/afteranimationtype/#Color), akkor állítsd be a [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effect/#getAfterAnimationColor) értékét is.
 
-Ez a független példa egy effektust hoz létre, beállítja annak animáció utáni viselkedését a visszaadott effektus objektumon keresztül, majd elmenti az eredményt.
+Ez az önálló példa létrehoz egy effektust, a visszakapott effektusobjektummal beállítja az animáció utáni viselkedést, és elmenti az eredményt.
 
 ```python
 import jpype
@@ -390,16 +392,16 @@ finally:
     presentation.dispose()
 ```
 
-A [AfterAnimationType.Color](https://reference.aspose.com/slides/hu/python-java/aspose.slides/afteranimationtype/#Color) típusról való átváltás törli az animáció utáni színbeállítást.
+A [AfterAnimationType.Color](https://reference.aspose.com/slides/hu/python-java/aspose.slides/afteranimationtype/#Color) típus megváltoztatása törli az animáció utáni színbeállítást.
 
 ## **Szöveg animálása**
 
-A szöveg animáció két kapcsolódó vezérlővel rendelkezik:
+A szöveg animáció két kapcsolódó vezérléssel rendelkezik:
 
-- A [TextAnimation.getBuildType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textanimation/#getBuildType) szabályozza, hogy a bekezdések egyszerre vagy bekezdésenként jelenjenek meg.
-- A [Effect.getAnimateTextType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effect/#getAnimateTextType) szabályozza, hogy a szöveg egyszerre, szó szerint vagy betű szerint jelenjen meg. A [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effect/#getDelayBetweenTextParts) beállítja a szavak vagy betűk közti késleltetést. A pozitív érték az effektus időtartamának százalékában van, a negatív érték másodpercben.
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textanimation/#getBuildType) szabályozza, hogy a bekezdések egyszerre vagy bekezdésenként jelenjenek meg.
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effect/#getAnimateTextType) szabályozza, hogy a szöveg egyszerre, szó szerint vagy betű szerint jelenjen meg. A [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/hu/python-java/aspose.slides/effect/#getDelayBetweenTextParts) állítja be a szavak vagy betűk közötti késleltetést. A pozitív érték az effektus időtartamának százaléka; a negatív érték másodpercben megadott késleltetés.
 
-A következő független példa egy szövegdoboz szavait animálja. A [BuildType.AsOneObject](https://reference.aspose.com/slides/hu/python-java/aspose.slides/buildtype/#AsOneObject) letiltja a bekezdésenkénti építést, így a szó beállítás az egész szövegkeretre vonatkozik.
+Az alábbi önálló példa a szövegdoboz szavait animálja. A [BuildType.AsOneObject](https://reference.aspose.com/slides/hu/python-java/aspose.slides/buildtype/#AsOneObject) letiltja a bekezdésenkénti építést, így a szóbeállítás az egész szövegdobozra vonatkozik.
 
 ```python
 import jpype
@@ -426,26 +428,26 @@ finally:
     presentation.dispose()
 ```
 
-Szövegdoboz bekezdésenkénti építéséhez állítsd be a [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/hu/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) (vagy más bekezdés szintet). Egyetlen bekezdés saját effektussal történő célzásához használd a [Sequence.addEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sequence/#addEffect) olyan túlterhelését, amely [Paragraph](https://reference.aspose.com/slides/hu/python-java/aspose.slides/paragraph/) objektumot fogad el. Lásd a [Animated Text](/slides/hu/python-java/animated-text/) oldalt a bekezdés szintű példákért.
+A szövegdoboz bekezdésenkénti építéséhez állítsd be a [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/hu/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) (vagy másik bekezdés‑szintet). Egyetlen bekezdés saját effektusához használd a [Sequence.addEffect](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sequence/#addEffect) olyan túlterhelését, amely egy [Paragraph](https://reference.aspose.com/slides/hu/python-java/aspose.slides/paragraph/) objektumot fogad el. Lásd a [Animated Text](/slides/hu/python-java/animated-text/) oldalt bekezdés‑szintű példákért.
 
-## **Exportálás és kompatibilitási megjegyzések**
+## **Exportálási és kompatibilitási megjegyzések**
 
-- A PPT vagy PPTX formátumba mentés megőrzi az animációs modellt, de a végső lejátszást a prezentáció megjelenítője szabályozza.
+- A PPT vagy PPTX formátumba mentés megőrzi az animációs modellt, de a végső lejátszást a prezentáció‑megtekintő szabályozza.
 - A PDF és a statikus képek nem játszanak le animációkat. Használd a [HTML5 export](/slides/hu/python-java/export-to-html5/), animált GIF vagy a [video conversion](/slides/hu/python-java/convert-powerpoint-to-video/) lehetőséget, ha a kimenetnek mozgást kell mutatnia.
-- HTML5 esetén engedélyezd a [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/hu/python-java/aspose.slides/html5options/#setAnimateShapes) és szükség esetén a [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/html5options/#setAnimateTransitions) beállítást.
-- A videó renderelés sok gyakori belépési, hangsúlyozási, kilépési és mozgáspálya effektust támogat, de nem minden PowerPoint effektus érhető el. Ellenőrizd a jelenlegi [supported animations and effects](/slides/hu/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) listát, és teszteld a kritikus prezentációkat a cél Aspose.Slides verzióval.
-- Haladó egyéni effektusok és más prezentációs formátumokból importált effektusok megmaradhatnak a fájlban, de másként jelennek meg PowerPointban, HTML5-ben vagy videóban. Ellenőrizd az exportált eredményt, ne csak az effektus nevét vedd alapul.
+- HTML5 esetén engedélyezd a [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/hu/python-java/aspose.slides/html5options/#setAnimateShapes) beállítást, és szükség esetén a [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/html5options/#setAnimateTransitions) beállítást.
+- A videórenderelés sok gyakori belépő, hangsúlyozó, kilépő és mozgásút‑effektust támogat, de nem minden PowerPoint‑effektus érhető el. Ellenőrizd a jelenlegi [supported animations and effects](/slides/hu/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) listát, és teszteld a kritikus prezentációkat a célzott Aspose.Slides verzióval.
+- A fejlett egyéni effektusok és más formátumokból importált effektusok megmaradhatnak a fájlban, de PowerPointban, HTML5‑ben vagy videóban eltérően jelenhetnek meg. Ellenőrizd az exportált eredményt, ne csak az effektus nevét vedd alapul.
 
 ## **GYIK**
 
-**Miért jelenik meg egy animáció a PowerPointban, de nem a PDF-ben?**
+**Miért jelenik meg az animáció PowerPoint‑ban, de nem PDF‑ben?**
 
-A PDF egy statikus formátum, ezért az animációk és diaátmenetek nem játszanak le. Exportálj HTML5-re, animált GIF-re vagy videóra, ha a mozgást meg kell őrizni.
+A PDF statikus formátum, így az animációk és diaváltások nem játszhatók le. Exportálj HTML5‑re, animált GIF‑re vagy videóra, ha a mozgást meg kell őrizni.
 
-**Miért játszódik le egy effektus másként a videóban?**
+**Miért játszik le egy effektus eltérően videóban?**
 
-A videó exportálás animációkat renderel, nem a eredeti PowerPoint viselkedést tárolja. Néhány fejlett effektus nem támogatott vagy csak közelítő. Tekintsd át a támogatott effektusok táblázatát, és teszteld a tényleges prezentációt a termelés előtt.
+A videóexport animációkat renderel, nem az eredeti PowerPoint‑viselkedést tárolja. Egyes fejlett effektusok nem támogatottak vagy közelítőek. Tekintsd át a támogatott‑effektus táblázatot, és teszteld a tényleges prezentációt a termelés előtt.
 
-**Módosítja egy alakzat előre vagy hátra helyezése az animációs sorrendet?**
+**Megváltoztatja-e egy alakzat előre‑ vagy hátratevése az animáció sorrendjét?**
 
-Nem. Az alakzat z-rendje csak a átfedést szabályozza, míg a szekvencia sorrend és a triggerek az animáció lejátszását. Módosítsd az idővonalat, ha más lejátszási sorrendre van szükség.
+Nem. Az alakzat z‑rendje az átfedést szabályozza, míg a szekvencia sorrendje és a triggerek az animáció lejátszását. Változtasd meg a timeline‑t, ha más lejátszási sorrendre van szükséged.

@@ -1,5 +1,5 @@
 ---
-title: 在演示文稿中使用 Python via Java 应用形状动画
+title: 使用 Python via Java 在演示文稿中应用形状动画
 linktitle: 形状动画
 type: docs
 weight: 60
@@ -23,24 +23,26 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "学习如何使用 Aspose.Slides for Python via Java 添加、检查和自定义形状动画、时间设置、声音、动画结束后行为以及动画文本。"
+description: "了解如何使用 Aspose.Slides for Python via Java 添加、检查和自定义形状动画、时序、声音、动画结束行为以及动画文本。"
 ---
 ## **概述**
 
-Aspose.Slides for Python via Java 将幻灯片动画表示为幻灯片时间轴中的效果。每个效果具有目标形状、动画类型和子类型、触发器、时间设置以及可选属性，例如声音或动画结束后的行为。
+要处理效果内部的各个行为或编辑运动路径段，请参阅[自定义动画](/slides/zh/python-java/custom-animation/)。
+
+Aspose.Slides for Python via Java 将幻灯片动画表示为幻灯片时间轴中的效果。每个效果具有目标形状、动画类型及子类型、触发器、时序设置，以及诸如声音或动画结束后行为等可选属性。
 
 时间轴包含两种序列：
 
 - **主序列** 在幻灯片前进时播放。
 - **交互序列** 在其触发形状被点击时启动。
 
-因为文本框、图片、图表、表格以及其他幻灯片对象均派生自[Shape](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shape/)，所以对大多数幻灯片内容使用相同的[Sequence.addEffect](https://reference.aspose.com/slides/zh/python-java/aspose.slides/sequence/#addEffect)方法。可用的效果列在[EffectType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effecttype/)类中。
+由于文本框、图片、图表、表格以及其他幻灯片对象都派生自[Shape](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shape/)，因此对大多数幻灯片内容使用相同的[Sequence.addEffect](https://reference.aspose.com/slides/zh/python-java/aspose.slides/sequence/#addEffect)方法。可用的效果列在[EffectType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effecttype/)类中。
 
 ## **添加形状动画**
 
-要添加动画，获取幻灯片的主序列并调用[Sequence.addEffect](https://reference.aspose.com/slides/zh/python-java/aspose.slides/sequence/#addEffect)，传入目标形状、效果类型、子类型和触发器。对于在另一形状被点击时启动的效果，创建其触发器为该形状的交互序列。
+要添加动画，获取幻灯片的主序列，并使用目标形状、效果类型、子类型和触发器调用[Sequence.addEffect](https://reference.aspose.com/slides/zh/python-java/aspose.slides/sequence/#addEffect)。对于在其他形状被点击时启动的效果，创建一个触发器为该其他形状的交互序列。
 
-下面的示例创建了两种类型的动画并将结果保存为`shape-animations.pptx`。
+下面的示例创建两种类型的动画并将结果保存为`shape-animations.pptx`。
 
 ```python
 import jpype
@@ -77,15 +79,15 @@ finally:
 
 - [EffectTriggerType.OnClick](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effecttriggertype/#OnClick) 在主序列中等待点击，或在交互序列中等待对触发形状的点击。
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effecttriggertype/#WithPrevious) 与前一个效果同时开始。
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effecttriggertype/#AfterPrevious) 在前一个效果结束后开始。
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effecttriggertype/#AfterPrevious) 在前一个效果完成后开始。
 
-要为图片、图表或其他形状类型添加动画，向[Sequence.addEffect](https://reference.aspose.com/slides/zh/python-java/aspose.slides/sequence/#addEffect)传入相应对象，而不是`target_shape`。有关图表特定的分组选项，请参阅[Animated Charts](/slides/zh/python-java/animated-charts/)。
+要为图片、图表或其他形状类型添加动画，请将该对象传递给[Sequence.addEffect](https://reference.aspose.com/slides/zh/python-java/aspose.slides/sequence/#addEffect)而不是`target_shape`。有关图表特定的分组选项，请参阅[Animated Charts](/slides/zh/python-java/animated-charts/)。
 
 ## **读取形状动画**
 
-当已知目标形状时，使用[Sequence.getEffectsByShape](https://reference.aspose.com/slides/zh/python-java/aspose.slides/sequence/#getEffectsByShape)。若要检查每个效果，请遍历主序列以及所有交互序列。遍历可以避免假设序列在索引`0`处一定有效果。
+当已知目标形状时，使用[Sequence.getEffectsByShape](https://reference.aspose.com/slides/zh/python-java/aspose.slides/sequence/#getEffectsByShape)。要检查每个效果，请枚举主序列和所有交互序列。枚举可避免假设序列在索引`0`处包含效果的情况。
 
-下面的示例创建了一个具有主序列和交互效果的形状，获取针对该形状的效果，然后遍历幻灯片上的每个序列。
+下面的示例创建一个具有主序列和交互效果的形状，获取针对该形状的效果，然后枚举幻灯片上的所有序列。
 
 ```python
 import jpype
@@ -136,21 +138,21 @@ finally:
     presentation.dispose()
 ```
 
-如果只需要某个形状的效果，首先通过名称、占位符类型或其他稳定属性识别该形状；然后调用[Sequence.getEffectsByShape](https://reference.aspose.com/slides/zh/python-java/aspose.slides/sequence/#getEffectsByShape)。不要假设[ShapeCollection.get_Item](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shapecollection/#get_Item)在索引`0`处始终是目标对象。
+如果只需获取单个形状的效果，请先通过名称、占位符类型或其他稳定属性识别该形状；然后调用[Sequence.getEffectsByShape](https://reference.aspose.com/slides/zh/python-java/aspose.slides/sequence/#getEffectsByShape)。不要假设索引`0`处的[ShapeCollection.get_Item](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shapecollection/#get_Item)始终是目标对象。
 
-## **处理继承占位符效果**
+## **处理继承的占位符效果**
 
-普通幻灯片上的占位符可以继承其布局幻灯片和母版幻灯片对应占位符的动画行为。[Shape.getBasePlaceholder](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shape/#getBasePlaceholder)返回父占位符，若不存在则返回`None`。
+普通幻灯片上的占位符可以继承其布局幻灯片和母版幻灯片上对应占位符的动画行为。[Shape.getBasePlaceholder](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shape/#getBasePlaceholder)返回该父占位符；如果不存在父占位符，则返回`None`。
 
 在下面的示例演示文稿中，页脚在普通幻灯片上使用**Random Bars**，在布局幻灯片上使用**Split**，在母版幻灯片上使用**Fly In**。
 
-![普通幻灯片上的页脚动画效果](slide-shape-animation.png)
+![普通幻灯片上页脚动画效果](slide-shape-animation.png)
 
 ![布局幻灯片上页脚占位符动画效果](layout-shape-animation.png)
 
 ![母版幻灯片上页脚占位符动画效果](master-shape-animation.png)
 
-接下来的示例使用新演示文稿中的占位符层次结构。它为母版占位符、布局占位符以及普通幻灯片上的相应占位符添加效果。在使用返回的形状之前，都会检查[Shape.getBasePlaceholder](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shape/#getBasePlaceholder)的返回值。
+下一个示例使用新演示文稿中的占位符层次结构。它向母版占位符、布局占位符以及普通幻灯片上的相应占位符添加效果。在使用返回的形状之前，会检查每次对[Shape.getBasePlaceholder](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shape/#getBasePlaceholder)的调用。
 
 ```python
 import jpype
@@ -212,19 +214,19 @@ finally:
     presentation.dispose()
 ```
 
-## **更改动画时间设置**
+## **更改动画时序**
 
-PowerPoint 的**Timing**对话框映射到[Timing](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/)的属性。
+PowerPoint **Timing** 对话框对应于[Timing](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/)的属性。
 
 ![动画效果的 PowerPoint Timing 对话框](shape-animation.png)
 
-- **Start** 映射到[Timing.getTriggerType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#getTriggerType)。
-- **Duration** 映射到[Timing.getDuration](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#getDuration)，单位为秒。
-- **Delay** 映射到[Timing.getTriggerDelayTime](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#getTriggerDelayTime)，单位为秒。
-- **Repeat** 映射到[Timing.getRepeatCount](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#getRepeatCount)、[Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#getRepeatUntilNextClick)或[Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#getRepeatUntilEndSlide)。
-- **Rewind when done playing** 映射到[Timing.getRewind](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#getRewind)。
+- **开始** 对应[Timing.getTriggerType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#getTriggerType)。
+- **持续时间** 对应[Timing.getDuration](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#getDuration)，单位为秒。
+- **延迟** 对应[Timing.getTriggerDelayTime](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#getTriggerDelayTime)，单位为秒。
+- **重复** 对应[Timing.getRepeatCount](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#getRepeatCount)、[Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#getRepeatUntilNextClick)或[Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#getRepeatUntilEndSlide)。
+- **播放完成后倒回** 对应[Timing.getRewind](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#getRewind)。
 
-此独立示例添加一个效果，通过[Sequence.addEffect](https://reference.aspose.com/slides/zh/python-java/aspose.slides/sequence/#addEffect)返回的对象更改其时间设置，并保存结果。保留返回的[Effect](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effect/)引用可避免不必要的集合索引。
+此独立示例添加一个效果，通过[Sequence.addEffect](https://reference.aspose.com/slides/zh/python-java/aspose.slides/sequence/#addEffect)返回的对象更改其时序，并保存结果。保留返回的[Effect](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effect/)引用可避免不必要的集合索引。
 
 ```python
 import jpype
@@ -255,15 +257,15 @@ finally:
     presentation.dispose()
 ```
 
-有意识地只使用一种重复模式。将重复计数与“直到”标志组合可能在不同查看器中产生混乱的结果。更改重复模式时，请先调用[Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#setRepeatUntilNextClick)和[Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#setRepeatUntilEndSlide)，再调用[Timing.setRepeatCount](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#setRepeatCount)，因为设置任一标志都会更改活动的重复模式。
+请有意使用单一的重复模式。将重复计数与“until”标志组合可能在不同的查看器中产生混乱的结果。更改重复模式时，应先设置[Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#setRepeatUntilNextClick)和[Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#setRepeatUntilEndSlide)，再调用[Timing.setRepeatCount](https://reference.aspose.com/slides/zh/python-java/aspose.slides/timing/#setRepeatCount)，因为设置任一标志也会更改活动的重复模式。
 
 ## **添加和提取动画声音**
 
 动画效果可以通过[Effect.getSound](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effect/#getSound)引用嵌入的音频。[Effect.setStopPreviousSound](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effect/#setStopPreviousSound)指示效果停止之前效果启动的音频。
 
-### **为效果添加声音**
+### **向效果添加声音**
 
-下面的示例需要本地音频文件`animation-sound.wav`。它创建两个效果，将该文件嵌入为第一个效果的声音，并配置第二个效果停止该声音。它使用[Sequence.addEffect](https://reference.aspose.com/slides/zh/python-java/aspose.slides/sequence/#addEffect)返回的对象，因此无需序列索引。
+下面的示例需要一个名为`animation-sound.wav`的本地音频文件。它创建两个效果，将该文件嵌入为第一个效果的声音，并将第二个效果配置为停止该声音。它使用[Sequence.addEffect](https://reference.aspose.com/slides/zh/python-java/aspose.slides/sequence/#addEffect)返回的对象，因此不需要序列索引。
 
 ```python
 import jpype
@@ -299,7 +301,7 @@ finally:
 
 ### **提取嵌入的效果声音**
 
-下面的示例需要本地演示文稿`presentation-with-animation-sounds.pptx`。它扫描主序列和交互序列，并将每个嵌入的效果声音写入`extracted-animation-sounds`目录。扩展名根据[Audio.getContentType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audio/#getContentType)返回的音频 MIME 类型选择。
+下面的示例需要一个名为`presentation-with-animation-sounds.pptx`的本地演示文稿。它扫描主序列和交互序列，并将每个嵌入的效果声音写入`extracted-animation-sounds`目录。文件扩展名根据[Audio.getContentType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audio/#getContentType)暴露的音频 MIME 类型选择。
 
 ```python
 import jpype
@@ -355,13 +357,13 @@ finally:
 
 对于大型音频对象，请使用[Audio.getStream](https://reference.aspose.com/slides/zh/python-java/aspose.slides/audio/#getStream)并将流复制到文件，而不是将整个对象加载到字节数组中。
 
-## **设置动画结束后行为**
+## **设置动画结束后的行为**
 
-**After animation**选项控制形状在其效果结束后会发生什么。
+**After animation** 选项控制效果结束后形状的处理方式。
 
-![PowerPoint 效果选项对话框显示“After animation”设置](shape-after-animation.png)
+![PowerPoint 效果选项对话框显示动画结束设置](shape-after-animation.png)
 
-[AfterAnimationType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/afteranimationtype/)类支持保持形状不变、改变其颜色、在动画后隐藏，或在下一次点击时隐藏。当类型为[AfterAnimationType.Color](https://reference.aspose.com/slides/zh/python-java/aspose.slides/afteranimationtype/#Color)时，还需设置[Effect.getAfterAnimationColor](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effect/#getAfterAnimationColor)。
+[AfterAnimationType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/afteranimationtype/) 类支持保持形状不变、改变其颜色、在动画后隐藏它，或在下一次点击时隐藏它。当类型为[AfterAnimationType.Color](https://reference.aspose.com/slides/zh/python-java/aspose.slides/afteranimationtype/#Color)时，还需设置[Effect.getAfterAnimationColor](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effect/#getAfterAnimationColor)。
 
 此独立示例创建一个效果，通过返回的效果对象设置其动画结束后行为，并保存结果。
 
@@ -390,16 +392,16 @@ finally:
     presentation.dispose()
 ```
 
-将类型从[AfterAnimationType.Color](https://reference.aspose.com/slides/zh/python-java/aspose.slides/afteranimationtype/#Color)更改会清除动画结束后颜色的设置。
+将类型从[AfterAnimationType.Color](https://reference.aspose.com/slides/zh/python-java/aspose.slides/afteranimationtype/#Color)更改会清除动画结束颜色设置。
 
-## **动画文字**
+## **文本动画**
 
-文字动画有两个相关控制：
+文本动画有两个相关的控制：
 
-- [TextAnimation.getBuildType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/textanimation/#getBuildType) 控制段落是一次性出现还是按段落层级出现。
-- [Effect.getAnimateTextType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effect/#getAnimateTextType) 控制文字是一次性出现、按单词还是按字母出现。[Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effect/#getDelayBetweenTextParts) 设置单词或字母之间的延迟。正值表示效果持续时间的百分比，负值表示以秒为单位的延迟。
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/textanimation/#getBuildType) 控制段落是一起显示还是按段落级别显示。
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effect/#getAnimateTextType) 控制文本是一次性显示、按单词显示还是按字母显示。[Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/zh/python-java/aspose.slides/effect/#getDelayBetweenTextParts) 设置单词或字母之间的延迟。正值为效果持续时间的百分比，负值为秒数延迟。
 
-下面的独立示例为文本框中的单词添加动画。[BuildType.AsOneObject](https://reference.aspose.com/slides/zh/python-java/aspose.slides/buildtype/#AsOneObject) 禁用按段落构建，使单词设置适用于整个文本框。
+下面的独立示例对文本框中的单词进行动画。[BuildType.AsOneObject](https://reference.aspose.com/slides/zh/python-java/aspose.slides/buildtype/#AsOneObject) 禁用按段落构建，使单词设置适用于整个文本框。
 
 ```python
 import jpype
@@ -426,26 +428,26 @@ finally:
     presentation.dispose()
 ```
 
-要按段落构建文本框，请设置[BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/zh/python-java/aspose.slides/buildtype/#ByLevelParagraphs1)（或其他段落层级）。要为单个段落单独设置效果，请使用接受[Paragraph](https://reference.aspose.com/slides/zh/python-java/aspose.slides/paragraph/)的[Sequence.addEffect](https://reference.aspose.com/slides/zh/python-java/aspose.slides/sequence/#addEffect)重载。参见[Animated Text](/slides/zh/python-java/animated-text/)获取段落级别示例。
+若要按段落构建文本框，请设置[BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/zh/python-java/aspose.slides/buildtype/#ByLevelParagraphs1)（或其他段落级别）。若要对单个段落使用单独的效果，请使用接受[Paragraph](https://reference.aspose.com/slides/zh/python-java/aspose.slides/paragraph/)参数的[Sequence.addEffect](https://reference.aspose.com/slides/zh/python-java/aspose.slides/sequence/#addEffect)重载。有关段落级示例，请参阅[Animated Text](/slides/zh/python-java/animated-text/)。
 
 ## **导出和兼容性说明**
 
-- 保存为 PPT 或 PPTX 会保留动画模型，但最终播放由演示文稿查看器控制。
-- PDF 和静态图像不会播放动画。需要显示运动时请使用[HTML5 export](/slides/zh/python-java/export-to-html5/)、动画 GIF 或[video conversion](/slides/zh/python-java/convert-powerpoint-to-video/)。
-- 对于 HTML5，请启用[Html5Options.setAnimateShapes](https://reference.aspose.com/slides/zh/python-java/aspose.slides/html5options/#setAnimateShapes)，必要时再启用[Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/html5options/#setAnimateTransitions)。
-- 视频渲染支持许多常见的进入、强调、退出和运动路径效果，但并非所有 PowerPoint 效果都受支持。请查看当前的[Supported animations and effects](/slides/zh/python-java/convert-powerpoint-to-video/#supported-animations-and-effects)并使用目标 Aspose.Slides 版本对关键演示文稿进行测试。
-- 高级自定义效果以及从其他演示文稿格式导入的效果可能会在文件中保留，但在 PowerPoint、HTML5 或视频中呈现方式不同。请验证导出结果，而不要仅凭效果名称判断。
+- 将文件保存为 PPT 或 PPTX 可保留动画模型，但最终播放由演示文稿查看器控制。
+- PDF 和静态图像不播放动画。若输出必须显示运动，请使用[HTML5 export](/slides/zh/python-java/export-to-html5/)、动画 GIF 或[video conversion](/slides/zh/python-java/convert-powerpoint-to-video/)。
+- 对于 HTML5，请启用[Html5Options.setAnimateShapes](https://reference.aspose.com/slides/zh/python-java/aspose.slides/html5options/#setAnimateShapes)，必要时还可启用[Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/zh/python-java/aspose.slides/html5options/#setAnimateTransitions)。
+- 视频渲染支持许多常见的进入、强调、退出和运动路径效果，但并非所有 PowerPoint 效果都受支持。请查看当前的[Supported animations and effects](/slides/zh/python-java/convert-powerpoint-to-video/#supported-animations-and-effects)并使用目标 Aspose.Slides 版本测试关键演示文稿。
+- 高级自定义效果以及从其他演示格式导入的效果可能在文件中得以保留，但在 PowerPoint、HTML5 或视频中呈现方式可能不同。请验证导出结果，而不仅仅依赖效果名称。
 
-## **常见问答**
+## **常见问题**
 
-**为什么动画在 PowerPoint 中出现，但在 PDF 中没有？**
+**为什么动画在 PowerPoint 中显示，但在 PDF 中不显示？**
 
-PDF 是静态格式，动画和幻灯片切换不会播放。需要保留运动时请导出为 HTML5、动画 GIF 或视频。
+PDF 是静态格式，因此动画和幻灯片切换不会播放。若必须保留运动，请导出为 HTML5、动画 GIF 或视频。
 
-**为什么同一效果在视频中播放方式不同？**
+**为什么效果在视频中播放不同？**
 
-视频导出会渲染动画，而不是存储原始 PowerPoint 行为。某些高级效果不受支持或会被近似处理。请查看受支持的效果表，并在生产使用前对实际演示文稿进行测试。
+视频导出会渲染动画，而不是存储原始 PowerPoint 行为。某些高级效果不受支持或被近似。请查看支持的效果表，并在生产使用前测试实际演示文稿。
 
-**移动形状的前置或后置会改变其动画顺序吗？**
+**移动形状的前后顺序会改变动画顺序吗？**
 
-不会。形状的 Z 顺序控制重叠，序列顺序和触发器控制动画播放。如果需要不同的播放顺序，请更改时间轴。
+不会。形状的 Z 顺序控制重叠，而序列顺序和触发器控制动画播放。如果需要不同的播放顺序，请更改时间轴。

@@ -1,6 +1,6 @@
 ---
-title: Áp dụng Hoạt ảnh Hình dạng trong Bản trình bày với Python
-linktitle: Hoạt ảnh Hình dạng
+title: Áp dụng Hoạt ảnh Hình trong Bản trình bày với Python
+linktitle: Hoạt ảnh Hình
 type: docs
 weight: 60
 url: /vi/python-net/shape-animation/
@@ -22,22 +22,24 @@ keywords:
 - bản trình bày
 - Python
 - Aspose.Slides
-description: "Tìm hiểu cách thêm, kiểm tra và tùy chỉnh hoạt ảnh hình dạng, thời gian, âm thanh, hành vi sau hoạt ảnh và văn bản hoạt ảnh với Aspose.Slides cho Python qua .NET."
+description: "Tìm hiểu cách thêm, kiểm tra và tùy chỉnh hoạt ảnh hình, thời gian, âm thanh, hành vi sau hoạt ảnh và văn bản hoạt ảnh với Aspose.Slides cho Python qua .NET."
 ---
 ## **Tổng quan**
 
-Aspose.Slides for Python via .NET đại diện cho các hoạt ảnh slide dưới dạng các hiệu ứng trong dòng thời gian của slide. Một hiệu ứng có một hình dạng mục tiêu, một loại và phụ loại hoạt ảnh, một trình kích hoạt, các cài đặt thời gian, và các thuộc tính tùy chọn như âm thanh hoặc hành vi sau hoạt ảnh.
+Để làm việc với các hành vi riêng lẻ trong một hiệu ứng hoặc chỉnh sửa các đoạn đường chuyển động, xem [Tùy chỉnh hoạt ảnh](/slides/vi/python-net/custom-animation/).
 
-Dòng thời gian chứa hai loại chuỗi:
+Aspose.Slides for Python qua .NET biểu diễn hoạt ảnh slide dưới dạng các hiệu ứng trong một timeline slide. Một hiệu ứng có hình dạng mục tiêu, loại và phụ loại hoạt ảnh, một trình kích hoạt, các thiết lập thời gian, và các thuộc tính tùy chọn như âm thanh hoặc hành vi sau hoạt ảnh.
 
-- **Chuỗi chính** phát khi slide tiến hành.
-- Một **chuỗi tương tác** bắt đầu khi hình dạng kích hoạt của nó được nhấp.
+Timeline chứa hai loại chuỗi:
 
-Vì các hộp văn bản, hình ảnh, biểu đồ, bảng và các đối tượng slide khác triển khai [IShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ishape/), bạn sử dụng cùng một phương thức [Sequence.add_effect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/sequence/add_effect/) cho phần lớn nội dung slide. Các hiệu ứng có sẵn được liệt kê trong enumeration [EffectType](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effecttype/).
+- **Chuỗi chính** phát khi slide tiến lên.
+- **Chuỗi tương tác** bắt đầu khi hình dạng trình kích hoạt của nó được nhấn.
 
-## **Thêm Hoạt ảnh Hình dạng**
+Vì các hộp văn bản, hình ảnh, biểu đồ, bảng và các đối tượng slide khác thực thi [IShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ishape/), bạn sử dụng cùng một phương thức [Sequence.add_effect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/sequence/add_effect/) cho hầu hết nội dung slide. Các hiệu ứng khả dụng được liệt kê trong enumeration [EffectType](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effecttype/).
 
-Để thêm một hoạt ảnh, lấy chuỗi chính của slide và gọi [Sequence.add_effect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/sequence/add_effect/) với hình dạng mục tiêu, loại hiệu ứng, phụ loại và trình kích hoạt. Đối với một hiệu ứng bắt đầu khi một hình dạng khác được nhấp, tạo một chuỗi tương tác mà trình kích hoạt là hình dạng khác đó.
+## **Thêm Hoạt ảnh Hình**
+
+Để thêm một hoạt ảnh, lấy chuỗi chính của slide và gọi [Sequence.add_effect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/sequence/add_effect/) với hình dạng mục tiêu, loại hiệu ứng, phụ loại và trình kích hoạt. Đối với hiệu ứng bắt đầu khi một hình dạng khác được nhấn, tạo một chuỗi tương tác mà trình kích hoạt là hình dạng khác đó.
 
 Ví dụ sau tạo cả hai loại hoạt ảnh và lưu kết quả vào `shape-animations.pptx`.
 
@@ -64,19 +66,19 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Trình kích hoạt kiểm soát thời điểm một hiệu ứng bắt đầu:
+Trình kích hoạt điều khiển thời điểm bắt đầu một hiệu ứng:
 
-- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effecttriggertype/) chờ một cú nhấp trong chuỗi chính, hoặc một cú nhấp vào hình dạng kích hoạt trong chuỗi tương tác.
+- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effecttriggertype/) đợi một cú nhấp chuột trong chuỗi chính, hoặc một cú nhấp chuột trên hình dạng trình kích hoạt trong một chuỗi tương tác.
 - [EffectTriggerType.WITH_PREVIOUS](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effecttriggertype/) bắt đầu cùng với hiệu ứng trước đó.
 - [EffectTriggerType.AFTER_PREVIOUS](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effecttriggertype/) bắt đầu khi hiệu ứng trước đó kết thúc.
 
-Để hoạt ảnh một hình ảnh, biểu đồ, hoặc một loại hình dạng khác, truyền đối tượng đó vào [Sequence.add_effect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/sequence/add_effect/) thay vì `target_shape`. Đối với các tùy chọn nhóm đặc thù của biểu đồ, xem [Animated Charts](/slides/vi/python-net/animated-charts/).
+Để hoạt ảnh một hình ảnh, biểu đồ hoặc kiểu hình dạng khác, truyền đối tượng đó vào [Sequence.add_effect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/sequence/add_effect/) thay vì `target_shape`. Đối với các tùy chọn nhóm riêng cho biểu đồ, xem [Animated Charts](/slides/vi/python-net/animated-charts/).
 
-## **Đọc Hoạt ảnh Hình dạng**
+## **Đọc Hoạt ảnh Hình**
 
 Sử dụng [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/sequence/get_effects_by_shape/) khi bạn biết hình dạng mục tiêu. Để kiểm tra mọi hiệu ứng, lặp qua chuỗi chính và mọi chuỗi tương tác. Việc lặp tránh việc giả định rằng một chuỗi chứa hiệu ứng tại chỉ mục `0`.
 
-Ví dụ sau tạo một hình dạng với hiệu ứng chuỗi‑chính và chuỗi‑tương‑tác, lấy các hiệu ứng nhắm vào hình dạng đó, và sau đó lặp qua mọi chuỗi trên slide.
+Ví dụ sau tạo một hình dạng với các hiệu ứng chuỗi chính và tương tác, lấy các hiệu ứng nhắm vào hình dạng đó, và sau đó lặp qua mọi chuỗi trên slide.
 
 ```python
 import aspose.slides as slides
@@ -116,21 +118,21 @@ with slides.Presentation() as presentation:
         print_sequence(sequence_label, sequence)
 ```
 
-Nếu bạn chỉ cần các hiệu ứng cho một hình dạng, trước hết xác định hình dạng bằng tên, loại placeholder, hoặc thuộc tính ổn định khác; sau đó gọi [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/sequence/get_effects_by_shape/). Đừng giả định rằng hình dạng tại chỉ mục `0` luôn là đối tượng mong muốn.
+Nếu bạn chỉ cần các hiệu ứng cho một hình dạng, trước tiên xác định hình dạng bằng tên, kiểu placeholder hoặc thuộc tính ổn định khác; sau đó gọi [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/sequence/get_effects_by_shape/). Đừng giả định rằng hình dạng tại chỉ mục `0` luôn là đối tượng mong muốn.
 
 ## **Làm việc với Hiệu ứng Placeholder Kế thừa**
 
-Một placeholder trên slide bình thường có thể kế thừa hành vi hoạt ảnh từ placeholder tương ứng trên slide bố cục và slide chủ. [Shape.get_base_placeholder](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/get_base_placeholder/) trả về placeholder cha đó, hoặc `None` khi không có cha.
+Một placeholder trên slide thường có thể kế thừa hành vi hoạt ảnh từ placeholder tương ứng trên slide bố cục và slide master. [Shape.get_base_placeholder](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/get_base_placeholder/) trả về placeholder cha đó, hoặc `None` khi không có cha.
 
-Trong bản trình bày mẫu dưới đây, phần chân trang có **Random Bars** trên slide bình thường, **Split** trên slide bố cục, và **Fly In** trên slide chủ.
+Trong bản trình bày ví dụ dưới đây, footer có **Random Bars** trên slide thường, **Split** trên slide bố cục, và **Fly In** trên slide master.
 
-![Hiệu ứng hoạt ảnh chân trang trên slide bình thường](slide-shape-animation.png)
+![Footer animation effect on the normal slide](slide-shape-animation.png)
 
-![Hiệu ứng hoạt ảnh placeholder chân trang trên slide bố cục](layout-shape-animation.png)
+![Footer placeholder animation effect on the layout slide](layout-shape-animation.png)
 
-![Hiệu ứng hoạt ảnh placeholder chân trang trên slide chủ](master-shape-animation.png)
+![Footer placeholder animation effect on the master slide](master-shape-animation.png)
 
-Ví dụ tiếp theo tự xây dựng cấu trúc placeholder. Nó thêm hiệu ứng vào một placeholder chủ, một placeholder bố cục, và placeholder tương ứng trên một slide bình thường. Mọi lần gọi [Shape.get_base_placeholder](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/get_base_placeholder/) đều được kiểm tra trước khi sử dụng hình dạng trả về.
+Ví dụ tiếp theo xây dựng cấu trúc placeholder tự nó. Nó thêm hiệu ứng vào một placeholder master, một placeholder layout, và placeholder tương ứng trên slide thường. Mọi lần gọi [Shape.get_base_placeholder](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/get_base_placeholder/) đều được kiểm tra trước khi hình dạng trả về được sử dụng.
 
 ```python
 import aspose.slides as slides
@@ -183,17 +185,17 @@ with slides.Presentation() as presentation:
 
 ## **Thay đổi Thời gian Hoạt ảnh**
 
-Hộp thoại **Timing** của PowerPoint ánh xạ tới các thuộc tính của [Timing](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/).
+Hộp thoại PowerPoint **Timing** ánh xạ tới các thuộc tính của [Timing](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/).
 
-![Hộp thoại Timing của PowerPoint cho một hiệu ứng hoạt ảnh](shape-animation.png)
+![PowerPoint Timing dialog for an animation effect](shape-animation.png)
 
-- **Bắt đầu** ánh xạ tới [Timing.trigger_type](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/trigger_type/).
-- **Thời lượng** ánh xạ tới [Timing.duration](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/duration/), tính bằng giây.
-- **Độ trễ** ánh xạ tới [Timing.trigger_delay_time](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/trigger_delay_time/), tính bằng giây.
-- **Lặp lại** ánh xạ tới [Timing.repeat_count](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/repeat_count/), [Timing.repeat_until_next_click](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/repeat_until_next_click/), hoặc [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/repeat_until_end_slide/).
-- **Quay lại khi phát xong** ánh xạ tới [Timing.rewind](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/rewind/).
+- **Start** ánh xạ tới [Timing.trigger_type](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/trigger_type/).
+- **Duration** ánh xạ tới [Timing.duration](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/duration/), tính bằng giây.
+- **Delay** ánh xạ tới [Timing.trigger_delay_time](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/trigger_delay_time/), tính bằng giây.
+- **Repeat** ánh xạ tới [Timing.repeat_count](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/repeat_count/), [Timing.repeat_until_next_click](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/repeat_until_next_click/), hoặc [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/repeat_until_end_slide/).
+- **Rewind when done playing** ánh xạ tới [Timing.rewind](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/rewind/).
 
-Ví dụ độc lập này thêm một hiệu ứng, thay đổi thời gian của nó thông qua đối tượng trả về bởi [Sequence.add_effect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/sequence/add_effect/), và lưu kết quả. Giữ tham chiếu tới [Effect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effect/) trả về giúp tránh một chỉ mục bộ sưu tập không cần thiết.
+Ví dụ độc lập này thêm một hiệu ứng, thay đổi thời gian của nó thông qua đối tượng trả về bởi [Sequence.add_effect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/sequence/add_effect/), và lưu kết quả. Giữ tham chiếu đến [Effect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effect/) trả về tránh việc lấy chỉ mục bộ sưu tập không cần thiết.
 
 ```python
 import aspose.slides as slides
@@ -216,15 +218,15 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-timing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sử dụng một chế độ lặp lại duy nhất một cách có chủ đích. Kết hợp số lần lặp lại với cờ “until” có thể tạo ra kết quả gây nhầm lẫn trong các trình xem khác nhau. Khi thay đổi chế độ lặp lại, đặt [Timing.repeat_until_next_click](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/repeat_until_next_click/) và [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/repeat_until_end_slide/) trước [Timing.repeat_count](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/repeat_count/), vì việc đặt bất kỳ cờ nào cũng sẽ thay đổi chế độ lặp lại đang hoạt động.
+Sử dụng một chế độ lặp một cách cố ý. Kết hợp số lần lặp với cờ “until” có thể tạo ra kết quả gây nhầm lẫn trong các trình xem khác nhau. Khi thay đổi chế độ lặp, đặt [Timing.repeat_until_next_click](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/repeat_until_next_click/) và [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/repeat_until_end_slide/) trước [Timing.repeat_count](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/timing/repeat_count/), vì việc đặt bất kỳ cờ nào cũng thay đổi chế độ lặp đang hoạt động.
 
 ## **Thêm và Trích xuất Âm thanh Hoạt ảnh**
 
-Một hiệu ứng hoạt ảnh có thể tham chiếu tới âm thanh nhúng thông qua [Effect.sound](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effect/sound/). [Effect.stop_previous_sound](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effect/stop_previous_sound/) chỉ cho một hiệu ứng dừng âm thanh đã được khởi động bởi một hiệu ứng trước đó.
+Một hiệu ứng hoạt ảnh có thể tham chiếu âm thanh nhúng thông qua [Effect.sound](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effect/sound/). [Effect.stop_previous_sound](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effect/stop_previous_sound/) cho phép một hiệu ứng dừng âm thanh đã được khởi động bởi hiệu ứng trước.
 
 ### **Thêm Âm thanh vào Hiệu ứng**
 
-Ví dụ sau yêu cầu một tệp âm thanh cục bộ tên `animation-sound.wav`. Nó tạo hai hiệu ứng, nhúng tệp đó làm âm thanh cho hiệu ứng đầu tiên, và cấu hình hiệu ứng thứ hai để dừng âm thanh. Nó sử dụng các đối tượng trả về bởi [Sequence.add_effect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/sequence/add_effect/), vì vậy không cần chỉ mục chuỗi.
+Ví dụ sau mong đợi một tệp âm thanh cục bộ có tên `animation-sound.wav`. Nó tạo hai hiệu ứng, nhúng tệp đó làm âm thanh cho hiệu ứng đầu tiên, và cấu hình hiệu ứng thứ hai để dừng âm thanh. Nó sử dụng các đối tượng trả về bởi [Sequence.add_effect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/sequence/add_effect/), vì vậy không cần chỉ mục chuỗi.
 
 ```python
 import aspose.slides as slides
@@ -250,9 +252,9 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-sound.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Trích xuất Âm thanh Hiệu ứng Được nhúng**
+### **Trích xuất Âm thanh Hiệu ứng Nhúng**
 
-Ví dụ sau yêu cầu một bản trình bày cục bộ tên `presentation-with-animation-sounds.pptx`. Nó quét cả chuỗi‑chính và chuỗi‑tương‑tác và ghi mỗi âm thanh hiệu ứng được nhúng vào thư mục `extracted-animation-sounds`. Phần mở rộng được chọn từ MIME type âm thanh được cung cấp bởi [Audio.content_type](https://reference.aspose.com/slides/vi/python-net/aspose.slides/audio/content_type/).
+Ví dụ sau mong đợi một bản trình bày cục bộ có tên `presentation-with-animation-sounds.pptx`. Nó quét cả chuỗi chính và chuỗi tương tác và ghi mọi âm thanh hiệu ứng nhúng vào thư mục `extracted-animation-sounds`. Phần mở rộng được chọn từ MIME type âm thanh được cung cấp bởi [Audio.content_type](https://reference.aspose.com/slides/vi/python-net/aspose.slides/audio/content_type/).
 
 ```python
 import os
@@ -306,15 +308,15 @@ with slides.Presentation(input_path) as presentation:
 print(f"Extracted {sound_index - 1} sound file(s) to {os.path.abspath(output_directory)}.")
 ```
 
-Đối với các đối tượng âm thanh lớn, sử dụng [Audio.get_stream](https://reference.aspose.com/slides/vi/python-net/aspose.slides/audio/get_stream/) và sao chép luồng vào tệp thay vì tải toàn bộ đối tượng vào một mảng byte.
+Đối với các đối tượng âm thanh lớn, sử dụng [Audio.get_stream](https://reference.aspose.com/slides/vi/python-net/aspose.slides/audio/get_stream/) và sao chép luồng vào tệp thay vì tải toàn bộ đối tượng vào mảng byte.
 
-## **Đặt Hành vi Sau Hoạt ảnh**
+## **Thiết lập Hành vi Sau Hoạt ảnh**
 
 Tùy chọn **After animation** kiểm soát những gì xảy ra với một hình dạng sau khi hiệu ứng của nó kết thúc.
 
-![Hộp thoại Options của PowerPoint hiển thị các cài đặt After animation](shape-after-animation.png)
+![PowerPoint Effect Options dialog showing After animation settings](shape-after-animation.png)
 
-Enumeration [AfterAnimationType](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/afteranimationtype/) hỗ trợ để lại hình dạng không thay đổi, thay đổi màu, ẩn nó sau hoạt ảnh, hoặc ẩn nó ở lần nhấp tiếp theo. Khi loại là [AfterAnimationType.COLOR](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/afteranimationtype/), cũng đặt [Effect.after_animation_color](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effect/after_animation_color/).
+Enumeration [AfterAnimationType](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/afteranimationtype/) hỗ trợ để để lại hình dạng không thay đổi, thay đổi màu, ẩn nó sau hoạt ảnh, hoặc ẩn nó ở lần nhấp tiếp theo. Khi kiểu là [AfterAnimationType.COLOR](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/afteranimationtype/), cũng đặt [Effect.after_animation_color](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effect/after_animation_color/).
 
 Ví dụ độc lập này tạo một hiệu ứng, đặt hành vi sau hoạt ảnh thông qua đối tượng hiệu ứng trả về, và lưu kết quả.
 
@@ -335,16 +337,16 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-after-effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Thay đổi loại khỏi [AfterAnimationType.COLOR](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/afteranimationtype/) sẽ xóa cài đặt màu sau hoạt ảnh.
+Thay đổi kiểu khỏi [AfterAnimationType.COLOR](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/afteranimationtype/) sẽ xóa cài đặt màu sau hoạt ảnh.
 
 ## **Hoạt ảnh Văn bản**
 
-Hoạt ảnh văn bản có hai điều khiển liên quan:
+Hoạt ảnh văn bản có hai kiểm soát liên quan:
 
-- [TextAnimation.build_type](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/textanimation/build_type/) kiểm soát việc các đoạn văn xuất hiện cùng nhau hay theo mức đoạn.
-- [Effect.animate_text_type](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effect/animate_text_type/) kiểm soát việc văn bản xuất hiện một lần, theo từ, hoặc theo ký tự. [Effect.delay_between_text_parts](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effect/delay_between_text_parts/) đặt độ trễ giữa các từ hoặc ký tự. Giá trị dương là phần trăm của thời lượng hiệu ứng; giá trị âm là độ trễ tính bằng giây.
+- [TextAnimation.build_type](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/textanimation/build_type/) kiểm soát việc các đoạn văn xuất hiện cùng nhau hay theo cấp độ đoạn.
+- [Effect.animate_text_type](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effect/animate_text_type/) kiểm soát việc văn bản xuất hiện toàn bộ, theo từ, hoặc theo ký tự. [Effect.delay_between_text_parts](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/effect/delay_between_text_parts/) đặt độ trễ giữa các từ hoặc ký tự. Giá trị dương là phần trăm của thời lượng hiệu ứng; giá trị âm là độ trễ tính bằng giây.
 
-Ví dụ độc lập sau hoạt ảnh các từ trong một hộp văn bản. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/buildtype/) tắt việc xây dựng đoạn theo đoạn, để cài đặt từ áp dụng cho toàn bộ khung văn bản.
+Ví dụ độc lập sau hoạt ảnh các từ trong một hộp văn bản. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/buildtype/) vô hiệu hoá việc xây dựng theo đoạn, vì vậy cài đặt từ áp dụng cho toàn bộ khung văn bản.
 
 ```python
 import aspose.slides as slides
@@ -363,26 +365,26 @@ with slides.Presentation() as presentation:
     presentation.save("animated-text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Để xây dựng một hộp văn bản theo đoạn, đặt [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/buildtype/) (hoặc mức đoạn khác). Để nhắm mục tiêu một đoạn riêng với hiệu ứng riêng, sử dụng overload của [Sequence.add_effect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/sequence/add_effect/) chấp nhận một [IParagraph](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iparagraph/). Xem [Animated Text](/slides/vi/python-net/animated-text/) để biết các ví dụ mức đoạn.
+Để xây dựng một hộp văn bản theo đoạn, đặt [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/buildtype/) (hoặc cấp độ đoạn khác). Để nhắm mục tiêu một đoạn riêng biệt với hiệu ứng của nó, sử dụng overload của [Sequence.add_effect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.animation/sequence/add_effect/) chấp nhận một [IParagraph](https://reference.aspose.com/slides/vi/python-net/aspose.slides/iparagraph/). Xem [Animated Text](/slides/vi/python-net/animated-text/) để biết các ví dụ ở mức độ đoạn.
 
-## **Xuất và Ghi chú Tương thích**
+## **Xuất và Lưu ý Tương thích**
 
-- Lưu dưới dạng PPT hoặc PPTX giữ nguyên mô hình hoạt ảnh, nhưng việc phát cuối cùng được điều khiển bởi trình xem bản trình bày.
-- PDF và hình ảnh tĩnh không phát hoạt ảnh. Sử dụng [HTML5 export](/slides/vi/python-net/export-to-html5/), GIF hoạt ảnh, hoặc [video conversion](/slides/vi/python-net/convert-powerpoint-to-video/) khi đầu ra phải hiển thị chuyển động.
+- Lưu thành PPT hoặc PPTX bảo tồn mô hình hoạt ảnh, nhưng việc phát cuối cùng do trình xem bản trình bày điều khiển.
+- PDF và hình ảnh tĩnh không phát hoạt ảnh. Sử dụng [HTML5 export](/slides/vi/python-net/export-to-html5/), GIF hoạt hình, hoặc [video conversion](/slides/vi/python-net/convert-powerpoint-to-video/) khi đầu ra phải hiển thị chuyển động.
 - Đối với HTML5, bật [Html5Options.animate_shapes](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/html5options/animate_shapes/) và, khi cần, [Html5Options.animate_transitions](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/html5options/animate_transitions/).
-- Kết xuất video hỗ trợ nhiều hiệu ứng nhập cảnh, nhấn mạnh, thoát và đường chuyển động thông thường, nhưng không phải mọi hiệu ứng PowerPoint đều được hỗ trợ. Kiểm tra bảng [supported animations and effects](/slides/vi/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) hiện tại và thử nghiệm các bản trình bày quan trọng với phiên bản Aspose.Slides mục tiêu của bạn.
-- Các hiệu ứng tùy chỉnh cao cấp và các hiệu ứng được nhập từ định dạng bản trình bày khác có thể được giữ trong tệp nhưng hiển thị khác nhau trong PowerPoint, HTML5 hoặc video. Xác thực kết quả xuất thay vì chỉ dựa vào tên hiệu ứng.
+- Kết xuất video hỗ trợ nhiều hiệu ứng vào, nhấn mạnh, ra và đường chuyển động phổ biến, nhưng không phải mọi hiệu ứng PowerPoint đều được hỗ trợ. Kiểm tra [supported animations and effects](/slides/vi/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) hiện tại và thử nghiệm các bản trình bày quan trọng với phiên bản Aspose.Slides mục tiêu của bạn.
+- Các hiệu ứng tùy chỉnh nâng cao và các hiệu ứng được nhập từ định dạng bản trình bày khác có thể được giữ trong tệp nhưng hiển thị khác nhau trong PowerPoint, HTML5 hoặc video. Xác thực kết quả xuất thay vì chỉ dựa vào tên hiệu ứng.
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Tại sao một hoạt ảnh xuất hiện trong PowerPoint nhưng không trong PDF?**
+**Tại sao một hoạt ảnh xuất hiện trong PowerPoint mà không có trong PDF?**
 
-PDF là định dạng tĩnh, vì vậy hoạt ảnh và chuyển đổi slide không được phát. Xuất sang HTML5, GIF hoạt ảnh, hoặc video khi cần giữ chuyển động.
+PDF là định dạng tĩnh, do đó hoạt ảnh và chuyển đổi slide không phát. Xuất sang HTML5, GIF hoạt hình, hoặc video khi cần bảo tồn chuyển động.
 
 **Tại sao một hiệu ứng phát khác nhau trong video?**
 
-Xuất video render hoạt ảnh thay vì lưu hành vi gốc của PowerPoint. Một số hiệu ứng nâng cao không được hỗ trợ hoặc chỉ được xấp xỉ. Xem bảng hiệu ứng được hỗ trợ và thử nghiệm bản trình bày thực tế trước khi sử dụng trong sản xuất.
+Xuất video render hoạt ảnh thay vì lưu hành vi gốc của PowerPoint. Một số hiệu ứng nâng cao không được hỗ trợ hoặc chỉ được xấp xỉ. Xem bảng hiệu ứng hỗ trợ và thử bản trình bày thực tế trước khi đưa vào sản xuất.
 
-**Di chuyển một hình dạng lên trước hoặc xuống sau có thay đổi thứ tự hoạt ảnh của nó không?**
+**Di chuyển một hình dạng lên phía trước hoặc phía sau có thay đổi thứ tự hoạt ảnh không?**
 
-Không. Thứ tự z-order của hình dạng kiểm soát sự chồng lấp, trong khi thứ tự chuỗi và trình kích hoạt kiểm soát việc phát hoạt ảnh. Thay đổi dòng thời gian nếu bạn cần một thứ tự phát khác.
+Không. Thứ tự z của hình dạng kiểm soát lớp chồng, trong khi thứ tự chuỗi và trình kích hoạt quyết định thứ tự phát hoạt ảnh. Thay đổi timeline nếu bạn cần một thứ tự phát khác.

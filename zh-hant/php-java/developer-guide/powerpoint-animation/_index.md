@@ -14,7 +14,7 @@ keywords:
 - 動畫效果
 - PowerPoint 動畫
 - 動畫時間軸
-- 互動式動畫
+- 互動動畫
 - 自訂動畫
 - 形狀動畫
 - 動畫圖表
@@ -27,25 +27,25 @@ keywords:
 - 簡報
 - PHP
 - Aspose.Slides
-description: "探索 Aspose.Slides for PHP via Java 在處理 PowerPoint 動畫方面的功能。關鍵特性與見解，協助您提升簡報品質。"
+description: "探索 Aspose.Slides for PHP via Java 在處理 PowerPoint 動畫方面的功能。關鍵特性與見解，助您提升簡報品質。"
 ---
 ## **簡介**
 
-由於簡報旨在呈現內容，在建立簡報時，始終會考慮其視覺外觀和互動行為。
+由於簡報旨在呈現資訊，因此在建立過程中會同時考量其視覺外觀與互動行為。
 
-**PowerPoint 動畫** 在使簡報吸引觀眾目光並具吸引力方面，扮演了重要角色。Aspose.Slides for PHP via Java 提供了廣泛的選項，可將動畫新增至 PowerPoint 簡報：
+**PowerPoint 動畫** 在使簡報吸引觀眾目光並提升互動性方面扮演重要角色。Aspose.Slides for PHP via Java 提供多種方式將動畫加入 PowerPoint 簡報：
 
-- 套用各種 PowerPoint 動畫效果於形狀、圖表、表格、OLE 物件及其他簡報元素。
+- 對形狀、圖表、表格、OLE 物件及其他簡報元件套用各種 PowerPoint 動畫效果。
 - 在單一形狀上使用多個 PowerPoint 動畫效果。
 - 使用動畫時間軸來控制動畫效果。
 - 建立自訂動畫。
 
-在 Aspose.Slides for PHP via Java 中，各種動畫效果可套用於形狀。由於投影片上的每個元素（包括文字、圖片、OLE 物件、表格等）皆視為形狀，這表示我們可以對投影片的每個元素套用動畫效果。
+在 Aspose.Slides for PHP via Java 中，動畫效果可套用於形狀。由於投影片上的每個元素（包括文字、圖片、OLE 物件與表格）皆視為形狀，動畫效果可套用於投影片上的任何元素。
 
 ## **動畫效果**
-Aspose.Slides 支援 **150+ 動畫效果**，包括基本的動畫效果，如 Bounce、PathFootball、Zoom 效果，以及特定的動畫效果如 OLEObjectShow、OLEObjectOpen。您可以在 [**EffectType**](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/effecttype/) 列舉中找到完整的動畫效果清單。
+Aspose.Slides 支援 **150 多種動畫效果**，包括 Bounce、PathFootball、Zoom 等基本效果，以及 OLEObjectShow、OLEObjectOpen 等特定效果。完整列表請參考 [EffectType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/effecttype/) 類別。
 
-此外，這些動畫效果還可以與以下項目結合使用：
+此外，這些動畫效果還能與以下行為結合使用：
 
 - [ColorEffect](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/CommandEffect)
@@ -57,50 +57,54 @@ Aspose.Slides 支援 **150+ 動畫效果**，包括基本的動畫效果，如 B
 - [SetEffect](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/SetEffect)
 
 ## **自訂動畫**
-在 Aspose.Slides 中可以建立您自己的 **自訂動畫**。只要將多個行為結合成新的自訂動畫，即可實現此目的。
 
-[**Behavior**](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/Behavior) 是任何 PowerPoint 動畫效果的構建單元。所有動畫效果實際上是一組組合成單一策略的行為。您可以一次將行為結合成自訂動畫，並在其他簡報中重複使用。如果您將新行為加入標準 PowerPoint 動畫效果，將形成另一個自訂動畫。例如，您可以為動畫加入重複行為，使其重複數次。
+欲取得建立、檢查與修改行為及可編輯移動路徑的完整 PHP 範例，請參閱 [Custom Animation](/slides/zh-hant/php-java/custom-animation/)。
 
-[**Animation Point**](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/Point) 是應用行為的點位。
+在 Aspose.Slides 中可以建立您自己的 **自訂動畫**。這可透過將多個行為組合成新的自訂動畫來實現。
+
+[Behavior](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/behavior/) 是 PowerPoint 動畫效果的組成單元。結合行為即可自訂效果，或加入行為以擴充預定義效果。重複次數透過計時設定來配置，而非使用單獨的重複行為。
+
+[Animation Point](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/point/) 是應用行為的定位點。
 
 ## **動畫時間軸**
-[**Sequence**](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/Sequence) 是套用於特定形狀的一組動畫效果集合。
+[Sequence](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/sequence/) 是一組可針對不同形狀的動畫效果。
 
-[**Timeline**](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/AnimationTimeLine) 是在特定投影片中使用的一組 Sequence。它自 PowerPoint 2002 起即作為動畫引擎呈現。在早期的 PowerPoint 版本中，為簡報加入動畫效果相當困難，僅能透過各種變通方法實現。Timeline 用於取代舊的 AnimationSettings 類別，並提供更清晰的 PowerPoint 動畫物件模型。一張投影片只能有一個動畫時間軸。
+[Timeline](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/animationtimeline/) 是在特定投影片中使用的序列集合。它是 PowerPoint 2002 引入的動畫引擎。於較早期的 PowerPoint 中，為簡報加入動畫效果相當困難，且只能透過各種變通方式實現。時間軸提供了更清晰的物件模型。一張投影片只能擁有一個動畫時間軸。
 
-## **互動式動畫**
-[**Trigger**](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/EffectTriggerType) 允許定義使用者操作（例如按鈕點擊），以啟動特定動畫。Triggers 只在最新的 PowerPoint 版本中加入。
+## **互動動畫**
+[Trigger](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/effecttriggertype/) 允許您定義使用者動作（例如按鈕點擊），以啟動特定動畫。
 
 ## **形狀動畫**
-Aspose.Slides 允許對形狀套用動畫，形狀實際上可以是文字、矩形、線條、框架、OLE 物件等。
+Aspose.Slides 允許您對形狀套用動畫，形狀可包括文字、矩形、線條、框架、OLE 物件等。
 
-{{% alert color="primary" %}} 
-閱讀更多 [**關於形狀動畫**](/slides/zh-hant/php-java/shape-animation/).
+{{% alert color="info" title="Note" %}}
+閱讀更多 [**關於形狀動畫**](/slides/zh-hant/php-java/shape-animation/)。
 {{% /alert %}}
 
 ## **動畫圖表**
-若要建立動畫圖表，您應使用與形狀相同的類別。然而，PowerPoint 動畫僅能套用於圖表的類別或系列。您也可以對類別元素或系列元素套用動畫效果。
+若要建立動畫圖表，應使用與形狀相同的類別。但 PowerPoint 動畫只能套用於圖表類別或圖表系列。您也可以將動畫效果套用於單一類別元素或系列元素。
 
-{{% alert color="primary" %}} 
-閱讀更多 [**關於動畫圖表**](/slides/zh-hant/php-java/animated-charts/).
+{{% alert color="info" title="Note" %}}
+閱讀更多 [**關於動畫圖表**](/slides/zh-hant/php-java/animated-charts/)。
 {{% /alert %}}
 
 ## **動畫文字**
-除了動畫文字之外，也可以對段落套用動畫。
+除了對文字本身做動畫之外，您還可以對段落套用動畫。
 
-{{% alert color="primary" %}} 
-閱讀更多 [**關於動畫文字**](/slides/zh-hant/php-java/animated-text/).
+{{% alert color="info" title="Note" %}}
+閱讀更多 [**關於動畫文字**](/slides/zh-hant/php-java/animated-text/)。
 {{% /alert %}}
 
 ## **常見問題**
-**匯出為 PDF 時會保留動畫嗎？**
 
-不會。PDF 為靜態格式，因而不會播放動畫與[投影片切換](/slides/zh-hant/php-java/slide-transition/)。如果需要動態效果，請改為匯出為[HTML5](/slides/zh-hant/php-java/export-to-html5/)、[動畫 GIF](/slides/zh-hant/php-java/convert-powerpoint-to-animated-gif/)或[影片](/slides/zh-hant/php-java/convert-powerpoint-to-video/)。
+**將動畫匯出為 PDF 時會被保留嗎？**
 
-**我可以將動畫簡報轉成影片，並控制幀率與幀大小嗎？**
+不會。PDF 為靜態格式，故不會播放動畫與 [slide transitions](/slides/zh-hant/php-java/slide-transition/)。如需動態效果，請改匯出為 [HTML5](/slides/zh-hant/php-java/export-to-html5/)、[animated GIF](/slides/zh-hant/php-java/convert-powerpoint-to-animated-gif/) 或 [video](/slides/zh-hant/php-java/convert-powerpoint-to-video/)。
 
-是的。您可以[將簡報渲染為影格](/slides/zh-hant/php-java/convert-powerpoint-to-video/)並將其編碼為影片（例如使用 ffmpeg），選擇幀率與解析度。動畫與投影片切換會在渲染過程中播放。
+**我可以將動畫簡報轉成影片，並控制幀率與畫面大小嗎？**
 
-**在使用 ODP（不僅限 PPTX）時，動畫會保持完整嗎？**
+可以。您可以 [render the presentation as frames](/slides/zh-hant/php-java/convert-powerpoint-to-video/)，再使用 ffmpeg 等工具編碼為影片，自行設定 FPS 與解析度。渲染過程中會播放動畫與投影片轉場。
 
-支援 PPT、PPTX 與 ODP 的[讀取](/slides/zh-hant/php-java/open-presentation/)與[寫入](/slides/zh-hant/php-java/save-presentation/)，但由於格式差異，某些效果可能會略有不同的顯示或行為。請以真實樣本驗證關鍵情況。
+**在處理 ODP（不只是 PPTX）時動畫會保持完整嗎？**
+
+PPT、PPTX 與 ODP 均支援[讀取](/slides/zh-hant/php-java/open-presentation/)與[寫入](/slides/zh-hant/php-java/save-presentation/)，但這並不保證動畫一定會被保留。將檔案轉為 ODP 時可能會遺失自訂動畫資料。請參考 [Custom Animation](/slides/zh-hant/php-java/custom-animation/) 以取得範例與檢查格式相容性的指引。

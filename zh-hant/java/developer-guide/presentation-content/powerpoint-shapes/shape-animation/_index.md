@@ -1,15 +1,15 @@
 ---
-title: 在簡報中使用 Java 套用形狀動畫
-linktitle: 形狀動畫
+title: 在 Java 中於簡報套用圖形動畫
+linktitle: 圖形動畫
 type: docs
 weight: 60
 url: /zh-hant/java/shape-animation/
 keywords:
-- 形狀
+- 圖形
 - 動畫
 - 效果
-- 動畫形狀
-- 動畫文字
+- 已動畫圖形
+- 已動畫文字
 - 新增動畫
 - 取得動畫
 - 擷取動畫
@@ -22,24 +22,26 @@ keywords:
 - 簡報
 - Java
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Java 新增、檢查和自訂形狀動畫、時間設定、聲音、後動畫行為以及動畫文字。"
+description: "了解如何使用 Aspose.Slides for Java 新增、檢查和自訂圖形動畫、時間設定、聲音、動畫後行為，以及動畫文字。"
 ---
 ## **概觀**
 
-Aspose.Slides for Java 將投影片動畫表示為投影片時間軸中的效果。每個效果具有目標形狀、動畫類型和子類型、觸發條件、時間設定，以及聲音或後動畫行為等可選屬性。
+若要在效果內處理各個行為或編輯移動路徑段，請參閱 [自訂動畫](/slides/zh-hant/java/custom-animation/)。
 
-時間軸包含兩種序列：
+Aspose.Slides for Java 將投影片動畫表示為投影片時間軸上的效果。每個效果具有目標圖形、動畫類型與子類型、觸發器、計時設定，以及聲音或動畫後行為等可選屬性。
+
+時間軸包含兩種類型的序列：
 
 - **主要序列** 在投影片前進時播放。
-- **互動序列** 在其觸發形狀被點擊時開始。
+- **互動序列** 於其觸發圖形被點擊時開始。
 
-由於文字方塊、圖片、圖表、表格及其他投影片物件實作了[IShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/)，您使用相同的[ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) 方法處理大多數投影片內容。可用的效果列在[EffectType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/effecttype/) 類別中。
+因為文字方塊、圖片、圖表、表格以及其他投影片物件皆實作 [IShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/)，您可對大多數投影片內容使用相同的 [ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) 方法。可用的效果列於 [EffectType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/effecttype/) 類別中。
 
-## **新增形狀動畫**
+## **新增圖形動畫**
 
-若要新增動畫，取得投影片的主要序列，並以目標形狀、效果類型、子類型與觸發條件呼叫[ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)。若要在其他形狀被點擊時啟動的效果，請建立觸發條件為該形狀的互動序列。
+若要新增動畫，取得投影片的主要序列，並以目標圖形、效果類型、子類型與觸發器呼叫 [ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)。若要在點擊另一個圖形時開始效果，請建立以該圖形為觸發器的互動序列。
 
-以下範例同時建立兩種動畫，並將結果儲存為 `shape-animations.pptx`。
+下列範例建立兩種動畫，並將結果儲存為 `shape-animations.pptx`。
 
 ```java
 import com.aspose.slides.*;
@@ -71,19 +73,19 @@ public class AddShapeAnimations {
 }
 ```
 
-觸發條件控制效果何時開始：
+觸發器控制效果何時開始：
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/effecttriggertype/#OnClick) 等待主要序列中的點擊，或互動序列中觸發形狀的點擊。
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/effecttriggertype/#WithPrevious) 與先前效果同時開始。
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/effecttriggertype/#AfterPrevious) 在先前效果結束時開始。
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/effecttriggertype/#OnClick) 於主要序列等待點擊，或於互動序列等待對觸發圖形的點擊。
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/effecttriggertype/#WithPrevious) 在前一個效果同時開始。
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/effecttriggertype/#AfterPrevious) 在前一個效果完成後開始。
 
-若要對圖片、圖表或其他形狀類型套用動畫，請將該物件傳遞給[ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)，而非 `targetShape`。有關圖表特定的分組選項，請參閱[Animated Charts](/slides/zh-hant/java/animated-charts/)。
+若要為圖片、圖表或其他圖形類型設定動畫，請將該物件傳遞給 [ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)，而非 `targetShape`。欲了解圖表特定的分組選項，請參閱 [Animated Charts](/slides/zh-hant/java/animated-charts/)。
 
-## **讀取形狀動畫**
+## **讀取圖形動畫**
 
-使用[ISequence.getEffectsByShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) 當您已知目標形狀時。若要檢查每個效果，請列舉主要序列與所有互動序列。列舉可避免假設序列在索引 `0` 處一定有效果。
+當您知道目標圖形時，請使用 [ISequence.getEffectsByShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-)。若要檢查每個效果，請列舉主要序列與所有互動序列。使用列舉可避免假設序列在索引 `0` 處一定有效果。
 
-以下範例建立具有主要序列與互動效果的形狀，取得針對該形狀的效果，然後列舉投影片上的每個序列。
+下列範例建立具有主要序列與互動效果的圖形，取得針對該圖形的效果，然後列舉投影片上的每個序列。
 
 ```java
 import com.aspose.slides.*;
@@ -137,21 +139,21 @@ public class ReadShapeAnimations {
 }
 ```
 
-如果只需要單一形狀的效果，請先以名稱、佔位符類型或其他穩定屬性識別該形狀；然後呼叫[ISequence.getEffectsByShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-)。不要假設[IShapeCollection.get_Item](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishapecollection/#get_Item-int-) 在索引 `0` 處總是目標物件。
+如果只需要單一圖形的效果，請先依名稱、佔位符類型或其他穩定屬性辨識該圖形；然後呼叫 [ISequence.getEffectsByShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-)。切勿假設在索引 `0` 的 [IShapeCollection.get_Item](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishapecollection/#get_Item-int-) 一定是目標物件。
 
-## **處理繼承的佔位符效果**
+## **使用繼承的佔位符效果**
 
-普通投影片上的佔位符可以從其版面投影片與母片投影片的對應佔位符繼承動畫行為。[IShape.getBasePlaceholder](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/#getBasePlaceholder--) 會回傳該父佔位符，若不存在則回傳 `null`。
+一般投影片上的佔位符可以繼承其版面投影片與母版投影片上相對應佔位符的動畫行為。[IShape.getBasePlaceholder](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/#getBasePlaceholder--) 會回傳該父佔位符，若不存在則回傳 `null`。
 
-在下列範例簡報中，頁腳在普通投影片上具有 **Random Bars**，在版面投影片上具有 **Split**，在母片投影片上具有 **Fly In**。
+在下列示例簡報中，頁腳在一般投影片上使用 **Random Bars**，在版面投影片上使用 **Split**，在母版投影片上使用 **Fly In**。
 
-![普通投影片上的頁腳動畫效果](slide-shape-animation.png)
+![一般投影片上的頁腳動畫效果](slide-shape-animation.png)
 
 ![版面投影片上頁腳佔位符動畫效果](layout-shape-animation.png)
 
-![母片投影片上頁腳佔位符動畫效果](master-shape-animation.png)
+![母版投影片上頁腳佔位符動畫效果](master-shape-animation.png)
 
-下一個範例使用新簡報中的佔位符層級。它為母片佔位符、版面佔位符以及普通投影片上的對應佔位符新增效果。每次呼叫[IShape.getBasePlaceholder](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/#getBasePlaceholder--) 前都會先檢查回傳的形狀。
+下一個範例使用新簡報中的佔位符階層。它對母版佔位符、版面佔位符以及一般投影片上的對應佔位符加入效果。對每一次呼叫 [IShape.getBasePlaceholder](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/#getBasePlaceholder--) 都會先檢查返回的圖形再使用。
 
 ```java
 import com.aspose.slides.*;
@@ -229,19 +231,19 @@ public class InheritedPlaceholderAnimations {
 }
 ```
 
-## **變更動畫時間**
+## **變更動畫時間設定**
 
-PowerPoint **Timing** 對話框對應到[ITiming](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/) 的屬性。
+PowerPoint **Timing** 對話方塊對應至 [ITiming](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/) 的屬性。
 
-![動畫效果的 PowerPoint 時間設定對話框](shape-animation.png)
+![PowerPoint 動畫效果的 Timing 對話方塊](shape-animation.png)
 
-- **開始** 對應到[ITiming.getTriggerType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#getTriggerType--)。
-- **持續時間** 對應到[ITiming.getDuration](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#getDuration--)，單位為秒。
-- **延遲** 對應到[ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#getTriggerDelayTime--)，單位為秒。
-- **重複** 對應到[ITiming.getRepeatCount](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#getRepeatCount--)、[ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#getRepeatUntilNextClick--) 或[ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#getRepeatUntilEndSlide--)。
-- **播放完成後倒退** 對應到[ITiming.getRewind](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#getRewind--)。
+- **開始** 對應至 [ITiming.getTriggerType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#getTriggerType--)。
+- **持續時間** 對應至 [ITiming.getDuration](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#getDuration--)（單位：秒）。
+- **延遲** 對應至 [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#getTriggerDelayTime--)（單位：秒）。
+- **重複** 對應至 [ITiming.getRepeatCount](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#getRepeatCount--)、[ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#getRepeatUntilNextClick--) 或 [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#getRepeatUntilEndSlide--)。
+- **播放完畢時倒轉** 對應至 [ITiming.getRewind](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#getRewind--)。
 
-此獨立範例新增一個效果，透過[ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) 回傳的物件變更其時間設定，並儲存結果。保留回傳的[IEffect](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ieffect/) 參考，可避免不必要的集合索引。
+此獨立範例加入一個效果，透過 [ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) 回傳的物件變更其時間設定，並儲存結果。保留回傳的 [IEffect](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ieffect/) 參考可避免不必要的集合索引。
 
 ```java
 import com.aspose.slides.*;
@@ -271,15 +273,15 @@ public class ChangeAnimationTiming {
 }
 ```
 
-有意使用單一重複模式。將重複計數與「直到」旗標結合可能在不同的觀看器中產生混淆結果。變更重複模式時，請先設定[ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) 與[ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-)，再設定[ITiming.setRepeatCount](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#setRepeatCount-float-)，因為設定任一旗標都會改變目前的重複模式。
+請有意使用單一的重複模式。將重複計數與「直到」旗標結合可能在不同的檢視器中產生混淆的結果。變更重複模式時，請先設定 [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) 與 [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-)，再呼叫 [ITiming.setRepeatCount](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itiming/#setRepeatCount-float-)，因為設定任一旗標也會改變目前的重複模式。
 
 ## **新增與擷取動畫聲音**
 
-動畫效果可以透過[IEffect.getSound](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ieffect/#getSound--) 參考嵌入的音訊。[IEffect.setStopPreviousSound](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) 可指示效果停止之前效果所啟動的音訊。
+動畫效果可以透過 [IEffect.getSound](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ieffect/#getSound--) 參考嵌入的音訊。[IEffect.setStopPreviousSound](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) 可指示效果停止先前效果所啟動的音訊。
 
 ### **為效果新增聲音**
 
-以下範例假設本機有名為 `animation-sound.wav` 的音訊檔。它建立兩個效果，將該檔案嵌入為第一個效果的聲音，並設定第二個效果停止該聲音。使用[ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) 回傳的物件，因此不需要序列索引。
+下列範例預期有名為 `animation-sound.wav` 的本機音訊檔案。它建立兩個效果，將該檔案嵌入為第一個效果的聲音，並設定第二個效果停止聲音。它使用由 [ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) 回傳的物件，因而不需要序列索引。
 
 ```java
 import com.aspose.slides.*;
@@ -316,7 +318,7 @@ public class AddAnimationSound {
 
 ### **擷取嵌入的效果聲音**
 
-以下範例假設本機有名為 `presentation-with-animation-sounds.pptx` 的簡報。它掃描主要與互動序列，將每個嵌入的效果聲音寫入 `extracted-animation-sounds` 目錄。副檔名依據[IAudio.getContentType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iaudio/#getContentType--) 所回傳的音訊 MIME 類型選擇。
+下列範例預期有名為 `presentation-with-animation-sounds.pptx` 的本機簡報。它掃描主要與互動序列，將每個嵌入的效果聲音寫入 `extracted-animation-sounds` 目錄。副檔名根據 [IAudio.getContentType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iaudio/#getContentType--) 所提供的音訊 MIME 類型選取。
 
 ```java
 import com.aspose.slides.*;
@@ -390,17 +392,17 @@ public class ExtractAnimationSounds {
 }
 ```
 
-對於大型音訊物件，請使用[IAudio.getStream](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iaudio/#getStream--) 並將串流複製到檔案，而非將整個物件載入記憶體中的位元組陣列。
+對於大型音訊物件，請使用 [IAudio.getStream](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iaudio/#getStream--)，並將串流複製至檔案，而非將整個物件載入至位元組陣列。
 
-## **設定後動畫行為**
+## **設定動畫後行為**
 
-**After animation** 選項控制效果結束後形狀的處理方式。
+**After animation** 選項控制效果完成後圖形的處理方式。
 
-![PowerPoint 效果選項對話框顯示「後動畫」設定](shape-after-animation.png)
+![PowerPoint 效果選項對話方塊顯示「After animation」設定](shape-after-animation.png)
 
-[AfterAnimationType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/afteranimationtype/) 類別支援保持形狀不變、變更顏色、動畫後隱藏或在下一次點擊時隱藏。當類型為[AfterAnimationType.Color](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/afteranimationtype/#Color) 時，亦需設定[IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ieffect/#getAfterAnimationColor--)。
+[AfterAnimationType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/afteranimationtype/) 類別支援保持圖形不變、更改其顏色、在動畫後隱藏圖形，或在下一次點擊時隱藏圖形。當類型為 [AfterAnimationType.Color](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/afteranimationtype/#Color) 時，亦需設定 [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ieffect/#getAfterAnimationColor--)。
 
-此獨立範例建立一個效果，透過回傳的效果物件設定其後動畫行為，並儲存結果。
+此獨立範例建立一個效果，透過回傳的效果物件設定其動畫後行為，並儲存結果。
 
 ```java
 import com.aspose.slides.*;
@@ -426,16 +428,16 @@ public class SetAfterAnimationBehavior {
 }
 ```
 
-將類型從[AfterAnimationType.Color](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/afteranimationtype/#Color) 變更會清除後動畫顏色設定。
+將類型從 [AfterAnimationType.Color](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/afteranimationtype/#Color) 改為其他會清除動畫後的顏色設定。
 
 ## **動畫文字**
 
 文字動畫有兩個相關控制項：
 
-- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextanimation/#getBuildType--) 控制段落是一起顯示或按段落層級顯示。
-- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ieffect/#getAnimateTextType--) 控制文字是一次全部顯示、逐字或逐字母顯示。[IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) 設定字詞或字母之間的延遲。正值為效果持續時間的百分比，負值為秒數延遲。
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextanimation/#getBuildType--) 控制段落是一次顯示還是逐段顯示。
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ieffect/#getAnimateTextType--) 控制文字是一次全部顯示、逐字或逐字元顯示。[IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) 設定字或字元之間的延遲。正值為效果持續時間的百分比，負值為以秒為單位的延遲。
 
-以下獨立範例為文字方塊中的單詞加入動畫。[BuildType.AsOneObject](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/buildtype/#AsOneObject) 會停用逐段落建立，使單詞設定套用於整個文字框。
+下列獨立範例為文字方塊中的單字加入動畫。[BuildType.AsOneObject](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/buildtype/#AsOneObject) 會停用逐段構建，使字詞設定套用於整個文字框。
 
 ```java
 import com.aspose.slides.*;
@@ -461,26 +463,26 @@ public class AnimateTextByWord {
 }
 ```
 
-若要按段落建立文字框，請設定[BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/buildtype/#ByLevelParagraphs1)（或其他段落層級）。若要針對單一段落套用其專屬效果，請使用接受[IParagraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/) 的[ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) 重載。請參閱[Animated Text](/slides/zh-hant/java/animated-text/) 了解段落層級的範例。
+若要逐段建立文字方塊，請設定 [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/buildtype/#ByLevelParagraphs1)（或其他段落層級）。若要對單一段落套用其專屬效果，請使用接受 [IParagraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/) 的 [ISequence.addEffect](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) 重載。請參閱 [Animated Text](/slides/zh-hant/java/animated-text/) 取得段落層級的範例。
 
 ## **匯出與相容性說明**
 
-- 儲存為 PPT 或 PPTX 會保留動畫模型，但最終播放方式由簡報觀看器決定。
-- PDF 與靜態影像不會播放動畫。若輸出必須顯示動態，請使用[HTML5 export](/slides/zh-hant/java/export-to-html5/)、動畫 GIF，或[video conversion](/slides/zh-hant/java/convert-powerpoint-to-video/)。
-- 針對 HTML5，請啟用[Html5Options.setAnimateShapes](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-)，必要時再啟用[Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-)。
-- 影片轉換支援許多常見的進入、強調、退出與路徑動畫，但並非所有 PowerPoint 效果皆受支援。請查看目前的[Supported animations and effects](/slides/zh-hant/java/convert-powerpoint-to-video/#supported-animations-and-effects)，並以目標 Aspose.Slides 版本對關鍵簡報進行測試。
-- 進階自訂效果與從其他簡報格式匯入的效果可能會在檔案中保留，但在 PowerPoint、HTML5 或影片中呈現的方式可能不同。請驗證匯出結果，而非僅依賴效果名稱。
+- 將檔案儲存為 PPT 或 PPTX 會保留動畫模型，但最終播放由簡報檢視器控制。
+- PDF 與靜態影像不會播放動畫。當輸出必須顯示動作時，請使用 [HTML5 export](/slides/zh-hant/java/export-to-html5/)、動畫 GIF，或 [video conversion](/slides/zh-hant/java/convert-powerpoint-to-video/)。
+- 對於 HTML5，請啟用 [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-)，必要時亦啟用 [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-)。
+- 影片渲染支援許多常見的進入、強調、退出與移動路徑效果，但並非所有 PowerPoint 效果皆受支援。請查看目前的 [supported animations and effects](/slides/zh-hant/java/convert-powerpoint-to-video/#supported-animations-and-effects) 並使用目標的 Aspose.Slides 版本測試關鍵簡報。
+- 進階自訂效果以及從其他簡報格式匯入的效果可能在檔案中被保留，但在 PowerPoint、HTML5 或影片中呈現方式可能不同。請驗證匯出結果，而非僅僅依賴效果名稱。
 
 ## **常見問題**
 
-**為什麼動畫在 PowerPoint 中會顯示，但在 PDF 中不會顯示？**
+**為什麼動畫在 PowerPoint 中出現，但在 PDF 中沒有？**
 
-PDF 為靜態格式，無法播放動畫與投影片過場。若必須保留動態，請匯出為 HTML5、動畫 GIF，或影片。
+PDF 為靜態格式，故不會播放動畫與投影片轉場。當必須保留動作時，請匯出為 HTML5、動畫 GIF，或影片。
 
-**為什麼效果在影片中播放的方式不同？**
+**為什麼效果在影片中播放不同？**
 
-影片匯出會渲染動畫而非保留原始 PowerPoint 行為。某些進階效果未受支援或會被近似處理。請參閱支援的效果表，並在投入生產前測試實際簡報。
+影片匯出會渲染動畫，而非儲存原始 PowerPoint 行為。一些進階效果不受支援或僅為近似。請檢閱支援效果表，並在正式使用前測試實際簡報。
 
-**將形狀向前或向後移動會改變其動畫順序嗎？**
+**將圖形向前或向後移動會改變其動畫順序嗎？**
 
-不會。形狀的 Z 軸順序只影響重疊顯示，動畫播放順序由序列順序與觸發條件決定。如需不同的播放順序，請調整時間軸。
+不會。圖形的 Z 軸順序僅控制重疊，而序列順序與觸發器控制動畫播放。若需不同的播放順序，請調整時間軸。

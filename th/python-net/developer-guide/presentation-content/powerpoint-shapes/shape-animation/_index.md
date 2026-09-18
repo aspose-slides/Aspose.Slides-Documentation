@@ -1,5 +1,5 @@
 ---
-title: ใช้การเคลื่อนไหวของรูปร่างในงานนำเสนอด้วย Python
+title: นำการเคลื่อนไหวของรูปร่างไปใช้ในงานนำเสนอด้วย Python
 linktitle: การเคลื่อนไหวของรูปร่าง
 type: docs
 weight: 60
@@ -11,35 +11,37 @@ keywords:
 - รูปร่างเคลื่อนไหว
 - ข้อความเคลื่อนไหว
 - เพิ่มการเคลื่อนไหว
-- รับการเคลื่อนไหว
-- สกัดการเคลื่อนไหว
+- ดึงการเคลื่อนไหว
+- แยกการเคลื่อนไหว
 - เพิ่มเอฟเฟกต์
-- รับเอฟเฟกต์
-- สกัดเอฟเฟกต์
+- ดึงเอฟเฟกต์
+- แยกเอฟเฟกต์
 - เสียงเอฟเฟกต์
-- ประยุกต์ใช้การเคลื่อนไหว
+- นำการเคลื่อนไหวไปใช้
 - PowerPoint
 - งานนำเสนอ
 - Python
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่ม, ตรวจสอบ, และปรับแต่งการเคลื่อนไหวของรูปร่าง, การตั้งเวลา, เสียง, พฤติกรรมหลังการเคลื่อนไหว, และข้อความเคลื่อนไหวด้วย Aspose.Slides for Python ผ่าน .NET."
+description: "เรียนรู้วิธีเพิ่ม ตรวจสอบ และปรับแต่งการเคลื่อนไหวของรูปร่าง, การตั้งเวลา, เสียง, พฤติกรรมหลังการเคลื่อนไหว, และข้อความเคลื่อนไหวด้วย Aspose.Slides สำหรับ Python ผ่าน .NET."
 ---
-## **Overview**
+## **ภาพรวม**
 
-Aspose.Slides for Python ผ่าน .NET แสดงการเคลื่อนไหวของสไลด์เป็นเอฟเฟกต์ในไทม์ไลน์ของสไลด์. เอฟเฟกต์หนึ่งมีรูปร่างเป้าหมาย, ประเภทและชนิดย่อยของการเคลื่อนไหว, ตัวกระตุ้น, การตั้งค่าเวลา, และคุณสมบัติเสริมเช่น เสียงหรือพฤติกรรมหลังการเคลื่อนไหว.
+เพื่อทำงานกับพฤติกรรมแต่ละอย่างภายในเอฟเฟกต์หรือแก้ไขส่วนของ motion‑path ให้ดูที่ [การเคลื่อนไหวที่กำหนดเอง](/slides/th/python-net/custom-animation/).
 
-ไทม์ไลน์มีสองประเภทของลำดับ:
+Aspose.Slides for Python via .NET แสดงการเคลื่อนไหวของสไลด์เป็นเอฟเฟกต์ในไทม์ไลน์ของสไลด์ เอฟเฟกต์หนึ่งมีรูปร่างเป้าหมาย, ประเภทและชนิดย่อยของการเคลื่อนไหว, ตัวกระตุ้น, การตั้งค่าเวลา, และคุณสมบัติเสริมเช่นเสียงหรือพฤติกรรมหลังการเคลื่อนไหว.
 
-- **ลำดับหลัก** ทำงานเมื่อสไลด์เลื่อนไปข้างหน้า.
-- **ลำดับเชิงโต้ตอบ** เริ่มเมื่อรูปร่างตัวกระตุ้นถูกคลิก.
+ไทม์ไลน์มีลำดับสองประเภท:
 
-เนื่องจากกล่องข้อความ, รูปภาพ, แผนภูมิ, ตารางและอ็อบเจกต์สไลด์อื่น ๆ implements [IShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/ishape/), คุณจะใช้เมธอด [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/) เดียวกันสำหรับเนื้อหาสไลด์ส่วนใหญ่. เอฟเฟกต์ที่มีอยู่รายการไว้ใน enumeration [EffectType](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effecttype/).
+- **ลำดับหลัก** ทำงานเมื่อสไลด์ก้าวหน้า.
+- **ลำดับโต้ตอบ** เริ่มต้นเมื่อรูปทรงตัวกระตุ้นถูกคลิก.
 
-## **Add Shape Animations**
+เนื่องจากกล่องข้อความ, รูปภาพ, แผนภูมิ, ตาราง, และวัตถุสไลด์อื่น ๆ มีการใช้งาน [IShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/ishape/), คุณจึงใช้เมธอด [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/) เดียวกันสำหรับเนื้อหาสไลด์ส่วนใหญ่ เอฟเฟกต์ที่ใช้ได้จะถูกแสดงใน enumeration [EffectType](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effecttype/).
 
-เพื่อเพิ่มการเคลื่อนไหว, ดึงลำดับหลักของสไลด์และเรียก [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/) พร้อมกับรูปร่างเป้าหมาย, ประเภทเอฟเฟกต์, ชนิดย่อย, และตัวกระตุ้น. สำหรับเอฟเฟกต์ที่เริ่มเมื่อรูปร่างอื่นถูกคลิก, สร้างลำดับเชิงโต้ตอบที่ตัวกระตุ้นคือรูปร่างนั้น.
+## **เพิ่มการเคลื่อนไหวของรูปร่าง**
 
-ตัวอย่างต่อไปนี้สร้างการเคลื่อนไหวทั้งสองประเภทและบันทึกผลลัพธ์เป็น `shape-animations.pptx`.
+เพื่อเพิ่มการเคลื่อนไหว, ดึงลำดับหลักของสไลด์และเรียก [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/) พร้อมด้วยรูปร่างเป้าหมาย, ประเภทเอฟเฟกต์, ชนิดย่อย, และตัวกระตุ้น. สำหรับเอฟเฟกต์ที่เริ่มเมื่อรูปร่างอื่นถูกคลิก, สร้างลำดับโต้ตอบที่ตัวกระตุ้นคือรูปร่างนั้น.
+
+ตัวอย่างต่อไปนี้สร้างทั้งสองประเภทของการเคลื่อนไหวและบันทึกผลลัพธ์เป็น `shape-animations.pptx`.
 
 ```python
 import aspose.slides as slides
@@ -66,17 +68,17 @@ with slides.Presentation() as presentation:
 
 ตัวกระตุ้นกำหนดว่าเอฟเฟกต์จะเริ่มเมื่อใด:
 
-- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effecttriggertype/) รอการคลิกในลำดับหลัก, หรือรอการคลิกบนรูปร่างตัวกระตุ้นในลำดับเชิงโต้ตอบ.
+- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effecttriggertype/) รอคลิกในลำดับหลัก, หรือรอคลิกบนรูปทรงตัวกระตุ้นในลำดับโต้ตอบ.
 - [EffectTriggerType.WITH_PREVIOUS](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effecttriggertype/) เริ่มพร้อมกับเอฟเฟกต์ก่อนหน้า.
-- [EffectTriggerType.AFTER_PREVIOUS](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effecttriggertype/) เริ่มเมื่อเอฟเฟกต์ก่อนหน้าจบ.
+- [EffectTriggerType.AFTER_PREVIOUS](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effecttriggertype/) เริ่มเมื่อเอฟเฟกต์ก่อนหน้าสิ้นสุด.
 
-เพื่อทำให้รูปภาพ, แผนภูมิ, หรือรูปร่างประเภทอื่นเคลื่อนไหว, ส่งอ็อบเจกต์นั้นไปยัง [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/) แทน `target_shape`. สำหรับตัวเลือกการจัดกลุ่มเฉพาะแผนภูมิ, ดู [Animated Charts](/slides/th/python-net/animated-charts/).
+เพื่อเคลื่อนไหวรูปภาพ, แผนภูมิ, หรือรูปร่างประเภทอื่น, ให้ส่งอ็อบเจ็กต์นั้นไปยัง [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/) แทน `target_shape`. สำหรับตัวเลือกการจัดกลุ่มเฉพาะแผนภูมิ, ดูที่ [Animated Charts](/slides/th/python-net/animated-charts/).
 
-## **Read Shape Animations**
+## **อ่านการเคลื่อนไหวของรูปร่าง**
 
-ใช้ [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/get_effects_by_shape/) เมื่อคุณรู้รูปร่างเป้าหมาย. เพื่อตรวจสอบทุกเอฟเฟกต์, วนผ่านลำดับหลักและลำดับเชิงโต้ตอบทุกลำดับ. การวนลูปช่วยหลีกเลี่ยงการสันนิษฐานว่าลำดับมีเอฟเฟกต์ที่ดัชนี `0`.
+ใช้ [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/get_effects_by_shape/) เมื่อคุณทราบรูปร่างเป้าหมาย. หากต้องการตรวจสอบทุกเอฟเฟกต์, ทำการวนซ้ำผ่านลำดับหลักและลำดับโต้ตอบทุกลำดับ. การวนซ้ำช่วยหลีกเลี่ยงการสันนิษฐานว่าลำดับมีเอฟเฟกต์ที่ตำแหน่ง `0`.
 
-ตัวอย่างต่อไปนี้สร้างรูปร่างที่มีเอฟเฟกต์ในลำดับหลักและเชิงโต้ตอบ, ดึงเอฟเฟกต์ที่เป้าหมายเป็นรูปร่างนั้น, แล้ววนผ่านทุกลำดับบนสไลด์.
+ตัวอย่างต่อไปนี้สร้างรูปร่างพร้อมเอฟเฟกต์ลำดับหลักและโต้ตอบ, ดึงเอฟเฟกต์ที่เป้าหมายคือรูปร่างนั้น, จากนั้นวนซ้ำทุกลำดับบนสไลด์.
 
 ```python
 import aspose.slides as slides
@@ -116,21 +118,21 @@ with slides.Presentation() as presentation:
         print_sequence(sequence_label, sequence)
 ```
 
-หากคุณต้องการเอฟเฟกต์สำหรับรูปร่างเดียว, ให้ระบุรูปร่างด้วยชื่อ, ประเภท placeholder, หรือคุณสมบัติคงที่อื่น; จากนั้นเรียก [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/get_effects_by_shape/). อย่าสันนิษฐานว่ารูปร่างที่ดัชนี `0` always เป็นอ็อบเจกต์ที่ต้องการ.
+หากคุณต้องการเอฟเฟกต์สำหรับรูปร่างเดียว, ให้ระบุรูปร่างโดยชื่อ, ประเภท placeholder, หรือคุณสมบัติที่คงที่อื่น; จากนั้นเรียก [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/get_effects_by_shape/). อย่าสันนิษฐานว่ารูปร่างที่ตำแหน่ง `0` เป็นวัตถุที่ต้องการเสมอ.
 
-## **Work with Inherited Placeholder Effects**
+## **ทำงานกับเอฟเฟกต์ของ Placeholder ที่สืบทอด**
 
-Placeholder บนสไลด์ปกติสามารถสืบทอดพฤติกรรมการเคลื่อนไหวจาก placeholder ที่สอดคล้องบนสไลด์เลเยาต์และมาสเตอร์. [Shape.get_base_placeholder](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/get_base_placeholder/) คืนค่า placeholder พาเรนต์นั้น, หรือ `None` หากไม่มีพาเรนต์.
+Placeholder บนสไลด์ปกติสามารถสืบทอดพฤติกรรมการเคลื่อนไหวจาก placeholder ที่สอดคล้องบนสไลด์เลย์เอาต์และสไลด์มาสเตอร์ได้. [Shape.get_base_placeholder](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/get_base_placeholder/) คืนค่า placeholder พาเรนต์นั้น, หรือ `None` หากไม่มีพาเรนต์.
 
-ในตัวอย่างงานนำเสนอต่อไปนี้, ส่วนท้ายมี **Random Bars** บนสไลด์ปกติ, **Split** บนสไลด์เลเยาต์, และ **Fly In** บนสไลด์มาสเตอร์.
+ในตัวอย่างการนำเสนอด้านล่าง, ส่วนท้ายมี **Random Bars** บนสไลด์ปกติ, **Split** บนสไลด์เลย์เอาต์, และ **Fly In** บนสไลด์มาสเตอร์.
 
 ![เอฟเฟกต์การเคลื่อนไหวของส่วนท้ายบนสไลด์ปกติ](slide-shape-animation.png)
 
-![เอฟเฟกต์การเคลื่อนไหวของส่วนท้ายบนสไลด์เลเยาต์](layout-shape-animation.png)
+![เอฟเฟกต์การเคลื่อนไหวของ placeholder ส่วนท้ายบนสไลด์เลย์เอาต์](layout-shape-animation.png)
 
-![เอฟเฟกต์การเคลื่อนไหวของส่วนท้ายบนสไลด์มาสเตอร์](master-shape-animation.png)
+![เอฟเฟกต์การเคลื่อนไหวของ placeholder ส่วนท้ายบนสไลด์มาสเตอร์](master-shape-animation.png)
 
-ตัวอย่างต่อไปนี้สร้างลำดับชั้นของ placeholder ด้วยตนเอง. มันเพิ่มเอฟเฟกต์ให้กับ placeholder บนมาสเตอร์, placeholder บนเลเยาต์, และ placeholder ที่สอดคล้องบนสไลด์ปกติ. การเรียกทุกครั้งที่ [Shape.get_base_placeholder](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/get_base_placeholder/) จะตรวจสอบก่อนนำรูปร่างที่คืนค่าไปใช้.
+ตัวอย่างต่อไปนี้สร้างลำดับขั้นของ placeholder เอง. จะเพิ่มเอฟเฟกต์ให้กับ placeholder มาสเตอร์, placeholder เลย์เอาต์, และ placeholder ที่สอดคล้องบนสไลด์ปกติ. ทุกครั้งที่เรียก [Shape.get_base_placeholder](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/get_base_placeholder/) จะตรวจสอบผลลัพธ์ก่อนใช้รูปร่างที่ได้รับ.
 
 ```python
 import aspose.slides as slides
@@ -181,19 +183,19 @@ with slides.Presentation() as presentation:
     presentation.save("placeholder-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Change Animation Timing**
+## **เปลี่ยนการตั้งค่าเวลาในการเคลื่อนไหว**
 
-กล่องโต้ตอบ **Timing** ของ PowerPoint แมพกับคุณสมบัติของ [Timing](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/).
+Dialog **Timing** ของ PowerPoint เชื่อมกับคุณสมบัติของ [Timing](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/).
 
-![กล่องโต้ตอบ Timing ของ PowerPoint สำหรับเอฟเฟกต์การเคลื่อนไหว](shape-animation.png)
+![Dialog Timing ของ PowerPoint สำหรับเอฟเฟกต์การเคลื่อนไหว](shape-animation.png)
 
-- **Start** แมพกับ [Timing.trigger_type](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/trigger_type/).
-- **Duration** แมพกับ [Timing.duration](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/duration/), หน่วยเป็นวินาที.
-- **Delay** แมพกับ [Timing.trigger_delay_time](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/trigger_delay_time/), หน่วยเป็นวินาที.
-- **Repeat** แมพกับ [Timing.repeat_count](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_count/), [Timing.repeat_until_next_click](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_until_next_click/), หรือ [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_until_end_slide/).
-- **Rewind when done playing** แมพกับ [Timing.rewind](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/rewind/).
+- **Start** เชื่อมกับ [Timing.trigger_type](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/trigger_type/).
+- **Duration** เชื่อมกับ [Timing.duration](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/duration/), หน่วยเป็นวินาที.
+- **Delay** เชื่อมกับ [Timing.trigger_delay_time](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/trigger_delay_time/), หน่วยเป็นวินาที.
+- **Repeat** เชื่อมกับ [Timing.repeat_count](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_count/), [Timing.repeat_until_next_click](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_until_next_click/), หรือ [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_until_end_slide/).
+- **Rewind when done playing** เชื่อมกับ [Timing.rewind](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/rewind/).
 
-ตัวอย่างอิสระนี้เพิ่มเอฟเฟกต์, เปลี่ยนเวลาผ่านอ็อบเจกต์ที่คืนจาก [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/), และบันทึกผลลัพธ์. การเก็บอ้างอิง [Effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/) ที่คืนมาตรหากไม่ต้องการดัชนีคอลเลกชันที่ไม่จำเป็น.
+ตัวอย่างอิสระนี้เพิ่มเอฟเฟกต์, เปลี่ยนการตั้งค่าเวลาผ่านออบเจ็กต์ที่คืนจาก [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/), และบันทึกผลลัพธ์. การเก็บอ้างอิง [Effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/) ที่คืนมาช่วยหลีกเลี่ยงการดึงดัชนีคอลเลกชันที่ไม่จำเป็น.
 
 ```python
 import aspose.slides as slides
@@ -216,15 +218,15 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-timing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-ใช้โหมด repeat หนึ่งอย่างเจตนา. การผสาน repeat count กับแฟล็ก “until” อาจทำให้ผลลัพธ์สับสนในผู้ชมที่ต่างกัน. เมื่อเปลี่ยนโหมด repeat, ให้ตั้งค่า [Timing.repeat_until_next_click](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_until_next_click/) และ [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_until_end_slide/) ก่อน [Timing.repeat_count](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_count/), เนื่องจากการตั้งค่าแฟล็กใดแฟล็กหนึ่งจะเปลี่ยนโหมด repeat ที่ใช้งานอยู่.
+ใช้โหมดการทำซ้ำแบบเดียวโดยตั้งใจ. การผสมจำนวนครั้งกับแฟlags “until” อาจทำให้ผลลัพธ์สับสนในโปรแกรมดูต่าง ๆ. เมื่อตั้งค่าโหมดทำซ้ำ, ให้ตั้งค่า [Timing.repeat_until_next_click](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_until_next_click/) และ [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_until_end_slide/) ก่อน [Timing.repeat_count](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/timing/repeat_count/), เนื่องจากการตั้งค่าแฟlags ใด ๆ จะเปลี่ยนโหมดทำซ้ำที่เปิดใช้งานด้วย.
 
-## **Add and Extract Animation Sounds**
+## **เพิ่มและสกัดเสียงการเคลื่อนไหว**
 
-เอฟเฟกต์การเคลื่อนไหวสามารถอ้างอิงไฟล์เสียงฝังผ่าน [Effect.sound](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/sound/). [Effect.stop_previous_sound](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/stop_previous_sound/) บอกให้เอฟเฟกต์หยุดเสียงที่เริ่มโดยเอฟเฟกต์ก่อนหน้า.
+เอฟเฟกต์การเคลื่อนไหวสามารถอ้างอิงไฟล์เสียงฝังโดยใช้ [Effect.sound](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/sound/). [Effect.stop_previous_sound](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/stop_previous_sound/) สั่งให้เอฟเฟกต์หยุดเสียงที่เริ่มโดยเอฟเฟกต์ก่อนหน้า.
 
-### **Add a Sound to an Effect**
+### **เพิ่มเสียงให้กับเอฟเฟกต์**
 
-ตัวอย่างต่อไปนี้คาดว่าจะมีไฟล์เสียงโลคัลชื่อ `animation-sound.wav`. มันสร้างสองเอฟเฟกต์, ฝังไฟล์นั้นเป็นเสียงให้กับเอฟเฟกต์แรก, และกำหนดให้เอฟเฟกต์ที่สองหยุดเสียง. ตัวอย่างใช้อ็อบเจกต์ที่คืนจาก [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/), ดังนั้นไม่ต้องระบุดัชนีลำดับ.
+ตัวอย่างต่อไปนี้คาดว่าจะมีไฟล์เสียงโลคัลชื่อ `animation-sound.wav`. จะสร้างสองเอฟเฟกต์, ฝังไฟล์นั้นเป็นเสียงของเอฟเฟกต์แรก, และกำหนดให้เอฟเฟกต์ที่สองหยุดเสียง. ใช้ออบเจ็กต์ที่คืนจาก [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/), ดังนั้นไม่ต้องระบุดัชนีลำดับ.
 
 ```python
 import aspose.slides as slides
@@ -250,9 +252,9 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-sound.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Extract Embedded Effect Sounds**
+### **สกัดเสียงเอฟเฟกต์ที่ฝังไว้**
 
-ตัวอย่างต่อไปนี้คาดว่าจะมีงานนำเสนอโลคัลชื่อ `presentation-with-animation-sounds.pptx`. มันสแกนทั้งลำดับหลักและเชิงโต้ตอบและเขียนเสียงเอฟเฟกต์ฝังทั้งหมดไปยังไดเรกทอรี `extracted-animation-sounds`. ส่วนขยายไฟล์เลือกจาก MIME type ของเสียงที่เปิดเผยโดย [Audio.content_type](https://reference.aspose.com/slides/th/python-net/aspose.slides/audio/content_type/).
+ตัวอย่างต่อไปนี้คาดว่าจะมีไฟล์งานนำเสนอโลคัลชื่อ `presentation-with-animation-sounds.pptx`. จะสแกนลำดับหลักและลำดับโต้ตอบและบันทึกเสียงเอฟเฟกต์ที่ฝังไว้ทั้งหมดไปยังโฟลเดอร์ `extracted-animation-sounds`. ส่วนขยายไฟล์จะถูกเลือกจาก MIME type ของเสียงที่เปิดเผยโดย [Audio.content_type](https://reference.aspose.com/slides/th/python-net/aspose.slides/audio/content_type/).
 
 ```python
 import os
@@ -306,17 +308,17 @@ with slides.Presentation(input_path) as presentation:
 print(f"Extracted {sound_index - 1} sound file(s) to {os.path.abspath(output_directory)}.")
 ```
 
-สำหรับอ็อบเจกต์เสียงขนาดใหญ่, ใช้ [Audio.get_stream](https://reference.aspose.com/slides/th/python-net/aspose.slides/audio/get_stream/) และคัดลอกจากสตรีมไปยังไฟล์แทนที่จะโหลดอ็อบเจกต์ทั้งหมดเป็นอาร์เรย์ไบต์.
+สำหรับอ็อบเจ็กต์เสียงขนาดใหญ่, ควรใช้ [Audio.get_stream](https://reference.aspose.com/slides/th/python-net/aspose.slides/audio/get_stream/) แล้วคัดลอกสตรีมไปยังไฟล์แทนการโหลดอ็อบเจ็กต์ทั้งหมดเข้าสู่ byte array.
 
-## **Set After-Animation Behavior**
+## **ตั้งค่าพฤติกรรมหลังการเคลื่อนไหว**
 
-ตัวเลือก **After animation** กำหนดว่ารูปร่างจะทำอะไรหลังจากเอฟเฟกต์สิ้นสุด.
+ตัวเลือก **After animation** ควบคุมว่าอะไรจะเกิดขึ้นกับรูปร่างหลังจากเอฟเฟกต์เสร็จสิ้น.
 
-![กล่องโต้ตอบ Effect Options ของ PowerPoint ที่แสดงการตั้งค่า After animation](shape-after-animation.png)
+![Dialog ตัวเลือกเอฟเฟกต์ของ PowerPoint แสดงการตั้งค่าหลังการเคลื่อนไหว](shape-after-animation.png)
 
-enumeration [AfterAnimationType](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/afteranimationtype/) รองรับการทิ้งรูปร่างไว้ไม่เปลี่ยนแปลง, เปลี่ยนสี, ซ่อนหลังการเคลื่อนไหว, หรือซ่อนเมื่อคลิกครั้งถัดไป. เมื่อประเภทเป็น [AfterAnimationType.COLOR](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/afteranimationtype/), ให้ตั้งค่า [Effect.after_animation_color](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/after_animation_color/) ด้วย.
+enumeration [AfterAnimationType](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/afteranimationtype/) รองรับการเว้นรูปร่างไว้โดยไม่เปลี่ยนแปลง, การเปลี่ยนสี, การซ่อนหลังการเคลื่อนไหว, หรือการซ่อนเมื่อคลิกครั้งถัดไป. เมื่อประเภทเป็น [AfterAnimationType.COLOR](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/afteranimationtype/), ให้ตั้งค่า [Effect.after_animation_color](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/after_animation_color/) ด้วย.
 
-ตัวอย่างอิสระนี้สร้างเอฟเฟกต์, ตั้งค่าพฤติกรรม after‑animation ผ่านอ็อบเจกต์เอฟเฟกต์ที่คืน, และบันทึกผลลัพธ์.
+ตัวอย่างอิสระนี้สร้างเอฟเฟกต์, ตั้งค่าพฤติกรรมหลังการเคลื่อนไหวผ่านอ็อบเจ็กต์เอฟเฟกต์ที่คืนมา, และบันทึกผลลัพธ์.
 
 ```python
 import aspose.pydrawing as draw
@@ -335,16 +337,16 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-after-effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-การเปลี่ยนประเภทออกจาก [AfterAnimationType.COLOR](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/afteranimationtype/) จะเคลียร์การตั้งค่าสี after‑animation.
+การเปลี่ยนประเภทออกจาก [AfterAnimationType.COLOR](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/afteranimationtype/) จะลบการตั้งค่าสีหลังการเคลื่อนไหว.
 
-## **Animate Text**
+## **เคลื่อนไหวข้อความ**
 
-การเคลื่อนไหวของข้อความมีการควบคุมสองอย่างที่เกี่ยวข้อง:
+การเคลื่อนไหวข้อความมีการควบคุมสองส่วนที่เกี่ยวข้อง:
 
-- [TextAnimation.build_type](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/textanimation/build_type/) ควบคุมว่ากย่อหน้าจะแสดงพร้อมกันหรือแยกตามระดับกย่อหน้า.
-- [Effect.animate_text_type](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/animate_text_type/) ควบคุมว่าข้อความปรากฏทั้งหมดพร้อมกัน, แยกตามคำ, หรือแยกตามตัวอักษร. [Effect.delay_between_text_parts](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/delay_between_text_parts/) ตั้งค่าการหน่วงระหว่างคำหรืออักษร. ค่าเป็นบวกหมายถึงเปอร์เซ็นต์ของระยะเวลาเอฟเฟกต์; ค่าเป็นลบหมายถึงการหน่วงเวลาเป็นวินาที.
+- [TextAnimation.build_type](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/textanimation/build_type/) ควบคุมว่าข้อความย่อหน้าจะปรากฏพร้อมกันหรือเป็นระดับย่อหน้า.
+- [Effect.animate_text_type](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/animate_text_type/) ควบคุมว่าข้อความจะแสดงทั้งหมดพร้อมกัน, ทีละคำ, หรือทีละตัวอักษร. [Effect.delay_between_text_parts](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/effect/delay_between_text_parts/) ตั้งค่าการหน่วงเวลาระหว่างคำหรืออักษร. ค่าบวกคือเปอร์เซ็นต์ของระยะเวลาเอฟเฟกต์; ค่าลบคือการหน่วงเวลาเป็นวินาที.
 
-ตัวอย่างอิสระต่อไปนี้ทำให้คำในกล่องข้อความเคลื่อนไหว. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/buildtype/) ปิดการสร้างตามกย่อหน้าเพื่อให้การตั้งค่าคำใช้กับเฟรมข้อความทั้งหมด.
+ตัวอย่างอิสระต่อไปนี้เคลื่อนไหวคำในกล่องข้อความ. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/buildtype/) ปิดการสร้างทีละย่อหน้าเพื่อให้การตั้งค่าคำใช้กับกรอบข้อความทั้งหมด.
 
 ```python
 import aspose.slides as slides
@@ -363,26 +365,26 @@ with slides.Presentation() as presentation:
     presentation.save("animated-text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-เพื่อสร้างกล่องข้อความตามกย่อหน้า, ตั้งค่า [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/buildtype/) (หรือระดับกย่อหน้าอื่น). เพื่อกำหนดกย่อหน้าเดี่ยวด้วยเอฟเฟกต์ของมันเอง, ใช้ overload ของ [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/) ที่รับ [IParagraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/iparagraph/). ดู [Animated Text](/slides/th/python-net/animated-text/) สำหรับตัวอย่างระดับกย่อหน้า.
+เพื่อสร้างกล่องข้อความโดยย่อหน้า, ตั้งค่า [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/buildtype/) (หรือระดับย่อหน้าอื่น). เพื่อกำหนดเอฟเฟกต์ให้กับย่อหน้าเดียวที่มีเอฟเฟกต์ของตนเอง, ใช้การ overload ของ [Sequence.add_effect](https://reference.aspose.com/slides/th/python-net/aspose.slides.animation/sequence/add_effect/) ที่รับ [IParagraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/iparagraph/). ดู [Animated Text](/slides/th/python-net/animated-text/) สำหรับตัวอย่างระดับย่อหน้า.
 
-## **Export and Compatibility Notes**
+## **หมายเหตุการส่งออกและความเข้ากันได้**
 
-- การบันทึกเป็น PPT หรือ PPTX รักษาโมเดลการเคลื่อนไหว, แต่การเล่นขั้นสุดท้ายถูกควบคุมโดยโปรแกรมแสดงงานนำเสนอ.
-- PDF และรูปภาพคงที่จะไม่เล่นการเคลื่อนไหว. ใช้ [HTML5 export](/slides/th/python-net/export-to-html5/), GIF ที่เคลื่อนไหว, หรือ [video conversion](/slides/th/python-net/convert-powerpoint-to-video/) เมื่อผลลัพธ์ต้องแสดงการเคลื่อนไหว.
+- การบันทึกเป็น PPT หรือ PPTX จะคงโมเดลการเคลื่อนไหวไว้, แต่การเล่นขั้นสุดท้ายถูกควบคุมโดยโปรแกรมดูงานนำเสนอ.
+- PDF และภาพคงที่จะไม่เล่นการเคลื่อนไหว. ใช้ [HTML5 export](/slides/th/python-net/export-to-html5/), GIF เคลื่อนไหว, หรือ [video conversion](/slides/th/python-net/convert-powerpoint-to-video/) เมื่อผลลัพธ์ต้องแสดงการเคลื่อนไหว.
 - สำหรับ HTML5, เปิดใช้ [Html5Options.animate_shapes](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/html5options/animate_shapes/) และเมื่อต้องการ, [Html5Options.animate_transitions](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/html5options/animate_transitions/).
-- การแปลงเป็นวิดีโอสนับสนุนเอฟเฟกต์การเข้าสู่, เน้น, ออกจาก, และเส้นทางการเคลื่อนไหวหลายแบบ, แต่ไม่รองรับเอฟเฟกต์ PowerPoint ทุกแบบ. ตรวจสอบ [supported animations and effects](/slides/th/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) ปัจจุบันและทดสอบงานนำเสนอที่สำคัญกับเวอร์ชัน Aspose.Slides ที่คุณใช้.
-- เอฟเฟกต์ที่กำหนดเองขั้นสูงและเอฟเฟกต์ที่นำเข้าจากรูปแบบงานนำเสนออื่นอาจถูกเก็บไว้ในไฟล์แต่แสดงผลแตกต่างกันใน PowerPoint, HTML5, หรือวิดีโอ. ตรวจสอบผลลัพธ์ที่ส่งออกแทนการพึ่งพาชื่อเอฟเฟกต์อย่างเดียว.
+- การเรนเดอร์วิดีโอรองรับเอฟเฟกต์การเข้ามา, เน้น, ออกจาก, และ motion‑path ที่พบบ่อยหลายประเภท, แต่ไม่รองรับทุกเอฟเฟกต์ของ PowerPoint. ตรวจสอบ [supported animations and effects](/slides/th/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) ปัจจุบันและทดสอบงานนำเสนอที่สำคัญกับเวอร์ชัน Aspose.Slides ที่คุณใช้.
+- เอฟเฟกต์ที่กำหนดเองขั้นสูงและเอฟเฟกต์ที่นำเข้าจากรูปแบบงานนำเสนออื่นอาจถูกเก็บไว้ในไฟล์แต่แสดงผลต่างกันใน PowerPoint, HTML5, หรือวิดีโอ. ตรวจสอบผลลัพธ์ที่ส่งออกแทนการพึ่งพาชื่อเอฟเฟกต์อย่างเดียว.
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ทำไมเอฟเฟกต์จึงปรากฏใน PowerPoint แต่ไม่แสดงใน PDF?**
+**ทำไมการเคลื่อนไหวจึงแสดงใน PowerPoint แต่ไม่แสดงใน PDF?**
 
-PDF เป็นรูปแบบคงที่, ดังนั้นการเคลื่อนไหวและการเปลี่ยนสไลด์จะไม่เล่น. ส่งออกเป็น HTML5, GIF ที่เคลื่อนไหว, หรือวิดีโอเมื่อจำเป็นต้องรักษาการเคลื่อนไหว.
+PDF เป็นรูปแบบคงที่, ดังนั้นการเคลื่อนไหวและการเปลี่ยนสไลด์ไม่ทำงาน. ให้ส่งออกเป็น HTML5, GIF เคลื่อนไหว, หรือวิดีโอเมื่อจำเป็นต้องคงการเคลื่อนไหว.
 
-**ทำไมเอฟเฟกต์จึงทำงานต่างกันในวิดีโอ?**
+**ทำไมเอฟเฟกต์จึงเล่นแตกต่างกันในวิดีโอ?**
 
-การส่งออกวิดีโอเรนเดอร์การเคลื่อนไหวแทนการเก็บพฤติกรรมเดิมของ PowerPoint. เอฟเฟกต์ขั้นสูงบางอย่างอาจไม่สนับสนุนหรือถูกประมาณค่า. ตรวจสอบตารางเอฟเฟกต์ที่สนับสนุนและทดสอบงานนำเสนอจริงก่อนการใช้งานจริง.
+การส่งออกวิดีโอจะเรนเดอร์การเคลื่อนไหวแทนการเก็บพฤติกรรมเดิมของ PowerPoint. เอฟเฟกต์ขั้นสูงบางอย่างอาจไม่รองรับหรือถูกประมาณค่า. ตรวจสอบตารางเอฟเฟกต์ที่สนับสนุนและทดสอบงานนำเสนอจริงก่อนใช้งานจริง.
 
-**การย้ายรูปร่างไปข้างหน้าหรือถอยหลังจะเปลี่ยนลำดับการเคลื่อนไหวหรือไม่?**
+**การย้ายรูปร่างไปข้างหน้าหรือข้างหลังเปลี่ยนลำดับการเคลื่อนไหวหรือไม่?**
 
-ไม่. Z‑order ของรูปร่างควบคุมการทับซ้อน, ส่วนลำดับของลำดับและตัวกระตุ้นควบคุมการเล่นการเคลื่อนไหว. ปรับไทม์ไลน์หากต้องการลำดับการเล่นที่ต่างกัน.
+ไม่. การจัดลำดับ z‑order ของรูปร่างควบคุมการทับกัน, ส่วนลำดับในไทม์ไลน์และตัวกระตุ้นควบคุมการเล่นการเคลื่อนไหว. ให้เปลี่ยนไทม์ไลน์หากต้องการลำดับการเล่นที่แตกต่าง.

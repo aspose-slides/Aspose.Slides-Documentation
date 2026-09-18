@@ -1,6 +1,6 @@
 ---
-title: تطبيق رسوم متحركة للأشكال في العروض التقديمية باستخدام Java
-linktitle: رسوم متحركة للأشكال
+title: تطبيق الرسوم المتحركة للأشكال في العروض التقديمية باستخدام Java
+linktitle: تحريك الشكل
 type: docs
 weight: 60
 url: /ar/java/shape-animation/
@@ -22,24 +22,25 @@ keywords:
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "تعلم كيفية إضافة، فحص، وتخصيص رسوم متحركة للأشكال، التوقيت، الأصوات، سلوك ما بعد الرسوم المتحركة، والنص المتحرك باستخدام Aspose.Slides for Java."
+description: "تعلم كيفية إضافة، فحص، وتخصيص الرسوم المتحركة للأشكال، التوقيت، الأصوات، سلوك ما بعد الرسوم المتحركة، والنص المتحرك باستخدام Aspose.Slides for Java."
 ---
 ## **نظرة عامة**
 
-تمثل Aspose.Slides for Java الرسوم المتحركة للشرائح كـ تأثيرات في مخطط زمني للشرائح. يحتوي التأثير على الشكل الهدف، ونوع الرسوم المتحركة والفرعي، ومُشغّل، وإعدادات التوقيت، وخصائص اختيارية مثل الصوت أو سلوك ما بعد الرسوم المتحركة.
+للعمل مع السلوكيات الفردية داخل تأثير أو لتعديل مقاطع مسار الحركة، راجع [الرسوم المتحركة المخصصة](/slides/ar/java/custom-animation/).
 
-المخطط الزمني يحتوي على نوعين من التسلسلات:
+تُمثل Aspose.Slides for Java الرسوم المتحركة للشرائح كـ تأثيرات في مخطط زمني للشرائح. يحتوي كل تأثير على الشكل المستهدف، ونوع الرسوم المتحركة والفرعي، والمشغّل، وإعدادات التوقيت، وخصائص اختيارية مثل الصوت أو سلوك ما بعد الرسوم المتحركة.
 
-- **التسلسل الرئيسي** يُعرض مع تقدم الشريحة.
-- **التسلسل التفاعلي** يبدأ عندما يتم النقر على الشكل المُشغّل.
+يحتوي المخطط الزمني على نوعين من التسلسلات:
+- **التسلسل الرئيسي** يُشغل مع تقدم الشريحة.
+- **التسلسل التفاعلي** يبدأ عندما يُنقر على الشكل المشغّل.
 
-نظرًا لأن مربعات النصوص، الصور، المخططات، الجداول، وغيرها من كائنات الشريحة تُنفّذ [IShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishape/)، يمكنك استخدام نفس طريقة [ISequence.addEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) لمعظم محتوى الشريحة. يتم سرد التأثيرات المتاحة في الفئة [EffectType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/effecttype/) .
+نظرًا لأن مربعات النص، والصور، والمخططات، والجداول، وغيرها من كائنات الشريحة تنفّذ الواجهة [IShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishape/)، يمكنك استخدام نفس الطريقة [ISequence.addEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) لمعظم محتوى الشريحة. تُدرج التأثيرات المتوفرة في الفئة [EffectType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/effecttype/).
 
 ## **إضافة رسوم متحركة للأشكال**
 
-لإضافة رسم متحرك، احصل على التسلسل الرئيسي للشريحة واستدعِ [ISequence.addEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) مع الشكل الهدف، نوع التأثير، الفرعي، والمُشغّل. لتأثير يبدأ عندما يتم النقر على شكل آخر، أنشئ تسلسلاً تفاعليًا يصبح المشغل هو ذلك الشكل الآخر.
+لإضافة رسوم متحركة، احصل على التسلسل الرئيسي للشرحة واستدعِ الطريقة [ISequence.addEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) مع الشكل المستهدف، ونوع التأثير، والفرعي، والمشغّل. للحصول على تأثير يبدأ عند النقر على شكل آخر، أنشئ تسلسلًا تفاعليًا يكون المشغّل فيه ذلك الشكل الآخر.
 
-المثال التالي ينشئ كلا النوعين من الرسوم المتحركة ويحفظ النتيجة إلى `shape-animations.pptx`.
+المثال التالي ينشئ كلا النوعين من الرسوم المتحركة ويحفظ النتيجة في `shape-animations.pptx`.
 
 ```java
 import com.aspose.slides.*;
@@ -71,19 +72,18 @@ public class AddShapeAnimations {
 }
 ```
 
-المُشغّل يتحكم متى يبدأ التأثير:
-
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ar/java/com.aspose.slides/effecttriggertype/#OnClick) ينتظر نقرة في التسلسل الرئيسي، أو نقرة على الشكل المُشغّل في التسلسل التفاعلي.
+المشغّل يتحكم في وقت بدء التأثير:
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ar/java/com.aspose.slides/effecttriggertype/#OnClick) ينتظر النقر في التسلسل الرئيسي، أو النقر على الشكل المشغّل في تسلسل تفاعلي.
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/ar/java/com.aspose.slides/effecttriggertype/#WithPrevious) يبدأ مع التأثير السابق.
 - [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/ar/java/com.aspose.slides/effecttriggertype/#AfterPrevious) يبدأ عندما ينتهي التأثير السابق.
 
-لتحريك صورة أو مخطط أو أي نوع آخر من الأشكال، مرّر ذلك الكائن إلى [ISequence.addEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) بدلاً من `targetShape`. لخيارات تجميع خاصة بالمخططات، راجع [المخططات المتحركة](/slides/ar/java/animated-charts/).
+لتحريك صورة أو مخطط أو أي نوع شكل آخر، مرّر ذلك الكائن إلى الطريقة [ISequence.addEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) بدلاً من `targetShape`. للحصول على خيارات تجميع خاصة بالمخططات، راجع [المخططات المتحركة](/slides/ar/java/animated-charts/).
 
 ## **قراءة الرسوم المتحركة للأشكال**
 
-استخدم [ISequence.getEffectsByShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) عندما تعرف الشكل الهدف. لتفقد كل تأثير، عدّ التسلسل الرئيسي وكل تسلسل تفاعلي. العدّ يجنّب الافتراض بأن التسلسل يحتوي على تأثير في الفهرس `0`.
+استخدم [ISequence.getEffectsByShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) عندما تعرف الشكل المستهدف. لتفحص كل تأثير، قم بتعداد التسلسل الرئيسي وكل تسلسل تفاعلي. يُجنب التعداد الافتراض بأن التسلسل يحتوي على تأثير في الفهرس `0`.
 
-المثال التالي ينشئ شكلاً له تأثيرات في التسلسل الرئيسي وتفاعلي، يحصل على التأثيرات التي تستهدف الشكل، ثم يُعيد عدّ كل تسلسل على الشريحة.
+المثال التالي ينشئ شكلاً يحتوي على تأثيرات في التسلسل الرئيسي وتفاعلية، يحصل على التأثيرات التي تستهدف الشكل، ثم يعدد كل تسلسل على الشريحة.
 
 ```java
 import com.aspose.slides.*;
@@ -137,21 +137,21 @@ public class ReadShapeAnimations {
 }
 ```
 
-إذا كنت تحتاج فقط إلى التأثيرات لشكل واحد، حدّد الشكل بالاسم أو نوع العنصر النائب أو أي خاصية ثابتة أخرى؛ ثم استدعِ [ISequence.getEffectsByShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). لا تفترض أن [IShapeCollection.get_Item](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishapecollection/#get_Item-int-) في الفهرس `0` هو دائمًا الكائن المقصود.
+إذا كنت تحتاج فقط إلى التأثيرات لشكل واحد، حدد الشكل أولاً بالاسم أو نوع العنصر النائب أو أي خاصية ثابتة أخرى؛ ثم استدعِ [ISequence.getEffectsByShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). لا تفترض أن [IShapeCollection.get_Item](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishapecollection/#get_Item-int-) في الفهرس `0` هو دائمًا الكائن المقصود.
 
 ## **العمل مع تأثيرات العناصر النائبة الموروثة**
 
-يمكن لعنصر نائب على شريحة عادية أن يرث سلوك الرسوم المتحركة من العنصر النائب المقابل على شريحة التخطيط والشريحة الرئيسة. تُعيد [IShape.getBasePlaceholder](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishape/#getBasePlaceholder--) ذلك العنصر النائب الأب، أو `null` عندما لا وجود لعنصر أب.
+يمكن لعنصر نائب على شريحة عادية أن يرث سلوك الرسوم المتحركة من العنصر النائب المقابل على شريحة التخطيط وشريحة القالب. تُعيد [IShape.getBasePlaceholder](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishape/#getBasePlaceholder--) ذلك العنصر النائب الأب، أو `null` إذا لم يكن هناك أب.
 
-في عرض الشرائح التالي، يحتوي التذييل على **Random Bars** على الشريحة العادية، **Split** على شريحة التخطيط، و**Fly In** على الشريحة الرئيسة.
+في عرض الشرائح المثال التالي، يحتوي التذييل على **Random Bars** في الشريحة العادية، و**Split** في شريحة التخطيط، و**Fly In** في شريحة القالب.
 
-![تأثير حركة التذييل على الشريحة العادية](slide-shape-animation.png)
+![تأثير الرسوم المتحركة للتذييل على الشريحة العادية](slide-shape-animation.png)
 
-![تأثير حركة عنصر نائب التذييل على شريحة التخطيط](layout-shape-animation.png)
+![تأثير الرسوم المتحركة للعنصر النائب للتذييل على شريحة التخطيط](layout-shape-animation.png)
 
-![تأثير حركة عنصر نائب التذييل على الشريحة الرئيسة](master-shape-animation.png)
+![تأثير الرسوم المتحركة للعنصر النائب للتذييل على شريحة القالب](master-shape-animation.png)
 
-المثال التالي يستخدم هيكلية عناصر نائبة من عرض تقديمي جديد. يضيف تأثيرات إلى عنصر نائب رئيسي، عنصر نائب تخطيط، والعنصر النائب المقابل على شريحة عادية. كل استدعاء لـ [IShape.getBasePlaceholder](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishape/#getBasePlaceholder--) يتم التحقق منه قبل استخدام الشكل المعاد.
+المثال التالي يستخدم هيكلية عناصر نائبة من عرض تقديمي جديد. يضيف تأثيرات إلى عنصر نائب رئيسي، وعنصر نائب في التخطيط، والعنصر النائب المقابل على شريحة عادية. يتم فحص كل استدعاء لـ [IShape.getBasePlaceholder](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishape/#getBasePlaceholder--) قبل استخدام الشكل المرجع.
 
 ```java
 import com.aspose.slides.*;
@@ -231,17 +231,17 @@ public class InheritedPlaceholderAnimations {
 
 ## **تغيير توقيت الرسوم المتحركة**
 
-حوار **Timing** في PowerPoint يطابق خصائص [ITiming](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/).
+حوار **التوقيت** في PowerPoint يتطابق مع خصائص [ITiming](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/).
 
-![حوار توقيت PowerPoint لتأثير الرسوم المتحركة](shape-animation.png)
+![حوار التوقيت في PowerPoint لتأثير الرسوم المتحركة](shape-animation.png)
 
-- **Start** يطابق [ITiming.getTriggerType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#getTriggerType--).
-- **Duration** يطابق [ITiming.getDuration](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#getDuration--)، بالثواني.
-- **Delay** يطابق [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#getTriggerDelayTime--)، بالثواني.
-- **Repeat** يطابق [ITiming.getRepeatCount](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#getRepeatCount--)، أو [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#getRepeatUntilNextClick--)، أو [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
-- **Rewind when done playing** يطابق [ITiming.getRewind](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#getRewind--).
+- **Start** يتطابق مع [ITiming.getTriggerType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#getTriggerType--).
+- **Duration** يتطابق مع [ITiming.getDuration](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#getDuration--)، بالثواني.
+- **Delay** يتطابق مع [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#getTriggerDelayTime--)، بالثواني.
+- **Repeat** يتطابق مع [ITiming.getRepeatCount](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#getRepeatCount--)، [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#getRepeatUntilNextClick--)، أو [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
+- **Rewind when done playing** يتطابق مع [ITiming.getRewind](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#getRewind--).
 
-هذا المثال المستقل يضيف تأثيرًا، يعدّل توقيته عبر الكائن المعاد من [ISequence.addEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)، ويحفظ النتيجة. حفظ مرجع [IEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ieffect/) المعاد يُجنب الحاجة إلى فهرس مجموعة غير ضروري.
+هذا المثال المستقل يضيف تأثيرًا، يغيّر توقيته عبر الكائن المُعاد من [ISequence.addEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)، ويحفظ النتيجة. الاحتفاظ بالمرجع المُعاد من [IEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ieffect/) يجنّب الحاجة إلى فهرس مجموعة غير ضروري.
 
 ```java
 import com.aspose.slides.*;
@@ -271,15 +271,15 @@ public class ChangeAnimationTiming {
 }
 ```
 
-استخدم وضع تكرار واحد فقط. دمج عدد تكرار مع علم "حتى" قد ينتج عنه نتائج مربكة في مشغلات مختلفة. عند تغيير أوضاع التكرار، استدعِ [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) و[ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) قبل استدعاء [ITiming.setRepeatCount](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#setRepeatCount-float-)، لأن ضبط أي علم يغيّر وضع التكرار النشط.
+استخدم وضعية تكرار واحدة عن قصد. الجمع بين عدد التكرارات وعلمية "until" قد ينتج عنه نتائج مربكة في مشغّلات مختلفة. عند تغيير أوضاع التكرار، اضبط [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) و[ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) قبل [ITiming.setRepeatCount](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itiming/#setRepeatCount-float-)، لأن ضبط أي من العلامتين يغير وضعية التكرار النشطة.
 
 ## **إضافة واستخراج أصوات الرسوم المتحركة**
 
-يمكن لتأثير الرسوم المتحركة أن يشير إلى صوت مضمّن عبر [IEffect.getSound](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ieffect/#getSound--). يحدّد [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) أن يتوقف التأثير عن تشغيل الصوت الذي بدأه تأثير سابق.
+يمكن لتأثير الرسوم المتحركة الإشارة إلى صوت مضمّن عبر [IEffect.getSound](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ieffect/#getSound--). يحدد [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) أن يتوقف التأثير عن تشغيل الصوت الذي بدأه تأثير سابق.
 
 ### **إضافة صوت إلى تأثير**
 
-المثال التالي يتوقع ملف صوتي محلي اسمه `animation-sound.wav`. ينشئ تأثيرين، يضمّن ذلك الملف كصوت للتأثير الأول، ويضبط التأثير الثاني لإيقاف الصوت. يستخدم الكائنات المعادة من [ISequence.addEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)، لذا لا يلزم فهرس التسلسل.
+المثال التالي يتوقع ملف صوتي محلي اسمه `animation-sound.wav`. ينشئ تأثيرين، يضمّن ذلك الملف كصوت للتأثير الأول، ويضبط التأثير الثاني لإيقاف الصوت. يستخدم الكائنات المُعودة من [ISequence.addEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)، لذا لا يلزم فهرس التسلسل.
 
 ```java
 import com.aspose.slides.*;
@@ -314,9 +314,9 @@ public class AddAnimationSound {
 }
 ```
 
-### **استخراج أصوات التأثيرات المضمنة**
+### **استخراج أصوات التأثير المضمّنة**
 
-المثال التالي يتوقع عرض تقديمي محلي اسمه `presentation-with-animation-sounds.pptx`. يفحص كل من التسلسلات الرئيسية والتفاعلية ويكتب كل صوت تأثير مضمّن إلى مجلد `extracted-animation-sounds`. يتم اختيار الامتداد بناءً على نوع MIME الصوتي الذي تُعطيه [IAudio.getContentType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iaudio/#getContentType--).
+المثال التالي يتوقع عرض تقديمي محلي اسمه `presentation-with-animation-sounds.pptx`. يقوم بمسح كل من التسلسل الرئيسي والتفاعلي ويكتب كل صوت مضمّن إلى الدليل `extracted-animation-sounds`. يتم اختيار الامتداد من نوع MIME الصوتي الذي تُقدّمه [IAudio.getContentType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iaudio/#getContentType--).
 
 ```java
 import com.aspose.slides.*;
@@ -390,17 +390,17 @@ public class ExtractAnimationSounds {
 }
 ```
 
-للكائنات الصوتية الكبيرة، استخدم [IAudio.getStream](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iaudio/#getStream--) وانسخ الدفق إلى ملف بدلاً من تحميل الكائن بالكامل إلى مصفوفة بايت.
+بالنسبة لكائنات الصوت الكبيرة، استخدم [IAudio.getStream](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iaudio/#getStream--) وانسخ التيار إلى ملف بدلاً من تحميل الكائن بالكامل إلى مصفوفة بايت.
 
-## **تعيين سلوك ما بعد الرسوم المتحركة**
+## **ضبط سلوك ما بعد الرسوم المتحركة**
 
-خيار **After animation** يتحكم بما يحدث للشكل بعد انتهاء تأثيره.
+خيار **After animation** يحدد ما يحدث للشكل بعد انتهاء تأثيره.
 
-![حوار خيارات التأثير في PowerPoint يظهر إعدادات ما بعد الرسوم المتحركة](shape-after-animation.png)
+![حوار خيارات تأثير PowerPoint يظهر إعدادات After animation](shape-after-animation.png)
 
-فئة [AfterAnimationType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/afteranimationtype/) تدعم إبقاء الشكل دون تغيير، تغيير لونه، إخفائه بعد الرسوم المتحركة، أو إخفائه عند النقرة التالية. عندما يكون النوع [AfterAnimationType.Color](https://reference.aspose.com/slides/ar/java/com.aspose.slides/afteranimationtype/#Color)، عيّن أيضًا [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ieffect/#getAfterAnimationColor--).
+تدعم الفئة [AfterAnimationType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/afteranimationtype/) ترك الشكل دون تغيير، أو تغيير لونه، أو إخفائه بعد الرسوم المتحركة، أو إخفائه عند النقر التالي. عندما يكون النوع هو [AfterAnimationType.Color](https://reference.aspose.com/slides/ar/java/com.aspose.slides/afteranimationtype/#Color)، يجب أيضًا تعيين [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ieffect/#getAfterAnimationColor--) .
 
-هذا المثال المستقل ينشئ تأثيرًا، يحدد سلوك ما بعد الرسوم المتحركة عبر الكائن المعاد، ويحفظ النتيجة.
+هذا المثال المستقل ينشئ تأثيرًا، يضبط سلوك ما بعد الرسوم المتحركة عبر كائن التأثير المرجعي المُعاد، ويحفظ النتيجة.
 
 ```java
 import com.aspose.slides.*;
@@ -426,16 +426,15 @@ public class SetAfterAnimationBehavior {
 }
 ```
 
-تغيير النوع بعيدًا عن [AfterAnimationType.Color](https://reference.aspose.com/slides/ar/java/com.aspose.slides/afteranimationtype/#Color) يمحو إعداد اللون بعد الرسوم المتحركة.
+تغيير النوع بعيدًا عن [AfterAnimationType.Color] يُزيل إعداد لون ما بعد الرسوم المتحركة.
 
 ## **تحريك النص**
 
 لتحريك النص هناك تحكمان مرتبطان:
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextanimation/#getBuildType--) يتحكم فيما إذا كانت الفقرات تظهر معًا أو على مستوى الفقرة.
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ieffect/#getAnimateTextType--) يتحكم فيما إذا كان النص يظهر دفعة واحدة، أو كلمة بكلمة، أو حرف بحرف. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) يحدد التأخير بين الكلمات أو الأحرف. القيمة الموجبة هي نسبة مئوية من مدة التأثير؛ والقيمة السالبة هي تأخير بالثواني.
 
-- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextanimation/#getBuildType--) يحدد ما إذا كانت الفقرات تظهر معًا أو على مستوى الفقرة.
-- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ieffect/#getAnimateTextType--) يحدد ما إذا كان النص يظهر مرة واحدة، كلمة بكلمة، أو حرف بحرف. يحدد [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) التأخير بين الكلمات أو الحروف. القيمة الموجبة هي نسبة مئوية من مدة التأثير؛ القيمة السلبية هي تأخير بالثواني.
-
-المثال المستقل التالي يحرك الكلمات داخل مربع نص. يعرّض [BuildType.AsOneObject](https://reference.aspose.com/slides/ar/java/com.aspose.slides/buildtype/#AsOneObject) بناءً على الفقرة الواحدة بحيث ينطبق إعداد الكلمة على الإطار النصي كاملًا.
+المثال المستقل التالي يحرك الكلمات داخل صندوق نص. يُعطّل [BuildType.AsOneObject](https://reference.aspose.com/slides/ar/java/com.aspose.slides/buildtype/#AsOneObject) بناء الفقرة بفقرة بحيث ينطبق إعداد الكلمة على الإطار النصي بأكمله.
 
 ```java
 import com.aspose.slides.*;
@@ -461,26 +460,26 @@ public class AnimateTextByWord {
 }
 ```
 
-لبناء مربع نص وفقًا للفقرات، عيّن [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ar/java/com.aspose.slides/buildtype/#ByLevelParagraphs1) (أو مستوى فقرة آخر). لاستهداف فقرة واحدة بتأثيرها الخاص، استخدم التحميل الزائد لـ [ISequence.addEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) الذي يقبل [IParagraph](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraph/). راجع [النص المتحرك](/slides/ar/java/animated-text/) لأمثلة على مستوى الفقرة.
+لبناء صندوق نص وفقًا للفقرة، اضبط [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ar/java/com.aspose.slides/buildtype/#ByLevelParagraphs1) (أو مستوى فقرة آخر). لاستهداف فقرة واحدة بتأثير خاص بها، استخدم التحميل الزائد لـ [ISequence.addEffect](https://reference.aspose.com/slides/ar/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) الذي يقبل [IParagraph]. راجع [النص المتحرك](/slides/ar/java/animated-text/) للحصول على أمثلة على مستوى الفقرة.
 
 ## **ملاحظات التصدير والتوافق**
 
-- حفظ إلى PPT أو PPTX يحتفظ بنموذج الرسوم المتحركة، ولكن تشغيل العرض النهائي يتحكم به عارض العروض.
-- PDF والصور الثابتة لا تشغل الرسوم المتحركة. استخدم [تصدير HTML5](/slides/ar/java/export-to-html5/)، GIF متحرك، أو [تحويل إلى فيديو](/slides/ar/java/convert-powerpoint-to-video/) عندما يجب إظهار الحركة.
-- في حالة HTML5، فعّل [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/ar/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) وعند الحاجة [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/ar/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
-- تصيير الفيديو يدعم العديد من تأثيرات الدخول، التأكيد، الخروج، ومسار الحركة الشائعة، لكن ليس كل تأثير في PowerPoint مدعومًا. تحقق من [القائمة الحالية للتأثيرات والرسوم المتحركة المدعومة](/slides/ar/java/convert-powerpoint-to-video/#supported-animations-and-effects) واختبر العروض الحرجة مع نسخة Aspose.Slides التي تستخدمها.
-- قد تُحفظ التأثيرات المخصصة المتقدمة أو تلك المستوردة من صيغ عروض تقديمية أخرى في الملف لكن تُعرض بصورة مختلفة في PowerPoint أو HTML5 أو الفيديو. تحقق من النتيجة المصدرة بدلاً من الاعتماد فقط على اسم التأثير.
+- حفظ إلى PPT أو PPTX يحافظ على نموذج الرسوم المتحركة، لكن التشغيل النهائي يتحكم فيه عارض العرض.
+- لا تقوم PDF والصور الثابتة بتشغيل الرسوم المتحركة. استخدم [تصدير HTML5](/slides/ar/java/export-to-html5/)، GIF متحرك، أو [تحويل الفيديو](/slides/ar/java/convert-powerpoint-to-video/) عندما يجب أن يُظهر الخرج الحركة.
+- بالنسبة إلى HTML5، فعّل [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/ar/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) وعند الحاجة، [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/ar/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
+- يدعم تصيير الفيديو العديد من تأثيرات الدخول، والتأكيد، والخروج، ومسارات الحركة الشائعة، لكن ليس كل تأثير PowerPoint مدعوم. تحقق من [الرسوم المتحركة والتأثيرات المدعومة](/slides/ar/java/convert-powerpoint-to-video/#supported-animations-and-effects) الحالي واختبر العروض الحرجة مع نسخة Aspose.Slides المستهدفة.
+- قد تُحافظ التأثيرات المخصصة المتقدمة والتأثيرات المستوردة من صيغ عروض تقديمية أخرى في الملف لكن يظهرها بطرق مختلفة في PowerPoint أو HTML5 أو الفيديو. تحقق من النتيجة المصدّرة بدلاً من الاعتماد فقط على اسم التأثير.
 
 ## **الأسئلة الشائعة**
 
-**لماذا يظهر تأثير الرسوم المتحركة في PowerPoint لكن ليس في PDF؟**
+**لماذا يظهر تأثير في PowerPoint لكن ليس في PDF؟**
 
-PDF هو تنسيق ثابت، لذا لا تُشغل الرسوم المتحركة ولا انتقالات الشرائح. صدّر إلى HTML5 أو GIF متحرك أو فيديو عندما يلزم الحفاظ على الحركة.
+PDF هو تنسيق ثابت، لذا لا تُشغل الرسوم المتحركة وانتقالات الشرائح. صدّر إلى HTML5 أو GIF متحرك أو فيديو عندما يجب الحفاظ على الحركة.
 
-**لماذا يتم تشغيل تأثير بشكل مختلف في الفيديو؟**
+**لماذا يُشغل تأثير بصورة مختلفة في الفيديو؟**
 
-تصدير الفيديو يُعيد إنشاء الرسوم المتحركة بدلاً من حفظ سلوك PowerPoint الأصلي. بعض التأثيرات المتقدمة غير مدعومة أو تُقرب. راجع جدول التأثيرات المدعومة واختبر العرض الفعلي قبل الاستخدام الإنتاجي.
+يُعيد تصدير الفيديو الرسوم المتحركة بدلاً من تخزين سلوك PowerPoint الأصلي. بعض التأثيرات المتقدمة غير مدعومة أو مُقربة. راجع جدول التأثيرات المدعومة واختبر العرض الفعلي قبل الاستخدام الإنتاجي.
 
-**هل تغيير موضع الشكل إلى الأمام أو الخلف يغيّر ترتيب الرسوم المتحركة؟**
+**هل يغيّر نقل الشكل للأمام أو للخلف ترتيبه في الرسوم المتحركة؟**
 
-لا. يتحكم ترتيب الـ z للShapes في التداخل، بينما يتحكم ترتيب التسلسل والمُشغّلات في تشغيل الرسوم المتحركة. غيّر المخطط الزمني إذا احتجت ترتيب تشغيل مختلف.
+لا. يتحكم ترتيب z للشكل في التداخل، بينما يتحكم ترتيب التسلسل والمشغلات في تشغيل الرسوم المتحركة. غيّر المخطط الزمني إذا كنت تحتاج ترتيب تشغيل مختلف.

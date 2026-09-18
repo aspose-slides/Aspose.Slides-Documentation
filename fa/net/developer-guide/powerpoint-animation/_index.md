@@ -1,6 +1,6 @@
 ---
-title: بهبود ارائه‌های PowerPoint با انیمیشن‌ها در .NET
-linktitle: انیمیشن PowerPoint
+title: بهبود ارائه‌های پاورپوینت با انیمیشن‌ها در .NET
+linktitle: انیمیشن پاورپوینت
 type: docs
 weight: 150
 url: /fa/net/powerpoint-animation/
@@ -11,9 +11,9 @@ keywords:
 - حذف انیمیشن
 - مدیریت انیمیشن
 - کنترل انیمیشن
-- اثر انیمیشن
+- افکت انیمیشن
 - انیمیشن PowerPoint
-- خط زمان انیمیشن
+- جدول زمانی انیمیشن
 - انیمیشن تعاملی
 - انیمیشن سفارشی
 - انیمیشن شکل
@@ -29,27 +29,25 @@ keywords:
 - Aspose.Slides
 description: "قابلیت‌های Aspose.Slides برای .NET در مدیریت انیمیشن‌های PowerPoint را بررسی کنید. این مرور کلی ویژگی‌های کلیدی را برجسته می‌کند و بینش‌هایی برای بهبود ارائه‌های شما ارائه می‌دهد."
 ---
-## **مقدمه**
+## **معرفی**
 
-از آنجا که ارائه‌ها برای نمایش مطلبی ساخته می‌شوند، ظاهر بصری و رفتار تعاملی آنها همیشه در زمان ایجاد در نظر گرفته می‌شود.
+چون ارائه‌ها برای نشان دادن چیزی ساخته می‌شوند، ظاهر بصری و رفتار تعاملی آن‌ها همیشه در حین ایجاد در نظر گرفته می‌شود.
 
-**انیمیشن PowerPoint** نقش مهمی در جذاب‌ و درگیر کردن بینندگان دارد. Aspose.Slides برای .NET مجموعه گسترده‌ای از گزینه‌ها را برای افزودن انیمیشن به ارائه‌های PowerPoint فراهم می‌کند:
+**PowerPoint animation** نقش مهمی در جذاب و جلب توجه مخاطبان به ارائه دارد. Aspose.Slides برای .NET مجموعه وسیعی از گزینه‌ها را برای افزودن انیمیشن‌ها به ارائه‌های PowerPoint فراهم می‌کند:
+- انواع مختلفی از افکت‌های انیمیشن PowerPoint را بر روی اشکال، نمودارها، جداول، اشیاء OLE و سایر عناصر ارائه اعمال کنید.
+- چندین افکت انیمیشن PowerPoint را بر روی یک شکل استفاده کنید.
+- از جدول زمانی انیمیشن برای کنترل افکت‌های انیمیشن استفاده کنید.
+- انیمیشن‌های سفارشی ایجاد کنید.
 
-- اعمال انواع مختلف افکت‌های انیمیشن PowerPoint به اشکال، نمودارها، جدول‌ها، اشیاء OLE و سایر عناصر ارائه.
-- استفاده از چندین افکت انیمیشن PowerPoint روی یک شکل.
-- بهره‌گیری از خط زمان انیمیشن برای کنترل افکت‌های انیمیشن.
-- ایجاد انیمیشن‌های سفارشی.
+در Aspose.Slides برای .NET، می‌توان انواع مختلفی از افکت‌های انیمیشن را بر روی اشکال اعمال کرد. از آنجا که هر عنصری روی یک اسلاید، شامل متن، تصاویر, اشیاء OLE و جداول، به‌عنوان یک شکل در نظر گرفته می‌شود، می‌توان افکت‌های انیمیشن را بر روی هر عنصر اسلاید اعمال کرد.
 
-در Aspose.Slides برای .NET، می‌توان افکت‌های انیمیشن مختلفی را به اشکال اعمال کرد. از آنجا که هر عنصر روی اسلاید، از جمله متن، تصاویر، اشیاء OLE و جدول‌ها، به عنوان یک شکل محسوب می‌شود، می‌توان افکت‌های انیمیشن را به هر عنصر روی اسلاید اعمال کرد.
-
-[Aspose.Slides.Animation](https://reference.aspose.com/slides/fa/net/aspose.slides.animation/)namespace کلاس‌هایی را برای کار با انیمیشن‌های PowerPoint فراهم می‌کند.
+[Aspose.Slides.Animation](https://reference.aspose.com/slides/fa/net/aspose.slides.animation/) namespace کلاس‌هایی را برای کار با انیمیشن‌های PowerPoint فراهم می‌کند.
 
 ## **افکت‌های انیمیشن**
 
-Aspose.Slides از **بیش از 150 افکت انیمیشن** پشتیبانی می‌کند، شامل افکت‌های پایه‌ای مانند Bounce، PathFootball و Zoom، و همچنین افکت‌های خاصی مانند OLEObjectShow و OLEObjectOpen. می‌توانید فهرست کامل افکت‌های انیمیشن را در شمارش [EffectType](https://reference.aspose.com/slides/fa/net/aspose.slides.animation/effecttype) بیابید.
+Aspose.Slides از **بیش از 150 افکت انیمیشن** پشتیبانی می‌کند، از جمله افکت‌های پایه مانند Bounce، PathFootball و Zoom، و همچنین افکت‌های خاص مانند OLEObjectShow و OLEObjectOpen. می‌توانید فهرست کامل افکت‌های انیمیشن را در شمارش‌گر [EffectType](https://reference.aspose.com/slides/fa/net/aspose.slides.animation/effecttype) پیدا کنید.
 
-علاوه بر این، می‌توان این افکت‌های انیمیشن را با موارد زیر ترکیب کرد:
-
+علاوه بر این، می‌توان این افکت‌های انیمیشن را همراه با موارد زیر ترکیب کرد:
 - [ColorEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.animation/coloreffect)
 - [CommandEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.animation/commandeffect)
 - [FilterEffect](https://reference.aspose.com/slides/fa/net/aspose.slides.animation/filtereffect)
@@ -61,56 +59,58 @@ Aspose.Slides از **بیش از 150 افکت انیمیشن** پشتیبانی 
 
 ## **انیمیشن سفارشی**
 
-می‌توانید **انیمیشن‌های سفارشی** خود را در Aspose.Slides ایجاد کنید. این کار با ترکیب چند رفتار (behavior) به یک انیمیشن سفارشی جدید امکان‌پذیر است.
+برای مثال‌های کامل C# که ایجاد، بازرسی و تغییر رفتارها و مسیرهای حرکتی قابل ویرایش را نشان می‌دهند، به [انیمیشن سفارشی](/slides/fa/net/custom-animation/) مراجعه کنید.
 
-[Behaviour](https://reference.aspose.com/slides/fa/net/aspose.slides.animation/behavior) بلوک سازنده هر افکت انیمیشن PowerPoint است. تمام افکت‌های انیمیشن در اصل مجموعه‌ای از رفتارها هستند که در یک استراتژی ترکیب می‌شوند. می‌توانید رفتارها را به یک انیمیشن سفارشی ترکیب کنید و سپس آن را در ارائه‌های دیگر دوباره استفاده کنید. اگر یک رفتار جدید به یک افکت انیمیشن استاندارد PowerPoint اضافه کنید، تبدیل به یک انیمیشن سفارشی دیگر می‌شود. به‌عنوان مثال، می‌توانید یک رفتار تکرار را به یک انیمیشن اضافه کنید تا چند بار تکرار شود.
+در Aspose.Slides می‌توانید **انیمیشن‌های سفارشی** خود را ایجاد کنید. این کار با ترکیب چند رفتار در یک انیمیشن سفارشی جدید امکان‌پذیر است.
+
+[Behavior](https://reference.aspose.com/slides/fa/net/aspose.slides.animation/behavior) یک بلوک سازندهٔ افکت انیمیشن PowerPoint است. با ترکیب رفتارها می‌توانید افکتی را سفارشی کنید، یا یک رفتار اضافه کنید تا افکت از پیش تعریف‌شده را گسترش دهید. تکرار از طریق تنظیمات زمان‌بندی پیکربندی می‌شود نه از طریق رفتار تکرار جداگانه.
 
 [Animation Point](https://reference.aspose.com/slides/fa/net/aspose.slides.animation/point) نقطه‌ای است که در آن یک رفتار باید اعمال شود.
 
 ## **خط زمان انیمیشن**
 
-[Sequence](https://reference.aspose.com/slides/fa/net/aspose.slides.animation/sequence) مجموعه‌ای از افکت‌های انیمیشن است که بر روی یک شکل خاص اعمال می‌شوند.
+[Sequence](https://reference.aspose.com/slides/fa/net/aspose.slides.animation/sequence) مجموعه‌ای از افکت‌های انیمیشن است که می‌تواند هدف‌گذاری متفاوتی بر روی اشکال داشته باشد.
 
-[Timeline](https://reference.aspose.com/slides/fa/net/aspose.slides.animation/animationtimeline) مجموعه‌ای از توالی‌ها (sequences) است که در یک اسلاید خاص استفاده می‌شود. این موتور انیمیشن در PowerPoint 2002 معرفی شد. در نسخه‌های قبلی PowerPoint افزودن افکت‌های انیمیشن به ارائه‌ها دشوار بود و فقط با روش‌های دور‌زن ممکن بود. خط زمان جایگزین کلاس AnimationSettings قدیمی شد و مدل شیء واضح‌تری برای انیمیشن‌های PowerPoint فراهم می‌کند. یک اسلاید می‌تواند تنها یک خط زمان انیمیشن داشته باشد.
+[Timeline](https://reference.aspose.com/slides/fa/net/aspose.slides.animation/animationtimeline) مجموعه‌ای از توالی‌ها (sequences) است که در یک اسلاید خاص استفاده می‌شود. این یک موتور انیمیشن است که در PowerPoint 2002 معرفی شد. در نسخه‌های قبلی PowerPoint، افزودن افکت‌های انیمیشن به ارائه‌ها دشوار بود و فقط با راه‌حل‌های مختلف ممکن بود. جدول زمان‌بندی (timeline) کلاس قدیمی AnimationSettings را جایگزین می‌کند و یک مدل شیء واضح‌تر برای انیمیشن‌های PowerPoint فراهم می‌آورد. یک اسلاید می‌تواند فقط یک جدول زمان‌بندی انیمیشن داشته باشد.
 
 ## **انیمیشن تعاملی**
 
-[Trigger](https://reference.aspose.com/slides/fa/net/aspose.slides.animation/effecttriggertype) به شما امکان می‌دهد عمل کاربری (مانند کلیک دکمه) را تعریف کنید که یک انیمیشن خاص را آغاز می‌کند. Triggerها در آخرین نسخه PowerPoint معرفی شدند.
+[Trigger](https://reference.aspose.com/slides/fa/net/aspose.slides.animation/effecttriggertype) به شما امکان تعریف اقدامات کاربر (مثلاً کلیک دکمه) را می‌دهد که یک انیمیشن خاص را آغاز می‌کند. تریگرها در آخرین نسخه PowerPoint معرفی شدند.
 
 ## **انیمیشن شکل**
 
-Aspose.Slides به شما اجازه می‌دهد انیمیشن‌ها را بر روی اشکال اعمال کنید؛ این اشکال می‌توانند شامل متن، مستطیل‌ها، خطوط، فریم‌ها، اشیاء OLE و موارد دیگر باشند.
+Aspose.Slides به شما امکان می‌دهد انیمیشن‌ها را بر روی اشکال اعمال کنید، که می‌توانند شامل متن، مستطیل‌ها، خطوط, فریم‌ها, اشیاء OLE و موارد دیگر باشند.
 
-{{% alert color="primary" %}} 
-Read more[**درباره انیمیشن شکل**](/slides/fa/net/shape-animation/).
+{{% alert color="info" title="Note" %}}
+بیشتر بخوانید [**درباره انیمیشن شکل**](/slides/fa/net/shape-animation/).
 {{% /alert %}}
 
 ## **نمودارهای انیمیشنی**
 
-برای ایجاد نمودارهای انیمیشنی، باید از همان کلاس‌ها همانند اشکال استفاده کنید. با این حال، انیمیشن‌های PowerPoint تنها می‌توانند بر روی دسته‌بندی‌های نمودار یا سری‌های نمودار اعمال شوند. همچنین می‌توانید افکت‌های انیمیشن را بر روی یک عنصر دسته یا یک عنصر سری اعمال کنید.
+برای ایجاد نمودارهای انیمیشنی، باید از همان کلاس‌ها که برای اشکال استفاده می‌شود، بهره ببرید. با این حال، انیمیشن‌های PowerPoint فقط می‌توانند بر روی دسته‌بندی‌های نمودار یا سری‌های نمودار اعمال شوند. همچنین می‌توانید افکت‌های انیمیشن را بر روی یک عنصر دسته‌بندی یا عنصر سری اعمال کنید.
 
-{{% alert color="primary" %}} 
-Read more[**درباره نمودارهای انیمیشنی**](/slides/fa/net/animated-charts/).
+{{% alert color="info" title="Note" %}}
+بیشتر بخوانید [**درباره نمودارهای انیمیشنی**](/slides/fa/net/animated-charts/).
 {{% /alert %}}
 
 ## **متن انیمیشنی**
 
-به‌جز متن انیمیشنی، امکان اعمال انیمیشن به یک پاراگراف نیز وجود دارد.
+علاوه بر انیمیشن متن، می‌توانید انیمیشن را بر روی یک پاراگراف اعمال کنید.
 
-{{% alert color="primary" %}} 
-Read more[**درباره متن انیمیشنی**](/slides/fa/net/animated-text/).
+{{% alert color="info" title="Note" %}}
+بیشتر بخوانید [**درباره متن انیمیشنی**](/slides/fa/net/animated-text/).
 {{% /alert %}}
 
 ## **سوالات متداول**
 
 **آیا انیمیشن‌ها هنگام خروجی به PDF حفظ می‌شوند؟**
 
-نه. PDF فرمت استاتیک است، بنابراین انیمیشن‌ها و [انتقالات اسلاید](/slides/fa/net/slide-transition/) پخش نمی‌شوند. اگر به حرکت نیاز دارید، به‌جای آن به [HTML5](/slides/fa/net/export-to-html5/)، [GIF انیمیشنی](/slides/fa/net/convert-powerpoint-to-animated-gif/) یا [ویدئو](/slides/fa/net/convert-powerpoint-to-video/) خروجی بدهید.
+خیر. PDF یک فرمت ثابت است، بنابراین انیمیشن‌ها و [slide transitions](/slides/fa/net/slide-transition/) اجرا نمی‌شوند. اگر به حرکت نیاز دارید، به جای آن به [HTML5](/slides/fa/net/export-to-html5/)، [animated GIF](/slides/fa/net/convert-powerpoint-to-animated-gif/) یا [video](/slides/fa/net/convert-powerpoint-to-video/) خروجی بدهید.
 
-**آیا می‌توانم یک ارائه انیمیشنی را به ویدئو تبدیل کنم و نرخ فریم و اندازه فریم را کنترل کنم؟**
+**آیا می‌توانم یک ارائه انیمیشنی را به ویدیو تبدیل کنم و نرخ فریم و اندازه فریم را کنترل کنم؟**
 
-بله. می‌توانید [ارائه را به فریم‌ها رندر کنید](/slides/fa/net/convert-powerpoint-to-video/) و آن‌ها را به یک ویدئو (مثلاً با ffmpeg) تبدیل کنید، به‌طوری که FPS و وضوح را انتخاب کنید. انیمیشن‌ها و انتقالات اسلاید هنگام رندر پخش می‌شوند.
+بله. می‌توانید [render the presentation as frames](/slides/fa/net/convert-powerpoint-to-video/) را انجام دهید و آن‌ها را به یک ویدیو (مثلاً با ffmpeg) رمزگذاری کنید، با انتخاب FPS و وضوح تصویر. انیمیشن‌ها و slide transitions در حین رندر پخش می‌شوند.
 
 **آیا انیمیشن‌ها هنگام کار با ODP (نه فقط PPTX) دست نخورده می‌مانند؟**
 
-PPT، PPTX و ODP برای [خواندن](/slides/fa/net/open-presentation/) و [نوشتن](/slides/fa/net/save-presentation/) پشتیبانی می‌شوند، اما تفاوت‌های فرمت ممکن است باعث شود برخی افکت‌ها کمی متفاوت ظاهر شوند یا رفتار متفاوتی داشته باشند. موارد حساس را با نمونه‌های واقعی اعتبارسنجی کنید.
+PPT، PPTX و ODP برای [reading](/slides/fa/net/open-presentation/) و [writing](/slides/fa/net/save-presentation/) پشتیبانی می‌شوند، اما این تضمین نمی‌کند که انیمیشن‌ها حفظ شوند. داده‌های انیمیشن سفارشی ممکن است هنگام تبدیل به ODP از دست بروند. برای مثال آزمایشی و محدودیت‌های فرمت، به [Custom Animation](/slides/fa/net/custom-animation/) مراجعه کنید.

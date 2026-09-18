@@ -1,14 +1,14 @@
 ---
-title: Применение анимации форм в презентациях с использованием Java
-linktitle: Анимация формы
+title: Применение анимации фигур в презентациях с помощью Java
+linktitle: Анимация фигур
 type: docs
 weight: 60
 url: /ru/java/shape-animation/
 keywords:
-- форма
+- фигура
 - анимация
 - эффект
-- анимированная форма
+- анимированная фигура
 - анимированный текст
 - добавить анимацию
 - получить анимацию
@@ -22,24 +22,26 @@ keywords:
 - презентация
 - Java
 - Aspose.Slides
-description: "Узнайте, как добавлять, просматривать и настраивать анимацию форм, тайминг, звуки, поведение после анимации и анимированный текст с помощью Aspose.Slides для Java."
+description: "Узнайте, как добавлять, просматривать и настраивать анимацию фигур, их время, звуки, поведение после анимации и анимированный текст с помощью Aspose.Slides for Java."
 ---
 ## **Обзор**
 
-Aspose.Slides for Java представляет анимацию слайдов в виде эффектов на временной шкале слайда. Эффект имеет целевую форму, тип и подтип анимации, триггер, настройки тайминга и необязательные свойства, такие как звук или поведение после анимации.
+Чтобы работать с отдельными поведениями внутри эффекта или редактировать сегменты траектории движения, см. [Custom Animation](/slides/ru/java/custom-animation/).
+
+Aspose.Slides for Java представляет анимацию слайдов в виде эффектов на временной шкале слайда. Эффект имеет целевую фигуру, тип анимации и подтип, триггер, параметры времени и необязательные свойства, такие как звук или поведение после анимации.
 
 Временная шкала содержит два типа последовательностей:
 
-- **Основная последовательность** воспроизводится при переходе к следующему слайду.
-- **Интерактивная последовательность** запускается, когда по её триггерной форме происходит клик.
+- **Главная последовательность** воспроизводится при переходе к следующему слайду.
+- **Интерактивная последовательность** начинается, когда её объект‑триггер нажимается.
 
 Поскольку текстовые поля, изображения, диаграммы, таблицы и другие объекты слайда реализуют [IShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/), вы используете один и тот же метод [ISequence.addEffect](https://reference.aspose.com/slides/ru/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) для большинства содержимого слайда. Доступные эффекты перечислены в классе [EffectType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/effecttype/).
 
-## **Добавление анимации к формам**
+## **Добавление анимаций фигур**
 
-Чтобы добавить анимацию, получите основную последовательность слайда и вызовите [ISequence.addEffect](https://reference.aspose.com/slides/ru/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) с целевой формой, типом эффекта, подтипом и триггером. Для эффекта, который начинается при клике по другой форме, создайте интерактивную последовательность, триггером которой будет эта другая форма.
+Чтобы добавить анимацию, получите главную последовательность слайда и вызовите [ISequence.addEffect](https://reference.aspose.com/slides/ru/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) с целевой фигурой, типом эффекта, подтипом и триггером. Для эффекта, который начинается при щелчке по другой фигуре, создайте интерактивную последовательность, триггером которой будет эта другая фигура.
 
-Следующий пример создаёт обе типы анимации и сохраняет результат в файл `shape-animations.pptx`.
+В следующем примере создаются оба типа анимации и результат сохраняется в `shape-animations.pptx`.
 
 ```java
 import com.aspose.slides.*;
@@ -71,19 +73,17 @@ public class AddShapeAnimations {
 }
 ```
 
-Триггер определяет, когда эффект начинается:
+Триггер определяет, когда начинается эффект:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ru/java/com.aspose.slides/effecttriggertype/#OnClick) ждёт клика в основной последовательности или клика по триггерной форме в интерактивной последовательности.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ru/java/com.aspose.slides/effecttriggertype/#OnClick) ожидает щелчка в главной последовательности или щелчка по фигуре‑триггеру в интерактивной последовательности.
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/ru/java/com.aspose.slides/effecttriggertype/#WithPrevious) начинается одновременно с предыдущим эффектом.
 - [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/ru/java/com.aspose.slides/effecttriggertype/#AfterPrevious) начинается после завершения предыдущего эффекта.
 
-Чтобы анимировать изображение, диаграмму или другой тип формы, передайте соответствующий объект в [ISequence.addEffect](https://reference.aspose.com/slides/ru/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) вместо `targetShape`. Для параметров группировки, специфичных для диаграмм, см. раздел [Animated Charts](/slides/ru/java/animated-charts/).
+Чтобы анимировать изображение, диаграмму или другой тип фигуры, передайте этот объект в [ISequence.addEffect](https://reference.aspose.com/slides/ru/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) вместо `targetShape`. Для параметров группировки, специфичных для диаграмм, см. [Animated Charts](/slides/ru/java/animated-charts/).
 
-## **Чтение анимации форм**
+## **Чтение анимаций фигур**
 
-Используйте [ISequence.getEffectsByShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) когда известна целевая форма. Чтобы просмотреть каждый эффект, перебирайте основную последовательность и все интерактивные последовательности. Перебор позволяет не полагаться на наличие эффекта по индексу `0`.
-
-Следующий пример создаёт форму с эффектами основной и интерактивной последовательностей, получает эффекты, направленные на форму, а затем перебирает каждую последовательность на слайде.
+Используйте [ISequence.getEffectsByShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) , когда известна целевая фигура. Чтобы просмотреть каждый эффект, перечислите главную последовательность и все интерактивные последовательности. Перечисление позволяет избежать предположения, что в последовательности есть эффект с индексом `0`.
 
 ```java
 import com.aspose.slides.*;
@@ -137,21 +137,21 @@ public class ReadShapeAnimations {
 }
 ```
 
-Если нужны эффекты только для одной формы, сначала определите форму по имени, типу заполнителя или другому стабильному свойству; затем вызовите [ISequence.getEffectsByShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Не следует предполагать, что [IShapeCollection.get_Item](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishapecollection/#get_Item-int-) с индексом `0` всегда возвращает нужный объект.
+Если нужны эффекты только для одной фигуры, сначала определите её по имени, типу заполнителя или другому стабильному свойству; затем вызовите [ISequence.getEffectsByShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Не предполагаете, что [IShapeCollection.get_Item](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishapecollection/#get_Item-int-) с индексом `0` всегда является нужным объектом.
 
 ## **Работа с унаследованными эффектами заполнителей**
 
-Заполнитель на обычном слайде может наследовать анимацию от соответствующего заполнителя на слайде‑шаблоне и на мастер‑слайде. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/#getBasePlaceholder--) возвращает родительский заполнитель или `null`, если родителя нет.
+Заполнитель на обычном слайде может наследовать анимационное поведение от соответствующего заполнителя на макете слайда и слайде‑шаблоне. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/#getBasePlaceholder--) возвращает родительский заполнитель или `null`, если родителя нет.
 
-В примере презентации нижний колонтитул имеет **Random Bars** на обычном слайде, **Split** на слайде‑шаблоне и **Fly In** на мастер‑слайде.
+В следующей демонстрационной презентации нижний колонтитул имеет **Random Bars** на обычном слайде, **Split** на слайде‑макете и **Fly In** на слайде‑шаблоне.
 
-![Эффект анимации нижнего колонтитула на обычном слайде](slide-shape-animation.png)
+![Анимационный эффект нижнего колонтитула на обычном слайде](slide-shape-animation.png)
 
-![Эффект анимации заполнителя нижнего колонтитула на слайде‑шаблоне](layout-shape-animation.png)
+![Анимационный эффект заполнителя нижнего колонтитула на слайде макета](layout-shape-animation.png)
 
-![Эффект анимации заполнителя нижнего колонтитула на мастер‑слайде](master-shape-animation.png)
+![Анимационный эффект заполнителя нижнего колонтитула на слайде мастера](master-shape-animation.png)
 
-Следующий пример использует иерархию заполнителей из новой презентации. Он добавляет эффекты к заполнителю мастера, заполнителю шаблона и соответствующему заполнителю на обычном слайде. Каждый вызов [IShape.getBasePlaceholder](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/#getBasePlaceholder--) проверяется перед использованием возвращённой формы.
+В следующем примере используется иерархия заполнителей новой презентации. Добавляются эффекты к заполнителю мастера, заполнителю макета и соответствующему заполнителю на обычном слайде. Каждый вызов [IShape.getBasePlaceholder](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/#getBasePlaceholder--) проверяется перед использованием возвращённой фигуры.
 
 ```java
 import com.aspose.slides.*;
@@ -229,11 +229,11 @@ public class InheritedPlaceholderAnimations {
 }
 ```
 
-## **Изменение тайминга анимации**
+## **Изменение времени анимации**
 
-Диалог PowerPoint **Timing** соответствует свойствам [ITiming](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itiming/).
+Диалоговое окно PowerPoint **Timing** соответствует свойствам [ITiming](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itiming/).
 
-![Диалог Timing в PowerPoint для анимационного эффекта](shape-animation.png)
+![Диалоговое окно Timing PowerPoint для анимационного эффекта](shape-animation.png)
 
 - **Start** соответствует [ITiming.getTriggerType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itiming/#getTriggerType--).
 - **Duration** соответствует [ITiming.getDuration](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itiming/#getDuration--), в секундах.
@@ -241,7 +241,7 @@ public class InheritedPlaceholderAnimations {
 - **Repeat** соответствует [ITiming.getRepeatCount](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itiming/#getRepeatUntilNextClick--), или [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
 - **Rewind when done playing** соответствует [ITiming.getRewind](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itiming/#getRewind--).
 
-Этот независимый пример добавляет эффект, изменяет его тайминг через объект, возвращённый [ISequence.addEffect](https://reference.aspose.com/slides/ru/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), и сохраняет результат. Сохранение ссылки на возвращённый [IEffect](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ieffect/) избавляет от необходимости использовать индекс коллекции.
+Этот самостоятельный пример добавляет эффект, изменяет его время через объект, возвращённый [ISequence.addEffect](https://reference.aspose.com/slides/ru/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), и сохраняет результат. Хранение ссылки на возвращённый [IEffect](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ieffect/) избегает ненужного обращения к индексу коллекции.
 
 ```java
 import com.aspose.slides.*;
@@ -271,15 +271,15 @@ public class ChangeAnimationTiming {
 }
 ```
 
-Используйте один режим повторения намеренно. Комбинация количества повторений с флагом «until» может приводить к непредсказуемым результатам в разных проигрывателях. При изменении режимов повторения сначала вызывайте [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) и [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-), а затем [ITiming.setRepeatCount](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itiming/#setRepeatCount-float-), потому что установка любого из флагов также меняет активный режим повторения.
+Используйте один режим повторения намеренно. Сочетание количества повторов с флагом «until» может давать запутанные результаты в разных плеерах. При изменении режимов повторения сначала вызывайте [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) и [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-), а затем [ITiming.setRepeatCount](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itiming/#setRepeatCount-float-), потому что установка любого из флагов также меняет активный режим повторения.
 
 ## **Добавление и извлечение звуков анимации**
 
-Эффект анимации может ссылаться на встроенный аудиофайл через [IEffect.getSound](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ieffect/#getSound--). [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) указывает эффекту остановить звук, запущенный предыдущим эффектом.
+Анимационный эффект может ссылаться на встроенный аудио‑файл через [IEffect.getSound](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ieffect/#getSound--). [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) указывает эффекту остановить звук, начатый предыдущим эффектом.
 
-### **Добавление звука к эффекту**
+### **Добавить звук к эффекту**
 
-Следующий пример ожидает локальный аудиофайл `animation-sound.wav`. Он создаёт два эффекта, встраивает этот файл как звук для первого эффекта и настраивает второй эффект на остановку звука. Для этого используются объекты, возвращённые [ISequence.addEffect](https://reference.aspose.com/slides/ru/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), поэтому индекс последовательности не требуется.
+В следующем примере ожидается локальный аудио‑файл с именем `animation-sound.wav`. Создаются два эффекта, первый получает в качестве звука указанный файл, а второй настраивается на остановку звука. Для этого используются объекты, возвращённые [ISequence.addEffect](https://reference.aspose.com/slides/ru/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), поэтому индекс последовательности не нужен.
 
 ```java
 import com.aspose.slides.*;
@@ -316,7 +316,7 @@ public class AddAnimationSound {
 
 ### **Извлечение встроенных звуков эффектов**
 
-Следующий пример ожидает локальную презентацию `presentation-with-animation-sounds.pptx`. Он сканирует как основную, так и интерактивные последовательности и записывает каждый встроенный звук эффекта в каталог `extracted-animation-sounds`. Расширение выбирается на основе MIME‑типа аудио, получаемого через [IAudio.getContentType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iaudio/#getContentType--).
+В следующем примере ожидается локальная презентация `presentation-with-animation-sounds.pptx`. Программа просматривает как главные, так и интерактивные последовательности и записывает каждый встроенный звук эффекта в каталог `extracted-animation-sounds`. Расширение выбирается на основании MIME‑типа аудио, предоставляемого [IAudio.getContentType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iaudio/#getContentType--).
 
 ```java
 import com.aspose.slides.*;
@@ -390,17 +390,17 @@ public class ExtractAnimationSounds {
 }
 ```
 
-Для больших аудио‑объектов используйте [IAudio.getStream](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iaudio/#getStream--) и копируйте поток в файл вместо загрузки всего объекта в массив байтов.
+Для больших аудио‑объектов используйте [IAudio.getStream](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iaudio/#getStream--) и копируйте поток в файл, вместо загрузки всего объекта в массив байтов.
 
 ## **Установка поведения после анимации**
 
-Опция **After animation** определяет, что происходит с формой после завершения её эффекта.
+Опция **After animation** определяет, что произойдёт с фигурой после завершения её эффекта.
 
-![Диалог параметров эффекта PowerPoint, показывающий настройки After animation](shape-after-animation.png)
+![Диалоговое окно параметров эффекта PowerPoint, показывающее настройки After animation](shape-after-animation.png)
 
-Класс [AfterAnimationType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/afteranimationtype/) поддерживает варианты: оставить форму без изменений, изменить её цвет, скрыть её после анимации или скрыть её по следующему клику. Когда тип равен [AfterAnimationType.Color](https://reference.aspose.com/slides/ru/java/com.aspose.slides/afteranimationtype/#Color), также задайте [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ieffect/#getAfterAnimationColor--).
+Класс [AfterAnimationType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/afteranimationtype/) поддерживает оставление фигуры без изменений, изменение её цвета, скрытие после анимации или скрытие при следующем щелчке. Когда тип равен [AfterAnimationType.Color](https://reference.aspose.com/slides/ru/java/com.aspose.slides/afteranimationtype/#Color), также задайте [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ieffect/#getAfterAnimationColor--).
 
-Этот независимый пример создаёт эффект, задаёт его поведение после анимации через полученный объект эффекта и сохраняет результат.
+Этот самостоятельный пример создаёт эффект, задаёт его поведение после анимации через полученный объект эффекта и сохраняет результат.
 
 ```java
 import com.aspose.slides.*;
@@ -426,16 +426,16 @@ public class SetAfterAnimationBehavior {
 }
 ```
 
-Смена типа с [AfterAnimationType.Color](https://reference.aspose.com/slides/ru/java/com.aspose.slides/afteranimationtype/#Color) очищает настройку цвета после анимации.
+Смена типа от [AfterAnimationType.Color](https://reference.aspose.com/slides/ru/java/com.aspose.slides/afteranimationtype/#Color) очищает настройку цвета после анимации.
 
 ## **Анимация текста**
 
 Анимация текста имеет два связанных параметра:
 
-- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextanimation/#getBuildType--) определяет, появляются ли параграфы одновременно или поочерёдно.
-- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ieffect/#getAnimateTextType--) определяет, появляется ли текст целиком, по словам или по буквам. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) задаёт задержку между словами или буквами. Положительное значение — процент от длительности эффекта; отрицательное — задержка в секундах.
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextanimation/#getBuildType--) определяет, появляются ли абзацы сразу все вместе или по уровням абзацев.
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ieffect/#getAnimateTextType--) определяет, будет ли текст появляться сразу, по словам или по буквам. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) задаёт задержку между словами или буквами. Положительное значение — процент от длительности эффекта; отрицательное — задержка в секундах.
 
-Следующий независимый пример анимирует слова в текстовом поле. [BuildType.AsOneObject](https://reference.aspose.com/slides/ru/java/com.aspose.slides/buildtype/#AsOneObject) отключает построение по параграфам, поэтому настройка слов применяется ко всему текстовому кадру.
+Следующий самостоятельный пример анимирует отдельные слова в текстовом блоке. [BuildType.AsOneObject](https://reference.aspose.com/slides/ru/java/com.aspose.slides/buildtype/#AsOneObject) отключает построение по абзацам, поэтому настройка по словам применяется ко всему текстовому фрейму.
 
 ```java
 import com.aspose.slides.*;
@@ -461,26 +461,26 @@ public class AnimateTextByWord {
 }
 ```
 
-Чтобы построить текстовое поле по параграфам, установите [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ru/java/com.aspose.slides/buildtype/#ByLevelParagraphs1) (или другой уровень параграфа). Чтобы применить отдельный эффект к отдельному параграфу, используйте перегрузку [ISequence.addEffect](https://reference.aspose.com/slides/ru/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) с параметром [IParagraph](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/). См. раздел [Animated Text](/slides/ru/java/animated-text/) для примеров на уровне параграфов.
+Чтобы собирать текстовый блок по абзацам, установите [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ru/java/com.aspose.slides/buildtype/#ByLevelParagraphs1) (или другой уровень абзаца). Чтобы применить отдельный эффект к отдельному абзацу, используйте перегрузку [ISequence.addEffect](https://reference.aspose.com/slides/ru/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) , принимающую [IParagraph](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraph/). См. [Animated Text](/slides/ru/java/animated-text/) для примеров уровня абзацев.
 
-## **Экспорт и замечания о совместимости**
+## **Экспорт и примечания о совместимости**
 
-- Сохранение в форматы PPT или PPTX сохраняет модель анимации, но окончательное воспроизведение контролируется средством просмотра презентаций.
-- PDF и статические изображения не воспроизводят анимацию. Используйте [HTML5 export](/slides/ru/java/export-to-html5/), анимированные GIF или [конвертацию в видео](/slides/ru/java/convert-powerpoint-to-video/), когда необходимо показать движение.
-- Для HTML5 включите [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/ru/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) и, при необходимости, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/ru/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
-- При рендеринге видео поддерживается множество обычных эффектов входа, акцента, выхода и перемещения, но не каждый эффект PowerPoint поддерживается. Проверьте текущий список [поддерживаемых анимаций и эффектов](/slides/ru/java/convert-powerpoint-to-video/#supported-animations-and-effects) и протестируйте критические презентации с вашей версией Aspose.Slides.
-- Сложные пользовательские эффекты и эффекты, импортированные из других форматов презентаций, могут сохраняться в файле, но отображаться иначе в PowerPoint, HTML5 или видео. Проверяйте экспортированный результат, а не только название эффекта.
+- Сохранение в PPT или PPTX сохраняет модель анимации, но окончательное воспроизведение управляется программой‑просмотром презентаций.
+- PDF и статические изображения анимацию не воспроизводят. Используйте [HTML5 export](/slides/ru/java/export-to-html5/), анимированный GIF или [video conversion](/slides/ru/java/convert-powerpoint-to-video/), когда необходимо показать движение.
+- Для HTML5 включите [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/ru/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) и при необходимости [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/ru/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
+- При рендеринге видео поддерживаются многие распространённые эффекты входа, акцентирования, выхода и траектории движения, но не каждый эффект PowerPoint поддерживается. Проверьте текущий список [supported animations and effects](/slides/ru/java/convert-powerpoint-to-video/#supported-animations-and-effects) и протестируйте критически важные презентации с вашей версией Aspose.Slides.
+- Профессиональные пользовательские эффекты и эффекты, импортированные из других форматов презентаций, могут сохраняться в файле, но отображаться иначе в PowerPoint, HTML5 или видео. Проверяйте экспортированный результат, а не только название эффекта.
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
 **Почему анимация отображается в PowerPoint, но не в PDF?**
 
-PDF — статический формат, поэтому анимации и переходы слайдов не воспроизводятся. Экспортируйте в HTML5, анимированный GIF или видео, если необходимо сохранить движение.
+PDF — статический формат, поэтому анимации и переходы слайдов не воспроизводятся. При необходимости сохранения движения экспортируйте в HTML5, анимированный GIF или видео.
 
 **Почему эффект воспроизводится иначе в видео?**
 
-Экспорт в видео рендерит анимацию, а не сохраняет оригинальное поведение PowerPoint. Некоторые продвинутые эффекты не поддерживаются или приблизительно имитируются. Ознакомьтесь с таблицей поддерживаемых эффектов и протестируйте презентацию перед производством.
+Экспорт в видео рендерит анимацию, а не сохраняет оригинальное поведение PowerPoint. Некоторые продвинутые эффекты не поддерживаются или приближенно реализованы. Ознакомьтесь с таблицей поддерживаемых эффектов и протестируйте презентацию перед использованием в производстве.
 
-**Изменяет ли перемещение формы вперёд или назад порядок её анимации?**
+**Изменяет ли перемещение фигуры вперёд или назад её порядок анимации?**
 
-Нет. Порядок наложения форм (z‑order) контролирует перекрытие, а порядок последовательностей и триггеры управляют воспроизведением анимации. Измените временную шкалу, если требуется иной порядок воспроизведения.
+Нет. Z‑порядок фигуры определяет наложение, а порядок последовательностей и триггеры управляют воспроизведением анимации. Изменяйте временную шкалу, если нужен иной порядок воспроизведения.

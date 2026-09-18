@@ -1,6 +1,6 @@
 ---
-title: C++でアニメーションを使用してPowerPointプレゼンテーションを強化する
-linktitle: PowerPointアニメーション
+title: C++ でアニメーションを使用して PowerPoint プレゼンテーションを強化する
+linktitle: PowerPoint アニメーション
 type: docs
 weight: 150
 url: /ja/cpp/powerpoint-animation/
@@ -12,96 +12,101 @@ keywords:
 - アニメーションの管理
 - アニメーションの制御
 - アニメーション効果
-- PowerPointアニメーション
-- アニメーションタイムライン
-- インタラクティブアニメーション
-- カスタムアニメーション
-- シェイプアニメーション
-- アニメーションチャート
-- アニメーションテキスト
-- アニメーションシェイプ
-- アニメーションOLEオブジェクト
-- アニメーション画像
-- アニメーションテーブル
+- PowerPoint アニメーション
+- アニメーション タイムライン
+- インタラクティブ アニメーション
+- カスタム アニメーション
+- シェイプ アニメーション
+- アニメーション チャート
+- アニメーション テキスト
+- アニメーション シェイプ
+- アニメーション OLE オブジェクト
+- アニメーション イメージ
+- アニメーション テーブル
 - PowerPoint
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++で高度なアニメーション効果を追加および制御し、動的なPowerPointおよびOpenDocumentプレゼンテーションを作成する方法を学びます。"
+description: "Aspose.Slides for C++ で高度なアニメーション効果を追加および制御し、動的な PowerPoint および OpenDocument プレゼンテーションを作成する方法を学びます。"
 ---
+## **導入**
 
-プレゼンテーションは何かを提示するために作成されるため、作成時には常にビジュアルな外観とインタラクティブな動作が考慮されます。
+プレゼンテーションは何かを提示するためのものなので、作成時には視覚的な外観とインタラクティブな動作が常に考慮されます。
 
-**PowerPoint animation** は、プレゼンテーションを目を引く魅力的なものにするために重要な役割を果たします。Aspose.Slides for C++ は、PowerPoint プレゼンテーションにアニメーションを追加するための幅広いオプションを提供します：
+**PowerPoint アニメーション** は、プレゼンテーションを視覚的に魅力的かつ引き込むものにする重要な役割を果たします。Aspose.Slides は PowerPoint プレゼンテーションにアニメーションを追加するための幅広いオプションを提供します。
 
-- さまざまな種類の PowerPoint アニメーション効果を図形、チャート、テーブル、OLE オブジェクト、その他のプレゼンテーション要素に適用します。
-- 1 つの図形に複数の PowerPoint アニメーション効果を使用します。
-- アニメーションタイムラインを使用してアニメーション効果を制御します。
+- さまざまな種類の PowerPoint アニメーション効果をシェイプ、チャート、テーブル、OLE オブジェクト、その他のプレゼンテーション要素に適用します。
+- 1 つのシェイプに複数の PowerPoint アニメーション効果を使用します。
+- アニメーションタイムラインを利用してアニメーション効果を制御します。
 - カスタム アニメーションを作成します。
 
-Aspose.Slides for C++ では、さまざまなアニメーション効果を図形に適用できます。スライド上のテキスト、画像、OLE オブジェクト、テーブルなどすべての要素は図形として扱われるため、スライド上のあらゆる要素にアニメーション効果を適用できることを意味します。
+Aspose.Slides では、シェイプにさまざまなアニメーション効果を適用できます。テキスト、画像、OLE オブジェクト、テーブルなど、スライド上のすべての要素はシェイプとして扱われるため、スライド上の任意の要素にアニメーション効果を適用できます。
 
-[**Aspose.Slides.Animation**](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.animation) **namespace** は、PowerPoint アニメーションを操作するためのクラスを提供します。
+[Aspose::Slides::Animation](https://reference.aspose.com/slides/ja/cpp/aspose.slides.animation/) 名前空間は、PowerPoint アニメーションを操作するためのクラスを提供します。
+
 ## **アニメーション効果**
-Aspose.Slides は **150+ アニメーション効果** をサポートしており、Bounce や PathFootball、Zoom 効果といった基本的なアニメーション効果や OLEObjectShow、OLEObjectOpen といった特定のアニメーション効果が含まれます。すべてのアニメーション効果の一覧は [**EffectType**](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31) 列挙型で確認できます。
+Aspose.Slides は **150 以上のアニメーション効果** をサポートしており、Bounce、PathFootball、Zoom といった基本効果や OLEObjectShow、OLEObjectOpen といった特定の効果が含まれます。すべての効果は [EffectType](https://reference.aspose.com/slides/ja/cpp/aspose.slides.animation/effecttype/) 列挙体で確認できます。
 
-さらに、これらのアニメーション効果は以下と組み合わせて使用できます：
+さらに、これらのアニメーション効果は以下の動作と組み合わせて使用できます。
 
-- [ColorEffect](https://reference.aspose.com/slides/cpp/aspose.slides.animation/coloreffect/)
-- [CommandEffect](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.command_effect)
-- [FilterEffect](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.filter_effect)
-- [MotionEffect](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.motion_effect)
-- [PropertyEffect](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.property_effect)
-- [RotationEffect](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.rotation_effect)
-- [ScaleEffect](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.scale_effect)
-- [SetEffect](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.set_effect)
+- [ColorEffect](https://reference.aspose.com/slides/ja/cpp/aspose.slides.animation/coloreffect/)
+- [CommandEffect](https://reference.aspose.com/slides/ja/cpp/aspose.slides.animation/commandeffect/)
+- [FilterEffect](https://reference.aspose.com/slides/ja/cpp/aspose.slides.animation/filtereffect/)
+- [MotionEffect](https://reference.aspose.com/slides/ja/cpp/aspose.slides.animation/motioneffect/)
+- [PropertyEffect](https://reference.aspose.com/slides/ja/cpp/aspose.slides.animation/propertyeffect/)
+- [RotationEffect](https://reference.aspose.com/slides/ja/cpp/aspose.slides.animation/rotationeffect/)
+- [ScaleEffect](https://reference.aspose.com/slides/ja/cpp/aspose.slides.animation/scaleeffect/)
+- [SetEffect](https://reference.aspose.com/slides/ja/cpp/aspose.slides.animation/seteffect/)
 
 ## **カスタム アニメーション**
-Aspose.Slides では独自の **カスタム アニメーション** を作成できます。いくつかのビヘイビアを組み合わせて新しいカスタム アニメーションを作成することで実現します。
 
-[**Behavior**](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.behavior) は任意の PowerPoint アニメーション効果の構成要素です。すべてのアニメーション効果は実際にはビヘイビアの集合で構成されており、一度カスタム アニメーションとしてビヘイビアを組み合わせれば、他のプレゼンテーションでも再利用できます。標準の PowerPoint アニメーション効果に新しいビヘイビアを追加すれば、別のカスタム アニメーションとなります。たとえば、繰り返しビヘイビアを追加してアニメーションを数回繰り返すようにできます。
+C++ の完全なサンプルで、動作や編集可能なモーション パスを作成、検査、変更する方法については、[Custom Animation](/slides/ja/cpp/custom-animation/) を参照してください。
 
-[**Animation Point**](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.point) はビヘイビアを適用すべき位置です。
+Aspose.Slides では **カスタム アニメーション** を作成できます。これは、複数の動作を組み合わせて新しいカスタム アニメーションを作成することで実現できます。
+
+[Behavior](https://reference.aspose.com/slides/ja/cpp/aspose.slides.animation/behavior/) は PowerPoint アニメーション効果の構成要素です。動作を組み合わせて効果をカスタマイズしたり、事前定義された効果に動作を追加したりできます。繰り返しは別個のリピート動作ではなく、タイミング設定で構成されます。
+
+[Animation Point](https://reference.aspose.com/slides/ja/cpp/aspose.slides.animation/point/) は、動作を適用すべき点を示します。
 
 ## **アニメーション タイムライン**
-[**Sequence**](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.sequence) は、特定の図形に適用されるアニメーション効果のコレクションです。
+[Sequence](https://reference.aspose.com/slides/ja/cpp/aspose.slides.animation/sequence/) は、異なるシェイプを対象にできるアニメーション効果のコレクションです。
 
-[**AnimationTimeLine**](https://reference.aspose.com/slides/cpp/class/aspose.slides.animation.animation_time_line) は、具体的なスライドで使用されるシーケンスの集合です。PowerPoint 2002 以降から提供されているアニメーションエンジンで、従来の PowerPoint バージョンではアニメーション効果の追加が困難で、さまざまな回避策が必要でした。タイムラインは旧来の AnimationSettings クラスに代わり、PowerPoint アニメーション用のより明確なオブジェクトモデルを提供します。1 つのスライドに設定できるアニメーション タイムラインは **1 つのみ** です。
+[IAnimationTimeLine](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ianimationtimeline/) は、特定のスライドで使用されるシーケンスのセットです。これは PowerPoint 2002 で導入されたアニメーション エンジンです。以前のバージョンの PowerPoint では、プレゼンテーションにアニメーション効果を追加するのが難しく、さまざまな回避策が必要でした。タイムラインは PowerPoint アニメーションのオブジェクト モデルをより明確にします。スライドには 1 つのアニメーション タイムラインしか設定できません。
 
 ## **インタラクティブ アニメーション**
-[**EffectTriggerType**](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.animation#add24fb49dd44eb3227aeeb3641fd2e81) を使用すると、ユーザー操作（例: ボタンのクリック）により特定のアニメーションを開始できます。トリガーは最新の PowerPoint バージョンでのみ追加されました。
+[Trigger](https://reference.aspose.com/slides/ja/cpp/aspose.slides.animation/effecttriggertype/) を使用すると、ボタンのクリックなどユーザー操作を定義して特定のアニメーションを開始できます。
 
 ## **シェイプ アニメーション**
-Aspose.Slides は、テキスト、矩形、線、フレーム、OLE オブジェクトなど、実際にはさまざまな形状にアニメーションを適用できるようにします。
+Aspose.Slides を使用すると、テキスト、矩形、線、フレーム、OLE オブジェクトなどを含むシェイプにアニメーションを適用できます。
 
-{{% alert color="primary" %}} 
-続きを読む [**About Shape Animation**](/slides/ja/cpp/shape-animation/).
+{{% alert color="info" title="Note" %}}
+Read more [**シェイプ アニメーションについて**](/slides/ja/cpp/shape-animation/).
 {{% /alert %}}
 
 ## **アニメーション チャート**
-アニメーション チャートを作成するには、図形と同じクラスを使用します。ただし、PowerPoint アニメーションはチャートのカテゴリまたは系列にのみ適用できます。カテゴリ要素や系列要素にもアニメーション効果を適用できます。
+アニメーション チャートを作成するには、シェイプと同じクラスを使用します。ただし、PowerPoint のアニメーションはチャートのカテゴリまたはシリーズにのみ適用でき、カテゴリ要素やシリーズ要素にも適用できます。
 
-{{% alert color="primary" %}} 
-続きを読む [**About Animated Charts**](/slides/ja/cpp/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Read more [**アニメーション チャートについて**](/slides/ja/cpp/animated-charts/).
 {{% /alert %}}
 
 ## **アニメーション テキスト**
-アニメーション テキストに加えて、段落にアニメーションを適用することも可能です。
+テキストをアニメーション化するだけでなく、段落に対してもアニメーションを適用できます。
 
-{{% alert color="primary" %}} 
-続きを読む [**About Animated Text**](/slides/ja/cpp/animated-text/).
+{{% alert color="info" title="Note" %}}
+Read more [**アニメーション テキストについて**](/slides/ja/cpp/animated-text/).
 {{% /alert %}}
 
-## **よくある質問**
+## **FAQ**
 
-**PDF にエクスポートしたときにアニメーションは保持されますか？**
+**PDF にエクスポートした場合、アニメーションは保持されますか？**
 
-No. PDF は固定フォーマットであるため、アニメーションや [スライド トランジション](/slides/ja/cpp/slide-transition/) は再生されません。動きを必要とする場合は、代わりに [HTML5](/slides/ja/cpp/export-to-html5/)、[animated GIF](/slides/ja/cpp/convert-powerpoint-to-animated-gif/)、または [video](/slides/ja/cpp/convert-powerpoint-to-video/) にエクスポートしてください。
+いいえ。PDF は静的な形式なので、アニメーションや[スライド遷移](/slides/ja/cpp/slide-transition/)は再生されません。動きを必要とする場合は、[HTML5](/slides/ja/cpp/export-to-html5/)、[アニメーション GIF](/slides/ja/cpp/convert-powerpoint-to-animated-gif/)、または[ビデオ](/slides/ja/cpp/convert-powerpoint-to-video/) にエクスポートしてください。
 
-**アニメーション化されたプレゼンテーションをビデオに変換し、フレームレートやフレームサイズを制御できますか？**
+**アニメーション付きプレゼンテーションをビデオに変換し、フレームレートやフレームサイズを制御できますか？**
 
-Yes. プレゼンテーションをフレームとして [レンダリング](/slides/ja/cpp/convert-powerpoint-to-video/) し、ffmpeg などでビデオにエンコードする際に FPS と解像度を選択できます。レンダリング中にアニメーションとスライド トランジションが再生されます。
+はい。[プレゼンテーションをフレームとしてレンダリング](/slides/ja/cpp/convert-powerpoint-to-video/)し、ffmpeg などでビデオにエンコードすれば、FPS と解像度を選択できます。レンダリング中にアニメーションとスライド遷移が再生されます。
 
-**ODP（PPTX だけでなく）で作業するときにアニメーションはそのまま保持されますか？**
+**ODP（PPTX だけでなく）で作業する場合、アニメーションはそのまま残りますか？**
 
-PPT、PPTX、ODP は [読み取り](/slides/ja/cpp/open-presentation/) と [書き込み](/slides/ja/cpp/save-presentation/) がサポートされていますが、フォーマットの違いにより特定の効果が若干異なる見た目や挙動になることがあります。重要なケースは実際のサンプルで検証してください。
+PPT、PPTX、ODP は[読み取り](/slides/ja/cpp/open-presentation/) と[書き込み](/slides/ja/cpp/save-presentation/) がサポートされていますが、アニメーションの保持が保証されるわけではありません。カスタム アニメーション データは ODP への変換時に失われる可能性があります。形式の互換性を確認する方法については、[Custom Animation](/slides/ja/cpp/custom-animation/) の例をご参照ください。

@@ -1,71 +1,97 @@
 ---
-title: Анимация PowerPoint
+title: Улучшите презентации PowerPoint с помощью анимаций на JavaScript
+linktitle: Анимация PowerPoint
 type: docs
 weight: 150
 url: /ru/nodejs-java/powerpoint-animation/
-keywords: "Анимация PowerPoint"
-description: "Анимация PowerPoint, анимация слайдов PowerPoint с Aspose.Slides."
+keywords:
+- добавить анимацию
+- обновить анимацию
+- изменить анимацию
+- удалить анимацию
+- управлять анимацией
+- контролировать анимацию
+- эффект анимации
+- анимация PowerPoint
+- временная шкала анимации
+- интерактивная анимация
+- пользовательская анимация
+- анимация фигур
+- анимированная диаграмма
+- анимированный текст
+- анимированная фигура
+- анимированный объект OLE
+- анимированное изображение
+- анимированная таблица
+- PowerPoint
+- презентация
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Используйте Aspose.Slides для Node.js через Java, чтобы работать с анимациями PowerPoint. Этот обзор подчеркивает ключевые возможности и предоставляет идеи для улучшения ваших презентаций."
 ---
+## **Введение**
 
-Поскольку презентации предназначены для представления чего‑либо, их внешний вид и интерактивное поведение всегда учитываются при их создании.
+Поскольку презентации предназначены для представления чего‑либо, их визуальный вид и интерактивное поведение всегда учитываются при создании.
 
-**PowerPoint animation** играет важную роль, позволяя сделать презентацию более заметной и привлекательной для зрителей. Aspose.Slides for Node.js via Java предлагает широкий набор возможностей для добавления анимации в презентацию PowerPoint:
+**PowerPoint animation** играет важную роль в том, чтобы сделать презентацию привлекательной и увлекательной для зрителей. Aspose.Slides for Node.js via Java предоставляет широкий набор возможностей для добавления анимаций в PowerPoint презентации:
 
-- применять различные типы анимационных эффектов PowerPoint к фигурам, диаграммам, таблицам, OLE‑объектам и другим элементам презентации.
-- использовать несколько анимационных эффектов PowerPoint для одной фигуры.
-- использовать временную шкалу анимации для управления эффектами.
-- создавать пользовательскую анимацию.
+- Применять различные типы эффектов анимации PowerPoint к фигурам, диаграммам, таблицам, объектам OLE и другим элементам презентации.
+- Использовать несколько эффектов анимации PowerPoint для одной фигуры.
+- Использовать временную шкалу анимации для управления эффектами анимации.
+- Создавать пользовательские анимации.
 
-В Aspose.Slides for Node.js via Java анимационные эффекты могут применяться к фигурам. Поскольку каждый элемент слайда, включая текст, изображения, OLE‑объекты, таблицы и т.д., считается фигурой, это означает, что анимацию можно задать для любого элемента слайда.
+В Aspose.Slides for Node.js via Java можно применять различные эффекты анимации к фигурам. Поскольку каждый элемент на слайде, включая текст, изображения, объекты OLE и таблицы, считается фигурой, эффекты анимации могут быть применены к любому элементу на слайде.
 
-## **Animation Effects**
-Aspose.Slides поддерживает **150+ animation effects**, включая базовые эффекты, такие как Bounce, PathFootball, Zoom, а также специфические эффекты, такие как OLEObjectShow, OLEObjectOpen. Полный список анимационных эффектов можно посмотреть в перечислении [**EffectType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effecttype/).
+## **Эффекты анимации**
+Aspose.Slides поддерживает **более 150 анимационных эффектов**, включая базовые эффекты, такие как Bounce, PathFootball и Zoom, а также специфические эффекты, такие как OLEObjectShow и OLEObjectOpen. Полный список можно найти в перечислении [EffectType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effecttype/).
 
-Кроме того, эти анимационные эффекты можно комбинировать со следующими:
+Кроме того, эти анимационные эффекты могут использоваться в сочетании со следующими поведениями:
 
-- [ColorEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ColorEffect)
-- [CommandEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommandEffect)
-- [FilterEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FilterEffect)
-- [MotionEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MotionEffect)
-- [PropertyEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PropertyEffect)
-- [RotationEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/RotationEffect)
-- [ScaleEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ScaleEffect)
-- [SetEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SetEffect)
+- [ColorEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ColorEffect)
+- [CommandEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/CommandEffect)
+- [FilterEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/FilterEffect)
+- [MotionEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/MotionEffect)
+- [PropertyEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/PropertyEffect)
+- [RotationEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/RotationEffect)
+- [ScaleEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ScaleEffect)
+- [SetEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/SetEffect)
 
-## **Custom Animation**
-В Aspose.Slides можно создавать собственные **custom animations**.  
-Это достигается комбинированием нескольких поведений в новую пользовательскую анимацию.
+## **Пользовательская анимация**
+Для полных примеров JavaScript, которые создают, исследуют и изменяют поведения и редактируемые траектории движения, смотрите [Custom Animation](/slides/ru/nodejs-java/custom-animation/).
 
-[**Behavior**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Behavior) — строительный блок любого анимационного эффекта PowerPoint. Все анимационные эффекты фактически представляют собой набор поведений, объединённых в одну стратегию. Вы можете один раз комбинировать поведения в пользовательскую анимацию и затем повторно использовать её в других презентациях. Добавление нового поведения в стандартный анимационный эффект PowerPoint создаёт другую пользовательскую анимацию. Например, можно добавить поведение повторения, чтобы анимация запускалась несколько раз.
+В Aspose.Slides можно создавать собственные **пользовательские анимации**. Это можно достичь, объединив несколько поведений в новую пользовательскую анимацию.
 
-[**Animation Point**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Point) — точка, в которой должно применяться поведение.
+[Behavior](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/behavior/) — это строительный блок анимационного эффекта PowerPoint. Объединяйте поведения, чтобы настроить эффект, или добавляйте поведение, чтобы расширить предопределённый эффект. Повторение настраивается через параметры времени, а не через отдельное повторяющееся поведение.
 
-## **Animation Time Line**
-[**Sequence**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Sequence) — коллекция анимационных эффектов, применяемая к конкретной фигуре.
+[Animation Point](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/point/) — это точка, в которой должно применяться поведение.
 
-[**Timeline**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AnimationTimeLine) — набор последовательностей, используемый на конкретном слайде. Это анимационный движок, представленный начиная с PowerPoint 2002. В предыдущих версиях PowerPoint добавлять анимационные эффекты было сложно и требовало различных обходных решений. Timeline заменил старый класс AnimationSettings и предоставляет более понятную модель объектов для анимации PowerPoint. На одном слайде может быть только одна временная шкала анимации.
+## **Временная шкала анимации**
+[Sequence](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/sequence/) — это коллекция анимационных эффектов, которые могут применяться к разным фигурам.
 
-## **Interactive Animation**
-[**Trigger**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EffectTriggerType) позволяет задать действия пользователя (например, щелчок кнопки), которые запускают определённую анимацию. Триггеры появились только в последних версиях PowerPoint.
+[Timeline](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/animationtimeline/) — это набор последовательностей, используемых в конкретном слайде. Это движок анимации, представленный в PowerPoint 2002. В более ранних версиях PowerPoint добавление анимационных эффектов в презентации было сложным и могло быть достигнуто только с помощью различных обходных решений. Временная шкала предоставляет более ясную объектную модель для анимаций PowerPoint. Слайд может иметь только одну временную шкалу анимации.
 
-## **Shape Animation**
-Aspose.Slides позволяет добавлять анимацию к фигурам, которые могут быть текстом, прямоугольником, линией, рамкой, OLE‑объектом и т.д.
+## **Интерактивная анимация**
+[Trigger](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effecttriggertype/) позволяет определить действия пользователя, такие как щелчок кнопки, которые запускают определённую анимацию.
 
-{{% alert color="primary" %}} 
-Подробнее [**О анимации фигур**](/slides/ru/nodejs-java/shape-animation/).
+## **Анимация фигур**
+Aspose.Slides позволяет применять анимацию к фигурам, которые могут включать текст, прямоугольники, линии, рамки, объекты OLE и многое другое.
+
+{{% alert color="info" title="Note" %}}
+Подробнее [**Об анимации фигур**](/slides/ru/nodejs-java/shape-animation/).
 {{% /alert %}}
 
-## **Animated Charts**
-Для создания анимированных диаграмм следует использовать те же классы, что и для фигур. Однако анимацию PowerPoint можно применить только к категориям диаграммы или к сериям. Можно также задать анимационный эффект для отдельного элемента категории или серии.
+## **Анимированные диаграммы**
+Для создания анимированных диаграмм следует использовать те же классы, что и для фигур. Однако анимации PowerPoint могут применяться только к категориям диаграмм или к сериям диаграмм. Вы также можете применять анимационные эффекты к элементу категории или к элементу серии.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 Подробнее [**Об анимированных диаграммах**](/slides/ru/nodejs-java/animated-charts/).
 {{% /alert %}}
 
-## **Animated text**
-Помимо анимированного текста, можно применять анимацию к абзацу.
+## **Анимированный текст**
+Помимо анимации текста, вы можете применять анимацию к абзацу.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 Подробнее [**Об анимированном тексте**](/slides/ru/nodejs-java/animated-text/).
 {{% /alert %}}
 
@@ -73,12 +99,12 @@ Aspose.Slides позволяет добавлять анимацию к фигу
 
 **Will animations be preserved when exporting to PDF?**
 
-No. PDF is a static format, so animations and [slide transitions](/slides/ru/nodejs-java/slide-transition/) don’t play. If you need motion, export to [HTML5](/slides/ru/nodejs-java/export-to-html5/), [animated GIF](/slides/ru/nodejs-java/convert-powerpoint-to-animated-gif/), or [video](/slides/ru/nodejs-java/convert-powerpoint-to-video/) instead.
+Нет. PDF — статический формат, поэтому анимации и [slide transitions](/slides/ru/nodejs-java/slide-transition/) не воспроизводятся. Если требуется движение, экспортируйте в [HTML5](/slides/ru/nodejs-java/export-to-html5/), [animated GIF](/slides/ru/nodejs-java/convert-powerpoint-to-animated-gif/) или [video](/slides/ru/nodejs-java/convert-powerpoint-to-video/) вместо этого.
 
 **Can I turn an animated presentation into a video and control the frame rate and frame size?**
 
-Yes. You can [render the presentation as frames](/slides/ru/nodejs-java/convert-powerpoint-to-video/) and encode them into a video (e.g., via ffmpeg), choosing the FPS and resolution. Animations and slide transitions are played during rendering.
+Да. Вы можете [render the presentation as frames](/slides/ru/nodejs-java/convert-powerpoint-to-video/) и кодировать их в видео (например, с помощью ffmpeg), выбирая FPS и разрешение. Анимации и переходы между слайдами воспроизводятся во время рендеринга.
 
 **Will animations remain intact when working with ODP (not just PPTX)?**
 
-PPT, PPTX, and ODP are supported for [reading](/slides/ru/nodejs-java/open-presentation/) and [writing](/slides/ru/nodejs-java/save-presentation/), but format differences mean certain effects may look or behave slightly differently. Validate critical cases with real samples.
+PPT, PPTX и ODP поддерживаются для [reading](/slides/ru/nodejs-java/open-presentation/) и [writing](/slides/ru/nodejs-java/save-presentation/), но это не гарантирует сохранение анимаций. Пользовательские данные анимации могут быть потеряны при конвертации в ODP. См. [Custom Animation](/slides/ru/nodejs-java/custom-animation/) для примеров и рекомендаций по проверке совместимости форматов.

@@ -1,46 +1,48 @@
 ---
-title: ใช้การเคลื่อนไหวของรูปทรงในงานนำเสนอด้วย JavaScript
-linktitle: การเคลื่อนไหวของรูปทรง
+title: ใช้งานการเคลื่อนไหวรูปทรงในงานนำเสนอด้วย JavaScript
+linktitle: การเคลื่อนไหวรูปทรง
 type: docs
 weight: 60
 url: /th/nodejs-java/shape-animation/
 keywords:
 - รูปทรง
 - การเคลื่อนไหว
-- เอฟเฟกต์
+- เอฟเฟ็กต์
 - รูปทรงเคลื่อนไหว
 - ข้อความเคลื่อนไหว
 - เพิ่มการเคลื่อนไหว
-- รับการเคลื่อนไหว
+- ดึงการเคลื่อนไหว
 - แยกการเคลื่อนไหว
-- เพิ่มเอฟเฟกต์
-- รับเอฟเฟกต์
-- แยกเอฟเฟกต์
-- เสียงเอฟเฟกต์
+- เพิ่มเอฟเฟ็กต์
+- ดึงเอฟเฟ็กต์
+- แยกเอฟเฟ็กต์
+- เสียงเอฟเฟ็กต์
 - นำการเคลื่อนไหวไปใช้
 - PowerPoint
-- การนำเสนอ
+- งานนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่ม ตรวจสอบ และปรับแต่งการเคลื่อนไหวของรูปทรง, การตั้งเวลา, เสียง, พฤติกรรมหลังการเคลื่อนไหว, และข้อความที่เคลื่อนไหวด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java."
+description: "เรียนรู้วิธีการเพิ่ม, ตรวจสอบและปรับแต่งการเคลื่อนไหวของรูปทรง, การกำหนดเวลา, เสียง, พฤติกรรมหลังการเคลื่อนไหว, และข้อความเคลื่อนไหวด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java."
 ---
-## **ภาพรวม**
+## **Overview**
 
-Aspose.Slides for Node.js via Java แสดงการเคลื่อนไหวของสไลด์เป็น **effect** ใน **timeline** ของสไลด์ **effect** จะมีรูปทรงเป้าหมาย, ประเภทและชนิดย่อยของการเคลื่อนไหว, ตัวกระตุ้น, การตั้งค่าเวลา, และคุณสมบัติเสริมเช่น เสียงหรือพฤติกรรมหลังการเคลื่อนไหว
+เพื่อทำงานกับพฤติกรรมแต่ละอย่างภายในเอฟเฟ็กต์หรือแก้ไขส่วนของ motion‑path ให้ดูที่ [การเคลื่อนไหวแบบกำหนดเอง](/slides/th/nodejs-java/custom-animation/)।
 
-ไทม์ไลน์มีลำดับสองประเภท:
+Aspose.Slides for Node.js via Java แสดงการเคลื่อนไหวของสไลด์เป็นเอฟเฟ็กต์ในไทม์ไลน์ของสไลด์ เอฟเฟ็กต์หนึ่งมีรูปทรงเป้าหมาย, ประเภทและชนิดย่อยของการเคลื่อนไหว, ตัวกระตุ้น, การตั้งค่าการกำหนดเวลา, และคุณสมบัติเสริมเช่นเสียงหรือพฤติกรรมหลังการเคลื่อนไหว
 
-- **main sequence** เล่นเมื่อสไลด์ก้าวหน้า
-- **interactive sequence** เริ่มเมื่อคลิกที่รูปทรงตัวกระตุ้น
+ไทม์ไลน์มีสองประเภทของลำดับ:
 
-เนื่องจากกล่องข้อความ, รูปภาพ, แผนภูมิ, ตาราง, และวัตถุสไลด์อื่น ๆ เป็นวัตถุ [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/) คุณจึงใช้เมธอดเดียวกัน [Sequence.addEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sequence/#addEffect) สำหรับเนื้อหาสไลด์ส่วนใหญ่ เอฟเฟกต์ที่ใช้ได้ถูกระบุใน enumeration [EffectType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effecttype/)
+- **main sequence** จะเล่นเมื่อสไลด์ก้าวหน้า
+- **interactive sequence** จะเริ่มเมื่อคลิกที่รูปทรงที่เป็นตัวกระตุ้น
 
-## **เพิ่มการเคลื่อนไหวให้ Shape**
+เนื่องจากกล่องข้อความ, รูปภาพ, แผนภูมิ, ตารางและวัตถุสไลด์อื่น ๆ เป็นวัตถุ [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/) คุณจะใช้เมธอด [Sequence.addEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sequence/#addEffect) เดียวกันสำหรับเนื้อหาในสไลด์ส่วนใหญ่ เอฟเฟ็กต์ที่ใช้ได้จะถูกระบุใน enumeration [EffectType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effecttype/)
 
-เพื่อเพิ่มการเคลื่อนไหว ให้รับ **main sequence** ของสไลด์และเรียก [Sequence.addEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sequence/#addEffect) พร้อมรูปทรงเป้าหมาย, ประเภทเอฟเฟกต์, ชนิดย่อย, และตัวกระตุ้น สำหรับเอฟเฟกต์ที่เริ่มเมื่อคลิกรูปทรงอื่น ให้สร้าง **interactive sequence** ที่ตัวกระตุ้นคือรูปทรงนั้น
+## **Add Shape Animations**
 
-ตัวอย่างต่อไปนี้สร้างการเคลื่อนไหวสองประเภทและบันทึกผลเป็น `shape-animations.pptx`
+เพื่อเพิ่มการเคลื่อนไหว ให้ดึง main sequence ของสไลด์และเรียก [Sequence.addEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sequence/#addEffect) พร้อมรูปทรงเป้าหมาย, ประเภทเอฟเฟ็กต์, ชนิดย่อยและตัวกระตุ้น สำหรับเอฟเฟ็กต์ที่เริ่มเมื่อคลิกรูปทรงอื่น ให้สร้าง interactive sequence ที่ตัวกระตุ้นคือรูปทรงนั้น
+
+ตัวอย่างต่อไปนี้สร้างการเคลื่อนไหวทั้งสองประเภทและบันทึกผลลัพธ์เป็น `shape-animations.pptx`
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -69,19 +71,19 @@ try {
 }
 ```
 
-ตัวกระตุ้นกำหนดว่าเอฟเฟกต์จะเริ่มเมื่อใด:
+ตัวกระตุ้นกำหนดว่าเอฟเฟ็กต์จะเริ่มเมื่อใด:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effecttriggertype/#OnClick) รอคลิกใน **main sequence** หรือคลิกที่รูปทรงตัวกระตุ้นใน **interactive sequence**
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) เริ่มพร้อมกับเอฟเฟกต์ก่อนหน้า
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) เริ่มเมื่อเอฟเฟกต์ก่อนหน้าจบ
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effecttriggertype/#OnClick) รอการคลิกใน main sequence หรือคลิกที่รูปทรงตัวกระตุ้นใน interactive sequence
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) เริ่มพร้อมกับเอฟเฟ็กต์ก่อนหน้า
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) เริ่มเมื่อเอฟเฟ็กต์ก่อนหน้าสิ้นสุด
 
-เพื่อเคลื่อนไหวรูปภาพ, แผนภูมิ, หรือรูปทรงประเภทอื่น ให้ส่งวัตถุนั้นไปยัง [Sequence.addEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sequence/#addEffect) แทน `targetShape` สำหรับตัวเลือกการจัดกลุ่มเฉพาะแผนภูมิ ดูที่ [Animated Charts](/slides/th/nodejs-java/animated-charts/)
+หากต้องการเคลื่อนไหวรูปภาพ, แผนภูมิ หรือรูปทรงชนิดอื่น ให้ส่งออบเจ็กต์นั้นไปยัง [Sequence.addEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sequence/#addEffect) แทน `targetShape` สำหรับตัวเลือกการจัดกลุ่มเฉพาะแผนภูมิ ดูที่ [Animated Charts](/slides/th/nodejs-java/animated-charts/)
 
-## **อ่านการเคลื่อนไหวของ Shape**
+## **Read Shape Animations**
 
-ใช้ [Sequence.getEffectsByShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sequence/#getEffectsByShape) เมื่อคุณรู่วัตถุเป้าหมาย เพื่อสำรวจทุกเอฟเฟกต์ให้วนลูป **main sequence** และทุก **interactive sequence** การวนรอบหลีกเลี่ยงการสันนิษฐานว่าลำดับใดมีเอฟเฟกต์ที่ตำแหน่ง `0`
+ใช้ [Sequence.getEffectsByShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sequence/#getEffectsByShape) เมื่อคุณรู้รูปทรงเป้าหมาย เพื่อตรวจสอบเอฟเฟ็กต์ทุกตัว ให้วนลูปผ่าน main sequence และทุก interactive sequence การวนลูปช่วยหลีกเลี่ยงการสมมติว่ามีเอฟเฟ็กต์ที่ดัชนี `0`
 
-ตัวอย่างต่อไปนี้สร้าง Shape ที่มีเอฟเฟกต์ **main‑sequence** และ **interactive**, ดึงเอฟเฟกต์ที่เป้าหมายเป็น Shape นี้, แล้ววนลูปทุกลำดับบนสไลด์
+ตัวอย่างต่อไปนี้สร้างรูปทรงที่มีเอฟเฟ็กต์ใน main‑sequence และ interactive, ดึงเอฟเฟ็กต์ที่เป้าหมายเป็นรูปทรงนั้น, แล้ววนลูปผ่านทุกลำดับในสไลด์
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -140,21 +142,19 @@ try {
 }
 ```
 
-หากคุณต้องการเอฟเฟกต์สำหรับ Shape เพียงอันเดียว ให้ระบุ Shape ตามชื่อ, ประเภท placeholder, หรือคุณสมบัติคงที่อื่น ๆ ก่อนเรียก [Sequence.getEffectsByShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sequence/#getEffectsByShape) อย่าสันนิษฐานว่า [ShapeCollection.get_Item](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/#get_Item) ที่ตำแหน่ง `0` เป็นวัตถุที่ต้องการเสมอ
+หากคุณต้องการเอฟเฟ็กต์เฉพาะรูปทรงหนึ่ง ให้ระบุตัวรูปโดยชื่อ, ประเภท placeholder, หรือคุณสมบัติลักษณะคงที่อื่น ๆ ก่อน แล้วเรียก [Sequence.getEffectsByShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sequence/#getEffectsByShape) อย่าสมมติว่า [ShapeCollection.get_Item](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/#get_Item) ที่ดัชนี `0` เป็นออบเจ็กต์ที่ต้องการเสมอ
 
-## **ทำงานกับเอฟเฟกต์ Placeholder ที่สืบทอด**
+## **Work with Inherited Placeholder Effects**
 
-Placeholder บนสไลด์ธรรมดาสามารถสืบทอดพฤติกรรมการเคลื่อนไหวจาก Placeholder ที่สอดคล้องบนสไลด์ Layout และ Master ได้ [Shape.getBasePlaceholder](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/#getBasePlaceholder) คืนค่า Placeholder พ่อแม่ หรือ `null` หากไม่มีพ่อแม่
+Placeholder บนสไลด์ปกติสามารถสืบทอดพฤติกรรมการเคลื่อนไหวจาก placeholder ที่สอดคล้องกันบนสไลด์เลเอาต์และมาสเตอร์ได้ [Shape.getBasePlaceholder](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/#getBasePlaceholder) จะคืนค่า placeholder พาเรนต์นั้น, หรือ `null` หากไม่มีพาเรนต์
 
-ในตัวอย่างการนำเสนอด้านล่าง, ส่วนท้าย (footer) มี **Random Bars** บนสไลด์ธรรมดา, **Split** บน Layout, และ **Fly In** บน Master
+ในตัวอย่างการนำเสนอด้านล่าง, ฟุตเตอร์มี **Random Bars** บนสไลด์ปกติ, **Split** บนสไลด์เลเอาต์, และ **Fly In** บนสไลด์มาสเตอร์
 
 ![Footer animation effect on the normal slide](slide-shape-animation.png)
-
 ![Footer placeholder animation effect on the layout slide](layout-shape-animation.png)
-
 ![Footer placeholder animation effect on the master slide](master-shape-animation.png)
 
-ตัวอย่างต่อไปใช้โครงสร้าง Placeholder จากการนำเสนอใหม่ เพิ่มเอฟเฟกต์ให้กับ Placeholder ของ Master, Layout, และ Placeholder ที่สอดคล้องบนสไลด์ธรรมดา ทุกการเรียก [Shape.getBasePlaceholder](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/#getBasePlaceholder) จะตรวจสอบค่าที่คืนมาก่อนนำไปใช้
+ตัวอย่างต่อไปใช้โครงสร้าง hierarchy ของ placeholder จากการนำเสนอใหม่ เพิ่มเอฟเฟ็กต์ให้กับ placeholder ของมาสเตอร์, placeholder ของเลเอาต์, และ placeholder ที่สอดคล้องกันบนสไลด์ปกติ ทุกการเรียก [Shape.getBasePlaceholder](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/#getBasePlaceholder) จะตรวจสอบก่อนนำรูปที่คืนค่ามาใช้
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -238,19 +238,19 @@ try {
 }
 ```
 
-## **เปลี่ยนการตั้งค่าเวลาเคลื่อนไหว**
+## **Change Animation Timing**
 
-กล่องโต้ตอบ **Timing** ของ PowerPoint แสดงคุณสมบัติของ [Timing](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/)
+กล่องโต้ตอบ **Timing** ของ PowerPoint แผนที่กับคุณสมบัติของ [Timing](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/)
 
 ![PowerPoint Timing dialog for an animation effect](shape-animation.png)
 
-- **Start** แผนที่ไปยัง [Timing.getTriggerType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#getTriggerType)
-- **Duration** แผนที่ไปยัง [Timing.getDuration](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#getDuration) หน่วยเป็นวินาที
-- **Delay** แผนที่ไปยัง [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#getTriggerDelayTime) หน่วยเป็นวินาที
-- **Repeat** แผนที่ไปยัง [Timing.getRepeatCount](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick), หรือ [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide)
-- **Rewind when done playing** แผนที่ไปยัง [Timing.getRewind](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#getRewind)
+- **Start** แผนที่กับ [Timing.getTriggerType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#getTriggerType)
+- **Duration** แผนที่กับ [Timing.getDuration](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#getDuration) หน่วยเป็นวินาที
+- **Delay** แผนที่กับ [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#getTriggerDelayTime) หน่วยเป็นวินาที
+- **Repeat** แผนที่กับ [Timing.getRepeatCount](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) หรือ [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide)
+- **Rewind when done playing** แผนที่กับ [Timing.getRewind](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#getRewind)
 
-ตัวอย่างอิสระนี้เพิ่มเอฟเฟกต์, เปลี่ยนเวลาโดยใช้วัตถุที่คืนจาก [Sequence.addEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sequence/#addEffect), แล้วบันทึกผล การเก็บอ้างอิง [Effect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effect/) ที่คืนมาช่วยหลีกเลี่ยงการอ้างอิงตำแหน่งในคอลเลกชันที่ไม่จำเป็น
+ตัวอย่างอิสระนี้เพิ่มเอฟเฟ็กต์, แก้ไขการกำหนดเวลาผ่านออบเจ็กต์ที่คืนจาก [Sequence.addEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sequence/#addEffect), แล้วบันทึกผลลัพธ์ การเก็บอ้างอิง [Effect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effect/) ที่คืนมาช่วยหลีกเลี่ยงการอ้างอิงดัชนีคอลเลกชันที่ไม่จำเป็น
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -277,15 +277,15 @@ try {
 }
 ```
 
-ใช้โหมดการทำซ้ำแบบใดแบบหนึ่งอย่างตั้งใจ การผสมจำนวนการทำซ้ำกับแฟล็ก “until” อาจทำให้ผลลัพธ์สับสนในตัวดูต่าง ๆ เมื่อเปลี่ยนโหมดทำซ้ำ ให้ตั้งค่า [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) และ [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) ก่อน [Timing.setRepeatCount](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#setRepeatCount) เนื่องจากการตั้งค่าใดแฟล็กหนึ่งจะเปลี่ยนโหมดทำซ้ำที่ใช้งานอยู่ด้วย
+ใช้โหมดการทำซ้ำเดียวอย่างตั้งใจ การผสมจำนวนการทำซ้ำกับแฟล็ก “until” อาจทำให้ผลลัพธ์สับสนในผู้ชมที่ต่างกัน เมื่อเปลี่ยนโหมดการทำซ้ำ ให้ตั้งค่า [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) และ [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) ก่อน [Timing.setRepeatCount](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/timing/#setRepeatCount) เนื่องจากการตั้งค่าแฟล็กใดแฟล็กหนึ่งจะเปลี่ยนโหมดการทำซ้ำที่ใช้งานอยู่
 
-## **เพิ่มและดึงเสียงจากการเคลื่อนไหว**
+## **Add and Extract Animation Sounds**
 
-เอฟเฟกต์การเคลื่อนไหวสามารถอ้างอิงไฟล์เสียงแบบฝังได้ผ่าน [Effect.getSound](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effect/#getSound)  [Effect.setStopPreviousSound](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effect/#setStopPreviousSound) บอกให้เอฟเฟกต์หยุดเสียงที่เริ่มโดยเอฟเฟกต์ก่อนหน้า
+เอฟเฟ็กต์การเคลื่อนไหวสามารถอ้างอิงเสียงที่ฝังอยู่ผ่าน [Effect.getSound](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effect/#getSound) [Effect.setStopPreviousSound](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effect/#setStopPreviousSound) บอกเอฟเฟ็กต์ให้หยุดเสียงที่เริ่มโดยเอฟเฟ็กต์ก่อนหน้า
 
-### **เพิ่มเสียงให้กับเอฟเฟกต์**
+### **Add a Sound to an Effect**
 
-ตัวอย่างต่อไปคาดว่าจะมีไฟล์เสียงในเครื่องชื่อ `animation-sound.wav` สร้างเอฟเฟกต์สองอัน ฝังไฟล์นั้นเป็นเสียงของเอฟเฟกต์แรก และตั้งค่าเอฟเฟกต์ที่สองให้หยุดเสียง ใช้วัตถุที่คืนจาก [Sequence.addEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sequence/#addEffect) จึงไม่ต้องระบุดัชนีลำดับ
+ตัวอย่างต่อไปนี้คาดว่ามีไฟล์เสียงในเครื่องชื่อ `animation-sound.wav` สร้างเอฟเฟ็กต์สองตัว, ฝังไฟล์นั้นเป็นเสียงของเอฟเฟ็กต์แรก, และกำหนดให้เอฟเฟ็กต์ที่สองหยุดเสียง ใช้วัตถุที่คืนจาก [Sequence.addEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sequence/#addEffect) ดังนั้นไม่ต้องระบุดัชนีของซีเควนซ์
 
 ```javascript
 const fs = require("fs");
@@ -315,9 +315,9 @@ try {
 }
 ```
 
-### **ดึงเสียงที่ฝังอยู่จากเอฟเฟกต์**
+### **Extract Embedded Effect Sounds**
 
-ตัวอย่างต่อไปคาดว่าจะมีการนำเสนอในเครื่องชื่อ `presentation-with-animation-sounds.pptx` มาสแกนทั้ง **main** และ **interactive sequences** แล้วเขียนไฟล์เสียงที่ฝังทุกไฟล์ลงในโฟลเดอร์ `extracted-animation-sounds` ส่วนขยายไฟล์ถูกเลือกจาก MIME type ของเสียงที่ให้โดย [Audio.getContentType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/audio/#getContentType)
+ตัวอย่างต่อไปนี้คาดว่ามีการนำเสนอในเครื่องชื่อ `presentation-with-animation-sounds.pptx` มาสแกนทั้ง main และ interactive sequences และเขียนเสียงเอฟเฟ็กต์ที่ฝังอยู่ทั้งหมดไปยังโฟลเดอร์ `extracted-animation-sounds` ส่วนขยายไฟล์จะเลือกจาก MIME type ของเสียงที่ให้โดย [Audio.getContentType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/audio/#getContentType)
 
 ```javascript
 const fs = require("fs");
@@ -386,17 +386,17 @@ try {
 }
 ```
 
-สำหรับอ็อบเจ็กต์เสียงขนาดใหญ่ ให้ใช้ [Audio.getStream](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/audio/#getStream) แล้วคัดลอกสตรีมไปยังไฟล์แทนการโหลดอ็อบเจ็กต์ทั้งหมดเข้าสู่ byte array
+สำหรับออบเจ็กต์เสียงขนาดใหญ่ ให้ใช้ [Audio.getStream](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/audio/#getStream) แล้วคัดลอกสตรีมไปยังไฟล์แทนการโหลดออบเจ็กต์ทั้งหมดเป็นอาร์เรย์ไบต์
 
-## **ตั้งค่าพฤติกรรม After‑Animation**
+## **Set After-Animation Behavior**
 
-ตัวเลือก **After animation** กำหนดว่าจะทำอย่างไรกับ Shape หลังจากเอฟเฟกต์เสร็จสิ้น
+ตัวเลือก **After animation** ควบคุมว่าจะเกิดอะไรกับรูปทรงหลังจากเอฟเฟ็กต์เสร็จสิ้น
 
 ![PowerPoint Effect Options dialog showing After animation settings](shape-after-animation.png)
 
-enumeration [AfterAnimationType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/afteranimationtype/) รองรับการปล่อย Shape ไ้อยู่เดิม, เปลี่ยนสี, ซ่อนหลังการเคลื่อนไหว, หรือซ่อนเมื่อคลิกต่อไป เมื่อประเภทเป็น [AfterAnimationType.Color](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/afteranimationtype/#Color) ให้ตั้งค่า [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effect/#getAfterAnimationColor) ด้วย
+enumeration [AfterAnimationType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/afteranimationtype/) รองรับการปล่อยให้รูปทรงคงที่, เปลี่ยนสี, ซ่อนหลังการเคลื่อนไหว, หรือซ่อนเมื่อคลิกครั้งต่อไป เมื่อประเภทเป็น [AfterAnimationType.Color](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/afteranimationtype/#Color) ให้ตั้งค่า [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effect/#getAfterAnimationColor) ด้วย
 
-ตัวอย่างอิสระนี้สร้างเอฟเฟกต์, ตั้งค่าพฤติกรรม After‑Animation ผ่านอ็อบเจ็กต์เอฟเฟกต์ที่คืนมา, แล้วบันทึกผล
+ตัวอย่างอิสระนี้สร้างเอฟเฟ็กต์, ตั้งพฤติกรรมหลังการเคลื่อนไหวผ่านออบเจ็กต์เอฟเฟ็กต์ที่คืนมา, แล้วบันทึกผลลัพธ์
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -418,16 +418,16 @@ try {
 }
 ```
 
-เปลี่ยนประเภทจาก [AfterAnimationType.Color](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/afteranimationtype/#Color) จะล้างค่าการตั้งสี After‑Animation
+การเปลี่ยนประเภทออกจาก [AfterAnimationType.Color](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/afteranimationtype/#Color) จะลบการตั้งค่าสีหลังการเคลื่อนไหว
 
-## **เคลื่อนไหวข้อความ**
+## **Animate Text**
 
-การเคลื่อนไหวข้อความมีการควบคุมสองอย่างที่เกี่ยวข้อง:
+การเคลื่อนไหวของข้อความมีการควบคุมสองส่วนที่เกี่ยวข้อง:
 
-- [TextAnimation.getBuildType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textanimation/#getBuildType) ควบคุมว่าข้อความปรากฏพร้อมกันหรือระดับย่อหน้าทีละบรรทัด
-- [Effect.getAnimateTextType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effect/#getAnimateTextType) ควบคุมว่าข้อความปรากฏทั้งหมดพร้อมกัน, ตามคำ, หรือตามตัวอักษร [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) ตั้งค่าความหน่วงระหว่างคำหรืออักษร ค่าบวกเป็นเปอร์เซ็นต์ของระยะเวลาเอฟเฟกต์; ค่าลบเป็นความหน่วงเป็นวินาที
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textanimation/#getBuildType) ควบคุมว่าข้อความย่อยปรากฏพร้อมกันหรือเป็นระดับย่อหน้า
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effect/#getAnimateTextType) ควบคุมว่าข้อความปรากฏทั้งหมดพร้อมกัน, ทีละคำ, หรือทีละอักษร [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) ตั้งค่าการหน่วงเวลาระหว่างคำหรืออักษร ค่าเป็นบวกหมายถึงเปอร์เซ็นต์ของระยะเวลาดีเอฟเฟ็กต์; ค่าเป็นลบหมายถึงหน่วงเวลาเป็นวินาที
 
-ตัวอย่างอิสระต่อไปนี้เคลื่อนไหวคำในกล่องข้อความ [BuildType.AsOneObject](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/buildtype/#AsOneObject) ปิดการสร้างตามย่อหน้าจึงทำให้การตั้งค่าคำใช้กับกรอบข้อความทั้งหมด
+ตัวอย่างอิสระต่อไปนี้เคลื่อนไหวคำในกล่องข้อความ [BuildType.AsOneObject](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/buildtype/#AsOneObject) ปิดการสร้างทีละย่อหน้าเพื่อให้การตั้งค่าคำใช้กับเฟรมข้อความทั้งหมด
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -450,26 +450,26 @@ try {
 }
 ```
 
-หากต้องการสร้างกล่องข้อความตามย่อหน้า ให้ตั้งค่า [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (หรือระดับย่อหน้าอื่น) เพื่อให้ย่อหน้าเดียวมีเอฟเฟกต์ของตนเอง ให้ใช้ overload ของ [Sequence.addEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sequence/#addEffect) ที่รับ [Paragraph](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/paragraph/) ดูที่ [Animated Text](/slides/th/nodejs-java/animated-text/) สำหรับตัวอย่างระดับย่อหน้า
+หากต้องการสร้างกล่องข้อความตามย่อหน้า ให้ตั้งค่า [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (หรือระดับย่อหน้าอื่น) เพื่อกำหนดเอฟเฟ็กต์ให้กับย่อหน้าเดียวโดยใช้ overload ของ [Sequence.addEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sequence/#addEffect) ที่รับ [Paragraph](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/paragraph/) ดูที่ [Animated Text](/slides/th/nodejs-java/animated-text/) สำหรับตัวอย่างระดับย่อหน้า
 
-## **การส่งออกและหมายเหตุความเข้ากันได้**
+## **Export and Compatibility Notes**
 
-- การบันทึกเป็น PPT หรือ PPTX จะเก็บโมเดลการเคลื่อนไหวไว้ แต่การเล่นสุดท้ายขึ้นอยู่กับโปรแกรมดูไฟล์นำเสนอ
-- PDF และรูปภาพคงที่ไม่เล่นการเคลื่อนไหว ใช้ [HTML5 export](/slides/th/nodejs-java/export-to-html5/), GIF เคลื่อนไหว, หรือ [video conversion](/slides/th/nodejs-java/convert-powerpoint-to-video/) เมื่อผลลัพธ์ต้องแสดงการเคลื่อนไหว
+- การบันทึกเป็น PPT หรือ PPTX จะรักษาโมเดลการเคลื่อนไหวไว้, แต่การเล่นจริงถูกควบคุมโดยโปรแกรมอ่านไฟล์นำเสนอ
+- PDF และภาพนิ่งจะไม่เล่นการเคลื่อนไหว ใช้ [HTML5 export](/slides/th/nodejs-java/export-to-html5/), GIF เคลื่อนไหว, หรือ [video conversion](/slides/th/nodejs-java/convert-powerpoint-to-video/) เมื่อผลลัพธ์ต้องแสดงการเคลื่อนที่
 - สำหรับ HTML5 ให้เปิดใช้งาน [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/html5options/#setAnimateShapes) และเมื่อจำเป็นให้เปิด [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/html5options/#setAnimateTransitions)
-- การเรนเดอร์วิดีโอรองรับเอฟเฟกต์เข้ามา, เน้น, ออกจาก, และเส้นทางการเคลื่อนที่หลายแบบ แต่ไม่ใช่ทุกเอฟเฟกต์ของ PowerPoint ตรวจสอบ [supported animations and effects](/slides/th/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) ปัจจุบันและทดสอบการนำเสนอสำคัญกับเวอร์ชัน Aspose.Slides ที่ใช้
-- เอฟเฟกต์แบบกำหนดเองขั้นสูงและเอฟเฟกต์ที่นำเข้าจากรูปแบบไฟล์นำเสนออื่นอาจถูกเก็บไว้ในไฟล์แต่แสดงผลแตกต่างกันใน PowerPoint, HTML5 หรือวิดีโอ ตรวจสอบผลการส่งออกแทนการพึ่งพาแค่ชื่อเอฟเฟกต์
+- การเรนเดอร์วิดีโอรองรับเอฟเฟ็กต์ entrance, emphasis, exit, และ motion‑path ที่พบบ่อยหลายอย่าง, แต่ไม่รองรับเอฟเฟ็กต์ PowerPoint ทุกอย่าง ตรวจสอบรายการ [supported animations and effects](/slides/th/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) ปัจจุบันและทดสอบการนำเสนอสำคัญกับเวอร์ชัน Aspose.Slides ที่คุณใช้
+- เอฟเฟ็กต์ที่กำหนดเองขั้นสูงและเอฟเฟ็กต์ที่นำเข้าจากรูปแบบการนำเสนออื่น ๆ อาจถูกเก็บไว้ในไฟล์แต่แสดงผลแตกต่างกันใน PowerPoint, HTML5 หรือวิดีโอ ตรวจสอบผลลัพธ์ที่ส่งออกแทนการพึ่งพาชื่อเอฟเฟ็กต์เท่านั้น
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ทำไมการเคลื่อนไหวถึงปรากฏใน PowerPoint แต่ไม่แสดงใน PDF?**
+**Why does an animation appear in PowerPoint but not in a PDF?**
 
-PDF เป็นรูปแบบคงที่ จึงไม่มีการเล่นการเคลื่อนไหวหรือการเปลี่ยนสไลด์ ส่งออกเป็น HTML5, GIF เคลื่อนไหว, หรือวิดีโอเมื่อต้องการรักษาการเคลื่อนไหว
+PDF เป็นรูปแบบสถิต, จึงไม่มีการเล่นการเคลื่อนไหวและการเปลี่ยนสไลด์ ให้ส่งออกเป็น HTML5, GIF เคลื่อนไหว หรือวิดีโอเมื่อจำเป็นต้องรักษาการเคลื่อนที่
 
-**ทำไมเอฟเฟกต์ถึงทำงานต่างกันในวิดีโอ?**
+**Why does an effect play differently in a video?**
 
-การส่งออกวิดีโอเรนเดอร์การเคลื่อนไหวแทนการเก็บพฤติกรรมดั้งเดิมของ PowerPoint บางเอฟเฟกต์ขั้นสูงอาจไม่รองรับหรือถูกประมาณ ตรวจสอบตารางเอฟเฟกต์ที่สนับสนุนและทดสอบการนำเสนอจริงก่อนการผลิต
+การส่งออกวิดีโอทำการเรนเดอร์การเคลื่อนไหวแทนการเก็บพฤติกรรมเดิมของ PowerPoint บางเอฟเฟ็กต์ขั้นสูงอาจไม่รองรับหรือถูกประมาณค่า ตรวจสอบตารางเอฟเฟ็กต์ที่รองรับและทดสอบการนำเสนอจริงก่อนใช้งานจริง
 
-**การย้าย Shape ไปข้างหน้าหรือข้างหลังเปลี่ยนลำดับการเคลื่อนไหวหรือไม่?**
+**Does moving a shape forward or backward change its animation order?**
 
-ไม่. z‑order ของ Shape ควบคุมการทับกัน ส่วนลำดับลำดับและตัวกระตุ้นควบคุมการเล่นการเคลื่อนไหว ปรับไทม์ไลน์หากต้องการลำดับการเล่นที่ต่างกัน
+ไม่ การจัดลำดับ z‑order ของรูปทรงควบคุมการซ้อนทับ, ส่วนลำดับของซีเควนซ์และตัวกระตุ้นควบคุมการ播放การเคลื่อนไหว ปรับไทม์ไลน์หากต้องการเปลี่ยนลำดับการเล่นอย่างอื่น

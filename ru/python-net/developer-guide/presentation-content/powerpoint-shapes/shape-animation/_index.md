@@ -5,10 +5,10 @@ type: docs
 weight: 60
 url: /ru/python-net/shape-animation/
 keywords:
-- форма
+- фигура
 - анимация
 - эффект
-- анимированная форма
+- анимированная фигура
 - анимированный текст
 - добавить анимацию
 - получить анимацию
@@ -22,24 +22,26 @@ keywords:
 - презентация
 - Python
 - Aspose.Slides
-description: "Узнайте, как добавлять, просматривать и настраивать анимацию фигур, тайминг, звуки, поведение после анимации и анимированный текст с помощью Aspose.Slides for Python via .NET."
+description: "Узнайте, как добавлять, просматривать и настраивать анимации фигур, время, звуки, поведение после анимации и анимированный текст с помощью Aspose.Slides for Python via .NET."
 ---
 ## **Обзор**
 
-Aspose.Slides for Python via .NET представляет анимацию слайдов в виде эффектов на временной шкале слайда. Эффект имеет целевую форму, тип и подтип анимации, триггер, настройки тайминга и необязательные свойства, такие как звук или поведение после анимации.
+Чтобы работать с отдельными поведениями внутри эффекта или редактировать сегменты траектории движения, см. [Custom Animation](/slides/ru/python-net/custom-animation/).
 
-Временная шкала содержит два типа последовательностей:
+Aspose.Slides for Python via .NET представляет анимацию слайдов как эффекты во временной шкале слайда. Эффект имеет целевую форму, тип и подтип анимации, триггер, настройки времени и необязательные свойства, такие как звук или поведение после анимации.
 
-- **главная последовательность** воспроизводится при переходе к слайду.
-- **интерактивная последовательность** начинается, когда её триггер‑форма щелкнута.
+Во временной шкале есть два типа последовательностей:
 
-Поскольку текстовые блоки, изображения, диаграммы, таблицы и другие объекты слайда реализуют [IShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/ishape/), вы используете один и тот же метод [Sequence.add_effect](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/sequence/add_effect/) для большинства содержимого слайда. Доступные эффекты перечислены в перечислении [EffectType](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effecttype/).
+- **main sequence** воспроизводится при переходе к следующему слайду.
+- **interactive sequence** начинается, когда по её триггерной форме выполняется щелчок.
 
-## **Добавление анимаций фигур**
+Поскольку текстовые поля, изображения, диаграммы, таблицы и другие объекты слайда реализуют [IShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/ishape/), вы используете один и тот же метод [Sequence.add_effect](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/sequence/add_effect/) для большинства содержимого слайда. Доступные эффекты перечислены в перечислении [EffectType](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effecttype/).
 
-Чтобы добавить анимацию, получите главную последовательность слайда и вызовите [Sequence.add_effect](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/sequence/add_effect/) с целевой формой, типом эффекта, подтипом и триггером. Для эффекта, который начинается при щелчке по другой форме, создайте интерактивную последовательность, триггером которой будет эта другая форма.
+## **Добавление анимаций форм**
 
-Следующий пример создает оба типа анимации и сохраняет результат в файл `shape-animations.pptx`.
+Чтобы добавить анимацию, получите основную последовательность слайда и вызовите [Sequence.add_effect](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/sequence/add_effect/) с целевой формой, типом эффекта, подтипом и триггером. Для эффекта, который начинается при щелчке по другой форме, создайте интерактивную последовательность, триггером которой будет эта другая форма.
+
+В следующем примере создаются оба типа анимации и результат сохраняется в файл `shape-animations.pptx`.
 
 ```python
 import aspose.slides as slides
@@ -64,19 +66,19 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Триггер определяет, когда начинается эффект:
+Триггер определяет, когда эффект начинается:
 
-- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effecttriggertype/) ждёт щелчка в главной последовательности или щелчка по триггер‑форме в интерактивной последовательности.
+- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effecttriggertype/) ждёт щелчка в основной последовательности или щелчка по триггерной форме в интерактивной последовательности.
 - [EffectTriggerType.WITH_PREVIOUS](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effecttriggertype/) начинается одновременно с предыдущим эффектом.
 - [EffectTriggerType.AFTER_PREVIOUS](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effecttriggertype/) начинается после завершения предыдущего эффекта.
 
-Чтобы анимировать изображение, диаграмму или другой тип формы, передайте этот объект в [Sequence.add_effect](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/sequence/add_effect/) вместо `target_shape`. Для параметров группировки, специфичных для диаграмм, см. [Animated Charts](/slides/ru/python-net/animated-charts/).
+Чтобы анимировать изображение, диаграмму или другую форму, передайте соответствующий объект в [Sequence.add_effect](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/sequence/add_effect/) вместо `target_shape`. Для параметров группировки, специфичных для диаграмм, см. [Animated Charts](/slides/ru/python-net/animated-charts/).
 
-## **Чтение анимаций фигур**
+## **Чтение анимаций форм**
 
-Используйте [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/sequence/get_effects_by_shape/), когда известна целевая форма. Чтобы просмотреть каждый эффект, перебирайте главную последовательность и все интерактивные последовательности. Итерация избавляет от предположения, что в последовательности есть эффект с индексом `0`.
+Используйте [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/sequence/get_effects_by_shape/), когда известна целевая форма. Чтобы просмотреть каждый эффект, пройдитесь по основной последовательности и по всем интерактивным последовательностям. Итерация избавляет от предположения, что в последовательности есть эффект под индексом `0`.
 
-Следующий пример создаёт форму с эффектами главной и интерактивной последовательностей, получает эффекты, направленные на форму, и затем перебирает все последовательности на слайде.
+В следующем примере создаётся форма с эффектами основной и интерактивной последовательностей, получаются эффекты, направленные на форму, и затем перебираются все последовательности на слайде.
 
 ```python
 import aspose.slides as slides
@@ -116,21 +118,21 @@ with slides.Presentation() as presentation:
         print_sequence(sequence_label, sequence)
 ```
 
-Если нужны эффекты только для одной формы, сначала определите форму по имени, типу заполнителя или другому стабильному свойству; затем вызовите [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/sequence/get_effects_by_shape/). Не предполагаете, что форма с индексом `0` всегда является нужным объектом.
+Если вам нужны эффекты только для одной формы, сначала определите форму по имени, типу заполнителя или другому стабильному свойству; затем вызовите [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/sequence/get_effects_by_shape/). Не рассчитывайте, что форма под индексом `0` всегда будет нужным объектом.
 
 ## **Работа с унаследованными эффектами заполнителей**
 
-Заполнитель на обычном слайде может наследовать поведение анимации от соответствующего заполнителя на шаблонном слайде и на главном шаблоне. [Shape.get_base_placeholder](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/get_base_placeholder/) возвращает родительский заполнитель или `None`, если родителя нет.
+Заполнитель на обычном слайде может наследовать поведение анимации от соответствующего заполнителя на слайде макета и главном слайде. [Shape.get_base_placeholder](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/get_base_placeholder/) возвращает родительский заполнитель, или `None`, если родитель отсутствует.
 
-В представлении примера ниже нижний колонтитул имеет **Random Bars** на обычном слайде, **Split** на шаблонном слайде и **Fly In** на главном шаблоне.
+В представлении примера ниже нижний колонтитул имеет **Random Bars** на обычном слайде, **Split** на слайде макета и **Fly In** на главном слайде.
 
 ![Эффект анимации нижнего колонтитула на обычном слайде](slide-shape-animation.png)
 
-![Эффект анимации заполнителя нижнего колонтитула на шаблонном слайде](layout-shape-animation.png)
+![Эффект анимации заполнителя нижнего колонтитула на слайде макета](layout-shape-animation.png)
 
-![Эффект анимации заполнителя нижнего колонтитула на главном шаблоне](master-shape-animation.png)
+![Эффект анимации заполнителя нижнего колонтитула на главном слайде](master-shape-animation.png)
 
-Следующий пример строит иерархию заполнителей самостоятельно. Он добавляет эффекты к заполнителю главного шаблона, заполнительному шаблону и соответствующему заполнителю на обычном слайде. Каждый вызов [Shape.get_base_placeholder](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/get_base_placeholder/) проверяется перед использованием возвращённой формы.
+Следующий пример самостоятельно строит иерархию заполнителей. Он добавляет эффекты к заполнителю в мастер‑шаблоне, заполнителю в макете и соответствующему заполнителю на обычном слайде. Каждый вызов [Shape.get_base_placeholder](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/get_base_placeholder/) проверяется перед использованием возвращённой формы.
 
 ```python
 import aspose.slides as slides
@@ -183,17 +185,17 @@ with slides.Presentation() as presentation:
 
 ## **Изменение времени анимации**
 
-Диалог PowerPoint **Timing** сопоставляется со свойствами [Timing](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/).
+Диалог **Timing** в PowerPoint соответствует свойствам [Timing](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/).
 
 ![Диалог Timing в PowerPoint для анимационного эффекта](shape-animation.png)
 
-- **Start** сопоставляется со свойством [Timing.trigger_type](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/trigger_type/).
-- **Duration** сопоставляется со свойством [Timing.duration](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/duration/), в секундах.
-- **Delay** сопоставляется со свойством [Timing.trigger_delay_time](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/trigger_delay_time/), в секундах.
-- **Repeat** сопоставляется со свойствами [Timing.repeat_count](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/repeat_count/), [Timing.repeat_until_next_click](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/repeat_until_next_click/) или [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/repeat_until_end_slide/).
-- **Rewind when done playing** сопоставляется со свойством [Timing.rewind](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/rewind/).
+- **Start** соответствует [Timing.trigger_type](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/trigger_type/).
+- **Duration** соответствует [Timing.duration](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/duration/), указывается в секундах.
+- **Delay** соответствует [Timing.trigger_delay_time](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/trigger_delay_time/), указывается в секундах.
+- **Repeat** соответствует [Timing.repeat_count](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/repeat_count/), [Timing.repeat_until_next_click](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/repeat_until_next_click/) или [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/repeat_until_end_slide/).
+- **Rewind when done playing** соответствует [Timing.rewind](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/rewind/).
 
-Этот независимый пример добавляет эффект, меняет его тайминг через объект, возвращённый [Sequence.add_effect](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/sequence/add_effect/), и сохраняет результат. Сохранение ссылки на возвращённый [Effect](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effect/) избегает ненужного обращения по индексу коллекции.
+Этот независимый пример добавляет эффект, меняет его время через объект, возвращаемый [Sequence.add_effect](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/sequence/add_effect/), и сохраняет результат. Сохранение ссылки на возвращённый [Effect](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effect/) избавляет от необходимости использовать индекс коллекции.
 
 ```python
 import aspose.slides as slides
@@ -216,15 +218,15 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-timing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Используйте один режим повторения намеренно. Комбинация количества повторений с флагом «until» может приводить к неожиданным результатам в разных проигрывателях. При изменении режимов повторения сначала задайте [Timing.repeat_until_next_click](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/repeat_until_next_click/) и [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/repeat_until_end_slide/), а затем [Timing.repeat_count](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/repeat_count/), так как установка любого флага также меняет активный режим повторения.
+Используйте один режим повторения целенаправленно. Сочетание количества повторений с флагом «until» может давать неоднозначные результаты в разных средствах просмотра. При изменении режимов повторения сначала задайте [Timing.repeat_until_next_click](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/repeat_until_next_click/) и [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/repeat_until_end_slide/), а затем [Timing.repeat_count](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/timing/repeat_count/), так как установка любого из флагов также меняет активный режим повторения.
 
 ## **Добавление и извлечение звуков анимации**
 
-Анимационный эффект может ссылаться на встроенный аудиофайл через [Effect.sound](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effect/sound/). [Effect.stop_previous_sound](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effect/stop_previous_sound/) указывает эффекту остановить звук, запущенный предыдущим эффектом.
+Эффект анимации может ссылаться на встроенный аудиофайл через [Effect.sound](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effect/sound/). [Effect.stop_previous_sound](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effect/stop_previous_sound/) указывает эффекту остановить звук, запущенный предыдущим эффектом.
 
-### **Добавить звук к эффекту**
+### **Добавление звука к эффекту**
 
-Следующий пример ожидает локальный аудиофайл с именем `animation-sound.wav`. Он создаёт два эффекта, встраивает этот файл как звук для первого эффекта и настраивает второй эффект на остановку звука. Используются объекты, возвращённые [Sequence.add_effect](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/sequence/add_effect/), поэтому индекс последовательности не требуется.
+В следующем примере ожидается локальный аудиофайл `animation-sound.wav`. Создаются два эффекта, первый получает этот файл в качестве звука, второй настроен на остановку звука. Используются объекты, возвращаемые [Sequence.add_effect](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/sequence/add_effect/), поэтому индекс последовательности не требуется.
 
 ```python
 import aspose.slides as slides
@@ -250,9 +252,9 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-sound.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Извлечь встроенные звуки эффектов**
+### **Извлечение встроенных звуков эффектов**
 
-Следующий пример ожидает локальную презентацию с именем `presentation-with-animation-sounds.pptx`. Он сканирует как главные, так и интерактивные последовательности и записывает каждый встроенный звук эффекта в каталог `extracted-animation-sounds`. Расширение выбирается на основе MIME‑типа аудио, получаемого через [Audio.content_type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/audio/content_type/).
+В следующем примере ожидается локальная презентация `presentation-with-animation-sounds.pptx`. Он сканирует основные и интерактивные последовательности и записывает каждый встроенный звук эффекта в каталог `extracted-animation-sounds`. Расширение выбирается исходя из MIME‑типа аудио, получаемого через [Audio.content_type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/audio/content_type/).
 
 ```python
 import os
@@ -306,17 +308,17 @@ with slides.Presentation(input_path) as presentation:
 print(f"Extracted {sound_index - 1} sound file(s) to {os.path.abspath(output_directory)}.")
 ```
 
-Для больших аудиообъектов используйте [Audio.get_stream](https://reference.aspose.com/slides/ru/python-net/aspose.slides/audio/get_stream/) и копируйте поток в файл вместо загрузки всего объекта в массив байтов.
+Для больших аудиофайлов используйте [Audio.get_stream](https://reference.aspose.com/slides/ru/python-net/aspose.slides/audio/get_stream/) и копируйте поток в файл вместо загрузки всего объекта в массив байтов.
 
 ## **Установка поведения после анимации**
 
-Опция **After animation** управляет тем, что происходит с формой после завершения её эффекта.
+Параметр **After animation** определяет, что произойдёт с формой после завершения её эффекта.
 
-![Диалог параметров эффекта в PowerPoint с настройками After animation](shape-after-animation.png)
+![Диалог параметров эффекта PowerPoint, показывающий настройки After animation](shape-after-animation.png)
 
-Перечисление [AfterAnimationType](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/afteranimationtype/) поддерживает оставлять форму без изменений, менять её цвет, скрывать её после анимации или скрывать при следующем щелчке. Когда тип равен [AfterAnimationType.COLOR](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/afteranimationtype/), также задайте [Effect.after_animation_color](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effect/after_animation_color/).
+Перечисление [AfterAnimationType](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/afteranimationtype/) поддерживает оставление формы без изменений, изменение её цвета, скрытие после анимации или скрытие при следующем щелчке. Когда тип установлен в [AfterAnimationType.COLOR](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/afteranimationtype/), также задайте [Effect.after_animation_color](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effect/after_animation_color/).
 
-Этот независимый пример создаёт эффект, задаёт его поведение после анимации через полученный объект эффекта и сохраняет результат.
+Этот независимый пример создаёт эффект, задаёт ему поведение после анимации через полученный объект эффекта и сохраняет результат.
 
 ```python
 import aspose.pydrawing as draw
@@ -335,16 +337,16 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-after-effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Смена типа от [AfterAnimationType.COLOR](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/afteranimationtype/) очищает настройку цвета после анимации.
+Изменение типа с [AfterAnimationType.COLOR](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/afteranimationtype/) удаляет установленный цвет после анимации.
 
-## **Анимировать текст**
+## **Анимация текста**
 
-Анимация текста имеет два связанных управления:
+У анимации текста два связанных параметра:
 
-- [TextAnimation.build_type](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/textanimation/build_type/) определяет, появятся ли абзацы вместе или по отдельности.
-- [Effect.animate_text_type](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effect/animate_text_type/) определяет, появится ли текст сразу, по словам или по буквам. [Effect.delay_between_text_parts](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effect/delay_between_text_parts/) задаёт задержку между словами или буквами. Положительное значение — процент от длительности эффекта; отрицательное значение — задержка в секундах.
+- [TextAnimation.build_type](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/textanimation/build_type/) определяет, появляются ли абзацы одновременно или последовательно.
+- [Effect.animate_text_type](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effect/animate_text_type/) определяет, появляется ли текст целиком, по словам или по буквам. [Effect.delay_between_text_parts](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/effect/delay_between_text_parts/) задаёт задержку между словами или буквами. Положительное значение — процент от длительности эффекта; отрицательное — задержка в секундах.
 
-Следующий независимый пример анимирует слова в текстовом блоке. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/buildtype/) отключает построение абзац за абзацем, чтобы настройка слов применялась ко всему текстовому фрейму.
+В следующем независимом примере анимируются слова в текстовом поле. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/buildtype/) отключает построение абзац за абзацем, так что настройка для слова применяется ко всему текстовому фрейму.
 
 ```python
 import aspose.slides as slides
@@ -363,26 +365,26 @@ with slides.Presentation() as presentation:
     presentation.save("animated-text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Чтобы построить текстовый блок по абзацам, задайте [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/buildtype/) (или другой уровень абзаца). Чтобы применить отдельный эффект к отдельному абзацу, используйте перегрузку [Sequence.add_effect](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/sequence/add_effect/), принимающую [IParagraph](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iparagraph/). См. [Animated Text](/slides/ru/python-net/animated-text/) для примеров на уровне абзацев.
+Чтобы построить текстовое поле по абзацам, задайте [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/buildtype/) (или другой уровень абзаца). Чтобы применить отдельный эффект к отдельному абзацу, используйте перегрузку [Sequence.add_effect](https://reference.aspose.com/slides/ru/python-net/aspose.slides.animation/sequence/add_effect/), принимающую [IParagraph](https://reference.aspose.com/slides/ru/python-net/aspose.slides/iparagraph/). См. [Animated Text](/slides/ru/python-net/animated-text/) для примеров уровня абзаца.
 
 ## **Экспорт и замечания о совместимости**
 
-- Сохранение в PPT или PPTX сохраняет модель анимации, но окончательное воспроизведение контролируется обозревателем презентаций.
-- PDF и статические изображения не воспроизводят анимацию. Используйте [HTML5 export](/slides/ru/python-net/export-to-html5/), анимированный GIF или [video conversion](/slides/ru/python-net/convert-powerpoint-to-video/), когда необходимо показать движение.
+- Сохранение в PPT или PPTX сохраняет модель анимации, но окончательное воспроизведение контролируется средой просмотра презентации.
+- PDF и статические изображения не воспроизводят анимацию. Используйте [HTML5 export](/slides/ru/python-net/export-to-html5/), анимированный GIF или [video conversion](/slides/ru/python-net/convert-powerpoint-to-video/), если требуется показать движение.
 - Для HTML5 включите [Html5Options.animate_shapes](https://reference.aspose.com/slides/ru/python-net/aspose.slides.export/html5options/animate_shapes/) и, при необходимости, [Html5Options.animate_transitions](https://reference.aspose.com/slides/ru/python-net/aspose.slides.export/html5options/animate_transitions/).
-- Видеорендеринг поддерживает многие распространённые эффекты входа, акцента, выхода и движения по траектории, но не каждый эффект PowerPoint поддерживается. Проверьте текущий список [supported animations and effects](/slides/ru/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) и протестируйте критически важные презентации с вашей целевой версией Aspose.Slides.
-- Сложные пользовательские эффекты и эффекты, импортированные из других форматов презентаций, могут сохраняться в файле, но отображаться иначе в PowerPoint, HTML5 или видео. Проверяйте экспортированный результат, а не только название эффекта.
+- При рендеринге видео поддерживается множество типичных эффектов входа, акцента, выхода и траекторий движения, но не каждый эффект PowerPoint поддерживается. Проверьте текущий список [supported animations and effects](/slides/ru/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) и протестируйте критические презентации с вашей целевой версией Aspose.Slides.
+- Сложные пользовательские эффекты и эффекты, импортированные из других форматов презентаций, могут сохраняться в файле, но отображаться иначе в PowerPoint, HTML5 или видео. Проводите проверку экспортированного результата, а не полагайтесь только на название эффекта.
 
 ## **FAQ**
 
 **Почему анимация отображается в PowerPoint, но не в PDF?**
 
-PDF — статический формат, поэтому анимации и переходы слайдов не воспроизводятся. Экспортируйте в HTML5, анимированный GIF или видео, когда необходимо сохранить движение.
+PDF — статический формат, поэтому анимация и переходы слайдов не воспроизводятся. Экспортируйте в HTML5, анимированный GIF или видео, если требуется сохранить движение.
 
-**Почему эффект воспроизводится иначе в видео?**
+**Почему эффект выглядит иначе в видео?**
 
-Экспорт в видео рендерит анимацию, а не сохраняет оригинальное поведение PowerPoint. Некоторые продвинутые эффекты не поддерживаются или приблизительно воспроизводятся. Ознакомьтесь с таблицей поддерживаемых эффектов и протестируйте презентацию до использования в продакшене.
+При экспорте в видео анимация рендерится, а не сохраняется оригинальное поведение PowerPoint. Некоторые сложные эффекты не поддерживаются или приближенно имитируются. Ознакомьтесь с таблицей поддерживаемых эффектов и протестируйте презентацию перед производством.
 
 **Изменяет ли перемещение формы вперёд или назад порядок её анимации?**
 
-Нет. Порядок наложения (z‑order) управляет перекрытием, а порядок последовательностей и триггеры управляют воспроизведением анимации. Меняйте временную шкалу, если нужен иной порядок воспроизведения.
+Нет. Порядок наложения (z‑order) управляет перекрытием, а порядок последовательностей и триггеры — воспроизведением анимации. Изменяйте временную шкалу, если нужен иной порядок воспроизведения.

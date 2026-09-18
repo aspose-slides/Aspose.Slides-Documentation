@@ -1,5 +1,5 @@
 ---
-title: PowerPoint prezentációk fejlesztése animációkkal Androidon
+title: Fejlessze a PowerPoint prezentációkat animációkkal Androidon
 linktitle: PowerPoint animáció
 type: docs
 weight: 150
@@ -28,25 +28,27 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Ismerje meg az Aspose.Slides for Android via Java képességeit a PowerPoint animációk kezelésében. Ez az általános áttekintés kiemeli a főbb funkciókat."
+description: "Fedezze fel az Aspose.Slides Androidra Java-n keresztül nyújtott képességeit a PowerPoint animációk kezelésében. Ez az általános áttekintés a kulcsfontosságú funkciókat emeli ki."
 ---
 ## **Bevezetés**
 
-Mivel az előadások célja valamit bemutatni, a vizuális megjelenésüket és interaktív viselkedésüket mindig figyelembe veszik a létrehozásuk során.
+Mivel a bemutatók arra szolgálnak, hogy valamit bemutassanak, a vizuális megjelenésük és interaktív viselkedésük mindig figyelembe van véve a készítés során.
 
-**PowerPoint animáció** fontos szerepet játszik, hogy az előadás figyelemfelkeltő és vonzó legyen a nézők számára. Az Aspose.Slides for Android via Java széles körű lehetőségeket kínál a PowerPoint előadáshoz való animáció hozzáadására:
+**PowerPoint animáció** fontos szerepet játszik a bemutató figyelemfelkeltővé és vonzóvá tételében a nézők számára. Az Aspose.Slides széles körű lehetőségeket kínál PowerPoint prezentációk animációinak hozzáadásához:
 
-- különféle típusú PowerPoint animációs effektusok alkalmazása alakzatokra, diagramokra, táblázatokra, OLE objektumokra és egyéb előadáselemekre.
-- több PowerPoint animációs effektus használata egy alakzaton.
-- animációs idővonal használata az animációs effektusok vezérléséhez.
-- egyedi animáció létrehozása.
+- Alkalmazzon különféle PowerPoint animációs effektusokat alakzatokra, diagramokra, táblázatokra, OLE objektumokra és egyéb prezentációelemekre.
+- Használjon több PowerPoint animációs effektust egyetlen alakzaton.
+- Használja az animáció idővonalát az animációs effektusok vezérléséhez.
+- Készítsen egyedi animációkat.
 
-Az Aspose.Slides for Android via Java-ban különféle animációs effektusok alkalmazhatók az alakzatokra. Mivel a dia minden eleme, beleértve a szöveget, a képeket, az OLE objektumot, a táblázatot stb., alakzatnak számít, ez azt jelenti, hogy animációs effektust alkalmazhatunk a dia minden elemére.
+Az Aspose.Slides-ben különféle animációs effektusok alkalmazhatók alakzatokra. Mivel a dián minden elem – beleértve a szöveget, képeket, OLE objektumokat és táblázatokat – alakzatnak számít, az animációs effektusok bármely diabelen alkalmazhatók.
 
-## **Animációs effektusok**
-Az Aspose.Slides **150+ animációs effektust** támogat, beleértve az alapvető animációs effektusokat, mint a Bounce, a PathFootball, a Zoom effektus, valamint a specifikus animációs effektusokat, mint az OLEObjectShow, OLEObjectOpen. A teljes animációs effektuslista megtalálható a [**EffectType**](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/effecttype/) felsorolásában.
+## **Animációs Effektek**
 
-Ezen animációs effektusok ezen felül kombinálhatók is a következőkkel:
+Az Aspose.Slides **150+ animációs effektust** támogat, beleértve az alapvető effektusokat, mint a Bounce, PathFootball és a Zoom, valamint specifikus effektusokat, mint az OLEObjectShow és OLEObjectOpen. A teljes felsorolást a [EffectType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/effecttype/) osztályban találja.
+
+Ezen animációs effektusok a következő viselkedésekkel kombinálhatók:
+
 - [ColorEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/CommandEffect)
 - [FilterEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/FilterEffect)
@@ -56,53 +58,60 @@ Ezen animációs effektusok ezen felül kombinálhatók is a következőkkel:
 - [ScaleEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ScaleEffect)
 - [SetEffect](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/SetEffect)
 
-## **Egyedi animáció**
-Lehetséges saját **egyedi animációk** létrehozni az Aspose.Slides-ban. 
-Ez akkor érhető el, ha több viselkedést kombinálunk egy új egyedi animációba.
+## **Egyedi Animáció**
 
-[**Behavior**](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Behavior) egy építőeleme bármely PowerPoint animációs effektusnak. Az összes animációs effektus valójában egy viselkedéssorozat, amely egy stratégiába van összefűzve. Viselkedéseket egy egyedi animációba kombinálhatunk egyszer, majd újra felhasználhatjuk más előadásokban. Ha új viselkedést adunk hozzá egy szabványos PowerPoint animációs effektushoz – az egy másik egyedi animáció lesz. Például hozzáadhatunk ismétlődő viselkedést egy animációhoz, hogy néhányszor ismétlődjön.
+A viselkedések és szerkeszthető mozgáspályák létrehozásával, ellenőrzésével és módosításával kapcsolatos teljes Java példákért tekintse meg a [Custom Animation](/slides/hu/java/custom-animation/) oldalt.
 
-[**Animation Point**](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Point) egy pont, ahol a viselkedést alkalmazni kell.
+Az Aspose.Slides-ben lehetséges saját **egyedi animációkat** létrehozni. Ez több viselkedés kombinálásával egy új egyedi animációban érhető el.
 
-## **Animációs idővonal**
-[**Sequence**](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Sequence) egy animációs effektusok gyűjteménye, amely egy konkrét alakzatra van alkalmazva.
+[Behavior](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/behavior/) a PowerPoint animációs effektus építőköve. Kombináljon viselkedéseket az effektus testreszabásához, vagy adjon hozzá egy viselkedést egy előre definiált effektus kibővítéséhez. Az ismétlés időzítési beállításokkal van konfigurálva, nem külön ismétlés viselkedéssel.
 
-[**Timeline**](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/AnimationTimeLine) egy sorozatok (Sequences) halmaza, amely egy konkrét dián használatos. Ez egy animációs motor, amely a PowerPoint 2002-től elérhető. Korábbi PowerPoint verziókban nehéz volt animációs effektusokat hozzáadni az előadáshoz, csak különféle megkerülésekkel. A Timeline felváltja a régi AnimationSettings osztályt, és tisztább objektummodellt biztosít a PowerPoint animációkhoz. Egy diához csak egy animációs idővonal tartozhat.
+[Animation Point](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/point/) egy pont, amelynél egy viselkedést alkalmazni kell.
 
-## **Interaktív animáció**
-[**Trigger**](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/EffectTriggerType) lehetővé teszi a felhasználói műveletek (pl. gombkattintás) definiálását, amelyek elindítanak egy adott animációt. A triggerek csak a legújabb PowerPoint verzióban kerültek bevezetésre.
+## **Animációs Idővonal**
 
-## **Alakzat animáció**
-Az Aspose.Slides lehetővé teszi animációk alkalmazását alakzatokra, amelyek lehetnek szöveg, téglalap, vonal, képkocka, OLE objektum stb.
+[Sequence](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/sequence/) animációs effektusok gyűjteménye, amely különböző alakzatokat célozhat.
 
-{{% alert color="primary" %}} 
-Olvassa tovább [**Alakzat animációról**](/slides/hu/androidjava/shape-animation/).
+[Timeline](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/animationtimeline/) egy sorozat halmaz, amely egy adott dián használható. Ez egy animációs motor, amely a PowerPoint 2002-ben került bevezetésre. A korábbi PowerPoint verziókban az animációs effektusok hozzáadása a prezentációkhoz nehézkes volt, és csak különféle megoldásokkal valósítható meg. Az idővonal tisztább objektummodellt biztosít a PowerPoint animációkhoz. Egy diának csak egy animációs idővonalat lehet.
+
+## **Interaktív Animáció**
+
+[Trigger](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/effecttriggertype/) lehetővé teszi felhasználói műveletek, például egy gombkattintás, definiálását, amely egy adott animációt indít.
+
+## **Alakzat Animáció**
+
+Az Aspose.Slides lehetővé teszi animációk alkalmazását alakzatokra, amelyek lehetnek szöveg, téglalapok, vonalak, keretek, OLE objektumok és egyebek.
+
+{{% alert color="info" title="Note" %}}
+Olvasson tovább [**Alakzat Animációról**](/slides/hu/androidjava/shape-animation/).
 {{% /alert %}}
 
-## **Animált diagramok**
-Animált diagramok létrehozásához ugyanazokat az osztályokat kell használni, mint az alakzatoknál. Azonban a PowerPoint animáció csak diagramkategóriákra vagy diagramsorozatokra alkalmazható. Animációs effektust alkalmazhatunk egy kategóriaelemre vagy sorozatelemre is.
+## **Animált Diagramok**
 
-{{% alert color="primary" %}} 
-Olvassa tovább [**Animált diagramokról**](/slides/hu/androidjava/animated-charts/).
+Animált diagramok létrehozásához ugyanazokat az osztályokat kell használni, mint az alakzatoknál. A PowerPoint animációkat azonban csak diagramkategóriákra vagy diagramsorozatokra lehet alkalmazni. Animációs effektusokat egy kategóriaelemre vagy egy sorozatelemen is alkalmazhat.
+
+{{% alert color="info" title="Note" %}}
+Olvasson tovább [**Az Animált Diagramokról**](/slides/hu/androidjava/animated-charts/).
 {{% /alert %}}
 
-## **Animált szöveg**
-Az animált szövegen kívül animációt lehet alkalmazni egy bekezdésre is.
+## **Animált Szöveg**
 
-{{% alert color="primary" %}} 
-Olvassa tovább [**Animált szövegről**](/slides/hu/androidjava/animated-text/).
+A szöveg animálása mellett animációt alkalmazhat bekezdésre is.
+
+{{% alert color="info" title="Note" %}}
+Olvasson tovább [**Az Animált Szövegről**](/slides/hu/androidjava/animated-text/).
 {{% /alert %}}
 
 ## **GYIK**
 
-**Megmaradnak az animációk PDF-be exportáláskor?**
+**Megmaradnak-e az animációk PDF-exportáláskor?**
 
-Nem. A PDF statikus formátum, ezért az animációk és a [diaváltás](/slides/hu/androidjava/slide-transition/) nem játszódnak le. Ha mozgásra van szükség, exportáljon [HTML5](/slides/hu/androidjava/export-to-html5/), [animated GIF](/slides/hu/androidjava/convert-powerpoint-to-animated-gif/) vagy [video](/slides/hu/androidjava/convert-powerpoint-to-video/) formátumba.
+Nincs. A PDF egy statikus formátum, ezért az animációk és a [slide transitions](/slides/hu/androidjava/slide-transition/) nem játszódnak le. Ha mozgásra van szükség, exportáljon inkább [HTML5](/slides/hu/androidjava/export-to-html5/), [animated GIF](/slides/hu/androidjava/convert-powerpoint-to-animated-gif/) vagy [video](/slides/hu/androidjava/convert-powerpoint-to-video/) formátumba.
 
-**Átalakíthatom az animált előadást videóvá, és szabályozhatom a képkockasebességet és a képkockaméretet?**
+**Átalakíthatom-e az animált prezentációt videóvá, és szabályozhatom a képkockasebességet és a képkockaméretet?**
 
-Igen. A [prezentáció keretként történő renderelésével](/slides/hu/androidjava/convert-powerpoint-to-video/) kódolhatja őket videóvá (pl. ffmpeg segítségével), kiválasztva a FPS-t és a felbontást. Az animációk és a diaváltások a renderelés során lejátszásra kerülnek.
+Igen. A [a prezentáció renderelése képkockákra](/slides/hu/androidjava/convert-powerpoint-to-video/) segítségével renderelheti a prezentációt képkockákra, majd videóba (például ffmpeg‑kel) kódolhatja, kiválasztva az FPS‑t és a felbontást. Az animációk és a slide transitions a renderelés során lejátszásra kerülnek.
 
-**Megmaradnak az animációk ODP-vel (nem csak PPTX) dolgozva?**
+**Megmaradnak-e az animációk ODP-vel (nem csak PPTX) dolgozva?**
 
-A PPT, PPTX és ODP támogatott a [olvasáshoz](/slides/hu/androidjava/open-presentation/) és a [íráshoz](/slides/hu/androidjava/save-presentation/), de a formátumkülönbségek miatt egyes effektusok kissé eltérőnek tűnhetnek vagy másképp viselkedhetnek. Kritikus eseteket ellenőrizze valós mintákkal.
+A PPT, PPTX és ODP támogatott a [reading](/slides/hu/androidjava/open-presentation/) és a [writing](/slides/hu/androidjava/save-presentation/) műveletekhez, de ez nem garantálja az animációk megőrzését. Egyedi animációs adatok elveszhetnek ODP-re konvertáláskor. Tekintse meg a [Custom Animation for Java](/slides/hu/java/custom-animation/) oldalt példákért és útmutatásért a formátum kompatibilitás ellenőrzéséhez.

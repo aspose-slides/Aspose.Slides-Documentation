@@ -1,5 +1,5 @@
 ---
-title: Ulepsz prezentacje PowerPoint za pomocą animacji na Androidzie
+title: Ulepsz prezentacje PowerPoint animacjami na Androidzie
 linktitle: Animacja PowerPoint
 type: docs
 weight: 150
@@ -13,7 +13,7 @@ keywords:
 - kontroluj animację
 - efekt animacji
 - animacja PowerPoint
-- linia czasu animacji
+- oś czasu animacji
 - animacja interaktywna
 - animacja niestandardowa
 - animacja kształtów
@@ -28,25 +28,24 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Poznaj możliwości Aspose.Slides dla Androida za pośrednictwem Java w obsłudze animacji PowerPoint. Ten ogólny przegląd podkreśla najważniejsze funkcje."
+description: "Poznaj możliwości Aspose.Slides dla Androida za pomocą Javy w obsłudze animacji PowerPoint. Ten ogólny przegląd podkreśla kluczowe funkcje."
 ---
 ## **Wprowadzenie**
 
-Ponieważ prezentacje mają na celu przedstawienie czegoś, ich wygląd wizualny i zachowanie interaktywne są zawsze brane pod uwagę podczas ich tworzenia.
+Ponieważ prezentacje mają na celu przedstawienie czegoś, ich wygląd wizualny i zachowanie interaktywne są zawsze brane pod uwagę podczas tworzenia.
 
-**Animacja PowerPoint** odgrywa ważną rolę, aby uczynić prezentację przyciągającą uwagę i atrakcyjną dla widzów. Aspose.Slides for Android via Java oferuje szeroki zakres opcji dodawania animacji do prezentacji PowerPoint:
+**PowerPoint animation** odgrywa ważną rolę w sprawianiu, że prezentacja przyciąga uwagę i angażuje widzów. Aspose.Slides oferuje szeroki zakres opcji dodawania animacji do prezentacji PowerPoint:
 
-- stosować różne typy efektów animacji PowerPoint na kształtach, wykresach, tabelach, obiektach OLE i innych elementach prezentacji.
-- używać wielu efektów animacji PowerPoint na jednym kształcie.
-- używać linii czasu animacji do sterowania efektami animacji.
-- tworzyć animację niestandardową.
-
-W Aspose.Slides for Android via Java można zastosować różne efekty animacji na kształtach. Ponieważ każdy element slajdu, w tym tekst, obrazy, obiekt OLE, tabela itp., jest traktowany jako kształt, oznacza to, że możemy zastosować efekt animacji na każdym elemencie slajdu.
+- Zastosuj różne typy efektów animacji PowerPoint do kształtów, wykresów, tabel, obiektów OLE i innych elementów prezentacji.
+- Użyj wielu efektów animacji PowerPoint na pojedynczym kształcie.
+- Wykorzystaj oś czasu animacji do sterowania efektami animacji.
+- Twórz własne animacje.
 
 ## **Efekty animacji**
-Aspose.Slides obsługuje **ponad 150 efektów animacji**, w tym podstawowe efekty animacji takie jak Bounce, PathFootball, efekt Zoom oraz specyficzne efekty animacji takie jak OLEObjectShow, OLEObjectOpen. Pełną listę efektów animacji znajdziesz w [**EffectType**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/effecttype/)enumeracji.
+Aspose.Slides obsługuje **ponad 150 efektów animacji**, w tym podstawowe efekty takie jak Bounce, PathFootball i Zoom oraz specyficzne efekty takie jak OLEObjectShow i OLEObjectOpen. Pełną listę znajdziesz w klasie [EffectType](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/effecttype/).
 
-Ponadto, te efekty animacji można używać w połączeniu ze sobą:
+Ponadto, te efekty animacji można łączyć z następującymi zachowaniami:
+
 - [ColorEffect](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/CommandEffect)
 - [FilterEffect](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/FilterEffect)
@@ -57,38 +56,40 @@ Ponadto, te efekty animacji można używać w połączeniu ze sobą:
 - [SetEffect](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/SetEffect)
 
 ## **Animacja niestandardowa**
-Możliwe jest stworzenie własnych **animacji niestandardowych** w Aspose.Slides. Można to osiągnąć, łącząc kilka zachowań w nową animację niestandardową.
+Pełne przykłady w języku Java, które tworzą, przeglądają i modyfikują zachowania oraz edytowalne ścieżki ruchu, znajdziesz w [Animacja niestandardowa](/slides/pl/java/custom-animation/).
 
-[**Behavior**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Behavior) jest jednostką budującą każdy efekt animacji PowerPoint. Wszystkie efekty animacji są w rzeczywistości zestawem zachowań składającym się w jedną strategię. Możesz połączyć zachowania w animację niestandardową raz i ponownie używać jej w innych prezentacjach. Jeśli dodasz nowe zachowanie do standardowego efektu animacji PowerPoint – stanie się ono kolejną animacją niestandardową. Na przykład możesz dodać zachowanie powtarzania do animacji, aby powtarzała się kilka razy.
+Możliwe jest tworzenie własnych **animacji niestandardowych** w Aspose.Slides. Można to osiągnąć, łącząc kilka zachowań w nową animację niestandardową.
 
-[**Animation Point**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Point) jest punktem, w którym zachowanie powinno być zastosowane.
+[Behavior](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/behavior/) jest elementem budującym efekt animacji PowerPoint. Łącz zachowania, aby dostosować efekt, lub dodaj zachowanie, aby rozszerzyć zdefiniowany efekt. Powtarzanie jest konfigurowane poprzez ustawienia czasu, a nie oddzielne zachowanie powtarzania.
 
-## **Linia czasu animacji**
-[**Sequence**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/Sequence) jest zestawem efektów animacji zastosowanych na konkretnym kształcie.
+[Animation Point](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/point/) jest punktem, w którym należy zastosować zachowanie.
 
-[**Timeline**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/AnimationTimeLine) jest zestawem Sekwencji używanych na konkretnym slajdzie. Jest to silnik animacji dostępny od PowerPoint 2002. W poprzednich wersjach PowerPoint dodawanie efektów animacji do prezentacji było trudne i możliwe jedynie przy użyciu różnych obejść. Timeline zastępuje starą klasę AnimationSettings i zapewnia bardziej przejrzysty model obiektowy animacji PowerPoint. Jeden slajd może mieć tylko jedną linię czasu animacji.
+## **Oś czasu animacji**
+[Sequence](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/sequence/) jest zbiorem efektów animacji, które mogą dotyczyć różnych kształtów.
+
+[Timeline](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/animationtimeline/) jest zestawem sekwencji używanych w konkretnym slajdzie. Jest to silnik animacji wprowadzony w PowerPoint 2002. W wcześniejszych wersjach PowerPoint dodawanie efektów animacji do prezentacji było trudne i możliwe jedynie przy użyciu różnych obejść. Oś czasu zapewnia przejrzystszy model obiektowy animacji PowerPoint. Slajd może mieć tylko jedną oś czasu animacji.
 
 ## **Animacja interaktywna**
-[**Trigger**](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/EffectTriggerType) pozwala zdefiniować akcje użytkownika (np. kliknięcie przycisku), które spowodują rozpoczęcie określonej animacji. Triggery zostały dodane dopiero w najnowszej wersji PowerPoint.
+[Trigger](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/effecttriggertype/) pozwala zdefiniować akcje użytkownika, takie jak kliknięcie przycisku, które uruchamiają konkretną animację.
 
 ## **Animacja kształtów**
-Aspose.Slides pozwala stosować animację do kształtów, którymi mogą być tekst, prostokąt, linia, ramka, obiekt OLE itp.
+Aspose.Slides umożliwia stosowanie animacji do kształtów, które mogą obejmować tekst, prostokąty, linie, ramki, obiekty OLE i inne.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 Czytaj dalej [**O animacji kształtów**](/slides/pl/androidjava/shape-animation/).
 {{% /alert %}}
 
 ## **Wykresy animowane**
-Aby tworzyć animowane wykresy, należy używać tych samych klas co dla kształtów. Jednak animację PowerPoint można stosować tylko na kategoriach wykresu lub seriach wykresu. Można także zastosować efekt animacji do elementu kategorii lub elementu serii.
+Do tworzenia animowanych wykresów należy używać tych samych klas co dla kształtów. Jednak animacje PowerPoint można stosować jedynie do kategorii wykresu lub serii wykresu. Można także zastosować efekty animacji do elementu kategorii lub elementu serii.
 
-{{% alert color="primary" %}} 
-Czytaj dalej [**O animowanych wykresach**](/slides/pl/androidjava/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Czytaj dalej [**O wykresach animowanych**](/slides/pl/androidjava/animated-charts/).
 {{% /alert %}}
 
 ## **Tekst animowany**
-Oprócz tekstu animowanego możliwe jest również stosowanie animacji do akapitu.
+Oprócz animacji tekstu, możesz zastosować animację do akapitu.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 Czytaj dalej [**O tekście animowanym**](/slides/pl/androidjava/animated-text/).
 {{% /alert %}}
 
@@ -96,12 +97,12 @@ Czytaj dalej [**O tekście animowanym**](/slides/pl/androidjava/animated-text/).
 
 **Czy animacje będą zachowane przy eksporcie do PDF?**
 
-Nie. PDF jest formatem statycznym, więc animacje i [przejścia slajdów](/slides/pl/androidjava/slide-transition/) nie odtwarzają się. Jeśli potrzebujesz ruchu, wyeksportuj do [HTML5](/slides/pl/androidjava/export-to-html5/), [animowanego GIF](/slides/pl/androidjava/convert-powerpoint-to-animated-gif/) lub [wideo](/slides/pl/androidjava/convert-powerpoint-to-video/) zamiast tego.
+Nie. PDF jest formatem statycznym, więc animacje i [przejścia slajdów](/slides/pl/androidjava/slide-transition/) nie są odtwarzane. Jeśli potrzebny jest ruch, wyeksportuj do [HTML5](/slides/pl/androidjava/export-to-html5/), [animowanego GIF](/slides/pl/androidjava/convert-powerpoint-to-animated-gif/) lub [wideo](/slides/pl/androidjava/convert-powerpoint-to-video/).
 
 **Czy mogę zamienić animowaną prezentację na wideo i kontrolować liczbę klatek na sekundę oraz rozmiar klatki?**
 
-Tak. Możesz [wyświetlić prezentację jako klatki](/slides/pl/androidjava/convert-powerpoint-to-video/) i zakodować je w wideo (np. za pomocą ffmpeg), wybierając liczbę klatek na sekundę i rozdzielczość. Animacje i przejścia slajdów są odtwarzane podczas renderowania.
+Tak. Możesz [wykonać renderowanie prezentacji jako klatki](/slides/pl/androidjava/convert-powerpoint-to-video/) i zakodować je w wideo (np. za pomocą ffmpeg), wybierając liczbę klatek na sekundę i rozdzielczość. Animacje i przejścia slajdów są odtwarzane podczas renderowania.
 
 **Czy animacje pozostaną nienaruszone przy pracy z ODP (nie tylko PPTX)?**
 
-Formaty PPT, PPTX i ODP są wspierane do [odczytu](/slides/pl/androidjava/open-presentation/) i [zapisu](/slides/pl/androidjava/save-presentation/), ale różnice formatów oznaczają, że niektóre efekty mogą wyglądać lub zachowywać się nieco inaczej. Zweryfikuj krytyczne przypadki na rzeczywistych przykładach.
+Formaty PPT, PPTX i ODP są obsługiwane do [odczytu](/slides/pl/androidjava/open-presentation/) i [zapisu](/slides/pl/androidjava/save-presentation/), ale nie gwarantuje to zachowania animacji. Dane animacji niestandardowych mogą zostać utracone podczas konwersji do ODP. Zobacz [Custom Animation for Java](/slides/pl/java/custom-animation/) po przykłady i wskazówki dotyczące sprawdzania zgodności formatu.

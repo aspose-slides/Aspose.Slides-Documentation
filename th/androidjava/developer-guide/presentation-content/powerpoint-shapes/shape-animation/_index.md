@@ -8,8 +8,8 @@ keywords:
 - รูปร่าง
 - การเคลื่อนไหว
 - เอฟเฟกต์
-- รูปร่างเคลื่อนไหว
-- ข้อความเคลื่อนไหว
+- รูปร่างที่เคลื่อนไหว
+- ข้อความที่เคลื่อนไหว
 - เพิ่มการเคลื่อนไหว
 - รับการเคลื่อนไหว
 - สกัดการเคลื่อนไหว
@@ -17,30 +17,32 @@ keywords:
 - รับเอฟเฟกต์
 - สกัดเอฟเฟกต์
 - เสียงของเอฟเฟกต์
-- นำการเคลื่อนไหวไปใช้
+- ใช้การเคลื่อนไหว
 - PowerPoint
 - งานนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่ม ตรวจสอบ และปรับแต่งการเคลื่อนไหวของรูปร่าง การตั้งเวลา เสียง พฤติกรรมหลังการเคลื่อนไหว และข้อความเคลื่อนไหวด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
+description: "เรียนรู้วิธีเพิ่ม, ตรวจสอบ และปรับแต่งการเคลื่อนไหวของรูปร่าง, การตั้งเวลา, เสียง, พฤติกรรมหลังการเคลื่อนไหว, และข้อความที่เคลื่อนไหวด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for Android via Java แทนที่การเคลื่อนไหวของสไลด์เป็นเอฟเฟกต์ในไทม์ไลน์ของสไลด์ เอฟเฟกต์หนึ่งมีรูปทรงเป้าหมาย ประเภทและชนิดย่อยของการเคลื่อนไหว ตัวกระตุ้น การตั้งค่าเวลา และคุณสมบัติอื่น ๆ เช่น เสียงหรือพฤติกรรมหลังการเคลื่อนไหว
+หากต้องการทำงานกับพฤติกรรมแต่ละอย่างภายในเอฟเฟกต์หรือแก้ไขส่วนของเส้นทางการเคลื่อนที่ ให้ดูที่ [การเคลื่อนไหวแบบกำหนดเองสำหรับ Java](/slides/th/java/custom-animation/).
 
-ไทม์ไลน์มีลำดับสองประเภท:
+Aspose.Slides สำหรับ Android ผ่าน Java แสดงการเคลื่อนไหวของสไลด์เป็นเอฟเฟกต์ในไทม์ไลน์ของสไลด์ เอฟเฟกต์หนึ่งมีรูปร่างเป้าหมาย, ประเภทและชนิดย่อยของการเคลื่อนไหว, ตัวกระตุ้น, การตั้งค่าเวลา, และคุณสมบัติเสริมเช่นเสียงหรือพฤติกรรมหลังการเคลื่อนไหว.
 
-- **main sequence** ทำงานเมื่อสไลด์ก้าวหน้า
-- **interactive sequence** เริ่มเมื่อคลิกรูปร่างตัวกระตุ้น
+The timeline contains two kinds of sequences:
 
-เนื่องจากกล่องข้อความ รูปภาพ แผนภูมิ ตาราง และวัตถุสไลด์อื่น ๆ เขimplements [IShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/) คุณจึงใช้เมธอด [ISequence.addEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) เดียวกันสำหรับเนื้อหาสไลด์ส่วนใหญ่ เอฟเฟกต์ที่ใช้ได้จะระบุไว้ในคลาส [EffectType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/effecttype/)
+- **ลำดับหลัก** เล่นเมื่อสไลด์เคลื่อนต่อไป.
+- **ลำดับโต้ตอบ** เริ่มเมื่อรูปร่างตัวกระตุ้นถูกคลิก.
+
+เนื่องจากกล่องข้อความ, รูปภาพ, แผนภูมิ, ตาราง และวัตถุสไลด์อื่น ๆ ทำการ implement [IShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/), คุณจึงใช้เมธอด [ISequence.addEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) เดียวกันสำหรับเนื้อหาสไลด์ส่วนใหญ่ เอฟเฟกต์ที่ใช้ได้จะถูกแสดงในคลาส [EffectType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/effecttype/).
 
 ## **เพิ่มการเคลื่อนไหวของรูปร่าง**
 
-เพื่อเพิ่มการเคลื่อนไหว ให้ดึงลำดับหลักของสไลด์และเรียก [ISequence.addEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) พร้อมกับรูปทรงเป้าหมาย ประเภทเอฟเฟกต์ ชนิดย่อย และตัวกระตุ้น สำหรับเอฟเฟกต์ที่เริ่มเมื่อคลิกรูปร่างอื่น ให้สร้าง interactive sequence ที่ตัวกระตุ้นคือรูปร่างนั้น
+ในการเพิ่มการเคลื่อนไหว, รับลำดับหลักของสไลด์และเรียกเมธอด [ISequence.addEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) พร้อมด้วยรูปร่างเป้าหมาย, ประเภทเอฟเฟกต์, ชนิดย่อย, และตัวกระตุ้น. สำหรับเอฟเฟกต์ที่เริ่มเมื่อรูปร่างอื่นถูกคลิก, สร้างลำดับโต้ตอบที่ตัวกระตุ้นคือรูปร่างนั้น.
 
-ตัวอย่างต่อไปนี้สร้างการเคลื่อนไหวสองประเภทและบันทึกผลลัพธ์เป็น `shape-animations.pptx`
+ตัวอย่างต่อไปนี้สร้างการเคลื่อนไหวทั้งสองประเภทและบันทึกผลลัพธ์เป็น `shape-animations.pptx`.
 
 ```java
 import com.aspose.slides.*;
@@ -72,19 +74,19 @@ public class AddShapeAnimations {
 }
 ```
 
-ตัวกระตุ้นกำหนดว่าเอฟเฟกต์เริ่มใดเมื่อใด:
+The trigger controls when an effect starts:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/effecttriggertype/#OnClick) รอการคลิกในลำดับหลัก หรือคลิกบนรูปทรงตัวกระตุ้นในลำดับเชิงโต้ตอบ
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) เริ่มพร้อมกับเอฟเฟกต์ก่อนหน้า
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) เริ่มเมื่อเอฟเฟกต์ก่อนหน้าจบ
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/effecttriggertype/#OnClick) รอการคลิกในลำดับหลัก, หรือการคลิกบนรูปร่างตัวกระตุ้นในลำดับโต้ตอบ.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) เริ่มกับเอฟเฟกต์ก่อนหน้า.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) เริ่มเมื่อเอฟเฟกต์ก่อนหน้าจบลง.
 
-เพื่อทำให้รูปภาพ แผนภูมิ หรือรูปทรงชนิดอื่นเคลื่อนไหว ให้ส่งออบเจ็กต์นั้นไปยัง [ISequence.addEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) แทน `targetShape` สำหรับตัวเลือกการจัดกลุ่มเฉพาะแผนภูมิ ดูที่ [Animated Charts](/slides/th/androidjava/animated-charts/)
+เพื่อทำให้รูปภาพ, แผนภูมิ, หรือรูปแบบรูปร่างอื่นเคลื่อนไหว, ส่งอ็อบเจ็กต์นั้นไปยัง [ISequence.addEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) แทน `targetShape`. สำหรับตัวเลือกการจัดกลุ่มเฉพาะแผนภูมิ, ดู [แผนภูมิที่เคลื่อนไหว](/slides/th/androidjava/animated-charts/).
 
 ## **อ่านการเคลื่อนไหวของรูปร่าง**
 
-ใช้ [ISequence.getEffectsByShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) เมื่อต้องการทราบรูปทรงเป้าหมาย เพื่อตรวจสอบทุกเอฟเฟกต์ ให้วนลูปผ่านลำดับหลักและลำดับเชิงโต้ตอบทั้งหมด การวนลูปหลีกเลี่ยงการสันนิษฐานว่าลำดับมีเอฟเฟกต์ที่ดัชนี `0`
+ใช้ [ISequence.getEffectsByShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) เมื่อคุณทราบรูปร่างเป้าหมาย. เพื่อตรวจสอบทุกเอฟเฟกต์, ทำการวนลำดับหลักและลำดับโต้ตอบทั้งหมด. การวนลูปช่วยหลีกเลี่ยงการสมมติว่าลำดับมีเอฟเฟกต์ที่ตำแหน่ง `0`.
 
-ตัวอย่างต่อไปสร้างรูปร่างที่มีเอฟเฟกต์ในลำดับหลักและเชิงโต้ตอบ ดึงเอฟเฟกต์ที่เป้าหมายเป็นรูปร่างนั้น แล้ววนลูปทุกลำดับบนสไลด์
+ตัวอย่างต่อไปนี้สร้างรูปร่างที่มีเอฟเฟกต์ในลำดับหลักและลำดับโต้ตอบ, ดึงเอฟเฟกต์ที่ชี้เป้าไปยังรูปร่างนั้น, แล้วทำการวนลูปทุกลำดับบนสไลด์.
 
 ```java
 import com.aspose.slides.*;
@@ -138,21 +140,21 @@ public class ReadShapeAnimations {
 }
 ```
 
-หากต้องการเอฟเฟกต์เพียงรูปทรงเดียว ให้ระบุตัวกำหนดรูปทรงด้วยชื่อ ประเภท placeholder หรือคุณสมบัติคงที่อื่น แล้วเรียก [ISequence.getEffectsByShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) อย่าเชื่อว่า [IShapeCollection.get_Item](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) ที่ดัชนี `0` เป็นออบเจ็กต์ที่ต้องการเสมอ
+หากคุณต้องการเอฟเฟกต์สำหรับรูปร่างเดียวเท่านั้น, ให้ระบุตัวรูปร่างโดยชื่อ, ชนิด placeholder, หรือคุณสมบัติอื่นที่มั่นคงก่อน; แล้วเรียก [ISequence.getEffectsByShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). อย่าสมมติว่า [IShapeCollection.get_Item](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) ที่ตำแหน่ง `0` เป็นอ็อบเจ็กต์ที่ต้องการเสมอ.
 
-## **ทำงานกับเอฟเฟกต์ของ Placeholder ที่สืบทอด**
+## **ทำงานกับเอฟเฟกต์ Placeholder ที่สืบทอด**
 
-Placeholder บนสไลด์ปกติอาจสืบทอดพฤติกรรมการเคลื่อนไหวจาก placeholder ที่สอดคล้องบนสไลด์เลย์เอาต์และมาสเตอร์ [IShape.getBasePlaceholder](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) จะคืนค่า placeholder พาเรนท์นั้น หรือ `null` หากไม่มีพาเรนท์
+Placeholder บนสไลด์ปกติสามารถสืบทอดพฤติกรรมการเคลื่อนไหวจาก Placeholder ที่สอดคล้องบนสไลด์เลเอาท์และมาสเตอร์สไลด์ได้. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) คืนค่า Placeholder พ่อแม่นั้น, หรือ `null` หากไม่มีพ่อแม่.
 
-ในงานนำเสนอตัวอย่างต่อไป ส่วนท้ายมี **Random Bars** บนสไลด์ปกติ, **Split** บนสไลด์เลย์เอาต์, และ **Fly In** บนสไลด์มาสเตอร์
+ในตัวอย่างงานนำเสนอต่อไปนี้, ส่วนท้ายมี **Random Bars** บนสไลด์ปกติ, **Split** บนสไลด์เลเอาท์, และ **Fly In** บนสไลด์มาสเตอร์.
 
 ![เอฟเฟกต์การเคลื่อนไหวของส่วนท้ายบนสไลด์ปกติ](slide-shape-animation.png)
 
-![เอฟเฟกต์การเคลื่อนไหวของ placeholder ส่วนท้ายบนสไลด์เลย์เอาต์](layout-shape-animation.png)
+![เอฟเฟกต์การเคลื่อนไหวของ Placeholder ส่วนท้ายบนสไลด์เลเอาท์](layout-shape-animation.png)
 
-![เอฟเฟกต์การเคลื่อนไหวของ placeholder ส่วนท้ายบนสไลด์มาสเตอร์](master-shape-animation.png)
+![เอฟเฟกต์การเคลื่อนไหวของ Placeholder ส่วนท้ายบนสไลด์มาสเตอร์](master-shape-animation.png)
 
-ตัวอย่างต่อไปใช้โครงสร้าง hierarchy ของ placeholder จากงานนำเสนอใหม่ เพิ่มเอฟเฟกต์ให้กับ placeholder มาสเตอร์, placeholder เลย์เอาต์, และ placeholder ที่สอดคล้องบนสไลด์ปกติ ทุกการเรียก [IShape.getBasePlaceholder](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) จะตรวจสอบก่อนนำรูปทรงที่ได้ไปใช้
+ตัวอย่างต่อไปนี้ใช้โครงสร้าง hierarchy ของ placeholder จากงานนำเสนอใหม่. มันเพิ่มเอฟเฟกต์ให้กับ master placeholder, layout placeholder, และ placeholder ที่สอดคล้องบนสไลด์ปกติ. ทุกการเรียก [IShape.getBasePlaceholder](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) จะถูกตรวจสอบก่อนนำรูปร่างที่คืนค่าไปใช้.
 
 ```java
 import com.aspose.slides.*;
@@ -230,19 +232,19 @@ public class InheritedPlaceholderAnimations {
 }
 ```
 
-## **เปลี่ยนการตั้งเวลาแอนิเมชัน**
+## **เปลี่ยนการตั้งค่าเวลาเคลื่อนไหว**
 
-กล่องโต้ตอบ PowerPoint **Timing** จะแมพกับคุณสมบัติของ [ITiming](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/)
+กล่องโต้ตอบ **Timing** ของ PowerPoint จะสอดคล้องกับคุณสมบัติของ [ITiming](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/).
 
-![กล่องโต้ตอบการตั้งเวลา PowerPoint สำหรับเอฟเฟกต์แอนิเมชัน](shape-animation.png)
+![กล่องโต้ตอบ Timing ของ PowerPoint สำหรับเอฟเฟกต์การเคลื่อนไหว](shape-animation.png)
 
-- **Start** แมพกับ [ITiming.getTriggerType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#getTriggerType--)
-- **Duration** แมพกับ [ITiming.getDuration](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#getDuration--)(วินาที)
-- **Delay** แมพกับ [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--)(วินาที)
-- **Repeat** แมพกับ [ITiming.getRepeatCount](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), หรือ [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--)
-- **Rewind when done playing** แมพกับ [ITiming.getRewind](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#getRewind--)
+- **Start** สอดคล้องกับ [ITiming.getTriggerType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#getTriggerType--).
+- **Duration** สอดคล้องกับ [ITiming.getDuration](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#getDuration--), หน่วยเป็นวินาที.
+- **Delay** สอดคล้องกับ [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--), หน่วยเป็นวินาที.
+- **Repeat** สอดคล้องกับ [ITiming.getRepeatCount](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), หรือ [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
+- **Rewind when done playing** สอดคล้องกับ [ITiming.getRewind](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#getRewind--).
 
-ตัวอย่างอิสระนี้เพิ่มเอฟเฟกต์ เปลี่ยนการตั้งเวลาผ่านออบเจ็กต์ที่คืนจาก [ISequence.addEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) แล้วบันทึกผลลัพธ์ การเก็บอ้างอิง [IEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ieffect/) ที่คืนช่วยหลีกเลี่ยงการอ้างอิงดัชนีคอลเลกชันที่ไม่จำเป็น
+ตัวอย่างอิสระนี้เพิ่มเอฟเฟกต์, ปรับเวลาผ่านอ็อบเจ็กต์ที่คืนค่าจาก [ISequence.addEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), และบันทึกผลลัพธ์. การเก็บอ้างอิง [IEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ieffect/) ที่คืนค่ามาช่วยหลีกเลี่ยงการเข้าถึงดัชนีคอลเลคชันที่ไม่จำเป็น.
 
 ```java
 import com.aspose.slides.*;
@@ -272,15 +274,15 @@ public class ChangeAnimationTiming {
 }
 ```
 
-ใช้โหมดการทำซ้ำแบบใดแบบหนึ่งเท่านั้น การผสมการตั้งค่า repeat count กับแฟล็ก “until” อาจทำให้ผลลัพธ์สับสนในผู้ชมต่าง ๆ เมื่อเปลี่ยนโหมดการทำซ้ำ ให้ตั้งค่า [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) และ [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) ก่อน [ITiming.setRepeatCount](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-) เนื่องจากการตั้งค่าใดแฟล็กหนึ่งจะเปลี่ยนโหมดการทำซ้ำที่ใช้งานอยู่
+ใช้โหมดการทำซ้ำเพียงหนึ่งแบบโดยเจตนา. การรวมจำนวนการทำซ้ำกับแฟล็ก “until” อาจทำให้ผลลัพธ์สับสนในผู้ชมต่าง ๆ. เมื่อเปลี่ยนโหมดการทำซ้ำ, ให้ตั้งค่า [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) และ [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) ก่อน [ITiming.setRepeatCount](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-), เนื่องจากการตั้งค่าแฟล็กใดแฟล็กหนึ่งจะเปลี่ยนโหมดการทำซ้ำที่ใช้งาน.
 
-## **เพิ่มและสกัดเสียงแอนิเมชัน**
+## **เพิ่มและดึงเสียงการเคลื่อนไหว**
 
-เอฟเฟกต์การเคลื่อนไหวสามารถอ้างอิงไฟล์เสียงฝังด้วย [IEffect.getSound](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ieffect/#getSound--) [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) บอกให้เอฟเฟกต์หยุดเสียงที่เริ่มโดยเอฟเฟกต์ก่อนหน้า
+เอฟเฟกต์การเคลื่อนไหวสามารถอ้างอิงไฟล์เสียงที่ฝังอยู่ผ่าน [IEffect.getSound](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ieffect/#getSound--). [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) บอกให้เอฟเฟกต์หยุดเสียงที่เริ่มโดยเอฟเฟกต์ก่อนหน้า.
 
 ### **เพิ่มเสียงให้กับเอฟเฟกต์**
 
-ตัวอย่างต่อไปคาดหวังไฟล์เสียงโลคัลชื่อ `animation-sound.wav` สร้างเอฟเฟกต์สองอัน ฝังไฟล์นั้นเป็นเสียงของเอฟเฟกต์แรก และกำหนดให้เอฟเฟกต์ที่สองหยุดเสียง ใช้ออบเจ็กต์ที่คืนจาก [ISequence.addEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) จึงไม่ต้องระบุดัชนีลำดับ
+ตัวอย่างต่อไปนี้คาดว่าไฟล์เสียงในเครื่องที่ชื่อ `animation-sound.wav`. มันสร้างสองเอฟเฟกต์, ฝังไฟล์นั้นเป็นเสียงให้กับเอฟเฟกต์แรก, และตั้งค่าให้เอฟเฟกต์ที่สองหยุดเสียง. มันใช้อ็อบเจ็กต์ที่คืนค่าจาก [ISequence.addEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), ดังนั้นไม่จำเป็นต้องระบุดัชนีลำดับ.
 
 ```java
 import com.aspose.slides.*;
@@ -315,9 +317,9 @@ public class AddAnimationSound {
 }
 ```
 
-### **สกัดเสียงเอฟเฟกต์ที่ฝังอยู่**
+### **ดึงเสียงที่ฝังอยู่ในเอฟเฟกต์**
 
-ตัวอย่างต่อไปคาดหวังงานนำเสนอโลคัลชื่อ `presentation-with-animation-sounds.pptx` ตรวจสอบทั้งลำดับหลักและเชิงโต้ตอบ แล้วเขียนเสียงเอฟเฟกต์ที่ฝังไว้ทั้งหมดไปยังโฟลเดอร์ `extracted-animation-sounds` ส่วนขยายไฟล์เลือกจาก MIME type ของเสียงที่ให้โดย [IAudio.getContentType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iaudio/#getContentType--)
+ตัวอย่างต่อไปนี้คาดว่าไฟล์งานนำเสนอในเครื่องที่ชื่อ `presentation-with-animation-sounds.pptx`. มันสแกนลำดับหลักและลำดับโต้ตอบทั้งสองและเขียนเสียงเอฟเฟกต์ที่ฝังอยู่ทุกไฟล์ลงในไดเรกทอรี `extracted-animation-sounds`. ส่วนขยายไฟล์จะถูกเลือกตาม MIME type ของเสียงที่ให้โดย [IAudio.getContentType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iaudio/#getContentType--).
 
 ```java
 import com.aspose.slides.*;
@@ -391,17 +393,17 @@ public class ExtractAnimationSounds {
 }
 ```
 
-สำหรับออบเจ็กต์เสียงขนาดใหญ่ ให้ใช้ [IAudio.getStream](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iaudio/#getStream--) แล้วคัดลอกสตรีมไปยังไฟล์ แทนการโหลดออบเจ็กต์ทั้งหมดเป็นอาเรย์ไบต์
+สำหรับอ็อบเจ็กต์เสียงขนาดใหญ่, ใช้ [IAudio.getStream](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iaudio/#getStream--) และคัดลอกสตรีมไปยังไฟล์แทนการโหลดอ็อบเจ็กต์ทั้งหมดเข้าสู่ byte array.
 
-## **ตั้งค่าพฤติกรรมหลังแอนิเมชัน**
+## **ตั้งค่าพฤติกรรมหลังการเคลื่อนไหว**
 
-ตัวเลือก **After animation** กำหนดสิ่งที่จะเกิดขึ้นกับรูปร่างหลังจากเอฟเฟกต์จบ
+ตัวเลือก **After animation** ควบคุมสิ่งที่จะเกิดขึ้นกับรูปร่างหลังจากเอฟเฟกต์เสร็จสิ้น.
 
-![กล่องโต้ตอบตัวเลือกเอฟเฟกต์ PowerPoint แสดงการตั้งค่า After animation](shape-after-animation.png)
+![กล่องโต้ตอบ PowerPoint Effect Options แสดงการตั้งค่า After animation](shape-after-animation.png)
 
-คลาส [AfterAnimationType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/afteranimationtype/) รองรับการคงรูปร่างไว้ ไม่เปลี่ยนสี ซ่อนหลังแอนิเมชัน หรือซ่อนเมื่อคลิกครั้งถัดไป เมื่อประเภทเป็น [AfterAnimationType.Color](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/afteranimationtype/#Color) ให้ตั้งค่า [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--) ด้วย
+คลาส [AfterAnimationType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/afteranimationtype/) รองรับการทำให้รูปร่างคงเดิม, เปลี่ยนสี, ซ่อนหลังการเคลื่อนไหว, หรือซ่อนเมื่อคลิกครั้งถัดไป. เมื่อประเภทเป็น [AfterAnimationType.Color](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/afteranimationtype/#Color), ให้ตั้งค่า [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--) ด้วย.
 
-ตัวอย่างอิสระนี้สร้างเอฟเฟกต์ ตั้งค่าพฤติกรรมหลังแอนิเมชันผ่านออบเจ็กต์เอฟเฟกต์ที่คืน แล้วบันทึกผลลัพธ์
+ตัวอย่างอิสระนี้สร้างเอฟเฟกต์, ตั้งค่าพฤติกรรมหลังการเคลื่อนไหวผ่านอ็อบเจ็กต์เอฟเฟกต์ที่คืนค่า, และบันทึกผลลัพธ์.
 
 ```java
 import com.aspose.slides.*;
@@ -427,16 +429,16 @@ public class SetAfterAnimationBehavior {
 }
 ```
 
-การเปลี่ยนประเภทออกจาก [AfterAnimationType.Color](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/afteranimationtype/#Color) จะลบการตั้งค่าสีหลังแอนิเมชัน
+การเปลี่ยนประเภทออกจาก [AfterAnimationType.Color](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/afteranimationtype/#Color) จะลบการตั้งค่าสีหลังการเคลื่อนไหว.
 
-## **เคลื่อนภาพข้อความ**
+## **เคลื่อนไหวข้อความ**
 
-การเคลื่อนไหวข้อความมีการควบคุมสองอย่างที่เกี่ยวข้อง:
+Text animation has two related controls:
 
-- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextanimation/#getBuildType--) ควบคุมว่าบรรทัดย่อยปรากฏพร้อมกันหรือเป็นระดับบรรทัด
-- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) ควบคุมว่าข้อความปรากฏทั้งหมดพร้อมกัน, ตามคำ, หรือ ตามตัวอักษร [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) ตั้งค่าความล่าช้าระหว่างคำหรืออักษร ค่าเป็นบวกเป็นเปอร์เซ็นต์ของระยะเวลาเอฟเฟกต์; ค่าเป็นลบเป็นความล่าช้าหน่วยวินาที
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextanimation/#getBuildType--) ควบคุมว่าข้อความย่อหน้าจะแสดงพร้อมกันหรือเป็นระดับย่อหน้า.
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) ควบคุมว่าข้อความจะแสดงทั้งหมดพร้อมกัน, ตามคำ, หรือ ตามตัวอักษร. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) ตั้งค่าการหน่วงเวลาระหว่างคำหรืออักษร. ค่าบวกเป็นเปอร์เซ็นต์ของระยะเวลาเอฟเฟกต์; ค่าติดลบเป็นหน่วงเวลาวินาที.
 
-ตัวอย่างอิสระต่อไปเคลื่อนไหวคำในกล่องข้อความ [BuildType.AsOneObject](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/buildtype/#AsOneObject) ปิดการสร้างแบบบรรทัดต่อบรรทัด ทำให้การตั้งค่าคำใช้กับทั้งเฟรมข้อความ
+ตัวอย่างอิสระต่อไปนี้ทำให้คำในกล่องข้อความเคลื่อนไหว. [BuildType.AsOneObject] ปิดการสร้างตามย่อหน้าตามย่อหน้า ทำให้การตั้งค่าคำใช้กับกรอบข้อความทั้งหมด.
 
 ```java
 import com.aspose.slides.*;
@@ -462,26 +464,26 @@ public class AnimateTextByWord {
 }
 ```
 
-หากต้องการสร้างกล่องข้อความตามบรรทัด ให้ตั้งค่า [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (หรือระดับบรรทัดอื่น) เพื่อกำหนดเอฟเฟกต์ให้กับบรรทัดเดียวใช้ overload ของ [ISequence.addEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) ที่รับ [IParagraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/) ดูที่ [Animated Text](/slides/th/androidjava/animated-text/) สำหรับตัวอย่างระดับบรรทัด
+เพื่อสร้างกล่องข้อความตามย่อหน้า, ตั้งค่า [BuildType.ByLevelParagraphs1] (หรือระดับย่อหน้าอื่น). เพื่อให้ย่อหน้าเดียวมีเอฟเฟกต์ของมันเอง, ใช้ overload ของ [ISequence.addEffect] ที่รับ [IParagraph]. ดู [ข้อความที่เคลื่อนไหว](/slides/th/androidjava/animated-text/) สำหรับตัวอย่างระดับย่อหน้า.
 
-## **การส่งออกและหมายเหตุความเข้ากันได้**
+## **การส่งออกและบันทึกหมายเหตุความเข้ากันได้**
 
-- การบันทึกเป็น PPT หรือ PPTX จะคงโมเดลการเคลื่อนไหวไว้ แต่การเล่นขั้นสุดท้ายขึ้นกับโปรแกรมดูงานนำเสนอ
-- PDF และภาพนิ่งไม่เล่นแอนิเมชัน ใช้ [การส่งออก HTML5](/slides/th/androidjava/export-to-html5/), GIF เคลื่อนไหว, หรือ [การแปลงเป็นวิดีโอ](/slides/th/androidjava/convert-powerpoint-to-video/) เมื่อผลลัพธ์ต้องแสดงการเคลื่อนไหว
-- สำหรับ HTML5 ให้เปิดใช้งาน [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) และตามต้องการ [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-)
-- การเรนเดอร์วิดีโอรองรับเอฟเฟกต์เข้า, เน้น, ออก, และเส้นทางการเคลื่อนที่หลายประเภท แต่ไม่ใช่ทุกเอฟเฟกต์ของ PowerPoint ตรวจสอบ [การสนับสนุนแอนิเมชันและเอฟเฟกต์](/slides/th/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) ปัจจุบันและทดสอบงานนำเสนอสำคัญกับเวอร์ชัน Aspose.Slides ที่ใช้งาน
-- เอฟเฟกต์ที่กำหนดเองขั้นสูงและเอฟเฟกต์ที่นำเข้าจากรูปแบบงานนำเสนออื่นอาจถูกเก็บในไฟล์แต่การเรนเดอร์อาจแตกต่างใน PowerPoint, HTML5 หรือวิดีโอ ตรวจสอบผลลัพธ์ที่ส่งออกแทนการเชื่อถือแค่ชื่อเอฟเฟกต์
+- การบันทึกเป็น PPT หรือ PPTX จะคงโมเดลการเคลื่อนไหวไว้, แต่การเล่นขั้นสุดท้ายขึ้นกับโปรแกรมแสดงผลงานนำเสนอ.
+- PDF และรูปภาพนิ่งไม่สามารถเล่นการเคลื่อนไหวได้. ใช้ [HTML5 export](/slides/th/androidjava/export-to-html5/), GIF ที่เคลื่อนไหว, หรือ [video conversion](/slides/th/androidjava/convert-powerpoint-to-video/) เมื่อผลลัพธ์ต้องแสดงการเคลื่อนที่.
+- สำหรับ HTML5, เปิดใช้งาน [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) และเมื่อจำเป็น, เปิด [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
+- การเรนเดอร์วิดีโอรองรับเอฟเฟกต์การเข้ามา, เน้น, ออกจาก, และเส้นทางการเคลื่อนที่ที่พบบ่อยหลายประเภท, แต่ไม่ใช่ทุกเอฟเฟ็กต์ของ PowerPoint ที่รองรับ. ตรวจสอบ [supported animations and effects](/slides/th/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) ปัจจุบันและทดสอบงานนำเสนอสำคัญกับเวอร์ชัน Aspose.Slides ที่คุณใช้.
+- เอฟเฟกต์ที่กำหนดเองขั้นสูงและเอฟเฟกต์ที่นำเข้าจากรูปแบบงานนำเสนออื่นอาจถูกเก็บไว้ในไฟล์แต่แสดงผลแตกต่างใน PowerPoint, HTML5 หรือวิดีโอ. ตรวจสอบผลลัพธ์ที่ส่งออกแทนการพึ่งพาแค่ชื่อเอฟเฟกต์.
 
 ## **คำถามที่พบบ่อย**
 
-**ทำไมแอนิเมชันจึงปรากฏใน PowerPoint แต่ไม่แสดงใน PDF?**
+**ทำไมการเคลื่อนไหวนั้นจึงแสดงใน PowerPoint แต่ไม่แสดงใน PDF?**
 
-PDF เป็นรูปแบบคงที่ ดังนั้นแอนิเมชันและการเปลี่ยนสไลด์จะไม่ทำงาน ส่งออกเป็น HTML5, GIF เคลื่อนไหว หรือวิดีโอเมื่อจำเป็นต้องรักษาการเคลื่อนไหว
+PDF เป็นรูปแบบสถิต, ดังนั้นการเคลื่อนไหวและการเปลี่ยนสไลด์จะไม่เล่น. ส่งออกเป็น HTML5, GIF ที่เคลื่อนไหว, หรือวิดีโอเมื่อต้องการเก็บการเคลื่อนไหว.
 
-**ทำไมเอฟเฟกต์ถึงแสดงผลแตกต่างในวิดีโอ?**
+**ทำไมเอฟเฟกต์จึงเล่นแตกต่างในวิดีโอ?**
 
-การส่งออกวิดีโอเรนเดอร์แอนิเมชันแทนการเก็บพฤติกรรมดั้งเดิมของ PowerPoint บางเอฟเฟกต์ขั้นสูงอาจไม่ได้รับการสนับสนุนหรือถูกประมาณค่า ตรวจสอบตารางเอฟเฟกต์ที่สนับสนุนและทดสอบงานนำเสนอจริงก่อนการใช้งานจริง
+การส่งออกวิดีโอเรนเดอร์การเคลื่อนไหวแทนการเก็บพฤติกรรมเดิมของ PowerPoint. เอฟเฟกต์ขั้นสูงบางอย่างไม่รองรับหรือถูกประมาณค่า. ตรวจสอบตารางเอฟเฟกต์ที่รองรับและทดสอบงานนำเสนอจริงก่อนการใช้งานจริง.
 
-**การย้ายรูปร่างไปข้างหน้าหรือข้างหลังเปลี่ยนลำดับการเคลื่อนไหวหรือไม่?**
+**การย้ายรูปร่างไปข้างหน้าหรือข้างหลังส่งผลต่อลำดับการเคลื่อนไหวหรือไม่?**
 
-ไม่ การจัดลำดับ z‑order ของรูปร่างควบคุมการทับซ้อน ส่วนลำดับใน sequence และตัวกระตุ้นควบคุมการเล่นแอนิเมชัน หากต้องการลำดับการเล่นที่แตกต่างให้ปรับไทม์ไลน์**
+ไม่. การเรียงลำดับ z-order ของรูปร่างควบคุมการซ้อนกัน, ส่วนลำดับของซีเควนซ์และตัวกระตุ้นควบคุมการเล่นการเคลื่อนไหว. ให้ปรับไทม์ไลน์หากต้องการลำดับการเล่นที่แตกต่าง.

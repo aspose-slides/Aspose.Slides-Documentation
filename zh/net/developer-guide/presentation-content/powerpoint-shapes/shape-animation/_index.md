@@ -1,5 +1,5 @@
 ---
-title: 在 .NET 演示文稿中应用形状动画
+title: 在 .NET 中为演示文稿应用形状动画
 linktitle: 形状动画
 type: docs
 weight: 60
@@ -23,24 +23,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for .NET 添加、检查和自定义形状动画、时间设置、声音、动画后行为以及动画文本。"
+description: "了解如何使用 Aspose.Slides for .NET 添加、检查和自定义形状动画、时间设置、声音、动画结束后行为以及动画文本。"
 ---
 ## **概述**
 
-Aspose.Slides for .NET 将幻灯片动画表示为幻灯片时间轴中的效果。每个效果具有目标形状、动画类型和子类型、触发器、时间设置以及诸如声音或动画后行为等可选属性。
+要在效果内部处理各个行为或编辑运动路径段，请参阅[自定义动画](/slides/zh/net/custom-animation/)。
 
-时间轴包含两种序列：
+Aspose.Slides for .NET 将幻灯片动画表示为幻灯片时间轴中的效果。每个效果拥有目标形状、动画类型和子类型、触发器、时间设置以及可选属性（如声音或动画结束后的行为）。
+
+时间轴包含两类序列：
 
 - **主序列** 在幻灯片前进时播放。
 - **交互序列** 在其触发形状被点击时启动。
 
-由于文本框、图片、图表、表格和其他幻灯片对象实现了 [IShape](https://reference.aspose.com/slides/zh/net/aspose.slides/ishape/)，您可以对大多数幻灯片内容使用相同的 [ISequence.AddEffect](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/isequence/addeffect/) 方法。可用的效果列在 [EffectType](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/effecttype/) 枚举中。
+由于文本框、图片、图表、表格和其他幻灯片对象实现了[IShape](https://reference.aspose.com/slides/zh/net/aspose.slides/ishape/)，您可以对大多数幻灯片内容使用相同的[ISequence.AddEffect](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/isequence/addeffect/) 方法。可用的效果列在[EffectType](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/effecttype/) 枚举中。
 
 ## **添加形状动画**
 
-要添加动画，请获取幻灯片的主序列并调用 [ISequence.AddEffect](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/isequence/addeffect/)，提供目标形状、效果类型、子类型和触发器。若要在另一形状被点击时启动效果，请创建触发器为该形状的交互序列。
+要添加动画，获取幻灯片的主序列并调用[ISequence.AddEffect](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/isequence/addeffect/) ，传入目标形状、效果类型、子类型和触发器。对于在点击其他形状时启动的效果，请创建一个触发器为该其他形状的交互序列。
 
-以下示例创建两种类型的动画并将结果保存为 `shape-animations.pptx`。
+下面的示例创建了两种类型的动画并将结果保存为 `shape-animations.pptx`。
 
 ```csharp
 using Aspose.Slides;
@@ -72,13 +74,13 @@ presentation.Save("shape-animations.pptx", SaveFormat.Pptx);
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/effecttriggertype/) 与前一个效果同时开始。
 - [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/effecttriggertype/) 在前一个效果完成后开始。
 
-要为图片、图表或其他形状类型添加动画，请将该对象传递给 [ISequence.AddEffect](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/isequence/addeffect/) 而不是 `targetShape`。有关图表特定的分组选项，请参阅 [Animated Charts](/slides/zh/net/animated-charts/)。
+要为图片、图表或其他形状类型添加动画，请将该对象传递给[ISequence.AddEffect](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/isequence/addeffect/) 而不是 `targetShape`。有关图表特定的分组选项，请参阅[动画图表](/slides/zh/net/animated-charts/)。
 
 ## **读取形状动画**
 
-当已知目标形状时，使用 [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/isequence/geteffectsbyshape/)。若要检查每个效果，请枚举主序列和所有交互序列。枚举可避免假设序列在索引 `0` 处包含效果。
+当您已知目标形状时，请使用[ISequence.GetEffectsByShape](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/isequence/geteffectsbyshape/)。若要检查每个效果，请枚举主序列和所有交互序列。枚举可以避免假设序列在索引 `0` 处一定有效果。
 
-以下示例创建一个具有主序列和交互效果的形状，获取针对该形状的效果，然后枚举幻灯片上的每个序列。
+下面的示例创建了带有主序列和交互效果的形状，获取针对该形状的效果，然后枚举幻灯片上的每个序列。
 
 ```csharp
 using System;
@@ -126,21 +128,21 @@ static void PrintSequence(string label, ISequence sequence)
 }
 ```
 
-如果仅需要单个形状的效果，请先通过名称、占位符类型或其他稳定属性识别该形状；然后调用 [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/isequence/geteffectsbyshape/)。不要假设索引 `0` 处的 [IShapeCollection.Item](https://reference.aspose.com/slides/zh/net/aspose.slides/ishapecollection/item/) 总是目标对象。
+如果只需要单个形状的效果，请先通过名称、占位符类型或其他稳定属性确定该形状；然后调用[ISequence.GetEffectsByShape](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/isequence/geteffectsbyshape/)。不要假设[IShapeCollection.Item](https://reference.aspose.com/slides/zh/net/aspose.slides/ishapecollection/item/) 在索引 `0` 处始终是目标对象。
 
 ## **处理继承的占位符效果**
 
-普通幻灯片上的占位符可以继承其版面幻灯片和母版幻灯片上对应占位符的动画行为。[IShape.GetBasePlaceholder](https://reference.aspose.com/slides/zh/net/aspose.slides/ishape/getbaseplaceholder/) 返回该父占位符，如果不存在父占位符则返回 `null`。
+普通幻灯片上的占位符可以继承其版式幻灯片和母版幻灯片上对应占位符的动画行为。[IShape.GetBasePlaceholder](https://reference.aspose.com/slides/zh/net/aspose.slides/ishape/getbaseplaceholder/) 返回该父占位符，如果不存在父占位符则返回 `null`。
 
-在以下示例演示文稿中，页脚在普通幻灯片上使用 **Random Bars**，在版面幻灯片上使用 **Split**，在母版幻灯片上使用 **Fly In**。
+在下面的示例演示文稿中，页脚在普通幻灯片上使用 **Random Bars**，在版式幻灯片上使用 **Split**，在母版幻灯片上使用 **Fly In**。
 
 ![普通幻灯片上的页脚动画效果](slide-shape-animation.png)
 
-![版面幻灯片上页脚占位符的动画效果](layout-shape-animation.png)
+![版式幻灯片上的页脚占位符动画效果](layout-shape-animation.png)
 
-![母版幻灯片上页脚占位符的动画效果](master-shape-animation.png)
+![母版幻灯片上的页脚占位符动画效果](master-shape-animation.png)
 
-下面的示例自行构建占位符层次结构。它向母版占位符、版面占位符以及普通幻灯片上的对应占位符添加效果。每次调用 [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/zh/net/aspose.slides/ishape/getbaseplaceholder/) 前都会检查返回的形状是否为 null。
+下一个示例自行构建占位符层级。它向母版占位符、版式占位符以及普通幻灯片上的对应占位符添加效果。在使用返回的形状之前，会检查每次调用[IShape.GetBasePlaceholder](https://reference.aspose.com/slides/zh/net/aspose.slides/ishape/getbaseplaceholder/) 的结果。
 
 ```csharp
 using System;
@@ -209,19 +211,19 @@ static void PrintEffects(string source, IEffect[] effects)
 }
 ```
 
-## **更改动画时间**
+## **更改动画时间设置**
 
-PowerPoint **Timing** 对话框对应 [ITiming](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/) 的属性。
+PowerPoint **Timing** 对话框对应[ITiming](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/) 的属性。
 
-![动画效果的 PowerPoint 时间设置对话框](shape-animation.png)
+![动画效果的 PowerPoint Timing 对话框](shape-animation.png)
 
-- **Start** 对应 [ITiming.TriggerType](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/triggertype/)。
-- **Duration** 对应 [ITiming.Duration](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/duration/)（以秒为单位）。
-- **Delay** 对应 [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/triggerdelaytime/)（以秒为单位）。
-- **Repeat** 对应 [ITiming.RepeatCount](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/repeatcount/)、[ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/repeatuntilnextclick/) 或 [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/repeatuntilendslide/)。
-- **Rewind when done playing** 对应 [ITiming.Rewind](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/rewind/)。
+- **Start** 对应[ITiming.TriggerType](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/triggertype/)。
+- **Duration** 对应[ITiming.Duration](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/duration/)，单位为秒。
+- **Delay** 对应[ITiming.TriggerDelayTime](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/triggerdelaytime/)，单位为秒。
+- **Repeat** 对应[ITiming.RepeatCount](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/repeatcount/)、[ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/repeatuntilnextclick/) 或[ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/repeatuntilendslide/)。
+- **Rewind when done playing** 对应[ITiming.Rewind](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/rewind/)。
 
-此独立示例添加一个效果，通过 [ISequence.AddEffect](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/isequence/addeffect/) 返回的对象修改其时间设置，并保存结果。保留返回的 [IEffect](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/ieffect/) 引用可避免不必要的集合索引。
+此独立示例添加一个效果，通过[ISequence.AddEffect](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/isequence/addeffect/) 返回的对象更改其时间设置，并保存结果。保留返回的[IEffect](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/ieffect/) 引用可避免不必要的集合索引。
 
 ```csharp
 using Aspose.Slides;
@@ -245,15 +247,15 @@ effect.Timing.Rewind = true;
 presentation.Save("shape-animation-timing.pptx", SaveFormat.Pptx);
 ```
 
-请有目的地使用单一的重复模式。将重复计数与 "until" 标志组合使用可能在不同的查看器中产生混乱的结果。更改重复模式时，请先设置 [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/repeatuntilnextclick/) 和 [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/repeatuntilendslide/)，再设置 [ITiming.RepeatCount](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/repeatcount/)，因为设置任意标志都会改变当前的重复模式。
+有意使用一种重复模式。将重复计数与 “until” 标志组合可能在不同的查看器中产生混乱的结果。更改重复模式时，请先设置[ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/repeatuntilnextclick/) 和[ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/repeatuntilendslide/)，再设置[ITiming.RepeatCount](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itiming/repeatcount/)，因为设置任一标志都会改变活动的重复模式。
 
 ## **添加和提取动画声音**
 
-动画效果可以通过 [IEffect.Sound](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/ieffect/sound/) 引用嵌入的音频。[IEffect.StopPreviousSound](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/ieffect/stopprevioussound/) 用于指示效果停止先前效果启动的音频。
+动画效果可以通过[IEffect.Sound](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/ieffect/sound/) 引用嵌入的音频。[IEffect.StopPreviousSound](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/ieffect/stopprevioussound/) 用于指示效果停止先前效果启动的音频。
 
 ### **向效果添加声音**
 
-以下示例假设本地存在名为 `animation-sound.wav` 的音频文件。它创建两个效果，将该文件嵌入为第一个效果的声音，并配置第二个效果停止该声音。它使用 [ISequence.AddEffect](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/isequence/addeffect/) 返回的对象，无需序列索引。
+下面的示例假设本地存在名为 `animation-sound.wav` 的音频文件。它创建两个效果，将该文件嵌入为第一个效果的声音，并将第二个效果配置为停止该声音。它使用[ISequence.AddEffect](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/isequence/addeffect/) 返回的对象，因此不需要序列索引。
 
 ```csharp
 using System.IO;
@@ -282,7 +284,7 @@ presentation.Save("shape-animation-sound.pptx", SaveFormat.Pptx);
 
 ### **提取嵌入的效果声音**
 
-以下示例假设本地存在名为 `presentation-with-animation-sounds.pptx` 的演示文稿。它扫描主序列和交互序列，并将每个嵌入的效果声音写入 `extracted-animation-sounds` 目录。文件扩展名根据 [IAudio.ContentType](https://reference.aspose.com/slides/zh/net/aspose.slides/iaudio/contenttype/) 暴露的音频 MIME 类型选择。
+下面的示例假设本地存在名为 `presentation-with-animation-sounds.pptx` 的演示文稿。它扫描主序列和交互序列，并将每个嵌入的效果声音写入 `extracted-animation-sounds` 目录。文件扩展名根据[IAudio.ContentType](https://reference.aspose.com/slides/zh/net/aspose.slides/iaudio/contenttype/) 暴露的音频 MIME 类型选择。
 
 ```csharp
 using System;
@@ -344,17 +346,17 @@ static string GetAudioExtension(string contentType)
 }
 ```
 
-对于大型音频对象，使用 [IAudio.GetStream](https://reference.aspose.com/slides/zh/net/aspose.slides/iaudio/getstream/) 并将流复制到文件，而不是将整个对象加载到字节数组中。
+对于大型音频对象，请使用[IAudio.GetStream](https://reference.aspose.com/slides/zh/net/aspose.slides/iaudio/getstream/) 将流复制到文件，而不是将整个对象加载到字节数组中。
 
-## **设置动画后行为**
+## **设置动画结束后的行为**
 
-**After animation** 选项控制效果完成后形状的处理方式。
+**After animation** 选项控制形状在其效果完成后会发生什么。
 
 ![PowerPoint 效果选项对话框显示“After animation”设置](shape-after-animation.png)
 
-[AfterAnimationType](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/afteranimationtype/) 枚举支持保持形状不变、更改其颜色、动画结束后隐藏形状或在下一次点击时隐藏形状。当类型为 [AfterAnimationType.Color](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/afteranimationtype/) 时，还需设置 [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/ieffect/afteranimationcolor/)。
+[AfterAnimationType](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/afteranimationtype/) 枚举支持保持形状不变、改变其颜色、在动画后隐藏，或在下一次点击时隐藏。若类型为 [AfterAnimationType.Color](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/afteranimationtype/)，还需设置 [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/ieffect/afteranimationcolor/)。
 
-此独立示例创建一个效果，通过返回的效果对象设置其动画后行为，并保存结果。
+此独立示例创建一个效果，通过返回的效果对象设置其动画结束后行为，并保存结果。
 
 ```csharp
 using System.Drawing;
@@ -374,16 +376,16 @@ effect.AfterAnimationColor.Color = Color.LightGray;
 presentation.Save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
 ```
 
-将类型从 [AfterAnimationType.Color](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/afteranimationtype/) 改为其他值会清除动画后的颜色设置。
+将类型从 [AfterAnimationType.Color](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/afteranimationtype/) 更改为其他值时，会清除动画结束后颜色的设置。
 
-## **动画文字**
+## **文本动画**
 
-文字动画有两个相关控制：
+文本动画有两个相关控制：
 
-- [ITextAnimation.BuildType](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itextanimation/buildtype/) 控制段落是整体出现还是逐段出现。
-- [IEffect.AnimateTextType](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/ieffect/animatetexttype/) 控制文字是一次性出现、按单词还是按字母出现。[IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/ieffect/delaybetweentextparts/) 设置单词或字母之间的延迟。正值表示效果持续时间的百分比，负值表示以秒为单位的延迟。
+- [ITextAnimation.BuildType](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/itextanimation/buildtype/) 控制段落是一次性出现还是按段落层级出现。
+- [IEffect.AnimateTextType](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/ieffect/animatetexttype/) 控制文本是一次性出现、按单词还是按字母出现。[IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/ieffect/delaybetweentextparts/) 设置单词或字母之间的延迟。正值表示效果时长的百分比，负值表示秒数延迟。
 
-以下独立示例对文本框中的单词进行动画。[BuildType.AsOneObject](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/buildtype/) 禁用逐段构建，使单词设置适用于整个文本框。
+下面的独立示例为文本框中的单词添加动画。[BuildType.AsOneObject](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/buildtype/) 禁用按段落构建，使单词设置适用于整个文本框。
 
 ```csharp
 using Aspose.Slides;
@@ -403,26 +405,26 @@ effect.DelayBetweenTextParts = 20.0f;
 presentation.Save("animated-text.pptx", SaveFormat.Pptx);
 ```
 
-若要按段落构建文本框，请设置 [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/buildtype/)（或其他段落级别）。若要为单个段落使用独立效果，请使用接受 [IParagraph](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraph/) 的 [ISequence.AddEffect](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/isequence/addeffect/) 重载。段落级别示例请参阅 [Animated Text](/slides/zh/net/animated-text/)。
+若要按段落构建文本框，请设置 [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/buildtype/)（或其他段落层级）。若要为单个段落单独设置效果，请使用接受[IParagraph](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraph/) 的[ISequence.AddEffect](https://reference.aspose.com/slides/zh/net/aspose.slides.animation/isequence/addeffect/) 重载。有关段落级示例，请参阅[动画文本](/slides/zh/net/animated-text/)。
 
-## **导出与兼容性说明**
+## **导出和兼容性说明**
 
 - 保存为 PPT 或 PPTX 会保留动画模型，但最终播放由演示文稿查看器控制。
-- PDF 和静态图像不会播放动画。当输出必须显示动画时，请使用 [HTML5 export](/slides/zh/net/export-to-html5/)、动画 GIF 或 [video conversion](/slides/zh/net/convert-powerpoint-to-video/)。
-- 对于 HTML5，启用 [Html5Options.AnimateShapes](https://reference.aspose.com/slides/zh/net/aspose.slides.export/html5options/animateshapes/)，并在需要时启用 [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/zh/net/aspose.slides.export/html5options/animatetransitions/)。
-- 视频渲染支持许多常见的进入、强调、退出和路径动画，但并非所有 PowerPoint 动画都受支持。请检查当前的 [supported animations and effects](/slides/zh/net/convert-powerpoint-to-video/#supported-animations-and-effects)，并在目标 Aspose.Slides 版本下测试关键演示文稿。
-- 高级自定义效果以及从其他演示格式导入的效果可能会保留在文件中，但在 PowerPoint、HTML5 或视频中呈现方式不同。请验证导出结果，而不是仅依赖效果名称。
+- PDF 和静态图像不播放动画。需要显示运动时请使用[HTML5 导出](/slides/zh/net/export-to-html5/)、动画 GIF 或[视频转换](/slides/zh/net/convert-powerpoint-to-video/)。
+- 对于 HTML5，请启用[Html5Options.AnimateShapes](https://reference.aspose.com/slides/zh/net/aspose.slides.export/html5options/animateshapes/)，必要时再启用[Html5Options.AnimateTransitions](https://reference.aspose.com/slides/zh/net/aspose.slides.export/html5options/animatetransitions/)。
+- 视频渲染支持许多常见的进入、强调、退出和运动路径效果，但并非所有 PowerPoint 效果都受支持。请检查当前的[受支持动画和效果](/slides/zh/net/convert-powerpoint-to-video/#supported-animations-and-effects) 并使用目标 Aspose.Slides 版本对关键演示文稿进行测试。
+- 高级自定义效果以及从其他演示文稿格式导入的效果可能在文件中被保留，但在 PowerPoint、HTML5 或视频中呈现方式不同。请验证导出结果，而不仅仅依赖于效果名称。
 
 ## **常见问题**
 
-**为什么动画在 PowerPoint 中出现而在 PDF 中不出现？**
+**为什么动画在 PowerPoint 中显示，但在 PDF 中不显示？**
 
-PDF 是静态格式，动画和幻灯片切换不会播放。需要保留动画时，请导出为 HTML5、动画 GIF 或视频。
+PDF 是静态格式，动画和幻灯片切换不会播放。需要保留运动时请导出为 HTML5、动画 GIF 或视频。
 
-**为什么效果在视频中播放不同？**
+**为什么同一效果在视频中播放效果不同？**
 
-视频导出会渲染动画，而不是存储原始 PowerPoint 行为。某些高级效果不受支持或被近似。请查看支持的效果表，并在投入生产前测试实际演示文稿。
+视频导出会渲染动画，而不是保存原始 PowerPoint 行为。一些高级效果不受支持或被近似处理。请查看受支持的效果表并在实际使用前对演示文稿进行测试。
 
-**移动形状的前后顺序会改变它的动画顺序吗？**
+**移动形状的前置或后置会改变其动画顺序吗？**
 
-不会。形状的 Z 顺序控制重叠，序列顺序和触发器控制动画播放。如果需要不同的播放顺序，请更改时间轴。
+不会。形状的 Z 顺序控制覆盖关系，序列顺序和触发器控制动画播放顺序。如需更改播放顺序，请修改时间轴。

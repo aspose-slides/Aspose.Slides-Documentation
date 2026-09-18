@@ -8,8 +8,8 @@ keywords:
 - bentuk
 - animasi
 - efek
-- bentuk animasi
-- teks animasi
+- bentuk yang dianimasikan
+- teks yang dianimasikan
 - tambahkan animasi
 - dapatkan animasi
 - ekstrak animasi
@@ -23,22 +23,24 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Pelajari cara menambahkan, memeriksa, dan menyesuaikan animasi bentuk, pengaturan waktu, suara, perilaku setelah animasi, serta teks animasi dengan Aspose.Slides untuk Node.js via Java."
+description: "Pelajari cara menambahkan, memeriksa, dan menyesuaikan animasi bentuk, pengaturan waktu, suara, perilaku setelah animasi, serta teks yang dianimasikan dengan Aspose.Slides untuk Node.js via Java."
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides for Node.js via Java merepresentasikan animasi slide sebagai efek dalam timeline slide. Sebuah efek memiliki shape target, tipe animasi dan subtipe, pemicu, pengaturan waktu, serta properti opsional seperti suara atau perilaku setelah animasi.
+Untuk bekerja dengan perilaku individu di dalam efek atau mengedit segmen jalur‑gerak, lihat [Custom Animation](/slides/id/nodejs-java/custom-animation/).
+
+Aspose.Slides untuk Node.js via Java merepresentasikan animasi slide sebagai efek dalam timeline slide. Sebuah efek memiliki bentuk target, jenis animasi dan subtipe, pemicu, pengaturan waktu, dan properti opsional seperti suara atau perilaku setelah animasi.
 
 Timeline berisi dua jenis urutan:
 
-- **urutan utama** dimainkan saat slide maju.
-- **urutan interaktif** dimulai ketika shape pemicunya diklik.
+- **urutan utama** diputar saat slide maju.
+- **urutan interaktif** dimulai ketika bentuk pemicunya diklik.
 
-Karena kotak teks, gambar, diagram, tabel, dan objek slide lainnya adalah objek [Shape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/) , Anda menggunakan metode yang sama [Sequence.addEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sequence/#addEffect) untuk kebanyakan konten slide. Efek yang tersedia tercantum dalam enumerasi [EffectType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effecttype/) .
+Karena kotak teks, gambar, diagram, tabel, dan objek slide lainnya adalah objek [Shape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/), Anda menggunakan metode [Sequence.addEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sequence/#addEffect) yang sama untuk kebanyakan konten slide. Efek yang tersedia terdaftar dalam enumerasi [EffectType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effecttype/).
 
-## **Menambahkan Animasi Shape**
+## **Tambah Animasi Bentuk**
 
-Untuk menambahkan animasi, dapatkan urutan utama slide dan panggil [Sequence.addEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sequence/#addEffect) dengan shape target, tipe efek, subtipe, dan pemicu. Untuk efek yang dimulai ketika shape lain diklik, buat urutan interaktif yang pemicunya adalah shape tersebut.
+Untuk menambahkan animasi, dapatkan urutan utama slide dan panggil [Sequence.addEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sequence/#addEffect) dengan bentuk target, jenis efek, subtipe, dan pemicu. Untuk efek yang dimulai ketika bentuk lain diklik, buat urutan interaktif yang pemicunya adalah bentuk lain tersebut.
 
 Contoh berikut membuat kedua jenis animasi dan menyimpan hasilnya ke `shape-animations.pptx`.
 
@@ -71,17 +73,17 @@ try {
 
 Pemicu mengontrol kapan efek dimulai:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effecttriggertype/#OnClick) menunggu klik di urutan utama, atau klik pada shape pemicu di urutan interaktif.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effecttriggertype/#OnClick) menunggu klik pada urutan utama, atau klik pada bentuk pemicu dalam urutan interaktif.
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) dimulai bersamaan dengan efek sebelumnya.
 - [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) dimulai ketika efek sebelumnya selesai.
 
-Untuk menganimasikan gambar, diagram, atau tipe shape lain, berikan objek tersebut ke [Sequence.addEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sequence/#addEffect) alih-alih `targetShape`. Untuk opsi pengelompokan khusus diagram, lihat [Animated Charts](/slides/id/nodejs-java/animated-charts/) .
+Untuk menganimasikan gambar, diagram, atau tipe bentuk lainnya, berikan objek tersebut ke [Sequence.addEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sequence/#addEffect) alih‑alih `targetShape`. Untuk opsi pengelompokan khusus diagram, lihat [Animated Charts](/slides/id/nodejs-java/animated-charts/).
 
-## **Membaca Animasi Shape**
+## **Baca Animasi Bentuk**
 
-Gunakan [Sequence.getEffectsByShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sequence/#getEffectsByShape) ketika Anda mengetahui shape target. Untuk memeriksa setiap efek, enumerasikan urutan utama dan setiap urutan interaktif. Enumerasi menghindari asumsi bahwa urutan berisi efek pada indeks `0`.
+Gunakan [Sequence.getEffectsByShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sequence/#getEffectsByShape) ketika Anda mengetahui bentuk target. Untuk memeriksa setiap efek, iterasi urutan utama dan setiap urutan interaktif. Enumerasi menghindari asumsi bahwa suatu urutan berisi efek pada indeks `0`.
 
-Contoh berikut membuat sebuah shape dengan efek urutan utama dan interaktif, mendapatkan efek yang menargetkan shape tersebut, lalu mengenumerasikan setiap urutan pada slide.
+Contoh berikut membuat sebuah bentuk dengan efek urutan‑utama dan interaktif, mengambil efek yang menargetkan bentuk tersebut, lalu mengiterasi setiap urutan pada slide.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -140,11 +142,11 @@ try {
 }
 ```
 
-Jika Anda hanya memerlukan efek untuk satu shape, pertama identifikasi shape tersebut berdasarkan nama, tipe placeholder, atau properti stabil lainnya; lalu panggil [Sequence.getEffectsByShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sequence/#getEffectsByShape). Jangan mengasumsikan bahwa [ShapeCollection.get_Item](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapecollection/#get_Item) pada indeks `0` selalu merupakan objek yang dimaksud.
+Jika Anda hanya memerlukan efek untuk satu bentuk, pertama identifikasi bentuk tersebut berdasarkan nama, tipe placeholder, atau properti stabil lainnya; kemudian panggil [Sequence.getEffectsByShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sequence/#getEffectsByShape). Jangan mengasumsikan bahwa [ShapeCollection.get_Item](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapecollection/#get_Item) pada indeks `0` selalu merupakan objek yang dimaksud.
 
-## **Bekerja dengan Efek Placeholder yang Diwarisi**
+## **Bekerja dengan Efek Placeholder yang Ditarik**
 
-Sebuah placeholder pada slide normal dapat mewarisi perilaku animasi dari placeholder yang bersesuaian pada slide tata letak dan master. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/#getBasePlaceholder) mengembalikan placeholder induk tersebut, atau `null` bila tidak ada induk.
+Placeholder pada slide normal dapat mewarisi perilaku animasi dari placeholder yang sesuai pada slide tata letak dan slide master. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/#getBasePlaceholder) mengembalikan placeholder induk tersebut, atau `null` bila tidak ada induk.
 
 Pada presentasi contoh berikut, footer memiliki **Random Bars** pada slide normal, **Split** pada slide tata letak, dan **Fly In** pada slide master.
 
@@ -154,7 +156,7 @@ Pada presentasi contoh berikut, footer memiliki **Random Bars** pada slide norma
 
 ![Efek animasi placeholder footer pada slide master](master-shape-animation.png)
 
-Contoh berikutnya menggunakan hierarki placeholder dari presentasi baru. Ia menambahkan efek ke placeholder master, placeholder tata letak, dan placeholder yang bersesuaian pada slide normal. Setiap pemanggilan [Shape.getBasePlaceholder](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/#getBasePlaceholder) diperiksa sebelum shape yang dikembalikan digunakan.
+Contoh berikut menggunakan hirarki placeholder dari presentasi baru. Ia menambahkan efek ke placeholder master, placeholder tata letak, dan placeholder yang bersesuaian pada slide normal. Setiap pemanggilan [Shape.getBasePlaceholder](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/#getBasePlaceholder) diperiksa sebelum bentuk yang dikembalikan digunakan.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -238,19 +240,19 @@ try {
 }
 ```
 
-## **Mengubah Pengaturan Waktu Animasi**
+## **Ubah Waktu Animasi**
 
-Dialog **Timing** di PowerPoint dipetakan ke properti [Timing](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/) .
+Dialog **Timing** PowerPoint dipetakan ke properti [Timing](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/).
 
-![Dialog Timing PowerPoint untuk sebuah efek animasi](shape-animation.png)
+![Dialog Timing PowerPoint untuk efek animasi](shape-animation.png)
 
-- **Start** dipetakan ke [Timing.getTriggerType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#getTriggerType) .
-- **Duration** dipetakan ke [Timing.getDuration](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#getDuration) , dalam detik.
-- **Delay** dipetakan ke [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#getTriggerDelayTime) , dalam detik.
-- **Repeat** dipetakan ke [Timing.getRepeatCount](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#getRepeatCount) , [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) , atau [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide) .
-- **Rewind when done playing** dipetakan ke [Timing.getRewind](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#getRewind) .
+- **Start** dipetakan ke [Timing.getTriggerType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#getTriggerType).
+- **Duration** dipetakan ke [Timing.getDuration](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#getDuration), dalam detik.
+- **Delay** dipetakan ke [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#getTriggerDelayTime), dalam detik.
+- **Repeat** dipetakan ke [Timing.getRepeatCount](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick), atau [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide).
+- **Rewind when done playing** dipetakan ke [Timing.getRewind](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#getRewind).
 
-Contoh independen ini menambahkan sebuah efek, mengubah pengaturannya melalui objek yang dikembalikan oleh [Sequence.addEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sequence/#addEffect) , dan menyimpan hasilnya. Menyimpan referensi [Effect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effect/) yang dikembalikan menghindari kebutuhan indeks koleksi yang tidak perlu.
+Contoh independen ini menambahkan sebuah efek, mengubah waktunya melalui objek yang dikembalikan oleh [Sequence.addEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sequence/#addEffect), dan menyimpan hasilnya. Menyimpan referensi [Effect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effect/) yang dikembalikan menghindari penggunaan indeks koleksi yang tidak perlu.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -277,15 +279,15 @@ try {
 }
 ```
 
-Gunakan satu mode pengulangan secara sengaja. Menggabungkan hitungan pengulangan dengan flag “until” dapat menghasilkan hasil yang membingungkan pada penampil yang berbeda. Saat mengubah mode pengulangan, setel [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) dan [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) **sebelum** [Timing.setRepeatCount](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#setRepeatCount) , karena menyetel salah satu flag juga mengubah mode pengulangan yang aktif.
+Gunakan satu mode pengulangan secara sengaja. Menggabungkan hitungan pengulangan dengan flag “until” dapat menghasilkan hasil yang membingungkan pada pemutar yang berbeda. Saat mengubah mode pengulangan, setel [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) dan [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) sebelum [Timing.setRepeatCount](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/timing/#setRepeatCount), karena menyetel salah satu flag juga mengubah mode pengulangan aktif.
 
-## **Menambahkan dan Mengekstrak Suara Animasi**
+## **Tambah dan Ekstrak Suara Animasi**
 
-Sebuah efek animasi dapat merujuk ke audio tersemat melalui [Effect.getSound](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effect/#getSound) . [Effect.setStopPreviousSound](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effect/#setStopPreviousSound) memberi tahu efek untuk menghentikan audio yang dimulai oleh efek sebelumnya.
+Sebuah efek animasi dapat merujuk audio tersemat melalui [Effect.getSound](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effect/#setStopPreviousSound) memberi tahu efek untuk menghentikan audio yang dimulai oleh efek sebelumnya.
 
-### **Menambahkan Suara ke Efek**
+### **Tambah Suara ke Efek**
 
-Contoh berikut mengharapkan file audio lokal bernama `animation-sound.wav`. Ia membuat dua efek, menanamkan file tersebut sebagai suara untuk efek pertama, dan mengonfigurasi efek kedua untuk menghentikan suara. Ia menggunakan objek yang dikembalikan oleh [Sequence.addEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sequence/#addEffect) , sehingga tidak diperlukan indeks urutan.
+Contoh berikut mengharapkan file audio lokal bernama `animation-sound.wav`. Ia membuat dua efek, menyematkan file tersebut sebagai suara untuk efek pertama, dan mengonfigurasi efek kedua untuk menghentikan suara. Ia menggunakan objek yang dikembalikan oleh [Sequence.addEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sequence/#addEffect), sehingga tidak memerlukan indeks urutan.
 
 ```javascript
 const fs = require("fs");
@@ -315,9 +317,9 @@ try {
 }
 ```
 
-### **Mengekstrak Suara Efek yang Tersemat**
+### **Ekstrak Suara Efek Tersemat**
 
-Contoh berikut mengharapkan sebuah presentasi lokal bernama `presentation-with-animation-sounds.pptx`. Ia memindai urutan utama dan interaktif serta menulis setiap suara efek yang tersemat ke direktori `extracted-animation-sounds`. Ekstensi dipilih berdasarkan tipe MIME audio yang diberikan oleh [Audio.getContentType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/audio/#getContentType) .
+Contoh berikut mengharapkan presentasi lokal bernama `presentation-with-animation-sounds.pptx`. Ia memindai baik urutan utama maupun interaktif dan menulis setiap suara efek tersemat ke direktori `extracted-animation-sounds`. Ekstensi dipilih dari tipe MIME audio yang diberikan oleh [Audio.getContentType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/audio/#getContentType).
 
 ```javascript
 const fs = require("fs");
@@ -386,17 +388,17 @@ try {
 }
 ```
 
-Untuk objek audio berukuran besar, gunakan [Audio.getStream](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/audio/#getStream) dan salin stream ke file alih-alih memuat seluruh objek ke dalam array byte.
+Untuk objek audio berukuran besar, gunakan [Audio.getStream](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/audio/#getStream) dan salin aliran ke file alih‑alih memuat seluruh objek ke dalam array byte.
 
-## **Menetapkan Perilaku Setelah Animasi**
+## **Setel Perilaku Setelah Animasi**
 
-Opsi **After animation** mengontrol apa yang terjadi pada shape setelah efeknya selesai.
+Opsi **After animation** mengontrol apa yang terjadi pada bentuk setelah efek selesai.
 
 ![Dialog Opsi Efek PowerPoint menampilkan pengaturan After animation](shape-after-animation.png)
 
-Enumerasi [AfterAnimationType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/afteranimationtype/) mendukung meninggalkan shape tidak berubah, mengubah warnanya, menyembunyikannya setelah animasi, atau menyembunyikannya pada klik berikutnya. Ketika tipe adalah [AfterAnimationType.Color](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/afteranimationtype/#Color) , setel juga [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effect/#getAfterAnimationColor) .
+Enumerasi [AfterAnimationType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/afteranimationtype/) mendukung membiarkan bentuk tidak berubah, mengubah warnanya, menyembunyikannya setelah animasi, atau menyembunyikannya pada klik berikutnya. Ketika tipe adalah [AfterAnimationType.Color](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/afteranimationtype/#Color), setel juga [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effect/#getAfterAnimationColor).
 
-Contoh independen ini membuat sebuah efek, menetapkan perilaku setelah animasi melalui objek efek yang dikembalikan, dan menyimpan hasilnya.
+Contoh independen ini membuat efek, menyetel perilaku setelah‑animasi melalui objek efek yang dikembalikan, dan menyimpan hasilnya.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -420,14 +422,14 @@ try {
 
 Mengubah tipe dari [AfterAnimationType.Color](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/afteranimationtype/#Color) menghapus pengaturan warna after‑animation.
 
-## **Menganimasikan Teks**
+## **Animasi Teks**
 
 Animasi teks memiliki dua kontrol terkait:
 
-- [TextAnimation.getBuildType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textanimation/#getBuildType) mengontrol apakah paragraf muncul secara bersamaan atau per tingkat paragraf.
-- [Effect.getAnimateTextType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effect/#getAnimateTextType) mengontrol apakah teks muncul sekaligus, per kata, atau per huruf. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) menetapkan jeda antar kata atau huruf. Nilai positif adalah persentase dari durasi efek; nilai negatif adalah jeda dalam detik.
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textanimation/#getBuildType) mengontrol apakah paragraf muncul bersamaan atau per tingkat paragraf.
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effect/#getAnimateTextType) mengontrol apakah teks muncul sekaligus, per kata, atau per huruf. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) mengatur penundaan antara kata atau huruf. Nilai positif adalah persentase durasi efek; nilai negatif adalah penundaan dalam detik.
 
-Contoh independen berikut menganimasikan kata‑kata dalam sebuah kotak teks. [BuildType.AsOneObject](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/buildtype/#AsOneObject) menonaktifkan pembangunan paragraf‑per‑paragraf sehingga pengaturan kata berlaku untuk seluruh bingkai teks.
+Contoh independen berikut menganimasikan kata‑kata dalam kotak teks. [BuildType.AsOneObject](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/buildtype/#AsOneObject) menonaktifkan pembangunan per paragraf sehingga pengaturan kata berlaku untuk seluruh bingkai teks.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -450,26 +452,26 @@ try {
 }
 ```
 
-Untuk membangun kotak teks per paragraf, setel [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (atau tingkat paragraf lain). Untuk menargetkan satu paragraf dengan efeknya sendiri, gunakan overload [Sequence.addEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sequence/#addEffect) yang menerima sebuah [Paragraph](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraph/) . Lihat [Animated Text](/slides/id/nodejs-java/animated-text/) untuk contoh tingkat paragraf.
+Untuk membangun kotak teks per paragraf, setel [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (atau tingkat paragraf lainnya). Untuk menargetkan satu paragraf dengan efeknya sendiri, gunakan overload [Sequence.addEffect](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/sequence/#addEffect) yang menerima [Paragraph](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/paragraph/). Lihat [Animated Text](/slides/id/nodejs-java/animated-text/) untuk contoh tingkat paragraf.
 
 ## **Ekspor dan Catatan Kompatibilitas**
 
-- Menyimpan ke PPT atau PPTX mempertahankan model animasi, tetapi pemutaran akhir dikendalikan oleh penampil presentasi.
-- PDF dan gambar statis tidak memutar animasi. Gunakan [HTML5 export](/slides/id/nodejs-java/export-to-html5/) , GIF animasi, atau [konversi video](/slides/id/nodejs-java/convert-powerpoint-to-video/) ketika output harus menampilkan gerakan.
-- Untuk HTML5, aktifkan [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/html5options/#setAnimateShapes) dan, bila diperlukan, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/html5options/#setAnimateTransitions) .
-- Rendering video mendukung banyak efek masuk, penekanan, keluar, dan jalur‑gerak umum, tetapi tidak semua efek PowerPoint didukung. Periksa halaman [supported animations and effects](/slides/id/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) yang terbaru dan uji presentasi kritis dengan versi Aspose.Slides Anda.
-- Efek khusus lanjutan dan efek yang diimpor dari format presentasi lain mungkin dipertahankan dalam berkas tetapi dirender secara berbeda di PowerPoint, HTML5, atau video. Validasi hasil ekspor daripada hanya mengandalkan nama efek.
+- Menyimpan ke PPT atau PPTX mempertahankan model animasi, tetapi pemutaran akhir dikontrol oleh penampil presentasi.
+- PDF dan gambar statis tidak memutar animasi. Gunakan [HTML5 export](/slides/id/nodejs-java/export-to-html5/), GIF animasi, atau [video conversion](/slides/id/nodejs-java/convert-powerpoint-to-video/) ketika output harus menampilkan gerakan.
+- Untuk HTML5, aktifkan [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/html5options/#setAnimateShapes) dan, bila diperlukan, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/html5options/#setAnimateTransitions).
+- Render video mendukung banyak efek masuk, penekanan, keluar, dan jalur‑gerak umum, tetapi tidak semua efek PowerPoint didukung. Periksa [supported animations and effects](/slides/id/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) terkini dan uji presentasi kritis dengan versi Aspose.Slides target Anda.
+- Efek khusus yang dibuat sendiri dan efek yang diimpor dari format presentasi lain mungkin dipertahankan dalam file tetapi dirender berbeda di PowerPoint, HTML5, atau video. Validasi hasil ekspor alih‑alih mengandalkan hanya nama efek.
 
 ## **FAQ**
 
 **Mengapa animasi muncul di PowerPoint tetapi tidak di PDF?**
 
-PDF adalah format statis, sehingga animasi dan transisi slide tidak diputar. Ekspor ke HTML5, GIF animasi, atau video bila gerakan harus dipertahankan.
+PDF adalah format statis, sehingga animasi dan transisi slide tidak diputar. Ekspor ke HTML5, GIF animasi, atau video ketika gerakan harus dipertahankan.
 
 **Mengapa sebuah efek diputar berbeda pada video?**
 
-Ekspor video merender animasi alih‑alih menyimpan perilaku PowerPoint asli. Beberapa efek lanjutan tidak didukung atau hanya diperkirakan. Tinjau tabel efek yang didukung dan uji presentasi aktual sebelum penggunaan produksi.
+Ekspor video merender animasi alih‑alih menyimpan perilaku asli PowerPoint. Beberapa efek lanjutan tidak didukung atau hanya diperkirakan. Tinjau tabel efek yang didukung dan uji presentasi sebenarnya sebelum penggunaan produksi.
 
-**Apakah memindahkan shape maju atau mundur mengubah urutan animasinya?**
+**Apakah memindahkan sebuah bentuk ke depan atau ke belakang mengubah urutan animasinya?**
 
-Tidak. Z‑order shape mengontrol tumpang tindih, sedangkan urutan urutan dan pemicu mengontrol pemutaran animasi. Ubah timeline bila Anda memerlukan urutan pemutaran yang berbeda.
+Tidak. Z‑order bentuk mengontrol tumpang‑tindih, sementara urutan urutan dan pemicu mengontrol pemutaran animasi. Ubah timeline jika Anda memerlukan urutan pemutaran yang berbeda.

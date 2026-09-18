@@ -1,5 +1,5 @@
 ---
-title: Python via Java を使用したプレゼンテーションでシェイプ アニメーションを適用する
+title: Python via Java を使用してプレゼンテーションにシェイプ アニメーションを適用する
 linktitle: シェイプ アニメーション
 type: docs
 weight: 60
@@ -7,40 +7,42 @@ url: /ja/python-java/shape-animation/
 keywords:
 - シェイプ
 - アニメーション
-- エフェクト
-- アニメーションシェイプ
-- アニメーションテキスト
-- アニメーションの追加
-- アニメーションの取得
-- アニメーションの抽出
-- エフェクトの追加
-- エフェクトの取得
-- エフェクトの抽出
-- エフェクトサウンド
-- アニメーションの適用
+- 効果
+- アニメーション シェイプ
+- アニメーション テキスト
+- アニメーションを追加
+- アニメーションを取得
+- アニメーションを抽出
+- 効果を追加
+- 効果を取得
+- 効果を抽出
+- 効果サウンド
+- アニメーションを適用
 - PowerPoint
 - プレゼンテーション
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java を使用して、シェイプ アニメーション、タイミング、サウンド、アフターアニメーション動作、アニメーションテキストの追加、検査、カスタマイズ方法を学びます。"
+description: "Aspose.Slides for Python via Java を使用して、シェイプ アニメーション、タイミング、サウンド、アフター アニメーション 動作、アニメーション テキストの追加、検査、カスタマイズ方法を学びます。"
 ---
 ## **概要**
 
-Aspose.Slides for Python via Java は、スライドアニメーションをスライドタイムライン上のエフェクトとして表現します。エフェクトは対象シェイプ、アニメーションの種類とサブタイプ、トリガー、タイミング設定、およびサウンドやアフターアニメーション動作などのオプションプロパティを持ちます。
+効果内の個々の動作を操作したり、モーションパス セグメントを編集したりするには、[カスタム アニメーション](/slides/ja/python-java/custom-animation/)をご覧ください。
 
-タイムラインには次の 2 種類のシーケンスがあります。
+Aspose.Slides for Python via Java は、スライド アニメーションをスライド タイムライン上の効果として表現します。効果には対象シェイプ、アニメーション タイプとサブタイプ、トリガー、タイミング設定、およびサウンドやアフター アニメーション 動作などのオプション プロパティがあります。
 
-- **メインシーケンス** はスライドが進行するにつれて再生されます。
-- **インタラクティブシーケンス** はトリガーシェイプがクリックされたときに開始します。
+タイムラインには 2 種類のシーケンスが含まれます。
 
-テキストボックス、画像、チャート、表、その他のスライドオブジェクトはすべて [Shape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/) から派生するため、ほとんどのスライドコンテンツに対して同じ [Sequence.addEffect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/sequence/#addEffect) メソッドを使用します。利用可能なエフェクトは [EffectType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effecttype/) クラスに一覧化されています。
+- **メインシーケンス** はスライドが進むと同時に再生されます。
+- **インタラクティブシーケンス** はトリガー シェイプがクリックされたときに開始します。
+
+テキスト ボックス、画像、チャート、表、その他のスライド オブジェクトはすべて [Shape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/) から派生するため、ほとんどのスライド コンテンツに対して同じ [Sequence.addEffect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/sequence/#addEffect) メソッドを使用します。利用可能な効果は [EffectType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effecttype/) クラスに一覧されています。
 
 ## **シェイプ アニメーションの追加**
 
-アニメーションを追加するには、スライドのメインシーケンスを取得し、対象シェイプ、エフェクトタイプ、サブタイプ、トリガーを指定して [Sequence.addEffect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/sequence/#addEffect) を呼び出します。他のシェイプがクリックされたときに開始するエフェクトの場合、そのシェイプをトリガーとしたインタラクティブシーケンスを作成します。
+アニメーションを追加するには、スライドのメインシーケンスを取得し、対象シェイプ、効果タイプ、サブタイプ、トリガーを指定して [Sequence.addEffect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/sequence/#addEffect) を呼び出します。別のシェイプをクリックしたときに開始する効果の場合、そのシェイプをトリガーとするインタラクティブシーケンスを作成します。
 
-以下のサンプルは 2 種類のアニメーションを作成し、結果を `shape-animations.pptx` に保存します。
+次の例は 2 種類のアニメーションを作成し、結果を `shape-animations.pptx` に保存します。
 
 ```python
 import jpype
@@ -73,22 +75,22 @@ finally:
     presentation.dispose()
 ```
 
-トリガーはエフェクト開始時期を制御します。
+トリガーは効果の開始タイミングを制御します。
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effecttriggertype/#OnClick) はメインシーケンスではクリック待ち、インタラクティブシーケンスではトリガーシェイプのクリック待ちです。
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effecttriggertype/#WithPrevious) は直前のエフェクトと同時に開始します。
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effecttriggertype/#AfterPrevious) は直前のエフェクトが終了したときに開始します。
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effecttriggertype/#OnClick) はメインシーケンスではクリックを待ち、インタラクティブシーケンスではトリガー シェイプのクリックを待ちます。
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effecttriggertype/#WithPrevious) は直前の効果と同時に開始します。
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effecttriggertype/#AfterPrevious) は直前の効果が完了したときに開始します。
 
-画像、チャート、その他のシェイプに対してアニメーションを付ける場合は、`target_shape` の代わりにそのオブジェクトを [Sequence.addEffect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/sequence/#addEffect) に渡します。チャート固有のグループ化オプションについては、[Animated Charts](/slides/ja/python-java/animated-charts/) を参照してください。
+画像、チャート、その他のシェイプ タイプをアニメーション化するには、`target_shape` の代わりに該当オブジェクトを [Sequence.addEffect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/sequence/#addEffect) に渡します。チャート固有のグループ化オプションについては、[Animated Charts](/slides/ja/python-java/animated-charts/) を参照してください。
 
 ## **シェイプ アニメーションの取得**
 
-対象シェイプが分かっている場合は、[Sequence.getEffectsByShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/sequence/#getEffectsByShape) を使用します。すべてのエフェクトを調べるには、メインシーケンスとすべてのインタラクティブシーケンスを列挙します。列挙することで、シーケンスのインデックス `0` にエフェクトが必ずあるという前提を避けられます。
+対象シェイプが分かっている場合は、[Sequence.getEffectsByShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/sequence/#getEffectsByShape) を使用します。すべての効果を調べるには、メインシーケンスとすべてのインタラクティブシーケンスを列挙します。列挙により、シーケンスにインデックス `0` の効果が必ず存在するという前提を避けられます。
 
-以下のサンプルは、メインシーケンスとインタラクティブシーケンスのエフェクトを持つシェイプを作成し、そのシェイプを対象としたエフェクトを取得した後、スライド上のすべてのシーケンスを列挙します。
+次の例は、メインシーケンスとインタラクティブシーケンスの効果を持つシェイプを作成し、そのシェイプを対象とする効果を取得し、スライド上のすべてのシーケンスを列挙します。
 
 ```python
-import jpime
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -136,21 +138,21 @@ finally:
     presentation.dispose()
 ```
 
-特定のシェイプだけのエフェクトが必要な場合は、名前、プレースホルダータイプ、または他の安定したプロパティでシェイプを特定してから [Sequence.getEffectsByShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/sequence/#getEffectsByShape) を呼び出します。[ShapeCollection.get_Item](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shapecollection/#get_Item) のインデックス `0` が常に目的のオブジェクトであると想定しないでください。
+1 つのシェイプだけの効果が必要な場合は、名前、プレースホルダー タイプ、または他の安定したプロパティでシェイプを特定してから、[Sequence.getEffectsByShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/sequence/#getEffectsByShape) を呼び出してください。[ShapeCollection.get_Item](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shapecollection/#get_Item) のインデックス `0` が常に目的のオブジェクトであるとは限らない点に注意してください。
 
-## **継承プレースホルダー エフェクトの操作**
+## **継承されたプレースホルダー効果の操作**
 
-通常のスライド上のプレースホルダーは、レイアウトスライドやマスタースライド上の対応するプレースホルダーからアニメーション動作を継承できます。[Shape.getBasePlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/#getBasePlaceholder) は親プレースホルダーを返し、親が存在しない場合は `None` を返します。
+通常のスライド上のプレースホルダーは、レイアウト スライドおよびマスター スライド上の対応するプレースホルダーからアニメーション 動作を継承できます。[Shape.getBasePlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/#getBasePlaceholder) はその親プレースホルダーを返しますが、親が存在しない場合は `None` を返します。
 
-以下の例示プレゼンテーションでは、フッターが通常スライドで **Random Bars**、レイアウトスライドで **Split**、マスタースライドで **Fly In** のアニメーションを持ちます。
+以下の例のプレゼンテーションでは、フッターは通常スライドで **Random Bars**、レイアウト スライドで **Split**、マスター スライドで **Fly In** の効果を持ちます。
 
-![通常スライド上のフッター アニメーション効果](slide-shape-animation.png)
+![通常スライドのフッター アニメーション効果](slide-shape-animation.png)
 
-![レイアウトスライド上のフッター プレースホルダー アニメーション効果](layout-shape-animation.png)
+![レイアウト スライドのフッター プレースホルダー アニメーション効果](layout-shape-animation.png)
 
-![マスタースライド上のフッター プレースホルダー アニメーション効果](master-shape-animation.png)
+![マスター スライドのフッター プレースホルダー アニメーション効果](master-shape-animation.png)
 
-次の例は新規プレゼンテーションのプレースホルダー階層を使用します。マスタープレースホルダー、レイアウトプレースホルダー、および通常スライド上の対応プレースホルダーにエフェクトを追加します。すべての [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/#getBasePlaceholder) 呼び出しは、返されたシェイプを使用する前にチェックされます。
+次の例は新規プレゼンテーションのプレースホルダー階層を使用します。マスター プレースホルダー、レイアウト プレースホルダー、および通常スライド上の対応プレースホルダーに効果を追加します。[Shape.getBasePlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/#getBasePlaceholder) の呼び出し結果が `None` でないことを必ず確認してから使用します。
 
 ```python
 import jpype
@@ -212,11 +214,11 @@ finally:
     presentation.dispose()
 ```
 
-## **アニメーションタイミングの変更**
+## **アニメーションのタイミング変更**
 
-PowerPoint の **Timing** ダイアログは [Timing](https://reference.aspose.com/slides/ja/python-java/aspose.slides/timing/) のプロパティにマッピングされます。
+PowerPoint の **Timing** ダイアログは、[Timing](https://reference.aspose.com/slides/ja/python-java/aspose.slides/timing/) のプロパティにマッピングされます。
 
-![アニメーションエフェクトの PowerPoint Timing ダイアログ](shape-animation.png)
+![アニメーション効果の PowerPoint Timing ダイアログ](shape-animation.png)
 
 - **Start** は [Timing.getTriggerType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/timing/#getTriggerType) に対応します。
 - **Duration** は [Timing.getDuration](https://reference.aspose.com/slides/ja/python-java/aspose.slides/timing/#getDuration)（秒）に対応します。
@@ -224,7 +226,7 @@ PowerPoint の **Timing** ダイアログは [Timing](https://reference.aspose.c
 - **Repeat** は [Timing.getRepeatCount](https://reference.aspose.com/slides/ja/python-java/aspose.slides/timing/#getRepeatCount)、[Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/ja/python-java/aspose.slides/timing/#getRepeatUntilNextClick) または [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/timing/#getRepeatUntilEndSlide) に対応します。
 - **Rewind when done playing** は [Timing.getRewind](https://reference.aspose.com/slides/ja/python-java/aspose.slides/timing/#getRewind) に対応します。
 
-この独立した例はエフェクトを追加し、[Sequence.addEffect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/sequence/#addEffect) が返すオブジェクトを介してタイミングを変更し、結果を保存します。返された [Effect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effect/) 参照を保持することで、不要なコレクションインデックス取得を回避します。
+この独立した例では、効果を追加し、[Sequence.addEffect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/sequence/#addEffect) が返すオブジェクトを介してタイミングを変更し、結果を保存します。返された [Effect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effect/) 参照を保持することで不要なコレクション インデックス取得を防ぎます。
 
 ```python
 import jpype
@@ -255,15 +257,15 @@ finally:
     presentation.dispose()
 ```
 
-繰り返しモードは意図的に 1 つだけ使用してください。繰り返し回数と「until」フラグを組み合わせると、ビューアによっては混乱を招く結果になることがあります。繰り返しモードを変更する際は、[Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/ja/python-java/aspose.slides/timing/#setRepeatUntilNextClick) と [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) を [Timing.setRepeatCount](https://reference.aspose.com/slides/ja/python-java/aspose.slides/timing/#setRepeatCount) の前に設定してください。いずれかのフラグを設定すると、アクティブな繰り返しモードも変更されます。
+繰り返しモードは 1 つだけ使用してください。繰り返し回数と「until」フラグを組み合わせると、ビューアによって結果が混乱する可能性があります。繰り返しモードを変更する際は、[Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/ja/python-java/aspose.slides/timing/#setRepeatUntilNextClick) と [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) を先に呼び出し、最後に [Timing.setRepeatCount](https://reference.aspose.com/slides/ja/python-java/aspose.slides/timing/#setRepeatCount) を設定してください。フラグを設定するとアクティブな繰り返しモードが変更されます。
 
 ## **アニメーション サウンドの追加と抽出**
 
-アニメーションエフェクトは [Effect.getSound](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effect/#getSound) を通じて埋め込み音声を参照できます。[Effect.setStopPreviousSound](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effect/#setStopPreviousSound) は、前のエフェクトで開始された音声を停止させるよう指示します。
+アニメーション 効果は [Effect.getSound](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effect/#getSound) を介して埋め込みオーディオを参照できます。[Effect.setStopPreviousSound](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effect/#setStopPreviousSound) は、以前の効果で開始されたオーディオを停止するよう指示します。
 
-### **エフェクトにサウンドを追加する**
+### **効果にサウンドを追加**
 
-以下の例はローカルの音声ファイル `animation-sound.wav` を想定しています。2 つのエフェクトを作成し、最初のエフェクトにそのファイルをサウンドとして埋め込み、2 番目のエフェクトでサウンドを停止するよう構成します。[Sequence.addEffect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/sequence/#addEffect) が返すオブジェクトを使用するため、シーケンスインデックスは不要です。
+次の例はローカルのオーディオ ファイル `animation-sound.wav` が存在することを前提としています。2 つの効果を作成し、最初の効果のサウンドとしてそのファイルを埋め込み、2 番目の効果でサウンドを停止するよう設定します。オブジェクトは [Sequence.addEffect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/sequence/#addEffect) が返すものを使用するため、シーケンス インデックスは不要です。
 
 ```python
 import jpype
@@ -297,9 +299,9 @@ finally:
     presentation.dispose()
 ```
 
-### **埋め込みエフェクトサウンドの抽出**
+### **埋め込み効果サウンドの抽出**
 
-以下の例はローカルのプレゼンテーション `presentation-with-animation-sounds.pptx` を想定しています。メインシーケンスとインタラクティブシーケンスの両方を走査し、埋め込みエフェクトサウンドをすべて `extracted-animation-sounds` ディレクトリに書き出します。拡張子は [Audio.getContentType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/audio/#getContentType) で取得できるオーディオ MIME タイプから選択されます。
+次の例はローカルのプレゼンテーション `presentation-with-animation-sounds.pptx` が存在することを前提としています。メインシーケンスとインタラクティブシーケンスの両方を走査し、埋め込み効果サウンドをすべて `extracted-animation-sounds` ディレクトリに書き出します。拡張子は [Audio.getContentType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/audio/#getContentType) が返すオーディオ MIME タイプから決定します。
 
 ```python
 import jpype
@@ -353,17 +355,17 @@ finally:
     presentation.dispose()
 ```
 
-大きなオーディオオブジェクトの場合は、[Audio.getStream](https://reference.aspose.com/slides/ja/python-java/aspose.slides/audio/#getStream) を使用してストリームをファイルにコピーし、全体をバイト配列に読み込むのを避けてください。
+大容量のオーディオ オブジェクトの場合は、[Audio.getStream](https://reference.aspose.com/slides/ja/python-java/aspose.slides/audio/#getStream) を使用してストリームをファイルにコピーし、全体をバイト配列として読み込むのを避けてください。
 
-## **アフターアニメーション動作の設定**
+## **アフター アニメーション動作の設定**
 
-**After animation** オプションは、エフェクトが終了した後にシェイプに何が起こるかを制御します。
+**After animation** オプションは、効果が終了した後にシェイプがどうなるかを制御します。
 
 ![After animation 設定を示す PowerPoint Effect Options ダイアログ](shape-after-animation.png)
 
-[AfterAnimationType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/afteranimationtype/) クラスは、シェイプをそのまま残す、色を変更する、アニメーション後に非表示にする、または次のクリックで非表示にする、という動作をサポートします。タイプが [AfterAnimationType.Color](https://reference.aspose.com/slides/ja/python-java/aspose.slides/afteranimationtype/#Color) の場合は、[Effect.getAfterAnimationColor](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effect/#getAfterAnimationColor) も設定してください。
+[AfterAnimationType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/afteranimationtype/) クラスは、シェイプをそのままにする、色を変える、アニメーション後に非表示にする、次のクリックで非表示にする、のいずれかをサポートします。タイプが [AfterAnimationType.Color](https://reference.aspose.com/slides/ja/python-java/aspose.slides/afteranimationtype/#Color) の場合は、[Effect.getAfterAnimationColor](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effect/#getAfterAnimationColor) も設定してください。
 
-この独立した例はエフェクトを作成し、返されたエフェクトオブジェクトを介してアフターアニメーション動作を設定し、結果を保存します。
+この独立した例では、効果を作成し、返された Effect オブジェクトを介してアフター アニメーション 動作を設定し、結果を保存します。
 
 ```python
 import jpype
@@ -390,16 +392,16 @@ finally:
     presentation.dispose()
 ```
 
-[AfterAnimationType.Color](https://reference.aspose.com/slides/ja/python-java/aspose.slides/afteranimationtype/#Color) 以外のタイプに変更すると、アフターアニメーションの色設定はクリアされます。
+[AfterAnimationType.Color](https://reference.aspose.com/slides/ja/python-java/aspose.slides/afteranimationtype/#Color) 以外のタイプに変更すると、アフター アニメーションの色設定はクリアされます。
 
-## **テキスト アニメーション**
+## **テキストのアニメーション**
 
-テキストアニメーションには 2 つの関連コントロールがあります。
+テキスト アニメーションには 2 つの関連コントロールがあります。
 
-- [TextAnimation.getBuildType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textanimation/#getBuildType) は段落単位で表示するか、全体で表示するかを制御します。
-- [Effect.getAnimateTextType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effect/#getAnimateTextType) はテキストを一括、単語単位、文字単位で表示するかを制御します。[Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effect/#getDelayBetweenTextParts) は単語または文字間の遅延を設定します。正の値はエフェクト期間のパーセンテージ、負の値は秒単位の遅延です。
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textanimation/#getBuildType) は段落全体で表示するか段落単位で表示するかを制御します。
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effect/#getAnimateTextType) はテキストを一度に、単語単位、または文字単位で表示するかを制御します。[Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/ja/python-java/aspose.slides/effect/#getDelayBetweenTextParts) は単語または文字間の遅延を設定します。正の値は効果時間のパーセンテージ、負の値は秒単位の遅延です。
 
-以下の独立した例はテキストボックス内の単語を順番にアニメーション化します。[BuildType.AsOneObject](https://reference.aspose.com/slides/ja/python-java/aspose.slides/buildtype/#AsOneObject) を使用すると段落単位のビルドが無効になり、単語設定がテキストフレーム全体に適用されます。
+次の独立した例はテキスト ボックス内の単語をアニメーション化します。[BuildType.AsOneObject](https://reference.aspose.com/slides/ja/python-java/aspose.slides/buildtype/#AsOneObject) を使用すると段落単位のビルドが無効になり、単語設定がテキスト フレーム全体に適用されます。
 
 ```python
 import jpype
@@ -426,26 +428,26 @@ finally:
     presentation.dispose()
 ```
 
-テキストボックスを段落単位でビルドしたい場合は、[BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ja/python-java/aspose.slides/buildtype/#ByLevelParagraphs1)（または他の段落レベル）を設定します。単一段落に対して独自のエフェクトを付けたい場合は、[Paragraph](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/) を受け取るオーバーロードの [Sequence.addEffect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/sequence/#addEffect) を使用してください。段落レベルの例については [Animated Text](/slides/ja/python-java/animated-text/) を参照してください。
+段落単位でテキスト ボックスをビルドするには、[BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ja/python-java/aspose.slides/buildtype/#ByLevelParagraphs1)（または他の段落レベル）を設定します。単一段落に個別の効果を付与したい場合は、[Paragraph](https://reference.aspose.com/slides/ja/python-java/aspose.slides/paragraph/) を受け取るオーバーロードの [Sequence.addEffect](https://reference.aspose.com/slides/ja/python-java/aspose.slides/sequence/#addEffect) を使用してください。段落レベルの例は [Animated Text](/slides/ja/python-java/animated-text/) を参照してください。
 
 ## **エクスポートと互換性に関する注意事項**
 
-- PPT または PPTX への保存はアニメーションモデルを保持しますが、最終的な再生はプレゼンテーションビューアが制御します。
-- PDF および静止画像はアニメーションを再生しません。動きを示す必要がある場合は、[HTML5 エクスポート](/slides/ja/python-java/export-to-html5/)、アニメーション GIF、または [動画変換](/slides/ja/python-java/convert-powerpoint-to-video/) を使用してください。
-- HTML5 では [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/ja/python-java/aspose.slides/html5options/#setAnimateShapes) を有効にし、必要に応じて [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/ja/python-java/aspose.slides/html5options/#setAnimateTransitions) を設定してください。
-- 動画レンダリングは多くの一般的な入場、強調、退出、モーションパス効果をサポートしますが、すべての PowerPoint 効果がサポートされているわけではありません。現在の [supported animations and effects](/slides/ja/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) を確認し、対象の Aspose.Slides バージョンで重要なプレゼンテーションをテストしてください。
-- 高度なカスタム効果や他のプレゼンテーション形式からインポートされた効果はファイル内に保持される場合がありますが、PowerPoint、HTML5、または動画では異なる表示になることがあります。効果名だけに依存せず、エクスポート結果を必ず検証してください。
+- PPT または PPTX への保存はアニメーション モデルを保持しますが、最終的な再生はプレゼンテーション ビューアが制御します。
+- PDF および静止画像はアニメーションを再生しません。モーションを示す必要がある場合は、[HTML5 エクスポート](/slides/ja/python-java/export-to-html5/)、アニメーション GIF、または [ビデオ変換](/slides/ja/python-java/convert-powerpoint-to-video/) を使用してください。
+- HTML5 では [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/ja/python-java/aspose.slides/html5options/#setAnimateShapes) を有効にし、必要に応じて [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/ja/python-java/aspose.slides/html5options/#setAnimateTransitions) も設定してください。
+- ビデオ レンダリングは多くの一般的な入口、強調、終了、モーション パス効果をサポートしますが、すべての PowerPoint 効果がサポートされているわけではありません。現在の [サポートされているアニメーションと効果](/slides/ja/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) を確認し、対象の Aspose.Slides バージョンで重要なプレゼンテーションをテストしてください。
+- 高度なカスタム効果や他のプレゼンテーション形式からインポートされた効果はファイルに保持される場合がありますが、PowerPoint、HTML5、ビデオでのレンダリングは異なる場合があります。効果名だけに依存せず、エクスポート結果を必ず検証してください。
 
 ## **FAQ**
 
-**PowerPoint ではアニメーションが表示されるのに PDF では表示されないのはなぜですか？**
+**なぜアニメーションは PowerPoint では表示されるのに PDF では表示されないのですか？**
 
-PDF は静的フォーマットであるため、アニメーションやスライド遷移は再生されません。動きを保持する必要がある場合は HTML5、アニメーション GIF、または動画にエクスポートしてください。
+PDF は静的形式であるため、アニメーションやスライド遷移は再生されません。モーションを保持する必要がある場合は、HTML5、アニメーション GIF、またはビデオにエクスポートしてください。
 
-**動画でエフェクトの再生が異なるのはなぜですか？**
+**なぜビデオで効果の再生が異なるのですか？**
 
-動画エクスポートはアニメーションを実際にレンダリングして保存するため、元の PowerPoint の動作そのものは保持されません。高度な効果の一部は未サポートまたは近似処理されます。サポートされている効果の一覧を確認し、実際のプレゼンテーションをテストしてから本番で使用してください。
+ビデオ エクスポートはアニメーション をレンダリングして保存するため、元の PowerPoint の動作がすべて保持されるわけではありません。いくつかの高度な効果は未サポートまたは近似されます。サポートされている効果表を確認し、実際のプレゼンテーションをテストしてから本番で使用してください。
 
-**シェイプを前面または背面に移動するとアニメーション順序が変わりますか？**
+**シェイプを前面または背面に移動するとアニメーションの順序が変わりますか？**
 
-いいえ。シェイプの Z オーダーは重なり順を制御し、シーケンス順序とトリガーがアニメーションの再生順序を制御します。再生順序を変更したい場合はタイムラインを調整してください。
+変更されません。シェイプの Z オーダーは重なり順を制御し、シーケンス順序とトリガーがアニメーションの再生順序を制御します。再生順序を変える必要がある場合は、タイムラインを変更してください。

@@ -1,5 +1,5 @@
 ---
-title: Android でのプレゼンテーションにおけるシェイプ アニメーションの適用
+title: Android でのプレゼンテーションにシェイプ アニメーションを適用する
 linktitle: シェイプ アニメーション
 type: docs
 weight: 60
@@ -23,24 +23,26 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java を使用して、シェイプ アニメーション、タイミング、サウンド、アフター アニメーション 動作、アニメーション テキストの追加、検査、カスタマイズ方法を学びます。"
+description: "Aspose.Slides for Android (Java) を使用して、シェイプ アニメーション、タイミング、サウンド、アフター アニメーション 動作、アニメーション テキストの追加、検査、カスタマイズ方法を学びます。"
 ---
 ## **概要**
 
-Aspose.Slides for Android via Java は、スライド アニメーションをスライド タイムライン上のエフェクトとして表現します。エフェクトは対象シェイプ、アニメーションの種類とサブタイプ、トリガー、タイミング設定、そしてオプションでサウンドやアフター アニメーション 動作といったプロパティを持ちます。
+エフェクト内の個々の動作やモーション パス セグメントを編集するには、[Java 用カスタム アニメーション](/slides/ja/java/custom-animation/) を参照してください。
+
+Java 経由の Aspose.Slides for Android は、スライド アニメーションをスライド タイムライン上のエフェクトとして表します。エフェクトには対象シェイプ、アニメーションの種類とサブタイプ、トリガー、タイミング設定、そしてサウンドやアフター アニメーション動作などのオプション プロパティがあります。
 
 タイムラインには次の 2 種類のシーケンスがあります。
 
-- **メイン シーケンス** はスライドが進むと同時に再生されます。  
-- **インタラクティブ シーケンス** はトリガー シェイプがクリックされたときに開始します。
+- **メイン シーケンス** はスライドが進むと再生されます。
+- **インタラクティブ シーケンス** はトリガーシェイプがクリックされたときに開始します。
 
-テキスト ボックス、画像、チャート、テーブル、その他のスライド オブジェクトはすべて [IShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/) を実装しているため、ほとんどのスライド コンテンツに対して同じ[ISequence.addEffect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)メソッドを使用します。利用可能なエフェクトは [EffectType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/effecttype/) クラスに列挙されています。
+テキスト ボックス、画像、チャート、テーブル、その他のスライド オブジェクトは [IShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/) を実装しているため、ほとんどのスライド コンテンツに対して同じ [ISequence.addEffect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) メソッドを使用します。利用可能なエフェクトは [EffectType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/effecttype/) クラスに一覧されています。
 
-## **図形アニメーションの追加**
+## **シェイプ アニメーションの追加**
 
-アニメーションを追加するには、スライドのメイン シーケンスを取得し、対象シェイプ、エフェクト タイプ、サブタイプ、トリガーを指定して [ISequence.addEffect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) を呼び出します。他のシェイプがクリックされたときに開始するエフェクトを作成する場合は、そのシェイプをトリガーとするインタラクティブ シーケンスを作成します。
+アニメーションを追加するには、スライドのメイン シーケンスを取得し、対象シェイプ、エフェクト タイプ、サブタイプ、トリガーを指定して [ISequence.addEffect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) を呼び出します。他のシェイプがクリックされたときに開始するエフェクトの場合、そのシェイプをトリガーとするインタラクティブ シーケンスを作成します。
 
-次の例は両方のタイプのアニメーションを作成し、結果を `shape-animations.pptx` に保存します。
+次の例は 2 種類のアニメーションを作成し、結果を `shape-animations.pptx` に保存します。
 
 ```java
 import com.aspose.slides.*;
@@ -74,17 +76,17 @@ public class AddShapeAnimations {
 
 トリガーはエフェクトの開始タイミングを制御します。
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/effecttriggertype/#OnClick) はメイン シーケンスではクリック待ち、インタラクティブ シーケンスではトリガー シェイプのクリック待ちです。  
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) は直前のエフェクトと同時に開始します。  
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/effecttriggertype/#OnClick) はメイン シーケンスでのクリック、またはインタラクティブ シーケンスでのトリガーシェイプのクリックを待ちます。
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) は直前のエフェクトと同時に開始します。
 - [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) は直前のエフェクトが終了したときに開始します。
 
-画像、チャート、その他のシェイプをアニメーション化する場合は、`targetShape` の代わりに対象オブジェクトを [ISequence.addEffect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) に渡してください。チャート固有のグループ化オプションについては、[Animated Charts](/slides/ja/androidjava/animated-charts/) を参照してください。
+画像、チャート、その他のシェイプ タイプをアニメーション化するには、`targetShape` の代わりにそのオブジェクトを [ISequence.addEffect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) に渡します。チャート固有のグループ化オプションについては、[Animated Charts](/slides/ja/androidjava/animated-charts/) を参照してください。
 
-## **図形アニメーションの取得**
+## **シェイプ アニメーションの取得**
 
-対象シェイプが分かっている場合は、[ISequence.getEffectsByShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) を使用します。すべてのエフェクトを調べるには、メイン シーケンスとすべてのインタラクティブ シーケンスを列挙します。列挙することで、シーケンスのインデックス `0` にエフェクトが必ず存在するという前提を避けられます。
+対象シェイプが分かっている場合は [ISequence.getEffectsByShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) を使用します。すべてのエフェクトを調べるには、メイン シーケンスとすべてのインタラクティブ シーケンスを列挙します。列挙することで、シーケンスがインデックス `0` にエフェクトを含んでいると仮定することを防げます。
 
-次の例はメイン シーケンスとインタラクティブ シーケンスにエフェクトを持つシェイプを作成し、そのシェイプを対象とするエフェクトを取得したうえで、スライド上のすべてのシーケンスを列挙します。
+次の例はメイン シーケンスとインタラクティブ シーケンスを持つシェイプを作成し、そのシェイプを対象としたエフェクトを取得し、スライド上のすべてのシーケンスを列挙します。
 
 ```java
 import com.aspose.slides.*;
@@ -138,21 +140,21 @@ public class ReadShapeAnimations {
 }
 ```
 
-1 つのシェイプに対するエフェクトだけが必要な場合は、名前、プレースホルダーの種類、またはその他の安定したプロパティでシェイプを特定し、[ISequence.getEffectsByShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) を呼び出してください。インデックス `0` の [IShapeCollection.get_Item](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) が常に目的のオブジェクトであると仮定しないでください。
+1 つのシェイプだけのエフェクトが必要な場合は、まずシェイプを名前、プレースホルダー タイプ、または他の安定したプロパティで特定し、次に [ISequence.getEffectsByShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) を呼び出します。[IShapeCollection.get_Item](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) のインデックス `0` が常に目的のオブジェクトであると想定しないでください。
 
 ## **継承プレースホルダー エフェクトの操作**
 
-通常スライド上のプレースホルダーは、レイアウト スライドおよびマスタースライド上の対応するプレースホルダーからアニメーション 動作を継承できます。[IShape.getBasePlaceholder](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) は親プレースホルダーを返すか、親が存在しない場合は `null` を返します。
+通常のスライド上のプレースホルダーは、レイアウト スライドおよびマスタースライド上の対応するプレースホルダーからアニメーション 動作を継承できます。[IShape.getBasePlaceholder](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) は親プレースホルダーを返し、存在しない場合は `null` を返します。
 
-以下の例示プレゼンテーションでは、フッターが通常スライドで **Random Bars**、レイアウト スライドで **Split**、マスタースライドで **Fly In** のアニメーションを持ちます。
+以下の例示プレゼンテーションでは、フッターが通常のスライドで **Random Bars**、レイアウトスライドで **Split**、マスタースライドで **Fly In** のアニメーションを持っています。
 
-![通常スライドのフッター アニメーション効果](slide-shape-animation.png)
+![通常のスライドのフッター アニメーション効果](slide-shape-animation.png)
 
 ![レイアウト スライドのフッター プレースホルダー アニメーション効果](layout-shape-animation.png)
 
 ![マスタースライドのフッター プレースホルダー アニメーション効果](master-shape-animation.png)
 
-次の例は新規プレゼンテーションのプレースホルダー階層を使用します。マスタープレースホルダー、レイアウトプレースホルダー、そして通常スライド上の対応するプレースホルダーにエフェクトを追加します。[IShape.getBasePlaceholder](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) の戻り値が `null` でないことを確認してから使用します。
+次の例は新規プレゼンテーションのプレースホルダー階層を使用します。マスタープレースホルダー、レイアウトプレースホルダー、対応する通常スライド上のプレースホルダーにエフェクトを追加し、各呼び出しで [IShape.getBasePlaceholder](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) の戻り値が `null` でないことを確認しています。
 
 ```java
 import com.aspose.slides.*;
@@ -232,17 +234,17 @@ public class InheritedPlaceholderAnimations {
 
 ## **アニメーション タイミングの変更**
 
-PowerPoint の **Timing** ダイアログは [ITiming](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/) のプロパティに対応しています。
+PowerPoint **タイミング** ダイアログは [ITiming](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/) のプロパティに対応します。
 
-![アニメーション エフェクトの PowerPoint Timing ダイアログ](shape-animation.png)
+![アニメーション エフェクトの PowerPoint タイミング ダイアログ](shape-animation.png)
 
-- **Start** は [ITiming.getTriggerType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#getTriggerType--) に対応します。  
-- **Duration** は [ITiming.getDuration](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#getDuration--) に対応し、単位は秒です。  
-- **Delay** は [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--) に対応し、単位は秒です。  
-- **Repeat** は [ITiming.getRepeatCount](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#getRepeatCount--) 、[ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--)、または [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--) のいずれかに対応します。  
-- **Rewind when done playing** は [ITiming.getRewind](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#getRewind--) に対応します。
+- **開始** は [ITiming.getTriggerType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#getTriggerType--) に対応します。
+- **期間** は [ITiming.getDuration](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#getDuration--) に対応し、秒単位です。
+- **遅延** は [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--) に対応し、秒単位です。
+- **繰り返し** は [ITiming.getRepeatCount](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#getRepeatCount--) 、[ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--)、または [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--) に対応します。
+- **再生完了後に巻き戻す** は [ITiming.getRewind](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#getRewind--) に対応します。
 
-この独立した例はエフェクトを追加し、[ISequence.addEffect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) が返すオブジェクトでタイミングを変更したうえで、結果を保存します。返された [IEffect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ieffect/) 参照を保持することで不要なコレクション インデックス取得を回避できます。
+この独立した例はエフェクトを追加し、[ISequence.addEffect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) が返すオブジェクトを通してタイミングを変更し、結果を保存します。返された [IEffect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ieffect/) 参照を保持することで、不必要なコレクション インデックス取得を回避できます。
 
 ```java
 import com.aspose.slides.*;
@@ -272,15 +274,15 @@ public class ChangeAnimationTiming {
 }
 ```
 
-繰り返しモードは 1 つだけ使用してください。繰り返し回数と「until」フラグを組み合わせると、ビューアによって結果が混乱する可能性があります。繰り返しモードを変更する際は、[ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) と [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) を先に設定し、次に [ITiming.setRepeatCount](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-) を呼び出してください。いずれかのフラグを設定すると、アクティブな繰り返しモードが自動的に変更されます。
+繰り返しモードは 1 つだけ使用してください。繰り返し回数と「until」フラグを組み合わせると、ビューアー間で混乱を招く結果になることがあります。繰り返しモードを変更する際は、[ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) と [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) を [ITiming.setRepeatCount](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-) の前に設定してください。どちらかのフラグを設定するとアクティブな繰り返しモードも変更されます。
 
 ## **アニメーション サウンドの追加と抽出**
 
-アニメーション エフェクトは [IEffect.getSound](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ieffect/#getSound--) を介して埋め込み音声を参照できます。[IEffect.setStopPreviousSound](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) は、以前のエフェクトで開始された音声を停止させるために使用します。
+アニメーション エフェクトは [IEffect.getSound](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ieffect/#getSound--) で埋め込まれたオーディオを参照できます。[IEffect.setStopPreviousSound](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) は、以前のエフェクトで開始したサウンドを停止させます。
 
 ### **エフェクトにサウンドを追加する**
 
-以下の例はローカルのオーディオ ファイル `animation-sound.wav` を前提とします。2 つのエフェクトを作成し、最初のエフェクトにこのファイルをサウンドとして埋め込み、2 番目のエフェクトでサウンドの停止を設定します。オブジェクトは [ISequence.addEffect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) が返すものを使用するため、シーケンス インデックスは不要です。
+以下の例はローカルのオーディオ ファイル `animation-sound.wav` を想定しています。2 つのエフェクトを作成し、最初のエフェクトにそのファイルをサウンドとして埋め込み、2 番目のエフェクトをサウンド停止に設定します。[ISequence.addEffect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) が返すオブジェクトを使用するため、シーケンス インデックスは不要です。
 
 ```java
 import com.aspose.slides.*;
@@ -315,9 +317,9 @@ public class AddAnimationSound {
 }
 ```
 
-### **埋め込みエフェクトサウンドの抽出**
+### **埋め込みエフェクト サウンドの抽出**
 
-以下の例はローカルのプレゼンテーション `presentation-with-animation-sounds.pptx` を前提とします。メインとインタラクティブの両シーケンスを走査し、埋め込まれたエフェクトサウンドをすべて `extracted-animation-sounds` ディレクトリに書き出します。拡張子は [IAudio.getContentType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iaudio/#getContentType--) が返すオーディオ MIME タイプから決定します。
+以下の例はローカルのプレゼンテーション `presentation-with-animation-sounds.pptx` を想定しています。メイン シーケンスとインタラクティブ シーケンスの両方を走査し、埋め込まれたエフェクト サウンドをすべて `extracted-animation-sounds` ディレクトリに書き出します。拡張子は [IAudio.getContentType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iaudio/#getContentType--) が返すオーディオ MIME タイプから選択されます。
 
 ```java
 import com.aspose.slides.*;
@@ -391,17 +393,17 @@ public class ExtractAnimationSounds {
 }
 ```
 
-大容量のオーディオ オブジェクトの場合は、[IAudio.getStream](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iaudio/#getStream--) を使用してストリームをファイルにコピーし、全体をバイト配列に読み込むのは避けてください。
+大きなオーディオ オブジェクトの場合は、[IAudio.getStream](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iaudio/#getStream--) を使用してストリームをファイルにコピーし、オブジェクト全体をバイト配列に読み込むのを避けてください。
 
 ## **アフター アニメーション 動作の設定**
 
-**After animation** オプションは、エフェクトが完了した後のシェイプの状態を制御します。
+**After animation** オプションはエフェクトが終了した後のシェイプの状態を制御します。
 
-![After animation 設定を示す PowerPoint Effect Options ダイアログ](shape-after-animation.png)
+![PowerPoint エフェクト オプション ダイアログ (After animation 設定)](shape-after-animation.png)
 
-[AfterAnimationType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/afteranimationtype/) クラスは、シェイプをそのまま残す、色を変更する、アニメーション後に非表示にする、または次のクリックで非表示にするといった動作をサポートします。タイプが [AfterAnimationType.Color](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/afteranimationtype/#Color) の場合は、[IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--) も設定してください。
+[AfterAnimationType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/afteranimationtype/) クラスは、シェイプをそのまま残す、色を変更する、アニメーション後に非表示にする、次のクリックで非表示にする、のいずれかをサポートします。タイプが [AfterAnimationType.Color](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/afteranimationtype/#Color) の場合は、[IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--) も設定してください。
 
-この独立した例はエフェクトを作成し、返されたエフェクト オブジェクトでアフター アニメーション 動作を設定したうえで、結果を保存します。
+この独立した例はエフェクトを作成し、返されたエフェクト オブジェクトを通してアフター アニメーション 動作を設定し、結果を保存します。
 
 ```java
 import com.aspose.slides.*;
@@ -427,16 +429,16 @@ public class SetAfterAnimationBehavior {
 }
 ```
 
-[AfterAnimationType.Color](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/afteranimationtype/#Color) 以外のタイプに変更すると、アフター アニメーションの色設定はクリアされます。
+[AfterAnimationType.Color](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/afteranimationtype/#Color) 以外に変更すると、アフター アニメーションのカラー設定はクリアされます。
 
-## **テキストのアニメーション**
+## **テキストのアニメーション化**
 
 テキスト アニメーションには 2 つの関連コントロールがあります。
 
-- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextanimation/#getBuildType--) は、段落単位で表示するか、全体として表示するかを制御します。  
-- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) は、テキストを一括表示、単語単位、文字単位のいずれで表示するかを制御します。[IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) は単語または文字間の遅延を設定します。正の値はエフェクト時間のパーセンテージ、負の値は秒単位の遅延です。
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextanimation/#getBuildType--) は段落単位で表示するか、全体として表示するかを制御します。
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) はテキストを一括、単語単位、文字単位のいずれで表示するかを制御します。[IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) は単語または文字間の遅延を設定します。正の値はエフェクト期間のパーセンテージ、負の値は秒単位の遅延です。
 
-以下の独立した例はテキスト ボックス内の単語をアニメーション化します。[BuildType.AsOneObject](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/buildtype/#AsOneObject) を使用すると段落ごとのビルドが無効化され、単語設定がテキスト フレーム全体に適用されます。
+次の独立した例はテキスト ボックス内の単語をアニメーション化します。[BuildType.AsOneObject](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/buildtype/#AsOneObject) を使用すると段落単位のビルドが無効になり、単語設定がテキスト フレーム全体に適用されます。
 
 ```java
 import com.aspose.slides.*;
@@ -462,26 +464,26 @@ public class AnimateTextByWord {
 }
 ```
 
-テキスト ボックスを段落単位でビルドしたい場合は、[BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1)（または他の段落レベル）を設定してください。個別の段落に対して独自のエフェクトを設定したい場合は、[IParagraph](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraph/) を受け取る [ISequence.addEffect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) のオーバーロードを使用します。段落レベルの例については [Animated Text](/slides/ja/androidjava/animated-text/) を参照してください。
+段落単位でテキスト ボックスをビルドするには、[BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1)（または他の段落レベル）を設定します。特定の段落に個別のエフェクトを適用するには、[IParagraph](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iparagraph/) を受け取る [ISequence.addEffect](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) のオーバーロードを使用します。段落レベルの例については [Animated Text](/slides/ja/androidjava/animated-text/) を参照してください。
 
 ## **エクスポートと互換性に関する注意事項**
 
-- PPT または PPTX 形式で保存するとアニメーション モデルは保持されますが、最終的な再生はプレゼンテーション ビューアが制御します。  
-- PDF や静的画像はアニメーションを再生しません。モーションを保持する必要がある場合は、[HTML5 エクスポート](/slides/ja/androidjava/export-to-html5/)、アニメーション GIF、または [ビデオ変換](/slides/ja/androidjava/convert-powerpoint-to-video/) を使用してください。  
-- HTML5 では [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) を有効にし、必要に応じて [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) も有効にしてください。  
-- ビデオ変換は多くの一般的な「入場」「強調」「退出」「モーション パス」エフェクトをサポートしますが、すべての PowerPoint エフェクトがサポートされているわけではありません。現在の [サポート対象アニメーションとエフェクト](/slides/ja/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) を確認し、対象の Aspose.Slides バージョンで重要なプレゼンテーションをテストしてください。  
-- カスタム エフェクトや他形式からインポートされたエフェクトはファイル内に保持される場合がありますが、PowerPoint、HTML5、ビデオでのレンダリング結果が異なることがあります。エフェクト名だけに依存せず、エクスポート結果を必ず検証してください。
+- PPT または PPTX に保存するとアニメーション モデルは保持されますが、最終的な再生はプレゼンテーション ビューアーによって制御されます。
+- PDF や静止画像はアニメーションを再生しません。モーションを保持する必要がある場合は、[HTML5 エクスポート](/slides/ja/androidjava/export-to-html5/)、アニメーション GIF、または [動画変換](/slides/ja/androidjava/convert-powerpoint-to-video/) を使用してください。
+- HTML5 では [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) を有効にし、必要に応じて [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) も設定します。
+- ビデオレンダリングは多くの一般的な入場、強調、退出、モーション パス エフェクトをサポートしますが、すべての PowerPoint エフェクトがサポートされているわけではありません。現在の [サポートされているアニメーションとエフェクト](/slides/ja/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) を確認し、対象の Aspose.Slides バージョンで重要なプレゼンテーションをテストしてください。
+- カスタム エフェクトや他のプレゼンテーション フォーマットからインポートされたエフェクトは、ファイル内に保持されるものの、PowerPoint、HTML5、またはビデオでの描画が異なる場合があります。エフェクト名だけに依存せず、エクスポート結果を検証してください。
 
 ## **FAQ**
 
-**なぜ PowerPoint ではアニメーションが表示されても PDF では表示されないのですか？**
+**PowerPoint では表示されるのに PDF では表示されないのはなぜですか？**
 
-PDF は静的形式であるため、アニメーションやスライド遷移は再生されません。モーションを保持したい場合は HTML5、アニメーション GIF、またはビデオにエクスポートしてください。
+PDF は静的フォーマットであるため、アニメーションやスライド遷移は再生されません。モーションを保持する必要がある場合は、HTML5、アニメーション GIF、またはビデオにエクスポートしてください。
 
-**なぜビデオでエフェクトの再生が異なるのですか？**
+**動画でエフェクトの再生が異なるのはなぜですか？**
 
-ビデオ エクスポートはアニメーションを描画した結果を保存するもので、元の PowerPoint の動作そのものを保持するわけではありません。一部の高度なエフェクトは未サポートまたは近似処理されます。サポート対象エフェクト表を確認し、実際のプレゼンテーションをテストしてから本番で使用してください。
+動画エクスポートはアニメーションをレンダリングするもので、元の PowerPoint の動作をそのまま保存するわけではありません。高度なエフェクトの一部は未サポートまたは近似されます。サポートされているエフェクトの表を確認し、実際のプレゼンテーションをテストしてから本番で使用してください。
 
-**シェイプを前面または背面に移動するとアニメーションの順序が変わりますか？**
+**シェイプを前面または背面に移動するとアニメーション順序が変わりますか？**
 
-変わりません。シェイプの Z オーダーは重なり順を制御し、シーケンス順序とトリガーがアニメーションの再生順序を決定します。再生順序を変更したい場合はタイムラインを調整してください。
+いいえ。シェイプの Z オーダーは重なり順を制御し、シーケンス順序とトリガーがアニメーションの再生順序を制御します。再生順序を変更したい場合はタイムラインを調整してください。

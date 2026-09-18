@@ -1,5 +1,5 @@
 ---
-title: Улучшение презентаций PowerPoint с помощью анимаций на Android
+title: Улучшите презентации PowerPoint с помощью анимаций на Android
 linktitle: Анимация PowerPoint
 type: docs
 weight: 150
@@ -20,7 +20,7 @@ keywords:
 - анимированная диаграмма
 - анимированный текст
 - анимированная фигура
-- анимированный объект OLE
+- анимированный OLE объект
 - анимированное изображение
 - анимированная таблица
 - PowerPoint
@@ -28,79 +28,88 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Изучите возможности Aspose.Slides для Android через Java в работе с анимациями PowerPoint. Этот общий обзор выделяет ключевые функции."
+description: "Изучите возможности Aspose.Slides для Android через Java при работе с анимацией PowerPoint. Этот общий обзор выделяет ключевые функции."
 ---
+## **Введение**
 
-Поскольку презентации предназначены для представления чего-то, их визуальный вид и интерактивное поведение всегда учитываются при их создании.
+Поскольку презентации предназначены для представления информации, их визуальный вид и интерактивное поведение всегда учитываются при создании.
 
-**PowerPoint animation** играет важную роль, чтобы сделать презентацию притягательной и привлекательной для зрителей. Aspose.Slides for Android via Java предлагает широкий набор вариантов для добавления анимации в презентацию PowerPoint:
+**PowerPoint animation** играет важную роль в том, чтобы презентация была привлекательной и увлекательной для зрителей. Aspose.Slides предоставляет широкий набор возможностей для добавления анимации в презентации PowerPoint:
 
-- применять различные типы эффектов анимации PowerPoint к фигурам, диаграммам, таблицам, объектам OLE и другим элементам презентации.
-- использовать несколько эффектов анимации PowerPoint для одной фигуры.
-- использовать временную шкалу анимации для управления эффектами анимации.
-- создавать пользовательскую анимацию.
-
-В Aspose.Slides for Android via Java различные эффекты анимации могут применяться к фигурам. Поскольку каждый элемент слайда, включая текст, изображения, объект OLE, таблицу и т.д., считается фигурой, это значит, что мы можем применять эффект анимации к каждому элементу слайда.
+- Применять различные типы эффектов анимации PowerPoint к фигурам, диаграммам, таблицам, OLE‑объектам и другим элементам презентации.
+- Использовать несколько эффектов анимации PowerPoint на одной фигуре.
+- Использовать временную шкалу анимации для управления эффектами.
+- Создавать пользовательские анимации.
 
 ## **Эффекты анимации**
-Aspose.Slides поддерживает **150+ анимационных эффектов**, включая базовые эффекты, такие как Bounce, PathFootball, Zoom effect и специфические эффекты, такие как OLEObjectShow, OLEObjectOpen. Полный список анимационных эффектов можно найти в перечислении [**EffectType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effecttype/).
 
-Кроме того, эти анимационные эффекты могут использоваться в комбинации друг с другом:
-- [ColorEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ColorEffect)
-- [CommandEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommandEffect)
-- [FilterEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FilterEffect)
-- [MotionEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MotionEffect)
-- [PropertyEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PropertyEffect)
-- [RotationEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/RotationEffect)
-- [ScaleEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ScaleEffect)
-- [SetEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SetEffect)
+Aspose.Slides поддерживает **более 150 эффектов анимации**, включая базовые эффекты, такие как Bounce, PathFootball и Zoom, а также специфические эффекты, такие как OLEObjectShow и OLEObjectOpen. Полный список можно найти в классе [EffectType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/effecttype/) .
+
+Кроме того, эти анимационные эффекты могут использоваться в комбинации со следующими поведениями:
+
+- [ColorEffect](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ColorEffect)
+- [CommandEffect](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/CommandEffect)
+- [FilterEffect](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/FilterEffect)
+- [MotionEffect](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/MotionEffect)
+- [PropertyEffect](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/PropertyEffect)
+- [RotationEffect](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/RotationEffect)
+- [ScaleEffect](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ScaleEffect)
+- [SetEffect](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/SetEffect)
 
 ## **Пользовательская анимация**
-Можно создавать собственные **пользовательские анимации** в Aspose.Slides. Это достигается, если объединить несколько поведений в новую пользовательскую анимацию.
 
-[**Behavior**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Behavior) – это строительный блок любого эффекта анимации PowerPoint. Все эффекты анимации фактически представляют собой набор поведений, собранных в одну стратегию. Вы можете один раз объединить поведения в пользовательскую анимацию и повторно использовать её в других презентациях. Если вы добавите новое поведение в стандартный эффект анимации PowerPoint, это станет еще одной пользовательской анимацией. Например, вы можете добавить повторяющееся поведение к анимации, чтобы она повторялась несколько раз.
+Для полных примеров на Java, которые создают, исследуют и модифицируют поведения и редактируемые траектории движения, см. [Пользовательская анимация](/slides/ru/java/custom-animation/).
 
-[**Animation Point**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Point) — точка, к которой должно применяться поведение.
+В Aspose.Slides можно создавать собственные **пользовательские анимации**. Это достигается комбинированием нескольких поведений в новую пользовательскую анимацию.
 
-## **Временная линия анимации**
-[**Sequence**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Sequence) — это набор анимационных эффектов, применяемых к конкретной фигуре.
+[Behavior](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/behavior/) является строительным блоком эффекта анимации PowerPoint. Комбинируйте поведения, чтобы настроить эффект, или добавьте поведение, чтобы расширить предопределённый эффект. Повторение настраивается через параметры тайминга, а не отдельным поведением повторения.
 
-[**Timeline**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AnimationTimeLine) — это набор последовательностей (Sequences), используемых в конкретном слайде. Это анимационный движок, представленный начиная с PowerPoint 2002. В предыдущих версиях PowerPoint добавление анимационных эффектов в презентацию было сложной задачей, которую можно было решить только с помощью различных обходных решений. Timeline заменил старый класс AnimationSettings и предоставляет более понятную объектную модель для анимации PowerPoint. Один слайд может иметь только одну анимационную временную шкалу.
+[Animation Point](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/point/) — это точка, к которой должно быть применено поведение.
+
+## **Временная шкала анимации**
+
+[Sequence](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/sequence/) — это коллекция анимационных эффектов, которые могут быть направлены на разные фигуры.
+
+[Timeline](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/animationtimeline/) — набор последовательностей, используемых на конкретном слайде. Это анимационный движок, представленный в PowerPoint 2002. В более ранних версиях PowerPoint добавление анимационных эффектов в презентации было сложным и возможно только с различными обходными путями. Временная шкала предоставляет более понятную объектную модель для анимаций PowerPoint. У слайда может быть только одна временная шкала анимации.
 
 ## **Интерактивная анимация**
-[**Trigger**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/EffectTriggerType) позволяет определить действия пользователя (например, щелчок кнопки), которые запускают определённую анимацию. Триггеры были добавлены только в последнюю версию PowerPoint.
+
+[Trigger](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/effecttriggertype/) позволяет определить действия пользователя, например щелчок кнопки, которые запускают определённую анимацию.
 
 ## **Анимация фигур**
-Aspose.Slides позволяет применять анимацию к фигурам, которые могут быть текстом, прямоугольником, линией, рамкой, объектом OLE и т.д.
 
-{{% alert color="primary" %}} 
+Aspose.Slides позволяет применять анимации к фигурам, которые могут включать текст, прямоугольники, линии, рамки, OLE‑объекты и многое другое.
+
+{{% alert color="info" title="Note" %}}
 Подробнее [**Об анимации фигур**](/slides/ru/androidjava/shape-animation/).
 {{% /alert %}}
 
 ## **Анимированные диаграммы**
-Для создания анимированных диаграмм следует использовать те же классы, что и для фигур. Однако анимацию PowerPoint можно применять только к категориям диаграмм или сериям диаграмм. Вы также можете применить эффект анимации к элементу категории или элементу серии.
 
-{{% alert color="primary" %}} 
+Для создания анимированных диаграмм следует использовать те же классы, что и для фигур. Однако анимацию PowerPoint можно применять только к категориям диаграммы или к сериям диаграммы. Также можно применить анимационные эффекты к элементу категории или к элементу серии.
+
+{{% alert color="info" title="Note" %}}
 Подробнее [**Об анимированных диаграммах**](/slides/ru/androidjava/animated-charts/).
 {{% /alert %}}
 
 ## **Анимированный текст**
-Помимо анимированного текста, также можно применять анимацию к абзацу.
 
-{{% alert color="primary" %}} 
+Помимо анимации текста, можно также применить анимацию к абзацу.
+
+{{% alert color="info" title="Note" %}}
 Подробнее [**Об анимированном тексте**](/slides/ru/androidjava/animated-text/).
 {{% /alert %}}
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Сохранятся ли анимации при экспорте в PDF?**
+**Сохранится ли анимация при экспорте в PDF?**
 
-Нет. PDF — статический формат, поэтому анимации и [переходы слайдов](/slides/ru/androidjava/slide-transition/) не воспроизводятся. Если требуется движение, экспортируйте в [HTML5](/slides/ru/androidjava/export-to-html5/), [animated GIF](/slides/ru/androidjava/convert-powerpoint-to-animated-gif/), или [video](/slides/ru/androidjava/convert-powerpoint-to-video/) вместо этого.
+Нет. PDF — статический формат, поэтому анимации и [slide transitions](/slides/ru/androidjava/slide-transition/) не воспроизводятся. Если требуется движение, экспортируйте в [HTML5](/slides/ru/androidjava/export-to-html5/), [animated GIF](/slides/ru/androidjava/convert-powerpoint-to-animated-gif/) или [video](/slides/ru/androidjava/convert-powerpoint-to-video/) вместо этого.
 
-**Могу ли я превратить анимированную презентацию в видео и управлять частотой кадров и размером кадра?**
+**Могу ли я превратить анимированную презентацию в видео и контролировать частоту кадров и размер кадра?**
 
-Да. Вы можете [рендерить презентацию в виде кадров](/slides/ru/androidjava/convert-powerpoint-to-video/) и закодировать их в видео (например, с помощью ffmpeg), выбрав FPS и разрешение. Анимации и переходы слайдов воспроизводятся во время рендеринга.
+Да. Вы можете [render the presentation as frames](/slides/ru/androidjava/convert-powerpoint-to-video/) и закодировать их в видео (например, с помощью ffmpeg), выбирая FPS и разрешение. Анимации и переходы слайдов воспроизводятся во время рендеринга.
 
 **Сохранится ли анимация при работе с ODP (не только PPTX)?**
 
-PPT, PPTX и ODP поддерживаются для [чтения](/slides/ru/androidjava/open-presentation/) и [записи](/slides/ru/androidjava/save-presentation/), но различия форматов могут привести к небольшим отличиям в отображении или поведении некоторых эффектов. Проверяйте критические случаи на реальных образцах.
+PPT, PPTX и ODP поддерживаются для [reading](/slides/ru/androidjava/open-presentation/) и [writing](/slides/ru/androidjava/save-presentation/), но это не гарантирует сохранение анимаций. При конвертации в ODP пользовательские данные анимации могут быть потеряны. См. [Custom Animation for Java](/slides/ru/java/custom-animation/) для примеров и рекомендаций по проверке совместимости форматов.

@@ -23,24 +23,26 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Apprenez comment ajouter, inspecter et personnaliser les animations de forme, la synchronisation, les sons, le comportement après l'animation et le texte animé avec Aspose.Slides pour Android via Java."
+description: "Apprenez comment ajouter, inspecter et personnaliser les animations de forme, la synchronisation, les sons, le comportement après animation et le texte animé avec Aspose.Slides pour Android via Java."
 ---
-## **Vue d’ensemble**
+## **Aperçu**
 
-Aspose.Slides for Android via Java représente les animations de diapositive comme des effets dans une ligne de temps de diapositive. Un effet possède une forme cible, un type et sous‑type d’animation, un déclencheur, des paramètres de synchronisation et des propriétés facultatives telles que le son ou le comportement après l’animation.
+Pour travailler avec les comportements individuels à l'intérieur d'un effet ou modifier les segments de trajectoire de mouvement, consultez [Animation personnalisée pour Java](/slides/fr/java/custom-animation/).
 
-La ligne de temps contient deux types de séquences :
+Aspose.Slides for Android via Java représente les animations de diapositive comme des effets dans une chronologie de diapositive. Un effet possède une forme cible, un type et un sous‑type d’animation, un déclencheur, des paramètres de synchronisation et des propriétés facultatives telles que le son ou le comportement après l’animation.
 
-- La **séquence principale** s’exécute au fur et à mesure que la diapositive avance.  
+La chronologie contient deux types de séquences :
+
+- La **séquence principale** se lit à mesure que la diapositive avance.
 - Une **séquence interactive** démarre lorsque sa forme déclencheur est cliquée.
 
-Comme les zones de texte, images, graphiques, tableaux et autres objets de diapositive implémentent [IShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishape/), vous utilisez la même méthode [ISequence.addEffect](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) pour la plupart du contenu de diapositive. Les effets disponibles sont répertoriés dans la classe [EffectType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/effecttype/).
+Parce que les zones de texte, images, graphiques, tableaux et autres objets de diapositive implémentent [IShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishape/), vous utilisez la même méthode [ISequence.addEffect](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) pour la plupart du contenu des diapositives. Les effets disponibles sont répertoriés dans la classe [EffectType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/effecttype/).
 
 ## **Ajouter des animations de forme**
 
-Pour ajouter une animation, récupérez la séquence principale de la diapositive et appelez [ISequence.addEffect](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) avec la forme cible, le type d’effet, le sous‑type et le déclencheur. Pour un effet qui démarre lorsqu’une autre forme est cliquée, créez une séquence interactive dont le déclencheur est cette autre forme.
+Pour ajouter une animation, obtenez la séquence principale de la diapositive et appelez [ISequence.addEffect](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) avec la forme cible, le type d’effet, le sous‑type et le déclencheur. Pour un effet qui démarre lorsque qu’une autre forme est cliquée, créez une séquence interactive dont le déclencheur est cette autre forme.
 
-L’exemple suivant crée les deux types d’animation et enregistre le résultat dans `shape-animations.pptx`.
+L’exemple suivant crée les deux types d'animation et enregistre le résultat dans `shape-animations.pptx`.
 
 ```java
 import com.aspose.slides.*;
@@ -72,19 +74,19 @@ public class AddShapeAnimations {
 }
 ```
 
-Le déclencheur détermine le moment où un effet commence :
+Le déclencheur contrôle le moment où un effet démarre :
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/effecttriggertype/#OnClick) attend un clic dans la séquence principale, ou un clic sur la forme déclencheur dans une séquence interactive.  
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) démarre avec l’effet précédent.  
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) démarre lorsque l’effet précédent se termine.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/effecttriggertype/#OnClick) attend un clic dans la séquence principale, ou un clic sur la forme déclencheur dans une séquence interactive.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) commence avec l’effet précédent.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) commence lorsque l’effet précédent se termine.
 
-Pour animer une image, un graphique ou tout autre type de forme, transmettez cet objet à [ISequence.addEffect](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) au lieu de `targetShape`. Pour les options de groupement spécifiques aux graphiques, consultez [Animated Charts](/slides/fr/androidjava/animated-charts/).
+Pour animer une image, un graphique ou un autre type de forme, transmettez cet objet à [ISequence.addEffect](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) au lieu de `targetShape`. Pour les options de groupement spécifiques aux graphiques, consultez [Graphiques animés](/slides/fr/androidjava/animated-charts/).
 
 ## **Lire les animations de forme**
 
-Utilisez [ISequence.getEffectsByShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) lorsque vous connaissez la forme cible. Pour examiner chaque effet, parcourez la séquence principale et toutes les séquences interactives. L’énumération évite de supposer qu’une séquence contient un effet à l’index `0`.
+Utilisez [ISequence.getEffectsByShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) lorsque vous connaissez la forme cible. Pour inspecter chaque effet, énumérez la séquence principale et chaque séquence interactive. L’énumération évite de supposer qu’une séquence contient un effet à l’indice `0`.
 
-L’exemple suivant crée une forme avec des effets de séquence principale et interactive, récupère les effets qui ciblent la forme, puis parcourt chaque séquence de la diapositive.
+L’exemple suivant crée une forme avec des effets de séquence principale et interactive, récupère les effets qui ciblent la forme, puis énumère chaque séquence de la diapositive.
 
 ```java
 import com.aspose.slides.*;
@@ -138,21 +140,21 @@ public class ReadShapeAnimations {
 }
 ```
 
-Si vous avez besoin uniquement des effets d’une forme, identifiez d’abord la forme par son nom, son type de paramètre ou toute autre propriété stable ; puis appelez [ISequence.getEffectsByShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Ne supposez pas que [IShapeCollection.get_Item](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) à l’index `0` soit toujours l’objet souhaité.
+Si vous avez besoin uniquement des effets pour une forme, identifiez d’abord la forme par son nom, son type d’espace réservé ou une autre propriété stable ; puis appelez [ISequence.getEffectsByShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Ne supposez pas que [IShapeCollection.get_Item](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) à l’indice `0` soit toujours l’objet souhaité.
 
-## **Travailler avec les effets de paramètre hérité**
+## **Travailler avec les effets d’espace réservé hérités**
 
-Un paramètre sur une diapositive normale peut hériter du comportement d’animation du paramètre correspondant sur la diapositive de mise en page et la diapositive maître. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) renvoie ce paramètre parent, ou `null` lorsqu’aucun parent n’existe.
+Un espace réservé sur une diapositive normale peut hériter du comportement d’animation de l’espace réservé correspondant sur sa diapositive de mise en page et de son maître. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) renvoie cet espace réservé parent, ou `null` lorsque aucun parent n’existe.
 
-Dans la présentation d’exemple suivante, le pied de page possède **Random Bars** sur la diapositive normale, **Split** sur la diapositive de mise en page et **Fly In** sur la diapositive maître.
+Dans la présentation d’exemple suivante, le pied de page possède **Random Bars** sur la diapositive normale, **Split** sur la diapositive de mise en page, et **Fly In** sur la diapositive maître.
 
-![Footer animation effect on the normal slide](slide-shape-animation.png)
+![Effet d’animation du pied de page sur la diapositive normale](slide-shape-animation.png)
 
-![Footer placeholder animation effect on the layout slide](layout-shape-animation.png)
+![Effet d'animation de l'espace réservé du pied de page sur la diapositive de mise en page](layout-shape-animation.png)
 
-![Footer placeholder animation effect on the master slide](master-shape-animation.png)
+![Effet d'animation de l'espace réservé du pied de page sur la diapositive maître](master-shape-animation.png)
 
-L’exemple suivant utilise une hiérarchie de paramètres d’une nouvelle présentation. Il ajoute des effets à un paramètre maître, à un paramètre de mise en page et au paramètre correspondant sur une diapositive normale. Chaque appel à [IShape.getBasePlaceholder](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) est vérifié avant d’utiliser la forme retournée.
+L’exemple suivant utilise une hiérarchie d’espaces réservés d’une nouvelle présentation. Il ajoute des effets à un espace réservé maître, à un espace réservé de mise en page, et à l’espace réservé correspondant sur une diapositive normale. Chaque appel à [IShape.getBasePlaceholder](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) est vérifié avant d’utiliser la forme renvoyée.
 
 ```java
 import com.aspose.slides.*;
@@ -230,19 +232,19 @@ public class InheritedPlaceholderAnimations {
 }
 ```
 
-## **Modifier la synchronisation de l’animation**
+## **Modifier la synchronisation des animations**
 
-La boîte de dialogue PowerPoint **Timing** correspond aux propriétés de [ITiming](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/).
+La boîte de dialogue **Timing** de PowerPoint correspond aux propriétés de [ITiming](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/).
 
-![PowerPoint Timing dialog for an animation effect](shape-animation.png)
+![Boîte de dialogue Timing de PowerPoint pour un effet d'animation](shape-animation.png)
 
-- **Start** correspond à [ITiming.getTriggerType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#getTriggerType--).  
-- **Duration** correspond à [ITiming.getDuration](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#getDuration--), en secondes.  
-- **Delay** correspond à [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--), en secondes.  
-- **Repeat** correspond à [ITiming.getRepeatCount](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), ou [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).  
-- **Rewind when done playing** correspond à [ITiming.getRewind](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#getRewind--).
+- **Démarrage** correspond à [ITiming.getTriggerType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#getTriggerType--).
+- **Durée** correspond à [ITiming.getDuration](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#getDuration--), en secondes.
+- **Retard** correspond à [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--), en secondes.
+- **Répéter** correspond à [ITiming.getRepeatCount](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), ou [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
+- **Rembobinage à la fin de la lecture** correspond à [ITiming.getRewind](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#getRewind--).
 
-Cet exemple indépendant ajoute un effet, modifie sa synchronisation via l’objet renvoyé par [ISequence.addEffect](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), puis enregistre le résultat. Conserver la référence retournée à [IEffect](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ieffect/) évite d’utiliser un indice de collection inutile.
+Cet exemple indépendant ajoute un effet, modifie sa synchronisation via l’objet renvoyé par [ISequence.addEffect](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), et enregistre le résultat. Conserver la référence [IEffect](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ieffect/) retournée évite un indice de collection inutile.
 
 ```java
 import com.aspose.slides.*;
@@ -272,15 +274,15 @@ public class ChangeAnimationTiming {
 }
 ```
 
-Utilisez un seul mode de répétition intentionnellement. Combiner un nombre de répétitions avec un drapeau « until » peut entraîner des résultats déroutants dans différents lecteurs. Lors du changement de mode de répétition, réglez [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) et [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) avant [ITiming.setRepeatCount](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-), car la définition de l’un de ces drapeaux modifie également le mode de répétition actif.
+Utilisez intentionnellement un seul mode de répétition. Combiner un nombre de répétitions avec un indicateur « jusqu’à » peut produire des résultats déroutants dans différents lecteurs. Lors du changement de modes de répétition, définissez [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) et [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) avant [ITiming.setRepeatCount](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-), car la définition de l’un de ces indicateurs modifie également le mode de répétition actif.
 
-## **Ajouter et extraire des sons d’animation**
+## **Ajouter et extraire des sons d'animation**
 
-Un effet d’animation peut référencer un audio intégré via [IEffect.getSound](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ieffect/#getSound--). [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) indique à un effet d’arrêter le son démarré par un effet antérieur.
+Un effet d’animation peut référencer un audio intégré via [IEffect.getSound](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ieffect/#getSound--). [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) indique à un effet d’arrêter l’audio démarré par un effet précédent.
 
 ### **Ajouter un son à un effet**
 
-L’exemple suivant suppose un fichier audio local nommé `animation-sound.wav`. Il crée deux effets, intègre ce fichier comme son du premier effet, et configure le second effet pour arrêter le son. Il utilise les objets renvoyés par [ISequence.addEffect](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), aucune indexation de séquence n’est donc requise.
+L’exemple suivant suppose un fichier audio local nommé `animation-sound.wav`. Il crée deux effets, intègre ce fichier comme son du premier effet, et configure le deuxième effet pour arrêter le son. Il utilise les objets renvoyés par [ISequence.addEffect](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), aucun indice de séquence n’est donc requis.
 
 ```java
 import com.aspose.slides.*;
@@ -317,7 +319,7 @@ public class AddAnimationSound {
 
 ### **Extraire les sons d’effet intégrés**
 
-L’exemple suivant suppose une présentation locale nommée `presentation-with-animation-sounds.pptx`. Il parcourt les séquences principale et interactive et écrit chaque son d’effet intégré dans le répertoire `extracted-animation-sounds`. L’extension est choisie à partir du type MIME audio exposé par [IAudio.getContentType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iaudio/#getContentType--).
+L’exemple suivant suppose une présentation locale nommée `presentation-with-animation-sounds.pptx`. Il parcourt les séquences principales et interactives et écrit chaque son d’effet intégré dans le répertoire `extracted-animation-sounds`. L’extension est sélectionnée à partir du type MIME audio fourni par [IAudio.getContentType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iaudio/#getContentType--).
 
 ```java
 import com.aspose.slides.*;
@@ -391,17 +393,17 @@ public class ExtractAnimationSounds {
 }
 ```
 
-Pour les objets audio volumineux, utilisez [IAudio.getStream](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iaudio/#getStream--) et copiez le flux dans un fichier plutôt que de charger l’intégralité de l’objet en mémoire.
+Pour les gros objets audio, utilisez [IAudio.getStream](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iaudio/#getStream--) et copiez le flux vers un fichier au lieu de charger l’intégralité de l’objet dans un tableau d’octets.
 
-## **Définir le comportement après l’animation**
+## **Définir le comportement après l'animation**
 
 L’option **After animation** contrôle ce qui arrive à une forme après la fin de son effet.
 
-![PowerPoint Effect Options dialog showing After animation settings](shape-after-animation.png)
+![Boîte de dialogue Options d’effet de PowerPoint affichant les paramètres After animation](shape-after-animation.png)
 
-La classe [AfterAnimationType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/afteranimationtype/) permet de laisser la forme inchangée, de modifier sa couleur, de la masquer après l’animation ou de la masquer au prochain clic. Lorsque le type est [AfterAnimationType.Color](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/afteranimationtype/#Color), définissez également [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--).
+La classe [AfterAnimationType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/afteranimationtype/) prend en charge le fait de laisser la forme inchangée, de changer sa couleur, de la masquer après l’animation, ou de la masquer au clic suivant. Lorsque le type est [AfterAnimationType.Color](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/afteranimationtype/#Color), définissez également [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--).
 
-Cet exemple indépendant crée un effet, définit son comportement après l’animation via l’objet effet renvoyé, puis enregistre le résultat.
+Cet exemple indépendant crée un effet, définit son comportement après l’animation via l’objet effet retourné, et enregistre le résultat.
 
 ```java
 import com.aspose.slides.*;
@@ -427,16 +429,16 @@ public class SetAfterAnimationBehavior {
 }
 ```
 
-Modifier le type en dehors de [AfterAnimationType.Color](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/afteranimationtype/#Color) supprime le paramètre de couleur après l’animation.
+Modifier le type en le détournant de [AfterAnimationType.Color](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/afteranimationtype/#Color) efface le paramètre de couleur après l’animation.
 
 ## **Animer du texte**
 
-L’animation du texte possède deux contrôles associés :
+L’animation de texte possède deux contrôles associés :
 
-- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itextanimation/#getBuildType--) détermine si les paragraphes apparaissent ensemble ou paragraphe par paragraphe.  
-- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) détermine si le texte apparaît d’un coup, mot par mot ou lettre par lettre. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) fixe le délai entre les mots ou les lettres. Une valeur positive représente un pourcentage de la durée de l’effet ; une valeur négative représente un délai en secondes.
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/itextanimation/#getBuildType--) contrôle si les paragraphes apparaissent ensemble ou par niveau de paragraphe.
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) contrôle si le texte apparaît d’un coup, par mot ou par lettre. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) définit le délai entre les mots ou les lettres. Une valeur positive est un pourcentage de la durée de l’effet ; une valeur négative est un délai en secondes.
 
-L’exemple indépendant suivant anime les mots d’une zone de texte. [BuildType.AsOneObject](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/buildtype/#AsOneObject) désactive le montage paragraphe par paragraphe afin que le réglage par mot s’applique à tout le cadre de texte.
+L’exemple indépendant suivant anime les mots dans une zone de texte. [BuildType.AsOneObject](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/buildtype/#AsOneObject) désactive le construction paragraphe par paragraphe afin que le paramètre de mot s’applique à l’ensemble du cadre de texte.
 
 ```java
 import com.aspose.slides.*;
@@ -462,26 +464,26 @@ public class AnimateTextByWord {
 }
 ```
 
-Pour construire une zone de texte paragraphe par paragraphe, utilisez [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (ou un autre niveau de paragraphe). Pour cibler un seul paragraphe avec son propre effet, utilisez la surcharge [ISequence.addEffect](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) qui accepte un [IParagraph](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iparagraph/). Consultez [Animated Text](/slides/fr/androidjava/animated-text/) pour des exemples au niveau du paragraphe.
+Pour construire une zone de texte paragraphe par paragraphe, définissez [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (ou un autre niveau de paragraphe). Pour cibler un seul paragraphe avec son propre effet, utilisez la surcharge [ISequence.addEffect](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) qui accepte un [IParagraph](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iparagraph/). Consultez [Texte animé](/slides/fr/androidjava/animated-text/) pour des exemples au niveau du paragraphe.
 
-## **Exportation et notes de compatibilité**
+## **Notes d'exportation et de compatibilité**
 
-- Enregistrement au format PPT ou PPTX conserve le modèle d’animation, mais la lecture finale dépend du visualiseur de présentation.  
-- PDF et images statiques ne lisent pas les animations. Utilisez [HTML5 export](/slides/fr/androidjava/export-to-html5/), GIF animé ou [conversion vidéo](/slides/fr/androidjava/convert-powerpoint-to-video/) lorsque le résultat doit montrer du mouvement.  
-- Pour HTML5, activez [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) et, si nécessaire, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).  
-- Le rendu vidéo prend en charge de nombreux effets d’entrée, d’accentuation, de sortie et de trajectoire, mais tous les effets PowerPoint ne sont pas supportés. Vérifiez la page [supported animations and effects](/slides/fr/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) et testez les présentations critiques avec votre version cible d’Aspose.Slides.  
+- Enregistrer en PPT ou PPTX préserve le modèle d’animation, mais la lecture finale est contrôlée par le visualiseur de présentation.
+- Le PDF et les images statiques ne jouent pas les animations. Utilisez [Exportation HTML5](/slides/fr/androidjava/export-to-html5/), GIF animé, ou [conversion vidéo](/slides/fr/androidjava/convert-powerpoint-to-video/) lorsque la sortie doit montrer le mouvement.
+- Pour HTML5, activez [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) et, si nécessaire, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
+- Le rendu vidéo prend en charge de nombreux effets d’entrée, d’emphase, de sortie et de trajectoire de mouvement courants, mais tous les effets PowerPoint ne sont pas pris en charge. Vérifiez les [animations et effets pris en charge](/slides/fr/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) actuels et testez les présentations critiques avec votre version cible d’Aspose.Slides.
 - Les effets personnalisés avancés et les effets importés d’autres formats de présentation peuvent être conservés dans le fichier mais rendus différemment dans PowerPoint, HTML5 ou vidéo. Validez le résultat exporté plutôt que de vous fier uniquement au nom de l’effet.
 
 ## **FAQ**
 
 **Pourquoi une animation apparaît‑elle dans PowerPoint mais pas dans un PDF ?**
 
-PDF est un format statique, les animations et les transitions de diapositive ne sont donc pas lues. Exportez vers HTML5, GIF animé ou vidéo lorsque le mouvement doit être conservé.
+Le PDF est un format statique, donc les animations et les transitions de diapositive ne sont pas lues. Exportez vers HTML5, GIF animé ou vidéo lorsque le mouvement doit être conservé.
 
-**Pourquoi un effet se comporte‑t‑il différemment dans une vidéo ?**
+**Pourquoi un effet est‑il lu différemment dans une vidéo ?**
 
-L’exportation vidéo rend les animations au lieu de conserver le comportement PowerPoint d’origine. Certains effets avancés ne sont pas pris en charge ou sont approximés. Consultez le tableau des effets pris en charge et testez la présentation réelle avant la mise en production.
+L’exportation vidéo rend les animations plutôt que de stocker le comportement original de PowerPoint. Certains effets avancés ne sont pas pris en charge ou sont approximés. Consultez le tableau des effets pris en charge et testez la présentation réelle avant la mise en production.
 
-**Le déplacement d’une forme vers l’avant ou l’arrière modifie‑t‑il l’ordre de son animation ?**
+**Déplacer une forme vers l’avant ou vers l’arrière modifie‑t‑il son ordre d’animation ?**
 
-Non. L’ordre Z‑index contrôle la superposition des formes, tandis que l’ordre des séquences et les déclencheurs contrôlent la lecture des animations. Modifiez la ligne de temps si vous avez besoin d’un ordre de lecture différent.
+Non. L’ordre Z de la forme contrôle le chevauchement, tandis que l’ordre des séquences et les déclencheurs contrôlent la lecture des animations. Modifiez la chronologie si vous avez besoin d’un ordre de lecture différent.

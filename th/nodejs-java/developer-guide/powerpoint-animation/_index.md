@@ -1,109 +1,111 @@
 ---
-title: "เพิ่มประสิทธิภาพการนำเสนอ PowerPoint ด้วยการเคลื่อนไหวใน JavaScript"
-linktitle: "การเคลื่อนไหว PowerPoint"
+title: เพิ่มการนำเสนอ PowerPoint ด้วยการเคลื่อนไหวใน JavaScript
+linktitle: การเคลื่อนไหว PowerPoint
 type: docs
 weight: 150
 url: /th/nodejs-java/powerpoint-animation/
 keywords:
-- "เพิ่มการเคลื่อนไหว"
-- "อัปเดตการเคลื่อนไหว"
-- "เปลี่ยนการเคลื่อนไหว"
-- "ลบการเคลื่อนไหว"
-- "จัดการการเคลื่อนไหว"
-- "ควบคุมการเคลื่อนไหว"
-- "เอฟเฟกต์การเคลื่อนไหว"
-- "การเคลื่อนไหว PowerPoint"
-- "ไทม์ไลน์การเคลื่อนไหว"
-- "การเคลื่อนไหวแบบโต้ตอบ"
-- "การเคลื่อนไหวแบบกำหนดเอง"
-- "การเคลื่อนไหวของรูปร่าง"
-- "แผนภูมิที่เคลื่อนไหว"
-- "ข้อความที่เคลื่อนไหว"
-- "รูปร่างที่เคลื่อนไหว"
-- "วัตถุ OLE ที่เคลื่อนไหว"
-- "ภาพที่เคลื่อนไหว"
-- "ตารางที่เคลื่อนไหว"
-- "PowerPoint"
-- "การนำเสนอ"
-- "Node.js"
-- "JavaScript"
-- "Aspose.Slides"
-description: "ใช้ Aspose.Slides สำหรับ Node.js ผ่าน Java เพื่อจัดการการเคลื่อนไหวของ PowerPoint ภาพรวมนี้เน้นคุณสมบัติหลักและให้ข้อมูลเชิงลึกเพื่อปรับปรุงการนำเสนอของคุณ"
+- เพิ่มการเคลื่อนไหว
+- อัพเดตการเคลื่อนไหว
+- เปลี่ยนการเคลื่อนไหว
+- ลบการเคลื่อนไหว
+- จัดการการเคลื่อนไหว
+- ควบคุมการเคลื่อนไหว
+- เอฟเฟกต์การเคลื่อนไหว
+- การเคลื่อนไหว PowerPoint
+- ไทม์ไลน์การเคลื่อนไหว
+- การเคลื่อนไหวแบบโต้ตอบ
+- การเคลื่อนไหวแบบกำหนดเอง
+- การเคลื่อนไหวของรูปร่าง
+- แผนภูมิเคลื่อนไหว
+- ข้อความเคลื่อนไหว
+- รูปร่างเคลื่อนไหว
+- วัตถุ OLE เคลื่อนไหว
+- รูปภาพเคลื่อนไหว
+- ตารางเคลื่อนไหว
+- PowerPoint
+- การนำเสนอ
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "ใช้ Aspose.Slides for Node.js ผ่าน Java เพื่อจัดการการเคลื่อนไหวของ PowerPoint บทสรุปนี้เน้นคุณลักษณะสำคัญและให้ข้อมูลเชิงลึกเพื่อปรับปรุงการนำเสนอของคุณ"
 ---
 ## **บทนำ**
 
-เนื่องจากการนำเสนอมีจุดประสงค์เพื่อแสดงข้อมูล ลักษณะภาพและพฤติกรรมเชิงโต้ตอบจึงถูกพิจารณาตลอดการสร้าง
+เนื่องจากการนำเสนอมีวัตถุประสงค์เพื่อแสดงข้อมูล รูปลักษณ์ด้านภาพและพฤติกรรมแบบโต้ตอบจึงต้องได้รับการพิจารณาเสมอในระหว่างการสร้าง
 
-**PowerPoint animation** plays an important role in order to make presentation eye-catching and attractive for the viewers. Aspose.Slides for Node.js via Java offers a wide range of options to add animation to PowerPoint presentation:
+**การเคลื่อนไหวของ PowerPoint** มีบทบาทสำคัญในการทำให้การนำเสนอดึงดูดความสนใจและน่าสนใจสำหรับผู้ชม Aspose.Slides for Node.js via Java มีตัวเลือกหลากหลายสำหรับการเพิ่มการเคลื่อนไหวในงานนำเสนอ PowerPoint:
 
-- apply various types of PowerPoint animation effects on shapes, charts, tables, OLE Objects and other presentation elements.
-- use multiple PowerPoint animation effects on a shape.
-- use animation timeline to control animation effects.
-- create custom animation.
+- ใช้เอฟเฟกต์การเคลื่อนไหวของ PowerPoint ประเภทต่าง ๆ กับรูปร่าง, ชาร์ต, ตาราง, วัตถุ OLE, และส่วนประกอบการนำเสนออื่น ๆ
+- ใช้หลายเอฟเฟกต์การเคลื่อนไหวของ PowerPoint บนรูปร่างเดียว
+- ใช้ไทม์ไลน์การเคลื่อนไหวเพื่อควบคุมเอฟเฟกต์การเคลื่อนไหว
+- สร้างการเคลื่อนไหวแบบกำหนดเอง
 
-In Aspose.Slides for Node.js via Java, various animations effects can be applied on the shapes. As every element on the slide including text, pictures, OLE Object, table etc is considered as a shape, it means we can apply animation effect on every element of a slide.
+ใน Aspose.Slides for Node.js via Java สามารถใช้เอฟเฟกต์การเคลื่อนไหวต่าง ๆ กับรูปร่างได้ เนื่องจากทุกส่วนบนสไลด์รวมถึงข้อความ, รูปภาพ, วัตถุ OLE, และตาราง ถูกพิจารณาเป็นรูปร่าง จึงสามารถใช้เอฟเฟกต์การเคลื่อนไหวกับส่วนใดส่วนหนึ่งบนสไลด์ได้
 
 ## **เอฟเฟกต์การเคลื่อนไหว**
-Aspose.Slides supports **150+ animation effects**, including basic animation effects like Bounce, PathFootball, Zoom effect and specific animation effects as OLEObjectShow, OLEObjectOpen. You can find a full listing of animation effects in [**EffectType**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effecttype/) enumeration.
+Aspose.Slides รองรับ **เอฟเฟกต์การเคลื่อนไหวกว่า 150 รายการ** รวมถึงเอฟเฟกต์พื้นฐานเช่น Bounce, PathFootball, และ Zoom และเอฟเฟกต์เฉพาะเช่น OLEObjectShow และ OLEObjectOpen คุณสามารถพบรายการทั้งหมดได้ในเอ็นุมเมอเรชัน [EffectType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effecttype/)
 
-Additionally, these animation effects can be used in combination with them:
+นอกจากนี้เอฟเฟกต์การเคลื่อนไหวเหล่านี้สามารถใช้ร่วมกับพฤติกรรมต่อไปนี้ได้:
 
-- [ColorEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ColorEffect)
-- [CommandEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/CommandEffect)
-- [FilterEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/FilterEffect)
-- [MotionEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/MotionEffect)
-- [PropertyEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PropertyEffect)
-- [RotationEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/RotationEffect)
-- [ScaleEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ScaleEffect)
-- [SetEffect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/SetEffect)
+- [เอฟเฟกต์สี](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ColorEffect)
+- [เอฟเฟกต์คำสั่ง](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/CommandEffect)
+- [เอฟเฟกต์ตัวกรอง](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/FilterEffect)
+- [เอฟเฟกต์การเคลื่อนที่](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/MotionEffect)
+- [เอฟเฟกต์คุณสมบัติ](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PropertyEffect)
+- [เอฟเฟกต์การหมุน](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/RotationEffect)
+- [เอฟเฟกต์การสเกล](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ScaleEffect)
+- [เอฟเฟกต์การตั้งค่า](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/SetEffect)
 
 ## **การเคลื่อนไหวแบบกำหนดเอง**
-It is possible to create your own **custom animations** in Aspose.Slides. 
-This can be achieved if you combine several behaviours together into a new custom animation.
 
-[**Behavior**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Behavior) is a building unit of any PowerPoint animation effect. All animation effects are actually a set of behaviours composed into one strategy. You can combine behaviours into a custom animation once and reuse it in other presentations. If you add a new behaviour into a standard PowerPoint animation effect - it will be another custom animation. For example, you can add repeat behaviour to an animation to make it repeat a few times.
+สำหรับตัวอย่าง JavaScript แบบสมบูรณ์ที่สร้าง, ตรวจสอบ, และแก้ไขพฤติกรรมและเส้นทางการเคลื่อนที่ที่แก้ไขได้, ดูที่ [การเคลื่อนไหวแบบกำหนดเอง](/slides/th/nodejs-java/custom-animation/)
 
-[**Animation Point**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Point) is a point where behaviour should be applied.
+สามารถสร้าง **การเคลื่อนไหวแบบกำหนดเอง** ของคุณเองใน Aspose.Slides ได้ โดยการรวมหลายพฤติกรรมเข้าด้วยกันเป็นการเคลื่อนไหวแบบกำหนดใหม่
+
+[Behavior](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/behavior/) เป็นบล็อกการสร้างของเอฟเฟกต์การเคลื่อนไหวของ PowerPoint ผสานพฤติกรรมเพื่อปรับแต่งเอฟเฟกต์ หรือเพิ่มพฤติกรรมเพื่อขยายเอฟเฟกต์ที่กำหนดไว้ การทำซ้ำถูกกำหนดผ่านการตั้งค่าเวลาแทนการใช้พฤติกรรมทำซ้ำแยกต่างหาก
+
+[Animation Point](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/point/) คือจุดที่ควรใช้พฤติกรรม
 
 ## **ไทม์ไลน์การเคลื่อนไหว**
-[**Sequence**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Sequence) is a collection of animation effects, applied on a concrete shape.
+[Sequence](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/sequence/) เป็นคอลเลกชันของเอฟเฟกต์การเคลื่อนไหวที่สามารถกำหนดเป้าหมายไปที่รูปร่างต่าง ๆ
 
-[**Timeline**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/AnimationTimeLine) is a set of Sequences used in a concrete slide. It is an animation engine represented since PowerPoint 2002. In previous Powerpoint versions, it was challenging to add animation effects to presentation, which could be achieved only with different workarounds. Timeline comes to replace on old AnimationSettings class and provide more clear object model for PowerPoint animation. One slide can have only one animation timeline.
+[Timeline](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/animationtimeline/) เป็นชุดของลำดับที่ใช้ในสไลด์เฉพาะ มันเป็นเอนจินการเคลื่อนไหวที่แนะนำใน PowerPoint 2002 ในเวอร์ชันก่อนหน้าของ PowerPoint การเพิ่มเอฟเฟกต์การเคลื่อนไหวให้กับงานนำเสนอเป็นเรื่องยากและทำได้เฉพาะด้วยวิธีแก้ปัญหาต่าง ๆ ไทม์ไลน์ให้โมเดลวัตถุที่ชัดเจนขึ้นสำหรับการเคลื่อนไหวของ PowerPoint สไลด์สามารถมีไทม์ไลน์การเคลื่อนไหวได้เพียงหนึ่งชุด
 
 ## **การเคลื่อนไหวแบบโต้ตอบ**
-[**Trigger**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/EffectTriggerType) allows to define user actions (e.g. button click), that will make a certain animation start. Triggers have been added into the latest PowerPoint version only.
+[Trigger](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/effecttriggertype/) ให้คุณกำหนดการกระทำของผู้ใช้ เช่น การคลิกปุ่ม เพื่อเริ่มการเคลื่อนไหวเฉพาะ
 
 ## **การเคลื่อนไหวของรูปร่าง**
-Aspose.Slides allows to apply animation to shapes, that can be actually text, rectangle, line, frame, OLE Object, etc.
+Aspose.Slides อนุญาตให้คุณใช้การเคลื่อนไหวกับรูปร่าง ซึ่งอาจรวมถึงข้อความ, สี่เหลี่ยม, เส้น, เฟรม, วัตถุ OLE และอื่น ๆ
 
-{{% alert color="primary" %}} 
-Read more [**เกี่ยวกับการเคลื่อนไหวของรูปร่าง**](/slides/th/nodejs-java/shape-animation/).
+{{% alert color="info" title="Note" %}}
+อ่านเพิ่มเติม [**เกี่ยวกับการเคลื่อนไหวของรูปร่าง**](/slides/th/nodejs-java/shape-animation/).
 {{% /alert %}}
 
-## **แผนภูมิที่เคลื่อนไหว**
-To create animated charts, you should use all the same classes as for the shapes. However, it is possible to use PowerPoint animation only on chart categories or chart series. You can also apply animation effect to a category element or series element.
+## **แผนภูมิเคลื่อนไหว**
+เพื่อสร้างแผนภูมิที่เคลื่อนไหว คุณควรใช้คลาสเดียวกับรูปร่าง อย่างไรก็ตาม การเคลื่อนไหวของ PowerPoint สามารถใช้ได้กับหมวดหมู่แผนภูมิหรือชุดข้อมูลแผนภูมิเท่านั้น คุณยังสามารถใช้เอฟเฟกต์การเคลื่อนไหวกับองค์ประกอบหมวดหมู่หรือชุดข้อมูลได้
 
-{{% alert color="primary" %}} 
-Read more [**เกี่ยวกับแผนภูมิที่เคลื่อนไหว**](/slides/th/nodejs-java/animated-charts/).
+{{% alert color="info" title="Note" %}}
+อ่านเพิ่มเติม [**เกี่ยวกับแผนภูมิเคลื่อนไหว**](/slides/th/nodejs-java/animated-charts/).
 {{% /alert %}}
 
-## **ข้อความที่เคลื่อนไหว**
-Except animated text, it is also possible to apply animation to a paragraph.
+## **ข้อความเคลื่อนไหว**
+นอกจากการเคลื่อนไหวข้อความแล้ว คุณยังสามารถใช้การเคลื่อนไหวกับย่อหน้าหนึ่งได้
 
-{{% alert color="primary" %}} 
-Read more [**เกี่ยวกับข้อความที่เคลื่อนไหว**](/slides/th/nodejs-java/animated-text/).
+{{% alert color="info" title="Note" %}}
+อ่านเพิ่มเติม [**เกี่ยวกับข้อความเคลื่อนไหว**](/slides/th/nodejs-java/animated-text/).
 {{% /alert %}}
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**Will animations be preserved when exporting to PDF?**
+**การเคลื่อนไหวจะยังคงอยู่เมื่อนำออกเป็น PDF หรือไม่?**
 
-No. PDF is a static format, so animations and [slide transitions](/slides/th/nodejs-java/slide-transition/) don’t play. If you need motion, export to [HTML5](/slides/th/nodejs-java/export-to-html5/), [animated GIF](/slides/th/nodejs-java/convert-powerpoint-to-animated-gif/), or [video](/slides/th/nodejs-java/convert-powerpoint-to-video/) instead.
+ไม่. PDF เป็นรูปแบบสถิต ดังนั้นการเคลื่อนไหวและ [การเปลี่ยนสไลด์](/slides/th/nodejs-java/slide-transition/) จะไม่ทำงาน หากต้องการการเคลื่อนที่ ให้ส่งออกเป็น [HTML5](/slides/th/nodejs-java/export-to-html5/), [GIF เคลื่อนไหว](/slides/th/nodejs-java/convert-powerpoint-to-animated-gif/), หรือ [วิดีโอ](/slides/th/nodejs-java/convert-powerpoint-to-video/) แทน
 
-**Can I turn an animated presentation into a video and control the frame rate and frame size?**
+**ฉันสามารถแปลงการนำเสนอที่มีการเคลื่อนไหวเป็นวิดีโอและควบคุมอัตราเฟรมและขนาดเฟรมได้หรือไม่?**
 
-Yes. You can [render the presentation as frames](/slides/th/nodejs-java/convert-powerpoint-to-video/) and encode them into a video (e.g., via ffmpeg), choosing the FPS and resolution. Animations and slide transitions are played during rendering.
+ใช่. คุณสามารถ [เรนเดอร์การนำเสนอเป็นเฟรม](/slides/th/nodejs-java/convert-powerpoint-to-video/) และเข้ารหัสเป็นวิดีโอ (เช่น ผ่าน ffmpeg) โดยเลือก FPS และความละเอียด การเคลื่อนไหวและการเปลี่ยนสไลด์จะเล่นระหว่างการเรนเดอร์
 
-**Will animations remain intact when working with ODP (not just PPTX)?**
+**การเคลื่อนไหวจะคงอยู่เมื่อทำงานกับ ODP (ไม่ใช่เพียง PPTX) หรือไม่?**
 
-PPT, PPTX, and ODP are supported for [reading](/slides/th/nodejs-java/open-presentation/) and [writing](/slides/th/nodejs-java/save-presentation/), but format differences mean certain effects may look or behave slightly differently. Validate critical cases with real samples.
+PPT, PPTX, และ ODP รองรับสำหรับ [การอ่าน](/slides/th/nodejs-java/open-presentation/) และ [การเขียน](/slides/th/nodejs-java/save-presentation/) แต่ไม่รับประกันว่าจะคงการเคลื่อนไหวไว้ได้ ข้อมูลการเคลื่อนไหวแบบกำหนดเองอาจสูญหายเมื่อแปลงเป็น ODP ดูที่ [การเคลื่อนไหวแบบกำหนดเอง](/slides/th/nodejs-java/custom-animation/) สำหรับตัวอย่างและแนวทางตรวจสอบความเข้ากันได้ของรูปแบบ

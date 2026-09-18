@@ -1,45 +1,47 @@
 ---
-title: "C++ का उपयोग करके प्रस्तुतियों में आकार एनीमेशन लागू करें"
-linktitle: "आकार एनीमेशन"
+title: C++ का उपयोग करके प्रस्तुतियों में आकार एनीमेशन लागू करें
+linktitle: आकार एनीमेशन
 type: docs
 weight: 60
 url: /hi/cpp/shape-animation/
 keywords:
-- "आकार"
-- "एनीमेशन"
-- "प्रभाव"
-- "एनिमेटेड आकार"
-- "एनिमेटेड टेक्स्ट"
-- "एनीमेशन जोड़ें"
-- "एनीमेशन प्राप्त करें"
-- "एनीमेशन निकालें"
-- "प्रभाव जोड़ें"
-- "प्रभाव प्राप्त करें"
-- "प्रभाव निकालें"
-- "प्रभाव ध्वनि"
-- "एनीमेशन लागू करें"
-- "PowerPoint"
-- "प्रस्तुति"
-- "C++"
-- "Aspose.Slides"
-description: "Aspose.Slides for C++ के साथ आकार एनीमेशन, टाइमिंग, ध्वनियां, एनीमेशन के बाद व्यवहार, और एनिमेटेड टेक्स्ट को जोड़ना, निरीक्षण करना और अनुकूलित करना सीखें।"
+- आकार
+- एनीमेशन
+- प्रभाव
+- एनिमेटेड आकार
+- एनीमेटेड पाठ
+- एनीमेशन जोड़ें
+- एनीमेशन प्राप्त करें
+- एनीमेशन निकालें
+- प्रभाव जोड़ें
+- प्रभाव प्राप्त करें
+- प्रभाव निकालें
+- प्रभाव ध्वनि
+- एनीमेशन लागू करें
+- PowerPoint
+- प्रस्तुति
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ के साथ आकार एनीमेशन, टाइमिंग, ध्वनि, एनीमेशन‑के‑बाद व्यवहार, और एनीमेटेड टेक्स्ट को जोड़ना, निरीक्षण करना और अनुकूलित करना सीखें।"
 ---
 ## **अवलोकन**
 
-Aspose.Slides for C++ स्लाइड एनीमेशन को स्लाइड टाइमलाइन में इफ़ेक्ट्स के रूप में दर्शाता है। एक इफ़ेक्ट में लक्ष्य आकार, एनीमेशन प्रकार और उपप्रकार, ट्रिगर, टाइमिंग सेटिंग्स, तथा वैकल्पिक गुण जैसे ध्वनि या एनीमेशन के बाद का व्यवहार होते हैं।
+एफ़ेक्ट के भीतर व्यक्तिगत व्यवहारों के साथ काम करने या मोशन‑पाथ सेगमेंट को संपादित करने के लिए, देखें [कस्टम एनीमेशन](/slides/hi/cpp/custom-animation/)।
 
-टाइमलाइन में दो प्रकार के सिक्वेंस होते हैं:
+Aspose.Slides for C++ स्लाइड एनीमेशन को स्लाइड टाइमलाइन में इफ़ेक्ट्स के रूप में दर्शाता है। एक इफ़ेक्ट में लक्ष्य आकार, एनीमेशन प्रकार और उप‑प्रकार, ट्रिगर, टाइमिंग सेटिंग्स, और वैकल्पिक गुण जैसे ध्वनि या एनीमेशन‑के‑बाद व्यवहार होते हैं।
 
-- **मुख्य सिक्वेंस** स्लाइड आगे बढ़ने के साथ चलता है।
-- **इंटरैक्टिव सिक्वेंस** तब शुरू होता है जब उसका ट्रिगर शेप क्लिक किया जाता है।
+टाइमलाइन में दो प्रकार की अनुक्रमणिकाएँ होती हैं:
 
-क्योंकि टेक्स्ट बॉक्स, चित्र, चार्ट, टेबल, और अन्य स्लाइड ऑब्जेक्ट्स [IShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/) को लागू करते हैं, आप अधिकांश स्लाइड कंटेंट के लिए वही [ISequence::AddEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/isequence/addeffect/) मेथड उपयोग करते हैं। उपलब्ध इफ़ेक्ट्स [EffectType](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/effecttype/) एन्यूमरेशन में सूचीबद्ध हैं।
+- The **मुख्य अनुक्रम** स्लाइड आगे बढ़ते समय चलता है।
+- एक **इंटरैक्टिव अनुक्रम** तब शुरू होता है जब उसका ट्रिगर आकार क्लिक किया जाता है।
+
+क्योंकि टेक्स्ट बॉक्स, चित्र, चार्ट, तालिकाएँ और अन्य स्लाइड ऑब्जेक्ट [IShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/) को लागू करते हैं, आप अधिकांश स्लाइड सामग्री के लिए वही [ISequence::AddEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/isequence/addeffect/) मेथड उपयोग करते हैं। उपलब्ध इफ़ेक्ट्स [EffectType](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/effecttype/) एनेउमरेशन में सूचीबद्ध हैं।
 
 ## **आकार एनीमेशन जोड़ें**
 
-एक एनीमेशन जोड़ने के लिए, स्लाइड के मुख्य सिक्वेंस को प्राप्त करें और लक्ष्य आकार, इफ़ेक्ट प्रकार, उपप्रकार, तथा ट्रिगर के साथ [ISequence::AddEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/isequence/addeffect/) को कॉल करें। अन्य शेप पर क्लिक करने पर शुरू होने वाले इफ़ेक्ट के लिए, एक इंटरैक्टिव सिक्वेंस बनाएं जिसका ट्रिगर वह दूसरा शेप हो।
+एक एनीमेशन जोड़ने के लिए, स्लाइड के मुख्य अनुक्रम को प्राप्त करें और लक्ष्य आकार, इफ़ेक्ट प्रकार, उप‑प्रकार और ट्रिगर के साथ [ISequence::AddEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/isequence/addeffect/) को कॉल करें। यदि कोई इफ़ेक्ट तब शुरू होना चाहिए जब अन्य आकार पर क्लिक किया जाए, तो ऐसा इंटरैक्टिव अनुक्रम बनाएं जिसका ट्रिगर वह अन्य आकार हो।
 
-निम्नलिखित उदाहरण दोनों प्रकार के एनीमेशन बनाता है और परिणाम को `shape-animations.pptx` में सहेजता है।
+निम्न उदाहरण दोनों प्रकार की एनीमेशन बनाता है और परिणाम `shape-animations.pptx` में सहेजता है।
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -86,17 +88,17 @@ presentation->Dispose();
 
 ट्रिगर नियंत्रित करता है कि इफ़ेक्ट कब शुरू होता है:
 
-- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/effecttriggertype/) मुख्य अनुक्रम में क्लिक की प्रतीक्षा करता है, या इंटरैक्टिव अनुक्रम में ट्रिगर शेप पर क्लिक की।
-- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/effecttriggertype/) पिछले इफ़ेक्ट के साथ शुरू होता है।
-- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/effecttriggertype/) पिछले इफ़ेक्ट के समाप्त होने पर शुरू होता है।
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/effecttriggertype/) मुख्य अनुक्रम में क्लिक या इंटरैक्टिव अनुक्रम में ट्रिगर आकार पर क्लिक की प्रतीक्षा करता है।
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/effecttriggertype/) पूर्ववर्ती इफ़ेक्ट के साथ शुरू होता है।
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/effecttriggertype/) पूर्ववर्ती इफ़ेक्ट समाप्त होने पर शुरू होता है।
 
-चित्र, चार्ट, या किसी अन्य शेप प्रकार को एनीमेट करने के लिए, `targetShape` के स्थान पर उस ऑब्जेक्ट को [ISequence::AddEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/isequence/addeffect/) में पास करें। चार्ट-विशिष्ट ग्रुपिंग विकल्पों के लिए देखें [Animated Charts](/slides/hi/cpp/animated-charts/)।
+एक चित्र, चार्ट, या किसी अन्य आकार प्रकार को एनीमेट करने के लिए, उस ऑब्जेक्ट को `targetShape` के बजाय [ISequence::AddEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/isequence/addeffect/) में पास करें। चार्ट‑विशिष्ट समूह विकल्पों के लिए देखें [Animated Charts](/slides/hi/cpp/animated-charts/)।
 
 ## **आकार एनीमेशन पढ़ें**
 
-जब आपको लक्ष्य शेप पता हो तो [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) का उपयोग करें। प्रत्येक इफ़ेक्ट का निरीक्षण करने के लिए, मुख्य सिक्वेंस और सभी इंटरैक्टिव सिक्वेंस को एनीमेट करें। एनीमेट करने से यह अनुमान लगाना बचता है कि अनुक्रम में इंडेक्स `0` पर कोई इफ़ेक्ट मौजूद है।
+जब आपको लक्ष्य आकार पता हो, तब [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) उपयोग करें। सभी इफ़ेक्ट्स को निरीक्षण करने के लिए, मुख्य अनुक्रम और प्रत्येक इंटरैक्टिव अनुक्रम को क्रमबद्ध करें। क्रमबद्ध करना यह मानने से बचाता है कि किसी अनुक्रम में इंडेक्स `0` पर इफ़ेक्ट मौजूद है।
 
-निम्नलिखित उदाहरण मुख्य‑सिक्वेंस और इंटरैक्टिव इफ़ेक्ट्स के साथ एक शेप बनाता है, शेप को लक्षित करने वाले इफ़ेक्ट्स प्राप्त करता है, और फिर स्लाइड पर सभी सिक्वेंस को एनीमेट करता है।
+निम्न उदाहरण मुख्य‑अनुक्रम और इंटरैक्टिव इफ़ेक्ट्स के साथ एक आकार बनाता है, आकार को लक्ष्य करने वाले इफ़ेक्ट्स को प्राप्त करता है, और फिर स्लाइड पर प्रत्येक अनुक्रम को क्रमबद्ध करता है।
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -165,13 +167,13 @@ for (const auto& sequence : slide->get_Timeline()->get_InteractiveSequences())
 presentation->Dispose();
 ```
 
-यदि आपको केवल एक शेप के लिए इफ़ेक्ट्स चाहिए, तो पहले शेप को नाम, प्लेसहोल्डर प्रकार, या अन्य स्थिर प्रॉपर्टी के आधार पर पहचानें; फिर [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) को कॉल करें। यह मान न लगाएँ कि [IShapeCollection::idx_get](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapecollection/idx_get/) इंडेक्स `0` पर हमेशा इच्छित ऑब्जेक्ट है।
+यदि आपको केवल एक आकार के लिए इफ़ेक्ट्स चाहिए, तो पहले आकार को नाम, प्लेसहोल्डर प्रकार, या अन्य स्थिर गुण द्वारा पहचानेँ; फिर [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) को कॉल करें। यह न मानें कि [IShapeCollection::idx_get](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapecollection/idx_get/) इंडेक्स `0` पर हमेशा वांछित ऑब्जेक्ट होता है।
 
-## **विरासत प्राप्त प्लेसहोल्डर इफ़ेक्ट्स के साथ काम करें**
+## **इनहेरिटेड प्लेसहोल्डर इफ़ेक्ट्स के साथ काम करें**
 
-सामान्य स्लाइड पर एक प्लेसहोल्डर अपने लेआउट स्लाइड और मास्टर स्लाइड पर संबंधित प्लेसहोल्डर से एनीमेशन व्यवहार विरासत में ले सकता है। [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/getbaseplaceholder/) वह पैरेंट प्लेसहोल्डर लौटाता है, या जब कोई पैरेंट न हो तो `nullptr`।
+एक सामान्य स्लाइड पर प्लेसहोल्डर अपने लेआउट स्लाइड और मास्टर स्लाइड पर संबंधित प्लेसहोल्डर से एनीमेशन व्यवहार विरासत में ले सकता है। [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/getbaseplaceholder/) वह पैरेंट प्लेसहोल्डर लौटाता है, या जब कोई पैरेंट मौजूद न हो तो `nullptr`।
 
-निम्नलिखित उदाहरण प्रस्तुति में फुटर के पास सामान्य स्लाइड पर **Random Bars**, लेआउट स्लाइड पर **Split**, और मास्टर स्लाइड पर **Fly In** हैं।
+निम्न उदाहरण प्रस्तुति में, फुटर के पास सामान्य स्लाइड पर **Random Bars**, लेआउट स्लाइड पर **Split**, और मास्टर स्लाइड पर **Fly In** है।
 
 ![सामान्य स्लाइड पर फुटर एनीमेशन इफ़ेक्ट](slide-shape-animation.png)
 
@@ -179,7 +181,7 @@ presentation->Dispose();
 
 ![मास्टर स्लाइड पर फुटर प्लेसहोल्डर एनीमेशन इफ़ेक्ट](master-shape-animation.png)
 
-अगला उदाहरण स्वयं प्लेसहोल्डर पदानुक्रम बनाता है। यह मास्टर प्लेसहोल्डर, लेआउट प्लेसहोल्डर, और सामान्य स्लाइड पर संबंधित प्लेसहोल्डर में इफ़ेक्ट्स जोड़ता है। प्रत्येक कॉल को [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/getbaseplaceholder/) का उपयोग करने से पहले जांचा जाता है।
+अगला उदाहरण स्वयं प्लेसहोल्डर पदानुक्रम बनाता है। यह मास्टर प्लेसहोल्डर, लेआउट प्लेसहोल्डर, और सामान्य स्लाइड पर संबंधित प्लेसहोल्डर में इफ़ेक्ट्स जोड़ता है। प्रत्येक बार [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/getbaseplaceholder/) को कॉल करने से पहले वापस मिला आकार जाँच लिया जाता है।
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -266,17 +268,17 @@ presentation->Dispose();
 
 ## **एनीमेशन टाइमिंग बदलें**
 
-PowerPoint **Timing** संवाद को [ITiming](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/) की मेथड्स से मैप किया जाता है।
+PowerPoint **Timing** डायलॉग [ITiming](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/) की मेथड्स के अनुरूप है।
 
-![एनीमेशन इफ़ेक्ट के लिए PowerPoint टाइमिंग डायलॉग](shape-animation.png)
+![एक एनीमेशन इफ़ेक्ट के लिए PowerPoint टाइमिंग डायलॉग](shape-animation.png)
 
-- **Start** को [ITiming::set_TriggerType](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_triggertype/) से मैप किया जाता है।
-- **Duration** को [ITiming::set_Duration](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_duration/) से मैप किया जाता है, सेकंड में।
-- **Delay** को [ITiming::set_TriggerDelayTime](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_triggerdelaytime/) से मैप किया जाता है, सेकंड में।
-- **Repeat** को [ITiming::set_RepeatCount](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_repeatcount/), [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/), या [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) से मैप किया जाता है।
-- **Rewind when done playing** को [ITiming::set_Rewind](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_rewind/) से मैप किया जाता है।
+- **स्टार्ट** को [ITiming::set_TriggerType](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_triggertype/) दर्शाता है।
+- **अवधि** को [ITiming::set_Duration](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_duration/) से सेट किया जाता है, सेकंड में।
+- **विलंब** को [ITiming::set_TriggerDelayTime](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_triggerdelaytime/) से सेट किया जाता है, सेकंड में।
+- **दोहराना** को या तो [ITiming::set_RepeatCount](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_repeatcount/), [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/), या [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) द्वारा नियंत्रित किया जाता है।
+- **खेल समाप्त होने पर रिवाइंड** को [ITiming::set_Rewind](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_rewind/) से सेट किया जाता है।
 
-यह स्वतंत्र उदाहरण एक इफ़ेक्ट जोड़ता है, [ISequence::AddEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/isequence/addeffect/) द्वारा लौटाए गए ऑब्जेक्ट के माध्यम से उसका टाइमिंग बदलता है, और परिणाम को सहेजता है। लौटाए गए [IEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/ieffect/) रेफ़रेंस को बनाए रखने से अनावश्यक कलेक्शन इंडेक्स से बचा जाता है।
+यह स्वतंत्र उदाहरण एक इफ़ेक्ट जोड़ता है, [ISequence::AddEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/isequence/addeffect/) द्वारा लौटाए गए ऑब्जेक्ट के माध्यम से उसकी टाइमिंग बदलता है, और परिणाम सहेजता है। लौटाए गए [IEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/ieffect/) संदर्भ को रखने से अनावश्यक कलेक्शन इंडेक्स बचता है।
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -318,15 +320,15 @@ presentation->Save(u"shape-animation-timing.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-एक ही रिपीट मोड का जानबूझकर उपयोग करें। रिपीट काउंट को "until" फ़्लैग के साथ मिलाने से विभिन्न व्यूअर्स में भ्रमित परिणाम मिल सकते हैं। रिपीट मोड बदलते समय, पहले [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) और [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) को कॉल करें, फिर [ITiming::set_RepeatCount](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_repeatcount/) को, क्योंकि किसी भी फ़्लैग को सेट करने से सक्रिय रिपीट मोड बदल जाता है।
+एक दोहराव मोड को जानबूझकर उपयोग करें। दोहराव काउंट को “until” फ़्लैग के साथ मिलाने से विभिन्न दर्शकों में भ्रमित करने वाले परिणाम हो सकते हैं। दोहराव मोड बदलते समय, पहले [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) और [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) को कॉल करें, फिर [ITiming::set_RepeatCount](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itiming/set_repeatcount/) को, क्योंकि किसी भी फ़्लैग को सेट करने से सक्रिय दोहराव मोड बदल जाता है।
 
-## **एनीमेशन साउंड जोड़ें और निकालें**
+## **एनीमेशन ध्वनियां जोड़ें और निकालें**
 
-एक एनीमेशन इफ़ेक्ट एम्बेडेड ऑडियो को [IEffect::set_Sound](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/ieffect/set_sound/) द्वारा संदर्भित कर सकता है। [IEffect::set_StopPreviousSound](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/ieffect/set_stopprevioussound/) एक इफ़ेक्ट को बताता है कि वह पहले शुरू हुए ऑडियो को रोक दे।
+एक एनीमेशन इफ़ेक्ट एम्बेडेड ऑडियो को [IEffect::set_Sound](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/ieffect/set_sound/) द्वारा संदर्भित कर सकता है। [IEffect::set_StopPreviousSound](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/ieffect/set_stopprevioussound/) एक इफ़ेक्ट को बताता है कि वह पहले के इफ़ेक्ट द्वारा शुरू हुई ध्वनि को रोक दे।
 
-### **एक इफ़ेक्ट में साउंड जोड़ें**
+### **इफ़ेक्ट में ध्वनि जोड़ें**
 
-निम्नलिखित उदाहरण एक स्थानीय ऑडियो फ़ाइल `animation-sound.wav` की अपेक्षा करता है। यह दो इफ़ेक्ट बनाता है, पहली इफ़ेक्ट के लिए उस फ़ाइल को साउंड के रूप में एम्बेड करता है, और दूसरे इफ़ेक्ट को साउंड को रोकने के लिए कॉन्फ़िगर करता है। यह [ISequence::AddEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/isequence/addeffect/) द्वारा लौटाए गए ऑब्जेक्ट्स का उपयोग करता है, इसलिए सिक्वेंस इंडेक्स की ज़रूरत नहीं है।
+निम्न उदाहरण एक स्थानीय ऑडियो फ़ाइल `animation-sound.wav` की अपेक्षा करता है। यह दो इफ़ेक्ट बनाता है, पहली इफ़ेक्ट के लिए उस फ़ाइल को ध्वनि के रूप में एम्बेड करता है, और दूसरी इफ़ेक्ट को ध्वनि को रोकने के लिए कॉन्फ़िगर करता है। यह [ISequence::AddEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/isequence/addeffect/) द्वारा लौटाए गए ऑब्जेक्ट्स का उपयोग करता है, इसलिए अनुक्रम इंडेक्स आवश्यक नहीं है।
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -373,9 +375,9 @@ presentation->Save(u"shape-animation-sound.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **एम्बेडेड इफ़ेक्ट साउंड निकालें**
+### **एम्बेडेड इफ़ेक्ट ध्वनियों को निकालें**
 
-निम्नलिखित उदाहरण एक स्थानीय प्रस्तुति `presentation-with-animation-sounds.pptx` की अपेक्षा करता है। यह मुख्य और इंटरैक्टिव दोनों सिक्वेंस को स्कैन करता है और प्रत्येक एम्बेडेड इफ़ेक्ट साउंड को `extracted-animation-sounds` डायरेक्टरी में लिखता है। एक्सटेंशन ऑडियो MIME टाइप से चुना जाता है जो [IAudio::get_ContentType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iaudio/get_contenttype/) द्वारा प्रदान किया जाता है।
+निम्न उदाहरण एक स्थानीय प्रस्तुति `presentation-with-animation-sounds.pptx` की अपेक्षा करता है। यह मुख्य और इंटरैक्टिव दोनों अनुक्रमों को स्कैन करता है और प्रत्येक एम्बेडेड इफ़ेक्ट ध्वनि को `extracted-animation-sounds` डायरेक्टरी में लिखता है। एक्सटेंशन वह ऑडियो MIME प्रकार से चयनित किया जाता है जो [IAudio::get_ContentType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iaudio/get_contenttype/) द्वारा प्रकट किया गया है।
 
 ```cpp
 #include <DOM/Animation/IEffect.h>
@@ -450,17 +452,17 @@ Console::WriteLine(String::Format(u"Extracted {0} sound file(s) to {1}.", soundI
 presentation->Dispose();
 ```
 
-बड़ी ऑडियो ऑब्जेक्ट्स के लिए, [IAudio::GetStream](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iaudio/getstream/) का उपयोग करें और स्ट्रीम को फ़ाइल में कॉपी करें बजाय पूरी ऑब्जेक्ट को बाइट एरे में लोड किए।
+बड़े ऑडियो ऑब्जेक्ट्स के लिए, [IAudio::GetStream](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iaudio/getstream/) का उपयोग करें और पूरी ऑब्जेक्ट को बाइट ऐरे में लोड करने के बजाय स्ट्रीम को फाइल में कॉपी करें।
 
-## **एनीमेशन के बाद व्यवहार सेट करें**
+## **एनीमेशन-के-बाद व्यवहार सेट करें**
 
-**After animation** विकल्प नियंत्रित करता है कि इफ़ेक्ट समाप्त होने के बाद शेप के साथ क्या होता है।
+**After animation** विकल्प निर्धारित करता है कि इफ़ेक्ट समाप्त होने के बाद आकार पर क्या कार्रवाई की जाए।
 
-![After animation सेटिंग्स दिखाते हुए PowerPoint इफ़ेक्ट ऑप्शन डायलॉग](shape-after-animation.png)
+![PowerPoint इफ़ेक्ट विकल्प डायलॉग जिसमें After animation सेटिंग्स दिखायी गई हैं](shape-after-animation.png)
 
-[AfterAnimationType](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/afteranimationtype/) एन्यूमरेशन शेप को unchanged छोड़ने, उसका रंग बदलने, एनीमेशन के बाद उसे छिपाने, या अगली क्लिक पर छिपाने का समर्थन करता है। जब प्रकार [AfterAnimationType::Color](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/afteranimationtype/) हो, तो रंग सेट करने के लिए [IEffect::get_AfterAnimationColor](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/ieffect/get_afteranimationcolor/) को कॉल करें।
+[AfterAnimationType](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/afteranimationtype/) एनेउमरेशन आकार को अपरिवर्तित रहने देना, उसका रंग बदलना, एनीमेशन के बाद उसे छुपाना, या अगले क्लिक पर छुपाना समर्थन करता है। जब प्रकार [AfterAnimationType::Color](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/afteranimationtype/) हो, तो रंग भी सेट करने के लिए [IEffect::get_AfterAnimationColor](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/ieffect/get_afteranimationcolor/) को कॉल करें।
 
-यह स्वतंत्र उदाहरण एक इफ़ेक्ट बनाता है, लौटाए गए इफ़ेक्ट ऑब्जेक्ट के माध्यम से उसके एनीमेशन‑के‑बाद व्यवहार को सेट करता है, और परिणाम को सहेजता है।
+यह स्वतंत्र उदाहरण एक इफ़ेक्ट बनाता है, लौटाए गए इफ़ेक्ट ऑब्जेक्ट के माध्यम से उसके एनीमेशन‑के‑बाद व्यवहार को सेट करता है, और परिणाम सहेजता है।
 
 ```cpp
 #include <DOM/Animation/AfterAnimationType.h>
@@ -500,16 +502,16 @@ presentation->Save(u"shape-animation-after-effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-[AfterAnimationType::Color](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/afteranimationtype/) से प्रकार बदलने पर एनीमेशन‑के‑बाद रंग सेटिंग साफ़ हो जाती है।
+[AfterAnimationType::Color](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/afteranimationtype/) प्रकार को बदलने से एनीमेशन‑के‑बाद रंग सेटिंग साफ़ हो जाती है।
 
-## **टेक्स्ट एनीमेट करें**
+## **पाठ एनीमेट करें**
 
-टेक्स्ट एनीमेशन में दो संबंधित कंट्रोल होते हैं:
+पाठ एनीमेशन के दो संबंधित नियंत्रण हैं:
 
-- [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itextanimation/set_buildtype/) नियंत्रित करता है कि पैराग्राफ एक साथ दिखें या पैराग्राफ‑लेवल पर।
-- [IEffect::set_AnimateTextType](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) नियंत्रित करता है कि टेक्स्ट एक बार में, शब्द‑दर‑शब्द, या अक्षर‑दर‑अक्षर दिखे। [IEffect::set_DelayBetweenTextParts](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) शब्दों या अक्षरों के बीच देरी सेट करता है। सकारात्मक मान इफ़ेक्ट अवधि का प्रतिशत है; नकारात्मक मान सेकंड में देरी है।
+- [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itextanimation/set_buildtype/) निर्धारित करता है कि पैराग्राफ एक साथ दिखें या पैराग्राफ स्तर पर।
+- [IEffect::set_AnimateTextType](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) निर्धारित करता है कि पाठ एक बार में, शब्द दर शब्द, या अक्षर दर अक्षर दिखाई दे। [IEffect::set_DelayBetweenTextParts](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) शब्दों या अक्षरों के बीच देरी सेट करता है। सकारात्मक मान इफ़ेक्ट अवधि का प्रतिशत है; नकारात्मक मान सेकंड में देरी है।
 
-निम्नलिखित स्वतंत्र उदाहरण टेक्स्ट बॉक्स में शब्दों को एनीमेट करता है। [BuildType::AsOneObject](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/buildtype/) पैराग्राफ‑दर‑पैराग्राफ निर्माण को निष्क्रिय करता है ताकि शब्द सेटिंग पूरे टेक्स्ट फ्रेम पर लागू हो।
+निम्न स्वतंत्र उदाहरण एक टेक्स्ट बॉक्स में शब्दों को एनीमेट करता है। [BuildType::AsOneObject](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/buildtype/) पैराग्राफ‑दर‑पैराग्राफ निर्माण को निष्क्रिय करता है ताकि शब्द सेटिंग पूरे टेक्स्ट फ्रेम पर लागू हो।
 
 ```cpp
 #include <DOM/Animation/AnimateTextType.h>
@@ -549,26 +551,23 @@ presentation->Save(u"animated-text.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-पैराग्राफ‑दर‑पैराग्राफ बॉक्स बनाने के लिए, [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itextanimation/set_buildtype/) को [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/buildtype/) या किसी अन्य पैराग्राफ लेवल के साथ उपयोग करें। एकल पैराग्राफ को अपने स्वयं के इफ़ेक्ट के साथ लक्षित करने के लिए, वह [ISequence::AddEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/isequence/addeffect/) ओवरलोड उपयोग करें जो [IParagraph](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraph/) को स्वीकार करता है। पैराग्राफ‑लेवल उदाहरणों के लिए देखें [Animated Text](/slides/hi/cpp/animated-text/)।
+पैराग्राफ द्वारा टेक्स्ट बॉक्स बनाने के लिए, [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/itextanimation/set_buildtype/) को [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/buildtype/) या किसी अन्य पैराग्राफ स्तर के साथ उपयोग करें। एक निरंतर पैराग्राफ को अपना अपना इफ़ेक्ट देने के लिए, उस [IParagraph](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraph/) को स्वीकार करने वाले [ISequence::AddEffect](https://reference.aspose.com/slides/hi/cpp/aspose.slides.animation/isequence/addeffect/) ओवरलोड का उपयोग करें। पैराग्राफ‑स्तर के उदाहरणों के लिए देखें [Animated Text](/slides/hi/cpp/animated-text/)।
 
-## **एक्सपोर्ट और संगतता नोट्स**
+## **निर्यात और संगतता नोट्स**
 
-- PPT या PPTX में सहेजने से एनीमेशन मॉडल संरक्षित रहता है, लेकिन अंतिम प्लेबैक प्रस्तुति व्यूअर द्वारा नियंत्रित होता है।
-- PDF और स्थिर छवियां एनीमेशन नहीं चलातीं। जब आउटपुट को मोशन दिखाना हो तो [HTML5 export](/slides/hi/cpp/export-to-html5/), एनीमेटेड GIF, या [video conversion](/slides/hi/cpp/convert-powerpoint-to-video/) का प्रयोग करें।
-- HTML5 के लिए, [Html5Options::set_AnimateShapes](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/html5options/set_animateshapes/) को सक्षम करें और आवश्यकता पड़ने पर [Html5Options::set_AnimateTransitions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/html5options/set_animatetransitions/) को भी।
-- वीडियो रेंडरिंग कई सामान्य इंट्री, एम्फ़ेसिस, एक्सिट, और मोशन‑पाथ इफ़ेक्ट्स को सपोर्ट करता है, लेकिन सभी PowerPoint इफ़ेक्ट सपोर्टेड नहीं हैं। वर्तमान [supported animations and effects](/slides/hi/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) देखें और अपने लक्षित Aspose.Slides संस्करण के साथ महत्वपूर्ण प्रस्तुतियों का परीक्षण करें।
-- उन्नत कस्टम इफ़ेक्ट्स और अन्य फ़ॉर्मेट से आयातित इफ़ेक्ट्स फ़ाइल में संरक्षित रह सकते हैं लेकिन PowerPoint, HTML5, या वीडियो में अलग ढंग से रेंडर हो सकते हैं। केवल इफ़ेक्ट नाम पर भरोसा करने के बजाय एक्सपोर्टेड परिणाम को वैलिडेट करें।
+- PPT या PPTX में सहेजने से एनीमेशन मॉडल संरक्षित रहता है, लेकिन अंतिम प्लेबैक प्रस्तुति दर्शक द्वारा नियंत्रित किया जाता है।
+- PDF और स्थैतिक चित्र एनीमेशन नहीं चलाते। जब गति को दिखाना आवश्यक हो, तो [HTML5 export](/slides/hi/cpp/export-to-html5/), एनीमेटेड GIF, या [video conversion](/slides/hi/cpp/convert-powerpoint-to-video/) का उपयोग करें।
+- HTML5 के लिए, [Html5Options::set_AnimateShapes](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/html5options/set_animateshapes/) को सक्षम करें और आवश्यकता पड़ने पर [Html5Options::set_AnimateTransitions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/html5options/set_animatetransitions/) को सक्षम करें।
+- वीडियो रेंडरिंग कई सामान्य प्रवेश, ज़ोर, निकास, और मोशन‑पाथ इफ़ेक्ट्स को समर्थन देता है, लेकिन हर PowerPoint इफ़ेक्ट समर्थित नहीं है। वर्तमान [supported animations and effects](/slides/hi/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) देखें और लक्ष्य Aspose.Slides संस्करण के साथ महत्वपूर्ण प्रस्तुतियों का परीक्षण करें।
+- उन्नत कस्टम इफ़ेक्ट्स और अन्य प्रस्तुति स्वरूपों से आयात किए गए इफ़ेक्ट्स फ़ाइल में संरक्षित रह सकते हैं, लेकिन PowerPoint, HTML5, या वीडियो में अलग‑अलग रेंडर हो सकते हैं। केवल इफ़ेक्ट नाम पर निर्भर रहने के बजाय निर्यातित परिणाम को सत्यापित करें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**PowerPoint में एनीमेशन दिखाई देता है लेकिन PDF में नहीं, क्यों?**
+**PowerPoint में एनीमेशन क्यों दिखता है लेकिन PDF में नहीं?**  
+PDF एक स्थैतिक स्वरूप है, इसलिए एनीमेशन तथा स्लाइड ट्रांज़िशन नहीं चलते। जब गति को संरक्षित रखना हो, तो HTML5, एनीमेटेड GIF, या वीडियो में निर्यात करें।
 
-PDF एक स्थिर फ़ॉर्मेट है, इसलिए एनीमेशन और स्लाइड ट्रांजिशन नहीं चलते। जब मोशन को बनाए रखना आवश्यक हो तो HTML5, एनीमेटेड GIF, या वीडियो में एक्सपोर्ट करें।
+**एक इफ़ेक्ट वीडियो में अलग‑अलग क्यों चलता है?**  
+वीडियो निर्यात एनीमेशन को रेंडर करता है, मूल PowerPoint व्यवहार को नहीं रखता। कुछ उन्नत इफ़ेक्ट्स असमर्थित या अनुमानित होते हैं। समर्थन‑इफ़ेक्ट तालिका देखें और उत्पादन उपयोग से पहले वास्तविक प्रस्तुति का परीक्षण करें।
 
-**वीडियो में इफ़ेक्ट अलग तरीके से क्यों चलता है?**
-
-वीडियो एक्सपोर्ट एनीमेशन को रेंडर करता है न कि मूल PowerPoint व्यवहार को स्टोर करता है। कुछ उन्नत इफ़ेक्ट्स असमर्थित या अनुमानित होते हैं। समर्थित‑इफ़ेक्ट्स तालिका देखें और उत्पादन उपयोग से पहले वास्तविक प्रस्तुति का परीक्षण करें।
-
-**क्या शेप को आगे या पीछे ले जाने से उसकी एनीमेशन क्रम बदलता है?**
-
-नहीं। शेप का z‑order ओवरलैप नियंत्रित करता है, जबकि सिक्वेंस क्रम और ट्रिगर एनीमेशन प्लेबैक नियंत्रित करते हैं। यदि अलग प्लेबैक क्रम चाहिए तो टाइमलाइन बदलें।
+**क्या आकार को आगे या पीछे ले जाने से उसकी एनीमेशन क्रम बदलता है?**  
+नहीं। आकार का z‑order ओवरलैप नियंत्रित करता है, जबकि अनुक्रम क्रम और ट्रिगर एनीमेशन प्लेबैक नियंत्रित करते हैं। यदि अलग प्लेबैक क्रम चाहिए तो टाइमलाइन को समायोजित करें।

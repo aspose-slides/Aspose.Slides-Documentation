@@ -1,5 +1,5 @@
 ---
-title: Menerapkan Animasi Bentuk pada Presentasi di Android
+title: Terapkan Animasi Bentuk dalam Presentasi di Android
 linktitle: Animasi Bentuk
 type: docs
 weight: 60
@@ -8,35 +8,37 @@ keywords:
 - bentuk
 - animasi
 - efek
-- bentuk teranimasi
-- teks teranimasi
-- tambahkan animasi
-- dapatkan animasi
-- ekstrak animasi
-- tambahkan efek
-- dapatkan efek
-- ekstrak efek
+- bentuk animasi
+- teks animasi
+- menambah animasi
+- mendapatkan animasi
+- mengekstrak animasi
+- menambah efek
+- mendapatkan efek
+- mengekstrak efek
 - suara efek
-- terapkan animasi
+- menerapkan animasi
 - PowerPoint
 - presentasi
 - Android
 - Java
 - Aspose.Slides
-description: "Pelajari cara menambahkan, memeriksa, dan menyesuaikan animasi bentuk, penjadwalan, suara, perilaku setelah animasi, serta teks teranimasi dengan Aspose.Slides untuk Android via Java."
+description: "Pelajari cara menambahkan, memeriksa, dan menyesuaikan animasi bentuk, waktu, suara, perilaku setelah animasi, serta teks animasi dengan Aspose.Slides untuk Android via Java."
 ---
-## **Ringkasan**
+## **Gambaran Umum**
 
-Aspose.Slides for Android via Java merepresentasikan animasi slide sebagai efek dalam timeline slide. Sebuah efek memiliki bentuk target, tipe animasi dan subtipe, pemicu, pengaturan waktu, serta properti opsional seperti suara atau perilaku setelah animasi.
+Untuk bekerja dengan perilaku individu di dalam efek atau mengedit segmen motion-path, lihat [Custom Animation for Java](/slides/id/java/custom-animation/).
+
+Aspose.Slides untuk Android melalui Java merepresentasikan animasi slide sebagai efek dalam timeline slide. Sebuah efek memiliki bentuk target, tipe animasi dan subtipe, pemicu, pengaturan waktu, dan properti opsional seperti suara atau perilaku setelah animasi.
 
 Timeline berisi dua jenis urutan:
 
-- **urutan utama** diputar saat slide maju.
-- **urutan interaktif** dimulai ketika bentuk pemicunya diklik.
+- Urutan **utama** diputar saat slide maju.
+- Urutan **interaktif** dimulai ketika bentuk pemicunya diklik.
 
-Karena kotak teks, gambar, diagram, tabel, dan objek slide lainnya mengimplementasikan [IShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/), Anda menggunakan metode [ISequence.addEffect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) yang sama untuk sebagian besar konten slide. Efek yang tersedia terdaftar dalam kelas [EffectType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/effecttype/).
+Karena kotak teks, gambar, grafik, tabel, dan objek slide lainnya mengimplementasikan [IShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/), Anda menggunakan metode [ISequence.addEffect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) yang sama untuk kebanyakan konten slide. Efek yang tersedia terdaftar dalam kelas [EffectType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/effecttype/).
 
-## **Tambahkan Animasi Bentuk**
+## **Menambahkan Animasi Bentuk**
 
 Untuk menambahkan animasi, dapatkan urutan utama slide dan panggil [ISequence.addEffect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) dengan bentuk target, tipe efek, subtipe, dan pemicu. Untuk efek yang dimulai ketika bentuk lain diklik, buat urutan interaktif yang pemicunya adalah bentuk lain tersebut.
 
@@ -72,17 +74,17 @@ public class AddShapeAnimations {
 }
 ```
 
-Pemicu mengontrol kapan sebuah efek dimulai:
+Pemicu mengontrol kapan efek dimulai:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/effecttriggertype/#OnClick) menunggu klik pada urutan utama, atau klik pada bentuk pemicu dalam urutan interaktif.
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) dimulai bersamaan dengan efek sebelumnya.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) dimulai ketika efek sebelumnya selesai.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/effecttriggertype/#OnClick) menunggu klik dalam urutan utama, atau klik pada bentuk pemicu dalam urutan interaktif.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) mulai bersama efek sebelumnya.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) mulai ketika efek sebelumnya selesai.
 
-Untuk memberi animasi pada gambar, diagram, atau tipe bentuk lainnya, lewati objek tersebut ke [ISequence.addEffect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) alih-alih `targetShape`. Untuk opsi pengelompokan khusus diagram, lihat [Animated Charts](/slides/id/androidjava/animated-charts/).
+Untuk menganimasikan gambar, grafik, atau tipe bentuk lain, berikan objek tersebut ke [ISequence.addEffect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) alih-alih `targetShape`. Untuk opsi pengelompokan khusus grafik, lihat [Animated Charts](/slides/id/androidjava/animated-charts/).
 
-## **Baca Animasi Bentuk**
+## **Membaca Animasi Bentuk**
 
-Gunakan [ISequence.getEffectsByShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) ketika Anda mengetahui bentuk target. Untuk memeriksa setiap efek, enumerasi urutan utama dan setiap urutan interaktif. Enumerasi menghindari asumsi bahwa sebuah urutan berisi efek pada indeks `0`.
+Gunakan [ISequence.getEffectsByShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) ketika Anda mengetahui bentuk target. Untuk memeriksa setiap efek, enumerasikan urutan utama dan setiap urutan interaktif. Enumerasi menghindari asumsi bahwa sebuah urutan berisi efek pada indeks `0`.
 
 Contoh berikut membuat sebuah bentuk dengan efek urutan utama dan interaktif, mengambil efek yang menargetkan bentuk tersebut, lalu mengenumerasi setiap urutan pada slide.
 
@@ -142,17 +144,17 @@ Jika Anda hanya membutuhkan efek untuk satu bentuk, pertama identifikasi bentuk 
 
 ## **Bekerja dengan Efek Placeholder yang Diwariskan**
 
-Sebuah placeholder pada slide normal dapat mewarisi perilaku animasi dari placeholder yang sesuai pada slide tata letak dan slide master. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) mengembalikan placeholder induk tersebut, atau `null` bila tidak ada induk.
+Sebuah placeholder pada slide normal dapat mewarisi perilaku animasi dari placeholder yang bersesuaian pada slide tata letak dan slide master. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) mengembalikan placeholder induk tersebut, atau `null` bila tidak ada induk.
 
 Pada contoh presentasi berikut, footer memiliki **Random Bars** pada slide normal, **Split** pada slide tata letak, dan **Fly In** pada slide master.
 
-![Footer animation effect on the normal slide](slide-shape-animation.png)
+![Efek animasi footer pada slide normal](slide-shape-animation.png)
 
-![Footer placeholder animation effect on the layout slide](layout-shape-animation.png)
+![Efek animasi placeholder footer pada slide tata letak](layout-shape-animation.png)
 
-![Footer placeholder animation effect on the master slide](master-shape-animation.png)
+![Efek animasi placeholder footer pada slide master](master-shape-animation.png)
 
-Contoh berikutnya menggunakan hierarki placeholder dari presentasi baru. Ia menambahkan efek ke placeholder master, placeholder tata letak, dan placeholder yang bersesuaian pada slide normal. Setiap pemanggilan [IShape.getBasePlaceholder](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) diperiksa sebelum bentuk yang dikembalikan digunakan.
+Contoh berikut menggunakan hierarki placeholder dari presentasi baru. Ia menambahkan efek ke placeholder master, placeholder tata letak, dan placeholder yang bersesuaian pada slide normal. Setiap pemanggilan [IShape.getBasePlaceholder](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) diperiksa sebelum bentuk yang dikembalikan digunakan.
 
 ```java
 import com.aspose.slides.*;
@@ -230,19 +232,19 @@ public class InheritedPlaceholderAnimations {
 }
 ```
 
-## **Ubah Timing Animasi**
+## **Mengubah Waktu Animasi**
 
-Dialog **Timing** PowerPoint dipetakan ke properti [ITiming](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/).
+Dialog **Timing** PowerPoint memetakan ke properti [ITiming](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/).
 
-![PowerPoint Timing dialog for an animation effect](shape-animation.png)
+![Dialog Timing PowerPoint untuk efek animasi](shape-animation.png)
 
-- **Start** dipetakan ke [ITiming.getTriggerType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#getTriggerType--).
-- **Duration** dipetakan ke [ITiming.getDuration](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#getDuration--), dalam detik.
-- **Delay** dipetakan ke [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--), dalam detik.
-- **Repeat** dipetakan ke [ITiming.getRepeatCount](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), atau [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
-- **Rewind when done playing** dipetakan ke [ITiming.getRewind](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#getRewind--).
+- **Mulai** memetakan ke [ITiming.getTriggerType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#getTriggerType--).
+- **Durasi** memetakan ke [ITiming.getDuration](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#getDuration--), dalam detik.
+- **Penundaan** memetakan ke [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--), dalam detik.
+- **Ulangi** memetakan ke [ITiming.getRepeatCount](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), atau [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
+- **Putar kembali saat selesai** memetakan ke [ITiming.getRewind](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#getRewind--).
 
-Contoh independen ini menambahkan sebuah efek, mengubah timing‑nya melalui objek yang dikembalikan oleh [ISequence.addEffect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), dan menyimpan hasilnya. Menyimpan referensi [IEffect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ieffect/) yang dikembalikan menghindari kebutuhan indeks koleksi yang tidak perlu.
+Contoh independen ini menambahkan sebuah efek, mengubah waktunya melalui objek yang dikembalikan oleh [ISequence.addEffect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), dan menyimpan hasilnya. Menyimpan referensi [IEffect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ieffect/) yang dikembalikan menghindari indeks koleksi yang tidak diperlukan.
 
 ```java
 import com.aspose.slides.*;
@@ -272,15 +274,15 @@ public class ChangeAnimationTiming {
 }
 ```
 
-Gunakan satu mode pengulangan secara sengaja. Menggabungkan jumlah pengulangan dengan flag “until” dapat menghasilkan hasil yang membingungkan di viewer yang berbeda. Saat mengubah mode pengulangan, setel [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) dan [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) sebelum [ITiming.setRepeatCount](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-), karena menyetel salah satu flag juga mengubah mode pengulangan yang aktif.
+Gunakan satu mode pengulangan secara sengaja. Menggabungkan jumlah pengulangan dengan flag "until" dapat menghasilkan hasil yang membingungkan di pemutar yang berbeda. Saat mengubah mode pengulangan, atur [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) dan [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) sebelum [ITiming.setRepeatCount](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-), karena pengaturan salah satu flag juga mengubah mode pengulangan yang aktif.
 
-## **Tambahkan dan Ekstrak Suara Animasi**
+## **Menambahkan dan Mengekstrak Suara Animasi**
 
-Sebuah efek animasi dapat merujuk audio tersemat melalui [IEffect.getSound](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ieffect/#getSound--). [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) memberi tahu efek untuk menghentikan audio yang dimulai oleh efek sebelumnya.
+Sebuah efek animasi dapat merujuk ke audio tertanam melalui [IEffect.getSound](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ieffect/#getSound--). [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) memberi tahu efek untuk menghentikan audio yang dimulai oleh efek sebelumnya.
 
-### **Tambahkan Suara ke Efek**
+### **Menambahkan Suara ke Efek**
 
-Contoh berikut mengharapkan file audio lokal bernama `animation-sound.wav`. Ia membuat dua efek, menyematkan file tersebut sebagai suara untuk efek pertama, dan mengonfigurasi efek kedua untuk menghentikan suara. Ia menggunakan objek yang dikembalikan oleh [ISequence.addEffect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), sehingga indeks urutan tidak diperlukan.
+Contoh berikut mengharapkan file audio lokal bernama `animation-sound.wav`. Ia membuat dua efek, menyematkan file tersebut sebagai suara untuk efek pertama, dan mengonfigurasi efek kedua untuk menghentikan suara. Ia menggunakan objek yang dikembalikan oleh [ISequence.addEffect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), sehingga tidak diperlukan indeks urutan.
 
 ```java
 import com.aspose.slides.*;
@@ -315,9 +317,9 @@ public class AddAnimationSound {
 }
 ```
 
-### **Ekstrak Suara Efek Tersemat**
+### **Mengekstrak Suara Efek yang Disematkan**
 
-Contoh berikut mengharapkan sebuah presentasi lokal bernama `presentation-with-animation-sounds.pptx`. Ia memindai urutan utama dan interaktif, kemudian menulis setiap suara efek tersemat ke direktori `extracted-animation-sounds`. Ekstensi dipilih dari tipe MIME audio yang disediakan oleh [IAudio.getContentType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iaudio/#getContentType--).
+Contoh berikut mengharapkan presentasi lokal bernama `presentation-with-animation-sounds.pptx`. Ia memindai urutan utama dan interaktif serta menulis setiap suara efek yang disematkan ke direktori `extracted-animation-sounds`. Ekstensi dipilih dari tipe MIME audio yang diungkapkan oleh [IAudio.getContentType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iaudio/#getContentType--).
 
 ```java
 import com.aspose.slides.*;
@@ -391,17 +393,17 @@ public class ExtractAnimationSounds {
 }
 ```
 
-Untuk objek audio berukuran besar, gunakan [IAudio.getStream](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iaudio/#getStream--) dan salin stream ke file alih-alih memuat seluruh objek ke dalam array byte.
+Untuk objek audio berukuran besar, gunakan [IAudio.getStream](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iaudio/#getStream--) dan salin aliran ke file alih-alih memuat seluruh objek ke dalam array byte.
 
-## **Setel Perilaku Setelah Animasi**
+## **Mengatur Perilaku Setelah Animasi**
 
-Opsi **After animation** mengontrol apa yang terjadi pada sebuah bentuk setelah efek selesai.
+Opsi **After animation** mengontrol apa yang terjadi pada bentuk setelah efeknya selesai.
 
-![PowerPoint Effect Options dialog showing After animation settings](shape-after-animation.png)
+![Dialog Opsi Efek PowerPoint menampilkan pengaturan After animation](shape-after-animation.png)
 
-Kelas [AfterAnimationType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/afteranimationtype/) mendukung membiarkan bentuk tidak berubah, mengubah warnanya, menyembunyikannya setelah animasi, atau menyembunyikannya pada klik berikutnya. Ketika tipe adalah [AfterAnimationType.Color](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/afteranimationtype/#Color), setel juga [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--).
+Kelas [AfterAnimationType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/afteranimationtype/) mendukung membiarkan bentuk tidak berubah, mengubah warnanya, menyembunyikannya setelah animasi, atau menyembunyikannya pada klik berikutnya. Ketika tipe adalah [AfterAnimationType.Color](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/afteranimationtype/#Color), atur juga [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--).
 
-Contoh independen ini membuat sebuah efek, menetapkan perilaku setelah‑animasi melalui objek efek yang dikembalikan, dan menyimpan hasilnya.
+Contoh independen ini membuat sebuah efek, menetapkan perilaku setelah animasi melalui objek efek yang dikembalikan, dan menyimpan hasilnya.
 
 ```java
 import com.aspose.slides.*;
@@ -427,16 +429,16 @@ public class SetAfterAnimationBehavior {
 }
 ```
 
-Mengubah tipe dari [AfterAnimationType.Color](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/afteranimationtype/#Color) menghapus pengaturan warna setelah‑animasi.
+Mengubah tipe dari [AfterAnimationType.Color] menghapus pengaturan warna after-animation.
 
 ## **Animasi Teks**
 
 Animasi teks memiliki dua kontrol terkait:
 
 - [ITextAnimation.getBuildType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextanimation/#getBuildType--) mengontrol apakah paragraf muncul bersamaan atau per tingkat paragraf.
-- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) mengontrol apakah teks muncul sekaligus, per kata, atau per huruf. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) menetapkan jeda antara kata atau huruf. Nilai positif adalah persentase dari durasi efek; nilai negatif adalah jeda dalam detik.
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) mengontrol apakah teks muncul sekaligus, per kata, atau per huruf. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) mengatur penundaan antara kata atau huruf. Nilai positif adalah persentase dari durasi efek; nilai negatif adalah penundaan dalam detik.
 
-Contoh independen berikut menganimasikan kata‑kata dalam sebuah kotak teks. [BuildType.AsOneObject](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/buildtype/#AsOneObject) menonaktifkan pembangunan paragraf‑per‑paragraf sehingga pengaturan kata berlaku untuk seluruh bingkai teks.
+Contoh independen berikut menganimasikan kata‑kata dalam kotak teks. [BuildType.AsOneObject](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/buildtype/#AsOneObject) menonaktifkan pembangunan paragraf per paragraf sehingga pengaturan kata berlaku untuk seluruh bingkai teks.
 
 ```java
 import com.aspose.slides.*;
@@ -462,26 +464,26 @@ public class AnimateTextByWord {
 }
 ```
 
-Untuk membangun kotak teks per paragraf, setel [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (atau tingkat paragraf lainnya). Untuk menargetkan satu paragraf dengan efeknya sendiri, gunakan overload [ISequence.addEffect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) yang menerima [IParagraph](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraph/). Lihat [Animated Text](/slides/id/androidjava/animated-text/) untuk contoh tingkat paragraf.
+Untuk membangun kotak teks per paragraf, atur [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (atau tingkat paragraf lain). Untuk menargetkan satu paragraf dengan efeknya sendiri, gunakan overload [ISequence.addEffect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) yang menerima sebuah [IParagraph](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraph/). Lihat [Animated Text](/slides/id/androidjava/animated-text/) untuk contoh tingkat paragraf.
 
-## **Ekspor dan Catatan Kompatibilitas**
+## **Catatan Ekspor dan Kompatibilitas**
 
-- Menyimpan ke PPT atau PPTX mempertahankan model animasi, tetapi pemutaran akhir dikendalikan oleh viewer presentasi.
-- PDF dan gambar statis tidak memutar animasi. Gunakan [HTML5 export](/slides/id/androidjava/export-to-html5/), GIF animasi, atau [konversi video](/slides/id/androidjava/convert-powerpoint-to-video/) ketika output harus menampilkan gerakan.
+- Menyimpan ke PPT atau PPTX mempertahankan model animasi, tetapi pemutaran akhir dikendalikan oleh penampil presentasi.
+- PDF dan gambar statis tidak memutar animasi. Gunakan [HTML5 export](/slides/id/androidjava/export-to-html5/), GIF animasi, atau [video conversion](/slides/id/androidjava/convert-powerpoint-to-video/) ketika output harus menampilkan gerakan.
 - Untuk HTML5, aktifkan [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) dan, bila diperlukan, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
-- Rendering video mendukung banyak efek masuk, penekanan, keluar, dan jalur‑gerak umum, namun tidak semua efek PowerPoint didukung. Periksa [animasi dan efek yang didukung](/slides/id/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) saat ini dan uji presentasi kritis dengan versi Aspose.Slides Anda.
-- Efek khusus lanjutan dan efek yang diimpor dari format presentasi lain mungkin dipertahankan dalam file tetapi dirender berbeda di PowerPoint, HTML5, atau video. Validasi hasil ekspor daripada hanya mengandalkan nama efek.
+- Rendering video mendukung banyak efek masuk, penekanan, keluar, dan motion‑path umum, tetapi tidak setiap efek PowerPoint didukung. Periksa [supported animations and effects](/slides/id/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) saat ini dan uji presentasi kritis dengan versi Aspose.Slides target Anda.
+- Efek khusus lanjutan dan efek yang diimpor dari format presentasi lain mungkin dipertahankan dalam file tetapi ditampilkan berbeda di PowerPoint, HTML5, atau video. Validasi hasil ekspor daripada hanya mengandalkan nama efek.
 
-## **FAQ**
+## **Tanya Jawab**
 
-**Mengapa sebuah animasi muncul di PowerPoint tetapi tidak di PDF?**
+**Mengapa animasi muncul di PowerPoint tetapi tidak di PDF?**
 
 PDF adalah format statis, sehingga animasi dan transisi slide tidak diputar. Ekspor ke HTML5, GIF animasi, atau video ketika gerakan harus dipertahankan.
 
-**Mengapa sebuah efek diputar berbeda pada video?**
+**Mengapa sebuah efek diputar berbeda dalam video?**
 
-Ekspor video merender animasi alih‑alih menyimpan perilaku asli PowerPoint. Beberapa efek lanjutan tidak didukung atau hanya diperkirakan. Tinjau tabel efek yang didukung dan uji presentasi aktual sebelum penggunaan produksi.
+Ekspor video merender animasi daripada menyimpan perilaku PowerPoint asli. Beberapa efek lanjutan tidak didukung atau hanya diperkirakan. Tinjau tabel efek yang didukung dan uji presentasi sebenarnya sebelum penggunaan produksi.
 
 **Apakah memindahkan sebuah bentuk ke depan atau ke belakang mengubah urutan animasinya?**
 
-Tidak. Urutan z‑order bentuk mengontrol tumpang tindih, sementara urutan urutan dan pemicu mengontrol pemutaran animasi. Ubah timeline jika Anda membutuhkan urutan pemutaran yang berbeda.
+Tidak. Z‑order bentuk mengontrol tumpang tindih, sementara urutan urutan dan pemicu mengontrol pemutaran animasi. Ubah timeline jika Anda memerlukan urutan pemutaran yang berbeda.

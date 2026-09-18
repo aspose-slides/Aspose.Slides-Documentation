@@ -1,5 +1,5 @@
 ---
-title: Alakzat animációk alkalmazása prezentációkban PHP-vel
+title: Alakzatanimációk alkalmazása prezentációkban PHP használatával
 linktitle: Alakzat animáció
 type: docs
 weight: 60
@@ -22,24 +22,26 @@ keywords:
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Tanulja meg, hogyan adjon hozzá, vizsgáljon meg és testre szabjon alakzat animációkat, időzítéseket, hangokat, animáció utáni viselkedést és animált szöveget az Aspose.Slides for PHP via Java segítségével."
+description: "Ismerje meg, hogyan adhat hozzá, vizsgálhat meg és testreszabhat alakzatanimációkat, időzítést, hangokat, az animáció utáni viselkedést és animált szöveget az Aspose.Slides for PHP via Java segítségével."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for PHP via Java a diaanimációkat effektusokként ábrázolja a dia idővonalán. Egy effektusnak van cél alakzata, animáció típusa és altípusa, egy trigger, időzítési beállítások, és opcionális tulajdonságok, például hang vagy animáció utáni viselkedés.
+Az egyes viselkedések kezeléséhez egy hatásban vagy a mozgásút-szakaszok szerkesztéséhez lásd a [Custom Animation](/slides/hu/php-java/custom-animation/) oldalt.
 
-Az idővonal kétféle szekvenciát tartalmaz:
+Az Aspose.Slides for PHP via Java a diák animációit effektusokként ábrázolja egy dia idővonalán. Egy effektusnak van cél alakzata, animáció típusa és altípusa, egy aktiváló (trigger), időzítési beállításai, valamint opcionális tulajdonságai, mint például hang vagy az animáció utáni viselkedés.
 
-- A **fő szekvencia** a dia előrehaladtával játszódik.
-- Egy **interaktív szekvencia** akkor kezdődik, amikor a trigger alakzatára kattintanak.
+Az idővonal kétféle sorrendet tartalmaz:
 
-Mivel a szövegdobozok, képek, diagramok, táblázatok és egyéb diaobjektumok alakzatok, a legtöbb dia tartalomhoz ugyanazt a [Sequence::addEffect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sequence/addeffect/) metódust kell használni. A rendelkezésre álló effektusok a [EffectType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effecttype/) osztályban vannak felsorolva.
+- A **fő sorrend** a dia előrehaladtával játszódik le.
+- Egy **interaktív sorrend** akkor indul, amikor az aktiváló alakzatára kattintanak.
+
+Mivel a szövegdobozok, képek, diagramok, táblázatok és egyéb diaobjektumok alakzatok, a legtöbb diaelemvhez ugyanazt a [Sequence::addEffect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sequence/addeffect/) metódust használod. Az elérhető effektusok a [EffectType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effecttype/) osztályban találhatók.
 
 ## **Alakzatanimációk hozzáadása**
 
-Animáció hozzáadásához szerezze be a dia fő szekvenciáját, és hívja meg a [Sequence::addEffect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sequence/addeffect/) metódust a cél alakzattal, effektustípussal, altípussal és triggerrel. Egy olyan effektus esetén, amely egy másik alakzatra kattintva indul, hozzon létre egy interaktív szekvenciát, amelynek triggerje az a másik alakzat.
+Animáció hozzáadásához szerezd meg a dia fő sorrendjét, és hívd a [Sequence::addEffect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sequence/addeffect/) metódust a cél alakzattal, az effektus típusával, altípusával és az aktiválóval. Ha egy effektus akkor indul, amikor egy másik alakzatra kattintanak, hozz létre egy interaktív sorrendet, amelynek aktiválója az a másik alakzat.
 
-A következő példa mindkét típusú animációt létrehozza, és az eredményt a `shape-animations.pptx` fájlba menti.
+Az alábbi példa mindkét animációtípust létrehozza, és az eredményt a `shape-animations.pptx` fájlba menti.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -72,19 +74,19 @@ try {
 }
 ```
 
-A trigger szabályozza, hogy mikor indul egy effektus:
+Az aktiváló határozza meg, mikor kezdődik egy effektus:
 
-- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effecttriggertype/) vár a kattintásra a fő szekvenciában, vagy a trigger alakzatra egy interaktív szekvenciában.
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effecttriggertype/) vár egy kattintást a fő sorrendben, vagy egy kattintást az aktiváló alakzaton egy interaktív sorrendben.
 - [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effecttriggertype/) az előző effektussal együtt indul.
-- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effecttriggertype/) az előző effektus befejezésekor indul.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effecttriggertype/) az előző effektus befejezése után indul.
 
-Kép, diagram vagy más alakzat animálásához adja át azt az objektumot a [Sequence::addEffect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sequence/addeffect/) metódusnak a `$targetShape` helyett. Diagram-specifikus csoportosítási lehetőségekért lásd az [Animated Charts](/slides/hu/php-java/animated-charts/) oldalt.
+Kép, diagram vagy más alakzat típus animálásához add át azt az objektumot a [Sequence::addEffect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sequence/addeffect/) hívásnak a `$targetShape` helyett. Diagram-specifikus csoportosítási beállításokért lásd a [Animated Charts](/slides/hu/php-java/animated-charts/) oldalt.
 
 ## **Alakzatanimációk olvasása**
 
-Használja a [Sequence::getEffectsByShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sequence/geteffectsbyshape/) metódust, ha ismeri a cél alakzatot. Minden effektus megvizsgálásához sorolja fel a fő szekvenciát és minden interaktív szekvenciát. Az enumerálás elkerüli, hogy feltételezzük, egy szekvencia a `0` indexen tartalmaz effektust.
+Használd a [Sequence::getEffectsByShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sequence/geteffectsbyshape/) metódust, ha ismered a cél alakzatot. Minden effektus megtekintéséhez iteráld a fő sorrendet és minden interaktív sorrendet. Az iteráció elkerüli, hogy feltételezd, egy sorrend tartalmaz effektust a `0` indexen.
 
-A következő példa egy alakzatot hoz létre fő-szekvenciás és interaktív effektusokkal, lekéri az alakzatra célozó effektusokat, majd felsorolja a dia minden szekvenciáját.
+Az alábbi példa egy alakzatot hoz létre fő- és interaktív effektusokkal, lekéri az alakzatot célozó effektusokat, majd minden sorrendet felsorol a dián.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -144,21 +146,21 @@ try {
 }
 ```
 
-Ha csak egy alakzathoz szükséges a hatás, először azonosítsa az alakzatot név, placeholder típus vagy más stabil tulajdonság alapján; ezután hívja meg a [Sequence::getEffectsByShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sequence/geteffectsbyshape/) metódust. Ne feltételezze, hogy a [ShapeCollection::get_Item](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/get_item/) a `0` indexen mindig a kívánt objektum.
+Ha csak egy alakzatra vonatkozó effektusokra van szükséged, előbb azonosítsd az alakzatot név, helykitöltő típus vagy más stabil tulajdonság alapján; aztán hívd a [Sequence::getEffectsByShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sequence/geteffectsbyshape/) metódust. Ne feltételezd, hogy a [ShapeCollection::get_Item](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/get_item/) a `0` indexen mindig a kívánt objektum.
 
-## **Örökölt placeholder effektusok kezelése**
+## **Örökölt helykitöltő effektusok kezelése**
 
-Egy normál dián lévő placeholder örökölheti az animációs viselkedést a megfelelő placeholderről a layout diáról és a mester diárról. A [Shape::getBasePlaceholder](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getbaseplaceholder/) visszaadja ezt a szülő placeholdert, vagy `null`-t, ha nincs szülő.
+Egy helykitöltő egy normál dián örökölheti az animációs viselkedést a megfelelő helykitöltőtől a diáblapján és a mesterdián. A [Shape::getBasePlaceholder](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getbaseplaceholder/) visszaadja ezt a szülő helykitöltőt, vagy `null` értéket, ha nincs szülő.
 
-A következő példaprezentációban a láblécnek **Random Bars** van a normál dián, **Split** a layout dián, és **Fly In** a mester dián.
+Az alábbi példaprezentációban a láblécnek **Random Bars** effektusa van a normál dián, **Split** a diáblapon, és **Fly In** a mesterdián.
 
-![Lábléc animációs effektus a normál dián](slide-shape-animation.png)
+![Footer animation effect on the normal slide](slide-shape-animation.png)
 
-![Lábléc placeholder animációs effektus a layout dián](layout-shape-animation.png)
+![Footer placeholder animation effect on the layout slide](layout-shape-animation.png)
 
-![Lábléc placeholder animációs effektus a mester dián](master-shape-animation.png)
+![Footer placeholder animation effect on the master slide](master-shape-animation.png)
 
-A következő példában egy új prezentáció placeholder hierarchiáját használja. Effektusokat ad egy mester placeholderhez, egy layout placeholderhez és a megfelelő placeholderhez a normál dián. Minden [Shape::getBasePlaceholder](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getbaseplaceholder/) hívás előtt ellenőrzik, mielőtt a visszaadott alakzatot felhasználnák.
+A következő példa egy új prezentáció helykitöltő hierarchiáját használja. Effektusokat ad egy mester helykitöltőhöz, egy diáblap helykitöltőhöz és a megfelelő helykitöltőhöz a normál dián. Minden hívás előtt ellenőrzik a [Shape::getBasePlaceholder](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getbaseplaceholder/) visszatérő alakzatát.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -248,17 +250,17 @@ try {
 
 ## **Animáció időzítésének módosítása**
 
-A PowerPoint **Timing** párbeszédpanel a [Timing](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/) tulajdonságaira vonatkozik.
+A PowerPoint **Timing** párbeszédablaka a [Timing](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/) tulajdonságaira képezi le.
 
-![PowerPoint időzítési párbeszédpanel egy animációs effektushoz](shape-animation.png)
+![PowerPoint Timing dialog for an animation effect](shape-animation.png)
 
-- **Start** a [Timing::getTriggerType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/gettriggertype/) -hez kapcsolódik.
-- **Duration** a [Timing::getDuration](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/getduration/) -hez, másodpercben.
-- **Delay** a [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/gettriggerdelaytime/) -hez, másodpercben.
-- **Repeat** a [Timing::getRepeatCount](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/getrepeatcount/), a [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/getrepeatuntilnextclick/), vagy a [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/getrepeatuntilendslide/) -hez.
-- **Rewind when done playing** a [Timing::getRewind](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/getrewind/) -hez.
+- **Start** a [Timing::getTriggerType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/gettriggertype/) értékhez van rendelve.
+- **Duration** a [Timing::getDuration](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/getduration/) értékhez, másodpercben.
+- **Delay** a [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/gettriggerdelaytime/) értékhez, másodpercben.
+- **Repeat** a [Timing::getRepeatCount](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/getrepeatuntilnextclick/) vagy [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/getrepeatuntilendslide/) értékekhez van rendelve.
+- **Rewind when done playing** a [Timing::getRewind](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/getrewind/) értékhez van rendelve.
 
-Ez a független példa hozzáad egy effektust, módosítja annak időzítését a [Sequence::addEffect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sequence/addeffect/) által visszaadott objektumon keresztül, és elmenti az eredményt. A visszaadott [Effect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effect/) hivatkozás megtartása elkerüli a felesleges gyűjtemény indexet.
+Ez a független példa egy effektust ad hozzá, módosítja annak időzítését a [Sequence::addEffect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sequence/addeffect/) által visszaadott objektumon keresztül, és elmenti az eredményt. A visszakapott [Effect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effect/) hivatkozás megtartása elkerüli a felesleges gyűjteményindex használatát.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -289,15 +291,15 @@ try {
 }
 ```
 
-Szándékosan használjon egyetlen ismétlési módot. Egy ismétlési szám és egy "until" (addig) jelző kombinálása zavaró eredményeket okozhat különböző megjelenítőkben. Ismétlési módok módosításakor állítsa be a [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/setrepeatuntilnextclick/) és a [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/setrepeatuntilendslide/) értékeket a [Timing::setRepeatCount](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/setrepeatcount/) előtt, mivel bármelyik jelző beállítása megváltoztatja az aktív ismétlési módot.
+Használj egy ismétlési módot szándékosan. Egy ismétlési szám és egy „until” jelző kombinálása zavaró eredményeket produkálhat különböző megjelenítőkben. Amikor ismétlési módot változtatsz, állítsd be a [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/setrepeatuntilnextclick/) és a [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/setrepeatuntilendslide/) értékeket a [Timing::setRepeatCount](https://reference.aspose.com/slides/hu/php-java/aspose.slides/timing/setrepeatcount/) hívása előtt, mivel bármelyik jelző beállítása megváltoztatja az aktív ismétlési módot.
 
 ## **Animációs hangok hozzáadása és kinyerése**
 
-Egy animációs effektus hivatkozhat beágyazott hangra a [Effect::getSound](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effect/getsound/) segítségével. A [Effect::setStopPreviousSound](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effect/setstopprevioussound/) azt mondja a effektusnak, hogy állítsa le a korábbi effektus által elindított hangot.
+Egy animációs effektus hivatkozhat beágyazott hangra a [Effect::getSound](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effect/getsound/) segítségével. A [Effect::setStopPreviousSound](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effect/setstopprevioussound/) azt mondja az effektusnak, hogy állítsa le az előző effektus által indított hangot.
 
 ### **Hang hozzáadása egy effektushoz**
 
-A következő példa egy helyi `animation-sound.wav` nevű hangfájlt vár. Két effektust hoz létre, beágyazza ezt a fájlt az első effektus hangjává, és a második effektust úgy konfigurálja, hogy leállítsa a hangot. A [Sequence::addEffect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sequence/addeffect/) által visszaadott objektumokat használja, így nincs szükség szekvencia indexre.
+Az alábbi példa egy helyi `animation-sound.wav` nevű hangfájlt vár. Két effektust hoz létre, az elsőt az adott hangfájllal beágyazza, a másodikat beállítja, hogy állítsa le a hangot. A [Sequence::addEffect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sequence/addeffect/) által visszaadott objektumokat használja, így nem szükséges sorrendindex.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -334,9 +336,9 @@ try {
 }
 ```
 
-### **Beágyazott effektushangok kinyerése**
+### **Beágyazott effektus hangok kinyerése**
 
-A következő példa egy helyi `presentation-with-animation-sounds.pptx` nevű prezentációt vár. Átvizsgálja a fő és interaktív szekvenciákat, és minden beágyazott effektushangot a `extracted-animation-sounds` könyvtárba ír. A kiterjesztés a [Audio::getContentType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audio/getcontenttype/) által visszaadott audio MIME-típusból kerül kiválasztásra.
+Az alábbi példa egy helyi `presentation-with-animation-sounds.pptx` nevű prezentációt vár. Átvizsgálja a fő és interaktív sorrendet, és minden beágyazott effektushangot a `extracted-animation-sounds` könyvtárba ír ki. A kiterjesztés a [Audio::getContentType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audio/getcontenttype/) által visszaadott audio MIME típus alapján kerül kiválasztásra.
 
 ```php
 use aspose\slides\Presentation;
@@ -420,17 +422,17 @@ try {
 }
 ```
 
-Nagy audio objektumok esetén használja a [Audio::getStream](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audio/getstream/) metódust, és másolja a streamet egy fájlba ahelyett, hogy a teljes objektumot egy bájttömbbe töltené.
+Nagy hangobjektumok esetén használd a [Audio::getStream](https://reference.aspose.com/slides/hu/php-java/aspose.slides/audio/getstream/) metódust, és másold a streamet fájlba ahelyett, hogy az egész objektumot byte tömbbe töltenéd be.
 
-## **Animáció utáni viselkedés beállítása**
+## **Az animáció utáni viselkedés beállítása**
 
-A **After animation** (Animáció után) lehetőség szabályozza, mi történik egy alakzattal az effektus befejezése után.
+A **After animation** beállítás szabályozza, mi történik az alakzattal az effektus befejezése után.
 
-![PowerPoint effektus beállítások párbeszédpanel az After animation beállításokkal](shape-after-animation.png)
+![PowerPoint Effect Options dialog showing After animation settings](shape-after-animation.png)
 
-A [AfterAnimationType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/afteranimationtype/) osztály támogatja, hogy az alakzat változatlan maradjon, színét megváltoztassák, az animáció után elrejtődjön, vagy a következő kattintásra rejtődjön el. Ha a típus [AfterAnimationType::Color](https://reference.aspose.com/slides/hu/php-java/aspose.slides/afteranimationtype/) , akkor a [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effect/getafteranimationcolor/) is beállítható.
+A [AfterAnimationType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/afteranimationtype/) osztály támogatja az alakzat változatlanul hagyását, színének megváltoztatását, a animáció után elrejtését, vagy a következő kattintásra való elrejtést. Amikor a típus [AfterAnimationType::Color](https://reference.aspose.com/slides/hu/php-java/aspose.slides/afteranimationtype/), állítsd be a [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effect/getafteranimationcolor/) értékét is.
 
-Ez a független példa létrehoz egy effektust, a visszaadott effektus objektumon keresztül beállítja az animáció utáni viselkedést, majd elmenti az eredményt.
+Ez a független példa egy effektust hoz létre, beállítja az animáció utáni viselkedést a visszakapott effektusobjektumon keresztül, és elmenti az eredményt.
 
 ```php
 use aspose\slides\AfterAnimationType;
@@ -457,16 +459,16 @@ try {
 }
 ```
 
-A típus [AfterAnimationType::Color](https://reference.aspose.com/slides/hu/php-java/aspose.slides/afteranimationtype/)‑ról való eltávolítása törli az animáció utáni színbeállítást.
+A típust a [AfterAnimationType::Color](https://reference.aspose.com/slides/hu/php-java/aspose.slides/afteranimationtype/) értékről eltávolítani törli a színbeállítást is.
 
 ## **Szöveg animálása**
 
-A szöveg animáció két kapcsolódó vezérlővel rendelkezik:
+A szöveganimáció két kapcsolódó vezérlővel rendelkezik:
 
-- [TextAnimation::getBuildType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textanimation/getbuildtype/) szabályozza, hogy a bekezdések együtt vagy bekezdésenként jelenjenek meg.
-- [Effect::getAnimateTextType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effect/getanimatetexttype/) szabályozza, hogy a szöveg egyszerre, szó szerint vagy betű szerint jelenjen meg. A [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effect/getdelaybetweentextparts/) beállítja a szavak vagy betűk közti késleltetést. A pozitív érték az effektus időtartamának százaléka; a negatív érték másodpercben megadott késleltetés.
+- A [TextAnimation::getBuildType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textanimation/getbuildtype/) szabályozza, hogy a bekezdések egyszerre vagy bekezdésenként jelenjenek meg.
+- Az [Effect::getAnimateTextType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effect/getanimatetexttype/) szabályozza, hogy a szöveg egyszerre, szó szerint vagy betű szerint jelenjen meg. A [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/effect/getdelaybetweentextparts/) állítja a szavak vagy betűk közti késleltetést. A pozitív érték a hatás időtartamának százaléka; a negatív érték másodpercben megadott késleltetés.
 
-A következő független példa egy szövegdoboz szavait animálja. A [BuildType::AsOneObject](https://reference.aspose.com/slides/hu/php-java/aspose.slides/buildtype/) letiltja a bekezdésenkénti építést, így a szó beállítás az egész szövegkeretre vonatkozik.
+Az alábbi független példa a szövegdoboz szavait animálja. A [BuildType::AsOneObject](https://reference.aspose.com/slides/hu/php-java/aspose.slides/buildtype/) letiltja a bekezdésenkénti felépítést, így a szó beállítás a teljes szövegdobozra vonatkozik.
 
 ```php
 use aspose\slides\AnimateTextType;
@@ -495,26 +497,26 @@ try {
 }
 ```
 
-A szövegdoboz bekezdésenkénti felépítéséhez állítsa be a [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/hu/php-java/aspose.slides/buildtype/) (vagy más bekezdési szint) értéket. Egyetlen bekezdés saját effektussal való célzásához használja a [Sequence::addEffect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sequence/addeffect/) túlterhelt változatát, amely egy [Paragraph](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraph/) objektumot fogad. Lásd a [Animated Text](/slides/hu/php-java/animated-text/) oldalt a bekezdés szintű példákért.
+A szövegdoboz bekezdésenkénti felépítéséhez állítsd a [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/hu/php-java/aspose.slides/buildtype/) (vagy egy másik bekezdés szint) értéket. Egyetlen bekezdés saját effektusához használd a [Sequence::addEffect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sequence/addeffect/) olyan overload-ját, amely [Paragraph](https://reference.aspose.com/slides/hu/php-java/aspose.slides/paragraph/) típust fogad. Lásd a [Animated Text](/slides/hu/php-java/animated-text/) oldalt bekezdés szintű példákért.
 
-## **Exportálási és kompatibilitási megjegyzések**
+## **Exportálás és kompatibilitási megjegyzések**
 
-- A PPT vagy PPTX formátumba mentés megőrzi az animációs modellt, de a végső lejátszást a prezentációs megjelenítő szabályozza.
-- A PDF és a statikus képek nem játszanak animációkat. Használjon [HTML5 export](/slides/hu/php-java/export-to-html5/), animált GIF-et vagy [video conversion](/slides/hu/php-java/convert-powerpoint-to-video/) lehetőséget, ha a kimenetnek mozgást kell mutatnia.
-- HTML5 esetén engedélyezze a [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/html5options/setanimateshapes/) beállítást, és szükség esetén a [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/html5options/setanimatetransitions/) beállítást.
-- A videó renderelés sok gyakori belépő, hangsúlyozó, kilépő és mozgásútra ható effektust támogat, de nem minden PowerPoint effektus támogatott. Ellenőrizze az aktuális [supported animations and effects](/slides/hu/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) listát, és tesztelje a kritikus prezentációkat a használt Aspose.Slides verzióval.
-- Az egyedi fejlett effektusok és más prezentációs formátumokból importált effektusok megmaradhatnak a fájlban, de másként jelenhetnek meg PowerPointban, HTML5-ben vagy videóban. Ellenőrizze az exportált eredményt, ne csak az effektus nevére támaszkodjon.
+- PPT vagy PPTX formátumba mentés megőrzi az animációs modellt, de a végső lejátszást a megjelenítő vezérli.
+- PDF és statikus képek nem játsszák le az animációkat. Használd a [HTML5 export](/slides/hu/php-java/export-to-html5/), animált GIF vagy [video conversion](/slides/hu/php-java/convert-powerpoint-to-video/) lehetőséget, ha a kimenetnek mozgást kell mutatnia.
+- HTML5 esetén engedélyezd a [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/html5options/setanimateshapes/) beállítást, és szükség esetén a [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/html5options/setanimatetransitions/) beállítást.
+- A videó renderelés számos gyakori belépő, hangsúlyozó, kilépő és mozgásút effektust támogat, de nem minden PowerPoint effektus érhető el. Ellenőrizd a jelenlegi [supported animations and effects](/slides/hu/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) listát, és teszteld a kritikus prezentációkat a cél Aspose.Slides verzióval.
+- Haladó egyedi effektusok és más formátumokból importált effektusok megmaradhatnak a fájlban, de a PowerPointban, HTML5-ben vagy videóban másként jelenhetnek meg. Ellenőrizd a exportált eredményt, ne csak az effektus nevét vedd alapul.
 
 ## **GYIK**
 
 **Miért jelenik meg egy animáció a PowerPointban, de nem PDF-ben?**
 
-A PDF egy statikus formátum, ezért az animációk és diatranzíciók nem futnak le. Exportáljon HTML5-be, animált GIF-be vagy videóba, ha a mozgást meg kell őrizni.
+A PDF egy statikus formátum, ezért az animációk és diaátmenetek nem játszhatók le. Exportálj HTML5-re, animált GIF-re vagy videóra, ha a mozgást meg kell őrizni.
 
-**Miért játszódik le egy effektus másképp videóban?**
+**Miért játszódik le egy effektus másként a videóban?**
 
-A videó export animációkat renderel, ahelyett, hogy az eredeti PowerPoint viselkedést tárolná. Néhány fejlett effektus nem támogatott vagy csak közelítően jelenik meg. Tekintse át a támogatott effektusok táblázatát, és tesztelje a tényleges prezentációt a gyártási használat előtt.
+A video export animációkat renderel, nem a PowerPoint eredeti viselkedését tárolja. Néhány haladó effektus nem támogatott vagy csak közelítő módon jelenik meg. Tekintsd meg a támogatott effektusok táblázatát, és teszteld a tényleges prezentációt a használat előtt.
 
-**Módosítja egy alakzat előre vagy hátra mozgatása az animáció sorrendjét?**
+**Módosítja-e egy alakzat előre vagy hátra helyezése az animáció sorrendjét?**
 
-Nem. Az alakzat z-rendje a rétegezést irányítja, míben a szekvencia sorrend és a triggerek az animáció lejátszását. Módosítsa az idővonalat, ha más lejátszási sorrendre van szükség.
+Nem. Az alakzat z‑rendezése szabályozza az átfedést, míg a sorrend és a aktiválók szabályozzák az animáció lejátszását. Változtasd meg az idővonalat, ha más lejátszási sorrendre van szükség.

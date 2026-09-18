@@ -1,46 +1,48 @@
 ---
-title: تطبيق حركات الأشكال في العروض باستخدام Python عبر Java
-linktitle: حركة الشكل
+title: تطبيق رسوم متحركة للأشكال في العروض التقديمية باستخدام Python عبر Java
+linktitle: رسوم متحركة للأشكال
 type: docs
 weight: 60
 url: /ar/python-java/shape-animation/
 keywords:
 - شكل
-- حركة
+- رسوم متحركة
 - تأثير
 - شكل متحرك
 - نص متحرك
-- إضافة حركة
-- الحصول على حركة
-- استخراج حركة
+- إضافة رسوم متحركة
+- الحصول على رسوم متحركة
+- استخراج رسوم متحركة
 - إضافة تأثير
 - الحصول على تأثير
 - استخراج تأثير
 - صوت التأثير
-- تطبيق حركة
+- تطبيق رسوم متحركة
 - PowerPoint
 - عرض تقديمي
 - Python
 - Java
 - Aspose.Slides
-description: "تعلم كيفية إضافة، فحص، وتخصيص حركات الأشكال، التوقيت، الأصوات، سلوك ما بعد الحركة، والنص المتحرك باستخدام Aspose.Slides لPython عبر Java."
+description: "تعرف على كيفية إضافة، وفحص، وتخصيص رسوم متحركة للأشكال، والتوقيت، والأصوات، وسلوك ما بعد الرسوم المتحركة، والنص المتحرك باستخدام Aspose.Slides للغة Python عبر Java."
 ---
 ## **نظرة عامة**
 
-Aspose.Slides for Python via Java تمثل حركات الشرائح كـ تأثيرات في خط زمني للشرائح. لكل تأثير شكل مستهدف، نوع حركة فرعي، مشغل، إعدادات توقيت، وخصائص اختيارية مثل الصوت أو سلوك ما بعد الحركة.
+للعمل مع السلوكيات الفردية داخل التأثير أو تعديل أقسام مسار الحركة، راجع [الرسوم المتحركة المخصصة](/slides/ar/python-java/custom-animation/).
 
-يحتوي الخط الزمني على نوعين من السلاسل:
+يمثل Aspose.Slides for Python عبر Java الرسوم المتحركة للشرائح كـ Effects في خط زمني للشرائح. يحتوي Effect على شكل هدف، ونوع ورسوم متحركة فرعية، ومحفّز، وإعدادات توقيت، وخصائص اختيارية مثل الصوت أو سلوك ما بعد الرسوم المتحركة.
 
-- **السلسلة الرئيسية** تُشغل عندما تتقدم الشريحة.
-- **السلسلة التفاعلية** تبدأ عندما يُنقر على الشكل المشغل.
+يحتوي الخط الزمني على نوعين من التسلسلات:
 
-نظرًا لأن صناديق النصوص، الصور، المخططات، الجداول، وغيرها من كائنات الشريحة تُشتق من [Shape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/)، يمكنك استخدام نفس طريقة [Sequence.addEffect](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sequence/#addEffect) لمعظم محتوى الشريحة. تُدرج التأثيرات المتاحة في الفئة [EffectType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effecttype/) .
+- **التسلسل الرئيسي** يُشغَل مع تقدم الشريحة.
+- **التسلسل التفاعلي** يبدأ عندما يتم النقر على شكل المحفّز الخاص به.
 
-## **إضافة حركات الشكل**
+نظرًا لأن صناديق النصوص والصور والمخططات والجداول وغيرها من كائنات الشريحة تستمد من [Shape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/)، تستخدم طريقة [Sequence.addEffect](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sequence/#addEffect) نفسها لمعظم محتوى الشريحة. تُدرج التأثيرات المتاحة في فئة [EffectType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effecttype/).
 
-لإضافة حركة، احصل على السلسلة الرئيسية للشرحة واستدعِ [Sequence.addEffect](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sequence/#addEffect) مع الشكل المستهدف، نوع التأثير، النوع الفرعي، والمشغل. لتأثير يبدأ عندما يُنقر على شكل آخر، أنشئ سلسلة تفاعلية تكون مشغلها ذلك الشكل الآخر.
+## **إضافة رسوم متحركة للأشكال**
 
-المثال التالي ينشئ كلا نوعي الحركات ويحفظ النتيجة في `shape-animations.pptx`.
+لإضافة رسوم متحركة، احصل على التسلسل الرئيسي للشفرة واستدعِ [Sequence.addEffect](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sequence/#addEffect) مع شكل الهدف، ونوع التأثير، والنوع الفرعي، والمحفّز. بالنسبة لتأثير يبدأ عند النقر على شكل آخر، أنشئ تسلسلًا تفاعليًا يكون محفّزه ذلك الشكل الآخر.
+
+المثال التالي ينشئ كلا النوعين من الرسوم المتحركة ويحفظ النتيجة في `shape-animations.pptx`.
 
 ```python
 import jpype
@@ -73,19 +75,19 @@ finally:
     presentation.dispose()
 ```
 
-المشغل يتحكم متى يبدأ التأثير:
+المحفّز يتحكم بموعد بدء Effect:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effecttriggertype/#OnClick) ينتظر نقرة في السلسلة الرئيسية، أو نقرة على الشكل المشغل في سلسلة تفاعلية.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effecttriggertype/#OnClick) ينتظر النقر في التسلسل الرئيسي، أو النقر على شكل المحفّز في تسلسل تفاعلي.
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effecttriggertype/#WithPrevious) يبدأ مع التأثير السابق.
 - [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effecttriggertype/#AfterPrevious) يبدأ عندما ينتهي التأثير السابق.
 
-لتحريك صورة أو مخطط أو أي نوع شكل آخر، مرّر ذلك الكائن إلى [Sequence.addEffect](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sequence/#addEffect) بدلاً من `target_shape`. للحصول على خيارات تجميع خاصة بالمخططات، راجع [Animated Charts](/slides/ar/python-java/animated-charts/).
+لتحريك صورة أو مخطط أو أي نوع شكل آخر، مرّر ذلك الكائن إلى [Sequence.addEffect](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sequence/#addEffect) بدلاً من `target_shape`. لخيارات تجميع خاصة بالمخططات، راجع [الرسوم المتحركة للمخططات](/slides/ar/python-java/animated-charts/).
 
-## **قراءة حركات الشكل**
+## **قراءة رسوم متحركة للأشكال**
 
-استخدم [Sequence.getEffectsByShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sequence/#getEffectsByShape) عندما تعرف الشكل المستهدف. لتفقد كل تأثير، عدّ السلسلة الرئيسية وكل سلسلة تفاعلية. العد يمنع الافتراض بأن السلسلة تحتوي على تأثير في الفهرس `0`.
+استخدم [Sequence.getEffectsByShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sequence/#getEffectsByShape) عندما تعرف الشكل الهدف. لتفحص كل Effect، عدّ التسلسل الرئيسي وكل تسلسل تفاعلي. العد يضمن عدم افتراض وجود Effect في الفهرس `0`.
 
-المثال التالي ينشئ شكلاً يحتوي على تأثيرات في السلسلة الرئيسية وتفاعلية، يحصل على التأثيرات التي تستهدف الشكل، ثم يعدّ كل سلسلة على الشريحة.
+المثال التالي ينشئ شكلًا يحتوي على Effects في التسلسل الرئيسي والتفاعلي، يحصل على Effects التي تستهدف الشكل، ثم يعدّ كل التسلسلات على الشريحة.
 
 ```python
 import jpype
@@ -136,21 +138,21 @@ finally:
     presentation.dispose()
 ```
 
-إذا كنت تحتاج فقط إلى التأثيرات لشكل واحد، حدّد الشكل أولاً بالاسم أو نوع العنصر النائب أو خاصية ثابتة أخرى؛ ثم استدعِ [Sequence.getEffectsByShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sequence/#getEffectsByShape). لا تفترض أن [ShapeCollection.get_Item](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shapecollection/#get_Item) في الفهرس `0` هو دائمًا الكائن المقصود.
+إذا كنت تحتاج فقط Effects لشكل واحد، حدد الشكل أولًا بالاسم أو نوع العنصر النائب أو أي خاصية ثابتة أخرى؛ ثم استدعِ [Sequence.getEffectsByShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sequence/#getEffectsByShape). لا تفترض أن [ShapeCollection.get_Item](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shapecollection/#get_Item) في الفهرس `0` هو دائمًا الكائن المقصود.
 
 ## **العمل مع تأثيرات العناصر النائبة الموروثة**
 
-يمكن للعنصر النائب في شريحة عادية أن يرث سلوك الحركة من العنصر النائب المقابل في شريحة التخطيط والشريحة الرئيسية. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/#getBasePlaceholder) تُعيد ذلك العنصر النائب الأب، أو `None` إذا لم يكن هناك أب.
+يمكن لعنصر نائب على شريحة عادية أن يرث سلوك الرسوم المتحركة من العنصر النائب المقابل على شريحة التخطيط وشريحة القالب. تُعيد [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/#getBasePlaceholder) ذلك العنصر النائب الأصلي، أو `None` إذا لم يكن هناك أصل.
 
-في عرض المثال التالي، يحتوي التذييل على **Random Bars** في الشريحة العادية، **Split** في شريحة التخطيط، و**Fly In** في الشريحة الرئيسية.
+في عرض الشرائح التالي، يحتوي التذييل على **Random Bars** على الشريحة العادية، و**Split** على شريحة التخطيط، و**Fly In** على شريحة القالب.
 
-![تأثير حركة التذييل في الشريحة العادية](slide-shape-animation.png)
+![تأثير حركة التذييل على الشريحة العادية](slide-shape-animation.png)
 
-![تأثير حركة العنصر النائب للتذييل في شريحة التخطيط](layout-shape-animation.png)
+![تأثير حركة عنصر نائب التذييل على شريحة التخطيط](layout-shape-animation.png)
 
-![تأثير حركة العنصر النائب للتذييل في الشريحة الرئيسية](master-shape-animation.png)
+![تأثير حركة عنصر نائب التذييل على شريحة القالب](master-shape-animation.png)
 
-المثال التالي يستخدم تسلسل هرمي للعناصر النائبة من عرض جديد. يضيف تأثيرات إلى عنصر نائب رئيسي، عنصر نائب تخطيط، والعنصر النائب المقابل في شريحة عادية. كل استدعاء لـ [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/#getBasePlaceholder) يتم التحقق منه قبل استخدام الشكل المعاد.
+المثال التالي يستخدم هيكلية عناصر نائب من عرض تقديمي جديد. يضيف Effects إلى عنصر نائب القالب، وعنصر نائب التخطيط، والعنصر النائب المقابل على شريحة عادية. يتم التحقق من كل استدعاء لـ [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/#getBasePlaceholder) قبل استخدام الشكل المرتجع.
 
 ```python
 import jpype
@@ -212,19 +214,19 @@ finally:
     presentation.dispose()
 ```
 
-## **تغيير توقيت الحركة**
+## **تغيير توقيت الرسوم المتحركة**
 
-حوار **Timing** في PowerPoint يطابق خصائص [Timing](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/).
+يطابق مربع حوار PowerPoint **Timing** خصائص [Timing](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/).
 
-![حوار توقيت PowerPoint لتأثير حركة](shape-animation.png)
+![مربع حوار توقيت PowerPoint لتأثير الرسوم المتحركة](shape-animation.png)
 
 - **Start** يطابق [Timing.getTriggerType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#getTriggerType).
-- **Duration** يطابق [Timing.getDuration](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#getDuration)، بالثواني.
-- **Delay** يطابق [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#getTriggerDelayTime)، بالثواني.
-- **Repeat** يطابق [Timing.getRepeatCount](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#getRepeatCount)، [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#getRepeatUntilNextClick)، أو [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#getRepeatUntilEndSlide).
+- **Duration** يطابق [Timing.getDuration](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#getDuration) بالثواني.
+- **Delay** يطابق [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#getTriggerDelayTime) بالثواني.
+- **Repeat** يطابق [Timing.getRepeatCount](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#getRepeatCount)، أو [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#getRepeatUntilNextClick)، أو [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#getRepeatUntilEndSlide).
 - **Rewind when done playing** يطابق [Timing.getRewind](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#getRewind).
 
-هذا المثال المستقل يضيف تأثيرًا، يغيّر توقيته عبر الكائن المعاد من [Sequence.addEffect](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sequence/#addEffect)، ويحفظ النتيجة. الحفاظ على مرجع [Effect](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effect/) المعاد يمنع الحاجة إلى فهرس مجموعة غير ضروري.
+هذا المثال المستقل يضيف Effect، يغيّر توقيته عبر الكائن المرتجع من [Sequence.addEffect](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sequence/#addEffect)، ويحفظ النتيجة. الحفاظ على مرجع [Effect](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effect/) المرتجع يجنّب فهرس مجموعة غير ضروري.
 
 ```python
 import jpype
@@ -255,15 +257,15 @@ finally:
     presentation.dispose()
 ```
 
-استخدم وضع تكرار واحد عمدًا. الجمع بين عدد التكرار وعلم "until" يمكن أن ينتج نتائج مربكة في مشغلات مختلفة. عند تغيير أوضاع التكرار، اضبط [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#setRepeatUntilNextClick) و [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) قبل [Timing.setRepeatCount](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#setRepeatCount)، لأن ضبط أي علم يغيّر وضع التكرار النشط.
+استخدم وضع تكرار واحد فقط بنية. دمج عدد تكرارات مع علامة "until" قد ينتج عنه نتائج مربكة في مشغّلات مختلفة. عند تغيير أوضاع التكرار، اضبط [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#setRepeatUntilNextClick) و[Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#setRepeatUntilEndSlide) قبل [Timing.setRepeatCount](https://reference.aspose.com/slides/ar/python-java/aspose.slides/timing/#setRepeatCount)، لأن ضبط أي علامة يغيّر وضع التكرار النشط أيضًا.
 
-## **إضافة واستخراج أصوات الحركات**
+## **إضافة واستخراج أصوات الرسوم المتحركة**
 
-يمكن لتأثير الحركة أن يشير إلى صوت مدمج عبر [Effect.getSound](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effect/#setStopPreviousSound) يخبر التأثير بإيقاف الصوت الذي بدأه تأثير سابق.
+يمكن لتأثير الرسوم المتحركة أن يشير إلى صوت مضمّن عبر [Effect.getSound](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effect/#getSound). تُخبر [Effect.setStopPreviousSound](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effect/#setStopPreviousSound) التأثير بإيقاف الصوت الذي بدأه تأثير سابق.
 
-### **إضافة صوت إلى تأثير**
+### **إضافة صوت إلى Effect**
 
-المثال التالي يتوقع ملف صوتي محلي اسمه `animation-sound.wav`. يخلق تأثيرين، يدمج هذا الملف كصوت للتأثير الأول، ويضبط التأثير الثاني لإيقاف الصوت. يستخدم الكائنات المعادة من [Sequence.addEffect](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sequence/#addEffect)، لذا لا حاجة إلى فهرس السلسلة.
+المثال التالي يتوقع ملف صوتي محلي اسمه `animation-sound.wav`. ينشئ تأثيرين، يضمّن ذلك الملف كصوت للتأثير الأول، ويُكوّن التأثير الثاني لإيقاف الصوت. يستخدم الكائنات المرتجعة من [Sequence.addEffect](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sequence/#addEffect)، لذا لا يُحتاج إلى فهرس تسلسل.
 
 ```python
 import jpype
@@ -297,9 +299,9 @@ finally:
     presentation.dispose()
 ```
 
-### **استخراج أصوات التأثيرات المدمجة**
+### **استخراج أصوات Effects المضمّنة**
 
-المثال التالي يتوقع عرضًا محليًا اسمه `presentation-with-animation-sounds.pptx`. يفحص كل من السلاسل الرئيسية والتفاعلية ويكتب كل صوت تأثير مدمج إلى المجلد `extracted-animation-sounds`. يتم اختيار الامتداد من نوع MIME الصوتي الذي تعطيه [Audio.getContentType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audio/#getContentType).
+المثال التالي يتوقع عرض تقديمي محلي اسمه `presentation-with-animation-sounds.pptx`. يمسح كل من التسلسلات الرئيسية والتفاعلية ويكتب كل صوت Effect مضمّن إلى الدليل `extracted-animation-sounds`. يتم اختيار الامتداد من نوع MIME الصوتي الذي يُعيده [Audio.getContentType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audio/#getContentType).
 
 ```python
 import jpype
@@ -353,17 +355,17 @@ finally:
     presentation.dispose()
 ```
 
-للملفات الصوتية الكبيرة، استخدم [Audio.getStream](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audio/#getStream) وانسخ الدفق إلى ملف بدلاً من تحميل الكائن بالكامل إلى مصفوفة بايت.
+للكائنات الصوتية الكبيرة، استخدم [Audio.getStream](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audio/#getStream) وانسخ الدفق إلى ملف بدلاً من تحميل الكائن بالكامل إلى مصفوفة بايت.
 
-## **تعيين سلوك ما بعد الحركة**
+## **تعيين سلوك ما بعد الرسوم المتحركة**
 
-الخيار **After animation** يتحكم فيما يحدث للشكل بعد انتهاء تأثيره.
+خيار **After animation** يتحكم بما يحدث للشكل بعد انتهاء Effect.
 
-![حوار خيارات تأثير PowerPoint يظهر إعدادات After animation](shape-after-animation.png)
+![مربع حوار خيارات Effect في PowerPoint يظهر إعدادات After animation](shape-after-animation.png)
 
-الفئة [AfterAnimationType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/afteranimationtype/) تدعم ترك الشكل دون تغيير، تغيير لونه، إخفائه بعد الحركة، أو إخفائه عند النقر التالي. عندما يكون النوع [AfterAnimationType.Color](https://reference.aspose.com/slides/ar/python-java/aspose.slides/afteranimationtype/#Color)، اضبط أيضًا [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effect/#getAfterAnimationColor).
+تدعم فئة [AfterAnimationType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/afteranimationtype/) ترك الشكل دون تغيير، أو تغيير لونه، أو إخفائه بعد الرسوم المتحركة، أو إخفائه عند النقر التالي. عندما يكون النوع هو [AfterAnimationType.Color](https://reference.aspose.com/slides/ar/python-java/aspose.slides/afteranimationtype/#Color)، اضبط أيضًا [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effect/#getAfterAnimationColor).
 
-هذا المثال المستقل ينشئ تأثيرًا، يحدد سلوك ما بعد الحركة عبر كائن التأثير المعاد، ويحفظ النتيجة.
+هذا المثال المستقل ينشئ Effect، يعيّن سلوك ما بعد الرسوم المتحركة عبر كائن Effect المرتجع، ويحفظ النتيجة.
 
 ```python
 import jpype
@@ -390,19 +392,19 @@ finally:
     presentation.dispose()
 ```
 
-تغيير النوع بعيدًا عن [AfterAnimationType.Color](https://reference.aspose.com/slides/ar/python-java/aspose.slides/afteranimationtype/#Color) يمسح إعداد لون ما بعد الحركة.
+تغيير النوع بعيدًا عن [AfterAnimationType.Color](https://reference.aspose.com/slides/ar/python-java/aspose.slides/afteranimationtype/#Color) يُزيل إعداد لون ما بعد الرسوم المتحركة.
 
 ## **تحريك النص**
 
-تحريك النص يحتوي على تحكمين مرتبطين:
+لتحريك النص تحكمان مرتبطان:
 
-- [TextAnimation.getBuildType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textanimation/#getBuildType) يتحكم فيما إذا كانت الفقرات تظهر معًا أو على مستوى الفقرة.
-- [Effect.getAnimateTextType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effect/#getAnimateTextType) يتحكم فيما إذا كان النص يظهر دفعة واحدة، كلمةً بكلمة، أو حرفًا بحرف. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effect/#getDelayBetweenTextParts) يحدد التأخير بين الكلمات أو الأحرف. القيمة الموجبة هي نسبة مئوية من مدة التأثير؛ القيمة السالبة هي تأخير بالثواني.
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textanimation/#getBuildType) يحدد ما إذا كانت الفقرات تظهر معًا أو مستوى بالفقرة.
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effect/#getAnimateTextType) يحدد ما إذا كان النص يظهر مرة واحدة، كلمةً كلمةً، أو حرفًا بحرف. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/ar/python-java/aspose.slides/effect/#getDelayBetweenTextParts) يضبط التأخير بين الكلمات أو الأحرف. القيمة الموجبة هي نسبة مئوية من مدة Effect؛ القيمة السالبة هي تأخير بالثواني.
 
-المثال المستقل التالي يحرك الكلمات في مربع نص. [BuildType.AsOneObject](https://reference.aspose.com/slides/ar/python-java/aspose.slides/buildtype/#AsOneObject) يعطل بناء الفقرة‑بـ‑فقرة بحيث يُطبق إعداد الكلمة على كامل إطار النص.
+المثال المستقل التالي يحرك الكلمات داخل مربع نص. [BuildType.AsOneObject](https://reference.aspose.com/slides/ar/python-java/aspose.slides/buildtype/#AsOneObject) يلغِي بناء الفقرة بفقرة بحيث يُطبّق إعداد الكلمة على الإطار النصي بأكمله.
 
 ```python
-import jpype
+import jpace
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -426,26 +428,26 @@ finally:
     presentation.dispose()
 ```
 
-لبناء مربع نص وفقًا للفقرة، اضبط [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ar/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) (أو مستوى فقرة آخر). لاستهداف فقرة واحدة بتأثير خاص بها، استخدم نسخة [Sequence.addEffect](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sequence/#addEffect) التي تقبل كائن [Paragraph](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraph/). راجع [Animated Text](/slides/ar/python-java/animated-text/) لأمثلة على مستوى الفقرة.
+لبناء مربع نص فقرةً بفقرة، اضبط [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ar/python-java/aspose.slides/buildtype/#ByLevelParagraphs1) (أو مستوى فقرة آخر). لتوجيه فقرة واحدة بتأثيرها الخاص، استخدم نسخة [Sequence.addEffect](https://reference.aspose.com/slides/ar/python-java/aspose.slides/sequence/#addEffect) التي تقبل كائنًا من نوع [Paragraph](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraph/). راجع [النص المتحرك](/slides/ar/python-java/animated-text/) لأمثلة على مستوى الفقرة.
 
-## **ملاحظات التصدير والتوافق**
+## **التصدير وملاحظات التوافق**
 
-- حفظ إلى PPT أو PPTX يحافظ على نموذج الحركة، لكن تشغيله النهائي يتحكم به عارض العرض.
-- PDF والصور الثابتة لا تشغل الحركات. استخدم [HTML5 export](/slides/ar/python-java/export-to-html5/)، GIF متحرك، أو [video conversion](/slides/ar/python-java/convert-powerpoint-to-video/) عندما يجب إظهار الحركة في الناتج.
-- في HTML5، فعّل [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/#setAnimateShapes) وعند الحاجة، [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/#setAnimateTransitions).
-- rendering الفيديو يدعم العديد من تأثيرات الدخول، التشديد، الخروج، ومسار الحركة الشائعة، لكن ليس كل تأثير في PowerPoint مدعوم. راجع [supported animations and effects](/slides/ar/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) الحالي واختبر العروض الحرجة مع نسخة Aspose.Slides المستهدفة.
-- التأثيرات المخصصة المتقدمة والتأثيرات المستوردة من صيغ عروض أخرى قد تُحفظ في الملف لكن تُظهر بشكل مختلف في PowerPoint أو HTML5 أو الفيديو. تحقق من النتيجة المصدرة بدلاً من الاعتماد فقط على اسم التأثير.
+- حفظ إلى PPT أو PPTX يحافظ على نموذج الرسوم المتحركة، لكن تشغيله النهائي يتحكم فيه عارض العرض.
+- لا تقوم ملفات PDF والصور الثابتة بتشغيل الرسوم المتحركة. استخدم [تصدير HTML5](/slides/ar/python-java/export-to-html5/)، GIF متحرك، أو [تحويل الفيديو](/slides/ar/python-java/convert-powerpoint-to-video/) عندما يجب إظهار الحركة.
+- لـ HTML5، فعل [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/#setAnimateShapes) وعند الحاجة [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/#setAnimateTransitions).
+- يدعم تصيير الفيديو العديد من تأثيرات الدخول، والتأكيد، والخروج، ومسار الحركة الشائعة، لكن ليس كل تأثير PowerPoint مدعوم. تحقق من [الرسوم المتحركة والتأثيرات المدعومة](/slides/ar/python-java/convert-powerpoint-to-video/#supported-animations-and-effects) الحالي واختبر العروض الحرجة مع نسخة Aspose.Slides المستهدفة.
+- قد تُحفظ التأثيرات المخصصة المتقدمة والتأثيرات المستوردة من صيغ عروض تقديمية أخرى في الملف ولكن تُعرض بشكل مختلف في PowerPoint أو HTML5 أو الفيديو. تحقق من النتيجة المصدرة بدلاً من الاعتماد فقط على اسم التأثير.
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**لماذا يظهر تأثير في PowerPoint لكنه لا يظهر في PDF؟**
+**لماذا يظهر تأثير الرسوم المتحركة في PowerPoint لكنه غير ظاهر في PDF؟**
 
-PDF هو تنسيق ثابت، لذا لا تُشغل الحركات وانتقالات الشرائح. صدّر إلى HTML5 أو GIF متحرك أو فيديو عندما يجب الحفاظ على الحركة.
+PDF هو تنسيق ثابت، لذا لا تُشغَل الرسوم المتحركة وانتقالات الشرائح. صدّر إلى HTML5 أو GIF متحرك أو فيديو عندما يجب حفظ الحركة.
 
-**لماذا يُشغل تأثير بشكل مختلف في الفيديو؟**
+**لماذا يُشغَل Effect بشكل مختلف في الفيديو؟**
 
-تصدير الفيديو يُعيد رسم الحركات بدلاً من تخزين سلوك PowerPoint الأصلي. بعض التأثيرات المتقدمة غير مدعومة أو يتم تقريبها. راجع جدول التأثيرات المدعومة واختبر العرض الفعلي قبل الاستخدام الإنتاجي.
+تصدير الفيديو يُعيد رسم الرسوم المتحركة بدلاً من تخزين السلوك الأصلي من PowerPoint. بعض التأثيرات المتقدمة غير مدعومة أو مُقربة. راجع جدول التأثيرات المدعومة واختبر العرض الفعلي قبل الاستخدام الإنتاجي.
 
-**هل نقل الشكل إلى الأمام أو الخلف يغيّر ترتيبه في الحركة؟**
+**هل يغيّر نقل شكل للأمام أو للخلف ترتيب رسوماته المتحركة؟**
 
-لا. ترتيب الـ z للشكل يتحكم في التراكب، بينما ترتيب السلسلة والمشغلات يتحكمان في تشغيل الحركة. غير الخط الزمني إذا كنت تحتاج إلى ترتيب تشغيل مختلف.
+لا. يتحكم ترتيب Z للشكل في التراكب، بينما يتحكم ترتيب التسلسل والمحفّزات في تشغيل الرسوم المتحركة. غيّر الخط الزمني إذا كنت بحاجة إلى ترتيب تشغيل مختلف.

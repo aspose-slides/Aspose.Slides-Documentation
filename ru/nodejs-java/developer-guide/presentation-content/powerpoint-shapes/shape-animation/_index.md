@@ -1,5 +1,5 @@
 ---
-title: Применение анимаций фигур в презентациях с помощью JavaScript
+title: Применение анимации фигур в презентациях с помощью JavaScript
 linktitle: Анимация фигур
 type: docs
 weight: 60
@@ -23,24 +23,26 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Узнайте, как добавлять, исследовать и настраивать анимацию фигур, тайминг, звуки, поведение после анимации и анимированный текст с помощью Aspose.Slides для Node.js через Java."
+description: "Узнайте, как добавлять, просматривать и настраивать анимацию фигур, тайминг, звуки, поведение после анимации и анимированный текст с помощью Aspose.Slides для Node.js через Java."
 ---
 ## **Обзор**
 
-Aspose.Slides for Node.js via Java представляет анимацию слайдов как эффекты на временной шкале слайда. Эффект имеет целевую форму, тип и подтип анимации, триггер, настройки времени и дополнительные свойства, такие как звук или поведение после анимации.
+Чтобы работать с отдельными поведениями внутри эффекта или редактировать сегменты траектории движения, см. [Пользовательская анимация](/slides/ru/nodejs-java/custom-animation/).
 
-Временная шкала содержит два типа последовательностей:
+Aspose.Slides for Node.js via Java представляет анимацию слайдов как эффекты в таймлайне слайда. Эффект имеет целевую форму, тип и подтип анимации, триггер, настройки тайминга и необязательные свойства, такие как звук или поведение после анимации.
 
-- **главная последовательность** воспроизводится при переходе к следующему слайду.  
-- **интерактивная последовательность** запускается при щелчке по её триггер‑форме.
+Таймлайн содержит два типа последовательностей:
 
-Поскольку текстовые поля, изображения, диаграммы, таблицы и другие объекты слайда являются объектами [Shape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/), вы используете тот же метод [Sequence.addEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/sequence/#addEffect) для большинства содержимого слайда. Доступные эффекты перечислены в перечислении [EffectType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effecttype/).
+- **main sequence** воспроизводится по мере продвижения слайда.
+- **interactive sequence** начинается, когда по форме‑триггеру происходит клик.
 
-## **Добавление анимаций фигур**
+Поскольку текстовые блоки, изображения, диаграммы, таблицы и другие объекты слайда являются объектами [Shape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/), вы используете тот же метод [Sequence.addEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/sequence/#addEffect) для большинства содержимого слайда. Доступные эффекты перечислены в перечислении [EffectType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effecttype/).
 
-Чтобы добавить анимацию, получите главную последовательность слайда и вызовите [Sequence.addEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/sequence/#addEffect), передав целевую форму, тип эффекта, подтип и триггер. Для эффекта, который начинается при щелчке по другой форме, создайте интерактивную последовательность, триггером которой будет эта другая форма.
+## **Добавление анимации фигур**
 
-Следующий пример создаёт оба типа анимации и сохраняет результат в `shape-animations.pptx`.
+Чтобы добавить анимацию, получите основную последовательность слайда и вызовите [Sequence.addEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/sequence/#addEffect), передав целевую форму, тип эффекта, подтип и триггер. Для эффекта, который начинается при клике по другой форме, создайте интерактивную последовательность, триггером которой будет эта другая форма.
+
+Следующий пример создает оба типа анимации и сохраняет результат в файл `shape-animations.pptx`.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -71,17 +73,17 @@ try {
 
 Триггер определяет, когда начинается эффект:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effecttriggertype/#OnClick) ждёт щелчка в главной последовательности или щелчка по триггер‑форме в интерактивной последовательности.  
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) начинается одновременно с предыдущим эффектом.  
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effecttriggertype/#OnClick) ожидает клик в основной последовательности или клик по форме‑триггеру в интерактивной последовательности.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) начинается одновременно с предыдущим эффектом.
 - [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) начинается после завершения предыдущего эффекта.
 
-Чтобы анимировать изображение, диаграмму или другой тип формы, передайте соответствующий объект в [Sequence.addEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/sequence/#addEffect) вместо `targetShape`. Параметры группировки, специфичные для диаграмм, см. в разделе [Animated Charts](/slides/ru/nodejs-java/animated-charts/).
+Чтобы анимировать изображение, диаграмму или другой тип формы, передайте этот объект в [Sequence.addEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/sequence/#addEffect) вместо `targetShape`. Для параметров группировки, специфичных для диаграмм, см. [Animated Charts](/slides/ru/nodejs-java/animated-charts/).
 
-## **Чтение анимаций фигур**
+## **Чтение анимации фигур**
 
-Используйте [Sequence.getEffectsByShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/sequence/#getEffectsByShape), когда известна целевая форма. Чтобы просмотреть каждый эффект, перечислите главную последовательность и все интерактивные последовательности. Перечисление избавляет от предположения, что в последовательности есть эффект с индексом `0`.
+Используйте [Sequence.getEffectsByShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/sequence/#getEffectsByShape), когда известна целевая форма. Чтобы просмотреть каждый эффект, перечислите основные и все интерактивные последовательности. Перебор исключает предположение, что в последовательности есть эффект с индексом `0`.
 
-Следующий пример создаёт форму с эффектами главной и интерактивной последовательностей, получает эффекты, направленные на форму, и затем перечисляет все последовательности на слайде.
+Следующий пример создает форму с эффектами основной и интерактивной последовательностей, получает эффекты, нацеленные на форму, и затем перебирает каждую последовательность на слайде.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -144,17 +146,17 @@ try {
 
 ## **Работа с унаследованными эффектами заполнителей**
 
-Заполнитель на обычном слайде может наследовать анимацию от соответствующего заполнителя на слайде‑макете и на слайде‑образце. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/#getBasePlaceholder) возвращает родительский заполнитель или `null`, если родитель отсутствует.
+Заполнитель на обычном слайде может наследовать поведение анимации от соответствующего заполнителя на слайде‑макете и слайде‑шаблоне. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/#getBasePlaceholder) возвращает родительский заполнитель или `null`, если родитель отсутствует.
 
-В представленной ниже презентации в футере на обычном слайде используется **Random Bars**, на слайде‑макете — **Split**, а на слайде‑образце — **Fly In**.
+В показанном примере презентации нижний колонтитул имеет **Random Bars** на обычном слайде, **Split** на слайде‑макете и **Fly In** на слайде‑шаблоне.
 
-![Эффект анимации футера на обычном слайде](slide-shape-animation.png)
+![Эффект анимации нижнего колонтитула на обычном слайде](slide-shape-animation.png)
 
-![Эффект анимации заполнителя футера на слайде‑макете](layout-shape-animation.png)
+![Эффект анимации заполнителя нижнего колонтитула на слайде‑макете](layout-shape-animation.png)
 
-![Эффект анимации заполнителя футера на слайде‑образце](master-shape-animation.png)
+![Эффект анимации заполнителя нижнего колонтитула на слайде‑шаблоне](master-shape-animation.png)
 
-Следующий пример использует иерархию заполнителей новой презентации. Он добавляет эффекты к заполнитель‑образцу, заполнитель‑макету и соответствующему заполнитель‑на обычном слайде. Каждый вызов [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/#getBasePlaceholder) проверяется перед использованием полученной формы.
+Следующий пример использует иерархию заполнителей из новой презентации. Он добавляет эффекты к заполняющему элементу мастера, заполняющему элементу макета и соответствующему заполнителю на обычном слайде. Каждый вызов [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/#getBasePlaceholder) проверяется до использования возвращённой формы.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -238,19 +240,19 @@ try {
 }
 ```
 
-## **Изменение времени анимации**
+## **Изменение тайминга анимации**
 
-Диалог **Timing** в PowerPoint отображает свойства объекта [Timing](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/).
+Диалог PowerPoint **Timing** соответствует свойствам [Timing](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/).
 
-![Диалог Timing в PowerPoint для анимационного эффекта](shape-animation.png)
+![Диалог PowerPoint Timing для анимационного эффекта](shape-animation.png)
 
-- **Start** соответствует [Timing.getTriggerType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#getTriggerType).  
-- **Duration** соответствует [Timing.getDuration](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#getDuration) в секундах.  
-- **Delay** соответствует [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#getTriggerDelayTime) в секундах.  
-- **Repeat** соответствует [Timing.getRepeatCount](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) или [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide).  
+- **Start** соответствует [Timing.getTriggerType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#getTriggerType).
+- **Duration** соответствует [Timing.getDuration](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#getDuration) и измеряется в секундах.
+- **Delay** соответствует [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#getTriggerDelayTime) и измеряется в секундах.
+- **Repeat** соответствует [Timing.getRepeatCount](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) или [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide).
 - **Rewind when done playing** соответствует [Timing.getRewind](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#getRewind).
 
-Этот отдельный пример добавляет эффект, изменяет его время через объект, возвращённый [Sequence.addEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/sequence/#addEffect), и сохраняет результат. Сохранение ссылки на возвращённый объект [Effect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effect/) избавляет от необходимости использовать индекс коллекции.
+Этот независимый пример добавляет эффект, меняет его тайминг через объект, возвращённый [Sequence.addEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/sequence/#addEffect), и сохраняет результат. Сохранение ссылки на возвращённый [Effect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effect/) избавляет от необходимости использовать индекс коллекции.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -277,15 +279,15 @@ try {
 }
 ```
 
-Используйте один режим повторения намеренно. Сочетание количества повторений с флагом «until» может дать запутанные результаты в разных средствах просмотра. При смене режимов повторения сначала вызывайте [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) и [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide), а затем [Timing.setRepeatCount](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#setRepeatCount), так как установка любого из флагов также меняет активный режим повторения.
+Используйте один режим повторения намеренно. Сочетание количества повторений с флагом «until» может давать непредсказуемый результат в разных просмотрщиках. При изменении режимов повторения сначала вызывайте [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) и [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide), а затем [Timing.setRepeatCount](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/timing/#setRepeatCount), потому что установка любого из флагов также меняет активный режим повторения.
 
 ## **Добавление и извлечение звуков анимации**
 
-Эффект анимации может ссылаться на встроенный аудиофайл через [Effect.getSound](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effect/#setStopPreviousSound) указывает эффекту остановить звук, запущенный предыдущим эффектом.
+Эффект анимации может ссылаться на встроенный звук через [Effect.getSound](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effect/#getSound). [Effect.setStopPreviousSound](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effect/#setStopPreviousSound) указывает эффекту остановить звук, запущенный предыдущим эффектом.
 
 ### **Добавление звука к эффекту**
 
-В следующем примере ожидается локальный аудиофайл `animation-sound.wav`. Он создаёт два эффекта, встраивает этот файл как звук первого эффекта и настраивает второй эффект на остановку звука. При этом используются объекты, возвращённые [Sequence.addEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/sequence/#addEffect), без необходимости указывать индекс последовательности.
+Следующий пример ожидает локальный аудиофайл `animation-sound.wav`. Он создаёт два эффекта, встраивает файл как звук для первого эффекта и настраивает второй эффект на остановку звука. Используются объекты, возвращённые [Sequence.addEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/sequence/#addEffect), поэтому индекс последовательности не требуется.
 
 ```javascript
 const fs = require("fs");
@@ -317,7 +319,7 @@ try {
 
 ### **Извлечение встроенных звуков эффектов**
 
-В следующем примере ожидается локальная презентация `presentation-with-animation-sounds.pptx`. Он просматривает как главные, так и интерактивные последовательности и записывает каждый встроенный звук эффекта в каталог `extracted-animation-sounds`. Расширение выбирается из MIME‑типа аудио, полученного через [Audio.getContentType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/audio/#getContentType).
+Следующий пример ожидает локальную презентацию `presentation-with-animation-sounds.pptx`. Он сканирует основные и интерактивные последовательности и записывает каждый встроенный звук эффекта в каталог `extracted-animation-sounds`. Расширение выбирается из MIME‑типа аудио, предоставляемого [Audio.getContentType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/audio/#getContentType).
 
 ```javascript
 const fs = require("fs");
@@ -386,17 +388,17 @@ try {
 }
 ```
 
-Для больших аудиофайлов используйте [Audio.getStream](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/audio/#getStream) и копируйте поток в файл вместо загрузки всего объекта в массив байтов.
+Для больших аудио‑объектов используйте [Audio.getStream](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/audio/#getStream) и копируйте поток в файл, вместо загрузки всего объекта в массив байт.
 
-## **Установка поведения после анимации**
+## **Настройка поведения после анимации**
 
 Опция **After animation** определяет, что происходит с формой после завершения её эффекта.
 
 ![Диалог параметров эффекта PowerPoint, показывающий настройки After animation](shape-after-animation.png)
 
-Перечисление [AfterAnimationType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/afteranimationtype/) поддерживает оставление формы без изменений, изменение её цвета, скрытие после анимации или скрытие при следующем щелчке. Когда тип установлен в [AfterAnimationType.Color](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/afteranimationtype/#Color), также задайте [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effect/#getAfterAnimationColor).
+Перечисление [AfterAnimationType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/afteranimationtype/) поддерживает оставлять форму без изменений, менять её цвет, скрывать её после анимации или скрывать при следующем клике. Когда тип — [AfterAnimationType.Color](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/afteranimationtype/#Color), также задайте [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effect/#getAfterAnimationColor).
 
-Этот отдельный пример создаёт эффект, задаёт его поведение после анимации через полученный объект эффекта и сохраняет результат.
+Этот независимый пример создаёт эффект, устанавливает его поведение после анимации через возвращённый объект эффекта и сохраняет результат.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -418,16 +420,16 @@ try {
 }
 ```
 
-Смена типа с [AfterAnimationType.Color](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/afteranimationtype/#Color) снимает настройку цвета после анимации.
+Изменение типа с [AfterAnimationType.Color](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/afteranimationtype/#Color) очищает настройку цвета после анимации.
 
 ## **Анимация текста**
 
-Анимация текста имеет два связанных параметра:
+У анимации текста есть два связанных параметра:
 
-- [TextAnimation.getBuildType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textanimation/#getBuildType) управляет тем, отображаются ли абзацы вместе или по отдельности.  
-- [Effect.getAnimateTextType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effect/#getAnimateTextType) определяет, появляется ли текст сразу полностью, по словам или по буквам. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) задаёт задержку между словами или буквами. Положительное значение — процент от продолжительности эффекта; отрицательное — задержка в секундах.
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textanimation/#getBuildType) определяет, появляются ли абзацы вместе или по уровням абзацев.
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effect/#getAnimateTextType) определяет, отображается ли текст сразу, по словам или по буквам. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) задаёт задержку между словами или буквами. Положительное значение — это процент от длительности эффекта; отрицательное значение — задержка в секундах.
 
-Следующий независимый пример анимирует слова в текстовом поле. [BuildType.AsOneObject](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/buildtype/#AsOneObject) отключает построение по абзацам, поэтому настройка для слов применяется ко всему текстовому фрейму.
+Следующий независимый пример анимирует слова в текстовом поле. [BuildType.AsOneObject](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/buildtype/#AsOneObject) отключает построение по абзацам, так что настройка по словам применяется ко всему текстовому фрейму.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -450,26 +452,26 @@ try {
 }
 ```
 
-Чтобы построить текстовое поле по абзацам, задайте [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (или другой уровень абзаца). Чтобы применить отдельный эффект к отдельному абзацу, используйте перегрузку [Sequence.addEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/sequence/#addEffect), принимающую объект [Paragraph](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/paragraph/). См. раздел [Animated Text](/slides/ru/nodejs-java/animated-text/) для примеров анимации на уровне абзацев.
+Чтобы строить текстовое поле по абзацам, задайте [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (или другой уровень абзаца). Чтобы применить отдельный эффект к одному абзацу, используйте перегрузку [Sequence.addEffect](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/sequence/#addEffect), принимающую [Paragraph](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/paragraph/). См. [Animated Text](/slides/ru/nodejs-java/animated-text/) для примеров уровня абзаца.
 
 ## **Экспорт и примечания о совместимости**
 
-- Сохранение в PPT или PPTX сохраняет модель анимации, но окончательное воспроизведение зависит от средства просмотра презентаций.  
-- PDF и статические изображения не воспроизводят анимацию. При необходимости показать движение используйте [HTML5 export](/slides/ru/nodejs-java/export-to-html5/), анимированный GIF или [конвертацию в видео](/slides/ru/nodejs-java/convert-powerpoint-to-video/).  
-- Для HTML5 включите [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/html5options/#setAnimateShapes) и, при необходимости, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/html5options/#setAnimateTransitions).  
-- При рендеринге видео поддерживаются многие стандартные эффекты входа, акцента, выхода и перемещения, но не все эффекты PowerPoint поддерживаются. Проверьте текущий список [поддерживаемых анимаций и эффектов](/slides/ru/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) и протестируйте критичные презентации с вашей целевой версией Aspose.Slides.  
-- Пользовательские сложные эффекты и эффекты, импортированные из других форматов, могут сохраняться в файле, но отображаться иначе в PowerPoint, HTML5 или видео. Валидируйте экспортированный результат, а не полагайтесь только на название эффекта.
+- Сохранение в PPT или PPTX сохраняет модель анимации, но окончательное воспроизведение контролируется программой‑просмотром презентаций.
+- PDF и статические изображения не воспроизводят анимацию. Используйте [HTML5 export](/slides/ru/nodejs-java/export-to-html5/), анимированный GIF или [конвертацию в видео](/slides/ru/nodejs-java/convert-powerpoint-to-video/), когда вывод должен показывать движение.
+- Для HTML5 включите [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/html5options/#setAnimateShapes) и при необходимости [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/html5options/#setAnimateTransitions).
+- Видеорендеринг поддерживает многие распространённые эффекты входа, акцентирования, выхода и траекторий движения, но не каждый эффект PowerPoint поддерживается. Проверьте текущий список [поддерживаемых анимаций и эффектов](/slides/ru/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) и протестируйте критические презентации с используемой версией Aspose.Slides.
+- Пользовательские эффекты и эффекты, импортированные из других форматов презентаций, могут сохраняться в файле, но отображаться иначе в PowerPoint, HTML5 или видео. Валидируйте экспортированный результат, а не полагайтесь только на название эффекта.
 
 ## **FAQ**
 
-**Почему анимация видна в PowerPoint, но не отображается в PDF?**
+**Почему анимация отображается в PowerPoint, но не в PDF?**
 
-PDF — статический формат, поэтому анимация и переходы слайдов не воспроизводятся. При необходимости сохранить движение экспортируйте в HTML5, анимированный GIF или видео.
+PDF — статический формат, поэтому анимация и переходы слайдов не воспроизводятся. Экспортируйте в HTML5, анимированный GIF или видео, когда необходимо сохранить движение.
 
-**Почему эффект выглядит иначе в видео?**
+**Почему эффект воспроизводится иначе в видео?**
 
-Экспорт в видео рендерит анимацию, а не сохраняет оригинальное поведение PowerPoint. Некоторые сложные эффекты не поддерживаются или приближённо реализованы. Ознакомьтесь с таблицей поддерживаемых эффектов и протестируйте презентацию перед использованием в продакшене.
+Экспорт в видео рендерит анимацию, а не сохраняет оригинальное поведение PowerPoint. Некоторые продвинутые эффекты не поддерживаются или реализованы приближённо. Ознакомьтесь с таблицей поддерживаемых эффектов и протестируйте презентацию перед производственным использованием.
 
-**Изменит ли перемещение формы вперёд или назад порядок её анимации?**
+**Изменяет ли перемещение формы вперёд или назад порядок её анимации?**
 
-Нет. Порядок наложения форм (z‑order) определяет перекрытие, а порядок последовательности и триггеры управляют воспроизведением анимации. Измените временную шкалу, если требуется иной порядок воспроизведения.
+Нет. Z‑порядок формы управляет наложением, а порядок последовательности и триггеры управляют воспроизведением анимации. Измените таймлайн, если нужен иной порядок воспроизведения.

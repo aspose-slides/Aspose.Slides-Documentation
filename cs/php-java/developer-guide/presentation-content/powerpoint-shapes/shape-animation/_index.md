@@ -1,6 +1,6 @@
 ---
 title: Použití animací tvarů v prezentacích pomocí PHP
-linktitle: Animace tvarů
+linktitle: Animace tvaru
 type: docs
 weight: 60
 url: /cs/php-java/shape-animation/
@@ -22,24 +22,26 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Naučte se, jak přidávat, kontrolovat a přizpůsobovat animace tvarů, načasování, zvuky, chování po animaci a animovaný text pomocí Aspose.Slides pro PHP prostřednictvím Java."
+description: "Naučte se, jak přidávat, kontrolovat a přizpůsobovat animace tvarů, časování, zvuky, chování po animaci a animovaný text s Aspose.Slides pro PHP přes Java."
 ---
 ## **Přehled**
 
-Aspose.Slides for PHP via Java představuje animace snímků jako efekty v časové ose snímku. Efekt má cílový tvar, typ a podtyp animace, spouštěč, nastavení načasování a volitelné vlastnosti jako zvuk nebo chování po animaci.
+Pro práci s jednotlivými chováními uvnitř efektu nebo úpravu segmentů pohybových cest viz [Vlastní animace](/slides/cs/php-java/custom-animation/).
+
+Aspose.Slides pro PHP přes Java představuje animace snímků jako efekty v časové ose snímku. Efekt má cílový tvar, typ a podtyp animace, spouštěč, nastavení časování a nepovinné vlastnosti, jako je zvuk nebo chování po animaci.
 
 Časová osa obsahuje dva typy sekvencí:
 
 - **Hlavní sekvence** se přehrává při postupu snímku.
-- **Interaktivní sekvence** se spustí, když je kliknuto na její spouštěcí tvar.
+- **Interaktivní sekvence** začíná, když je kliknuto na její spouštěcí tvar.
 
-Protože textová pole, obrázky, grafy, tabulky a jiné objekty snímku jsou tvary, používáte stejnou metodu [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/) pro většinu obsahu snímku. Dostupné efekty jsou uvedeny ve třídě [EffectType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effecttype/).
+Protože textová pole, obrázky, grafy, tabulky a další objekty snímku jsou tvary, používáte pro většinu obsahu snímku stejnou metodu [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/). Dostupné efekty jsou uvedeny ve třídě [EffectType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effecttype/).
 
-## **Přidání animací tvarů**
+## **Přidání animací tvaru**
 
-Chcete-li přidat animaci, získejte hlavní sekvenci snímku a zavolejte [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/) s cílovým tvarem, typem efektu, podtypem a spouštěčem. Pro efekt, který se spustí po kliknutí na jiný tvar, vytvořte interaktivní sekvenci, jejíž spouštěč je tento jiný tvar.
+Chcete-li přidat animaci, získejte hlavní sekvenci snímku a zavolejte [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/) s cílovým tvarem, typem efektu, podtypem a spouštěčem. Pro efekt, který začíná po kliknutí na jiný tvar, vytvořte interaktivní sekvenci, jejíž spouštěč je tento jiný tvar.
 
-Následující příklad vytvoří oba typy animací a uloží výsledek do `shape-animations.pptx`.
+Následující příklad vytvoří oba typy animací a uloží výsledek do souboru `shape-animations.pptx`.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -75,16 +77,16 @@ try {
 Spouštěč určuje, kdy efekt začne:
 
 - [EffectTriggerType::OnClick](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effecttriggertype/) čeká na kliknutí v hlavní sekvenci nebo na kliknutí na spouštěcí tvar v interaktivní sekvenci.
-- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effecttriggertype/) začíná spolu s předchozím efektem.
-- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effecttriggertype/) začíná po dokončení předchozího efektu.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effecttriggertype/) začíná s předchozím efektem.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effecttriggertype/) začíná, když předchozí efekt skončí.
 
-Chcete-li animovat obrázek, graf nebo jiný typ tvaru, předávejte tento objekt metodě [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/) místo `$targetShape`. Pro možnost seskupování specifické pro grafy viz [Animated Charts](/slides/cs/php-java/animated-charts/).
+Chcete-li animovat obrázek, graf nebo jiný typ tvaru, předajte tento objekt metodě [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/) místo `$targetShape`. Pro možnosti seskupování specifické pro grafy viz [Animované grafy](/slides/cs/php-java/animated-charts/).
 
-## **Čtení animací tvarů**
+## **Čtení animací tvaru**
 
-Použijte [Sequence::getEffectsByShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/geteffectsbyshape/) když znáte cílový tvar. Pro prohlédnutí každého efektu enumerujte hlavní sekvenci i všechny interaktivní sekvence. Enumerace zabraňuje předpokladu, že sekvence obsahuje efekt na indexu `0`.
+Použijte [Sequence::getEffectsByShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/geteffectsbyshape/) pokud znáte cílový tvar. Chcete‑li prozkoumat každý efekt, enumerujte hlavní sekvenci a každou interaktivní sekvenci. Enumerace zabraňuje předpokladu, že sekvence obsahuje efekt na indexu `0`.
 
-Následující příklad vytvoří tvar s efekty v hlavní i interaktivní sekvenci, získá efekty cílící na tvar a poté enumeruje každou sekvenci na snímku.
+Následující příklad vytvoří tvar s hlavními a interaktivními efekty, získá efekty, které cílí na tento tvar, a poté enumeruje každou sekvenci na snímku.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -144,21 +146,21 @@ try {
 }
 ```
 
-Pokud potřebujete efekty jen pro jeden tvar, nejprve identifikujte tvar podle názvu, typu zástupného objektu nebo jiné stabilní vlastnosti; pak zavolejte [Sequence::getEffectsByShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/geteffectsbyshape/). Nepředpokládejte, že [ShapeCollection::get_Item](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/get_item/) na indexu `0` je vždy požadovaný objekt.
+Pokud potřebujete efekty jen pro jeden tvar, nejdříve identifikujte tvar podle názvu, typu zástupce nebo jiné stabilní vlastnosti; poté zavolejte [Sequence::getEffectsByShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/geteffectsbyshape/). Nepředpokládejte, že [ShapeCollection::get_Item](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/get_item/) na indexu `0` je vždy požadovaný objekt.
 
-## **Práce s děděnými efekty zástupných objektů**
+## **Práce s děděnými efekty zástupců**
 
-Zástupný objekt na normálním snímku může dědit chování animace z odpovídajícího zástupného objektu na rozložení snímku a hlavním snímku. [Shape::getBasePlaceholder](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/getbaseplaceholder/) vrací tento nadřazený zástupný objekt nebo `null`, pokud neexistuje.
+Zástupce na normálním snímku může zdědit chování animace z odpovídajícího zástupce na snímku rozvržení a hlavním snímku. [Shape::getBasePlaceholder](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/getbaseplaceholder/) vrací tento nadřazený zástupce, nebo `null`, pokud nadřazený neexistuje.
 
-V následujícím ukázkovém souboru má zápatí **Random Bars** na normálním snímku, **Split** na rozložení snímku a **Fly In** na hlavním snímku.
+V následujícím ukázkovém prezentaci má zápatí **Random Bars** na normálním snímku, **Split** na snímku rozvržení a **Fly In** na hlavním snímku.
 
 ![Efekt animace zápatí na normálním snímku](slide-shape-animation.png)
 
-![Efekt animace zástupného objektu zápatí na rozložení snímku](layout-shape-animation.png)
+![Efekt animace zástupce zápatí na snímku rozvržení](layout-shape-animation.png)
 
-![Efekt animace zástupného objektu zápatí na předloze snímku](master-shape-animation.png)
+![Efekt animace zástupce zápatí na hlavním snímku](master-shape-animation.png)
 
-Další příklad používá hierarchii zástupných objektů z nové prezentace. Přidává efekty k hlavnímu zástupnému objektu, k zástupnému objektu rozložení a k odpovídajícímu zástupnému objektu na normálním snímku. Každé volání [Shape::getBasePlaceholder](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/getbaseplaceholder/) je před použitím vráceného tvaru ověřeno.
+Další příklad používá hierarchii zástupců z nové prezentace. Přidává efekty k hlavnímu zástupci, zástupci rozvržení a odpovídajícímu zástupci na normálním snímku. Každé volání [Shape::getBasePlaceholder](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/getbaseplaceholder/) je před použitím vráceného tvaru zkontrolováno.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -246,19 +248,19 @@ try {
 }
 ```
 
-## **Změna načasování animace**
+## **Změna časování animace**
 
-Dialog **Timing** v PowerPointu mapuje na vlastnosti třídy [Timing](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/).
+Dialog PowerPoint **Timing** (Časování) odpovídá vlastnostem třídy [Timing](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/).
 
-![Dialog načasování PowerPointu pro efekt animace](shape-animation.png)
+![Dialog PowerPoint Timing pro animaci efektu](shape-animation.png)
 
-- **Start** mapuje na [Timing::getTriggerType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/gettriggertype/).
-- **Duration** mapuje na [Timing::getDuration](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/getduration/), v sekundách.
-- **Delay** mapuje na [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/gettriggerdelaytime/), v sekundách.
-- **Repeat** mapuje na [Timing::getRepeatCount](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/getrepeatuntilnextclick/) nebo [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/getrepeatuntilendslide/).
-- **Rewind when done playing** mapuje na [Timing::getRewind](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/getrewind/).
+- **Start** odpovídá [Timing::getTriggerType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/gettriggertype/).
+- **Duration** odpovídá [Timing::getDuration](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/getduration/), v sekundách.
+- **Delay** odpovídá [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/gettriggerdelaytime/), v sekundách.
+- **Repeat** odpovídá [Timing::getRepeatCount](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/getrepeatuntilnextclick/) nebo [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/getrepeatuntilendslide/).
+- **Rewind when done playing** odpovídá [Timing::getRewind](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/getrewind/).
 
-Tento samostatný příklad přidá efekt, změní jeho načasování pomocí objektu vráceného metodou [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/) a uloží výsledek. Uchování reference na vrácený [Effect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/) zabraňuje zbytečnému indexování kolekce.
+Tento samostatný příklad přidá efekt, změní jeho časování pomocí objektu vráceného metodou [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/), a uloží výsledek. Uchování vráceného odkazu na [Effect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/) zabraňuje zbytečnému indexu v kolekci.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -289,15 +291,15 @@ try {
 }
 ```
 
-Používejte jeden režim opakování úmyslně. Kombinace počtu opakování s příznakem „until“ může v různých prohlížečích vést ke zmateným výsledkům. Při změně režimu opakování nastavte [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/setrepeatuntilnextclick/) a [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/setrepeatuntilendslide/) před [Timing::setRepeatCount](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/setrepeatcount/), protože nastavení některého z příznaků také mění aktivní režim opakování.
+Úmyslně použijte pouze jeden režim opakování. Kombinace počtu opakování s příznakem „until“ (do) může v různých prohlížečích vést k nejasným výsledkům. Při změně režimů opakování nastavte [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/setrepeatuntilnextclick/) a [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/setrepeatuntilendslide/) před [Timing::setRepeatCount](https://reference.aspose.com/slides/cs/php-java/aspose.slides/timing/setrepeatcount/), protože nastavení kterékoli z těchto příznaků také mění aktivní režim opakování.
 
-## **Přidání a extrakce zvuků animace**
+## **Přidání a extrakce zvuků animací**
 
-Animovaný efekt může odkazovat na vložený zvuk pomocí [Effect::getSound](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/getsound/). [Effect::setStopPreviousSound](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/setstopprevioussound/) říká efektu, aby zastavil zvuk zahájený předchozím efektem.
+Animovaný efekt může odkazovat na vložený zvuk pomocí [Effect::getSound](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/getsound/). [Effect::setStopPreviousSound](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/setstopprevioussound/) říká efektu, aby zastavil zvuk spuštěný předchozím efektem.
 
 ### **Přidání zvuku k efektu**
 
-Následující příklad očekává lokální zvukový soubor s názvem `animation-sound.wav`. Vytvoří dva efekty, vloží tento soubor jako zvuk pro první efekt a nakonfiguruje druhý efekt tak, aby zvuk zastavil. Používá objekty vrácené metodou [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/), takže není potřeba index sekvence.
+Následující příklad očekává místní audio soubor pojmenovaný `animation-sound.wav`. Vytvoří dva efekty, vloží tento soubor jako zvuk pro první efekt a nastaví druhý efekt tak, aby zastavil zvuk. Používá objekty vrácené metodou [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/), takže není vyžadován index sekvence.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -336,7 +338,7 @@ try {
 
 ### **Extrahování vložených zvuků efektu**
 
-Následující příklad očekává lokální prezentaci s názvem `presentation-with-animation-sounds.pptx`. Prohledá jak hlavní, tak interaktivní sekvence a zapíše každý vložený zvuk efektu do adresáře `extracted-animation-sounds`. Přípona je vybrána podle MIME typu zvuku, který poskytuje [Audio::getContentType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/audio/getcontenttype/).
+Následující příklad očekává místní prezentaci pojmenovanou `presentation-with-animation-sounds.pptx`. Prohledá hlavní i interaktivní sekvence a zapíše každý vložený zvuk efektu do adresáře `extracted-animation-sounds`. Přípona je vybrána z MIME typu audia poskytovaného metodou [Audio::getContentType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/audio/getcontenttype/).
 
 ```php
 use aspose\slides\Presentation;
@@ -420,17 +422,17 @@ try {
 }
 ```
 
-Pro velké zvukové objekty použijte [Audio::getStream](https://reference.aspose.com/slides/cs/php-java/aspose.slides/audio/getstream/) a zkopírujte stream do souboru místo načítání celého objektu do pole bajtů.
+Pro velké audio objekty použijte [Audio::getStream](https://reference.aspose.com/slides/cs/php-java/aspose.slides/audio/getstream/) a zkopírujte stream do souboru místo načítání celého objektu do pole bytů.
 
 ## **Nastavení chování po animaci**
 
-Možnost **After animation** určuje, co se stane s tvarem po dokončení jeho efektu.
+Volba **After animation** (Po animaci) určuje, co se stane s tvarem po dokončení jeho efektu.
 
-![Dialog možností efektu PowerPointu zobrazující nastavení Po animaci](shape-after-animation.png)
+![Dialog PowerPoint Effect Options zobrazující nastavení Po animaci](shape-after-animation.png)
 
 Třída [AfterAnimationType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/afteranimationtype/) podporuje ponechání tvaru beze změny, změnu jeho barvy, skrytí po animaci nebo skrytí při dalším kliknutí. Když je typ [AfterAnimationType::Color](https://reference.aspose.com/slides/cs/php-java/aspose.slides/afteranimationtype/), nastavte také [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/getafteranimationcolor/).
 
-Tento samostatný příklad vytvoří efekt, nastaví jeho chování po animaci pomocí vráceného objektu efektu a výsledek uloží.
+Tento samostatný příklad vytvoří efekt, nastaví jeho chování po animaci pomocí vráceného objektu efektu a uloží výsledek.
 
 ```php
 use aspose\slides\AfterAnimationType;
@@ -461,12 +463,12 @@ Změna typu od [AfterAnimationType::Color](https://reference.aspose.com/slides/c
 
 ## **Animace textu**
 
-Animace textu má dva související ovladače:
+Animace textu má dvě související nastavení:
 
-- [TextAnimation::getBuildType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textanimation/getbuildtype/) určuje, zda se odstavce zobrazí najednou nebo po odstavcích.
-- [Effect::getAnimateTextType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/getanimatetexttype/) určuje, zda se text zobrazí najednou, po slovech nebo po písmenkách. [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/getdelaybetweentextparts/) nastavuje prodlevu mezi slovy nebo písmeny. Kladná hodnota představuje procento trvání efektu; záporná hodnota je prodleva v sekundách.
+- [TextAnimation::getBuildType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textanimation/getbuildtype/) určuje, zda se odstavce zobrazují najednou nebo po úrovních odstavců.
+- [Effect::getAnimateTextType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/getanimatetexttype/) určuje, zda se text zobrazí najednou, po slovech nebo po písmenech. [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/cs/php-java/aspose.slides/effect/getdelaybetweentextparts/) nastavuje prodlevu mezi slovy nebo písmeny. Kladná hodnota je procento trvání efektu; záporná hodnota je prodleva v sekundách.
 
-Následující samostatný příklad animuje slova v textovém poli. [BuildType::AsOneObject](https://reference.aspose.com/slides/cs/php-java/aspose.slides/buildtype/) vypíná budování po odstavcích, takže nastavení pro slova platí pro celý textový rámec.
+Následující samostatný příklad animuje slova v textovém poli. [BuildType::AsOneObject](https://reference.aspose.com/slides/cs/php-java/aspose.slides/buildtype/) zakazuje budování po odstavcích, takže nastavení pro slova se použije na celý textový rámec.
 
 ```php
 use aspose\slides\AnimateTextType;
@@ -495,26 +497,26 @@ try {
 }
 ```
 
-Pro budování textového pole po odstavcích nastavte [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/cs/php-java/aspose.slides/buildtype/) (nebo jinou úroveň odstavce). Pro cílení na jednotlivý odstavec s vlastním efektem použijte přetíženou metodu [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/) přijímající [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/). Viz [Animated Text](/slides/cs/php-java/animated-text/) pro příklady na úrovni odstavců.
+Pro budování textového pole po odstavcích nastavte [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/cs/php-java/aspose.slides/buildtype/) (nebo jinou úroveň odstavce). Chcete‑li cílit na jeden odstavec s vlastním efektem, použijte přetížení [Sequence::addEffect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sequence/addeffect/), které přijímá [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/). Viz [Animovaný text](/slides/cs/php-java/animated-text/) pro příklady na úrovni odstavců.
 
 ## **Export a poznámky o kompatibilitě**
 
-- Ukládání do PPT nebo PPTX zachovává model animace, ale finální přehrávání řídí prohlížeč prezentací.
-- PDF a statické obrázky neumožňují přehrávání animací. Použijte [HTML5 export](/slides/cs/php-java/export-to-html5/), animovaný GIF nebo [konverzi videa](/slides/cs/php-java/convert-powerpoint-to-video/), když výstup musí ukazovat pohyb.
-- Pro HTML5 povolte [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/cs/php-java/aspose.slides/html5options/setanimateshapes/) a podle potřeby také [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/html5options/setanimatetransitions/).
-- Renderování videa podporuje mnoho běžných vstupních, důrazových, výstupních a pohybových efektů, ale ne každý efekt PowerPointu je podporován. Zkontrolujte aktuální [supported animations and effects](/slides/cs/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) a otestujte kritické prezentace s vaší cílovou verzí Aspose.Slides.
-- Pokročilé vlastní efekty a efekty importované z jiných formátů prezentací mohou být v souboru zachovány, ale vykreslují se odlišně v PowerPointu, HTML5 nebo videu. Ověřte exportovaný výsledek místo spoléhaní se jen na název efektu.
+- Uložení do PPT nebo PPTX zachovává model animací, ale finální přehrávání řídí prohlížeč prezentace.
+- PDF a statické obrázky nepřehrávají animace. Použijte [HTML5 export](/slides/cs/php-java/export-to-html5/), animovaný GIF nebo [konverzi videa](/slides/cs/php-java/convert-powerpoint-to-video/), pokud výstup musí zobrazovat pohyb.
+- Pro HTML5 povolte [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/cs/php-java/aspose.slides/html5options/setanimateshapes/) a v případě potřeby [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/html5options/setanimatetransitions/).
+- Vykreslování videa podporuje mnoho běžných vstupních, zdůrazňovacích, ukončovacích a pohybových efektů, ale ne všechny efekty PowerPointu jsou podporovány. Zkontrolujte aktuální [supported animations and effects](/slides/cs/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) a otestujte kritické prezentace s cílovou verzí Aspose.Slides.
+- Pokročilé vlastní efekty a efekty importované z jiných formátů prezentací mohou být v souboru zachovány, ale v PowerPointu, HTML5 nebo videu se vykreslí odlišně. Ověřte exportovaný výsledek místo spoléhat se jen na název efektu.
 
-## **Časté otázky**
+## **Často kladené otázky**
 
 **Proč se animace zobrazí v PowerPointu, ale ne v PDF?**
 
-PDF je statický formát, takže animace a přechody snímků se nepřehrávají. Exportujte do HTML5, animovaného GIFu nebo videa, když je nutné zachovat pohyb.
+PDF je statický formát, takže animace a přechody snímků se nepřehrají. Exportujte do HTML5, animovaného GIFu nebo videa, pokud je nutný pohyb.
 
-**Proč se efekt v videu přehrává odlišně?**
+**Proč se efekt přehrává odlišně ve videu?**
 
-Export do videa renderuje animace místo uložení původního chování PowerPointu. Některé pokročilé efekty nejsou podporovány nebo jsou aproximovány. Prohlédněte si tabulku podporovaných efektů a otestujte skutečnou prezentaci před nasazením do výroby.
+Export videa vykresluje animace místo ukládání původního chování PowerPointu. Některé pokročilé efekty nejsou podporovány nebo jsou aproximovány. Prohlédněte si tabulku podporovaných efektů a otestujte skutečnou prezentaci před výrobním použitím.
 
-**Mění změna pořadí tvaru (vpřed/vzad) pořadí jeho animace?**
+**Změní posunutí tvaru dopředu nebo dozadu pořadí jeho animace?**
 
 Ne. Z‑order tvaru řídí překrývání, zatímco pořadí sekvence a spouštěče řídí přehrávání animace. Změňte časovou osu, pokud potřebujete jiný pořadí přehrávání.

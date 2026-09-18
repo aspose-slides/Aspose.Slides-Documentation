@@ -1,6 +1,6 @@
 ---
-title: Vylepšete prezentace PowerPoint pomocí animací v Pythonu přes Java
-linktitle: Animace PowerPoint
+title: Vylepšete PowerPoint prezentace pomocí animací v Pythonu přes Java
+linktitle: PowerPoint animace
 type: docs
 weight: 150
 url: /cs/python-java/powerpoint-animation/
@@ -10,9 +10,9 @@ keywords:
 - změnit animaci
 - odstranit animaci
 - spravovat animaci
-- ovládat animaci
+- řídit animaci
 - efekt animace
-- animace PowerPoint
+- PowerPoint animace
 - časová osa animace
 - interaktivní animace
 - vlastní animace
@@ -28,23 +28,26 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Prozkoumejte možnosti Aspose.Slides pro Python přes Java při práci s animacemi PowerPoint. Tento obecný přehled zdůrazňuje klíčové funkce a nabízí postřehy pro vylepšení vašich prezentací."
+description: "Prozkoumejte možnosti Aspose.Slides pro Python přes Java při práci s animacemi v PowerPointu. Tento obecný přehled zvýrazňuje klíčové funkce a poskytuje poznatky pro vylepšení vašich prezentací."
 ---
 ## **Úvod**
 
-Při tvorbě prezentací se zohledňuje jak vizuální vzhled, tak interaktivní chování.
+Při tvorbě prezentací jsou zohledněny jak vizuální vzhled, tak interaktivní chování.
 
-**PowerPoint animace** hraje důležitou roli při tom, aby prezentace byla poutavá a zajímavá pro diváky. Aspose.Slides poskytuje širokou škálu možností, jak přidat animace do prezentací PowerPoint:
+**Animace PowerPointu** hraje důležitou roli při vytváření poutavých a zajímavých prezentací pro diváky. Aspose.Slides poskytuje širokou škálu možností, jak do PowerPoint prezentací přidat animace:
 
-- Použít různé typy efektů PowerPoint animace na tvary, grafy, tabulky, OLE objekty a další prvky prezentace.
-- Použít více efektů PowerPoint animace na jeden tvar.
+- Použít různé typy efektů animace PowerPointu na tvary, grafy, tabulky, objekty OLE a další prvky prezentace.
+- Použít více efektů animace PowerPointu na jednom tvaru.
 - Využít časovou osu animace k řízení efektů animace.
-- Vytvářet vlastní animace.
+- Vytvořit vlastní animace.
+
+V Aspose.Slides lze na tvary použít různé animační efekty. Protože je každý prvek na snímku, včetně textu, obrázků, objektů OLE a tabulek, považován za tvar, lze animační efekty použít na jakýkoli prvek na snímku.
 
 ## **Efekty animace**
-Aspose.Slides podporuje **více než 150 animací**, včetně základních efektů jako Bounce, PathFootball a Zoom, a také specializovaných efektů jako OLEObjectShow a OLEObjectOpen. Úplný seznam efektů animace najdete v [EffectType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effecttype/) výčtu.
 
-Kromě toho lze následující efekty animace použít v kombinaci s výše uvedenými:
+Aspose.Slides podporuje **více než 150 animačních efektů**, včetně základních efektů jako Bounce, PathFootball a Zoom a specifických efektů jako OLEObjectShow a OLEObjectOpen. Kompletní seznam najdete ve třídě [EffectType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effecttype/).
+
+Navíc lze tyto animační efekty kombinovat s následujícími chováními:
 
 - [ColorEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/coloreffect/)
 - [CommandEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/commandeffect/)
@@ -56,52 +59,54 @@ Kromě toho lze následující efekty animace použít v kombinaci s výše uved
 - [SetEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/seteffect/)
 
 ## **Vlastní animace**
-Je možné vytvořit vlastní **vlastní animace** v Aspose.Slides.
-To lze provést kombinací několika chování do nové vlastní animace.
 
-[Behavior](https://reference.aspose.com/slides/cs/python-java/aspose.slides/behavior/) je stavební kámen každého efektu PowerPoint animace. Každý efekt animace se skládá ze sady chování spojených do jedné strategie. Chování můžete zkombinovat do vlastní animace jednou a pak ji znovu použít v dalších prezentacích. Přidání nového chování ke standardnímu efektu PowerPoint animace vytvoří další vlastní animaci. Například můžete přidat chování opakování, aby se animace opakovala několikrát.
+Pro kompletní příklady Pythonu přes Java, které vytvářejí, kontrolují a upravují chování a editovatelné trajektorie pohybu, viz [Custom Animation](/slides/cs/python-java/custom-animation/).
 
-[Point](https://reference.aspose.com/slides/cs/python-java/aspose.slides/point/) je bod, ve kterém má být chování aplikováno.
+Je možné vytvořit vlastní **animace** v Aspose.Slides. Toho lze dosáhnout kombinací několika chování do nové vlastní animace.
+
+[Behavior](https://reference.aspose.com/slides/cs/python-java/aspose.slides/behavior/) je stavební blok animačního efektu PowerPointu. Kombinujte chování k úpravě efektu nebo přidejte chování pro rozšíření předdefinovaného efektu. Opakování se nastavuje prostřednictvím časování místo samostatného opakovacího chování.
+
+[Point](https://reference.aspose.com/slides/cs/python-java/aspose.slides/point/) je bod, ve kterém by mělo být chování aplikováno.
 
 ## **Časová osa animace**
-[Sequence](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/) je kolekce efektů animace aplikovaných na konkrétní tvar.
+[Sequence](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/) je kolekce animačních efektů, které mohou cílit na různé tvary.
 
-[AnimationTimeLine](https://reference.aspose.com/slides/cs/python-java/aspose.slides/animationtimeline/) je sada sekvencí použita na konkrétním snímku. Reprezentuje animační engine zavedený v PowerPoint 2002. Ve starších verzích PowerPointu bylo přidání efektů animace do prezentace obtížné a vyžadovalo obcházení. Časová osa nahrazuje starou třídu AnimationSettings a poskytuje přehlednější objektový model pro PowerPoint animaci. Snímek může mít pouze jednu časovou osu animace.
+[AnimationTimeLine](https://reference.aspose.com/slides/cs/python-java/aspose.slides/animationtimeline/) je sada sekvencí používaných na konkrétním snímku. Představuje animační engine zavedený v PowerPointu 2002. Ve starších verzích PowerPointu bylo přidání animačních efektů do prezentace obtížné a vyžadovalo workaroundy. Časová osa poskytuje přehlednější objektový model pro animace PowerPointu. Snímek může mít pouze jednu časovou osu animace.
 
 ## **Interaktivní animace**
-[EffectTriggerType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effecttriggertype/) umožňuje definovat uživatelské akce (např. kliknutí na tlačítko), které spustí konkrétní animaci. Spouštěče byly přidány až v nejnovější verzi PowerPointu.
+[EffectTriggerType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/effecttriggertype/) vám umožňuje definovat uživatelské akce, například kliknutí tlačítka, které spustí konkrétní animaci.
 
 ## **Animace tvarů**
-Aspose.Slides umožňuje aplikovat animaci na tvary, které mohou představovat text, obdélníky, čáry, rámy, OLE objekty a další prvky.
+Aspose.Slides vám umožňuje aplikovat animaci na tvary, které mohou představovat text, obdélníky, čáry, rámečky, objekty OLE a další prvky.
 
-{{% alert color="info" title="Poznámka" %}}
+{{% alert color="info" title="Note" %}}
 Přečtěte si více [O animaci tvarů](/slides/cs/python-java/shape-animation/).
 {{% /alert %}}
 
 ## **Animované grafy**
-Pro vytvoření animovaných grafů použijte stejné třídy jako pro tvary. Nicméně animaci PowerPoint lze použít jen na kategorie grafu nebo sérii grafu. Můžete také aplikovat efekt animace na prvek kategorie nebo prvek série.
+Pro vytvoření animovaných grafů použijte stejné třídy jako pro tvary. Je však možné použít animaci PowerPointu pouze na kategorie grafu nebo řady grafu. Můžete také aplikovat animační efekt na prvek kategorie nebo řady.
 
-{{% alert color="info" title="Poznámka" %}}
+{{% alert color="info" title="Note" %}}
 Přečtěte si více [O animovaných grafech](/slides/cs/python-java/animated-charts/).
 {{% /alert %}}
 
 ## **Animovaný text**
-Kromě animace textu můžete aplikovat animaci i na odstavec.
+Kromě animace textu můžete animovat i odstavec.
 
-{{% alert color="info" title="Poznámka" %}}
+{{% alert color="info" title="Note" %}}
 Přečtěte si více [O animovaném textu](/slides/cs/python-java/animated-text/).
 {{% /alert %}}
 
-## **Často kladené otázky**
+## **FAQ**
 
 **Zůstanou animace zachovány při exportu do PDF?**
 
-Ne. PDF je statický formát, takže animace a [přechody snímků](/slides/cs/python-java/slide-transition/) se nepřehrají. Pokud potřebujete pohyb, exportujte místo toho do [HTML5](/slides/cs/python-java/export-to-html5/), [animovaného GIFu](/slides/cs/python-java/convert-powerpoint-to-animated-gif/) nebo [videa](/slides/cs/python-java/convert-powerpoint-to-video/).
+Ne. PDF je statický formát, takže se animace a [slide transitions](/slides/cs/python-java/slide-transition/) nepřehrávají. Pokud potřebujete pohyb, exportujte místo toho do [HTML5](/slides/cs/python-java/export-to-html5/), [animated GIF](/slides/cs/python-java/convert-powerpoint-to-animated-gif/) nebo [video](/slides/cs/python-java/convert-powerpoint-to-video/).
 
-**Mohu převést animovanou prezentaci na video a řídit snímkovou frekvenci a velikost snímku?**
+**Mohu převést animovanou prezentaci na video a ovládat snímkovou rychlost a velikost snímku?**
 
-Ano. Můžete [renderovat prezentaci jako snímky](/slides/cs/python-java/convert-powerpoint-to-video/) a zakódovat je do videa (např. pomocí ffmpeg), přičemž zvolíte FPS a rozlišení. Animace a přechody snímků jsou při renderování přehrávány.
+Ano. Můžete [render the presentation as frames](/slides/cs/python-java/convert-powerpoint-to-video/) a zakódovat je do videa (např. pomocí ffmpeg), přičemž si zvolíte FPS a rozlišení. Animace a přechody mezi snímky jsou během renderování přehrávány.
 
 **Zůstanou animace zachovány při práci s ODP (nejen PPTX)?**
 
-PPT, PPTX a ODP jsou podporovány pro [čtení](/slides/cs/python-java/open-presentation/) a [zápis](/slides/cs/python-java/save-presentation/), ale rozdíly ve formátech mohou způsobit, že některé efekty vypadají nebo se chovají mírně odlišně. Kritické případy ověřte pomocí reálných vzorků.
+PPT, PPTX a ODP jsou podporovány pro [reading](/slides/cs/python-java/open-presentation/) i [writing](/slides/cs/python-java/save-presentation/), ale to neznamená, že budou animace zachovány. Data vlastní animace mohou být při konverzi do ODP ztracena. Viz [Custom Animation](/slides/cs/python-java/custom-animation/) pro příklady a pokyny, jak ověřit kompatibilitu formátu.

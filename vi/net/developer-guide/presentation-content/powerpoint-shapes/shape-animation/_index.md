@@ -1,5 +1,5 @@
 ---
-title: Áp dụng hoạt ảnh hình dạng trong bản trình chiếu bằng .NET
+title: Áp dụng hoạt ảnh hình dạng trong bản trình bày với .NET
 linktitle: Hoạt ảnh hình dạng
 type: docs
 weight: 60
@@ -19,28 +19,30 @@ keywords:
 - âm thanh hiệu ứng
 - áp dụng hoạt ảnh
 - PowerPoint
-- bản trình chiếu
+- bản trình bày
 - .NET
 - C#
 - Aspose.Slides
-description: "Tìm hiểu cách thêm, kiểm tra và tùy chỉnh hoạt ảnh hình dạng, thời gian, âm thanh, hành vi sau hoạt ảnh và văn bản hoạt ảnh bằng Aspose.Slides cho .NET."
+description: "Tìm hiểu cách thêm, kiểm tra và tùy chỉnh hoạt ảnh hình dạng, thời gian, âm thanh, hành vi sau hoạt ảnh và văn bản hoạt ảnh với Aspose.Slides cho .NET."
 ---
 ## **Tổng quan**
 
-Aspose.Slides for .NET biểu diễn các hoạt ảnh slide dưới dạng hiệu ứng trong một dòng thời gian slide. Mỗi hiệu ứng có hình dạng mục tiêu, loại và phụ hiệu ứng, bộ kích hoạt, các thiết lập thời gian và các thuộc tính tùy chọn như âm thanh hoặc hành vi sau hoạt ảnh.
+Để làm việc với các hành vi riêng lẻ bên trong một hiệu ứng hoặc chỉnh sửa các đoạn đường chuyển động, xem [Tuỳ chỉnh hoạt ảnh](/slides/vi/net/custom-animation/).
+
+Aspose.Slides for .NET đại diện cho hoạt ảnh slide dưới dạng các hiệu ứng trong một dòng thời gian slide. Một hiệu ứng có hình mục tiêu, loại và phụ loại hoạt ảnh, một bộ kích hoạt, cài đặt thời gian, và các thuộc tính tùy chọn như âm thanh hoặc hành vi sau hoạt ảnh.
 
 Dòng thời gian chứa hai loại chuỗi:
 
-- **chuỗi chính** phát khi slide được chuyển sang.
-- **chuỗi tương tác** bắt đầu khi hình dạng kích hoạt của nó được nhấp.
+- **Chuỗi chính** phát khi slide được chuyển tiếp.
+- **Chuỗi tương tác** bắt đầu khi hình kích hoạt của nó được nhấp.
 
-Vì các hộp văn bản, hình ảnh, biểu đồ, bảng và các đối tượng slide khác đều triển khai [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/), bạn sử dụng cùng một phương thức [ISequence.AddEffect](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/isequence/addeffect/) cho hầu hết nội dung slide. Các hiệu ứng có sẵn được liệt kê trong enum [EffectType](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/effecttype/).
+Vì các hộp văn bản, hình ảnh, biểu đồ, bảng và các đối tượng slide khác triển khai [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/), bạn sử dụng cùng một phương thức [ISequence.AddEffect](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/isequence/addeffect/) cho hầu hết nội dung slide. Các hiệu ứng khả dụng được liệt kê trong enumeration [EffectType](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/effecttype/).
 
-## **Thêm hoạt ảnh cho hình dạng**
+## **Thêm Hoạt Ảnh Cho Hình**
 
-Để thêm một hoạt ảnh, lấy chuỗi chính của slide và gọi [ISequence.AddEffect](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/isequence/addeffect/) với hình dạng mục tiêu, loại hiệu ứng, phụ hiệu ứng và bộ kích hoạt. Đối với một hiệu ứng bắt đầu khi một hình dạng khác được nhấp, tạo một chuỗi tương tác có bộ kích hoạt là hình dạng đó.
+Để thêm một hoạt ảnh, lấy chuỗi chính của slide và gọi [ISequence.AddEffect](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/isequence/addeffect/) với hình mục tiêu, loại hiệu ứng, phụ loại và bộ kích hoạt. Đối với một hiệu ứng bắt đầu khi một hình khác được nhấp, tạo một chuỗi tương tác mà bộ kích hoạt là hình đó.
 
-Ví dụ dưới đây tạo cả hai loại hoạt ảnh và lưu kết quả vào `shape-animations.pptx`.
+Ví dụ sau tạo cả hai loại hoạt ảnh và lưu kết quả vào `shape-animations.pptx`.
 
 ```csharp
 using Aspose.Slides;
@@ -66,19 +68,19 @@ interactiveSequence.AddEffect(targetShape, EffectType.PathFootball, EffectSubtyp
 presentation.Save("shape-animations.pptx", SaveFormat.Pptx);
 ```
 
-Bộ kích hoạt quyết định thời điểm một hiệu ứng bắt đầu:
+Bộ kích hoạt kiểm soát thời điểm một hiệu ứng bắt đầu:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/effecttriggertype/) chờ một cú nhấp trong chuỗi chính, hoặc một cú nhấp vào hình dạng kích hoạt trong chuỗi tương tác.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/effecttriggertype/) chờ một cú nhấp trong chuỗi chính, hoặc một cú nhấp vào hình kích hoạt trong chuỗi tương tác.
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/effecttriggertype/) bắt đầu cùng với hiệu ứng trước đó.
 - [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/effecttriggertype/) bắt đầu khi hiệu ứng trước đó kết thúc.
 
-Để hoạt ảnh một hình ảnh, biểu đồ hoặc một loại hình dạng khác, truyền đối tượng đó vào [ISequence.AddEffect](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/isequence/addeffect/) thay vì `targetShape`. Đối với các tùy chọn nhóm riêng cho biểu đồ, xem mục [Animated Charts](/slides/vi/net/animated-charts/).
+Để tạo hoạt ảnh cho hình ảnh, biểu đồ, hoặc loại hình khác, truyền đối tượng đó vào [ISequence.AddEffect](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/isequence/addeffect/) thay vì `targetShape`. Đối với các tùy chọn nhóm đặc thù cho biểu đồ, xem [Animated Charts](/slides/vi/net/animated-charts/).
 
-## **Đọc hoạt ảnh của hình dạng**
+## **Đọc Hoạt Ảnh Đối Tượng**
 
-Sử dụng [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/isequence/geteffectsbyshape/) khi bạn biết hình dạng mục tiêu. Để kiểm tra mọi hiệu ứng, duyệt qua chuỗi chính và mọi chuỗi tương tác. Việc duyệt tránh việc giả định rằng một chuỗi có hiệu ứng ở chỉ mục `0`.
+Sử dụng [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/isequence/geteffectsbyshape/) khi bạn biết hình mục tiêu. Để kiểm tra mọi hiệu ứng, liệt kê chuỗi chính và mọi chuỗi tương tác. Việc liệt kê tránh việc giả định một chuỗi chứa hiệu ứng ở chỉ mục `0`.
 
-Ví dụ dưới đây tạo một hình dạng với hiệu ứng chuỗi‑chính và chuỗi‑tương tác, lấy các hiệu ứng nhắm vào hình dạng đó, rồi duyệt mọi chuỗi trên slide.
+Ví dụ sau tạo một hình với các hiệu ứng chuỗi chính và chuỗi tương tác, lấy các hiệu ứng nhắm vào hình, và sau đó liệt kê mọi chuỗi trên slide.
 
 ```csharp
 using System;
@@ -126,21 +128,21 @@ static void PrintSequence(string label, ISequence sequence)
 }
 ```
 
-Nếu bạn chỉ cần các hiệu ứng cho một hình dạng, trước tiên xác định hình dạng bằng tên, kiểu trình giữ chỗ hoặc thuộc tính ổn định khác; sau đó gọi [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/isequence/geteffectsbyshape/). Đừng giả định rằng [IShapeCollection.Item](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapecollection/item/) ở chỉ mục `0` luôn là đối tượng mong muốn.
+Nếu bạn chỉ cần các hiệu ứng cho một hình, trước tiên xác định hình bằng tên, loại placeholder, hoặc thuộc tính ổn định khác; sau đó gọi [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/isequence/geteffectsbyshape/). Không giả định rằng [IShapeCollection.Item](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapecollection/item/) ở chỉ mục `0` luôn là đối tượng mong muốn.
 
-## **Làm việc với hiệu ứng trình giữ chỗ kế thừa**
+## **Làm việc với Hiệu Ứng Placeholder Kế Thừa**
 
-Một trình giữ chỗ trên slide bình thường có thể kế thừa hành vi hoạt ảnh từ trình giữ chỗ tương ứng trên slide bố cục và slide chủ. [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/getbaseplaceholder/) trả về trình giữ chỗ cha đó, hoặc `null` nếu không có cha.
+Một placeholder trên slide bình thường có thể kế thừa hành vi hoạt ảnh từ placeholder tương ứng trên slide bố cục và slide chủ. [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/getbaseplaceholder/) trả về placeholder cha đó, hoặc `null` khi không có cha.
 
-Trong bản trình bày mẫu dưới đây, phần chân trang có **Random Bars** trên slide bình thường, **Split** trên slide bố cục và **Fly In** trên slide chủ.
+Trong bản trình bày ví dụ sau, phần chân trang có **Random Bars** trên slide bình thường, **Split** trên slide bố cục, và **Fly In** trên slide chủ.
 
-![Footer animation effect on the normal slide](slide-shape-animation.png)
+![Hiệu ứng hoạt ảnh chân trang trên slide bình thường](slide-shape-animation.png)
 
-![Footer placeholder animation effect on the layout slide](layout-shape-animation.png)
+![Hiệu ứng hoạt ảnh placeholder chân trang trên slide bố cục](layout-shape-animation.png)
 
-![Footer placeholder animation effect on the master slide](master-shape-animation.png)
+![Hiệu ứng hoạt ảnh placeholder chân trang trên slide chủ](master-shape-animation.png)
 
-Ví dụ tiếp theo xây dựng cấu trúc trình giữ chỗ. Nó thêm hiệu ứng vào một trình giữ chỗ chủ, một trình giữ chỗ bố cục và trình giữ chỗ tương ứng trên slide bình thường. Mọi lần gọi [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/getbaseplaceholder/) đều được kiểm tra trước khi sử dụng hình dạng trả về.
+Ví dụ tiếp theo tự xây dựng cấu trúc hierarchi của placeholder. Nó thêm hiệu ứng vào một placeholder chủ, một placeholder bố cục, và placeholder tương ứng trên slide bình thường. Mọi lần gọi [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/getbaseplaceholder/) đều được kiểm tra trước khi sử dụng hình trả về.
 
 ```csharp
 using System;
@@ -209,19 +211,19 @@ static void PrintEffects(string source, IEffect[] effects)
 }
 ```
 
-## **Thay đổi thời gian hoạt ảnh**
+## **Thay Đổi Thời Gian Hoạt Ảnh**
 
-Hộp thoại PowerPoint **Timing** ánh xạ tới các thuộc tính của [ITiming](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/).
+Hộp thoại **Timing** của PowerPoint ánh xạ tới các thuộc tính của [ITiming](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/).
 
-![PowerPoint Timing dialog for an animation effect](shape-animation.png)
+![Hộp thoại Timing của PowerPoint cho một hiệu ứng hoạt ảnh](shape-animation.png)
 
-- **Start** ánh xạ tới [ITiming.TriggerType](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/triggertype/).
-- **Duration** ánh xạ tới [ITiming.Duration](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/duration/), tính bằng giây.
-- **Delay** ánh xạ tới [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/triggerdelaytime/), tính bằng giây.
-- **Repeat** ánh xạ tới [ITiming.RepeatCount](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/repeatcount/), [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/repeatuntilnextclick/), hoặc [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/repeatuntilendslide/).
-- **Rewind when done playing** ánh xạ tới [ITiming.Rewind](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/rewind/).
+- **Bắt đầu** ánh xạ tới [ITiming.TriggerType](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/triggertype/).
+- **Thời lượng** ánh xạ tới [ITiming.Duration](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/duration/), tính bằng giây.
+- **Độ trễ** ánh xạ tới [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/triggerdelaytime/), tính bằng giây.
+- **Lặp lại** ánh xạ tới [ITiming.RepeatCount](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/repeatcount/), [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/repeatuntilnextclick/), hoặc [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/repeatuntilendslide/).
+- **Quay lại khi phát xong** ánh xạ tới [ITiming.Rewind](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/rewind/).
 
-Ví dụ độc lập này thêm một hiệu ứng, thay đổi thời gian của nó qua đối tượng trả về bởi [ISequence.AddEffect](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/isequence/addeffect/), và lưu kết quả. Giữ tham chiếu tới [IEffect](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/ieffect/) trả về giúp tránh việc truy cập không cần thiết vào chỉ mục bộ sưu tập.
+Ví dụ độc lập này thêm một hiệu ứng, thay đổi thời gian của nó thông qua đối tượng trả về bởi [ISequence.AddEffect](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/isequence/addeffect/), và lưu kết quả. Giữ tham chiếu [IEffect](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/ieffect/) trả về tránh việc sử dụng chỉ mục bộ sưu tập không cần thiết.
 
 ```csharp
 using Aspose.Slides;
@@ -245,15 +247,15 @@ effect.Timing.Rewind = true;
 presentation.Save("shape-animation-timing.pptx", SaveFormat.Pptx);
 ```
 
-Sử dụng một chế độ lặp duy nhất. Kết hợp số lần lặp với cờ “until” có thể tạo ra kết quả gây nhầm lẫn trên các trình xem khác nhau. Khi thay đổi chế độ lặp, đặt [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/repeatuntilnextclick/) và [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/repeatuntilendslide/) trước [ITiming.RepeatCount](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/repeatcount/), vì việc đặt bất kỳ cờ nào cũng sẽ thay đổi chế độ lặp đang hoạt động.
+Cẩn thận sử dụng một chế độ lặp lại. Kết hợp số lần lặp với cờ “until” có thể tạo ra kết quả gây nhầm lẫn ở các trình xem khác nhau. Khi thay đổi chế độ lặp, đặt [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/repeatuntilnextclick/) và [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/repeatuntilendslide/) trước [ITiming.RepeatCount](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itiming/repeatcount/), vì việc đặt bất kỳ cờ nào cũng sẽ thay đổi chế độ lặp hiện tại.
 
-## **Thêm và Trích xuất Âm thanh cho hoạt ảnh**
+## **Thêm và Trích Xuất Âm Thanh Hoạt Ảnh**
 
-Một hiệu ứng hoạt ảnh có thể tham chiếu âm thanh nhúng qua [IEffect.Sound](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/ieffect/sound/). [IEffect.StopPreviousSound](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/ieffect/stopprevioussound/) yêu cầu hiệu ứng dừng âm thanh đã được khởi chạy bởi một hiệu ứng trước đó.
+Một hiệu ứng hoạt ảnh có thể tham chiếu âm thanh nhúng thông qua [IEffect.Sound](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/ieffect/sound/). [IEffect.StopPreviousSound](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/ieffect/stopprevioussound/) yêu cầu một hiệu ứng dừng âm thanh đã được khởi động bởi hiệu ứng trước.
 
-### **Thêm âm thanh vào một hiệu ứng**
+### **Thêm Âm Thanh Vào Hiệu Ứng**
 
-Ví dụ dưới đây yêu cầu một tệp âm thanh cục bộ tên `animation-sound.wav`. Nó tạo hai hiệu ứng, nhúng tệp đó làm âm thanh cho hiệu ứng đầu tiên, và cấu hình hiệu ứng thứ hai dừng âm thanh. Các đối tượng được sử dụng là kết quả trả về từ [ISequence.AddEffect](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/isequence/addeffect/), vì vậy không cần chỉ mục chuỗi.
+Ví dụ sau yêu cầu một tệp âm thanh cục bộ có tên `animation-sound.wav`. Nó tạo hai hiệu ứng, nhúng tệp đó làm âm thanh cho hiệu ứng đầu tiên, và cấu hình hiệu ứng thứ hai để dừng âm thanh. Nó sử dụng các đối tượng trả về bởi [ISequence.AddEffect](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/isequence/addeffect/), vì vậy không cần chỉ mục chuỗi.
 
 ```csharp
 using System.IO;
@@ -280,9 +282,9 @@ secondEffect.StopPreviousSound = true;
 presentation.Save("shape-animation-sound.pptx", SaveFormat.Pptx);
 ```
 
-### **Trích xuất âm thanh hiệu ứng đã nhúng**
+### **Trích Xuất Âm Thanh Nhúng Của Hiệu Ứng**
 
-Ví dụ dưới đây yêu cầu một bản trình bày cục bộ tên `presentation-with-animation-sounds.pptx`. Nó quét cả chuỗi chính và chuỗi tương tác và ghi mọi âm thanh hiệu ứng đã nhúng vào thư mục `extracted-animation-sounds`. Phần mở rộng được chọn dựa trên kiểu MIME âm thanh được cung cấp bởi [IAudio.ContentType](https://reference.aspose.com/slides/vi/net/aspose.slides/iaudio/contenttype/).
+Ví dụ sau yêu cầu một bản trình bày cục bộ có tên `presentation-with-animation-sounds.pptx`. Nó quét cả chuỗi chính và chuỗi tương tác và ghi mỗi âm thanh hiệu ứng nhúng vào thư mục `extracted-animation-sounds`. Phần mở rộng được chọn từ loại MIME âm thanh được cung cấp bởi [IAudio.ContentType](https://reference.aspose.com/slides/vi/net/aspose.slides/iaudio/contenttype/).
 
 ```csharp
 using System;
@@ -344,17 +346,17 @@ static string GetAudioExtension(string contentType)
 }
 ```
 
-Đối với các đối tượng âm thanh lớn, sử dụng [IAudio.GetStream](https://reference.aspose.com/slides/vi/net/aspose.slides/iaudio/getstream/) và sao chép luồng tới tệp thay vì tải toàn bộ đối tượng vào mảng byte.
+Đối với các đối tượng âm thanh lớn, sử dụng [IAudio.GetStream](https://reference.aspose.com/slides/vi/net/aspose.slides/iaudio/getstream/) và sao chép luồng vào tệp thay vì tải toàn bộ đối tượng vào mảng byte.
 
-## **Đặt hành vi sau hoạt ảnh**
+## **Đặt Hành Vi Sau Hoạt Ảnh**
 
-Tùy chọn **After animation** điều khiển điều gì xảy ra với hình dạng sau khi hiệu ứng của nó kết thúc.
+Tùy chọn **After animation** (Sau hoạt ảnh) kiểm soát những gì xảy ra với một hình sau khi hiệu ứng của nó kết thúc.
 
-![PowerPoint Effect Options dialog showing After animation settings](shape-after-animation.png)
+![Hộp thoại tùy chọn hiệu ứng PowerPoint hiển thị cài đặt After animation](shape-after-animation.png)
 
-Enum [AfterAnimationType](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/afteranimationtype/) hỗ trợ để hình dạng giữ nguyên, thay đổi màu, ẩn sau hoạt ảnh, hoặc ẩn ở lần nhấp tiếp theo. Khi kiểu là [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/afteranimationtype/), cũng cần đặt [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/ieffect/afteranimationcolor/).
+Enumeration [AfterAnimationType](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/afteranimationtype/) hỗ trợ giữ nguyên hình không thay đổi, thay đổi màu sắc, ẩn nó sau hoạt ảnh, hoặc ẩn nó khi nhấp lần tiếp theo. Khi kiểu là [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/afteranimationtype/), cũng đặt [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/ieffect/afteranimationcolor/) .
 
-Ví dụ độc lập này tạo một hiệu ứng, đặt hành vi sau hoạt ảnh qua đối tượng hiệu ứng trả về, và lưu kết quả.
+Ví dụ độc lập này tạo một hiệu ứng, đặt hành vi sau hoạt ảnh của nó qua đối tượng hiệu ứng trả về, và lưu kết quả.
 
 ```csharp
 using System.Drawing;
@@ -374,16 +376,16 @@ effect.AfterAnimationColor.Color = Color.LightGray;
 presentation.Save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
 ```
 
-Thay đổi kiểu khỏi [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/afteranimationtype/) sẽ xóa thiết lập màu sau hoạt ảnh.
+Thay đổi kiểu khỏi [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/afteranimationtype/) sẽ xóa cài đặt màu sau hoạt ảnh.
 
-## **Hoạt ảnh văn bản**
+## **Hoạt Ảnh Văn Bản**
 
 Hoạt ảnh văn bản có hai điều khiển liên quan:
 
-- [ITextAnimation.BuildType](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itextanimation/buildtype/) quyết định các đoạn văn xuất hiện đồng thời hay theo mức độ đoạn.
-- [IEffect.AnimateTextType](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/ieffect/animatetexttype/) quyết định văn bản xuất hiện một lúc, theo từ hoặc theo ký tự. [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/ieffect/delaybetweentextparts/) đặt độ trễ giữa các từ hoặc ký tự. Giá trị dương là phần trăm của thời lượng hiệu ứng; giá trị âm là độ trễ tính bằng giây.
+- [ITextAnimation.BuildType](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/itextanimation/buildtype/) kiểm soát việc các đoạn xuất hiện cùng nhau hay theo cấp độ đoạn.
+- [IEffect.AnimateTextType](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/ieffect/animatetexttype/) kiểm soát việc văn bản xuất hiện toàn bộ một lúc, theo từ, hoặc theo ký tự. [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/ieffect/delaybetweentextparts/) đặt độ trễ giữa các từ hoặc ký tự. Giá trị dương là phần trăm của thời lượng hiệu ứng; giá trị âm là độ trễ tính bằng giây.
 
-Ví dụ độc lập dưới đây hoạt ảnh các từ trong một hộp văn bản. [BuildType.AsOneObject](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/buildtype/) tắt chế độ xây dựng đoạn‑đoạn, vì vậy thiết lập từ sẽ áp dụng cho toàn bộ khung văn bản.
+Ví dụ độc lập sau hoạt ảnh các từ trong một hộp văn bản. [BuildType.AsOneObject](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/buildtype/) vô hiệu hoá việc xây dựng đoạn theo đoạn để cài đặt từ áp dụng cho toàn bộ khung văn bản.
 
 ```csharp
 using Aspose.Slides;
@@ -403,26 +405,26 @@ effect.DelayBetweenTextParts = 20.0f;
 presentation.Save("animated-text.pptx", SaveFormat.Pptx);
 ```
 
-Để xây dựng hộp văn bản theo đoạn, đặt [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/buildtype/) (hoặc mức đoạn khác). Để nhắm mục tiêu một đoạn riêng biệt với hiệu ứng riêng, sử dụng phiên bản overload của [ISequence.AddEffect](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/isequence/addeffect/) chấp nhận một [IParagraph](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/). Xem mục [Animated Text](/slides/vi/net/animated-text/) để biết các ví dụ cấp đoạn.
+Để xây dựng một hộp văn bản theo đoạn, đặt [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/buildtype/) (hoặc cấp độ đoạn khác). Để nhắm mục tiêu một đoạn đơn với hiệu ứng riêng, sử dụng overload của [ISequence.AddEffect](https://reference.aspose.com/slides/vi/net/aspose.slides.animation/isequence/addeffect/) chấp nhận một [IParagraph](https://reference.aspose.com/slides/vi/net/aspose.slides/iparagraph/). Xem [Animated Text](/slides/vi/net/animated-text/) để biết các ví dụ mức đoạn.
 
-## **Xuất và lưu ý về khả năng tương thích**
+## **Xuất Và Ghi Chú Tương Thích**
 
-- Lưu dưới dạng PPT hoặc PPTX bảo toàn mô hình hoạt ảnh, nhưng việc phát lại cuối cùng do trình xem bản trình bày điều khiển.
-- PDF và hình ảnh tĩnh không phát hoạt ảnh. Sử dụng [HTML5 export](/slides/vi/net/export-to-html5/), GIF hoạt ảnh, hoặc [video conversion](/slides/vi/net/convert-powerpoint-to-video/) khi đầu ra cần hiển thị chuyển động.
+- Lưu thành PPT hoặc PPTX giữ nguyên mô hình hoạt ảnh, nhưng việc phát cuối cùng được điều khiển bởi trình xem bản trình bày.
+- PDF và hình ảnh tĩnh không phát hoạt ảnh. Sử dụng [HTML5 export](/slides/vi/net/export-to-html5/), GIF hoạt ảnh, hoặc [video conversion](/slides/vi/net/convert-powerpoint-to-video/) khi đầu ra phải hiển thị chuyển động.
 - Đối với HTML5, bật [Html5Options.AnimateShapes](https://reference.aspose.com/slides/vi/net/aspose.slides.export/html5options/animateshapes/) và khi cần, [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/vi/net/aspose.slides.export/html5options/animatetransitions/).
-- Kết xuất video hỗ trợ nhiều hiệu ứng nhập cảnh, nhấn mạnh, thoát và đường chuyển động phổ biến, nhưng không phải mọi hiệu ứng PowerPoint đều được hỗ trợ. Kiểm tra bảng [supported animations and effects](/slides/vi/net/convert-powerpoint-to-video/#supported-animations-and-effects) hiện tại và thử nghiệm các bản trình bày quan trọng với phiên bản Aspose.Slides bạn dùng.
-- Các hiệu ứng tùy chỉnh nâng cao và những hiệu ứng được nhập từ các định dạng bản trình bày khác có thể được lưu trong tệp nhưng sẽ hiển thị khác nhau trong PowerPoint, HTML5 hoặc video. Hãy xác thực kết quả xuất thay vì chỉ dựa vào tên hiệu ứng.
+- Kết xuất video hỗ trợ nhiều hiệu ứng vào, nhấn mạnh, thoát và đường chuyển động phụ trợ, nhưng không phải mọi hiệu ứng PowerPoint đều được hỗ trợ. Kiểm tra [supported animations and effects](/slides/vi/net/convert-powerpoint-to-video/#supported-animations-and-effects) và kiểm thử các bản trình bày quan trọng với phiên bản Aspose.Slides mục tiêu.
+- Các hiệu ứng tùy chỉnh nâng cao và các hiệu ứng nhập từ các định dạng bản trình bày khác có thể được giữ trong tệp nhưng hiển thị khác nhau trong PowerPoint, HTML5 hoặc video. Xác thực kết quả xuất thay vì chỉ dựa vào tên hiệu ứng.
 
-## **Câu hỏi thường gặp**
+## **Câu Hỏi Thường Gặp**
 
-**Tại sao một hoạt ảnh xuất hiện trong PowerPoint mà không xuất hiện trong PDF?**
+**Tại sao một hoạt ảnh xuất hiện trong PowerPoint nhưng không trong PDF?**
 
-PDF là định dạng tĩnh, vì vậy hoạt ảnh và chuyển tiếp slide không được phát. Xuất sang HTML5, GIF hoạt ảnh hoặc video khi cần bảo toàn chuyển động.
+PDF là định dạng tĩnh, vì vậy các hoạt ảnh và chuyển đổi slide không được phát. Xuất sang HTML5, GIF hoạt ảnh, hoặc video khi cần duy trì chuyển động.
 
 **Tại sao một hiệu ứng lại phát khác nhau trong video?**
 
-Xuất video diễn giải hoạt ảnh thay vì lưu nguyên hành vi PowerPoint. Một số hiệu ứng nâng cao không được hỗ trợ hoặc chỉ được ước tính. Xem bảng hiệu ứng được hỗ trợ và kiểm tra bản trình bày thực tế trước khi đưa vào sản xuất.
+Xuất video render các hoạt ảnh thay vì lưu hành vi PowerPoint gốc. Một số hiệu ứng nâng cao không được hỗ trợ hoặc chỉ ước lượng. Xem bảng các hiệu ứng được hỗ trợ và kiểm thử bản trình bày thực tế trước khi sử dụng cho sản xuất.
 
-**Việc di chuyển một hình dạng lên phía trước hoặc phía sau có thay đổi thứ tự hoạt ảnh không?**
+**Việc di chuyển một hình lên phía trước hoặc phía sau có thay đổi thứ tự hoạt ảnh của nó không?**
 
-Không. Thứ tự z‑order của hình dạng chỉ kiểm soát sự chồng lên nhau, trong khi thứ tự chuỗi và bộ kích hoạt quyết định thứ tự phát hoạt ảnh. Thay đổi dòng thời gian nếu bạn cần thứ tự phát khác.
+Không. thứ tự z-order của hình chỉ kiểm soát chồng lên nhau, trong khi thứ tự chuỗi và bộ kích hoạt kiểm soát việc phát hoạt ảnh. Thay đổi dòng thời gian nếu bạn cần một thứ tự phát khác.

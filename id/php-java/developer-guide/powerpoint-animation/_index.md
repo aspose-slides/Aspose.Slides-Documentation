@@ -29,24 +29,23 @@ keywords:
 - Aspose.Slides
 description: "Jelajahi kemampuan Aspose.Slides untuk PHP via Java dalam menangani animasi PowerPoint. Fitur utama dan wawasan untuk meningkatkan presentasi Anda."
 ---
-## **Pendahuluan**
+## **Pengantar**
 
-Karena presentasi dimaksudkan untuk menyajikan sesuatu, tampilan visual dan perilaku interaktifnya selalu dipertimbangkan saat membuatnya.
+Karena presentasi bertujuan untuk menyajikan sesuatu, tampilan visual dan perilaku interaktifnya selalu dipertimbangkan selama pembuatan.
 
-**PowerPoint animation** berperan penting untuk membuat presentasi menarik dan menarik perhatian pemirsa. Aspose.Slides for PHP via Java menawarkan berbagai pilihan untuk menambahkan animasi ke presentasi PowerPoint:
+**PowerPoint animation** berperan penting dalam membuat presentasi menarik dan memikat bagi penonton. Aspose.Slides for PHP via Java menyediakan berbagai pilihan untuk menambahkan animasi ke presentasi PowerPoint:
 
-- menerapkan berbagai jenis efek animasi PowerPoint pada bentuk, diagram, tabel, OLE Object, dan elemen presentasi lainnya.
-- menggunakan beberapa efek animasi PowerPoint pada satu bentuk.
-- menggunakan garis waktu animasi untuk mengontrol efek animasi.
-- membuat animasi kustom.
+- Terapkan berbagai jenis efek animasi PowerPoint pada bentuk, diagram, tabel, objek OLE, dan elemen presentasi lainnya.
+- Gunakan beberapa efek animasi PowerPoint pada satu bentuk.
+- Manfaatkan garis waktu animasi untuk mengendalikan efek animasi.
+- Buat animasi kustom.
 
-Di Aspose.Slides for PHP via Java, berbagai efek animasi dapat diterapkan pada bentuk. Karena setiap elemen pada slide termasuk teks, gambar, OLE Object, tabel, dll dianggap sebagai bentuk, artinya kita dapat menerapkan efek animasi pada setiap elemen slide.
+Di Aspose.Slides for PHP via Java, berbagai efek animasi dapat diterapkan pada bentuk. Karena setiap elemen pada slide, termasuk teks, gambar, objek OLE, dan tabel, dianggap sebagai bentuk, efek animasi dapat diterapkan pada elemen apa pun di slide.
 
 ## **Efek Animasi**
+Aspose.Slides mendukung **lebih dari 150 efek animasi**, termasuk efek dasar seperti Bounce, PathFootball, dan Zoom, serta efek khusus seperti OLEObjectShow dan OLEObjectOpen. Daftar lengkap dapat dilihat di kelas [EffectType](https://reference.aspose.com/slides/id/php-java/aspose.slides/effecttype/).
 
-Aspose.Slides mendukung **lebih dari 150 efek animasi**, termasuk efek animasi dasar seperti Bounce, PathFootball, efek Zoom, dan efek animasi khusus seperti OLEObjectShow, OLEObjectOpen. Anda dapat menemukan daftar lengkap efek animasi di enumerasi [**EffectType**](https://reference.aspose.com/slides/id/php-java/aspose.slides/effecttype/).
-
-Selain itu, efek animasi ini dapat digunakan secara kombinasi dengan:
+Selain itu, efek animasi ini dapat dikombinasikan dengan perilaku berikut:
 
 - [ColorEffect](https://reference.aspose.com/slides/id/php-java/aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/id/php-java/aspose.slides/CommandEffect)
@@ -59,56 +58,53 @@ Selain itu, efek animasi ini dapat digunakan secara kombinasi dengan:
 
 ## **Animasi Kustom**
 
+Untuk contoh PHP lengkap yang membuat, memeriksa, dan memodifikasi perilaku serta jalur gerak yang dapat diedit, lihat [Custom Animation](/slides/id/php-java/custom-animation/).
+
 Dimungkinkan untuk membuat **animasi kustom** Anda sendiri di Aspose.Slides. Hal ini dapat dicapai dengan menggabungkan beberapa perilaku menjadi animasi kustom baru.
 
-[**Behavior**](https://reference.aspose.com/slides/id/php-java/aspose.slides/Behavior) adalah unit dasar dari setiap efek animasi PowerPoint. Semua efek animasi sebenarnya merupakan sekumpulan perilaku yang digabungkan menjadi satu strategi. Anda dapat menggabungkan perilaku menjadi sebuah animasi kustom sekali dan menggunakannya kembali di presentasi lain. Jika Anda menambahkan perilaku baru ke dalam efek animasi PowerPoint standar — itu akan menjadi animasi kustom lain. Misalnya, Anda dapat menambahkan perilaku pengulangan ke sebuah animasi agar animasi tersebut berulang beberapa kali.
+[Behavior](https://reference.aspose.com/slides/id/php-java/aspose.slides/behavior/) adalah blok bangunan efek animasi PowerPoint. Gabungkan perilaku untuk menyesuaikan suatu efek, atau tambahkan perilaku untuk memperluas efek yang telah ditentukan. Pengulangan dikonfigurasi melalui pengaturan waktu, bukan melalui perilaku ulang terpisah.
 
-[**Animation Point**](https://reference.aspose.com/slides/id/php-java/aspose.slides/Point) adalah titik dimana perilaku harus diterapkan.
+[Animation Point](https://reference.aspose.com/slides/id/php-java/aspose.slides/point/) adalah titik di mana perilaku harus diterapkan.
 
 ## **Garis Waktu Animasi**
+[Sequence](https://reference.aspose.com/slides/id/php-java/aspose.slides/sequence/) adalah kumpulan efek animasi yang dapat menargetkan bentuk yang berbeda.
 
-[**Sequence**](https://reference.aspose.com/slides/id/php-java/aspose.slides/Sequence) adalah kumpulan efek animasi, diterapkan pada sebuah bentuk tertentu.
-
-[**Timeline**](https://reference.aspose.com/slides/id/php-java/aspose.slides/AnimationTimeLine) adalah sekumpulan Sequence yang digunakan pada sebuah slide tertentu. Ini merupakan mesin animasi yang telah ada sejak PowerPoint 2002. Pada versi PowerPoint sebelumnya, menambahkan efek animasi ke presentasi cukup sulit dan hanya dapat dilakukan dengan berbagai solusi alternatif. Timeline menggantikan kelas AnimationSettings lama dan menyediakan model objek yang lebih jelas untuk animasi PowerPoint. Satu slide hanya dapat memiliki satu garis waktu animasi.
+[Timeline](https://reference.aspose.com/slides/id/php-java/aspose.slides/animationtimeline/) adalah serangkaian urutan yang digunakan dalam satu slide tertentu. Ini adalah mesin animasi yang diperkenalkan pada PowerPoint 2002. Pada versi PowerPoint sebelumnya, menambahkan efek animasi ke presentasi cukup menantang dan hanya dapat dicapai dengan berbagai solusi alternatif. Garis waktu menyediakan model objek yang lebih jelas untuk animasi PowerPoint. Sebuah slide hanya dapat memiliki satu garis waktu animasi.
 
 ## **Animasi Interaktif**
-
-[**Trigger**](https://reference.aspose.com/slides/id/php-java/aspose.slides/EffectTriggerType) memungkinkan mendefinisikan aksi pengguna (mis. klik tombol), yang akan memulai animasi tertentu. Trigger hanya ditambahkan pada versi PowerPoint terbaru.
+[Trigger](https://reference.aspose.com/slides/id/php-java/aspose.slides/effecttriggertype/) memungkinkan Anda mendefinisikan tindakan pengguna, seperti klik tombol, yang memulai animasi tertentu.
 
 ## **Animasi Bentuk**
+Aspose.Slides memungkinkan Anda menerapkan animasi pada bentuk, yang dapat mencakup teks, persegi panjang, garis, bingkai, objek OLE, dan lain-lain.
 
-Aspose.Slides memungkinkan menerapkan animasi pada bentuk, yang dapat berupa teks, persegi panjang, garis, bingkai, OLE Object, dll.
-
-{{% alert color="primary" %}} 
-Baca selengkapnya [**About Shape Animation**](/slides/id/php-java/shape-animation/).
+{{% alert color="info" title="Note" %}}
+Baca selengkapnya [**Tentang Animasi Bentuk**](/slides/id/php-java/shape-animation/).
 {{% /alert %}}
 
 ## **Diagram Beranimasi**
+Untuk membuat diagram beranimasi, Anda harus menggunakan kelas yang sama seperti untuk bentuk. Namun, animasi PowerPoint hanya dapat diterapkan pada kategori diagram atau seri diagram. Anda juga dapat menerapkan efek animasi pada elemen kategori atau elemen seri.
 
-Untuk membuat diagram beranimasi, Anda harus menggunakan semua kelas yang sama seperti untuk bentuk. Namun, memungkinkan hanya menggunakan animasi PowerPoint pada kategori diagram atau seri diagram. Anda juga dapat menerapkan efek animasi pada elemen kategori atau elemen seri.
-
-{{% alert color="primary" %}} 
-Baca selengkapnya [**About Animated Charts**](/slides/id/php-java/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Baca selengkapnya [**Tentang Diagram Beranimasi**](/slides/id/php-java/animated-charts/).
 {{% /alert %}}
 
 ## **Teks Beranimasi**
+Selain menganimasikan teks, Anda dapat menerapkan animasi pada paragraf.
 
-Selain teks beranimasi, Anda juga dapat menerapkan animasi pada sebuah paragraf.
-
-{{% alert color="primary" %}} 
-Baca selengkapnya [**About Animated Text**](/slides/id/php-java/animated-text/).
+{{% alert color="info" title="Note" %}}
+Baca selengkapnya [**Tentang Teks Beranimasi**](/slides/id/php-java/animated-text/).
 {{% /alert %}}
 
 ## **FAQ**
 
 **Apakah animasi akan dipertahankan saat mengekspor ke PDF?**
 
-Tidak. PDF adalah format statis, sehingga animasi dan [slide transitions](/slides/id/php-java/slide-transition/) tidak diputar. Jika Anda memerlukan gerakan, ekspor ke [HTML5](/slides/id/php-java/export-to-html5/), [animated GIF](/slides/id/php-java/convert-powerpoint-to-animated-gif/), atau [video](/slides/id/php-java/convert-powerpoint-to-video/) saja.
+Tidak. PDF adalah format statis, sehingga animasi dan [slide transitions](/slides/id/php-java/slide-transition/) tidak diputar. Jika Anda membutuhkan gerakan, ekspor ke [HTML5](/slides/id/php-java/export-to-html5/), [animated GIF](/slides/id/php-java/convert-powerpoint-to-animated-gif/), atau [video](/slides/id/php-java/convert-powerpoint-to-video/) sebagai gantinya.
 
-**Apakah saya dapat mengubah presentasi beranimasi menjadi video dan mengontrol kecepatan frame serta ukuran frame?**
+**Can I turn an animated presentation into a video and control the frame rate and frame size?**
 
-Ya. Anda dapat [render presentasi sebagai frame](/slides/id/php-java/convert-powerpoint-to-video/) dan mengenkodenya menjadi video (misalnya, melalui ffmpeg), memilih FPS dan resolusi. Animasi dan transisi slide diputar selama proses rendering.
+Ya. Anda dapat [render the presentation as frames](/slides/id/php-java/convert-powerpoint-to-video/) dan mengenkodenya menjadi video (misalnya dengan ffmpeg), memilih FPS dan resolusi. Animasi serta transisi slide diputar selama proses rendering.
 
-**Apakah animasi tetap utuh saat bekerja dengan ODP (bukan hanya PPTX)?**
+**Will animations remain intact when working with ODP (not just PPTX)?**
 
-PPT, PPTX, dan ODP didukung untuk [reading](/slides/id/php-java/open-presentation/) dan [writing](/slides/id/php-java/save-presentation/), namun perbedaan format berarti beberapa efek mungkin terlihat atau berperilaku sedikit berbeda. Validasi kasus penting dengan contoh nyata.
+PPT, PPTX, dan ODP didukung untuk [reading](/slides/id/php-java/open-presentation/) dan [writing](/slides/id/php-java/save-presentation/), tetapi ini tidak menjamin preservasi animasi. Data animasi kustom dapat hilang saat mengonversi ke ODP. Lihat [Custom Animation](/slides/id/php-java/custom-animation/) untuk contoh dan panduan memeriksa kompatibilitas format.

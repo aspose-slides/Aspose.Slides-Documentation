@@ -1,15 +1,15 @@
 ---
-title: PowerPoint Sunumlarını PHP'de Animasyonlarla Geliştirin
+title: PHP'de Animasyonlarla PowerPoint Sunumlarını Geliştirin
 linktitle: PowerPoint Animasyonu
 type: docs
 weight: 150
 url: /tr/php-java/powerpoint-animation/
 keywords:
 - animasyon ekle
-- animasyon güncelle
-- animasyon değiştir
-- animasyon kaldır
-- animasyon yönet
+- animasyonu güncelle
+- animasyonu değiştir
+- animasyonu kaldır
+- animasyonu yönet
 - animasyonu kontrol et
 - animasyon efekti
 - PowerPoint animasyonu
@@ -21,88 +21,89 @@ keywords:
 - animasyonlu metin
 - animasyonlu şekil
 - animasyonlu OLE nesnesi
-- animasyonlu resim
+- animasyonlu görüntü
 - animasyonlu tablo
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java'in PowerPoint animasyonlarını yönetmedeki yeteneklerini keşfedin. Sunumlarınızı geliştirmek için temel özellikler ve içgörüler."
+description: "Aspose.Slides for PHP via Java'in PowerPoint animasyonlarını yönetme yeteneklerini keşfedin. Sunumlarınızı geliştirmek için temel özellikler ve içgörüler."
 ---
 ## **Giriş**
 
-Sunumlar bir şeyi sunmak amacıyla hazırlandığından, oluşturulurken görsel görünümü ve etkileşimli davranışı her zaman göz önünde bulundurulur.
+Sunumların bir şeyi sunmak için tasarlandığı göz önüne alındığında, görsel görünümleri ve etkileşimli davranışları oluşturulurken her zaman dikkate alınır.
 
-**PowerPoint animasyonu** sunumu izleyiciler için göz alıcı ve çekici kılmak amacıyla önemli bir rol oynar. Aspose.Slides for PHP via Java, PowerPoint sunumuna animasyon eklemek için geniş bir seçenek yelpazesi sunar:
+**PowerPoint animasyonu** bir sunumu izleyiciler için göz alıcı ve ilgi çekici hâle getirmede önemli bir rol oynar. Aspose.Slides for PHP via Java, PowerPoint sunumlarına animasyon eklemek için geniş bir seçenek yelpazesi sunar:
 
-- çeşitli türde PowerPoint animasyon efektlerini şekiller, grafikler, tablolar, OLE Nesneleri ve diğer sunum öğeleri üzerine uygulayın.
-- bir şekil üzerinde birden çok PowerPoint animasyon efekti kullanın.
-- animasyon efektlerini kontrol etmek için animasyon zaman çizelgesini kullanın.
-- özel animasyon oluşturun.
+- Şekillere, grafiklere, tablolara, OLE nesnelerine ve diğer sunum öğelerine çeşitli PowerPoint animasyon efekti türlerini uygulayın.
+- Tek bir şekil üzerinde birden çok PowerPoint animasyon efekti kullanın.
+- Animasyon efektlerini kontrol etmek için animasyon zaman çizelgesini kullanın.
+- Özel animasyonlar oluşturun.
 
-Aspose.Slides for PHP via Java'da, çeşitli animasyon efektleri şekillere uygulanabilir. Metin, resim, OLE Nesnesi, tablo vb. dahil slayttaki her öğe bir şekil olarak kabul edildiğinden, bir slaydın her öğesine animasyon efekti uygulayabiliriz.
+Aspose.Slides for PHP via Java'da çeşitli animasyon efektleri şekillere uygulanabilir. Metin, resimler, OLE nesneleri ve tablolar dahil bir slayttaki her öğe şekil olarak kabul edildiğinden, animasyon efektleri slayttaki herhangi bir öğeye uygulanabilir.
 
 ## **Animasyon Efektleri**
-Aspose.Slides **150+ animasyon efekti** destekler, Bounce, PathFootball, Yakınlaştırma efekti gibi temel animasyon efektleri ve OLEObjectShow, OLEObjectOpen gibi belirli animasyon efektlerini içerir. Animasyon efektlerinin tam listesini [**EffectType**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effecttype/) enum'unda bulabilirsiniz.
+Aspose.Slides **150+ animasyon efekti**'ni destekler; Bounce, PathFootball ve Zoom gibi temel efektlerin yanı sıra OLEObjectShow ve OLEObjectOpen gibi özel efektler de bulunur. Tam listeye [EffectType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effecttype/) sınıfında erişebilirsiniz.
 
-Ayrıca, bu animasyon efektleri onlarla birlikte kullanılabilir:
+Ek olarak, bu animasyon efektleri aşağıdaki davranışlarla birleştirilebilir:
 
-- [ColorEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ColorEffect)
-- [CommandEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/CommandEffect)
-- [FilterEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/FilterEffect)
-- [MotionEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/MotionEffect)
-- [PropertyEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PropertyEffect)
-- [RotationEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/RotationEffect)
-- [ScaleEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ScaleEffect)
-- [SetEffect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SetEffect)
+- [RenkEfekti](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ColorEffect)
+- [KomutEfekti](https://reference.aspose.com/slides/tr/php-java/aspose.slides/CommandEffect)
+- [FiltreEfekti](https://reference.aspose.com/slides/tr/php-java/aspose.slides/FilterEffect)
+- [HareketEfekti](https://reference.aspose.com/slides/tr/php-java/aspose.slides/MotionEffect)
+- [ÖzellikEfekti](https://reference.aspose.com/slides/tr/php-java/aspose.slides/PropertyEffect)
+- [DöndürmeEfekti](https://reference.aspose.com/slides/tr/php-java/aspose.slides/RotationEffect)
+- [ÖlçekEfekti](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ScaleEffect)
+- [AyarEfekti](https://reference.aspose.com/slides/tr/php-java/aspose.slides/SetEffect)
 
 ## **Özel Animasyon**
-Aspose.Slides'de kendi **özel animasyonlarınızı** oluşturabilirsiniz. 
-Bunu, birden fazla davranışı bir araya getirerek yeni bir özel animasyon oluşturursanız elde edebilirsiniz.
+Davranışları ve düzenlenebilir hareket yollarını oluşturma, inceleme ve değiştirme konularına yönelik eksiksiz PHP örnekleri için [Özel Animasyon](/slides/tr/php-java/custom-animation/) sayfasına bakın.
 
-[**Behavior**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Behavior) herhangi bir PowerPoint animasyon efektinin yapı birimidir. Tüm animasyon efektleri aslında bir strateji içinde birleştirilmiş bir dizi davranıştan oluşur. Davranışları bir kez birleştirerek özel bir animasyon oluşturabilir ve bunu diğer sunumlarda yeniden kullanabilirsiniz. Standart bir PowerPoint animasyon efektine yeni bir davranış eklerseniz, bu başka bir özel animasyon olur. Örneğin, bir animasyona yineleme davranışı ekleyerek animasyonun birkaç kez tekrarlanmasını sağlayabilirsiniz.
+Aspose.Slides'te kendi **özel animasyonlarınızı** oluşturmak mümkündür. Bu, birden fazla davranışı yeni bir özel animasyona birleştirerek gerçekleştirilebilir.
 
-[**Animation Point**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Point) davranışın uygulanması gereken noktadır.
+[Behavior](https://reference.aspose.com/slides/tr/php-java/aspose.slides/behavior/) PowerPoint animasyon efektinin bir yapı taşıdır. Efekti özelleştirmek için davranışları birleştirin veya önceden tanımlı bir efekti genişletmek için bir davranış ekleyin. Tekrar, ayrı bir tekrar davranışı yerine zamanlama ayarlarıyla yapılandırılır.
+
+[Animation Point](https://reference.aspose.com/slides/tr/php-java/aspose.slides/point/) bir davranışın uygulanması gereken noktadır.
 
 ## **Animasyon Zaman Çizelgesi**
-[**Sequence**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Sequence) belirli bir şekle uygulanan animasyon efektlerinin bir koleksiyonudur.
+[Sequence](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sequence/) farklı şekilleri hedefleyebilen animasyon efektlerinin bir koleksiyonudur.
 
-[**Timeline**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/AnimationTimeLine) belirli bir slaytta kullanılan bir dizi Sequence'ten oluşur. PowerPoint 2002'den beri temsil edilen bir animasyon motorudur. Önceki PowerPoint sürümlerinde, sunuma animasyon efektleri eklemek zordu ve yalnızca çeşitli geçici çözümlerle mümkün oluyordu. Timeline, eski AnimationSettings sınıfının yerini alarak PowerPoint animasyonu için daha net bir nesne modeli sağlar. Bir slayt yalnızca bir animasyon zaman çizelgesine sahip olabilir.
+[Timeline](https://reference.aspose.com/slides/tr/php-java/aspose.slides/animationtimeline/) belirli bir slaytta kullanılan bir dizi sekansın kümesidir. PowerPoint 2002'de tanıtılan bir animasyon motorudur. PowerPoint'in önceki sürümlerinde, sunumlara animasyon efektleri eklemek zordu ve çeşitli geçici çözümlerle ancak mümkün olabiliyordu. Zaman çizelgesi, PowerPoint animasyonları için daha net bir nesne modeli sunar. Bir slaytta yalnızca bir animasyon zaman çizelgesi bulunabilir.
 
 ## **Etkileşimli Animasyon**
-[**Trigger**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/EffectTriggerType) belirli bir animasyonu başlatacak kullanıcı eylemlerini (ör. düğme tıklaması) tanımlamayı sağlar. Tetikleyiciler yalnızca en son PowerPoint sürümüne eklenmiştir.
+[Trigger](https://reference.aspose.com/slides/tr/php-java/aspose.slides/effecttriggertype/) belirli bir animasyonu başlatan bir düğme tıklaması gibi kullanıcı eylemlerini tanımlamanıza olanak verir.
 
 ## **Şekil Animasyonu**
-Aspose.Slides, şekillere (metin, dikdörtgen, çizgi, çerçeve, OLE Nesnesi vb.) animasyon uygulamayı sağlar.
+Aspose.Slides, metin, dikdörtgen, çizgi, çerçeve, OLE nesneleri ve daha fazlasını içerebilen şekillere animasyon uygulamanıza olanak tanır.
 
-{{% alert color="primary" %}} 
-Daha fazla bilgi edinin [**Şekil Animasyonu Hakkında**](/slides/tr/php-java/shape-animation/).
+{{% alert color="info" title="Note" %}}
+Daha fazla okuyun [**Şekil Animasyonu Hakkında**](/slides/tr/php-java/shape-animation/).
 {{% /alert %}}
 
 ## **Animasyonlu Grafikler**
-Animasyonlu grafikler oluşturmak için şekillerde kullanılan aynı sınıfları kullanmalısınız. Bununla birlikte, PowerPoint animasyonunu yalnızca grafik kategorileri veya grafik serileri üzerinde kullanmak mümkündür. Ayrıca bir kategori öğesine veya seri öğesine animasyon efekti uygulayabilirsiniz.
+Animasyonlu grafikler oluşturmak için şekillerde kullanılan aynı sınıfları kullanmalısınız. Ancak, PowerPoint animasyonları yalnızca grafik kategorilerine veya grafik serilerine uygulanabilir. Bir kategori öğesine veya bir seri öğesine de animasyon efektleri uygulayabilirsiniz.
 
-{{% alert color="primary" %}} 
-Daha fazla bilgi edinin [**Animasyonlu Grafikler Hakkında**](/slides/tr/php-java/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Daha fazla okuyun [**Animasyonlu Grafikler Hakkında**](/slides/tr/php-java/animated-charts/).
 {{% /alert %}}
 
 ## **Animasyonlu Metin**
-Animasyonlu metin dışında, bir paragrafa da animasyon uygulamak mümkündür.
+Metni animasyonlamanın yanı sıra bir paragrafa da animasyon uygulayabilirsiniz.
 
-{{% alert color="primary" %}} 
-Daha fazla bilgi edinin [**Animasyonlu Metin Hakkında**](/slides/tr/php-java/animated-text/).
+{{% alert color="info" title="Note" %}}
+Daha fazla okuyun [**Animasyonlu Metin Hakkında**](/slides/tr/php-java/animated-text/).
 {{% /alert %}}
 
-## **FAQ**
+## **SSS**
 
-**PDF'ye dışa aktarırken animasyonlar korunacak mı?**
+**PDF'ye dışa aktarırken animasyonlar korunur mu?**
 
-Hayır. PDF sabit bir format olduğundan, animasyonlar ve [slayt geçişleri](/slides/tr/php-java/slide-transition/) oynatılmaz. Hareket gerekiyorsa, bunun yerine [HTML5](/slides/tr/php-java/export-to-html5/), [animasyonlu GIF](/slides/tr/php-java/convert-powerpoint-to-animated-gif/) veya [video](/slides/tr/php-java/convert-powerpoint-to-video/) formatına dışa aktarın.
+Hayır. PDF statik bir format olduğundan animasyonlar ve [slayt geçişleri](/slides/tr/php-java/slide-transition/) oynatılmaz. Hareket gerekiyorsa bunun yerine [HTML5](/slides/tr/php-java/export-to-html5/), [animasyonlu GIF](/slides/tr/php-java/convert-powerpoint-to-animated-gif/) veya [video](/slides/tr/php-java/convert-powerpoint-to-video/) formatına dışa aktarın.
 
-**Animasyonlu bir sunumu videoya dönüştürebilir ve kare oranı ile kare boyutunu kontrol edebilir miyim?**
+**Animasyonlu bir sunumu videoya dönüştürüp kare hızı ve kare boyutunu kontrol edebilir miyim?**
 
-Evet. Sunumu [çerçeveler olarak renderleyebilirsiniz](/slides/tr/php-java/convert-powerpoint-to-video/) ve bunları bir video (ör. ffmpeg ile) olarak kodlayabilir, FPS ve çözünürlüğü seçebilirsiniz. Renderleme sırasında animasyonlar ve slayt geçişleri oynatılır.
+Evet. Sunumu [çerçeveler olarak işleyebilir](/slides/tr/php-java/convert-powerpoint-to-video/) ve bunları bir videoya (örneğin ffmpeg ile) kodlayarak FPS ve çözünürlüğü seçebilirsiniz. İşleme sırasında animasyonlar ve slayt geçişleri oynatılır.
 
-**ODP ile (sadece PPTX değil) çalışırken animasyonlar aynı kalacak mı?**
+**ODP (sadece PPTX değil) ile çalışırken animasyonlar aynı kalır mı?**
 
-PPT, PPTX ve ODP, [okuma](/slides/tr/php-java/open-presentation/) ve [yazma](/slides/tr/php-java/save-presentation/) için desteklenir, ancak format farkları bazı efektlerin biraz farklı görünmesine veya davranmasına neden olabilir. Kritik durumları gerçek örneklerle doğrulayın.
+PPT, PPTX ve ODP, [okuma](/slides/tr/php-java/open-presentation/) ve [yazma](/slides/tr/php-java/save-presentation/) için desteklenir, ancak bu animasyonların korunacağını garanti etmez. Özel animasyon verileri ODP'ye dönüştürülürken kaybolabilir. Biçim uyumluluğunu kontrol etmek için örnekler ve rehberlik amacıyla [Özel Animasyon](/slides/tr/php-java/custom-animation/) sayfasına bakın.

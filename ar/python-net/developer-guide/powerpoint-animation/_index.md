@@ -1,47 +1,47 @@
 ---
-title: "تعزيز عروض PowerPoint التقديمية باستخدام الرسوم المتحركة في Python"
-linktitle: "رسوم PowerPoint المتحركة"
+title: تعزيز عروض PowerPoint بالرسوم المتحركة في Python
+linktitle: رسوم PowerPoint المتحركة
 type: docs
 weight: 150
 url: /ar/python-net/powerpoint-animation/
 keywords:
-- "إضافة رسوم متحركة"
-- "تحديث الرسوم المتحركة"
-- "تغيير الرسوم المتحركة"
-- "إزالة الرسوم المتحركة"
-- "إدارة الرسوم المتحركة"
-- "التحكم في الرسوم المتحركة"
-- "تأثير الرسوم المتحركة"
-- "رسوم PowerPoint المتحركة"
-- "الجدول الزمني للرسوم المتحركة"
-- "رسوم متحركة تفاعلية"
-- "رسوم متحركة مخصصة"
-- "رسوم متحركة للأشكال"
-- "مخطط متحرك"
-- "نص متحرك"
-- "شكل متحرك"
-- "كائن OLE متحرك"
-- "صورة متحركة"
-- "جدول متحرك"
-- "عرض PowerPoint التقديمي"
-- "Python"
-- "Aspose.Slides"
-description: "اكتشف قدرات Aspose.Slides لPython عبر .NET في معالجة رسوم PowerPoint المتحركة. تقدم هذه النظرة العامة لمحة عن الميزات الرئيسية وتوفر رؤى لتعزيز عروضك التقديمية."
+- إضافة حركة
+- تحديث الحركة
+- تغيير الحركة
+- إزالة الحركة
+- إدارة الحركة
+- التحكم في الحركة
+- تأثير الحركة
+- رسوم PowerPoint المتحركة
+- خط زمني للحركة
+- رسوم متحركة تفاعلية
+- رسوم متحركة مخصصة
+- رسومات متحركة للأشكال
+- مخطط متحرك
+- نص متحرك
+- شكل متحرك
+- كائن OLE متحرك
+- صورة متحركة
+- جدول متحرك
+- عرض PowerPoint
+- Python
+- Aspose.Slides
+description: "استكشف قدرات Aspose.Slides للـ Python عبر .NET في التعامل مع رسوم PowerPoint المتحركة. يسلط هذا النظرة العامة الضوء على الميزات الرئيسية ويقدم رؤى لتعزيز عروضك التقديمية."
 ---
 ## **المقدمة**
 
-تم تصميم العروض التقديمية لنقل المعلومات، لذا فإن مظهرها البصري وسلوكها التفاعلي هما اعتبارات أساسية أثناء الإنشاء.
+تم تصميم العروض لتوصيل المعلومات، لذا فإن مظهرها البصري وسلوكها التفاعلي هما اعتباران أساسيان أثناء الإنشاء.
 
-**PowerPoint animation** يلعب دورًا مهمًا في جعل العرض التقديمي جذابًا ومشوقًا للمشاهدين. توفر Aspose.Slides for Python via .NET مجموعة واسعة من الخيارات لإضافة الرسوم المتحركة إلى عرض PowerPoint. يمكنك:
+**PowerPoint animation** يتولى دورًا مهمًا في جعل العرض جذابًا وملفًا للانتباه للمشاهدين. توفر Aspose.Slides for Python via .NET مجموعة واسعة من الخيارات لإضافة الرسوم المتحركة إلى عرض PowerPoint. يمكنك:
 
-- تطبيق تأثيرات رسوم متحركة متنوعة على الأ Shapes، المخططات، الجداول، كائنات OLE، والعناصر الأخرى.
-- استخدام تأثيرات رسوم متحركة متعددة على شكل واحد.
-- التحكم في التأثيرات عبر جدول زمني للرسوم المتحركة.
+- تطبيق تأثيرات حركة متنوعة على الأشكال، المخططات، الجداول، كائنات OLE، وعناصر أخرى.
+- استخدام تأثيرات حركة متعددة على شكل واحد.
+- التحكم في التأثيرات عبر خط الزمن الخاص بالحركة.
 - إنشاء رسوم متحركة مخصصة.
 
-في Aspose.Slides for Python via .NET، يمكن تطبيق تأثيرات الرسوم المتحركة على الأ Shapes. لأن كل عنصر على الشريحة — بما في ذلك النصوص، الصور، كائنات OLE، والجداول — يُعامل كشكل، يمكنك تطبيق تأثيرات الرسوم المتحركة على أي عنصر في الشريحة.
+في Aspose.Slides for Python via .NET، يمكن تطبيق تأثيرات الحركة على الأشكال. لأن كل عنصر على الشريحة—بما في ذلك النصوص، الصور، كائنات OLE، والجداول—يُعامل كشكل، يمكنك تطبيق تأثيرات الحركة على أي عنصر على الشريحة.
 
-تقدم مساحة الاسم [aspose.slides.animation](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/) الفئات للعمل مع الرسوم المتحركة في PowerPoint.
+مساحة الأسماء [aspose.slides.animation](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/) توفر الفئات للعمل مع رسوم PowerPoint المتحركة.
 
 ## **التثبيت**
 
@@ -49,9 +49,9 @@ description: "اكتشف قدرات Aspose.Slides لPython عبر .NET في مع
 pip install aspose.slides
 ```
 
-## **إضافة تأثير رسوم متحركة إلى شكل في Python**
+## **إضافة تأثير حركة إلى شكل في Python**
 
-تعيش تأثيرات الرسوم المتحركة ضمن التسلسل الرئيسي للشريحة. أضف شكلاً، ثم استدعِ `add_effect` على `slide.timeline.main_sequence`، مع تمرير نوع التأثير، النوع الفرعي له، والمحفز الذي يبدأه.
+تعيش تأثيرات الحركة على التسلسل الرئيسي لشريحة. أضف شكلًا، ثم استدعِ `add_effect` على `slide.timeline.main_sequence`، مع تمرير نوع التأثير، النوع الفرعي له، والمحفز الذي يبدأه.
 
 ```python
 import aspose.slides as slides
@@ -73,13 +73,13 @@ with slides.Presentation() as presentation:
     presentation.save("animated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-يحتوي الملف المحفوظ على تأثير واحد في الشريحة الأولى: المستطيل يتحرك من اليسار خلال ثانيتين عندما ينقر المقدم. عند إعادة فتحه وقراءة `slide.timeline.main_sequence` يتم إرجاع ذلك التأثير، لذا يبقى الرسوم المتحركة محفوظًا عبر الرحلة الكاملة وليس مجرد وجوده في الذاكرة.
+يحتوي الملف المحفوظ على تأثير واحد في الشريحة الأولى: المستطيل يطير من اليسار خلال ثانيتين عند نقر المقدم. عند إعادة فتحه وقراءة `slide.timeline.main_sequence` يتم إرجاع ذلك التأثير، وبالتالي يبقى الحركة محفوظة عبر الجولة وليس فقط في الذاكرة.
 
-## **تأثيرات الرسوم المتحركة**
+## **تأثيرات الحركة**
 
-يدعم Aspose.Slides **أكثر من 150 تأثيرًا للرسوم المتحركة**، بما في ذلك التأثيرات الأساسية مثل Bounce وPathFootball وZoom، فضلاً عن التأثيرات المتخصصة مثل OLEObjectShow وOLEObjectOpen. يمكنك العثور على القائمة الكاملة في تعداد [EffectType](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effecttype/).
+يدعم Aspose.Slides **150+ animation effects**، بما في ذلك التأثيرات الأساسية مثل Bounce وPathFootball وZoom، بالإضافة إلى التأثيرات المتخصصة مثل OLEObjectShow وOLEObjectOpen. يمكنك العثور على القائمة الكاملة في تعداد [EffectType](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effecttype/).
 
-بالإضافة إلى ذلك، يمكن دمج هذه التأثيرات المتحركة مع التأثيرات التالية:
+بالإضافة إلى ذلك، يمكن دمج هذه التأثيرات مع التأثيرات التالية:
 
 - [ColorEffect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/coloreffect/)
 - [CommandEffect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/commandeffect/)
@@ -90,58 +90,60 @@ with slides.Presentation() as presentation:
 - [ScaleEffect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/scaleeffect/)
 - [SetEffect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/seteffect/)
 
-## **رسوم متحركة مخصصة**
+## **الرسوم المتحركة المخصصة**
 
-يمكنك إنشاء **رسوم متحركة مخصصة** خاصة بك في Aspose.Slides عن طريق دمج سلوكيات متعددة في تأثير واحد.
+للحصول على أمثلة Python كاملة تُنشئ، تفحص، وتعدل السلوكيات ومسارات الحركة القابلة للتحرير، راجع [الرسوم المتحركة المخصصة](/slides/ar/python-net/custom-animation/).
 
-[Behavior](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/behavior/) هو الوحدة الأساسية لأي تأثير رسومي في PowerPoint. كل تأثير رسوم متحركة هو في الأساس مجموعة من السلوكيات المرتبة في استراتيجية أو جدول زمني واحد. يمكنك تجميع السلوكيات في رسم متحرك مخصص مرة واحدة وإعادة استخدامها عبر عروض أخرى. إذا أضفت سلوكًا جديدًا إلى تأثير رسوم متحركة قياسي في PowerPoint، يصبح رسمًا متحركًا مخصصًا — على سبيل المثال، إضافة سلوك تكرار لجعل الرسوم المتحركة تُشغل عدة مرات.
+يمكنك إنشاء **رسوم متحركة مخصصة** في Aspose.Slides بدمج سلوكيات متعددة في تأثير واحد.
 
-[Animation Point](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/point/) يحدد اللحظة أو الموضع الذي يُطبق فيه سلوك (إطار رئيسي).
+[Behavior](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/behavior/) هو بناء أساسي لتأثير حركة PowerPoint. دمج السلوكيات لتخصيص تأثير، أو إضافة سلوك لتوسيع تأثير مُعرّف مسبقًا. يتم تكوين التكرار عبر إعدادات التوقيت بدلًا من سلوك تكرار منفصل.
 
-## **جدول زمني للرسوم المتحركة**
+[Animation Point](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/point/) يحدد اللحظة أو الموقع الذي يُطبق فيه سلوك (إطار رئيسي).
 
-[Sequence](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/) هي مجموعة من تأثيرات الرسوم المتحركة المطبقة على شكل معين.
+## **خط زمني للرسوم المتحركة**
 
-[Timeline](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/animationtimeline/) هي مجموعة التسلسلات المستخدمة على شريحة معينة. تم تقديمها في PowerPoint 2002. في الإصدارات السابقة من PowerPoint، كان إضافة تأثيرات الرسوم المتحركة صعبًا وغالبًا ما يتطلب حلولاً بديلة. يستبدل Timeline الفئة القديمة `AnimationSettings` ويوفر نموذج كائن أوضح للرسوم المتحركة في PowerPoint. يمكن لكل شريحة أن تحتوي على جدول زمني واحد فقط للرسوم المتحركة.
+[Sequence](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/) هي مجموعة من تأثيرات الحركة التي يمكن أن تستهدف أشكالًا مختلفة.
 
-## **رسوم متحركة تفاعلية**
+[Timeline](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/animationtimeline/) هو مجموعة التسلسلات المستخدمة على شريحة معينة. تم تقديمه في PowerPoint 2002. في إصدارات PowerPoint السابقة، كان إضافة تأثيرات الحركة صعبًا وغالبًا ما يتطلب حلولًا بديلة. يستبدل Timeline الفئة القديمة `AnimationSettings` ويوفر نموذج كائن أوضح لحركة PowerPoint. يمكن لكل شريحة أن تحتوي على خط زمني واحد فقط للحركة.
 
-[Trigger](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effecttriggertype/) يتيح لك تعريف إجراءات المستخدم (مثل نقر زر) التي تبدأ رسومًا متحركة معينة. تمت إضافة المشغلات فقط في أحدث إصدارات PowerPoint.
+## **الرسوم المتحركة التفاعلية**
+
+[Trigger](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effecttriggertype/) يتيح لك تعريف إجراءات المستخدم (مثل نقر زر) التي تبدأ حركة محددة. تمت إضافة المشغلات فقط في أحدث إصدارات PowerPoint.
 
 ## **رسوم متحركة للأشكال**
 
-يسمح لك Aspose.Slides بتطبيق رسوم متحركة على الأ Shapes — مثل النصوص، المستطيلات، الخطوط، الإطارات، كائنات OLE، وغيرها.
+يسمح لك Aspose.Slides بتطبيق الرسوم المتحركة على الأشكال—مثل النصوص، المستطيلات، الخطوط، الإطارات، كائنات OLE، وأكثر.
 
-{{% alert color="primary" %}}
-اقرأ المزيد [**حول رسوم متحركة للأشكال**](/slides/ar/python-net/shape-animation/).
+{{% alert color="info" title="Note" %}}
+Read more [**حول رسوم متحركة للأشكال**](/slides/ar/python-net/shape-animation/).
 {{% /alert %}}
 
 ## **مخططات متحركة**
 
-لإنشاء مخططات متحركة، استخدم نفس الفئات التي تستخدمها للأشكال. ومع ذلك، يمكن تطبيق الرسوم المتحركة في PowerPoint فقط على فئات المخطط أو سلاسل المخطط. يمكنك أيضًا تطبيق تأثير رسوم متحركة على عنصر فئة فردي أو عنصر سلسلة.
+لإنشاء مخططات متحركة، استخدم نفس الفئات التي تستخدمها للأشكال. ومع ذلك، لا يمكن تطبيق رسوم PowerPoint المتحركة إلا على فئات المخطط أو سلاسل المخطط. يمكنك أيضًا تطبيق تأثير حركة على عنصر فئة فردي أو عنصر سلسلة.
 
-{{% alert color="primary" %}}
-اقرأ المزيد [**حول المخططات المتحركة**](/slides/ar/python-net/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Read more [**حول مخططات متحركة**](/slides/ar/python-net/animated-charts/).
 {{% /alert %}}
 
 ## **نص متحرك**
 
-بالإضافة إلى تحريك النص، يمكنك تطبيق الرسوم المتحركة على فقرة.
+بالإضافة إلى تحريك النص، يمكنك تطبيق حركة على فقرة.
 
-{{% alert color="primary" %}}
-اقرأ المزيد [**حول النص المتحرك**](/slides/ar/python-net/animated-text/).
+{{% alert color="info" title="Note" %}}
+Read more [**حول نص متحرك**](/slides/ar/python-net/animated-text/).
 {{% /alert %}}
 
 ## **الأسئلة الشائعة**
 
-### هل ستظل الرسوم المتحركة محفوظة عند التصدير إلى PDF؟
+**هل سيتم الحفاظ على الرسوم المتحركة عند التصدير إلى PDF؟**
 
-لا. PDF هو تنسيق ثابت، لذا لا تُشغَّل الرسوم المتحركة و[تحولات الشرائح](/slides/ar/python-net/slide-transition/). إذا كنت بحاجة إلى حركة، صدِّر إلى [HTML5](/slides/ar/python-net/export-to-html5/)، أو [GIF متحرك](/slides/ar/python-net/convert-powerpoint-to-animated-gif/)، أو [فيديو](/slides/ar/python-net/convert-powerpoint-to-video/) بدلاً من ذلك.
+No. PDF is a static format, so animations and [slide transitions](/slides/ar/python-net/slide-transition/) don’t play. If you need motion, export to [HTML5](/slides/ar/python-net/export-to-html5/), [animated GIF](/slides/ar/python-net/convert-powerpoint-to-animated-gif/), or [video](/slides/ar/python-net/convert-powerpoint-to-video/) instead.
 
-### هل يمكنني تحويل عرض تقديمي متحرك إلى فيديو والتحكم في معدل الإطارات وحجم الإطار؟
+**هل يمكنني تحويل عرض تقديمي متحرك إلى فيديو والتحكم في معدل الإطارات وحجم الإطار؟**
 
-نعم. يمكنك [تصدير العرض التقديمي كإطارات](/slides/ar/python-net/convert-powerpoint-to-video/) وترميزها إلى فيديو (مثلاً باستخدام ffmpeg)، مع اختيار عدد الإطارات في الثانية والدقة. تُشغل الرسوم المتحركة وتحولات الشرائح أثناء التصدير.
+Yes. You can [render the presentation as frames](/slides/ar/python-net/convert-powerpoint-to-video/) and encode them into a video (e.g., via ffmpeg), choosing the FPS and resolution. Animations and slide transitions are played during rendering.
 
-### هل ستبقى الرسوم المتحركة سليمة عند العمل مع ODP (وليست فقط PPTX)؟
+**هل ستظل الرسوم المتحركة سليمة عند العمل مع ODP (وليس فقط PPTX)؟**
 
-يتم دعم PPT وPPTX وODP لل[قراءة](/slides/ar/python-net/open-presentation/) و[كتابة](/slides/ar/python-net/save-presentation/)، لكن الاختلافات في الصيغ تعني أن بعض التأثيرات قد تبدو أو تتصرف بشكل مختلف قليلًا. تحقق من الحالات الحرجة باستخدام عينات حقيقية.
+PPT, PPTX, and ODP are supported for [reading](/slides/ar/python-net/open-presentation/) and [writing](/slides/ar/python-net/save-presentation/), but this does not guarantee animation preservation. Custom animation data can be lost when converting to ODP. See [Custom Animation](/slides/ar/python-net/custom-animation/) for examples and guidance on checking format compatibility.

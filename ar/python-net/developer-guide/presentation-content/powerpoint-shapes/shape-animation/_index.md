@@ -1,45 +1,47 @@
 ---
-title: تطبيق حركات الأشكال في العروض التقديمية باستخدام بايثون
-linktitle: تحريك الشكل
+title: "تطبيق رسوم متحركة للأشكال في العروض التقديمية باستخدام بايثون"
+linktitle: "رسوم متحركة للأشكال"
 type: docs
 weight: 60
 url: /ar/python-net/shape-animation/
 keywords:
 - شكل
-- حركة
+- رسوم متحركة
 - تأثير
 - شكل متحرك
 - نص متحرك
-- إضافة حركة
-- الحصول على حركة
-- استخراج حركة
+- إضافة رسوم متحركة
+- الحصول على رسوم متحركة
+- استخراج رسوم متحركة
 - إضافة تأثير
 - الحصول على تأثير
 - استخراج تأثير
 - صوت التأثير
-- تطبيق الحركة
+- تطبيق رسوم متحركة
 - PowerPoint
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تعلم كيفية إضافة، فحص، وتخصيص حركات الأشكال، التوقيت، الأصوات، سلوك ما بعد الحركة، والنص المتحرك باستخدام Aspose.Slides for Python عبر .NET."
+description: "تعلم كيفية إضافة وفحص وتخصيص رسوم متحركة للأشكال، والتوقيت، والأصوات، وسلوك ما بعد الرسوم المتحركة، والنص المتحرك باستخدام Aspose.Slides for Python عبر .NET."
 ---
 ## **نظرة عامة**
 
-يمثل Aspose.Slides for Python via .NET حركات الشرائح كآثار في جدول زمني للشريحة. يحتوي كل أثر على شكل هدف، نوع حركة وفرعي، مشغّل، إعدادات التوقيت، وخصائص اختيارية مثل الصوت أو سلوك ما بعد الحركة.
+للعمل مع السلوكيات الفردية داخل تأثير أو تحرير مقاطع مسار الحركة، راجع [الرسوم المتحركة المخصصة](/slides/ar/python-net/custom-animation/).
 
-يتضمن الجدول الزمني نوعين من التسلسلات:
+تمثل Aspose.Slides for Python عبر .NET الرسوم المتحركة للشرائح كـ تأثيرات في مخطط زمني للشرائح. يحتوي التأثير على شكل الهدف، نوع الرسوم المتحركة والنوع الفرعي، مشغل، إعدادات التوقيت، وخصائص اختيارية مثل الصوت أو سلوك ما بعد الرسوم المتحركة.
 
-- **التسلسل الرئيسي** يُشغّل عندما تتقدم الشريحة.
-- **التسلسل التفاعلي** يبدأ عندما يتم النقر على شكل المشغّل الخاص به.
+يحتوي المخطط الزمني على نوعين من التسلسلات:
 
-نظرًا لأن مربعات النص، الصور، المخططات، الجداول، وغيرها من كائنات الشريحة تنفّذ [IShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ishape/)، يمكنك استخدام نفس طريقة [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/) لمعظم محتوى الشريحة. تُدرج التأثيرات المتاحة في تعداد [EffectType](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effecttype/).
+- **التسلسل الرئيسي** يُعرض بينما تتقدم الشريحة.
+- **التسلسل التفاعلي** يبدأ عندما يتم النقر على الشكل المشغل.
 
-## **إضافة حركات الشكل**
+نظرًا لأن مربعات النصوص، والصور، والرسوم البيانية، والجداول، وغيرها من كائنات الشريحة تُنفّذ الواجهة [IShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ishape/)، يمكنك استخدام نفس طريقة [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/) لمعظم محتوى الشريحة. تُدرج التأثيرات المتاحة في تعداد [EffectType](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effecttype/).
 
-لإضافة حركة، احصل على التسلسل الرئيسي للشرائح واستدعِ [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/) مع شكل الهدف، نوع التأثير، النوع الفرعي، والمشغّل. لتأثير يبدأ عند النقر على شكل آخر، أنشئ تسلسلًا تفاعليًا يكون مشغّله ذلك الشكل الآخر.
+## **إضافة رسوم متحركة للأشكال**
 
-المثال التالي ينشئ كلا نوعي الحركة ويحفظ النتيجة في `shape-animations.pptx`.
+لإضافة رسوم متحركة، احصل على التسلسل الرئيسي للشفرة وندِّ طريقة [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/) مع شكل الهدف، نوع التأثير، النوع الفرعي، والمشغل. لتأثير يبدأ عندما يتم النقر على شكل آخر، أنشئ تسلسلًا تفاعليًا يكون مشغله ذلك الشكل الآخر.
+
+المثال التالي ينشئ كلا النوعين من الرسوم المتحركة ويحفظ النتيجة في `shape-animations.pptx`.
 
 ```python
 import aspose.slides as slides
@@ -64,19 +66,19 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-المشغّل يتحكم في وقت بدء التأثير:
+المشغل يتحكم متى يبدأ التأثير:
 
-- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effecttriggertype/) ينتظر النقر في التسلسل الرئيسي، أو النقر على الشكل المشغّل في التسلسل التفاعلي.
+- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effecttriggertype/) ينتظر النقر في التسلسل الرئيسي، أو النقر على الشكل المشغل في التسلسل التفاعلي.
 - [EffectTriggerType.WITH_PREVIOUS](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effecttriggertype/) يبدأ مع التأثير السابق.
 - [EffectTriggerType.AFTER_PREVIOUS](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effecttriggertype/) يبدأ عندما ينتهي التأثير السابق.
 
-لتحريك صورة، مخطط، أو نوع آخر من الأشكال، مرّر ذلك الكائن إلى [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/) بدلاً من `target_shape`. للحصول على خيارات تجميع خاصة بالمخططات، راجع [Animated Charts](/slides/ar/python-net/animated-charts/).
+لتحريك صورة أو رسم بياني أو أي نوع آخر من الأشكال، مرّر ذلك الكائن إلى [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/) بدلاً من `target_shape`. لخيارات تجميع خاصة بالرسوم البيانية، راجع [الرسوم المتحركة للرسوم البيانية](/slides/ar/python-net/animated-charts/).
 
-## **قراءة حركات الشكل**
+## **قراءة الرسوم المتحركة للأشكال**
 
-استخدم [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/get_effects_by_shape/) عندما تعرف شكل الهدف. لتفقد كل تأثير، كرّر عبر التسلسل الرئيسي وكل تسلسل تفاعلي. التكرار يمنع الافتراض بأن التسلسل يحتوي على تأثير في الفهرس `0`.
+استخدم [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/get_effects_by_shape/) عندما تعرف شكل الهدف. لفحص كل تأثير، كرّر عبر التسلسل الرئيسي وكل تسلسل تفاعلي. التكرار يجنّب الافتراض بأن التسلسل يحتوي على تأثير عند الفهرس `0`.
 
-المثال التالي ينشئ شكلًا مع تأثيرات في التسلسل الرئيسي وتفاعلية، يحصل على التأثيرات التي تستهدف الشكل، ثم يكرّر عبر كل تسلسل في الشريحة.
+المثال التالي ينشئ شكلاً به تأثيرات تسلسل رئيسي وتفاعلي، يحصل على التأثيرات التي تستهدف الشكل، ثم يكرر عبر كل تسلسل في الشريحة.
 
 ```python
 import aspose.slides as slides
@@ -116,19 +118,19 @@ with slides.Presentation() as presentation:
         print_sequence(sequence_label, sequence)
 ```
 
-إذا كنت تحتاج فقط إلى التأثيرات لشكل واحد، حدد الشكل أولاً بالاسم أو نوع العنصر النائب أو خاصية ثابتة أخرى؛ ثم استدعِ [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/get_effects_by_shape/). لا تفترض أن الشكل في الفهرس `0` هو دائمًا الكائن المقصود.
+إذا كنت بحاجة فقط إلى التأثيرات لشكل واحد، حدد الشكل أولاً بالاسم أو نوع العنصر النائب أو أي خاصية ثابتة أخرى؛ ثم استدعِ [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/get_effects_by_shape/). لا تفترض أن الشكل عند الفهرس `0` هو دائمًا الكائن المقصود.
 
-## **التعامل مع تأثيرات العنصر النائب الموروثة**
+## **العمل مع تأثيرات العناصر النائبة الموروثة**
 
-يمكن للعنصر النائب في شريحة عادية أن يرث سلوك الحركة من العنصر النائب المقابل في شريحة التخطيط والشريحة الرئيسية. تُعيد [Shape.get_base_placeholder](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/get_base_placeholder/) ذلك العنصر النائب الأب، أو `None` إذا لم يكن هناك أب.
+يمكن لعنصر نائب في شريحة عادية أن يرث سلوك الرسوم المتحركة من العنصر النائب المقابل في شريحة التخطيط والشريحة الأساسية. تُعيد [Shape.get_base_placeholder](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/get_base_placeholder/) ذلك العنصر النائب الأصل، أو `None` إذا لم يكن هناك أصل.
 
-في عرض الشرائح المثال التالي، يحتوي التذييل على **Random Bars** في الشريحة العادية، **Split** في شريحة التخطيط، و**Fly In** في الشريحة الرئيسية.
+في عرض الشرائح المثال التالي، يحتوي التذييل على **Random Bars** في الشريحة العادية، **Split** في شريحة التخطيط، و**Fly In** في الشريحة الأساسية.
 
-![تأثير حركة التذييل في الشريحة العادية](slide-shape-animation.png)
-![تأثير حركة عنصر نائب للتذييل في شريحة التخطيط](layout-shape-animation.png)
-![تأثير حركة عنصر نائب للتذييل في الشريحة الرئيسية](master-shape-animation.png)
+![تأثير رسوم متحركة للتذييل في الشريحة العادية](slide-shape-animation.png)
+![تأثير رسوم متحركة لعنصر نائب التذييل في شريحة التخطيط](layout-shape-animation.png)
+![تأثير رسوم متحركة لعنصر نائب التذييل في الشريحة الأساسية](master-shape-animation.png)
 
-المثال التالي يبني هيكلية العنصر النائب نفسها. يضيف تأثيرات إلى عنصر نائب رئيسي، عنصر نائب في التخطيط، والعنصر النائب المقابل في شريحة عادية. يتم فحص كل استدعاء لـ [Shape.get_base_placeholder](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/get_base_placeholder/) قبل استخدام الشكل المُرجع.
+المثال التالي يبني هيكلية العناصر النائبة ذاتها. يضيف تأثيرات إلى عنصر نائب أساسي، عنصر نائب تخطيط، والعنصر النائب المقابل في شريحة عادية. يتم فحص كل استدعاء لـ [Shape.get_base_placeholder](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/get_base_placeholder/) قبل استخدام الشكل المرتجع.
 
 ```python
 import aspose.slides as slides
@@ -179,19 +181,19 @@ with slides.Presentation() as presentation:
     presentation.save("placeholder-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تغيير توقيت الحركة**
+## **تغيير توقيت الرسوم المتحركة**
 
-يتطابق مربع حوار **Timing** في PowerPoint مع خصائص [Timing](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/).
+يتطابق حوار **Timing** في PowerPoint مع خصائص [Timing](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/).
 
-![مربع حوار توقيت PowerPoint لتأثير حركة](shape-animation.png)
+![حوار توقيت PowerPoint لتأثير الرسوم المتحركة](shape-animation.png)
 
-- **ابدأ** يتطابق مع [Timing.trigger_type](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/trigger_type/).
+- **البداية** يتطابق مع [Timing.trigger_type](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/trigger_type/).
 - **المدة** يتطابق مع [Timing.duration](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/duration/)، بالثواني.
 - **التأخير** يتطابق مع [Timing.trigger_delay_time](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/trigger_delay_time/)، بالثواني.
-- **التكرار** يتطابق مع [Timing.repeat_count](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_count/)، [Timing.repeat_until_next_click](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_until_next_click/)، أو [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_until_end_slide/).
-- **إعادة التشغيل عند الانتهاء** يتطابق مع [Timing.rewind](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/rewind/).
+- **التكرار** يتطابق مع [Timing.repeat_count](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_count/), [Timing.repeat_until_next_click](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_until_next_click/), أو [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_until_end_slide/).
+- **إعادة تشغيل عند الانتهاء من التشغيل** يتطابق مع [Timing.rewind](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/rewind/).
 
-هذا المثال المستقل يضيف تأثيرًا، يغيّر توقيته عبر الكائن المُرجع من [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/)، ويحفظ النتيجة. الاحتفاظ بمرجع [Effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/) المُرجع يتجنب فهرس تجميع غير ضروري.
+هذا المثال المستقل يضيف تأثيرًا، يغيّر توقيته عبر الكائن المرتجع من [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/), ويحفظ النتيجة. الحفاظ على مرجع [Effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/) المرتجع يتجنب فهرس تجميع غير ضروري.
 
 ```python
 import aspose.slides as slides
@@ -214,15 +216,15 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-timing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-استخدم وضع تكرار واحد عمدًا. الجمع بين عدد التكرار وعلمية "حتى" قد ينتج نتائج مربكة في مشغلات مختلفة. عند تغيير أوضاع التكرار، اضبط [Timing.repeat_until_next_click](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_until_next_click/) و[Timing.repeat_until_end_slide](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_until_end_slide/) قبل [Timing.repeat_count](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_count/)، لأن ضبط أي من العلمتين يغير وضع التكرار النشط.
+استخدم وضع تكرار واحد عن قصد. الجمع بين عدد التكرار وعلامة "until" قد ينتج نتائج مربكة في مشاهد مختلفة. عند تغيير أوضاع التكرار، اضبط [Timing.repeat_until_next_click](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_until_next_click/) و [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_until_end_slide/) قبل [Timing.repeat_count](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/timing/repeat_count/), لأن ضبط أي من العلامتين يغيّر وضعية التكرار النشطة.
 
-## **إضافة واستخراج أصوات الحركة**
+## **إضافة واستخراج أصوات الرسوم المتحركة**
 
-يمكن لتأثير الحركة الإشارة إلى صوت مدمج عبر [Effect.sound](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/sound/). يُخبر [Effect.stop_previous_sound](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/stop_previous_sound/) تأثيرًا بإيقاف الصوت الذي بدأه تأثير سابق.
+يمكن لتأثير الرسوم المتحركة الإشارة إلى صوت مدمج عبر [Effect.sound](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/sound/). [Effect.stop_previous_sound](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/stop_previous_sound/) يطلب من التأثير إيقاف الصوت الذي بدأه تأثير سابق.
 
 ### **إضافة صوت إلى تأثير**
 
-المثال التالي يتوقع ملف صوت محلي باسم `animation-sound.wav`. ينشئ تأثيرين، يدمج ذلك الملف كصوت للتأثير الأول، ويضبط التأثير الثاني لإيقاف الصوت. يستخدم الكائنات المُرجعة من [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/)، لذا لا يلزم فهرس تسلسل.
+المثال التالي يتوقع ملف صوت محلي باسم `animation-sound.wav`. ينشئ تأثيرين، يدمج ذلك الملف كصوت للتأثير الأول، ويضبط التأثير الثاني لإيقاف الصوت. يستخدم الكائنات المرتجعة من [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/), لذا لا يلزم فهرس للتسلسل.
 
 ```python
 import aspose.slides as slides
@@ -250,7 +252,7 @@ with slides.Presentation() as presentation:
 
 ### **استخراج أصوات التأثير المدمجة**
 
-المثال التالي يتوقع عرضًا محليًا باسم `presentation-with-animation-sounds.pptx`. يقوم بفحص كل من التسلسلات الرئيسية والتفاعلية ويكتب كل صوت تأثير مدمج إلى الدليل `extracted-animation-sounds`. يتم اختيار الامتداد من نوع MIME الصوتي المعروض بواسطة [Audio.content_type](https://reference.aspose.com/slides/ar/python-net/aspose.slides/audio/content_type/).
+المثال التالي يتوقع عرضًا محليًا باسم `presentation-with-animation-sounds.pptx`. يفتش كلًا من التسلسلات الرئيسية والتفاعلية ويكتب كل صوت تأثير مدمج إلى دليل `extracted-animation-sounds`. يتم اختيار الامتداد من نوع MIME الصوتي الذي توفره [Audio.content_type](https://reference.aspose.com/slides/ar/python-net/aspose.slides/audio/content_type/).
 
 ```python
 import os
@@ -306,15 +308,15 @@ print(f"Extracted {sound_index - 1} sound file(s) to {os.path.abspath(output_dir
 
 للكائنات الصوتية الكبيرة، استخدم [Audio.get_stream](https://reference.aspose.com/slides/ar/python-net/aspose.slides/audio/get_stream/) وانسخ الدفق إلى ملف بدلاً من تحميل الكائن بالكامل إلى مصفوفة بايت.
 
-## **تحديد سلوك ما بعد الحركة**
+## **تعيين سلوك ما بعد الرسوم المتحركة**
 
-خيار **After animation** يتحكم ماذا يحدث للشكل بعد انتهاء تأثيره.
+خيار **After animation** يتحكم في ما يحدث للشكل بعد انتهاء تأثيره.
 
-![مربع حوار خيارات تأثير PowerPoint يظهر إعدادات After animation](shape-after-animation.png)
+![حوار خيارات تأثير PowerPoint يظهر إعدادات ما بعد الرسوم المتحركة](shape-after-animation.png)
 
-يدعم تعداد [AfterAnimationType](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/afteranimationtype/) ترك الشكل كما هو، تغيير لونه، إخفاؤه بعد الحركة، أو إخفاؤه عند النقر التالي. عندما يكون النوع هو [AfterAnimationType.COLOR](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/afteranimationtype/), اضبط أيضًا [Effect.after_animation_color](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/after_animation_color/).
+يدعم تعداد [AfterAnimationType](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/afteranimationtype/) ترك الشكل كما هو، تغيير لونه، إخفائه بعد الرسوم المتحركة، أو إخفائه عند النقر التالي. عندما يكون النوع هو [AfterAnimationType.COLOR](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/afteranimationtype/), اضبط أيضًا [Effect.after_animation_color](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/after_animation_color/).
 
-هذا المثال المستقل ينشئ تأثيرًا، يحدد سلوكه ما بعد الحركة عبر كائن التأثير المُرجع، ويحفظ النتيجة.
+هذا المثال المستقل ينشئ تأثيرًا، يضبط سلوك ما بعد الرسوم المتحركة عبر كائن التأثير المرتجع، ويحفظ النتيجة.
 
 ```python
 import aspose.pydrawing as draw
@@ -333,16 +335,16 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-after-effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-تغيير النوع بعيدًا عن [AfterAnimationType.COLOR](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/afteranimationtype/) يمسح إعداد لون ما بعد الحركة.
+تغيير النوع بعيدًا عن [AfterAnimationType.COLOR] يُمسح إعداد لون ما بعد الرسوم المتحركة.
 
 ## **تحريك النص**
 
-تحريك النص يحتوي على تحكمين مرتبطين:
+للرسوم المتحركة للنص تحكمان مرتبطان:
 
-- [TextAnimation.build_type](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/textanimation/build_type/) يتحكم فيما إذا كانت الفقرات تظهر معًا أو على مستوى الفقرة.
-- [Effect.animate_text_type](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/animate_text_type/) يتحكم فيما إذا كان النص يظهر دفعة واحدة، بالكلمة، أو بالحرف. [Effect.delay_between_text_parts](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/delay_between_text_parts/) يحدد التأخير بين الكلمات أو الأحرف. القيمة الموجبة هي نسبة مئوية من مدة التأثير؛ القيمة السلبية هي تأخير بالثواني.
+- [TextAnimation.build_type](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/textanimation/build_type/) يتحكم ما إذا كانت الفقرات تظهر معًا أو على مستوى الفقرة.
+- [Effect.animate_text_type](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/animate_text_type/) يتحكم ما إذا كان النص يظهر دفعة واحدة، بالكلمة، أو بالحرف. [Effect.delay_between_text_parts](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/effect/delay_between_text_parts/) يحدد التأخير بين الكلمات أو الأحرف. القيمة الموجبة هي نسبة مئوية من مدة التأثير؛ القيمة السالبة هي تأخير بالثواني.
 
-المثال المستقل التالي يحرك الكلمات في مربع نص. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/buildtype/) يعطل بناء الفقرة بفقرة بحيث ينطبق إعداد الكلمة على كامل إطار النص.
+المثال المستقل التالي يحرك الكلمات داخل مربع نص. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/buildtype/) يعطل بناء الفقرة-بفقرة بحيث ينطبق إعداد الكلمة على الإطار النصي بأكمله.
 
 ```python
 import aspose.slides as slides
@@ -361,26 +363,26 @@ with slides.Presentation() as presentation:
     presentation.save("animated-text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-لبناء مربع نص وفقًا للفقرة، اضبط [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/buildtype/) (أو مستوى فقرة آخر). لاستهداف فقرة واحدة بتأثيرها الخاص، استخدم نسخة [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/) التي تقبل [IParagraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iparagraph/). راجع [Animated Text](/slides/ar/python-net/animated-text/) لأمثلة على مستوى الفقرة.
+لبناء مربع نص وفقًا للفقرة، اضبط [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/buildtype/) (أو مستوى فقرة آخر). لاستهداف فقرة واحدة بتأثيرها الخاص، استخدم نسخة [Sequence.add_effect](https://reference.aspose.com/slides/ar/python-net/aspose.slides.animation/sequence/add_effect/) التي تقبل [IParagraph](https://reference.aspose.com/slides/ar/python-net/aspose.slides/iparagraph/). راجع [النص المتحرك](/slides/ar/python-net/animated-text/) لأمثلة على مستوى الفقرة.
 
 ## **ملاحظات التصدير والتوافق**
 
-- حفظ إلى PPT أو PPTX يحافظ على نموذج الحركة، لكن تشغيله النهائي يتحكم فيه عارض العرض.
-- لا تقوم ملفات PDF والصور الثابتة بتشغيل الحركات. استخدم [تصدير HTML5](/slides/ar/python-net/export-to-html5/)، GIF متحرك، أو [تحويل للفيديو](/slides/ar/python-net/convert-powerpoint-to-video/) عندما يجب أن يظهر الناتج الحركة.
-- بالنسبة إلى HTML5، فعل [Html5Options.animate_shapes](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/html5options/animate_shapes/), وعند الحاجة، [Html5Options.animate_transitions](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/html5options/animate_transitions/).
-- يدعم تصيير الفيديو العديد من تأثيرات الدخول، والتأكيد، والخروج، ومسار الحركة الشائعة، لكن ليس كل تأثير PowerPoint مدعوم. تحقق من [الرسوم المتحركة المدعومة والتأثيرات](/slides/ar/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) الحالي واختبر العروض الحرجة مع نسخة Aspose.Slides المستهدفة.
-- قد تُحافظ التأثيرات المخصصة المتقدمة والتأثيرات المستوردة من صيغ عروض أخرى في الملف، لكنها تُعرض بشكل مختلف في PowerPoint أو HTML5 أو الفيديو. تحقق من النتيجة المصدرة بدلاً من الاعتماد فقط على اسم التأثير.
+- حفظ إلى PPT أو PPTX يحافظ على نموذج الرسوم المتحركة، لكن التشغيل النهائي يتحكم به عارض العرض.
+- لا تقوم PDF والصور الثابتة بتشغيل الرسوم المتحركة. استخدم [تصدير HTML5](/slides/ar/python-net/export-to-html5/)، GIF متحرك، أو [تحويل الفيديو](/slides/ar/python-net/convert-powerpoint-to-video/) عندما يجب أن يظهر الإخراج الحركة.
+- بالنسبة لـ HTML5، فعّل [Html5Options.animate_shapes](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/html5options/animate_shapes/) وعند الحاجة، [Html5Options.animate_transitions](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/html5options/animate_transitions/).
+- يدعم تصيير الفيديو العديد من تأثيرات الدخول، والتركيز، والخروج، ومسار الحركة الشائعة، لكن ليس كل تأثير PowerPoint مدعوم. تحقق من [الرسوم المتحركة والتأثيرات المدعومة](/slides/ar/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) الحالي واختبر العروض الحرجة مع نسخة Aspose.Slides المستهدفة.
+- قد تُحافظ التأثيرات المخصصة المتقدمة والمؤثرة المستوردة من صيغ عروض تقديمية أخرى في الملف لكن يتم عرضها بشكل مختلف في PowerPoint أو HTML5 أو الفيديو. تحقق من صحة النتيجة المصدرة بدلاً من الاعتماد فقط على اسم التأثير.
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**لماذا تظهر حركة في PowerPoint ولكن ليس في PDF؟**
+**لماذا تظهر الرسوم المتحركة في PowerPoint ولكن لا تظهر في PDF؟**
 
-PDF هو تنسيق ثابت، لذلك لا تُشغَّل الحركات وانتقالات الشرائح. صدِّر إلى HTML5، GIF متحرك، أو فيديو عندما يجب الحفاظ على الحركة.
+PDF هو تنسيق ثابت، لذا لا تُشغَّل الرسوم المتحركة وانتقالات الشرائح. صدّر إلى HTML5 أو GIF متحرك أو فيديو عندما يجب الحفاظ على الحركة.
 
-**لماذا يُشغَّل تأثير بشكل مختلف في الفيديو؟**
+**لماذا يُشغَّل التأثير بشكل مختلف في الفيديو؟**
 
-يُعيد تصدير الفيديو رسم الحركات بدلاً من تخزين سلوك PowerPoint الأصلي. بعض التأثيرات المتقدمة غير مدعومة أو تُقَرَّب. راجع جدول التأثيرات المدعومة واختبر العرض الفعلي قبل الاستخدام الإنتاجي.
+تصدير الفيديو يُعيد تمثيل الرسوم المتحركة بدلاً من تخزين السلوك الأصلي لـ PowerPoint. بعض التأثيرات المتقدمة غير مدعومة أو تُقَرَّب. راجع جدول التأثيرات المدعومة واختبر العرض الفعلي قبل الاستخدام الإنتاجي.
 
-**هل يؤثر نقل الشكل للأمام أو للخلف على ترتيب حركته؟**
+**هل يؤثر نقل الشكل إلى الأمام أو الخلف على ترتيب الرسوم المتحركة الخاصة به؟**
 
-لا. يتحكم ترتيب z للشكل في التداخل، بينما يتحكم ترتيب التسلسل والمشغلات في تشغيل الحركة. غيّر الجدول الزمني إذا كنت بحاجة إلى ترتيب تشغيل مختلف.
+لا. يتحكم ترتيب z للشكل في التراكب، بينما يتحكم ترتيب التسلسل والمشغلات في تشغيل الرسوم المتحركة. غيّر المخطط الزمني إذا كنت بحاجة إلى ترتيب تشغيل مختلف.

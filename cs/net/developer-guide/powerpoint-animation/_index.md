@@ -1,5 +1,5 @@
 ---
-title: Vylepšete prezentace PowerPoint pomocí animací v .NET
+title: Vylepšete PowerPoint prezentace pomocí animací v .NET
 linktitle: Animace PowerPoint
 type: docs
 weight: 150
@@ -10,8 +10,8 @@ keywords:
 - změnit animaci
 - odstranit animaci
 - spravovat animaci
-- ovládat animaci
-- efekt animace
+- řídit animaci
+- animační efekt
 - animace PowerPoint
 - časová osa animace
 - interaktivní animace
@@ -23,32 +23,32 @@ keywords:
 - animovaný OLE objekt
 - animovaný obrázek
 - animovaná tabulka
-- prezentace PowerPoint
+- PowerPoint prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Prozkoumejte možnosti Aspose.Slides pro .NET při práci s animacemi PowerPoint. Tento obecný přehled zdůrazňuje klíčové funkce a nabízí poznatky pro vylepšení vašich prezentací."
+description: "Prozkoumejte možnosti Aspose.Slides pro .NET při práci s animacemi v PowerPointu. Tento obecný přehled zdůrazňuje klíčové funkce a poskytuje poznatky pro vylepšení vašich prezentací."
 ---
 ## **Úvod**
 
-Protože prezentace mají sloužit k představení něčeho, jejich vizuální vzhled a interaktivní chování jsou při tvorbě vždy zohledněny.
+Protože prezentace mají sloužit k předvedení něčeho, jejich vizuální vzhled a interaktivní chování jsou při tvorbě vždy zohledňovány.
 
-**PowerPoint animation** hraje důležitou roli při zpříjemnění prezentace a zaujetí diváků. Aspose.Slides for .NET poskytuje širokou škálu možností, jak přidat animace do prezentací PowerPoint:
+**PowerPoint animation** hraje důležitou roli při tom, aby prezentace byla poutavá a zajímavá pro diváky. Aspose.Slides for .NET poskytuje širokou škálu možností, jak do PowerPoint prezentací přidat animace:
 
-- Použijte různé typy efektů animace PowerPointu na tvary, grafy, tabulky, OLE objekty a další prvky prezentace.
-- Použijte více efektů animace PowerPointu na jeden tvar.
-- Využijte časovou osu animace k řízení efektů animace.
-- Vytvořte vlastní animace.
+- Použít různé typy animačních efektů PowerPoint na objekty, grafy, tabulky, OLE objekty a další prvky prezentace.
+- Použít několik animačních efektů PowerPoint na jeden objekt.
+- Využít časovou osu animace k řízení animačních efektů.
+- Vytvořit vlastní animace.
 
-V Aspose.Slides pro .NET lze na tvary aplikovat různé efekty animace. Jelikož je každý prvek na snímku, včetně textu, obrázků, OLE objektů a tabulek, považován za tvar, lze efekty animace použít na libovolný prvek snímku.
+V Aspose.Slides for .NET lze na objekty aplikovat různé animační efekty. Protože je každý prvek na snímku, včetně textu, obrázků, OLE objektů a tabulek, považován za objekt, lze animační efekty použít na libovolný prvek snímku.
 
-[Aspose.Slides.Animation](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/) namespace poskytuje třídy pro práci s animacemi PowerPointu.
+[Aspose.Slides.Animation](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/) namespace poskytuje třídy pro práci s animacemi PowerPoint.
 
 ## **Efekty animace**
 
-Aspose.Slides podporuje **150+ animačních efektů**, včetně základních efektů jako Bounce, PathFootball a Zoom, stejně jako specifických efektů jako OLEObjectShow a OLEObjectOpen. Kompletní seznam efektů animace najdete v výčtu [EffectType](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/effecttype).
+Aspose.Slides podporuje **150+ animačních efektů**, včetně základních efektů jako Bounce, PathFootball a Zoom, a také specifických efektů jako OLEObjectShow a OLEObjectOpen. Kompletní seznam animačních efektů najdete v enumeraci [EffectType](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/effecttype).
 
-Navíc mohou být tyto efekty animace použity v kombinaci s následujícími:
+Tyto animační efekty lze také kombinovat s následujícími:
 
 - [ColorEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/coloreffect)
 - [CommandEffect](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/commandeffect)
@@ -61,56 +61,58 @@ Navíc mohou být tyto efekty animace použity v kombinaci s následujícími:
 
 ## **Vlastní animace**
 
-Je možné v Aspose.Slides vytvořit vlastní **vlastní animace**. To lze dosáhnout kombinací několika chování do nové vlastní animace.
+Pro kompletní příklady v C#, které vytvářejí, kontrolují a upravují chování a editovatelné dráhy pohybu, viz [Custom Animation](/slides/cs/net/custom-animation/).
 
-[Behaviour](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/behavior) je stavebním blokem jakéhokoli efektu animace PowerPointu. Všechny efekty animace jsou v podstatě souborem chování složených do jedné strategie. Můžete kombinovat chování do vlastní animace jednou a znovu ji použít v dalších prezentacích. Pokud přidáte nové chování ke standardnímu efektu animace PowerPointu, stane se další vlastní animací. Například můžete přidat opakující se chování k animaci, aby se několikrát opakovala.
+V Aspose.Slides je možné vytvořit vlastní **custom animations**. Toho lze dosáhnout kombinací několika chování do nové vlastní animace.
 
-[Animation Point](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/point) je bod, ve kterém má být chování aplikováno.
+[Behavior](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/behavior) je stavební blok animačního efektu PowerPoint. Kombinujte chování pro přizpůsobení efektu nebo přidejte chování pro rozšíření předdefinovaného efektu. Opakování je konfigurováno pomocí časových nastavení, nikoli samostatným chováním opakování.
+
+[Animation Point](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/point) je bod, ve kterém by mělo být chování aplikováno.
 
 ## **Časová osa animace**
 
-[Sequence](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/sequence) je kolekce efektů animace aplikovaných na konkrétní tvar.
+[Sequence](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/sequence) je kolekce animačních efektů, které mohou cílit na různé objekty.
 
-[Timeline](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/animationtimeline) je sada sekvencí použitých v konkrétním snímku. Jedná se o animační engine zavedený v PowerPointu 2002. Ve starších verzích PowerPointu bylo přidávání efektů animace do prezentací obtížné a mohlo být provedeno jen různými obcházkovými metodami. Časová osa nahrazuje starou třídu AnimationSettings a poskytuje přehlednější objektový model pro animace PowerPointu. Snímek může mít pouze jednu časovou osu animace.
+[Timeline](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/animationtimeline) je sada sekvencí použitých na konkrétním snímku. Jedná se o animační engine zavedený v PowerPoint 2002. Ve starších verzích PowerPointu bylo přidávání animačních efektů do prezentací obtížné a dosahovalo se jen různých obcházek. Časová osa nahrazuje starou třídu AnimationSettings a poskytuje přehlednější objektový model pro animace PowerPoint. Snímek může mít pouze jednu časovou osu animace.
 
 ## **Interaktivní animace**
 
-[Trigger](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/effecttriggertype) vám umožňuje definovat uživatelské akce (např. kliknutí na tlačítko), které spustí konkrétní animaci. Spouštěče byly zavedeny v nejnovější verzi PowerPointu.
+[Trigger](https://reference.aspose.com/slides/cs/net/aspose.slides.animation/effecttriggertype) vám umožňuje definovat uživatelské akce (např. kliknutí na tlačítko), které spustí konkrétní animaci. Triggery byly zavedeny v nejnovější verzi PowerPoint.
 
 ## **Animace tvarů**
 
-Aspose.Slides vám umožňuje aplikovat animace na tvary, které mohou zahrnovat text, obdélníky, čáry, rámečky, OLE objekty a další.
+Aspose.Slides umožňuje aplikovat animace na objekty, což může zahrnovat text, obdélníky, čáry, rámečky, OLE objekty a další.
 
-{{% alert color="primary" %}} 
-Přečtěte si více [**O animaci tvarů**](/slides/cs/net/shape-animation/).
+{{% alert color="info" title="Note" %}}
+Read more [**O animaci tvarů**](/slides/cs/net/shape-animation/).
 {{% /alert %}}
 
 ## **Animované grafy**
 
-Pro vytvoření animovaných grafů byste měli použít stejné třídy jako pro tvary. Nicméně animace PowerPointu lze aplikovat pouze na kategorie grafu nebo řady grafu. Můžete také aplikovat efekty animace na prvek kategorie nebo na prvek řady.
+Pro vytvoření animovaných grafů byste měli použít stejné třídy jako pro objekty. Nicméně animace PowerPoint mohou být aplikovány jen na kategorie grafu nebo série grafu. Můžete také aplikovat animační efekty na prvek kategorie nebo prvek série.
 
-{{% alert color="primary" %}} 
-Přečtěte si více [**O animovaných grafech**](/slides/cs/net/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Read more [**O animovaných grafech**](/slides/cs/net/animated-charts/).
 {{% /alert %}}
 
 ## **Animovaný text**
 
-Kromě animovaného textu je také možné aplikovat animaci na odstavec.
+Kromě animování textu můžete animovat i odstavec.
 
-{{% alert color="primary" %}} 
-Přečtěte si více [**O animovaném textu**](/slides/cs/net/animated-text/).
+{{% alert color="info" title="Note" %}}
+Read more [**O animovaném textu**](/slides/cs/net/animated-text/).
 {{% /alert %}}
 
-## **Často kladené otázky**
+## **FAQ**
 
 **Zůstanou animace zachovány při exportu do PDF?**
 
-Ne. PDF je statický formát, takže animace a [přechody snímků](/slides/cs/net/slide-transition/) se nepřehrávají. Pokud potřebujete pohyb, exportujte místo toho do [HTML5](/slides/cs/net/export-to-html5/), [animovaného GIFu](/slides/cs/net/convert-powerpoint-to-animated-gif/) nebo [videa](/slides/cs/net/convert-powerpoint-to-video/).
+Ne. PDF je statický formát, takže animace a [slide transitions](/slides/cs/net/slide-transition/) se nepřehrají. Pokud potřebujete pohyb, exportujte místo toho do [HTML5](/slides/cs/net/export-to-html5/), [animated GIF](/slides/cs/net/convert-powerpoint-to-animated-gif/) nebo [video](/slides/cs/net/convert-powerpoint-to-video/).
 
-**Mohu převést animovanou prezentaci na video a řídit počet snímků za sekundu a velikost snímku?**
+**Mohu převést animovanou prezentaci na video a ovládat počet snímků za sekundu a velikost snímku?**
 
-Ano. Můžete [vykreslit prezentaci po jednotlivých snímcích](/slides/cs/net/convert-powerpoint-to-video/) a zakódovat je do videa (např. pomocí ffmpeg), přičemž zvolíte FPS a rozlišení. Během vykreslování se přehrávají animace a přechody snímků.
+Ano. Můžete [render the presentation as frames](/slides/cs/net/convert-powerpoint-to-video/) a zakódovat je do videa (např. pomocí ffmpeg), přičemž si zvolíte FPS a rozlišení. Animace a přechody snímků jsou při renderování přehrávány.
 
-**Zůstanou animace neporušené při práci s ODP (nejen PPTX)?**
+**Zůstanou animace nedotčeny při práci s ODP (nejen PPTX)?**
 
-Formáty PPT, PPTX a ODP jsou podporovány pro [čtení](/slides/cs/net/open-presentation/) a [zápis](/slides/cs/net/save-presentation/), ale rozdíly ve formátu mohou způsobit, že některé efekty vypadají nebo se chovají mírně odlišně. Ověřte kritické případy pomocí reálných vzorků.
+PPT, PPTX i ODP jsou podporovány pro [reading](/slides/cs/net/open-presentation/) i [writing](/slides/cs/net/save-presentation/), ale neznamená to, že se animace zachovají. Data vlastních animací mohou být při konverzi do ODP ztracena. Viz [Custom Animation](/slides/cs/net/custom-animation/) pro ověřený příklad a omezení formátů.

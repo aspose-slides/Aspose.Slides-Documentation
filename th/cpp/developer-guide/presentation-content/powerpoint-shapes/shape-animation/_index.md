@@ -1,45 +1,47 @@
 ---
-title: นำการเคลื่อนไหวยของรูปทรงไปใช้ในงานนำเสนอด้วย C++
-linktitle: การเคลื่อนไหวของรูปทรง
+title: ใช้การเคลื่อนไหวของรูปร่างในงานนำเสนอด้วย C++
+linktitle: การเคลื่อนไหวของรูปร่าง
 type: docs
 weight: 60
 url: /th/cpp/shape-animation/
 keywords:
-- รูปทรง
+- รูปร่าง
 - การเคลื่อนไหว
 - เอฟเฟกต์
-- รูปทรงเคลื่อนไหว
-- ข้อความเคลื่อนไหว
+- รูปร่างที่เคลื่อนไหว
+- ข้อความที่เคลื่อนไหว
 - เพิ่มการเคลื่อนไหว
-- รับการเคลื่อนไหว
+- ดึงการเคลื่อนไหว
 - สกัดการเคลื่อนไหว
 - เพิ่มเอฟเฟกต์
-- รับเอฟเฟกต์
+- ดึงเอฟเฟกต์
 - สกัดเอฟเฟกต์
 - เสียงเอฟเฟกต์
 - ใช้การเคลื่อนไหว
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - C++
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่ม, ตรวจสอบและปรับแต่งการเคลื่อนไหวของรูปทรง, เวลา, เสียง, พฤติกรรมหลังการเคลื่อนไหวและข้อความเคลื่อนไหวด้วย Aspose.Slides สำหรับ C++."
+description: "เรียนรู้วิธีเพิ่ม, ตรวจสอบ และปรับแต่งการเคลื่อนไหวของรูปร่าง, การกำหนดเวลา, เสียง, พฤติกรรมหลังการเคลื่อนไหว, และข้อความที่เคลื่อนไหวด้วย Aspose.Slides สำหรับ C++."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for C++ แสดงภาพเคลื่อนไหวของสไลด์เป็นเอฟเฟกต์บนไทม์ไลน์ของสไลด์ เอฟเฟกต์จะมีรูปทรงเป้าหมาย, ประเภทและชนิดย่อยของการเคลื่อนไหว, ตัวกระตุ้น, การตั้งค่าเวลา, และคุณสมบัติเสริมเช่นเสียงหรือพฤติกรรมหลังการเคลื่อนไหว
+เพื่อทำงานกับพฤติกรรมแต่ละรายการภายในเอฟเฟ็กต์หรือแก้ไขส่วนของเส้นทางการเคลื่อนไหว ให้ดูที่ [Custom Animation](/slides/th/cpp/custom-animation/).
+
+Aspose.Slides for C++ แทนการเคลื่อนไหวของสไลด์เป็นเอฟเฟ็กต์ในไทม์ไลน์ของสไลด์ เอฟเฟ็กต์จะมีรูปทรงเป้าหมาย, ประเภทและชนิดย่อยของการเคลื่อนไหว, ตัวทำให้เริ่ม, การตั้งค่าเวลา, และคุณสมบัติเสริมเช่น เสียงหรือพฤติกรรมหลังการเคลื่อนไหว.
 
 ไทม์ไลน์ประกอบด้วยลำดับสองประเภท:
 
-- **ลำดับหลัก** ทำงานเมื่อสไลด์ก้าวหน้า
-- **ลำดับเชิงโต้ตอบ** เริ่มทำงานเมื่อคลิกที่รูปทรงตัวกระตุ้น
+- **ลำดับหลัก** เล่นเมื่อสไลด์ดำเนินต่อไป.
+- **ลำดับโต้ตอบ** เริ่มเมื่อรูปทรงตัวทำให้เริ่มถูกคลิก.
 
-เนื่องจากกล่องข้อความ, รูปภาพ, แผนภูมิ, ตารางและวัตถุสไลด์อื่น ๆ ปฏิบัติตาม [IShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/) คุณจึงใช้เมธอดเดียวกันคือ [ISequence::AddEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/isequence/addeffect/) สำหรับเนื้อหาสไลด์ส่วนใหญ่ เอฟเฟกต์ที่มีอยู่ได้ระบุไว้ในลำดับการ enumerated ของ [EffectType](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/effecttype/)
+เพราะกล่องข้อความ, รูปภาพ, แผนภูมิ, ตาราง, และวัตถุสไลด์อื่น ๆ ใช้งาน [IShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/), คุณจึงใช้เมธอดเดียวกัน [ISequence::AddEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/isequence/addeffect/) สำหรับเนื้อหาสไลด์ส่วนใหญ่ เอฟเฟ็กต์ที่ใช้ได้ถูกระบุใน enumeration [EffectType](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/effecttype/).
 
-## **เพิ่มการเคลื่อนไหวให้รูปทรง**
+## **เพิ่มการเคลื่อนไหวให้รูปร่าง**
 
-เพื่อเพิ่มการเคลื่อนไหว ให้ดึงลำดับหลักของสไลด์และเรียก [ISequence::AddEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/isequence/addeffect/) พร้อมรูปทรงเป้าหมาย, ประเภทเอฟเฟกต์, ชนิดย่อยและตัวกระตุ้น สำหรับเอฟเฟกต์ที่เริ่มเมื่อรูปทรงอื่นถูกคลิก ให้สร้างลำดับเชิงโต้ตอบที่ตัวกระตุ้นคือรูปทรงนั้น
+เพื่อเพิ่มการเคลื่อนไหว, ดึงลำดับหลักของสไลด์และเรียก [ISequence::AddEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/isequence/addeffect/) พร้อมกับรูปทรงเป้าหมาย, ประเภทเอฟเฟ็กต์, ชนิดย่อย, และตัวทำให้เริ่ม. สำหรับเอฟเฟ็กต์ที่เริ่มเมื่อรูปทรงอื่นถูกคลิก, สร้างลำดับโต้ตอบที่ตัวทำให้เริ่มคือรูปทรงนั้น.
 
-ตัวอย่างต่อไปนี้สร้างเอฟเฟกต์ทั้งสองประเภทและบันทึกผลลัพธ์เป็นไฟล์ `shape-animations.pptx`
+ตัวอย่างต่อไปนี้สร้างการเคลื่อนไหวทั้งสองแบบและบันทึกผลลัพธ์เป็น `shape-animations.pptx`.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -84,19 +86,19 @@ presentation->Save(u"shape-animations.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-ตัวกระตุ้นกำหนดว่าเอฟเฟกต์จะเริ่มเมื่อไร:
+ตัวทำให้เริ่มควบคุมว่าเอฟเฟ็กต์เริ่มเมื่อใด:
 
-- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/effecttriggertype/) รอการคลิกในลำดับหลักหรือการคลิกบนรูปทรงตัวกระตุ้นในลำดับเชิงโต้ตอบ
-- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/effecttriggertype/) เริ่มพร้อมกับเอฟเฟกต์ก่อนหน้า
-- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/effecttriggertype/) เริ่มเมื่อเอฟเฟกต์ก่อนหน้าสิ้นสุด
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/effecttriggertype/) รอการคลิกในลำดับหลัก, หรือการคลิกบนรูปทรงตัวทำให้เริ่มในลำดับโต้ตอบ.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/effecttriggertype/) เริ่มพร้อมกับเอฟเฟ็กต์ก่อนหน้า.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/effecttriggertype/) เริ่มเมื่อเอฟเฟ็กต์ก่อนหน้าจบลง.
 
-เพื่อทำให้รูปภาพ, แผนภูมิ หรือรูปทรงประเภทอื่นเคลื่อนไหว ให้ส่งออบเจกต์นั้นไปยัง [ISequence::AddEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/isequence/addeffect/) แทน `targetShape` สำหรับตัวเลือกการจัดกลุ่มเฉพาะแผนภูมิ ดูที่ [Animated Charts](/slides/th/cpp/animated-charts/)
+เพื่อให้รูปภาพ, แผนภูมิ, หรือรูปทรงประเภทอื่นเคลื่อนไหว, ส่งออบเจ็กต์นั้นไปยัง [ISequence::AddEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/isequence/addeffect/) แทน `targetShape`. สำหรับตัวเลือกการจัดกลุ่มเฉพาะแผนภูมิ, ดูที่ [Animated Charts](/slides/th/cpp/animated-charts/).
 
-## **อ่านการเคลื่อนไหวของรูปทรง**
+## **อ่านการเคลื่อนไหวของรูปร่าง**
 
-ใช้ [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) เมื่อคุณทราบรูปทรงเป้าหมาย เพื่อตรวจสอบทุกเอฟเฟกต์ ให้วนลูปผ่านลำดับหลักและทุกลำดับเชิงโต้ตอบ การวนลูปช่วยหลีกเลี่ยงการสันนิษฐานว่าลำดับมีเอฟเฟกต์ที่ตำแหน่ง `0`
+ใช้ [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) เมื่อคุณทราบรูปทรงเป้าหมาย. เพื่อตรวจสอบทุกเอฟเฟ็กต์, ให้ทำการวนลูปรายการของลำดับหลักและลำดับโต้ตอบทุกลำดับ. การวนลูปช่วยหลีกเลี่ยงการสันนิษฐานว่าลำดับมีเอฟเฟ็กต์ที่ตำแหน่งดัชนี `0`.
 
-ตัวอย่างต่อไปนี้สร้างรูปทรงพร้อมเอฟเฟกต์ลำดับหลักและเชิงโต้ตอบ, ดึงเอฟเฟกต์ที่เป้าหมายเป็นรูปทรงนั้น, แล้ววนลูปผ่านทุกลำดับบนสไลด์
+ตัวอย่างต่อไปนี้สร้างรูปร่างพร้อมเอฟเฟ็กต์ในลำดับหลักและลำดับโต้ตอบ, ดึงเอฟเฟ็กต์ที่เป้าหมายที่รูปร่างนั้น, แล้วจึงวนลูปรายการลำดับทั้งหมดบนสไลด์.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -165,21 +167,21 @@ for (const auto& sequence : slide->get_Timeline()->get_InteractiveSequences())
 presentation->Dispose();
 ```
 
-หากคุณต้องการเอฟเฟกต์สำหรับรูปทรงหนึ่งรูปเท่านั้น ให้ระบุตัวรูปทรงโดยชื่อ, ชนิด placeholder หรือคุณสมบัติคงที่อื่น ๆ; จากนั้นเรียก [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) อย่าอนุมานว่า [IShapeCollection::idx_get](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishapecollection/idx_get/) ที่ตำแหน่ง `0` จะเป็นออบเจกต์ที่ต้องการเสมอ
+หากคุณต้องการเอฟเฟ็กต์เพียงรูปร่างเดียว, ให้ระบุรูปร่างโดยชื่อ, ชนิด placeholder, หรือคุณสมบัติคงที่อื่น; จากนั้นเรียก [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/isequence/geteffectsbyshape/). อย่าสันนิษฐานว่า [IShapeCollection::idx_get](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishapecollection/idx_get/) ที่ตำแหน่งดัชนี `0` เป็นออบเจ็กต์ที่ต้องการเสมอ.
 
-## **ทำงานกับเอฟเฟกต์ Placeholder ที่สืบทอดมาจาก Layout หรือ Master**
+## **ทำงานกับเอฟเฟ็กต์ Placeholder ที่สืบทอด**
 
-Placeholder บนสไลด์ปกติสามารถสืบทอดพฤติกรรมการเคลื่อนไหวจาก placeholder ที่สอดคล้องบนสไลด์ Layout และ Master ได้ [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/getbaseplaceholder/) จะคืนค่า placeholder พื้นฐานนั้น, หรือ `nullptr` หากไม่มีพ่อแม่
+Placeholder บนสไลด์ปกติสามารถสืบทอดพฤติกรรมการเคลื่อนไหวจาก Placeholder ที่สอดคล้องบนสไลด์เลเอาต์และสไลด์มาสเตอร์ได้. [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/getbaseplaceholder/) จะคืนค่า Placeholder พาเรนต์นั้น, หรือ `nullptr` หากไม่มีพาเรนต์.
 
-ในงานนำเสนอในตัวอย่างต่อไป, ส่วนท้ายมี **Random Bars** บนสไลด์ปกติ, **Split** บนสไลด์ Layout, และ **Fly In** บนสไลด์ Master
+ในตัวอย่างการนำเสนอด้านล่าง, ส่วนท้ายมี **Random Bars** บนสไลด์ปกติ, **Split** บนสไลด์เลเอาต์, และ **Fly In** บนสไลด์มาสเตอร์.
 
-![ภาพเอฟเฟกต์การเคลื่อนไหวของส่วนท้ายบนสไลด์ปกติ](slide-shape-animation.png)
+![เอฟเฟ็กต์การเคลื่อนไหวของส่วนท้ายบนสไลด์ปกติ](slide-shape-animation.png)
 
-![ภาพเอฟเฟกต์การเคลื่อนไหวของ placeholder ส่วนท้ายบนสไลด์ Layout](layout-shape-animation.png)
+![เอฟเฟ็กต์การเคลื่อนไหวของ Placeholder ส่วนท้ายบนสไลด์เลเอาต์](layout-shape-animation.png)
 
-![ภาพเอฟเฟกต์การเคลื่อนไหวของ placeholder ส่วนท้ายบนสไลด์ Master](master-shape-animation.png)
+![เอฟเฟ็กต์การเคลื่อนไหวของ Placeholder ส่วนท้ายบนสไลด์มาสเตอร์](master-shape-animation.png)
 
-ตัวอย่างต่อไปนี้สร้างลำดับชั้นของ placeholder ด้วยตนเอง โดยเพิ่มเอฟเฟกต์ให้กับ placeholder ของ Master, placeholder ของ Layout, และ placeholder ที่สอดคล้องบนสไลด์ปกติ ทุกครั้งที่เรียก [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/getbaseplaceholder/) จะตรวจสอบค่ากลับก่อนนำมาใช้งาน
+ตัวอย่างต่อไปนี้สร้างลำดับขั้นของ placeholder ด้วยตนเอง. มันเพิ่มเอฟเฟ็กต์ให้กับ master placeholder, layout placeholder, และ placeholder ที่สอดคล้องบนสไลด์ปกติ. ทุกครั้งที่เรียก [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/getbaseplaceholder/) จะตรวจสอบก่อนใช้รูปทรงที่คืนค่า.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -264,19 +266,19 @@ presentation->Save(u"placeholder-animations.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **เปลี่ยนแปลงการตั้งค่าเวลาในการเคลื่อนไหว**
+## **เปลี่ยนการกำหนดเวลาแอนิเมชั่น**
 
-ไดอะล็อก **Timing** ของ PowerPoint จะแมพกับเมธอดของ [ITiming](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/)
+ไดอะล็อก **Timing** ของ PowerPoint ถูกแมปกับเมธอดของ [ITiming](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/).
 
-![ไดอะล็อก Timing ของ PowerPoint สำหรับเอฟเฟกต์การเคลื่อนไหว](shape-animation.png)
+![กล่องโต้ตอบ Timing ของ PowerPoint สำหรับเอฟเฟ็กต์การเคลื่อนไหว](shape-animation.png)
 
-- **Start** แมพกับ [ITiming::set_TriggerType](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_triggertype/)
-- **Duration** แมพกับ [ITiming::set_Duration](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_duration/) หน่วยเป็นวินาที
-- **Delay** แมพกับ [ITiming::set_TriggerDelayTime](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_triggerdelaytime/) หน่วยเป็นวินาที
-- **Repeat** แมพกับ [ITiming::set_RepeatCount](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_repeatcount/), [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) หรือ [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/)
-- **Rewind when done playing** แมพกับ [ITiming::set_Rewind](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_rewind/)
+- **Start** ถูกแมปกับ [ITiming::set_TriggerType](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_triggertype/).
+- **Duration** ถูกแมปกับ [ITiming::set_Duration](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_duration/), หน่วยเป็นวินาที.
+- **Delay** ถูกแมปกับ [ITiming::set_TriggerDelayTime](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_triggerdelaytime/), หน่วยเป็นวินาที.
+- **Repeat** ถูกแมปกับ [ITiming::set_RepeatCount](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_repeatcount/), [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/), หรือ [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/).
+- **Rewind when done playing** ถูกแมปกับ [ITiming::set_Rewind](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_rewind/).
 
-ตัวอย่างอิสระนี้เพิ่มเอฟเฟกต์, ปรับเวลาผ่านออบเจกต์ที่คืนจาก [ISequence::AddEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/isequence/addeffect/), แล้วบันทึกผลลัพธ์ การเก็บอ้างอิง [IEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/ieffect/) ที่คืนกลับช่วยหลีกเลี่ยงการอ้างอิงดัชนีคอลเลกชันที่ไม่จำเป็น
+ตัวอย่างอิสระนี้เพิ่มเอฟเฟ็กต์, เปลี่ยนการกำหนดเวลาผ่านออบเจ็กต์ที่คืนค่าจาก [ISequence::AddEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/isequence/addeffect/), และบันทึกผลลัพธ์. การเก็บอ้างอิงของ [IEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/ieffect/) ที่คืนค่าช่วยหลีกเลี่ยงการอ้างอิงดัชนีคอลเลกชันที่ไม่จำเป็น.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -318,15 +320,15 @@ presentation->Save(u"shape-animation-timing.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-ใช้โหมด repeat อย่างใดอย่างหนึ่งเท่านั้น การรวมจำนวน repeat กับแฟล็ก “until” อาจทำให้ผลลัพธ์สับสนในโปรแกรมดูต่าง ๆ เมื่อเปลี่ยนโหมด repeat ให้เรียก [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) และ [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) ก่อน [ITiming::set_RepeatCount](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_repeatcount/) เพราะการตั้งค่าแฟล็กใดแฟล็กหนึ่งจะทำให้โหมด repeat ที่ใช้งานเปลี่ยนไปด้วย
+ใช้โหมดการทำซ้ำหนึ่งแบบอย่างตั้งใจ. การผสมการทำซ้ำจำนวนกับแฟล็ก “until” อาจทำให้ผลลัพธ์สับสนในโปรแกรมชมต่าง ๆ. เมื่อเปลี่ยนโหมดการทำซ้ำ, เรียก [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) และ [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) ก่อน [ITiming::set_RepeatCount](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itiming/set_repeatcount/), เพราะการตั้งค่าใด ๆ จะเปลี่ยนโหมดการทำซ้ำที่ใช้งานอยู่.
 
-## **เพิ่มและสกัดเสียงเอฟเฟกต์การเคลื่อนไหว**
+## **เพิ่มและดึงเสียงของแอนิเมชัน**
 
-เอฟเฟกต์การเคลื่อนไหวสามารถอ้างอิงไฟล์เสียงที่ฝังไว้ผ่าน [IEffect::set_Sound](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/ieffect/set_sound/) [IEffect::set_StopPreviousSound](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/ieffect/set_stopprevioussound/) บอกให้เอฟเฟกต์หยุดเสียงที่เริ่มโดยเอฟเฟกต์ก่อนหน้า
+เอฟเฟ็กต์การเคลื่อนไหวสามารถอ้างอิงไฟล์เสียงที่ฝังไว้ผ่าน [IEffect::set_Sound](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/ieffect/set_sound/). [IEffect::set_StopPreviousSound](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/ieffect/set_stopprevioussound/) สั่งให้เอฟเฟ็กต์หยุดเสียงที่เริ่มโดยเอฟเฟ็กต์ก่อนหน้า.
 
-### **เพิ่มเสียงให้กับเอฟเฟกต์**
+### **เพิ่มเสียงให้กับเอฟเฟ็กต์**
 
-ตัวอย่างต่อไปนี้ต้องการไฟล์เสียงภายในที่ชื่อ `animation-sound.wav` สร้างเอฟเฟกต์สองตัว, ฝังไฟล์ดังกล่าวเป็นเสียงของเอฟเฟกต์แรก, และกำหนดให้เอฟเฟกต์ที่สองหยุดเสียง ใช้ออบเจกต์ที่คืนจาก [ISequence::AddEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/isequence/addeffect/) ดังนั้นไม่จำเป็นต้องระบุดัชนีของลำดับ
+ตัวอย่างต่อไปนี้คาดว่าไฟล์เสียงท้องถิ่นชื่อ `animation-sound.wav`. มันสร้างสองเอฟเฟ็กต์, ฝังไฟล์นั้นเป็นเสียงให้กับเอฟเฟ็กต์แรก, และกำหนดค่าเอฟเฟ็กต์ที่สองให้หยุดเสียง. ใช้ออบเจ็กต์ที่คืนค่าจาก [ISequence::AddEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/isequence/addeffect/), ดังนั้นไม่ต้องระบุดัชนีลำดับ.
 
 ```cpp
 #include <DOM/Animation/EffectSubtype.h>
@@ -373,9 +375,9 @@ presentation->Save(u"shape-animation-sound.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **สกัดเสียงเอฟเฟกต์ที่ฝังไว้**
+### **ดึงเสียงเอฟเฟ็กต์ที่ฝังไว้**
 
-ตัวอย่างต่อไปนี้ต้องการไฟล์งานนำเสนอชื่อ `presentation-with-animation-sounds.pptx` จะสแกนลำดับหลักและลำดับเชิงโต้ตอบทั้งหมดและเขียนเสียงเอฟเฟกต์ที่ฝังไว้ทุกไฟล์ไปยังโฟลเดอร์ `extracted-animation-sounds` ส่วนขยายไฟล์จะถูกเลือกตาม MIME type ของเสียงที่ให้โดย [IAudio::get_ContentType](https://reference.aspose.com/slides/th/cpp/aspose.slides/iaudio/get_contenttype/)
+ตัวอย่างต่อไปนี้คาดว่ามีการนำเสนอท้องถิ่นชื่อ `presentation-with-animation-sounds.pptx`. มันสแกนทั้งลำดับหลักและลำดับโต้ตอบและเขียนเสียงเอฟเฟ็กต์ที่ฝังไว้ทั้งหมดไปยังไดเรกทอรี `extracted-animation-sounds`. ส่วนขยายไฟล์จะถูกเลือกจาก MIME type ของเสียงที่ให้โดย [IAudio::get_ContentType](https://reference.aspose.com/slides/th/cpp/aspose.slides/iaudio/get_contenttype/).
 
 ```cpp
 #include <DOM/Animation/IEffect.h>
@@ -450,17 +452,17 @@ Console::WriteLine(String::Format(u"Extracted {0} sound file(s) to {1}.", soundI
 presentation->Dispose();
 ```
 
-สำหรับออบเจกต์เสียงขนาดใหญ่ ใช้ [IAudio::GetStream](https://reference.aspose.com/slides/th/cpp/aspose.slides/iaudio/getstream/) แล้วคัดลอกสตรีมไปยังไฟล์แทนการโหลดออบเจกต์ทั้งหมดเข้าสู่ byte array
+สำหรับออบเจ็กต์เสียงขนาดใหญ่, ใช้ [IAudio::GetStream](https://reference.aspose.com/slides/th/cpp/aspose.slides/iaudio/getstream/) แล้วคัดลอกสตรีมไปยังไฟล์แทนการโหลดออบเจ็กต์ทั้งหมดเข้าสู่อาเรย์ไบต์.
 
-## **ตั้งค่าการกระทำหลังการเคลื่อนไหว**
+## **ตั้งค่าพฤติกรรมหลังการเคลื่อนไหว**
 
-ตัวเลือก **After animation** ควบคุมว่าจะทำอะไรกับรูปทรงหลังจากเอฟเฟกต์สิ้นสุด
+ตัวเลือก **After animation** ควบคุมสิ่งที่จะเกิดขึ้นกับรูปร่างหลังจากเอฟเฟ็กต์เสร็จสิ้น.
 
-![ไดอะล็อก Options ของเอฟเฟกต์ PowerPoint แสดงการตั้งค่า After animation](shape-after-animation.png)
+![กล่องโต้ตอบตัวเลือกเอฟเฟ็กต์ของ PowerPoint แสดงการตั้งค่า After animation](shape-after-animation.png)
 
-ลำดับการ enumerated ของ [AfterAnimationType](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/afteranimationtype/) รองรับการคงรูปทรงเดิม, เปลี่ยนสี, ซ่อนหลังการเคลื่อนไหว, หรือซ่อนเมื่อคลิกครั้งถัดไป เมื่อชนิดเป็น [AfterAnimationType::Color](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/afteranimationtype/) ให้เรียก [IEffect::get_AfterAnimationColor](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/ieffect/get_afteranimationcolor/) เพื่อกำหนดสีด้วย
+enumeration [AfterAnimationType](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/afteranimationtype/) รองรับการปล่อยให้รูปร่างคงที่, เปลี่ยนสี, ซ่อนหลังการเคลื่อนไหว, หรือซ่อนเมื่อคลิกครั้งต่อไป. เมื่อประเภทเป็น [AfterAnimationType::Color](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/afteranimationtype/), เรียก [IEffect::get_AfterAnimationColor](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/ieffect/get_afteranimationcolor/) เพื่อกำหนดสีด้วย.
 
-ตัวอย่างอิสระนี้สร้างเอฟเฟกต์, ตั้งค่าพฤติกรรมหลังการเคลื่อนไหวผ่านออบเจกต์เอฟเฟกต์ที่คืนกลับ, แล้วบันทึกผลลัพธ์
+ตัวอย่างอิสระนี้สร้างเอฟเฟ็กต์, ตั้งค่าพฤติกรรมหลังการเคลื่อนไหวผ่านออบเจ็กต์เอฟเฟ็กต์ที่คืนค่า, และบันทึกผลลัพธ์.
 
 ```cpp
 #include <DOM/Animation/AfterAnimationType.h>
@@ -500,16 +502,16 @@ presentation->Save(u"shape-animation-after-effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-การเปลี่ยนชนิดจาก [AfterAnimationType::Color](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/afteranimationtype/) จะล้างการตั้งค่าสีหลังการเคลื่อนไหว
+การเปลี่ยนประเภทจาก [AfterAnimationType::Color](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/afteranimationtype/) จะลบการตั้งค่าสีหลังการเคลื่อนไหว.
 
 ## **เคลื่อนไหวข้อความ**
 
-การเคลื่อนไหวของข้อความมีสองการควบคุมที่เกี่ยวข้อง:
+การเคลื่อนไหวข้อความมีการควบคุมสองอย่างที่เกี่ยวข้อง:
 
-- [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itextanimation/set_buildtype/) กำหนดว่ากย paragrap​h จะปรากฏพร้อมกันหรือเป็นระดับย่อยของย paragrap​h
-- [IEffect::set_AnimateTextType](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) กำหนดว่าข้อความจะปรากฏทั้งหมดพร้อมกัน, ทีละคำ, หรือทีละตัวอักษร [IEffect::set_DelayBetweenTextParts](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) ตั้งค่าความล่าช้าระหว่างคำหรืออักษร ค่าบวกเป็นเปอร์เซ็นต์ของระยะเวลาของเอฟเฟกต์; ค่าลบเป็นหน่วยวินาที
+- [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itextanimation/set_buildtype/) ควบคุมว่าข้อความย่อหน้าปรากฏพร้อมกันหรือทีละย่อหน้า.
+- [IEffect::set_AnimateTextType](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) ควบคุมว่าข้อความปรากฏทั้งหมดพร้อมกัน, ทีละคำ, หรือทีละอักขระ. [IEffect::set_DelayBetweenTextParts](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) กำหนดความหน่วงระหว่างคำหรืออักขระ. ค่าบวกเป็นเปอร์เซ็นต์ของระยะเวลาเอฟเฟ็กต์; ค่าลบเป็นเวลาหน่วงวินาที.
 
-ตัวอย่างอิสระต่อไปนี้เคลื่อนไหวคำในกล่องข้อความ [BuildType::AsOneObject](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/buildtype/) ปิดการสร้างทีละย paragrap​h เพื่อให้การตั้งค่าคำนำไปใช้กับเฟรมข้อความทั้งหมด
+ตัวอย่างอิสระต่อไปนี้เคลื่อนไหวคำในกล่องข้อความ. [BuildType::AsOneObject](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/buildtype/) ปิดการสร้างทีละย่อหน้าเพื่อให้การตั้งค่าคำใช้กับกรอบข้อความทั้งหมด.
 
 ```cpp
 #include <DOM/Animation/AnimateTextType.h>
@@ -549,26 +551,26 @@ presentation->Save(u"animated-text.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-หากต้องการสร้างกล่องข้อความเป็นย paragrap​h ใช้ [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itextanimation/set_buildtype/) ร่วมกับ [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/buildtype/) หรือระดับย paragrap​h อื่น ๆ เพื่อกำหนดเอฟเฟกต์ให้กับย paragrap​h เดี่ยว ให้ใช้การ overload ของ [ISequence::AddEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/isequence/addeffect/) ที่รับ [IParagraph](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraph/) ดูที่ [Animated Text](/slides/th/cpp/animated-text/) สำหรับตัวอย่างระดับย paragrap​h
+เพื่อสร้างกล่องข้อความทีละย่อหน้า, ใช้ [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/itextanimation/set_buildtype/) พร้อม [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/buildtype/) หรือระดับย่อหน้าอื่น. เพื่อกำหนดเอฟเฟ็กต์ให้กับย่อหน้าเดียวที่มีเอฟเฟ็กต์ของตนเอง, ใช้ overload ของ [ISequence::AddEffect](https://reference.aspose.com/slides/th/cpp/aspose.slides.animation/isequence/addeffect/) ที่รับ [IParagraph](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraph/). ดูที่ [Animated Text](/slides/th/cpp/animated-text/) สำหรับตัวอย่างระดับย่อหน้า.
 
-## **การส่งออกและบันทึกหมายเหตุความเข้ากันได้**
+## **การส่งออกและหมายเหตุเรื่องความเข้ากันได้**
 
-- การบันทึกเป็น PPT หรือ PPTX จะคงโมเดลการเคลื่อนไหวไว้, แต่การเล่นจริงขึ้นอยู่กับโปรแกรมดูพรีเซนเทชัน
-- PDF และภาพนิ่งจะไม่เล่นการเคลื่อนไหว ใช้ [HTML5 export](/slides/th/cpp/export-to-html5/), GIF ที่เคลื่อนไหว, หรือ [video conversion](/slides/th/cpp/convert-powerpoint-to-video/) เมื่อผลลัพธ์ต้องแสดงการเคลื่อนไหว
-- สำหรับ HTML5 ให้เปิดใช้งาน [Html5Options::set_AnimateShapes](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/html5options/set_animateshapes/) และตามต้องการ [Html5Options::set_AnimateTransitions](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/html5options/set_animatetransitions/)
-- การเรนเดอร์วิดีโอรองรับเอฟเฟกต์การเข้ามา, เน้น, ออก, และเส้นทางการเคลื่อนที่หลายประเภท, แต่ไม่รองรับเอฟเฟกต์ PowerPoint ทุกอย่าง ตรวจสอบ [supported animations and effects](/slides/th/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) ปัจจุบันและทดสอบพรีเซนเทชันที่สำคัญกับรุ่น Aspose.Slides ที่คุณใช้
-- เอฟเฟกต์ที่กำหนดเองขั้นสูงและเอฟเฟกต์ที่นำเข้าจากรูปแบบพรีเซนเทชันอื่นอาจถูกเก็บไว้ในไฟล์แต่แสดงผลต่างกันใน PowerPoint, HTML5 หรือวิดีโอ ตรวจสอบผลการส่งออกแทนการอ้างอิงชื่อเอฟเฟกต์อย่างเดียว
+- การบันทึกเป็น PPT หรือ PPTX จะรักษาโมเดลแอนิเมชั่นไว้, แต่การเล่นสุดท้ายจะถูกควบคุมโดยโปรแกรมแสดงสไลด์.
+- PDF และภาพนิ่งไม่เล่นแอนิเมชั่น. ใช้ [HTML5 export](/slides/th/cpp/export-to-html5/), GIF เคลื่อนไหว, หรือ [video conversion](/slides/th/cpp/convert-powerpoint-to-video/) เมื่อผลลัพธ์ต้องแสดงการเคลื่อนไหว.
+- สำหรับ HTML5, เปิดใช้งาน [Html5Options::set_AnimateShapes](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/html5options/set_animateshapes/) และเมื่อต้องการ, [Html5Options::set_AnimateTransitions](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/html5options/set_animatetransitions/).
+- การเรนเดอร์วิดีโอสนับสนุนเอฟเฟ็กต์การเข้า, เน้น, ออก, และเส้นทางการเคลื่อนไหวทั่วไปหลายประเภท, แต่ไม่สนับสนุนเอฟเฟ็กต์ PowerPoint ทุกแบบ. ตรวจสอบ [supported animations and effects](/slides/th/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) ปัจจุบันและทดสอบการนำเสนอที่สำคัญกับเวอร์ชัน Aspose.Slides ที่คุณใช้.
+- เอฟเฟ็กต์กำหนดเองขั้นสูงและเอฟเฟ็กต์ที่นำเข้าจากรูปแบบการนำเสนออื่นอาจถูกเก็บไว้ในไฟล์แต่แสดงผลแตกต่างกันใน PowerPoint, HTML5, หรือวิดีโอ. ควรตรวจสอบผลลัพธ์ที่ส่งออกแทนการพึ่งพาชื่อเอฟเฟ็กต์อย่างเดียว.
 
 ## **คำถามที่พบบ่อย**
 
-**ทำไมการเคลื่อนไหวถึงแสดงใน PowerPoint แต่ไม่แสดงใน PDF?**
+**ทำไมแอนิเมชั่นจึงปรากฏใน PowerPoint แต่ไม่แสดงใน PDF?**
 
-PDF เป็นรูปแบบสถิตย์จึงไม่สนับสนุนการเคลื่อนไหวและการเปลี่ยนสไลด์ ให้ส่งออกเป็น HTML5, GIF ที่เคลื่อนไหว, หรือวิดีโอเมื่อจำเป็นต้องคงการเคลื่อนไหว
+PDF เป็นรูปแบบคงที่, ดังนั้นแอนิเมชั่นและการเปลี่ยนสไลด์ไม่ทำงาน. ให้ส่งออกเป็น HTML5, GIF เคลื่อนไหว, หรือวิดีโอเมื่อจำเป็นต้องคงการเคลื่อนไหว.
 
-**ทำไมเอฟเฟกต์จึงเล่นแตกต่างกันในวิดีโอ?**
+**ทำไมเอฟเฟ็กต์ถึงแสดงผลแตกต่างในวิดีโอ?**
 
-การส่งออกเป็นวิดีโอจะเรนเดอร์การเคลื่อนไหวแทนการเก็บพฤติกรรมดั้งเดิมของ PowerPoint บางเอฟเฟกต์ขั้นสูงอาจไม่ได้รับการสนับสนุนหรือถูกประมาณค่า ตรวจสอบตารางเอฟเฟกต์ที่สนับสนุนและทดสอบพรีเซนเทชันจริงก่อนการผลิต
+การส่งออกเป็นวิดีโอเรนเดอร์แอนิเมชั่นแทนการเก็บพฤติกรรมดั้งเดิมของ PowerPoint. เอฟเฟ็กต์ขั้นสูงบางอย่างอาจไม่รองรับหรือถูกประมาณค่า. ตรวจสอบตารางเอฟเฟ็กต์ที่รองรับและทดสอบการนำเสนอจริงก่อนใช้งานจริง.
 
-**การย้ายรูปทรงไปข้างหน้า หรือข้างหลัง มีผลต่อลำดับการเคลื่อนไหวหรือไม่?**
+**การย้ายรูปร่างไปข้างหน้าหรือถอยหลังทำให้ลำดับการเคลื่อนไหวเปลี่ยนหรือไม่?**
 
-ไม่มี ลำดับ z-order ของรูปทรงควบคุมการวางซ้อนกัน, ส่วนลำดับของลำดับและตัวกระตุ้นควบคุมการเล่นการเคลื่อนไหว ปรับไทม์ไลน์หากต้องการลำดับการเล่นที่ต่างออกไป
+ไม่. การจัดลำดับ z-order ของรูปร่างควบคุมการทับซ้อน, ส่วนลำดับของลำดับและตัวทำให้เริ่มควบคุมการเล่นแอนิเมชั่น. ให้เปลี่ยนไทม์ไลน์หากต้องการลำดับการเล่นที่ต่างออกไป.

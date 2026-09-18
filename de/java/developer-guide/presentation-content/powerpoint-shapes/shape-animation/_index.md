@@ -1,6 +1,6 @@
 ---
-title: "Shape-Animationen in Präsentationen mit Java anwenden"
-linktitle: "Formanimation"
+title: Shape-Animationen in Präsentationen mit Java anwenden
+linktitle: Shape-Animation
 type: docs
 weight: 60
 url: /de/java/shape-animation/
@@ -16,30 +16,32 @@ keywords:
 - Effekt hinzufügen
 - Effekt abrufen
 - Effekt extrahieren
-- Effektton
+- Effekt-Sound
 - Animation anwenden
 - PowerPoint
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Formanimationen, Timing, Sounds, Nach-Animations-Verhalten und animierten Text mit Aspose.Slides für Java hinzufügen, überprüfen und anpassen."
+description: "Erfahren Sie, wie Sie Shape-Animationen, zeitliche Einstellungen, Sounds, Nach-Animations-Verhalten und animierten Text mit Aspose.Slides für Java hinzufügen, überprüfen und anpassen."
 ---
 ## **Übersicht**
 
-Aspose.Slides für Java stellt Folienanimationen als Effekte in einer Folientimeline dar. Ein Effekt hat eine Zielform, einen Animationstyp und -untertyp, einen Auslöser, Zeiteinstellungen und optionale Eigenschaften wie Ton oder Verhalten nach der Animation.
+Um mit den einzelnen Verhaltensweisen innerhalb eines Effekts zu arbeiten oder Bewegungsbahnteile zu bearbeiten, siehe [Benutzerdefinierte Animation](/slides/de/java/custom-animation/).
 
-Die Timeline enthält zwei Arten von Sequenzen:
+Aspose.Slides for Java stellt Folienanimationen als Effekte in einer Folienzeitachse dar. Ein Effekt hat eine Zielform, einen Animationstyp und Untertyp, einen Auslöser, Zeiteinstellungen und optionale Eigenschaften wie Sound oder Verhalten nach der Animation.
+
+Die Zeitachse enthält zwei Arten von Sequenzen:
 
 - Die **Hauptsequenz** wird abgespielt, wenn die Folie fortschreitet.
-- Eine **interaktive Sequenz** startet, wenn ihre Auslöserform angeklickt wird.
+- Eine **interaktive Sequenz** startet, wenn ihre Auslöseform angeklickt wird.
 
-Da Textfelder, Bilder, Diagramme, Tabellen und andere Folienobjekte [IShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/) implementieren, verwenden Sie für die meisten Folieninhalte dieselbe [ISequence.addEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)‑Methode. Die verfügbaren Effekte sind in der Klasse [EffectType](https://reference.aspose.com/slides/de/java/com.aspose.slides/effecttype/) aufgelistet.
+Da Textfelder, Bilder, Diagramme, Tabellen und andere Folienobjekte [IShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/) implementieren, verwenden Sie für die meisten Folieninhalte dieselbe Methode [ISequence.addEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-). Die verfügbaren Effekte sind in der Klasse [EffectType](https://reference.aspose.com/slides/de/java/com.aspose.slides/effecttype/) aufgelistet.
 
-## **Formanimations hinzufügen**
+## **Formanimationen hinzufügen**
 
-Um eine Animation hinzuzufügen, holen Sie die Hauptsequenz der Folie und rufen [ISequence.addEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) mit der Zielform, dem Effekt‑Typ, Untertyp und Auslöser auf. Für einen Effekt, der startet, wenn eine andere Form angeklickt wird, erstellen Sie eine interaktive Sequenz, deren Auslöser diese andere Form ist.
+Um eine Animation hinzuzufügen, holen Sie die Hauptsequenz der Folie und rufen Sie [ISequence.addEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) mit der Zielform, dem EffektTyp, dem Untertyp und dem Auslöser auf. Für einen Effekt, der startet, wenn eine andere Form angeklickt wird, erstellen Sie eine interaktive Sequenz, deren Auslöser diese andere Form ist.
 
-Das folgende Beispiel erzeugt beide Animationsarten und speichert das Ergebnis in `shape-animations.pptx`.
+Das folgende Beispiel erstellt beide Animationsarten und speichert das Ergebnis in `shape-animations.pptx`.
 
 ```java
 import com.aspose.slides.*;
@@ -73,17 +75,17 @@ public class AddShapeAnimations {
 
 Der Auslöser bestimmt, wann ein Effekt startet:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/de/java/com.aspose.slides/effecttriggertype/#OnClick) wartet in der Hauptsequenz auf einen Klick oder in einer interaktiven Sequenz auf einen Klick auf die Auslöserform.
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/de/java/com.aspose.slides/effecttriggertype/#WithPrevious) startet zusammen mit dem vorhergehenden Effekt.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/de/java/com.aspose.slides/effecttriggertype/#AfterPrevious) startet, wenn der vorhergehende Effekt endet.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/de/java/com.aspose.slides/effecttriggertype/#OnClick) wartet auf einen Klick in der Hauptsequenz oder auf einen Klick auf die Auslöserform in einer interaktiven Sequenz.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/de/java/com.aspose.slides/effecttriggertype/#WithPrevious) startet zusammen mit dem vorherigen Effekt.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/de/java/com.aspose.slides/effecttriggertype/#AfterPrevious) startet, wenn der vorherige Effekt beendet ist.
 
-Um ein Bild, Diagramm oder einen anderen Formtyp zu animieren, übergeben Sie dieses Objekt an [ISequence.addEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) anstelle von `targetShape`. Für diagrammspezifische Gruppierungsoptionen siehe [Animated Charts](/slides/de/java/animated-charts/).
+Um ein Bild, Diagramm oder einen anderen Formtyp zu animieren, übergeben Sie dieses Objekt an [ISequence.addEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) anstelle von `targetShape`. Für diagrammspezifische Gruppierungsoptionen siehe [Animierte Diagramme](/slides/de/java/animated-charts/).
 
 ## **Formanimationen lesen**
 
-Verwenden Sie [ISequence.getEffectsByShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-), wenn Sie die Zielform kennen. Um jeden Effekt zu untersuchen, enumerieren Sie die Hauptsequenz und jede interaktive Sequenz. Die Enumeration vermeidet die Annahme, dass eine Sequenz an Index `0` einen Effekt enthält.
+Verwenden Sie [ISequence.getEffectsByShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-), wenn Sie die Zielform kennen. Um jeden Effekt zu untersuchen, enumerieren Sie die Hauptsequenz und jede interaktive Sequenz. Durch Enumerierung wird vermieden, anzunehmen, dass eine Sequenz einen Effekt am Index `0` enthält.
 
-Das folgende Beispiel erstellt eine Form mit Haupt‑ und Interaktionseffekten, ermittelt die Effekte, die die Form ansprechen, und enumeriert anschließend jede Sequenz auf der Folie.
+Das folgende Beispiel erstellt eine Form mit Hauptsequenz‑ und interaktiven Effekten, ermittelt die Effekte, die die Form anvisieren, und enumeriert anschließend jede Sequenz auf der Folie.
 
 ```java
 import com.aspose.slides.*;
@@ -137,21 +139,21 @@ public class ReadShapeAnimations {
 }
 ```
 
-Wenn Sie nur die Effekte für eine Form benötigen, identifizieren Sie die Form zunächst nach Name, Platzhaltertyp oder einer anderen stabilen Eigenschaft; rufen Sie dann [ISequence.getEffectsByShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) auf. Gehen Sie nicht davon aus, dass [IShapeCollection.get_Item](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishapecollection/#get_Item-int-) an Index `0` immer das beabsichtigte Objekt ist.
+Wenn Sie nur die Effekte für eine Form benötigen, ermitteln Sie zunächst die Form anhand ihres Namens, des Platzhaltertyps oder einer anderen stabilen Eigenschaft; rufen Sie dann [ISequence.getEffectsByShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) auf. Gehen Sie nicht davon aus, dass [IShapeCollection.get_Item](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishapecollection/#get_Item-int-) am Index `0` immer das gewünschte Objekt ist.
 
-## **Arbeiten mit geerbten Platzhaltereffekten**
+## **Arbeiten mit vererbten Platzhaltereffekten**
 
-Ein Platzhalter auf einer normalen Folie kann das Animationsverhalten vom entsprechenden Platzhalter auf seiner Layout‑ und Masterfolie erben. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/#getBasePlaceholder--) gibt diesen übergeordneten Platzhalter zurück oder `null`, wenn kein übergeordnetes Element existiert.
+Ein Platzhalter auf einer normalen Folie kann das Animationsverhalten vom entsprechenden Platzhalter auf seiner Layout‑Folie und Master‑Folie erben. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/#getBasePlaceholder--) gibt diesen übergeordneten Platzhalter zurück oder `null`, wenn kein Elternteil existiert.
 
-Im folgenden Beispiel‑Präsentation hat die Fußzeile **Random Bars** auf der normalen Folie, **Split** auf der Layout‑Folie und **Fly In** auf der Master‑Folie.
+In der folgenden Beispielpräsentation hat die Fußzeile **Random Bars** auf der normalen Folie, **Split** auf der Layout‑Folie und **Fly In** auf der Master‑Folie.
 
-![Footer-Animationseffekt auf der normalen Folie](slide-shape-animation.png)
+![Fußzeilen‑Animationseffekt auf der normalen Folie](slide-shape-animation.png)
 
-![Footer-Platzhalter‑Animationseffekt auf der Layout‑Folie](layout-shape-animation.png)
+![Fußzeilen‑Platzhalter‑Animationseffekt auf der Layout‑Folie](layout-shape-animation.png)
 
-![Footer-Platzhalter‑Animationseffekt auf der Master‑Folie](master-shape-animation.png)
+![Fußzeilen‑Platzhalter‑Animationseffekt auf der Master‑Folie](master-shape-animation.png)
 
-Das nächste Beispiel verwendet eine Platzhalterhierarchie aus einer neuen Präsentation. Es fügt Effekte zu einem Master‑Platzhalter, einem Layout‑Platzhalter und dem entsprechenden Platzhalter auf einer normalen Folie hinzu. Jeder Aufruf von [IShape.getBasePlaceholder](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/#getBasePlaceholder--) wird geprüft, bevor die zurückgegebene Form verwendet wird.
+Das nächste Beispiel verwendet eine Platzhalterhierarchie aus einer neuen Präsentation. Es fügt Effekte zu einem Master‑Platzhalter, einem Layout‑Platzhalter und dem entsprechenden Platzhalter auf einer normalen Folie hinzu. Jeder Aufruf von [IShape.getBasePlaceholder](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/#getBasePlaceholder--) wird überprüft, bevor die zurückgegebene Form verwendet wird.
 
 ```java
 import com.aspose.slides.*;
@@ -236,12 +238,12 @@ Der PowerPoint‑**Timing**‑Dialog entspricht den Eigenschaften von [ITiming](
 ![PowerPoint‑Timing‑Dialog für einen Animationseffekt](shape-animation.png)
 
 - **Start** entspricht [ITiming.getTriggerType](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#getTriggerType--).
-- **Duration** entspricht [ITiming.getDuration](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#getDuration--), in Sekunden.
-- **Delay** entspricht [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#getTriggerDelayTime--), in Sekunden.
-- **Repeat** entspricht [ITiming.getRepeatCount](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#getRepeatUntilNextClick--), oder [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
-- **Rewind when done playing** entspricht [ITiming.getRewind](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#getRewind--).
+- **Dauer** entspricht [ITiming.getDuration](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#getDuration--), in Sekunden.
+- **Verzögerung** entspricht [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#getTriggerDelayTime--), in Sekunden.
+- **Wiederholung** entspricht [ITiming.getRepeatCount](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#getRepeatUntilNextClick--), oder [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
+- **Zurückspulen nach dem Abspielen** entspricht [ITiming.getRewind](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#getRewind--).
 
-Dieses eigenständige Beispiel fügt einen Effekt hinzu, ändert dessen Timing über das von [ISequence.addEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) zurückgegebene Objekt und speichert das Ergebnis. Das Behalten der zurückgegebenen [IEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/ieffect/)‑Referenz vermeidet einen unnötigen Sammlungs‑Index.
+Dieses eigenständige Beispiel fügt einen Effekt hinzu, ändert dessen Timing über das von [ISequence.addEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) zurückgegebene Objekt und speichert das Ergebnis. Das Beibehalten der zurückgegebenen [IEffect]-Referenz vermeidet einen unnötigen Sammlungs‑Index.
 
 ```java
 import com.aspose.slides.*;
@@ -271,13 +273,13 @@ public class ChangeAnimationTiming {
 }
 ```
 
-Verwenden Sie bewusst nur einen Wiederholungsmodus. Die Kombination eines Wiederholungszählers mit einem „bis“-Flag kann in verschiedenen Viewer‑Programmen verwirrende Ergebnisse erzeugen. Beim Ändern der Wiederholungsmodi setzen Sie zuerst [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) und [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) und dann [ITiming.setRepeatCount](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#setRepeatCount-float-), da das Setzen eines Flags ebenfalls den aktiven Wiederholungsmodus ändert.
+Verwenden Sie bewusst einen Wiederholungsmodus. Das Kombinieren einer Wiederholungsanzahl mit einem "until"‑Flag kann in verschiedenen Betrachtern verwirrende Ergebnisse erzeugen. Beim Ändern der Wiederholungsmodi setzen Sie [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) und [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) vor [ITiming.setRepeatCount](https://reference.aspose.com/slides/de/java/com.aspose.slides/itiming/#setRepeatCount-float-), da das Setzen eines der Flags ebenfalls den aktiven Wiederholungsmodus ändert.
 
-## **Animationssounds hinzufügen und extrahieren**
+## **Animations‑Sounds hinzufügen und extrahieren**
 
-Ein Animationseffekt kann eingebetteten Audio‑Content über [IEffect.getSound](https://reference.aspose.com/slides/de/java/com.aspose.slides/ieffect/#getSound--) referenzieren. [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/de/java/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) weist einen Effekt an, Audio zu stoppen, das von einem früheren Effekt gestartet wurde.
+Ein Animationseffekt kann über [IEffect.getSound](https://reference.aspose.com/slides/de/java/com.aspose.slides/ieffect/#getSound--) eingebettete Audiodateien referenzieren. [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/de/java/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) weist einen Effekt an, Audio zu stoppen, das von einem früheren Effekt gestartet wurde.
 
-### **Einem Effekt einen Sound hinzufügen**
+### **Sound zu einem Effekt hinzufügen**
 
 Das folgende Beispiel erwartet eine lokale Audiodatei namens `animation-sound.wav`. Es erstellt zwei Effekte, bettet diese Datei als Sound für den ersten Effekt ein und konfiguriert den zweiten Effekt so, dass er den Sound stoppt. Es verwendet die von [ISequence.addEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) zurückgegebenen Objekte, sodass kein Sequenz‑Index erforderlich ist.
 
@@ -316,7 +318,7 @@ public class AddAnimationSound {
 
 ### **Eingebettete Effekt‑Sounds extrahieren**
 
-Das folgende Beispiel erwartet eine lokale Präsentation namens `presentation-with-animation-sounds.pptx`. Es durchsucht sowohl Haupt‑ als auch Interaktionssequenzen und schreibt jeden eingebetteten Effekt‑Sound in das Verzeichnis `extracted-animation-sounds`. Die Dateierweiterung wird aus dem Audio‑MIME‑Typ ermittelt, der von [IAudio.getContentType](https://reference.aspose.com/slides/de/java/com.aspose.slides/iaudio/#getContentType--) bereitgestellt wird.
+Das folgende Beispiel erwartet eine lokale Präsentation namens `presentation-with-animation-sounds.pptx`. Es durchsucht sowohl Haupt‑ als auch interaktive Sequenzen und schreibt jeden eingebetteten Effekt‑Sound in das Verzeichnis `extracted-animation-sounds`. Die Erweiterung wird aus dem Audio‑MIME‑Typ, der von [IAudio.getContentType](https://reference.aspose.com/slides/de/java/com.aspose.slides/iaudio/#getContentType--) bereitgestellt wird, ausgewählt.
 
 ```java
 import com.aspose.slides.*;
@@ -390,17 +392,17 @@ public class ExtractAnimationSounds {
 }
 ```
 
-Für große Audio‑Objekte verwenden Sie [IAudio.getStream](https://reference.aspose.com/slides/de/java/com.aspose.slides/iaudio/#getStream--) und kopieren den Stream in eine Datei, anstatt das gesamte Objekt in ein Byte‑Array zu laden.
+Für große Audioobjekte verwenden Sie [IAudio.getStream](https://reference.aspose.com/slides/de/java/com.aspose.slides/iaudio/#getStream--) und kopieren den Stream in eine Datei, anstatt das gesamte Objekt in ein Byte‑Array zu laden.
 
-## **Nach‑Animationsverhalten festlegen**
+## **Nach‑Animations‑Verhalten festlegen**
 
-Die Option **After animation** bestimmt, was mit einer Form geschieht, nachdem ihr Effekt beendet ist.
+Die Option **After animation** steuert, was mit einer Form geschieht, nachdem ihr Effekt beendet ist.
 
-![PowerPoint‑Effekt‑Optionen‑Dialog zeigt After‑Animation‑Einstellungen](shape-after-animation.png)
+![PowerPoint‑Effektoptionen‑Dialog mit After‑Animation‑Einstellungen](shape-after-animation.png)
 
-Die Klasse [AfterAnimationType](https://reference.aspose.com/slides/de/java/com.aspose.slides/afteranimationtype/) unterstützt das Beibehalten der Form, das Ändern ihrer Farbe, das Ausblenden nach der Animation oder das Ausblenden beim nächsten Klick. Wenn der Typ [AfterAnimationType.Color](https://reference.aspose.com/slides/de/java/com.aspose.slides/afteranimationtype/#Color) ist, setzen Sie zusätzlich [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/de/java/com.aspose.slides/ieffect/#getAfterAnimationColor--).
+Die Klasse [AfterAnimationType](https://reference.aspose.com/slides/de/java/com.aspose.slides/afteranimationtype/) unterstützt das Belassen der Form unverändert, das Ändern ihrer Farbe, das Ausblenden nach der Animation oder das Ausblenden beim nächsten Klick. Wenn der Typ [AfterAnimationType.Color](https://reference.aspose.com/slides/de/java/com.aspose.slides/afteranimationtype/#Color) ist, setzen Sie zusätzlich [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/de/java/com.aspose.slides/ieffect/#getAfterAnimationColor--).
 
-Dieses eigenständige Beispiel erstellt einen Effekt, legt dessen Nach‑Animationsverhalten über das zurückgegebene Effekt‑Objekt fest und speichert das Ergebnis.
+Dieses eigenständige Beispiel erstellt einen Effekt, setzt sein Nach‑Animations‑Verhalten über das zurückgegebene Effektobjekt und speichert das Ergebnis.
 
 ```java
 import com.aspose.slides.*;
@@ -426,16 +428,16 @@ public class SetAfterAnimationBehavior {
 }
 ```
 
-Das Ändern des Typs von [AfterAnimationType.Color](https://reference.aspose.com/slides/de/java/com.aspose.slides/afteranimationtype/#Color) entfernt die Einstellung für die Nach‑Animationsfarbe.
+Das Ändern des Typs von [AfterAnimationType.Color] löscht die Nach‑Animations‑Farbeinstellung.
 
 ## **Text animieren**
 
-Bei der Textanimation gibt es zwei zusammengehörige Steuerungen:
+Die Textanimation hat zwei zusammenhängende Steuerungen:
 
-- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextanimation/#getBuildType--) bestimmt, ob Absätze gemeinsam oder absatzweise erscheinen.
-- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/de/java/com.aspose.slides/ieffect/#getAnimateTextType--) bestimmt, ob Text auf einmal, Wort‑ für Wort oder Buchstabe‑ für Buchstabe erscheint. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/de/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) legt die Verzögerung zwischen Wörtern oder Buchstaben fest. Ein positiver Wert ist ein Prozentsatz der Effekt‑Dauer; ein negativer Wert ist eine Verzögerung in Sekunden.
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/de/java/com.aspose.slides/itextanimation/#getBuildType--) steuert, ob Absätze zusammen oder nach Absatz‑Ebene erscheinen.
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/de/java/com.aspose.slides/ieffect/#getAnimateTextType--) steuert, ob Text auf einmal, nach Wort oder nach Buchstabe erscheint. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/de/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) legt die Verzögerung zwischen Worten oder Buchstaben fest. Ein positiver Wert ist ein Prozentsatz der Effektdauer; ein negativer Wert ist eine Verzögerung in Sekunden.
 
-Das folgende eigenständige Beispiel animiert die Wörter in einem Textfeld. [BuildType.AsOneObject](https://reference.aspose.com/slides/de/java/com.aspose.slides/buildtype/#AsOneObject) deaktiviert das Absatzzusammenbauen, sodass die Wort‑Einstellung auf den gesamten Textrahmen angewendet wird.
+Das folgende eigenständige Beispiel animiert die Wörter in einem Textfeld. [BuildType.AsOneObject](https://reference.aspose.com/slides/de/java/com.aspose.slides/buildtype/#AsOneObject) deaktiviert das Absatz‑für‑Absatz‑Aufbauen, sodass die Wort‑Einstellung auf den gesamten Textbereich angewendet wird.
 
 ```java
 import com.aspose.slides.*;
@@ -461,26 +463,26 @@ public class AnimateTextByWord {
 }
 ```
 
-Um ein Textfeld absatzweise aufzubauen, setzen Sie [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/de/java/com.aspose.slides/buildtype/#ByLevelParagraphs1) (oder ein anderes Absatz‑Level). Um einen einzelnen Absatz mit eigenem Effekt zu versehen, verwenden Sie die Überladung von [ISequence.addEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) , die ein [IParagraph](https://reference.aspose.com/slides/de/java/com.aspose.slides/iparagraph/) akzeptiert. Siehe [Animated Text](/slides/de/java/animated-text/) für Beispiele auf Absatz‑Ebene.
+Um ein Textfeld nach Absatz zu bauen, setzen Sie [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/de/java/com.aspose.slides/buildtype/#ByLevelParagraphs1) (oder einen anderen Absatz‑Level). Um einen einzelnen Absatz mit einem eigenen Effekt zu versehen, verwenden Sie die [ISequence.addEffect]-Überladung, die ein [IParagraph] akzeptiert. Siehe [Animierter Text](/slides/de/java/animated-text/) für Absatz‑Beispiele.
 
 ## **Export‑ und Kompatibilitäts‑Hinweise**
 
-- Das Speichern als PPT oder PPTX bewahrt das Animationsmodell, aber die endgültige Wiedergabe wird vom Präsentations‑Viewer gesteuert.
-- PDF und statische Bilder spielen keine Animationen ab. Verwenden Sie den [HTML5‑Export](/slides/de/java/export-to-html5/), animierte GIFs oder die [Video‑Konvertierung](/slides/de/java/convert-powerpoint-to-video/), wenn die Ausgabe Bewegung zeigen muss.
-- Für HTML5 aktivieren Sie [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/de/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) und bei Bedarf [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/de/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
-- Die Video‑Renderung unterstützt viele gängige Eingangs‑, Betonungs‑, Ausgangs‑ und Bewegungspfad‑Effekte, aber nicht jeder PowerPoint‑Effekt wird unterstützt. Prüfen Sie die aktuelle [unterstützten Animationen und Effekte](/slides/de/java/convert-powerpoint-to-video/#supported-animations-and-effects) und testen Sie kritische Präsentationen mit Ihrer Ziel‑Aspose.Slides‑Version.
-- Erweiterte benutzerdefinierte Effekte und aus anderen Präsentationsformaten importierte Effekte können in der Datei erhalten bleiben, werden jedoch in PowerPoint, HTML5 oder Video unterschiedlich gerendert. Validieren Sie das exportierte Ergebnis, anstatt sich ausschließlich auf den Effekt‑Namen zu verlassen.
+- Das Speichern in PPT oder PPTX bewahrt das Animationsmodell, aber die endgültige Wiedergabe wird vom Präsentations‑Betrachter gesteuert.
+- PDF und statische Bilder spielen keine Animationen ab. Verwenden Sie [HTML5 export](/slides/de/java/export-to-html5/), animierte GIFs oder [video conversion](/slides/de/java/convert-powerpoint-to-video/), wenn die Ausgabe Bewegung zeigen muss.
+- Für HTML5 aktivieren Sie [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/de/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) und, falls nötig, [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/de/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
+- Die Video‑Renderung unterstützt viele gängige Eingangs‑, Hervorhebungs‑, Ausgangs‑ und Bewegungs‑Pfad‑Effekte, aber nicht jeder PowerPoint‑Effekt wird unterstützt. Prüfen Sie die aktuelle [supported animations and effects](/slides/de/java/convert-powerpoint-to-video/#supported-animations-and-effects) und testen Sie kritische Präsentationen mit Ihrer Ziel‑Aspose.Slides‑Version.
+- Erweiterte benutzerdefinierte Effekte und aus anderen Präsentationsformaten importierte Effekte können in der Datei erhalten bleiben, werden jedoch in PowerPoint, HTML5 oder Video unterschiedlich dargestellt. Validieren Sie das exportierte Ergebnis, anstatt sich ausschließlich auf den Effektnamen zu verlassen.
 
 ## **FAQ**
 
-**Warum wird eine Animation in PowerPoint angezeigt, aber nicht in einem PDF?**
+**Warum erscheint eine Animation in PowerPoint, aber nicht in einem PDF?**
 
-PDF ist ein statisches Format, sodass Animationen und Folienübergänge nicht abgespielt werden. Exportieren Sie zu HTML5, animiertem GIF oder Video, wenn Bewegung erhalten bleiben muss.
+PDF ist ein statisches Format, daher werden Animationen und Folienübergänge nicht abgespielt. Exportieren Sie zu HTML5, animierten GIFs oder Video, wenn Bewegung erhalten bleiben muss.
 
 **Warum wird ein Effekt in einem Video anders abgespielt?**
 
-Der Video‑Export rendert Animationen, anstatt das ursprüngliche PowerPoint‑Verhalten zu speichern. Einige erweiterte Effekte werden nicht unterstützt oder nur approximiert. Prüfen Sie die Tabelle der unterstützten Effekte und testen Sie die eigentliche Präsentation vor der Produktion.
+Der Video‑Export rendert Animationen, anstatt das ursprüngliche PowerPoint‑Verhalten zu speichern. Einige fortgeschrittene Effekte werden nicht unterstützt oder nur angenähert. Überprüfen Sie die Tabelle der unterstützten Effekte und testen Sie die tatsächliche Präsentation vor dem produktiven Einsatz.
 
-**Ändert das Vor‑ oder Zurück‑Bewegen einer Form ihre Animationsreihenfolge?**
+**Ändert das Vorwärts‑ oder Rückwärtsverschieben einer Form ihre Animationsreihenfolge?**
 
-Nein. Die Z‑Reihenfolge der Form steuert die Überlappung, während die Sequenz‑Reihenfolge und Auslöser die Wiedergabe der Animation bestimmen. Ändern Sie die Timeline, wenn Sie eine andere Wiedergabereihenfolge benötigen.
+Nein. Die Z‑Reihenfolge einer Form steuert die Überlagerung, während die Sequenz‑Reihenfolge und die Auslöser die Animations‑Wiedergabe bestimmen. Ändern Sie die Zeitleiste, wenn Sie eine andere Wiedergabereihenfolge benötigen.

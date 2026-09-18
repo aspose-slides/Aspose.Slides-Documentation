@@ -15,95 +15,99 @@ keywords:
 - animasi PowerPoint
 - garis waktu animasi
 - animasi interaktif
-- animasi khusus
+- animasi kustom
 - animasi bentuk
-- diagram beranimasi
+- grafik beranimasi
 - teks beranimasi
 - bentuk beranimasi
-- OLE object beranimasi
+- objek OLE beranimasi
 - gambar beranimasi
 - tabel beranimasi
 - PowerPoint
 - presentasi
 - C++
 - Aspose.Slides
-description: "Pelajari cara menambahkan dan mengendalikan efek animasi lanjutan di Aspose.Slides untuk C++ untuk membuat presentasi PowerPoint dan OpenDocument yang dinamis."
+description: "Pelajari cara menambahkan dan mengendalikan efek animasi lanjutan di Aspose.Slides untuk C++ guna membuat presentasi PowerPoint dan OpenDocument yang dinamis."
 ---
 ## **Pendahuluan**
 
-Karena presentasi dimaksudkan untuk menyajikan sesuatu, penampilan visual dan perilaku interaktifnya selalu dipertimbangkan saat membuatnya.
+Karena presentasi dimaksudkan untuk menyajikan sesuatu, penampilan visual dan perilaku interaktifnya selalu dipertimbangkan selama pembuatan.
 
-**Animasi PowerPoint** berperan penting untuk membuat presentasi menarik dan memikat bagi penonton. Aspose.Slides for C++ menawarkan beragam pilihan untuk menambah animasi pada presentasi PowerPoint:
+**Animasi PowerPoint** berperan penting dalam membuat presentasi menarik perhatian dan melibatkan penonton. Aspose.Slides menyediakan berbagai pilihan untuk menambahkan animasi ke presentasi PowerPoint:
 
-- menerapkan berbagai jenis efek animasi PowerPoint pada **shape**, grafik, tabel, OLE Object, dan elemen presentasi lainnya.  
-- menggunakan beberapa efek animasi PowerPoint pada satu shape.  
-- menggunakan timeline animasi untuk mengendalikan efek animasi.  
-- membuat animasi khusus.
+- Terapkan berbagai jenis efek animasi PowerPoint pada bentuk, grafik, tabel, objek OLE, dan elemen presentasi lainnya.
+- Gunakan beberapa efek animasi PowerPoint pada satu bentuk.
+- Manfaatkan garis waktu animasi untuk mengontrol efek animasi.
+- Buat animasi khusus.
 
-Di Aspose.Slides for C++, berbagai efek animasi dapat diterapkan pada **shape**. Karena setiap elemen pada slide termasuk teks, gambar, OLE Object, tabel, dll dianggap sebagai **shape**, berarti kita dapat menerapkan efek animasi pada setiap elemen slide.
+Di Aspose.Slides, berbagai efek animasi dapat diterapkan pada bentuk. Karena setiap elemen pada slide, termasuk teks, gambar, objek OLE, dan tabel, dianggap sebagai bentuk, efek animasi dapat diterapkan pada elemen apa pun di slide.
 
-[**Aspose.Slides.Animation**](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides.animation) **namespace** menyediakan kelas‑kelas untuk bekerja dengan animasi PowerPoint.
+Namespace [Aspose::Slides::Animation](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/) menyediakan kelas untuk bekerja dengan animasi PowerPoint.
 
 ## **Efek Animasi**
-Aspose.Slides mendukung **lebih dari 150 efek animasi**, termasuk efek animasi dasar seperti Bounce, PathFootball, Zoom, serta efek animasi khusus seperti OLEObjectShow, OLEObjectOpen. Daftar lengkap efek animasi dapat dilihat pada enumerasi [**EffectType**](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31).
 
-Selain itu, efek‑efek animasi ini dapat dikombinasikan dengan:
+Aspose.Slides mendukung **lebih dari 150 efek animasi**, termasuk efek dasar seperti Bounce, PathFootball, dan Zoom, serta efek khusus seperti OLEObjectShow dan OLEObjectOpen. Anda dapat menemukan daftar lengkapnya di enumerasi [EffectType](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/effecttype/).
+
+Selain itu, efek animasi ini dapat digunakan bersama dengan perilaku berikut:
 
 - [ColorEffect](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/coloreffect/)
-- [CommandEffect](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.command_effect)
-- [FilterEffect](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.filter_effect)
-- [MotionEffect](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.motion_effect)
-- [PropertyEffect](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.property_effect)
-- [RotationEffect](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.rotation_effect)
-- [ScaleEffect](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.scale_effect)
-- [SetEffect](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.set_effect)
+- [CommandEffect](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/commandeffect/)
+- [FilterEffect](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/filtereffect/)
+- [MotionEffect](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/motioneffect/)
+- [PropertyEffect](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/propertyeffect/)
+- [RotationEffect](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/rotationeffect/)
+- [ScaleEffect](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/scaleeffect/)
+- [SetEffect](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/seteffect/)
 
-## **Animasi Khusus**
-Anda dapat membuat **animasi khusus** sendiri di Aspose.Slides. Hal ini dapat dicapai dengan menggabungkan beberapa perilaku menjadi satu animasi khusus baru.
+## **Animasi Kustom**
 
-[**Behavior**](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.behavior) adalah unit penyusun setiap efek animasi PowerPoint. Semua efek animasi pada dasarnya merupakan kumpulan perilaku yang digabungkan menjadi satu strategi. Anda dapat menggabungkan perilaku menjadi animasi khusus **sekali** dan menggunakannya kembali di presentasi lain. Jika Anda menambahkan perilaku baru ke efek animasi PowerPoint standar, itu akan menjadi animasi khusus lain. Misalnya, Anda dapat menambahkan perilaku pengulangan ke sebuah animasi agar animasi tersebut berjalan beberapa kali.
+Untuk contoh lengkap C++ yang membuat, memeriksa, dan memodifikasi perilaku serta jalur gerak yang dapat diedit, lihat [Custom Animation](/slides/id/cpp/custom-animation/).
 
-[**Animation Point**](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.point) adalah titik di mana perilaku harus diterapkan.
+Dimungkinkan untuk membuat **animasi kustom** Anda sendiri di Aspose.Slides. Hal ini dapat dicapai dengan menggabungkan beberapa perilaku menjadi animasi kustom baru.
+
+[Behavior](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/behavior/) adalah blok bangunan dari efek animasi PowerPoint. Gabungkan perilaku untuk menyesuaikan sebuah efek, atau tambahkan perilaku untuk memperluas efek yang sudah ditentukan. Pengulangan dikonfigurasi melalui pengaturan waktu bukan melalui perilaku ulang terpisah.
+
+[Animation Point](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/point/) adalah titik dimana sebuah perilaku harus diterapkan.
 
 ## **Garis Waktu Animasi**
-[**Sequence**](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.sequence) merupakan kumpulan efek animasi yang diterapkan pada sebuah **shape** tertentu.
+[Sequence](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/sequence/) adalah kumpulan efek animasi yang dapat menargetkan bentuk yang berbeda.
 
-[**AnimationTimeLine**](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.animation_time_line) adalah kumpulan **Sequence** yang digunakan pada sebuah slide tertentu. Ini merupakan mesin animasi yang diperkenalkan sejak PowerPoint 2002. Pada versi PowerPoint sebelumnya, menambahkan efek animasi ke presentasi cukup menantang dan hanya dapat dilakukan dengan berbagai solusi paksa. Timeline menggantikan kelas **AnimationSettings** lama dan menyediakan model objek yang lebih jelas untuk animasi PowerPoint. Satu slide hanya dapat memiliki **satu** garis waktu animasi.
+[IAnimationTimeLine](https://reference.aspose.com/slides/id/cpp/aspose.slides/ianimationtimeline/) adalah sekumpulan urutan yang digunakan pada slide tertentu. Ini adalah mesin animasi yang diperkenalkan di PowerPoint 2002. Pada versi PowerPoint sebelumnya, menambahkan efek animasi ke presentasi cukup sulit dan hanya dapat dicapai dengan berbagai solusi alternatif. Timeline memberikan model objek yang lebih jelas untuk animasi PowerPoint. Sebuah slide hanya dapat memiliki satu timeline animasi.
 
 ## **Animasi Interaktif**
-[**EffectTriggerType**](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides.animation#add24fb49dd44eb3227aeeb3641fd2e81) memungkinkan mendefinisikan aksi pengguna (misalnya klik tombol) yang akan memulai animasi tertentu. Pemicu hanya ditambahkan pada versi PowerPoint terbaru.
+[Trigger](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/effecttriggertype/) memungkinkan Anda mendefinisikan aksi pengguna, seperti klik tombol, yang memulai animasi tertentu.
 
-## **Animasi Shape**
-Aspose.Slides memungkinkan menerapkan animasi pada **shape**, yang dapat berupa teks, persegi panjang, garis, bingkai, OLE Object, dll.
+## **Animasi Bentuk**
+Aspose.Slides memungkinkan Anda menerapkan animasi pada bentuk, yang dapat mencakup teks, persegi panjang, garis, kerangka, objek OLE, dan lainnya.
 
-{{% alert color="primary" %}} 
-Baca lebih lanjut [**Tentang Animasi Shape**](/slides/id/cpp/shape-animation/).
+{{% alert color="info" title="Note" %}}
+Baca selengkapnya [**Tentang Animasi Bentuk**](/slides/id/cpp/shape-animation/).
 {{% /alert %}}
 
 ## **Diagram Beranimasi**
-Untuk membuat diagram beranimasi, Anda harus menggunakan kelas‑kelas yang sama seperti untuk **shape**. Namun, animasi PowerPoint hanya dapat diterapkan pada kategori diagram atau seri diagram. Anda juga dapat menerapkan efek animasi pada elemen kategori atau elemen seri.
+Untuk membuat diagram beranimasi, Anda harus menggunakan kelas yang sama seperti untuk bentuk. Namun, animasi PowerPoint hanya dapat diterapkan pada kategori diagram atau seri diagram. Anda juga dapat menerapkan efek animasi pada elemen kategori atau elemen seri.
 
-{{% alert color="primary" %}} 
-Baca lebih lanjut [**Tentang Diagram Beranimasi**](/slides/id/cpp/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Baca selengkapnya [**Tentang Diagram Beranimasi**](/slides/id/cpp/animated-charts/).
 {{% /alert %}}
 
 ## **Teks Beranimasi**
-Selain teks beranimasi, Anda juga dapat menerapkan animasi pada sebuah paragraf.
+Selain menganimasikan teks, Anda dapat menerapkan animasi pada sebuah paragraf.
 
-{{% alert color="primary" %}} 
-Baca lebih lanjut [**Tentang Teks Beranimasi**](/slides/id/cpp/animated-text/).
+{{% alert color="info" title="Note" %}}
+Baca selengkapnya [**Tentang Teks Beranimasi**](/slides/id/cpp/animated-text/).
 {{% /alert %}}
 
 ## **FAQ**
 
-**Apakah animasi akan tetap ada saat mengekspor ke PDF?**
+**Apakah animasi akan dipertahankan saat mengekspor ke PDF?**
 
-Tidak. PDF adalah format statis, sehingga animasi dan [transisi slide](/slides/id/cpp/slide-transition/) tidak diputar. Jika Anda memerlukan gerakan, ekspor ke [HTML5](/slides/id/cpp/export-to-html5/), [GIF beranimasi](/slides/id/cpp/convert-powerpoint-to-animated-gif/), atau [video](/slides/id/cpp/convert-powerpoint-to-video/) sebagai gantinya.
+Tidak. PDF adalah format statis, sehingga animasi dan [slide transitions](/slides/id/cpp/slide-transition/) tidak diputar. Jika Anda memerlukan gerakan, ekspor ke [HTML5](/slides/id/cpp/export-to-html5/), [animated GIF](/slides/id/cpp/convert-powerpoint-to-animated-gif/), atau [video](/slides/id/cpp/convert-powerpoint-to-video/) sebagai gantinya.
 
-**Bisakah saya mengubah presentasi beranimasi menjadi video dan mengatur kecepatan frame serta ukuran frame?**
+**Bisakah saya mengubah presentasi beranimasi menjadi video dan mengontrol kecepatan frame serta ukuran frame?**
 
-Ya. Anda dapat [menyajikan presentasi sebagai frame](/slides/id/cpp/convert-powerpoint-to-video/) dan mengenkodenya menjadi video (misalnya menggunakan ffmpeg), dengan memilih FPS dan resolusi. Animasi serta transisi slide diputar selama proses rendering.
+Ya. Anda dapat [render presentasi sebagai frame](/slides/id/cpp/convert-powerpoint-to-video/) dan mengenkodenya menjadi video (misalnya via ffmpeg), memilih FPS dan resolusi. Animasi dan transisi slide diputar selama proses rendering.
 
 **Apakah animasi tetap utuh saat bekerja dengan ODP (bukan hanya PPTX)?**
 
-PPT, PPTX, dan ODP didukung untuk [pembacaan](/slides/id/cpp/open-presentation/) dan [penulisan](/slides/id/cpp/save-presentation/), tetapi perbedaan format berarti beberapa efek mungkin terlihat atau berperilaku sedikit berbeda. Validasi kasus kritis dengan sampel nyata.
+PPT, PPTX, dan ODP didukung untuk [reading](/slides/id/cpp/open-presentation/) dan [writing](/slides/id/cpp/save-presentation/), namun ini tidak menjamin preservasi animasi. Data animasi kustom dapat hilang saat mengonversi ke ODP. Lihat [Custom Animation](/slides/id/cpp/custom-animation/) untuk contoh dan panduan memeriksa kompatibilitas format.

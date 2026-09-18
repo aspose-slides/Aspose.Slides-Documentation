@@ -1,5 +1,5 @@
 ---
-title: Εφαρμογή κινήσεων σχήματος στις παρουσιάσεις χρησιμοποιώντας PHP
+title: Εφαρμογή Κινήσεων Σχημάτων σε Παρουσιάσεις με χρήση PHP
 linktitle: Κίνηση Σχήματος
 type: docs
 weight: 60
@@ -22,24 +22,26 @@ keywords:
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε, ελέγχετε και προσαρμόζετε κινήσεις σχήματος, χρονικά, ήχους, συμπεριφορά μετά την κίνηση και κινούμενο κείμενο με το Aspose.Slides για PHP μέσω Java."
+description: "Μάθετε πώς να προσθέτετε, να επιθεωρείτε και να προσαρμόζετε κινήσεις σχημάτων, χρονισμό, ήχους, συμπεριφορά μετά την κίνηση, και κείμενο με κίνηση με το Aspose.Slides for PHP μέσω Java."
 ---
 ## **Επισκόπηση**
 
-Aspose.Slides for PHP via Java αντιπροσωπεύει τις κινήσεις των διαφανειών ως εφέ σε μια χρονογραμμή διαφάνειας. Ένα εφέ έχει ένα σχήμα-στόχο, έναν τύπο και υποτύπο κίνησης, ένα σκανδάμη, ρυθμίσεις χρόνου και προαιρετικές ιδιότητες όπως ήχος ή συμπεριφορά μετά την κίνηση.
+Για να εργαστείτε με τις μεμονωμένες συμπεριφορές εντός ενός εφέ ή να επεξεργαστείτε τμήματα διαδρομής κίνησης, δείτε [Custom Animation](/slides/el/php-java/custom-animation/).
 
-Η χρονογραμμή περιέχει δύο είδη ακολουθιών:
+Aspose.Slides for PHP μέσω Java αντιπροσωπεύει τις κινήσεις των διαφανειών ως εφέ σε χρονοδιάγραμμα διαφάνειας. Ένα εφέ έχει ένα σχήμα‑στόχο, έναν τύπο και υπό‑τύπο κίνησης, έναν ενεργοποιητή, ρυθμίσεις χρονισμού και προαιρετικές ιδιότητες όπως ήχο ή συμπεριφορά μετά το εφέ.
 
-- Η **κύρια ακολουθία** παίζει καθώς προχωρά η διαφάνεια.
-- Μια **διαδραστική ακολουθία** ξεκινά όταν κλικάρετε το σχήμα‑σκανδάμη.
+Το χρονοδιάγραμμα περιέχει δύο είδη ακολουθιών:
 
-Καθώς τα πλαίσια κειμένου, οι εικόνες, τα γραφήματα, οι πίνακες και άλλα αντικείμενα διαφάνειας είναι σχήματα, χρησιμοποιείτε την ίδια μέθοδο [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/) για το περισσότερο περιεχόμενο της διαφάνειας. Τα διαθέσιμα εφέ εμφανίζονται στην κλάση [EffectType](https://reference.aspose.com/slides/el/php-java/aspose.slides/effecttype/).
+- Η **κύρια ακολουθία** εκτελείται καθώς προχωρά η διαφάνεια.
+- Μια **διαδραστική ακολουθία** ξεκινά όταν το σχήμα‑ενεργοποιητής της κλικάρεται.
 
-## **Προσθήκη Κινήσεων Σχήματος**
+Επειδή τα πλαίσια κειμένου, οι εικόνες, τα διαγράμματα, οι πίνακες και άλλα αντικείμενα διαφάνειας είναι σχήματα, χρησιμοποιείτε την ίδια μέθοδο [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/) για τα περισσότερα περιεχόμενα διαφάνειας. Τα διαθέσιμα εφέ παρατίθενται στην κλάση [EffectType](https://reference.aspose.com/slides/el/php-java/aspose.slides/effecttype/).
 
-Για να προσθέσετε μια κίνηση, πάρτε την κύρια ακολουθία της διαφάνειας και καλέστε [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/) με το σχήμα‑στόχο, τον τύπο εφέ, τον υποτύπο και το σκανδάμη. Για εφέ που ξεκινά όταν κλικάρεται ένα άλλο σχήμα, δημιουργήστε μια διαδραστική ακολουθία του οποίου το σκανδάμι είναι αυτό το άλλο σχήμα.
+## **Προσθήκη Κινήσεων Σχημάτων**
 
-Το παρακάτω παράδειγμα δημιουργεί και τις δύο μορφές κίνησης και αποθηκεύει το αποτέλεσμα στο `shape-animations.pptx`.
+Για να προσθέσετε μια κίνηση, αποκτήστε την κύρια ακολουθία της διαφάνειας και καλέστε [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/) με το σχήμα‑στόχο, τον τύπο εφέ, τον υπό‑τύπο και τον ενεργοποιητή. Για ένα εφέ που ξεκινά όταν κλικάρεται ένα άλλο σχήμα, δημιουργήστε μια διαδραστική ακολουθία του οποίου ο ενεργοποιητής είναι το εν λόγω σχήμα.
+
+Το παρακάτω παράδειγμα δημιουργεί και τους δύο τύπους κίνησης και αποθηκεύει το αποτέλεσμα στο `shape-animations.pptx`.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -72,19 +74,19 @@ try {
 }
 ```
 
-Το σκανδάμι καθορίζει πότε ένα εφέ αρχίζει:
+Ο ενεργοποιητής ελέγχει πότε ένα εφέ ξεκινά:
 
-- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/effecttriggertype/) περιμένει κλικ στην κύρια ακολουθία ή κλικ στο σχήμα‑σκανδάμι σε διαδραστική ακολουθία.
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/effecttriggertype/) περιμένει κλικ στην κύρια ακολουθία ή κλικ στο σχήμα‑ενεργοποιητή σε μια διαδραστική ακολουθία.
 - [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/el/php-java/aspose.slides/effecttriggertype/) ξεκινά με το προηγούμενο εφέ.
-- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/el/php-java/aspose.slides/effecttriggertype/) ξεκινά όταν το προηγούμενο εφέ ολοκληρωθεί.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/el/php-java/aspose.slides/effecttriggertype/) ξεκινά όταν ολοκληρωθεί το προηγούμενο εφέ.
 
-Για να κινήσετε μια εικόνα, ένα γράφημα ή άλλο τύπο σχήματος, περάστε το αντικείμενο αυτό στο [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/) αντί για `$targetShape`. Για επιλογές ομαδοποίησης ειδικές για γραφήματα, δείτε [Animated Charts](/slides/el/php-java/animated-charts/).
+Για να κινήσετε μια εικόνα, ένα διάγραμμα ή άλλο τύπο σχήματος, περάστε εκείνο το αντικείμενο στη μέθοδο [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/) αντί για `$targetShape`. Για επιλογές ομαδοποίησης ειδικές για διαγράμματα, δείτε [Animated Charts](/slides/el/php-java/animated-charts/).
 
-## **Ανάγνωση Κινήσεων Σχήματος**
+## **Ανάγνωση Κινήσεων Σχημάτων**
 
-Χρησιμοποιήστε το [Sequence::getEffectsByShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/geteffectsbyshape/) όταν γνωρίζετε το σχήμα‑στόχο. Για να ελέγξετε κάθε εφέ, επαναλάβετε τη κύρια ακολουθία και κάθε διαδραστική ακολουθία. Η επανάληψη αποφεύγει την υπόθεση ότι μια ακολουθία περιέχει εφέ στη θέση `0`.
+Χρησιμοποιήστε τη μέθοδο [Sequence::getEffectsByShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/geteffectsbyshape/) όταν γνωρίζετε το σχήμα‑στόχο. Για να επιθεωρήσετε κάθε εφέ, απαριθμήστε την κύρια ακολουθία και κάθε διαδραστική ακολουθία. Η απαρίθμηση αποτρέπει την υπόθεση ότι μια ακολουθία περιέχει εφέ στη θέση `0`.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα με εφέ κύριας και διαδραστικής ακολουθίας, λαμβάνει τα εφέ που στοχεύουν το σχήμα και, στη συνέχεια, επαναλαμβάνει κάθε ακολουθία στη διαφάνεια.
+Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα με εφέ κύριας και διαδραστικής ακολουθίας, παίρνει τα εφέ που στοχεύουν το σχήμα και κατόπιν απαριθμεί κάθε ακολουθία στη διαφάνεια.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -144,21 +146,21 @@ try {
 }
 ```
 
-Αν χρειάζεστε μόνο τα εφέ για ένα σχήμα, πρώτα εντοπίστε το σχήμα κατά όνομα, τύπο υποκαρτέλας ή άλλη σταθερή ιδιότητα· έπειτα καλέστε [Sequence::getEffectsByShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/geteffectsbyshape/). Μην υποθέτετε ότι το [ShapeCollection::get_Item](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/get_item/) στη θέση `0` είναι πάντα το επιθυμητό αντικείμενο.
+Αν χρειάζεστε μόνο τα εφέ για ένα σχήμα, πρώτα προσδιορίστε το σχήμα με το όνομα, τον τύπο του συμπληρώματος ή κάποια άλλη σταθερή ιδιότητα· στη συνέχεια καλέστε τη μέθοδο [Sequence::getEffectsByShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/geteffectsbyshape/). Μην υποθέτετε ότι το [ShapeCollection::get_Item](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/get_item/) στη θέση `0` είναι πάντα το επιθυμητό αντικείμενο.
 
-## **Εργασία με Κληρονομημένες Επιδράσεις Συμπλήρωσης**
+## **Εργασία με Κληρονομημένα Εφέ Συμπληρωμάτων**
 
-Μια υποκαρτέλα σε κανονική διαφάνεια μπορεί να κληρονομήσει τη συμπεριφορά κίνησης από την αντίστοιχη υποκαρτέλα στη διαφάνεια διάταξης και στη διαφάνεια προτύπου. Η μέθοδος [Shape::getBasePlaceholder](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getbaseplaceholder/) επιστρέφει αυτήν την γονική υποκαρτέλα, ή `null` όταν δεν υπάρχει γονέας.
+Ένα συμπλήρωμα σε μια κανονική διαφάνεια μπορεί να κληρονομήσει τη συμπεριφορά κίνησης από το αντίστοιχο συμπλήρωμα στη διάταξη και στο κύριο πρότυπο. Η μέθοδος [Shape::getBasePlaceholder](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getbaseplaceholder/) επιστρέφει εκείνο το γονικό συμπλήρωμα, ή `null` όταν δεν υπάρχει γονέας.
 
-Στην παρουσίαση του παραδείγματος, το υποσέλιδο έχει **Random Bars** στη κανονική διαφάνεια, **Split** στη διαφάνεια διάταξης και **Fly In** στη διαφάνεια προτύπου.
+Στην παρακάτω παρουσίαση παραδείγματος, το υποσέλιδο έχει **Random Bars** στην κανονική διαφάνεια, **Split** στη διαφάνεια διάταξης και **Fly In** στη κύρια διαφάνεια.
 
-![Εφέ κίνησης υποσέλιδου στη κανονική διαφάνεια](slide-shape-animation.png)
+![Εφέ κίνησης υποσέλιδου στην κανονική διαφάνεια](slide-shape-animation.png)
 
-![Εφέ κίνησης υποσέλιδου στη διαφάνεια διάταξης](layout-shape-animation.png)
+![Εφέ κίνησης συμπληρώματος υποσέλιδου στη διαφάνεια διάταξης](layout-shape-animation.png)
 
-![Εφέ κίνησης υποσέλιδου στη διαφάνεια προτύπου](master-shape-animation.png)
+![Εφέ κίνησης συμπληρώματος υποσέλιδου στη κύρια διαφάνεια](master-shape-animation.png)
 
-Το επόμενο παράδειγμα χρησιμοποιεί μια ιεραρχία υποκαρτελών από νέα παρουσίαση. Προσθέτει εφέ σε μια υποκαρτέλα προτύπου, μια υποκαρτέλα διάταξης και την αντίστοιχη υποκαρτέλα σε κανονική διαφάνεια. Κάθε κλήση στο [Shape::getBasePlaceholder](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getbaseplaceholder/) ελέγχεται πριν χρησιμοποιηθεί το επιστρεφόμενο σχήμα.
+Το επόμενο παράδειγμα χρησιμοποιεί μια ιεραρχία συμπληρωμάτων από μια νέα παρουσίαση. Προσθέτει εφέ σε ένα κύριο συμπλήρωμα, ένα συμπλήρωμα διάταξης και το αντίστοιχο συμπλήρωμα σε μια κανονική διαφάνεια. Κάθε κλήση στη μέθοδο [Shape::getBasePlaceholder](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getbaseplaceholder/) ελέγχεται πριν χρησιμοποιηθεί το επιστρεφόμενο σχήμα.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -248,17 +250,17 @@ try {
 
 ## **Αλλαγή Χρονισμού Κίνησης**
 
-Ο διάλογος **Timing** του PowerPoint αντιστοιχεί στις ιδιότητες του [Timing](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/).
+Ο διάλογος **Timing** του PowerPoint αντιστοιχεί στις ιδιότητες της κλάσης [Timing](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/).
 
-![Διάλογος Timing του PowerPoint για εφέ κίνησης](shape-animation.png)
+![Διάλογος χρονισμού PowerPoint για ένα εφέ κίνησης](shape-animation.png)
 
-- **Start** αντιστοιχεί στο [Timing::getTriggerType](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/gettriggertype/).
-- **Duration** αντιστοιχεί στο [Timing::getDuration](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/getduration/), σε δευτερόλεπτα.
-- **Delay** αντιστοιχεί στο [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/gettriggerdelaytime/), σε δευτερόλεπτα.
-- **Repeat** αντιστοιχεί στο [Timing::getRepeatCount](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/getrepeatuntilnextclick/), ή [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/getrepeatuntilendslide/).
-- **Rewind when done playing** αντιστοιχεί στο [Timing::getRewind](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/getrewind/).
+- **Έναρξη** αντιστοιχεί στο [Timing::getTriggerType](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/gettriggertype/).
+- **Διάρκεια** αντιστοιχεί στο [Timing::getDuration](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/getduration/), σε δευτερόλεπτα.
+- **Καθυστέρηση** αντιστοιχεί στο [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/gettriggerdelaytime/), σε δευτερόλεπτα.
+- **Επανάληψη** αντιστοιχεί στο [Timing::getRepeatCount](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/getrepeatcount/), στο [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/getrepeatuntilnextclick/) ή στο [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/getrepeatuntilendslide/).
+- **Επαναφορά όταν ολοκληρωθεί η αναπαραγόμενη** αντιστοιχεί στο [Timing::getRewind](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/getrewind/).
 
-Αυτό το ανεξάρτητο παράδειγμα προσθέτει ένα εφέ, αλλάζει το χρόνο του μέσω του αντικειμένου που επιστρέφει το [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/), και αποθηκεύει το αποτέλεσμα. Η διατήρηση της αναφοράς στο επιστρεφόμενο [Effect](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/) αποτρέπει την άσκοπη πρόσβαση σε δείκτη συλλογής.
+Αυτό το ανεξάρτητο παράδειγμα προσθέτει ένα εφέ, αλλάζει τον χρονισμό του μέσω του αντικειμένου που επιστρέφει η μέθοδος [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/), και αποθηκεύει το αποτέλεσμα. Η διατήρηση της επιστρεφόμενης αναφοράς [Effect](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/) αποφεύγει έναν περιττό δείκτη συλλογής.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -289,15 +291,15 @@ try {
 }
 ```
 
-Χρησιμοποιήστε έναν τρόπο επανάληψης σκόπιμα. Ο συνδυασμός μετρήματος επανάληψης με μια σημαία «until» μπορεί να δημιουργήσει συγκεχυμένα αποτελέσματα σε διαφορετικούς προβολείς. Όταν αλλάζετε τρόπους επανάληψης, ορίστε πρώτα [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/setrepeatuntilnextclick/) και [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/setrepeatuntilendslide/) πριν από το [Timing::setRepeatCount](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/setrepeatcount/), επειδή ο ορισμός οποιασδήποτε από τις δύο σημαίες αλλάζει επίσης τη δραστήρια λειτουργία επανάληψης.
+Χρησιμοποιήστε έναν τρόπο επανάληψης σκόπιμα. Ο συνδυασμός μετρητή επανάληψης με σημαία «μέχρι» μπορεί να δημιουργήσει συγκεχυμένα αποτελέσματα σε διαφορετικούς προγράμματα προβολής. Όταν αλλάζετε τρόπους επανάληψης, ορίστε πρώτα το [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/setrepeatuntilnextclick/) και το [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/setrepeatuntilendslide/), πριν καλέσετε το [Timing::setRepeatCount](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/setrepeatcount/), επειδή η ρύθμιση οποιασδήποτε σημαίας αλλάζει επίσης τη δραστήρια λειτουργία επανάληψης.
 
 ## **Προσθήκη και Εξαγωγή Ήχων Κίνησης**
 
-Ένα εφέ κίνησης μπορεί να αναφέρεται σε ενσωματωμένο ήχο μέσω του [Effect::getSound](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/getsound/). Η μέθοδος [Effect::setStopPreviousSound](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/setstopprevioussound/) υποδεικνύει σε ένα εφέ να σταματήσει ήχο που είχε ξεκινήσει ένα προηγούμενο εφέ.
+Ένα εφέ κίνησης μπορεί να αναφέρεται σε ενσωματωμένο ήχο μέσω του [Effect::getSound](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/getsound/). Η μέθοδος [Effect::setStopPreviousSound](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/setstopprevioussound/) λέει σε ένα εφέ να σταματήσει ήχο που είχε ξεκινήσει ένα προηγούμενο εφέ.
 
 ### **Προσθήκη Ήχου σε Εφέ**
 
-Το παρακάτω παράδειγμα αναμένει ένα τοπικό αρχείο ήχου με όνομα `animation-sound.wav`. Δημιουργεί δύο εφέ, ενσωματώνει το αρχείο ως ήχο για το πρώτο εφέ και ρυθμίζει το δεύτερο εφέ να σταματά τον ήχο. Χρησιμοποιεί τα αντικείμενα που επιστρέφει το [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/), έτσι δεν απαιτείται δείκτης ακολουθίας.
+Το παρακάτω παράδειγμα υποθέτει την ύπαρξη τοπικού αρχείου ήχου με όνομα `animation-sound.wav`. Δημιουργεί δύο εφέ, ενσωματώνει το αρχείο ως ήχο για το πρώτο εφέ και ρυθμίζει το δεύτερο εφέ ώστε να σταματά τον ήχο. Χρησιμοποιεί τα αντικείμενα που επιστρέφονται από το [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/), οπότε δεν απαιτείται δείκτης ακολουθίας.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -336,7 +338,7 @@ try {
 
 ### **Εξαγωγή Ενσωματωμένων Ήχων Εφέ**
 
-Το παρακάτω παράδειγμα απαιτεί μια τοπική παρουσίαση με όνομα `presentation-with-animation-sounds.pptx`. Σαρώνει τόσο τις κύριες όσο και τις διαδραστικές ακολουθίες και γράφει κάθε ενσωματωμένο ήχο εφέ στον κατάλογο `extracted-animation-sounds`. Η επέκταση επιλέγεται από τον τύπο MIME ήχου που παρέχει το [Audio::getContentType](https://reference.aspose.com/slides/el/php-java/aspose.slides/audio/getcontenttype/).
+Το παρακάτω παράδειγμα υποθέτει την ύπαρξη τοπικής παρουσίασης με όνομα `presentation-with-animation-sounds.pptx`. Σαρώνει τόσο την κύρια όσο και τη διαδραστική ακολουθία και γράφει κάθε ενσωματωμένο ήχο εφέ στον φάκελο `extracted-animation-sounds`. Η επέκταση επιλέγεται από τον τύπο MIME του ήχου που εκτίθεται από το [Audio::getContentType](https://reference.aspose.com/slides/el/php-java/aspose.slides/audio/getcontenttype/).
 
 ```php
 use aspose\slides\Presentation;
@@ -420,17 +422,17 @@ try {
 }
 ```
 
-Για μεγάλα αντικείμενα ήχου, χρησιμοποιήστε το [Audio::getStream](https://reference.aspose.com/slides/el/php-java/aspose.slides/audio/getstream/) και αντιγράψτε τη ροή σε αρχείο αντί να φορτώσετε ολόκληρο το αντικείμενο σε πίνακα byte.
+Για μεγάλα αντικείμενα ήχου, χρησιμοποιήστε το [Audio::getStream](https://reference.aspose.com/slides/el/php-java/aspose.slides/audio/getstream/) και αντιγράψτε τη ροή σε αρχείο αντί να φορτώσετε ολόκληρο το αντικείμενο σε έναν πίνακα bytes.
 
-## **Ορισμός Συμπεριφοράς Μετά την Κίνηση**
+## **Ορισμός Συμπεριφοράς Μετά το Εφέ**
 
-Η επιλογή **After animation** ελέγχει τι συμβαίνει με ένα σχήμα μετά το τέλος του εφέ του.
+Η επιλογή **After animation** ελέγχει τι συμβαίνει με ένα σχήμα μετά το τέλος του εφέ.
 
-![Διάλογος Επιλογών Εφέ του PowerPoint που εμφανίζει ρυθμίσεις After animation](shape-after-animation.png)
+![Διάλογος επιλογών εφέ PowerPoint που εμφανίζει τις ρυθμίσεις μετά το εφέ](shape-after-animation.png)
 
-Η κλάση [AfterAnimationType](https://reference.aspose.com/slides/el/php-java/aspose.slides/afteranimationtype/) υποστηρίζει το να αφήνετε το σχήμα αμετάβλητο, να αλλάζετε το χρώμα του, να το κρύβετε μετά την κίνηση ή να το κρύβετε στο επόμενο κλικ. Όταν ο τύπος είναι [AfterAnimationType::Color](https://reference.aspose.com/slides/el/php-java/aspose.slides/afteranimationtype/), ορίστε επίσης το [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/getafteranimationcolor/).
+Η κλάση [AfterAnimationType](https://reference.aspose.com/slides/el/php-java/aspose.slides/afteranimationtype/) υποστηρίζει το να αφήνεται το σχήμα αμετάβλητο, να αλλάζει το χρώμα του, να κρύβεται μετά το εφέ ή να κρύβεται στο επόμενο κλικ. Όταν ο τύπος είναι [AfterAnimationType::Color](https://reference.aspose.com/slides/el/php-java/aspose.slides/afteranimationtype/), ορίστε επίσης το [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/getafteranimationcolor/).
 
-Αυτό το ανεξάρτητο παράδειγμα δημιουργεί ένα εφέ, ορίζει τη συμπεριφορά του μετά την κίνηση μέσω του αντικειμένου εφέ που επιστρέφεται, και αποθηκεύει το αποτέλεσμα.
+Αυτό το ανεξάρτητο παράδειγμα δημιουργεί ένα εφέ, ορίζει τη συμπεριφορά μετά το εφέ μέσω του επιστρεφόμενου αντικειμένου εφέ και αποθηκεύει το αποτέλεσμα.
 
 ```php
 use aspose\slides\AfterAnimationType;
@@ -457,16 +459,16 @@ try {
 }
 ```
 
-Αλλάζοντας τον τύπο από το [AfterAnimationType::Color](https://reference.aspose.com/slides/el/php-java/aspose.slides/afteranimationtype/) διαγράφει τη ρύθμιση χρώματος μετά την κίνηση.
+Η αλλαγή του τύπου από το [AfterAnimationType::Color](https://reference.aspose.com/slides/el/php-java/aspose.slides/afteranimationtype/) διαγράφει τη ρύθμιση χρώματος μετά το εφέ.
 
-## **Κίνηση Κειμένου**
+## **Κινούμενο Κείμενο**
 
-Η κίνηση κειμένου διαθέτει δύο σχετικούς ελέγχους:
+Η κίνηση κειμένου έχει δύο σχετιζόμενους ελέγχους:
 
-- Το [TextAnimation::getBuildType](https://reference.aspose.com/slides/el/php-java/aspose.slides/textanimation/getbuildtype/) ελέγχει αν οι παράγραφοι εμφανίζονται μαζί ή κατά επίπεδο παραγράφου.
-- Το [Effect::getAnimateTextType](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/getanimatetexttype/) ελέγχει αν το κείμενο εμφανίζεται όλο μαζί, λέξη προς λέξη ή γράμμα προς γράμμα. Το [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/getdelaybetweentextparts/) ορίζει την καθυστέρηση μεταξύ λέξεων ή γραμμάτων. Μια θετική τιμή είναι ποσοστό της διάρκειας του εφέ· μια αρνητική τιμή είναι καθυστέρηση σε δευτερόλεπτα.
+- Το [TextAnimation::getBuildType](https://reference.aspose.com/slides/el/php-java/aspose.slides/textanimation/getbuildtype/) ελέγχει εάν οι παράγραφοι εμφανίζονται μαζί ή ανά επίπεδο παραγράφου.
+- Το [Effect::getAnimateTextType](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/getanimatetexttype/) ελέγχει εάν το κείμενο εμφανίζεται ολόκληρο, ανά λέξη ή ανά γράμμα. Το [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/getdelaybetweentextparts/) ορίζει την καθυστέρηση μεταξύ λέξεων ή γραμμάτων. Μια θετική τιμή είναι ποσοστό της διάρκειας του εφέ· μια αρνητική τιμή είναι καθυστέρηση σε δευτερόλεπτα.
 
-Το παρακάτω ανεξάρτητο παράδειγμα κινεί τις λέξεις σε ένα πλαίσιο κειμένου. Το [BuildType::AsOneObject](https://reference.aspose.com/slides/el/php-java/aspose.slides/buildtype/) απενεργοποιεί την κατασκευή παράγραφος‑κατά‑παράγραφο ώστε η ρύθμιση λέξης να ισχύει για ολόκληρο το πλαίσιο κειμένου.
+Το παρακάτω ανεξάρτητο παράδειγμα κινεί τις λέξεις σε ένα πλαίσιο κειμένου. Το [BuildType::AsOneObject](https://reference.aspose.com/slides/el/php-java/aspose.slides/buildtype/) απενεργοποιεί την κατασκευή παράγραφος‑προς‑παράγραφο ώστε η ρύθμιση λέξης να ισχύει για όλο το πλαίσιο κειμένου.
 
 ```php
 use aspose\slides\AnimateTextType;
@@ -495,26 +497,26 @@ try {
 }
 ```
 
-Για να κατασκευάσετε ένα πλαίσιο κειμένου κατά παράγραφο, ορίστε το [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/el/php-java/aspose.slides/buildtype/) (ή κάποιο άλλο επίπεδο παραγράφου). Για να στοχεύσετε μια μοναδική παράγραφο με το δικό της εφέ, χρησιμοποιήστε την υπερφόρτωση του [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/) που δέχεται ένα [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/). Δείτε το [Animated Text](/slides/el/php-java/animated-text/) για παραδείγματα επιπέδου παραγράφου.
+Για να κατασκευάσετε ένα πλαίσιο κειμένου παράγραφο‑προς‑παράγραφο, ορίστε το [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/el/php-java/aspose.slides/buildtype/) (ή άλλο επίπεδο παραγράφου). Για να στοχεύσετε μια μόνο παράγραφο με δικό της εφέ, χρησιμοποιήστε την υπερφόρτωση του [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/) που δέχεται ένα [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/). Δείτε το [Animated Text](/slides/el/php-java/animated-text/) για παραδείγματα επιπέδου παραγράφου.
 
 ## **Σημειώσεις Εξαγωγής και Συμβατότητας**
 
-- Η αποθήκευση σε PPT ή PPTX διατηρεί το μοντέλο κίνησης, αλλά η τελική αναπαραγωγή ελέγχεται από τον προβολέα παρουσίασης.
-- Τα PDF και οι στατικές εικόνες δεν εκτελούν κίνησεις. Χρησιμοποιήστε [HTML5 export](/slides/el/php-java/export-to-html5/), animated GIF ή [video conversion](/slides/el/php-java/convert-powerpoint-to-video/) όταν η έξοδος πρέπει να δείχνει κίνηση.
+- Η αποθήκευση σε PPT ή PPTX διατηρεί το μοντέλο κίνησης, αλλά η τελική αναπαραγωγή ελέγχεται από το πρόγραμμα προβολής παρουσίασης.
+- Το PDF και οι στατικές εικόνες δεν παίζουν κινήσεις. Χρησιμοποιήστε την [HTML5 export](/slides/el/php-java/export-to-html5/), animated GIF ή τη [video conversion](/slides/el/php-java/convert-powerpoint-to-video/) όταν η έξοδος πρέπει να δείχνει κίνηση.
 - Για HTML5, ενεργοποιήστε το [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/el/php-java/aspose.slides/html5options/setanimateshapes/) και, όταν χρειάζεται, το [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/el/php-java/aspose.slides/html5options/setanimatetransitions/).
-- Η δημιουργία βίντεο υποστηρίζει πολλά συνηθισμένα εφέ εισόδου, έμφασης, εξόδου και διαδρομής κίνησης, αλλά δεν υποστηρίζει κάθε εφέ του PowerPoint. Ελέγξτε τις τρέχουσες [supported animations and effects](/slides/el/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) και δοκιμάστε κρίσιμες παρουσιάσεις με την έκδοση Aspose.Slides που χρησιμοποιείτε.
-- Προηγμένα προσαρμοσμένα εφέ και εφέ που εισάγονται από άλλες μορφές παρουσίασης μπορεί να διατηρηθούν στο αρχείο αλλά να αποδοθούν διαφορετικά στο PowerPoint, HTML5 ή βίντεο. Επαληθεύστε το εξαγόμενο αποτέλεσμα αντί να βασίζεστε μόνο στο όνομα του εφέ.
+- Η απόδοση βίντεο υποστηρίζει πολλές συνηθισμένες εφέ εισόδου, έμφασης, εξόδου και διαδρομής κίνησης, αλλά δεν υποστηρίζονται όλα τα εφέ του PowerPoint. Ελέγξτε τις τρέχουσες [supported animations and effects](/slides/el/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) και δοκιμάστε κρίσιμες παρουσιάσεις με την έκδοση του Aspose.Slides που χρησιμοποιείτε.
+- Προηγμένα προσαρμοσμένα εφέ και εφέ που εισάγονται από άλλες μορφές παρουσίασης μπορεί να διατηρηθούν στο αρχείο αλλά να αποδίδονται διαφορετικά σε PowerPoint, HTML5 ή βίντεο. Επαληθεύστε το εξαγόμενο αποτέλεσμα αντί να βασίζεστε μόνο στο όνομα του εφέ.
 
 ## **Συχνές Ερωτήσεις**
 
-**Γιατί εμφανίζεται μια κίνηση στο PowerPoint αλλά δεν εμφανίζεται σε PDF;**
+**Γιατί εμφανίζεται μια κίνηση στο PowerPoint αλλά όχι σε PDF;**
 
-Το PDF είναι στατικό format, επομένως οι κίνηση και οι μεταβάσεις διαφάνειας δεν εκτελούνται. Εξάγετε σε HTML5, animated GIF ή βίντεο όταν πρέπει να διατηρηθεί η κίνηση.
+Το PDF είναι στατική μορφή, επομένως οι κινήσεις και οι μεταβάσεις διαφανειών δεν εκτελούνται. Εξάγετε σε HTML5, animated GIF ή βίντεο όταν πρέπει να διατηρηθεί η κίνηση.
 
-**Γιατί ένα εφέ εκτελείται διαφορετικά σε βίντεο;**
+**Γιατί ένα εφέ αποδίδεται διαφορετικά σε βίντεο;**
 
-Η εξαγωγή βίντεο αποδίδει τις κινήσεις αντί να αποθηκεύει την αρχική συμπεριφορά του PowerPoint. Ορισμένα προχωρημένα εφέ δεν υποστηρίζονται ή προσεγγίζονται. Ελέγξτε τον πίνακα υποστηριζόμενων εφέ και δοκιμάστε την παρουσίαση πριν την παραγωγή.
+Η εξαγωγή σε βίντεο αποδίδει τις κινήσεις αντί να αποθηκεύει τη συμπεριφορά του PowerPoint. Ορισμένα προχωρημένα εφέ δεν υποστηρίζονται ή προσεγγίζονται. Εξετάστε τον πίνακα των υποστηριζόμενων εφέ και δοκιμάστε την παρουσίαση πριν την παραγωγή.
 
-**Αλλάζει η σειρά κίνησης ενός σχήματος όταν το μετακινείτε εμπρός ή πίσω;**
+**Αλλάζει η σειρά των κινήσεων όταν μετακινείται ένα σχήμα προς τα εμπρός ή προς τα πίσω;**
 
-Όχι. Η σειρά z-order ελέγχει την επικάλυψη, ενώ η σειρά ακολουθίας και τα σκανδαλώματα ελέγχουν την αναπαραγωγή των κινήσεων. Αλλάξτε τη χρονογραμμή αν χρειάζεστε διαφορετική σειρά αναπαραγωγής.
+Όχι. Η σειρά z‑order ελέγχει την επικάλυψη, ενώ η σειρά ακολουθίας και οι ενεργοποιητές ελέγχουν την αναπαραγωγή της κίνησης. Αλλάξτε το χρονοδιάγραμμα αν χρειάζεστε διαφορετική σειρά αναπαραγωγής.

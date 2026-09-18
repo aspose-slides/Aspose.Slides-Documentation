@@ -28,25 +28,25 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Use Aspose.Slides for Node.js via Java para manipular animações do PowerPoint. Esta visão geral destaca recursos principais e oferece insights para aprimorar suas apresentações."
+description: "Use o Aspose.Slides for Node.js via Java para manipular animações do PowerPoint. Esta visão geral destaca recursos principais e oferece insights para aprimorar suas apresentações."
 ---
 ## **Introdução**
 
-Como as apresentações destinam‑se a apresentar algo, sua aparência visual e comportamento interativo são sempre considerados ao criá‑las.
+Como as apresentações têm o objetivo de apresentar algo, sua aparência visual e comportamento interativo são sempre levados em consideração durante a criação.
 
-**Animação do PowerPoint** desempenha um papel importante para tornar a apresentação atraente e cativante para os espectadores. Aspose.Slides for Node.js via Java oferece uma ampla variedade de opções para adicionar animação a uma apresentação PowerPoint:
+**Animação do PowerPoint** desempenha um papel importante em tornar uma apresentação atraente e envolvente para os espectadores. Aspose.Slides for Node.js via Java oferece uma ampla gama de opções para adicionar animações a apresentações do PowerPoint:
 
-- aplicar vários tipos de efeitos de animação do PowerPoint em formas, gráficos, tabelas, objetos OLE e outros elementos da apresentação.
-- usar vários efeitos de animação do PowerPoint em uma forma.
-- usar a linha do tempo de animação para controlar os efeitos de animação.
-- criar animação personalizada.
+- Aplicar vários tipos de efeitos de animação do PowerPoint a formas, gráficos, tabelas, objetos OLE e outros elementos da apresentação.  
+- Usar múltiplos efeitos de animação do PowerPoint em uma única forma.  
+- Utilizar a linha do tempo da animação para controlar os efeitos de animação.  
+- Criar animações personalizadas.
 
-No Aspose.Slides for Node.js via Java, vários efeitos de animação podem ser aplicados nas formas. Como todo elemento no slide, incluindo texto, imagens, objeto OLE, tabela etc., é considerado uma forma, isso significa que podemos aplicar efeitos de animação em cada elemento de um slide.
+Em Aspose.Slides for Node.js via Java, diversos efeitos de animação podem ser aplicados a formas. Como todo elemento em um slide, incluindo texto, imagens, objetos OLE e tabelas, é considerado uma forma, os efeitos de animação podem ser aplicados a qualquer elemento no slide.
 
 ## **Efeitos de Animação**
-Aspose.Slides suporta **mais de 150 efeitos de animação**, incluindo efeitos básicos como Bounce, PathFootball, efeito Zoom e efeitos de animação específicos como OLEObjectShow, OLEObjectOpen. Você pode encontrar uma lista completa de efeitos de animação na enumeração [**EffectType**](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/effecttype/).
+Aspose.Slides suporta **mais de 150 efeitos de animação**, incluindo efeitos básicos como Bounce, PathFootball e Zoom, e efeitos específicos como OLEObjectShow e OLEObjectOpen. Você pode encontrar uma lista completa na enumeração [EffectType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/effecttype/).
 
-Além disso, esses efeitos de animação podem ser usados em combinação com eles:
+Além disso, esses efeitos de animação podem ser usados em combinação com os seguintes comportamentos:
 
 - [ColorEffect](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/CommandEffect)
@@ -58,52 +58,54 @@ Além disso, esses efeitos de animação podem ser usados em combinação com el
 - [SetEffect](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/SetEffect)
 
 ## **Animação Personalizada**
-É possível criar suas próprias **animações personalizadas** no Aspose.Slides.  
-Isso pode ser alcançado se você combinar vários comportamentos em uma nova animação personalizada.  
 
-[**Behavior**](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/Behavior) é a unidade de construção de qualquer efeito de animação do PowerPoint. Todos os efeitos de animação são, na verdade, um conjunto de comportamentos compostos em uma única estratégia. Você pode combinar comportamentos em uma animação personalizada uma vez e reutilizá‑la em outras apresentações. Se você adicionar um novo comportamento a um efeito de animação padrão do PowerPoint, ele se tornará outra animação personalizada. Por exemplo, você pode adicionar o comportamento de repetição a uma animação para que ela se repita algumas vezes.  
+Para exemplos JavaScript completos que criam, inspecionam e modificam comportamentos e trajetórias de movimento editáveis, veja [Animação Personalizada](/slides/pt/nodejs-java/custom-animation/).
 
-[**Animation Point**](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/Point) é um ponto onde o comportamento deve ser aplicado.
+É possível criar suas próprias **animações personalizadas** em Aspose.Slides. Isso pode ser alcançado combinando vários comportamentos em uma nova animação personalizada.
+
+[Behavior](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/behavior/) é um bloco de construção de um efeito de animação do PowerPoint. Combine comportamentos para personalizar um efeito ou adicione um comportamento para estender um efeito predefinido. A repetição é configurada por meio de definições de tempo, e não por um comportamento de repetição separado.
+
+[Animation Point](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/point/) é um ponto no qual um comportamento deve ser aplicado.
 
 ## **Linha do Tempo de Animação**
-[**Sequence**](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/Sequence) é uma coleção de efeitos de animação, aplicados em uma forma concreta.  
+[Sequence](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/sequence/) é uma coleção de efeitos de animação que podem ter alvos diferentes.
 
-[**Timeline**](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/AnimationTimeLine) é um conjunto de Sequences usado em um slide concreto. É um mecanismo de animação representado desde o PowerPoint 2002. Nas versões anteriores do PowerPoint, era difícil adicionar efeitos de animação à apresentação, o que só podia ser feito com diferentes soluções alternativas. A Timeline substitui a antiga classe AnimationSettings e fornece um modelo de objeto mais claro para animação do PowerPoint. Um slide pode ter somente uma timeline de animação.
+[Timeline](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/animationtimeline/) é um conjunto de sequências usado em um slide específico. É um mecanismo de animação introduzido no PowerPoint 2002. Em versões anteriores do PowerPoint, adicionar efeitos de animação às apresentações era desafiador e só podia ser conseguido com várias soluções alternativas. A linha do tempo fornece um modelo de objeto mais claro para animações do PowerPoint. Um slide pode ter apenas uma linha do tempo de animação.
 
 ## **Animação Interativa**
-[**Trigger**](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/EffectTriggerType) permite definir ações do usuário (por exemplo, clique de botão), que iniciarão uma determinada animação. Os gatilhos foram adicionados apenas na versão mais recente do PowerPoint.
+[Trigger](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/effecttriggertype/) permite definir ações do usuário, como um clique de botão, que iniciam uma animação específica.
 
-## **Animação de Formas**
-Aspose.Slides permite aplicar animação a formas, que podem ser texto, retângulo, linha, quadro, objeto OLE, etc.
+## **Animação de Forma**
+Aspose.Slides permite aplicar animações a formas, que podem incluir texto, retângulos, linhas, quadros, objetos OLE e muito mais.
 
-{{% alert color="primary" %}} 
-Leia mais [**Sobre Animação de Formas**](/slides/pt/nodejs-java/shape-animation/).
+{{% alert color="info" title="Note" %}}
+Saiba mais [**Sobre Animação de Forma**](/slides/pt/nodejs-java/shape-animation/).
 {{% /alert %}}
 
 ## **Gráficos Animados**
-Para criar gráficos animados, você deve usar as mesmas classes que para as formas. No entanto, é possível usar animação do PowerPoint apenas em categorias de gráfico ou séries de gráfico. Você também pode aplicar efeito de animação a um elemento de categoria ou elemento de série.
+Para criar gráficos animados, você deve usar as mesmas classes que para formas. No entanto, as animações do PowerPoint só podem ser aplicadas a categorias de gráfico ou séries de gráfico. Você também pode aplicar efeitos de animação a um elemento de categoria ou a um elemento de série.
 
-{{% alert color="primary" %}} 
-Leia mais [**Sobre Gráficos Animados**](/slides/pt/nodejs-java/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Saiba mais [**Sobre Gráficos Animados**](/slides/pt/nodejs-java/animated-charts/).
 {{% /alert %}}
 
 ## **Texto Animado**
-Além do texto animado, também é possível aplicar animação a um parágrafo.
+Além de animar texto, você pode aplicar animação a um parágrafo.
 
-{{% alert color="primary" %}} 
-Leia mais [**Sobre Texto Animado**](/slides/pt/nodejs-java/animated-text/).
+{{% alert color="info" title="Note" %}}
+Saiba mais [**Sobre Texto Animado**](/slides/pt/nodejs-java/animated-text/).
 {{% /alert %}}
 
-## **FAQ**
+## **Perguntas Frequentes**
 
 **As animações serão preservadas ao exportar para PDF?**
 
-Não. PDF é um formato estático, portanto as animações e as [transições de slide](/slides/pt/nodejs-java/slide-transition/) não são reproduzidas. Se precisar de movimento, exporte para [HTML5](/slides/pt/nodejs-java/export-to-html5/), [GIF animado](/slides/pt/nodejs-java/convert-powerpoint-to-animated-gif/), ou [vídeo](/slides/pt/nodejs-java/convert-powerpoint-to-video/) em vez disso.
+Não. PDF é um formato estático, portanto as animações e as [transições de slide](/slides/pt/nodejs-java/slide-transition/) não são reproduzidas. Se precisar de movimento, exporte para [HTML5](/slides/pt/nodejs-java/export-to-html5/), [GIF animado](/slides/pt/nodejs-java/convert-powerpoint-to-animated-gif/) ou [vídeo](/slides/pt/nodejs-java/convert-powerpoint-to-video/) em vez disso.
 
-**Posso transformar uma apresentação animada em um vídeo e controlar a taxa de quadros e o tamanho do quadro?**
+**Posso transformar uma apresentação animada em vídeo e controlar a taxa de quadros e o tamanho do quadro?**
 
-Sim. Você pode [renderizar a apresentação como quadros](/slides/pt/nodejs-java/convert-powerpoint-to-video/) e codificá‑los em um vídeo (por exemplo, via ffmpeg), escolhendo os FPS e a resolução. As animações e as transições de slide são reproduzidas durante a renderização.
+Sim. Você pode [renderizar a apresentação como quadros](/slides/pt/nodejs-java/convert-powerpoint-to-video/) e codificá-los em um vídeo (por exemplo, via ffmpeg), escolhendo o FPS e a resolução. As animações e as transições de slide são reproduzidas durante a renderização.
 
 **As animações permanecerão intactas ao trabalhar com ODP (não apenas PPTX)?**
 
-PPT, PPTX e ODP são suportados para [leitura](/slides/pt/nodejs-java/open-presentation/) e [gravação](/slides/pt/nodejs-java/save-presentation/), mas as diferenças de formato significam que certos efeitos podem parecer ou se comportar levemente diferentes. Valide os casos críticos com amostras reais.
+PPT, PPTX e ODP são suportados para [leitura](/slides/pt/nodejs-java/open-presentation/) e [gravação](/slides/pt/nodejs-java/save-presentation/), mas isso não garante a preservação das animações. Dados de animações personalizadas podem ser perdidos ao converter para ODP. Consulte [Animação Personalizada](/slides/pt/nodejs-java/custom-animation/) para exemplos e orientações sobre verificação de compatibilidade de formato.

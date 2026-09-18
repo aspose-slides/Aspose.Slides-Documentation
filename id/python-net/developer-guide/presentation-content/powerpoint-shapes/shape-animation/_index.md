@@ -1,5 +1,5 @@
 ---
-title: Menerapkan Animasi Bentuk dalam Presentasi dengan Python
+title: Terapkan Animasi Bentuk dalam Presentasi dengan Python
 linktitle: Animasi Bentuk
 type: docs
 weight: 60
@@ -8,8 +8,8 @@ keywords:
 - bentuk
 - animasi
 - efek
-- bentuk teranimasi
-- teks teranimasi
+- bentuk beranimasi
+- teks beranimasi
 - tambahkan animasi
 - dapatkan animasi
 - ekstrak animasi
@@ -22,22 +22,24 @@ keywords:
 - presentasi
 - Python
 - Aspose.Slides
-description: "Pelajari cara menambahkan, memeriksa, dan menyesuaikan animasi bentuk, penjadwalan, suara, perilaku setelah animasi, dan teks teranimasi dengan Aspose.Slides untuk Python via .NET."
+description: "Pelajari cara menambahkan, memeriksa, dan menyesuaikan animasi bentuk, penjadwalan, suara, perilaku setelah animasi, serta teks beranimasi dengan Aspose.Slides untuk Python via .NET."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Aspose.Slides for Python via .NET merepresentasikan animasi slide sebagai efek dalam timeline slide. Sebuah efek memiliki bentuk target, tipe animasi dan subtipe, pemicu, pengaturan waktu, dan properti opsional seperti suara atau perilaku setelah animasi.
+Untuk bekerja dengan perilaku individu di dalam efek atau mengedit segmen jalur gerak, lihat [Animasi Kustom](/slides/id/python-net/custom-animation/).
+
+Aspose.Slides untuk Python via .NET merepresentasikan animasi slide sebagai efek dalam timeline slide. Sebuah efek memiliki bentuk target, tipe animasi dan subtipe, pemicu, pengaturan waktu, dan properti opsional seperti suara atau perilaku setelah animasi.
 
 Timeline berisi dua jenis urutan:
 
-- Urutan **utama** diputar saat slide maju.
-- Urutan **interaktif** dimulai ketika bentuk pemicunya diklik.
+- **urutan utama** diputar saat slide berlanjut.
+- **urutan interaktif** dimulai ketika bentuk pemicunya diklik.
 
 Karena kotak teks, gambar, diagram, tabel, dan objek slide lainnya mengimplementasikan [IShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/ishape/), Anda menggunakan metode [Sequence.add_effect](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/sequence/add_effect/) yang sama untuk sebagian besar konten slide. Efek yang tersedia tercantum dalam enumerasi [EffectType](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/effecttype/).
 
-## **Menambahkan Animasi Bentuk**
+## **Tambahkan Animasi Bentuk**
 
-Untuk menambahkan animasi, dapatkan urutan utama slide dan panggil [Sequence.add_effect](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/sequence/add_effect/) dengan bentuk target, tipe efek, subtipe, dan pemicu. Untuk efek yang dimulai ketika bentuk lain diklik, buat urutan interaktif dengan pemicu berupa bentuk lain tersebut.
+Untuk menambahkan animasi, dapatkan urutan utama slide dan panggil [Sequence.add_effect](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/sequence/add_effect/) dengan bentuk target, tipe efek, subtipe, dan pemicu. Untuk efek yang dimulai ketika bentuk lain diklik, buat urutan interaktif yang pemicunya adalah bentuk lain tersebut.
 
 Contoh berikut membuat kedua jenis animasi dan menyimpan hasilnya ke `shape-animations.pptx`.
 
@@ -66,17 +68,17 @@ with slides.Presentation() as presentation:
 
 Pemicu mengontrol kapan sebuah efek dimulai:
 
-- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/effecttriggertype/) menunggu klik dalam urutan utama, atau klik pada bentuk pemicu dalam urutan interaktif.
+- [EffectTriggerType.ON_CLICK](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/effecttriggertype/) menunggu klik di urutan utama, atau klik pada bentuk pemicu di urutan interaktif.
 - [EffectTriggerType.WITH_PREVIOUS](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/effecttriggertype/) dimulai bersamaan dengan efek sebelumnya.
 - [EffectTriggerType.AFTER_PREVIOUS](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/effecttriggertype/) dimulai ketika efek sebelumnya selesai.
 
-Untuk menganimasikan gambar, diagram, atau tipe bentuk lainnya, berikan objek tersebut ke [Sequence.add_effect](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/sequence/add_effect/) alih-alih `target_shape`. Untuk opsi pengelompokan khusus diagram, lihat [Diagram Teranimasi](/slides/id/python-net/animated-charts/).
+Untuk menganimasikan gambar, diagram, atau jenis bentuk lainnya, berikan objek tersebut ke [Sequence.add_effect](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/sequence/add_effect/) alih-alih `target_shape`. Untuk opsi pengelompokan khusus diagram, lihat [Diagram Beranimasi](/slides/id/python-net/animated-charts/).
 
-## **Membaca Animasi Bentuk**
+## **Baca Animasi Bentuk**
 
-Gunakan [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/sequence/get_effects_by_shape/) ketika Anda mengetahui bentuk target. Untuk memeriksa setiap efek, iterasikan melalui urutan utama dan setiap urutan interaktif. Iterasi menghindari asumsi bahwa sebuah urutan berisi efek pada indeks `0`.
+Gunakan [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/sequence/get_effects_by_shape/) ketika Anda mengetahui bentuk target. Untuk memeriksa setiap efek, iterasi melalui urutan utama dan setiap urutan interaktif. Iterasi menghindari asumsi bahwa sebuah urutan berisi efek pada indeks `0`.
 
-Contoh berikut membuat sebuah bentuk dengan efek urutan-utama dan interaktif, mendapatkan efek yang menargetkan bentuk tersebut, dan kemudian mengiterasi setiap urutan pada slide.
+Contoh berikut membuat sebuah bentuk dengan efek urutan utama dan interaktif, mengambil efek yang menargetkan bentuk tersebut, lalu mengiterasi setiap urutan pada slide.
 
 ```python
 import aspose.slides as slides
@@ -116,21 +118,21 @@ with slides.Presentation() as presentation:
         print_sequence(sequence_label, sequence)
 ```
 
-Jika Anda hanya memerlukan efek untuk satu bentuk, pertama identifikasi bentuk tersebut berdasarkan nama, tipe placeholder, atau properti stabil lainnya; kemudian panggil [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/sequence/get_effects_by_shape/). Jangan mengasumsikan bahwa bentuk pada indeks `0` selalu merupakan objek yang dimaksud.
+Jika Anda hanya membutuhkan efek untuk satu bentuk, pertama identifikasi bentuk tersebut menurut nama, tipe placeholder, atau properti stabil lainnya; lalu panggil [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/sequence/get_effects_by_shape/). Jangan mengasumsikan bahwa bentuk pada indeks `0` selalu merupakan objek yang dimaksud.
 
-## **Bekerja dengan Efek Placeholder yang Dwarisi**
+## **Bekerja dengan Efek Placeholder yang Dwariskan**
 
-Sebuah placeholder pada slide normal dapat mewarisi perilaku animasi dari placeholder yang bersesuaian pada slide tata letak dan slide master. [Shape.get_base_placeholder](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/get_base_placeholder/) mengembalikan placeholder induk tersebut, atau `None` bila tidak ada induk.
+Placeholder pada slide normal dapat mewarisi perilaku animasi dari placeholder yang bersesuaian pada slide tata letak dan slide master. [Shape.get_base_placeholder](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/get_base_placeholder/) mengembalikan placeholder induk tersebut, atau `None` ketika tidak ada induk.
 
-Dalam presentasi contoh berikut, footer memiliki **Random Bars** pada slide normal, **Split** pada slide tata letak, dan **Fly In** pada slide master.
+Dalam contoh presentasi berikut, footer memiliki **Random Bars** pada slide normal, **Split** pada slide tata letak, dan **Fly In** pada slide master.
 
-![Efek animasi footer pada slide normal](slide-shape-animation.png)
+![efek animasi footer pada slide normal](slide-shape-animation.png)
 
-![Efek animasi placeholder footer pada slide tata letak](layout-shape-animation.png)
+![efek animasi placeholder footer pada slide tata letak](layout-shape-animation.png)
 
-![Efek animasi placeholder footer pada slide master](master-shape-animation.png)
+![efek animasi placeholder footer pada slide master](master-shape-animation.png)
 
-Contoh berikut membangun hirarki placeholder itu sendiri. Ia menambahkan efek ke placeholder master, placeholder tata letak, dan placeholder yang bersesuaian pada slide normal. Setiap pemanggilan [Shape.get_base_placeholder](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/get_base_placeholder/) diperiksa sebelum bentuk yang dikembalikan digunakan.
+Contoh berikut membangun hierarki placeholder itu sendiri. Ia menambahkan efek ke placeholder master, placeholder tata letak, dan placeholder yang bersesuaian pada slide normal. Setiap pemanggilan [Shape.get_base_placeholder](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/get_base_placeholder/) diperiksa sebelum bentuk yang dikembalikan digunakan.
 
 ```python
 import aspose.slides as slides
@@ -181,19 +183,19 @@ with slides.Presentation() as presentation:
     presentation.save("placeholder-animations.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Mengubah Waktu Animasi**
+## **Ubah Penjadwalan Animasi**
 
-Dialog **Timing** PowerPoint memetakan ke properti [Timing](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/).
+Dialog **Timing** PowerPoint dipetakan ke properti [Timing](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/).
 
-![Dialog Timing PowerPoint untuk efek animasi](shape-animation.png)
+![Dialog Timing PowerPoint untuk sebuah efek animasi](shape-animation.png)
 
-- **Mulai** memetakan ke [Timing.trigger_type](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/trigger_type/).
-- **Durasi** memetakan ke [Timing.duration](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/duration/), dalam detik.
-- **Delay** memetakan ke [Timing.trigger_delay_time](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/trigger_delay_time/), dalam detik.
-- **Ulang** memetakan ke [Timing.repeat_count](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/repeat_count/), [Timing.repeat_until_next_click](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/repeat_until_next_click/), atau [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/repeat_until_end_slide/).
-- **Putar kembali saat selesai** memetakan ke [Timing.rewind](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/rewind/).
+- **Start** dipetakan ke [Timing.trigger_type](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/trigger_type/).
+- **Duration** dipetakan ke [Timing.duration](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/duration/), dalam detik.
+- **Delay** dipetakan ke [Timing.trigger_delay_time](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/trigger_delay_time/), dalam detik.
+- **Repeat** dipetakan ke [Timing.repeat_count](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/repeat_count/), [Timing.repeat_until_next_click](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/repeat_until_next_click/), atau [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/repeat_until_end_slide/).
+- **Rewind when done playing** dipetakan ke [Timing.rewind](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/rewind/).
 
-Contoh independen ini menambahkan sebuah efek, mengubah waktunya melalui objek yang dikembalikan oleh [Sequence.add_effect](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/sequence/add_effect/), dan menyimpan hasilnya. Menjaga referensi [Effect](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/effect/) yang dikembalikan menghindari indeks koleksi yang tidak diperlukan.
+Contoh independen ini menambahkan sebuah efek, mengubah penjadwalannya melalui objek yang dikembalikan oleh [Sequence.add_effect](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/sequence/add_effect/), dan menyimpan hasilnya. Menyimpan referensi [Effect](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/effect/) yang dikembalikan menghindari indeks koleksi yang tidak perlu.
 
 ```python
 import aspose.slides as slides
@@ -216,13 +218,13 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-timing.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Gunakan satu mode pengulangan dengan sengaja. Menggabungkan hitungan ulang dengan flag "until" dapat menghasilkan hasil yang membingungkan di berbagai penampil. Saat mengubah mode pengulangan, setel [Timing.repeat_until_next_click](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/repeat_until_next_click/) dan [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/repeat_until_end_slide/) sebelum [Timing.repeat_count](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/repeat_count/), karena mengatur salah satu flag juga mengubah mode pengulangan yang aktif.
+Gunakan satu mode pengulangan secara sengaja. Menggabungkan hitungan pengulangan dengan flag “until” dapat menghasilkan hasil yang membingungkan pada pemutar yang berbeda. Saat mengubah mode pengulangan, setel [Timing.repeat_until_next_click](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/repeat_until_next_click/) dan [Timing.repeat_until_end_slide](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/repeat_until_end_slide/) sebelum [Timing.repeat_count](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/timing/repeat_count/), karena menyetel salah satu flag juga mengubah mode pengulangan yang aktif.
 
-## **Menambahkan dan Mengekstrak Suara Animasi**
+## **Tambahkan dan Ekstrak Suara Animasi**
 
-Sebuah efek animasi dapat merujuk audio tersemat melalui [Effect.sound](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/effect/sound/). [Effect.stop_previous_sound](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/effect/stop_previous_sound/) memberi tahu efek untuk menghentikan audio yang dimulai oleh efek sebelumnya.
+Sebuah efek animasi dapat merujuk pada audio yang disematkan melalui [Effect.sound](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/effect/sound/). [Effect.stop_previous_sound](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/effect/stop_previous_sound/) memberi tahu sebuah efek untuk menghentikan audio yang dimulai oleh efek sebelumnya.
 
-### **Menambahkan Suara ke Efek**
+### **Tambahkan Suara ke Sebuah Efek**
 
 Contoh berikut mengharapkan file audio lokal bernama `animation-sound.wav`. Ia membuat dua efek, menyematkan file tersebut sebagai suara untuk efek pertama, dan mengonfigurasi efek kedua untuk menghentikan suara. Ia menggunakan objek yang dikembalikan oleh [Sequence.add_effect](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/sequence/add_effect/), sehingga tidak diperlukan indeks urutan.
 
@@ -250,9 +252,9 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-sound.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Mengekstrak Suara Efek Tersemat**
+### **Ekstrak Suara Efek yang Disematkan**
 
-Contoh berikut mengharapkan presentasi lokal bernama `presentation-with-animation-sounds.pptx`. Ia memindai kedua urutan utama dan interaktif serta menulis setiap suara efek tersemat ke direktori `extracted-animation-sounds`. Ekstensi dipilih berdasarkan tipe MIME audio yang disediakan oleh [Audio.content_type](https://reference.aspose.com/slides/id/python-net/aspose.slides/audio/content_type/).
+Contoh berikut mengharapkan presentasi lokal bernama `presentation-with-animation-sounds.pptx`. Ia memindai kedua urutan utama dan interaktif serta menulis setiap suara efek yang disematkan ke direktori `extracted-animation-sounds`. Ekstensi dipilih dari tipe MIME audio yang diungkapkan oleh [Audio.content_type](https://reference.aspose.com/slides/id/python-net/aspose.slides/audio/content_type/).
 
 ```python
 import os
@@ -306,17 +308,17 @@ with slides.Presentation(input_path) as presentation:
 print(f"Extracted {sound_index - 1} sound file(s) to {os.path.abspath(output_directory)}.")
 ```
 
-Untuk objek audio besar, gunakan [Audio.get_stream](https://reference.aspose.com/slides/id/python-net/aspose.slides/audio/get_stream/) dan salin aliran ke file alih-alih memuat seluruh objek ke dalam array byte.
+Untuk objek audio berukuran besar, gunakan [Audio.get_stream](https://reference.aspose.com/slides/id/python-net/aspose.slides/audio/get_stream/) dan salin stream ke file alih-alih memuat seluruh objek ke dalam array byte.
 
-## **Mengatur Perilaku Setelah Animasi**
+## **Setel Perilaku Setelah Animasi**
 
-Pilihan **After animation** mengontrol apa yang terjadi pada sebuah bentuk setelah efeknya selesai.
+Opsi **After animation** mengontrol apa yang terjadi pada sebuah bentuk setelah efeknya selesai.
 
-![Dialog Opsi Efek PowerPoint menampilkan pengaturan After animation](shape-after-animation.png)
+![Dialog Opsi Efek PowerPoint yang menampilkan pengaturan After animation](shape-after-animation.png)
 
-Enumerasi [AfterAnimationType](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/afteranimationtype/) mendukung membiarkan bentuk tidak berubah, mengubah warnanya, menyembunyikannya setelah animasi, atau menyembunyikannya pada klik berikutnya. Ketika tipenya adalah [AfterAnimationType.COLOR](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/afteranimationtype/), setel juga [Effect.after_animation_color](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/effect/after_animation_color/).
+Enumerasi [AfterAnimationType](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/afteranimationtype/) mendukung membiarkan bentuk tidak berubah, mengubah warnanya, menyembunyikannya setelah animasi, atau menyembunyikannya pada klik berikutnya. Ketika tipe adalah [AfterAnimationType.COLOR](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/afteranimationtype/), setel [Effect.after_animation_color](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/effect/after_animation_color/) juga.
 
-Contoh independen ini membuat sebuah efek, mengatur perilaku after-animation melalui objek efek yang dikembalikan, dan menyimpan hasilnya.
+Contoh independen ini membuat sebuah efek, menetapkan perilaku after-animation melalui objek efek yang dikembalikan, dan menyimpan hasilnya.
 
 ```python
 import aspose.pydrawing as draw
@@ -335,16 +337,16 @@ with slides.Presentation() as presentation:
     presentation.save("shape-animation-after-effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Mengubah tipe dari [AfterAnimationType.COLOR](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/afteranimationtype/) akan menghapus pengaturan warna after-animation.
+Mengubah tipe dari [AfterAnimationType.COLOR](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/afteranimationtype/) menghapus pengaturan warna after-animation.
 
-## **Menganimasikan Teks**
+## **Animasi Teks**
 
 Animasi teks memiliki dua kontrol terkait:
 
 - [TextAnimation.build_type](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/textanimation/build_type/) mengontrol apakah paragraf muncul bersamaan atau per tingkat paragraf.
 - [Effect.animate_text_type](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/effect/animate_text_type/) mengontrol apakah teks muncul sekaligus, per kata, atau per huruf. [Effect.delay_between_text_parts](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/effect/delay_between_text_parts/) mengatur jeda antara kata atau huruf. Nilai positif adalah persentase dari durasi efek; nilai negatif adalah jeda dalam detik.
 
-Contoh independen berikut menganimasikan kata-kata dalam kotak teks. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/buildtype/) menonaktifkan pembangunan paragraf-per-paragraf sehingga pengaturan kata berlaku untuk seluruh bingkai teks.
+Contoh independen berikut menganimasikan kata-kata dalam kotak teks. [BuildType.AS_ONE_OBJECT](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/buildtype/) menonaktifkan pembangunan per paragraf sehingga pengaturan kata berlaku untuk seluruh bingkai teks.
 
 ```python
 import aspose.slides as slides
@@ -363,26 +365,26 @@ with slides.Presentation() as presentation:
     presentation.save("animated-text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Untuk membangun kotak teks per paragraf, setel [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/buildtype/) (atau level paragraf lainnya). Untuk menargetkan satu paragraf dengan efeknya sendiri, gunakan overload [Sequence.add_effect](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/sequence/add_effect/) yang menerima sebuah [IParagraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/iparagraph/). Lihat [Teks Teranimasi](/slides/id/python-net/animated-text/) untuk contoh tingkat paragraf.
+Untuk membangun kotak teks per paragraf, setel [BuildType.BY_LEVEL_PARAGRAPHS1](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/buildtype/) (atau tingkat paragraf lainnya). Untuk menargetkan satu paragraf dengan efeknya sendiri, gunakan overload [Sequence.add_effect](https://reference.aspose.com/slides/id/python-net/aspose.slides.animation/sequence/add_effect/) yang menerima sebuah [IParagraph](https://reference.aspose.com/slides/id/python-net/aspose.slides/iparagraph/). Lihat [Teks Beranimasi](/slides/id/python-net/animated-text/) untuk contoh per tingkat paragraf.
 
-## **Catatan Ekspor dan Kompatibilitas**
+## **Ekspor dan Catatan Kompatibilitas**
 
-- Menyimpan ke PPT atau PPTX mempertahankan model animasi, tetapi pemutaran akhir dikendalikan oleh penampil presentasi.
-- PDF dan gambar statis tidak memutar animasi. Gunakan [Ekspor HTML5](/slides/id/python-net/export-to-html5/), GIF animasi, atau [konversi video](/slides/id/python-net/convert-powerpoint-to-video/) ketika output harus menampilkan gerakan.
+- Menyimpan ke PPT atau PPTX mempertahankan model animasi, tetapi pemutaran akhir dikontrol oleh penampil presentasi.
+- PDF dan gambar statis tidak memutar animasi. Gunakan [ekspor HTML5](/slides/id/python-net/export-to-html5/), GIF beranimasi, atau [konversi video](/slides/id/python-net/convert-powerpoint-to-video/) ketika output harus menampilkan gerakan.
 - Untuk HTML5, aktifkan [Html5Options.animate_shapes](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/html5options/animate_shapes/) dan, bila diperlukan, [Html5Options.animate_transitions](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/html5options/animate_transitions/).
-- Rendering video mendukung banyak efek masuk, penekanan, keluar, dan jalur gerak yang umum, tetapi tidak semua efek PowerPoint didukung. Periksa [animasi dan efek yang didukung](/slides/id/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) saat ini dan uji presentasi penting dengan versi Aspose.Slides target Anda.
-- Efek khusus lanjutan dan efek yang diimpor dari format presentasi lain mungkin dipertahankan dalam file tetapi dirender berbeda di PowerPoint, HTML5, atau video. Validasi hasil ekspor daripada hanya mengandalkan nama efek.
+- Rendering video mendukung banyak efek masuk, penekanan, keluar, dan jalur gerak umum, tetapi tidak semua efek PowerPoint didukung. Periksa [animasi dan efek yang didukung](/slides/id/python-net/convert-powerpoint-to-video/#supported-animations-and-effects) saat ini dan uji presentasi kritis dengan versi Aspose.Slides Anda.
+- Efek khusus yang dibuat sendiri dan efek yang diimpor dari format presentasi lain mungkin dipertahankan dalam file tetapi dirender secara berbeda di PowerPoint, HTML5, atau video. Validasi hasil ekspor daripada hanya mengandalkan nama efek.
 
 ## **FAQ**
 
-**Mengapa sebuah animasi muncul di PowerPoint tetapi tidak di PDF?**
+**Mengapa animasi muncul di PowerPoint tetapi tidak di PDF?**
 
-PDF adalah format statis, sehingga animasi dan transisi slide tidak diputar. Ekspor ke HTML5, GIF animasi, atau video ketika gerakan harus dipertahankan.
+PDF adalah format statis, sehingga animasi dan transisi slide tidak diputar. Ekspor ke HTML5, GIF beranimasi, atau video ketika gerakan harus dipertahankan.
 
 **Mengapa sebuah efek diputar berbeda dalam video?**
 
-Ekspor video merender animasi daripada menyimpan perilaku asli PowerPoint. Beberapa efek lanjutan tidak didukung atau hanya diperkirakan. Tinjau tabel efek yang didukung dan uji presentasi sebenarnya sebelum penggunaan produksi.
+Ekspor video merender animasi daripada menyimpan perilaku PowerPoint asli. Beberapa efek lanjutan tidak didukung atau hanya diperkirakan. Tinjau tabel efek yang didukung dan uji presentasi sebenarnya sebelum penggunaan produksi.
 
-**Apakah memindahkan bentuk ke depan atau belakang mengubah urutan animasinya?**
+**Apakah memindahkan sebuah bentuk ke depan atau ke belakang mengubah urutan animasinya?**
 
 Tidak. Z-order bentuk mengontrol tumpang tindih, sementara urutan urutan dan pemicu mengontrol pemutaran animasi. Ubah timeline jika Anda memerlukan urutan pemutaran yang berbeda.

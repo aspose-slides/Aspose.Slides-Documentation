@@ -1,54 +1,53 @@
 ---
-title: Βελτιώστε τις παρουσιάσεις PowerPoint με animation στο Android
-linktitle: Animation PowerPoint
+title: Βελτιώστε τις παρουσιάσεις PowerPoint με κινήσεις στο Android
+linktitle: Κίνηση PowerPoint
 type: docs
 weight: 150
 url: /el/androidjava/powerpoint-animation/
 keywords:
-- προσθήκη animation
-- ενημέρωση animation
-- αλλαγή animation
-- αφαίρεση animation
-- διαχείριση animation
-- έλεγχος animation
-- εφέ animation
-- animation PowerPoint
-- χρονογραμμή animation
-- διαδραστικό animation
-- προσαρμοσμένο animation
-- animation σχήματος
-- animation γραφήματος
-- animation κειμένου
-- animation σχήματος
-- animation αντικειμένου OLE
-- animation εικόνας
-- animation πίνακα
+- προσθήκη κίνησης
+- ενημέρωση κίνησης
+- αλλαγή κίνησης
+- αφαίρεση κίνησης
+- διαχείριση κίνησης
+- έλεγχος κίνησης
+- εφέ κίνησης
+- κίνηση PowerPoint
+- γραμμή χρόνου κίνησης
+- διαδραστική κίνηση
+- προσαρμοσμένη κίνηση
+- κίνηση σχήματος
+- κινούμενο διάγραμμα
+- κινούμενο κείμενο
+- κινούμενο σχήμα
+- κινούμενο αντικείμενο OLE
+- κινούμενη εικόνα
+- κινούμενος πίνακας
 - PowerPoint
 - παρουσίαση
 - Android
 - Java
 - Aspose.Slides
-description: "Εξερευνήστε τις δυνατότητες της Aspose.Slides για Android μέσω Java στην επεξεργασία animation PowerPoint. Αυτή η γενική επισκόπηση αναδεικνύει τα βασικά χαρακτηριστικά."
+description: "Εξερευνήστε τις δυνατότητες του Aspose.Slides για Android μέσω Java στη διαχείριση κινήσεων PowerPoint. Αυτή η γενική επισκόπηση επισημαίνει τα κύρια χαρακτηριστικά."
 ---
 ## **Εισαγωγή**
 
-Επειδή οι παρουσιάσεις προορίζονται να παρουσιάζουν κάτι, η οπτική τους εμφάνιση και η διαδραστική συμπεριφορά λαμβάνονται πάντα υπόψη κατά τη δημιουργία τους.
+Καθώς οι παρουσιάσεις προορίζονται να παρουσιάζουν κάτι, η οπτική τους εμφάνιση και η διαδραστική συμπεριφορά λαμβάνονται πάντα υπόψη κατά τη δημιουργία.
 
-**PowerPoint animation** παίζει σημαντικό ρόλο ώστε η παρουσίαση να είναι εντυπωσιακή και ελκυστική για τους θεατές. Η Aspose.Slides for Android via Java προσφέρει μια ευρεία γκάμα επιλογών για την προσθήκη animation σε παρουσίαση PowerPoint:
+**Η κίνηση PowerPoint** παίζει σημαντικό ρόλο στο να κάνει μια παρουσίαση ελκυστική και ενδιαφέρουσα για τους θεατές. Η Aspose.Slides παρέχει ευρύ φάσμα επιλογών για την προσθήκη κινήσεων σε παρουσιάσεις PowerPoint:
 
-- εφαρμόστε διάφορους τύπους εφέ animation PowerPoint σε σχήματα, διαγράμματα, πίνακες, αντικείμενα OLE και άλλα στοιχεία παρουσίασης.
-- χρησιμοποιήστε πολλαπλά εφέ animation PowerPoint σε ένα σχήμα.
-- χρησιμοποιήστε τη χρονογραμμή animation για να ελέγξετε τα εφέ animation.
-- δημιουργήστε προσαρμοσμένο animation.
+- Εφαρμόστε διάφορους τύπους εφέ κίνησης PowerPoint σε σχήματα, διαγράμματα, πίνακες, αντικείμενα OLE και άλλα στοιχεία παρουσίασης.
+- Χρησιμοποιήστε πολλαπλά εφέ κίνησης PowerPoint σε ένα μόνο σχήμα.
+- Χρησιμοποιήστε τη γραμμή χρόνου της κίνησης για να ελέγξετε τα εφέ κίνησης.
+- Δημιουργήστε προσαρμοσμένες κινήσεις.
 
-Στην Aspose.Slides for Android via Java, μπορούν να εφαρμοστούν διάφορα εφέ animation στα σχήματα. Καθώς κάθε στοιχείο στη διαφάνεια, συμπεριλαμβανομένου κειμένου, εικόνων, αντικειμένου OLE, πίνακα κλπ., θεωρείται σχήμα, αυτό σημαίνει ότι μπορούμε να εφαρμόσουμε εφέ animation σε κάθε στοιχείο μιας διαφάνειας.
+Στην Aspose.Slides, μπορούν να εφαρμοστούν διάφορα εφέ κίνησης σε σχήματα. Δεδομένου ότι κάθε στοιχείο σε μια διαφάνεια, συμπεριλαμβανομένου του κειμένου, των εικόνων, των αντικειμένων OLE και των πινάκων, θεωρείται σχήμα, τα εφέ κίνησης μπορούν να εφαρμοστούν σε οποιοδήποτε στοιχείο της διαφάνειας.
 
-## **Εφέ Animation**
+## **Εφέ Κίνησης**
 
-Η Aspose.Slides υποστηρίζει **150+ animation effects**, συμπεριλαμβανομένων βασικών εφέ animation όπως Bounce, PathFootball, εφέ Zoom και συγκεκριμένα εφέ animation όπως OLEObjectShow, OLEObjectOpen. Μπορείτε να βρείτε μια πλήρη λίστα εφέ animation στην απαρίθμηση [**EffectType**](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effecttype/).
+Η Aspose.Slides υποστηρίζει **150+ εφέ κίνησης**, συμπεριλαμβανομένων βασικών εφέ όπως Bounce, PathFootball και Zoom, καθώς και συγκεκριμένων εφέ όπως OLEObjectShow και OLEObjectOpen. Μπορείτε να βρείτε πλήρη λίστα στην κλάση [EffectType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effecttype/).
 
-Επιπλέον, αυτά τα εφέ animation μπορούν να χρησιμοποιηθούν σε συνδυασμό με αυτά:
-
+Επιπλέον, αυτά τα εφέ κίνησης μπορούν να χρησιμοποιηθούν σε συνδυασμό με τις ακόλουθες συμπεριφορές:
 - [ColorEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/CommandEffect)
 - [FilterEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/FilterEffect)
@@ -58,58 +57,60 @@ description: "Εξερευνήστε τις δυνατότητες της Aspose
 - [ScaleEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ScaleEffect)
 - [SetEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/SetEffect)
 
-## **Προσαρμοσμένο Animation**
+## **Προσαρμοσμένη Κίνηση**
 
-Είναι δυνατόν να δημιουργήσετε τις δικές σας **custom animations** στην Aspose.Slides. Αυτό μπορεί να επιτευχθεί εάν συνδυάσετε πολλές συμπεριφορές σε ένα νέο προσαρμοσμένο animation.
+Για πλήρη παραδείγματα Java που δημιουργούν, ελέγχουν και τροποποιούν συμπεριφορές και επεξεργάσιμες διαδρομές κίνησης, δείτε [Custom Animation](/slides/el/java/custom-animation/).
 
-[**Behavior**](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Behavior) είναι η βασική μονάδα οποιουδήποτε εφέ animation PowerPoint. Όλα τα εφέ animation είναι στην πραγματικότητα ένα σύνολο συμπεριφορών που συντίθενται σε μία στρατηγική. Μπορείτε να συνδυάσετε συμπεριφορές σε ένα προσαρμοσμένο animation μία φορά και να το επαναχρησιμοποιήσετε σε άλλες παρουσιάσεις. Αν προσθέσετε μια νέα συμπεριφορά σε ένα τυπικό εφέ animation PowerPoint - θα γίνει ένα άλλο προσαρμοσμένο animation. Για παράδειγμα, μπορείτε να προσθέσετε συμπεριφορά επανάληψης σε ένα animation ώστε να επαναλαμβάνεται αρκετές φορές.
+Είναι δυνατό να δημιουργήσετε τις δικές σας **προσαρμοσμένες κινήσεις** στην Aspose.Slides. Αυτό μπορεί να επιτευχθεί συνδυάζοντας πολλές συμπεριφορές σε μια νέα προσαρμοσμένη κίνηση.
 
-[**Animation Point**](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Point) είναι ένα σημείο όπου πρέπει να εφαρμοστεί η συμπεριφορά.
+[Behavior](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/behavior/) είναι το δομικό στοιχείο ενός εφέ κίνησης PowerPoint. Συνδυάστε συμπεριφορές για να προσαρμόσετε ένα εφέ, ή προσθέστε μια συμπεριφορά για να επεκτείνετε ένα προ-ορισμένο εφέ. Η επανάληψη ρυθμίζεται μέσω ρυθμίσεων χρονισμού αντί για ξεχωριστή συμπεριφορά επανάληψης.
 
-## **Γραμμή Χρόνου Animation**
+[Animation Point](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/point/) είναι ένα σημείο στο οποίο πρέπει να εφαρμοστεί μια συμπεριφορά.
 
-[**Sequence**](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Sequence) είναι μια συλλογή εφέ animation, που εφαρμόζονται σε ένα συγκεκριμένο σχήμα.
+## **Γραμμή Χρόνου Κίνησης**
 
-[**Timeline**](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/AnimationTimeLine) είναι ένα σύνολο Sequences που χρησιμοποιείται σε μια συγκεκριμένη διαφάνεια. Είναι μια μηχανή animation που υπάρχει από το PowerPoint 2002. Σε προηγούμενες εκδόσεις PowerPoint, ήταν δύσκολο να προστεθούν εφέ animation στην παρουσίαση, τα οποία μπορούσαν να επιτευχθούν μόνο με διάφορες παρακάμψεις. Η Timeline αντικαθιστά την παλιά κλάση AnimationSettings και παρέχει πιο σαφή αντικειμενικό μοντέλο για animation PowerPoint. Μια διαφάνεια μπορεί να έχει μόνο μία χρονογραμμή animation.
+[Sequence](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/sequence/) είναι μια συλλογή εφέ κίνησης που μπορούν να στοχεύσουν διαφορετικά σχήματα.
 
-## **Διαδραστικό Animation**
+[Timeline](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/animationtimeline/) είναι ένα σύνολο ακολουθιών που χρησιμοποιείται σε συγκεκριμένη διαφάνεια. Είναι μια μηχανή κίνησης που εισήχθη στο PowerPoint 2002. Σε παλαιότερες εκδόσεις του PowerPoint, η προσθήκη εφέ κίνησης σε παρουσιάσεις ήταν δύσκολη και μπορούσε να επιτευχθεί μόνο με διάφορες εναλλακτικές λύσεις. Η γραμμή χρόνου παρέχει ένα πιο σαφές μοντέλο αντικειμένων για τις κινήσεις PowerPoint. Μια διαφάνεια μπορεί να έχει μόνο μία γραμμή χρόνου κίνησης.
 
-[**Trigger**](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/EffectTriggerType) επιτρέπει τον ορισμό ενεργειών χρήστη (π.χ. κλικ κουμπιού), που θα ξεκινήσουν ένα συγκεκριμένο animation. Οι Trigger προστέθηκαν μόνο στην πιο πρόσφατη έκδοση του PowerPoint.
+## **Διαδραστική Κίνηση**
 
-## **Animation Σχημάτων**
+[Trigger](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effecttriggertype/) σας επιτρέπει να ορίσετε ενέργειες χρήστη, όπως κλικ σε κουμπί, που ξεκινούν μια συγκεκριμένη κίνηση.
 
-Η Aspose.Slides επιτρέπει την εφαρμογή animation σε σχήματα, τα οποία μπορούν να είναι κείμενο, ορθογώνιο, γραμμή, πλαίσιο, αντικείμενο OLE κλπ.
+## **Κίνηση Σχημάτων**
 
-{{% alert color="primary" %}} 
-Διαβάστε περισσότερα [**Σχετικά με το Animation Σχημάτων**](/slides/el/androidjava/shape-animation/).
+Η Aspose.Slides σας επιτρέπει να εφαρμόζετε κινήσεις σε σχήματα, που μπορούν να περιλαμβάνουν κείμενο, ορθογώνια, γραμμές, πλαίσια, αντικείμενα OLE και άλλα.
+
+{{% alert color="info" title="Note" %}}
+Διαβάστε περισσότερα [**Σχετικά με την Κίνηση Σχημάτων**](/slides/el/androidjava/shape-animation/).
 {{% /alert %}}
 
-## **Γραφήματα με Animation**
+## **Κινούμενα Διαγράμματα**
 
-Για τη δημιουργία animated charts, πρέπει να χρησιμοποιήσετε όλες τις ίδιες κλάσεις όπως για τα σχήματα. Ωστόσο, είναι δυνατό να εφαρμόσετε animation PowerPoint μόνο σε κατηγορίες διαγράμματος ή σειρές διαγράμματος. Μπορείτε επίσης να εφαρμόσετε εφέ animation σε ένα στοιχείο κατηγορίας ή σε ένα στοιχείο σειράς.
+Για τη δημιουργία κινούμενων διαγραμμάτων, πρέπει να χρησιμοποιήσετε τις ίδιες κλάσεις όπως για τα σχήματα. Ωστόσο, οι κινήσεις PowerPoint μπορούν να εφαρμοσθούν μόνο σε κατηγορίες διαγράμματος ή σειρές διαγράμματος. Μπορείτε επίσης να εφαρμόσετε εφέ κίνησης σε ένα στοιχείο κατηγορίας ή σε ένα στοιχείο σειράς.
 
-{{% alert color="primary" %}} 
-Διαβάστε περισσότερα [**Σχετικά με τα Animated Charts**](/slides/el/androidjava/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Διαβάστε περισσότερα [**Σχετικά με τα Κινούμενα Διαγράμματα**](/slides/el/androidjava/animated-charts/).
 {{% /alert %}}
 
-## **Κείμενο με Animation**
+## **Κινούμενο Κείμενο**
 
-Εκτός από animated text, είναι επίσης δυνατό να εφαρμόσετε animation σε μια παράγραφο.
+Εκτός από την κίνηση κειμένου, μπορείτε να εφαρμόσετε κίνηση σε μια παράγραφο.
 
-{{% alert color="primary" %}} 
-Διαβάστε περισσότερα [**Σχετικά με το Animated Text**](/slides/el/androidjava/animated-text/).
+{{% alert color="info" title="Note" %}}
+Διαβάστε περισσότερα [**Σχετικά με το Κινούμενο Κείμενο**](/slides/el/androidjava/animated-text/).
 {{% /alert %}}
 
 ## **Συχνές Ερωτήσεις**
 
-**Θα διατηρηθούν τα animations κατά την εξαγωγή σε PDF;**
+**Θα διατηρηθούν οι κινήσεις κατά την εξαγωγή σε PDF;**
 
-Όχι. Το PDF είναι μια στατική μορφή, έτσι τα animations και οι [slide transitions](/slides/el/androidjava/slide-transition/) δεν παίζουν. Εάν χρειάζεστε κίνηση, εξάγετε σε [HTML5](/slides/el/androidjava/export-to-html5/), [animated GIF](/slides/el/androidjava/convert-powerpoint-to-animated-gif/), ή [video](/slides/el/androidjava/convert-powerpoint-to-video/) αντί.
+Όχι. Το PDF είναι μια στατική μορφή, επομένως οι κινήσεις και οι [μεταβάσεις διαφάνειας](/slides/el/androidjava/slide-transition/) δεν εκτελούνται. Εάν χρειάζεστε κίνηση, εξάγετε σε [HTML5](/slides/el/androidjava/export-to-html5/), [animated GIF](/slides/el/androidjava/convert-powerpoint-to-animated-gif/), ή [βίντεο](/slides/el/androidjava/convert-powerpoint-to-video/) αντ' αυτού.
 
-**Μπορώ να μετατρέψω μια animated παρουσίαση σε βίντεο και να ελέγξω το ρυθμό καρέ και το μέγεθος καρέ;**
+**Μπορώ να μετατρέψω μια κινούμενη παρουσίαση σε βίντεο και να ελέγξω το ρυθμό καρέ και το μέγεθος του καρέ;**
 
-Ναι. Μπορείτε να [render the presentation as frames](/slides/el/androidjava/convert-powerpoint-to-video/) και να τα κωδικοποιήσετε σε βίντεο (π.χ., μέσω ffmpeg), επιλέγοντας τα FPS και την ανάλυση. Τα animations και οι slide transitions αναπαράγονται κατά τη διαδικασία rendering.
+Ναι. Μπορείτε να [αποδώσετε την παρουσίαση ως καρέ](/slides/el/androidjava/convert-powerpoint-to-video/) και να τα κωδικοποιήσετε σε βίντεο (π.χ., μέσω ffmpeg), επιλέγοντας τα fps και την ανάλυση. Οι κινήσεις και οι μεταβάσεις διαφάνειας εκτελούνται κατά τη διάρκεια της απόδοσης.
 
-**Θα παραμείνουν τα animations αμετάβλητα όταν εργάζεστε με ODP (όχι μόνο PPTX);**
+**Θα παραμείνουν αμετάβλητες οι κινήσεις όταν εργάζεστε με ODP (όχι μόνο PPTX);**
 
-Τα PPT, PPTX και ODP υποστηρίζονται για [reading](/slides/el/androidjava/open-presentation/) και [writing](/slides/el/androidjava/save-presentation/), αλλά οι διαφορές μορφής σημαίνουν ότι ορισμένα εφέ μπορεί να εμφανίζονται ή να λειτουργούν ελαφρώς διαφορετικά. Επικυρώστε κρίσιμες περιπτώσεις με πραγματικά δείγματα.
+Τα PPT, PPTX και ODP υποστηρίζονται για [ανάγνωση](/slides/el/androidjava/open-presentation/) και [εγγραφή](/slides/el/androidjava/save-presentation/), αλλά αυτό δεν εγγυάται τη διατήρηση των κινήσεων. Τα προσαρμοσμένα δεδομένα κίνησης μπορεί να χαθούν κατά τη μετατροπή σε ODP. Δείτε το [Custom Animation for Java](/slides/el/java/custom-animation/) για παραδείγματα και οδηγίες ελέγχου συμβατότητας μορφής.

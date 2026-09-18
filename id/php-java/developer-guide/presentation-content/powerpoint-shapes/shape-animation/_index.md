@@ -8,38 +8,40 @@ keywords:
 - bentuk
 - animasi
 - efek
-- bentuk bergerak
-- teks bergerak
-- menambahkan animasi
-- mendapatkan animasi
-- mengekstrak animasi
-- menambahkan efek
-- mendapatkan efek
-- mengekstrak efek
+- bentuk animasi
+- teks animasi
+- tambahkan animasi
+- dapatkan animasi
+- ekstrak animasi
+- tambahkan efek
+- dapatkan efek
+- ekstrak efek
 - suara efek
-- menerapkan animasi
+- terapkan animasi
 - PowerPoint
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Pelajari cara menambahkan, memeriksa, dan menyesuaikan animasi bentuk, penjadwalan, suara, perilaku setelah animasi, dan teks yang dianimasikan dengan Aspose.Slides untuk PHP via Java."
+description: "Pelajari cara menambahkan, memeriksa, dan menyesuaikan animasi bentuk, timing, suara, perilaku setelah animasi, serta teks animasi dengan Aspose.Slides untuk PHP melalui Java."
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides for PHP via Java merepresentasikan animasi slide sebagai efek dalam timeline slide. Sebuah efek memiliki bentuk target, tipe dan subtipe animasi, trigger, pengaturan waktu, dan properti opsional seperti suara atau perilaku setelah animasi.
+Untuk bekerja dengan perilaku individu di dalam sebuah efek atau mengedit segmen jalur‑gerak, lihat [Animasi Kustom](/slides/id/php-java/custom-animation/).
 
-Timeline berisi dua jenis urutan:
+Aspose.Slides untuk PHP melalui Java merepresentasikan animasi slide sebagai efek dalam garis waktu slide. Sebuah efek memiliki shape target, tipe dan subtipe animasi, pemicu, pengaturan timing, serta properti opsional seperti suara atau perilaku setelah animasi.
 
-- **urutan utama** diputar saat slide maju.
-- **urutan interaktif** dimulai ketika bentuk pemicu diklik.
+Garis waktu berisi dua jenis urutan:
 
-Karena kotak teks, gambar, diagram, tabel, dan objek slide lainnya adalah bentuk, Anda menggunakan metode [Sequence::addEffect](https://reference.aspose.com/slides/id/php-java/aspose.slides/sequence/addeffect/) yang sama untuk sebagian besar konten slide. Efek yang tersedia terdaftar di kelas [EffectType](https://reference.aspose.com/slides/id/php-java/aspose.slides/effecttype/).
+- The **urutan utama** diputar saat slide maju.
+- **Urutan interaktif** dimulai ketika shape pemicunya diklik.
+
+Karena kotak teks, gambar, bagan, tabel, dan objek slide lainnya adalah shape, Anda menggunakan metode [Sequence::addEffect](https://reference.aspose.com/slides/id/php-java/aspose.slides/sequence/addeffect/) yang sama untuk kebanyakan konten slide. Efek yang tersedia terdaftar di kelas [EffectType](https://reference.aspose.com/slides/id/php-java/aspose.slides/effecttype/).
 
 ## **Menambahkan Animasi Bentuk**
 
-Untuk menambahkan animasi, dapatkan urutan utama slide dan panggil [Sequence::addEffect](https://reference.aspose.com/slides/id/php-java/aspose.slides/sequence/addeffect/) dengan bentuk target, tipe efek, subtipe, dan trigger. Untuk efek yang dimulai ketika bentuk lain diklik, buat urutan interaktif yang pemicunya adalah bentuk lain tersebut.
+Untuk menambahkan animasi, dapatkan urutan utama slide dan panggil [Sequence::addEffect](https://reference.aspose.com/slides/id/php-java/aspose.slides/sequence/addeffect/) dengan shape target, tipe efek, subtipe, dan pemicu. Untuk efek yang dimulai ketika shape lain diklik, buat urutan interaktif yang pemicunya adalah shape lain tersebut.
 
-Contoh berikut membuat kedua jenis animasi dan menyimpan hasilnya ke `shape-animations.pptx`.
+Contoh berikut membuat kedua tipe animasi dan menyimpan hasilnya ke `shape-animations.pptx`.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -72,19 +74,19 @@ try {
 }
 ```
 
-Trigger mengontrol kapan efek dimulai:
+Pemicu mengontrol kapan sebuah efek dimulai:
 
-- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/id/php-java/aspose.slides/effecttriggertype/) menunggu klik di urutan utama, atau klik pada bentuk pemicu di urutan interaktif.
-- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/id/php-java/aspose.slides/effecttriggertype/) dimulai bersama efek sebelumnya.
-- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/id/php-java/aspose.slides/effecttriggertype/) dimulai ketika efek sebelumnya selesai.
+- [EffectTriggerType::OnClick] menunggu klik dalam urutan utama, atau klik pada shape pemicu dalam urutan interaktif.
+- [EffectTriggerType::WithPrevious] dimulai bersama efek sebelumnya.
+- [EffectTriggerType::AfterPrevious] dimulai ketika efek sebelumnya selesai.
 
-Untuk menganimasikan gambar, diagram, atau tipe bentuk lainnya, berikan objek tersebut ke [Sequence::addEffect](https://reference.aspose.com/slides/id/php-java/aspose.slides/sequence/addeffect/) alih-alih `$targetShape`. Untuk opsi pengelompokan khusus diagram, lihat [Animated Charts](/slides/id/php-java/animated-charts/).
+Untuk menganimasikan gambar, bagan, atau tipe shape lainnya, berikan objek tersebut ke [Sequence::addEffect](https://reference.aspose.com/slides/id/php-java/aspose.slides/sequence/addeffect/) alih‑alih `$targetShape`. Untuk opsi pengelompokan khusus bagan, lihat [Diagram Animasi](/slides/id/php-java/animated-charts/).
 
 ## **Membaca Animasi Bentuk**
 
-Gunakan [Sequence::getEffectsByShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/sequence/geteffectsbyshape/) ketika Anda mengetahui bentuk target. Untuk memeriksa setiap efek, enumerasikan urutan utama dan setiap urutan interaktif. Enumerasi menghindari asumsi bahwa sebuah urutan berisi efek pada indeks `0`.
+Gunakan [Sequence::getEffectsByShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/sequence/geteffectsbyshape/) ketika Anda mengetahui shape target. Untuk memeriksa setiap efek, enumerasikan urutan utama dan setiap urutan interaktif. Enumerasi menghindari asumsi bahwa sebuah urutan berisi efek pada indeks `0`.
 
-Contoh berikut membuat sebuah bentuk dengan efek urutan utama dan interaktif, mengambil efek yang menargetkan bentuk tersebut, dan kemudian enumerasi setiap urutan pada slide.
+Contoh berikut membuat sebuah shape dengan efek urutan utama dan interaktif, mengambil efek yang menargetkan shape tersebut, lalu menelusuri setiap urutan pada slide.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -144,13 +146,13 @@ try {
 }
 ```
 
-Jika Anda hanya memerlukan efek untuk satu bentuk, pertama identifikasi bentuk tersebut berdasarkan nama, tipe placeholder, atau properti stabil lainnya; kemudian panggil [Sequence::getEffectsByShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/sequence/geteffectsbyshape/). Jangan mengasumsikan bahwa [ShapeCollection::get_Item](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapecollection/get_item/) pada indeks `0` selalu merupakan objek yang dimaksud.
+Jika Anda hanya membutuhkan efek untuk satu shape, pertama identifikasi shape dengan nama, tipe placeholder, atau properti stabil lainnya; kemudian panggil [Sequence::getEffectsByShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/sequence/geteffectsbyshape/). Jangan mengasumsikan bahwa [ShapeCollection::get_Item](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapecollection/get_item/) pada indeks `0` selalu merupakan objek yang dimaksud.
 
 ## **Bekerja dengan Efek Placeholder yang Dwariskan**
 
-Placeholder pada slide normal dapat mewarisi perilaku animasi dari placeholder yang sesuai pada slide tata letak dan slide master. [Shape::getBasePlaceholder](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/getbaseplaceholder/) mengembalikan placeholder induk tersebut, atau `null` bila tidak ada induk.
+Placeholder pada slide normal dapat mewarisi perilaku animasi dari placeholder yang bersesuaian pada slide tata letak dan slide master. [Shape::getBasePlaceholder](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/getbaseplaceholder/) mengembalikan placeholder induk tersebut, atau `null` bila tidak ada induk.
 
-Dalam contoh presentasi berikut, footer memiliki **Random Bars** pada slide normal, **Split** pada slide tata letak, dan **Fly In** pada slide master.
+Pada presentasi contoh berikut, footer memiliki **Random Bars** pada slide normal, **Split** pada slide tata letak, dan **Fly In** pada slide master.
 
 ![Efek animasi footer pada slide normal](slide-shape-animation.png)
 
@@ -158,7 +160,7 @@ Dalam contoh presentasi berikut, footer memiliki **Random Bars** pada slide norm
 
 ![Efek animasi placeholder footer pada slide master](master-shape-animation.png)
 
-Contoh berikut menggunakan hierarki placeholder dari presentasi baru. Ia menambahkan efek ke placeholder master, placeholder tata letak, dan placeholder yang sesuai pada slide normal. Setiap pemanggilan [Shape::getBasePlaceholder](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/getbaseplaceholder/) diperiksa sebelum bentuk yang dikembalikan digunakan.
+Contoh berikutnya menggunakan hierarki placeholder dari presentasi baru. Ia menambahkan efek ke placeholder master, placeholder tata letak, dan placeholder yang bersesuaian pada slide normal. Setiap panggilan ke [Shape::getBasePlaceholder](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/getbaseplaceholder/) diperiksa sebelum shape yang dikembalikan digunakan.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -246,19 +248,19 @@ try {
 }
 ```
 
-## **Mengubah Penjadwalan Animasi**
+## **Mengubah Timing Animasi**
 
 Dialog **Timing** PowerPoint memetakan ke properti [Timing](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/).
 
 ![Dialog Timing PowerPoint untuk efek animasi](shape-animation.png)
 
-- **Start** memetakan ke [Timing::getTriggerType](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/gettriggertype/).
-- **Duration** memetakan ke [Timing::getDuration](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/getduration/), dalam detik.
+- **Mulai** memetakan ke [Timing::getTriggerType](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/gettriggertype/).
+- **Durasi** memetakan ke [Timing::getDuration](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/getduration/), dalam detik.
 - **Delay** memetakan ke [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/gettriggerdelaytime/), dalam detik.
-- **Repeat** memetakan ke [Timing::getRepeatCount](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/getrepeatuntilnextclick/), atau [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/getrepeatuntilendslide/).
-- **Rewind when done playing** memetakan ke [Timing::getRewind](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/getrewind/).
+- **Ulang** memetakan ke [Timing::getRepeatCount](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/getrepeatuntilnextclick/), atau [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/getrepeatuntilendslide/).
+- **Putar ulang setelah selesai** memetakan ke [Timing::getRewind](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/getrewind/).
 
-Contoh independen ini menambahkan efek, mengubah penjadwalannya melalui objek yang dikembalikan oleh [Sequence::addEffect](https://reference.aspose.com/slides/id/php-java/aspose.slides/sequence/addeffect/), dan menyimpan hasilnya. Menyimpan referensi [Effect](https://reference.aspose.com/slides/id/php-java/aspose.slides/effect/) yang dikembalikan menghindari indeks koleksi yang tidak diperlukan.
+Contoh independen ini menambahkan sebuah efek, mengubah timing‑nya melalui objek yang dikembalikan oleh [Sequence::addEffect](https://reference.aspose.com/slides/id/php-java/aspose.slides/sequence/addeffect/), dan menyimpan hasilnya. Menjaga referensi [Effect](https://reference.aspose.com/slides/id/php-java/aspose.slides/effect/) yang dikembalikan menghindari indeks koleksi yang tidak perlu.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -289,15 +291,15 @@ try {
 }
 ```
 
-Gunakan satu mode pengulangan dengan sengaja. Menggabungkan hitungan pengulangan dengan flag "until" dapat menghasilkan hasil yang membingungkan pada pemutar yang berbeda. Saat mengubah mode pengulangan, setel [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/setrepeatuntilnextclick/) dan [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/setrepeatuntilendslide/) sebelum [Timing::setRepeatCount](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/setrepeatcount/), karena menyetel salah satu flag juga mengubah mode pengulangan yang aktif.
+Gunakan satu mode pengulangan secara sengaja. Menggabungkan jumlah pengulangan dengan flag “until” dapat menghasilkan hasil yang membingungkan pada penampil yang berbeda. Saat mengubah mode pengulangan, atur [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/setrepeatuntilnextclick/) dan [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/setrepeatuntilendslide/) sebelum [Timing::setRepeatCount](https://reference.aspose.com/slides/id/php-java/aspose.slides/timing/setrepeatcount/), karena mengatur salah satu flag juga mengubah mode pengulangan aktif.
 
 ## **Menambahkan dan Mengekstrak Suara Animasi**
 
-Sebuah efek animasi dapat merujuk ke audio tersemat melalui [Effect::getSound](https://reference.aspose.com/slides/id/php-java/aspose.slides/effect/getsound/). [Effect::setStopPreviousSound](https://reference.aspose.com/slides/id/php-java/aspose.slides/effect/setstopprevioussound/) memberi tahu efek untuk menghentikan audio yang dimulai oleh efek sebelumnya.
+Sebuah efek animasi dapat merujuk pada audio tersemat melalui [Effect::getSound](https://reference.aspose.com/slides/id/php-java/aspose.slides/effect/getsound/). [Effect::setStopPreviousSound](https://reference.aspose.com/slides/id/php-java/aspose.slides/effect/setstopprevioussound/) memberi tahu sebuah efek untuk menghentikan audio yang dimulai oleh efek sebelumnya.
 
 ### **Menambahkan Suara ke Efek**
 
-Contoh berikut mengharapkan file audio lokal bernama `animation-sound.wav`. Ia membuat dua efek, menyematkan file tersebut sebagai suara untuk efek pertama, dan mengonfigurasi efek kedua untuk menghentikan suara. Ia menggunakan objek yang dikembalikan oleh [Sequence::addEffect](https://reference.aspose.com/slides/id/php-java/aspose.slides/sequence/addeffect/), jadi tidak diperlukan indeks urutan.
+Contoh berikut mengharapkan file audio lokal bernama `animation-sound.wav`. Ia membuat dua efek, menyematkan file tersebut sebagai suara untuk efek pertama, dan mengonfigurasi efek kedua untuk menghentikan suara. Ia menggunakan objek yang dikembalikan oleh [Sequence::addEffect](https://reference.aspose.com/slides/id/php-java/aspose.slides/sequence/addeffect/), sehingga tidak diperlukan indeks urutan.
 
 ```php
 use aspose\slides\EffectSubtype;
@@ -334,9 +336,9 @@ try {
 }
 ```
 
-### **Mengekstrak Suara Efek yang Tersemat**
+### **Mengekstrak Suara Efek Tersemat**
 
-Contoh berikut mengharapkan presentasi lokal bernama `presentation-with-animation-sounds.pptx`. Ia memindai both urutan utama dan interaktif dan menulis setiap suara efek tersemat ke direktori `extracted-animation-sounds`. Ekstensi dipilih dari tipe MIME audio yang diberikan oleh [Audio::getContentType](https://reference.aspose.com/slides/id/php-java/aspose.slides/audio/getcontenttype/).
+Contoh berikut mengharapkan presentasi lokal bernama `presentation-with-animation-sounds.pptx`. Ia memindai urutan utama dan interaktif serta menulis setiap suara efek tersemat ke direktori `extracted-animation-sounds`. Ekstensi dipilih dari tipe MIME audio yang diberikan oleh [Audio::getContentType](https://reference.aspose.com/slides/id/php-java/aspose.slides/audio/getcontenttype/).
 
 ```php
 use aspose\slides\Presentation;
@@ -420,17 +422,17 @@ try {
 }
 ```
 
-Untuk objek audio besar, gunakan [Audio::getStream](https://reference.aspose.com/slides/id/php-java/aspose.slides/audio/getstream/) dan salin stream ke file alih-alih memuat seluruh objek ke dalam array byte.
+Untuk objek audio berukuran besar, gunakan [Audio::getStream](https://reference.aspose.com/slides/id/php-java/aspose.slides/audio/getstream/) dan salin stream ke file alih‑alih memuat seluruh objek ke dalam array byte.
 
 ## **Mengatur Perilaku Setelah Animasi**
 
-Opsi **After animation** mengontrol apa yang terjadi pada sebuah bentuk setelah efeknya selesai.
+Opsi **After animation** mengontrol apa yang terjadi pada sebuah shape setelah efeknya selesai.
 
-![Dialog Opsi Efek PowerPoint yang menampilkan pengaturan After animation](shape-after-animation.png)
+![Dialog Opsi Efek PowerPoint menampilkan pengaturan After animation](shape-after-animation.png)
 
-Kelas [AfterAnimationType](https://reference.aspose.com/slides/id/php-java/aspose.slides/afteranimationtype/) mendukung meninggalkan bentuk tidak berubah, mengubah warnanya, menyembunyikannya setelah animasi, atau menyembunyikannya pada klik berikutnya. Ketika tipe adalah [AfterAnimationType::Color](https://reference.aspose.com/slides/id/php-java/aspose.slides/afteranimationtype/), setel juga [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/id/php-java/aspose.slides/effect/getafteranimationcolor/).
+Kelas [AfterAnimationType](https://reference.aspose.com/slides/id/php-java/aspose.slides/afteranimationtype/) mendukung membiarkan shape tidak berubah, mengubah warnanya, menyembunyikannya setelah animasi, atau menyembunyikannya pada klik berikutnya. Ketika tipe adalah [AfterAnimationType::Color](https://reference.aspose.com/slides/id/php-java/aspose.slides/afteranimationtype/), atur juga [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/id/php-java/aspose.slides/effect/getafteranimationcolor/).
 
-Contoh independen ini membuat sebuah efek, mengatur perilaku setelah-animasinya melalui objek efek yang dikembalikan, dan menyimpan hasilnya.
+Contoh independen ini membuat sebuah efek, mengatur perilaku after‑animation melalui objek efek yang dikembalikan, dan menyimpan hasilnya.
 
 ```php
 use aspose\slides\AfterAnimationType;
@@ -457,16 +459,16 @@ try {
 }
 ```
 
-Mengubah tipe dari [AfterAnimationType::Color](https://reference.aspose.com/slides/id/php-java/aspose.slides/afteranimationtype/) menghapus pengaturan warna after-animation.
+Mengubah tipe dari [AfterAnimationType::Color](https://reference.aspose.com/slides/id/php-java/aspose.slides/afteranimationtype/) menghapus pengaturan warna after‑animation.
 
 ## **Menganimasikan Teks**
 
 Animasi teks memiliki dua kontrol terkait:
 
 - [TextAnimation::getBuildType](https://reference.aspose.com/slides/id/php-java/aspose.slides/textanimation/getbuildtype/) mengontrol apakah paragraf muncul bersamaan atau per tingkat paragraf.
-- [Effect::getAnimateTextType](https://reference.aspose.com/slides/id/php-java/aspose.slides/effect/getanimatetexttype/) mengontrol apakah teks muncul sekaligus, per kata, atau per huruf. [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/id/php-java/aspose.slides/effect/getdelaybetweentextparts/) mengatur jeda antara kata atau huruf. Nilai positif adalah persentase dari durasi efek; nilai negatif adalah jeda dalam detik.
+- [Effect::getAnimateTextType](https://reference.aspose.com/slides/id/php-java/aspose.slides/effect/getanimatetexttype/) mengontrol apakah teks muncul sekaligus, per kata, atau per huruf. [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/id/php-java/aspose.slides/effect/getdelaybetweentextparts/) mengatur jeda antara kata atau huruf. Nilai positif adalah persentase durasi efek; nilai negatif adalah jeda dalam detik.
 
-Contoh independen berikut menganimasikan kata-kata dalam kotak teks. [BuildType::AsOneObject](https://reference.aspose.com/slides/id/php-java/aspose.slides/buildtype/) menonaktifkan pembangunan paragraf-per-paragraf sehingga pengaturan kata berlaku untuk seluruh bingkai teks.
+Contoh independen berikut menganimasi kata‑kata dalam sebuah kotak teks. [BuildType::AsOneObject](https://reference.aspose.com/slides/id/php-java/aspose.slides/buildtype/) menonaktifkan pembangunan paragraf‑per‑paragraf sehingga pengaturan kata berlaku pada seluruh bingkai teks.
 
 ```php
 use aspose\slides\AnimateTextType;
@@ -495,17 +497,17 @@ try {
 }
 ```
 
-Untuk membangun kotak teks per paragraf, setel [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/id/php-java/aspose.slides/buildtype/) (atau tingkat paragraf lainnya). Untuk menargetkan satu paragraf dengan efeknya sendiri, gunakan overload [Sequence::addEffect](https://reference.aspose.com/slides/id/php-java/aspose.slides/sequence/addeffect/) yang menerima [Paragraph](https://reference.aspose.com/slides/id/php-java/aspose.slides/paragraph/). Lihat [Animated Text](/slides/id/php-java/animated-text/) untuk contoh tingkat paragraf.
+Untuk membangun kotak teks per paragraf, atur [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/id/php-java/aspose.slides/buildtype/) (atau tingkat paragraf lain). Untuk menargetkan satu paragraf dengan efeknya sendiri, gunakan overload [Sequence::addEffect](https://reference.aspose.com/slides/id/php-java/aspose.slides/sequence/addeffect/) yang menerima sebuah [Paragraph](https://reference.aspose.com/slides/id/php-java/aspose.slides/paragraph/). Lihat [Teks Animasi](/slides/id/php-java/animated-text/) untuk contoh level paragraf.
 
 ## **Catatan Ekspor dan Kompatibilitas**
 
 - Menyimpan ke PPT atau PPTX mempertahankan model animasi, tetapi pemutaran akhir dikendalikan oleh penampil presentasi.
-- PDF dan gambar statis tidak memutar animasi. Gunakan [HTML5 export](/slides/id/php-java/export-to-html5/), GIF animasi, atau [video conversion](/slides/id/php-java/convert-powerpoint-to-video/) ketika output harus menampilkan gerakan.
-- Untuk HTML5, aktifkan [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/id/php-java/aspose.slides/html5options/setanimateshapes/) dan, bila diperlukan, [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/id/php-java/aspose.slides/html5options/setanimatetransitions/).
-- Rendering video mendukung banyak efek masuk, penekanan, keluar, dan jalur gerak yang umum, tetapi tidak semua efek PowerPoint didukung. Periksa [supported animations and effects](/slides/id/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) terkini dan uji presentasi penting dengan versi Aspose.Slides target Anda.
-- Efek khusus lanjutan dan efek yang diimpor dari format presentasi lain mungkin dipertahankan dalam file tetapi dirender berbeda di PowerPoint, HTML5, atau video. Validasi hasil ekspor daripada hanya mengandalkan nama efek.
+- PDF dan gambar statis tidak memutar animasi. Gunakan [Ekspor HTML5](/slides/id/php-java/export-to-html5/), GIF animasi, atau [konversi video](/slides/id/php-java/convert-powerpoint-to-video/) ketika output harus menampilkan gerakan.
+- Untuk HTML5, aktifkan [Html5Options::setAnimateShapes] dan, bila diperlukan, [Html5Options::setAnimateTransitions].
+- Rendering video mendukung banyak efek masuk, penekanan, keluar, dan jalur‑gerak umum, tetapi tidak semua efek PowerPoint didukung. Periksa [animasi dan efek yang didukung](/slides/id/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) saat ini dan uji presentasi kritis dengan versi Aspose.Slides target Anda.
+- Efek kustom lanjutan dan efek yang diimpor dari format presentasi lain mungkin dipertahankan dalam file tetapi dirender berbeda di PowerPoint, HTML5, atau video. Validasi hasil ekspor daripada hanya mengandalkan nama efek.
 
-## **FAQ**
+## **Tanya Jawab**
 
 **Mengapa animasi muncul di PowerPoint tetapi tidak di PDF?**
 
@@ -513,8 +515,8 @@ PDF adalah format statis, sehingga animasi dan transisi slide tidak diputar. Eks
 
 **Mengapa sebuah efek diputar berbeda dalam video?**
 
-Ekspor video merender animasi alih-alih menyimpan perilaku PowerPoint asli. Beberapa efek lanjutan tidak didukung atau diperkirakan. Tinjau tabel efek yang didukung dan uji presentasi sebenarnya sebelum penggunaan produksi.
+Ekspor video merender animasi alih‑alih menyimpan perilaku PowerPoint asli. Beberapa efek lanjutan tidak didukung atau hanya diperkirakan. Tinjau tabel efek yang didukung dan uji presentasi sebenarnya sebelum penggunaan produksi.
 
-**Apakah memindahkan sebuah bentuk ke depan atau ke belakang mengubah urutan animasinya?**
+**Apakah memindahkan shape ke depan atau ke belakang mengubah urutan animasinya?**
 
-Tidak. Z-order bentuk mengontrol tumpang tindih, sementara urutan urutan dan trigger mengontrol pemutaran animasi. Ubah timeline jika Anda membutuhkan urutan pemutaran yang berbeda.
+Tidak. Z‑order shape mengontrol tumpang tindih, sedangkan urutan urutan dan pemicu mengontrol pemutaran animasi. Ubah garis waktu bila Anda memerlukan urutan pemutaran yang berbeda.

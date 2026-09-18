@@ -13,10 +13,10 @@ keywords:
 - animatie controleren
 - animatie-effect
 - PowerPoint-animatie
-- animatie-tijdlijn
+- animatietijdlijn
 - interactieve animatie
 - aangepaste animatie
-- vorm-animatie
+- vormanimatie
 - geanimeerde grafiek
 - geanimeerde tekst
 - geanimeerde vorm
@@ -28,25 +28,25 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Gebruik Aspose.Slides voor Node.js via Java om PowerPoint-animaties te verwerken. Dit overzicht belicht belangrijke functies en biedt inzichten om uw presentaties te verbeteren."
+description: "Gebruik Aspose.Slides for Node.js via Java om PowerPoint-animaties te verwerken. Dit overzicht belicht belangrijke functies en biedt inzichten om je presentaties te verbeteren."
 ---
 ## **Introductie**
 
-Aangezien presentaties bedoeld zijn om iets te presenteren, wordt hun visuele uiterlijk en interactieve gedrag altijd in overweging genomen bij het maken ervan.
+Aangezien presentaties bedoeld zijn om iets weer te geven, worden hun visuele uiterlijk en interactieve gedrag altijd in overweging genomen tijdens het maken.
 
-**PowerPoint-animatie** speelt een belangrijke rol om een presentatie opvallend en aantrekkelijk voor de kijkers te maken. Aspose.Slides voor Node.js via Java biedt een breed scala aan opties om animatie aan een PowerPoint-presentatie toe te voegen:
+**PowerPoint-animatie** speelt een belangrijke rol bij het aantrekkelijk en boeiend maken van een presentatie voor de kijker. Aspose.Slides for Node.js via Java biedt een breed scala aan opties om animaties toe te voegen aan PowerPoint‑presentaties:
 
-- verschillende typen PowerPoint-animatie-effecten toepassen op vormen, diagrammen, tabellen, OLE‑objecten en andere presentatie‑elementen.
-- meerdere PowerPoint-animatie-effecten op één vorm gebruiken.
-- een animatietijdlijn gebruiken om animatie-effecten te beheersen.
-- aangepaste animatie maken.
+- Pas verschillende soorten PowerPoint‑animatie-effecten toe op vormen, grafieken, tabellen, OLE‑objecten en andere presentatieselementen.
+- Gebruik meerdere PowerPoint‑animatie-effecten op één vorm.
+- Maak gebruik van de animatietijdlijn om animatie‑effecten te beheren.
+- Maak aangepaste animaties.
 
-In Aspose.Slides voor Node.js via Java kunnen verschillende animatie-effecten op de vormen worden toegepast. Aangezien elk element op de dia, inclusief tekst, afbeeldingen, OLE‑object, tabel enz., als een vorm wordt beschouwd, betekent dit dat we animatie-effecten op elk element van een dia kunnen toepassen.
+In Aspose.Slides for Node.js via Java kunnen verschillende animatie‑effecten worden toegepast op vormen. Omdat elk element op een dia, inclusief tekst, afbeeldingen, OLE‑objecten en tabellen, wordt beschouwd als een vorm, kunnen animatie‑effecten op elk element van de dia worden toegepast.
 
 ## **Animatie‑effecten**
-Aspose.Slides ondersteunt **150+ animatie‑effecten**, waaronder basisanimatie-effecten zoals Bounce, PathFootball, Zoom‑effect en specifieke animatie-effecten zoals OLEObjectShow, OLEObjectOpen. Een volledige lijst van animatie-effecten kun je vinden in de [**EffectType**](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effecttype/)‑enumeratie.
+Aspose.Slides ondersteunt **meer dan 150 animatie‑effecten**, waaronder basis‑effecten zoals Bounce, PathFootball en Zoom, en specifieke effecten zoals OLEObjectShow en OLEObjectOpen. Een volledige lijst vind je in de [EffectType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effecttype/)‑enumeratie.
 
-Daarnaast kunnen deze animatie-effecten in combinatie met elkaar worden gebruikt:
+Deze animatie‑effecten kunnen bovendien in combinatie met de volgende gedragselementen worden gebruikt:
 
 - [ColorEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/CommandEffect)
@@ -58,52 +58,54 @@ Daarnaast kunnen deze animatie-effecten in combinatie met elkaar worden gebruikt
 - [SetEffect](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/SetEffect)
 
 ## **Aangepaste animatie**
-Het is mogelijk om je eigen **aangepaste animaties** te maken in Aspose.Slides.  
-Dit kan worden bereikt door verschillende gedragingen samen te voegen tot een nieuwe aangepaste animatie.
 
-[**Behavior**](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Behavior) is een bouwsteen van elk PowerPoint-animatie‑effect. Alle animatie‑effecten bestaan eigenlijk uit een set gedragingen die tot één strategie zijn gevormd. Je kunt gedragingen combineren tot een aangepaste animatie eenmalig en deze hergebruiken in andere presentaties. Als je een nieuwe gedraging toevoegt aan een standaard PowerPoint-animatie‑effect, wordt dit een andere aangepaste animatie. Bijvoorbeeld, je kunt een herhaal‑gedrag aan een animatie toevoegen zodat deze een paar keer wordt herhaald.
+Voor volledige JavaScript‑voorbeelden die gedrag en bewerkbare bewegingspaden creëren, inspecteren en wijzigen, zie [Custom Animation](/slides/nl/nodejs-java/custom-animation/).
 
-[**Animation Point**](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Point) is een punt waar het gedrag moet worden toegepast.
+Het is mogelijk om je eigen **aangepaste animaties** te maken in Aspose.Slides. Dit kan worden bereikt door verschillende gedragselementen te combineren tot een nieuwe aangepaste animatie.
 
-## **Animatie‑tijdlijn**
-[**Sequence**](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Sequence) is een verzameling animatie‑effecten die op een specifieke vorm worden toegepast.
+[Behavior](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/behavior/) is een bouwsteen van een PowerPoint‑animatie‑effect. Combineer gedragselementen om een effect aan te passen, of voeg een gedragselement toe om een vooraf gedefinieerd effect uit te breiden. Herhaling wordt geconfigureerd via timing‑instellingen in plaats van een afzonderlijk herhaal‑gedrag.
 
-[**Timeline**](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/AnimationTimeLine) is een set van Sequences die in een specifieke dia wordt gebruikt. Het is een animatie‑engine die sinds PowerPoint 2002 bestaat. In eerdere PowerPoint‑versies was het moeilijk om animatie‑effecten aan een presentatie toe te voegen, wat alleen kon met verschillende workarounds. Timeline vervangt de oude AnimationSettings‑klasse en biedt een duidelijker objectmodel voor PowerPoint‑animatie. Eén dia kan slechts één animatie‑tijdlijn hebben.
+[Animation Point](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/point/) is een punt waarop een gedragselement moet worden toegepast.
+
+## **Animatietijdlijn**
+[Sequence](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/sequence/) is een verzameling animatie‑effecten die op verschillende vormen kunnen worden toegepast.
+
+[Timeline](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/animationtimeline/) is een verzameling van sequenties die in een specifieke dia worden gebruikt. Het is een animatie‑engine die werd geïntroduceerd in PowerPoint 2002. In eerdere versies van PowerPoint was het toevoegen van animatie‑effecten aan presentaties uitdagend en alleen haalbaar met verschillende oplossingen. De tijdlijn biedt een duidelijker objectmodel voor PowerPoint‑animaties. Een dia kan slechts één animatietijdlijn hebben.
 
 ## **Interactieve animatie**
-[**Trigger**](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/EffectTriggerType) maakt het mogelijk om gebruikersacties (bijv. een klik op een knop) te definiëren die een bepaalde animatie starten. Triggers zijn alleen toegevoegd in de nieuwste PowerPoint‑versie.
+[Trigger](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/effecttriggertype/) maakt het mogelijk om gebruikersacties, zoals een knopklik, te definiëren die een bepaalde animatie starten.
 
-## **Vorm‑animatie**
-Aspose.Slides maakt het mogelijk om animatie toe te passen op vormen, die feitelijk tekst, rechthoek, lijn, frame, OLE‑object, enz. kunnen zijn.
+## **Vormanimatie**
+Aspose.Slides stelt je in staat animaties toe te passen op vormen, die tekst, rechthoeken, lijnen, kaders, OLE‑objecten en meer kunnen omvatten.
 
-{{% alert color="primary" %}} 
-Lees meer [**Over vorm‑animatie**](/slides/nl/nodejs-java/shape-animation/).
+{{% alert color="info" title="Note" %}}
+Lees meer [**Over vormanimatie**](/slides/nl/nodejs-java/shape-animation/).
 {{% /alert %}}
 
-## **Geanimeerde diagrammen**
-Om geanimeerde diagrammen te maken, moet je dezelfde klassen gebruiken als voor vormen. Het is echter mogelijk om PowerPoint‑animatie alleen op diagramcategorieën of diagramreeksen toe te passen. Je kunt ook een animatie‑effect op een categorie‑element of reeks‑element toepassen.
+## **Geanimeerde grafieken**
+Om geanimeerde grafieken te maken, moet je dezelfde klassen gebruiken als voor vormen. PowerPoint‑animaties kunnen echter alleen worden toegepast op grafiekcategorieën of grafiekreeksen. Je kunt ook animatie‑effecten toepassen op een categorie‑element of een reeks‑element.
 
-{{% alert color="primary" %}} 
-Lees meer [**Over geanimeerde diagrammen**](/slides/nl/nodejs-java/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Lees meer [**Over geanimeerde grafieken**](/slides/nl/nodejs-java/animated-charts/).
 {{% /alert %}}
 
 ## **Geanimeerde tekst**
-Naast geanimeerde tekst is het ook mogelijk om animatie op een alinea toe te passen.
+Naast het animeren van tekst kun je ook animatie toepassen op een alinea.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 Lees meer [**Over geanimeerde tekst**](/slides/nl/nodejs-java/animated-text/).
 {{% /alert %}}
 
 ## **FAQ**
 
-**Worden animaties behouden bij exporteren naar PDF?**
+**Wordt de animatie bewaard bij exporteren naar PDF?**
 
-Nee. PDF is een statisch formaat, dus animaties en [dia‑overgangen](/slides/nl/nodejs-java/slide-transition/) worden niet afgespeeld. Als je beweging nodig hebt, exporteer dan in plaats daarvan naar [HTML5](/slides/nl/nodejs-java/export-to-html5/), [geanimeerde GIF](/slides/nl/nodejs-java/convert-powerpoint-to-animated-gif/) of [video](/slides/nl/nodejs-java/convert-powerpoint-to-video/).
+Nee. PDF is een statisch formaat, dus animaties en [dia‑overgangen](/slides/nl/nodejs-java/slide-transition/) worden niet afgespeeld. Als je beweging nodig hebt, exporteer dan naar [HTML5](/slides/nl/nodejs-java/export-to-html5/), [geanimeerde GIF](/slides/nl/nodejs-java/convert-powerpoint-to-animated-gif/), of [video](/slides/nl/nodejs-java/convert-powerpoint-to-video/) in plaats daarvan.
 
-**Kan ik een geanimeerde presentatie omzetten naar een video en de beeldsnelheid en frame‑grootte regelen?**
+**Kan ik een geanimeerde presentatie omzetten naar een video en de framesnelheid en frame‑grootte regelen?**
 
-Ja. Je kunt de presentatie [renderen als frames](/slides/nl/nodejs-java/convert-powerpoint-to-video/) en deze coderen naar een video (bijv. via ffmpeg), waarbij je de FPS en resolutie kiest. Animaties en dia‑overgangen worden tijdens het renderen afgespeeld.
+Ja. Je kunt de presentatie [renderen als frames](/slides/nl/nodejs-java/convert-powerpoint-to-video/) en deze coderen tot een video (bijv. via ffmpeg), waarbij je de FPS en resolutie kiest. Animaties en dia‑overgangen worden afgespeeld tijdens het renderen.
 
-**Blijven animaties intact wanneer je werkt met ODP (niet alleen PPTX)?**
+**Blijven animaties behouden bij het werken met ODP (niet alleen PPTX)?**
 
-PPT, PPTX en ODP worden ondersteund voor [lezen](/slides/nl/nodejs-java/open-presentation/) en [schrijven](/slides/nl/nodejs-java/save-presentation/), maar formatverschillen kunnen ertoe leiden dat bepaalde effecten er iets anders uitzien of zich iets anders gedragen. Valideer kritieke gevallen met echte voorbeelden.
+PPT, PPTX en ODP worden ondersteund voor [reading](/slides/nl/nodejs-java/open-presentation/) en [writing](/slides/nl/nodejs-java/save-presentation/), maar dit garandeert geen behoud van animaties. Aangepaste animatiegegevens kunnen verloren gaan bij conversie naar ODP. Zie [Custom Animation](/slides/nl/nodejs-java/custom-animation/) voor voorbeelden en richtlijnen om de compatibiliteit van het formaat te controleren.

@@ -1,5 +1,5 @@
 ---
-title: Tillämpa formanimationer i presentationer i .NET
+title: Applicera formanimationer i presentationer i .NET
 linktitle: Formanimation
 type: docs
 weight: 60
@@ -10,10 +10,10 @@ keywords:
 - effekt
 - animerad form
 - animerad text
-- lägga till animation
+- lägg till animation
 - hämta animation
 - extrahera animation
-- lägga till effekt
+- lägg till effekt
 - hämta effekt
 - extrahera effekt
 - effektljud
@@ -23,24 +23,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Lär dig hur du lägger till, granskar och anpassar formanimationer, timing, ljud, efter-animationbeteende och animerad text med Aspose.Slides för .NET."
+description: "Lär dig hur du lägger till, granskar och anpassar formanimationer, timing, ljud, efteranimationsbeteende och animerad text med Aspose.Slides för .NET."
 ---
 ## **Översikt**
 
-Aspose.Slides for .NET representerar bildanimationer som effekter i en bilds tidslinje. En effekt har en målform, en animationstyp och undertyp, en utlösare, tidsinställningar och valfria egenskaper såsom ljud eller beteende efter animationen.
+För att arbeta med de enskilda beteendena i en effekt eller redigera rörelsebansegment, se [Custom Animation](/slides/sv/net/custom-animation/).
+
+Aspose.Slides för .NET representerar bildanimationer som effekter i en bildtidslinje. En effekt har en målform, en animationstyp och undertyp, en utlösare, tidsinställningar samt valfria egenskaper såsom ljud eller beteende efter animation.
 
 Tidslinjen innehåller två typer av sekvenser:
 
-- **Huvudsekvensen** spelas när bilden avancerar.
+- **huvudsekvensen** spelas när bilden avancerar.
 - En **interaktiv sekvens** startar när dess utlösande form klickas.
 
-Eftersom textrutor, bilder, diagram, tabeller och andra bildobjekt implementerar [IShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/), använder du samma [ISequence.AddEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/addeffect/) metod för de flesta bildinnehåll. De tillgängliga effekterna listas i uppräkningen [EffectType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/effecttype/).
+Eftersom textrutor, bilder, diagram, tabeller och andra bildobjekt implementerar [IShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/), använder du samma [ISequence.AddEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/addeffect/)‑metod för det mesta av bildinnehållet. De tillgängliga effekterna listas i uppräkningen [EffectType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/effecttype/).
 
 ## **Lägg till formanimationer**
 
-För att lägga till en animation, hämta bildens huvudsekvens och anropa [ISequence.AddEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/addeffect/) med målformen, effekttypen, undertypen och utlösaren. För en effekt som startar när en annan form klickas, skapa en interaktiv sekvens vars utlösare är den andra formen.
+För att lägga till en animation, hämta bildens huvudsekvens och anropa [ISequence.AddEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/addeffect/) med målformen, effekt typen, undertypen och utlösaren. För en effekt som startar när en annan form klickas, skapa en interaktiv sekvens vars utlösare är den andra formen.
 
-Följande exempel skapar båda typerna av animation och sparar resultatet till `shape-animations.pptx`.
+Följande exempel skapar båda typerna av animationer och sparar resultatet till `shape-animations.pptx`.
 
 ```csharp
 using Aspose.Slides;
@@ -68,17 +70,17 @@ presentation.Save("shape-animations.pptx", SaveFormat.Pptx);
 
 Utlösaren styr när en effekt startar:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/effecttriggertype/) väntar på ett klick i huvudsekvensen, eller på ett klick på utlösningsformen i en interaktiv sekvens.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/effecttriggertype/) väntar på ett klick i huvudsekvensen, eller på ett klick på utlösande form i en interaktiv sekvens.
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/effecttriggertype/) startar med den föregående effekten.
-- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/effecttriggertype/) startar när den föregående effekten avslutas.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/effecttriggertype/) startar när den föregående effekten är klar.
 
 För att animera en bild, ett diagram eller en annan formtyp, skicka det objektet till [ISequence.AddEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/addeffect/) i stället för `targetShape`. För diagramspecifika grupperingalternativ, se [Animated Charts](/slides/sv/net/animated-charts/).
 
 ## **Läs formanimationer**
 
-Använd [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/geteffectsbyshape/) när du känner till målformen. För att inspektera varje effekt, iterera över huvudsekvensen och varje interaktiv sekvens. Enumeration undviker att anta att en sekvens innehåller en effekt på index `0`.
+Använd [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/geteffectsbyshape/) när du känner till målformen. För att inspektera varje effekt, enumerera huvudsekvensen och varje interaktiv sekvens. Enumerering undviker antagandet att en sekvens innehåller en effekt på index `0`.
 
-Följande exempel skapar en form med huvudsekvens- och interaktiva effekter, hämtar effekterna som riktar sig mot formen och itererar sedan över varje sekvens på bilden.
+Följande exempel skapar en form med huvudsekvens‑ och interaktiva effekter, hämtar effekterna som riktar sig mot formen och enumererar sedan varje sekvens på bilden.
 
 ```csharp
 using System;
@@ -126,19 +128,21 @@ static void PrintSequence(string label, ISequence sequence)
 }
 ```
 
-Om du bara behöver effekterna för en form, identifiera först formen efter namn, platshållartyp eller en annan stabil egenskap; anropa sedan [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/geteffectsbyshape/). Anta inte att [IShapeCollection.Item](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection/item/) på index `0` alltid är det avsedda objektet.
+Om du bara behöver effekterna för en form, identifiera först formen efter namn, platshållartyp eller någon annan stabil egenskap; anropa sedan [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/geteffectsbyshape/). Anta inte att [IShapeCollection.Item](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection/item/) på index `0` alltid är det avsedda objektet.
 
 ## **Arbeta med ärvda platshållareffekter**
 
 En platshållare på en normal bild kan ärva animationsbeteende från motsvarande platshållare på dess layoutbild och mastern. [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/getbaseplaceholder/) returnerar den föräldraplatshållaren, eller `null` när ingen förälder finns.
 
-I följande exempelpresentation har sidfoten **Random Bars** på den normala bilden, **Split** på layoutbilden och **Fly In** på mastern.
+I den följande exempelpresentationen har sidfoten **Random Bars** på den normala bilden, **Split** på layoutbilden och **Fly In** på mastern.
 
-![Sidfotens animationseffekt på den normala bilden](slide-shape-animation.png)
-![Sidfotens platshållaranimationseffekt på layoutbilden](layout-shape-animation.png)
-![Sidfotens platshållaranimationseffekt på mastern](master-shape-animation.png)
+![Fotanimationseffekt på den normala bilden](slide-shape-animation.png)
 
-Nästa exempel bygger platshållarhierarkin själv. Det lägger till effekter på en master-platshållare, en layout-platshållare och motsvarande platshållare på en normal bild. Varje anrop till [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/getbaseplaceholder/) kontrolleras innan den returnerade formen används.
+![Fotplatshållarens animationsseffekt på layoutbilden](layout-shape-animation.png)
+
+![Fotplatshållarens animationsseffekt på mastern](master-shape-animation.png)
+
+Nästa exempel bygger själva platshållarhierarkin. Det lägger till effekter på en master‑platshållare, en layout‑platshållare och motsvarande platshållare på en normal bild. Varje anrop till [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/getbaseplaceholder/) kontrolleras innan den returnerade formen används.
 
 ```csharp
 using System;
@@ -209,15 +213,15 @@ static void PrintEffects(string source, IEffect[] effects)
 
 ## **Ändra animationstiming**
 
-PowerPoint **Timing**-dialogen motsvarar egenskaperna i [ITiming](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/).
+PowerPoint‑dialogrutan **Timing** motsvarar egenskaperna i [ITiming](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/).
 
-![PowerPoint Timing-dialog för en animationseffekt](shape-animation.png)
+![PowerPoint‑timingsdialog för en animationseffekt](shape-animation.png)
 
 - **Start** motsvarar [ITiming.TriggerType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/triggertype/).
-- **Duration** motsvarar [ITiming.Duration](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/duration/), i sekunder.
-- **Delay** motsvarar [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/triggerdelaytime/), i sekunder.
-- **Repeat** motsvarar [ITiming.RepeatCount](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatcount/), [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatuntilnextclick/), eller [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatuntilendslide/).
-- **Spola tillbaka när uppspelning är klar** motsvarar [ITiming.Rewind](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/rewind/).
+- **Duration** (Varaktighet) motsvarar [ITiming.Duration](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/duration/), i sekunder.
+- **Delay** (Fördröjning) motsvarar [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/triggerdelaytime/), i sekunder.
+- **Repeat** (Upprepning) motsvarar [ITiming.RepeatCount](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatcount/), [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatuntilnextclick/) eller [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatuntilendslide/).
+- **Rewind when done playing** (Spola tillbaka när spelning är klar) motsvarar [ITiming.Rewind](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/rewind/).
 
 Detta fristående exempel lägger till en effekt, ändrar dess timing via objektet som returneras av [ISequence.AddEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/addeffect/), och sparar resultatet. Att behålla den returnerade [IEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/)‑referensen undviker ett onödigt samlingsindex.
 
@@ -243,15 +247,15 @@ effect.Timing.Rewind = true;
 presentation.Save("shape-animation-timing.pptx", SaveFormat.Pptx);
 ```
 
-Använd ett upprepningsläge med avsikt. Att kombinera ett upprepningsantal med ett "tills"‑flagga kan ge förvirrande resultat i olika visare. När du ändrar upprepningslägen, sätt [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatuntilnextclick/) och [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatuntilendslide/) innan [ITiming.RepeatCount](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatcount/), eftersom inställning av någon av flaggorna också ändrar det aktiva upprepningsläget.
+Använd endast ett upprepningsläge avsiktligt. Att kombinera ett upprepningsantal med en "until"‑flagga kan ge förvirrande resultat i olika visare. När du ändrar upprepningslägen, sätt [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatuntilnextclick/) och [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatuntilendslide/) före [ITiming.RepeatCount](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatcount/), eftersom att sätta någon av flaggorna även ändrar det aktiva upprepningsläget.
 
 ## **Lägg till och extrahera animationsljud**
 
-En animationseffekt kan referera till inbäddat ljud via [IEffect.Sound](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/sound/). [IEffect.StopPreviousSound](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/stopprevioussound/) instruerar en effekt att stoppa ljud som startats av en tidigare effekt.
+En animationseffekt kan referera inbäddat ljud via [IEffect.Sound](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/sound/). [IEffect.StopPreviousSound](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/stopprevioussound/) instruerar en effekt att stoppa ljud som startats av en tidigare effekt.
 
 ### **Lägg till ett ljud till en effekt**
 
-Följande exempel förväntar sig en lokal ljudfil med namnet `animation-sound.wav`. Det skapar två effekter, bäddar in den filen som ljud för den första effekten och konfigurerar den andra effekten att stoppa ljudet. Det använder objekten som returneras av [ISequence.AddEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/addeffect/), så inget sekvensindex krävs.
+Följande exempel förväntar sig en lokal ljudfil med namnet `animation-sound.wav`. Det skapar två effekter, bäddar in den filen som ljud för den första effekten och konfigurerar den andra effekten att stoppa ljudet. Det använder objekten som returneras av [ISequence.AddEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/addeffect/), så inget sekvensindex behövs.
 
 ```csharp
 using System.IO;
@@ -280,7 +284,7 @@ presentation.Save("shape-animation-sound.pptx", SaveFormat.Pptx);
 
 ### **Extrahera inbäddade effektljud**
 
-Följande exempel förväntar sig en lokal presentation med namnet `presentation-with-animation-sounds.pptx`. Det genomsöker både huvud- och interaktiva sekvenser och skriver varje inbäddat effektljud till katalogen `extracted-animation-sounds`. Filändelsen väljs utifrån ljud‑MIME‑typen som exponeras av [IAudio.ContentType](https://reference.aspose.com/slides/sv/net/aspose.slides/iaudio/contenttype/).
+Följande exempel förväntar sig en lokal presentation med namnet `presentation-with-animation-sounds.pptx`. Det skannar både huvud- och interaktiva sekvenser och skriver varje inbäddat effektljud till katalogen `extracted-animation-sounds`. Filändelsen väljs utifrån ljud‑MIME‑typen som exponeras av [IAudio.ContentType](https://reference.aspose.com/slides/sv/net/aspose.slides/iaudio/contenttype/).
 
 ```csharp
 using System;
@@ -342,17 +346,17 @@ static string GetAudioExtension(string contentType)
 }
 ```
 
-För stora ljudobjekt, använd [IAudio.GetStream](https://reference.aspose.com/slides/sv/net/aspose.slides/iaudio/getstream/) och kopiera strömmen till en fil istället för att läsa in hela objektet i en byte‑array.
+För stora ljudobjekt, använd [IAudio.GetStream](https://reference.aspose.com/slides/sv/net/aspose.slides/iaudio/getstream/) och kopiera strömmen till en fil i stället för att ladda hela objektet i en byte‑array.
 
 ## **Ställ in efter‑animationsbeteende**
 
 **After animation**‑alternativet styr vad som händer med en form efter att dess effekt är klar.
 
-![PowerPoint Effektalternativ‑dialog som visar efter‑animationsinställningar](shape-after-animation.png)
+![PowerPoint‑effektalternativdialog som visar After animation‑inställningar](shape-after-animation.png)
 
-[AfterAnimationType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/afteranimationtype/)‑uppsättningen stöder att lämna formen oförändrad, ändra dess färg, dölja den efter animationen, eller dölja den vid nästa klick. När typen är [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/afteranimationtype/), sätt även [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/afteranimationcolor/).
+[AfterAnimationType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/afteranimationtype/)‑uppräkningen stödjer att låta formen förbli oförändrad, ändra dess färg, dölja den efter animationen, eller dölja den vid nästa klick. När typen är [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/afteranimationtype/) ska även [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/afteranimationcolor/) anges.
 
-Detta fristående exempel skapar en effekt, sätter dess efter‑animationsbeteende via det returnerade effektobjektet, och sparar resultatet.
+Detta fristående exempel skapar en effekt, sätter dess efter‑animationsbeteende via det returnerade effekt‑objektet och sparar resultatet.
 
 ```csharp
 using System.Drawing;
@@ -372,16 +376,16 @@ effect.AfterAnimationColor.Color = Color.LightGray;
 presentation.Save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
 ```
 
-Att byta typen från [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/afteranimationtype/) rensar efter‑animationsfärgsinställningen.
+Att ändra typen från [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/afteranimationtype/) rensar inställningen för efter‑animationsfärg.
 
 ## **Animera text**
 
 Textanimation har två relaterade kontroller:
 
-- [ITextAnimation.BuildType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itextanimation/buildtype/) styr om stycken visas tillsammans eller per stycknivå.
-- [IEffect.AnimateTextType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/animatetexttype/) styr om text visas på en gång, per ord eller per bokstav. [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/delaybetweentextparts/) anger fördröjningen mellan ord eller bokstäver. Ett positivt värde är en procentsats av effektens varaktighet; ett negativt värde är en fördröjning i sekunder.
+- [ITextAnimation.BuildType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itextanimation/buildtype/) styr om stycken visas tillsammans eller nivå för nivå.
+- [IEffect.AnimateTextType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/animatetexttype/) styr om texten visas på en gång, ord för ord eller bokstav för bokstav. [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/delaybetweentextparts/) anger fördröjningen mellan ord eller bokstäver. Ett positivt värde är en procentandel av effektens varaktighet; ett negativt värde är en fördröjning i sekunder.
 
-Följande fristående exempel animera orden i en textruta. [BuildType.AsOneObject](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/buildtype/) inaktiverar byggning stycke för stycke så att ordinställningen gäller för hela textramen.
+Följande fristående exempel animera orden i en textruta. [BuildType.AsOneObject](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/buildtype/) inaktiverar bygget stycke för stycke så att ordinställningen gäller hela textramen.
 
 ```csharp
 using Aspose.Slides;
@@ -401,15 +405,15 @@ effect.DelayBetweenTextParts = 20.0f;
 presentation.Save("animated-text.pptx", SaveFormat.Pptx);
 ```
 
-För att bygga en textruta stycke för stycke, sätt [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/buildtype/) (eller en annan stycknivå). För att rikta en enskild stycke med sin egen effekt, använd den [ISequence.AddEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/addeffect/)‑överladdning som accepterar ett [IParagraph](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraph/). Se [Animated Text](/slides/sv/net/animated-text/) för exempel på stycknivå.
+För att bygga en textruta stycke för stycke, sätt [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/buildtype/) (eller en annan stycknivå). För att rikta en enskild paragraf med egen effekt, använd den [ISequence.AddEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/addeffect/)‑overload som accepterar en [IParagraph](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraph/). Se [Animated Text](/slides/sv/net/animated-text/) för exempel på stycknivå.
 
-## **Export- och kompatibilitetsanteckningar**
+## **Export‑ och kompatibilitetsanteckningar**
 
 - Att spara till PPT eller PPTX bevarar animationsmodellen, men den slutgiltiga uppspelningen styrs av presentationsvisaren.
 - PDF och statiska bilder spelar inte upp animationer. Använd [HTML5 export](/slides/sv/net/export-to-html5/), animerad GIF eller [video conversion](/slides/sv/net/convert-powerpoint-to-video/) när utdata måste visa rörelse.
-- För HTML5, aktivera [Html5Options.AnimateShapes](https://reference.aspose.com/slides/sv/net/aspose.slides.export/html5options/animateshapes/) och, vid behov, [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/html5options/animatetransitions/).
-- Video‑rendering stödjer många vanliga ingångs‑, betoning‑, utgångs‑ och rörelse‑ban‑effekter, men inte alla PowerPoint‑effekter stöds. Kontrollera den aktuella [supported animations and effects](/slides/sv/net/convert-powerpoint-to-video/#supported-animations-and-effects) och testa kritiska presentationer med din mål‑Aspose.Slides‑version.
-- Avancerade anpassade effekter och effekter som importeras från andra presentationsformat kan bevaras i filen men renderas olika i PowerPoint, HTML5 eller video. Validera det exporterade resultatet i stället för att enbart förlita sig på effektens namn.
+- För HTML5, aktivera [Html5Options.AnimateShapes](https://reference.aspose.com/slides/sv/net/aspose.slides.export/html5options/animateshapes/) och, när det behövs, [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/html5options/animatetransitions/).
+- Videorendering stöder många vanliga ingångs‑, betoning‑, utgångs‑ och rörelseban‑effekter, men inte alla PowerPoint‑effekter stöds. Kontrollera den aktuella [supported animations and effects](/slides/sv/net/convert-powerpoint-to-video/#supported-animations-and-effects) och testa kritiska presentationer med den Aspose.Slides‑version du riktar mot.
+- Avancerade anpassade effekter och effekter som importeras från andra presentationsformat kan bevaras i filen men renderas annorlunda i PowerPoint, HTML5 eller video. Validera det exporterade resultatet istället för att förlita dig enbart på effektnamnet.
 
 ## **FAQ**
 
@@ -419,7 +423,7 @@ PDF är ett statiskt format, så animationer och bildövergångar spelas inte up
 
 **Varför spelas en effekt annorlunda i en video?**
 
-Video‑export renderar animationer istället för att lagra det ursprungliga PowerPoint‑beteendet. Vissa avancerade effekter stöds inte eller approximeras. Granska tabellen med stödda effekter och testa den faktiska presentationen innan produktionsanvändning.
+Videoexport renderar animationer i stället för att lagra den ursprungliga PowerPoint‑beteendet. Vissa avancerade effekter stöds inte eller approximativt. Granska tabellen över stödda effekter och testa den faktiska presentationen innan produktion.
 
 **Ändrar flyttning av en form framåt eller bakåt dess animationsordning?**
 

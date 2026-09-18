@@ -13,7 +13,7 @@ keywords:
 - Animation steuern
 - Animationseffekt
 - PowerPoint-Animation
-- Animationszeitachse
+- Animationszeitleiste
 - Interaktive Animation
 - Benutzerdefinierte Animation
 - Formanimation
@@ -27,82 +27,84 @@ keywords:
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Entdecken Sie die Möglichkeiten von Aspose.Slides für PHP via Java beim Umgang mit PowerPoint-Animationen. Schlüsselmerkmale und Einblicke zur Verbesserung Ihrer Präsentationen."
+description: "Entdecken Sie die Möglichkeiten von Aspose.Slides für PHP via Java bei der Handhabung von PowerPoint-Animationen. Schlüsselmerkmale und Einblicke, um Ihre Präsentationen zu verbessern."
 ---
+## **Einleitung**
 
-Da Präsentationen dazu gedacht sind, etwas zu präsentieren, werden ihr visuelles Erscheinungsbild und ihr interaktives Verhalten stets bei der Erstellung berücksichtigt.
+Da Präsentationen dazu gedacht sind, etwas zu präsentieren, werden ihr visuelles Erscheinungsbild und ihr interaktives Verhalten bei der Erstellung stets berücksichtigt.
 
-**PowerPoint-Animation** spielt eine wichtige Rolle, um die Präsentation für die Betrachter ansprechend und attraktiv zu gestalten. Aspose.Slides für PHP über Java bietet eine breite Palette von Optionen, um PowerPoint-Präsentationen Animationen hinzuzufügen:
+**PowerPoint-Animation** spielt eine wichtige Rolle, um eine Präsentation für Betrachter ansprechend und fesselnd zu machen. Aspose.Slides für PHP via Java bietet eine Vielzahl von Möglichkeiten, Animationen zu PowerPoint-Präsentationen hinzuzufügen:
 
-- verschiedene Arten von PowerPoint-Animationseffekten auf Formen, Diagramme, Tabellen, OLE-Objekte und andere Präsentationselemente anwenden.
-- mehrere PowerPoint-Animationseffekte auf einer Form verwenden.
-- die Animationszeitachse verwenden, um Animationseffekte zu steuern.
-- benutzerdefinierte Animationen erstellen.
+- Verschiedene Typen von PowerPoint‑Animationseffekten auf Formen, Diagramme, Tabellen, OLE‑Objekte und andere Präsentationselemente anwenden.
+- Mehrere PowerPoint‑Animationseffekte auf einer einzigen Form verwenden.
+- Die Animationszeitleiste nutzen, um Animationseffekte zu steuern.
+- Benutzerdefinierte Animationen erstellen.
 
-In Aspose.Slides für PHP über Java können verschiedene Animationseffekte auf die Formen angewendet werden. Da jedes Element auf der Folie, einschließlich Text, Bilder, OLE-Objekt, Tabelle usw., als Form betrachtet wird, bedeutet dies, dass wir den Animationseffekt auf jedes Element einer Folie anwenden können.
+In Aspose.Slides für PHP via Java können verschiedene Animationseffekte auf Formen angewendet werden. Da jedes Element auf einer Folie, einschließlich Text, Bilder, OLE‑Objekte und Tabellen, als Form gilt, können Animationseffekte auf jedes Element der Folie angewendet werden.
 
+## **Animationseffekte**
+Aspose.Slides unterstützt **mehr als 150 Animationseffekte**, darunter Grundeffekte wie Bounce, PathFootball und Zoom sowie spezifische Effekte wie OLEObjectShow und OLEObjectOpen. Eine vollständige Auflistung finden Sie in der Klasse [EffectType](https://reference.aspose.com/slides/de/php-java/aspose.slides/effecttype/).
 
-## **Animations-Effekte**
-Aspose.Slides unterstützt **mehr als 150 Animationseffekte**, darunter grundlegende Animationseffekte wie Bounce, PathFootball, Zoom‑Effekt und spezifische Animationseffekte wie OLEObjectShow, OLEObjectOpen. Eine vollständige Auflistung der Animationseffekte finden Sie in der Aufzählung **EffectType**.
+Zusätzlich können diese Animationseffekte in Kombination mit den folgenden Verhaltensweisen verwendet werden:
 
-Zusätzlich können diese Animationseffekte in Kombination miteinander verwendet werden:
-
-- [ColorEffect](https://reference.aspose.com/slides/php-java/aspose.slides/ColorEffect)
-- [CommandEffect](https://reference.aspose.com/slides/php-java/aspose.slides/CommandEffect)
-- [FilterEffect](https://reference.aspose.com/slides/php-java/aspose.slides/FilterEffect)
-- [MotionEffect](https://reference.aspose.com/slides/php-java/aspose.slides/MotionEffect)
-- [PropertyEffect](https://reference.aspose.com/slides/php-java/aspose.slides/PropertyEffect)
-- [RotationEffect](https://reference.aspose.com/slides/php-java/aspose.slides/RotationEffect)
-- [ScaleEffect](https://reference.aspose.com/slides/php-java/aspose.slides/ScaleEffect)
-- [SetEffect](https://reference.aspose.com/slides/php-java/aspose.slides/SetEffect)
+- [ColorEffect](https://reference.aspose.com/slides/de/php-java/aspose.slides/ColorEffect)
+- [CommandEffect](https://reference.aspose.com/slides/de/php-java/aspose.slides/CommandEffect)
+- [FilterEffect](https://reference.aspose.com/slides/de/php-java/aspose.slides/FilterEffect)
+- [MotionEffect](https://reference.aspose.com/slides/de/php-java/aspose.slides/MotionEffect)
+- [PropertyEffect](https://reference.aspose.com/slides/de/php-java/aspose.slides/PropertyEffect)
+- [RotationEffect](https://reference.aspose.com/slides/de/php-java/aspose.slides/RotationEffect)
+- [ScaleEffect](https://reference.aspose.com/slides/de/php-java/aspose.slides/ScaleEffect)
+- [SetEffect](https://reference.aspose.com/slides/de/php-java/aspose.slides/SetEffect)
 
 ## **Benutzerdefinierte Animation**
-Es ist möglich, eigene **benutzerdefinierte Animationen** in Aspose.Slides zu erstellen.  
-Dies kann erreicht werden, indem Sie mehrere Verhaltensweisen zu einer neuen benutzerdefinierten Animation kombinieren.
 
-[**Behavior**](https://reference.aspose.com/slides/php-java/aspose.slides/Behavior) ist eine Baueinheit jedes PowerPoint-Animationseffekts. Alle Animationseffekte sind tatsächlich ein Satz von Verhaltensweisen, die zu einer Strategie zusammengefasst sind. Sie können Verhaltensweisen zu einer benutzerdefinierten Animation kombinieren und sie anschließend in anderen Präsentationen wiederverwenden. Wenn Sie ein neues Verhalten zu einem standardmäßigen PowerPoint-Animationseffekt hinzufügen, entsteht eine weitere benutzerdefinierte Animation. Zum Beispiel können Sie ein Wiederholungsverhalten zu einer Animation hinzufügen, um sie mehrmals wiederholen zu lassen.
+Vollständige PHP‑Beispiele, die Verhaltensweisen und editierbare Bewegungsbahnen erstellen, inspizieren und ändern, finden Sie unter [Custom Animation](/slides/de/php-java/custom-animation/).
 
-[**Animation Point**](https://reference.aspose.com/slides/php-java/aspose.slides/Point) ist ein Punkt, an dem das Verhalten angewendet werden soll.
+Es ist möglich, eigene **benutzerdefinierte Animationen** in Aspose.Slides zu erstellen. Dies kann erreicht werden, indem mehrere Verhaltensweisen zu einer neuen benutzerdefinierten Animation kombiniert werden.
 
-## **Animations-Zeitachse**
-[**Sequence**](https://reference.aspose.com/slides/php-java/aspose.slides/Sequence) ist eine Sammlung von Animationseffekten, die auf eine konkrete Form angewendet werden.
+[Behavior](https://reference.aspose.com/slides/de/php-java/aspose.slides/behavior/) ist ein Baustein eines PowerPoint‑Animationseffekts. Kombinieren Sie Verhaltensweisen, um einen Effekt anzupassen, oder fügen Sie eine Verhaltensweise hinzu, um einen vordefinierten Effekt zu erweitern. Wiederholungen werden über Zeiteinstellungen konfiguriert, nicht über ein separates Wiederholungs‑Verhalten.
 
-[**Timeline**](https://reference.aspose.com/slides/php-java/aspose.slides/AnimationTimeLine) ist ein Satz von Sequenzen, der in einer konkreten Folie verwendet wird. Es ist eine Animationsengine, die seit PowerPoint 2002 bereitgestellt wird. In früheren PowerPoint-Versionen war es schwierig, einer Präsentation Animationseffekte hinzuzufügen; dies war nur mit verschiedenen Workarounds möglich. Die Timeline ersetzt die alte AnimationSettings‑Klasse und bietet ein klareres Objektmodell für PowerPoint‑Animationen. Eine Folie kann nur eine Animationszeitachse haben.
+[Animation Point](https://reference.aspose.com/slides/de/php-java/aspose.slides/point/) ist ein Punkt, an dem ein Verhalten angewendet werden soll.
+
+## **Animationszeitachse**
+[Sequence](https://reference.aspose.com/slides/de/php-java/aspose.slides/sequence/) ist eine Sammlung von Animationseffekten, die verschiedene Formen ansprechen können.
+
+[Timeline](https://reference.aspose.com/slides/de/php-java/aspose.slides/animationtimeline/) ist ein Satz von Sequenzen, die in einer bestimmten Folie verwendet werden. Sie ist eine Animations‑Engine, die in PowerPoint 2002 eingeführt wurde. In früheren Versionen von PowerPoint war das Hinzufügen von Animationseffekten zu Präsentationen schwierig und nur mit verschiedenen Workarounds möglich. Die Zeitleiste bietet ein klareres Objektmodell für PowerPoint‑Animationen. Eine Folie kann nur eine Animationszeitleiste besitzen.
 
 ## **Interaktive Animation**
-[**Trigger**](https://reference.aspose.com/slides/php-java/aspose.slides/EffectTriggerType) ermöglicht die Definition von Benutzeraktionen (z. B. Klick auf einen Button), die eine bestimmte Animation starten. Trigger wurden erst in der neuesten PowerPoint‑Version hinzugefügt.
+[Trigger](https://reference.aspose.com/slides/de/php-java/aspose.slides/effecttriggertype/) ermöglicht es, Benutzeraktionen wie einen Button‑Klick zu definieren, die eine bestimmte Animation starten.
 
-## **Form‑Animation**
-Aspose.Slides ermöglicht das Anwenden von Animationen auf Formen, die tatsächlich Text, Rechteck, Linie, Rahmen, OLE‑Objekt usw. sein können.
+## **Formanimation**
+Aspose.Slides erlaubt das Anwenden von Animationen auf Formen, zu denen Text, Rechtecke, Linien, Rahmen, OLE‑Objekte und mehr gehören können.
 
-{{% alert color="primary" %}} 
-Mehr dazu [**Über Form‑Animation**](/slides/de/php-java/shape-animation/).
+{{% alert color="info" title="Note" %}}
+Lesen Sie mehr [**Über Formanimation**](/slides/de/php-java/shape-animation/).
 {{% /alert %}}
 
 ## **Animierte Diagramme**
-Um animierte Diagramme zu erstellen, sollten Sie dieselben Klassen wie für Formen verwenden. Es ist jedoch möglich, PowerPoint‑Animationen nur auf Diagrammkategorien oder Diagrammreihen anzuwenden. Sie können den Animationseffekt auch auf ein Kategorie‑Element oder ein Reihen‑Element anwenden.
+Um animierte Diagramme zu erstellen, sollten Sie dieselben Klassen wie für Formen verwenden. Allerdings können PowerPoint‑Animationen nur auf Diagrammkategorien oder Diagrammreihen angewendet werden. Sie können Animationseffekte auch auf ein Kategorie‑Element oder ein Reihen‑Element anwenden.
 
-{{% alert color="primary" %}} 
-Mehr dazu [**Über animierte Diagramme**](/slides/de/php-java/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Lesen Sie mehr [**Über animierte Diagramme**](/slides/de/php-java/animated-charts/).
 {{% /alert %}}
 
 ## **Animierter Text**
-Neben animiertem Text ist es auch möglich, einen Absatz zu animieren.
+Neben der Animation von Text können Sie auch eine Animation auf einen Absatz anwenden.
 
-{{% alert color="primary" %}} 
-Mehr dazu [**Über animierten Text**](/slides/de/php-java/animated-text/).
+{{% alert color="info" title="Note" %}}
+Lesen Sie mehr [**Über animierten Text**](/slides/de/php-java/animated-text/).
 {{% /alert %}}
 
 ## **FAQ**
 
 **Werden Animationen beim Exportieren in PDF beibehalten?**
 
-Nein. PDF ist ein statisches Format, sodass Animationen und [Folienübergänge](/slides/de/php-java/slide-transition/) nicht abgespielt werden. Wenn Sie Bewegung benötigen, exportieren Sie stattdessen zu [HTML5](/slides/de/php-java/export-to-html5/), [animiertem GIF](/slides/de/php-java/convert-powerpoint-to-animated-gif/), oder [Video](/slides/de/php-java/convert-powerpoint-to-video/).
+Nein. PDF ist ein statisches Format, daher werden Animationen und [Folienübergänge](/slides/de/php-java/slide-transition/) nicht abgespielt. Wenn Sie Bewegung benötigen, exportieren Sie stattdessen zu [HTML5](/slides/de/php-java/export-to-html5/), [animiertem GIF](/slides/de/php-java/convert-powerpoint-to-animated-gif/) oder [Video](/slides/de/php-java/convert-powerpoint-to-video/).
 
-**Kann ich eine animierte Präsentation in ein Video umwandeln und die Bildrate sowie die Bildgröße steuern?**
+**Kann ich eine animierte Präsentation in ein Video umwandeln und Bildrate sowie Bildgröße steuern?**
 
-Ja. Sie können die Präsentation als Einzelbilder [rendern](/slides/de/php-java/convert-powerpoint-to-video/) und in ein Video (z. B. über ffmpeg) codieren, wobei Sie FPS und Auflösung wählen. Animationen und Folienübergänge werden während des Renderns abgespielt.
+Ja. Sie können die Präsentation in einzelne Frames [rendern](/slides/de/php-java/convert-powerpoint-to-video/) und diese mit einem Encoder (z. B. ffmpeg) zu einem Video zusammenfügen, wobei Sie FPS und Auflösung wählen. Animationen und Folienübergänge werden während des Renderns abgespielt.
 
-**Bleiben Animationen beim Arbeiten mit ODP (nicht nur PPTX) erhalten?**
+**Bleiben Animationen erhalten, wenn mit ODP (nicht nur PPTX) gearbeitet wird?**
 
-PPT, PPTX und ODP werden für das [Lesen](/slides/de/php-java/open-presentation/) und [Schreiben](/slides/de/php-java/save-presentation/) unterstützt, jedoch können sich Formatunterschiede auswirken, sodass bestimmte Effekte leicht anders aussehen oder sich anders verhalten. Validieren Sie kritische Fälle mit echten Beispielen.
+PPT, PPTX und ODP werden für das [Lesen](/slides/de/php-java/open-presentation/) und [Schreiben](/slides/de/php-java/save-presentation/) unterstützt, jedoch garantiert das keine Erhaltung der Animationen. Beim Konvertieren nach ODP können benutzerdefinierte Animationsdaten verloren gehen. Siehe [Custom Animation](/slides/de/php-java/custom-animation/) für Beispiele und Hinweise zur Prüfung der Formatkompatibilität.

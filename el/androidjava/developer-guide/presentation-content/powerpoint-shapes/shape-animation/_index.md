@@ -1,5 +1,5 @@
 ---
-title: Εφαρμογή Κίνησης Σχημάτων σε Παρουσιάσεις σε Android
+title: Εφαρμογή Κινήσεων Σχημάτων σε Παρουσιάσεις στο Android
 linktitle: Κίνηση Σχήματος
 type: docs
 weight: 60
@@ -8,13 +8,13 @@ keywords:
 - σχήμα
 - κίνηση
 - εφέ
-- σχήμα με κίνηση
-- κείμενο με κίνηση
+- κινούμενο σχήμα
+- κινούμενο κείμενο
 - προσθήκη κίνησης
-- λήψη κίνησης
+- ανάκτηση κίνησης
 - εξαγωγή κίνησης
 - προσθήκη εφέ
-- λήψη εφέ
+- ανάκτηση εφέ
 - εξαγωγή εφέ
 - ήχος εφέ
 - εφαρμογή κίνησης
@@ -23,22 +23,24 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε, να ελέγχετε και να προσαρμόζετε τις κινήσεις σχημάτων, τον χρονισμό, τους ήχους, τη συμπεριφορά μετά την κίνηση και το κείμενο με κίνηση, χρησιμοποιώντας το Aspose.Slides για Android μέσω Java."
+description: "Μάθετε πώς να προσθέτετε, ελέγχετε και προσαρμόζετε κινήσεις σχημάτων, χρόνο, ήχους, συμπεριφορά μετά την κίνηση και κείμενο με κίνηση με το Aspose.Slides για Android μέσω Java."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides for Android via Java αντιπροσωπεύει τις κινούμενες εφέ των διαφανειών ως εφέ σε μια χρονογραμμή διαφάνειας. Ένα εφέ έχει ένα σχήμα-στόχο, τύπο και υποτύπο κίνησης, ενεργοποίηση, ρυθμίσεις χρονισμού και προαιρετικές ιδιότητες όπως ήχος ή συμπεριφορά μετά την κίνηση.
+Για να εργαστείτε με τις μεμονωμένες συμπεριφορές μέσα σε ένα εφέ ή να επεξεργαστείτε τμήματα μονοπατιού κίνησης, δείτε [Προσαρμοσμένη Κίνηση για Java](/slides/el/java/custom-animation/).
 
-Η χρονογραμμή περιέχει δύο είδη ακολουθιών:
+Το Aspose.Slides for Android μέσω Java αντιπροσωπεύει τις κινήσεις των διαφανειών ως εφέ σε μια χρονοδιάγραμμα διαφάνειας. Ένα εφέ έχει σχήμα-στόχο, τύπο και υπότυπο κίνησης, ένα σκανάρι, ρυθμίσεις χρόνου και προαιρετικές ιδιότητες όπως ήχος ή συμπεριφορά μετά το εφέ.
+
+Το χρονοδιάγραμμα περιέχει δύο είδη ακολουθιών:
 
 - Η **κύρια ακολουθία** παίζει καθώς προχωρά η διαφάνεια.
-- Μια **διαδραστική ακολουθία** ξεκινά όταν το σχήμα ενεργοποίησης κλικάρεται.
+- Μία **διαδραστική ακολουθία** ξεκινά όταν το σχήμα‑σκανάρι κλικάρεται.
 
-Δεδομένου ότι τα πλαίσια κειμένου, οι εικόνες, τα γραφήματα, οι πίνακες και άλλα αντικείμενα διαφάνειας υλοποιούν το [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/), χρησιμοποιείτε την ίδια μέθοδο [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) για το μεγαλύτερο μέρος του περιεχομένου της διαφάνειας. Τα διαθέσιμα εφέ αναφέρονται στην κλάση [EffectType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effecttype/).
+Επειδή τα πλαίσια κειμένου, οι εικόνες, τα διαγράμματα, οι πίνακες και άλλα αντικείμενα διαφάνειας υλοποιούν το [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/), χρησιμοποιείτε την ίδια μέθοδο [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) για τα περισσότερα περιεχόμενα διαφάνειας. Τα διαθέσιμα εφέ παρατίθενται στην κλάση [EffectType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effecttype/).
 
-## **Προσθήκη Κινούμενων Εφέ Σχημάτων**
+## **Προσθήκη Κινήσεων σε Σχήματα**
 
-Για να προσθέσετε μια κίνηση, αποκτήστε την κύρια ακολουθία της διαφάνειας και καλέστε το [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) με το σχήμα-στόχο, τον τύπο εφέ, τον υποτύπο και την ενεργοποίηση. Για ένα εφέ που ξεκινά όταν κλικάρεται ένα άλλο σχήμα, δημιουργήστε μια διαδραστική ακολουθία της οποίας η ενεργοποίηση είναι αυτό το άλλο σχήμα.
+Για να προσθέσετε μια κίνηση, αποκτήστε την κύρια ακολουθία της διαφάνειας και καλέστε το [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) με το σχήμα‑στόχο, τον τύπο εφέ, τον υπότυπο και το σκανάρι. Για ένα εφέ που ξεκινά όταν κλικάρεται ένα άλλο σχήμα, δημιουργήστε μια διαδραστική ακολουθία του οποίου το σκανάρι είναι εκείνο το άλλο σχήμα.
 
 Το παρακάτω παράδειγμα δημιουργεί και τα δύο είδη κίνησης και αποθηκεύει το αποτέλεσμα στο `shape-animations.pptx`.
 
@@ -72,19 +74,19 @@ public class AddShapeAnimations {
 }
 ```
 
-Η ενεργοποίηση ελέγχει πότε ξεκινά ένα εφέ:
+Το σκανάρι ελέγχει πότε ξεκινά ένα εφέ:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effecttriggertype/#OnClick) αναμένει κλικ στην κύρια ακολουθία ή κλικ στο σχήμα ενεργοποίησης σε μια διαδραστική ακολουθία.
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) ξεκινά με το προηγούμενο εφέ.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effecttriggertype/#OnClick) περιμένει κλικ στην κύρια ακολουθία ή κλικ στο σχήμα‑σκανάρι σε μια διαδραστική ακολουθία.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) ξεκινά μαζί με το προηγούμενο εφέ.
 - [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) ξεκινά όταν ολοκληρωθεί το προηγούμενο εφέ.
 
-Για να κίνηση μια εικόνα, ένα γράφημα ή άλλο τύπο σχήματος, περάστε αυτό το αντικείμενο στο [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) αντί για `targetShape`. Για επιλογές ομαδοποίησης συγκεκριμένες στα γραφήματα, δείτε [Animated Charts](/slides/el/androidjava/animated-charts/).
+Για να κινήσετε μια εικόνα, γράφημα ή άλλο τύπο σχήματος, περάστε αυτό το αντικείμενο στο [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) αντί για το `targetShape`. Για επιλογές ομαδοποίησης ειδικά για διαγράμματα, δείτε [Animated Charts](/slides/el/androidjava/animated-charts/).
 
-## **Ανάγνωση Κινούμενων Εφέ Σχημάτων**
+## **Ανάγνωση Κινήσεων Σχήματος**
 
-Χρησιμοποιήστε το [ISequence.getEffectsByShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) όταν γνωρίζετε το σχήμα-στόχο. Για να εξετάσετε κάθε εφέ, απαριθμήστε την κύρια ακολουθία και κάθε διαδραστική ακολουθία. Η απαρίθμηση αποτρέπει την υπόθεση ότι μια ακολουθία περιέχει εφέ στη θέση `0`.
+Χρησιμοποιήστε το [ISequence.getEffectsByShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) όταν γνωρίζετε το σχήμα‑στόχο. Για να εξετάσετε κάθε εφέ, απαριθμήστε την κύρια ακολουθία και κάθε διαδραστική ακολουθία. Η απαρίθμηση αποφεύγει την υπόθεση ότι μια ακολουθία περιέχει εφέ στη θέση `0`.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα με εφέ κύριας και διαδραστικής ακολουθίας, λαμβάνει τα εφέ που στοχεύουν το σχήμα και στη συνέχεια απαριθμεί κάθε ακολουθία στη διαφάνεια.
+Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα με εφέ κύριας και διαδραστικής ακολουθίας, λαμβάνει τα εφέ που στοχεύουν το σχήμα και, στη συνέχεια, απαριθμεί κάθε ακολουθία στη διαφάνεια.
 
 ```java
 import com.aspose.slides.*;
@@ -138,21 +140,21 @@ public class ReadShapeAnimations {
 }
 ```
 
-Αν χρειάζεστε μόνο τα εφέ για ένα σχήμα, πρώτα προσδιορίστε το σχήμα με το όνομα, τον τύπο placeholder ή άλλη σταθερή ιδιότητα· μετά καλέστε το [ISequence.getEffectsByShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Μην υποθέτετε ότι το [IShapeCollection.get_Item](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) στη θέση `0` είναι πάντα το επιθυμητό αντικείμενο.
+Αν χρειάζεστε μόνο τα εφέ για ένα σχήμα, πρώτα ταυτοποιήστε το σχήμα με όνομα, τύπο placeholder ή άλλη σταθερή ιδιότητα· έπειτα καλέστε το [ISequence.getEffectsByShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Μην υποθέτετε ότι το [IShapeCollection.get_Item](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) στη θέση `0` είναι πάντα το επιθυμητό αντικείμενο.
 
-## **Εργασία με Κληρονομημένα Εφέ Συμπληρωμάτων**
+## **Εργασία με Κληρονομημένα Εφέ Συμπληρωματικού Στοιχείου**
 
-Ένα placeholder σε κανονική διαφάνεια μπορεί να κληρονομήσει τη συμπεριφορά κίνησης από το αντίστοιχο placeholder στο πρότυπο διάταξης και στο master slide. Η μέθοδος [IShape.getBasePlaceholder](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) επιστρέφει αυτό το γονικό placeholder, ή `null` όταν δεν υπάρχει γονέας.
+Ένα placeholder σε μια κανονική διαφάνεια μπορεί να κληρονομήσει τη συμπεριφορά κίνησης από το αντίστοιχο placeholder στη διαφάνεια διάταξης και στον κύριο πρότυπο. Το [IShape.getBasePlaceholder](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) επιστρέφει εκείνο το γονικό placeholder ή `null` όταν δεν υπάρχει γονέας.
 
-Στην παρακάτω παρουσίαση, το υποσέλιδο έχει **Random Bars** στην κανονική διαφάνεια, **Split** στο slide layout και **Fly In** στο master slide.
+Στην παρακάτω παρουσίαση παραδείγματος, το υποσέλιδο έχει **Random Bars** στην κανονική διαφάνεια, **Split** στη διαφάνεια διάταξης και **Fly In** στον κύριο πρότυπο.
 
 ![Εφέ κίνησης υποσέλιδου στην κανονική διαφάνεια](slide-shape-animation.png)
 
-![Εφέ κίνησης υποσέλιδου στο πρότυπο διάταξης](layout-shape-animation.png)
+![Εφέ κίνησης placeholder υποσέλιδου στη διαφάνεια διάταξης](layout-shape-animation.png)
 
-![Εφέ κίνησης υποσέλιδου στην κύρια διαφάνεια (master)](master-shape-animation.png)
+![Εφέ κίνησης placeholder υποσέλιδου στον κύριο πρότυπο](master-shape-animation.png)
 
-Το επόμενο παράδειγμα χρησιμοποιεί ιεραρχία placeholder από νέα παρουσίαση. Προσθέτει εφέ σε ένα master placeholder, ένα layout placeholder και το αντίστοιχο placeholder σε κανονική διαφάνεια. Κάθε κλήση στο [IShape.getBasePlaceholder](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) ελέγχεται πριν χρησιμοποιηθεί το επιστρεφόμενο σχήμα.
+Το επόμενο παράδειγμα χρησιμοποιεί ιεραρχία placeholder από νέα παρουσίαση. Προσθέτει εφέ σε placeholder κύριου προτύπου, placeholder διάταξης και στο αντίστοιχο placeholder στην κανονική διαφάνεια. Κάθε κλήση στο [IShape.getBasePlaceholder](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) ελέγχεται πριν το επιστρεφόμενο σχήμα χρησιμοποιηθεί.
 
 ```java
 import com.aspose.slides.*;
@@ -239,10 +241,10 @@ public class InheritedPlaceholderAnimations {
 - **Start** αντιστοιχεί στο [ITiming.getTriggerType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getTriggerType--).
 - **Duration** αντιστοιχεί στο [ITiming.getDuration](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getDuration--), σε δευτερόλεπτα.
 - **Delay** αντιστοιχεί στο [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--), σε δευτερόλεπτα.
-- **Repeat** αντιστοιχεί στα [ITiming.getRepeatCount](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), ή [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--) .
-- **Rewind when done playing** αντιστοιχεί στο [ITiming.getRewind](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getRewind--) .
+- **Repeat** αντιστοιχεί στο [ITiming.getRepeatCount](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getRepeatCount--), στο [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), ή στο [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
+- **Rewind when done playing** αντιστοιχεί στο [ITiming.getRewind](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#getRewind--).
 
-Αυτό το ανεξάρτητο παράδειγμα προσθέτει ένα εφέ, αλλάζει το χρονισμό του μέσω του αντικειμένου που επιστρέφει το [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), και αποθηκεύει το αποτέλεσμα. Η διατήρηση της αναφοράς στο επιστρεφόμενο [IEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/) αποτρέπει την ανάγκη για άσκοπο δείκτη συλλογής.
+Αυτό το ανεξάρτητο παράδειγμα προσθέτει ένα εφέ, αλλάζει τον χρόνο του μέσω του αντικειμένου που επιστρέφεται από το [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), και αποθηκεύει το αποτέλεσμα. Η διατήρηση της επιστρεφόμενης αναφοράς σε [IEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/) αποφεύγει έναν περιττό δείκτη συλλογής.
 
 ```java
 import com.aspose.slides.*;
@@ -272,15 +274,15 @@ public class ChangeAnimationTiming {
 }
 ```
 
-Χρησιμοποιήστε έναν τρόπο επανάληψης σκόπιμα. Ο συνδυασμός μετρητή επανάληψης με σημαία «until» μπορεί να δώσει παραπλανητικά αποτελέσματα σε διαφορετικούς προγράμματα προβολής. Όταν αλλάζετε τρόπους επανάληψης, ορίστε πρώτα [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) και [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) πριν το [ITiming.setRepeatCount](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-), επειδή η ρύθμιση οποιασδήποτε σημαίας αλλάζει επίσης τον ενεργό τρόπο επανάληψης.
+Χρησιμοποιήστε έναν τρόπο επανάληψης σκόπιμα. Ο συνδυασμός αριθμού επανάληψης με σημαία «until» μπορεί να δημιουργήσει συγκεχυμένα αποτελέσματα σε διάφορους προγυρόπτες. Όταν αλλάζετε τρόπους επανάληψης, θέστε πρώτα το [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) και το [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) πριν το [ITiming.setRepeatCount](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-), επειδή η ρύθμιση κάποιας σημαίας αλλάζει και τη λειτουργική λειτουργία επανάληψης.
 
 ## **Προσθήκη και Εξαγωγή Ήχων Κίνησης**
 
-Ένα εφέ κίνησης μπορεί να αναφέρει ενσωματωμένο ήχο μέσω του [IEffect.getSound](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#getSound--). Το [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) ορίζει σε ένα εφέ να σταματήσει ήχο που άνοιξε ένα προηγούμενο εφέ.
+Ένα εφέ κίνησης μπορεί να αναφέρεται σε ενσωματωμένο ήχο μέσω του [IEffect.getSound](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#getSound--). Το [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) υποδεικνύει σε ένα εφέ να σταματήσει ήχο που είχε ξεκινήσει ένα προηγούμενο εφέ.
 
-### **Προσθήκη Ήχου σε Ένα Εφέ**
+### **Προσθήκη Ήχου σε Εφέ**
 
-Το παρακάτω παράδειγμα απαιτεί το τοπικό αρχείο ήχου `animation-sound.wav`. Δημιουργεί δύο εφέ, ενσωματώνει αυτό το αρχείο ως ήχο για το πρώτο εφέ και ρυθμίζει το δεύτερο εφέ να σταματά τον ήχο. Χρησιμοποιεί τα αντικείμενα που επιστρέφει το [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), επομένως δεν απαιτείται δείκτης ακολουθίας.
+Το παρακάτω παράδειγμα αναμένει ένα τοπικό αρχείο ήχου με όνομα `animation-sound.wav`. Δημιουργεί δύο εφέ, ενσωματώνει το αρχείο ως ήχο του πρώτου εφέ και ρυθμίζει το δεύτερο εφέ να σταματά τον ήχο. Χρησιμοποιεί τα αντικείμενα που επιστρέφονται από το [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), επομένως δεν απαιτείται δείκτης ακολουθίας.
 
 ```java
 import com.aspose.slides.*;
@@ -317,7 +319,7 @@ public class AddAnimationSound {
 
 ### **Εξαγωγή Ενσωματωμένων Ήχων Εφέ**
 
-Το παρακάτω παράδειγμα απαιτεί την τοπική παρουσίαση `presentation-with-animation-sounds.pptx`. Σαρώνει τόσο τις κύριες όσο και τις διαδραστικές ακολουθίες και γράφει κάθε ενσωματωμένο ήχο εφέ στον φάκελο `extracted-animation-sounds`. Η επέκταση επιλέγεται από τον τύπο MIME του ήχου που εκτίθεται από το [IAudio.getContentType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iaudio/#getContentType--).
+Το παρακάτω παράδειγμα αναμένει μια τοπική παρουσίαση με όνομα `presentation-with-animation-sounds.pptx`. Σαρώνει και τις κύρεις και τις διαδραστικές ακολουθίες και γράφει κάθε ενσωματωμένο ήχο εφέ στον φάκελο `extracted-animation-sounds`. Η επέκταση επιλέγεται από τον τύπο MIME του ήχου που εκθέτει το [IAudio.getContentType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iaudio/#getContentType--).
 
 ```java
 import com.aspose.slides.*;
@@ -391,17 +393,17 @@ public class ExtractAnimationSounds {
 }
 ```
 
-Για μεγάλα αντικείμενα ήχου, χρησιμοποιήστε το [IAudio.getStream](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iaudio/#getStream--) και αντιγράψτε το ρεύμα σε αρχείο αντί να φορτώσετε ολόκληρο το αντικείμενο σε πίνακα bytes.
+Για μεγάλα αντικείμενα ήχου, χρησιμοποιήστε το [IAudio.getStream](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iaudio/#getStream--) και αντιγράψτε το ρεύμα σε αρχείο αντί να φορτώσετε ολόκληρο το αντικείμενο σε πίνακα byte.
 
-## **Ορισμός Συμπεριφοράς Μετά το Κίνημα**
+## **Ορισμός Συμπεριφοράς Μετά την Κίνηση**
 
-Η επιλογή **After animation** ελέγχει τι συμβαίνει με ένα σχήμα αφού ολοκληρωθεί το εφέ του.
+Η επιλογή **After animation** ελέγχει τι συμβαίνει σε ένα σχήμα μετά το τέλος του εφέ του.
 
-![Διάλογος Επιλογών Εφέ του PowerPoint που εμφανίζει τις ρυθμίσεις After animation](shape-after-animation.png)
+![Διάλογος επιλογών εφέ του PowerPoint που εμφανίζει ρυθμίσεις After animation](shape-after-animation.png)
 
-Η κλάση [AfterAnimationType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/afteranimationtype/) υποστηρίζει διατήρηση του σχήματος αμετάβλητου, αλλαγή του χρώματός του, απόκρυψη του μετά την κίνηση ή απόκρυψη του στο επόμενο κλικ. Όταν ο τύπος είναι [AfterAnimationType.Color](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/afteranimationtype/#Color), ορίστε επίσης το [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--).
+Η κλάση [AfterAnimationType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/afteranimationtype/) υποστηρίζει την διατήρηση του σχήματος αμετάβλητο, την αλλαγή του χρώματος, απόκρυψη μετά το εφέ ή απόκρυψη στην επόμενη κίνηση. Όταν ο τύπος είναι [AfterAnimationType.Color](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/afteranimationtype/#Color), ορίστε επίσης το [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--).
 
-Αυτό το ανεξάρτητο παράδειγμα δημιουργεί ένα εφέ, ορίζει τη συμπεριφορά μετά την κίνηση μέσω του επιστρεφόμενου αντικειμένου εφέ, και αποθηκεύει το αποτέλεσμα.
+Αυτό το ανεξάρτητο παράδειγμα δημιουργεί ένα εφέ, ορίζει τη συμπεριφορά μετά την κίνηση μέσω του επιστρεφόμενου αντικειμένου εφέ και αποθηκεύει το αποτέλεσμα.
 
 ```java
 import com.aspose.slides.*;
@@ -427,16 +429,16 @@ public class SetAfterAnimationBehavior {
 }
 ```
 
-Αλλάζοντας τον τύπο από το [AfterAnimationType.Color] αφαιρεί τη ρύθμιση χρώματος μετά την κίνηση.
+Η αλλαγή του τύπου από το [AfterAnimationType.Color](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/afteranimationtype/#Color) αφαιρεί τη ρύθμιση χρώματος μετά το εφέ.
 
 ## **Κίνηση Κειμένου**
 
-Η κίνηση κειμένου έχει δύο σχετικούς ελέγχους:
+Η κίνηση κειμένου έχει δύο σχετιζόμενους ελέγχους:
 
-- Το [ITextAnimation.getBuildType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextanimation/#getBuildType--) ελέγχει αν οι παράγραφοι εμφανίζονται μαζί ή ανά παράγραφο.
-- Το [IEffect.getAnimateTextType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) ελέγχει αν το κείμενο εμφανίζεται ολόκληρο, λέξη‑λεπτό ή γράμμα‑γράμμα. Το [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) θέτει την καθυστέρηση μεταξύ λέξεων ή γραμμάτων. Μια θετική τιμή είναι ποσοστό της διάρκειας του εφέ· μια αρνητική τιμή είναι καθυστέρηση σε δευτερόλεπτα.
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextanimation/#getBuildType--) ελέγχει εάν οι παράγραφοι εμφανίζονται μαζί ή κατά επίπεδο παραγράφου.
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) ελέγχει εάν το κείμενο εμφανίζεται ολόκληρο, λέξη προς λέξη ή γράμμα προς γράμμα. Το [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) ορίζει την καθυστέρηση μεταξύ λέξεων ή γραμμάτων. Θετική τιμή είναι ποσοστό της διάρκειας του εφέ· αρνητική τιμή είναι καθυστέρηση σε δευτερόλεπτα.
 
-Το παρακάτω ανεξάρτητο παράδειγμα κινεί τις λέξεις σε ένα πλαίσιο κειμένου. Το [BuildType.AsOneObject](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/buildtype/#AsOneObject) απενεργοποιεί το κτίσιμο παράγραφο‑από‑παράγραφο ώστε η ρύθμιση λέξης να ισχύει για ολόκληρο το πλαίσιο κειμένου.
+Το παρακάτω ανεξάρτητο παράδειγμα κινεί τις λέξεις σε ένα πλαίσιο κειμένου. Το [BuildType.AsOneObject](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/buildtype/#AsOneObject) απενεργοποιεί την κατασκευή παράγραφος‑για‑παράγραφο ώστε η ρύθμιση λέξεων να ισχύει σε ολόκληρο το πλαίσιο κειμένου.
 
 ```java
 import com.aspose.slides.*;
@@ -462,23 +464,26 @@ public class AnimateTextByWord {
 }
 ```
 
-Για κτίσιμο πλαισίου κειμένου ανά παράγραφο, ορίστε το [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (ή άλλο επίπεδο παραγράφου). Για στοχοθέτηση μιας μεμονωμένης παραγράφου με δικό της εφέ, χρησιμοποιήστε την υπερφόρτωση του [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) που δέχεται ένα [IParagraph](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraph/). Δείτε το [Animated Text](/slides/el/androidjava/animated-text/) για παραδείγματα επιπέδου παραγράφου.
+Για κατασκευή πλαισίου κειμένου παράγραφο‑πρώτα, ορίστε το [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (ή άλλο επίπεδο παραγράφου). Για να στοχεύσετε μια μοναδική παράγραφο με δικό της εφέ, χρησιμοποιήστε την υπερφόρτωση του [ISequence.addEffect](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) που δέχεται ένα [IParagraph](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iparagraph/). Δείτε το [Animated Text](/slides/el/androidjava/animated-text/) για παραδείγματα επιπέδου παραγράφου.
 
 ## **Σημειώσεις Εξαγωγής και Συμβατότητας**
 
-- Η αποθήκευση σε PPT ή PPTX διατηρεί το μοντέλο κίνησης, αλλά η τελική αναπαραγωγή ελέγχεται από το πρόγραμμα προβολής της παρουσίασης.
-- Τα PDF και οι στατικές εικόνες δεν εκτελούν κίνηση. Χρησιμοποιήστε την [HTML5 export](/slides/el/androidjava/export-to-html5/), animated GIF ή τη [video conversion](/slides/el/androidjava/convert-powerpoint-to-video/) όταν η έξοδος πρέπει να δείχνει κίνηση.
+- Η αποθήκευση σε PPT ή PPTX διατηρεί το μοντέλο κίνησης, αλλά η τελική αναπαραγωγή ελέγχεται από το πρόγραμμα προβολής παρουσίασης.
+- Τα PDF και οι στατικές εικόνες δεν εκτελούν κινήσεις. Χρησιμοποιήστε την [HTML5 export](/slides/el/androidjava/export-to-html5/), animated GIF ή τη [μετατροπή βίντεο](/slides/el/androidjava/convert-powerpoint-to-video/) όταν η έξοδος πρέπει να παρουσιάζει κίνηση.
 - Για HTML5, ενεργοποιήστε το [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) και, όταν χρειάζεται, το [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
-- Η απόδοση βίντεο υποστηρίζει πολλά κοινά εφέ εισόδου, έμφασης, εξόδου και διαδρομής κίνησης, αλλά δεν υποστηρίζονται όλα τα εφέ του PowerPoint. Ελέγξτε τις τρέχουσες [supported animations and effects](/slides/el/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) και δοκιμάστε κρίσιμες παρουσιάσεις με την έκδοση Aspose.Slides που στοχεύετε.
-- Προχωρημένα προσαρμοσμένα εφέ και εφέ που εισάγονται από άλλες μορφές παρουσίασης μπορεί να διατηρηθούν στο αρχείο αλλά να αποδοθούν διαφορετικά σε PowerPoint, HTML5 ή βίντεο. Επικυρώστε το εξαγόμενο αποτέλεσμα αντί να βασίζεστε μόνο στο όνομα του εφέ.
+- Η απόδοση βίντεο υποστηρίζει πολλές κοινές εφέ εισόδου, έμφασης, εξόδου και μονοπατιού κίνησης, αλλά δεν υποστηρίζεται κάθε εφέ του PowerPoint. Ελέγξτε τις τρέχουσες [supported animations and effects](/slides/el/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) και δοκιμάστε κρίσιμες παρουσιάσεις με την έκδοση Aspose.Slides που στοχεύετε.
+- Προηγμένα προσαρμοσμένα εφέ και εφέ που εισάγονται από άλλες μορφές παρουσίασης μπορούν να διατηρηθούν στο αρχείο αλλά να αποδοθούν διαφορετικά σε PowerPoint, HTML5 ή βίντεο. Επικυρώστε το εξαγόμενο αποτέλεσμα αντί να βασίζεστε μόνο στο όνομα του εφέ.
 
-## **Συχνές Ερωτήσεις (FAQ)**
+## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
 
-**Γιατί εμφανίζεται μια κίνηση στο PowerPoint αλλά όχι σε PDF;**  
-Το PDF είναι στατική μορφή, επομένως οι κινήσεις και οι μεταβάσεις διαφανειών δεν παίζουν. Εξάγετε σε HTML5, animated GIF ή βίντεο όταν πρέπει να διατηρηθεί η κίνηση.
+**Γιατί εμφανίζεται μια κίνηση στο PowerPoint αλλά όχι σε PDF;**
 
-**Γιατί ένα εφέ εκτελείται διαφορετικά σε βίντεο;**  
-Η εξαγωγή βίντεο αποδίδει τις κινήσεις αντί να αποθηκεύει την αρχική συμπεριφορά του PowerPoint. Ορισμένα προχωρημένα εφέ δεν υποστηρίζονται ή προσεγγίζονται. Ελέγξτε τον πίνακα των υποστηριζόμενων εφέ και δοκιμάστε την παρουσίαση πριν την παραγωγική χρήση.
+Το PDF είναι στατική μορφή, επομένως οι κινήσεις και οι μεταβάσεις διαφάνειας δεν εκτελούνται. Εξάγετε σε HTML5, animated GIF ή βίντεο όταν η κίνηση πρέπει να διατηρηθεί.
 
-**Αλλάζει η μετακίνηση ενός σχήματος προς τα εμπρός ή προς τα πίσω τη σειρά των κινήσεων;**  
-Όχι. Η σειρά z‑order του σχήματος ελέγχει την επικάλυψη, ενώ η σειρά ακολουθίας και οι ενεργοποιήσεις ελέγχουν την αναπαραγωγή των κινήσεων. Αλλάξτε τη χρονογραμμή εάν χρειάζεται διαφορετική σειρά αναπαραγωγής.
+**Γιατί ένα εφέ εκτελείται διαφορετικά σε βίντεο;**
+
+Η εξαγωγή βίντεο αποδίδει τις κινήσεις αντί να αποθηκεύει την αρχική συμπεριφορά του PowerPoint. Ορισμένα προηγμένα εφέ δεν υποστηρίζονται ή προσεγγίζονται. Ελέγξτε τον πίνακα υποστηριζόμενων εφέ και δοκιμάστε την πραγματική παρουσίαση πριν τη χρήση σε παραγωγή.
+
+**Αλλάζει η σειρά των κινήσεων αν μετακινήσω ένα σχήμα προς τα εμπρός ή προς τα πίσω;**
+
+Όχι. Η σειρά z‑order του σχήματος ελέγχει την επικάλυψη, ενώ η σειρά ακολουθίας και τα σκανάρια ελέγχουν την αναπαραγωγή των κινήσεων. Αλλάξτε το χρονοδιάγραμμα αν χρειάζεστε διαφορετική σειρά αναπαραγωγής.

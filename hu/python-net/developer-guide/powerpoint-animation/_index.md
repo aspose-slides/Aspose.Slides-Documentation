@@ -1,5 +1,5 @@
 ---
-title: PowerPoint előadások animálása Pythonban
+title: PowerPoint előadások bővítése animációkkal Pythonban
 linktitle: PowerPoint animáció
 type: docs
 weight: 150
@@ -10,12 +10,12 @@ keywords:
 - animáció módosítása
 - animáció eltávolítása
 - animáció kezelése
-- animáció szabályozása
-- animációs hatás
+- animáció vezérlése
+- animációs effektus
 - PowerPoint animáció
 - animációs idővonal
 - interaktív animáció
-- egyéni animáció
+- egyedi animáció
 - alakzat animáció
 - animált diagram
 - animált szöveg
@@ -23,25 +23,25 @@ keywords:
 - animált OLE objektum
 - animált kép
 - animált táblázat
-- PowerPoint bemutató
+- PowerPoint előadás
 - Python
 - Aspose.Slides
-description: "Ismerje meg az Aspose.Slides for Python via .NET képességeit a PowerPoint animációk kezelésében. Ez az általános áttekintés kiemeli a kulcsfontosságú funkciókat, és betekintést nyújt a bemutatók fejlesztéséhez."
+description: "Fedezze fel az Aspose.Slides for Python via .NET képességeit a PowerPoint animációk kezelésében. Ez az általános áttekintés kiemeli a főbb funkciókat, és betekintést nyújt a bemutatók fejlesztéséhez."
 ---
 ## **Bevezetés**
 
-A bemutatókat úgy tervezték, hogy információt közvetítsenek, ezért a vizuális megjelenésük és az interaktív viselkedésük kulcsfontosságú szempontok a létrehozás során.
+Az előadásokat az információ átadására tervezték, ezért a vizuális megjelenésük és interaktív viselkedésük kulcsfontosságú szempontok a készítés során.
 
-**PowerPoint animáció** fontos szerepet játszik abban, hogy egy bemutató figyelemfelkeltő és a nézők számára vonzó legyen. Az Aspose.Slides for Python via .NET széles választékot kínál a PowerPoint bemutató animálásához. Ön a következőket teheti:
+**PowerPoint animation** fontos szerepet játszik abban, hogy egy előadás figyelemfelkeltő és lebilincselő legyen a nézők számára. Az Aspose.Slides for Python via .NET széleskörű lehetőségeket biztosít a PowerPoint előadások animálásához. A következőket teheti:
 
-- Alkalmazzon különböző animációs hatásokat alakzatokra, diagramokra, táblázatokra, OLE objektumokra és egyéb elemekre.
-- Használjon több animációs hatást egyetlen alakzaton.
-- Szabályozza a hatásokat az animáció idővonalán keresztül.
-- Egyedi animációkat hozzon létre.
+- Különféle animációs effektusokat alkalmazhat alakzatokra, diagramokra, táblázatokra, OLE-objektumokra és egyéb elemekre.
+- Több animációs effektust használhat egyetlen alakzaton.
+- Az effektusokat az animáció idővonalán keresztül vezérelheti.
+- Egyedi animációkat hozhat létre.
 
-Az Aspose.Slides for Python via .NET-ben az animációs hatásokat alakzatokra lehet alkalmazni. Mivel a dia minden eleme – beleértve a szöveget, képeket, OLE objektumokat és táblázatokat – alakzatként van kezelve, animációs hatásokat bármely diák elemre alkalmazhat.
+Az Aspose.Slides for Python via .NET esetén az animációs effektusok alakzatokra alkalmazhatók. Mivel a dián minden elem – beleértve a szöveget, képeket, OLE-objektumokat és táblázatokat – alakzatként van kezelve, bármelyik elemre alkalmazhat animációs effektust.
 
-Az [aspose.slides.animation](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/) névtér biztosítja az osztályokat a PowerPoint animációk kezeléséhez.
+Az [aspose.slides.animation](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/) névtér tartalmazza a PowerPoint animációk kezeléséhez szükséges osztályokat.
 
 ## **Telepítés**
 
@@ -49,9 +49,9 @@ Az [aspose.slides.animation](https://reference.aspose.com/slides/hu/python-net/a
 pip install aspose.slides
 ```
 
-## **Animációs hatás hozzáadása egy alakzathoz Pythonban**
+## **Animációs effektus hozzáadása alakzathoz Pythonban**
 
-Az animációs hatások a dia fő sorozatában élnek. Adjunk hozzá egy alakzatot, majd hívjuk meg az `add_effect` metódust a `slide.timeline.main_sequence`-on, megadva a hatástípust, annak altípusát és a kiváltót, amely elindítja.
+Az animációs effektusok a dia fő sorozatában élnek. Adjunk hozzá egy alakzatot, majd hívjuk meg a `add_effect` metódust a `slide.timeline.main_sequence`-on, átadva az effektus típusát, alkategóriáját és a kiváltó eseményt.
 
 ```python
 import aspose.slides as slides
@@ -73,13 +73,13 @@ with slides.Presentation() as presentation:
     presentation.save("animated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A mentett fájl egy hatást tartalmaz az első dián: a téglalap balról repül be két másodperc alatt, amikor a prezentáló kattint. Újra megnyitva és a `slide.timeline.main_sequence`-t olvasva visszakapjuk ezt a hatást, így az animáció megmarad a körutazás során, nem csak a memóriában létezik.
+Az elmentett fájl egy effektust tartalmaz az első dián: a téglalap balról repül be két másodperc alatt, amikor a bemutató előadó kattint. Újranyitáskor és a `slide.timeline.main_sequence` kiolvasásakor ez az effektus visszakapcsolódik, így az animáció a körúton túlél, nem csak a memóriában létezik.
 
-## **Animációs hatások**
+## **Animációs effektusok**
 
-Az Aspose.Slides **150+ animációs hatást** támogat, beleértve az alapvető hatásokat, mint a Bounce, PathFootball és Zoom, valamint a speciális hatásokat, mint az OLEObjectShow és OLEObjectOpen. A teljes listát megtalálja a [EffectType](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/effecttype/) felsorolásban.
+Aspose.Slides támogatja a **150+ animációs effektust**, beleértve az alapvető effektusokat, mint a Bounce, PathFootball és Zoom, valamint speciális effektusokat, mint az OLEObjectShow és OLEObjectOpen. A teljes listát megtalálja a [EffectType](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/effecttype/) felsorolásban.
 
-Ezenkívül ezeket az animációs hatásokat a következő hatásokkal lehet kombinálni:
+Ezen animációs effektusok a következőkkel kombinálhatók:
 
 - [ColorEffect](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/coloreffect/)
 - [CommandEffect](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/commandeffect/)
@@ -90,58 +90,60 @@ Ezenkívül ezeket az animációs hatásokat a következő hatásokkal lehet kom
 - [ScaleEffect](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/scaleeffect/)
 - [SetEffect](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/seteffect/)
 
-## **Egyéni animáció**
+## **Egyedi animáció**
 
-Az Aspose.Slides-ban saját **egyéni animációkat** hozhat létre több viselkedés egyetlen hatásba kombinálásával.
+A teljes Python példákért, amelyek viselkedéseket hoznak létre, ellenőriznek és módosítanak, valamint szerkeszthető mozgási útvonalakat tartalmaznak, tekintse meg a [Egyedi animáció](/slides/hu/python-net/custom-animation/) oldalt.
 
-[Behavior](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/behavior/) az alapvető építőeleme bármely PowerPoint animációs hatásnak. Minden animációs hatás lényegében egy viselkedéscsoport, amely egy stratégiába vagy idővonalba van rendezve. A viselkedéseket egy egyéni animációba összerendezheti egyszer, majd más bemutatókban újra felhasználhatja. Ha új viselkedést ad egy szabványos PowerPoint animációs hatáshoz, az egy egyéni animációvá válik – például egy ismétlődő viselkedés hozzáadása, ami több alkalommal lejátsza az animációt.
+**Egyedi animációkat** hozhat létre az Aspose.Slides-ben több viselkedés egyetlen effektussá kombinálásával.
 
-[Animation Point](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/point/) jelöli azt a pillanatot vagy pozíciót, amikor a viselkedés alkalmazásra kerül (kulcskép).
+A [Behavior](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/behavior/) egy építőeleme a PowerPoint animációs effektusnak. Viselkedéseket kombinálva testre szabhatja az effektust, vagy hozzáadhat egy viselkedést egy előre definiált effektus kiterjesztéséhez. Az ismétlés az időzítési beállításokkal konfigurálható, nem külön ismétlő viselkedéssel.
+
+Az [Animation Point](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/point/) jelöli azt a pillanatot vagy pozíciót, amikor egy viselkedés alkalmazásra kerül (kulcskocka).
 
 ## **Animációs idővonal**
 
-[Sequence](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/sequence/) egy adott alakzatra alkalmazott animációs hatások gyűjteménye.
+A [Sequence](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/sequence/) animációs effektusok gyűjteménye, amely különböző alakzatokra célozhat.
 
-[Timeline](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/animationtimeline/) az adott dián használt sorozatok halmaza. A PowerPoint 2002-ben került bevezetésre. A korábbi PowerPoint verziókban az animációs hatások hozzáadása nehéz volt, és gyakran körülményes megoldásokat igényelt. Az idővonal helyettesíti a régi `AnimationSettings` osztályt, és világosabb objektummodellt biztosít a PowerPoint animációkhoz. Minden diának csak egy animációs idővonala lehet.
+Az [Timeline](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/animationtimeline/) egy konkrét dián használt sorozatok halmaza. A PowerPoint 2002-ben került bevezetésre. A korábbi PowerPoint verziókban az animációs effektusok hozzáadása nehézkes volt, és gyakran megkerülő megoldásokat igényelt. A Timeline lecseréli a régi `AnimationSettings` osztályt, és áttekinthetőbb objektummodellt biztosít a PowerPoint animációkhoz. Egy dián csak egy animációs idővonal lehet.
 
 ## **Interaktív animáció**
 
-[Trigger](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/effecttriggertype/) lehetővé teszi, hogy felhasználói műveleteket (például gombkattintást) definiáljon, amelyek egy adott animációt indítanak. A triggerek csak a PowerPoint legújabb verzióiban kerültek be.
+Az [Trigger](https://reference.aspose.com/slides/hu/python-net/aspose.slides.animation/effecttriggertype/) lehetővé teszi felhasználói műveletek (például gombkattintás) definiálását, amelyek egy adott animációt indítanak. A triggerek csak a PowerPoint legújabb verzióiban kerültek be.
 
 ## **Alakzat animáció**
 
-Az Aspose.Slides lehetővé teszi, hogy animációkat alkalmazzon alakzatokra – például szövegre, téglalapokra, vonalakra, keretekre, OLE objektumokra és egyebekre.
+Aspose.Slides lehetővé teszi animációk alkalmazását alakzatokra – például szövegre, téglalapokra, vonalakra, keretekre, OLE-objektumokra és egyebekre.
 
-{{% alert color="primary" %}}
-További információ [**Az alakzat animációjáról**](/slides/hu/python-net/shape-animation/).
+{{% alert color="info" title="Note" %}}
+Olvassa tovább [**Az alakzat animációja**](/slides/hu/python-net/shape-animation/).
 {{% /alert %}}
 
 ## **Animált diagramok**
 
-Animált diagramok létrehozásához ugyanazokat az osztályokat használja, mint az alakzatoknál. Azonban a PowerPoint animációk csak diagramkategóriákra vagy diagram sorozatokra alkalmazhatók. Animációs hatást egy egyedi kategóriaelemre vagy sorozatelemre is alkalmazhat.
+Animált diagramok létrehozásához ugyanazokat az osztályokat használja, mint alakzatok esetén. A PowerPoint animációk azonban csak diagramkategóriákra vagy diagramsorozatokra alkalmazhatók. Egyedi kategóriaelemekre vagy sorozatelemekre is alkalmazhat animációs effektust.
 
-{{% alert color="primary" %}}
-További információ [**Az animált diagramokról**](/slides/hu/python-net/animated-charts/).
+{{% alert color="info" title="Note" %}}
+Olvassa tovább [**Az animált diagramokról**](/slides/hu/python-net/animated-charts/).
 {{% /alert %}}
 
 ## **Animált szöveg**
 
-A szöveg animálása mellett animációt alkalmazhat egy bekezdésre is.
+Az animált szöveg mellett animációt alkalmazhat bekezdésre is.
 
-{{% alert color="primary" %}}
-További információ [**Az animált szövegről**](/slides/hu/python-net/animated-text/).
+{{% alert color="info" title="Note" %}}
+Olvassa tovább [**Az animált szövegről**](/slides/hu/python-net/animated-text/).
 {{% /alert %}}
 
 ## **GYIK**
 
-### Megmaradnak az animációk PDF-re exportáláskor?
+**Megmaradnak-e az animációk PDF-be exportálás során?**
 
-Nem. A PDF egy statikus formátum, ezért az animációk és a [diaátmenetek](/slides/hu/python-net/slide-transition/) nem futnak. Ha mozgásra van szükség, exportáljon helyette [HTML5](/slides/hu/python-net/export-to-html5/), [animált GIF](/slides/hu/python-net/convert-powerpoint-to-animated-gif/) vagy [videó](/slides/hu/python-net/convert-powerpoint-to-video/) formátumba.
+Nem. A PDF egy statikus formátum, ezért az animációk és a [diaátmenetek](/slides/hu/python-net/slide-transition/) nem játszanak le. Ha mozgásra van szükség, exportáljon [HTML5](/slides/hu/python-net/export-to-html5/), [animált GIF](/slides/hu/python-net/convert-powerpoint-to-animated-gif/), vagy [videó](/slides/hu/python-net/convert-powerpoint-to-video/) formátumba.
 
-### Átalakíthatom-e az animált bemutatót videóvá, és szabályozhatom a képkockasebességet és a képkockaméretet?
+**Átalakíthatom-e az animált előadást videóvá, és szabályozhatom a képkocka‑sebességet és a képméretet?**
 
-Igen. A [bemutató renderelhető képkockákként](/slides/hu/python-net/convert-powerpoint-to-video/) és videóként kódolható (például ffmpeg segítségével), a FPS és a felbontás kiválasztásával. Az animációk és diaátmenetek a renderelés során lejátszódnak.
+Igen. A [prezentáció kereteinek renderelésével](/slides/hu/python-net/convert-powerpoint-to-video/) videóba kódolhatja őket (például ffmpeg‑el), kiválasztva a FPS‑t és a felbontást. Az animációk és diaátmenetek a renderelés során lejátszásra kerülnek.
 
-### Megmaradnak-e az animációk ODP-vel való munka során (nem csak PPTX esetén)?
+**Megmaradnak-e az animációk ODP-vel való munka során (nem csak PPTX esetén)?**
 
-A PPT, PPTX és ODP formátumok támogatottak [olvasáshoz](/slides/hu/python-net/open-presentation/) és [íráshoz](/slides/hu/python-net/save-presentation/), de a formátumkülönbségek miatt egyes hatások kissé másként jelenhetnek meg vagy viselkedhetnek. A kritikus eseteket valós mintákkal ellenőrizze.
+A PPT, PPTX és ODP támogatott a [olvasáshoz](/slides/hu/python-net/open-presentation/) és a [íráshoz](/slides/hu/python-net/save-presentation/), de ez nem garantálja az animációk megőrzését. Egyedi animációs adatok elveszhetnek ODP‑re konvertáláskor. Tekintse meg a [Egyedi animáció](/slides/hu/python-net/custom-animation/) oldalt példákért és útmutatásért a formátum‑kompatibilitás ellenőrzéséhez.

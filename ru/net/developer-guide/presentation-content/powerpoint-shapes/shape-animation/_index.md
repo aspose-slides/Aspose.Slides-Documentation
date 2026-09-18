@@ -1,5 +1,5 @@
 ---
-title: Применение анимации фигур в презентациях на .NET
+title: Применение анимаций фигур в презентациях на .NET
 linktitle: Анимация фигур
 type: docs
 weight: 60
@@ -23,24 +23,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Узнайте, как добавлять, просматривать и настраивать анимацию фигур, время, звуки, поведение после анимации и анимированный текст с помощью Aspose.Slides для .NET."
+description: "Узнайте, как добавлять, просматривать и настраивать анимации фигур, тайминг, звуки, поведение после анимации и анимированный текст с помощью Aspose.Slides для .NET."
 ---
 ## **Обзор**
 
-Aspose.Slides for .NET представляет анимацию слайдов как эффекты на временной шкале слайда. Эффект имеет целевую форму, тип и подтип анимации, триггер, настройки времени и необязательные свойства, такие как звук или поведение после анимации.
+Чтобы работать с отдельными поведениями внутри эффекта или редактировать сегменты траекторий движения, см. [Пользовательская анимация](/slides/ru/net/custom-animation/).
+
+Aspose.Slides for .NET представляет анимацию слайдов как эффекты на временной шкале слайда. Эффект имеет целевую фигуру, тип и подтип анимации, триггер, настройки тайминга и необязательные свойства, такие как звук или поведение после анимации.
 
 Временная шкала содержит два типа последовательностей:
 
-- **Основная последовательность** воспроизводится при переходе к следующему слайду.
-- **Интерактивная последовательность** начинается, когда пользователь щёлкает по фигуре‑триггеру.
+- **Основная последовательность** воспроизводится при продвижении слайда.
+- **Интерактивная последовательность** начинается, когда её триггерная фигура нажата.
 
-Поскольку текстовые поля, изображения, диаграммы, таблицы и другие объекты слайда реализуют [IShape](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/), вы используете один и тот же метод [ISequence.AddEffect](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/isequence/addeffect/) для большинства содержимого слайда. Доступные эффекты перечислены в перечислении [EffectType](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/effecttype/).
+Поскольку текстовые поля, изображения, диаграммы, таблицы и другие объекты слайда реализуют [IShape](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/), вы используете тот же метод [ISequence.AddEffect](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/isequence/addeffect/) для большинства содержимого слайда. Доступные эффекты перечислены в перечислении [EffectType](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/effecttype/).
 
 ## **Добавление анимаций фигур**
 
-Чтобы добавить анимацию, получите основную последовательность слайда и вызовите [ISequence.AddEffect](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/isequence/addeffect/) с целевой фигурой, типом эффекта, подтипом и триггером. Для эффекта, который начинается при щелчке по другой фигуре, создайте интерактивную последовательность, триггером которой будет эта другая фигура.
+Чтобы добавить анимацию, получите основную последовательность слайда и вызовите [ISequence.AddEffect](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/isequence/addeffect/) с целевой фигурой, типом эффекта, подтипом и триггером. Для эффекта, который начинается при щелчке другой фигуры, создайте интерактивную последовательность, триггером которой будет эта другая фигура.
 
-Следующий пример создаёт оба типа анимации и сохраняет результат в `shape-animations.pptx`.
+Следующий пример создаёт оба типа анимации и сохраняет результат в файл `shape-animations.pptx`.
 
 ```csharp
 using Aspose.Slides;
@@ -68,17 +70,17 @@ presentation.Save("shape-animations.pptx", SaveFormat.Pptx);
 
 Триггер определяет, когда эффект начинается:
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/effecttriggertype/) ожидает щелчка в основной последовательности или щелчка по фигуре‑триггеру в интерактивной последовательности.
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/effecttriggertype/) ожидает щелчка в основной последовательности или щелчка по триггерной фигуре в интерактивной последовательности.
 - [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/effecttriggertype/) начинается одновременно с предыдущим эффектом.
 - [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/effecttriggertype/) начинается после завершения предыдущего эффекта.
 
-Чтобы анимировать изображение, диаграмму или другую форму, передайте соответствующий объект в [ISequence.AddEffect](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/isequence/addeffect/) вместо `targetShape`. Для параметров группировки, специфичных для диаграмм, см. [Animated Charts](/slides/ru/net/animated-charts/).
+Чтобы анимировать изображение, диаграмму или другую фигуру, передайте этот объект в [ISequence.AddEffect](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/isequence/addeffect/) вместо `targetShape`. Для параметров группировки, специфичных для диаграмм, см. [Анимированные диаграммы](/slides/ru/net/animated-charts/).
 
 ## **Чтение анимаций фигур**
 
-Используйте [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/isequence/geteffectsbyshape/) когда известна целевая фигура. Чтобы просмотреть каждый эффект, переберите основную последовательность и все интерактивные последовательности. Перебор позволяет избежать предположения, что в последовательности есть эффект с индексом `0`.
+Используйте [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/isequence/geteffectsbyshape/), когда известна целевая фигура. Чтобы просмотреть каждый эффект, перечислите основную последовательность и все интерактивные последовательности. Перечисление избавляет от предположения, что в последовательности есть эффект с индексом `0`.
 
-Следующий пример создаёт фигуру с эффектами основной и интерактивной последовательностей, получает эффекты, направленные на эту фигуру, а затем перебирает каждую последовательность на слайде.
+Следующий пример создаёт фигуру с эффектами основной и интерактивной последовательностей, получает эффекты, нацеленные на эту фигуру, и затем перечисляет все последовательности на слайде.
 
 ```csharp
 using System;
@@ -126,21 +128,21 @@ static void PrintSequence(string label, ISequence sequence)
 }
 ```
 
-Если нужны эффекты только для одной фигуры, сначала определите её по имени, типу заполнителя или другому стабильному свойству; затем вызовите [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/isequence/geteffectsbyshape/). Не следует предполагать, что [IShapeCollection.Item](https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection/item/) с индексом `0` всегда является нужным объектом.
+Если нужны эффекты только для одной фигуры, сначала определите её по имени, типу заполнителя или другому стабильному свойству; затем вызовите [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/isequence/geteffectsbyshape/). Не предполагаете, что [IShapeCollection.Item](https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection/item/) с индексом `0` всегда является нужным объектом.
 
 ## **Работа с унаследованными эффектами заполнителей**
 
-Заполнитель на обычном слайде может наследовать поведение анимации от соответствующего заполнителя на слайде‑макете и слайде‑шаблоне. [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/getbaseplaceholder/) возвращает такой родительский заполнитель или `null`, если родителя нет.
+Заполнитель на обычном слайде может наследовать поведение анимации от соответствующего заполнителя на слайде‑разметке и мастер‑слайде. [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/getbaseplaceholder/) возвращает этот родительский заполнитель или `null`, если родитель не существует.
 
-В следующей презентации нижний колонтитул имеет **Random Bars** на обычном слайде, **Split** на слайде‑макете и **Fly In** на слайде‑шаблоне.
+В представлении ниже нижний колонтитул имеет **Random Bars** на обычном слайде, **Split** на слайде‑разметке и **Fly In** на мастер‑слайде.
 
 ![Эффект анимации нижнего колонтитула на обычном слайде](slide-shape-animation.png)
 
-![Эффект анимации заполнителя нижнего колонтитула на слайде‑макете](layout-shape-animation.png)
+![Эффект анимации нижнего колонтитула на слайде‑разметке](layout-shape-animation.png)
 
-![Эффект анимации заполнителя нижнего колонтитула на слайде‑шаблоне](master-shape-animation.png)
+![Эффект анимации нижнего колонтитула на мастер‑слайде](master-shape-animation.png)
 
-Следующий пример самостоятельно строит иерархию заполнителей. Он добавляет эффекты к заполнителю шаблона, заполнителю макета и соответствующему заполнителю на обычном слайде. Каждый вызов [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/getbaseplaceholder/) проверяется перед использованием возвращённой фигуры.
+Следующий пример создаёт иерархию заполнителей. Он добавляет эффекты к заполнителю мастера, заполнителю разметки и соответствующему заполнителю на обычном слайде. Каждый вызов [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/getbaseplaceholder/) проверяется перед использованием полученной фигуры.
 
 ```csharp
 using System;
@@ -209,19 +211,19 @@ static void PrintEffects(string source, IEffect[] effects)
 }
 ```
 
-## **Изменение времени анимации**
+## **Изменение тайминга анимации**
 
-Диалог PowerPoint **Timing** отображает свойства [ITiming](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/).
+Диалог **Timing** PowerPoint отображает свойства [ITiming](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/).
 
-![Диалог Timing в PowerPoint для анимационного эффекта](shape-animation.png)
+![Диалог тайминга PowerPoint для анимационного эффекта](shape-animation.png)
 
-- **Start** отображается в свойстве [ITiming.TriggerType](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/triggertype/).
-- **Duration** соответствует [ITiming.Duration](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/duration/), в секундах.
-- **Delay** соответствует [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/triggerdelaytime/), в секундах.
-- **Repeat** соответствует [ITiming.RepeatCount](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/repeatcount/), [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/repeatuntilnextclick/), или [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/repeatuntilendslide/).
-- **Rewind when done playing** соответствует [ITiming.Rewind](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/rewind/).
+- **Запуск** соответствует [ITiming.TriggerType](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/triggertype/).
+- **Продолжительность** соответствует [ITiming.Duration](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/duration/), в секундах.
+- **Задержка** соответствует [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/triggerdelaytime/), в секундах.
+- **Повтор** соответствует [ITiming.RepeatCount](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/repeatcount/), [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/repeatuntilnextclick/) или [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/repeatuntilendslide/).
+- **Перемотка после завершения** соответствует [ITiming.Rewind](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/rewind/).
 
-Этот автономный пример добавляет эффект, изменяет его время через объект, возвращённый [ISequence.AddEffect](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/isequence/addeffect/), и сохраняет результат. Сохранение ссылки на возвращённый [IEffect](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/ieffect/) избегает ненужного обращения по индексу коллекции.
+Этот независимый пример добавляет эффект, изменяет его тайминг через объект, возвращённый [ISequence.AddEffect](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/isequence/addeffect/), и сохраняет результат. Сохранение ссылки на возвращённый [IEffect](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/ieffect/) предотвращает необходимость обращения к индексу коллекции.
 
 ```csharp
 using Aspose.Slides;
@@ -245,15 +247,15 @@ effect.Timing.Rewind = true;
 presentation.Save("shape-animation-timing.pptx", SaveFormat.Pptx);
 ```
 
-Используйте только один режим повторения. Комбинация счётчика повторов с флагом «until» может приводить к непредсказуемому поведению в разных проигрывателях. При смене режима повторения сначала задайте [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/repeatuntilnextclick/) и [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/repeatuntilendslide/), а затем [ITiming.RepeatCount](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/repeatcount/), поскольку установка любого из флагов также меняет активный режим повторения.
+Используйте один режим повторения сознательно. Сочетание количества повторов с флагом «until» может давать непредсказуемые результаты в разных проигрывателях. При изменении режима повторения сначала задайте [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/repeatuntilnextclick/) и [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/repeatuntilendslide/), а затем [ITiming.RepeatCount](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itiming/repeatcount/), поскольку установка любого из флагов также меняет активный режим повторения.
 
 ## **Добавление и извлечение звуков анимации**
 
-Эффект анимации может ссылаться на встроенный звук через [IEffect.Sound](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/ieffect/sound/). [IEffect.StopPreviousSound](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/ieffect/stopprevioussound/) указывает эффекту остановить звук, начатый предыдущим эффектом.
+Анимационный эффект может ссылаться на встроенный аудио‑файл через [IEffect.Sound](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/ieffect/sound/). [IEffect.StopPreviousSound](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/ieffect/stopprevioussound/) указывает эффекту остановить звук, запущенный предыдущим эффектом.
 
 ### **Добавить звук к эффекту**
 
-Следующий пример ожидает локальный аудиофайл `animation-sound.wav`. Он создаёт два эффекта, встраивает этот файл как звук для первого эффекта и настраивает второй эффект на остановку звука. При этом используются объекты, возвращённые [ISequence.AddEffect](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/isequence/addeffect/), поэтому индекс последовательности не требуется.
+Следующий пример ожидает локальный аудио‑файл с именем `animation-sound.wav`. Он создаёт два эффекта, встраивает этот файл как звук для первого эффекта и настраивает второй эффект для остановки звука. Он использует объекты, возвращённые [ISequence.AddEffect](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/isequence/addeffect/), поэтому индекс последовательности не требуется.
 
 ```csharp
 using System.IO;
@@ -282,7 +284,7 @@ presentation.Save("shape-animation-sound.pptx", SaveFormat.Pptx);
 
 ### **Извлечь встроенные звуки эффектов**
 
-Следующий пример ожидает локальную презентацию `presentation-with-animation-sounds.pptx`. Он просматривает как основную, так и интерактивные последовательности и записывает каждый встроенный звук эффекта в каталог `extracted-animation-sounds`. Расширение выбирается на основе MIME‑типа аудио, получаемого через [IAudio.ContentType](https://reference.aspose.com/slides/ru/net/aspose.slides/iaudio/contenttype/).
+Следующий пример ожидает локальную презентацию с именем `presentation-with-animation-sounds.pptx`. Он сканирует основные и интерактивные последовательности и записывает каждый встроенный звук эффекта в каталог `extracted-animation-sounds`. Расширение выбирается из MIME‑типа аудио, предоставляемого [IAudio.ContentType](https://reference.aspose.com/slides/ru/net/aspose.slides/iaudio/contenttype/).
 
 ```csharp
 using System;
@@ -344,17 +346,17 @@ static string GetAudioExtension(string contentType)
 }
 ```
 
-Для больших аудиофайлов используйте [IAudio.GetStream](https://reference.aspose.com/slides/ru/net/aspose.slides/iaudio/getstream/) и копируйте поток в файл вместо загрузки всего объекта в массив байтов.
+Для больших аудио‑объектов используйте [IAudio.GetStream](https://reference.aspose.com/slides/ru/net/aspose.slides/iaudio/getstream/) и копируйте поток в файл вместо загрузки всего объекта в массив байтов.
 
 ## **Установка поведения после анимации**
 
-Опция **After animation** определяет, что происходит с фигурой после завершения её эффекта.
+Опция **After animation** управляет тем, что происходит с фигурой после завершения её эффекта.
 
-![Диалог параметров эффекта в PowerPoint, показывающий настройки After animation](shape-after-animation.png)
+![Диалог параметров эффекта PowerPoint, показывающий настройки After animation](shape-after-animation.png)
 
-Перечисление [AfterAnimationType](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/afteranimationtype/) позволяет оставить фигуру без изменений, изменить её цвет, скрыть её после анимации или скрыть при следующем щелчке. Когда тип — [AfterAnimationType.Color](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/afteranimationtype/), также задайте [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/ieffect/afteranimationcolor/).
+Перечисление [AfterAnimationType](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/afteranimationtype/) поддерживает оставление фигуры без изменений, изменение её цвета, скрытие её после анимации или скрытие при следующем щелчке. Когда тип установлен в [AfterAnimationType.Color](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/afteranimationtype/), также задайте [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/ieffect/afteranimationcolor/).
 
-Этот автономный пример создаёт эффект, задаёт его поведение после анимации через полученный объект эффекта и сохраняет результат.
+Этот независимый пример создаёт эффект, задаёт его поведение после анимации через полученный объект эффекта и сохраняет результат.
 
 ```csharp
 using System.Drawing;
@@ -378,12 +380,12 @@ presentation.Save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
 
 ## **Анимация текста**
 
-Анимация текста имеет два связанных параметра:
+Анимация текста управляется двумя связанными параметрами:
 
-- [ITextAnimation.BuildType](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itextanimation/buildtype/) определяет, появляются ли абзацы одновременно или по отдельным абзацам.
-- [IEffect.AnimateTextType](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/ieffect/animatetexttype/) определяет, появляется ли текст сразу полностью, по словам или по буквам. [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/ieffect/delaybetweentextparts/) задаёт задержку между словами или буквами. Положительное значение — процент от продолжительности эффекта; отрицательное — задержка в секундах.
+- [ITextAnimation.BuildType](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/itextanimation/buildtype/) определяет, появляются ли абзацы вместе или по уровням абзацев.
+- [IEffect.AnimateTextType](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/ieffect/animatetexttype/) задаёт, появляется ли текст сразу целиком, по слову или по букве. [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/ieffect/delaybetweentextparts/) задаёт задержку между словами или буквами. Положительное значение — процент от длительности эффекта; отрицательное значение — задержка в секундах.
 
-Следующий автономный пример анимирует слова в текстовом поле. [BuildType.AsOneObject](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/buildtype/) отключает построение по абзацам, поэтому настройка слов применяется ко всему текстовому фрейму.
+Следующий независимый пример анимирует слова в текстовом поле. [BuildType.AsOneObject](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/buildtype/) отключает построение по абзацам, поэтому настройка по словам применяется ко всему текстовому фрейму.
 
 ```csharp
 using Aspose.Slides;
@@ -403,23 +405,26 @@ effect.DelayBetweenTextParts = 20.0f;
 presentation.Save("animated-text.pptx", SaveFormat.Pptx);
 ```
 
-Чтобы построить текстовое поле по абзацам, установите [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/buildtype/) (или другой уровень абзаца). Чтобы применить отдельный эффект к одному абзацу, используйте перегрузку [ISequence.AddEffect](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/isequence/addeffect/), принимающую [IParagraph](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/). См. [Animated Text](/slides/ru/net/animated-text/) для примеров на уровне абзацев.
+Чтобы строить текстовое поле по абзацам, задайте [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/buildtype/) (или другой уровень абзаца). Чтобы применить отдельный эффект к отдельному абзацу, используйте перегрузку [ISequence.AddEffect](https://reference.aspose.com/slides/ru/net/aspose.slides.animation/isequence/addeffect/), принимающую [IParagraph](https://reference.aspose.com/slides/ru/net/aspose.slides/iparagraph/). См. [Анимированный текст](/slides/ru/net/animated-text/) для примеров на уровне абзацев.
 
-## **Экспорт и замечания о совместимости**
+## **Примечания по экспорту и совместимости**
 
-- Сохранение в PPT или PPTX сохраняет модель анимации, но окончательное воспроизведение контролируется средой просмотра презентации.
-- PDF и статические изображения не воспроизводят анимацию. Используйте [HTML5 export](/slides/ru/net/export-to-html5/), анимированный GIF или [video conversion](/slides/ru/net/convert-powerpoint-to-video/), если требуется отображать движение.
-- Для HTML5 включите [Html5Options.AnimateShapes](https://reference.aspose.com/slides/ru/net/aspose.slides.export/html5options/animateshapes/) и, при необходимости, [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/html5options/animatetransitions/).
-- При рендеринге видео поддерживаются многие типичные эффекты входа, акцента, выхода и движения, но не каждый эффект PowerPoint поддерживается. Проверьте актуальный список [supported animations and effects](/slides/ru/net/convert-powerpoint-to-video/#supported-animations-and-effects) и протестируйте критические презентации с вашей целевой версией Aspose.Slides.
-- Пользовательские сложные эффекты и эффекты, импортированные из других форматов, могут сохраняться в файле, но отображаться иначе в PowerPoint, HTML5 или видео. Проверяйте экспортированный результат, а не только название эффекта.
+- Сохранение в PPT или PPTX сохраняет модель анимации, но окончательное воспроизведение управляется средством просмотра презентации.
+- PDF и статические изображения не воспроизводят анимацию. Используйте [Экспорт в HTML5](/slides/ru/net/export-to-html5/), анимированный GIF или [конвертацию в видео](/slides/ru/net/convert-powerpoint-to-video/), когда необходимо показать движение.
+- Для HTML5 включите [Html5Options.AnimateShapes](https://reference.aspose.com/slides/ru/net/aspose.slides.export/html5options/animateshapes/) и при необходимости [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/html5options/animatetransitions/).
+- Видеорендеринг поддерживает многие распространённые эффекты входа, акцента, выхода и траекторий, но не каждый эффект PowerPoint поддерживается. Проверьте текущий список [поддерживаемых анимаций и эффектов](/slides/ru/net/convert-powerpoint-to-video/#supported-animations-and-effects) и протестируйте критические презентации с вашей целевой версией Aspose.Slides.
+- Сложные пользовательские эффекты и эффекты, импортированные из других форматов, могут сохраняться в файле, но отображаться иначе в PowerPoint, HTML5 или видео. Проверяйте экспортированный результат, а не только имя эффекта.
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Почему анимация отображается в PowerPoint, но не в PDF?**  
-PDF — статический формат, поэтому анимации и переходы слайдов не воспроизводятся. При необходимости сохранения движения экспортируйте в HTML5, анимированный GIF или видео.
+**Почему анимация отображается в PowerPoint, но не в PDF?**
 
-**Почему эффект выглядит иначе в видео?**  
-Экспорт в видео рендерит анимацию, а не сохраняет оригинальное поведение PowerPoint. Некоторые сложные эффекты не поддерживаются или приблизительно имитируются. Ознакомьтесь с таблицей поддерживаемых эффектов и протестируйте презентацию перед использованием в продакшене.
+PDF — статический формат, поэтому анимация и переходы слайдов не воспроизводятся. При необходимости сохранить движение используйте экспорт в HTML5, анимированный GIF или видео.
 
-**Изменяет ли перемещение фигуры вперёд или назад порядок её анимации?**  
-Нет. Порядок наложения (z‑order) управляет перекрытием, а порядок последовательностей и триггеры управляют воспроизведением анимации. При необходимости измените порядок воспроизведения на временной шкале.
+**Почему эффект воспроизводится иначе в видео?**
+
+Экспорт в видео рендерит анимацию, а не сохраняет оригинальное поведение PowerPoint. Некоторые продвинутые эффекты не поддерживаются или приблизительно реализованы. Ознакомьтесь с таблицей поддерживаемых эффектов и протестируйте презентацию перед использованием в продакшене.
+
+**Изменит ли перемещение фигуры вперёд или назад порядок её анимации?**
+
+Нет. Порядок наложения фигур (z‑order) управляет перекрытием, а порядок последовательностей и триггеров — воспроизведением анимации. Меняйте таймлайн, если нужен иной порядок воспроизведения.

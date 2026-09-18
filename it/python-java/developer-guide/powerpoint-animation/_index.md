@@ -28,25 +28,26 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Esplora le funzionalità di Aspose.Slides per Python tramite Java nella gestione delle animazioni PowerPoint. Questa panoramica generale evidenzia le funzionalità chiave e offre approfondimenti per migliorare le tue presentazioni."
+description: "Esplora le capacità di Aspose.Slides per Python tramite Java nella gestione delle animazioni PowerPoint. Questa panoramica generale evidenzia le funzionalità principali e offre spunti per migliorare le tue presentazioni."
 ---
 ## **Introduzione**
 
-Sia l'aspetto visivo sia il comportamento interattivo vengono considerati durante la creazione delle presentazioni.
+Sia l'aspetto visivo che il comportamento interattivo sono considerati quando le presentazioni vengono create.
 
-**L'animazione PowerPoint** svolge un ruolo importante nel rendere una presentazione accattivante e coinvolgente per gli spettatori. Aspose.Slides offre un'ampia gamma di opzioni per aggiungere animazioni alle presentazioni PowerPoint:
+**PowerPoint animation** svolge un ruolo importante nel rendere una presentazione accattivante e coinvolgente per gli spettatori. Aspose.Slides offre un'ampia gamma di opzioni per aggiungere animazioni alle presentazioni PowerPoint:
 
-- Applicare vari tipi di effetti di animazione PowerPoint a forme, grafici, tabelle, oggetti OLE e altri elementi della presentazione.
-- Utilizzare più effetti di animazione PowerPoint su una singola forma.
-- Utilizzare la timeline dell'animazione per controllare gli effetti di animazione.
-- Creare animazioni personalizzate.
+- Applica vari tipi di effetti di animazione PowerPoint a forme, grafici, tabelle, oggetti OLE e altri elementi della presentazione.
+- Usa più effetti di animazione PowerPoint su una singola forma.
+- Utilizza la timeline dell'animazione per controllare gli effetti di animazione.
+- Crea animazioni personalizzate.
 
-In Aspose.Slides, è possibile applicare vari effetti di animazione alle forme. Poiché ogni elemento di una diapositiva, inclusi testo, immagini, oggetti OLE e tabelle, è considerato una forma, gli effetti di animazione possono essere applicati a qualsiasi elemento della diapositiva.
+In Aspose.Slides, è possibile applicare vari effetti di animazione alle forme. Poiché ogni elemento su una diapositiva, inclusi testo, immagini, oggetti OLE e tabelle, è considerato una forma, gli effetti di animazione possono essere applicati a qualsiasi elemento della diapositiva.
 
 ## **Effetti di animazione**
-Aspose.Slides supporta **oltre 150 effetti di animazione**, inclusi effetti di animazione di base come Bounce, PathFootball e Zoom, nonché effetti specializzati come OLEObjectShow e OLEObjectOpen. È possibile trovare un elenco completo degli effetti di animazione nell'enumerazione [EffectType](https://reference.aspose.com/slides/it/python-java/aspose.slides/effecttype/).
 
-Inoltre, i seguenti effetti di animazione possono essere utilizzati in combinazione con quelli elencati sopra:
+Aspose.Slides supporta **150+ effetti di animazione**, inclusi effetti di base come Bounce, PathFootball e Zoom, e effetti specifici come OLEObjectShow e OLEObjectOpen. Puoi trovare l'elenco completo nella classe [EffectType](https://reference.aspose.com/slides/it/python-java/aspose.slides/effecttype/).
+
+Inoltre, questi effetti di animazione possono essere usati in combinazione con i seguenti comportamenti:
 
 - [ColorEffect](https://reference.aspose.com/slides/it/python-java/aspose.slides/coloreffect/)
 - [CommandEffect](https://reference.aspose.com/slides/it/python-java/aspose.slides/commandeffect/)
@@ -58,22 +59,24 @@ Inoltre, i seguenti effetti di animazione possono essere utilizzati in combinazi
 - [SetEffect](https://reference.aspose.com/slides/it/python-java/aspose.slides/seteffect/)
 
 ## **Animazione personalizzata**
-È possibile creare le proprie **animazioni personalizzate** in Aspose.Slides.  
-È possibile farlo combinando diversi comportamenti in una nuova animazione personalizzata.
 
-[Behavior](https://reference.aspose.com/slides/it/python-java/aspose.slides/behavior/) è un elemento costitutivo di qualsiasi effetto di animazione PowerPoint. Ogni effetto di animazione è costituito da un insieme di comportamenti combinati in un'unica strategia. È possibile combinare i comportamenti in un'animazione personalizzata una volta e riutilizzarla in altre presentazioni. Aggiungere un nuovo comportamento a un effetto di animazione PowerPoint standard crea un'altra animazione personalizzata. Ad esempio, è possibile aggiungere un comportamento di ripetizione per far ripetere un'animazione più volte.
+Per esempi completi di Python tramite Java che creano, ispezionano e modificano comportamenti e percorsi di movimento modificabili, vedi [Custom Animation](/slides/it/python-java/custom-animation/).
+
+È possibile creare le proprie **animazioni personalizzate** in Aspose.Slides. Questo può essere ottenuto combinando diversi comportamenti in una nuova animazione personalizzata.
+
+[Behavior](https://reference.aspose.com/slides/it/python-java/aspose.slides/behavior/) è un elemento costitutivo di un effetto di animazione PowerPoint. Combina comportamenti per personalizzare un effetto, o aggiungi un comportamento per estendere un effetto predefinito. La ripetizione è configurata tramite le impostazioni di temporizzazione piuttosto che tramite un comportamento di ripetizione separato.
 
 [Point](https://reference.aspose.com/slides/it/python-java/aspose.slides/point/) è un punto al quale deve essere applicato un comportamento.
 
-## **Timeline dell'animazione**
-[Sequence](https://reference.aspose.com/slides/it/python-java/aspose.slides/sequence/) è una raccolta di effetti di animazione applicati a una forma specifica.
+## **Timeline di animazione**
+[Sequence](https://reference.aspose.com/slides/it/python-java/aspose.slides/sequence/) è una raccolta di effetti di animazione che può riguardare forme diverse.
 
-[AnimationTimeLine](https://reference.aspose.com/slides/it/python-java/aspose.slides/animationtimeline/) è un insieme di sequenze utilizzate su una diapositiva specifica. Rappresenta il motore di animazione introdotto in PowerPoint 2002. Nelle versioni precedenti di PowerPoint, aggiungere effetti di animazione a una presentazione era difficile e richiedeva soluzioni alternative. La timeline sostituisce la vecchia classe AnimationSettings e fornisce un modello di oggetti più chiaro per l'animazione PowerPoint. Una diapositiva può contenere una sola timeline di animazione.
+[AnimationTimeLine](https://reference.aspose.com/slides/it/python-java/aspose.slides/animationtimeline/) è un insieme di sequenze utilizzato in una diapositiva specifica. Rappresenta il motore di animazione introdotto in PowerPoint 2002. Nelle versioni precedenti di PowerPoint, aggiungere effetti di animazione a una presentazione era complicato e richiedeva soluzioni alternative. La timeline fornisce un modello di oggetti più chiaro per le animazioni PowerPoint. Una diapositiva può avere una sola timeline di animazione.
 
 ## **Animazione interattiva**
-[EffectTriggerType](https://reference.aspose.com/slides/it/python-java/aspose.slides/effecttriggertype/) consente di definire azioni dell'utente (ad esempio, un clic su un pulsante) che avviano una specifica animazione. I trigger sono stati aggiunti solo nell'ultima versione di PowerPoint.
+[EffectTriggerType](https://reference.aspose.com/slides/it/python-java/aspose.slides/effecttriggertype/) consente di definire azioni dell'utente, come un clic su un pulsante, che avviano una specifica animazione.
 
-## **Animazione delle forme**
+## **Animazione della forma**
 Aspose.Slides consente di applicare animazioni alle forme, che possono rappresentare testo, rettangoli, linee, cornici, oggetti OLE e altri elementi.
 
 {{% alert color="info" title="Note" %}}
@@ -81,14 +84,14 @@ Leggi di più [Informazioni sull'animazione delle forme](/slides/it/python-java/
 {{% /alert %}}
 
 ## **Grafici animati**
-Per creare grafici animati, utilizzare le stesse classi delle forme. Tuttavia, è possibile utilizzare l'animazione PowerPoint solo su categorie di grafico o serie di grafico. È inoltre possibile applicare un effetto di animazione a un elemento di categoria o a un elemento di serie.
+Per creare grafici animati, utilizza le stesse classi delle forme. Tuttavia, è possibile usare l'animazione PowerPoint solo sulle categorie o sulle serie del grafico. È inoltre possibile applicare un effetto di animazione a un elemento di categoria o a un elemento di serie.
 
 {{% alert color="info" title="Note" %}}
 Leggi di più [Informazioni sui grafici animati](/slides/it/python-java/animated-charts/).
 {{% /alert %}}
 
 ## **Testo animato**
-Oltre a animare il testo, è possibile applicare l'animazione a un paragrafo.
+Oltre ad animare il testo, è possibile applicare un'animazione a un paragrafo.
 
 {{% alert color="info" title="Note" %}}
 Leggi di più [Informazioni sul testo animato](/slides/it/python-java/animated-text/).
@@ -96,14 +99,14 @@ Leggi di più [Informazioni sul testo animato](/slides/it/python-java/animated-t
 
 ## **FAQ**
 
-**Le animazioni saranno preservate durante l'esportazione in PDF?**
+**Le animazioni verranno preservate durante l'esportazione in PDF?**
 
-No. Il PDF è un formato statico, quindi le animazioni e le [transizioni delle diapositive](/slides/it/python-java/slide-transition/) non vengono riprodotte. Se è necessario il movimento, esporta invece in [HTML5](/slides/it/python-java/export-to-html5/), [GIF animato](/slides/it/python-java/convert-powerpoint-to-animated-gif/) o [video](/slides/it/python-java/convert-powerpoint-to-video/).
+No. Il PDF è un formato statico, quindi le animazioni e le [slide transitions](/slides/it/python-java/slide-transition/) non vengono riprodotte. Se hai bisogno di movimento, esporta invece in [HTML5](/slides/it/python-java/export-to-html5/), [animated GIF](/slides/it/python-java/convert-powerpoint-to-animated-gif/), o [video](/slides/it/python-java/convert-powerpoint-to-video/).
 
-**Posso trasformare una presentazione animata in un video e controllare la frequenza dei fotogrammi e la dimensione dei fotogrammi?**
+**Posso trasformare una presentazione animata in un video e controllare il frame rate e la dimensione del frame?**
 
-Sì. È possibile [eseguire il rendering della presentazione come fotogrammi](/slides/it/python-java/convert-powerpoint-to-video/) e codificarli in un video (ad esempio, con ffmpeg), scegliendo FPS e risoluzione. Le animazioni e le transizioni delle diapositive vengono riprodotte durante il rendering.
+Sì. Puoi [render the presentation as frames](/slides/it/python-java/convert-powerpoint-to-video/) e codificarli in un video (ad esempio tramite ffmpeg), scegliendo FPS e risoluzione. Le animazioni e le transizioni delle diapositive vengono riprodotte durante il rendering.
 
 **Le animazioni rimarranno intatte quando si lavora con ODP (non solo PPTX)?**
 
-PPT, PPTX e ODP sono supportati per la [lettura](/slides/it/python-java/open-presentation/) e la [scrittura](/slides/it/python-java/save-presentation/), ma le differenze di formato possono far sì che alcuni effetti appaiano o si comportino leggermente in modo diverso. Convalida i casi critici con campioni reali.
+PPT, PPTX e ODP sono supportati per la [lettura](/slides/it/python-java/open-presentation/) e la [scrittura](/slides/it/python-java/save-presentation/), ma ciò non garantisce la conservazione delle animazioni. I dati delle animazioni personalizzate possono andare persi durante la conversione in ODP. Vedi [Custom Animation](/slides/it/python-java/custom-animation/) per esempi e indicazioni su come verificare la compatibilità del formato.

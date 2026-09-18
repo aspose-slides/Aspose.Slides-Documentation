@@ -23,24 +23,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して、シェイプ アニメーション、タイミング、サウンド、アフター アニメーションの動作、アニメーション テキストの追加、検査、カスタマイズ方法を学びます。"
+description: "Aspose.Slides for .NET を使用して、シェイプ アニメーション、タイミング、サウンド、アフター アニメーション 動作、アニメーション テキストの追加、検査、カスタマイズ方法を学びます。"
 ---
 ## **概要**
 
-Aspose.Slides for .NET はスライド アニメーションをスライド タイムライン上のエフェクトとして表現します。エフェクトには対象シェイプ、アニメーション タイプとサブタイプ、トリガー、タイミング設定、そしてサウンドやアフター アニメーション動作などのオプション プロパティがあります。
+エフェクト内の個々の動作やモーション パス セグメントを編集するには、[カスタム アニメーション](/slides/ja/net/custom-animation/)をご覧ください。
+
+Aspose.Slides for .NET はスライド アニメーションをスライド タイムライン内のエフェクトとして表現します。エフェクトには対象シェイプ、アニメーション タイプとサブタイプ、トリガー、タイミング設定、サウンドやアフター アニメーション 動作などのオプション プロパティがあります。
 
 タイムラインには次の 2 種類のシーケンスがあります。
 
-- **メイン シーケンス** はスライドが進むと再生されます。  
+- **メイン シーケンス** はスライドが進むと再生されます。
 - **インタラクティブ シーケンス** はトリガー シェイプがクリックされたときに開始します。
 
-テキスト ボックス、画像、チャート、表などのスライド オブジェクトはすべて [IShape](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/) を実装しているため、ほとんどのスライド コンテンツに対して同じ [ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) メソッドを使用します。利用可能なエフェクトは [EffectType](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/effecttype/) 列挙体に一覧化されています。
+テキスト ボックス、画像、チャート、表、その他のスライド オブジェクトはすべて [IShape](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/) を実装しているため、ほとんどのスライド コンテンツに対して同じ [ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) メソッドを使用します。利用可能なエフェクトは [EffectType](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/effecttype/) 列挙体に一覧表示されています。
 
 ## **シェイプ アニメーションの追加**
 
-アニメーションを追加するには、スライドのメイン シーケンスを取得し、対象シェイプ、エフェクト タイプ、サブタイプ、トリガーを指定して [ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) を呼び出します。他のシェイプをクリックしたときに開始するエフェクトを作成する場合は、対象シェイプをトリガーとするインタラクティブ シーケンスを作成します。
+アニメーションを追加するには、スライドのメイン シーケンスを取得し、対象シェイプ、エフェクト タイプ、サブタイプ、トリガーを指定して [ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) を呼び出します。他のシェイプがクリックされたときに開始するエフェクトの場合、そのシェイプをトリガーとするインタラクティブ シーケンスを作成します。
 
-以下の例は 2 種類のアニメーションを作成し、結果を `shape-animations.pptx` に保存します。
+次の例は 2 種類のアニメーションを作成し、結果を `shape-animations.pptx` に保存します。
 
 ```csharp
 using Aspose.Slides;
@@ -68,17 +70,17 @@ presentation.Save("shape-animations.pptx", SaveFormat.Pptx);
 
 トリガーはエフェクトの開始タイミングを制御します。
 
-- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/effecttriggertype/) はメイン シーケンスではクリック待ち、インタラクティブ シーケンスではトリガー シェイプのクリック待ちです。  
-- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/effecttriggertype/) は直前のエフェクトと同時に開始します。  
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/effecttriggertype/) はメイン シーケンスではクリック待ち、インタラクティブ シーケンスではトリガー シェイプのクリック待ちです。
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/effecttriggertype/) は直前のエフェクトと同時に開始します。
 - [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/effecttriggertype/) は直前のエフェクトが終了したときに開始します。
 
-画像、チャート、その他のシェイプをアニメーション化する場合は、`targetShape` の代わりに対象オブジェクトを [ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) に渡します。チャート固有のグルーピング オプションについては、[Animated Charts](/slides/ja/net/animated-charts/) を参照してください。
+画像、チャート、その他のシェイプ タイプをアニメーション化する場合は、`targetShape` の代わりにそのオブジェクトを [ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) に渡します。チャート固有のグループ化オプションについては、[アニメーション チャート](/slides/ja/net/animated-charts/) を参照してください。
 
 ## **シェイプ アニメーションの取得**
 
-対象シェイプが分かっている場合は、[ISequence.GetEffectsByShape](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/geteffectsbyshape/) を使用します。すべてのエフェクトを調べるには、メイン シーケンスとすべてのインタラクティブ シーケンスを列挙します。列挙時にインデックス `0` にエフェクトが必ず存在するという前提は避けてください。
+対象シェイプが分かっている場合は、[ISequence.GetEffectsByShape](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/geteffectsbyshape/) を使用します。すべてのエフェクトを検査したいときは、メイン シーケンスとすべてのインタラクティブ シーケンスを列挙します。列挙はインデックス `0` にエフェクトが必ず存在すると仮定しないようにしてください。
 
-以下の例はメインシーケンスとインタラクティブ シーケンスを持つシェイプを作成し、そのシェイプを対象とするエフェクトを取得したうえで、スライド上のすべてのシーケンスを列挙します。
+次の例はメイン シーケンスとインタラクティブ シーケンスのエフェクトを持つシェイプを作成し、そのシェイプを対象とするエフェクトを取得して、スライド上のすべてのシーケンスを列挙します。
 
 ```csharp
 using System;
@@ -126,21 +128,21 @@ static void PrintSequence(string label, ISequence sequence)
 }
 ```
 
-1 つのシェイプだけのエフェクトが必要な場合は、名前、プレースホルダー タイプ、またはその他の安定したプロパティでシェイプを特定してから、[ISequence.GetEffectsByShape](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/geteffectsbyshape/) を呼び出します。インデックス `0` の [IShapeCollection.Item](https://reference.aspose.com/slides/ja/net/aspose.slides/ishapecollection/item/) が常に目的のオブジェクトであるとは限らないことに注意してください。
+1 つのシェイプだけのエフェクトが必要な場合は、名前、プレースホルダー タイプ、または他の安定したプロパティでシェイプを特定してから、[ISequence.GetEffectsByShape](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/geteffectsbyshape/) を呼び出します。インデックス `0` の [IShapeCollection.Item](https://reference.aspose.com/slides/ja/net/aspose.slides/ishapecollection/item/) が常に目的のオブジェクトであると仮定しないでください。
 
-## **継承プレースホルダー エフェクトの操作**
+## **継承されたプレースホルダー エフェクトの操作**
 
-通常スライド上のプレースホルダーは、レイアウト スライドやマスタースライド上の対応するプレースホルダーからアニメーション 動作を継承できます。[IShape.GetBasePlaceholder](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/getbaseplaceholder/) は親プレースホルダーを返します。親が存在しない場合は `null` が返ります。
+通常のスライド上のプレースホルダーは、レイアウト スライドやマスタースライド上の対応するプレースホルダーからアニメーション 動作を継承できます。[IShape.GetBasePlaceholder](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/getbaseplaceholder/) は親プレースホルダーを返し、親が存在しない場合は `null` を返します。
 
-以下の例のプレゼンテーションでは、フッターが通常スライドで **Random Bars**、レイアウト スライドで **Split**、マスタースライドで **Fly In** というアニメーションを持っています。
+以下の例のプレゼンテーションでは、フッターが通常スライドで **Random Bars**、レイアウト スライドで **Split**、マスター スライドで **Fly In** のアニメーションを持っています。
 
 ![通常スライド上のフッター アニメーション効果](slide-shape-animation.png)
 
 ![レイアウト スライド上のフッター プレースホルダー アニメーション効果](layout-shape-animation.png)
 
-![マスタースライド上のフッター プレースホルダー アニメーション効果](master-shape-animation.png)
+![マスター スライド上のフッター プレースホルダー アニメーション効果](master-shape-animation.png)
 
-次の例はプレースホルダー階層自体を構築します。マスタープレースホルダー、レイアウトプレースホルダー、および対応する通常スライド上のプレースホルダーにエフェクトを追加します。[IShape.GetBasePlaceholder](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/getbaseplaceholder/) の呼び出し結果が `null` でないことを確認してからシェイプを使用します。
+次の例はプレースホルダー階層を自分で構築します。マスタープレースホルダー、レイアウトプレースホルダー、通常スライド上の対応プレースホルダーにエフェクトを追加し、各呼び出しで [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/getbaseplaceholder/) の結果が `null` でないことを確認しています。
 
 ```csharp
 using System;
@@ -215,13 +217,13 @@ PowerPoint の **タイミング** ダイアログは [ITiming](https://referenc
 
 ![アニメーション エフェクトの PowerPoint タイミング ダイアログ](shape-animation.png)
 
-- **開始** は [ITiming.TriggerType](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/triggertype/) にマップされます。  
-- **期間** は秒単位で [ITiming.Duration](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/duration/) にマップされます。  
-- **遅延** は秒単位で [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/triggerdelaytime/) にマップされます。  
-- **繰り返し** は [ITiming.RepeatCount](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatcount/)、[ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatuntilnextclick/) または [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatuntilendslide/) のいずれかにマップされます。  
-- **再生が完了したら巻き戻す** は [ITiming.Rewind](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/rewind/) にマップされます。
+- **開始** は [ITiming.TriggerType](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/triggertype/) にマッピングされます。
+- **継続時間** は [ITiming.Duration](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/duration/)（秒）にマッピングされます。
+- **遅延** は [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/triggerdelaytime/)（秒）にマッピングされます。
+- **繰り返し** は [ITiming.RepeatCount](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatcount/)、[ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatuntilnextclick/) または [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatuntilendslide/) にマッピングされます。
+- **再生が完了したら巻き戻す** は [ITiming.Rewind](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/rewind/) にマッピングされます。
 
-この独立した例はエフェクトを追加し、[ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) が返すオブジェクトでタイミングを変更してから結果を保存します。返された [IEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/) 参照を保持することで不要なコレクション インデックス取得を回避できます。
+この独立した例はエフェクトを追加し、[ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) が返すオブジェクトを介してタイミングを変更し、結果を保存します。返された [IEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/) 参照を保持することで不要なコレクション インデックス取得を回避します。
 
 ```csharp
 using Aspose.Slides;
@@ -245,15 +247,15 @@ effect.Timing.Rewind = true;
 presentation.Save("shape-animation-timing.pptx", SaveFormat.Pptx);
 ```
 
-1 つの繰り返しモードだけを意図的に使用してください。繰り返し回数と「until」フラグを組み合わせると、ビューアーによっては混乱を招く結果になることがあります。繰り返しモードを変更する際は、[ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatuntilnextclick/) および [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatuntilendslide/) を先に設定し、最後に [ITiming.RepeatCount](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatcount/) を設定してください。フラグを設定するとアクティブな繰り返しモードも変更されます。
+繰り返しモードは 1 つだけ使用してください。繰り返し回数と「until」フラグを組み合わせると、ビューアー間で混乱を招く結果になることがあります。繰り返しモードを変更する際は、[ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatuntilnextclick/) と [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatuntilendslide/) を先に設定し、最後に [ITiming.RepeatCount](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatcount/) を設定してください。いずれかのフラグを設定するとアクティブな繰り返しモードも変更されます。
 
 ## **アニメーション サウンドの追加と抽出**
 
-エフェクトは [IEffect.Sound](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/sound/) を介して埋め込みオーディオを参照できます。[IEffect.StopPreviousSound](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/stopprevioussound/) は、以前のエフェクトで開始されたサウンドを停止するよう指示します。
+アニメーション エフェクトは [IEffect.Sound](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/sound/) を介して埋め込みオーディオを参照できます。[IEffect.StopPreviousSound](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/stopprevioussound/) は、以前のエフェクトが開始したオーディオを停止させます。
 
 ### **エフェクトにサウンドを追加する**
 
-以下の例はローカルの audio ファイル `animation-sound.wav` を想定しています。2 つのエフェクトを作成し、最初のエフェクトにサウンドとして埋め込み、2 番目のエフェクトでサウンドを停止するよう構成します。シーケンス インデックスは不要で、[ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) が返すオブジェクトを使用します。
+次の例はローカルのオーディオ ファイル `animation-sound.wav` を前提とします。2 つのエフェクトを作成し、最初のエフェクトのサウンドとしてそのファイルを埋め込み、2 番目のエフェクトでサウンドを停止するよう構成します。[ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) が返すオブジェクトを使用するため、シーケンス インデックスは不要です。
 
 ```csharp
 using System.IO;
@@ -282,7 +284,7 @@ presentation.Save("shape-animation-sound.pptx", SaveFormat.Pptx);
 
 ### **埋め込みエフェクト サウンドの抽出**
 
-以下の例はローカルのプレゼンテーション `presentation-with-animation-sounds.pptx` を想定しています。メイン シーケンスとインタラクティブ シーケンスの両方を走査し、埋め込まれたすべてのエフェクトサウンドを `extracted-animation-sounds` ディレクトリに書き出します。拡張子は [IAudio.ContentType](https://reference.aspose.com/slides/ja/net/aspose.slides/iaudio/contenttype/) が示すオーディオ MIME タイプから選択されます。
+次の例はローカルのプレゼンテーション `presentation-with-animation-sounds.pptx` を前提とします。メイン シーケンスとインタラクティブ シーケンスを走査し、すべての埋め込みエフェクト サウンドを `extracted-animation-sounds` ディレクトリに書き出します。拡張子は [IAudio.ContentType](https://reference.aspose.com/slides/ja/net/aspose.slides/iaudio/contenttype/) が示すオーディオ MIME タイプから選択します。
 
 ```csharp
 using System;
@@ -344,17 +346,17 @@ static string GetAudioExtension(string contentType)
 }
 ```
 
-大容量のオーディオ オブジェクトの場合は、[IAudio.GetStream](https://reference.aspose.com/slides/ja/net/aspose.slides/iaudio/getstream/) を使用してストリームをファイルにコピーし、全体をバイト配列としてロードしないようにしてください。
+大きなオーディオ オブジェクトの場合は、[IAudio.GetStream](https://reference.aspose.com/slides/ja/net/aspose.slides/iaudio/getstream/) を使用してストリームをファイルにコピーし、全体をバイト配列として読み込むのを避けてください。
 
 ## **アフター アニメーション 動作の設定**
 
 **After animation** オプションはエフェクトが終了した後にシェイプがどうなるかを制御します。
 
-![PowerPoint エフェクト オプション ダイアログ (After animation 設定)](shape-after-animation.png)
+![PowerPoint エフェクト オプション ダイアログ（After animation 設定）](shape-after-animation.png)
 
-[AfterAnimationType](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/afteranimationtype/) 列挙体は、シェイプをそのまま残す、色を変える、アニメーション後に非表示にする、次のクリックで非表示にする、のいずれかをサポートします。タイプが [AfterAnimationType.Color](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/afteranimationtype/) の場合は、[IEffect.AfterAnimationColor](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/afteranimationcolor/) も設定してください。
+[AfterAnimationType](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/afteranimationtype/) 列挙体は、シェイプをそのまま残す、色を変更する、アニメーション後に非表示にする、次のクリックで非表示にする、などをサポートします。タイプが [AfterAnimationType.Color](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/afteranimationtype/) の場合は、[IEffect.AfterAnimationColor](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/afteranimationcolor/) も設定してください。
 
-この独立した例はエフェクトを作成し、返されたエフェクトオブジェクトでアフター アニメーション 動作を設定したうえで結果を保存します。
+この独立した例はエフェクトを作成し、返されたエフェクト オブジェクトを介してアフター アニメーション 動作を設定し、結果を保存します。
 
 ```csharp
 using System.Drawing;
@@ -380,10 +382,10 @@ presentation.Save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
 
 テキスト アニメーションには次の 2 つの関連設定があります。
 
-- [ITextAnimation.BuildType](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itextanimation/buildtype/) は段落単位で表示するか、全体として表示するかを制御します。  
-- [IEffect.AnimateTextType](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/animatetexttype/) はテキストを一度にすべて、単語単位、または文字単位で表示するかを制御します。 [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/delaybetweentextparts/) は単語または文字間の遅延を設定します。正の値はエフェクト期間のパーセンテージ、負の値は秒単位の遅延です。
+- [ITextAnimation.BuildType](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itextanimation/buildtype/) は段落単位で表示するか、全体として表示するかを制御します。
+- [IEffect.AnimateTextType](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/animatetexttype/) はテキストの表示方法（すべて同時、単語単位、文字単位）を制御します。[IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/delaybetweentextparts/) は単語または文字間の遅延を設定します。正の値はエフェクト期間の割合、負の値は秒数です。
 
-以下の独立した例はテキスト ボックス内の単語を順にアニメーション化します。[BuildType.AsOneObject](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/buildtype/) を指定すると段落単位のビルドが無効になり、単語設定がテキスト フレーム全体に適用されます。
+次の独立した例はテキスト ボックス内の単語をアニメーション化します。[BuildType.AsOneObject](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/buildtype/) を使用して段落単位のビルドを無効にし、単語設定がテキスト フレーム全体に適用されるようにします。
 
 ```csharp
 using Aspose.Slides;
@@ -403,26 +405,26 @@ effect.DelayBetweenTextParts = 20.0f;
 presentation.Save("animated-text.pptx", SaveFormat.Pptx);
 ```
 
-段落単位でテキスト ボックスをビルドしたい場合は、[BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/buildtype/)（または他の段落レベル）を指定してください。単一の段落に個別のエフェクトを適用するには、[ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) のオーバーロードで [IParagraph](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/) を受け取るものを使用します。段落レベルの例は [Animated Text](/slides/ja/net/animated-text/) を参照してください。
+段落単位でテキスト ボックスを構築したい場合は、[BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/buildtype/)（または他の段落レベル）を設定します。単一の段落に独自のエフェクトを適用したいときは、[IParagraph](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/) を受け取る [ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) のオーバーロードを使用してください。段落レベルの例については、[アニメーション テキスト](/slides/ja/net/animated-text/) を参照してください。
 
 ## **エクスポートと互換性に関する注意事項**
 
-- PPT または PPTX への保存はアニメーション モデルを保持しますが、最終的な再生はプレゼンテーション ビューアーが制御します。  
-- PDF や静止画像はアニメーションを再生しません。モーションを保持する必要がある場合は、[HTML5 エクスポート](/slides/ja/net/export-to-html5/)、アニメーション GIF、または [ビデオ変換](/slides/ja/net/convert-powerpoint-to-video/) を使用してください。  
-- HTML5 でアニメーション化されたシェイプを有効にするには、[Html5Options.AnimateShapes](https://reference.aspose.com/slides/ja/net/aspose.slides.export/html5options/animateshapes/) を設定し、必要に応じて [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/html5options/animatetransitions/) も有効にします。  
-- ビデオレンダリングは多くの標準的な「入り」「強調」「抜け」「モーション パス」エフェクトをサポートしますが、すべての PowerPoint エフェクトがサポートされているわけではありません。現在の [サポートされているアニメーションとエフェクト](/slides/ja/net/convert-powerpoint-to-video/#supported-animations-and-effects) を確認し、対象の Aspose.Slides バージョンで重要なプレゼンテーションをテストしてください。  
-- カスタム エフェクトや他のプレゼンテーション形式からインポートされたエフェクトは、ファイル内に保持されるものの、PowerPoint、HTML5、またはビデオでの描画が異なる場合があります。効果名だけに頼らず、エクスポート結果を必ず検証してください。
+- PPT または PPTX に保存するとアニメーション モデルは保持されますが、最終的な再生はプレゼンテーション ビューアーが制御します。
+- PDF および静止画像はアニメーションを再生しません。モーションを示す必要がある場合は、[HTML5 エクスポート](/slides/ja/net/export-to-html5/)、アニメーション GIF、または[ビデオ変換](/slides/ja/net/convert-powerpoint-to-video/) を使用してください。
+- HTML5 では [Html5Options.AnimateShapes](https://reference.aspose.com/slides/ja/net/aspose.slides.export/html5options/animateshapes/) を有効にし、必要に応じて [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/html5options/animatetransitions/) も有効にしてください。
+- ビデオ描画は多くの一般的な入場、強調、退出、モーション パス エフェクトをサポートしますが、すべての PowerPoint エフェクトがサポートされるわけではありません。現在の [サポートされるアニメーションとエフェクト](/slides/ja/net/convert-powerpoint-to-video/#supported-animations-and-effects) を確認し、対象の Aspose.Slides バージョンで重要なプレゼンテーションをテストしてください。
+- カスタム エフェクトや他のプレゼンテーション形式からインポートされたエフェクトはファイル内に保持されることがありますが、PowerPoint、HTML5、ビデオでの描画が異なる場合があります。エフェクト名だけに依存せず、エクスポート結果を検証してください。
 
 ## **FAQ**
 
-**PowerPoint では表示されるアニメーションが PDF では表示されないのはなぜですか？**
+**なぜアニメーションは PowerPoint では表示されるのに PDF では表示されないのですか？**
 
-PDF は静的形式のため、アニメーションやスライド遷移は再生されません。モーションを保持したい場合は HTML5、アニメーション GIF、またはビデオにエクスポートしてください。
+PDF は静的フォーマットのため、アニメーションやスライド遷移は再生されません。モーションを保持する必要がある場合は、HTML5、アニメーション GIF、またはビデオにエクスポートしてください。
 
-**ビデオでエフェクトの再生が異なるのはなぜですか？**
+**なぜエフェクトはビデオで異なる動作をするのですか？**
 
-ビデオエクスポートは元の PowerPoint 動作を保存するのではなく、アニメーションをレンダリングします。高度なエフェクトの一部は未サポートまたは近似されます。サポート対象エフェクト表を確認し、実運用前に実際のプレゼンテーションでテストしてください。
+ビデオ エクスポートはアニメーションをレンダリングして保存し、元の PowerPoint 動作をそのまま保持しません。一部の高度なエフェクトはサポートされていないか、近似されます。サポートされるエフェクトの表を確認し、実際のプレゼンテーションをテストしてから本番で使用してください。
 
 **シェイプを前面または背面に移動するとアニメーション順序が変わりますか？**
 
-変わりません。シェイプの Z オーダーは重なり順を制御し、シーケンス順序とトリガーがアニメーション再生順序を制御します。再生順序を変えたい場合はタイムラインを調整してください。
+いいえ。シェイプの Z オーダーは重なり順序を制御し、シーケンス順序とトリガーがアニメーションの再生順序を制御します。再生順序を変更したい場合は、タイムラインを調整してください。

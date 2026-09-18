@@ -1,83 +1,110 @@
 ---
-title: PowerPoint アニメーション
+title: JavaScript でアニメーションを使用して PowerPoint プレゼンテーションを強化する
+linktitle: PowerPoint アニメーション
 type: docs
 weight: 150
 url: /ja/nodejs-java/powerpoint-animation/
-keywords: "PowerPoint アニメーション"
-description: "PowerPoint アニメーション、Aspose.Slides を使用した PowerPoint スライド アニメーション。"
+keywords:
+- アニメーションを追加
+- アニメーションを更新
+- アニメーションを変更
+- アニメーションを削除
+- アニメーションを管理
+- アニメーションを制御
+- アニメーション効果
+- PowerPoint アニメーション
+- アニメーションタイムライン
+- インタラクティブ アニメーション
+- カスタム アニメーション
+- 形状アニメーション
+- アニメーション チャート
+- アニメーション テキスト
+- アニメーション 形状
+- アニメーション OLE オブジェクト
+- アニメーション 画像
+- アニメーション テーブル
+- PowerPoint
+- プレゼンテーション
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Aspose.Slides for Node.js via Java を使用して PowerPoint アニメーションを処理します。この概要では主要な機能をハイライトし、プレゼンテーションを強化するための洞察を提供します。"
 ---
+## **はじめに**
 
-プレゼンテーションは何かを提示するために作られるので、作成時には常にその見た目とインタラクティブな動作が考慮されます。
+プレゼンテーションは何かを提示することを目的としているため、作成時には常に視覚的な外観とインタラクティブな動作が考慮されます。
 
-**PowerPoint アニメーション** は、プレゼンテーションを視聴者にとって目を引く魅力的なものにするために重要な役割を果たします。Aspose.Slides for Node.js via Java では、PowerPoint プレゼンテーションにアニメーションを追加するための幅広いオプションが提供されています。
+**PowerPoint アニメーション** は、プレゼンテーションを目を引く魅力的なものにする上で重要な役割を果たします。Aspose.Slides for Node.js via Java は、PowerPoint プレゼンテーションにアニメーションを追加するための幅広いオプションを提供します：
 
-- さまざまな種類の PowerPoint アニメーション効果を、図形、チャート、テーブル、OLE オブジェクト、その他のプレゼンテーション要素に適用できます。
-- 1 つの図形に複数の PowerPoint アニメーション効果を使用できます。
-- アニメーションタイムラインを使ってアニメーション効果を制御できます。
-- カスタムアニメーションを作成できます。
+- 形状、グラフ、テーブル、OLE オブジェクト、その他のプレゼンテーション要素にさまざまな種類の PowerPoint アニメーション効果を適用します。
+- 1 つの形状に複数の PowerPoint アニメーション効果を使用します。
+- アニメーションタイムラインを利用してアニメーション効果を制御します。
+- カスタム アニメーションを作成します。
 
-Aspose.Slides for Node.js via Java では、図形にさまざまなアニメーション効果を適用できます。スライド上のテキスト、画像、OLE オブジェクト、テーブルなど、すべての要素は図形として扱われるため、スライド上のあらゆる要素にアニメーション効果を適用できることを意味します。
+Aspose.Slides for Node.js via Java では、さまざまなアニメーション効果を形状に適用できます。スライド上のテキスト、画像、OLE オブジェクト、テーブルなど、すべての要素は形状とみなされるため、スライド上の任意の要素にアニメーション効果を適用できます。
 
-## **Animation Effects**
-Aspose.Slides は **150 以上のアニメーション効果** をサポートしており、Bounce や PathFootball、Zoom などの基本効果や、OLEObjectShow、OLEObjectOpen などの特定効果が含まれます。すべてのアニメーション効果の一覧は [**EffectType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effecttype/) 列挙体で確認できます。
+## **アニメーション効果**
+Aspose.Slides は **150 以上のアニメーション効果** をサポートしており、Bounce、PathFootball、Zoom などの基本効果や、OLEObjectShow や OLEObjectOpen などの固有効果が含まれます。完全な一覧は [EffectType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/effecttype/) 列挙体で確認できます。
 
-さらに、これらのアニメーション効果は次の効果と組み合わせて使用できます。
+さらに、これらのアニメーション効果は以下の動作と組み合わせて使用できます：
 
-- [ColorEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ColorEffect)
-- [CommandEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommandEffect)
-- [FilterEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FilterEffect)
-- [MotionEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MotionEffect)
-- [PropertyEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PropertyEffect)
-- [RotationEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/RotationEffect)
-- [ScaleEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ScaleEffect)
-- [SetEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SetEffect)
+- [ColorEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/ColorEffect)
+- [CommandEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/CommandEffect)
+- [FilterEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/FilterEffect)
+- [MotionEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/MotionEffect)
+- [PropertyEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/PropertyEffect)
+- [RotationEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/RotationEffect)
+- [ScaleEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/ScaleEffect)
+- [SetEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/SetEffect)
 
-## **Custom Animation**
-Aspose.Slides では **カスタム アニメーション** を作成できます。複数のビヘイビアを組み合わせて新しいカスタム アニメーションを作成することで実現できます。
+## **カスタム アニメーション**
+作成、検査、変更が可能な動作や編集可能なモーション パスの完全な JavaScript 例については、[カスタム アニメーション](/slides/ja/nodejs-java/custom-animation/) を参照してください。
 
-[**Behavior**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Behavior) は PowerPoint アニメーション効果の構成単位です。すべてのアニメーション効果は実際にはビヘイビアの集合であり、1 つの戦略にまとめられます。ビヘイビアをカスタム アニメーションに一度だけ組み合わせておけば、他のプレゼンテーションでも再利用できます。標準の PowerPoint アニメーション効果に新しいビヘイビアを追加すれば、別のカスタム アニメーションとなります。たとえば、アニメーションにリピート ビヘイビアを追加して数回繰り返すように設定できます。
+Aspose.Slides では独自の **カスタム アニメーション** を作成できます。これは、複数の動作を組み合わせて新しいカスタム アニメーションを作成することで実現できます。
 
-[**Animation Point**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Point) はビヘイビアを適用すべき位置を示すポイントです。
+[Behavior](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/behavior/) は PowerPoint アニメーション効果の構成要素です。動作を組み合わせて効果をカスタマイズしたり、事前定義された効果を拡張するために動作を追加したりできます。繰り返しは別個のリピート動作ではなく、タイミング設定で構成されます。
 
-## **Animation Time Line**
-[**Sequence**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Sequence) は、特定の図形に適用されるアニメーション効果のコレクションです。
+[Animation Point](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/point/) は、動作を適用すべきポイントです。
 
-[**Timeline**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AnimationTimeLine) は、特定のスライドで使用される Sequence の集合です。PowerPoint 2002 以降で導入されたアニメーション エンジンで、従来の AnimationSettings クラスに代わり、PowerPoint アニメーション向けにより明確なオブジェクト モデルを提供します。1 つのスライドには **1 つの** アニメーション タイムラインしか設定できません。
+## **アニメーション タイムライン**
+[Sequence](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/sequence/) は、異なる形状を対象にできるアニメーション効果のコレクションです。
 
-## **Interactive Animation**
-[**Trigger**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EffectTriggerType) を使用すると、ユーザー操作（例: ボタンのクリック）に応じて特定のアニメーションを開始できます。トリガーは最新バージョンの PowerPoint にのみ追加されました。
+[Timeline](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/animationtimeline/) は、特定のスライドで使用されるシーケンスの集合です。PowerPoint 2002 で導入されたアニメーション エンジンです。以前の PowerPoint バージョンでは、プレゼンテーションにアニメーション効果を追加することは困難で、さまざまな回避策が必要でした。タイムラインは PowerPoint アニメーションのオブジェクト モデルをより明確にします。スライドには 1 つのアニメーション タイムラインしか持てません。
 
-## **Shape Animation**
-Aspose.Slides では、テキスト、矩形、線、フレーム、OLE オブジェクトなど、実際には図形として扱われる要素にアニメーションを適用できます。
+## **インタラクティブ アニメーション**
+[Trigger](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/effecttriggertype/) を使用すると、ボタンのクリックなどのユーザー操作を定義して特定のアニメーションを開始できます。
 
-{{% alert color="primary" %}} 
-詳しく読む [**About Shape Animation**](/slides/ja/nodejs-java/shape-animation/)。
+## **形状アニメーション**
+Aspose.Slides は、テキスト、長方形、線、フレーム、OLE オブジェクトなどを含む形状にアニメーションを適用できます。
+
+{{% alert color="info" title="Note" %}}
+続きを読む [**形状アニメーションについて**](/slides/ja/nodejs-java/shape-animation/).
 {{% /alert %}}
 
-## **Animated Charts**
-アニメーション チャートを作成するには、図形と同じクラスを使用します。ただし、PowerPoint アニメーションはチャートのカテゴリまたは系列のみに適用できます。カテゴリ要素や系列要素にアニメーション効果を適用することも可能です。
+## **アニメーション チャート**
+アニメーション チャートを作成するには、形状と同じクラスを使用する必要があります。ただし、PowerPoint アニメーションはチャートのカテゴリまたは系列にのみ適用可能です。カテゴリ要素や系列要素にもアニメーション効果を適用できます。
 
-{{% alert color="primary" %}} 
-詳しく読む [**About Animated Charts**](/slides/ja/nodejs-java/animated-charts/)。
+{{% alert color="info" title="Note" %}}
+続きを読む [**アニメーション チャートについて**](/slides/ja/nodejs-java/animated-charts/).
 {{% /alert %}}
 
-## **Animated text**
-アニメーション テキストに加えて、段落全体にアニメーションを適用することも可能です。
+## **アニメーション テキスト**
+テキストのアニメーションに加えて、段落にもアニメーションを適用できます。
 
-{{% alert color="primary" %}} 
-詳しく読む [**About Animated Text**](/slides/ja/nodejs-java/animated-text/)。
+{{% alert color="info" title="Note" %}}
+続きを読む [**アニメーション テキストについて**](/slides/ja/nodejs-java/animated-text/).
 {{% /alert %}}
 
 ## **FAQ**
 
-**Will animations be preserved when exporting to PDF?**
+**PDF にエクスポートした場合、アニメーションは保持されますか？**
 
-No. PDF is a static format, so animations and [slide transitions](/slides/ja/nodejs-java/slide-transition/) don’t play. If you need motion, export to [HTML5](/slides/ja/nodejs-java/export-to-html5/), [animated GIF](/slides/ja/nodejs-java/convert-powerpoint-to-animated-gif/), or [video](/slides/ja/nodejs-java/convert-powerpoint-to-video/) instead.
+いいえ。PDF は静的な形式のため、アニメーションや [スライドの切り替え](/slides/ja/nodejs-java/slide-transition/) は再生されません。動きを必要とする場合は、[HTML5](/slides/ja/nodejs-java/export-to-html5/)、[アニメーション GIF](/slides/ja/nodejs-java/convert-powerpoint-to-animated-gif/)、または [ビデオ](/slides/ja/nodejs-java/convert-powerpoint-to-video/) にエクスポートしてください。
 
-**Can I turn an animated presentation into a video and control the frame rate and frame size?**
+**アニメーション付きプレゼンテーションをビデオに変換し、フレームレートとフレームサイズを制御できますか？**
 
-Yes. You can [render the presentation as frames](/slides/ja/nodejs-java/convert-powerpoint-to-video/) and encode them into a video (e.g., via ffmpeg), choosing the FPS and resolution. Animations and slide transitions are played during rendering.
+はい。プレゼンテーションを [フレームとしてレンダリング](/slides/ja/nodejs-java/convert-powerpoint-to-video/) し、ビデオ（例: ffmpeg）にエンコードすることで、FPS と解像度を選択できます。レンダリング中にアニメーションとスライドの切り替えが再生されます。
 
-**Will animations remain intact when working with ODP (not just PPTX)?**
+**ODP（PPTX だけでなく）で作業する際、アニメーションはそのまま保持されますか？**
 
-PPT, PPTX, and ODP are supported for [reading](/slides/ja/nodejs-java/open-presentation/) and [writing](/slides/ja/nodejs-java/save-presentation/), but format differences mean certain effects may look or behave slightly differently. Validate critical cases with real samples.
+PPT、PPTX、ODP は [読み取り](/slides/ja/nodejs-java/open-presentation/) と [書き込み](/slides/ja/nodejs-java/save-presentation/) がサポートされていますが、アニメーションが保持されることは保証されません。ODP に変換する際、カスタム アニメーション データが失われる可能性があります。形式の互換性を確認する例とガイダンスについては、[カスタム アニメーション](/slides/ja/nodejs-java/custom-animation/) を参照してください。
