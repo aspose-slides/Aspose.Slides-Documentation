@@ -45,9 +45,10 @@ Both visual appearance and interactive behavior are considered when presentation
 In Aspose.Slides, various animation effects can be applied to shapes. Since every element on a slide, including text, pictures, OLE objects, and tables, is considered a shape, animation effects can be applied to any element on the slide.
 
 ## **Animation Effects**
-Aspose.Slides supports **150+ animation effects**, including basic animation effects such as Bounce, PathFootball, and Zoom, as well as specialized effects such as OLEObjectShow and OLEObjectOpen. You can find a full listing of animation effects in the [EffectType](https://reference.aspose.com/slides/python-java/aspose.slides/effecttype/) enumeration.
 
-Additionally, the following animation effects can be used in combination with those listed above:
+Aspose.Slides supports **150+ animation effects**, including basic effects such as Bounce, PathFootball, and Zoom, and specific effects such as OLEObjectShow and OLEObjectOpen. You can find a full listing in the [EffectType](https://reference.aspose.com/slides/python-java/aspose.slides/effecttype/) class.
+
+Additionally, these animation effects can be used in combination with the following behaviors:
 
 - [ColorEffect](https://reference.aspose.com/slides/python-java/aspose.slides/coloreffect/)
 - [CommandEffect](https://reference.aspose.com/slides/python-java/aspose.slides/commandeffect/)
@@ -59,20 +60,22 @@ Additionally, the following animation effects can be used in combination with th
 - [SetEffect](https://reference.aspose.com/slides/python-java/aspose.slides/seteffect/)
 
 ## **Custom Animation**
-It is possible to create your own **custom animations** in Aspose.Slides.
-You can do this by combining several behaviors into a new custom animation.
 
-[Behavior](https://reference.aspose.com/slides/python-java/aspose.slides/behavior/) is a building block of any PowerPoint animation effect. Each animation effect consists of a set of behaviors combined into a single strategy. You can combine behaviors into a custom animation once and reuse it in other presentations. Adding a new behavior to a standard PowerPoint animation effect creates another custom animation. For example, you can add a repeat behavior to make an animation repeat several times.
+For complete Python via Java examples that create, inspect, and modify behaviors and editable motion paths, see [Custom Animation](/slides/python-java/custom-animation/).
+
+It is possible to create your own **custom animations** in Aspose.Slides. This can be achieved by combining several behaviors into a new custom animation.
+
+[Behavior](https://reference.aspose.com/slides/python-java/aspose.slides/behavior/) is a building block of a PowerPoint animation effect. Combine behaviors to customize an effect, or add a behavior to extend a predefined effect. Repetition is configured through timing settings rather than a separate repeat behavior.
 
 [Point](https://reference.aspose.com/slides/python-java/aspose.slides/point/) is a point at which a behavior should be applied.
 
 ## **Animation Time Line**
-[Sequence](https://reference.aspose.com/slides/python-java/aspose.slides/sequence/) is a collection of animation effects applied to a specific shape.
+[Sequence](https://reference.aspose.com/slides/python-java/aspose.slides/sequence/) is a collection of animation effects that can target different shapes.
 
-[AnimationTimeLine](https://reference.aspose.com/slides/python-java/aspose.slides/animationtimeline/) is a set of sequences used on a specific slide. It represents the animation engine introduced in PowerPoint 2002. In earlier PowerPoint versions, adding animation effects to a presentation was challenging and required workarounds. The timeline replaces the old AnimationSettings class and provides a clearer object model for PowerPoint animation. A slide can have only one animation timeline.
+[AnimationTimeLine](https://reference.aspose.com/slides/python-java/aspose.slides/animationtimeline/) is a set of sequences used on a specific slide. It represents the animation engine introduced in PowerPoint 2002. In earlier PowerPoint versions, adding animation effects to a presentation was challenging and required workarounds. The timeline provides a clearer object model for PowerPoint animations. A slide can have only one animation timeline.
 
 ## **Interactive Animation**
-[EffectTriggerType](https://reference.aspose.com/slides/python-java/aspose.slides/effecttriggertype/) allows you to define user actions (e.g., a button click) that start a specific animation. Triggers were added only in the latest PowerPoint version.
+[EffectTriggerType](https://reference.aspose.com/slides/python-java/aspose.slides/effecttriggertype/) allows you to define user actions, such as a button click, that start a specific animation.
 
 ## **Shape Animation**
 Aspose.Slides allows you to apply animation to shapes, which can represent text, rectangles, lines, frames, OLE objects, and other elements.
@@ -107,4 +110,4 @@ Yes. You can [render the presentation as frames](/slides/python-java/convert-pow
 
 **Will animations remain intact when working with ODP (not just PPTX)?**
 
-PPT, PPTX, and ODP are supported for [reading](/slides/python-java/open-presentation/) and [writing](/slides/python-java/save-presentation/), but format differences mean certain effects may look or behave slightly differently. Validate critical cases with real samples.
+PPT, PPTX, and ODP are supported for [reading](/slides/python-java/open-presentation/) and [writing](/slides/python-java/save-presentation/), but this does not guarantee animation preservation. Custom animation data can be lost when converting to ODP. See [Custom Animation](/slides/python-java/custom-animation/) for examples and guidance on checking format compatibility.
