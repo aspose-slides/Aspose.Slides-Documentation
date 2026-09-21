@@ -125,6 +125,8 @@ Aspose.Slides supports [generating thumbnails for individual shapes](/slides/net
 
 Yes, but [don’t share](/slides/net/multithreading/) a single presentation instance across threads. Use a separate instance per thread or process.
 
+On Linux/Kubernetes environments, concurrent PNG exports can trigger a segmentation fault in libpng16. As a temporary workaround, serialize the export operation with a lock (e.g., `lock` in C#) or run exports in separate worker processes. Ensure the Docker image includes `libgdiplus`, a font package such as `ttf-dejavu`, and `icu-libs`, and keep `System.Drawing.EnableUnixSupport` enabled at application startup.
+
 ### What are the trial-version limitations when exporting to PNG?
 
 The evaluation mode adds a watermark to output images and enforces [other restrictions](/slides/net/licensing/) until a license is applied.
