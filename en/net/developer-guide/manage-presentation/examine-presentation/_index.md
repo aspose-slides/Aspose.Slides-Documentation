@@ -33,6 +33,8 @@ This article demonstrates lightweight inspection through [PresentationFactory](h
 
 ## **Check a Presentation Format**
 
+If you already have a loaded presentation, see [Determine the Original Presentation Format](/slides/net/detect-presentation-source-format/) for detection after loading and the limitations of legacy PPT, PPS, and POT streams.
+
 Use [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) to inspect a file without creating a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) instance. The [IPresentationInfo.LoadFormat](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/loadformat/) property reports the detected format, such as PPTX, PPT, or ODP.
 
 ```csharp
