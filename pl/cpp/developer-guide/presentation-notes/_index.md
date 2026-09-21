@@ -1,12 +1,12 @@
 ---
-title: Z​arządzaj notatkami prezentacji w C++
+title: Zarządzaj notatkami prezentacji w C++
 linktitle: Notatki prezentacji
 type: docs
 weight: 110
 url: /pl/cpp/presentation-notes/
 keywords:
 - notatki
-- slajd notatek
+- slajd z notatkami
 - dodaj notatki
 - usuń notatki
 - styl notatek
@@ -20,30 +20,30 @@ description: "Dostosuj notatki prezentacji za pomocą Aspose.Slides dla C++. Bez
 ---
 ## **Przegląd**
 
-Aspose.Slides obsługuje usuwanie slajdów z notatkami z prezentacji. W tym temacie przedstawimy tę funkcję, w tym jak usuwać notatki oraz jak zastosować styl do slajdów z notatkami w prezentacji. Aspose.Slides umożliwia usunięcie notatek z dowolnego slajdu oraz zastosowanie stylizacji do istniejących notatek. Programiści mogą usuwać notatki w następujący sposób:
+Aspose.Slides obsługuje usuwanie slajdów z notatkami z prezentacji. W tym temacie przedstawimy tę funkcję, w tym jak usuwać notatki oraz jak zastosować styl do slajdów z notatkami w prezentacji. Aspose.Slides umożliwia usunięcie notatek z dowolnego slajdu oraz zastosowanie formatowania do istniejących notatek. Programiści mogą usuwać notatki w następujący sposób:
 
 - Usuń notatki z konkretnego slajdu w prezentacji.
 - Usuń notatki ze wszystkich slajdów w prezentacji.
 
+Aby odczytać lub zmienić wymiary strony z notatkami, zmienić orientację i sprawdzić zachowanie eksportu, zobacz [Rozmiar strony z notatkami](/slides/pl/cpp/notes-size/).
+
 ## **Usuń notatki z konkretnego slajdu**
-Notatki wybranego slajdu można usunąć, jak pokazano w poniższym przykładzie:
+Notatki z konkretnego slajdu można usunąć, jak przedstawiono w przykładzie poniżej:
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RemoveNotesAtSpecificSlide-RemoveNotesAtSpecificSlide.cpp" >}}
 ## **Usuń notatki ze wszystkich slajdów**
-Notatki ze wszystkich slajdów prezentacji można usunąć, jak pokazano w poniższym przykładzie:
+Notatki ze wszystkich slajdów w prezentacji można usunąć, jak przedstawiono w przykładzie poniżej:
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RemoveNotesFromAllSlides-RemoveNotesFromAllSlides.cpp" >}}
 ## **Dodaj styl notatek**
-W interfejsie IMasterNotesSlide oraz klasie MasterNotesSlide została dodana własność NotesStyle. Określa ona styl tekstu notatek. Implementacja została przedstawiona w poniższym przykładzie.
+Właściwość NotesStyle została dodana do interfejsu IMasterNotesSlide oraz klasy MasterNotesSlide. Ta właściwość określa styl tekstu notatek. Implementacja jest pokazana w poniższym przykładzie.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AddNotesSlideWithNotesStyle-AddNotesSlideWithNotesStyle.cpp" >}}
 
 ## **FAQ**
 
-**Który element API zapewnia dostęp do notatek konkretnego slajdu?**
+### Który podmiot API zapewnia dostęp do notatek konkretnego slajdu?
+Do notatek można uzyskać poprzez menedżera notatek slajdu: slajd posiada [NotesSlideManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides/notesslidemanager/) i [metodę](https://reference.aspose.com/slides/pl/cpp/aspose.slides/notesslidemanager/get_notesslide/), która zwraca obiekt notatek, lub `null`, jeśli notatek nie ma.
 
-Notatki są dostępne poprzez menedżera notatek slajdu: slajd posiada [NotesSlideManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides/notesslidemanager/) oraz [metodę](https://reference.aspose.com/slides/pl/cpp/aspose.slides/notesslidemanager/get_notesslide/), która zwraca obiekt notatek lub `null`, jeśli notatek nie ma.
-
-**Czy istnieją różnice w obsłudze notatek w różnych wersjach PowerPoint, z którymi biblioteka współpracuje?**
-
-Biblioteka obsługuje szeroki zakres formatów Microsoft PowerPoint (od wersji 97 do najnowszych) oraz ODP; notatki są wspierane w tych formatach bez konieczności posiadania zainstalowanej kopii programu PowerPoint.
+### Czy istnieją różnice w obsłudze notatek w różnych wersjach PowerPoint, z którymi współpracuje biblioteka?
+Biblioteka obsługuje szeroki zakres formatów Microsoft PowerPoint (97-nowsze) oraz ODP; notatki są wspierane w tych formatach bez konieczności posiadania zainstalowanej wersji PowerPoint.

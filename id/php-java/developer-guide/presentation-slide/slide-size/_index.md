@@ -16,36 +16,38 @@ keywords:
 - ukuran slide kustom
 - ukuran slide khusus
 - ukuran slide unik
-- slide ukuran penuh
+- slide berukuran penuh
 - tipe layar
-- tidak skalakan
-- pastikan muat
+- tidak skala
+- pastikan pas
 - maksimalkan
 - PowerPoint
 - OpenDocument
 - presentasi
 - PHP
 - Aspose.Slides
-descriptions: "Pelajari cara mempercepat mengubah ukuran slide dalam file PPT, PPTX, dan ODP dengan PHP dan Aspose.Slides, mengoptimalkan presentasi untuk layar apa pun tanpa kehilangan kualitas."
+description: "Pelajari cara dengan cepat mengubah ukuran slide dalam file PPT, PPTX, dan ODP menggunakan PHP dan Aspose.Slides, mengoptimalkan presentasi untuk semua tipe layar tanpa mengurangi kualitas."
 ---
 ## **Pendahuluan**
 
-Aspose.Slides menyediakan alat lengkap untuk menyesuaikan ukuran slide dan rasio aspek dalam presentasi PowerPoint, penting untuk pencetakan maupun tampilan layar. 
+Aspose.Slides menyediakan alat komprehensif untuk menyesuaikan ukuran slide dan rasio aspek dalam presentasi PowerPoint, yang penting untuk pencetakan maupun tampilan di layar.
 
-Ukuran Slide Populer dan Rasio:
+Ukuran Slide dan Rasio yang Populer:
 
-- **Standard (4:3 Aspect Ratio)**: Ideal untuk layar dan perangkat lama.
-- **Widescreen (16:9 Aspect Ratio)**: Disarankan untuk proyektor dan tampilan modern.
+- **Standar (Rasio Aspek 4:3)**: Ideal untuk layar dan perangkat lama.
+- **Layar Lebar (Rasio Aspek 16:9)**: Direkomendasikan untuk proyektor dan tampilan modern.
 
-Pastikan konsistensi sepanjang presentasi Anda karena satu ukuran slide dan rasio aspek berlaku untuk semua slide. Untuk hasil optimal, atur dimensi slide di awal proses pembuatan presentasi untuk menghindari komplikasi.
+Pastikan konsistensi di seluruh presentasi karena satu ukuran slide dan rasio aspek berlaku untuk semua slide. Untuk hasil optimal, tetapkan dimensi slide di awal proses pembuatan presentasi guna menghindari komplikasi.
 
-{{% alert color="primary" %}} 
-Secara default, presentasi yang dibuat dengan Aspose.Slides menggunakan rasio aspek 4:3 standar.
+{{% alert color="info" title="Note" %}}
+Secara default, presentasi yang dibuat dengan Aspose.Slides menggunakan rasio aspek standar 4:3.
 {{% /alert %}}
+
+Halaman catatan dan handout memiliki dimensi terpisah dari slide reguler. Lihat [Ukuran Halaman Catatan](/slides/id/php-java/notes-size/) untuk mengubah ukuran dan orientasinya.
 
 ## **Ubah Ukuran Slide dalam Presentasi**
 
-Kode contoh ini menunjukkan cara mengubah ukuran slide dalam sebuah presentasi menggunakan Aspose.Slides:
+Contoh kode ini menunjukkan cara mengubah ukuran slide dalam sebuah presentasi menggunakan Aspose.Slides:
 
 ```php
   $pres = new Presentation("pres-4x3-aspect-ratio.pptx");
@@ -61,9 +63,9 @@ Kode contoh ini menunjukkan cara mengubah ukuran slide dalam sebuah presentasi m
 
 ## **Tentukan Ukuran Slide Kustom dalam Presentasi**
 
-Jika Anda menemukan ukuran slide umum (4:3 dan 16:9) tidak cocok untuk pekerjaan Anda, Anda mungkin memutuskan untuk menggunakan ukuran slide yang spesifik atau unik. Misalnya, jika Anda berencana mencetak slide berukuran penuh dari presentasi Anda pada tata letak halaman kustom atau jika Anda berniat menampilkan presentasi Anda pada jenis layar tertentu, Anda kemungkinan akan mendapat manfaat dari menggunakan pengaturan ukuran kustom untuk presentasi Anda. 
+Jika ukuran slide umum (4:3 dan 16:9) tidak sesuai dengan kebutuhan Anda, Anda dapat memutuskan untuk menggunakan ukuran slide yang spesifik atau unik. Misalnya, jika Anda berencana mencetak slide berukuran penuh dari presentasi Anda pada tata letak halaman kustom atau jika Anda ingin menampilkan presentasi pada tipe layar tertentu, Anda mungkin akan mendapatkan manfaat dari pengaturan ukuran kustom untuk presentasi Anda.
 
-Kode contoh ini menunjukkan cara menggunakan Aspose.Slides untuk PHP via Java untuk menentukan ukuran slide kustom untuk sebuah presentasi :
+Contoh kode ini menunjukkan cara menggunakan Aspose.Slides untuk PHP via Java untuk menentukan ukuran slide kustom dalam sebuah presentasi:
 
 ```php
   $pres = new Presentation("pres.pptx");
@@ -78,25 +80,25 @@ Kode contoh ini menunjukkan cara menggunakan Aspose.Slides untuk PHP via Java un
   }
 ```
 
-## **Kelola Konten Slide setelah Mengubah Ukuran**
+## **Tangani Konten Slide Setelah Mengubah Ukuran**
 
-Setelah Anda mengubah ukuran slide untuk sebuah presentasi, konten slide (gambar atau objek, misalnya) dapat menjadi terdistorsi. Secara default, objek secara otomatis diubah ukurannya agar sesuai dengan ukuran slide yang baru. Namun, saat mengubah ukuran slide presentasi, Anda dapat menentukan pengaturan yang menentukan bagaimana Aspose.Slides menangani konten pada slide.
+Setelah Anda mengubah ukuran slide untuk sebuah presentasi, konten slide (gambar atau objek, misalnya) dapat menjadi terdistorsi. Secara default, objek-objek secara otomatis diubah ukurannya agar sesuai dengan ukuran slide baru. Namun, ketika mengubah ukuran slide presentasi, Anda dapat menentukan pengaturan yang menentukan bagaimana Aspose.Slides menangani konten pada slide.
 
-Tergantung pada apa yang ingin Anda lakukan atau capai, Anda dapat menggunakan salah satu pengaturan ini:
+Tergantung pada apa yang ingin Anda lakukan atau capai, Anda dapat menggunakan salah satu pengaturan berikut:
 
 - `DoNotScale`
 
-  Jika Anda TIDAK ingin objek pada slide diubah ukurannya, gunakan pengaturan ini.
+  Jika Anda **TIDAK** ingin objek pada slide diubah ukurannya, gunakan pengaturan ini.
 
 - `EnsureFit`
 
-  Jika Anda ingin memperkecil ke ukuran slide yang lebih kecil dan Anda memerlukan Aspose.Slides untuk mengecilkan objek slide agar semuanya muat pada slide (dengan cara ini, Anda menghindari kehilangan konten), gunakan pengaturan ini. 
+  Jika Anda ingin memperkecil ukuran slide dan memerlukan Aspose.Slides untuk mengurangi ukuran objek slide sehingga semuanya muat di slide (dengan cara ini, Anda menghindari kehilangan konten), gunakan pengaturan ini.
 
 - `Maximize`
 
-  Jika Anda ingin memperbesar ke ukuran slide yang lebih besar dan Anda memerlukan Aspose.Slides untuk memperbesar objek slide sehingga proporsional dengan ukuran slide yang baru, gunakan pengaturan ini. 
+  Jika Anda ingin memperbesar ukuran slide dan memerlukan Aspose.Slides untuk memperbesar objek slide agar proporsional dengan ukuran slide yang baru, gunakan pengaturan ini.
 
-Kode contoh ini menunjukkan cara menggunakan pengaturan `Maximize` saat mengubah ukuran slide sebuah presentasi:
+Contoh kode ini menunjukkan cara menggunakan pengaturan `Maximize` ketika mengubah ukuran slide sebuah presentasi:
 
 ```php
   $pres = new Presentation("pres.pptx");
@@ -109,20 +111,20 @@ Kode contoh ini menunjukkan cara menggunakan pengaturan `Maximize` saat mengubah
   }
 ```
 
-## **FAQ**
+## **Tanya Jawab**
 
-**Apakah saya dapat mengatur ukuran slide kustom menggunakan satuan selain inci (misalnya, poin atau milimeter)?**
+**Apakah saya dapat mengatur ukuran slide kustom menggunakan satuan selain inci (misalnya poin atau milimeter)?**
 
-Ya. Aspose.Slides menggunakan poin secara internal, di mana 1 poin sama dengan 1/72 inci. Anda dapat mengonversi satuan apa pun (seperti milimeter atau sentimeter) ke poin dan menggunakan nilai yang telah dikonversi untuk menentukan lebar dan tinggi slide.
+Ya. Aspose.Slides menggunakan poin secara internal, di mana 1 poin sama dengan 1/72 inci. Anda dapat mengonversi satuan apa pun (seperti milimeter atau sentimeter) ke poin dan menggunakan nilai yang sudah dikonversi untuk mendefinisikan lebar dan tinggi slide.
 
-**Apakah ukuran slide kustom yang sangat besar akan mempengaruhi kinerja dan penggunaan memori saat rendering?**
+**Apakah ukuran slide kustom yang sangat besar memengaruhi kinerja dan penggunaan memori selama rendering?**
 
-Ya. Dimensi slide yang lebih besar (dalam poin) dikombinasikan dengan skala rendering yang lebih tinggi menyebabkan peningkatan konsumsi memori dan waktu pemrosesan yang lebih lama. Usahakan ukuran slide yang praktis dan sesuaikan skala rendering hanya jika diperlukan untuk mencapai kualitas output yang diinginkan.
+Ya. Dimensi slide yang lebih besar (dalam poin) dikombinasikan dengan skala rendering yang lebih tinggi akan meningkatkan konsumsi memori dan memperpanjang waktu proses. Targetkan ukuran slide yang praktis dan sesuaikan skala rendering hanya bila diperlukan untuk mencapai kualitas output yang diinginkan.
 
-**Apakah saya dapat mendefinisikan satu ukuran slide non-standar dan kemudian menggabungkan slide dari presentasi yang memiliki ukuran berbeda?**
+**Dapatkah saya mendefinisikan satu ukuran slide non-standar lalu menggabungkan slide dari presentasi yang memiliki ukuran berbeda?**
 
-Anda tidak dapat [menggabungkan presentasi](/slides/id/php-java/merge-presentation/) saat mereka memiliki ukuran slide yang berbeda — pertama, ubah ukuran salah satu presentasi agar cocok dengan yang lain. Saat mengubah ukuran slide, Anda dapat memilih bagaimana konten yang ada ditangani melalui opsi [SlideSizeScaleType](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidesizescaletype/). Setelah menyamakan ukuran, Anda dapat menggabungkan slide sambil mempertahankan pemformatan.
+Anda tidak dapat [merge presentations](/slides/id/php-java/merge-presentation/) ketika mereka memiliki ukuran slide yang berbeda — pertama, ubah ukuran salah satu presentasi agar cocok dengan yang lain. Saat mengubah ukuran slide, Anda dapat memilih cara menangani konten yang ada melalui opsi [SlideSizeScaleType](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidesizescaletype/). Setelah ukuran selaras, Anda dapat menggabungkan slide sambil mempertahankan format.
 
-**Apakah saya dapat menghasilkan thumbnail untuk bentuk individual atau wilayah tertentu dari slide, dan apakah mereka akan menghormati ukuran slide yang baru?**
+**Apakah saya dapat menghasilkan thumbnail untuk bentuk individual atau region tertentu pada slide, dan apakah mereka akan menghormati ukuran slide yang baru?**
 
 Ya. Aspose.Slides dapat merender thumbnail untuk [entire slides](https://reference.aspose.com/slides/id/php-java/aspose.slides/slide/#getImage) maupun untuk [selected shapes](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/#getImage). Gambar yang dihasilkan mencerminkan ukuran slide dan rasio aspek saat ini, memastikan bingkai dan geometri yang konsisten.

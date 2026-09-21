@@ -17,34 +17,42 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Dostosuj notatki do prezentacji przy użyciu Aspose.Slides for .NET. Bezproblemowo pracuj z notatkami PowerPoint i OpenDocument, aby zwiększyć swoją produktywność."
+description: "Dostosuj notatki prezentacji za pomocą Aspose.Slides dla .NET. Bezproblemowo pracuj z notatkami PowerPoint i OpenDocument, aby zwiększyć swoją wydajność."
 ---
 ## **Przegląd**
 
-Aspose.Slides obsługuje usuwanie slajdów notatek z prezentacji. W tym temacie przedstawimy tę funkcję, w tym jak usuwać notatki oraz jak zastosować styl do slajdów notatek w prezentacji. Aspose.Slides pozwala usuwać notatki z dowolnego slajdu oraz stosować formatowanie do istniejących notatek. Programiści mogą usuwać notatki w następujący sposób:
+Aspose.Slides obsługuje usuwanie slajdów z notatkami z prezentacji. W tym temacie przedstawimy tę funkcję, w tym jak usuwać notatki oraz jak zastosować styl do slajdów z notatkami w prezentacji. Aspose.Slides umożliwia usunięcie notatek z dowolnego slajdu oraz zastosowanie formatowania do istniejących notatek. Deweloperzy mogą usuwać notatki w następujący sposób:
 
-- Usuń notatki z określonego slajdu w prezentacji.
-- Usuń notatki ze wszystkich slajdów w prezentacji.
+- Usunięcie notatek z określonego slajdu w prezentacji.
+- Usunięcie notatek ze wszystkich slajdów w prezentacji.
 
-## **Usuń notatki ze slajdu**
-Notatki z wybranego slajdu można usunąć, jak pokazano w poniższym przykładzie:
+Aby odczytać lub zmienić wymiary strony notatek, przełączyć orientację i sprawdzić zachowanie przy eksporcie, zobacz [Notes Page Size](/slides/pl/net/notes-size/).
+
+## **Usuwanie notatek ze slajdu**
+Notatki wybranego slajdu mogą zostać usunięte, jak pokazano w poniższym przykładzie:
 
 ```c#
-// Utwórz obiekt Presentation, który reprezentuje plik prezentacji 
-Presentation presentation = new Presentation(dataDir + "AccessSlides.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Utwórz obiekt Presentation, który reprezentuje plik prezentacji
+Presentation presentation = new Presentation("AccessSlides.pptx");
 
 // Usuwanie notatek z pierwszego slajdu
 INotesSlideManager mgr = presentation.Slides[0].NotesSlideManager;
 mgr.RemoveNotesSlide();
 
 // Zapisz prezentację na dysk
-presentation.Save(dataDir + "RemoveNotesAtSpecificSlide_out.pptx", SaveFormat.Pptx);
+presentation.Save("RemoveNotesAtSpecificSlide_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Usuń notatki ze wszystkich slajdów**
-Notatki ze wszystkich slajdów prezentacji można usunąć, jak pokazano w poniższym przykładzie:
+## **Usuwanie notatek ze wszystkich slajdów**
+Notatki ze wszystkich slajdów prezentacji mogą zostać usunięte, jak pokazano w poniższym przykładzie:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Utwórz obiekt Presentation, który reprezentuje plik prezentacji 
 Presentation presentation = new Presentation("AccessSlides.pptx");
 
@@ -59,11 +67,13 @@ for (int i = 0; i < presentation.Slides.Count; i++)
 presentation.Save("RemoveNotesFromAllSlides_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Dodaj styl notatek**
-Dodano właściwość NotesStyle do [IMasterNotesSlide](https://reference.aspose.com/slides/pl/net/aspose.slides/imasternotesslide) interfejsu i [MasterNotesSlide](https://reference.aspose.com/slides/pl/net/aspose.slides/masternotesslide) klasy. Ta właściwość określa styl tekstu notatek. Implementacja została przedstawiona w poniższym przykładzie.
+## **Dodanie stylu notatek**
+Właściwość NotesStyle została dodana do interfejsu [IMasterNotesSlide](https://reference.aspose.com/slides/pl/net/aspose.slides/imasternotesslide) oraz klasy [MasterNotesSlide](https://reference.aspose.com/slides/pl/net/aspose.slides/masternotesslide). Ta właściwość określa styl tekstu notatek. Implementacja jest pokazana w poniższym przykładzie.
 
 ```c#
-// Utwórz klasę Presentation, która reprezentuje plik prezentacji
+using Aspose.Slides;
+
+// Utwórz obiekt klasy Presentation, który reprezentuje plik prezentacji
 using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 {
     IMasterNotesSlide notesMaster = presentation.MasterNotesSlideManager.MasterNotesSlide;
@@ -73,7 +83,7 @@ using (Presentation presentation = new Presentation("AccessSlides.pptx"))
         // Pobierz styl tekstu MasterNotesSlide
         ITextStyle notesStyle = notesMaster.NotesStyle;
 
-        //Ustaw symbol wypunktowania dla akapitów pierwszego poziomu
+        //Ustaw symbol wypunktowania dla paragrafów pierwszego poziomu
         IParagraphFormat paragraphFormat = notesStyle.GetLevel(0);
         paragraphFormat.Bullet.Type = BulletType.Symbol;
     }
@@ -86,10 +96,10 @@ using (Presentation presentation = new Presentation("AccessSlides.pptx"))
 
 ## **FAQ**
 
-**Który element API zapewnia dostęp do notatek określonego slajdu?**
+### Która jednostka API zapewnia dostęp do notatek określonego slajdu?
 
-Notatki są dostępne poprzez menedżera notatek slajdu: slajd posiada [NotesSlideManager](https://reference.aspose.com/slides/pl/net/aspose.slides/notesslidemanager/) i [property](https://reference.aspose.com/slides/pl/net/aspose.slides/notesslidemanager/notesslide/) zwracającą obiekt notatek lub `null`, jeśli nie ma notatek.
+Dostęp do notatek odbywa się przez menedżera notatek slajdu: slajd posiada [NotesSlideManager](https://reference.aspose.com/slides/pl/net/aspose.slides/notesslidemanager/) oraz [property](https://reference.aspose.com/slides/pl/net/aspose.slides/notesslidemanager/notesslide/), które zwracają obiekt notatek lub `null`, jeśli notatki nie istnieją.
 
-**Czy istnieją różnice w obsłudze notatek w różnych wersjach PowerPoint, z którymi działa biblioteka?**
+### Czy istnieją różnice w obsłudze notatek w różnych wersjach PowerPoint, z którymi biblioteka współpracuje?
 
-Biblioteka obsługuje szeroki zakres formatów Microsoft PowerPoint (97‑nowsze) oraz ODP; notatki są obsługiwane w tych formatach bez konieczności posiadania zainstalowanej kopii PowerPointa.
+Biblioteka obsługuje szeroką gamę formatów Microsoft PowerPoint (97 i nowsze) oraz ODP; notatki są wspierane w tych formatach bez konieczności posiadania zainstalowanej kopii programu PowerPoint.

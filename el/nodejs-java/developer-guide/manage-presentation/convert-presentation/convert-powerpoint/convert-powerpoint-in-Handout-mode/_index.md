@@ -1,14 +1,14 @@
 ---
-title: Μετατροπή Παρουσιάσεων PowerPoint σε Λειτουργία Φυλλαδίου με JavaScript
-linktitle: Λειτουργία Φυλλαδίου
+title: "Μετατροπή Παρουσιάσεων PowerPoint σε Λειτουργία Handout Χρησιμοποιώντας JavaScript"
+linktitle: "Λειτουργία Handout"
 type: docs
 weight: 150
-url: /el/nodejs-java/convert-powerpoint-in-Handout-mode/
+url: /el/nodejs-java/convert-powerpoint-in-handout-mode/
 keywords:
-- μετατροπή PowerPoint
-- μετατροπή παρουσίασης
-- λειτουργία φυλλαδίου
-- φυλλάδιο
+- "μετατροπή PowerPoint"
+- "μετατροπή παρουσίασης"
+- "λειτουργία handout"
+- "φύλλο"
 - PPT
 - PPTX
 - PowerPoint
@@ -16,20 +16,24 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Μετατρέψτε τις παρουσιάσεις σε φυλλάδια. Ορίστε διαφάνειες ανά σελίδα, διατηρήστε τα σημειώματα, εξαγάγετε σε PDF ή εικόνες με το Aspose.Slides για Node.js, με παράδειγμα κώδικα. Δοκιμάστε δωρεάν."
+description: "Μετατρέπει τις παρουσιάσεις σε φυλλάδια. Ορίστε πόσες διαφάνειες ανά σελίδα, διατηρήστε τις σημειώσεις, εξάγετε σε PDF ή εικόνες με Aspose.Slides για Node.js, με δείγμα κώδικα. Δοκιμάστε το δωρεάν."
 ---
 ## **Εισαγωγή**
 
-Το Aspose.Slides παρέχει τη δυνατότητα μετατροπής παρουσιάσεων σε διάφορες μορφές, συμπεριλαμβανομένης της δημιουργίας φυλλαδίων για εκτύπωση σε λειτουργία Φυλλαδίου. Αυτή η λειτουργία σάς επιτρέπει να διαμορφώσετε πώς εμφανίζονται πολλές διαφάνειες σε μία σελίδα, καθιστώντας την χρήσιμη για συνέδρια, σεμινάρια και άλλες εκδηλώσεις. Μπορείτε να ενεργοποιήσετε αυτή τη λειτουργία ορίζοντας τη μέθοδο `setSlidesLayoutOptions` στις κλάσεις [PdfOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/htmloptions/), και [TiffOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/).
+Aspose.Slides παρέχει τη δυνατότητα να μετατρέπει παρουσιάσεις σε διάφορες μορφές, συμπεριλαμβανομένης της δημιουργίας φυλλαδίων για εκτύπωση σε λειτουργία Handout. Αυτή η λειτουργία επιτρέπει τη διαμόρφωση του πώς πολλές διαφάνειες εμφανίζονται σε μία σελίδα, καθιστώντας την χρήσιμη για συνέδρια, σεμινάρια και άλλα γεγονότα. Μπορείτε να ενεργοποιήσετε αυτή τη λειτουργία ορίζοντας τη μέθοδο `setSlidesLayoutOptions` στις κλάσεις [PdfOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/htmloptions/) και [TiffOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/).
 
-## **Εξαγωγή σε Λειτουργία Φυλλαδίου**
+Για να ορίσετε τις διαστάσεις και τον προσανατολισμό της σελίδας φυλλαδίου πριν την εξαγωγή, δείτε [Notes Page Size](/slides/el/nodejs-java/notes-size/).
 
-Για να διαμορφώσετε τη λειτουργία Φυλλαδίου, χρησιμοποιήστε το αντικείμενο [HandoutLayoutingOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/handoutlayoutingoptions/), το οποίο καθορίζει πόσες διαφάνειες τοποθετούνται σε μία σελίδα και άλλες παραμέτρους εμφάνισης.
+## **Εξαγωγή σε Λειτουργία Handout**
 
-Ακολουθεί ένα παράδειγμα κώδικα που δείχνει πώς να μετατρέψετε μια παρουσίαση σε PDF σε λειτουργία Φυλλαδίου.
+Για να διαμορφώσετε τη λειτουργία Handout, χρησιμοποιήστε το αντικείμενο [HandoutLayoutingOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/handoutlayoutingoptions/) , το οποίο καθορίζει πόσες διαφάνειες τοποθετούνται σε μία σελίδα και άλλες παραμέτρους εμφάνισης.
+
+Παρακάτω υπάρχει ένα παράδειγμα κώδικα που δείχνει πώς να μετατρέψετε μια παρουσίαση σε PDF σε λειτουργία Handout.
 
 ```js
-// Φορτώστε μια παρουσίαση.
+const asposeSlides = require("aspose.slides.via.java");
+
+// Φόρτωση παρουσίασης.
 let presentation = new asposeSlides.Presentation("sample.pptx");
 
 // Set the export options.
@@ -47,20 +51,20 @@ presentation.save("output.pdf", asposeSlides.SaveFormat.Pdf, pdfOptions);
 presentation.dispose();
 ```
 
-{{% alert color="warning" %}} 
-Λάβετε υπόψη ότι η μέθοδος `setSlidesLayoutOptions` είναι διαθέσιμη μόνο για ορισμένες μορφές εξόδου, όπως PDF, HTML, TIFF, και κατά τη δημιουργία εικόνων.
+{{% alert color="warning" title="Warning" %}}
+Λάβετε υπόψη ότι η μέθοδος `setSlidesLayoutOptions` είναι διαθέσιμη μόνο για ορισμένες μορφές εξόδου, όπως PDF, HTML, TIFF, και κατά τη μετατροπή σε εικόνες.
 {{% /alert %}} 
 
 ## **Συχνές Ερωτήσεις**
 
-**Ποιος είναι ο μέγιστος αριθμός μικρογραφιών διαφανειών ανά σελίδα στη λειτουργία Φυλλαδίου;**
+**Ποιος είναι ο μέγιστος αριθμός μικρογραφιών διαφανειών ανά σελίδα στη λειτουργία Handout;**
 
-Το Aspose.Slides υποστηρίζει [προεπιλογές](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/handouttype/) έως 9 μικρογραφίες ανά σελίδα με οριζόντια ή κάθετη διάταξη: 1, 2, 3, 4 (οριζόντια/κάθετη), 6 (οριζόντια/κάθετη) και 9 (οριζόντια/κάθετη).
+Το Aspose.Slides υποστηρίζει [presets](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/handouttype/) έως 9 μικρογραφίες ανά σελίδα με οριζόντια ή κάθετη διάταξη: 1, 2, 3, 4 (οριζόντια/κάθετη), 6 (οριζόντια/κάθετη) και 9 (οριζόντια/κάθετη).
 
 **Μπορώ να ορίσω προσαρμοσμένο πλέγμα, όπως 5 ή 8 διαφάνειες ανά σελίδα;**
 
-Όχι. Ο αριθμός και η διάταξη των μικρογραφιών ελέγχονται αυστηρά από την απαρίθμηση [HandoutType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/handouttype/), και δεν υποστηρίζονται αυθαίρετες διατάξεις.
+Όχι. Ο αριθμός και η διάταξη των μικρογραφιών ελέγχονται αυστηρά από την απαρίθμηση [HandoutType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/handouttype/)· δεν υποστηρίζονται τυχαίες διατάξεις.
 
-**Μπορώ να συμπεριλάβω κρυφές διαφάνειες στην έξοδο Φυλλαδίου;**
+**Μπορώ να συμπεριλάβω κρυφές διαφάνειες στην έξοδο Handout;**
 
-Ναι. Χρησιμοποιήστε τη μέθοδο `setShowHiddenSlides` στις ρυθμίσεις εξαγωγής για τη μορφή‑στόχο, όπως [PdfOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/htmloptions/), ή [TiffOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/).
+Ναι. Χρησιμοποιήστε τη μέθοδο `setShowHiddenSlides` στις ρυθμίσεις εξαγωγής για τη μορφή‑στόχο, όπως [PdfOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/htmloptions/) ή [TiffOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/).

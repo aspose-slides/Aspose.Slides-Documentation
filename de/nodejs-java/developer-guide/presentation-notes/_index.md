@@ -1,28 +1,41 @@
 ---
-title: Präsentationsnotizen
+title: Verwalten von Präsentationsnotizen in JavaScript
+linktitle: Präsentationsnotizen
 type: docs
 weight: 110
 url: /de/nodejs-java/presentation-notes/
-keywords: "PowerPoint-Rednernotizen in JavaScript"
-description: "Präsentationsnotizen, Rednernotizen in JavaScript"
+keywords:
+- Notizen
+- Notizfolie
+- Notizen hinzufügen
+- Notizen entfernen
+- Notizstil
+- Master-Notizen
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Passen Sie Präsentationsnotizen in JavaScript mit Aspose.Slides für Node.js an. Arbeiten Sie nahtlos mit PowerPoint- und OpenDocument-Notizen, um Ihre Produktivität zu steigern."
 ---
+## **Übersicht**
 
-{{% alert color="primary" %}} 
+Aspose.Slides unterstützt das Entfernen von Notizfolien aus einer Präsentation. In diesem Thema stellen wir diese Funktion vor, einschließlich wie man Notizen entfernt und wie man einen Stil auf Notizfolien in einer Präsentation anwendet. Aspose.Slides ermöglicht das Entfernen von Notizen von beliebigen Folien und das Anwenden von Formatierungen auf vorhandene Notizen. Entwickler können Notizen auf folgende Weise entfernen:
 
-Aspose.Slides unterstützt das Entfernen von Notizfolien aus einer Präsentation. In diesem Thema stellen wir diese neue Funktion zum Entfernen von Notizen sowie zum Hinzufügen von Notizstil‑Folien aus jeder Präsentation vor. 
+- Notizen von einer bestimmten Folie in einer Präsentation entfernen.
+- Notizen von allen Folien in einer Präsentation entfernen.
 
-{{% /alert %}} 
+Um die Abmessungen der Notizseite zu lesen oder zu ändern, die Ausrichtung zu wechseln und das Exportverhalten zu prüfen, siehe [Größe der Notizseite](/slides/de/nodejs-java/notes-size/).
 
-Aspose.Slides für Node.js via Java bietet die Möglichkeit, Notizen einer beliebigen Folie zu entfernen und vorhandenen Notizen Stil hinzuzufügen. Entwickler können Notizen auf die folgenden Arten entfernen:
+## **Notizen von einer Folie entfernen**
+Notizen von einer bestimmten Folie können wie im folgenden Beispiel entfernt werden:
 
-* Entfernen Sie Notizen einer bestimmten Folie einer Präsentation.  
-* Entfernen Sie Notizen aller Folien einer Präsentation  
-
-
-## **Notizen von Folie entfernen**
-Notizen einer bestimmten Folie können wie im folgenden Beispiel entfernt werden:
 ```javascript
-// Erzeugen Sie ein Presentation-Objekt, das eine Präsentationsdatei darstellt
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Instanziieren Sie ein Presentation-Objekt, das eine Präsentationsdatei darstellt
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
     // Entfernen der Notizen der ersten Folie
@@ -37,10 +50,13 @@ try {
 }
 ```
 
+## **Notizen aus einer Präsentation entfernen**
+Notizen von allen Folien in einer Präsentation können wie im folgenden Beispiel entfernt werden:
 
-## **Notizen aus Präsentation entfernen**
-Notizen aller Folien einer Präsentation können wie im folgenden Beispiel entfernt werden:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Instanziieren Sie ein Presentation-Objekt, das eine Präsentationsdatei darstellt
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
@@ -59,20 +75,24 @@ try {
 }
 ```
 
+## **NotesStyle hinzufügen**
+[getNotesStyle](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) Methode wurde zur Klasse [MasterNotesSlide](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/MasterNotesSlide) und zur Klasse [MasterNotesSlide](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/MasterNotesSlide) hinzugefügt. Diese Eigenschaft gibt den Stil eines Notiztextes an. Die Implementierung wird im folgenden Beispiel gezeigt.
 
-## **Notizstil hinzufügen**
-[getNotesStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--)‑Methode wurde zur Klasse [MasterNotesSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterNotesSlide) hinzugefügt. Diese Eigenschaft gibt den Stil eines Notiztextes an. Die Implementierung wird im folgenden Beispiel gezeigt.
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Instanziieren Sie ein Presentation-Objekt, das eine Präsentationsdatei darstellt
 var pres = new aspose.slides.Presentation("demo.pptx");
 try {
     var notesMaster = pres.getMasterNotesSlideManager().getMasterNotesSlide();
     if (notesMaster != null) {
-        // MasterNotesSlide-Textstil abrufen
+        // Holen Sie den Textstil von MasterNotesSlide
         var notesStyle = notesMaster.getNotesStyle();
-        // Symbol-Aufzählungszeichen für Absätze der ersten Ebene festlegen
+        // Setzen Sie ein Symbol-Aufzählungszeichen für die Absätze der ersten Ebene
         var paragraphFormat = notesStyle.getLevel(0);
-        paragraphFormat.getBullet().setType(aspose.slides.BulletType.Symbol);
+        paragraphFormat.getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
     }
     pres.save("NotesSlideWithNotesStyle.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -82,13 +102,12 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
-**Welches API‑Entität bietet Zugriff auf die Notizen einer bestimmten Folie?**
+**Welches API-Entität stellt den Zugriff auf die Notizen einer bestimmten Folie bereit?**
 
-Notizen werden über den Notiz‑Manager der Folie abgerufen: Die Folie hat einen [NotesSlideManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notesslidemanager/) und eine [getNotesSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/)‑Methode, die das Notizobjekt zurückgibt, oder `null`, wenn keine Notizen vorhanden sind.
+Notizen werden über den Notiz-Manager der Folie abgerufen: Die Folie verfügt über einen [NotesSlideManager](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/notesslidemanager/) und eine [Methode](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/), die das Notizobjekt zurückgibt, oder `null`, wenn keine Notizen vorhanden sind.
 
-**Gibt es Unterschiede in der Notizunterstützung zwischen den PowerPoint‑Versionen, mit denen die Bibliothek arbeitet?**
+**Gibt es Unterschiede in der Notizunterstützung zwischen den PowerPoint-Versionen, mit denen die Bibliothek arbeitet?**
 
-Die Bibliothek richtet sich an ein breites Spektrum von Microsoft PowerPoint‑Formaten (97‑neuere) und ODP; Notizen werden in diesen Formaten unterstützt, ohne dass eine installierte Kopie von PowerPoint erforderlich ist.
+Die Bibliothek unterstützt ein breites Spektrum von Microsoft PowerPoint-Formaten (97–neuere) sowie ODP; Notizen werden in diesen Formaten unterstützt, ohne dass eine installierte Kopie von PowerPoint erforderlich ist.

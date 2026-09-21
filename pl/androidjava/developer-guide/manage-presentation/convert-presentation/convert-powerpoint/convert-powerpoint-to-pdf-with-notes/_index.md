@@ -1,6 +1,6 @@
 ---
-title: Konwertuj prezentacje PowerPoint do PDF z notatkami na Androidzie
-linktitle: PowerPoint do PDF z notatkami
+title: Konwertuj prezentacje PowerPoint na PDF z notatkami na Androidzie
+linktitle: PowerPoint na PDF z notatkami
 type: docs
 weight: 50
 url: /pl/androidjava/convert-powerpoint-to-pdf-with-notes/
@@ -10,11 +10,11 @@ keywords:
 - konwertuj slajd
 - konwertuj PPT
 - konwertuj PPTX
-- PowerPoint do PDF
-- prezentacja do PDF
-- slajd do PDF
-- PPT do PDF
-- PPTX do PDF
+- PowerPoint na PDF
+- prezentacja na PDF
+- slajd na PDF
+- PPT na PDF
+- PPTX na PDF
 - zapisz prezentację jako PDF
 - zapisz PPT jako PDF
 - zapisz PPTX jako PDF
@@ -25,20 +25,24 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Konwertuj formaty PPT i PPTX do PDF z notatkami przy użyciu Aspose.Slides dla Androida w języku Java. Zachowaj układy i notatki prelegenta dla profesjonalnych prezentacji."
+description: "Konwertuj formaty PPT i PPTX na PDF z notatkami przy użyciu Aspose.Slides dla Androida w Javie. Zachowaj układy i notatki prelegenta dla profesjonalnych prezentacji."
 ---
 ## **Przegląd**
 
-W tym artykule dowiesz się, jak konwertować prezentacje PowerPoint do formatu PDF z notatkami prelegenta przy użyciu Aspose.Slides. Ten przewodnik omówi niezbędne kroki i dostarczy przykłady kodu, które pomogą Ci skutecznie wykonać to zadanie. Po zakończeniu tego artykułu będziesz w stanie:
+W tym artykule dowiesz się, jak konwertować prezentacje PowerPoint na format PDF z notatkami prelegenta przy użyciu Aspose.Slides. Ten przewodnik omówi niezbędne kroki i dostarczy przykłady kodu, które pomogą Ci efektywnie wykonać to zadanie. Po przeczytaniu tego artykułu będziesz w stanie:
 
 - Zaimplementować proces konwersji, aby przekształcić slajdy PowerPoint w dokumenty PDF, zachowując notatki prelegenta.
-- Dostosować wyjściowy plik PDF, aby zapewnić włączenie notatek prelegenta i ich formatowanie zgodnie z wymaganiami.
+- Dostosować wyjściowy plik PDF, aby zapewnić uwzględnienie notatek prelegenta i ich formatowanie zgodnie z Twoimi wymaganiami.
 
-## **Konwertuj PowerPoint do PDF z notatkami**
+Aby ustawić wymiary i orientację strony z notatkami przed eksportem, zobacz [Rozmiar strony notatek](/slides/pl/androidjava/notes-size/).
 
-Metoda `save` w klasie [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) może być użyta do konwersji prezentacji PPT lub PPTX do PDF z notatkami prelegenta. Korzystając z Aspose.Slides, po prostu wczytujesz prezentację, konfigurujesz opcje układu przy użyciu klasy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/notescommentslayoutingoptions/) aby uwzględnić notatki prelegenta, a następnie zapisujesz plik jako PDF. Poniższy fragment kodu pokazuje, jak przekonwertować przykładową prezentację do PDF w widoku Notatki slajdu.
+## **Konwertuj PowerPoint na PDF z notatkami**
+
+Metoda `save` w klasie [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) może być użyta do konwersji prezentacji PPT lub PPTX na PDF z notatkami prelegenta. Korzystając z Aspose.Slides, po prostu wczytujesz prezentację, konfigurujesz opcje układu za pomocą klasy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/notescommentslayoutingoptions/), aby uwzględnić notatki prelegenta, a następnie zapisujesz plik jako PDF. Poniższy fragment kodu pokazuje, jak skonwertować przykładową prezentację na PDF w widoku slajdu z notatkami.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
 	// Skonfiguruj opcje PDF dla renderowania notatek prelegenta.
@@ -55,6 +59,6 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
-Możesz chcieć sprawdzić internetowy konwerter PowerPoint na PDF od Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/pl/conversion). 
+{{% alert color="info" title="Note" %}}
+Możesz chcieć wypróbować Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/pl/conversion).
 {{% /alert %}}

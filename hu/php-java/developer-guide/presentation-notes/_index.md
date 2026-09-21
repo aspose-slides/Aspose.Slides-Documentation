@@ -1,41 +1,43 @@
 ---
-title: Prezentációs jegyzetek kezelése PHP-ben
-linktitle: Prezentációs jegyzetek
+title: A bemutató jegyzetek kezelése PHP-ban
+linktitle: Bemutatójegyzetek
 type: docs
 weight: 110
 url: /hu/php-java/presentation-notes/
 keywords:
 - jegyzetek
-- jegyzetdia
+- jegyzet dia
 - jegyzetek hozzáadása
 - jegyzetek eltávolítása
 - jegyzet stílus
 - mester jegyzetek
 - PowerPoint
 - OpenDocument
-- prezentáció
+- bemutató
 - PHP
 - Aspose.Slides
-description: "Testreszabhatja a prezentációs jegyzeteket az Aspose.Slides for PHP segítségével Java-n keresztül. Zökkenőmentesen dolgozhat PowerPoint és OpenDocument jegyzetekkel, hogy növelje a produktivitását."
+description: "Testreszabhatja a bemutató jegyzeteket az Aspose.Slides PHP-hoz Java-n keresztül. Zökkenőmentesen dolgozhat PowerPoint és OpenDocument jegyzetekkel a termelékenység növelése érdekében."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides támogatja a jegyzetdiák eltávolítását egy prezentációból. Ebben a témában bemutatjuk ezt a funkciót, beleértve a jegyzetek eltávolításának módját és a jegyzetdiákra alkalmazott stílus beállítását a prezentációban. Az Aspose.Slides lehetővé teszi, hogy bármely diáról eltávolítsa a jegyzeteket, és a meglévő jegyzetekre stílust alkalmazzon. A fejlesztők a következő módokon távolíthatják el a jegyzeteket:
+Az Aspose.Slides támogatja a jegyzetdiák eltávolítását egy bemutatóból. Ebben a témában bemutatjuk ezt a funkciót, beleértve a jegyzetek eltávolítását és a jegyzetdiák stílusának alkalmazását egy bemutatóban. Az Aspose.Slides lehetővé teszi, hogy bármely diáról eltávolítsa a jegyzeteket, valamint meglévő jegyzetek stilizálását is végrehajtsa. A fejlesztők a következő módokon távolíthatják el a jegyzeteket:
 
-- Egy adott diáról távolítsa el a jegyzeteket a prezentációban.
-- A prezentáció összes diájáról távolítsa el a jegyzeteket.
+- Jegyzetek eltávolítása egy adott diáról a bemutatóban.
+- Jegyzetek eltávolítása az összes diáról a bemutatóban.
+
+A jegyzetoldal méretének olvasásához vagy módosításához, az orientáció váltásához és az export viselkedésének ellenőrzéséhez tekintse meg a [Jegyzetoldal mérete](/slides/hu/php-java/notes-size/).
 
 ## **Jegyzetek eltávolítása egy diáról**
-Egy adott diáról a jegyzetek a lenti példában mutatott módon távolíthatók el:
+A specifikus diáról származó jegyzetek az alábbi példában látható módon távolíthatók el:
 
 ```php
-  # Egy Presentation objektum példányosítása, amely egy prezentációs fájlt képvisel
+  # Hozzon létre egy Presentation objektumot, amely egy bemutató fájlt képvisel
   $pres = new Presentation("presWithNotes.pptx");
   try {
     # Az első dia jegyzeteinek eltávolítása
     $mgr = $pres->getSlides()->get_Item(0)->getNotesSlideManager();
     $mgr->removeNotesSlide();
-    # A prezentáció mentése lemezre
+    # A bemutató mentése lemezre
     $pres->save("test.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -44,11 +46,11 @@ Egy adott diáról a jegyzetek a lenti példában mutatott módon távolítható
   }
 ```
 
-## **Jegyzetek eltávolítása egy prezentációból**
-A prezentáció minden diájáról a jegyzetek a lenti példában mutatott módon távolíthatók el:
+## **Jegyzetek eltávolítása egy bemutatóból**
+Az összes diáról származó jegyzetek az alábbi példában látható módon távolíthatók el:
 
 ```php
-  # Egy Presentation objektum példányosítása, amely egy prezentációs fájlt képvisel
+  # Hozzon létre egy Presentation objektumot, amely egy bemutató fájlt képvisel
   $pres = new Presentation("presWithNotes.pptx");
   try {
     # Az összes dia jegyzeteinek eltávolítása
@@ -57,7 +59,7 @@ A prezentáció minden diájáról a jegyzetek a lenti példában mutatott módo
       $mgr = $pres->getSlides()->get_Item($i)->getNotesSlideManager();
       $mgr->removeNotesSlide();
     }
-    # A prezentáció mentése lemezre
+    # A bemutató mentése lemezre
     $pres->save("test.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -67,17 +69,17 @@ A prezentáció minden diájáról a jegyzetek a lenti példában mutatott módo
 ```
 
 ## **Jegyzetstílus hozzáadása**
-[getNotesStyle](https://reference.aspose.com/slides/hu/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) metódust hozzáadták a [MasterNotesSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/MasterNotesSlide) osztályhoz. Ez a tulajdonság a jegyzet szövegének stílusát határozza meg. A megvalósítást az alábbi példában mutatjuk be.
+A [getNotesStyle](https://reference.aspose.com/slides/hu/php-java/aspose.slides/MasterNotesSlide#getNotesStyle) metódus a [MasterNotesSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/MasterNotesSlide) osztályban hozzáférést biztosít a jegyzetek szövegstílusához. A megvalósítást az alábbi példa mutatja be.
 
 ```php
-  # Egy Presentation objektum példányosítása, amely egy prezentációs fájlt képvisel
+  # Hozzon létre egy Presentation objektumot, amely egy bemutató fájlt képvisel
   $pres = new Presentation("demo.pptx");
   try {
     $notesMaster = $pres->getMasterNotesSlideManager()->getMasterNotesSlide();
     if (!java_is_null($notesMaster)) {
-      # A MasterNotesSlide szövegstílusának lekérése
+      # Szerezze meg a MasterNotesSlide szövegstílusát
       $notesStyle = $notesMaster->getNotesStyle();
-      # Szimbólum jelölő beállítása az első szintű bekezdésekhez
+      # Állítsa be a szimbólum típusú jelölőt az első szintű bekezdésekhez
       $paragraphFormat = $notesStyle->getLevel(0);
       $paragraphFormat::getBullet()->setType(BulletType::Symbol);
     }
@@ -91,10 +93,10 @@ A prezentáció minden diájáról a jegyzetek a lenti példában mutatott módo
 
 ## **GYIK**
 
-**Melyik API-objektum biztosít hozzáférést egy adott dia jegyzeteihez?**
+**Melyik API entitás biztosít hozzáférést egy adott dia jegyzeteihez?**
 
-A jegyzetek a dia jegyzetkezelőjén keresztül érhetők el: a diához tartozik egy [NotesSlideManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/notesslidemanager/) és egy [method](https://reference.aspose.com/slides/hu/php-java/aspose.slides/notesslidemanager/getnotesslide/) amely visszaadja a jegyzetobjektumot, vagy `null`, ha nincs jegyzet.
+A jegyzetek a dia jegyzetkezelőjén keresztül érhetők el: a diához tartozik egy [NotesSlideManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/notesslidemanager/) és egy [method](https://reference.aspose.com/slides/hu/php-java/aspose.slides/notesslidemanager/getnotesslide/) amely visszaadja a jegyzet objektumot, vagy `null`, ha nincsenek jegyzetek.
 
-**Vannak eltérések a jegyzetek támogatásában a könyvtár által támogatott PowerPoint verziók között?**
+**Vannak-e különbségek a jegyzettámogatásban a könyvtár által támogatott PowerPoint verziók között?**
 
-A könyvtár széles körű Microsoft PowerPoint formátumot (1997‑től napjainkig) és ODP‑t támogat; a jegyzetek ezekben a formátumokban elérhetők anélkül, hogy a PowerPoint telepített példányára támaszkodna.
+A könyvtár a Microsoft PowerPoint széles körű formátumkészletét (97‑újabb) és az ODP‑t célozza meg; a jegyzetek ezekben a formátumokban támogatottak anélkül, hogy a telepített PowerPoint példányra támaszkodnának.

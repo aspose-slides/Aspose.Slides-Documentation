@@ -1,55 +1,59 @@
 ---
-title: PowerPointをPDFノートに変換
+title: PHPでノート付きPowerPointプレゼンテーションをPDFに変換
+linktitle: ノート付きPowerPointからPDFへ
 type: docs
 weight: 50
 url: /ja/php-java/convert-powerpoint-to-pdf-with-notes/
-keywords: "javaでPowerPointをPDFノートに変換"
-description: "PowerPointをノート付きPDFに変換"
+keywords:
+- PowerPoint を変換
+- プレゼンテーション を変換
+- スライド を変換
+- PPT を変換
+- PPTX を変換
+- PowerPoint から PDF へ
+- プレゼンテーションを PDF に変換
+- スライドを PDF に変換
+- PPT を PDF に変換
+- PPTX を PDF に変換
+- プレゼンテーションを PDF として保存
+- PPT を PDF として保存
+- PPTX を PDF として保存
+- PPT を PDF にエクスポート
+- PPTX を PDF にエクスポート
+- スピーカーノート
+- ノート付き PDF
+- PHP
+- Aspose.Slides
+description: "Aspose.Slides for PHP via Java を使用して、PPT および PPTX をノート付き PDF に変換します。レイアウトとスピーカーノートを保持し、プロフェッショナルなプレゼンテーションを実現します。"
 ---
+## **概要**
 
-## **カスタムスライドサイズでPowerPointをPDFに変換**
-以下の例は、プレゼンテーションをカスタムスライドサイズを持つPDFノート文書に変換する方法を示しています。1インチは72に相当します。
+このガイドでは、Aspose.Slides を使用して PowerPoint プレゼンテーションをスピーカーノート付きの PDF 形式に変換する方法を学びます。必要な手順を解説し、効率的にタスクを実行できるようコード例を提供します。この記事の最後までに、以下ができるようになります：
 
-```php
-// プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化
-  $presIn = new Presentation("SelectedSlides.pptx");
-  $presOut = new Presentation();
-  try {
-    $slide = $presIn->getSlides()->get_Item(0);
-    $presOut->getSlides()->insertClone(0, $slide);
-    # スライドタイプとサイズの設定
-    $presOut->getSlideSize()->setSize(612.0, 792.0, SlideSizeScaleType::EnsureFit);
-    $pdfOptions = new PdfOptions();
-    $pdfOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
-    $presOut->save("PDF-SelectedSlide.pdf", SaveFormat::Pdf, $pdfOptions);
-  } finally {
-    if (!java_is_null($presIn)) {
-      $presIn->dispose();
-    }
-    if (!java_is_null($presOut)) {
-      $presOut->dispose();
-    }
-  }
-```
+- スピーカーノートを保持しながら、PowerPoint スライドを PDF ドキュメントに変換するプロセスを実装する。
+- 出力 PDF をカスタマイズし、スピーカーノートが要件どおりに含まれ、フォーマットされていることを保証する。
 
-## **ノートスライドビューでPowerPointをPDFに変換**
-[**Save**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-)メソッドは、[**Presentation**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation)クラスによって公開され、ノートスライドビューでプレゼンテーション全体をPDFに変換するために使用できます。以下のコードスニペットは、ノートスライドビューのPDFへのサンプルプレゼンテーションを更新します。
+エクスポート前にノートページのサイズと向きを設定するには、[Notes Page Size](/slides/ja/php-java/notes-size/) を参照してください。
+
+## **スピーカーノート付きで PowerPoint を PDF に変換**
+
+`save` メソッドは、[Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスで、PPT または PPTX プレゼンテーションをスピーカーノート付きの PDF に変換するために使用できます。Aspose.Slides を使用すると、プレゼンテーションをロードし、[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ja/php-java/aspose.slides/notescommentslayoutingoptions/) クラスを使用してスピーカーノートを含めるようにレイアウトオプションを構成し、そしてファイルを PDF として保存します。以下のコードスニペットは、サンプルプレゼンテーションをノートスライド表示の PDF に変換する方法を示しています。
 
 ```php
-  $pres = new Presentation("presentation.pptx");
-  try {
-    $pdfOptions = new PdfOptions();
-    $pdfOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
-    $pres->save($resourcesOutputPath . "PDF-Notes.pdf", SaveFormat::Pdf, $pdfOptions);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation("sample.pptx");
+
+// スピーカーノートをレンダリングするための PDF オプションを設定.
+$notesOptions = new NotesCommentsLayoutingOptions();
+$notesOptions->setNotesPosition(NotesPositions::BottomFull); // スライドの下部にスピーカーノートをレンダリング.
+
+$pdfOptions = new PdfOptions();
+$pdfOptions->setSlidesLayoutOptions($notesOptions);
+
+// スピーカーノート付きでプレゼンテーションを PDF に保存.
+$presentation->save("output.pdf", SaveFormat::Pdf, $pdfOptions);
+$presentation->dispose();
 ```
 
-{{% alert color="primary" %}} 
-
-Asposeの[PowerPointをPDF](https://products.aspose.app/slides/conversion/powerpoint-to-pdf)や[PPTをPDF](https://products.aspose.app/slides/conversion/ppt-to-pdf)コンバーターをチェックしてみてください。 
-
+{{% alert color="info" title="Note" %}}
+Aspose の [オンライン PowerPoint to PDF コンバータ](https://products.aspose.app/slides/ja/conversion) をご確認いただくと良いでしょう。
 {{% /alert %}}

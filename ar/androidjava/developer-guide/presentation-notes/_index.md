@@ -17,24 +17,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "خصّص ملاحظات العرض التقديمي باستخدام Aspose.Slides لأندرويد عبر جافا. اعمل بسلاسة مع ملاحظات PowerPoint وOpenDocument لتعزيز إنتاجيتك."
+description: "قم بتخصيص ملاحظات العرض التقديمي باستخدام Aspose.Slides لأجهزة Android عبر Java. اعمل بسلاسة مع ملاحظات PowerPoint وOpenDocument لتعزيز إنتاجيتك."
 ---
+## **نظرة عامة**
 
-{{% alert color="primary" %}} 
+يدعم Aspose.Slides إزالة شرائح الملاحظات من العرض التقديمي. في هذا الموضوع، سنقدم هذه الميزة، بما في ذلك كيفية إزالة الملاحظات وكيفية تطبيق نمط على شرائح الملاحظات في العرض التقديمي. يسمح Aspose.Slides لك بإزالة الملاحظات من أي شريحة وكذلك تطبيق تنسيق على الملاحظات الموجودة. يمكن للمطورين إزالة الملاحظات بالطرق التالية:
 
-يدعم Aspose.Slides إزالة شرائح الملاحظات من العرض التقديمي. في هذا الموضوع، سنقدم هذه الميزة الجديدة لإزالة الملاحظات بالإضافة إلى إضافة شرائح بنمط الملاحظات إلى أي عرض تقديمي. 
+- إزالة الملاحظات من شريحة محددة في العرض التقديمي.
+- إزالة الملاحظات من جميع الشرائح في العرض التقديمي.
 
-{{% /alert %}} 
+لقراءة أو تغيير أبعاد صفحة الملاحظات، تبديل الاتجاه، والتحقق من سلوك التصدير، راجع [Notes Page Size](/slides/ar/androidjava/notes-size/).
 
-يوفر Aspose.Slides for Android عبر Java ميزة إزالة ملاحظات أي شريحة وكذلك إضافة نمط إلى الملاحظات الموجودة. يمكن للمطورين إزالة الملاحظات بالطرق التالية:
+## **إزالة الملاحظات من شريحة**
+يمكن إزالة الملاحظات من شريحة محددة كما هو موضح في المثال أدناه:
 
-* إزالة ملاحظات شريحة محددة من العرض التقديمي.
-* إزالة ملاحظات جميع شرائح العرض التقديمي.
-
-
-## **Remove Notes from a Slide**
-يمكن إزالة ملاحظات شريحة معينة كما هو موضح في المثال أدناه:
 ```java
+import com.aspose.slides.*;
+
 // إنشاء كائن Presentation يمثل ملف عرض تقديمي
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
@@ -49,10 +48,12 @@ try {
 }
 ```
 
+## **إزالة الملاحظات من العرض التقديمي**
+يمكن إزالة الملاحظات من جميع الشرائح في العرض التقديمي كما هو موضح في المثال أدناه:
 
-## **Remove Notes from a Presentation**
-يمكن إزالة ملاحظات جميع الشرائح في العرض التقديمي كما هو موضح في المثال أدناه:
 ```java
+import com.aspose.slides.*;
+
 // إنشاء كائن Presentation يمثل ملف عرض تقديمي
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
@@ -70,10 +71,12 @@ try {
 }
 ```
 
+## **إضافة نمط للملاحظات**
+تم إضافة الطريقة [getNotesStyle](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) إلى واجهة [IMasterNotesSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IMasterNotesSlide) وفئة [MasterNotesSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/MasterNotesSlide) على التوالي. تحدد هذه الخاصية نمط نص الملاحظات. يتم توضيح التنفيذ في المثال أدناه.
 
-## **Add a Notes Style**
-تم إضافة طريقة [getNotesStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) إلى واجهة [IMasterNotesSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterNotesSlide) وفئة [MasterNotesSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MasterNotesSlide) على التوالي. تحدد هذه الخاصية نمط نص الملاحظات. يتم توضيح التنفيذ في المثال أدناه.
 ```java
+import com.aspose.slides.*;
+
 // إنشاء كائن Presentation يمثل ملف عرض تقديمي
 Presentation pres = new Presentation("demo.pptx");
 try {
@@ -84,7 +87,7 @@ try {
         // الحصول على نمط نص MasterNotesSlide
         ITextStyle notesStyle = notesMaster.getNotesStyle();
     
-        // تعيين نقطه رمزية للفقرات من المستوى الأول
+        //تعيين رمز نقطي للفقرات من المستوى الأول
         IParagraphFormat paragraphFormat = notesStyle.getLevel(0);
         paragraphFormat.getBullet().setType(BulletType.Symbol);
     }
@@ -94,13 +97,12 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
-**Which API entity provides access to the notes of a specific slide?**
+**ما الكيان API الذي يتيح الوصول إلى ملاحظات شريحة معينة؟**
 
-يتم الوصول إلى الملاحظات عبر مدير ملاحظات الشريحة: تحتوي الشريحة على [NotesSlideManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notesslidemanager/) و[method](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notesslidemanager/#getNotesSlide--) التي تُرجع كائن الملاحظات، أو `null` إذا لم تكن هناك ملاحظات.
+يتم الوصول إلى الملاحظات عبر مدير ملاحظات الشريحة: تحتوي الشريحة على [NotesSlideManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/notesslidemanager/) و[طريقة](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/notesslidemanager/#getNotesSlide--) تُعيد كائن الملاحظات، أو `null` إذا لم توجد ملاحظات.
 
-**Are there differences in notes support across the PowerPoint versions the library works with?**
+**هل هناك اختلافات في دعم الملاحظات عبر إصدارات PowerPoint التي تعمل معها المكتبة؟**
 
-تستهدف المكتبة مجموعة واسعة من صيغ Microsoft PowerPoint (97‑أحدث) وODP؛ تدعم الملاحظات ضمن هذه الصيغ دون الاعتماد على نسخة مثبتة من PowerPoint.
+تستهدف المكتبة مجموعة واسعة من صيغ Microsoft PowerPoint (97‑أحدث) وODP؛ يتم دعم الملاحظات ضمن هذه الصيغ دون الاعتماد على نسخة مثبتة من PowerPoint.

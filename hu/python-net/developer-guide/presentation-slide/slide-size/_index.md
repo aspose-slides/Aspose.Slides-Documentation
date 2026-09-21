@@ -1,115 +1,117 @@
 ---
-title: Dia méret módosítása prezentációkban Python segítségével
-linktitle: Dia méret
+title: Diák méretének módosítása prezentációkban Python segítségével
+linktitle: Dia mérete
 type: docs
 weight: 70
 url: /hu/python-net/slide-size/
 keywords:
-- dia méret
+- dia mérete
 - képarány
-- szabványos
-- szélesvásznú
+- standard
+- szélesvászon
 - 4:3
 - 16:9
-- dia méret beállítása
-- dia méret módosítása
+- dia méretének beállítása
+- dia méretének módosítása
 - egyedi dia méret
-- speciális dia méret
 - különleges dia méret
+- egyedi dia méret
 - teljes méretű dia
 - képernyő típusa
-- ne méretezze
-- biztosítsa a beleférést
+- ne skálázza
+- illeszkedés biztosítása
 - maximalizálás
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Python
 - Aspose.Slides
-descriptions: "Ismerje meg, hogyan lehet gyorsan átméretezni a diákat PPT, PPTX és ODP fájlokban Python és Aspose.Slides segítségével, optimalizálva a prezentációkat bármilyen képernyőhöz anélkül, hogy minőségromlás történne."
+description: "Tanulja meg, hogyan lehet gyorsan átméretezni a diákat PPT, PPTX és ODP fájlokban Python és Aspose.Slides segítségével, optimalizálva a prezentációkat bármilyen képernyőhöz minőségveszteség nélkül."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides átfogó eszközöket biztosít a diák méretének és képarányának módosításához a PowerPoint‑prezentációkban, ami a nyomtatáshoz és a képernyőre való megjelenítéshez egyaránt kritikus.
+Az Aspose.Slides átfogó eszközöket biztosít a diák méretének és képarányának beállításához a PowerPoint‑prezentációkban, amely a nyomtatás és a képernyőn való megjelenítés szempontjából is kulcsfontosságú.
 
-Népszerű diákméretek és arányok:
+Népszerű diák méretek és arányok:
 
 - **Standard (4:3 képarány)**: Ideális régebbi képernyők és eszközök számára.
-- **Widescreen (16:9 képarány)**: Modern projektorokhoz és kijelzőkhöz ajánlott.
+- **Widescreen (16:9 képarány)**: Modern projektorok és kijelzők számára ajánlott.
 
-Biztosítsa a következetességet a teljes prezentációban, mivel egyetlen diákméret és képarány vonatkozik minden diára. A legjobb eredmény érdekében állítsa be a diák méretét a prezentáció létrehozásának elején, hogy elkerülje a komplikációkat.
+Biztosítsa a konzisztenciát a teljes prezentációban, mivel egyetlen diák mérete és képaránya minden diára vonatkozik. A legjobb eredmény érdekében állítsa be a diák méretét a prezentáció elkészítésének elején, hogy elkerülje a problémákat.
 
-{{% alert color="primary" %}} 
-Alapértelmezés szerint az Aspose.Slides‑kel létrehozott prezentációk a standard 4:3 képarányt használják.
+{{% alert color="info" title="Megjegyzés" %}}
+Alapértelmezés szerint az Aspose.Slides‑el létrehozott prezentációk a standard 4:3 képarányt használják.
 {{% /alert %}}
 
-## **A diák méretének módosítása egy prezentációban**
+A jegyzet- és előadásszórólapok méretei különböznek a normál diákétól. Lásd a [Jegyzetoldal mérete](/slides/hu/python-net/notes-size/) címet a méret és tájolás módosításához.
 
-Ez a mintakód bemutatja, hogyan lehet megváltoztatni a diák méretét egy prezentációban Pythonban az Aspose.Slides használatával:
+## **Diák méretének módosítása egy prezentációban**
+
+Ez a mintakód bemutatja, hogyan változtatható meg a diák mérete egy prezentációban Pythonban az Aspose.Slides segítségével:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as pres:
-    pres.slide_size.set_size(slides.SlideSizeType.ON_SCREEN16X9, slides.SlideSizeScaleType.DO_NOT_SCALE)
-    pres.save("pres-4x3-aspect-ratio.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("AccessSlides.pptx") as pres:
+    pres.slide_size.set_size(slides.SlideSizeType.ON_SCREEN_16X9, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    pres.save("pres-16x9-aspect-ratio.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Egyéni diákméretek meghatározása**
+## **Egyéni diák méretek megadása**
 
-Ha a gyakori diákméreteket (4:3 és 16:9) nem megfelelőnek találja a munkájához, úgy dönthet, hogy egy meghatározott vagy egyedi diákméretet használ. Például, ha a prezentációjából teljes méretű diák nyomtatását tervezi egy egyéni oldalelrendezésre, vagy ha a prezentációt bizonyos képernyőtípusokon szeretné megjeleníteni, valószínűleg hasznos lesz egy egyedi méretbeállítás használata.
+Ha a gyakori diák méretek (4:3 és 16:9) nem megfelelőek az Ön munkájához, úgy dönthet egy konkrét vagy egyedi diák méret használata mellett. Például, ha a prezentációból teljes méretű diák nyomtatását tervezi egy egyedi oldalelrendezésen, vagy ha a prezentációt bizonyos képernyőtípusokon szeretné megjeleníteni, akkor valószínűleg hasznos lesz egyedi méretbeállítást használni.
 
-Ez a mintakód bemutatja, hogyan lehet az Aspose.Slides for Python via .NET segítségével egyedi diákméretet megadni egy prezentációhoz Pythonban:
+Ez a mintakód bemutatja, hogyan használja az Aspose.Slides for Python via .NET-et egy egyedi diák méret megadásához egy prezentációban Pythonban:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as pres:
-    pres.slide_size.set_size(780, 540, slides.SlideSizeScaleType.DO_NOT_SCALE) # A4 papírméret
+with slides.Presentation("AccessSlides.pptx") as pres:
+    pres.slide_size.set_size(780, 540, slides.SlideSizeScaleType.DO_NOT_SCALE) # A4 papír méret
     pres.save("pres-a4-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Diák tartalmának kezelése átméretezés után**
 
-A prezentáció diákméretének módosítása után a diák tartalma (például képek vagy objektumok) torzulhat. Alapértelmezés szerint az objektumok automatikusan átméreteződnek, hogy illeszkedjenek az új diákmérethez. Azonban a diákméret módosításakor megadhat egy beállítást, amely meghatározza, hogyan kezeli az Aspose.Slides a diák tartalmát.
+Miután megváltoztatta egy prezentáció diák méretét, a diák tartalma (például képek vagy objektumok) torzulhat. Alapértelmezés szerint az objektumok automatikusan átméreteződnek, hogy illeszkedjenek az új diák méretéhez. Azonban a diák méretének módosításakor megadhat egy beállítást, amely meghatározza, hogyan kezeli az Aspose.Slides a diák tartalmát.
 
-Attól függően, hogy mit kíván elérni, az alábbi beállítások bármelyikét használhatja:
+Az Ön céljától függően az alábbi beállítások közül választhat:
 
 - `DO_NOT_SCALE`
 
-  Ha NEM szeretné, hogy a diákon lévő objektumok átméreteződjenek, használja ezt a beállítást.
+  Ha NEM szeretné, hogy a diák objektumai átméreteződjenek, használja ezt a beállítást.
 
 - `ENSURE_FIT`
 
-  Ha kisebb diákméretre szeretne skálázni, és azt igényli, hogy az Aspose.Slides lecsökkentse a diák objektumait, hogy mindegyik elférjen a diákon (így elkerülve a tartalom elvesztését), használja ezt a beállítást.
+  Ha kisebb diák méretre szeretne skálázni, és szüksége van arra, hogy az Aspose.Slides lecsökkentse a diák objektumait, hogy mindegyik elférjen a dián (így elkerülve a tartalom elvesztését), használja ezt a beállítást.
 
 - `MAXIMIZE`
 
-  Ha nagyobb diákméretre szeretne skálázni, és azt igényli, hogy az Aspose.Slides megnövelje a diák objektumait, hogy arányosak legyenek az új diákmérettel, használja ezt a beállítást.
+  Ha nagyobb diák méretre szeretne skálázni, és szüksége van arra, hogy az Aspose.Slides megnövelje a diák objektumait, hogy arányosak legyenek az új diák méretével, használja ezt a beállítást.
 
-Ez a mintakód bemutatja, hogyan kell használni a `MAXIMIZE` beállítást a prezentáció diákjának méretének módosításakor:
+Ez a mintakód bemutatja, hogyan használja a `MAXIMIZE` beállítást a prezentáció diák méretének módosításakor:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as pres:
+with slides.Presentation("AccessSlides.pptx") as pres:
    pres.slide_size.set_size(slides.SlideSizeType.LEDGER, slides.SlideSizeScaleType.MAXIMIZE)
 ```
 
 ## **GYIK**
 
-**Be lehet állítani egyedi diákméretet hüvelykekre vonatkozóan nem használt mértékegységgel (például pontokkal vagy milliméterrel)?**
+**Beállíthatok egyedi diák méretet hüvelyken kívül más egységekben (például pontban vagy milliméterben)?**
 
-Igen. Az Aspose.Slides belsőleg pontokat használ, ahol 1 pont = 1/72 hüvelyk. Bármely mértékegységet (például millimétert vagy centimétert) konvertálhat pontokba, és a konvertált értékekkel határozhatja meg a diák szélességét és magasságát.
+Igen. Az Aspose.Slides belsőleg pontokat használ, ahol 1 pont = 1/72 hüvelyk. Bármely egységet (például millimétert vagy centimétert) átválthat pontokra, és a konvertált értékeket felhasználhatja a diák szélességének és magasságának meghatározásához.
 
-**Egy nagyon nagy egyedi diákméret befolyásolja a teljesítményt és a memóriahasználatot a renderelés során?**
+**Egy nagyon nagy egyedi diák méret befolyásolja a renderelés teljesítményét és memóriahasználatát?**
 
-Igen. A nagyobb diákméretek (pontban) magasabb renderelési mérettel együtt növelik a memóriafogyasztást és a feldolgozási időt. Célszerű praktikus diákméretet választani, és a renderelési méretet csak szükség szerint módosítani a kívánt kimeneti minőség eléréséhez.
+Igen. A nagyobb diák méretek (pontokban) magasabb renderelési skálával együtt növelik a memóriaigényt és a feldolgozási időt. Agyazzon be egy praktikus diák méretet, és csak szükség szerint állítson be nagyobb renderelési skálát a kívánt kimeneti minőség eléréséhez.
 
-**Megadhatok egy nem szabványos diákméretet, majd egyesíthetek diákokat olyan prezentációkból, amelyek más méretekkel rendelkeznek?**
+**Definiálhatok egy nem szabványos diák méretet, majd összefésülhetem a különböző méretű prezentációk diákját?**
 
-Nem tudja [összevonni a prezentációkat](/slides/hu/python-net/merge-presentation/) különböző diákméretek esetén – először méretezze át az egyiket, hogy egyezzen a másikkal. A diákméret módosításakor kiválaszthatja, hogyan kezelje a meglévő tartalmat a [SlideSizeScaleType](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidesizescaletype/) beállítás segítségével. A méretek egyeztetése után egyesítheti a diákot a formázás megőrzésével.
+Nem tud [összefésülni prezentációkat](/slides/hu/python-net/merge-presentation/) eltérő diák mérettel – először méretezze át az egyiket, hogy megegyezzen a másikkal. A diák méretének módosításakor a [SlideSizeScaleType](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidesizescaletype/) opcióval választhatja ki a tartalom kezelését. A méretek egyeztetése után összefésülheti a diákot a formázás megőrzésével.
 
-**Készíthetek miniatűröket egyedi alakzatokhoz vagy a dia adott területeihez, és ezek figyelembe veszik az új diákméretet?**
+**Készíthetek előnézeti képeket egyedi alakzatokhoz vagy a dia egy adott részéhez, és ezek figyelembe veszik az új diák méretet?**
 
-Igen. Az Aspose.Slides előállíthat miniatűröket [teljes diákokhoz](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slide/get_image/) és [kiválasztott alakzatokhoz](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shape/get_image/). A kapott képek a jelenlegi diákméretet és képarányt tükrözik, biztosítva a következetes keretezést és geometriát.
+Igen. Az Aspose.Slides képes előnézeti képeket generálni [teljes diákra](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slide/get_image/) és [kijelölt alakzatokra](https://reference.aspose.com/slides/hu/python-net/aspose.slides/shape/get_image/). A kapott képek tükrözik az aktuális diák méretét és képarányát, biztosítva a következetes keretezést és geometriát.

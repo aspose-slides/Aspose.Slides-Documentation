@@ -17,19 +17,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Sesuaikan catatan presentasi dengan Aspose.Slides untuk Android via Java. Bekerja secara mulus dengan catatan PowerPoint dan OpenDocument untuk meningkatkan produktivitas Anda."
+description: "Sesuaikan catatan presentasi dengan Aspose.Slides untuk Android melalui Java. Bekerja dengan mulus pada catatan PowerPoint dan OpenDocument untuk meningkatkan produktivitas Anda."
 ---
-## **Ikhtisar**
+## **Overview**
 
-Aspose.Slides mendukung penghapusan slide catatan dari sebuah presentasi. Dalam topik ini, kami akan memperkenalkan fitur ini, termasuk cara menghapus catatan dan cara menerapkan gaya pada slide catatan dalam sebuah presentasi. Aspose.Slides memungkinkan Anda menghapus catatan dari slide mana pun serta menerapkan gaya pada catatan yang sudah ada. Pengembang dapat menghapus catatan dengan cara berikut:
+Aspose.Slides mendukung penghapusan slide catatan dari sebuah presentasi. Pada topik ini, kami akan memperkenalkan fitur ini, termasuk cara menghapus catatan dan cara menerapkan gaya pada slide catatan dalam sebuah presentasi. Aspose.Slides memungkinkan Anda menghapus catatan dari slide mana pun serta menerapkan gaya pada catatan yang ada. Pengembang dapat menghapus catatan dengan cara berikut:
 
 - Menghapus catatan dari slide tertentu dalam sebuah presentasi.
 - Menghapus catatan dari semua slide dalam sebuah presentasi.
 
-## **Hapus Catatan dari Slide**
-Catatan dari slide tertentu dapat dihapus seperti yang ditunjukkan dalam contoh di bawah ini:
+Untuk membaca atau mengubah dimensi halaman catatan, mengubah orientasi, dan memeriksa perilaku ekspor, lihat [Notes Page Size](/slides/id/androidjava/notes-size/).
+
+## **Remove Notes from a Slide**
+Catatan dari slide tertentu dapat dihapus seperti yang ditunjukkan pada contoh di bawah ini:
 
 ```java
+import com.aspose.slides.*;
+
 // Membuat objek Presentation yang mewakili file presentasi
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
@@ -44,14 +48,16 @@ try {
 }
 ```
 
-## **Hapus Catatan dari Presentasi**
-Catatan dari semua slide dalam sebuah presentasi dapat dihapus seperti yang ditunjukkan dalam contoh di bawah ini:
+## **Remove Notes from a Presentation**
+Catatan dari semua slide dalam sebuah presentasi dapat dihapus seperti yang ditunjukkan pada contoh di bawah ini:
 
 ```java
+import com.aspose.slides.*;
+
 // Membuat objek Presentation yang mewakili file presentasi
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
-    // Menghapus catatan dari semua slide
+    // Menghapus catatan semua slide
     INotesSlideManager mgr = null;
     for (int i = 0; i < pres.getSlides().size(); i++) {
         mgr = pres.getSlides().get_Item(i).getNotesSlideManager();
@@ -65,10 +71,12 @@ try {
 }
 ```
 
-## **Tambahkan Gaya Catatan**
-[getNotesStyle](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) metode telah ditambahkan ke [IMasterNotesSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IMasterNotesSlide) interface dan kelas [MasterNotesSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/MasterNotesSlide) masing‑masing. Properti ini menentukan gaya teks catatan. Implementasinya ditunjukkan dalam contoh di bawah ini.
+## **Add a Notes Style**
+[getNotesStyle](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) method telah ditambahkan ke antarmuka [IMasterNotesSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IMasterNotesSlide) dan kelas [MasterNotesSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/MasterNotesSlide) masing‑masing. Properti ini menentukan gaya teks catatan. Implementasinya ditunjukkan pada contoh di bawah ini.
 
 ```java
+import com.aspose.slides.*;
+
 // Membuat objek Presentation yang mewakili file presentasi
 Presentation pres = new Presentation("demo.pptx");
 try {
@@ -79,7 +87,7 @@ try {
         // Dapatkan gaya teks MasterNotesSlide
         ITextStyle notesStyle = notesMaster.getNotesStyle();
     
-        // Setel bullet simbol untuk paragraf tingkat pertama
+        // Atur bullet simbol untuk paragraf level pertama
         IParagraphFormat paragraphFormat = notesStyle.getLevel(0);
         paragraphFormat.getBullet().setType(BulletType.Symbol);
     }
@@ -91,10 +99,10 @@ try {
 
 ## **FAQ**
 
-**Entitas API mana yang menyediakan akses ke catatan slide tertentu?**
+**Which API entity provides access to the notes of a specific slide?**
 
 Catatan diakses melalui manajer catatan slide: slide memiliki [NotesSlideManager](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/notesslidemanager/) dan sebuah [method](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/notesslidemanager/#getNotesSlide--) yang mengembalikan objek catatan, atau `null` jika tidak ada catatan.
 
-**Apakah ada perbedaan dalam dukungan catatan di antara versi PowerPoint yang didukung pustaka ini?**
+**Are there differences in notes support across the PowerPoint versions the library works with?**
 
-Pustaka ini menargetkan berbagai format Microsoft PowerPoint (97–lebih baru) dan ODP; catatan didukung dalam format‑format tersebut tanpa bergantung pada salinan PowerPoint yang terpasang.
+Perpustakaan ini mendukung berbagai format Microsoft PowerPoint (97‑sejak versi terbaru) dan ODP; catatan didukung dalam format‑format ini tanpa tergantung pada instalasi PowerPoint.

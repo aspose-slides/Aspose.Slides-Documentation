@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Präsentationsnotizen auf Android
+title: Präsentationsnotizen verwalten auf Android
 linktitle: Präsentationsnotizen
 type: docs
 weight: 110
@@ -19,22 +19,21 @@ keywords:
 - Aspose.Slides
 description: "Passen Sie Präsentationsnotizen mit Aspose.Slides für Android via Java an. Arbeiten Sie nahtlos mit PowerPoint- und OpenDocument-Notizen, um Ihre Produktivität zu steigern."
 ---
+## **Übersicht**
 
-{{% alert color="primary" %}} 
+Aspose.Slides unterstützt das Entfernen von Notizfolien aus einer Präsentation. In diesem Thema stellen wir diese Funktion vor, einschließlich wie Notizen entfernt werden und wie ein Stil auf Notizfolien in einer Präsentation angewendet wird. Aspose.Slides ermöglicht das Entfernen von Notizen von jeder Folie und auch das Anwenden von Formatierungen auf vorhandene Notizen. Entwickler können Notizen auf folgende Weise entfernen:
 
-Aspose.Slides unterstützt das Entfernen von Notizfolien aus einer Präsentation. In diesem Thema stellen wir diese neue Funktion zum Entfernen von Notizen sowie das Hinzufügen von Notizformatfolien aus einer beliebigen Präsentation vor. 
+- Notizen von einer bestimmten Folie in einer Präsentation entfernen.
+- Notizen von allen Folien in einer Präsentation entfernen.
 
-{{% /alert %}} 
-
-Aspose.Slides für Android via Java bietet die Möglichkeit, Notizen einer beliebigen Folie zu entfernen sowie Stil zu vorhandenen Notizen hinzuzufügen. Entwickler können Notizen auf folgende Weise entfernen:
-
-* Entfernen von Notizen einer bestimmten Folie einer Präsentation.
-* Entfernen von Notizen aller Folien einer Präsentation
-
+Um die Abmessungen der Notizseite zu lesen oder zu ändern, die Ausrichtung zu wechseln und das Exportverhalten zu prüfen, siehe [Notizseitengröße](/slides/de/androidjava/notes-size/).
 
 ## **Notizen von einer Folie entfernen**
-Notizen einer bestimmten Folie können wie im nachstehenden Beispiel entfernt werden:
+Notizen von einer bestimmten Folie können wie im folgenden Beispiel entfernt werden:
+
 ```java
+import com.aspose.slides.*;
+
 // Instanziieren Sie ein Presentation-Objekt, das eine Präsentationsdatei darstellt
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
@@ -49,10 +48,12 @@ try {
 }
 ```
 
+## **Notizen aus einer Präsentation entfernen**
+Notizen von allen Folien in einer Präsentation können wie im folgenden Beispiel entfernt werden:
 
-## **Notizen einer Präsentation entfernen**
-Notizen aller Folien einer Präsentation können wie im nachstehenden Beispiel entfernt werden:
 ```java
+import com.aspose.slides.*;
+
 // Instanziieren Sie ein Presentation-Objekt, das eine Präsentationsdatei darstellt
 Presentation pres = new Presentation("presWithNotes.pptx");
 try {
@@ -70,10 +71,12 @@ try {
 }
 ```
 
-
 ## **Notizstil hinzufügen**
-Die Methode [getNotesStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) wurde dem Interface [IMasterNotesSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMasterNotesSlide) und der Klasse [MasterNotesSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/MasterNotesSlide) jeweils hinzugefügt. Diese Eigenschaft legt den Stil eines Notiztextes fest. Die Implementierung wird im nachstehenden Beispiel gezeigt.
+[getNotesStyle](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/IMasterNotesSlide#getNotesStyle--)‑Methode wurde dem [IMasterNotesSlide](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/IMasterNotesSlide)‑Interface und der [MasterNotesSlide](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/MasterNotesSlide)‑Klasse jeweils hinzugefügt. Diese Eigenschaft gibt den Stil eines Notiztexts an. Die Implementierung wird im folgenden Beispiel demonstriert.
+
 ```java
+import com.aspose.slides.*;
+
 // Instanziieren Sie ein Presentation-Objekt, das eine Präsentationsdatei darstellt
 Presentation pres = new Presentation("demo.pptx");
 try {
@@ -81,10 +84,10 @@ try {
     
     if (notesMaster != null)
     {
-        // Abrufen des Textstils der MasterNotesSlide
+        // Hole den Textstil der MasterNotesSlide
         ITextStyle notesStyle = notesMaster.getNotesStyle();
     
-        //Setze Symbol-Aufzählungszeichen für Absätze der ersten Ebene
+        //Setze Symbolaufzählungszeichen für Absätze der ersten Ebene
         IParagraphFormat paragraphFormat = notesStyle.getLevel(0);
         paragraphFormat.getBullet().setType(BulletType.Symbol);
     }
@@ -94,13 +97,12 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
 **Welche API‑Entität bietet Zugriff auf die Notizen einer bestimmten Folie?**
 
-Auf Notizen wird über den Notiz‑Manager der Folie zugegriffen: Die Folie verfügt über einen [NotesSlideManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notesslidemanager/) und eine [Methode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notesslidemanager/#getNotesSlide--) , die das Notiz‑Objekt zurückgibt, oder `null`, falls keine Notizen vorhanden sind.
+Notizen werden über den Notiz‑Manager der Folie abgerufen: Die Folie verfügt über einen [NotesSlideManager](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/notesslidemanager/) und eine [Methode](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/notesslidemanager/#getNotesSlide--) die das Notizobjekt zurückgibt, oder `null`, wenn keine Notizen vorhanden sind.
 
 **Gibt es Unterschiede in der Notizunterstützung zwischen den PowerPoint‑Versionen, mit denen die Bibliothek arbeitet?**
 
-Die Bibliothek unterstützt ein breites Spektrum an Microsoft‑PowerPoint‑Formaten (97–neuere) sowie ODP; Notizen werden in diesen Formaten unterstützt, ohne dass eine installierte Kopie von PowerPoint erforderlich ist.
+Die Bibliothek unterstützt ein breites Spektrum an Microsoft‑PowerPoint‑Formaten (97–neuere) und ODP; Notizen werden in diesen Formaten unterstützt, ohne dass eine installierte Kopie von PowerPoint erforderlich ist.

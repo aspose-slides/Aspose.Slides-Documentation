@@ -1,6 +1,6 @@
 ---
-title: แปลงงานนำเสนอ PowerPoint เป็น PDF พร้อมโน้ตใน .NET
-linktitle: PowerPoint เป็น PDF พร้อมโน้ต
+title: แปลงงานนำเสนอ PowerPoint ไปเป็น PDF พร้อมบันทึกของวิทยากรใน .NET
+linktitle: PowerPoint เป็น PDF พร้อมบันทึกของวิทยากร
 type: docs
 weight: 50
 url: /th/net/convert-powerpoint-to-pdf-with-notes/
@@ -20,41 +20,46 @@ keywords:
 - บันทึก PPTX เป็น PDF
 - ส่งออก PPT เป็น PDF
 - ส่งออก PPTX เป็น PDF
-- โน้ตผู้บรรยาย
-- PDF พร้อมโน้ต
+- บันทึกของวิทยากร
+- PDF พร้อมบันทึก
 - .NET
 - C#
 - Aspose.Slides
-description: "แปลงรูปแบบ PPT และ PPTX เป็น PDF พร้อมโน้ตโดยใช้ Aspose.Slides สำหรับ .NET. รักษาเค้าโครงและโน้ตผู้บรรยายสำหรับงานนำเสนอระดับมืออาชีพ."
+description: "แปลงรูปแบบ PPT และ PPTX ไปเป็น PDF พร้อมบันทึกของวิทยากรโดยใช้ Aspose.Slides สำหรับ .NET. รักษาการจัดรูปแบบและบันทึกของวิทยากรสำหรับการนำเสนอระดับมืออาชีพ."
 ---
-## **ภาพรวม**
+## **Overview**
 
-ในบทความนี้ คุณจะได้เรียนรู้วิธีแปลงงานนำเสนอ PowerPoint เป็นรูปแบบ PDF พร้อมบันทึกเสียงโดยใช้ Aspose.Slides คู่มือนี้จะครอบคลุมขั้นตอนที่จำเป็นและให้ตัวอย่างโค้ดเพื่อช่วยให้คุณทำงานนี้ได้อย่างมีประสิทธิภาพ เมื่ออ่านครบแล้วคุณจะสามารถ:
+ในบทความนี้ คุณจะได้เรียนรู้วิธีแปลงงานนำเสนอ PowerPoint ไปเป็นรูปแบบ PDF พร้อมบันทึกของวิทยากรโดยใช้ Aspose.Slides คู่มือฉบับนี้จะอธิบายขั้นตอนที่จำเป็นและให้ตัวอย่างโค้ดเพื่อช่วยให้คุณทำงานนี้ได้อย่างมีประสิทธิภาพ เมื่ออ่านจบบทความนี้แล้ว คุณจะสามารถ:
 
-- ดำเนินการแปลงเพื่อแปลงสไลด์ PowerPoint ให้เป็นเอกสาร PDF พร้อมคงบันทึกเสียงไว้
-- ปรับแต่ง PDF ที่สร้างออกมาให้บันทึกเสียงถูกใส่และจัดรูปแบบตามความต้องการของคุณ
+- ดำเนินการแปลงเพื่อแปลงสไลด์ PowerPoint ให้เป็นเอกสาร PDF พร้อมคงบันทึกของวิทยากรไว้
+- ปรับแต่ง PDF ที่ได้เพื่อให้แน่ใจว่าบันทึกของวิทยากรถูกแทรกและจัดรูปแบบตามความต้องการของคุณ
 
-## **แปลง PowerPoint เป็น PDF พร้อมโน้ต**
+เพื่อกำหนดขนาดและการวางแนวของหน้าบันทึกก่อนส่งออก ให้ดูที่ [ขนาดหน้าบันทึก](/slides/th/net/notes-size/).
 
-เมธอด `Save` ในคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) สามารถใช้ในการแปลงงานนำเสนอ PPT หรือ PPTX ให้เป็น PDF พร้อมบันทึกเสียงได้ ด้วย Aspose.Slides คุณเพียงโหลดงานนำเสนอ ตั้งค่าตัวเลือกการจัดวางโดยใช้คลาส [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/notescommentslayoutingoptions/) เพื่อรวมบันทึกเสียง แล้วบันทึกไฟล์เป็น PDF ตัวอย่างโค้ดต่อไปนี้สาธิตวิธีแปลงงานนำเสนอตัวอย่างเป็น PDF ในมุมมองสไลด์โน้ต
+## **Convert PowerPoint to PDF with Notes**
+
+`Save` method ในคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) สามารถใช้เพื่อแปลงงานนำเสนอ PPT หรือ PPTX ไปเป็น PDF พร้อมบันทึกของวิทยากร ด้วย Aspose.Slides คุณเพียงแค่โหลดงานนำเสนอ กำหนดตัวเลือกการจัดวางโดยใช้คลาส [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/notescommentslayoutingoptions/) เพื่อรวมบันทึกของวิทยากร แล้วบันทึกไฟล์เป็น PDF ตัวอย่างโค้ดต่อไปนี้แสดงวิธีแปลงงานนำเสนอ ตัวอย่างเป็น PDF ในมุมมองสไลด์บันทึก
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    // กำหนดค่าตัวเลือก PDF สำหรับการเรนเดอร์โน้ตผู้บรรยาย.
+    // กำหนดตัวเลือก PDF สำหรับการเรนเดอร์บันทึกของวิทยากร.
     PdfOptions pdfOptions = new PdfOptions
     {
         SlidesLayoutOptions = new NotesCommentsLayoutingOptions
         {
-            NotesPosition = NotesPositions.BottomFull // เรนเดอร์โน้ตผู้บรรยายใต้สไลด์.
+            NotesPosition = NotesPositions.BottomFull // แสดงบันทึกของวิทยากรด้านล่างสไลด์.
         }
     };
 
-    // บันทึกงานนำเสนอเป็น PDF พร้อมโน้ตผู้บรรยาย.
+    // บันทึกงานนำเสนอเป็น PDF พร้อมบันทึกของวิทยากร.
     presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
 }
 ```
 
-{{% alert color="primary" %}} 
-คุณอาจต้องการตรวจสอบ Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/th/conversion). 
+{{% alert color="info" %}} 
+คุณอาจต้องการตรวจสอบ Aspose [เครื่องแปลง PowerPoint เป็น PDF ออนไลน์](https://products.aspose.app/slides/th/conversion). 
 {{% /alert %}}
