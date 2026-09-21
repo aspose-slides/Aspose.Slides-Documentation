@@ -20,7 +20,9 @@ description: "Convert presentations to handouts in C++. Set slides per page, kee
 
 ## **Introduction**
 
-Aspose.Slides provides the ability to convert presentations into various formats, including creating handouts for printing in Handout mode. This mode allows you to configure how multiple slides appear on a single page, making it useful for conferences, seminars, and other events. You can enable this mode by setting the `set_SlidesLayoutOptions` method in the [IPdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/ihtmloptions/), and [ITiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/itiffoptions/) interfaces.
+Aspose.Slides provides the ability to convert presentations into various formats, including creating handouts for printing in Handout mode. This mode allows you to configure how multiple slides appear on a single page, making it useful for conferences, seminars, and other events. You can enable this mode by calling the `set_SlidesLayoutOptions` method in the [IPdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/ihtmloptions/), and [ITiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/itiffoptions/) interfaces.
+
+To set the handout page dimensions and orientation before export, see [Notes Page Size](/slides/cpp/notes-size/).
 
 ## **Handout Mode Export**
 

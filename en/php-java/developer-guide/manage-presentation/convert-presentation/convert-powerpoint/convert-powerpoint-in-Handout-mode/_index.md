@@ -22,6 +22,8 @@ description: "Convert presentations to handouts in PHP. Set slides per page, kee
 
 Aspose.Slides provides the ability to convert presentations into various formats, including creating handouts for printing in Handout mode. This mode allows you to configure how multiple slides appear on a single page, making it useful for conferences, seminars, and other events. You can enable this mode by setting the `setSlidesLayoutOptions` method in the [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/htmloptions/), and [TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/) classes.
 
+To set the handout page dimensions and orientation before export, see [Notes Page Size](/slides/php-java/notes-size/).
+
 ## **Handout Mode Export**
 
 To configure Handout mode, use the [HandoutLayoutingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/handoutlayoutingoptions/) object, which determines how many slides are placed on a single page and other display parameters.
@@ -47,7 +49,7 @@ $presentation->save("output.pdf", SaveFormat::Pdf, $pdfOptions);
 $presentation->dispose();
 ```
 
-{{% alert color="warning" %}} 
+{{% alert color="warning" title="Warning" %}}
 
 Keep in mind that the `setSlidesLayoutOptions` method is available only for certain output formats, such as PDF, HTML, TIFF, and when rendering as images.
 
@@ -55,14 +57,14 @@ Keep in mind that the `setSlidesLayoutOptions` method is available only for cert
 
 ## **FAQ**
 
-### What is the maximum number of slide thumbnails per page in Handout mode?
+**What is the maximum number of slide thumbnails per page in Handout mode?**
 
 Aspose.Slides supports [presets](https://reference.aspose.com/slides/php-java/aspose.slides/handouttype/) up to 9 thumbnails per page with horizontal or vertical ordering: 1, 2, 3, 4 (horizontal/vertical), 6 (horizontal/vertical), and 9 (horizontal/vertical).
 
-### Can I define a custom grid, such as 5 or 8 slides per page?
+**Can I define a custom grid, such as 5 or 8 slides per page?**
 
 No. The number and ordering of thumbnails are controlled strictly by the [HandoutType](https://reference.aspose.com/slides/php-java/aspose.slides/handouttype/) class; arbitrary layouts are not supported.
 
-### Can I include hidden slides in the Handout output?
+**Can I include hidden slides in the Handout output?**
 
 Yes. Enable the hidden slides using the `setShowHiddenSlides` method in the export settings for the target format, such as [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/php-java/aspose.slides/htmloptions/), or [TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/).

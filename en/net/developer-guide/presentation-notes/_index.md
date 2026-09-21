@@ -27,6 +27,8 @@ Aspose.Slides supports removing notes slides from a presentation. In this topic,
 - Remove notes from a specific slide in a presentation.
 - Remove notes from all slides in a presentation.
 
+To read or change notes page dimensions, switch orientation, and check export behavior, see [Notes Page Size](/slides/net/notes-size/).
+
 ## **Remove Notes from a Slide**
 Notes of some specific slide could be removed as shown in the example below:
 

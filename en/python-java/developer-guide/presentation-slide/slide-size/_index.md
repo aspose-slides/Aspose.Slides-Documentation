@@ -45,6 +45,8 @@ Ensure consistency throughout your presentation as a single slide size and aspec
 By default, presentations created with Aspose.Slides use the standard 4:3 aspect ratio.
 {{% /alert %}}
 
+Notes and handout pages have separate dimensions from regular slides. See [Notes Page Size](/slides/python-java/notes-size/) to change their size and orientation.
+
 ## **Change the Slide Size in Presentations**
 
 This sample code shows you how to change the slide size in a presentation in Python via Java using Aspose.Slides:

@@ -28,6 +28,8 @@ description: "Convert PPT and PPTX presentations to PDF with speaker notes using
 
 This article explains how to convert PowerPoint presentations to PDF with speaker notes using Aspose.Slides for Python via Java. You can include notes below each slide and allow long notes to continue onto additional pages. For other PDF export settings, see [Convert PowerPoint to PDF](/slides/python-java/convert-powerpoint-to-pdf/).
 
+To set the notes page dimensions and orientation before export, see [Notes Page Size](/slides/python-java/notes-size/).
+
 ## **Convert PowerPoint to PDF with Notes**
 
 Use the [save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) method of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class to export a PPT or PPTX presentation to PDF. To include speaker notes, create a [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/python-java/aspose.slides/notescommentslayoutingoptions/) object and configure note placement with its [setNotesPosition](https://reference.aspose.com/slides/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) method. Assign this layout to [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) using [setSlidesLayoutOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).

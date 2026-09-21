@@ -34,6 +34,8 @@ In this article, you will learn how to convert PowerPoint presentations to PDF f
 - Implement the conversion process to transform PowerPoint slides into PDF documents while preserving the speaker notes.
 - Customize the output PDF to ensure that the speaker notes are included and formatted according to your requirements.
 
+To set the notes page dimensions and orientation before export, see [Notes Page Size](/slides/cpp/notes-size/).
+
 ## **Convert PowerPoint to PDF with Notes**
 
 The `Save` method in the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class can be used to convert a PPT or PPTX presentation to a PDF with speaker notes. With Aspose.Slides, you simply load the presentation, configure the layout options using the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/) class to include speaker notes, and then save the file as a PDF. The following code snippet demonstrates how to convert a sample presentation to a PDF in Notes Slide view.
@@ -64,6 +66,6 @@ presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
 
 {{% alert color="info" %}} 
 
-You may to want to check out Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/conversion). 
+You may want to check out the Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/conversion).
 
 {{% /alert %}} 

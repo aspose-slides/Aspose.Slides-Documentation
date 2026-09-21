@@ -25,6 +25,8 @@ Aspose.Slides allows you to convert presentations to output formats that support
 
 Handout mode is configured through the `SlidesLayoutOptions` property, which is available in [IPdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/ihtmloptions/), and [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/). To define the handout layout, use the [HandoutLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/handoutlayoutingoptions/) object.
 
+To set the handout page dimensions and orientation before export, see [Notes Page Size](/slides/net/notes-size/).
+
 ## **Handout Mode Export**
 
 To export a presentation in Handout mode, set the `SlidesLayoutOptions` property for the target export options and assign a [HandoutLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/handoutlayoutingoptions/) instance that defines the number of slides per page and related display parameters.
