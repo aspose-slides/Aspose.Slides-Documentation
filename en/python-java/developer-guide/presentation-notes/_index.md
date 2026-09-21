@@ -27,6 +27,8 @@ Aspose.Slides supports removing notes slides from a presentation. This topic int
 - Remove notes from a specific slide in a presentation.
 - Remove notes from all slides in a presentation.
 
+To read or change notes page dimensions, switch orientation, and check export behavior, see [Notes Page Size](/slides/python-java/notes-size/).
+
 ## **Remove Notes from a Slide**
 
 Notes from a specific slide can be removed as shown in the example below:

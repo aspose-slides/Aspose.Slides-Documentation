@@ -27,8 +27,10 @@ Aspose.Slides supports removing notes slides from a presentation. In this topic,
 - Remove notes from a specific slide in a presentation.
 - Remove notes from all slides in a presentation.
 
+To read or change notes page dimensions, switch orientation, and check export behavior, see [Notes Page Size](/slides/androidjava/notes-size/).
+
 ## **Remove Notes from a Slide**
-Notes of some specific slide could be removed as shown in example below:
+Notes from a specific slide can be removed as shown in the example below:
 
 ```java
 import com.aspose.slides.*;
@@ -48,7 +50,7 @@ try {
 ```
 
 ## **Remove Notes from a Presentation**
-Notes of all the slides of a presentation could be removed as shown in example below:
+Notes from all slides in a presentation can be removed as shown in the example below:
 
 ```java
 import com.aspose.slides.*;
@@ -98,10 +100,10 @@ try {
 
 ## **FAQ**
 
-### Which API entity provides access to the notes of a specific slide?
+**Which API entity provides access to the notes of a specific slide?**
 
 Notes are accessed through the slide’s notes manager: the slide has a [NotesSlideManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notesslidemanager/) and a [method](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notesslidemanager/#getNotesSlide--) that returns the notes object, or `null` if there are no notes.
 
-### Are there differences in notes support across the PowerPoint versions the library works with?
+**Are there differences in notes support across the PowerPoint versions the library works with?**
 
 The library targets a broad range of Microsoft PowerPoint formats (97–newer) and ODP; notes are supported within these formats without depending on an installed copy of PowerPoint.

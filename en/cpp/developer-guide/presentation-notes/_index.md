@@ -26,16 +26,18 @@ Aspose.Slides supports removing notes slides from a presentation. In this topic,
 - Remove notes from a specific slide in a presentation.
 - Remove notes from all slides in a presentation.
 
+To read or change notes page dimensions, switch orientation, and check export behavior, see [Notes Page Size](/slides/cpp/notes-size/).
+
 ## **Remove Notes from a Specific Slide**
-Notes of some specific slide could be removed as shown in example below:
+Notes from a specific slide can be removed as shown in the example below:
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RemoveNotesAtSpecificSlide-RemoveNotesAtSpecificSlide.cpp" >}}
 ## **Remove Notes from All Slides**
-Notes of all the slides of a presentation could be removed as shown in example below:
+Notes from all slides in a presentation can be removed as shown in the example below:
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RemoveNotesFromAllSlides-RemoveNotesFromAllSlides.cpp" >}}
 ## **Add a Notes Style**
-NotesStyle property has been added to IMasterNotesSlide interface and MasterNotesSlide class respectively. This property specifies the style of a notes text.  The implementation is demonstrated in the example below.
+The NotesStyle property has been added to the IMasterNotesSlide interface and the MasterNotesSlide class. This property specifies the style of notes text. The implementation is demonstrated in the example below.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AddNotesSlideWithNotesStyle-AddNotesSlideWithNotesStyle.cpp" >}}
 

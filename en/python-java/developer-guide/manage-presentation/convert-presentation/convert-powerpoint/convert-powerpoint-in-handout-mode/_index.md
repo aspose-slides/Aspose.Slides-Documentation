@@ -25,6 +25,8 @@ Aspose.Slides for Python via Java allows you to export presentations in handout 
 
 Configure the layout through the [setSlidesLayoutOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions) method. Handout layouts are supported by [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/python-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/python-java/aspose.slides/htmloptions/), and [TiffOptions](https://reference.aspose.com/slides/python-java/aspose.slides/tiffoptions/). Use a [HandoutLayoutingOptions](https://reference.aspose.com/slides/python-java/aspose.slides/handoutlayoutingoptions/) object to specify the layout and display settings.
 
+To set the handout page dimensions and orientation before export, see [Notes Page Size](/slides/python-java/notes-size/).
+
 ## **Handout Mode Export**
 
 To export a presentation in handout mode, create a [HandoutLayoutingOptions](https://reference.aspose.com/slides/python-java/aspose.slides/handoutlayoutingoptions/) instance and assign it to the target export options using [setSlidesLayoutOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).

@@ -45,6 +45,8 @@ Ensure consistency throughout your presentation as a single slide size and aspec
 By default, presentations created with Aspose.Slides use the standard 4:3 aspect ratio.
 {{% /alert %}}
 
+Notes and handout pages have separate dimensions from regular slides. See [Notes Page Size](/slides/net/notes-size/) to change their size and orientation.
+
 ## **How to Change the Slide Size in a Presentation**
 
 This example demonstrates changing a presentation's slide size with Aspose.Slides in C#:

@@ -22,6 +22,8 @@ description: "Convert presentations to handouts in Python. Set slides per page, 
 
 Aspose.Slides provides the ability to convert presentations into various formats, including creating handouts for printing in Handout mode. This mode allows you to configure how multiple slides appear on a single page, making it useful for conferences, seminars, and other events. You can enable this mode by setting the `slides_layout_options` property in the [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/), and [TiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/) classes.
 
+To set the handout page dimensions and orientation before export, see [Notes Page Size](/slides/python-net/notes-size/).
+
 ## **Handout Mode Export**
 
 To configure Handout mode, use the [HandoutLayoutingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/handoutlayoutingoptions/) object, which determines how many slides are placed on a single page and other display parameters.
@@ -48,7 +50,7 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pdf", slides.export.SaveFormat.PDF, pdf_options)
 ```
 
-{{% alert color="warning" %}} 
+{{% alert color="warning" title="Warning" %}}
 
 Keep in mind that the `slides_layout_options` property is available only for certain output formats, such as PDF, HTML, TIFF, and when rendering as images.
 
@@ -56,14 +58,14 @@ Keep in mind that the `slides_layout_options` property is available only for cer
 
 ## **FAQ**
 
-### What is the maximum number of slide thumbnails per page in Handout mode?
+**What is the maximum number of slide thumbnails per page in Handout mode?**
 
 Aspose.Slides supports [presets](https://reference.aspose.com/slides/python-net/aspose.slides.export/handouttype/) up to 9 thumbnails per page with horizontal or vertical ordering: 1, 2, 3, 4 (horizontal/vertical), 6 (horizontal/vertical), and 9 (horizontal/vertical).
 
-### Can I define a custom grid, such as 5 or 8 slides per page?
+**Can I define a custom grid, such as 5 or 8 slides per page?**
 
 No. The number and ordering of thumbnails are controlled strictly by the [HandoutType](https://reference.aspose.com/slides/python-net/aspose.slides.export/handouttype/) enumeration; arbitrary layouts are not supported.
 
-### Can I include hidden slides in the Handout output?
+**Can I include hidden slides in the Handout output?**
 
 Yes. Enable the `show_hidden_slides` option in the export settings for the target format, such as [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/), or [TiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/).

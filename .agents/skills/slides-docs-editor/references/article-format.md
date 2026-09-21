@@ -20,6 +20,13 @@ recommendations, or examples as part of language correction. An instruction such
 anything of your own" does not prohibit these language corrections; an explicit request to preserve
 wording verbatim does.
 
+## Product versions
+
+Avoid mentioning specific Aspose.Slides versions in articles whenever possible. Include a version
+only when it is necessary to accurately explain compatibility, availability, or a version-specific
+limitation. Keep the version used for validation in validation reports rather than article prose
+unless readers need it to understand the documented behavior.
+
 ## Front matter
 
 - Keep valid YAML between balanced `---` delimiters.
