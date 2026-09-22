@@ -1,5 +1,5 @@
 ---
-title: ดึงและอัปเดตคุณสมบัติมุมมองการนำเสนอใน Python
+title: ดึงและอัปเดตคุณสมบัติมุมมองของงานนำเสนอใน Python
 linktitle: คุณสมบัติมุมมอง
 type: docs
 weight: 80
@@ -14,53 +14,53 @@ keywords:
 - สถานะแถบ
 - ขนาดมิติ
 - ปรับอัตโนมัติ
-- การซูมเริ่มต้น
+- ซูมเริ่มต้น
 - PowerPoint
-- การนำเสนอ
+- งานนำเสนอ
 - Python
 - Aspose.Slides
-description: "ค้นพบคุณสมบัติมุมมองของ Aspose.Slides for Python via .NET เพื่อปรับแต่งรูปแบบ PPT, PPTX และ ODP—ปรับการจัดเรียง, ระดับการซูม และการตั้งค่าการแสดงผล."
+description: "ค้นพบ Aspose.Slides for Python via .NET คุณสมบัติมุมมองเพื่อปรับแต่งรูปแบบสไลด์ PPT, PPTX และ ODP — ปรับเลย์เอาต์ระดับซูมและการตั้งค่าการแสดงผล."
 ---
 ## **บทนำ**
 
-มุมมองปกติประกอบด้วยสามพื้นที่เนื้อหา: สไลด์เอง, พื้นที่เนื้อหาแบบด้านข้าง, และพื้นที่เนื้อหาแบบด้านล่าง. คุณสมบัติเกี่ยวกับการจัดตำแหน่งของพื้นที่เนื้อหาต่าง ๆ ข้อมูลนี้ทำให้แอปพลิเคชันสามารถบันทึกสถานะมุมมองลงในไฟล์ได้ ดังนั้นเมื่อเปิดใหม่มุมมองจะอยู่ในสถานะเดียวกันกับเมื่อการนำเสนอถูกบันทึกล่าสุด.
+มุมมองปกติประกอบด้วยพื้นที่เนื้อหา 3 ส่วน: สไลด์เอง, พื้นที่เนื้อหาด้านข้าง, และพื้นที่เนื้อหาด้านล่าง. คุณสมบัติที่เกี่ยวข้องกับการจัดตำแหน่งของแต่ละพื้นที่เนื้อหา. ข้อมูลนี้ทำให้แอปพลิเคชันสามารถบันทึกสถานะมุมมองลงไฟล์ได้, เพื่อให้เมื่อเปิดใหม่มุมมองอยู่ในสถานะเดียวกับที่บันทึกครั้งล่าสุด.
 
-คุณสมบัติ [ViewProperties.normal_view_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/viewproperties/normal_view_properties/) ถูกเพิ่มเข้ามาเพื่อให้เข้าถึงคุณสมบัติมุมมองปกติของการนำเสนอ.  
+Property [ViewProperties.normal_view_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/viewproperties/normal_view_properties/) ได้ถูกเพิ่มเพื่อให้เข้าถึงคุณสมบัติมุมมองปกติของงานนำเสนอ.
 
-คลาส [NormalViewProperties](https://reference.aspose.com/slides/th/python-net/aspose.slides/normalviewproperties/), [NormalViewRestoredProperties](https://reference.aspose.com/slides/th/python-net/aspose.slides/normalviewrestoredproperties/) และคลาสลูกของมัน, และ enum [SplitterBarStateType](https://reference.aspose.com/slides/th/python-net/aspose.slides/splitterbarstatetype/) ได้ถูกเพิ่มเข้ามา.
+คลาส [NormalViewProperties](https://reference.aspose.com/slides/th/python-net/aspose.slides/normalviewproperties/), [NormalViewRestoredProperties](https://reference.aspose.com/slides/th/python-net/aspose.slides/normalviewrestoredproperties/) และ enum [SplitterBarStateType](https://reference.aspose.com/slides/th/python-net/aspose.slides/splitterbarstatetype/) ได้ถูกเพิ่ม.
 
 ## **เกี่ยวกับ INormalViewProperties**
 
 แสดงคุณสมบัติมุมมองปกติ.
 
-คุณสมบัติ **ShowOutlineIcons** ระบุว่าจะให้แอปพลิเคชันแสดงไอคอนหรือไม่เมื่อแสดงเนื้อหาโครงร่างในพื้นที่เนื้อหาใด ๆ ของโหมดมุมมองปกติ.
+Property **ShowOutlineIcons** กำหนดว่าแอปพลิเคชันควรแสดงไอคอนเมื่อแสดงเนื้อหาโครงร่างในพื้นที่เนื้อหาใด ๆ ของโหมดมุมมองปกติหรือไม่.
 
-คุณสมบัติ **SnapVerticalSplitter** ระบุว่าจะให้ตัวแบ่งแนวตั้งสแนปไปยังสถานะย่อเมื่อพื้นที่ด้านข้างมีขนาดเล็กพอหรือไม่.
+Property **SnapVerticalSplitter** กำหนดว่าตัวแบ่งแนวตั้งควรสแนปไปยังสถานะย่อเมื่อตัวพื้นที่ด้านข้างเล็กพอ.
 
-คุณสมบัติ **PreferSingleView** ระบุว่าผู้ใช้ต้องการดูพื้นที่เนื้อหาแบบเต็มหน้าต่างหนึ่งส่วนแทนมุมมองปกติมาตรฐานที่มีสามพื้นที่หรือไม่ หากเปิดใช้งาน แอปพลิเคชันอาจเลือกแสดงหนึ่งในพื้นที่เนื้อหาในทั้งหน้าต่าง.
+Property **PreferSingleView** กำหนดว่าผู้ใช้ต้องการดูพื้นที่เนื้อหาเดี่ยวเต็มหน้าต่างแทนมุมมองปกติมี 3 พื้นที่หรือไม่. หากเปิดใช้งาน, แอปพลิเคชันอาจเลือกแสดงหนึ่งในพื้นที่เนื้อหาเต็มหน้าต่าง.
 
-คุณสมบัติ **VerticalBarState** และ **HorizontalBarState** ระบุสถานะที่แถบแบ่งแนวนอนหรือแนวตั้งควรแสดง แถบแบ่งแนวนอนแยกสไลด์จากพื้นที่เนื้อหาที่อยู่ด้านล่างสไลด์, แถบแบ่งแนวตั้งแยกสไลด์จากพื้นที่เนื้อหาด้านข้าง ค่าที่เป็นไปได้คือ: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** และ **SplitterBarStateType.Restored**.
+Properties **VerticalBarState** และ **HorizontalBarState** กำหนดสถานะที่แถบตัวแบ่งแนวตั้งหรือแนวนอนควรแสดง. แถบตัวแบ่งแนวนอนจะแยกสไลด์จากพื้นที่เนื้อหาด้านล่าง, ส่วนแถบตัวแบ่งแนวตั้งจะแยกสไลด์จากพื้นที่เนื้อหาด้านข้าง. ค่าที่เป็นไปได้คือ **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** และ **SplitterBarStateType.Restored**.
 
-คุณสมบัติ **RestoredLeft** และ **RestoredTop** ระบุขนาดของพื้นที่สไลด์ด้านบนหรือด้านข้างของมุมมองปกติ เมื่อค่าของ **SplitterBarStateType.Restored** ถูกนำไปใช้กับ **VerticalBarState** และ **HorizontalBarState** ตามลำดับ.
+Properties **RestoredLeft** และ **RestoredTop** กำหนดขนาดของพื้นที่สไลด์ด้านบนหรือด้านข้างของมุมมองปกติ, เมื่อค่า **SplitterBarStateType.Restored** ถูกนำไปใช้กับ **VerticalBarState** และ **HorizontalBarState** ตามลำดับ.
 
 ## **เกี่ยวกับการคืนค่า INormalViewProperties**
 
-ระบุขนาดของพื้นที่สไลด์ (ความกว้างเมื่อเป็นลูกของ RestoredTop, ความสูงเมื่อเป็นลูกของ RestoredLeft) ของมุมมองปกติเมื่อพื้นที่มีขนาดที่คืนค่าได้แบบแปรผัน (ไม่ย่อและไม่ขยาย).
+กำหนดขนาดของพื้นที่สไลด์ (ความกว้างเมื่อเป็นลูกของ RestoredTop, ความสูงเมื่อเป็นลูกของ RestoredLeft) ของมุมมองปกติ, เมื่อพื้นที่มีขนาดที่สามารถคืนค่าได้ (ไม่ย่อหรือขยาย).
 
-คุณสมบัติ **DimensionSize** ระบุขนาดของพื้นที่สไลด์ (ความกว้างเมื่อเป็นลูกของ restoredTop, ความสูงเมื่อเป็นลูกของ restoredLeft).
+Property **DimensionSize** กำหนดขนาดของพื้นที่สไลด์ (ความกว้างเมื่อเป็นลูกของ RestoredTop, ความสูงเมื่อเป็นลูกของ RestoredLeft).
 
-คุณสมบัติ **AutoAdjust** ระบุว่าขนาดของพื้นที่เนื้อหาด้านข้างควรปรับตามขนาดใหม่เมื่อปรับขนาดหน้าต่างที่บรรจุมุมมองภายในแอปพลิเคชันหรือไม่.
+Property **AutoAdjust** กำหนดว่าพื้นที่เนื้อหาแบบด้านข้างควรปรับขนาดให้สอดคล้องกับขนาดใหม่เมื่อเปลี่ยนขนาดหน้าต่างที่บรรจุมุมมองในแอปพลิเคชันหรือไม่.
 
-ตัวอย่างด้านล่างแสดงวิธีการเข้าถึงคุณสมบัติ **ViewProperties.NormalViewProperties** ของการนำเสนอ.
+ตัวอย่างด้านล่างแสดงวิธีเข้าถึงคุณสมบัติ **ViewProperties.NormalViewProperties** ของงานนำเสนอ.
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as pres:
+with slides.Presentation("AccessSlides.pptx") as pres:
     pres.view_properties.normal_view_properties.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
     pres.view_properties.normal_view_properties.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
 
-    # คืนค่าคุณสมบัติมุมมองของการนำเสนอ
+    # คืนค่าคุณสมบัติมุมมองของงานนำเสนอ
     pres.view_properties.normal_view_properties.restored_top.auto_adjust = True
     pres.view_properties.normal_view_properties.restored_top.dimension_size = 80
     pres.view_properties.normal_view_properties.show_outline_icons = True
@@ -68,36 +68,68 @@ with slides.Presentation(path + "AccessSlides.pptx") as pres:
     pres.save("presentation_normal_view_state.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ตั้งค่าการซูมเริ่มต้น**
+## **ตั้งค่าค่าซูมเริ่มต้น**
 
-Aspose.Slides for Python via .NET ตอนนี้สนับสนุนการตั้งค่าการซูมเริ่มต้นสำหรับการนำเสนอ เพื่อให้เมื่อเปิดการนำเสนอ การซูมจะตั้งค่าไว้แล้ว สามารถทำได้โดยการตั้งค่า [view_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/view_properties/) ของการนำเสนอ คุณสมบัติการดูสไลด์และ [notes_view_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/viewproperties/notes_view_properties/) สามารถตั้งค่าได้โดยโปรแกรม ในหัวข้อนี้ เราจะดูตัวอย่างวิธีตั้งค่าคุณสมบัติมุมมองของการนำเสนอใน Aspose.Slides.
+Aspose.Slides for Python via .NET ตอนนี้สนับสนุนการตั้งค่าค่าซูมเริ่มต้นสำหรับงานนำเสนอเพื่อให้เมื่อเปิดงานนำเสนอแล้วซูมถูกตั้งค่าไว้แล้ว. สามารถทำได้โดยตั้งค่า [view_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/view_properties/) ของงานนำเสนอ. คุณสมบัติมุมมองสไลด์และ [notes_view_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/viewproperties/notes_view_properties/) สามารถตั้งค่าได้ด้วยโปรแกรม. ในหัวข้อนี้ เราจะดูตัวอย่างการตั้งค่าคุณสมบัติมุมมองของงานนำเสนอใน Aspose.Slides.
 
-เพื่อกำหนดคุณสมบัติมุมมอง กรุณาตามขั้นตอนด้านล่าง:
+เพื่อทำการตั้งค่าคุณสมบัติมุมมอง, โปรดทำตามขั้นตอนต่อไปนี้:
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/)
-1. ตั้งค่า [view properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/viewproperties/) ของการนำเสนอ
-1. บันทึกการนำเสนอเป็นไฟล์ PPTX
+1. ตั้งค่า [view properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/viewproperties/) ของงานนำเสนอ
+1. บันทึกงานนำเสนอเป็นไฟล์ PPTX
 
-ในตัวอย่างด้านล่าง เราได้ตั้งค่าการซูมสำหรับมุมมองสไลด์และมุมมองบันทึกย่อ.
+ในตัวอย่างด้านล่าง เราได้ตั้งค่าค่าซูมสำหรับมุมมองสไลด์และมุมมองโน้ต.
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # ตั้งค่าคุณสมบัติมุมมองของการนำเสนอ
-    presentation.view_properties.slide_view_properties.scale = 100 # ค่าการซูมเป็นเปอร์เซ็นต์สำหรับมุมมองสไลด์
-    presentation.view_properties.notes_view_properties.scale = 100 # ค่าการซูมเป็นเปอร์เซ็นต์สำหรับมุมมองบันทึกย่อ 
+with slides.Presentation("AccessSlides.pptx") as presentation:
+    # ตั้งค่าคุณสมบัติมุมมองของงานนำเสนอ
+    presentation.view_properties.slide_view_properties.scale = 100 # ค่าซูมเป็นเปอร์เซ็นต์สำหรับมุมมองสไลด์
+    presentation.view_properties.notes_view_properties.scale = 100 # ค่าซูมเป็นเปอร์เซ็นต์สำหรับมุมมองบันทึกย่อ 
 
     presentation.save("Zoom_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **คำถามที่พบบ่อย**
+## **ตั้งค่าระยะห่างกริด**
 
-**ฉันสามารถตั้งค่ามุมมองที่แตกต่างสำหรับส่วนต่าง ๆ ของการนำเสนอได้หรือไม่?**  
-[View settings](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/view_properties/) ถูกกำหนดอยู่ในระดับการนำเสนอ ([Normal View](https://reference.aspose.com/slides/th/python-net/aspose.slides/viewproperties/normal_view_properties/)/[Slide View](https://reference.aspose.com/slides/th/python-net/aspose.slides/viewproperties/slide_view_properties/)) ไม่ได้ต่อส่วน ดังนั้นชุดพารามิเตอร์เดียวจะใช้กับเอกสารทั้งหมดเมื่อเปิด.
+ใช้ [Presentation.view_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/view_properties/) เพื่อเข้าถึงการตั้งค่ามุมมองระดับงานนำเสนอทั้งหมด. Property [ViewProperties.grid_spacing](https://reference.aspose.com/slides/th/python-net/aspose.slides/viewproperties/grid_spacing/) อ่านหรือเปลี่ยนช่วงของกริดการแก้ไขพื้นฐาน. การตั้งค่านี้ใช้กับงานนำเสนอทั้งหมด, ไม่ใช่สไลด์แต่ละอัน. ระยะห่างกริดระบุเป็นจุด, โดย 72 จุดเท่ากับหนึ่งนิ้ว. ใช้ค่าบวกตามที่เอกสาร API กำหนด.
 
-**ฉันสามารถกำหนดสถานะมุมมองที่แตกต่างสำหรับผู้ใช้คนต่างๆ ได้ล่วงหน้าหรือไม่?**  
-ไม่ การตั้งค่าถูกเก็บไว้ในไฟล์และใช้ร่วมกัน แอปพลิเคชันผู้ชมอาจเคารพความต้องการของผู้ใช้ แต่ไฟล์เองมีชุดคุณสมบัติมุมมองเดียว.
+ตัวอย่างต่อไปนี้เปิด `demo.pptx` ที่มีอยู่, พิมพ์ระยะห่างกริดปัจจุบัน, ตั้งค่าช่วงสี่ส่วนหนึ่งของนิ้ว, และบันทึกผลลัพธ์.
 
-**ฉันสามารถเตรียมเทมเพลตพร้อมคุณสมบัติมุมมองที่กำหนดล่วงหน้าเพื่อให้การนำเสนอใหม่เปิดในลักษณะเดียวกันได้หรือไม่?**  
-ได้ เพราะ [view properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/view_properties/) ถูกเก็บไว้ระดับการนำเสนอ คุณสามารถฝังมันในเทมเพลตและสร้างเอกสารใหม่จากเทมเพลตนั้นด้วยการกำหนดค่ามุมมองเริ่มต้นเดียวกัน.
+```py
+import aspose.slides as slides
+
+with slides.Presentation("demo.pptx") as presentation:
+    grid_spacing = presentation.view_properties.grid_spacing
+    print(f"Current grid spacing: {grid_spacing} points")
+
+    presentation.view_properties.grid_spacing = 18.0
+    presentation.save("grid-spacing.pptx", slides.export.SaveFormat.PPTX)
+```
+
+กริดแตกต่างจาก [drawing guides](/slides/th/python-net/drawing-guides/). ระยะห่างกริดควบคุมช่วงปกติ, ขณะที่ drawing guides เป็นเส้นแนวตั้งหรือแนวนอนที่วางตำแหน่งได้โดยอิสระ. การเพิ่ม, ย้าย, หรือ ลบ drawing guides ไม่เปลี่ยนระยะห่างกริด.
+
+กริดและ drawing guides ทั้งสองเป็นเครื่องมือช่วยการแก้ไข. พวกมันไม่ได้ถูกเรนเดอร์เป็นเนื้อหาในสไลด์เมื่อแปลงเป็น PDF, รูปภาพ, SVG, หรือการสไลด์โชว์. การเก็บระยะห่างกริดไม่รับประกันว่าโปรแกรมแก้ไขจะแสดงกริด: การมองเห็นยังขึ้นอยู่กับการตั้งค่าของผู้ชมหรือโปรแกรมแก้ไข.
+
+## **ถามตอบ**
+
+**ทำไมกริดถึงไม่แสดงหลังจากเปิดงานนำเสนอใหม่?**
+
+ไฟล์บันทึกระยะห่างกริดไว้, แต่โปรแกรมแก้ไขเป็นผู้ควบคุมว่ากริดจะแสดงหรือไม่. ตรวจสอบการตั้งค่าการมองเห็นกริดของโปรแกรมแก้ไข.
+
+**การลบ drawing guides จะเปลี่ยนระยะห่างกริดหรือไม่?**
+
+ไม่มี. drawing guides และระยะห่างกริดเป็นการตั้งค่าที่แยกกัน. การลบ guides จะไม่เปลี่ยนช่วงกริดที่เก็บไว้.
+
+**ฉันสามารถตั้งค่าการมองเห็นต่าง ๆ สำหรับส่วนต่าง ๆ ของงานนำเสนอได้หรือไม่?**
+
+[View settings](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/view_properties/) ถูกกำหนดในระดับงานนำเสนอ ([Normal View](https://reference.aspose.com/slides/th/python-net/aspose.slides/viewproperties/normal_view_properties/)/[Slide View](https://reference.aspose.com/slides/th/python-net/aspose.slides/viewproperties/slide_view_properties/)), ไม่ได้ตามส่วน, ดังนั้นชุดพารามิเตอร์เดียวจะใช้กับเอกสารทั้งหมดเมื่อเปิด.
+
+**ฉันสามารถกำหนดสถานะมุมมองต่าง ๆ สำหรับผู้ใช้ต่าง ๆ ได้หรือไม่?**
+
+ไม่ได้. การตั้งค่าถูกเก็บในไฟล์และใช้ร่วมกัน. แอปพลิเคชันผู้ชมอาจเคารพการตั้งค่าผู้ใช้, แต่ไฟล์เองมีชุดคุณสมบัติมุมมองเดียว.
+
+**ฉันสามารถสร้างเทมเพลตที่มี View Properties ที่กำหนดไว้ล่วงหน้าเพื่อให้งานนำเสนอใหม่เปิดในลักษณะเดียวกันได้หรือไม่?**
+
+ได้. เนื่องจาก [view properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/view_properties/) ถูกเก็บในระดับงานนำเสนอ, คุณสามารถฝังลงในเทมเพลตและสร้างเอกสารใหม่จากเทมเพลตนั้นโดยใช้การกำหนดมุมมองเริ่มต้นเดียวกัน.

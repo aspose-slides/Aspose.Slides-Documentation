@@ -1,5 +1,5 @@
 ---
-title: ดึงข้อมูลและอัปเดตคุณสมบัติมุมมองของงานนำเสนอใน PHP
+title: ดึงและอัปเดตคุณสมบัติมุมมองของงานนำเสนอใน PHP
 linktitle: คุณสมบัติมุมมอง
 type: docs
 weight: 80
@@ -9,50 +9,50 @@ keywords:
 - มุมมองปกติ
 - เนื้อหาโครงร่าง
 - ไอคอนโครงร่าง
-- ตัวแบ่งแนวตั้งสแนป
+- จับบาร์แยกแนวตั้ง
 - มุมมองเดียว
-- สถานะแถบ
+- สถานะบาร์
 - ขนาดมิติ
 - ปรับอัตโนมัติ
-- การซูมเริ่มต้น
-- พาวเวอร์พอยท์
+- ซูมเริ่มต้น
+- PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - PHP
 - Aspose.Slides
-description: "ค้นพบคุณสมบัติมุมมองของ Aspose.Slides สำหรับ PHP ผ่าน Java เพื่อปรับแต่งรูปแบบสไลด์ PPT, PPTX, และ ODP — ปรับเลย์เอาต์ ระดับการซูม และการตั้งค่าการแสดงผล"
+description: "ค้นพบคุณสมบัติมุมมองของ Aspose.Slides for PHP via Java เพื่อปรับแต่งสไลด์รูปแบบ PPT, PPTX และ ODP — ปรับเลย์เอาต์ ระดับซูม และการตั้งค่าการแสดงผล."
 ---
 ## **บทนำ**
 
-มุมมองปกติมีทั้งหมดสามพื้นที่เนื้อหา: สไลด์เอง, พื้นที่เนื้อหาด้านข้าง, และพื้นที่เนื้อหาทางด้านล่าง. คุณสมบัติที่เกี่ยวกับตำแหน่งของพื้นที่เนื้อหาต่าง ๆ นี้ทำให้แอปพลิเคชันสามารถบันทึกสถานะมุมมองลงในไฟล์, เพื่อให้เมื่อเปิดใหม่มุมมองอยู่ในสภาพเดียวกับที่บันทึกล่าสุดของงานนำเสนอ.
+มุมมองปกติประกอบด้วยสามพื้นที่เนื้อหา: สไลด์เอง, พื้นที่เนื้อหาด้านข้าง, และพื้นที่เนื้อหาด้านล่าง. คุณสมบัติที่เกี่ยวข้องกับการจัดตำแหน่งของแต่ละพื้นที่เนื้อหา. ข้อมูลนี้ทำให้แอปพลิเคชันสามารถบันทึกสถานะมุมมองลงในไฟล์, เพื่อให้เมื่อเปิดใหม่มุมมองอยู่ในสถานะเดียวกับที่บันทึกครั้งล่าสุดของงานนำเสนอ.
 
-Method [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) ได้ถูกเพิ่มเพื่อให้เข้าถึงคุณสมบัติมุมมองปกติของงานนำเสนอ.  
+Method [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) ได้ถูกเพิ่มเพื่อให้เข้าถึงคุณสมบัติมุมมองปกติของงานนำเสนอ.
 
-[NormalViewProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties), [NormalViewRestoredProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewRestoredProperties) classes และคลาสลูกของมัน, [SplitterBarStateType](https://reference.aspose.com/slides/th/php-java/aspose.slides/SplitterBarStateType) enum ได้ถูกเพิ่ม.
+คลาส [NormalViewProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties), [NormalViewRestoredProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewRestoredProperties) และคลาสลูกของมัน, enum [SplitterBarStateType](https://reference.aspose.com/slides/th/php-java/aspose.slides/SplitterBarStateType) ได้ถูกเพิ่ม.
 
 ## **เกี่ยวกับ INormalViewProperties**
 
-แสดงถึงคุณสมบัติมุมมองปกติ.
+แสดงคุณสมบัติมุมมองปกติ.
 
-Method [getShowOutlineIcons](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getShowOutlineIcons) และ [setShowOutlineIcons](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#setShowOutlineIcons) ระบุว่าภายในโหมดมุมมองปกติแอปพลิเคชันควรแสดงไอคอนหรือไม่เมื่อแสดงเนื้อหาโครงร่างในพื้นที่เนื้อหาใด ๆ
+Methods [getShowOutlineIcons](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getShowOutlineIcons) และ [setShowOutlineIcons](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#setShowOutlineIcons) ระบุว่าแอปพลิเคชันควรแสดงไอคอนหรือไม่เมื่อแสดงเนื้อหาโครงร่างในพื้นที่เนื้อหาใด ๆ ของโหมดมุมมองปกติ.
 
-Method [getSnapVerticalSplitter](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getSnapVerticalSplitter) และ [setSnapVerticalSplitter](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#setSnapVerticalSplitter) ระบุว่าตัวแบ่งแนวตั้งควรสแนปไปสภาพย่อเล็กเมื่อพื้นที่ด้านข้างมีขนาดเล็กพอ
+Methods [getSnapVerticalSplitter](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getSnapVerticalSplitter) และ [setSnapVerticalSplitter](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#setSnapVerticalSplitter) ระบุว่าบาร์แยกแนวตั้งควรส Snap ไปยังสถานะย่อเมื่อพื้นที่ด้านข้างมีขนาดเล็กพอ.
 
-Property [getPreferSingleView](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getPreferSingleView) และ [setPreferSingleView](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#setPreferSingleView) ระบุว่าผู้ใช้ต้องการมองเห็นพื้นที่เนื้อหาเดียวเต็มหน้าต่างแทนมุมมองปกติแบบสามพื้นที่หรือไม่ หากเปิดใช้งาน แอปพลิเคชันอาจเลือกแสดงหนึ่งในพื้นที่เนื้อหาให้เต็มหน้าต่าง
+Property [getPreferSingleView](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getPreferSingleView) และ [setPreferSingleView](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#setPreferSingleView) ระบุว่าผู้ใช้ต้องการดูพื้นที่เนื้อหาเดียวเต็มหน้าต่างแทนมุมมองปกติที่มีสามพื้นที่เนื้อหรือไม่. หากเปิดใช้ แอปพลิเคชันอาจเลือกแสดงหนึ่งในพื้นที่เนื้อหาให้เต็มหน้าต่าง.
 
-Method [getVerticalBarState](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) และ [getHorizontalBarState](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) ระบุสภาพที่แถบแบ่งแนวตั้งหรือแนวนอนควรแสดง. แถบแบ่งแนวนอนจะแยกสไลด์ออกจากพื้นที่เนื้อหาด้านล่าง, ส่วนแถบแบ่งแนวตั้งจะแยกสไลด์ออกจากพื้นที่เนื้อหาด้านข้าง. ค่าที่เป็นไปได้คือ: [SplitterBarStateType::Minimized](https://reference.aspose.com/slides/th/php-java/aspose.slides/SplitterBarStateType/#Minimized), [SplitterBarStateType::Maximized](https://reference.aspose.com/slides/th/php-java/aspose.slides/SplitterBarStateType/#Maximized) และ [SplitterBarStateType::Restored](https://reference.aspose.com/slides/th/php-java/aspose.slides/SplitterBarStateType/#Restored).
+Methods [getVerticalBarState](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) และ [getHorizontalBarState](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) ระบุสถานะที่บาร์แยกแนวนอนหรือแนวตั้งควรแสดง. บาร์แยกแนวนอนแยกสไลด์จากพื้นที่เนื้อหาด้านล่าง, บาร์แยกแนวตั้งแยกสไลด์จากพื้นที่เนื้อหาด้านข้าง. ค่าที่เป็นไปได้คือ: [SplitterBarStateType::Minimized](https://reference.aspose.com/slides/th/php-java/aspose.slides/SplitterBarStateType/#Minimized), [SplitterBarStateType::Maximized](https://reference.aspose.com/slides/th/php-java/aspose.slides/SplitterBarStateType/#Maximized) และ [SplitterBarStateType::Restored](https://reference.aspose.com/slides/th/php-java/aspose.slides/SplitterBarStateType/#Restored).
 
-Method [getRestoredLeft](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft) และ [getRestoredTop](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties#getRestoredTop) ระบุขนาดของพื้นที่สไลด์ด้านบนหรือด้านข้างของมุมมองปกติ, เมื่อค่า [SplitterBarStateType::Restored](https://reference.aspose.com/slides/th/php-java/aspose.slides/SplitterBarStateType/#Restored) ถูกนำไปใช้กับ [getVerticalBarState](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) และ [getHorizontalBarState](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) ตามลำดับ.
+Methods [getRestoredLeft](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft) และ [getRestoredTop](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties#getRestoredTop) ระบุขนาดของพื้นที่สไลด์ด้านบนหรือด้านข้างของมุมมองปกติเมื่อค่า [SplitterBarStateType::Restored](https://reference.aspose.com/slides/th/php-java/aspose.slides/SplitterBarStateType/#Restored) ถูกนำไปใช้กับ [getVerticalBarState](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) และ [getHorizontalBarState](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) ตามลำดับ.
 
-## **เกี่ยวกับการคืนค่า INormalViewProperties**
+## **เกี่ยวกับการกู้คืน INormalViewProperties**
 
-ระบุขนาดของพื้นที่สไลด์ (ความกว้างเมื่อเป็นลูกของ [getRestoredTop](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getRestoredTop), ความสูงเมื่อเป็นลูกของ [getRestoredLeft](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft)) ของมุมมองปกติ, เมื่พื้นที่มีขนาดที่เปลี่ยนแปลงได้ (ไม่ย่อเล็กและไม่ขยายเต็ม).
+ระบุขนาดของพื้นที่สไลด์ (ความกว้างเมื่อเป็นบุตรของ [getRestoredTop](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getRestoredTop), ความสูงเมื่อเป็นบุตรของ [getRestoredLeft](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft)) ของมุมมองปกติ, เมื่อพื้นที่มีขนาดที่สามารถกู้คืนได้ (ไม่ย่อและไม่ขยาย).
 
-Method [getDimensionSize](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewRestoredProperties/#getDimensionSize) ระบุขนาดของพื้นที่สไลด์ (ความกว้างเมื่อเป็นลูกของ restoredTop, ความสูงเมื่อเป็นลูกของ restoredLeft).
+Method [getDimensionSize](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewRestoredProperties/#getDimensionSize) ระบุขนาดของพื้นที่สไลด์ (ความกว้างเมื่อเป็นบุตรของ restoredTop, ความสูงเมื่อเป็นบุตรของ restoredLeft).
 
-Method [getAutoAdjust](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewRestoredProperties/#getAutoAdjust) ระบุว่าขนาดของพื้นที่เนื้อหาด้านข้างควรปรับให้สอดคล้องกับขนาดใหม่เมื่อเปลี่ยนขนาดหน้าต่างที่บรรจุมุมมองในแอปพลิเคชันหรือไม่
+Method [getAutoAdjust](https://reference.aspose.com/slides/th/php-java/aspose.slides/NormalViewRestoredProperties/#getAutoAdjust) ระบุว่าขนาดของพื้นที่เนื้อหาด้านข้างควรปรับตามขนาดใหม่เมื่อปรับขนาดหน้าต่างที่บรรจุมุมมองในแอปพลิเคชันหรือไม่.
 
-ตัวอย่างด้านล่างแสดงวิธีเข้าถึงคุณสมบัติ [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) ของงานนำเสนอ.
+ตัวอย่างต่อไปนี้แสดงวิธีการเข้าถึงคุณสมบัติ [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) สำหรับงานนำเสนอ.
 
 ```php
   $pres = new Presentation();
@@ -70,25 +70,26 @@ Method [getAutoAdjust](https://reference.aspose.com/slides/th/php-java/aspose.sl
   }
 ```
 
-## **ตั้งค่าค่าการซูมเริ่มต้น**
-{{% alert color="primary" %}} 
+## **กำหนดค่าซูมเริ่มต้น**
+{{% alert color="info" %}} 
 
-Aspose.Slides for PHP via Java ตอนนี้สนับสนุนการตั้งค่าค่าการซูมเริ่มต้นสำหรับงานนำเสนอโดยที่เมื่อเปิดงานนำเสนอแล้ว การซูมจะถูกตั้งค่าไว้แล้ว. สามารถทำได้โดยตั้งค่า [ViewProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/ViewProperties) ของงานนำเสนอ. ทั้ง [getSlideViewProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/ViewProperties/#getSlideViewProperties) และ [getNotesViewProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/ViewProperties/#getNotesViewProperties) สามารถกำหนดค่าได้โดยโปรแกรม. ในหัวข้อนี้ เราจะดูตัวอย่างการตั้งค่า [View Properties](https://reference.aspose.com/slides/th/php-java/aspose.slides/ViewProperties) ของ [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation) ใน [Aspose.Slides](/slides/th/).
+Aspose.Slides for PHP via Java ตอนนี้สนับสนุนการตั้งค่าซูมเริ่มต้นสำหรับงานนำเสนอเพื่อให้เมื่อเปิดงานนำเสนอแล้วซูมถูกตั้งค่าไว้แล้ว. สามารถทำได้โดยตั้งค่า [ViewProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/ViewProperties) ของงานนำเสนอ. ทั้ง [getSlideViewProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/ViewProperties/#getSlideViewProperties) และ [getNotesViewProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/ViewProperties/#getNotesViewProperties) สามารถตั้งค่าได้โดยโปรแกรม. ในหัวข้อนี้ เราจะดูตัวอย่างวิธีการตั้งค่า [View Properties](https://reference.aspose.com/slides/th/php-java/aspose.slides/ViewProperties) ของ [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation) ใน Aspose.Slides.
 
 {{% /alert %}} 
 
-เพื่อทำการตั้งค่าคุณสมบัติมุมมอง โปรดทำตามขั้นตอนต่อไปนี้:
+เพื่อกำหนดคุณสมบัติมุมมอง โปรดทำตามขั้นตอนต่อไปนี้:
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation).
 1. ตั้งค่า [View Properties](https://reference.aspose.com/slides/th/php-java/aspose.slides/ViewProperties) ของ [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation).
-1. เขียนไฟล์งานนำเสนอเป็นไฟล์ [PPTX](https://docs.fileformat.com/presentation/pptx/)  ในตัวอย่างด้านล่าง เราได้ตั้งค่าค่าการซูมสำหรับมุมมองสไลด์และมุมมองโน๊ตด้วย.
+1. เขียนงานนำเสนอเป็นไฟล์ [PPTX ](https://docs.fileformat.com/presentation/pptx/)file.
+   ในตัวอย่างด้านล่าง เราได้ตั้งค่าซูมสำหรับมุมมองสไลด์และมุมมองบันทึกย่อ.
 
 ```php
   $presentation = new Presentation();
   try {
     # ตั้งค่าคุณสมบัติมุมมองของงานนำเสนอ
-    $presentation->getViewProperties()->getSlideViewProperties()->setScale(100); // ค่าการซูมเป็นเปอร์เซ็นต์สำหรับมุมมองสไลด์
-    $presentation->getViewProperties()->getNotesViewProperties()->setScale(100); // ค่าการซูมเป็นเปอร์เซ็นต์สำหรับมุมมองโน๊ต
+    $presentation->getViewProperties()->getSlideViewProperties()->setScale(100); // ค่าซูมเป็นเปอร์เซ็นต์สำหรับมุมมองสไลด์
+    $presentation->getViewProperties()->getNotesViewProperties()->setScale(100); // ค่าซูมเป็นเปอร์เซ็นต์สำหรับมุมมองบันทึกย่อ
 
     $presentation->save("Zoom_out.pptx", SaveFormat::Pptx);
   } finally {
@@ -96,16 +97,50 @@ Aspose.Slides for PHP via Java ตอนนี้สนับสนุนกา�
   }
 ```
 
-## **คำถามที่พบบ่อย**
+## **กำหนดระยะห่างกริด**
 
-**ฉันสามารถตั้งค่ามุมมองที่แตกต่างสำหรับส่วนต่าง ๆ ของการนำเสนอได้หรือไม่?**
+ใช้ [Presentation::getViewProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getViewProperties) เพื่อเข้าถึงการตั้งค่ามุมมองระดับงานนำเสนอ. วิธี [ViewProperties::getGridSpacing](https://reference.aspose.com/slides/th/php-java/aspose.slides/viewproperties/#getGridSpacing) และ [ViewProperties::setGridSpacing](https://reference.aspose.com/slides/th/php-java/aspose.slides/viewproperties/#setGridSpacing) อ่านหรือเปลี่ยนช่วงของกริดการแก้ไขพื้นฐาน. การตั้งค่านี้ใช้กับงานนำเสนอทั้งหมด, ไม่ใช่เฉพาะสไลด์เดียว. ระยะห่างกริดกำหนดเป็นพอยท์, โดย 72 พอยท์เท่ากับหนึ่งนิ้ว. ใช้ค่าเป็นบวกตามที่เอกสาร API ระบุ.
 
-[View settings](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/getviewproperties/) ถูกกำหนดที่ระดับงานนำเสนอ ([Normal View](https://reference.aspose.com/slides/th/php-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/th/php-java/aspose.slides/viewproperties/getslideviewproperties/)), ไม่ได้แยกตามส่วน, ดังนั้นชุดพารามิเตอร์เดียวจะนำไปใช้กับเอกสารทั้งหมดเมื่อเปิด.
+ตัวอย่างต่อไปนี้เปิด `demo.pptx` ที่มีอยู่, พิมพ์ระยะห่างกริดปัจจุบัน, ตั้งค่าช่วงเป็นหนึ่งในสี่นิ้ว, และบันทึกผลลัพธ์.
 
-**ฉันสามารถกำหนดค่าเริ่มต้นของมุมมองสำหรับผู้ใช้คนต่าง ๆ ได้หรือไม่?**
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-ไม่ได้. การตั้งค่าถูกบันทึกในไฟล์และใช้ร่วมกัน. แอปพลิเคชันผู้ดูอาจให้ความสำคัญกับการตั้งค่าผู้ใช้, แต่ไฟล์เองมีชุดคุณสมบัติมุมมองเดียว.
+$presentation = new Presentation("demo.pptx");
+try {
+    $gridSpacing = $presentation->getViewProperties()->getGridSpacing();
+    echo "Current grid spacing: " . $gridSpacing . " points\n";
 
-**ฉันสามารถสร้างเทมเพลตที่มี View Properties ถูกกำหนดล่วงหน้าเพื่อให้งานนำเสนอใหม่เปิดด้วยการตั้งค่าเดียวกันได้หรือไม่?**
+    $presentation->getViewProperties()->setGridSpacing(18.0);
+    $presentation->save("grid-spacing.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
-ได้. เนื่องจาก [view properties](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/getviewproperties/) ถูกจัดเก็บที่ระดับงานนำเสนอ, คุณสามารถฝังมันลงในเทมเพลตและสร้างเอกสารใหม่จากเทมเพลตนั้นเพื่อให้มีการกำหนดค่ามุมมองเริ่มต้นเดียวกัน.
+กริดแตกต่างจาก [drawing guides](/slides/th/php-java/drawing-guides/). ระยะห่างกริดควบคุมช่วงแบบสม่ำเสมอ, ขณะที่ drawing guides เป็นเส้นแนวนอนหรือแนวตั้งที่วางตำแหน่งตามต้องการ. การเพิ่ม, ย้าย, หรือเคลียร์ drawing guides ไม่ทำให้ระยะห่างกริดเปลี่ยน.
+
+ทั้งกริดและ drawing guides เป็นเครื่องมือช่วยการแก้ไข. พวกมันไม่ถูกเรนเดอร์เป็นเนื้อหาสไลด์ใน PDF, รูปภาพ, SVG, หรือการแสดงสไลด์โชว์. การเก็บระยะห่างกริดไม่ได้รับประกันว่าโปรแกรมแก้ไขจะแสดงกริด: ความมองเห็นยังขึ้นกับการตั้งค่าของผู้ดูหรือโปรแกรมแก้ไข.
+
+## **FAQ**
+
+**ทำไมกริดถึงไม่แสดงหลังจากเปิดงานนำเสนอใหม่?**
+
+ไฟล์บันทึกระยะห่างกริด, แต่โปรแกรมแก้ไขเป็นผู้ควบคุมการแสดงกริด. ตรวจสอบการตั้งค่าการมองเห็นกริดของโปรแกรมแก้ไข.
+
+**การเคลียร์ drawing guides จะทำให้ระยะห่างกริดเปลี่ยนไหม?**
+
+ไม่. Drawing guides และระยะห่างกริดเป็นการตั้งค่าที่อิสระกัน. การเคลียร์ guides จะไม่ทำให้ช่วงกริดที่เก็บไว้เปลี่ยน.
+
+**ฉันสามารถตั้งค่ามุมมองต่าง ๆ สำหรับส่วนต่าง ๆ ของงานนำเสนอได้หรือไม่?**
+
+[View settings](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/getviewproperties/) ถูกกำหนดระดับงานนำเสนอ ([Normal View](https://reference.aspose.com/slides/th/php-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/th/php-java/aspose.slides/viewproperties/getslideviewproperties/)), ไม่ได้กำหนดต่อส่วน, ดังนั้นชุดพารามิเตอร์เดียวจะใช้กับเอกสารทั้งหมดเมื่อเปิด.
+
+**ฉันสามารถกำหนดสถานะมุมมองล่วงหน้าสำหรับผู้ใช้ต่าง ๆ ได้หรือไม่?**
+
+ไม่ได้. การตั้งค่าถูกเก็บในไฟล์และใช้ร่วมกัน. แอปพลิเคชันผู้ชมอาจเคารพการตั้งค่าผู้ใช้, แต่ไฟล์เองมีชุดคุณสมบัติมุมมองเดียว.
+
+**ฉันสามารถสร้างเทมเพลตที่มี View Properties กำหนดไว้ล่วงหน้าเพื่อให้งานนำเสนอใหม่เปิดด้วยการตั้งค่าเดียวกันได้หรือไม่?**
+
+ได้. เนื่องจาก [view properties](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/getviewproperties/) ถูกเก็บระดับงานนำเสนอ, คุณสามารถฝังไว้ในเทมเพลตและสร้างเอกสารใหม่จากมันด้วยการกำหนดมุมมองเริ่มต้นเดียวกัน.

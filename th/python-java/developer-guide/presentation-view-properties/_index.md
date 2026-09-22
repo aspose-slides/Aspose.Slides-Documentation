@@ -1,11 +1,11 @@
 ---
-title: ดึงและอัปเดตคุณสมบัติมุมมองการนำเสนอใน Python ผ่าน Java
-linktitle: คุณสมบัติมุมมอง
+title: ดึงและอัปเดตคุณสมบัติการแสดงผลการนำเสนอใน Python ผ่าน Java
+linktitle: คุณสมบัติการแสดงผล
 type: docs
 weight: 80
 url: /th/python-java/presentation-view-properties/
 keywords:
-- คุณสมบัติมุมมอง
+- คุณสมบัติการแสดงผล
 - มุมมองปกติ
 - เนื้อหาโครงร่าง
 - ไอคอนโครงร่าง
@@ -14,44 +14,44 @@ keywords:
 - สถานะแถบ
 - ขนาดมิติ
 - ปรับอัตโนมัติ
-- ซูมเริ่มต้น
+- การซูมเริ่มต้น
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Python
 - Java
 - Aspose.Slides
-description: "ค้นพบคุณสมบัติมุมมองของ Aspose.Slides สำหรับ Python ผ่าน Java เพื่อปรับแต่งสไลด์ PPT, PPTX, และ ODP — ปรับเลย์เอาต์, ระดับการซูม, และการตั้งค่าการแสดงผล."
+description: "ค้นพบคุณสมบัติการแสดงผลของ Aspose.Slides สำหรับ Python ผ่าน Java เพื่อปรับแต่งสไลด์ PPT, PPTX, และ ODP — ปรับเลย์เอาต์ ระดับการซูม และการตั้งค่าการแสดงผล."
 ---
 ## **บทนำ**
 
-มุมมองปกติประกอบด้วยพื้นที่เนื้อหา 3 ส่วน: สไลด์เอง, พื้นที่เนื้อหาด้านข้าง, และพื้นที่เนื้อหาด้านล่าง. คุณสมบัติของมุมมองปกติอธิบายการจัดตำแหน่งของพื้นที่เนื้อหาเหล่านี้. ข้อมูลนี้ทำให้แอปพลิเคชันสามารถบันทึกสถานะมุมมองลงในไฟล์ได้, เพื่อให้เมื่อเปิดใหม่มุมมองจะอยู่ในสภาพเดียวกับที่บันทึกครั้งสุดท้ายของการนำเสนอ.
+มุมมองแบบปกติประกอบด้วยสามพื้นที่เนื้อหา: สไลด์เอง, พื้นที่เนื้อหาด้านข้าง, และพื้นที่เนื้อหาด้านล่าง. คุณสมบัติของมุมมองแบบปกติอธิบายตำแหน่งของพื้นที่เนื้อหาเหล่านี้. ข้อมูลนี้ทำให้แอปพลิเคชันสามารถบันทึกสถานะมุมมองลงในไฟล์, เพื่อให้เมื่อเปิดใหม่มุมมองอยู่ในสถานะเดียวกับที่บันทึกครั้งสุดท้าย.
 
-เมธอด [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/#getNormalViewProperties) ได้ถูกเพิ่มเพื่อให้เข้าถึงคุณสมบัติการมุมมองปกติของการนำเสนอ.
+เมธอด [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/#getNormalViewProperties) ถูกเพิ่มเข้ามาเพื่อให้เข้าถึงคุณสมบัติของมุมมองแบบปกติของการนำเสนอ.
 
-คลาส [NormalViewProperties](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/) และ [NormalViewRestoredProperties](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewrestoredproperties/) และ enumeration [SplitterBarStateType](https://reference.aspose.com/slides/th/python-java/aspose.slides/splitterbarstatetype/) ได้ถูกเพิ่มเข้ามา.
+คลาส [NormalViewProperties](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/) และ [NormalViewRestoredProperties](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewrestoredproperties/) และ enumeration [SplitterBarStateType](https://reference.aspose.com/slides/th/python-java/aspose.slides/splitterbarstatetype/) ถูกเพิ่มเข้ามา.
 
 ## **เกี่ยวกับ NormalViewProperties**
 
-แสดงคุณสมบัติการมุมมองปกติ.
+แทนคุณสมบัติของมุมมองแบบปกติ.
 
-เมธอด [getShowOutlineIcons](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getShowOutlineIcons) และ [setShowOutlineIcons](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) ระบุว่าระบบควรแสดงไอคอนเมื่อแสดงเนื้อหาโครงร่างในพื้นที่เนื้อหาใด ๆ ของโหมดมุมมองปกติหรือไม่.
+เมธอด [getShowOutlineIcons](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getShowOutlineIcons) และ [setShowOutlineIcons](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) ระบุว่าควรแสดงไอคอนเมื่อแสดงเนื้อหาแบบโครงร่างในพื้นที่เนื้อหาใด ๆ ของโหมดมุมมองแบบปกติหรือไม่.
 
-เมธอด [getSnapVerticalSplitter](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getSnapVerticalSplitter) และ [setSnapVerticalSplitter](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) ระบุว่าตัวแบ่งแนวตั้งควรสแนปไปยังสถานะย่อเมื่อพื้นที่ด้านข้างมีขนาดเล็กพอ.
+เมธอด [getSnapVerticalSplitter](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getSnapVerticalSplitter) และ [setSnapVerticalSplitter](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) ระบุว่าตัวแบ่งแนวตั้งควรสแนปไปสู่สถานะย่อลงเมื่อพื้นที่ด้านข้างมีขนาดเล็กพอ.
 
-เมธอด [getPreferSingleView](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getPreferSingleView) และ [setPreferSingleView](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) ระบุว่าผู้ใช้ต้องการดูพื้นที่เนื้อหาเดี่ยวเต็มหน้าต่างเหนือมุมมองปกติแบบมาตรฐานที่มี 3 พื้นที่หรือไม่. หากเปิดใช้งาน, แอปพลิเคชันอาจเลือกแสดงหนึ่งจากพื้นที่เนื้อหาเต็มหน้าต่าง.
+เมธอด [getPreferSingleView](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getPreferSingleView) และ [setPreferSingleView](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) ระบุว่าผู้ใช้ต้องการดูพื้นที่เนื้อหาเดี่ยวเต็มหน้าต่างแทนมุมมองแบบปกติมาตรฐานที่มีสามพื้นที่หรือไม่. หากเปิดใช้งาน แอปพลิเคชันอาจเลือกแสดงหนึ่งในพื้นที่เนื้อหาในหน้าต่างทั้งหมด.
 
-เมธอด [getVerticalBarState](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) และ [getHorizontalBarState](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) ระบุสถานะที่แถบแบ่งแนวตั้งหรือแนวนอนควรจะแสดง. แถบแบ่งแนวนอนแยกสไลด์ออกจากพื้นที่เนื้อหาด้านล่างสไลด์; แถบแบ่งแนวตั้งแยกสไลด์ออกจากพื้นที่เนื้อหาด้านข้าง. ค่าที่เป็นไปได้ ได้แก่ [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/th/python-java/aspose.slides/splitterbarstatetype/#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/th/python-java/aspose.slides/splitterbarstatetype/#Maximized) และ [SplitterBarStateType.Restored](https://reference.aspose.com/slides/th/python-java/aspose.slides/splitterbarstatetype/#Restored).
+เมธอด [getVerticalBarState](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) และ [getHorizontalBarState](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) ระบุสถานะที่แถบแบ่งแนวตั้งหรือแนวนอนควรแสดง. แถบแบ่งแนวนอนแยกสไลด์จากพื้นที่เนื้อหาด้านล่างสไลด์; แถบแบ่งแนวตั้งแยกสไลด์จากพื้นที่เนื้อหาด้านข้าง. ค่าที่เป็นไปได้คือ: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/th/python-java/aspose.slides/splitterbarstatetype/#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/th/python-java/aspose.slides/splitterbarstatetype/#Maximized) และ [SplitterBarStateType.Restored](https://reference.aspose.com/slides/th/python-java/aspose.slides/splitterbarstatetype/#Restored).
 
-เมธอด [getRestoredLeft](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) และ [getRestoredTop](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getRestoredTop) ระบุการกำหนดขนาดของส่วนด้านบนหรือด้านข้างของสไลด์ในมุมมองปกติ, เมื่อค่า [SplitterBarStateType.Restored](https://reference.aspose.com/slides/th/python-java/aspose.slides/splitterbarstatetype/#Restored) ถูกนำไปใช้กับ [getVerticalBarState](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) และ [getHorizontalBarState](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) ตามลำดับ.
+เมธอด [getRestoredLeft](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) และ [getRestoredTop](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getRestoredTop) ระบุการกำหนดขนาดของพื้นที่สไลด์ด้านบนหรือด้านข้างของมุมมองแบบปกติ, เมื่อค่ [SplitterBarStateType.Restored](https://reference.aspose.com/slides/th/python-java/aspose.slides/splitterbarstatetype/#Restored) ถูกนำไปใช้กับ [getVerticalBarState](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) และ [getHorizontalBarState](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) ตามลำดับ.
 
-## **เกี่ยวกับการกู้คืน NormalViewProperties**
+## **เกี่ยวกับการคืนค่า NormalViewProperties**
 
-ระบุการกำหนดขนาดของส่วนสไลด์ (ความกว้างเมื่อเป็นบุตรของ [getRestoredTop](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getRestoredTop), ความสูงเมื่อเป็นบุตรของ [getRestoredLeft](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)) ของมุมมองปกติ, เมื่อส่วนนั้นมีขนาดที่คืนค่าได้แบบแปรผัน (ไม่ย่อและไม่ขยาย).
+ระบุการกำหนดขนาดของพื้นที่สไลด์ (ความกว้างเมื่อเป็นบุตรของ [getRestoredTop](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getRestoredTop), ความสูงเมื่อเป็นบุตรของ [getRestoredLeft](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)) ของมุมมองแบบปกติ, เมื่อพื้นที่มีขนาดที่ปรับคืนได้ (ไม่ย่อลงและไม่ขยายเต็ม).
 
-เมธอด [getDimensionSize](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewrestoredproperties/#getDimensionSize) ระบุขนาดของส่วนสไลด์ (ความกว้างเมื่อเป็นบุตรของ [getRestoredTop](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getRestoredTop), ความสูงเมื่อเป็นบุตรของ [getRestoredLeft](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)).
+เมธอด [getDimensionSize](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewrestoredproperties/#getDimensionSize) ระบุขนาดของพื้นที่สไลด์ (ความกว้างเมื่อเป็นบุตรของ [getRestoredTop](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getRestoredTop), ความสูงเมื่อเป็นบุตรของ [getRestoredLeft](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)).
 
-เมธอด [getAutoAdjust](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewrestoredproperties/#getAutoAdjust) ระบุว่าขนาดของพื้นที่เนื้อหาด้านข้างควรปรับตามขนาดใหม่เมื่อเปลี่ยนขนาดหน้าต่างที่บรรจุมุมมองภายในแอปพลิเคชันหรือไม่.
+เมธอด [getAutoAdjust](https://reference.aspose.com/slides/th/python-java/aspose.slides/normalviewrestoredproperties/#getAutoAdjust) ระบุว่าพื้นที่เนื้อหาด้านข้างควรปรับขนาดเพื่อตอบสนองต่อขนาดใหม่เมื่อปรับขนาดหน้าต่างที่มีมุมมองภายในแอปพลิเคชันหรือไม่.
 
 ตัวอย่างด้านล่างแสดงวิธีเข้าถึง [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/#getNormalViewProperties) สำหรับการนำเสนอ.
 
@@ -70,7 +70,7 @@ try:
     normal_view_properties.setHorizontalBarState(SplitterBarStateType.Restored)
     normal_view_properties.setVerticalBarState(SplitterBarStateType.Maximized)
 
-    # กู้คืนคุณสมบัติมุมมองของการนำเสนอ.
+    # กู้คืนคุณสมบัติการแสดงผลของการนำเสนอ.
     normal_view_properties.getRestoredTop().setAutoAdjust(True)
     normal_view_properties.getRestoredTop().setDimensionSize(80)
     normal_view_properties.setShowOutlineIcons(True)
@@ -82,17 +82,19 @@ finally:
 
 ## **ตั้งค่าค่าการซูมเริ่มต้น**
 
-{{% alert color="info" title="หมายเหตุ" %}}
-Aspose.Slides for Python via Java รองรับการตั้งค่าค่าการซูมเริ่มต้นเพื่อให้ถูกนำไปใช้เมื่อนำเสนอเปิดขึ้น. สิ่งนี้ทำได้โดยการตั้งค่า [ViewProperties](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/) ของการนำเสนอ. เมธอด [getSlideViewProperties](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/#getSlideViewProperties) และ [getNotesViewProperties](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/#getNotesViewProperties) สามารถกำหนดค่าได้โดยโปรแกรม. ในหัวข้อนี้, เราจะดูตัวอย่างการตั้งค่า [View Properties](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/) ของ [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) ใน [Aspose.Slides](/slides/th/).
+{{% alert color="info" title="Note" %}}
+
+Aspose.Slides for Python via Java รองรับการตั้งค่าการซูมเริ่มต้นเพื่อให้มีผลแล้วเมื่อเปิดการนำเสนอ. สามารถทำได้โดยตั้งค่า [ViewProperties](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/) ของการนำเสนอ. เมธอด [getSlideViewProperties](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/#getSlideViewProperties) และ [getNotesViewProperties](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/#getNotesViewProperties) สามารถกำหนดโปรแกรมได้. ในบทความนี้ เราจะเห็นตัวอย่างการตั้งค่า [View Properties](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/) ของ [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) ใน Aspose.Slides.
+
 {{% /alert %}}
 
-เพื่อกำหนดคุณสมบัติการมุมมอง, ทำตามขั้นตอนต่อไปนี้:
+เพื่อกำหนดคุณสมบัติของมุมมอง, ทำตามขั้นตอนต่อไปนี้:
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/).
 1. ตั้งค่า [View Properties](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/) ของ [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/).
-1. บันทึกการนำเสนอเป็นไฟล์ [PPTX](https://docs.fileformat.com/presentation/pptx/).
+1. เขียนการนำเสนอเป็นไฟล์ [PPTX](https://docs.fileformat.com/presentation/pptx/).
 
-ในตัวอย่างด้านล่าง, เราตั้งค่าการซูมสำหรับทั้งมุมมองสไลด์และมุมมองบันทึกย่อ.
+ในตัวอย่างด้านล่าง เราตั้งค่าการซูมสำหรับมุมมองสไลด์และมุมมองบันทึกหมายเหตุทั้งสอง.
 
 ```python
 import jpype
@@ -105,25 +107,63 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # ตั้งค่าคุณสมบัติมุมมองของการนำเสนอ.
+    # ตั้งค่าคุณสมบัติการแสดงผลของการนำเสนอ.
     presentation.getViewProperties().getSlideViewProperties().setScale(100)  # เปอร์เซ็นต์การซูมสำหรับมุมมองสไลด์.
-    presentation.getViewProperties().getNotesViewProperties().setScale(100)  # เปอร์เซ็นต์การซูมสำหรับมุมมองบันทึกย่อ.
+    presentation.getViewProperties().getNotesViewProperties().setScale(100)  # เปอร์เซ็นต์การซูมสำหรับมุมมองบันทึกหมายเหตุ.
 
     presentation.save("Zoom_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+## **ตั้งค่าการเว้นระยะตาราง**
+
+ใช้ [Presentation.getViewProperties](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getViewProperties) เพื่อเข้าถึงการตั้งค่ามุมมองทั่วทั้งการนำเสนอ. เมธอด [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/#getGridSpacing) และ [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/#setGridSpacing) อ่านหรือเปลี่ยนช่วงของกริดการแก้ไขพื้นฐาน. การตั้งค่านี้ใช้กับการนำเสนอทั้งหมด, ไม่ใช่สไลด์แต่ละหน้า. ระยะตารางระบุเป็นจุด, โดย 72 จุดเท่ากับหนึ่งนิ้ว. ใช้ค่าบวกตามที่เอกสาร API กำหนด.
+
+ตัวอย่างต่อไปเปิดไฟล์ `demo.pptx` ที่มีอยู่, พิมพ์ระยะตารางปัจจุบัน, ตั้งค่าช่วงเป็นหนึ่งในสี่นิ้ว, และบันทึกผลลัพธ์.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("demo.pptx")
+try:
+    grid_spacing = presentation.getViewProperties().getGridSpacing()
+    print(f"Current grid spacing: {grid_spacing} points")
+
+    presentation.getViewProperties().setGridSpacing(18.0)
+    presentation.save("grid-spacing.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+กริดต่างจาก [drawing guides](/slides/th/python-java/drawing-guides/). ระยะตารางควบคุมช่วงเป็นระยะสม่ำเสมอ, ส่วน drawing guides เป็นเส้นแนวนอนหรือแนวตั้งที่วางตำแหน่งได้ตามต้องการ. การเพิ่ม, ย้าย, หรือลบ drawing guides ไม่ทำให้ระยะตารางเปลี่ยนแปลง.
+
+กริดและ drawing guides ทั้งสองเป็นเครื่องมือช่วยการแก้ไข. พวกมันไม่ถูกแสดงเป็นเนื้อหาสไลด์ใน PDF, รูปภาพ, SVG หรือการแสดงสไลด์โชว์. การจัดเก็บระยะตารางไม่ได้รับประกันว่าเครื่องมือแก้ไขจะทำการแสดงกริด: การมองเห็นยังขึ้นกับการตั้งค่าของผู้ดูหรือเครื่องมือแก้ไขด้วย.
+
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถตั้งค่าการมองต่าง ๆ สำหรับส่วนต่าง ๆ ของการนำเสนอได้หรือไม่?**
+**ทำไมกริดถึงไม่ปรากฏเมื่อเปิดการนำเสนอใหม่?**
 
-[View settings](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getViewProperties) ถูกกำหนดที่ระดับการนำเสนอ ([Normal View](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/#getNormalViewProperties)/[Slide View](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/#getSlideViewProperties)), ไม่ได้ต่อแต่ละส่วน, ดังนั้นชุดพารามิเตอร์เดียวจะใช้กับเอกสารทั้งหมดเมื่อตอบเปิด.
+ไฟล์เก็บระยะตารางไว้, แต่เครื่องมือแก้ไขเป็นผู้ควบคุมว่ากริดจะแสดงหรือไม่. ตรวจสอบการตั้งค่าการมองเห็นกริดของเครื่องมือแก้ไข.
 
-**ฉันสามารถกำหนดสถานะการมองล่วงหน้าสำหรับผู้ใช้คนต่าง ๆ ได้หรือไม่?**
+**การล้าง drawing guides มีผลต่อระยะตารางหรือไม่?**
 
-ไม่ได้. การตั้งค่าจะถูกเก็บในไฟล์และใช้ร่วมกัน. แอปพลิเคชันผู้ดูอาจให้ความสำคัญกับการตั้งค่าผู้ใช้, แต่ไฟล์เองมีชุดคุณสมบัติการมองเพียงหนึ่งชุด.
+ไม่มี. drawing guides และระยะตารางเป็นการตั้งค่าที่อิสระกัน. การลบ guides ไม่ทำให้ช่วงกริดที่เก็บไว้เปลี่ยนแปลง.
 
-**ฉันสามารถเตรียมเทมเพลตที่มี View Properties ที่กำหนดล่วงหน้าเพื่อให้การนำเสนอใหม่เปิดด้วยวิธีเดียวกันได้หรือไม่?**
+**ฉันสามารถตั้งค่า view ต่าง ๆ สำหรับส่วนต่าง ๆ ของการนำเสนอได้หรือไม่?**
 
-ได้. เนื่องจาก [view properties](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getViewProperties) ถูกเก็บที่ระดับการนำเสนอ, คุณสามารถฝังมันในเทมเพลตและสร้างเอกสารใหม่จากเทมเพลตนั้นโดยใช้การกำหนดค่ามุมมองเริ่มต้นเดียวกัน.
+[View settings](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getViewProperties) ถูกกำหนดระดับการนำเสนอ ([Normal View](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/#getNormalViewProperties)/[Slide View](https://reference.aspose.com/slides/th/python-java/aspose.slides/viewproperties/#getSlideViewProperties)), ไม่ได้แยกตามส่วน, ดังนั้นพารามิเตอร์ชุดเดียวจึงใช้กับเอกสารทั้งหมดเมื่อเปิด.
+
+**ฉันสามารถกำหนดสถานะ view ที่แตกต่างสำหรับผู้ใช้ต่าง ๆ ได้หรือไม่?**
+
+ไม่ได้. การตั้งค่าถูกรับไว้ในไฟล์และแชร์กัน. แอปพลิเคชันผู้ดูอาจเคารพการตั้งค่าผู้ใช้, แต่ไฟล์เองมีชุดคุณสมบัติ view เพียงชุดเดียว.
+
+**ฉันสามารถสร้างเทมเพลตพร้อม View Properties ที่กำหนดล่วงหน้าเพื่อให้การนำเสนอใหม่เปิดในลักษณะเดียวกันได้หรือไม่?**
+
+ได้. เนื่องจาก [view properties](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getViewProperties) ถูกเก็บระดับการนำเสนอ, คุณจึงสามารถฝังไว้ในเทมเพลตและสร้างเอกสารใหม่จากเทมเพลตนั้นด้วยการกำหนดมุมมองเริ่มต้นเดียวกัน.

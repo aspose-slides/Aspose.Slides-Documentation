@@ -9,49 +9,49 @@ keywords:
 - العرض العادي
 - محتوى المخطط
 - أيقونات المخطط
-- تثبيت القسام العمودي
-- عرض واحد
+- إغلاق القاسم العمودي
+- عرض مفرد
 - حالة الشريط
 - حجم البُعد
-- ضبط تلقائي
-- التكبير الافتراضي
+- تعديل تلقائي
+- تكبير افتراضي
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Python
 - Java
 - Aspose.Slides
-description: "اكتشف خصائص العرض في Aspose.Slides للغة Python عبر Java لتخصيص شرائح PPT و PPTX و ODP — عدّل التخطيطات ومستويات التكبير وإعدادات العرض."
+description: "اكتشف خصائص العرض في Aspose.Slides for Python عبر Java لتخصيص شرائح PPT، PPTX، وODP — ضبط التخطيطات، مستويات التكبير، وإعدادات العرض."
 ---
 ## **المقدمة**
 
-يتكون العرض العادي من ثلاث مناطق محتوى: الشريحة نفسها، منطقة محتوى جانبية، ومنطقة محتوى سفلية. تصف خصائص العرض العادي تموضع هذه المناطق. هذه المعلومات تسمح للتطبيق بحفظ حالة العرض في الملف، بحيث يكون العرض في نفس الحالة عند فتحه مرة أخرى كما كان عند آخر حفظ للعرض التقديمي.
+يتكون العرض العادي من ثلاث مناطق محتوى: الشريحة نفسها، ومنطقة محتوى جانبية، ومنطقة محتوى سفلية. تصف خصائص العرض العادي موضع هذه المناطق. تسمح هذه المعلومات للتطبيق بحفظ حالة العرض إلى الملف، بحيث عند إعادة الفتح تكون الحالة هي نفسها كما كانت عند حفظ العرض التقديمي آخر مرة.
 
-تم إضافة الطريقة [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/#getNormalViewProperties) لتوفير الوصول إلى خصائص العرض العادي للعرض التقديمي.
+تمت إضافة الطريقة [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/#getNormalViewProperties) لتوفير الوصول إلى خصائص العرض العادي للعرض التقديمي.
 
-تم إضافة الفئات [NormalViewProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/) و[NormalViewRestoredProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewrestoredproperties/) والتعداد [SplitterBarStateType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/splitterbarstatetype/).
+تمت إضافة الفئات [NormalViewProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/) و[NormalViewRestoredProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewrestoredproperties/) والتعداد [SplitterBarStateType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/splitterbarstatetype/).
 
 ## **حول NormalViewProperties**
 
-تمثل خصائص العرض العادي.
+يمثل خصائص العرض العادي.
 
-الطرق [getShowOutlineIcons](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getShowOutlineIcons) و[setShowOutlineIcons](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) تحدد ما إذا كان يجب على التطبيق إظهار الأيقونات عند عرض محتوى المخطط في أي من مناطق المحتوى في وضع العرض العادي.
+تحدد الطريقتان [getShowOutlineIcons](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getShowOutlineIcons) و[setShowOutlineIcons](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) ما إذا كان ينبغي للتطبيق إظهار الرموز عند عرض محتوى المخطط في أي من مناطق المحتوى في وضع العرض العادي.
 
-الطرق [getSnapVerticalSplitter](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getSnapVerticalSplitter) و[setSnapVerticalSplitter](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) تحدد ما إذا كان يجب أن يلتقط القاسم العمودي إلى حالة مصغرة عندما تكون المنطقة الجانبية صغيرة بما فيه الكفاية.
+تحدد الطريقتان [getSnapVerticalSplitter](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getSnapVerticalSplitter) و[setSnapVerticalSplitter](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) ما إذا كان يجب أن ينقلب القاسم العمودي إلى حالة مصغرة عندما تكون المنطقة الجانبية صغيرة بما فيه الكفاية.
 
-الطرق [getPreferSingleView](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getPreferSingleView) و[setPreferSingleView](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) تحدد ما إذا كان المستخدم يفضّل رؤية منطقة محتوى واحدة بملء النافذة بدلاً من العرض العادي القياسي بثلاث مناطق محتوى. إذا تم تمكينها، قد يختار التطبيق عرض إحدى مناطق المحتوى في النافذة بأكملها.
+تحدد الطريقتان [getPreferSingleView](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getPreferSingleView) و[setPreferSingleView](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) ما إذا كان المستخدم يفضل رؤية منطقة محتوى واحدة بملء النافذة بدلاً من العرض العادي القياسي الذي يتضمن ثلاث مناطق محتوى. إذا تم تمكين ذلك، قد يختار التطبيق عرض إحدى مناطق المحتوى في كامل النافذة.
 
-الطرق [getVerticalBarState](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) و[getHorizontalBarState](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) تحدد الحالة التي يجب عرض شريط القاسم الأفقي أو العمودي فيها. شريط القاسم الأفقي يفصل الشريحة عن منطقة المحتوى أسفل الشريحة؛ شريط القاسم العمودي يفصل الشريحة عن منطقة المحتوى الجانبية. القيم الممكنة هي: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/ar/python-java/aspose.slides/splitterbarstatetype/#Minimized)، [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/ar/python-java/aspose.slides/splitterbarstatetype/#Maximized) و[SplitterBarStateType.Restored](https://reference.aspose.com/slides/ar/python-java/aspose.slides/splitterbarstatetype/#Restored).
+تحدد الطريقتان [getVerticalBarState](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) و[getHorizontalBarState](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) الحالة التي يجب أن يُعرض فيها شريط القاسم الأفقي أو العمودي. يفصل شريط القاسم الأفقي بين الشريحة ومنطقة المحتوى أسفل الشريحة؛ يفصل شريط القاسم العمودي بين الشريحة ومنطقة المحتوى الجانبية. القيم الممكنة هي: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/ar/python-java/aspose.slides/splitterbarstatetype/#Minimized)، [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/ar/python-java/aspose.slides/splitterbarstatetype/#Maximized) و[SplitterBarStateType.Restored](https://reference.aspose.com/slides/ar/python-java/aspose.slides/splitterbarstatetype/#Restored).
 
-الطرق [getRestoredLeft](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) و[getRestoredTop](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getRestoredTop) تحدد حجم منطقة الشريحة العلوية أو الجانبية في العرض العادي، عندما تُطبق القيمة [SplitterBarStateType.Restored](https://reference.aspose.com/slides/ar/python-java/aspose.slides/splitterbarstatetype/#Restored) على [getVerticalBarState](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) و[getHorizontalBarState](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) على التوالي.
+تحدد الطريقتان [getRestoredLeft](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) و[getRestoredTop](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getRestoredTop) حجم المنطقة العلوية أو الجانبية للشريحة في العرض العادي، عندما تُطبق القيمة [SplitterBarStateType.Restored](https://reference.aspose.com/slides/ar/python-java/aspose.slides/splitterbarstatetype/#Restored) على [getVerticalBarState](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) و[getHorizontalBarState](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState)، على التوالي.
 
 ## **حول استعادة NormalViewProperties**
 
-تحدد حجم منطقة الشريحة (العرض عندما تكون طفلاً لـ [getRestoredTop](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getRestoredTop)، الارتفاع عندما تكون طفلاً لـ [getRestoredLeft](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)) في العرض العادي، عندما تكون المنطقة بحجم مستعاد متغير (ليس مصغراً ولا مكبراً).
+يحدد حجم منطقة الشريحة (العرض عندما تكون طفلاً لـ [getRestoredTop](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getRestoredTop)، الارتفاع عندما تكون طفلاً لـ [getRestoredLeft](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)) في العرض العادي، عندما تكون المنطقة ذات حجم مستعاد متغير (ليس مصغراً ولا مكبراً).
 
-الطريقة [getDimensionSize](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewrestoredproperties/#getDimensionSize) تحدد حجم منطقة الشريحة (العرض عندما تكون طفلاً لـ [getRestoredTop](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getRestoredTop)، الارتفاع عندما تكون طفلاً لـ [getRestoredLeft](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)).
+تحدد الطريقة [getDimensionSize](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewrestoredproperties/#getDimensionSize) حجم منطقة الشريحة (العرض عندما تكون طفلاً لـ [getRestoredTop](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getRestoredTop)، الارتفاع عندما تكون طفلاً لـ [getRestoredLeft](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewproperties/#getRestoredLeft)).
 
-الطريقة [getAutoAdjust](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewrestoredproperties/#getAutoAdjust) تحدد ما إذا كان يجب أن يعوّض حجم منطقة المحتوى الجانبية الحجم الجديد عند تعديل حجم النافذة التي تحتوي العرض داخل التطبيق.
+تحدد الطريقة [getAutoAdjust](https://reference.aspose.com/slides/ar/python-java/aspose.slides/normalviewrestoredproperties/#getAutoAdjust) ما إذا كان حجم منطقة المحتوى الجانبية يجب أن يعوض الحجم الجديد عند تغيير حجم النافذة التي تحتوي العرض داخل التطبيق.
 
 يوضح المثال أدناه كيفية الوصول إلى [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/#getNormalViewProperties) لعرض تقديمي.
 
@@ -82,17 +82,17 @@ finally:
 
 ## **تعيين قيمة التكبير الافتراضية**
 
-{{% alert color="info" title="ملاحظة" %}}
-يدعم Aspose.Slides for Python via Java تعديل قيمة التكبير الافتراضية بحيث تُطبق تلقائياً عند فتح العرض التقديمي. يمكن ذلك عبر ضبط [ViewProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/) للعرض التقديمي. يمكن تكوين كل من [getSlideViewProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/#getSlideViewProperties) و[getNotesViewProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/#getNotesViewProperties) برمجياً. في هذا الموضوع، سنستعرض مثالاً يوضح كيفية ضبط [View Properties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/) للـ [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) في [Aspose.Slides](/slides/ar/).
+{{% alert color="info" title="Note" %}}
+Aspose.Slides for Python via Java يدعم تعيين قيمة التكبير الافتراضية بحيث تُطبّق فعلياً عند فتح العرض التقديمي. يمكن القيام بذلك بتعيين [ViewProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/) للعرض التقديمي. يمكن تكوين كل من [getSlideViewProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/#getSlideViewProperties) و[getNotesViewProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/#getNotesViewProperties) برمجياً. في هذا الموضوع، سنرى مثالاً يوضح كيفية تعيين [View Properties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/) لـ [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) في Aspose.Slides.
 {{% /alert %}}
 
 لتعيين خصائص العرض، اتبع الخطوات التالية:
 
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/).
-1. اضبط [View Properties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/) للـ [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/).
-1. احفظ العرض التقديمي كملف [PPTX](https://docs.fileformat.com/presentation/pptx/).
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/).
+2. تعيين [View Properties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/) للـ [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/).
+3. حفظ العرض التقديمي كملف [PPTX](https://docs.fileformat.com/presentation/pptx/).
 
-في المثال أدناه، نضبط قيمة التكبير لكل من عرض الشريحة وعرض الملاحظات.
+في المثال أدناه، قمنا بتعيين قيمة التكبير لكل من عرض الشريحة وعرض الملاحظات.
 
 ```python
 import jpype
@@ -105,7 +105,7 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # ضبط خصائص العرض للعرض التقديمي.
+    # تعيين خصائص العرض للعرض التقديمي.
     presentation.getViewProperties().getSlideViewProperties().setScale(100)  # نسبة التكبير لعرض الشريحة.
     presentation.getViewProperties().getNotesViewProperties().setScale(100)  # نسبة التكبير لعرض الملاحظات.
 
@@ -114,16 +114,54 @@ finally:
     presentation.dispose()
 ```
 
-## **الأسئلة المتكررة**
+## **تعيين تباعد الشبكة**
 
-**هل يمكنني ضبط إعدادات عرض مختلفة لأقسام مختلفة من العرض التقديمي؟**
+استخدم [Presentation.getViewProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getViewProperties) للوصول إلى إعدادات العرض على مستوى العرض التقديمي. تقرأ وتغيّر الطريقتان [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/#getGridSpacing) و[ViewProperties.setGridSpacing](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/#setGridSpacing) الفاصل الزمني للشبكة التحريرية الأساسية. يُطبّق هذا الإعداد على كامل العرض التقديمي، وليس على شريحة واحدة. يُحدّد تباعد الشبكة بالنقاط، حيث أن 72 نقطة تساوي بوصة واحدة. استخدم قيمة موجبة وفقاً لتوثيق API.
 
-يتم تعريف [إعدادات العرض](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getViewProperties) على مستوى العرض التقديمي ([العرض العادي](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/#getNormalViewProperties)/[عرض الشريحة](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/#getSlideViewProperties))، وليس لكل قسم، لذا يطبق مجموعة واحدة من المعلمات على المستند بالكامل عند فتحه.
+يفتح المثال التالي ملف `demo.pptx` الموجود مسبقاً، يطبع تباعد الشبكة الحالي، يضبط فاصل ربع بوصة، ويحفظ النتيجة.
 
-**هل يمكنني تحديد حالات عرض مختلفة مسبقًا لمستخدمين مختلفين؟**
+```python
+import jpype
+import asposeslides
 
-لا. تُخزن الإعدادات في الملف وتُشارك. قد تحترم تطبيقات العرض تفضيلات المستخدم، لكن الملف نفسه يحتوي على مجموعة واحدة من خصائص العرض.
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-**هل يمكنني إعداد قالب يحتوي على خصائص عرض مسبقة لتفتح العروض الجديدة بنفس الطريقة؟**
+from asposeslides.api import Presentation, SaveFormat
 
-نعم. بما أن [خصائص العرض](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getViewProperties) تُخزن على مستوى العرض التقديمي، يمكنك تضمينها في قالب وإنشاء مستندات جديدة منه بنفس تكوين العرض الأولي.
+presentation = Presentation("demo.pptx")
+try:
+    grid_spacing = presentation.getViewProperties().getGridSpacing()
+    print(f"Current grid spacing: {grid_spacing} points")
+
+    presentation.getViewProperties().setGridSpacing(18.0)
+    presentation.save("grid-spacing.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+الشبكة تختلف عن [drawing guides](/slides/ar/python-java/drawing-guides/). تتحكم شبكة التباعد في فاصل منتظم، بينما تكون الأدلة الرسومية خطوط توجيه أفقية أو رأسية موضوعة بشكل فردي. إضافة أو نقل أو مسح الأدلة الرسومية لا يغيّر تباعد الشبكة.
+
+كلٌ من الشبكة والأدلة الرسومية هما أدوات تحرير. لا يتم تصويرهما كجزء من محتوى الشريحة في ملفات PDF أو الصور أو SVG أو عرض الشرائح. تخزين تباعد الشبكة لا يضمن أن المحرر سيظهر الشبكة؛ فالرؤية تعتمد أيضاً على تفضيلات المشاهد أو المحرر.
+
+## **الأسئلة الشائعة**
+
+**لماذا لا تظهر الشبكة بعد إعادة فتح العرض التقديمي؟**
+
+الملف يخزن تباعد الشبكة، لكن المحرر يتحكم في ما إذا كانت الشبكة معروضة. تحقق من إعدادات رؤية الشبكة في المحرر.
+
+**هل يؤدي مسح الأدلة الرسومية إلى تغيير تباعد الشبكة؟**
+
+لا. الأدلة الرسومية وتباعد الشبكة إعدادات مستقلة. مسح الأدلة يترك الفاصل المخزن للشبكة دون تغيير.
+
+**هل يمكنني تعيين إعدادات عرض مختلفة لأقسام مختلفة من العرض التقديمي؟**
+
+إعدادات العرض تُحدد على مستوى العرض التقديمي ([Normal View](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/#getNormalViewProperties)/[Slide View](https://reference.aspose.com/slides/ar/python-java/aspose.slides/viewproperties/#getSlideViewProperties))، ولا تُحدد لكل قسم، لذا تُطبّق مجموعة واحدة من المعلمات على المستند بأكمله عند الفتح.
+
+**هل يمكنني تعريف حالات عرض مختلفة لمستخدمين مختلفين مسبقاً؟**
+
+لا. تُخزن الإعدادات في الملف وتُشارك. قد تلتزم تطبيقات العرض بتفضيلات المستخدم، لكن الملف نفسه يحتوي على مجموعة واحدة من خصائص العرض.
+
+**هل يمكنني إعداد قالب يحتوي على خصائص عرض مُعَرَّفة مسبقاً بحيث تفتح العروض الجديدة بنفس الطريقة؟**
+
+نعم. بما أن [view properties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getViewProperties) تُخزن على مستوى العرض التقديمي، يمكنك تضمينها في قالب وإنشاء مستندات جديدة منه مع نفس تكوين العرض الابتدائي.
