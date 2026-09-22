@@ -32,6 +32,8 @@ This article demonstrates lightweight inspection through [PresentationFactory](h
 
 ## **Check a Presentation Format**
 
+If you already have a loaded presentation, see [Determine the Original Presentation Format](/slides/cpp/detect-presentation-source-format/) for detection after loading and the limitations of legacy PPT, PPS, and POT streams.
+
 Use [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) to inspect a file without creating a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) instance. The [IPresentationInfo::get_LoadFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_loadformat/) method reports the detected format, such as PPTX, PPT, or ODP.
 
 ```cpp

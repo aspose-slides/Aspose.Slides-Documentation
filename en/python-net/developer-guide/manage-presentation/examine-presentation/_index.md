@@ -32,6 +32,8 @@ This article demonstrates lightweight inspection through [PresentationFactory](h
 
 ## **Check a Presentation Format**
 
+If you already have a loaded presentation, see [Determine the Original Presentation Format](/slides/python-net/detect-presentation-source-format/) for detection after loading and the limitations of legacy PPT, PPS, and POT streams.
+
 Use [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) to inspect a file without creating a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) instance. The [PresentationInfo.load_format](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/load_format/) property reports the detected format, such as PPTX, PPT, or ODP.
 
 ```python
