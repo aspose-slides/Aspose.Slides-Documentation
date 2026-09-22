@@ -74,7 +74,7 @@ An example is given below shows how can you access [ViewProperties::getNormalVie
 ## **Set the Default Zoom Value**
 {{% alert color="info" %}} 
 
-Aspose.Slides for PHP via Java now supports setting the default zoom value for presentation such that when the presentation is opened, zoom is set already. This could be done by setting the [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) of a presentation. [getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties/#getSlideViewProperties) as well as [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties/#getNotesViewProperties) could be set programmatically. In this topic, we will see with an example how to set the [View Properties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) in [Aspose.Slides](/slides/).
+Aspose.Slides for PHP via Java now supports setting the default zoom value for presentation such that when the presentation is opened, zoom is set already. This could be done by setting the [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) of a presentation. [getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties/#getSlideViewProperties) as well as [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties/#getNotesViewProperties) could be set programmatically. In this topic, we will see with an example how to set the [View Properties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) in Aspose.Slides.
 
 {{% /alert %}} 
 
@@ -98,16 +98,50 @@ In order to set the view properties. Please follow the steps below:
   }
 ```
 
+## **Set the Grid Spacing**
+
+Use [Presentation::getViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getViewProperties) to access presentation-wide view settings. The [ViewProperties::getGridSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/#getGridSpacing) and [ViewProperties::setGridSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/#setGridSpacing) methods read or change the interval of the underlying editing grid. This setting applies to the entire presentation, not to an individual slide. Grid spacing is specified in points, where 72 points equal one inch. Use a positive value, as required by the API documentation.
+
+The following example opens an existing `demo.pptx`, prints its current grid spacing, sets a quarter-inch interval, and saves the result.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("demo.pptx");
+try {
+    $gridSpacing = $presentation->getViewProperties()->getGridSpacing();
+    echo "Current grid spacing: " . $gridSpacing . " points\n";
+
+    $presentation->getViewProperties()->setGridSpacing(18.0);
+    $presentation->save("grid-spacing.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+The grid is different from [drawing guides](/slides/php-java/drawing-guides/). Grid spacing controls a regular interval, while drawing guides are individually positioned horizontal or vertical alignment lines. Adding, moving, or clearing drawing guides does not change the grid spacing.
+
+Both the grid and drawing guides are editing aids. They are not rendered as slide content in PDF, images, SVG, or a slide show. Storing the grid spacing does not guarantee that an editor will display the grid: its visibility also depends on the viewer or editor's preferences.
+
 ## **FAQ**
 
-### Can I set different view settings for different sections of a presentation?
+**Why is the grid not visible after I reopen the presentation?**
+
+The file stores the grid spacing, but the editor controls whether the grid is displayed. Check the editor's grid visibility settings.
+
+**Does clearing drawing guides change the grid spacing?**
+
+No. Drawing guides and grid spacing are independent settings. Clearing guides leaves the stored grid interval unchanged.
+
+**Can I set different view settings for different sections of a presentation?**
 
 [View settings](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) are defined at the presentation level ([Normal View](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/getslideviewproperties/)), not per section, so a single set of parameters applies to the entire document when it opens.
 
-### Can I predefine different view states for different users?
+**Can I predefine different view states for different users?**
 
 No. The settings are stored in the file and are shared. Viewer applications may honor user preferences, but the file itself contains one set of view properties.
 
-### Can I prepare a template with predefined View Properties so new presentations open the same way?
+**Can I prepare a template with predefined View Properties so new presentations open the same way?**
 
 Yes. Because [view properties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getviewproperties/) are stored at the presentation level, you can embed them in a template and create new documents from it with the same initial view configuration.
