@@ -1,6 +1,6 @@
 ---
-title: Mở bài thuyết trình trên Android
-linktitle: Mở bài thuyết trình
+title: Mở Bài Thuyết Trình trên Android
+linktitle: Mở Bài Thuyết Trình
 type: docs
 weight: 20
 url: /vi/androidjava/open-presentation/
@@ -14,26 +14,28 @@ keywords:
 - tải PPTX
 - tải PPT
 - tải ODP
-- bài thuyết trình được bảo vệ
+- bài thuyết trình được bảo mật
 - bài thuyết trình lớn
 - tài nguyên bên ngoài
 - đối tượng nhị phân
 - Android
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách mở các bài thuyết trình PowerPoint và OpenDocument trên Android, cung cấp mật khẩu mở, kiểm soát việc tải tài nguyên và giảm sử dụng bộ nhớ với Aspose.Slides cho Android qua Java."
+description: "Tìm hiểu cách mở các bài thuyết trình PowerPoint và OpenDocument trên Android, cung cấp mật khẩu mở, kiểm soát việc tải tài nguyên và giảm sử dụng bộ nhớ với Aspose.Slides cho Android thông qua Java."
 ---
 ## **Giới thiệu**
 
-[Aspose.Slides cho Android qua Java](https://products.aspose.com/slides/vi/androidjava/) có thể tải các bài thuyết trình PowerPoint và OpenDocument từ tệp và luồng. Sau khi tải bài thuyết trình, bạn có thể kiểm tra cấu trúc, chỉnh sửa slide, quản lý tài nguyên và lưu lại ở định dạng gốc hoặc định dạng hỗ trợ khác.
+[Aspose.Slides for Android via Java](https://products.aspose.com/slides/vi/androidjava/) có thể tải các bài thuyết trình PowerPoint và OpenDocument từ tệp và luồng. Sau khi một bài thuyết trình được tải, bạn có thể kiểm tra cấu trúc của nó, chỉnh sửa các slide, quản lý tài nguyên và lưu lại ở định dạng gốc hoặc định dạng được hỗ trợ khác.
 
-Hành vi tải có thể được tùy chỉnh thông qua lớp [LoadOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/loadoptions/). Ví dụ, bạn có thể cung cấp mật khẩu mở, giữ các đối tượng nhị phân lớn bên ngoài bộ nhớ heap của Java, kiểm soát tài nguyên bên ngoài, hoặc bỏ qua dữ liệu nhị phân được nhúng.
+Hành vi tải có thể được tùy chỉnh thông qua lớp [LoadOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/loadoptions/). Ví dụ, bạn có thể cung cấp mật khẩu mở, giữ các đối tượng nhị phân lớn ngoài bộ nhớ heap của Java, kiểm soát tài nguyên bên ngoài, hoặc bỏ qua dữ liệu nhị phân được nhúng.
 
-## **Mở bài thuyết trình**
+## **Mở Bài Thuyết Trình**
 
-Để mở một bài thuyết trình hiện có, truyền đường dẫn tệp vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/). Hãy giải phóng (dispose) đối tượng presentation sau khi sử dụng để các tay cầm tệp, dữ liệu tạm thời và các tài nguyên khác được giải phóng kịp thời.
+Sau khi tải tệp hoặc luồng, bạn có thể [xác định định dạng bài thuyết trình gốc](/slides/vi/androidjava/detect-presentation-source-format/) để chọn cách ứng dụng của bạn xử lý nó.
 
-Ví dụ Java dưới đây cho thấy cách mở một bài thuyết trình và lấy số lượng slide:
+Để mở một bài thuyết trình hiện có, truyền đường dẫn tệp của nó vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/). Hủy đối tượng presentation sau khi sử dụng để các tay cầm tệp, dữ liệu tạm thời và các tài nguyên khác được giải phóng kịp thời.
+
+Ví dụ Java sau cho thấy cách mở một bài thuyết trình và lấy số lượng slide của nó:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -46,9 +48,9 @@ try {
 }
 ```
 
-## **Mở bài thuyết trình có mật khẩu**
+## **Mở Bài Thuyết Trình Được Bảo Mật Bằng Mật Khẩu**
 
-Mật khẩu mở mã hoá nội dung bài thuyết trình. Để tải toàn bộ bài thuyết trình, truyền mật khẩu đúng vào [LoadOptions.setPassword](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) và cung cấp các tùy chọn cho hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/). Việc tải sẽ thất bại nếu mật khẩu bị thiếu hoặc không đúng.
+Mật khẩu mở mã hóa nội dung bài thuyết trình. Để tải toàn bộ bài thuyết trình, truyền mật khẩu đúng vào [LoadOptions.setPassword](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) và cung cấp các tùy chọn cho hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/). Việc tải sẽ thất bại nếu mật khẩu thiếu hoặc không đúng.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -65,13 +67,13 @@ try {
 }
 ```
 
-Đối với việc phát hiện, xác thực mật khẩu và quy trình mã hoá, xem mục [Password-Protect Presentations](/slides/vi/androidjava/password-protected-presentation/). Nếu một bài thuyết trình được mã hoá nhưng được lưu có các thuộc tính tài liệu công khai, các thuộc tính đó vẫn có thể đọc được mà không cần mật khẩu; xem [Manage Presentation Properties](/slides/vi/androidjava/presentation-properties/).
+Đối với các quy trình phát hiện, xác thực và mã hóa mật khẩu, xem [Password-Protect Presentations](/slides/vi/androidjava/password-protected-presentation/). Nếu một bài thuyết trình đã được mã hóa nhưng được lưu có thuộc tính tài liệu công khai, các thuộc tính đó có thể được đọc mà không cần mật khẩu; xem [Manage Presentation Properties](/slides/vi/androidjava/presentation-properties/).
 
-## **Mở bài thuyết trình lớn**
+## **Mở Bài Thuyết Trình Lớn**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) trả về các tùy chọn kiểm soát cách Aspose.Slides xử lý các đối tượng nhị phân lớn như hình ảnh, âm thanh và video. Bạn có thể giữ tệp nguồn bị khóa, cho phép tệp tạm thời và giới hạn lượng dữ liệu BLOB được giữ trong bộ nhớ.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) trả về các tùy chọn kiểm soát cách Aspose.Slides xử lý các đối tượng nhị phân lớn như hình ảnh, âm thanh và video. Bạn có thể giữ tệp nguồn bị khóa, cho phép tệp tạm thời, và giới hạn lượng dữ liệu BLOB được giữ trong bộ nhớ.
 
-Đoạn mã Java dưới đây minh họa cách tải một bài thuyết trình lớn (ví dụ, 2 GB):
+Mã Java sau minh họa cách tải một bài thuyết trình lớn (ví dụ, 2 GB):
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -95,16 +97,15 @@ try {
 }
 ```
 
-{{% alert color="info" title="Ghi chú" %}}
-Với [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked), tệp nguồn sẽ vẫn bị khóa cho đến khi đối tượng presentation được giải phóng. Không di chuyển, ghi đè hoặc xóa tệp nguồn trong khi đối tượng còn tồn tại.
+{{% alert color="info" title="Note" %}}
+Với [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked), tệp nguồn sẽ vẫn bị khóa cho đến khi đối tượng presentation được giải phóng. Không di chuyển, ghi đè, hoặc xóa tệp nguồn trong khi phiên bản này còn tồn tại.
 
-Aspose.Slides có thể sao chép nội dung của một luồng đầu vào khi tải. Đối với các bài thuyết trình lớn, đường dẫn tệp thường hiệu quả hơn so với luồng. Xem [Manage BLOBs](/slides/vi/androidjava/manage-blob/) để biết thêm các tùy chọn lưu trữ và quản lý bộ nhớ.
-
+Aspose.Slides có thể sao chép nội dung của một luồng nhập khi tải. Đối với các bài thuyết trình lớn, do đó đường dẫn tệp thường hiệu quả hơn so với luồng. Xem [Manage BLOBs](/slides/vi/androidjava/manage-blob/) để biết thêm các tùy chọn lưu trữ và quản lý bộ nhớ.
 {{% /alert %}}
 
-## **Kiểm soát tài nguyên bên ngoài**
+## **Kiểm Soát Tài Nguyên Bên Ngoài**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) chấp nhận một triển khai của [IResourceLoadingCallback](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iresourceloadingcallback/). Callback này có thể cung cấp dữ liệu thay thế, chuyển hướng tài nguyên, sử dụng bộ tải mặc định, hoặc bỏ qua tài nguyên. Điều này hữu ích khi bài thuyết trình chứa hình ảnh bên ngoài cần được giải quyết theo các quy tắc bảo mật hoặc lưu trữ riêng của ứng dụng.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) chấp nhận một triển khai của [IResourceLoadingCallback](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iresourceloadingcallback/). Callback có thể cung cấp dữ liệu thay thế, chuyển hướng tài nguyên, sử dụng bộ tải mặc định, hoặc bỏ qua tài nguyên. Điều này hữu ích khi các bài thuyết trình chứa hình ảnh bên ngoài cần được xử lý theo các quy tắc bảo mật hoặc lưu trữ đặc thù của ứng dụng.
 
 ```java
 import com.aspose.slides.IResourceLoadingArgs;
@@ -148,17 +149,17 @@ try {
 }
 ```
 
-## **Tải bài thuyết trình mà không có các đối tượng nhị phân được nhúng**
+## **Tải Bài Thuyết Trình mà Không Có Các Đối Tượng Nhị Phân Nhúng**
 
-Một bài thuyết trình có thể chứa dữ liệu nhị phân được nhúng mà ứng dụng không cần hoặc không muốn giữ lại. Một số ví dụ:
+Một bài thuyết trình có thể chứa dữ liệu nhị phân nhúng mà ứng dụng không cần hoặc không muốn giữ lại. Các ví dụ bao gồm:
 
-- Dự án VBA, truy cập qua [IPresentation.getVbaProject](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ipresentation/#getVbaProject--);
-- Dữ liệu OLE được nhúng, truy cập qua [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
-- Dữ liệu điều khiển ActiveX, truy cập qua [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--).
+- Dự án VBA, có sẵn thông qua [IPresentation.getVbaProject](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ipresentation/#getVbaProject--);
+- Dữ liệu OLE nhúng, có sẵn thông qua [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
+- Dữ liệu điều khiển ActiveX, có sẵn thông qua [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--).
 
 Đặt [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) thành `true` để loại bỏ dữ liệu nhị phân này khi tải. Lưu bài thuyết trình đã tải để giữ lại kết quả đã được làm sạch.
 
-Tùy chọn này giảm nguy cơ tiếp xúc với các payload được nhúng không mong muốn, nhưng không phải là một hệ thống phát hiện phần mềm độc hại hoặc làm sạch nội dung hoàn chỉnh.
+Tùy chọn này giảm nguy cơ tiếp xúc với các gói tin nhúng không muốn, nhưng nó không phải là một hệ thống phát hiện phần mềm độc hại hay làm sạch nội dung hoàn chỉnh.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -176,16 +177,16 @@ try {
 }
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Làm thế nào để biết một tệp bị hỏng và không thể mở được?**
+**Làm sao tôi biết một tệp bị hỏng và không thể mở được?**
 
-Aspose.Slides ném ra ngoại lệ phân tích hoặc định dạng trong quá trình tải. Hãy xử lý lỗi này riêng biệt với lỗi mật khẩu không đúng để ứng dụng có thể thông báo nguyên nhân một cách chính xác.
+Aspose.Slides sẽ ném ra ngoại lệ phân tích hoặc định dạng khi tải. Hãy xử lý lỗi này riêng biệt với lỗi mật khẩu không đúng để ứng dụng có thể báo cáo nguyên nhân một cách chính xác.
 
-**Điều gì sẽ xảy ra nếu thiếu các phông chữ bắt buộc?**
+**Điều gì xảy ra nếu các phông chữ yêu cầu bị thiếu?**
 
-Bài thuyết trình vẫn có thể được tải, nhưng quá trình render và xuất có thể thay thế phông chữ. Bạn có thể [configure font substitution](/slides/vi/androidjava/font-substitution/) hoặc [provide custom fonts](/slides/vi/androidjava/custom-font/) để đầu ra ổn định hơn.
+Bài thuyết trình vẫn có thể tải, nhưng việc render và xuất ra có thể thay thế phông chữ. Bạn có thể [configure font substitution](/slides/vi/androidjava/font-substitution/) hoặc [provide custom fonts](/slides/vi/androidjava/custom-font/) để làm cho đầu ra dự đoán được hơn.
 
-**Việc tải một bài thuyết trình có đồng thời tải các phương tiện được nhúng không?**
+**Việc tải một bài thuyết trình có đồng thời tải các phương tiện nhúng không?**
 
-Âm thanh và video được nhúng sẽ khả dụng thông qua mô hình đối tượng của bài thuyết trình. Các tài nguyên bên ngoài được giải quyết theo hành vi tải tài nguyên đã cấu hình và có thể không khả dụng nếu không thể truy cập vị trí của chúng.
+Âm thanh và video nhúng sẽ khả dụng thông qua mô hình đối tượng của bài thuyết trình. Các tài nguyên bên ngoài được giải quyết dựa trên hành vi tải tài nguyên đã cấu hình và có thể không khả dụng nếu không thể truy cập đến vị trí của chúng.

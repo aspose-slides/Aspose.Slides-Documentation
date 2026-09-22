@@ -17,23 +17,25 @@ keywords:
 - geschützte Präsentation
 - große Präsentation
 - externe Ressource
-- Binärobjekt
+- binäres Objekt
 - Android
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument‑Präsentationen auf Android öffnen, Öffnungspasswörter angeben, das Laden von Ressourcen steuern und den Speicherverbrauch mit Aspose.Slides für Android via Java reduzieren."
+description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Präsentationen auf Android öffnen, Öffnungspasswörter bereitstellen, das Laden von Ressourcen steuern und den Speicherverbrauch mit Aspose.Slides für Android via Java reduzieren."
 ---
-## **Einleitung**
+## **Einführung**
 
-Aspose.Slides for Android via Java kann PowerPoint- und OpenDocument-Präsentationen aus Dateien und Streams laden. Nachdem eine Präsentation geladen wurde, können Sie ihre Struktur untersuchen, Folien bearbeiten, Ressourcen verwalten und sie im Originalformat oder in einem anderen unterstützten Format speichern.
+[Aspose.Slides for Android via Java](https://products.aspose.com/slides/de/androidjava/) kann PowerPoint- und OpenDocument-Präsentationen aus Dateien und Streams laden. Nachdem eine Präsentation geladen wurde, können Sie deren Struktur untersuchen, Folien bearbeiten, Ressourcen verwalten und sie im ursprünglichen oder einem anderen unterstützten Format speichern.
 
-Das Ladeverhalten kann über die Klasse LoadOptions angepasst werden. Beispielsweise können Sie ein Öffnungspasswort angeben, große Binärobjekte außerhalb des Java-Heap-Speichers halten, externe Ressourcen steuern oder eingebettete Binärdaten weglassen.
+Das Ladeverhalten kann über die Klasse [LoadOptions](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/loadoptions/) angepasst werden. Beispielsweise können Sie ein Öffnungspasswort angeben, große Binärobjekte außerhalb des Java-Heap-Speichers behalten, externe Ressourcen steuern oder eingebettete Binärdaten weglassen.
 
 ## **Präsentationen öffnen**
 
-Um eine vorhandene Präsentation zu öffnen, übergeben Sie ihren Dateipfad dem Konstruktor Presentation. Entsorgen Sie die Präsentation nach der Verwendung, damit Dateihandles, temporäre Daten und andere Ressourcen sofort freigegeben werden.
+Nachdem Sie eine Datei oder einen Stream geladen haben, können Sie das [ursprüngliche Präsentationsformat bestimmen](/slides/de/androidjava/detect-presentation-source-format/), um zu entscheiden, wie Ihre Anwendung sie verarbeitet.
 
-Das folgende Java-Beispiel zeigt, wie man eine Präsentation öffnet und die Folienanzahl ermittelt:
+Um eine vorhandene Präsentation zu öffnen, übergeben Sie deren Dateipfad dem Konstruktor der [Presentation](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/) . Entsorgen Sie die Präsentation nach der Verwendung, damit Dateihandles, temporäre Daten und andere Ressourcen umgehend freigegeben werden.
+
+Das folgende Java‑Beispiel zeigt, wie eine Präsentation geöffnet und die Folienanzahl ermittelt wird:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -48,7 +50,7 @@ try {
 
 ## **Passwortgeschützte Präsentationen öffnen**
 
-Ein Öffnungspasswort verschlüsselt den Inhalt der Präsentation. Um die gesamte Präsentation zu laden, übergeben Sie das korrekte Passwort an LoadOptions.setPassword und geben die Optionen dem Konstruktor Presentation. Das Laden schlägt fehl, wenn das Passwort fehlt oder falsch ist.
+Ein Öffnungspasswort verschlüsselt den Präsentationsinhalt. Um die komplette Präsentation zu laden, übergeben Sie das korrekte Passwort an [LoadOptions.setPassword](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) und stellen Sie die Optionen dem [Presentation](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/)‑Konstruktor zur Verfügung. Das Laden schlägt fehl, wenn das Passwort fehlt oder falsch ist.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -65,13 +67,13 @@ try {
 }
 ```
 
-Für Passwort-Erkennung, Validierung und Verschlüsselungs-Workflows siehe Passwort-Protect Presentations. Wenn eine verschlüsselte Präsentation bewusst mit öffentlichen Dokumenteigenschaften gespeichert wurde, können diese Eigenschaften ohne Passwort ausgelesen werden; siehe Manage Presentation Properties.
+Für Passworterkennung, -validierung und Verschlüsselungs‑Workflows siehe [Password‑Protect Presentations](/slides/de/androidjava/password-protected-presentation/). Wenn eine verschlüsselte Präsentation absichtlich mit öffentlichen Dokumenteneigenschaften gespeichert wurde, können diese Eigenschaften ohne Passwort gelesen werden; siehe [Manage Presentation Properties](/slides/de/androidjava/presentation-properties/).
 
 ## **Große Präsentationen öffnen**
 
-LoadOptions.getBlobManagementOptions liefert Optionen, die steuern, wie Aspose.Slides große Binärobjekte (BLOBs) wie Bilder, Audio und Video verarbeitet. Sie können die Quelldatei gesperrt halten, temporäre Dateien zulassen und die Menge an BLOB-Daten, die im Speicher gehalten werden, begrenzen.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) gibt Optionen zurück, die steuern, wie Aspose.Slides große binäre Objekte wie Bilder, Audio und Video verarbeitet. Sie können die Quelldatei gesperrt lassen, temporäre Dateien erlauben und die Menge an BLOB‑Daten, die im Speicher behalten wird, begrenzen.
 
-Der folgende Java-Code demonstriert das Laden einer großen Präsentation (zum Beispiel 2 GB):
+Das folgende Java‑Code‑Beispiel demonstriert das Laden einer großen Präsentation (z. B. 2 GB):
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -96,14 +98,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-Mit PresentationLockingBehavior.KeepLocked bleibt die Quelldatei gesperrt, bis die Präsentationsinstanz entsorgt wird. Verschieben, überschreiben oder löschen Sie die Quelldatei nicht, solange diese Instanz aktiv ist.
+Mit [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked) bleibt die Quelldatei gesperrt, bis die Präsentationsinstanz entsorgt wird. Verschieben, überschreiben oder löschen Sie die Quelldatei nicht, solange diese Instanz lebt.
 
-Aspose.Slides kann beim Laden den Inhalt eines Eingabestreams kopieren. Für große Präsentationen ist ein Dateipfad daher in der Regel effizienter als ein Stream. Siehe Manage BLOBs für zusätzliche Speicher- und Speicherverwaltungsoptionen.
+Aspose.Slides kann beim Laden den Inhalt eines Eingabestreams kopieren. Für große Präsentationen ist daher ein Dateipfad im Allgemeinen effizienter als ein Stream. Siehe [Manage BLOBs](/slides/de/androidjava/manage-blob/) für weitere Speicher‑ und Speicherverwaltungsoptionen.
 {{% /alert %}}
 
 ## **Externe Ressourcen steuern**
 
-LoadOptions.setResourceLoadingCallback akzeptiert eine Implementierung von IResourceLoadingCallback. Der Callback kann Ersatzdaten bereitstellen, eine Ressource umleiten, den Standard-Loader verwenden oder die Ressource überspringen. Dies ist nützlich, wenn Präsentationen externe Bilder enthalten, die gemäß anwendungsspezifischen Sicherheits- oder Speicherregeln aufgelöst werden müssen.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) akzeptiert eine Implementierung von [IResourceLoadingCallback](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iresourceloadingcallback/). Der Callback kann Ersatzdaten bereitstellen, eine Ressource umleiten, den Standard‑Lader verwenden oder die Ressource überspringen. Das ist nützlich, wenn Präsentationen externe Bilder enthalten, die gemäß anwendungsspezifischen Sicherheits‑ oder Speicherregeln aufgelöst werden müssen.
 
 ```java
 import com.aspose.slides.IResourceLoadingArgs;
@@ -151,13 +153,13 @@ try {
 
 Eine Präsentation kann eingebettete Binärdaten enthalten, die eine Anwendung nicht benötigt oder nicht behalten möchte. Beispiele sind:
 
-- VBA-Projekte, verfügbar über IPresentation.getVbaProject;
-- eingebettete OLE-Daten, verfügbar über IOleEmbeddedDataInfo.getEmbeddedFileData;
-- ActiveX-Steuerungsdaten, verfügbar über IControl.getActiveXControlBinary.
+- VBA‑Projekte, verfügbar über [IPresentation.getVbaProject](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipresentation/#getVbaProject--);
+- eingebettete OLE‑Daten, verfügbar über [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
+- ActiveX‑Steuerdaten, verfügbar über [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--).
 
-Setzen Sie LoadOptions.setDeleteEmbeddedBinaryObjects auf `true`, um diese Binärdaten beim Laden zu entfernen. Speichern Sie die geladene Präsentation, um das bereinigte Ergebnis zu erhalten.
+Setzen Sie [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) auf `true`, um diese Binärdaten beim Laden zu entfernen. Speichern Sie die geladene Präsentation, um das bereinigte Ergebnis zu persistieren.
 
-Diese Option verringert das Risiko unerwünschter eingebetteter Payloads, stellt jedoch kein vollständiges Malware-Erkennungs- oder Inhalts-Sanitärsystem dar.
+Diese Option reduziert die Gefahr unerwünschter eingebetteter Payloads, ist jedoch kein vollständiges Malware‑Erkennungs‑ oder Inhalts‑Sanitärsystem.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -179,12 +181,12 @@ try {
 
 **Wie kann ich erkennen, dass eine Datei beschädigt ist und nicht geöffnet werden kann?**
 
-Aspose.Slides wirft beim Laden eine Parsing- oder Format-Ausnahme. Behandeln Sie diesen Fehler separat von einem falschen-Passwort-Fehler, damit die Anwendung die Ursache genau melden kann.
+Aspose.Slides wirft beim Laden eine Parsing‑ oder Format‑Ausnahme. Behandeln Sie diesen Fehler getrennt von einem falschen Passwort‑Fehler, damit die Anwendung die Ursache genau melden kann.
 
-**Was passiert, wenn erforderliche Schriftarten fehlen?**
+**Was passiert, wenn erforderliche Schriften fehlen?**
 
-Die Präsentation kann weiterhin geladen werden, aber beim Rendern und Exportieren können Schriftarten substituiert werden. Sie können die Schriftart-Substitution konfigurieren oder benutzerdefinierte Schriftarten bereitstellen, um die Ausgabe vorhersehbarer zu machen.
+Die Präsentation kann trotzdem geladen werden, aber Rendering und Export können Schriften substituieren. Sie können die [Schriftart‑Substitution konfigurieren](/slides/de/androidjava/font-substitution/) oder [benutzerdefinierte Schriften bereitstellen](/slides/de/androidjava/custom-font/), um die Ausgabe vorhersehbarer zu machen.
 
-**Lädt das Laden einer Präsentation auch deren eingebettete Medien?**
+**Lädt das Laden einer Präsentation auch ihre eingebetteten Medien?**
 
-Eingebettetes Audio und Video stehen über das Präsentations-Objektmodell zur Verfügung. Externe Ressourcen werden gemäß dem konfigurierten Ressourcen-Ladeverhalten aufgelöst und können nicht verfügbar sein, wenn ihre Speicherorte nicht erreichbar sind.
+Eingebettete Audio‑ und Video‑Dateien werden über das Präsentations‑Objektmodell verfügbar. Externe Ressourcen werden gemäß dem konfigurierten Ressourcen‑Ladeverhalten aufgelöst und können unavailable sein, wenn ihre Speicherorte nicht erreichbar sind.

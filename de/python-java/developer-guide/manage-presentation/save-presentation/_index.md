@@ -12,8 +12,8 @@ keywords:
 - PPT speichern
 - PPTX speichern
 - ODP speichern
-- Präsentation in Datei
-- Präsentation in Stream
+- Präsentation zu Datei
+- Präsentation zu Stream
 - vordefinierter Ansichtstyp
 - Strict Office Open XML-Format
 - Zip64-Modus
@@ -26,11 +26,11 @@ description: "Speichern Sie PowerPoint- und OpenDocument-Präsentationen in Date
 ---
 ## **Übersicht**
 
-Nachdem Sie eine Präsentation erstellt oder [eine vorhandene öffnen](/slides/de/python-java/open-presentation/), verwenden Sie die [Presentation.save](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#save)‑Methode, um das Ergebnis zu schreiben. Aspose.Slides für Python über Java kann eine Präsentation in PowerPoint, OpenDocument, PDF und anderen Formaten in einer Datei oder einem Stream speichern. Die folgenden Abschnitte behandeln die Standard‑Speichervorgänge und die für PPTX‑Ausgaben verfügbaren Optionen.
+Nachdem Sie eine Präsentation erstellt oder [eine vorhandene öffnen](/slides/de/python-java/open-presentation/), verwenden Sie die Methode [Presentation.save](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#save), um das Ergebnis zu schreiben. Aspose.Slides für Python über Java kann eine Präsentation in einer Datei oder einem Stream in PowerPoint, OpenDocument, PDF und anderen Formaten speichern. Die folgenden Abschnitte behandeln die standardmäßigen Speicheroperationen und die für PPTX‑Ausgabe verfügbaren Optionen.
 
 ## **Präsentationen in Dateien speichern**
 
-Um eine Präsentation in einer Datei zu speichern, übergeben Sie den Ausgabepfad und einen [SaveFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/saveformat/)‑Wert an die [Presentation.save](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#save)‑Methode. Der Formatwert bestimmt den Dateityp, den Aspose.Slides erzeugt.
+Um eine Präsentation in einer Datei zu speichern, übergeben Sie dem Aufruf von [Presentation.save](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#save) den Ausgabepfad und einen [SaveFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/saveformat/)-Wert. Der Formatwert bestimmt den Dateityp, den Aspose.Slides erzeugt.
 
 Das folgende Beispiel erstellt eine Präsentation und speichert sie als PPTX‑Datei:
 
@@ -45,7 +45,7 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # Fügen Sie hier Präsentationsinhalt hinzu oder ändern Sie ihn.
+    # Fügen Sie hier Inhalte zur Präsentation hinzu oder ändern Sie sie.
 
     presentation.save("Output.pptx", SaveFormat.Pptx)
 finally:
@@ -54,9 +54,11 @@ finally:
 
 ## **Präsentationen im Originalformat speichern**
 
-In einer Batch‑Verarbeitungsanwendung ist das Eingabeformat möglicherweise nicht im Voraus bekannt. Nach dem Laden einer Datei lesen Sie ihr Originalformat über die [Presentation.getSourceFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#getSourceFormat)‑Methode. Übergeben Sie den resultierenden [SourceFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/sourceformat/)‑Wert an [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/slideutil/#toSaveFormat), um den entsprechenden [SaveFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/saveformat/)‑Wert zu erhalten, und verwenden Sie anschließend [Presentation.save](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#save), um die modifizierte Präsentation zu schreiben.
+Für Beispiele zur Erkennung von Datei‑ und Streamformaten, das Verhalten neu erstellter Präsentationen und den Unterschied zwischen Quell‑ und Zielformaten siehe [Bestimmen des Originalpräsentationsformats](/slides/de/python-java/detect-presentation-source-format/).
 
-Das folgende vollständige Beispiel verarbeitet jede Datei in einem Eingabeverzeichnis, aktualisiert deren Titel und speichert sie in ein Ausgabeverzeichnis im Format, aus dem sie geladen wurde:
+In einer Batch‑Verarbeitungsanwendung ist das Eingabeformat möglicherweise im Voraus nicht bekannt. Nachdem eine Datei geladen wurde, lesen Sie ihr Originalformat über die Methode [Presentation.getSourceFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#getSourceFormat). Übergeben Sie den resultierenden [SourceFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/sourceformat/)-Wert an [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/slideutil/#toSaveFormat), um den entsprechenden [SaveFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/saveformat/)-Wert zu erhalten, und verwenden Sie anschließend [Presentation.save](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#save), um die geänderte Präsentation zu schreiben.
+
+Das folgende vollständige Beispiel verarbeitet jede Datei in einem Eingabeverzeichnis, aktualisiert ihren Titel und speichert sie in ein Ausgabeverzeichnis im Format, aus dem sie geladen wurde:
 
 ```python
 import jpype
@@ -96,13 +98,13 @@ if input_directory.is_dir() and output_directory.is_dir():
                 print(f"Cannot process '{input_file}': {exception}")
 ```
 
-[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/slideutil/#toSaveFormat) ordnet PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP und PowerPoint XML ihren jeweiligen Präsentations‑Speicherformaten zu. Es mappt ausschließlich Präsentations‑Quellformate; es ist nicht dafür gedacht, Exportformate wie PDF, HTML, TIFF oder Bilder auszuwählen. Das Übergeben eines nicht unterstützten oder ungültigen [SourceFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/sourceformat/)‑Wertes führt zu einer [IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html).
+[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/slideutil/#toSaveFormat) ordnet PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP und PowerPoint XML den entsprechenden Präsentations‑Speicherformaten zu. Es mappt ausschließlich Präsentations‑Quellformate; es soll nicht zum Auswählen von Exportformaten wie PDF, HTML, TIFF oder Bildern verwendet werden. Das Übergeben eines nicht unterstützten oder ungültigen [SourceFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/sourceformat/)-Werts führt zu einer [IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html).
 
-Legacy‑PPT-, PPS‑ und POT‑Dateien verwenden denselben Binärcontainer. Wenn eine solche Präsentation aus einem Stream ohne Dateierweiterung geladen wird, kann eine PPS‑ oder POT‑Datei daher als PPT identifiziert werden. Wenn das Beibehalten dieser Legacy‑Subtypen erforderlich ist, bewahren Sie den ursprünglichen Dateinamen oder die Format‑Metadaten separat auf und nutzen Sie sie bei der Auswahl des Ausgabedateinamens und -formats.
+Legacy‑PPT-, PPS‑ und POT‑Dateien verwenden denselben binären Container. Wird eine solche Präsentation aus einem Stream ohne Dateierweiterung geladen, kann eine PPS‑ oder POT‑Datei daher als PPT identifiziert werden. Wenn das Beibehalten dieser Legacy‑Subtypen erforderlich ist, sollten Sie den Originaldateinamen oder Metadaten zum Format separat aufbewahren und beim Festlegen des Ausgabedateinamens und -formats verwenden.
 
 ## **Präsentationen in Streams speichern**
 
-Um eine Präsentation zu schreiben, ohne einen endgültigen Dateipfad zu benötigen, übergeben Sie einen schreibbaren Stream und einen [SaveFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/saveformat/)‑Wert an die [Presentation.save](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#save)‑Methode. Dieser Ansatz ist nützlich, wenn die Ausgabe von einem Web‑Service zurückgegeben, in einer Datenbank gespeichert oder im Speicher verarbeitet werden muss.
+Um eine Präsentation zu schreiben, ohne einen endgültigen Dateipfad zu benötigen, übergeben Sie einen beschreibbaren Stream und einen [SaveFormat](https://reference.aspose.com/slides/de/python-java/aspose.slides/saveformat/)-Wert an die Methode [Presentation.save](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#save). Dieser Ansatz ist nützlich, wenn die Ausgabe von einem Web‑Service zurückgegeben, in einer Datenbank gespeichert oder im Speicher verarbeitet werden soll.
 
 Das folgende Beispiel speichert eine neue Präsentation in einen Dateistream:
 
@@ -130,7 +132,7 @@ finally:
 
 ## **Präsentationen mit vordefiniertem Ansichtstyp speichern**
 
-Sie können die Ansicht festlegen, in der PowerPoint eine gespeicherte Präsentation zunächst öffnet. Verwenden Sie vor dem Speichern die [ViewProperties.setLastView](https://reference.aspose.com/slides/de/python-java/aspose.slides/viewproperties/#setLastView)‑Methode mit einem [ViewType](https://reference.aspose.com/slides/de/python-java/aspose.slides/viewtype/)‑Wert.
+Sie können die Ansicht festlegen, in der PowerPoint eine gespeicherte Präsentation zunächst öffnet. Verwenden Sie vor dem Speichern die Methode [ViewProperties.setLastView](https://reference.aspose.com/slides/de/python-java/aspose.slides/viewproperties/#setLastView) mit einem [ViewType](https://reference.aspose.com/slides/de/python-java/aspose.slides/viewtype/)-Wert.
 
 Das folgende Beispiel konfiguriert die Folienmaster‑Ansicht als Anfangsansicht:
 
@@ -151,9 +153,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Präsentationen im Strict Office Open XML‑Format speichern**
+## **Präsentationen im Strict‑Office‑Open‑XML‑Format speichern**
 
-Um eine PPTX‑Datei zu erstellen, die dem Strict‑Profil von Office Open XML entspricht, erzeugen Sie eine [PptxOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/pptxoptions/)‑Instanz und verwenden deren [setConformance](https://reference.aspose.com/slides/de/python-java/aspose.slides/pptxoptions/#setConformance)‑Methode mit [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/de/python-java/aspose.slides/conformance/#Iso29500_2008_Strict). Übergeben Sie anschließend die Optionen an die [Presentation.save](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#save)‑Methode.
+Um eine PPTX‑Datei zu erstellen, die dem Strict‑Profil von Office Open XML entspricht, erzeugen Sie eine Instanz von [PptxOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/pptxoptions/) und verwenden deren Methode [setConformance](https://reference.aspose.com/slides/de/python-java/aspose.slides/pptxoptions/#setConformance) mit dem Wert [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/de/python-java/aspose.slides/conformance/#Iso29500_2008_Strict). Übergaben Sie anschließend die Optionen an die Methode [Presentation.save](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#save).
 
 ```python
 import jpype
@@ -174,17 +176,17 @@ finally:
     presentation.dispose()
 ```
 
-## **Präsentationen im Office Open XML‑Format im Zip64‑Modus speichern**
+## **Präsentationen im Office‑Open‑XML‑Format im Zip64‑Modus speichern**
 
-Ein Standard‑ZIP‑Archiv begrenzt die komprimierte und unkomprimierte Größe jedes Eintrags, die Gesamtarchivgröße und die Anzahl der Einträge. Da eine PPTX‑Datei ein ZIP‑Archiv ist, kann eine sehr große Präsentation diese Grenzen überschreiten. ZIP64‑Erweiterungen heben die jeweiligen Größen‑ und Eintrags‑Grenzwerte an.
+Ein Standard‑ZIP‑Archiv begrenzt die komprimierte und unkomprimierte Größe jedes Eintrags, die Gesamtarchivgröße und die Anzahl der Einträge. Da eine PPTX‑Datei ein ZIP‑Archiv ist, kann eine sehr große Präsentation diese Grenzen überschreiten. ZIP64‑Erweiterungen erhöhen die jeweiligen Größen‑ und Eintragslimits.
 
-Verwenden Sie die [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/de/python-java/aspose.slides/pptxoptions/#setZip64Mode)‑Methode, um zu steuern, ob Aspose.Slides ZIP64‑Erweiterungen schreibt:
+Verwenden Sie die Methode [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/de/python-java/aspose.slides/pptxoptions/#setZip64Mode), um zu steuern, ob Aspose.Slides ZIP64‑Erweiterungen schreibt:
 
 - [IfNecessary](https://reference.aspose.com/slides/de/python-java/aspose.slides/zip64mode/#IfNecessary) verwendet ZIP64 nur, wenn die Präsentation die Standard‑ZIP‑Grenzen überschreitet. Dies ist der Standardmodus.
 - [Never](https://reference.aspose.com/slides/de/python-java/aspose.slides/zip64mode/#Never) deaktiviert ZIP64‑Erweiterungen.
-- [Always](https://reference.aspose.com/slides/de/python-java/aspose.slides/zip64mode/#Always) schreibt stets ZIP64‑Erweiterungen.
+- [Always](https://reference.aspose.com/slides/de/python-java/aspose.slides/zip64mode/#Always) schreibt immer ZIP64‑Erweiterungen.
 
-Das folgende Beispiel aktiviert ZIP64‑Erweiterungen für die Ausgabepäsentation durchgehend:
+Das folgende Beispiel aktiviert ZIP64‑Erweiterungen für die Ausgabepäsentation stets:
 
 ```python
 import jpype
@@ -205,20 +207,20 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="warning" title="Warnung" %}}
+{{% alert color="warning" title="Warning" %}}
 Wenn [Zip64Mode.Never](https://reference.aspose.com/slides/de/python-java/aspose.slides/zip64mode/#Never) verwendet wird und die Präsentation nicht in die Standard‑ZIP‑Grenzen passt, wirft der Speichervorgang eine [PptxException](https://reference.aspose.com/slides/de/python-java/aspose.slides/pptxexception/).
 {{% /alert %}}
 
-## **Präsentationen im Office Open XML‑Format mit Komprimierungsstufen speichern**
+## **Präsentationen im Office‑Open‑XML‑Format mit Komprimierungsstufen speichern**
 
-Für PPTX‑Ausgaben können Sie mithilfe der [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/de/python-java/aspose.slides/pptxoptions/#setCompressionLevel)‑Methode das Gleichgewicht zwischen Speichergeschwindigkeit und Dateigröße steuern. Die [CompressionLevel](https://reference.aspose.com/slides/de/python-java/aspose.slides/compressionlevel/)‑Klasse liefert folgende Werte:
+Für die PPTX‑Ausgabe können Sie die Speicher‑Geschwindigkeit gegen die Dateigröße abwägen, indem Sie die Methode [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/de/python-java/aspose.slides/pptxoptions/#setCompressionLevel) verwenden. Die Klasse [CompressionLevel](https://reference.aspose.com/slides/de/python-java/aspose.slides/compressionlevel/) liefert folgende Werte:
 
 - [None](https://reference.aspose.com/slides/de/python-java/aspose.slides/compressionlevel/#None) speichert Daten ohne Kompression.
-- [Level1](https://reference.aspose.com/slides/de/python-java/aspose.slides/compressionlevel/#Level1) bietet die schnellste Kompression und die größte komprimierte Ausgabe.
-- [Level2](https://reference.aspose.com/slides/de/python-java/aspose.slides/compressionlevel/#Level2) bis [Level5](https://reference.aspose.com/slides/de/python-java/aspose.slides/compressionlevel/#Level5) begünstigen zunehmend kleinere Ausgaben gegenüber der Speichergeschwindigkeit.
+- [Level1](https://reference.aspose.com/slides/de/python-java/aspose.slides/compressionlevel/#Level1) liefert die schnellste Kompression und das größte komprimierte Ergebnis.
+- [Level2](https://reference.aspose.com/slides/de/python-java/aspose.slides/compressionlevel/#Level2) bis [Level5](https://reference.aspose.com/slides/de/python-java/aspose.slides/compressionlevel/#Level5) bevorzugen zunehmend kleinere Ausgaben gegenüber der Speichergeschwindigkeit.
 - [Level6](https://reference.aspose.com/slides/de/python-java/aspose.slides/compressionlevel/#Level6) balanciert Speichergeschwindigkeit und Dateigröße. Dies ist die Standardstufe.
-- [Level7](https://reference.aspose.com/slides/de/python-java/aspose.slides/compressionlevel/#Level7) und [Level8](https://reference.aspose.com/slides/de/python-java/aspose.slides/compressionlevel/#Level8) bevorzugen weiter kleinere Ausgaben gegenüber der Speichergeschwindigkeit.
-- [Level9](https://reference.aspose.com/slides/de/python-java/aspose.slides/compressionlevel/#Level9) bietet die stärkste Kompression und erfordert die meiste Verarbeitungszeit.
+- [Level7](https://reference.aspose.com/slides/de/python-java/aspose.slides/compressionlevel/#Level7) und [Level8](https://reference.aspose.com/slides/de/python-java/aspose.slides/compressionlevel/#Level8) favorisieren noch stärker kleinere Ausgaben gegenüber der Speichergeschwindigkeit.
+- [Level9](https://reference.aspose.com/slides/de/python-java/aspose.slides/compressionlevel/#Level9) liefert die stärkste Kompression und erfordert die meiste Verarbeitungszeit.
 
 Das folgende Beispiel speichert eine Präsentation ohne Kompression:
 
@@ -262,11 +264,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Präsentationen ohne Aktualisierung des Miniaturbilds speichern**
+## **Präsentationen ohne Aktualisierung des Miniaturbildes speichern**
 
-Wenn eine Präsentation als PPTX gespeichert wird, steuert die [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/de/python-java/aspose.slides/pptxoptions/#setRefreshThumbnail)‑Methode das Dokument‑Miniaturbild:
+Beim Speichern einer Präsentation als PPTX steuert die Methode [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/de/python-java/aspose.slides/pptxoptions/#setRefreshThumbnail) das Dokument‑Miniaturbild:
 
-- `True` regeneriert das Miniaturbild während des Speicher‑Vorgangs. Dies ist der Standardwert.
+- `True` regeneriert das Miniaturbild während des Speichervorgangs. Dies ist der Standardwert.
 - `False` bewahrt das vorhandene Miniaturbild. Hat die Präsentation kein Miniaturbild, erzeugt Aspose.Slides keines.
 
 Das folgende Beispiel speichert eine Präsentation, ohne ihr Miniaturbild zu aktualisieren:
@@ -290,13 +292,13 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Hinweis" %}}
-Das Deaktivieren der Miniaturbild‑Aktualisierung kann die zum Speichern einer PPTX‑Datei benötigte Zeit verkürzen.
+{{% alert color="info" title="Note" %}}
+Das Deaktivieren der Miniaturbild‑Aktualisierung kann die zum Speichern einer PPTX‑Datei erforderliche Zeit verkürzen.
 {{% /alert %}}
 
 ## **Speicherfortschritt als Prozentsatz melden**
 
-Um einen Speicher‑Vorgang zu überwachen, registrieren Sie einen Python‑Fortschritts‑Handler über `jpype.JProxy` und übergeben ihn an die [SaveOptions.setProgressCallback](https://reference.aspose.com/slides/de/python-java/aspose.slides/saveoptions/#setProgressCallback)‑Methode. Aspose.Slides ruft dann die `reporting`‑Methode des Handlers mit Fortschrittswerten während des Exports auf.
+Um einen Speicher‑Vorgang zu überwachen, registrieren Sie einen Python‑Fortschritts‑Handler über `jpype.JProxy` und übergeben ihn an die Methode [SaveOptions.setProgressCallback](https://reference.aspose.com/slides/de/python-java/aspose.slides/saveoptions/#setProgressCallback). Aspose.Slides ruft dann die Methode `reporting` des Handlers mit Fortschrittswerten während des Exports auf.
 
 Das folgende Beispiel gibt den Fortschritt eines PDF‑Exports in der Konsole aus:
 
@@ -328,24 +330,24 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Hinweis" %}}
-Aspose stellt einen kostenlosen [PowerPoint Splitter](https://products.aspose.app/slides/de/splitter) bereit, der mit der Aspose.Slides‑API gebaut wurde. Er speichert ausgewählte Folien einer Präsentation als separate PPT‑ oder PPTX‑Dateien.
+{{% alert color="info" title="Note" %}}
+Aspose stellt einen kostenlosen [PowerPoint Splitter](https://products.aspose.app/slides/de/splitter) bereit, der mit der Aspose.Slides‑API gebaut wurde. Er speichert ausgewählte Folien aus einer Präsentation als separate PPT‑ oder PPTX‑Dateien.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Unterstützt Aspose.Slides inkrementelles oder „Fast Save“?**
+**Unterstützt Aspose.Slides inkrementelles oder „Fast‑Save“?**
 
-Nein. Jeder Speicherungs‑vorgang schreibt eine vollständige Ausgabedatei, anstatt nur die geänderten Teile zu aktualisieren.
+Nein. Jeder Speicher­vorgang schreibt eine vollständige Ausgabedatei, anstatt nur die geänderten Teile zu aktualisieren.
 
 **Können mehrere Threads dieselbe Presentation‑Instanz speichern?**
 
-Nein. Eine [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/)‑Instanz ist nicht thread‑sicher. Greifen Sie nur von einem Thread gleichzeitig darauf zu und speichern Sie sie ebenfalls nur von einem Thread.
+Nein. Eine [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/)‑Instanz [ist nicht thread‑sicher](/slides/de/python-java/multithreading/). Greifen Sie nur jeweils von einem Thread auf eine Instanz zu und speichern Sie sie.
 
-**Was passiert mit Hyperlinks und extern verlinkten Dateien, wenn ich eine Präsentation speichere?**
+**Was geschieht mit Hyperlinks und extern verlinkten Dateien, wenn ich eine Präsentation speichere?**
 
-[Hyperlinks](/slides/de/python-java/manage-hyperlinks/) bleiben in der Präsentation erhalten. Aspose.Slides kopiert keine extern verlinkten Dateien, sodass die gespeicherte Präsentation weiterhin Zugriff auf deren Standorte haben muss.
+[Hyperlinks](/slides/de/python-java/manage-hyperlinks/) bleiben in der Präsentation erhalten. Aspose.Slides kopiert keine extern verlinkten Dateien; die gespeicherte Präsentation muss daher weiterhin Zugriff auf deren Speicherorte haben.
 
-**Kann ich Dokument‑Metadaten wie Autor, Titel, Firma und Erstellungsdatum speichern?**
+**Kann ich Dokument‑Metadaten wie Autor, Titel, Unternehmen und Erstellungsdatum speichern?**
 
-Ja. Setzen Sie vor dem Speichern die entsprechenden [Dokument‑eigenschaften](/slides/de/python-java/presentation-properties/), und Aspose.Slides schreibt sie in die Ausgabedatei.
+Ja. Setzen Sie die entsprechenden [Dokument‑eigenschaften](/slides/de/python-java/presentation-properties/) vor dem Speichern, und Aspose.Slides schreibt sie in die Ausgabedatei.

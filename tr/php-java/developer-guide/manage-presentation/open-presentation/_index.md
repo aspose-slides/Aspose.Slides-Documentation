@@ -1,38 +1,40 @@
 ---
-title: PHP'de Sunumları Açma
+title: PHP'de Sunumları Aç
 linktitle: Sunumu Aç
 type: docs
 weight: 20
 url: /tr/php-java/open-presentation/
 keywords:
-- PowerPoint'ı aç
-- sunumu aç
-- PPTX'i aç
-- PPT'yi aç
-- ODP'yi aç
-- sunumu yükle
-- PPTX'i yükle
-- PPT'yi yükle
-- ODP'yi yükle
-- korumalı sunum
-- büyük sunum
-- harici kaynak
-- ikili nesne
+- PowerPoint Aç
+- Sunumu Aç
+- PPTX Aç
+- PPT Aç
+- ODP Aç
+- Sunumu Yükle
+- PPTX Yükle
+- PPT Yükle
+- ODP Yükle
+- Korunan Sunum
+- Büyük Sunum
+- Harici Kaynak
+- İkili Nesne
 - PHP
 - Aspose.Slides
-description: "PHP'de PowerPoint ve OpenDocument sunumlarını nasıl açacağınızı, açma şifreleri sağlamayı, kaynak yüklemeyi kontrol etmeyi ve Aspose.Slides for PHP via Java ile bellek kullanımını azaltmayı öğrenin."
+description: "PHP'de PowerPoint ve OpenDocument sunumlarını nasıl açacağınızı, açma parolaları sağlayarak, kaynak yüklemeyi kontrol ederek ve Aspose.Slides for PHP via Java ile bellek kullanımını nasıl azaltacağınızı öğrenin."
 ---
 ## **Giriş**
 
-[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/tr/php-java/) dosyalardan ve akışlardan PowerPoint ve OpenDocument sunumlarını yükleyebilir. Bir sunum yüklendikten sonra, yapısını inceleyebilir, slaytları düzenleyebilir, kaynakları yönetebilir ve orijinal ya da başka bir desteklenen formatta kaydedebilirsiniz.
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/tr/php-java/) dosyalar ve akışlardan PowerPoint ve OpenDocument sunumlarını yükleyebilir. Sunum yüklendikten sonra yapısını inceleyebilir, slaytları düzenleyebilir, kaynakları yönetebilir ve orijinal ya da başka bir desteklenen formatta kaydedebilirsiniz.
 
-Yükleme davranışı, [LoadOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/) sınıfı aracılığıyla özelleştirilebilir. Örneğin, bir açma şifresi sağlayabilir, büyük ikili nesneleri Java yığını belleğinin dışında tutabilir, harici kaynakları kontrol edebilir veya gömülü ikili verileri atlayabilirsiniz.
+Yükleme davranışı, [LoadOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/) sınıfı aracılığıyla özelleştirilebilir. Örneğin, bir açma parolası sağlayabilir, büyük ikili nesneleri Java yığın belleğinin dışında tutabilir, dış kaynakları kontrol edebilir veya gömülü ikili verileri atlayabilirsiniz.
 
-## **Sunumları Açma**
+## **Sunumları Aç**
 
-Mevcut bir sunumu açmak için, dosya yolunu [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) yapıcıya iletin. Sunumu kullandıktan sonra serbest bırakın, böylece dosya tanıtıcıları, geçici veriler ve diğer kaynaklar hızlıca serbest bırakılır.
+Bir dosya veya akış yüklendikten sonra, uygulamanızın nasıl işleyeceğini seçmek için [orijinal sunum formatını belirleyin](/slides/tr/php-java/detect-presentation-source-format/).
 
-Aşağıdaki PHP örneği, bir sunumu nasıl açıp slayt sayısını nasıl alacağınızı gösterir:
+Mevcut bir sunumu açmak için, dosya yolunu [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) yapıcısına gönderin. Sunumu kullandıktan sonra, dosya tanıtıcıları, geçici veriler ve diğer kaynakların hızlı bir şekilde serbest bırakılması için dispose edin.
+
+Aşağıdaki PHP örneği, bir sunumu nasıl açacağınızı ve slayt sayısını nasıl alacağınızı gösterir:
 
 ```php
 use aspose\slides\Presentation;
@@ -45,9 +47,9 @@ try {
 }
 ```
 
-## **Şifre Koruması Olan Sunumları Açma**
+## **Parola Korumasıyla Açılan Sunumlar**
 
-Açma şifresi, sunum içeriğini şifreler. Tam sunumu yüklemek için doğru şifreyi [LoadOptions::setPassword](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/#setPassword) metoduna iletin ve seçenekleri [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) yapıcısına sağlayın. Şifre eksik ya da hatalı olduğunda yükleme başarısız olur.
+Açma parolası, sunum içeriğini şifreler. Sunumu tamamen yüklemek için, doğru parolayı [LoadOptions::setPassword](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/#setPassword) metoduna geçirin ve seçenekleri [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) yapıcısına sağlayın. Parola eksik ya da yanlış olduğunda yükleme başarısız olur.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -64,13 +66,13 @@ try {
 }
 ```
 
-Şifre algılama, doğrulama ve şifreleme iş akışları için [Password-Protect Presentations](/slides/tr/php-java/password-protected-presentation/) bölümüne bakın. Şifreli bir sunum kasıtlı olarak genel belge özellikleriyle kaydedildiyse, bu özellikler şifre olmadan okunabilir; [Manage Presentation Properties](/slides/tr/php-java/presentation-properties/) bölümüne bakın.
+Parola algılama, doğrulama ve şifreleme iş akışları için [Password-Protect Presentations](/slides/tr/php-java/password-protected-presentation/) sayfasına bakın. Şifrelenmiş bir sunum, kasıtlı olarak genel belge özellikleriyle kaydedildiyse, bu özellikler parola olmadan okunabilir; buna [Manage Presentation Properties](/slides/tr/php-java/presentation-properties/) sayfasından ulaşabilirsiniz.
 
-## **Büyük Sunumları Açma**
+## **Büyük Sunumları Aç**
 
-[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) görüntüler, ses ve video gibi ikili büyük nesnelerin (BLOB) Aspose.Slides tarafından nasıl yönetileceğini kontrol eden seçenekleri döndürür. Kaynak dosyayı kilitli tutabilir, geçici dosyalara izin verebilir ve bellekte tutulan BLOB verisinin miktarını sınırlayabilirsiniz.
+[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) , Aspose.Slides'in görüntüler, ses ve video gibi büyük ikili nesneleri nasıl yönettiğini kontrol eden seçenekleri döndürür. Kaynak dosyayı kilitli tutabilir, geçici dosyalara izin verebilir ve bellekte tutulan BLOB veri miktarını sınırlayabilirsiniz.
 
-Aşağıdaki PHP kodu, büyük bir sunumu (örneğin 2 GB) yüklemeyi gösterir:
+Aşağıdaki PHP kodu, büyük bir sunumun (örneğin 2 GB) nasıl yükleneceğini gösterir:
 
 ```php
 use aspose\slides\LoadOptions;
@@ -95,14 +97,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-Bu davranışla [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked), kaynak dosya, sunum örneği serbest bırakılana kadar kilitli kalır. O örnek hayatta olduğu sürece kaynak dosyayı taşımayın, üzerine yazmayın veya silmeyin.
+With [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked), the source file remains locked until the presentation instance is disposed. Do not move, overwrite, or delete the source file while that instance is alive.
 
-Aspose.Slides, yükleme sırasında bir giriş akışının içeriğini kopyalayabilir. Büyük sunumlar için dosya yolu genellikle akıstan daha verimlidir. Ek depolama ve bellek yönetimi seçenekleri için [Manage BLOBs](/slides/tr/php-java/manage-blob/) bölümüne bakın.
+Aspose.Slides may copy the contents of an input stream while loading it. For large presentations, a file path is therefore generally more efficient than a stream. See [Manage BLOBs](/slides/tr/php-java/manage-blob/) for additional storage and memory-management options.
 {{% /alert %}}
 
-## **Harici Kaynakları Kontrol Etme**
+## **Harici Kaynakları Kontrol Et**
 
-[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) PHP/Java Bridge aracılığıyla Java [IResourceLoadingCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iresourceloadingcallback/) arayüzünün bir uygulamasını kabul eder. Geri arama, yedek veri sağlayabilir, bir kaynağı yönlendirebilir, varsayılan yükleyiciyi kullanabilir veya kaynağı atlayabilir. Bu, sunumlarda uygulamaya özgü güvenlik ya da depolama kurallarına göre çözümlenmesi gereken harici görüntüler bulunduğunda faydalıdır.
+[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) PHP/Java Bridge üzerinden Java [IResourceLoadingCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iresourceloadingcallback/) arayüzünün bir uygulamasını kabul eder. Geri çağırma, yerine veri sağlayabilir, bir kaynağı yönlendirebilir, varsayılan yükleyiciyi kullanabilir veya kaynağı atlayabilir. Bu, sunumlarda uygulamaya özgü güvenlik veya depolama kurallarına göre çözülmesi gereken harici görüntüler bulunduğunda yararlıdır.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -143,7 +145,7 @@ try {
 }
 ```
 
-## **Gömülü İkili Nesneler Olmadan Sunumları Yükleme**
+## **Gömülü İkili Nesneler Olmadan Sunumları Yükle**
 
 Bir sunum, uygulamanın ihtiyacı olmayan veya tutmak istemediği gömülü ikili veriler içerebilir. Örnekler:
 
@@ -151,9 +153,9 @@ Bir sunum, uygulamanın ihtiyacı olmayan veya tutmak istemediği gömülü ikil
 - gömülü OLE verileri, [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/tr/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) aracılığıyla erişilebilir;
 - ActiveX kontrol verileri, [Control::getActiveXControlBinary](https://reference.aspose.com/slides/tr/php-java/aspose.slides/control/#getActiveXControlBinary) aracılığıyla erişilebilir.
 
-[LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) `true` olarak ayarlayarak bu ikili verileri yükleme sırasında kaldırabilirsiniz. Temizlenmiş sonucu kalıcı hâle getirmek için yüklenen sunumu kaydedin.
+[LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) `true` olarak ayarlayarak bu ikili verileri yükleme sırasında kaldırabilirsiniz. Temizlenmiş sonucu kalıcı kılmak için yüklenen sunumu kaydedin.
 
-Bu seçenek, istenmeyen gömülü yüklerden kaynaklanan riski azaltır, ancak tam bir kötü amaçlı yazılım tespiti ya da içerik temizleme sistemi değildir.
+Bu seçenek istenmeyen gömülü yükleri azaltır, ancak tam bir kötü amaçlı yazılım tespiti veya içerik temizleme sistemi değildir.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -175,12 +177,12 @@ try {
 
 **Bir dosyanın bozuk olduğunu ve açılamadığını nasıl anlayabilirim?**
 
-Aspose.Slides, yükleme sırasında bir ayrıştırma ya da format istisnası fırlatır. Bu hatayı, hatalı şifre hatasından ayrı şekilde ele alın, böylece uygulama nedeni doğru bir şekilde raporlayabilir.
+Aspose.Slides, yükleme sırasında bir ayrıştırma veya format istisnası fırlatır. Bu hatayı, hatalı parola hatasından ayrı olarak ele alın, böylece uygulama nedeni doğru bir şekilde raporlayabilir.
 
-**Gerekli yazı tipleri eksik olduğunda ne olur?**
+**Gerekli yazı tipleri eksik olursa ne olur?**
 
-Sunum hâlâ yüklenebilir, ancak render ve dışa aktarım sırasında yazı tipleri yerine başka yazı tipleri kullanılabilir. Çıktıyı daha öngörülebilir hâle getirmek için [configure font substitution](/slides/tr/php-java/font-substitution/) ya da [provide custom fonts](/slides/tr/php-java/custom-font/) kullanabilirsiniz.
+Sunum yine de yüklenebilir, ancak renderlama ve dışa aktarma sırasında yazı tipleri değiştirilebilir. Çıktıyı daha öngörülebilir kılmak için [configure font substitution](/slides/tr/php-java/font-substitution/) ya da [provide custom fonts](/slides/tr/php-java/custom-font/) yapabilirsiniz.
 
 **Bir sunumu yüklemek aynı zamanda gömülü medyalarını da yükler mi?**
 
-Gömülü ses ve video, sunum nesne modeli aracılığıyla erişilebilir olur. Harici kaynaklar, yapılandırılmış kaynak yükleme davranışına göre çözülür ve konumlarına erişilemezse kullanılabilir olmayabilir.
+Gömülü ses ve video, sunum nesne modeli aracılığıyla erişilebilir olur. Harici kaynaklar, yapılandırılmış kaynak yükleme davranışına göre çözülür ve konumlarına erişilemezse kullanılamaz olabilir.

@@ -17,22 +17,24 @@ keywords:
 - защищённая презентация
 - большая презентация
 - внешний ресурс
-- двоичный объект
+- бинарный объект
 - Java
 - Aspose.Slides
-description: "Узнайте, как открывать презентации PowerPoint и OpenDocument в Java, задавать пароли открытия, управлять загрузкой ресурсов и уменьшать использование памяти с помощью Aspose.Slides для Java."
+description: "Узнайте, как открывать презентации PowerPoint и OpenDocument в Java, задавать пароли для открытия, управлять загрузкой ресурсов и уменьшать использование памяти с помощью Aspose.Slides для Java."
 ---
 ## **Введение**
 
-[Aspose.Slides for Java](https://products.aspose.com/slides/ru/java/) может загружать презентации PowerPoint и OpenDocument из файлов и потоков. После загрузки презентации вы можете исследовать её структуру, редактировать слайды, управлять ресурсами и сохранять её в исходном или другом поддерживаемом формате.
+[Aspose.Slides for Java](https://products.aspose.com/slides/ru/java/) может загружать презентации PowerPoint и OpenDocument из файлов и потоков. После загрузки презентации вы можете исследовать её структуру, редактировать слайды, управлять ресурсами и сохранять её в оригинальном или другом поддерживаемом формате.
 
-Поведение загрузки можно настроить с помощью класса [LoadOptions](https://reference.aspose.com/slides/ru/java/com.aspose.slides/loadoptions/). Например, можно задать пароль открытия, удерживать крупные двоичные объекты вне памяти Java heap, контролировать внешние ресурсы или опустить встроенные двоичные данные.
+Поведение загрузки можно настроить с помощью класса [LoadOptions](https://reference.aspose.com/slides/ru/java/com.aspose.slides/loadoptions/). Например, вы можете указать пароль для открытия, хранить большие бинарные объекты вне кучи Java, управлять внешними ресурсами или исключать встроенные бинарные данные.
 
 ## **Открытие презентаций**
 
-Чтобы открыть существующую презентацию, передайте её путь к файлу в конструктор [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/). Освобождайте объект презентации после использования, чтобы дескрипторы файлов, временные данные и другие ресурсы были быстро высвобождены.
+После загрузки файла или потока вы можете [определить исходный формат презентации](/slides/ru/java/detect-presentation-source-format/), чтобы выбрать способ обработки её вашим приложением.
 
-Следующий пример Java показывает, как открыть презентацию и получить количество её слайдов:
+Чтобы открыть существующую презентацию, передайте путь к её файлу в конструктор [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/). После использования освободите презентацию, чтобы дескрипторы файлов, временные данные и другие ресурсы были быстро освобождены.
+
+Следующий пример на Java показывает, как открыть презентацию и получить количество её слайдов:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -45,9 +47,9 @@ try {
 }
 ```
 
-## **Открытие защищённых паролем презентаций**
+## **Открытие презентаций с паролем**
 
-Пароль открытия шифрует содержимое презентации. Чтобы загрузить полную презентацию, передайте правильный пароль в [LoadOptions.setPassword](https://reference.aspose.com/slides/ru/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) и предоставьте параметры конструктору [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/). Загрузка завершается ошибкой, если пароль отсутствует или неверен.
+Пароль для открытия шифрует содержимое презентации. Чтобы загрузить полную презентацию, передайте правильный пароль в [LoadOptions.setPassword](https://reference.aspose.com/slides/ru/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) , а полученные параметры укажите в конструкторе [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/). Загрузка завершится с ошибкой, если пароль отсутствует или указан неверно.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -64,13 +66,13 @@ try {
 }
 ```
 
-Для обнаружения пароля, проверки и процессов шифрования см. [Password-Protect Presentations](/slides/ru/java/password-protected-presentation/). Если зашифрованная презентация была намеренно сохранена с публичными свойствами документа, эти свойства можно прочитать без пароля; см. [Manage Presentation Properties](/slides/ru/java/presentation-properties/).
+Для обнаружения пароля, проверки и процессов шифрования см. [Password-Protect Presentations](/slides/ru/java/password-protected-presentation/). Если зашифрованная презентация была намеренно сохранена с общедоступными свойствами документа, эти свойства можно прочитать без пароля; см. [Manage Presentation Properties](/slides/ru/java/presentation-properties/).
 
 ## **Открытие больших презентаций**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/ru/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) возвращает параметры, контролирующие, как Aspose.Slides обрабатывает крупные двоичные объекты, такие как изображения, аудио и видео. Вы можете удерживать исходный файл заблокированным, разрешать временные файлы и ограничивать объём BLOB‑данных, удерживаемых в памяти.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/ru/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) возвращает параметры, контролирующие, как Aspose.Slides обрабатывает большие бинарные объекты, такие как изображения, аудио и видео. Вы можете удерживать исходный файл заблокированным, разрешать временные файлы и ограничивать объём BLOB‑данных, сохраняемых в памяти.
 
-Следующий код Java демонстрирует загрузку большой презентации (например, 2 ГБ):
+Следующий пример на Java демонстрирует загрузку большой презентации (например, 2 ГБ):
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -95,9 +97,9 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-С помощью [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked) исходный файл остаётся заблокированным до тех пор, пока объект презентации не будет освобождён. Не перемещайте, перезаписывайте и не удаляйте исходный файл, пока объект жив.
+С помощью [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked) исходный файл остаётся заблокированным до освобождения экземпляра презентации. Не перемещайте, перезаписывайте и не удаляйте исходный файл, пока этот экземпляр жив.
 
-Aspose.Slides может копировать содержимое входного потока во время загрузки. Для больших презентаций путь к файлу обычно эффективнее, чем поток. См. [Manage BLOBs](/slides/ru/java/manage-blob/) для дополнительных вариантов хранения и управления памятью.
+Aspose.Slides может копировать содержимое входного потока во время загрузки. Для больших презентаций путь к файлу обычно более эффективен, чем поток. См. [Manage BLOBs](/slides/ru/java/manage-blob/) для дополнительных вариантов хранения и управления памятью.
 {{% /alert %}}
 
 ## **Управление внешними ресурсами**
@@ -146,17 +148,17 @@ try {
 }
 ```
 
-## **Загрузка презентаций без встроенных двоичных объектов**
+## **Загрузка презентаций без встроенных бинарных объектов**
 
-Презентация может содержать встроенные двоичные данные, которые приложение не нуждается или не хочет сохранять. Примеры включают:
+Презентация может содержать встроенные бинарные данные, которые приложение не требуется или не хочет сохранять. Примеры включают:
 
-- проекты VBA, доступные через [IPresentation.getVbaProject](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipresentation/#getVbaProject--);
-- встроенные данные OLE, доступные через [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
+- VBA‑проекты, доступные через [IPresentation.getVbaProject](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipresentation/#getVbaProject--);
+- встроенные OLE‑данные, доступные через [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
 - данные элементов управления ActiveX, доступные через [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icontrol/#getActiveXControlBinary--).
 
-Установите [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ru/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) в `true`, чтобы удалить эти двоичные данные при загрузке. Сохраните загруженную презентацию, чтобы зафиксировать очищенный результат.
+Установите [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ru/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) в `true`, чтобы удалить эти бинарные данные при загрузке. Сохраните загруженную презентацию, чтобы зафиксировать очищенный результат.
 
-Этот параметр уменьшает риск нежелательных встроенных полезных нагрузок, но не является полноценной системой обнаружения вредоносного кода или санитаризации содержимого.
+Этот параметр уменьшает риск наличия нежелательных встроенных полезных нагрузок, но не является полной системой обнаружения вредоносного кода или очистки содержимого.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -176,14 +178,14 @@ try {
 
 ## **FAQ**
 
-**Как определить, что файл повреждён и не может быть открыт?**
+**Как узнать, что файл повреждён и его нельзя открыть?**
 
-Aspose.Slides генерирует исключение разбора или формата во время загрузки. Обрабатывайте эту ошибку отдельно от ошибки неверного пароля, чтобы приложение могло точно сообщить причину.
+Aspose.Slides бросает исключение парсинга или формата во время загрузки. Обрабатывайте эту ошибку отдельно от ошибки неверного пароля, чтобы приложение могло точно сообщить причину.
 
 **Что происходит, если требуемые шрифты отсутствуют?**
 
-Презентацию всё равно можно загрузить, но рендеринг и экспорт могут заменить шрифты. Вы можете [настроить подстановку шрифтов](/slides/ru/java/font-substitution/) или [предоставить собственные шрифты](/slides/ru/java/custom-font/), чтобы результат был более предсказуемым.
+Презентацию всё ещё можно загрузить, но при рендеринге и экспорте могут использоваться заменяющие шрифты. Вы можете [configure font substitution](/slides/ru/java/font-substitution/) или [provide custom fonts](/slides/ru/java/custom-font/), чтобы сделать вывод более предсказуемым.
 
-**Загружает ли загрузка презентации также её встроенные медиа?**
+**Загружается ли при открытии презентации её встроенное медиа?**
 
-Встроенные аудио и видео становятся доступными через объектную модель презентации. Внешние ресурсы решаются согласно настроенному поведению загрузки ресурсов и могут быть недоступны, если их местоположение недоступно.
+Встроенное аудио и видео становятся доступными через объектную модель презентации. Внешние ресурсы разрешаются в соответствии с настроенным поведением загрузки ресурсов и могут быть недоступны, если их местоположения недоступны.

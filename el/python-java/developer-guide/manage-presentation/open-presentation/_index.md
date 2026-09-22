@@ -21,17 +21,19 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να ανοίγετε παρουσιάσεις PowerPoint και OpenDocument σε Python μέσω Java, να παρέχετε κωδικούς πρόσβασης ανοίγματος, να ελέγχετε τη φόρτωση πόρων και να μειώνετε τη χρήση μνήμης με το Aspose.Slides for Python via Java."
+description: "Μάθετε πώς να ανοίγετε παρουσιάσεις PowerPoint και OpenDocument σε Python μέσω Java, να παρέχετε κωδικούς πρόσβασης ανοίγματος, να ελέγχετε τη φόρτωση πόρων και να μειώνετε την κατανάλωση μνήμης με το Aspose.Slides για Python μέσω Java."
 ---
 ## **Εισαγωγή**
 
-Το [Aspose.Slides for Python via Java](https://products.aspose.com/slides/el/python-java/) μπορεί να φορτώνει παρουσιάσεις PowerPoint και OpenDocument από αρχεία και ροές. Αφού φορτωθεί μια παρουσίαση, μπορείτε να ελέγξετε τη δομή της, να επεξεργαστείτε τις διαφάνειες, να διαχειριστείτε πόρους και να την αποθηκεύσετε στην αρχική ή σε άλλη υποστηριζόμενη μορφή.
+[Aspose.Slides for Python via Java](https://products.aspose.com/slides/el/python-java/) μπορεί να φορτώνει παρουσιάσεις PowerPoint και OpenDocument από αρχεία και ροές. Αφού φορτωθεί μια παρουσίαση, μπορείτε να ελέγξετε τη δομή της, να επεξεργαστείτε τις διαφάνειες, να διαχειριστείτε πόρους και να την αποθηκεύσετε στην αρχική ή σε άλλη υποστηριζόμενη μορφή.
 
-Η συμπεριφορά φόρτωσης μπορεί να προσαρμοστεί μέσω της κλάσης [LoadOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/loadoptions/). Για παράδειγμα, μπορείτε να παρέχετε κωδικό πρόσβασης ανοίγματος, να διατηρείτε μεγάλα δυαδικά αντικείμενα εκτός μνήμης Java heap, να ελέγχετε εξωτερικούς πόρους ή να παραλείψετε ενσωματωμένα δυαδικά δεδομένα.
+Η συμπεριφορά φόρτωσης μπορεί να προσαρμοστεί μέσω της κλάσης [LoadOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/loadoptions/). Για παράδειγμα, μπορείτε να παρέχετε κωδικό πρόσβασης ανοίγματος, να διατηρείτε μεγάλα δυαδικά αντικείμενα εκτός της μνήμης heap της Java, να ελέγχετε εξωτερικούς πόρους ή να παραλείψετε ενσωματωμένα δυαδικά δεδομένα.
 
 ## **Άνοιγμα Παρουσιάσεων**
 
-Για να ανοίξετε μια υπάρχουσα παρουσίαση, περάστε τη διαδρομή του αρχείου στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/). Αποδεσμεύστε την παρουσίαση μετά τη χρήση ώστε οι χειριστές αρχείων, τα προσωρινά δεδομένα και άλλοι πόροι να απελευθερώνονται άμεσα.
+Μετά τη φόρτωση ενός αρχείου ή ροής, μπορείτε να [προσδιορίσετε τη μορφή της αρχικής παρουσίασης](/slides/el/python-java/detect-presentation-source-format/) για να επιλέξετε πώς η εφαρμογή σας την επεξεργάζεται.
+
+Για να ανοίξετε μια υπάρχουσα παρουσίαση, περάστε τη διαδρομή του αρχείου στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/). Αποδεσμεύστε την παρουσίαση μετά τη χρήση ώστε οι χειριστές αρχείων, τα προσωρινά δεδομένα και άλλοι πόροι να απελευθερωθούν άμεσα.
 
 Το παρακάτω παράδειγμα Python δείχνει πώς να ανοίξετε μια παρουσίαση και να λάβετε τον αριθμό των διαφανειών της:
 
@@ -53,7 +55,7 @@ finally:
 
 ## **Άνοιγμα Παρουσιάσεων με Προστασία Κωδικού**
 
-Ένας κωδικός πρόσβασης ανοίγματος κρυπτογραφεί το περιεχόμενο της παρουσίασης. Για να φορτώσετε ολόκληρη την παρουσίαση, περάστε το σωστό κωδικό στη μέθοδο [LoadOptions.setPassword](https://reference.aspose.com/slides/el/python-java/aspose.slides/loadoptions/#setPassword) και παρέχετε τις επιλογές στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/). Η φόρτωση αποτυγχάνει εάν λείπει ή είναι λανθασμένος ο κωδικός.
+Ένας κωδικός πρόσβασης ανοίγματος κρυπτογραφεί το περιεχόμενο της παρουσίασης. Για να φορτώσετε ολόκληρη την παρουσίαση, περάστε τον σωστό κωδικό στη μέθοδο [LoadOptions.setPassword](https://reference.aspose.com/slides/el/python-java/aspose.slides/loadoptions/#setPassword) και δώστε τις επιλογές στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/). Η φόρτωση αποτυγχάνει όταν ο κωδικός λείπει ή είναι λανθασμένος.
 
 ```python
 import jpype
@@ -74,13 +76,13 @@ finally:
     presentation.dispose()
 ```
 
-Για διαδικασίες ανίχνευσης κωδικού, επαλήθευσης και κρυπτογράφησης, δείτε το [Password-Protect Presentations](/slides/el/python-java/password-protected-presentation/). Εάν μια κρυπτογραφημένη παρουσίαση αποθηκεύτηκε εσκεμμένα με δημόσια ιδιότητες εγγράφου, αυτές οι ιδιότητες μπορούν να διαβαστούν χωρίς κωδικό πρόσβασης· δείτε το [Manage Presentation Properties](/slides/el/python-java/presentation-properties/).
+Για διαδικασίες ανίχνευσης, επικύρωσης και κρυπτογράφησης κωδικού πρόσβασης, δείτε το [Προστασία Παρουσιαστικών με Κωδικό](/slides/el/python-java/password-protected-presentation/). Εάν μια κρυπτογραφημένη παρουσίαση αποθηκεύθηκε σκόπιμα με δημόσια ιδιότητες εγγράφου, αυτές οι ιδιότητες μπορούν να διαβαστούν χωρίς κωδικό πρόσβασης· δείτε το [Διαχείριση Ιδιοτήτων Παρουσίασης](/slides/el/python-java/presentation-properties/).
 
 ## **Άνοιγμα Μεγάλων Παρουσιάσεων**
 
-Η μέθοδος [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) επιστρέφει επιλογές που ελέγχουν πώς το Aspose.Slides διαχειρίζεται μεγάλα δυαδικά αντικείμενα όπως εικόνες, ήχο και βίντεο. Μπορείτε να κρατήσετε το αρχείο πηγής κλειδωμένο, να επιτρέψετε προσωρινά αρχεία και να περιορίσετε την ποσότητα δεδομένων BLOB που διατηρούνται στη μνήμη.
+Η μέθοδος [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) επιστρέφει επιλογές που ελέγχουν πώς το Aspose.Slides διαχειρίζεται μεγάλα δυαδικά αντικείμενα (BLOB) όπως εικόνες, ήχο και βίντεο. Μπορείτε να διατηρήσετε το αρχείο προέλευσης κλειδωμένο, να επιτρέψετε προσωρινά αρχεία και να περιορίσετε το ποσό των δεδομένων BLOB που διατηρούνται στη μνήμη.
 
-Ο παρακάτω κώδικας Python επιδεικνύει τη φόρτωση μιας μεγάλης παρουσίασης (π.χ., 2 GB):
+Το παρακάτω κώδικας Python δείχνει τη φόρτωση μιας μεγάλης παρουσίασης (π.χ., 2 GB):
 
 ```python
 import jpype
@@ -107,14 +109,14 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-Με την επιλογή [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked), το αρχείο πηγής παραμένει κλειδωμένο μέχρι να αποδεσμευθεί η παρουσίαση. Μην μετακινήσετε, αντικαταστήσετε ή διαγράψετε το αρχείο πηγής ενώ αυτή η παρουσίαση είναι ενεργή.
+Με το [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked), το αρχείο προέλευσης παραμένει κλειδωμένο μέχρι να αποδεσμευθεί η παρουσίαση. Μην μετακινήσετε, αντικαταστήσετε ή διαγράψετε το αρχείο προέλευσης όσο η παρουσίαση είναι ζωντανή.
 
-Το Aspose.Slides ενδέχεται να αντιγράψει το περιεχόμενο μιας ροής εισόδου κατά τη φόρτωση. Για μεγάλες παρουσιάσεις, η διαδρομή αρχείου είναι γενικά πιο αποδοτική από μια ροή. Δείτε το [Manage BLOBs](/slides/el/python-java/manage-blob/) για πρόσθετες επιλογές αποθήκευσης και διαχείρισης μνήμης.
+Το Aspose.Slides μπορεί να αντιγράψει το περιεχόμενο μιας εισαγόμενης ροής κατά τη φόρτωση. Για μεγάλες παρουσιάσεις, η διαδρομή αρχείου είναι γενικά πιο αποδοτική από μια ροή. Δείτε το [Διαχείριση BLOB](/slides/el/python-java/manage-blob/) για πρόσθετες επιλογές αποθήκευσης και διαχείρισης μνήμης.
 {{% /alert %}}
 
 ## **Έλεγχος Εξωτερικών Πόρων**
 
-Η μέθοδος [LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/el/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) δέχεται έναν διαμεσολαβητή JPype που υλοποιεί τη διεπαφή κλήσης επαναφόρτωσης πόρων της Java. Η κλήση μπορεί να παρέχει δεδομένα αντικατάστασης, να ανακατευθύνει έναν πόρο, να χρησιμοποιήσει τον προεπιλεγμένο φορτωτή ή να παραλείψει τον πόρο. Αυτό είναι χρήσιμο όταν οι παρουσιάσεις περιέχουν εξωτερικές εικόνες που πρέπει να λυθούν σύμφωνα με τους κανόνες ασφαλείας ή αποθήκευσης της εφαρμογής.
+Η μέθοδος [LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/el/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) δέχεται έναν διαμεσολαβητή JPype που υλοποιεί τη διεπαφή κλήσης επαναφόρτωσης πόρων της Java. Η κλήση μπορεί να παρέχει δεδομένα αντικατάστασης, να ανακατευθύνει έναν πόρο, να χρησιμοποιήσει τον προεπιλεγμένο φορτωτή ή να παραλείψει τον πόρο. Αυτό είναι χρήσιμο όταν οι παρουσιάσεις περιέχουν εξωτερικές εικόνες που πρέπει να επιλυθούν σύμφωνα με κανόνες ασφαλείας ή αποθήκευσης ειδικοί για την εφαρμογή.
 
 ```python
 import jpype
@@ -156,11 +158,11 @@ finally:
 
 ## **Φόρτωση Παρουσιάσεων χωρίς Ενσωματωμένα Δυαδικά Αντικείμενα**
 
-Μια παρουσίαση ενδέχεται να περιέχει ενσωματωμένα δυαδικά δεδομένα που μια εφαρμογή δεν χρειάζεται ή δεν θέλει να διατηρήσει. Παραδείγματα περιλαμβάνουν:
+Μια παρουσίαση μπορεί να περιέχει ενσωματωμένα δυαδικά δεδομένα που μια εφαρμογή δεν χρειάζεται ή δεν θέλει να διατηρήσει. Παραδείγματα περιλαμβάνουν:
 
-- Έργα VBA, διαθέσιμα μέσω της μεθόδου [Presentation.getVbaProject](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getVbaProject);
-- ενσωματωμένα δεδομένα OLE, διαθέσιμα μέσω της μεθόδου [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/el/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
-- δεδομένα ελέγχου ActiveX, διαθέσιμα μέσω της μεθόδου [Control.getActiveXControlBinary](https://reference.aspose.com/slides/el/python-java/aspose.slides/control/#getActiveXControlBinary).
+- VBA projects, διαθέσιμα μέσω [Presentation.getVbaProject](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getVbaProject);
+- ενσωματωμένα OLE δεδομένα, διαθέσιμα μέσω [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/el/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- δεδομένα ελέγχου ActiveX, διαθέσιμα μέσω [Control.getActiveXControlBinary](https://reference.aspose.com/slides/el/python-java/aspose.slides/control/#getActiveXControlBinary).
 
 Ορίστε την μέθοδο [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/el/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) σε `True` για να αφαιρέσετε αυτά τα δυαδικά δεδομένα κατά τη φόρτωση. Αποθηκεύστε την φορτωμένη παρουσίαση για να διατηρήσετε το καθαρισμένο αποτέλεσμα.
 
@@ -185,16 +187,16 @@ finally:
     presentation.dispose()
 ```
 
-## **Συχνές Ερωτήσεις**
+## **ΣΥΝΗΘΕΣΜΕΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
 **Πώς μπορώ να καταλάβω ότι ένα αρχείο είναι κατεστραμμένο και δεν μπορεί να ανοιχθεί;**
 
-Το Aspose.Slides ρίχνει μια εξαίρεση ανάλυσης ή μορφής κατά τη φόρτωση. Διαχειριστείτε αυτήν την αποτυχία ξεχωριστά από το σφάλμα λανθασμένου κωδικού πρόσβασης ώστε η εφαρμογή να μπορεί να αναφέρει την αιτία με ακρίβεια.
+Το Aspose.Slides εγείρει εξαίρεση ανάλυσης ή μορφής κατά τη φόρτωση. Διαχειριστείτε αυτήν την αποτυχία ξεχωριστά από σφάλμα λανθασμένου κωδικού πρόσβασης, ώστε η εφαρμογή να μπορεί να αναφέρει ακριβώς την αιτία.
 
-**Τι συμβαίνει εάν λείπουν απαιτούμενες γραμματοσειρές;**
+**Τι συμβαίνει αν λείπουν οι απαιτούμενες γραμματοσειρές;**
 
-Η παρουσίαση μπορεί ακόμη να φορτωθεί, αλλά η απόδοση και η εξαγωγή ενδέχεται να αντικαταστήσουν τις γραμματοσειρές. Μπορείτε να [configure font substitution](/slides/el/python-java/font-substitution/) ή να [provide custom fonts](/slides/el/python-java/custom-font/) ώστε το αποτέλεσμα να είναι πιο προβλέψιμο.
+Η παρουσίαση μπορεί ακόμα να φορτωθεί, αλλά η απόδοση και η εξαγωγή ενδέχεται να αντικαταστήσουν τις γραμματοσειρές. Μπορείτε να [ρυθμίσετε την αντικατάσταση γραμματοσειρών](/slides/el/python-java/font-substitution/) ή να [παρέχετε προσαρμοσμένες γραμματοσειρές](/slides/el/python-java/custom-font/) ώστε η έξοδος να είναι πιο προβλέψιμη.
 
-**Φορτώνει η φόρτωση μιας παρουσίασης επίσης τα ενσωματωμένα μέσα της;**
+**Φορτώνει η φόρτωση μιας παρουσίασης και τα ενσωματωμένα μέσα της;**
 
-Τα ενσωματωμένα ηχητικά και βίντεο γίνονται διαθέσιμα μέσω του αντικειμενοστραφούς μοντέλου της παρουσίασης. Οι εξωτερικοί πόροι λυθούν σύμφωνα με τη ρυθμισμένη συμπεριφορά φόρτωσης πόρων και ενδέχεται να μην είναι διαθέσιμοι εάν οι τοποθεσίες τους δεν είναι προσβάσιμες.
+Τα ενσωματωμένα ήχο και βίντεο γίνονται διαθέσιμα μέσω του μοντέλου αντικειμένων της παρουσίασης. Οι εξωτερικοί πόροι επιλύονται σύμφωνα με τη ρυθμισμένη συμπεριφορά φόρτωσης πόρων και μπορεί να μην είναι διαθέσιμοι εάν δεν είναι προσβάσιμες οι τοποθεσίες τους.

@@ -1,17 +1,17 @@
 ---
-title: Prezentációinformációk lekérdezése és frissítése C++-ban
-linktitle: Prezentációinformációk
+title: Prezentációs információk lekérése és frissítése C++-ban
+linktitle: Prezentációs információk
 type: docs
 weight: 30
 url: /hu/cpp/examine-presentation/
 keywords:
 - prezentáció formátum
-- prezentáció tulajdonságok
-- dokumentumtulajdonságok
+- prezentáció tulajdonságai
+- dokumentum tulajdonságai
 - tulajdonságok lekérése
 - tulajdonságok olvasása
 - tulajdonságok módosítása
-- tulajdonságok átalakítása
+- tulajdonságok módosítása
 - tulajdonságok frissítése
 - PPTX vizsgálata
 - PPT vizsgálata
@@ -21,17 +21,19 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Fedezze fel a diaképeket, a felépítést és a metaadatokat PowerPoint és OpenDocument prezentációkban C++ használatával, hogy gyorsabb betekintést és intelligensebb tartalom-ellenőrzést kapjon."
+description: "Fedezze fel a diák, struktúrák és metaadatok világát PowerPoint és OpenDocument prezentációkban C++ használatával a gyorsabb betekintés és az intelligensebb tartalomelemzés érdekében."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides képes azonosítani egy prezentáció formátumát, és elolvasni a dokumentum metaadatait anélkül, hogy teljes prezentáció objektummodellt hozna létre. Ez akkor hasznos, ha fájlokat kell kategorizálni, leltárt készíteni, vagy a tulajdonságokat ellenőrizni kell, mielőtt eldöntenénk, betöltjük-e és feldolgozzuk-e a prezentáció tartalmát.
+Az Aspose.Slides képes azonosítani egy prezentáció formátumát és elolvasni a dokumentum metaadatait anélkül, hogy teljes prezentációs objektummodellt hozna létre. Ez akkor hasznos, ha fájlokat kell osztályozni, leltárt építeni, vagy tulajdonságokat ellenőrizni kell, mielőtt eldöntené, hogy betölti és feldolgozza a prezentáció tartalmát.
 
-Ez a cikk bemutatja a könnyű ellenőrzést a [PresentationFactory](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentationfactory/) és [IPresentationInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/) segítségével, valamint a célzott frissítéseket a [IDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/) használatával.
+Ez a cikk a könnyű ellenőrzést mutatja be a [PresentationFactory](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentationfactory/) és az [IPresentationInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/) használatával, valamint a célzott frissítéseket az [IDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/) segítségével.
 
-## **Prezentáció formátumának ellenőrzése**
+## **Ellenőrizze a prezentáció formátumát**
 
-Használja az [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) metódust egy fájl ellenőrzésére anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) példányt hozna létre. Az [IPresentationInfo::get_LoadFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/get_loadformat/) metódus jelzi a felismert formátumot, például PPTX, PPT vagy ODP.
+Ha már betöltött egy prezentációt, tekintse meg a [Determine the Original Presentation Format](/slides/hu/cpp/detect-presentation-source-format/) cikket a betöltés utáni felismeréshez és a régi PPT, PPS és POT adatfolyamok korlátaival kapcsolatban.
+
+Használja az [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) metódust egy fájl ellenőrzéséhez anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) példányt hozna létre. Az [IPresentationInfo::get_LoadFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/get_loadformat/) metódus jelzi a detektált formátumot, például PPTX, PPT vagy ODP.
 
 ```cpp
 #include <DOM/IPresentationInfo.h>
@@ -54,22 +56,22 @@ for (const auto& fileName : fileNames)
 }
 ```
 
-## **Könnyű prezentáció leltár összeállítása**
+## **Készítsen könnyű prezentációs leltárt**
 
-Ha sok prezentációfájlt dolgoz fel, szüksége lehet egy kompakt leltárra validáláshoz, indexeléshez vagy dokumentumkezelő rendszerhez. Ebben a helyzetben használja az [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) metódust egy [IPresentationInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/) objektum megszerzéséhez, majd hívja az [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) metódust a dokumentum metaadatok beolvasásához. Ez a megközelítés nem hoz létre [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) példányt, és nem igényli a teljes prezentáció objektummodell bejárását.
+Ha sok prezentációs fájlt dolgoz fel, szüksége lehet egy kompakt leltárra az ellenőrzéshez, indexeléshez vagy egy dokumentumkezelő rendszerhez. Ebben a helyzetben használja az [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) metódust egy [IPresentationInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/) objektum megszerzéséhez, majd hívja meg az [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) metódust a dokumentum metaadatok elolvasásához. Ez a megközelítés nem hoz létre [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) példányt, és nem igényli a teljes prezentációs objektummodell bejárását.
 
-Az [IDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/) által biztosított kibővített tulajdonságok a következő leltárértékeket adják meg:
+Az [IDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/) által biztosított kiterjesztett tulajdonságok a következő leltárértékeket adják meg:
 
 | Metódus | Leltárérték |
 | --- | --- |
-| [get_Slides](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_slides/) | A diák teljes száma. |
+| [get_Slides](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_slides/) | A diák összes száma. |
 | [get_HiddenSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) | A rejtett diák száma. |
-| [get_Notes](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_notes/) | Azokra a diákra vonatkozó jegyzetek száma. |
-| [get_Paragraphs](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_paragraphs/) | A bekezdések összes száma, ha elérhető. |
+| [get_Notes](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_notes/) | Azon diák száma, amelyek jegyzeteket tartalmaznak. |
+| [get_Paragraphs](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_paragraphs/) | A rendelkezésre álló bekezdések összes száma. |
 | [get_Words](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_words/) | A szavak összes száma. |
-| [get_MultimediaClips](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_multimediaclips/) | Az audió- és videóklippek összes száma. |
+| [get_MultimediaClips](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_multimediaclips/) | A hang- és videoklipek összes száma. |
 
-Az alábbi példa beolvassa ezeket az értékeket anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) objektumot hozna létre, és egy kompakt leltárt nyomtat ki. Emellett kombinálja az [IDocumentProperties::get_HeadingPairs](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_headingpairs/) és az [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) értékeket a tartalomcsoportok (például betűtípusok, témák, diacímek) megjelenítéséhez.
+Az alábbi példa ezeket az értékeket olvassa be anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) objektumot hozna létre, és egy kompakt leltárt nyomtat. Emellett az [IDocumentProperties::get_HeadingPairs](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_headingpairs/) metódust kombinálja az [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) metódussal a tartalmi csoportok, például betűkészletek, témák és dia címek megjelenítéséhez.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -139,27 +141,27 @@ else
 }
 ```
 
-Minden [IHeadingPair](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iheadingpair/) egy csoportnevet ad az [IHeadingPair::get_Name](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iheadingpair/get_name/) metódussal, és a csoportban lévő elemek számát az [IHeadingPair::get_Count](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iheadingpair/get_count/) metódussal. Az [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) egy lapos, rendezett tömböt ad vissza, ezért a felsorolt címek számát a megfelelő fejezetpárok által meghatározott mennyiségben kell felhasználni.
+Minden [IHeadingPair](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iheadingpair/) egy csoportnevet biztosít a [IHeadingPair::get_Name](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iheadingpair/get_name/) metódussal, valamint a csoport elemeinek számát a [IHeadingPair::get_Count](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iheadingpair/get_count/) metódussal. Az [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) egy lapos, rendezett tömböt ad vissza, ezért a csoportonként megadott egymást követő címek számát kell felhasználni.
 
-### **Tárolt metaadatok és formátumkorlátozások**
+### **Tárolt metaadatok és formátumkorlátok**
 
-Az [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) által visszaadott leltártulajdonságok a forrásdokumentumban elérhető metaadatokat tükrözik. Az Aspose.Slides nem tölti be és nem járja be a prezentáció objektummodelljét, hogy újraszámolja ezeket az értékeket ebben a hívásban. Hiányzó tulajdonságok alapértelmezett értékekkel jelennek meg, és a tárolt értékek elavulhatnak, ha a legutóbb mentő alkalmazás nem frissítette a dokumentumtulajdonságokat.
+A [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) által visszaadott leltártulajdonságok a forrásdokumentumban elérhető metaadatokat tükrözik. Az Aspose.Slides nem tölti be és nem járja be a prezentációs objektummodellt, hogy újraszámolja ezeket az értékeket ebben a hívásban. Hiányzó tulajdonságok alapértelmezett értékekkel jelennek meg, és a tárolt értékek elavulhatnak, ha az utoljára fájlt mentő alkalmazás nem frissítette a dokumentum tulajdonságait.
 
-- **PPTX:** A formátum kiterjesztett dokumentumtulajdonságokat biztosít a diák, jegyzetek, rejtett diák, bekezdések, szavak és multimédia számlálásához, valamint a fejlécpárokhoz és a részcímekhez. Az elérhetőség attól függ, hogy a dokumentumelőállító melyik tulajdonságot írta be.
-- **PPT:** A bináris formátum tárolhatja a megfelelő dokumentumösszegző tulajdonságokat. Ha egy tulajdonság hiányzik vagy a dokumentumelőállító nem frissítette, az Aspose.Slides a tárolt vagy alapértelmezett értéket adja vissza ahelyett, hogy a diák alapján számolná ki.
-- **ODP:** Az OpenDocument metaadatok általános dokumentumstatisztikákat biztosítanak, például oldal-, bekezdés- és szószámlálást, de ezek az értékek nem térnek le minden PowerPoint-specifikus kiterjesztett tulajdonságra. A rejtett diák, jegyzetdiák, multimédia, fejlécpár és részcím metaadatai hiányozhatnak, és a leltártulajdonságok alapértelmezett értékkel térhetnek vissza. Ne tekintse a nullás értéket vagy az üres tömböt végleges bizonyítéknak arra, hogy a megfelelő tartalom hiányzik.
+- **PPTX:** A formátum kiterjesztett dokumentumtulajdonságokat biztosít a diák, jegyzetek, rejtett diák, bekezdések, szavak és multimédia számához, valamint a heading párokhoz és részcímekhez. Az elérhetőség attól függ, mely tulajdonságokat írta a dokumentum előállítója.
+- **PPT:** A bináris formátum képes tárolni a megfelelő dokumentum-összegző tulajdonságokat. Ha egy tulajdonság hiányzik vagy nem frissült a dokumentum előállítója által, az Aspose.Slides a tárolt vagy alapértelmezett értéket adja vissza, ahelyett, hogy a diák alapján számolná ki.
+- **ODP:** Az OpenDocument metaadatok általános dokumentumstatisztikákat biztosítanak, például oldalak, bekezdések és szavak számát, de ezek az értékek nem felelnek meg minden PowerPoint-specifikus kiterjesztett tulajdonságnak. A rejtett-dia, jegyzet-dia, multimédia, heading-pár, és részcím metaadatok hiányozhatnak, és a leltártulajdonságok alapértelmezett értékeket adhatnak vissza. Ne kezelje a null értéket vagy a üres tömböt mint meghatározó bizonyítékot arra, hogy a megfelelő tartalom hiányzik.
 
-Használja a könnyű metaadat-megközelítést leltárakhoz és előzetes ellenőrzésekhez. Töltse be a prezentációt és ellenőrizze a futó objektummodellt, ha az eredménynek tükröznie kell a memóriában történt változásokat, vagy ha a tényleges prezentációtartalmat kell ellenőrizni.
+Használja a könnyű metaadat‑megközelítést leltárak és előzetes ellenőrzések esetén. Töltse be a prezentációt, és ellenőrizze annak élő objektummodelljét, amikor az eredménynek a memóriában történt változásokat kell tükröznie, vagy amikor a tényleges prezentációs tartalmat kell ellenőrizni.
 
-## **Prezentáció tulajdonságainak frissítése**
+## **Prezentációs tulajdonságok frissítése**
 
-Az [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) által visszaadott tulajdonságok módosíthatók anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) példányt hoznánk létre. Alkalmazza a változtatásokat az [IPresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/updatedocumentproperties/) segítségével, majd írja vissza a kötött prezentációt az [IPresentationInfo::WriteBindedPresentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/writebindedpresentation/) metódussal.
+A [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) által visszaadott tulajdonságok szintén módosíthatók anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) példányt hoznánk létre. Alkalmazza a módosításokat az [IPresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/updatedocumentproperties/) segítségével, majd írja ki a kötött prezentációt az [IPresentationInfo::WriteBindedPresentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/writebindedpresentation/) metódussal.
 
-Az alábbi kép a dokumentum eredeti tulajdonságait mutatja.
+Az alábbi kép az eredeti dokumentumtulajdonságokat mutatja:
 
 ![A PowerPoint prezentáció eredeti dokumentumtulajdonságai](input_properties.png)
 
-Az alábbi példában módosítja a címet és az utolsó mentés időpontját, majd az eredményt egy új fájlba írja:
+Az alábbi példa megváltoztatja a címet és az utolsó mentés időpontját, és az eredményt egy új fájlba írja:
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -183,35 +185,35 @@ presentationInfo->UpdateDocumentProperties(documentProperties);
 presentationInfo->WriteBindedPresentation(outputFile);
 ```
 
-Az alábbi kép a módosított dokumentumtulajdonságokat mutatja.
+Az alábbi kép a frissített dokumentumtulajdonságokat mutatja:
 
 ![A PowerPoint prezentáció módosított dokumentumtulajdonságai](output_properties.png)
 
 ## **Hasznos hivatkozások**
 
-Kapcsolódó biztonsági ellenőrzések és védelmi beállítások tekintetében lásd az alábbi cikkeket:
+Kapcsolódó biztonsági ellenőrzések és védelmi beállítások tekintetében lásd a következő cikkeket:
 
-- [Password-Protect Presentations](/slides/hu/cpp/password-protected-presentation/)
-- [Write-Protect Presentations](/slides/hu/cpp/write-protected-presentation/)
+- [Jelszóval védett prezentációk](/slides/hu/cpp/password-protected-presentation/)
+- [Írásvédett prezentációk](/slides/hu/cpp/write-protected-presentation/)
 
 ## **GYIK**
 
-**Hogyan ellenőrizhetem, hogy a betűtípusok be vannak-e ágyazva, és melyek azok?**
+**Hogyan ellenőrizhetem, hogy a betűkészletek be vannak-e ágyazva és melyek azok?**
 
-Töltse be a prezentációt, és használja a [Presentation::get_FontsManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_fontsmanager/) metódust. Hívja a [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/getembeddedfonts/) függvényt a beágyazott betűtípusok lekéréséhez, valamint a [FontsManager::GetFonts](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/getfonts/) függvényt a prezentáció által használt betűtípusokhoz. Hasonlítsa össze a két eredményt, hogy megtalálja a rendereléshez szükséges, de nem beágyazott betűtípusokat.
+Töltse be a prezentációt, és használja a [Presentation::get_FontsManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_fontsmanager/) metódust. Hívja meg a [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/getembeddedfonts/) metódust az ágyazott betűkészletek lekéréséhez, és a [FontsManager::GetFonts](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsmanager/getfonts/) metódust a prezentáció által használt betűkészletek lekéréséhez. Hasonlítsa össze a két eredményt, hogy megtalálja azokat a betűkészleteket, amelyek a megjelenítéshez szükségesek, de nincsenek beágyazva.
 
-**Hogyan tudom gyorsan megállapítani, hogy a fájl rejtett diákot tartalmaz-e, és hány darabot?**
+**Hogyan tudom gyorsan megállapítani, hogy a fájl tartalmaz-e rejtett diákot, és ha igen, hány darabot?**
 
-Ha a tárolt dokumentummetaadat elegendő, olvassa a [IDocumentProperties::get_HiddenSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) értéket az [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) és az [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) segítségével. Ez alkalmas könnyű leltárhoz. Ha a prezentáció memóriában módosult, a tárolt metaadat hiányozhat vagy elavult lehet, vagy ha élő értékek ellenőrzése szükséges, iteráljon a [Presentation::get_Slides](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_slides/) gyűjteményen, és ellenőrizze minden dia [Slide::get_Hidden](https://reference.aspose.com/slides/hu/cpp/aspose.slides/slide/get_hidden/) metódusát.
+Ha a tárolt dokumentum metaadatok elegendőek, olvassa a [IDocumentProperties::get_HiddenSlides](https://reference.aspose.com/slides/hu/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) értéket az [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) és az [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) használatával. Ez alkalmas egy könnyű leltárhoz. Ha a prezentáció memóriában módosult, a tárolt metaadatok hiányozhatnak vagy elavultak lehetnek, vagy ha élő értékeket kell ellenőrizni, akkor iteráljon a [Presentation::get_Slides](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_slides/) elemein, és vizsgálja meg minden dia [Slide::get_Hidden](https://reference.aspose.com/slides/hu/cpp/aspose.slides/slide/get_hidden/) metódusát.
 
-**Felismerhető-e, hogy egyedi dia méret és tájolás van-e használatban, és eltérnek-e az alapértékektől?**
+**Felderíthetem-e, hogy egyedi diamegméret és tájolás van-e használatban, és hogy ezek eltérnek-e az alapértelmezettektől?**
 
-Igen. Töltse be a prezentációt, és olvassa a [Presentation::get_SlideSize](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_slidesize/) értéket. Ellenőrizze az [ISlideSize::get_Type](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidesize/get_type/), [ISlideSize::get_Size](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidesize/get_size/) és [ISlideSize::get_Orientation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidesize/get_orientation/) metódusokat, hogy összehasonlítsa a jelenlegi beállításokat az elvárt előre beállított értékekkel és méretekkel.
+Igen. Töltse be a prezentációt, és olvassa a [Presentation::get_SlideSize](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_slidesize/) értéket. Vizsgálja meg az [ISlideSize::get_Type](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidesize/get_type/), az [ISlideSize::get_Size](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidesize/get_size/), és az [ISlideSize::get_Orientation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidesize/get_orientation/) metódusokat, hogy összehasonlítsa a jelenlegi beállításokat a várt előre beállított értékekkel és méretekkel.
 
-**Van-e gyors módja annak, hogy lássam, a diagramok külső adatforrásokra hivatkoznak-e?**
+**Van gyors módja annak, hogy megállapítsam, a diagramok külső adatforrásokra hivatkoznak-e?**
 
-Igen. Keresse meg minden [Chart](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chart/) objektumot, és ellenőrizze a [ChartData::get_DataSourceType](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) értékét. Külső munkafüzet esetén olvassa a [ChartData::get_ExternalWorkbookPath](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) értéket. Az adatforrás típusa és az útvonal jelzi a külső hivatkozást, de annak elérhetősége külön erőforrás-ellenőrzést igényel.
+Igen. Keresse meg az egyes [Chart](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chart/) objektumokat, és vizsgálja meg a [ChartData::get_DataSourceType](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) metódust. Külső munkafüzet esetén olvassa a [ChartData::get_ExternalWorkbookPath](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) értéket. Az adatforrás típusa és az útvonal azonosítja a külső hivatkozást, de annak elérhetőségének ellenőrzése külön erőforrás-ellenőrzést igényel.
 
-**Hogyan értékelhetem a „nehéz” diákot, amelyek lassíthatják a renderelést vagy a PDF exportot?**
+**Hogyan értékelhetem a „nehéz” diákokat, amelyek lassíthatják a renderelést vagy a PDF exportot?**
 
-Nincs egyetlen komplexitásra vonatkozó tulajdonság. Járja be a [Presentation::get_Slides](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_slides/) és minden dia [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibaseslide/get_shapes/) gyűjteményét. Használjon alakzat-számokat, nagy képek, effektusok, animációk vagy multimédia jelenlétét szűrőjelzésként, és mérjen egy reprezentatív renderelést vagy exportálást, mielőtt egy diát végleges teljesítménybottlenecknek tekintene.
+Nincs egyetlen komplexitási tulajdonság. Járja be a [Presentation::get_Slides](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_slides/) elemeit és minden dia [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibaseslide/get_shapes/) gyűjteményét. Használja a formák számát, valamint a nagy méretű képek, effektusok, animációk vagy multimédia jelenlétét szűrőjelzőként, és végezzen mérési renderelést vagy exportot, mielőtt egy diát megerősített teljesítménybottként kezelne.

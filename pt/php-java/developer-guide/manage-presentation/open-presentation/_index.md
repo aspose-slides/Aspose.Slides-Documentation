@@ -20,19 +20,21 @@ keywords:
 - objeto binário
 - PHP
 - Aspose.Slides
-description: "Aprenda como abrir apresentações PowerPoint e OpenDocument em PHP, fornecer senhas de abertura, controlar o carregamento de recursos e reduzir o uso de memória com Aspose.Slides para PHP via Java."
+description: "Aprenda a abrir apresentações PowerPoint e OpenDocument em PHP, fornecer senhas de abertura, controlar o carregamento de recursos e reduzir o uso de memória com Aspose.Slides para PHP via Java."
 ---
 ## **Introdução**
 
-[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/pt/php-java/) pode carregar apresentações PowerPoint e OpenDocument a partir de arquivos e streams. Após uma apresentação ser carregada, você pode inspecionar sua estrutura, editar slides, gerenciar recursos e salvá‑la no formato original ou em outro formato suportado.
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/pt/php-java/) pode carregar apresentações PowerPoint e OpenDocument a partir de arquivos e streams. Depois que uma apresentação é carregada, você pode inspecionar sua estrutura, editar slides, gerenciar recursos e salvá‑la no formato original ou em outro formato suportado.
 
-O comportamento de carregamento pode ser personalizado através da classe [LoadOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/). Por exemplo, você pode fornecer uma senha de abertura, manter objetos binários grandes fora da memória heap do Java, controlar recursos externos ou omitir dados binários incorporados.
+O comportamento de carregamento pode ser personalizado por meio da classe [LoadOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/). Por exemplo, você pode fornecer uma senha de abertura, manter objetos binários grandes fora da memória heap do Java, controlar recursos externos ou omitir dados binários incorporados.
 
 ## **Abrir apresentações**
 
-Para abrir uma apresentação existente, passe o caminho do arquivo ao construtor [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/). Libere a apresentação após o uso para que manipuladores de arquivos, dados temporários e outros recursos sejam liberados prontamente.
+Após carregar um arquivo ou stream, você pode [determinar seu formato de apresentação original](/slides/pt/php-java/detect-presentation-source-format/) para escolher como sua aplicação o processa.
 
-O exemplo PHP a seguir mostra como abrir uma apresentação e obter a contagem de slides:
+Para abrir uma apresentação existente, passe o caminho do arquivo para o construtor [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/). Libere a apresentação após o uso para que alças de arquivo, dados temporários e outros recursos sejam liberados rapidamente.
+
+O exemplo PHP a seguir mostra como abrir uma apresentação e obter a quantidade de slides:
 
 ```php
 use aspose\slides\Presentation;
@@ -64,13 +66,13 @@ try {
 }
 ```
 
-Para detecção de senha, validação e fluxos de trabalho de criptografia, consulte [Password-Protect Presentations](/slides/pt/php-java/password-protected-presentation/). Se uma apresentação criptografada foi salva deliberadamente com propriedades de documento públicas, essas propriedades podem ser lidas sem senha; veja [Manage Presentation Properties](/slides/pt/php-java/presentation-properties/).
+Para fluxos de trabalho de detecção, validação e criptografia de senhas, consulte [Password-Protect Presentations](/slides/pt/php-java/password-protected-presentation/). Se uma apresentação criptografada foi salva deliberadamente com propriedades de documento públicas, essas propriedades podem ser lidas sem senha; veja [Manage Presentation Properties](/slides/pt/php-java/presentation-properties/).
 
 ## **Abrir apresentações grandes**
 
-[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) devolve opções que controlam como o Aspose.Slides lida com objetos binários grandes, como imagens, áudio e vídeo. Você pode manter o arquivo fonte bloqueado, permitir arquivos temporários e limitar a quantidade de dados BLOB retidos na memória.
+[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) devolve opções que controlam como Aspose.Slides lida com objetos binários grandes, como imagens, áudio e vídeo. Você pode manter o arquivo de origem bloqueado, permitir arquivos temporários e limitar a quantidade de dados BLOB mantidos na memória.
 
-O código PHP a seguir demonstra o carregamento de uma apresentação grande (por exemplo, 2 GB):
+Este código PHP a seguir demonstra o carregamento de uma apresentação grande (por exemplo, 2 GB):
 
 ```php
 use aspose\slides\LoadOptions;
@@ -96,15 +98,15 @@ try {
 
 {{% alert color="info" title="Note" %}}
 
-Com [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked), o arquivo fonte permanece bloqueado até que a instância da apresentação seja liberada. Não mova, sobrescreva ou exclua o arquivo fonte enquanto essa instância estiver viva.
+Com [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked), o arquivo de origem permanece bloqueado até que a instância da apresentação seja descartada. Não mova, sobrescreva ou exclua o arquivo de origem enquanto essa instância estiver viva.
 
-Aspose.Slides pode copiar o conteúdo de um stream de entrada durante o carregamento. Para apresentações grandes, um caminho de arquivo costuma ser mais eficiente que um stream. Consulte [Manage BLOBs](/slides/pt/php-java/manage-blob/) para opções adicionais de armazenamento e gerenciamento de memória.
+Aspose.Slides pode copiar o conteúdo de um stream de entrada ao carregá‑lo. Para apresentações grandes, um caminho de arquivo geralmente é mais eficiente que um stream. Consulte [Manage BLOBs](/slides/pt/php-java/manage-blob/) para opções adicionais de armazenamento e gerenciamento de memória.
 
 {{% /alert %}}
 
 ## **Controlar recursos externos**
 
-[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) aceita uma implementação da interface Java [IResourceLoadingCallback](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iresourceloadingcallback/) através do PHP/Java Bridge. O callback pode fornecer dados de substituição, redirecionar um recurso, usar o carregador padrão ou pular o recurso. Isso é útil quando apresentações contêm imagens externas que precisam ser resolvidas de acordo com regras específicas de segurança ou armazenamento da aplicação.
+[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) aceita uma implementação da interface Java [IResourceLoadingCallback](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iresourceloadingcallback/) através do PHP/Java Bridge. O callback pode fornecer dados de substituição, redirecionar um recurso, usar o carregador padrão ou ignorar o recurso. Isso é útil quando apresentações contêm imagens externas que precisam ser resolvidas de acordo com regras específicas de segurança ou armazenamento da aplicação.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -147,7 +149,7 @@ try {
 
 ## **Carregar apresentações sem objetos binários incorporados**
 
-Uma apresentação pode conter dados binários incorporados que a aplicação não precisa ou não deseja reter. Exemplos incluem:
+Uma apresentação pode conter dados binários incorporados que uma aplicação não necessita ou não deseja manter. Exemplos incluem:
 
 - projetos VBA, disponíveis através de [Presentation::getVbaProject](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/#getVbaProject);
 - dados OLE incorporados, disponíveis através de [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/pt/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
@@ -155,7 +157,7 @@ Uma apresentação pode conter dados binários incorporados que a aplicação n�
 
 Defina [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) como `true` para remover esses dados binários durante o carregamento. Salve a apresentação carregada para persistir o resultado sanitizado.
 
-Esta opção reduz a exposição a payloads incorporados indesejados, mas não é um sistema completo de detecção de malware ou de sanitização de conteúdo.
+Essa opção reduz a exposição a cargas úteis incorporadas indesejadas, mas não é um sistema completo de detecção de malware ou sanitização de conteúdo.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -175,14 +177,14 @@ try {
 
 ## **FAQ**
 
-**Como posso saber que um arquivo está corrompido e não pode ser aberto?**
+**Como posso saber se um arquivo está corrompido e não pode ser aberto?**
 
 Aspose.Slides lança uma exceção de análise ou de formato durante o carregamento. Trate essa falha separadamente de um erro de senha incorreta para que a aplicação possa relatar a causa com precisão.
 
-**O que acontece se fontes necessárias estiverem ausentes?**
+**O que acontece se as fontes exigidas estiverem ausentes?**
 
-A apresentação ainda pode ser carregada, mas a renderização e a exportação podem substituir fontes. Você pode [configurar substituição de fontes](/slides/pt/php-java/font-substitution/) ou [fornecer fontes personalizadas](/slides/pt/php-java/custom-font/) para tornar a saída mais previsível.
+A apresentação ainda pode ser carregada, mas a renderização e exportação podem substituir as fontes. Você pode [configurar substituição de fontes](/slides/pt/php-java/font-substitution/) ou [fornecer fontes personalizadas](/slides/pt/php-java/custom-font/) para tornar a saída mais previsível.
 
-**O carregamento de uma apresentação também carrega sua mídia incorporada?**
+**Carregar uma apresentação também carrega suas mídias incorporadas?**
 
-Áudio e vídeo incorporados ficam disponíveis através do modelo de objeto da apresentação. Recursos externos são resolvidos de acordo com o comportamento de carregamento configurado e podem estar indisponíveis se suas localizações não puderem ser acessadas.
+Áudios e vídeos incorporados tornam‑se disponíveis através do modelo de objetos da apresentação. Recursos externos são resolvidos de acordo com o comportamento de carregamento de recursos configurado e podem ficar indisponíveis se seus locais não puderem ser acessados.

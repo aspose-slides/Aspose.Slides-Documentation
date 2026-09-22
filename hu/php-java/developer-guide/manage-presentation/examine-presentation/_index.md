@@ -1,6 +1,6 @@
 ---
-title: Prezentáció információinak lekérése és frissítése PHP-ben
-linktitle: Prezentáció információk
+title: Prezentációs információk lekérése és frissítése PHP-ben
+linktitle: Prezentációs információk
 type: docs
 weight: 30
 url: /hu/php-java/examine-presentation/
@@ -11,7 +11,7 @@ keywords:
 - tulajdonságok lekérése
 - tulajdonságok olvasása
 - tulajdonságok módosítása
-- tulajdonságok szerkesztése
+- tulajdonságok módosítása
 - tulajdonságok frissítése
 - PPTX vizsgálata
 - PPT vizsgálata
@@ -21,17 +21,19 @@ keywords:
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Fedezze fel a diák, a szerkezet és a metaadatokat PowerPoint és OpenDocument prezentációkban az Aspose.Slides for PHP használatával a gyorsabb betekintés és okosabb tartalomelemzés érdekében."
+description: "Fedezze fel a diák, a szerkezet és a metaadatok részleteit PowerPoint és OpenDocument prezentációkban az Aspose.Slides for PHP használatával, a gyorsabb betekintés és az intelligensebb tartalomelemzés érdekében."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides képes azonosítani a bemutató formátumát, és beolvassa a dokumentum metaadatait anélkül, hogy teljes bemutató objektummodellt hozna létre. Ez akkor hasznos, ha fájlokat kell kategorizálni, leltárt készíteni, vagy tulajdonságokat ellenőrizni kell, mielőtt eldöntené, hogy betölti és feldolgozza a bemutató tartalmát.
+Az Aspose.Slides képes azonosítani a bemutató formátumát, és a dokumentum metaadatait elolvasni anélkül, hogy teljes bemutató objektummodellt hozna létre. Ez akkor hasznos, ha fájlokat kell osztályozni, leltárt kell építeni, vagy tulajdonságokat kell ellenőrizni, mielőtt eldöntené, hogy betölti‑e és feldolgozza‑e a bemutató tartalmát.
 
-Ez a cikk bemutatja a könnyű ellenőrzést a [PresentationFactory](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationfactory/) és a [PresentationInfo](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/) segítségével, valamint a célzott frissítéseket a [DocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/) használatával.
+Ez a cikk a könnyű ellenőrzést mutatja be a [PresentationFactory](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationfactory/) és a [PresentationInfo](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/) segítségével, valamint a célzott frissítéseket a [DocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/) használatával.
 
 ## **Ellenőrizze a bemutató formátumát**
 
-Használja a [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationfactory/) metódust egy fájl ellenőrzéséhez anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) példányt hozna létre. A [PresentationInfo::getLoadFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#getLoadFormat) metódus jelzi a felismert formátumot, például PPTX, PPT vagy ODP.
+Ha már betöltött bemutatóval rendelkezik, tekintse meg a [Determine the Original Presentation Format](/slides/hu/php-java/detect-presentation-source-format/) cikket a betöltés utáni felismeréshez és a régi PPT, PPS, valamint POT adatfolyamok korlátozásairól.
+
+Használja a [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationfactory/) metódust egy fájl ellenőrzéséhez anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) példányt hozna létre. A [PresentationInfo::getLoadFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#getLoadFormat) metódus visszaadja a felismert formátumot, például PPTX, PPT vagy ODP.
 
 ```php
 use aspose\slides\LoadFormat;
@@ -56,22 +58,22 @@ foreach ($fileNames as $fileName) {
 }
 ```
 
-## **Könnyű bemutató leltár felépítése**
+## **Könnyű bemutató leltár létrehozása**
 
-Amikor sok bemutató fájlt dolgoz fel, szüksége lehet egy kompakt leltárra az érvényesítéshez, indexeléshez vagy egy dokumentumkezelő rendszerhez. Ebben a forgatókönyvben használja a [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationfactory/) metódust egy [PresentationInfo](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/) objektum megszerzéséhez, majd hívja a [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#readDocumentProperties) metódust a dokumentum metaadatainak beolvasásához. Ez a megközelítés nem hoz létre [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) példányt, és nem igényli a teljes bemutató objektummodell bejárását.
+Amikor sok bemutató fájlt dolgoz fel, előfordulhat, hogy egy kompakt leltárra van szüksége érvényesítéshez, indexeléshez vagy egy dokumentumkezelő rendszerhez. Ebben az esetben használja a [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationfactory/) metódust egy [PresentationInfo](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/) objektum megszerzéséhez, majd hívja a [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#readDocumentProperties) metódust a dokumentum metaadatainak olvasásához. Ez a megközelítés nem hoz létre [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) példányt, és nem igényli a teljes bemutató objektummodell átlapozását.
 
-A [DocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/) által biztosított kiterjesztett tulajdonságok a következő leltár értékeket szolgáltatják:
+A [DocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/) által biztosított kiterjesztett tulajdonságok a következő leltárértékeket tartalmazzák:
 
-| Metódus | Leltár érték |
+| Módszer | Leltár értéke |
 | --- | --- |
-| [getSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getSlides) | A diák teljes száma. |
+| [getSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getSlides) | A diák összes száma. |
 | [getHiddenSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getHiddenSlides) | A rejtett diák száma. |
-| [getNotes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getNotes) | Azon diák száma, amelyek tartalmaznak jegyzetet. |
-| [getParagraphs](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getParagraphs) | A bekezdések teljes száma, ha elérhető. |
-| [getWords](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getWords) | A szavak teljes száma. |
-| [getMultimediaClips](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getMultimediaClips) | Az audio és video klipek teljes száma. |
+| [getNotes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getNotes) | Azon diák száma, amelyekhez jegyzet tartozik. |
+| [getParagraphs](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getParagraphs) | A bekezdések összes száma, ha rendelkezésre áll. |
+| [getWords](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getWords) | A szavak összes száma. |
+| [getMultimediaClips](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getMultimediaClips) | Az audio‑ és videoklipek összes száma. |
 
-Az alábbi példa ezeket az értékeket beolvassa anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) objektumot hozna létre, és egy kompakt leltárt nyomtat ki. Emellett kombinálja a [DocumentProperties::getHeadingPairs](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getHeadingPairs) metódust a [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getTitlesOfParts) metódussal, hogy megjelenítse a tartalomcsoportokat, például betűtípusok, témák és dia címek.
+Az alábbi példa beolvassa ezeket az értékeket anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) objektumot hozna létre, és egy kompakt leltárt ír ki. Emellett kombinálja a [DocumentProperties::getHeadingPairs](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getHeadingPairs) és a [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getTitlesOfParts) eredményét a tartalomcsoportok, például betűtípusok, témák és diacímek megjelenítéséhez.
 
 ```php
 use aspose\slides\LoadFormat;
@@ -141,27 +143,27 @@ if (java_is_null($headingPairs) || java_is_null($titlesOfParts)) {
 }
 ```
 
-Minden [HeadingPair](https://reference.aspose.com/slides/hu/php-java/aspose.slides/headingpair/) egy csoportnevet és az adott csoportban lévő elemek számát adja meg. A [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getTitlesOfParts) egy lapos, rendezett tömböt ad vissza, ezért a sorozatos címek számát kell felhasználni, amelyet minden fejlécpár megad.
+Minden [HeadingPair](https://reference.aspose.com/slides/hu/php-java/aspose.slides/headingpair/) egy csoportnevet és az abban szereplő elemek számát adja meg. A [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getTitlesOfParts) egy lapos, rendezett tömböt térít vissza, ezért a címsorok számát a megfelelő heading pair által meghatározott egymást követő címek alapján kell felhasználni.
 
 ### **Tárolt metaadatok és formátumkorlátozások**
 
-A [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#readDocumentProperties) által visszaadott leltár tulajdonságok a forrásdokumentumban elérhető metaadataikat tükrözik. Az Aspose.Slides nem tölti be és nem járja be a bemutató objektummodellt, hogy újraszámolja ezeket az értékeket a hívás során. Hiányzó tulajdonságok alapértelmezett értékekkel jelennek meg, és a tárolt értékek elavulhatnak, ha az utoljára mentő alkalmazás nem frissítette a dokumentum tulajdonságait.
+A [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#readDocumentProperties) által visszaadott leltártulajdonságok a forrásdokumentumban elérhető metaadatokat tükrözik. Az Aspose.Slides nem tölti be és nem járja be a bemutató objektummodellt, hogy újraszámolja ezeket az értékeket a hívás során. Hiányzó tulajdonságok alapértelmezett értékekkel jelennek meg, és a tárolt értékek elavulhatnak, ha az utolsó mentő alkalmazás nem frissítette a dokumentumtulajdonságokat.
 
-- **PPTX:** A formátum kiterjesztett dokumentumtulajdonságokat biztosít a diák, jegyzetek, rejtett diák, bekezdések, szavak és multimédia elemek számlálásához, valamint a fejlécpárokhoz és részcímekhez. Az elérhetőség attól függ, hogy a dokumentum előállítója melyik tulajdonságot írta ki.
-- **PPT:** A bináris formátum tárolhatja a megfelelő dokumentum-összefoglaló tulajdonságokat. Ha egy tulajdonság hiányzik vagy nem frissült a dokumentum előállítója által, az Aspose.Slides a tárolt vagy alapértelmezett értéket adja vissza ahelyett, hogy a diákból számolná ki.
-- **ODP:** Az OpenDocument metaadatok általános dokumentumstatisztikákat biztosítanak, például oldal-, bekezdés- és szószámot, de ezek az értékek nem felelnek meg minden PowerPoint‑specifikus kiterjesztett tulajdonságnak. A rejtett diák, jegyzet‑diák, multimédia, fejlécpár és részcím metaadatok hiányozhatnak, és a leltár tulajdonságok alapértelmezett értékeket adhatnak vissza. Ne tekintse a null értéket vagy az üres tömböt végleges bizonyítéknak arra, hogy a megfelelő tartalom hiányzik.
+- **PPTX:** A formátum kiterjesztett dokumentumtulajdonságokat biztosít a dia, jegyzet, rejtett dia, bekezdés, szó és multimédia számlálásához, valamint a heading pair-ekhez és a részcímekhez. Elérhetőségük attól függ, mely tulajdonságokat írta a dokumentum készítője.
+- **PPT:** A bináris formátum tárolhatja a megfelelő dokumentum‑összefoglaló tulajdonságokat. Ha egy tulajdonság hiányzik, vagy a dokumentumkészítő nem frissítette, az Aspose.Slides a tárolt vagy alapértelmezett értéket adja vissza, a diák alapján számolt érték helyett.
+- **ODP:** Az OpenDocument metaadatok általános dokumentumstatisztikákat tartalmaznak, például oldal-, bekezdés- és szószámot, de ezek az értékek nem felelnek meg minden PowerPoint‑specifikus kiterjesztett tulajdonságnak. A rejtett dia, jegyzet dia, multimédia, heading‑pair és részcím metaadatok előfordulhatnak, vagy hiányozhatnak, és a leltártulajdonságok alapértelmezett értékeket adhatnak vissza. A nulla értéket vagy a üres tömböt ne tekintse végleges bizonyítéknak arra, hogy a megfelelő tartalom hiányzik.
 
-Használja a könnyű metaadat‑megközelítést leltárakhoz és előzetes ellenőrzésekhez. Töltse be a bemutatót és ellenőrizze a folyó objektummodellt, ha az eredménynek tükröznie kell a memóriában történt változásokat, vagy ha a tényleges bemutató tartalmát kell ellenőriznie.
+Használja a könnyű metaadat‑megközelítést leltárakhoz és előzetes ellenőrzésekhez. Töltse be a bemutatót, és ellenőrizze annak élő objektummodelljét, ha az eredménynek tükröznie kell a memóriában történt változásokat, vagy ha a tényleges bemutató tartalmát kell ellenőrizni.
 
-## **Bemutató tulajdonságainak frissítése**
+## **A bemutató tulajdonságainak frissítése**
 
-A [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#readDocumentProperties) által visszaadott tulajdonságok szintén módosíthatók anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) példányt hoznának létre. Alkalmazza a változtatásokat a [PresentationInfo::updateDocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#updateDocumentProperties) metódussal, majd írja ki a kötött bemutatót a [PresentationInfo::writeBindedPresentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#writeBindedPresentation) segítségével.
+A [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#readDocumentProperties) által visszaadott tulajdonságok módosíthatók anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) példányt hoznánk létre. Alkalmazza a változtatásokat a [PresentationInfo::updateDocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#updateDocumentProperties) segítségével, majd írja a köthez kapcsolt bemutatót a [PresentationInfo::writeBindedPresentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#writeBindedPresentation) metódussal.
 
-Az alábbi kép a PowerPoint bemutató eredeti dokumentumtulajdonságait mutatja.
+Az alábbi kép az eredeti dokumentumtulajdonságokat mutatja.
 
-![PowerPoint bemutató eredeti dokumentumtulajdonságai](input_properties.png)
+![A PowerPoint bemutató eredeti dokumentumtulajdonságai](input_properties.png)
 
-Az alábbi példa módosítja a címet és az utolsó mentés időpontját, majd az eredményt egy új fájlba írja:
+Az alábbi példa megváltoztatja a címet és az utolsó mentés időpontját, majd az eredményt egy új fájlba írja:
 
 ```php
 use aspose\slides\PresentationFactory;
@@ -183,35 +185,35 @@ try {
 }
 ```
 
-Az alábbi kép a PowerPoint bemutató módosított dokumentumtulajdonságait mutatja.
+Az alábbi kép a frissített dokumentumtulajdonságokat mutatja.
 
-![PowerPoint bemutató módosított dokumentumtulajdonságai](output_properties.png)
+![A PowerPoint bemutató módosított dokumentumtulajdonságai](output_properties.png)
 
-## **Hasznos linkek**
+## **Hasznos hivatkozások**
 
-Kapcsolódó biztonsági ellenőrzések és védelmi beállítások tekintetében lásd a következő cikkeket:
+A kapcsolódó biztonsági ellenőrzésekkel és védelmi beállításokkal kapcsolatban tekintse meg a következő cikkeket:
 
-- [Jelszóval védett prezentációk](/slides/hu/php-java/password-protected-presentation/)
-- [Írásvédett prezentációk](/slides/hu/php-java/write-protected-presentation/)
+- [Password-Protect Presentations](/slides/hu/php-java/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/hu/php-java/write-protected-presentation/)
 
 ## **GYIK**
 
-**Hogyan ellenőrizhetem, hogy a betűkészletek be vannak-e ágyazva és melyek azok?**
+**Hogyan ellenőrizhetem, hogy a betűtípusok beágyazottak-e, és melyek azok?**
 
-Töltse be a bemutatót, és használja a [Presentation::getFontsManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getFontsManager) metódust. Hívja a [FontsManager::getEmbeddedFonts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) metódust a beágyazott betűkészletek megszerzéséhez, valamint a [FontsManager::getFonts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsmanager/#getFonts) metódust a bemutató által használt betűkészletekhez. Hasonlítsa össze a két eredményt, hogy megtalálja a megjelenítéshez szükséges, de nincs beágyazva lévő betűkészleteket.
+Töltse be a bemutatót, és használja a [Presentation::getFontsManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getFontsManager) metódust. Hívja a [FontsManager::getEmbeddedFonts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) metódust a beágyazott betűtípusok lekéréséhez, valamint a [FontsManager::getFonts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsmanager/#getFonts) metódust a bemutató által használt betűtípusokhoz. A két eredmény összehasonlításával megtalálhatja azokat a betűtípusokat, amelyek a rendereléshez szükségesek, de nincsenek beágyazva.
 
-**Hogyan tudom gyorsan megállapítani, hogy a fájl tartalmaz‑e rejtett diákat és hány darab van?**
+**Hogyan tudom gyorsan megállapítani, hogy a fájl tartalmaz‑e rejtett diát, és ha igen, hány darabot?**
 
-Ha a tárolt dokumentum‑metaadatok elegendőek, olvassa a [DocumentProperties::getHiddenSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getHiddenSlides) értékét a [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationfactory/) és a [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#readDocumentProperties) segítségével. Ez alkalmas egy könnyű leltárhoz. Ha a bemutatót memória‑szinten módosították, a tárolt metaadatok hiányozhatnak vagy elavultak, vagy ha a valós értékeket kell ellenőrizni, akkor járja be a [Presentation::getSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getSlides) gyűjteményt, és minden dia [Slide::getHidden](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slide/#getHidden) metódusát vizsgálja.
+Ha a tárolt dokumentum‑metaadat elegendő, olvassa a [DocumentProperties::getHiddenSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/documentproperties/#getHiddenSlides) értékét a [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationfactory/) és a [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationinfo/#readDocumentProperties) segítségével. Ez egy könnyű leltárhoz alkalmas. Ha a bemutatót a memóriában módosították, a tárolt metaadat hiányozhat vagy elavulhat, vagy ha élő értékeket kell ellenőrizni, iteráljon a [Presentation::getSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getSlides) gyűjteményen, és a [Slide::getHidden](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slide/#getHidden) metódussal ellenőrizze az egyes diák állapotát.
 
-**Feldolgozható‑e, hogy a bemutató egyedi diamérettel és orientációval rendelkezik‑e, és eltér‑e‑nek a alapértelmezett beállításoktól?**
+**Kideríthetem, hogy egyéni dia‑méret és tájolás van‑e beállítva, és eltér‑e az alapértelmezettől?**
 
-Igen. Töltse be a bemutatót, és hívja a [Presentation::getSlideSize](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getSlideSize) metódust. Használja a [SlideSize::getType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slidesize/#getType), [SlideSize::getSize](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slidesize/#getSize) és [SlideSize::getOrientation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slidesize/#getOrientation) metódusokat a jelenlegi beállítások összehasonlítására a várt előre definiált értékekkel és méretekkel.
+Igen. Töltse be a bemutatót, és hívja a [Presentation::getSlideSize](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getSlideSize) metódust. Az [SlideSize::getType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slidesize/#getType), [SlideSize::getSize](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slidesize/#getSize) és [SlideSize::getOrientation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slidesize/#getOrientation) metódusokkal hasonlítsa össze a jelenlegi beállításokat a várt előre definiált értékekkel és méretekkel.
 
-**Van‑e gyors módja annak, hogy megtekintsem, a diagramok külső adatforrásokra hivatkoznak‑e?**
+**Van gyors mód arra, hogy lássam, a diagramok külső adatforrásra hivatkoznak‑e?**
 
-Igen. Keresse meg minden [Chart](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chart/) elemet, és hívja a [ChartData::getDataSourceType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdata/#getDataSourceType) metódust. Külső munkafüzet esetén hívja a [ChartData::getExternalWorkbookPath](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdata/#getExternalWorkbookPath) metódust. Az adatforrás típusa és elérési útja meghatározza a külső hivatkozást, de annak elérhetőségének ellenőrzése külön erőforrás‑ellenőrzést igényel.
+Igen. Keresse meg minden [Chart](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chart/) elemet, és hívja a [ChartData::getDataSourceType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdata/#getDataSourceType) metódust. Külső munkafüzet esetén hívja a [ChartData::getExternalWorkbookPath](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chartdata/#getExternalWorkbookPath) metódust. Az adatforrás típusa és az elérési út jelzi a külső hivatkozást, de annak elérhetősége külön erőforrás‑ellenőrzést igényel.
 
-**Hogyan értékelhetem a „nehéz” diákat, amelyek lassíthatják a renderelést vagy a PDF‑exportot?**
+**Hogyan értékelhetem a „nehéz” diákokat, amelyek lassíthatják a renderelést vagy a PDF‑exportot?**
 
-Nincs egyetlen „komplexitás” tulajdonság. Járja be a [Presentation::getSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getSlides) és minden dia [BaseSlide::getShapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseslide/#getShapes) gyűjteményét. A alakzatok számát, valamint a nagy képek, effektusok, animációk vagy multimédia jelenlétét használja szűrőjelzőként, és mérjen egy reprezentatív renderelést vagy exportot, mielőtt a diát megerősített teljesítmény‑szűkítőnek tekintené.
+Nincs egyetlen „komplexitás” tulajdonság. Járja be a [Presentation::getSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getSlides) gyűjteményt, és minden dia [BaseSlide::getShapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseslide/#getShapes) gyűjteményét. A shape‑számok, nagy képek, effektusok, animációk vagy multimédia jelenléte jelzésként szolgálhat, és mérje le egy reprezentatív renderelés vagy export időt, mielőtt egy diát végleges teljesítmény‑szűkítőnek tekintene.

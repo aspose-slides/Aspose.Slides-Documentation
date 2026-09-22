@@ -15,250 +15,283 @@ keywords:
 - presentation till fil
 - presentation till ström
 - fördefinierad vytyp
-- Strikt Office Open XML-format
+- Strict Office Open XML-format
 - Zip64-läge
 - uppdatera miniatyr
-- spara framsteg
+- sparningsförlopp
 - .NET
 - C#
 - Aspose.Slides
-description: "Upptäck hur du sparar presentationer i .NET med Aspose.Slides – exportera till PowerPoint eller OpenDocument samtidigt som du behåller layouter, typsnitt och effekter."
+description: "Spara PowerPoint- och OpenDocument-presentationer till filer eller strömmar i C# med Aspose.Slides för .NET, och konfigurera PPTX-utmatning samt rapportering av sparningsförlopp."
 ---
 ## **Översikt**
 
-[Öppna presentationer i C#](/slides/sv/net/open-presentation/) beskrev hur du använder [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)-klassen för att öppna en presentation. Den här artikeln förklarar hur du skapar och sparar presentationer. [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)-klassen innehåller en presentations innehåll. Oavsett om du skapar en presentation från början eller modifierar en befintlig, vill du spara den när du är klar. Med Aspose.Slides för .NET kan du spara till en **fil** eller **ström**. Den här artikeln förklarar de olika sätten att spara en presentation.
+Efter att du har skapat en presentation eller [öppna en befintlig](/slides/sv/net/open-presentation/), använd [Presentation.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/save/) metoden för att skriva resultatet. Aspose.Slides för .NET kan spara en presentation till en fil eller en ström i PowerPoint, OpenDocument, PDF och andra format. Följande avsnitt täcker de standardlagringsoperationer som finns och de alternativ som är tillgängliga för PPTX-utmatning.
 
 ## **Spara presentationer till filer**
 
-Spara en presentation till en fil genom att anropa [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)-klassens `Save`-metod. Skicka filnamnet och sparaformatet till metoden. Följande exempel visar hur du sparar en presentation med Aspose.Slides.
+För att spara en presentation till en fil, skicka utdata-sökvägen och ett [SaveFormat](https://reference.aspose.com/slides/sv/net/aspose.slides.export/saveformat/) värde till [Presentation.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/save/) metoden. Formatvärdet bestämmer vilken typ av fil som Aspose.Slides skapar.
+
+Följande exempel skapar en presentation och sparar den som en PPTX‑fil:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instansiera Presentation-klassen som representerar en presentationsfil.
-using (Presentation presentation = new Presentation())
-{
-    // Utför något arbete här...
+using var presentation = new Presentation();
 
-    // Spara presentationen till en fil.
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+// Add or modify presentation content here.
+
+presentation.Save("Output.pptx", SaveFormat.Pptx);
 ```
 
-## **Spara presentationer till strömmar**
+## **Spara presentationer i deras ursprungliga format**
 
-Du kan spara en presentation till en ström genom att skicka en utdataström till [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)-klassens `Save`-metod. En presentation kan skrivas till många strömtyper. I exemplet nedan skapar vi en ny presentation och sparar den till en filström.
+För exempel på fil‑ och strömdetektering, beteendet för nyss skapade presentationer och skillnaden mellan källa‑ och utskriftsformat, se [Bestäm originalpresentationens format](/slides/sv/net/detect-presentation-source-format/).
+
+I en batch‑behandlingsapplikation kan indataformatet vara okänt i förväg. Efter att en fil har laddats, läs dess ursprungliga format från egenskapen [IPresentation.SourceFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/ipresentation/sourceformat/). Skicka det resulterande [SourceFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/sourceformat/) värdet till [SlideUtil.ToSaveFormat](https://reference.aspose.com/slides/sv/net/aspose.slides.util/slideutil/tosaveformat/) för att erhålla motsvarande [SaveFormat](https://reference.aspose.com/slides/sv/net/aspose.slides.export/saveformat/) värde, och använd sedan [Presentation.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/save/) för att skriva den modifierade presentationen.
+
+Följande kompletta exempel behandlar varje fil i en inmatningskatalog, uppdaterar dess titel och sparar den till en utmatningskatalog i det format den laddades från:
 
 ```cs
+using System;
+using System.IO;
 using Aspose.Slides;
-using Aspose.Slides.Export;
+using Aspose.Slides.Util;
 
-// Instansiera Presentation-klassen som representerar en presentationsfil.
-using (Presentation presentation = new Presentation())
+var inputDirectory = "Input";
+var outputDirectory = "Output";
+
+Directory.CreateDirectory(outputDirectory);
+
+foreach (var inputPath in Directory.EnumerateFiles(inputDirectory))
 {
-    using (FileStream fileStream = new FileStream("Output.pptx", FileMode.Create))
+    try
     {
-        // Spara presentationen till strömmen.
-        presentation.Save(fileStream, SaveFormat.Pptx);
+        using var presentation = new Presentation(inputPath);
+
+        var sourceFormat = presentation.SourceFormat;
+        var saveFormat = SlideUtil.ToSaveFormat(sourceFormat);
+
+        presentation.DocumentProperties.Title = "Processed by the batch application";
+
+        var outputPath = Path.Combine(outputDirectory, Path.GetFileName(inputPath));
+        presentation.Save(outputPath, saveFormat);
+    }
+    catch (ArgumentException exception)
+    {
+        Console.Error.WriteLine($"Cannot map the source format of '{inputPath}': {exception.Message}");
+    }
+    catch (Exception exception)
+    {
+        Console.Error.WriteLine($"Cannot process '{inputPath}': {exception.Message}");
     }
 }
 ```
 
-## **Spara presentationer med en fördefinierad vytyp**
+[SlideUtil.ToSaveFormat](https://reference.aspose.com/slides/sv/net/aspose.slides.util/slideutil/tosaveformat/) mappar PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP och PowerPoint XML till deras motsvarande presentations‑spara‑format. Det mappar endast presentations‑källformat; det är inte avsett att välja exportformat såsom PDF, HTML, TIFF eller bilder. Att skicka ett icke‑stödd eller ogiltigt [SourceFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/sourceformat/) värde resulterar i ett [ArgumentException](https://learn.microsoft.com/en-us/dotnet/api/system.argumentexception).
 
-Aspose.Slides låter dig ange den initiala vyn som PowerPoint använder när den genererade presentationen öppnas via [ViewProperties](https://reference.aspose.com/slides/sv/net/aspose.slides/viewproperties/)-klassen. Ställ in [LastView](https://reference.aspose.com/slides/sv/net/aspose.slides/viewproperties/lastview/)-egenskapen till ett värde från [ViewType](https://reference.aspose.com/slides/sv/net/aspose.slides/viewtype/)-enumerationen.
+Legacy‑filerna PPT, PPS och POT använder samma binära behållare. När en sådan presentation laddas från en ström utan filändelse kan en PPS‑ eller POT‑fil därför identifieras som PPT. Om bevarande av dessa äldre undertyper krävs, behåll det ursprungliga filnamnet eller formatmetadata separat och använd dem när du väljer utdatafilnamn och format.
+
+## **Spara presentationer till strömmar**
+
+För att skriva en presentation utan att förlita dig på en slutlig filsökväg, skicka en skrivbar [Stream](https://learn.microsoft.com/en-us/dotnet/api/system.io.stream) och ett [SaveFormat](https://reference.aspose.com/slides/sv/net/aspose.slides.export/saveformat/) värde till [Presentation.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/save/) metoden. Detta tillvägagångssätt är användbart när utdata måste returneras från en webbtjänst, lagras i en databas eller bearbetas i minnet.
+
+Följande exempel sparar en ny presentation till en filström:
 
 ```cs
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    presentation.ViewProperties.LastView = ViewType.SlideMasterView;
-    presentation.Save("SlideMasterView.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+using var outputStream = new FileStream("Output.pptx", FileMode.Create);
+
+presentation.Save(outputStream, SaveFormat.Pptx);
 ```
 
-## **Spara presentationer i det strikt Office Open XML-formatet**
+## **Spara presentationer med en fördefinierad vytyp**
 
-Aspose.Slides låter dig spara en presentation i det strikt Office Open XML-formatet. Använd [PptxOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/pptxoptions/)-klassen och sätt dess *conformance*-egenskap när du sparar. Om du sätter `Conformance.Iso29500_2008_Strict` sparas utfilen i det strikt Office Open XML-formatet.
+Du kan ange den vy som PowerPoint initialt öppnar en sparad presentation i. Ställ in egenskapen [ViewProperties.LastView](https://reference.aspose.com/slides/sv/net/aspose.slides/viewproperties/lastview/) till ett [ViewType](https://reference.aspose.com/slides/sv/net/aspose.slides/viewtype/) värde innan sparning.
 
-Exemplet nedan skapar en presentation och sparar den i det strikt Office Open XML-formatet.
+Följande exempel konfigurerar Slide Master‑vyn som den initiala vyn:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-PptxOptions options = new PptxOptions()
+using var presentation = new Presentation();
+
+presentation.ViewProperties.LastView = ViewType.SlideMasterView;
+presentation.Save("SlideMasterView.pptx", SaveFormat.Pptx);
+```
+
+## **Spara presentationer i det strikta Office Open XML-formatet**
+
+För att skapa en PPTX‑fil som följer den Strikta profilen av Office Open XML, skapa en [PptxOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/pptxoptions/) instans och sätt dess [Conformance](https://reference.aspose.com/slides/sv/net/aspose.slides.export/pptxoptions/conformance/) egenskap till `Conformance.Iso29500_2008_Strict`. Skicka sedan alternativen till [Presentation.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/save/) metoden.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var options = new PptxOptions
 {
     Conformance = Conformance.Iso29500_2008_Strict
 };
 
-// Instansiera Presentation-klassen som representerar en presentationsfil.
-using (Presentation presentation = new Presentation())
-{
-    // Spara presentationen i det Strikt Office Open XML-formatet.
-    presentation.Save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
-}
+using var presentation = new Presentation();
+
+presentation.Save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
 ```
 
-## **Spara presentationer i Office Open XML-format i Zip64-läge**
+## **Spara presentationer i Office Open XML-format i Zip64‑läge**
 
-En Office Open XML-fil är ett ZIP‑arkiv som har en gräns på 4 GB (2^32 byte) för den okomprimerade storleken på någon fil, den komprimerade storleken på någon fil och den totala arkivstorleken, samt en gräns på 65 535 (2^16 − 1) filer. ZIP64‑formatutökningar höjer dessa gränser till 2^64.
+Ett standard‑ZIP‑arkiv begränsar den komprimerade och okomprimerade storleken för varje post, den totala arkivstorleken och antalet poster. Eftersom en PPTX‑fil är ett ZIP‑arkiv kan en mycket stor presentation överskrida dessa begränsningar. Zip64‑tillägg höjer de tillämpliga storleks‑ och post‑räkningsgränserna.
 
-[IPptxOptions.Zip64Mode](https://reference.aspose.com/slides/sv/net/aspose.slides.export/ipptxoptions/zip64mode/)-egenskapen låter dig välja när du vill använda ZIP64‑formatutökningar när du sparar en Office Open XML‑fil.
+Använd egenskapen [PptxOptions.Zip64Mode](https://reference.aspose.com/slides/sv/net/aspose.slides.export/pptxoptions/zip64mode/) för att kontrollera om Aspose.Slides skriver Zip64‑tillägg:
 
-Denna egenskap erbjuder följande lägen:
+- `IfNecessary` använder Zip64 endast när presentationen överskrider standard ZIP‑gränser. Detta är standardläget.
+- `Never` inaktiverar Zip64‑tillägg.
+- `Always` skriver alltid Zip64‑tillägg.
 
-- `IfNecessary` använder ZIP64‑formatutökningar endast om presentationen överskrider begränsningarna ovan. Detta är standardläget.
-- `Never` använder aldrig ZIP64‑formatutökningar.
-- `Always` använder alltid ZIP64‑formatutökningar.
-
-Följande kod demonstrerar hur du sparar en presentation som en PPTX‑fil med ZIP64‑formatutökningar aktiverade:
+Följande exempel aktiverar alltid Zip64‑tillägg för utmatningspresentationen:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("Sample.pptx"))
+using var presentation = new Presentation("Sample.pptx");
+
+var options = new PptxOptions
 {
-    presentation.Save("OutputZip64.pptx", SaveFormat.Pptx, new PptxOptions()
-    {
-        Zip64Mode = Zip64Mode.Always
-    });
-}
+    Zip64Mode = Zip64Mode.Always
+};
+
+presentation.Save("OutputZip64.pptx", SaveFormat.Pptx, options);
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-När du sparar med `Zip64Mode.Never` kastas ett [PptxException](https://reference.aspose.com/slides/sv/net/aspose.slides/pptxexception/) om presentationen inte kan sparas i ZIP32‑format.
+{{% alert color="warning" title="Warning" %}}
+Om `Zip64Mode` är satt till `Never` och presentationen inte får plats inom standard ZIP‑gränser, kastar sparoperationen ett [PptxException](https://reference.aspose.com/slides/sv/net/aspose.slides/pptxexception/).
 {{% /alert %}}
 
 ## **Spara presentationer i Office Open XML-format med komprimeringsnivåer**
 
-När du arbetar med stora presentationer kan du justera komprimeringsnivån för att balansera filstorlek och behandlingstid. Beroende på dina krav kan du föredra snabbare bearbetning eller mindre utdatafiler.
+För PPTX‑utmatning kan du balansera sparhastighet mot filstorlek genom att sätta egenskapen [PptxOptions.CompressionLevel](https://reference.aspose.com/slides/sv/net/aspose.slides.export/pptxoptions/compressionlevel/). Enumet [CompressionLevel](https://reference.aspose.com/slides/sv/net/aspose.slides.export/compressionlevel/) tillhandahåller följande värden:
 
-Aspose.Slides tillhandahåller [IPptxOptions.CompressionLevel](https://reference.aspose.com/slides/sv/net/aspose.slides.export/ipptxoptions/compressionlevel/)-egenskapen, som låter dig ange vilken komprimeringsnivå som ska användas när du sparar en presentation i Office Open XML-format.
+- `None` lagrar data utan kompression.
+- `Level1` ger den snabbaste kompressionen och den största komprimerade utdata.
+- `Level2` till `Level5` föredrar gradvis mindre utdata framför sparhastigheten.
+- `Level6` balanserar sparhastighet och filstorlek. Detta är standardnivån.
+- `Level7` och `Level8` föredrar ännu mer mindre utdata framför sparhastigheten.
+- `Level9` ger den starkaste kompressionen och kräver mest bearbetningstid.
 
-Följande komprimeringsnivåer finns tillgängliga:
+Följande exempel sparar en presentation utan kompression:
 
-- **None**: Ingen komprimering tillämpas. Filer lagras som de är.
-- **Level1**: Den snabbaste komprimeringen med lägst komprimeringsförhållande.
-- **Level2**: Snabbare komprimering med något bättre komprimeringsförhållande än **Level1**.
-- **Level3**: Ger bättre komprimering än **Level2** med måttlig inverkan på behandlingstiden.
-- **Level4**: Ger bättre komprimering än **Level3**.
-- **Level5**: Ger förbättrad komprimering jämfört med **Level4** med extra behandlingstid.
-- **Level6**: Standardkomprimering som erbjuder en bra balans mellan bearbetningshastighet och filstorlek. Detta är *standardkomprimeringsnivån*.
-- **Level7**: Ger bättre komprimering än **Level6** men med långsammare bearbetning.
-- **Level8**: Ger bättre komprimering än **Level7**.
-- **Level9**: Maximalkomprimering. Producerar den minsta filstorleken men med längst bearbetningstid.
-
-Följande exempel demonstrerar hur du sparar en presentation som en PPTX‑fil *utan komprimering*:
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("Sample.pptx"))
+using var presentation = new Presentation("Sample.pptx");
+
+var options = new PptxOptions
 {
-    pres.Save("Sample-out.pptx", SaveFormat.Pptx, new PptxOptions
-    {
-        CompressionLevel = CompressionLevel.None
-    });
-}
+    CompressionLevel = CompressionLevel.None
+};
+
+presentation.Save("OutputNoCompression.pptx", SaveFormat.Pptx, options);
 ```
 
-Detta exempel visar hur du sparar en presentation som en PPTX‑fil med *maximal komprimering*:
+Följande exempel använder den maximala komprimeringsnivån:
+
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("Sample.pptx"))
+using var presentation = new Presentation("Sample.pptx");
+
+var options = new PptxOptions
 {
-    pres.Save("Sample-level9.pptx", SaveFormat.Pptx, new PptxOptions
-    {
-        CompressionLevel = CompressionLevel.Level9
-    });
-}
+    CompressionLevel = CompressionLevel.Level9
+};
+
+presentation.Save("OutputMaximumCompression.pptx", SaveFormat.Pptx, options);
 ```
 
 ## **Spara presentationer utan att uppdatera miniatyren**
 
-[PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/sv/net/aspose.slides.export/ipptxoptions/refreshthumbnail/)-egenskapen styr miniatyrgenerering när en presentation sparas till PPTX:
+När en presentation sparas som PPTX styr egenskapen [PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/sv/net/aspose.slides.export/pptxoptions/refreshthumbnail/) dess dokumentminiatyr:
 
-- Om värdet är `true` uppdateras miniatyren under sparandet. Detta är standard.
-- Om värdet är `false` bevaras den nuvarande miniatyren. Om presentationen saknar miniatyr genereras ingen.
+- `true` återskapar miniatyren under sparoperationen. Detta är standardvärdet.
+- `false` bevarar den befintliga miniatyren. Om presentationen saknar miniatyr genererar Aspose.Slides ingen.
 
-I koden nedan sparas presentationen till PPTX utan att uppdatera dess miniatyr.
+Följande exempel sparar en presentation utan att uppdatera dess miniatyr:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("Sample.pptx"))
+using var presentation = new Presentation("Sample.pptx");
+
+var options = new PptxOptions
 {
-    presentation.Save("Output.pptx", SaveFormat.Pptx, new PptxOptions()
-    {
-        RefreshThumbnail = false
-    });
-}
+    RefreshThumbnail = false
+};
+
+presentation.Save("Output.pptx", SaveFormat.Pptx, options);
 ```
 
-{{% alert title="Info" color="info" %}}
-Detta alternativ hjälper till att minska den tid som krävs för att spara en presentation i PPTX‑format.
+{{% alert color="info" title="Note" %}}
+Att inaktivera miniatyruppdatering kan minska den tid som krävs för att spara en PPTX‑fil.
 {{% /alert %}}
 
-## **Spara framstegsuppdateringar i procent**
+## **Spara förloppsuppdateringar i procent**
 
-[IProgressCallback](https://reference.aspose.com/slides/sv/net/aspose.slides/iprogresscallback/)-gränssnittet används via `ProgressCallback`‑egenskapen som exponeras av [ISaveOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/isaveoptions/)-gränssnittet och den abstrakta [SaveOptions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/saveoptions/)-klassen. Tilldela en [IProgressCallback](https://reference.aspose.com/slides/sv/net/aspose.slides/iprogresscallback/)-implementation till `ProgressCallback` för att få sparningsframstegsuppdateringar i procent.
+För att övervaka en sparoperation, implementera gränssnittet [IProgressCallback](https://reference.aspose.com/slides/sv/net/aspose.slides/iprogresscallback/) och tilldela implementationen till egenskapen [ISaveOptions.ProgressCallback](https://reference.aspose.com/slides/sv/net/aspose.slides.export/isaveoptions/progresscallback/). Aspose.Slides anropar sedan [IProgressCallback.Reporting](https://reference.aspose.com/slides/sv/net/aspose.slides/iprogresscallback/reporting/) metoden med förloppsvärden under exporten.
 
-Följande kodsnuttar visar hur du använder `IProgressCallback`.
+Följande exempel rapporterar förloppet för en PDF‑export till konsolen:
 
 ```cs
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-ISaveOptions saveOptions = new PdfOptions();
-saveOptions.ProgressCallback = new ExportProgressHandler();
-
-using (Presentation presentation = new Presentation("Sample.pptx"))
+var options = new PdfOptions
 {
-    presentation.Save("Output.pdf", SaveFormat.Pdf, saveOptions);
-}
-```
+    ProgressCallback = new ExportProgressHandler()
+};
 
-```cs
-using Aspose.Slides;
+using var presentation = new Presentation("Sample.pptx");
+
+presentation.Save("Output.pdf", SaveFormat.Pdf, options);
 
 class ExportProgressHandler : IProgressCallback
 {
     public void Reporting(double progressValue)
     {
-        // Använd värdet för framstegsprocenten här.
-        int progress = Convert.ToInt32(progressValue);
-
-        Console.WriteLine(progress + "% of the file has been converted.");
+        var progress = Convert.ToInt32(progressValue);
+        Console.WriteLine($"{progress}% of the file has been converted.");
     }
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose har utvecklat en [fri PowerPoint Splitter‑app](https://products.aspose.app/slides/sv/splitter) med sitt eget API. Appen låter dig dela en presentation i flera filer genom att spara valda bilder som nya PPTX‑ eller PPT‑filer.
+{{% alert color="info" title="Note" %}}
+Aspose erbjuder en gratis [PowerPoint Splitter](https://products.aspose.app/slides/sv/splitter) byggd med Aspose.Slides‑API:et. Den sparar valda bildspel från en presentation som separata PPT‑ eller PPTX‑filer.
 {{% /alert %}}
 
 ## **Vanliga frågor**
 
-**Stöds ”snabbsparning” (inkrementell sparning) så att bara ändringar skrivs?**
+**Stöder Aspose.Slides inkrementell eller “snabb sparning”?**
 
-Nej. Sparning skapar hela målfilen varje gång; inkrementell ”snabbsparning” stöds inte.
+Nej. Varje sparoperation skriver en komplett utdatafil snarare än att bara uppdatera de ändrade delarna.
 
-**Är det trådsäkert att spara samma Presentation‑instans från flera trådar?**
+**Kan flera trådar spara samma Presentation‑instans?**
 
-Nej. En [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)‑instans är [är inte trådsäker](/slides/sv/net/multithreading/); spara den från en enda tråd.
+Nej. En [Presentation]‑instans [är inte trådsäker](/slides/sv/net/multithreading/). Accessa och spara varje instans från endast en tråd åt gången.
 
-**Vad händer med hyperlänkar och externt länkade filer vid sparning?**
+**Vad händer med hyperlänkar och externt länkade filer när jag sparar en presentation?**
 
-[Hyperlänkar](/slides/sv/net/manage-hyperlinks/) bevaras. Externt länkade filer (t.ex. videor via relativa sökvägar) kopieras inte automatiskt — se till att de refererade sökvägarna förblir åtkomliga.
+[Hyperlänkar](/slides/sv/net/manage-hyperlinks/) förblir i presentationen. Aspose.Slides kopierar inte externt länkade filer, så den sparade presentationen måste fortfarande kunna komma åt deras platser.
 
-**Kan jag ange/spara dokumentmetadata (Författare, Titel, Företag, Datum)?**
+**Kan jag spara dokumentmetadata såsom författare, titel, företag och skapelsedatum?**
 
-Ja. Standard [dokumentegenskaper](/slides/sv/net/presentation-properties/) stöds och kommer att skrivas till filen vid sparning.
+Ja. Ställ in lämpliga [dokumentegenskaper](/slides/sv/net/presentation-properties/) innan du sparar, och Aspose.Slides skriver dem till utdatafilen.

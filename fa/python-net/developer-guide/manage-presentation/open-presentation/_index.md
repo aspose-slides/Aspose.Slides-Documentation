@@ -1,38 +1,40 @@
 ---
-title: باز کردن ارائه‌ها در Python
-linktitle: باز کردن ارائه‌ها
+title: "باز کردن ارائه‌ها در پایتون"
+linktitle: "باز کردن ارائه‌ها"
 type: docs
 weight: 20
 url: /fa/python-net/open-presentation/
 keywords:
-- باز کردن PowerPoint
-- باز کردن ارائه
-- باز کردن PPTX
-- باز کردن PPT
-- باز کردن ODP
-- بارگذاری ارائه
-- بارگذاری PPTX
-- بارگذاری PPT
-- بارگذاری ODP
-- ارائه محافظت‌شده
-- ارائه بزرگ
-- منبع خارجی
-- شیء باینری
-- Python
-- Aspose.Slides
-description: "یاد بگیرید چگونه ارائه‌های PowerPoint و OpenDocument را در Python باز کنید، رمزهای عبور باز کردن را فراهم کنید و با Aspose.Slides برای Python از طریق .NET مصرف حافظه را کاهش دهید."
+- "باز کردن PowerPoint"
+- "باز کردن ارائه"
+- "باز کردن PPTX"
+- "باز کردن PPT"
+- "باز کردن ODP"
+- "بارگذاری ارائه"
+- "بارگذاری PPTX"
+- "بارگذاری PPT"
+- "بارگذاری ODP"
+- "ارائه محافظت‌شده"
+- "ارائه بزرگ"
+- "منبع خارجی"
+- "شیء باینری"
+- "پایتون"
+- "Aspose.Slides"
+description: "یاد بگیرید چگونه ارائه‌های PowerPoint و OpenDocument را در پایتون باز کنید، گذرواژه‌های بازشو را فراهم کنید، و با Aspose.Slides برای پایتون از طریق .NET مصرف حافظه را کاهش دهید."
 ---
 ## **مقدمه**
 
-[Aspose.Slides برای Python از طریق .NET](https://products.aspose.com/slides/fa/python-net/) می‌تواند ارائه‌های PowerPoint و OpenDocument را از فایل‌ها و جریان‌ها بارگذاری کند. پس از بارگذاری یک ارائه، می‌توانید ساختار آن را بررسی کنید، اسلایدها را ویرایش کنید، منابع را مدیریت کنید و آن را در قالب اصلی یا قالب دیگری که پشتیبانی می‌شود ذخیره کنید.
+[Aspose.Slides for Python via .NET](https://products.aspose.com/slides/fa/python-net/) می‌تواند ارائه‌های PowerPoint و OpenDocument را از فایل‌ها و جریان‌ها بارگذاری کند. پس از بارگذاری یک ارائه، می‌توانید ساختار آن را بررسی کنید، اسلایدها را ویرایش کنید، منابع را مدیریت کنید و آن را در فرمت اصلی یا فرمت پشتیبانی‌شده دیگر ذخیره کنید.
 
-رفتار بارگذاری می‌تواند از طریق کلاس [LoadOptions](https://reference.aspose.com/slides/fa/python-net/aspose.slides/loadoptions/) سفارشی شود. به عنوان مثال، می‌توانید یک رمز عبور باز کردن ارائه دهید، اشیای باینری بزرگ را خارج از حافظه نگه دارید یا داده‌های باینری تعبیه‌شده را حذف کنید.
+رفتار بارگذاری می‌تواند از طریق کلاس [LoadOptions](https://reference.aspose.com/slides/fa/python-net/aspose.slides/loadoptions/) سفارشی‌سازی شود. برای مثال، می‌توانید یک رمز عبور بازشو ارائه دهید، اشیای بزرگ باینری را خارج از حافظه نگه دارید یا داده‌های باینری جاسازی‌شده را حذف کنید.
 
-## **باز کردن ارائه‌ها**
+## **بازکردن ارائه‌ها**
 
-برای باز کردن یک ارائه موجود، مسیر فایل آن را به سازنده [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) بدهید. از عبارت `with` استفاده کنید تا دسته‌های فایل، داده‌های موقت و سایر منابع به‌سرعت آزاد شوند.
+پس از بارگذاری یک فایل یا جریان، می‌توانید [فرمت اصلی ارائه را تعیین کنید](/slides/fa/python-net/detect-presentation-source-format/) تا روش پردازش آن توسط برنامه‌تان انتخاب شود.
 
-مثال زیر در Python نشان می‌دهد چگونه یک ارائه را باز کنید و تعداد اسلایدهای آن را به‌دست آورید:
+برای باز کردن یک ارائه موجود، مسیر فایل آن را به سازنده [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) بدهید. از یک عبارت `with` استفاده کنید تا دسته‌های فایل، داده‌های موقت و سایر منابع به‌سرعت آزاد شوند.
+
+مثال زیر در پایتون نشان می‌دهد چگونه یک ارائه را باز کنید و تعداد اسلایدهای آن را به‌دست آورید:
 
 ```python
 import aspose.slides as slides
@@ -41,9 +43,9 @@ with slides.Presentation("sample.pptx") as presentation:
     print("Slide count: " + str(len(presentation.slides)))
 ```
 
-## **باز کردن ارائه‌های محافظت‌شده با رمز عبور**
+## **بازکردن ارائه‌های محافظت‌شده با رمز عبور**
 
-یک رمز عبور باز کردن محتوای ارائه را رمزنگاری می‌کند. برای بارگذاری کامل ارائه، رمز عبور صحیح را به [LoadOptions.password](https://reference.aspose.com/slides/fa/python-net/aspose.slides/loadoptions/password/) اختصاص داده و گزینه‌ها را به سازنده [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) بدهید. اگر رمز عبور فقدان یا نادرست باشد، بارگذاری شکست می‌خورد.
+یک رمز عبور بازشو محتوای ارائه را رمزگذاری می‌کند. برای بارگذاری کامل ارائه، رمز عبور صحیح را به [LoadOptions.password](https://reference.aspose.com/slides/fa/python-net/aspose.slides/loadoptions/password/) اختصاص داده و گزینه‌ها را به سازنده [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) پاس کنید. بارگذاری زمانی که رمز عبور موجود نباشد یا نادرست باشد، انجام نمی‌شود.
 
 ```python
 import aspose.slides as slides
@@ -55,13 +57,13 @@ with slides.Presentation("encrypted-presentation.pptx", load_options) as present
     print("Slide count: " + str(len(presentation.slides)))
 ```
 
-برای شناسایی رمز عبور، اعتبارسنجی و جریان‌های کاری رمزنگاری، به [Password-Protect Presentations](/slides/fa/python-net/password-protected-presentation/) مراجعه کنید. اگر یک ارائه رمزنگاری‌شده عمدیاً با خصوصیات عمومی سند ذخیره شده باشد، می‌توان این خصوصیات را بدون رمز عبور خواند؛ برای اطلاعات بیشتر به [Manage Presentation Properties](/slides/fa/python-net/presentation-properties/) نگاه کنید.
+برای شناسایی رمز عبور، اعتبارسنجی و گردش‌کارهای رمزگذاری، به [Password-Protect Presentations](/slides/fa/python-net/password-protected-presentation/) مراجعه کنید. اگر یک ارائه رمزگذاری‌شده عمداً با خصوصیات عمومی سند ذخیره شده باشد، می‌توان این خصوصیات را بدون رمز عبور خواند؛ به [Manage Presentation Properties](/slides/fa/python-net/presentation-properties/) نگاه کنید.
 
-## **باز کردن ارائه‌های بزرگ**
+## **بازکردن ارائه‌های بزرگ**
 
-[LoadOptions.blob_management_options](https://reference.aspose.com/slides/fa/python-net/aspose.slides/loadoptions/blob_management_options/) نحوهٔ مدیریت اشیای باینری بزرگ مانند تصاویر، صدا و ویدیو را توسط Aspose.Slides کنترل می‌کند. می‌توانید فایل منبع را قفل نگه دارید، اجازهٔ ایجاد فایل‌های موقت را بدهید و مقدار داده‌های BLOB نگه‌داشته‌شده در حافظه را محدود کنید.
+[LoadOptions.blob_management_options](https://reference.aspose.com/slides/fa/python-net/aspose.slides/loadoptions/blob_management_options/) کنترل می‌کند Aspose.Slides چگونه اشیای باینری بزرگ مانند تصویرها، صوت و ویدئو را مدیریت می‌کند. می‌توانید فایل منبع را قفل نگه دارید، اجازه فایل‌های موقت بدهید و مقدار داده‌های BLOB نگهداری‌شده در حافظه را محدود کنید.
 
-این کد Python نشان می‌دهد چگونه یک ارائه بزرگ (مثلاً ۲ گیگابایت) را بارگذاری کنید:
+این کد پایتون نشان می‌دهد چگونه یک ارائه بزرگ (مثلاً ۲ گیگابایت) را بارگذاری کنید:
 
 ```python
 import aspose.slides as slides
@@ -78,22 +80,22 @@ with slides.Presentation(file_path, load_options) as presentation:
 ```
 
 {{% alert color="info" title="Note" %}}
-با `PresentationLockingBehavior.KEEP_LOCKED`، فایل منبع تا زمانی که شیء `Presentation` آزاد نشود، قفل می‌ماند. در حالی که این شیء زنده است، فایل منبع را جابجا، بازنویسی یا حذف نکنید.
-
-Aspose.Slides ممکن است محتویات یک جریان ورودی را در هنگام بارگذاری کپی کند. برای ارائه‌های بزرگ، استفاده از مسیر فایل عموماً کارآمدتر از استفاده از جریان است. برای گزینه‌های اضافی ذخیره‌سازی و مدیریت حافظه به [Manage BLOBs](/slides/fa/python-net/manage-blob/) مراجعه کنید.
+با `PresentationLockingBehavior.KEEP_LOCKED`، فایل منبع تا زمانی که شیء `Presentation` آزاد نشود، قفل می‌ماند. در حین وجود این شیء، فایل منبع را جابه‌جا، بازنویسی یا حذف نکنید.
 {{% /alert %}}
 
-## **بارگذاری ارائه‌ها بدون اشیای باینری تعبیه‌شده**
+Aspose.Slides ممکن است هنگام بارگذاری، محتویات یک جریان ورودی را کپی کند. برای ارائه‌های بزرگ، استفاده از مسیر فایل معمولاً کارآمدتر از یک جریان است. برای گزینه‌های اضافی ذخیره‌سازی و مدیریت حافظه به [Manage BLOBs](/slides/fa/python-net/manage-blob/) مراجعه کنید.
 
-یک ارائه ممکن است شامل داده‌های باینری تعبیه‌شده باشد که برنامه به آن نیاز ندارد یا نمی‌خواهد آن را نگه دارد. مثال‌ها شامل:
+## **بارگذاری ارائه‌ها بدون اشیای باینری جاسازی‌شده**
 
-- پروژه‌های VBA که از طریق [Presentation.vba_project](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/vba_project/) قابل دسترسی هستند؛
-- داده‌های OLE تعبیه‌شده که از طریق [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/fa/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/) در دسترس هستند؛
-- داده‌های کنترل ActiveX که از طریق [Control.active_x_control_binary](https://reference.aspose.com/slides/fa/python-net/aspose.slides/control/active_x_control_binary/) قابل دسترسی هستند.
+یک ارائه ممکن است داده‌های باینری جاسازی‌شده داشته باشد که برنامه نیاز نداشته باشد یا نخواهد نگه دارد. مثال‌ها شامل:
 
-[LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/fa/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) را به `True` تنظیم کنید تا این داده‌های باینری در حین بارگذاری حذف شوند. ارائه بارگذاری‌شده را ذخیره کنید تا نتیجهٔ پاک‌سازی‌شده حفظ شود.
+- پروژه‌های VBA، که از طریق [Presentation.vba_project](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/vba_project/) در دسترس هستند؛
+- داده‌های OLE جاسازی‌شده، که از طریق [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/fa/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/) در دسترس هستند؛
+- داده‌های کنترل ActiveX، که از طریق [Control.active_x_control_binary](https://reference.aspose.com/slides/fa/python-net/aspose.slides/control/active_x_control_binary/) در دسترس هستند.
 
-این گزینه مواجهه با بارهای باینری تعبیه‌شدهٔ ناخواسته را کاهش می‌دهد، اما جایگزین یک سیستم کامل شناسایی بدافزار یا پاک‌سازی محتوا نیست.
+[LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/fa/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) را به `True` تنظیم کنید تا این داده‌های باینری در هنگام بارگذاری حذف شوند. ارائه بارگذاری‌شده را ذخیره کنید تا نتیجه پاک‌سازی‌شده حفظ شود.
+
+این گزینه خطر مواجهه با محتوای جاسازی‌شده ناخواسته را کاهش می‌دهد، اما یک سیستم کامل شناسایی مخرب یا پاک‌سازی محتوا نیست.
 
 ```python
 import aspose.slides as slides
@@ -105,16 +107,16 @@ with slides.Presentation("presentation-with-embedded-data.pptx", load_options) a
     presentation.save("presentation-without-embedded-data.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **سوالات متداول**
+## **FAQ**
 
 **چگونه می‌توانم بفهمم که یک فایل خراب است و نمی‌توان آن را باز کرد؟**
 
-Aspose.Slides هنگام بارگذاری یک استثنای تجزیه یا قالب‌بندی را ارتقاء می‌دهد. این شکست را جدا از خطای رمز عبور نادرست مدیریت کنید تا برنامه بتواند دلیل را به‌دقت گزارش دهد.
+Aspose.Slides هنگام بارگذاری یک استثنای تجزیه یا فرمت را پرتاب می‌کند. این شکست را جدا از خطای رمز عبور نادرست مدیریت کنید تا برنامه بتواند دلیل دقیق را گزارش دهد.
 
-**اگر قلم‌های لازم وجود نداشته باشند، چه اتفاقی می‌افتد؟**
+**اگر قلم‌های مورد نیاز موجود نباشند چه اتفاقی می‌افتد؟**
 
-ارائه همچنان می‌تواند بارگذاری شود، اما رندرینگ و خروجی ممکن است قلم‌ها را جایگزین کند. می‌توانید [configure font substitution](/slides/fa/python-net/font-substitution/) یا [provide custom fonts](/slides/fa/python-net/custom-font/) را انجام دهید تا خروجی پیش‌بینی‌پذیرتر باشد.
+ارائه هنوز می‌تواند بارگذاری شود، اما رندرینگ و خروجی ممکن است قلم‌ها را جایگزین کند. می‌توانید [پیکربندی جایگزینی قلم](/slides/fa/python-net/font-substitution/) یا [ارائه قلم‌های سفارشی](/slides/fa/python-net/custom-font/) را انجام دهید تا خروجی قابل پیش‌بینی‌تر باشد.
 
-**آیا بارگذاری یک ارائه، رسانه‌های تعبیه‌شدهٔ آن را نیز بارگذاری می‌کند؟**
+**آیا بارگذاری یک ارائه، رسانه‌های جاسازی‌شده آن را نیز بارگذاری می‌کند؟**
 
-صدا و ویدیوهای تعبیه‌شده از طریق مدل شیء ارائه در دسترس می‌شوند. منابع خارجی بر اساس رفتار پیش‌فرض بارگذاری منابع حل می‌شوند و ممکن است در صورتی که مکان‌های آن‌ها قابل دسترسی نباشد، در دسترس نباشند.
+صدا و ویدئوی جاسازی‌شده از طریق مدل شیء ارائه در دسترس می‌شوند. منابع خارجی بر اساس رفتار پیش‌فرض بارگذاری منابع حل می‌شوند و ممکن است اگر مکان آن‌ها قابل دسترس نباشد، در دسترس نباشند.

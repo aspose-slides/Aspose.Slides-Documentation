@@ -21,17 +21,19 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Zjistěte, jak v C# otevřít prezentace PowerPoint a OpenDocument, zadat otevírací hesla, řídit načítání zdrojů a snížit využití paměti pomocí Aspose.Slides pro .NET."
+description: "Naučte se, jak v C# otevírat prezentace PowerPoint a OpenDocument, zadávat otevírací hesla, řídit načítání zdrojů a snižovat využití paměti pomocí Aspose.Slides pro .NET."
 ---
 ## **Úvod**
 
-[Aspose.Slides pro .NET](https://products.aspose.com/slides/cs/net/) může načíst prezentace PowerPoint a OpenDocument ze souborů a streamů. Po načtení prezentace můžete prohlížet její strukturu, upravovat snímky, spravovat zdroje a uložit ji v původním nebo jiném podporovaném formátu.
+[Aspose.Slides for .NET](https://products.aspose.com/slides/cs/net/) může načítat prezentace PowerPoint a OpenDocument ze souborů a streamů. Po načtení prezentace můžete prozkoumat její strukturu, upravovat snímky, spravovat zdroje a uložit ji v původním nebo jiném podporovaném formátu.
 
-Chování načítání lze přizpůsobit pomocí třídy [LoadOptions](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/). Například můžete zadat otevírací heslo, uchovávat velké binární objekty mimo řízenou paměť, řídit externí zdroje nebo vynechat vložená binární data.
+Chování načítání lze přizpůsobit pomocí třídy [LoadOptions](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/). Například můžete zadat otevírací heslo, uchovávat velké binární objekty mimo spravovanou paměť, řídit externí zdroje nebo vynechat vložená binární data.
 
 ## **Otevření prezentací**
 
-Pro otevření existující prezentace předáte její cestu k souboru konstruktoru [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/). Po použití prezentaci uvolněte, aby byly souborové handly, dočasná data a další zdroje rychle uvolněny.
+Po načtení souboru nebo streamu můžete [zjistit původní formát prezentace](/slides/cs/net/detect-presentation-source-format/), abyste si vybrali, jak ji aplikace zpracuje.
+
+Pro otevření existující prezentace předáte její souborovou cestu konstruktoru [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/). Po použití prezentaci uvolněte, aby byly souborové handle, dočasná data a další zdroje okamžitě uvolněny.
 
 Následující příklad v C# ukazuje, jak otevřít prezentaci a získat počet snímků:
 
@@ -46,7 +48,7 @@ Console.WriteLine("Slide count: " + presentation.Slides.Count);
 
 ## **Otevření prezentací chráněných heslem**
 
-Otevírací heslo šifruje obsah prezentace. Pro načtení celé prezentace přiřaďte správné heslo k [LoadOptions.Password](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/password/) a předáte možnosti konstruktoru [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/). Načítání selže, pokud heslo chybí nebo je nesprávné.
+Otevírací heslo šifruje obsah prezentace. Pro načtení celé prezentace přiřaďte správné heslo k [LoadOptions.Password](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/password/) a předejte možnosti konstruktoru [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/). Načítání selže, pokud heslo chybí nebo je nesprávné.
 
 ```csharp
 using System;
@@ -58,13 +60,13 @@ using var presentation = new Presentation("encrypted-presentation.pptx", loadOpt
 Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
-Pro detekci hesla, validaci a pracovní postupy šifrování viz [Password-Protect Presentations](/slides/cs/net/password-protected-presentation/). Pokud byla šifrovaná prezentace úmyslně uložena s veřejnými vlastnostmi dokumentu, lze tyto vlastnosti číst bez hesla; viz [Manage Presentation Properties](/slides/cs/net/presentation-properties/).
+Pro detekci, validaci a šifrovací postupy hesel viz [Prezentace chráněné heslem](/slides/cs/net/password-protected-presentation/). Pokud byla šifrovaná prezentace úmyslně uložena s veřejnými vlastnostmi dokumentu, lze tyto vlastnosti přečíst bez hesla; viz [Správa vlastností prezentace](/slides/cs/net/presentation-properties/).
 
 ## **Otevření velkých prezentací**
 
-[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/blobmanagementoptions/) řídí, jak Aspose.Slides zachází s velkými binárními objekty, jako jsou obrázky, audio a video. Můžete nechat zdrojový soubor zamčený, povolit dočasné soubory a omezit množství BLOB dat uchovávaných v paměti.
+[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/blobmanagementoptions/) řídí, jak Aspose.Slides zachází s velkými binárními objekty, jako jsou obrázky, audio a video. Můžete nechat zdrojový soubor uzamčený, povolit dočasné soubory a omezit množství BLOB dat uchovávaných v paměti.
 
-Následující kód v C# ukazuje načtení velké prezentace (například 2 GB):
+Následující C# kód demonstruje načtení velké prezentace (například 2 GB):
 
 ```csharp
 using Aspose.Slides;
@@ -89,14 +91,14 @@ presentation.Save("large-presentation-copy.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="info" title="Poznámka" %}}
-S `PresentationLockingBehavior.KeepLocked` zůstává zdrojový soubor zamčený, dokud není objekt `Presentation` uvolněn. Nepřesouvejte, nepřepisujte ani nesmažte zdrojový soubor, dokud je tento objekt aktivní.
+S `PresentationLockingBehavior.KeepLocked` zůstane zdrojový soubor uzamčený, dokud není objekt `Presentation` uvolněn. Soubor nesmíte během existence tohoto objektu přesunout, přepsat nebo smazat.
 
-Aspose.Slides může během načítání zkopírovat obsah vstupního streamu. Pro velké prezentace je tedy cesta k souboru obecně efektivnější než stream. Viz [Manage BLOBs](/slides/cs/net/manage-blob/) pro další možnosti úložiště a řízení paměti.
+Aspose.Slides může během načítání zkopírovat obsah vstupního streamu. Pro velké prezentace je proto cesta k souboru obecně efektivnější než stream. Viz [Správa BLOB](/slides/cs/net/manage-blob/) pro další možnosti úložiště a správy paměti.
 {{% /alert %}}
 
 ## **Řízení externích zdrojů**
 
-[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/resourceloadingcallback/) přijímá implementaci [IResourceLoadingCallback](https://reference.aspose.com/slides/cs/net/aspose.slides/iresourceloadingcallback/). Callback může poskytnout náhradní data, přesměrovat zdroj, použít výchozí načítač nebo zdroj přeskočit. To je užitečné, když prezentace obsahují externí obrázky, které musí být řešeny podle bezpečnostních nebo úložných pravidel aplikace.
+[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/resourceloadingcallback/) přijímá implementaci [IResourceLoadingCallback](https://reference.aspose.com/slides/cs/net/aspose.slides/iresourceloadingcallback/). Zpětné volání může poskytnout náhradní data, přesměrovat zdroj, použít výchozí načítač nebo zdroj přeskočit. To je užitečné, když prezentace obsahují externí obrázky, které musí být řešeny podle specifických bezpečnostních nebo úložných pravidel aplikace.
 
 ```csharp
 using System;
@@ -134,17 +136,17 @@ internal static class OpenPresentationExample
 }
 ```
 
-## **Načítání prezentací bez vložených binárních objektů**
+## **Načtení prezentací bez vložených binárních objektů**
 
-Prezentace může obsahovat vložená binární data, která aplikace nepotřebuje ani nechce zachovat. Příklady zahrnují:
+Prezentace může obsahovat vložená binární data, která aplikace nepotřebuje nebo nechce uchovávat. Příklady zahrnují:
 
-- projekty VBA, dostupné přes [IPresentation.VbaProject](https://reference.aspose.com/slides/cs/net/aspose.slides/ipresentation/vbaproject/);
-- vložená data OLE, dostupná přes [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/cs/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/);
+- VBA projekty, dostupné prostřednictvím [IPresentation.VbaProject](https://reference.aspose.com/slides/cs/net/aspose.slides/ipresentation/vbaproject/);
+- vložená OLE data, dostupná přes [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/cs/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/);
 - data ovládacích prvků ActiveX, dostupná přes [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/cs/net/aspose.slides/icontrol/activexcontrolbinary/).
 
-Nastavte [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) na `true`, aby byla tato binární data při načítání odstraněna. Uložte načtenou prezentaci, aby byl sanitovaný výsledek zachován.
+Nastavte [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) na `true`, aby se při načítání odstranila tato binární data. Uložte načtenou prezentaci, aby se zachoval očištěný výsledek.
 
-Tato možnost snižuje expozici nežádoucím vloženým nákladům, ale nejedná se o kompletní systém detekce malwaru nebo sanitizace obsahu.
+Tato volba snižuje vystavení nechtěným vloženým nákladům, ale není kompletním systémem pro detekci malware nebo sanitaci obsahu.
 
 ```csharp
 using Aspose.Slides;
@@ -162,14 +164,14 @@ presentation.Save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 
 ## **Často kladené otázky**
 
-**Jak zjistím, že je soubor poškozený a nelze jej otevřít?**
+**Jak mohu zjistit, že je soubor poškozený a nelze jej otevřít?**
 
-Aspose.Slides během načítání vyhodí výjimku parsování nebo formátu. Ošetřete toto selhání odděleně od chyby nesprávného hesla, aby aplikace mohla přesně oznámit příčinu.
+Aspose.Slides během načítání vyhodí výjimku parsování nebo formátu. Tento selhání ošetřete odděleně od chyby nesprávného hesla, aby aplikace mohla přesně nahlásit příčinu.
 
-**Co se stane, pokud chybí požadované písma?**
+**Co se stane, pokud chybí požadovaná písma?**
 
-Prezentace se stále načte, ale při vykreslování a exportu může dojít k substituci písem. Můžete [nastavit substituci písem](/slides/cs/net/font-substitution/) nebo [poskytnout vlastní písma](/slides/cs/net/custom-font/), aby byl výstup předvídatelnější.
+Prezentace se může načíst, ale při renderování a exportu může dojít k náhradě písem. Můžete [nastavit náhradu písem](/slides/cs/net/font-substitution/) nebo [poskytnout vlastní písma](/slides/cs/net/custom-font/), aby byl výstup předvídatelnější.
 
-**Načítá se při načítání prezentace také její vložená média?**
+**Načítá se při načtení prezentace i její vložená média?**
 
-Vložený zvuk a video jsou k dispozici přes model objektu prezentace. Externí zdroje jsou řešeny podle nakonfigurovaného chování načítání zdrojů a mohou být nedostupné, pokud jejich umístění nelze přistupovat.
+Vložené audio a video jsou k dispozici prostřednictvím objektového modelu prezentace. Externí zdroje jsou řešeny podle nakonfigurovaného chování načítání zdrojů a mohou být nedostupné, pokud jejich umístění nelze získat.

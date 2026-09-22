@@ -1,6 +1,6 @@
 ---
-title: Άνοιγμα Παρουσιάσεων σε JavaScript
-linktitle: Άνοιγμα Παρουσίασης
+title: Άνοιγμα παρουσιάσεων σε JavaScript
+linktitle: Άνοιγμα παρουσίασης
 type: docs
 weight: 20
 url: /el/nodejs-java/open-presentation/
@@ -21,17 +21,19 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Μάθετε πώς να ανοίγετε παρουσιάσεις PowerPoint και OpenDocument σε JavaScript, να παρέχετε κωδικούς ανοίγματος, να ελέγχετε τη φόρτωση πόρων και να μειώνετε τη χρήση μνήμης με το Aspose.Slides για Node.js μέσω Java."
+description: "Μάθετε πώς να ανοίγετε παρουσιάσεις PowerPoint και OpenDocument σε JavaScript, να παρέχετε κωδικούς πρόσβασης ανοίγματος, να ελέγχετε τη φόρτωση πόρων και να μειώσετε τη χρήση μνήμης με το Aspose.Slides για Node.js μέσω Java."
 ---
 ## **Εισαγωγή**
 
-[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/el/nodejs-java/) μπορεί να φορτώσει παρουσιάσεις PowerPoint και OpenDocument από αρχεία και ροές. Αφού φορτωθεί μια παρουσίαση, μπορείτε να ελέγξετε τη δομή της, να επεξεργαστείτε τις διαφάνειες, να διαχειριστείτε τους πόρους και να την αποθηκεύσετε στην αρχική ή σε άλλη υποστηριζόμενη μορφή.
+[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/el/nodejs-java/) μπορεί να φορτώσει παρουσιάσεις PowerPoint και OpenDocument από αρχεία και ροές. Αφού φορτωθεί μια παρουσίαση, μπορείτε να εξετάσετε τη δομή της, να επεξεργαστείτε τις διαφάνειες, να διαχειριστείτε τους πόρους και να την αποθηκεύσετε στο αρχικό ή σε άλλο υποστηριζόμενο φορμάτ.
 
-Η συμπεριφορά φόρτωσης μπορεί να προσαρμοστεί μέσω της κλάσης [LoadOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/). Για παράδειγμα, μπορείτε να παρέχετε κωδικό ανοίγματος, να κρατήσετε μεγάλα δυαδικά αντικείμενα εκτός μνήμης Node.js, να ελέγξετε εξωτερικούς πόρους ή να παραλείψετε ενσωματωμένα δυαδικά δεδομένα.
+Η συμπεριφορά φόρτωσης μπορεί να προσαρμοστεί μέσω της κλάσης [LoadOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/). Για παράδειγμα, μπορείτε να δώσετε κωδικό πρόσβασης ανοίγματος, να κρατήσετε μεγάλα δυαδικά αντικείμενα εκτός μνήμης Node.js, να ελέγξετε εξωτερικούς πόρους ή να παραλείψετε ενσωματωμένα δυαδικά δεδομένα.
 
-## **Άνοιγμα Παρουσιάσεων**
+## **Άνοιγμα παρουσιάσεων**
 
-Για να ανοίξετε μια υπάρχουσα παρουσίαση, περάστε τη διαδρομή του αρχείου στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/). Απορρίψτε (dispose) την παρουσίαση μετά τη χρήση ώστε οι χειριστές αρχείων, τα προσωρινά δεδομένα και άλλοι πόροι να απελευθερωθούν άμεσα.
+Μετά τη φόρτωση ενός αρχείου ή ροής, μπορείτε να [καθορίσετε το αρχικό φορμάτ παρουσίασης](/slides/el/nodejs-java/detect-presentation-source-format/) για να επιλέξετε πώς η εφαρμογή σας θα το επεξεργαστεί.
+
+Για να ανοίξετε μια υπάρχουσα παρουσίαση, περάστε τη διαδρομή του αρχείου στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/). Αποδεσμεύστε την παρουσίαση μετά τη χρήση ώστε τα handles αρχείων, τα προσωρινά δεδομένα και άλλοι πόροι να απελευθερώνονται άμεσα.
 
 Το παρακάτω παράδειγμα JavaScript δείχνει πώς να ανοίξετε μια παρουσίαση και να λάβετε τον αριθμό των διαφανειών της:
 
@@ -46,9 +48,9 @@ try {
 }
 ```
 
-## **Άνοιγμα Παρουσιάσεων με Προστασία Κωδικού**
+## **Άνοιγμα παρουσιάσεων με προστασία κωδικού**
 
-Ένας κωδικός ανοίγματος κρυπτογραφεί το περιεχόμενο της παρουσίασης. Για να φορτώσετε ολόκληρη την παρουσίαση, περάστε τον σωστό κωδικό στη μέθοδο [LoadOptions.setPassword](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/#setPassword) και παρέχετε τις επιλογές στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/). Η φόρτωση αποτυγχάνει όταν λείπει ή είναι λανθασμένος ο κωδικός.
+Ένας κωδικός πρόσβασης ανοίγματος κρυπτογραφεί το περιεχόμενο της παρουσίασης. Για να φορτώσετε ολόκληρη την παρουσίαση, περάστε τον σωστό κωδικό στην [LoadOptions.setPassword](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/#setPassword) και δώστε τις επιλογές στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/). Η φόρτωση αποτυγχάνει όταν λείπει ή είναι λανθασμένος ο κωδικός.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -64,13 +66,13 @@ try {
 }
 ```
 
-Για ανίχνευση κωδικού, επικύρωση και διαδικασίες κρυπτογράφησης, δείτε [Password‑Protect Presentations](/slides/el/nodejs-java/password-protected-presentation/). Εάν μια κρυπτογραφημένη παρουσίαση αποθηκεύτηκε σκόπιμα με δημόσια ιδιότητα εγγράφου, αυτές οι ιδιότητες μπορούν να διαβαστούν χωρίς κωδικό· δείτε [Manage Presentation Properties](/slides/el/nodejs-java/presentation-properties/).
+Για εντοπισμό, επικύρωση και ροές εργασίας κρυπτογράφησης κωδικού, δείτε την ενότητα [Password-Protect Presentations](/slides/el/nodejs-java/password-protected-presentation/). Εάν μια κρυπτογραφημένη παρουσίαση αποθηκεύτηκε σκόπιμα με δημόσια ιδιότητες εγγράφου, αυτές οι ιδιότητες μπορούν να διαβαστούν χωρίς κωδικό πρόσβασης· δείτε [Manage Presentation Properties](/slides/el/nodejs-java/presentation-properties/).
 
-## **Άνοιγμα Μεγάλων Παρουσιάσεων**
+## **Άνοιγμα μεγάλων παρουσιάσεων**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) επιστρέφει επιλογές που ελέγχουν πώς το Aspose.Slides διαχειρίζεται μεγάλα δυαδικά αντικείμενα όπως εικόνες, ήχο και βίντεο. Μπορείτε να κρατήσετε το αρχείο προέλευσης κλειδωμένο, να επιτρέψετε προσωρινά αρχεία και να περιορίσετε το ποσό των δεδομένων BLOB που διατηρούνται στη μνήμη.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) επιστρέφει επιλογές που ελέγχουν τον τρόπο με τον οποίο το Aspose.Slides διαχειρίζεται μεγάλα δυαδικά αντικείμενα όπως εικόνες, ήχο και βίντεο. Μπορείτε να διατηρήσετε το πηγαίο αρχείο κλειδωμένο, να επιτρέψετε προσωρινά αρχεία και να περιορίσετε το μέγεθος των δεδομένων BLOB που διατηρούνται στη μνήμη.
 
-Το παρακάτω κομμάτι JavaScript δείχνει τη φόρτωση μιας μεγάλης παρουσίασης (π.χ., 2 GB):
+Το παρακάτω κώδικα JavaScript δείχνει τη φόρτωση μιας μεγάλης παρουσίασης (π.χ., 2 GB):
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -92,14 +94,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-Με το [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentationlockingbehavior/#KeepLocked), το αρχείο προέλευσης παραμένει κλειδωμένο μέχρι να απορριφθεί (dispose) η παρουσίαση. Μην μετακινήσετε, αντικαταστήσετε ή διαγράψετε το αρχείο προέλευσης ενώ το αντίστοιχο αντικείμενο είναι ενεργό.
+Με το [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentationlockingbehavior/#KeepLocked), το πηγαίο αρχείο παραμένει κλειδωμένο μέχρι να αποδεσμευθεί η παρουσίαση. Μην μετακινείτε, αντικαθιστάτε ή διαγράψετε το πηγαίο αρχείο όσο η παρουσίαση είναι ενεργή.
 
-Το Aspose.Slides ενδέχεται να αντιγράψει τα περιεχόμενα μιας ροής εισόδου κατά τη φόρτωση. Για μεγάλες παρουσιάσεις, η διαδρομή αρχείου είναι γενικά πιο αποδοτική από τη ροή. Δείτε το [Manage BLOBs](/slides/el/nodejs-java/manage-blob/) για επιπλέον επιλογές αποθήκευσης και διαχείρισης μνήμης.
+Το Aspose.Slides μπορεί να αντιγράψει τα περιεχόμενα μιας ροής εισόδου κατά τη φόρτωση. Για μεγάλες παρουσιάσεις, η διαδρομή αρχείου είναι γενικά πιο αποδοτική από τη ροή. Δείτε την ενότητα [Manage BLOBs](/slides/el/nodejs-java/manage-blob/) για πρόσθετες επιλογές αποθήκευσης και διαχείρισης μνήμης.
 {{% /alert %}}
 
-## **Έλεγχος Εξωτερικών Πόρων**
+## **Έλεγχος εξωτερικών πόρων**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/#setResourceLoadingCallback) δέχεται μια υλοποίηση του [IResourceLoadingCallback](https://reference.aspose.com/slides/el/java/com.aspose.slides/iresourceloadingcallback/). Η κλήση μπορεί να παρέχει εναλλακτικά δεδομένα, να ανακατευθύνει έναν πόρο, να χρησιμοποιήσει τον προεπιλεγμένο φορτωτή ή να παραλείψει τον πόρο. Αυτό είναι χρήσιμο όταν οι παρουσιάσεις περιέχουν εξωτερικές εικόνες που πρέπει να επιλυθούν βάσει κανόνων ασφαλείας ή αποθήκευσης της εφαρμογής.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/#setResourceLoadingCallback) δέχεται μια υλοποίηση του [IResourceLoadingCallback](https://reference.aspose.com/slides/el/java/com.aspose.slides/iresourceloadingcallback/). Η κλήση μπορεί να παρέχει αντικατάσταση δεδομένων, να ανακατευθύνει έναν πόρο, να χρησιμοποιήσει τον προεπιλεγμένο φορτωτή ή να παραλείψει τον πόρο. Αυτό είναι χρήσιμο όταν οι παρουσιάσεις περιέχουν εξωτερικές εικόνες που πρέπει να επιλυθούν σύμφωνα με κανόνες ασφαλείας ή αποθήκευσης ειδικά για την εφαρμογή.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -136,17 +138,17 @@ try {
 }
 ```
 
-## **Φόρτωση Παρουσιάσεων χωρίς Ενσωματωμένα Δυαδικά Αντικείμενα**
+## **Φόρτωση παρουσιάσεων χωρίς ενσωματωμένα δυαδικά αντικείμενα**
 
-Μια παρουσίαση μπορεί να περιλαμβάνει ενσωματωμένα δυαδικά δεδομένα που μια εφαρμογή δεν χρειάζεται ή δεν θέλει να διατηρήσει. Παραδείγματα περιλαμβάνουν:
+Μια παρουσίαση μπορεί να περιέχει ενσωματωμένα δυαδικά δεδομένα που μια εφαρμογή δεν χρειάζεται ή δεν θέλει να διατηρήσει. Παραδείγματα περιλαμβάνουν:
 
 - έργα VBA, διαθέσιμα μέσω [Presentation.getVbaProject](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#getVbaProject);
 - ενσωματωμένα δεδομένα OLE, διαθέσιμα μέσω [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
 - δεδομένα ελέγχου ActiveX, διαθέσιμα μέσω [Control.getActiveXControlBinary](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/control/#getActiveXControlBinary).
 
-Ορίστε [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) σε `true` για να αφαιρέσετε αυτά τα δυαδικά δεδομένα κατά τη φόρτωση. Αποθηκεύστε την φορτωμένη παρουσίαση για να διατηρήσετε το καθαρισμένο αποτέλεσμα.
+Ορίστε [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) σε `true` για να αφαιρέσετε αυτά τα δυαδικά δεδομένα κατά τη φόρτωση. Αποθηκεύστε την φορτωμένη παρουσίαση για να διατηρήσετε το εξαγμένο αποτέλεσμα.
 
-Αυτή η επιλογή μειώνει την έκθεση σε ανεπιθύμητα ενσωματωμένα payloads, αλλά δεν αποτελεί πλήρες σύστημα ανίχνευσης κακόβουλου λογισμικού ή καθαρισμού περιεχομένου.
+Αυτή η επιλογή μειώνει την έκθεση σε ανεπιθύμητα ενσωματωμένα payloads, αλλά δεν αποτελεί ολοκληρωμένο σύστημα ανίχνευσης κακόβουλου λογισμικού ή εξυγίανσης περιεχομένου.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -162,16 +164,16 @@ try {
 }
 ```
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
-**Πώς μπορώ να διαπιστώ ότι ένα αρχείο είναι κατεστραμμένο και δεν μπορεί να ανοίξει;**
+**Πώς μπορώ να διαπιστώ ότι ένα αρχείο είναι κατεστραμμένο και δεν μπορεί να ανοιχτεί;**
 
-Το Aspose.Slides ρίχνει εξαίρεση ανάλυσης ή μορφής κατά τη φόρτωση. Διαχειριστείτε αυτήν την αποτυχία ξεχωριστά από σφάλμα λανθασμένου κωδικού ώστε η εφαρμογή να μπορεί να αναφέρει ακριβώς την αιτία.
+Το Aspose.Slides ρίχνει εξαίρεση ανάλυσης ή μορφής κατά τη φόρτωση. Διαχειριστείτε αυτήν την αποτυχία ξεχωριστά από σφάλμα λανθασμένου κωδικού πρόσβασης ώστε η εφαρμογή να μπορεί να αναφέρει την αιτία με ακρίβεια.
 
-**Τι συμβαίνει αν λείπουν απαιτούμενες γραμματοσειρές;**
+**Τι συμβαίνει αν λείπουν οι απαιτούμενες γραμματοσειρές;**
 
-Η παρουσίαση μπορεί ακόμη να φορτωθεί, αλλά η απόδοση και η εξαγωγή ενδέχεται να υποκαταστήσουν τις γραμματοσειρές. Μπορείτε να [ρυθμίσετε την αντικατάσταση γραμματοσειρών](/slides/el/nodejs-java/font-substitution/) ή να [παρέχετε προσαρμοσμένες γραμματοσειρές](/slides/el/nodejs-java/custom-font/) για πιο προβλέψιμο αποτέλεσμα.
+Η παρουσίαση μπορεί ακόμη να φορτωθεί, αλλά η απόδοση και η εξαγωγή μπορεί να υποκαταστήσουν γραμματοσειρές. Μπορείτε να [ρυθμίσετε την αντικατάσταση γραμματοσειρών](/slides/el/nodejs-java/font-substitution/) ή να [παρέχετε προσαρμοσμένες γραμματοσειρές](/slides/el/nodejs-java/custom-font/) για πιο προβλέψιμο αποτέλεσμα.
 
-**Φορτώνει η φόρτωση μιας παρουσίασης επίσης τα ενσωματωμένα μέσα της;**
+**Φορτώνει η φόρτωση μιας παρουσίασης επίσης τα ενσωματωμένα μέσα;**
 
-Τα ενσωματωμένα audio και video διατίθενται μέσω του μοντέλου αντικειμένου της παρουσίασης. Οι εξωτερικοί πόροι επιλύονται σύμφωνα με τη ρυθμισμένη συμπεριφορά φόρτωσης πόρων και μπορεί να μην είναι διαθέσιμοι εάν οι τοποθεσίες τους δεν είναι προσβάσιμες.
+Τα ενσωματωμένα ήχο και βίντεο γίνονται διαθέσιμα μέσω του αντικειμενοστραφούς μοντέλου της παρουσίασης. Οι εξωτερικοί πόροι επιλύονται σύμφωνα με τη ρυθμισμένη συμπεριφορά φόρτωσης πόρων και μπορεί να μην είναι διαθέσιμοι εάν οι τοποθεσίες τους δεν είναι προσβάσιμες.

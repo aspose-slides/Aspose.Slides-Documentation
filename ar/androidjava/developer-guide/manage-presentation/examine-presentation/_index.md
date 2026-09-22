@@ -1,5 +1,5 @@
 ---
-title: استرجاع وتحديث معلومات العرض التقديمي على Android
+title: استرداد وتحديث معلومات العرض التقديمي على Android
 linktitle: معلومات العرض التقديمي
 type: docs
 weight: 30
@@ -8,7 +8,7 @@ keywords:
 - تنسيق العرض التقديمي
 - خصائص العرض التقديمي
 - خصائص المستند
-- الحصول على الخصائص
+- جلب الخصائص
 - قراءة الخصائص
 - تغيير الخصائص
 - تعديل الخصائص
@@ -16,23 +16,25 @@ keywords:
 - فحص PPTX
 - فحص PPT
 - فحص ODP
-- باوربوينت
-- أوبن دوكيومنت
-- عرض تقديمي
+- PowerPoint
+- OpenDocument
+- العرض التقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "استكشف الشرائح والبنية والبيانات الوصفية في عروض PowerPoint و OpenDocument باستخدام Java للحصول على رؤى أسرع وتدقيق محتوى أذكى."
+description: "استكشف الشرائح والبنية والبيانات التعريفية في عروض PowerPoint وOpenDocument باستخدام Java للحصول على رؤى أسرع وتدقيق محتوى أكثر ذكاءً."
 ---
 ## **نظرة عامة**
 
-Aspose.Slides يمكنه التعرف على تنسيق العرض التقديمي وقراءة بيانات التعريف الخاصة بالمستند دون إنشاء نموذج كائن عرض كامل. هذا مفيد عندما تحتاج إلى تصنيف الملفات، بناء جرد، أو فحص الخصائص قبل اتخاذ قرار بتحميل ومعالجة محتوى العرض.
+يمكن لـ Aspose.Slides تحديد تنسيق العرض التقديمي وقراءة بيانات تعريف المستند دون إنشاء نموذج كائن عرض تقديمي كامل. يكون هذا مفيدًا عندما تحتاج إلى تصنيف الملفات، بناء جرد، أو فحص الخصائص قبل اتخاذ قرار بتحميل ومعالجة محتوى العرض التقديمي.
 
-توضح هذه المقالة الفحص الخفيف الوزن عبر [PresentationFactory](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentationfactory/) و[IPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/)، بالإضافة إلى التحديثات المستهدفة عبر [IDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/).
+توضح هذه المقالة الفحص الخفيف الوزن من خلال [PresentationFactory](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentationfactory/) و[IPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/)، بالإضافة إلى التحديثات المستهدفة من خلال [IDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/).
 
 ## **التحقق من تنسيق العرض التقديمي**
 
-استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) لتفقد ملف دون إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) . طريقة [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#getLoadFormat--) تُبلغ عن التنسيق المكتشف، مثل PPTX أو PPT أو ODP.
+إذا كان لديك عرض تقديمي محمَّل بالفعل، راجع [Determine the Original Presentation Format](/slides/ar/androidjava/detect-presentation-source-format/) للاكتشاف بعد التحميل وقيود تدفقات PPT وPPS وPOT القديمة.
+
+استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) لفحص ملف دون إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/). تقوم طريقة [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#getLoadFormat--) بالإبلاغ عن التنسيق المكتشف، مثل PPTX أو PPT أو ODP.
 
 ```java
 import com.aspose.slides.IPresentationInfo;
@@ -60,20 +62,20 @@ for (String fileName : fileNames) {
 
 ## **إنشاء جرد عرض تقديمي خفيف الوزن**
 
-عند معالجة الكثير من ملفات العرض التقديمي، قد تحتاج إلى جرد مضغوط للتحقق، الفهرسة، أو نظام إدارة المستندات. في هذا السيناريو، استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) للحصول على كائن [IPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/) ، ثم نادِ [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) لقراءة بيانات تعريف المستند. لا ينشئ هذا النهج مثيلًا من [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) ولا يتطلب استعراض نموذج كائن العرض الكامل.
+عند معالجة العديد من ملفات العروض التقديمية، قد تحتاج إلى جرد مضغوط للتحقق، الفهرسة، أو نظام إدارة المستندات. في هذا السيناريو، استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) للحصول على كائن [IPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/)، ثم استدعِ [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) لقراءة بيانات تعريف المستند. لا ينشئ هذا النهج مثيلًا من [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) ولا يتطلب استعراض نموذج كائن العرض الكامل.
 
-القيم الممتدة التي توفرها [IDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/) تشمل القيم التالية للجرد:
+توفر الخصائص الموسعة التي يكشف عنها [IDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/) القيم التالية للجرد:
 
 | الطريقة | قيمة الجرد |
 | --- | --- |
-| [getSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getSlides--) | إجمالي عدد الشرائح. |
+| [getSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getSlides--) | العدد الإجمالي للشرائح. |
 | [getHiddenSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getHiddenSlides--) | عدد الشرائح المخفية. |
 | [getNotes](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getNotes--) | عدد الشرائح التي تحتوي على ملاحظات. |
-| [getParagraphs](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getParagraphs--) | إجمالي عدد الفقرات، إذا كانت متوفرة. |
-| [getWords](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getWords--) | إجمالي عدد الكلمات. |
-| [getMultimediaClips](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getMultimediaClips--) | إجمالي عدد مقاطع الصوت والفيديو. |
+| [getParagraphs](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getParagraphs--) | العدد الإجمالي للفقرات، إذا كان متاحًا. |
+| [getWords](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getWords--) | العدد الإجمالي للكلمات. |
+| [getMultimediaClips](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getMultimediaClips--) | العدد الإجمالي لمقاطع الصوت والفيديو. |
 
-المثال التالي يقرأ هذه القيم دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) ويطبع جردًا مضغوطًا. كما يجمع بين [getHeadingPairs](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getHeadingPairs--) و[getTitlesOfParts](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) لعرض مجموعات المحتوى مثل الخطوط، السمات، وعناوين الشرائح.
+تقرأ المثال التالي هذه القيم دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) وتطبع جردًا مضغوطًا. كما يجمع بين [getHeadingPairs](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getHeadingPairs--) و[getTitlesOfParts](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) لعرض مجموعات محتوى مثل الخطوط، السمات، وعناوين الشرائح.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -141,25 +143,25 @@ if (headingPairs.length == 0 || titlesOfParts.length == 0) {
 }
 ```
 
-كل [IHeadingPair](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iheadingpair/) يوفر اسم المجموعة وعدد العناصر في تلك المجموعة. تسترجع [IDocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) مصفوفة مسطحة مرتبة، لذا استهلك عدد العناوين المتتالية المحدد بواسطة كل زوج عنوان.
+كل [IHeadingPair](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iheadingpair/) يوفّر اسم مجموعة وعدد العناصر في تلك المجموعة. تُرجع [IDocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) مصفوفة مسطحة مرتبة، لذا استهلك عدد العناوين المتتالية المحدد بواسطة كل زوج عنوان.
 
-### **البيانات الوصفية المخزنة وقيود التنسيق**
+### **البيانات المخزنة وقيود التنسيق**
 
-القيم التي تُعيدها [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) تعكس بيانات التعريف المتاحة في المستند الأصلي. لا يقوم Aspose.Slides بتحميل واستعراض نموذج كائن العرض لإعادة حساب هذه القيم لهذا الاستدعاء. تُمثَّل الخصائص المفقودة بالقيم الافتراضية، وقد تكون القيم المخزنة قديمة إذا لم يحدث التطبيق الذي حفظ الملف آخرًا خصائص المستند.
+تعكس الخصائص التي تُعيدها [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) البيانات التعريفية المتوفرة في المستند الأصلي. لا تقوم Aspose.Slides بتحميل واستعراض نموذج كائن العرض لإعادة حساب هذه القيم عند هذه الاستدعاءات. تُمثَّل الخصائص المفقودة بقيم افتراضية، وقد تكون القيم المخزنة قديمة إذا لم تُحدِّث التطبيق الذي حفظ الملف آخر مرة خصائص المستند.
 
-- **PPTX:** يوفر التنسيق خصائص مستند موسعة لعدد الشرائح، الملاحظات، الشرائح المخفية، الفقرات، الكلمات، والوسائط المتعددة، بالإضافة إلى أزواج العناوين وعناوين الأجزاء. التوافر يعتمد على الخصائص التي كتبها مُنتج المستند.
-- **PPT:** يمكن للنسق الثنائي تخزين خصائص ملخص المستند المقابلة. إذا كانت الخاصية غائبة أو لم يتم تحديثها من قبل مُنتج المستند، يعيد Aspose.Slides قيمتها المخزنة أو الافتراضية بدلاً من حسابها من الشرائح.
-- **ODP:** توفر بيانات تعريف OpenDocument إحصاءات عامة للمستند مثل عدد الصفحات، الفقرات، والكلمات، لكن هذه القيم لا تتطابق مع كل خاصية موسعة خاصة بـ PowerPoint. قد تكون بيانات الشرائح المخفية، ملاحظات الشرائح، الوسائط المتعددة، أزواج العناوين، وعناوين الأجزاء غير متاحة، وقد تُعيد خصائص الجرد قيمًا افتراضية. لا تُعامل القيمة صفر أو المصفوفة الفارغة كدليل قاطع على أن المحتوى المقابل غير موجود.
+- **PPTX:** يوفر التنسيق خصائص مستند موسعة لعدد الشرائح، الملاحظات، الشرائح المخفية، الفقرات، الكلمات، والمقاطع المتعددة الوسائط، بالإضافة إلى أزواج العناوين وعناوين الأجزاء. تعتمد التوافرية على الخصائص التي كتبها منتج المستند.
+- **PPT:** يمكن للنسق الثنائي تخزين خصائص ملخص المستند المقابلة. إذا كانت الخاصية غائبة أو لم يُحدِّثها منتج المستند، تُعيد Aspose.Slides قيمتها المخزنة أو القيمة الافتراضية بدلًا من حسابها من الشرائح.
+- **ODP:** توفر بيانات تعريف OpenDocument إحصاءات عامة للمستند مثل عدد الصفحات، الفقرات، والكلمات، لكن هذه القيم لا تتطابق مع كل خاصية موسعة خاصة بـ PowerPoint. قد تكون بيانات الشرائح المخفية، ملاحظات الشرائح، الوسائط المتعددة، أزواج العناوين، وعناوين الأجزاء غير متوفرة، وقد تُعيد خصائص الجرد قيمًا افتراضية. لا تُعامل القيمة الصفرية أو المصفوفة الفارغة كدليل قاطع على غياب المحتوى المقابل.
 
-استخدم نهج البيانات الوصفية الخفيفة للجردات والفحوصات الأولية. حمِّل العرض واستعرض نموذج كائنه الحي عندما يجب أن يعكس النتيجة تغييرات الذاكرة أو عندما تحتاج إلى التحقق من المحتوى الفعلي للعرض.
+استخدم نهج البيانات التعريفية الخفيف للجرد والفحوصات الأولية. احمِل العرض وتفحص نموذج كائنه الحي عندما يجب أن يعكس النتيجة تغييرات الذاكرة أو عندما تحتاج إلى التحقق من المحتوى الفعلي للعرض.
 
 ## **تحديث خصائص العرض التقديمي**
 
-يمكن أيضًا تغيير الخصائص التي تُعيدها [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) دون إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/). طبّق التغييرات باستخدام [IPresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#updateDocumentProperties-com.aspose.slides.IDocumentProperties-)، ثم اكتب العرض المرتبط باستخدام [IPresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#writeBindedPresentation-java.io.OutputStream-).
+يمكن أيضًا تعديل الخصائص التي تُعيدها [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) دون إنشاء مثيل من [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/). طبِّق التغييرات باستخدام [IPresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#updateDocumentProperties-com.aspose.slides.IDocumentProperties-)، ثم اكتب العرض المرتبط باستخدام [IPresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#writeBindedPresentation-java.io.OutputStream-).
 
-الصورة التالية تُظهر خصائص المستند الأصلية.
+الصورة التالية توضح خصائص المستند الأصلية لعرض PowerPoint.
 
-![خصائص المستند الأصلية للعرض التقديمي PowerPoint](input_properties.png)
+![خصائص المستند الأصلية لعرض PowerPoint](input_properties.png)
 
 المثال التالي يغيّر العنوان ووقت الحفظ الأخير ويكتب النتيجة إلى ملف جديد:
 
@@ -185,35 +187,35 @@ try (OutputStream outputStream = new FileOutputStream(outputFile)) {
 }
 ```
 
-الصورة التالية تُظهر خصائص المستند بعد التحديث.
+الصورة التالية توضح خصائص المستند المحدثة لعرض PowerPoint.
 
-![خصائص المستند بعد التغيير للعرض التقديمي PowerPoint](output_properties.png)
+![خصائص المستند المحدثة لعرض PowerPoint](output_properties.png)
 
 ## **روابط مفيدة**
 
-للفحوصات الأمنية ذات الصلة وإعدادات الحماية، انظر المقالات التالية:
+للفحوصات الأمنية ذات الصلة وإعدادات الحماية، راجع المقالات التالية:
 
 - [Password-Protect Presentations](/slides/ar/androidjava/password-protected-presentation/)
 - [Write-Protect Presentations](/slides/ar/androidjava/write-protected-presentation/)
 
-## **الأسئلة الشائعة**
+## **FAQ**
 
-**How can I check whether fonts are embedded and which ones they are?**
+**كيف يمكنني التحقق مما إذا كانت الخطوط مدمجة وأيها؟**
 
-قم بتحميل العرض واستخدم [Presentation.getFontsManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getFontsManager--). نادِ [IFontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) للحصول على الخطوط المدمجة و[IFontsManager.getFonts](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifontsmanager/#getFonts--) للحصول على الخطوط المستخدمة في العرض. قارن النتيجتين لتحديد الخطوط المطلوبة للعرض والتي لم تُدمج.
+حمِّل العرض واستخدم [Presentation.getFontsManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getFontsManager--). استدعِ [IFontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) للحصول على الخطوط المدمجة و[IFontsManager.getFonts](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifontsmanager/#getFonts--) للحصول على الخطوط المستخدمة في العرض. قارن النتيجتين لتحديد الخطوط المطلوبة للعرض ولكن غير مدمجة.
 
-**How can I quickly tell if the file has hidden slides and how many?**
+**كيف يمكنني بسرعة معرفة ما إذا كان الملف يحتوي على شرائح مخفية وعددها؟**
 
-عند كون بيانات تعريف المستند المخزنة كافية، اقرأ [IDocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getHiddenSlides--) عبر [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) و[IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--). هذا مناسب لجرد خفيف. إذا تم تعديل العرض في الذاكرة، قد تكون البيانات الوصفية المخزنة مفقودة أو قديمة، أو تحتاج إلى التحقق من القيم الحية؛ في هذه الحالة، استعرض [Presentation.getSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getSlides--) وفحص طريقة [ISlide.getHidden](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islide/#getHidden--) لكل شريحة.
+عند كفاية بيانات تعريف المستند المخزنة، اقرأ [IDocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/#getHiddenSlides--) عبر [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) و[IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--). هذا مناسب لجرد خفيف. إذا كان العرض قد تم تعديلُه في الذاكرة، قد تكون البيانات المخزنة مفقودة أو قديمة، أو تحتاج للتحقق من القيم الحية، فاستعرض [Presentation.getSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getSlides--) وتفحص طريقة [ISlide.getHidden](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islide/#getHidden--) لكل شريحة بدلاً من ذلك.
 
-**Can I detect whether custom slide size and orientation are used, and whether they differ from the defaults?**
+**هل يمكنني اكتشاف ما إذا كان حجم الشريحة المخصص والاتجاه مستخدمين، وما إذا كانا يختلفان عن القيم الافتراضية؟**
 
-نعم. حمِّل العرض ونادِ [Presentation.getSlideSize](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getSlideSize--). استخدم [ISlideSize.getType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islidesize/#getType--)، [ISlideSize.getSize](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islidesize/#getSize--)، و[ISlideSize.getOrientation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islidesize/#getOrientation--) لمقارنة الإعدادات الحالية مع القيم المسبقة والأبعاد المتوقعة.
+نعم. حمِّل العرض واستدعِ [Presentation.getSlideSize](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getSlideSize--). استخدم [ISlideSize.getType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islidesize/#getType--)، [ISlideSize.getSize](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islidesize/#getSize--)، و[ISlideSize.getOrientation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islidesize/#getOrientation--) لمقارنة الإعدادات الحالية مع القالب والأبعاد المتوقعة.
 
-**Is there a quick way to see if charts reference external data sources?**
+**هل هناك طريقة سريعة لمعرفة ما إذا كان الرسوم البيانية تشير إلى مصادر بيانات خارجية؟**
 
-نعم. حدِّد كل [Chart](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/chart/) وانادِ [IChartData.getDataSourceType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--). إذا كان المصدر خارجيًا، نادِ [IChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdata/#getExternalWorkbookPath--). نوع مصدر البيانات والمسار يحددان وجود إشارة خارجية، لكن التحقق من توفر الهدف يتطلب فحص موارد منفصل.
+نعم. حدد كل [Chart](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/chart/) واستدعِ [IChartData.getDataSourceType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--). لدفتر عمل خارجي، استدعِ [IChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichartdata/#getExternalWorkbookPath--). يحدد نوع مصدر البيانات والمسار إشارة إلى مرجع خارجي، لكن التحقق من توفر الهدف يتطلب فحصًا منفصلًا للموارد.
 
-**How can I assess 'heavy' slides that may slow rendering or PDF export?**
+**كيف يمكنني تقييم "الشرائح الثقيلة" التي قد تُبطئ العرض أو تصدير PDF؟**
 
-لا توجد خاصية تعقيد واحدة. استعرض [Presentation.getSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getSlides--) وكل مجموعة [IBaseSlide.getShapes](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibaseslide/#getShapes--) لكل شريحة. استخدم عدد الأشكال ووجود صور كبيرة أو تأثيرات أو رسوم متحركة أو وسائط متعددة كإشارات فحص، وقم بقياس عملية عرض أو تصدير تمثيلية قبل اعتبار الشريحة عنق زجاجة في الأداء.
+لا توجد خاصية تعقيد واحدة. استعرض [Presentation.getSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getSlides--) وكل مجموعة [IBaseSlide.getShapes](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibaseslide/#getShapes--) لكل شريحة. استخدم عدد الأشكال ووجود صور كبيرة، تأثيرات، رسوم متحركة، أو وسائط متعددة كإشارات فحص، وقم بقياس عملية عرض أو تصدير تمثلية قبل اعتبار الشريحة عبئًا مؤكدًا على الأداء.

@@ -1,5 +1,5 @@
 ---
-title: Membuka Presentasi di Java
+title: Buka Presentasi di Java
 linktitle: Buka Presentasi
 type: docs
 weight: 20
@@ -24,15 +24,17 @@ description: "Pelajari cara membuka presentasi PowerPoint dan OpenDocument di Ja
 ---
 ## **Pendahuluan**
 
-[Aspose.Slides for Java](https://products.aspose.com/slides/id/java/) dapat memuat presentasi PowerPoint dan OpenDocument dari file serta aliran. Setelah sebuah presentasi dimuat, Anda dapat memeriksa strukturnya, mengedit slide, mengelola sumber daya, dan menyimpannya dalam format asli atau format lain yang didukung.
+[Aspose.Slides for Java](https://products.aspose.com/slides/id/java/) dapat memuat presentasi PowerPoint dan OpenDocument dari file dan aliran. Setelah presentasi dimuat, Anda dapat memeriksa strukturnya, mengedit slide, mengelola sumber daya, dan menyimpannya dalam format asli atau format lain yang didukung.
 
-Perilaku pemuatan dapat disesuaikan melalui kelas [LoadOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/). Misalnya, Anda dapat menyediakan kata sandi pembuka, menyimpan objek biner besar di luar memori heap Java, mengontrol sumber daya eksternal, atau mengabaikan data biner yang tertanam.
+Perilaku pemuatan dapat disesuaikan melalui kelas [LoadOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/). Misalnya, Anda dapat menyediakan kata sandi pembuka, menyimpan objek biner besar di luar memori heap Java, mengontrol sumber daya eksternal, atau mengabaikan data biner yang disematkan.
 
-## **Membuka Presentasi**
+## **Buka Presentasi**
 
-Untuk membuka presentasi yang sudah ada, berikan jalur filenya ke konstruktor [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/). Hapus presentasi setelah selesai digunakan sehingga pegangan file, data sementara, dan sumber daya lainnya dilepaskan dengan cepat.
+Setelah memuat file atau aliran, Anda dapat [menentukan format presentasi asli](/slides/id/java/detect-presentation-source-format/) untuk memilih cara aplikasi Anda memprosesnya.
 
-Contoh Java berikut menunjukkan cara membuka sebuah presentasi dan mendapatkan jumlah slidenya:
+Untuk membuka presentasi yang ada, berikan jalur file ke konstruktor [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/). Buang (dispose) presentasi setelah selesai agar pegangan file, data sementara, dan sumber daya lain segera dilepaskan.
+
+Contoh Java berikut menunjukkan cara membuka presentasi dan mendapatkan jumlah slide:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -45,9 +47,9 @@ try {
 }
 ```
 
-## **Membuka Presentasi dengan Kata Sandi**
+## **Buka Presentasi yang Dilindungi Kata Sandi**
 
-Kata sandi pembuka mengenkripsi konten presentasi. Untuk memuat seluruh presentasi, berikan kata sandi yang benar ke [LoadOptions.setPassword](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) dan sediakan opsi tersebut ke konstruktor [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/). Pemuatan akan gagal bila kata sandi tidak ada atau salah.
+Kata sandi pembuka mengenkripsi konten presentasi. Untuk memuat seluruh presentasi, berikan kata sandi yang benar ke [LoadOptions.setPassword](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) dan sediakan opsi ke konstruktor [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/). Pemuatan gagal jika kata sandi tidak ada atau salah.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -64,13 +66,13 @@ try {
 }
 ```
 
-Untuk deteksi kata sandi, validasi, dan alur kerja enkripsi, lihat [Password-Protect Presentations](/slides/id/java/password-protected-presentation/). Jika sebuah presentasi yang dienkripsi sengaja disimpan dengan properti dokumen publik, properti tersebut dapat dibaca tanpa kata sandi; lihat [Manage Presentation Properties](/slides/id/java/presentation-properties/).
+Untuk deteksi kata sandi, validasi, dan alur kerja enkripsi, lihat [Presentasi yang Dilindungi Kata Sandi](/slides/id/java/password-protected-presentation/). Jika presentasi yang dienkripsi sengaja disimpan dengan properti dokumen publik, properti tersebut dapat dibaca tanpa kata sandi; lihat [Kelola Properti Presentasi](/slides/id/java/presentation-properties/).
 
-## **Membuka Presentasi Besar**
+## **Buka Presentasi Besar**
 
 [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) mengembalikan opsi yang mengontrol bagaimana Aspose.Slides menangani objek biner besar seperti gambar, audio, dan video. Anda dapat menjaga file sumber tetap terkunci, mengizinkan file sementara, dan membatasi jumlah data BLOB yang disimpan dalam memori.
 
-Kode Java berikut memperlihatkan pemuatan presentasi besar (misalnya, 2 GB):
+Kode Java berikut menunjukkan cara memuat presentasi besar (misalnya, 2 GB):
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -95,16 +97,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
+Dengan [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked), file sumber tetap terkunci hingga instance presentasi dibuang. Jangan memindahkan, menimpa, atau menghapus file sumber selama instance tersebut masih hidup.
 
-Dengan [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked), file sumber tetap terkunci sampai instansi presentasi dibuang. Jangan memindahkan, menimpa, atau menghapus file sumber selama instansi tersebut masih hidup.
-
-Aspose.Slides dapat menyalin isi aliran masukan saat memuatnya. Untuk presentasi besar, jalur file biasanya lebih efisien dibandingkan aliran. Lihat [Manage BLOBs](/slides/id/java/manage-blob/) untuk opsi penyimpanan dan manajemen memori tambahan.
-
+Aspose.Slides dapat menyalin isi aliran masukan saat memuatnya. Untuk presentasi besar, jalur file umumnya lebih efisien daripada aliran. Lihat [Kelola BLOB](/slides/id/java/manage-blob/) untuk opsi penyimpanan dan manajemen memori tambahan.
 {{% /alert %}}
 
-## **Mengontrol Sumber Daya Eksternal**
+## **Kontrol Sumber Daya Eksternal**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) menerima implementasi [IResourceLoadingCallback](https://reference.aspose.com/slides/id/java/com.aspose.slides/iresourceloadingcallback/). Callback dapat menyediakan data pengganti, mengarahkan ulang sebuah sumber daya, menggunakan pemuat default, atau melewati sumber daya tersebut. Hal ini berguna ketika presentasi berisi gambar eksternal yang harus diselesaikan sesuai aturan keamanan atau penyimpanan khusus aplikasi.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) menerima implementasi [IResourceLoadingCallback](https://reference.aspose.com/slides/id/java/com.aspose.slides/iresourceloadingcallback/). Callback dapat menyediakan data pengganti, mengarahkan ulang sumber daya, menggunakan pemuat default, atau melewati sumber daya. Ini berguna ketika presentasi berisi gambar eksternal yang harus diselesaikan sesuai dengan aturan keamanan atau penyimpanan khusus aplikasi.
 
 ```java
 import com.aspose.slides.IResourceLoadingArgs;
@@ -148,17 +148,17 @@ try {
 }
 ```
 
-## **Muat Presentasi tanpa Objek Biner yang Tertanam**
+## **Muat Presentasi tanpa Objek Biner yang Disematkan**
 
-Sebuah presentasi mungkin berisi data biner yang tertanam yang tidak diperlukan atau tidak ingin disimpan oleh aplikasi. Contohnya meliputi:
+Sebuah presentasi mungkin berisi data biner yang disematkan yang tidak diperlukan atau tidak ingin dipertahankan oleh aplikasi. Contohnya meliputi:
 
 - Proyek VBA, tersedia melalui [IPresentation.getVbaProject](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipresentation/#getVbaProject--);
-- Data OLE yang tertanam, tersedia melalui [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/id/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
-- Data kontrol ActiveX, tersedia melalui [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/id/java/com.aspose.slides/icontrol/#getActiveXControlBinary--).
+- Data OLE yang disematkan, tersedia melalui [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/id/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
+- Data kontrol ActiveX, tersedia melalui [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/id/java/com.aspose.slides/icontrol/#getActiveXControlBinary).
 
-Setel [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) ke `true` untuk menghapus data biner ini saat memuat. Simpan presentasi yang dimuat untuk mempertahankan hasil yang telah dibersihkan.
+Atur [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) menjadi `true` untuk menghapus data biner ini saat memuat. Simpan presentasi yang dimuat untuk mempertahankan hasil yang telah dibersihkan.
 
-Opsi ini mengurangi paparan terhadap payload tertanam yang tidak diinginkan, namun bukanlah sistem deteksi malware atau sanitasi konten yang lengkap.
+Opsi ini mengurangi paparan terhadap payload yang disematkan tidak diinginkan, namun bukan sistem deteksi malware atau sanitasi konten yang lengkap.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -178,14 +178,14 @@ try {
 
 ## **FAQ**
 
-**Bagaimana saya dapat mengetahui bahwa sebuah file rusak dan tidak dapat dibuka?**
+**Bagaimana saya tahu bahwa file rusak dan tidak dapat dibuka?**
 
-Aspose.Slides melemparkan pengecualian parsing atau format saat pemuatan. Tangani kegagalan tersebut secara terpisah dari kesalahan kata sandi yang salah sehingga aplikasi dapat melaporkan penyebabnya secara akurat.
+Aspose.Slides akan melempar pengecualian parsing atau format selama pemuatan. Tangani kegagalan itu secara terpisah dari kesalahan kata sandi yang salah sehingga aplikasi dapat melaporkan penyebabnya dengan akurat.
 
-**Apa yang terjadi jika font yang dibutuhkan tidak ada?**
+**Apa yang terjadi jika font yang dibutuhkan tidak tersedia?**
 
-Presentasi masih dapat dimuat, tetapi proses perenderan dan ekspor mungkin menggantikan font. Anda dapat [mengonfigurasi substitusi font](/slides/id/java/font-substitution/) atau [menyediakan font khusus](/slides/id/java/custom-font/) agar output lebih dapat diprediksi.
+Presentasi tetap dapat dimuat, tetapi rendering dan ekspor mungkin menggantikan font. Anda dapat [konfigurasi substitusi font](/slides/id/java/font-substitution/) atau [menyediakan font khusus](/slides/id/java/custom-font/) untuk membuat output lebih dapat diprediksi.
 
-**Apakah memuat sebuah presentasi juga memuat media yang tertanam?**
+**Apakah memuat presentasi juga memuat media yang disematkan?**
 
-Audio dan video yang tertanam menjadi tersedia melalui model objek presentasi. Sumber daya eksternal diselesaikan sesuai perilaku pemuatan sumber daya yang dikonfigurasi dan mungkin tidak tersedia jika lokasinya tidak dapat diakses.
+Audio dan video yang disematkan menjadi tersedia melalui model objek presentasi. Sumber daya eksternal diselesaikan sesuai dengan perilaku pemuatan sumber daya yang dikonfigurasi dan mungkin tidak tersedia jika lokasinya tidak dapat diakses.

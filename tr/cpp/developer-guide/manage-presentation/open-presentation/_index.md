@@ -1,6 +1,6 @@
 ---
-title: C++'ta Sunumları Açma
-linktitle: Sunumu Aç
+title: C++'ta Sunum Açma
+linktitle: Sunum Aç
 type: docs
 weight: 20
 url: /tr/cpp/open-presentation/
@@ -11,7 +11,7 @@ keywords:
 - PPTX aç
 - PPT aç
 - ODP aç
-- sunum yükle
+- sunumu yükle
 - PPTX yükle
 - PPT yükle
 - ODP yükle
@@ -21,19 +21,21 @@ keywords:
 - ikili nesne
 - C++
 - Aspose.Slides
-description: "C++ için Aspose.Slides kullanarak PowerPoint ve OpenDocument sunumlarını nasıl açacağınızı, açma parolası eklemeyi, kaynak yüklemeyi kontrol etmeyi ve bellek kullanımını azaltmayı öğrenin."
+description: "C++'ta PowerPoint ve OpenDocument sunumlarını nasıl açacağınızı, açma parolalarını nasıl sağlayacağınızı, kaynak yüklemesini nasıl kontrol edeceğinizi ve Aspose.Slides for C++ ile bellek kullanımını nasıl azaltacağınızı öğrenin."
 ---
 ## **Giriş**
 
-[Aspose.Slides for C++](https://products.aspose.com/slides/tr/cpp/) dosyalar ve akışlardan PowerPoint ve OpenDocument sunumlarını yükleyebilir. Bir sunum yüklendikten sonra, yapısını inceleyebilir, slaytları düzenleyebilir, kaynakları yönetebilir ve orijinal ya da başka desteklenen bir formatta kaydedebilirsiniz.
+[Aspose.Slides for C++](https://products.aspose.com/slides/tr/cpp/) PowerPoint ve OpenDocument sunumlarını dosyalardan ve akışlardan yükleyebilir. Bir sunum yüklendikten sonra, yapısını inceleyebilir, slaytları düzenleyebilir, kaynakları yönetebilir ve orijinal ya da başka desteklenen bir formatta kaydedebilirsiniz.
 
-Yükleme davranışı, [LoadOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/) sınıfı aracılığıyla özelleştirilebilir. Örneğin, bir açma parolası sağlayabilir, büyük ikili nesneleri bellek dışına tutabilir, dış kaynakları kontrol edebilir veya gömülü ikili verileri atlayabilirsiniz.
+Yükleme davranışı, [LoadOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/) sınıfı aracılığıyla özelleştirilebilir. Örneğin, bir açma parolası sağlayabilir, büyük ikili nesneleri belleğin dışında tutabilir, harici kaynakları kontrol edebilir ya da gömülü ikili verileri dışlayabilirsiniz.
 
 ## **Sunumları Açma**
 
-Mevcut bir sunumu açmak için, dosya yolunu [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) yapıcısına geçirin. Sunumu kullandıktan sonra, dosya tutamaçları, geçici veriler ve diğer kaynakların hemen serbest bırakılması için dispose edin.
+Bir dosya veya akış yüklendikten sonra, uygulamanızın nasıl işleyeceğini seçmek için [orijinal sunum formatını belirleyebilirsiniz](/slides/tr/cpp/detect-presentation-source-format/).
 
-Aşağıdaki C++ örneği, bir sunumu nasıl açacağınızı ve slayt sayısını nasıl alacağınızı gösterir:
+Mevcut bir sunumu açmak için, dosya yolunu [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) oluşturucusuna geçirin. Kullanım sonrası sunumu dispose edin, böylece dosya tanıtıcıları, geçici veriler ve diğer kaynaklar hızla serbest bırakılır.
+
+Aşağıdaki C++ örneği, bir sunumu nasıl açıp slayt sayısını alacağınızı gösterir:
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -52,7 +54,7 @@ presentation->Dispose();
 
 ## **Parola Koruması Olan Sunumları Açma**
 
-Açma parolası, sunum içeriğini şifreler. Sunumu tamamen yüklemek için, doğru parolayı [LoadOptions::set_Password](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/set_password/) metoduna geçirin ve seçenekleri [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) yapıcısına gönderin. Parola eksik veya yanlış olduğunda yükleme başarısız olur.
+Açma parolası, sunum içeriğini şifreler. Tam sunumu yüklemek için doğru parolayı [LoadOptions::set_Password](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/set_password/) metoduna geçirin ve seçenekleri [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) oluşturucusuna iletin. Parola eksik veya hatalı olduğunda yükleme başarısız olur.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -73,13 +75,13 @@ Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count())
 presentation->Dispose();
 ```
 
-Parola algılama, doğrulama ve şifreleme iş akışları için, [Password-Protect Presentations](/slides/tr/cpp/password-protected-presentation/) sayfasına bakın. Şifreli bir sunum, kasıtlı olarak genel belge özellikleriyle kaydedildiyse, bu özellikler parola olmadan okunabilir; [Manage Presentation Properties](/slides/tr/cpp/presentation-properties/) bölümüne bakın.
+Parola algılama, doğrulama ve şifreleme iş akışları için [Password-Protect Presentations](/slides/tr/cpp/password-protected-presentation/) bölümüne bakın. Şifrelenmiş bir sunum, kasıtlı olarak genel belge özellikleriyle kaydedildiyse, bu özellikler parola olmadan okunabilir; [Manage Presentation Properties](/slides/tr/cpp/presentation-properties/) bölümüne bakın.
 
 ## **Büyük Sunumları Açma**
 
-[LoadOptions::get_BlobManagementOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) Aspose.Slides'in görüntüler, ses ve video gibi büyük ikili nesneleri nasıl yönettiğini kontrol eder. Kaynak dosyayı kilitli tutabilir, geçici dosyalara izin verebilir ve bellekte tutulan BLOB veri miktarını sınırlayabilirsiniz.
+[LoadOptions::get_BlobManagementOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) Aspose.Slides'in resimler, ses ve video gibi büyük ikili nesneleri nasıl yönettiğini denetler. Kaynak dosyayı kilitli tutabilir, geçici dosyalara izin verebilir ve bellekte tutulacak BLOB verisi miktarını sınırlayabilirsiniz.
 
-Aşağıdaki C++ kodu, büyük bir sunumun (örneğin 2 GB) nasıl yükleneceğini gösterir:
+Aşağıdaki C++ kodu, büyük bir sunumu (örneğin 2 GB) yüklemeyi gösterir:
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -110,14 +112,14 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-`PresentationLockingBehavior::KeepLocked` ile, kaynak dosya `Presentation` nesnesi dispose edilene kadar kilitli kalır. Bu nesne hâlâ mevcutken kaynak dosyayı taşımayın, üzerine yazmayın veya silmeyin.
+`PresentationLockingBehavior::KeepLocked` ile kaynak dosya, `Presentation` nesnesi dispose edilene kadar kilitli kalır. Bu nesne yaşadığı sürece kaynak dosyayı taşımayın, üzerine yazmayın veya silmeyin.
 
-Aspose.Slides, yükleme sırasında bir giriş akışının içeriğini kopyalayabilir. Büyük sunumlar için, dosya yolu genellikle akıştan daha verimlidir. Ek depolama ve bellek yönetimi seçenekleri için [Manage BLOBs](/slides/tr/cpp/manage-blob/) sayfasına bakın.
+Aspose.Slides, yükleme sırasında bir giriş akışının içeriğini kopyalayabilir. Büyük sunumlar için dosya yolu, genellikle bir akıştan daha verimlidir. Ek depolama ve bellek yönetimi seçenekleri için [Manage BLOBs](/slides/tr/cpp/manage-blob/) bölümüne bakın.
 {{% /alert %}}
 
 ## **Harici Kaynakları Kontrol Etme**
 
-[LoadOptions::set_ResourceLoadingCallback](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/set_resourceloadingcallback/) bir [IResourceLoadingCallback](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iresourceloadingcallback/) uygulamasını kabul eder. Geri arama, yerine geçecek veri sağlayabilir, bir kaynağı yönlendirebilir, varsayılan yükleyiciyi kullanabilir veya kaynağı atlayabilir. Bu, sunumların uygulamaya özgü güvenlik veya depolama kurallarına göre çözülmesi gereken harici görüntüler içermesi durumunda faydalıdır.
+[LoadOptions::set_ResourceLoadingCallback](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/set_resourceloadingcallback/) bir [IResourceLoadingCallback](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iresourceloadingcallback/) uygulamasını kabul eder. Geri arama, yerine geçecek veri sağlayabilir, bir kaynağı yeniden yönlendirebilir, varsayılan yükleyiciyi kullanabilir veya kaynağı atlayabilir. Bu, sunumların uygulamaya özgü güvenlik veya depolama kurallarına göre çözülmesi gereken harici görseller içerdiği durumlarda yararlıdır.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -162,15 +164,14 @@ presentation->Dispose();
 
 ## **Gömülü İkili Nesneler Olmadan Sunumları Yükleme**
 
-Bir sunum, uygulamanın ihtiyaç duymadığı veya tutmak istemediği gömülü ikili veriler içerebilir. Örnekler:
+Bir sunum, uygulamanın ihtiyacı olmayan veya tutmak istemediği gömülü ikili veri içerebilir. Örnekler:
+- VBA projeleri, [IPresentation::get_VbaProject](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/get_vbaproject/) aracılığıyla kullanılabilir;
+- gömülü OLE verileri, [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/) aracılığıyla kullanılabilir;
+- ActiveX kontrol verileri, [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icontrol/get_activexcontrolbinary/) aracılığıyla kullanılabilir.
 
-- VBA projeleri, [IPresentation::get_VbaProject](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/get_vbaproject/) üzerinden erişilebilir;
-- gömülü OLE verileri, [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/) üzerinden erişilebilir;
-- ActiveX kontrol verileri, [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icontrol/get_activexcontrolbinary/) üzerinden erişilebilir.
+Bu ikili verileri yükleme sırasında kaldırmak için [LoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/set_deleteembeddedbinaryobjects/) metoduna `true` geçirin. Temizlenmiş sonucu kalıcı kılmak için yüklenen sunumu kaydedin.
 
-Bu ikili verileri yükleme sırasında kaldırmak için [LoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/set_deleteembeddedbinaryobjects/) metoduna `true` gönderin. Temizlenmiş sonucu korumak için yüklü sunumu kaydedin.
-
-Bu seçenek, istenmeyen gömülü yüklemelere maruziyeti azaltır, ancak tam bir kötü amaçlı yazılım tespiti veya içerik temizleme sistemi değildir.
+Bu seçenek, istenmeyen gömülü yüklemelere maruziyeti azaltır, ancak tam bir kötü amaçlı yazılım tespit veya içerik temizleme sistemi değildir.
 
 ```cpp
 #include <DOM/LoadOptions.h>
@@ -193,14 +194,11 @@ presentation->Dispose();
 
 ## **SSS**
 
-**Bir dosyanın bozuk olduğunu ve açılamadığını nasıl anlayabilirim?**
+**Bir dosyanın bozuk olduğunu ve açılamadığını nasıl anlayabilirim?**  
+Aspose.Slides, yükleme sırasında bir ayrıştırma veya format istisnası fırlatır. Uygulamanın nedeni doğru şekilde raporlayabilmesi için bu hatayı yanlış parola hatasından ayrı şekilde ele alın.
 
-Aspose.Slides, yükleme sırasında bir ayrıştırma veya format istisnası fırlatır. Bu hatayı yanlış parola hatasından ayrı ele alın, böylece uygulama nedeni doğru bir şekilde raporlayabilir.
+**Gerekli yazı tipleri eksikse ne olur?**  
+Sunum yine de yüklenebilir, ancak renderleme ve dışa aktarma sırasında yazı tipleri değiştirilebilir. Çıktıyı daha öngörülebilir hâle getirmek için [font ikamesini yapılandırabilir](/slides/tr/cpp/font-substitution/) veya [özel yazı tipleri sağlayabilirsiniz](/slides/tr/cpp/custom-font/).
 
-**Gerekli yazı tipleri eksikse ne olur?**
-
-Sunum yine de yüklenebilir, ancak renderleme ve dışa aktarma yazı tiplerini değiştirebilir. Çıktıyı daha öngörülebilir hâle getirmek için [configure font substitution](/slides/tr/cpp/font-substitution/) ya da [provide custom fonts](/slides/tr/cpp/custom-font/) sayfalarını kullanabilirsiniz.
-
-**Bir sunumu yüklemek aynı zamanda gömülü medyasını da yükler mi?**
-
-Gömülü ses ve video, sunum nesne modeli üzerinden kullanılabilir hâle gelir. Harici kaynaklar, yapılandırılmış kaynak yükleme davranışına göre çözülür ve konumlarına erişilemezse kullanılamaz olabilir.
+**Bir sunumu yüklemek gömülü medyasını da yükler mi?**  
+Gömülü ses ve video, sunum nesne modeli üzerinden kullanılabilir hâle gelir. Harici kaynaklar, yapılandırılmış kaynak yükleme davranışına göre çözülür ve konumlarına erişilemezse kullanılabilir olmayabilir.

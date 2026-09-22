@@ -1,37 +1,39 @@
 ---
-title: Ανάκτηση και Ενημέρωση Πληροφοριών Παρουσίασης σε C++
-linktitle: Πληροφορίες Παρουσίασης
+title: "Ανάκτηση και Ενημέρωση Πληροφοριών Παρουσίασης σε C++"
+linktitle: "Πληροφορίες Παρουσίασης"
 type: docs
 weight: 30
 url: /el/cpp/examine-presentation/
 keywords:
-- μορφή παρουσίασης
-- ιδιότητες παρουσίασης
-- ιδιότητες εγγράφου
-- λήψη ιδιοτήτων
-- ανάγνωση ιδιοτήτων
-- αλλαγή ιδιοτήτων
-- τροποποίηση ιδιοτήτων
-- ενημέρωση ιδιοτήτων
-- εξέταση PPTX
-- εξέταση PPT
-- εξέταση ODP
-- PowerPoint
-- OpenDocument
-- παρουσίαση
-- C++
-- Aspose.Slides
-description: "Εξερευνήστε τις διαφάνειες, τη δομή και τα μεταδεδομένα σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας C++ για πιο γρήγορη κατανόηση και πιο έξυπνες ελέγχους περιεχομένου."
+- "μορφή παρουσίασης"
+- "ιδιότητες παρουσίασης"
+- "ιδιότητες εγγράφου"
+- "λήψη ιδιοτήτων"
+- "ανάγνωση ιδιοτήτων"
+- "αλλαγή ιδιοτήτων"
+- "τροποποίηση ιδιοτήτων"
+- "ενημέρωση ιδιοτήτων"
+- "εξέταση PPTX"
+- "εξέταση PPT"
+- "εξέταση ODP"
+- "PowerPoint"
+- "OpenDocument"
+- "παρουσίαση"
+- "C++"
+- "Aspose.Slides"
+description: "Εξερευνήστε τις διαφάνειες, τη δομή και τα μεταδεδομένα σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας C++ για ταχύτερη κατανόηση και πιο έξυπνες αξιολογήσεις περιεχομένου."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides μπορεί να προσδιορίσει τη μορφή μιας παρουσίασης και να διαβάσει τα μεταδεδομένα του εγγράφου χωρίς να δημιουργήσει ένα πλήρες μοντέλο αντικειμένων παρουσίασης. Αυτό είναι χρήσιμο όταν χρειάζεται να ταξινομήσετε αρχεία, να δημιουργήσετε ένα απογραφή ή να ελέγξετε ιδιότητες πριν αποφασίσετε αν θα φορτώσετε και θα επεξεργαστείτε το περιεχόμενο της παρουσίασης.
+Το Aspose.Slides μπορεί να αναγνωρίσει τη μορφή μιας παρουσίασης και να διαβάσει τα μεταδεδομένα του εγγράφου χωρίς να δημιουργήσει ένα πλήρες μοντέλο αντικειμένου παρουσίασης. Αυτό είναι χρήσιμο όταν χρειάζεται να ταξινομήσετε αρχεία, να δημιουργήσετε ένα απόθεμα ή να ελέγξετε τις ιδιότητες πριν αποφασίσετε εάν θα φορτώσετε και θα επεξεργαστείτε το περιεχόμενο της παρουσίασης.
 
 Αυτό το άρθρο δείχνει ελαφριά επιθεώρηση μέσω του [PresentationFactory](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentationfactory/) και του [IPresentationInfo](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/), καθώς και στοχευμένες ενημερώσεις μέσω του [IDocumentProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/).
 
 ## **Έλεγχος Μορφής Παρουσίασης**
 
-Χρησιμοποιήστε το [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) για να ελέγξετε ένα αρχείο χωρίς να δημιουργήσετε μια παρουσία [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/). Η μέθοδος [IPresentationInfo::get_LoadFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/get_loadformat/) αναφέρει τη ανιχνευμένη μορφή, όπως PPTX, PPT ή ODP.
+Εάν έχετε ήδη μια φορτωμένη παρουσίαση, δείτε το [Determine the Original Presentation Format](/slides/el/cpp/detect-presentation-source-format/) για ανίχνευση μετά τη φόρτωση και τους περιορισμούς των παλαιών ροών PPT, PPS και POT.
+
+Χρησιμοποιήστε το [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) για να ελέγξετε ένα αρχείο χωρίς να δημιουργήσετε μια παρουσίαση [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) . Η μέθοδος [IPresentationInfo::get_LoadFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/get_loadformat/) αναφέρει τη ανιχνευμένη μορφή, όπως PPTX, PPT ή ODP.
 
 ```cpp
 #include <DOM/IPresentationInfo.h>
@@ -54,22 +56,22 @@ for (const auto& fileName : fileNames)
 }
 ```
 
-## **Δημιουργία Ελαφριάς Απογραφής Παρουσίασης**
+## **Δημιουργία Ελαφρού Καταλόγου Παρουσιάσεων**
 
-Όταν επεξεργάζεστε πολλά αρχεία παρουσίασης, μπορεί να χρειαστείτε μια συμπαγή απογραφή για επικύρωση, ευρετηρίαση ή σύστημα διαχείρισης εγγράφων. Σε αυτή την περίπτωση, χρησιμοποιήστε το [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) για να αποκτήσετε ένα αντικείμενο [IPresentationInfo](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/), και στη συνέχεια καλέστε το [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) για να διαβάσετε τα μεταδεδομένα του εγγράφου. Αυτή η προσέγγιση δεν δημιουργεί μια παρουσία [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) ούτε απαιτεί την περιήγηση στο πλήρες μοντέλο αντικειμένων παρουσίασης.
+Όταν επεξεργάζεστε πολλά αρχεία παρουσίασης, μπορεί να χρειάζεστε ένα συμπαγές απόθεμα για επικύρωση, ευρετηρίαση ή σύστημα διαχείρισης εγγράφων. Σε αυτό το σενάριο, χρησιμοποιήστε το [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) για να λάβετε ένα αντικείμενο [IPresentationInfo](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/) και, στη συνέχεια, καλέστε το [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) για να διαβάσετε τα μεταδεδομένα του εγγράφου. Αυτή η προσέγγιση δεν δημιουργεί μια παρουσίαση [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) ούτε απαιτεί την περιήγηση στο πλήρες μοντέλο αντικειμένου παρουσίασης.
 
-Οι εκτεταμένες ιδιότητες που εκτίθενται από το [IDocumentProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/) παρέχουν τις ακόλουθες τιμές απογραφής:
+Οι επεκτακές ιδιότητες που εκτίθενται από το [IDocumentProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/) παρέχουν τις ακόλουθες τιμές καταλόγου:
 
-| Μέθοδος | Τιμή απογραφής |
+| Μέθοδος | Τιμή αποθέματος |
 | --- | --- |
-| [get_Slides](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_slides/) | Συνολικός αριθμός διαφάνειων. |
-| [get_HiddenSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) | Αριθμός κρυφών διαφάνειων. |
-| [get_Notes](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_notes/) | Αριθμός διαφάνειων που περιέχουν σημειώσεις. |
-| [get_Paragraphs](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_paragraphs/) | Συνολικός αριθμός παραγράφων, όταν είναι διαθέσιμος. |
+| [get_Slides](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_slides/) | Συνολικός αριθμός διαφανειών. |
+| [get_HiddenSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) | Αριθμός κρυφών διαφανειών. |
+| [get_Notes](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_notes/) | Αριθμός διαφανειών που περιέχουν σημειώσεις. |
+| [get_Paragraphs](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_paragraphs/) | Συνολικός αριθμός παραγράφων, όταν είναι διαθέσιμες. |
 | [get_Words](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_words/) | Συνολικός αριθμός λέξεων. |
 | [get_MultimediaClips](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_multimediaclips/) | Συνολικός αριθμός ηχητικών και βίντεο κλιπ. |
 
-Το παρακάτω παράδειγμα διαβάζει αυτές τις τιμές χωρίς να δημιουργήσει ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) και εκτυπώνει μια συμπαγή απογραφή. Επιπλέον συνδυάζει το [IDocumentProperties::get_HeadingPairs](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_headingpairs/) με το [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) για να εμφανίσει ομάδες περιεχομένου όπως γραμματοσειρές, θέματα και τίτλους διαφανειών.
+Το παρακάτω παράδειγμα διαβάζει αυτές τις τιμές χωρίς να δημιουργήσει ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) και εκτυπώνει ένα συμπαγές απόθεμα. Συνδυάζει επίσης το [IDocumentProperties::get_HeadingPairs](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_headingpairs/) με το [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) για την εμφάνιση ομάδων περιεχομένου όπως γραμματοσειρές, θέματα και τίτλους διαφανειών.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -139,25 +141,27 @@ else
 }
 ```
 
-Κάθε [IHeadingPair](https://reference.aspose.com/slides/el/cpp/aspose.slides/iheadingpair/) παρέχει ένα όνομα ομάδας μέσω του [IHeadingPair::get_Name](https://reference.aspose.com/slides/el/cpp/aspose.slides/iheadingpair/get_name/) και τον αριθμό των στοιχείων σε αυτήν την ομάδα μέσω του [IHeadingPair::get_Count](https://reference.aspose.com/slides/el/cpp/aspose.slides/iheadingpair/get_count/). Το [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) επιστρέφει έναν επίπεδο, διατεταγμένο πίνακα, ώστε να καταναλώσετε τον αριθμό των διαδοχικών τίτλων που ορίζονται από κάθε ζεύγος κεφαλίδας.
+Κάθε [IHeadingPair](https://reference.aspose.com/slides/el/cpp/aspose.slides/iheadingpair/) παρέχει ένα όνομα ομάδας μέσω του [IHeadingPair::get_Name](https://reference.aspose.com/slides/el/cpp/aspose.slides/iheadingpair/get_name/) και τον αριθμό των στοιχείων στην ομάδα μέσω του [IHeadingPair::get_Count](https://reference.aspose.com/slides/el/cpp/aspose.slides/iheadingpair/get_count/). Το [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) επιστρέφει έναν επίπεδο, διατεταγμένο πίνακα, οπότε καταναλώστε τον αριθμό των διαδοχικών τίτλων που καθορίζονται από κάθε ζεύγος επικεφαλίδας.
 
 ### **Αποθηκευμένα Μεταδεδομένα και Περιορισμοί Μορφής**
 
-Οι ιδιότητες απογραφής που επιστρέφει το [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) αντικατοπτρίζουν τα μεταδεδομένα που είναι διαθέσιμα στο αρχικό έγγραφο. Το Aspose.Slides δεν φορτώνει και δεν περιηγείται στο μοντέλο αντικειμένων παρουσίασης για να επανυπολογίσει αυτές τις τιμές για αυτήν την κλήση. Τα ελλιπή στοιχεία αντιπροσωπεύονται από προεπιλεγμένες τιμές, και οι αποθηκευμένες τιμές μπορεί να είναι ξεπρωλαίωτες εάν η εφαρμογή που αποθήκευσε τελευταία το αρχείο δεν ενημέρωσε τις ιδιότητες του εγγράφου.
+Οι ιδιότητες αποθέματος που επιστρέφει το [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) αντικατοπτρίζουν τα μεταδεδομένα που είναι διαθέσιμα στο πηγαίο έγγραφο. Το Aspose.Slides δεν φορτώνει και δεν διασχίζει το μοντέλο αντικειμένου παρουσίασης για να επαναϋπολογίσει αυτές τις τιμές για αυτήν την κλήση. Οι ελλιπείς ιδιότητες αντιπροσωπεύονται από προεπιλεγμένες τιμές και οι αποθηκευμένες τιμές μπορεί να είναι ξεπερασμένες εάν η εφαρμογή που αποθήκευσε το αρχείο τελευταία δεν ενημέρωσε τις ιδιότητες του εγγράφου.
 
-- **PPTX:** Η μορφή παρέχει εκτεταμένες ιδιότητες εγγράφου για αριθμούς διαφανειών, σημειώσεων, κρυφών διαφανειών, παραγράφων, λέξεων και πολυμέσων, καθώς και ζεύγη κεφαλίδων και τίτλους τμημάτων. Η διαθεσιμότητα εξαρτάται από τις ιδιότητες που έγραψε ο δημιουργός του εγγράφου.
-- **PPT:** Η δυαδική μορφή μπορεί να αποθηκεύσει αντίστοιχες ιδιότητες σύνοψης εγγράφου. Εάν μια ιδιότητα λείπει ή δεν ενημερώθηκε από τον δημιουργό του εγγράφου, το Aspose.Slides επιστρέφει την αποθηκευμένη ή προεπιλεγμένη τιμή αντί να την υπολογίσει από τις διαφάνειες.
-- **ODP:** Τα μεταδεδομένα του OpenDocument παρέχουν γενικά στατιστικά εγγράφου, όπως αριθμούς σελίδων, παραγράφων και λέξεων, αλλά αυτές οι τιμές δεν αντιστοιχούν σε κάθε εκτεταμένη ιδιότητα ειδική του PowerPoint. Τα μεταδεδομένα κρυφών διαφανειών, σημειώσεων, πολυμέσων, ζευγών κεφαλίδων και τίτλων τμημάτων ενδέχεται να μην είναι διαθέσιμα, και οι ιδιότητες απογραφής μπορεί να επιστρέψουν προεπιλεγμένες τιμές. Μην θεωρείτε μια μηδενική τιμή ή έναν κενό πίνακα ως αυθεντικό απόδειγμα ότι το αντίστοιχο περιεχόμενο λείπει.
+- **PPTX:** Η μορφή παρέχει επεκταμένες ιδιότητες εγγράφου για τον αριθμό διαφανειών, σημειώσεων, κρυφών διαφανειών, παραγράφων, λέξεων και πολυμέσων, καθώς και για ζεύγη επικεφαλίδων και τίτλους τμημάτων. Η διαθεσιμότητα εξαρτάται από τις ιδιότητες που έγραψε ο δημιουργός του εγγράφου.
+- **PPT:** Η δυαδική μορφή μπορεί να αποθηκεύσει αντίστοιχες ιδιότητες σύνοψης εγγράφου. Εάν μια ιδιότητα λείπει ή δεν είχε ενημερωθεί από τον δημιουργό του εγγράφου, το Aspose.Slides επιστρέφει την αποθηκευμένη ή προεπιλεγμένη τιμή αντί να την υπολογίζει από τις διαφάνειες.
+- **ODP:** Τα μεταδεδομένα OpenDocument παρέχουν γενικά στατιστικά εγγράφου, όπως αριθμό σελίδων, παραγράφων και λέξεων, αλλά αυτές οι τιμές δεν αντιστοιχούν σε κάθε εκτεταμένη ιδιότητα ειδική για το PowerPoint. Οι μεταδεδομένες ιδιότητες κρυφών διαφανειών, σημειώσεων, πολυμέσων, ζεύγων επικεφαλίδων και τίτλων τμημάτων ενδέχεται να μην είναι διαθέσιμες, και οι ιδιότητες καταλόγου μπορεί να επιστρέψουν προεπιλεγμένες τιμές. Μην θεωρήσετε μηδενική τιμή ή κενό πίνακα ως αποδεδειγμένη απόδειξη ότι το αντίστοιχο περιεχόμενο λείπει.
 
-Χρησιμοποιήστε την ελαφριά προσέγγιση μεταδεδομένων για απογραφές και προαρχικές ελέγχους. Φορτώστε την παρουσίαση και ελέγξτε το ζωντανό μοντέλο αντικειμένων όταν το αποτέλεσμα πρέπει να αντανακλά τις αλλαγές στη μνήμη ή όταν χρειάζεται να επαληθεύσετε το πραγματικό περιεχόμενο της παρουσίασης.
+Χρησιμοποιήστε την ελαφριά προσέγγιση μεταδεδομένων για αποθέματα και προκαταρκτικούς ελέγχους. Φορτώστε την παρουσίαση και ελέγξτε το ενεργό μοντέλο αντικειμένου όταν το αποτέλεσμα πρέπει να αντανακλά αλλαγές στη μνήμη ή όταν χρειάζεται να επαληθεύσετε το πραγματικό περιεχόμενο της παρουσίασης.
 
 ## **Ενημέρωση Ιδιοτήτων Παρουσίασης**
 
-Οι ιδιότητες που επιστρέφει το [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) μπορούν επίσης να τροποποιηθούν χωρίς να δημιουργηθεί μια παρουσία [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/). Εφαρμόστε τις αλλαγές με το [IPresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/updatedocumentproperties/), και στη συνέχεια γράψτε την συνδεδεμένη παρουσίαση με το [IPresentationInfo::WriteBindedPresentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/writebindedpresentation/).
+Οι ιδιότητες που επιστρέφει το [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) μπορούν επίσης να αλλάξουν χωρίς τη δημιουργία μιας παρουσίασης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) . Εφαρμόστε τις αλλαγές με το [IPresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/updatedocumentproperties/) και, στη συνέχεια, γράψτε την δεσμευμένη παρουσίαση με το [IPresentationInfo::WriteBindedPresentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/writebindedpresentation/).
 
-![Αρχικές ιδιότητες εγγράφου της παρουσίασης PowerPoint](input_properties.png)
+Η παρακάτω εικόνα δείχνει τις αρχικές ιδιότητες του εγγράφου.
 
-Το παρακάτω παράδειγμα αλλάζει τον τίτλο και την ώρα τελευταίας αποθήκευσης και γράφει το αποτέλεσμα σε ένα νέο αρχείο:
+![Original document properties of the PowerPoint presentation](input_properties.png)
+
+Το παρακάτω παράδειγμα αλλάζει τον τίτλο και την ημερομηνία τελευταίας αποθήκευσης και γράφει το αποτέλεσμα σε νέο αρχείο:
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -181,35 +185,35 @@ presentationInfo->UpdateDocumentProperties(documentProperties);
 presentationInfo->WriteBindedPresentation(outputFile);
 ```
 
-![Αλλαγμένες ιδιότητες εγγράφου της παρουσίασης PowerPoint](output_properties.png)
+Η παρακάτω εικόνα δείχνει τις ενημερωμένες ιδιότητες του εγγράφου.
+
+![Changed document properties of the PowerPoint presentation](output_properties.png)
 
 ## **Χρήσιμοι Σύνδεσμοι**
 
 Για σχετικούς ελέγχους ασφαλείας και ρυθμίσεις προστασίας, δείτε τα παρακάτω άρθρα:
 
-- [Παρουσιάσεις με Προστασία Κωδικού](/slides/el/cpp/password-protected-presentation/)
-- [Παρουσιάσεις με Προσ
-
-τασία Εγγραφής](/slides/el/cpp/write-protected-presentation/)
+- [Password-Protect Presentations](/slides/el/cpp/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/el/cpp/write-protected-presentation/)
 
 ## **Συχνές Ερωτήσεις**
 
 **Πώς μπορώ να ελέγξω αν οι γραμματοσειρές είναι ενσωματωμένες και ποιες είναι;**
 
-Φορτώστε την παρουσίαση και χρησιμοποιήστε το [Presentation::get_FontsManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_fontsmanager/). Καλέστε το [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/el/cpp/aspose.slides/fontsmanager/getembeddedfonts/) για να λάβετε τις ενσωματωμένες γραμματοσειρές και το [FontsManager::GetFonts](https://reference.aspose.com/slides/el/cpp/aspose.slides/fontsmanager/getfonts/) για να λάβετε τις γραμματοσειρές που χρησιμοποιεί η παρουσίαση. Συγκρίνετε τα δύο αποτελέσματα για να βρείτε τις γραμματοσειρές που απαιτούνται για την απόδοση αλλά δεν είναι ενσωματωμένες.
+Φορτώστε την παρουσίαση και χρησιμοποιήστε το [Presentation::get_FontsManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_fontsmanager/). Καλέστε το [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/el/cpp/aspose.slides/fontsmanager/getembeddedfonts/) για να λάβετε τις ενσωματωμένες γραμματοσειρές και το [FontsManager::GetFonts](https://reference.aspose.com/slides/el/cpp/aspose.slides/fontsmanager/getfonts/) για να λάβετε τις γραμματοσειρές που χρησιμοποιεί η παρουσίαση. Συγκρίνετε τα δύο αποτελέσματα για να βρείτε τις γραμματοσειρές που απαιτούνται για απόδοση αλλά δεν είναι ενσωματωμένες.
 
 **Πώς μπορώ γρήγορα να διαπιστώ αν το αρχείο έχει κρυφές διαφάνειες και πόσες;**
 
-Όταν τα αποθηκευμένα μεταδεδομένα του εγγράφου είναι επαρκή, διαβάστε το [IDocumentProperties::get_HiddenSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) μέσω του [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) και του [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/). Αυτό είναι κατάλληλο για μια ελαφριά απογραφή. Εάν η παρουσίαση έχει τροποποιηθεί στη μνήμη, τα αποθηκευμένα μεταδεδομένα μπορεί να λείπουν ή να είναι ξεπρωλαίωτα, ή χρειάζεται να επαληθεύσετε τις ενεργές τιμές, επαναλάβετε μέσω του [Presentation::get_Slides](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_slides/) και ελέγξτε τη μέθοδο [Slide::get_Hidden](https://reference.aspose.com/slides/el/cpp/aspose.slides/slide/get_hidden/) του κάθε slide.
+Όταν τα αποθηκευμένα μεταδεδομένα εγγράφου είναι επαρκή, διαβάστε το [IDocumentProperties::get_HiddenSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) μέσω του [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) και του [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/). Αυτό είναι κατάλληλο για ελαφρύ απόθεμα. Εάν η παρουσίαση έχει τροποποιηθεί στη μνήμη, τα αποθηκευμένα μεταδεδομένα μπορεί να λείπουν ή να είναι ξεπερασμένα· σε αυτήν την περίπτωση, περιηγηθείτε στις [Presentation::get_Slides](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_slides/) και ελέγξτε τη μέθοδο [Slide::get_Hidden](https://reference.aspose.com/slides/el/cpp/aspose.slides/slide/get_hidden/) για κάθε διαφάνεια.
 
-**Μπορώ να ανιχνεύσω αν χρησιμοποιείται προσαρμοσμένο μέγεθος και προσανατολισμός διαφάνειας και αν διαφέρουν από τις προεπιλογές;**
+**Μπορώ να ανιχνεύσω αν χρησιμοποιείται προσαρμοσμένο μέγεθος διαφάνειας και προσανατολισμός, και αν διαφέρουν από τις προεπιλογές;**
 
-Ναι. Φορτώστε την παρουσίαση και διαβάστε το [Presentation::get_SlideSize](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_slidesize/). Ελέγξτε τα [ISlideSize::get_Type](https://reference.aspose.com/slides/el/cpp/aspose.slides/islidesize/get_type/), [ISlideSize::get_Size](https://reference.aspose.com/slides/el/cpp/aspose.slides/islidesize/get_size/), και [ISlideSize::get_Orientation](https://reference.aspose.com/slides/el/cpp/aspose.slides/islidesize/get_orientation/) για να συγκρίνετε τις τρέχουσες ρυθμίσεις με το αναμενόμενο πρότυπο και τις διαστάσεις.
+Ναι. Φορτώστε την παρουσίαση και διαβάστε το [Presentation::get_SlideSize](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_slidesize/). Ελέγξτε τα [ISlideSize::get_Type](https://reference.aspose.com/slides/el/cpp/aspose.slides/islidesize/get_type/), [ISlideSize::get_Size](https://reference.aspose.com/slides/el/cpp/aspose.slides/islidesize/get_size/) και [ISlideSize::get_Orientation](https://reference.aspose.com/slides/el/cpp/aspose.slides/islidesize/get_orientation/) για να συγκρίνετε τις τρέχουσες ρυθμίσεις με τις προεπιλεγμένες τιμές.
 
-**Υπάρχει γρήγορος τρόπος να δω αν τα γραφήματα αναφέρονται σε εξωτερικές πηγές δεδομένων;**
+**Υπάρχει γρήγορος τρόπος να δω αν τα διαγράμματα αναφέρονται σε εξωτερικές πηγές δεδομένων;**
 
-Ναι. Εντοπίστε κάθε [Chart](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/chart/) και ελέγξτε το [ChartData::get_DataSourceType](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/chartdata/get_datasourcetype/). Για εξωτερικό βιβλίο εργασίας, διαβάστε το [ChartData::get_ExternalWorkbookPath](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Ο τύπος πηγής δεδομένων και η διαδρομή αναγνωρίζουν μια εξωτερική αναφορά, αλλά η επαλήθευση της διαθεσιμότητας του στόχου απαιτεί έναν ξεχωριστό έλεγχο πόρων.
+Ναι. Εντοπίστε κάθε [Chart](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/chart/) και ελέγξτε το [ChartData::get_DataSourceType](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/chartdata/get_datasourcetype/). Για εξωτερικό βιβλίο εργασίας, διαβάστε το [ChartData::get_ExternalWorkbookPath](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Ο τύπος πηγής δεδομένων και η διαδρομή υποδεικνύουν εξωτερική αναφορά, αλλά η επαλήθευση της διαθεσιμότητας του στόχου απαιτεί ξεχωριστό έλεγχο πόρων.
 
-**Πώς μπορώ να αξιολογήσω τις "βαριές" διαφάνειες που μπορεί να καθυστερούν την απόδοση ή την εξαγωγή σε PDF;**
+**Πώς μπορώ να αξιολογήσω τις 'βαριές' διαφάνειες που μπορεί να επιβραδύνουν την απόδοση ή την εξαγωγή PDF;**
 
-Δεν υπάρχει μία μόνο ιδιότητα πολυπλοκότητας. Περιηγηθείτε στο [Presentation::get_Slides](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_slides/) και στη συλλογή [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibaseslide/get_shapes/) κάθε διαφάνειας. Χρησιμοποιήστε τα πλήθη σχήματος και την παρουσία μεγάλων εικόνων, εφέ, κινούμενων εφέ ή πολυμέσων ως δείκτες φιλτραρίσματος, και μετρήστε μια αντιπροσωπευτική απόδοση ή εξαγωγή πριν θεωρήσετε μια διαφάνεια ως επιβεβαιωμένο εμπόδιο στην απόδοση.
+Δεν υπάρχει μοναδική ιδιότητα πολυπλοκότητας. Περιηγηθείτε στις [Presentation::get_Slides](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_slides/) και στη συλλογή [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibaseslide/get_shapes/) κάθε διαφάνειας. Χρησιμοποιήστε τον αριθμό των σχήματων και την παρουσία μεγάλων εικόνων, εφέ, κινήσεων ή πολυμέσων ως δείκτες, και μετρήστε μια αντιπροσωπευτική απόδοση ή εξαγωγή πριν θεωρήσετε μια διαφάνεια ως επιβεβαιωμένο σημείο συμφόρησης.

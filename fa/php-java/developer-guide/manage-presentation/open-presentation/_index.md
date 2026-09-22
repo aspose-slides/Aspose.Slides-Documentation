@@ -17,22 +17,24 @@ keywords:
 - ارائه محافظت‌شده
 - ارائه بزرگ
 - منبع خارجی
-- شی باینری
+- شیء دودویی
 - PHP
 - Aspose.Slides
-description: "یاد بگیرید چگونه ارائه‌های PowerPoint و OpenDocument را در PHP باز کنید، رمزهای عبور باز کردن را ارائه دهید، بارگذاری منابع را کنترل کنید و استفاده از حافظه را با Aspose.Slides برای PHP از طریق Java کاهش دهید."
+description: "یاد بگیرید چگونه ارائه‌های PowerPoint و OpenDocument را در PHP باز کنید، رمزهای عبور باز کردن را فراهم کنید، بارگذاری منابع را کنترل کنید و با Aspose.Slides برای PHP از طریق Java مصرف حافظه را کاهش دهید."
 ---
 ## **معرفی**
 
-[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/fa/php-java/) می‌تواند ارائه‌های PowerPoint و OpenDocument را از فایل‌ها و جریان‌ها بارگذاری کند. پس از بارگذاری یک ارائه، می‌توانید ساختار آن را بررسی کنید، اسلایدها را ویرایش کنید، منابع را مدیریت کنید و آن را در فرمت اصلی یا فرمت پشتیبانی‌شده دیگر ذخیره کنید.
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/fa/php-java/) می‌تواند ارائه‌های PowerPoint و OpenDocument را از فایل‌ها و جریان‌ها بارگذاری کند. پس از بارگذاری یک ارائه، می‌توانید ساختار آن را بررسی کنید، اسلایدها را ویرایش کنید، منابع را مدیریت کنید و آن را در قالب اصلی یا قالب پشتیبانی‌شده دیگر ذخیره کنید.
 
-رفتار بارگذاری می‌تواند از طریق کلاس [LoadOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/) سفارشی شود. به عنوان مثال، می‌توانید یک رمز عبور باز کردن ارائه دهید، اشیاء باینری بزرگ را خارج از حافظه heap جاوا نگه دارید، منابع خارجی را کنترل کنید یا داده‌های باینری جاسازی‌شده را حذف کنید.
+رفتار بارگذاری می‌تواند از طریق کلاس [LoadOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/) سفارشی شود. به عنوان مثال، می‌توانید رمز عبور باز کردن را فراهم کنید، اشیاء دودویی بزرگ را خارج از حافظه heap جاوا نگه دارید، منابع خارجی را کنترل کنید یا داده‌های دودویی جاسازی‌شده را حذف کنید.
 
 ## **باز کردن ارائه‌ها**
 
-برای باز کردن یک ارائه موجود، مسیر فایل آن را به سازنده [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) پاس دهید. پس از استفاده، ارائه را آزاد کنید تا دستگیره‌های فایل، داده‌های موقت و سایر منابع به‌سرعت آزاد شوند.
+پس از بارگذاری یک فایل یا جریان، می‌توانید [فرمت اصلی ارائه را تعیین کنید](/slides/fa/php-java/detect-presentation-source-format/) تا انتخاب کنید برنامه شما چگونه آن را پردازش می‌کند.
 
-مثال زیر PHP نشان می‌دهد که چگونه یک ارائه را باز کنید و تعداد اسلایدهای آن را دریافت کنید:
+برای باز کردن یک ارائه موجود، مسیر فایل آن را به سازنده [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) پاس دهید. پس از استفاده ارائه را آزاد (Dispose) کنید تا دستگیره‌های فایل، داده‌های موقت و سایر منابع به‌سرعت آزاد شوند.
+
+کد مثال زیر به زبان PHP نشان می‌دهد چگونه یک ارائه را باز کنید و تعداد اسلایدهای آن را به دست آورید:
 
 ```php
 use aspose\slides\Presentation;
@@ -47,7 +49,7 @@ try {
 
 ## **باز کردن ارائه‌های دارای رمز عبور**
 
-یک رمز عبور باز کردن، محتویات ارائه را رمزنگاری می‌کند. برای بارگذاری کامل ارائه، رمز عبور صحیح را به [LoadOptions::setPassword](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/#setPassword) پاس دهید و گزینه‌ها را به سازنده [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ارائه کنید. در صورتی که رمز عبور وجود نداشته باشد یا نادرست باشد، بارگذاری ناموفق می‌شود.
+یک رمز عبور باز کردن، محتوای ارائه را رمزگذاری می‌کند. برای بارگذاری کامل ارائه، رمز صحیح را به [LoadOptions::setPassword](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/#setPassword) پاس دهید و گزینه‌ها را به سازنده [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ارائه کنید. در صورت عدم وجود یا نادرست بودن رمز عبور، بارگذاری شکست می‌خورد.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -64,13 +66,13 @@ try {
 }
 ```
 
-برای کشف، اعتبارسنجی و روندهای رمزنگاری رمز عبور، به [Password-Protect Presentations](/slides/fa/php-java/password-protected-presentation/) مراجعه کنید. اگر یک ارائه رمزگذاری‌شده عمداً با ویژگی‌های سند عمومی ذخیره شده باشد، می‌توان این ویژگی‌ها را بدون رمز عبور خواند؛ به [Manage Presentation Properties](/slides/fa/php-java/presentation-properties/) نگاه کنید.
+برای شناسایی رمز عبور، اعتبارسنجی و جریان‌های کاری رمزگذاری، به [Password-Protect Presentations](/slides/fa/php-java/password-protected-presentation/) مراجعه کنید. اگر یک ارائه رمزگذاری‌شده عمداً با ویژگی‌های عمومی سند ذخیره شده باشد، می‌توان این ویژگی‌ها را بدون رمز عبور خواند؛ به [Manage Presentation Properties](/slides/fa/php-java/presentation-properties/) نگاه کنید.
 
 ## **باز کردن ارائه‌های بزرگ**
 
-[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) گزینه‌هایی را برمی‌گرداند که کنترل می‌کند Aspose.Slides چگونه اشیاء بزرگ باینری مانند تصاویر، صدا و ویدیو را مدیریت می‌کند. می‌توانید فایل منبع را قفل نگه دارید، فایل‌های موقت را اجازه دهید و مقدار داده‌های BLOB نگهداری‌شده در حافظه را محدود کنید.
+[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) گزینه‌هایی را برمی‌گرداند که نحوهٔ مدیریت اشیاء دودویی بزرگ مانند تصویرها، صدا و ویدیو توسط Aspose.Slides را کنترل می‌کند. می‌توانید فایل منبع را قفل نگه دارید، فایل‌های موقت را مجاز کنید و میزان داده‌های BLOB نگهداری‌شده در حافظه را محدود کنید.
 
-کد زیر PHP نشان می‌دهد که چگونه یک ارائه بزرگ (به عنوان مثال ۲ گیگابایت) را بارگذاری کنید:
+کد PHP زیر بارگذاری یک ارائه بزرگ (مثلاً ۲ گیگابایت) را نشان می‌دهد:
 
 ```php
 use aspose\slides\LoadOptions;
@@ -94,15 +96,15 @@ try {
 }
 ```
 
-{{% alert color="info" title="نکته" %}}
-با استفاده از [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked)، فایل منبع تا زمان آزاد شدن نمونه ارائه قفل می‌ماند. تا زمانی که آن نمونه زنده است، فایل منبع را جابجا، بازنویسی یا حذف نکنید.
+{{% alert color="info" title="Note" %}}
+با استفاده از [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked)، فایل منبع تا زمانی که نمونهٔ ارائه آزاد (disposed) شود، قفل می‌ماند. در حالی که آن نمونه زنده است، فایل منبع را جابجا، بازنویسی یا حذف نکنید.
 
-Aspose.Slides ممکن است محتوای یک جریان ورودی را هنگام بارگذاری کپی کند. برای ارائه‌های بزرگ، مسیر فایل به‌طور کلی کارآمدتر از یک جریان است. برای گزینه‌های اضافی ذخیره‌سازی و مدیریت حافظه، به [Manage BLOBs](/slides/fa/php-java/manage-blob/) مراجعه کنید.
+Aspose.Slides ممکن است محتویات یک جریان ورودی را هنگام بارگذاری کپی کند. برای ارائه‌های بزرگ، مسیر فایل معمولاً نسبت به یک جریان کارایی بیشتری دارد. برای گزینه‌های اضافی ذخیره‌سازی و مدیریت حافظه به [Manage BLOBs](/slides/fa/php-java/manage-blob/) مراجعه کنید.
 {{% /alert %}}
 
 ## **کنترل منابع خارجی**
 
-[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) یک پیاده‌سازی از رابط Java [IResourceLoadingCallback](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iresourceloadingcallback/) را از طریق PHP/Java Bridge می‌پذیرد. این callback می‌تواند داده‌های جایگزین فراهم کند، منبعی را بازگردانی کند، از لودر پیش‌فرض استفاده کند یا منبع را نادیده بگیرد. این زمانی مفید است که ارائه‌ها شامل تصاویر خارجی باشند که باید بر اساس قوانین امنیتی یا ذخیره‌سازی مخصوص برنامه حل شوند.
+[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) یک پیاده‌سازی از رابط Java [IResourceLoadingCallback](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iresourceloadingcallback/) را از طریق PHP/Java Bridge می‌پذیرد. این Callback می‌تواند داده‌های جایگزین فراهم کند، یک منبع را مجدداً مسیربندی کند، از لودر پیش‌فرض استفاده کند یا منبع را نادیده بگیرد. این در مواردی مفید است که ارائه‌ها شامل تصویرهای خارجی باشند که باید بر اساس قوانین امنیتی یا ذخیره‌سازی خاص برنامه حل شوند.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -143,17 +145,17 @@ try {
 }
 ```
 
-## **بارگذاری ارائه‌ها بدون اشیاء باینری جاسازی‌شده**
+## **بارگذاری ارائه‌ها بدون اشیاء دودویی جاسازی‌شده**
 
-یک ارائه ممکن است حاوی داده‌های باینری جاسازی‌شده باشد که یک برنامه به آن نیاز ندارد یا نمی‌خواهد آن را نگه دارد. مثال‌ها شامل:
+یک ارائه ممکن است شامل داده‌های دودویی جاسازی‌شده باشد که برنامه به آن نیازی ندارد یا نمی‌خواهد نگه دارد. مثال‌ها شامل:
 
 - پروژه‌های VBA، که از طریق [Presentation::getVbaProject](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getVbaProject) در دسترس هستند؛
 - داده‌های OLE جاسازی‌شده، که از طریق [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/fa/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) در دسترس هستند؛
 - داده‌های کنترل ActiveX، که از طریق [Control::getActiveXControlBinary](https://reference.aspose.com/slides/fa/php-java/aspose.slides/control/#getActiveXControlBinary) در دسترس هستند.
 
-برای حذف این داده‌های باینری هنگام بارگذاری، [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) را به `true` تنظیم کنید. ارائه بارگذاری‌شده را ذخیره کنید تا نتیجه تصفیه‌شده حفظ شود.
+با تنظیم [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) به `true`، این داده‌های دودویی هنگام بارگذاری حذف می‌شوند. برای حفظ نتیجهٔ پاک‌سازی‌شده، ارائه بارگذاری‌شده را ذخیره کنید.
 
-این گزینه خطر مواجهه با بارهای جاسازی‌شده ناخواسته را کاهش می‌دهد، اما یک سیستم کامل شناسایی بدافزار یا تصفیه محتوا نیست.
+این گزینه خطر نمایش محتوای جاسازی‌شدهٔ ناخواسته را کاهش می‌دهد، اما یک سیستم کامل تشخیص مخرب یا پاک‌سازی محتوا نیست.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -171,16 +173,16 @@ try {
 }
 ```
 
-## **سوالات متداول**
+## **سؤال‌های متداول**
 
-**چگونه می‌توانم تشخیص دهم که یک فایل خراب است و نمی‌تواند باز شود؟**
+**چگونه می‌توانم بفهمم که یک فایل خراب است و نمی‌تواند باز شود؟**
 
-Aspose.Slides در هنگام بارگذاری یک استثنای تجزیه یا قالب پرتاب می‌کند. این شکست را جدا از خطای رمز عبور نادرست مدیریت کنید تا برنامه بتواند علت را به‌دقت گزارش دهد.
+Aspose.Slides هنگام بارگذاری یک استثنای تجزیه یا فرمت پرتاب می‌کند. این شکست را جدا از خطای غلط بودن رمز عبور مدیریت کنید تا برنامه بتواند دلیل را به‌دقت گزارش دهد.
 
-**اگر فونت‌های مورد نیاز موجود نباشند چه می‌شود؟**
+**اگر قلم‌های مورد نیاز موجود نباشند چه اتفاقی می‌افتد؟**
 
-ارائه همچنان می‌تواند بارگذاری شود، اما رندر و خروجی ممکن است فونت‌ها را جایگزین کند. می‌توانید [configure font substitution](/slides/fa/php-java/font-substitution/) یا [provide custom fonts](/slides/fa/php-java/custom-font/) را تنظیم کنید تا خروجی پیش‌بینی‌پذیرتر باشد.
+ارائه هنوز می‌تواند بارگذاری شود، اما رندر و خروجی ممکن است قلم‌ها را جایگزین کند. می‌توانید [پیکربندی جایگزینی قلم](/slides/fa/php-java/font-substitution/) یا [ارائه قلم‌های سفارشی](/slides/fa/php-java/custom-font/) را تنظیم کنید تا خروجی پیش‌بینی‌پذیرتر باشد.
 
-**آیا بارگذاری یک ارائه، رسانه‌های جاسازی‌شده آن را نیز بارگذاری می‌کند؟**
+**آیا بارگذاری یک ارائه همچنین رسانه‌های جاسازی‌شده آن را بارگذاری می‌کند؟**
 
-صدا و ویدیوهای جاسازی‌شده از طریق مدل شیء ارائه قابل دسترسی می‌شوند. منابع خارجی بر اساس رفتار تنظیم‌شده بارگذاری منابع حل می‌شوند و ممکن است اگر مکان‌های آن‌ها قابل دسترسی نباشد، در دسترس نباشند.
+صدا و ویدیوهای جاسازی‌شده از طریق مدل شیء ارائه در دسترس می‌شوند. منابع خارجی بر اساس رفتار پیکربندی‌شدهٔ بارگذاری منابع حل می‌شوند و ممکن است در صورتی که مکان‌هایشان قابل دسترسی نباشد، در دسترس نباشند.

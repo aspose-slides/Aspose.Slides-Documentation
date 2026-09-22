@@ -1,5 +1,5 @@
 ---
-title: استرجاع وتحديث معلومات العرض التقديمي في JavaScript
+title: استرجاع وتحديث معلومات العرض التقديمي باستخدام JavaScript
 linktitle: معلومات العرض التقديمي
 type: docs
 weight: 30
@@ -22,17 +22,19 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "استكشف الشرائح والبنية والبيانات الوصفية في عروض PowerPoint وOpenDocument باستخدام JavaScript للحصول على رؤى أسرع وتدقيق محتوى أذكى."
+description: "استكشف الشرائح والبنية والبيانات الوصفية في عروض PowerPoint وOpenDocument باستخدام JavaScript للحصول على رؤى أسرع وتدقيق محتوى أكثر ذكاءً."
 ---
 ## **نظرة عامة**
 
-يمكن لـ Aspose.Slides تحديد تنسيق العرض التقديمي وقراءة بيانات تعريف المستند دون إنشاء نموذج كائن عرض تقديمي كامل. فهذا مفيد عندما تحتاج إلى تصنيف الملفات، بناء جرد، أو فحص الخصائص قبل اتخاذ قرار بتحميل ومعالجة محتوى العرض التقديمي.
+يمكن لـ Aspose.Slides تحديد تنسيق العرض التقديمي وقراءة بيانات التعريف الخاصة بالمستند دون إنشاء نموذج كائن عرض تقديمي كامل. هذا مفيد عندما تحتاج إلى تصنيف الملفات، بناء جرد، أو فحص الخصائص قبل اتخاذ قرار بتحميل محتوى العرض ومعالجته.
 
-يُظهر هذا المقال عملية فحص خفيفة الوزن عبر [PresentationFactory](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationfactory/) و[PresentationInfo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/)، بالإضافة إلى تحديثات مستهدفة عبر [DocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/).
+توضح هذه المقالة الفحص الخفيف الوزن من خلال [PresentationFactory](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationfactory/) و[PresentationInfo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/)، بالإضافة إلى التحديثات المستهدفة من خلال [DocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/).
 
 ## **التحقق من تنسيق العرض التقديمي**
 
-استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) لفحص ملف دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) . تُعيد طريقة [PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/getloadformat/) التنسيق المكتشف، مثل PPTX أو PPT أو ODP.
+إذا كان لديك عرض تقديمي محمَّل بالفعل، راجع [Determine the Original Presentation Format](/slides/ar/nodejs-java/detect-presentation-source-format/) للكشف بعد التحميل والقيود الخاصة بتدفقات PPT وPPS وPOT القديمة.
+
+استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) لفحص ملف دون إنشاء مثيل [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) . تُبلغ طريقة [PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/getloadformat/) عن التنسيق المكتشف، مثل PPTX أو PPT أو ODP.
 
 ```javascript
 const aspose = require("aspose.slides.via.java");
@@ -58,20 +60,20 @@ for (const fileName of fileNames) {
 
 ## **بناء جرد عرض تقديمي خفيف الوزن**
 
-عند معالجة عدد كبير من ملفات العروض التقديمية، قد تحتاج إلى جرد مضغوط للتحقق، الفهرسة، أو نظام إدارة المستندات. في هذا السياق، استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) للحصول على كائن [PresentationInfo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/)، ثم استدعِ [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) لقراءة بيانات تعريف المستند. لا تُنشئ هذه الطريقة كائن [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) ولا تتطلب التنقل عبر نموذج كائن العرض التقديمي الكامل.
+عند معالجة العديد من ملفات العروض التقديمية، قد تحتاج إلى جرد مدمج للتحقق، الفهرسة، أو نظام إدارة المستندات. في هذا السيناريو، استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) للحصول على كائن [PresentationInfo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/) ، ثم استدعِ [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) لقراءة بيانات التعريف للمستند. لا ينشئ هذا الأسلوب مثيلًا لـ [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) ولا يتطلب التنقل عبر نموذج كائن العرض بالكامل.
 
-الخصائص الموسعة التي تُظهرها [DocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/) تُوفر القيم التالية للجرد:
+تقدم الخصائص الموسعة التي تعرضها [DocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/) القيم التالية للجرد:
 
 | الطريقة | قيمة الجرد |
 | --- | --- |
-| [getSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getSlides) | إجمالي عدد الشرائح. |
-| [getHiddenSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getHiddenSlides) | عدد الشرائح المخفيّة. |
+| [getSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getSlides) | الإجمالي الكلي للشرائح. |
+| [getHiddenSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getHiddenSlides) | عدد الشرائح المخفية. |
 | [getNotes](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getNotes) | عدد الشرائح التي تحتوي على ملاحظات. |
-| [getParagraphs](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getParagraphs) | إجمالي عدد الفقرات، إذا كانت متوفرة. |
-| [getWords](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getWords) | إجمالي عدد الكلمات. |
-| [getMultimediaClips](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getMultimediaClips) | إجمالي عدد مقاطع الصوت والفيديو. |
+| [getParagraphs](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getParagraphs) | الإجمالي الكلي للفقرات، إذا كانت متاحة. |
+| [getWords](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getWords) | الإجمالي الكلي للكلمات. |
+| [getMultimediaClips](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getMultimediaClips) | الإجمالي الكلي لمقاطع الصوت والفيديو. |
 
-المثال التالي يقرأ هذه القيم دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) ويطبع جردًا مضغوطًا. كما يجمع بين [DocumentProperties.getHeadingPairs](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getHeadingPairs) و[DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getTitlesOfParts) لعرض مجموعات المحتوى مثل الخطوط، السمات، وعناوين الشرائح.
+تقـرأ المثال التالي هذه القيم دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) ويطبع جردًا مدمجًا. كما يجمع بين [DocumentProperties.getHeadingPairs](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getHeadingPairs) و[DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getTitlesOfParts) لعرض مجموعات المحتوى مثل الخطوط، السمات، وعناوين الشرائح.
 
 ```javascript
 const path = require("path");
@@ -134,27 +136,25 @@ if (headingPairs.length === 0 || titlesOfParts.length === 0) {
 }
 ```
 
-كل عنصر [HeadingPair](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/headingpair/) يوفر اسم المجموعة عبر [HeadingPair.getName](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/headingpair/#getName) وعدد العناصر في تلك المجموعة عبر [HeadingPair.getCount](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/headingpair/#getCount). تُعيد [DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getTitlesOfParts) مصفوفة مسطحة ومرتبة، لذا استهلك عدد العناوين المتتالية المحددة بكل زوج عنوان.
+كل [HeadingPair](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/headingpair/) يوفر اسم المجموعة من خلال [HeadingPair.getName](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/headingpair/#getName) وعدد العناصر في تلك المجموعة من خلال [HeadingPair.getCount](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/headingpair/#getCount). تُعيد [DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getTitlesOfParts) مصفوفة مسطحة مرتبة، لذا استهلك عدد العناوين المتتالية المحدد لكل زوج عنوان.
 
-### **البيانات الوصفية المخزّنة وقيود التنسيق**
+### **البيانات الوصفية المخزنة وقيود التنسيق**
 
-الخصائص التي تُعيدها [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) تعكس البيانات الوصفية المتوفرة في المستند الأصلي. لا تقوم Aspose.Slides بتحميل وتصفح نموذج كائن العرض التقديمي لإعادة حساب هذه القيم لهذه العملية. تُمثَّل الخصائص المفقودة بالقيم الافتراضية، وقد تكون القيم المخزّنة قديمة إذا لم تقم العملية التي حفظت الملف آخر مرة بتحديث خصائص المستند.
+تعكس خصائص الجرد التي تُعيدها [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) البيانات الوصفية المتاحة في المستند المصدر. لا تقوم Aspose.Slides بتحميل نموذج الكائنات وتعديله لإعادة حساب هذه القيم لهذا الاستدعاء. تمثل القيم المفقودة بالقيم الافتراضية، وقد تكون القيم المخزنة قديمة إذا لم تقم التطبيق الذي حفظ الملف آخر مرة بتحديث خصائص المستند.
 
-- **PPTX:** يوفر التنسيق خصائص مستند موسَّعة لعدد الشرائح، الملاحظات، الشرائح المخفيّة، الفقرات، الكلمات، والوسائط المتعددة، بالإضافة إلى أزواج العناوين وعناوين الأجزاء. يتوقف التوفر على الخصائص التي كتبها مُنتج المستند.
-- **PPT:** يمكن للتنسيق الثنائي تخزين خصائص ملخص المستند المقابلة. إذا كانت الخاصية غائبة أو لم يُحدّثها مُنتج المستند، تُعيد Aspose.Slides القيمة المخزّنة أو الافتراضية بدلاً من حسابها من الشرائح.
-- **ODP:** توفر بيانات تعريف OpenDocument إحصاءات عامة للمستند مثل عدد الصفحات، الفقرات، والكلمات، لكن هذه القيم لا تتطابق مع كل خاصية موسَّعة خاصة بـ PowerPoint. قد تكون بيانات الشرائح المخفيّة، ملاحظات الشرائح، الوسائط المتعددة، أزواج العناوين، وعناوين الأجزاء غير متوفرة، وقد تُعيد خصائص الجرد قيمًا افتراضية. لا تُعامل قيمة الصفر أو المصفوفة الفارغة كدليل قاطع على عدم وجود المحتوى المقابل.
+- **PPTX:** يوفر التنسيق خصائص مستند موسعة لعدد الشرائح، الملاحظات، الشرائح المخفية، الفقرات، الكلمات، ومقاطع الوسائط المتعددة، بالإضافة إلى أزواج العناوين وعناوين الأجزاء. يعتمد التوفر على الخصائص التي كتبها منتج المستند.
+- **PPT:** يمكن للتنسيق الثنائي تخزين خصائص ملخص المستند المقابلة. إذا كانت الخاصية غير موجودة أو لم يتم تحديثها من قبل منتج المستند، تُعيد Aspose.Slides قيمتها المخزنة أو القيمة الافتراضية بدلاً من حسابها من الشرائح.
+- **ODP:** توفر بيانات تعريف OpenDocument إحصائيات عامة للمستند، مثل عدد الصفحات والفقرات والكلمات، لكن هذه القيم لا تتطابق مع كل خاصية موسعة خاصة بـ PowerPoint. قد تكون بيانات تعريف الشرائح المخفية، شرائح الملاحظات، الوسائط المتعددة، أزواج العناوين، وعناوين الأجزاء غير متاحة، وقد تُعيد خصائص الجرد قيمًا افتراضية. لا تُعامل القيمة الصفرية أو المصفوفة الفارغة كدليل حاسم على عدم وجود المحتوى المقابل.
 
-استخدم نهج البيانات الوصفية الخفيفة للجرد والفحوصات الأولية.حمِّل العرض التقديمي وافحص نموذج كائنه الحي عندما يجب أن يعكس النتيجة التغييرات في الذاكرة أو عندما تحتاج إلى التحقق من المحتوى الفعلي للعرض التقديمي.
+استخدم نهج البيانات الوصفية الخفيفة للجرد والفحوصات الأولية. حمِّل العرض التقديمي وفحص نموذج الكائن الحي عندما يجب أن يعكس النتيجة التغييرات في الذاكرة أو عندما تحتاج إلى التحقق من محتوى العرض الفعلي.
 
 ## **تحديث خصائص العرض التقديمي**
 
-يمكن أيضًا تغيير الخصائص التي تُعيدها [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) . طبّق التغييرات باستخدام [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/updatedocumentproperties/)، ثم اكتب العرض التقديمي المرتبط باستخدام [PresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/writebindedpresentation/).
+يمكن أيضًا تغيير الخصائص التي تُعيدها [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) دون إنشاء مثيل [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) . قم بتطبيق التغييرات باستخدام [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/updatedocumentproperties/)، ثم اكتب العرض المرتبط باستخدام [PresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/writebindedpresentation/).
 
 الصورة التالية تُظهر خصائص المستند الأصلية.
 
-![خصائص المستند الأصلية للعرض التقديمي PowerPoint](input_properties.png)
-
-المثال التالي يغيّر العنوان ووقت الحفظ الأخير ويكتب النتيجة إلى ملف جديد:
+![Original document properties of the PowerPoint presentation](input_properties.png)
 
 ```javascript
 const aspose = require("aspose.slides.via.java");
@@ -179,33 +179,31 @@ try {
 
 الصورة التالية تُظهر خصائص المستند المحدثة.
 
-![خصائص المستند المغيّرة للعرض التقديمي PowerPoint](output_properties.png)
+![Changed document properties of the PowerPoint presentation](output_properties.png)
 
 ## **روابط مفيدة**
-
-للتحقق من الأمان والإعدادات المتعلقة بالحماية، راجع المقالات التالية:
 
 - [حماية العروض التقديمية بكلمة مرور](/slides/ar/nodejs-java/password-protected-presentation/)
 - [حماية العروض التقديمية من الكتابة](/slides/ar/nodejs-java/write-protected-presentation/)
 
 ## **الأسئلة الشائعة**
 
-**كيف يمكنني التحقق مما إذا كانت الخطوط مدمجة وأيها؟**
+**كيف يمكنني التحقق مما إذا كانت الخطوط مضمنة وأيها؟**
 
-حمِّل العرض التقديمي واستخدم [Presentation.getFontsManager](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/getfontsmanager/). استدعِ [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) للحصول على الخطوط المضمنة و[FontsManager.getFonts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsmanager/getfonts/) للحصول على الخطوط المستخدمة في العرض التقديمي. قارن النتيجتين لتحديد الخطوط المطلوبة للعرض ولكن غير المدمجة.
+حمِّل العرض التقديمي واستخدم [Presentation.getFontsManager](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/getfontsmanager/). استدعِ [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) للحصول على الخطوط المضمنة و[FontsManager.getFonts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsmanager/getfonts/) للحصول على الخطوط المستخدمة في العرض. قارن النتيجتين لتحديد الخطوط المطلوبة للعرض لكنها غير مضمنة.
 
-**كيف يمكنني بسرعة معرفة ما إذا كان الملف يحتوي على شرائح مخفيّة وعددها؟**
+**كيف يمكنني بسرعة معرفة ما إذا كان الملف يحتوي على شرائح مخفية وعددها؟**
 
-عندما تكون البيانات الوصفية المخزّنة كافية، اقرأ [DocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getHiddenSlides) عبر [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) و[PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/). هذا مناسب لجرد خفيف الوزن. إذا تم تعديل العرض التقديمي في الذاكرة، قد تكون البيانات الوصفية المخزّنة مفقودة أو قديمة، أو إذا كنت تحتاج إلى التحقق من القيم الحية، استعرض [Presentation.getSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/getslides/) وافحص طريقة [Slide.getHidden](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slide/gethidden/) لكل شريحة بدلاً من ذلك.
+عند كفاية بيانات التعريف المخزنة، اقرأ [DocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/#getHiddenSlides) عبر [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) و[PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/). هذا مناسب لجرد خفيف الوزن. إذا تم تعديل العرض في الذاكرة، قد تكون البيانات المخزنة مفقودة أو قديمة، أو إذا كنت بحاجة للتحقق من القيم الحية، قم بالتكرار عبر [Presentation.getSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/getslides/) وافحص طريقة [Slide.getHidden](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slide/gethidden/) لكل شريحة.
 
-**هل يمكنني اكتشاف ما إذا كان حجم الشريحة المخصص واتجاهها مستخدمان، وما إذا كانا مختلفين عن الإعدادات الافتراضية؟**
+**هل يمكنني اكتشاف ما إذا كان حجم واتجاه الشريحة المخصص مستخدمًا، وما إذا كان يختلف عن الإعدادات الافتراضية؟**
 
-نعم. حمِّل العرض التقديمي واستدعِ [Presentation.getSlideSize](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/getslidesize/). استخدم [SlideSize.getType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidesize/gettype/)، [SlideSize.getSize](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidesize/getsize/)، و[SlideSize.getOrientation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidesize/getorientation/) لمقارنة الإعدادات الحالية مع القالب المتوقع والأبعاد.
+نعم. حمِّل العرض التقديمي واستدعِ [Presentation.getSlideSize](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/getslidesize/). استخدم [SlideSize.getType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidesize/gettype/)، [SlideSize.getSize](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidesize/getsize/)، و[SlideSize.getOrientation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidesize/getorientation/) لمقارنة الإعدادات الحالية مع الإعدادات المسبقة والأبعاد المتوقعة.
 
-**هل هناك طريقة سريعة لرؤية ما إذا كانت المخططات تشير إلى مصادر بيانات خارجية؟**
+**هل توجد طريقة سريعة لمعرفة ما إذا كانت المخططات تشير إلى مصادر بيانات خارجية؟**
 
-نعم. حدد كل [Chart](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chart/) واستدعِ [ChartData.getDataSourceType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdata/getdatasourcetype/). بالنسبة لدفتر عمل خارجي، استدعِ [ChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/). نوع مصدر البيانات والمسار يحددان وجود إشارة خارجية، ولكن التحقق مما إذا كان الهدف متوفرًا يتطلب فحص موارد منفصل.
+نعم. حدد كل [Chart](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chart/) واستدعِ [ChartData.getDataSourceType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdata/getdatasourcetype/). لمصنف خارجي، استدعِ [ChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/). نوع مصدر البيانات والمسار يحددان وجود إشارة خارجية، لكن التحقق من توفر الهدف يتطلب فحصًا منفصلًا للموارد.
 
-**كيف يمكنني تقييم “الشرائح الثقيلة” التي قد تبطئ العرض أو تصدير PDF؟**
+**كيف يمكنني تقييم الشرائح 'الثقيلة' التي قد تبطئ عملية العرض أو تصدير PDF؟**
 
-لا توجد خاصية تعقيد واحدة. استعرض [Presentation.getSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/getslides/) ومجموعة [BaseSlide.getShapes](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseslide/#getShapes) لكل شريحة. استخدم عدد الأشكال ووجود صور كبيرة، تأثيرات، حركات، أو وسائط متعددة كإشارات فحص، وقم بقياس عملية عرض أو تصدير تمثيلية قبل اعتبار الشريحة عنق زجاجة أداء مؤكد.
+لا توجد خاصية تعقيد واحدة. تنقّب عبر [Presentation.getSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/getslides/) ومجموعة [BaseSlide.getShapes](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseslide/#getShapes) لكل شريحة. استخدم عدد الأشكال ووجود الصور الكبيرة أو التأثيرات أو الرسوم المتحركة أو الوسائط المتعددة كإشارات فرز، وقم بقياس عملية عرض أو تصدير تمثيلية قبل اعتبار الشريحة عبئًا مؤكدًا على الأداء.

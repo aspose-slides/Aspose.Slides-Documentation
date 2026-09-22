@@ -21,19 +21,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ismerje meg, hogyan nyithat meg PowerPoint és OpenDocument prezentációkat C#-ban, adhat meg nyitó jelszavakat, szabályozhatja az erőforrások betöltését, és csökkentheti a memóriahasználatot az Aspose.Slides for .NET segítségével."
+description: "Tanulja meg, hogyan nyithat meg PowerPoint és OpenDocument prezentációkat C#‑ban, adjon meg megnyitási jelszavakat, szabályozza az erőforrás betöltést, és csökkentse a memóriahasználatot az Aspose.Slides for .NET‑vel."
 ---
 ## **Bevezetés**
 
-[Aspose.Slides for .NET](https://products.aspose.com/slides/hu/net/) képes PowerPoint és OpenDocument prezentációkat betölteni fájlokból és adatfolyamokból. A prezentáció betöltése után ellenőrizheted a felépítését, szerkesztheted a diákat, kezelheted az erőforrásokat, és mentheted az eredeti vagy egy másik támogatott formátumban.
+[Aspose.Slides for .NET](https://products.aspose.com/slides/hu/net/) betöltheti a PowerPoint és OpenDocument prezentációkat fájlokból és adatfolyamokból. Miután egy prezentáció betöltésre került, megvizsgálhatja annak felépítését, szerkesztheti a diákat, kezelheti az erőforrásokat, és mentheti az eredeti vagy egy másik támogatott formátumban.
 
-A betöltési viselkedés testreszabható a [LoadOptions](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/) osztályon keresztül. Például megadhatsz nyitó jelszót, nagy bináris objektumokat tarthat a kezelt memórián kívül, szabályozhatod a külső erőforrásokat, vagy kihagyhatod a beágyazott bináris adatokat.
+A betöltési viselkedés testreszabható a [LoadOptions](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/) osztályon keresztül. Például megadhat egy megnyitási jelszót, a nagy bináris objektumokat a kezelt memória kívül tarthatja, szabályozhatja a külső erőforrásokat, vagy kihagyhatja a beágyazott bináris adatokat.
 
 ## **Prezentációk megnyitása**
 
-Egy meglévő prezentáció megnyitásához add meg a fájl útvonalát a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) konstruktorának. A használat után használd a `Dispose`‑t, hogy a fájlkezelők, átmeneti adatok és egyéb erőforrások időben felszabaduljanak.
+Fájl vagy adatfolyam betöltése után [meghatározhatja az eredeti prezentáció formátumát](/slides/hu/net/detect-presentation-source-format/), hogy kiválaszthassa, alkalmazása hogyan dolgozza fel.
 
-Az alábbi C# példa bemutatja, hogyan nyithatsz meg egy prezentációt és érheted el a diák számát:
+Egy meglévő prezentáció megnyitásához adja át a fájl útvonalát a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) konstruktorának. Használat után szabadítsa fel a prezentációt, hogy a fájlkezelők, ideiglenes adatok és egyéb erőforrások gyorsan felszabaduljanak.
+
+Az alábbi C# példa bemutatja, hogyan nyithat meg egy prezentációt és szerezheti meg a diák számát:
 
 ```csharp
 using System;
@@ -46,7 +48,7 @@ Console.WriteLine("Slide count: " + presentation.Slides.Count);
 
 ## **Jelszóval védett prezentációk megnyitása**
 
-A nyitó jelszó titkosítja a prezentáció tartalmát. A teljes prezentáció betöltéséhez állítsd be a megfelelő jelszót a [LoadOptions.Password](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/password/) tulajdonságra, majd add át az opciókat a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) konstruktorának. A betöltés hibázik, ha a jelszó hiányzik vagy helytelen.
+A megnyitási jelszó titkosítja a prezentáció tartalmát. A teljes prezentáció betöltéséhez állítsa be a megfelelő jelszót a [LoadOptions.Password](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/password/) tulajdonságba, és adja át a beállításokat a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) konstruktorának. A betöltés sikertelen, ha a jelszó hiányzik vagy helytelen.
 
 ```csharp
 using System;
@@ -58,13 +60,13 @@ using var presentation = new Presentation("encrypted-presentation.pptx", loadOpt
 Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
-A jelszó felismerésével, érvényesítésével és titkosítási munkafolyamataival kapcsolatos információkért lásd a [Password-Protect Presentations](/slides/hu/net/password-protected-presentation/) oldalt. Ha egy titkosított prezentációt szándékosan nyilvános dokumentumtulajdonságokkal mentették, ezek a tulajdonságok jelszó nélkül is olvashatók; lásd a [Manage Presentation Properties](/slides/hu/net/presentation-properties/) oldalt.
+A jelszó detektálásához, ellenőrzéséhez és titkosítási munkafolyamatokhoz lásd a [Password-Protect Presentations](/slides/hu/net/password-protected-presentation/) oldalt. Ha egy titkosított prezentációt szándékosan nyilvános dokumentumtulajdonságokkal mentettek, ezek a tulajdonságok jelszó nélkül is olvashatók; lásd a [Manage Presentation Properties](/slides/hu/net/presentation-properties/) részt.
 
 ## **Nagy prezentációk megnyitása**
 
-A [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/blobmanagementoptions/) szabályozza, hogyan kezeli az Aspose.Slides a bináris nagy objektumokat, például képeket, hangot és videót. Megtarthatod a forrásfájlt zárolva, engedélyezheted az ideiglenes fájlok létrehozását, és korlátozhatod a memóriában megtartott BLOB adatok mennyiségét.
+A [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/blobmanagementoptions/) szabályozza, hogyan kezeli az Aspose.Slides a bináris nagy objektumokat, például képeket, hangot és videót. A forrásfájlt zárolva tarthatja, engedélyezheti az ideiglenes fájlokat, és korlátozhatja a memóriában megtartott BLOB adatmennyiséget.
 
-Az alábbi C# kód egy nagy prezentáció betöltését mutatja be (például 2 GB):
+Az alábbi C# kód bemutatja egy nagy prezentáció (például 2 GB) betöltését:
 
 ```csharp
 using Aspose.Slides;
@@ -89,16 +91,14 @@ presentation.Save("large-presentation-copy.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="info" title="Note" %}}
+`PresentationLockingBehavior.KeepLocked` használatával a forrásfájl zárolva marad, amíg a `Presentation` objektumot el nem engedik. Ne mozgassa, felülírja vagy törölje a forrásfájlt, amíg az objektum él.
 
-A `PresentationLockingBehavior.KeepLocked` használatával a forrásfájl zárolva marad, amíg a `Presentation` objektum életben van. Ne mozgasd, írj felül vagy töröld a forrásfájlt, amíg az objektum létezik.
-
-Az Aspose.Slides betöltéskor másolhatja a bemeneti adatfolyam tartalmát. Nagy prezentációk esetén általában hatékonyabb a fájl útvonalat használni, mint az adatfolyamot. További tárolási és memória-kezelési lehetőségekért lásd a [Manage BLOBs](/slides/hu/net/manage-blob/) oldalt.
-
+Az Aspose.Slides betöltéskor másolhatja egy bemeneti adatfolyam tartalmát. Nagy prezentációk esetén a fájl útvonala általában hatékonyabb, mint egy adatfolyam. További tárolási és memória-kezelési lehetőségekért lásd a [Manage BLOBs](/slides/hu/net/manage-blob/) oldalt.
 {{% /alert %}}
 
-## **Külső erőforrások vezérlése**
+## **Külső erőforrások kezelése**
 
-A [LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/resourceloadingcallback/) egy [IResourceLoadingCallback](https://reference.aspose.com/slides/hu/net/aspose.slides/iresourceloadingcallback/) implementációt fogad. A visszahívás biztosíthat helyettesítő adatot, átirányíthat egy erőforrást, használhatja az alapértelmezett betöltőt, vagy kihagyhatja az erőforrást. Ez akkor hasznos, ha a prezentációk külső képeket tartalmaznak, amelyeket az alkalmazásbiztonsági vagy tárolási szabályok szerint kell feloldani.
+A [LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/resourceloadingcallback/) egy [IResourceLoadingCallback](https://reference.aspose.com/slides/hu/net/aspose.slides/iresourceloadingcallback/) megvalósítást fogad el. A callback helyettesítő adatokat szolgáltathat, átirányíthat egy erőforrást, használhatja az alapértelmezett betöltőt, vagy kihagyhatja az erőforrást. Ez akkor hasznos, ha a prezentációk külső képeket tartalmaznak, amelyeket az alkalmazás-specifikus biztonsági vagy tárolási szabályok szerint kell feloldani.
 
 ```csharp
 using System;
@@ -138,15 +138,15 @@ internal static class OpenPresentationExample
 
 ## **Prezentációk betöltése beágyazott bináris objektumok nélkül**
 
-Egy prezentáció tartalmazhat beágyazott bináris adatot, amelyre az alkalmazásnak nincs szüksége, vagy amelyet nem akar megtartani. Példák:
+A prezentáció beágyazott bináris adatokat tartalmazhat, amelyeket egy alkalmazás nem igényel vagy nem kíván megtartani. Példák:
 
 - VBA projektek, elérhetők a [IPresentation.VbaProject](https://reference.aspose.com/slides/hu/net/aspose.slides/ipresentation/vbaproject/) segítségével;
 - beágyazott OLE adatok, elérhetők a [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/hu/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/) segítségével;
-- ActiveX vezérlő adat, elérhető a [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/hu/net/aspose.slides/icontrol/activexcontrolbinary/) segítségével.
+- ActiveX vezérlő adatok, elérhetők a [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/hu/net/aspose.slides/icontrol/activexcontrolbinary/) segítségével.
 
-Állítsd a [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) értékét `true`‑ra, hogy a betöltés során eltávolítsd ezeket a bináris adatokat. Mentsd el a betöltött prezentációt a tisztított eredmény megőrzéséhez.
+Állítsa a [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) értékét `true`-ra a bináris adatok betöltés közbeni eltávolításához. Mentse el a betöltött prezentációt a tisztított eredmény megőrzéséhez.
 
-Ez az opció csökkenti a nem kívánt beágyazott terheknek való kitettséget, de nem jelent teljes körű kártevő-érzékelési vagy tartalom-sanitizációs rendszert.
+Ez a beállítás csökkenti a nem kívánt beágyazott payloadok kitettségét, de nem teljes körű rosszindulatú programok detektálási vagy tartalom-tisztítási rendszer.
 
 ```csharp
 using Aspose.Slides;
@@ -166,12 +166,12 @@ presentation.Save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 
 **Hogyan tudom megállapítani, hogy egy fájl sérült és nem nyitható meg?**
 
-Az Aspose.Slides betöltéskor elemzési vagy formátumkivetést dob. Kezelj ezt a hibát külön a helytelen jelszó hibától, hogy az alkalmazás pontosan tudja jelezni az okot.
+Az Aspose.Slides a betöltés során parsing vagy formátum kivételt dob. Kezelje ezt a hibát külön a helytelen jelszó hibától, hogy az alkalmazás pontosan jelenteni tudja az okot.
 
 **Mi történik, ha a szükséges betűtípusok hiányoznak?**
 
-A prezentáció továbbra is betölthető, de a megjelenítés és az export helyettesítő betűtípusokat használhat. [Betűtípus-helyettesítés konfigurálása](/slides/hu/net/font-substitution/) vagy [egyéni betűtípusok biztosítása](/slides/hu/net/custom-font/) segíthet a kimenet kiszámíthatóbbá tételében.
+A prezentáció továbbra is betölthető, de a renderelés és export betűtípus helyettesítést alkalmazhat. [Betűtípus-helyettesítés beállítása](/slides/hu/net/font-substitution/) vagy [Egyéni betűtípusok biztosítása](/slides/hu/net/custom-font/) segítségével teheti kimenetét előrejelezhetőbbé.
 
-**A prezentáció betöltése magával hozza a beágyazott médiát is?**
+**A prezentáció betöltése egyben betölti a beágyazott médiát is?**
 
-A beágyazott hang és videó elérhetővé válik a prezentáció objektummodelljén keresztül. A külső erőforrások a beállított erőforrásbetöltési viselkedés szerint kerülnek feloldásra, és lehet, hogy nem érhetők el, ha azok helyei nem hozzáférhetők.
+A beágyazott hang és videó a prezentáció objektummodelljén keresztül lesz elérhető. A külső erőforrások a konfigurált erőforrásbetöltési viselkedés szerint kerülnek feloldásra, és előfordulhat, hogy nem érhetők el, ha azok helyei nem hozzáférhetők.

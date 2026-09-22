@@ -9,27 +9,29 @@ keywords:
 - свойства презентации
 - свойства документа
 - получить свойства
-- прочитать свойства
+- читать свойства
 - изменить свойства
 - модифицировать свойства
 - обновить свойства
-- анализ PPTX
-- анализ PPT
-- анализ ODP
+- анализировать PPTX
+- анализировать PPT
+- анализировать ODP
 - PowerPoint
 - OpenDocument
 - презентация
 - C++
 - Aspose.Slides
-description: "Исследуйте слайды, структуру и метаданные в презентациях PowerPoint и OpenDocument с помощью C++ для более быстрых инсайтов и интеллектуальных проверок контента."
+description: "Исследуйте слайды, структуру и метаданные в презентациях PowerPoint и OpenDocument с использованием C++ для более быстрых аналитических выводов и более умных проверок контента."
 ---
 ## **Обзор**
 
-Aspose.Slides может определить формат презентации и прочитать её метаданные документа без создания полной модели объекта презентации. Это полезно, когда необходимо классифицировать файлы, создать инвентарь или проверить свойства перед тем, как решить, загружать и обрабатывать содержимое презентации.
+Aspose.Slides может определить формат презентации и прочитать её метаданные без создания полной модели объектной структуры презентации. Это полезно, когда нужно классифицировать файлы, построить инвентарь или проверить свойства перед решением, загружать и обрабатывать содержимое презентации.
 
-В этой статье демонстрируется лёгкая инспекция с помощью [PresentationFactory](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentationfactory/) и [IPresentationInfo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationinfo/), а также целенаправленные обновления с помощью [IDocumentProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idocumentproperties/).
+В этой статье демонстрируется легковесный анализ с помощью [PresentationFactory](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentationfactory/) и [IPresentationInfo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationinfo/), а также целевые обновления с помощью [IDocumentProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idocumentproperties/).
 
 ## **Проверка формата презентации**
+
+Если у вас уже загружена презентация, см. [Determine the Original Presentation Format](/slides/ru/cpp/detect-presentation-source-format/) для обнаружения после загрузки и ограничений устаревших потоков PPT, PPS и POT.
 
 Используйте [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) для проверки файла без создания экземпляра [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/). Метод [IPresentationInfo::get_LoadFormat](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationinfo/get_loadformat/) сообщает обнаруженный формат, например PPTX, PPT или ODP.
 
@@ -54,11 +56,11 @@ for (const auto& fileName : fileNames)
 }
 ```
 
-## **Создание лёгкого инвентаря презентаций**
+## **Создание легковесного инвентаря презентаций**
 
-Когда вы обрабатываете много файлов презентаций, может потребоваться компактный инвентарь для проверки, индексации или системы управления документами. В этом случае используйте [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) для получения объекта [IPresentationInfo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationinfo/), а затем вызовите [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) для чтения метаданных документа. Этот подход не создаёт экземпляр [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) и не требует обхода полной модели объекта презентации.
+Когда вы обрабатываете множество файлов презентаций, вам может потребоваться компактный инвентарь для проверки, индексирования или системы управления документами. В этом случае используйте [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) для получения объекта [IPresentationInfo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationinfo/), а затем вызовите [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) для чтения метаданных документа. Этот подход не создаёт экземпляр [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) и не требует обхода полной модели объектной структуры презентации.
 
-Расширенные свойства, предоставленные [IDocumentProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idocumentproperties/), дают следующие значения инвентаря:
+Расширенные свойства, доступные через [IDocumentProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idocumentproperties/), предоставляют следующие значения инвентаря:
 
 | Метод | Значение инвентаря |
 | --- | --- |
@@ -67,9 +69,9 @@ for (const auto& fileName : fileNames)
 | [get_Notes](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idocumentproperties/get_notes/) | Количество слайдов, содержащих заметки. |
 | [get_Paragraphs](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idocumentproperties/get_paragraphs/) | Общее количество абзацев, если доступно. |
 | [get_Words](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idocumentproperties/get_words/) | Общее количество слов. |
-| [get_MultimediaClips](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idocumentproperties/get_multimediaclips/) | Общее количество аудио‑ и видеоклипов. |
+| [get_MultimediaClips](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idocumentproperties/get_multimediaclips/) | Общее количество аудио- и видеоклипов. |
 
-Следующий пример считывает эти значения без создания объекта [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) и выводит компактный инвентарь. Он также сочетает [IDocumentProperties::get_HeadingPairs](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idocumentproperties/get_headingpairs/) с [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) для отображения групп содержимого, таких как шрифты, темы и заголовки слайдов.
+Следующий пример читает эти значения без создания объекта [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/) и выводит компактный инвентарь. Он также комбинирует [IDocumentProperties::get_HeadingPairs](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idocumentproperties/get_headingpairs/) с [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) для отображения групп содержимого, таких как шрифты, темы и заголовки слайдов.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -139,23 +141,23 @@ else
 }
 ```
 
-Каждый [IHeadingPair](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iheadingpair/) предоставляет имя группы через [IHeadingPair::get_Name](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iheadingpair/get_name/) и количество элементов в этой группе через [IHeadingPair::get_Count](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iheadingpair/get_count/). [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) возвращает плоский упорядоченный массив, поэтому используйте количество последовательных заголовков, указанное каждым заголовочным парой.
+Каждый [IHeadingPair](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iheadingpair/) предоставляет имя группы через [IHeadingPair::get_Name](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iheadingpair/get_name/) и количество элементов в этой группе через [IHeadingPair::get_Count](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iheadingpair/get_count/). [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) возвращает плоский упорядоченный массив, поэтому используйте количество последовательных заголовков, указанное каждой парой заголовков.
 
-### **Хранённые метаданные и ограничения формата**
+### **Хранимые метаданные и ограничения формата**
 
-Свойства инвентаря, возвращаемые [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/), отражают метаданные, доступные в исходном документе. Aspose.Slides не загружает и не обходит модель объекта презентации для пересчёта этих значений при вызове. Отсутствующие свойства отображаются значениями по умолчанию, а сохранённые значения могут быть устаревшими, если приложение, сохранившее файл последним, не обновило свойства документа.
+Свойства инвентаря, возвращённые [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/), отражают метаданные, доступные в исходном документе. Aspose.Slides не загружает и не обходит модель объектной структуры презентации для пересчёта этих значений при данном вызове. Отсутствующие свойства представлены значениями по умолчанию, а сохранённые значения могут быть устаревшими, если приложение, последним сохранившее файл, не обновило свойства документа.
 
-- **PPTX:** Формат предоставляет расширенные свойства документа для количества слайдов, заметок, скрытых слайдов, абзацев, слов и мультимедиа, а также пар заголовков и названий частей. Доступность зависит от того, какие свойства были записаны производителем документа.
-- **PPT:** Бинарный формат может хранить соответствующие свойства‑резюме документа. Если свойство отсутствует или не было обновлено производителем, Aspose.Slides возвращает его сохранённое или значение по умолчанию, а не рассчитывает его из слайдов.
-- **ODP:** Метаданные OpenDocument предоставляют общую статистику документа, такую как количество страниц, абзацев и слов, но эти значения не сопоставляются со всеми расширенными свойствами PowerPoint. Метаданные о скрытых слайдах, заметках, мультимедиа, парах заголовков и названиях частей могут быть недоступны, и свойства инвентаря могут возвращать значения по умолчанию. Не рассматривайте нулевое значение или пустой массив как окончательное доказательство отсутствия соответствующего содержимого.
+- **PPTX:** Формат предоставляет расширенные свойства документа для подсчётов слайдов, заметок, скрытых слайдов, абзацев, слов и мультимедиа, а также пар заголовков и названий частей. Доступность зависит от того, какие свойства были записаны производителем документа.
+- **PPT:** Бинарный формат может хранить соответствующие свойства‑резюме документа. Если свойство отсутствует или не было обновлено производителем, Aspose.Slides возвращает его сохранённое или значение по умолчанию вместо вычисления его из слайдов.
+- **ODP:** Метаданные OpenDocument предоставляют общую статистику документа, такую как количество страниц, абзацев и слов, но эти значения не сопоставляются со всеми расширенными свойствами PowerPoint. Метаданные о скрытых слайдах, заметках, мультимедиа, парах заголовков и названиях частей могут быть недоступны, и свойства инвентаря могут вернуть значения по умолчанию. Не рассматривайте нулевое значение или пустой массив как окончательное доказательство отсутствия соответствующего содержимого.
 
-Используйте лёгкий подход к метаданным для инвентарей и предварительных проверок. Загружайте презентацию и проверяйте её живую модель объекта, когда результат должен отражать изменения в памяти или когда необходимо подтвердить фактическое содержимое презентации.
+Используйте подход лёгкой мета‑информации для инвентарей и предварительных проверок. Загружайте презентацию и проверяйте её живую модель, когда результат должен отражать изменения в памяти или когда необходимо подтвердить фактическое содержимое презентации.
 
 ## **Обновление свойств презентации**
 
-Свойства, возвращаемые [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/), также могут быть изменены без создания экземпляра [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/). Примените изменения с помощью [IPresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationinfo/updatedocumentproperties/), а затем запишите привязанную презентацию с помощью [IPresentationInfo::WriteBindedPresentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationinfo/writebindedpresentation/).
+Свойства, возвращённые [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/), также могут быть изменены без создания экземпляра [Presentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/). Примените изменения с помощью [IPresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationinfo/updatedocumentproperties/), а затем запишите связанную презентацию с помощью [IPresentationInfo::WriteBindedPresentation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationinfo/writebindedpresentation/).
 
-Следующее изображение показывает исходные свойства документа PowerPoint презентации.
+На следующем изображении показаны исходные свойства документа PowerPoint презентации.
 
 ![Исходные свойства документа PowerPoint презентации](input_properties.png)
 
@@ -183,7 +185,7 @@ presentationInfo->UpdateDocumentProperties(documentProperties);
 presentationInfo->WriteBindedPresentation(outputFile);
 ```
 
-Следующее изображение показывает изменённые свойства документа PowerPoint презентации.
+На следующем изображении показаны изменённые свойства документа PowerPoint презентации.
 
 ![Изменённые свойства документа PowerPoint презентации](output_properties.png)
 
@@ -192,26 +194,21 @@ presentationInfo->WriteBindedPresentation(outputFile);
 Для связанных проверок безопасности и настроек защиты см. следующие статьи:
 
 - [Защита презентаций паролем](/slides/ru/cpp/password-protected-presentation/)
-- [Защита от записи презентаций](/slides/ru/cpp/write-protected-presentation/)
+- [Защита презентаций от записи](/slides/ru/cpp/write-protected-presentation/)
 
 ## **FAQ**
 
-**Как проверить, встроены ли шрифты и какие именно?**
+**Как проверить, встроены ли шрифты и какие именно?**  
+Загрузите презентацию и используйте [Presentation::get_FontsManager](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_fontsmanager/). Вызовите [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsmanager/getembeddedfonts/) для получения встроенных шрифтов и [FontsManager::GetFonts](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsmanager/getfonts/) для получения шрифтов, используемых в презентации. Сравните оба результата, чтобы найти шрифты, необходимые для отображения, но не встроенные.
 
-Загрузите презентацию и используйте [Presentation::get_FontsManager](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_fontsmanager/). Вызовите [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsmanager/getembeddedfonts/) для получения встроенных шрифтов и [FontsManager::GetFonts](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsmanager/getfonts/) для получения шрифтов, используемых презентацией. Сравните два результата, чтобы найти шрифты, необходимые для отображения, но не встроенные.
+**Как быстро определить, есть ли в файле скрытые слайды и их количество?**  
+Когда достаточно метаданных документа, прочитайте [IDocumentProperties::get_HiddenSlides](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) через [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) и [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/). Это подходит для лёгкого инвентаря. Если презентация была изменена в памяти, сохранённые метаданные могут отсутствовать или быть устаревшими, либо необходимо проверить живые значения, пройдя по [Presentation::get_Slides](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_slides/) и проверяя метод [Slide::get_Hidden](https://reference.aspose.com/slides/ru/cpp/aspose.slides/slide/get_hidden/) каждого слайда.
 
-**Как быстро определить, есть ли в файле скрытые слайды и их количество?**
-
-Когда метаданные документа достаточны, прочитайте [IDocumentProperties::get_HiddenSlides](https://reference.aspose.com/slides/ru/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) через [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) и [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/). Это подходит для лёгкого инвентаря. Если презентация была изменена в памяти, сохранённые метаданные могут быть отсутствующими или устаревшими, либо требуется проверка живых значений – пройдите по [Presentation::get_Slides](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_slides/) и проверьте метод [Slide::get_Hidden](https://reference.aspose.com/slides/ru/cpp/aspose.slides/slide/get_hidden/) каждого слайда.
-
-**Можно ли определить, использованы ли пользовательские размеры и ориентация слайда, и отличаются ли они от стандартных?**
-
+**Можно ли обнаружить, использованы ли пользовательские размеры и ориентация слайда, и отличаются ли они от стандартных?**  
 Да. Загрузите презентацию и прочитайте [Presentation::get_SlideSize](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_slidesize/). Проверьте [ISlideSize::get_Type](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islidesize/get_type/), [ISlideSize::get_Size](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islidesize/get_size/) и [ISlideSize::get_Orientation](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islidesize/get_orientation/) для сравнения текущих настроек с ожидаемыми предустановками и размерами.
 
-**Есть ли быстрый способ увидеть, ссылаются ли диаграммы на внешние источники данных?**
+**Есть ли быстрый способ увидеть, ссылаются ли диаграммы на внешние источники данных?**  
+Да. Найдите каждую [Chart](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/chart/) и проверьте [ChartData::get_DataSourceType](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/chartdata/get_datasourcetype/). Для внешней книги Excel прочитайте [ChartData::get_ExternalWorkbookPath](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Тип источника данных и путь указывают на внешнюю ссылку, однако проверка доступности ресурса требует отдельной проверки.
 
-Да. Найдите каждую [Chart](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/chart/) и проверьте [ChartData::get_DataSourceType](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/chartdata/get_datasourcetype/). Для внешней книги выполните чтение [ChartData::get_ExternalWorkbookPath](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Тип источника данных и путь указывают внешнюю ссылку, но проверка доступности целевого ресурса требует отдельной проверки.
-
-**Как оценить «тяжёлые» слайды, которые могут замедлять рендеринг или экспорт в PDF?**
-
-Нет единственного свойства сложности. Обойдите [Presentation::get_Slides](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_slides/) и коллекцию [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ibaseslide/get_shapes/) каждого слайда. Используйте количество фигур и наличие больших изображений, эффектов, анимаций или мультимедиа как сигналы, и измерьте представительный рендеринг или экспорт, прежде чем считать слайд подтверждённым узким местом производительности.
+**Как оценить «тяжёлые» слайды, которые могут замедлять рендеринг или экспорт в PDF?**  
+Нет единого свойства сложности. Обойдите [Presentation::get_Slides](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_slides/) и коллекцию [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ibaseslide/get_shapes/) каждого слайда. Используйте количество фигур и наличие больших изображений, эффектов, анимаций или мультимедиа как индикаторы, а также измерьте репрезентативный рендеринг или экспорт перед тем, как считать слайд подтверждённым узким местом производительности.

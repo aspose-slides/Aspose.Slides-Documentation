@@ -5,54 +5,118 @@ type: docs
 weight: 80
 url: /tr/cpp/save-presentation/
 keywords:
-- PowerPoint'i kaydet
-- OpenDocument'i kaydet
+- PowerPoint kaydet
+- OpenDocument kaydet
 - sunumu kaydet
 - slaytı kaydet
-- PPT'yi kaydet
-- PPTX'i kaydet
-- ODP'yi kaydet
-- sunumu dosyaya
-- sunumu akışa
+- PPT kaydet
+- PPTX kaydet
+- ODP kaydet
+- dosyaya sunum
+- akışa sunum
 - önceden tanımlı görünüm türü
-- Kesin Office Open XML Biçimi
+- Katı Office Open XML Biçimi
 - Zip64 modu
 - küçük resmi yenileme
 - kaydetme ilerlemesi
 - C++
 - Aspose.Slides
-description: "Aspose.Slides kullanarak C++'ta sunumları nasıl kaydedeceğinizi keşfedin—düzenleri, yazı tiplerini ve efektleri koruyarak PowerPoint veya OpenDocument olarak dışa aktarın."
+description: "Aspose.Slides kullanarak C++'ta PowerPoint ve OpenDocument sunumlarını dosyalara veya akışlara kaydedin ve PPTX çıktısını ve ilerleme raporlamasını yapılandırın."
 ---
 ## **Genel Bakış**
 
-[**C++'ta Sunumları Açma**](/slides/tr/cpp/open-presentation/) bir sunumu açmak için [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının nasıl kullanılacağını açıklamıştır. Bu makale, sunumların nasıl oluşturulup kaydedileceğini anlatır. [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfı bir sunumun içeriğini tutar. Sıfırdan bir sunum oluşturuyor veya mevcut bir sunumu değiştiriyor olun, işiniz bittiğinde onu kaydetmek isteyeceksiniz. Aspose.Slides for C++ ile **dosya**ya ya da **akış**a kaydedebilirsiniz. Bu makale, bir sunumu kaydetmenin farklı yollarını açıklar.
+Sunum oluşturduktan veya [var olan bir sunumu açtıktan](/slides/tr/cpp/open-presentation/) sonra, sonucu yazmak için [Presentation::Save](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/save/) metodunu kullanın. Aspose.Slides for C++ bir sunumu PowerPoint, OpenDocument, PDF ve diğer biçimlerde bir dosyaya veya akışa kaydedebilir. Aşağıdaki bölümler standart kaydetme işlemlerini ve PPTX çıktısı için mevcut seçenekleri kapsar.
 
 ## **Sunumları Dosyalara Kaydet**
 
-Sunumu bir dosyaya kaydetmek için [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının `Save` metodunu çağırın. Metoda dosya adını ve kaydetme biçimini iletin. Aşağıdaki örnek, Aspose.Slides ile bir sunumun nasıl kaydedileceğini gösterir.
+Bir sunumu bir dosyaya kaydetmek için, çıkış yolunu ve bir [SaveFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/saveformat/) değerini [Presentation::Save](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/save/) metoduna geçirin. Biçim değeri, Aspose.Slides'in oluşturduğu dosya türünü belirler.
+
+Aşağıdaki örnek bir sunum oluşturur ve PPTX dosyası olarak kaydeder:
 
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 auto presentation = MakeObject<Presentation>();
 
-// Burada bazı işlemler yapın...
- 
-// Sunumu bir dosyaya kaydedin.
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+// Sunum içeriğini buraya ekleyin veya değiştirin.
 
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+## **Sunumları Orijinal Biçimlerinde Kaydet**
+
+[Orijinal Sunum Biçimini Belirleme](/slides/tr/cpp/detect-presentation-source-format/) örnekleri, yeni oluşturulan sunumların davranışı ve kaynak ile çıktı biçimleri arasındaki fark için bakınız.
+
+Batch işleme uygulamasında, giriş biçimi önceden bilinmeyebilir. Bir dosya yüklendikten sonra, orijinal biçimini [IPresentation::get_SourceFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/get_sourceformat/) ile okuyun. Oluşan [SourceFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/sourceformat/) değerini [SlideUtil::ToSaveFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides.util/slideutil/tosaveformat/) metoduna geçirin, karşılık gelen [SaveFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/saveformat/) değerini elde edin ve ardından [Presentation::Save](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/save/) ile değiştirilen sunumu yazın.
+
+Aşağıdaki tam örnek, bir giriş klasöründeki her dosyayı işler, başlığını günceller ve yüklendiği biçimde bir çıktı klasörüne kaydeder:
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/exception.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Util;
+using namespace System;
+using namespace System::IO;
+
+String inputDirectory = u"Input";
+String outputDirectory = u"Output";
+
+Directory::CreateDirectory_(outputDirectory);
+
+auto inputPaths = Directory::GetFiles(inputDirectory);
+for (const auto& inputPath : inputPaths)
+{
+    try
+    {
+        auto presentation = MakeObject<Presentation>(inputPath);
+
+        auto sourceFormat = presentation->get_SourceFormat();
+        auto saveFormat = SlideUtil::ToSaveFormat(sourceFormat);
+
+        presentation->get_DocumentProperties()->set_Title(u"Processed by the batch application");
+
+        auto outputPath = Path::Combine(outputDirectory, Path::GetFileName(inputPath));
+        presentation->Save(outputPath, saveFormat);
+        presentation->Dispose();
+    }
+    catch (ArgumentException& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Cannot map the source format of '{0}': {1}", inputPath, exception->get_Message()));
+    }
+    catch (Exception& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Cannot process '{0}': {1}", inputPath, exception->get_Message()));
+    }
+}
+```
+
+[SlideUtil::ToSaveFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides.util/slideutil/tosaveformat/) PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP ve PowerPoint XML'i ilgili sunum kaydetme biçimlerine eşler. Yalnızca sunum kaynak biçimlerini eşler; PDF, HTML, TIFF veya görseller gibi dışa aktarım biçimlerini seçmek için tasarlanmamıştır. Desteklenmeyen veya geçersiz bir [SourceFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/sourceformat/) değeri geçmek bir [ArgumentException](https://reference.aspose.com/slides/tr/cpp/system/argumentexception/) oluşturur.
+
+Legacy PPT, PPS ve POT dosyaları aynı ikili kapsayıcıyı kullanır. Böyle bir sunum dosya uzantısı olmadan bir akıştan yüklendiğinde bir PPS veya POT dosyası PPT olarak tanımlanabilir. Bu eski alt türleri korumanız gerekiyorsa, orijinal dosya adını veya biçim üst verilerini ayrı olarak saklayın ve çıktı dosya adı ve biçimini seçerken kullanın.
+
 ## **Sunumları Akışlara Kaydet**
 
-[Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının `Save` metoduna bir çıktı akışı vererek sunumu bir akışa kaydedebilirsiniz. Sunum birçok akış türüne yazılabilir. Aşağıdaki örnekte yeni bir sunum oluşturup bir dosya akışına kaydediyoruz.
+Bir sunumu son dosya yoluna bağlı olmadan yazmak için, yazılabilir bir [Stream](https://reference.aspose.com/slides/tr/cpp/system.io/stream/) ve bir [SaveFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/saveformat/) değerini [Presentation::Save](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/save/) metoduna geçirin. Bu yöntem, çıktının bir web hizmetinden döndürülmesi, bir veritabanında saklanması veya bellekte işlenmesi gerektiğinde faydalıdır.
+
+Aşağıdaki örnek yeni bir sunumu bir dosya akışına kaydeder:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -60,26 +124,26 @@ presentation->Dispose();
 #include <system/io/file_mode.h>
 #include <system/io/file_stream.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::IO;
 
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 auto presentation = MakeObject<Presentation>();
+auto outputStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
 
-auto fileStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
+presentation->Save(outputStream, SaveFormat::Pptx);
 
-// Sunumu akışa kaydedin.
-presentation->Save(fileStream, SaveFormat::Pptx);
-
+outputStream->Close();
 presentation->Dispose();
-fileStream->Close();
 ```
 
 ## **Önceden Tanımlı Görünüm Türüyle Sunumları Kaydet**
 
-Aspose.Slides, oluşturulan sunum açıldığında PowerPoint’in kullandığı başlangıç görünümünü [ViewProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/viewproperties/) sınıfı aracılığıyla ayarlamanıza izin verir. [ViewType](https://reference.aspose.com/slides/tr/cpp/aspose.slides/viewtype/) enum değerlerinden birini kullanarak `set_LastView` metodunu çağırın.
+PowerPoint'in kaydedilen bir sunumu ilk açtığı görünümü belirtebilirsiniz. Kaydetmeden önce bir [ViewType](https://reference.aspose.com/slides/tr/cpp/aspose.slides/viewtype/) değeriyle [ViewProperties::set_LastView](https://reference.aspose.com/slides/tr/cpp/aspose.slides/viewproperties/set_lastview/) metodunu çağırın.
+
+Aşağıdaki örnek Slide Master görünümünü başlangıç görünümü olarak ayarlar:
 
 ```cpp
 #include <DOM/IViewProperties.h>
@@ -87,6 +151,7 @@ Aspose.Slides, oluşturulan sunum açıldığında PowerPoint’in kullandığı
 #include <Export/SaveFormat.h>
 #include <ViewType.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
@@ -94,16 +159,14 @@ using namespace System;
 auto presentation = MakeObject<Presentation>();
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
-
 presentation->Save(u"SlideMasterView.pptx", SaveFormat::Pptx);
+
 presentation->Dispose();
 ```
 
-## **Sunumları Kesin Office Open XML Biçiminde Kaydet**
+## **Sunumları Katı Office Open XML Biçiminde Kaydet**
 
-Aspose.Slides, bir sunumu Kesin Office Open XML biçiminde kaydetmenize olanak tanır. Kaydederken `PptxOptions` sınıfını kullanıp `Conformance` özelliğini ayarlayın. `Conformance.Iso29500_2008_Strict` değerini ayarlarsanız, çıktı dosyası Kesin Office Open XML biçiminde kaydedilir.
-
-Aşağıdaki örnek bir sunum oluşturup Kesin Office Open XML biçiminde kaydeder.
+Office Open XML'in Strict profiline uygun bir PPTX dosyası oluşturmak için bir [PptxOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/pptxoptions/) örneği oluşturun ve `Conformance::Iso29500_2008_Strict` ile [PptxOptions::set_Conformance](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/pptxoptions/set_conformance/) metodunu çağırın. Ardından seçenekleri [Presentation::Save](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/save/) metoduna geçirin.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -111,6 +174,7 @@ Aşağıdaki örnek bir sunum oluşturup Kesin Office Open XML biçiminde kayded
 #include <Export/PptxOptions.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
@@ -118,27 +182,23 @@ using namespace System;
 auto options = MakeObject<PptxOptions>();
 options->set_Conformance(Conformance::Iso29500_2008_Strict);
 
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 auto presentation = MakeObject<Presentation>();
 
-// Sunumu Kesin Office Open XML biçiminde kaydedin.
 presentation->Save(u"StrictOfficeOpenXml.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
 ## **Sunumları Office Open XML Biçiminde Zip64 Modunda Kaydet**
 
-Office Open XML dosyası, sıkıştırılmamış dosya boyutu, sıkıştırılmış dosya boyutu ve arşiv toplamı için 4 GB (2^32 bayt) limitleri ve en fazla 65 535 (2^16‑1) dosya limiti getiren bir ZIP arşividir. Zip64 biçim uzantıları bu limitleri 2^64’e yükseltir.
+Standart ZIP arşivi her girişin sıkıştırılmış ve sıkıştırılmamış boyutunu, toplam arşiv boyutunu ve giriş sayısını sınırlar. PPTX bir ZIP arşivi olduğundan, çok büyük bir sunum bu sınırları aşabilir. Zip64 uzantıları uygulanabilir boyut ve giriş sayısı limitlerini yükseltir.
 
-[IPptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/ipptxoptions/set_zip64mode/) metodu, bir Office Open XML dosyasını kaydederken Zip64 uzantılarını ne zaman kullanacağınızı seçmenize izin verir.
+[```PptxOptions::set_Zip64Mode```](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/pptxoptions/set_zip64mode/) ile Aspose.Slides'in Zip64 uzantılarını yazıp yazmayacağını kontrol edin:
 
-Bu metod şu modlarla kullanılabilir:
+- `IfNecessary` sunum standart ZIP limitlerini aştığında yalnızca Zip64 kullanır. Bu varsayılan moddur.
+- `Never` Zip64 uzantılarını devre dışı bırakır.
+- `Always` her zaman Zip64 uzantılarını yazar.
 
-- `IfNecessary` yalnızca sunum yukarıdaki sınırlamaları aşıyorsa Zip64 uzantılarını kullanır. Varsayılan moddur.
-- `Never` Zip64 uzantılarını asla kullanmaz.
-- `Always` her zaman Zip64 uzantılarını kullanır.
-
-Aşağıdaki kod, Zip64 uzantıları etkinleştirilmiş bir PPTX dosyası olarak bir sunumu nasıl kaydedeceğinizi gösterir:
+Aşağıdaki örnek çıktıyı her zaman Zip64 uzantılarını etkinleştirir:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -146,43 +206,36 @@ Aşağıdaki kod, Zip64 uzantıları etkinleştirilmiş bir PPTX dosyası olarak
 #include <Export/SaveFormat.h>
 #include <Export/Zip64Mode.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_Zip64Mode(Zip64Mode::Always);
-
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, pptxOptions);
+auto options = MakeObject<PptxOptions>();
+options->set_Zip64Mode(Zip64Mode::Always);
+
+presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-`Zip64Mode.Never` ile kaydettiğinizde, sunum ZIP32 biçiminde kaydedilemezse bir [PptxException](https://reference.aspose.com/slides/tr/cpp/aspose.slides/pptxexception/) fırlatılır.
+{{% alert color="warning" title="Warning" %}}
+`Zip64Mode` `Never` olarak ayarlanırsa ve sunum standart ZIP limitlerine sığmazsa, kaydetme işlemi bir [PptxException](https://reference.aspose.com/slides/tr/cpp/aspose.slides/pptxexception/) fırlatır.
 {{% /alert %}}
 
 ## **Sunumları Office Open XML Biçiminde Sıkıştırma Seviyeleriyle Kaydet**
 
-Büyük sunumlarla çalışırken, dosya boyutu ile işleme süresini dengelemek için sıkıştırma seviyesini ayarlayabilirsiniz. Gereksinimlerinize bağlı olarak daha hızlı işleme ya da daha küçük çıktı dosyaları tercih edebilirsiniz.
+PPTX çıktısı için [PptxOptions::set_CompressionLevel](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/pptxoptions/set_compressionlevel/) metodunu çağırarak kaydetme hızını dosya boyutuna göre dengeleyebilirsiniz. [CompressionLevel](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/compressionlevel/) enum\'u şu değerleri sağlar:
 
-Aspose.Slides, Office Open XML biçiminde bir sunumu kaydederken kullanılacak sıkıştırma seviyesini belirlemenize olanak tanıyan [PptxOptions::set_CompressionLevel](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/pptxoptions/set_compressionlevel/) metodunu sağlar.
+- `None` veriyi sıkıştırma olmadan depolar.
+- `Level1` en hızlı sıkıştırmayı ve en büyük sıkıştırılmış çıktıyı sağlar.
+- `Level2`‑`Level5` daha küçük çıktıyı kaydetme hızı pahasına tercih eder.
+- `Level6` kaydetme hızı ve dosya boyutunu dengeler. Bu varsayılan düzeydir.
+- `Level7` ve `Level8` daha küçük çıktıyı daha fazla tercih eder.
+- `Level9` en güçlü sıkıştırmayı sağlar ve en çok işlem süresi gerektirir.
 
-Mevcut sıkıştırma seviyeleri şunlardır:
-
-- **None**: Sıkıştırma uygulanmaz. Dosyalar olduğu gibi saklanır.
-- **Level1**: En düşük sıkıştırma oranıyla en hızlı sıkıştırma.
-- **Level2**: **Level1**’e göre biraz daha iyi sıkıştırma oranı, daha hızlı.
-- **Level3**: **Level2**’ye göre daha iyi sıkıştırma, işleme süresi orta düzeyde.
-- **Level4**: **Level3**’ten daha iyi sıkıştırma.
-- **Level5**: **Level4**’e ek olarak daha fazla sıkıştırma, ek işleme süresi.
-- **Level6**: İşleme hızı ve dosya boyutu arasında iyi bir denge sunan standart sıkıştırma. *Varsayılan sıkıştırma seviyesidir*.
-- **Level7**: **Level6**’dan daha iyi sıkıştırma, daha yavaş işleme.
-- **Level8**: **Level7**’den daha iyi sıkıştırma.
-- **Level9**: Maksimum sıkıştırma. En küçük dosya boyutunu üretir, ancak en uzun işleme süresine sahiptir.
-
-Aşağıdaki örnek, bir sunumu *sıkıştırma olmadan* PPTX dosyası olarak kaydetmeyi gösterir:
+Aşağıdaki örnek bir sunumu sıkıştırma olmadan kaydeder:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -191,98 +244,79 @@ Aşağıdaki örnek, bir sunumu *sıkıştırma olmadan* PPTX dosyası olarak ka
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
 
-using Aspose::Slides::Export::CompressionLevel;
-using Aspose::Slides::Export::PptxOptions;
-using Aspose::Slides::Export::SaveFormat;
-using Aspose::Slides::Presentation;
-using System::MakeObject;
-
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_CompressionLevel(CompressionLevel::None);
-
-auto presentation = MakeObject<Presentation>(u"Sample.pptx");
-presentation->Save(u"Sample-out.pptx", SaveFormat::Pptx, pptxOptions);
-presentation->Dispose();
-```
-
-Bu örnek, bir sunumu *maksimum sıkıştırma* ile PPTX dosyası olarak kaydetmeyi gösterir:
-
-```cpp
-#include <DOM/Presentation.h>
-#include <Export/CompressionLevel.h>
-#include <Export/PptxOptions.h>
-#include <Export/SaveFormat.h>
-#include <system/smart_ptr.h>
-
-using Aspose::Slides::Export::CompressionLevel;
-using Aspose::Slides::Export::PptxOptions;
-using Aspose::Slides::Export::SaveFormat;
-using Aspose::Slides::Presentation;
-using System::MakeObject;
-
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_CompressionLevel(CompressionLevel::Level9);
-
-auto presentation = MakeObject<Presentation>(u"Sample.pptx");
-presentation->Save(u"Sample-level9.pptx", SaveFormat::Pptx, pptxOptions);
-presentation->Dispose();
-```
-
-## **Küçük Resmi Yenilemeden Sunumları Kaydet**
-
-[PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) metodu, bir sunumu PPTX olarak kaydederken küçük resim oluşturulmasını kontrol eder:
-
-- `true` olarak ayarlanırsa, kaydetme sırasında küçük resim yenilenir. Bu varsayılandır.
-- `false` olarak ayarlanırsa, mevcut küçük resim korunur. Sunumda küçük resim yoksa hiç oluşturulmaz.
-
-Aşağıdaki kodda, sunum küçük resmi yenilenmeden PPTX olarak kaydedilir.
-
-```cpp
-#include <DOM/Presentation.h>
-#include <Export/PptxOptions.h>
-#include <Export/SaveFormat.h>
-#include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_RefreshThumbnail(false);
-
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx, pptxOptions);
+auto options = MakeObject<PptxOptions>();
+options->set_CompressionLevel(CompressionLevel::None);
+
+presentation->Save(u"OutputNoCompression.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
-Bu seçenek, PPTX formatında bir sunumu kaydetme süresini azaltmaya yardımcı olur.
+Aşağıdaki örnek en yüksek sıkıştırma seviyesini kullanır:
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/CompressionLevel.h>
+#include <Export/PptxOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+
+auto options = MakeObject<PptxOptions>();
+options->set_CompressionLevel(CompressionLevel::Level9);
+
+presentation->Save(u"OutputMaximumCompression.pptx", SaveFormat::Pptx, options);
+presentation->Dispose();
+```
+
+## **Sunumları Küçük Resmi Yenilemeksizin Kaydet**
+
+Bir sunum PPTX olarak kaydedildiğinde, [PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) belge küçük resmini kontrol eder:
+
+- `true` kaydetme sırasında küçük resmi yeniden oluşturur. Bu varsayılan değerdir.
+- `false` mevcut küçük resmi korur. Sunumda küçük resim yoksa Aspose.Slides bir tane oluşturmaz.
+
+Aşağıdaki örnek bir sunumu küçük resmini yenilemeden kaydeder:
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/PptxOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+
+auto options = MakeObject<PptxOptions>();
+options->set_RefreshThumbnail(false);
+
+presentation->Save(u"Output.pptx", SaveFormat::Pptx, options);
+presentation->Dispose();
+```
+
+{{% alert color="info" title="Note" %}}
+Küçük resim yenilemenin devre dışı bırakılması, bir PPTX dosyasının kaydedilme süresini azaltabilir.
 {{% /alert %}}
 
 ## **Kaydetme İlerleme Güncellemelerini Yüzde Olarak Al**
 
-[IProgressCallback](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iprogresscallback/) arayüzü, [ISaveOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/isaveoptions/) arayüzünün `set_ProgressCallback` metodu ve soyut [SaveOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/saveoptions/) sınıfı üzerinden kullanılır. `set_ProgressCallback` ile bir [IProgressCallback](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iprogresscallback/) uygulaması atayarak kaydetme ilerlemesini yüzde olarak alabilirsiniz.
+Kaydetme işlemini izlemek için [IProgressCallback](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iprogresscallback/) arayüzünü uygulayın ve uygulamayı [ISaveOptions::set_ProgressCallback](https://reference.aspose.com/slides/tr/cpp/aspose.slides.export/isaveoptions/set_progresscallback/) metoduna geçirin. Aspose.Slides, dışa aktarım sırasında ilerleme değerleriyle [IProgressCallback::Reporting](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iprogresscallback/reporting/) metodunu çağırır.
 
-Aşağıdaki kod parçacıkları, `IProgressCallback` nasıl kullanılacağını gösterir.
+Aşağıdaki örnek PDF dışa aktarımının ilerlemesini konsola bildirir:
 
-```cpp
-#include <IProgressCallback.h>
-#include <system/console.h>
-using namespace Aspose::Slides;
-using namespace System;
-
-class ExportProgressHandler : public IProgressCallback
-{
-public:
-    void Reporting(double progressValue) override
-    {
-        // Burada ilerleme yüzde değerini kullanın.
-        int progress = static_cast<int>(progressValue);
-
-        Console::WriteLine(u"{0}% of the file has been converted.", progress);
-    }
-};
-```
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/PdfOptions.h>
@@ -290,49 +324,48 @@ public:
 #include <IProgressCallback.h>
 #include <system/console.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Yukarıda tanımlanan ilerleme geri çağırma sınıfı.
 class ExportProgressHandler : public IProgressCallback
 {
 public:
     void Reporting(double progressValue) override
     {
         int progress = static_cast<int>(progressValue);
-
         Console::WriteLine(u"{0}% of the file has been converted.", progress);
     }
 };
 
-auto saveOptions = MakeObject<PdfOptions>();
-saveOptions->set_ProgressCallback(MakeObject<ExportProgressHandler>());
+auto options = MakeObject<PdfOptions>();
+options->set_ProgressCallback(MakeObject<ExportProgressHandler>());
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"Output.pdf", SaveFormat::Pdf, saveOptions);
+presentation->Save(u"Output.pdf", SaveFormat::Pdf, options);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose, kendi API’sını kullanarak **Ücretsiz PowerPoint Bölücü** uygulaması geliştirmiştir ([https://products.aspose.app/slides/tr/splitter](https://products.aspose.app/slides/tr/splitter)). Bu uygulama, seçilen slaytları yeni PPTX veya PPT dosyaları olarak kaydederek bir sunumu birden fazla dosyaya bölmenizi sağlar.
+{{% alert color="info" title="Note" %}}
+Aspose, Aspose.Slides API ile oluşturulmuş ücretsiz bir [PowerPoint Splitter](https://products.aspose.app/slides/tr/splitter) sunar. Bu araç, bir sunumdan seçili slaytları ayrı PPT veya PPTX dosyaları olarak kaydeder.
 {{% /alert %}}
 
-## **SSS**
+## **Sık Sorulan Sorular**
 
-**“Hızlı kaydet” (artımlı kaydet) destekleniyor mu, böylece yalnızca değişiklikler mi yazılıyor?**
+**Aspose.Slides artımlı veya “hızlı kayıt” özelliğini destekliyor mu?**
 
-Hayır. Kaydetme her seferinde tam hedef dosyasını oluşturur; artımlı “hızlı kaydet” desteklenmez.
+Hayır. Her kaydetme işlemi yalnızca değişen bölümleri güncellemek yerine tam bir çıktı dosyası yazar.
 
-**Aynı Presentation örneğini birden fazla thread’den kaydetmek güvenli mi?**
+**Birden fazla iş parçacığı aynı [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) örneğini kaydedebilir mi?**
 
-Hayır. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) örneği **thread‑safe değildir** (/slides/tr/cpp/multithreading/); tek bir thread’den kaydedin.
+Hayır. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) örneği [çok iş parçacıklı değildir](/slides/tr/cpp/multithreading/). Her bir örneğe aynı anda yalnızca bir iş parçacığından erişin ve kaydedin.
 
-**Kaydederken köprüler ve harici bağlı dosyalar ne olur?**
+**Bir sunumu kaydettiğimde hiperlinkler ve dışarıdan bağlanan dosyalar ne olur?**
 
-[Hyperlinkler](/slides/tr/cpp/manage-hyperlinks/) korunur. Harici bağlı dosyalar (örneğin göreceli yollarla eklenen videolar) otomatik olarak kopyalanmaz—referans verilen yolların erişilebilir olduğundan emin olun.
+[Hiperlinkler](/slides/tr/cpp/manage-hyperlinks/) sunumda kalır. Aspose.Slides dışarıdan bağlanan dosyaları kopyalamaz, bu yüzden kaydedilen sunum hâlâ bu dosyaların konumlarına erişebilmelidir.
 
-**Belge meta verilerini (Yazar, Başlık, Şirket, Tarih) ayarlayıp/ kaydedebilir miyim?**
+**Yazar, başlık, şirket ve oluşturma tarihi gibi belge meta verilerini kaydedebilir miyim?**
 
-Evet. Standart [belge özellikleri](/slides/tr/cpp/presentation-properties/) desteklenir ve kaydetme sırasında dosyaya yazılır.
+Evet. Kaydetmeden önce uygun [belge özelliklerini](/slides/tr/cpp/presentation-properties/) ayarlayın ve Aspose.Slides bunları çıktı dosyasına yazar.

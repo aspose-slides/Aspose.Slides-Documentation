@@ -15,49 +15,107 @@ keywords:
 - presentazione su file
 - presentazione su stream
 - tipo di visualizzazione predefinito
-- Formato Strict Office Open XML
+- Formato Strict di Office Open XML
 - modalità Zip64
 - aggiornamento miniatura
-- progresso di salvataggio
+- salvataggio del progresso
 - PHP
 - Aspose.Slides
-description: "Scopri come salvare le presentazioni usando Aspose.Slides per PHP tramite Java — esporta in PowerPoint o OpenDocument mantenendo layout, caratteri ed effetti."
+description: "Salva presentazioni PowerPoint e OpenDocument su file o stream in PHP con Aspose.Slides, e configura l'output PPTX e la segnalazione del progresso."
 ---
 ## **Panoramica**
 
-[Open Presentations in PHP](/slides/it/php-java/open-presentation/) ha descritto come usare la classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) per aprire una presentazione. Questo articolo spiega come creare e salvare presentazioni. La classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) contiene il contenuto di una presentazione. Che tu stia creando una presentazione da zero o modificando una esistente, vorrai salvarla quando hai finito. Con Aspose.Slides per PHP, puoi salvare in un **file** o **stream**. Questo articolo spiega i diversi modi per salvare una presentazione.
+Dopo aver creato una presentazione o [apri una presentazione esistente](/slides/it/php-java/open-presentation/), usa il metodo [Presentation::save](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/#save) per scrivere il risultato. Aspose.Slides per PHP tramite Java può salvare una presentazione su file o stream in formati PowerPoint, OpenDocument, PDF e altri formati. Le sezioni seguenti descrivono le operazioni di salvataggio standard e le opzioni disponibili per l'output PPTX.
 
 ## **Salva presentazioni su file**
 
-Salva una presentazione su un file chiamando il metodo `save` della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/). Passa il nome del file e il formato di salvataggio al metodo. L'esempio seguente mostra come salvare una presentazione con Aspose.Slides.
+Per salvare una presentazione su un file, passa il percorso di output e un valore [SaveFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/saveformat/) al metodo [Presentation::save](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/#save). Il valore del formato determina il tipo di file che Aspose.Slides crea.
+
+Il seguente esempio crea una presentazione e la salva come file PPTX:
 
 ```php
-// Istanziare la classe Presentation che rappresenta un file di presentazione.
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-    // Eseguire qualche operazione qui...
+    // Aggiungi o modifica il contenuto della presentazione qui.
 
-    // Salvare la presentazione su un file.
     $presentation->save("Output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Salva presentazioni su stream**
+## **Salva presentazioni nel loro formato originale**
 
-Puoi salvare una presentazione su uno stream passando uno stream di output al metodo `save` della classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/). Una presentazione può essere scritta su molti tipi di stream. Nell'esempio sotto, creiamo una nuova presentazione e la salviamo su uno stream di file.
+Per esempi di rilevamento di file e stream, il comportamento delle presentazioni appena create e la distinzione tra i formati di origine e di destinazione, vedere [Determina il formato originale della presentazione](/slides/it/php-java/detect-presentation-source-format/).
+
+In un'applicazione di elaborazione batch, il formato di input potrebbe non essere noto in anticipo. Dopo aver caricato un file, leggi il suo formato originale dal metodo [Presentation::getSourceFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/#getSourceFormat). Passa il valore [SourceFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/sourceformat/) risultante a [SlideUtil::toSaveFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/slideutil/#toSaveFormat) per ottenere il corrispondente valore [SaveFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/saveformat/), e quindi utilizza [Presentation::save](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/#save) per scrivere la presentazione modificata.
+
+Il seguente esempio completo elabora tutti i file in una cartella di input, aggiorna il titolo e lo salva in una cartella di output nel formato da cui è stato caricato:
 
 ```php
-// Istanziare la classe Presentation che rappresenta un file di presentazione.
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$inputDirectory = __DIR__ . DIRECTORY_SEPARATOR . "Input";
+$outputDirectory = __DIR__ . DIRECTORY_SEPARATOR . "Output";
+
+if (!is_dir($outputDirectory) && !mkdir($outputDirectory, 0777, true)) {
+    echo("Cannot create the output directory." . PHP_EOL);
+}
+
+$inputFiles = is_dir($inputDirectory) ? scandir($inputDirectory) : false;
+if ($inputFiles !== false && is_dir($outputDirectory)) {
+    foreach ($inputFiles as $fileName) {
+        $inputPath = $inputDirectory . DIRECTORY_SEPARATOR . $fileName;
+        if (!is_file($inputPath)) {
+            continue;
+        }
+
+        $presentation = null;
+        $presentationLoaded = false;
+        try {
+            $presentation = new Presentation($inputPath);
+            $presentationLoaded = true;
+            $saveFormat = SlideUtil::toSaveFormat($presentation->getSourceFormat());
+            $presentation->getDocumentProperties()->setTitle("Processed by the batch application");
+
+            $outputPath = $outputDirectory . DIRECTORY_SEPARATOR . $fileName;
+            $presentation->save($outputPath, $saveFormat);
+        } catch (\Throwable $exception) {
+            echo("Cannot process '" . $inputPath . "': " . $exception->getMessage() . PHP_EOL);
+        } finally {
+            if ($presentationLoaded) {
+                $presentation->dispose();
+            }
+        }
+    }
+}
+```
+
+[SlideUtil::toSaveFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/slideutil/#toSaveFormat) mappa PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP e PowerPoint XML ai loro corrispondenti formati di salvataggio della presentazione. Mappa solo i formati di origine della presentazione; non è destinato a selezionare formati di esportazione come PDF, HTML, TIFF o immagini. Passare un valore [SourceFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/sourceformat/) non supportato o non valido genera un [IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html).
+
+I file legacy PPT, PPS e POT utilizzano lo stesso contenitore binario. Quando una presentazione di questo tipo viene caricata da uno stream senza estensione di file, un file PPS o POT può quindi essere identificato come PPT. Se è necessario preservare questi sottotipi legacy, conserva separatamente il nome file originale o i metadati del formato e usali quando scegli il nome file e il formato di output.
+
+## **Salva presentazioni su stream**
+
+Per scrivere una presentazione senza fare affidamento su un percorso di file definitivo, passa uno stream scrivibile e un valore [SaveFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/saveformat/) al metodo [Presentation::save](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/#save). Questo approccio è utile quando l'output deve essere restituito da un servizio web, memorizzato in un database o elaborato in memoria.
+
+Il seguente esempio salva una nuova presentazione su uno stream di file:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-    $fileStream = new Java("java.io.FileOutputStream", "Output.pptx");
+    $outputStream = new Java("java.io.FileOutputStream", "Output.pptx");
     try {
-        // Salvare la presentazione sullo stream.
-        $presentation->save($fileStream, SaveFormat::Pptx);
+        $presentation->save($outputStream, SaveFormat::Pptx);
     } finally {
-        $fileStream->close();
+        $outputStream->close();
     }
 } finally {
     $presentation->dispose();
@@ -66,9 +124,15 @@ try {
 
 ## **Salva presentazioni con un tipo di visualizzazione predefinito**
 
-Aspose.Slides ti consente di impostare la visualizzazione iniziale che PowerPoint usa quando la presentazione generata viene aperta tramite la classe [ViewProperties](https://reference.aspose.com/slides/it/php-java/aspose.slides/viewproperties/). Usa il metodo [setLastView](https://reference.aspose.com/slides/it/php-java/aspose.slides/viewproperties/#setLastView) con un valore dell'enumerazione [ViewType](https://reference.aspose.com/slides/it/php-java/aspose.slides/viewtype/).
+È possibile specificare la visualizzazione con cui PowerPoint apre inizialmente una presentazione salvata. Usa il metodo [ViewProperties::setLastView](https://reference.aspose.com/slides/it/php-java/aspose.slides/viewproperties/#setLastView) con un valore [ViewType](https://reference.aspose.com/slides/it/php-java/aspose.slides/viewtype/) prima del salvataggio.
+
+Il seguente esempio configura la visualizzazione Slide Master come visualizzazione iniziale:
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ViewType;
+
 $presentation = new Presentation();
 try {
     $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
@@ -78,98 +142,104 @@ try {
 }
 ```
 
-## **Salva presentazioni nel formato Strict Office Open XML**
+## **Salva presentazioni nel formato Strict di Office Open XML**
 
-Aspose.Slides ti permette di salvare una presentazione nel formato Strict Office Open XML. Usa la classe [PptxOptions](https://reference.aspose.com/slides/it/php-java/aspose.slides/pptxoptions/) e imposta la sua proprietà conformance durante il salvataggio. Se imposti [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/it/php-java/aspose.slides/conformance/#Iso29500_2008_Strict), il file di output viene salvato nel formato Strict Office Open XML.
-
-L'esempio seguente crea una presentazione e la salva nel formato Strict Office Open XML.
+Per creare un file PPTX conforme al profilo Strict di Office Open XML, crea un'istanza [PptxOptions](https://reference.aspose.com/slides/it/php-java/aspose.slides/pptxoptions/) e usa il suo metodo [PptxOptions::setConformance](https://reference.aspose.com/slides/it/php-java/aspose.slides/pptxoptions/#setConformance) con [Conformance::Iso29500_2008_Strict](https://reference.aspose.com/slides/it/php-java/aspose.slides/conformance/#Iso29500-2008-Strict). Quindi passa le opzioni al metodo [Presentation::save](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/#save).
 
 ```php
+use aspose\slides\Conformance;
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $options = new PptxOptions();
 $options->setConformance(Conformance::Iso29500_2008_Strict);
 
-// Istanziare la classe Presentation che rappresenta un file di presentazione.
 $presentation = new Presentation();
 try {
-    // Salvare la presentazione nel formato Strict Office Open XML.
     $presentation->save("StrictOfficeOpenXml.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Salva presentazioni nel formato Office Open XML in modalità Zip64**
+## **Salva presentazioni in formato Office Open XML in modalità Zip64**
 
-Un file Office Open XML è un archivio ZIP che impone limiti di 4 GB (2^32 byte) sulla dimensione non compressa di qualsiasi file, sulla dimensione compressa di qualsiasi file e sulla dimensione totale dell'archivio, e limita anche l'archivio a 65 535 (2^16‑1) file. Le estensioni del formato ZIP64 aumentano questi limiti a 2^64.
+Un archivio ZIP standard limita la dimensione compressa e non compressa di ciascuna voce, la dimensione totale dell'archivio e il numero di voci. Poiché un file PPTX è un archivio ZIP, una presentazione molto grande può superare tali limiti. Le estensioni ZIP64 aumentano i limiti di dimensione e di conteggio delle voci applicabili.
 
-Il metodo [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/it/php-java/aspose.slides/pptxoptions/#setZip64Mode) ti consente di scegliere quando usare le estensioni del formato ZIP64 durante il salvataggio di un file Office Open XML.
+Usa il metodo [PptxOptions::setZip64Mode](https://reference.aspose.com/slides/it/php-java/aspose.slides/pptxoptions/#setZip64Mode) per controllare se Aspose.Slides scrive le estensioni ZIP64:
 
-Questo metodo può essere usato con le seguenti modalità:
+- [IfNecessary](https://reference.aspose.com/slides/it/php-java/aspose.slides/zip64mode/#IfNecessary) usa ZIP64 solo quando la presentazione supera i limiti ZIP standard. Questo è la modalità predefinita.
+- [Never](https://reference.aspose.com/slides/it/php-java/aspose.slides/zip64mode/#Never) disabilita le estensioni ZIP64.
+- [Always](https://reference.aspose.com/slides/it/php-java/aspose.slides/zip64mode/#Always) scrive sempre le estensioni ZIP64.
 
-- [IfNecessary](https://reference.aspose.com/slides/it/php-java/aspose.slides/zip64mode/#IfNecessary) utilizza le estensioni del formato ZIP64 solo se la presentazione supera le limitazioni sopra. Questa è la modalità predefinita.
-- [Never](https://reference.aspose.com/slides/it/php-java/aspose.slides/zip64mode/#Never) non utilizza mai le estensioni del formato ZIP64.
-- [Always](https://reference.aspose.com/slides/it/php-java/aspose.slides/zip64mode/#Always) utilizza sempre le estensioni del formato ZIP64.
-
-Il codice seguente dimostra come salvare una presentazione come file PPTX con le estensioni del formato ZIP64 abilitate:
+Il seguente esempio abilita sempre le estensioni ZIP64 per la presentazione di output:
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setZip64Mode(Zip64Mode::Always);
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\Zip64Mode;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("OutputZip64.pptx", SaveFormat::Pptx, $pptxOptions);
+    $options = new PptxOptions();
+    $options->setZip64Mode(Zip64Mode::Always);
+
+    $presentation->save("OutputZip64.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Quando salvi con [Zip64Mode.Never](https://reference.aspose.com/slides/it/php-java/aspose.slides/zip64mode/#Never), viene generata un'eccezione [PptxException](https://reference.aspose.com/slides/it/php-java/aspose.slides/pptxexception/) se la presentazione non può essere salvata nel formato ZIP32.
+{{% alert color="warning" title="Warning" %}}
+Se [Zip64Mode::Never](https://reference.aspose.com/slides/it/php-java/aspose.slides/zip64mode/#Never) è usato e la presentazione non può rientrare nei limiti ZIP standard, l'operazione di salvataggio genera una [PptxException](https://reference.aspose.com/slides/it/php-java/aspose.slides/pptxexception/).
 {{% /alert %}}
 
-## **Salva presentazioni nel formato Office Open XML con livelli di compressione**
+## **Salva presentazioni in formato Office Open XML con livelli di compressione**
 
-Quando lavori con presentazioni di grandi dimensioni, puoi regolare il livello di compressione per bilanciare la dimensione del file e il tempo di elaborazione. In base alle tue esigenze, potresti preferire un'elaborazione più veloce o file di output più piccoli.
+Per l'output PPTX, è possibile bilanciare la velocità di salvataggio rispetto alla dimensione del file usando il metodo [PptxOptions::setCompressionLevel](https://reference.aspose.com/slides/it/php-java/aspose.slides/pptxoptions/#setCompressionLevel). La classe [CompressionLevel](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/) fornisce questi valori:
 
-Aspose.Slides fornisce il metodo [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/it/php-java/aspose.slides/pptxoptions/#setCompressionLevel), che consente di specificare il livello di compressione utilizzato durante il salvataggio di una presentazione nel formato Office Open XML.
+- [None](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#None) memorizza i dati senza compressione.
+- [Level1](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#Level1) fornisce la compressione più veloce e l'output compresso più grande.
+- [Level2](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#Level2) fino a [Level5](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#Level5) privilegiano progressivamente un output più piccolo rispetto alla velocità di salvataggio.
+- [Level6](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#Level6) bilancia la velocità di salvataggio e la dimensione del file. Questo è il livello predefinito.
+- [Level7](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#Level7) e [Level8](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#Level8) favoriscono ulteriormente un output più piccolo rispetto alla velocità di salvataggio.
+- [Level9](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#Level9) fornisce la compressione più forte e richiede più tempo di elaborazione.
 
-I seguenti livelli di compressione sono disponibili:
-
-- [**None**](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#None): Nessuna compressione è applicata. I file sono memorizzati così come sono.
-- [**Level1**](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#Level1): La compressione più veloce con il più basso rapporto di compressione.
-- [**Level2**](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#Level2): Compressione più veloce con un leggero miglioramento del rapporto di compressione rispetto a **Level1**.
-- [**Level3**](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#Level3): Fornisce una compressione migliore rispetto a **Level2** con un impatto moderato sul tempo di elaborazione.
-- [**Level4**](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#Level4): Fornisce una compressione migliore rispetto a **Level3**.
-- [**Level5**](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#Level5): Fornisce una compressione migliorata rispetto a **Level4** con tempo di elaborazione aggiuntivo.
-- [**Level6**](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#Level6): Compressione standard che offre un buon equilibrio tra velocità di elaborazione e dimensione del file. Questo è il *livello di compressione predefinito*.
-- [**Level7**](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#Level7): Fornisce una compressione migliore rispetto a **Level6** con elaborazione più lenta.
-- [**Level8**](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#Level8): Fornisce una compressione migliore rispetto a **Level7**.
-- [**Level9**](https://reference.aspose.com/slides/it/php-java/aspose.slides/compressionlevel/#Level9): Compressione massima. Produce la dimensione di file più piccola al costo del tempo di elaborazione più lungo.
-
-L'esempio seguente dimostra come salvare una presentazione come file PPTX *senza compressione*:
+Il seguente esempio salva una presentazione senza compressione:
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setCompressionLevel(CompressionLevel::None);
+use aspose\slides\CompressionLevel;
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("Sample-out.pptx", SaveFormat::Pptx, $pptxOptions);
+    $options = new PptxOptions();
+    $options->setCompressionLevel(CompressionLevel::None);
+
+    $presentation->save("OutputNoCompression.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Questo esempio mostra come salvare una presentazione come file PPTX con *compressione massima*:
+Il seguente esempio utilizza il livello di compressione massimo:
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setCompressionLevel(CompressionLevel::Level9);
+use aspose\slides\CompressionLevel;
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("Sample-level9.pptx", SaveFormat::Pptx, $pptxOptions);
+    $options = new PptxOptions();
+    $options->setCompressionLevel(CompressionLevel::Level9);
+
+    $presentation->save("OutputMaximumCompression.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
@@ -177,76 +247,82 @@ try {
 
 ## **Salva presentazioni senza aggiornare la miniatura**
 
-Il metodo [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/it/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) controlla la generazione della miniatura quando si salva una presentazione in PPTX:
+Quando una presentazione viene salvata come PPTX, il metodo [PptxOptions::setRefreshThumbnail](https://reference.aspose.com/slides/it/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) controlla la miniatura del documento:
 
-- Se impostato a `true`, la miniatura viene aggiornata durante il salvataggio. È il valore predefinito.
-- Se impostato a `false`, la miniatura corrente viene conservata. Se la presentazione non ha una miniatura, non ne viene generata alcuna.
+- `true` rigenera la miniatura durante l'operazione di salvataggio. Questo è il valore predefinito.
+- `false` conserva la miniatura esistente. Se la presentazione non ha una miniatura, Aspose.Slides non ne genera una.
 
-Nel codice seguito, la presentazione viene salvata in PPTX senza aggiornare la sua miniatura.
+Il seguente esempio salva una presentazione senza aggiornare la sua miniatura:
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setRefreshThumbnail(false);
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("Output.pptx", SaveFormat::Pptx, $pptxOptions);
-}
-finally {
-    $presentation->dispose();
-}
-```
+    $options = new PptxOptions();
+    $options->setRefreshThumbnail(false);
 
-{{% alert title="Info" color="info" %}}
-Questa opzione aiuta a ridurre il tempo necessario per salvare una presentazione in formato PPTX.
-{{% /alert %}}
-
-## **Salva aggiornamenti di progresso in percentuale**
-
-Il reporting del progresso di salvataggio è configurato tramite il metodo [setProgressCallback](https://reference.aspose.com/slides/it/php-java/aspose.slides/saveoptions/#setProgressCallback) su [SaveOptions](https://reference.aspose.com/slides/it/php-java/aspose.slides/saveoptions/) e le sue sottoclassi. Fornisci un proxy Java che implementa l'interfaccia [IProgressCallback](https://reference.aspose.com/slides/it/java/com.aspose.slides/iprogresscallback/); durante l'esportazione, il callback riceve aggiornamenti periodici in percentuale.
-
-Il seguente frammento di codice mostra come usare `IProgressCallback`.
-
-```php
-class ExportProgressHandler {
-    function reporting($progressValue) {
-        // Utilizzare qui il valore della percentuale di progresso.
-        $progress = java("java.lang.Double")->valueOf($progressValue)->intValue();
-        echo($progress . "% of the file has been converted.");
-    }
-}
-
-$progressHandler = java_closure(new ExportProgressHandler(), null, java("com.aspose.slides.IProgressCallback"));
-
-$saveOptions = new PdfOptions();
-$saveOptions->setProgressCallback($progressHandler);
-
-$presentation = new Presentation("Sample.pptx");
-try {
-    $presentation->save("Output.pdf", SaveFormat::Pdf, $saveOptions);
+    $presentation->save("Output.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose ha sviluppato una [app gratuita PowerPoint Splitter](https://products.aspose.app/slides/it/splitter) usando la propria API. L'app ti consente di dividere una presentazione in più file salvando le diapositive selezionate come nuovi file PPTX o PPT.
+{{% alert color="info" title="Note" %}}
+Disabilitare l'aggiornamento della miniatura può ridurre il tempo necessario per salvare un file PPTX.
+{{% /alert %}}
+
+## **Salva aggiornamenti di progresso in percentuale**
+
+Per monitorare un'operazione di salvataggio, fornisci un proxy Java che implementa l'interfaccia [IProgressCallback](https://reference.aspose.com/slides/it/java/com.aspose.slides/iprogresscallback/) e passa il proxy al metodo [SaveOptions::setProgressCallback](https://reference.aspose.com/slides/it/php-java/aspose.slides/saveoptions/#setProgressCallback). Aspose.Slides quindi chiama il metodo [IProgressCallback::reporting](https://reference.aspose.com/slides/it/java/com.aspose.slides/iprogresscallback/#reporting-double-) con i valori di progresso durante l'esportazione.
+
+Il seguente esempio segnala il progresso di un'esportazione PDF sulla console:
+
+```php
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+class ExportProgressHandler {
+    function reporting($progressValue) {
+        $progress = java("java.lang.Double")->valueOf($progressValue)->intValue();
+        echo($progress . "% of the file has been converted." . PHP_EOL);
+    }
+}
+
+$progressHandler = java_closure(new ExportProgressHandler(), null, java("com.aspose.slides.IProgressCallback"));
+
+$options = new PdfOptions();
+$options->setProgressCallback($progressHandler);
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    $presentation->save("Output.pdf", SaveFormat::Pdf, $options);
+} finally {
+    $presentation->dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Aspose fornisce gratuitamente un [PowerPoint Splitter](https://products.aspose.app/slides/it/splitter) costruito con l'API Aspose.Slides. Salva le diapositive selezionate da una presentazione come file PPT o PPTX separati.
 {{% /alert %}}
 
 ## **FAQ**
 
-**È supportato il "salvataggio veloce" (salvataggio incrementale) in modo che vengano scritte solo le modifiche?**
+**Aspose.Slides supporta il salvataggio incrementale o “fast save”?**
 
-No. Il salvataggio crea il file di destinazione completo ogni volta; il “salvataggio veloce” incrementale non è supportato.
+No. Ogni operazione di salvataggio scrive un file di output completo anziché aggiornare solo le parti modificate.
 
-**È thread‑safe salvare la stessa istanza di Presentation da più thread?**
+**Possono più thread salvare la stessa istanza di Presentation?**
 
-No. Un'istanza di [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) [non è thread‑safe](/slides/it/php-java/multithreading/); salvala da un singolo thread.
+No. Un'istanza [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) [non è thread-safe](/slides/it/php-java/multithreading/). Accedi e salva ogni istanza da un solo thread alla volta.
 
-**Cosa succede a collegamenti ipertestuali e file collegati esternamente durante il salvataggio?**
+**Cosa succede ai collegamenti ipertestuali e ai file collegati esternamente quando salvo una presentazione?**
 
-[Hyperlinks](/slides/it/php-java/manage-hyperlinks/) sono conservati. I file collegati esternamente (ad esempio video tramite percorsi relativi) non vengono copiati automaticamente — assicurati che i percorsi di riferimento rimangano accessibili.
+[Hyperlinks](/slides/it/php-java/manage-hyperlinks/) rimangono nella presentazione. Aspose.Slides non copia i file collegati esternamente, quindi la presentazione salvata deve comunque poter accedere alle loro posizioni.
 
-**Posso impostare/salvare i metadati del documento (Autore, Titolo, Azienda, Data)?**
+**Posso salvare i metadati del documento come autore, titolo, azienda e data di creazione?**
 
-Sì. Le [proprietà del documento](/slides/it/php-java/presentation-properties/) standard sono supportate e verranno scritte nel file al momento del salvataggio.
+Sì. Imposta le appropriate [document properties](/slides/it/php-java/presentation-properties/) prima del salvataggio, e Aspose.Slides le scrive nel file di output.

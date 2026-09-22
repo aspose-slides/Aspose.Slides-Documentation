@@ -14,68 +14,121 @@ keywords:
 - บันทึก ODP
 - งานนำเสนอเป็นไฟล์
 - งานนำเสนอเป็นสตรีม
-- ประเภทมุมมองที่กำหนดไว้ล่วงหน้า
+- ประเภทมุมมองที่กำหนดล่วงหน้า
 - รูปแบบ Strict Office Open XML
 - โหมด Zip64
 - รีเฟรชภาพย่อ
 - บันทึกความคืบหน้า
 - Java
 - Aspose.Slides
-description: "ค้นพบวิธีบันทึกงานนำเสนอใน Java ด้วย Aspose.Slides - ส่งออกเป็น PowerPoint หรือ OpenDocument พร้อมคงรูปแบบ ฟอนต์และเอฟเฟกต์"
+description: "บันทึกงานนำเสนอ PowerPoint และ OpenDocument เป็นไฟล์หรือสตรีมใน Java ด้วย Aspose.Slides และกำหนดการส่งออก PPTX รวมถึงการรายงานความคืบหน้า."
 ---
 ## **ภาพรวม**
 
-[Open Presentations in Java](/slides/th/java/open-presentation/) แสดงวิธีใช้คลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) เพื่อเปิดงานนำเสนอ บทความนี้อธิบายวิธีสร้างและบันทึกงานนำเสนอ คลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) เก็บเนื้อหาของงานนำเสนอ ไม่ว่าคุณจะสร้างงานนำเสนอจากเริ่มต้นหรือแก้ไขงานที่มีอยู่ คุณก็ต้องการบันทึกเมื่อทำเสร็จแล้ว ด้วย Aspose.Slides for Java คุณสามารถบันทึกเป็น **ไฟล์** หรือ **สตรีม** บทความนี้อธิบายวิธีต่างๆ ในการบันทึกงานนำเสนอ
+หลังจากที่คุณสร้างงานนำเสนอหรือ[เปิดงานนำเสนอที่มีอยู่แล้ว](/slides/th/java/open-presentation/), ให้ใช้เมธอด [Presentation.save](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#save-java.lang.String-int-) เพื่อบันทึกผลลัพธ์ Aspose.Slides for Java สามารถบันทึกงานนำเสนอเป็นไฟล์หรือสตรีมในรูปแบบ PowerPoint, OpenDocument, PDF และรูปแบบอื่น ๆ ส่วนต่อไปนี้ครอบคลุมการบันทึกมาตรฐานและตัวเลือกที่มีสำหรับการส่งออกเป็น PPTX
 
-## **บันทึกงานนำเสนอลงไฟล์**
+## **บันทึกงานนำเสนอเป็นไฟล์**
 
-บันทึกงานนำเสนอเป็นไฟล์โดยเรียกเมธอด `save` ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) ส่งชื่อไฟล์และรูปแบบการบันทึกให้เมธอด ตัวอย่างต่อไปนี้แสดงวิธีบันทึกงานนำเสนอด้วย Aspose.Slides
+เพื่อบันทึกงานนำเสนอเป็นไฟล์ ให้ส่งเส้นทางออกและค่าของ [SaveFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/saveformat/) ไปยังเมธอด [Presentation.save](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#save-java.lang.String-int-) ค่าฟอร์แมตนี้กำหนดประเภทของไฟล์ที่ Aspose.Slides สร้าง
+
+ตัวอย่างต่อไปนี้สร้างงานนำเสนอและบันทึกเป็นไฟล์ PPTX:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์งานนำเสนอ.
 Presentation presentation = new Presentation();
 try {
-    // ทำงานบางอย่างที่นี่...
+    // เพิ่มหรือแก้ไขเนื้อหาของงานนำเสนอที่นี่.
 
-    // บันทึกงานนำเสนอเป็นไฟล์.
     presentation.save("Output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **บันทึกงานนำเสนอลงสตรีม**
+## **บันทึกงานนำเสนอในรูปแบบดั้งเดิมของมัน**
 
-คุณสามารถบันทึกงานนำเสนอเป็นสตรีมได้โดยส่งสตรีมเอาต์พุตให้เมธอด `save` ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) งานนำเสนอสามารถเขียนไปยังสตรีมประเภทต่างๆ ในตัวอย่างด้านล่าง เราจะสร้างงานนำเสนอใหม่และบันทึกลงสตรีมไฟล์
+สำหรับตัวอย่างการตรวจจับไฟล์และสตรีม, พฤติกรรมของงานนำเสนอที่สร้างใหม่, และความแตกต่างระหว่างรูปแบบต้นฉบับและรูปแบบผลลัพธ์ ดูที่[กำหนดรูปแบบงานนำเสนอดั้งเดิม](/slides/th/java/detect-presentation-source-format/)
+
+ในแอปพลิเคชันการประมวลผลแบบแบทช์ รูปแบบอินพุตอาจไม่ทราบล่วงหน้า หลังจากโหลดไฟล์ ให้อ่านรูปแบบดั้งเดิมจากเมธอด [IPresentation.getSourceFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentation/#getSourceFormat--) ส่งค่าของ [SourceFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/sourceformat/) ที่ได้ไปยังเมธอด [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/slideutil/#toSaveFormat-int-) เพื่อรับค่า [SaveFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/saveformat/) ที่สอดคล้องกัน แล้วใช้ [Presentation.save](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#save-java.lang.String-int-) เพื่อบันทึกงานนำเสนอที่แก้ไขแล้ว
+
+ตัวอย่างเต็มต่อไปนี้จะประมวลผลทุกไฟล์ในไดเรกทอรีอินพุต, ปรับปรุงชื่อเรื่อง, และบันทึกลงในไดเรกทอรีเอาต์พุตในรูปแบบที่โหลดมาจาก:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SlideUtil;
+import java.io.File;
+
+File inputDirectory = new File("Input");
+File outputDirectory = new File("Output");
+
+if (!outputDirectory.exists() && !outputDirectory.mkdirs()) {
+    System.err.println("Cannot create the output directory.");
+}
+
+File[] inputFiles = inputDirectory.listFiles(File::isFile);
+if (inputFiles != null && outputDirectory.isDirectory()) {
+    for (File inputFile : inputFiles) {
+        try {
+            Presentation presentation = new Presentation(inputFile.getPath());
+            try {
+                int saveFormat = SlideUtil.toSaveFormat(presentation.getSourceFormat());
+                presentation.getDocumentProperties().setTitle("Processed by the batch application");
+
+                File outputFile = new File(outputDirectory, inputFile.getName());
+                presentation.save(outputFile.getPath(), saveFormat);
+            } finally {
+                presentation.dispose();
+            }
+        } catch (IllegalArgumentException exception) {
+            System.err.println("Cannot map the source format of '" + inputFile.getPath() + "': " + exception.getMessage());
+        } catch (Exception exception) {
+            System.err.println("Cannot process '" + inputFile.getPath() + "': " + exception.getMessage());
+        }
+    }
+}
+```
+
+[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/slideutil/#toSaveFormat-int-) ทำการแมพ PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP และ PowerPoint XML ไปยังรูปแบบการบันทึกงานนำเสนอที่สอดคล้องกัน มันแมพเฉพาะรูปแบบต้นทางของงานนำเสนอเท่านั้น; ไม่ได้ตั้งใจให้เลือกรูปแบบการส่งออกเช่น PDF, HTML, TIFF หรือรูปภาพ การส่งค่าของ [SourceFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/sourceformat/) ที่ไม่รองรับหรือไม่ถูกต้องจะทำให้เกิด [IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html)
+
+ไฟล์ PPT, PPS, และ POT แบบดั้งเดิมใช้คอนเทนเนอร์ไบนารีเดียวกัน เมื่อโหลดงานนำเสนอจากสตรีมโดยไม่มีส่วนขยายไฟล์ PPS หรือ POT อาจถูกระบุว่าเป็น PPT หากต้องการรักษาชนิดย่อยเหล่านี้ไว้ ให้เก็บชื่อไฟล์เดิมหรือเมตาดาตรูปแบบแยกต่างหากและใช้เมื่อตั้งชื่อไฟล์และรูปแบบเอาต์พุต
+
+## **บันทึกงานนำเสนอเป็นสตรีม**
+
+เพื่อบันทึกงานนำเสนอโดยไม่พึ่งพาเส้นทางไฟล์สุดท้าย ให้ส่งสตรีมที่เขียนได้และค่าของ [SaveFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/saveformat/) ไปยังเมธอด [Presentation.save](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-) วิธีนี้เป็นประโยชน์เมื่อเอาต์พุตต้องส่งกลับจากเว็บเซอร์วิส, เก็บในฐานข้อมูล, หรือประมวลผลในหน่วยความจำ
+
+ตัวอย่างต่อไปนี้บันทึกงานนำเสนอใหม่ไปยังสตรีมไฟล์:
+
+```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์งานนำเสนอ.
 Presentation presentation = new Presentation();
 try {
-    OutputStream fileStream = new FileOutputStream("Output.pptx");
+    OutputStream outputStream = new FileOutputStream("Output.pptx");
     try {
-        // บันทึกงานนำเสนอไปยังสตรีม.
-        presentation.save(fileStream, SaveFormat.Pptx);
+        presentation.save(outputStream, SaveFormat.Pptx);
     } finally {
-        fileStream.close();
+        outputStream.close();
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **บันทึกงานนำเสนอพร้อมมุมมองที่กำหนดไว้ล่วงหน้า**
+## **บันทึกงานนำเสนอพร้อมประเภทมุมมองที่กำหนดล่วงหน้า**
 
-Aspose.Slides ให้คุณกำหนดมุมมองเริ่มต้นที่ PowerPoint ใช้เมื่อเปิดงานนำเสนอที่สร้างขึ้นผ่านคลาส [ViewProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/viewproperties/) ใช้เมธอด [setLastView](https://reference.aspose.com/slides/th/java/com.aspose.slides/viewproperties/#setLastView-int-) พร้อมค่าจาก enumeration [ViewType](https://reference.aspose.com/slides/th/java/com.aspose.slides/viewtype/)
+คุณสามารถระบุมุมมองที่ PowerPoint จะเปิดงานนำเสนอที่บันทึกไว้โดยอัตโนมัติได้ ใช้เมธอด [ViewProperties.setLastView](https://reference.aspose.com/slides/th/java/com.aspose.slides/viewproperties/#setLastView-int-) พร้อมค่าของ [ViewType](https://reference.aspose.com/slides/th/java/com.aspose.slides/viewtype/) ก่อนบันทึก
+
+ตัวอย่างต่อไปนี้ตั้งค่ามุมมอง Slide Master เป็นมุมมองเริ่มต้น:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ViewType;
 
 Presentation presentation = new Presentation();
 try {
@@ -88,184 +141,184 @@ try {
 
 ## **บันทึกงานนำเสนอในรูปแบบ Strict Office Open XML**
 
-Aspose.Slides ให้คุณบันทึกงานนำเสนอในรูปแบบ Strict Office Open XML ใช้คลาส [PptxOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxoptions/) และตั้งค่าคุณสมบัติ conformance ขณะบันทึก หากตั้งค่าเป็น [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/th/java/com.aspose.slides/conformance/#Iso29500-2008-Strict) ไฟล์ผลลัพธ์จะถูกบันทึกในรูปแบบ Strict Office Open XML
-
-ตัวอย่างด้านล่างสร้างงานนำเสนอและบันทึกในรูปแบบ Strict Office Open XML
+เพื่อสร้างไฟล์ PPTX ที่สอดคล้องกับโปรไฟล์ Strict ของ Office Open XML ให้สร้างอินสแตนซ์ของ [PptxOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxoptions/) และใช้เมธอด [setConformance](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxoptions/#setConformance-int-) กับค่า [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/th/java/com.aspose.slides/conformance/#Iso29500-2008-Strict) จากนั้นส่งตัวเลือกไปยังเมธอด [Presentation.save](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-)
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Conformance;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 PptxOptions options = new PptxOptions();
 options.setConformance(Conformance.Iso29500_2008_Strict);
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์งานนำเสนอ.
 Presentation presentation = new Presentation();
 try {
-    // บันทึกงานนำเสนอในรูปแบบ Strict Office Open XML.
     presentation.save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **บันทึกงานนำเสนอในรูปแบบ Office Open XML ด้วยโหมด Zip64**
+## **บันทึกงานนำเสนอในรูปแบบ Office Open XML ในโหมด Zip64**
 
-ไฟล์ Office Open XML เป็นไฟล์ ZIP ที่กำหนดขีดจำกัด 4 GB (2^32 ไบต์) สำหรับขนาดไฟล์ที่ไม่ได้บีบอัด, ขนาดไฟล์ที่บีบอัด, และขนาดรวมของอาร์ไคฟ์ รวมถึงจำกัดจำนวนไฟล์สูงสุดที่ 65 535 (2^16‑1) ไฟล์ ส่วนขยายฟอร์แมต ZIP64 จะยกขีดจำกัดเหล่านี้เป็น 2^64
+ไฟล์ ZIP มาตรฐานจำกัดขนาดบีบอัดและขนาดไม่บีบอัดของแต่ละรายการ, ขนาดรวมของไฟล์ ZIP, และจำนวนรายการ เนื่องจากไฟล์ PPTX เป็นไฟล์ ZIP งานนำเสนอขนาดใหญ่สามารถเกินขีดจำกัดเหล่านี้ได้ ส่วนขยาย ZIP64 จะเพิ่มขีดจำกัดขนาดและจำนวนรายการที่ใช้ได้
 
-เมธอด [IPptxOptions.setZip64Mode](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipptxoptions/#setZip64Mode-int-) ให้คุณเลือกว่าจะใช้ส่วนขยายรูปแบบ ZIP64 เมื่อบันทึกไฟล์ Office Open XML หรือไม่
+ใช้เมธอด [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxoptions/#setZip64Mode-int-) เพื่อควบคุมว่าควรให้ Aspose.Slides เขียนส่วนขยาย ZIP64 หรือไม่:
 
-เมธอดนี้สามารถใช้ได้กับโหมดต่อไปนี้:
+- [IfNecessary](https://reference.aspose.com/slides/th/java/com.aspose.slides/zip64mode/#IfNecessary) ใช้ ZIP64 เฉพาะเมื่องานนำเสนอเกินขีดจำกัด ZIP มาตรฐาน นี่เป็นโหมดเริ่มต้น
+- [Never](https://reference.aspose.com/slides/th/java/com.aspose.slides/zip64mode/#Never) ปิดใช้งานส่วนขยาย ZIP64
+- [Always](https://reference.aspose.com/slides/th/java/com.aspose.slides/zip64mode/#Always) เขียนส่วนขยาย ZIP64 เสมอ
 
-- [IfNecessary](https://reference.aspose.com/slides/th/java/com.aspose.slides/zip64mode/#IfNecessary) ใช้ส่วนขยาย ZIP64 เฉพาะเมื่อขนาดงานนำเสนอเกินขีดจำกัดข้างต้น ซึ่งเป็นโหมดเริ่มต้น
-- [Never](https://reference.aspose.com/slides/th/java/com.aspose.slides/zip64mode/#Never) ไม่ใช้ส่วนขยาย ZIP64 เลย
-- [Always](https://reference.aspose.com/slides/th/java/com.aspose.slides/zip64mode/#Always) ใช้ส่วนขยาย ZIP64 เสมอ
-
-ตัวอย่างต่อไปนี้แสดงวิธีบันทึกงานนำเสนอเป็นไฟล์ PPTX พร้อมเปิดใช้งานส่วนขยายรูปแบบ ZIP64
+ตัวอย่างต่อไปนี้เปิดใช้งานส่วนขยาย ZIP64 เสมอสำหรับงานนำเสนอเอาต์พุต:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setZip64Mode(Zip64Mode.Always);
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.Zip64Mode;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("OutputZip64.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setZip64Mode(Zip64Mode.Always);
+
+    presentation.save("OutputZip64.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-เมื่อบันทึกด้วย [Zip64Mode.Never](https://reference.aspose.com/slides/th/java/com.aspose.slides/zip64mode/#Never) จะเกิดข้อยกเว้น [PptxException](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxexception/) หากไม่สามารถบันทึกงานนำเสนอในรูปแบบ ZIP32 ได้
+{{% alert color="warning" title="Warning" %}}
+หากใช้ [Zip64Mode.Never](https://reference.aspose.com/slides/th/java/com.aspose.slides/zip64mode/#Never) และงานนำเสนอไม่สามารถพอดีกับขีดจำกัด ZIP มาตรฐาน การดำเนินการบันทึกจะโยนข้อยกเว้น [PptxException](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxexception/).
 {{% /alert %}}
 
 ## **บันทึกงานนำเสนอในรูปแบบ Office Open XML พร้อมระดับการบีบอัด**
 
-เมื่อต้องจัดการกับงานนำเสนอขนาดใหญ่ คุณสามารถปรับระดับการบีบอัดเพื่อสมดุลระหว่างขนาดไฟล์และเวลาในการประมวลผล ตามความต้องการของคุณอาจเลือกประมวลผลเร็วหรือไฟล์ขนาดเล็กกว่า
+สำหรับการส่งออกเป็น PPTX คุณสามารถปรับสมดุลระหว่างความเร็วในการบันทึกและขนาดไฟล์ได้โดยใช้เมธอด [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxoptions/#setCompressionLevel-int-) คลาส [CompressionLevel](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/) มีค่าดังนี้:
 
-Aspose.Slides มีเมธอด [IPptxOptions.setCompressionLevel](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipptxoptions/#setCompressionLevel-int-) ที่ให้คุณระบุระดับการบีบอัดเมื่อบันทึกงานนำเสนอในรูปแบบ Office Open XML
+- [None](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#None) เก็บข้อมูลโดยไม่มีการบีบอัด
+- [Level1](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#Level1) ให้การบีบอัดที่เร็วที่สุดและผลลัพธ์ที่บีบอัดใหญ่ที่สุด
+- [Level2](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#Level2) ถึง [Level5](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#Level5) ให้ผลลัพธ์ที่เล็กลงเรื่อย ๆ แทนความเร็วในการบันทึก
+- [Level6](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#Level6) สมดุลระหว่างความเร็วการบันทึกและขนาดไฟล์ นี่เป็นระดับเริ่มต้น
+- [Level7](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#Level7) และ [Level8](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#Level8) ให้ผลลัพธ์ที่เล็กลงต่อไปแทนความเร็ว
+- [Level9](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#Level9) ให้การบีบอัดสูงสุดและต้องการเวลาในการประมวลผลมากที่สุด
 
-ระดับการบีบอัดที่มีให้เลือกมีดังนี้:
-
-- [**None**](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#None): ไม่บีบอัดไฟล์ ใส่ไฟล์ไว้ตามเดิม
-- [**Level1**](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#Level1): การบีบอัดที่เร็วที่สุดและอัตราการบีบอัดต่ำที่สุด
-- [**Level2**](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#Level2): การบีบอัดเร็วกว่าโดยให้สัดส่วนบีบอัดดีกว่า **Level1**
-- [**Level3**](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#Level3): ให้การบีบอัดดีกว่า **Level2** พร้อมผลกระทบปานกลางต่อเวลาในการประมวลผล
-- [**Level4**](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#Level4): ให้การบีบอัดดีกว่า **Level3**
-- [**Level5**](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#Level5): ให้การบีบอัดดีกว่า **Level4** เพิ่มเวลาการประมวลผล
-- [**Level6**](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#Level6): การบีบอัดมาตรฐานที่สมดุลระหว่างความเร็วและขนาดไฟล์ นี่คือ *ระดับการบีบอัดเริ่มต้น*
-- [**Level7**](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#Level7): ให้การบีบอัดดีกว่า **Level6** แต่ช้ากว่า
-- [**Level8**](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#Level8): ให้การบีบอัดดีกว่า **Level7**
-- [**Level9**](https://reference.aspose.com/slides/th/java/com.aspose.slides/compressionlevel/#Level9): การบีบอัดสูงสุด ให้ไฟล์ที่เล็กที่สุดแต่ต้องใช้เวลาประมวลผลนานที่สุด
-
-ตัวอย่างต่อไปนี้แสดงวิธีบันทึกงานนำเสนอเป็นไฟล์ PPTX *โดยไม่มีการบีบอัด*:
+ตัวอย่างต่อไปนี้บันทึกงานนำเสนอโดยไม่มีการบีบอัด:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setCompressionLevel(CompressionLevel.None);
+import com.aspose.slides.CompressionLevel;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Sample-out.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setCompressionLevel(CompressionLevel.None);
+
+    presentation.save("OutputNoCompression.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-ตัวอย่างนี้แสดงวิธีบันทึกงานนำเสนอเป็นไฟล์ PPTX พร้อม *การบีบอัดสูงสุด*:
+ตัวอย่างต่อไปนี้ใช้ระดับการบีบอัดสูงสุด:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setCompressionLevel(CompressionLevel.Level9);
+import com.aspose.slides.CompressionLevel;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Sample-level9.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setCompressionLevel(CompressionLevel.Level9);
+
+    presentation.save("OutputMaximumCompression.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **บันทึกงานนำเสนอโดยไม่รีเฟรชภาพย่อ**
+## **บันทึกงานนำโดยไม่รีเฟรชภาพย่อ**
 
-เมธอด [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxoptions/#setRefreshThumbnail-boolean-) ควบคุมการสร้างภาพย่อเมื่อต้องบันทึกงานนำเสนอเป็น PPTX:
+เมื่อบันทึกงานนำเสนอเป็น PPTX เมธอด [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxoptions/#setRefreshThumbnail-boolean-) ควบคุมภาพย่อของเอกสาร:
 
-- ถ้าตั้งค่าเป็น `true` ภาพย่อจะถูกรีเฟรชขณะแบบบันทึก (ค่าเริ่มต้น)
-- ถ้าตั้งค่าเป็น `false` ภาพย่อปัจจุบันจะถูกเก็บไว้ หากงานนำเสนอไม่มีภาพย่อ จะไม่มีการสร้างภาพใหม่
+- `true` สร้างภาพย่อใหม่ในระหว่างการบันทึก นี่เป็นค่าเริ่มต้น
+- `false` รักษาภาพย่อที่มีอยู่ หากงานนำเสนอไม่มีภาพย่อ Aspose.Slides จะไม่สร้าง
 
-ในโค้ดด้านล่าง งานนำเสนอจะถูกบันทึกเป็น PPTX โดยไม่รีเฟรชภาพย่อ
+ตัวอย่างต่อไปนี้บันทึกงานนำเสนอโดยไม่รีเฟรชภาพย่อ:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setRefreshThumbnail(false);
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Output.pptx", SaveFormat.Pptx, pptxOptions);
-}
-finally {
+    PptxOptions options = new PptxOptions();
+    options.setRefreshThumbnail(false);
+
+    presentation.save("Output.pptx", SaveFormat.Pptx, options);
+} finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-ตัวเลือกนี้ช่วยลดเวลาที่ใช้ในการบันทึกงานนำเสนอในรูปแบบ PPTX
+{{% alert color="info" title="Note" %}}
+การปิดการรีเฟรชภาพย่อสามารถลดเวลาที่ต้องใช้ในการบันทึกไฟล์ PPTX
 {{% /alert %}}
 
-## **บันทึกความคืบหน้าเป็นเปอร์เซ็นต์**
+## **บันทึกอัพเดตความคืบหน้าเป็นเปอร์เซ็นต์**
 
-อินเทอร์เฟซ [IProgressCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/iprogresscallback/) ใช้ผ่านเมธอด `setProgressCallback` ที่เปิดให้โดยอินเทอร์เฟซ [ISaveOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/isaveoptions/) และคลาสนามธรรม [SaveOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/saveoptions/) ให้คุณกำหนดการทำงานของ [IProgressCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/iprogresscallback/) ด้วย `setProgressCallback` เพื่อรับการอัปเดตความคืบหน้าในการบันทึกเป็นเปอร์เซ็นต์
+เพื่อเฝ้าติดตามการบันทึก ให้ดำเนินการสร้างอินเทอร์เฟซ [IProgressCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/iprogresscallback/) และส่งอิมพลีเมนต์ไปยังเมธอด [ISaveOptions.setProgressCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/isaveoptions/#setProgressCallback-com.aspose.slides.IProgressCallback-) Aspose.Slides จะเรียกเมธอด [IProgressCallback.reporting](https://reference.aspose.com/slides/th/java/com.aspose.slides/iprogresscallback/#reporting-double-) พร้อมค่าความคืบหน้าในระหว่างการส่งออก
 
-โค้ดสแนปต่อไปนี้แสดงวิธีใช้ `IProgressCallback`
+ตัวอย่างต่อไปนี้รายงานความคืบหน้าการส่งออกเป็น PDF ไปยังคอนโซล:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.IProgressCallback;
+import com.aspose.slides.PdfOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 class ExportProgressHandler implements IProgressCallback {
     public void reporting(double progressValue) {
-        // ใช้ค่าร้อยละของความคืบหน้าในที่นี้.
         int progress = (int) progressValue;
-
         System.out.println(progress + "% of the file has been converted.");
     }
 }
 
-ISaveOptions saveOptions = new PdfOptions();
-saveOptions.setProgressCallback(new ExportProgressHandler());
+PdfOptions options = new PdfOptions();
+options.setProgressCallback(new ExportProgressHandler());
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Output.pdf", SaveFormat.Pdf, saveOptions);
+    presentation.save("Output.pdf", SaveFormat.Pdf, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose ได้พัฒนาแอป [free PowerPoint Splitter app](https://products.aspose.app/slides/th/splitter) โดยใช้ API ของตนเอง แอปนี้ช่วยให้คุณแยกงานนำเสนอออกเป็นหลายไฟล์โดยบันทึกสไลด์ที่เลือกเป็นไฟล์ PPTX หรือ PPT ใหม่
+{{% alert color="info" title="Note" %}}
+Aspose มีให้บริการฟรี [PowerPoint Splitter](https://products.aspose.app/slides/th/splitter) ที่สร้างด้วย Aspose.Slides API มันบันทึกสไลด์ที่เลือกจากงานนำเสนอเป็นไฟล์ PPT หรือ PPTX แยกกัน
 {{% /alert %}}
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**รองรับ “การบันทึกเร็ว” (incremental save) ที่บันทึกเฉพาะการเปลี่ยนแปลงหรือไม่?**
+**Aspose.Slides รองรับการบันทึกแบบเพิ่มส่วนหรือ “บันทึกเร็ว” หรือไม่?**
 
-ไม่รองรับ การบันทึกจะสร้างไฟล์เป้าหมายเต็มทุกครั้ง; “การบันทึกเร็ว” แบบ incremental ไม่ได้สนับสนุน
+ไม่. แต่ละการบันทึกจะเขียนไฟล์เอาต์พุตเต็มรูปแบบแทนที่จะอัปเดตเฉพาะส่วนที่เปลี่ยนแปลง
 
-**การบันทึกอินสแตนซ์ Presentation เดียวจากหลายเธรดปลอดภัยหรือไม่?**
+**หลายเธรดสามารถบันทึกอินสแตนซ์ Presentationเดียวกันได้หรือไม่?**
 
-ไม่ปลอดภัย อินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) ไม่เป็น thread‑safe [/slides/th/java/multithreading/]; ควรบันทึกจากเธรดเดียวเท่านั้น
+ไม่. อินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) [ไม่ได้เป็น thread‑safe](/slides/th/java/multithreading/) ให้เข้าถึงและบันทึกแต่ละอินสแตนซ์จากเธรดเดียวเท่านั้น
 
-**ลิงก์ไฮเปอร์ลิงก์และไฟล์ที่เชื่อมโยงภายนอกจะเป็นอย่างไรเมื่อบันทึก?**
+**จะเกิดอะไรขึ้นกับไฮเปอร์ลิงก์และไฟล์ที่ลิงก์ภายนอกเมื่อฉันบันทึกงานนำเสนอ?**
 
-[Hyperlinks](/slides/th/java/manage-hyperlinks/) จะถูกเก็บไว้ ไฟล์ที่เชื่อมโยงภายนอก (เช่น วิดีโอที่อ้างอิงด้วยเส้นทางสัมพันธ์) จะไม่ถูกคัดลอกโดยอัตโนมัติ – ต้องแน่ใจว่าเส้นทางที่อ้างอิงยังคงเข้าถึงได้
+[Hyperlinks](/slides/th/java/manage-hyperlinks/) จะยังคงอยู่ในงานนำเสนอ Aspose.Slides ไม่คัดลอกไฟล์ที่ลิงก์ภายนอก ดังนั้นงานนำเสนอที่บันทึกจึงต้องสามารถเข้าถึงตำแหน่งไฟล์เหล่านั้นได้
 
-**สามารถตั้งค่า/บันทึกข้อมูลเมตาดาต้าเอกสาร (Author, Title, Company, Date) ได้หรือไม่?**
+**ฉันสามารถบันทึกเมตาดาต้าเอกสารเช่น ผู้เขียน, ชื่อเรื่อง, บริษัท และวันที่สร้างได้หรือไม่?**
 
-ได้ รองรับ [document properties](/slides/th/java/presentation-properties/) มาตรฐานและจะถูกเขียนลงไฟล์เมื่อบันทึก
+ได้. ตั้งค่าคุณสมบัติของเอกสารที่เหมาะสม [/slides/th/java/presentation-properties/] ก่อนบันทึก และ Aspose.Slides จะเขียนค่าต่าง ๆ เหล่านั้นลงในไฟล์เอาต์พุต

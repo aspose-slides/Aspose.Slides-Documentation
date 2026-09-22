@@ -13,28 +13,30 @@ keywords:
 - özellikleri değiştir
 - özellikleri düzenle
 - özellikleri güncelle
-- PPTX incele
-- PPT incele
-- ODP incele
+- PPTX'i incele
+- PPT'yi incele
+- ODP'yi incele
 - PowerPoint
 - OpenDocument
 - sunum
 - Python
 - Java
 - Aspose.Slides
-description: "Python üzerinden Java kullanarak PowerPoint ve OpenDocument sunumlarında slaytları, yapıyı ve meta verileri keşfedin, daha hızlı içgörüler ve daha akıllı içerik denetimleri sağlayın."
+description: "Python üzerinden Java ile PowerPoint ve OpenDocument sunumlarında slaytları, yapıyı ve meta verileri keşfederek daha hızlı içgörüler ve daha akıllı içerik denetimleri elde edin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, bir sunumun biçimini tanımlayabilir ve tam bir sunum nesne modelini oluşturmadan belge meta verilerini okuyabilir. Bu, dosyaları sınıflandırmanız, bir envanter oluşturmanız veya sunum içeriğini yükleyip işlemeye karar vermeden önce özellikleri incelemeniz gerektiğinde kullanışlıdır.
+Aspose.Slides, bir sunumun formatını belirleyebilir ve tam bir sunum nesne modelini oluşturmadan belge meta verilerini okuyabilir. Bu, dosyaları sınıflandırmanız, bir envanter oluşturmanız veya sunum içeriğini yükleyip işleme almaya karar vermeden önce özellikleri incelemeniz gerektiğinde yararlıdır.
 
-Örnekler, Java aracılığıyla Python için Aspose.Slides ve uyumlu bir Java çalışma zamanına ihtiyaç duyar. Her örnek, JVM hâlâ çalışmıyorsa başlatır. Örneklerde kullanılan yollarda mevcut sunum dosyalarını sağlayın.
+Örnekler, Java üzerinden Python için Aspose.Slides ve uyumlu bir Java çalıştırma ortamı gerektirir. Her örnek, JVM zaten çalışmıyorsa onu başlatır. Örneklerde kullanılan yollarla mevcut sunum dosyalarını sağlayın.
 
-Bu makale, hafif denetimi [PresentationFactory](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationfactory/) ve [PresentationInfo](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/) aracılığıyla, ayrıca hedeflenmiş güncellemeleri [DocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/) ile göstermektedir.
+Bu makale, [PresentationFactory](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationfactory/) ve [PresentationInfo](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/) aracılığıyla hafif denetimi ve [DocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/) üzerinden hedefli güncellemeleri göstermektedir.
 
-## **Sunum Biçimini Kontrol Et**
+## **Sunum Formatını Kontrol Et**
 
-[PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationfactory/#getPresentationInfo) kullanarak bir dosyayı [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneği oluşturmadan inceleyebilirsiniz. [PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/#getLoadFormat) yöntemi, tespit edilen biçimi, örneğin PPTX, PPT veya ODP olarak raporlar.
+Yüklenmiş bir sunumunuz varsa, yükleme sonrası tespit ve eski PPT, PPS ve POT akışlarının sınırlamaları için [Determine the Original Presentation Format](/slides/tr/python-java/detect-presentation-source-format/) bölümüne bakın.
+
+[PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationfactory/#getPresentationInfo) kullanarak bir dosyayı [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneği oluşturmadan inceleyebilirsiniz. [PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/#getLoadFormat) yöntemi, PPTX, PPT veya ODP gibi tespit edilen formatı raporlar.
 
 ```python
 import jpype
@@ -62,11 +64,11 @@ for file_name in file_names:
     print(f"{file_name}: {format_name}")
 ```
 
-## **Hafif Sunum Envanteri Oluştur**
+## **Hafif Bir Sunum Envanteri Oluştur**
 
-Birçok sunum dosyasını işlerken, doğrulama, indeksleme veya belge‑yönetim sistemi için kompakt bir envantere ihtiyacınız olabilir. Bu senaryoda, [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationfactory/#getPresentationInfo) kullanarak bir [PresentationInfo](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/) nesnesi elde edin ve ardından [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/#readDocumentProperties) çağrısıyla belge meta verilerini okuyun. Bu yaklaşım bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneği oluşturmaz ve tam sunum nesne modelini dolaşmanızı gerektirmez.
+Birçok sunum dosyasını işlerken, doğrulama, indeksleme veya bir belge yönetim sistemi için kompakt bir envantere ihtiyaç duyabilirsiniz. Bu senaryoda, bir [PresentationInfo](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/) nesnesi elde etmek için [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationfactory/#getPresentationInfo) kullanın ve ardından belge meta verilerini okumak için [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/#readDocumentProperties) metodunu çağırın. Bu yaklaşım bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneği oluşturmaz veya tam sunum nesne modelini dolaşmanızı gerektirmez.
 
-[DocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/) tarafından sağlanan genişletilmiş özellikler aşağıdaki envanter değerlerini sunar:
+[DocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/) tarafından sunulan genişletilmiş özellikler aşağıdaki envanter değerlerini sağlar:
 
 | Yöntem | Envanter değeri |
 | --- | --- |
@@ -75,9 +77,9 @@ Birçok sunum dosyasını işlerken, doğrulama, indeksleme veya belge‑yöneti
 | [getNotes](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/#getNotes) | Not içeren slaytların sayısı. |
 | [getParagraphs](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/#getParagraphs) | Mevcut olduğunda toplam paragraf sayısı. |
 | [getWords](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/#getWords) | Toplam kelime sayısı. |
-| [getMultimediaClips](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/#getMultimediaClips) | Toplam ses ve video klip sayısı. |
+| [getMultimediaClips](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/#getMultimediaClips) | Ses ve video kliplerin toplam sayısı. |
 
-Aşağıdaki örnek bu değerleri bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) nesnesi oluşturulmadan okur ve kompakt bir envanter yazdırır. Ayrıca [getHeadingPairs](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/#getHeadingPairs) ile [getTitlesOfParts](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/#getTitlesOfParts) birleştirilerek yazı tipleri, temalar ve slayt başlıkları gibi içerik grupları gösterilir.
+Aşağıdaki örnek, bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) nesnesi oluşturmadan bu değerleri okur ve kompakt bir envanter yazdırır. Ayrıca, [getHeadingPairs](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/#getHeadingPairs) ile [getTitlesOfParts](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/#getTitlesOfParts) kombinasyonunu kullanarak yazı tipleri, temalar ve slayt başlıkları gibi içerik gruplarını gösterir.
 
 ```python
 import jpype
@@ -143,27 +145,25 @@ else:
             part_index += 1
 ```
 
-Her [HeadingPair](https://reference.aspose.com/slides/tr/python-java/aspose.slides/headingpair/) bir grup adı ve o gruptaki öğe sayısını sağlar. [DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/#getTitlesOfParts) düz, sıralı bir dizi döndürdüğü için her başlık çiftinde belirtilen ardışık başlık sayısını tüketin.
+Her bir [HeadingPair](https://reference.aspose.com/slides/tr/python-java/aspose.slides/headingpair/) bir grup adı ve o gruptaki öğe sayısını sağlar. [DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/#getTitlesOfParts) düz, sıralı bir dizi döndürür; bu yüzden her başlık çiftinin belirttiği ardışık başlık sayısını tüketin.
 
 ### **Depolanmış Meta Veriler ve Biçim Sınırlamaları**
 
-[PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/#readDocumentProperties) tarafından döndürülen envanter özellikleri, kaynak belgede kullanılabilir meta verileri yansıtır. Aspose.Slides bu çağrı için bu değerleri yeniden hesaplamak üzere sunum nesne modelini yüklemez ve dolaşmaz. Eksik özellikler varsayılan değerlerle temsil edilir ve saklanan değerler, dosyayı son kaydeden uygulama belge özelliklerini güncellememişse eski olabilir.
+[PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/#readDocumentProperties) tarafından döndürülen envanter özellikleri, kaynak belgede mevcut meta verileri yansıtır. Aspose.Slides, bu çağrı için bu değerleri yeniden hesaplamak amacıyla sunum nesne modelini yüklemez ve dolaşmaz. Eksik özellikler varsayılan değerlerle temsil edilir ve saklanan değerler, dosyayı son kaydeden uygulama belge özelliklerini güncellememişse eski olabilir.
 
-- **PPTX:** Biçim, slayt, not, gizli‑slayt, paragraf, kelime ve multimedya sayıları ile başlık çiftleri ve parça başlıkları için genişletilmiş belge özellikleri sağlar. Kullanılabilirlik, belge üreticisinin hangi özellikleri yazdığına bağlıdır.
-- **PPT:** İkili biçim, karşılık gelen belge‑özet özelliklerini depolayabilir. Bir özellik eksikse veya belge üreticisi tarafından yenilenmemişse, Aspose.Slides onu slaytlardan hesaplamak yerine saklanan veya varsayılan değerini döndürür.
-- **ODP:** OpenDocument meta verileri, sayfa, paragraf ve kelime sayısı gibi genel belge istatistikleri sunar, ancak bu değerler her PowerPoint‑özel genişletilmiş özelliğe karşılık gelmez. Gizli‑slayt, not‑slaytı, multimedya, başlık‑çifti ve parça‑başlığı meta verileri mevcut olmayabilir ve envanter özellikleri varsayılan değer döndürebilir. Sıfır değeri veya boş dizi, ilgili içeriğin yok olduğuna dair kesin kanıt olarak kabul edilmemelidir.
+- **PPTX:** Biçim, slayt, not, gizli slayt, paragraf, kelime ve multimedya sayıları ile başlık çiftleri ve parça başlıkları için genişletilmiş belge özellikleri sağlar. Kullanılabilirlik, belge üreticisinin yazdığı özelliklere bağlıdır.
+- **PPT:** İkili biçim, karşılık gelen belge‑özet özelliklerini depolayabilir. Bir özellik yoksa veya belge üreticisi tarafından güncellenmemişse, Aspose.Slides bu özelliği saklanan veya varsayılan değeriyle döndürür, slaytlardan hesaplamaz.
+- **ODP:** OpenDocument meta verileri, sayfa, paragraf ve kelime sayısı gibi genel belge istatistikleri sağlar, ancak bu değerler her PowerPoint‑özel genişletilmiş özelliğe eşlenmez. Gizli‑slayt, not‑slayt, multimedya, başlık‑çifti ve parça‑başlığı meta verileri mevcut olmayabilir ve envanter özellikleri varsayılan değer döndürebilir. Sıfır değerini veya boş diziyi, ilgili içeriğin bulunmadığının kesin kanıtı olarak değerlendirmeyin.
 
-Envanterler ve ön kontrol için hafif meta veri yaklaşımını kullanın. Sonucun bellekteki değişiklikleri yansıtması gerektiğinde veya gerçek sunum içeriğini doğrulamanız gerektiğinde sunumu yükleyin ve canlı nesne modelini inceleyin.
+Envanterler ve ön kontrol için hafif meta veri yaklaşımını kullanın. Sonuç bellekteki değişiklikleri yansıtmalıysa veya gerçek sunum içeriğini doğrulamanız gerekiyorsa, sunumu yükleyin ve canlı nesne modelini inceleyin.
 
 ## **Sunum Özelliklerini Güncelle**
 
 [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/#readDocumentProperties) tarafından döndürülen özellikler, bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneği oluşturmadan da değiştirilebilir. Değişiklikleri [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/#updateDocumentProperties) ile uygulayın ve ardından bağlı sunumu [PresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/#writeBindedPresentation) ile yazın.
 
-Aşağıdaki resim, PowerPoint sunumunun orijinal belge özelliklerini gösterir.
+Aşağıdaki resim, orijinal belge özelliklerini gösterir.
 
 ![PowerPoint sunumunun orijinal belge özellikleri](input_properties.png)
-
-Aşağıdaki örnek, başlığı ve son kaydedilme zamanını değiştirir ve sonucu yeni bir dosyaya yazar:
 
 ```python
 import jpype
@@ -193,35 +193,35 @@ finally:
     output_stream.close()
 ```
 
-Aşağıdaki resim, PowerPoint sunumunun değiştirilmiş belge özelliklerini gösterir.
+Aşağıdaki resim, güncellenmiş belge özelliklerini gösterir.
 
-![PowerPoint sunumunun değiştirilmiş belge özellikleri](output_properties.png)
+![PowerPoint sunumunun değiştirilen belge özellikleri](output_properties.png)
 
 ## **Faydalı Bağlantılar**
 
-İlgili güvenlik kontrolleri ve koruma ayarları için aşağıdaki makalelere göz atın:
+İlgili güvenlik kontrolleri ve koruma ayarları için aşağıdaki makalelere bakın:
 
-- [Sunumları Şifrele](/slides/tr/python-java/password-protected-presentation/)
-- [Sunumları Yazma Koruması](/slides/tr/python-java/write-protected-presentation/)
+- [Sunumları Parola ile Koru](/slides/tr/python-java/password-protected-presentation/)
+- [Sunumları Yazma Koruması ile Koru](/slides/tr/python-java/write-protected-presentation/)
 
 ## **SSS**
 
-**Yerleşik yazı tipleri olup olmadığını ve hangileri olduğunu nasıl kontrol edebilirim?**
+**Yazı tiplerinin gömülü olup olmadığını ve hangileri olduğunu nasıl kontrol edebilirim?**
 
-Sunumu yükleyin ve [Presentation.getFontsManager](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getFontsManager) kullanın. Yerleşik yazı tiplerini elde etmek için [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/tr/python-java/aspose.slides/fontsmanager/#getEmbeddedFonts), sunumda kullanılan yazı tiplerini elde etmek için ise [FontsManager.getFonts](https://reference.aspose.com/slides/tr/python-java/aspose.slides/fontsmanager/#getFonts) çağırın. Renderlama için gerekli ancak yerleşik olmayan yazı tiplerini bulmak amacıyla iki sonucu karşılaştırın.
+Sunumu yükleyin ve [Presentation.getFontsManager](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getFontsManager) kullanın. Gömülü yazı tiplerini elde etmek için [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/tr/python-java/aspose.slides/fontsmanager/#getEmbeddedFonts) ve sunumda kullanılan yazı tiplerini elde etmek için [FontsManager.getFonts](https://reference.aspose.com/slides/tr/python-java/aspose.slides/fontsmanager/#getFonts) çağırın. İki sonucu karşılaştırarak, görüntüleme için gerekli ancak gömülmemiş yazı tiplerini bulun.
 
-**Dosyanın gizli slaytları olup olmadığını ve sayısını hızlıca nasıl öğrenebilirim?**
+**Dosyanın gizli slaytları olup olmadığını ve sayısını nasıl hızlıca öğrenebilirim?**
 
-Depolanmış belge meta verileri yeterli olduğunda, [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationfactory/#getPresentationInfo) ve [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/#readDocumentProperties) aracılığıyla [DocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/#getHiddenSlides) okunabilir. Bu, hafif bir envanter için uygundur. Sunum bellek içinde değiştirilmişse, saklanan meta veriler eksik veya eski olabilir; bu durumda canlı değerleri doğrulamak için [Presentation.getSlides](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getSlides) üzerinden dolaşıp her slaytın [Slide.getHidden](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slide/#getHidden) metodunu inceleyin.
+Depolanmış belge meta verileri yeterli olduğunda, [DocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/#getHiddenSlides) metodunu [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationfactory/#getPresentationInfo) ve [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/#readDocumentProperties) aracılığıyla okuyun. Bu, hafif bir envanter için uygundur. Sunum bellekte değiştirilmişse, depolanmış meta veriler eksik veya eski olabilir ya da canlı değerleri doğrulamanız gerekiyorsa, [Presentation.getSlides](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getSlides) içinde döngü yapın ve her slaytın [Slide.getHidden](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slide/#getHidden) yöntemini inceleyin.
 
-**Özel slayt boyutu ve yönünün kullanılıp kullanılmadığını ve varsayılanlardan farklı olup olmadığını tespit edebilir miyim?**
+**Özel slayt boyutu ve yönlendirmesinin kullanılıp kullanılmadığını ve varsayılanlardan farklı olup olmadığını tespit edebilir miyim?**
 
-Evet. Sunumu yükleyin ve [Presentation.getSlideSize](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getSlideSize) çağırın. Mevcut ayarları beklenen ön ayar ve boyutlarla karşılaştırmak için [SlideSize.getType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slidesize/#getType), [SlideSize.getSize](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slidesize/#getSize) ve [SlideSize.getOrientation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slidesize/#getOrientation) kullanın.
+Evet. Sunumu yükleyin ve [Presentation.getSlideSize](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getSlideSize) metodunu çağırın. Mevcut ayarları beklenen ön ayar ve boyutlarla karşılaştırmak için [SlideSize.getType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slidesize/#getType), [SlideSize.getSize](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slidesize/#getSize) ve [SlideSize.getOrientation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slidesize/#getOrientation) kullanın.
 
-**Grafiklerin harici veri kaynaklarına başvurup başvurmadığını hızlıca görmenin bir yolu var mı?**
+**Grafiklerin harici veri kaynaklarına referans verip vermediğini hızlı bir şekilde görebilir miyim?**
 
-Evet. Her bir [Chart](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chart/) bulun ve [ChartData.getDataSourceType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#getDataSourceType) çağır. Harici bir çalışma kitabı için [ChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) metodunu kullan. Veri kaynağı türü ve yolu dış referansı gösterir, ancak hedefin erişilebilir olup olmadığını doğrulamak ayrı bir kaynak kontrolü gerektirir.
+Evet. Her bir [Chart](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chart/) öğesini bulun ve [ChartData.getDataSourceType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#getDataSourceType) metodunu çağırın. Harici bir çalışma kitabı için, [ChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chartdata/#getExternalWorkbookPath) metodunu kullanın. Veri kaynağı türü ve yolu, harici bir referansı tanımlar, ancak hedefin erişilebilir olup olmadığını doğrulamak ayrı bir kaynak kontrolü gerektirir.
 
-**Renderlama veya PDF dışa aktarmayı yavaşlatabilecek 'ağır' slaytları nasıl değerlendirebilirim?**
+**Render alma veya PDF dışa aktarma sırasında yavaşlamaya neden olabilecek 'ağır' slaytları nasıl değerlendirebilirim?**
 
-Tek bir karmaşıklık özelliği yoktur. [Presentation.getSlides](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getSlides) ve her slaytın [BaseSlide.getShapes](https://reference.aspose.com/slides/tr/python-java/aspose.slides/baseslide/#getShapes) koleksiyonunu dolaşı. Şekil sayısı, büyük görseller, efektler, animasyonlar veya multimedya varlığı gibi sinyalleri tarama göstergesi olarak kullanın ve bir slaytı kesin bir performans darboğazı olarak kabul etmeden önce temsilî bir render veya dışa aktarım ölçümü yapın.
+Tek bir karmaşıklık özelliği yoktur. [Presentation.getSlides](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getSlides) ve her slaytın [BaseSlide.getShapes](https://reference.aspose.com/slides/tr/python-java/aspose.slides/baseslide/#getShapes) koleksiyonunu dolaşın. Şekil sayısını ve büyük görseller, efektler, animasyonlar veya multimedya varlığını tarama sinyali olarak kullanın ve bir slaytı kesin bir performans darboğazı olarak değerlendirmeden önce temsilci bir render veya dışa aktarma ölçümü yapın.

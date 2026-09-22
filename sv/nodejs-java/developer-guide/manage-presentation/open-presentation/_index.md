@@ -10,10 +10,10 @@ keywords:
 - öppna PPTX
 - öppna PPT
 - öppna ODP
-- ladda presentation
-- ladda PPTX
-- ladda PPT
-- ladda ODP
+- läs in presentation
+- läs in PPTX
+- läs in PPT
+- läs in ODP
 - skyddad presentation
 - stor presentation
 - extern resurs
@@ -21,19 +21,21 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Lär dig hur du öppnar PowerPoint- och OpenDocument-presentationer i JavaScript, anger öppningslösenord, styr resurshämtning och minskar minnesanvändning med Aspose.Slides för Node.js via Java."
+description: "Lär dig hur du öppnar PowerPoint- och OpenDocument-presentationer i JavaScript, anger öppningslösenord, kontrollerar resursladdning och minskar minnesanvändning med Aspose.Slides för Node.js via Java."
 ---
 ## **Introduktion**
 
-[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/sv/nodejs-java/) kan läsa PowerPoint- och OpenDocument-presentationer från filer och strömmar. När en presentation har lästs in kan du undersöka dess struktur, redigera bilder, hantera resurser och spara den i originalformatet eller ett annat stödt format.
+[Aspose.Slides för Node.js via Java](https://products.aspose.com/slides/sv/nodejs-java/) kan läsa PowerPoint- och OpenDocument-presentationer från filer och strömmar. När en presentation har lästs in kan du undersöka dess struktur, redigera bilder, hantera resurser och spara den i det ursprungliga eller ett annat stödd format.
 
-Inläsningsbeteendet kan anpassas via klassen [LoadOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/). Till exempel kan du ange ett öppningslösenord, hålla stora binära objekt utanför Node.js-minnet, kontrollera externa resurser eller utesluta inbäddade binära data.
+Laddningsbeteendet kan anpassas via klassen [LoadOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/) . Till exempel kan du ange ett öppningslösenord, hålla stora binära objekt utanför Node.js-minnet, kontrollera externa resurser eller utelämna inbäddade binära data.
 
 ## **Öppna presentationer**
 
-För att öppna en befintlig presentation, skicka dess filsökväg till [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/)-konstruktorn. Disposera presentationen efter användning så att filhandtag, temporära data och andra resurser frigörs snabbt.
+Efter att ha läst in en fil eller ström kan du [bestämma dess ursprungliga presentationsformat](/slides/sv/nodejs-java/detect-presentation-source-format/) för att välja hur ditt program hanterar den.
 
-Följande JavaScript‑exempel visar hur du öppnar en presentation och får antalet bilder:
+För att öppna en befintlig presentation, skicka dess filsökväg till konstruktorn [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) . Avsluta presentationen efter användning så att filhandtag, temporära data och andra resurser frigörs omedelbart.
+
+Följande JavaScript‑exempel visar hur man öppnar en presentation och får antalet bilder:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -48,7 +50,7 @@ try {
 
 ## **Öppna lösenordsskyddade presentationer**
 
-Ett öppningslösenord krypterar presentationsinnehållet. För att läsa in hela presentationen, skicka rätt lösenord till [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setPassword) och tillhandahåll alternativen till [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/)-konstruktorn. Inläsningen misslyckas när lösenordet saknas eller är felaktigt.
+Ett öppningslösenord krypterar presentationsinnehållet. För att läsa in hela presentationen, skicka det korrekta lösenordet till [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setPassword) och ge alternativen till konstruktorn [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) . Inläsningen misslyckas när lösenordet saknas eller är felaktigt.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -64,13 +66,13 @@ try {
 }
 ```
 
-För lösenorddetektering, validering och krypteringsarbetsflöden, se [Password‑Protect Presentations](/slides/sv/nodejs-java/password-protected-presentation/). Om en krypterad presentation avsiktligt sparats med offentliga dokumentegenskaper, kan dessa egenskaper läsas utan lösenord; se [Manage Presentation Properties](/slides/sv/nodejs-java/presentation-properties/).
+För lösenordsdetektering, validering och krypteringsarbetsflöden, se [Lösenordsskyddade presentationer](/slides/sv/nodejs-java/password-protected-presentation/). Om en krypterad presentation medvetet sparats med offentliga dokumentegenskaper, kan dessa egenskaper läsas utan lösenord; se [Hantera presentations‑egenskaper](/slides/sv/nodejs-java/presentation-properties/).
 
 ## **Öppna stora presentationer**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) returnerar alternativ som styr hur Aspose.Slides hanterar stora binära objekt såsom bilder, ljud och video. Du kan behålla källfilen låst, tillåta temporära filer och begränsa mängden BLOB‑data som behålls i minnet.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) returnerar alternativ som styr hur Aspose.Slides hanterar stora binära objekt som bilder, ljud och video. Du kan hålla källfilen låst, tillåta temporära filer och begränsa mängden BLOB‑data som behålls i minnet.
 
-Följande JavaScript‑kod demonstrerar inläsning av en stor presentation (till exempel 2 GB):
+Följande JavaScript‑kod demonstrerar hur man läser in en stor presentation (till exempel 2 GB):
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -92,14 +94,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-Med [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationlockingbehavior/#KeepLocked) förblir källfilen låst tills presentation‑instansen disponeras. Flytta, skriv över eller radera inte källfilen medan den instansen är aktiv.
+Med [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationlockingbehavior/#KeepLocked) förblir källfilen låst tills presentation‑instansen avlutas. Flytta, skriv inte över eller radera inte källfilen medan den instansen är levande.
 
-Aspose.Slides kan kopiera innehållet i en inmatningsström under inläsning. För stora presentationer är en filsökväg därför generellt mer effektiv än en ström. Se [Manage BLOBs](/slides/sv/nodejs-java/manage-blob/) för ytterligare lagrings- och minneshanteringsalternativ.
+Aspose.Slides kan kopiera innehållet i en inmatningsström under inläsning. För stora presentationer är en filsökväg därför vanligtvis mer effektiv än en ström. Se [Manage BLOBs](/slides/sv/nodejs-java/manage-blob/) för ytterligare lagrings‑ och minneshanteringsalternativ.
 {{% /alert %}}
 
 ## **Kontrollera externa resurser**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setResourceLoadingCallback) accepterar en [IResourceLoadingCallback](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iresourceloadingcallback/)-implementation. Återanropet kan tillhandahålla ersättningsdata, omdirigera en resurs, använda standardladdaren eller hoppa över resursen. Detta är användbart när presentationer innehåller externa bilder som måste lösas upp enligt programspecifika säkerhets- eller lagringsregler.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setResourceLoadingCallback) accepterar en implementation av [IResourceLoadingCallback](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iresourceloadingcallback/) . Återuppringningen kan tillhandahålla ersättningsdata, omdirigera en resurs, använda standardladdaren eller hoppa över resursen. Detta är användbart när presentationer innehåller externa bilder som måste lösas upp enligt applikationsspecifika säkerhets‑ eller lagringsregler.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -138,15 +140,15 @@ try {
 
 ## **Läs in presentationer utan inbäddade binära objekt**
 
-En presentation kan innehålla inbäddade binära data som en applikation inte behöver eller inte vill behålla. Exempel inkluderar:
+En presentation kan innehålla inbäddad binär data som en applikation inte behöver eller inte vill behålla. Exempel inkluderar:
 
 - VBA‑projekt, tillgängliga via [Presentation.getVbaProject](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#getVbaProject);
 - inbäddad OLE‑data, tillgänglig via [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
 - ActiveX‑kontrolldata, tillgänglig via [Control.getActiveXControlBinary](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/control/#getActiveXControlBinary).
 
-Ställ in [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) till `true` för att ta bort dessa binära data vid inläsning. Spara den inlästa presentationen för att behålla det sanerade resultatet.
+Ställ in [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) till `true` för att ta bort denna binära data vid inläsning. Spara den inlästa presentationen för att bevara det sanerade resultatet.
 
-Detta alternativ minskar exponeringen för oönskade inbäddade belastningar, men det är inte ett fullständigt system för skadlig‑programdetektering eller innehållssanering.
+Detta alternativ minskar exponeringen för oönskade inbäddade payloads, men det är inte ett fullständigt malware‑detekterings- eller innehållssaniteringssystem.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -162,16 +164,16 @@ try {
 }
 ```
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Hur kan jag avgöra att en fil är korrupt och inte kan öppnas?**
 
-Aspose.Slides kastar ett pars‑ eller formatfel under inläsning. Hantera detta fel separat från ett felaktigt lösenord så att applikationen kan rapportera orsaken korrekt.
+Aspose.Slides kastar ett parse‑ eller format‑undantag under inläsning. Hantera det misslyckandet separat från ett fel lösenord‑fel så att applikationen kan rapportera orsaken exakt.
 
-**Vad händer om nödvändiga teckensnitt saknas?**
+**Vad händer om obligatoriska teckensnitt saknas?**
 
-Presentationen kan fortfarande läsas in, men rendering och export kan ersätta teckensnitt. Du kan konfigurera teckensnittsersättning eller tillhandahålla egna teckensnitt för att göra utdata mer förutsägbar.
+Presentationen kan fortfarande laddas, men rendering och export kan ersätta teckensnitt. Du kan [konfigurera teckensnittssubstitution](/slides/sv/nodejs-java/font-substitution/) eller [tillhandahålla anpassade teckensnitt](/slides/sv/nodejs-java/custom-font/) för att göra output mer förutsägbar.
 
-**Läser inläsning av en presentation även inbäddad media?**
+**Laddar inläsning av en presentation även dess inbäddade media?**
 
-Inbäddat ljud och video blir tillgängliga via presentationsobjektmodellen. Externa resurser löses upp enligt den konfigurerade resursladdningsbeteendet och kan vara otillgängliga om deras platser inte kan nås.
+Inbäddat audio och video blir tillgängligt via presentationsobjektmodellen. Externa resurser löses upp enligt den konfigurerade resursladdningsbeteendet och kan vara otillgängliga om deras platser inte kan nås.

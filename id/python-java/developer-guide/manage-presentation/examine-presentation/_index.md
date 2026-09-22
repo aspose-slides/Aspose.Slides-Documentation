@@ -1,5 +1,5 @@
 ---
-title: Mengambil dan Memperbarui Informasi Presentasi dengan Python via Java
+title: Ambil dan Perbarui Informasi Presentasi dengan Python melalui Java
 linktitle: Informasi Presentasi
 type: docs
 weight: 30
@@ -8,7 +8,7 @@ keywords:
 - format presentasi
 - properti presentasi
 - properti dokumen
-- ambil properti
+- dapatkan properti
 - baca properti
 - ubah properti
 - modifikasi properti
@@ -22,17 +22,19 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Jelajahi slide, struktur, dan metadata dalam presentasi PowerPoint dan OpenDocument menggunakan Python via Java untuk wawasan lebih cepat dan audit konten yang lebih cerdas."
+description: "Jelajahi slide, struktur, dan metadata dalam presentasi PowerPoint dan OpenDocument menggunakan Python melalui Java untuk wawasan lebih cepat dan audit konten yang lebih cerdas."
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides dapat mengidentifikasi format presentasi dan membaca metadata dokumen tanpa membuat model objek presentasi yang lengkap. Hal ini berguna ketika Anda perlu mengklasifikasikan file, membuat inventaris, atau memeriksa properti sebelum memutuskan apakah akan memuat dan memproses konten presentasi.
+Aspose.Slides dapat mengidentifikasi format presentasi dan membaca metadata dokumennya tanpa membuat model objek presentasi yang lengkap. Ini berguna ketika Anda perlu mengklasifikasikan file, membuat inventaris, atau memeriksa properti sebelum memutuskan apakah akan memuat dan memproses konten presentasi.
 
-Contoh-contoh memerlukan Aspose.Slides untuk Python via Java dan runtime Java yang kompatibel. Setiap contoh memulai JVM jika belum berjalan. Sediakan file presentasi yang ada pada path yang digunakan dalam contoh.
+Contoh-contoh memerlukan Aspose.Slides untuk Python via Java dan runtime Java yang kompatibel. Setiap contoh memulai JVM jika belum berjalan. Sediakan file presentasi yang ada pada jalur yang digunakan dalam contoh.
 
 Artikel ini menunjukkan inspeksi ringan melalui [PresentationFactory](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationfactory/) dan [PresentationInfo](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationinfo/), serta pembaruan terarah melalui [DocumentProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/documentproperties/).
 
 ## **Periksa Format Presentasi**
+
+Jika Anda sudah memiliki presentasi yang dimuat, lihat [Determine the Original Presentation Format](/slides/id/python-java/detect-presentation-source-format/) untuk deteksi setelah memuat dan batasan aliran PPT, PPS, dan POT warisan.
 
 Gunakan [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationfactory/#getPresentationInfo) untuk memeriksa file tanpa membuat instance [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/). Metode [PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationinfo/#getLoadFormat) melaporkan format yang terdeteksi, seperti PPTX, PPT, atau ODP.
 
@@ -62,11 +64,11 @@ for file_name in file_names:
     print(f"{file_name}: {format_name}")
 ```
 
-## **Bangun Inventaris Presentasi Ringan**
+## **Buat Inventaris Presentasi Ringan**
 
-Ketika Anda memproses banyak file presentasi, Anda mungkin memerlukan inventaris kompak untuk validasi, pengindeksan, atau sistem manajemen dokumen. Dalam skenario ini, gunakan [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationfactory/#getPresentationInfo) untuk memperoleh objek [PresentationInfo](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationinfo/), kemudian panggil [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationinfo/#readDocumentProperties) untuk membaca metadata dokumen. Pendekatan ini tidak membuat instance [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) atau memaksa Anda menelusuri model objek presentasi yang lengkap.
+Saat Anda memproses banyak file presentasi, Anda mungkin membutuhkan inventaris ringkas untuk validasi, pengindeksan, atau sistem manajemen dokumen. Dalam skenario ini, gunakan [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationfactory/#getPresentationInfo) untuk memperoleh objek [PresentationInfo](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationinfo/), lalu panggil [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationinfo/#readDocumentProperties) untuk membaca metadata dokumen. Pendekatan ini tidak membuat instance [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) atau mengharuskan Anda menelusuri model objek presentasi secara lengkap.
 
-Properti tambahan yang diekspos oleh [DocumentProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/documentproperties/) menyediakan nilai inventaris berikut:
+Properti tambahan yang disediakan oleh [DocumentProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/documentproperties/) memberikan nilai inventaris berikut:
 
 | Metode | Nilai inventaris |
 | --- | --- |
@@ -77,7 +79,7 @@ Properti tambahan yang diekspos oleh [DocumentProperties](https://reference.aspo
 | [getWords](https://reference.aspose.com/slides/id/python-java/aspose.slides/documentproperties/#getWords) | Jumlah total kata. |
 | [getMultimediaClips](https://reference.aspose.com/slides/id/python-java/aspose.slides/documentproperties/#getMultimediaClips) | Jumlah total klip audio dan video. |
 
-Contoh berikut membaca nilai-nilai tersebut tanpa membuat objek [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) dan mencetak inventaris kompak. Ia juga menggabungkan [getHeadingPairs](https://reference.aspose.com/slides/id/python-java/aspose.slides/documentproperties/#getHeadingPairs) dengan [getTitlesOfParts](https://reference.aspose.com/slides/id/python-java/aspose.slides/documentproperties/#getTitlesOfParts) untuk menampilkan grup konten seperti font, tema, dan judul slide.
+Contoh berikut membaca nilai-nilai ini tanpa membuat objek [Presentation] dan mencetak inventaris ringkas. Itu juga menggabungkan [getHeadingPairs] dengan [getTitlesOfParts] untuk menampilkan grup konten seperti font, tema, dan judul slide.
 
 ```python
 import jpype
@@ -143,27 +145,27 @@ else:
             part_index += 1
 ```
 
-Setiap [HeadingPair](https://reference.aspose.com/slides/id/python-java/aspose.slides/headingpair/) menyediakan nama grup dan jumlah item dalam grup tersebut. [DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/id/python-java/aspose.slides/documentproperties/#getTitlesOfParts) mengembalikan array datar berurutan, sehingga konsumsi jumlah judul berturut-turut yang ditentukan oleh setiap heading pair.
+Setiap [HeadingPair] menyediakan nama grup dan jumlah item dalam grup tersebut. [DocumentProperties.getTitlesOfParts] mengembalikan array datar yang terurut, sehingga konsumsi jumlah judul berurutan yang ditentukan oleh setiap heading pair.
 
-### **Metadata Tersimpan dan Batasan Format**
+### **Metadata yang Disimpan dan Batasan Format**
 
-Properti inventaris yang dikembalikan oleh [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationinfo/#readDocumentProperties) mencerminkan metadata yang tersedia dalam dokumen sumber. Aspose.Slides tidak memuat dan menelusuri model objek presentasi untuk menghitung ulang nilai-nilai ini pada pemanggilan ini. Properti yang hilang direpresentasikan dengan nilai default, dan nilai yang disimpan mungkin usang jika aplikasi yang terakhir menyimpan file tidak memperbarui properti dokumennya.
+Properti inventaris yang dikembalikan oleh [PresentationInfo.readDocumentProperties] mencerminkan metadata yang tersedia di dokumen sumber. Aspose.Slides tidak memuat dan menelusuri model objek presentasi untuk menghitung ulang nilai-nilai ini pada panggilan ini. Properti yang tidak ada direpresentasikan dengan nilai default, dan nilai yang disimpan mungkin usang jika aplikasi yang terakhir menyimpan file tidak memperbarui properti dokumennya.
 
-- **PPTX:** Format ini menyediakan properti dokumen tambahan untuk hitungan slide, catatan, slide tersembunyi, paragraf, kata, dan multimedia, serta heading pair dan judul bagian. Ketersediaannya tergantung pada properti mana yang ditulis oleh pembuat dokumen.
-- **PPT:** Format biner dapat menyimpan properti ringkasan dokumen yang sesuai. Jika suatu properti tidak ada atau tidak diperbarui oleh pembuat dokumen, Aspose.Slides mengembalikan nilai yang tersimpan atau nilai default alih-alih menghitungnya dari slide.
-- **ODP:** Metadata OpenDocument menyediakan statistik dokumen umum, seperti hitungan halaman, paragraf, dan kata, tetapi nilai-nilai ini tidak selalu cocok dengan setiap properti tambahan khusus PowerPoint. Metadata slide tersembunyi, slide catatan, multimedia, heading‑pair, dan judul bagian mungkin tidak tersedia, dan properti inventaris dapat mengembalikan nilai default. Jangan menganggap nilai nol atau array kosong sebagai bukti otoritatif bahwa konten terkait tidak ada.
+- **PPTX:** Format ini menyediakan properti dokumen tambahan untuk hitungan slide, catatan, slide tersembunyi, paragraf, kata, dan multimedia, serta heading pair dan judul bagian. Ketersediaannya tergantung pada properti apa yang ditulis oleh pembuat dokumen.
+- **PPT:** Format biner dapat menyimpan properti ringkasan dokumen yang sesuai. Jika sebuah properti tidak ada atau tidak diperbarui oleh pembuat dokumen, Aspose.Slides mengembalikan nilai yang disimpan atau nilai default daripada menghitungnya dari slide.
+- **ODP:** Metadata OpenDocument menyediakan statistik dokumen umum, seperti jumlah halaman, paragraf, dan kata, tetapi nilai ini tidak berkorespondensi dengan setiap properti tambahan khusus PowerPoint. Metadata slide tersembunyi, slide catatan, multimedia, heading-pair, dan judul bagian mungkin tidak tersedia, dan properti inventaris dapat mengembalikan nilai default. Jangan menganggap nilai nol atau array kosong sebagai bukti otoritatif bahwa konten yang bersangkutan tidak ada.
 
-Gunakan pendekatan metadata ringan untuk inventaris dan pemeriksaan awal. Muat presentasi dan inspeksi model objek secara langsung ketika hasil harus mencerminkan perubahan dalam memori atau ketika Anda perlu memverifikasi konten presentasi yang sebenarnya.
+Gunakan pendekatan metadata ringan untuk inventaris dan pemeriksaan awal. Muat presentasi dan inspeksi model objeknya yang aktif ketika hasil harus mencerminkan perubahan dalam memori atau ketika Anda perlu memverifikasi konten presentasi yang sebenarnya.
 
 ## **Perbarui Properti Presentasi**
 
-Properti yang dikembalikan oleh [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationinfo/#readDocumentProperties) juga dapat diubah tanpa membuat instance [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/). Terapkan perubahan dengan [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationinfo/#updateDocumentProperties), lalu tulis presentasi terikat dengan [PresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationinfo/#writeBindedPresentation).
+Properti yang dikembalikan oleh [PresentationInfo.readDocumentProperties] juga dapat diubah tanpa membuat instance [Presentation]. Terapkan perubahan dengan [PresentationInfo.updateDocumentProperties], dan kemudian tulis presentasi yang terikat dengan [PresentationInfo.writeBindedPresentation].
 
-Gambar berikut menampilkan properti dokumen asli dari presentasi PowerPoint.
+Gambar berikut menunjukkan properti dokumen asli.
 
 ![Properti dokumen asli dari presentasi PowerPoint](input_properties.png)
 
-Contoh berikut mengubah judul dan waktu terakhir disimpan serta menulis hasilnya ke file baru:
+Contoh berikut mengubah judul dan waktu penyimpanan terakhir serta menulis hasilnya ke file baru:
 
 ```python
 import jpype
@@ -193,7 +195,7 @@ finally:
     output_stream.close()
 ```
 
-Gambar berikut menampilkan properti dokumen yang diubah dari presentasi PowerPoint.
+Gambar berikut menunjukkan properti dokumen yang diperbarui.
 
 ![Properti dokumen yang diubah dari presentasi PowerPoint](output_properties.png)
 
@@ -201,27 +203,27 @@ Gambar berikut menampilkan properti dokumen yang diubah dari presentasi PowerPoi
 
 Untuk pemeriksaan keamanan terkait dan pengaturan perlindungan, lihat artikel berikut:
 
-- [Presentasi dengan Proteksi Sandi](/slides/id/python-java/password-protected-presentation/)
-- [Presentasi dengan Proteksi Penulisan](/slides/id/python-java/write-protected-presentation/)
+- [Presentasi dengan Perlindungan Kata Sandi](/slides/id/python-java/password-protected-presentation/)
+- [Presentasi dengan Perlindungan Penulisan](/slides/id/python-java/write-protected-presentation/)
 
 ## **FAQ**
 
-**Bagaimana saya dapat memeriksa apakah font tersemat dan yang mana?**
+**Bagaimana saya dapat memeriksa apakah font disematkan dan mana saja yang disematkan?**
 
-Muat presentasi dan gunakan [Presentation.getFontsManager](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getFontsManager). Panggil [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/id/python-java/aspose.slides/fontsmanager/#getEmbeddedFonts) untuk memperoleh font yang tersemat dan [FontsManager.getFonts](https://reference.aspose.com/slides/id/python-java/aspose.slides/fontsmanager/#getFonts) untuk memperoleh font yang digunakan oleh presentasi. Bandingkan kedua hasil untuk menemukan font yang diperlukan untuk rendering tetapi tidak tersemat.
+Muat presentasi dan gunakan [Presentation.getFontsManager](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getFontsManager). Panggil [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/id/python-java/aspose.slides/fontsmanager/#getEmbeddedFonts) untuk memperoleh font yang disematkan dan [FontsManager.getFonts](https://reference.aspose.com/slides/id/python-java/aspose.slides/fontsmanager/#getFonts) untuk memperoleh font yang digunakan oleh presentasi. Bandingkan dua hasil tersebut untuk menemukan font yang diperlukan untuk rendering tetapi tidak disematkan.
 
 **Bagaimana saya dapat dengan cepat mengetahui apakah file memiliki slide tersembunyi dan berapa banyak?**
 
-Ketika metadata dokumen yang disimpan cukup, baca [DocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/id/python-java/aspose.slides/documentproperties/#getHiddenSlides) melalui [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationfactory/#getPresentationInfo) dan [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationinfo/#readDocumentProperties). Ini cocok untuk inventaris ringan. Jika presentasi telah dimodifikasi dalam memori, metadata yang disimpan mungkin hilang atau usang, atau Anda perlu memverifikasi nilai hidup, iterasi melalui [Presentation.getSlides](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getSlides) dan periksa metode [Slide.getHidden](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/#getHidden) pada setiap slide.
+Ketika metadata dokumen yang disimpan cukup, baca [DocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/id/python-java/aspose.slides/documentproperties/#getHiddenSlides) melalui [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationfactory/#getPresentationInfo) dan [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentationinfo/#readDocumentProperties). Ini cocok untuk inventaris ringan. Jika presentasi telah dimodifikasi dalam memori, metadata yang disimpan mungkin tidak ada atau usang, atau Anda perlu memverifikasi nilai langsung, iterasi melalui [Presentation.getSlides](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getSlides) dan inspeksi metode [Slide.getHidden](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/#getHidden) tiap slide sebagai gantinya.
 
 **Apakah saya dapat mendeteksi apakah ukuran dan orientasi slide khusus digunakan, dan apakah berbeda dari default?**
 
 Ya. Muat presentasi dan panggil [Presentation.getSlideSize](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getSlideSize). Gunakan [SlideSize.getType](https://reference.aspose.com/slides/id/python-java/aspose.slides/slidesize/#getType), [SlideSize.getSize](https://reference.aspose.com/slides/id/python-java/aspose.slides/slidesize/#getSize), dan [SlideSize.getOrientation](https://reference.aspose.com/slides/id/python-java/aspose.slides/slidesize/#getOrientation) untuk membandingkan pengaturan saat ini dengan preset dan dimensi yang diharapkan.
 
-**Apakah ada cara cepat untuk melihat apakah diagram merujuk ke sumber data eksternal?**
+**Apakah ada cara cepat untuk melihat apakah grafik merujuk ke sumber data eksternal?**
 
-Ya. Temukan setiap [Chart](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/) dan panggil [ChartData.getDataSourceType](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getDataSourceType). Untuk workbook eksternal, panggil [ChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). Jenis sumber data dan path mengidentifikasi referensi eksternal, tetapi verifikasi ketersediaan target memerlukan pemeriksaan sumber daya terpisah.
+Ya. Temukan setiap [Chart](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/) dan panggil [ChartData.getDataSourceType](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getDataSourceType). Untuk buku kerja eksternal, panggil [ChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/id/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). Tipe sumber data dan path mengidentifikasi referensi eksternal, tetapi memverifikasi apakah target tersedia memerlukan pengecekan sumber terpisah.
 
-**Bagaimana saya dapat menilai slide 'berat' yang dapat memperlambat rendering atau ekspor PDF?**
+**Bagaimana saya dapat menilai slide 'berat' yang mungkin memperlambat rendering atau ekspor PDF?**
 
-Tidak ada properti kompleksitas tunggal. Telusuri [Presentation.getSlides](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getSlides) dan koleksi [BaseSlide.getShapes](https://reference.aspose.com/slides/id/python-java/aspose.slides/baseslide/#getShapes) pada setiap slide. Gunakan jumlah shape serta kehadiran gambar besar, efek, animasi, atau multimedia sebagai sinyal penyaringan, dan ukur rendering atau ekspor representatif sebelum menganggap slide sebagai bottleneck kinerja yang terkonfirmasi.
+Tidak ada properti kompleksitas tunggal. Telusuri [Presentation.getSlides](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getSlides) dan koleksi [BaseSlide.getShapes](https://reference.aspose.com/slides/id/python-java/aspose.slides/baseslide/#getShapes) tiap slide. Gunakan jumlah shape serta keberadaan gambar besar, efek, animasi, atau multimedia sebagai sinyal penyaringan, dan ukur render atau ekspor representatif sebelum menganggap slide sebagai hambatan kinerja yang terkonfirmasi.

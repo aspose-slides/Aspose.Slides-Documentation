@@ -16,23 +16,25 @@ keywords:
 - تحميل ODP
 - عرض تقديمي محمي
 - عرض تقديمي كبير
-- مورد خارجي
+- مصدر خارجي
 - كائن ثنائي
 - Java
 - Aspose.Slides
-description: "تعلم كيف تفتح عروض PowerPoint و OpenDocument في Java، وتزويد كلمات مرور الفتح، والتحكم في تحميل الموارد، وتقليل استهلاك الذاكرة باستخدام Aspose.Slides for Java."
+description: "تعلم كيفية فتح عروض PowerPoint و OpenDocument في Java، وتوفير كلمات مرور للفتح، والتحكم في تحميل الموارد، وتقليل استهلاك الذاكرة باستخدام Aspose.Slides for Java."
 ---
 ## **المقدمة**
 
-[Aspose.Slides for Java](https://products.aspose.com/slides/ar/java/) يمكنه تحميل عروض PowerPoint و OpenDocument من الملفات والمسارات. بعد تحميل العرض، يمكنك فحص هيكله، تعديل الشرائح، إدارة الموارد، وحفظه بالتنسيق الأصلي أو بأي تنسيق مدعوم آخر.
+[Aspose.Slides for Java](https://products.aspose.com/slides/ar/java/) يمكنه تحميل عروض PowerPoint و OpenDocument من الملفات وتيارات البيانات. بعد تحميل العرض التقديمي، يمكنك فحص هيكله، تحرير الشرائح، إدارة الموارد، وحفظه بالصيغة الأصلية أو بصيغة مدعومة أخرى.
 
-يمكن تخصيص سلوك التحميل عبر فئة [LoadOptions](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/). على سبيل المثال، يمكنك توفير كلمة مرور للفتح، إبقاء الكائنات الثنائية الكبيرة خارج ذاكرة Java heap، التحكم في الموارد الخارجية، أو حذف البيانات الثنائية المضمنة.
+يمكن تخصيص سلوك التحميل من خلال فئة [LoadOptions](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/). على سبيل المثال، يمكنك توفير كلمة مرور للفتح، إبقاء كائنات الثنائية الكبيرة خارج ذاكرة Java heap، التحكم في الموارد الخارجية، أو حذف البيانات الثنائية المدمجة.
 
-## **فتح العروض**
+## **فتح العروض التقديمية**
 
-لفتح عرض موجود، مرّر مسار ملفه إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/). حرّر (Dispose) العرض بعد الاستخدام بحيث يتم تحرير مقابض الملفات والبيانات المؤقتة وغيرها من الموارد بسرعة.
+بعد تحميل ملف أو تيار، يمكنك [تحديد صيغة العرض التقديمي الأصلية](/slides/ar/java/detect-presentation-source-format/) لاختيار طريقة معالجة تطبيقك له.
 
-المثال التالي بلغة Java يوضح كيفية فتح عرض والحصول على عدد الشرائح:
+لفتح عرض تقديمي موجود، مرر مسار الملف إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/). قم بتحرير العرض التقديمي بعد الاستخدام بحيث يتم تحرير مقابض الملفات والبيانات المؤقتة وغيرها من الموارد بسرعة.
+
+المثال التالي بلغة Java يوضح كيفية فتح عرض تقديمي والحصول على عدد الشرائح:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -45,9 +47,9 @@ try {
 }
 ```
 
-## **العروض المحمية بكلمة مرور**
+## **فتح العروض التقديمية المحمية بكلمة مرور**
 
-كلمة مرور الفتح تشفر محتوى العرض. لتحميل العرض بالكامل، مرّر كلمة المرور الصحيحة إلى [LoadOptions.setPassword](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) وقدم الخيارات إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/). سيفشل التحميل إذا كانت كلمة المرور مفقودة أو غير صحيحة.
+تشفّر كلمة المرور للفتح محتوى العرض التقديمي. لتحميل العرض بالكامل، مرر كلمة المرور الصحيحة إلى [LoadOptions.setPassword](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) وقدم الخيارات إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/). سيفشل التحميل إذا كانت كلمة المرور مفقودة أو غير صحيحة.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -64,13 +66,13 @@ try {
 }
 ```
 
-للتعرف على كلمات المرور، والتحقق، وتدفقات العمل المتعلقة بالتشفير، راجع [Password-Protect Presentations](/slides/ar/java/password-protected-presentation/). إذا تم حفظ عرض مشفر مع خصائص المستند العامة، يمكن قراءة تلك الخصائص دون كلمة مرور؛ راجع [Manage Presentation Properties](/slides/ar/java/presentation-properties/).
+للحصول على سير عمل كشف كلمة المرور، التحقق، والتشفير، راجع [Password-Protect Presentations](/slides/ar/java/password-protected-presentation/). إذا تم حفظ عرض تقديمي مشفر عمدًا بخصائص المستند العامة، يمكن قراءة تلك الخصائص دون كلمة مرور؛ انظر إلى [Manage Presentation Properties](/slides/ar/java/presentation-properties/).
 
-## **فتح عروض كبيرة**
+## **فتح العروض التقديمية الكبيرة**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) تُعيد خيارات تتحكم في كيفية معالجة Aspose.Slides للكائنات الثنائية الكبيرة مثل الصور والصوت والفيديو. يمكنك إبقاء ملف المصدر مقفلًا، السماح بالملفات المؤقتة، وتحديد مقدار بيانات BLOB المحتفظ بها في الذاكرة.
+ترجع [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) خيارات تتحكم في كيفية تعامل Aspose.Slides مع كائنات الثنائية الكبيرة مثل الصور، الصوت، والفيديو. يمكنك إبقاء ملف المصدر مقفولًا، السماح بالملفات المؤقتة، وتحديد مقدار بيانات BLOB المحتفظ بها في الذاكرة.
 
-الكود التالي بلغة Java يوضح تحميل عرض كبير (مثلاً 2 جيجابايت):
+الكود التالي بلغة Java يوضح تحميل عرض تقديمي كبير (على سبيل المثال، 2 جيجابايت):
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -95,16 +97,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
+مع [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked)، يبقى ملف المصدر مقفولًا حتى يتم تحرير كائن العرض التقديمي. لا تقم بنقل، استبدال، أو حذف ملف المصدر طالما أن هذا الكائن لا يزال نشطًا.
 
-مع [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked)، يبقى ملف المصدر مقفلًا حتى يتم تحرير كائن العرض. لا تقم بنقل أو استبدال أو حذف ملف المصدر بينما تلك المثيلة لا تزال حية.
-
-قد تنسخ Aspose.Slides محتوى تدفق الإدخال أثناء تحميله. بالنسبة للعروض الكبيرة، يكون مسار الملف عادةً أكثر كفاءة من التدفق. راجع [Manage BLOBs](/slides/ar/java/manage-blob/) لمزيد من خيارات التخزين وإدارة الذاكرة.
-
+قد تقوم Aspose.Slides بنسخ محتويات تيار الإدخال أثناء تحميله. بالنسبة للعروض الكبيرة، يكون مسار الملف عمومًا أكثر كفاءة من التيار. راجع [Manage BLOBs](/slides/ar/java/manage-blob/) للحصول على خيارات إضافية لتخزين وإدارة الذاكرة.
 {{% /alert %}}
 
 ## **التحكم في الموارد الخارجية**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) يقبل تنفيذًا لـ[IResourceLoadingCallback](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iresourceloadingcallback/). يمكن للنداء المرتد تزويد بيانات بديلة، إعادة توجيه مورد، استخدام المحمل الافتراضي، أو تخطي المورد. هذا مفيد عندما تحتوي العروض على صور خارجية يجب حلها وفقًا لقواعد الأمان أو التخزين الخاصة بالتطبيق.
+تقبل [LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) تنفيذًا لـ [IResourceLoadingCallback](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iresourceloadingcallback/). يمكن للنداء الرجعي توفير بيانات بديلة، إعادة توجيه مورد، استخدام المحمّل الافتراضي، أو تخطي المورد. هذا مفيد عندما يحتوي العرض التقديمي على صور خارجية يجب حلها وفقًا لقواعد الأمان أو التخزين الخاصة بالتطبيق.
 
 ```java
 import com.aspose.slides.IResourceLoadingArgs;
@@ -148,17 +148,17 @@ try {
 }
 ```
 
-## **تحميل العروض بدون الكائنات الثنائية المضمنة**
+## **تحميل العروض التقديمية دون كائنات ثنائية مدمجة**
 
-قد يحتوي العرض على بيانات ثنائية مضمّنة لا يحتاجها التطبيق أو لا يرغب في الاحتفاظ بها. تشمل الأمثلة:
+قد يحتوي العرض التقديمي على بيانات ثنائية مدمجة لا يحتاجها التطبيق أو لا يرغب في الاحتفاظ بها. تشمل الأمثلة:
 
-- مشاريع VBA، المتاحة عبر [IPresentation.getVbaProject](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipresentation/#getVbaProject--);
-- بيانات OLE المضمّنة، المتاحة عبر [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
-- بيانات التحكم ActiveX، المتاحة عبر [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icontrol/#getActiveXControlBinary--).
+- مشاريع VBA، متاحة عبر [IPresentation.getVbaProject](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipresentation/#getVbaProject--);
+- بيانات OLE المدمجة، متاحة عبر [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
+- بيانات التحكم ActiveX، متاحة عبر [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icontrol/#getActiveXControlBinary--).
 
-عيّن [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) إلى `true` لإزالة هذه البيانات الثنائية أثناء التحميل. احفظ العرض المحمّل لتثبيت النتيجة المنقحة.
+قم بتعيين [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) إلى `true` لإزالة هذه البيانات الثنائية أثناء التحميل. احفظ العرض التقديمي المحمّل لتثبيت النتيجة المنقّاة.
 
-يقلل هذا الخيار من التعرض للحمولات المضمنة غير المرغوب فيها، لكنه ليس نظامًا كاملاً لاكتشاف البرمجيات الخبيثة أو تنقية المحتوى.
+يقلل هذا الخيار من التعرض للحمولات المدمجة غير المرغوبة، لكنه ليس نظامًا كاملاً لاكتشاف البرمجيات الخبيثة أو تنقية المحتوى.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -180,12 +180,12 @@ try {
 
 **كيف يمكنني معرفة أن الملف تالف ولا يمكن فتحه؟**
 
-تقذف Aspose.Slides استثناءً متعلقًا بالتحليل أو التنسيق أثناء التحميل. عالج هذا الفشل بشكل منفصل عن خطأ كلمة المرور غير الصحيحة حتى يتمكن التطبيق من الإبلاغ عن السبب بدقة.
+تطرح Aspose.Slides استثناءً في التحليل أو تنسيق أثناء التحميل. يجب التعامل مع هذا الفشل بشكل منفصل عن خطأ كلمة المرور غير الصحيحة حتى يتمكن التطبيق من الإبلاغ عن السبب بدقة.
 
 **ماذا يحدث إذا كانت الخطوط المطلوبة مفقودة؟**
 
-لا يزال بإمكان العرض التحميل، لكن قد يتم استبدال الخطوط أثناء العرض والتصدير. يمكنك [configure font substitution](/slides/ar/java/font-substitution/) أو [provide custom fonts](/slides/ar/java/custom-font/) لجعل الناتج أكثر توقعًا.
+يمكن للعرض التقديمي أن يظل يُحمّل، لكن قد تستبدل الخطوط أثناء العرض والتصدير. يمكنك [تكوين استبدال الخطوط](/slides/ar/java/font-substitution/) أو [توفير خطوط مخصصة](/slides/ar/java/custom-font/) لجعل النتيجة أكثر قابلية للتنبؤ.
 
-**هل تحميل العرض يحمل أيضًا وسائطه المضمّنة؟**
+**هل تحميل عرض تقديمي يحمل أيضًا الوسائط المدمجة؟**
 
-تصبح ملفات الصوت والفيديو المضمّنة متاحة عبر نموذج كائن العرض. يتم حل الموارد الخارجية وفقًا لسلوك تحميل الموارد المُكوَّن وقد تكون غير متوفرة إذا لم يمكن الوصول إلى مواقعها.
+تصبح الصوتيات والفيديو المدمجين متاحين عبر نموذج كائن العرض التقديمي. يتم حل الموارد الخارجية وفقًا لسلوك تحميل الموارد المُكوّن وقد تكون غير متاحة إذا لم يمكن الوصول إلى مواقعها.

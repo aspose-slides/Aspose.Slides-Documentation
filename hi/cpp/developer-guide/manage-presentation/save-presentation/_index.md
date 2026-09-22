@@ -17,41 +17,106 @@ keywords:
 - पूर्वनिर्धारित दृश्य प्रकार
 - स्ट्रिक्ट Office Open XML फ़ॉर्मेट
 - Zip64 मोड
-- थंबनेल रिफ्रेश करना
-- सेविंग प्रोग्रेस
+- थंबनेल रीफ़्रेश
+- सहेजने की प्रगति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides का उपयोग करके C++ में प्रस्तुतियों को सहेजने के तरीके खोजें—लेआउट, फ़ॉन्ट और इफेक्ट्स को बरकरार रखते हुए PowerPoint या OpenDocument में निर्यात करें।"
+description: "Aspose.Slides के साथ C++ में PowerPoint और OpenDocument प्रस्तुतियों को फ़ाइलों या स्ट्रीम में सहेजें, और PPTX आउटपुट तथा प्रगति रिपोर्टिंग को कॉन्फ़िगर करें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-[Open Presentations in C++](/slides/hi/cpp/open-presentation/) बताता है कि कैसे [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास का उपयोग करके प्रस्तुति खोली जाती है। यह लेख बताता है कि कैसे प्रस्तुतियों को बनाया और सहेजा जाता है। [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास में प्रस्तुति की सामग्री होती है। चाहे आप शुरुआत से प्रस्तुति बना रहे हों या मौजूदा को संशोधित कर रहे हों, समाप्ति पर उसे सहेजना आवश्यक है। Aspose.Slides for C++ के साथ आप **file** या **stream** में सहेज सकते हैं। यह लेख प्रस्तुतियों को सहेजने के विभिन्न तरीकों को समझाता है।
+प्रस्तुति बनाने के बाद या किसी मौजूदा प्रस्तुति को [खोलने](/slides/hi/cpp/open-presentation/) के बाद, परिणाम लिखने के लिए [Presentation::Save](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/save/) मेथड का उपयोग करें। Aspose.Slides for C++ एक प्रस्तुति को PowerPoint, OpenDocument, PDF और अन्य स्वरूपों में फ़ाइल या स्ट्रीम पर सहेज सकता है। निम्नलिखित अनुभाग मानक सहेजने के संचालन और PPTX आउटपुट के लिए उपलब्ध विकल्पों को कवर करते हैं।
 
-## **फ़ाइलों में प्रस्तुतियों को सहेजें**
+## **फ़ाइलों में प्रस्तुति सहेजें**
 
-एक प्रस्तुति को फ़ाइल में सहेजने के लिए [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास की `Save` विधि को कॉल करें। फ़ाइल नाम और सहेजने का फ़ॉर्मेट मेथड को पास करें। निम्न उदाहरण दर्शाता है कि Aspose.Slides के साथ प्रस्तुति कैसे सहेजी जाती है।
+फ़ाइल में प्रस्तुति सहेजने के लिए, आउटपुट पथ और एक [SaveFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/saveformat/) मान को [Presentation::Save](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/save/) मेथड में पास करें। फ़ॉर्मेट मान निर्धारित करता है कि Aspose.Slides किस प्रकार की फ़ाइल बनाएगा।
+
+निम्नलिखित उदाहरण एक प्रस्तुति बनाता है और इसे PPTX फ़ाइल के रूप में सहेजता है:
 
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// प्रस्तुति फ़ाइल को दर्शाने वाले Presentation क्लास का इंस्टैंस बनाएं।
 auto presentation = MakeObject<Presentation>();
 
-// यहां कुछ काम करें...
-// प्रस्तुति को फ़ाइल में सहेजें।
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+// यहाँ प्रस्तुति की सामग्री जोड़ें या संशोधित करें।
 
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **स्ट्रीम में प्रस्तुतियों को सहेजें**
+## **मूल स्वरूप में प्रस्तुतियों को सहेजें**
 
-आप `Save` मेथड को आउटपुट स्ट्रीम पास करके प्रस्तुति को स्ट्रीम में सहेज सकते हैं। एक प्रस्तुति कई प्रकार की स्ट्रीम में लिखी जा सकती है। नीचे के उदाहरण में, हम नई प्रस्तुति बनाते हैं और उसे फ़ाइल स्ट्रीम में सहेजते हैं।
+फ़ाइल और स्ट्रीम पहचान उदाहरणों, नवीन निर्मित प्रस्तुतियों के व्यवहार, तथा स्रोत और आउटपुट स्वरूपों के अंतर के लिए देखें [Determine the Original Presentation Format](/slides/hi/cpp/detect-presentation-source-format/)।
+
+बैच‑प्रसंस्करण अनुप्रयोग में इनपुट स्वरूप पहले से ज्ञात नहीं हो सकता। फ़ाइल लोड करने के बाद, उसके मूल स्वरूप को [IPresentation::get_SourceFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/get_sourceformat/) के साथ पढ़ें। प्राप्त [SourceFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/sourceformat/) मान को [SlideUtil::ToSaveFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides.util/slideutil/tosaveformat/) को पास करें ताकि संबंधित [SaveFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/saveformat/) मान प्राप्त हो सके, और फिर संशोधित प्रस्तुति को लिखने के लिए [Presentation::Save](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/save/) का उपयोग करें।
+
+निम्नलिखित पूर्ण उदाहरण इनपुट निर्देशिका की प्रत्येक फ़ाइल को प्रोसेस करता है, उसका शीर्षक अपडेट करता है, और उसे उसी स्वरूप में आउटपुट निर्देशिका में सहेजता है जिससे वह लोड किया गया था:
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/exception.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Util;
+using namespace System;
+using namespace System::IO;
+
+String inputDirectory = u"Input";
+String outputDirectory = u"Output";
+
+Directory::CreateDirectory_(outputDirectory);
+
+auto inputPaths = Directory::GetFiles(inputDirectory);
+for (const auto& inputPath : inputPaths)
+{
+    try
+    {
+        auto presentation = MakeObject<Presentation>(inputPath);
+
+        auto sourceFormat = presentation->get_SourceFormat();
+        auto saveFormat = SlideUtil::ToSaveFormat(sourceFormat);
+
+        presentation->get_DocumentProperties()->set_Title(u"Processed by the batch application");
+
+        auto outputPath = Path::Combine(outputDirectory, Path::GetFileName(inputPath));
+        presentation->Save(outputPath, saveFormat);
+        presentation->Dispose();
+    }
+    catch (ArgumentException& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Cannot map the source format of '{0}': {1}", inputPath, exception->get_Message()));
+    }
+    catch (Exception& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Cannot process '{0}': {1}", inputPath, exception->get_Message()));
+    }
+}
+```
+
+[SlideUtil::ToSaveFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides.util/slideutil/tosaveformat/) PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP और PowerPoint XML को उनके संबंधित प्रस्तुति सहेजने के स्वरूपों से मिलाता है। यह केवल प्रस्तुति स्रोत स्वरूपों को मैप करता है; यह PDF, HTML, TIFF या छवि जैसे निर्यात स्वरूपों को चुनने के लिए नहीं है। असमर्थित या अमान्य [SourceFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/sourceformat/) मान पास करने पर एक [ArgumentException](https://reference.aspose.com/slides/hi/cpp/system/argumentexception/) उत्पन्न होता है।
+
+Legacy PPT, PPS, और POT फ़ाइलें समान बाइनरी कंटेनर का उपयोग करती हैं। जब ऐसी प्रस्तुति को फ़ाइल एक्सटेंशन के बिना स्ट्रीम से लोड किया जाता है, तो एक PPS या POT फ़ाइल को PPT के रूप में पहचाना जा सकता है। यदि इन पुराने उप‑प्रकारों को संरक्षित करना आवश्यक है, तो मूल फ़ाइलनाम या स्वरूप मेटाडेटा को अलग से रखें और आउटपुट फ़ाइलनाम तथा स्वरूप चुनते समय उसका उपयोग करें।
+
+## **स्ट्रीम्स में प्रस्तुतियों को सहेजें**
+
+अंतिम फ़ाइल पथ पर निर्भर हुए बिना प्रस्तुति लिखने के लिए, एक लिखने योग्य [Stream](https://reference.aspose.com/slides/hi/cpp/system.io/stream/) और एक [SaveFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/saveformat/) मान को [Presentation::Save](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/save/) मेथड में पास करें। यह तरीका तब उपयोगी होता है जब आउटपुट को वेब सर्विस से लौटाना हो, डेटाबेस में संग्रहित करना हो, या मेमोरी में प्रोसेस करना हो।
+
+निम्नलिखित उदाहरण एक नई प्रस्तुति को फ़ाइल स्ट्रीम में सहेजता है:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -59,26 +124,26 @@ presentation->Dispose();
 #include <system/io/file_mode.h>
 #include <system/io/file_stream.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::IO;
 
-// प्रस्तुति फ़ाइल को दर्शाने वाले Presentation क्लास का इंस्टैंस बनाएं।
 auto presentation = MakeObject<Presentation>();
+auto outputStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
 
-auto fileStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
+presentation->Save(outputStream, SaveFormat::Pptx);
 
-// प्रस्तुति को स्ट्रीम में सहेजें।
-presentation->Save(fileStream, SaveFormat::Pptx);
-
+outputStream->Close();
 presentation->Dispose();
-fileStream->Close();
 ```
 
-## **प्रीडिफाइंड व्यू टाइप के साथ प्रस्तुतियों को सहेजें**
+## **पूर्वनिर्धारित दृश्य प्रकार के साथ प्रस्तुतियों को सहेजें**
 
-Aspose.Slides आपको उस प्रारंभिक व्यू को सेट करने देता है जिसे PowerPoint उत्पन्न प्रस्तुति खोलते समय उपयोग करता है, [ViewProperties](https://reference.aspose.com/slides/hi/cpp/aspose.slides/viewproperties/) क्लास के माध्यम से। [set_LastView](https://reference.aspose.com/slides/hi/cpp/aspose.slides/viewproperties/set_lastview/) मेथड का उपयोग करके आप [ViewType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/viewtype/) एन्यूमेरेशन से मान सेट कर सकते हैं।
+आप सहेजी गई प्रस्तुति को PowerPoint द्वारा प्रारंभिक रूप से खोलते समय दृश्य निर्दिष्ट कर सकते हैं। सहेजने से पहले एक [ViewType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/viewtype/) मान के साथ [ViewProperties::set_LastView](https://reference.aspose.com/slides/hi/cpp/aspose.slides/viewproperties/set_lastview/) को कॉल करें।
+
+निम्नलिखित उदाहरण Slide Master दृश्य को प्रारंभिक दृश्य के रूप में कॉन्फ़िगर करता है:
 
 ```cpp
 #include <DOM/IViewProperties.h>
@@ -86,6 +151,7 @@ Aspose.Slides आपको उस प्रारंभिक व्यू क�
 #include <Export/SaveFormat.h>
 #include <ViewType.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
@@ -93,16 +159,14 @@ using namespace System;
 auto presentation = MakeObject<Presentation>();
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
-
 presentation->Save(u"SlideMasterView.pptx", SaveFormat::Pptx);
+
 presentation->Dispose();
 ```
 
-## **स्ट्रिक्ट Office Open XML फ़ॉर्मेट में प्रस्तुतियों को सहेजें**
+## **स्ट्रिक्ट Office Open XML स्वरूप में प्रस्तुतियों को सहेजें**
 
-Aspose.Slides आपको प्रस्तुति को स्ट्रिक्ट Office Open XML फ़ॉर्मेट में सहेजने की अनुमति देता है। सहेजते समय आप [PptxOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/pptxoptions/) क्लास का उपयोग करके उसकी conformance प्रॉपर्टी सेट कर सकते हैं। यदि आप `Conformance.Iso29500_2008_Strict` सेट करते हैं, तो आउटपुट फ़ाइल स्ट्रिक्ट Office Open XML फ़ॉर्मेट में सहेजी जाएगी।
-
-नीचे का उदाहरण एक प्रस्तुति बनाता है और उसे स्ट्रिक्ट Office Open XML फ़ॉर्मेट में सहेजता है।
+Office Open XML के स्ट्रिक्ट प्रोफ़ाइल के अनुरूप PPTX फ़ाइल बनाने के लिए, एक [PptxOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/pptxoptions/) इंस्टेंस बनाएं और `Conformance::Iso29500_2008_Strict` के साथ [PptxOptions::set_Conformance](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/pptxoptions/set_conformance/) को कॉल करें। फिर विकल्पों को [Presentation::Save](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/save/) मेथड को पास करें।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -110,6 +174,7 @@ Aspose.Slides आपको प्रस्तुति को स्ट्रि
 #include <Export/PptxOptions.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
@@ -117,27 +182,23 @@ using namespace System;
 auto options = MakeObject<PptxOptions>();
 options->set_Conformance(Conformance::Iso29500_2008_Strict);
 
-// प्रस्तुति फ़ाइल को दर्शाने वाले Presentation क्लास का इंस्टैंस बनाएं।
 auto presentation = MakeObject<Presentation>();
 
-// प्रस्तुति को स्ट्रिक्ट Office Open XML फ़ॉर्मेट में सहेजें।
 presentation->Save(u"StrictOfficeOpenXml.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-## **Office Open XML फ़ॉर्मेट में Zip64 मोड के साथ प्रस्तुतियों को सहेजें**
+## **ZIP64 मोड में Office Open XML स्वरूप में प्रस्तुतियों को सहेजें**
 
-Office Open XML फ़ाइल एक ZIP आर्काइव होती है जो किसी भी फ़ाइल के अनकम्प्रेस्ड आकार, कम्प्रेस्ड आकार, और आर्काइव के कुल आकार पर 4 GB (2^32 बाइट) की सीमा लगाती है, तथा आर्काइव में अधिकतम 65 535 (2^16‑1) फ़ाइलें हो सकती हैं। ZIP64 फ़ॉर्मेट एक्सटेंशन इन सीमाओं को 2^64 तक बढ़ा देते हैं।
+एक मानक ZIP संग्रह प्रत्येक प्रविष्टि के संकुचित और असंकुचित आकार, कुल संग्रह आकार, तथा प्रविष्टियों की संख्या को सीमित करता है। चूंकि PPTX फ़ाइल एक ZIP संग्रह है, एक बहुत बड़ी प्रस्तुति इन सीमाओं को पार कर सकती है। ZIP64 एक्सटेंशन इन लागू आकार और प्रविष्टि‑गणना सीमाओं को बढ़ाते हैं।
 
-[IPptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/ipptxoptions/set_zip64mode/) मेथड आपको Office Open XML फ़ाइल सहेजते समय ZIP64 फ़ॉर्मेट एक्सटेंशन कब उपयोग करने हैं, चुनने देता है।
+[ PptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/pptxoptions/set_zip64mode/) का उपयोग करके निर्धारित करें कि Aspose.Slides ZIP64 एक्सटेंशन लिखे या नहीं:
 
-यह मेथड निम्न मोड्स के साथ उपयोग किया जा सकता है:
+- `IfNecessary` केवल तब ZIP64 का उपयोग करता है जब प्रस्तुति मानक ZIP सीमाओं से अधिक हो। यह डिफ़ॉल्ट मोड है।
+- `Never` ZIP64 एक्सटेंशन को अक्षम करता है।
+- `Always` हमेशा ZIP64 एक्सटेंशन लिखता है।
 
-- `IfNecessary` केवल तब ZIP64 फ़ॉर्मेट एक्सटेंशन उपयोग करता है जब प्रस्तुति उपर्युक्त सीमाओं से अधिक हो। यह डिफ़ॉल्ट मोड है।
-- `Never` कभी भी ZIP64 फ़ॉर्मेट एक्सटेंशन नहीं उपयोग करता।
-- `Always` हमेशा ZIP64 फ़ॉर्मेट एक्सटेंशन उपयोग करता है।
-
-नीचे का कोड दर्शाता है कि कैसे ZIP64 फ़ॉर्मेट एक्सटेंशन सक्षम करके प्रस्तुति को PPTX फ़ाइल के रूप में सहेजा जाए:
+निम्नलिखित उदाहरण आउटपुट प्रस्तुति के लिए हमेशा ZIP64 एक्सटेंशन सक्षम करता है:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -145,43 +206,36 @@ Office Open XML फ़ाइल एक ZIP आर्काइव होती �
 #include <Export/SaveFormat.h>
 #include <Export/Zip64Mode.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_Zip64Mode(Zip64Mode::Always);
-
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, pptxOptions);
+auto options = MakeObject<PptxOptions>();
+options->set_Zip64Mode(Zip64Mode::Always);
+
+presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-जब आप `Zip64Mode.Never` के साथ सहेजते हैं, तो यदि प्रस्तुति को ZIP32 फ़ॉर्मेट में सहेजा नहीं जा सकता है, तो एक [PptxException](https://reference.aspose.com/slides/hi/cpp/aspose.slides/pptxexception/) अपवाद फेंका जाता है।
+{{% alert color="warning" title="Warning" %}}
+यदि `Zip64Mode` को `Never` सेट किया जाता है और प्रस्तुति मानक ZIP सीमाओं में फिट नहीं होती, तो सहेजने का ऑपरेशन एक [PptxException](https://reference.aspose.com/slides/hi/cpp/aspose.slides/pptxexception/) फेंकेगा।
 {{% /alert %}}
 
-## **संकुचन स्तरों के साथ Office Open XML फ़ॉर्मेट में प्रस्तुतियों को सहेजें**
+## **कम्प्रेशन स्तर के साथ Office Open XML स्वरूप में प्रस्तुतियों को सहेजें**
 
-बड़ी प्रस्तुतियों के साथ काम करते समय आप फ़ाइल आकार और प्रोसेसिंग समय के बीच संतुलन बनाए रखने के लिए संकुचन स्तर को समायोजित कर सकते हैं। आपकी आवश्यकताओं के अनुसार आप तेज़ प्रोसेसिंग या छोटे आउटपुट फ़ाइलों को प्राथमिकता दे सकते हैं।
+PPTX आउटपुट के लिए, आप [PptxOptions::set_CompressionLevel](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/pptxoptions/set_compressionlevel/) को कॉल करके सहेजने की गति और फ़ाइल आकार के बीच संतुलन बना सकते हैं। [CompressionLevel](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/compressionlevel/) enumeration निम्न मान प्रदान करती है:
 
-Aspose.Slides [PptxOptions::set_CompressionLevel](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/pptxoptions/set_compressionlevel/) मेथड प्रदान करता है, जो Office Open XML फ़ॉर्मेट में प्रस्तुति सहेजते समय उपयोग किए जाने वाले संकुचन स्तर को निर्दिष्ट करता है।
+- `None` डेटा को बिना कम्प्रेशन के संग्रहीत करता है।
+- `Level1` सबसे तेज़ कम्प्रेशन और सबसे बड़ा संकुचित आउटपुट प्रदान करता है।
+- `Level2` से `Level5` क्रमशः सहेजने की गति की तुलना में छोटे आउटपुट को प्राथमिकता देते हैं।
+- `Level6` सहेजने की गति और फ़ाइल आकार के बीच संतुलन बनाता है। यह डिफ़ॉल्ट स्तर है।
+- `Level7` और `Level8` छोटे आउटपुट को अधिक प्राथमिकता देते हैं।
+- `Level9` सबसे मजबूत कम्प्रेशन प्रदान करता है और सबसे अधिक प्रक्रिया समय लेता है।
 
-निम्नलिखित संकुचन स्तर उपलब्ध हैं:
-
-- **None**: कोई संकुचन लागू नहीं किया जाता। फ़ाइलें जैसा है वैसी ही संग्रहीत रहती हैं।
-- **Level1**: सबसे तेज़ संकुचन, सबसे कम संकुचन अनुपात के साथ।
-- **Level2**: **Level1** से थोड़ा बेहतर संकुचन अनुपात के साथ तेज़ संकुचन।
-- **Level3**: **Level2** से बेहतर संकुचन प्रदान करता है, प्रोसेसिंग समय पर मध्यम प्रभाव के साथ।
-- **Level4**: **Level3** से बेहतर संकुचन प्रदान करता है।
-- **Level5**: **Level4** से सुधारित संकुचन, अतिरिक्त प्रोसेसिंग समय के साथ।
-- **Level6**: मानक संकुचन जो प्रोसेसिंग गति और फ़ाइल आकार के बीच अच्छा संतुलन देता है। यह *डिफ़ॉल्ट संकुचन स्तर* है।
-- **Level7**: **Level6** से बेहतर संकुचन, धीमी प्रोसेसिंग के साथ।
-- **Level8**: **Level7** से बेहतर संकुचन।
-- **Level9**: अधिकतम संकुचन। सबसे छोटा फ़ाइल आकार देता है, लेकिन सबसे लंबी प्रोसेसिंग समय पर।
-
-निम्न उदाहरण दर्शाता है कि कैसे प्रस्तुति को PPTX फ़ाइल के रूप में *बिना संकुचन* सहेजा जाए:
+निम्नलिखित उदाहरण बिना कम्प्रेशन के एक प्रस्तुति सहेजता है:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -190,21 +244,20 @@ Aspose.Slides [PptxOptions::set_CompressionLevel](https://reference.aspose.com/s
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
 
-using Aspose::Slides::Export::CompressionLevel;
-using Aspose::Slides::Export::PptxOptions;
-using Aspose::Slides::Export::SaveFormat;
-using Aspose::Slides::Presentation;
-using System::MakeObject;
-
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_CompressionLevel(CompressionLevel::None);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
-presentation->Save(u"Sample-out.pptx", SaveFormat::Pptx, pptxOptions);
+
+auto options = MakeObject<PptxOptions>();
+options->set_CompressionLevel(CompressionLevel::None);
+
+presentation->Save(u"OutputNoCompression.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-यह उदाहरण दर्शाता है कि कैसे प्रस्तुति को PPTX फ़ाइल के रूप में *अधिकतम संकुचन* के साथ सहेजा जाए:
+निम्नलिखित उदाहरण अधिकतम कम्प्रेशन स्तर का उपयोग करता है:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -213,75 +266,57 @@ presentation->Dispose();
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
 
-using Aspose::Slides::Export::CompressionLevel;
-using Aspose::Slides::Export::PptxOptions;
-using Aspose::Slides::Export::SaveFormat;
-using Aspose::Slides::Presentation;
-using System::MakeObject;
-
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_CompressionLevel(CompressionLevel::Level9);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
-presentation->Save(u"Sample-level9.pptx", SaveFormat::Pptx, pptxOptions);
+
+auto options = MakeObject<PptxOptions>();
+options->set_CompressionLevel(CompressionLevel::Level9);
+
+presentation->Save(u"OutputMaximumCompression.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-## **थंबनेल रिफ्रेश किए बिना प्रस्तुतियों को सहेजें**
+## **थंबनेल रीफ़्रेश किए बिना प्रस्तुतियों को सहेजें**
 
-[PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) मेथड PPTX में प्रस्तुति सहेजते समय थंबनेल जनरेशन को नियंत्रित करता है:
+जब प्रस्तुति को PPTX के रूप में सहेजा जाता है, तो [PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) उसके दस्तावेज़ थंबनेल को नियंत्रित करता है:
 
-- यदि इसे `true` सेट किया जाता है, तो सहेजते समय थंबनेल रिफ्रेश किया जाता है। यह डिफ़ॉल्ट है।
-- यदि इसे `false` सेट किया जाता है, तो मौजूदा थंबनेल बरकरार रहता है। यदि प्रस्तुति में थंबनेल नहीं है, तो कोई थंबनेल जेनरेट नहीं होगा।
+- `true` सहेजने के दौरान थंबनेल को पुनः उत्पन्न करता है। यह डिफ़ॉल्ट मान है।
+- `false` मौजूदा थंबनेल को संरक्षित रखता है। यदि प्रस्तुति में थंबनेल नहीं है, तो Aspose.Slides नया थंबनेल नहीं बनाता।
 
-नीचे के कोड में, प्रस्तुति को थंबनेल रिफ्रेश किए बिना PPTX में सहेजा गया है।
+निम्नलिखित उदाहरण थंबनेल को रीफ़्रेश किए बिना प्रस्तुति सहेजता है:
 
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/PptxOptions.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_RefreshThumbnail(false);
-
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx, pptxOptions);
+auto options = MakeObject<PptxOptions>();
+options->set_RefreshThumbnail(false);
+
+presentation->Save(u"Output.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
-यह विकल्प PPTX फ़ॉर्मेट में प्रस्तुति सहेजने के समय को कम करने में मदद करता है।
+{{% alert color="info" title="Note" %}}
+थंबनेल रीफ़्रेश को अक्षम करने से PPTX फ़ाइल को सहेजने में लगने वाले समय को कम किया जा सकता है।
 {{% /alert %}}
 
-## **सहेजने की प्रगति अपडेट प्रतिशत में**
+## **प्रति प्रतिशत में सहेजने की प्रगति अपडेट करें**
 
-[IProgressCallback](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iprogresscallback/) इंटरफ़ेस का उपयोग [ISaveOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/isaveoptions/) तथा [SaveOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/saveoptions/) के द्वारा `set_ProgressCallback` मेथड के माध्यम से किया जाता है। `set_ProgressCallback` के साथ एक [IProgressCallback](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iprogresscallback/) कार्यान्वयन असाइन करके आप सहेजने की प्रगति को प्रतिशत में प्राप्त कर सकते हैं।
+सहेजने के ऑपरेशन की निगरानी करने के लिए, [IProgressCallback](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iprogresscallback/) इंटरफ़ेस को लागू करें और उसे [ISaveOptions::set_ProgressCallback](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/isaveoptions/set_progresscallback/) को पास करें। Aspose.Slides तब निर्यात के दौरान प्रगति मूल्यों के साथ [IProgressCallback::Reporting](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iprogresscallback/reporting/) को कॉल करता है।
 
-निम्न कोड स्निपेट्स दर्शाते हैं कि `IProgressCallback` का उपयोग कैसे किया जाता है।
+निम्नलिखित उदाहरण PDF निर्यात की प्रगति को कंसोल पर रिपोर्ट करता है:
 
-```cpp
-#include <IProgressCallback.h>
-#include <system/console.h>
-using namespace Aspose::Slides;
-using namespace System;
-
-class ExportProgressHandler : public IProgressCallback
-{
-public:
-    void Reporting(double progressValue) override
-    {
-        // यहाँ प्रगति प्रतिशत मान का उपयोग करें।
-        int progress = static_cast<int>(progressValue);
-
-        Console::WriteLine(u"{0}% of the file has been converted.", progress);
-    }
-};
-```
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/PdfOptions.h>
@@ -289,49 +324,48 @@ public:
 #include <IProgressCallback.h>
 #include <system/console.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// ऊपर परिभाषित प्रोग्रेस कॉलबैक क्लास।
 class ExportProgressHandler : public IProgressCallback
 {
 public:
     void Reporting(double progressValue) override
     {
         int progress = static_cast<int>(progressValue);
-
         Console::WriteLine(u"{0}% of the file has been converted.", progress);
     }
 };
 
-auto saveOptions = MakeObject<PdfOptions>();
-saveOptions->set_ProgressCallback(MakeObject<ExportProgressHandler>());
+auto options = MakeObject<PdfOptions>();
+options->set_ProgressCallback(MakeObject<ExportProgressHandler>());
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"Output.pdf", SaveFormat::Pdf, saveOptions);
+presentation->Save(u"Output.pdf", SaveFormat::Pdf, options);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose ने एक [free PowerPoint Splitter app](https://products.aspose.app/slides/hi/splitter) अपने API का उपयोग करके बनाया है। यह ऐप चयनित स्लाइड्स को नए PPTX या PPT फ़ाइलों के रूप में सहेजकर प्रस्तुति को कई फ़ाइलों में विभाजित करने देता है।
+{{% alert color="info" title="Note" %}}
+Aspose एक निःशुल्क [PowerPoint Splitter](https://products.aspose.app/slides/hi/splitter) प्रदान करता है जो Aspose.Slides API के साथ निर्मित है। यह प्रस्तुति के चयनित स्लाइड्स को अलग-अलग PPT या PPTX फ़ाइलों के रूप में सहेजता है।
 {{% /alert %}}
 
 ## **FAQ**
 
-**क्या "फास्ट सेव" (इन्क्रिमेंटल सेव) समर्थित है जिससे केवल परिवर्तन लिखे जाएँ?**
+**क्या Aspose.Slides इन्क्रिमेंटल या “फास्ट सेव” का समर्थन करता है?**
 
-नहीं। सहेजने पर हर बार पूर्ण लक्षित फ़ाइल बनाई जाती है; इन्क्रिमेंटल "फास्ट सेव" समर्थित नहीं है।
+नहीं। प्रत्येक सहेजने का ऑपरेशन पूरी आउटपुट फ़ाइल लिखता है, न कि केवल बदले हुए भागों को।
 
-**क्या एक ही Presentation इंस्टेंस को कई थ्रेड्स से सहेजना थ्रेड-सुरक्षित है?**
+**क्या कई थ्रेड एक ही Presentation इंस्टेंस को सहेज सकते हैं?**
 
-नहीं। एक [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) इंस्टेंस [थ्रेड-सुरक्षित नहीं है](/slides/hi/cpp/multithreading/); इसे एक ही थ्रेड से सहेजें।
+नहीं। एक [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) इंस्टेंस [थ्रेड‑सेफ़ नहीं है](/slides/hi/cpp/multithreading/)। प्रत्येक इंस्टेंस तक केवल एक थ्रेड ही एक समय में पहुंच और सहेज सकता है।
 
-**सहेजते समय हायपरलिंक्स और बाहरी लिंक्ड फ़ाइलों का क्या होता है?**
+**जब मैं प्रस्तुति सहेजता हूँ तो हाइपरलिंक और बाहरी लिंक्ड फ़ाइलों का क्या होता है?**
 
-[Hyperlinks](/slides/hi/cpp/manage-hyperlinks/) बरकरार रहते हैं। बाहरी लिंक्ड फ़ाइलें (जैसे रिलेटिव पाथ वाली वीडियो) स्वचालित रूप से कॉपी नहीं होतीं—सुनिश्चित करें कि संदर्भित पाथ्स उपलब्ध रहें।
+[हाइपरलिंक](/slides/hi/cpp/manage-hyperlinks/) प्रस्तुति में बने रहते हैं। Aspose.Slides बाहरी लिंक्ड फ़ाइलों को कॉपी नहीं करता, इसलिए सहेजी गई प्रस्तुति को अभी भी उनके स्थानों तक पहुंचना चाहिए।
 
-**क्या मैं दस्तावेज़ मेटाडेटा (लेखक, शीर्षक, कंपनी, तिथि) सेट/सेव कर सकता हूँ?**
+**क्या मैं लेखक, शीर्षक, कंपनी और निर्माण तिथि जैसी दस्तावेज़ मेटाडेटा सहेज सकता हूँ?**
 
-हां। मानक [document properties](/slides/hi/cpp/presentation-properties/) समर्थित हैं और सहेजने पर फ़ाइल में लिखे जाएंगे।
+हाँ। सहेजने से पहले उचित [दस्तावेज़ प्रॉपर्टीज़](/slides/hi/cpp/presentation-properties/) सेट करें, और Aspose.Slides उन्हें आउटपुट फ़ाइल में लिख देगा।

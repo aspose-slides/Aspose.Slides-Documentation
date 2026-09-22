@@ -1,5 +1,5 @@
 ---
-title: Membuka Presentasi di Android
+title: Buka Presentasi di Android
 linktitle: Buka Presentasi
 type: docs
 weight: 20
@@ -14,7 +14,7 @@ keywords:
 - muat PPTX
 - muat PPT
 - muat ODP
-- presentasi dilindungi
+- presentasi terlindungi
 - presentasi besar
 - sumber daya eksternal
 - objek biner
@@ -25,15 +25,17 @@ description: "Pelajari cara membuka presentasi PowerPoint dan OpenDocument di An
 ---
 ## **Pendahuluan**
 
-[Aspose.Slides for Android via Java](https://products.aspose.com/slides/id/androidjava/) dapat memuat presentasi PowerPoint dan OpenDocument dari file dan aliran. Setelah sebuah presentasi dimuat, Anda dapat memeriksa strukturnya, mengedit slide, mengelola sumber daya, dan menyimpannya dalam format aslinya atau format lain yang didukung.
+[Aspose.Slides for Android via Java](https://products.aspose.com/slides/id/androidjava/) dapat memuat presentasi PowerPoint dan OpenDocument dari file dan aliran. Setelah presentasi dimuat, Anda dapat memeriksa strukturnya, mengedit slide, mengelola sumber daya, dan menyimpannya dalam format asli atau format lain yang didukung.
 
-Perilaku pemuatan dapat disesuaikan melalui kelas [LoadOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/loadoptions/). Misalnya, Anda dapat menyediakan kata sandi pembuka, menyimpan objek biner besar di luar memori heap Java, mengendalikan sumber daya eksternal, atau mengabaikan data biner yang disematkan.
+Perilaku pemuatan dapat disesuaikan melalui kelas [LoadOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/loadoptions/). Misalnya, Anda dapat menyediakan kata sandi pembuka, menyimpan objek biner besar di luar memori heap Java, mengontrol sumber daya eksternal, atau menghilangkan data biner tersemat.
 
-## **Buka Presentasi**
+## **Membuka Presentasi**
 
-Untuk membuka presentasi yang sudah ada, berikan jalur filenya ke konstruktor [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/). Tutup (dispose) presentasi setelah digunakan sehingga pegangan file, data sementara, dan sumber daya lainnya segera dibebaskan.
+Setelah memuat file atau aliran, Anda dapat [menentukan format presentasi asli](/slides/id/androidjava/detect-presentation-source-format/) untuk memilih cara aplikasi Anda memprosesnya.
 
-Contoh Java berikut menunjukkan cara membuka sebuah presentasi dan mendapatkan jumlah slide:
+Untuk membuka presentasi yang sudah ada, berikan jalur file ke konstruktor [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/). Buang (dispose) objek presentasi setelah digunakan agar penangan file, data sementara, dan sumber daya lainnya segera dilepaskan.
+
+Contoh Java berikut menunjukkan cara membuka presentasi dan mendapatkan jumlah slide:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -46,9 +48,9 @@ try {
 }
 ```
 
-## **Buka Presentasi yang Dilindungi Kata Sandi**
+## **Membuka Presentasi yang Dilindungi Kata Sandi**
 
-Kata sandi pembuka mengenkripsi konten presentasi. Untuk memuat keseluruhan presentasi, berikan kata sandi yang benar ke [LoadOptions.setPassword](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) dan sediakan opsi tersebut ke konstruktor [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/). Pemuatan gagal ketika kata sandi tidak ada atau salah.
+Kata sandi pembuka mengenkripsi konten presentasi. Untuk memuat seluruh presentasi, berikan kata sandi yang benar ke [LoadOptions.setPassword](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) dan berikan opsi tersebut ke konstruktor [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/). Pemuatan gagal bila kata sandi hilang atau tidak tepat.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -65,13 +67,13 @@ try {
 }
 ```
 
-Untuk deteksi kata sandi, validasi, dan alur kerja enkripsi, lihat [Presentasi yang Dilindungi Kata Sandi](/slides/id/androidjava/password-protected-presentation/). Jika sebuah presentasi terenkripsi sengaja disimpan dengan properti dokumen publik, properti tersebut dapat dibaca tanpa kata sandi; lihat [Kelola Properti Presentasi](/slides/id/androidjava/presentation-properties/).
+Untuk deteksi kata sandi, validasi, dan alur kerja enkripsi, lihat [Password-Protect Presentations](/slides/id/androidjava/password-protected-presentation/). Jika presentasi terenkripsi sengaja disimpan dengan properti dokumen publik, properti tersebut dapat dibaca tanpa kata sandi; lihat [Manage Presentation Properties](/slides/id/androidjava/presentation-properties/).
 
-## **Buka Presentasi Besar**
+## **Membuka Presentasi Besar**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) mengembalikan opsi yang mengontrol bagaimana Aspose.Slides menangani objek biner besar seperti gambar, audio, dan video. Anda dapat menjaga file sumber tetap terkunci, mengizinkan file sementara, dan membatasi jumlah data BLOB yang dipertahankan dalam memori.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) mengembalikan opsi yang mengontrol bagaimana Aspose.Slides menangani objek biner besar seperti gambar, audio, dan video. Anda dapat mengunci file sumber, memperbolehkan file sementara, dan membatasi jumlah data BLOB yang disimpan di memori.
 
-Kode Java berikut memperlihatkan cara memuat presentasi besar (misalnya, 2 GB):
+Contoh kode Java berikut mendemonstrasikan pemuatan presentasi besar (misalnya, 2 GB):
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -95,15 +97,15 @@ try {
 }
 ```
 
-{{% alert color="info" title="Catatan" %}}
-Dengan [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked), file sumber tetap terkunci hingga instance presentasi dibuang. Jangan memindahkan, menimpa, atau menghapus file sumber selama instance tersebut masih hidup.
+{{% alert color="info" title="Note" %}}
+Dengan [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked), file sumber tetap terkunci hingga instansi presentasi dibuang. Jangan memindahkan, menimpa, atau menghapus file sumber selama instansi itu masih hidup.
 
-Aspose.Slides dapat menyalin isi aliran input saat memuatnya. Untuk presentasi besar, jalur file biasanya lebih efisien daripada aliran. Lihat [Manage BLOBs](/slides/id/androidjava/manage-blob/) untuk opsi penyimpanan dan pengelolaan memori tambahan.
+Aspose.Slides dapat menyalin isi aliran input saat memuatnya. Untuk presentasi besar, jalur file umumnya lebih efisien daripada aliran. Lihat [Manage BLOBs](/slides/id/androidjava/manage-blob/) untuk opsi penyimpanan dan manajemen memori tambahan.
 {{% /alert %}}
 
-## **Kendalikan Sumber Daya Eksternal**
+## **Mengontrol Sumber Daya Eksternal**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) menerima implementasi [IResourceLoadingCallback](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iresourceloadingcallback/). Callback dapat menyediakan data pengganti, mengarahkan ulang sebuah sumber daya, menggunakan pemuat default, atau melewati sumber daya tersebut. Ini berguna ketika presentasi berisi gambar eksternal yang harus diselesaikan sesuai dengan kebijakan keamanan atau penyimpanan khusus aplikasi.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) menerima implementasi [IResourceLoadingCallback](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iresourceloadingcallback/). Callback dapat menyediakan data pengganti, mengarahkan ulang sumber daya, menggunakan pemuat default, atau melewatkan sumber daya. Ini berguna ketika presentasi berisi gambar eksternal yang harus diselesaikan sesuai aturan keamanan atau penyimpanan khusus aplikasi.
 
 ```java
 import com.aspose.slides.IResourceLoadingArgs;
@@ -147,17 +149,17 @@ try {
 }
 ```
 
-## **Muat Presentasi tanpa Objek Biner yang Disematkan**
+## **Memuat Presentasi tanpa Objek Biner Tersemat**
 
-Suatu presentasi dapat berisi data biner yang disematkan yang tidak diperlukan atau tidak ingin disimpan oleh aplikasi. Contohnya meliputi:
+Sebuah presentasi dapat berisi data biner tersemat yang tidak diperlukan atau tidak ingin disimpan oleh aplikasi. Contohnya meliputi:
 
 - Proyek VBA, tersedia melalui [IPresentation.getVbaProject](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/#getVbaProject--);
-- data OLE yang disematkan, tersedia melalui [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
-- data kontrol ActiveX, tersedia melalui [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--).
+- Data OLE tersemat, tersedia melalui [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
+- Data kontrol ActiveX, tersedia melalui [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--).
 
-Atur [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) ke `true` untuk menghapus data biner ini saat memuat. Simpan presentasi yang dimuat untuk mempertahankan hasil yang telah disanitasi.
+Setel [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) ke `true` untuk menghapus data biner ini saat pemuatan. Simpan presentasi yang telah dimuat untuk mempertahankan hasil yang telah dibersihkan.
 
-Opsi ini mengurangi paparan terhadap payload yang disematkan tidak diinginkan, tetapi bukan sistem deteksi malware atau sanitasi konten yang lengkap.
+Opsi ini mengurangi paparan terhadap payload tersemat yang tidak diinginkan, namun tidak menjadi sistem deteksi malware atau sanitasi konten yang lengkap.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -177,14 +179,14 @@ try {
 
 ## **FAQ**
 
-**Bagaimana saya dapat mengetahui bahwa sebuah file rusak dan tidak dapat dibuka?**
+**Bagaimana cara mengetahui bahwa sebuah file rusak dan tidak dapat dibuka?**
 
-Aspose.Slides melemparkan exception parsing atau format saat memuat. Tangani kegagalan tersebut secara terpisah dari kesalahan kata sandi yang tidak tepat sehingga aplikasi dapat melaporkan penyebabnya dengan akurat.
+Aspose.Slides melempar pengecualian parsing atau format saat memuat. Tangani kegagalan tersebut secara terpisah dari kesalahan kata sandi yang salah sehingga aplikasi dapat melaporkan penyebabnya secara akurat.
 
-**Apa yang terjadi jika font yang dibutuhkan tidak ada?**
+**Apa yang terjadi jika font yang diperlukan tidak ada?**
 
-Presentasi masih dapat dimuat, tetapi rendering dan ekspor mungkin menggantikan font. Anda dapat [mengonfigurasi substitusi font](/slides/id/androidjava/font-substitution/) atau [menyediakan font khusus](/slides/id/androidjava/custom-font/) untuk membuat output lebih dapat diprediksi.
+Presentasi masih dapat dimuat, tetapi proses rendering dan ekspor mungkin menggantikan font. Anda dapat [mengonfigurasi substitusi font](/slides/id/androidjava/font-substitution/) atau [menyediakan font khusus](/slides/id/androidjava/custom-font/) untuk membuat output lebih dapat diprediksi.
 
-**Apakah memuat sebuah presentasi juga memuat media yang disematkan?**
+**Apakah pemuatan presentasi juga memuat media tersematnya?**
 
-Audio dan video yang disematkan menjadi tersedia melalui model objek presentasi. Sumber daya eksternal diselesaikan sesuai dengan perilaku pemuatan sumber daya yang dikonfigurasi dan mungkin tidak tersedia jika lokasinya tidak dapat diakses.
+Audio dan video tersemat menjadi tersedia melalui model objek presentasi. Sumber daya eksternal diselesaikan sesuai perilaku pemuatan sumber daya yang dikonfigurasi dan mungkin tidak tersedia jika lokasinya tidak dapat diakses.

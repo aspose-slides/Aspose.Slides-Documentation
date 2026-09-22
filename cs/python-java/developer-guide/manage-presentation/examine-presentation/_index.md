@@ -1,5 +1,5 @@
 ---
-title: Načíst a aktualizovat informace o prezentaci v Pythonu přes Java
+title: Získání a aktualizace informací o prezentaci v Pythonu přes Java
 linktitle: Informace o prezentaci
 type: docs
 weight: 30
@@ -13,28 +13,30 @@ keywords:
 - změnit vlastnosti
 - modifikovat vlastnosti
 - aktualizovat vlastnosti
-- prozkoumat PPTX
-- prozkoumat PPT
-- prozkoumat ODP
+- zkontrolovat PPTX
+- zkontrolovat PPT
+- zkontrolovat ODP
 - PowerPoint
 - OpenDocument
 - prezentace
 - Python
 - Java
 - Aspose.Slides
-description: "Prozkoumejte snímky, strukturu a metadata v prezentacích PowerPoint a OpenDocument pomocí Pythonu přes Java pro rychlejší poznatky a inteligentnější audity obsahu."
+description: "Prozkoumejte snímky, strukturu a metadata v prezentacích PowerPoint a OpenDocument pomocí Pythonu přes Java pro rychlejší poznatky a chytřejší kontrolu obsahu."
 ---
 ## **Přehled**
 
-Aspose.Slides dokáže identifikovat formát prezentace a přečíst její metadata dokumentu, aniž by vytvořil kompletní objektový model prezentace. To je užitečné, když potřebujete soubory klasifikovat, vytvořit inventář nebo zkontrolovat vlastnosti před rozhodnutím, zda načíst a zpracovat obsah prezentace.
+Aspose.Slides dokáže rozpoznat formát prezentace a přečíst metadata dokumentu, aniž by vytvářel úplný model objektů prezentace. To je užitečné, když potřebujete klasifikovat soubory, vytvořit inventář nebo prozkoumat vlastnosti před rozhodnutím, zda načíst a zpracovat obsah prezentace.
 
-Příklady vyžadují Aspose.Slides pro Python via Java a kompatibilní Java runtime. Každý příklad spustí JVM, pokud ještě neběží. Poskytněte existující soubory prezentací na cestách použité v příkladech.
+Příklady vyžadují Aspose.Slides pro Python přes Java a kompatibilní Java runtime. Každý příklad spustí JVM, pokud již neběží. Poskytněte existující soubory prezentací na cestách použité v příkladech.
 
-Tento článek demonstruje lehkou kontrolu pomocí [PresentationFactory](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationfactory/) a [PresentationInfo](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/), stejně jako cílené aktualizace pomocí [DocumentProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/).
+Tento článek ukazuje lehkou kontrolu pomocí [PresentationFactory](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationfactory/) a [PresentationInfo](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/), stejně jako cílené aktualizace pomocí [DocumentProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/).
 
 ## **Zkontrolujte formát prezentace**
 
-Použijte [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationfactory/#getPresentationInfo) k prozkoumání souboru, aniž byste vytvořili instanci [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/). Metoda [PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/#getLoadFormat) vrací detekovaný formát, například PPTX, PPT nebo ODP.
+Pokud již máte načtenou prezentaci, podívejte se na [Determine the Original Presentation Format](/slides/cs/python-java/detect-presentation-source-format/) pro detekci po načtení a omezení starších PPT, PPS a POT streamů.
+
+Použijte [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationfactory/#getPresentationInfo) k inspekci souboru bez vytvoření instance [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/). Metoda [PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/#getLoadFormat) vrací detekovaný formát, např. PPTX, PPT nebo ODP.
 
 ```python
 import jpype
@@ -62,22 +64,22 @@ for file_name in file_names:
     print(f"{file_name}: {format_name}")
 ```
 
-## **Vytvořte lehkou inventuru prezentací**
+## **Vytvořte lehký inventář prezentací**
 
-Když zpracováváte mnoho souborů prezentací, můžete potřebovat kompaktní inventář pro validaci, indexaci nebo systém správy dokumentů. V takovém scénáři použijte [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationfactory/#getPresentationInfo) k získání objektu [PresentationInfo](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/) a poté zavolejte [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/#readDocumentProperties) k načtení metadat dokumentu. Tento přístup nevytváří instanci [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) ani nevyžaduje procházet kompletní objektový model prezentace.
+Když zpracováváte mnoho souborů prezentací, můžete potřebovat kompaktní inventář pro validaci, indexaci nebo systém správy dokumentů. V tomto scénáři použijte [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationfactory/#getPresentationInfo) k získání objektu [PresentationInfo](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/) a poté zavolejte [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/#readDocumentProperties) k načtení metadat dokumentu. Tento přístup nevytváří instanci [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) ani nevyžaduje procházení kompletního modelu objektů prezentace.
 
-Rozšířené vlastnosti poskytované třídou [DocumentProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/) poskytují následující hodnoty inventáře:
+Rozšířené vlastnosti vystavené třídou [DocumentProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/) poskytují následující hodnoty inventáře:
 
 | Metoda | Hodnota inventáře |
 | --- | --- |
 | [getSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/#getSlides) | Celkový počet snímků. |
 | [getHiddenSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/#getHiddenSlides) | Počet skrytých snímků. |
 | [getNotes](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/#getNotes) | Počet snímků, které obsahují poznámky. |
-| [getParagraphs](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/#getParagraphs) | Celkový počet odstavců, pokud jsou dostupné. |
+| [getParagraphs](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/#getParagraphs) | Celkový počet odstavců, pokud jsou k dispozici. |
 | [getWords](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/#getWords) | Celkový počet slov. |
 | [getMultimediaClips](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/#getMultimediaClips) | Celkový počet audio a video klipů. |
 
-Následující příklad načte tyto hodnoty, aniž by vytvořil objekt [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) a vypíše kompaktní inventář. Také kombinuje [getHeadingPairs](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/#getHeadingPairs) s [getTitlesOfParts](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/#getTitlesOfParts) pro zobrazení skupin obsahu, jako jsou písma, motivy a názvy snímků.
+Následující příklad načte tyto hodnoty bez vytvoření objektu [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) a vypíše kompaktní inventář. Také kombinuje [getHeadingPairs](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/#getHeadingPairs) s [getTitlesOfParts](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/#getTitlesOfParts) pro zobrazení skupin obsahu, jako jsou písma, motivy a názvy snímků.
 
 ```python
 import jpype
@@ -143,25 +145,25 @@ else:
             part_index += 1
 ```
 
-Každý [HeadingPair](https://reference.aspose.com/slides/cs/python-java/aspose.slides/headingpair/) poskytuje název skupiny a počet položek v této skupině. [DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/#getTitlesOfParts) vrací ploché, uspořádané pole, takže spotřebujte počet po sobě jdoucích názvů určených každým párem záhlaví.
+Každý [HeadingPair](https://reference.aspose.com/slides/cs/python-java/aspose.slides/headingpair/) poskytuje název skupiny a počet položek v této skupině. [DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/#getTitlesOfParts) vrací ploché, uspořádané pole, takže použijte počet po sobě jdoucích názvů určených každým heading pair.
 
-### **Uložená metadata a omezení formátů**
+### **Uložená metadata a omezení formátu**
 
-Vlastnosti inventáře vrácené metodou [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/#readDocumentProperties) odrážejí metadata dostupná ve zdrojovém dokumentu. Aspose.Slides nenačítá a neprochází objektový model prezentace pro přepočet těchto hodnot při tomto volání. Chybějící vlastnosti jsou reprezentovány výchozími hodnotami a uložené hodnoty mohou být zastaralé, pokud aplikace, která soubor naposledy uložila, neaktualizovala jeho dokumentové vlastnosti.
+Vlastnosti inventáře vrácené metodou [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/#readDocumentProperties) odrážejí metadata dostupná ve zdrojovém dokumentu. Aspose.Slides nenačítá ani neprochází model objektů prezentace za účelem přepočítání těchto hodnot při tomto volání. Chybějící vlastnosti jsou reprezentovány výchozími hodnotami a uložené hodnoty mohou být zastaralé, pokud aplikace, která naposledy uložila soubor, neaktualizovala jeho dokumentové vlastnosti.
 
-- **PPTX:** Formát poskytuje rozšířené dokumentové vlastnosti pro počty snímků, poznámek, skrytých snímků, odstavců, slov a multimédií, stejně jako páry záhlaví a názvy částí. Dostupnost závisí na tom, které vlastnosti byly zapsány tvůrcem dokumentu.
-- **PPT:** Binární formát může uložit odpovídající vlastnosti souhrnu dokumentu. Pokud je vlastnost absentní nebo nebyla obnovena tvůrcem dokumentu, Aspose.Slides vrátí její uloženou nebo výchozí hodnotu místo výpočtu ze snímků.
-- **ODP:** Metadata OpenDocument poskytují obecné statistiky dokumentu, jako jsou počty stránek, odstavců a slov, ale tyto hodnoty neodpovídají všem rozšířeným vlastnostem specifickým pro PowerPoint. Metadata pro skryté snímky, poznámky, multimédia, páry záhlaví a názvy částí mohou být nedostupná a vlastnosti inventáře mohou vracet výchozí hodnoty. Nepovažujte nulovou hodnotu ani prázdné pole za závěrečný důkaz, že odpovídající obsah chybí.
+- **PPTX:** Formát poskytuje rozšířené dokumentové vlastnosti pro počet snímků, poznámek, skrytých snímků, odstavců, slov a multimedií, stejně jako heading pairs a názvy částí. Dostupnost závisí na tom, které vlastnosti byly zapsány tvůrcem dokumentu.
+- **PPT:** Binární formát může uložit odpovídající souhrnné vlastnosti dokumentu. Pokud je vlastnost absentní nebo nebyla obnovená tvůrcem dokumentu, Aspose.Slides vrátí její uloženou nebo výchozí hodnotu místo výpočtu ze snímků.
+- **ODP:** Metadata OpenDocument poskytují obecné statistiky dokumentu, jako jsou počty stránek, odstavců a slov, ale tyto hodnoty neodpovídají všem rozšířeným vlastnostem specifickým pro PowerPoint. Metadata pro skryté snímky, snímky s poznámkami, multimédia, heading-pair a názvy částí mohou být nedostupná a vlastnosti inventáře mohou vracet výchozí hodnoty. Nepovažujte nulovou hodnotu nebo prázdné pole za definitivní důkaz, že odpovídající obsah chybí.
 
-Používejte lehký přístup k metadatům pro inventáře a předběžné kontroly. Načtěte prezentaci a prozkoumejte její živý objektový model, když výsledek musí odrážet změny v paměti nebo když potřebujete ověřit skutečný obsah prezentace.
+Použijte přístup lehkých metadat pro inventáře a předběžné kontroly. Načtěte prezentaci a prozkoumejte její živý model objektů, když výsledek musí odrážet změny v paměti nebo když potřebujete ověřit skutečný obsah prezentace.
 
-## **Aktualizujte vlastnosti prezentace**
+## **Aktualizace vlastností prezentace**
 
-Vlastnosti vrácené metodou [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/#readDocumentProperties) lze také změnit, aniž byste vytvořili instanci [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/). Proveďte změny pomocí [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/#updateDocumentProperties) a poté zapište vázanou prezentaci pomocí [PresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/#writeBindedPresentation).
+Vlastnosti vrácené metodou [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/#readDocumentProperties) lze také změnit bez vytvoření instance [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/). Změny použijte pomocí [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/#updateDocumentProperties) a poté zapište svázanou prezentaci pomocí [PresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/#writeBindedPresentation).
 
-Následující obrázek zobrazuje původní vlastnosti dokumentu.
+Následující obrázek zobrazuje původní vlastnosti dokumentu PowerPoint prezentace.
 
-![Original document properties of the PowerPoint presentation](input_properties.png)
+![Původní vlastnosti dokumentu PowerPoint prezentace](input_properties.png)
 
 Následující příklad změní název a čas posledního uložení a zapíše výsledek do nového souboru:
 
@@ -193,13 +195,13 @@ finally:
     output_stream.close()
 ```
 
-Následující obrázek zobrazuje aktualizované vlastnosti dokumentu.
+Následující obrázek zobrazuje změněné vlastnosti dokumentu PowerPoint prezentace.
 
-![Changed document properties of the PowerPoint presentation](output_properties.png)
+![Změněné vlastnosti dokumentu PowerPoint prezentace](output_properties.png)
 
 ## **Užitečné odkazy**
 
-Pro související kontrolu zabezpečení a nastavení ochrany si přečtěte následující články:
+Pro související bezpečnostní kontroly a nastavení ochrany si přečtěte následující články:
 
 - [Password-Protect Presentations](/slides/cs/python-java/password-protected-presentation/)
 - [Write-Protect Presentations](/slides/cs/python-java/write-protected-presentation/)
@@ -208,20 +210,20 @@ Pro související kontrolu zabezpečení a nastavení ochrany si přečtěte ná
 
 **Jak mohu zkontrolovat, zda jsou písma vložena a která to jsou?**
 
-Načtěte prezentaci a použijte [Presentation.getFontsManager](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getFontsManager). Zavolejte [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/cs/python-java/aspose.slides/fontsmanager/#getEmbeddedFonts) pro získání vložených písem a [FontsManager.getFonts](https://reference.aspose.com/slides/cs/python-java/aspose.slides/fontsmanager/#getFonts) pro získání písem používaných v prezentaci. Porovnejte oba výsledky a najděte písma, která jsou potřebná pro vykreslení, ale nejsou vložena.
+Načtěte prezentaci a použijte [Presentation.getFontsManager](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getFontsManager). Zavolejte [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/cs/python-java/aspose.slides/fontsmanager/#getEmbeddedFonts) k získání vložených písem a [FontsManager.getFonts](https://reference.aspose.com/slides/cs/python-java/aspose.slides/fontsmanager/#getFonts) k získání písem používaných v prezentaci. Porovnejte oba výsledky, abyste našli písma, která jsou potřebná pro vykreslení, ale nejsou vložena.
 
-**Jak rychle zjistit, zda soubor obsahuje skryté snímky a kolik jich je?**
+**Jak mohu rychle zjistit, zda soubor obsahuje skryté snímky a kolik jich je?**
 
-Když jsou uložená metadata dokumentu dostačující, přečtěte [DocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/#getHiddenSlides) přes [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationfactory/#getPresentationInfo) a [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/#readDocumentProperties). To je vhodné pro lehký inventář. Pokud byla prezentace změněna v paměti, uložená metadata mohou chybět nebo být zastaralá, nebo potřebujete ověřit živé hodnoty – iterujte přes [Presentation.getSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getSlides) a zkontrolujte metodu [Slide.getHidden](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slide/#getHidden) každého snímku.
+Když jsou uložená metadata dokumentu dostačující, přečtěte [DocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/documentproperties/#getHiddenSlides) přes [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationfactory/#getPresentationInfo) a [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentationinfo/#readDocumentProperties). Toto je vhodné pro lehký inventář. Pokud byla prezentace v paměti upravena, mohou chybět nebo být zastaralá uložená metadata, nebo potřebujete ověřit aktuální hodnoty – v takovém případě projděte [Presentation.getSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getSlides) a u každého snímku zkontrolujte metodu [Slide.getHidden](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slide/#getHidden).
 
-**Mohu zjistit, zda je použita vlastní velikost a orientace snímku a zda se liší od výchozích?**
+**Mohu zjistit, zda jsou použity vlastní velikost a orientace snímku, a zda se liší od výchozích?**
 
-Ano. Načtěte prezentaci a zavolejte [Presentation.getSlideSize](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getSlideSize). Použijte [SlideSize.getType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidesize/#getType), [SlideSize.getSize](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidesize/#getSize) a [SlideSize.getOrientation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidesize/#getOrientation) pro porovnání aktuálního nastavení s očekávaným přednastavením a rozměry.
+Ano. Načtěte prezentaci a zavolejte [Presentation.getSlideSize](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getSlideSize). Použijte [SlideSize.getType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidesize/#getType), [SlideSize.getSize](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidesize/#getSize) a [SlideSize.getOrientation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slidesize/#getOrientation) k porovnání aktuálního nastavení s očekávaným přednastavením a rozměry.
 
-**Existuje rychlý způsob, jak zjistit, zda grafy odkazují na externí zdroje dat?**
+**Existuje rychlý způsob, jak zjistit, zda grafy odkazují na externí datové zdroje?**
 
-Ano. Najděte každý [Chart](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chart/) a zavolejte [ChartData.getDataSourceType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#getDataSourceType). Pro externí sešit zavolejte [ChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). Typ zdroje dat a cesta identifikují externí odkaz, ale ověření dostupnosti cíle vyžaduje samostatnou kontrolu zdroje.
+Ano. Najděte každý [Chart](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chart/) a zavolejte [ChartData.getDataSourceType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#getDataSourceType). Pro externí sešit zavolejte [ChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). Typ zdroje a cesta identifikují externí odkaz, ale ověření dostupnosti cíle vyžaduje samostatnou kontrolu zdroje.
 
-**Jak mohu posoudit „těžké“ snímky, které mohou zpomalit vykreslování nebo export do PDF?**
+**Jak mohu posoudit 'těžké' snímky, které mohou zpomalit vykreslování nebo export do PDF?**
 
-Neexistuje jediná vlastnost složitosti. Procházejte [Presentation.getSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getSlides) a kolekci [BaseSlide.getShapes](https://reference.aspose.com/slides/cs/python-java/aspose.slides/baseslide/#getShapes) každého snímku. Použijte počet tvarů a přítomnost velkých obrázků, efektů, animací nebo multimédií jako signály pro screenování a změřte reprezentativní vykreslení nebo export, než označíte snímek jako potvrzený úzký profil výkonu.
+Neexistuje jedna vlastnost komplexity. Projděte [Presentation.getSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getSlides) a kolekci [BaseSlide.getShapes](https://reference.aspose.com/slides/cs/python-java/aspose.slides/baseslide/#getShapes) každého snímku. Použijte počty tvarů a přítomnost velkých obrázků, efektů, animací nebo multimédií jako signály, a změřte reprezentativní render nebo export, než označíte snímek jako potvrzený úzký hrnec výkonu.

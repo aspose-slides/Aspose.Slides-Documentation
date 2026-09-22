@@ -12,78 +12,125 @@ keywords:
 - 儲存 PPT
 - 儲存 PPTX
 - 儲存 ODP
-- 簡報至檔案
-- 簡報至串流
+- 簡報到檔案
+- 簡報到串流
 - 預先定義的檢視類型
-- Strict Office Open XML 格式
+- 嚴格的 Office Open XML 格式
 - Zip64 模式
-- 重新整理縮圖
+- 刷新縮圖
 - 儲存進度
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "探索如何使用 Aspose.Slides for Node.js 於 JavaScript 中儲存簡報——匯出至 PowerPoint 或 OpenDocument，同時保留版面配置、字型與效果。"
+description: "使用 Aspose.Slides 在 JavaScript 中將 PowerPoint 與 OpenDocument 簡報儲存為檔案或串流，並設定 PPTX 輸出與進度報告。"
 ---
 ## **概述**
 
-[在 JavaScript 中開啟簡報](/slides/zh-hant/nodejs-java/open-presentation/) 說明了如何使用 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別來開啟簡報。本篇文章闡述如何建立與儲存簡報。[Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別包含簡報的內容。無論是從頭建立簡報或是修改既有簡報，完成後都需要將其儲存。使用 Aspose.Slides for Node.js，您可以儲存為 **file** 或 **stream**。本文說明儲存簡報的各種方式。
+建立簡報或[開啟現有的簡報](/slides/zh-hant/nodejs-java/open-presentation/)之後，使用[Presentation.save](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#save)方法寫入結果。Aspose.Slides for Node.js via Java 可以將簡報儲存為檔案或串流，支援 PowerPoint、OpenDocument、PDF 以及其他格式。下列章節說明標準的儲存操作以及 PPTX 輸出的可用選項。
 
-## **將簡報儲存為檔案**
+## **將簡報儲存至檔案**
 
-透過呼叫 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的 `save` 方法即可將簡報儲存為檔案。將檔名與儲存格式傳入該方法。以下範例示範如何使用 Aspose.Slides 儲存簡報。
+要將簡報儲存至檔案，將輸出路徑與[SaveFormat](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/saveformat/)值傳遞給[Presentation.save](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#save)方法。格式值決定 Aspose.Slides 建立的檔案類型。
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+以下範例建立簡報並將其儲存為 PPTX 檔案：
 
-// 實例化代表簡報檔案的 Presentation 類別。
-let presentation = new aspose.slides.Presentation();
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // 在此執行一些工作...
+    // 在此加入或修改簡報內容。
 
-    // 將簡報儲存至檔案。
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **以原始格式儲存簡報**
+
+有關檔案與串流偵測範例、新建立簡報的行為，以及來源與輸出格式之區別，請參閱[Determine the Original Presentation Format](/slides/zh-hant/nodejs-java/detect-presentation-source-format/)。
+
+在批次處理應用程式中，輸入格式可能事先未知。載入檔案後，從[Presentation.getSourceFormat](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#getSourceFormat)方法讀取其原始格式。將得到的[SourceFormat](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sourceformat/)值傳遞給[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slideutil/#toSaveFormat)以取得相應的[SaveFormat](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/saveformat/)值，然後使用[Presentation.save](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#save)寫入已修改的簡報。
+
+以下完整範例會處理輸入目錄中的每個檔案，更新其標題，並以載入時的格式儲存至輸出目錄：
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const fs = require("fs");
+const path = require("path");
+
+const inputDirectory = "Input";
+const outputDirectory = "Output";
+
+if (!fs.existsSync(inputDirectory)) {
+    console.error("The input directory does not exist.");
+} else {
+    fs.mkdirSync(outputDirectory, { recursive: true });
+
+    const inputFiles = fs.readdirSync(inputDirectory, { withFileTypes: true })
+        .filter((entry) => entry.isFile());
+
+    for (const inputFile of inputFiles) {
+        const inputPath = path.join(inputDirectory, inputFile.name);
+        try {
+            const presentation = new aspose.slides.Presentation(inputPath);
+            try {
+                const saveFormat = aspose.slides.SlideUtil.toSaveFormat(presentation.getSourceFormat());
+                presentation.getDocumentProperties().setTitle("Processed by the batch application");
+
+                const outputPath = path.join(outputDirectory, inputFile.name);
+                presentation.save(outputPath, saveFormat);
+            } finally {
+                presentation.dispose();
+            }
+        } catch (error) {
+            console.error(`Cannot process '${inputPath}': ${error.message}`);
+        }
+    }
+}
+```
+
+[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slideutil/#toSaveFormat)將 PPT、PPTX、ODP、PPTM、PPSX、PPSM、POTX、POTM、PPS、POT、OTP、FODP 以及 PowerPoint XML 映射到相應的簡報儲存格式。它僅映射簡報來源格式；不應用於選擇 PDF、HTML、TIFF 或影像等匯出格式。傳遞不受支援或無效的[SourceFormat](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sourceformat/)值會導致錯誤。
+
+舊版 PPT、PPS 與 POT 檔案使用相同的二進位容器。若從沒有副檔名的串流載入此類簡報，PPS 或 POT 檔案可能會被辨識為 PPT。若需要保留這些舊版子類型，請另行保留原始檔名或格式中繼資料，並在選擇輸出檔名與格式時使用它們。
+
 ## **將簡報儲存至串流**
 
-您可以將輸出串流傳遞給 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的 `save` 方法，以將簡報儲存至串流。簡報可以寫入多種串流類型。以下範例建立新簡報並將其儲存至檔案串流。
+若不想依賴最終檔案路徑寫入簡報，可將可寫入的串流與[SaveFormat](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/saveformat/)值傳遞給[Presentation.save](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#save)方法。此方式在需要將輸出返回給 Web 服務、存入資料庫或在記憶體中處理時非常有用。
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+以下範例將新簡報儲存至檔案串流：
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// 實例化代表簡報檔案的 Presentation 類別。
-let presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    let fileStream = java.newInstanceSync("java.io.FileOutputStream", "Output.pptx");
+    const outputStream = java.newInstanceSync("java.io.FileOutputStream", "output.pptx");
     try {
-        // 將簡報儲存至串流。
-        presentation.save(fileStream, aspose.slides.SaveFormat.Pptx);
+        presentation.save(outputStream, aspose.slides.SaveFormat.Pptx);
     } finally {
-        fileStream.close();
+        outputStream.close();
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **使用預先定義的檢視類型儲存簡報**
+## **以預先定義的檢視類型儲存簡報**
 
-Aspose.Slides 允許您透過 [ViewProperties](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/viewproperties/) 類別設定產生的簡報開啟時 PowerPoint 使用的初始檢視。使用 [setLastView](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/viewproperties/#setLastView) 方法並傳入 [ViewType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/viewtype/) 列舉中的值。
+您可以在 PowerPoint 開啟已儲存簡報時指定其初始檢視。於儲存前使用帶有[ViewType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/viewtype/)值的[ViewProperties.setLastView](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/viewproperties/#setLastView)方法。
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+以下範例將母片檢視設定為初始檢視：
 
-let presentation = new aspose.slides.Presentation();
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
     presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
-    presentation.save("SlideMasterView.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("slide-master-view.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -91,106 +138,90 @@ try {
 
 ## **以嚴格的 Office Open XML 格式儲存簡報**
 
-Aspose.Slides 允許您以 Strict Office Open XML 格式儲存簡報。儲存時使用 [PptxOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/pptxoptions/) 類別並設定其 conformance 屬性。若設定 [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/conformance/#Iso29500_2008_Strict)，輸出檔案即會以 Strict Office Open XML 格式儲存。
+若要建立符合 Office Open XML 嚴格規範的 PPTX 檔案，建立[PptxOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/pptxoptions/)實例，並使用其[setConformance](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/pptxoptions/#setConformance)方法傳入[Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/conformance/#Iso29500_2008_Strict)。然後將這些選項傳遞給[Presentation.save](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#save)方法。
 
-以下範例建立簡報並以 Strict Office Open XML 格式儲存。
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-let options = new aspose.slides.PptxOptions();
+const options = new aspose.slides.PptxOptions();
 options.setConformance(aspose.slides.Conformance.Iso29500_2008_Strict);
 
-// 實例化代表簡報檔案的 Presentation 類別。
-let presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // 以 Strict Office Open XML 格式儲存簡報。
-    presentation.save("StrictOfficeOpenXml.pptx", aspose.slides.SaveFormat.Pptx, options);
+    presentation.save("strict-office-open-xml.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **以 Zip64 模式儲存 Office Open XML 格式的簡報**
+## **以 Zip64 模式在 Office Open XML 格式儲存簡報**
 
-Office Open XML 檔案是 ZIP 壓縮檔，對未壓縮檔案大小、壓縮後檔案大小以及整個封存檔案大小皆限制於 4 GB（2^32 位元組），且封存內的檔案數量上限為 65 535（2^16‑1）。ZIP64 格式擴充可將這些限制提升至 2^64。
+標準 ZIP 壓縮檔對每個條目的壓縮與未壓縮大小、整體檔案大小以及條目數量都有上限。因為 PPTX 檔案本身即為 ZIP 壓縮檔，極大型簡報可能會超過這些限制。ZIP64 延伸可提升相關大小與條目數限制。
 
-[PptxOptions.setZip64Mode](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/pptxoptions/#getZip64Mode) 方法讓您在儲存 Office Open XML 檔案時選擇何時使用 ZIP64 格式擴充。
+使用[PptxOptions.setZip64Mode](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/pptxoptions/#setZip64Mode)方法控制 Aspose.Slides 是否寫入 ZIP64 延伸：
 
-此方法可搭配以下模式使用：
+- [IfNecessary]https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/zip64mode/#IfNecessary 僅在簡報超過標準 ZIP 限制時使用 ZIP64，為預設模式。
+- [Never]https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/zip64mode/#Never 停用 ZIP64 延伸。
+- [Always]https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/zip64mode/#Always 總是寫入 ZIP64 延伸。
 
-- [IfNecessary](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/zip64mode/#IfNecessary) 只在簡報超過前述限制時使用 ZIP64 擴充。此為預設模式。
-- [Never](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/zip64mode/#Never) 永不使用 ZIP64 擴充。
-- [Always](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/zip64mode/#Always) 總是使用 ZIP64 擴充。
+以下範例會對輸出簡報永遠啟用 ZIP64 延伸：
 
-以下程式碼示範如何在啟用 ZIP64 格式擴充的情況下將簡報儲存為 PPTX 檔案：
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-let pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setZip64Mode(aspose.slides.Zip64Mode.Always);
-
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    presentation.save("OutputZip64.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
+    const options = new aspose.slides.PptxOptions();
+    options.setZip64Mode(aspose.slides.Zip64Mode.Always);
+
+    presentation.save("output-zip64.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-當您使用 [Zip64Mode.Never](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/zip64mode/#Never) 儲存時，若簡報無法以 ZIP32 格式儲存，將拋出 [PptxException](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/pptxexception/)。
+{{% alert color="warning" title="Warning" %}}
+如果使用[Zip64Mode.Never]https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/zip64mode/#Never，且簡報無法符合標準 ZIP 限制，儲存作業會拋出[PptxException](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/pptxexception/)。
 {{% /alert %}}
 
-## **以壓縮等級儲存 Office Open XML 格式的簡報**
+## **以壓縮等級在 Office Open XML 格式儲存簡報**
 
-處理大型簡報時，您可以調整壓縮等級以在檔案大小與處理時間之間取得平衡。依需求可選擇較快的處理速度或較小的輸出檔案。
+針對 PPTX 輸出，您可以透過[PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/pptxoptions/#setCompressionLevel)方法在儲存速度與檔案大小之間取得平衡。[CompressionLevel](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/compressionlevel/)類別提供以下值：
 
-Aspose.Slides 提供 [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/pptxoptions/#setCompressionLevel) 方法，允許您指定在 Office Open XML 格式儲存時使用的壓縮等級。
+- [None]https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/compressionlevel/#None 不壓縮儲存資料。
+- [Level1]https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/compressionlevel/#Level1 提供最快的壓縮速度且產生最大的壓縮檔案。
+- [Level2]https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/compressionlevel/#Level2 至 [Level5]https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/compressionlevel/#Level5 逐漸偏好較小的輸出而犧牲儲存速度。
+- [Level6]https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/compressionlevel/#Level6 在儲存速度與檔案大小之間取得平衡，為預設等級。
+- [Level7]https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/compressionlevel/#Level7 與 [Level8]https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/compressionlevel/#Level8 進一步偏好較小的輸出。
+- [Level9]https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/compressionlevel/#Level9 提供最強的壓縮，但需要最長的處理時間。
 
-可用的壓縮等級如下：
+以下範例在不使用壓縮的情況下儲存簡報：
 
-- **None**：不進行壓縮，檔案以原始形式儲存。
-- **Level1**：最快的壓縮速度，壓縮比例最低。
-- **Level2**：較 **Level1** 稍佳的壓縮比例，壓縮速度仍然較快。
-- **Level3**：比 **Level2** 提供更好的壓縮效果，對處理時間有中等影響。
-- **Level4**：比 **Level3** 提供更好的壓縮效果。
-- **Level5**：在 **Level4** 基礎上進一步提升壓縮，同時需要額外的處理時間。
-- **Level6**：標準壓縮，於處理速度與檔案大小之間取得良好平衡。此為 *預設壓縮等級*。
-- **Level7**：較 **Level6** 提供更好的壓縮，但處理速度較慢。
-- **Level8**：較 **Level7** 提供更好的壓縮。
-- **Level9**：最高壓縮等級，產生最小的檔案大小，但需最長的處理時間。
-
-以下範例示範如何以 *不壓縮* 的方式將簡報儲存為 PPTX 檔案：
-
-```js
+```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 
-const pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setCompressionLevel(aspose.slides.CompressionLevel.None);
-
-const presentation = new aspose.slides.Presentation("Sample.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    presentation.save("Sample-out.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
+    const options = new aspose.slides.PptxOptions();
+    options.setCompressionLevel(aspose.slides.CompressionLevel.None);
+
+    presentation.save("output-no-compression.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-此範例示範如何以 *最高壓縮* 的方式將簡報儲存為 PPTX 檔案：
+以下範例使用最高壓縮等級：
 
-```js
+```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 
-const pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setCompressionLevel(aspose.slides.CompressionLevel.Level9);
-
-const presentation = new aspose.slides.Presentation("Sample.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    presentation.save("Sample-level9.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
+    const options = new aspose.slides.PptxOptions();
+    options.setCompressionLevel(aspose.slides.CompressionLevel.Level9);
+
+    presentation.save("output-maximum-compression.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
@@ -198,81 +229,77 @@ try {
 
 ## **儲存簡報時不重新整理縮圖**
 
-[PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/pptxoptions/#setRefreshThumbnail) 方法控制將簡報儲存為 PPTX 時的縮圖產生行為：
+當簡報以 PPTX 格式儲存時，[PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/pptxoptions/#setRefreshThumbnail)方法控制文件縮圖：
 
-- 若設定為 `true`，儲存過程中會重新整理縮圖（預設值）。
-- 若設定為 `false`，保留現有縮圖。若簡報沒有縮圖，則不會產生任何縮圖。
+- `true` 在儲存過程中重新產生縮圖，為預設值。
+- `false` 保留現有縮圖。若簡報沒有縮圖，Aspose.Slides 不會產生新的縮圖。
 
-以下程式碼示範如何在不重新整理縮圖的情況下將簡報儲存為 PPTX。
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-let pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setRefreshThumbnail(false);
-
-let presentation = new aspose.slides.Presentation("Sample.pptx");
-try {
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
-}
-finally {
-    presentation.dispose();
-}
-```
-
-{{% alert title="Info" color="info" %}}
-此選項有助於縮短以 PPTX 格式儲存簡報所需的時間。
-{{% /alert %}}
-
-## **以百分比儲存進度更新**
-
-儲存進度回報可透過 [setProgressCallback](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/saveoptions/#setProgressCallback) 方法設定於 [SaveOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/saveoptions/) 及其子類別。提供實作了 [IProgressCallback](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iprogresscallback/) 介面的 Java 代理；在匯出過程中，回呼會定期收到百分比更新。
-
-以下程式碼片段說明如何使用 `IProgressCallback`。
+以下範例在儲存時不刷新縮圖：
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-const ExportProgressHandler = java.newProxy("com.aspose.slides.IProgressCallback", {
-    reporting: function(progressValue) {
-        // 在此使用進度百分比值。
-        const progress = Math.floor(progressValue);
-        console.log(`${progress}% of the file has been converted.`);
-    }
-});
-
-let saveOptions = new aspose.slides.PdfOptions();
-saveOptions.setProgressCallback(ExportProgressHandler);
-
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    presentation.save("Output.pdf", aspose.slides.SaveFormat.Pdf, saveOptions);
+    const options = new aspose.slides.PptxOptions();
+    options.setRefreshThumbnail(false);
+
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose 已開發一款使用其 API 的 [免費 PowerPoint Splitter 應用程式](https://products.aspose.app/slides/zh-hant/splitter)。該應用程式可將簡報依選取的投影片另存為新 PPTX 或 PPT 檔案，達成分割功能。
+{{% alert color="info" title="Note" %}}
+停用縮圖刷新可減少儲存 PPTX 檔案所需的時間。
 {{% /alert %}}
 
-## **常見問題**
+## **以百分比顯示儲存進度更新**
 
-**是否支援「快速儲存」（增量儲存）僅寫入變更？**
+若要監控儲存作業，請使用 Java 代理實作[IProgressCallback](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iprogresscallback/)介面，並將實作傳遞給[SaveOptions.setProgressCallback](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/saveoptions/#setProgressCallback)方法。Aspose.Slides 會在匯出過程中呼叫[IProgressCallback.reporting](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iprogresscallback/#reporting-double-)方法，傳回進度值。
 
-不支援。每次儲存都會產生完整的目標檔案，未提供增量「快速儲存」功能。
+以下範例將 PDF 匯出的進度回報至主控台：
 
-**從多個執行緒同時儲存同一個 Presentation 實例是否安全？**
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-不安全。 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 實例 **非執行緒安全**，應僅在單一執行緒中進行儲存。
+const exportProgressHandler = java.newProxy("com.aspose.slides.IProgressCallback", {
+    reporting: function(progressValue) {
+        const progress = Math.floor(progressValue);
+        console.log(`${progress}% of the file has been converted.`);
+    }
+});
 
-**儲存時超連結與外部連結檔案會發生什麼情況？**
+const options = new aspose.slides.PdfOptions();
+options.setProgressCallback(exportProgressHandler);
 
-[Hyperlinks](/slides/zh-hant/nodejs-java/manage-hyperlinks/) 會被保留。外部連結檔案（例如以相對路徑指向的影片）不會自動複製，請確保其路徑仍然可存取。
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    presentation.save("output.pdf", aspose.slides.SaveFormat.Pdf, options);
+} finally {
+    presentation.dispose();
+}
+```
 
-**是否可以設定/儲存文件的中繼資料（作者、標題、公司、日期）？**
+{{% alert color="info" title="Note" %}}
+Aspose 提供免費的[PowerPoint Splitter](https://products.aspose.app/slides/zh-hant/splitter)，其使用 Aspose.Slides API 建置。它可將簡報中的選取投影片另存為單獨的 PPT 或 PPTX 檔案。
+{{% /alert %}}
 
-可以。支援標準的 [document properties](/slides/zh-hant/nodejs-java/presentation-properties/)，這些屬性會在儲存時寫入檔案。
+## **FAQ**
+
+**Aspose.Slides 是否支援增量或「快速儲存」？**
+
+不支援。每次儲存操作都會寫入完整的輸出檔案，而不是只更新變更的部分。
+
+**多個執行緒可以同時儲存同一個 Presentation 實例嗎？**
+
+不行。[Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/)實例**不是執行緒安全**的。每次只能從單一執行緒存取並儲存該實例。
+
+**儲存簡報時超連結與外部連結檔案會發生什麼事？**
+
+[Hyperlinks](/slides/zh-hant/nodejs-java/manage-hyperlinks/) 仍會保留在簡報中。Aspose.Slides 不會複製外部連結的檔案，儲存後的簡報仍需能存取其原始位置。
+
+**我可以儲存文件的中繼資料，例如作者、標題、公司與建立日期嗎？**
+
+可以。儲存前先設定相應的[文件屬性](/slides/zh-hant/nodejs-java/presentation-properties/)，Aspose.Slides 會將它們寫入輸出檔案。

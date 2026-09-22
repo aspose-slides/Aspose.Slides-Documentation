@@ -21,49 +21,98 @@ keywords:
 - 保存进度
 - Java
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides 在 Java 中保存演示文稿——导出为 PowerPoint 或 OpenDocument 并保留布局、字体和效果。"
+description: "使用 Aspose.Slides 在 Java 中将 PowerPoint 和 OpenDocument 演示文稿保存到文件或流，并配置 PPTX 输出和进度报告。"
 ---
 ## **概述**
 
-[在 Java 中打开演示文稿](/slides/zh/java/open-presentation/) 说明了如何使用 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类打开演示文稿。本文解释了如何创建和保存演示文稿。[Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类包含演示文稿的内容。无论是从头创建演示文稿还是修改现有演示文稿，完成后都需要保存。使用 Aspose.Slides for Java，您可以保存到 **文件** 或 **流**。本文说明了保存演示文稿的不同方法。
+创建演示文稿或[打开现有演示文稿](/slides/zh/java/open-presentation/)后，使用[Presentation.save](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/#save-java.lang.String-int-)方法写入结果。Aspose.Slides for Java 可以将演示文稿保存为文件或流，支持 PowerPoint、OpenDocument、PDF 等格式。以下章节介绍标准保存操作以及 PPTX 输出的可用选项。
 
 ## **将演示文稿保存到文件**
 
-通过调用 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的 `save` 方法并传入文件名和保存格式来将演示文稿保存到文件。以下示例展示了如何使用 Aspose.Slides 保存演示文稿。
+要将演示文稿保存到文件，向[Presentation.save](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/#save-java.lang.String-int-)方法传递输出路径和一个[SaveFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/saveformat/)值。该格式值决定 Aspose.Slides 创建的文件类型。
+
+下面的示例创建一个演示文稿并将其保存为 PPTX 文件：
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
-// 实例化表示演示文稿文件的 Presentation 类。
 Presentation presentation = new Presentation();
 try {
-    // 在此执行一些操作...
+    // 在此添加或修改演示文稿内容。
 
-    // 将演示文稿保存到文件。
     presentation.save("Output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **将演示文稿保存到流**
+## **以原始格式保存演示文稿**
 
-您可以通过向 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类的 `save` 方法传递输出流来将演示文稿保存到流。演示文稿可以写入多种流类型。下面的示例创建一个新演示文稿并将其保存到文件流。
+有关文件和流检测示例、新创建演示文稿的行为以及源格式与输出格式的区别，请参阅[确定原始演示文稿格式](/slides/zh/java/detect-presentation-source-format/)。
+
+在批处理应用程序中，输入格式可能事先未知。加载文件后，可通过[IPresentation.getSourceFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ipresentation/#getSourceFormat--)方法读取其原始格式。将得到的[SourceFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/sourceformat/)值传递给[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/slideutil/#toSaveFormat-int-)以获取对应的[SaveFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/saveformat/)值，然后使用[Presentation.save](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/#save-java.lang.String-int-)写入已修改的演示文稿。
+
+下面的完整示例处理输入目录中的每个文件，更新其标题，并按加载时的格式保存到输出目录：
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SlideUtil;
+import java.io.File;
+
+File inputDirectory = new File("Input");
+File outputDirectory = new File("Output");
+
+if (!outputDirectory.exists() && !outputDirectory.mkdirs()) {
+    System.err.println("Cannot create the output directory.");
+}
+
+File[] inputFiles = inputDirectory.listFiles(File::isFile);
+if (inputFiles != null && outputDirectory.isDirectory()) {
+    for (File inputFile : inputFiles) {
+        try {
+            Presentation presentation = new Presentation(inputFile.getPath());
+            try {
+                int saveFormat = SlideUtil.toSaveFormat(presentation.getSourceFormat());
+                presentation.getDocumentProperties().setTitle("Processed by the batch application");
+
+                File outputFile = new File(outputDirectory, inputFile.getName());
+                presentation.save(outputFile.getPath(), saveFormat);
+            } finally {
+                presentation.dispose();
+            }
+        } catch (IllegalArgumentException exception) {
+            System.err.println("Cannot map the source format of '" + inputFile.getPath() + "': " + exception.getMessage());
+        } catch (Exception exception) {
+            System.err.println("Cannot process '" + inputFile.getPath() + "': " + exception.getMessage());
+        }
+    }
+}
+```
+
+[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/slideutil/#toSaveFormat-int-)将 PPT、PPTX、ODP、PPTM、PPSX、PPSM、POTX、POTM、PPS、POT、OTP、FODP 和 PowerPoint XML 映射到相应的演示文稿保存格式。它仅映射演示文稿源格式；并非用于选择 PDF、HTML、TIFF 或图像等导出格式。传递不受支持或无效的[SourceFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/sourceformat/)值会导致[IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html)。
+
+旧版 PPT、PPS 和 POT 文件使用相同的二进制容器。从没有文件扩展名的流加载此类演示文稿时，PPS 或 POT 文件可能会被识别为 PPT。如果需要保留这些旧子类型，请单独保留原始文件名或格式元数据，并在选择输出文件名和格式时使用它。
+
+## **将演示文稿保存到流**
+
+要在不依赖最终文件路径的情况下写入演示文稿，请向[Presentation.save](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-)方法传递可写流和一个[SaveFormat](https://reference.aspose.com/slides/zh/java/com.aspose.slides/saveformat/)值。当输出必须从 Web 服务返回、存储在数据库中或在内存中处理时，此方法非常有用。
+
+下面的示例将新演示文稿保存到文件流：
+
+```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
-// 实例化表示演示文稿文件的 Presentation 类。
 Presentation presentation = new Presentation();
 try {
-    OutputStream fileStream = new FileOutputStream("Output.pptx");
+    OutputStream outputStream = new FileOutputStream("Output.pptx");
     try {
-        // 将演示文稿保存到流中。
-        presentation.save(fileStream, SaveFormat.Pptx);
+        presentation.save(outputStream, SaveFormat.Pptx);
     } finally {
-        fileStream.close();
+        outputStream.close();
     }
 } finally {
     presentation.dispose();
@@ -72,10 +121,14 @@ try {
 
 ## **使用预定义视图类型保存演示文稿**
 
-Aspose.Slides 通过 [ViewProperties](https://reference.aspose.com/slides/zh/java/com.aspose.slides/viewproperties/) 类允许您设置 PowerPoint 打开生成的演示文稿时的初始视图。使用来自 [ViewType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/viewtype/) 枚举的值调用 [setLastView](https://reference.aspose.com/slides/zh/java/com.aspose.slides/viewproperties/#setLastView-int-) 方法。
+可以指定 PowerPoint 打开已保存演示文稿时的初始视图。保存前，使用带有[ViewType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/viewtype/)值的[ViewProperties.setLastView](https://reference.aspose.com/slides/zh/java/com.aspose.slides/viewproperties/#setLastView-int-)方法。
+
+下面的示例将 Slide Master 视图配置为初始视图：
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ViewType;
 
 Presentation presentation = new Presentation();
 try {
@@ -86,22 +139,21 @@ try {
 }
 ```
 
-## **以 Strict Office Open XML 格式保存演示文稿**
+## **以严格的 Office Open XML 格式保存演示文稿**
 
-Aspose.Slides 允许您以 Strict Office Open XML 格式保存演示文稿。使用 [PptxOptions](https://reference.aspose.com/slides/zh/java/com.aspose.slides/pptxoptions/) 类并在保存时设置其 conformance 属性。如果将其设置为 [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/zh/java/com.aspose.slides/conformance/#Iso29500-2008-Strict)，输出文件将以 Strict Office Open XML 格式保存。
-
-下面的示例创建一个演示文稿并以 Strict Office Open XML 格式保存。
+要创建符合 Office Open XML 严格配置文件的 PPTX 文件，实例化一个[PptxOptions](https://reference.aspose.com/slides/zh/java/com.aspose.slides/pptxoptions/)并使用其[setConformance](https://reference.aspose.com/slides/zh/java/com.aspose.slides/pptxoptions/#setConformance-int-)方法，传入[Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/zh/java/com.aspose.slides/conformance/#Iso29500-2008-Strict)。随后将该选项传递给[Presentation.save](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-)方法。
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Conformance;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 PptxOptions options = new PptxOptions();
 options.setConformance(Conformance.Iso29500_2008_Strict);
 
-// 实例化表示演示文稿文件的 Presentation 类。
 Presentation presentation = new Presentation();
 try {
-    // 将演示文稿以严格的 Office Open XML 格式保存。
     presentation.save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
@@ -110,82 +162,81 @@ try {
 
 ## **在 Zip64 模式下以 Office Open XML 格式保存演示文稿**
 
-Office Open XML 文件是一个 ZIP 存档，对任何文件的未压缩大小、压缩后大小以及存档的总体大小均限制为 4 GB（2^32 字节），并且对文件数量限制为 65 535（2^16‑1）。ZIP64 格式扩展将这些限制提升至 2^64。
+标准 ZIP 存档对每个条目的压缩和未压缩大小、总存档大小以及条目数量都有限制。由于 PPTX 文件本身是 ZIP 存档，特别大的演示文稿可能会超出这些限制。ZIP64 扩展提升了相关的大小和条目计数限制。
 
-[IPptxOptions.setZip64Mode](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ipptxoptions/#setZip64Mode-int-) 方法允许您在保存 Office Open XML 文件时选择何时使用 ZIP64 格式扩展。
+使用[PptxOptions.setZip64Mode](https://reference.aspose.com/slides/zh/java/com.aspose.slides/pptxoptions/#setZip64Mode-int-)方法控制 Aspose.Slides 是否写入 ZIP64 扩展：
 
-此方法可与以下模式一起使用：
+- [IfNecessary](https://reference.aspose.com/slides/zh/java/com.aspose.slides/zip64mode/#IfNecessary)仅在演示文稿超出标准 ZIP 限制时使用 ZIP64。这是默认模式。
+- [Never](https://reference.aspose.com/slides/zh/java/com.aspose.slides/zip64mode/#Never)禁用 ZIP64 扩展。
+- [Always](https://reference.aspose.com/slides/zh/java/com.aspose.slides/zip64mode/#Always)始终写入 ZIP64 扩展。
 
-- [IfNecessary](https://reference.aspose.com/slides/zh/java/com.aspose.slides/zip64mode/#IfNecessary) 仅在演示文稿超出上述限制时使用 ZIP64 格式扩展。此为默认模式。
-- [Never](https://reference.aspose.com/slides/zh/java/com.aspose.slides/zip64mode/#Never) 从不使用 ZIP64 格式扩展。
-- [Always](https://reference.aspose.com/slides/zh/java/com.aspose.slides/zip64mode/#Always) 始终使用 ZIP64 格式扩展。
-
-下面的代码演示了如何在启用 ZIP64 格式扩展的情况下将演示文稿保存为 PPTX 文件：
+下面的示例始终为输出演示文稿启用 ZIP64 扩展：
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setZip64Mode(Zip64Mode.Always);
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.Zip64Mode;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("OutputZip64.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setZip64Mode(Zip64Mode.Always);
+
+    presentation.save("OutputZip64.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-当使用 [Zip64Mode.Never](https://reference.aspose.com/slides/zh/java/com.aspose.slides/zip64mode/#Never) 保存时，如果演示文稿无法以 ZIP32 格式保存，将抛出 [PptxException](https://reference.aspose.com/slides/zh/java/com.aspose.slides/pptxexception/)。
+{{% alert color="warning" title="Warning" %}}
+如果使用[Zip64Mode.Never](https://reference.aspose.com/slides/zh/java/com.aspose.slides/zip64mode/#Never)且演示文稿无法适应标准 ZIP 限制，保存操作会抛出[PptxException](https://reference.aspose.com/slides/zh/java/com.aspose.slides/pptxexception/)。
 {{% /alert %}}
 
-## **以不同压缩级别保存 Office Open XML 格式的演示文稿**
+## **使用压缩级别在 Office Open XML 格式下保存演示文稿**
 
-在处理大型演示文稿时，您可以调整压缩级别以在文件大小和处理时间之间取得平衡。根据需求，您可能更倾向于更快的处理速度或更小的输出文件。
+针对 PPTX 输出，可以通过[PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/zh/java/com.aspose.slides/pptxoptions/#setCompressionLevel-int-)方法在保存速度与文件大小之间取得平衡。[CompressionLevel](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/)类提供以下值：
 
-Aspose.Slides 提供了 [IPptxOptions.setCompressionLevel](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ipptxoptions/#setCompressionLevel-int-) 方法，允许您指定在以 Office Open XML 格式保存演示文稿时使用的压缩级别。
+- [None](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#None)不进行压缩。
+- [Level1](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#Level1)提供最快的压缩速度和最大的压缩后文件。
+- [Level2](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#Level2)至[Level5](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#Level5)逐步倾向于更小的输出而牺牲保存速度。
+- [Level6](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#Level6)在保存速度和文件大小之间取得平衡。这是默认级别。
+- [Level7](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#Level7)和[Level8](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#Level8)进一步倾向于更小的输出。
+- [Level9](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#Level9)提供最强的压缩，但需要最长的处理时间。
 
-可用的压缩级别如下：
-
-- [**None**](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#None)：不进行压缩，文件保持原样存储。
-- [**Level1**](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#Level1)：最快的压缩速度，压缩比最低。
-- [**Level2**](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#Level2)：相对于 **Level1** 有稍好些的压缩比，压缩速度仍然很快。
-- [**Level3**](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#Level3)：在处理时间上有适度影响的情况下，提供比 **Level2** 更好的压缩。
-- [**Level4**](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#Level4)：比 **Level3** 更好的压缩。
-- [**Level5**](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#Level5)：在 **Level4** 基础上进一步提升压缩率，需额外的处理时间。
-- [**Level6**](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#Level6)：标准压缩，在处理速度和文件大小之间提供良好平衡。这是 *默认压缩级别*。
-- [**Level7**](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#Level7)：比 **Level6** 更好的压缩，但处理速度变慢。
-- [**Level8**](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#Level8)：比 **Level7** 更好的压缩。
-- [**Level9**](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compressionlevel/#Level9)：最高压缩率，生成最小文件大小，但处理时间最长。
-
-下面的示例演示了如何在 *不使用压缩* 的情况下将演示文稿保存为 PPTX 文件：
+下面的示例在不进行压缩的情况下保存演示文稿：
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setCompressionLevel(CompressionLevel.None);
+import com.aspose.slides.CompressionLevel;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Sample-out.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setCompressionLevel(CompressionLevel.None);
+
+    presentation.save("OutputNoCompression.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-下面的示例演示了如何在 *最大压缩* 的情况下将演示文稿保存为 PPTX 文件：
+下面的示例使用最高压缩级别：
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setCompressionLevel(CompressionLevel.Level9);
+import com.aspose.slides.CompressionLevel;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Sample-level9.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setCompressionLevel(CompressionLevel.Level9);
+
+    presentation.save("OutputMaximumCompression.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
@@ -193,79 +244,81 @@ try {
 
 ## **保存演示文稿时不刷新缩略图**
 
-[PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/zh/java/com.aspose.slides/pptxoptions/#setRefreshThumbnail-boolean-) 方法控制将演示文稿保存为 PPTX 时是否生成缩略图：
+当演示文稿以 PPTX 格式保存时，[PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/zh/java/com.aspose.slides/pptxoptions/#setRefreshThumbnail-boolean-)方法控制文档缩略图的生成：
 
-- 设置为 `true` 时，保存期间会刷新缩略图。这是默认行为。
-- 设置为 `false` 时，保留当前缩略图。如果演示文稿没有缩略图，则不会生成。
+- `true` 在保存过程中重新生成缩略图。默认值即为 `true`。
+- `false` 保持现有缩略图不变。如果演示文稿没有缩略图，Aspose.Slides 不会生成。
 
-下面的代码将在保存为 PPTX 时不刷新缩略图。
+下面的示例在保存演示文稿时不刷新其缩略图：
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setRefreshThumbnail(false);
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Output.pptx", SaveFormat.Pptx, pptxOptions);
-}
-finally {
-    presentation.dispose();
-}
-```
+    PptxOptions options = new PptxOptions();
+    options.setRefreshThumbnail(false);
 
-{{% alert title="Info" color="info" %}}
-此选项有助于减少将演示文稿保存为 PPTX 格式所需的时间。
-{{% /alert %}}
-
-## **以百分比显示保存进度更新**
-
-[IProgressCallback](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iprogresscallback/) 接口通过 [ISaveOptions](https://reference.aspose.com/slides/zh/java/com.aspose.slides/isaveoptions/) 接口以及抽象的 [SaveOptions](https://reference.aspose.com/slides/zh/java/com.aspose.slides/saveoptions/) 类的 `setProgressCallback` 方法使用。将实现了 [IProgressCallback](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iprogresscallback/) 的对象传递给 `setProgressCallback`，即可以百分比形式接收保存进度更新。
-
-下面的代码片段展示了如何使用 `IProgressCallback`。
-
-```java
-import com.aspose.slides.*;
-
-class ExportProgressHandler implements IProgressCallback {
-    public void reporting(double progressValue) {
-        // 在此使用进度百分比值。
-        int progress = (int) progressValue;
-
-        System.out.println(progress + "% of the file has been converted.");
-    }
-}
-
-ISaveOptions saveOptions = new PdfOptions();
-saveOptions.setProgressCallback(new ExportProgressHandler());
-
-Presentation presentation = new Presentation("Sample.pptx");
-try {
-    presentation.save("Output.pdf", SaveFormat.Pdf, saveOptions);
+    presentation.save("Output.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose 开发了一个使用其自身 API 的 [免费 PowerPoint Splitter 应用](https://products.aspose.app/slides/zh/splitter)。该应用可通过将选定的幻灯片另存为新的 PPTX 或 PPT 文件，将演示文稿拆分为多个文件。
+{{% alert color="info" title="Note" %}}
+禁用缩略图刷新可以减少保存 PPTX 文件所需的时间。
+{{% /alert %}}
+
+## **以百分比形式提供保存进度更新**
+
+要监控保存过程，需实现[IProgressCallback](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iprogresscallback/)接口并将实现传递给[ISaveOptions.setProgressCallback](https://reference.aspose.com/slides/zh/java/com.aspose.slides/isaveoptions/#setProgressCallback-com.aspose.slides.IProgressCallback-)方法。Aspose.Slides 随后会在导出期间调用[IProgressCallback.reporting](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iprogresscallback/#reporting-double-)方法并传递进度值。
+
+下面的示例将 PDF 导出的进度报告到控制台：
+
+```java
+import com.aspose.slides.IProgressCallback;
+import com.aspose.slides.PdfOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+class ExportProgressHandler implements IProgressCallback {
+    public void reporting(double progressValue) {
+        int progress = (int) progressValue;
+        System.out.println(progress + "% of the file has been converted.");
+    }
+}
+
+PdfOptions options = new PdfOptions();
+options.setProgressCallback(new ExportProgressHandler());
+
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    presentation.save("Output.pdf", SaveFormat.Pdf, options);
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Aspose 提供了一个基于 Aspose.Slides API 的免费[PowerPoint 拆分器](https://products.aspose.app/slides/zh/splitter)。它可以将演示文稿的选定幻灯片保存为单独的 PPT 或 PPTX 文件。
 {{% /alert %}}
 
 ## **常见问题**
 
-**是否支持“快速保存”（增量保存）仅写入更改？**
+**Aspose.Slides 是否支持增量或“快速保存”？**
 
-不支持。每次保存都会创建完整的目标文件，未实现增量“快速保存”。
+不支持。每次保存都会写入完整的输出文件，而不是仅更新已更改的部分。
 
-**从多个线程同时保存同一 Presentation 实例是否线程安全？**
+**多个线程可以保存同一个 Presentation 实例吗？**
 
-不安全。一个 [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 实例 **不可线程安全**，请仅在单个线程中保存。
+不可以。`[Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/)`实例**不是线程安全的**(/slides/zh/java/multithreading/)。每次只能由单个线程访问并保存该实例。
 
-**保存时超链接和外部链接文件会怎样处理？**
+**保存演示文稿时超链接和外部链接文件会怎样？**
 
-[Hyperlinks](/slides/zh/java/manage-hyperlinks/) 会被保留。外部链接文件（如通过相对路径引用的视频）不会自动复制——请确保引用的路径仍然可访问。
+[超链接](/slides/zh/java/manage-hyperlinks/)会保留在演示文稿中。Aspose.Slides 不会复制外部链接的文件，因此保存后的演示文稿仍需能够访问这些位置。
 
-**我可以设置/保存文档元数据（作者、标题、公司、日期）吗？**
+**我可以保存文档元数据（如作者、标题、公司和创建日期）吗？**
 
-可以。支持标准的 [document properties](/slides/zh/java/presentation-properties/)，保存时会写入文件。
+可以。保存前设置相应的[文档属性](/slides/zh/java/presentation-properties/)，Aspose.Slides 会将其写入输出文件。

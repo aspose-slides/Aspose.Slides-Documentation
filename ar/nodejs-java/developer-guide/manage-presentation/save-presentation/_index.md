@@ -1,5 +1,5 @@
 ---
-title: حفظ العروض التقديمية في JavaScript
+title: حفظ العروض التقديمية في جافا سكريبت
 linktitle: حفظ العرض التقديمي
 type: docs
 weight: 80
@@ -13,100 +13,142 @@ keywords:
 - حفظ PPTX
 - حفظ ODP
 - العرض التقديمي إلى ملف
-- العرض التقديمي إلى تيار
-- نوع عرض مسبق التعريف
+- العرض التقديمي إلى تدفق
+- نوع العرض المحدد مسبقًا
 - تنسيق Office Open XML الصارم
 - وضع Zip64
 - تحديث الصورة المصغرة
-- حفظ التقدم
+- تقدم الحفظ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "اكتشف طريقة حفظ العروض التقديمية باستخدام Aspose.Slides لـ Node.js عبر Java—تصدير إلى PowerPoint أو OpenDocument مع الحفاظ على التخطيطات والخطوط والمؤثرات."
+description: "احفظ عروض PowerPoint وOpenDocument إلى ملفات أو تدفقات باستخدام JavaScript مع Aspose.Slides، وقم بتكوين إخراج PPTX وتقرير التقدم."
 ---
 ## **نظرة عامة**
 
-[Open Presentations in JavaScript](/slides/ar/nodejs-java/open-presentation/) يصف كيفية استخدام الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) لفتح عرض تقديمي. يشرح هذا المقال كيفية إنشاء العروض التقديمية وحفظها. تحتوي الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) على محتويات العرض التقديمي. سواءً كنت تنشئ عرضًا تقديميًا من الصفر أو تعدل أحد العروض الموجودة، فستحتاج إلى حفظه عند الانتهاء. باستخدام Aspose.Slides لـ Node.js، يمكنك الحفظ إلى **ملف** أو **تيار**. يوضح هذا المقال الطرق المختلفة لحفظ العرض التقديمي.
+بعد إنشاء عرض تقديمي أو [افتح عرضًا موجودًا](/slides/ar/nodejs-java/open-presentation/)، استخدم طريقة [Presentation.save](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#save) لكتابة النتيجة. يمكن لـ Aspose.Slides لـ Node.js عبر Java حفظ عرض تقديمي إلى ملف أو تدفق بصيغ PowerPoint وOpenDocument وPDF وغيرها. تغطي الأقسام التالية عمليات الحفظ القياسية والخيارات المتاحة لإخراج PPTX.
 
 ## **حفظ العروض التقديمية إلى ملفات**
 
-احفظ عرضًا تقديميًا إلى ملف عن طريق استدعاء طريقة `save` الخاصة بفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/). مرّر اسم الملف وتنسيق الحفظ إلى الطريقة. يوضح المثال التالي كيفية حفظ عرض تقديمي باستخدام Aspose.Slides.
+لحفظ عرض تقديمي إلى ملف، قم بتمرير مسار الإخراج وقيمة [SaveFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/saveformat/) إلى طريقة [Presentation.save](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#save). تحدد قيمة التنسيق نوع الملف الذي تنشئه Aspose.Slides.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+المثال التالي ينشئ عرضًا تقديميًا ويحفظه كملف PPTX:
 
-// إنشاء كائن فئة Presentation الذي يمثل ملف عرض تقديمي.
-let presentation = new aspose.slides.Presentation();
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // أجرِ بعض الأعمال هنا...
+    // إضافة أو تعديل محتوى العرض التقديمي هنا.
 
-    // احفظ العرض التقديمي إلى ملف.
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **حفظ العروض التقديمية بالتنسيق الأصلي**
+
+لأمثلة اكتشاف الملفات والتدفقات، وسلوك العروض التقديمية التي تم إنشاؤها حديثًا، والتمييز بين تنسيقات المصدر والإخراج، راجع [تحديد تنسيق العرض التقديمي الأصلي](/slides/ar/nodejs-java/detect-presentation-source-format/).
+
+في تطبيق معالجة الدُفعات، قد لا يكون تنسيق الإدخال معروفًا مسبقًا. بعد تحميل ملف، اقرأ تنسيقه الأصلي من طريقة [Presentation.getSourceFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#getSourceFormat). مرّر قيمة [SourceFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sourceformat/) الناتجة إلى طريقة [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideutil/#toSaveFormat) للحصول على قيمة [SaveFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/saveformat/) المقابلة، ثم استخدم [Presentation.save](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#save) لكتابة العرض التقديمي المعدل.
+
+المثال الكامل التالي يعالج كل ملف في دليل الإدخال، يُحدّث عنوانه، ويحفظه إلى دليل الإخراج بالتنسيق الذي تم تحميله منه:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const fs = require("fs");
+const path = require("path");
+
+const inputDirectory = "Input";
+const outputDirectory = "Output";
+
+if (!fs.existsSync(inputDirectory)) {
+    console.error("The input directory does not exist.");
+} else {
+    fs.mkdirSync(outputDirectory, { recursive: true });
+
+    const inputFiles = fs.readdirSync(inputDirectory, { withFileTypes: true })
+        .filter((entry) => entry.isFile());
+
+    for (const inputFile of inputFiles) {
+        const inputPath = path.join(inputDirectory, inputFile.name);
+        try {
+            const presentation = new aspose.slides.Presentation(inputPath);
+            try {
+                const saveFormat = aspose.slides.SlideUtil.toSaveFormat(presentation.getSourceFormat());
+                presentation.getDocumentProperties().setTitle("Processed by the batch application");
+
+                const outputPath = path.join(outputDirectory, inputFile.name);
+                presentation.save(outputPath, saveFormat);
+            } finally {
+                presentation.dispose();
+            }
+        } catch (error) {
+            console.error(`Cannot process '${inputPath}': ${error.message}`);
+        }
+    }
+}
+```
+
+[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideutil/#toSaveFormat) يطابق صيغ PPT وPPTX وODP وPPTM وPPSX وPPSM وPOTX وPOTM וPPS וPOT וOTP וFODP وPowerPoint XML إلى صيغ حفظ العروض التقديمية المقابلة. إنه يطابق صيغ المصدر للعروض فقط؛ ولا يُقصد به اختيار صيغ التصدير مثل PDF أو HTML أو TIFF أو الصور. تمرير قيمة [SourceFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/sourceformat/) غير مدعومة أو غير صالحة يؤدي إلى حدوث خطأ.
+
+تستخدم ملفات PPT وPPS وPOT القديمة نفس الحاوية الثنائية. عندما يتم تحميل مثل هذا العرض من تدفق دون امتداد ملف، قد يتم التعرف على ملف PPS أو POT على أنه PPT. إذا كانت هناك حاجة للحفاظ على هذه الأنواع الفرعية القديمة، احفظ اسم الملف الأصلي أو بيانات التعريف الخاصة بالتنسيق بشكل منفصل واستخدمه عند اختيار اسم ملف الإخراج وتنسيقه.
+
 ## **حفظ العروض التقديمية إلى تدفقات**
 
-يمكنك حفظ عرض تقديمي إلى تيار عن طريق تمرير تدفق إخراج إلى طريقة `save` الخاصة بفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/). يمكن كتابة العرض التقديمي إلى عدة أنواع من التيارات. في المثال أدناه، ننشئ عرضًا تقديميًا جديدًا ونحفظه إلى تدفق ملف.
+للكتابة إلى عرض تقديمي دون الاعتماد على مسار ملف نهائي، مرّر تدفقًا قابلاً للكتابة وقيمة [SaveFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/saveformat/) إلى طريقة [Presentation.save](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#save). هذا النهج مفيد عندما يجب إرجاع الإخراج من خدمة ويب، أو تخزينه في قاعدة بيانات، أو معالجته في الذاكرة.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+المثال التالي يحفظ عرض تقديمي جديد إلى تدفق ملف:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// إنشاء كائن فئة Presentation الذي يمثل ملف عرض تقديمي.
-let presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    let fileStream = java.newInstanceSync("java.io.FileOutputStream", "Output.pptx");
+    const outputStream = java.newInstanceSync("java.io.FileOutputStream", "output.pptx");
     try {
-        // احفظ العرض التقديمي إلى التدفق.
-        presentation.save(fileStream, aspose.slides.SaveFormat.Pptx);
+        presentation.save(outputStream, aspose.slides.SaveFormat.Pptx);
     } finally {
-        fileStream.close();
+        outputStream.close();
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **حفظ العروض التقديمية بنوع عرض مسبق التعريف**
+## **حفظ العروض التقديمية بنوع عرض محدد مسبقًا**
 
-تتيح لك Aspose.Slides تعيين العرض الأولي الذي يستخدمه PowerPoint عند فتح العرض المولد عبر الفئة [ViewProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/viewproperties/). استخدم طريقة [setLastView](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/viewproperties/#setLastView) مع قيمة من تعداد [ViewType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/viewtype/).
+يمكنك تحديد العرض الذي يفتح به PowerPoint العرض المحفوظ في البداية. استخدم طريقة [ViewProperties.setLastView](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/viewproperties/#setLastView) مع قيمة [ViewType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/viewtype/) قبل الحفظ.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+المثال التالي يضبط عرض الشريحة الرئيس كعرض مبدئي:
 
-let presentation = new aspose.slides.Presentation();
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
     presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
-    presentation.save("SlideMasterView.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("slide-master-view.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **حفظ العروض التقديمية في تنسيق Office Open XML الصارم**
+## **حفظ العروض التقديمية بتنسيق Office Open XML الصارم**
 
-تتيح لك Aspose.Slides حفظ عرض تقديمي بتنسيق Office Open XML الصارم. استخدم الفئة [PptxOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pptxoptions/) وقم بتعيين خاصية التوافق عند الحفظ. إذا قمت بتعيين [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/conformance/#Iso29500_2008_Strict)، سيتم حفظ الملف الناتج بتنسيق Office Open XML الصارم.
+لإنشاء ملف PPTX يتوافق مع ملف التعريف الصارم لـ Office Open XML، أنشئ مثيلًا من [PptxOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pptxoptions/) واستخدم طريقة [setConformance](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pptxoptions/#setConformance) مع [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/conformance/#Iso29500_2008_Strict). ثم مرّر الخيارات إلى طريقة [Presentation.save](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#save).
 
-يظهر المثال أدناه كيفية إنشاء عرض تقديمي وحفظه بتنسيق Office Open XML الصارم.
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-let options = new aspose.slides.PptxOptions();
+const options = new aspose.slides.PptxOptions();
 options.setConformance(aspose.slides.Conformance.Iso29500_2008_Strict);
 
-// إنشاء كائن فئة Presentation الذي يمثل ملف عرض تقديمي.
-let presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // احفظ العرض التقديمي بالتنسيق الصارم Office Open XML.
-    presentation.save("StrictOfficeOpenXml.pptx", aspose.slides.SaveFormat.Pptx, options);
+    presentation.save("strict-office-open-xml.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
@@ -114,165 +156,146 @@ try {
 
 ## **حفظ العروض التقديمية بتنسيق Office Open XML في وضع Zip64**
 
-ملف Office Open XML هو أرشيف ZIP يفرض حدودًا قدرها 4 جيجابايت (2^32 بايت) على الحجم غير المضغوط لأي ملف، وعلى الحجم المضغوط لأي ملف، وعلى إجمالي حجم الأرشيف، كما يحد من عدد الملفات إلى 65 535 (2^16‑1). ترفع امتدادات تنسيق ZIP64 هذه الحدود إلى 2^64.
+يحدّ أرشيف ZIP القياسي الحجم المضغوط وغير المضغوط لكل إدخال، وحجم الأرشيف الكلي، وعدد الإدخالات. نظرًا لأن ملف PPTX هو أرشيف ZIP، قد يتجاوز عرض تقديمي كبير جدًا هذه الحدود. تُرفع امتدادات ZIP64 الحدود الخاصة بالحجم وعدد الإدخالات.
 
-تتيح لك طريقة [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pptxoptions/#getZip64Mode) اختيار متى تستخدم امتدادات تنسيق ZIP64 عند حفظ ملف Office Open XML.
+استخدم طريقة [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pptxoptions/#setZip64Mode) للتحكم فيما إذا كانت Aspose.Slides تكتب امتدادات ZIP64:
 
-يمكن استخدام هذه الطريقة مع الأوضاع التالية:
+- [IfNecessary](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/zip64mode/#IfNecessary) يستخدم ZIP64 فقط عندما يتجاوز العرض حدود ZIP القياسية. هذا هو الوضع الافتراضي.
+- [Never](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/zip64mode/#Never) يعطل امتدادات ZIP64.
+- [Always](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/zip64mode/#Always) يكتب دائمًا امتدادات ZIP64.
 
-- [IfNecessary](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/zip64mode/#IfNecessary) يستخدم امتدادات ZIP64 فقط إذا تجاوز العرض الحدود المذكورة أعلاه. هذا هو الوضع الافتراضي.
-- [Never](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/zip64mode/#Never) لا يستخدم امتدادات ZIP64 أبدًا.
-- [Always](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/zip64mode/#Always) يستخدم امتدادات ZIP64 دائمًا.
+المثال التالي يفعّل دائمًا امتدادات ZIP64 للعرض الناتج:
 
-المثال التالي يوضح كيفية حفظ عرض تقديمي كملف PPTX مع تمكين امتدادات تنسيق ZIP64:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-let pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setZip64Mode(aspose.slides.Zip64Mode.Always);
-
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    presentation.save("OutputZip64.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
+    const options = new aspose.slides.PptxOptions();
+    options.setZip64Mode(aspose.slides.Zip64Mode.Always);
+
+    presentation.save("output-zip64.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-عند الحفظ باستخدام [Zip64Mode.Never](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/zip64mode/#Never)، يتم إلقاء استثناء [PptxException](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pptxexception/) إذا تعذر حفظ العرض التقديمي بتنسيق ZIP32.
+{{% alert color="warning" title="Warning" %}}
+إذا تم استخدام [Zip64Mode.Never](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/zip64mode/#Never) ولم يتمكن العرض من التوافق مع حدود ZIP القياسية، سيؤدي عملية الحفظ إلى رمي استثناء [PptxException](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pptxexception/).
 {{% /alert %}}
 
 ## **حفظ العروض التقديمية بتنسيق Office Open XML مع مستويات الضغط**
 
-عند العمل مع عروض تقديمية كبيرة، يمكنك ضبط مستوى الضغط لتحقيق توازن بين حجم الملف وزمن المعالجة. بناءً على متطلباتك، قد تفضّل معالجة أسرع أو ملفات ناتجة أصغر.
+لإخراج PPTX، يمكنك موازنة سرعة الحفظ مقابل حجم الملف باستخدام طريقة [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pptxoptions/#setCompressionLevel). توفر فئة [CompressionLevel](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/) القيم التالية:
 
-توفر Aspose.Slides طريقة [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pptxoptions/#setCompressionLevel) التي تسمح لك بتحديد مستوى الضغط المستخدم عند حفظ عرض تقديمي بتنسيق Office Open XML.
+- [None](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#None) يخزن البيانات بدون ضغط.
+- [Level1](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#Level1) يوفر أسرع ضغط وأكبر حجم مضغوط.
+- [Level2](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#Level2) إلى [Level5](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#Level5) تفضّل تدريجيًا مخرجات أصغر على حساب سرعة الحفظ.
+- [Level6](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#Level6) يوازن بين سرعة الحفظ وحجم الملف. هذا هو المستوى الافتراضي.
+- [Level7](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#Level7) و[Level8](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#Level8) تفضّلان مخرجات أصغر أكثر على حساب سرعة الحفظ.
+- [Level9](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#Level9) يوفر أقوى ضغط ويتطلب أكثر وقت معالجة.
 
-المستويات المتاحة هي:
-
-- [**None**](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#None): لا يُطبق ضغط. تُخزن الملفات كما هي.
-- [**Level1**](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#Level1): أسرع ضغط مع أقل نسبة ضغط.
-- [**Level2**](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#Level2): ضغط أسرع مع نسبة ضغط أفضل قليلاً من **Level1**.
-- [**Level3**](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#Level3): يوفر ضغطًا أفضل من **Level2** مع تأثير متوسط على زمن المعالجة.
-- [**Level4**](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#Level4): يوفر ضغطًا أفضل من **Level3**.
-- [**Level5**](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#Level5): يحسن الضغط مقارنةً بـ **Level4** مع زمن معالجة إضافي.
-- [**Level6**](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#Level6): ضغط قياسي يقدّم توازنًا جيدًا بين سرعة المعالجة وحجم الملف. هذا هو *مستوى الضغط الافتراضي*.
-- [**Level7**](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#Level7): يوفر ضغطًا أفضل من **Level6** مع معالجة أبطأ.
-- [**Level8**](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#Level8): يوفر ضغطًا أفضل من **Level7**.
-- [**Level9**](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compressionlevel/#Level9): أقصى ضغط. ينتج أصغر حجم ملف على حساب أطول زمن معالجة.
-
-المثال التالي يوضح كيفية حفظ عرض تقديمي كملف PPTX *بدون ضغط*:
-
-```js
-const aspose = { slides: require("aspose.slides.via.java") };
-
-const pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setCompressionLevel(aspose.slides.CompressionLevel.None);
-
-const presentation = new aspose.slides.Presentation("Sample.pptx");
-try {
-    presentation.save("Sample-out.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
-} finally {
-    presentation.dispose();
-}
-```
-
-هذا المثال يوضح كيفية حفظ عرض تقديمي كملف PPTX مع *أقصى ضغط*:
-
-```js
-const aspose = { slides: require("aspose.slides.via.java") };
-
-const pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setCompressionLevel(aspose.slides.CompressionLevel.Level9);
-
-const presentation = new aspose.slides.Presentation("Sample.pptx");
-try {
-    presentation.save("Sample-level9.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **حفظ العروض التقديمية دون تحديث الصورة المصغرة**
-
-تتحكم طريقة [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pptxoptions/#setRefreshThumbnail) في توليد الصورة المصغرة عند حفظ العرض إلى PPTX:
-
-- إذا تم تعيينها إلى `true`، يتم تجديد الصورة المصغرة أثناء الحفظ. هذا هو الإعداد الافتراضي.
-- إذا تم تعيينها إلى `false`، تُحافظ على الصورة المصغرة الحالية. إذا لم يكن للعرض مصغرة، لا تُولد أي صورة.
-
-في الشيفرة أدناه، يُحفظ العرض إلى PPTX دون تجديد الصورة المصغرة.
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-let pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setRefreshThumbnail(false);
-
-let presentation = new aspose.slides.Presentation("Sample.pptx");
-try {
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
-}
-finally {
-    presentation.dispose();
-}
-```
-
-{{% alert title="Info" color="info" %}}
-هذا الخيار يساعد على تقليل الوقت المطلوب لحفظ عرض تقديمي بتنسيق PPTX.
-{{% /alert %}}
-
-## **حفظ تحديثات التقدم كنسبة مئوية**
-
-يتم تكوين تقارير تقدم الحفظ عبر طريقة [setProgressCallback](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/saveoptions/#setProgressCallback) على الفئة [SaveOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/saveoptions/) وفئاتها الفرعية. قدّم وكيل Java يطبق واجهة [IProgressCallback](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iprogresscallback/); أثناء التصدير، يتلقى النداء العكسي تحديثات دورية بالنسب المئوية.
-
-المقتطفات البرمجية التالية توضح كيفية استخدام `IProgressCallback`.
+المثال التالي يحفظ عرضًا تقديميًا بدون ضغط:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const options = new aspose.slides.PptxOptions();
+    options.setCompressionLevel(aspose.slides.CompressionLevel.None);
+
+    presentation.save("output-no-compression.pptx", aspose.slides.SaveFormat.Pptx, options);
+} finally {
+    presentation.dispose();
+}
+```
+
+المثال التالي يستخدم أعلى مستوى ضغط:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const options = new aspose.slides.PptxOptions();
+    options.setCompressionLevel(aspose.slides.CompressionLevel.Level9);
+
+    presentation.save("output-maximum-compression.pptx", aspose.slides.SaveFormat.Pptx, options);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **حفظ العروض التقديمية دون تحديث المصغّر**
+
+عند حفظ العرض كملف PPTX، تتحكم طريقة [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pptxoptions/#setRefreshThumbnail) في صورة المصغّر للوثيقة:
+
+- `true` يعيد إنشاء المصغّر أثناء عملية الحفظ. هذه هي القيمة الافتراضية.
+- `false` يحافظ على المصغّر الحالي. إذا لم يكن للعرض مصغّر، لا تقوم Aspose.Slides بإنشائه.
+
+المثال التالي يحفظ عرضًا تقديميًا دون تحديث المصغّر الخاص به:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const options = new aspose.slides.PptxOptions();
+    options.setRefreshThumbnail(false);
+
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx, options);
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+إلغاء تحديث المصغّر يمكن أن يقلل الوقت المطلوب لحفظ ملف PPTX.
+{{% /alert %}}
+
+## **حفظ تحديثات التقدم بالنسبة المئوية**
+
+لمراقبة عملية الحفظ، نفّذ واجهة [IProgressCallback](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iprogresscallback/) باستخدام وكيل Java ومرّر التنفيذ إلى طريقة [SaveOptions.setProgressCallback](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/saveoptions/#setProgressCallback). بعد ذلك تستدعي Aspose.Slides طريقة [IProgressCallback.reporting](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iprogresscallback/#reporting-double-) بقيم التقدم أثناء التصدير.
+
+المثال التالي يبلّغ عن تقدم تصدير PDF إلى وحدة التحكم:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-const ExportProgressHandler = java.newProxy("com.aspose.slides.IProgressCallback", {
+const exportProgressHandler = java.newProxy("com.aspose.slides.IProgressCallback", {
     reporting: function(progressValue) {
-        // استخدم قيمة النسبة المئوية للتقدم هنا.
         const progress = Math.floor(progressValue);
         console.log(`${progress}% of the file has been converted.`);
     }
 });
 
-let saveOptions = new aspose.slides.PdfOptions();
-saveOptions.setProgressCallback(ExportProgressHandler);
+const options = new aspose.slides.PdfOptions();
+options.setProgressCallback(exportProgressHandler);
 
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    presentation.save("Output.pdf", aspose.slides.SaveFormat.Pdf, saveOptions);
+    presentation.save("output.pdf", aspose.slides.SaveFormat.Pdf, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-طورت Aspose تطبيقًا مجانيًا لتقسيم PowerPoint باستخدام API الخاص بها. يتيح لك التطبيق تقسيم عرض تقديمي إلى ملفات متعددة عن طريق حفظ الشرائح المختارة كملفات PPTX أو PPT جديدة.
+{{% alert color="info" title="Note" %}}
+توفر Aspose أداة [PowerPoint Splitter](https://products.aspose.app/slides/ar/splitter) مجانية مبنية على Aspose.Slides API. تقوم بحفظ الشرائح المحددة من عرض تقديمي كملفات PPT أو PPTX منفصلة.
 {{% /alert %}}
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل يتم دعم "الحفظ السريع" (الحفظ المتدرج) بحيث يتم كتابة التغييرات فقط؟**
+**هل يدعم Aspose.Slides الحفظ المتزايد أو “الحفظ السريع”?**  
+لا. كل عملية حفظ تكتب ملفًا كاملاً بدلاً من تحديث الأجزاء التي تغيرت فقط.
 
-لا. كل مرة يتم الحفظ يُنشئ ملف الهدف بالكامل؛ لا يُدعم الحفظ المتدرج "السريع".
+**هل يمكن لعدة خيوط حفظ نفس مثيل Presentation؟**  
+لا. مثيل [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) [ليس آمنًا للآثيرات](/slides/ar/nodejs-java/multithreading/). يجب الوصول إلى كل مثيل وحفظه من خلال خيط واحد في كل مرة.
 
-**هل حفظ نفس مثيل [Presentation] من عدة خيوط آمن من حيث الخيوط؟**
+**ماذا يحدث للروابط التشعبية والملفات المرتبطة خارجيًا عند حفظ عرض تقديمي؟**  
+تظل [الروابط التشعبية](/slides/ar/nodejs-java/manage-hyperlinks/) في العرض التقديمي. لا تقوم Aspose.Slides بنسخ الملفات المرتبطة خارجيًا، لذلك يجب أن يكون بإمكان العرض المحفوظ الوصول إلى مواقعها.
 
-لا. مثيل [Presentation] غير آمن للخيوط [ليس خيطيًا](/slides/ar/nodejs-java/multithreading/); احفظه من خيط واحد.
-
-**ماذا يحدث لل[الروابط](/slides/ar/nodejs-java/manage-hyperlinks/) والملفات المرتبطة خارجيًا عند الحفظ؟**
-
-تُحفظ الروابط كما هي. الملفات المرتبطة خارجيًا (مثل الفيديوهات عبر مسارات نسبية) لا تُنسخ تلقائيًا—يجب التأكد من بقاء المسارات المشار إليها قابلة للوصول.
-
-**هل يمكنني تعيين/حفظ بيانات تعريف المستند (المؤلف، العنوان، الشركة، التاريخ)؟**
-
-نعم. تدعم خصائص المستند القياسية [خصائص المستند](/slides/ar/nodejs-java/presentation-properties/) وسيتم كتابتها إلى الملف عند الحفظ.
+**هل يمكنني حفظ بيانات تعريف المستند مثل المؤلف، العنوان، الشركة، وتاريخ الإنشاء؟**  
+نعم. اضبط [خصائص المستند](/slides/ar/nodejs-java/presentation-properties/) المناسبة قبل الحفظ، وستقوم Aspose.Slides بكتابتها إلى ملف الإخراج.

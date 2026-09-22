@@ -7,51 +7,116 @@ url: /zh/cpp/save-presentation/
 keywords:
 - 保存 PowerPoint
 - 保存 OpenDocument
-- 保存演示文稿
-- 保存幻灯片
+- 保存 演示文稿
+- 保存 幻灯片
 - 保存 PPT
 - 保存 PPTX
 - 保存 ODP
-- 演示文稿到文件
-- 演示文稿到流
-- 预定义视图类型
-- 严格的 Office Open XML 格式
+- 演示文稿 到 文件
+- 演示文稿 到 流
+- 预定义 视图 类型
+- 严格 Office Open XML 格式
 - Zip64 模式
-- 刷新缩略图
-- 保存进度
+- 刷新 缩略图
+- 保存 进度
 - C++
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides 在 C++ 中保存演示文稿——导出为 PowerPoint 或 OpenDocument，同时保留布局、字体和效果。"
+description: "使用 Aspose.Slides 在 C++ 中将 PowerPoint 和 OpenDocument 演示文稿保存为文件或流，并配置 PPTX 输出和进度报告。"
 ---
 ## **概述**
 
-[在 C++ 中打开演示文稿](/slides/zh/cpp/open-presentation/) 介绍了如何使用 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 类打开演示文稿。本文说明了如何创建和保存演示文稿。[Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 类包含演示文稿的内容。无论是从头创建演示文稿还是修改现有演示文稿，完成后都需要保存。使用 Aspose.Slides for C++，您可以保存到 **文件** 或 **流**。本文解释了保存演示文稿的不同方式。
+创建演示文稿或[打开现有演示文稿](/slides/zh/cpp/open-presentation/)后，使用[Presentation::Save](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/save/)方法写入结果。Aspose.Slides for C++ 可以将演示文稿保存为文件或流，支持 PowerPoint、OpenDocument、PDF 等格式。以下章节介绍标准保存操作以及 PPTX 输出可用的选项。
 
 ## **将演示文稿保存到文件**
 
-通过调用 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 类的 `Save` 方法将演示文稿保存到文件。将文件名和保存格式传递给该方法。下面的示例演示了如何使用 Aspose.Slides 保存演示文稿。
+要将演示文稿保存到文件，向[Presentation::Save](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/save/)方法传递输出路径和一个[SaveFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/saveformat/)值。该格式值决定 Aspose.Slides 创建的文件类型。
+
+以下示例创建一个演示文稿并将其保存为 PPTX 文件：
 
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// 实例化表示演示文稿文件的 Presentation 类。
 auto presentation = MakeObject<Presentation>();
 
-// 在此处执行一些操作...
-// 将演示文稿保存到文件。
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+// 在此添加或修改演示文稿内容。
 
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+## **按原始格式保存演示文稿**
+
+有关文件和流检测示例、新建演示文稿的行为以及源格式与输出格式的区别，请参阅[确定原始演示文稿格式](/slides/zh/cpp/detect-presentation-source-format/)。
+
+在批处理应用程序中，输入格式可能事先未知。加载文件后，可使用[IPresentation::get_SourceFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipresentation/get_sourceformat/)读取其原始格式。将得到的[SourceFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/sourceformat/)值传递给[SlideUtil::ToSaveFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides.util/slideutil/tosaveformat/)，以获取对应的[SaveFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/saveformat/)值，然后使用[Presentation::Save](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/save/)写入修改后的演示文稿。
+
+以下完整示例遍历输入目录中的每个文件，更新其标题，并以加载时的格式保存到输出目录：
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/exception.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Util;
+using namespace System;
+using namespace System::IO;
+
+String inputDirectory = u"Input";
+String outputDirectory = u"Output";
+
+Directory::CreateDirectory_(outputDirectory);
+
+auto inputPaths = Directory::GetFiles(inputDirectory);
+for (const auto& inputPath : inputPaths)
+{
+    try
+    {
+        auto presentation = MakeObject<Presentation>(inputPath);
+
+        auto sourceFormat = presentation->get_SourceFormat();
+        auto saveFormat = SlideUtil::ToSaveFormat(sourceFormat);
+
+        presentation->get_DocumentProperties()->set_Title(u"Processed by the batch application");
+
+        auto outputPath = Path::Combine(outputDirectory, Path::GetFileName(inputPath));
+        presentation->Save(outputPath, saveFormat);
+        presentation->Dispose();
+    }
+    catch (ArgumentException& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Cannot map the source format of '{0}': {1}", inputPath, exception->get_Message()));
+    }
+    catch (Exception& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Cannot process '{0}': {1}", inputPath, exception->get_Message()));
+    }
+}
+```
+
+[SlideUtil::ToSaveFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides.util/slideutil/tosaveformat/)将 PPT、PPTX、ODP、PPTM、PPSX、PPSM、POTX、POTM、PPS、POT、OTP、FODP 以及 PowerPoint XML 映射到相应的演示文稿保存格式。它仅映射演示文稿源格式；并不用于选择 PDF、HTML、TIFF 或图像等导出格式。传入不受支持或无效的[SourceFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/sourceformat/)值会导致[ArgumentException](https://reference.aspose.com/slides/zh/cpp/system/argumentexception/)。
+
+旧版 PPT、PPS 和 POT 文件使用相同的二进制容器。当此类演示文稿从没有文件扩展名的流中加载时，PPS 或 POT 文件可能被识别为 PPT。如果需要保留这些旧子类型，请单独保留原始文件名或格式元数据，并在选择输出文件名和格式时使用它们。
+
 ## **将演示文稿保存到流**
 
-您可以通过将输出流传递给 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 类的 `Save` 方法，将演示文稿保存到流。演示文稿可以写入多种流类型。以下示例中，我们创建一个新演示文稿并将其保存到文件流。
+若不依赖最终文件路径写入演示文稿，可向[Presentation::Save](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/save/)方法传递可写的[Stream](https://reference.aspose.com/slides/zh/cpp/system.io/stream/)和[SaveFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/saveformat/)值。这在需要从 Web 服务返回输出、存储到数据库或在内存中处理时非常有用。
+
+以下示例将新演示文稿保存到文件流：
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -59,26 +124,26 @@ presentation->Dispose();
 #include <system/io/file_mode.h>
 #include <system/io/file_stream.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::IO;
 
-// 实例化表示演示文稿文件的 Presentation 类。
 auto presentation = MakeObject<Presentation>();
+auto outputStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
 
-auto fileStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
+presentation->Save(outputStream, SaveFormat::Pptx);
 
-// 将演示文稿保存到流中。
-presentation->Save(fileStream, SaveFormat::Pptx);
-
+outputStream->Close();
 presentation->Dispose();
-fileStream->Close();
 ```
 
 ## **使用预定义视图类型保存演示文稿**
 
-Aspose.Slides 通过 [ViewProperties](https://reference.aspose.com/slides/zh/cpp/aspose.slides/viewproperties/) 类允许您设置生成的演示文稿打开时 PowerPoint 使用的初始视图。使用来自 [ViewType](https://reference.aspose.com/slides/zh/cpp/aspose.slides/viewtype/) 枚举的值调用 [set_LastView](https://reference.aspose.com/slides/zh/cpp/aspose.slides/viewproperties/set_lastview/) 方法。
+可以指定 PowerPoint 打开已保存演示文稿时的默认视图。保存前，调用[ViewProperties::set_LastView](https://reference.aspose.com/slides/zh/cpp/aspose.slides/viewproperties/set_lastview/)并传入[ViewType](https://reference.aspose.com/slides/zh/cpp/aspose.slides/viewtype/)值。
+
+以下示例将母版视图设为初始视图：
 
 ```cpp
 #include <DOM/IViewProperties.h>
@@ -86,6 +151,7 @@ Aspose.Slides 通过 [ViewProperties](https://reference.aspose.com/slides/zh/cpp
 #include <Export/SaveFormat.h>
 #include <ViewType.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
@@ -93,16 +159,14 @@ using namespace System;
 auto presentation = MakeObject<Presentation>();
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
-
 presentation->Save(u"SlideMasterView.pptx", SaveFormat::Pptx);
+
 presentation->Dispose();
 ```
 
-## **以严格的 Office Open XML 格式保存演示文稿**
+## **以 Strict Office Open XML 格式保存演示文稿**
 
-Aspose.Slides 允许您以严格的 Office Open XML 格式保存演示文稿。保存时使用 [PptxOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/pptxoptions/) 类并设置其 conformance 属性。如果将其设为 `Conformance.Iso29500_2008_Strict`，输出文件将以严格的 Office Open XML 格式保存。
-
-下面的示例创建一个演示文稿并以严格的 Office Open XML 格式保存。
+若要创建符合 Office Open XML Strict 配置文件的 PPTX 文件，实例化[PptxOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/pptxoptions/)，并使用`Conformance::Iso29500_2008_Strict`调用[PptxOptions::set_Conformance](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/pptxoptions/set_conformance/)。随后将该选项传递给[Presentation::Save](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/save/)方法。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -110,6 +174,7 @@ Aspose.Slides 允许您以严格的 Office Open XML 格式保存演示文稿。�
 #include <Export/PptxOptions.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
@@ -117,27 +182,23 @@ using namespace System;
 auto options = MakeObject<PptxOptions>();
 options->set_Conformance(Conformance::Iso29500_2008_Strict);
 
-// 实例化表示演示文稿文件的 Presentation 类。
 auto presentation = MakeObject<Presentation>();
 
-// 以严格的 Office Open XML 格式保存演示文稿。
 presentation->Save(u"StrictOfficeOpenXml.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-## **在 Zip64 模式下以 Office Open XML 格式保存演示文稿**
+## **以 Zip64 模式保存 Office Open XML 格式的演示文稿**
 
-Office Open XML 文件是一个 ZIP 存档，对任意文件的未压缩大小、压缩大小以及存档的总大小都有 4 GB（2^32 字节）的限制，并且存档的文件数量限制为 65,535（2^16‑1）个。ZIP64 格式扩展将这些限制提升至 2^64。
+标准 ZIP 存档对每个条目的压缩和未压缩大小、整个存档大小以及条目数量都有限制。由于 PPTX 文件本质上是 ZIP 存档，极大的演示文稿可能超出这些限制。ZIP64 扩展可以提升相应的大小和条目计数限制。
 
-[IPptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/ipptxoptions/set_zip64mode/) 方法允许您在保存 Office Open XML 文件时选择何时使用 ZIP64 格式扩展。
+使用[PptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/pptxoptions/set_zip64mode/)来控制 Aspose.Slides 是否写入 ZIP64 扩展：
 
-此方法可以与以下模式一起使用：
+- `IfNecessary` 仅在演示文稿超出标准 ZIP 限制时使用 ZIP64，这是默认模式。
+- `Never` 禁用 ZIP64 扩展。
+- `Always` 始终写入 ZIP64 扩展。
 
-- `IfNecessary` 仅在演示文稿超过上述限制时使用 ZIP64 格式扩展。这是默认模式。
-- `Never` 永不使用 ZIP64 格式扩展。
-- `Always` 始终使用 ZIP64 格式扩展。
-
-以下代码演示了如何在启用 ZIP64 格式扩展的情况下将演示文稿保存为 PPTX 文件：
+以下示例始终为输出演示文稿启用 ZIP64 扩展：
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -145,43 +206,36 @@ Office Open XML 文件是一个 ZIP 存档，对任意文件的未压缩大小�
 #include <Export/SaveFormat.h>
 #include <Export/Zip64Mode.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_Zip64Mode(Zip64Mode::Always);
-
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, pptxOptions);
+auto options = MakeObject<PptxOptions>();
+options->set_Zip64Mode(Zip64Mode::Always);
+
+presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-当您使用 `Zip64Mode.Never` 保存时，如果演示文稿无法以 ZIP32 格式保存，将抛出 [PptxException](https://reference.aspose.com/slides/zh/cpp/aspose.slides/pptxexception/)。
+{{% alert color="warning" title="Warning" %}}
+如果将 `Zip64Mode` 设置为 `Never` 且演示文稿无法在标准 ZIP 限制内容纳，保存操作将抛出[PptxException](https://reference.aspose.com/slides/zh/cpp/aspose.slides/pptxexception/)。
 {{% /alert %}}
 
-## **在 Office Open XML 格式下使用压缩级别保存演示文稿**
+## **以不同压缩级别保存 Office Open XML 格式的演示文稿**
 
-处理大型演示文稿时，您可以调节压缩级别以在文件大小和处理时间之间取得平衡。根据需求，您可能更倾向于更快的处理速度或更小的输出文件。
+对于 PPTX 输出，可以通过调用[PptxOptions::set_CompressionLevel](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/pptxoptions/set_compressionlevel/) 在保存速度和文件大小之间取得平衡。[CompressionLevel](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/compressionlevel/) 枚举提供以下值：
 
-Aspose.Slides 提供了 [PptxOptions::set_CompressionLevel](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/pptxoptions/set_compressionlevel/) 方法，允许您指定在以 Office Open XML 格式保存演示文稿时使用的压缩级别。
+- `None` 不进行压缩直接存储数据。
+- `Level1` 提供最快的压缩速度，但生成的压缩文件最大。
+- `Level2` 到 `Level5` 逐步倾向于更小的输出，而牺牲保存速度。
+- `Level6` 在保存速度和文件大小之间取得平衡，这是默认级别。
+- `Level7` 和 `Level8` 进一步倾向于更小的输出，进一步降低保存速度。
+- `Level9` 提供最强的压缩，需要最长的处理时间。
 
-可用的压缩级别如下：
-
-- **None**: 不进行压缩。文件保持原样存储。
-- **Level1**: 最快的压缩，压缩比最低。
-- **Level2**: 较快的压缩，压缩比略好于 **Level1**。
-- **Level3**: 提供比 **Level2** 更好的压缩，处理时间有适度影响。
-- **Level4**: 提供比 **Level3** 更好的压缩。
-- **Level5**: 在 **Level4** 基础上进一步提升压缩，需额外的处理时间。
-- **Level6**: 标准压缩，在处理速度和文件大小之间取得良好平衡。这是 *默认压缩级别*。
-- **Level7**: 提供比 **Level6** 更好的压缩，但处理速度较慢。
-- **Level8**: 提供比 **Level7** 更好的压缩。
-- **Level9**: 最大压缩。能够生成最小的文件尺寸，但需要最长的处理时间。
-
-以下示例演示如何将演示文稿保存为 *无压缩* 的 PPTX 文件：
+以下示例在不进行压缩的情况下保存演示文稿：
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -190,21 +244,20 @@ Aspose.Slides 提供了 [PptxOptions::set_CompressionLevel](https://reference.as
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
 
-using Aspose::Slides::Export::CompressionLevel;
-using Aspose::Slides::Export::PptxOptions;
-using Aspose::Slides::Export::SaveFormat;
-using Aspose::Slides::Presentation;
-using System::MakeObject;
-
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_CompressionLevel(CompressionLevel::None);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
-presentation->Save(u"Sample-out.pptx", SaveFormat::Pptx, pptxOptions);
+
+auto options = MakeObject<PptxOptions>();
+options->set_CompressionLevel(CompressionLevel::None);
+
+presentation->Save(u"OutputNoCompression.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-此示例展示如何将演示文稿保存为 *最大压缩* 的 PPTX 文件：
+以下示例使用最高压缩级别：
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -213,75 +266,57 @@ presentation->Dispose();
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
 
-using Aspose::Slides::Export::CompressionLevel;
-using Aspose::Slides::Export::PptxOptions;
-using Aspose::Slides::Export::SaveFormat;
-using Aspose::Slides::Presentation;
-using System::MakeObject;
-
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_CompressionLevel(CompressionLevel::Level9);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
-presentation->Save(u"Sample-level9.pptx", SaveFormat::Pptx, pptxOptions);
+
+auto options = MakeObject<PptxOptions>();
+options->set_CompressionLevel(CompressionLevel::Level9);
+
+presentation->Save(u"OutputMaximumCompression.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
 ## **保存演示文稿时不刷新缩略图**
 
-[PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) 方法控制将演示文稿保存为 PPTX 时的缩略图生成：
+当演示文稿以 PPTX 保存时，[PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) 控制文档缩略图的生成：
 
-- 如果设置为 `true`，保存时将刷新缩略图。这是默认设置。
-- 如果设置为 `false`，则保留当前缩略图。如果演示文稿没有缩略图，则不会生成。
+- `true` 在保存过程中重新生成缩略图，这是默认值。
+- `false` 保留现有缩略图。如果演示文稿没有缩略图，Aspose.Slides 不会生成新的。
 
-以下代码将演示文稿保存为 PPTX，且不刷新其缩略图。
+以下示例在保存时不刷新缩略图：
 
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/PptxOptions.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_RefreshThumbnail(false);
-
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx, pptxOptions);
+auto options = MakeObject<PptxOptions>();
+options->set_RefreshThumbnail(false);
+
+presentation->Save(u"Output.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
-此选项有助于减少保存 PPTX 格式演示文稿所需的时间。
+{{% alert color="info" title="Note" %}}
+禁用缩略图刷新可以缩短 PPTX 文件的保存时间。
 {{% /alert %}}
 
-## **以百分比保存进度更新**
+## **以百分比形式显示保存进度**
 
-[IProgressCallback](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iprogresscallback/) 接口通过 [ISaveOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/isaveoptions/) 接口和抽象的 [SaveOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/saveoptions/) 类公开的 `set_ProgressCallback` 方法使用。使用 `set_ProgressCallback` 分配一个 [IProgressCallback](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iprogresscallback/) 实现，以接收以百分比表示的保存进度更新。
+要监控保存过程，实现[IProgressCallback](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iprogresscallback/) 接口并将实现传递给[ISaveOptions::set_ProgressCallback](https://reference.aspose.com/slides/zh/cpp/aspose.slides.export/isaveoptions/set_progresscallback/)。Aspose.Slides 将在导出期间调用[IProgressCallback::Reporting](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iprogresscallback/reporting/) 并提供进度值。
 
-以下代码片段展示了如何使用 `IProgressCallback`。
+以下示例将 PDF 导出的进度报告到控制台：
 
-```cpp
-#include <IProgressCallback.h>
-#include <system/console.h>
-using namespace Aspose::Slides;
-using namespace System;
-
-class ExportProgressHandler : public IProgressCallback
-{
-public:
-    void Reporting(double progressValue) override
-    {
-        // 使用此处的进度百分比值。
-        int progress = static_cast<int>(progressValue);
-
-        Console::WriteLine(u"{0}% of the file has been converted.", progress);
-    }
-};
-```
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/PdfOptions.h>
@@ -289,49 +324,48 @@ public:
 #include <IProgressCallback.h>
 #include <system/console.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// 上面定义的进度回调类。
 class ExportProgressHandler : public IProgressCallback
 {
 public:
     void Reporting(double progressValue) override
     {
         int progress = static_cast<int>(progressValue);
-
         Console::WriteLine(u"{0}% of the file has been converted.", progress);
     }
 };
 
-auto saveOptions = MakeObject<PdfOptions>();
-saveOptions->set_ProgressCallback(MakeObject<ExportProgressHandler>());
+auto options = MakeObject<PdfOptions>();
+options->set_ProgressCallback(MakeObject<ExportProgressHandler>());
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"Output.pdf", SaveFormat::Pdf, saveOptions);
+presentation->Save(u"Output.pdf", SaveFormat::Pdf, options);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose 使用其自有 API开发了一个 [免费 PowerPoint 拆分器应用](https://products.aspose.app/slides/zh/splitter)。该应用可通过将选定的幻灯片另存为新的 PPTX 或 PPT 文件，将演示文稿拆分为多个文件。
+{{% alert color="info" title="Note" %}}
+Aspose 提供了基于 Aspose.Slides API 的免费[PowerPoint Splitter](https://products.aspose.app/slides/zh/splitter)，可将演示文稿的选定幻灯片保存为单独的 PPT 或 PPTX 文件。
 {{% /alert %}}
 
 ## **常见问题**
 
-**是否支持“快速保存”（增量保存）仅写入更改？**
+**Aspose.Slides 是否支持增量或“快速保存”？**
 
-不支持。每次保存都会重新创建完整的目标文件，不支持增量“快速保存”。
+不支持。每次保存都会写入完整的输出文件，而不是仅更新已更改的部分。
 
-**从多个线程保存同一个 Presentation 实例是否线程安全？**
+**多个线程可以同时保存同一个 Presentation 实例吗？**
 
-不安全。一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 实例 [不是线程安全的](/slides/zh/cpp/multithreading/)，请在单线程中进行保存。
+不可以。`Presentation` 实例[不是线程安全的](/slides/zh/cpp/multithreading/)。每次只能由单个线程访问并保存该实例。
 
-**保存时超链接和外部链接文件会怎样？**
+**保存演示文稿时，超链接和外部链接的文件会怎样？**
 
-[超链接](/slides/zh/cpp/manage-hyperlinks/) 会被保留。外部链接的文件（例如使用相对路径的视频）不会自动复制—请确保引用的路径仍然可访问。
+[超链接](/slides/zh/cpp/manage-hyperlinks/)仍然保留在演示文稿中。Aspose.Slides 不会复制外部链接的文件，因此保存后的演示文稿仍需能够访问这些文件的位置。
 
-**我可以设置/保存文档元数据（作者、标题、公司、日期）吗？**
+**我可以保存文档元数据（如作者、标题、公司和创建日期）吗？**
 
-可以。支持标准的 [文档属性](/slides/zh/cpp/presentation-properties/)，并将在保存时写入文件。
+可以。在保存之前设置相应的[文档属性](/slides/zh/cpp/presentation-properties/)，Aspose.Slides 会将它们写入输出文件。

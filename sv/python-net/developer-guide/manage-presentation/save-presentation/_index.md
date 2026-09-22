@@ -1,6 +1,6 @@
 ---
 title: Spara presentationer i Python
-linktitle: Spara presentationer
+linktitle: Spara presentation
 type: docs
 weight: 80
 url: /sv/python-net/save-presentation/
@@ -17,63 +17,102 @@ keywords:
 - fördefinierad vytyp
 - Strikt Office Open XML-format
 - Zip64-läge
-- uppdatera miniatyrbild
-- sparandeprocess
+- uppdatera miniatyr
+- sparningsframsteg
 - Python
 - Aspose.Slides
-description: "Upptäck hur du sparar presentationer i Python med Aspose.Slides—exportera till PowerPoint eller OpenDocument medan du behåller layouter, teckensnitt och effekter."
+description: "Spara PowerPoint- och OpenDocument-presentationer till filer eller strömmar i Python med Aspose.Slides och konfigurera PPTX-utdataalternativ."
 ---
 ## **Översikt**
 
-[Open a Presentation in Python](/slides/sv/python-net/open-presentation/) beskriver hur man använder klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) för att öppna en presentation. Den här artikeln förklarar hur man skapar och sparar presentationer. Klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) innehåller en presentations innehåll. Oavsett om du skapar en presentation från början eller ändrar en befintlig, vill du spara den när du är klar. Med Aspose.Slides för Python kan du spara till en **fil** eller **ström**. Den här artikeln förklarar de olika sätten att spara en presentation.
+Efter att du har skapat en presentation eller [öppnat en befintlig](/slides/sv/python-net/open-presentation/), använder du metoden [Presentation.save](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ipresentation/save/) för att skriva resultatet. Aspose.Slides för Python via .NET kan spara en presentation till en fil eller ström i PowerPoint, OpenDocument, PDF och andra format. Följande avsnitt täcker de standardlagringsoperationer som finns och alternativen för PPTX‑utdata.
 
 ## **Spara presentationer till filer**
 
-Spara en presentation till en fil genom att anropa klassens `save`‑metod på [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/). Skicka filnamnet och sparformatet till metoden. Följande exempel visar hur du sparar en presentation med Aspose.Slides för Python.
+För att spara en presentation till en fil, skicka utdata‑sökvägen och ett [SaveFormat](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/saveformat/)‑värde till metoden [Presentation.save](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ipresentation/save/). Formatvärdet bestämmer vilken filtyp som Aspose.Slides skapar.
+
+Följande exempel skapar en presentation och sparar den som en PPTX‑fil:
 
 ```py
 import aspose.slides as slides
 
-# Skapa en instans av Presentation‑klassen som representerar en presentationsfil.
 with slides.Presentation() as presentation:
-    
-    # Gör lite arbete här...
+    # Lägg till eller ändra presentationsinnehåll här.
 
-    # Spara presentationen till en fil.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Spara presentationer i deras ursprungliga format**
+
+För exempel på fil‑ och strömdetektering, beteendet för nyskapade presentationer och skillnaden mellan käll‑ och utdataformat, se [Determine the Original Presentation Format](/slides/sv/python-net/detect-presentation-source-format/).
+
+I ett batch‑bearbetningsprogram kan indataformatet vara okänt i förväg. Efter att en fil har lästs in, läs dess ursprungliga format från egenskapen [Presentation.source_format](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/source_format/). Skicka det resulterande [SourceFormat](https://reference.aspose.com/slides/sv/python-net/aspose.slides/sourceformat/)-värdet till [SlideUtil.to_save_format](https://reference.aspose.com/slides/sv/python-net/aspose.slides.util/slideutil/to_save_format/) för att få motsvarande [SaveFormat](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/saveformat/)-värde, och använd sedan [Presentation.save](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ipresentation/save/) för att skriva den modifierade presentationen.
+
+Följande kompletta exempel bearbetar varje fil i en inmatningskatalog, uppdaterar dess titel och sparar den till en utmatningskatalog i det format som den lästes in i:
+
+```py
+from pathlib import Path
+
+import aspose.slides as slides
+from aspose.slides.util import SlideUtil
+
+input_directory = Path("Input")
+output_directory = Path("Output")
+
+output_directory.mkdir(exist_ok=True)
+
+for input_path in input_directory.iterdir():
+    if not input_path.is_file():
+        continue
+
+    try:
+        with slides.Presentation(str(input_path)) as presentation:
+            source_format = presentation.source_format
+            save_format = SlideUtil.to_save_format(source_format)
+
+            presentation.document_properties.title = "Processed by the batch application"
+
+            output_path = output_directory / input_path.name
+            presentation.save(str(output_path), save_format)
+    except Exception as exception:
+        print(f"Cannot process '{input_path}': {exception}")
+```
+
+[SlideUtil.to_save_format](https://reference.aspose.com/slides/sv/python-net/aspose.slides.util/slideutil/to_save_format/) mappar PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP och PowerPoint XML till deras motsvarande presentationssparformat. Den mappar endast presentationskällformat; den är inte avsedd att välja exportformat som PDF, HTML, TIFF eller bilder. Att skicka ett ej‑stött eller ogiltigt [SourceFormat](https://reference.aspose.com/slides/sv/python-net/aspose.slides/sourceformat/)-värde kastar ett undantag.
+
+Äldre PPT‑, PPS‑ och POT‑filer använder samma binära behållare. När en sådan presentation läses in från en ström utan filändelse kan en PPS‑ eller POT‑fil därför identifieras som PPT. Om bevarande av dessa äldre undergrupper krävs, behåll det ursprungliga filnamnet eller formatmetadata separat och använd dem när du väljer utdatafilnamn och -format.
 
 ## **Spara presentationer till strömmar**
 
-Du kan spara en presentation till enström genom att skicka en utström till `save`‑metoden på [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/). En presentation kan skrivas till många strömmar. I exemplet nedan skapar vi en ny presentation och sparar den till en filström.
+För att skriva en presentation utan att förlita sig på en slutlig filsökväg, skicka en skrivbar [BinaryIO](https://docs.python.org/3/library/typing.html#typing.BinaryIO)-ström och ett [SaveFormat](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/saveformat/)-värde till metoden [Presentation.save](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ipresentation/save/). Detta tillvägagångssätt är användbart när utdata måste returneras från en webbtjänst, lagras i en databas eller bearbetas i minnet.
+
+Följande exempel sparar en ny presentation till en filström:
 
 ```py
 import aspose.slides as slides
 
-# Skapa en instans av Presentation‑klassen som representerar en presentationsfil.
 with slides.Presentation() as presentation:
-    with open("output.pptx", "bw") as file_stream:
-        # Spara presentationen till strömmen.
-        presentation.save(file_stream, slides.export.SaveFormat.PPTX)
+    with open("Output.pptx", "wb") as output_stream:
+        presentation.save(output_stream, slides.export.SaveFormat.PPTX)
 ```
 
-## **Spara presentationer med en fördefinierad vytyp**
+## **Spara presentationer med en fördefinierad vystyper**
 
-Aspose.Slides för Python låter dig ställa in den inledande vy som PowerPoint använder när den genererade presentationen öppnas via klassen [ViewProperties](https://reference.aspose.com/slides/sv/python-net/aspose.slides/viewproperties/). Sätt `last_view`‑egenskapen till ett värde från uppräkningen [ViewType](https://reference.aspose.com/slides/sv/python-net/aspose.slides/viewtype/).
+Du kan ange den vy som PowerPoint initialt öppnar en sparad presentation i. Ställ in egenskapen [ViewProperties.last_view](https://reference.aspose.com/slides/sv/python-net/aspose.slides/viewproperties/last_view/) till ett [ViewType](https://reference.aspose.com/slides/sv/python-net/aspose.slides/viewtype/)-värde innan du sparar.
+
+Följande exempel konfigurerar Slide Master‑vyn som den initiala vyn:
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     presentation.view_properties.last_view = slides.ViewType.SLIDE_MASTER_VIEW
-    presentation.save("slide_master_view.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("SlideMasterView.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Spara presentationer i strikt Office Open XML‑format**
+## **Spara presentationer i det strikt Office Open XML‑formatet**
 
-Aspose.Slides låter dig spara en presentation i strikt Office Open XML‑format. Använd klassen [PptxOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/pptxoptions/) och sätt dess `conformance`‑egenskap när du sparar. Om du sätter `Conformance.ISO_29500_2008_STRICT` sparas utfilen i strikt Office Open XML‑format.
-
-Exemplet nedan skapar en presentation och sparar den i strikt Office Open XML‑format.
+För att skapa en PPTX‑fil som följer den Strikta profilen av Office Open XML, skapa en instans av [PptxOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/pptxoptions/) och sätt dess [conformance](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/pptxoptions/conformance/)-egenskap till `Conformance.ISO_29500_2008_STRICT`. Skicka sedan alternativen till metoden [Presentation.save](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ipresentation/save/).
 
 ```py
 import aspose.slides as slides
@@ -81,124 +120,112 @@ import aspose.slides as slides
 options = slides.export.PptxOptions()
 options.conformance = slides.export.Conformance.ISO_29500_2008_STRICT
 
-# Skapa en instans av Presentation‑klassen som representerar en presentationsfil.
 with slides.Presentation() as presentation:
-    # Spara presentationen i strikt Office Open XML‑format.
-    presentation.save("strict_office_open_xml.pptx", slides.export.SaveFormat.PPTX, options)
+    presentation.save("StrictOfficeOpenXml.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
 ## **Spara presentationer i Office Open XML‑format i Zip64‑läge**
 
-En Office Open XML‑fil är ett ZIP‑arkiv som har en gräns på 4 GB (2^32 byte) för den okomprimerade storleken på varje fil, den komprimerade storleken på varje fil och totalstorleken på arkivet, samt en gräns på 65 535 (2^16‑1) filer. ZIP64‑formatförlängningar höjer dessa gränser till 2^64.
+Ett standard‑ZIP‑arkiv begränsar den komprimerade och okomprimerade storleken för varje post, den totala arkivstorleken och antalet poster. Eftersom en PPTX‑fil är ett ZIP‑arkiv kan en mycket stor presentation överskrida dessa gränser. ZIP64‑tillägg höjer de tillämpliga storleks‑ och postantal‑gränserna.
 
-Egenskapen [PptxOptions.zip_64_mode](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/pptxoptions/zip_64_mode/) låter dig välja när ZIP64‑formatförlängningar ska användas vid sparande av en Office Open XML‑fil.
+Använd egenskapen [PptxOptions.zip_64_mode](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/pptxoptions/zip_64_mode/) för att styra om Aspose.Slides skriver ZIP64‑tillägg:
 
-Denna egenskap erbjuder följande lägen:
+- `IF_NECESSARY` använder ZIP64 endast när presentationen överskrider standard‑ZIP‑gränserna. Detta är standardläget.
+- `NEVER` inaktiverar ZIP64‑tillägg.
+- `ALWAYS` skriver alltid ZIP64‑tillägg.
 
-- `IF_NECESSARY` använder ZIP64‑formatförlängningar endast om presentationen överskrider begränsningarna ovan. Detta är standardläget.
-- `NEVER` använder aldrig ZIP64‑formatförlängningar.
-- `ALWAYS` använder alltid ZIP64‑formatförlängningar.
-
-Följande kod demonstrerar hur du sparar en presentation som en PPTX‑fil med ZIP64‑formatförlängningar aktiverade:
+Följande exempel aktiverar alltid ZIP64‑tillägg för utdata‑presentationen:
 
 ```py
 import aspose.slides as slides
 
-pptx_options = slides.export.PptxOptions()
-pptx_options.zip_64_mode = slides.export.Zip64Mode.ALWAYS
+with slides.Presentation("Sample.pptx") as presentation:
+    options = slides.export.PptxOptions()
+    options.zip_64_mode = slides.export.Zip64Mode.ALWAYS
 
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.save("output_zip64.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+    presentation.save("OutputZip64.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-När du sparar med `Zip64Mode.NEVER` kastas ett [PptxException](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pptxexception/) om presentationen inte kan sparas i ZIP32‑format.
+{{% alert color="warning" title="Warning" %}}
+Om `Zip64Mode.NEVER` används och presentationen inte får plats inom standard‑ZIP‑gränserna, kastar sparoperationen ett [PptxException](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pptxexception/).
 {{% /alert %}}
 
 ## **Spara presentationer i Office Open XML‑format med komprimeringsnivåer**
 
-När du arbetar med stora presentationer kan du justera komprimeringsnivån för att balansera filstorlek och bearbetningstid. Beroende på dina krav kan du föredra snabbare bearbetning eller mindre utdatafiler.
+För PPTX‑utdata kan du balansera sparhastigheten mot filstorleken genom att sätta egenskapen [PptxOptions.compression_level](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/pptxoptions/compression_level/). Enumerationen [CompressionLevel](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/compressionlevel/) ger följande värden:
 
-Aspose.Slides tillhandahåller egenskapen [PptxOptions.compression_level](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/pptxoptions/compression_level/) som låter dig ange komprimeringsnivån som används när du sparar en presentation i Office Open XML‑format.
+- `NONE` lagrar data utan kompression.
+- `LEVEL1` ger den snabbaste kompressionen och den största komprimerade utdata.
+- `LEVEL2` till `LEVEL5` föredrar successivt mindre utdata framför sparhastigheten.
+- `LEVEL6` balanserar sparhastighet och filstorlek. Detta är standardnivån.
+- `LEVEL7` och `LEVEL8` föredrar ännu mer mindre utdata framför sparhastigheten.
+- `LEVEL9` ger den starkaste kompressionen och kräver mest bearbetningstid.
 
-Följande komprimeringsnivåer finns tillgängliga:
-
-- [**NONE**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/compressionlevel/): Ingen komprimering appliceras. Filer lagras som de är.
-- [**LEVEL1**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/compressionlevel/): Snabbast komprimering med lägst komprimeringsförhållande.
-- [**LEVEL2**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/compressionlevel/): Snabbare komprimering med något bättre komprimeringsförhållande än **LEVEL1**.
-- [**LEVEL3**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/compressionlevel/): Ger bättre komprimering än **LEVEL2** med måttlig inverkan på bearbetningstiden.
-- [**LEVEL4**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/compressionlevel/): Ger bättre komprimering än **LEVEL3**.
-- [**LEVEL5**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/compressionlevel/): Ger förbättrad komprimering jämfört med **LEVEL4** med extra bearbetningstid.
-- [**LEVEL6**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/compressionlevel/): Standardkomprimering som erbjuder en bra balans mellan hastighet och filstorlek. Detta är *standardkomprimeringsnivån*.
-- [**LEVEL7**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/compressionlevel/): Ger bättre komprimering än **LEVEL6** men med långsammare bearbetning.
-- [**LEVEL8**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/compressionlevel/): Ger bättre komprimering än **LEVEL7**.
-- [**LEVEL9**](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/compressionlevel/): Maximal komprimering. Ger den minsta filstorleken men med längst bearbetningstid.
-
-Följande exempel demonstrerar hur du sparar en presentation som en PPTX‑fil *utan komprimering*:
+Följande exempel sparar en presentation utan kompression:
 
 ```py
 import aspose.slides as slides
 
-pptx_options = slides.export.PptxOptions()
-pptx_options.compression_level = slides.export.CompressionLevel.NONE
+with slides.Presentation("Sample.pptx") as presentation:
+    options = slides.export.PptxOptions()
+    options.compression_level = slides.export.CompressionLevel.NONE
 
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.save("sample_out.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+    presentation.save("OutputNoCompression.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
-Detta exempel visar hur du sparar en presentation som en PPTX‑fil med *maximal komprimering*:
+Följande exempel använder den högsta komprimeringsnivån:
 
 ```py
 import aspose.slides as slides
 
-pptx_options = slides.export.PptxOptions()
-pptx_options.compression_level = slides.export.CompressionLevel.LEVEL9
+with slides.Presentation("Sample.pptx") as presentation:
+    options = slides.export.PptxOptions()
+    options.compression_level = slides.export.CompressionLevel.LEVEL9
 
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.save("sample_level9.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+    presentation.save("OutputMaximumCompression.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
-## **Spara presentationer utan att uppdatera miniatyrbilden**
+## **Spara presentationer utan att uppdatera miniatyren**
 
-Egenskapen [PptxOptions.refresh_thumbnail](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/pptxoptions/refresh_thumbnail/) styr miniatyrbildsgenerering när en presentation sparas till PPTX:
+När en presentation sparas som PPTX styr egenskapen [PptxOptions.refresh_thumbnail](https://reference.aspose.com/slides/sv/python-net/aspose.slides.export/pptxoptions/refresh_thumbnail/) dess dokumentminiatyr:
 
-- Om den är `True` uppdateras miniatyrbilden under sparande. Detta är standard.
-- Om den är `False` bevaras den befintliga miniatyrbilden. Om presentationen inte har någon miniatyrbild genereras ingen.
+- `True` återskapar miniatyren under sparoperationen. Detta är standardvärdet.
+- `False` bevarar den befintliga miniatyren. Om presentationen saknar miniatyr genererar inte Aspose.Slides någon.
 
-I koden nedan sparas presentationen till PPTX utan att uppdatera dess miniatyrbild.
+Följande exempel sparar en presentation utan att uppdatera dess miniatyr:
 
 ```py
 import aspose.slides as slides
 
-pptx_options = slides.export.PptxOptions()
-pptx_options.refresh_thumbnail = False
+with slides.Presentation("Sample.pptx") as presentation:
+    options = slides.export.PptxOptions()
+    options.refresh_thumbnail = False
 
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+    presentation.save("Output.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
-{{% alert title="Info" color="info" %}}
-Detta alternativ hjälper till att minska tiden som krävs för att spara en presentation i PPTX‑format.
+{{% alert color="info" title="Note" %}}
+Att inaktivera miniatyruppdatering kan minska den tid som krävs för att spara en PPTX‑fil.
 {{% /alert %}}
 
-{{% alert title="Info" color="info" %}}
-Aspose har utvecklat en [free PowerPoint Splitter app](https://products.aspose.app/slides/sv/splitter) med sitt eget API. Appen låter dig dela en presentation i flera filer genom att spara utvalda bilder som nya PPTX‑ eller PPT‑filer.
+{{% alert color="info" title="Note" %}}
+Aspose tillhandahåller en gratis [PowerPoint Splitter](https://products.aspose.app/slides/sv/splitter) byggd med Aspose.Slides‑API:et. Den sparar valda bilder från en presentation som separata PPT‑ eller PPTX‑filer.
 {{% /alert %}}
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Stöds "snabb sparning" (inkrementell sparning) så att bara förändringar skrivs?**
+**Stöder Aspose.Slides inkrementell eller “snabb sparning”?**
 
-Nej. Sparande skapar hela målfilen varje gång; inkrementell "snabb sparning" stöds inte.
+Nej. Varje sparoperation skriver en komplett utdatafil istället för att bara uppdatera de ändrade delarna.
 
-**Är det trådsäkert att spara samma Presentation‑instans från flera trådar?**
+**Kan flera trådar spara samma Presentation‑instans?**
 
-Nej. En [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/)‑instans [är inte trådsäker](/slides/sv/python-net/multithreading/); spara den från en enda tråd.
+Nej. En [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/)-instans [är inte trådsäker](/slides/sv/python-net/multithreading/). Åtkomst och sparning av varje instans får endast ske från en tråd åt gången.
 
-**Vad händer med hyperlänkar och externt länkade filer vid sparande?**
+**Vad händer med hyperlänkar och externt länkade filer när jag sparar en presentation?**
 
-[Hyperlänkar](/slides/sv/python-net/manage-hyperlinks/) bevaras. Externt länkade filer (t.ex. videor via relativa sökvägar) kopieras inte automatiskt – se till att de refererade sökvägarna förblir åtkomliga.
+[Hyperlänkar](/slides/sv/python-net/manage-hyperlinks/) förblir i presentationen. Aspose.Slides kopierar inte externt länkade filer, så den sparade presentationen måste fortfarande kunna nå deras platser.
 
-**Kan jag ange/spara dokumentmetadata (Författare, Titel, Företag, Datum)?**
+**Kan jag spara dokumentmetadata såsom författare, titel, företag och skapelsedatum?**
 
-Ja. Standard [dokumentegenskaper](/slides/sv/python-net/presentation-properties/) stöds och skrivs till filen vid sparande.
+Ja. Ställ in lämpliga [dokumentegenskaper](/slides/sv/python-net/presentation-properties/) innan du sparar, så skriver Aspose.Slides dem till utdatafilen.

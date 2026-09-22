@@ -20,19 +20,21 @@ keywords:
 - binární objekt
 - Java
 - Aspose.Slides
-description: "Naučte se, jak v Javě otevřít prezentace PowerPoint a OpenDocument, zadat otevírací hesla, řídit načítání zdrojů a snížit využití paměti pomocí Aspose.Slides pro Java."
+description: "Naučte se, jak v Javě otevírat prezentace PowerPoint a OpenDocument, zadávat otevírací hesla, řídit načítání zdrojů a snižovat využití paměti pomocí Aspose.Slides pro Javu."
 ---
 ## **Úvod**
 
 [Aspose.Slides for Java](https://products.aspose.com/slides/cs/java/) může načítat prezentace PowerPoint a OpenDocument ze souborů a proudů. Po načtení prezentace můžete prozkoumat její strukturu, upravovat snímky, spravovat zdroje a uložit ji v původním nebo jiném podporovaném formátu.
 
-Chování načítání lze přizpůsobit pomocí třídy [LoadOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/). Například můžete zadat otevírací heslo, udržet velké binární objekty mimo paměť heap Java, řídit externí zdroje nebo vynechat zabudovaná binární data.
+Chování načítání lze přizpůsobit pomocí třídy [LoadOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/). Například můžete zadat otevírací heslo, udržovat velké binární objekty mimo paměť haldy Java, řídit externí zdroje nebo vynechat vložená binární data.
 
 ## **Otevření prezentací**
 
-Chcete-li otevřít existující prezentaci, předáte její cestu k souboru konstruktoru [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/). Po použití prezentaci uvolněte, aby byly souborové handly, dočasná data a další zdroje rychle uvolněny.
+Po načtení souboru nebo proudu můžete [zjistit jeho původní formát prezentace](/slides/cs/java/detect-presentation-source-format/), abyste si vybrali, jak aplikace s ním bude pracovat.
 
-Následující ukázka v jazyce Java ukazuje, jak otevřít prezentaci a získat počet snímků:
+Chcete-li otevřít existující prezentaci, předávejte její cestu k souboru konstruktoru [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/). Po použití uvolněte prezentaci, aby byly soubory, dočasná data a další prostředky rychle uvolněny.
+
+Následující ukázka v Javě ukazuje, jak otevřít prezentaci a získat počet snímků:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -47,7 +49,7 @@ try {
 
 ## **Otevření prezentací chráněných heslem**
 
-Otevírací heslo šifruje obsah prezentace. Pro načtení celé prezentace předáte správné heslo metodě [LoadOptions.setPassword](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) a poskytnete možnosti konstruktoru [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/). Načítání selže, pokud heslo chybí nebo je nesprávné.
+Otevírací heslo šifruje obsah prezentace. Pro načtení celé prezentace předáte správné heslo metodě [LoadOptions.setPassword](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) a poskytnete možnosti konstruktoru [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/). Načtení selže, pokud heslo chybí nebo není správné.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -64,13 +66,13 @@ try {
 }
 ```
 
-Pro detekci hesla, validaci a šifrovací pracovní postupy viz [Password-Protect Presentations](/slides/cs/java/password-protected-presentation/). Pokud byla šifrovaná prezentace úmyslně uložena s veřejnými vlastnostmi dokumentu, lze tyto vlastnosti přečíst bez hesla; viz [Manage Presentation Properties](/slides/cs/java/presentation-properties/).
+Pro detekci hesla, ověření a šifrovací pracovní toky viz [Password-Protect Presentations](/slides/cs/java/password-protected-presentation/). Pokud byla šifrovaná prezentace úmyslně uložena s veřejnými vlastnostmi dokumentu, lze tyto vlastnosti přečíst bez hesla; viz [Manage Presentation Properties](/slides/cs/java/presentation-properties/).
 
 ## **Otevření velkých prezentací**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) vrací možnosti, které řídí, jak Aspose.Slides zachází s binárními velkými objekty, jako jsou obrázky, audio a video. Můžete udržet zdrojový soubor uzamčený, povolit dočasné soubory a omezit množství BLOB dat uchovávaných v paměti.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) vrací možnosti, které řídí, jak Aspose.Slides zachází s velkými binárními objekty, jako jsou obrázky, audio a video. Můžete nechat zdrojový soubor uzamčený, povolit dočasné soubory a omezit množství BLOB dat uchovávaných v paměti.
 
-Následující kód v jazyce Java demonstruje načítání velké prezentace (například 2 GB):
+Následující kód v Javě ukazuje načítání velké prezentace (například 2 GB):
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -95,16 +97,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
+S [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked) zůstává zdrojový soubor uzamčený, dokud není instance prezentace uvolněna. Neprovádějte přesun, přepsání ani odstranění zdrojového souboru, dokud je tato instance aktivní.
 
-S [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked) zůstává zdrojový soubor uzamčený, dokud není instance prezentace uvolněna. Nepřesouvejte, nepřepisujte ani neodstraňujte zdrojový soubor, dokud je tato instance aktivní.
-
-Aspose.Slides může při načítání kopírovat obsah vstupního proudu. U velkých prezentací je proto obecně efektivnější použít cestu k souboru než proud. Viz [Manage BLOBs](/slides/cs/java/manage-blob/) pro další možnosti úložiště a správy paměti.
-
+Aspose.Slides může během načítání zkopírovat obsah vstupního proudu. Pro velké prezentace je tedy cesta k souboru obecně efektivnější než proud. Viz [Manage BLOBs](/slides/cs/java/manage-blob/) pro další možnosti úložiště a správy paměti.
 {{% /alert %}}
 
 ## **Řízení externích zdrojů**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) přijímá implementaci [IResourceLoadingCallback](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iresourceloadingcallback/). Callback může poskytnout náhradní data, přesměrovat zdroj, použít výchozí načítání nebo zdroj přeskočit. To je užitečné, když prezentace obsahují externí obrázky, které musí být řešeny podle specifických bezpečnostních nebo úložných pravidel aplikace.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) přijímá implementaci [IResourceLoadingCallback](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iresourceloadingcallback/). Callback může poskytnout náhradní data, přesměrovat zdroj, použít výchozí načítač nebo zdroj přeskočit. To je užitečné, když prezentace obsahují externí obrázky, které je nutné vyřešit podle specifických bezpečnostních nebo úložných pravidel aplikace.
 
 ```java
 import com.aspose.slides.IResourceLoadingArgs;
@@ -148,17 +148,17 @@ try {
 }
 ```
 
-## **Načtení prezentací bez zabudovaných binárních objektů**
+## **Načtení prezentací bez vložených binárních objektů**
 
-Prezentace může obsahovat zabudovaná binární data, která aplikace nepotřebuje nebo nechce zachovat. Příklady zahrnují:
+Prezentace může obsahovat vložená binární data, která aplikace nepotřebuje nebo nechce zachovat. Příklady zahrnují:
 
-- projekty VBA, dostupné přes [IPresentation.getVbaProject](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipresentation/#getVbaProject--);
-- zabudovaná data OLE, dostupná přes [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
-- data ovládacích prvků ActiveX, dostupná přes [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icontrol/#getActiveXControlBinary--).
+- VBA projekty, dostupné přes [IPresentation.getVbaProject](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipresentation/#getVbaProject--);
+- vložená OLE data, dostupná přes [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
+- data ActiveX ovládacích prvků, dostupná přes [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icontrol/#getActiveXControlBinary--).
 
-Nastavte [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) na `true`, aby se tato binární data při načítání odstranila. Uložte načtenou prezentaci, aby se výsledek sanitizoval.
+Nastavte [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) na `true`, abyste při načítání odstranili tato binární data. Uložte načtenou prezentaci, aby se zachoval vyčištěný výsledek.
 
-Tato možnost snižuje riziko nechtěných zabudovaných nákladů, ale nejedná se o kompletní systém detekce malwaru ani o sanitizační systém obsahu.
+Tato volba snižuje riziko nechtěných vložených nákladů, avšak nejde o kompletní systém detekce škodlivého softwaru ani o čištění obsahu.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -180,12 +180,12 @@ try {
 
 **Jak zjistím, že soubor je poškozený a nelze jej otevřít?**
 
-Aspose.Slides během načítání vyhodí výjimku parsování nebo formátu. Ošetřete toto selhání odděleně od chyby nesprávného hesla, aby aplikace mohla přesně nahlásit příčinu.
+Aspose.Slides během načítání vyvolá výjimku při parsování nebo formátu. Tento typ selhání je potřeba ošetřit odděleně od chyby nesprávného hesla, aby aplikace mohla přesně nahlásit příčinu.
 
-**Co se stane, když chybí požadovaná písma?**
+**Co se stane, pokud chybí požadovaná písma?**
 
-Prezentace se stále může načíst, ale při vykreslování a exportu mohou být písma nahrazena. Můžete [konfigurovat náhradu písem](/slides/cs/java/font-substitution/) nebo [poskytnout vlastní písma](/slides/cs/java/custom-font/), aby byl výstup předvídatelnější.
+Prezentace může být i přesto načtena, ale během vykreslování a exportu může dojít k substituci písem. Můžete [nastavit substituci písem](/slides/cs/java/font-substitution/) nebo [poskytnout vlastní písma](/slides/cs/java/custom-font/), aby byl výstup předvídatelnější.
 
-**Načítá se při načtení prezentace také její zabudovaná média?**
+**Načte se při načítání prezentace také její vložená média?**
 
-Zabudované audio a video jsou k dispozici prostřednictvím objektového modelu prezentace. Externí zdroje jsou řešeny podle nastaveného chování načítání zdrojů a mohou být nedostupné, pokud nelze přistupovat k jejich umístěním.
+Vložený audio a video obsah jsou dostupné prostřednictvím objektového modelu prezentace. Externí zdroje jsou řešeny podle nastaveného chování načítání zdrojů a mohou být nedostupné, pokud není možné přistoupit k jejich umístění.

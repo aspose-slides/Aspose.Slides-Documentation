@@ -1,11 +1,11 @@
 ---
-title: دریافت و به‌روزرسانی اطلاعات ارائه در اندروید
+title: بازیابی و به‌روزرسانی اطلاعات ارائه در Android
 linktitle: اطلاعات ارائه
 type: docs
 weight: 30
 url: /fa/androidjava/examine-presentation/
 keywords:
-- قالب ارائه
+- فرمت ارائه
 - ویژگی‌های ارائه
 - ویژگی‌های سند
 - دریافت ویژگی‌ها
@@ -22,17 +22,19 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "اسلایدها، ساختار و متادیتا را در ارائه‌های PowerPoint و OpenDocument با استفاده از Java بررسی کنید تا بینش‌های سریع‌تر و ارزیابی‌های محتوا هوشمندانه‌تری داشته باشید."
+description: "اسلایدها، ساختار و متادیتا در ارائه‌های PowerPoint و OpenDocument را با استفاده از Java برای دسترسی‌های سریع‌تر و بررسی‌های هوشمند محتوا بررسی کنید."
 ---
 ## **بررسی کلی**
 
-Aspose.Slides می‌تواند قالب ارائه را شناسایی کرده و متادیتای سند آن را بدون ایجاد یک مدل شیء کامل از ارائه بخواند. این کار زمانی مفید است که نیاز به دسته‌بندی فایل‌ها، ساخت یک فهرست یا بررسی ویژگی‌ها قبل از تصمیم‌گیری برای بارگذاری و پردازش محتوای ارائه داشته باشید.
+Aspose.Slides می‌تواند قالب یک ارائه را شناسایی کند و متادیتای سند آن را بدون ایجاد یک مدل شیء کامل ارائه بخواند. این برای زمانی مفید است که نیاز به طبقه‌بندی فایل‌ها، ساخت فهرست موجودی یا بررسی ویژگی‌ها قبل از تصمیم‌گیری برای بارگذاری و پردازش محتوای ارائه دارید.
 
-این مقاله با استفاده از [PresentationFactory](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationfactory/) و [IPresentationInfo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/) بررسی سبک وزن را نشان می‌دهد و همچنین به‌روزرسانی‌های هدفمند از طریق [IDocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/) را توضیح می‌دهد.
+این مقاله با استفاده از [PresentationFactory](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationfactory/) و [IPresentationInfo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/) بازرسی سبک را نشان می‌دهد و همچنین به‌روزرسانی‌های هدفمند را از طریق [IDocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/) ارائه می‌دهد.
 
 ## **بررسی قالب یک ارائه**
 
-از [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) برای بازرسی یک فایل بدون ساختن نمونه‌ای از [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) استفاده کنید. متد [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/#getLoadFormat--) قالب شناسایی‌شده را گزارش می‌کند؛ به‌عنوان مثال PPTX، PPT یا ODP.
+اگر پیش از این یک ارائه بارگذاری شده داشته باشید، برای تشخیص پس از بارگذاری و محدودیت‌های جریان‌های PPT، PPS و POT قدیمی، به مقاله [Determine the Original Presentation Format](/slides/fa/androidjava/detect-presentation-source-format/) مراجعه کنید.
+
+از [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) برای بررسی یک فایل بدون ایجاد یک نمونه [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) استفاده کنید. متد [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/#getLoadFormat--) قالب شناسایی‌شده را گزارش می‌دهد، مانند PPTX، PPT یا ODP.
 
 ```java
 import com.aspose.slides.IPresentationInfo;
@@ -58,22 +60,22 @@ for (String fileName : fileNames) {
 }
 ```
 
-## **ساخت یک فهرست سبک وزن از ارائه‌ها**
+## **ساخت یک فهرست موجودی سبک برای ارائه‌ها**
 
-زمانی که تعداد زیادی از فایل‌های ارائه را پردازش می‌کنید، ممکن است به فهرستی فشرده برای اعتبارسنجی، ایندکس‌گذاری یا یک سیستم مدیریت سند نیاز داشته باشید. در این حالت، از [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) برای دریافت یک شیء [IPresentationInfo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/) استفاده کنید و سپس متد [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) را فراخوانی کنید تا متادیتای سند را بخوانید. این روش نمونه‌ای از [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد نمی‌کند و نیازی به پیمایش کامل مدل شیء ارائه نیست.
+هنگامی که تعداد زیادی فایل ارائه را پردازش می‌کنید، ممکن است به یک فهرست موجودی فشرده برای اعتبارسنجی، فهرست‌گذاری یا یک سیستم مدیریت سند نیاز داشته باشید. در این حالت، از [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) برای دریافت یک شیء [IPresentationInfo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/) استفاده کنید و سپس متد [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) را فراخوانی کنید تا متادیتای سند را بخوانید. این رویکرد شیء [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ای ایجاد نمی‌کند و نیازی به پیمایش کامل مدل شیء ارائه ندارید.
 
-ویژگی‌های گسترش‌یافته‌ای که توسط [IDocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/) ارائه می‌شود، مقادیر فهرست زیر را فراهم می‌کند:
+ویژگی‌های گسترش‌یافته‌ای که توسط [IDocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/) ارائه می‌شوند، مقادیر موجودی زیر را فراهم می‌آورند:
 
 | متد | مقدار موجودی |
 | --- | --- |
-| [getSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getSlides--) | تعداد کل اسلایدها. |
-| [getHiddenSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getHiddenSlides--) | تعداد اسلایدهای پنهان. |
+| [getSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getSlides--) | مجموع تعداد اسلایدها. |
+| [getHiddenSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getHiddenSlides--) | تعداد اسلایدهای مخفی. |
 | [getNotes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getNotes--) | تعداد اسلایدهایی که حاوی یادداشت هستند. |
-| [getParagraphs](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getParagraphs--) | تعداد کل پاراگراف‌ها (در صورت موجود بودن). |
-| [getWords](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getWords--) | تعداد کل کلمات. |
-| [getMultimediaClips](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getMultimediaClips--) | تعداد کل کلیپ‌های صوتی و تصویری. |
+| [getParagraphs](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getParagraphs--) | مجموع تعداد پاراگراف‌ها، در صورت موجود بودن. |
+| [getWords](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getWords--) | مجموع تعداد کلمات. |
+| [getMultimediaClips](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getMultimediaClips--) | مجموع تعداد کلیپ‌های صوتی و تصویری. |
 
-مثال زیر این مقادیر را بدون ایجاد شیء [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) می‌خواند و فهرستی فشرده چاپ می‌کند. همچنین متدهای [getHeadingPairs](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getHeadingPairs--) و [getTitlesOfParts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) را ترکیب کرده تا گروه‌های محتوا مانند قلم‌ها، تم‌ها و عناوین اسلایدها را نمایش دهد.
+مثال زیر این مقادیر را بدون ایجاد یک شیء [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) می‌خواند و فهرست موجودی فشرده‌ای را چاپ می‌کند. همچنین با ترکیب [getHeadingPairs](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getHeadingPairs--) و [getTitlesOfParts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) گروه‌های محتوا مانند قلم‌ها، تم‌ها و عناوین اسلاید نمایش داده می‌شود.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -141,27 +143,27 @@ if (headingPairs.length == 0 || titlesOfParts.length == 0) {
 }
 ```
 
-هر [IHeadingPair](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iheadingpair/) نام یک گروه و تعداد آیتم‌های آن گروه را فراهم می‌کند. متد [IDocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) یک آرایهٔ مسطح و ترتیب‌دار برمی‌گرداند، بنابراین تعداد عناوین متوالی مشخص‌شده توسط هر جفت سرعنوان را مصرف کنید.
+هر [IHeadingPair](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iheadingpair/) یک نام گروه و تعداد آیتم‌های موجود در آن گروه را فراهم می‌کند. متد [IDocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) یک آرایهٔ صاف و مرتب برمی‌گرداند، بنابراین تعداد عناوین متوالی مشخص شده توسط هر جفت سرنویس را مصرف کنید.
 
 ### **متادیتای ذخیره‌شده و محدودیت‌های قالب**
 
-خواص موجود در فهرست که توسط [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) بازگردانده می‌شود، متادیتای موجود در سند منبع را نشان می‌دهد. Aspose.Slides مدل شیء ارائه را بارگذاری و پیمایش نمی‌کند تا این مقادیر را برای این فراخوانی دوباره محاسبه کند. خواص گمشده با مقادیر پیش‌فرض نشان داده می‌شوند و مقادیر ذخیره‌شده ممکن است منسوخ باشند اگر برنامه‌ای که آخرین بار فایل را ذخیره کرده باشد، ویژگی‌های سند را به‌روز نکرده باشد.
+ویژگی‌های موجودی که توسط [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) بازگردانده می‌شوند، متادیتای موجود در سند منبع را منعکس می‌کنند. Aspose.Slides برای این فراخوانی مدل شیء ارائه را بارگذاری و پیمایش نمی‌کند تا این مقادیر را مجدداً محاسبه کند. ویژگی‌های مفقود به‌صورت مقدارهای پیش‌فرض نشان داده می‌شوند و مقادیر ذخیره‌شده ممکن است قدیمی باشند اگر برنامه‌ای که آخرین بار فایل را ذخیره کرده بود، ویژگی‌های سند را به‌روزرسانی نکرده باشد.
 
-- **PPTX:** این قالب ویژگی‌های گسترش‌یافته سند برای تعداد اسلاید، یادداشت، اسلایدهای پنهان، پاراگراف، کلمه و رسانه‌های چندرسانه‌ای، به‌هم‌راه جفت‌های سرعنوان و عناوین بخش‌ها را فراهم می‌کند. در دسترس بودن این ویژگی‌ها بستگی به این دارد که کدام ویژگی‌ها توسط تولیدکنندهٔ سند نوشته شده‌اند.
-- **PPT:** قالب باینری می‌تواند ویژگی‌های خلاصه‌سند متناظر را ذخیره کند. اگر ویژگی‌ای وجود نداشته باشد یا توسط تولیدکنندهٔ سند به‌روز نشده باشد، Aspose.Slides مقدار ذخیره‌شده یا پیش‌فرض را بازمی‌گرداند نه این‌که آن را از اسلایدها محاسبه کند.
-- **ODP:** متادیتای OpenDocument آمار کلی سند مثل تعداد صفحات، پاراگراف و کلمات را فراهم می‌کند، اما این مقادیر به تمام ویژگی‌های گسترش‌یافته‌ٔ PowerPoint نگاشت ندارند. متادیتای اسلایدهای پنهان، اسلایدهای یادداشت، چندرسانه‌ای، جفت‌های سرعنوان و عناوین بخش ممکن است در دسترس نباشد و خواص موجودی ممکن است مقادیر پیش‌فرض بازگردانند. صفر یا آرایهٔ خالی را به‌عنوان اثبات قطعی عدم وجود محتوا درنظر نگیرید.
+- **PPTX:** این قالب ویژگی‌های مستند گسترش‌یافته برای شمارش اسلاید، یادداشت، اسلاید مخفی، پاراگراف، کلمه و چندرسانه‌ای، همچنین جفت‌های سرنویس و عناوین بخش‌ها را فراهم می‌کند. در دسترس بودن آن به این بستگی دارد که کدام ویژگی‌ها توسط تولیدکننده سند نوشته شده‌اند.
+- **PPT:** قالب باینری می‌تواند ویژگی‌های خلاصه‌سندی مشابه را ذخیره کند. اگر ویژگی‌ای غایب باشد یا توسط تولیدکننده سند به‌روزرسانی نشده باشد، Aspose.Slides مقدار ذخیره‌شده یا پیش‌فرض آن را برمی‌گرداند نه اینکه آن را از اسلایدها محاسبه کند.
+- **ODP:** متادیتای OpenDocument آمار کلی سند مانند تعداد صفحات، پاراگراف و کلمه را ارائه می‌دهد، اما این مقادیر به هر ویژگی گسترش‌یافته خاص PowerPoint نگاشته نمی‌شوند. متادیتای اسلاید مخفی، اسلاید یادداشت، چندرسانه‌ای، جفت‑سرنویس و عناوین بخش ممکن است در دسترس نباشند و ویژگی‌های موجودی ممکن است مقادیر پیش‌فرض را برگردانند. مقدار صفر یا آرایهٔ خالی را به‌عنوان اثبات قطعی عدم وجود محتوا در نظر نگیرید.
 
-از رویکرد متادیتای سبک وزن برای فهرست‌ها و بررسی‌های اولیه استفاده کنید. وقتی نتایج باید تغییرات در حافظه را بازتاب دهند یا نیاز به تأیید محتوای واقعی ارائه دارید، ارائه را بارگذاری و مدل شیء زندهٔ آن را بازرسی کنید.
+از روش متادیتای سبک برای فهرست‌ها و بررسی‌های مقدماتی استفاده کنید. زمانی که نتیجه باید تغییرات در حافظه را نشان دهد یا نیاز به تأیید محتوای واقعی ارائه دارید، ارائه را بارگذاری و مدل شیء زنده آن را بررسی کنید.
 
 ## **به‌روزرسانی ویژگی‌های ارائه**
 
-خواص بازگردانده‌شده توسط [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) را می‌توان بدون ایجاد نمونه‌ای از [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) نیز تغییر داد. تغییرات را با [IPresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) اعمال کنید و سپس ارائهٔ بایند شده را با [IPresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/#writeBindedPresentation-java.io.OutputStream-) بنویسید.
+ویژگی‌های بازگردانده‌شده توسط [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) می‌توانند بدون ایجاد یک نمونه [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) نیز تغییر کنند. تغییرات را با [IPresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) اعمال کنید و سپس ارائهٔ پیوست‌شده را با [IPresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/#writeBindedPresentation-java.io.OutputStream-) بنویسید.
 
 تصویر زیر ویژگی‌های سند اصلی ارائهٔ PowerPoint را نشان می‌دهد.
 
-![ویژگی‌های سند اصلی ارائهٔ PowerPoint](input_properties.png)
+![Original document properties of the PowerPoint presentation](input_properties.png)
 
-مثال زیر عنوان و زمان آخرین ذخیره‌سازی را تغییر می‌دهد و نتیجه را در فایل جدیدی می‌نویسد:
+مثال زیر عنوان و زمان آخرین ذخیره شدن را تغییر می‌دهد و نتیجه را به یک فایل جدید می‌نویسد:
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -185,35 +187,35 @@ try (OutputStream outputStream = new FileOutputStream(outputFile)) {
 }
 ```
 
-تصویر زیر ویژگی‌های سند به‌روزشده را نشان می‌دهد.
+تصویر زیر ویژگی‌های سند به‌روزرسانی‌شده را نشان می‌دهد.
 
-![ویژگی‌های سند به‌روزشدهٔ ارائهٔ PowerPoint](output_properties.png)
+![Changed document properties of the PowerPoint presentation](output_properties.png)
 
-## **پیوندهای مفید**
+## **لینک‌های مفید**
 
-برای بررسی‌های امنیتی مرتبط و تنظیمات حفاظت، مقالات زیر را ببینید:
+برای بررسی‌های امنیتی مرتبط و تنظیمات حفاظت، به مقالات زیر مراجعه کنید:
 
 - [Password-Protect Presentations](/slides/fa/androidjava/password-protected-presentation/)
 - [Write-Protect Presentations](/slides/fa/androidjava/write-protected-presentation/)
 
 ## **سوالات متداول**
 
-**چگونه می‌توانم بررسی کنم که آیا قلم‌ها جاسازی شده‌اند و کدام‌ها؟**
+**چگونه می‌توانم بررسی کنم آیا فونت‌ها embedded هستند و کدام‌ها؟**
 
-ارائه را بارگذاری کنید و از [Presentation.getFontsManager](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getFontsManager--) استفاده کنید. برای دریافت قلم‌های جاسازی‌شده متد [IFontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) و برای دریافت قلم‌های مورد استفاده در ارائه متد [IFontsManager.getFonts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ifontsmanager/#getFonts--) را فراخوانی کنید. دو نتیجه را مقایسه کنید تا قلم‌های مورد نیاز برای رندرینگ اما غیرجاسازی‌شده را پیدا کنید.
+ارائه را بارگذاری کنید و از [Presentation.getFontsManager](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getFontsManager--) استفاده کنید. متد [IFontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) فونت‌های embedded را برمی‌گرداند و [IFontsManager.getFonts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ifontsmanager/#getFonts--) فونت‌های مورد استفاده در ارائه را برمی‌گرداند. دو نتیجه را مقایسه کنید تا فونت‌های لازم برای رندر ولی نه‌ embedded را بیابید.
 
-**چگونه می‌توانم به‌سرعت تشخیص دهم فایل اسلایدهای مخفی دارد و تعداد آن‌ها چیست؟**
+**چگونه می‌توانم سریعاً بفهمم آیا فایل اسلایدهای مخفی دارد و چه تعداد؟**
 
-زمانی که متادیتای ذخیره‌شدهٔ سند کافی باشد، از [IDocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getHiddenSlides--) از طریق [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) و [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) بخوانید. این روش برای فهرست سبک وزن مناسب است. اگر ارائه در حافظه تغییر کرده باشد یا نیاز به تأیید مقادیر زنده داشته باشید، باید از طریق [Presentation.getSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getSlides--) پیمایش کنید و برای هر اسلاید متد [ISlide.getHidden](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islide/#getHidden--) را بررسی کنید.
+زمانی که متادیتای ذخیره‌شده سند کافی باشد، [IDocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idocumentproperties/#getHiddenSlides--) را از طریق [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) و [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) بخوانید. این برای فهرست موجودی سبک مناسب است. اگر ارائه در حافظه تغییر کرده باشد یا نیاز به تأیید مقادیر زنده داشته باشید، به‌جای آن به‌صورت تحلیلی از طریق [Presentation.getSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getSlides--) پیمایش کنید و متد [ISlide.getHidden](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islide/#getHidden--) هر اسلاید را بررسی کنید.
 
-**آیا می‌توانم تشخیص دهم که اندازهٔ سفارشی اسلاید و جهت آن استفاده شده‌اند و آیا از پیش‌فرض‌ها متفاوت هستند؟**
+**آیا می‌توانم تشخیص دهم آیا اندازه و جهت سفارشی اسلاید استفاده شده‌اند و آیا با پیش‌فرض‌ها متفاوت هستند؟**
 
 بله. ارائه را بارگذاری کنید و متد [Presentation.getSlideSize](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getSlideSize--) را فراخوانی کنید. با استفاده از [ISlideSize.getType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islidesize/#getType--)، [ISlideSize.getSize](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islidesize/#getSize--) و [ISlideSize.getOrientation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islidesize/#getOrientation--) تنظیمات فعلی را با پیش‌فرض‌ها و ابعاد مورد انتظار مقایسه کنید.
 
-**آیا راه سریعی برای مشاهده این‌که نمودارها به منابع داده خارجی ارجاع می‌دهند وجود دارد؟**
+**آیا راهی سریع برای مشاهده این‌که نمودارها به منبع دادهٔ خارجی ارجاع می‌دهند وجود دارد؟**
 
-بله. هر [Chart](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chart/) را پیدا کنید و متد [IChartData.getDataSourceType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--) را فراخوانی کنید. برای یک کتاب‌کار خارجی، متد [IChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) را صدا بزنید. نوع منبع داده و مسیر، ارجاع خارجی را شناسایی می‌کند، اما تأیید موجود بودن هدف نیاز به بررسی منابع جداگانه دارد.
+بله. هر [Chart](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chart/) را پیدا کنید و متد [IChartData.getDataSourceType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#getDataSourceType--) را فراخوانی کنید. برای یک کتاب‌کار خارجی، متد [IChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) را صدا بزنید. نوع منبع داده و مسیر، یک ارجاع خارجی را نشان می‌دهد، اما برای تأیید موجودیت هدف نیاز به بررسی منابع جداگانه‌ای دارد.
 
-**چگونه می‌توانم «اسلایدهای سنگین» را که ممکن است رندر یا خروجی PDF را کند کنند شناسایی کنم؟**
+**چگونه می‌توانم اسلایدهای «سنگین» که ممکن است رندر یا خروجی PDF را کند کنند ارزیابی کنم؟**
 
-هیچ خاصیت تک‌واحدی برای پیچیدگی وجود ندارد. با پیمایش [Presentation.getSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getSlides--) و مجموعهٔ [IBaseSlide.getShapes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ibaseslide/#getShapes--) هر اسلاید، شمارش اشکال و حضور تصاویر بزرگ، افکت‌ها، انیمیشن‌ها یا رسانه‌های چندرسانه‌ای را به‌عنوان علائم فیلتر استفاده کنید و پیش از قضاوت نهایی یک رندر یا خروجی نمونه‌ای را اندازه‌گیری کنید.
+هیچ ویژگی پیچیدگی واحدی وجود ندارد. به‌وسیلهٔ پیمایش [Presentation.getSlides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#getSlides--) و مجموعهٔ [IBaseSlide.getShapes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ibaseslide/#getShapes--) هر اسلاید، تعداد شکل‌ها و وجود تصاویر بزرگ، افکت‌ها، انیمیشن‌ها یا چندرسانه‌ای‌ها را به‌عنوان سیگنال‌های فیلترسازی استفاده کنید و قبل از تصمیم‌گیری نهایی یک رندر یا خروجی نمونه‌ای را اندازه‌گیری کنید.

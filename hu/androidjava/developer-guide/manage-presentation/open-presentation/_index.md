@@ -21,19 +21,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan nyithat meg PowerPoint és OpenDocument prezentációkat Androidon, adhat meg nyitó jelszavakat, szabályozhatja az erőforrás betöltését, és csökkentheti a memóriahasználatot az Aspose.Slides for Android via Java segítségével."
+description: "Ismerje meg, hogyan nyithat meg PowerPoint és OpenDocument prezentációkat Androidon, adjon meg nyitó jelszavakat, szabályozza az erőforrások betöltését, és csökkentse a memóriahasználatot az Aspose.Slides for Android via Java segítségével."
 ---
 ## **Bevezetés**
 
-Aspose.Slides for Android via Java betöltheti a PowerPoint és OpenDocument bemutatókat fájlokból és adatfolyamokból. A bemutató betöltése után ellenőrizheti a szerkezetét, szerkesztheti a diákot, kezelheti az erőforrásokat, és elmentheti az eredeti vagy egy másik támogatott formátumban.
+[Aspose.Slides for Android via Java](https://products.aspose.com/slides/hu/androidjava/) képes betölteni PowerPoint és OpenDocument prezentációkat fájlokból és adatfolyamból. A prezentáció betöltése után ellenőrizheti a szerkezetét, szerkesztheti a diákot, kezelheti az erőforrásokat, és mentheti az eredeti vagy egy másik támogatott formátumban.
 
-A betöltési viselkedés testre szabható a LoadOptions osztály segítségével. Például megadhat egy nyitó jelszót, a nagy bináris objektumokat a Java heap memórián kívül tarthatja, szabályozhatja a külső erőforrásokat, vagy kihagyhatja a beágyazott bináris adatokat.
+A betöltési viselkedés testreszabható a [LoadOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/loadoptions/) osztályon keresztül. Például megadhat egy nyitó jelszót, tartsa a nagy bináris objektumokat a Java halom memórián kívül, szabályozhatja a külső erőforrásokat, vagy kihagyhatja a beágyazott bináris adatokat.
 
-## **Meglévő bemutatók megnyitása**
+## **Prezentációk megnyitása**
 
-Egy meglévő bemutató megnyitásához adja át a fájl elérési útját a Presentation konstruktorának. A bemutató használata után szabadítsa fel, hogy a fájlkezelők, ideiglenes adatok és egyéb erőforrások gyorsan felszabaduljanak.
+Fájl vagy adatfolyam betöltése után [meghatározhatja az eredeti prezentáció formátumát](/slides/hu/androidjava/detect-presentation-source-format/) a további feldolgozási mód kiválasztásához.
 
-Az alábbi Java példa bemutatja, hogyan nyithat meg egy bemutatót és hogyan kérdezheti le a dia számát:
+Egy meglévő prezentáció megnyitásához adja át a fájl útvonalát a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) konstruktorának. A prezentációt használat után szabadítsa fel, hogy a fájlkezelők, ideiglenes adatok és egyéb erőforrások időben felszabaduljanak.
+
+A következő Java példa bemutatja, hogyan lehet megnyitni egy prezentációt és lekérni a diák számát:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -46,9 +48,9 @@ try {
 }
 ```
 
-## **Jelszóval védett bemutatók megnyitása**
+## **Jelszóval védett prezentációk megnyitása**
 
-A nyitó jelszó titkosítja a bemutató tartalmát. A teljes bemutató betöltéséhez adja át a helyes jelszót a LoadOptions.setPassword metódusnak, és adja meg a beállításokat a Presentation konstruktorának. A betöltés hibát jelez, ha a jelszó hiányzik vagy helytelen.
+A nyitó jelszó titkosítja a prezentáció tartalmát. A teljes prezentáció betöltéséhez adja át a helyes jelszót a [LoadOptions.setPassword](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) metódusnak, és adja meg a beállításokat a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) konstruktorának. A betöltés sikertelen, ha a jelszó hiányzik vagy helytelen.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -65,13 +67,13 @@ try {
 }
 ```
 
-A jelszófelismeréssel, érvényesítéssel és titkosítási folyamatokkal kapcsolatban lásd a Jelszóval védett bemutatók oldalt. Ha egy titkosított bemutató tudatosan publikus dokumentumtulajdonságokkal lett mentve, ezek a tulajdonságok jelszó nélkül is olvashatók; lásd a Bemutató tulajdonságok kezelése oldalt.
+A jelszó észleléséhez, validálásához és titkosítási munkafolyamatokhoz lásd a [Password-Protect Presentations](/slides/hu/androidjava/password-protected-presentation/) cikket. Ha egy titkosított prezentációt szándékosan a nyilvános dokumentumtulajdonságokkal mentették, ezek a tulajdonságok jelszó nélkül is olvashatók; lásd a [Manage Presentation Properties](/slides/hu/androidjava/presentation-properties/) cikket.
 
-## **Nagy bemutatók megnyitása**
+## **Nagy prezentációk megnyitása**
 
-A LoadOptions.getBlobManagementOptions visszaadja azokat a beállításokat, amelyek szabályozzák, hogyan kezeli az Aspose.Slides a nagy bináris objektumokat, például képeket, hangot és videót. A forrásfájlt lezárhatja, engedélyezheti az ideiglenes fájlokat, és korlátozhatja a memóriában megtartott BLOB adatok mennyiségét.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) visszaadja azokat a beállításokat, amelyek szabályozzák, hogyan kezeli az Aspose.Slides a bináris nagy objektumokat, mint például a képek, audio és videó. Lehet a forrásfájlt zárolt állapotban tartani, engedélyezni az ideiglenes fájlokat, és korlátozni a memóriában megtartott BLOB adatok mennyiségét.
 
-Az alábbi Java kód bemutatja egy nagy bemutató (például 2 GB) betöltését:
+A következő Java kód bemutatja egy nagy prezentáció (például 2 GB) betöltését:
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -96,14 +98,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-A PresentationLockingBehavior.KeepLocked használatával a forrásfájl zárolt marad, amíg a Presentation példány el nem kerül felszabadításra. Ne mozgassa, írja felül vagy törölje a forrásfájlt, amíg az példány él.
+A [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked) használatával a forrásfájl zárolva marad, amíg a prezentáció példány nem szabadul fel. Ne mozgassa, írja felül vagy törölje a forrásfájlt, amíg az a példány él.
 
-Aspose.Slides a betöltés közben másolhatja egy bemeneti adatfolyam tartalmát. Nagy bemutatók esetén a fájl elérési útja általában hatékonyabb, mint egy adatfolyam. Lásd a BLOB-ok kezelése oldalt a további tárolási és memória-kezelési lehetőségekért.
+Az Aspose.Slides a betöltés során másolhatja a bemeneti adatfolyam tartalmát. Nagy prezentációk esetén a fájl útvonal általában hatékonyabb, mint egy adatfolyam. További tárolási és memória‑kezelési lehetőségekért lásd a [Manage BLOBs](/slides/hu/androidjava/manage-blob/) oldalt.
 {{% /alert %}}
 
-## **Külső erőforrások szabályozása**
+## **Külső erőforrások vezérlése**
 
-A LoadOptions.setResourceLoadingCallback egy IResourceLoadingCallback megvalósítást fogad el. A visszahívás biztosíthat helyettesítő adatot, átirányíthat egy erőforrást, használhatja az alapértelmezett betöltőt, vagy kihagyhatja az erőforrást. Ez akkor hasznos, ha a bemutatók külső képeket tartalmaznak, amelyeket az alkalmazás-specifikus biztonsági vagy tárolási szabályoknak megfelelően kell feloldani.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) egy [IResourceLoadingCallback](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iresourceloadingcallback/) implementációt fogad el. A visszahívás képes helyettesítő adatot biztosítani, egy erőforrást átirányítani, az alapértelmezett betöltőt használni, vagy kihagyni az erőforrást. Ez akkor hasznos, ha a prezentációk külső képeket tartalmaznak, amelyeket az alkalmazás‑specifikus biztonsági vagy tárolási szabályok szerint kell feloldani.
 
 ```java
 import com.aspose.slides.IResourceLoadingArgs;
@@ -147,17 +149,17 @@ try {
 }
 ```
 
-## **Beágyazott bináris objektumok nélküli bemutatók betöltése**
+## **Prezentációk betöltése beágyazott bináris objektumok nélkül**
 
-A bemutató tartalmazhat beágyazott bináris adatokat, amelyekre egy alkalmazásnak nincs szüksége, vagy amelyeket nem kíván megtartani. Példák:
+Egy prezentáció tartalmazhat beágyazott bináris adatokat, amelyekre egy alkalmazásnak nincs szüksége vagy nem kívánja megtartani őket.
 
-- VBA projektek, az IPresentation.getVbaProject metóduson keresztül érhetők el;
-- beágyazott OLE adatok, az IOleEmbeddedDataInfo.getEmbeddedFileData metóduson keresztül;
-- ActiveX vezérlő adatok, az IControl.getActiveXControlBinary metóduson keresztül.
+- VBA projektek, amelyek a [IPresentation.getVbaProject](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#getVbaProject--) segítségével érhetők el;
+- beágyazott OLE adatok, amelyek a [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--) segítségével érhetők el;
+- ActiveX vezérlő adatok, amelyek a [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--) segítségével érhetők el.
 
-Állítsa a LoadOptions.setDeleteEmbeddedBinaryObjects értékét `true`-ra, hogy betöltéskor eltávolítsa ezeket a bináris adatokat. Mentse el a betöltött bemutatót a tisztított eredmény megőrzéséhez.
+Állítsa a [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) értékét `true`‑ra a betöltés során ezeknek a bináris adatoknak az eltávolításához. Mentse el a betöltött prezentációt a tisztított eredmény megőrzéséhez.
 
-Ez a beállítás csökkenti a nem kívánt beágyazott terhek kitettségét, de nem egy teljes rosszindulatú szoftver-felderítő vagy tartalom‑tisztító rendszer.
+Ez a beállítás csökkenti a nem kívánt beágyazott terhek kitettségét, de nem egy teljes rosszindulatú szoftver‑detektáló vagy tartalom‑tisztító rendszer.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -177,14 +179,14 @@ try {
 
 ## **GYIK**
 
-**Hogyan tudom megállapítani, hogy egy fájl sérült és nem nyitható meg?**
+**Hogyan tudhatom meg, hogy egy fájl megsérült és nem nyitható meg?**
 
-Az Aspose.Slides betöltés közben elemzési vagy formátumhibát dob. Kezelje ezt a hibát külön a helytelen jelszó hibától, hogy az alkalmazás pontosan jelenteni tudja a okot.
+Az Aspose.Slides betöltés közben parsing vagy formátum kivételt dob. Kezelje ezt a hibát külön a helytelen jelszó hibától, hogy az alkalmazás pontosan jelentse a okot.
 
 **Mi történik, ha a szükséges betűtípusok hiányoznak?**
 
-A bemutató továbbra is betölthető, de a megjelenítés és az export esetleg helyettesítheti a betűtípusokat. Beállíthatja a betűtípus helyettesítést, vagy megadhat egyedi betűtípusokat, hogy az eredmény előre láthatóbb legyen.
+A prezentáció továbbra is betölthető, de a megjelenítés és export esetleg betűtípus helyettesítést alkalmaz. Beállíthatja a [configure font substitution](/slides/hu/androidjava/font-substitution/) konfigurálását vagy [provide custom fonts](/slides/hu/androidjava/custom-font/) biztosíthatja, hogy az eredmény kiszámíthatóbb legyen.
 
-**Betölt egy bemutató a beágyazott médiáját is?**
+**Betölti a prezentáció a beágyazott médiát is?**
 
-A beágyazott hang és videó a bemutató objektummodelljén keresztül lesz elérhető. A külső erőforrásokat a beállított erőforrás‑betöltési viselkedés szerint oldják fel, és előfordulhat, hogy nem elérhetők, ha azok helyeihez nem fér hozzá.
+A beágyazott audio és videó elérhetővé válik a prezentáció objektummodelljén keresztül. A külső erőforrások a beállított erőforrásbetöltési viselkedés szerint kerülnek feloldásra, és előfordulhat, hogy nem érhetők el, ha a helyeik nem hozzáférhetők.

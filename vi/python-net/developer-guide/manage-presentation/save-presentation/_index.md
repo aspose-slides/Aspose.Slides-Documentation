@@ -1,5 +1,5 @@
 ---
-title: Lưu Bài Thuyết Trình bằng Python
+title: Lưu Bài Thuyết Trình trong Python
 linktitle: Lưu Bài Thuyết Trình
 type: docs
 weight: 80
@@ -12,68 +12,107 @@ keywords:
 - lưu PPT
 - lưu PPTX
 - lưu ODP
-- bài thuyết trình thành tệp
-- bài thuyết trình thành stream
-- kiểu xem được định nghĩa trước
-- định dạng Strict Office Open XML
+- bài thuyết trình tới tệp
+- bài thuyết trình tới luồng
+- kiểu hiển thị được định nghĩa trước
+- định dạng Office Open XML nghiêm ngặt
 - chế độ Zip64
 - làm mới hình thu nhỏ
 - tiến trình lưu
 - Python
 - Aspose.Slides
-description: "Khám phá cách lưu các bài thuyết trình trong Python bằng Aspose.Slides—xuất sang PowerPoint hoặc OpenDocument trong khi giữ nguyên bố cục, phông chữ và hiệu ứng."
+description: "Lưu các bài thuyết trình PowerPoint và OpenDocument vào tệp hoặc luồng trong Python với Aspose.Slides, và cấu hình các tùy chọn đầu ra PPTX."
 ---
 ## **Tổng quan**
 
-[Open a Presentation in Python](/slides/vi/python-net/open-presentation/) mô tả cách sử dụng lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) để mở một bài thuyết trình. Bài viết này giải thích cách tạo và lưu các bài thuyết trình. Lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) chứa nội dung của một bài thuyết trình. Cho dù bạn đang tạo một bài thuyết trình từ đầu hay chỉnh sửa một bài hiện có, bạn sẽ muốn lưu nó khi đã hoàn thành. Với Aspose.Slides for Python, bạn có thể lưu dưới dạng **file** hoặc **stream**. Bài viết này giải thích các cách khác nhau để lưu một bài thuyết trình.
+Sau khi bạn tạo một bài thuyết trình hoặc [mở một bản hiện có](/slides/vi/python-net/open-presentation/), sử dụng phương thức [Presentation.save](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ipresentation/save/) để ghi kết quả. Aspose.Slides for Python via .NET có thể lưu một bài thuyết trình vào tệp hoặc luồng ở các định dạng PowerPoint, OpenDocument, PDF và các định dạng khác. Các phần tiếp theo bao gồm các thao tác lưu chuẩn và các tùy chọn có sẵn cho đầu ra PPTX.
 
 ## **Lưu Bài Thuyết Trình vào Tệp**
 
-Lưu một bài thuyết trình vào tệp bằng cách gọi phương thức `save` của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/). Truyền tên tệp và định dạng lưu vào phương thức. Ví dụ sau đây cho thấy cách lưu một bài thuyết trình bằng Aspose.Slides for Python.
+Để lưu một bài thuyết trình vào tệp, truyền đường dẫn đầu ra và một giá trị [SaveFormat](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/saveformat/) vào phương thức [Presentation.save](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ipresentation/save/). Giá trị định dạng xác định loại tệp mà Aspose.Slides tạo ra.
+
+Ví dụ sau tạo một bài thuyết trình và lưu nó dưới dạng tệp PPTX:
 
 ```py
 import aspose.slides as slides
 
-# Khởi tạo lớp Presentation đại diện cho một tệp bài thuyết trình.
 with slides.Presentation() as presentation:
-    
-    # Thực hiện một số công việc ở đây...
+    # Thêm hoặc sửa đổi nội dung bài thuyết trình ở đây.
 
-    # Lưu bài thuyết trình vào tệp.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Lưu Bài Thuyết Trình vào Stream**
+## **Lưu Bài Thuyết Trình ở Định Dạng Gốc**
 
-Bạn có thể lưu một bài thuyết trình vào stream bằng cách truyền một stream đầu ra vào phương thức `save` của lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/). Một bài thuyết trình có thể được ghi vào nhiều loại stream. Trong ví dụ dưới đây, chúng tôi tạo một bài thuyết trình mới và lưu nó vào một file stream.
+Đối với các ví dụ phát hiện tệp và luồng, hành vi của các bài thuyết trình mới tạo và sự khác biệt giữa định dạng nguồn và định dạng đầu ra, xem [Xác Định Định Dạng Bài Thuyết Trình Gốc](/slides/vi/python-net/detect-presentation-source-format/).
+
+Trong một ứng dụng xử lý hàng loạt, định dạng đầu vào có thể chưa được biết trước. Sau khi tải một tệp, đọc định dạng gốc của nó từ thuộc tính [Presentation.source_format](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/source_format/). Truyền giá trị [SourceFormat](https://reference.aspose.com/slides/vi/python-net/aspose.slides/sourceformat/) nhận được vào [SlideUtil.to_save_format](https://reference.aspose.com/slides/vi/python-net/aspose.slides.util/slideutil/to_save_format/) để có được giá trị [SaveFormat](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/saveformat/) tương ứng, sau đó sử dụng [Presentation.save](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ipresentation/save/) để ghi bài thuyết trình đã sửa đổi.
+
+Ví dụ hoàn chỉnh sau xử lý mọi tệp trong thư mục đầu vào, cập nhật tiêu đề và lưu nó vào thư mục đầu ra ở định dạng mà nó đã được tải:
+
+```py
+from pathlib import Path
+
+import aspose.slides as slides
+from aspose.slides.util import SlideUtil
+
+input_directory = Path("Input")
+output_directory = Path("Output")
+
+output_directory.mkdir(exist_ok=True)
+
+for input_path in input_directory.iterdir():
+    if not input_path.is_file():
+        continue
+
+    try:
+        with slides.Presentation(str(input_path)) as presentation:
+            source_format = presentation.source_format
+            save_format = SlideUtil.to_save_format(source_format)
+
+            presentation.document_properties.title = "Processed by the batch application"
+
+            output_path = output_directory / input_path.name
+            presentation.save(str(output_path), save_format)
+    except Exception as exception:
+        print(f"Cannot process '{input_path}': {exception}")
+```
+
+[SlideUtil.to_save_format](https://reference.aspose.com/slides/vi/python-net/aspose.slides.util/slideutil/to_save_format/) ánh xạ PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP và PowerPoint XML sang các định dạng lưu bài thuyết trình tương ứng. Nó chỉ ánh xạ các định dạng nguồn của bài thuyết trình; không dùng để chọn các định dạng xuất như PDF, HTML, TIFF hoặc hình ảnh. Truyền một giá trị [SourceFormat](https://reference.aspose.com/slides/vi/python-net/aspose.slides/sourceformat/) không hỗ trợ hoặc không hợp lệ sẽ gây ra ngoại lệ.
+
+Các tệp PPT, PPS và POT legacy sử dụng cùng một container nhị phân. Khi một bài thuyết trình như vậy được tải từ luồng mà không có phần mở rộng tệp, một tệp PPS hoặc POT có thể bị xác định là PPT. Nếu cần bảo toàn các kiểu phụ legacy này, hãy giữ lại tên tệp hoặc siêu dữ liệu định dạng gốc riêng và sử dụng chúng khi chọn tên tệp và định dạng đầu ra.
+
+## **Lưu Bài Thuyết Trình vào Luồng**
+
+Để ghi một bài thuyết trình mà không dựa vào đường dẫn tệp cuối cùng, truyền một luồng [BinaryIO](https://docs.python.org/3/library/typing.html#typing.BinaryIO) có thể ghi và một giá trị [SaveFormat](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/saveformat/) vào phương thức [Presentation.save](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ipresentation/save/). Cách tiếp cận này hữu ích khi đầu ra phải được trả về từ một dịch vụ web, lưu trữ trong cơ sở dữ liệu hoặc xử lý trong bộ nhớ.
+
+Ví dụ sau lưu một bài thuyết trình mới vào luồng tệp:
 
 ```py
 import aspose.slides as slides
 
-# Khởi tạo lớp Presentation đại diện cho một tệp bài thuyết trình.
 with slides.Presentation() as presentation:
-    with open("output.pptx", "bw") as file_stream:
-        # Lưu bài thuyết trình vào stream.
-        presentation.save(file_stream, slides.export.SaveFormat.PPTX)
+    with open("Output.pptx", "wb") as output_stream:
+        presentation.save(output_stream, slides.export.SaveFormat.PPTX)
 ```
 
-## **Lưu Bài Thuyết Trình với Kiểu Xem Được Định Nghĩa Trước**
+## **Lưu Bài Thuyết Trình với Kiểu Hiển Thị Được Định Nghĩa Trước**
 
-Aspose.Slides for Python cho phép bạn đặt chế độ xem ban đầu mà PowerPoint sử dụng khi mở bài thuyết trình được tạo thông qua lớp [ViewProperties](https://reference.aspose.com/slides/vi/python-net/aspose.slides/viewproperties/). Đặt thuộc tính `last_view` thành một giá trị trong enumeration [ViewType](https://reference.aspose.com/slides/vi/python-net/aspose.slides/viewtype/).
+Bạn có thể chỉ định chế độ hiển thị mà PowerPoint mở bài thuyết trình đã lưu ban đầu. Đặt thuộc tính [ViewProperties.last_view](https://reference.aspose.com/slides/vi/python-net/aspose.slides/viewproperties/last_view/) thành một giá trị [ViewType](https://reference.aspose.com/slides/vi/python-net/aspose.slides/viewtype/) trước khi lưu.
+
+Ví dụ sau cấu hình chế độ Slide Master làm chế độ hiển thị ban đầu:
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     presentation.view_properties.last_view = slides.ViewType.SLIDE_MASTER_VIEW
-    presentation.save("slide_master_view.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("SlideMasterView.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Lưu Bài Thuyết Trình ở Định Dạng Strict Office Open XML**
+## **Lưu Bài Thuyết Trình ở Định Dạng Office Open XML Nghiêm Ngặt**
 
-Aspose.Slides cho phép bạn lưu một bài thuyết trình ở định dạng Strict Office Open XML. Sử dụng lớp [PptxOptions](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/pptxoptions/) và đặt thuộc tính conformance khi lưu. Nếu bạn đặt `Conformance.ISO_29500_2008_STRICT`, tệp đầu ra sẽ được lưu ở định dạng Strict Office Open XML.
-
-Ví dụ dưới đây tạo một bài thuyết trình và lưu nó ở định dạng Strict Office Open XML.
+Để tạo một tệp PPTX tuân thủ hồ sơ Strict của Office Open XML, tạo một thể hiện [PptxOptions](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/pptxoptions/) và đặt thuộc tính [conformance](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/pptxoptions/conformance/) thành `Conformance.ISO_29500_2008_STRICT`. Sau đó truyền các tùy chọn này vào phương thức [Presentation.save](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ipresentation/save/).
 
 ```py
 import aspose.slides as slides
@@ -81,124 +120,112 @@ import aspose.slides as slides
 options = slides.export.PptxOptions()
 options.conformance = slides.export.Conformance.ISO_29500_2008_STRICT
 
-# Khởi tạo lớp Presentation đại diện cho một tệp bài thuyết trình.
 with slides.Presentation() as presentation:
-    # Lưu bài thuyết trình ở định dạng Strict Office Open XML.
-    presentation.save("strict_office_open_xml.pptx", slides.export.SaveFormat.PPTX, options)
+    presentation.save("StrictOfficeOpenXml.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
 ## **Lưu Bài Thuyết Trình ở Định Dạng Office Open XML ở Chế Độ Zip64**
 
-Tệp Office Open XML là một archive ZIP đặt giới hạn 4 GB (2^32 byte) cho kích thước chưa nén của bất kỳ tệp nào, kích thước đã nén của bất kỳ tệp nào và tổng kích thước của archive, đồng thời giới hạn số tệp trong archive là 65.535 (2^16‑1) tệp. Các phần mở rộng định dạng ZIP64 nâng cao các giới hạn này lên 2^64.
+Một kho lưu ZIP tiêu chuẩn giới hạn kích thước đã nén và chưa nén của mỗi mục, tổng kích thước kho và số mục. Vì một tệp PPTX là một kho ZIP, một bài thuyết trình rất lớn có thể vượt quá các giới hạn này. Các phần mở rộng ZIP64 nâng cao các giới hạn kích thước và số mục áp dụng.
 
-Thuộc tính [PptxOptions.zip_64_mode](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/pptxoptions/zip_64_mode/) cho phép bạn chọn khi nào sử dụng các phần mở rộng định dạng ZIP64 khi lưu tệp Office Open XML.
+Sử dụng thuộc tính [PptxOptions.zip_64_mode](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/pptxoptions/zip_64_mode/) để kiểm soát việc Aspose.Slides ghi phần mở rộng ZIP64:
 
-Thuộc tính này cung cấp các chế độ sau:
+- `IF_NECESSARY` chỉ sử dụng ZIP64 khi bài thuyết trình vượt quá giới hạn ZIP tiêu chuẩn. Đây là chế độ mặc định.
+- `NEVER` tắt phần mở rộng ZIP64.
+- `ALWAYS` luôn luôn ghi phần mở rộng ZIP64.
 
-- `IF_NECESSARY` chỉ sử dụng các phần mở rộng ZIP64 nếu bài thuyết trình vượt quá các giới hạn trên. Đây là chế độ mặc định.
-- `NEVER` không bao giờ sử dụng các phần mở rộng ZIP64.
-- `ALWAYS` luôn luôn sử dụng các phần mở rộng ZIP64.
-
-Mã sau đây minh họa cách lưu một bài thuyết trình dưới dạng tệp PPTX với các phần mở rộng ZIP64 được bật:
+Ví dụ sau luôn bật phần mở rộng ZIP64 cho bài thuyết trình đầu ra:
 
 ```py
 import aspose.slides as slides
 
-pptx_options = slides.export.PptxOptions()
-pptx_options.zip_64_mode = slides.export.Zip64Mode.ALWAYS
+with slides.Presentation("Sample.pptx") as presentation:
+    options = slides.export.PptxOptions()
+    options.zip_64_mode = slides.export.Zip64Mode.ALWAYS
 
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.save("output_zip64.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+    presentation.save("OutputZip64.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Khi bạn lưu với `Zip64Mode.NEVER`, một [PptxException](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pptxexception/) sẽ được ném nếu bài thuyết trình không thể được lưu ở định dạng ZIP32.
+{{% alert color="warning" title="Warning" %}}
+Nếu sử dụng `Zip64Mode.NEVER` và bài thuyết trình không thể vừa trong giới hạn ZIP tiêu chuẩn, thao tác lưu sẽ ném ngoại lệ [PptxException](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pptxexception/).
 {{% /alert %}}
 
-## **Lưu Bài Thuyết Trình ở Định Dạng Office Open XML với Các Mức Nén**
+## **Lưu Bài Thuyết Trình ở Định Dạng Office Open XML với Mức Nén**
 
-Khi làm việc với các bài thuyết trình lớn, bạn có thể điều chỉnh mức nén để cân bằng kích thước tệp và thời gian xử lý. Tùy thuộc vào yêu cầu, bạn có thể ưu tiên xử lý nhanh hơn hoặc tệp đầu ra nhỏ hơn.
+Đối với đầu ra PPTX, bạn có thể cân bằng tốc độ lưu và kích thước tệp bằng cách đặt thuộc tính [PptxOptions.compression_level](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/pptxoptions/compression_level/). Các giá trị trong enum [CompressionLevel](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/compressionlevel/) như sau:
 
-Aspose.Slides cung cấp thuộc tính [PptxOptions.compression_level](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/pptxoptions/compression_level/), cho phép bạn chỉ định mức nén được sử dụng khi lưu một bài thuyết trình ở định dạng Office Open XML.
+- `NONE` lưu dữ liệu mà không nén.
+- `LEVEL1` cung cấp mức nén nhanh nhất và kết quả nén lớn nhất.
+- `LEVEL2` đến `LEVEL5` dần dần ưu tiên đầu ra nhỏ hơn hơn tốc độ lưu.
+- `LEVEL6` cân bằng tốc độ lưu và kích thước tệp. Đây là mức mặc định.
+- `LEVEL7` và `LEVEL8` tiếp tục ưu tiên đầu ra nhỏ hơn hơn tốc độ lưu.
+- `LEVEL9` cung cấp mức nén mạnh nhất và yêu cầu thời gian xử lý lâu nhất.
 
-Các mức nén sau đây khả dụng:
-
-- [**NONE**](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/compressionlevel/): Không áp dụng nén. Các tệp được lưu nguyên trạng.
-- [**LEVEL1**](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/compressionlevel/): Nén nhanh nhất với tỷ lệ nén thấp nhất.
-- [**LEVEL2**](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/compressionlevel/): Nén nhanh hơn với tỷ lệ nén hơi tốt hơn so với **LEVEL1**.
-- [**LEVEL3**](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/compressionlevel/): Cung cấp nén tốt hơn **LEVEL2** với tác động vừa phải đến thời gian xử lý.
-- [**LEVEL4**](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/compressionlevel/): Cung cấp nén tốt hơn **LEVEL3**.
-- [**LEVEL5**](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/compressionlevel/): Cung cấp nén cải thiện hơn **LEVEL4** với thời gian xử lý thêm.
-- [**LEVEL6**](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/compressionlevel/): Nén tiêu chuẩn cung cấp sự cân bằng tốt giữa tốc độ xử lý và kích thước tệp. Đây là *mức nén mặc định*.
-- [**LEVEL7**](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/compressionlevel/): Cung cấp nén tốt hơn **LEVEL6** nhưng xử lý chậm hơn.
-- [**LEVEL8**](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/compressionlevel/): Cung cấp nén tốt hơn **LEVEL7**.
-- [**LEVEL9**](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/compressionlevel/): Nén tối đa. Tạo kích thước tệp nhỏ nhất nhưng tốn thời gian xử lý lâu nhất.
-
-Ví dụ sau đây minh họa cách lưu một bài thuyết trình dưới dạng tệp PPTX *không nén*:
+Ví dụ sau lưu một bài thuyết trình mà không nén:
 
 ```py
 import aspose.slides as slides
 
-pptx_options = slides.export.PptxOptions()
-pptx_options.compression_level = slides.export.CompressionLevel.NONE
+with slides.Presentation("Sample.pptx") as presentation:
+    options = slides.export.PptxOptions()
+    options.compression_level = slides.export.CompressionLevel.NONE
 
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.save("sample_out.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+    presentation.save("OutputNoCompression.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
-Ví dụ này cho thấy cách lưu một bài thuyết trình dưới dạng tệp PPTX với *nén tối đa*:
+Ví dụ sau sử dụng mức nén tối đa:
 
 ```py
 import aspose.slides as slides
 
-pptx_options = slides.export.PptxOptions()
-pptx_options.compression_level = slides.export.CompressionLevel.LEVEL9
+with slides.Presentation("Sample.pptx") as presentation:
+    options = slides.export.PptxOptions()
+    options.compression_level = slides.export.CompressionLevel.LEVEL9
 
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.save("sample_level9.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+    presentation.save("OutputMaximumCompression.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
 ## **Lưu Bài Thuyết Trình mà Không Làm Mới Hình Thu Nhỏ**
 
-Thuộc tính [PptxOptions.refresh_thumbnail](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/pptxoptions/refresh_thumbnail/) kiểm soát việc tạo hình thu nhỏ khi lưu một bài thuyết trình thành PPTX:
+Khi một bài thuyết trình được lưu dưới dạng PPTX, thuộc tính [PptxOptions.refresh_thumbnail](https://reference.aspose.com/slides/vi/python-net/aspose.slides.export/pptxoptions/refresh_thumbnail/) điều khiển hình thu nhỏ tài liệu:
 
-- Nếu đặt thành `True`, hình thu nhỏ sẽ được làm mới trong quá trình lưu. Đây là mặc định.
-- Nếu đặt thành `False`, hình thu nhỏ hiện tại sẽ được giữ nguyên. Nếu bài thuyết trình không có hình thu nhỏ, sẽ không tạo hình thu nhỏ nào.
+- `True` tạo lại hình thu nhỏ trong quá trình lưu. Đây là giá trị mặc định.
+- `False` giữ nguyên hình thu nhỏ hiện tại. Nếu bài thuyết trình không có hình thu nhỏ, Aspose.Slides sẽ không tạo mới.
 
-Trong đoạn mã dưới đây, bài thuyết trình được lưu dưới dạng PPTX mà không làm mới hình thu nhỏ của nó.
+Ví dụ sau lưu một bài thuyết trình mà không làm mới hình thu nhỏ của nó:
 
 ```py
 import aspose.slides as slides
 
-pptx_options = slides.export.PptxOptions()
-pptx_options.refresh_thumbnail = False
+with slides.Presentation("Sample.pptx") as presentation:
+    options = slides.export.PptxOptions()
+    options.refresh_thumbnail = False
 
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+    presentation.save("Output.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
-{{% alert title="Info" color="info" %}}
-Tùy chọn này giúp giảm thời gian cần thiết để lưu một bài thuyết trình ở định dạng PPTX.
+{{% alert color="info" title="Note" %}}
+Vô hiệu hoá việc làm mới hình thu nhỏ có thể giảm thời gian cần thiết để lưu một tệp PPTX.
 {{% /alert %}}
 
-{{% alert title="Info" color="info" %}}
-Aspose đã phát triển một [ứng dụng Splitter PowerPoint miễn phí](https://products.aspose.app/slides/vi/splitter) sử dụng API của mình. Ứng dụng cho phép bạn chia một bài thuyết trình thành nhiều tệp bằng cách lưu các slide đã chọn dưới dạng tệp PPTX hoặc PPT mới.
+{{% alert color="info" title="Note" %}}
+Aspose cung cấp một công cụ [PowerPoint Splitter](https://products.aspose.app/slides/vi/splitter) miễn phí được xây dựng bằng API Aspose.Slides. Nó lưu các slide đã chọn từ một bài thuyết trình thành các tệp PPT hoặc PPTX riêng biệt.
 {{% /alert %}}
 
-## **Câu hỏi thường gặp**
+## **CÂU HỎI THƯỜNG GẶP**
 
-**Có hỗ trợ "lưu nhanh" (lưu tăng dần) để chỉ ghi những thay đổi không?**
+**Aspose.Slides có hỗ trợ lưu tăng dần hoặc “lưu nhanh” không?**
 
-Không. Khi lưu, mỗi lần tạo ra một tệp đích đầy đủ; tính năng "lưu nhanh" tăng dần không được hỗ trợ.
+Không. Mỗi thao tác lưu sẽ ghi một tệp đầu ra hoàn chỉnh thay vì chỉ cập nhật các phần đã thay đổi.
 
-**Có an toàn đa luồng khi lưu cùng một instance Presentation từ nhiều luồng không?**
+**Nhiều luồng có thể lưu cùng một thể hiện Presentation không?**
 
-Không. Một instance [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) [không an toàn đa luồng](/slides/vi/python-net/multithreading/); hãy lưu từ một luồng duy nhất.
+Không. Một thể hiện [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) [không an toàn với đa luồng](/slides/vi/python-net/multithreading/). Truy cập và lưu mỗi thể hiện chỉ từ một luồng tại một thời điểm.
 
-**Điều gì xảy ra với các siêu liên kết và tệp liên kết bên ngoài khi lưu?**
+**Điều gì xảy ra với các siêu liên kết và tệp liên kết bên ngoài khi tôi lưu một bài thuyết trình?**
 
-[Hyperlinks](/slides/vi/python-net/manage-hyperlinks/) được giữ nguyên. Các tệp liên kết bên ngoài (ví dụ: video qua đường dẫn tương đối) không được sao chép tự động — hãy đảm bảo các đường dẫn tham chiếu vẫn có thể truy cập.
+[Hyperlinks](/slides/vi/python-net/manage-hyperlinks/) vẫn còn trong bài thuyết trình. Aspose.Slides không sao chép các tệp liên kết bên ngoài, vì vậy bài thuyết trình đã lưu vẫn phải có khả năng truy cập tới vị trí của chúng.
 
-**Tôi có thể đặt/lưu siêu dữ liệu tài liệu (Tác giả, Tiêu đề, Công ty, Ngày) không?**
+**Tôi có thể lưu siêu dữ liệu tài liệu như tác giả, tiêu đề, công ty và ngày tạo không?**
 
-Có. Các [thuộc tính tài liệu](/slides/vi/python-net/presentation-properties/) tiêu chuẩn được hỗ trợ và sẽ được ghi vào tệp khi lưu.
+Có. Đặt các [document properties](/slides/vi/python-net/presentation-properties/) phù hợp trước khi lưu, và Aspose.Slides sẽ ghi chúng vào tệp đầu ra.

@@ -1,0 +1,291 @@
+---
+title: Ermitteln des ursprünglichen Präsentationsformats in Java
+linktitle: Quellformat
+type: docs
+weight: 35
+url: /de/java/detect-presentation-source-format/
+keywords:
+- Quellformat
+- Präsentationsformat erkennen
+- PowerPoint
+- OpenDocument
+- Präsentation
+- PPT
+- PPTX
+- Java
+- Aspose.Slides
+description: "Lesen Sie das ursprüngliche Format einer geladenen Präsentation in Java mit Aspose.Slides für Java, vergleichen Sie Erkennungs-APIs und verarbeiten Sie Dateien, Streams und Legacy-Formate."
+---
+## **Übersicht**
+
+After loading a presentation, call the [Presentation.getSourceFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/#getSourceFormat--) method to determine its original format. The method is also available through [IPresentation.getSourceFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipresentation/#getSourceFormat--). Use it when subsequent processing depends on the format from which the current instance was loaded.
+
+The source format is distinct from the [SaveFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/saveformat/) selected for an output file. Saving to another format does not change the source format of the existing instance.
+
+## **Quellformat einer Datei lesen**
+
+This example requires an existing `sample.pptx` file. It loads the file and selects an application processing policy using [Presentation.getSourceFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/#getSourceFormat--), rather than the filename. Change the input path to try other formats. The example prints the selected policy; replace the messages with your application logic.
+
+```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SourceFormat;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    switch (presentation.getSourceFormat()) {
+        case SourceFormat.Ppt:
+        case SourceFormat.Pps:
+        case SourceFormat.Pot:
+            System.out.println("Use the legacy PowerPoint processing policy.");
+            break;
+        case SourceFormat.Pptx:
+            System.out.println("Use the standard PPTX processing policy.");
+            break;
+        default:
+            System.out.println("Use the general policy for source format " + presentation.getSourceFormat() + ".");
+            break;
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Erkennen der unterstützten Werte**
+
+The [SourceFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/sourceformat/) class defines integer constants that distinguish the following presentation formats. The extensions below are conventional extensions, not a reconstruction of the original filename.
+
+| SourceFormat-Wert | Erweiterung | Format |
+| --- | --- | --- |
+| `Ppt` | `.ppt` | PowerPoint‑97‑2003‑Präsentation |
+| `Pptx` | `.pptx` | Office Open XML‑Präsentation |
+| `Pptm` | `.pptm` | Makro‑aktivierte Office Open XML‑Präsentation |
+| `Pps` | `.pps` | PowerPoint‑97‑2003‑Bildschirmpräsentation |
+| `Ppsx` | `.ppsx` | Office Open XML‑Bildschirmpräsentation |
+| `Ppsm` | `.ppsm` | Makro‑aktivierte Office Open XML‑Bildschirmpräsentation |
+| `Pot` | `.pot` | PowerPoint‑97‑2003‑Vorlage |
+| `Potx` | `.potx` | Office Open XML‑Vorlage |
+| `Potm` | `.potm` | Makro‑aktivierte Office Open XML‑Vorlage |
+| `Odp` | `.odp` | OpenDocument‑Präsentation |
+| `Otp` | `.otp` | OpenDocument‑Präsentationsvorlage |
+| `Fodp` | `.fodp` | Flat‑XML‑ODF‑Präsentation |
+| `Xml` | `.xml` | PowerPoint‑XML‑Präsentation |
+
+## **Quellformat eines Streams auslesen**
+
+This example requires an existing `sample.pps` file. Reading its bytes into a memory stream models input received without a filename, such as a database value or an uploaded byte array. The [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/) constructor receives only the stream.
+
+```java
+import com.aspose.slides.Presentation;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+try {
+    byte[] bytes = Files.readAllBytes(Paths.get("sample.pps"));
+    try (ByteArrayInputStream stream = new ByteArrayInputStream(bytes)) {
+        Presentation presentation = new Presentation(stream);
+        try {
+            System.out.println("Source format: " + presentation.getSourceFormat());
+        } finally {
+            presentation.dispose();
+        }
+    }
+} catch (IOException exception) {
+    System.err.println("Cannot read the presentation: " + exception.getMessage());
+}
+```
+
+PPT, PPS, and POT use the same underlying binary format. When loading by file path, the extension can help distinguish a slide show or template. Without a filename, legacy PPS and POT content may be reported as `SourceFormat.Ppt`; the PPS example above prints the integer value of `SourceFormat.Ppt`.
+
+If your application must preserve the distinction, keep the original filename or subtype metadata separately. An extension is a useful hint for these legacy subtypes, but should not be the only basis for identifying arbitrary presentation content.
+
+## **Erkennung vor und nach dem Laden vergleichen**
+
+Use [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) and [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipresentationinfo/#getLoadFormat--) when you need to inspect a file before loading its complete presentation object model. Use [Presentation.getSourceFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/#getSourceFormat--) when the instance already exists.
+
+This example requires `sample.pptx` and prints the integer values of `LoadFormat.Pptx` and `SourceFormat.Pptx`, respectively. In production, choose the API appropriate to your processing stage; an already loaded presentation does not need a second inspection solely to obtain its source format.
+
+```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+
+String path = "sample.pptx";
+IPresentationInfo information = PresentationFactory.getInstance().getPresentationInfo(path);
+System.out.println("Before loading: " + information.getLoadFormat());
+
+Presentation presentation = new Presentation(path);
+try {
+    System.out.println("After loading: " + presentation.getSourceFormat());
+} finally {
+    presentation.dispose();
+}
+```
+
+The results use constants from different classes: [LoadFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/loadformat/) and [SourceFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/sourceformat/). Do not compare their numeric values or assume that every format has identical detection results. PowerPoint XML can be reported as `LoadFormat.Unknown` before loading and `SourceFormat.Xml` after loading.
+
+## **Quell‑ und Ausgabeformate getrennt halten**
+
+This example requires `sample.pptx` and writes `converted.odp`. It prints the integer value of `SourceFormat.Pptx` both before and after saving the original instance. Only the new instance loaded from the ODP output reports `Odp`.
+
+```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    System.out.println("Before saving: " + presentation.getSourceFormat());
+
+    presentation.save("converted.odp", SaveFormat.Odp);
+    System.out.println("After saving: " + presentation.getSourceFormat());
+
+    Presentation reopened = new Presentation("converted.odp");
+    try {
+        System.out.println("Reopened output: " + reopened.getSourceFormat());
+    } finally {
+        reopened.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+A presentation created from scratch with `new Presentation()` reports `SourceFormat.Pptx`. It has no input file: this is the default value for a newly created instance, not evidence that a PPTX file was loaded. Track whether your application created or loaded the instance separately if that distinction matters.
+
+## **Ein Quellformat einer Erweiterung zuordnen**
+
+The following example requires `sample.pptx`. It maps every currently supported [SourceFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/sourceformat/) value to a conventional extension, without parsing the input filename. The fallback avoids silently assigning an extension to an unrecognized value.
+
+```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SourceFormat;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    String extension;
+    switch (presentation.getSourceFormat()) {
+        case SourceFormat.Ppt:
+            extension = ".ppt";
+            break;
+        case SourceFormat.Pptx:
+            extension = ".pptx";
+            break;
+        case SourceFormat.Pptm:
+            extension = ".pptm";
+            break;
+        case SourceFormat.Pps:
+            extension = ".pps";
+            break;
+        case SourceFormat.Ppsx:
+            extension = ".ppsx";
+            break;
+        case SourceFormat.Ppsm:
+            extension = ".ppsm";
+            break;
+        case SourceFormat.Pot:
+            extension = ".pot";
+            break;
+        case SourceFormat.Potx:
+            extension = ".potx";
+            break;
+        case SourceFormat.Potm:
+            extension = ".potm";
+            break;
+        case SourceFormat.Odp:
+            extension = ".odp";
+            break;
+        case SourceFormat.Otp:
+            extension = ".otp";
+            break;
+        case SourceFormat.Fodp:
+            extension = ".fodp";
+            break;
+        case SourceFormat.Xml:
+            extension = ".xml";
+            break;
+        default:
+            extension = null;
+            break;
+    }
+
+    System.out.println(extension != null ? extension : "No extension mapping is available.");
+} finally {
+    presentation.dispose();
+}
+```
+
+This mapping does not convert a file or recover a legacy PPS/POT subtype lost during stream loading. For actual saving, select a [SaveFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/saveformat/) explicitly, or use the conversion shown in [Save Presentations in Their Original Format](/slides/de/java/save-presentation/#save-presentations-in-their-original-format).
+
+## **Formate durch Speichern und erneutes Öffnen prüfen**
+
+This self-contained example creates a presentation and writes three files in the working directory, overwriting files with the same names. It reopens each output both by path and through a memory stream. For PPTX and ODP, both routes report the saved format. For PPS, loading by path reports `Pps`, while loading the same bytes without a filename reports `Ppt`.
+
+```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
+try {
+    int[] formats = { SaveFormat.Pptx, SaveFormat.Odp, SaveFormat.Pps };
+    String[] extensions = { "pptx", "odp", "pps" };
+
+    for (int i = 0; i < formats.length; i++) {
+        String path = "roundtrip." + extensions[i];
+        presentation.save(path, formats[i]);
+
+        Presentation fromFile = new Presentation(path);
+        try {
+            byte[] bytes = Files.readAllBytes(Paths.get(path));
+            try (ByteArrayInputStream stream = new ByteArrayInputStream(bytes)) {
+                Presentation fromStream = new Presentation(stream);
+                try {
+                    System.out.println(extensions[i] + ": file=" + fromFile.getSourceFormat() + ", stream=" + fromStream.getSourceFormat());
+                } finally {
+                    fromStream.dispose();
+                }
+            }
+        } finally {
+            fromFile.dispose();
+        }
+    }
+} catch (IOException exception) {
+    System.err.println("Cannot read a saved presentation: " + exception.getMessage());
+} finally {
+    presentation.dispose();
+}
+```
+
+The following table summarizes source-format identification for presentations with matching extensions. Names denote constants; the Java examples print their integer values:
+
+| Gespeichertes Format | SourceFormat aus einem Dateipfad | SourceFormat aus einem namenlosen Stream |
+| --- | --- | --- |
+| PPT | `Ppt` | `Ppt` |
+| PPTX, PPTM | `Pptx`, `Pptm` jeweils | Wie Dateipfad |
+| PPS | `Pps` | `Ppt` |
+| PPSX, PPSM | `Ppsx`, `Ppsm` jeweils | Wie Dateipfad |
+| POT | `Pot` | `Ppt` |
+| POTX, POTM | `Potx`, `Potm` jeweils | Wie Dateipfad |
+| ODP, OTP | `Odp`, `Otp` jeweils | Wie Dateipfad |
+| FODP | `Fodp` | `Fodp` |
+| PowerPoint XML | `Xml` | `Xml` |
+
+PPS-/POT‑Content wird für namenlose Streams als `Ppt` identifiziert. Die Tabelle beschreibt die Formatidentifizierung, nicht die Erhaltung aller Präsentationsfunktionen während der Konvertierung.
+
+## **FAQ**
+
+**Ändert das Speichern im ODP-Format das Quellformat einer aus PPTX geladenen Präsentation?**
+
+No. The existing instance still reports `Pptx`. An instance loaded from the saved ODP file reports `Odp`.
+
+**Kann ein Stream stets zwischen einer Legacy‑Präsentation, einer Bildschirmpräsentation und einer Vorlage unterscheiden?**
+
+No. PPT, PPS, and POT share the binary format. Keep filename or subtype metadata separately when that distinction is required.
+
+**Welche API sollte ich verwenden, wenn die Präsentation bereits geladen ist?**
+
+Read [Presentation.getSourceFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/#getSourceFormat--). Use [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) for inspection before loading.

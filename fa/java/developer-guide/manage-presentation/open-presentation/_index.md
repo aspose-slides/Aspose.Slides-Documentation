@@ -17,22 +17,24 @@ keywords:
 - ارائه محافظت‌شده
 - ارائه بزرگ
 - منبع خارجی
-- شی باینری
+- شیء باینری
 - جاوا
 - Aspose.Slides
-description: "یاد بگیرید چگونه ارائه‌های PowerPoint و OpenDocument را در جاوا باز کنید، رمزهای عبور باز کردن را فراهم کنید، بارگذاری منابع را کنترل کنید و با Aspose.Slides برای جاوا مصرف حافظه را کاهش دهید."
+description: "یاد بگیرید چطور در جاوا ارائه‌های PowerPoint و OpenDocument را باز کنید، رمزهای عبور باز کردن را فراهم کنید، بارگذاری منابع را کنترل کنید و مصرف حافظه را با Aspose.Slides برای جاوا کاهش دهید."
 ---
 ## **مقدمه**
 
-[Aspose.Slides for Java](https://products.aspose.com/slides/fa/java/) می‌تواند ارائه‌های PowerPoint و OpenDocument را از فایل‌ها و جریان‌ها بارگذاری کند. پس از بارگذاری یک ارائه، می‌توانید ساختار آن را بررسی کنید، اسلایدها را ویرایش کنید، منابع را مدیریت کنید و آن را در فرمت اصلی یا فرمت پشتیبانی‌شده دیگری ذخیره کنید.
+[Aspose.Slides برای Java](https://products.aspose.com/slides/fa/java/) می‌تواند ارائه‌های PowerPoint و OpenDocument را از فایل‌ها و جریان‌ها بارگذاری کند. پس از بارگذاری یک ارائه، می‌توانید ساختار آن را بررسی کنید، اسلایدها را ویرایش کنید، منابع را مدیریت کنید و آن را در قالب اصلی یا قالب پشتیبانی شده دیگر ذخیره کنید.
 
-رفتار بارگذاری می‌تواند از طریق کلاس [LoadOptions](https://reference.aspose.com/slides/fa/java/com.aspose.slides/loadoptions/) سفارشی شود. به عنوان مثال، می‌توانید رمز عبور باز کردن را فراهم کنید، اشیای بایناری بزرگ را خارج از حافظه heap جاوا نگه دارید، منابع خارجی را کنترل کنید یا داده‌های بایناری جاسازی‌شده را حذف کنید.
+رفتار بارگذاری می‌تواند از طریق کلاس [LoadOptions](https://reference.aspose.com/slides/fa/java/com.aspose.slides/loadoptions/) سفارشی شود. برای مثال، می‌توانید رمز عبور باز کردن را فراهم کنید، اشیای باینری بزرگ را خارج از حافظه هِپ Java نگه دارید، منابع خارجی را کنترل کنید یا داده‌های باینری جاسازی‌شده را حذف کنید.
 
 ## **باز کردن ارائه‌ها**
 
-برای باز کردن یک ارائه موجود، مسیر فایل آن را به سازندهٔ [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) بدهید. پس از استفاده، ارائه را آزاد (Dispose) کنید تا دستگیره‌های فایل، داده‌های موقت و سایر منابع به‌سرعت آزاد شوند.
+پس از بارگذاری یک فایل یا جریان، می‌توانید [فرمت اصلی ارائه را تشخیص دهید](/slides/fa/java/detect-presentation-source-format/) تا نحوه پردازش آن توسط برنامه‌تان را انتخاب کنید.
 
-مثال زیر در Java نشان می‌دهد چگونه یک ارائه را باز کنید و تعداد اسلایدهای آن را به‌دست آورید:
+برای باز کردن یک ارائه موجود، مسیر فایل آن را به سازنده [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) پاس دهید. پس از استفاده، ارائه را آزاد کنید تا دسته‌های فایل، داده‌های موقت و سایر منابع به سرعت آزاد شوند.
+
+مثال زیر در Java نشان می‌دهد چگونه یک ارائه را باز کنید و تعداد اسلایدهای آن را دریافت کنید:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -47,7 +49,7 @@ try {
 
 ## **باز کردن ارائه‌های محافظت‌شده با رمز عبور**
 
-یک رمز عبور باز کردن محتویات ارائه را رمزگذاری می‌کند. برای بارگذاری کامل ارائه، رمز عبور صحیح را به [LoadOptions.setPassword](https://reference.aspose.com/slides/fa/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) بدهید و گزینه‌ها را به سازندهٔ [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ارائه کنید. اگر رمز عبور موجود نباشد یا نادرست باشد، بارگذاری شکست می‌خورد.
+یک رمز عبور باز کردن، محتوای ارائه را رمزگذاری می‌کند. برای بارگذاری کامل ارائه، رمز درست را به متد [LoadOptions.setPassword](https://reference.aspose.com/slides/fa/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) پاس دهید و گزینه‌ها را به سازنده [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) بدهید. اگر رمز عبور غائب یا نادرست باشد، بارگذاری با شکست مواجه می‌شود.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -64,13 +66,13 @@ try {
 }
 ```
 
-برای شناسایی، اعتبارسنجی و جریان‌های کاری رمزگذاری، به [Password-Protect Presentations](/slides/fa/java/password-protected-presentation/) مراجعه کنید. اگر یک ارائه رمزگذاری‌شده عمدتاً با ویژگی‌های عمومی سند ذخیره شده باشد، می‌توان این ویژگی‌ها را بدون رمز عبور خواند؛ به [Manage Presentation Properties](/slides/fa/java/presentation-properties/) نگاه کنید.
+برای تشخیص رمز عبور، اعتبارسنجی و جریان‌های کاری رمزنگاری، به صفحه [Password-Protect Presentations](/slides/fa/java/password-protected-presentation/) مراجعه کنید. اگر یک ارائه رمزگذاری‌شده عمداً با ویژگی‌های عمومی سند ذخیره شده باشد، می‌توان این ویژگی‌ها را بدون رمز عبور خواند؛ برای جزئیات به [Manage Presentation Properties](/slides/fa/java/presentation-properties/) نگاه کنید.
 
 ## **باز کردن ارائه‌های بزرگ**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/fa/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) گزینه‌هایی را برمی‌گرداند که نحوهٔ مدیریت اشیای بایناری بزرگ (BLOB) مانند تصاویر، صدا و ویدئو توسط Aspose.Slides را کنترل می‌کند. می‌توانید فایل منبع را قفل نگه دارید، فایل‌های موقت را مجاز کنید و مقدار داده‌های BLOB نگهداری‌شده در حافظه را محدود کنید.
+متد [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/fa/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) گزینه‌هایی را برمی‌گرداند که کنترل می‌کند Aspose.Slides چگونه اشیای باینری بزرگ مانند تصویر، صدا و ویدئو را مدیریت می‌کند. می‌توانید فایل منبع را قفل نگه دارید، فایل‌های موقت را اجازه دهید و مقدار داده‌های BLOB نگه‌داشته‌شده در حافظه را محدود کنید.
 
-کد زیر در Java نحوه بارگذاری یک ارائه بزرگ (مثلاً ۲ گیگابایت) را نشان می‌دهد:
+کد زیر در Java نحوه بارگذاری یک ارائه بزرگ (به عنوان مثال ۲ گیگابایت) را نشان می‌دهد:
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -95,14 +97,13 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-با استفاده از [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked)، فایل منبع تا زمانی که نمونهٔ ارائه آزاد (Dispose) نشود، قفل می‌ماند. هنگام زنده بودن آن نمونه، فایل منبع را جابه‌جا، بازنویسی یا حذف نکنید.
-
-Aspose.Slides ممکن است محتویات یک جریان ورودی را هنگام بارگذاری کپی کند. برای ارائه‌های بزرگ، مسیربندی فایل به‌طور کلی کارآمدتر از یک جریان است. برای گزینه‌های اضافی ذخیره‌سازی و مدیریت حافظه به [Manage BLOBs](/slides/fa/java/manage-blob/) مراجعه کنید.
+با استفاده از [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked)، فایل منبع تا زمان آزادسازی شیء ارائه قفل می‌ماند. در حین وجود این شیء، فایل منبع را جابه‌جا، بازنویسی یا حذف نکنید.
+Aspose.Slides ممکن است محتویات یک جریان ورودی را در حین بارگذاری کپی کند. برای ارائه‌های بزرگ، مسیر فایل عموماً کارآمدتر از یک جریان است. برای گزینه‌های اضافی ذخیره‌سازی و مدیریت حافظه به صفحه [Manage BLOBs](/slides/fa/java/manage-blob/) مراجعه کنید.
 {{% /alert %}}
 
 ## **کنترل منابع خارجی**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/fa/java/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) یک پیاده‌سازی از [IResourceLoadingCallback](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iresourceloadingcallback/) را می‌پذیرد. این callback می‌تواند داده‌های جایگزین فراهم کند، منبعی را باز مسیردهی کند، از بارگذار پیش‌فرض استفاده کند یا منبع را نادیده بگیرد. این هنگامیکه ارائه‌ها شامل تصاویر خارجی باشند که باید بر اساس قوانین امنیتی یا ذخیره‌سازی خاص برنامه حل شوند، مفید است.
+متد [LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/fa/java/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) یک پیاده‌سازی از [IResourceLoadingCallback](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iresourceloadingcallback/) را می‌پذیرد. این بازگردانی می‌تواند داده‌های جایگزین فراهم کند، منبعی را تغییر مسیر دهد، از لودر پیش‌فرض استفاده کند یا منبع را نادیده بگیرد. این مورد زمانی مفید است که ارائه‌ها شامل تصاویر خارجی باشند که باید مطابق قوانین امنیتی یا ذخیره‌سازی خاص برنامه حل شوند.
 
 ```java
 import com.aspose.slides.IResourceLoadingArgs;
@@ -146,17 +147,17 @@ try {
 }
 ```
 
-## **بارگذاری ارائه‌ها بدون اشیای بایناری جاسازی‌شده**
+## **بارگذاری ارائه‌ها بدون اشیای باینری جاسازی‌شده**
 
-یک ارائه ممکن است داده‌های بایناری جاسازی‌شده‌ای داشته باشد که برنامه به آنها نیاز ندارد یا نمی‌خواهد آنها را نگه دارد. نمونه‌ها عبارتند از:
+یک ارائه ممکن است شامل داده‌های باینری جاسازی‌شده باشد که برنامه نیازی به آن ندارد یا نمی‌خواهد آنها را نگه دارد. مثال‌ها شامل:
 
-- پروژه‌های VBA، که از طریق [IPresentation.getVbaProject](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentation/#getVbaProject--) در دسترس هستند؛
-- داده‌های OLE جاسازی‌شده، که از طریق [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--) در دسترس هستند؛
-- داده‌های کنترل ActiveX، که از طریق [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icontrol/#getActiveXControlBinary--) در دسترس هستند.
+- پروژه‌های VBA که از طریق [IPresentation.getVbaProject](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentation/#getVbaProject--) در دسترس هستند؛
+- داده‌های OLE جاسازی‌شده که از طریق [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--) در دسترس هستند؛
+- داده‌های کنترل ActiveX که از طریق [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icontrol/#getActiveXControlBinary--) در دسترس هستند.
 
-برای حذف این داده‌های بایناری هنگام بارگذاری، [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/fa/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) را روی `true` تنظیم کنید. پس از بارگذاری، ارائه را ذخیره کنید تا نتیجهٔ پاک‌سازی‌شده حفظ شود.
+[LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/fa/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) را روی `true` تنظیم کنید تا این داده‌های باینری در هنگام بارگذاری حذف شوند. ارائه بارگذاری‌شده را ذخیره کنید تا نتیجه پاک‌سازی شده حفظ شود.
 
-این گزینه معرض حملات مخرب جاسازی‌شده ناخواسته را کاهش می‌دهد، اما یک سامانهٔ کامل کشف بدافزار یا پاک‌سازی محتوا نیست.
+این گزینه خطر مواجهه با بارگذاری‌های ناخواسته جاسازی‌شده را کاهش می‌دهد، اما یک سیستم کامل تشخیص بدافزار یا پاک‌سازی محتوا نیست.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -176,14 +177,14 @@ try {
 
 ## **سوالات متداول**
 
-**چگونه می‌توانم تشخیص دهم که یک فایل خراب است و نمی‌تواند باز شود؟**
+**چگونه می‌توانم تشخیص دهم که یک فایل خراب است و نمی‌توان آن را باز کرد؟**
 
-Aspose.Slides هنگام بارگذاری یک استثنای تجزیه یا فرمت پرتاب می‌کند. این شکست را جدا از خطای رمز عبور نادرست مدیریت کنید تا برنامه بتواند دلیل را به‌دقت گزارش دهد.
+Aspose.Slides در هنگام بارگذاری استثناهای تجزیه یا قالب را پرتاب می‌کند. این شکست را جدا از خطای رمز عبور نادرست مدیریت کنید تا برنامه بتواند دلیل را دقیقاً گزارش دهد.
 
-**اگر فونت‌های مورد نیاز موجود نباشند چه می‌شود؟**
+**اگر قلم‌های لازم موجود نباشند چه می‌شود؟**
 
-ارائه همچنان می‌تواند بارگذاری شود، اما رندرینگ و خروجی ممکن است فونت‌ها را جایگزین کند. می‌توانید [configure font substitution](/slides/fa/java/font-substitution/) یا [provide custom fonts](/slides/fa/java/custom-font/) را برای پیش‌بینی بهتر خروجی تنظیم کنید.
+ارائه می‌تواند هنوز بارگذاری شود، اما رندرینگ و خروجی ممکن است قلم‌ها را جایگزین کند. می‌توانید [پیکربندی جایگزینی قلم](/slides/fa/java/font-substitution/) یا [ارائه قلم‌های سفارشی](/slides/fa/java/custom-font/) را انجام دهید تا خروجی پیش‌بینی‌پذیرتر باشد.
 
-**آیا بارگذاری یک ارائه همچنین رسانه‌های جاسازی‌شده آن را بارگذاری می‌کند؟**
+**آیا بارگذاری یک ارائه، رسانه‌های جاسازی‌شده آن را نیز بارگذاری می‌کند؟**
 
-صوت و ویدئوی جاسازی‌شده از طریق مدل شیء ارائه در دسترس می‌شوند. منابع خارجی بر اساس رفتار پیکربندی‌شدهٔ بارگذاری منابع حل می‌شوند و ممکن است در صورتی که مکان‌هایشان قابل دسترسی نباشد، در دسترس نباشند.
+صوت و ویدئوهای جاسازی‌شده از طریق مدل شیء ارائه در دسترس می‌شوند. منابع خارجی بر اساس رفتار تنظیم‌شده بارگذاری منابع حل می‌شوند و در صورت عدم دسترسی به مکان‌های آنها ممکن است در دسترس نباشند.

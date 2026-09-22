@@ -12,254 +12,286 @@ keywords:
 - 儲存 PPT
 - 儲存 PPTX
 - 儲存 ODP
-- 簡報至檔案
-- 簡報至串流
+- 簡報存檔
+- 簡報串流
 - 預先定義的檢視類型
-- 嚴格 Office Open XML 格式
+- 嚴格的 Office Open XML 格式
 - Zip64 模式
 - 重新整理縮圖
 - 儲存進度
 - .NET
 - C#
 - Aspose.Slides
-description: "了解如何在 .NET 使用 Aspose.Slides 儲存簡報──匯出至 PowerPoint 或 OpenDocument，同時保留版面配置、字型與效果。"
+description: "使用 Aspose.Slides for .NET 於 C# 中將 PowerPoint 與 OpenDocument 簡報儲存為檔案或串流，並設定 PPTX 輸出與進度回報。"
 ---
-## **概覽**
+## **概觀**
 
-[Open Presentations in C#](/slides/zh-hant/net/open-presentation/) 介紹了如何使用 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 類別開啟簡報。本篇文章說明如何建立與儲存簡報。[Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 類別包含簡報的內容。無論是從頭建立簡報或是修改現有簡報，完成後都需要儲存。使用 Aspose.Slides for .NET，您可以儲存為 **file** 或 **stream**。本篇文章說明儲存簡報的各種方式。
+在您建立簡報或[開啟現有簡報](/slides/zh-hant/net/open-presentation/)之後，使用[Presentation.Save](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/save/) 方法寫入結果。Aspose.Slides for .NET 可以將簡報儲存為檔案或串流，支援 PowerPoint、OpenDocument、PDF 以及其他格式。以下各節說明標準的儲存操作以及 PPTX 輸出的可用選項。
 
-## **將簡報儲存為檔案**
+## **將簡報儲存至檔案**
 
-透過呼叫 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 類別的 `Save` 方法即可將簡報儲存為檔案。將檔名與儲存格式傳遞給該方法。以下範例示範如何使用 Aspose.Slides 儲存簡報。
+若要將簡報儲存為檔案，請將輸出路徑和一個[SaveFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/saveformat/) 值傳遞給 [Presentation.Save](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/save/) 方法。格式值決定 Aspose.Slides 產生的檔案類型。
+
+下面的範例建立一個簡報並將其儲存為 PPTX 檔案：
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// 實例化代表簡報檔案的 Presentation 類別。
-using (Presentation presentation = new Presentation())
-{
-    // 在此執行一些操作...
+using var presentation = new Presentation();
 
-    // 將簡報儲存至檔案。
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+// Add or modify presentation content here.
+
+presentation.Save("Output.pptx", SaveFormat.Pptx);
 ```
 
-## **將簡報儲存為串流**
+## **以原始格式儲存簡報**
 
-您可以透過將輸出串流傳遞給 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 類別的 `Save` 方法，將簡報儲存至串流。簡報可以寫入多種串流類型。以下範例中，我們建立新簡報並將其儲存至檔案串流。
+欲了解檔案與串流偵測範例、新建立簡報的行為，以及來源與輸出格式之差異，請參閱[確定原始簡報格式](/slides/zh-hant/net/detect-presentation-source-format/)。
+
+在批次處理應用程式中，輸入格式可能事先未知。載入檔案後，從 [IPresentation.SourceFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipresentation/sourceformat/) 屬性讀取其原始格式。將取得的 [SourceFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/sourceformat/) 值傳遞給 [SlideUtil.ToSaveFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.util/slideutil/tosaveformat/)，以取得相對應的 [SaveFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/saveformat/) 值，然後使用 [Presentation.Save](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/save/) 來寫入修改後的簡報。
+
+以下完整範例會處理輸入目錄中的每個檔案，更新其標題，並以載入時的格式儲存至輸出目錄：
 
 ```cs
+using System;
+using System.IO;
 using Aspose.Slides;
-using Aspose.Slides.Export;
+using Aspose.Slides.Util;
 
-// 實例化代表簡報檔案的 Presentation 類別。
-using (Presentation presentation = new Presentation())
+var inputDirectory = "Input";
+var outputDirectory = "Output";
+
+Directory.CreateDirectory(outputDirectory);
+
+foreach (var inputPath in Directory.EnumerateFiles(inputDirectory))
 {
-    using (FileStream fileStream = new FileStream("Output.pptx", FileMode.Create))
+    try
     {
-        // 將簡報儲存至串流。
-        presentation.Save(fileStream, SaveFormat.Pptx);
+        using var presentation = new Presentation(inputPath);
+
+        var sourceFormat = presentation.SourceFormat;
+        var saveFormat = SlideUtil.ToSaveFormat(sourceFormat);
+
+        presentation.DocumentProperties.Title = "Processed by the batch application";
+
+        var outputPath = Path.Combine(outputDirectory, Path.GetFileName(inputPath));
+        presentation.Save(outputPath, saveFormat);
+    }
+    catch (ArgumentException exception)
+    {
+        Console.Error.WriteLine($"Cannot map the source format of '{inputPath}': {exception.Message}");
+    }
+    catch (Exception exception)
+    {
+        Console.Error.WriteLine($"Cannot process '{inputPath}': {exception.Message}");
     }
 }
 ```
 
-## **以預定義檢視類型儲存簡報**
+[SlideUtil.ToSaveFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.util/slideutil/tosaveformat/) 能將 PPT、PPTX、ODP、PPTM、PPSX、PPSM、POTX、POTM、PPS、POT、OTP、FODP 以及 PowerPoint XML 映射到其對應的簡報儲存格式。它僅映射簡報來源格式；不適用於選擇 PDF、HTML、TIFF 或影像等匯出格式。傳遞不受支援或無效的 [SourceFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/sourceformat/) 值會導致拋出 [ArgumentException](https://learn.microsoft.com/en-us/dotnet/api/system.argumentexception)。
 
-Aspose.Slides 允許您透過 [ViewProperties](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/viewproperties/) 類別設定產生的簡報開啟時 PowerPoint 使用的初始檢視。將 [LastView](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/viewproperties/lastview/) 屬性設定為 [ViewType](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/viewtype/) 列舉中的一個值。
+舊版的 PPT、PPS 與 POT 檔案使用相同的二進位容器。若此類簡報從未帶副檔名的串流載入，PPS 或 POT 檔案可能會被辨識為 PPT。若需要保留這些舊版子類型，請另行保留原始檔名或格式中繼資料，並在選擇輸出檔名與格式時使用它們。
+
+## **將簡報儲存至串流**
+
+若要在不依賴最終檔案路徑的情況下寫入簡報，請傳遞可寫入的 [Stream](https://learn.microsoft.com/en-us/dotnet/api/system.io.stream) 和一個 [SaveFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/saveformat/) 值給 [Presentation.Save](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/save/) 方法。此方法在需從 Web 服務返回輸出、儲存於資料庫或在記憶體中處理時特別有用。
+
+以下範例將新簡報儲存至檔案串流：
 
 ```cs
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    presentation.ViewProperties.LastView = ViewType.SlideMasterView;
-    presentation.Save("SlideMasterView.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+using var outputStream = new FileStream("Output.pptx", FileMode.Create);
+
+presentation.Save(outputStream, SaveFormat.Pptx);
 ```
 
-## **以嚴格 Office Open XML 格式儲存簡報**
+## **以預先定義的檢視類型儲存簡報**
 
-Aspose.Slides 允許您以嚴格 Office Open XML 格式儲存簡報。儲存時使用 [PptxOptions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/pptxoptions/) 類別並設定其合規屬性。如果將 `Conformance.Iso29500_2008_Strict` 設為目標，輸出檔案即會以嚴格 Office Open XML 格式儲存。
+您可以指定 PowerPoint 首次開啟已儲存簡報時的檢視模式。於儲存之前，將 [ViewProperties.LastView](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/viewproperties/lastview/) 屬性設定為 [ViewType](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/viewtype/) 值。
 
-以下範例建立簡報並以嚴格 Office Open XML 格式儲存。
+以下範例將投影片母片檢視設定為初始檢視：
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-PptxOptions options = new PptxOptions()
+using var presentation = new Presentation();
+
+presentation.ViewProperties.LastView = ViewType.SlideMasterView;
+presentation.Save("SlideMasterView.pptx", SaveFormat.Pptx);
+```
+
+## **以嚴格的 Office Open XML 格式儲存簡報**
+
+若要建立符合 Office Open XML 嚴格 (Strict) 設定檔的 PPTX 檔案，請建立一個 [PptxOptions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/pptxoptions/) 實例，並將其 [Conformance](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/pptxoptions/conformance/) 屬性設為 `Conformance.Iso29500_2008_Strict`。之後將此選項傳遞給 [Presentation.Save](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/save/) 方法。
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var options = new PptxOptions
 {
     Conformance = Conformance.Iso29500_2008_Strict
 };
 
-// 實例化代表簡報檔案的 Presentation 類別。
-using (Presentation presentation = new Presentation())
-{
-    // 以嚴格 Office Open XML 格式儲存簡報。
-    presentation.Save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
-}
+using var presentation = new Presentation();
+
+presentation.Save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
 ```
 
 ## **以 Zip64 模式儲存 Office Open XML 格式的簡報**
 
-Office Open XML 檔案是一個 ZIP 壓縮檔，對任一檔案的未壓縮大小、壓縮大小以及整個壓縮檔的總大小皆設有 4 GB (2^32 位元組) 的限制，且檔案總數上限為 65,535 (2^16‑1) 個檔案。ZIP64 格式擴充可將這些限制提升至 2^64。
+標準的 ZIP 壓縮檔會限制每個項目的壓縮與未壓縮大小、整體壓縮檔大小以及項目數量。由於 PPTX 檔案本身即為 ZIP 壓縮檔，過大的簡報可能會超過這些限制。ZIP64 延伸可提升相關的大小與項目數限制。
 
-[IPptxOptions.Zip64Mode](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/ipptxoptions/zip64mode/) 屬性讓您在儲存 Office Open XML 檔案時選擇何時使用 ZIP64 格式擴充。
+使用 [PptxOptions.Zip64Mode](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/pptxoptions/zip64mode/) 屬性來控制 Aspose.Slides 是否寫入 ZIP64 延伸：
 
-此屬性提供以下模式：
+- `IfNecessary` 只有在簡報超過標準 ZIP 限制時才使用 ZIP64。這是預設模式。
+- `Never` 停用 ZIP64 延伸。
+- `Always` 總是寫入 ZIP64 延伸。
 
-- `IfNecessary` 僅在簡報超過上述限制時使用 ZIP64 格式擴充。這是預設模式。
-- `Never` 永不使用 ZIP64 格式擴充。
-- `Always` 總是使用 ZIP64 格式擴充。
-
-以下程式碼示範如何將簡報儲存為啟用 ZIP64 格式擴充的 PPTX 檔案：
+以下範例在輸出簡報時始終啟用 ZIP64 延伸：
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("Sample.pptx"))
+using var presentation = new Presentation("Sample.pptx");
+
+var options = new PptxOptions
 {
-    presentation.Save("OutputZip64.pptx", SaveFormat.Pptx, new PptxOptions()
-    {
-        Zip64Mode = Zip64Mode.Always
-    });
-}
+    Zip64Mode = Zip64Mode.Always
+};
+
+presentation.Save("OutputZip64.pptx", SaveFormat.Pptx, options);
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-當您使用 `Zip64Mode.Never` 儲存時，如果簡報無法以 ZIP32 格式儲存，將拋出 [PptxException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pptxexception/)。
+{{% alert color="warning" title="Warning" %}}
+如果將 `Zip64Mode` 設為 `Never`，且簡報無法符合標準 ZIP 限制，儲存操作會拋出 [PptxException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pptxexception/)。
 {{% /alert %}}
 
-## **以不同壓縮等級儲存 Office Open XML 格式的簡報**
+## **以壓縮等級儲存 Office Open XML 格式的簡報**
 
-處理大型簡報時，您可以調整壓縮等級以在檔案大小與處理時間之間取得平衡。根據需求，您可能會偏好較快的處理速度或較小的輸出檔案。
+對於 PPTX 輸出，您可以透過設定 [PptxOptions.CompressionLevel](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/pptxoptions/compressionlevel/) 來在儲存速度與檔案大小之間取得平衡。[CompressionLevel](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/compressionlevel/) 列舉提供以下值：
 
-Aspose.Slides 提供 [IPptxOptions.CompressionLevel](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/ipptxoptions/compressionlevel/) 屬性，允許您指定在 Office Open XML 格式儲存簡報時使用的壓縮等級。
+- `None`：不進行壓縮地儲存資料。
+- `Level1`：提供最快的壓縮速度且產生最大的壓縮檔。
+- `Level2` 到 `Level5`：逐漸偏好較小的輸出而非儲存速度。
+- `Level6`：在儲存速度與檔案大小之間取得平衡。這是預設等級。
+- `Level7` 與 `Level8`：更進一步偏好較小的輸出而非儲存速度。
+- `Level9`：提供最強的壓縮，且需要最多的處理時間。
 
-以下提供的壓縮等級：
-
-- **None**：不套用任何壓縮，檔案保持原狀。
-- **Level1**：最快的壓縮，壓縮率最低。
-- **Level2**：較 **Level1** 稍快且壓縮率略佳。
-- **Level3**：比 **Level2** 更佳的壓縮，對處理時間有中等影響。
-- **Level4**：比 **Level3** 更佳的壓縮。
-- **Level5**：比 **Level4** 更佳的壓縮，需額外的處理時間。
-- **Level6**：標準壓縮，在處理速度與檔案大小之間取得良好平衡。此為 *預設壓縮等級*。
-- **Level7**：比 **Level6** 更佳的壓縮，但處理較慢。
-- **Level8**：比 **Level7** 更佳的壓縮。
-- **Level9**：最高壓縮率，產生最小檔案大小，但需最長的處理時間。
-
-以下範例示範如何將簡報儲存為 *未壓縮* 的 PPTX 檔案：
+以下範例在不使用壓縮的情況下儲存簡報：
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("Sample.pptx"))
+using var presentation = new Presentation("Sample.pptx");
+
+var options = new PptxOptions
 {
-    pres.Save("Sample-out.pptx", SaveFormat.Pptx, new PptxOptions
-    {
-        CompressionLevel = CompressionLevel.None
-    });
-}
+    CompressionLevel = CompressionLevel.None
+};
+
+presentation.Save("OutputNoCompression.pptx", SaveFormat.Pptx, options);
 ```
 
-此範例示範如何將簡報儲存為 *最高壓縮* 的 PPTX 檔案：
+以下範例使用最高壓縮等級：
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("Sample.pptx"))
+using var presentation = new Presentation("Sample.pptx");
+
+var options = new PptxOptions
 {
-    pres.Save("Sample-level9.pptx", SaveFormat.Pptx, new PptxOptions
-    {
-        CompressionLevel = CompressionLevel.Level9
-    });
-}
+    CompressionLevel = CompressionLevel.Level9
+};
+
+presentation.Save("OutputMaximumCompression.pptx", SaveFormat.Pptx, options);
 ```
 
 ## **儲存簡報時不重新整理縮圖**
 
-[PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/ipptxoptions/refreshthumbnail/) 屬性控制在將簡報儲存為 PPTX 時是否產生縮圖：
+當簡報以 PPTX 格式儲存時，[PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/pptxoptions/refreshthumbnail/) 屬性會控制其文件縮圖：
 
-- 設為 `true` 時，儲存過程會重新整理縮圖。這是預設值。
-- 設為 `false` 時，保留現有縮圖。若簡報沒有縮圖，則不產生縮圖。
+- `true`：在儲存過程中重新產生縮圖。這是預設值。
+- `false`：保留現有縮圖。若簡報沒有縮圖，Aspose.Slides 不會產生新的縮圖。
 
-以下程式碼示範在不重新整理縮圖的情況下將簡報儲存為 PPTX。
+以下範例在儲存簡報時不重新整理縮圖：
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("Sample.pptx"))
+using var presentation = new Presentation("Sample.pptx");
+
+var options = new PptxOptions
 {
-    presentation.Save("Output.pptx", SaveFormat.Pptx, new PptxOptions()
-    {
-        RefreshThumbnail = false
-    });
-}
+    RefreshThumbnail = false
+};
+
+presentation.Save("Output.pptx", SaveFormat.Pptx, options);
 ```
 
-{{% alert title="Info" color="info" %}}
-此選項有助於縮短儲存 PPTX 格式簡報所需的時間。
+{{% alert color="info" title="Note" %}}
+停用縮圖重新整理可減少儲存 PPTX 檔案所需的時間。
 {{% /alert %}}
 
-## **以百分比方式接收儲存進度更新**
+## **以百分比顯示儲存進度更新**
 
-[IProgressCallback](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iprogresscallback/) 介面透過 [ISaveOptions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/isaveoptions/) 介面的 `ProgressCallback` 屬性以及抽象類別 [SaveOptions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/saveoptions/) 使用。將 [IProgressCallback](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iprogresscallback/) 的實作指派給 `ProgressCallback`，即可以百分比方式取得儲存進度更新。
+若要監控儲存操作，請實作 [IProgressCallback](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iprogresscallback/) 介面，並將實作指派給 [ISaveOptions.ProgressCallback](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.export/isaveoptions/progresscallback/) 屬性。Aspose.Slides 會在匯出期間呼叫 [IProgressCallback.Reporting](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iprogresscallback/reporting/) 方法，傳回進度值。
 
-以下程式碼片段示範如何使用 `IProgressCallback`。
+以下範例將 PDF 匯出的進度報告至主控台：
 
 ```cs
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-ISaveOptions saveOptions = new PdfOptions();
-saveOptions.ProgressCallback = new ExportProgressHandler();
-
-using (Presentation presentation = new Presentation("Sample.pptx"))
+var options = new PdfOptions
 {
-    presentation.Save("Output.pdf", SaveFormat.Pdf, saveOptions);
-}
-```
-```cs
-using Aspose.Slides;
+    ProgressCallback = new ExportProgressHandler()
+};
+
+using var presentation = new Presentation("Sample.pptx");
+
+presentation.Save("Output.pdf", SaveFormat.Pdf, options);
 
 class ExportProgressHandler : IProgressCallback
 {
     public void Reporting(double progressValue)
     {
-        // 在此使用進度百分比值。
-        int progress = Convert.ToInt32(progressValue);
-
-        Console.WriteLine(progress + "% of the file has been converted.");
+        var progress = Convert.ToInt32(progressValue);
+        Console.WriteLine($"{progress}% of the file has been converted.");
     }
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose 使用自家 API 開發了 [免費的 PowerPoint 分割應用程式](https://products.aspose.app/slides/zh-hant/splitter)。此應用程式可透過將選取的投影片另存為新 PPTX 或 PPT 檔案，將簡報分割為多個檔案。
+{{% alert color="info" title="Note" %}}
+Aspose 提供免費的 [PowerPoint Splitter](https://products.aspose.app/slides/zh-hant/splitter)，此工具是以 Aspose.Slides API 建置，可將簡報中選取的投影片儲存為個別的 PPT 或 PPTX 檔案。
 {{% /alert %}}
 
 ## **常見問題**
 
-**是否支援「快速儲存」(增量儲存) 只寫入變更？**
+**Aspose.Slides 是否支援增量或「快速儲存」？**
 
-不支援。每次儲存都會產生完整的目標檔案，未支援增量「快速儲存」。
+不支援。每次儲存操作都會寫入完整的輸出檔案，而不是僅更新變更的部分。
 
-**從多個執行緒同時儲存相同的 Presentation 實例是否為執行緒安全？**
+**多執行緒能儲存同一個 Presentation 實例嗎？**
 
-不安全。[Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 實例[不是執行緒安全的](/slides/zh-hant/net/multithreading/)，請於單一執行緒儲存。
+不行。[Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 實例[不是執行緒安全](/slides/zh-hant/net/multithreading/)。每次只能由單一執行緒存取與儲存該實例。
 
-**儲存時，超連結與外部連結檔案會發生什麼情況？**
+**儲存簡報時，超連結與外部連結檔案會發生什麼？**
 
-[超連結](/slides/zh-hant/net/manage-hyperlinks/) 會被保留。外部連結檔案（例如以相對路徑的影片）不會自動複製——請確保所參考的路徑仍可存取。
+[Hyperlinks](/slides/zh-hant/net/manage-hyperlinks/) 仍會保留在簡報中。Aspose.Slides 不會複製外部連結的檔案，因此儲存後的簡報仍必須能存取這些檔案的位置。
 
-**我可以設定/儲存文件的中繼資料（作者、標題、公司、日期）嗎？**
+**我能儲存文件的中繼資料（例如作者、標題、公司與建立日期）嗎？**
 
-可以。支援標準的[文件屬性](/slides/zh-hant/net/presentation-properties/)，儲存時會寫入檔案。
+可以。於儲存前設定相應的[文件屬性](/slides/zh-hant/net/presentation-properties/)，Aspose.Slides 會將它們寫入輸出檔案。

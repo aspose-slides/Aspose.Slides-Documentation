@@ -18,22 +18,24 @@ keywords:
 - beveiligde presentatie
 - grote presentatie
 - externe bron
-- binair object
+- binaire object
 - C++
 - Aspose.Slides
-description: "Leer hoe u PowerPoint- en OpenDocument‑presentaties in C++ kunt openen, openingswachtwoorden kunt opgeven, het laden van resources kunt beheersen en het geheugenverbruik kunt verminderen met Aspose.Slides voor C++."
+description: "Leer hoe u PowerPoint- en OpenDocument‑presentaties kunt openen in C++, openingswachtwoorden kunt opgeven, het laden van bronnen kunt beheren en het geheugenverbruik kunt verminderen met Aspose.Slides voor C++."
 ---
 ## **Inleiding**
 
-[Aspose.Slides for C++](https://products.aspose.com/slides/nl/cpp/) kan PowerPoint- en OpenDocument‑presentaties laden vanuit bestanden en streams. Nadat een presentatie is geladen, kunt u de structuur inspecteren, dia’s bewerken, bronnen beheren en deze opslaan in het oorspronkelijke of een ander ondersteund formaat.
+[Aspose.Slides for C++](https://products.aspose.com/slides/nl/cpp/) kan PowerPoint- en OpenDocument-presentaties laden vanuit bestanden en streams. Nadat een presentatie is geladen, kunt u de structuur inspecteren, dia's bewerken, bronnen beheren en deze opslaan in het oorspronkelijke of een ander ondersteund formaat.
 
-Het laadgedrag kan worden aangepast via de klasse [LoadOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/). Bijvoorbeeld kunt u een openings‑wachtwoord opgeven, grote binaire objecten buiten het geheugen houden, externe bronnen beheersen of ingebedde binaire data weglaten.
+Het laadgedrag kan aangepast worden via de [LoadOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/) klasse. Bijvoorbeeld kunt u een openingswachtwoord opgeven, grote binaire objecten buiten het geheugen houden, externe bronnen beheren of ingebedde binaire gegevens weglaten.
 
 ## **Presentaties openen**
 
-Om een bestaande presentatie te openen, geeft u het bestandspad door aan de constructor van [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/). Maak de presentatie vrij nadat u deze hebt gebruikt zodat bestands‑handles, tijdelijke gegevens en andere bronnen meteen worden vrijgegeven.
+Na het laden van een bestand of stream, kunt u [bepalen wat het oorspronkelijke presentatieformaat is](/slides/nl/cpp/detect-presentation-source-format/) om te kiezen hoe uw applicatie het verwerkt.
 
-Het volgende C++‑voorbeeld toont hoe u een presentatie opent en het aantal dia’s ophaalt:
+Om een bestaande presentatie te openen, geeft u het bestands­pad door aan de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) constructor. Maak de presentatie vrij na gebruik zodat bestands‑handles, tijdelijke gegevens en andere bronnen onmiddellijk worden vrijgegeven.
+
+Het volgende C++‑voorbeeld toont hoe u een presentatie opent en het aantal dia's opvraagt:
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -52,7 +54,7 @@ presentation->Dispose();
 
 ## **Wachtwoord‑beveiligde presentaties openen**
 
-Een openingswachtwoord codeert de inhoud van de presentatie. Om de volledige presentatie te laden, geeft u het juiste wachtwoord door aan [LoadOptions::set_Password](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/set_password/) en geeft u de opties door aan de constructor van [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/). Laden mislukt wanneer het wachtwoord ontbreekt of onjuist is.
+Een openingswachtwoord versleutelt de inhoud van de presentatie. Om de volledige presentatie te laden, geeft u het juiste wachtwoord door aan [LoadOptions::set_Password](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/set_password/) en geeft u de opties door aan de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) constructor. Het laden mislukt wanneer het wachtwoord ontbreekt of onjuist is.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -73,11 +75,11 @@ Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count())
 presentation->Dispose();
 ```
 
-Voor wachtwoorddetectie, -validatie en encryptieworkflows, zie [Wachtwoord‑beveiligde presentaties](/slides/nl/cpp/password-protected-presentation/). Als een versleutelde presentatie opzettelijk is opgeslagen met openbare documenteigenschappen, kunnen die eigenschappen worden gelezen zonder wachtwoord; zie [Presentatie‑eigenschappen beheren](/slides/nl/cpp/presentation-properties/).
+Voor wachtwoorddetectie, validatie en versleutelingsworkflows, zie [Password-Protect Presentations](/slides/nl/cpp/password-protected-presentation/). Als een versleutelde presentatie opzettelijk is opgeslagen met openbare documenteigenschappen, kunnen die eigenschappen zonder wachtwoord gelezen worden; zie [Manage Presentation Properties](/slides/nl/cpp/presentation-properties/).
 
 ## **Grote presentaties openen**
 
-[LoadOptions::get_BlobManagementOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) bepaalt hoe Aspose.Slides binaire grote objecten zoals afbeeldingen, audio en video verwerkt. U kunt het bronbestand vergrendeld houden, tijdelijke bestanden toestaan en de hoeveelheid BLOB‑gegevens die in het geheugen worden bewaard beperken.
+[LoadOptions::get_BlobManagementOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) regelt hoe Aspose.Slides binaire grote objecten zoals afbeeldingen, audio en video behandelt. U kunt het bronbestand vergrendeld houden, tijdelijke bestanden toestaan en de hoeveelheid BLOB‑gegevens die in het geheugen worden bewaard beperken.
 
 De volgende C++‑code demonstreert het laden van een grote presentatie (bijvoorbeeld 2 GB):
 
@@ -110,14 +112,14 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Met `PresentationLockingBehavior::KeepLocked` blijft het bronbestand vergrendeld totdat het `Presentation`‑object wordt vrijgegeven. Verplaats, overschrijf of verwijder het bronbestand niet zolang dat object actief is.
-
-Aspose.Slides kan de inhoud van een invoerstroom kopiëren tijdens het laden. Voor grote presentaties is een bestandspad daarom over het algemeen efficiënter dan een stream. Zie [BLOB‑beheer](/slides/nl/cpp/manage-blob/) voor extra opslag‑ en geheugenbeheermogelijkheden.
+Met `PresentationLockingBehavior::KeepLocked` blijft het bronbestand vergrendeld tot het `Presentation`‑object wordt vrijgegeven. Verplaats, overschrijf of verwijder het bronbestand niet zolang dat object bestaat.
 {{% /alert %}}
+
+Aspose.Slides kan de inhoud van een invoerstroom kopiëren tijdens het laden. Voor grote presentaties is een bestandspad doorgaans efficiënter dan een stream. Zie [Manage BLOBs](/slides/nl/cpp/manage-blob/) voor extra opslag‑ en geheugen‑beheeropties.
 
 ## **Externe bronnen beheren**
 
-[LoadOptions::set_ResourceLoadingCallback](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/set_resourceloadingcallback/) accepteert een implementatie van [IResourceLoadingCallback](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iresourceloadingcallback/). De callback kan vervangende gegevens leveren, een bron omleiden, de standaardloader gebruiken of de bron overslaan. Dit is nuttig wanneer presentaties externe afbeeldingen bevatten die moeten worden opgelost volgens toepassingsspecifieke beveiligings‑ of opslagregels.
+[LoadOptions::set_ResourceLoadingCallback](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/set_resourceloadingcallback/) accepteert een implementatie van [IResourceLoadingCallback](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iresourceloadingcallback/). De callback kan vervangende gegevens leveren, een bron omleiden, de standaardloader gebruiken of de bron overslaan. Dit is handig wanneer presentaties externe afbeeldingen bevatten die moeten worden opgezocht volgens toepassingsspecifieke beveiligings‑ of opslagregels.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -162,14 +164,15 @@ presentation->Dispose();
 
 ## **Presentaties laden zonder ingebedde binaire objecten**
 
-Een presentatie kan ingebedde binaire gegevens bevatten die een applicatie niet nodig heeft of niet wil behouden. Voorbeelden omvatten:
+Een presentatie kan ingebedde binaire gegevens bevatten die een applicatie niet nodig heeft of niet wil behouden. Voorbeelden zijn:
+
 - VBA‑projecten, beschikbaar via [IPresentation::get_VbaProject](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/get_vbaproject/);
 - ingebedde OLE‑gegevens, beschikbaar via [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/);
-- ActiveX‑besturingsgegevens, beschikbaar via [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/nl/cpp/aspose.slides/icontrol/get_activexcontrolbinary/).
+- ActiveX‑controlgegevens, beschikbaar via [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/nl/cpp/aspose.slides/icontrol/get_activexcontrolbinary/).
 
 Geef `true` door aan [LoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/set_deleteembeddedbinaryobjects/) om deze binaire gegevens tijdens het laden te verwijderen. Sla de geladen presentatie op om het opgeschoonde resultaat te behouden.
 
-Deze optie vermindert de blootstelling aan ongewenste ingebedde payloads, maar vormt geen volledig malware‑detectie‑ of inhouds‑sanitisatiesysteem.
+Deze optie vermindert de blootstelling aan ongewenste ingebedde payloads, maar is geen volledige malware‑detectie‑ of content‑sanitisatiesysteem.
 
 ```cpp
 #include <DOM/LoadOptions.h>
@@ -194,12 +197,12 @@ presentation->Dispose();
 
 **Hoe kan ik zien dat een bestand corrupt is en niet geopend kan worden?**
 
-Aspose.Slides gooit tijdens het laden een parser‑ of format‑exception. Verwerk die fout afzonderlijk van een onjuist‑wachtwoord‑fout, zodat de applicatie de oorzaak accuraat kan rapporteren.
+Aspose.Slides geeft tijdens het laden een parse‑ of formaat‑exception. Verwerk die fout apart van een onjuist‑wachtwoord‑fout zodat de applicatie de oorzaak nauwkeurig kan melden.
 
-**Wat gebeurt er als vereiste lettertypen ontbreken?**
+**Wat gebeurt er als verplichte lettertypen ontbreken?**
 
-De presentatie kan nog steeds worden geladen, maar weergave en export kunnen lettertypen vervangen. U kunt [lettertype‑substitutie configureren](/slides/nl/cpp/font-substitution/) of [aangepaste lettertypen leveren](/slides/nl/cpp/custom-font/) om de output voorspelbaarder te maken.
+De presentatie kan nog steeds geladen worden, maar weergave en export kunnen lettertypen substitueren. U kunt [lettertype‑substitutie configureren](/slides/nl/cpp/font-substitution/) of [aangepaste lettertypen leveren](/slides/nl/cpp/custom-font/) om de output voorspelbaarder te maken.
 
 **Laadt het laden van een presentatie ook de ingebedde media?**
 
-Ingebedde audio en video worden beschikbaar via het presentatiemodel. Externe bronnen worden opgelost volgens het geconfigureerde resource‑laadgedrag en kunnen onbeschikbaar zijn als hun locaties niet toegankelijk zijn.
+Ingebedde audio en video zijn beschikbaar via het presentatiemodel. Externe bronnen worden opgezocht volgens het geconfigureerde gedrag voor resource‑loading en kunnen onbeschikbaar zijn als hun locaties niet toegankelijk zijn.

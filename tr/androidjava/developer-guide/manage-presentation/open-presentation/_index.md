@@ -5,35 +5,37 @@ type: docs
 weight: 20
 url: /tr/androidjava/open-presentation/
 keywords:
-- PowerPoint'i aç
-- Sunumu aç
-- PPTX'i aç
-- PPT'i aç
-- ODP'yi aç
-- Sunumu yükle
-- PPTX'i yükle
-- PPT'i yükle
-- ODP'yi yükle
-- Korunan sunum
-- Büyük sunum
-- Harici kaynak
-- İkili nesne
+- PowerPoint aç
+- sunum aç
+- PPTX aç
+- PPT aç
+- ODP aç
+- sunumu yükle
+- PPTX yükle
+- PPT yükle
+- ODP yükle
+- korumalı sunum
+- büyük sunum
+- harici kaynak
+- ikili nesne
 - Android
 - Java
 - Aspose.Slides
-description: "Android'de PowerPoint ve OpenDocument sunumlarını nasıl açacağınızı, açma şifreleri sağlayacağınızı, kaynak yüklemesini kontrol edeceğinizi ve Aspose.Slides for Android via Java ile bellek kullanımını nasıl azaltacağınızı öğrenin."
+description: "Android'de PowerPoint ve OpenDocument sunumlarını nasıl açacağınızı, açma parolaları sağlamayı, kaynak yüklemeyi kontrol etmeyi ve Aspose.Slides for Android via Java ile bellek kullanımını nasıl azaltacağınızı öğrenin."
 ---
 ## **Giriş**
 
-[Aspose.Slides for Android via Java](https://products.aspose.com/slides/tr/androidjava/) PowerPoint ve OpenDocument sunumlarını dosyalardan ve akışlardan yükleyebilir. Bir sunum yüklendikten sonra, yapısını inceleyebilir, slaytları düzenleyebilir, kaynakları yönetebilir ve orijinal ya da başka desteklenen bir formatta kaydedebilirsiniz.
+[Aspose.Slides for Android via Java](https://products.aspose.com/slides/tr/androidjava/) dosyalardan ve akışlardan PowerPoint ve OpenDocument sunumlarını yükleyebilir. Bir sunum yüklendikten sonra, yapısını inceleyebilir, slaytları düzenleyebilir, kaynakları yönetebilir ve orijinal ya da başka bir desteklenen formatta kaydedebilirsiniz.
 
-Yükleme davranışı, [LoadOptions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/loadoptions/) sınıfı aracılığıyla özelleştirilebilir. Örneğin, bir açma şifresi sağlayabilir, büyük ikili nesneleri Java yığın belleğinin dışında tutabilir, harici kaynakları kontrol edebilir veya gömülü ikili verileri atlayabilirsiniz.
+Yükleme davranışı, [LoadOptions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/loadoptions/) sınıfı aracılığıyla özelleştirilebilir. Örneğin, bir açma parolası sağlayabilir, büyük ikili nesneleri Java yığını hafızasının dışında tutabilir, harici kaynakları kontrol edebilir veya gömülü ikili verileri atlayabilirsiniz.
 
 ## **Sunumları Aç**
 
-Mevcut bir sunumu açmak için dosya yolunu [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) yapıcısına iletin. Sunumu kullandıktan sonra serbest bırakın, böylece dosya tutamaçları, geçici veriler ve diğer kaynaklar hemen serbest bırakılır.
+Bir dosya veya akış yüklendikten sonra, uygulamanızın nasıl işleme alacağını seçmek için [orijinal sunum formatını belirleyebilirsiniz](/slides/tr/androidjava/detect-presentation-source-format/).
 
-Aşağıdaki Java örneği, bir sunumu nasıl açıp slayt sayısını nasıl alacağınızı gösterir:
+Mevcut bir sunumu açmak için dosya yolunu [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) yapıcısına geçirin. Sunumu kullandıktan sonra, dosya tanıtıcıları, geçici veriler ve diğer kaynakların hızlı bir şekilde serbest bırakılması için Dispose edin.
+
+İlgili Java örneği, bir sunumu nasıl açacağınızı ve slayt sayısını nasıl alacağınızı gösterir:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -46,9 +48,9 @@ try {
 }
 ```
 
-## **Şifre Koruması Olan Sunumları Aç**
+## **Şifreyle Korunan Sunumları Aç**
 
-Bir açma şifresi, sunum içeriğini şifreler. Tam sunumu yüklemek için doğru şifreyi [LoadOptions.setPassword](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) metoduna iletin ve seçenekleri [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) yapıcısına sağlayın. Şifre eksik veya yanlış olduğunda yükleme başarısız olur.
+Açma parolası, sunum içeriğini şifreler. Tam sunumu yüklemek için doğru parolayı [LoadOptions.setPassword](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) metoduna geçirin ve seçenekleri [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) yapıcısına sağlayın. Parola eksik ya da hatalı olduğunda yükleme başarısız olur.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -65,7 +67,7 @@ try {
 }
 ```
 
-Şifre tespiti, doğrulama ve şifreleme iş akışları için, [Password-Protect Presentations](/slides/tr/androidjava/password-protected-presentation/) bölümüne bakın. Şifrelenmiş bir sunum, özellikle genel belge özellikleriyle kaydedilmişse, bu özellikler şifre olmadan okunabilir; [Manage Presentation Properties](/slides/tr/androidjava/presentation-properties/) bölümüne bakın.
+Parola tespiti, doğrulama ve şifreleme iş akışları için [Password-Protect Presentations](/slides/tr/androidjava/password-protected-presentation/) bölümüne bakın. Şifreli bir sunum, kasıtlı olarak genel belge özellikleriyle kaydedildiyse, bu özellikler parola olmadan okunabilir; [Manage Presentation Properties](/slides/tr/androidjava/presentation-properties/) bölümüne bakın.
 
 ## **Büyük Sunumları Aç**
 
@@ -96,14 +98,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-[PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked) ile kaynak dosya, sunum örneği serbest bırakılana kadar kilitli kalır. Bu örnek hâlen mevcutken kaynak dosyayı taşımayın, üzerine yazmayın veya silmeyin.
+[PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked) ile, kaynak dosya sunum örneği dispose edilene kadar kilitli kalır. Bu örnek hayatta iken kaynak dosyayı taşımayın, üzerine yazmayın veya silmeyin.
 
-Aspose.Slides, yükleme sırasında bir giriş akışının içeriğini kopyalayabilir. Büyük sunumlar için dosya yolu, genellikle akışa göre daha verimlidir. Ek depolama ve bellek yönetimi seçenekleri için [Manage BLOBs](/slides/tr/androidjava/manage-blob/) bölümüne bakın.
+Aspose.Slides, yükleme sırasında bir giriş akışının içeriğini kopyalayabilir. Büyük sunumlar için, dosya yolu genellikle bir akıştan daha verimlidir. Ek depolama ve bellek yönetimi seçenekleri için [Manage BLOBs](/slides/tr/androidjava/manage-blob/) bölümüne bakın.
 {{% /alert %}}
 
 ## **Harici Kaynakları Kontrol Et**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) bir [IResourceLoadingCallback](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iresourceloadingcallback/) uygulamasını kabul eder. Geri arama, yedek veri sağlayabilir, bir kaynağı yönlendirebilir, varsayılan yükleyiciyi kullanabilir veya kaynağı atlayabilir. Bu, sunumlarda uygulamaya özgü güvenlik veya depolama kurallarına göre çözülmesi gereken harici görüntüler bulunduğunda kullanışlıdır.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) bir [IResourceLoadingCallback](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iresourceloadingcallback/) uygulamasını kabul eder. Geri çağırma, değiştirme verisi sağlayabilir, bir kaynağı yönlendirebilir, varsayılan yükleyiciyi kullanabilir veya kaynağı atlayabilir. Bu, sunumların uygulamaya özgü güvenlik veya depolama kurallarına göre çözülmesi gereken harici görseller içermesi durumunda kullanışlıdır.
 
 ```java
 import com.aspose.slides.IResourceLoadingArgs;
@@ -147,17 +149,17 @@ try {
 }
 ```
 
-## **Gömülü İkili Nesneleri Olmadan Sunumları Yükle**
+## **Gömülü İkili Nesneler Olmadan Sunumları Yükle**
 
-Bir sunum, uygulamanın ihtiyaç duymadığı veya tutmak istemediği gömülü ikili veriler içerebilir. Örnekler:
+Bir sunum, uygulamanın ihtiyaç duymadığı veya saklamak istemediği gömülü ikili veriler içerebilir. Örnekler:
 
-- VBA projeleri, [IPresentation.getVbaProject](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipresentation/#getVbaProject--) aracılığıyla mevcuttur;
-- gömülü OLE verileri, [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--) aracılığıyla mevcuttur;
-- ActiveX kontrol verileri, [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--) aracılığıyla mevcuttur.
+- VBA projeleri, [IPresentation.getVbaProject](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipresentation/#getVbaProject--) aracılığıyla kullanılabilir;
+- gömülü OLE verileri, [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--) aracılığıyla erişilebilir;
+- ActiveX kontrol verileri, [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--) aracılığıyla elde edilebilir.
 
-[LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) `true` olarak ayarlayarak bu ikili verileri yükleme sırasında kaldırabilirsiniz. Temizlenmiş sonucu kalıcı kılmak için yüklenen sunumu kaydedin.
+[LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) seçeneğini `true` olarak ayarlayarak bu ikili verileri yükleme sırasında kaldırabilirsiniz. Temizlenmiş sonucu kalıcı kılmak için yüklenen sunumu kaydedin.
 
-Bu seçenek, istenmeyen gömülü yüklerden korunmayı azaltır, ancak tam bir kötü amaçlı yazılım tespiti veya içerik temizleme sistemi değildir.
+Bu seçenek, istenmeyen gömülü yüklemelere maruz kalmayı azaltır, ancak tam bir kötü amaçlı yazılım tespiti veya içerik temizlik sistemi değildir.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -179,12 +181,12 @@ try {
 
 **Bir dosyanın bozuk olduğunu ve açılamadığını nasıl anlayabilirim?**
 
-Aspose.Slides, yükleme sırasında bir ayrıştırma veya format istisnası fırlatır. Bu hatayı, hatalı şifre hatasından ayrı şekilde ele alarak uygulamanın nedeni doğru şekilde raporlamasını sağlayabilirsiniz.
+Aspose.Slides, yükleme sırasında bir ayrıştırma veya format istisnası fırlatır. Bu hatayı yanlış parola hatasından ayrı şekilde ele alın, böylece uygulama nedeni doğru şekilde raporlayabilir.
 
-**Gerekli yazı tipleri eksikse ne olur?**
+**Gerekli yazı tipleri eksik olursa ne olur?**
 
-Sunum yine de yüklenebilir, ancak renderleme ve dışa aktarma sırasında yazı tipleri ikame edilebilir. Çıktıyı daha öngörülebilir hâle getirmek için [configure font substitution](/slides/tr/androidjava/font-substitution/) ya da [provide custom fonts](/slides/tr/androidjava/custom-font/) seçeneklerini kullanabilirsiniz.
+Sunum yine de yüklenebilir, ancak renderleme ve dışa aktarım yazı tiplerini değiştirebilir. Çıktıyı daha öngörülebilir kılmak için [yazı tipi ikamesi yapılandırması](/slides/tr/androidjava/font-substitution/) veya [özel yazı tipleri sağlayın](/slides/tr/androidjava/custom-font/) yapabilirsiniz.
 
-**Bir sunumu yüklemek, gömülü medyasını da yükler mi?**
+**Bir sunumu yüklemek aynı zamanda gömülü medyasını da yükler mi?**
 
-Gömülü ses ve video, sunum nesne modeli aracılığıyla kullanılabilir hâle gelir. Harici kaynaklar, yapılandırılmış kaynak‑yükleme davranışına göre çözülür ve konumlarına erişilemezse kullanılamaz olabilir.
+Gömülü ses ve video, sunum nesne modeli aracılığıyla kullanılabilir hâle gelir. Harici kaynaklar, yapılandırılmış kaynak yükleme davranışına göre çözülür ve konumlarına erişilemezse bulunamayabilir.

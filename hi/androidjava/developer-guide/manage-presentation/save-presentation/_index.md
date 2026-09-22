@@ -1,82 +1,135 @@
 ---
-title: Android पर प्रेजेंटेशन सहेजें
-linktitle: प्रेजेंटेशन सहेजें
+title: Android पर प्रस्तुतियों को सहेजें
+linktitle: प्रस्तुति सहेजें
 type: docs
 weight: 80
 url: /hi/androidjava/save-presentation/
 keywords:
 - PowerPoint सहेजें
 - OpenDocument सहेजें
-- प्रेजेंटेशन सहेजें
+- प्रस्तुति सहेजें
 - स्लाइड सहेजें
 - PPT सहेजें
 - PPTX सहेजें
 - ODP सहेजें
 - फ़ाइल में प्रस्तुति
 - स्ट्रीम में प्रस्तुति
-- पूर्वनिर्धारित व्यू टाइप
+- पूर्वपरिभाषित व्यू प्रकार
 - स्ट्रिक्ट ऑफिस ओपन XML फ़ॉर्मेट
 - Zip64 मोड
-- थंबनेल रिफ्रेश करना
-- सेव प्रगति
-- Android
-- Java
+- थंबनेल रीफ़्रेश
+- सहेजने की प्रगति
+- एंड्रॉइड
+- जावा
 - Aspose.Slides
-description: "Aspose.Slides for Android का उपयोग करके जावा में प्रेजेंटेशन कैसे सहेजें, खोजें—लेआउट, फ़ॉन्ट और इफ़ेक्ट्स को बरकरार रखते हुए PowerPoint या OpenDocument में निर्यात करें."
+description: "Aspose.Slides के साथ Android पर PowerPoint और OpenDocument प्रस्तुतियों को फ़ाइलों या स्ट्रीम में सहेजें, और PPTX आउटपुट तथा प्रगति रिपोर्टिंग को कॉन्फ़िगर करें।"
 ---
 ## **अवलोकन**
 
-[Open Presentations on Android](/slides/hi/androidjava/open-presentation/) ने बताया कि कैसे [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास को उपयोग करके प्रेजेंटेशन खोला जाता है। यह लेख बताता है कि प्रेजेंटेशन कैसे बनाएँ और सहेजें। [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास में प्रेजेंटेशन की सामग्री होती है। चाहे आप एक नई प्रेजेंटेशन बना रहे हों या मौजूदा को संशोधित कर रहे हों, समाप्ति पर इसे सहेजना चाहेंगे। Aspose.Slides for Android के साथ, आप **फ़ाइल** या **स्ट्रीम** में सहेज सकते हैं। यह लेख प्रेजेंटेशन को सहेजने के विभिन्न तरीकों को समझाता है।
+प्रस्तुति बनाने के बाद या [एक मौजूदा खोलें](/slides/hi/androidjava/open-presentation/), परिणाम लिखने के लिए [Presentation.save](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) मेथड का उपयोग करें। Aspose.Slides for Android via Java एक प्रस्तुति को फ़ाइल या स्ट्रीम में PowerPoint, OpenDocument, PDF, और अन्य फ़ॉर्मेट में सहेज सकता है। निम्नलिखित अनुभाग मानक सहेजने के ऑपरेशन और PPTX आउटपुट के लिए उपलब्ध विकल्पों को कवर करते हैं।
 
-## **फ़ाइलों में प्रेजेंटेशन सहेजें**
+## **फ़ाइलों में प्रस्तुति सहेजें**
 
-Presentation क्लास की `save` मेथड को कॉल करके प्रेजेंटेशन को फ़ाइल में सहेजें। फ़ाइल का नाम और सहेजने का फॉर्मेट मेथड को पास करें। नीचे दिया गया उदाहरण दिखाता है कि Aspose.Slides के साथ प्रेजेंटेशन को कैसे सहेजा जाता है।
+एक प्रस्तुति को फ़ाइल में सहेजने के लिए, आउटपुट पथ और एक [SaveFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/saveformat/) मान को [Presentation.save](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) मेथड में पास करें। फ़ॉर्मेट मान निर्धारित करता है कि Aspose.Slides कौन सी फ़ाइल प्रकार बनाता है।
+
+निम्नलिखित उदाहरण एक प्रस्तुति बनाता है और इसे PPTX फ़ाइल के रूप में सहेजता है:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का एक उदाहरण बनाएं।
 Presentation presentation = new Presentation();
 try {
-    // यहाँ कुछ कार्य करें...
+    // यहाँ प्रस्तुति सामग्री जोड़ें या संशोधित करें।
 
-    // प्रस्तुति को फ़ाइल में सहेजें।
     presentation.save("Output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **स्ट्रीम में प्रेजेंटेशन सहेजें**
+## **प्रस्तुति को उनके मूल फ़ॉर्मेट में सहेजें**
 
-आप आउटपुट स्ट्रीम को [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास की `save` मेथड में पास करके प्रेजेंटेशन को स्ट्रीम में सहेज सकते हैं। प्रेजेंटेशन को कई प्रकार की स्ट्रीम में लिखा जा सकता है। नीचे के उदाहरण में, हम एक नया प्रेजेंटेशन बनाते हैं और उसे फ़ाइल स्ट्रीम में सहेजते हैं।
+फ़ाइल और स्ट्रीम डिटेक्शन उदाहरणों, नई बनाई गई प्रस्तुतियों के व्यवहार, और स्रोत व आउटपुट फ़ॉर्मेट के अंतर के लिए, देखें [मूल प्रस्तुति फ़ॉर्मेट निर्धारित करें](/slides/hi/androidjava/detect-presentation-source-format/)।
+
+बैच‑प्रोसेसिंग एप्लिकेशन में, इनपुट फ़ॉर्मेट पहले से ज्ञात नहीं हो सकता। फ़ाइल को लोड करने के बाद, उसके मूल फ़ॉर्मेट को [IPresentation.getSourceFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ipresentation/#getSourceFormat--) मेथड से पढ़ें। प्राप्त [SourceFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/sourceformat/) मान को [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/slideutil/#toSaveFormat-int-) में पास करके संबंधित [SaveFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/saveformat/) मान प्राप्त करें, और फिर [Presentation.save](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) का उपयोग करके संशोधित प्रस्तुति लिखें।
+
+निम्नलिखित पूर्ण उदाहरण प्रत्येक फ़ाइल को इनपुट डायरेक्ट्री में प्रोसेस करता है, उसका शीर्षक अपडेट करता है, और इसे उसी फ़ॉर्मेट में आउटपुट डायरेक्ट्री में सहेजता है जिसमें इसे लोड किया गया था:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SlideUtil;
+import java.io.File;
+
+File inputDirectory = new File("Input");
+File outputDirectory = new File("Output");
+
+if (!outputDirectory.exists() && !outputDirectory.mkdirs()) {
+    System.err.println("Cannot create the output directory.");
+}
+
+File[] inputFiles = inputDirectory.listFiles(File::isFile);
+if (inputFiles != null && outputDirectory.isDirectory()) {
+    for (File inputFile : inputFiles) {
+        try {
+            Presentation presentation = new Presentation(inputFile.getPath());
+            try {
+                int saveFormat = SlideUtil.toSaveFormat(presentation.getSourceFormat());
+                presentation.getDocumentProperties().setTitle("Processed by the batch application");
+
+                File outputFile = new File(outputDirectory, inputFile.getName());
+                presentation.save(outputFile.getPath(), saveFormat);
+            } finally {
+                presentation.dispose();
+            }
+        } catch (IllegalArgumentException exception) {
+            System.err.println("Cannot map the source format of '" + inputFile.getPath() + "': " + exception.getMessage());
+        } catch (Exception exception) {
+            System.err.println("Cannot process '" + inputFile.getPath() + "': " + exception.getMessage());
+        }
+    }
+}
+```
+
+[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/slideutil/#toSaveFormat-int-) PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP, और PowerPoint XML को उनके संबंधित प्रस्तुति सहेजने के फ़ॉर्मेट में मैप करता है। यह केवल प्रस्तुति स्रोत फ़ॉर्मेट को मैप करता है; इसका उद्देश्य PDF, HTML, TIFF, या इमेज जैसी एक्सपोर्ट फ़ॉर्मेट चुनना नहीं है। असमर्थित या अमान्य [SourceFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/sourceformat/) मान पास करने पर [IllegalArgumentException](https://developer.android.com/reference/java/lang/IllegalArgumentException) उत्पन्न होता है।
+
+पुराने PPT, PPS, और POT फ़ाइलें समान बायनरी कंटेनर का उपयोग करती हैं। जब ऐसी प्रस्तुति को बिना फ़ाइल एक्सटेंशन के स्ट्रीम से लोड किया जाता है, तो एक PPS या POT फ़ाइल को PPT के रूप में पहचाना जा सकता है। यदि इन लेगेसी उपप्रकारों को संरक्षित करना आवश्यक है, तो मूल फ़ाइलनाम या फ़ॉर्मेट मेटाडाटा को अलग से रखकर आउटपुट फ़ाइलनाम और फ़ॉर्मेट चुनते समय उसका उपयोग करें।
+
+## **स्ट्रीम में प्रस्तुति सहेजें**
+
+अंतिम फ़ाइल पथ पर निर्भर किए बिना प्रस्तुति लिखने के लिए, एक लिखने योग्य स्ट्रीम और एक [SaveFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/saveformat/) मान को [Presentation.save](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#save-java.io.OutputStream-int-) मेथड में पास करें। यह तरीका तब उपयोगी होता है जब आउटपुट को वेब सर्विस से लौटाना हो, डेटाबेस में संग्रहीत करना हो, या मेमोरी में प्रोसेस करना हो।
+
+निम्नलिखित उदाहरण नई प्रस्तुति को फ़ाइल स्ट्रीम में सहेजता है:
+
+```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का एक उदाहरण बनाएं।
 Presentation presentation = new Presentation();
 try {
-    OutputStream fileStream = new FileOutputStream("Output.pptx");
+    OutputStream outputStream = new FileOutputStream("Output.pptx");
     try {
-        // प्रस्तुति को स्ट्रीम में सहेजें।
-        presentation.save(fileStream, SaveFormat.Pptx);
+        presentation.save(outputStream, SaveFormat.Pptx);
     } finally {
-        fileStream.close();
+        outputStream.close();
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **पूर्वनिर्धारित व्यू टाइप के साथ प्रेजेंटेशन सहेजें**
+## **पूर्वपरिभाषित व्यू टाइप के साथ प्रस्तुति सहेजें**
 
-Aspose.Slides आपको उत्पन्न प्रेजेंटेशन के खुले समय PowerPoint द्वारा उपयोग किए जाने वाले प्रारंभिक व्यू को [ViewProperties](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/viewproperties/) क्लास के माध्यम से सेट करने देता है। [setLastView](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/viewproperties/#setLastView-int-) मेथड को [ViewType](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/viewtype/) एनीमरेशन के मान के साथ उपयोग करें।
+आप सहेजी गई प्रस्तुति को प्रारंभिक रूप से जिस व्यू में PowerPoint खोलता है, उसे निर्दिष्ट कर सकते हैं। सहेजने से पहले एक [ViewType](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/viewtype/) मान के साथ [ViewProperties.setLastView](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/viewproperties/#setLastView-int-) मेथड का उपयोग करें।
+
+निम्नलिखित उदाहरण स्लाइड मास्टर व्यू को प्रारंभिक व्यू के रूप में कॉन्फ़िगर करता है:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ViewType;
 
 Presentation presentation = new Presentation();
 try {
@@ -87,187 +140,186 @@ try {
 }
 ```
 
-## **स्ट्रिक्ट ऑफिस ओपन XML फ़ॉर्मेट में प्रेजेंटेशन सहेजें**
+## **स्ट्रिक्ट ऑफिस ओपन XML फ़ॉर्मेट में प्रस्तुति सहेजें**
 
-Aspose.Slides आपको प्रेजेंटेशन को स्ट्रिक्ट ऑफिस ओपन XML फ़ॉर्मेट में सहेजने देता है। सहेजते समय [PptxOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pptxoptions/) क्लास का उपयोग कर उसकी conformance प्रॉपर्टी सेट करें। यदि आप [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/conformance/#Iso29500-2008-Strict) सेट करते हैं, तो आउटपुट फ़ाइल स्ट्रिक्ट ऑफिस ओपन XML फ़ॉर्मेट में सहेजी जाएगी।
-
-नीचे दिया गया उदाहरण एक प्रेजेंटेशन बनाता है और उसे स्ट्रिक्ट ऑफिस ओपन XML फ़ॉर्मेट में सहेजता है।
+स्ट्रिक्ट प्रोफ़ाइल ऑफ़िस ओपन XML के अनुरूप PPTX फ़ाइल बनाने के लिए, एक [PptxOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pptxoptions/) इंस्टेंस बनाएं और उसके [setConformance](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pptxoptions/#setConformance-int-) मेथड को [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/conformance/#Iso29500-2008-Strict) मान के साथ कॉल करें। फिर विकल्पों को [Presentation.save](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) मेथड में पास करें।
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Conformance;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 PptxOptions options = new PptxOptions();
 options.setConformance(Conformance.Iso29500_2008_Strict);
 
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का एक उदाहरण बनाएं।
 Presentation presentation = new Presentation();
 try {
-    // प्रस्तुति को स्ट्रिक्ट ऑफिस ओपन XML फ़ॉर्मेट में सहेजें।
     presentation.save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **ZIP64 मोड में ऑफिस ओपन XML फ़ॉर्मेट में प्रेजेंटेशन सहेजें**
+## **Office Open XML फ़ॉर्मेट में Zip64 मोड के साथ प्रस्तुति सहेजें**
 
-Office Open XML फ़ाइल एक ZIP आर्काइव है जो अनकम्प्रेस्ड फ़ाइल आकार, कम्प्रेस्ड फ़ाइल आकार और संपूर्ण आर्काइव आकार पर 4 GB (2^32 बाइट) की सीमा लगाती है, और साथ ही आर्काइव में 65 535 (2^16‑1) फ़ाइलों की सीमा भी लगाती है। ZIP64 फ़ॉर्मेट एक्सटेंशन इन सीमाओं को 2^64 तक बढ़ाते हैं।
+एक मानक ZIP संग्रह प्रत्येक प्रविष्टि के संकुचित और अनसंकुचित आकार, कुल संग्रह आकार, और प्रविष्टियों की संख्या को सीमित करता है। क्योंकि PPTX फ़ाइल एक ZIP संग्रह होती है, बहुत बड़ी प्रस्तुति इन सीमाओं को पार कर सकती है। ZIP64 एक्सटेंशन लागू आकार और प्रविष्टि‑संख्या सीमाओं को बढ़ाते हैं।
 
-[IPptxOptions.setZip64Mode](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ipptxoptions/#setZip64Mode-int-) मेथड आपको Office Open XML फ़ाइल सहेजते समय ZIP64 फ़ॉर्मेट एक्सटेंशन कब उपयोग करने हैं, यह चुनने देता है।
+[PptxOptions.setZip64Mode](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pptxoptions/#setZip64Mode-int-) मेथड का उपयोग करके नियंत्रित करें कि Aspose.Slides ZIP64 एक्सटेंशन लिखे या नहीं:
 
-यह मेथड निम्न मोड के साथ उपयोग किया जा सकता है:
+- [IfNecessary](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/zip64mode/#IfNecessary) जब प्रस्तुति मानक ZIP सीमाओं से अधिक हो तो ही ZIP64 का उपयोग करता है। यह डिफ़ॉल्ट मोड है।
+- [Never](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/zip64mode/#Never) ZIP64 एक्सटेंशन को अक्षम करता है।
+- [Always](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/zip64mode/#Always) हमेशा ZIP64 एक्सटेंशन लिखता है।
 
-- [IfNecessary](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/zip64mode/#IfNecessary) जब केवल प्रेजेंटेशन ऊपर बताई गई सीमाओं से अधिक हो तो ZIP64 फ़ॉर्मेट एक्सटेंशन का उपयोग करता है। यह डिफ़ॉल्ट मोड है।
-- [Never](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/zip64mode/#Never) कभी भी ZIP64 फ़ॉर्मेट एक्सटेंशन का उपयोग नहीं करता।
-- [Always](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/zip64mode/#Always) हमेशा ZIP64 फ़ॉर्मेट एक्सटेंशन का उपयोग करता है।
-
-निचे का कोड दिखाता है कि ZIP64 फ़ॉर्मेट एक्सटेंशन सक्षम करके PPTX फ़ाइल के रूप में प्रेजेंटेशन को कैसे सहेजा जाए:
+निम्नलिखित उदाहरण आउटपुट प्रस्तुति के लिए हमेशा ZIP64 एक्सटेंशन सक्षम करता है:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setZip64Mode(Zip64Mode.Always);
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.Zip64Mode;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("OutputZip64.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setZip64Mode(Zip64Mode.Always);
+
+    presentation.save("OutputZip64.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-जब आप [Zip64Mode.Never](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/zip64mode/#Never) के साथ सहेजते हैं, तो यदि प्रेजेंटेशन को ZIP32 फ़ॉर्मेट में सहेजा नहीं जा सकता तो एक [PptxException](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pptxexception/) फेंका जाता है।
+{{% alert color="warning" title="Warning" %}}
+यदि [Zip64Mode.Never](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/zip64mode/#Never) का उपयोग किया जाता है और प्रस्तुति मानक ZIP सीमाओं में फिट नहीं होती, तो सहेजने का ऑपरेशन एक [PptxException](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pptxexception/) फेंकता है।
 {{% /alert %}}
 
-## **कम्प्रेशन लेवल के साथ ऑफिस ओपन XML फ़ॉर्मेट में प्रेजेंटेशन सहेजें**
+## **Office Open XML फ़ॉर्मेट में संपीड़न स्तरों के साथ प्रस्तुति सहेजें**
 
-जब आप बड़े प्रेजेंटेशन के साथ काम कर रहे हों, तो आप फ़ाइल आकार और प्रोसेसिंग समय के बीच संतुलन बनाते हुए कम्प्रेशन लेवल को समायोजित कर सकते हैं। Aspose.Slides [IPptxOptions.setCompressionLevel](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ipptxoptions/#setCompressionLevel-int-) मेथड प्रदान करता है, जो Office Open XML फ़ॉर्मेट में प्रेजेंटेशन सहेजते समय उपयोग किए जाने वाले कम्प्रेशन लेवल को निर्दिष्ट करने देता है।
+PPTX आउटपुट के लिए, आप [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pptxoptions/#setCompressionLevel-int-) मेथड का उपयोग करके सहेजने की गति और फ़ाइल आकार में संतुलन बना सकते हैं। [CompressionLevel](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/) क्लास निम्नलिखित मान प्रदान करती है:
 
-उपलब्ध कम्प्रेशन लेवल निम्नलिखित हैं:
+- [None](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#None) डेटा को बिना संपीड़न के संग्रहित करता है।
+- [Level1](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#Level1) सबसे तेज़ संपीड़न और सबसे बड़ा संकुचित आउटपुट प्रदान करता है।
+- [Level2](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#Level2) से [Level5](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#Level5) तक क्रमिक रूप से सहेजने की गति की तुलना में छोटे आउटपुट को प्राथमिकता देते हैं।
+- [Level6](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#Level6) सहेजने की गति और फ़ाइल आकार के बीच संतुलन बनाता है। यह डिफ़ॉल्ट स्तर है।
+- [Level7](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#Level7) और [Level8](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#Level8) सहेजने की गति की तुलना में छोटे आउटपुट को और अधिक प्राथमिकता देते हैं।
+- [Level9](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#Level9) सबसे मजबूत संपीड़न प्रदान करता है और सबसे अधिक प्रोसेसिंग समय लेता है।
 
-- [**None**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#None): कोई कम्प्रेशन लागू नहीं किया जाता। फ़ाइलें जैसे की हैं वैसी ही संग्रहीत होती हैं।
-- [**Level1**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#Level1): सबसे तेज़ कम्प्रेशन, सबसे कम कम्प्रेशन अनुपात के साथ।
-- [**Level2**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#Level2): **Level1** से थोड़ा बेहतर कम्प्रेशन अनुपात के साथ तेज़ कम्प्रेशन।
-- [**Level3**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#Level3): **Level2** से बेहतर कम्प्रेशन, मध्यम प्रोसेसिंग समय प्रभाव के साथ।
-- [**Level4**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#Level4): **Level3** से बेहतर कम्प्रेशन।
-- [**Level5**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#Level5): **Level4** से बेहतर कम्प्रेशन, अतिरिक्त प्रोसेसिंग समय के साथ।
-- [**Level6**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#Level6): मानक कम्प्रेशन जो प्रोसेसिंग गति और फ़ाइल आकार के बीच अच्छा संतुलन प्रदान करता है। यह *डिफ़ॉल्ट कम्प्रेशन लेवल* है।
-- [**Level7**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#Level7): **Level6** से बेहतर कम्प्रेशन, धीमी प्रोसेसिंग के साथ।
-- [**Level8**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#Level8): **Level7** से बेहतर कम्प्रेशन।
-- [**Level9**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/compressionlevel/#Level9): अधिकतम कम्प्रेशन। सबसे लंबी प्रोसेसिंग समय के बदले सबसे छोटा फ़ाइल आकार उत्पन्न करता है।
-
-निचे दिया गया उदाहरण दिखाता है कि *बिना कम्प्रेशन* PPTX फ़ाइल के रूप में प्रेजेंटेशन को कैसे सहेजा जाए:
+निम्नलिखित उदाहरण बिना संपीड़न के प्रस्तुति को सहेजता है:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setCompressionLevel(CompressionLevel.None);
+import com.aspose.slides.CompressionLevel;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Sample-out.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setCompressionLevel(CompressionLevel.None);
+
+    presentation.save("OutputNoCompression.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-यह उदाहरण दिखाता है कि *अधिकतम कम्प्रेशन* के साथ PPTX फ़ाइल के रूप में प्रेजेंटेशन को कैसे सहेजा जाए:
+निम्नलिखित उदाहरण अधिकतम संपीड़न स्तर का उपयोग करता है:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setCompressionLevel(CompressionLevel.Level9);
+import com.aspose.slides.CompressionLevel;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Sample-level9.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setCompressionLevel(CompressionLevel.Level9);
+
+    presentation.save("OutputMaximumCompression.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **थंबनेल रिफ्रेश किए बिना प्रेजेंटेशन सहेजें**
+## **थंबनेल रीफ़्रेश किए बिना प्रस्तुति सहेजें**
 
-[PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pptxoptions/#setRefreshThumbnail-boolean-) मेथड PPTX में प्रेजेंटेशन सहेजते समय थंबनेल जेनरेशन को नियंत्रित करता है:
+PPTX के रूप में सहेजी गई प्रस्तुति में, [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pptxoptions/#setRefreshThumbnail-boolean-) मेथड दस्तावेज़ थंबनेल को नियंत्रित करता है:
 
-- यदि `true` सेट किया जाए, तो सहेजने के दौरान थंबनेल रिफ्रेश होता है। यह डिफ़ॉल्ट है।
-- यदि `false` सेट किया जाए, तो मौजूदा थंबनेल बरकरार रहता है। यदि प्रेजेंटेशन में थंबनेल नहीं है, तो कोई थंबनेल नहीं बनाया जाता।
+- `true` सहेजने के दौरान थंबनेल को पुनः उत्पन्न करता है। यह डिफ़ॉल्ट मान है।
+- `false` मौजूदा थंबनेल को बना रहता है। यदि प्रस्तुति में थंबनेल नहीं है, तो Aspose.Slides नया नहीं बनाता।
 
-निचे के कोड में, प्रेजेंटेशन को थंबनेल रिफ्रेश किए बिना PPTX में सहेजा गया है।
+निम्नलिखित उदाहरण थंबनेल को रीफ़्रेश किए बिना प्रस्तुति को सहेजता है:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setRefreshThumbnail(false);
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Output.pptx", SaveFormat.Pptx, pptxOptions);
-}
-finally {
+    PptxOptions options = new PptxOptions();
+    options.setRefreshThumbnail(false);
+
+    presentation.save("Output.pptx", SaveFormat.Pptx, options);
+} finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-यह विकल्प PPTX फ़ॉर्मेट में प्रेजेंटेशन सहेजने में लगने वाले समय को कम करने में मदद करता है।
+{{% alert color="info" title="Note" %}}
+थंबनेल रीफ़्रेश को अक्षम करने से PPTX फ़ाइल को सहेजने में लगने वाला समय कम हो सकता है।
 {{% /alert %}}
 
-## **प्रोग्रेस अपडेट प्रतिशत में सहेजें**
+## **सहेजने की प्रगति प्रतिशत में अपडेट करें**
 
-[IProgressCallback](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iprogresscallback/) इंटरफ़ेस को [ISaveOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isaveoptions/) इंटरफ़ेस द्वारा एक्सपोज़्ड `setProgressCallback` मेथड और एब्स्ट्रैक्ट [SaveOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/saveoptions/) क्लास के माध्यम से उपयोग किया जाता है। `setProgressCallback` के साथ एक [IProgressCallback](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iprogresscallback/) इम्प्लीमेंटेशन असाइन करें ताकि सहेजने के प्रोग्रेस अपडेट प्रतिशत में प्राप्त हो सकें।
+सहेजने के ऑपरेशन की निगरानी के लिए, [IProgressCallback](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iprogresscallback/) इंटरफ़ेस को लागू करें और इसे [ISaveOptions.setProgressCallback](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isaveoptions/#setProgressCallback-com.aspose.slides.IProgressCallback-) मेथड को पास करें। Aspose.Slides तब निर्यात के दौरान प्रगति मानों के साथ [IProgressCallback.reporting](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iprogresscallback/#reporting-double-) मेथड को कॉल करता है।
 
-निचे के कोड स्निपेट्स दिखाते हैं कि `IProgressCallback` का उपयोग कैसे किया जाता है।
+निम्नलिखित उदाहरण PDF निर्यात की प्रगति को कंसोल में रिपोर्ट करता है:
 
 ```java
-import com.aspose.slides.*;
-
-ISaveOptions saveOptions = new PdfOptions();
-saveOptions.setProgressCallback(new ExportProgressHandler());
-
-Presentation presentation = new Presentation("Sample.pptx");
-try {
-    presentation.save("Output.pdf", SaveFormat.Pdf, saveOptions);
-} finally {
-    presentation.dispose();
-}
-```
-```java
-import com.aspose.slides.*;
+import com.aspose.slides.IProgressCallback;
+import com.aspose.slides.PdfOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 class ExportProgressHandler implements IProgressCallback {
     public void reporting(double progressValue) {
-        // यहाँ प्रगति प्रतिशत मान का उपयोग करें।
         int progress = (int) progressValue;
-
         System.out.println(progress + "% of the file has been converted.");
     }
 }
+
+PdfOptions options = new PdfOptions();
+options.setProgressCallback(new ExportProgressHandler());
+
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    presentation.save("Output.pdf", SaveFormat.Pdf, options);
+} finally {
+    presentation.dispose();
+}
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose ने अपने API का उपयोग करके एक [free PowerPoint Splitter app](https://products.aspose.app/slides/hi/splitter) विकसित किया है। यह ऐप चयनित स्लाइड्स को नए PPTX या PPT फ़ाइलों के रूप में सहेजकर प्रेजेंटेशन को कई फ़ाइलों में विभाजित करने की अनुमति देता है।
+{{% alert color="info" title="Note" %}}
+अस्पोज़ एक मुफ्त [PowerPoint Splitter](https://products.aspose.app/slides/hi/splitter) प्रदान करता है, जो Aspose.Slides API से निर्मित है। यह प्रस्तुति से चयनित स्लाइड्स को अलग PPT या PPTX फ़ाइलों के रूप में सहेजता है।
 {{% /alert %}}
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**क्या "फास्ट सेव" (इन्क्रिमेंटल सेव) समर्थित है जिससे केवल परिवर्तन ही लिखे जाएँ?**
+**क्या Aspose.Slides इंक्रीमेंटल या “फ़ास्ट सहेज” का समर्थन करता है?**
 
-नहीं। सहेजने पर हर बार पूरी लक्ष्य फ़ाइल बनाई जाती है; इन्क्रिमेंटल "फास्ट सेव" समर्थित नहीं है।
+नहीं। प्रत्येक सहेजने का ऑपरेशन केवल बदले हुए भागों को अपडेट करने के बजाय पूरी आउटपुट फ़ाइल लिखता है।
 
-**क्या एक ही Presentation इंस्टेंस को बहु-थ्रेड्स से सहेजना थ्रेड-सेफ़ है?**
+**क्या कई थ्रेड्स एक ही Presentation इंस्टेंस को सहेज सकते हैं?**
 
-नहीं। एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) इंस्टेंस [थ्रेड-सेफ़ नहीं है](/slides/hi/androidjava/multithreading/); इसे एक ही थ्रेड से सहेजें।
+नहीं। एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) इंस्टेंस [थ्रेड‑सेफ़ नहीं है](/slides/hi/androidjava/multithreading/)। प्रत्येक इंस्टेंस को केवल एक थ्रेड से ही ऐक्सेस और सहेजें।
 
-**सेविंग के दौरान हाइपरलिंक्स और बाहरी लिंक वाली फ़ाइलों के साथ क्या होता है?**
+**जब मैं प्रस्तुति को सहेजता हूँ तो हाइपरलिंक और बाहरी लिंक वाली फ़ाइलों के साथ क्या होता है?**
 
-[Hyperlinks](/slides/hi/androidjava/manage-hyperlinks/) बरकरार रहते हैं। बाहरी लिंक वाली फ़ाइलें (जैसे रिलेटिव पाथ वाले वीडियो) स्वचालित रूप से कॉपी नहीं होतीं—सुनिश्चित करें कि संदर्भित पाथ्स उपलब्ध रहें।
+[Hyperlinks](/slides/hi/androidjava/manage-hyperlinks/) प्रस्तुति में बने रहते हैं। Aspose.Slides बाहरी लिंक वाली फ़ाइलों को कॉपी नहीं करता, इसलिए सहेजी गई प्रस्तुति को फिर भी उनके स्थानों तक पहुँच सकना चाहिए।
 
-**क्या मैं दस्तावेज़ मेटाडेटा (लेखक, शीर्षक, कंपनी, दिनांक) सेट/सेव कर सकता हूँ?**
+**क्या मैं दस्तावेज़ मेटाडेटा जैसे लेखक, शीर्षक, कंपनी और निर्माण तिथि को सहेज सकता हूँ?**
 
-हाँ। मानक [डॉक्यूमेंट प्रॉपर्टीज़](/slides/hi/androidjava/presentation-properties/) समर्थित हैं और सहेजने पर फ़ाइल में लिख दी जाती हैं।
+हाँ। सहेजने से पहले उचित [document properties](/slides/hi/androidjava/presentation-properties/) सेट करें, और Aspose.Slides उन्हें आउटपुट फ़ाइल में लिखता है।

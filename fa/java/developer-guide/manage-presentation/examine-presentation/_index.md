@@ -1,11 +1,11 @@
 ---
-title: بازیابی و به‌روزرسانی اطلاعات ارائه در جاوا
+title: اخذ و به‌روزرسانی اطلاعات ارائه در جاوا
 linktitle: اطلاعات ارائه
 type: docs
 weight: 30
 url: /fa/java/examine-presentation/
 keywords:
-- فرمت ارائه
+- قالب ارائه
 - ویژگی‌های ارائه
 - ویژگی‌های سند
 - دریافت ویژگی‌ها
@@ -21,17 +21,19 @@ keywords:
 - ارائه
 - جاوا
 - Aspose.Slides
-description: "اسلایدها، ساختار و متادیتا را در ارائه‌های PowerPoint و OpenDocument با استفاده از جاوا بررسی کنید تا بینش‌های سریع‌تر و ارزیابی محتوای هوشمندتر حاصل شود."
+description: "با استفاده از جاوا، اسلایدها، ساختار و فراداده‌های ارائه‌های PowerPoint و OpenDocument را کاوش کنید تا بینش‌های سریع‌تر و ارزیابی‌های محتوا هوشمندانه‌تری داشته باشید."
 ---
-## **بررسی کلی**
+## **مرور کلی**
 
-Aspose.Slides می‌تواند فرمت یک ارائه را شناسایی کرده و متادیتای سند آن را بدون ایجاد یک مدل شیء کامل ارائه بخواند. این زمانی مفید است که نیاز به دسته‌بندی فایل‌ها، ساخت یک موجودی یا بررسی ویژگی‌ها قبل از تصمیم‌گیری درباره بارگذاری و پردازش محتوای ارائه داشته باشید.
+Aspose.Slides می‌تواند قالب یک ارائه را شناسایی کرده و فراداده‌های سند آن را بدون ایجاد یک مدل شیء کامل ارائه بخواند. این برای مواقعی مفید است که نیاز به طبقه‌بندی فایل‌ها، ساخت فهرست یا بررسی ویژگی‌ها قبل از تصمیم‌گیری برای بارگذاری و پردازش محتوای ارائه داشته باشید.
 
-این مقاله بازرسی سبک وزن را از طریق [PresentationFactory](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationfactory/) و [IPresentationInfo](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/) نشان می‌دهد و همچنین به‌روزرسانی‌های هدفمند را از طریق [IDocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idocumentproperties/) ارائه می‌کند.
+این مقاله با استفاده از [PresentationFactory](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationfactory/) و [IPresentationInfo](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/) بررسی سبک را نشان می‌دهد و همچنین به‌روزرسانی‌های هدفمند را از طریق [IDocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idocumentproperties/) ارائه می‌کند.
 
-## **بررسی فرمت یک ارائه**
+## **بررسی قالب ارائه**
 
-از [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) برای بازرسی یک فایل بدون ایجاد یک نمونه [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) استفاده کنید. متد [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/#getLoadFormat--) فرمت شناسایی‌شده را گزارش می‌دهد، مانند PPTX، PPT یا ODP.
+اگر قبلاً یک ارائه بارگذاری شده دارید، برای شناسایی پس از بارگذاری و محدودیت‌های جریان‌های PPT، PPS و POT قدیمی، مقاله [Determine the Original Presentation Format](/slides/fa/java/detect-presentation-source-format/) را ببینید.
+
+از [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) برای بازرسی یک فایل بدون ایجاد یک نمونه [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) استفاده کنید. متد [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/#getLoadFormat--) قالب شناسایی‌شده را گزارش می‌کند، مانند PPTX، PPT یا ODP.
 
 ```java
 import com.aspose.slides.IPresentationInfo;
@@ -57,11 +59,11 @@ for (String fileName : fileNames) {
 }
 ```
 
-## **ساخت موجودی سبک وزن برای ارائه**
+## **ساخت موجودی سبک ارائه**
 
-هنگام پردازش تعداد زیادی فایل ارائه، ممکن است به یک موجودی فشرده برای اعتبارسنجی، ایندکس‌سازی یا سیستم مدیریت اسناد نیاز داشته باشید. در این حالت، از [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) برای به‌دست آوردن یک شیء [IPresentationInfo](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/) استفاده کنید و سپس متد [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) را فراخوانی کنید تا متادیتای سند را بخوانید. این رویکرد هیچ نمونه‌ای از [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد نمی‌کند و نیازی به پیمایش کامل مدل شیء ارائه نیست.
+هنگامی که فایل‌های ارائه زیادی را پردازش می‌کنید، ممکن است به یک فهرست فشرده برای اعتبارسنجی، ایندکس‌گذاری یا سیستم مدیریت سند نیاز داشته باشید. در این حالت، از [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) برای دریافت یک شیء [IPresentationInfo](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/) استفاده کنید و سپس متد [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) را برای خواندن فراداده‌های سند فراخوانی نمایید. این رویکرد هیچ نمونه‌ای از [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد نمی‌کند و نیازی به مرور کامل مدل شیء ارائه ندارد.
 
-ویژگی‌های گسترش‌یافته‌ای که توسط [IDocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idocumentproperties/) ارائه می‌شوند، مقادیر موجودی زیر را فراهم می‌کنند:
+ویژگی‌های گسترش یافته‌ای که توسط [IDocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idocumentproperties/) ارائه می‌شود، مقادیر موجودی زیر را فراهم می‌کند:
 
 | متد | مقدار موجودی |
 | --- | --- |
@@ -72,7 +74,7 @@ for (String fileName : fileNames) {
 | [getWords](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idocumentproperties/#getWords--) | کل تعداد کلمات. |
 | [getMultimediaClips](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idocumentproperties/#getMultimediaClips--) | کل تعداد کلیپ‌های صوتی و تصویری. |
 
-مثال زیر این مقادیر را بدون ایجاد یک شیء [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) می‌خواند و موجودی فشرده‌ای چاپ می‌کند. همچنین [getHeadingPairs](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idocumentproperties/#getHeadingPairs--) را با [getTitlesOfParts](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) ترکیب می‌کند تا گروه‌های محتوا مانند قلم‌ها، تم‌ها و عناوین اسلاید را نمایش دهد.
+مثال زیر این مقادیر را بدون ایجاد شیء [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) می‌خواند و یک فهرست فشرده چاپ می‌کند. همچنین با ترکیب [getHeadingPairs](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idocumentproperties/#getHeadingPairs--) و [getTitlesOfParts](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) گروه‌های محتوایی مانند قلم‌ها، تم‌ها و عناوین اسلاید را نمایش می‌دهد.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -140,27 +142,27 @@ if (headingPairs.length == 0 || titlesOfParts.length == 0) {
 }
 ```
 
-هر [IHeadingPair](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iheadingpair/) یک نام گروه و تعداد آیتم‌های آن گروه را فراهم می‌کند. متد [IDocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) یک آرایهٔ صاف و مرتب بر می‌گرداند، بنابراین تعداد عناوین متوالی تعیین‌شده توسط هر جفت سرعنوان را مصرف کنید.
+هر [IHeadingPair](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iheadingpair/) یک نام گروه و تعداد آیتم‌های آن گروه را فراهم می‌کند. متد [IDocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) یک آرایهٔ صاف و ترتیب‌دار برمی‌گرداند، بنابراین تعداد عناوین متوالی مشخص‌شده توسط هر جفت سرصفحه را مصرف کنید.
 
-### **متادیتای ذخیره‌شده و محدودیت‌های فرمت**
+### **فراداده‌های ذخیره‌شده و محدودیت‌های قالب**
 
-ویژگی‌های موجودی بازگردانده‌شده توسط [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) متادیتایی را منعكس می‌کنند که در سند منبع موجود است. Aspose.Slides مدل شیء ارائه را بارگذاری و پیمایش نمی‌کند تا این مقادیر را برای این فراخوانی دوباره محاسبه کند. ویژگی‌های گمشده با مقادیر پیش‌فرض نشان داده می‌شوند و مقادیر ذخیره‌شده ممکن است منسوخ باشند اگر برنامه‌ای که آخرین بار فایل را ذخیره کرده است، ویژگی‌های سند را به‌روز نکرده باشد.
+ویژگی‌های موجودی که توسط [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) برگردانده می‌شود، فراداده‌های موجود در سند منبع را نشان می‌دهد. Aspose.Slides برای این فراخوانی مدل شیء ارائه را بارگذاری و مرور نمی‌کند تا این مقادیر را دوباره محاسبه کند. ویژگی‌های گمشده با مقادیر پیش‌فرض نشان داده می‌شوند و مقادیر ذخیره‌شده ممکن است منسوخ باشند اگر برنامه‌ای که آخرین بار فایل را ذخیره کرده است، ویژگی‌های سند را به‌روز نکرده باشد.
 
-- **PPTX:** این فرمت ویژگی‌های سند گسترش‌یافته برای شمارش اسلاید، یادداشت، اسلاید مخفی، پاراگراف، کلمه و موارد چندرسانه‌ای، همچنین جفت‌های سرعنوان و عناوین بخش‌ها را فراهم می‌کند. در دسترس بودن آن بستگی به این دارد که کدام ویژگی‌ها توسط تولیدکننده سند نوشته شده‌اند.
-- **PPT:** فرمت باینری می‌تواند ویژگی‌های خلاصه سند متناظر را ذخیره کند. اگر ویژگی‌ای غایب باشد یا توسط تولیدکننده سند تازه‌سازی نشده باشد، Aspose.Slides مقدار ذخیره‌شده یا پیش‌فرض آن را بر می‌گرداند نه اینکه از اسلایدها محاسبه کند.
-- **ODP:** متادیتای OpenDocument آمار کلی سند مانند تعداد صفحه، پاراگراف و کلمه را ارائه می‌دهد، اما این مقادیر به هر ویژگی گسترش‌یافته خاص PowerPoint نقشه نمی‌شوند. متادیتای اسلاید مخفی، اسلاید یادداشت، چندرسانه‌ای، جفت سرعنوان و عناوین بخش ممکن است در دسترس نباشد و ویژگی‌های موجودی ممکن است مقادیر پیش‌فرض برگردانند. مقدار صفر یا آرایهٔ خالی را به عنوان اثبات قطعی نبودن محتوا در نظر نگیرید.
+- **PPTX:** این قالب ویژگی‌های گسترش یافتهٔ سند را برای شمارش اسلاید، یادداشت، اسلاید مخفی، پاراگراف، کلمه و چندرسانه‌ای، همچنین جفت‌های سرصفحه و عناوین بخش‌ها فراهم می‌کند. در دسترس بودن آن به این بستگی دارد که کدام ویژگی‌ها توسط تولیدکننده سند نوشته شده‌اند.
+- **PPT:** قالب باینری می‌تواند ویژگی‌های خلاصهٔ سند مربوطه را ذخیره کند. اگر ویژگی‌ای موجود نباشد یا توسط تولیدکننده سند به‌روزرسانی نشده باشد، Aspose.Slides مقدار ذخیره‌شده یا پیش‌فرض آن را برمی‌گرداند نه محاسبه‌شده از اسلایدها.
+- **ODP:** فراداده‌های OpenDocument آمار کلی سند مانند شمارش صفحه، پاراگراف و کلمه را فراهم می‌کند، اما این مقادیر به هر ویژگی گسترش یافتهٔ خاص PowerPoint نگاشت ندارند. متادیتای اسلاید مخفی، اسلاید یادداشت، چندرسانه‌ای، جفت سرصفحه و عنوان بخش ممکن است در دسترس نباشد و ویژگی‌های موجودی ممکن است مقادیر پیش‌فرض برگردانند. مقدار صفر یا آرایهٔ خالی را به‌عنوان اثبات قطعی عدم وجود محتوای مرتبط در نظر نگیرید.
 
-از روش متادیتای سبک وزن برای موجودی‌ها و بررسی‌های اولیه استفاده کنید. زمانی که نتیجه باید تغییرات حافظهٔ درون‌محیطی را منعکس کند یا نیاز به تأیید محتوای واقعی ارائه دارید، ارائه را بارگذاری کنید و مدل شیء زندهٔ آن را بررسی کنید.
+از رویکرد فراداده سبک برای فهرست‌ها و بررسی‌های اولیه استفاده کنید. زمانی که نتیجه باید تغییرات در حافظه را منعکس کند یا نیاز به تأیید محتوای واقعی ارائه دارید، ارائه را بارگذاری و مدل شیء زندهٔ آن را بازرسی کنید.
 
 ## **به‌روزرسانی ویژگی‌های ارائه**
 
-ویژگی‌های بازگردانده‌شده توسط [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) را می‌توان بدون ایجاد یک نمونه [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) نیز تغییر داد. تغییرات را با [IPresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) اعمال کنید و سپس ارائهٔ متصل را با [IPresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/#writeBindedPresentation-java.io.OutputStream-) بنویسید.
+ویژگی‌هایی که توسط [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) برگردانده می‌شود، می‌توانند بدون ایجاد یک نمونه [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) نیز تغییر کنند. تغییرات را با [IPresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) اعمال کنید و سپس ارائهٔ مرتبط را با [IPresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/#writeBindedPresentation-java.io.OutputStream-) بنویسید.
 
-تصویر زیر ویژگی‌های سند اصلی ارائه PowerPoint را نشان می‌دهد.
+تصویر زیر ویژگی‌های سند اصلی ارائهٔ PowerPoint را نشان می‌دهد.
 
-![ویژگی‌های سند اصلی ارائه PowerPoint](input_properties.png)
+![ویژگی‌های سند اصلی ارائهٔ پاورپوینت](input_properties.png)
 
-مثال زیر عنوان و زمان آخرین ذخیره‌سازی را تغییر می‌دهد و نتیجه را در فایلی جدید می‌نویسد:
+مثال زیر عنوان و زمان آخرین ذخیره‌سازی را تغییر داده و نتیجه را در فایلی جدید می‌نویسد:
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -184,35 +186,35 @@ try (OutputStream outputStream = new FileOutputStream(outputFile)) {
 }
 ```
 
-تصویر زیر ویژگی‌های سند تغییر یافته ارائه PowerPoint را نشان می‌دهد.
+تصویر زیر ویژگی‌های سند به‌روزرسانی‌شدهٔ ارائهٔ PowerPoint را نشان می‌دهد.
 
-![ویژگی‌های سند تغییر یافته ارائه PowerPoint](output_properties.png)
+![ویژگی‌های سند به‌روزرسانی‌شدهٔ پاورپوینت](output_properties.png)
 
 ## **لینک‌های مفید**
 
-برای بررسی‌های امنیتی مرتبط و تنظیمات محافظت، مقاله‌های زیر را ببینید:
+برای بررسی‌های امنیتی مرتبط و تنظیمات محافظت، مقالات زیر را ببینید:
 
-- [محافظت از ارائه‌ها با رمز عبور](/slides/fa/java/password-protected-presentation/)
-- [محافظت از ارائه‌ها در نوشتن](/slides/fa/java/write-protected-presentation/)
+- [Password-Protect Presentations](/slides/fa/java/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/fa/java/write-protected-presentation/)
 
 ## **سوالات متداول**
 
-**چگونه می‌توانم بررسی کنم که آیا فونت‌ها جاسازی شده‌اند و کدام‌ها هستند؟**
+**چگونه می‌توانم بررسی کنم که آیا قلم‌ها جاسازی شده‌اند و کدام‌ها هستند؟**
 
-ارائه را بارگذاری کنید و از [Presentation.getFontsManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getFontsManager--) استفاده کنید. متد [IFontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) فونت‌های جاسازی‌شده را بر می‌گرداند و [IFontsManager.getFonts](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ifontsmanager/#getFonts--) فونت‌های مورد استفاده در ارائه را برمی‌گرداند. با مقایسهٔ این دو نتیجه می‌توانید فونت‌های لازم برای رندر که جاسازی نشده‌اند را پیدا کنید.
+ارائه را بارگذاری کنید و از [Presentation.getFontsManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getFontsManager--) استفاده کنید. متد [IFontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) قلم‌های جاسازی‌شده را برمی‌گرداند و [IFontsManager.getFonts](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ifontsmanager/#getFonts--) قلم‌های استفاده‌شده در ارائه را برمی‌گرداند. دو نتیجه را مقایسه کنید تا قلم‌های موردنیاز برای رندر که جاسازی نشده‌اند، پیدا کنید.
 
-**چگونه می‌توانم به سرعت تشخیص دهم آیا فایل اسلایدهای مخفی دارد و چقدر؟**
+**چگونه می‌توانم به‌سرعت تشخیص دهم که آیا فایل اسلایدهای مخفی دارد و چند تا؟**
 
-زمانی که متادیتای ذخیره‌شدهٔ سند کافی باشد، [IDocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idocumentproperties/#getHiddenSlides--) را از طریق [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) و [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) بخوانید. این برای موجودی سبک وزن مناسب است. اگر ارائه در حافظهٔ اجرا تغییر کرده باشد یا نیاز به صحت‌سنجی مقادیر زنده داشته باشید، به‌جای آن از [Presentation.getSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getSlides--) عبور کنید و برای هر اسلاید متد [ISlide.getHidden](https://reference.aspose.com/slides/fa/java/com.aspose.slides/islide/#getHidden--) را بررسی کنید.
+زمانی که فرادادهٔ ذخیره‌شدهٔ سند کافی باشد، از [IDocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/idocumentproperties/#getHiddenSlides--) از طریق [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) و [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) بخوانید. این روش برای فهرست سبک مناسب است. اگر ارائه در حافظه تغییر کرده باشد، فرادادهٔ ذخیره‌شده ممکن است گمشده یا منسوخ باشد؛ در این صورت برای تأیید مقدار زنده، از [Presentation.getSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getSlides--) عبور کرده و متد [ISlide.getHidden](https://reference.aspose.com/slides/fa/java/com.aspose.slides/islide/#getHidden--) هر اسلاید را بررسی کنید.
 
-**آیا می‌توانم تشخیص دهم آیا اندازه و جهت سفارشی اسلاید استفاده شده است و آیا با پیش‌فرض‌ها متفاوت است؟**
+**آیا می‌توانم تشخیص دهم که آیا اندازه و جهت‌گیری سفارشی اسلاید استفاده شده است و آیا با پیش‌فرض‌ها متفاوت است؟**
 
-بله. ارائه را بارگذاری کنید و متد [Presentation.getSlideSize](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getSlideSize--) را فراخوانی کنید. از [ISlideSize.getType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/islidesize/#getType--)، [ISlideSize.getSize](https://reference.aspose.com/slides/fa/java/com.aspose.slides/islidesize/#getSize--) و [ISlideSize.getOrientation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/islidesize/#getOrientation--) برای مقایسهٔ تنظیمات فعلی با پیش‌فرض‌های از پیش تعیین‌شده و ابعاد استفاده کنید.
+بله. ارائه را بارگذاری کنید و متد [Presentation.getSlideSize](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getSlideSize--) را فراخوانی کنید. از [ISlideSize.getType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/islidesize/#getType--)، [ISlideSize.getSize](https://reference.aspose.com/slides/fa/java/com.aspose.slides/islidesize/#getSize--) و [ISlideSize.getOrientation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/islidesize/#getOrientation--) برای مقایسه تنظیمات فعلی با پیش‌تنظیمات و ابعاد مورد انتظار استفاده کنید.
 
-**آیا روش سریعی برای مشاهده اینکه آیا نمودارها به منابع داده خارجی ارجاع می‌دهند وجود دارد؟**
+**آیا راه سریعى برای مشاهده اینکه آیا نمودارها به منابع داده خارجی ارجاع می‌دهند وجود دارد؟**
 
-بله. هر [Chart](https://reference.aspose.com/slides/fa/java/com.aspose.slides/chart/) را پیدا کنید و متد [IChartData.getDataSourceType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartdata/#getDataSourceType--) را صدا بزنید. برای یک کتاب‌کار خارجی، متد [IChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) را فراخوانی کنید. نوع منبع داده و مسیر یک ارجاع خارجی را شناسایی می‌کنند، اما بررسی موجودیت هدف نیاز به بررسی منبع جداگانه دارد.
+بله. هر [Chart](https://reference.aspose.com/slides/fa/java/com.aspose.slides/chart/) را پیدا کنید و متد [IChartData.getDataSourceType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartdata/#getDataSourceType--) را فراخوانی کنید. برای یک کتاب‌کار خارجی، متد [IChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) را صدا بزنید. نوع منبع داده و مسیر نشانگر ارجاع خارجی هستند، اما تأیید در دسترس بودن هدف نیاز به بررسی منبع جداگانه دارد.
 
-**چگونه می‌توانم اسلایدهای «سنگین» که ممکن است رندر یا خروجی PDF را کند کنند ارزیابی کنم؟**
+**چگونه می‌توانم اسلایدهای «سنگین» که ممکن است رندر یا خروجی PDF را کند کنند، ارزیابی کنم؟**
 
-هیچ ویژگی تک‌نخی برای پیچیدگی وجود ندارد. از [Presentation.getSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getSlides--) و مجموعهٔ [IBaseSlide.getShapes](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseslide/#getShapes--) برای هر اسلاید عبور کنید. از شمارش اشکال و حضور تصاویر بزرگ، افکت‌ها، انیمیشن‌ها یا چندرسانه‌ای‌ها به عنوان سیگنال‌های غربالگری استفاده کنید و یک رندر یا خروجی نمایشی نمونه‌برداری کنید تا قبل از تعیین اسلاید به‌عنوان گلوگاه عملکردی، آن را تأیید کنید.
+هیچ ویژگی پیچیدگی واحدی وجود ندارد. از [Presentation.getSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getSlides--) و مجموعهٔ [IBaseSlide.getShapes](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseslide/#getShapes--) هر اسلاید عبور کنید. شمارش اشکال و وجود تصاویر بزرگ، افکت‌ها، انیمیشن‌ها یا چندرسانه‌ای را به‌عنوان سیگنال‌های فیلترینگ استفاده کنید و قبل از این‌که اسلاید را به‌عنوان گلوگاه عملکردی تأیید کنید، یک رندر یا خروجی نماینده را اندازه‌گیری کنید.

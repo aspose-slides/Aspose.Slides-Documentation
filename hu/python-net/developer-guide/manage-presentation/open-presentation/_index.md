@@ -1,38 +1,40 @@
 ---
-title: Pythonban bemutatók megnyitása
-linktitle: Bemutatók megnyitása
+title: Prezentációk megnyitása Pythonban
+linktitle: Prezentációk megnyitása
 type: docs
 weight: 20
 url: /hu/python-net/open-presentation/
 keywords:
 - PowerPoint megnyitása
-- bemutató megnyitása
+- prezentáció megnyitása
 - PPTX megnyitása
 - PPT megnyitása
 - ODP megnyitása
-- bemutató betöltése
+- prezentáció betöltése
 - PPTX betöltése
 - PPT betöltése
 - ODP betöltése
-- védett bemutató
-- nagy bemutató
+- védett prezentáció
+- nagy prezentáció
 - külső erőforrás
 - bináris objektum
 - Python
 - Aspose.Slides
-description: "Tanulja meg, hogyan nyithat meg PowerPoint és OpenDocument bemutatókat Pythonban, hogyan adhat meg megnyitási jelszavakat, és hogyan csökkentheti a memóriahasználatot az Aspose.Slides for Python via .NET segítségével."
+description: "Ismerje meg, hogyan nyithat meg PowerPoint és OpenDocument prezentációkat Pythonban, adjon meg megnyitási jelszavakat, és csökkentse a memóriahasználatot az Aspose.Slides for Python via .NET segítségével."
 ---
 ## **Bevezetés**
 
-[Aspose.Slides for Python via .NET](https://products.aspose.com/slides/hu/python-net/) képes PowerPoint és OpenDocument bemutatókat betölteni fájlokból és adatfolyamokból. Miután a bemutató betöltésre került, ellenőrizheti annak szerkezetét, szerkesztheti a diákat, kezelheti az erőforrásokat, és mentheti az eredeti vagy egy másik támogatott formátumban.
+Aspose.Slides for Python via .NET képes PowerPoint és OpenDocument prezentációkat betölteni fájlokból és adatfolyamokból. Miután egy prezentáció be lett töltve, ellenőrizheti annak szerkezetét, szerkesztheti a diát, kezelheti az erőforrásokat, és elmentheti az eredeti vagy egy másik támogatott formátumban.
 
-A betöltési viselkedés testre szabható a [LoadOptions](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/) osztályon keresztül. Például megadhat egy megnyitási jelszót, a nagy bináris objektumokat a memória kívül tarthatja, vagy kihagyhatja a beágyazott bináris adatokat.
+Az betöltési viselkedést a [LoadOptions](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/) osztállyal testreszabhatja. Például megadhat egy megnyitási jelszót, a nagy bináris objektumokat a memória kívül tarthatja, vagy kihagyhatja a beágyazott bináris adatokat.
 
-## **Bemutatók megnyitása**
+## **Prezentációk megnyitása**
 
-Egy meglévő bemutató megnyitásához adja át a fájl útvonalát a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) konstruktorának. Használjon `with` utasítást, hogy a fájlkezelők, az ideiglenes adatok és egyéb erőforrások gyorsan felszabaduljanak.
+Fájl vagy adatfolyam betöltése után meghatározhatja az eredeti prezentációformátumot, hogy kiválassza, alkalmazása hogyan dolgozza fel azt.
 
-A következő Python példakód megmutatja, hogyan nyithat meg egy bemutatót és kérdezheti le a diák számát:
+Egy létező prezentáció megnyitásához adja át a fájl útvonalát a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) konstruktorának. Használjon egy `with` utasítást, hogy a fájlkezelők, ideiglenes adatok és egyéb erőforrások gyorsan felszabaduljanak.
+
+A következő Python példában látható, hogyan nyithat meg egy prezentációt és szerezheti meg a diák számát:
 
 ```python
 import aspose.slides as slides
@@ -41,9 +43,9 @@ with slides.Presentation("sample.pptx") as presentation:
     print("Slide count: " + str(len(presentation.slides)))
 ```
 
-## **Jelszóval védett bemutatók megnyitása**
+## **Jelszóval védett prezentációk megnyitása**
 
-A megnyitási jelszó titkosítja a bemutató tartalmát. A teljes bemutató betöltéséhez állítsa be a helyes jelszót a [LoadOptions.password](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/password/) tulajdonságra, majd adja át a beállításokat a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) konstruktorának. A betöltés sikertelen, ha a jelszó hiányzik vagy hibás.
+A megnyitási jelszó titkosítja a prezentáció tartalmát. A teljes prezentáció betöltéséhez rendelje a helyes jelszót a [LoadOptions.password](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/password/) property-hez, és adja át az opciókat a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) konstruktorának. A betöltés akkor sikertelen, ha a jelszó hiányzik vagy helytelen.
 
 ```python
 import aspose.slides as slides
@@ -55,13 +57,13 @@ with slides.Presentation("encrypted-presentation.pptx", load_options) as present
     print("Slide count: " + str(len(presentation.slides)))
 ```
 
-A jelszófelismeréssel, -validálással és titkosítási munkafolyamatokkal kapcsolatos információkért lásd a [Password-Protect Presentations](/slides/hu/python-net/password-protected-presentation/) oldalt. Ha egy titkosított bemutatót szándékosan nyilvános dokumentum tulajdonságokkal mentettek, ezek a tulajdonságok jelszó nélkül is olvashatók; lásd a [Manage Presentation Properties](/slides/hu/python-net/presentation-properties/) részt.
+Jelszó észleléshez, validáláshoz és titkosítási munkafolyamatokhoz lásd a [Jelszóval védett prezentációk](/slides/hu/python-net/password-protected-presentation/) szakaszt. Ha egy titkosított prezentációt szándékosan nyilvános dokumentumtulajdonságokkal mentették, azok a jelszó nélkül is olvashatók; lásd a [Prezentációtulajdonságok kezelése](/slides/hu/python-net/presentation-properties/) útmutatót.
 
-## **Nagy bemutatók megnyitása**
+## **Nagy prezentációk megnyitása**
 
-A [LoadOptions.blob_management_options](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/blob_management_options/) határozza meg, hogyan kezeli az Aspose.Slides a nagy bináris objektumokat, például képeket, hangot és videót. A forrásfájlt zárolhatja, engedélyezheti az ideiglenes fájlokat, és korlátozhatja a memóriában megtartott BLOB adat mennyiségét.
+[A LoadOptions.blob_management_options](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/blob_management_options/) szabályozza, hogyan kezeli az Aspose.Slides a bináris nagy objektumokat, mint például képek, audio és videó. A forrásfájlt zárolva tarthatja, engedélyezheti az ideiglenes fájlokat, és korlátozhatja a memóriában tartott BLOB adat mennyiségét.
 
-Ez a Python kód demonstrálja egy nagy bemutató betöltését (például 2 GB):
+Ez a Python kód bemutatja egy nagy prezentáció betöltését (például 2 GB):
 
 ```python
 import aspose.slides as slides
@@ -78,22 +80,22 @@ with slides.Presentation(file_path, load_options) as presentation:
 ```
 
 {{% alert color="info" title="Note" %}}
-A `PresentationLockingBehavior.KEEP_LOCKED` beállítással a forrásfájl zárolva marad, amíg a `Presentation` objektum el nem kerül a felszabadításra. Ne mozgassa, írja felül vagy törölje a forrásfájlt, amíg ez az objektum él.
+A `PresentationLockingBehavior.KEEP_LOCKED` használatával a forrásfájl zárolva marad, amíg a `Presentation` objektum el nem kerül felszabadításra. Ne mozgassa, írja felül vagy törölje a forrásfájlt, amíg ez az objektum él.
 
-Az Aspose.Slides a betöltés során másolhatja egy bemeneti adatfolyam tartalmát. Nagy bemutatók esetén a fájl útvonala általában hatékonyabb, mint egy adatfolyam. További tárolási és memória-kezelési lehetőségekért lásd a [Manage BLOBs](/slides/hu/python-net/manage-blob/) oldalt.
+Az Aspose.Slides a betöltés során másolhatja egy bemeneti adatfolyam tartalmát. Nagy prezentációk esetén a fájl útvonal általában hatékonyabb, mint egy adatfolyam. Lásd a [BLOB-ok kezelése](/slides/hu/python-net/manage-blob/) további tárolási és memória-kezelési lehetőségekért.
 {{% /alert %}}
 
-## **Bemutatók betöltése beágyazott bináris objektumok nélkül**
+## **Prezentációk betöltése beágyazott bináris objektumok nélkül**
 
-Egy bemutató tartalmazhat beágyazott bináris adatot, amelyre az alkalmazásnak nincs szüksége vagy azt nem kívánja megtartani. Példák:
+Egy prezentáció tartalmazhat beágyazott bináris adatot, amelyre egy alkalmazásnak nincs szüksége vagy nem kívánja megtartani. Példák:
 
 - VBA projektek, a [Presentation.vba_project](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/vba_project/) segítségével érhetők el;
 - beágyazott OLE adatok, a [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/) segítségével érhetők el;
 - ActiveX vezérlő adatok, a [Control.active_x_control_binary](https://reference.aspose.com/slides/hu/python-net/aspose.slides/control/active_x_control_binary/) segítségével érhetők el.
 
-Állítsa a [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) értékét `True`‑ra a betöltés során a bináris adatok eltávolításához. Mentse a betöltött bemutatót a tisztított eredmény megőrzéséhez.
+Állítsa a [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) értékét `True`-ra, hogy a betöltés közben eltávolítsa ezt a bináris adatot. Mentse el a betöltött prezentációt, hogy a tisztított eredményt megőrizze.
 
-Ez a beállítás csökkenti a nem kívánt beágyazott betöltések kitettségét, de nem tekinthető teljes víruskeresési vagy tartalomszűrési rendszernek.
+Ez a lehetőség csökkenti a nem kívánt beágyazott terhek kitettségét, de nem helyettesíti a teljes kártevő-felismerő vagy tartalom-tisztító rendszert.
 
 ```python
 import aspose.slides as slides
@@ -107,14 +109,14 @@ with slides.Presentation("presentation-with-embedded-data.pptx", load_options) a
 
 ## **GYIK**
 
-**Hogyan tudhatom, hogy egy fájl sérült és nem nyitható meg?**
+**Hogyan tudom megállapítani, hogy egy fájl sérült és nem nyitható meg?**
 
-Az Aspose.Slides betöltéskor parser vagy formátum kivételt dob. Kezelje ezt a hibát külön a helytelen jelszó hibájától, hogy az alkalmazás pontosan jelenteni tudja az okot.
+Az Aspose.Slides betöltés közben parsing vagy formátum kivételt dob. Kezelje ezt a hibát külön a helytelen jelszó hibájától, hogy az alkalmazás pontosan jelenteni tudja az okot.
 
 **Mi történik, ha a szükséges betűtípusok hiányoznak?**
 
-A bemutató továbbra is betölthető, de a renderelés és export helyettesítő betűtípusokat használhat. A [font substitution](/slides/hu/python-net/font-substitution/) konfigurálásával vagy a [custom fonts](/slides/hu/python-net/custom-font/) megadásával tehető előre láthatóbbá a kimenet.
+A prezentáció továbbra is betölthető, de a megjelenítés és export esetleg helyettesítő betűtípusokat használ. [A betűtípus-helyettesítés beállításához](/slides/hu/python-net/font-substitution/) vagy [egyedi betűtípusok biztosításához](/slides/hu/python-net/custom-font/) forduljon, hogy a kimenet előre láthatóbb legyen.
 
-**Betölti-e a bemutató a beágyazott médiát is?**
+**Betölti-e a prezentáció a beágyazott médiát is?**
 
-A beágyazott hang és videó elérhetővé válik a bemutató objektummodellen keresztül. A külső erőforrások a alapértelmezett erőforrás‑betöltési viselkedés szerint kerülnek feloldásra, és előfordulhat, hogy nem érhetők el, ha azok helye nem hozzáférhető.
+A beágyazott audio és videó a prezentáció objektummodellen keresztül elérhető lesz. A külső források a alapértelmezett erőforrás‑betöltési viselkedés szerint kerülnek feloldásra, és előfordulhat, hogy nem elérhetők, ha azok helye nem érhető el.

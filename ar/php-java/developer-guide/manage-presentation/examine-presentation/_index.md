@@ -18,20 +18,22 @@ keywords:
 - فحص ODP
 - PowerPoint
 - OpenDocument
-- العرض التقديمي
+- عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "استكشف الشرائح والبنية والبيانات الوصفية في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للـ PHP للحصول على رؤى أسرع وتدقيق محتوى أكثر ذكاءً."
+description: "استكشف الشرائح والبنية والبيانات التعريفية في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة PHP للحصول على رؤى أسرع وتدقيق محتوى أذكى."
 ---
 ## **نظرة عامة**
 
-يمكن لـ Aspose.Slides التعرف على تنسيق العرض التقديمي وقراءة البيانات الوصفية للمستند دون إنشاء نموذج كائن عرض تقديمي كامل. يكون هذا مفيدًا عندما تحتاج إلى تصنيف الملفات، بناء جرد، أو فحص الخصائص قبل اتخاذ قرار بتحميل ومعالجة محتوى العرض التقديمي.
+يمكن لـ Aspose.Slides تحديد تنسيق العرض التقديمي وقراءة بياناته التعريفية دون إنشاء نموذج كائن العرض التقديمي الكامل. هذا مفيد عندما تحتاج إلى تصنيف الملفات، بناء جرد، أو فحص الخصائص قبل اتخاذ قرار بتحميل ومعالجة محتوى العرض التقديمي.
 
-توضح هذه المقالة عملية فحص خفيفة الوزن باستخدام [PresentationFactory](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationfactory/) و[PresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/)، بالإضافة إلى تحديثات مستهدفة عبر [DocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/).
+توضح هذه المقالة فحصًا خفيف الوزن عبر [PresentationFactory](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationfactory/) و[PresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/)، بالإضافة إلى تحديثات مستهدفة عبر [DocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/).
 
 ## **التحقق من تنسيق العرض التقديمي**
 
-استخدم [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationfactory/) لفحص ملف دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/). تُظهر طريقة [PresentationInfo::getLoadFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#getLoadFormat) التنسيق المكتشف، مثل PPTX أو PPT أو ODP.
+إذا كان لديك عرض تقديمي محمَّل بالفعل، راجع [Determine the Original Presentation Format](/slides/ar/php-java/detect-presentation-source-format/) للتحديد بعد التحميل وقيود تدفقات PPT وPPS وPOT القديمة.
+
+استخدم [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationfactory/) لفحص ملف دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/). تُبلغ طريقة [PresentationInfo::getLoadFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#getLoadFormat) عن التنسيق المكتشف، مثل PPTX أو PPT أو ODP.
 
 ```php
 use aspose\slides\LoadFormat;
@@ -58,20 +60,20 @@ foreach ($fileNames as $fileName) {
 
 ## **إنشاء جرد عرض تقديمي خفيف الوزن**
 
-عند معالجة عدد كبير من ملفات العرض التقديمي، قد تحتاج إلى جرد مدمج للتحقق أو الفهرسة أو نظام إدارة المستندات. في هذا السيناريو، استخدم [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationfactory/) للحصول على كائن [PresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/)، ثم استدعِ [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#readDocumentProperties) لقراءة البيانات الوصفية للمستند. لا ينشئ هذا النهج كائن [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) ولا يتطلب تجوالًا عبر نموذج كائن العرض الكامل.
+عند معالجة عدد كبير من ملفات العروض التقديمية، قد تحتاج إلى جرد مُدمج للتحقق، الفهرسة، أو نظام إدارة المستندات. في هذا السيناريو، استخدم [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationfactory/) للحصول على كائن [PresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/)، ثم استدعِ [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#readDocumentProperties) لقراءة بيانات التعريف الخاصة بالمستند. لا يؤدي هذا النهج إلى إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) أو يتطلب تجوالك عبر نموذج كائن العرض الكامل.
 
-القيم الإضافية التي تُظهرها [DocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/) للجرد هي:
+توفر الخصائص الموسعة التي يكشف عنها [DocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/) القيم التالية للجرد:
 
 | الطريقة | قيمة الجرد |
 | --- | --- |
 | [getSlides](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/#getSlides) | إجمالي عدد الشرائح. |
 | [getHiddenSlides](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/#getHiddenSlides) | عدد الشرائح المخفية. |
 | [getNotes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/#getNotes) | عدد الشرائح التي تحتوي على ملاحظات. |
-| [getParagraphs](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/#getParagraphs) | إجمالي عدد الفقرات، إن توفرت. |
+| [getParagraphs](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/#getParagraphs) | إجمالي عدد الفقرات، إذا كانت متاحة. |
 | [getWords](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/#getWords) | إجمالي عدد الكلمات. |
 | [getMultimediaClips](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/#getMultimediaClips) | إجمالي عدد مقاطع الصوت والفيديو. |
 
-المثال التالي يقرأ هذه القيم دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) ويطبع جردًا مدمجًا. كما يجمع بين [DocumentProperties::getHeadingPairs](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/#getHeadingPairs) و[DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/#getTitlesOfParts) لعرض مجموعات المحتوى مثل الخطوط والسمات وعناوين الشرائح.
+تقرأ المثال التالي هذه القيم دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/)، ويطبع جردًا مُدمجًا. كما يجمع بين [DocumentProperties::getHeadingPairs](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/#getHeadingPairs) و[DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/#getTitlesOfParts) لعرض مجموعات المحتوى مثل الخطوط، الأنماط، وعناوين الشرائح.
 
 ```php
 use aspose\slides\LoadFormat;
@@ -141,27 +143,27 @@ if (java_is_null($headingPairs) || java_is_null($titlesOfParts)) {
 }
 ```
 
-كل كائن [HeadingPair](https://reference.aspose.com/slides/ar/php-java/aspose.slides/headingpair/) يوفّر اسم مجموعة وعدد العناصر في تلك المجموعة. تُعيد طريقة [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/#getTitlesOfParts) مصفوفة مسطّحة ومُرتّبة، لذا يُست‑هلك عدد العناوين المتتالية المحدد بواسطة كل زوج عنوان.
+كل [HeadingPair](https://reference.aspose.com/slides/ar/php-java/aspose.slides/headingpair/) يوفر اسم المجموعة وعدد العناصر في تلك المجموعة. تُعيد [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/#getTitlesOfParts) مصفوفة مسطحة مرتبة، لذا استهلك عدد العناوين المتتالية المحددة بواسطة كل زوج عنوان.
 
-### **البيانات الوصفية المخزنة والقيود المتعلقة بالتنسيق**
+### **البيانات التعريفية المخزنة وقيود التنسيق**
 
-القيم التي تُرجعها طريقة [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#readDocumentProperties) تعكس البيانات الوصفية المتوفرة في المستند المصدر. لا يقوم Aspose.Slides بتحميل وتجوال نموذج كائن العرض لإعادة حساب هذه القيم لهذا الاستدعاء. تُقَدَّم الخصائص المفقودة بقيم افتراضية، وقد تكون القيم المخزنة قديمة إذا لم تُحدِّث تطبيق الحفظ الأخير خصائص المستند.
+تعكس خصائص الجرد التي تُعيدها [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#readDocumentProperties) البيانات التعريفية المتوفرة في المستند المصدر. لا تقوم Aspose.Slides بتحميل وتصفح نموذج كائن العرض لإعادة حساب هذه القيم في هذا الاستدعاء. تُمثل الخصائص المفقودة بالقيم الافتراضية، وقد تكون القيم المخزنة قديمة إذا لم تقم التطبيق الذي حفظ الملف آخرًا بتحديث خصائص المستند.
 
-- **PPTX:** يوفر التنسيق خصائص مستند موسعة لعدد الشرائح، الملاحظات، الشرائح المخفية، الفقرات، الكلمات، والوسائط المتعددة، بالإضافة إلى أزواج العناوين وعناوين الأجزاء. تعتمد التوافرية على الخصائص التي كتبها مُنتج المستند.
-- **PPT:** يمكن للتنسيق الثنائي تخزين خصائص ملخص المستند المقابلة. إذا كانت الخاصية غير موجودة أو لم تُحدَّث من قبل مُنتج المستند، تُعيد Aspose.Slides القيمة المخزنة أو الافتراضية بدلاً من حسابها من الشرائح.
-- **ODP:** توفر بيانات OpenDocument إحصائيات عامة للمستند، مثل عدد الصفحات والفقرات والكلمات، لكن هذه القيم لا تتطابق مع كل خاصية موسعة خاصة بـ PowerPoint. قد تكون بيانات الشرائح المخفية، ملاحظات الشرائح، الوسائط المتعددة، أزواج العناوين، وعناوين الأجزاء غير متاحة، وقد تُعيد خصائص الجرد قيمًا افتراضية. لا تُعَدَّ الصفر أو المصفوفة الفارغة دليلًا قاطعًا على عدم وجود المحتوى المقابل.
+- **PPTX:** يوفر التنسيق خصائص مستند موسعة لعدد الشرائح، الملاحظات، الشرائح المخفية، الفقرات، الكلمات، والوسائط المتعددة، بالإضافة إلى أزواج العناوين وعناوين الأجزاء. تعتمد الإتاحة على الخصائص التي كتبها مُنتج المستند.
+- **PPT:** يمكن للتنسيق الثنائي تخزين خصائص ملخص المستند المقابلة. إذا كانت الخاصية غير موجودة أو لم يتم تحديثها من قبل مُنتج المستند، تعيد Aspose.Slides قيمتها المخزنة أو الافتراضية بدلاً من حسابها من الشرائح.
+- **ODP:** توفر بيانات تعريف OpenDocument إحصاءات عامة للمستند، مثل عدد الصفحات، الفقرات، والكلمات، لكن هذه القيم لا تتطابق مع كل خاصية موسعة مخصصة لـ PowerPoint. قد تكون بيانات التعريف للشرائح المخفية، الشرائح ذات الملاحظات، الوسائط المتعددة، أزواج العناوين، وعناوين الأجزاء غير متوفرة، وقد تُعيد خصائص الجرد قيمًا افتراضية. لا تعتبر القيمة الصفرية أو المصفوفة الفارغة دليلًا قاطعًا على عدم وجود المحتوى المقابل.
 
-استخدم نهج البيانات الوصفية الخفيفة للجرد والفحوص الأولية. حمّل العرض التقديمي وتفقد نموذج كائنه الحي عندما يجب أن يعكس النتيجة تغييرات الذاكرة أو عندما تحتاج إلى التحقق من المحتوى الفعلي للعرض.
+استخدم نهج البيانات التعريفية الخفيفة للجرد والفحوص الأولية. حمِّل العرض التقديمي وافعله نموذج كائنه الحي عندما يجب أن يعكس النتيجة التغييرات في الذاكرة أو عندما تحتاج إلى التحقق من المحتوى الفعلي للعرض.
 
 ## **تحديث خصائص العرض التقديمي**
 
-يمكن أيضًا تعديل الخصائص التي تُرجعها طريقة [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#readDocumentProperties) دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) . طبّق التغييرات باستخدام [PresentationInfo::updateDocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#updateDocumentProperties)، ثم اكتب العرض المرتبط باستخدام [PresentationInfo::writeBindedPresentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#writeBindedPresentation).
+يمكن أيضًا تغيير الخصائص التي تُعيدها [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#readDocumentProperties) دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/). طبّق التغييرات باستخدام [PresentationInfo::updateDocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#updateDocumentProperties)، ثم احفظ العرض المرتبط باستخدام [PresentationInfo::writeBindedPresentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#writeBindedPresentation).
 
-الصورة التالية تُظهر خصائص المستند الأصلية.
+الصورة التالية تُظهر خصائص المستند الأصلية لعرض PowerPoint:
 
-![Original document properties of the PowerPoint presentation](input_properties.png)
+![خصائص المستند الأصلية لعرض PowerPoint](input_properties.png)
 
-المثال التالي يُغيّر العنوان ووقت الحفظ الأخير ويكتب النتيجة إلى ملف جديد:
+المثال التالي يغيّر العنوان ووقت الحفظ الأخير ويكتب النتيجة إلى ملف جديد:
 
 ```php
 use aspose\slides\PresentationFactory;
@@ -183,35 +185,35 @@ try {
 }
 ```
 
-الصورة التالية تُظهر خصائص المستند المحدثة.
+الصورة التالية تُظهر خصائص المستند المحدثة:
 
-![Changed document properties of the PowerPoint presentation](output_properties.png)
+![خصائص المستند المتغيّرة لعرض PowerPoint](output_properties.png)
 
 ## **روابط مفيدة**
 
-للفحوص الأمنية ذات الصلة وإعدادات الحماية، راجع المقالات التالية:
+للفحوصات الأمنية ذات الصلة وإعدادات الحماية، راجع المقالات التالية:
 
 - [حماية العروض التقديمية بكلمة مرور](/slides/ar/php-java/password-protected-presentation/)
-- [حماية العروض التقديمية من الكتابة](/slides/ar/php-java/write-protected-presentation/)
+- [حماية كتابة العروض التقديمية](/slides/ar/php-java/write-protected-presentation/)
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**كيف يمكنني التحقق مما إذا كانت الخطوط مضمنة وما هي الخطوط المُضمَّنة؟**
+**كيف يمكنني التحقق مما إذا كانت الخطوط مضمّنة وأيها؟**
 
-حمّل العرض التقديمي واستخدم [Presentation::getFontsManager](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#getFontsManager). استدعِ [FontsManager::getEmbeddedFonts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) للحصول على الخطوط المضمنة و[FontsManager::getFonts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/#getFonts) للحصول على الخطوط المستخدمة في العرض. قارن النتيجتين لتحديد الخطوط المطلوبة للعرض ولكن غير مُضمنة.
+حمِّل العرض التقديمي واستخدم [Presentation::getFontsManager](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#getFontsManager). استدعِ [FontsManager::getEmbeddedFonts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) للحصول على الخطوط المضمَّنة و[FontsManager::getFonts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/#getFonts) للحصول على الخطوط المستخدمة في العرض. قارن النتيجتين للعثور على الخطوط المطلوبة للعرض ولكنها غير مضمّنة.
 
 **كيف يمكنني بسرعة معرفة ما إذا كان الملف يحتوي على شرائح مخفية وعددها؟**
 
-عند كفاية البيانات الوصفية المخزنة، اقرأ [DocumentProperties::getHiddenSlides](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/#getHiddenSlides) عبر [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationfactory/) و[PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#readDocumentProperties). هذا مناسب لجرد خفيف الوزن. إذا تم تعديل العرض في الذاكرة، قد تكون البيانات الوصفية المخزنة مفقودة أو قديمة، أو إذا أردت التحقق من القيم الحية، تنقّـل عبر [Presentation::getSlides](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#getSlides) وتفقد طريقة [Slide::getHidden](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slide/#getHidden) لكل شريحة.
+عند كون بيانات التعريف المخزنة كافية، اقرأ [DocumentProperties::getHiddenSlides](https://reference.aspose.com/slides/ar/php-java/aspose.slides/documentproperties/#getHiddenSlides) عبر [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationfactory/) و[PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#readDocumentProperties). هذا مناسب لجرد خفيف الوزن. إذا تم تعديل العرض في الذاكرة، قد تكون بيانات التعريف المخزنة مفقودة أو قديمة، أو إذا كنت بحاجة للتحقق من القيم الحية، استعرض [Presentation::getSlides](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#getSlides) وتفقد طريقة [Slide::getHidden](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slide/#getHidden) لكل شريحة بدلاً من ذلك.
 
-**هل يمكنني اكتشاف ما إذا كان تم استخدام حجم وشكل مخصص للشرائح، وما إذا كانت تختلف عن الإعدادات الافتراضية؟**
+**هل يمكنني اكتشاف ما إذا كان يتم استخدام حجم ودوران مخصص للشرائح، وما إذا كان يختلفان عن الإعدادات الافتراضية؟**
 
-نعم. حمّل العرض التقديمي واستدعِ [Presentation::getSlideSize](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#getSlideSize). استخدم [SlideSize::getType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slidesize/#getType)، [SlideSize::getSize](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slidesize/#getSize)، و[SlideSize::getOrientation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slidesize/#getOrientation) لمقارنة الإعدادات الحالية مع القيم المسبقة المتوقعة والأبعاد.
+نعم. حمِّل العرض التقديمي واستدعِ [Presentation::getSlideSize](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#getSlideSize). استخدم [SlideSize::getType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slidesize/#getType), [SlideSize::getSize](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slidesize/#getSize) و[SlideSize::getOrientation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slidesize/#getOrientation) لمقارنة الإعدادات الحالية مع الإعدادات المسبقة المتوقعة والأبعاد.
 
 **هل هناك طريقة سريعة لمعرفة ما إذا كانت المخططات تشير إلى مصادر بيانات خارجية؟**
 
-نعم. حدد كل كائن [Chart](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chart/) واستدعِ [ChartData::getDataSourceType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/#getDataSourceType). لمصنف خارجي، استدعِ [ChartData::getExternalWorkbookPath](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/#getExternalWorkbookPath). يحدد نوع مصدر البيانات والمسار إشارة إلى مرجع خارجي، لكن التحقق من توفر الهدف يتطلب فحصًا منفصلًا للموارد.
+نعم. ابحث عن كل [Chart](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chart/) واستدعِ [ChartData::getDataSourceType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/#getDataSourceType). لدفتر عمل خارجي، استدعِ [ChartData::getExternalWorkbookPath](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/#getExternalWorkbookPath). يحدد نوع مصدر البيانات والمسار إشارة خارجية، لكن التحقق من توفر الهدف يتطلب فحص موارد منفصل.
 
-**كيف يمكنني تقييم "الشرائح الثقيلة" التي قد تبطئ العرض أو تصدير PDF؟**
+**كيف يمكنني تقييم الشرائح 'الثقيلة' التي قد تبطئ العرض أو تصدير PDF؟**
 
-لا توجد خاصية تعقيد واحدة. تجوّل عبر [Presentation::getSlides](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#getSlides) ومجموعات [BaseSlide::getShapes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseslide/#getShapes) لكل شريحة. استخدم عدد الأشكال ووجود صور كبيرة، تأثيرات، رسوم متحركة، أو وسائط متعددة كإشارات فحص، وقم بقياس عملية تصيير أو تصدير ممثلة قبل اعتبار الشريحة عبئًا مؤكدًا على الأداء.
+لا توجد خاصية تعقيد واحدة. استعرض [Presentation::getSlides](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#getSlides) ومجموعة [BaseSlide::getShapes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseslide/#getShapes) لكل شريحة. استخدم عدد الأشكال ووجود صور كبيرة، تأثيرات، تحريكات أو وسائط متعددة كإشارات فحص، وقم بقياس عرض أو تصدير تمثيلي قبل اعتبار الشريحة عنق زجاجة أداء مؤكد.

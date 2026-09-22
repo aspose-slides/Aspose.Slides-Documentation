@@ -1,39 +1,41 @@
 ---
-title: "باز کردن ارائه‌ها در جاوااسکریپت"
-linktitle: "باز کردن ارائه"
+title: باز کردن ارائه‌ها در جاوا اسکریپت
+linktitle: باز کردن ارائه
 type: docs
 weight: 20
 url: /fa/nodejs-java/open-presentation/
 keywords:
-- "باز کردن پاورپوینت"
-- "باز کردن ارائه"
-- "باز کردن PPTX"
-- "باز کردن PPT"
-- "باز کردن ODP"
-- "بارگذاری ارائه"
-- "بارگذاری PPTX"
-- "بارگذاری PPT"
-- "بارگذاری ODP"
-- "ارائهٔ محافظت‌شده"
-- "ارائهٔ بزرگ"
-- "منبع خارجی"
-- "شیء دودویی"
-- "Node.js"
-- "جاوااسکریپت"
-- "Aspose.Slides"
-description: "یاد بگیرید چگونه ارائه‌های PowerPoint و OpenDocument را در جاوااسکریپت باز کنید، رمزهای عبور باز کردن را فراهم کنید، بارگذاری منابع را کنترل کنید و با Aspose.Slides برای Node.js via Java استفاده از حافظه را کاهش دهید."
+- باز کردن پاورپوینت
+- باز کردن ارائه
+- باز کردن PPTX
+- باز کردن PPT
+- باز کردن ODP
+- بارگذاری ارائه
+- بارگذاری PPTX
+- بارگذاری PPT
+- بارگذاری ODP
+- ارائه محافظت‌شده
+- ارائه بزرگ
+- منابع خارجی
+- شی باینری
+- Node.js
+- جاوا اسکریپت
+- Aspose.Slides
+description: "یاد بگیرید چگونه ارائه‌های PowerPoint و OpenDocument را در جاوا اسکریپت باز کنید، رمزهای باز کردن را فراهم کنید، بارگذاری منابع را کنترل کنید و با Aspose.Slides برای Node.js از طریق Java مصرف حافظه را کاهش دهید."
 ---
 ## **مقدمه**
 
-[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/fa/nodejs-java/) می‌تواند ارائه‌های PowerPoint و OpenDocument را از فایل‌ها و جریان‌ها بارگذاری کند. پس از بارگذاری ارائه، می‌توانید ساختار آن را بررسی کنید، اسلایدها را ویرایش کنید، منابع را مدیریت کنید و آن را در فرمت اصلی یا فرمت پشتیبانی‌شده دیگری ذخیره کنید.
+[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/fa/nodejs-java/) می‌تواند ارائه‌های PowerPoint و OpenDocument را از فایل‌ها و جریان‌ها بارگذاری کند. پس از بارگذاری یک ارائه، می‌توانید ساختار آن را بررسی کنید، اسلایدها را ویرایش کنید، منابع را مدیریت کنید و آن را در قالب اصلی یا قالب دیگری که پشتیبانی می‌شود ذخیره کنید.
 
-رفتار بارگذاری را می‌توان از طریق کلاس [LoadOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/) سفارشی کرد. برای مثال، می‌توانید رمز عبور باز کردن را فراهم کنید، اشیای دودویی بزرگ را خارج از حافظه Node.js نگهداری کنید، منابع خارجی را کنترل کنید یا داده‌های دودویی جاسازی‌شده را حذف کنید.
+رفتار بارگذاری می‌تواند از طریق کلاس [LoadOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/) سفارشی شود. به عنوان مثال، می‌توانید یک رمز عبور باز کردن ارائه دهید، اشیاء باینری بزرگ را خارج از حافظه Node.js نگه دارید، منابع خارجی را کنترل کنید یا داده‌های باینری تعبیه‌شده را حذف کنید.
 
 ## **باز کردن ارائه‌ها**
 
-برای باز کردن یک ارائه موجود، مسیر فایل آن را به سازندهٔ [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) پاس دهید. پس از استفاده از ارائه، آن را آزاد کنید تا دستگیره‌های فایل، داده‌های موقت و سایر منابع به‌سرعت آزاد شوند.
+پس از بارگذاری یک فایل یا جریان، می‌توانید [قالب اصلی ارائه آن](/slides/fa/nodejs-java/detect-presentation-source-format/) را تعیین کنید تا نحوه پردازش آن توسط برنامه خود را انتخاب کنید.
 
-مثال جاوااسکریپت زیر نشان می‌دهد چگونه یک ارائه را باز کنید و تعداد اسلایدهای آن را بخوانید:
+برای باز کردن یک ارائه موجود، مسیر فایل آن را به سازنده [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) پاس دهید. پس از استفاده، ارائه را dispose کنید تا دستگیره‌های فایل، داده‌های موقت و سایر منابع به‌سرعت آزاد شوند.
+
+مثال زیر به زبان JavaScript نشان می‌دهد چگونه یک ارائه را باز کنید و تعداد اسلایدهای آن را به‌دست آورید:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -46,9 +48,9 @@ try {
 }
 ```
 
-## **باز کردن ارائه‌های دارای رمز عبور**
+## **باز کردن ارائه‌های محافظت‌شده با رمز عبور**
 
-یک رمز عبور برای باز کردن محتویات ارائه را رمزگذاری می‌کند. برای بارگذاری کامل ارائه، رمز عبور صحیح را به متد [LoadOptions.setPassword](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#setPassword) بدهید و گزینه‌ها را به سازندهٔ [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) پاس کنید. اگر رمز عبور گمشده یا نادرست باشد، بارگذاری با شکست مواجه می‌شود.
+یک رمز عبور باز کردن، محتویات ارائه را رمزنگاری می‌کند. برای بارگذاری کامل ارائه، رمز عبور صحیح را به [LoadOptions.setPassword](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#setPassword) پاس دهید و گزینه‌ها را به سازنده [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) ارائه کنید. در صورتی که رمز عبور موجود نباشد یا نادرست باشد، بارگذاری شکست می‌خورد.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -64,13 +66,13 @@ try {
 }
 ```
 
-برای تشخیص رمز عبور، اعتبارسنجی و گردش‌های کاری رمزگذاری، به بخش [Password-Protect Presentations](/slides/fa/nodejs-java/password-protected-presentation/) مراجعه کنید. اگر ارائه‌ای به‌صورت رمزگذاری شده‌ای ذخیره شده باشد که خصوصیات عمومی سند داشته باشد، می‌توان این خصوصیات را بدون رمز عبور خواند؛ برای جزئیات به [Manage Presentation Properties](/slides/fa/nodejs-java/presentation-properties/) نگاه کنید.
+برای فرآیندهای تشخیص رمز عبور، اعتبارسنجی و رمزنگاری، به [Password-Protect Presentations](/slides/fa/nodejs-java/password-protected-presentation/) مراجعه کنید. اگر یک ارائه رمزنگاری‌شده عمداً با ویژگی‌های عمومی سند ذخیره شده باشد، می‌توان این ویژگی‌ها را بدون رمز عبور خواند؛ به [Manage Presentation Properties](/slides/fa/nodejs-java/presentation-properties/) نگاه کنید.
 
 ## **باز کردن ارائه‌های بزرگ**
 
-متد [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) گزینه‌هایی را برمی‌گرداند که کنترل می‌کند Aspose.Slides چگونه اشیای دودویی بزرگ مانند تصاویر، صدا و ویدئو را مدیریت می‌کند. می‌توانید فایل منبع را قفل نگه دارید، اجازهٔ استفاده از فایل‌های موقت را بدهید و مقدار داده‌های BLOB نگهداری‌شده در حافظه را محدود کنید.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) گزینه‌هایی را برمی‌گرداند که کنترل می‌کند Aspose.Slides چگونه اشیاء بزرگ باینری مانند تصاویر، صدا و ویدئو را مدیریت می‌کند. می‌توانید فایل منبع را قفل بمانید، اجازه فایل‌های موقتی بدهید و مقدار داده‌های BLOB نگهداری‌شده در حافظه را محدود کنید.
 
-کد جاوااسکریپت زیر نشان می‌دهد چگونه یک ارائه بزرگ (به‌عنوان مثال ۲ گیگابایت) را بارگذاری کنید:
+کد زیر به زبان JavaScript نحوه بارگذاری یک ارائه بزرگ (مثلاً ۲ گیگابایت) را نشان می‌دهد:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -91,17 +93,15 @@ try {
 }
 ```
 
-{{% alert color="info" title="توجه" %}}
+{{% alert color="info" title="Note" %}}
+با استفاده از [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationlockingbehavior/#KeepLocked)، فایل منبع تا زمانی که نمونهٔ ارائه dispose نشود، قفل می‌ماند. در حالی که این نمونه زنده است، فایل منبع را جابجا، بازنویسی یا حذف نکنید.
 
-با استفاده از [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationlockingbehavior/#KeepLocked)، فایل منبع تا زمانی که نمونهٔ ارائه آزاد نشود، قفل می‌ماند. در طول حیات آن نمونه، فایل منبع را منتقل، بازنویسی یا حذف نکنید.
-
-Aspose.Slides ممکن است محتویات یک جریان ورودی را هنگام بارگذاری کپی کند. برای ارائه‌های بزرگ، مسیر فایل معمولاً کارایی بیشتری نسبت به جریان دارد. برای گزینه‌های ذخیره‌سازی و مدیریت حافظهٔ اضافی به بخش [Manage BLOBs](/slides/fa/nodejs-java/manage-blob/) مراجعه کنید.
-
+Aspose.Slides ممکن است محتویات یک جریان ورودی را در هنگام بارگذاری کپی کند. برای ارائه‌های بزرگ، مسیر فایل عموماً کارآمدتر از یک جریان است. برای گزینه‌های اضافی ذخیره‌سازی و مدیریت حافظه به [Manage BLOBs](/slides/fa/nodejs-java/manage-blob/) مراجعه کنید.
 {{% /alert %}}
 
 ## **کنترل منابع خارجی**
 
-متد [LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#setResourceLoadingCallback) یک پیاده‌سازی از [IResourceLoadingCallback](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iresourceloadingcallback/) را می‌پذیرد. این کال‌بک می‌تواند دادهٔ جایگزین ارائه دهد، یک منبع را بازنویسی کند، از بارگذار پیش‌فرض استفاده کند یا منبع را نادیده بگیرد. این ویژگی زمانی مفید است که ارائه‌ها شامل تصاویر خارجی باشند که باید بر اساس قوانین امنیتی یا ذخیره‌سازی خاص برنامه حل شوند.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#setResourceLoadingCallback) یک پیاده‌سازی از [IResourceLoadingCallback](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iresourceloadingcallback/) را می‌پذیرد. این فراخوانی می‌تواند داده‌های جایگزین فراهم کند، منبعی را بازگردانی کند، از لودر پیش‌فرض استفاده کند یا آن منبع را نادیده بگیرد. این وقتی مفید است که ارائه‌ها شامل تصاویر خارجی باشند که باید بر اساس قوانین امنیتی یا ذخیره‌سازی خاص برنامه حل شوند.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -138,17 +138,17 @@ try {
 }
 ```
 
-## **بارگذاری ارائه‌ها بدون اشیای دودویی جاسازی‌شده**
+## **بارگذاری ارائه‌ها بدون اشیاء باینری تعبیه‌شده**
 
-یک ارائه ممکن است شامل داده‌های دودویی جاسازی‌شده باشد که برنامه نیازی به آن ندارد یا نمی‌خواهد آن را نگه دارد. نمونه‌هایی شامل:
+یک ارائه ممکن است داده‌های باینری تعبیه‌شده‌ای داشته باشد که برنامه نیاز ندارد یا نمی‌خواهد نگه دارد. مثال‌ها عبارتند از:
 
-- پروژه‌های VBA که از طریق [Presentation.getVbaProject](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/#getVbaProject) در دسترس هستند؛
-- داده‌های OLE جاسازی‌شده که از طریق [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) قابل دستیابی‌اند؛
-- داده‌های کنترل ActiveX که از طریق [Control.getActiveXControlBinary](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/control/#getActiveXControlBinary) در دسترس هستند.
+- پروژه‌های VBA، که از طریق [Presentation.getVbaProject](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/#getVbaProject) در دسترس هستند؛
+- داده‌های OLE تعبیه‌شده، که از طریق [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) در دسترس هستند؛
+- داده‌های کنترل ActiveX، که از طریق [Control.getActiveXControlBinary](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/control/#getActiveXControlBinary) در دسترس هستند.
 
-برای حذف این داده‌های دودویی هنگام بارگذاری، [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) را روی `true` تنظیم کنید. سپس ارائهٔ بارگذاری‌شده را ذخیره کنید تا نتیجهٔ پاک‌سازی شده حفظ شود.
+[LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) را روی `true` تنظیم کنید تا این داده‌های باینری در هنگام بارگذاری حذف شوند. ارائهٔ بارگذاری‌شده را ذخیره کنید تا نتیجهٔ پاک‌سازی‌شده حفظ شود.
 
-این گزینه خطر مواجهه با بارهای جاسازی‌شدهٔ ناخواسته را کاهش می‌دهد، اما جایگزین یک سیستم کامل شناسایی بدافزار یا تصفیهٔ محتوا نیست.
+این گزینه ریسک مواجهه با بارهای مخفی ناخواسته را کاهش می‌دهد، اما یک سیستم کامل برای شناسایی بدافزار یا پاک‌سازی محتوا نیست.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -166,14 +166,14 @@ try {
 
 ## **سوالات متداول**
 
-**چگونه می‌توانم بفهمم فایلی خراب است و نمی‌توان آن را باز کرد؟**
+**چگونه می‌توانم تشخیص دهم که یک فایل خراب است و نمی‌توان آن را باز کرد؟**
 
-Aspose.Slides در طول بارگذاری یک استثنای تجزیه یا فرمت پرتاب می‌کند. این شکست را جدا از خطای رمز عبور نادرست مدیریت کنید تا برنامه بتواند دلیل را دقیقاً گزارش دهد.
+Aspose.Slides هنگام بارگذاری، یک استثنا مربوط به تجزیه یا قالب رخ می‌دهد. این شکست را جدا از خطای رمز عبور نادرست مدیریت کنید تا برنامه بتواند علت را به‌دقت گزارش دهد.
 
-**اگر فونت‌های موردنیاز موجود نباشند چه می‌شود؟**
+**اگر قلم‌های مورد نیاز موجود نباشند چه اتفاقی می‌افتد؟**
 
-ارائه همچنان بارگذاری می‌شود، اما هنگام رندر و خروجی ممکن است فونت‌ها جایگزین شوند. می‌توانید [جایگزینی فونت](/slides/fa/nodejs-java/font-substitution/) را پیکربندی کنید یا [فونت‌های سفارشی](/slides/fa/nodejs-java/custom-font/) فراهم کنید تا خروجی پیش‌بینی‌پذیرتر باشد.
+ارائه هنوز می‌تواند بارگذاری شود، اما رندرینگ و خروجی ممکن است قلم‌ها را جایگزین کند. می‌توانید [پیکربندی جایگزینی قلم](/slides/fa/nodejs-java/font-substitution/) یا [ارائه قلم‌های سفارشی](/slides/fa/nodejs-java/custom-font/) را انجام دهید تا خروجی پیش‌بینی‌پذیرتر باشد.
 
-**آیا بارگذاری یک ارائه باعث بارگذاری رسانه‌های جاسازی‌شدهٔ آن نیز می‌شود؟**
+**آیا بارگذاری یک ارائه، رسانه‌های تعبیه‌شده آن را نیز بارگذاری می‌کند؟**
 
-صوت و ویدئوی جاسازی‌شده از طریق مدل شیء ارائه در دسترس می‌شوند. منابع خارجی بر اساس رفتار پیکربندی‌شدهٔ بارگذاری منابع حل می‌شوند و در صورتی که مکان‌های آن‌ها قابل دسترسی نباشد، ممکن است در دسترس نباشند.
+صدا و ویدئوی تعبیه‌شده از طریق مدل شیء ارائه در دسترس قرار می‌گیرد. منابع خارجی بر اساس رفتار پیکربندی‌شدهٔ بارگذاری منابع حل می‌شوند و در صورتی که مکان آن‌ها قابل دسترسی نباشد ممکن است در دسترس نباشند.

@@ -1,37 +1,41 @@
 ---
-title: Άνοιγμα Παρουσιάσεων σε .NET
-linktitle: Άνοιγμα Παρουσίασης
+title: "Άνοιγμα Παρουσιών σε .NET"
+linktitle: "Άνοιγμα Παρουσίασης"
 type: docs
 weight: 20
 url: /el/net/open-presentation/
 keywords:
-- άνοιγμα PowerPoint
-- άνοιγμα παρουσίασης
-- άνοιγμα PPTX
-- άνοιγμα PPT
-- άνοιγμα ODP
-- φόρτωση παρουσίασης
-- φόρτωση PPTX
-- φόρτωση PPT
-- φόρτωση ODP
-- προστατευμένη παρουσίαση
-- μεγάλη παρουσίαση
-- εξωτερικός πόρος
-- δυαδικό αντικείμενο
-- .NET
-- C#
-- Aspose.Slides
-description: "Μάθετε πώς να ανοίγετε παρουσιάσεις PowerPoint και OpenDocument σε C#, να παρέχετε κωδικούς ανοίγματος, να ελέγχετε τη φόρτωση πόρων και να μειώνετε τη χρήση μνήμης με το Aspose.Slides για .NET."
+- "άνοιγμα PowerPoint"
+- "άνοιγμα παρουσίασης"
+- "άνοιγμα PPTX"
+- "άνοιγμα PPT"
+- "άνοιγμα ODP"
+- "φόρτωση παρουσίασης"
+- "φόρτωση PPTX"
+- "φόρτωση PPT"
+- "φόρτωση ODP"
+- "προστατευμένη παρουσίαση"
+- "μεγάλη παρουσίαση"
+- "εξωτερικός πόρος"
+- "δυαδικό αντικείμενο"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Μάθετε πώς να ανοίγετε παρουσιάσεις PowerPoint και OpenDocument σε C#, να παρέχετε κωδικούς πρόσβασης ανοίγματος, να ελέγχετε τη φόρτωση πόρων και να μειώνετε τη χρήση μνήμης με το Aspose.Slides για .NET."
 ---
 ## **Εισαγωγή**
 
-[Aspose.Slides for .NET](https://products.aspose.com/slides/el/net/) μπορεί να φορτώσει παρουσιάσεις PowerPoint και OpenDocument από αρχεία και ροές. Μετά τη φόρτωση μιας παρουσίασης, μπορείτε να επιθεωρήσετε τη δομή της, να επεξεργαστείτε διαφάνειες, να διαχειριστείτε πόρους και να την αποθηκεύσετε στην αρχική ή σε άλλη υποστηριζόμενη μορφή.
+[Aspose.Slides for .NET](https://products.aspose.com/slides/el/net/) μπορεί να φορτώσει παρουσιάσεις PowerPoint και OpenDocument από αρχεία και ροές. Μετά τη φόρτωση μιας παρουσίασης, μπορείτε να εξετάσετε τη δομή της, να επεξεργαστείτε τις διαφάνειες, να διαχειριστείτε τους πόρους και να την αποθηκεύσετε στην αρχική ή σε μια άλλη υποστηριζόμενη μορφή.
 
-Η συμπεριφορά φόρτωσης μπορεί να προσαρμοστεί μέσω της κλάσης [LoadOptions](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/). Για παράδειγμα, μπορείτε να παρέχετε κωδικό ανοίγματος, να διατηρείτε μεγάλα δυαδικά αντικείμενα εκτός διαχειριζόμενης μνήμης, να ελέγχετε εξωτερικούς πόρους ή να παραλείψετε ενσωματωμένα δυαδικά δεδομένα.
+Η συμπεριφορά φόρτωσης μπορεί να προσαρμοστεί μέσω της κλάσης [LoadOptions](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/). Για παράδειγμα, μπορείτε να παρέχετε κωδικό πρόσβασης ανοίγματος, να διατηρείτε μεγάλα δυαδικά αντικείμενα εκτός της διαχειριζόμενης μνήμης, να ελέγχετε εξωτερικούς πόρους ή να παραλείψετε ενσωματωμένα δυαδικά δεδομένα.
 
-## **Άνοιγμα Παρουσιάσεων**
+## **Άνοιγμα Παρουσιών**
 
-Για να ανοίξετε μια υπάρχουσα παρουσίαση, περάστε τη διαδρομή του αρχείου στη συναρτήση [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) . Κλείστε (Dispose) την παρουσίαση μετά τη χρήση ώστε να απελευθερωθούν άμεσα οι πόροι αρχείου, τα προσωρινά δεδομένα και άλλοι πόροι.
+Μετά τη φόρτωση ενός αρχείου ή ροής, μπορείτε να [καθορίσετε την αρχική μορφή της παρουσίασης](/slides/el/net/detect-presentation-source-format/) για να επιλέξετε πώς θα τη επεξεργαστεί η εφαρμογή σας.
+
+Για να ανοίξετε μια υπάρχουσα παρουσίαση, περάστε τη διαδρομή του αρχείου στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/). Καταργήστε την παρουσίαση μετά τη χρήση ώστε τα χειριστήρια αρχείων, τα προσωρινά δεδομένα και άλλοι πόροι να απελευθερωθούν άμεσα.
+
+Το ακόλουθο παράδειγμα C# δείχνει πώς να ανοίξετε μια παρουσίαση και να λάβετε τον αριθμό των διαφανειών:
 
 ```csharp
 using System;
@@ -42,9 +46,9 @@ using var presentation = new Presentation("sample.pptx");
 Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
-## **Άνοιγμα Παρουσιάσεων με Προστασία Κωδικού**
+## **Άνοιγμα Παρουσιών με Προστασία Κωδικού Πρόσβασης**
 
-Ένας κωδικός ανοίγματος κρυπτογραφεί το περιεχόμενο της παρουσίασης. Για να φορτώσετε ολόκληρη την παρουσίαση, ορίστε τον σωστό κωδικό στο [LoadOptions.Password](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/password/) και περάστε τις επιλογές στη συναρτήση [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) . Η φόρτωση αποτυγχάνει όταν λείπει ή είναι λανθασμένος ο κωδικός.
+Ένας κωδικός πρόσβασης ανοίγματος κρυπτογραφεί το περιεχόμενο της παρουσίασης. Για να φορτώσετε ολόκληρη την παρουσίαση, εκχωρήστε τον σωστό κωδικό πρόσβασης στο [LoadOptions.Password](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/password/) και περάστε τις επιλογές στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/). Η φόρτωση αποτυγχάνει εάν λείπει ή είναι εσφαλμένος ο κωδικός πρόσβασης.
 
 ```csharp
 using System;
@@ -56,11 +60,13 @@ using var presentation = new Presentation("encrypted-presentation.pptx", loadOpt
 Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
-Για διαδικασίες ανίχνευσης, επικύρωσης και κρυπτογράφησης κωδικού, δείτε [Password-Protect Presentations](/slides/el/net/password-protected-presentation/). Εάν μια κρυπτογραφημένη παρουσίαση αποθηκεύτηκε σκόπιμα με δημόσια ιδιότητα εγγράφου, αυτές οι ιδιότητες μπορούν να διαβαστούν χωρίς κωδικό· δείτε [Manage Presentation Properties](/slides/el/net/presentation-properties/).
+Για ανίχνευση κωδικού πρόσβασης, επικύρωση και διαδικασίες κρυπτογράφησης, δείτε το [Παρουσιάσεις με Προστασία Κωδικού](/slides/el/net/password-protected-presentation/). Εάν μια κρυπτογραφημένη παρουσίαση αποθηκεύτηκε σκόπιμα με δημόσια ιδιότητες εγγράφου, αυτές οι ιδιότητες μπορούν να διαβαστούν χωρίς κωδικό πρόσβασης· δείτε τη [Διαχείριση Ιδιοτήτων Παρουσίασης](/slides/el/net/presentation-properties/).
 
-## **Άνοιγμα Μεγάλων Παρουσιάσεων**
+## **Άνοιγμα Μεγάλων Παρουσιών**
 
-[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/blobmanagementoptions/) ελέγχει πώς το Aspose.Slides διαχειρίζεται μεγάλα δυαδικά αντικείμενα όπως εικόνες, ήχο και βίντεο. Μπορείτε να κρατήσετε το αρχείο πηγής κλειδωμένο, να επιτρέψετε προσωρινά αρχεία και να περιορίσετε την ποσότητα δεδομένων BLOB που διατηρούνται στη μνήμη.
+Το [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/blobmanagementoptions/) ελέγχει πώς το Aspose.Slides διαχειρίζεται μεγάλες δυαδικές αντικειμενικές (BLOB) όπως εικόνες, ήχο και βίντεο. Μπορείτε να διατηρήσετε το πηγαίο αρχείο κλειδωμένο, να επιτρέψετε προσωρινά αρχεία και να περιορίσετε την ποσότητα των δεδομένων BLOB που διατηρούνται στη μνήμη.
+
+Το ακόλουθο κώδικα C# επιδεικνύει τη φόρτωση μιας μεγάλης παρουσίασης (π.χ., 2 GB):
 
 ```csharp
 using Aspose.Slides;
@@ -85,14 +91,14 @@ presentation.Save("large-presentation-copy.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="info" title="Note" %}}
-Με την επιλογή `PresentationLockingBehavior.KeepLocked`, το αρχείο πηγής παραμένει κλειδωμένο μέχρι να κλείσει (Dispose) το αντικείμενο `Presentation`. Μην μετακινείτε, αντικαθιστάτε ή διαγράφετε το αρχείο πηγής όσο το αντικείμενο αυτό είναι ενεργό.
+Με το `PresentationLockingBehavior.KeepLocked`, το πηγαίο αρχείο παραμένει κλειδωμένο μέχρι να καταργηθεί το αντικείμενο `Presentation`. Μην μετακινήσετε, αντικαταστήσετε ή διαγράψετε το πηγαίο αρχείο ενώ αυτό το αντικείμενο είναι ενεργό.
 
-Το Aspose.Slides ενδέχεται να αντιγράψει το περιεχόμενο μιας ροής εισόδου κατά τη φόρτωση. Για μεγάλες παρουσιάσεις, μια διαδρομή αρχείου είναι συνήθως πιο αποδοτική από μια ροή. Δείτε [Manage BLOBs](/slides/el/net/manage-blob/) για επιπλέον επιλογές αποθήκευσης και διαχείρισης μνήμης.
+Το Aspose.Slides ενδέχεται να αντιγράψει τα περιεχόμενα μιας εισόδου ροής κατά τη φόρτωση. Για μεγάλες παρουσιάσεις, η διαδρομή αρχείου είναι κατά συνέπεια γενικά πιο αποδοτική από μια ροή. Δείτε το [Διαχείριση BLOBs](/slides/el/net/manage-blob/) για πρόσθετες επιλογές αποθήκευσης και διαχείρισης μνήμης.
 {{% /alert %}}
 
 ## **Έλεγχος Εξωτερικών Πόρων**
 
-[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/resourceloadingcallback/) δέχεται μια υλοποίηση του [IResourceLoadingCallback](https://reference.aspose.com/slides/el/net/aspose.slides/iresourceloadingcallback/). Η ανάκληση μπορεί να παρέχει αντικαταστάσια δεδομένα, να ανακατευθύνει έναν πόρο, να χρησιμοποιήσει τον προεπιλεγμένο φορτωτή ή να παραλείψει τον πόρο. Αυτό είναι χρήσιμο όταν οι παρουσιάσεις περιέχουν εξωτερικές εικόνες που πρέπει να επιλυθούν σύμφωνα με κανόνες ασφαλείας ή αποθήκευσης της εφαρμογής.
+Το [LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/resourceloadingcallback/) δέχεται μια υλοποίηση του [IResourceLoadingCallback](https://reference.aspose.com/slides/el/net/aspose.slides/iresourceloadingcallback/). Η κλήση-πίσω μπορεί να παρέχει δεδομένα αντικατάστασης, να ανακατευθύνει έναν πόρο, να χρησιμοποιήσει το προεπιλεγμένο φορτωτή ή να παραλείψει τον πόρο. Αυτό είναι χρήσιμο όταν οι παρουσιάσεις περιέχουν εξωτερικές εικόνες που πρέπει να επιλυθούν σύμφωνα με κανόνες ασφαλείας ή αποθήκευσης ειδικούς για την εφαρμογή.
 
 ```csharp
 using System;
@@ -130,17 +136,17 @@ internal static class OpenPresentationExample
 }
 ```
 
-## **Φόρτωση Παρουσιάσεων χωρίς Ενσωματωμένα Δυαδικά Αντικείμενα**
+## **Φόρτωση Παρουσιών χωρίς Ενσωματωμένα Δυαδικά Αντικείμενα**
 
 Μια παρουσίαση μπορεί να περιέχει ενσωματωμένα δυαδικά δεδομένα που μια εφαρμογή δεν χρειάζεται ή δεν θέλει να διατηρήσει. Παραδείγματα περιλαμβάνουν:
 
-- VBA projects, διαθέσιμα μέσω [IPresentation.VbaProject](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentation/vbaproject/);
-- ενσωματωμένα δεδομένα OLE, διαθέσιμα μέσω [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/el/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/);
-- δεδομένα ελέγχου ActiveX, διαθέσιμα μέσω [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/el/net/aspose.slides/icontrol/activexcontrolbinary/).
+- VBA projects, διαθέσιμα μέσω του [IPresentation.VbaProject](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentation/vbaproject/);
+- ενσωματωμένα δεδομένα OLE, διαθέσιμα μέσω του [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/el/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/);
+- δεδομένα ελέγχου ActiveX, διαθέσιμα μέσω του [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/el/net/aspose.slides/icontrol/activexcontrolbinary/).
 
-Ορίστε [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) σε `true` για να αφαιρέσετε αυτά τα δυαδικά δεδομένα κατά τη φόρτωση. Αποθηκεύστε την φορτωμένη παρουσίαση για να διατηρήσετε το καθαρισμένο αποτέλεσμα.
+Ορίστε το [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/el/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) σε `true` για να αφαιρέσετε αυτά τα δυαδικά δεδομένα κατά τη φόρτωση. Αποθηκεύστε την φορτωμένη παρουσίαση για να διατηρήσετε το καθαρισμένο αποτέλεσμα.
 
-Αυτή η επιλογή μειώνει την έκθεση σε ανεπιθύμητα ενσωματωμένα φορτία, αλλά δεν αποτελεί πλήρες σύστημα ανίχνευσης κακόβουλου λογισμικού ή απολύτως καθαρισμού περιεχομένου.
+Αυτή η επιλογή μειώνει την έκθεση σε ανεπιθύμητα ενσωματωμένα πακέτα, αλλά δεν αποτελεί πλήρες σύστημα ανίχνευσης κακόβουλου λογισμικού ή καθαρισμού περιεχομένου.
 
 ```csharp
 using Aspose.Slides;
@@ -156,16 +162,16 @@ using var presentation = new Presentation("presentation-with-embedded-data.pptx"
 presentation.Save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 ```
 
-## **Συχνές Ερωτήσεις**
+## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
 
-**Πώς μπορώ να καταλάβω ότι ένα αρχείο είναι κατεστραμμένο και δεν μπορεί να ανοιχθεί;**
+**Πώς μπορώ να διαπιστώ ότι ένα αρχείο είναι κατεστραμμένο και δεν μπορεί να ανοιχθεί;**
 
-Το Aspose.Slides ρίχνει εξαίρεση ανάλυσης ή μορφής κατά τη φόρτωση. Διαχειριστείτε αυτήν την αποτυχία ξεχωριστά από σφάλμα λανθασμένου κωδικού ώστε η εφαρμογή να μπορεί να αναφέρει ακριβώς την αιτία.
+Το Aspose.Slides ρίχνει μια εξαίρεση ανάλυσης ή μορφής κατά τη φόρτωση. Διαχειριστείτε αυτήν την αποτυχία ξεχωριστά από σφάλμα λανθασμένου κωδικού πρόσβασης, ώστε η εφαρμογή να μπορεί να αναφέρει ακριβώς την αιτία.
 
 **Τι συμβαίνει αν λείπουν οι απαιτούμενες γραμματοσειρές;**
 
-Η παρουσίαση μπορεί να φορτωθεί, αλλά η απόδοση και η εξαγωγή μπορεί να αντικαταστήσουν τις γραμματοσειρές. Μπορείτε να [configure font substitution](/slides/el/net/font-substitution/) ή να [provide custom fonts](/slides/el/net/custom-font/) για πιο προβλέψιμο αποτέλεσμα.
+Η παρουσίαση μπορεί ακόμα να φορτωθεί, αλλά η απόδοση και η εξαγωγή ενδέχεται να αντικαταστήσουν τις γραμματοσειρές. Μπορείτε να [ρυθμίσετε την αντικατάσταση γραμματοσειρών](/slides/el/net/font-substitution/) ή να [παρέχετε προσαρμοσμένες γραμματοσειρές](/slides/el/net/custom-font/) για να κάνετε το αποτέλεσμα πιο προβλέψιμο.
 
-**Φορτώνει η φόρτωση μιας παρουσίασης επίσης και τα ενσωματωμένα μέσα;**
+**Φορτώνει η φόρτωση μιας παρουσίασης και τα ενσωματωμένα μέσα της;**
 
-Τα ενσωματωμένα ήχου και βίντεο γίνονται διαθέσιμα μέσω του μοντέλου αντικειμένων της παρουσίασης. Οι εξωτερικοί πόροι επιλύονται σύμφωνα με τη ρυθμισμένη συμπεριφορά φόρτωσης πόρων και μπορεί να μην είναι διαθέσιμοι εάν οι τοποθεσίες τους δεν είναι προσβάσιμες.
+Τα ενσωματωμένα ήχοι και βίντεο γίνονται διαθέσιμα μέσω του μοντέλου αντικειμένων της παρουσίασης. Οι εξωτερικοί πόροι επιλύονται σύμφωνα με τη διαμορφωμένη συμπεριφορά φόρτωσης πόρων και μπορεί να μην είναι διαθέσιμοι εάν οι θέσεις τους δεν είναι προσβάσιμες.

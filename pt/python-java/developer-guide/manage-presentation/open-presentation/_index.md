@@ -25,15 +25,17 @@ description: "Aprenda como abrir apresentações PowerPoint e OpenDocument em Py
 ---
 ## **Introdução**
 
-[Aspose.Slides para Python via Java](https://products.aspose.com/slides/pt/python-java/) pode carregar apresentações PowerPoint e OpenDocument a partir de arquivos e fluxos. Depois que uma apresentação é carregada, você pode inspecionar sua estrutura, editar slides, gerenciar recursos e salvá‑la no formato original ou em outro formato suportado.
+[Aspose.Slides for Python via Java](https://products.aspose.com/slides/pt/python-java/) pode carregar apresentações PowerPoint e OpenDocument a partir de arquivos e streams. Depois que uma apresentação é carregada, você pode inspecionar sua estrutura, editar slides, gerenciar recursos e salvá‑la no formato original ou em outro formato suportado.
 
-O comportamento de carregamento pode ser personalizado através da classe [LoadOptions](https://reference.aspose.com/slides/pt/python-java/aspose.slides/loadoptions/). Por exemplo, você pode fornecer uma senha de abertura, manter objetos binários grandes fora da memória heap do Java, controlar recursos externos ou omitir dados binários incorporados.
+O comportamento de carregamento pode ser personalizado através da classe [LoadOptions](https://reference.aspose.com/slides/pt/python-java/aspose.slides/loadoptions/). Por exemplo, você pode fornecer uma senha de abertura, manter grandes objetos binários fora da memória heap do Java, controlar recursos externos ou omitir dados binários incorporados.
 
 ## **Abrir Apresentações**
 
-Para abrir uma apresentação existente, passe o caminho do arquivo para o construtor [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/). Libere a apresentação após o uso para que os manipuladores de arquivos, dados temporários e outros recursos sejam liberados prontamente.
+Após carregar um arquivo ou stream, você pode [determine its original presentation format](/slides/pt/python-java/detect-presentation-source-format/) para escolher como seu aplicativo processará o conteúdo.
 
-O exemplo Python a seguir demonstra como abrir uma apresentação e obter sua contagem de slides:
+Para abrir uma apresentação existente, passe o caminho do arquivo ao construtor [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/). Libere a apresentação após o uso para que manipuladores de arquivos, dados temporários e outros recursos sejam liberados prontamente.
+
+O exemplo Python a seguir mostra como abrir uma apresentação e obter sua contagem de slides:
 
 ```python
 import jpype
@@ -74,11 +76,11 @@ finally:
     presentation.dispose()
 ```
 
-Para detecção, validação e fluxos de trabalho de criptografia de senha, veja [Apresentações Protegidas por Senha](/slides/pt/python-java/password-protected-presentation/). Se uma apresentação criptografada foi salva deliberadamente com propriedades de documento públicas, essas propriedades podem ser lidas sem senha; veja [Gerenciar Propriedades da Apresentação](/slides/pt/python-java/presentation-properties/).
+Para detecção de senha, validação e fluxos de trabalho de criptografia, veja [Password‑Protect Presentations](/slides/pt/python-java/password-protected-presentation/). Se uma apresentação criptografada foi deliberadamente salva com propriedades de documento públicas, essas propriedades podem ser lidas sem senha; veja [Manage Presentation Properties](/slides/pt/python-java/presentation-properties/).
 
 ## **Abrir Apresentações Grandes**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/pt/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) retorna opções que controlam como o Aspose.Slides lida com objetos binários grandes, como imagens, áudio e vídeo. Você pode manter o arquivo de origem bloqueado, permitir arquivos temporários e limitar a quantidade de dados BLOB retida na memória.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/pt/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) devolve opções que controlam como Aspose.Slides manipula objetos binários grandes, como imagens, áudio e vídeo. Você pode manter o arquivo de origem bloqueado, permitir arquivos temporários e limitar a quantidade de dados BLOB retidos na memória.
 
 O código Python a seguir demonstra o carregamento de uma apresentação grande (por exemplo, 2 GB):
 
@@ -106,17 +108,15 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Nota" %}}
+Com [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked), o arquivo de origem permanece bloqueado até que a instância da apresentação seja descartada. Não mova, sobrescreva ou exclua o arquivo de origem enquanto essa instância estiver viva.
 
-Com [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked), o arquivo de origem permanece bloqueado até que a instância da apresentação seja descartada. Não mova, sobrescreva ou exclua o arquivo de origem enquanto essa instância estiver ativa.
-
-O Aspose.Slides pode copiar o conteúdo de um fluxo de entrada ao carregá‑lo. Para apresentações grandes, um caminho de arquivo é geralmente mais eficiente que um fluxo. Consulte [Gerenciar BLOBs](/slides/pt/python-java/manage-blob/) para opções adicionais de armazenamento e gerenciamento de memória.
-
+Aspose.Slides pode copiar o conteúdo de um stream de entrada durante o carregamento. Para apresentações grandes, um caminho de arquivo costuma ser mais eficiente que um stream. Veja [Manage BLOBs](/slides/pt/python-java/manage-blob/) para opções adicionais de armazenamento e gerenciamento de memória.
 {{% /alert %}}
 
 ## **Controlar Recursos Externos**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/pt/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) aceita um proxy JPype que implementa a interface de callback de carregamento de recursos Java. O callback pode fornecer dados de substituição, redirecionar um recurso, usar o carregador padrão ou ignorar o recurso. Isso é útil quando as apresentações contêm imagens externas que precisam ser resolvidas de acordo com regras de segurança ou armazenamento específicas da aplicação.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/pt/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) aceita um proxy JPype que implementa a interface de callback de carregamento de recurso Java. O callback pode fornecer dados de substituição, redirecionar um recurso, usar o carregador padrão ou pular o recurso. Isso é útil quando apresentações contêm imagens externas que precisam ser resolvidas de acordo com regras de segurança ou armazenamento específicas da aplicação.
 
 ```python
 import jpype
@@ -158,15 +158,15 @@ finally:
 
 ## **Carregar Apresentações sem Objetos Binários Incorporados**
 
-Uma apresentação pode conter dados binários incorporados que uma aplicação não necessita ou não deseja manter. Exemplos incluem:
+Uma apresentação pode conter dados binários incorporados que a aplicação não precisa ou não deseja manter. Exemplos incluem:
 
-- Projetos VBA, disponíveis através de [Presentation.getVbaProject](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getVbaProject);
+- projetos VBA, disponíveis através de [Presentation.getVbaProject](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getVbaProject);
 - dados OLE incorporados, disponíveis através de [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/pt/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
 - dados de controle ActiveX, disponíveis através de [Control.getActiveXControlBinary](https://reference.aspose.com/slides/pt/python-java/aspose.slides/control/#getActiveXControlBinary).
 
 Defina [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/pt/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) como `True` para remover esses dados binários durante o carregamento. Salve a apresentação carregada para persistir o resultado sanitizado.
 
-Esta opção reduz a exposição a cargas úteis incorporadas indesejadas, mas não é um sistema completo de detecção de malware ou de sanitização de conteúdo.
+Essa opção reduz a exposição a cargas úteis indesejadas incorporadas, mas não constitui um sistema completo de detecção de malware ou sanitização de conteúdo.
 
 ```python
 import jpype
@@ -191,12 +191,12 @@ finally:
 
 **Como posso saber se um arquivo está corrompido e não pode ser aberto?**
 
-Aspose.Slides lança uma exceção de análise ou formato durante o carregamento. Trate essa falha separadamente de um erro de senha incorreta para que a aplicação possa relatar a causa com precisão.
+Aspose.Slides lança uma exceção de análise ou de formato durante o carregamento. Trate essa falha separadamente de um erro de senha incorreta para que a aplicação possa relatar a causa com precisão.
 
 **O que acontece se fontes necessárias estiverem ausentes?**
 
-A apresentação ainda pode ser carregada, mas a renderização e a exportação podem substituir fontes. Você pode [configurar substituição de fontes](/slides/pt/python-java/font-substitution/) ou [fornecer fontes personalizadas](/slides/pt/python-java/custom-font/) para tornar a saída mais previsível.
+A apresentação ainda pode ser carregada, mas a renderização e a exportação podem substituir fontes. Você pode [configure font substitution](/slides/pt/python-java/font-substitution/) ou [provide custom fonts](/slides/pt/python-java/custom-font/) para tornar a saída mais previsível.
 
 **O carregamento de uma apresentação também carrega sua mídia incorporada?**
 
-Áudio e vídeo incorporados ficam disponíveis através do modelo de objeto da apresentação. Recursos externos são resolvidos de acordo com o comportamento de carregamento de recursos configurado e podem estar indisponíveis se seus locais não puderem ser acessados.
+Áudio e vídeo incorporados ficam disponíveis através do modelo de objeto da apresentação. Recursos externos são resolvidos de acordo com o comportamento configurado de carregamento de recursos e podem estar indisponíveis se seus locais não puderem ser acessados.

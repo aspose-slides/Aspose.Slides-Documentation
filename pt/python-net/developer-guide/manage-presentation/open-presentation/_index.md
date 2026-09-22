@@ -20,17 +20,19 @@ keywords:
 - objeto binário
 - Python
 - Aspose.Slides
-description: "Aprenda como abrir apresentações PowerPoint e OpenDocument em Python, fornecer senhas de abertura e reduzir o uso de memória com Aspose.Slides for Python via .NET."
+description: "Aprenda como abrir apresentações PowerPoint e OpenDocument em Python, fornecer senhas de abertura e reduzir o uso de memória com Aspose.Slides para Python via .NET."
 ---
 ## **Introdução**
 
-[Aspose.Slides for Python via .NET](https://products.aspose.com/slides/pt/python-net/) pode carregar apresentações PowerPoint e OpenDocument a partir de arquivos e streams. Depois que uma apresentação é carregada, você pode inspecionar sua estrutura, editar slides, gerenciar recursos e salvá‑la no formato original ou em outro formato suportado.
+[Aspose.Slides para Python via .NET](https://products.aspose.com/slides/pt/python-net/) pode carregar apresentações PowerPoint e OpenDocument a partir de arquivos e streams. Após uma apresentação ser carregada, você pode inspecionar sua estrutura, editar slides, gerenciar recursos e salvá-la no formato original ou em outro formato suportado.
 
 O comportamento de carregamento pode ser personalizado através da classe [LoadOptions](https://reference.aspose.com/slides/pt/python-net/aspose.slides/loadoptions/). Por exemplo, você pode fornecer uma senha de abertura, manter objetos binários grandes fora da memória ou omitir dados binários incorporados.
 
 ## **Abrir Apresentações**
 
-Para abrir uma apresentação existente, passe seu caminho de arquivo para o construtor [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/). Use uma instrução `with` para que os manipuladores de arquivos, dados temporários e outros recursos sejam liberados prontamente.
+Depois de carregar um arquivo ou stream, você pode [determinar seu formato original de apresentação](/slides/pt/python-net/detect-presentation-source-format/) para escolher como sua aplicação o processa.
+
+Para abrir uma apresentação existente, passe seu caminho de arquivo ao construtor [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/). Use uma instrução `with` para que manipuladores de arquivo, dados temporários e outros recursos sejam liberados imediatamente.
 
 O exemplo Python a seguir mostra como abrir uma apresentação e obter a contagem de slides:
 
@@ -55,13 +57,13 @@ with slides.Presentation("encrypted-presentation.pptx", load_options) as present
     print("Slide count: " + str(len(presentation.slides)))
 ```
 
-Para detecção de senha, validação e fluxos de trabalho de criptografia, veja [Password‑Protect Presentations](/slides/pt/python-net/password-protected-presentation/). Se uma apresentação criptografada foi salva deliberadamente com propriedades de documento públicas, essas propriedades podem ser lidas sem senha; veja [Manage Presentation Properties](/slides/pt/python-net/presentation-properties/).
+Para detecção, validação e fluxos de trabalho de criptografia de senha, veja [Proteção por Senha de Apresentações](/slides/pt/python-net/password-protected-presentation/). Se uma apresentação criptografada foi deliberadamente salva com propriedades de documento públicas, essas propriedades podem ser lidas sem senha; veja [Gerenciar Propriedades da Apresentação](/slides/pt/python-net/presentation-properties/).
 
 ## **Abrir Apresentações Grandes**
 
-[LoadOptions.blob_management_options](https://reference.aspose.com/slides/pt/python-net/aspose.slides/loadoptions/blob_management_options/) controla como Aspose.Slides lida com objetos binários grandes, como imagens, áudio e vídeo. Você pode manter o arquivo fonte bloqueado, permitir arquivos temporários e limitar a quantidade de dados BLOB retidos na memória.
+[LoadOptions.blob_management_options](https://reference.aspose.com/slides/pt/python-net/aspose.slides/loadoptions/blob_management_options/) controla como Aspose.Slides manipula objetos binários grandes, como imagens, áudio e vídeo. Você pode manter o arquivo de origem bloqueado, permitir arquivos temporários e limitar a quantidade de dados BLOB retidos na memória.
 
-Este código Python demonstra o carregamento de uma apresentação grande (por exemplo, 2 GB):
+Este código Python demonstra como carregar uma apresentação grande (por exemplo, 2 GB):
 
 ```python
 import aspose.slides as slides
@@ -78,22 +80,22 @@ with slides.Presentation(file_path, load_options) as presentation:
 ```
 
 {{% alert color="info" title="Note" %}}
-Com `PresentationLockingBehavior.KEEP_LOCKED`, o arquivo fonte permanece bloqueado até que o objeto `Presentation` seja descartado. Não mova, sobrescreva ou exclua o arquivo fonte enquanto esse objeto estiver ativo.
+Com `PresentationLockingBehavior.KEEP_LOCKED`, o arquivo de origem permanece bloqueado até que o objeto `Presentation` seja descartado. Não mova, sobrescreva ou exclua o arquivo de origem enquanto esse objeto estiver ativo.
 
-Aspose.Slides pode copiar o conteúdo de um stream de entrada ao carregá‑lo. Para apresentações grandes, um caminho de arquivo costuma ser mais eficiente que um stream. Consulte [Manage BLOBs](/slides/pt/python-net/manage-blob/) para opções adicionais de armazenamento e gerenciamento de memória.
+Aspose.Slides pode copiar o conteúdo de um stream de entrada ao carregá-lo. Para apresentações grandes, um caminho de arquivo geralmente é mais eficiente que um stream. Consulte [Gerenciar BLOBs](/slides/pt/python-net/manage-blob/) para opções adicionais de armazenamento e gerenciamento de memória.
 {{% /alert %}}
 
 ## **Carregar Apresentações sem Objetos Binários Incorporados**
 
-Uma apresentação pode conter dados binários incorporados que um aplicativo não precisa ou não deseja manter. Exemplos incluem:
+Uma apresentação pode conter dados binários incorporados que uma aplicação não precisa ou não deseja manter. Exemplos incluem:
 
 - projetos VBA, disponíveis através de [Presentation.vba_project](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/vba_project/);
 - dados OLE incorporados, disponíveis através de [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/pt/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/);
 - dados de controle ActiveX, disponíveis através de [Control.active_x_control_binary](https://reference.aspose.com/slides/pt/python-net/aspose.slides/control/active_x_control_binary/).
 
-Defina [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/pt/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) como `True` para remover esses dados binários durante o carregamento. Salve a apresentação carregada para preservar o resultado sanitizado.
+Defina [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/pt/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) como `True` para remover esses dados binários durante o carregamento. Salve a apresentação carregada para persistir o resultado sanitizado.
 
-Essa opção reduz a exposição a cargas indesejadas incorporadas, mas não constitui um sistema completo de detecção de malware ou sanitização de conteúdo.
+Esta opção reduz a exposição a cargas úteis incorporadas indesejadas, mas não é um sistema completo de detecção de malware ou sanitização de conteúdo.
 
 ```python
 import aspose.slides as slides
@@ -109,12 +111,12 @@ with slides.Presentation("presentation-with-embedded-data.pptx", load_options) a
 
 **Como posso saber que um arquivo está corrompido e não pode ser aberto?**
 
-Aspose.Slides lança uma exceção de análise ou de formato durante o carregamento. Trate essa falha separadamente de um erro de senha incorreta para que a aplicação possa relatar a causa com precisão.
+Aspose.Slides gera uma exceção de análise ou de formato durante o carregamento. Trate essa falha separadamente de um erro de senha incorreta, para que a aplicação possa relatar a causa com precisão.
 
-**O que acontece se fontes necessárias estiverem ausentes?**
+**O que acontece se fontes necessárias estiverem faltando?**
 
 A apresentação ainda pode ser carregada, mas a renderização e a exportação podem substituir fontes. Você pode [configurar substituição de fontes](/slides/pt/python-net/font-substitution/) ou [fornecer fontes personalizadas](/slides/pt/python-net/custom-font/) para tornar a saída mais previsível.
 
-**O carregamento de uma apresentação também carrega suas mídias incorporadas?**
+**Carregar uma apresentação também carrega sua mídia incorporada?**
 
-Áudios e vídeos incorporados ficam disponíveis através do modelo de objeto da apresentação. Recursos externos são resolvidos de acordo com o comportamento padrão de carregamento de recursos e podem estar indisponíveis se seus locais não puderem ser acessados.
+Áudios e vídeos incorporados ficam disponíveis através do modelo de objetos da apresentação. Recursos externos são resolvidos de acordo com o comportamento padrão de carregamento de recursos e podem estar indisponíveis se seus locais não puderem ser acessados.

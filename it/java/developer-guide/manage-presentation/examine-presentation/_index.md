@@ -10,7 +10,7 @@ keywords:
 - proprietà del documento
 - ottenere proprietà
 - leggere proprietà
-- modificare proprietà
+- cambiare proprietà
 - modificare proprietà
 - aggiornare proprietà
 - esaminare PPTX
@@ -21,17 +21,19 @@ keywords:
 - presentazione
 - Java
 - Aspose.Slides
-description: "Esplora diapositive, struttura e metadati nelle presentazioni PowerPoint e OpenDocument usando Java per approfondimenti più rapidi e audit di contenuto più intelligenti."
+description: "Esplora diapositive, struttura e metadati in presentazioni PowerPoint e OpenDocument usando Java per approfondimenti più rapidi e audit di contenuto più intelligenti."
 ---
 ## **Panoramica**
 
-Aspose.Slides può identificare il formato di una presentazione e leggere i metadati del documento senza creare un modello completo di oggetti della presentazione. Questo è utile quando è necessario classificare i file, creare un inventario o esaminare le proprietà prima di decidere se caricare ed elaborare il contenuto della presentazione.
+Aspose.Slides può identificare il formato di una presentazione e leggere i metadati del documento senza creare un modello completo di oggetti della presentazione. Questo è utile quando è necessario classificare i file, creare un inventario o ispezionare le proprietà prima di decidere se caricare ed elaborare il contenuto della presentazione.
 
-Questo articolo dimostra l'ispezione leggera tramite [PresentationFactory](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentationfactory/) e [IPresentationInfo](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/), nonché gli aggiornamenti mirati tramite [IDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/).
+Questo articolo dimostra l'ispezione leggera tramite [PresentationFactory](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentationfactory/) e [IPresentationInfo](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/), nonché aggiornamenti mirati tramite [IDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/).
 
-## **Verificare il formato di una presentazione**
+## **Verifica il formato di una presentazione**
 
-Utilizza [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) per ispezionare un file senza creare un'istanza di [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/). Il metodo [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/#getLoadFormat--) restituisce il formato rilevato, ad esempio PPTX, PPT o ODP.
+Se hai già una presentazione caricata, consulta [Determina il formato originale della presentazione](/slides/it/java/detect-presentation-source-format/) per la rilevazione dopo il caricamento e le limitazioni dei flussi legacy PPT, PPS e POT.
+
+Usa [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) per ispezionare un file senza creare un'istanza di [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/). Il metodo [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/#getLoadFormat--) restituisce il formato rilevato, ad esempio PPTX, PPT o ODP.
 
 ```java
 import com.aspose.slides.IPresentationInfo;
@@ -57,22 +59,22 @@ for (String fileName : fileNames) {
 }
 ```
 
-## **Creare un inventario leggero di presentazioni**
+## **Crea un inventario di presentazioni leggero**
 
-Quando elabori molti file di presentazione, potresti aver bisogno di un inventario compatto per la convalida, l'indicizzazione o un sistema di gestione documentale. In questo scenario, utilizza [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) per ottenere un oggetto [IPresentationInfo](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/), quindi chiama [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) per leggere i metadati del documento. Questo approccio non crea un'istanza di [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) né richiede di attraversare l'intero modello di oggetti della presentazione.
+Quando elabori molti file di presentazione, potresti aver bisogno di un inventario compatto per la convalida, l'indicizzazione o un sistema di gestione dei documenti. In questo scenario, usa [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) per ottenere un oggetto [IPresentationInfo](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/), quindi chiama [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) per leggere i metadati del documento. Questo approccio non crea un'istanza di [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) né richiede di attraversare l'intero modello di oggetti della presentazione.
 
-Le proprietà estese esposte da [IDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/) forniscono i seguenti valori di inventario:
+La proprietà estesa esposta da [IDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/) fornisce i seguenti valori di inventario:
 
-| Metodo | Valore dell'inventario |
+| Method | Inventory value |
 | --- | --- |
 | [getSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/#getSlides--) | Numero totale di diapositive. |
 | [getHiddenSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/#getHiddenSlides--) | Numero di diapositive nascoste. |
 | [getNotes](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/#getNotes--) | Numero di diapositive che contengono note. |
-| [getParagraphs](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/#getParagraphs--) | Numero totale di paragrafi, se disponibile. |
+| [getParagraphs](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/#getParagraphs--) | Numero totale di paragrafi, quando disponibili. |
 | [getWords](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/#getWords--) | Numero totale di parole. |
 | [getMultimediaClips](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/#getMultimediaClips--) | Numero totale di clip audio e video. |
 
-Il seguente esempio legge questi valori senza creare un oggetto [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) e stampa un inventario compatto. Combina inoltre [getHeadingPairs](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/#getHeadingPairs--) con [getTitlesOfParts](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) per visualizzare gruppi di contenuto come caratteri, temi e titoli di diapositive.
+L'esempio seguente legge questi valori senza creare un oggetto [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/) e stampa un inventario compatto. Combina inoltre [getHeadingPairs](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/#getHeadingPairs--) con [getTitlesOfParts](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) per visualizzare gruppi di contenuti come font, temi e titoli delle diapositive.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -140,27 +142,27 @@ if (headingPairs.length == 0 || titlesOfParts.length == 0) {
 }
 ```
 
-Ogni [IHeadingPair](https://reference.aspose.com/slides/it/java/com.aspose.slides/iheadingpair/) fornisce un nome di gruppo e il numero di elementi in quel gruppo. [IDocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) restituisce un array piatto e ordinato, quindi consumare il numero di titoli consecutivi specificati da ciascuna coppia di intestazione.
+Ogni [IHeadingPair](https://reference.aspose.com/slides/it/java/com.aspose.slides/iheadingpair/) fornisce un nome di gruppo e il numero di elementi in quel gruppo. [IDocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) restituisce un array piatto e ordinato, quindi consumare il numero di titoli consecutivi specificati da ciascuna coppia di intestazioni.
 
 ### **Metadati memorizzati e limitazioni del formato**
 
-Le proprietà di inventario restituite da [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) riflettono i metadati disponibili nel documento di origine. Aspose.Slides non carica e attraversa il modello di oggetti della presentazione per ricalcolare questi valori in questa chiamata. Le proprietà mancanti sono rappresentate da valori predefiniti e i valori memorizzati potrebbero essere obsoleti se l'applicazione che ha salvato l'ultimo file non ha aggiornato le proprie proprietà del documento.
+Le proprietà di inventario restituite da [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) riflettono i metadati disponibili nel documento di origine. Aspose.Slides non carica e attraversa il modello di oggetti della presentazione per ricalcolare questi valori per questa chiamata. Le proprietà mancanti sono rappresentate da valori predefiniti e i valori memorizzati possono essere obsoleti se l'applicazione che ha salvato l'ultimo file non ha aggiornato le proprietà del documento.
 
-- **PPTX:** Il formato fornisce proprietà documentali estese per il conteggio di diapositive, note, diapositive nascoste, paragrafi, parole e contenuti multimediali, nonché coppie di intestazioni e titoli di parti. La disponibilità dipende da quali proprietà sono state scritte dal produttore del documento.
-- **PPT:** Il formato binario può memorizzare le corrispondenti proprietà di riepilogo del documento. Se una proprietà è assente o non è stata aggiornata dal produttore del documento, Aspose.Slides restituisce il valore memorizzato o predefinito invece di calcolarlo dalle diapositive.
-- **ODP:** I metadati OpenDocument forniscono statistiche generali del documento, come conteggi di pagine, paragrafi e parole, ma questi valori non corrispondono a tutte le proprietà estese specifiche di PowerPoint. I metadati di diapositive nascoste, diapositive con note, multimediali, coppie di intestazioni e titoli di parti potrebbero non essere disponibili, e le proprietà di inventario potrebbero restituire valori predefiniti. Non considerare un valore zero o un array vuoto come prova autorevole dell'assenza del contenuto corrispondente.
+- **PPTX:** Il formato fornisce proprietà di documento estese per conteggi di diapositive, note, diapositive nascoste, paragrafi, parole e multimedia, nonché coppie di intestazioni e titoli di parti. La disponibilità dipende da quali proprietà sono state scritte dal produttore del documento.
+- **PPT:** Il formato binario può memorizzare le corrispondenti proprietà di riepilogo del documento. Se una proprietà è assente o non è stata aggiornata dal produttore del documento, Aspose.Slides restituisce il suo valore memorizzato o predefinito anziché calcolarlo dalle diapositive.
+- **ODP:** I metadati OpenDocument forniscono statistiche generali del documento, come conteggi di pagine, paragrafi e parole, ma questi valori non corrispondono a tutte le proprietà estese specifiche di PowerPoint. I metadati di diapositive nascoste, diapositive con note, multimedia, coppie di intestazioni e titoli di parti potrebbero non essere disponibili e le proprietà di inventario potrebbero restituire valori predefiniti. Non considerare un valore zero o un array vuoto come prova autorevole dell'assenza del contenuto corrispondente.
 
-Utilizza l'approccio dei metadati leggeri per inventari e controlli preliminari. Carica la presentazione e ispeziona il suo modello di oggetti live quando il risultato deve riflettere le modifiche in memoria o quando è necessario verificare il contenuto effettivo della presentazione.
+Utilizza l'approccio dei metadati leggeri per gli inventari e i controlli preliminari. Carica la presentazione e ispeziona il suo modello di oggetti in tempo reale quando il risultato deve riflettere le modifiche in memoria o quando è necessario verificare il contenuto effettivo della presentazione.
 
-## **Aggiornare le proprietà della presentazione**
+## **Aggiorna le proprietà della presentazione**
 
-Le proprietà restituite da [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) possono anche essere modificate senza creare un'istanza di [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/). Applica le modifiche con [IPresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), e quindi scrivi la presentazione associata con [IPresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/#writeBindedPresentation-java.io.OutputStream-).
+Le proprietà restituite da [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) possono anche essere modificate senza creare un'istanza di [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/). Applica le modifiche con [IPresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), quindi scrivi la presentazione collegata con [IPresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/#writeBindedPresentation-java.io.OutputStream-).
 
-L'immagine seguente mostra le proprietà originali del documento.
+L'immagine seguente mostra le proprietà del documento originale.
 
 ![Proprietà originali del documento della presentazione PowerPoint](input_properties.png)
 
-Il seguente esempio modifica il titolo e l'ora dell'ultimo salvataggio e scrive il risultato in un nuovo file:
+L'esempio seguente modifica il titolo e l'ora dell'ultimo salvataggio e scrive il risultato in un nuovo file:
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -184,35 +186,35 @@ try (OutputStream outputStream = new FileOutputStream(outputFile)) {
 }
 ```
 
-L'immagine seguente mostra le proprietà del documento modificate della presentazione PowerPoint.
+L'immagine seguente mostra le proprietà del documento aggiornate della presentazione PowerPoint.
 
-![Proprietà del documento modificate della presentazione PowerPoint](output_properties.png)
+![Proprietà del documento aggiornate della presentazione PowerPoint](output_properties.png)
 
 ## **Link utili**
 
-Per controlli di sicurezza correlati e impostazioni di protezione, vedere i seguenti articoli:
+Per controlli di sicurezza correlati e impostazioni di protezione, consulta i seguenti articoli:
 
-- [Presentazioni protette da password](/slides/it/java/password-protected-presentation/)
-- [Presentazioni protette in scrittura](/slides/it/java/write-protected-presentation/)
+- [Proteggi con password le presentazioni](/slides/it/java/password-protected-presentation/)
+- [Proteggi in scrittura le presentazioni](/slides/it/java/write-protected-presentation/)
 
 ## **FAQ**
 
-**Come posso verificare se i caratteri sono incorporati e quali sono?**
+**Come posso verificare se i font sono incorporati e quali sono?**
 
-Carica la presentazione e utilizza [Presentation.getFontsManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getFontsManager--). Chiama [IFontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) per ottenere i caratteri incorporati e [IFontsManager.getFonts](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifontsmanager/#getFonts--) per ottenere i caratteri utilizzati dalla presentazione. Confronta i due risultati per trovare i caratteri necessari per il rendering ma non incorporati.
+Carica la presentazione e utilizza [Presentation.getFontsManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getFontsManager--). Chiama [IFontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) per ottenere i font incorporati e [IFontsManager.getFonts](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifontsmanager/#getFonts--) per ottenere i font utilizzati dalla presentazione. Confronta i due risultati per trovare i font necessari per il rendering ma non incorporati.
 
-**Come posso capire rapidamente se il file contiene diapositive nascoste e quante?**
+**Come posso rapidamente capire se il file contiene diapositive nascoste e quante?**
 
-Quando i metadati del documento memorizzati sono sufficienti, leggi [IDocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/#getHiddenSlides--) tramite [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) e [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--). Questo è adatto per un inventario leggero. Se la presentazione è stata modificata in memoria, i metadati memorizzati potrebbero mancare o essere obsoleti, o se devi verificare i valori live, itera su [Presentation.getSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getSlides--) e ispeziona il metodo [ISlide.getHidden](https://reference.aspose.com/slides/it/java/com.aspose.slides/islide/#getHidden--) di ciascuna diapositiva.
+Quando i metadati del documento memorizzati sono sufficienti, leggi [IDocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/#getHiddenSlides--) tramite [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) e [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--). Questo è adatto per un inventario leggero. Se la presentazione è stata modificata in memoria, i metadati memorizzati potrebbero mancare o essere obsoleti, o se è necessario verificare i valori in tempo reale, itera attraverso [Presentation.getSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getSlides--) e ispeziona il metodo [ISlide.getHidden](https://reference.aspose.com/slides/it/java/com.aspose.slides/islide/#getHidden--) di ciascuna diapositiva.
 
-**Posso rilevare se è utilizzata una dimensione e orientamento personalizzati della diapositiva e se differiscono dai valori predefiniti?**
+**Posso rilevare se è usata una dimensione e un'orientazione della diapositiva personalizzate, e se differiscono dai valori predefiniti?**
 
-Sì. Carica la presentazione e chiama [Presentation.getSlideSize](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getSlideSize--). Usa [ISlideSize.getType](https://reference.aspose.com/slides/it/java/com.aspose.slides/islidesize/#getType--), [ISlideSize.getSize](https://reference.aspose.com/slides/it/java/com.aspose.slides/islidesize/#getSize--) e [ISlideSize.getOrientation](https://reference.aspose.com/slides/it/java/com.aspose.slides/islidesize/#getOrientation--) per confrontare le impostazioni attuali con il preset e le dimensioni previste.
+Sì. Carica la presentazione e chiama [Presentation.getSlideSize](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getSlideSize--). Usa [ISlideSize.getType](https://reference.aspose.com/slides/it/java/com.aspose.slides/islidesize/#getType--), [ISlideSize.getSize](https://reference.aspose.com/slides/it/java/com.aspose.slides/islidesize/#getSize--) e [ISlideSize.getOrientation](https://reference.aspose.com/slides/it/java/com.aspose.slides/islidesize/#getOrientation--) per confrontare le impostazioni attuali con i preset e le dimensioni predefiniti.
 
-**Esiste un modo rapido per verificare se i grafici fanno riferimento a fonti dati esterne?**
+**Esiste un modo rapido per verificare se i grafici fanno riferimento a fonti di dati esterne?**
 
-Sì. Individua ciascun [Chart](https://reference.aspose.com/slides/it/java/com.aspose.slides/chart/) e chiama [IChartData.getDataSourceType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ichartdata/#getDataSourceType--). Per una cartella di lavoro esterna, chiama [IChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/it/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--). Il tipo di origine dati e il percorso identificano un riferimento esterno, ma verificare se il target è disponibile richiede un controllo di risorse separato.
+Sì. Individua ogni [Chart](https://reference.aspose.com/slides/it/java/com.aspose.slides/chart/) e chiama [IChartData.getDataSourceType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ichartdata/#getDataSourceType--). Per una cartella di lavoro esterna, chiama [IChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/it/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--). Il tipo di origine dati e il percorso identificano un riferimento esterno, ma verificare la disponibilità della destinazione richiede un controllo delle risorse separato.
 
-**Come posso valutare le diapositive 'pesanti' che potrebbero rallentare il rendering o l'esportazione PDF?**
+**Come posso valutare le diapositive 'pesanti' che possono rallentare il rendering o l'esportazione PDF?**
 
-Non esiste una singola proprietà di complessità. Attraversa [Presentation.getSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getSlides--) e la collezione [IBaseSlide.getShapes](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseslide/#getShapes--) di ciascuna diapositiva. Usa il conteggio delle forme e la presenza di immagini grandi, effetti, animazioni o contenuti multimediali come segnali di screening, e misura un rendering o un'esportazione rappresentativa prima di considerare una diapositiva come un colletto di bottiglia di prestazioni confermato.
+Non esiste una singola proprietà di complessità. Attraversa [Presentation.getSlides](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getSlides--) e la collezione [IBaseSlide.getShapes](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseslide/#getShapes--) di ciascuna diapositiva. Usa il conteggio delle forme e la presenza di immagini grandi, effetti, animazioni o multimedia come segnali di screening, e misura un rendering o esportazione rappresentativa prima di considerare una diapositiva come un collaudo di performance confermato.

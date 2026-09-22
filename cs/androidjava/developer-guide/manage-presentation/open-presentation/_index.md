@@ -16,24 +16,26 @@ keywords:
 - načíst ODP
 - chráněná prezentace
 - velká prezentace
-- externí zdroj
+- externí prostředek
 - binární objekt
 - Android
 - Java
 - Aspose.Slides
-description: "Naučte se, jak otevírat prezentace PowerPoint a OpenDocument na Androidu, zadávat otevírací hesla, řídit načítání zdrojů a snižovat využití paměti pomocí Aspose.Slides pro Android přes Java."
+description: "Naučte se, jak na Androidu otevírat prezentace PowerPoint a OpenDocument, zadávat otevírací hesla, řídit načítání prostředků a snižovat využití paměti pomocí Aspose.Slides pro Android via Java."
 ---
 ## **Úvod**
 
-[Aspose.Slides for Android via Java](https://products.aspose.com/slides/cs/androidjava/) může načíst prezentace PowerPoint a OpenDocument ze souborů i proudů. Po načtení prezentace můžete prozkoumat její strukturu, upravovat snímky, spravovat zdroje a uložit ji v původním nebo jiném podporovaném formátu.
+[Aspose.Slides for Android via Java](https://products.aspose.com/slides/cs/androidjava/) může načíst prezentace PowerPoint a OpenDocument ze souborů a proudů. Po načtení prezentace můžete prozkoumat její strukturu, upravovat snímky, spravovat prostředky a uložit ji v původním nebo jiném podporovaném formátu.
 
-Chování načítání lze přizpůsobit pomocí třídy [LoadOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/loadoptions/) . Například můžete zadat otevírací heslo, uchovávat velké binární objekty mimo haldu Java, řídit externí zdroje nebo vynechat vložená binární data.
+Chování načítání lze přizpůsobit pomocí třídy [LoadOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/loadoptions/). Například můžete zadat otevírací heslo, uchovávat velké binární objekty mimo haldu Java, řídit externí prostředky nebo vynechat vložená binární data.
 
 ## **Otevření prezentací**
 
-Pro otevření existující prezentace předáte její cestu k souboru konstruktoru [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) . Po použití uvolněte prezentaci, aby byly okamžitě uvolněny souborové handly, dočasná data a další prostředky.
+Po načtení souboru nebo proudu můžete [zjistit jeho původní formát prezentace](/slides/cs/androidjava/detect-presentation-source-format/), abyste si vybrali, jak aplikace bude s prezentací pracovat.
 
-Následující ukázka v Javě ukazuje, jak otevřít prezentaci a získat počet snímků:
+Pro otevření existující prezentace předáte její cestu k souboru do konstruktoru [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/). Po použití uvolněte instanci prezentace, aby byly souborové handle, dočasná data a další prostředky okamžitě uvolněny.
+
+Následující příklad v jazyce Java ukazuje, jak otevřít prezentaci a získat počet snímků:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -48,7 +50,7 @@ try {
 
 ## **Otevření prezentací chráněných heslem**
 
-Otevírací heslo šifruje obsah prezentace. Pro načtení celé prezentace předáte správné heslo metodě [LoadOptions.setPassword](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) a poskytnete možnosti konstruktoru [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) . Načítání selže, pokud heslo chybí nebo je nesprávné.
+Otevírací heslo šifruje obsah prezentace. Pro načtení celé prezentace předáte správné heslo metodě [LoadOptions.setPassword](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) a předáte možnosti konstruktoru [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/). Načtení selže, pokud heslo chybí nebo je nesprávné.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -65,13 +67,13 @@ try {
 }
 ```
 
-Pro detekci hesla, ověřování a šifrovací pracovní postupy viz [Password-Protect Presentations](/slides/cs/androidjava/password-protected-presentation/). Pokud byla šifrovaná prezentace úmyslně uložena s veřejnými vlastnostmi dokumentu, lze tyto vlastnosti přečíst bez hesla; viz [Manage Presentation Properties](/slides/cs/androidjava/presentation-properties/).
+Pro detekci hesla, jeho ověření a šifrovací pracovní postupy viz [Password-Protect Presentations](/slides/cs/androidjava/password-protected-presentation/). Pokud byla šifrovaná prezentace úmyslně uložena s veřejnými vlastnostmi dokumentu, lze tyto vlastnosti číst bez hesla; viz [Manage Presentation Properties](/slides/cs/androidjava/presentation-properties/).
 
 ## **Otevření velkých prezentací**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) vrací možnosti, které řídí, jak Aspose.Slides zachází s binárními velkými objekty, jako jsou obrázky, audio a video. Můžete nechat zdrojový soubor uzamčený, povolit dočasné soubory a omezit množství BLOB dat uchovávaných v paměti.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) vrací možnosti, které řídí, jak Aspose.Slides zachází s binárními velkými objekty, jako jsou obrázky, audio a video. Můžete nechat zdrojový soubor zamčený, povolit dočasné soubory a omezit množství BLOB dat uchovávaných v paměti.
 
-Následující kód v Javě demonstruje načtení velké prezentace (například 2 GB):
+Následující kód v jazyce Java demonstruje načtení velké prezentace (například 2 GB):
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -96,14 +98,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-S [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked) zůstane zdrojový soubor uzamčený, dokud není instance prezentace uvolněna. Neprovádějte přesun, přepsání ani smazání zdrojového souboru, dokud je tato instance aktivní.
+S pomocí [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked) zůstane zdrojový soubor zamčený, dokud není instance prezentace uvolněna. Nepřesouvejte, nepřepisujte ani nesmažte zdrojový soubor, dokud je tato instance aktivní.
 
-Aspose.Slides může při načítání kopírovat obsah vstupního proudu. Pro velké prezentace je proto cesta k souboru obecně efektivnější než proud. Viz [Manage BLOBs](/slides/cs/androidjava/manage-blob/) pro další možnosti úložiště a správy paměti.
+Aspose.Slides může při načítání zkopírovat obsah vstupního proudu. U velkých prezentací je proto cesta k souboru obecně efektivnější než proud. Další možnosti úložiště a správy paměti najdete v [Manage BLOBs](/slides/cs/androidjava/manage-blob/).
 {{% /alert %}}
 
-## **Řízení externích zdrojů**
+## **Řízení externích prostředků**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) přijímá implementaci [IResourceLoadingCallback](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iresourceloadingcallback/) . Callback může poskytnout náhradní data, přesměrovat zdroj, použít výchozí načítač nebo zdroj přeskočit. To je užitečné, když prezentace obsahují externí obrázky, které je třeba vyřešit podle pravidel zabezpečení nebo ukládání specifických pro aplikaci.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) přijímá implementaci rozhraní [IResourceLoadingCallback](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iresourceloadingcallback/). Callback může poskytnout náhradní data, přesměrovat prostředek, použít výchozí načítač nebo prostředek přeskočit. To je užitečné, když prezentace obsahují externí obrázky, které je třeba vyřešit podle specifických bezpečnostních nebo úložných pravidel aplikace.
 
 ```java
 import com.aspose.slides.IResourceLoadingArgs;
@@ -149,15 +151,14 @@ try {
 
 ## **Načtení prezentací bez vložených binárních objektů**
 
-Prezentace může obsahovat vložená binární data, která aplikace nepotřebuje nebo nechce uchovávat. Příklady zahrnují:
+Prezentace může obsahovat vložená binární data, která aplikace nepotřebuje nebo nechce zachovat. Příklady zahrnují:
+- projekty VBA, dostupné pomocí [IPresentation.getVbaProject](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentation/#getVbaProject--);
+- vložená data OLE, dostupná pomocí [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
+- data ovládacích prvků ActiveX, dostupná pomocí [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--).
 
-- projekty VBA, dostupné přes [IPresentation.getVbaProject](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentation/#getVbaProject--) ;
-- vložená data OLE, dostupná přes [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--) ;
-- data ovládacích prvků ActiveX, dostupná přes [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--) .
+Nastavte [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) na `true`, aby se tato binární data při načítání odstranila. Uložte načtenou prezentaci, aby se zachoval vyčištěný výsledek.
 
-Nastavte [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) na `true`, aby se tato binární data při načítání odstranila. Uložte načtenou prezentaci, aby se výsledek vyčistil a byl trvale uložen.
-
-Tato možnost snižuje riziko nechtěných vložených nákladů, ale nejde o kompletní systém detekce malwaru nebo čištění obsahu.
+Tato volba snižuje riziko nechtěných vložených nákladů, avšak nejedná se o kompletní systém detekce škodlivého softwaru či sanitizace obsahu.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -177,14 +178,14 @@ try {
 
 ## **Často kladené otázky**
 
-**Jak mohu zjistit, že je soubor poškozený a nelze jej otevřít?**
+**Jak poznám, že soubor je poškozený a nelze jej otevřít?**
 
-Aspose.Slides při načítání vyhodí výjimku při parsování nebo formátu. Tento selhání ošetřete odděleně od chyby nesprávného hesla, aby aplikace mohla přesně nahlásit příčinu.
+Aspose.Slides během načítání vyhodí výjimku parsování nebo formátu. Tento selhání ošetřete odděleně od chyby nesprávného hesla, aby aplikace mohla přesně oznámit příčinu.
 
 **Co se stane, pokud chybí požadovaná písma?**
 
-Prezentace může být stále načtena, ale při vykreslování a exportu mohou být písma nahrazena. Můžete [configure font substitution](/slides/cs/androidjava/font-substitution/) nebo [provide custom fonts](/slides/cs/androidjava/custom-font/) pro dosažení předvídatelnějšího výstupu.
+Prezentace se může i nadále načíst, ale při vykreslování a exportu mohou být písma nahrazena. Můžete [konfigurovat substituci písma](/slides/cs/androidjava/font-substitution/) nebo [poskytnout vlastní písma](/slides/cs/androidjava/custom-font/), aby byl výstup předvídatelnější.
 
-**Načte načtení prezentace také její vložená média?**
+**Načítá se při načítání prezentace také její vložená média?**
 
-Vložený audio a video jsou dostupné prostřednictvím objektového modelu prezentace. Externí zdroje jsou řešeny podle nakonfigurovaného chování načítání zdrojů a mohou být nedostupné, pokud jejich umístění není přístupné.
+Vložený audio a video se zpřístupní prostřednictvím objektového modelu prezentace. Externí prostředky jsou řešeny podle nastaveného chování načítání prostředků a mohou být nedostupné, pokud nelze jejich umístění přistupovat.

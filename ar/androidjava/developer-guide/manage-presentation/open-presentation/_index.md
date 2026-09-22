@@ -1,16 +1,16 @@
 ---
 title: فتح العروض التقديمية على Android
-linktitle: فتح عرض
+linktitle: فتح عرض تقديمي
 type: docs
 weight: 20
 url: /ar/androidjava/open-presentation/
 keywords:
 - فتح PowerPoint
-- فتح عرض
+- فتح عرض تقديمي
 - فتح PPTX
 - فتح PPT
 - فتح ODP
-- تحميل عرض
+- تحميل عرض تقديمي
 - تحميل PPTX
 - تحميل PPT
 - تحميل ODP
@@ -18,22 +18,24 @@ keywords:
 - عرض كبير
 - مورد خارجي
 - كائن ثنائي
-- أندرويد
-- جافا
+- Android
+- Java
 - Aspose.Slides
-description: "تعلم كيفية فتح عروض PowerPoint وOpenDocument على Android، وتزويد كلمات مرور الفتح، والتحكم في تحميل الموارد، وتقليل استهلاك الذاكرة باستخدام Aspose.Slides لنظام Android عبر Java."
+description: "تعرف على كيفية فتح عروض PowerPoint وOpenDocument على Android، وتوفير كلمات مرور الفتح، والتحكم في تحميل الموارد، وتقليل استهلاك الذاكرة باستخدام Aspose.Slides لأندرويد عبر Java."
 ---
-## **مقدمة**
+## **المقدمة**
 
-[Aspose.Slides for Android via Java](https://products.aspose.com/slides/ar/androidjava/) يمكنه تحميل عروض PowerPoint وOpenDocument من الملفات والتيارات. بعد تحميل العرض، يمكنك فحص هيكله، تعديل الشرائح، إدارة الموارد، وحفظه بالتنسيق الأصلي أو أي تنسيق مدعوم آخر.
+[Aspose.Slides for Android عبر Java](https://products.aspose.com/slides/ar/androidjava/) يمكنه تحميل عروض PowerPoint وOpenDocument من الملفات والتدفقات. بعد تحميل العرض، يمكنك فحص هيكله، تعديل الشرائح، إدارة الموارد، وحفظه بالتنسيق الأصلي أو بأي تنسيق مدعوم آخر.
 
-يمكن تخصيص سلوك التحميل عبر فئة [LoadOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/loadoptions/). على سبيل المثال، يمكن تقديم كلمة مرور الفتح، إبقاء الكائنات الثنائية الكبيرة خارج ذاكرة Java heap، التحكم في الموارد الخارجية، أو حذف البيانات الثنائية المضمّنة.
+يمكن تخصيص سلوك التحميل من خلال الفئة [LoadOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/loadoptions/). على سبيل المثال، يمكنك توفير كلمة مرور للفتح، إبقاء الكائنات الثنائية الكبيرة خارج ذاكرة Java heap، التحكم في الموارد الخارجية، أو حذف البيانات الثنائية المدمجة.
 
-## **فتح العروض**
+## **فتح العروض التقديمية**
 
-لفتح عرض موجود، مرّر مسار ملفه إلى مُنشيء [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/). حرّر العرض بعد الاستخدام حتى يتم تحرير مقبض الملف والبيانات المؤقتة وغيرها من الموارد على الفور.
+بعد تحميل ملف أو تدفق، يمكنك [تحديد تنسيق العرض الأصلي](/slides/ar/androidjava/detect-presentation-source-format/) لتختار كيفية معالجة التطبيق له.
 
-تُظهر مثال Java التالي كيفية فتح عرض والحصول على عدد الشرائح الخاصة به:
+لفتح عرض تقديمي موجود، مرّر مسار ملفه إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/). احرص على التخلص من كائن العرض بعد الاستخدام لتحرير مقبض الملف والبيانات المؤقتة وغيرها من الموارد على الفور.
+
+المثال التالي بلغة Java يوضح كيفية فتح عرض تقديمي والحصول على عدد شرائحه:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -46,9 +48,9 @@ try {
 }
 ```
 
-## **فتح العروض المحمية بكلمة مرور**
+## **فتح العروض المحمية بكلمة سر**
 
-كلمة مرور الفتح تشفر محتوى العرض. لتحميل العرض بالكامل، مرّر كلمة المرور الصحيحة إلى [LoadOptions.setPassword](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) وقدم الخيارات إلى مُنشيء [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/). سيفشل التحميل عندما تكون كلمة المرور مفقودة أو غير صحيحة.
+كلمة المرور للفتح تشفر محتوى العرض. لتحميل العرض بالكامل، مرّر كلمة المرور الصحيحة إلى [LoadOptions.setPassword](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) وقدم الخيارات إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/). سيفشل التحميل إذا كانت كلمة المرور مفقودة أو غير صحيحة.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -65,13 +67,13 @@ try {
 }
 ```
 
-للكشف عن كلمة المرور، والتحقق، وسير عمل التشفير، راجع [Password‑Protect Presentations](/slides/ar/androidjava/password-protected-presentation/). إذا تم حفظ عرض مشفر عمدًا بخصائص مستند عامة، يمكن قراءة تلك الخصائص دون كلمة مرور؛ انظر [Manage Presentation Properties](/slides/ar/androidjava/presentation-properties/).
+للتعرف على كلمة المرور، والتحقق منها، وسير عمل التشفير، راجع [Password-Protect Presentations](/slides/ar/androidjava/password-protected-presentation/). إذا تم حفظ عرض مشفر مع خصائص مستند عامة، يمكن قراءة تلك الخصائص دون كلمة مرور؛ انظر [Manage Presentation Properties](/slides/ar/androidjava/presentation-properties/).
 
 ## **فتح العروض الكبيرة**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) تُرجِع خيارات تتحكم في طريقة معالجة Aspose.Slides للكائنات الثنائية الكبيرة مثل الصور والصوت والفيديو. يمكنك إبقاء ملف المصدر مقفلاً، السماح بملفات مؤقتة، وتقليل كمية بيانات BLOB المحتفظ بها في الذاكرة.
+تُعيد الدالة [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) خيارات تتحكم في طريقة معالجة Aspose.Slides للكائنات الثنائية الكبيرة مثل الصور والصوت والفيديو. يمكنك إبقاء ملف المصدر مقفلاً، السماح بالملفات المؤقتة، وتحديد كمية بيانات BLOB المحتفظ بها في الذاكرة.
 
-الكود Java التالي يوضح تحميل عرض كبير (مثلاً 2 GB):
+المثال التالي بلغة Java يوضح تحميل عرض كبير (مثال: 2 جيجابايت):
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -95,15 +97,15 @@ try {
 }
 ```
 
-{{% alert color="info" title="ملاحظة" %}}
-مع [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked)، يبقى ملف المصدر مقفلاً حتى يتم تحرير مثيل العرض. لا تقم بنقل أو استبدال أو حذف ملف المصدر بينما هذا المثيل ما زال حيًا.
+{{% alert color="info" title="Note" %}}
+مع [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked)، يبقى ملف المصدر مقفلاً حتى يتم التخلص من كائن العرض. لا تقم بنقل أو استبدال أو حذف ملف المصدر بينما يكون هذا الكائن قيد الحياة.
 
-قد يقوم Aspose.Slides بنسخ محتويات التيار المدخل أثناء التحميل. بالنسبة للعروض الكبيرة، يكون مسار الملف عادةً أكثر كفاءة من التيار. راجع [Manage BLOBs](/slides/ar/androidjava/manage-blob/) للحصول على خيارات تخزين وإدارة ذاكرة إضافية.
+قد تقوم Aspose.Slides بنسخ محتويات تدفق الإدخال أثناء التحميل. بالنسبة للعروض الكبيرة، يكون مسار الملف عادةً أكثر كفاءة من التدفق. راجع [Manage BLOBs](/slides/ar/androidjava/manage-blob/) لمزيد من خيارات التخزين وإدارة الذاكرة.
 {{% /alert %}}
 
 ## **التحكم في الموارد الخارجية**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) تقبل تنفيذًا لـ [IResourceLoadingCallback](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iresourceloadingcallback/). يمكن للرد الاتصال توفير بيانات بديلة، إعادة توجيه مورد، استخدام المحمّل الافتراضي، أو تخطي المورد. هذا مفيد عندما يحتوي العرض على صور خارجية يجب حلها وفقًا لقواعد الأمان أو التخزين الخاصة بالتطبيق.
+تقبل الدالة [LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) تنفيذًا لـ[IResourceLoadingCallback](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iresourceloadingcallback/). يمكن للاستدعاء توفير بيانات بديلة، إعادة توجيه المورد، استخدام المحمل الافتراضي، أو تخطي المورد. يُعد هذا مفيدًا عندما تحتوي العروض على صور خارجية يجب حلها وفقًا لقواعد الأمان أو التخزين الخاصة بالتطبيق.
 
 ```java
 import com.aspose.slides.IResourceLoadingArgs;
@@ -147,17 +149,17 @@ try {
 }
 ```
 
-## **تحميل العروض دون كائنات ثنائية مضمّنة**
+## **تحميل العروض بدون كائنات ثنائية مدمجة**
 
-قد يحتوي العرض على بيانات ثنائية مضمّنة لا يحتاجها التطبيق أو لا يرغب في الاحتفاظ بها. تشمل الأمثلة:
+قد يحتوي العرض على بيانات ثنائية مدمجة لا يحتاجها التطبيق أو لا يرغب في الاحتفاظ بها. تشمل الأمثلة:
 
-- مشاريع VBA، متاحة عبر [IPresentation.getVbaProject](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#getVbaProject--);
-- بيانات OLE مضمّنة، متاحة عبر [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
-- بيانات تحكم ActiveX، متاحة عبر [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--).
+- مشاريع VBA، متاحة عبر [IPresentation.getVbaProject](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#getVbaProject--)؛
+- بيانات OLE مدمجة، متاحة عبر [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--)؛
+- بيانات التحكم ActiveX، متاحة عبر [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--)`.
 
-قم بتعيين [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) إلى `true` لإزالة هذه البيانات الثنائية أثناء التحميل. احفظ العرض المحمل لتثبيت النتيجة المُنقاة.
+قم بتعيين [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) إلى `true` لإزالة هذه البيانات الثنائية أثناء التحميل. احفظ العرض الذي تم تحميله لتثبيت النتيجة المنقاة.
 
-هذه الخيار يقلل من التعرض للحمولات المضمّنة غير المرغوب فيها، لكنه ليس نظامًا كاملاً لاكتشاف البرامج الضارة أو تنقية المحتوى.
+هذا الخيار يقلل من التعرض للحمولات المدمجة غير المرغوب فيها، ولكنه ليس نظامًا كاملاً لاكتشاف البرمجيات الخبيثة أو تنقية المحتوى.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -175,7 +177,7 @@ try {
 }
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
 **كيف يمكنني معرفة أن الملف تالف ولا يمكن فتحه؟**
 
@@ -183,8 +185,8 @@ try {
 
 **ماذا يحدث إذا كانت الخطوط المطلوبة مفقودة؟**
 
-يمكن للعرض أن يظل يُحمَّل، لكن قد تستبدل الخطوط أثناء العرض أو التصدير. يمكنك [configure font substitution](/slides/ar/androidjava/font-substitution/) أو [provide custom fonts](/slides/ar/androidjava/custom-font/) لجعل الإخراج أكثر قابلية للتنبؤ.
+يمكن للعرض أن يظل يُحمَّل، لكن عملية العرض والتصدير قد تستبدل الخطوط. يمكنك [تكوين استبدال الخطوط](/slides/ar/androidjava/font-substitution/) أو [توفير خطوط مخصصة](/slides/ar/androidjava/custom-font/) لجعل النتيجة أكثر توقعًا.
 
-**هل يحمّل تحميل العرض وسائطه المضمّنة أيضًا؟**
+**هل تحميل العرض يقوم أيضًا بتحميل وسائطه المدمجة؟**
 
-تصبح الملفات الصوتية والفيديو المضمّنة متاحة عبر نموذج كائن العرض. تُحل الموارد الخارجية وفق سلوك تحميل الموارد المكوّن وقد تكون غير متاحة إذا لم يمكن الوصول إلى مواقعها.
+تصبح ملفات الصوت والفيديو المدمجة متاحة عبر نموذج كائن العرض. يتم حل الموارد الخارجية وفقًا لسلوك تحميل الموارد المُكوَّن وقد تكون غير متاحة إذا تعذر الوصول إلى مواقعها.
