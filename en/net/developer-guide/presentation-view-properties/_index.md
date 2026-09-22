@@ -100,16 +100,47 @@ using (Presentation presentation = new Presentation("demo.pptx"))
 }
 ```
 
+## **Set the Grid Spacing**
+
+Use [Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/) to access presentation-wide view settings. The [IViewProperties.GridSpacing](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/gridspacing/) property reads or changes the interval of the underlying editing grid. This setting applies to the entire presentation, not to an individual slide. Grid spacing is specified in points, where 72 points equal one inch. Use a positive value, as required by the API documentation.
+
+The following example opens an existing `demo.pptx`, prints its current grid spacing, sets a quarter-inch interval, and saves the result.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("demo.pptx");
+var gridSpacing = presentation.ViewProperties.GridSpacing;
+Console.WriteLine($"Current grid spacing: {gridSpacing} points");
+
+presentation.ViewProperties.GridSpacing = 18f;
+presentation.Save("grid-spacing.pptx", SaveFormat.Pptx);
+```
+
+The grid is different from [drawing guides](/slides/net/drawing-guides/). Grid spacing controls a regular interval, while drawing guides are individually positioned horizontal or vertical alignment lines. Adding, moving, or clearing drawing guides does not change the grid spacing.
+
+Both the grid and drawing guides are editing aids. They are not rendered as slide content in PDF, images, SVG, or a slide show. Storing the grid spacing does not guarantee that an editor will display the grid: its visibility also depends on the viewer or editor's preferences.
+
 ## **FAQ**
 
-### Can I set different view settings for different sections of a presentation?
+**Why is the grid not visible after I reopen the presentation?**
+
+The file stores the grid spacing, but the editor controls whether the grid is displayed. Check the editor's grid visibility settings.
+
+**Does clearing drawing guides change the grid spacing?**
+
+No. Drawing guides and grid spacing are independent settings. Clearing guides leaves the stored grid interval unchanged.
+
+**Can I set different view settings for different sections of a presentation?**
 
 [View settings](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/) are defined at the presentation level ([Normal View](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/slideviewproperties/)), not per section, so a single set of parameters applies to the entire document when it opens.
 
-### Can I predefine different view states for different users?
+**Can I predefine different view states for different users?**
 
 No. The settings are stored in the file and are shared. Viewer applications may honor user preferences, but the file itself contains one set of view properties.
 
-### Can I prepare a template with predefined View Properties so new presentations open the same way?
+**Can I prepare a template with predefined View Properties so new presentations open the same way?**
 
 Yes. Because [view properties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/) are stored at the presentation level, you can embed them in a template and create new documents from it with the same initial view configuration.

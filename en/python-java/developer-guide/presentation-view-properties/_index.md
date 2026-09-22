@@ -85,7 +85,7 @@ finally:
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides for Python via Java supports setting the default zoom value so that it is already applied when the presentation opens. This can be done by setting the [ViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/) of a presentation. [getSlideViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getSlideViewProperties) as well as [getNotesViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNotesViewProperties) can be configured programmatically. In this topic, we will see with an example how to set the [View Properties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/) of [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) in [Aspose.Slides](/slides/).
+Aspose.Slides for Python via Java supports setting the default zoom value so that it is already applied when the presentation opens. This can be done by setting the [ViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/) of a presentation. [getSlideViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getSlideViewProperties) as well as [getNotesViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getNotesViewProperties) can be configured programmatically. In this topic, we will see with an example how to set the [View Properties](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/) of [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) in Aspose.Slides.
 
 {{% /alert %}}
 
@@ -117,7 +117,45 @@ finally:
     presentation.dispose()
 ```
 
+## **Set the Grid Spacing**
+
+Use [Presentation.getViewProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getViewProperties) to access presentation-wide view settings. The [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#getGridSpacing) and [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/viewproperties/#setGridSpacing) methods read or change the interval of the underlying editing grid. This setting applies to the entire presentation, not to an individual slide. Grid spacing is specified in points, where 72 points equal one inch. Use a positive value, as required by the API documentation.
+
+The following example opens an existing `demo.pptx`, prints its current grid spacing, sets a quarter-inch interval, and saves the result.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("demo.pptx")
+try:
+    grid_spacing = presentation.getViewProperties().getGridSpacing()
+    print(f"Current grid spacing: {grid_spacing} points")
+
+    presentation.getViewProperties().setGridSpacing(18.0)
+    presentation.save("grid-spacing.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+The grid is different from [drawing guides](/slides/python-java/drawing-guides/). Grid spacing controls a regular interval, while drawing guides are individually positioned horizontal or vertical alignment lines. Adding, moving, or clearing drawing guides does not change the grid spacing.
+
+Both the grid and drawing guides are editing aids. They are not rendered as slide content in PDF, images, SVG, or a slide show. Storing the grid spacing does not guarantee that an editor will display the grid: its visibility also depends on the viewer or editor's preferences.
+
 ## **FAQ**
+
+**Why is the grid not visible after I reopen the presentation?**
+
+The file stores the grid spacing, but the editor controls whether the grid is displayed. Check the editor's grid visibility settings.
+
+**Does clearing drawing guides change the grid spacing?**
+
+No. Drawing guides and grid spacing are independent settings. Clearing guides leaves the stored grid interval unchanged.
 
 **Can I set different view settings for different sections of a presentation?**
 
