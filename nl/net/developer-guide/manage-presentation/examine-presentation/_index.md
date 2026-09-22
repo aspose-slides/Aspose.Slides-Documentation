@@ -22,17 +22,19 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Verken dia's, structuur en metadata in PowerPoint- en OpenDocument-presentaties met .NET voor snellere inzichten en slimmere inhoudsaudits."
+description: "Ontdek dia's, structuur en metadata in PowerPoint- en OpenDocument-presentaties met .NET voor snellere inzichten en slimmer inhoudsaudits."
 ---
 ## **Overzicht**
 
-Aspose.Slides kan het formaat van een presentatie identificeren en de documentmetadata lezen zonder een volledig presentatie‑objectmodel te maken. Dit is handig wanneer u bestanden moet classificeren, een inventaris moet opbouwen of eigenschappen wilt inspecteren voordat u beslist of u de presentatie‑inhoud wilt laden en verwerken.
+Aspose.Slides kan het formaat van een presentatie identificeren en de documentmetadata lezen zonder een volledig presentatiemodel te maken. Dit is handig wanneer u bestanden moet classificeren, een inventaris moet opstellen of eigenschappen moet inspecteren voordat u beslist of u de presentatie‑inhoud wilt laden en verwerken.
 
-Dit artikel demonstreert lichtgewicht inspectie via [PresentationFactory](https://reference.aspose.com/slides/nl/net/aspose.slides/presentationfactory/) en [IPresentationInfo](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/), evenals gerichte updates via [IDocumentProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/).
+Dit artikel toont lichtgewicht inspectie via [PresentationFactory](https://reference.aspose.com/slides/nl/net/aspose.slides/presentationfactory/) en [IPresentationInfo](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/), evenals gerichte updates via [IDocumentProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/).
 
 ## **Controleer een Presentatieformaat**
 
-Gebruik [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/nl/net/aspose.slides/presentationfactory/getpresentationinfo/) om een bestand te inspecteren zonder een [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑instantie te maken. De eigenschap [IPresentationInfo.LoadFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/loadformat/) geeft het gedetecteerde formaat weer, zoals PPTX, PPT of ODP.
+Als u al een geladen presentatie heeft, raadpleeg dan [Bepaal het oorspronkelijke presentatiefomaat](/slides/nl/net/detect-presentation-source-format/) voor detectie na het laden en de beperkingen van oude PPT-, PPS- en POT‑stromen.
+
+Gebruik [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/nl/net/aspose.slides/presentationfactory/getpresentationinfo/) om een bestand te inspecteren zonder een [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) instantie te maken. De eigenschap [IPresentationInfo.LoadFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/loadformat/) geeft het gedetecteerde formaat weer, zoals PPTX, PPT of ODP.
 
 ```csharp
 using System;
@@ -47,22 +49,22 @@ foreach (var fileName in fileNames)
 }
 ```
 
-## **Bouw een Lichtgewicht Presentatie‑Inventaris**
+## **Maak een Lichtgewicht Presentatie‑inventaris**
 
-Wanneer u veel presentatiebestanden verwerkt, heeft u mogelijk een compacte inventaris nodig voor validatie, indexering of een document‑beheersysteem. In dit scenario gebruikt u [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/nl/net/aspose.slides/presentationfactory/getpresentationinfo/) om een [IPresentationInfo](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/)‑object te verkrijgen, en roept vervolgens [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/readdocumentproperties/) aan om de documentmetadata te lezen. Deze aanpak maakt geen [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑instantie aan en vereist niet dat u het volledige presentatie‑objectmodel doorloopt.
+Wanneer u veel presentatiebestanden verwerkt, kunt u een compacte inventaris nodig hebben voor validatie, indexering of een document‑beheersysteem. Gebruik in dit scenario [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/nl/net/aspose.slides/presentationfactory/getpresentationinfo/) om een [IPresentationInfo](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/) object te verkrijgen, en roep vervolgens [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/readdocumentproperties/) aan om de documentmetadata te lezen. Deze benadering maakt geen [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) instantie aan en vereist niet dat u het volledige presentatiemodel doorloopt.
 
-De uitgebreide eigenschappen die door [IDocumentProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/) worden blootgelegd, bieden de volgende inventariswaarden:
+De uitgebreide eigenschappen die door [IDocumentProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/) worden aangeboden, leveren de volgende inventariswaarden:
 
 | Eigenschap | Inventariswaarde |
 | --- | --- |
 | [Slides](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/slides/nl/) | Totaal aantal dia's. |
 | [HiddenSlides](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/hiddenslides/) | Aantal verborgen dia's. |
-| [Notes](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/notes/) | Aantal dia's die notities bevatten. |
-| [Paragraphs](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/paragraphs/) | Totaal aantal alinea's, wanneer beschikbaar. |
+| [Notes](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/notes/) | Aantal dia's met notities. |
+| [Paragraphs](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/paragraphs/) | Totaal aantal alinea's, indien beschikbaar. |
 | [Words](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/words/) | Totaal aantal woorden. |
 | [MultimediaClips](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/multimediaclips/) | Totaal aantal audio‑ en videoclips. |
 
-Het onderstaande voorbeeld leest deze waarden zonder een [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑object te maken en drukt een compacte inventaris af. Het combineert tevens [HeadingPairs](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/headingpairs/) met [TitlesOfParts](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/titlesofparts/) om inhoudsgroepen zoals lettertypen, thema's en dia‑titels weer te geven.
+Het volgende voorbeeld leest deze waarden zonder een [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) object te maken en drukt een compacte inventaris af. Het combineert ook [HeadingPairs](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/headingpairs/) met [TitlesOfParts](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/titlesofparts/) om inhoudsgroepen zoals lettertypen, thema's en dia‑titels weer te geven.
 
 ```csharp
 using System;
@@ -121,25 +123,25 @@ else
 }
 ```
 
-Elke [IHeadingPair](https://reference.aspose.com/slides/nl/net/aspose.slides/iheadingpair/) levert een groepsnaam en het aantal items in die groep. [IDocumentProperties.TitlesOfParts](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/titlesofparts/) is een vlak, geordend array, dus consumeer het aantal opeenvolgende titels dat door elk heading‑pair wordt opgegeven.
+Elke [IHeadingPair](https://reference.aspose.com/slides/nl/net/aspose.slides/iheadingpair/) levert een groepsnaam en het aantal items in die groep. [IDocumentProperties.TitlesOfParts](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/titlesofparts/) is een plat, geordend array, dus consumeer het aantal opeenvolgende titels dat door elk heading‑pair wordt gespecificeerd.
 
 ### **Opgeslagen Metadata en Formaatbeperkingen**
 
-De inventariseereigenschappen die door [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/readdocumentproperties/) worden geretourneerd, weerspiegelen metadata die beschikbaar zijn in het bron‑document. Aspose.Slides laadt en doorloopt het presentatie‑objectmodel niet om deze waarden opnieuw te berekenen voor deze oproep. Ontbrekende eigenschappen worden weergegeven met standaardwaarden, en opgeslagen waarden kunnen verouderd zijn als de applicatie die het bestand als laatste heeft opgeslagen diens document‑eigenschappen niet heeft bijgewerkt.
+De inventaris‑eigenschappen die worden geretourneerd door [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/readdocumentproperties/) weerspiegelen de metadata die beschikbaar zijn in het bron‑document. Aspose.Slides laadt en doorloopt het presentatiemodel niet om deze waarden voor deze oproep opnieuw te berekenen. Ontbrekende eigenschappen worden weergegeven met standaardwaarden, en opgeslagen waarden kunnen verouderd zijn als de applicatie die het bestand het laatst heeft opgeslagen de documenteigenschappen niet heeft bijgewerkt.
 
-- **PPTX:** Het formaat biedt uitgebreide documenteigenschappen voor dia‑, notitie‑, verborgen‑dia‑, alinea‑, woord‑ en multimedia‑aantallen, evenals heading‑pairs en part‑titles. Beschikbaarheid hangt af van welke eigenschappen door de documentproducent zijn weggeschreven.
-- **PPT:** Het binaire formaat kan overeenkomstige document‑samenvattings­eigenschappen opslaan. Als een eigenschap ontbreekt of niet is ververst door de documentproducent, retourneert Aspose.Slides de opgeslagen of standaardwaarde in plaats van deze te berekenen op basis van de dia's.
-- **ODP:** OpenDocument‑metadata biedt algemene documentstatistieken, zoals pagina‑, alinea‑ en woord‑aantallen, maar deze waarden corresponderen niet met elke PowerPoint‑specifieke uitgebreide eigenschap. Metadata voor verborgen dia's, notitiedia's, multimedia, heading‑pair en part‑title kunnen ontbreken, en de inventariseereigenschappen kunnen standaardwaarden retourneren. Beschouw geen nul‑waarde of een lege array als definitief bewijs dat de corresponderende inhoud afwezig is.
+- **PPTX:** Het formaat biedt uitgebreide documenteigenschappen voor dia‑, notitie‑, verborgen‑dia‑, alinea‑, woord‑ en multimedia‑telling, evenals heading‑pairs en deel‑titels. Beschikbaarheid hangt af van welke eigenschappen door de documentproducent zijn geschreven.
+- **PPT:** Het binaire formaat kan overeenkomende document‑samenvattingseigenschappen opslaan. Als een eigenschap afwezig is of niet is ververst door de documentproducent, retourneert Aspose.Slides de opgeslagen of standaardwaarde in plaats van deze te berekenen vanuit de dia's.
+- **ODP:** OpenDocument-metadata biedt algemene documentstatistieken, zoals pagina‑, alinea‑ en woordtelling, maar deze waarden komen niet overeen met elke PowerPoint‑specifieke uitgebreide eigenschap. Metadata voor verborgen dia's, notitiedia's, multimedia, heading‑pair en deel‑titel kan ontbreken, en de inventariseereigenschappen kunnen standaardwaarden retourneren. Beschouw een nul‑waarde of een lege array niet als overtuigend bewijs dat de corresponderende inhoud afwezig is.
 
-Gebruik de lichtgewicht metadata‑aanpak voor inventarissen en preliminaire controles. Laad de presentatie en inspecteer het live‑objectmodel wanneer het resultaat in‑memory wijzigingen moet weerspiegelen of wanneer u de feitelijke presentatie‑inhoud moet verifiëren.
+Gebruik de lichtgewicht metadata‑benadering voor inventarissen en voorlopige controles. Laad de presentatie en inspecteer het live‑model wanneer het resultaat in‑memory wijzigingen moet weerspiegelen of wanneer u de daadwerkelijke presentatiewaarde moet verifiëren.
 
-## **Werk Presentatie‑Eigenschappen Bij**
+## **Werk Presentatie‑eigenschappen bij**
 
-De eigenschappen die door [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/readdocumentproperties/) worden geretourneerd, kunnen ook worden gewijzigd zonder een [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑instantie te maken. Pas de wijzigingen toe met [IPresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/updatedocumentproperties/), en schrijf vervolgens de gebonden presentatie met [IPresentationInfo.WriteBindedPresentation](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/writebindedpresentation/).
+De eigenschappen die worden geretourneerd door [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/readdocumentproperties/) kunnen ook worden gewijzigd zonder een [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) instantie te maken. Pas de wijzigingen toe met [IPresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/updatedocumentproperties/), en schrijf vervolgens de gebonden presentatie met [IPresentationInfo.WriteBindedPresentation](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/writebindedpresentation/).
 
-De onderstaande afbeelding toont de oorspronkelijke documenteigenschappen.
+De volgende afbeelding toont de originele documenteigenschappen van de PowerPoint‑presentatie.
 
-![Original document properties of the PowerPoint presentation](input_properties.png)
+![Originele documenteigenschappen van de PowerPoint‑presentatie](input_properties.png)
 
 Het volgende voorbeeld wijzigt de titel en de laatst‑opgeslagen tijd en schrijft het resultaat naar een nieuw bestand:
 
@@ -161,35 +163,35 @@ using var outputStream = File.Create(outputFile);
 presentationInfo.WriteBindedPresentation(outputStream);
 ```
 
-De onderstaande afbeelding toont de bijgewerkte documenteigenschappen.
+De volgende afbeelding toont de bijgewerkte documenteigenschappen van de PowerPoint‑presentatie.
 
-![Changed document properties of the PowerPoint presentation](output_properties.png)
+![Bijgewerkte documenteigenschappen van de PowerPoint‑presentatie](output_properties.png)
 
 ## **Handige Links**
 
 Voor gerelateerde beveiligingscontroles en beschermingsinstellingen, zie de volgende artikelen:
 
-- [Password-Protect Presentations](/slides/nl/net/password-protected-presentation/)
-- [Write-Protect Presentations](/slides/nl/net/write-protected-presentation/)
+- [Presentaties met wachtwoord beveiligen](/slides/nl/net/password-protected-presentation/)
+- [Presentaties tegen schrijven beveiligen](/slides/nl/net/write-protected-presentation/)
 
 ## **FAQ**
 
-**Hoe kan ik controleren of lettertypen zijn ingesloten en welke?**
+**Hoe kan ik controleren of lettertypen zijn ingebed en welke dit zijn?**
 
-Laad de presentatie en gebruik [Presentation.FontsManager](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/fontsmanager/). Roep [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsmanager/getembeddedfonts/) aan om de ingesloten lettertypen te verkrijgen en [FontsManager.GetFonts](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsmanager/getfonts/) om de door de presentatie gebruikte lettertypen te verkrijgen. Vergelijk de twee resultaten om lettertypen te vinden die nodig zijn voor weergave maar niet zijn ingesloten.
+Laad de presentatie en gebruik [Presentation.FontsManager](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/fontsmanager/). Roep [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsmanager/getembeddedfonts/) aan om de ingebedde lettertypen te verkrijgen en [FontsManager.GetFonts](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsmanager/getfonts/) om de door de presentatie gebruikte lettertypen te verkrijgen. Vergelijk de twee resultaten om lettertypen te vinden die nodig zijn voor weergave maar niet zijn ingebed.
 
-**Hoe kan ik snel bepalen of het bestand verborgen dia's bevat en hoeveel?**
+**Hoe kan ik snel zien of het bestand verborgen dia's bevat en hoeveel?**
 
-Wanneer opgeslagen documentmetadata voldoende is, lees [IDocumentProperties.HiddenSlides](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/hiddenslides/) via [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/nl/net/aspose.slides/presentationfactory/getpresentationinfo/) en [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/readdocumentproperties/). Dit is geschikt voor een lichtgewicht inventaris. Als de presentatie in het geheugen is aangepast, kan de opgeslagen metadata ontbreken of verouderd zijn, of u moet live‑waarden verifiëren door te itereren over [Presentation.Slides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/slides/nl/) en iedere dia’s [Slide.Hidden](https://reference.aspose.com/slides/nl/net/aspose.slides/slide/hidden/)‑eigenschap te inspecteren.
+Wanneer opgeslagen documentmetadata voldoende is, lees [IDocumentProperties.HiddenSlides](https://reference.aspose.com/slides/nl/net/aspose.slides/idocumentproperties/hiddenslides/) via [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/nl/net/aspose.slides/presentationfactory/getpresentationinfo/) en [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentationinfo/readdocumentproperties/). Dit is geschikt voor een lichtgewicht inventaris. Als de presentatie in‑memory is gewijzigd, kan de opgeslagen metadata ontbreken of verouderd zijn, of moet u live‑waarden verifiëren door door [Presentation.Slides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/slides/nl/) te itereren en elke [Slide.Hidden](https://reference.aspose.com/slides/nl/net/aspose.slides/slide/hidden/) eigenschap te inspecteren.
 
-**Kan ik detecteren of een aangepaste dia‑grootte en -oriëntatie wordt gebruikt, en of deze afwijken van de standaardinstellingen?**
+**Kan ik detecteren of een aangepaste dia‑grootte en -oriëntatie worden gebruikt, en of deze afwijken van de standaardinstellingen?**
 
 Ja. Laad de presentatie en lees [Presentation.SlideSize](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/slidesize/). Inspecteer [ISlideSize.Type](https://reference.aspose.com/slides/nl/net/aspose.slides/islidesize/type/), [ISlideSize.Size](https://reference.aspose.com/slides/nl/net/aspose.slides/islidesize/size/) en [ISlideSize.Orientation](https://reference.aspose.com/slides/nl/net/aspose.slides/islidesize/orientation/) om de huidige instellingen te vergelijken met de verwachte preset en afmetingen.
 
 **Is er een snelle manier om te zien of grafieken externe gegevensbronnen gebruiken?**
 
-Ja. Lokaliseer elke [Chart](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/chart/) en inspecteer [ChartData.DataSourceType](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/chartdata/datasourcetype/). Voor een extern werkboek, lees [ChartData.ExternalWorkbookPath](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/chartdata/externalworkbookpath/). Het type gegevensbron en het pad identificeren een externe verwijzing, maar het verifiëren of het doel beschikbaar is vereist een gescheiden resource‑check.
+Ja. Zoek elke [Chart](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/chart/) en inspecteer [ChartData.DataSourceType](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/chartdata/datasourcetype/). Voor een extern werkboek, lees [ChartData.ExternalWorkbookPath](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/chartdata/externalworkbookpath/). Het type gegevensbron en pad identificeren een externe verwijzing, maar verifiëren of het doel beschikbaar is vereist een afzonderlijke resource‑check.
 
 **Hoe kan ik 'zware' dia's beoordelen die de weergave of PDF‑export kunnen vertragen?**
 
-Er is geen enkele complexiteit‑eigenschap. Doorloop [Presentation.Slides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/slides/nl/) en elke dia’s [IBaseSlide.Shapes](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseslide/shapes/)‑collectie. Gebruik het aantal vormen en de aanwezigheid van grote afbeeldingen, effecten, animaties of multimedia als screeningssignalen, en meet een representatieve weergave of export voordat u een dia als bevestigd prestatie‑knelpunt beschouwt.
+Er bestaat geen enkele complexiteitseigenschap. Doorloop [Presentation.Slides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/slides/nl/) en elke [IBaseSlide.Shapes](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseslide/shapes/) collectie. Gebruik het aantal vormen en de aanwezigheid van grote afbeeldingen, effecten, animaties of multimedia als screeningssignalen, en meet een representatieve weergave of export voordat u een dia als een bevestigd prestatie‑knelpunt beschouwt.

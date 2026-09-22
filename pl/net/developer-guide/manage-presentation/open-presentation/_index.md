@@ -16,24 +16,26 @@ keywords:
 - wczytaj ODP
 - zabezpieczona prezentacja
 - duża prezentacja
-- zewnętrzny zasób
+- zasób zewnętrzny
 - obiekt binarny
 - .NET
 - C#
 - Aspose.Slides
-description: "Dowiedz się, jak otwierać prezentacje PowerPoint i OpenDocument w C#, podawać hasła otwierające, kontrolować ładowanie zasobów i redukować zużycie pamięci przy użyciu Aspose.Slides for .NET."
+description: "Dowiedz się, jak otwierać prezentacje PowerPoint i OpenDocument w C#, podawać hasła otwarcia, kontrolować ładowanie zasobów i zmniejszyć zużycie pamięci przy użyciu Aspose.Slides dla .NET."
 ---
 ## **Wprowadzenie**
 
-[Aspose.Slides for .NET](https://products.aspose.com/slides/pl/net/) może ładować prezentacje PowerPoint i OpenDocument z plików oraz strumieni. Po załadowaniu prezentacji możesz przeglądać jej strukturę, edytować slajdy, zarządzać zasobami i zapisać ją w oryginalnym lub innym obsługiwanym formacie.
+[Aspose.Slides for .NET](https://products.aspose.com/slides/pl/net/) może ładować prezentacje PowerPoint i OpenDocument z plików oraz strumieni. Po załadowaniu prezentacji można przeglądać jej strukturę, edytować slajdy, zarządzać zasobami i zapisać ją w oryginalnym lub innym obsługiwanym formacie.
 
-Zachowanie podczas ładowania można dostosować za pomocą klasy [LoadOptions](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/). Na przykład możesz podać hasło otwierające, przechowywać duże obiekty binarne poza zarządzaną pamięcią, kontrolować zasoby zewnętrzne lub pominąć osadzone dane binarne.
+Zachowanie ładowania można dostosować za pomocą klasy [LoadOptions](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/). Na przykład można podać hasło otwarcia, przechowywać duże obiekty binarne poza zarządzaną pamięcią, kontrolować zasoby zewnętrzne lub pominąć osadzone dane binarne.
 
 ## **Otwieranie prezentacji**
 
-Aby otworzyć istniejącą prezentację, przekaż jej ścieżkę pliku do konstruktora [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/). Po użyciu zwolnij obiekt prezentacji, aby uchwyty plików, dane tymczasowe i inne zasoby zostały szybko zwolnione.
+Po załadowaniu pliku lub strumienia możesz [określić jego oryginalny format prezentacji](/slides/pl/net/detect-presentation-source-format/), aby wybrać sposób przetwarzania go przez aplikację.
 
-Poniższy przykład w języku C# pokazuje, jak otworzyć prezentację i uzyskać liczbę slajdów:
+Aby otworzyć istniejącą prezentację, przekaż jej ścieżkę pliku do konstruktora [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/). Zwolnij prezentację po użyciu, aby uchwyty plików, dane tymczasowe i inne zasoby zostały szybko zwolnione.
+
+Poniższy przykład C# pokazuje, jak otworzyć prezentację i uzyskać liczbę slajdów:
 
 ```csharp
 using System;
@@ -46,7 +48,7 @@ Console.WriteLine("Slide count: " + presentation.Slides.Count);
 
 ## **Otwieranie prezentacji zabezpieczonych hasłem**
 
-Hasło otwierające szyfruje zawartość prezentacji. Aby załadować całą prezentację, przypisz prawidłowe hasło do [LoadOptions.Password](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/password/) i przekaż opcje do konstruktora [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/). Ładowanie nie powiedzie się, gdy hasło jest brakujące lub nieprawidłowe.
+Hasło otwarcia szyfruje zawartość prezentacji. Aby wczytać całą prezentację, przypisz poprawne hasło do [LoadOptions.Password](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/password/) i przekaż opcje do konstruktora [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/). Ładowanie nie powiedzie się, gdy hasło jest brakujące lub nieprawidłowe.
 
 ```csharp
 using System;
@@ -58,13 +60,13 @@ using var presentation = new Presentation("encrypted-presentation.pptx", loadOpt
 Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
-Aby dowiedzieć się więcej o wykrywaniu hasła, walidacji i przepływach szyfrowania, zobacz [Password-Protect Presentations](/slides/pl/net/password-protected-presentation/). Jeśli zaszyfrowana prezentacja została celowo zapisana z publicznymi właściwościami dokumentu, można je odczytać bez hasła; zobacz [Manage Presentation Properties](/slides/pl/net/presentation-properties/).
+W celu wykrywania, weryfikacji i obsługi szyfrowania haseł zobacz [Password-Protect Presentations](/slides/pl/net/password-protected-presentation/). Jeśli zaszyfrowana prezentacja została celowo zapisana z publicznymi właściwościami dokumentu, te właściwości można odczytać bez hasła; zobacz [Manage Presentation Properties](/slides/pl/net/presentation-properties/).
 
 ## **Otwieranie dużych prezentacji**
 
-[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/blobmanagementoptions/) steruje tym, jak Aspose.Slides obsługuje duże obiekty binarne, takie jak obrazy, dźwięk i wideo. Możesz utrzymać plik źródłowy w stanie zablokowanym, zezwolić na pliki tymczasowe oraz ograniczyć ilość danych BLOB przechowywanych w pamięci.
+[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/blobmanagementoptions/) kontroluje, w jaki sposób Aspose.Slides obsługuje duże obiekty binarne, takie jak obrazy, audio i wideo. Możesz utrzymywać plik źródłowy w stanie zablokowanym, zezwalać na pliki tymczasowe i ograniczyć ilość danych BLOB przechowywanych w pamięci.
 
-Poniższy kod w C# demonstruje ładowanie dużej prezentacji (na przykład 2 GB):
+Poniższy kod C# demonstruje ładowanie dużej prezentacji (na przykład 2 GB):
 
 ```csharp
 using Aspose.Slides;
@@ -88,15 +90,15 @@ presentation.Slides[0].Name = "Large presentation";
 presentation.Save("large-presentation-copy.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="info" title="Uwaga" %}}
-Przy ustawieniu `PresentationLockingBehavior.KeepLocked` plik źródłowy pozostaje zablokowany, dopóki obiekt `Presentation` nie zostanie zwolniony. Nie przenoś, nie nadpisuj ani nie usuwaj pliku źródłowego, gdy ten obiekt jest aktywny.
+{{% alert color="info" title="Note" %}}
+Przy `PresentationLockingBehavior.KeepLocked` plik źródłowy pozostaje zablokowany, dopóki obiekt `Presentation` nie zostanie zwolniony. Nie przenoś, nie nadpisuj ani nie usuwaj pliku źródłowego, gdy ten obiekt jest aktywny.
 
-Aspose.Slides może kopiować zawartość strumienia wejściowego podczas jego ładowania. Dla dużych prezentacji ścieżka do pliku jest zazwyczaj bardziej wydajna niż strumień. Zobacz [Manage BLOBs](/slides/pl/net/manage-blob/) po dodatkowe opcje przechowywania i zarządzania pamięcią.
+Aspose.Slides może kopiować zawartość strumienia wejściowego podczas ładowania. W przypadku dużych prezentacji ścieżka pliku jest zazwyczaj wydajniejsza niż strumień. Zobacz [Manage BLOBs](/slides/pl/net/manage-blob/) po dodatkowe opcje przechowywania i zarządzania pamięcią.
 {{% /alert %}}
 
 ## **Kontrola zasobów zewnętrznych**
 
-[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/resourceloadingcallback/) przyjmuje implementację [IResourceLoadingCallback](https://reference.aspose.com/slides/pl/net/aspose.slides/iresourceloadingcallback/). Wywołanie zwrotne może dostarczyć dane zastępcze, przekierować zasób, użyć domyślnego ładowarki lub pominąć zasób. Jest to przydatne, gdy prezentacje zawierają zewnętrzne obrazy, które muszą być rozwiązywane zgodnie z zasadami bezpieczeństwa lub przechowywania specyficznymi dla aplikacji.
+[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/resourceloadingcallback/) akceptuje implementację [IResourceLoadingCallback](https://reference.aspose.com/slides/pl/net/aspose.slides/iresourceloadingcallback/). Wywołanie zwrotne może dostarczyć dane zastępcze, przekierować zasób, użyć domyślnego ładowania lub pominąć zasób. Jest to przydatne, gdy prezentacje zawierają zewnętrzne obrazy, które muszą być rozwiązywane zgodnie z regułami bezpieczeństwa lub przechowywania aplikacji.
 
 ```csharp
 using System;
@@ -136,15 +138,15 @@ internal static class OpenPresentationExample
 
 ## **Ładowanie prezentacji bez osadzonych obiektów binarnych**
 
-Prezentacja może zawierać osadzone dane binarne, których aplikacja nie potrzebuje lub nie chce zachować. Przykłady obejmują:
+Prezentacja może zawierać osadzone dane binarne, których aplikacja nie potrzebuje lub nie chce zachowywać. Przykłady:
 
 - projekty VBA, dostępne poprzez [IPresentation.VbaProject](https://reference.aspose.com/slides/pl/net/aspose.slides/ipresentation/vbaproject/);
 - osadzone dane OLE, dostępne poprzez [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/pl/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/);
 - dane kontrolki ActiveX, dostępne poprzez [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/pl/net/aspose.slides/icontrol/activexcontrolbinary/).
 
-Ustaw [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) na `true`, aby usunąć te dane binarne podczas ładowania. Zapisz załadowaną prezentację, aby zachować oczyszczony wynik.
+Ustaw [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) na `true`, aby usunąć te dane binarne podczas ładowania. Zapisz załadowaną prezentację, aby zachować zweryfikowany wynik.
 
-Ta opcja zmniejsza ryzyko niechcianych osadzonych ładunków, ale nie jest kompletnym systemem wykrywania złośliwego oprogramowania ani sanitizacji treści.
+Ta opcja zmniejsza ryzyko niechcianych osadzonych ładunków, ale nie jest pełnym systemem wykrywania złośliwego oprogramowania ani sanitizacji treści.
 
 ```csharp
 using Aspose.Slides;
@@ -162,14 +164,14 @@ presentation.Save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Jak mogę stwierdzić, że plik jest uszkodzony i nie może zostać otwarty?**
+**Jak mogę stwierdzić, że plik jest uszkodzony i nie można go otworzyć?**
 
-Aspose.Slides zgłasza wyjątek parsowania lub formatu podczas ładowania. Obsłuż to niepowodzenie osobno od błędu nieprawidłowego hasła, aby aplikacja mogła dokładnie poinformować o przyczynie.
+Aspose.Slides zgłasza wyjątek parsowania lub formatu podczas ładowania. Obsłuż tę awarię osobno od błędu nieprawidłowego hasła, aby aplikacja mogła dokładnie poinformować o przyczynie.
 
-**Co się stanie, jeśli brakuje wymaganych czcionek?**
+**Co się stanie, jeśli brak wymaganych czcionek?**
 
-Prezentacja może nadal się załadować, ale renderowanie i eksport mogą podmienić czcionki. Możesz [konfigurować podstawianie czcionek](/slides/pl/net/font-substitution/) lub [dostarczać czcionki niestandardowe](/slides/pl/net/custom-font/), aby wynik był bardziej przewidywalny.
+Prezentacja może nadal się załadować, ale renderowanie i eksport mogą zastępować brakujące czcionki. Możesz [skonfigurować zamianę czcionek](/slides/pl/net/font-substitution/) lub [dostarczyć własne czcionki](/slides/pl/net/custom-font/), aby uzyskać bardziej przewidywalny wynik.
 
-**Czy ładowanie prezentacji ładuje również jej osadzone media?**
+**Czy ładowanie prezentacji ładuje również jej osadzone multimedia?**
 
-Osadzone audio i wideo stają się dostępne poprzez model obiektowy prezentacji. Zasoby zewnętrzne są rozwiązywane zgodnie z skonfigurowanym zachowaniem ładowania zasobów i mogą być niedostępne, jeśli ich lokalizacji nie można uzyskać.
+Osadzone audio i wideo są dostępne poprzez model obiektowy prezentacji. Zasoby zewnętrzne są rozwiązywane zgodnie z skonfigurowanym zachowaniem ładowania zasobów i mogą być niedostępne, jeśli ich lokalizacji nie można uzyskać.

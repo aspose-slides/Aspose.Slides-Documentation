@@ -21,17 +21,19 @@ keywords:
 - การนำเสนอ
 - Python
 - Aspose.Slides
-description: "สำรวจสไลด์ โครงสร้างและเมตาดาต้าในการนำเสนอ PowerPoint และ OpenDocument ด้วย Python เพื่อให้ได้ข้อมูลเชิงลึกที่รวดเร็วและการตรวจสอบเนื้อหาที่ชาญฉลาดขึ้น."
+description: "สำรวจสไลด์ โครงสร้างและเมทาดาต้าในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Python เพื่อให้ได้ข้อมูลเชิงลึกที่เร็วขึ้นและการตรวจสอบเนื้อหาที่ชาญฉลาดยิ่งขึ้น."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides สามารถระบุรูปแบบของการนำเสนอและอ่านข้อมูลเมตาดาต้าเอกสารโดยไม่ต้องสร้างโมเดลวัตถุการนำเสนอที่สมบูรณ์ นี่มีประโยชน์เมื่อคุณต้องการจัดประเภทไฟล์ สร้างรายการสต็อก หรือสอบคุณสมบัติก่อนตัดสินใจว่าจะโหลดและประมวลผลเนื้อหาการนำเสนอหรือไม่.
+Aspose.Slides สามารถระบุรูปแบบของการนำเสนอและอ่านเมตาดาต้าเอกสารโดยไม่ต้องสร้างอ็อบเจกต์โมเดลการนำเสนอเต็มรูปแบบ ซึ่งเป็นประโยชน์เมื่อต้องจัดประเภทไฟล์ สร้างรายการตรวจสอบ หรือสอบคุณสมบัติก่อนตัดสินใจว่าจะโหลดและประมวลผลเนื้อหาการนำเสนอหรือไม่
 
-บทความนี้แสดงการตรวจสอบแบบเบาโดยใช้ [PresentationFactory](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationfactory/) และ [PresentationInfo](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/), รวมถึงการอัปเดตแบบเจาะจงผ่าน [DocumentProperties](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/).
+บทความนี้แสดงการตรวจสอบแบบน้ำหนักเบาผ่าน [PresentationFactory](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationfactory/) และ [PresentationInfo](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/) พร้อมกับการอัปเดตแบบเจาะจงผ่าน [DocumentProperties](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/)
 
 ## **ตรวจสอบรูปแบบการนำเสนอ**
 
-ใช้ [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationfactory/get_presentation_info/) เพื่อตรวจสอบไฟล์โดยไม่ต้องสร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) คุณสมบัติ [PresentationInfo.load_format](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/load_format/) รายงานรูปแบบที่ตรวจพบ เช่น PPTX, PPT หรือ ODP.
+หากคุณมีการนำเสนอที่โหลดแล้วแล้ว ให้ดู [Determine the Original Presentation Format](/slides/th/python-net/detect-presentation-source-format/) เพื่อทำการตรวจจับหลังจากโหลดและดูข้อจำกัดของสตรีม PPT, PPS, และ POT รุ่นเก่า
+
+ใช้ [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationfactory/get_presentation_info/) เพื่อสำรวจไฟล์โดยไม่ต้องสร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) คุณสมบัติ [PresentationInfo.load_format](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/load_format/) จะรายงานรูปแบบที่ตรวจพบ เช่น PPTX, PPT หรือ ODP
 
 ```python
 import aspose.slides as slides
@@ -43,22 +45,22 @@ for file_name in file_names:
     print(f"{file_name}: {presentation_info.load_format}")
 ```
 
-## **สร้างรายการสต็อกการนำเสนอแบบเบา**
+## **สร้างรายการตรวจสอบการนำเสนอแบบเบา**
 
-เมื่อคุณประมวลผลไฟล์การนำเสนอจำนวนมาก คุณอาจต้องการรายการสต็อกที่กะทัดรัดสำหรับการตรวจสอบ ความจัดทำดัชนี หรือระบบการจัดการเอกสาร ในกรณีนี้ ใช้ [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationfactory/get_presentation_info/) เพื่อรับอ็อบเจ็กต์ [PresentationInfo](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/) แล้วเรียก [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/read_document_properties/) เพื่ออ่านข้อมูลเมตาดาต้าเอกสาร วิธีนี้ไม่สร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) หรือบังคับให้คุณวนรอบโมเดลวัตถุการนำเสนอเต็มรูปแบบ.
+เมื่อคุณต้องประมวลผลไฟล์การนำเสนอจำนวนมาก อาจต้องการรายการตรวจสอบแบบคอมแพคสำหรับการตรวจสอบ ความจัดทำดัชนี หรือระบบจัดการเอกสาร ในกรณีนี้ให้ใช้ [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationfactory/get_presentation_info/) เพื่อรับออบเจกต์ [PresentationInfo](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/) และจากนั้นเรียก [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/read_document_properties/) เพื่ออ่านเมตาดาต้าเอกสาร วิธีนี้จะไม่สร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) หรือทำให้ต้องเดินทางผ่านโมเดลอ็อบเจกต์การนำเสนอทั้งหมด
 
-คุณสมบัติเพิ่มเติมที่เปิดโดย [DocumentProperties](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/) ให้ค่ารายการสต็อกต่อไปนี้:
+คุณสมบัติที่ขยายโดย [DocumentProperties](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/) ให้ค่าต่อไปนี้สำหรับรายการตรวจสอบ:
 
-| คุณสมบัติ | ค่ารายการสต็อก |
+| Property | ค่าที่เก็บไว้ |
 | --- | --- |
-| [slides](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/slides/th/) | จำนวนสไลด์ทั้งหมด. |
-| [hidden_slides](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/hidden_slides/) | จำนวนสไลด์ที่ซ่อนอยู่. |
-| [notes](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/notes/) | จำนวนสไลด์ที่มีบันทึกอธิบาย. |
-| [paragraphs](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/paragraphs/) | จำนวนย่อหน้าทั้งหมด (ถ้ามี). |
-| [words](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/words/) | จำนวนคำทั้งหมด. |
-| [multimedia_clips](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/multimedia_clips/) | จำนวนคลิปเสียงและวิดีโอทั้งหมด. |
+| [slides](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/slides/th/) | จำนวนสไลด์ทั้งหมด |
+| [hidden_slides](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/hidden_slides/) | จำนวนสไลด์ที่ซ่อนอยู่ |
+| [notes](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/notes/) | จำนวนสไลด์ที่มีบันทึกย่อย |
+| [paragraphs](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/paragraphs/) | จำนวนย่อหน้าทั้งหมด (ถ้ามี) |
+| [words](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/words/) | จำนวนคำทั้งหมด |
+| [multimedia_clips](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/multimedia_clips/) | จำนวนคลิปเสียงและวิดีโอทั้งหมด |
 
-ตัวอย่างต่อไปนี้อ่านค่าเหล่านี้โดยไม่สร้างอ็อบเจ็กต์ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) และพิมพ์รายการสต็อกแบบกะทัดรัด นอกจากนี้ยังรวม [heading_pairs](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/heading_pairs/) กับ [titles_of_parts](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/titles_of_parts/) เพื่อแสดงกลุ่มเนื้อหา เช่น แบบอักษร ธีม และชื่อสไลด์.
+ตัวอย่างต่อไปนี้อ่านค่าดังกล่าวโดยไม่สร้างออบเจกต์ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) แล้วพิมพ์รายการตรวจสอบแบบคอมแพค อีกทั้งยังรวม [heading_pairs](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/heading_pairs/) กับ [titles_of_parts](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/titles_of_parts/) เพื่อแสดงกลุ่มเนื้อหา เช่น ฟอนท์ ธีม และชื่อสไลด์
 
 ```python
 import os
@@ -107,27 +109,27 @@ else:
             part_index += 1
 ```
 
-แต่ละ [HeadingPair](https://reference.aspose.com/slides/th/python-net/aspose.slides/headingpair/) ให้ชื่อกลุ่มและจำนวนรายการในกลุ่มนั้น [DocumentProperties.titles_of_parts](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/titles_of_parts/) เป็นคอลเลกชันแบบแบนที่เรียงลำดับ ดังนั้นให้ใช้จำนวนชื่อที่ต่อเนื่องตามที่กำหนดโดยแต่ละ heading pair.
+แต่ละ [HeadingPair](https://reference.aspose.com/slides/th/python-net/aspose.slides/headingpair/) จะให้ชื่อกลุ่มและจำนวนรายการในกลุ่มนั้น [DocumentProperties.titles_of_parts](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/titles_of_parts/) เป็นคอลเลกชั่นที่จัดลำดับแบบแฟลต จึงควรดึงจำนวนชื่อที่ต่อเนื่องตามที่กำหนดโดยแต่ละ heading pair
 
-### **เมตาดาต้าจัดเก็บและข้อจำกัดของรูปแบบ**
+### **เมตาดาต้าที่จัดเก็บและข้อจำกัดรูปแบบ**
 
-คุณสมบัติรายการสต็อกที่ส่งคืนโดย [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/read_document_properties/) สะท้อนเมตาดาต้าที่มีในเอกสารต้นทาง Aspose.Slides ไม่โหลดและวนรอบโมเดลวัตถุการนำเสนอเพื่อคำนวณค่าตามใหม่สำหรับการเรียกนี้ คุณสมบัติที่ขาดหายจะถูกแทนด้วยค่ามาตรฐาน และค่าที่จัดเก็บอาจล้าสมัยหากแอปพลิเคชันที่บันทึกไฟล์ล่าสุดไม่ได้อัปเดตคุณสมบัติของเอกสาร.
+คุณสมบัติรายการตรวจสอบที่คืนค่าจาก [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/read_document_properties/) แสดงเมตาดาต้าที่มีในเอกสารต้นทาง Aspose.Slides ไม่ได้โหลดและเดินทางผ่านโมเดลอ็อบเจกต์การนำเสนอเพื่อคำนวนค่าเหล่านี้ใหม่สำหรับการเรียกนี้ คุณสมบัติที่หายจะถูกแทนค่าด้วยค่าเริ่มต้น และค่าที่เก็บไว้อาจเป็นข้อมูลเก่า หากแอปพลิเคชันที่บันทึกไฟล์ครั้งสุดท้ายไม่ได้อัปเดตคุณสมบัติเอกสาร
 
-- **PPTX:** รูปแบบนี้ให้คุณสมบัติเพิ่มเติมของเอกสารสำหรับจำนวนสไลด์, โน้ต, สไลด์ที่ซ่อน, ย่อหน้า, คำ, และมัลติมีเดีย รวมถึง heading pairs และ part titles ความพร้อมใช้งานขึ้นอยู่กับว่าคุณสมบัติเหล่านั้นถูกเขียนโดยผู้ผลิตเอกสารหรือไม่.
-- **PPT:** รูปแบบไบนารีนี้สามารถจัดเก็บคุณสมบัติสรุปเอกสารที่สอดคล้องกัน หากคุณสมบัติเช่นนั้นไม่มีหรือไม่ได้รับการอัปเดตโดยผู้ผลิตเอกสาร Aspose.Slides จะคืนค่าที่จัดเก็บหรือค่าเริ่มต้นแทนที่จะคำนวณจากสไลด์.
-- **ODP:** เมตาดาต้า OpenDocument ให้สถิติทั่วไปของเอกสาร เช่น จำนวนหน้า, ย่อหน้า, และคำ แต่ค่าต่าง ๆ นี้ไม่สอดคล้องกับคุณสมบัติเพิ่มเติมเฉพาะ PowerPoint บางอย่าง เช่น hidden-slide, notes-slide, multimedia, heading-pair, และ part-title อาจไม่มีให้ใช้งาน และคุณสมบัติสต็อกอาจคืนค่ามาตรฐาน อย่ามองว่าค่าเป็นศูนย์หรือคอลเลกชันว่างเป็นหลักฐานที่แน่นอนว่าข้อมูลที่สอดคล้องไม่มีอยู่.
+- **PPTX:** รูปแบบนี้ให้คุณสมบัติเอกสารขยายสำหรับจำนวนสไลด์, โน้ต, สไลด์ที่ซ่อน, ย่อหน้า, คำ และมัลติมีเดีย รวมทั้ง heading pairs และ part titles ความพร้อมใช้งานขึ้นอยู่กับว่าผลิตภัณฑ์เอกสารเขียนคุณสมบัติเหล่านี้หรือไม่
+- **PPT:** รูปแบบไบนารีสามารถเก็บคุณสมบัติสรุปเอกสารที่สอดคล้องได้ หากคุณสมบัติเช่นนั้นไม่มีหรือไม่ได้รับการรีเฟรชโดยผู้ผลิตเอกสาร Aspose.Slides จะคืนค่าที่เก็บไว้หรือค่าเริ่มต้นแทนการคำนวนจากสไลด์
+- **ODP:** เมตาดาต้า OpenDocument ให้สถิติเอกสารทั่วไป เช่น จำนวนหน้า, ย่อหน้า, คำ แต่ค่าเหล่านี้ไม่แมปกับคุณสมบัติขยายเฉพาะ PowerPoint ทุกอย่าง เมตาดาต้าเกี่ยวกับสไลด์ที่ซ่อน, โน้ต, มัลติมีเดีย, heading‑pair, และ part‑title อาจไม่มีและคุณสมบัติรายการตรวจสอบอาจคืนค่าดีฟอลต์ อย่าพิจารณาค่า 0 หรือคอลเลกชันว่างเป็นหลักฐานแน่นอนว่าข้อมูลดังกล่าวไม่มีอยู่
 
-ใช้วิธีเมตาดาต้าแบบเบาสำหรับการสร้างสต็อกและการตรวจสอบเบื้องต้น โหลดการนำเสนอและตรวจสอบโมเดลวัตถุแบบเรียลไทม์เมื่อผลลัพธ์ต้องสะท้อนการเปลี่ยนแปลงในหน่วยความจำหรือเมื่อคุณต้องการตรวจสอบเนื้อหาการนำเสนอจริง.
+ใช้วิธีเมตาดาต้าน้ำหนักเบาสำหรับรายการตรวจสอบและการตรวจสอบเบื้องต้น โหลดการนำเสนอและสำรวจโมเดลอ็อบเจกต์แบบสดเมื่อผลลัพธ์ต้องสะท้อนการเปลี่ยนแปลงในหน่วยความจำหรือเมื่อจำเป็นต้องตรวจสอบเนื้อหาการนำเสนอจริง
 
 ## **อัปเดตคุณสมบัติการนำเสนอ**
 
-คุณสมบัติที่ส่งคืนโดย [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/read_document_properties/) สามารถเปลี่ยนแปลงได้โดยไม่ต้องสร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) ใช้การเปลี่ยนแปลงด้วย [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/update_document_properties/), แล้วเขียนการนำเสนอที่ผูกไว้ด้วย [PresentationInfo.write_binded_presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/write_binded_presentation/).
+คุณสมบัติที่คืนค่าจาก [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/read_document_properties/) สามารถเปลี่ยนแปลงได้โดยไม่ต้องสร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) ใช้ [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/update_document_properties/) เพื่อบันทึกการเปลี่ยนแปลง แล้วเขียนการนำเสนอที่เชื่อมโยงด้วย [PresentationInfo.write_binded_presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/write_binded_presentation/)
 
-ภาพต่อไปนี้แสดงคุณสมบัติเอกสารต้นฉบับของการนำเสนอ PowerPoint.
+รูปภาพต่อไปนี้แสดงคุณสมบัติเอกสารต้นฉบับ
 
-![คุณสมบัติเอกสารต้นฉบับของการนำเสนอ PowerPoint](input_properties.png)
+![คุณสมบัติเอกสารต้นฉบับของงานนำเสนอ PowerPoint](input_properties.png)
 
-ตัวอย่างต่อไปนี้เปลี่ยนชื่อเรื่องและเวลาการบันทึกล่าสุดและเขียนผลลัพธ์ไปยังไฟล์ใหม่:
+ตัวอย่างต่อไปนี้เปลี่ยนชื่อเรื่องและเวลาบันทึกครั้งสุดท้าย แล้วเขียนผลลัพธ์ไปยังไฟล์ใหม่:
 
 ```python
 import datetime
@@ -147,35 +149,35 @@ with open(output_file, "wb") as output_stream:
     presentation_info.write_binded_presentation(output_stream)
 ```
 
-ภาพต่อไปนี้แสดงคุณสมบัติเอกสารที่อัปเดต.
+รูปภาพต่อไปนี้แสดงคุณสมบัติเอกสารที่อัปเดตแล้ว
 
-![คุณสมบัติเอกสารที่เปลี่ยนแปลงของการนำเสนอ PowerPoint](output_properties.png)
+![คุณสมบัติเอกสารที่เปลี่ยนแปลงของงานนำเสนอ PowerPoint](output_properties.png)
 
 ## **ลิงก์ที่เป็นประโยชน์**
 
-สำหรับการตรวจสอบความปลอดภัยและการตั้งค่าการปกป้องที่เกี่ยวข้อง ดูบทความต่อไปนี้:
+สำหรับการตรวจสอบความปลอดภัยและการตั้งค่าการป้องกันที่เกี่ยวข้อง ดูบทความต่อไปนี้:
 
-- [การปกป้องการนำเสนอด้วยรหัสผ่าน](/slides/th/python-net/password-protected-presentation/)
-- [การปกป้องการเขียนการนำเสนอ](/slides/th/python-net/write-protected-presentation/)
+- [Password‑Protect Presentations](/slides/th/python-net/password-protected-presentation/)
+- [Write‑Protect Presentations](/slides/th/python-net/write-protected-presentation/)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะตรวจสอบได้อย่างไรว่าแบบอักษรถูกฝังอยู่หรือไม่และมีแบบใดบ้าง?**
+**ฉันจะตรวจสอบได้อย่างไรว่าแบบอักษรถูกฝังและมีอะไรบ้าง?**
 
-โหลดการนำเสนอและใช้ [Presentation.fonts_manager](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/fonts_manager/). เรียก [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/th/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) เพื่อรับแบบอักษรที่ฝังอยู่และ [FontsManager.get_fonts](https://reference.aspose.com/slides/th/python-net/aspose.slides/fontsmanager/get_fonts/) เพื่อรับแบบอักษรที่การนำใช้เปรียบเทียบผลลัพธ์ทั้งสองเพื่อค้นหาแบบอักษรที่จำเป็นสำหรับการเรนเดอร์แต่ไม่ได้ฝัง.
+โหลดการนำเสนอและใช้ [Presentation.fonts_manager](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/fonts_manager/) เรียก [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/th/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) เพื่อรับแบบอักษรที่ฝังไว้และ [FontsManager.get_fonts](https://reference.aspose.com/slides/th/python-net/aspose.slides/fontsmanager/get_fonts/) เพื่อรับแบบอักษรที่การนำใช้ เปรียบเทียบผลลัพธ์สองชุดเพื่อหารูปแบบที่จำเป็นต่อการเรนเดอร์แต่ไม่ได้ฝังไว้
 
-**ฉันจะตรวจสอบอย่างรวดเร็วได้ไหมว่าไฟล์มีสไลด์ที่ซ่อนอยู่หรือไม่และจำนวนเท่าใด?**
+**ฉันจะบอกได้อย่างรวดเร็วว่ามีสไลด์ที่ซ่อนอยู่หรือไม่และมีเท่าไหร่?**
 
-เมื่อเมตาดาต้าเอกสารที่จัดเก็บเพียงพอ ให้อ่าน [DocumentProperties.hidden_slides](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/hidden_slides/) ผ่าน [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationfactory/get_presentation_info/) และ [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/read_document_properties/). วิธีนี้เหมาะสำหรับการสร้างสต็อกแบบเบา หากการนำเสนอได้รับการแก้ไขในหน่วยความจำ เมตาดาต้าที่จัดเก็บอาจขาดหายหรือล้าสมัย หรือคุณต้องการตรวจสอบค่าที่เป็นจริง ให้วนรอบผ่าน [Presentation.slides](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/slides/th/) และตรวจสอบคุณสมบัติ [Slide.hidden](https://reference.aspose.com/slides/th/python-net/aspose.slides/slide/hidden/) ของแต่ละสไลด์แทน.
+เมื่อเมตาดาต้าเอกสารที่เก็บไว้เพียงพอ ให้อ่าน [DocumentProperties.hidden_slides](https://reference.aspose.com/slides/th/python-net/aspose.slides/documentproperties/hidden_slides/) ผ่าน [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationfactory/get_presentation_info/) และ [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentationinfo/read_document_properties/) วิธีนี้เหมาะสำหรับรายการตรวจสอบแบบเบา หากการนำเสนอถูกแก้ไขในหน่วยความจำเมตาดาต้าอาจหายหรือล้าสมัย หรือหากต้องการตรวจสอบค่าที่เป็นสด ให้วนลูปผ่าน [Presentation.slides](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/slides/th/) และตรวจสอบคุณสมบัติ [Slide.hidden](https://reference.aspose.com/slides/th/python-net/aspose.slides/slide/hidden/) ของแต่ละสไลด์
 
-**ฉันสามารถตรวจจับได้หรือไม่ว่ามีการใช้ขนาดและการวางแนวสไลด์ที่กำหนดเองหรือไม่ และว่าต่างจากค่าเริ่มต้นหรือไม่?**
+**ฉันสามารถตรวจจับได้หรือไม่ว่ามีการใช้ขนาดสไลด์และการจัดแนวแบบกำหนดเองและว่าแตกต่างจากค่าตั้งต้นหรือไม่?**
 
-ได้เลย โหลดการนำเสนอและอ่าน [Presentation.slide_size](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/slide_size/). ตรวจสอบ [SlideSize.type](https://reference.aspose.com/slides/th/python-net/aspose.slides/slidesize/type/), [SlideSize.size](https://reference.aspose.com/slides/th/python-net/aspose.slides/slidesize/size/), และ [SlideSize.orientation](https://reference.aspose.com/slides/th/python-net/aspose.slides/slidesize/orientation/) เพื่อเปรียบเทียบการตั้งค่าปัจจุบันกับค่าที่กำหนดล่วงหน้าและมิติที่คาดหวัง.
+ทำได้ โหลดการนำเสนอและอ่าน [Presentation.slide_size](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/slide_size/) ตรวจสอบ [SlideSize.type](https://reference.aspose.com/slides/th/python-net/aspose.slides/slidesize/type/), [SlideSize.size](https://reference.aspose.com/slides/th/python-net/aspose.slides/slidesize/size/) และ [SlideSize.orientation](https://reference.aspose.com/slides/th/python-net/aspose.slides/slidesize/orientation/) เพื่อเปรียบเทียบการตั้งค่าปัจจุบันกับค่าตั้งต้นที่คาดหวังและมิติที่กำหนดไว้
 
-**มีวิธีรวดเร็วในการตรวจสอบว่ากราฟอ้างอิงแหล่งข้อมูลภายนอกหรือไม่?**
+**มีวิธีง่าย ๆ ที่จะดูว่ากราฟอ้างอิงแหล่งข้อมูลภายนอกหรือไม่?**
 
-ได้เลย ค้นหาแต่ละ [Chart](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chart/) และตรวจสอบ [ChartData.data_source_type](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/data_source_type/). หากเป็นเวิร์กบุ๊กภายนอก ให้อ่าน [ChartData.external_workbook_path](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/external_workbook_path/). ประเภทแหล่งข้อมูลและเส้นทางบ่งชี้การอ้างอิงภายนอก แต่การตรวจสอบว่าตำแหน่งเป้าหมายพร้อมใช้งานหรือไม่ต้องทำการตรวจสอบทรัพยากรแยกต่างหาก.
+ทำได้ ค้นหาทุก [Chart](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chart/) และตรวจสอบ [ChartData.data_source_type](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/data_source_type/) หากเป็น workbook ภายนอก ให้อ่าน [ChartData.external_workbook_path](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/external_workbook_path/) ชนิดของแหล่งข้อมูลและเส้นทางจะบ่งชี้ว่ามีการอ้างอิงภายนอก แต่การตรวจสอบว่าไฟล์เป้าหมายพร้อมใช้งานหรือไม่ต้องทำตรวจสอบทรัพยากรแยกต่างหาก
 
-**ฉันจะประเมินสไลด์ที่ 'หนัก' ซึ่งอาจทำให้การเรนเดอร์หรือการส่งออกเป็น PDF ช้าได้อย่างไร?**
+**ฉันจะประเมินสไลด์ ‘หนัก’ ที่อาจทำให้การเรนเดอร์หรือการส่งออก PDF ช้าได้อย่างไร?**
 
-ไม่มีคุณสมบัติความซับซ้อนเดียวที่ใช้ได้ ให้วนรอบ [Presentation.slides](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/slides/th/) และคอลเลกชัน [BaseSlide.shapes](https://reference.aspose.com/slides/th/python-net/aspose.slides/baseslide/shapes/) ของแต่ละสไลด์ ใช้จำนวนรูปทรงและการมีอยู่ของภาพขนาดใหญ่ เอฟเฟกต์ แอนิเมชัน หรือมัลติมีเดียเป็นสัญญาณคัดกรอง และทำการวัดการเรนเดอร์หรือการส่งออกตัวอย่างก่อนที่จะถือว่าสไลด์เป็นคอขวดด้านประสิทธิภาพที่ยืนยันได้.
+ไม่มีคุณสมบัติความซับซ้อนเพียงอย่างเดียว ให้เดินทางผ่าน [Presentation.slides](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/slides/th/) และคอลเลกชั่น [BaseSlide.shapes](https://reference.aspose.com/slides/th/python-net/aspose.slides/baseslide/shapes/) ของแต่ละสไลด์ ใช้จำนวนรูปทรงและการมีภาพขนาดใหญ่, เอฟเฟกต์, แอนิเมชัน หรือมัลติมีเดียเป็นสัญญาณการคัดกรอง แล้ววัดการเรนเดอร์หรือการส่งออกตัวอย่างก่อนที่จะสรุปว่าสไลด์เป็นคอขวดประสิทธิภาพที่ยืนยันได้

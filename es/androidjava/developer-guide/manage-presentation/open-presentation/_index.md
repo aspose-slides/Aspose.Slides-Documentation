@@ -21,19 +21,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aprenda cómo abrir presentaciones PowerPoint y OpenDocument en Android, proporcionar contraseñas de apertura, controlar la carga de recursos y reducir el uso de memoria con Aspose.Slides para Android mediante Java."
+description: "Aprenda a abrir presentaciones PowerPoint y OpenDocument en Android, proporcionar contraseñas de apertura, controlar la carga de recursos y reducir el uso de memoria con Aspose.Slides para Android mediante Java."
 ---
 ## **Introducción**
 
-[Aspose.Slides for Android via Java](https://products.aspose.com/slides/es/androidjava/) puede cargar presentaciones PowerPoint y OpenDocument desde archivos y flujos. Después de cargar una presentación, puedes inspeccionar su estructura, editar diapositivas, gestionar recursos y guardarla en el formato original u otro compatible.
+[Aspose.Slides para Android vía Java](https://products.aspose.com/slides/es/androidjava/) puede cargar presentaciones PowerPoint y OpenDocument desde archivos y flujos. Después de cargar una presentación, puedes inspeccionar su estructura, editar diapositivas, gestionar recursos y guardarla en el formato original u otro formato compatible.
 
-El comportamiento de carga puede personalizarse mediante la clase [LoadOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/loadoptions/). Por ejemplo, puedes proporcionar una contraseña de apertura, mantener objetos binarios grandes fuera de la memoria del heap de Java, controlar recursos externos o omitir datos binarios incrustados.
+El comportamiento de carga se puede personalizar a través de la clase [LoadOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/loadoptions/). Por ejemplo, puedes proporcionar una contraseña de apertura, mantener objetos binarios grandes fuera de la memoria del heap de Java, controlar recursos externos u omitir datos binarios incrustados.
 
 ## **Abrir presentaciones**
 
-Para abrir una presentación existente, pasa su ruta de archivo al constructor de [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/). Desecha la presentación después de usarla para que los manejadores de archivo, datos temporales y demás recursos se liberen rápidamente.
+Tras cargar un archivo o flujo, puedes [determinar su formato de presentación original](/slides/es/androidjava/detect-presentation-source-format/) para decidir cómo procesa tu aplicación.
 
-El siguiente ejemplo en Java muestra cómo abrir una presentación y obtener su número de diapositivas:
+Para abrir una presentación existente, pasa su ruta de archivo al constructor de [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/). Desecha la presentación después de usarla para que los manejadores de archivo, datos temporales y otros recursos se liberen rápidamente.
+
+El siguiente ejemplo en Java muestra cómo abrir una presentación y obtener el número de diapositivas:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -65,13 +67,13 @@ try {
 }
 ```
 
-Para la detección, validación y flujos de trabajo de cifrado de contraseñas, consulta [Password-Protect Presentations](/slides/es/androidjava/password-protected-presentation/). Si una presentación cifrada se guardó deliberadamente con propiedades de documento públicas, esas propiedades pueden leerse sin contraseña; consulta [Manage Presentation Properties](/slides/es/androidjava/presentation-properties/).
+Para la detección de contraseñas, validación y flujos de trabajo de cifrado, consulta [Presentaciones protegidas con contraseña](/slides/es/androidjava/password-protected-presentation/). Si una presentación cifrada se guardó deliberadamente con propiedades de documento públicas, esas propiedades pueden leerse sin contraseña; ver [Gestionar propiedades de la presentación](/slides/es/androidjava/presentation-properties/).
 
 ## **Abrir presentaciones grandes**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) devuelve opciones que controlan cómo Aspose.Slides gestiona objetos binarios grandes como imágenes, audio y vídeo. Puedes mantener el archivo fuente bloqueado, permitir archivos temporales y limitar la cantidad de datos BLOB retenidos en memoria.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) devuelve opciones que controlan cómo Aspose.Slides maneja objetos binarios grandes como imágenes, audio y vídeo. Puedes mantener el archivo fuente bloqueado, permitir archivos temporales y limitar la cantidad de datos BLOB retenidos en memoria.
 
-El siguiente código Java muestra cómo cargar una presentación grande (por ejemplo, 2 GB):
+El siguiente código Java demuestra cómo cargar una presentación grande (por ejemplo, 2 GB):
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -96,16 +98,14 @@ try {
 ```
 
 {{% alert color="info" title="Nota" %}}
+Con [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked), el archivo fuente permanece bloqueado hasta que la instancia de la presentación se deseche. No muevas, sobrescribas ni elimines el archivo fuente mientras esa instancia esté viva.
 
-Con [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked), el archivo fuente permanece bloqueado hasta que la instancia de presentación se deseche. No muevas, sobrescribas ni elimines el archivo fuente mientras esa instancia esté activa.
-
-Aspose.Slides puede copiar el contenido de un flujo de entrada mientras lo carga. Para presentaciones grandes, una ruta de archivo suele ser más eficiente que un flujo. Consulta [Manage BLOBs](/slides/es/androidjava/manage-blob/) para opciones adicionales de almacenamiento y gestión de memoria.
-
+Aspose.Slides puede copiar el contenido de un flujo de entrada mientras lo carga. Para presentaciones grandes, una ruta de archivo suele ser más eficiente que un flujo. Consulta [Gestionar BLOBs](/slides/es/androidjava/manage-blob/) para opciones adicionales de almacenamiento y gestión de memoria.
 {{% /alert %}}
 
 ## **Controlar recursos externos**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) acepta una implementación de [IResourceLoadingCallback](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iresourceloadingcallback/). La devolución de llamada puede suministrar datos de sustitución, redirigir un recurso, usar el cargador predeterminado o saltarse el recurso. Esto es útil cuando las presentaciones contienen imágenes externas que deben resolverse según reglas de seguridad o almacenamiento específicas de la aplicación.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) acepta una implementación de [IResourceLoadingCallback](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iresourceloadingcallback/). La devolución de llamada puede proporcionar datos de reemplazo, redirigir un recurso, usar el cargador predeterminado o saltarse el recurso. Esto es útil cuando las presentaciones contienen imágenes externas que deben resolverse según reglas de seguridad o almacenamiento específicas de la aplicación.
 
 ```java
 import com.aspose.slides.IResourceLoadingArgs;
@@ -151,15 +151,15 @@ try {
 
 ## **Cargar presentaciones sin objetos binarios incrustados**
 
-Una presentación puede contener datos binarios incrustados que una aplicación no necesita o no desea conservar. Algunos ejemplos son:
+Una presentación puede contener datos binarios incrustados que una aplicación no necesita o no quiere retener. Algunos ejemplos son:
 
-- proyectos VBA, accesibles a través de [IPresentation.getVbaProject](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/#getVbaProject--);
-- datos OLE incrustados, accesibles a través de [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
-- datos de controles ActiveX, accesibles a través de [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--).
+- proyectos VBA, accesibles mediante [IPresentation.getVbaProject](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/#getVbaProject--);
+- datos OLE incrustados, accesibles mediante [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
+- datos de controles ActiveX, accesibles mediante [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--).
 
-Establece [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) en `true` para eliminar esos datos binarios durante la carga. Guarda la presentación cargada para conservar el resultado sanitizado.
+Configura [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) en `true` para eliminar estos datos binarios durante la carga. Guarda la presentación cargada para preservar el resultado sanitizado.
 
-Esta opción reduce la exposición a cargas útiles incrustadas indeseadas, aunque no constituye un sistema completo de detección de malware ni de sanitización de contenido.
+Esta opción reduce la exposición a cargas útiles incrustadas no deseadas, pero no constituye un sistema completo de detección de malware o sanitización de contenido.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -181,12 +181,12 @@ try {
 
 **¿Cómo puedo saber si un archivo está corrupto y no se puede abrir?**
 
-Aspose.Slides lanza una excepción de análisis o de formato durante la carga. Maneja ese fallo por separado del error de contraseña incorrecta para que la aplicación pueda informar la causa con precisión.
+Aspose.Slides lanza una excepción de análisis o de formato durante la carga. Maneja ese error por separado del error de contraseña incorrecta para que la aplicación informe la causa con precisión.
 
-**¿Qué ocurre si faltan fuentes necesarias?**
+**¿Qué ocurre si faltan fuentes requeridas?**
 
-La presentación aún se puede cargar, pero el renderizado y la exportación pueden sustituir fuentes. Puedes [configurar la sustitución de fuentes](/slides/es/androidjava/font-substitution/) o [proporcionar fuentes personalizadas](/slides/es/androidjava/custom-font/) para que la salida sea más predecible.
+La presentación aún puede cargarse, pero la representación y la exportación pueden sustituir fuentes. Puedes [configurar la sustitución de fuentes](/slides/es/androidjava/font-substitution/) o [proporcionar fuentes personalizadas](/slides/es/androidjava/custom-font/) para que la salida sea más predecible.
 
 **¿La carga de una presentación también carga sus medios incrustados?**
 
-Los audio y vídeo incrustados quedan disponibles a través del modelo de objetos de la presentación. Los recursos externos se resuelven según el comportamiento de carga configurado y pueden no estar disponibles si sus ubicaciones no pueden accederse.
+Los audio y vídeo incrustados quedan disponibles a través del modelo de objetos de la presentación. Los recursos externos se resuelven según el comportamiento de carga configurado y pueden no estar disponibles si sus ubicaciones no pueden ser accedidas.

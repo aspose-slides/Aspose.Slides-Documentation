@@ -5,35 +5,37 @@ type: docs
 weight: 20
 url: /tr/net/open-presentation/
 keywords:
-- PowerPoint Aç
-- Sunum Aç
-- PPTX Aç
-- PPT Aç
-- ODP Aç
-- Sunumu Yükle
-- PPTX Yükle
-- PPT Yükle
-- ODP Yükle
-- Korunan Sunum
-- Büyük Sunum
-- Harici Kaynak
-- İkili Nesne
+- PowerPoint aç
+- sunum aç
+- PPTX aç
+- PPT aç
+- ODP aç
+- sunum yükle
+- PPTX yükle
+- PPT yükle
+- ODP yükle
+- korumalı sunum
+- büyük sunum
+- harici kaynak
+- ikili nesne
 - .NET
 - C#
 - Aspose.Slides
-description: "C# ile PowerPoint ve OpenDocument sunumlarını nasıl açacağınızı, açma parolaları sağlayarak, kaynak yüklemeyi kontrol ederek ve Aspose.Slides for .NET ile bellek kullanımını nasıl azaltacağınızı öğrenin."
+description: "C# dilinde PowerPoint ve OpenDocument sunumlarını açmayı, açma parolaları sağlamayı, kaynak yüklemeyi kontrol etmeyi ve Aspose.Slides for .NET ile bellek kullanımını azaltmayı öğrenin."
 ---
 ## **Giriş**
 
-[Aspose.Slides for .NET](https://products.aspose.com/slides/tr/net/) dosyalardan ve akışlardan PowerPoint ve OpenDocument sunumlarını yükleyebilir. Bir sunum yüklendikten sonra yapısını inceleyebilir, slaytları düzenleyebilir, kaynakları yönetebilir ve orijinal ya da başka bir desteklenen formatta kaydedebilirsiniz.
+[Aspose.Slides for .NET](https://products.aspose.com/slides/tr/net/) PowerPoint ve OpenDocument sunumlarını dosyalardan ve akışlardan yükleyebilir. Bir sunum yüklendikten sonra, yapısını inceleyebilir, slaytları düzenleyebilir, kaynakları yönetebilir ve orijinal ya da başka bir desteklenen formatta kaydedebilirsiniz.
 
-Yükleme davranışı, [LoadOptions](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/) sınıfı aracılığıyla özelleştirilebilir. Örneğin, bir açma parolası sağlayabilir, büyük ikili nesneleri yönetilen bellek dışında tutabilir, harici kaynakları kontrol edebilir veya gömülü ikili verileri atlayabilirsiniz.
+Yükleme davranışı, [LoadOptions](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/) sınıfı aracılığıyla özelleştirilebilir. Örneğin, bir açma parolası sağlayabilir, büyük ikili nesneleri yönetilen bellek dışında tutabilir, harici kaynakları kontrol edebilir veya yerleşik ikili verileri atlayabilirsiniz.
 
-## **Sunumları Aç**
+## **Sunumları Açma**
 
-Mevcut bir sunumu açmak için dosya yolunu [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) yapıcısına aktarın. Sunumu kullandıktan sonra, dosya tanıtıcılarının, geçici verilerin ve diğer kaynakların hızla serbest bırakılması için nesneyi dispose edin.
+Bir dosya ya da akış yüklendikten sonra, uygulamanızın nasıl işleyeceğini seçmek için [orijinal sunum formatını belirleyebilir](/slides/tr/net/detect-presentation-source-format/).
 
-Aşağıdaki C# örneği, bir sunumu nasıl açıp slayt sayısını alacağınızı gösterir:
+Mevcut bir sunumu açmak için, dosya yolunu [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) yapıcısına geçiriniz. Sunumu kullandıktan sonra, dosya tanıtıcıları, geçici veriler ve diğer kaynakların hızlıca serbest bırakılması için Dispose edin.
+
+Aşağıdaki C# örneği, bir sunumu nasıl açıp slayt sayısını alabileceğinizi gösterir:
 
 ```csharp
 using System;
@@ -44,9 +46,9 @@ using var presentation = new Presentation("sample.pptx");
 Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
-## **Parola Koruması Olan Sunumları Aç**
+## **Parola Koruması Olan Sunumları Açma**
 
-Açma parolası, sunum içeriğini şifreler. Sunumun tamamını yüklemek için doğru parolayı [LoadOptions.Password](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/password/) özelliğine atayın ve seçenekleri [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) yapıcısına gönderin. Parola eksik ya da yanlış olduğunda yükleme başarısız olur.
+Açma parolası, sunum içeriğini şifreler. Sunumun tamamını yüklemek için doğru parolayı [LoadOptions.Password](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/password/) özelliğine atayın ve seçenekleri [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) yapıcısına iletin. Parola eksik ya da hatalı olduğunda yükleme başarısız olur.
 
 ```csharp
 using System;
@@ -58,13 +60,13 @@ using var presentation = new Presentation("encrypted-presentation.pptx", loadOpt
 Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
-Parola tespiti, doğrulama ve şifreleme iş akışları için [Password-Protect Presentations](/slides/tr/net/password-protected-presentation/) adresine bakın. Şifreli bir sunum, kasıtlı olarak genel belge özellikleriyle kaydedildiyse, bu özellikler parola olmadan okunabilir; [Manage Presentation Properties](/slides/tr/net/presentation-properties/) bölümüne bakın.
+Parola algılama, doğrulama ve şifreleme iş akışları için [Password-Protect Presentations](/slides/tr/net/password-protected-presentation/) bölümüne bakın. Şifreli bir sunum, kasıtlı olarak herkese açık belge özellikleriyle kaydedildiyse, bu özellikler parola olmadan okunabilir; [Manage Presentation Properties](/slides/tr/net/presentation-properties/) bölümüne bakın.
 
-## **Büyük Sunumları Aç**
+## **Büyük Sunumları Açma**
 
-[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/blobmanagementoptions/) Aspose.Slides’ın resim, ses ve video gibi ikili büyük nesneleri (BLOB) nasıl yönettiğini kontrol eder. Kaynak dosyayı kilitli tutabilir, geçici dosyalara izin verebilir ve bellekte tutulan BLOB veri miktarını sınırlayabilirsiniz.
+[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/blobmanagementoptions/) Aspose.Slides'in görüntüler, ses ve video gibi büyük ikili nesneleri (BLOB) nasıl ele alacağını kontrol eder. Kaynak dosyayı kilitli tutabilir, geçici dosyalara izin verebilir ve bellekte tutulan BLOB veri miktarını sınırlayabilirsiniz.
 
-Aşağıdaki C# kodu, büyük bir sunumun (örneğin 2 GB) nasıl yükleneceğini gösterir:
+Aşağıdaki C# kodu, büyük bir sunumu (örneğin 2 GB) nasıl yükleyeceğinizi gösterir:
 
 ```csharp
 using Aspose.Slides;
@@ -89,14 +91,14 @@ presentation.Save("large-presentation-copy.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="info" title="Note" %}}
-`PresentationLockingBehavior.KeepLocked` ile kaynak dosya, `Presentation` nesnesi dispose edilene kadar kilitli kalır. Bu nesne hâlâ var olduğu sürece kaynak dosyayı taşımayın, üzerine yazmayın veya silmeyin.
+`PresentationLockingBehavior.KeepLocked` ile kaynak dosya, `Presentation` nesnesi dispose edilene kadar kilitli kalır. Bu nesne yaşamdayken kaynak dosyayı taşıma, üzerine yazma veya silme yapmayın.
 
-Aspose.Slides, yükleme sırasında bir giriş akışının içeriğini kopyalayabilir. Büyük sunumlar için bir dosya yolu genellikle akışa göre daha verimlidir. Ek depolama ve bellek yönetimi seçenekleri için [Manage BLOBs](/slides/tr/net/manage-blob/) adresine bakın.
+Aspose.Slides, yükleme sırasında bir giriş akışının içeriğini kopyalayabilir. Büyük sunumlar için dosya yolu genellikle akışa göre daha verimlidir. Ek depolama ve bellek yönetimi seçenekleri için [Manage BLOBs](/slides/tr/net/manage-blob/) bölümüne bakın.
 {{% /alert %}}
 
-## **Harici Kaynakları Kontrol Et**
+## **Harici Kaynakları Kontrol Etme**
 
-[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/resourceloadingcallback/) bir [IResourceLoadingCallback](https://reference.aspose.com/slides/tr/net/aspose.slides/iresourceloadingcallback/) uygulamasını kabul eder. Geri çağırma, yerine veri sağlayabilir, bir kaynağı yönlendirebilir, varsayılan yükleyiciyi kullanabilir veya kaynağı atlayabilir. Bu, sunumların uygulamaya özel güvenlik veya depolama kurallarına göre çözülmesi gereken harici resimler içermesi durumunda yararlıdır.
+[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/resourceloadingcallback/) bir [IResourceLoadingCallback](https://reference.aspose.com/slides/tr/net/aspose.slides/iresourceloadingcallback/) uygulamasını kabul eder. Geri çağrı, yerine geçecek veri sağlayabilir, bir kaynağı yeniden yönlendirebilir, varsayılan yükleyiciyi kullanabilir veya kaynağı atlayabilir. Bu, sunumlarda uygulamaya özgü güvenlik veya depolama kurallarına göre çözülmesi gereken harici görüntüler bulunduğunda faydalıdır.
 
 ```csharp
 using System;
@@ -134,17 +136,17 @@ internal static class OpenPresentationExample
 }
 ```
 
-## **Gömülü İkili Nesneler Olmadan Sunumları Yükle**
+## **Yerleşik İkili Nesneler Olmadan Sunumları Yükleme**
 
-Bir sunum, uygulamanın gerektirmediği veya saklamak istemediği gömülü ikili veri içerebilir. Örnekler:
+Bir sunum, uygulamanın ihtiyaç duymadığı veya tutmak istemediği yerleşik ikili veri içerebilir. Örnekler:
 
-- VBA projeleri, [IPresentation.VbaProject](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentation/vbaproject/) aracılığıyla kullanılabilir;
-- gömülü OLE verileri, [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/tr/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/) aracılığıyla erişilebilir;
-- ActiveX kontrol verileri, [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/tr/net/aspose.slides/icontrol/activexcontrolbinary/) aracılığıyla sağlanır.
+- VBA projeleri, [IPresentation.VbaProject](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentation/vbaproject/) aracılığıyla erişilebilir;
+- yerleşik OLE verileri, [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/tr/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/) aracılığıyla erişilebilir;
+- ActiveX kontrol verileri, [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/tr/net/aspose.slides/icontrol/activexcontrolbinary/) aracılığıyla erişilebilir.
 
-[LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) özelliğini `true` olarak ayarlayarak bu ikili verileri yükleme sırasında kaldırabilirsiniz. Temizlenmiş sonucu korumak için yüklenen sunumu kaydedin.
+[LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) özelliğini `true` olarak ayarlayarak bu ikili verileri yükleme sırasında kaldırabilirsiniz. Yüklenen sunumu kaydederek temizlenmiş sonucu kalıcı hale getirin.
 
-Bu seçenek, istenmeyen gömülü yüklerin ortaya çıkmasını azaltır, ancak tam bir kötü amaçlı yazılım tespiti veya içerik temizleme sistemi değildir.
+Bu seçenek, istenmeyen yerleşik yükleri azaltır, ancak tam bir kötü amaçlı yazılım tespiti ya da içerik temizleme sistemi değildir.
 
 ```csharp
 using Aspose.Slides;
@@ -164,12 +166,12 @@ presentation.Save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 
 **Bir dosyanın bozuk olduğunu ve açılamadığını nasıl anlayabilirim?**
 
-Aspose.Slides, yükleme sırasında bir ayrıştırma veya format istisnası fırlatır. Bu hatayı, yanlış parola hatasından ayrı şekilde yakalayarak uygulamanın nedeni doğru şekilde raporlamasını sağlayın.
+Aspose.Slides, yükleme sırasında bir ayrıştırma veya format istisnası fırlatır. Uygulamanın nedeni doğru şekilde raporlayabilmesi için bu hatayı hatalı parola hatasından ayrı olarak ele alın.
 
 **Gerekli yazı tipleri eksikse ne olur?**
 
-Sunum yine de yüklenebilir, ancak renderleme ve dışa aktarma işleminde yazı tipleri değiştirilebilir. Çıktıyı daha öngörülebilir hâle getirmek için [font ikamesini yapılandır](/slides/tr/net/font-substitution/) veya [özel yazı tipleri sağlayın](/slides/tr/net/custom-font/) işlemlerini yapabilirsiniz.
+Sunum yine de yüklenebilir, ancak renderleme ve dışa aktarma sırasında yazı tipleri değiştirilebilir. Çıktıyı daha öngörülebilir hâle getirmek için [font substitution](/slides/tr/net/font-substitution/) yapılandırabilir veya [custom fonts](/slides/tr/net/custom-font/) sağlayabilirsiniz.
 
-**Bir sunumu yüklemek aynı zamanda gömülü medyasını da yükler mi?**
+**Bir sunumu yüklemek aynı zamanda yerleşik medyasını da yükler mi?**
 
-Gömülü ses ve video, sunum nesne modeli aracılığıyla kullanılabilir hâle gelir. Harici kaynaklar, yapılandırılmış kaynak‑yükleme davranışına göre çözülür ve konumlarına erişilemezse kullanılamayabilir.
+Yerleşik ses ve video, sunum nesne modeli üzerinden erişilebilir hale gelir. Harici kaynaklar, yapılandırılan kaynak yükleme davranışına göre çözülür ve konumlarına erişilemezse kullanılamayabilir.

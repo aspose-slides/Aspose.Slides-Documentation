@@ -5,7 +5,7 @@ type: docs
 weight: 80
 url: /fa/java/save-presentation/
 keywords:
-- ذخیره پاورپوینت
+- ذخیره PowerPoint
 - ذخیره OpenDocument
 - ذخیره ارائه
 - ذخیره اسلاید
@@ -15,67 +15,120 @@ keywords:
 - ارائه به فایل
 - ارائه به جریان
 - نوع نمای پیش‌تعریف‌شده
-- قالب Strict Office Open XML
+- فرمت Strict Office Open XML
 - حالت Zip64
-- به‌روزرسانی تصویر کوچک
+- به‌روزرسانی تصویر بندانگشتی
 - پیشرفت ذخیره‌سازی
 - جاوا
 - Aspose.Slides
-description: "کشف کنید چگونه در جاوا با استفاده از Aspose.Slides ارائه‌ها را ذخیره کنید—صادرات به پاورپوینت یا OpenDocument هنگام حفظ طرح‌بندی‌ها، فونت‌ها و افکت‌ها."
+description: "ارائه‌های PowerPoint و OpenDocument را در جاوا با Aspose.Slides به فایل‌ها یا جریان‌ها ذخیره کنید و خروجی PPTX و گزارش‌گیری پیشرفت را پیکربندی کنید."
 ---
 ## **بررسی کلی**
 
-[Open Presentations in Java](/slides/fa/java/open-presentation/) توضیح می‌دهد که چگونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) برای باز کردن یک ارائه استفاده کنید. این مقاله نحوه ایجاد و ذخیره ارائه‌ها را بیان می‌کند. کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) شامل محتویات یک ارائه است. چه از صفر یک ارائه ایجاد کنید و چه یک ارائه موجود را تغییر دهید، پس از پایان کار باید آن را ذخیره کنید. با Aspose.Slides برای Java می‌توانید به یک **فایل** یا **جریان** ذخیره کنید. این مقاله روش‌های مختلف ذخیره یک ارائه را توضیح می‌دهد.
+پس از اینکه یک ارائه ایجاد کنید یا [یک ارائه موجود را باز کنید](/slides/fa/java/open-presentation/)، از روش [Presentation.save](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#save-java.lang.String-int-) برای نوشتن نتیجه استفاده کنید. Aspose.Slides for Java می‌تواند یک ارائه را به یک فایل یا جریان در فرمت‌های PowerPoint، OpenDocument، PDF و سایر فرمت‌ها ذخیره کند. بخش‌های زیر عملیات ذخیره‌سازی استاندارد و گزینه‌های موجود برای خروجی PPTX را پوشش می‌دهند.
 
 ## **ذخیره ارائه‌ها در فایل‌ها**
 
-یک ارائه را با فراخوانی متد `save` کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) به یک فایل ذخیره کنید. نام فایل و قالب ذخیره را به این متد پاس دهید. مثال زیر نشان می‌دهد که چگونه یک ارائه را با Aspose.Slides ذخیره کنید.
+برای ذخیره یک ارائه در فایل، مسیر خروجی و مقدار [SaveFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/saveformat/) را به روش [Presentation.save](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#save-java.lang.String-int-) بدهید. مقدار فرمت نوع فایلی که Aspose.Slides ایجاد می‌کند را تعیین می‌کند.
+
+مثال زیر یک ارائه ایجاد کرده و به‌عنوان فایل PPTX ذخیره می‌کند:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
-// یک شیء از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل ارائه است.
 Presentation presentation = new Presentation();
 try {
-    // انجام برخی کارها در اینجا...
+    // در اینجا محتویات ارائه را اضافه یا اصلاح کنید.
 
-    // ارائه را در یک فایل ذخیره می‌کند.
     presentation.save("Output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **ذخیره ارائه‌ها در جریان‌ها**
+## **ذخیره ارائه‌ها در فرمت اصلی آنها**
 
-می‌توانید یک ارائه را به یک جریان ذخیره کنید با پاس کردن یک خروجی جریان به متد `save` کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/). یک ارائه می‌تواند به انواع مختلف جریان‌ها نوشته شود. در مثال زیر، یک ارائه جدید ایجاد می‌کنیم و آن را به یک جریان فایل ذخیره می‌کنیم.
+برای مثال‌های تشخیص فایل و جریان، رفتار ارائه‌های تازه‌ساخته‌شده و تمایز بین فرمت منبع و خروجی، به [Determine the Original Presentation Format](/slides/fa/java/detect-presentation-source-format/) مراجعه کنید.
+
+در یک برنامه پردازش دسته‌ای، ممکن است فرمت ورودی از پیش شناخته‌شده نباشد. پس از بارگذاری یک فایل، فرمت اصلی آن را از روش [IPresentation.getSourceFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentation/#getSourceFormat--) بخوانید. مقدار حاصل [SourceFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/sourceformat/) را به [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slideutil/#toSaveFormat-int-) بدهید تا مقدار متناظر [SaveFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/saveformat/) را دریافت کنید، و سپس از [Presentation.save](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#save-java.lang.String-int-) برای نوشتن ارائه اصلاح‌شده استفاده کنید.
+
+مثال کامل زیر هر فایل در یک پوشه ورودی را پردازش می‌کند، عنوان آن را به‌روز می‌کند و در پوشه خروجی به همان فرمی که بارگذاری شده ذخیره می‌کند:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SlideUtil;
+import java.io.File;
+
+File inputDirectory = new File("Input");
+File outputDirectory = new File("Output");
+
+if (!outputDirectory.exists() && !outputDirectory.mkdirs()) {
+    System.err.println("Cannot create the output directory.");
+}
+
+File[] inputFiles = inputDirectory.listFiles(File::isFile);
+if (inputFiles != null && outputDirectory.isDirectory()) {
+    for (File inputFile : inputFiles) {
+        try {
+            Presentation presentation = new Presentation(inputFile.getPath());
+            try {
+                int saveFormat = SlideUtil.toSaveFormat(presentation.getSourceFormat());
+                presentation.getDocumentProperties().setTitle("Processed by the batch application");
+
+                File outputFile = new File(outputDirectory, inputFile.getName());
+                presentation.save(outputFile.getPath(), saveFormat);
+            } finally {
+                presentation.dispose();
+            }
+        } catch (IllegalArgumentException exception) {
+            System.err.println("Cannot map the source format of '" + inputFile.getPath() + "': " + exception.getMessage());
+        } catch (Exception exception) {
+            System.err.println("Cannot process '" + inputFile.getPath() + "': " + exception.getMessage());
+        }
+    }
+}
+```
+
+[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/slideutil/#toSaveFormat-int-) فرمت‌های PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP و PowerPoint XML را به فرمت‌های ذخیره‌سازی مرتبطشان تبدیل می‌کند. این متد فقط فرمت‌های منبع ارائه را نگاشت می‌کند؛ برای انتخاب فرمت‌های خروجی مانند PDF، HTML، TIFF یا تصاویر منظور نیست. استفاده از مقدار [SourceFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/sourceformat/) پشتیبانی‌نشده یا نامعتبر منجر به بروز یک [IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html) می‌شود.
+
+فایل‌های Legacy PPT, PPS و POT از همان کانتینر باینری استفاده می‌کنند. وقتی چنین ارائه‌ای بدون پسوند فایل از یک جریان بارگذاری شود، ممکن است یک فایل PPS یا POT به‌عنوان PPT تشخیص داده شود. اگر نیاز به حفظ این زیرنوع‌های قدیمی باشد، نام فایل یا متادیتای فرمت اصلی را به‌صورت جداگانه نگهداری کنید و هنگام انتخاب نام و فرمت خروجی از آن استفاده کنید.
+
+## **ذخیره ارائه‌ها در جریان‌ها**
+
+برای نوشتن یک ارائه بدون وابستگی به مسیر نهایی فایل، یک جریان قابل نوشتن و مقدار [SaveFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/saveformat/) را به روش [Presentation.save](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-) بدهید. این روش زمانی مفید است که خروجی باید از یک سرویس وب بازگردانده شود، در پایگاه‌داده ذخیره شود یا در حافظه پردازش گردد.
+
+مثال زیر یک ارائه جدید را در یک جریان فایل ذخیره می‌کند:
+
+```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
-// یک شیء از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل ارائه است.
 Presentation presentation = new Presentation();
 try {
-    OutputStream fileStream = new FileOutputStream("Output.pptx");
+    OutputStream outputStream = new FileOutputStream("Output.pptx");
     try {
-        // ارائه را در جریان ذخیره می‌کند.
-        presentation.save(fileStream, SaveFormat.Pptx);
+        presentation.save(outputStream, SaveFormat.Pptx);
     } finally {
-        fileStream.close();
+        outputStream.close();
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **ذخیره ارائه‌ها با نوع نمای پیش‌فرض**
+## **ذخیره ارائه‌ها با نوع نمای پیش‌تعریف‌شده**
 
-Aspose.Slides به شما امکان می‌دهد نمای اولیه‌ای را که PowerPoint هنگام باز شدن ارائه تولید شده استفاده می‌کند، از طریق کلاس [ViewProperties](https://reference.aspose.com/slides/fa/java/com.aspose.slides/viewproperties/) تنظیم کنید. از متد [setLastView](https://reference.aspose.com/slides/fa/java/com.aspose.slides/viewproperties/#setLastView-int-) همراه با مقداری از شمارش [ViewType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/viewtype/) استفاده کنید.
+می‌توانید نمایی که PowerPoint به‌صورت اولیه هنگام باز کردن یک ارائه ذخیره‌شده استفاده می‌کند را مشخص کنید. پیش از ذخیره از روش [ViewProperties.setLastView](https://reference.aspose.com/slides/fa/java/com.aspose.slides/viewproperties/#setLastView-int-) همراه با مقدار [ViewType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/viewtype/) استفاده کنید.
+
+مثال زیر نمای Slide Master را به عنوان نمای اولیه تنظیم می‌کند:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ViewType;
 
 Presentation presentation = new Presentation();
 try {
@@ -86,183 +139,186 @@ try {
 }
 ```
 
-## **ذخیره ارائه‌ها در قالب Strict Office Open XML**
+## **ذخیره ارائه‌ها در فرمت Strict Office Open XML**
 
-Aspose.Slides به شما امکان می‌دهد یک ارائه را در قالب Strict Office Open XML ذخیره کنید. هنگام ذخیره از کلاس [PptxOptions](https://reference.aspose.com/slides/fa/java/com.aspose.slides/pptxoptions/) استفاده کنید و ویژگی conformance آن را تنظیم کنید. اگر [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/fa/java/com.aspose.slides/conformance/#Iso29500-2008-Strict) را تنظیم کنید، فایل خروجی در قالب Strict Office Open XML ذخیره می‌شود.
-
-مثال زیر یک ارائه ایجاد می‌کند و آن را در قالب Strict Office Open XML ذخیره می‌نماید.
+برای ایجاد یک فایل PPTX که با پروفایل Strict Office Open XML سازگار باشد، یک نمونه [PptxOptions](https://reference.aspose.com/slides/fa/java/com.aspose.slides/pptxoptions/) بسازید و از روش [setConformance](https://reference.aspose.com/slides/fa/java/com.aspose.slides/pptxoptions/#setConformance-int-) همراه با [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/fa/java/com.aspose.slides/conformance/#Iso29500-2008-Strict) استفاده کنید. سپس این گزینه‌ها را به روش [Presentation.save](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) بدهید.
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Conformance;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 PptxOptions options = new PptxOptions();
 options.setConformance(Conformance.Iso29500_2008_Strict);
 
-// یک شیء از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل ارائه است.
 Presentation presentation = new Presentation();
 try {
-    // ارائه را در قالب Strict Office Open XML ذخیره می‌کند.
     presentation.save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **ذخیره ارائه‌ها در قالب Office Open XML در حالت Zip64**
+## **ذخیره ارائه‌ها در فرمت Office Open XML در حالت Zip64**
 
-یک فایل Office Open XML یک آرشیو ZIP است که محدودیت 4 GB (2^32 بایت) برای اندازهٔ غیر فشرده، اندازهٔ فشرده و کل آرشیو اعمال می‌کند و همچنین تعداد فایل‌ها را به 65 535 (2^16‑1) محدود می‌سازد. افزونه‌های قالب ZIP64 این محدودیت‌ها را به 2^64 افزایش می‌دهند.
+یک آرشیو ZIP استاندارد اندازه فشرده و غیرفشرده هر ورودی، مجموع اندازه آرشیو و تعداد ورودی‌ها را محدود می‌کند. از آنجایی که یک فایل PPTX یک آرشیو ZIP است، یک ارائه بسیار بزرگ می‌تواند این محدودیت‌ها را عبور کند. افزونه‌های ZIP64 این محدودیت‌ها را افزایش می‌دهند.
 
-متد [IPptxOptions.setZip64Mode](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipptxoptions/#setZip64Mode-int-) به شما امکان می‌دهد هنگام ذخیرهٔ یک فایل Office Open XML، زمان استفاده از افزونه‌های قالب ZIP64 را انتخاب کنید.
+از روش [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/fa/java/com.aspose.slides/pptxoptions/#setZip64Mode-int-) برای کنترل نوشتن افزونه‌های ZIP64 استفاده کنید:
 
-این متد می‌تواند با حالت‌های زیر استفاده شود:
-- [IfNecessary](https://reference.aspose.com/slides/fa/java/com.aspose.slides/zip64mode/#IfNecessary) فقط در صورتی که ارائه محدودیت‌های فوق را تجاوز کند از افزونه‌های قالب ZIP64 استفاده می‌کند. این حالت پیش‌فرض است.
-- [Never](https://reference.aspose.com/slides/fa/java/com.aspose.slides/zip64mode/#Never) هرگز از افزونه‌های قالب ZIP64 استفاده نمی‌کند.
-- [Always](https://reference.aspose.com/slides/fa/java/com.aspose.slides/zip64mode/#Always) همیشه از افزونه‌های قالب ZIP64 استفاده می‌کند.
+- [IfNecessary](https://reference.aspose.com/slides/fa/java/com.aspose.slides/zip64mode/#IfNecessary) فقط وقتی که ارائه از محدودیت‌های ZIP استاندارد فراتر رود ZIP64 را به کار می‌برد. این حالت پیش‌فرض است.
+- [Never](https://reference.aspose.com/slides/fa/java/com.aspose.slides/zip64mode/#Never) افزونه‌های ZIP64 را غیرفعال می‌کند.
+- [Always](https://reference.aspose.com/slides/fa/java/com.aspose.slides/zip64mode/#Always) همیشه افزونه‌های ZIP64 را می‌نویسد.
 
-کد زیر نشان می‌دهد چگونه یک ارائه را به عنوان فایل PPTX با فعال‌سازی افزونه‌های قالب ZIP64 ذخیره کنید:
+مثال زیر همیشه برای ارائه خروجی افزونه‌های ZIP64 را فعال می‌کند:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setZip64Mode(Zip64Mode.Always);
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.Zip64Mode;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("OutputZip64.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setZip64Mode(Zip64Mode.Always);
+
+    presentation.save("OutputZip64.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-زمانی که با [Zip64Mode.Never](https://reference.aspose.com/slides/fa/java/com.aspose.slides/zip64mode/#Never) ذخیره می‌کنید، اگر ارائه نتواند در قالب ZIP32 ذخیره شود، یک [PptxException](https://reference.aspose.com/slides/fa/java/com.aspose.slides/pptxexception/) پرتاب می‌شود.
+{{% alert color="warning" title="Warning" %}}
+اگر از [Zip64Mode.Never](https://reference.aspose.com/slides/fa/java/com.aspose.slides/zip64mode/#Never) استفاده شود و ارائه نتواند در محدوده‌های ZIP استاندارد جا بگیرد، عملیات ذخیره یک [PptxException](https://reference.aspose.com/slides/fa/java/com.aspose.slides/pptxexception/) را پرتاب می‌کند.
 {{% /alert %}}
 
-## **ذخیره ارائه‌ها در قالب Office Open XML با سطوح فشرده‌سازی**
+## **ذخیره ارائه‌ها در فرمت Office Open XML با سطوح فشرده‌سازی**
 
-در کار با ارائه‌های بزرگ، می‌توانید سطح فشرده‌سازی را تنظیم کنید تا بین اندازهٔ فایل و زمان پردازش تعادل برقرار شود. بسته به نیازهای شما ممکن است پردازش سریع‌تر یا فایل‌های خروجی کوچکتر را ترجیح دهید.
+برای خروجی PPTX می‌توانید با استفاده از روش [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/fa/java/com.aspose.slides/pptxoptions/#setCompressionLevel-int-) سرعت ذخیره را در مقابل اندازه فایل متعادل کنید. کلاس [CompressionLevel](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/) این مقادیر را فراهم می‌کند:
 
-Aspose.Slides متد [IPptxOptions.setCompressionLevel](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipptxoptions/#setCompressionLevel-int-) را فراهم می‌کند که به شما امکان می‌دهد سطح فشرده‌سازی مورد استفاده هنگام ذخیرهٔ یک ارائه در قالب Office Open XML را مشخص کنید.
+- [None](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#None) داده‌ها را بدون فشرده‌سازی ذخیره می‌کند.
+- [Level1](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#Level1) سریع‌ترین فشرده‌سازی را دارد اما بزرگ‌ترین خروجی فشرده را تولید می‌کند.
+- [Level2](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#Level2) تا [Level5](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#Level5) به‌تدریج اولویت کوچک‌تر کردن خروجی را نسبت به سرعت ذخیره افزایش می‌دهند.
+- [Level6](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#Level6) بین سرعت ذخیره و اندازه فایل تعادل می‌یابد. این سطح پیش‌فرض است.
+- [Level7](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#Level7) و [Level8](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#Level8) بیشتر به کوچک‌تر کردن خروجی نسبت به سرعت ذخیره اهمیت می‌دهند.
+- [Level9](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#Level9) قوی‌ترین فشرده‌سازی را فراهم می‌کند ولی زمان پردازش بیشتری می‌طلبد.
 
-سطوح فشرده‌سازی زیر در دسترس هستند:
-- [**None**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#None): هیچ فشرده‌سازی‌ای اعمال نمی‌شود. فایل‌ها به همان شکل ذخیره می‌شوند.
-- [**Level1**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#Level1): سریع‌ترین فشرده‌سازی با پایین‌ترین نسبت فشرده‌سازی.
-- [**Level2**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#Level2): فشرده‌سازی سریع‌تر با نسبت فشرده‌سازی کمی بهتر نسبت به **Level1**.
-- [**Level3**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#Level3): فشرده‌سازی بهتری نسبت به **Level2** با تأثیر متوسط بر زمان پردازش ارائه می‌دهد.
-- [**Level4**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#Level4): فشرده‌سازی بهتری نسبت به **Level3** ارائه می‌دهد.
-- [**Level5**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#Level5): فشرده‌سازی بهبود یافته نسبت به **Level4** با زمان پردازش بیشتر فراهم می‌کند.
-- [**Level6**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#Level6): فشرده‌سازی استاندارد که تعادل خوبی بین سرعت پردازش و اندازهٔ فایل فراهم می‌کند. این *سطح فشرده‌سازی پیش‌فرض* است.
-- [**Level7**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#Level7): فشرده‌سازی بهتری نسبت به **Level6** با پردازش کندتر ارائه می‌دهد.
-- [**Level8**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#Level8): فشرده‌سازی بهتری نسبت به **Level7** ارائه می‌دهد.
-- [**Level9**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compressionlevel/#Level9): حداکثر فشرده‌سازی. کوچک‌ترین حجم فایل را با هزینهٔ طولانی‌ترین زمان پردازش تولید می‌کند.
-
-مثال زیر نشان می‌دهد چگونه یک ارائه را به عنوان فایل PPTX *بدون فشرده‌سازی* ذخیره کنید:
+مثال زیر یک ارائه را بدون فشرده‌سازی ذخیره می‌کند:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setCompressionLevel(CompressionLevel.None);
+import com.aspose.slides.CompressionLevel;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Sample-out.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setCompressionLevel(CompressionLevel.None);
+
+    presentation.save("OutputNoCompression.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-این مثال نشان می‌دهد چگونه یک ارائه را به عنوان فایل PPTX با *حداکثر فشرده‌سازی* ذخیره کنید:
+مثال زیر از حداکثر سطح فشرده‌سازی استفاده می‌کند:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setCompressionLevel(CompressionLevel.Level9);
+import com.aspose.slides.CompressionLevel;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Sample-level9.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setCompressionLevel(CompressionLevel.Level9);
+
+    presentation.save("OutputMaximumCompression.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **ذخیره ارائه‌ها بدون به‌روزرسانی تصویر کوچک**
+## **ذخیره ارائه‌ها بدون به‌روزرسانی تصویر بندانگشتی**
 
-متد [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/fa/java/com.aspose.slides/pptxoptions/#setRefreshThumbnail-boolean-) تولید تصویر کوچک را هنگام ذخیرهٔ یک ارائه به PPTX کنترل می‌کند:
-- اگر به `true` تنظیم شود، تصویر کوچک در هنگام ذخیره به‌روزرسانی می‌شود. این مقدار پیش‌فرض است.
-- اگر به `false` تنظیم شود، تصویر کوچک فعلی حفظ می‌شود. اگر ارائه تصویر کوچکی نداشته باشد، هیچ‌کدام تولید نمی‌شود.
+هنگامی که یک ارائه به صورت PPTX ذخیره می‌شود، روش [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/fa/java/com.aspose.slides/pptxoptions/#setRefreshThumbnail-boolean-) کنترل می‌کند که تصویر بندانگشتی سند چگونه باشد:
 
-در کد زیر، ارائه بدون به‌روزرسانی تصویر کوچک خود به PPTX ذخیره می‌شود.
+- `true` تصویر بندانگشتی را در طول عملیات ذخیره بازتولید می‌کند. این مقدار پیش‌فرض است.
+- `false` تصویر بندانگشتی موجود را حفظ می‌کند. اگر ارائه تصویر بندانگشتی نداشته باشد، Aspose.Slides تصویر جدیدی تولید نمی‌کند.
+
+مثال زیر یک ارائه را بدون به‌روزرسانی تصویر بندانگشتی ذخیره می‌کند:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setRefreshThumbnail(false);
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Output.pptx", SaveFormat.Pptx, pptxOptions);
-}
-finally {
+    PptxOptions options = new PptxOptions();
+    options.setRefreshThumbnail(false);
+
+    presentation.save("Output.pptx", SaveFormat.Pptx, options);
+} finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-این گزینه به کاهش زمان مورد نیاز برای ذخیرهٔ یک ارائه در قالب PPTX کمک می‌کند.
+{{% alert color="info" title="Note" %}}
+غیرفعال کردن به‌روزرسانی تصویر بندانگشتی می‌تواند زمان مورد نیاز برای ذخیره یک فایل PPTX را کاهش دهد.
 {{% /alert %}}
 
-## **ذخیره به‌روزرسانی پیشرفت به درصد**
+## **به‌روزرسانی پیشرفت ذخیره به صورت درصدی**
 
-رابطه [IProgressCallback](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iprogresscallback/) از طریق متد `setProgressCallback` که توسط رابط [ISaveOptions](https://reference.aspose.com/slides/fa/java/com.aspose.slides/isaveoptions/) و کلاس انتزاعی [SaveOptions](https://reference.aspose.com/slides/fa/java/com.aspose.slides/saveoptions/) ارائه شده است، استفاده می‌شود. یک پیاده‌سازی از [IProgressCallback](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iprogresscallback/) را با `setProgressCallback` اختصاص دهید تا به‌روزرسانی‌های پیشرفت ذخیره به صورت درصد دریافت کنید.
+برای نظارت بر عملیات ذخیره، رابط [IProgressCallback](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iprogresscallback/) را پیاده‌سازی کنید و پیاده‌سازی را به روش [ISaveOptions.setProgressCallback](https://reference.aspose.com/slides/fa/java/com.aspose.slides/isaveoptions/#setProgressCallback-com.aspose.slides.IProgressCallback-) پاس دهید. سپس Aspose.Slides در طول صادرات، متد [IProgressCallback.reporting](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iprogresscallback/#reporting-double-) را با مقادیر پیشرفت فراخوانی می‌کند.
 
-کد زیر نشان می‌دهد چگونه از `IProgressCallback` استفاده کنید.
+مثال زیر پیشرفت صادرات PDF را در کنسول گزارش می‌دهد:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.IProgressCallback;
+import com.aspose.slides.PdfOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 class ExportProgressHandler implements IProgressCallback {
     public void reporting(double progressValue) {
-        // از مقدار درصد پیشرفت در اینجا استفاده کنید.
         int progress = (int) progressValue;
-
         System.out.println(progress + "% of the file has been converted.");
     }
 }
 
-ISaveOptions saveOptions = new PdfOptions();
-saveOptions.setProgressCallback(new ExportProgressHandler());
+PdfOptions options = new PdfOptions();
+options.setProgressCallback(new ExportProgressHandler());
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Output.pdf", SaveFormat.Pdf, saveOptions);
+    presentation.save("Output.pdf", SaveFormat.Pdf, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-شرکت Aspose یک برنامهٔ رایگان [PowerPoint Splitter](https://products.aspose.app/slides/fa/splitter) را با استفاده از API خود توسعه داده است. این برنامه به شما امکان می‌دهد یک ارائه را به چندین فایل تقسیم کنید با ذخیرهٔ اسلایدهای انتخاب‌شده به عنوان فایل‌های جدید PPTX یا PPT.
+{{% alert color="info" title="Note" %}}
+Aspose یک برنامه رایگان **PowerPoint Splitter** (https://products.aspose.app/slides/fa/splitter) ساخته‌شده با API Aspose.Slides فراهم می‌کند. این ابزار اسلایدهای انتخابی را از یک ارائه به‌صورت فایل‌های جداگانه PPT یا PPTX ذخیره می‌نماید.
 {{% /alert %}}
 
-## **FAQ**
+## **سؤالات متداول**
 
-**آیا «ذخیره سریع» (ذخیره افزایشی) پشتیبانی می‌شود به‌طوری که تنها تغییرات نوشته شوند؟**
+**آیا Aspose.Slides از ذخیره‌سازی تدریجی یا «ذخیره سریع» پشتیبانی می‌کند؟**
 
-خیر. هر بار ذخیره‌سازی، فایل هدف کامل ساخته می‌شود؛ «ذخیره سریع» افزایشی پشتیبانی نمی‌شود.
+خیر. هر عملیات ذخیره یک فایل خروجی کامل می‌نویسد و فقط بخش‌های تغییر یافته را به‌روز نمی‌کند.
 
-**آیا ذخیرهٔ نمونهٔ Presentation یکسان از چندین رشته به‌صورت همزمان ایمن است؟**
+**آیا چندین رشته می‌توانند یک نمونه Presentation را ذخیره کنند؟**
 
-خیر. یک نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایمن برای چند رشته نیست؛ آن را از یک رشته ذخیره کنید.
+خیر. یک نمونه [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) **thread‑safe** نیست. هر نمونه باید فقط از یک رشته در هر زمان دسترسی و ذخیره شود.
 
-**چه اتفاقی برای پیوندهای فراخوانی و فایل‌های لینک‌خورده خارجی هنگام ذخیره می‌افتد؟**
+**چه اتفاقی برای پیوندهای فراخوانی و فایل‌های لینک‌دار خارجی می‌افتد وقتی یک ارائه را ذخیره می‌کنم؟**
 
-[Hyperlinks](/slides/fa/java/manage-hyperlinks/) حفظ می‌شوند. فایل‌های لینک‌خوردهٔ خارجی (مانند ویدئوها از طریق مسیرهای نسبی) به‌صورت خودکار کپی نمی‌شوند؛ باید اطمینان حاصل کنید مسیرهای ارجاع‌شده قابل دسترسی باقی بمانند.
+[Hyperlinks](/slides/fa/java/manage-hyperlinks/) در ارائه باقی می‌مانند. Aspose.Slides فایل‌های لینک‌دار خارجی را کپی نمی‌کند، بنابراین ارائه ذخیره‌شده باید همچنان بتواند به مکان‌های آن‌ها دسترسی داشته باشد.
 
-**آیا می‌توانم متادادهٔ سند (نویسنده، عنوان، شرکت، تاریخ) را تنظیم/ذخیره کنم؟**
+**آیا می‌توانم متادیتای سند مانند نویسنده، عنوان، شرکت و تاریخ ایجاد را ذخیره کنم؟**
 
-بله. ویژگی‌های استاندارد سند پشتیبانی می‌شوند و هنگام ذخیره به فایل نوشته می‌شوند.
+بله. قبل از ذخیره، [document properties](/slides/fa/java/presentation-properties/) مناسب را تنظیم کنید و Aspose.Slides آن‌ها را در فایل خروجی می‌نویسد.

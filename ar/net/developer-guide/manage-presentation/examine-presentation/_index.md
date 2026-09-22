@@ -18,7 +18,7 @@ keywords:
 - فحص ODP
 - PowerPoint
 - OpenDocument
-- العرض التقديمي
+- عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
@@ -26,13 +26,15 @@ description: "استكشف الشرائح والبنية والبيانات ال
 ---
 ## **نظرة عامة**
 
-Aspose.Slides يمكنه التعرف على تنسيق العرض التقديمي وقراءة بيانات تعريف المستند دون إنشاء نموذج كائن عرض تقديمي كامل. هذا مفيد عندما تحتاج إلى تصنيف الملفات، بناء جرد، أو فحص الخصائص قبل اتخاذ قرار بتحميل ومعالجة محتوى العرض.
+Aspose.Slides يمكنه تحديد تنسيق العرض التقديمي وقراءة البيانات الوصفية للمستند دون إنشاء نموذج كائن عرض تقديمي كامل. هذا مفيد عندما تحتاج إلى تصنيف الملفات، بناء جرد، أو فحص الخصائص قبل اتخاذ قرار بتحميل ومعالجة محتوى العرض التقديمي.
 
-توضح هذه المقالة كيفية الفحص الخفيف الوزن باستخدام [PresentationFactory](https://reference.aspose.com/slides/ar/net/aspose.slides/presentationfactory/) و[IPresentationInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/)، بالإضافة إلى التحديثات المستهدفة عبر [IDocumentProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/idocumentproperties/).
+توضح هذه المقالة الفحص الخفيف الوزن عبر [PresentationFactory](https://reference.aspose.com/slides/ar/net/aspose.slides/presentationfactory/) و[IPresentationInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/)، بالإضافة إلى التحديثات المستهدفة عبر [IDocumentProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/idocumentproperties/).
 
-## **تحقق من تنسيق العرض التقديمي**
+## **التحقق من تنسيق العرض التقديمي**
 
-استخدم [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/presentationfactory/getpresentationinfo/) لفحص ملف دون إنشاء نسخة من كائن [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/). تُظهر الخاصية [IPresentationInfo.LoadFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/loadformat/) التنسيق المكتشف، مثل PPTX أو PPT أو ODP.
+إذا كان لديك عرض تقديمي مُحمَّل بالفعل، انظر إلى [تحديد تنسيق العرض التقديمي الأصلي](/slides/ar/net/detect-presentation-source-format/) للكشف بعد التحميل وقيود تدفقات PPT وPPS وPOT القديمة.
+
+استخدم [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/presentationfactory/getpresentationinfo/) لفحص ملف دون إنشاء مثال [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/). خاصية [IPresentationInfo.LoadFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/loadformat/) تُبلغ عن التنسيق المُكتشف، مثل PPTX أو PPT أو ODP.
 
 ```csharp
 using System;
@@ -49,11 +51,11 @@ foreach (var fileName in fileNames)
 
 ## **إنشاء جرد عرض تقديمي خفيف الوزن**
 
-عند معالجة العديد من ملفات العروض التقديمية، قد تحتاج إلى جرد مدمج لغرض التحقق، الفهرسة، أو نظام إدارة المستندات. في هذا السيناريو، استخدم [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/presentationfactory/getpresentationinfo/) للحصول على كائن [IPresentationInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/)، ثم استدعِ [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/readdocumentproperties/) لقراءة بيانات تعريف المستند. لا ينتج هذا النهج كائن [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) أو يتطلب عبور نموذج كائن العرض الكامل.
+عند معالجة العديد من ملفات العروض التقديمية، قد تحتاج إلى جرد مُضغَط للتحقق، الفهرسة، أو نظام إدارة المستندات. في هذا السيناريو، استخدم [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/presentationfactory/getpresentationinfo/) للحصول على كائن [IPresentationInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/)، ثم استدعِ [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/readdocumentproperties/) لقراءة البيانات الوصفية للمستند. لا ينشئ هذا الأسلوب مثال [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) ولا يتطلب تجوال نموذج كائن العرض الكامل.
 
-توفر الخصائص الموسعة التي يكشف عنها [IDocumentProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/idocumentproperties/) القيم التالية للجرد:
+الخصائص الموسعة التي تُظهرها [IDocumentProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/idocumentproperties/) توفر القيم التالية للجرد:
 
-| الخاصية | قيمة الجرد |
+| الخاصية | قيمة المخزون |
 | --- | --- |
 | [Slides](https://reference.aspose.com/slides/ar/net/aspose.slides/idocumentproperties/slides/ar/) | إجمالي عدد الشرائح. |
 | [HiddenSlides](https://reference.aspose.com/slides/ar/net/aspose.slides/idocumentproperties/hiddenslides/) | عدد الشرائح المخفية. |
@@ -62,7 +64,7 @@ foreach (var fileName in fileNames)
 | [Words](https://reference.aspose.com/slides/ar/net/aspose.slides/idocumentproperties/words/) | إجمالي عدد الكلمات. |
 | [MultimediaClips](https://reference.aspose.com/slides/ar/net/aspose.slides/idocumentproperties/multimediaclips/) | إجمالي عدد مقاطع الصوت والفيديو. |
 
-تقرأ المثال التالي هذه القيم دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) وتطبع جردًا مدمجًا. كما يجمع بين [HeadingPairs](https://reference.aspose.com/slides/ar/net/aspose.slides/idocumentproperties/headingpairs/) و[TitlesOfParts](https://reference.aspose.com/slides/ar/net/aspose.slides/idocumentproperties/titlesofparts/) لعرض مجموعات المحتوى مثل الخطوط، السمات، وعناوين الشرائح.
+المثال التالي يقرأ هذه القيم دون إنشاء كائن [Presentation] ويطبع جردًا مُضغَطًا. كما يجمع بين [HeadingPairs] و[TitlesOfParts] لعرض مجموعات المحتوى مثل الخطوط، السمات، وعناوين الشرائح.
 
 ```csharp
 using System;
@@ -121,25 +123,25 @@ else
 }
 ```
 
-كل [IHeadingPair](https://reference.aspose.com/slides/ar/net/aspose.slides/iheadingpair/) يوفر اسم مجموعة وعدد العناصر في تلك المجموعة. [IDocumentProperties.TitlesOfParts](https://reference.aspose.com/slides/ar/net/aspose.slides/idocumentproperties/titlesofparts/) هو مصفوفة مسطحة مرتبة، لذا استهلك عدد العناوين المتتالية المحددة بكل زوج من العناوين.
+كل [IHeadingPair] يوفر اسم المجموعة وعدد العناصر في تلك المجموعة. [IDocumentProperties.TitlesOfParts] هو مصفوفة مسطحة ومُرتبة، لذا استهلك عدد العناوين المتتابعة المحدد بواسطة كل زوج عنوان.
 
 ### **البيانات الوصفية المخزنة وقيود التنسيق**
 
-تعكس خصائص الجرد التي تُعيدها [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/readdocumentproperties/) البيانات الوصفية المتوفرة في المستند المصدر. لا يقوم Aspose.Slides بتحميل وعبور نموذج كائن العرض لإعادة حساب هذه القيم لهذه الاستدعاءة. تُظهر الخصائص المفقودة قيمًا افتراضية، وقد تكون القيم المخزنة قديمة إذا لم يقم التطبيق الذي حفظ الملف آخرًا بتحديث خصائص المستند.
+خصائص الجرد التي تُرجعها [IPresentationInfo.ReadDocumentProperties] تعكس البيانات الوصفية المتوفرة في المستند المصدر. لا تقوم Aspose.Slides بتحميل وتجوّل نموذج كائن العرض لإعادة حساب هذه القيم لهذه العملية. تُمثل الخصائص المفقودة بالقيم الافتراضية، وقد تكون القيم المخزنة قديمة إذا لم تُحدّث التطبيق الذي حفظ الملف آخر مرة خصائص المستند.
 
-- **PPTX:** يوفر التنسيق خصائص مستند موسعة لعدد الشرائح، الملاحظات، الشرائح المخفية، الفقرات، الكلمات، ومقاطع الوسائط المتعددة، بالإضافة إلى أزواج العناوين وعناوين الأجزاء. تعتمد التوافرية على الخصائص التي كتبها مُنتج المستند.
-- **PPT:** يمكن للتنسيق الثنائي تخزين خصائص ملخص المستند المقابلة. إذا كانت الخاصية غير موجودة أو لم يتم تحديثها من قبل مُنتج المستند، يُعيد Aspose.Slides قيمتها المخزنة أو الافتراضية بدلاً من حسابها من الشرائح.
-- **ODP:** توفر بيانات ODP الوصفية إحصائيات عامة للمستند مثل عدد الصفحات، الفقرات، والكلمات، لكن هذه القيم لا تتطابق مع كل خاصية موسعة خاصة بـ PowerPoint. قد تكون بيانات الشرائح المخفية، الشرائح ذات الملاحظات، الوسائط المتعددة، أزواج العناوين، وعناوين الأجزاء غير متاحة، وقد تُعيد خصائص الجرد قيمًا افتراضية. لا تُعامل قيمة الصفر أو المصفوفة الفارغة كدليل قاطع على غياب المحتوى المقابل.
+- **PPTX:** يوفر التنسيق خصائص مستند موسعة لعدد الشرائح، الملاحظات، الشرائح المخفية، الفقرات، الكلمات، ومقاطع الوسائط المتعددة، بالإضافة إلى أزواج العناوين وعناوين الأجزاء. التوفر يعتمد على الخصائص التي كتبها منتج المستند.
+- **PPT:** يمكن للتنسيق الثنائي تخزين خصائص ملخص المستند المقابلة. إذا كانت خاصية غير موجودة أو لم يتم تحديثها من قبل منتج المستند، تُعيد Aspose.Slides قيمتها المخزنة أو الافتراضية بدلاً من حسابها من الشرائح.
+- **ODP:** توفر البيانات الوصفية لـ OpenDocument إحصاءات عامة للمستند مثل عدد الصفحات، الفقرات، والكلمات، لكن هذه القيم لا تتطابق مع كل خاصية موسعة خاصة بـ PowerPoint. قد تكون بيانات الشرائح المخفية، الشرائح التي تحتوي ملاحظات، الوسائط المتعددة، أزواج العناوين، وعناوين الأجزاء غير متاحة، وقد تُعيد خصائص الجرد قيمًا افتراضية. لا تُعامل القيمة الصفرية أو المصفوفة الفارغة كدليل قاطع على غياب المحتوى المقابل.
 
-استخدم نهج البيانات الوصفية الخفيفة للجرد والفحوصات الأولية. قم بتحميل العرض وفحص نموذج الكائن الحي عندما يجب أن تعكس النتيجة التغييرات في الذاكرة أو عندما تحتاج إلى التحقق من المحتوى الفعلي للعرض.
+استخدم نهج البيانات الوصفية الخفيف للجرود وفحوصات أولية. حمِّل العرض التقديمي وتفحّص نموذج كائنه الحي عندما يجب أن يعكس النتيجة تغييرات الذاكرة أو عندما تحتاج إلى التحقق من محتوى العرض الفعلي.
 
 ## **تحديث خصائص العرض التقديمي**
 
-يمكن أيضًا تعديل الخصائص التي تُعيدها [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/readdocumentproperties/) دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/). طبّق التغييرات باستخدام [IPresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/updatedocumentproperties/)، ثم اكتب العرض المرتبط باستخدام [IPresentationInfo.WriteBindedPresentation](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/writebindedpresentation/).
+يمكن أيضًا تغيير الخصائص التي تُرجعها [IPresentationInfo.ReadDocumentProperties] دون إنشاء مثال [Presentation]. طبّق التغييرات باستخدام [IPresentationInfo.UpdateDocumentProperties]، ثم اكتب العرض المرتبط باستخدام [IPresentationInfo.WriteBindedPresentation].
 
-الصورة التالية تُظهر خصائص المستند الأصلية للعرض التقديمي PowerPoint.
+الصورة التالية تُظهر خصائص المستند الأصلية لعرض PowerPoint:
 
-![خصائص المستند الأصلية للعرض التقديمي PowerPoint](input_properties.png)
+![خصائص المستند الأصلية لعرض PowerPoint](input_properties.png)
 
 المثال التالي يغيّر العنوان ووقت الحفظ الأخير ويكتب النتيجة إلى ملف جديد:
 
@@ -161,33 +163,35 @@ using var outputStream = File.Create(outputFile);
 presentationInfo.WriteBindedPresentation(outputStream);
 ```
 
-![خصائص المستند المعدلة للعرض التقديمي PowerPoint](output_properties.png)
+الصورة التالية تُظهر خصائص المستند المعدلة لعرض PowerPoint:
+
+![خصائص المستند المعدلة لعرض PowerPoint](output_properties.png)
 
 ## **روابط مفيدة**
 
-للقواعد المتعلقة بالتحقق من الأمان وإعدادات الحماية، راجع المقالات التالية:
+للفحوصات الأمنية ذات الصلة وإعدادات الحماية، راجع المقالات التالية:
 
 - [حماية العروض التقديمية بكلمة مرور](/slides/ar/net/password-protected-presentation/)
 - [حماية العروض التقديمية من الكتابة](/slides/ar/net/write-protected-presentation/)
 
-## **الأسئلة المتداولة**
+## **الأسئلة المتكررة**
 
-**كيف يمكنني التحقق مما إذا كانت الخطوط مضمنة وأيها؟**
+**كيف يمكنني التحقق مما إذا كانت الخطوط مضمَّنة وأيها؟**
 
-قم بتحميل العرض واستخدم [Presentation.FontsManager](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/fontsmanager/). استدعِ [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsmanager/getembeddedfonts/) للحصول على الخطوط المضمنة و[FontsManager.GetFonts](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsmanager/getfonts/) للحصول على الخطوط المستخدمة في العرض. قارن النتيجتين لتحديد الخطوط المطلوبة للعرض لكنها غير مضمنة.
+حمِّل العرض التقديمي واستخدم [Presentation.FontsManager](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/fontsmanager/). استدعِ [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsmanager/getembeddedfonts/) للحصول على الخطوط المضمَّنة و[FontsManager.GetFonts](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsmanager/getfonts/) للحصول على الخطوط المستخدمة في العرض. قارن النتيجتين لتحديد الخطوط المطلوبة للتصيير ولكنها غير مضمَّنة.
 
-**كيف يمكنني معرفة بسرعة ما إذا كان الملف يحتوي على شرائح مخفية وعددها؟**
+**كيف يمكنني بسرعة معرفة ما إذا كان الملف يحتوي على شرائح مخفية وعددها؟**
 
-عند كفاية بيانات المستند الوصفية المخزنة، اقرأ [IDocumentProperties.HiddenSlides](https://reference.aspose.com/slides/ar/net/aspose.slides/idocumentproperties/hiddenslides/) عبر [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/presentationfactory/getpresentationinfo/) و[IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/readdocumentproperties/). هذا مناسب لجرد خفيف الوزن. إذا تم تعديل العرض في الذاكرة، قد تكون البيانات الوصفية المخزنة مفقودة أو قديمة، أو إذا كنت بحاجة للتحقق من القيم الحية، قم بالتجول عبر [Presentation.Slides](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/slides/ar/) وتفقد خاصية [Slide.Hidden](https://reference.aspose.com/slides/ar/net/aspose.slides/slide/hidden/) لكل شريحة.
+عند كفاية البيانات الوصفية المخزنة، اقرأ [IDocumentProperties.HiddenSlides](https://reference.aspose.com/slides/ar/net/aspose.slides/idocumentproperties/hiddenslides/) عبر [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ar/net/aspose.slides/presentationfactory/getpresentationinfo/) و[IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/ipresentationinfo/readdocumentproperties/). هذا مناسب لجرد خفيف. إذا تم تعديل العرض في الذاكرة، قد تكون البيانات الوصفية المخزنة مفقودة أو قديمة، أو تحتاج إلى التحقق من القيم الحية؛ في هذه الحالة تجوَّل [Presentation.Slides](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/slides/ar/) وتفحص خاصية [Slide.Hidden](https://reference.aspose.com/slides/ar/net/aspose.slides/slide/hidden/) لكل شريحة.
 
-**هل يمكنني اكتشاف ما إذا تم استخدام حجم وشكل مخصص للشرائح، وما إذا كانت تختلف عن القيم الافتراضية؟**
+**هل يمكنني اكتشاف ما إذا كان حجم الشريحة المخصص والاتجاه مستخدمين، وما إذا كانت تختلف عن الإعدادات الافتراضية؟**
 
-نعم. حمل العرض واقرأ [Presentation.SlideSize](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/slidesize/). افحص [ISlideSize.Type](https://reference.aspose.com/slides/ar/net/aspose.slides/islidesize/type/)، [ISlideSize.Size](https://reference.aspose.com/slides/ar/net/aspose.slides/islidesize/size/)، و[ISlideSize.Orientation](https://reference.aspose.com/slides/ar/net/aspose.slides/islidesize/orientation/) لمقارنة الإعدادات الحالية مع الإعدادات المسبقة والأبعاد المتوقعة.
+نعم. حمِّل العرض التقديمي واقرأ [Presentation.SlideSize](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/slidesize/). تفحّص [ISlideSize.Type](https://reference.aspose.com/slides/ar/net/aspose.slides/islidesize/type/)، [ISlideSize.Size](https://reference.aspose.com/slides/ar/net/aspose.slides/islidesize/size/)، و[ISlideSize.Orientation](https://reference.aspose.com/slides/ar/net/aspose.slides/islidesize/orientation/) لمقارنة الإعدادات الحالية مع القالب والأبعاد المتوقعة.
 
-**هل توجد طريقة سريعة لمعرفة ما إذا كانت المخططات تشير إلى مصادر بيانات خارجية؟**
+**هل هناك طريقة سريعة لرؤية ما إذا كانت المخططات تشير إلى مصادر بيانات خارجية؟**
 
-نعم. حدد كل [Chart](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/chart/) وتفحص [ChartData.DataSourceType](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/chartdata/datasourcetype/). بالنسبة لدفتر عمل خارجي، اقرأ [ChartData.ExternalWorkbookPath](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/chartdata/externalworkbookpath/). يحدد نوع مصدر البيانات والمسار إشارة إلى مرجع خارجي، لكن التحقق من توفر الهدف يتطلب فحص موارد منفصل.
+نعم. ابحث عن كل [Chart](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/chart/) وتفحّص [ChartData.DataSourceType](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/chartdata/datasourcetype/). للوركبوك الخارجي، اقرأ [ChartData.ExternalWorkbookPath](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/chartdata/externalworkbookpath/). يُحدِّد نوع مصدر البيانات والمسار إشارة إلى مرجع خارجي، لكن التحقق من توفر الهدف يتطلب فحص موارد منفصل.
 
-**كيف يمكنني تقييم الشرائح "الثقيلة" التي قد تبطئ عملية العرض أو تصدير PDF؟**
+**كيف يمكنني تقييم الشرائح "الثقيلة" التي قد تبطئ عملية التصيير أو تصدير PDF؟**
 
-لا توجد خاصية تعقيد واحدة. تجول عبر [Presentation.Slides](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/slides/ar/) وكل مجموعة [IBaseSlide.Shapes](https://reference.aspose.com/slides/ar/net/aspose.slides/ibaseslide/shapes/) لكل شريحة. استخدم عدد الأشكال ووجود صور كبيرة، تأثيرات، رسوم متحركة، أو وسائط متعددة كإشارات فحص، وقم بقياس تمثيل أو تصدير نمطي قبل اعتبار الشريحة عنق زجاجة مؤكد للأداء.
+لا توجد خاصية تعقيد واحدة. تجوَّل [Presentation.Slides](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/slides/ar/) وكل مجموعة [IBaseSlide.Shapes](https://reference.aspose.com/slides/ar/net/aspose.slides/ibaseslide/shapes/) لكل شريحة. استخدم عدد الأشكال ووجود صور كبيرة، تأثيرات، رسومات متحركة، أو وسائط متعددة كإشارات فحص، وقُم بقياس تصيير أو تصدير تمثيلي قبل اعتبار شريحة معينة كعقبة أداء مؤكدة.

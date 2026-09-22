@@ -8,7 +8,7 @@ keywords:
 - PowerPoint speichern
 - OpenDocument speichern
 - Präsentation speichern
-- Folie speichern
+- Folien speichern
 - PPT speichern
 - PPTX speichern
 - ODP speichern
@@ -17,248 +17,281 @@ keywords:
 - vordefinierter Ansichtstyp
 - Strict Office Open XML-Format
 - Zip64-Modus
-- Thumbnail aktualisieren
+- Vorschaubild aktualisieren
 - Speicherfortschritt
 - .NET
 - C#
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Präsentationen in .NET mit Aspose.Slides speichern – exportieren Sie nach PowerPoint oder OpenDocument und behalten dabei Layouts, Schriftarten und Effekte bei."
+description: "Speichern Sie PowerPoint- und OpenDocument‑Präsentationen in Dateien oder Streams in C# mit Aspose.Slides für .NET und konfigurieren Sie die PPTX‑Ausgabe sowie die Fortschrittsanzeige."
 ---
 ## **Übersicht**
 
-[Open Presentations in C#](/slides/de/net/open-presentation/) beschreibt, wie die [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) Klasse verwendet wird, um eine Präsentation zu öffnen. Dieser Artikel erklärt, wie Präsentationen erstellt und gespeichert werden. Die [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) Klasse enthält den Inhalt einer Präsentation. Egal, ob Sie eine Präsentation von Grund auf neu erstellen oder eine vorhandene ändern, möchten Sie sie nach Abschluss speichern. Mit Aspose.Slides für .NET können Sie in eine **Datei** oder **Stream** speichern. Dieser Artikel erklärt die verschiedenen Möglichkeiten, eine Präsentation zu speichern.
+Nachdem Sie eine Präsentation erstellt oder [eine vorhandene öffnen](/slides/de/net/open-presentation/), verwenden Sie die Methode [Presentation.Save](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/save/), um das Ergebnis zu schreiben. Aspose.Slides für .NET kann eine Präsentation in einer Datei oder einem Stream im PowerPoint-, OpenDocument-, PDF- und anderen Formaten speichern. Die folgenden Abschnitte behandeln die Standard‑Speichervorgänge und die für PPTX‑Ausgabe verfügbaren Optionen.
 
 ## **Präsentationen in Dateien speichern**
 
-Speichern Sie eine Präsentation in einer Datei, indem Sie die `Save`‑Methode der [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) Klasse aufrufen. Übergeben Sie den Dateinamen und das Speicherformat an die Methode. Das folgende Beispiel zeigt, wie man mit Aspose.Slides eine Präsentation speichert.
+Um eine Präsentation in einer Datei zu speichern, übergeben Sie den Ausgabepfad und einen [SaveFormat](https://reference.aspose.com/slides/de/net/aspose.slides.export/saveformat/)-Wert an die Methode [Presentation.Save](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/save/). Der Formatwert bestimmt den Dateityp, den Aspose.Slides erstellt.
+
+Das folgende Beispiel erstellt eine Präsentation und speichert sie als PPTX‑Datei:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instanzieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
-using (Presentation presentation = new Presentation())
-{
-    // Führen Sie hier einige Arbeiten aus...
+using var presentation = new Presentation();
 
-    // Speichern Sie die Präsentation in einer Datei.
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+// Add or modify presentation content here.
+
+presentation.Save("Output.pptx", SaveFormat.Pptx);
 ```
 
-## **Präsentationen in Streams speichern**
+## **Präsentationen im Originalformat speichern**
 
-Sie können eine Präsentation in einen Stream speichern, indem Sie einen Ausgabestream an die `Save`‑Methode der [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) Klasse übergeben. Eine Präsentation kann in viele Stream‑Typen geschrieben werden. Im folgenden Beispiel erstellen wir eine neue Präsentation und speichern sie in einen Dateistream.
+Beispiele zur Datei‑ und Stream‑Erkennung, zum Verhalten neu erstellter Präsentationen und zum Unterschied zwischen Quell‑ und Ausgabeformaten finden Sie unter [Determine the Original Presentation Format](/slides/de/net/detect-presentation-source-format/).
+
+In einer Stapelverarbeitungs‑Anwendung ist das Eingabeformat möglicherweise nicht im Voraus bekannt. Nachdem Sie eine Datei geladen haben, lesen Sie ihr Originalformat aus der Eigenschaft [IPresentation.SourceFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ipresentation/sourceformat/). Übergeben Sie den resultierenden [SourceFormat](https://reference.aspose.com/slides/de/net/aspose.slides/sourceformat/)-Wert an [SlideUtil.ToSaveFormat](https://reference.aspose.com/slides/de/net/aspose.slides.util/slideutil/tosaveformat/), um den entsprechenden [SaveFormat](https://reference.aspose.com/slides/de/net/aspose.slides.export/saveformat/)-Wert zu erhalten, und verwenden Sie anschließend [Presentation.Save](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/save/), um die geänderte Präsentation zu schreiben.
+
+Das folgende vollständige Beispiel verarbeitet jede Datei in einem Eingabeverzeichnis, aktualisiert deren Titel und speichert sie in ein Ausgabeverzeichnis im Format, aus dem sie geladen wurde:
 
 ```cs
+using System;
+using System.IO;
 using Aspose.Slides;
-using Aspose.Slides.Export;
+using Aspose.Slides.Util;
 
-// Instanzieren Sie die Presentation‑Klasse, die eine Präsentationsdatei darstellt.
-using (Presentation presentation = new Presentation())
+var inputDirectory = "Input";
+var outputDirectory = "Output";
+
+Directory.CreateDirectory(outputDirectory);
+
+foreach (var inputPath in Directory.EnumerateFiles(inputDirectory))
 {
-    using (FileStream fileStream = new FileStream("Output.pptx", FileMode.Create))
+    try
     {
-        // Speichern Sie die Präsentation in den Stream.
-        presentation.Save(fileStream, SaveFormat.Pptx);
+        using var presentation = new Presentation(inputPath);
+
+        var sourceFormat = presentation.SourceFormat;
+        var saveFormat = SlideUtil.ToSaveFormat(sourceFormat);
+
+        presentation.DocumentProperties.Title = "Processed by the batch application";
+
+        var outputPath = Path.Combine(outputDirectory, Path.GetFileName(inputPath));
+        presentation.Save(outputPath, saveFormat);
+    }
+    catch (ArgumentException exception)
+    {
+        Console.Error.WriteLine($"Cannot map the source format of '{inputPath}': {exception.Message}");
+    }
+    catch (Exception exception)
+    {
+        Console.Error.WriteLine($"Cannot process '{inputPath}': {exception.Message}");
     }
 }
 ```
 
-## **Präsentationen mit vordefiniertem Ansichtstyp speichern**
+[SlideUtil.ToSaveFormat](https://reference.aspose.com/slides/de/net/aspose.slides.util/slideutil/tosaveformat/) mappt PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP und PowerPoint‑XML auf die entsprechenden Präsentations‑Speicherformate. Es mappt nur Präsentationsquellformate; es ist nicht dazu gedacht, Exportformate wie PDF, HTML, TIFF oder Bilder auszuwählen. Das Übergeben eines nicht unterstützten oder ungültigen [SourceFormat](https://reference.aspose.com/slides/de/net/aspose.slides/sourceformat/)-Werts führt zu einer [ArgumentException](https://learn.microsoft.com/en-us/dotnet/api/system.argumentexception).
 
-Aspose.Slides ermöglicht es Ihnen, die anfängliche Ansicht festzulegen, die PowerPoint verwendet, wenn die erzeugte Präsentation über die Klasse [ViewProperties](https://reference.aspose.com/slides/de/net/aspose.slides/viewproperties/) geöffnet wird. Setzen Sie die Eigenschaft [LastView](https://reference.aspose.com/slides/de/net/aspose.slides/viewproperties/lastview/) auf einen Wert aus der Aufzählung [ViewType](https://reference.aspose.com/slides/de/net/aspose.slides/viewtype/).
+Legacy‑PPT-, PPS‑ und POT‑Dateien verwenden denselben Binärcontainer. Wird eine solche Präsentation aus einem Stream ohne Dateierweiterung geladen, kann eine PPS‑ oder POT‑Datei daher als PPT identifiziert werden. Wenn die Beibehaltung dieser Legacy‑Subtypen erforderlich ist, behalten Sie den ursprünglichen Dateinamen oder die Format‑Metadaten separat und verwenden Sie diese bei der Auswahl des Ausgabedateinamens und -formats.
+
+## **Präsentationen in Streams speichern**
+
+Um eine Präsentation zu schreiben, ohne sich auf einen endgültigen Dateipfad zu verlassen, übergeben Sie einen beschreibbaren [Stream](https://learn.microsoft.com/en-us/dotnet/api/system.io.stream) und einen [SaveFormat](https://reference.aspose.com/slides/de/net/aspose.slides.export/saveformat/)-Wert an die Methode [Presentation.Save](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/save/). Dieser Ansatz ist nützlich, wenn die Ausgabe von einem Webservice zurückgegeben, in einer Datenbank gespeichert oder im Speicher verarbeitet werden muss.
+
+Das folgende Beispiel speichert eine neue Präsentation in einen Dateistream:
 
 ```cs
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    presentation.ViewProperties.LastView = ViewType.SlideMasterView;
-    presentation.Save("SlideMasterView.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+using var outputStream = new FileStream("Output.pptx", FileMode.Create);
+
+presentation.Save(outputStream, SaveFormat.Pptx);
 ```
 
-## **Präsentationen im Strict Office Open XML-Format speichern**
+## **Präsentationen mit vordefiniertem Ansichtstyp speichern**
 
-Aspose.Slides ermöglicht das Speichern einer Präsentation im Strict Office Open XML‑Format. Verwenden Sie die Klasse [PptxOptions](https://reference.aspose.com/slides/de/net/aspose.slides.export/pptxoptions/) und setzen Sie deren Conformance‑Eigenschaft beim Speichern. Wenn Sie `Conformance.Iso29500_2008_Strict` setzen, wird die Ausgabedatei im Strict Office Open XML‑Format gespeichert.
+Sie können die Ansicht festlegen, in der PowerPoint eine gespeicherte Präsentation zunächst öffnet. Setzen Sie vor dem Speichern die Eigenschaft [ViewProperties.LastView](https://reference.aspose.com/slides/de/net/aspose.slides/viewproperties/lastview/) auf einen [ViewType](https://reference.aspose.com/slides/de/net/aspose.slides/viewtype/)-Wert.
 
-Das folgende Beispiel erstellt eine Präsentation und speichert sie im Strict Office Open XML‑Format.
+Das folgende Beispiel konfiguriert die Folienmaster‑Ansicht als Anfangsansicht:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-PptxOptions options = new PptxOptions()
+using var presentation = new Presentation();
+
+presentation.ViewProperties.LastView = ViewType.SlideMasterView;
+presentation.Save("SlideMasterView.pptx", SaveFormat.Pptx);
+```
+
+## **Präsentationen im Strict‑Office‑Open‑XML‑Format speichern**
+
+Um eine PPTX‑Datei zu erstellen, die dem Strict‑Profil von Office Open XML entspricht, erzeugen Sie eine Instanz von [PptxOptions](https://reference.aspose.com/slides/de/net/aspose.slides.export/pptxoptions/) und setzen Sie deren [Conformance](https://reference.aspose.com/slides/de/net/aspose.slides.export/pptxoptions/conformance/)‑Eigenschaft auf `Conformance.Iso29500_2008_Strict`. Übergeben Sie anschließend die Optionen an die Methode [Presentation.Save](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/save/).
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var options = new PptxOptions
 {
     Conformance = Conformance.Iso29500_2008_Strict
 };
 
-// Instanzieren Sie die Presentation‑Klasse, die eine Präsentationsdatei darstellt.
-using (Presentation presentation = new Presentation())
-{
-    // Speichern Sie die Präsentation im Strict Office Open XML‑Format.
-    presentation.Save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
-}
+using var presentation = new Presentation();
+
+presentation.Save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
 ```
 
-## **Präsentationen im Office Open XML-Format im Zip64‑Modus speichern**
+## **Präsentationen im Office‑Open‑XML‑Format im Zip64‑Modus speichern**
 
-Eine Office Open XML‑Datei ist ein ZIP‑Archiv, das 4 GB (2^32 Bytes) Grenzen für die unkomprimierte Größe jeder Datei, die komprimierte Größe jeder Datei und die Gesamtgröße des Archivs festlegt und das Archiv auf 65 535 (2^16‑1) Dateien begrenzt. ZIP64‑Format-Erweiterungen erhöhen diese Grenzen auf 2^64.
+Ein Standard‑ZIP‑Archiv begrenzt die komprimierte und unkomprimierte Größe jedes Eintrags, die Gesamtarichgröße und die Anzahl der Einträge. Da eine PPTX‑Datei ein ZIP‑Archiv ist, kann eine sehr große Präsentation diese Grenzen überschreiten. ZIP64‑Erweiterungen erhöhen die entsprechenden Größen‑ und Eintrags‑Grenzwerte.
 
-Die Eigenschaft [IPptxOptions.Zip64Mode](https://reference.aspose.com/slides/de/net/aspose.slides.export/ipptxoptions/zip64mode/) ermöglicht es Ihnen, zu bestimmen, wann beim Speichern einer Office Open XML‑Datei ZIP64‑Format‑Erweiterungen verwendet werden.
+Verwenden Sie die Eigenschaft [PptxOptions.Zip64Mode](https://reference.aspose.com/slides/de/net/aspose.slides.export/pptxoptions/zip64mode/), um zu steuern, ob Aspose.Slides ZIP64‑Erweiterungen schreibt:
 
-Diese Eigenschaft bietet die folgenden Modi:
+- `IfNecessary` verwendet ZIP64 nur, wenn die Präsentation die Standard‑ZIP‑Grenzen überschreitet. Dies ist der Standardmodus.
+- `Never` deaktiviert ZIP64‑Erweiterungen.
+- `Always` schreibt stets ZIP64‑Erweiterungen.
 
-- `IfNecessary` verwendet ZIP64‑Format‑Erweiterungen nur, wenn die Präsentation die oben genannten Beschränkungen überschreitet. Dies ist der Standardmodus.
-- `Never` verwendet ZIP64‑Format‑Erweiterungen niemals.
-- `Always` verwendet ZIP64‑Format‑Erweiterungen immer.
-
-Der folgende Code zeigt, wie man eine Präsentation als PPTX‑Datei mit aktivierten ZIP64‑Format‑Erweiterungen speichert:
+Das folgende Beispiel aktiviert stets ZIP64‑Erweiterungen für die Ausgabepäsentation:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("Sample.pptx"))
+using var presentation = new Presentation("Sample.pptx");
+
+var options = new PptxOptions
 {
-    presentation.Save("OutputZip64.pptx", SaveFormat.Pptx, new PptxOptions()
-    {
-        Zip64Mode = Zip64Mode.Always
-    });
-}
+    Zip64Mode = Zip64Mode.Always
+};
+
+presentation.Save("OutputZip64.pptx", SaveFormat.Pptx, options);
 ```
 
-{{% alert title="HINWEIS" color="warning" %}}
-Wenn Sie mit `Zip64Mode.Never` speichern, wird eine [PptxException](https://reference.aspose.com/slides/de/net/aspose.slides/pptxexception/) ausgelöst, wenn die Präsentation nicht im ZIP32‑Format gespeichert werden kann.
+{{% alert color="warning" title="Warning" %}}
+Wenn `Zip64Mode` auf `Never` gesetzt ist und die Präsentation nicht in die Standard‑ZIP‑Grenzen passt, löst der Speicher‑Vorgang eine [PptxException](https://reference.aspose.com/slides/de/net/aspose.slides/pptxexception/) aus.
 {{% /alert %}}
 
-## **Präsentationen im Office Open XML-Format mit Komprimierungsstufen speichern**
+## **Präsentationen im Office‑Open‑XML‑Format mit Komprimierungsstufen speichern**
 
-Beim Arbeiten mit großen Präsentationen können Sie die Komprimierungsstufe anpassen, um Dateigröße und Verarbeitungszeit auszubalancieren. Je nach Anforderung bevorzugen Sie möglicherweise schnellere Verarbeitung oder kleinere Ausgabedateien.
+Für PPTX‑Ausgabe können Sie die Speichergeschwindigkeit gegen die Dateigröße abwägen, indem Sie die Eigenschaft [PptxOptions.CompressionLevel](https://reference.aspose.com/slides/de/net/aspose.slides.export/pptxoptions/compressionlevel/) festlegen. Die Aufzählung [CompressionLevel](https://reference.aspose.com/slides/de/net/aspose.slides.export/compressionlevel/) bietet folgende Werte:
 
-Aspose.Slides stellt die Eigenschaft [IPptxOptions.CompressionLevel](https://reference.aspose.com/slides/de/net/aspose.slides.export/ipptxoptions/compressionlevel/) bereit, mit der Sie die beim Speichern einer Präsentation im Office Open XML‑Format zu verwendende Komprimierungsstufe festlegen können.
+- `None` speichert Daten ohne Kompression.
+- `Level1` liefert die schnellste Kompression und die größte komprimierte Ausgabe.
+- `Level2` bis `Level5` begünstigen zunehmend kleinere Ausgaben zulasten der Speichergeschwindigkeit.
+- `Level6` balanciert Speichergeschwindigkeit und Dateigröße. Dies ist die Standardstufe.
+- `Level7` und `Level8` bevorzugen noch stärker kleinere Ausgaben gegenüber der Speichergeschwindigkeit.
+- `Level9` liefert die stärkste Kompression und erfordert die meiste Verarbeitungszeit.
 
-Die folgenden Komprimierungsstufen sind verfügbar:
-
-- **None**: Es wird keine Komprimierung angewendet. Dateien werden unverändert gespeichert.
-- **Level1**: Die schnellste Komprimierung mit dem niedrigsten Komprimierungsgrad.
-- **Level2**: Schnellere Komprimierung mit einem etwas besseren Komprimierungsgrad als **Level1**.
-- **Level3**: Bietet bessere Komprimierung als **Level2** mit moderatem Einfluss auf die Verarbeitungszeit.
-- **Level4**: Bietet bessere Komprimierung als **Level3**.
-- **Level5**: Verbesserte Komprimierung gegenüber **Level4** mit zusätzlicher Verarbeitungszeit.
-- **Level6**: Standardkomprimierung, die ein gutes Gleichgewicht zwischen Verarbeitungsgeschwindigkeit und Dateigröße bietet. Dies ist die *Standardkomprimierungsstufe*.
-- **Level7**: Bietet bessere Komprimierung als **Level6** bei langsamerer Verarbeitung.
-- **Level8**: Bietet bessere Komprimierung als **Level7**.
-- **Level9**: Maximale Komprimierung. Produziert die kleinste Dateigröße auf Kosten der längsten Verarbeitungszeit.
-
-Das folgende Beispiel demonstriert, wie man eine Präsentation als PPTX‑Datei *ohne Komprimierung* speichert:
-```cs
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation("Sample.pptx"))
-{
-    pres.Save("Sample-out.pptx", SaveFormat.Pptx, new PptxOptions
-    {
-        CompressionLevel = CompressionLevel.None
-    });
-}
-```
-
-Dieses Beispiel zeigt, wie man eine Präsentation als PPTX‑Datei mit *maximaler Komprimierung* speichert:
-```cs
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation("Sample.pptx"))
-{
-    pres.Save("Sample-level9.pptx", SaveFormat.Pptx, new PptxOptions
-    {
-        CompressionLevel = CompressionLevel.Level9
-    });
-}
-```
-
-## **Präsentationen ohne Aktualisierung des Thumbnails speichern**
-
-Die Eigenschaft [PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/de/net/aspose.slides.export/ipptxoptions/refreshthumbnail/) steuert die Thumbnail‑Erstellung beim Speichern einer Präsentation als PPTX:
-
-- Bei `true` wird das Thumbnail während des Speicherns aktualisiert. Dies ist der Standardwert.
-- Bei `false` wird das aktuelle Thumbnail beibehalten. Hat die Präsentation kein Thumbnail, wird keines erzeugt.
-
-Im nachfolgenden Code wird die Präsentation als PPTX ohne Aktualisierung ihres Thumbnails gespeichert.
+Das folgende Beispiel speichert eine Präsentation ohne Kompression:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("Sample.pptx"))
+using var presentation = new Presentation("Sample.pptx");
+
+var options = new PptxOptions
 {
-    presentation.Save("Output.pptx", SaveFormat.Pptx, new PptxOptions()
-    {
-        RefreshThumbnail = false
-    });
-}
+    CompressionLevel = CompressionLevel.None
+};
+
+presentation.Save("OutputNoCompression.pptx", SaveFormat.Pptx, options);
 ```
 
-{{% alert title="Info" color="info" %}}
-Diese Option hilft, die zum Speichern einer Präsentation im PPTX‑Format erforderliche Zeit zu reduzieren.
+Das folgende Beispiel verwendet die maximale Komprimierungsstufe:
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("Sample.pptx");
+
+var options = new PptxOptions
+{
+    CompressionLevel = CompressionLevel.Level9
+};
+
+presentation.Save("OutputMaximumCompression.pptx", SaveFormat.Pptx, options);
+```
+
+## **Präsentationen ohne Aktualisierung des Vorschaubildes speichern**
+
+Beim Speichern einer Präsentation als PPTX steuert die Eigenschaft [PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/de/net/aspose.slides.export/pptxoptions/refreshthumbnail/) ihr Dokument‑Vorschaubild:
+
+- `true` regeneriert das Vorschaubild während des Speicher‑Vorgangs. Dies ist der Standardwert.
+- `false` bewahrt das vorhandene Vorschaubild. Hat die Präsentation kein Vorschaubild, erzeugt Aspose.Slides keines.
+
+Das folgende Beispiel speichert eine Präsentation ohne Aktualisierung ihres Vorschaubildes:
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("Sample.pptx");
+
+var options = new PptxOptions
+{
+    RefreshThumbnail = false
+};
+
+presentation.Save("Output.pptx", SaveFormat.Pptx, options);
+```
+
+{{% alert color="info" title="Note" %}}
+Das Deaktivieren der Vorschaubild‑Aktualisierung kann die zum Speichern einer PPTX‑Datei erforderliche Zeit verkürzen.
 {{% /alert %}}
 
-## **Speicherfortschritt in Prozent anzeigen**
+## **Speicherfortschritt in Prozent melden**
 
-Das Interface [IProgressCallback](https://reference.aspose.com/slides/de/net/aspose.slides/iprogresscallback/) wird über die Eigenschaft `ProgressCallback` verwendet, die vom Interface [ISaveOptions](https://reference.aspose.com/slides/de/net/aspose.slides.export/isaveoptions/) und der abstrakten Klasse [SaveOptions](https://reference.aspose.com/slides/de/net/aspose.slides.export/saveoptions/) bereitgestellt wird. Weisen Sie einer [IProgressCallback](https://reference.aspose.com/slides/de/net/aspose.slides/iprogresscallback/)‑Implementierung die Eigenschaft `ProgressCallback` zu, um Speicherfortschritts‑Updates als Prozentsatz zu erhalten.
+Um einen Speicher‑Vorgang zu überwachen, implementieren Sie das Interface [IProgressCallback](https://reference.aspose.com/slides/de/net/aspose.slides/iprogresscallback/) und weisen Sie die Implementierung der Eigenschaft [ISaveOptions.ProgressCallback](https://reference.aspose.com/slides/de/net/aspose.slides.export/isaveoptions/progresscallback/) zu. Aspose.Slides ruft dann während des Exports die Methode [IProgressCallback.Reporting](https://reference.aspose.com/slides/de/net/aspose.slides/iprogresscallback/reporting/) mit Fortschrittswerten auf.
 
-Die folgenden Code‑Snippets zeigen, wie `IProgressCallback` verwendet wird.
+Das folgende Beispiel meldet den Fortschritt eines PDF‑Exports in die Konsole:
 
 ```cs
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-ISaveOptions saveOptions = new PdfOptions();
-saveOptions.ProgressCallback = new ExportProgressHandler();
-
-using (Presentation presentation = new Presentation("Sample.pptx"))
+var options = new PdfOptions
 {
-    presentation.Save("Output.pdf", SaveFormat.Pdf, saveOptions);
-}
-```
+    ProgressCallback = new ExportProgressHandler()
+};
 
-```cs
-using Aspose.Slides;
+using var presentation = new Presentation("Sample.pptx");
+
+presentation.Save("Output.pdf", SaveFormat.Pdf, options);
 
 class ExportProgressHandler : IProgressCallback
 {
     public void Reporting(double progressValue)
     {
-        // Verwenden Sie hier den Prozentsatz des Fortschritts.
-        int progress = Convert.ToInt32(progressValue);
-
-        Console.WriteLine(progress + "% of the file has been converted.");
+        var progress = Convert.ToInt32(progressValue);
+        Console.WriteLine($"{progress}% of the file has been converted.");
     }
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose hat eine [kostenlose PowerPoint Splitter‑App](https://products.aspose.app/slides/de/splitter) entwickelt, die seine eigene API nutzt. Die App ermöglicht es Ihnen, eine Präsentation in mehrere Dateien zu splitten, indem Sie ausgewählte Folien als neue PPTX‑ oder PPT‑Dateien speichern.
+{{% alert color="info" title="Note" %}}
+Aspose stellt einen kostenlosen [PowerPoint Splitter](https://products.aspose.app/slides/de/splitter) zur Verfügung, der mit der Aspose.Slides‑API erstellt wurde. Er speichert ausgewählte Folien aus einer Präsentation als separate PPT‑ oder PPTX‑Dateien.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Unterstützt "Fast Save" (inkrementelles Speichern), sodass nur Änderungen geschrieben werden?**
+**Unterstützt Aspose.Slides inkrementelles oder „Fast Save“?**
 
-Nein. Beim Speichern wird jedes Mal die gesamte Zieldatei erstellt; inkrementelles "Fast Save" wird nicht unterstützt.
+Nein. Jeder Speicher‑Vorgang schreibt eine komplette Ausgabedatei, anstatt nur die geänderten Teile zu aktualisieren.
 
-**Ist das Speichern der gleichen Presentation‑Instanz aus mehreren Threads thread‑sicher?**
+**Können mehrere Threads dieselbe Presentation‑Instanz speichern?**
 
-Nein. Eine [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/) Instanz [ist nicht thread‑sicher](/slides/de/net/multithreading/); speichern Sie sie aus einem einzelnen Thread.
+Nein. Eine [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/)-Instanz [ist nicht thread‑sicher](/slides/de/net/multithreading/). Greifen Sie pro Instanz nur von einem Thread gleichzeitig zu und speichern Sie sie.
 
-**Was passiert beim Speichern mit Hyperlinks und extern verknüpften Dateien?**
+**Was passiert mit Hyperlinks und extern verknüpften Dateien, wenn ich eine Präsentation speichere?**
 
-[Hyperlinks](/slides/de/net/manage-hyperlinks/) bleiben erhalten. Extern verknüpfte Dateien (z. B. Videos über relative Pfade) werden nicht automatisch kopiert – stellen Sie sicher, dass die referenzierten Pfade weiterhin zugänglich sind.
+[Hyperlinks](/slides/de/net/manage-hyperlinks/) bleiben in der Präsentation erhalten. Aspose.Slides kopiert keine extern verknüpften Dateien, sodass die gespeicherte Präsentation weiterhin Zugriff auf deren Speicherorte haben muss.
 
-**Kann ich Dokumentmetadaten (Autor, Titel, Unternehmen, Datum) setzen/speichern?**
+**Kann ich Dokument‑Metadaten wie Autor, Titel, Unternehmen und Erstellungsdatum speichern?**
 
-Ja. Standard‑[Dokumenteneigenschaften](/slides/de/net/presentation-properties/) werden unterstützt und beim Speichern in die Datei geschrieben.
+Ja. Setzen Sie vor dem Speichern die entsprechenden [Dokument‑Eigenschaften](/slides/de/net/presentation-properties/), und Aspose.Slides schreibt sie in die Ausgabedatei.

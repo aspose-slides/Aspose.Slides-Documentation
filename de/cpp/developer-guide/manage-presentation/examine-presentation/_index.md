@@ -1,5 +1,5 @@
 ---
-title: Präsentationsinformationen in C++ abrufen und aktualisieren
+title: Abrufen und Aktualisieren von Präsentationsinformationen in C++
 linktitle: Präsentationsinformationen
 type: docs
 weight: 30
@@ -25,13 +25,15 @@ description: "Untersuchen Sie Folien, Struktur und Metadaten in PowerPoint- und 
 ---
 ## **Übersicht**
 
-Aspose.Slides kann das Format einer Präsentation identifizieren und die Dokumentmetadaten auslesen, ohne ein vollständiges Präsentationsobjektmodell zu erstellen. Das ist nützlich, wenn Sie Dateien klassifizieren, ein Inventar erstellen oder Eigenschaften prüfen möchten, bevor Sie entscheiden, ob Sie den Präsentationsinhalt laden und verarbeiten.
+Aspose.Slides kann das Format einer Präsentation erkennen und deren Dokumentmetadaten auslesen, ohne ein vollständiges Präsentationsobjektmodell zu erstellen. Das ist nützlich, wenn Sie Dateien klassifizieren, ein Inventar erstellen oder Eigenschaften prüfen möchten, bevor Sie entscheiden, ob der Präsentationsinhalt geladen und verarbeitet werden soll.
 
-Dieser Artikel demonstriert eine leichte Inspektion über [PresentationFactory](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentationfactory/) und [IPresentationInfo](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/), sowie gezielte Aktualisierungen über [IDocumentProperties](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/).
+Dieser Artikel demonstriert die leichte Inspektion über [PresentationFactory](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentationfactory/) und [IPresentationInfo](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/), sowie gezielte Aktualisierungen über [IDocumentProperties](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/).
 
 ## **Prüfen des Präsentationsformats**
 
-Verwenden Sie [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/), um eine Datei zu untersuchen, ohne eine [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Instanz zu erzeugen. Die Methode [IPresentationInfo::get_LoadFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/get_loadformat/) gibt das erkannte Format zurück, z. B. PPTX, PPT oder ODP.
+Wenn Sie bereits eine geladene Präsentation haben, siehe [Determine the Original Presentation Format](/slides/de/cpp/detect-presentation-source-format/) für die Erkennung nach dem Laden und die Einschränkungen von Legacy‑PPT-, PPS‑ und POT‑Streams.
+
+Verwenden Sie [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/), um eine Datei zu inspizieren, ohne ein [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Exemplar zu erstellen. Die Methode [IPresentationInfo::get_LoadFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/get_loadformat/) gibt das erkannte Format zurück, z. B. PPTX, PPT oder ODP.
 
 ```cpp
 #include <DOM/IPresentationInfo.h>
@@ -56,20 +58,20 @@ for (const auto& fileName : fileNames)
 
 ## **Erstellen eines leichten Präsentationsinventars**
 
-Wenn Sie viele Präsentationsdateien verarbeiten, benötigen Sie möglicherweise ein kompaktes Inventar für Validierung, Indexierung oder ein Dokumenten‑Management‑System. In diesem Szenario verwenden Sie [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/), um ein [IPresentationInfo](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/)‑Objekt zu erhalten, und rufen dann [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) auf, um die Dokumentmetadaten zu lesen. Dieser Ansatz erzeugt keine [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Instanz und erfordert nicht das Durchlaufen des gesamten Präsentationsobjektmodells.
+Wenn Sie viele Präsentationsdateien verarbeiten, benötigen Sie möglicherweise ein kompaktes Inventar für Validierung, Indexierung oder ein Dokumenten‑Management‑System. Verwenden Sie in diesem Szenario [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/), um ein [IPresentationInfo](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/)‑Objekt zu erhalten, und rufen Sie dann [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) auf, um die Dokumentmetadaten zu lesen. Dieser Ansatz erstellt kein [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Exemplar und erfordert nicht das Durchlaufen des vollständigen Präsentationsobjektmodells.
 
 Die von [IDocumentProperties](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/) bereitgestellten erweiterten Eigenschaften liefern die folgenden Inventarwerte:
 
 | Methode | Inventarwert |
 | --- | --- |
-| [get_Slides](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_slides/) | Gesamte Anzahl der Folien. |
-| [get_HiddenSlides](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) | Anzahl der ausgeblendeten Folien. |
+| [get_Slides](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_slides/) | Gesamtzahl der Folien. |
+| [get_HiddenSlides](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) | Anzahl versteckter Folien. |
 | [get_Notes](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_notes/) | Anzahl der Folien, die Notizen enthalten. |
-| [get_Paragraphs](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_paragraphs/) | Gesamte Anzahl der Absätze, sofern verfügbar. |
-| [get_Words](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_words/) | Gesamte Wortanzahl. |
-| [get_MultimediaClips](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_multimediaclips/) | Gesamte Anzahl von Audio‑ und Videoclips. |
+| [get_Paragraphs](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_paragraphs/) | Gesamtzahl der Absätze, sofern verfügbar. |
+| [get_Words](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_words/) | Gesamtzahl der Wörter. |
+| [get_MultimediaClips](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_multimediaclips/) | Gesamtzahl von Audio‑ und Video‑Clips. |
 
-Das folgende Beispiel liest diese Werte, ohne ein [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Objekt zu erzeugen, und gibt ein kompaktes Inventar aus. Zusätzlich wird [IDocumentProperties::get_HeadingPairs](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_headingpairs/) mit [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) kombiniert, um Inhaltsgruppen wie Schriftarten, Designs und Folientitel anzuzeigen.
+Das folgende Beispiel liest diese Werte, ohne ein [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Objekt zu erstellen, und gibt ein kompaktes Inventar aus. Außerdem wird [IDocumentProperties::get_HeadingPairs](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_headingpairs/) mit [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) kombiniert, um Inhaltsgruppen wie Schriftarten, Designs und Folientitel anzuzeigen.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -139,27 +141,27 @@ else
 }
 ```
 
-Jedes [IHeadingPair](https://reference.aspose.com/slides/de/cpp/aspose.slides/iheadingpair/) liefert einen Gruppennamen über [IHeadingPair::get_Name](https://reference.aspose.com/slides/de/cpp/aspose.slides/iheadingpair/get_name/) und die Anzahl der Elemente in dieser Gruppe über [IHeadingPair::get_Count](https://reference.aspose.com/slides/de/cpp/aspose.slides/iheadingpair/get_count/). [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) gibt ein flaches, geordnetes Array zurück, sodass Sie die angegebene Anzahl aufeinanderfolgender Titel pro Heading‑Pair konsumieren.
+Jedes [IHeadingPair](https://reference.aspose.com/slides/de/cpp/aspose.slides/iheadingpair/) liefert einen Gruppennamen über [IHeadingPair::get_Name](https://reference.aspose.com/slides/de/cpp/aspose.slides/iheadingpair/get_name/) und die Anzahl der Elemente in dieser Gruppe über [IHeadingPair::get_Count](https://reference.aspose.com/slides/de/cpp/aspose.slides/iheadingpair/get_count/). [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) gibt ein flaches, geordnetes Array zurück, sodass die Anzahl aufeinanderfolgender Titel, die von jedem Heading‑Pair angegeben werden, verarbeitet werden kann.
 
 ### **Gespeicherte Metadaten und Formatbeschränkungen**
 
-Die über [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) zurückgegebenen Inventareigenschaften spiegeln die im Quell‑Document verfügbaren Metadaten wider. Aspose.Slides lädt das Präsentationsobjektmodell nicht und durchläuft es nicht, um diese Werte neu zu berechnen. Fehlende Eigenschaften werden durch Standardwerte dargestellt, und gespeicherte Werte können veraltet sein, wenn die zuletzt speichernde Anwendung die Dokumenteigenschaften nicht aktualisiert hat.
+Die von [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) zurückgegebenen Inventareigenschaften spiegeln die im Quellendokument verfügbaren Metadaten wider. Aspose.Slides lädt und durchläuft das Präsentationsobjektmodell nicht, um diese Werte für diesen Aufruf neu zu berechnen. Fehlende Eigenschaften werden durch Standardwerte dargestellt, und gespeicherte Werte können veraltet sein, wenn die Anwendung, die die Datei zuletzt gespeichert hat, ihre Dokumenteigenschaften nicht aktualisiert hat.
 
-- **PPTX:** Das Format bietet erweiterte Dokumenteigenschaften für Folien‑, Notiz‑, ausgeblendete‑Folien‑, Absatz‑, Wort‑ und Multimediacounts sowie Heading‑Pairs und Part‑Titles. Die Verfügbarkeit hängt davon ab, welche Eigenschaften vom Dokumentersteller geschrieben wurden.
-- **PPT:** Das Binärformat kann entsprechende Dokument‑Zusammenfassungs‑Eigenschaften speichern. Ist eine Eigenschaft nicht vorhanden oder wurde vom Ersteller nicht aktualisiert, gibt Aspose.Slides den gespeicherten bzw. Standardwert zurück, anstatt ihn aus den Folien zu berechnen.
-- **ODP:** OpenDocument‑Metadaten liefern allgemeine Dokumentstatistiken wie Seiten‑, Absatz‑ und Wortzahlen, aber diese Werte lassen sich nicht immer auf jede PowerPoint‑spezifische erweiterte Eigenschaft abbilden. Metadaten zu ausgeblendeten Folien, Notizen‑Folien, Multimedia, Heading‑Pairs und Part‑Titles können fehlen, und die Inventareigenschaften geben ggf. Standardwerte zurück. Ein Null‑Wert oder ein leeres Array sollten nicht als endgültiger Beweis dafür angesehen werden, dass der entsprechende Inhalt fehlt.
+- **PPTX:** Das Format bietet erweiterte Dokumenteigenschaften für Folien-, Notiz‑, versteckte‑Folien‑, Absatz‑, Wort‑ und Multimedia‑Zähler sowie für Heading‑Pairs und Part‑Titles. Die Verfügbarkeit hängt davon ab, welche Eigenschaften vom Dokumentersteller geschrieben wurden.
+- **PPT:** Das Binärformat kann entsprechende Dokument‑Zusammenfassungs‑Eigenschaften speichern. Ist eine Eigenschaft abwesend oder wurde vom Dokumentersteller nicht aktualisiert, gibt Aspose.Slides ihren gespeicherten oder Standardwert zurück, anstatt sie aus den Folien zu berechnen.
+- **ODP:** OpenDocument‑Metadaten bieten allgemeine Dokumentstatistiken wie Seiten‑, Absatz‑ und Wort‑Zähler, aber diese Werte lassen sich nicht auf jede PowerPoint‑spezifische erweiterte Eigenschaft abbilden. Metadaten zu versteckten Folien, Notizen‑Folien, Multimedia, Heading‑Pairs und Part‑Titles können fehlen, und die Inventareigenschaften können Standardwerte zurückgeben. Behandeln Sie weder einen Nullwert noch ein leeres Array als endgültigen Beweis dafür, dass der zugehörige Inhalt fehlt.
 
-Verwenden Sie den leichten Metadaten‑Ansatz für Inventare und Vorprüfungen. Laden Sie die Präsentation und prüfen Sie ihr Live‑Objektmodell, wenn das Ergebnis aktuelle In‑Memory‑Änderungen widerspiegeln muss oder wenn Sie den tatsächlichen Präsentationsinhalt verifizieren wollen.
+Verwenden Sie den leichten Metadaten‑Ansatz für Inventare und Vorprüfungen. Laden Sie die Präsentation und inspizieren Sie ihr Live‑Objektmodell, wenn das Ergebnis In‑Memory‑Änderungen widerspiegeln muss oder wenn Sie den tatsächlichen Präsentationsinhalt verifizieren wollen.
 
-## **Aktualisieren von Präsentationseigenschaften**
+## **Präsentationseigenschaften aktualisieren**
 
-Die über [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) zurückgegebenen Eigenschaften können ebenfalls geändert werden, ohne eine [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Instanz zu erzeugen. Wenden Sie die Änderungen mit [IPresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/updatedocumentproperties/) an und schreiben Sie die gebundene Präsentation mit [IPresentationInfo::WriteBindedPresentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/writebindedpresentation/) zurück.
+Die von [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) zurückgegebenen Eigenschaften können ebenfalls geändert werden, ohne ein [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Exemplar zu erstellen. Wenden Sie die Änderungen mit [IPresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/updatedocumentproperties/) an und schreiben Sie die gebundene Präsentation mit [IPresentationInfo::WriteBindedPresentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/writebindedpresentation/) zurück.
 
 Das folgende Bild zeigt die ursprünglichen Dokumenteigenschaften.
 
 ![Original document properties of the PowerPoint presentation](input_properties.png)
 
-Das folgende Beispiel ändert den Titel und das letzte Speicher‑Datum und schreibt das Ergebnis in eine neue Datei:
+Das folgende Beispiel ändert den Titel und die letzte Speicherzeit und schreibt das Ergebnis in eine neue Datei:
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -189,29 +191,29 @@ Das folgende Bild zeigt die aktualisierten Dokumenteigenschaften.
 
 ## **Nützliche Links**
 
-Für verwandte Sicherheitsprüfungen und Schutz‑Einstellungen siehe die folgenden Artikel:
+Für verwandte Sicherheitsprüfungen und Schutzeinstellungen siehe die folgenden Artikel:
 
 - [Password-Protect Presentations](/slides/de/cpp/password-protected-presentation/)
 - [Write-Protect Presentations](/slides/de/cpp/write-protected-presentation/)
 
 ## **FAQ**
 
-**Wie kann ich prüfen, ob Schriftarten eingebettet sind und welche es sind?**
+**Wie kann ich prüfen, ob Schriften eingebettet sind und welche das sind?**
 
-Laden Sie die Präsentation und verwenden Sie [Presentation::get_FontsManager](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/get_fontsmanager/). Rufen Sie [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/de/cpp/aspose.slides/fontsmanager/getembeddedfonts/) auf, um die eingebetteten Schriftarten zu erhalten, und [FontsManager::GetFonts](https://reference.aspose.com/slides/de/cpp/aspose.slides/fontsmanager/getfonts/), um die von der Präsentation genutzten Schriftarten zu erhalten. Vergleichen Sie beide Ergebnisse, um Schriftarten zu finden, die für die Darstellung erforderlich, aber nicht eingebettet sind.
+Laden Sie die Präsentation und verwenden Sie [Presentation::get_FontsManager](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/get_fontsmanager/). Rufen Sie [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/de/cpp/aspose.slides/fontsmanager/getembeddedfonts/) auf, um die eingebetteten Schriften zu erhalten, und [FontsManager::GetFonts](https://reference.aspose.com/slides/de/cpp/aspose.slides/fontsmanager/getfonts/), um die von der Präsentation verwendeten Schriften zu erhalten. Vergleichen Sie die beiden Ergebnisse, um Schriften zu finden, die zum Rendern benötigt, aber nicht eingebettet sind.
 
-**Wie kann ich schnell feststellen, ob die Datei ausgeblendete Folien enthält und wie viele?**
+**Wie kann ich schnell feststellen, ob die Datei versteckte Folien enthält und wie viele?**
 
-Wenn die gespeicherten Dokumentmetadaten ausreichen, lesen Sie [IDocumentProperties::get_HiddenSlides](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) über [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) und [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/). Dies eignet sich für ein leichtes Inventar. Wenn die Präsentation im Speicher geändert wurde, können die gespeicherten Metadaten fehlen oder veraltet sein. In diesem Fall iterieren Sie über [Presentation::get_Slides](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/get_slides/) und prüfen jede Folie über [Slide::get_Hidden](https://reference.aspose.com/slides/de/cpp/aspose.slides/slide/get_hidden/).
+Wenn die gespeicherten Dokumentmetadaten ausreichen, lesen Sie [IDocumentProperties::get_HiddenSlides](https://reference.aspose.com/slides/de/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) über [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) und [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/). Das ist für ein leichtes Inventar geeignet. Wenn die Präsentation im Speicher geändert wurde, können die gespeicherten Metadaten fehlen oder veraltet sein; in diesem Fall iterieren Sie über [Presentation::get_Slides](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/get_slides/) und prüfen jeweils die Methode [Slide::get_Hidden](https://reference.aspose.com/slides/de/cpp/aspose.slides/slide/get_hidden/).
 
-**Kann ich erkennen, ob eine benutzerdefinierte Foliengröße und -ausrichtung verwendet wird und ob sie von den Vorgaben abweicht?**
+**Kann ich erkennen, ob eine benutzerdefinierte Foliengröße und Orientierung verwendet wird und ob sie von den Vorgaben abweicht?**
 
 Ja. Laden Sie die Präsentation und lesen Sie [Presentation::get_SlideSize](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/get_slidesize/). Prüfen Sie [ISlideSize::get_Type](https://reference.aspose.com/slides/de/cpp/aspose.slides/islidesize/get_type/), [ISlideSize::get_Size](https://reference.aspose.com/slides/de/cpp/aspose.slides/islidesize/get_size/) und [ISlideSize::get_Orientation](https://reference.aspose.com/slides/de/cpp/aspose.slides/islidesize/get_orientation/), um die aktuellen Einstellungen mit den erwarteten Vorgaben und Abmessungen zu vergleichen.
 
-**Gibt es eine schnelle Möglichkeit zu sehen, ob Diagramme externe Datenquellen referenzieren?**
+**Gibt es eine schnelle Möglichkeit zu sehen, ob Diagramme externe Datenquellen verwenden?**
 
-Ja. Durchsuchen Sie jede [Chart](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/chart/) und prüfen Sie [ChartData::get_DataSourceType](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/chartdata/get_datasourcetype/). Für eine externe Arbeitsmappe lesen Sie [ChartData::get_ExternalWorkbookPath](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Der Datentyp und Pfad zeigen eine externe Referenz an, aber die Verfügbarkeit des Ziels muss separat geprüft werden.
+Ja. Finden Sie jedes [Chart](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/chart/) und prüfen Sie [ChartData::get_DataSourceType](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/chartdata/get_datasourcetype/). Bei einer externen Arbeitsmappe lesen Sie [ChartData::get_ExternalWorkbookPath](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). Der Datenquellentyp und Pfad identifizieren eine externe Referenz, aber die Verfügbarkeit des Ziels muss separat geprüft werden.
 
-**Wie kann ich 'schwere' Folien beurteilen, die das Rendern oder den PDF‑Export verlangsamen könnten?**
+**Wie kann ich „schwere“ Folien beurteilen, die das Rendern oder den PDF‑Export verlangsamen könnten?**
 
-Es gibt keine einzelne Komplexitäts‑Eigenschaft. Durchlaufen Sie [Presentation::get_Slides](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/get_slides/) und für jede Folie die Sammlung [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibaseslide/get_shapes/). Nutzen Sie die Form‑Anzahl sowie das Vorhandensein großer Bilder, Effekte, Animationen oder Multimedia als Indikatoren und messen Sie ein repräsentatives Rendering oder Export, bevor Sie eine Folie als bestätigten Leistungsengpass einstufen.
+Es gibt keine einzelne Komplexitäts‑Eigenschaft. Durchlaufen Sie [Presentation::get_Slides](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/get_slides/) und die [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibaseslide/get_shapes/)‑Sammlung jeder Folie. Nutzen Sie die Anzahl der Formen sowie das Vorhandensein großer Bilder, Effekte, Animationen oder Multimedia als Screening‑Signal und messen Sie ein repräsentatives Rendering oder Export, bevor Sie eine Folie als bestätigten Performance‑Engpass einstufen.

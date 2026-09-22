@@ -1,5 +1,5 @@
 ---
-title: Otevření prezentací v JavaScriptu
+title: Otevřít prezentace v JavaScriptu
 linktitle: Otevřít prezentaci
 type: docs
 weight: 20
@@ -21,19 +21,21 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Naučte se, jak v JavaScriptu otevřít prezentace PowerPoint a OpenDocument, zadávat otevírací hesla, řídit načítání zdrojů a snižovat využití paměti pomocí Aspose.Slides pro Node.js přes Java."
+description: "Zjistěte, jak v JavaScriptu otevřít prezentace PowerPoint a OpenDocument, zadat otevírací hesla, řídit načítání zdrojů a snížit využití paměti pomocí Aspose.Slides pro Node.js přes Javu."
 ---
-## **Úvod**
+## **Introduction**
 
-[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/cs/nodejs-java/) může načíst prezentace PowerPoint a OpenDocument ze souborů i proudů. Po načtení prezentace můžete prozkoumat její strukturu, upravit snímky, spravovat prostředky a uložit ji v původním nebo jiném podporovaném formátu.
+Aspose.Slides pro Node.js prostřednictvím Javy dokáže načíst prezentace PowerPoint a OpenDocument ze souborů i proudů. Po načtení prezentace můžete prozkoumat její strukturu, upravovat snímky, spravovat zdroje a uložit ji v původním nebo jiném podporovaném formátu.
 
-Chování načítání lze přizpůsobit pomocí třídy [LoadOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/loadoptions/). Například můžete zadat otevírací heslo, umístit velké binární objekty mimo paměť Node.js, řídit externí zdroje nebo vynechat vložená binární data.
+Chování načítání lze přizpůsobit pomocí třídy LoadOptions. Například můžete zadat otevírací heslo, uchovávat velké binární objekty mimo paměť Node.js, řídit externí zdroje nebo vynechat vložená binární data.
 
-## **Otevření prezentací**
+## **Open Presentations**
 
-Pro otevření existující prezentace předáte její cestu k souboru konstruktoru [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/). Po použití uvolněte prezentaci, aby byly souborové handly, dočasná data a další prostředky rychle uvolněny.
+Po načtení souboru nebo proudu můžete [zjistit jeho původní formát prezentace](/slides/cs/nodejs-java/detect-presentation-source-format/), abyste si vybrali, jak aplikace bude s souborem pracovat.
 
-Následující příklad v JavaScriptu ukazuje, jak otevřít prezentaci a získat počet snímků:
+Chcete-li otevřít existující prezentaci, předáte její cestu k souboru konstruktoru Presentation. Po použití prezentaci uvolněte, aby byly souborové handly, dočasná data a další zdroje okamžitě uvolněny.
+
+Následující JavaScriptový příklad ukazuje, jak otevřít prezentaci a získat počet snímků:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -46,9 +48,9 @@ try {
 }
 ```
 
-## **Otevření prezentací chráněných heslem**
+## **Open Password-Protected Presentations**
 
-Otevírací heslo šifruje obsah prezentace. Pro načtení celé prezentace předáte správné heslo metodě [LoadOptions.setPassword](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/loadoptions/#setPassword) a poskytnete možnosti konstruktoru [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/). Načtení selže, pokud heslo chybí nebo je nesprávné.
+Otevírací heslo šifruje obsah prezentace. Pro načtení celé prezentace předáte správné heslo metodě LoadOptions.setPassword a poskytnete tyto možnosti konstruktoru Presentation. Načítání selže, pokud heslo chybí nebo je nesprávné.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -64,13 +66,13 @@ try {
 }
 ```
 
-Pro detekci hesla, validaci a šifrovací workflow viz [Password-Protect Presentations](/slides/cs/nodejs-java/password-protected-presentation/). Pokud byla šifrovaná prezentace úmyslně uložena s veřejnými vlastnostmi dokumentu, lze tyto vlastnosti přečíst bez hesla; viz [Manage Presentation Properties](/slides/cs/nodejs-java/presentation-properties/).
+Pro detekci hesla, ověřování a šifrovací pracovní postupy viz Password-Protect Presentations. Pokud byla šifrovaná prezentace úmyslně uložena s veřejnými vlastnostmi dokumentu, lze tyto vlastnosti načíst bez hesla; viz Manage Presentation Properties.
 
-## **Otevření velkých prezentací**
+## **Open Large Presentations**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) vrací možnosti, které řídí, jak Aspose.Slides zachází s binárními velkými objekty, jako jsou obrázky, audio a video. Můžete udržet zdrojový soubor zamčený, povolit dočasné soubory a omezit množství BLOB dat uchovávaných v paměti.
+LoadOptions.getBlobManagementOptions vrací možnosti, které řídí, jak Aspose.Slides zachází s binárními velkými objekty, jako jsou obrázky, audio a video. Můžete ponechat zdrojový soubor uzamčený, povolit dočasné soubory a omezit množství BLOB dat uchovávaných v paměti.
 
-Následující kód v JavaScriptu demonstruje načtení velké prezentace (například 2 GB):
+Následující JavaScriptový kód ukazuje načtení velké prezentace (například 2 GB):
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -91,15 +93,15 @@ try {
 }
 ```
 
-{{% alert color="info" title="Poznámka" %}}
-S [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentationlockingbehavior/#KeepLocked) zůstane zdrojový soubor zamčený až do uvolnění instance prezentace. Nepřesouvejte, nepřepisujte ani nesmažte zdrojový soubor, dokud je tato instance aktivní.
+{{% alert color="info" title="Note" %}}
+S PresentationLockingBehavior.KeepLocked zůstává zdrojový soubor uzamčený, dokud není instance Presentation uvolněna. Nezahrnujte, nepřepisujte ani neodstraňujte zdrojový soubor, dokud je tato instance aktivní.
 
-Aspose.Slides může během načítání zkopírovat obsah vstupního proudu. U velkých prezentací je proto obecně efektivnější použít cestu k souboru místo proudu. Další možnosti úložiště a správy paměti najdete v [Manage BLOBs](/slides/cs/nodejs-java/manage-blob/).
+Aspose.Slides může při načítání zkopírovat obsah vstupního proudu. U velkých prezentací je proto cesta k souboru obecně efektivnější než proud. Viz Manage BLOBs pro další možnosti úložiště a správy paměti.
 {{% /alert %}}
 
-## **Řízení externích zdrojů**
+## **Control External Resources**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/loadoptions/#setResourceLoadingCallback) přijímá implementaci [IResourceLoadingCallback](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iresourceloadingcallback/). Callback může dodat náhradní data, přesměrovat zdroj, použít výchozí načítač nebo zdroj přeskočit. To je užitečné, když prezentace obsahují externí obrázky, které je třeba řešit podle specifických bezpečnostních nebo úložných pravidel aplikace.
+LoadOptions.setResourceLoadingCallback přijímá implementaci IResourceLoadingCallback. Callback může poskytnout náhradní data, přesměrovat zdroj, použít výchozí načítač nebo zdroj přeskočit. To je užitečné, když prezentace obsahují externí obrázky, které je nutné vyřešit podle specifických bezpečnostních či úložných pravidel aplikace.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -136,17 +138,17 @@ try {
 }
 ```
 
-## **Načítání prezentací bez vložených binárních objektů**
+## **Load Presentations without Embedded Binary Objects**
 
-Prezentace může obsahovat vložená binární data, která aplikace nepotřebuje nebo nechce uchovávat. Příklady zahrnují:
+Prezentace může obsahovat vložená binární data, která aplikace nepotřebuje nebo nechce zachovat. Příklady zahrnují:
 
-- VBA projekty, dostupné přes [Presentation.getVbaProject](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/#getVbaProject);
-- vložená OLE data, dostupná přes [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
-- data ovládacích prvků ActiveX, dostupná přes [Control.getActiveXControlBinary](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/control/#getActiveXControlBinary).
+- VBA projekty, dostupné přes Presentation.getVbaProject;
+- vložená data OLE, dostupná přes OleEmbeddedDataInfo.getEmbeddedFileData;
+- data ActiveX ovládacích prvků, dostupná přes Control.getActiveXControlBinary.
 
-Nastavte [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) na `true`, aby se tato binární data při načítání odstranila. Uložte načtenou prezentaci, abyste zachovali vyčištěný výsledek.
+Nastavte LoadOptions.setDeleteEmbeddedBinaryObjects na `true`, aby byla tato binární data při načítání odstraněna. Uložte načtenou prezentaci, aby byl sanitizovaný výsledek zachován.
 
-Tato možnost snižuje riziko nežádoucích vložených nákladů, avšak nejde o úplný systém detekce malwaru či sanitizace obsahu.
+Tato volba snižuje riziko nežádoucích vložených nákladů, avšak nejde o kompletní systém pro detekci malwaru nebo sanitaci obsahu.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -162,16 +164,16 @@ try {
 }
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
 **Jak zjistím, že je soubor poškozený a nelze jej otevřít?**
 
-Aspose.Slides během načítání vyhodí výjimku parsování nebo formátu. Zpracujte toto selhání odděleně od chyby nesprávného hesla, aby aplikace mohla přesně hlásit příčinu.
+Aspose.Slides během načítání vyhodí výjimku parsování nebo formátu. Tuto chybu ošetřete odděleně od chyby nesprávného hesla, aby aplikace mohla přesně nahlásit příčinu.
 
-**Co se stane, když chybí požadovaná písma?**
+**Co se stane, pokud chybí požadované fonty?**
 
-Prezentace se stále načte, ale při vykreslování a exportu může dojít k substituci písem. Můžete [konfigurovat substituci písem](/slides/cs/nodejs-java/font-substitution/) nebo [poskytnout vlastní písma](/slides/cs/nodejs-java/custom-font/), aby byl výstup předvídatelnější.
+Prezentace se i přesto načte, ale při vykreslování a exportu mohou být fonty nahrazeny. Můžete [configure font substitution](/slides/cs/nodejs-java/font-substitution/) nebo [provide custom fonts](/slides/cs/nodejs-java/custom-font/) pro předvídatelnější výstup.
 
-**Načítá se při načtení prezentace také její vložená média?**
+**Načítá se při načítání prezentace také její vložená média?**
 
 Vložené audio a video jsou dostupné prostřednictvím objektového modelu prezentace. Externí zdroje jsou řešeny podle nastaveného chování načítání zdrojů a mohou být nedostupné, pokud jejich umístění není přístupné.

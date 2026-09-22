@@ -7,11 +7,11 @@ url: /ar/cpp/open-presentation/
 keywords:
 - فتح PowerPoint
 - فتح OpenDocument
-- فتح العرض
+- فتح عرض
 - فتح PPTX
 - فتح PPT
 - فتح ODP
-- تحميل العرض
+- تحميل عرض
 - تحميل PPTX
 - تحميل PPT
 - تحميل ODP
@@ -21,19 +21,21 @@ keywords:
 - كائن ثنائي
 - C++
 - Aspose.Slides
-description: "تعلم كيفية فتح عروض PowerPoint و OpenDocument في C++، توفير كلمات مرور للفتح، التحكم في تحميل الموارد، وتقليل استخدام الذاكرة باستخدام Aspose.Slides for C++."
+description: "تعلم كيفية فتح عروض PowerPoint و OpenDocument في C++، وتوفير كلمات مرور الفتح، والتحكم في تحميل الموارد، وتقليل استخدام الذاكرة باستخدام Aspose.Slides لـ C++."
 ---
 ## **المقدمة**
 
-[Aspose.Slides for C++](https://products.aspose.com/slides/ar/cpp/) يمكنه تحميل عروض PowerPoint و OpenDocument من الملفات وتدفقات البيانات. بعد تحميل العرض، يمكنك فحص هيكله، تعديل الشرائح، إدارة الموارد، وحفظه بالتنسيق الأصلي أو بأي تنسيق مدعوم آخر.
+[Aspose.Slides for C++](https://products.aspose.com/slides/ar/cpp/) يمكنه تحميل عروض PowerPoint وOpenDocument من الملفات والتدفقات. بعد تحميل العرض، يمكنك فحص هيكله، تعديل الشرائح، إدارة الموارد، وحفظه بالتنسيق الأصلي أو أي تنسيق مدعوم آخر.
 
-يمكن تخصيص سلوك التحميل عبر صنف [LoadOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides/loadoptions/). على سبيل المثال، يمكنك توفير كلمة مرور للفتح، إبقاء الكائنات الثنائية الكبيرة خارج الذاكرة، التحكم في الموارد الخارجية، أو حذف البيانات الثنائية المدمجة.
+يمكن تخصيص سلوك التحميل من خلال فئة [LoadOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides/loadoptions/). على سبيل المثال، يمكنك تزويده بكلمة مرور الفتح، إبقاء الكائنات الثنائية الكبيرة خارج الذاكرة، التحكم في الموارد الخارجية، أو حذف البيانات الثنائية المضمنة.
 
 ## **فتح العروض**
 
-لفتح عرض موجود، مرّر مسار الملف إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/). حرّر (Dispose) العرض بعد الاستخدام لكي يتم تحرير مؤشرات الملفات والبيانات المؤقتة وغيرها من الموارد بسرعة.
+بعد تحميل ملف أو تدفق، يمكنك [تحديد تنسيق العرض الأصلي](/slides/ar/cpp/detect-presentation-source-format/) لاختيار طريقة معالجة التطبيق له.
 
-يعرض المثال التالي بلغة C++ كيفية فتح عرض والحصول على عدد الشرائح:
+لفتح عرض موجود، مرّر مسار ملفه إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/). قم بتحرير العرض بعد الاستخدام حتى يتم تحرير مقبض الملف والبيانات المؤقتة وغيرها من الموارد بسرعة.
+
+يوضح المثال التالي بلغة C++ كيفية فتح عرض والحصول على عدد الشرائح فيه:
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -52,7 +54,7 @@ presentation->Dispose();
 
 ## **فتح العروض المحمية بكلمة مرور**
 
-كلمة المرور عند الفتح تقوم بتشفير محتوى العرض. لتحميل العرض بالكامل، مرّر كلمة المرور الصحيحة إلى [LoadOptions::set_Password](https://reference.aspose.com/slides/ar/cpp/aspose.slides/loadoptions/set_password/) ومرّر الخيارات إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/). سيفشل التحميل إذا كانت كلمة المرور مفقودة أو غير صحيحة.
+كلمة مرور الفتح تشفر محتوى العرض. لتحميل العرض بالكامل، مرّر كلمة المرور الصحيحة إلى [LoadOptions::set_Password](https://reference.aspose.com/slides/ar/cpp/aspose.slides/loadoptions/set_password/) ومرّر الخيارات إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/). سيفشل التحميل إذا كانت كلمة المرور مفقودة أو غير صحيحة.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -73,13 +75,13 @@ Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count())
 presentation->Dispose();
 ```
 
-لقواعد اكتشاف كلمة المرور، والتحقق منها، وسير عمل التشفير، راجع [Password-Protect Presentations](/slides/ar/cpp/password-protected-presentation/). إذا تم حفظ عرض مشفر مع خصائص المستند العامة عن قصد، يمكن قراءة تلك الخصائص بدون كلمة مرور؛ راجع [Manage Presentation Properties](/slides/ar/cpp/presentation-properties/).
+للتعرف على كلمة المرور، التحقق، وسير عمل التشفير، راجع [Password-Protect Presentations](/slides/ar/cpp/password-protected-presentation/). إذا تم حفظ عرض مشفر مع خصائص مستند عامة عمدًا، يمكن قراءة تلك الخصائص بدون كلمة مرور؛ انظر [Manage Presentation Properties](/slides/ar/cpp/presentation-properties/).
 
 ## **فتح العروض الكبيرة**
 
-[LoadOptions::get_BlobManagementOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) يتحكم في كيفية تعامل Aspose.Slides مع الكائنات الثنائية الكبيرة مثل الصور، الصوت، والفيديو. يمكنك إبقاء ملف المصدر مقفلًا، السماح بالملفات المؤقتة، وتحديد كمية بيانات BLOB التي تُحتفظ في الذاكرة.
+[LoadOptions::get_BlobManagementOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) يتحكم في طريقة معالجة Aspose.Slides للكائنات الثنائية الكبيرة مثل الصور والصوت والفيديو. يمكنك إبقاء ملف المصدر مقفولًا، السماح بإنشاء ملفات مؤقتة، وتقييد كمية بيانات BLOB المحتفظ بها في الذاكرة.
 
-يعرض الكود التالي بلغة C++ كيفية تحميل عرض كبير (مثلاً 2 جيجابايت):
+يوضح الكود التالي بلغة C++ طريقة تحميل عرض كبير (على سبيل المثال، 2 جيجابايت):
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -110,16 +112,14 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
+مع `PresentationLockingBehavior::KeepLocked` يبقى ملف المصدر مقفولًا حتى يتم تحرير كائن `Presentation`. لا تقم بنقل أو استبدال أو حذف ملف المصدر أثناء بقاء هذا الكائن حيًا.
 
-مع `PresentationLockingBehavior::KeepLocked`، يظل ملف المصدر مقفلًا حتى يتم تحرير كائن `Presentation`. لا تقم بنقل أو استبدال أو حذف ملف المصدر أثناء بقاء هذا الكائن حيًا.
-
-قد يقوم Aspose.Slides بنسخ محتويات تدفق الإدخال أثناء تحميله. بالنسبة للعروض الكبيرة، يكون مسار الملف أكثر كفاءة عادةً من التدفق. راجع [Manage BLOBs](/slides/ar/cpp/manage-blob/) للحصول على خيارات إضافية للتخزين وإدارة الذاكرة.
-
+قد تقوم Aspose.Slides بنسخ محتويات تدفق الإدخال أثناء تحميله. بالنسبة للعروض الكبيرة، يكون مسار الملف عادة أكثر كفاءة من التدفق. راجع [Manage BLOBs](/slides/ar/cpp/manage-blob/) للحصول على خيارات إضافية لتخزين وإدارة الذاكرة.
 {{% /alert %}}
 
 ## **التحكم في الموارد الخارجية**
 
-[LoadOptions::set_ResourceLoadingCallback](https://reference.aspose.com/slides/ar/cpp/aspose.slides/loadoptions/set_resourceloadingcallback/) يقبل تنفيذًا لـ [IResourceLoadingCallback](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iresourceloadingcallback/). يمكن للرد المنادى (callback) توفير بيانات بديلة، إعادة توجيه مورد، استخدام أداة التحميل الافتراضية، أو تخطي المورد. هذا مفيد عندما تحتوي العروض على صور خارجية يجب حلها وفقًا لقواعد الأمان أو التخزين الخاصة بالتطبيق.
+[LoadOptions::set_ResourceLoadingCallback](https://reference.aspose.com/slides/ar/cpp/aspose.slides/loadoptions/set_resourceloadingcallback/) يقبل تنفيذًا لـ [IResourceLoadingCallback](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iresourceloadingcallback/). يمكن للنداء العكسي تزويد بيانات بديلة، إعادة توجيه مورد، استخدام المحمل الافتراضي، أو تخطي المورد. هذا مفيد عندما تحتوي العروض على صور خارجية يجب حلها وفقًا لقواعد الأمان أو التخزين المحددة من قبل التطبيق.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -162,17 +162,17 @@ Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count())
 presentation->Dispose();
 ```
 
-## **تحميل العروض دون كائنات ثنائية مدمجة**
+## **تحميل العروض دون الكائنات الثنائية المضمنة**
 
-قد يحتوي العرض على بيانات ثنائية مدمجة لا يحتاجها التطبيق أو لا يرغب في الاحتفاظ بها. تشمل الأمثلة:
+قد يحتوي العرض على بيانات ثنائية مدمجة لا يحتاجها التطبيق أو لا يرغب في الاحتفاظ بها. من الأمثلة:
 
-- مشاريع VBA، المتاحة عبر [IPresentation::get_VbaProject](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/get_vbaproject/);
-- بيانات OLE مدمجة، المتاحة عبر [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/);
-- بيانات تحكم ActiveX، المتاحة عبر [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icontrol/get_activexcontrolbinary/).
+- مشروعات VBA، متاحة عبر [IPresentation::get_VbaProject](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/get_vbaproject/)؛
+- بيانات OLE المدمجة، متاحة عبر [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/)؛
+- بيانات عناصر التحكم ActiveX، متاحة عبر [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icontrol/get_activexcontrolbinary/)؛
 
 مرّر `true` إلى [LoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ar/cpp/aspose.slides/loadoptions/set_deleteembeddedbinaryobjects/) لإزالة هذه البيانات الثنائية أثناء التحميل. احفظ العرض المحمل لتثبيت النتيجة المنقاة.
 
-يقلل هذا الخيار من التعرض للحمولات المدمجة غير المرغوب فيها، لكنه ليس نظامًا كاملاً لاكتشاف البرامج الضارة أو تنقية المحتوى.
+هذا الخيار يقلل من التعرض للحمولات المدمجة غير المرغوب فيها، لكنه ليس نظامًا كاملاً لاكتشاف البرمجيات الخبيثة أو تنقية المحتوى.
 
 ```cpp
 #include <DOM/LoadOptions.h>
@@ -193,16 +193,16 @@ presentation->Save(u"presentation-without-embedded-data.pptx", SaveFormat::Pptx)
 presentation->Dispose();
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
 **كيف يمكنني معرفة أن الملف تالف ولا يمكن فتحه؟**
 
-يقوم Aspose.Slides برمي استثناء تحليل أو تنسيق أثناء التحميل. تعامل مع هذا الفشل بشكل منفصل عن خطأ كلمة المرور غير الصحيحة حتى يتمكن التطبيق من الإبلاغ عن السبب بدقة.
+تطرح Aspose.Slides استثناءً يتعلق بالتحليل أو التنسيق أثناء التحميل. عالج هذا الفشل منفصلًا عن خطأ كلمة المرور الخاطئة حتى يتمكن التطبيق من الإبلاغ عن السبب بدقة.
 
 **ماذا يحدث إذا كانت الخطوط المطلوبة مفقودة؟**
 
-لا يزال بإمكان العرض التحميل، لكن قد يتم استبدال الخطوط أثناء العرض والتصدير. يمكنك تكوين استبدال الخطوط أو توفير خطوط مخصصة لجعل الناتج أكثر توقعًا.
+لا يزال بالإمكان تحميل العرض، لكن قد يتم استبدال الخطوط أثناء العرض والتصدير. يمكنك [تكوين استبدال الخطوط](/slides/ar/cpp/font-substitution/) أو [توفير خطوط مخصصة](/slides/ar/cpp/custom-font/) لجعل الإخراج أكثر توقعًا.
 
-**هل يقوم تحميل العرض أيضًا بتحميل الوسائط المدمجة؟**
+**هل تحميل العرض يحمل أيضًا وسائطه المدمجة؟**
 
-تصبح ملفات الصوت والفيديو المدمجة متاحة عبر نموذج كائن العرض. يتم حل الموارد الخارجية وفقًا لسلوك تحميل الموارد المُكوَّن وقد تكون غير متاحة إذا لم يمكن الوصول إلى مواقعها.
+تصبح ملفات الصوت والفيديو المدمجة متاحة عبر نموذج كائن العرض. تُحل الموارد الخارجية وفقًا لسلوك تحميل الموارد المُكوَّن وقد تكون غير متاحة إذا تعذّر الوصول إلى مواقعها.

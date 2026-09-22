@@ -1,38 +1,40 @@
 ---
-title: Java'da Sunumları Aç
-linktitle: Sunum Aç
+title: Java'da Sunumları Açma
+linktitle: Sunumu Aç
 type: docs
 weight: 20
 url: /tr/java/open-presentation/
 keywords:
 - PowerPoint Aç
-- Sunumu Aç
+- Sunum Aç
 - PPTX Aç
 - PPT Aç
 - ODP Aç
-- Sunumu Yükle
+- Sunum Yükle
 - PPTX Yükle
 - PPT Yükle
 - ODP Yükle
-- Koruma Altındaki Sunum
+- Korunan Sunum
 - Büyük Sunum
 - Harici Kaynak
 - İkili Nesne
 - Java
 - Aspose.Slides
-description: "Java'da PowerPoint ve OpenDocument sunumlarını nasıl açacağınızı, açma şifrelerini nasıl sağlayacağınızı, kaynak yüklemeyi nasıl kontrol edeceğinizi ve Aspose.Slides for Java ile bellek kullanımını nasıl azaltacağınızı öğrenin."
+description: "Java’da PowerPoint ve OpenDocument sunumlarını nasıl açacağınızı, açma şifreleri sağlayarak, kaynak yüklemeyi kontrol ederek ve Aspose.Slides for Java ile bellek kullanımını nasıl azaltacağınızı öğrenin."
 ---
 ## **Giriş**
 
-[Aspose.Slides for Java](https://products.aspose.com/slides/tr/java/) PowerPoint ve OpenDocument sunumlarını dosyalardan ve akışlardan yükleyebilir. Bir sunum yüklendikten sonra, yapısını inceleyebilir, slaytları düzenleyebilir, kaynakları yönetebilir ve orijinal ya da başka desteklenen bir formatta kaydedebilirsiniz.
+[Aspose.Slides for Java](https://products.aspose.com/slides/tr/java/) dosyalar ve akışlar üzerinden PowerPoint ve OpenDocument sunumlarını yükleyebilir. Bir sunum yüklendikten sonra yapısını inceleyebilir, slaytları düzenleyebilir, kaynakları yönetebilir ve orijinal ya da başka bir desteklenen formatta kaydedebilirsiniz.
 
-Yükleme davranışı, [LoadOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/loadoptions/) sınıfı aracılığıyla özelleştirilebilir. Örneğin, açma şifresi sağlayabilir, büyük ikili nesneleri Java yığın belleği dışında tutabilir, harici kaynakları kontrol edebilir veya yerleşik ikili verileri atlayabilirsiniz.
+Yükleme davranışı, [LoadOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/loadoptions/) sınıfı aracılığıyla özelleştirilebilir. Örneğin bir açma şifresi sağlayabilir, büyük ikili nesneleri Java yığın belleği dışında tutabilir, dış kaynakları kontrol edebilir veya gömülü ikili verileri atlayabilirsiniz.
 
-## **Sunumları Aç**
+## **Sunumları Açma**
 
-Mevcut bir sunumu açmak için, dosya yolunu [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) yapıcısına iletin. Sunumu kullandıktan sonra dosya tutucularının, geçici verilerin ve diğer kaynakların hızlı bir şekilde serbest bırakılması için nesneyi serbest bırakın.
+Bir dosya ya da akış yüklendikten sonra, uygulamanızın nasıl işleyeceğini belirlemek için [orijinal sunum formatını belirleyin](/slides/tr/java/detect-presentation-source-format/).
 
-Aşağıdaki Java örneği, bir sunumu nasıl açıp slayt sayısını alacağınızı gösterir:
+Mevcut bir sunumu açmak için dosya yolunu [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) yapıcısına geçirin. Dosya tutamaçları, geçici veriler ve diğer kaynakların derhal serbest bırakılması için sunumu kullandıktan sonra serbest bırakın.
+
+Aşağıdaki Java örneği bir sunumu nasıl açıp slayt sayısını alacağınızı gösterir:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -45,9 +47,9 @@ try {
 }
 ```
 
-## **Şifre Koruması Olan Sunumları Aç**
+## **Şifre Koruması Olan Sunumları Açma**
 
-Açma şifresi, sunum içeriğini şifreler. Sunumu tamamen yüklemek için doğru şifreyi [LoadOptions.setPassword](https://reference.aspose.com/slides/tr/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) yöntemine iletin ve seçenekleri [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) yapıcısına sağlayın. Şifre eksik ya da yanlış olduğunda yükleme başarısız olur.
+Açma şifresi, sunum içeriğini şifreler. Tam sunumu yüklemek için doğru şifreyi [LoadOptions.setPassword](https://reference.aspose.com/slides/tr/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) metoduna geçirin ve seçenekleri [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) yapıcısına sağlayın. Şifre eksik veya hatalı olduğunda yükleme başarısız olur.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -64,13 +66,13 @@ try {
 }
 ```
 
-Şifre algılama, doğrulama ve şifreleme iş akışları için [Password-Protect Presentations](/slides/tr/java/password-protected-presentation/) sayfasına bakın. Şifreli bir sunum, bilinçli olarak genel belge özellikleriyle kaydedildiyse, bu özellikler şifre olmadan okunabilir; ayrıntılar için [Manage Presentation Properties](/slides/tr/java/presentation-properties/) sayfasına bakın.
+Şifre algılama, doğrulama ve şifreleme iş akışları için [Sunumları Şifreyle Koruma](/slides/tr/java/password-protected-presentation/) bölümüne bakın. Şifrelenmiş bir sunum, kasıtlı olarak genel belge özellikleriyle kaydedildiyse, bu özellikler şifresiz olarak okunabilir; ayrıntılar için [Sunum Özelliklerini Yönetme](/slides/tr/java/presentation-properties/) bölümüne bakın.
 
-## **Büyük Sunumları Aç**
+## **Büyük Sunumları Açma**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) görüntüler, ses ve video gibi büyük ikili nesnelerin nasıl işleneceğini kontrol eden seçenekleri döndürür. Kaynak dosyayı kilitli tutabilir, geçici dosyalara izin verebilir ve bellekte tutulacak BLOB verisinin miktarını sınırlayabilirsiniz.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) yöntemi, Aspose.Slides’ın resimler, ses ve video gibi büyük ikili nesneleri nasıl yöneteceğini kontrol eden seçenekleri döndürür. Kaynak dosyayı kilitli tutabilir, geçici dosyalara izin verebilir ve bellekte tutulan BLOB verisinin miktarını sınırlayabilirsiniz.
 
-Aşağıdaki Java kodu, büyük bir sunumu (örneğin 2 GB) yüklemeyi gösterir:
+Aşağıdaki Java kodu büyük bir sunumu (örneğin 2 GB) nasıl yükleyeceğinizi gösterir:
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -95,16 +97,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
+[PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked) kullanıldığında, kaynak dosya sunum örneği serbest bırakılana kadar kilitli kalır. Bu örnek yaşamaktadırken dosyayı taşımayın, üzerine yazmayın veya silmeyin.
 
-[PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked) kullanıldığında, kaynak dosya sunum örneği serbest bırakılana kadar kilitli kalır. Bu örnek hayatta olduğu sürece kaynak dosyayı taşıma, üzerine yazma veya silme yapmayın.
-
-Aspose.Slides, yükleme sırasında bir giriş akışının içeriğini kopyalayabilir. Büyük sunumlar için dosya yolu, genellikle akışa göre daha verimlidir. Ek depolama ve bellek yönetimi seçenekleri için [Manage BLOBs](/slides/tr/java/manage-blob/) sayfasına bakın.
-
+Aspose.Slides, yükleme sırasında bir giriş akışının içeriğini kopyalayabilir. Büyük sunumlar için dosya yolu, akışa göre genellikle daha verimlidir. Ek depolama ve bellek yönetimi seçenekleri için [BLOB’ları Yönetme](/slides/tr/java/manage-blob/) bölümüne bakın.
 {{% /alert %}}
 
-## **Harici Kaynakları Kontrol Et**
+## **Harici Kaynakları Kontrol Etme**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) bir [IResourceLoadingCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iresourceloadingcallback/) uygulaması kabul eder. Geri arama, yedek veri sağlayabilir, bir kaynağı yeniden yönlendirebilir, varsayılan yükleyiciyi kullanabilir veya kaynağı atlayabilir. Bu, sunumların uygulamaya özgü güvenlik veya depolama kurallarına göre çözülmesi gereken harici görseller içerdiği durumlarda kullanışlıdır.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) metodu, bir [IResourceLoadingCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iresourceloadingcallback/) uygulaması kabul eder. Geri arama, değiştirme verisi sağlayabilir, bir kaynağı yönlendirebilir, varsayılan yükleyiciyi kullanabilir veya kaynağı atlayabilir. Bu, sunumların uygulamaya özgü güvenlik veya depolama kurallarına göre çözülmesi gereken dış görüntüler içermesi durumunda faydalıdır.
 
 ```java
 import com.aspose.slides.IResourceLoadingArgs;
@@ -148,17 +148,17 @@ try {
 }
 ```
 
-## **Yerleşik İkili Nesneler Olmadan Sunumları Yükle**
+## **Gömülü İkili Nesneler Olmadan Sunumları Yükleme**
 
-Bir sunum, uygulamanın ihtiyaç duymadığı veya tutmak istemediği yerleşik ikili veri içerebilir. Örnekler:
+Bir sunum, uygulamanın ihtiyaç duymadığı veya tutmak istemediği gömülü ikili veriler içerebilir. Örnekler:
 
 - VBA projeleri, [IPresentation.getVbaProject](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentation/#getVbaProject--) aracılığıyla erişilebilir;
-- yerleşik OLE verileri, [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--) aracılığıyla erişilebilir;
-- ActiveX kontrol verileri, [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icontrol/#getActiveXControlBinary--) aracılığıyla erişilebilir.
+- gömülü OLE verileri, [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--) aracılığıyla erişilebilir;
+- ActiveX denetim verileri, [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icontrol/#getActiveXControlBinary--) aracılığıyla erişilebilir.
 
-[LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/tr/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) seçeneğini `true` olarak ayarladığınızda, bu ikili veri yükleme sırasında silinir. Temizlenmiş sonucu kalıcı hâle getirmek için yüklenen sunumu kaydedin.
+[LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/tr/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) seçeneğini `true` olarak ayarlayın; bu, yükleme sırasında bu ikili verileri kaldırır. Temizlenmiş sonucu kalıcı hâle getirmek için yüklü sunumu kaydedin.
 
-Bu seçenek, istenmeyen yerleşik yükleri azaltır, ancak tam bir kötü amaçlı yazılım tespiti veya içerik temizleme sistemi değildir.
+Bu seçenek istenmeyen gömülü yükleri azaltır, ancak tam bir kötü amaçlı yazılım tespit veya içerik temizleme sistemi değildir.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -178,14 +178,11 @@ try {
 
 ## **SSS**
 
-**Bir dosyanın bozuk olduğunu ve açılamadığını nasıl anlayabilirim?**
+**Bir dosyanın bozuk olduğunu ve açılamadığını nasıl anlayabilirim?**  
+Aspose.Slides, yükleme sırasında bir ayrıştırma veya format istisnası fırlatır. Bu hatayı, hatalı şifre hatasından ayrı olarak ele alın; böylece uygulama nedeni doğru bir şekilde raporlayabilir.
 
-[Aspose.Slides](https://products.aspose.com/slides/tr/java/), yükleme sırasında bir ayrıştırma veya format istisnası fırlatır. Bu hatayı, yanlış şifre hatasından ayrı şekilde ele alın, böylece uygulama nedeni doğru şekilde raporlayabilir.
+**Gerekli yazı tipleri eksik olursa ne olur?**  
+Sunum yine de yüklenebilir, ancak render ve dışa aktarma sırasında yazı tipleri değiştirilebilir. Çıktıyı daha öngörülebilir hâle getirmek için [yazı tipi ikamesini yapılandırın](/slides/tr/java/font-substitution/) veya [özel yazı tipleri sağlayın](/slides/tr/java/custom-font/).
 
-**Gerekli fontlar eksik olduğunda ne olur?**
-
-Sunum hâlâ yüklenebilir, fakat render ve dışa aktarma sırasında fontlar değiştirilebilir. Çıktıyı daha öngörülebilir hâle getirmek için [font ikamesi yapılandırmasını](/slides/tr/java/font-substitution/) yapabilir veya [özel fontlar](/slides/tr/java/custom-font/) sağlayabilirsiniz.
-
-**Bir sunumu yüklemek, yerleşik medyasını da yükler mi?**
-
-Yerleşik ses ve video, sunum nesne modeli aracılığıyla kullanılabilir hâle gelir. Harici kaynaklar, yapılandırılmış kaynak‑yükleme davranışına göre çözülür ve konumlarına erişilemezse kullanılamaz olabilir.
+**Bir sunumu yüklemek, gömülü medyasını da yüklüyor mu?**  
+Gömülü ses ve video, sunum nesne modeli aracılığıyla erişilebilir hale gelir. Dış kaynaklar, yapılandırılmış kaynak‑yükleme davranışına göre çözülür ve konumlarına erişilemezse bulunamaz.

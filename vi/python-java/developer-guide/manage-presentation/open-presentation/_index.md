@@ -1,39 +1,41 @@
 ---
-title: Mở Bản Trình Chiếu trong Python qua Java
-linktitle: Mở Bản Trình Chiếu
+title: Mở các bản trình bày trong Python qua Java
+linktitle: Mở Bản Trình Bày
 type: docs
 weight: 20
 url: /vi/python-java/open-presentation/
 keywords:
-- mở PowerPoint
-- mở bản trình chiếu
-- mở PPTX
-- mở PPT
-- mở ODP
-- tải bản trình chiếu
-- tải PPTX
-- tải PPT
-- tải ODP
-- bản trình chiếu được bảo vệ
-- bản trình chiếu lớn
-- tài nguyên bên ngoài
-- đối tượng nhị phân
+- Mở PowerPoint
+- Mở bản trình bày
+- Mở PPTX
+- Mở PPT
+- Mở ODP
+- Tải bản trình bày
+- Tải PPTX
+- Tải PPT
+- Tải ODP
+- Bản trình bày được bảo vệ
+- Bản trình bày lớn
+- Tài nguyên bên ngoài
+- Đối tượng nhị phân
 - Python
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách mở các bản trình chiếu PowerPoint và OpenDocument trong Python qua Java, cung cấp mật khẩu mở, kiểm soát việc tải tài nguyên, và giảm việc sử dụng bộ nhớ với Aspose.Slides cho Python qua Java."
+description: "Tìm hiểu cách mở các bản trình bày PowerPoint và OpenDocument trong Python qua Java, cung cấp mật khẩu mở, kiểm soát tải tài nguyên và giảm việc sử dụng bộ nhớ với Aspose.Slides cho Python qua Java."
 ---
 ## **Giới thiệu**
 
-[Aspose.Slides for Python via Java](https://products.aspose.com/slides/vi/python-java/) có thể tải các bản trình chiếu PowerPoint và OpenDocument từ tệp và luồng. Sau khi bản trình chiếu được tải, bạn có thể kiểm tra cấu trúc, chỉnh sửa các slide, quản lý tài nguyên và lưu nó ở định dạng gốc hoặc định dạng hỗ trợ khác.
+[Aspose.Slides for Python via Java](https://products.aspose.com/slides/vi/python-java/) có thể tải các bản trình bày PowerPoint và OpenDocument từ tệp và luồng. Sau khi một bản trình bày được tải, bạn có thể kiểm tra cấu trúc, chỉnh sửa slide, quản lý tài nguyên và lưu nó ở định dạng gốc hoặc định dạng hỗ trợ khác.
 
-Hành vi tải có thể được tùy chỉnh thông qua lớp [LoadOptions](https://reference.aspose.com/slides/vi/python-java/aspose.slides/loadoptions/). Ví dụ, bạn có thể cung cấp mật khẩu mở, giữ các đối tượng nhị phân lớn ngoài bộ nhớ heap Java, kiểm soát tài nguyên bên ngoài, hoặc bỏ qua dữ liệu nhị phân được nhúng.
+Hành vi tải có thể được tùy chỉnh thông qua lớp [LoadOptions](https://reference.aspose.com/slides/vi/python-java/aspose.slides/loadoptions/). Ví dụ, bạn có thể cung cấp mật khẩu mở, giữ các đối tượng nhị phân lớn ngoài bộ nhớ heap của Java, kiểm soát tài nguyên bên ngoài, hoặc bỏ qua dữ liệu nhị phân được nhúng.
 
-## **Mở Bản Trình Chiếu**
+## **Mở bản trình bày**
 
-Để mở một bản trình chiếu hiện có, truyền đường dẫn tệp của nó vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/). Giải phóng bản trình chiếu sau khi sử dụng để các trình xử lý tệp, dữ liệu tạm thời và các tài nguyên khác được giải phóng kịp thời.
+Sau khi tải tệp hoặc luồng, bạn có thể [xác định định dạng bản trình bày gốc](/slides/vi/python-java/detect-presentation-source-format/) để chọn cách ứng dụng của bạn xử lý nó.
 
-Ví dụ Python sau đây cho thấy cách mở một bản trình chiếu và lấy số lượng slide:
+Để mở một bản trình bày hiện có, truyền đường dẫn tệp của nó vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/). Hủy đối tượng bản trình bày sau khi sử dụng để các tay cầm tệp, dữ liệu tạm và các tài nguyên khác được giải phóng kịp thời.
+
+Ví dụ Python sau đây cho thấy cách mở một bản trình bày và lấy số lượng slide:
 
 ```python
 import jpype
@@ -51,9 +53,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Mở Bản Trình Chiếu Bảo Vệ Bằng Mật Khẩu**
+## **Mở bản trình bày được bảo vệ bằng mật khẩu**
 
-Mật khẩu mở mã hóa nội dung bản trình chiếu. Để tải toàn bộ bản trình chiếu, truyền mật khẩu đúng vào [LoadOptions.setPassword](https://reference.aspose.com/slides/vi/python-java/aspose.slides/loadoptions/#setPassword) và cung cấp các tùy chọn cho hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/). Việc tải sẽ thất bại khi mật khẩu bị thiếu hoặc không đúng.
+Mật khẩu mở mã hoá nội dung bản trình bày. Để tải toàn bộ bản trình bày, truyền mật khẩu đúng vào [LoadOptions.setPassword](https://reference.aspose.com/slides/vi/python-java/aspose.slides/loadoptions/#setPassword) và cung cấp các tùy chọn cho hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/). Việc tải sẽ thất bại nếu mật khẩu bị thiếu hoặc không đúng.
 
 ```python
 import jpype
@@ -74,13 +76,13 @@ finally:
     presentation.dispose()
 ```
 
-Để tìm hiểu về phát hiện mật khẩu, xác thực và quy trình mã hóa, xem [Bảo Vệ Bản Trình Chiếu Bằng Mật Khẩu](/slides/vi/python-java/password-protected-presentation/). Nếu một bản trình chiếu đã được mã hóa nhưng được lưu có thuộc tính tài liệu công khai, các thuộc tính đó có thể được đọc mà không cần mật khẩu; xem [Quản Lý Thuộc Tính Bản Trình Chiếu](/slides/vi/python-java/presentation-properties/).
+Để biết thêm về phát hiện mật khẩu, xác thực và quy trình mã hoá, xem [Password-Protect Presentations](/slides/vi/python-java/password-protected-presentation/). Nếu một bản trình bày được mã hoá được lưu cố ý với các thuộc tính tài liệu công khai, các thuộc tính đó có thể được đọc mà không cần mật khẩu; xem [Manage Presentation Properties](/slides/vi/python-java/presentation-properties/).
 
-## **Mở Bản Trình Chiếu Lớn**
+## **Mở bản trình bày lớn**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/vi/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) trả về các tùy chọn kiểm soát cách Aspose.Slides xử lý các đối tượng nhị phân lớn như hình ảnh, âm thanh và video. Bạn có thể giữ tệp nguồn ở trạng thái khóa, cho phép tệp tạm thời, và giới hạn lượng dữ liệu BLOB được giữ trong bộ nhớ.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/vi/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) trả về các tùy chọn kiểm soát cách Aspose.Slides xử lý các đối tượng nhị phân lớn như hình ảnh, âm thanh và video. Bạn có thể giữ tệp nguồn bị khóa, cho phép tệp tạm thời và giới hạn lượng dữ liệu BLOB được giữ trong bộ nhớ.
 
-Mã Python sau đây minh họa cách tải một bản trình chiếu lớn (ví dụ, 2 GB):
+Mã Python sau đây minh họa việc tải một bản trình bày lớn (ví dụ, 2 GB):
 
 ```python
 import jpype
@@ -107,14 +109,14 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-Với [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked), tệp nguồn sẽ vẫn ở trạng thái khóa cho đến khi đối tượng bản trình chiếu được giải phóng. Không di chuyển, ghi đè hoặc xóa tệp nguồn trong khi đối tượng còn tồn tại.
+Với [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked), tệp nguồn vẫn bị khóa cho đến khi đối tượng bản trình bày được hủy. Không di chuyển, ghi đè hoặc xóa tệp nguồn khi đối tượng còn tồn tại.
 
-Aspose.Slides có thể sao chép nội dung của một luồng input khi tải. Đối với các bản trình chiếu lớn, đường dẫn tệp thường hiệu quả hơn so với luồng. Xem [Quản Lý BLOBs](/slides/vi/python-java/manage-blob/) để biết thêm các tùy chọn lưu trữ và quản lý bộ nhớ.
+Aspose.Slides có thể sao chép nội dung của một luồng đầu vào khi tải. Đối với các bản trình bày lớn, việc sử dụng đường dẫn tệp thường hiệu quả hơn so với luồng. Xem [Manage BLOBs](/slides/vi/python-java/manage-blob/) để biết thêm các tùy chọn lưu trữ và quản lý bộ nhớ.
 {{% /alert %}}
 
-## **Kiểm Soát Tài Nguyên Bên Ngoài**
+## **Kiểm soát tài nguyên bên ngoài**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/vi/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) chấp nhận một proxy JPype thực hiện giao diện callback tải tài nguyên Java. Callback này có thể cung cấp dữ liệu thay thế, chuyển hướng một tài nguyên, sử dụng bộ tải mặc định, hoặc bỏ qua tài nguyên. Điều này hữu ích khi bản trình chiếu chứa các hình ảnh bên ngoài cần được giải quyết theo các quy tắc bảo mật hoặc lưu trữ đặc thù của ứng dụng.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/vi/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) chấp nhận một proxy JPype thực thi giao diện callback tải tài nguyên Java. Callback có thể cung cấp dữ liệu thay thế, chuyển hướng tài nguyên, sử dụng bộ tải mặc định hoặc bỏ qua tài nguyên. Điều này hữu ích khi các bản trình bày chứa hình ảnh bên ngoài cần được giải quyết theo các quy tắc bảo mật hoặc lưu trữ đặc thù của ứng dụng.
 
 ```python
 import jpype
@@ -154,17 +156,17 @@ finally:
     presentation.dispose()
 ```
 
-## **Tải Bản Trình Chiếu Không Có Đối Tượng Nhị Phân Nhúng**
+## **Tải bản trình bày mà không có đối tượng nhị phân được nhúng**
 
-Một bản trình chiếu có thể chứa dữ liệu nhị phân nhúng mà ứng dụng không cần hoặc không muốn giữ lại. Các ví dụ bao gồm:
+Một bản trình bày có thể chứa dữ liệu nhị phân được nhúng mà ứng dụng không cần hoặc không muốn giữ lại. Các ví dụ bao gồm:
 
 - Dự án VBA, có sẵn qua [Presentation.getVbaProject](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getVbaProject);
-- dữ liệu OLE nhúng, có sẵn qua [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/vi/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- dữ liệu OLE được nhúng, có sẵn qua [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/vi/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
 - dữ liệu điều khiển ActiveX, có sẵn qua [Control.getActiveXControlBinary](https://reference.aspose.com/slides/vi/python-java/aspose.slides/control/#getActiveXControlBinary).
 
-Đặt [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/vi/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) thành `True` để loại bỏ dữ liệu nhị phân này khi tải. Lưu bản trình chiếu đã tải để duy trì kết quả đã được làm sạch.
+Đặt [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/vi/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) thành `True` để loại bỏ dữ liệu nhị phân này khi tải. Lưu bản trình bày đã tải để giữ lại kết quả đã được làm sạch.
 
-Tùy chọn này giảm thiểu khả năng tiếp xúc với các payload nhúng không mong muốn, nhưng không phải là một hệ thống phát hiện phần mềm độc hại hoặc làm sạch nội dung hoàn chỉnh.
+Tùy chọn này giảm thiểu việc tiếp xúc với các tải trọng nhúng không mong muốn, nhưng không phải là một hệ thống phát hiện phần mềm độc hại hoặc làm sạch nội dung hoàn chỉnh.
 
 ```python
 import jpype
@@ -189,12 +191,12 @@ finally:
 
 **Làm sao tôi biết một tệp bị hỏng và không thể mở được?**
 
-Aspose.Slides sẽ ném ra một ngoại lệ phân tích hoặc định dạng trong quá trình tải. Xử lý lỗi này riêng biệt với lỗi mật khẩu không đúng để ứng dụng có thể báo cáo nguyên nhân một cách chính xác.
+Aspose.Slides sẽ ném ra ngoại lệ phân tích hoặc định dạng trong quá trình tải. Xử lý lỗi này riêng biệt so với lỗi mật khẩu không đúng để ứng dụng có thể báo cáo nguyên nhân một cách chính xác.
 
-**Điều gì xảy ra nếu các phông chữ cần thiết bị thiếu?**
+**Điều gì xảy ra nếu phông chữ yêu cầu bị thiếu?**
 
-Bản trình chiếu vẫn có thể tải, nhưng việc hiển thị và xuất có thể thay thế phông chữ. Bạn có thể [cấu hình thay thế phông chữ](/slides/vi/python-java/font-substitution/) hoặc [cung cấp phông chữ tùy chỉnh](/slides/vi/python-java/custom-font/) để làm cho kết quả đầu ra dự đoán được hơn.
+Bản trình bày vẫn có thể tải, nhưng việc render và xuất có thể thay thế phông chữ. Bạn có thể [cấu hình thay thế phông chữ](/slides/vi/python-java/font-substitution/) hoặc [cung cấp phông chữ tùy chỉnh](/slides/vi/python-java/custom-font/) để kết quả đầu ra dự đoán được hơn.
 
-**Việc tải một bản trình chiếu có tải cả media nhúng của nó không?**
+**Việc tải một bản trình bày có đồng thời tải các phương tiện được nhúng không?**
 
-Âm thanh và video nhúng sẽ khả dụng thông qua mô hình đối tượng của bản trình chiếu. Các tài nguyên bên ngoài được giải quyết theo hành vi tải tài nguyên đã cấu hình và có thể không khả dụng nếu không thể truy cập tới vị trí của chúng.
+Âm thanh và video được nhúng sẽ khả dụng qua mô hình đối tượng của bản trình bày. Các tài nguyên bên ngoài được giải quyết theo hành vi tải tài nguyên đã cấu hình và có thể không khả dụng nếu không thể truy cập vị trí của chúng.

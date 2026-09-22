@@ -15,43 +15,108 @@ keywords:
 - presentatie naar bestand
 - presentatie naar stream
 - voorgedefinieerd weergavetype
-- Strikt Office Open XML-formaat
-- Zip64-modus
+- Strikt Office Open XML‑formaat
+- Zip64‑modus
 - miniatuur vernieuwen
-- opslaan voortgang
+- voortgang bij opslaan
 - C++
 - Aspose.Slides
-description: "Ontdek hoe u presentaties kunt opslaan in C++ met Aspose.Slides—exporteer naar PowerPoint of OpenDocument terwijl lay-outs, lettertypen en effecten behouden blijven."
+description: "PowerPoint- en OpenDocument‑presentaties opslaan naar bestanden of streams in C++ met Aspose.Slides, en PPTX‑uitvoer en voortgangsrapportage configureren."
 ---
 ## **Overzicht**
 
-[Open Presentations in C++](/slides/nl/cpp/open-presentation/) beschrijft hoe u de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) klasse gebruikt om een presentatie te openen. Dit artikel legt uit hoe u presentaties maakt en opslaat. De [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) klasse bevat de inhoud van een presentatie. Of u nu een presentatie vanaf nul maakt of een bestaande wijzigt, wilt u deze opslaan zodra u klaar bent. Met Aspose.Slides for C++ kunt u opslaan naar een **bestand** of **stream**. Dit artikel legt de verschillende manieren uit om een presentatie op te slaan.
+Nadat u een presentatie hebt gemaakt of [open een bestaande](/slides/nl/cpp/open-presentation/), gebruikt u de [Presentation::Save](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/save/)‑methode om het resultaat op te slaan. Aspose.Slides voor C++ kan een presentatie opslaan naar een bestand of stream in PowerPoint, OpenDocument, PDF en andere indelingen. De volgende secties behandelen de standaard opslagbewerkingen en de beschikbare opties voor PPTX‑uitvoer.
 
 ## **Presentaties opslaan naar bestanden**
 
-Bewaar een presentatie in een bestand door de `Save`‑methode van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) klasse aan te roepen. Geef de bestandsnaam en het opslaanformaat door aan de methode. Het volgende voorbeeld laat zien hoe u een presentatie opslaat met Aspose.Slides.
+Om een presentatie op te slaan naar een bestand, geeft u het uitvoerpad en een [SaveFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/saveformat/)‑waarde door aan de [Presentation::Save](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/save/)‑methode. De formatwaarde bepaalt het type bestand dat Aspose.Slides maakt.
+
+Het volgende voorbeeld maakt een presentatie en slaat deze op als een PPTX‑bestand:
 
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Maak een instantie van de Presentation-klasse die een presentatiedossier vertegenwoordigt.
 auto presentation = MakeObject<Presentation>();
 
-// Voer hier wat werk uit...
-// Sla de presentatie op naar een bestand.
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+// Voeg presentatie-inhoud toe of wijzig deze hier.
 
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+## **Presentaties opslaan in hun oorspronkelijke formaat**
+
+Voor voorbeelden van bestand‑ en streamdetectie, het gedrag van nieuw gemaakte presentaties en het onderscheid tussen bron‑ en uitvoerformaten, zie [Bepaal het oorspronkelijke presentatie‑formaat](/slides/nl/cpp/detect-presentation-source-format/).
+
+In een batch‑verwerkingsapplicatie is het invoerformaat mogelijk niet vooraf bekend. Na het laden van een bestand, lees je het oorspronkelijke formaat met [IPresentation::get_SourceFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/get_sourceformat/). Geef de resulterende [SourceFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/sourceformat/)‑waarde door aan [SlideUtil::ToSaveFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides.util/slideutil/tosaveformat/) om de bijbehorende [SaveFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/saveformat/)‑waarde te verkrijgen, en gebruik vervolgens [Presentation::Save](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/save/) om de gewijzigde presentatie op te slaan.
+
+Het volgende volledige voorbeeld verwerkt elk bestand in een invoermap, werkt de titel bij en slaat het op naar een uitvoermap in het formaat waarin het was geladen:
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/exception.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Util;
+using namespace System;
+using namespace System::IO;
+
+String inputDirectory = u"Input";
+String outputDirectory = u"Output";
+
+Directory::CreateDirectory_(outputDirectory);
+
+auto inputPaths = Directory::GetFiles(inputDirectory);
+for (const auto& inputPath : inputPaths)
+{
+    try
+    {
+        auto presentation = MakeObject<Presentation>(inputPath);
+
+        auto sourceFormat = presentation->get_SourceFormat();
+        auto saveFormat = SlideUtil::ToSaveFormat(sourceFormat);
+
+        presentation->get_DocumentProperties()->set_Title(u"Processed by the batch application");
+
+        auto outputPath = Path::Combine(outputDirectory, Path::GetFileName(inputPath));
+        presentation->Save(outputPath, saveFormat);
+        presentation->Dispose();
+    }
+    catch (ArgumentException& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Cannot map the source format of '{0}': {1}", inputPath, exception->get_Message()));
+    }
+    catch (Exception& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Cannot process '{0}': {1}", inputPath, exception->get_Message()));
+    }
+}
+```
+
+[SlideUtil::ToSaveFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides.util/slideutil/tosaveformat/) mappt PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP en PowerPoint XML naar hun overeenkomstige presentatie‑opslaformaten. Het mappt alleen bronformaten van presentaties; het is niet bedoeld om exportformaten zoals PDF, HTML, TIFF of afbeeldingen te selecteren. Het doorgeven van een niet‑ondersteunde of ongeldige [SourceFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/sourceformat/)‑waarde leidt tot een [ArgumentException](https://reference.aspose.com/slides/nl/cpp/system/argumentexception/).
+
+Legacy‑PPT, PPS‑ en POT‑bestanden gebruiken dezelfde binaire container. Wanneer zo’n presentatie wordt geladen vanuit een stream zonder bestandsextensie, kan een PPS‑ of POT‑bestand daarom worden geïdentificeerd als PPT. Indien het behouden van deze legacy‑subtypes vereist is, bewaar dan de oorspronkelijke bestandsnaam of format‑metadata apart en gebruik deze bij het kiezen van de uitvoerbestandsnaam en -formaat.
+
 ## **Presentaties opslaan naar streams**
 
-U kunt een presentatie opslaan naar een stream door een output‑stream door te geven aan de `Save`‑methode van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) klasse. Een presentatie kan naar veel verschillende stream‑typen worden geschreven. In het onderstaande voorbeeld maken we een nieuwe presentatie en slaan we deze op naar een bestands‑stream.
+Om een presentatie te schrijven zonder een definitief bestandspad, geef je een schrijfbare [Stream](https://reference.aspose.com/slides/nl/cpp/system.io/stream/) en een [SaveFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/saveformat/)‑waarde door aan de [Presentation::Save](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/save/)‑methode. Deze aanpak is handig wanneer de uitvoer moet worden geretourneerd vanuit een webservice, opgeslagen in een database, of in het geheugen wordt verwerkt.
+
+Het volgende voorbeeld slaat een nieuwe presentatie op naar een bestands‑stream:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -59,26 +124,26 @@ U kunt een presentatie opslaan naar een stream door een output‑stream door te 
 #include <system/io/file_mode.h>
 #include <system/io/file_stream.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::IO;
 
-// Maak een instantie van de Presentation-klasse die een presentatiedossier vertegenwoordigt.
 auto presentation = MakeObject<Presentation>();
+auto outputStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
 
-auto fileStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
+presentation->Save(outputStream, SaveFormat::Pptx);
 
-// Sla de presentatie op naar de stream.
-presentation->Save(fileStream, SaveFormat::Pptx);
-
+outputStream->Close();
 presentation->Dispose();
-fileStream->Close();
 ```
 
 ## **Presentaties opslaan met een vooraf gedefinieerd weergavetype**
 
-Aspose.Slides laat u de initiële weergave instellen die PowerPoint gebruikt wanneer de gegenereerde presentatie wordt geopend via de [ViewProperties](https://reference.aspose.com/slides/nl/cpp/aspose.slides/viewproperties/) klasse. Gebruik de [set_LastView](https://reference.aspose.com/slides/nl/cpp/aspose.slides/viewproperties/set_lastview/) methode met een waarde uit de [ViewType](https://reference.aspose.com/slides/nl/cpp/aspose.slides/viewtype/) enumeratie.
+U kunt de weergave opgeven waarin PowerPoint een opgeslagen presentatie aanvankelijk opent. Roep [ViewProperties::set_LastView](https://reference.aspose.com/slides/nl/cpp/aspose.slides/viewproperties/set_lastview/) aan met een [ViewType](https://reference.aspose.com/slides/nl/cpp/aspose.slides/viewtype/)‑waarde vóór het opslaan.
+
+Het volgende voorbeeld configureert de Slide Master‑weergave als de initiële weergave:
 
 ```cpp
 #include <DOM/IViewProperties.h>
@@ -86,6 +151,7 @@ Aspose.Slides laat u de initiële weergave instellen die PowerPoint gebruikt wan
 #include <Export/SaveFormat.h>
 #include <ViewType.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
@@ -93,16 +159,14 @@ using namespace System;
 auto presentation = MakeObject<Presentation>();
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
-
 presentation->Save(u"SlideMasterView.pptx", SaveFormat::Pptx);
+
 presentation->Dispose();
 ```
 
 ## **Presentaties opslaan in het strikte Office Open XML‑formaat**
 
-Aspose.Slides maakt het mogelijk een presentatie op te slaan in het strikte Office Open XML‑formaat. Gebruik de [PptxOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/pptxoptions/) klasse en stel de eigenschap `Conformance` in bij het opslaan. Als u `Conformance.Iso29500_2008_Strict` instelt, wordt het uitvoerbestand opgeslagen in het strikte Office Open XML‑formaat.
-
-Het onderstaande voorbeeld maakt een presentatie en slaat deze op in het strikte Office Open XML‑formaat.
+Om een PPTX‑bestand te maken dat voldoet aan het Strict‑profiel van Office Open XML, maak je een [PptxOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/pptxoptions/)‑instantie aan en roep je [PptxOptions::set_Conformance](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/pptxoptions/set_conformance/) aan met `Conformance::Iso29500_2008_Strict`. Geef vervolgens de opties door aan de [Presentation::Save](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/save/)‑methode.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -110,6 +174,7 @@ Het onderstaande voorbeeld maakt een presentatie en slaat deze op in het strikte
 #include <Export/PptxOptions.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
@@ -117,27 +182,23 @@ using namespace System;
 auto options = MakeObject<PptxOptions>();
 options->set_Conformance(Conformance::Iso29500_2008_Strict);
 
-// Maak een instantie van de Presentation-klasse die een presentatiedossier vertegenwoordigt.
 auto presentation = MakeObject<Presentation>();
 
-// Sla de presentatie op in het strikte Office Open XML-formaat.
 presentation->Save(u"StrictOfficeOpenXml.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
 ## **Presentaties opslaan in Office Open XML‑formaat in Zip64‑modus**
 
-Een Office Open XML‑bestand is een ZIP‑archief dat limieten van 4 GB (2^32 bytes) oplegt aan de ongecomprimeerde grootte van elk bestand, de gecomprimeerde grootte van elk bestand en de totale grootte van het archief, en beperkt het archief tot 65 535 (2^16−1) bestanden. De ZIP64‑formatuitleidingen verhogen deze limieten tot 2^64.
+Een standaard ZIP‑archief beperkt de gecomprimeerde en ongecomprimeerde grootte van elk item, de totale archiefgrootte en het aantal items. Omdat een PPTX‑bestand een ZIP‑archief is, kan een zeer grote presentatie deze limieten overschrijden. Zip64‑extensies verhogen de toepasselijke grootte‑ en item‑limieten.
 
-De [IPptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/ipptxoptions/set_zip64mode/) methode laat u kiezen wanneer u ZIP64‑formatuitleidingen wilt gebruiken bij het opslaan van een Office Open XML‑bestand.
+Gebruik [PptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/pptxoptions/set_zip64mode/) om te bepalen of Aspose.Slides Zip64‑extensies schrijft:
 
-Deze methode kan worden gebruikt met de volgende modi:
+- `IfNecessary` gebruikt Zip64 alleen wanneer de presentatie de standaard ZIP‑limieten overschrijdt. Dit is de standaardmodus.
+- `Never` schakelt Zip64‑extensies uit.
+- `Always` schrijft altijd Zip64‑extensies.
 
-- `IfNecessary` gebruikt ZIP64‑formatuitleidingen alleen als de presentatie de bovenstaande beperkingen overschrijdt. Dit is de standaardmodus.
-- `Never` gebruikt nooit ZIP64‑formatuitleidingen.
-- `Always` gebruikt altijd ZIP64‑formatuitleidingen.
-
-De volgende code toont hoe u een presentatie opslaat als een PPTX‑bestand met ingeschakelde ZIP64‑formatuitleidingen:
+Het volgende voorbeeld schakelt Zip64‑extensies altijd in voor de uitvoerpresentatie:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -145,43 +206,36 @@ De volgende code toont hoe u een presentatie opslaat als een PPTX‑bestand met 
 #include <Export/SaveFormat.h>
 #include <Export/Zip64Mode.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_Zip64Mode(Zip64Mode::Always);
-
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, pptxOptions);
+auto options = MakeObject<PptxOptions>();
+options->set_Zip64Mode(Zip64Mode::Always);
+
+presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Wanneer u opslaat met `Zip64Mode.Never`, wordt er een [PptxException](https://reference.aspose.com/slides/nl/cpp/aspose.slides/pptxexception/) gegooid als de presentatie niet in ZIP32‑formaat kan worden opgeslagen.
+{{% alert color="warning" title="Warning" %}}
+Als `Zip64Mode` is ingesteld op `Never` en de presentatie niet binnen de standaard ZIP‑limieten past, gooit de opslaan‑operatie een [PptxException](https://reference.aspose.com/slides/nl/cpp/aspose.slides/pptxexception/).
 {{% /alert %}}
 
 ## **Presentaties opslaan in Office Open XML‑formaat met compressieniveaus**
 
-Bij het werken met grote presentaties kunt u het compressieniveau aanpassen om een balans te vinden tussen bestandsgrootte en verwerkingstijd. Afhankelijk van uw eisen kunt u kiezen voor snellere verwerking of kleinere uitvoerbestanden.
+Voor PPTX‑uitvoer kunt u de opslagsnelheid afwegen tegen de bestandsgrootte door [PptxOptions::set_CompressionLevel](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/pptxoptions/set_compressionlevel/) aan te roepen. De enumeratie [CompressionLevel](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/compressionlevel/) biedt de volgende waarden:
 
-Aspose.Slides biedt de [PptxOptions::set_CompressionLevel](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/pptxoptions/set_compressionlevel/) methode, waarmee u het compressieniveau kunt opgeven dat wordt gebruikt bij het opslaan van een presentatie in Office Open XML‑formaat.
+- `None` slaat gegevens op zonder compressie.
+- `Level1` biedt de snelste compressie en de grootste gecomprimeerde output.
+- `Level2` tot en met `Level5` geven geleidelijk de voorkeur aan een kleinere output boven opslagsnelheid.
+- `Level6` balanceert opslagsnelheid en bestandsgrootte. Dit is het standaardniveau.
+- `Level7` en `Level8` geven nog meer de voorkeur aan een kleinere output dan aan opslagsnelheid.
+- `Level9` biedt de sterkste compressie en vereist de meeste verwerkingsduur.
 
-De volgende compressieniveaus zijn beschikbaar:
-
-- **None**: Geen compressie wordt toegepast. Bestanden worden ongewijzigd opgeslagen.
-- **Level1:** De snelste compressie met de laagste compressieverhouding.
-- **Level2:** Snellere compressie met een iets betere compressieverhouding dan **Level1**.
-- **Level3:** Biedt betere compressie dan **Level2** met een matige impact op verwerkingstijd.
-- **Level4:** Biedt betere compressie dan **Level3**.
-- **Level5:** Biedt verbeterde compressie ten opzichte van **Level4** met extra verwerkingstijd.
-- **Level6:** Standaardcompressie die een goede balans biedt tussen verwerking snelheid en bestandsgrootte. Dit is het *standaard compressieniveau*.
-- **Level7:** Biedt betere compressie dan **Level6** met tragere verwerking.
-- **Level8:** Biedt betere compressie dan **Level7**.
-- **Level9:** Maximale compressie. Produceert de kleinste bestandsgrootte ten koste van de langste verwerkingstijd.
-
-Het volgende voorbeeld toont hoe u een presentatie opslaat als een PPTX‑bestand *zonder compressie*:
+Het volgende voorbeeld slaat een presentatie op zonder compressie:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -190,98 +244,79 @@ Het volgende voorbeeld toont hoe u een presentatie opslaat als een PPTX‑bestan
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
 
-using Aspose::Slides::Export::CompressionLevel;
-using Aspose::Slides::Export::PptxOptions;
-using Aspose::Slides::Export::SaveFormat;
-using Aspose::Slides::Presentation;
-using System::MakeObject;
-
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_CompressionLevel(CompressionLevel::None);
-
-auto presentation = MakeObject<Presentation>(u"Sample.pptx");
-presentation->Save(u"Sample-out.pptx", SaveFormat::Pptx, pptxOptions);
-presentation->Dispose();
-```
-
-Dit voorbeeld toont hoe u een presentatie opslaat als een PPTX‑bestand met *maximale compressie*:
-
-```cpp
-#include <DOM/Presentation.h>
-#include <Export/CompressionLevel.h>
-#include <Export/PptxOptions.h>
-#include <Export/SaveFormat.h>
-#include <system/smart_ptr.h>
-
-using Aspose::Slides::Export::CompressionLevel;
-using Aspose::Slides::Export::PptxOptions;
-using Aspose::Slides::Export::SaveFormat;
-using Aspose::Slides::Presentation;
-using System::MakeObject;
-
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_CompressionLevel(CompressionLevel::Level9);
-
-auto presentation = MakeObject<Presentation>(u"Sample.pptx");
-presentation->Save(u"Sample-level9.pptx", SaveFormat::Pptx, pptxOptions);
-presentation->Dispose();
-```
-
-## **Presentaties opslaan zonder miniatuur te vernieuwen**
-
-De [PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) methode regelt de generatie van de miniatuur bij het opslaan van een presentatie naar PPTX:
-
-- Als deze op `true` is ingesteld, wordt de miniatuur tijdens het opslaan vernieuwd. Dit is de standaardwaarde.
-- Als deze op `false` is ingesteld, wordt de huidige miniatuur bewaard. Als de presentatie geen miniatuur heeft, wordt er geen gegenereerd.
-
-In de onderstaande code wordt de presentatie opgeslagen naar PPTX zonder de miniatuur te vernieuwen.
-
-```cpp
-#include <DOM/Presentation.h>
-#include <Export/PptxOptions.h>
-#include <Export/SaveFormat.h>
-#include <system/smart_ptr.h>
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_RefreshThumbnail(false);
-
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx, pptxOptions);
+auto options = MakeObject<PptxOptions>();
+options->set_CompressionLevel(CompressionLevel::None);
+
+presentation->Save(u"OutputNoCompression.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
-Deze optie helpt de tijd die nodig is om een presentatie op te slaan in PPTX‑formaat te verkorten.
-{{% /alert %}}
-
-## **Opslaan voortgangsupdates in procent**
-
-De [IProgressCallback](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iprogresscallback/) interface wordt gebruikt via de `set_ProgressCallback`‑methode die wordt blootgesteld door de [ISaveOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/isaveoptions/) interface en de abstracte [SaveOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/saveoptions/) klasse. Ken een [IProgressCallback](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iprogresscallback/) implementatie toe met `set_ProgressCallback` om voortgangsupdates tijdens het opslaan te ontvangen als een percentage.
-
-De volgende code‑fragmenten tonen hoe `IProgressCallback` te gebruiken.
+Het volgende voorbeeld gebruikt het maximale compressieniveau:
 
 ```cpp
-#include <IProgressCallback.h>
-#include <system/console.h>
+#include <DOM/Presentation.h>
+#include <Export/CompressionLevel.h>
+#include <Export/PptxOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 using namespace System;
 
-class ExportProgressHandler : public IProgressCallback
-{
-public:
-    void Reporting(double progressValue) override
-    {
-        // Gebruik hier de voortgangspercentagewaarde.
-        int progress = static_cast<int>(progressValue);
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-        Console::WriteLine(u"{0}% of the file has been converted.", progress);
-    }
-};
+auto options = MakeObject<PptxOptions>();
+options->set_CompressionLevel(CompressionLevel::Level9);
+
+presentation->Save(u"OutputMaximumCompression.pptx", SaveFormat::Pptx, options);
+presentation->Dispose();
 ```
+
+## **Presentaties opslaan zonder de miniatuur te vernieuwen**
+
+Wanneer een presentatie wordt opgeslagen als PPTX, regelt [PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) de miniatuurfoto van het document:
+
+- `true` regenereert de miniatuur tijdens de opslaan‑operatie. Dit is de standaardwaarde.
+- `false` behoudt de bestaande miniatuur. Als de presentatie geen miniatuur heeft, genereert Aspose.Slides er geen.
+
+Het volgende voorbeeld slaat een presentatie op zonder de miniatuur te vernieuwen:
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/PptxOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+
+auto options = MakeObject<PptxOptions>();
+options->set_RefreshThumbnail(false);
+
+presentation->Save(u"Output.pptx", SaveFormat::Pptx, options);
+presentation->Dispose();
+```
+
+{{% alert color="info" title="Note" %}}
+Het uitschakelen van het vernieuwen van de miniatuur kan de tijd die nodig is om een PPTX‑bestand op te slaan, verminderen.
+{{% /alert %}}
+
+## **Opslagvoortgang in percentage**
+
+Om een opslaan‑operatie te volgen, implementeer je de [IProgressCallback](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iprogresscallback/) interface en geef je de implementatie door aan [ISaveOptions::set_ProgressCallback](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/isaveoptions/set_progresscallback/). Aspose.Slides roept vervolgens [IProgressCallback::Reporting](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iprogresscallback/reporting/) aan met voortgangswaarden tijdens de export.
+
+Het volgende voorbeeld rapporteert de voortgang van een PDF‑export naar de console:
+
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/PdfOptions.h>
@@ -289,49 +324,48 @@ public:
 #include <IProgressCallback.h>
 #include <system/console.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// De voortgangs‑callback‑klasse die hierboven is gedefinieerd.
 class ExportProgressHandler : public IProgressCallback
 {
 public:
     void Reporting(double progressValue) override
     {
         int progress = static_cast<int>(progressValue);
-
         Console::WriteLine(u"{0}% of the file has been converted.", progress);
     }
 };
 
-auto saveOptions = MakeObject<PdfOptions>();
-saveOptions->set_ProgressCallback(MakeObject<ExportProgressHandler>());
+auto options = MakeObject<PdfOptions>();
+options->set_ProgressCallback(MakeObject<ExportProgressHandler>());
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"Output.pdf", SaveFormat::Pdf, saveOptions);
+presentation->Save(u"Output.pdf", SaveFormat::Pdf, options);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose heeft een [gratis PowerPoint Splitter‑applicatie](https://products.aspose.app/slides/nl/splitter) ontwikkeld met behulp van haar eigen API. De app maakt het mogelijk een presentatie te splitsen in meerdere bestanden door geselecteerde dia’s op te slaan als nieuwe PPTX‑ of PPT‑bestanden.
+{{% alert color="info" title="Note" %}}
+Aspose biedt een gratis [PowerPoint Splitter](https://products.aspose.app/slides/nl/splitter) aan, gebouwd met de Aspose.Slides‑API. Het slaat geselecteerde dia's uit een presentatie op als afzonderlijke PPT‑ of PPTX‑bestanden.
 {{% /alert %}}
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Wordt “fast save” (incrementeel opslaan) ondersteund zodat alleen wijzigingen worden weggeschreven?**
+**Ondersteunt Aspose.Slides incrementeel of “fast save”?**
 
-Nee. Bij elk opslaan wordt het volledige doelbestand opnieuw aangemaakt; incrementeel “fast save” wordt niet ondersteund.
+Nee. Elke opslaan‑operatie schrijft een compleet uitvoerbestand in plaats van alleen de gewijzigde delen bij te werken.
 
-**Is het thread‑veilig om dezelfde Presentation‑instantie vanuit meerdere threads op te slaan?**
+**Kunnen meerdere threads dezelfde Presentation‑instantie opslaan?**
 
-Nee. Een [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) instantie [is niet thread‑veilig](/slides/nl/cpp/multithreading/); sla deze op vanuit één thread.
+Nee. Een [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)-instantie [is niet thread‑safe](/slides/nl/cpp/multithreading/). Toegang en opslaan van elke instantie gebeurt slechts vanuit één thread tegelijk.
 
-**Wat gebeurt er met hyperlinks en extern gekoppelde bestanden bij het opslaan?**
+**Wat gebeurt er met hyperlinks en extern gelinkte bestanden wanneer ik een presentatie opsla?**
 
-[Hyperlinks](/slides/nl/cpp/manage-hyperlinks/) worden behouden. Extern gekoppelde bestanden (bijv. video’s via relatieve paden) worden niet automatisch gekopieerd — zorg ervoor dat de verwezen paden toegankelijk blijven.
+[Hyperlinks](/slides/nl/cpp/manage-hyperlinks/) blijven in de presentatie. Aspose.Slides kopieert geen extern gelinkte bestanden, dus de opgeslagen presentatie moet nog steeds toegang hebben tot hun locaties.
 
-**Kan ik documentmetadata (Auteur, Titel, Bedrijf, Datum) instellen/opslaan?**
+**Kan ik documentmetadata zoals auteur, titel, bedrijf en aanmaakdatum opslaan?**
 
-Ja. Standaard [documenteigenschappen](/slides/nl/cpp/presentation-properties/) worden ondersteund en bij het opslaan in het bestand geschreven.
+Ja. Stel de juiste [document properties](/slides/nl/cpp/presentation-properties/) in vóór het opslaan, en Aspose.Slides schrijft ze naar het uitvoerbestand.

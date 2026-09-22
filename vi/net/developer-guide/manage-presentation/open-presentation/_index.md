@@ -1,39 +1,41 @@
 ---
-title: Mở bản trình bày trong .NET
-linktitle: Mở bản trình bày
+title: Mở bản trình chiếu trong .NET
+linktitle: Mở bản trình chiếu
 type: docs
 weight: 20
 url: /vi/net/open-presentation/
 keywords:
 - mở PowerPoint
-- mở bản trình bày
+- mở bản trình chiếu
 - mở PPTX
 - mở PPT
 - mở ODP
-- tải bản trình bày
+- tải bản trình chiếu
 - tải PPTX
 - tải PPT
 - tải ODP
-- bản trình bày được bảo vệ
-- bản trình bày lớn
+- bản trình chiếu được bảo mật
+- bản trình chiếu lớn
 - tài nguyên bên ngoài
 - đối tượng nhị phân
 - .NET
 - C#
 - Aspose.Slides
-description: "Tìm hiểu cách mở các bản trình bày PowerPoint và OpenDocument trong C#, cung cấp mật khẩu mở, kiểm soát việc tải tài nguyên, và giảm sử dụng bộ nhớ với Aspose.Slides cho .NET."
+description: "Tìm hiểu cách mở các bản trình chiếu PowerPoint và OpenDocument trong C#, cung cấp mật khẩu mở, kiểm soát việc tải tài nguyên và giảm sử dụng bộ nhớ với Aspose.Slides cho .NET."
 ---
 ## **Giới thiệu**
 
-[Aspose.Slides for .NET](https://products.aspose.com/slides/vi/net/) có thể tải các bản trình bày PowerPoint và OpenDocument từ tệp và luồng. Sau khi bản trình bày được tải, bạn có thể kiểm tra cấu trúc, chỉnh sửa slide, quản lý tài nguyên và lưu lại ở định dạng gốc hoặc định dạng hỗ trợ khác.
+[Aspose.Slides for .NET](https://products.aspose.com/slides/vi/net/) có thể tải các bản trình chiếu PowerPoint và OpenDocument từ tệp và luồng. Sau khi bản trình chiếu được tải, bạn có thể kiểm tra cấu trúc của nó, chỉnh sửa các slide, quản lý tài nguyên và lưu lại ở định dạng gốc hoặc định dạng được hỗ trợ khác.
 
-Hành vi tải có thể được tùy chỉnh thông qua lớp [LoadOptions](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/). Ví dụ, bạn có thể cung cấp mật khẩu mở, giữ các đối tượng nhị phân lớn ngoài bộ nhớ được quản lý, kiểm soát tài nguyên bên ngoài, hoặc bỏ qua dữ liệu nhị phân được nhúng.
+Hành vi tải có thể được tùy chỉnh thông qua lớp [LoadOptions](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/). Ví dụ, bạn có thể cung cấp mật khẩu mở, giữ các đối tượng nhị phân lớn ngoài bộ nhớ quản lý, điều khiển tài nguyên bên ngoài, hoặc bỏ qua dữ liệu nhị phân được nhúng.
 
-## **Mở bản trình bày**
+## **Mở Bản Trình Chiếu**
 
-Để mở một bản trình bày hiện có, truyền đường dẫn tệp của nó vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/). Giải phóng (Dispose) bản trình bày sau khi sử dụng để các tay cầm tệp, dữ liệu tạm và các tài nguyên khác được giải phóng kịp thời.
+Sau khi tải tệp hoặc luồng, bạn có thể [xác định định dạng bản trình chiếu gốc](/slides/vi/net/detect-presentation-source-format/) để chọn cách ứng dụng của bạn xử lý nó.
 
-Ví dụ C# sau đây minh họa cách mở một bản trình bày và lấy số lượng slide:
+Để mở một bản trình chiếu hiện có, truyền đường dẫn tệp của nó vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/). Hủy đối tượng presentation sau khi sử dụng để các tay cầm tệp, dữ liệu tạm thời và các tài nguyên khác được giải phóng kịp thời.
+
+Ví dụ C# sau cho thấy cách mở một bản trình chiếu và lấy số lượng slide:
 
 ```csharp
 using System;
@@ -44,9 +46,9 @@ using var presentation = new Presentation("sample.pptx");
 Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
-## **Mở bản trình bày được bảo vệ bằng mật khẩu**
+## **Mở Bản Trình Chiếu Được Bảo Mật Bằng Mật Khẩu**
 
-Mật khẩu mở mã hoá nội dung bản trình bày. Để tải đầy đủ bản trình bày, gán mật khẩu đúng vào [LoadOptions.Password](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/password/) và truyền các tùy chọn vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/). Việc tải sẽ thất bại nếu mật khẩu thiếu hoặc không đúng.
+Mật khẩu mở mã hoá nội dung của bản trình chiếu. Để tải toàn bộ bản trình chiếu, gán mật khẩu đúng vào [LoadOptions.Password](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/password/) và truyền các tùy chọn này vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/). Việc tải sẽ thất bại nếu mật khẩu bị thiếu hoặc không chính xác.
 
 ```csharp
 using System;
@@ -58,13 +60,13 @@ using var presentation = new Presentation("encrypted-presentation.pptx", loadOpt
 Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
-Đối với việc phát hiện mật khẩu, xác thực và quy trình mã hoá, xem [Password-Protect Presentations](/slides/vi/net/password-protected-presentation/). Nếu một bản trình bày được mã hoá được lưu cố ý với các thuộc tính tài liệu công khai, các thuộc tính đó có thể được đọc mà không cần mật khẩu; xem [Manage Presentation Properties](/slides/vi/net/presentation-properties/).
+Đối với việc phát hiện mật khẩu, xác thực và quy trình mã hoá, xem [Password-Protect Presentations](/slides/vi/net/password-protected-presentation/). Nếu một bản trình chiếu đã được mã hoá nhưng được lưu có các thuộc tính tài liệu công khai, các thuộc tính đó vẫn có thể đọc được mà không cần mật khẩu; xem [Manage Presentation Properties](/slides/vi/net/presentation-properties/).
 
-## **Mở bản trình bày lớn**
+## **Mở Bản Trình Chiếu Lớn**
 
-[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/blobmanagementoptions/) kiểm soát cách Aspose.Slides xử lý các đối tượng nhị phân lớn (BLOB) như hình ảnh, âm thanh và video. Bạn có thể giữ tệp nguồn bị khóa, cho phép tệp tạm thời và giới hạn lượng dữ liệu BLOB giữ trong bộ nhớ.
+[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/blobmanagementoptions/) kiểm soát cách Aspose.Slides xử lý các đối tượng nhị phân lớn như ảnh, âm thanh và video. Bạn có thể giữ tệp nguồn bị khóa, cho phép tạo các tệp tạm thời và giới hạn lượng dữ liệu BLOB được giữ trong bộ nhớ.
 
-Mã C# sau đây minh họa cách tải một bản trình bày lớn (ví dụ, 2 GB):
+Mã C# sau minh họa cách tải một bản trình chiếu lớn (ví dụ, 2 GB):
 
 ```csharp
 using Aspose.Slides;
@@ -89,14 +91,14 @@ presentation.Save("large-presentation-copy.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="info" title="Note" %}}
-Khi sử dụng `PresentationLockingBehavior.KeepLocked`, tệp nguồn sẽ vẫn bị khóa cho đến khi đối tượng `Presentation` được giải phóng. Không di chuyển, ghi đè hoặc xóa tệp nguồn trong khi đối tượng này còn tồn tại.
+Với `PresentationLockingBehavior.KeepLocked`, tệp nguồn vẫn bị khóa cho đến khi đối tượng `Presentation` được hủy. Không di chuyển, ghi đè hoặc xóa tệp nguồn trong khi đối tượng này còn tồn tại.
 
-Aspose.Slides có thể sao chép nội dung của một luồng đầu vào khi tải. Đối với các bản trình bày lớn, đường dẫn tệp thường hiệu quả hơn so với luồng. Xem [Manage BLOBs](/slides/vi/net/manage-blob/) để biết thêm các tùy chọn lưu trữ và quản lý bộ nhớ.
+Aspose.Slides có thể sao chép nội dung của một luồng đầu vào trong quá trình tải. Đối với các bản trình chiếu lớn, việc sử dụng đường dẫn tệp thường hiệu quả hơn so với luồng. Xem [Manage BLOBs](/slides/vi/net/manage-blob/) để biết thêm các tùy chọn lưu trữ và quản lý bộ nhớ.
 {{% /alert %}}
 
-## **Kiểm soát tài nguyên bên ngoài**
+## **Kiểm Soát Tài Nguyên Bên Ngoài**
 
-[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/resourceloadingcallback/) chấp nhận một triển khai của [IResourceLoadingCallback](https://reference.aspose.com/slides/vi/net/aspose.slides/iresourceloadingcallback/). Callback có thể cung cấp dữ liệu thay thế, chuyển hướng tài nguyên, sử dụng bộ tải mặc định hoặc bỏ qua tài nguyên. Điều này hữu ích khi bản trình bày chứa các hình ảnh bên ngoài cần được giải quyết theo các quy tắc bảo mật hoặc lưu trữ riêng của ứng dụng.
+[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/resourceloadingcallback/) nhận một triển khai của [IResourceLoadingCallback](https://reference.aspose.com/slides/vi/net/aspose.slides/iresourceloadingcallback/). Callback có thể cung cấp dữ liệu thay thế, chuyển hướng tài nguyên, sử dụng bộ tải mặc định, hoặc bỏ qua tài nguyên. Điều này hữu ích khi các bản trình chiếu chứa hình ảnh bên ngoài cần được giải quyết theo các quy tắc bảo mật hoặc lưu trữ riêng của ứng dụng.
 
 ```csharp
 using System;
@@ -134,17 +136,17 @@ internal static class OpenPresentationExample
 }
 ```
 
-## **Tải bản trình bày mà không có đối tượng nhị phân nhúng**
+## **Tải Bản Trình Chiếu mà không có Các Đối Tượng Nhị Phân Được Nhúng**
 
-Một bản trình bày có thể chứa dữ liệu nhị phân được nhúng mà ứng dụng không cần hoặc không muốn giữ lại. Ví dụ bao gồm:
+Một bản trình chiếu có thể chứa dữ liệu nhị phân được nhúng mà ứng dụng không cần hoặc không muốn giữ lại. Các ví dụ bao gồm:
 
-- Dự án VBA, có sẵn thông qua [IPresentation.VbaProject](https://reference.aspose.com/slides/vi/net/aspose.slides/ipresentation/vbaproject/);
-- dữ liệu OLE được nhúng, có sẵn thông qua [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/vi/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/);
-- dữ liệu điều khiển ActiveX, có sẵn thông qua [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/vi/net/aspose.slides/icontrol/activexcontrolbinary/).
+- Dự án VBA, có sẵn qua [IPresentation.VbaProject](https://reference.aspose.com/slides/vi/net/aspose.slides/ipresentation/vbaproject/);
+- dữ liệu OLE được nhúng, có sẵn qua [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/vi/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/);
+- dữ liệu điều khiển ActiveX, có sẵn qua [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/vi/net/aspose.slides/icontrol/activexcontrolbinary/).
 
-Đặt [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) thành `true` để loại bỏ dữ liệu nhị phân này khi tải. Lưu bản trình bày đã tải để duy trì kết quả đã làm sạch.
+Đặt [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) thành `true` để loại bỏ dữ liệu nhị phân này trong khi tải. Lưu bản trình chiếu đã tải để duy trì kết quả đã được làm sạch.
 
-Tùy chọn này giảm khả năng phơi bày các payload nhúng không mong muốn, nhưng không phải là một hệ thống phát hiện phần mềm độc hại hoặc làm sạch nội dung hoàn chỉnh.
+Tùy chọn này giảm thiểu nguy cơ các tải trọng nhúng không mong muốn, nhưng nó không phải là một hệ thống phát hiện phần mềm độc hại hoặc làm sạch nội dung hoàn chỉnh.
 
 ```csharp
 using Aspose.Slides;
@@ -160,16 +162,16 @@ using var presentation = new Presentation("presentation-with-embedded-data.pptx"
 presentation.Save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 ```
 
-## **Câu hỏi thường gặp**
+## **Câu Hỏi Thường Gặp**
 
-**Làm sao tôi biết một tệp bị hỏng và không thể mở?**
+**Làm sao tôi biết một tệp bị hỏng và không thể mở được?**
 
-Aspose.Slides ném ra ngoại lệ phân tích hoặc định dạng trong quá trình tải. Xử lý lỗi này riêng biệt với lỗi mật khẩu không đúng để ứng dụng có thể báo cáo nguyên nhân một cách chính xác.
+Aspose.Slides ném ra một ngoại lệ phân tích cú pháp hoặc định dạng trong quá trình tải. Hãy xử lý lỗi này riêng biệt với lỗi mật khẩu không đúng để ứng dụng có thể báo cáo nguyên nhân một cách chính xác.
 
 **Điều gì xảy ra nếu các phông chữ bắt buộc bị thiếu?**
 
-Bản trình bày vẫn có thể tải, nhưng việc render và xuất có thể thay thế phông chữ. Bạn có thể [configure font substitution](/slides/vi/net/font-substitution/) hoặc [provide custom fonts](/slides/vi/net/custom-font/) để kết quả đầu ra trở nên dự đoán được hơn.
+Bản trình chiếu vẫn có thể tải, nhưng việc hiển thị và xuất có thể thay thế phông chữ. Bạn có thể [configure font substitution](/slides/vi/net/font-substitution/) hoặc [provide custom fonts](/slides/vi/net/custom-font/) để làm cho kết quả đầu ra dự đoán được hơn.
 
-**Việc tải một bản trình bày có đồng thời tải các phương tiện nhúng không?**
+**Việc tải một bản trình chiếu cũng tải các phương tiện nhúng của nó không?**
 
-Âm thanh và video được nhúng sẽ khả dụng thông qua mô hình đối tượng của bản trình bày. Các tài nguyên bên ngoài được giải quyết theo hành vi tải tài nguyên đã cấu hình và có thể không khả dụng nếu không thể truy cập vị trí của chúng.
+Âm thanh và video được nhúng sẽ khả dụng thông qua mô hình đối tượng của bản trình chiếu. Các tài nguyên bên ngoài được giải quyết theo hành vi tải tài nguyên đã cấu hình và có thể không khả dụng nếu không thể truy cập vị trí của chúng.

@@ -21,17 +21,19 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Explore diapositivas, estructura y metadatos en presentaciones PowerPoint y OpenDocument usando Aspose.Slides para PHP para obtener información más rápida y auditorías de contenido más inteligentes."
+description: "Explore diapositivas, estructura y metadatos en presentaciones PowerPoint y OpenDocument usando Aspose.Slides para PHP para obtener insights más rápidos y auditorías de contenido más inteligentes."
 ---
 ## **Visión general**
 
-Aspose.Slides puede identificar el formato de una presentación y leer sus metadatos de documento sin crear un modelo de objeto de presentación completo. Esto es útil cuando necesita clasificar archivos, crear un inventario o inspeccionar propiedades antes de decidir cargar y procesar el contenido de la presentación.
+Aspose.Slides puede identificar el formato de una presentación y leer sus metadatos de documento sin crear un modelo de objetos completo de la presentación. Esto es útil cuando necesita clasificar archivos, crear un inventario o inspeccionar propiedades antes de decidir si cargar y procesar el contenido de la presentación.
 
-Este artículo muestra la inspección ligera a través de [PresentationFactory](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationfactory/) y [PresentationInfo](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/), así como actualizaciones dirigidas mediante [DocumentProperties](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/).
+Este artículo demuestra una inspección ligera mediante [PresentationFactory](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationfactory/) y [PresentationInfo](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/), así como actualizaciones dirigidas mediante [DocumentProperties](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/).
 
 ## **Comprobar el formato de una presentación**
 
-Utilice [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationfactory/) para inspeccionar un archivo sin crear una instancia de [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/). El método [PresentationInfo::getLoadFormat](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/#getLoadFormat) informa del formato detectado, como PPTX, PPT o ODP.
+Si ya tiene una presentación cargada, consulte [Determine the Original Presentation Format](/slides/es/php-java/detect-presentation-source-format/) para la detección después de cargar y las limitaciones de los flujos heredados PPT, PPS y POT.
+
+Utilice [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationfactory/) para inspeccionar un archivo sin crear una instancia de [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/). El método [PresentationInfo::getLoadFormat](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/#getLoadFormat) informa el formato detectado, como PPTX, PPT u ODP.
 
 ```php
 use aspose\slides\LoadFormat;
@@ -56,9 +58,9 @@ foreach ($fileNames as $fileName) {
 }
 ```
 
-## **Construir un inventario ligero de presentaciones**
+## **Crear un inventario de presentaciones ligero**
 
-Cuando procesa muchos archivos de presentación, puede necesitar un inventario compacto para validación, indexación o un sistema de gestión documental. En este escenario, utilice [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationfactory/) para obtener un objeto [PresentationInfo](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/), y luego llame a [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/#readDocumentProperties) para leer los metadatos del documento. Este enfoque no crea una instancia de [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/) ni requiere recorrer todo el modelo de objeto de la presentación.
+Cuando procesa muchos archivos de presentación, puede necesitar un inventario compacto para validación, indexación o un sistema de gestión documental. En este escenario, use [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationfactory/) para obtener un objeto [PresentationInfo](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/) y, a continuación, llame a [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/#readDocumentProperties) para leer los metadatos del documento. Este enfoque no crea una instancia de [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/) ni requiere recorrer todo el modelo de objetos de la presentación.
 
 Las propiedades extendidas expuestas por [DocumentProperties](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/) proporcionan los siguientes valores de inventario:
 
@@ -67,11 +69,11 @@ Las propiedades extendidas expuestas por [DocumentProperties](https://reference.
 | [getSlides](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/#getSlides) | Número total de diapositivas. |
 | [getHiddenSlides](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/#getHiddenSlides) | Número de diapositivas ocultas. |
 | [getNotes](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/#getNotes) | Número de diapositivas que contienen notas. |
-| [getParagraphs](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/#getParagraphs) | Número total de párrafos, cuando está disponible. |
+| [getParagraphs](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/#getParagraphs) | Número total de párrafos, cuando estén disponibles. |
 | [getWords](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/#getWords) | Número total de palabras. |
 | [getMultimediaClips](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/#getMultimediaClips) | Número total de clips de audio y vídeo. |
 
-El ejemplo siguiente lee estos valores sin crear un objeto [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/) y muestra un inventario compacto. También combina [DocumentProperties::getHeadingPairs](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/#getHeadingPairs) con [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/#getTitlesOfParts) para mostrar grupos de contenido como fuentes, temas y títulos de diapositivas.
+El siguiente ejemplo lee estos valores sin crear un objeto [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/) e imprime un inventario compacto. También combina [DocumentProperties::getHeadingPairs](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/#getHeadingPairs) con [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/#getTitlesOfParts) para mostrar grupos de contenido como fuentes, temas y títulos de diapositivas.
 
 ```php
 use aspose\slides\LoadFormat;
@@ -141,17 +143,17 @@ if (java_is_null($headingPairs) || java_is_null($titlesOfParts)) {
 }
 ```
 
-Cada [HeadingPair](https://reference.aspose.com/slides/es/php-java/aspose.slides/headingpair/) proporciona un nombre de grupo y el número de elementos en ese grupo. [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/#getTitlesOfParts) devuelve una matriz plana y ordenada, por lo que debe consumir el número de títulos consecutivos especificados por cada par de encabezado.
+Cada [HeadingPair](https://reference.aspose.com/slides/es/php-java/aspose.slides/headingpair/) suministra un nombre de grupo y el número de elementos en ese grupo. [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/#getTitlesOfParts) devuelve una matriz plana y ordenada, por lo que se deben consumir la cantidad de títulos consecutivos especificada por cada par de encabezado.
 
 ### **Metadatos almacenados y limitaciones de formato**
 
-Las propiedades de inventario devueltas por [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/#readDocumentProperties) reflejan los metadatos disponibles en el documento fuente. Aspose.Slides no carga ni recorre el modelo de objeto de la presentación para recalcular estos valores en esta llamada. Las propiedades ausentes se representan con valores predeterminados, y los valores almacenados pueden estar desactualizados si la aplicación que guardó el archivo por última vez no actualizó sus propiedades de documento.
+Las propiedades de inventario devueltas por [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/#readDocumentProperties) reflejan los metadatos disponibles en el documento fuente. Aspose.Slides no carga ni recorre el modelo de objetos de la presentación para recalcular estos valores para esta llamada. Las propiedades ausentes se representan con valores predeterminados, y los valores almacenados pueden estar obsoletos si la aplicación que guardó el archivo por última vez no actualizó sus propiedades de documento.
 
-- **PPTX:** El formato proporciona propiedades de documento extendidas para recuentos de diapositivas, notas, diapositivas ocultas, párrafos, palabras y multimedia, así como pares de encabezados y títulos de partes. La disponibilidad depende de qué propiedades fueron escritas por el creador del documento.
-- **PPT:** El formato binario puede almacenar propiedades de resumen de documento correspondientes. Si una propiedad falta o no fue refrescada por el creador del documento, Aspose.Slides devuelve su valor almacenado o predeterminado en lugar de calcularlo a partir de las diapositivas.
-- **ODP:** Los metadatos de OpenDocument proporcionan estadísticas generales del documento, como recuentos de páginas, párrafos y palabras, pero estos valores no se asignan a todas las propiedades extendidas específicas de PowerPoint. Los metadatos de diapositivas ocultas, notas, multimedia, pares de encabezados y títulos de partes pueden no estar disponibles, y las propiedades de inventario pueden devolver valores predeterminados. No se debe considerar que un valor cero o una matriz vacía sea prueba concluyente de que el contenido correspondiente está ausente.
+- **PPTX:** El formato proporciona propiedades de documento extendidas para recuentos de diapositivas, notas, diapositivas ocultas, párrafos, palabras y elementos multimedia, así como pares de encabezado y títulos de partes. La disponibilidad depende de qué propiedades fueron escritas por el productor del documento.
+- **PPT:** El formato binario puede almacenar propiedades resumidas de documento equivalentes. Si una propiedad está ausente o no fue refrescada por el productor del documento, Aspose.Slides devuelve su valor almacenado o predeterminado en lugar de calcularlo a partir de las diapositivas.
+- **ODP:** Los metadatos de OpenDocument proporcionan estadísticas generales del documento, como recuentos de páginas, párrafos y palabras, pero estos valores no se asignan a todas las propiedades extendidas específicas de PowerPoint. Los metadatos de diapositivas ocultas, notas, multimedia, pares de encabezado y títulos de partes pueden no estar disponibles, y las propiedades de inventario pueden devolver valores predeterminados. No trate un valor cero o una matriz vacía como prueba autoritativa de que el contenido correspondiente está ausente.
 
-Utilice el enfoque ligero de metadatos para inventarios y comprobaciones preliminares. Cargue la presentación e inspeccione su modelo de objeto en vivo cuando el resultado deba reflejar cambios en memoria o cuando necesite verificar el contenido real de la presentación.
+Utilice el enfoque de metadatos ligeros para inventarios y verificaciones preliminares. Cargue la presentación e inspeccione su modelo de objetos en tiempo real cuando el resultado deba reflejar cambios en memoria o cuando necesite verificar el contenido real de la presentación.
 
 ## **Actualizar propiedades de la presentación**
 
@@ -189,7 +191,7 @@ La siguiente imagen muestra las propiedades del documento modificadas.
 
 ## **Enlaces útiles**
 
-Para comprobaciones de seguridad relacionadas y configuraciones de protección, consulte los artículos siguientes:
+Para comprobaciones de seguridad relacionadas y configuraciones de protección, consulte los siguientes artículos:
 
 - [Password-Protect Presentations](/slides/es/php-java/password-protected-presentation/)
 - [Write-Protect Presentations](/slides/es/php-java/write-protected-presentation/)
@@ -198,20 +200,20 @@ Para comprobaciones de seguridad relacionadas y configuraciones de protección, 
 
 **¿Cómo puedo comprobar si las fuentes están incrustadas y cuáles son?**
 
-Cargue la presentación y utilice [Presentation::getFontsManager](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/#getFontsManager). Llame a [FontsManager::getEmbeddedFonts](https://reference.aspose.com/slides/es/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) para obtener las fuentes incrustadas y a [FontsManager::getFonts](https://reference.aspose.com/slides/es/php-java/aspose.slides/fontsmanager/#getFonts) para obtener las fuentes usadas por la presentación. Compare los dos resultados para encontrar fuentes necesarias para la representación que no están incrustadas.
+Cargue la presentación y use [Presentation::getFontsManager](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/#getFontsManager). Llame a [FontsManager::getEmbeddedFonts](https://reference.aspose.com/slides/es/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) para obtener las fuentes incrustadas y a [FontsManager::getFonts](https://reference.aspose.com/slides/es/php-java/aspose.slides/fontsmanager/#getFonts) para obtener las fuentes utilizadas por la presentación. Compare los dos resultados para encontrar fuentes que son necesarias para la representación pero no están incrustadas.
 
 **¿Cómo puedo saber rápidamente si el archivo tiene diapositivas ocultas y cuántas?**
 
-Cuando los metadatos del documento almacenado son suficientes, lea [DocumentProperties::getHiddenSlides](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/#getHiddenSlides) a través de [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationfactory/) y [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/#readDocumentProperties). Esto es adecuado para un inventario ligero. Si la presentación se ha modificado en memoria, los metadatos almacenados pueden faltar o estar desactualizados, o necesita verificar los valores en vivo; en ese caso, recorra [Presentation::getSlides](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/#getSlides) e inspeccione el método [Slide::getHidden](https://reference.aspose.com/slides/es/php-java/aspose.slides/slide/#getHidden) de cada diapositiva.
+Cuando los metadatos del documento almacenado son suficientes, lea [DocumentProperties::getHiddenSlides](https://reference.aspose.com/slides/es/php-java/aspose.slides/documentproperties/#getHiddenSlides) a través de [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationfactory/) y [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/#readDocumentProperties). Esto es adecuado para un inventario ligero. Si la presentación ha sido modificada en memoria, los metadatos almacenados pueden estar ausentes o desactualizados, o necesita verificar valores en tiempo real; en ese caso, itere a través de [Presentation::getSlides](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/#getSlides) y examine el método [Slide::getHidden](https://reference.aspose.com/slides/es/php-java/aspose.slides/slide/#getHidden) de cada diapositiva.
 
-**¿Puedo detectar si se usa un tamaño y orientación de diapositiva personalizados, y si difieren de los valores predeterminados?**
+**¿Puedo detectar si se utiliza un tamaño y orientación de diapositiva personalizados, y si difieren de los valores predeterminados?**
 
-Sí. Cargue la presentación y llame a [Presentation::getSlideSize](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/#getSlideSize). Utilice [SlideSize::getType](https://reference.aspose.com/slides/es/php-java/aspose.slides/slidesize/#getType), [SlideSize::getSize](https://reference.aspose.com/slides/es/php-java/aspose.slides/slidesize/#getSize) y [SlideSize::getOrientation](https://reference.aspose.com/slides/es/php-java/aspose.slides/slidesize/#getOrientation) para comparar la configuración actual con los valores predefinidos y las dimensiones esperadas.
+Sí. Cargue la presentación y llame a [Presentation::getSlideSize](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/#getSlideSize). Use [SlideSize::getType](https://reference.aspose.com/slides/es/php-java/aspose.slides/slidesize/#getType), [SlideSize::getSize](https://reference.aspose.com/slides/es/php-java/aspose.slides/slidesize/#getSize) y [SlideSize::getOrientation](https://reference.aspose.com/slides/es/php-java/aspose.slides/slidesize/#getOrientation) para comparar la configuración actual con el preset y las dimensiones esperadas.
 
-**¿Existe una manera rápida de ver si los gráficos hacen referencia a fuentes de datos externas?**
+**¿Existe una forma rápida de ver si los gráficos hacen referencia a fuentes de datos externas?**
 
-Sí. Localice cada [Chart](https://reference.aspose.com/slides/es/php-java/aspose.slides/chart/) y llame a [ChartData::getDataSourceType](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdata/#getDataSourceType). Para un libro de trabajo externo, llame a [ChartData::getExternalWorkbookPath](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdata/#getExternalWorkbookPath). El tipo de fuente de datos y la ruta identifican una referencia externa, pero verificar si el objetivo está disponible requiere una comprobación de recursos separada.
+Sí. Ubique cada [Chart](https://reference.aspose.com/slides/es/php-java/aspose.slides/chart/) y llame a [ChartData::getDataSourceType](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdata/#getDataSourceType). Para un libro de trabajo externo, llame a [ChartData::getExternalWorkbookPath](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdata/#getExternalWorkbookPath). El tipo de fuente de datos y la ruta identifican una referencia externa, pero verificar si el objetivo está disponible requiere una comprobación de recursos separada.
 
-**¿Cómo puedo evaluar las diapositivas 'pesadas' que pueden ralentizar el renderizado o la exportación a PDF?**
+**¿Cómo puedo evaluar las diapositivas “pesadas” que pueden ralentizar la representación o la exportación a PDF?**
 
-No existe una única propiedad de complejidad. Recorra [Presentation::getSlides](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/#getSlides) y la colección [BaseSlide::getShapes](https://reference.aspose.com/slides/es/php-java/aspose.slides/baseslide/#getShapes) de cada diapositiva. Utilice el recuento de formas y la presencia de imágenes grandes, efectos, animaciones o multimedia como señales de filtrado, y mida una representación o exportación representativa antes de considerar una diapositiva como un cuello de botella confirmado de rendimiento.
+No existe una única propiedad de complejidad. Recorra [Presentation::getSlides](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/#getSlides) y la colección de [BaseSlide::getShapes](https://reference.aspose.com/slides/es/php-java/aspose.slides/baseslide/#getShapes) de cada diapositiva. Utilice el recuento de formas y la presencia de imágenes grandes, efectos, animaciones o elementos multimedia como señales de filtrado, y mida una representación o exportación representativa antes de considerar una diapositiva como un cuello de botella de rendimiento confirmado.

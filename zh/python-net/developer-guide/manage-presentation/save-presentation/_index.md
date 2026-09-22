@@ -7,73 +7,112 @@ url: /zh/python-net/save-presentation/
 keywords:
 - 保存 PowerPoint
 - 保存 OpenDocument
-- 保存 演示文稿
-- 保存 幻灯片
+- 保存演示文稿
+- 保存幻灯片
 - 保存 PPT
 - 保存 PPTX
 - 保存 ODP
-- 演示文稿 到 文件
-- 演示文稿 到 流
-- 预定义 视图 类型
-- 严格 Office Open XML 格式
+- 将演示文稿保存为文件
+- 将演示文稿保存为流
+- 预定义视图类型
+- 严格的 Office Open XML 格式
 - Zip64 模式
-- 刷新 缩略图
-- 保存 进度
+- 刷新缩略图
+- 保存进度
 - Python
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides 在 Python 中保存演示文稿——导出为 PowerPoint 或 OpenDocument，并保留布局、字体和效果。"
+description: "在 Python 中使用 Aspose.Slides 将 PowerPoint 和 OpenDocument 演示文稿保存为文件或流，并配置 PPTX 输出选项。"
 ---
 ## **概述**
 
-[在 Python 中打开演示文稿](/slides/zh/python-net/open-presentation/) 介绍了如何使用 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类打开演示文稿。本文说明了如何创建和保存演示文稿。[Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类包含演示文稿的内容。无论是从头创建演示文稿还是修改现有演示文稿，完成后都需要保存。使用 Aspose.Slides for Python，您可以保存到 **文件** 或 **流**。本文解释了保存演示文稿的不同方式。
+创建演示文稿或[打开现有演示文稿](/slides/zh/python-net/open-presentation/)后，使用[Presentation.save](https://reference.aspose.com/slides/zh/python-net/aspose.slides/ipresentation/save/)方法写入结果。Aspose.Slides for Python via .NET 可以将演示文稿保存为文件或流，支持 PowerPoint、OpenDocument、PDF 等多种格式。以下章节介绍标准的保存操作以及 PPTX 输出的可用选项。
 
-## **将演示文稿保存为文件**
+## **将演示文稿保存到文件**
 
-通过调用 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的 `save` 方法将演示文稿保存为文件。向方法传递文件名和保存格式。以下示例演示了如何使用 Aspose.Slides for Python 保存演示文稿。
+要将演示文稿保存到文件，向[Presentation.save](https://reference.aspose.com/slides/zh/python-net/aspose.slides/ipresentation/save/)方法传递输出路径和一个[SaveFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/saveformat/)值。格式值决定 Aspose.Slides 创建的文件类型。
+
+下面的示例创建一个演示文稿并将其保存为 PPTX 文件：
 
 ```py
 import aspose.slides as slides
 
-# 实例化表示演示文稿文件的 Presentation 类。
 with slides.Presentation() as presentation:
-    
-    # 在此进行一些操作...
+    # 添加或修改演示文稿内容。
 
-    # 将演示文稿保存到文件。
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **以原始格式保存演示文稿**
+
+有关文件和流检测示例、新创建演示文稿的行为，以及源格式与输出格式的区别，请参阅[确定原始演示文稿格式](/slides/zh/python-net/detect-presentation-source-format/)。
+
+在批处理应用程序中，输入格式可能事先未知。加载文件后，可从[Presentation.source_format](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/source_format/)属性读取其原始格式。将得到的[SourceFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides/sourceformat/)值传递给[SlideUtil.to_save_format](https://reference.aspose.com/slides/zh/python-net/aspose.slides.util/slideutil/to_save_format/)以获取相应的[SaveFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/saveformat/)值，然后使用[Presentation.save](https://reference.aspose.com/slides/zh/python-net/aspose.slides/ipresentation/save/)写入修改后的演示文稿。
+
+下面的完整示例遍历输入目录中的每个文件，更新其标题，并以加载时的格式保存到输出目录：
+
+```py
+from pathlib import Path
+
+import aspose.slides as slides
+from aspose.slides.util import SlideUtil
+
+input_directory = Path("Input")
+output_directory = Path("Output")
+
+output_directory.mkdir(exist_ok=True)
+
+for input_path in input_directory.iterdir():
+    if not input_path.is_file():
+        continue
+
+    try:
+        with slides.Presentation(str(input_path)) as presentation:
+            source_format = presentation.source_format
+            save_format = SlideUtil.to_save_format(source_format)
+
+            presentation.document_properties.title = "Processed by the batch application"
+
+            output_path = output_directory / input_path.name
+            presentation.save(str(output_path), save_format)
+    except Exception as exception:
+        print(f"Cannot process '{input_path}': {exception}")
+```
+
+[SlideUtil.to_save_format](https://reference.aspose.com/slides/zh/python-net/aspose.slides.util/slideutil/to_save_format/) 将 PPT、PPTX、ODP、PPTM、PPSX、PPSM、POTX、POTM、PPS、POT、OTP、FODP 和 PowerPoint XML 映射到对应的演示文稿保存格式。它仅映射演示文稿源格式；并非用于选择如 PDF、HTML、TIFF 或图像等导出格式。传入不受支持或无效的[SourceFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides/sourceformat/)值会抛出异常。
+
+旧版 PPT、PPS 和 POT 文件使用相同的二进制容器。当此类演示文稿从没有文件扩展名的流中加载时，PPS 或 POT 文件可能会被识别为 PPT。如果需要保留这些旧子类型，请单独保留原始文件名或格式元数据，并在选择输出文件名和格式时使用它们。
 
 ## **将演示文稿保存到流**
 
-您可以通过向 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类的 `save` 方法传递输出流来将演示文稿保存到流。演示文稿可以写入多种流类型。下面的示例中，我们创建一个新演示文稿并将其保存到文件流。
+要在不依赖最终文件路径的情况下写入演示文稿，向[Presentation.save](https://reference.aspose.com/slides/zh/python-net/aspose.slides/ipresentation/save/)方法传递可写的[BinaryIO](https://docs.python.org/3/library/typing.html#typing.BinaryIO)流和一个[SaveFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/saveformat/)值。此方式在需要将输出返回给 Web 服务、存储到数据库或在内存中处理时非常有用。
+
+下面的示例将新演示文稿保存到文件流：
 
 ```py
 import aspose.slides as slides
 
-# 实例化表示演示文稿文件的 Presentation 类。
 with slides.Presentation() as presentation:
-    with open("output.pptx", "bw") as file_stream:
-        # 将演示文稿保存到流中。
-        presentation.save(file_stream, slides.export.SaveFormat.PPTX)
+    with open("Output.pptx", "wb") as output_stream:
+        presentation.save(output_stream, slides.export.SaveFormat.PPTX)
 ```
 
 ## **使用预定义视图类型保存演示文稿**
 
-Aspose.Slides for Python 允许您通过 [ViewProperties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/viewproperties/) 类设置 PowerPoint 打开生成的演示文稿时的初始视图。将 `last_view` 属性设置为 [ViewType](https://reference.aspose.com/slides/zh/python-net/aspose.slides/viewtype/) 枚举中的值。
+可以指定 PowerPoint 打开已保存演示文稿时的默认视图。在保存之前，将[ViewProperties.last_view](https://reference.aspose.com/slides/zh/python-net/aspose.slides/viewproperties/last_view/)属性设置为[ViewType](https://reference.aspose.com/slides/zh/python-net/aspose.slides/viewtype/)值。
+
+下面的示例将 Slide Master 视图设为初始视图：
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     presentation.view_properties.last_view = slides.ViewType.SLIDE_MASTER_VIEW
-    presentation.save("slide_master_view.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("SlideMasterView.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **以 Strict Office Open XML 格式保存演示文稿**
+## **以严格的 Office Open XML 格式保存演示文稿**
 
-Aspose.Slides 允许您以 Strict Office Open XML 格式保存演示文稿。使用 [PptxOptions](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/pptxoptions/) 类并在保存时设置其 `conformance` 属性。如果将 `Conformance.ISO_29500_2008_STRICT` 设为 true，则输出文件以 Strict Office Open XML 格式保存。
-
-下面的示例创建一个演示文稿并以 Strict Office Open XML 格式保存。
+要创建符合 Office Open XML 严格配置文件的 PPTX 文件，请创建一个[PptxOptions](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/pptxoptions/)实例，并将其[conformance](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/pptxoptions/conformance/)属性设为 `Conformance.ISO_29500_2008_STRICT`。随后将该选项传递给[Presentation.save](https://reference.aspose.com/slides/zh/python-net/aspose.slides/ipresentation/save/)方法。
 
 ```py
 import aspose.slides as slides
@@ -81,124 +120,112 @@ import aspose.slides as slides
 options = slides.export.PptxOptions()
 options.conformance = slides.export.Conformance.ISO_29500_2008_STRICT
 
-# 实例化表示演示文稿文件的 Presentation 类。
 with slides.Presentation() as presentation:
-    # 以严格的 Office Open XML 格式保存演示文稿。
-    presentation.save("strict_office_open_xml.pptx", slides.export.SaveFormat.PPTX, options)
+    presentation.save("StrictOfficeOpenXml.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
 ## **以 Zip64 模式保存 Office Open XML 格式的演示文稿**
 
-Office Open XML 文件是一个 ZIP 存档，对未压缩文件大小、压缩后文件大小以及存档总大小均有限制为 4 GB（2^32 字节），并且存档中文件数量限制为 65 535（2^16‑1）个。ZIP64 格式扩展将这些限制提升至 2^64。
+标准 ZIP 存档对每个条目的压缩和未压缩大小、总存档大小以及条目数量都有限制。由于 PPTX 文件本质上是 ZIP 存档，特别大的演示文稿可能会超出这些限制。ZIP64 扩展提升了相关的大小和条目计数限制。
 
-[PptxOptions.zip_64_mode](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/pptxoptions/zip_64_mode/) 属性让您在保存 Office Open XML 文件时选择何时使用 ZIP64 格式扩展。
+使用[PptxOptions.zip_64_mode](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/pptxoptions/zip_64_mode/)属性来控制 Aspose.Slides 是否写入 ZIP64 扩展：
 
-该属性提供以下模式：
+- `IF_NECESSARY` 仅在演示文稿超出标准 ZIP 限制时使用 ZIP64。这是默认模式。
+- `NEVER` 禁用 ZIP64 扩展。
+- `ALWAYS` 始终写入 ZIP64 扩展。
 
-- `IF_NECESSARY` 仅在演示文稿超出上述限制时使用 ZIP64 格式扩展。这是默认模式。
-- `NEVER` 从不使用 ZIP64 格式扩展。
-- `ALWAYS` 始终使用 ZIP64 格式扩展。
-
-下面的代码演示了如何在启用 ZIP64 格式扩展的情况下将演示文稿保存为 PPTX 文件：
+下面的示例始终为输出演示文稿启用 ZIP64 扩展：
 
 ```py
 import aspose.slides as slides
 
-pptx_options = slides.export.PptxOptions()
-pptx_options.zip_64_mode = slides.export.Zip64Mode.ALWAYS
+with slides.Presentation("Sample.pptx") as presentation:
+    options = slides.export.PptxOptions()
+    options.zip_64_mode = slides.export.Zip64Mode.ALWAYS
 
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.save("output_zip64.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+    presentation.save("OutputZip64.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-使用 `Zip64Mode.NEVER` 保存时，如果演示文稿无法以 ZIP32 格式保存，将抛出 [PptxException](https://reference.aspose.com/slides/zh/python-net/aspose.slides/pptxexception/)。
+{{% alert color="warning" title="Warning" %}}
+如果使用 `Zip64Mode.NEVER`，且演示文稿无法适应标准 ZIP 限制，保存操作将抛出 [PptxException](https://reference.aspose.com/slides/zh/python-net/aspose.slides/pptxexception/)。
 {{% /alert %}}
 
 ## **以不同压缩级别保存 Office Open XML 格式的演示文稿**
 
-处理大型演示文稿时，您可以调整压缩级别来平衡文件大小和处理时间。根据需求，您可能更倾向于更快的处理速度或更小的输出文件。
+对于 PPTX 输出，可以通过设置[PptxOptions.compression_level](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/pptxoptions/compression_level/)属性在保存速度和文件大小之间取得平衡。[CompressionLevel](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/compressionlevel/) 枚举提供以下值：
 
-Aspose.Slides 提供了 [PptxOptions.compression_level](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/pptxoptions/compression_level/) 属性，允许您在以 Office Open XML 格式保存演示文稿时指定压缩级别。
+- `NONE` 不进行压缩，直接存储数据。
+- `LEVEL1` 提供最快的压缩速度，但生成的压缩文件最大。
+- `LEVEL2` 至 `LEVEL5` 逐步偏向更小的输出，而牺牲一定的保存速度。
+- `LEVEL6` 在保存速度和文件大小之间取得平衡，这是默认级别。
+- `LEVEL7` 和 `LEVEL8` 进一步倾向于更小的输出，牺牲保存速度。
+- `LEVEL9` 提供最强的压缩，需要最长的处理时间。
 
-可用的压缩级别如下：
-
-- [**NONE**](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/compressionlevel/)：不进行压缩，文件按原样存储。
-- [**LEVEL1**](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/compressionlevel/)：最快的压缩，压缩比最低。
-- [**LEVEL2**](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/compressionlevel/)：比 **LEVEL1** 稍好一些的压缩比，速度仍然很快。
-- [**LEVEL3**](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/compressionlevel/)：提供比 **LEVEL2** 更好的压缩，处理时间适中。
-- [**LEVEL4**](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/compressionlevel/)：比 **LEVEL3** 更佳的压缩。
-- [**LEVEL5**](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/compressionlevel/)：在 **LEVEL4** 基础上进一步提升压缩率，需更多处理时间。
-- [**LEVEL6**](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/compressionlevel/)：标准压缩，兼顾处理速度和文件大小。此为 *默认压缩级别*。
-- [**LEVEL7**](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/compressionlevel/)：比 **LEVEL6** 更好的压缩，但处理速度更慢。
-- [**LEVEL8**](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/compressionlevel/)：比 **LEVEL7** 更佳的压缩。
-- [**LEVEL9**](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/compressionlevel/)：最高压缩率，能够得到最小的文件大小，但处理时间最长。
-
-以下示例演示如何以 *无压缩* 的方式将演示文稿保存为 PPTX 文件：
+下面的示例在不使用压缩的情况下保存演示文稿：
 
 ```py
 import aspose.slides as slides
 
-pptx_options = slides.export.PptxOptions()
-pptx_options.compression_level = slides.export.CompressionLevel.NONE
+with slides.Presentation("Sample.pptx") as presentation:
+    options = slides.export.PptxOptions()
+    options.compression_level = slides.export.CompressionLevel.NONE
 
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.save("sample_out.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+    presentation.save("OutputNoCompression.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
-此示例演示如何以 *最高压缩* 的方式将演示文稿保存为 PPTX 文件：
+下面的示例使用最高压缩级别：
 
 ```py
 import aspose.slides as slides
 
-pptx_options = slides.export.PptxOptions()
-pptx_options.compression_level = slides.export.CompressionLevel.LEVEL9
+with slides.Presentation("Sample.pptx") as presentation:
+    options = slides.export.PptxOptions()
+    options.compression_level = slides.export.CompressionLevel.LEVEL9
 
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.save("sample_level9.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+    presentation.save("OutputMaximumCompression.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
 ## **保存演示文稿时不刷新缩略图**
 
-[PptxOptions.refresh_thumbnail](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/pptxoptions/refresh_thumbnail/) 属性控制在将演示文稿保存为 PPTX 时是否生成缩略图：
+当演示文稿以 PPTX 保存时，[PptxOptions.refresh_thumbnail](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/pptxoptions/refresh_thumbnail/)属性控制其文档缩略图：
 
-- 设置为 `True` 时，保存过程中会刷新缩略图（默认值）。
-- 设置为 `False` 时，保留当前缩略图。如果演示文稿没有缩略图，则不生成。
+- `True` 在保存过程中重新生成缩略图，这是默认值。
+- `False` 保持现有缩略图不变。如果演示文稿没有缩略图，Aspose.Slides 不会生成新的缩略图。
 
-下面的代码将演示文稿保存为 PPTX，且不刷新其缩略图。
+下面的示例在保存演示文稿时不刷新其缩略图：
 
 ```py
 import aspose.slides as slides
 
-pptx_options = slides.export.PptxOptions()
-pptx_options.refresh_thumbnail = False
+with slides.Presentation("Sample.pptx") as presentation:
+    options = slides.export.PptxOptions()
+    options.refresh_thumbnail = False
 
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+    presentation.save("Output.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
-{{% alert title="Info" color="info" %}}
-此选项有助于缩短以 PPTX 格式保存演示文稿所需的时间。
+{{% alert color="info" title="Note" %}}
+禁用缩略图刷新可以缩短 PPTX 文件的保存时间。
 {{% /alert %}}
 
-{{% alert title="Info" color="info" %}}
-Aspose 开发了一个使用其 API 的 [免费 PowerPoint Splitter 应用](https://products.aspose.app/slides/zh/splitter)。该应用可通过将选定的幻灯片保存为新的 PPTX 或 PPT 文件，将演示文稿拆分为多个文件。
+{{% alert color="info" title="Note" %}}
+Aspose 提供了一个免费的[PowerPoint Splitter](https://products.aspose.app/slides/zh/splitter)，基于 Aspose.Slides API 构建。它可以将演示文稿中的选定幻灯片保存为独立的 PPT 或 PPTX 文件。
 {{% /alert %}}
 
-## **常见问题**
+## **常见问题解答**
 
-**是否支持 “快速保存”（增量保存）以仅写入更改？**
+**Aspose.Slides 是否支持增量或“快速保存”？**
 
-不支持。每次保存都会生成完整的目标文件，未实现增量 “快速保存”。
+不支持。每次保存操作都会写入完整的输出文件，而不是仅更新已更改的部分。
 
-**从多个线程保存同一个 Presentation 实例是否线程安全？**
+**多个线程可以保存同一个 Presentation 实例吗？**
 
-不安全。`Presentation` 实例 **不是线程安全** 的，请仅在单线程中进行保存。
+不可以。[Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/)实例**不是线程安全的**（/slides/zh/python-net/multithreading/）。一次只能由单个线程访问并保存该实例。
 
-**保存时超链接和外部链接的文件会怎样处理？**
+**保存演示文稿时，超链接和外部链接的文件会怎样？**
 
-[超链接](/slides/zh/python-net/manage-hyperlinks/) 会被保留。外部链接的文件（例如使用相对路径的视频）不会自动复制，请确保引用的路径仍然可访问。
+[超链接](/slides/zh/python-net/manage-hyperlinks/)会保留在演示文稿中。Aspose.Slides 不会复制外部链接的文件，因此保存后的演示文稿仍需能够访问这些文件的位置。
 
-**是否可以设置/保存文档元数据（作者、标题、公司、日期）？**
+**我可以保存文档元数据（如作者、标题、公司和创建日期）吗？**
 
-可以。支持标准的 [文档属性](/slides/zh/python-net/presentation-properties/)，保存时会写入文件中。
+可以。在保存之前设置相应的[文档属性](/slides/zh/python-net/presentation-properties/)，Aspose.Slides 会将它们写入输出文件。

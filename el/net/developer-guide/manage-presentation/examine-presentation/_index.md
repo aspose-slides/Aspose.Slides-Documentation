@@ -22,17 +22,19 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Εξερευνήστε τις διαφάνειες, τη δομή και τα μεταδεδομένα σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας .NET για γρηγορότερη αντίληψη και πιο έξυπνους ελέγχους περιεχομένου."
+description: "Εξερευνήστε διαφάνειες, δομή και μεταδεδομένα σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας .NET για πιο γρήγορη απόκτηση γνώσεων και πιο έξυπνους ελέγχους περιεχομένου."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides μπορεί να αναγνωρίσει τη μορφή μιας παρουσίασης και να διαβάσει τα μεταδεδομένα του εγγράφου χωρίς να δημιουργήσει πλήρες μοντέλο αντικειμένων παρουσίασης. Αυτό είναι χρήσιμο όταν χρειάζεται να ταξινομήσετε αρχεία, να δημιουργήσετε απογραφή ή να ελέγξετε ιδιότητες πριν αποφασίσετε εάν θα φορτώσετε και θα επεξεργαστείτε το περιεχόμενο της παρουσίασης.
+Aspose.Slides μπορεί να εντοπίσει τη μορφή μιας παρουσίασης και να διαβάσει τα μεταδεδομένα του εγγράφου χωρίς να δημιουργήσει πλήρες μοντέλο αντικειμένων παρουσίασης. Αυτό είναι χρήσιμο όταν χρειάζεται να ταξινομήσετε αρχεία, να δημιουργήσετε ένα απόθεμα ή να εξετάσετε ιδιότητες πριν αποφασίσετε αν θα φορτώσετε και θα επεξεργαστείτε το περιεχόμενο της παρουσίασης.
 
-Αυτό το άρθρο επιδεικνύει ελαφριά επιθεώρηση μέσω [PresentationFactory](https://reference.aspose.com/slides/el/net/aspose.slides/presentationfactory/) και [IPresentationInfo](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/), καθώς και στοχευμένες ενημερώσεις μέσω [IDocumentProperties](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/).
+Το άρθρο αυτό επιδεικνύει ελαφριά επιθεώρηση μέσω του [PresentationFactory](https://reference.aspose.com/slides/el/net/aspose.slides/presentationfactory/) και του [IPresentationInfo](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/), καθώς και στοχευμένες ενημερώσεις μέσω του [IDocumentProperties](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/).
 
-## **Έλεγχος μορφής παρουσίασης**
+## **Έλεγχος Μορφής Παρουσίασης**
 
-Χρησιμοποιήστε [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/el/net/aspose.slides/presentationfactory/getpresentationinfo/) για να επιθεωρήσετε ένα αρχείο χωρίς να δημιουργήσετε ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) . Η ιδιότητα [IPresentationInfo.LoadFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/loadformat/) αναφέρει τη ανιχνευμένη μορφή, όπως PPTX, PPT ή ODP.
+Αν έχετε ήδη μια φορτωμένη παρουσίαση, δείτε το [Determine the Original Presentation Format](/slides/el/net/detect-presentation-source-format/) για ανίχνευση μετά τη φόρτωση και τους περιορισμούς των παλαιών ροών PPT, PPS και POT.
+
+Χρησιμοποιήστε το [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/el/net/aspose.slides/presentationfactory/getpresentationinfo/) για να ελέγξετε ένα αρχείο χωρίς να δημιουργήσετε ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/). Η ιδιότητα [IPresentationInfo.LoadFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/loadformat/) αναφέρει τη εντοπισμένη μορφή, όπως PPTX, PPT ή ODP.
 
 ```csharp
 using System;
@@ -47,22 +49,22 @@ foreach (var fileName in fileNames)
 }
 ```
 
-## **Δημιουργία ελαφριάς απογραφής παρουσιάσεων**
+## **Δημιουργία Ελαφρού Αποθέματος Παρουσίασης**
 
-Όταν επεξεργάζεστε πολλά αρχεία παρουσίασης, ίσως χρειάζεστε μια συμπαγή απογραφή για έλεγχο, ευρετηρία ή σύστημα διαχείρισης εγγράφων. Σε αυτό το σενάριο, χρησιμοποιήστε [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/el/net/aspose.slides/presentationfactory/getpresentationinfo/) για να αποκτήσετε ένα αντικείμενο [IPresentationInfo](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/) , και στη συνέχεια καλέστε [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/readdocumentproperties/) για να διαβάσετε τα μεταδεδομένα του εγγράφου. Αυτή η προσέγγιση δεν δημιουργεί αντικείμενο [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) , ούτε απαιτεί να διασχίσετε το πλήρες μοντέλο αντικειμένων παρουσίασης.
+Όταν επεξεργάζεστε πολλαπλά αρχεία παρουσίασης, ίσως χρειάζεστε ένα συμπαγές απόθεμα για επικύρωση, ευρετηρίαση ή σύστημα διαχείρισης εγγράφων. Σε αυτό το σενάριο, χρησιμοποιήστε το [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/el/net/aspose.slides/presentationfactory/getpresentationinfo/) για να αποκτήσετε ένα αντικείμενο [IPresentationInfo](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/), και στη συνέχεια καλέστε το [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/readdocumentproperties/) για να διαβάσετε τα μεταδεδομένα του εγγράφου. Αυτή η προσέγγιση δεν δημιουργεί ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) ούτε απαιτεί την περιπλοκή του πλήρους μοντέλου αντικειμένων παρουσίασης.
 
-Οι εκτεταμένες ιδιότητες που εκτίθενται από το [IDocumentProperties](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/) παρέχουν τις παρακάτω τιμές απογραφής:
+Οι επεκταμένες ιδιότητες που εκθέτει το [IDocumentProperties](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/) παρέχουν τις παρακάτω τιμές αποθέματος:
 
-| Ιδιότητα | Τιμή απογραφής |
+| Ιδιότητα | Τιμή αποθέματος |
 | --- | --- |
-| [Slides](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/slides/el/) | Συνολικός αριθμός διαφαινέων. |
-| [HiddenSlides](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/hiddenslides/) | Αριθμός κρυφών διαφαινέων. |
-| [Notes](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/notes/) | Αριθμός διαφαινέων που περιέχουν σημειώσεις. |
-| [Paragraphs](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/paragraphs/) | Συνολικός αριθμός παραγράφων, όταν είναι διαθέσιμο. |
+| [Slides](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/slides/el/) | Συνολικός αριθμός διαφανειών. |
+| [HiddenSlides](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/hiddenslides/) | Αριθμός κρυφών διαφανειών. |
+| [Notes](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/notes/) | Αριθμός διαφανειών που περιέχουν σημειώσεις. |
+| [Paragraphs](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/paragraphs/) | Συνολικός αριθμός παραγράφων, εφόσον είναι διαθέσιμος. |
 | [Words](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/words/) | Συνολικός αριθμός λέξεων. |
 | [MultimediaClips](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/multimediaclips/) | Συνολικός αριθμός ηχητικών και βίντεο κλιπ. |
 
-Το παρακάτω παράδειγμα διαβάζει αυτές τις τιμές χωρίς να δημιουργήσει ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) και εκτυπώνει μια συμπαγή απογραφή. Συνδυάζει επίσης τα [HeadingPairs](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/headingpairs/) με τα [TitlesOfParts](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/titlesofparts/) για να εμφανίσει ομάδες περιεχομένου όπως γραμματοσειρές, θέματα και τίτλους διαφανειών.
+Το παρακάτω παράδειγμα διαβάζει αυτές τις τιμές χωρίς να δημιουργήσει αντικείμενο [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) και εκτυπώνει ένα συμπαγές απόθεμα. Συνδυάζει επίσης το [HeadingPairs](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/headingpairs/) με το [TitlesOfParts](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/titlesofparts/) για να εμφανίσει ομάδες περιεχομένου όπως γραμματοσειρές, θέματα και τίτλους διαφανειών.
 
 ```csharp
 using System;
@@ -121,27 +123,27 @@ else
 }
 ```
 
-Κάθε [IHeadingPair](https://reference.aspose.com/slides/el/net/aspose.slides/iheadingpair/) παρέχει ένα όνομα ομάδας και τον αριθμό των αντικειμένων σε αυτήν την ομάδα. Το [IDocumentProperties.TitlesOfParts](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/titlesofparts/) είναι ένας επίπεδος, διατεταγμένος πίνακας, επομένως καταναλώνετε τον αριθμό των διαδοχικών τίτλων που καθορίζονται από κάθε ζεύγος τίτλου.
+Κάθε [IHeadingPair](https://reference.aspose.com/slides/el/net/aspose.slides/iheadingpair/) παρέχει ένα όνομα ομάδας και τον αριθμό των στοιχείων σε αυτήν την ομάδα. Το [IDocumentProperties.TitlesOfParts](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/titlesofparts/) είναι ένας επίπεδος, διατεταγμένος πίνακας, οπότε καταναλώστε τον αριθμό διαδοχικών τίτλων που ορίζονται από κάθε ζεύγος επικεφαλίδας.
 
-### **Αποθηκευμένα μεταδεδομένα και περιορισμοί μορφής**
+### **Αποθηκευμένα Μεταδεδομένα και Περιορισμοί Μορφής**
 
-Οι ιδιότητες απογραφής που επιστρέφει η μέθοδος [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/readdocumentproperties/) αντικατοπτρίζουν τα μεταδεδομένα που είναι διαθέσιμα στο πρωτότυπο έγγραφο. Το Aspose.Slides δεν φορτώνει και δεν διασχίζει το μοντέλο αντικειμένων παρουσίασης για να επανυπολογίσει αυτές τις τιμές σε αυτήν την κλήση. Οι ελλιπείς ιδιότητες αναπαριστώνται από προεπιλεγμένες τιμές, και οι αποθηκευμένες τιμές μπορεί να είναι παρωχημένες εάν η εφαρμογή που έσωσε τελευταία φορά το αρχείο δεν ενημέρωσε τις ιδιότητες του εγγράφου.
+Οι ιδιότητες αποθέματος που επιστρέφει το [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/readdocumentproperties/) αντικατοπτρίζουν τα μεταδεδομένα που είναι διαθέσιμα στο πηγαίο έγγραφο. Το Aspose.Slides δεν φορτώνει και δεν διασχίζει το μοντέλο αντικειμένων παρουσίασης για να επανυπολογίσει αυτές τις τιμές για αυτήν την κλήση. Οι ελλιπείς ιδιότητες αναπαρίστανται από προεπιλεγμένες τιμές, και οι αποθηκευμένες τιμές μπορεί να είναι παλαιότερες αν η εφαρμογή που αποθήκευσε τελευταία φορά το αρχείο δεν ενημέρωσε τις ιδιότητες του εγγράφου.
 
-- **PPTX:** Η μορφή παρέχει εκτεταμένες ιδιότητες εγγράφου για καταμετρήσεις διαφανειών, σημειώσεων, κρυφών διαφανειών, παραγράφων, λέξεων και πολυμέσων, καθώς και ζεύγη τίτλων και τίτλους τμημάτων. Η διαθεσιμότητα εξαρτάται από τις ιδιότητες που έγραψε ο δημιουργός του εγγράφου.
-- **PPT:** Η δυαδική μορφή μπορεί να αποθηκεύσει αντίστοιχες ιδιότητες σύνοψης εγγράφου. Εάν μια ιδιότητα λείπει ή δεν ενημερώθηκε από τον δημιουργό του εγγράφου, το Aspose.Slides επιστρέφει την αποθηκευμένη ή προεπιλεγμένη τιμή της αντί να την υπολογίσει από τις διαφάνειες.
-- **ODP:** Τα μεταδεδομένα OpenDocument παρέχουν γενικά στατιστικά εγγράφου, όπως αριθμός σελίδων, παραγράφων και λέξεων, αλλά αυτές οι τιμές δεν αντιστοιχούν σε κάθε ειδική εκτεταμένη ιδιότητα του PowerPoint. Τα μεταδεδομένα κρυφών διαφανειών, διαφανειών με σημειώσεις, πολυμέσων, ζεύγων τίτλων και τίτλων τμημάτων μπορεί να μην είναι διαθέσιμα, και οι ιδιότητες απογραφής μπορεί να επιστρέψουν προεπιλεγμένες τιμές. Μην θεωρείτε τη μηδενική τιμή ή έναν άδειο πίνακα ως αποδεικτικό ότι το αντίστοιχο περιεχόμενο λείπει.
+- **PPTX:** Η μορφή παρέχει επεκταμένες ιδιότητες εγγράφου για αριθμούς διαφανειών, σημειώσεων, κρυφών διαφανειών, παραγράφων, λέξεων και πολυμέσων, καθώς και ζεύγη επικεφαλίδων και τίτλους τμημάτων. Η διαθεσιμότητα εξαρτάται από τις ιδιότητες που έγραψε ο δημιουργός του εγγράφου.
+- **PPT:** Η δυαδική μορφή μπορεί να αποθηκεύσει τις αντίστοιχες ιδιότητες περίληψης εγγράφου. Εάν μια ιδιότητα λείπει ή δεν έχει ενημερωθεί από τον δημιουργό του εγγράφου, το Aspose.Slides επιστρέφει την αποθηκευμένη ή προεπιλεγμένη τιμή αντί να την υπολογίζει από τις διαφάνειες.
+- **ODP:** Τα μεταδεδομένα OpenDocument παρέχουν γενικές στατιστικές εγγράφου, όπως αριθμούς σελίδων, παραγράφων και λέξεων, αλλά αυτές οι τιμές δεν αντιστοιχούν σε κάθε PowerPoint‑συγκεκριμένη επεκταμένη ιδιότητα. Τα μεταδεδομένα κρυφών διαφανειών, σημειώσεων, πολυμέσων, ζευγών επικεφαλίδων και τίτλων τμημάτων ενδέχεται να μην είναι διαθέσιμα, και οι ιδιότητες αποθέματος μπορεί να επιστρέψουν προεπιλεγμένες τιμές. Μην θεωρείτε μία μηδενική τιμή ή έναν κενό πίνακα ως αποδεικτικό ότι το αντίστοιχο περιεχόμενο λείπει.
 
-Χρησιμοποιήστε την ελαφριά προσέγγιση μεταδεδομένων για απογραφές και προκαταρκτικούς ελέγχους. Φορτώστε την παρουσίαση και ελέγξτε το ενεργό μοντέλο αντικειμένων όταν το αποτέλεσμα πρέπει να αντανακλά αλλαγές στη μνήμη ή όταν χρειάζεται να επαληθεύσετε το πραγματικό περιεχόμενο της παρουσίασης.
+Χρησιμοποιήστε την ελαφριά προσέγγιση μεταδεδομένων για αποθέματα και προκαταρκτικούς ελέγχους. Φορτώστε την παρουσίαση και ελέγξτε το ενεργό μοντέλο αντικειμένων όταν το αποτέλεσμα πρέπει να αντανακλά αλλαγές στη μνήμη ή όταν χρειάζεται να επαληθεύσετε το πραγματικό περιεχόμενο της παρουσίασης.
 
-## **Ενημέρωση ιδιοτήτων παρουσίασης**
+## **Ενημέρωση Ιδιοτήτων Παρουσίασης**
 
-Οι ιδιότητες που επιστρέφει η μέθοδος [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/readdocumentproperties/) μπορούν επίσης να τροποποιηθούν χωρίς τη δημιουργία ενός αντικειμένου [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) . Εφαρμόστε τις αλλαγές με την [IPresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/updatedocumentproperties/) , και έπειτα γράψτε την δεσμευμένη παρουσίαση με την [IPresentationInfo.WriteBindedPresentation](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/writebindedpresentation/) .
+Οι ιδιότητες που επιστρέφει το [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/readdocumentproperties/) μπορούν επίσης να τροποποιηθούν χωρίς τη δημιουργία ενός αντικειμένου [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/). Εφαρμόστε τις αλλαγές με το [IPresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/updatedocumentproperties/), και στη συνέχεια γράψτε την δεσμευμένη παρουσίαση με το [IPresentationInfo.WriteBindedPresentation](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/writebindedpresentation/).
 
-Η ακόλουθη εικόνα δείχνει τις αρχικές ιδιότητες του εγγράφου.
+Η παρακάτω εικόνα εμφανίζει τις αρχικές ιδιότητες εγγράφου.
 
 ![Αρχικές ιδιότητες εγγράφου της παρουσίασης PowerPoint](input_properties.png)
 
-Το παρακάτω παράδειγμα αλλάζει τον τίτλο και την ημερομηνία τελευταίας αποθήκευσης και γράφει το αποτέλεσμα σε νέο αρχείο:
+Το παρακάτω παράδειγμα αλλάζει τον τίτλο και την ώρα τελευταίας αποθήκευσης και γράφει το αποτέλεσμα σε νέο αρχείο:
 
 ```csharp
 using System;
@@ -161,35 +163,33 @@ using var outputStream = File.Create(outputFile);
 presentationInfo.WriteBindedPresentation(outputStream);
 ```
 
-Η ακόλουθη εικόνα δείχνει τις αλλαγμένες ιδιότητες εγγράφου της παρουσίασης PowerPoint.
-
 ![Αλλαγμένες ιδιότητες εγγράφου της παρουσίασης PowerPoint](output_properties.png)
 
 ## **Χρήσιμοι Σύνδεσμοι**
 
 Για σχετικούς ελέγχους ασφαλείας και ρυθμίσεις προστασίας, δείτε τα παρακάτω άρθρα:
 
-- [Παρουσιάσεις με Προστασία Κωδικού](/slides/el/net/password-protected-presentation/)
-- [Παρουσιάσεις με Προστασία Εγγραφής](/slides/el/net/write-protected-presentation/)
+- [Προστασία Παρουσιασμών με Κωδικό](/slides/el/net/password-protected-presentation/)
+- [Προστασία Γραφής Παρουσιασμών](/slides/el/net/write-protected-presentation/)
 
 ## **Συχνές Ερωτήσεις**
 
 **Πώς μπορώ να ελέγξω αν οι γραμματοσειρές είναι ενσωματωμένες και ποιες είναι;**
 
-Φορτώστε την παρουσίαση και χρησιμοποιήστε [Presentation.FontsManager](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/fontsmanager/) . Καλέστε [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/el/net/aspose.slides/fontsmanager/getembeddedfonts/) για να αποκτήσετε τις ενσωματωμένες γραμματοσειρές και [FontsManager.GetFonts](https://reference.aspose.com/slides/el/net/aspose.slides/fontsmanager/getfonts/) για να αποκτήσετε τις γραμματοσειρές που χρησιμοποιεί η παρουσίαση. Συγκρίνετε τα δύο αποτελέσματα για να βρείτε τις γραμματοσειρές που απαιτούνται για απόδοση αλλά δεν είναι ενσωματωμένες.
+Φορτώστε την παρουσίαση και χρησιμοποιήστε το [Presentation.FontsManager](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/fontsmanager/). Καλέστε το [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/el/net/aspose.slides/fontsmanager/getembeddedfonts/) για να αποκτήσετε τις ενσωματωμένες γραμματοσειρές και το [FontsManager.GetFonts](https://reference.aspose.com/slides/el/net/aspose.slides/fontsmanager/getfonts/) για να αποκτήσετε τις γραμματοσειρές που χρησιμοποιεί η παρουσίαση. Συγκρίνετε τα δύο αποτελέσματα για να βρείτε τις γραμματοσειρές που απαιτούνται για την απόδοση αλλά δεν είναι ενσωματωμένες.
 
-**Πώς μπορώ γρήγορα να διαπιστώ αν το αρχείο έχει κρυφές διαφάνειες και πόσες;**
+**Πώς μπορώ γρήγορα να διαπιστώσω αν το αρχείο περιέχει κρυφές διαφάνειες και πόσες;**
 
-Όταν τα αποθηκευμένα μεταδεδομένα του εγγράφου είναι επαρκή, διαβάστε το [IDocumentProperties.HiddenSlides](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/hiddenslides/) μέσω του [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/el/net/aspose.slides/presentationfactory/getpresentationinfo/) και του [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/readdocumentproperties/) . Αυτό είναι κατάλληλο για ελαφριά απογραφή. Εάν η παρουσίαση έχει τροποποιηθεί στη μνήμη, τα αποθηκευμένα μεταδεδομένα μπορεί να λείπουν ή να είναι παλιά, ή αν χρειάζεται να επαληθεύσετε τις ζωντανές τιμές, επαναλάβετε τα [Presentation.Slides](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/slides/el/) και ελέγξτε την ιδιότητα [Slide.Hidden](https://reference.aspose.com/slides/el/net/aspose.slides/slide/hidden/) κάθε διαφάνειας.
+Όταν τα αποθηκευμένα μεταδεδομένα εγγράφου είναι επαρκή, διαβάστε το [IDocumentProperties.HiddenSlides](https://reference.aspose.com/slides/el/net/aspose.slides/idocumentproperties/hiddenslides/) μέσω του [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/el/net/aspose.slides/presentationfactory/getpresentationinfo/) και του [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/el/net/aspose.slides/ipresentationinfo/readdocumentproperties/). Αυτό είναι κατάλληλο για ελαφρύ απόθεμα. Εάν η παρουσίαση έχει τροποποιηθεί στη μνήμη, τα αποθηκευμένα μεταδεδομένα ενδέχεται να λείπουν ή να είναι παλαιά, ή χρειάζεται να επαληθεύσετε τις ενεργές τιμές, διατρέξτε τις [Presentation.Slides](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/slides/el/) και ελέγξτε την ιδιότητα [Slide.Hidden](https://reference.aspose.com/slides/el/net/aspose.slides/slide/hidden/) κάθε διαφάνειας.
 
-**Μπορώ να εντοπίσω αν χρησιμοποιείται προσαρμοσμένο μέγεθος και προσανατολισμός διαφάνειας και αν διαφέρουν από τις προεπιλογές;**
+**Μπορώ να εντοπίσω αν χρησιμοποιείται προσαρμοσμένο μέγεθος και προσανατολισμός διαφάνειας και αν διαφέρουν από τις προεπιλεγμένες τιμές;**
 
-Ναι. Φορτώστε την παρουσίαση και διαβάστε το [Presentation.SlideSize](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/slidesize/) . Εξετάστε το [ISlideSize.Type](https://reference.aspose.com/slides/el/net/aspose.slides/islidesize/type/) , το [ISlideSize.Size](https://reference.aspose.com/slides/el/net/aspose.slides/islidesize/size/) , και το [ISlideSize.Orientation](https://reference.aspose.com/slides/el/net/aspose.slides/islidesize/orientation/) για να συγκρίνετε τις τρέχουσες ρυθμίσεις με τις προεπιλεγμένες διαστάσεις και προσανατολισμό.
+Ναι. Φορτώστε την παρουσίαση και διαβάστε το [Presentation.SlideSize](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/slidesize/). Εξετάστε τα [ISlideSize.Type](https://reference.aspose.com/slides/el/net/aspose.slides/islidesize/type/), [ISlideSize.Size](https://reference.aspose.com/slides/el/net/aspose.slides/islidesize/size/) και [ISlideSize.Orientation](https://reference.aspose.com/slides/el/net/aspose.slides/islidesize/orientation/) για να συγκρίνετε τις τρέχουσες ρυθμίσεις με την προεπιλεγμένη διαμόρφωση και διαστάσεις.
 
-**Υπάρχει γρήγορος τρόπος να διαπιστώ αν τα διαγράμματα αναφέρονται σε εξωτερικές πηγές δεδομένων;**
+**Υπάρχει γρήγορος τρόπος να δω αν τα διαγράμματα αναφέρονται σε εξωτερικές πηγές δεδομένων;**
 
-Ναι. Εντοπίστε κάθε [Chart](https://reference.aspose.com/slides/el/net/aspose.slides.charts/chart/) και ελέγξτε το [ChartData.DataSourceType](https://reference.aspose.com/slides/el/net/aspose.slides.charts/chartdata/datasourcetype/) . Για εξωτερικό φύλλο εργασίας, διαβάστε το [ChartData.ExternalWorkbookPath](https://reference.aspose.com/slides/el/net/aspose.slides.charts/chartdata/externalworkbookpath/) . Ο τύπος πηγής δεδομένων και η διαδρομή αναγγέλλουν εξωτερική αναφορά, αλλά η επαλήθευση της διαθεσιμότητας του στόχου απαιτεί ξεχωριστό έλεγχο πόρων.
+Ναι. Εντοπίστε κάθε [Chart](https://reference.aspose.com/slides/el/net/aspose.slides.charts/chart/) και ελέγξτε το [ChartData.DataSourceType](https://reference.aspose.com/slides/el/net/aspose.slides.charts/chartdata/datasourcetype/). Για ένα εξωτερικό βιβλίο εργασίας, διαβάστε το [ChartData.ExternalWorkbookPath](https://reference.aspose.com/slides/el/net/aspose.slides.charts/chartdata/externalworkbookpath/). Ο τύπος και η διαδρομή της πηγής δεδομένων προσδιορίζουν μια εξωτερική αναφορά, αλλά η επαλήθευση της διαθεσιμότητας του στόχου απαιτεί ξεχωριστό έλεγχο πόρων.
 
-**Πώς μπορώ να αξιολογήσω τις 'βαριές' διαφάνειες που μπορεί να επιβραδύνουν την απόδοση ή την εξαγωγή σε PDF;**
+**Πώς μπορώ να αξιολογήσω τις 'βαριές' διαφάνειες που μπορεί να επιβραδύνουν την απόδοση ή την εξαγωγή PDF;**
 
-Δεν υπάρχει μία ενιαία ιδιότητα πολυπλοκότητας. Διασχίστε τα [Presentation.Slides](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/slides/el/) και τη συλλογή [IBaseSlide.Shapes](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseslide/shapes/) κάθε διαφάνειας. Χρησιμοποιήστε τους μετρητές σχήματος και την παρουσία μεγάλων εικόνων, εφέ, κινήσεων ή πολυμέσων ως δείκτες, και πραγματοποιήστε μια αντιπροσωπευτική απόπειρα απόδοσης ή εξαγωγής πριν θεωρήσετε μια διαφάνεια ως επιβεβαιωμένο σημείο συμφόρησης.
+Δεν υπάρχει μια ενιαία ιδιότητα πολυπλοκότητας. Διασχίστε τις [Presentation.Slides](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/slides/el/) και τη συλλογή [IBaseSlide.Shapes](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseslide/shapes/) κάθε διαφάνειας. Χρησιμοποιήστε τον αριθμό των σχημάτων και την παρουσία μεγάλων εικόνων, εφέ, κινούμενων σχεδίων ή πολυμέσων ως ενδείξεις, και μετρήστε μια αντιπροσωπευτική απόδοση ή εξαγωγή πριν θεωρήσετε μια διαφάνεια ως επιβεβαιωμένο σημάδι απόδοσης.

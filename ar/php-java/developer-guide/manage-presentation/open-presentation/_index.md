@@ -16,21 +16,25 @@ keywords:
 - تحميل ODP
 - عرض محمي
 - عرض كبير
-- مورد خارجي
+- موارد خارجية
 - كائن ثنائي
 - PHP
 - Aspose.Slides
-description: "تعلم كيف تفتح عروض PowerPoint وOpenDocument في PHP، وتوفير كلمات مرور للفتح، والتحكم في تحميل الموارد، وتقليل استهلاك الذاكرة باستخدام Aspose.Slides for PHP عبر Java."
+description: "تعرّف على كيفية فتح عروض PowerPoint و OpenDocument في PHP، وتوفير كلمات مرور الفتح، والتحكم في تحميل الموارد، وتقليل استهلاك الذاكرة باستخدام Aspose.Slides للـ PHP عبر Java."
 ---
-## **المقدمة**
+## **مقدمة**
 
-[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/ar/php-java/) يمكنه تحميل عروض PowerPoint وOpenDocument من الملفات وتدفقات البيانات. بعد تحميل العرض، يمكنك فحص هيكليته، تعديل الشرائح، إدارة الموارد، وحفظه بالصيغ الأصلية أو بصيغة مدعومة أخرى.
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/ar/php-java/) يمكنه تحميل عروض PowerPoint و OpenDocument من الملفات والتدفقات. بعد تحميل العرض، يمكنك فحص بنيته، تعديل الشرائح، إدارة الموارد، وحفظه بالتنسيق الأصلي أو بأي تنسيق مدعوم آخر.
 
-يمكن تخصيص سلوك التحميل عبر الفئة [LoadOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/) . على سبيل المثال، يمكنك توفير كلمة مرور للفتح، إبقاء الكائنات الثنائية الكبيرة خارج ذاكرة Java heap، التحكم في الموارد الخارجية، أو حذف البيانات الثنائية المضمّنة.
+يمكن تخصيص سلوك التحميل عبر الفئة [LoadOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/). على سبيل المثال، يمكنك توفير كلمة مرور للفتح، الاحتفاظ بالكائنات الثنائية الكبيرة خارج ذاكرة Java heap، التحكم في الموارد الخارجية، أو حذف البيانات الثنائية المدمجة.
 
 ## **فتح العروض التقديمية**
 
-لفتح عرض تقديمي موجود، مرّر مسار ملفه إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) . حرّر العرض بعد الاستخدام لتصريف مقابض الملفات والبيانات المؤقتة وغيرها من الموارد على الفور.
+بعد تحميل ملف أو تدفق، يمكنك [تحديد تنسيق العرض التقديمي الأصلي](/slides/ar/php-java/detect-presentation-source-format/) لاختيار طريقة معالجة تطبيقك له.
+
+لفتح عرض تقديمي موجود، مرر مسار ملفه إلى منشئ [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/). حرّر (Dispose) العرض التقديمي بعد الاستخدام حتى يتم تحرير مؤشرات الملفات والبيانات المؤقتة وغيرها من الموارد بسرعة.
+
+المثال التالي بلغة PHP يوضح كيفية فتح عرض تقديمي والحصول على عدد الشرائح:
 
 ```php
 use aspose\slides\Presentation;
@@ -43,9 +47,9 @@ try {
 }
 ```
 
-## **فتح العروض المحمية بكلمة مرور**
+## **فتح العروض التقديمية المحمية بكلمة مرور**
 
-كلمة المرور المشفرة تحمي محتوى العرض. لتحميل العرض بالكامل، مرّر كلمة المرور الصحيحة إلى [LoadOptions::setPassword](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#setPassword) وقدم الخيارات إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) . سيفشل التحميل إذا كانت كلمة المرور مفقودة أو غير صحيحة.
+كلمة مرور الفتح تشفر محتوى العرض. لتحميل العرض بالكامل، مرر كلمة المرور الصحيحة إلى [LoadOptions::setPassword](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#setPassword) وقدم الخيارات إلى منشئ [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/). سيفشل التحميل إذا كانت كلمة المرور مفقودة أو غير صحيحة.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -62,11 +66,13 @@ try {
 }
 ```
 
-لعمليات اكتشاف كلمة المرور، والتحقق، وسير عمل التشفير، انظر [Password-Protect Presentations](/slides/ar/php-java/password-protected-presentation/). إذا تم حفظ عرض مشفر عمداً بخصائص مستند عامة، يمكن قراءة تلك الخصائص بدون كلمة مرور؛ انظر [Manage Presentation Properties](/slides/ar/php-java/presentation-properties/).
+للتعرف على كلمة المرور، التحقق منها، وسير عمل التشفير، راجع [Password-Protect Presentations](/slides/ar/php-java/password-protected-presentation/). إذا تم حفظ عرض مشفر مع خصائص مستند عامة، يمكن قراءة تلك الخصائص بدون كلمة مرور؛ راجع [Manage Presentation Properties](/slides/ar/php-java/presentation-properties/).
 
-## **فتح عروض تقديمية كبيرة**
+## **فتح العروض التقديمية الكبيرة**
 
-[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) تُعيد خيارات تتحكم في طريقة معالجة Aspose.Slides للكائنات الثنائية الضخمة مثل الصور، والصوت، والفيديو. يمكنك إبقاء ملف المصدر مقفلاً، السماح بالملفات المؤقتة، وتقييد كمية بيانات BLOB المحتفظ بها في الذاكرة.
+[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) يُعيد خيارات تتحكم في طريقة معالجة Aspose.Slides للكائنات الثنائية الكبيرة مثل الصور والصوت والفيديو. يمكنك إبقاء ملف المصدر مقفلاً، السماح بملفات مؤقتة، وتحديد كمية بيانات BLOB المحتفظ بها في الذاكرة.
+
+الكود التالي بلغة PHP يوضح تحميل عرض تقديمي كبير (مثلاً 2 جيجابايت):
 
 ```php
 use aspose\slides\LoadOptions;
@@ -90,15 +96,14 @@ try {
 }
 ```
 
-{{% alert color="info" title="ملاحظة" %}}
-مع [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked)، يبقى ملف المصدر مقفلاً حتى يتم تحرير كائن العرض. لا تقم بنقل أو استبدال أو حذف ملف المصدر بينما يكون هذا الكائن حياً.
-
-قد تقوم Aspose.Slides بنسخ محتويات تدفق الإدخال أثناء تحميله. بالنسبة للعروض الكبيرة، غالباً ما يكون مسار الملف أكثر كفاءة من التدفق. راجع [Manage BLOBs](/slides/ar/php-java/manage-blob/) للحصول على مزيد من خيارات التخزين وإدارة الذاكرة.
+{{% alert color="info" title="Note" %}}
+مع [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked)، يظل ملف المصدر مقفلاً حتى يتم تحرير كائن العرض. لا تقم بنقل أو استبدال أو حذف ملف المصدر بينما يكون هذا الكائن موجودًا.
+Aspose.Slides قد ينسخ محتويات تدفق الإدخال أثناء تحميله. بالنسبة للعروض الكبيرة، يكون مسار الملف عمومًا أكثر كفاءة من التدفق. راجع [Manage BLOBs](/slides/ar/php-java/manage-blob/) لمزيد من خيارات التخزين وإدارة الذاكرة.
 {{% /alert %}}
 
 ## **التحكم في الموارد الخارجية**
 
-[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) تقبل تنفيذًا لواجهة Java [IResourceLoadingCallback](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iresourceloadingcallback/) عبر جسر PHP/Java. يمكن للـ callback تزويد بيانات بديلة، إعادة توجيه مورد، استخدام المحمّل الافتراضي، أو تخطّي المورد. يكون هذا مفيدًا عندما تحتوي العروض على صور خارجية يجب حلّها وفقًا لقواعد الأمان أو التخزين الخاصة بالتطبيق.
+[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) يقبل تنفيذًا لواجهة Java [IResourceLoadingCallback](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iresourceloadingcallback/) عبر PHP/Java Bridge. يمكن للرد الإرجاعي توفير بيانات بديلة، إعادة توجيه مورد، استخدام المحمل الافتراضي، أو تخطي المورد. هذا مفيد عندما يحتوي العرض على صور خارجية يجب حلها وفقًا لقواعد الأمان أو التخزين الخاصة بالتطبيق.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -139,17 +144,17 @@ try {
 }
 ```
 
-## **تحميل العروض بدون كائنات ثنائية مضمّنة**
+## **تحميل العروض التقديمية بدون الكائنات الثنائية المدمجة**
 
-قد يحتوي العرض على بيانات ثنائية مضمّنة لا تحتاجها التطبيق أو لا تريد الاحتفاظ بها. تشمل الأمثلة:
+قد يحتوي العرض على بيانات ثنائية مدمجة لا يحتاجها التطبيق أو لا يرغب في الاحتفاظ بها. أمثلة على ذلك:
 
-- مشاريع VBA، متاحة عبر [Presentation::getVbaProject](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#getVbaProject)؛
-- بيانات OLE مضمّنة، متاحة عبر [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/ar/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData)؛
-- بيانات التحكم ActiveX، متاحة عبر [Control::getActiveXControlBinary](https://reference.aspose.com/slides/ar/php-java/aspose.slides/control/#getActiveXControlBinary) .
+- مشاريع VBA، متاحة عبر [Presentation::getVbaProject](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#getVbaProject);
+- بيانات OLE مدمجة، متاحة عبر [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/ar/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- بيانات تحكم ActiveX، متاحة عبر [Control::getActiveXControlBinary](https://reference.aspose.com/slides/ar/php-java/aspose.slides/control/#getActiveXControlBinary).
 
-حدد [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) إلى `true` لإزالة هذه البيانات الثنائية أثناء التحميل. احفظ العرض المُحمَّل لتثبيت النتيجة المُنقاة.
+ضع [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) إلى `true` لإزالة هذه البيانات الثنائية أثناء التحميل. احفظ العرض المحمّل لتثبيت النتيجة المنقحة.
 
-هذا الخيار يقلل من التعرض للحمولات المضمّنة غير المرغوبة، لكنه ليس نظام اكتشاف برامج ضارة أو تنقية محتوى كامل.
+هذا الخيار يقلل من التعرض للحمولات المدمجة غير المرغوب فيها، لكنه ليس نظامًا كاملاً لاكتشاف البرامج الضارة أو تنقية المحتوى.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -169,11 +174,14 @@ try {
 
 ## **الأسئلة الشائعة**
 
-**كيف يمكنني معرفة أن الملف معيَّب ولا يمكن فتحه؟**  
-ترمي Aspose.Slides استثناءً يتعلّق بالتحليل أو الصيغة أثناء التحميل. عالج هذا الفشل بشكل منفصل عن خطأ كلمة المرور غير الصحيحة حتى يتمكن التطبيق من الإبلاغ عن السبب بدقة.
+**كيف يمكنني معرفة أن الملف تالف ولا يمكن فتحه؟**
 
-**ماذا يحدث إذا كانت الخطوط المطلوبة مفقودة؟**  
-يمكن للعرض أن يظل يُحمَّل، لكن قد تُستبدل الخطوط أثناء العرض أو التصدير. يمكنك [configure font substitution](/slides/ar/php-java/font-substitution/) أو [provide custom fonts](/slides/ar/php-java/custom-font/) لجعل المخرجات أكثر توقعًا.
+Aspose.Slides يرمي استثناءً يتعلق بالتحليل أو التنسيق أثناء التحميل. عالج هذا الفشل بشكل منفصل عن خطأ كلمة المرور غير الصحيحة حتى يتمكن التطبيق من الإبلاغ عن السبب بدقة.
 
-**هل يقوم تحميل العرض أيضًا بتحميل وسائطه المضمَّنة؟**  
-تصبح ملفات الصوت والفيديو المضمّنة متاحة عبر نموذج كائن العرض. تُحلّ الموارد الخارجية وفق سلوك تحميل الموارد المُكوَّن وقد تكون غير متوفرة إذا تعذر الوصول إلى مواقعها.
+**ماذا يحدث إذا كانت الخطوط المطلوبة مفقودة؟**
+
+يمكن للعرض أن يظل يُحمل، لكن قد تستبدل الخطوط أثناء العرض أو التصدير. يمكنك [configure font substitution](/slides/ar/php-java/font-substitution/) أو [provide custom fonts](/slides/ar/php-java/custom-font/) لجعل المخرجات أكثر توقعًا.
+
+**هل تحميل العرض يحمل أيضًا الوسائط المدمجة فيه؟**
+
+الصوت والفيديو المدمجين يصبحان متاحين عبر نموذج كائن العرض. الموارد الخارجية تُحل وفقًا لسلوك تحميل الموارد المكوَّن وقد تكون غير متاحة إذا تعذر الوصول إلى مواقعها.

@@ -1,58 +1,122 @@
 ---
-title: Lưu Bài Thuyết Trình trong C++
-linktitle: Lưu Bài Thuyết Trình
+title: Lưu bản thuyết trình bằng C++
+linktitle: Lưu Bản Thuyết Trình
 type: docs
 weight: 80
 url: /vi/cpp/save-presentation/
 keywords:
 - lưu PowerPoint
 - lưu OpenDocument
-- lưu bài thuyết trình
+- lưu bản thuyết trình
 - lưu slide
 - lưu PPT
 - lưu PPTX
 - lưu ODP
-- bài thuyết trình tới tệp
-- bài thuyết trình tới stream
-- kiểu xem được định nghĩa trước
-- Định dạng Strict Office Open XML
+- bản thuyết trình thành tệp
+- bản thuyết trình thành luồng
+- kiểu xem được định trước
+- Định dạng Office Open XML Strict
 - chế độ Zip64
-- làm mới hình thu nhỏ
-- tiến trình lưu
+- làm mới thumbnail
+- tiến độ lưu
 - C++
 - Aspose.Slides
-description: "Khám phá cách lưu bài thuyết trình trong C++ bằng Aspose.Slides—xuất ra PowerPoint hoặc OpenDocument đồng thời giữ nguyên bố cục, phông chữ và hiệu ứng."
+description: "Lưu các bản thuyết trình PowerPoint và OpenDocument vào tệp hoặc luồng trong C++ với Aspose.Slides, và cấu hình đầu ra PPTX và báo cáo tiến độ."
 ---
 ## **Tổng quan**
 
-[Open Presentations in C++](/slides/vi/cpp/open-presentation/) mô tả cách sử dụng lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) để mở một bài thuyết trình. Bài viết này giải thích cách tạo và lưu các bài thuyết trình. Lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) chứa nội dung của một bài thuyết trình. Cho dù bạn đang tạo một bài thuyết trình mới từ đầu hay chỉnh sửa một bài đã tồn tại, bạn sẽ muốn lưu nó khi hoàn thành. Với Aspose.Slides cho C++, bạn có thể lưu thành **file** hoặc **stream**. Bài viết này giải thích các cách khác nhau để lưu một bài thuyết trình.
+Sau khi bạn tạo một bản thuyết trình hoặc [mở một bản hiện có](/slides/vi/cpp/open-presentation/), hãy sử dụng phương thức [Presentation::Save](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/save/) để ghi kết quả. Aspose.Slides cho C++ có thể lưu bản thuyết trình vào tệp hoặc luồng ở các định dạng PowerPoint, OpenDocument, PDF và các định dạng khác. Các phần sau đây đề cập đến các thao tác lưu chuẩn và các tùy chọn có sẵn cho đầu ra PPTX.
 
-## **Lưu Bài Thuyết Trình vào Tập Tin**
+## **Lưu bản thuyết trình vào tệp**
 
-Lưu một bài thuyết trình vào tập tin bằng cách gọi phương thức `Save` của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/). Truyền tên tập tin và định dạng lưu vào phương thức. Ví dụ sau cho thấy cách lưu một bài thuyết trình bằng Aspose.Slides.
+Để lưu một bản thuyết trình vào tệp, truyền đường dẫn đầu ra và một giá trị [SaveFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/saveformat/) cho phương thức [Presentation::Save](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/save/). Giá trị định dạng xác định loại tệp mà Aspose.Slides tạo ra.
+
+Ví dụ sau tạo một bản thuyết trình và lưu nó dưới dạng tệp PPTX:
 
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Khởi tạo lớp Presentation đại diện cho tệp bài thuyết trình.
 auto presentation = MakeObject<Presentation>();
 
-// Thực hiện một số công việc ở đây...
+// Thêm hoặc chỉnh sửa nội dung bản thuyết trình ở đây.
 
-// Lưu bài thuyết trình vào một tệp.
 presentation->Save(u"Output.pptx", SaveFormat::Pptx);
-
 presentation->Dispose();
 ```
 
-## **Lưu Bài Thuyết Trình vào Stream**
+## **Lưu bản thuyết trình ở định dạng gốc**
 
-Bạn có thể lưu một bài thuyết trình vào stream bằng cách truyền một output stream vào phương thức `Save` của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/). Một bài thuyết trình có thể được ghi vào nhiều loại stream. Trong ví dụ dưới đây, chúng tôi tạo một bài thuyết trình mới và lưu nó vào một file stream.
+Đối với các ví dụ phát hiện tệp và luồng, hành vi của các bản thuyết trình mới tạo và sự khác biệt giữa định dạng nguồn và đầu ra, xem mục [Determine the Original Presentation Format](/slides/vi/cpp/detect-presentation-source-format/).
+
+Trong một ứng dụng xử lý hàng loạt, định dạng đầu vào có thể không được biết trước. Sau khi tải một tệp, đọc định dạng gốc của nó bằng [IPresentation::get_SourceFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/get_sourceformat/). Truyền giá trị [SourceFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/sourceformat/) thu được cho [SlideUtil::ToSaveFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides.util/slideutil/tosaveformat/) để lấy giá trị [SaveFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/saveformat/) tương ứng, sau đó sử dụng [Presentation::Save](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/save/) để ghi bản thuyết trình đã chỉnh sửa.
+
+Ví dụ đầy đủ sau xử lý mọi tệp trong thư mục đầu vào, cập nhật tiêu đề và lưu chúng vào thư mục đầu ra ở định dạng đã được tải:
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/exception.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Util;
+using namespace System;
+using namespace System::IO;
+
+String inputDirectory = u"Input";
+String outputDirectory = u"Output";
+
+Directory::CreateDirectory_(outputDirectory);
+
+auto inputPaths = Directory::GetFiles(inputDirectory);
+for (const auto& inputPath : inputPaths)
+{
+    try
+    {
+        auto presentation = MakeObject<Presentation>(inputPath);
+
+        auto sourceFormat = presentation->get_SourceFormat();
+        auto saveFormat = SlideUtil::ToSaveFormat(sourceFormat);
+
+        presentation->get_DocumentProperties()->set_Title(u"Processed by the batch application");
+
+        auto outputPath = Path::Combine(outputDirectory, Path::GetFileName(inputPath));
+        presentation->Save(outputPath, saveFormat);
+        presentation->Dispose();
+    }
+    catch (ArgumentException& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Cannot map the source format of '{0}': {1}", inputPath, exception->get_Message()));
+    }
+    catch (Exception& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Cannot process '{0}': {1}", inputPath, exception->get_Message()));
+    }
+}
+```
+
+[SlideUtil::ToSaveFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides.util/slideutil/tosaveformat/) ánh xạ PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP và PowerPoint XML sang các định dạng lưu bản thuyết trình tương ứng. Nó chỉ ánh xạ các định dạng nguồn của bản thuyết trình; không được dùng để chọn các định dạng xuất như PDF, HTML, TIFF hoặc hình ảnh. Truyền một giá trị [SourceFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/sourceformat/) không được hỗ trợ hoặc không hợp lệ sẽ gây ra một [ArgumentException](https://reference.aspose.com/slides/vi/cpp/system/argumentexception/).
+
+Các tệp PPT, PPS và POT cổ điển sử dụng cùng một container nhị phân. Khi một bản thuyết trình như vậy được tải từ luồng mà không có phần mở rộng tệp, một tệp PPS hoặc POT có thể bị nhận dạng là PPT. Nếu cần giữ nguyên các kiểu phụ cổ điển này, hãy lưu tên tệp gốc hoặc siêu dữ liệu định dạng riêng và sử dụng chúng khi chọn tên tệp và định dạng đầu ra.
+
+## **Lưu bản thuyết trình vào luồng**
+
+Để ghi một bản thuyết trình mà không dựa vào đường dẫn tệp cuối cùng, truyền một [Stream](https://reference.aspose.com/slides/vi/cpp/system.io/stream/) có khả năng ghi và một giá trị [SaveFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/saveformat/) cho phương thức [Presentation::Save](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/save/). Cách này hữu ích khi đầu ra phải được trả về từ một dịch vụ web, lưu trong cơ sở dữ liệu hoặc xử lý trong bộ nhớ.
+
+Ví dụ sau lưu một bản thuyết trình mới vào luồng tệp:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -60,26 +124,26 @@ Bạn có thể lưu một bài thuyết trình vào stream bằng cách truyề
 #include <system/io/file_mode.h>
 #include <system/io/file_stream.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::IO;
 
-// Khởi tạo lớp Presentation đại diện cho tệp bài thuyết trình.
 auto presentation = MakeObject<Presentation>();
+auto outputStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
 
-auto fileStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
+presentation->Save(outputStream, SaveFormat::Pptx);
 
-// Lưu bài thuyết trình vào stream.
-presentation->Save(fileStream, SaveFormat::Pptx);
-
+outputStream->Close();
 presentation->Dispose();
-fileStream->Close();
 ```
 
-## **Lưu Bài Thuyết Trình với Kiểu Xem Định Nghĩa Trước**
+## **Lưu bản thuyết trình với Kiểu xem được định trước**
 
-Aspose.Slides cho phép bạn đặt chế độ xem ban đầu mà PowerPoint sử dụng khi mở bài thuyết trình đã tạo thông qua lớp [ViewProperties](https://reference.aspose.com/slides/vi/cpp/aspose.slides/viewproperties/). Sử dụng phương thức [set_LastView](https://reference.aspose.com/slides/vi/cpp/aspose.slides/viewproperties/set_lastview/) với một giá trị từ enumeration [ViewType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/viewtype/).
+Bạn có thể chỉ định chế độ xem mà PowerPoint sẽ mở bản thuyết trình đã lưu ban đầu. Gọi [ViewProperties::set_LastView](https://reference.aspose.com/slides/vi/cpp/aspose.slides/viewproperties/set_lastview/) với một giá trị [ViewType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/viewtype/) trước khi lưu.
+
+Ví dụ sau cấu hình chế độ xem Slide Master làm chế độ xem ban đầu:
 
 ```cpp
 #include <DOM/IViewProperties.h>
@@ -87,6 +151,7 @@ Aspose.Slides cho phép bạn đặt chế độ xem ban đầu mà PowerPoint s
 #include <Export/SaveFormat.h>
 #include <ViewType.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
@@ -94,16 +159,14 @@ using namespace System;
 auto presentation = MakeObject<Presentation>();
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
-
 presentation->Save(u"SlideMasterView.pptx", SaveFormat::Pptx);
+
 presentation->Dispose();
 ```
 
-## **Lưu Bài Thuyết Trình ở Định Dạng Strict Office Open XML**
+## **Lưu bản thuyết trình ở định dạng Office Open XML Strict**
 
-Aspose.Slides cho phép bạn lưu một bài thuyết trình ở định dạng Strict Office Open XML. Sử dụng lớp [PptxOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/pptxoptions/) và đặt thuộc tính conformance khi lưu. Nếu bạn đặt `Conformance.Iso29500_2008_Strict`, tệp đầu ra sẽ được lưu ở định dạng Strict Office Open XML.
-
-Ví dụ dưới đây tạo một bài thuyết trình và lưu nó ở định dạng Strict Office Open XML.
+Để tạo một tệp PPTX tuân thủ hồ sơ Strict của Office Open XML, tạo một thể hiện [PptxOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/pptxoptions/) và gọi [PptxOptions::set_Conformance](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/pptxoptions/set_conformance/) với `Conformance::Iso29500_2008_Strict`. Sau đó truyền các tùy chọn này cho phương thức [Presentation::Save](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/save/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -111,6 +174,7 @@ Ví dụ dưới đây tạo một bài thuyết trình và lưu nó ở định
 #include <Export/PptxOptions.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
@@ -118,27 +182,23 @@ using namespace System;
 auto options = MakeObject<PptxOptions>();
 options->set_Conformance(Conformance::Iso29500_2008_Strict);
 
-// Khởi tạo lớp Presentation đại diện cho tệp bài thuyết trình.
 auto presentation = MakeObject<Presentation>();
 
-// Lưu bài thuyết trình ở định dạng Strict Office Open XML.
 presentation->Save(u"StrictOfficeOpenXml.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-## **Lưu Bài Thuyết Trình ở Định Dạng Office Open XML trong Chế Độ Zip64**
+## **Lưu bản thuyết trình ở định dạng Office Open XML ở chế độ Zip64**
 
-Một tệp Office Open XML là một archive ZIP áp đặt giới hạn 4 GB (2^32 byte) cho kích thước chưa nén của bất kỳ tệp nào, kích thước đã nén của bất kỳ tệp nào và tổng kích thước của archive, đồng thời giới hạn archive tối đa 65 535 (2^16‑1) tệp. Các phần mở rộng định dạng ZIP64 nâng các giới hạn này lên 2^64.
+Một kho ZIP chuẩn giới hạn kích thước nén và giải nén của mỗi mục, tổng kích thước kho và số mục. Vì tệp PPTX là một kho ZIP, một bản thuyết trình rất lớn có thể vượt quá các giới hạn này. Các phần mở rộng ZIP64 nâng cao các giới hạn kích thước và số mục áp dụng.
 
-Phương thức [IPptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/ipptxoptions/set_zip64mode/) cho phép bạn chọn khi nào sử dụng các phần mở rộng định dạng ZIP64 khi lưu một tệp Office Open XML.
+Sử dụng [PptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/pptxoptions/set_zip64mode/) để kiểm soát việc Aspose.Slides có ghi phần mở rộng ZIP64 hay không:
 
-Phương thức này có thể được sử dụng với các chế độ sau:
+- `IfNecessary` chỉ sử dụng ZIP64 khi bản thuyết trình vượt quá giới hạn ZIP chuẩn. Đây là chế độ mặc định.
+- `Never` tắt các phần mở rộng ZIP64.
+- `Always` luôn ghi các phần mở rộng ZIP64.
 
-- `IfNecessary` chỉ sử dụng các phần mở rộng ZIP64 nếu bài thuyết trình vượt quá các giới hạn trên. Đây là chế độ mặc định.
-- `Never` không bao giờ sử dụng các phần mở rộng ZIP64.
-- `Always` luôn luôn sử dụng các phần mở rộng ZIP64.
-
-The following code demonstrates how to save a presentation as a PPTX file with ZIP64 format extensions enabled:
+Ví dụ sau luôn bật các phần mở rộng ZIP64 cho bản thuyết trình đầu ra:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -146,43 +206,36 @@ The following code demonstrates how to save a presentation as a PPTX file with Z
 #include <Export/SaveFormat.h>
 #include <Export/Zip64Mode.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_Zip64Mode(Zip64Mode::Always);
-
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, pptxOptions);
+auto options = MakeObject<PptxOptions>();
+options->set_Zip64Mode(Zip64Mode::Always);
+
+presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Khi bạn lưu với `Zip64Mode.Never`, một [PptxException](https://reference.aspose.com/slides/vi/cpp/aspose.slides/pptxexception/) sẽ được ném nếu bài thuyết trình không thể được lưu ở định dạng ZIP32.
+{{% alert color="warning" title="Warning" %}}
+Nếu `Zip64Mode` được đặt thành `Never` và bản thuyết trình không thể vừa trong giới hạn ZIP chuẩn, thao tác lưu sẽ ném ra một [PptxException](https://reference.aspose.com/slides/vi/cpp/aspose.slides/pptxexception/).
 {{% /alert %}}
 
-## **Lưu Bài Thuyết Trình ở Định Dạng Office Open XML với Các Mức Nén**
+## **Lưu bản thuyết trình ở định dạng Office Open XML với mức nén**
 
-Khi làm việc với các bài thuyết trình lớn, bạn có thể điều chỉnh mức nén để cân bằng kích thước tệp và thời gian xử lý. Tùy thuộc vào yêu cầu của bạn, bạn có thể ưu tiên xử lý nhanh hơn hoặc tệp đầu ra nhỏ hơn.
+Đối với đầu ra PPTX, bạn có thể cân bằng tốc độ lưu và kích thước tệp bằng cách gọi [PptxOptions::set_CompressionLevel](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/pptxoptions/set_compressionlevel/). Enum [CompressionLevel](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/compressionlevel/) cung cấp các giá trị sau:
 
-Aspose.Slides cung cấp phương thức [PptxOptions::set_CompressionLevel](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/pptxoptions/set_compressionlevel/), cho phép bạn chỉ định mức nén được sử dụng khi lưu một bài thuyết trình ở định dạng Office Open XML.
+- `None` lưu dữ liệu mà không nén.
+- `Level1` cung cấp mức nén nhanh nhất và kích thước nén lớn nhất.
+- `Level2` đến `Level5` dần dần ưu tiên kết quả nhỏ hơn hơn tốc độ lưu.
+- `Level6` cân bằng tốc độ lưu và kích thước tệp. Đây là mức mặc định.
+- `Level7` và `Level8` tiếp tục ưu tiên kết quả nhỏ hơn hơn tốc độ lưu.
+- `Level9` cung cấp mức nén mạnh nhất và cần thời gian xử lý nhiều nhất.
 
-Các mức nén sau đây khả dụng:
-
-- **None**: Không áp dụng nén. Các tệp được lưu nguyên như ban đầu.
-- **Level1:** Nén nhanh nhất với tỷ lệ nén thấp nhất.
-- **Level2:** Nén nhanh hơn với tỷ lệ nén hơi tốt hơn **Level1**.
-- **Level3:** Cung cấp mức nén tốt hơn **Level2** với ảnh hưởng vừa phải đến thời gian xử lý.
-- **Level4:** Cung cấp mức nén tốt hơn **Level3**.
-- **Level5:** Cung cấp mức nén cải thiện so với **Level4** với thời gian xử lý thêm.
-- **Level6:** Nén tiêu chuẩn cung cấp cân bằng tốt giữa tốc độ xử lý và kích thước tệp. Đây là *mức nén mặc định*.
-- **Level7:** Cung cấp mức nén tốt hơn **Level6** nhưng xử lý chậm hơn.
-- **Level8:** Cung cấp mức nén tốt hơn **Level7**.
-- **Level9:** Nén tối đa. Tạo kích thước tệp nhỏ nhất nhưng tốn thời gian xử lý lâu nhất.
-
-Ví dụ dưới đây minh họa cách lưu một bài thuyết trình dưới dạng tệp PPTX *không nén*:
+Ví dụ sau lưu một bản thuyết trình mà không nén:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -191,21 +244,20 @@ Ví dụ dưới đây minh họa cách lưu một bài thuyết trình dưới 
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
 
-using Aspose::Slides::Export::CompressionLevel;
-using Aspose::Slides::Export::PptxOptions;
-using Aspose::Slides::Export::SaveFormat;
-using Aspose::Slides::Presentation;
-using System::MakeObject;
-
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_CompressionLevel(CompressionLevel::None);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
-presentation->Save(u"Sample-out.pptx", SaveFormat::Pptx, pptxOptions);
+
+auto options = MakeObject<PptxOptions>();
+options->set_CompressionLevel(CompressionLevel::None);
+
+presentation->Save(u"OutputNoCompression.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-Ví dụ này cho thấy cách lưu một bài thuyết trình dưới dạng tệp PPTX với *nén tối đa*:
+Ví dụ sau sử dụng mức nén tối đa:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -214,75 +266,57 @@ Ví dụ này cho thấy cách lưu một bài thuyết trình dưới dạng t�
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
 
-using Aspose::Slides::Export::CompressionLevel;
-using Aspose::Slides::Export::PptxOptions;
-using Aspose::Slides::Export::SaveFormat;
-using Aspose::Slides::Presentation;
-using System::MakeObject;
-
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_CompressionLevel(CompressionLevel::Level9);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
-presentation->Save(u"Sample-level9.pptx", SaveFormat::Pptx, pptxOptions);
+
+auto options = MakeObject<PptxOptions>();
+options->set_CompressionLevel(CompressionLevel::Level9);
+
+presentation->Save(u"OutputMaximumCompression.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-## **Lưu Bài Thuyết Trình mà Không Làm Mới Hình Thu Nhỏ**
+## **Lưu bản thuyết trình mà không làm mới thumbnail**
 
-Phương thức [PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) kiểm soát việc tạo hình thu nhỏ khi lưu một bài thuyết trình thành PPTX:
+Khi một bản thuyết trình được lưu dưới dạng PPTX, [PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) điều khiển thumbnail của tài liệu:
 
-- Nếu được đặt thành `true`, hình thu nhỏ sẽ được làm mới trong quá trình lưu. Đây là mặc định.
-- Nếu được đặt thành `false`, hình thu nhỏ hiện tại sẽ được giữ lại. Nếu bài thuyết trình không có hình thu nhỏ, sẽ không tạo nào.
+- `true` tạo lại thumbnail trong quá trình lưu. Đây là giá trị mặc định.
+- `false` giữ nguyên thumbnail hiện có. Nếu bản thuyết trình không có thumbnail, Aspose.Slides sẽ không tạo.
 
-Trong mã dưới đây, bài thuyết trình được lưu thành PPTX mà không làm mới hình thu nhỏ của nó.
+Ví dụ sau lưu một bản thuyết trình mà không làm mới thumbnail:
 
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/PptxOptions.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_RefreshThumbnail(false);
-
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx, pptxOptions);
+auto options = MakeObject<PptxOptions>();
+options->set_RefreshThumbnail(false);
+
+presentation->Save(u"Output.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
-Tùy chọn này giúp giảm thời gian cần thiết để lưu một bài thuyết trình ở định dạng PPTX.
+{{% alert color="info" title="Note" %}}
+Vô hiệu hoá việc làm mới thumbnail có thể giảm thời gian cần thiết để lưu tệp PPTX.
 {{% /alert %}}
 
-## **Cập Nhật Tiến Trình Lưu theo Phần Trăm**
+## **Cập nhật tiến trình lưu bằng phần trăm**
 
-Giao diện [IProgressCallback](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iprogresscallback/) được sử dụng thông qua phương thức `set_ProgressCallback` được công khai bởi giao diện [ISaveOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/isaveoptions/) và lớp trừu tượng [SaveOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/saveoptions/). Gán một triển khai [IProgressCallback](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iprogresscallback/) bằng `set_ProgressCallback` để nhận các cập nhật tiến độ lưu dưới dạng phần trăm.
+Để giám sát một thao tác lưu, triển khai giao diện [IProgressCallback](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iprogresscallback/) và truyền triển khai đó cho [ISaveOptions::set_ProgressCallback](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/isaveoptions/set_progresscallback/). Aspose.Slides sau đó sẽ gọi [IProgressCallback::Reporting](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iprogresscallback/reporting/) với các giá trị tiến độ trong quá trình xuất.
 
-The following code snippets show how to use `IProgressCallback`.
+Ví dụ sau báo cáo tiến độ xuất PDF ra console:
 
-```cpp
-#include <IProgressCallback.h>
-#include <system/console.h>
-using namespace Aspose::Slides;
-using namespace System;
-
-class ExportProgressHandler : public IProgressCallback
-{
-public:
-    void Reporting(double progressValue) override
-    {
-        // Sử dụng giá trị phần trăm tiến độ ở đây.
-        int progress = static_cast<int>(progressValue);
-
-        Console::WriteLine(u"{0}% of the file has been converted.", progress);
-    }
-};
-```
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/PdfOptions.h>
@@ -290,49 +324,48 @@ public:
 #include <IProgressCallback.h>
 #include <system/console.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Lớp callback tiến độ được định nghĩa ở trên.
 class ExportProgressHandler : public IProgressCallback
 {
 public:
     void Reporting(double progressValue) override
     {
         int progress = static_cast<int>(progressValue);
-
         Console::WriteLine(u"{0}% of the file has been converted.", progress);
     }
 };
 
-auto saveOptions = MakeObject<PdfOptions>();
-saveOptions->set_ProgressCallback(MakeObject<ExportProgressHandler>());
+auto options = MakeObject<PdfOptions>();
+options->set_ProgressCallback(MakeObject<ExportProgressHandler>());
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"Output.pdf", SaveFormat::Pdf, saveOptions);
+presentation->Save(u"Output.pdf", SaveFormat::Pdf, options);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose đã phát triển một [ứng dụng PowerPoint Splitter miễn phí](https://products.aspose.app/slides/vi/splitter) sử dụng API của mình. Ứng dụng cho phép bạn chia một bài thuyết trình thành nhiều tệp bằng cách lưu các slide đã chọn thành các tệp PPTX hoặc PPT mới.
+{{% alert color="info" title="Note" %}}
+Aspose cung cấp một công cụ [PowerPoint Splitter](https://products.aspose.app/slides/vi/splitter) miễn phí được xây dựng bằng API Aspose.Slides. Nó lưu các slide đã chọn từ một bản thuyết trình dưới dạng các tệp PPT hoặc PPTX riêng biệt.
 {{% /alert %}}
 
 ## **CÂU HỎI THƯỜNG GẶP**
 
-**Có hỗ trợ “fast save” (lưu tăng dần) để chỉ ghi các thay đổi không?**
+**Aspose.Slides có hỗ trợ lưu tăng dần hay “lưu nhanh”?**
 
-Không. Khi lưu, luôn tạo tệp đích đầy đủ mỗi lần; “fast save” tăng dần không được hỗ trợ.
+Không. Mỗi thao tác lưu ghi toàn bộ tệp đầu ra thay vì chỉ cập nhật các phần đã thay đổi.
 
-**Có an toàn đa luồng khi lưu cùng một thể hiện Presentation từ nhiều luồng không?**
+**Nhiều luồng có thể lưu cùng một đối tượng Presentation không?**
 
-Không. Một thể hiện [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) [không an toàn đa luồng](/slides/vi/cpp/multithreading/); hãy lưu nó từ một luồng duy nhất.
+Không. Một đối tượng [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) [không an toàn với đa luồng](/slides/vi/cpp/multithreading/). Chỉ truy cập và lưu mỗi đối tượng từ một luồng tại một thời điểm.
 
-**Điều gì xảy ra với siêu liên kết và các tệp liên kết bên ngoài khi lưu?**
+**Điều gì xảy ra với siêu liên kết và các tệp được liên kết bên ngoài khi tôi lưu một bản thuyết trình?**
 
-[Siêu liên kết](/slides/vi/cpp/manage-hyperlinks/) được giữ lại. Các tệp liên kết bên ngoài (ví dụ: video qua đường dẫn tương đối) không được sao chép tự động — hãy đảm bảo các đường dẫn tham chiếu vẫn có thể truy cập.
+[Hyperlinks](/slides/vi/cpp/manage-hyperlinks/) vẫn còn trong bản thuyết trình. Aspose.Slides không sao chép các tệp liên kết bên ngoài, vì vậy bản thuyết trình đã lưu vẫn phải có khả năng truy cập đến vị trí của chúng.
 
-**Tôi có thể đặt/lưu siêu dữ liệu tài liệu (Tác giả, Tiêu đề, Công ty, Ngày) không?**
+**Tôi có thể lưu siêu dữ liệu tài liệu như tác giả, tiêu đề, công ty và ngày tạo không?**
 
-Có. Các [thuộc tính tài liệu](/slides/vi/cpp/presentation-properties/) chuẩn được hỗ trợ và sẽ được ghi vào tệp khi lưu.
+Có. Đặt các [thuộc tính tài liệu](/slides/vi/cpp/presentation-properties/) phù hợp trước khi lưu, và Aspose.Slides sẽ ghi chúng vào tệp đầu ra.

@@ -1,12 +1,12 @@
 ---
-title: استرجاع وتحديث معلومات العرض في C++
-linktitle: معلومات العرض
+title: استرجاع وتحديث معلومات العرض التقديمي في C++
+linktitle: معلومات العرض التقديمي
 type: docs
 weight: 30
 url: /ar/cpp/examine-presentation/
 keywords:
-- صيغة العرض
-- خصائص العرض
+- تنسيق العرض التقديمي
+- خصائص العرض التقديمي
 - خصائص المستند
 - الحصول على الخصائص
 - قراءة الخصائص
@@ -18,20 +18,22 @@ keywords:
 - فحص ODP
 - PowerPoint
 - OpenDocument
-- عرض
+- عرض تقديمي
 - C++
 - Aspose.Slides
 description: "استكشف الشرائح والبنية والبيانات الوصفية في عروض PowerPoint وOpenDocument باستخدام C++ للحصول على رؤى أسرع وتدقيق محتوى أذكى."
 ---
 ## **نظرة عامة**
 
-يمكن لـ Aspose.Slides تحديد صيغة العرض وقراءة بياناته الوصفية دون إنشاء نموذج كائن عرض كامل. يكون هذا مفيدًا عندما تحتاج إلى تصنيف الملفات، بناء جرد، أو فحص الخصائص قبل اتخاذ قرار بتحميل ومعالجة محتوى العرض.
+يمكن لـ Aspose.Slides تحديد تنسيق العرض التقديمي وقراءة بيانات الوصف الوmetadata للوثيقة دون إنشاء نموذج كائن عرض تقديمي كامل. يكون هذا مفيدًا عندما تحتاج إلى تصنيف الملفات، بناء جرد، أو فحص الخصائص قبل اتخاذ قرار بشأن تحميل ومعالجة محتوى العرض التقديمي.
 
-يُظهر هذا المقال كيفية الفحص الخفيف عبر [PresentationFactory](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentationfactory/) و[IPresentationInfo](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/)، وكذلك التحديثات المستهدفة عبر [IDocumentProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/).
+توضح هذه المقالة الفحص الخفيف الوزن من خلال [PresentationFactory](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentationfactory/) و[IPresentationInfo](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/)، بالإضافة إلى تحديثات مستهدفة عبر [IDocumentProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/).
 
-## **التحقق من صيغة العرض**
+## **التحقق من تنسيق العرض التقديمي**
 
-استخدم [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) لفحص ملف دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/). تُعيد طريقة [IPresentationInfo::get_LoadFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/get_loadformat/) الصيغة المكتشفة، مثل PPTX أو PPT أو ODP.
+إذا كان لديك عرض تقديمي تم تحميله بالفعل، راجع [Determine the Original Presentation Format](/slides/ar/cpp/detect-presentation-source-format/) للكشف بعد التحميل والقيود المتعلقة بتدفقات PPT وPPS وPOT القديمة.
+
+استخدم [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) لتفقد ملف دون إنشاء مثيل [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/). تُبلغ طريقة [IPresentationInfo::get_LoadFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/get_loadformat/) عن التنسيق المكتشف، مثل PPTX أو PPT أو ODP.
 
 ```cpp
 #include <DOM/IPresentationInfo.h>
@@ -54,22 +56,22 @@ for (const auto& fileName : fileNames)
 }
 ```
 
-## **بناء جرد عرض خفيف**
+## **بناء جرد عرض تقديمي خفيف الوزن**
 
-عند معالجة العديد من ملفات العروض، قد تحتاج إلى جرد مدمج للتحقق أو الفهرسة أو نظام إدارة المستندات. في هذا السيناريو، استخدم [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) للحصول على كائن [IPresentationInfo](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/)، ثم استدعِ طريقة [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) لقراءة بيانات المستند الوصفية. لا ينشئ هذا النهج كائن [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/) ولا يتطلب استعراض نموذج كائن العرض بالكامل.
+عند معالجة العديد من ملفات العروض التقديمية، قد تحتاج إلى جرد مدمج للتحقق، الفهرسة، أو نظام إدارة المستندات. في هذا السيناريو، استخدم [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) للحصول على كائن [IPresentationInfo](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/)، ثم استدعِ [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) لقراءة بيانات وصف المستند. لا يُنشئ هذا النهج مثيلًا لـ [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/) ولا يتطلب التنقل عبر نموذج كائن العرض التقديمي الكامل.
 
-الخصائص الموسعة التي يوفرها [IDocumentProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/) تُعطي القيم التالية للجرد:
+توفر الخصائص الموسعة التي يكشف عنها [IDocumentProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/) القيم التالية للجرد:
 
-| الطريقة | قيمة الجرد |
+| Method | Inventory value |
 | --- | --- |
 | [get_Slides](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/get_slides/) | إجمالي عدد الشرائح. |
 | [get_HiddenSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) | عدد الشرائح المخفية. |
 | [get_Notes](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/get_notes/) | عدد الشرائح التي تحتوي على ملاحظات. |
-| [get_Paragraphs](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/get_paragraphs/) | إجمالي عدد الفقرات، إذا توفرت. |
+| [get_Paragraphs](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/get_paragraphs/) | إجمالي عدد الفقرات، إذا كانت متوفرة. |
 | [get_Words](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/get_words/) | إجمالي عدد الكلمات. |
 | [get_MultimediaClips](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/get_multimediaclips/) | إجمالي عدد مقاطع الصوت والفيديو. |
 
-المثال التالي يقرأ هذه القيم دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/) ويطبع جردًا مدمجًا. كما يجمع بين [IDocumentProperties::get_HeadingPairs](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/get_headingpairs/) و[IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) لعرض مجموعات المحتوى مثل الخطوط، السمات، وعناوين الشرائح.
+المثال التالي يقرأ هذه القيم دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/) ويطبع جردًا مدمجًا. كما يجمع بين [IDocumentProperties::get_HeadingPairs](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/get_headingpairs/) و[IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) لعرض مجموعات المحتوى مثل الخطوط والسمات وعناوين الشرائح.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -139,25 +141,25 @@ else
 }
 ```
 
-كل [IHeadingPair](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iheadingpair/) يُوفر اسم المجموعة عبر [IHeadingPair::get_Name](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iheadingpair/get_name/) وعدد العناصر في تلك المجموعة عبر [IHeadingPair::get_Count](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iheadingpair/get_count/). تُعيد [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) مصفوفة مسطحة مرتبة، لذا استهلك عدد العناوين المتتالية المحدد لكل زوج عناوين.
+كل [IHeadingPair](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iheadingpair/) يوفر اسم المجموعة عبر [IHeadingPair::get_Name](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iheadingpair/get_name/) وعدد العناصر في تلك المجموعة عبر [IHeadingPair::get_Count](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iheadingpair/get_count/). تُعيد [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) مصفوفة مسطحة مرتبة، لذا استهلك عدد العناوين المتتالية المحدد بواسطة كل زوج عنوان.
 
-### **البيانات الوصفية المخزنة والقيود على الصيغة**
+### **البيانات الوصفية المخزنة وقيود التنسيق**
 
-الخصائص التي تُعيدها [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) تعكس البيانات الوصفية المتوفرة في المستند الأصلي. لا يقوم Aspose.Slides بتحميل واستعراض نموذج كائن العرض لإعادة حساب هذه القيم لهذه العملية. تمثّل الخصائص المفقودة قيمًا افتراضية، وقد تكون القيم المخزنة قديمة إذا لم يُحدّث التطبيق الذي حفظ الملف آخر مرة خصائص المستند.
+القيم التي تُرجعها خصائص الجرد عبر [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) تعكس البيانات الوصفية المتوفرة في المستند المصدر. لا يقوم Aspose.Slides بتحميل وتصفح نموذج كائن العرض التقديمي لإعادة حساب هذه القيم لهذا الاستدعاء. تُمثَّل الخصائص المفقودة بالقيم الافتراضية، وقد تكون القيم المخزنة قديمة إذا لم تُحدِّث التطبيق الذي حفظ الملف آخر مرة خصائص المستند.
 
-- **PPTX:** توفر الصيغة خصائص مستند موسعة لعدد الشرائح، الملاحظات، الشرائح المخفية، الفقرات، الكلمات، والوسائط المتعددة، بالإضافة إلى أزواج العناوين وعناوين الأجزاء. تعتمد التوافرية على الخصائص التي كتبها منتج المستند.
-- **PPT:** يمكن للصيغة الثنائية تخزين خصائص ملخص المستند المقابلة. إذا كانت خاصية غير موجودة أو لم يتم تحديثها من قبل المنتج، تُعيد Aspose.Slides قيمتها المخزنة أو الافتراضية بدلاً من حسابها من الشرائح.
-- **ODP:** تُوفر بيانات ODF العامة إحصاءات عامة للمستند مثل عدد الصفحات، الفقرات، والكلمات، لكن هذه القيم لا تُطابق كل خاصية موسعة خاصة بـ PowerPoint. قد تكون بيانات الشرائح المخفية، ملاحظات الشرائح، الوسائط المتعددة، أزواج العناوين، وعناوين الأجزاء غير متوفرة، وقد تُعيد خصائص الجرد قيمًا افتراضية. لا تُعامل القيمة الصفرية أو المصفوفة الفارغة كدليل قاطع على غياب المحتوى المقابل.
+- **PPTX:** يوفر التنسيق خصائص مستند موسعة لعدد الشرائح، الملاحظات، الشرائح المخفية، الفقرات، الكلمات، والوسائط المتعددة، بالإضافة إلى أزواج العناوين وعناوين الأجزاء. تعتمد التوافرية على الخصائص التي كُتبت بواسطة مُنتج المستند.
+- **PPT:** يمكن للتنسيق الثنائي تخزين خصائص ملخص المستند المقابلة. إذا كانت الخاصية غائبة أو لم يُحدَّثها مُنتج المستند، تُعيد Aspose.Slides قيمتها المخزنة أو الافتراضية بدلاً من حسابها من الشرائح.
+- **ODP:** توفر بيانات OpenDocument إحصاءات عامة للمستند، مثل عدد الصفحات والفقرات والكلمات، لكن هذه القيم لا تتطابق مع كل خاصية موسعة خاصة بـ PowerPoint. قد تكون بيانات الشرائح المخفية، ملاحظات الشرائح، الوسائط المتعددة، أزواج العناوين، وعناوين الأجزاء غير متوفرة، وقد تُعيد خصائص الجرد قيمًا افتراضية. لا تُعامل القيمة الصفرية أو المصفوفة الفارغة كدليل نهائي على عدم وجود المحتوى المقابل.
 
-استخدم نهج البيانات الوصفية الخفيف للجرد والفحوصات الأولية. حمّل العرض واستعرض نموذج كائنه الحي عندما يجب أن يعكس النتيجة تغييرات الذاكرة أو عندما تحتاج إلى التحقق من المحتوى الفعلي للعرض.
+استخدم نهج البيانات الوصفية الخفيف للجرد والفحوصات الأولية. حمِّل العرض التقديمي وتفقد نموذج كائنه الحي عندما يجب أن يعكس الناتج التغييرات في الذاكرة أو عندما تحتاج إلى التحقق من المحتوى الفعلي للعرض.
 
-## **تحديث خصائص العرض**
+## **تحديث خصائص العرض التقديمي**
 
-يمكن أيضًا تغيير الخصائص التي تُعيدها [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/)؛ طبّق التغييرات باستخدام [IPresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/updatedocumentproperties/)، ثم اكتب العرض المرتبط باستخدام [IPresentationInfo::WriteBindedPresentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/writebindedpresentation/).
+يمكن أيضًا تعديل الخصائص التي تُرجعها [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) دون إنشاء مثيل [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/). طبّق التغييرات باستخدام [IPresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/updatedocumentproperties/)، ثم اكتب العرض التقديمي المرتبط عبر [IPresentationInfo::WriteBindedPresentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/writebindedpresentation/).
 
 الصورة التالية تُظهر خصائص المستند الأصلية.
 
-![خصائص المستند الأصلية للعرض PowerPoint](input_properties.png)
+![Original document properties of the PowerPoint presentation](input_properties.png)
 
 المثال التالي يغيّر العنوان ووقت الحفظ الأخير ويكتب النتيجة إلى ملف جديد:
 
@@ -185,7 +187,7 @@ presentationInfo->WriteBindedPresentation(outputFile);
 
 الصورة التالية تُظهر خصائص المستند المحدثة.
 
-![خصائص المستند التي تم تعديلها للعرض PowerPoint](output_properties.png)
+![Changed document properties of the PowerPoint presentation](output_properties.png)
 
 ## **روابط مفيدة**
 
@@ -196,22 +198,22 @@ presentationInfo->WriteBindedPresentation(outputFile);
 
 ## **الأسئلة المتكررة**
 
-**كيف يمكنني التحقق مما إذا كانت الخطوط مضمنة وما هي؟**
+**كيف يمكنني التحقق مما إذا كانت الخطوط مضمنة وأيها؟**
 
-حمل العرض واستخدم [Presentation::get_FontsManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_fontsmanager/). استدعِ [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/ar/cpp/aspose.slides/fontsmanager/getembeddedfonts/) للحصول على الخطوط المضمنة و[FontsManager::GetFonts](https://reference.aspose.com/slides/ar/cpp/aspose.slides/fontsmanager/getfonts/) للحصول على الخطوط المستخدمة في العرض. قارن النتيجتين لتحديد الخطوط المطلوبة للعرض ولكن غير المضمنة.
+حمِّل العرض التقديمي واستخدم [Presentation::get_FontsManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_fontsmanager/). استدعِ [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/ar/cpp/aspose.slides/fontsmanager/getembeddedfonts/) للحصول على الخطوط المضمَّنة و[FontsManager::GetFonts](https://reference.aspose.com/slides/ar/cpp/aspose.slides/fontsmanager/getfonts/) للحصول على الخطوط المستخدمة في العرض. قارن النتيجتين لتحديد الخطوط المطلوبة للعرض ولكنها غير مضمنة.
 
 **كيف يمكنني بسرعة معرفة ما إذا كان الملف يحتوي على شرائح مخفية وعددها؟**
 
-عند كون البيانات الوصفية المخزنة كافية، اقرأ [IDocumentProperties::get_HiddenSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) عبر [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) و[IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/). هذا مناسب لجرد خفيف. إذا تم تعديل العرض في الذاكرة، قد تكون البيانات الوصفية المخزنة مفقودة أو قديمة، أو إذا أردت التحقق من القيم الحية، استعرض [Presentation::get_Slides](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_slides/) وتفحص طريقة [Slide::get_Hidden](https://reference.aspose.com/slides/ar/cpp/aspose.slides/slide/get_hidden/) لكل شريحة بدلاً من ذلك.
+عند كفاية بيانات الوصف المخزنة، اقرأ [IDocumentProperties::get_HiddenSlides](https://reference.aspose.com/slides/ar/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) عبر [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) و[IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/). هذا مناسب لجرد خفيف الوزن. إذا تم تعديل العرض في الذاكرة، قد تكون البيانات الوصفية المخزنة مفقودة أو قديمة، أو تحتاج إلى التحقق من القيم الحية؛ عندها كرّر عبر [Presentation::get_Slides](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_slides/) وتفقد طريقة [Slide::get_Hidden](https://reference.aspose.com/slides/ar/cpp/aspose.slides/slide/get_hidden/) لكل شريحة.
 
-**هل يمكنني اكتشاف ما إذا كان حجم الشريحة المخصص والاتجاه مستخدمان، وما إذا كانا يختلفان عن الإعدادات الافتراضية؟**
+**هل يمكنني اكتشاف ما إذا كان حجم الشريحة المخصص واتجاهها مستخدمان، وما إذا كانا يختلفان عن القيم الافتراضية؟**
 
-نعم. حمّل العرض واقرأ [Presentation::get_SlideSize](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_slidesize/). افحص [ISlideSize::get_Type](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidesize/get_type/)، [ISlideSize::get_Size](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidesize/get_size/)، و[ISlideSize::get_Orientation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidesize/get_orientation/) لمقارنة الإعدادات الحالية مع القالب والأبعاد المتوقعة.
+نعم. حمِّل العرض التقديمي واقرأ [Presentation::get_SlideSize](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_slidesize/). تفحص [ISlideSize::get_Type](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidesize/get_type/)، [ISlideSize::get_Size](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidesize/get_size/)، و[ISlideSize::get_Orientation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidesize/get_orientation/) لمقارنة الإعدادات الحالية مع الإعدادات المسبقة والأبعاد المتوقعة.
 
 **هل هناك طريقة سريعة لمعرفة ما إذا كانت المخططات تشير إلى مصادر بيانات خارجية؟**
 
-نعم. ابحث عن كل [Chart](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/chart/) وتفحص [ChartData::get_DataSourceType](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/chartdata/get_datasourcetype/). للمصادر الخارجية، اقرأ [ChartData::get_ExternalWorkbookPath](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). نوع مصدر البيانات والمسار يحددان الإشارة الخارجية، لكن التحقق من توفر الهدف يتطلب فحص موارد منفصل.
+نعم. حدد كل [Chart](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/chart/) وتفحص [ChartData::get_DataSourceType](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/chartdata/get_datasourcetype/). للدفتر الخارجي، اقرأ [ChartData::get_ExternalWorkbookPath](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/). يحدد نوع مصدر البيانات والمسار إشارة إلى مرجع خارجي، لكن التحقق من توفر الهدف يتطلب فحص موارد منفصل.
 
 **كيف يمكنني تقييم "الشرائح الثقيلة" التي قد تبطئ العرض أو تصدير PDF؟**
 
-لا توجد خاصية تعقيد واحدة. استعرض [Presentation::get_Slides](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_slides/) ومجموعة [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseslide/get_shapes/) لكل شريحة. استخدم عدد الأشكال ووجود صور كبيرة، تأثيرات، رسوم متحركة، أو وسائط متعددة كإشارات تصنيف، وقم بقياس عرض تمثيلي أو تصدير قبل اعتبار الشريحة عنق زجاجة أداء مؤكد.
+لا توجد خاصية تعقيد واحدة. كرّر عبر [Presentation::get_Slides](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_slides/) ومجموعة [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseslide/get_shapes/) لكل شريحة. استخدم عدد الأشكال ووجود الصور الكبيرة أو التأثيرات أو الرسوم المتحركة أو الوسائط المتعددة كإشارات فرز، وقم بقياس عرض تمثيلي أو تصدير قبل اعتبار الشريحة عنق زجاجة أداء مؤكد.

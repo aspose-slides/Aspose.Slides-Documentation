@@ -12,63 +12,127 @@ keywords:
 - PPT kaydet
 - PPTX kaydet
 - ODP kaydet
-- sunumu dosyaya
-- sunumu akışa
+- dosyaya sunum
+- akışa sunum
 - önceden tanımlı görünüm türü
-- Sıkı Office Open XML Formatı
+- Katı Office Open XML Formatı
 - Zip64 modu
 - küçük resmi yenileme
 - kaydetme ilerlemesi
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java kullanarak sunumları nasıl kaydedeceğinizi keşfedin — düzenleri, yazı tiplerini ve efektleri koruyarak PowerPoint ya da OpenDocument olarak dışa aktarın."
+description: "Aspose.Slides ile PHP'de PowerPoint ve OpenDocument sunumlarını dosyalara veya akışlara kaydedin ve PPTX çıktısını ve ilerleme raporlamasını yapılandırın."
 ---
 ## **Genel Bakış**
 
-[Open Presentations in PHP](/slides/tr/php-java/open-presentation/) sunumu açmak için [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının nasıl kullanılacağını açıkladı. Bu makale, sunumları nasıl oluşturup kaydedeceğinizi anlatır. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı bir sunumun içeriğini tutar. Sıfırdan bir sunum oluşturuyor ya da mevcut bir sunumu değiştiriyor olun, işiniz bittiğinde kaydetmek istersiniz. Aspose.Slides for PHP ile bir **dosyaya** ya da **akışa** kaydedebilirsiniz. Bu makale, bir sunumu kaydetmenin farklı yollarını açıklar.
+Bir sunum oluşturduktan veya [mevcut bir sunumu açtıktan](/slides/tr/php-java/open-presentation/), sonucu yazmak için [Presentation::save](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#save) yöntemini kullanın. Aspose.Slides for PHP via Java, bir sunumu PowerPoint, OpenDocument, PDF ve diğer formatlarda dosya veya akışa kaydedebilir. Aşağıdaki bölümler standart kaydetme işlemlerini ve PPTX çıktısı için mevcut seçenekleri kapsar.
 
-## **Sunumları Dosyalara Kaydetme**
+## **Sunumları Dosyalara Kaydet**
 
-[Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının `save` yöntemini çağırarak bir sunumu dosyaya kaydedin. Dosya adını ve kaydetme biçimini metoda geçin. Aşağıdaki örnek, Aspose.Slides ile bir sunumu nasıl kaydedeceğinizi gösterir.
+Bir sunumu dosyaya kaydetmek için, çıktı yolunu ve bir [SaveFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/saveformat/) değerini [Presentation::save](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#save) yöntemine iletin. Format değeri, Aspose.Slides'ın oluşturacağı dosya türünü belirler.
+
+Aşağıdaki örnek bir sunum oluşturur ve PPTX dosyası olarak kaydeder:
 
 ```php
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-    // Burada bazı işlemler yapın...
+    // Burada sunum içeriğini ekleyin veya değiştirin.
 
-    // Sunumu bir dosyaya kaydedin.
     $presentation->save("Output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Sunumları Akışlara Kaydetme**
+## **Sunumları Orijinal Formatlarında Kaydet**
 
-[Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının `save` yöntemine bir çıktı akışı geçirerek bir sunumu akışa kaydedebilirsiniz. Bir sunum birçok akış türüne yazılabilir. Aşağıdaki örnekte yeni bir sunum oluşturup bir dosya akışına kaydediyoruz.
+Dosya ve akış tespiti örnekleri, yeni oluşturulan sunumların davranışı ve kaynak ile çıktı formatları arasındaki ayrım için [Determine the Original Presentation Format](/slides/tr/php-java/detect-presentation-source-format/) bölümüne bakın.
+
+Toplu işleme uygulamasında, giriş formatı önceden bilinmeyebilir. Bir dosya yüklendikten sonra, orijinal formatı [Presentation::getSourceFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#getSourceFormat) yönteminden okuyun. Elde edilen [SourceFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sourceformat/) değerini [SlideUtil::toSaveFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slideutil/#toSaveFormat) yöntemine geçirerek karşılık gelen [SaveFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/saveformat/) değerini alın ve ardından [Presentation::save](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#save) yöntemiyle değiştirilmiş sunumu yazın.
+
+Aşağıdaki tam örnek, bir giriş dizinindeki her dosyayı işler, başlığını günceller ve yüklendiği formatta bir çıktı dizinine kaydeder:
 
 ```php
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$inputDirectory = __DIR__ . DIRECTORY_SEPARATOR . "Input";
+$outputDirectory = __DIR__ . DIRECTORY_SEPARATOR . "Output";
+
+if (!is_dir($outputDirectory) && !mkdir($outputDirectory, 0777, true)) {
+    echo("Cannot create the output directory." . PHP_EOL);
+}
+
+$inputFiles = is_dir($inputDirectory) ? scandir($inputDirectory) : false;
+if ($inputFiles !== false && is_dir($outputDirectory)) {
+    foreach ($inputFiles as $fileName) {
+        $inputPath = $inputDirectory . DIRECTORY_SEPARATOR . $fileName;
+        if (!is_file($inputPath)) {
+            continue;
+        }
+
+        $presentation = null;
+        $presentationLoaded = false;
+        try {
+            $presentation = new Presentation($inputPath);
+            $presentationLoaded = true;
+            $saveFormat = SlideUtil::toSaveFormat($presentation->getSourceFormat());
+            $presentation->getDocumentProperties()->setTitle("Processed by the batch application");
+
+            $outputPath = $outputDirectory . DIRECTORY_SEPARATOR . $fileName;
+            $presentation->save($outputPath, $saveFormat);
+        } catch (\Throwable $exception) {
+            echo("Cannot process '" . $inputPath . "': " . $exception->getMessage() . PHP_EOL);
+        } finally {
+            if ($presentationLoaded) {
+                $presentation->dispose();
+            }
+        }
+    }
+}
+```
+
+[SlideUtil::toSaveFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slideutil/#toSaveFormat) PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP ve PowerPoint XML dosyalarını ilgili sunum kaydetme formatlarına eşler. Yalnızca sunum kaynak formatlarını eşler; PDF, HTML, TIFF ya da görüntü gibi dışa aktarım formatlarını seçmek için kullanılmaz. Desteklenmeyen veya geçersiz bir [SourceFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sourceformat/) değeri geçirilirse bir [IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html) oluşur.
+
+Legacy PPT, PPS ve POT dosyaları aynı ikili kapsayıcıyı kullanır. Böyle bir sunum, dosya uzantısı olmadan bir akıştan yüklendiğinde bir PPS ya da POT dosyası PPT olarak tanımlanabilir. Bu eski alt tipleri korumanız gerekiyorsa, orijinal dosya adını veya format meta verisini ayrı olarak tutun ve çıktı dosya adı ve formatını seçerken kullanın.
+
+## **Sunumları Akışlara Kaydet**
+
+Bir sunumu son bir dosya yoluna bağımlı olmadan yazmak için, write‑able bir akış ve bir [SaveFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/saveformat/) değerini [Presentation::save](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#save) yöntemine iletin. Bu yaklaşım, çıktının bir web servisinden döndürülmesi, bir veritabanında saklanması veya bellekte işlenmesi gerektiğinde kullanışlıdır.
+
+Aşağıdaki örnek yeni bir sunumu bir dosya akışına kaydeder:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-    $fileStream = new Java("java.io.FileOutputStream", "Output.pptx");
+    $outputStream = new Java("java.io.FileOutputStream", "Output.pptx");
     try {
-        // Sunumu akışa kaydedin.
-        $presentation->save($fileStream, SaveFormat::Pptx);
+        $presentation->save($outputStream, SaveFormat::Pptx);
     } finally {
-        $fileStream->close();
+        $outputStream->close();
     }
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Önceden Tanımlı Görünüm Türüyle Sunumları Kaydetme**
+## **Önceden Tanımlı Görünüm Türüyle Sunumları Kaydet**
 
-Aspose.Slides, oluşturulan sunum açıldığında PowerPoint'in kullandığı ilk görünümü [ViewProperties](https://reference.aspose.com/slides/tr/php-java/aspose.slides/viewproperties/) sınıfı aracılığıyla ayarlamanıza izin verir. [ViewType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/viewtype/) enum değerlerinden birini kullanarak [setLastView](https://reference.aspose.com/slides/tr/php-java/aspose.slides/viewproperties/#setLastView) yöntemini çağırın.
+PowerPoint'in kaydedilen bir sunumu ilk açtığında hangi görünümde açılacağını belirtebilirsiniz. Kaydetmeden önce bir [ViewType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/viewtype/) değeriyle [ViewProperties::setLastView](https://reference.aspose.com/slides/tr/php-java/aspose.slides/viewproperties/#setLastView) yöntemini kullanın.
+
+Aşağıdaki örnek Slide Master görünümünü başlangıç görünümü olarak ayarlar:
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ViewType;
+
 $presentation = new Presentation();
 try {
     $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
@@ -78,175 +142,187 @@ try {
 }
 ```
 
-## **Sıkı Office Open XML Biçiminde Sunumları Kaydetme**
+## **Katı Office Open XML Formatında Sunumları Kaydet**
 
-Aspose.Slides, bir sunumu Sıkı Office Open XML biçiminde kaydetmenize olanak tanır. Kaydederken [PptxOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxoptions/) sınıfını kullanın ve `conformance` özelliğini ayarlayın. Eğer [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/tr/php-java/aspose.slides/conformance/#Iso29500_2008_Strict) ayarlanırsa çıktı dosyası Sıkı Office Open XML biçiminde kaydedilir.
-
-Aşağıdaki örnek bir sunum oluşturur ve Sıkı Office Open XML biçiminde kaydeder.
+Katı Office Open XML profiline uygun bir PPTX dosyası oluşturmak için bir [PptxOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxoptions/) örneği oluşturun ve [PptxOptions::setConformance](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxoptions/#setConformance) yöntemini [Conformance::Iso29500_2008_Strict](https://reference.aspose.com/slides/tr/php-java/aspose.slides/conformance/#Iso29500-2008-Strict) değeriyle kullanın. Ardından seçenekleri [Presentation::save](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#save) yöntemine iletin.
 
 ```php
+use aspose\slides\Conformance;
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $options = new PptxOptions();
 $options->setConformance(Conformance::Iso29500_2008_Strict);
 
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 $presentation = new Presentation();
 try {
-    // Sunumu Sıkı Office Open XML formatında kaydedin.
     $presentation->save("StrictOfficeOpenXml.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **ZIP64 Modunda Office Open XML Biçiminde Sunumları Kaydetme**
+## **ZIP64 Modunda Office Open XML Formatında Sunumları Kaydet**
 
-Office Open XML dosyası, sıkıştırılmamış dosya boyutu, sıkıştırılmış dosya boyutu ve arşiv toplam boyutu için 4 GB (2^32 bayt) sınırı getiren bir ZIP arşividir ve ayrıca arşivde 65 535 (2^16‑1) dosya sınırı vardır. ZIP64 biçim uzantıları bu sınırları 2^64’e çıkarır.
+Standart ZIP arşivi, her girişin sıkıştırılmış ve sıkıştırılmamış boyutunu, toplam arşiv boyutunu ve giriş sayısını sınırlar. PPTX dosyası bir ZIP arşivi olduğundan, çok büyük bir sunum bu sınırlamaları aşabilir. ZIP64 uzantıları uygulanabilir boyut ve giriş sayısı limitlerini artırır.
 
-[PptxOptions.setZip64Mode](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxoptions/#setZip64Mode) yöntemi, Office Open XML dosyası kaydedilirken ZIP64 uzantılarının ne zaman kullanılacağını seçmenizi sağlar.
+[PptxOptions::setZip64Mode](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxoptions/#setZip64Mode) yöntemiyle Aspose.Slides'ın ZIP64 uzantılarını yazıp yazmayacağını kontrol edin:
 
-Bu yöntem aşağıdaki modlarla kullanılabilir:
+- [IfNecessary](https://reference.aspose.com/slides/tr/php-java/aspose.slides/zip64mode/#IfNecessary) sunum standart ZIP limitlerini aştığında yalnızca ZIP64 kullanır. Bu varsayılan moddur.
+- [Never](https://reference.aspose.com/slides/tr/php-java/aspose.slides/zip64mode/#Never) ZIP64 uzantılarını devre dışı bırakır.
+- [Always](https://reference.aspose.com/slides/tr/php-java/aspose.slides/zip64mode/#Always) her zaman ZIP64 uzantılarını yazar.
 
-- [IfNecessary](https://reference.aspose.com/slides/tr/php-java/aspose.slides/zip64mode/#IfNecessary) yalnızca sunum yukarıdaki sınırlamaları aştığında ZIP64 uzantılarını kullanır. Varsayılan moddur.
-- [Never](https://reference.aspose.com/slides/tr/php-java/aspose.slides/zip64mode/#Never) ZIP64 uzantılarını asla kullanmaz.
-- [Always](https://reference.aspose.com/slides/tr/php-java/aspose.slides/zip64mode/#Always) her zaman ZIP64 uzantılarını kullanır.
-
-Aşağıdaki kod, ZIP64 uzantıları etkinleştirilmiş bir PPTX dosyası olarak sunumu nasıl kaydedeceğinizi gösterir:
+Aşağıdaki örnek, çıktı sunumu için ZIP64 uzantılarını her zaman etkinleştirir:
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setZip64Mode(Zip64Mode::Always);
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\Zip64Mode;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("OutputZip64.pptx", SaveFormat::Pptx, $pptxOptions);
+    $options = new PptxOptions();
+    $options->setZip64Mode(Zip64Mode::Always);
+
+    $presentation->save("OutputZip64.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="NOT" color="warning" %}}
-[Zip64Mode.Never](https://reference.aspose.com/slides/tr/php-java/aspose.slides/zip64mode/#Never) ile kaydettiğinizde, sunum ZIP32 biçiminde kaydedilemezse bir [PptxException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxexception/) fırlatılır.
+{{% alert color="warning" title="Uyarı" %}}
+[Zip64Mode::Never](https://reference.aspose.com/slides/tr/php-java/aspose.slides/zip64mode/#Never) kullanılır ve sunum standart ZIP limitlerine sığmazsa, kaydetme işlemi bir [PptxException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxexception/) fırlatır.
 {{% /alert %}}
 
-## **Sıkıştırma Seviyeleriyle Office Open XML Biçiminde Sunumları Kaydetme**
+## **Sıkıştırma Seviyeleriyle Office Open XML Formatında Sunumları Kaydet**
 
-Büyük sunumlarla çalışırken dosya boyutu ile işlem süresi arasında denge kurmak için sıkıştırma seviyesini ayarlayabilirsiniz. Gereksinimlerinize bağlı olarak daha hızlı işlem ya da daha küçük çıktı dosyaları tercih edilebilir.
+PPTX çıktısı için, [PptxOptions::setCompressionLevel](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxoptions/#setCompressionLevel) yöntemini kullanarak kaydetme hızını dosya boyutuyla dengeleyebilirsiniz. [CompressionLevel](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/) sınıfı şu değerleri sağlar:
 
-Aspose.Slides, Office Open XML biçiminde bir sunumu kaydederken kullanılacak sıkıştırma seviyesini belirlemenizi sağlayan [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxoptions/#setCompressionLevel) yöntemini sunar.
+- [None](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#None) veriyi sıkıştırmadan depolar.
+- [Level1](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#Level1) en hızlı sıkıştırmayı ve en büyük sıkıştırılmış çıktıyı verir.
+- [Level2](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#Level2)‑[Level5](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#Level5) daha küçük çıktıyı kaydetme hızı pahasına tercih eder.
+- [Level6](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#Level6) kaydetme hızı ve dosya boyutunu dengeler. Bu varsayılan seviyedir.
+- [Level7](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#Level7) ve [Level8](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#Level8) daha küçük çıktıyı kaydetme hızı pahasına daha da öne çıkar.
+- [Level9](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#Level9) en güçlü sıkıştırmayı sağlar ve en çok işlem süresi gerektirir.
 
-Mevcut sıkıştırma seviyeleri:
-
-- [**None**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#None): Sıkıştırma uygulanmaz. Dosyalar olduğu gibi saklanır.
-- [**Level1**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#Level1): En hızlı sıkıştırma, en düşük sıkıştırma oranı.
-- [**Level2**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#Level2): **Level1**’e göre biraz daha iyi sıkıştırma, hâlâ hızlı.
-- [**Level3**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#Level3): **Level2**’den daha iyi sıkıştırma, orta düzey işlem süresi.
-- [**Level4**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#Level4): **Level3**’ten daha iyi sıkıştırma.
-- [**Level5**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#Level5): **Level4**’e göre geliştirilmiş sıkıştırma, ek işlem süresi.
-- [**Level6**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#Level6): Standart sıkıştırma, işlem hızı ve dosya boyutu arasında iyi bir denge. *Varsayılan sıkıştırma seviyesi* bu seviyedir.
-- [**Level7**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#Level7): **Level6**’dan daha iyi sıkıştırma, daha yavaş işlem.
-- [**Level8**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#Level8): **Level7**’den daha iyi sıkıştırma.
-- [**Level9**](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compressionlevel/#Level9): En yüksek sıkıştırma. En küçük dosya boyutunu üretir, ancak en uzun işlem süresine sahiptir.
-
-Aşağıdaki örnek, **sıkıştırma olmadan** bir PPTX dosyası olarak sunumu nasıl kaydedeceğinizi gösterir:
+Aşağıdaki örnek sıkıştırma olmadan bir sunum kaydeder:
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setCompressionLevel(CompressionLevel::None);
+use aspose\slides\CompressionLevel;
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("Sample-out.pptx", SaveFormat::Pptx, $pptxOptions);
+    $options = new PptxOptions();
+    $options->setCompressionLevel(CompressionLevel::None);
+
+    $presentation->save("OutputNoCompression.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Bu örnek, **maksimum sıkıştırma** ile bir PPTX dosyası olarak sunumu nasıl kaydedeceğinizi gösterir:
+Aşağıdaki örnek en yüksek sıkıştırma seviyesini kullanır:
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setCompressionLevel(CompressionLevel::Level9);
+use aspose\slides\CompressionLevel;
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("Sample-level9.pptx", SaveFormat::Pptx, $pptxOptions);
+    $options = new PptxOptions();
+    $options->setCompressionLevel(CompressionLevel::Level9);
+
+    $presentation->save("OutputMaximumCompression.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Küçük Resmi Yenilemeden Sunumları Kaydetme**
+## **Küçük Resmi Yenilemeksizin Sunumları Kaydet**
 
-[PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) yöntemi, bir sunumu PPTX olarak kaydederken küçük resim oluşturulmasını kontrol eder:
+Bir sunum PPTX olarak kaydedildiğinde, [PptxOptions::setRefreshThumbnail](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) yöntemi belge küçük resmini kontrol eder:
 
-- `true` ise kaydetme sırasında küçük resim yenilenir. Varsayılan değerdir.
-- `false` ise mevcut küçük resim korunur. Sunumun küçük resmi yoksa hiç oluşturulmaz.
+- `true` kaydetme sırasında küçük resmi yeniden oluşturur. Bu varsayılan değerdir.
+- `false` mevcut küçük resmi korur. Sunumun küçük resmi yoksa Aspose.Slides bir tane oluşturmaz.
 
-Aşağıdaki kod, sunumu küçük resmi yenilenmeden PPTX olarak kaydeder.
+Aşağıdaki örnek küçük resmi yenilemeksizin bir sunum kaydeder:
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setRefreshThumbnail(false);
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("Output.pptx", SaveFormat::Pptx, $pptxOptions);
-}
-finally {
+    $options = new PptxOptions();
+    $options->setRefreshThumbnail(false);
+
+    $presentation->save("Output.pptx", SaveFormat::Pptx, $options);
+} finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="Bilgi" color="info" %}}
-Bu seçenek, PPTX biçiminde bir sunumu kaydetme süresini azaltmaya yardımcı olur.
+{{% alert color="info" title="Not" %}}
+Küçük resim yenilemeyi devre dışı bırakmak, bir PPTX dosyasının kaydedilme süresini azaltabilir.
 {{% /alert %}}
 
-## **Kaydetme İlerleme Yüzdesi Güncellemeleri**
+## **Kaydetme İlerleyişini Yüzde Olarak Güncelle**
 
-Kaydetme sırasında ilerleme raporlaması, [SaveOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/saveoptions/) ve alt sınıfları üzerindeki [setProgressCallback](https://reference.aspose.com/slides/tr/php-java/aspose.slides/saveoptions/#setProgressCallback) yöntemiyle yapılandırılır. [IProgressCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iprogresscallback/) arayüzünü uygulayan bir Java proxy sağlayın; dışa aktarım sırasında geri arama periyodik yüzde güncellemeleri alır.
+Bir kaydetme işlemini izlemek için, [IProgressCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iprogresscallback/) arayüzünü uygulayan bir Java vekil nesnesi sağlayın ve bu vekili [SaveOptions::setProgressCallback](https://reference.aspose.com/slides/tr/php-java/aspose.slides/saveoptions/#setProgressCallback) yöntemine geçirin. Aspose.Slides, dışa aktarım sırasında ilerleme değerlerini [IProgressCallback::reporting](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iprogresscallback/#reporting-double-) yöntemiyle çağırır.
 
-Aşağıdaki kod parçacıkları, `IProgressCallback` kullanımını gösterir:
+Aşağıdaki örnek bir PDF dışa aktarmasının ilerlemesini konsola raporlar:
 
 ```php
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 class ExportProgressHandler {
     function reporting($progressValue) {
-        // İlerleme yüzdesi değerini burada kullanın.
         $progress = java("java.lang.Double")->valueOf($progressValue)->intValue();
-        echo($progress . "% of the file has been converted.");
+        echo($progress . "% of the file has been converted." . PHP_EOL);
     }
 }
 
 $progressHandler = java_closure(new ExportProgressHandler(), null, java("com.aspose.slides.IProgressCallback"));
 
-$saveOptions = new PdfOptions();
-$saveOptions->setProgressCallback($progressHandler);
+$options = new PdfOptions();
+$options->setProgressCallback($progressHandler);
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("Output.pdf", SaveFormat::Pdf, $saveOptions);
+    $presentation->save("Output.pdf", SaveFormat::Pdf, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="Bilgi" color="info" %}}
-Aspose, kendi API’siyle geliştirilmiş ücretsiz bir **PowerPoint Splitter** uygulaması sunar: https://products.aspose.app/slides/tr/splitter. Uygulama, seçilen slaytları yeni PPTX veya PPT dosyaları olarak kaydederek bir sunumu birden fazla dosyaya bölmenizi sağlar.
+{{% alert color="info" title="Not" %}}
+Aspose, Aspose.Slides API'sı ile oluşturulmuş ücretsiz bir [PowerPoint Splitter](https://products.aspose.app/slides/tr/splitter) sunar. Bu araç, bir sunumdan seçilen slaytları ayrı PPT veya PPTX dosyaları olarak kaydeder.
 {{% /alert %}}
 
 ## **SSS**
 
-**“Hızlı kaydetme” (artımlı kaydetme) destekleniyor mu, böylece yalnızca değişiklikler mi yazılıyor?**
+**Aspose.Slides artımlı veya “hızlı kaydetme”yi destekliyor mu?**
 
-Hayır. Kaydetme her seferinde tam hedef dosyayı oluşturur; artımlı “hızlı kaydetme” desteklenmez.
+Hayır. Her kaydetme işlemi, sadece değişen bölümleri güncellemek yerine tam bir çıktı dosyası yazar.
 
-**Aynı Presentation örneğini birden çok iş parçacığından kaydetmek thread‑safe mi?**
+**Birden fazla iş parçacığı aynı Presentation örneğini kaydedebilir mi?**
 
-Hayır. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) örneği **thread‑safe değildir** (/slides/tr/php-java/multithreading/); tek bir iş parçacığından kaydedin.
+Hayır. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) örneği [thread‑safe değildir](/slides/tr/php-java/multithreading/). Her örneğe aynı anda yalnızca bir iş parçacığından erişin ve kaydedin.
 
-**Kaydederken köprüler ve harici bağlanan dosyalar ne oluyor?**
+**Bir sunumu kaydettiğimde hiper bağlantılar ve harici bağlı dosyalar ne olur?**
 
-[Hyperlinks](/slides/tr/php-java/manage-hyperlinks/) korunur. Harici bağlanan dosyalar (ör. göreceli yollarla eklenen videolar) otomatik olarak kopyalanmaz—referans verilen yolların erişilebilir olduğundan emin olun.
+[Hyperlinks](/slides/tr/php-java/manage-hyperlinks/) sunumda kalır. Aspose.Slides harici bağlı dosyaları kopyalamaz, bu nedenle kaydedilen sunum hâlâ bunların konumlarına erişebilmelidir.
 
-**Belge meta verilerini (Yazar, Başlık, Şirket, Tarih) ayarlayıp/kaydedebilir miyim?**
+**Yazar, başlık, şirket ve oluşturma tarihi gibi belge meta verilerini kaydedebilir miyim?**
 
-Evet. Standart [document properties](/slides/tr/php-java/presentation-properties/) desteklenir ve kaydetme sırasında dosyaya yazılır.
+Evet. Kaydetmeden önce uygun [document properties](/slides/tr/php-java/presentation-properties/) ayarını yapın; Aspose.Slides bunları çıktı dosyasına yazar.

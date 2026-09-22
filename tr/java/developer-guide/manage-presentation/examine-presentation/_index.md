@@ -1,5 +1,5 @@
 ---
-title: Java'da Sunum Bilgilerini Al ve Güncelle
+title: Java'da Sunum Bilgilerini Alın ve Güncelleyin
 linktitle: Sunum Bilgileri
 type: docs
 weight: 30
@@ -21,17 +21,19 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Java kullanarak PowerPoint ve OpenDocument sunumlarında slaytları, yapıyı ve meta verileri keşfedin, daha hızlı içgörüler ve daha akıllı içerik denetimleri sağlayın."
+description: "Java kullanarak PowerPoint ve OpenDocument sunumlarında slaytları, yapıyı ve üst verileri keşfedin; daha hızlı içgörüler ve daha akıllı içerik denetimleri için."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, bir sunumun formatını belirleyebilir ve tam bir sunum nesne modeli oluşturmadan belge meta verilerini okuyabilir. Bu, dosyaları sınıflandırmanız, bir envanter oluşturmanız veya sunum içeriğini yükleyip işleme almaya karar vermeden önce özellikleri incelemeniz gerektiğinde faydalıdır.
+Aspose.Slides, bir sunumun biçimini tanımlayabilir ve tam bir sunum nesne modeli oluşturmadan belge üst verilerini okuyabilir. Bu, dosyaları sınıflandırmanız, bir envanter oluşturmanız veya sunum içeriğini yükleyip işlemeye karar vermeden önce özellikleri incelemeniz gerektiğinde faydalıdır.
 
-Bu makale, hafif denetimi [PresentationFactory](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentationfactory/) ve [IPresentationInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/) aracılığıyla, ayrıca hedeflenmiş güncellemeleri [IDocumentProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idocumentproperties/) üzerinden göstermektedir.
+Bu makale, hafif incelemeyi [PresentationFactory](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentationfactory/) ve [IPresentationInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/) aracılığıyla, ayrıca hedefli güncellemeleri [IDocumentProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idocumentproperties/) üzerinden göstermektedir.
 
-## **Sunum Formatını Kontrol Et**
+## **Sunum Biçimini Kontrol Et**
 
-Bir dosyayı [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) örneği oluşturmadan incelemek için [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) kullanın. [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/#getLoadFormat--) yöntemi, PPTX, PPT veya ODP gibi tespit edilen formatı raporlar.
+Yüklenmiş bir sunumunuz zaten varsa, yükleme sonrası tespit ve eski PPT, PPS ve POT akışlarının sınırlamaları için [Determine the Original Presentation Format](/slides/tr/java/detect-presentation-source-format/) sayfasına bakın.
+
+[PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) kullanarak bir dosyayı [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) örneği oluşturmayıp inceleyebilirsiniz. [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/#getLoadFormat--) yöntemi, PPTX, PPT veya ODP gibi tespit edilen biçimi raporlar.
 
 ```java
 import com.aspose.slides.IPresentationInfo;
@@ -57,11 +59,11 @@ for (String fileName : fileNames) {
 }
 ```
 
-## **Hafif Bir Sunum Envanteri Oluşturma**
+## **Hafif Bir Sunum Envanteri Oluştur**
 
-Birçok sunum dosyasını işlerken, doğrulama, indeksleme veya bir belge yönetim sistemi için kompakt bir envantere ihtiyaç duyabilirsiniz. Bu senaryoda, [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) kullanarak bir [IPresentationInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/) nesnesi elde edin ve ardından [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) yöntemini çağırarak belge meta verilerini okuyun. Bu yaklaşım bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) örneği oluşturmaz ve tam sunum nesne modelinde gezinmenizi gerektirmez.
+Birçok sunum dosyasını işlerken, doğrulama, indeksleme veya belge yönetim sistemi için kompakt bir envantere ihtiyaç duyabilirsiniz. Bu senaryoda, bir [IPresentationInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/) nesnesi elde etmek için [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) kullanın ve ardından belge üst verilerini okumak için [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) çağırın. Bu yaklaşım, bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) örneği oluşturmaz veya tam sunum nesne modelini dolaşmanızı gerektirmez.
 
-[IDocumentProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idocumentproperties/) tarafından sağlanan genişletilmiş özellikler aşağıdaki envanter değerlerini sunar:
+[IDocumentProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idocumentproperties/) tarafından sunulan genişletilmiş özellikler aşağıdaki envanter değerlerini sağlar:
 
 | Yöntem | Envanter değeri |
 | --- | --- |
@@ -72,7 +74,7 @@ Birçok sunum dosyasını işlerken, doğrulama, indeksleme veya bir belge yöne
 | [getWords](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idocumentproperties/#getWords--) | Toplam kelime sayısı. |
 | [getMultimediaClips](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idocumentproperties/#getMultimediaClips--) | Toplam ses ve video klip sayısı. |
 
-Aşağıdaki örnek bu değerleri bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) nesnesi oluşturmadan okur ve kompakt bir envanter yazdırır. Ayrıca [getHeadingPairs](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idocumentproperties/#getHeadingPairs--) ile [getTitlesOfParts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) kombinasyonunu kullanarak yazı tipleri, temalar ve slayt başlıkları gibi içerik gruplarını gösterir.
+Aşağıdaki örnek, bu değerleri bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) nesnesi oluşturmadan okur ve kompakt bir envanter yazdırır. Ayrıca, yazı tipleri, temalar ve slayt başlıkları gibi içerik gruplarını göstermek için [getHeadingPairs](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idocumentproperties/#getHeadingPairs--) ile [getTitlesOfParts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) birleştirir.
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -140,25 +142,27 @@ if (headingPairs.length == 0 || titlesOfParts.length == 0) {
 }
 ```
 
-Her [IHeadingPair](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iheadingpair/) bir grup adı ve o gruptaki öğe sayısını sağlar. [IDocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) düz, sıralı bir dizi döndürür, bu yüzden her başlık çiftinin belirttiği ardışık başlık sayısını tüketin.
+Her [IHeadingPair](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iheadingpair/) bir grup adı ve o gruptaki öğe sayısını sağlar. [IDocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) düz, sıralı bir dizi döndürür, bu yüzden her başlık çiftinde belirtilen art arda gelen başlık sayısını tüketin.
 
-### **Depolanmış Meta Veriler ve Biçim Kısıtlamaları**
+### **Depolanmış Üst Veri ve Biçim Sınırlamaları**
 
-[IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) tarafından döndürülen envanter özellikleri, kaynak belgede bulunan meta verileri yansıtır. Aspose.Slides bu çağrı için bu değerleri yeniden hesaplamak amacıyla sunum nesne modelini yükleyip gezinmez. Eksik özellikler varsayılan değerlerle temsil edilir ve saklanan değerler, dosyayı en son kaydeden uygulama belge özelliklerini güncellemediyse eski olabilir.
+[IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) tarafından döndürülen envanter özellikleri, kaynak belgede bulunan üst verileri yansıtır. Aspose.Slides bu çağrı için bu değerleri yeniden hesaplamak amacıyla sunum nesne modelini yükleyip dolaşmaz. Eksik özellikler varsayılan değerlerle temsil edilir ve saklanan değerler, dosyayı en son kaydeden uygulama belge özelliklerini güncellememişse eski olabilir.
 
-- **PPTX:** Biçim, slayt, not, gizli‑slayt, paragraf, kelime ve multimedya sayılarını, ayrıca başlık çiftlerini ve bölüm başlıklarını içeren genişletilmiş belge özellikleri sağlar. Kullanılabilirlik, belge üreticisinin hangi özellikleri yazdığına bağlıdır.
-- **PPT:** İkili biçim, karşılık gelen belge‑özet özelliklerini depolayabilir. Bir özellik yoksa veya belge üreticisi tarafından güncellenmemişse, Aspose.Slides bu özelliğin depolanmış ya da varsayılan değerini döndürür, slaytlardan yeniden hesaplamaz.
-- **ODP:** OpenDocument meta verileri, sayfa, paragraf ve kelime sayısı gibi genel belge istatistikleri sağlar, ancak bu değerler her PowerPoint‑özel genişletilmiş özelliğe karşılık gelmez. Gizli‑slayt, not‑slayt, multimedya, başlık‑çifti ve bölüm‑başlığı meta verileri mevcut olmayabilir ve envanter özellikleri varsayılan değerleri döndürebilir. Sıfır değeri ya da boş dizi, ilgili içeriğin yok olduğuna kesin kanıt olarak kabul edilmemelidir.
+- **PPTX:** Biçim, slayt, not, gizli-slayt, paragraf, kelime ve multimedya sayımları için genişletilmiş belge özelliklerinin yanı sıra başlık çiftleri ve parça başlıkları sağlar. Kullanılabilirlik, belge üreticisi tarafından hangi özelliklerin yazıldığına bağlıdır.
+- **PPT:** İkili biçim, karşılık gelen belge özeti özelliklerini saklayabilir. Bir özellik eksikse veya belge üreticisi tarafından yenilenmemişse, Aspose.Slides bu değeri kaydedilen veya varsayılan değer olarak döndürür, slaytlardan hesaplamaz.
+- **ODP:** OpenDocument üst verileri, sayfa, paragraf ve kelime sayısı gibi genel belge istatistikleri sağlar, ancak bu değerler her PowerPoint‑spesifik genişletilmiş özelliğe eşlenmez. Gizli‑slayt, not‑slayt, multimedya, başlık‑çifti ve parça‑başlık üst verileri mevcut olmayabilir ve envanter özellikleri varsayılan değer döndürebilir. Sıfır değeri veya boş bir dizi, ilgili içeriğin yok olduğunun kesin kanıtı olarak görülmemelidir.
 
-Hafif meta veri yaklaşımını envanterler ve ön kontrol amaçları için kullanın. Sonucun bellek içi değişiklikleri yansıtması gerektiğinde veya gerçek sunum içeriğini doğrulamanız gerektiğinde sunumu yükleyip canlı nesne modelini inceleyin.
+Envanter ve ön kontrol için hafif üst veri yaklaşımını kullanın. Sonucun bellek içi değişiklikleri yansıtması gerektiğinde veya gerçek sunum içeriğini doğrulamanız gerektiğinde, sunumu yükleyip canlı nesne modelini inceleyin.
 
-## **Sunum Özelliklerini Güncelleme**
+## **Sunum Özelliklerini Güncelle**
 
 [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) tarafından döndürülen özellikler, bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) örneği oluşturmadan da değiştirilebilir. Değişiklikleri [IPresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) ile uygulayın ve ardından bağlı sunumu [IPresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/#writeBindedPresentation-java.io.OutputStream-) ile yazın.
 
-Aşağıdaki resim, orijinal belge özelliklerini gösterir.
+Aşağıdaki görsel, belge özelliklerinin orijinal halini gösterir.
 
 ![PowerPoint sunumunun orijinal belge özellikleri](input_properties.png)
+
+Aşağıdaki örnek, başlığı ve en son kaydedilme zamanını değiştirir ve sonucu yeni bir dosyaya yazar:
 
 ```java
 import com.aspose.slides.IDocumentProperties;
@@ -182,35 +186,35 @@ try (OutputStream outputStream = new FileOutputStream(outputFile)) {
 }
 ```
 
-Aşağıdaki resim, güncellenmiş belge özelliklerini gösterir.
+Aşağıdaki görsel, güncellenmiş belge özelliklerini gösterir.
 
-![PowerPoint sunumunun değiştirilmiş belge özellikleri](output_properties.png)
+![Değiştirilmiş belge özellikleri](output_properties.png)
 
-## **Yararlı Bağlantılar**
+## **Faydalı Bağlantılar**
 
 İlgili güvenlik kontrolleri ve koruma ayarları için aşağıdaki makalelere bakın:
 
-- [Sunumları Parola ile Koruma](/slides/tr/java/password-protected-presentation/)
-- [Sunumları Yazma Koruması ile Koruma](/slides/tr/java/write-protected-presentation/)
+- [Şifreyle Korumalı Sunumlar](/slides/tr/java/password-protected-presentation/)
+- [Yazma Koruması Olan Sunumlar](/slides/tr/java/write-protected-presentation/)
 
 ## **SSS**
 
-**Yazı tiplerinin gömülü olup olmadığını ve hangileri olduğunu nasıl kontrol edebilirim?**
+**Sunıların gömülü olup olmadığını ve hangileri olduğunu nasıl kontrol edebilirim?**
 
-Sunumu yükleyin ve [Presentation.getFontsManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getFontsManager--) yöntemini kullanın. Gömülü yazı tiplerini elde etmek için [IFontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) ve sunum tarafından kullanılan yazı tiplerini almak için [IFontsManager.getFonts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsmanager/#getFonts--) çağırın. İki sonucu karşılaştırarak render için gerekli ancak gömülmemiş yazı tiplerini bulun.
+Sunumu yükleyin ve [Presentation.getFontsManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getFontsManager--) kullanın. Gömülü yazı tiplerini elde etmek için [IFontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) ve sunum tarafından kullanılan yazı tiplerini elde etmek için [IFontsManager.getFonts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontsmanager/#getFonts--) çağırın. İki sonucu karşılaştırarak render için gerekli ancak gömülmemiş yazı tiplerini bulabilirsiniz.
 
-**Dosyanın gizli slaytları olup olmadığını ve kaç tane olduğunu hızlıca nasıl öğrenebilirim?**
+**Dosyanın gizli slaytları olup olmadığını ve kaç tanesi olduğunu nasıl hızlıca öğrenebilirim?**
 
-Depolanmış belge meta verileri yeterli olduğunda, [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) ve [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) aracılığıyla [IDocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idocumentproperties/#getHiddenSlides--) okuyun. Bu, hafif bir envanter için uygundur. Sunum bellek içinde değiştirilmişse, depolanmış meta veriler eksik ya da eski olabilir; bu durumda canlı değerleri doğrulamak için [Presentation.getSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getSlides--) üzerinden gezinip her slaytın [ISlide.getHidden](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/#getHidden--) yöntemini inceleyin.
+Depolanmış belge üst verileri yeterli olduğunda, [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) ve [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) aracılığıyla [IDocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/idocumentproperties/#getHiddenSlides--) okuyun. Bu, hafif bir envanter için uygundur. Sunum bellek içinde değiştirildiyse, saklanan üst veri eksik veya eski olabilir; o zaman canlı değerleri doğrulamak için [Presentation.getSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getSlides--) üzerinden döngü yapıp her slaytın [ISlide.getHidden](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/#getHidden--) yöntemini inceleyin.
 
 **Özel slayt boyutu ve yönünün kullanılıp kullanılmadığını ve varsayılanlardan farklı olup olmadığını tespit edebilir miyim?**
 
-Evet. Sunumu yükleyin ve [Presentation.getSlideSize](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getSlideSize--) yöntemini çağırın. Mevcut ayarları beklenen ön ayar ve boyutlarla karşılaştırmak için [ISlideSize.getType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidesize/#getType--), [ISlideSize.getSize](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidesize/#getSize--) ve [ISlideSize.getOrientation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidesize/#getOrientation--) kullanın.
+Evet. Sunumu yükleyin ve [Presentation.getSlideSize](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getSlideSize--) metodunu çağırın. Mevcut ayarları beklenen ön ayar ve boyutlarla karşılaştırmak için [ISlideSize.getType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidesize/#getType--), [ISlideSize.getSize](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidesize/#getSize--) ve [ISlideSize.getOrientation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidesize/#getOrientation--) kullanın.
 
-**Grafiklerin dış veri kaynaklarına başvurup başvurmadığını hızlı bir şekilde görmenin bir yolu var mı?**
+**Grafiklerin dış veri kaynaklarına başvurup başvurmadığını hızlıca görmenin bir yolu var mı?**
 
-Evet. Her [Chart](https://reference.aspose.com/slides/tr/java/com.aspose.slides/chart/) bulun ve [IChartData.getDataSourceType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdata/#getDataSourceType--) yöntemini çağırın. Dış bir çalışma kitabı için [IChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) yöntemini kullanın. Veri kaynağı tipi ve yolu dış referansı tanımlar, ancak hedefin mevcut olup olmadığını doğrulamak ayrı bir kaynak kontrolü gerektirir.
+Evet. Her bir [Chart](https://reference.aspose.com/slides/tr/java/com.aspose.slides/chart/) bulun ve [IChartData.getDataSourceType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdata/#getDataSourceType--) metodunu çağır. Dış bir çalışma kitabı için [IChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) metodunu kullan. Veri kaynağı türü ve yol dış referansı gösterir, ancak hedefin mevcut olup olmadığını doğrulamak ayrı bir kaynak kontrolü gerektirir.
 
-**Renderlama veya PDF dışa aktarmayı yavaşlatabilecek 'ağır' slaytları nasıl değerlendirebilirim?**
+**Render veya PDF dışa aktarmayı yavaşlatabilecek 'ağır' slaytları nasıl değerlendirebilirim?**
 
-Tek bir karmaşıklık özelliği yoktur. [Presentation.getSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getSlides--) ve her slaytın [IBaseSlide.getShapes](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibaseslide/#getShapes--) koleksiyonunu gezerek şekil sayısını, büyük görüntüleri, efektleri, animasyonları veya multimedyaları inceleyin. Bu sinyaller bir ön eleme sağlar; ardından temsili bir render veya dışa aktarma ölçümü yaparak bir slaytı kesin bir performans darboğazı olarak sınıflandırın.
+Tek bir karmaşıklık özelliği yoktur. [Presentation.getSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getSlides--) ve her slaytın [IBaseSlide.getShapes](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibaseslide/#getShapes--) koleksiyonunu dolaşın. Şekil sayısı, büyük görseller, efektler, animasyonlar veya multimedya varlığı gibi göstergeleri kullanın ve temsili bir render ya da dışa aktarma ölçümü yaparak bir slaytı performans darboğazı olarak onaylamadan önce değerlendirin.

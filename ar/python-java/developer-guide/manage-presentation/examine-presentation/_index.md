@@ -1,5 +1,5 @@
 ---
-title: استرجاع وتحديث معلومات العرض التقديمي في بايثون عبر جافا
+title: استرداد وتحديث معلومات العرض التقديمي في Python عبر Java
 linktitle: معلومات العرض التقديمي
 type: docs
 weight: 30
@@ -18,19 +18,25 @@ keywords:
 - فحص ODP
 - PowerPoint
 - OpenDocument
-- عرض تقديمي
+- العرض التقديمي
 - Python
 - Java
 - Aspose.Slides
-description: "استكشف الشرائح والبنية والبيانات الوصفية في عروض PowerPoint وOpenDocument باستخدام بايثون عبر جافا للحصول على رؤى أسرع ومراجعات محتوى أذكى."
+description: استكشف الشرائح والبنية والبيانات الوصفية في عروض PowerPoint وOpenDocument باستخدام Python عبر Java للحصول على رؤى أسرع وتدقيق محتوى أذكى.
 ---
 ## **نظرة عامة**
 
-يمكن لـ Aspose.Slides تحديد تنسيق العرض التقديمي وقراءة بياناته الوصفية دون إنشاء نموذج كائن عرض تقديمي كامل. هذا مفيد عندما تحتاج إلى تصنيف الملفات، بناء جرد، أو فحص الخصائص قبل اتخاذ القرار بتحميل ومعالجة محتوى العرض التقديمي.
+يمكن لـ Aspose.Slides تحديد تنسيق العرض التقديمي وقراءة بيانات التعريف الخاصة بالمستند دون إنشاء نموذج كائن عرض تقديمي كامل. يكون هذا مفيدًا عندما تحتاج إلى تصنيف الملفات، إنشاء جرد، أو فحص الخصائص قبل اتخاذ القرار بتحميل ومعالجة محتوى العرض التقديمي.
 
-تتطلب الأمثلة Aspose.Slides لـ Python عبر Java وبيئة تشغيل Java متوافقة. يبدأ كل مثال تشغيل JVM إذا لم يكن قيد التشغيل بالفعل. قدم ملفات عروض تقديمية موجودة في المسارات المستخدمة في الأمثلة.
+تتطلب الأمثلة Aspose.Slides for Python via Java وبيئة تشغيل Java متوافقة. يبدأ كل مثال تشغيل JVM إذا لم يكن قيد التشغيل بالفعل. قدم ملفات العروض التقديمية الموجودة في المسارات المستخدمة في الأمثلة.
 
-توضح هذه المقالة فحصًا خفيفًا من خلال [PresentationFactory](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationfactory/) و[PresentationInfo](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationinfo/)، بالإضافة إلى تحديثات موجهة عبر [DocumentProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/).
+توضح هذه المقالة فحصًا خفيف الوزن من خلال [PresentationFactory](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationfactory/) و[PresentationInfo](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationinfo/)، بالإضافة إلى تحديثات مستهدفة من خلال [DocumentProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/).
+
+## **التحقق من تنسيق العرض التقديمي**
+
+إذا كان لديك عرض تقديمي تم تحميله بالفعل، راجع [Determine the Original Presentation Format](/slides/ar/python-java/detect-presentation-source-format/) للكشف بعد التحميل والقيود المتعلقة بتدفقات PPT وPPS وPOT القديمة.
+
+استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationfactory/#getPresentationInfo) لتفقد ملف دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) . تُظهر طريقة [PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationinfo/#getLoadFormat) التنسيق المكتشف، مثل PPTX أو PPT أو ODP.
 
 ```python
 import jpype
@@ -57,9 +63,23 @@ for file_name in file_names:
 
     print(f"{file_name}: {format_name}")
 ```
-## **التحقق من تنسيق العرض التقديمي**
 
-استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationfactory/#getPresentationInfo) لفحص ملف دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) . طريقة [PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationinfo/#getLoadFormat) تُبلِغ عن التنسيق المكتشف، مثل PPTX أو PPT أو ODP.
+## **إنشاء جرد عرض تقديمي خفيف الوزن**
+
+عند معالجة العديد من ملفات العروض التقديمية، قد تحتاج إلى جرد مدمج للتحقق، الفهرسة، أو نظام إدارة المستندات. في هذا السيناريو، استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationfactory/#getPresentationInfo) للحصول على كائن [PresentationInfo](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationinfo/) ، ثم استدعِ [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationinfo/#readDocumentProperties) لقراءة بيانات التعريف الخاصة بالمستند. لا تُنشئ هذه الطريقة كائن [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) ولا تتطلب استعراض نموذج كائن العرض التقديمي بالكامل.
+
+توفر الخصائص الموسعة التي تُظهرها [DocumentProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/) القيم التالية للجرد:
+
+| الطريقة | قيمة الجرد |
+| --- | --- |
+| [getSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getSlides) | إجمالي عدد الشرائح. |
+| [getHiddenSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getHiddenSlides) | عدد الشرائح المخفية. |
+| [getNotes](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getNotes) | عدد الشرائح التي تحتوي على ملاحظات. |
+| [getParagraphs](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getParagraphs) | إجمالي عدد الفقرات، إذا كانت متاحة. |
+| [getWords](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getWords) | إجمالي عدد الكلمات. |
+| [getMultimediaClips](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getMultimediaClips) | إجمالي عدد مقاطع الصوت والفيديو. |
+
+يقرأ المثال التالي هذه القيم دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) ويطبع جردًا مدمجًا. كما يجمع بين [getHeadingPairs](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getHeadingPairs) و[getTitlesOfParts](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getTitlesOfParts) لعرض مجموعات المحتوى مثل الخطوط والسمات وعناوين الشرائح.
 
 ```python
 import jpype
@@ -124,44 +144,28 @@ else:
             print(f"    - {titles_of_parts[part_index]}")
             part_index += 1
 ```
-## **إنشاء جرد عرض تقديمي خفيف الوزن**
 
-عند معالجة العديد من ملفات العرض التقديمي، قد تحتاج إلى جرد مدمج للتحقق أو الفهرسة أو نظام إدارة مستندات. في هذا السيناريو، استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationfactory/#getPresentationInfo) للحصول على كائن [PresentationInfo](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationinfo/)، ثم استدعِ [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationinfo/#readDocumentProperties) لقراءة بيانات المستند الوصفية. لا ينشئ هذا النهج كائن [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) ولا يتطلب استعراض نموذج كائن العرض بالكامل.
+توفر كل [HeadingPair](https://reference.aspose.com/slides/ar/python-java/aspose.slides/headingpair/) اسم مجموعة وعدد العناصر في تلك المجموعة. تُعيد [DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getTitlesOfParts) مصفوفة مسطحة ومُرتبة، لذا استهلك عدد العناوين المتتالية المحدد لكل زوج عنوان.
 
-الخصائص الموسعة التي تُعرضها [DocumentProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/) توفر القيم التالية للجرد:
+### **البيانات الوصفية المخزنة وقيود التنسيق**
 
-| الطريقة | قيمة الجرد |
-| --- | --- |
-| [getSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getSlides) | الإجمالي الكلي للشرائح. |
-| [getHiddenSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getHiddenSlides) | عدد الشرائح المخفية. |
-| [getNotes](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getNotes) | عدد الشرائح التي تحتوي على ملاحظات. |
-| [getParagraphs](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getParagraphs) | الإجمالي الكلي للفقرات، إذا كانت متوفرة. |
-| [getWords](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getWords) | الإجمالي الكلي للكلمات. |
-| [getMultimediaClips](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getMultimediaClips) | الإجمالي الكلي لمقاطع الصوت والفيديو. |
+تُظهر خصائص الجرد التي تُعيدها [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationinfo/#readDocumentProperties) البيانات التعريفية المتاحة في المستند الأصلي. لا يقوم Aspose.Slides بتحميل واستعراض نموذج كائن العرض التقديمي لإعادة حساب هذه القيم عند هذا الاستدعاء. تُعرّف الخصائص المفقودة بالقيم الافتراضية، وقد تكون القيم المخزنة قديمة إذا لم تقم التطبيق الذي حفظ الملف آخر مرة بتحديث خصائص المستند.
 
-المثال التالي يقرأ هذه القيم دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) ويطبع جردًا مدمجًا. كما يجمع بين [getHeadingPairs](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getHeadingPairs) و[getTitlesOfParts](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getTitlesOfParts) لعرض مجموعات المحتوى مثل الخطوط والسمات وعناوين الشرائح.
+- **PPTX:** يقدّم التنسيق خصائص مستند موسعة لعدد الشرائح، الملاحظات، الشرائح المخفية، الفقرات، الكلمات، ومقاطع الوسائط المتعددة، بالإضافة إلى أزواج العناوين وعناوين الأجزاء. تعتمد التوفرية على الخصائص التي كتبها مُنتج المستند.
+- **PPT:** يمكن للنسق الثنائي تخزين خصائص ملخص المستند المقابلة. إذا كانت الخاصية غير موجودة أو لم يتم تحديثها من قبل مُنتج المستند، تُعيد Aspose.Slides قيمتها المخزنة أو الافتراضية بدلاً من حسابها من الشرائح.
+- **ODP:** تُوفر بيانات تعريف OpenDocument إحصاءات عامة للمستند مثل عدد الصفحات والفقرات والكلمات، لكن هذه القيم لا تُطابق كل خاصية موسعة خاصة بـ PowerPoint. قد تكون بيانات الشرائح المخفية، ملاحظات الشرائح، الوسائط المتعددة، أزواج العناوين، وعناوين الأجزاء غير متوفرة، وقد تُعيد خصائص الجرد قيمًا افتراضية. لا تُعامل القيمة الصفرية أو المصفوفة الفارغة كدليل نهائي على أن المحتوى المقابل غير موجود.
 
-كل [HeadingPair](https://reference.aspose.com/slides/ar/python-java/aspose.slides/headingpair/) يوفر اسم مجموعة وعدد العناصر في تلك المجموعة. تُعيد [DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getTitlesOfParts) مصفوفة مسطحة مرتبة، لذا استهلك عدد العناوين المتتالية المحدد بواسطة كل زوج عنوان.
-
-### **البيانات الوصفية المخزنة وقيود الصيغة**
-
-القيم التي تُرجعها [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationinfo/#readDocumentProperties) تعكس البيانات الوصفية المتاحة في المستند الأصلي. لا يقوم Aspose.Slides بتحميل واستعراض نموذج كائن العرض لإعادة حساب هذه القيم لهذا الاستدعاء. تمثّل الخصائص المفقودة بقيم افتراضية، وقد تكون القيم المخزنة قديمة إذا لم يقم التطبيق الذي حفظ الملف آخرًا بتحديث خصائص المستند.
-
-- **PPTX:** يوفر التنسيق خصائص مستند موسعة لعدد الشرائح، الملاحظات، الشرائح المخفية، الفقرات، الكلمات، ومقاطع الوسائط المتعددة، بالإضافة إلى أزواج العناوين وعناوين الأجزاء. تعتمد التوافرية على الخصائص التي كتبها مُنتج المستند.
-- **PPT:** يمكن للنسق الثنائي تخزين خصائص ملخص المستند المقابلة. إذا كانت خاصية غير موجودة أو لم يُحدّثها مُنتج المستند، تُعيد Aspose.Slides قيمتها المخزنة أو الافتراضية بدلاً من حسابها من الشرائح.
-- **ODP:** توفر بيانات OpenDocument إحصائيات عامة للمستند مثل عدد الصفحات والفقرات والكلمات، لكن هذه القيم لا تتطابق مع كل خاصية موسعة خاصة بـ PowerPoint. قد تكون بيانات الشرائح المخفية، ملاحظات الشرائح، الوسائط المتعددة، أزواج العناوين، وعناوين الأجزاء غير متاحة، وقد تُرجع خصائص الجرد قيمًا افتراضية. لا تُعامل القيمة الصفرية أو المصفوفة الفارغة كدليل قاطع على غياب المحتوى المقابل.
-
-استخدم نهج البيانات الوصفية الخفيفة للجرد والتحققات الأولية. حمّل العرض التقديمي وتفقد نموذج كائنه الحي عندما يجب أن يعكس النتيجة تغييرات الذاكرة أو عندما تحتاج إلى التحقق من المحتوى الفعلي للعرض.
+استخدم نهج البيانات الوصفية الخفيف للجرود والفحوصات الأولية. حمّل العرض التقديمي وتفقد نموذج كائنه الحي عندما يجب أن يعكس النتيجة التغييرات في الذاكرة أو عندما تحتاج إلى التحقق من المحتوى الفعلي للعرض.
 
 ## **تحديث خصائص العرض التقديمي**
 
-يمكن أيضًا تغيير الخصائص التي تُرجعها [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationinfo/#readDocumentProperties) دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) . طبّق التغييرات باستخدام [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationinfo/#updateDocumentProperties)، ثم اكتب العرض المرتبط باستخدام [PresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationinfo/#writeBindedPresentation).
+يمكن أيضًا تغيير الخصائص التي تُعيدها [PresentationInfo.readDocumentProperties] دون إنشاء كائن [Presentation] . طبّق التغييرات باستخدام [PresentationInfo.updateDocumentProperties]، ثم اكتب العرض المرتبط باستخدام [PresentationInfo.writeBindedPresentation].
 
-الصورة التالية تُظهر خصائص المستند الأصلية لعرض PowerPoint.
+الصورة التالية تُظهر الخصائص الأصلية للمستند لعرض PowerPoint.
 
-![خصائص المستند الأصلية لعرض PowerPoint](input_properties.png)
+![الخصائص الأصلية للمستند لعرض PowerPoint](input_properties.png)
 
-المثال التالي يغيّر العنوان ووقت الحفظ الأخير ويكتب النتيجة إلى ملف جديد:
+يُغيّر المثال التالي العنوان ووقت الحفظ الأخير ويكتب النتيجة إلى ملف جديد:
 
 ```python
 import jpype
@@ -191,35 +195,35 @@ finally:
     output_stream.close()
 ```
 
-الصورة التالية تُظهر خصائص المستند المحدثة لعرض PowerPoint.
+الصورة التالية تُظهر الخصائص المحدثة للمستند لعرض PowerPoint.
 
-![خصائص المستند المحدثة لعرض PowerPoint](output_properties.png)
+![الخصائص المحدثة للمستند لعرض PowerPoint](output_properties.png)
 
 ## **روابط مفيدة**
 
-للتحقق من الأمان وإعدادات الحماية ذات الصلة، راجع المقالات التالية:
+للتفحص المتعلق بالأمان وإعدادات الحماية، راجع المقالات التالية:
 
-- [حماية عروض تقديمية بكلمة مرور](/slides/ar/python-java/password-protected-presentation/)
-- [حماية عروض تقديمية من الكتابة](/slides/ar/python-java/write-protected-presentation/)
+- [Password-Protect Presentations](/slides/ar/python-java/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/ar/python-java/write-protected-presentation/)
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتداولة**
 
 **كيف يمكنني التحقق مما إذا كانت الخطوط مدمجة وأيها؟**
 
-حمّل العرض التقديمي واستخدم [Presentation.getFontsManager](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getFontsManager). استدعِ [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/ar/python-java/aspose.slides/fontsmanager/#getEmbeddedFonts) للحصول على الخطوط المدمجة و[FontsManager.getFonts](https://reference.aspose.com/slides/ar/python-java/aspose.slides/fontsmanager/#getFonts) للحصول على الخطوط المستخدمة في العرض. قارن النتيجتين لتحديد الخطوط المطلوبة للعرض لكنها غير مدمجة.
+حمّل العرض التقديمي واستخدم [Presentation.getFontsManager](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getFontsManager). استدعِ [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/ar/python-java/aspose.slides/fontsmanager/#getEmbeddedFonts) للحصول على الخطوط المدمجة و[FontsManager.getFonts](https://reference.aspose.com/slides/ar/python-java/aspose.slides/fontsmanager/#getFonts) للحصول على الخطوط المستخدمة في العرض. قارن بين النتيجتين لتحديد الخطوط المطلوبة للعرض ولكنها غير مدمجة.
 
 **كيف يمكنني بسرعة معرفة ما إذا كان الملف يحتوي على شرائح مخفية وعددها؟**
 
-عند كون البيانات الوصفية المخزنة كافية، اقرأ [DocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getHiddenSlides) عبر [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationfactory/#getPresentationInfo) و[PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationinfo/#readDocumentProperties). هذا مناسب لجرد خفيف. إذا تم تعديل العرض في الذاكرة، قد تكون البيانات الوصفية المخزنة مفقودة أو قديمة، أو إذا كنت بحاجة إلى التحقق من القيم الحية، استعرض [Presentation.getSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getSlides) وتفقد طريقة [Slide.getHidden](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slide/#getHidden) لكل شريحة بدلاً من ذلك.
+عند كفاية بيانات التعريف المخزنة للمستند، اقرأ [DocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/documentproperties/#getHiddenSlides) عبر [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationfactory/#getPresentationInfo) و[PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationinfo/#readDocumentProperties). هذا مناسب لجرد خفيف. إذا تم تعديل العرض في الذاكرة، قد تكون البيانات المخزنة مفقودة أو قديمة، أو إذا كنت بحاجة للتحقق من القيم الحية، استعرض [Presentation.getSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getSlides) وتفقد طريقة [Slide.getHidden](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slide/#getHidden) لكل شريحة بدلاً من ذلك.
 
-**هل يمكنني اكتشاف ما إذا كان يتم استخدام حجم واتجاه شريحة مخصصين، وما إذا كانا يختلفان عن الإعدادات الافتراضية؟**
+**هل يمكنني اكتشاف ما إذا تم استخدام حجم وشكل مخصص للشرائح، وما إذا كانت تختلف عن القيم الافتراضية؟**
 
-نعم. حمّل العرض التقديمي واستدعِ [Presentation.getSlideSize](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getSlideSize). استخدم [SlideSize.getType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slidesize/#getType)، [SlideSize.getSize](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slidesize/#getSize) و[SlideSize.getOrientation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slidesize/#getOrientation) لمقارنة الإعدادات الحالية مع الإعدادات المسبقة والأبعاد المتوقعة.
+نعم. حمّل العرض التقديمي واستدعِ [Presentation.getSlideSize](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getSlideSize). استخدم [SlideSize.getType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slidesize/#getType)، [SlideSize.getSize](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slidesize/#getSize) و[SlideSize.getOrientation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slidesize/#getOrientation) لمقارنة الإعدادات الحالية مع القالب والأبعاد المتوقعة.
 
 **هل هناك طريقة سريعة لمعرفة ما إذا كانت المخططات تشير إلى مصادر بيانات خارجية؟**
 
-نعم. حدد كل [Chart](https://reference.aspose.com/slides/ar/python-java/aspose.slides/chart/) واستدعِ [ChartData.getDataSourceType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/chartdata/#getDataSourceType). لمصنف خارجي، استدعِ [ChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/ar/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). يُظهر نوع مصدر البيانات والمسار إشارة إلى مرجع خارجي، لكن التحقق من توفر الهدف يتطلب فحصًا منفصلاً للموارد.
+نعم. حدّد كل [Chart](https://reference.aspose.com/slides/ar/python-java/aspose.slides/chart/) واستدعِ [ChartData.getDataSourceType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/chartdata/#getDataSourceType). إذا كان مصدر البيانات مصنفًا كدفتر عمل خارجي، استدعِ [ChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/ar/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). يُظهر نوع المصدر والمسار إشارة مرجعية خارجية، لكن التحقق من توفر الهدف يتطلب فحص موارد منفصل.
 
-**كيف يمكنني تقييم الشرائح 'الثقيلة' التي قد تبطئ عملية العرض أو تصدير PDF؟**
+**كيف يمكنني تقييم الشرائح "الثقيلة" التي قد تبطئ عملية العرض أو تصدير PDF؟**
 
-لا توجد خاصية تعقيد واحدة. استعرض [Presentation.getSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getSlides) ومجموعات [BaseSlide.getShapes](https://reference.aspose.com/slides/ar/python-java/aspose.slides/baseslide/#getShapes) لكل شريحة. استخدم عدد الأشكال ووجود صور كبيرة أو تأثيرات أو رسومات متحركة أو وسائط متعددة كإشارات تصفية، وقم بقياس عرض تمثيلي أو تصدير قبل اعتبار الشريحة عنق زجاجة مؤكد للأداء.
+لا توجد خاصية تعقيد واحدة. استعرض [Presentation.getSlides](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getSlides) ومجموعة [BaseSlide.getShapes](https://reference.aspose.com/slides/ar/python-java/aspose.slides/baseslide/#getShapes) لكل شريحة. استخدم عدد الأشكال ووجود صور كبيرة، تأثيرات، رسومات متحركة، أو وسائط متعددة كإشارات تصفية، وقم بقياس عرض تمثيلي أو تصدير ممثل قبل اعتبار الشريحة عنق زجاجة مؤكد للأداء.

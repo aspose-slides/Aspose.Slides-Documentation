@@ -18,22 +18,24 @@ keywords:
 - ارائه محافظت‌شده
 - ارائه بزرگ
 - منبع خارجی
-- شیء باینری
+- شی باینری
 - C++
 - Aspose.Slides
-description: "یاد بگیرید چگونه ارائه‌های PowerPoint و OpenDocument را در C++ باز کنید، رموز عبور باز کردن را ارائه دهید، بارگذاری منابع را کنترل کنید و با Aspose.Slides برای C++ مصرف حافظه را کاهش دهید."
+description: "یاد بگیرید چگونه ارائه‌های PowerPoint و OpenDocument را در C++ باز کنید، رمزهای عبور بازکننده را فراهم کنید، بارگذاری منابع را کنترل کنید و با Aspose.Slides برای C++ مصرف حافظه را کاهش دهید."
 ---
 ## **مقدمه**
 
-[Aspose.Slides for C++](https://products.aspose.com/slides/fa/cpp/) می‌تواند ارائه‌های PowerPoint و OpenDocument را از فایل‌ها و جریان‌ها بارگذاری کند. پس از بارگذاری یک ارائه، می‌توانید ساختار آن را بررسی کنید، اسلایدها را ویرایش کنید، منابع را مدیریت کنید و آن را در قالب اصلی یا قالب پشتیبانی‌شده دیگر ذخیره نمایید.
+[Aspose.Slides for C++](https://products.aspose.com/slides/fa/cpp/) می‌تواند ارائه‌های PowerPoint و OpenDocument را از فایل‌ها و جریان‌ها بارگذاری کند. پس از بارگذاری یک ارائه، می‌توانید ساختار آن را بررسی کنید، اسلایدها را ویرایش کنید، منابع را مدیریت کنید و آن را در قالب اصلی یا قالب دیگری که پشتیبانی می‌شود ذخیره کنید.
 
-رفتار بارگذاری می‌تواند از طریق کلاس [LoadOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/) سفارشی شود. به عنوان مثال، می‌توانید رمز عبور باز کردن را فراهم کنید، اشیاء باینری بزرگ را خارج از حافظه نگه دارید، منابع خارجی را کنترل کنید یا داده‌های باینری توکار را حذف کنید.
+رفتار بارگذاری می‌تواند از طریق کلاس [LoadOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/) سفارشی شود. به عنوان مثال، می‌توانید یک رمز عبور بازکننده ارائه دهید، اشیای باینری بزرگ را خارج از حافظه نگه دارید، منابع خارجی را کنترل کنید یا داده‌های باینری جاسازی‌شده را حذف کنید.
 
 ## **باز کردن ارائه‌ها**
 
-برای باز کردن یک ارائه موجود، مسیر فایل آن را به سازنده [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) بدهید. پس از استفاده، ارائه را آزاد کنید تا دستگیره‌های فایل، داده‌های موقت و سایر منابع به‌سرعت آزاد شوند.
+پس از بارگذاری یک فایل یا جریان، می‌توانید [فرمت اصلی ارائه را تعیین کنید](/slides/fa/cpp/detect-presentation-source-format/) تا انتخاب کنید برنامه شما چگونه آن را پردازش می‌کند.
 
-مثال زیر در C++ نشان می‌دهد چگونه یک ارائه را باز کنید و تعداد اسلایدهای آن را به دست آورید:
+برای باز کردن یک ارائه موجود، مسیر فایل آن را به سازندهٔ [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ارسال کنید. پس از استفاده، ارائه را حذف (Dispose) کنید تا دسته‌های فایل، داده‌های موقت و سایر منابع به‌سرعت آزاد شوند.
+
+مثال زیر به زبان C++ نشان می‌دهد چگونه یک ارائه را باز کنید و تعداد اسلایدهای آن را دریافت کنید:
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -50,9 +52,9 @@ Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count())
 presentation->Dispose();
 ```
 
-## **باز کردن ارائه‌های دارای رمز عبور**
+## **باز کردن ارائه‌های محافظت‌شده با رمز عبور**
 
-یک رمز عبور باز کردن، محتوای ارائه را رمزگذاری می‌کند. برای بارگذاری کامل ارائه، رمز عبور صحیح را به ‎[LoadOptions::set_Password](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_password/) بدهید و گزینه‌ها را به سازنده [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) پاس بدهید. بارگذاری در صورت نبودن یا نادرست بودن رمز عبور با شکست مواجه می‌شود.
+یک رمز عبور بازکننده محتویات ارائه را رمزنگاری می‌کند. برای بارگذاری کامل ارائه، رمز عبور صحیح را به [LoadOptions::set_Password](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_password/) پاس بدهید و گزینه‌ها را به سازندهٔ [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ارسال کنید. اگر رمز عبور موجود نباشد یا نادرست باشد، بارگذاری شکست می‌خورد.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -73,13 +75,13 @@ Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count())
 presentation->Dispose();
 ```
 
-برای تشخیص رمز عبور، اعتبارسنجی و جریان کارهای رمزنگاری، به ‎[Password‑Protect Presentations](/slides/fa/cpp/password-protected-presentation/) مراجعه کنید. اگر یک ارائهٔ رمزگذاری‌شده عمداً با ویژگی‌های عمومی سند ذخیره شده باشد، این ویژگی‌ها بدون نیاز به رمز عبور قابل خواندن‌اند؛ ببینید ‎[Manage Presentation Properties](/slides/fa/cpp/presentation-properties/).
+برای شناسایی رمز عبور، اعتبارسنجی و جریان‌های کاری رمزنگاری، ببینید [Password-Protect Presentations](/slides/fa/cpp/password-protected-presentation/). اگر یک ارائهٔ رمزگذاری‌شده عمداً با ویژگی‌های عمومی سند ذخیره شده باشد، می‌توانید این ویژگی‌ها را بدون رمز عبور بخوانید؛ رجوع کنید به [Manage Presentation Properties](/slides/fa/cpp/presentation-properties/).
 
 ## **باز کردن ارائه‌های بزرگ**
 
-[LoadOptions::get_BlobManagementOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) کنترل می‌کند که Aspose.Slides چطور اشیاء باینری بزرگ مانند تصاویر، صدا و ویدئو را مدیریت کند. می‌توانید فایل منبع را قفل بمانید، اجازه فایل‌های موقت بدهید و مقدار داده BLOB نگه‌داشته‌شده در حافظه را محدود کنید.
+[LoadOptions::get_BlobManagementOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) نحوهٔ مدیریت اشیای باینری بزرگ مثل تصاویر، صدا و ویدیو توسط Aspose.Slides را کنترل می‌کند. می‌توانید فایل منبع را قفل بمانید، فایل‌های موقت را اجازه دهید و میزان داده‌های BLOB نگهداری شده در حافظه را محدود کنید.
 
-کد زیر در C++ بارگذاری یک ارائهٔ بزرگ (به‌عنوان مثال ۲ GB) را نشان می‌دهد:
+کد زیر به زبان C++ نشان می‌دهد چطور یک ارائهٔ بزرگ (به‌عنوان مثال ۲ گیگابایت) را بارگذاری کنید:
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -109,15 +111,15 @@ presentation->Save(u"large-presentation-copy.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="info" title="توجه" %}}
-با `PresentationLockingBehavior::KeepLocked`، فایل منبع تا زمان آزاد شدن شیء `Presentation` قفل می‌ماند. هنگام زنده بودن آن شیء، فایل منبع را جابه‌جا، بازنویسی یا حذف نکنید.
+{{% alert color="info" title="نکته" %}}
+با استفاده از `PresentationLockingBehavior::KeepLocked`، فایل منبع تا زمانی که شیء `Presentation` حذف شود، قفل می‌ماند. تا زمانی که این شیء زنده است، فایل منبع را جابجا، بازنویسی یا حذف نکنید.
 
-Aspose.Slides ممکن است محتویات یک جریان ورودی را هنگام بارگذاری کپی کند. برای ارائه‌های بزرگ، مسیر فایل عموماً کارآمدتر از یک جریان است. برای گزینه‌های اضافی ذخیره‌سازی و مدیریت حافظه، به ‎[Manage BLOBs](/slides/fa/cpp/manage-blob/) مراجعه کنید.
+Aspose.Slides ممکن است هنگام بارگذاری، محتویات یک جریان ورودی را کپی کند. برای ارائه‌های بزرگ، مسیر فایل به‌طور کلی کارآمدتر از یک جریان است. برای گزینه‌های بیشتر ذخیره‌سازی و مدیریت حافظه، به [Manage BLOBs](/slides/fa/cpp/manage-blob/) مراجعه کنید.
 {{% /alert %}}
 
 ## **کنترل منابع خارجی**
 
-[LoadOptions::set_ResourceLoadingCallback](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_resourceloadingcallback/) یک پیاده‌سازی از ‎[IResourceLoadingCallback](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iresourceloadingcallback/) را می‌پذیرد. این فراخوانی می‌تواند داده‌های جایگزین فراهم کند، یک منبع را تغییر مسیر دهد، از بارگذار پیش‌فرض استفاده کند یا منبع را نادیده بگیرد. این کار زمانی مفید است که ارائه‌ها شامل تصاویر خارجی باشند که باید بر اساس قوانین امنیتی یا ذخیره‌سازی خاص برنامه حل شوند.
+[LoadOptions::set_ResourceLoadingCallback](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_resourceloadingcallback/) یک پیاده‌سازی از [IResourceLoadingCallback](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iresourceloadingcallback/) را می‌پذیرد. این callback می‌تواند داده‌های جایگزین ارائه دهد، یک منبع را بازنشانی کند، از لودر پیش‌فرض استفاده کند یا منبع را نادیده بگیرد. این ویژگی زمانی مفید است که ارائه‌ها شامل تصاویر خارجی باشند که باید بر اساس قوانین امنیتی یا ذخیره‌سازی مخصوص برنامه حل شوند.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -160,17 +162,17 @@ Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count())
 presentation->Dispose();
 ```
 
-## **بارگذاری ارائه‌ها بدون اشیاء باینری توکار**
+## **بارگذاری ارائه‌ها بدون اشیای باینری جاسازی‌شده**
 
-یک ارائه ممکن است شامل داده‌های باینری توکار باشد که برنامه به آن نیاز ندارد یا نمی‌خواهد آن‌ها را نگه دارد. مثال‌ها شامل:
+یک ارائه ممکن است شامل داده‌های باینری جاسازی‌شده باشد که برنامه نیاز ندارد یا نمی‌خواهد نگه دارد. مثال‌ها عبارتند از:
 
-- پروژه‌های VBA، که از طریق ‎[IPresentation::get_VbaProject](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/get_vbaproject/) در دسترس هستند؛
-- داده‌های OLE توکار، که از طریق ‎[IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/) در دسترس هستند؛
-- داده‌های کنترل ActiveX، که از طریق ‎[IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icontrol/get_activexcontrolbinary/) در دسترس هستند.
+- پروژه‌های VBA، در دسترس از طریق [IPresentation::get_VbaProject](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/get_vbaproject/);
+- داده‌های OLE جاسازی‌شده، در دسترس از طریق [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/);
+- داده‌های کنترل ActiveX، در دسترس از طریق [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icontrol/get_activexcontrolbinary/).
 
-برای حذف این داده‌های باینری هنگام بارگذاری، `true` را به ‎[LoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_deleteembeddedbinaryobjects/) بدهید. ارائهٔ بارگذاری‌شده را ذخیره کنید تا نتیجهٔ پاک‌سازی‌شده حفظ شود.
+مقدار `true` را به [LoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_deleteembeddedbinaryobjects/) منتقل کنید تا این داده‌های باینری هنگام بارگذاری حذف شوند. برای نگهداری نتیجهٔ تصفیه‌شده، ارائهٔ بارگذاری‌شده را ذخیره کنید.
 
-این گزینه خطر مواجهه با Payloadهای توکار ناخواسته را کاهش می‌دهد، اما یک سیستم کامل تشخیص بدافزار یا پاک‌سازی محتوا نیست.
+این گزینه خطر مواجهه با بارهای جاسازی‌شدهٔ ناخواسته را کاهش می‌دهد، اما یک سیستم کامل برای تشخیص بدافزار یا تصفیهٔ محتوا نیست.
 
 ```cpp
 #include <DOM/LoadOptions.h>
@@ -191,16 +193,16 @@ presentation->Save(u"presentation-without-embedded-data.pptx", SaveFormat::Pptx)
 presentation->Dispose();
 ```
 
-## **سؤالات متداول**
+## **سوالات متداول**
 
-**چگونه می‌توانم تشخیص دهم که یک فایل خراب است و نمی‌تواند باز شود؟**
+**چگونه می‌توانم تشخیص دهم که فایل خراب است و نمی‌توان آن را باز کرد؟**
 
-Aspose.Slides در هنگام بارگذاری یک استثنای تجزیه یا قالبی می‌اندازد. این شکست را جدا از خطای رمز عبور نادرست مدیریت کنید تا برنامه بتواند علت را به‌دقت گزارش دهد.
+Aspose.Slides هنگام بارگذاری یک استثنای تجزیه یا قالب‌بندی ایجاد می‌کند. این شکست را جدا از خطای رمز عبور نادرست مدیریت کنید تا برنامه بتواند دلیل را به‌دقت گزارش دهد.
 
-**اگر فونت‌های لازم موجود نباشند چه می‌شود؟**
+**اگر قلم‌های مورد نیاز موجود نباشند چه می‌شود؟**
 
-ارائه می‌تواند هنوز بارگذاری شود، اما رندر و خروجی ممکن است فونت‌ها را جایگزین کند. می‌توانید ‎[پیکربندی جایگزینی فونت](/slides/fa/cpp/font-substitution/) یا ‎[ارائه فونت‌های سفارشی](/slides/fa/cpp/custom-font/) را تنظیم کنید تا خروجی پیش‌بینی‌پذیرتر باشد.
+ارائه هنوز می‌تواند بارگذاری شود، اما رندرینگ و خروجی ممکن است قلم‌ها را جایگزین کند. می‌توانید [پیکربندی جایگزینی قلم](/slides/fa/cpp/font-substitution/) یا [ارائه قلم‌های سفارشی](/slides/fa/cpp/custom-font/) کنید تا خروجی پیش‌بینی‌پذیرتر باشد.
 
-**آیا بارگذاری یک ارائه، رسانه‌های توکار آن را نیز بارگذاری می‌کند؟**
+**آیا بارگذاری یک ارائه، رسانه‌های جاسازی‌شده را نیز بارگذاری می‌کند؟**
 
-صوت و ویدئوی توکار از طریق مدل شیء ارائه در دسترس می‌شوند. منابع خارجی بر اساس رفتار پیکربندی‌شدهٔ بارگذاری منابع حل می‌شوند و ممکن است در صورتی که مکان آن‌ها قابل دسترسی نباشد، در دسترس نباشند.
+صوت و ویدیوهای جاسازی‌شده از طریق مدل شیء ارائه در دسترس می‌شوند. منابع خارجی بر اساس رفتار پیکربندی‌شدهٔ بارگذاری منابع حل می‌شوند و در صورتی که مکان‌های آنها قابل دسترسی نباشد، ممکن است در دسترس نباشند.

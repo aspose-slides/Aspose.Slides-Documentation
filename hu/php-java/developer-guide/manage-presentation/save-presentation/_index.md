@@ -1,5 +1,5 @@
 ---
-title: Bemutatók mentése PHP-ban
+title: Bemutatók mentése PHP-ben
 linktitle: Bemutató mentése
 type: docs
 weight: 80
@@ -13,51 +13,109 @@ keywords:
 - PPTX mentése
 - ODP mentése
 - bemutató fájlba
-- bemutató folyamba
+- bemutató adatfolyamba
 - előre definiált nézettípus
 - Szigorú Office Open XML formátum
 - Zip64 mód
 - bélyegkép frissítése
-- mentési előrehaladás
+- mentési folyamat
 - PHP
 - Aspose.Slides
-description: "Ismerje meg, hogyan menthet bemutatókat az Aspose.Slides for PHP segítségével Java-on keresztül — exportáljon PowerPoint vagy OpenDocument formátumba, miközben megőrzi az elrendezéseket, betűtípusokat és hatásokat."
+description: "PowerPoint és OpenDocument bemutatókat menthet fájlokba vagy adatfolyamokba PHP-ben az Aspose.Slides segítségével, valamint konfigurálhatja a PPTX kimenetet és a folyamatjelentést."
 ---
 ## **Áttekintés**
 
-[Open Presentations in PHP](/slides/hu/php-java/open-presentation/) leírja, hogyan használható a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztály egy bemutató megnyitásához. Ez a cikk bemutatja, hogyan hozhatók létre és menthetők a bemutatók. A [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztály a bemutató tartalmát tartalmazza. Akár egy új bemutatót hoz létre, akár egy meglévőt módosít, a végén menteni kell. Az Aspose.Slides for PHP-val **fájlba** vagy **folyamba** menthet. Ez a cikk bemutatja a bemutató mentésének különböző módjait.
+Miután létrehoz egy bemutatót vagy [nyisson meg egy meglévőt](/slides/hu/php-java/open-presentation/), használja a [Presentation::save](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#save) metódust az eredmény írásához. Az Aspose.Slides for PHP via Java képes a bemutatót fájlba vagy adatfolyamba menteni PowerPoint, OpenDocument, PDF és más formátumokban. Az alábbi szakaszok lefedik a szabványos mentési műveleteket és a PPTX kimenethez elérhető beállításokat.
 
 ## **Bemutatók mentése fájlokba**
 
-A bemutató mentése fájlba a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztály `save` metódusának meghívásával történik. A metódusnak át kell adni a fájlnevet és a mentési formátumot. Az alábbi példa megmutatja, hogyan menthető egy bemutató az Aspose.Slides segítségével.
+A bemutató fájlba mentéséhez adja meg a kimeneti útvonalat és egy [SaveFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/saveformat/) értéket a [Presentation::save](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#save) metódusnak. A formátumérték határozza meg a fájl típusát, amelyet az Aspose.Slides létrehoz.
+
+A következő példa bemutatót hoz létre, és PPTX fájlként menti el:
 
 ```php
-// Hozzon létre egy Presentation osztály példányt, amely egy bemutató fájlt képvisel.
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-    // Végezz némi munkát itt...
+    // Itt adjon hozzá vagy módosítson bemutató tartalmat.
 
-    // Mentse a bemutatót egy fájlba.
     $presentation->save("Output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Bemutatók mentése folyamokba**
+## **Bemutatók mentése eredeti formátumban**
 
-A bemutató mentése folyamba egy kimeneti folyam átadásával a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztály `save` metódusának lehetséges. A bemutató számos folyam típusba írható. Az alábbi példában egy új bemutatót hozunk létre, és fájlfolyamba mentjük.
+Fájl- és adatfolyam-észlelési példákért, az újonnan létrehozott bemutatók viselkedéséért, valamint a forrás- és kimeneti formátumok közti különbségért lásd az [Az eredeti bemutatóformátum meghatározása](/slides/hu/php-java/detect-presentation-source-format/).
+
+Kötegelt feldolgozó alkalmazásban a bemeneti formátum nem ismerhető előre. Egy fájl betöltése után olvassa ki az eredeti formátumát a [Presentation::getSourceFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getSourceFormat) metódusból. Adja át a kapott [SourceFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sourceformat/) értéket a [SlideUtil::toSaveFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slideutil/#toSaveFormat) metódusnak, hogy megkapja a megfelelő [SaveFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/saveformat/) értéket, majd használja a [Presentation::save](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#save) metódust a módosított bemutató írásához.
+
+A következő teljes példa minden fájlt feldolgoz egy bemeneti könyvtárban, frissíti a címét, és a betöltött formátumban menti egy kimeneti könyvtárba:
 
 ```php
-// Hozzon létre egy Presentation osztály példányt, amely egy bemutató fájlt képvisel.
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$inputDirectory = __DIR__ . DIRECTORY_SEPARATOR . "Input";
+$outputDirectory = __DIR__ . DIRECTORY_SEPARATOR . "Output";
+
+if (!is_dir($outputDirectory) && !mkdir($outputDirectory, 0777, true)) {
+    echo("Cannot create the output directory." . PHP_EOL);
+}
+
+$inputFiles = is_dir($inputDirectory) ? scandir($inputDirectory) : false;
+if ($inputFiles !== false && is_dir($outputDirectory)) {
+    foreach ($inputFiles as $fileName) {
+        $inputPath = $inputDirectory . DIRECTORY_SEPARATOR . $fileName;
+        if (!is_file($inputPath)) {
+            continue;
+        }
+
+        $presentation = null;
+        $presentationLoaded = false;
+        try {
+            $presentation = new Presentation($inputPath);
+            $presentationLoaded = true;
+            $saveFormat = SlideUtil::toSaveFormat($presentation->getSourceFormat());
+            $presentation->getDocumentProperties()->setTitle("Processed by the batch application");
+
+            $outputPath = $outputDirectory . DIRECTORY_SEPARATOR . $fileName;
+            $presentation->save($outputPath, $saveFormat);
+        } catch (\Throwable $exception) {
+            echo("Cannot process '" . $inputPath . "': " . $exception->getMessage() . PHP_EOL);
+        } finally {
+            if ($presentationLoaded) {
+                $presentation->dispose();
+            }
+        }
+    }
+}
+```
+
+Az [SlideUtil::toSaveFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slideutil/#toSaveFormat) leképezi a PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP és a PowerPoint XML formátumokat a megfelelő bemutató mentési formátumokra. Csak a bemutató forrásformátumokat térképezi le; nem arra szolgál, hogy export formátumokat, például PDF, HTML, TIFF vagy képek válasszon. Nem támogatott vagy érvénytelen [SourceFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/sourceformat/) érték átadása [IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html) kivételt eredményez.
+
+A régi PPT, PPS és POT fájlok ugyanazt a bináris tárolót használják. Ha egy ilyen bemutatót egy kiterjesztés nélküli adatfolyamból töltenek be, egy PPS vagy POT fájlt ezért PPT‑ként azonosíthatnak. Ha ezeknek a régi alkategóriáknak a megőrzése szükséges, tartsa meg az eredeti fájlnevet vagy formátum metaadatát külön, és használja azt a kimeneti fájlnév és formátum kiválasztásakor.
+
+## **Bemutatók mentése adatfolyamokba**
+
+A bemutató írásához anélkül, hogy végső fájl útvonalra támaszkodna, adjon meg egy írható adatfolyamot és egy [SaveFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/saveformat/) értéket a [Presentation::save](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#save) metódusnak. Ez a megközelítés akkor hasznos, ha a kimenetet egy webszolgáltatásból kell visszaadni, adatbázisban tárolni vagy memóriában feldolgozni.
+
+A következő példa egy új bemutatót ment fájl adatfolyamba:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-    $fileStream = new Java("java.io.FileOutputStream", "Output.pptx");
+    $outputStream = new Java("java.io.FileOutputStream", "Output.pptx");
     try {
-        // Mentse a bemutatót a folyamra.
-        $presentation->save($fileStream, SaveFormat::Pptx);
+        $presentation->save($outputStream, SaveFormat::Pptx);
     } finally {
-        $fileStream->close();
+        $outputStream->close();
     }
 } finally {
     $presentation->dispose();
@@ -66,9 +124,15 @@ try {
 
 ## **Bemutatók mentése előre definiált nézettípussal**
 
-Az Aspose.Slides lehetővé teszi az induló nézet beállítását, amelyet a PowerPoint használ, amikor a generált bemutató megnyílik, a [ViewProperties](https://reference.aspose.com/slides/hu/php-java/aspose.slides/viewproperties/) osztályon keresztül. Használja a [setLastView](https://reference.aspose.com/slides/hu/php-java/aspose.slides/viewproperties/#setLastView) metódust a [ViewType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/viewtype/) felsorolás egyik értékével.
+Megadhatja azt a nézetet, amelyben a PowerPoint kezdetben megnyit egy mentett bemutatót. Használja a [ViewProperties::setLastView](https://reference.aspose.com/slides/hu/php-java/aspose.slides/viewproperties/#setLastView) metódust egy [ViewType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/viewtype/) értékkel a mentés előtt.
+
+A következő példa a Dia-mester nézetet állítja be kezdeti nézetként:
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ViewType;
+
 $presentation = new Presentation();
 try {
     $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
@@ -80,18 +144,19 @@ try {
 
 ## **Bemutatók mentése a szigorú Office Open XML formátumban**
 
-Az Aspose.Slides lehetővé teszi egy bemutató mentését a Strict Office Open XML formátumban. Használja a [PptxOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxoptions/) osztályt, és állítsa be a megfelelőség (conformance) tulajdonságát mentéskor. Ha a [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/hu/php-java/aspose.slides/conformance/#Iso29500_2008_Strict) értéket állítja be, a kimeneti fájl a Strict Office Open XML formátumban lesz mentve.
-
-Az alábbi példa egy bemutatót hoz létre, és a Strict Office Open XML formátumban menti.
+A PPTX fájl létrehozásához, amely megfelel az Office Open XML szigorú profiljának, hozzon létre egy [PptxOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxoptions/) példányt, és használja a [PptxOptions::setConformance](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxoptions/#setConformance) metódust a [Conformance::Iso29500_2008_Strict](https://reference.aspose.com/slides/hu/php-java/aspose.slides/conformance/#Iso29500-2008-Strict) értékkel. Ezután adja át a beállításokat a [Presentation::save](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#save) metódusnak.
 
 ```php
+use aspose\slides\Conformance;
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $options = new PptxOptions();
 $options->setConformance(Conformance::Iso29500_2008_Strict);
 
-// Hozzon létre egy Presentation osztály példányt, amely egy bemutató fájlt képvisel.
 $presentation = new Presentation();
 try {
-    // Mentse a bemutatót a Szigorú Office Open XML formátumban.
     $presentation->save("StrictOfficeOpenXml.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
@@ -100,76 +165,81 @@ try {
 
 ## **Bemutatók mentése Office Open XML formátumban Zip64 módban**
 
-Egy Office Open XML fájl egy ZIP archívum, amely 4 GB (2^32 bájt) korlátot szab a kitömörített fájlméret, a tömörített fájlméret és az archívum teljes mérete tekintetében, valamint legfeljebb 65 535 (2^16‑1) fájlt engedélyez. A ZIP64 formátum kiterjesztések ezeknek a határoknak a 2^64‑re emelését teszik lehetővé.
+A szabványos ZIP archívum korlátozza minden bejegyzés tömörített és tömörítetlen méretét, a teljes archívum méretét és a bejegyzések számát. Mivel a PPTX fájl egy ZIP archívum, egy nagyon nagy bemutató túllépheti ezeket a korlátokat. A ZIP64 kiterjesztések emelik a vonatkozó méret- és bejegyzésszám‑korlátokat.
 
-A [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxoptions/#setZip64Mode) metódus lehetővé teszi, hogy a mentés során mikor használjon ZIP64 formátum kiterjesztéseket Office Open XML fájl mentésekor.
+Használja a [PptxOptions::setZip64Mode](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxoptions/#setZip64Mode) metódust annak szabályozására, hogy az Aspose.Slides ZIP64 kiterjesztéseket írjon‑e:
 
-Ez a metódus a következő módokkal használható:
+- [IfNecessary](https://reference.aspose.com/slides/hu/php-java/aspose.slides/zip64mode/#IfNecessary) csak akkor használ ZIP64‑et, ha a bemutató meghaladja a szabványos ZIP korlátokat. Ez a alapértelmezett mód.
+- [Never](https://reference.aspose.com/slides/hu/php-java/aspose.slides/zip64mode/#Never) letiltja a ZIP64 kiterjesztéseket.
+- [Always](https://reference.aspose.com/slides/hu/php-java/aspose.slides/zip64mode/#Always) mindig ír ZIP64 kiterjesztéseket.
 
-- [IfNecessary](https://reference.aspose.com/slides/hu/php-java/aspose.slides/zip64mode/#IfNecessary) csak akkor használja a ZIP64 kiterjesztéseket, ha a bemutató meghaladja a fent említett korlátokat. Ez az alapértelmezett mód.
-- [Never](https://reference.aspose.com/slides/hu/php-java/aspose.slides/zip64mode/#Never) soha nem használja a ZIP64 kiterjesztéseket.
-- [Always](https://reference.aspose.com/slides/hu/php-java/aspose.slides/zip64mode/#Always) mindig használja a ZIP64 kiterjesztéseket.
-
-Az alábbi kód bemutatja, hogyan menthető egy bemutató PPTX fájlként a ZIP64 formátum kiterjesztésekkel engedélyezve:
+A következő példa minden esetben engedélyezi a ZIP64 kiterjesztéseket a kimeneti bemutatóhoz:
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setZip64Mode(Zip64Mode::Always);
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\Zip64Mode;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("OutputZip64.pptx", SaveFormat::Pptx, $pptxOptions);
+    $options = new PptxOptions();
+    $options->setZip64Mode(Zip64Mode::Always);
+
+    $presentation->save("OutputZip64.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Amikor a [Zip64Mode.Never](https://reference.aspose.com/slides/hu/php-java/aspose.slides/zip64mode/#Never) módot használja, egy [PptxException](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxexception/) kerül dobásra, ha a bemutató nem menthető ZIP32 formátumban.
+{{% alert color="warning" title="Warning" %}}
+Ha a [Zip64Mode::Never](https://reference.aspose.com/slides/hu/php-java/aspose.slides/zip64mode/#Never) használatos és a bemutató nem fér bele a szabványos ZIP korlátokba, a mentési művelet [PptxException](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxexception/) kivételt dob.
 {{% /alert %}}
 
 ## **Bemutatók mentése Office Open XML formátumban tömörítési szintekkel**
 
-Nagy bemutatók esetén a tömörítési szint beállításával egyensúlyozhat a fájlméret és a feldolgozási idő között. Igényeitől függően előnyben részesítheti a gyorsabb feldolgozást vagy a kisebb kimeneti fájlokat.
+A PPTX kimenethez a mentési sebesség és a fájlméret egyensúlyát a [PptxOptions::setCompressionLevel](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxoptions/#setCompressionLevel) metódus használatával állíthatja be. A [CompressionLevel](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/) osztály a következő értékeket biztosítja:
 
-Az Aspose.Slides a [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxoptions/#setCompressionLevel) metódust biztosítja, amely lehetővé teszi a Office Open XML formátumban történő mentéskor alkalmazandó tömörítési szint megadását.
+- [None](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#None) adatokat tömörítés nélkül tárol.
+- [Level1](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#Level1) a leggyorsabb tömörítést és a legnagyobb tömörített kimenetet biztosítja.
+- [Level2](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#Level2) a [Level5](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#Level5) fokozatosan a kisebb kimenetet részesíti előnyben a mentési sebességgel szemben.
+- [Level6](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#Level6) egyensúlyt teremt a mentési sebesség és a fájlméret között. Ez az alapértelmezett szint.
+- [Level7](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#Level7) és [Level8](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#Level8) még inkább a kisebb kimenetet részesítik előnyben a mentési sebességgel szemben.
+- [Level9](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#Level9) a legerősebb tömörítést biztosítja, és a legtöbb feldolgozási időt igényli.
 
-Az alábbi tömörítési szintek érhetők el:
-
-- [**None**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#None): Nincs alkalmazott tömörítés. A fájlok változatlanul tárolódnak.
-- [**Level1**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#Level1): A leggyorsabb tömörítés a legalacsonyabb tömörítési aránnyal.
-- [**Level2**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#Level2): Gyorsabb tömörítés, valamivel jobb aránnyal, mint a **Level1**.
-- [**Level3**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#Level3): Jobb tömörítés, mint a **Level2**, közepes hatással a feldolgozási időre.
-- [**Level4**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#Level4): Jobb tömörítés, mint a **Level3**.
-- [**Level5**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#Level5): Javított tömörítés a **Level4**-hez képest, további feldolgozási idővel.
-- [**Level6**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#Level6): Standard tömörítés, amely jó egyensúlyt biztosít a feldolgozási sebesség és a fájlméret között. Ez az *alapértelmezett tömörítési szint*.
-- [**Level7**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#Level7): Jobb tömörítés, mint a **Level6**, lassabb feldolgozással.
-- [**Level8**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#Level8): Jobb tömörítés, mint a **Level7**.
-- [**Level9**](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compressionlevel/#Level9): Maximális tömörítés. A legkisebb fájlméretet eredményezi, de a leghosszabb feldolgozási időt igényli.
-
-Az alábbi példa bemutatja, hogyan menthető egy bemutató PPTX fájlként *tömörítés nélkül*:
+A következő példa bemutatót ment tömörítés nélkül:
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setCompressionLevel(CompressionLevel::None);
+use aspose\slides\CompressionLevel;
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("Sample-out.pptx", SaveFormat::Pptx, $pptxOptions);
+    $options = new PptxOptions();
+    $options->setCompressionLevel(CompressionLevel::None);
+
+    $presentation->save("OutputNoCompression.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Ez a példa azt mutatja be, hogyan menthető egy bemutató PPTX fájlként *maximális tömörítéssel*:
+A következő példa a maximális tömörítési szintet használja:
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setCompressionLevel(CompressionLevel::Level9);
+use aspose\slides\CompressionLevel;
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("Sample-level9.pptx", SaveFormat::Pptx, $pptxOptions);
+    $options = new PptxOptions();
+    $options->setCompressionLevel(CompressionLevel::Level9);
+
+    $presentation->save("OutputMaximumCompression.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
@@ -177,76 +247,82 @@ try {
 
 ## **Bemutatók mentése a bélyegkép frissítése nélkül**
 
-A [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) metódus szabályozza a bélyegkép létrehozását, amikor a bemutatót PPTX formátumba mentik:
+Amikor egy bemutatót PPTX‑ként ment, a [PptxOptions::setRefreshThumbnail](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) metódus szabályozza a dokumentum bélyegképét:
 
-- Ha `true` értékre van állítva, a bélyegkép mentéskor frissül. Ez az alapértelmezett.
-- Ha `false` értékre van állítva, a jelenlegi bélyegkép megmarad. Ha a bemutatónak nincs bélyegképe, nem lesz generálva.
+- `true` a mentés során újragenerálja a bélyegképet. Ez az alapértelmezett érték.
+- `false` megőrzi a meglévő bélyegképet. Ha a bemutatónak nincs bélyegképe, az Aspose.Slides nem generál újat.
 
-Az alábbi kódban a bemutató PPTX‑ként kerül mentésre a bélyegkép frissítése nélkül.
+A következő példa a bemutatót a bélyegkép frissítése nélkül menti:
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setRefreshThumbnail(false);
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("Output.pptx", SaveFormat::Pptx, $pptxOptions);
-}
-finally {
-    $presentation->dispose();
-}
-```
+    $options = new PptxOptions();
+    $options->setRefreshThumbnail(false);
 
-{{% alert title="Info" color="info" %}}
-Ez a beállítás segít csökkenteni a PPTX formátumba történő mentéshez szükséges időt.
-{{% /alert %}}
-
-## **Mentési előrehaladás jelentése százalékban**
-
-A mentési előrehaladás jelentését a [setProgressCallback](https://reference.aspose.com/slides/hu/php-java/aspose.slides/saveoptions/#setProgressCallback) metóduson keresztül állíthatja be a [SaveOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/saveoptions/) és alosztályai. Adjunk meg egy Java proxy‑t, amely implementálja az [IProgressCallback](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iprogresscallback/) interfészt; az exportálás során a visszahívás időközönként százalékos frissítéseket kap.
-
-Az alábbi kódrészletek mutatják, hogyan használható az `IProgressCallback`.
-
-```php
-class ExportProgressHandler {
-    function reporting($progressValue) {
-        // Használja itt a folyamat százalékos értékét.
-        $progress = java("java.lang.Double")->valueOf($progressValue)->intValue();
-        echo($progress . "% of the file has been converted.");
-    }
-}
-
-$progressHandler = java_closure(new ExportProgressHandler(), null, java("com.aspose.slides.IProgressCallback"));
-
-$saveOptions = new PdfOptions();
-$saveOptions->setProgressCallback($progressHandler);
-
-$presentation = new Presentation("Sample.pptx");
-try {
-    $presentation->save("Output.pdf", SaveFormat::Pdf, $saveOptions);
+    $presentation->save("Output.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Az Aspose egy [ingyenes PowerPoint Splitter alkalmazást](https://products.aspose.app/slides/hu/splitter) fejlesztett ki saját API‑jával. Az alkalmazás lehetővé teszi, hogy egy bemutatót több fájlra bontson, a kiválasztott dia(k) új PPTX vagy PPT fájlként történő mentésével.
+{{% alert color="info" title="Note" %}}
+A bélyegkép frissítésének letiltása csökkentheti a PPTX fájl mentéséhez szükséges időt.
+{{% /alert %}}
+
+## **Mentési előrehaladás frissítései százalékban**
+
+A mentési művelet nyomon követéséhez biztosítson egy Java proxy‑t, amely megvalósítja az [IProgressCallback](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iprogresscallback/) interfészt, és adja át a proxy‑t a [SaveOptions::setProgressCallback](https://reference.aspose.com/slides/hu/php-java/aspose.slides/saveoptions/#setProgressCallback) metódusnak. Az Aspose.Slides ezután a [IProgressCallback::reporting](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iprogresscallback/#reporting-double-) metódust hívja meg a folyamat értékekkel az export során.
+
+A következő példa a PDF export előrehaladását a konzolra jelenti:
+
+```php
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+class ExportProgressHandler {
+    function reporting($progressValue) {
+        $progress = java("java.lang.Double")->valueOf($progressValue)->intValue();
+        echo($progress . "% of the file has been converted." . PHP_EOL);
+    }
+}
+
+$progressHandler = java_closure(new ExportProgressHandler(), null, java("com.aspose.slides.IProgressCallback"));
+
+$options = new PdfOptions();
+$options->setProgressCallback($progressHandler);
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    $presentation->save("Output.pdf", SaveFormat::Pdf, $options);
+} finally {
+    $presentation->dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Az Aspose egy ingyenes [PowerPoint Splitter](https://products.aspose.app/slides/hu/splitter) szolgáltatást kínál, amely az Aspose.Slides API‑val készült. Kiválasztott diák mentését külön PPT vagy PPTX fájlokként végzi.
 {{% /alert %}}
 
 ## **GYIK**
 
-**Támogatja a "gyors mentés" (inkrementális mentés), amely csak a változásokat írja?**
+**Támogatja‑e az Aspose.Slides az inkrementális vagy „gyors mentést”?**
 
-Nem. A mentés minden alkalommal a teljes célfájlt hozza létre; az inkrementális „gyors mentés” nem támogatott.
+Nem. Minden mentési művelet egy teljes kimeneti fájlt ír, nem csak a módosult részeket.
 
-**Biztonságos-e több szálról menteni ugyanazt a Presentation példányt?**
+**Több szál is mentheti ugyanazt a Presentation példányt?**
 
-Nem. A [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) példány [nem szálbiztos](/slides/hu/php-java/multithreading/); csak egyetlen szálról mentse.
+Nem. A [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) példány [is not thread-safe](/slides/hu/php-java/multithreading/). Minden példányt csak egy szál használhat egyszerre.
 
-**Mi történik a hiperhivatkozásokkal és a külsőleg hivatkozott fájlokkal mentéskor?**
+**Mi történik a hiperhivatkozásokkal és a külsőleg hivatkozott fájlokkal, amikor egy bemutatót mentek?**
 
-A [Hyperlinks](/slides/hu/php-java/manage-hyperlinks/) megmaradnak. A külsőleg hivatkozott fájlok (például relatív útvonalakon keresztül hivatkozott videók) nem kerülnek automatikusan másolásra – biztosítsa, hogy a hivatkozott útvonalak elérhetők maradjanak.
+[Hyperlinks](/slides/hu/php-java/manage-hyperlinks/) megmaradnak a bemutatóban. Az Aspose.Slides nem másolja a külsőleg hivatkozott fájlokat, ezért a mentett bemutatónak továbbra is hozzá kell férnie azok helyéhez.
 
-**Beállítható/menthető a dokumentum metaadata (Szerző, Cím, Cég, Dátum)?**
+**Menthetek‑e dokumentum metaadatokat, például szerzőt, címet, céget és létrehozási dátumot?**
 
-Igen. A szabványos [document properties](/slides/hu/php-java/presentation-properties/) támogatott, és a mentéskor a fájlba kerülnek.
+Igen. Állítsa be a megfelelő [document properties](/slides/hu/php-java/presentation-properties/) értékeket a mentés előtt, és az Aspose.Slides a kimeneti fájlba írja őket.

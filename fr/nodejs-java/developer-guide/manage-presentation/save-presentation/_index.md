@@ -7,272 +7,299 @@ url: /fr/nodejs-java/save-presentation/
 keywords:
 - enregistrer PowerPoint
 - enregistrer OpenDocument
-- enregistrer présentation
-- enregistrer diapositive
+- enregistrer la présentation
+- enregistrer la diapositive
 - enregistrer PPT
 - enregistrer PPTX
 - enregistrer ODP
 - présentation vers fichier
 - présentation vers flux
 - type de vue prédéfini
-- format Strict Office Open XML
+- format Office Open XML strict
 - mode Zip64
-- rafraîchissement de la miniature
-- progression de l'enregistrement
+- rafraîchissement de la vignette
+- progression de l’enregistrement
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Découvrez comment enregistrer des présentations avec Aspose.Slides pour Node.js via Java - exportation vers PowerPoint ou OpenDocument tout en conservant les mises en page, les polices et les effets."
+description: "Enregistrez des présentations PowerPoint et OpenDocument dans des fichiers ou des flux en JavaScript avec Aspose.Slides, et configurez la sortie PPTX ainsi que le suivi de la progression."
 ---
 ## **Vue d'ensemble**
 
-[Ouvrir des présentations en JavaScript](/slides/fr/nodejs-java/open-presentation/) décrit comment utiliser la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/) pour ouvrir une présentation. Cet article explique comment créer et enregistrer des présentations. La classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/) contient le contenu d’une présentation. Que vous créiez une présentation à partir de zéro ou que vous modifiiez une existante, vous voudrez l’enregistrer une fois terminé. Avec Aspose.Slides pour Node.js, vous pouvez enregistrer dans un **fichier** ou un **flux**. Cet article décrit les différentes façons d’enregistrer une présentation.
+Après avoir créé une présentation ou [ouvrir une présentation existante](/slides/fr/nodejs-java/open-presentation/), utilisez la méthode [Presentation.save](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/#save) pour écrire le résultat. Aspose.Slides for Node.js via Java peut enregistrer une présentation dans un fichier ou un flux au format PowerPoint, OpenDocument, PDF et d’autres formats. Les sections suivantes couvrent les opérations d’enregistrement standard et les options disponibles pour la sortie PPTX.
 
-## **Enregistrer des présentations dans des fichiers**
+## **Enregistrer les présentations dans des fichiers**
 
-Enregistrez une présentation dans un fichier en appelant la méthode `save` de la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/). Passez le nom du fichier et le format d’enregistrement à la méthode. L’exemple suivant montre comment enregistrer une présentation avec Aspose.Slides.
+Pour enregistrer une présentation dans un fichier, transmettez le chemin de sortie et une valeur [SaveFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/saveformat/) à la méthode [Presentation.save](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/#save). La valeur du format détermine le type de fichier créé par Aspose.Slides.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+L’exemple suivant crée une présentation et l’enregistre sous forme de fichier PPTX :
 
-// Instancier la classe Presentation qui représente un fichier de présentation.
-let presentation = new aspose.slides.Presentation();
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Effectuer des opérations ici...
+    // Ajouter ou modifier le contenu de la présentation ici.
 
-    // Enregistrer la présentation dans un fichier.
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Enregistrer des présentations dans des flux**
+## **Enregistrer les présentations dans leur format d’origine**
 
-Vous pouvez enregistrer une présentation dans un flux en passant un flux de sortie à la méthode `save` de la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/). Une présentation peut être écrite vers de nombreux types de flux. Dans l’exemple ci‑dessous, nous créons une nouvelle présentation et l’enregistrons dans un flux de fichier.
+Pour des exemples de détection de fichiers et de flux, le comportement des présentations nouvellement créées et la distinction entre les formats source et de sortie, voir [Déterminer le format d’origine de la présentation](/slides/fr/nodejs-java/detect-presentation-source-format/).
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+Dans une application de traitement par lots, le format d’entrée peut ne pas être connu à l’avance. Après avoir chargé un fichier, lisez son format d’origine à l’aide de la méthode [Presentation.getSourceFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/#getSourceFormat). Transmettez la valeur [SourceFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/sourceformat/) obtenue à [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/slideutil/#toSaveFormat) pour obtenir la valeur correspondante [SaveFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/saveformat/), puis utilisez [Presentation.save](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/#save) pour écrire la présentation modifiée.
+
+L’exemple complet suivant traite chaque fichier d’un répertoire d’entrée, met à jour son titre et l’enregistre dans un répertoire de sortie dans le format à partir duquel il a été chargé :
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const fs = require("fs");
+const path = require("path");
+
+const inputDirectory = "Input";
+const outputDirectory = "Output";
+
+if (!fs.existsSync(inputDirectory)) {
+    console.error("The input directory does not exist.");
+} else {
+    fs.mkdirSync(outputDirectory, { recursive: true });
+
+    const inputFiles = fs.readdirSync(inputDirectory, { withFileTypes: true })
+        .filter((entry) => entry.isFile());
+
+    for (const inputFile of inputFiles) {
+        const inputPath = path.join(inputDirectory, inputFile.name);
+        try {
+            const presentation = new aspose.slides.Presentation(inputPath);
+            try {
+                const saveFormat = aspose.slides.SlideUtil.toSaveFormat(presentation.getSourceFormat());
+                presentation.getDocumentProperties().setTitle("Processed by the batch application");
+
+                const outputPath = path.join(outputDirectory, inputFile.name);
+                presentation.save(outputPath, saveFormat);
+            } finally {
+                presentation.dispose();
+            }
+        } catch (error) {
+            console.error(`Cannot process '${inputPath}': ${error.message}`);
+        }
+    }
+}
+```
+
+[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/slideutil/#toSaveFormat) fait correspondre PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP et PowerPoint XML à leurs formats d’enregistrement de présentation correspondants. Il ne mappe que les formats source des présentations ; il ne sert pas à sélectionner des formats d’exportation tels que PDF, HTML, TIFF ou des images. Transmettre une valeur [SourceFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/sourceformat/) non prise en charge ou invalide entraîne une erreur.
+
+Les fichiers PPT, PPS et POT hérités utilisent le même conteneur binaire. Lorsqu’une telle présentation est chargée à partir d’un flux sans extension de fichier, un fichier PPS ou POT peut donc être identifié comme PPT. Si la conservation de ces sous‑types hérités est nécessaire, conservez le nom de fichier ou les métadonnées de format d’origine séparément et utilisez‑les lors du choix du nom de fichier et du format de sortie.
+
+## **Enregistrer les présentations dans des flux**
+
+Pour écrire une présentation sans dépendre d’un chemin de fichier final, transmettez un flux inscriptible et une valeur [SaveFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/saveformat/) à la méthode [Presentation.save](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/#save). Cette approche est utile lorsque la sortie doit être renvoyée depuis un service Web, stockée dans une base de données ou traitée en mémoire.
+
+L’exemple suivant enregistre une nouvelle présentation dans un flux de fichier :
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instancier la classe Presentation qui représente un fichier de présentation.
-let presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    let fileStream = java.newInstanceSync("java.io.FileOutputStream", "Output.pptx");
+    const outputStream = java.newInstanceSync("java.io.FileOutputStream", "output.pptx");
     try {
-        // Enregistrer la présentation dans le flux.
-        presentation.save(fileStream, aspose.slides.SaveFormat.Pptx);
+        presentation.save(outputStream, aspose.slides.SaveFormat.Pptx);
     } finally {
-        fileStream.close();
+        outputStream.close();
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Enregistrer des présentations avec un type de vue prédéfini**
+## **Enregistrer les présentations avec un type de vue prédéfini**
 
-Aspose.Slides vous permet de définir la vue initiale que PowerPoint utilise lorsque la présentation générée s’ouvre via la classe [ViewProperties](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/viewproperties/). Utilisez la méthode [setLastView](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/viewproperties/#setLastView) avec une valeur de l’énumération [ViewType](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/viewtype/).
+Vous pouvez spécifier la vue dans laquelle PowerPoint ouvre initialement une présentation enregistrée. Utilisez la méthode [ViewProperties.setLastView](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/viewproperties/#setLastView) avec une valeur [ViewType](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/viewtype/) avant l’enregistrement.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-let presentation = new aspose.slides.Presentation();
-try {
-    presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
-    presentation.save("SlideMasterView.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Enregistrer des présentations au format Strict Office Open XML**
-
-Aspose.Slides vous permet d’enregistrer une présentation au format Strict Office Open XML. Utilisez la classe [PptxOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/pptxoptions/) et définissez sa propriété `conformance` lors de l’enregistrement. Si vous définissez [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/conformance/#Iso29500_2008_Strict), le fichier de sortie est enregistré au format Strict Office Open XML.
-
-L’exemple ci‑dessous crée une présentation et l’enregistre au format Strict Office Open XML.
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-let options = new aspose.slides.PptxOptions();
-options.setConformance(aspose.slides.Conformance.Iso29500_2008_Strict);
-
-// Instancier la classe Presentation qui représente un fichier de présentation.
-let presentation = new aspose.slides.Presentation();
-try {
-    // Enregistrer la présentation au format Strict Office Open XML.
-    presentation.save("StrictOfficeOpenXml.pptx", aspose.slides.SaveFormat.Pptx, options);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Enregistrer des présentations au format Office Open XML en mode Zip64**
-
-Un fichier Office Open XML est une archive ZIP qui impose des limites de 4 Go (2^32 octets) sur la taille non compressée d’un fichier, la taille compressée d’un fichier et la taille totale de l’archive, et limite l’archive à 65 535 (2^16‑1) fichiers. Les extensions de format ZIP64 augmentent ces limites à 2^64.
-
-La méthode [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/pptxoptions/#getZip64Mode) vous permet de choisir quand utiliser les extensions de format ZIP64 lors de l’enregistrement d’un fichier Office Open XML.
-
-Cette méthode peut être utilisée avec les modes suivants :
-
-- [IfNecessary](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/zip64mode/#IfNecessary) utilise les extensions ZIP64 uniquement si la présentation dépasse les limites ci‑dessus. C’est le mode par défaut.
-- [Never](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/zip64mode/#Never) n’utilise jamais les extensions ZIP64.
-- [Always](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/zip64mode/#Always) utilise toujours les extensions ZIP64.
-
-Le code suivant montre comment enregistrer une présentation en tant que fichier PPTX avec les extensions ZIP64 activées :
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-let pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setZip64Mode(aspose.slides.Zip64Mode.Always);
-
-let presentation = new aspose.slides.Presentation("Sample.pptx");
-try {
-    presentation.save("OutputZip64.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
-} finally {
-    presentation.dispose();
-}
-```
-
-{{% alert title="NOTE" color="warning" %}}
-Lorsque vous enregistrez avec [Zip64Mode.Never](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/zip64mode/#Never), une [PptxException](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/pptxexception/) est levée si la présentation ne peut pas être enregistrée au format ZIP32.
-{{% /alert %}}
-
-## **Enregistrer des présentations au format Office Open XML avec niveaux de compression**
-
-Lorsque vous travaillez avec de grandes présentations, vous pouvez ajuster le niveau de compression pour équilibrer la taille du fichier et le temps de traitement. En fonction de vos besoins, vous pouvez privilégier un traitement plus rapide ou des fichiers de sortie plus petits.
-
-Aspose.Slides fournit la méthode [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/pptxoptions/#setCompressionLevel), qui vous permet de spécifier le niveau de compression utilisé lors de l’enregistrement d’une présentation au format Office Open XML.
-
-Les niveaux de compression disponibles sont :
-
-- [**None**](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#None) : aucune compression n’est appliquée. Les fichiers sont stockés tels quels.
-- [**Level1**](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#Level1) : la compression la plus rapide avec le taux de compression le plus faible.
-- [**Level2**](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#Level2) : compression plus rapide avec un léger meilleur taux que **Level1**.
-- [**Level3**](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#Level3) : meilleure compression que **Level2** avec un impact modéré sur le temps de traitement.
-- [**Level4**](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#Level4) : meilleure compression que **Level3**.
-- [**Level5**](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#Level5) : amélioration de la compression par rapport à **Level4** avec un temps de traitement supplémentaire.
-- [**Level6**](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#Level6) : compression standard offrant un bon équilibre entre vitesse de traitement et taille du fichier. C’est le *niveau de compression par défaut*.
-- [**Level7**](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#Level7) : meilleure compression que **Level6** avec un traitement plus lent.
-- [**Level8**](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#Level8) : meilleure compression que **Level7**.
-- [**Level9**](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#Level9) : compression maximale. Produit la plus petite taille de fichier au prix du temps de traitement le plus long.
-
-L’exemple suivant montre comment enregistrer une présentation en tant que fichier PPTX *sans compression* :
-
-```js
-const aspose = { slides: require("aspose.slides.via.java") };
-
-const pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setCompressionLevel(aspose.slides.CompressionLevel.None);
-
-const presentation = new aspose.slides.Presentation("Sample.pptx");
-try {
-    presentation.save("Sample-out.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
-} finally {
-    presentation.dispose();
-}
-```
-
-Cet exemple montre comment enregistrer une présentation en tant que fichier PPTX avec *compression maximale* :
-
-```js
-const aspose = { slides: require("aspose.slides.via.java") };
-
-const pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setCompressionLevel(aspose.slides.CompressionLevel.Level9);
-
-const presentation = new aspose.slides.Presentation("Sample.pptx");
-try {
-    presentation.save("Sample-level9.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Enregistrer des présentations sans rafraîchir la miniature**
-
-La méthode [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/pptxoptions/#setRefreshThumbnail) contrôle la génération de la miniature lors de l’enregistrement d’une présentation au format PPTX :
-
-- Si la valeur est `true`, la miniature est rafraîchie lors de l’enregistrement. C’est la valeur par défaut.
-- Si la valeur est `false`, la miniature actuelle est conservée. Si la présentation n’a pas de miniature, aucune n’est générée.
-
-Dans le code ci‑dessous, la présentation est enregistrée au format PPTX sans rafraîchir sa miniature.
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-let pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setRefreshThumbnail(false);
-
-let presentation = new aspose.slides.Presentation("Sample.pptx");
-try {
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
-}
-finally {
-    presentation.dispose();
-}
-```
-
-{{% alert title="Info" color="info" %}}
-Cette option permet de réduire le temps nécessaire pour enregistrer une présentation au format PPTX.
-{{% /alert %}}
-
-## **Mise à jour de la progression d’enregistrement en pourcentage**
-
-Le reporting de la progression d’enregistrement est configuré via la méthode [setProgressCallback](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/saveoptions/#setProgressCallback) sur [SaveOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/saveoptions/) et ses sous‑classes. Fournissez un proxy Java qui implémente l’interface [IProgressCallback](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iprogresscallback/) ; pendant l’export, le rappel reçoit des mises à jour périodiques en pourcentage.
-
-Les extraits de code suivants montrent comment utiliser `IProgressCallback`.
+L’exemple suivant configure la vue Maître des diapositives comme vue initiale :
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
+    presentation.save("slide-master-view.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Enregistrer les présentations au format Office Open XML strict**
+
+Pour créer un fichier PPTX conforme au profil Strict d’Office Open XML, créez une instance [PptxOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/pptxoptions/) et utilisez sa méthode [setConformance](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/pptxoptions/#setConformance) avec [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/conformance/#Iso29500_2008_Strict). Transmettez ensuite les options à la méthode [Presentation.save](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/#save).
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const options = new aspose.slides.PptxOptions();
+options.setConformance(aspose.slides.Conformance.Iso29500_2008_Strict);
+
+const presentation = new aspose.slides.Presentation();
+try {
+    presentation.save("strict-office-open-xml.pptx", aspose.slides.SaveFormat.Pptx, options);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Enregistrer les présentations au format Office Open XML en mode Zip64**
+
+Une archive ZIP standard limite la taille compressée et non compressée de chaque entrée, la taille totale de l’archive et le nombre d’entrées. Comme un fichier PPTX est une archive ZIP, une présentation très volumineuse peut dépasser ces limites. Les extensions ZIP64 augmentent les limites de taille et de nombre d’entrées applicables.
+
+Utilisez la méthode [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/pptxoptions/#setZip64Mode) pour contrôler si Aspose.Slides écrit les extensions ZIP64 :
+
+- [IfNecessary](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/zip64mode/#IfNecessary) utilise ZIP64 uniquement lorsque la présentation dépasse les limites ZIP standard. C’est le mode par défaut.
+- [Never](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/zip64mode/#Never) désactive les extensions ZIP64.
+- [Always](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/zip64mode/#Always) écrit toujours les extensions ZIP64.
+
+L’exemple suivant active toujours les extensions ZIP64 pour la présentation de sortie :
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const options = new aspose.slides.PptxOptions();
+    options.setZip64Mode(aspose.slides.Zip64Mode.Always);
+
+    presentation.save("output-zip64.pptx", aspose.slides.SaveFormat.Pptx, options);
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="warning" title="Warning" %}}
+Si [Zip64Mode.Never](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/zip64mode/#Never) est utilisé et que la présentation ne peut pas tenir dans les limites ZIP standard, l’opération d’enregistrement lève une [PptxException](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/pptxexception/).
+{{% /alert %}}
+
+## **Enregistrer les présentations au format Office Open XML avec des niveaux de compression**
+
+Pour la sortie PPTX, vous pouvez équilibrer la rapidité d’enregistrement et la taille du fichier en utilisant la méthode [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/pptxoptions/#setCompressionLevel). La classe [CompressionLevel](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/) fournit ces valeurs :
+
+- [None](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#None) stocke les données sans compression.
+- [Level1](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#Level1) offre la compression la plus rapide et la sortie compressée la plus volumineuse.
+- [Level2](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#Level2) à [Level5](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#Level5) favorisent progressivement une sortie plus petite au détriment de la vitesse d’enregistrement.
+- [Level6](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#Level6) équilibre vitesse d’enregistrement et taille du fichier. C’est le niveau par défaut.
+- [Level7](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#Level7) et [Level8](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#Level8) privilégient davantage une sortie plus petite.
+- [Level9](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/compressionlevel/#Level9) offre la compression la plus forte et nécessite le plus de temps de traitement.
+
+L’exemple suivant enregistre une présentation sans compression :
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const options = new aspose.slides.PptxOptions();
+    options.setCompressionLevel(aspose.slides.CompressionLevel.None);
+
+    presentation.save("output-no-compression.pptx", aspose.slides.SaveFormat.Pptx, options);
+} finally {
+    presentation.dispose();
+}
+```
+
+L’exemple suivant utilise le niveau de compression maximal :
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const options = new aspose.slides.PptxOptions();
+    options.setCompressionLevel(aspose.slides.CompressionLevel.Level9);
+
+    presentation.save("output-maximum-compression.pptx", aspose.slides.SaveFormat.Pptx, options);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Enregistrer les présentations sans rafraîchir la vignette**
+
+Lorsque une présentation est enregistrée au format PPTX, la méthode [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/pptxoptions/#setRefreshThumbnail) contrôle sa vignette de document :
+
+- `true` régénère la vignette pendant l’opération d’enregistrement. C’est la valeur par défaut.
+- `false` conserve la vignette existante. Si la présentation n’a pas de vignette, Aspose.Slides n’en crée pas.
+
+L’exemple suivant enregistre une présentation sans rafraîchir sa vignette :
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const options = new aspose.slides.PptxOptions();
+    options.setRefreshThumbnail(false);
+
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx, options);
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Désactiver le rafraîchissement de la vignette peut réduire le temps nécessaire à l’enregistrement d’un fichier PPTX.
+{{% /alert %}}
+
+## **Mise à jour de la progression de l’enregistrement en pourcentage**
+
+Pour surveiller une opération d’enregistrement, implémentez l’interface [IProgressCallback](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iprogresscallback/) avec un proxy Java et transmettez l’implémentation à la méthode [SaveOptions.setProgressCallback](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/saveoptions/#setProgressCallback). Aspose.Slides appelle alors la méthode [IProgressCallback.reporting](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iprogresscallback/#reporting-double-) avec les valeurs de progression pendant l’exportation.
+
+L’exemple suivant signale la progression d’une exportation PDF dans la console :
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-const ExportProgressHandler = java.newProxy("com.aspose.slides.IProgressCallback", {
+const exportProgressHandler = java.newProxy("com.aspose.slides.IProgressCallback", {
     reporting: function(progressValue) {
-        // Utilisez la valeur du pourcentage de progression ici.
         const progress = Math.floor(progressValue);
         console.log(`${progress}% of the file has been converted.`);
     }
 });
 
-let saveOptions = new aspose.slides.PdfOptions();
-saveOptions.setProgressCallback(ExportProgressHandler);
+const options = new aspose.slides.PdfOptions();
+options.setProgressCallback(exportProgressHandler);
 
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    presentation.save("Output.pdf", aspose.slides.SaveFormat.Pdf, saveOptions);
+    presentation.save("output.pdf", aspose.slides.SaveFormat.Pdf, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose a développé une [application gratuite PowerPoint Splitter](https://products.aspose.app/slides/fr/splitter) utilisant sa propre API. L’application vous permet de diviser une présentation en plusieurs fichiers en enregistrant les diapositives sélectionnées en tant que nouveaux fichiers PPTX ou PPT.
+{{% alert color="info" title="Note" %}}
+Aspose propose un [PowerPoint Splitter](https://products.aspose.app/slides/fr/splitter) gratuit, construit avec l’API Aspose.Slides. Il enregistre les diapositives sélectionnées d’une présentation en fichiers PPT ou PPTX distincts.
 {{% /alert %}}
 
 ## **FAQ**
 
-**La « sauvegarde rapide » (sauvegarde incrémentielle) est‑elle prise en charge afin que seules les modifications soient écrites ?**
+**Aspose.Slides prend‑t‑il en charge l’enregistrement incrémental ou le « fast save » ?**
 
-Non. Chaque sauvegarde crée le fichier cible complet ; la « sauvegarde rapide » incrémentielle n’est pas prise en charge.
+Non. Chaque opération d’enregistrement écrit un fichier de sortie complet plutôt que de ne mettre à jour que les parties modifiées.
 
-**Est‑il sûr d’enregistrer la même instance de Presentation depuis plusieurs threads ?**
+**Plusieurs threads peuvent‑ils enregistrer la même instance Presentation ?**
 
-Non. Une instance de [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/) [n’est pas thread‑safe](/slides/fr/nodejs-java/multithreading/) ; enregistrez‑la depuis un seul thread.
+Non. Une instance [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/) [n’est pas thread‑safe](/slides/fr/nodejs-java/multithreading/). Accédez et enregistrez chaque instance depuis un seul thread à la fois.
 
-**Que se passe‑t‑il avec les hyperliens et les fichiers liés externement lors de l’enregistrement ?**
+**Que se passe‑t‑il pour les hyperliens et les fichiers liés externement lorsque j’enregistre une présentation ?**
 
-Les [hyperliens](/slides/fr/nodejs-java/manage-hyperlinks/) sont préservés. Les fichiers liés externement (par ex. : vidéos via des chemins relatifs) ne sont pas copiés automatiquement — assurez‑vous que les chemins référencés restent accessibles.
+Les [hyperliens](/slides/fr/nodejs-java/manage-hyperlinks/) restent dans la présentation. Aspose.Slides ne copie pas les fichiers liés externement, la présentation enregistrée doit donc toujours pouvoir accéder à leurs emplacements.
 
-**Puis‑je définir/enregistrer les métadonnées du document (Auteur, Titre, Société, Date) ?**
+**Puis‑je enregistrer les métadonnées du document telles que l’auteur, le titre, l’entreprise et la date de création ?**
 
-Oui. Les [propriétés de document](/slides/fr/nodejs-java/presentation-properties/) standard sont prises en charge et seront écrites dans le fichier lors de l’enregistrement.
+Oui. Définissez les [propriétés du document](/slides/fr/nodejs-java/presentation-properties/) appropriées avant l’enregistrement, et Aspose.Slides les écrit dans le fichier de sortie.

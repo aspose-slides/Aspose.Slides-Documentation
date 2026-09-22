@@ -13,69 +13,122 @@ keywords:
 - PPTX mentése
 - ODP mentése
 - prezentáció fájlba
-- prezentáció folyamba
-- előre definiált nézet típus
-- szigorú Office Open XML formátum
+- prezentáció adatfolyamba
+- előre meghatározott nézet típusa
+- Szigorú Office Open XML formátum
 - Zip64 mód
-- miniature frissítése
-- mentési előrehaladás
+- miniatűr frissítése
+- mentés előrehaladása
 - Java
 - Aspose.Slides
-description: "Fedezze fel, hogyan menthet prezentációkat Java-ban az Aspose.Slides segítségével – exportáljon PowerPoint vagy OpenDocument formátumba, miközben megőrizze a elrendezéseket, betűtípusokat és effektusokat."
+description: "PowerPoint és OpenDocument prezentációk mentése fájlokba vagy adatfolyamokba Java-ban az Aspose.Slides használatával, valamint a PPTX kimenet és az előrehaladás jelentésének konfigurálása."
 ---
 ## **Áttekintés**
 
-[Prezentációk megnyitása Java-ban](/slides/hu/java/open-presentation/) bemutatta, hogyan használható a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztály a prezentáció megnyitásához. Ez a cikk bemutatja, hogyan hozhatók létre és menthetők a prezentációk. A [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztály tartalmazza a prezentáció tartalmát. Akár egy új prezentációt hozol létre a semmiből, akár egy meglévőt módosítasz, a végén el kell menteni. Az Aspose.Slides for Java segítségével **fájlba** vagy **folyamba** menthetsz. Ez a cikk bemutatja a prezentáció mentésének különböző módjait.
+Miután létrehoz egy prezentációt vagy [nyiss meg egy meglévőt](/slides/hu/java/open-presentation/), használja a [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metódust az eredmény írásához. Az Aspose.Slides for Java képes egy prezentációt fájlba vagy adatfolyamba menteni PowerPoint, OpenDocument, PDF és egyéb formátumokban. Az alábbi szakaszok bemutatják a szabványos mentési műveleteket és a PPTX kimenethez elérhető beállításokat.
 
 ## **Prezentációk mentése fájlokba**
 
-A prezentációt fájlba mentheted a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztály `save` metódusának meghívásával. A metódusnak át kell adni a fájl nevet és a mentési formátumot. Az alábbi példa bemutatja, hogyan menthető egy prezentáció az Aspose.Slides segítségével.
+Egy prezentáció fájlba mentéséhez adja meg a kimeneti útvonalat és egy [SaveFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/saveformat/) értéket a [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metódusnak. A formátum érték meghatározza, hogy milyen típusú fájlt hoz létre az Aspose.Slides.
+
+A következő példa egy prezentációt hoz létre, és PPTX fájlként menti el:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
-// Hozzon létre egy Presentation osztályt, amely egy prezentációfájlt képvisel.
 Presentation presentation = new Presentation();
 try {
-    // Végezzen itt valamilyen munkát...
+    // Itt adja hozzá vagy módosítsa a prezentáció tartalmát.
 
-    // Mentse a prezentációt egy fájlba.
     presentation.save("Output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Prezentációk mentése folyamokba**
+## **Prezentációk mentése eredeti formátumban**
 
-A prezentációt folyamba is mentheted úgy, hogy egy kimeneti stream-et adsz át a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztály `save` metódusának. A prezentáció számos stream típusba írható. Az alábbi példában egy új prezentációt hozunk létre, és azt egy fájlfolyamba mentjük.
+Az fájl- és adatfolyam‑detektálási példákért, az újonnan létrehozott prezentációk viselkedéséért, valamint a forrás‑ és kimeneti formátumok közti különbségért lásd a [Az eredeti prezentáció formátumának meghatározása](/slides/hu/java/detect-presentation-source-format/) témát.
+
+Kötegelt feldolgozási alkalmazásban a bemeneti formátum előre nem ismert. Egy fájl betöltése után olvassa ki az eredeti formátumát az [IPresentation.getSourceFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipresentation/#getSourceFormat--) metódussal. A kapott [SourceFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/sourceformat/) értéket adja át a [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slideutil/#toSaveFormat-int-) metódusnak, hogy megkapja a megfelelő [SaveFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/saveformat/) értéket, majd a [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metódussal írja ki a módosított prezentációt.
+
+A következő teljes példa minden fájlt feldolgoz egy bemeneti könyvtárban, frissíti a címét, és a betöltéskor használt formátumban menti egy kimeneti könyvtárba:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SlideUtil;
+import java.io.File;
+
+File inputDirectory = new File("Input");
+File outputDirectory = new File("Output");
+
+if (!outputDirectory.exists() && !outputDirectory.mkdirs()) {
+    System.err.println("Cannot create the output directory.");
+}
+
+File[] inputFiles = inputDirectory.listFiles(File::isFile);
+if (inputFiles != null && outputDirectory.isDirectory()) {
+    for (File inputFile : inputFiles) {
+        try {
+            Presentation presentation = new Presentation(inputFile.getPath());
+            try {
+                int saveFormat = SlideUtil.toSaveFormat(presentation.getSourceFormat());
+                presentation.getDocumentProperties().setTitle("Processed by the batch application");
+
+                File outputFile = new File(outputDirectory, inputFile.getName());
+                presentation.save(outputFile.getPath(), saveFormat);
+            } finally {
+                presentation.dispose();
+            }
+        } catch (IllegalArgumentException exception) {
+            System.err.println("Cannot map the source format of '" + inputFile.getPath() + "': " + exception.getMessage());
+        } catch (Exception exception) {
+            System.err.println("Cannot process '" + inputFile.getPath() + "': " + exception.getMessage());
+        }
+    }
+}
+```
+
+[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slideutil/#toSaveFormat-int-) a PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP és a PowerPoint XML formátumokat a megfelelő prezentáció‑mentési formátumokra térképezi. Csak a prezentáció forrásformátumait térképezi; nem arra szolgál, hogy exportálási formátumokat, például PDF‑et, HTML‑t, TIFF‑et vagy képeket válasszon. Nem támogatott vagy érvénytelen [SourceFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/sourceformat/) érték átadása [IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html)-t eredményez.
+
+A régi PPT, PPS és POT fájlok ugyanazt a bináris tárolót használják. Ha egy ilyen prezentációt kiterjesztés nélküli adatfolyamból tölt be, a PPS vagy POT fájl ezért PPT‑ként azonosítható. Ha meg kell őrizni ezeket a régi altípusokat, tartsa meg az eredeti fájlnevet vagy a formátum‑metaadatot külön, és használja fel a kimeneti fájlnév és formátum kiválasztásakor.
+
+## **Prezentációk mentése adatfolyamokba**
+
+Egy prezentáció írásához anélkül, hogy végleges fájlútra támaszkodna, adjon meg egy írható adatfolyamot és egy [SaveFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/saveformat/) értéket a [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-) metódusnak. Ez a megközelítés hasznos, ha a kimenetet webszolgáltatásból kell visszaadni, adatbázisban tárolni vagy memóriában feldolgozni.
+
+A következő példa egy új prezentációt fájl‑adatfolyamba ment:
+
+```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
-// Hozzon létre egy Presentation osztályt, amely egy prezentációfájlt képvisel.
 Presentation presentation = new Presentation();
 try {
-    OutputStream fileStream = new FileOutputStream("Output.pptx");
+    OutputStream outputStream = new FileOutputStream("Output.pptx");
     try {
-        // Mentse a prezentációt a folyamra.
-        presentation.save(fileStream, SaveFormat.Pptx);
+        presentation.save(outputStream, SaveFormat.Pptx);
     } finally {
-        fileStream.close();
+        outputStream.close();
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Prezentációk mentése előre definiált nézet típussal**
+## **Prezentációk mentése előre meghatározott nézet típussal**
 
-Az Aspose.Slides lehetővé teszi, hogy beállítsd a kezdeti nézetet, amelyet a PowerPoint a generált prezentáció megnyitásakor használ a [ViewProperties](https://reference.aspose.com/slides/hu/java/com.aspose.slides/viewproperties/) osztályon keresztül. Használd a [setLastView](https://reference.aspose.com/slides/hu/java/com.aspose.slides/viewproperties/#setLastView-int-) metódust a [ViewType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/viewtype/) felsorolás egy értékével.
+Megadhatja azt a nézetet, amelyben a PowerPoint kezdetben megnyit egy mentett prezentációt. Használja a [ViewProperties.setLastView](https://reference.aspose.com/slides/hu/java/com.aspose.slides/viewproperties/#setLastView-int-) metódust egy [ViewType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/viewtype/) értékkel a mentés előtt.
+
+A következő példa a Dia‑mester nézetet állítja be kezdeti nézetként:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ViewType;
 
 Presentation presentation = new Presentation();
 try {
@@ -86,22 +139,21 @@ try {
 }
 ```
 
-## **Prezentációk mentése szigorú Office Open XML formátumban**
+## **Prezentációk mentése a szigorú Office Open XML formátumban**
 
-Az Aspose.Slides lehetővé teszi, hogy a prezentációt a szigorú Office Open XML formátumban mentsd. Használd a [PptxOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pptxoptions/) osztályt, és a mentéskor állítsd be a conformance tulajdonságát. Ha a [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/hu/java/com.aspose.slides/conformance/#Iso29500-2008-Strict) értéket állítod be, a kimeneti fájl a szigorú Office Open XML formátumban kerül mentésre.
-
-Az alábbi példa létrehoz egy prezentációt, és azt a szigorú Office Open XML formátumban menti.
+Egy PPTX fájl létrehozásához, amely megfelel az Office Open XML szigorú profiljának, hozzon létre egy [PptxOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pptxoptions/) példányt, és hívja meg a [setConformance](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pptxoptions/#setConformance-int-) metódust a [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/hu/java/com.aspose.slides/conformance/#Iso29500-2008-Strict) értékkel. Ezután adja át a beállításokat a [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) metódusnak.
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Conformance;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 PptxOptions options = new PptxOptions();
 options.setConformance(Conformance.Iso29500_2008_Strict);
 
-// Hozzon létre egy Presentation osztályt, amely egy prezentációfájlt képvisel.
 Presentation presentation = new Presentation();
 try {
-    // Mentse a prezentációt a szigorú Office Open XML formátumban.
     presentation.save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
@@ -110,82 +162,81 @@ try {
 
 ## **Prezentációk mentése Office Open XML formátumban Zip64 módban**
 
-Az Office Open XML fájl egy ZIP archívum, amely 4 GB (2^32 bájt) korlátot szab az egyes fájlok tömörítetlen méretére, a tömörített méretére és az archívum teljes méretére, továbbá legfeljebb 65 535 (2^16‑1) fájlt engedélyez. A ZIP64 formátum kiterjesztések ezeket a korlátokat 2^64‑re emelik.
+Egy szabványos ZIP archívum korlátozza az egyes bejegyzések tömörített és tömörítetlen méretét, a teljes archívum méretét és a bejegyzések számát. Mivel egy PPTX fájl ZIP archívum, egy nagyon nagy prezentáció túlcsordulhat ezeken a korlátokon. A ZIP64 kiterjesztések megemelik a vonatkozó méret‑ és bejegyzésszám‑korlátokat.
 
-Az [IPptxOptions.setZip64Mode](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipptxoptions/#setZip64Mode-int-) metódus lehetővé teszi, hogy kiválaszd, mikor használj ZIP64 formátum kiterjesztéseket Office Open XML fájl mentésekor.
+Használja a [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pptxoptions/#setZip64Mode-int-) metódust annak vezérlésére, hogy az Aspose.Slides ZIP64 kiterjesztéseket írjon‑e:
 
-Ez a metódus a következő módokkal használható:
+- [IfNecessary](https://reference.aspose.com/slides/hu/java/com.aspose.slides/zip64mode/#IfNecessary) csak akkor használ ZIP64‑et, ha a prezentáció meghaladja a szabványos ZIP‑korlátokat. Ez az alapértelmezett mód.
+- [Never](https://reference.aspose.com/slides/hu/java/com.aspose.slides/zip64mode/#Never) letiltja a ZIP64 kiterjesztéseket.
+- [Always](https://reference.aspose.com/slides/hu/java/com.aspose.slides/zip64mode/#Always) mindig ír ZIP64 kiterjesztéseket.
 
-- [IfNecessary](https://reference.aspose.com/slides/hu/java/com.aspose.slides/zip64mode/#IfNecessary) csak akkor használja a ZIP64 formátum kiterjesztéseket, ha a prezentáció meghaladja a fenti korlátokat. Ez az alapértelmezett mód.
-- [Never](https://reference.aspose.com/slides/hu/java/com.aspose.slides/zip64mode/#Never) sosem használ ZIP64 formátum kiterjesztéseket.
-- [Always](https://reference.aspose.com/slides/hu/java/com.aspose.slides/zip64mode/#Always) mindig használja a ZIP64 formátum kiterjesztéseket.
-
-Az alábbi kód bemutatja, hogyan menthető egy prezentáció PPTX fájlként a ZIP64 formátum kiterjesztésekkel engedélyezve:
+A következő példa mindig engedélyezi a ZIP64 kiterjesztéseket a kimeneti prezentációhoz:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setZip64Mode(Zip64Mode.Always);
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.Zip64Mode;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("OutputZip64.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setZip64Mode(Zip64Mode.Always);
+
+    presentation.save("OutputZip64.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Ha a [Zip64Mode.Never](https://reference.aspose.com/slides/hu/java/com.aspose.slides/zip64mode/#Never) módot használod, akkor [PptxException](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pptxexception/) kerül dobásra, ha a prezentációt nem lehet ZIP32 formátumban menteni.
+{{% alert color="warning" title="Figyelmeztetés" %}}
+Ha a [Zip64Mode.Never](https://reference.aspose.com/slides/hu/java/com.aspose.slides/zip64mode/#Never) módot használják, és a prezentáció nem fér bele a szabványos ZIP‑korlátokba, a mentési művelet [PptxException](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pptxexception/) kivételt dob.
 {{% /alert %}}
 
 ## **Prezentációk mentése Office Open XML formátumban tömörítési szintekkel**
 
-Nagy prezentációk esetén a tömörítési szintet úgy állíthatod be, hogy egyensúlyt teremts a fájlméret és a feldolgozási idő között. Az igényeidtől függően gyorsabb feldolgozást vagy kisebb kimeneti fájlokat választhatsz.
+PPTX kimenet esetén a [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pptxoptions/#setCompressionLevel-int-) metódus használatával egyensúlyozhat a mentés sebessége és a fájlméret között. A [CompressionLevel](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/) osztály a következő értékeket biztosítja:
 
-Az Aspose.Slides a [IPptxOptions.setCompressionLevel](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipptxoptions/#setCompressionLevel-int-) metódust kínálja, amely lehetővé teszi a mentéskor használt tömörítési szint megadását Office Open XML formátumban.
+- [None](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#None) adatot tömörítés nélkül tárol.
+- [Level1](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#Level1) a leggyorsabb tömörítést és a legnagyobb tömörített kimenetet biztosítja.
+- [Level2](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#Level2)‑től [Level5](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#Level5) fokozatosan a kisebb kimenetet részesítik előnyben a mentés sebessége rovására.
+- [Level6](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#Level6) az mentési sebesség és a fájlméret egyensúlyát biztosítja. Ez az alapértelmezett szint.
+- [Level7](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#Level7) és [Level8](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#Level8) tovább részesítik előnyben a kisebb kimenetet a sebesség rovására.
+- [Level9](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#Level9) a legerősebb tömörítést biztosítja, de a legtöbb feldolgozási időt igényli.
 
-A következő tömörítési szintek érhetők el:
-
-- [**None**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#None): Nem alkalmaz tömörítést. A fájlok változatlanul kerülnek tárolásra.
-- [**Level1**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#Level1): A leggyorsabb tömörítés, legalacsonyabb tömörítési arány.
-- [**Level2**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#Level2): Gyorsabb tömörítés, valamivel jobb tömörítési aránnyal, mint a **Level1**.
-- [**Level3**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#Level3): Jobb tömörítést biztosít, mint a **Level2**, közepes hatással a feldolgozási időre.
-- [**Level4**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#Level4): Jobb tömörítést nyújt, mint a **Level3**.
-- [**Level5**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#Level5): Javított tömörítést nyújt a **Level4**-hez képest, plusz feldolgozási idővel.
-- [**Level6**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#Level6): Standard tömörítés, amely jó egyensúlyt teremt a feldolgozási sebesség és a fájlméret között. Ez a *alapértelmezett tömörítési szint*.
-- [**Level7**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#Level7): Jobb tömörítést biztosít, mint a **Level6**, lassabb feldolgozással.
-- [**Level8**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#Level8): Jobb tömörítést nyújt, mint a **Level7**.
-- [**Level9**](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compressionlevel/#Level9): Maximum tömörítés. A legkisebb fájlméretet eredményezi a leghosszabb feldolgozási idő árán.
-
-Az alábbi példa bemutatja, hogyan menthető egy prezentáció PPTX fájlként *tömörítés nélkül*:
+A következő példa tömörítés nélkül ment egy prezentációt:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setCompressionLevel(CompressionLevel.None);
+import com.aspose.slides.CompressionLevel;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Sample-out.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setCompressionLevel(CompressionLevel.None);
+
+    presentation.save("OutputNoCompression.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-Ez a példa mutatja, hogyan menthető egy prezentáció PPTX fájlként *maximum tömörítéssel*:
+A következő példa a maximális tömörítési szintet használja:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setCompressionLevel(CompressionLevel.Level9);
+import com.aspose.slides.CompressionLevel;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Sample-level9.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setCompressionLevel(CompressionLevel.Level9);
+
+    presentation.save("OutputMaximumCompression.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
@@ -193,79 +244,81 @@ try {
 
 ## **Prezentációk mentése a miniatűr frissítése nélkül**
 
-A [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pptxoptions/#setRefreshThumbnail-boolean-) metódus vezérli a miniatűr generálását, amikor a prezentációt PPTX‑be mentjük:
+Amikor egy prezentációt PPTX‑ként mentünk, a [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pptxoptions/#setRefreshThumbnail-boolean-) metódus szabályozza a dokumentum‑miniatűrt:
 
-- Ha `true`-ra van állítva, a mentés során frissül a miniatűr. Ez az alapértelmezett.
-- Ha `false`-ra van állítva, a jelenlegi miniatűr megmarad. Ha a prezentációnak nincs miniatűre, akkor egy sem kerül létrehozásra.
+- `true` újragenerálja a miniatűrt a mentés során. Ez az alapértelmezett érték.
+- `false` megőrzi a meglévő miniatűrt. Ha a prezentációnak nincs miniatűre, az Aspose.Slides nem hoz létre újat.
 
-Az alábbi kódban a prezentáció frissítés nélküli miniatűrrel mentődik PPTX‑be.
+A következő példa a miniatűr frissítése nélkül ment egy prezentációt:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setRefreshThumbnail(false);
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Output.pptx", SaveFormat.Pptx, pptxOptions);
-}
-finally {
-    presentation.dispose();
-}
-```
+    PptxOptions options = new PptxOptions();
+    options.setRefreshThumbnail(false);
 
-{{% alert title="Info" color="info" %}}
-Ez a beállítás segít csökkenteni a PPTX formátumba történő mentéshez szükséges időt.
-{{% /alert %}}
-
-## **Mentési előrehaladás frissítése százalékban**
-
-Az [IProgressCallback](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iprogresscallback/) interfészt a [ISaveOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isaveoptions/) interfész és az absztrakt [SaveOptions](https://reference.aspose.com/slides/hu/java/com.aspose.slides/saveoptions/) osztály által biztosított `setProgressCallback` metóduson keresztül használják. Egy [IProgressCallback](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iprogresscallback/) implementációt rendelj a `setProgressCallback`‑hez, hogy a mentés előrehaladását százalékos formában kapd.
-
-Az alábbi kódrészlet bemutatja, hogyan használható az `IProgressCallback`.
-
-```java
-import com.aspose.slides.*;
-
-class ExportProgressHandler implements IProgressCallback {
-    public void reporting(double progressValue) {
-        // Itt használja a folyamat százalékos értékét.
-        int progress = (int) progressValue;
-
-        System.out.println(progress + "% of the file has been converted.");
-    }
-}
-
-ISaveOptions saveOptions = new PdfOptions();
-saveOptions.setProgressCallback(new ExportProgressHandler());
-
-Presentation presentation = new Presentation("Sample.pptx");
-try {
-    presentation.save("Output.pdf", SaveFormat.Pdf, saveOptions);
+    presentation.save("Output.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Az Aspose egy [ingyenes PowerPoint Splitter alkalmazást](https://products.aspose.app/slides/hu/splitter) fejlesztett a saját API-jával. Az alkalmazás lehetővé teszi, hogy egy prezentációt több fájlra bonts a kijelölt diák új PPTX vagy PPT fájlokként való mentésével.
+{{% alert color="info" title="Megjegyzés" %}}
+A miniatűr frissítésének letiltása csökkentheti egy PPTX‑fájl mentéséhez szükséges időt.
+{{% /alert %}}
+
+## **Mentési folyamat frissítéseinek megjelenítése százalékban**
+
+A mentés felügyeletéhez valósítsa meg az [IProgressCallback](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iprogresscallback/) interfészt, és adja át a megvalósítást az [ISaveOptions.setProgressCallback](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isaveoptions/#setProgressCallback-com.aspose.slides.IProgressCallback-) metódusnak. Az Aspose.Slides ekkor a [IProgressCallback.reporting](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iprogresscallback/#reporting-double-) metódust hívja meg a folyamat értékeivel az exportálás során.
+
+A következő példa egy PDF‑exportálás előrehaladását írja ki a konzolra:
+
+```java
+import com.aspose.slides.IProgressCallback;
+import com.aspose.slides.PdfOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+class ExportProgressHandler implements IProgressCallback {
+    public void reporting(double progressValue) {
+        int progress = (int) progressValue;
+        System.out.println(progress + "% of the file has been converted.");
+    }
+}
+
+PdfOptions options = new PdfOptions();
+options.setProgressCallback(new ExportProgressHandler());
+
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    presentation.save("Output.pdf", SaveFormat.Pdf, options);
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Megjegyzés" %}}
+Az Aspose egy ingyenes [PowerPoint Splitter](https://products.aspose.app/slides/hu/splitter) eszközt biztosít, amely az Aspose.Slides API‑val készült. Kiválasztott diákot külön PPT vagy PPTX fájlokként ment.
 {{% /alert %}}
 
 ## **GYIK**
 
-**Támogatja-e a „gyors mentés” (inkrementális mentés), amely csak a változásokat írja?**
+**Támogatja-e az Aspose.Slides az inkrementális vagy „gyors mentést”?**
 
-Nem. A mentés minden alkalommal a teljes célfájlt hozza létre; az inkrementális „gyors mentés” nem támogatott.
+Nem. Minden mentési művelet egy teljes kimeneti fájlt ír, nem csak a módosult részeket.
 
-**Biztonságos-e több szálról menteni ugyanazt a Presentation példányt?**
+**Több szál is mentheti-e ugyanazt a Presentation példányt?**
 
-Nem. A [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) példány [nem szálbiztos](/slides/hu/java/multithreading/); egyetlen szálról kell menteni.
+Nem. A [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) példány [nem szálbiztos](/slides/hu/java/multithreading/). Minden példányt csak egy szálról lehet elérni és menteni egyszerre.
 
-**Mi történik a hiperhivatkozásokkal és a külsőleg hivatkozott fájlokkal mentéskor?**
+**Mi történik a hiperhivatkozásokkal és a külsőleg hivatkozott fájlokkal, amikor mentek egy prezentációt?**
 
-[Hyperlinks](/slides/hu/java/manage-hyperlinks/) megmaradnak. A külsőleg hivatkozott fájlok (például relatív útvonalú videók) nem kerülnek automatikusan másolásra – győződj meg arról, hogy a hivatkozott útvonalak elérhetők maradnak.
+A [Hyperlinks](/slides/hu/java/manage-hyperlinks/) a prezentációban marad. Az Aspose.Slides nem másolja a külsőleg hivatkozott fájlokat, így a mentett prezentációnak továbbra is el kell tudnia érni azok helyét.
 
-**Beállíthatom/menthetem a dokumentum metaadatait (szerző, cím, cég, dátum)?**
+**Menthetek-e dokumentummetaadatokat, például szerzőt, címet, céget és létrehozási dátumot?**
 
-Igen. A szabványos [document properties](/slides/hu/java/presentation-properties/) támogatottak, és a mentéskor a fájlba kerülnek írva.
+Igen. Állítsa be a megfelelő [dokumentumtulajdonságokat](/slides/hu/java/presentation-properties/) a mentés előtt, és az Aspose.Slides azokat a kimeneti fájlba írja.

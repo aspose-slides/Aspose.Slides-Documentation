@@ -24,15 +24,17 @@ description: "Узнайте, как открывать презентации P
 ---
 ## **Введение**
 
-[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/ru/php-java/) может загружать презентации PowerPoint и OpenDocument из файлов и потоков. После загрузки презентации вы можете просматривать её структуру, редактировать слайды, управлять ресурсами и сохранять её в оригинальном или другом поддерживаемом формате.
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/ru/php-java/) может загружать презентации PowerPoint и OpenDocument из файлов и потоков. После загрузки презентации вы можете изучать её структуру, редактировать слайды, управлять ресурсами и сохранять её в исходном или другом поддерживаемом формате.
 
-Поведение загрузки можно настроить с помощью класса [LoadOptions](https://reference.aspose.com/slides/ru/php-java/aspose.slides/loadoptions/). Например, вы можете указать пароль открытия, держать большие бинарные объекты вне памяти кучи Java, контролировать внешние ресурсы или исключить встроенные бинарные данные.
+Поведение загрузки можно настроить с помощью класса [LoadOptions](https://reference.aspose.com/slides/ru/php-java/aspose.slides/loadoptions/). Например, вы можете указать пароль открытия, хранить большие бинарные объекты за пределами памяти кучи Java, контролировать внешние ресурсы или исключать встроенные бинарные данные.
 
 ## **Открытие презентаций**
 
-Чтобы открыть существующую презентацию, передайте её путь к файлу в конструктор [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/). Освободите презентацию после использования, чтобы файловые дескрипторы, временные данные и другие ресурсы были быстро освобождены.
+После загрузки файла или потока вы можете [определить исходный формат презентации](/slides/ru/php-java/detect-presentation-source-format/), чтобы выбрать способ обработки его вашим приложением.
 
-Следующий пример PHP показывает, как открыть презентацию и получить количество её слайдов:
+Чтобы открыть существующую презентацию, передайте её путь к файлу конструктору [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/). Освободите презентацию после использования, чтобы файловые дескрипторы, временные данные и другие ресурсы были быстро освобождены.
+
+Следующий пример на PHP показывает, как открыть презентацию и получить количество её слайдов:
 
 ```php
 use aspose\slides\Presentation;
@@ -47,7 +49,7 @@ try {
 
 ## **Открытие защищённых паролем презентаций**
 
-Пароль открытия шифрует содержимое презентации. Чтобы загрузить полную презентацию, передайте правильный пароль в [LoadOptions::setPassword](https://reference.aspose.com/slides/ru/php-java/aspose.slides/loadoptions/#setPassword) и передайте параметры в конструктор [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/). Загрузка завершается с ошибкой, если пароль отсутствует или неверен.
+Пароль открытия шифрует содержимое презентации. Чтобы загрузить полную презентацию, передайте правильный пароль в [LoadOptions::setPassword](https://reference.aspose.com/slides/ru/php-java/aspose.slides/loadoptions/#setPassword) и передайте параметры конструктору [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/). Загрузка не удалась, если пароль отсутствует или неверен.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -64,13 +66,13 @@ try {
 }
 ```
 
-Для обнаружения пароля, проверки и процессов шифрования см. [Password-Protect Presentations](/slides/ru/php-java/password-protected-presentation/). Если зашифрованная презентация была преднамеренно сохранена с публичными свойствами документа, эти свойства можно прочитать без пароля; см. [Manage Presentation Properties](/slides/ru/php-java/presentation-properties/).
+Для обнаружения пароля, проверки и схем шифрования см. [Защита презентаций паролем](/slides/ru/php-java/password-protected-presentation/). Если зашифрованная презентация была намеренно сохранена с общедоступными свойствами документа, эти свойства можно прочитать без пароля; см. [Управление свойствами презентации](/slides/ru/php-java/presentation-properties/).
 
 ## **Открытие больших презентаций**
 
-[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/ru/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) возвращает параметры, контролирующие, как Aspose.Slides обрабатывает крупные бинарные объекты, такие как изображения, аудио и видео. Вы можете оставить исходный файл заблокированным, разрешить временные файлы и ограничить количество BLOB‑данных, удерживаемых в памяти.
+[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/ru/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) возвращает параметры, управляющие тем, как Aspose.Slides обрабатывает большие двоичные объекты, такие как изображения, аудио и видео. Вы можете удерживать исходный файл заблокированным, разрешать временные файлы и ограничивать объём данных BLOB, сохраняемых в памяти.
 
-Следующий код PHP демонстрирует загрузку большой презентации (например, 2 ГБ):
+Следующий код на PHP демонстрирует загрузку большой презентации (например, 2 ГБ):
 
 ```php
 use aspose\slides\LoadOptions;
@@ -94,17 +96,15 @@ try {
 }
 ```
 
-{{% alert color="info" title="Примечание" %}}
+{{% alert color="info" title="Note" %}}
+С [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked) исходный файл остается заблокированным до тех пор, пока экземпляр презентации не будет освобождён. Не перемещайте, не перезаписывайте и не удаляйте исходный файл, пока этот экземпляр жив.
 
-С [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked) исходный файл остаётся заблокированным до тех пор, пока экземпляр презентации не будет освобождён. Не перемещайте, не перезаписывайте и не удаляйте исходный файл, пока этот экземпляр жив.
-
-Aspose.Slides может копировать содержимое входного потока во время загрузки. Для больших презентаций путь к файлу обычно более эффективен, чем поток. См. [Manage BLOBs](/slides/ru/php-java/manage-blob/) для дополнительных вариантов хранения и управления памятью.
-
+Aspose.Slides может копировать содержимое входного потока при загрузке. Для больших презентаций путь к файлу, как правило, более эффективен, чем поток. См. [Manage BLOBs](/slides/ru/php-java/manage-blob/) для получения дополнительных вариантов хранения и управления памятью.
 {{% /alert %}}
 
 ## **Управление внешними ресурсами**
 
-[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/ru/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) принимает реализацию Java‑интерфейса [IResourceLoadingCallback](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iresourceloadingcallback/) через PHP/Java Bridge. Обратный вызов может предоставлять заменяющие данные, перенаправлять ресурс, использовать загрузчик по умолчанию или пропускать ресурс. Это полезно, когда презентации содержат внешние изображения, которые необходимо разрешать согласно специфическим для приложения правилам безопасности или хранения.
+[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/ru/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) принимает реализацию Java-интерфейса [IResourceLoadingCallback](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iresourceloadingcallback/) через PHP/Java Bridge. Обратный вызов может предоставить заменяющие данные, перенаправить ресурс, использовать загрузчик по умолчанию или пропустить ресурс. Это полезно, когда презентации содержат внешние изображения, которые необходимо разрешать в соответствии с правилами безопасности или хранения, специфичными для приложения.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -145,17 +145,17 @@ try {
 }
 ```
 
-## **Загрузка презентаций без встроенных бинарных объектов**
+## **Загрузка презентаций без встроенных двоичных объектов**
 
-Презентация может содержать встроенные бинарные данные, которые приложение не нуждается или не хочет сохранять. Примеры включают:
+Презентация может содержать встроенные двоичные данные, которые приложение не нуждается или не хочет сохранять. Примеры включают:
 
-- проекты VBA, доступные через [Presentation::getVbaProject](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/#getVbaProject);
+- VBA‑проекты, доступные через [Presentation::getVbaProject](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/#getVbaProject);
 - встроенные OLE‑данные, доступные через [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/ru/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
-- данные ActiveX‑контролов, доступные через [Control::getActiveXControlBinary](https://reference.aspose.com/slides/ru/php-java/aspose.slides/control/#getActiveXControlBinary).
+- данные элементов управления ActiveX, доступные через [Control::getActiveXControlBinary](https://reference.aspose.com/slides/ru/php-java/aspose.slides/control/#getActiveXControlBinary).
 
-Установите [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ru/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) в `true`, чтобы удалить эти бинарные данные при загрузке. Сохраните загруженную презентацию, чтобы сохранить очищенный результат.
+Установите [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ru/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) в `true`, чтобы удалить эти двоичные данные при загрузке. Сохраните загруженную презентацию, чтобы зафиксировать очищенный результат.
 
-Эта опция уменьшает риск нежелательных встроенных полезных нагрузок, но не является полной системой обнаружения вредоносного ПО или очистки содержимого.
+Эта опция снижает риск наличия нежелательных встроенных полезных нагрузок, но не является полноценной системой обнаружения вредоносного кода или очистки содержимого.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -173,16 +173,16 @@ try {
 }
 ```
 
-## **Часто задаваемые вопросы**
+## **Вопросы и ответы**
 
-**Как можно определить, что файл повреждён и не может быть открыт?**
+**Как понять, что файл повреждён и его нельзя открыть?**
 
-Aspose.Slides бросает исключение парсинга или формата при загрузке. Обрабатывайте эту ошибку отдельно от ошибки неверного пароля, чтобы приложение могло точно сообщить причину.
+Aspose.Slides бросает исключение парсинга или формата при загрузке. Обрабатывайте эту ошибку отдельно от ошибки неверного пароля, чтобы приложение могло точно сообщить о причине.
 
-**Что происходит, если необходимые шрифты отсутствуют?**
+**Что происходит, если требуемые шрифты отсутствуют?**
 
-Презентацию всё ещё можно загрузить, но при рендеринге и экспорте могут быть заменены шрифты. Вы можете [configure font substitution](/slides/ru/php-java/font-substitution/) или [provide custom fonts](/slides/ru/php-java/custom-font/), чтобы сделать вывод более предсказуемым.
+Презентацию всё ещё можно загрузить, но при рендеринге и экспорте могут использоваться заменяющие шрифты. Вы можете [настроить замену шрифтов](/slides/ru/php-java/font-substitution/) или [предоставить пользовательские шрифты](/slides/ru/php-java/custom-font/), чтобы сделать вывод более предсказуемым.
 
-**Загружает ли загрузка презентации также её встроенные медиа?**
+**Загружает ли загрузка презентации также встроенные медиафайлы?**
 
-Встроенные аудио и видео становятся доступными через объектную модель презентации. Внешние ресурсы разрешаются согласно настроенному поведению загрузки ресурсов и могут быть недоступны, если их расположения недоступны.
+Встроенные аудио и видео становятся доступными через объектную модель презентации. Внешние ресурсы разрешаются в соответствии с настроенным поведением загрузки ресурсов и могут быть недоступны, если их расположения недоступны.

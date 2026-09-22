@@ -6,32 +6,34 @@ weight: 30
 url: /fa/php-java/examine-presentation/
 keywords:
 - فرمت ارائه
-- ویژگی‌های ارائه
-- ویژگی‌های سند
-- دریافت ویژگی‌ها
-- خواندن ویژگی‌ها
-- تغییر ویژگی‌ها
-- اصلاح ویژگی‌ها
-- به‌روزرسانی ویژگی‌ها
+- خواص ارائه
+- خواص سند
+- دریافت خواص
+- خواندن خواص
+- تغییر خواص
+- اصلاح خواص
+- به‌روزرسانی خواص
 - بررسی PPTX
 - بررسی PPT
 - بررسی ODP
-- پاورپوینت
+- PowerPoint
 - OpenDocument
 - ارائه
 - PHP
 - Aspose.Slides
-description: "با استفاده از Aspose.Slides برای PHP، اسلایدها، ساختار و متادیتا را در ارائه‌های PowerPoint و OpenDocument بررسی کنید تا بینش‌های سریع‌تری به‌دست آورید و ارزیابی‌های محتوا هوشمندانه‌تری انجام دهید."
+description: "اسلایدها، ساختار و متادیتا را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای PHP کاوش کنید تا بینش‌های سریع‌تر و بررسی‌های محتوا هوشمندانه‌تری داشته باشید."
 ---
-## **مروری**
+## **نمای کلی**
 
-Aspose.Slides می‌تواند فرمت یک ارائه را شناسایی کرده و متادیتای سند آن را بدون ایجاد یک مدل شیء کامل ارائه بخواند. این امر هنگامی مفید است که نیاز به طبقه‌بندی فایل‌ها، ساخت یک فهرست یا بررسی ویژگی‌ها قبل از تصمیم‌گیری برای بارگذاری و پردازش محتوای ارائه دارید.
+Aspose.Slides می‌تواند فرمت یک ارائه را شناسایی کرده و متادیتای سند آن را بدون ایجاد یک مدل شیء کامل ارائه بخواند. این زمانی مفید است که نیاز به طبقه‌بندی فایل‌ها، ساخت موجودی یا بررسی ویژگی‌ها پیش از تصمیم‌گیری برای بارگذاری و پردازش محتوای ارائه داشته باشید.
 
-این مقاله با استفاده از [PresentationFactory](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationfactory/) و [PresentationInfo](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/) بازرسی سبک وزن را نشان می‌دهد و همچنین به‌روزرسانی‌های هدفمند را از طریق [DocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/) ارائه می‌کند.
+این مقاله با استفاده از [PresentationFactory]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationfactory/}} و [PresentationInfo]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/}}، بازرسی سبک وزن را نشان می‌دهد و همچنین به‌روزرسانی‌های هدفمند از طریق [DocumentProperties]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/}} را به نمایش می‌گذارد.
 
 ## **بررسی فرمت یک ارائه**
 
-از [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationfactory/) برای بازرسی یک فایل بدون ایجاد یک نمونه [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) استفاده کنید. متد [PresentationInfo::getLoadFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/#getLoadFormat) فرمت شناسایی‌شده را گزارش می‌کند، مانند PPTX، PPT یا ODP.
+اگر قبلاً یک ارائه بارگذاری‌شده دارید، برای تشخیص پس از بارگذاری و محدودیت‌های جریان‌های PPT، PPS و POT قدیمی به مقاله [Determine the Original Presentation Format](/slides/fa/php-java/detect-presentation-source-format/) مراجعه کنید.
+
+از [PresentationFactory::getPresentationInfo]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationfactory/}} برای بازرسی یک فایل بدون ایجاد یک نمونه [Presentation]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/}} استفاده کنید. متد [PresentationInfo::getLoadFormat]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/#getLoadFormat}} فرمت شناسایی‌شده را گزارش می‌دهد، مانند PPTX، PPT یا ODP.
 
 ```php
 use aspose\slides\LoadFormat;
@@ -56,22 +58,22 @@ foreach ($fileNames as $fileName) {
 }
 ```
 
-## **ساخت فهرست سبک وزن ارائه‌ها**
+## **ساخت موجودی سبک وزن برای ارائه‌ها**
 
-هنگامی که فایل‌های بسیاری از ارائه‌ها را پردازش می‌کنید، ممکن است به یک فهرست فشرده برای اعتبارسنجی، ایندکس‌گذاری یا سامانه مدیریت اسناد نیاز داشته باشید. در این حالت، از [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationfactory/) برای دریافت یک شیء [PresentationInfo](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/) استفاده کنید و سپس متد [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/#readDocumentProperties) را برای خواندن متادیتای سند فراخوانی کنید. این رویکرد هیچ نمونه‌ای از [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد نمی‌کند و نیازی به پیمایش کامل مدل شیء ارائه ندارد.
+هنگامی که تعداد زیادی فایل ارائه را پردازش می‌کنید، ممکن است به موجودی فشرده‌ای برای اعتبارسنجی، ایندکس‌سازی یا سیستم مدیریت اسناد نیاز داشته باشید. در این حالت، از [PresentationFactory::getPresentationInfo]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationfactory/}} برای دریافت یک شیء [PresentationInfo]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/}} استفاده کنید و سپس متد [PresentationInfo::readDocumentProperties]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/#readDocumentProperties}} را برای خواندن متادیتای سند فراخوانی کنید. این روش هیچ نمونه‌ای از [Presentation]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/}} ایجاد نمی‌کند و نیازی به عبور از مدل شیء کامل ارائه ندارید.
 
-ویژگی‌های توسعه‌یافته‌ای که توسط [DocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/) فراهم می‌شود، مقادیر زیر را برای فهرست ارائه می‌دهد:
+ویژگی‌های توسعه‌یافته‌ای که توسط [DocumentProperties]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/}} ارائه می‌شوند، مقادیر موجودی زیر را فراهم می‌آورند:
 
-| متد | مقدار موجودی |
+| Method | مقدار موجودی |
 | --- | --- |
-| [getSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getSlides) | کل تعداد اسلایدها. |
-| [getHiddenSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getHiddenSlides) | تعداد اسلایدهای پنهان. |
-| [getNotes](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getNotes) | تعداد اسلایدهایی که حاوی یادداشت هستند. |
-| [getParagraphs](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getParagraphs) | کل تعداد پاراگراف‌ها، در صورتی که موجود باشد. |
-| [getWords](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getWords) | کل تعداد کلمات. |
-| [getMultimediaClips](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getMultimediaClips) | کل تعداد کلیپ‌های صوتی و تصویری. |
+| [getSlides]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getSlides}} | تعداد کل اسلایدها. |
+| [getHiddenSlides]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getHiddenSlides}} | تعداد اسلایدهای مخفی. |
+| [getNotes]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getNotes}} | تعداد اسلایدهایی که حاوی یادداشت هستند. |
+| [getParagraphs]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getParagraphs}} | تعداد کل پاراگراف‌ها، در صورت موجود بودن. |
+| [getWords]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getWords}} | تعداد کل کلمات. |
+| [getMultimediaClips]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getMultimediaClips}} | تعداد کل کلیپ‌های صوتی و تصویری. |
 
-مثال زیر این مقادیر را بدون ایجاد یک شیء [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) می‌خواند و فهرست فشرده‌ای چاپ می‌کند. همچنین با ترکیب [DocumentProperties::getHeadingPairs](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getHeadingPairs) و [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getTitlesOfParts) گروه‌های محتوایی مانند قلم‌ها، تم‌ها و عناوین اسلایدها را نمایش می‌دهد.
+مثال زیر این مقادیر را بدون ایجاد شیء [Presentation]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/}} می‌خواند و موجودی فشرده‌ای را چاپ می‌کند. همچنین [DocumentProperties::getHeadingPairs]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getHeadingPairs}} را با [DocumentProperties::getTitlesOfParts]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getTitlesOfParts}} ترکیب می‌کند تا گروه‌های محتوا مانند قلم‌ها، تم‌ها و عناوین اسلاید را نمایش دهد.
 
 ```php
 use aspose\slides\LoadFormat;
@@ -141,27 +143,27 @@ if (java_is_null($headingPairs) || java_is_null($titlesOfParts)) {
 }
 ```
 
-هر [HeadingPair](https://reference.aspose.com/slides/fa/php-java/aspose.slides/headingpair/) یک نام گروه و تعداد آیتم‌های آن گروه را فراهم می‌کند. [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getTitlesOfParts) یک آرایه صاف و مرتب برمی‌گرداند، بنابراین تعداد عناوین متوالی که توسط هر جفت سرعنوان مشخص شده‌اند را مصرف کنید.
+هر [HeadingPair]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/headingpair/}} یک نام گروه و تعداد موارد در آن گروه را فراهم می‌کند. [DocumentProperties::getTitlesOfParts]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getTitlesOfParts}} یک آرایه صاف و مرتب برمی‌گرداند، بنابراین عدد عناوین متوالی تعیین‌شده توسط هر جفت‌عنوان را مصرف کنید.
 
 ### **متادیتای ذخیره‌شده و محدودیت‌های فرمت**
 
-ویژگی‌های فهرست بازگشتی توسط [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/#readDocumentProperties) متادیتای موجود در سند منبع را بازتاب می‌دهند. Aspose.Slides مدل شیء ارائه را بارگذاری و پیمایش نمی‌کند تا این مقادیر را برای این فراخوانی دوباره محاسبه کند. ویژگی‌های گمشده با مقدارهای پیش‌فرض نشان داده می‌شوند و مقادیر ذخیره‌شده ممکن است منسوخ شوند اگر برنامه‌ای که آخرین بار فایل را ذخیره کرده است، ویژگی‌های سند را به‌روز نکرده باشد.
+خواص موجودی که توسط [PresentationInfo::readDocumentProperties]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/#readDocumentProperties}} برگردانده می‌شوند، متادیتای موجود در سند منبع را منعکس می‌کنند. Aspose.Slides مدل شیء ارائه را برای محاسبه مجدد این مقادیر بارگذاری و عبور نمی‌کند. خواص گمشده با مقادیر پیش‌فرض نشان داده می‌شوند و مقادیر ذخیره‌شده ممکن است قدیمی باشند اگر برنامه‌ای که آخرین بار فایل را ذخیره کرده است، خواص سند را به‌روزرسانی نکرده باشد.
 
-- **PPTX:** این فرمت ویژگی‌های سند توسعه‌یافته‌ای برای شمارش اسلاید، یادداشت، اسلایدهای پنهان، پاراگراف، کلمه و چندرسانه‌ای، همراه با جفت‌های سرعنوان و عناوین بخش‌ها فراهم می‌کند. در دسترس بودن آن وابسته به این است که تولیدکننده سند کدام ویژگی‌ها را نوشت.
-- **PPT:** فرمت باینری می‌تواند ویژگی‌های خلاصه‌سند متناظر را ذخیره کند. اگر ویژگی‌ای وجود نداشته باشد یا توسط تولیدکننده سند به‌روزرسانی نشده باشد، Aspose.Slides مقدار ذخیره‌شده یا پیش‌فرض آن را برمی‌گرداند نه اینکه از اسلایدها محاسبه کند.
-- **ODP:** متادیتای OpenDocument آمار کلی سند مانند شمارش صفحات، پاراگراف و کلمه را ارائه می‌دهد، اما این مقادیر با هر ویژگی توسعه‌یافته خاص PowerPoint مطابقت ندارند. متادیتای اسلایدهای پنهان، اسلایدهای یادداشت، چندرسانه‌ای، جفت‌های سرعنوان و عناوین بخش ممکن است در دسترس نباشد و ویژگی‌های فهرست ممکن است مقدار پیش‌فرض برگردانند. مقدار صفر یا آرایه خالی را به‌عنوان اثبات قطعی عدم وجود محتوای متناظر درنظر نگیرید.
+- **PPTX:** این فرمت خواص سند گسترش‌یافته برای شمارش اسلاید، یادداشت، اسلاید مخفی، پاراگراف، کلمه و چندرسانه‌ای، همچنین جفت‌عناوین و عناوین بخش‌ها را فراهم می‌کند. در دسترس بودن آن بستگی به این دارد که کدام خواص توسط تولیدکننده سند نوشته شده‌اند.
+- **PPT:** این فرمت باینری می‌تواند خواص خلاصه سند متناظر را ذخیره کند. اگر یک خاصیت غایب باشد یا توسط تولیدکننده سند به‌روزرسانی نشده باشد، Aspose.Slides مقدار ذخیره‌شده یا پیش‌فرض آن را برمی‌گرداند، نه این‌که از اسلایدها محاسبه کند.
+- **ODP:** متادیتای OpenDocument آمار کلی سند مانند تعداد صفحات، پاراگراف و کلمه را ارائه می‌دهد، اما این مقادیر به هر خاصیت گسترش‌یافته مخصوص PowerPoint مطابقت نمی‌شوند. متادیتای اسلاید مخفی، اسلاید یادداشت، چندرسانه‌ای، جفت‌عنوان و عنوان بخش ممکن است در دسترس نباشد و خواص موجودی ممکن است مقادیر پیش‌فرض را برگردانند. صفر یا آرایه خالی را به‌عنوان مدرک قطعی عدم وجود محتوا در نظر نگیرند.
 
-از رویکرد متادیتای سبک وزن برای فهرست‌ها و بررسی‌های اولیه استفاده کنید. زمانی که نتیجه باید تغییرات در حافظه را منعکس کند یا نیاز به تأیید محتوای واقعی ارائه دارید، ارائه را بارگذاری و مدل شیء زنده آن را بازرسی کنید.
+از روش متادیتای سبک وزن برای موجودی‌ها و بررسی‌های اولیه استفاده کنید. هنگامی که نتیجه باید تغییرات در حافظه را منعکس کند یا نیاز به تأیید محتوای واقعی ارائه دارید، ارائه را بارگذاری و مدل شیء زنده آن را بازرسی کنید.
 
-## **به‌روزرسانی ویژگی‌های ارائه**
+## **به‑روز‌رسانی خواص ارائه**
 
-ویژگی‌های بازگشتی توسط [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/#readDocumentProperties) را می‌توان بدون ایجاد یک نمونه [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) نیز تغییر داد. تغییرات را با [PresentationInfo::updateDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/#updateDocumentProperties) اعمال کنید و سپس ارائه‌ی متصل را با [PresentationInfo::writeBindedPresentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/#writeBindedPresentation) بنویسید.
+خواص برگردانده‌شده توسط [PresentationInfo::readDocumentProperties]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/#readDocumentProperties}} را می‌توان بدون ایجاد یک نمونه [Presentation]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/}} نیز تغییر داد. تغییرات را با [PresentationInfo::updateDocumentProperties]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/#updateDocumentProperties}} اعمال کنید و سپس ارائه باند شده را با [PresentationInfo::writeBindedPresentation]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/#writeBindedPresentation}} بنویسید.
 
-تصویر زیر ویژگی‌های سند اصلی ارائه پاورپوینت را نشان می‌دهد.
+تصویر زیر خواص سند اصلی ارائه PowerPoint را نشان می‌دهد.
 
-![ویژگی‌های سند اصلی ارائه پاورپوینت](input_properties.png)
+![خواص سند اصلی ارائه PowerPoint](input_properties.png)
 
-مثال زیر عنوان و زمان آخرین ذخیره‌سازی را تغییر می‌دهد و نتیجه را در فایلی جدید می‌نویسد:
+مثال زیر عنوان و زمان آخرین ذخیره را تغییر می‌دهد و نتیجه را در فایلی جدید می‌نویسد:
 
 ```php
 use aspose\slides\PresentationFactory;
@@ -183,35 +185,35 @@ try {
 }
 ```
 
-تصویر زیر ویژگی‌های سند به‌روز شده را نشان می‌دهد.
+تصویر زیر خواص سند به‌روزرسانی‌شده را نشان می‌دهد.
 
-![ویژگی‌های سند به‌روز شده ارائه پاورپوینت](output_properties.png)
+![خواص سند تغییر یافته ارائه PowerPoint](output_properties.png)
 
-## **لینک‌های مفید**
+## **پیوندهای مفید**
 
-برای بررسی‌های امنیتی مرتبط و تنظیمات حفاظت، مقالات زیر را ببینید:
+برای بررسی‌های امنیتی مرتبط و تنظیمات حفاظت، به مقالات زیر مراجعه کنید:
 
 - [Password-Protect Presentations](/slides/fa/php-java/password-protected-presentation/)
 - [Write-Protect Presentations](/slides/fa/php-java/write-protected-presentation/)
 
-## **سؤال‌های متداول**
+## **سوالات متداول**
 
-**چگونه می‌توانم بررسی کنم که آیا قلم‌ها جاسازی شده‌اند و کدام‌ها هستند؟**
+**چگونه می‌توانم بررسی کنم که آیا قلم‌ها جاسازی شده‌اند و چه قلم‌هایی هستند؟**
 
-ارائه را بارگذاری کنید و از [Presentation::getFontsManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getFontsManager) استفاده کنید. با فراخوانی [FontsManager::getEmbeddedFonts](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) قلم‌های جاسازی‌شده را دریافت کنید و با [FontsManager::getFonts](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsmanager/#getFonts) قلم‌های مورد استفاده در ارائه را به‌دست آورید. دو نتیجه را مقایسه کنید تا قلم‌هایی که برای رندر لازم هستند ولی جاسازی نشده‌اند، پیدا کنید.
+ارائه را بارگذاری کنید و از [Presentation::getFontsManager]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getFontsManager}} استفاده کنید. با فراخوانی [FontsManager::getEmbeddedFonts]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts}} قلم‌های جاسازی‌شده و با [FontsManager::getFonts]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsmanager/#getFonts}} قلم‌های استفاده‌شده توسط ارائه را به‌دست آورید. دو نتیجه را با هم مقایسه کنید تا قلم‌هایی که برای رندر لازم هستند اما جاسازی نشده‌اند، شناسایی کنید.
 
-**چگونه می‌توانم به‌سرعت تشخیص دهم که آیا فایل اسلایدهای پنهان دارد و چندتا؟**
+**چگونه می‌توانم به‑سرعت تشخیص دهم که فایل اسلایدهای مخفی دارد و تعداد آن‌ها چقدر است؟**
 
-هنگامی که متادیتای ذخیره‌شده سند کافی است، از [DocumentProperties::getHiddenSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getHiddenSlides) از طریق [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationfactory/) و [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/#readDocumentProperties) استفاده کنید. این روش برای یک فهرست سبک وزن مناسب است. اگر ارائه در حافظه تغییر کرده باشد، متادیتای ذخیره‌شده ممکن است مفقود یا منسوخ باشد یا نیاز به تأیید مقادیر زنده داشته باشید؛ در این صورت به جای آن از [Presentation::getSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getSlides) پیمایش کنید و برای هر اسلاید متد [Slide::getHidden](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/#getHidden) را بررسی کنید.
+زمانی که متادیتای ذخیره‌شده سند کافی باشد، [DocumentProperties::getHiddenSlides]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#getHiddenSlides}} را از طریق [PresentationFactory::getPresentationInfo]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationfactory/}} و [PresentationInfo::readDocumentProperties]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/#readDocumentProperties}} بخوانید. این روش برای موجودی سبک وزن مناسب است. اگر ارائه در حافظه تغییر کرده باشد، متادیتای ذخیره‌شده ممکن است مفقود یا قدیمی باشد یا بخواهید مقادیر زنده را تأیید کنید، به جای آن از [Presentation::getSlides]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getSlides}} عبور کنید و برای هر اسلاید متد [Slide::getHidden]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/#getHidden}} را بررسی کنید.
 
-**آیا می‌توانم تشخیص دهم که آیا اندازه و جهت اسلاید سفارشی استفاده می‌شود و آیا با پیش‌فرض‌ها متفاوت است؟**
+**آیا می‌توانم تشخیص دهم که اندازه و جهت سفارشی اسلاید استفاده شده‌اند و آیا از پیش‌فرض‌ها متفاوت هستند؟**
 
-بله. ارائه را بارگذاری کنید و متد [Presentation::getSlideSize](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getSlideSize) را فراخوانی کنید. از [SlideSize::getType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slidesize/#getType)، [SlideSize::getSize](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slidesize/#getSize) و [SlideSize::getOrientation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slidesize/#getOrientation) برای مقایسه تنظیمات فعلی با پیش‌تنظیمات و ابعاد مورد انتظار استفاده کنید.
+بله. ارائه را بارگذاری کنید و متد [Presentation::getSlideSize]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getSlideSize}} را فراخوانی کنید. با استفاده از [SlideSize::getType]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/slidesize/#getType}}، [SlideSize::getSize]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/slidesize/#getSize}} و [SlideSize::getOrientation]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/slidesize/#getOrientation}} تنظیمات فعلی را با پیش‌تنظیم‌ها و ابعاد مورد انتظار مقایسه کنید.
 
-**آیا راه سریعی برای دیدن این وجود دارد که نمودارها به منابع داده خارجی ارجاع می‌دهند؟**
+**آیا راه سریع برای دیدن این که نمودارها به منابع داده خارجی ارجاع می‌دهند وجود دارد؟**
 
-بله. هر [Chart](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chart/) را پیدا کنید و متد [ChartData::getDataSourceType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/#getDataSourceType) را فراخوانی کنید. برای یک کتاب کاری خارجی، متد [ChartData::getExternalWorkbookPath](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/#getExternalWorkbookPath) را فراخوانی کنید. نوع منبع داده و مسیر، ارجاع خارجی را شناسایی می‌کند، اما بررسی در دسترس بودن هدف نیاز به یک چک منبع جداگانه دارد.
+بله. هر [Chart]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/chart/}} را پیدا کنید و متد [ChartData::getDataSourceType]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/#getDataSourceType}} را فراخوانی کنید. برای یک کتاب کار خارجی، متد [ChartData::getExternalWorkbookPath]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/#getExternalWorkbookPath}} را فراخوانی کنید. نوع منبع داده و مسیر یک ارجاع خارجی را نشان می‌دهند، اما تأیید موجودیت هدف نیاز به بررسی منابع جداگانه دارد.
 
-**چگونه می‌توانم اسلایدهای «سنگین» که ممکن است رندر یا خروجی PDF را کند کنند، ارزیابی کنم؟**
+**چگونه می‌توانم اسلایدهای «سنگین» که ممکن است رندر یا خروجی PDF را کند کنند ارزیابی کنم؟**
 
-هیچ ویژگی تک‌سکی برای پیچیدگی وجود ندارد. [Presentation::getSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getSlides) و مجموعه [BaseSlide::getShapes](https://reference.aspose.com/slides/fa/php-java/aspose.slides/baseslide/#getShapes) هر اسلاید را پیمایش کنید. از تعداد اشکال و وجود تصاویر بزرگ، افکت‌ها، انیمیشن‌ها یا چندرسانه‌ای‌ها به‌عنوان سیگنال‌های غربالگری استفاده کنید و پیش از این که اسلاید را به‌عنوان گلوگاه عملکردی تأیید کنید، یک رندر یا خروجی نمایشی نمونه‌ای را اندازه‌گیری کنید.
+هیچ خاصیت تک‌دست برای پیچیدگی وجود ندارد. از [Presentation::getSlides]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getSlides}} عبور کنید و مجموعه [BaseSlide::getShapes]{{https://reference.aspose.com/slides/fa/php-java/aspose.slides/baseslide/#getShapes}} هر اسلاید را بررسی کنید. از شمارش شکل‌ها و وجود تصاویر بزرگ، افکت‌ها، انیمیشن‌ها یا چندرسانه‌ای به‌عنوان علائم غربالگری استفاده کنید و یک رندر یا خروجی نمایشی نمونه بگیرید تا قبل از اعتبارسنجی یک اسلاید به‌عنوان نقطه گلوگاه عملکردی، آن را تأیید کنید.

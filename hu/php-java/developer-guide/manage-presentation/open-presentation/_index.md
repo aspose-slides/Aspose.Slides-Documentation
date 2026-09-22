@@ -20,18 +20,21 @@ keywords:
 - bináris objektum
 - PHP
 - Aspose.Slides
-description: "Tanulja meg, hogyan nyithat meg PowerPoint és OpenDocument prezentációkat PHP-ben, adjon meg nyitó jelszavakat, szabályozza az erőforrások betöltését, és csökkentse a memóriahasználatot az Aspose.Slides for PHP via Java segítségével."
+description: "Ismerje meg, hogyan nyithat meg PowerPoint és OpenDocument prezentációkat PHP-ben, adhat meg nyitó jelszavakat, szabályozhatja az erőforrásbetöltést, és csökkentheti a memóriahasználatot az Aspose.Slides for PHP via Java segítségével."
 ---
 ## **Bevezetés**
 
-[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/hu/php-java/) képes PowerPoint és OpenDocument prezentációkat betölteni fájlokból és adatfolyamokból. Miután egy prezentáció betöltésre kerül, ellenőrizheti annak felépítését, szerkesztheti a diákot, kezelheti az erőforrásokat, és mentheti az eredeti vagy egy másik támogatott formátumban.  
-A betöltési viselkedést testreszabhatja a [LoadOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/loadoptions/) osztályon keresztül. Például megadhat egy nyitó jelszót, a nagy bináris objektumokat a Java heap memóriáján kívül tarthatja, szabályozhatja a külső erőforrásokat, vagy kihagyhatja a beágyazott bináris adatokat.
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/hu/php-java/) képes PowerPoint és OpenDocument prezentációkat betölteni fájlokból és adatfolyamokból. Miután egy prezentációt betöltöttél, vizsgálhatod a szerkezetét, szerkesztheted a diát, kezelheted az erőforrásokat, és elmentheted az eredeti vagy egy másik támogatott formátumban.
+
+A betöltés viselkedését a [LoadOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/loadoptions/) osztályon keresztül testre szabhatod. Például megadhatsz egy nyitó jelszót, nagy bináris objektumokat tarthatsz a Java halommemórián kívül, szabályozhatod a külső erőforrásokat, vagy kihagyhatod a beágyazott bináris adatokat.
 
 ## **Prezentációk megnyitása**
 
-Egy meglévő prezentáció megnyitásához adja át a fájl útvonalát a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) konstruktorának. Használat után dobja el a prezentációt, hogy a fájlkezelők, ideiglenes adatok és egyéb erőforrások gyorsan felszabaduljanak.
+Fájl vagy adatfolyam betöltése után meghatározhatod az eredeti prezentációformátumot, hogy kiválaszthasd, hogyan dolgozza fel az alkalmazásod.
 
-Az alábbi PHP példa bemutatja, hogyan nyithat meg egy prezentációt és kaphatja meg a diák számát:
+Egy meglévő prezentáció megnyitásához add át a fájl útvonalát a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) konstruktorának. A használat után szabadítsd fel a prezentációt, hogy a fájlkezelők, ideiglenes adatok és egyéb erőforrások gyorsan felszabaduljanak.
+
+Az alábbi PHP példa bemutatja, hogyan nyithatsz meg egy prezentációt és hogyan kérheted le a diák számát:
 
 ```php
 use aspose\slides\Presentation;
@@ -46,7 +49,7 @@ try {
 
 ## **Jelszóval védett prezentációk megnyitása**
 
-A nyitó jelszó titkosítja a prezentáció tartalmát. A teljes prezentáció betöltéséhez adja át a helyes jelszót a [LoadOptions::setPassword](https://reference.aspose.com/slides/hu/php-java/aspose.slides/loadoptions/#setPassword) metódusnak, és adja meg a beállításokat a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) konstruktorának. A betöltés sikertelen, ha a jelszó hiányzik vagy helytelen.
+A nyitó jelszó titkosítja a prezentáció tartalmát. A teljes prezentáció betöltéséhez add át a helyes jelszót a [LoadOptions::setPassword](https://reference.aspose.com/slides/hu/php-java/aspose.slides/loadoptions/#setPassword) metódusnak, és add meg a beállításokat a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) konstruktorának. A betöltés meghiúsul, ha a jelszó hiányzik vagy helytelen.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -63,13 +66,13 @@ try {
 }
 ```
 
-A jelszó észlelésével, ellenőrzésével és titkosítási munkafolyamataival kapcsolatban lásd a [Password-Protect Presentations](/slides/hu/php-java/password-protected-presentation/) oldalt. Ha egy titkosított prezentációt szándékosan nyilvános dokumentumtulajdonságokkal mentettek, azok a jelszó nélkül is olvashatóak; lásd a [Manage Presentation Properties](/slides/hu/php-java/presentation-properties/) oldalt.
+A jelszó felismerésével, ellenőrzésével és titkosítási munkafolyamatokkal kapcsolatban lásd a [Password-Protect Presentations](/slides/hu/php-java/password-protected-presentation/) oldalt. Ha egy titkosított prezentációt szándékosan nyilvános dokumentumtulajdonságokkal mentették, ezek a tulajdonságok jelszó nélkül is olvashatók; lásd a [Manage Presentation Properties](/slides/hu/php-java/presentation-properties/) oldalt.
 
-## **Nagy prezentációk megnyitása**
+## **Nagy méretű prezentációk megnyitása**
 
-A [LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) visszaadja azokat a beállításokat, amelyek szabályozzák, hogyan kezeli az Aspose.Slides a bináris nagy objektumokat, például képeket, hangot és videót. A forrásfájlt lezárva tarthatja, engedélyezheti az ideiglenes fájlokat, és korlátozhatja a memóriában megtartott BLOB adatok mennyiségét.
+[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) visszaadja azokat a beállításokat, amelyek szabályozzák, hogyan kezeli az Aspose.Slides a nagy bináris objektumokat, például képeket, hangot és videót. A forrásfájlt zárolhatod, engedélyezheted az ideiglenes fájlokat, és korlátozhatod a memóriában megtartott BLOB adatok mennyiségét.
 
-Az alábbi PHP kód bemutatja egy nagy prezentáció (például 2 GB) betöltését:
+Az alábbi PHP kód bemutatja egy nagy prezentáció betöltését (például 2 GB):
 
 ```php
 use aspose\slides\LoadOptions;
@@ -94,14 +97,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-A [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked) használatával a forrásfájl zárolva marad, amíg a prezentáció példány el nem kerül. Ne mozgassa, felülírja vagy törölje a forrásfájlt, amíg ez a példány él.
+A [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked) használatával a forrásfájl zárolva marad, amíg a prezentáció példány ki nem kerülől. Ne mozdítsd el, írd felül vagy töröld a forrásfájlt, amíg ez a példány él.
 
-Az Aspose.Slides betöltés közben másolhatja egy bemeneti adatfolyam tartalmát. Nagy prezentációk esetén a fájl útvonal általában hatékonyabb, mint egy adatfolyam. További tárolási és memória-kezelési lehetőségekért lásd a [Manage BLOBs](/slides/hu/php-java/manage-blob/) oldalt.
+Az Aspose.Slides betöltéskor másolhatja a bemeneti adatfolyam tartalmát. Nagy prezentációk esetén ezért általában a fájlútvonal hatékonyabb, mint egy adatfolyam. További tárolási és memória-kezelési lehetőségekért lásd a [Manage BLOBs](/slides/hu/php-java/manage-blob/) oldalt.
 {{% /alert %}}
 
-## **Külső erőforrások kezelése**
+## **Külső erőforrások szabályozása**
 
-A [LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/hu/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) a PHP/Java Bridge-en keresztül fogadja a Java [IResourceLoadingCallback](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iresourceloadingcallback/) interfész implementációját. A visszahívás biztosíthat helyettesítő adatot, átirányíthat egy erőforrást, használhatja az alapértelmezett betöltőt, vagy kihagyhatja az erőforrást. Ez akkor hasznos, ha a prezentációk külső képeket tartalmaznak, amelyeket az alkalmazás-specifikus biztonsági vagy tárolási szabályok szerint kell feloldani.
+[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/hu/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) a PHP/Java Bridge-en keresztül egy Java [IResourceLoadingCallback](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iresourceloadingcallback/) interfész megvalósítását fogadja el. A visszahívás helyettesítő adatot adhat, átirányíthat egy erőforrást, használhatja az alapértelmezett betöltőt, vagy kihagyhatja az erőforrást. Ez akkor hasznos, ha a prezentációk külső képeket tartalmaznak, amelyeket az alkalmazás-specifikus biztonsági vagy tárolási szabályok szerint kell feloldani.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -144,15 +147,15 @@ try {
 
 ## **Prezentációk betöltése beágyazott bináris objektumok nélkül**
 
-Egy prezentáció tartalmazhat beágyazott bináris adatot, amelyre egy alkalmazásnak nincs szüksége, vagy amit nem kíván megtartani. Példák:
+Egy prezentáció beágyazott bináris adatokat tartalmazhat, amelyeket egy alkalmazás nem igényel vagy nem akar megtartani. Példák:
 
-- VBA projektek, a [Presentation::getVbaProject](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getVbaProject) segítségével érhetők el;
-- beágyazott OLE adatok, a [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/hu/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) segítségével érhetők el;
-- ActiveX vezérlő adat, a [Control::getActiveXControlBinary](https://reference.aspose.com/slides/hu/php-java/aspose.slides/control/#getActiveXControlBinary) segítségével érhető el.
+- VBA projektek, a [Presentation::getVbaProject](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getVbaProject) segítségével elérhetők;
+- beágyazott OLE adatok, az [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/hu/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) segítségével elérhetők;
+- ActiveX vezérlő adatok, a [Control::getActiveXControlBinary](https://reference.aspose.com/slides/hu/php-java/aspose.slides/control/#getActiveXControlBinary) segítségével elérhetők.
 
-Állítsa a [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/hu/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) értékét `true`-ra, hogy a betöltés során eltávolítsa ezeket a bináris adatokat. Mentse a betöltött prezentációt, hogy megőrizze a megtisztított eredményt.
+Állítsd a [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/hu/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) értékét `true`‑ra, hogy a betöltés során eltávolítsd ezt a bináris adatot. Mentsd el a betöltött prezentációt, hogy a tisztított eredményt megőrizd.
 
-Ez a beállítás csökkenti a nem kívánt beágyazott terhek kitettségét, de nem egy teljes rosszindulatú szoftver- és tartalomtisztító rendszer.
+Ez a beállítás csökkenti a nem kívánt beágyazott terhek kitettségét, de nem tekinthető teljes vírusfelismerő vagy tartalomszűrő rendszernek.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -172,11 +175,14 @@ try {
 
 ## **GYIK**
 
-**Hogyan állapíthatom meg, hogy egy fájl sérült és nem nyitható meg?**  
-Az Aspose.Slides betöltés közben elemzési vagy formátumkivételt dob. Kezelje ezt a hibát külön a helytelen jelszó hibától, hogy az alkalmazás pontosan jelenteni tudja az okot.
+**Hogyan deríthetem ki, hogy egy fájl sérült és nem nyitható meg?**
 
-**Mi történik, ha a szükséges betűkészletek hiányoznak?**  
-A prezentáció továbbra is betölthető, de a megjelenítés és az export esetleg helyettesítő betűkészleteket használ. A kimenet jobban megszacsoltá tételéhez [Betűkészlet helyettesítés beállítása](/slides/hu/php-java/font-substitution/) vagy [Egyedi betűkészletek biztosítása](/slides/hu/php-java/custom-font/) lehetőséget használhat.
+Az Aspose.Slides betöltés közben elemzési vagy formátum kivételt dob. Kezeld ezt a hibát külön a helytelen jelszó hibájától, hogy az alkalmazás pontosan jelenteni tudja az okot.
 
-**A prezentáció betöltése betölti-e a beágyazott médiát is?**  
-A beágyazott hang és videó a prezentáció objektummodelljén keresztül lesz elérhető. A külső erőforrások a beállított erőforrásbetöltési viselkedés szerint kerülnek feloldásra, és előfordulhat, hogy nem érhetők el, ha a helyük nem hozzáférhető.
+**Mi történik, ha a szükséges betűtípusok hiányoznak?**
+
+A prezentáció továbbra is betölthető, de a megjelenítés és exportálás betűtípus helyettesítéseket alkalmazhat. A betűtípus helyettesítés beállítható, vagy megadhatsz egyedi betűtípusokat, hogy az eredmény kiszámíthatóbb legyen.
+
+**Betölti a rendszer a prezentáció beágyazott médiáját is?**
+
+A beágyazott hang és videó a prezentáció objektummodelljén keresztül érhető el. A külső erőforrások a beállított erőforrásbetöltési viselkedés szerint kerülnek feloldásra, és előfordulhat, hogy nem érhetők el, ha a helyeikhez nem férnek hozzá.

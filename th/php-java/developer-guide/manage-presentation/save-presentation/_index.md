@@ -1,74 +1,138 @@
 ---
-title: บันทึกงานนำเสนอใน PHP
-linktitle: บันทึกงานนำเสนอ
+title: บันทึกการนำเสนอใน PHP
+linktitle: บันทึกการนำเสนอ
 type: docs
 weight: 80
 url: /th/php-java/save-presentation/
 keywords:
 - บันทึก PowerPoint
 - บันทึก OpenDocument
-- บันทึกงานนำเสนอ
+- บันทึกการนำเสนอ
 - บันทึกสไลด์
 - บันทึก PPT
 - บันทึก PPTX
 - บันทึก ODP
-- งานนำเสนอเป็นไฟล์
-- งานนำเสนอเป็นสตรีม
-- ประเภทมุมมองที่กำหนดล่วงหน้า
+- การนำเสนอเป็นไฟล์
+- การนำเสนอเป็นสตรีม
+- ประเภทมุมมองที่กำหนดไว้ล่วงหน้า
 - รูปแบบ Strict Office Open XML
 - โหมด Zip64
-- รีเฟรชภาพตัวอย่าง
+- รีเฟรชภาพย่อ
 - บันทึกความคืบหน้า
 - PHP
 - Aspose.Slides
-description: "ค้นพบวิธีบันทึกงานนำเสนอโดยใช้ Aspose.Slides สำหรับ PHP ผ่าน Java — ส่งออกเป็น PowerPoint หรือ OpenDocument พร้อมคงรักษาการจัดวางแบบอักษรและเอฟเฟกต์"
+description: "บันทึกการนำเสนอ PowerPoint และ OpenDocument เป็นไฟล์หรือสตรีมใน PHP ด้วย Aspose.Slides และกำหนดการส่งออก PPTX รวมถึงการรายงานความคืบหน้า"
 ---
 ## **ภาพรวม**
 
-[เปิดงานนำเสนอใน PHP](/slides/th/php-java/open-presentation/) อธิบายวิธีการใช้คลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) เพื่อเปิดงานนำเสนอ บทความนี้อธิบายวิธีการสร้างและบันทึกงานนำเสนอ คลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) มีเนื้อหาของงานนำเสนอ ไม่ว่าคุณจะสร้างงานนำตั้งแต่เริ่มหรือแก้ไขงานที่มีอยู่แล้ว คุณจะต้องบันทึกเมื่อทำเสร็จ ด้วย Aspose.Slides สำหรับ PHP คุณสามารถบันทึกเป็น **ไฟล์** หรือ **สตรีม** ได้ บทความนี้อธิบายวิธีการบันทึกงานนำเสนอในรูปแบบต่าง ๆ
+หลังจากคุณสร้างการนำเสนอหรือ [เปิดการนำเสนอที่มีอยู่](/slides/th/php-java/open-presentation/), ใช้เมธอด [Presentation::save](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#save) เพื่อเขียนผลลัพธ์ Aspose.Slides for PHP via Java สามารถบันทึกการนำเสนอเป็นไฟล์หรือสตรีมในรูปแบบ PowerPoint, OpenDocument, PDF และรูปแบบอื่น ๆ ส่วนต่อไปนี้จะครอบคลุมการดำเนินการบันทึกมาตรฐานและตัวเลือกที่มีสำหรับการส่งออก PPTX
 
-## **บันทึกงานนำเสนอเป็นไฟล์**
+## **บันทึกการนำเสนอเป็นไฟล์**
 
-บันทึกงานนำเสนอลงไฟล์โดยเรียกเมธอด `save` ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) ส่งชื่อไฟล์และรูปแบบการบันทึกให้เมธอด ตัวอย่างต่อไปนี้แสดงวิธีบันทึกงานนำเสนอด้วย Aspose.Slides
+เพื่อบันทึกการนำเสนอเป็นไฟล์, ส่งพาธเอาต์พุตและค่าของ [SaveFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/saveformat/) ไปยังเมธอด [Presentation::save](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#save) ค่าฟอร์แมตจะกำหนดประเภทของไฟล์ที่ Aspose.Slides สร้าง
+
+ตัวอย่างต่อไปนี้สร้างการนำเสนอและบันทึกเป็นไฟล์ PPTX:
 
 ```php
-// สสร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์งานนำเสนอ
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-    // ทำงานบางอย่างที่นี่...
+    // เพิ่มหรือแก้ไขเนื้อหาการนำเสนอที่นี่.
 
-    // บันทึกงานนำเสนอลงไฟล์.
     $presentation->save("Output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **บันทึกงานนำเสนอเป็นสตรีม**
+## **บันทึกการนำเสนอในรูปแบบเดิม**
 
-คุณสามารถบันทึกงานนำเสนอเป็นสตรีมโดยส่งสตรีมผลลัพธ์ให้กับเมธอด `save` ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) งานนำเสนอสามารถเขียนลงสตรีมหลายประเภท ในตัวอย่างด้านล่าง เราจะสร้างงานนำเสนอใหม่และบันทึกลงสตรีมไฟล์
+สำหรับตัวอย่างการตรวจจับไฟล์และสตรีม, พฤติกรรมของการนำเสนอที่สร้างใหม่, และความแตกต่างระหว่างรูปแบบต้นฉบับและเอาต์พุต, ดูที่ [Determine the Original Presentation Format](/slides/th/php-java/detect-presentation-source-format/)
+
+ในแอปพลิเคชันที่ประมวลผลเป็นชุด, รูปแบบอินพุตอาจไม่ทราบล่วงหน้า หลังจากโหลดไฟล์, อ่านรูปแบบต้นฉบับจากเมธอด [Presentation::getSourceFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getSourceFormat) ส่งค่าของ [SourceFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/sourceformat/) ที่ได้ไปยังเมธอด [SlideUtil::toSaveFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideutil/#toSaveFormat) เพื่อรับค่าของ [SaveFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/saveformat/) ที่สอดคล้อง, แล้วใช้ [Presentation::save](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#save) เพื่อเขียนการนำเสนอที่แก้ไขแล้ว
+
+ตัวอย่างเต็มต่อไปนี้ทำการประมวลผลทุกไฟล์ในไดเรกทอรีอินพุต, อัปเดตหัวเรื่อง, และบันทึกไปยังไดเรกทอรีเอาต์พุตในรูปแบบที่โหลดมา:
 
 ```php
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์งานนำเสนอ.
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$inputDirectory = __DIR__ . DIRECTORY_SEPARATOR . "Input";
+$outputDirectory = __DIR__ . DIRECTORY_SEPARATOR . "Output";
+
+if (!is_dir($outputDirectory) && !mkdir($outputDirectory, 0777, true)) {
+    echo("Cannot create the output directory." . PHP_EOL);
+}
+
+$inputFiles = is_dir($inputDirectory) ? scandir($inputDirectory) : false;
+if ($inputFiles !== false && is_dir($outputDirectory)) {
+    foreach ($inputFiles as $fileName) {
+        $inputPath = $inputDirectory . DIRECTORY_SEPARATOR . $fileName;
+        if (!is_file($inputPath)) {
+            continue;
+        }
+
+        $presentation = null;
+        $presentationLoaded = false;
+        try {
+            $presentation = new Presentation($inputPath);
+            $presentationLoaded = true;
+            $saveFormat = SlideUtil::toSaveFormat($presentation->getSourceFormat());
+            $presentation->getDocumentProperties()->setTitle("Processed by the batch application");
+
+            $outputPath = $outputDirectory . DIRECTORY_SEPARATOR . $fileName;
+            $presentation->save($outputPath, $saveFormat);
+        } catch (\Throwable $exception) {
+            echo("Cannot process '" . $inputPath . "': " . $exception->getMessage() . PHP_EOL);
+        } finally {
+            if ($presentationLoaded) {
+                $presentation->dispose();
+            }
+        }
+    }
+}
+```
+
+[SlideUtil::toSaveFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/slideutil/#toSaveFormat) จะแมป PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP, และ PowerPoint XML ไปยังรูปแบบการบันทึกการนำเสนอที่สอดคล้อง มันแมปเฉพาะรูปแบบแหล่งของการนำเสนอเท่านั้น; ไม่ได้ออกแบบให้เลือกรูปแบบการส่งออกเช่น PDF, HTML, TIFF หรือรูปภาพ การส่งค่าของ [SourceFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/sourceformat/) ที่ไม่รองรับหรือไม่ถูกต้องจะทำให้เกิด [IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html)
+
+ไฟล์ PPT, PPS, และ POT รุ่นเก่ามีคอนเทนเนอร์ไบนารีเดียวกัน เมื่อการนำเสนอแบบนี้ถูกโหลดจากสตรีมโดยไม่มีส่วนขยายไฟล์, ไฟล์ PPS หรือ POT อาจถูกระบุเป็น PPT หากจำเป็นต้องรักษาชนิดย่อยของรุ่นเก่าไว้, ให้เก็บชื่อไฟล์หรือเมตาดาต้ารูปแบบเดิมแยกต่างหากและใช้เมื่อตั้งชื่อไฟล์และรูปแบบเอาต์พุต
+
+## **บันทึกการนำเสนอเป็นสตรีม**
+
+เพื่อเขียนการนำเสนอโดยไม่ต้องอ้างอิงพาธไฟล์สุดท้าย, ส่งสตรีมที่เขียนได้และค่าของ [SaveFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/saveformat/) ไปยังเมธอด [Presentation::save](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#save) วิธีนี้มีประโยชน์เมื่อเอาต์พุตต้องส่งคืนจากเว็บเซอร์วิส, เก็บในฐานข้อมูล, หรือประมวลผลในหน่วยความจำ
+
+ตัวอย่างต่อไปนี้บันทึกการนำเสนอใหม่ไปยังสตรีมไฟล์:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-    $fileStream = new Java("java.io.FileOutputStream", "Output.pptx");
+    $outputStream = new Java("java.io.FileOutputStream", "Output.pptx");
     try {
-        // บันทึกงานนำเสนอไปยังสตรีม.
-        $presentation->save($fileStream, SaveFormat::Pptx);
+        $presentation->save($outputStream, SaveFormat::Pptx);
     } finally {
-        $fileStream->close();
+        $outputStream->close();
     }
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **บันทึกงานนำเสนอโดยกำหนดประเภทมุมมองล่วงหน้า**
+## **บันทึกการนำเสนอด้วยมุมมองที่กำหนดไว้ล่วงหน้า**
 
-Aspose.Slides ให้คุณกำหนดมุมมองเริ่มต้นที่ PowerPoint ใช้เมื่อเปิดงานนำเสนอที่สร้างขึ้นผ่านคลาส [ViewProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/viewproperties/) ใช้เมธอด [setLastView](https://reference.aspose.com/slides/th/php-java/aspose.slides/viewproperties/#setLastView) พร้อมค่าจาก enumeration [ViewType](https://reference.aspose.com/slides/th/php-java/aspose.slides/viewtype/)
+คุณสามารถกำหนดมุมมองที่ PowerPoint จะเปิดการนำเสนอที่บันทึกไว้ได้ ใช้เมธอด [ViewProperties::setLastView](https://reference.aspose.com/slides/th/php-java/aspose.slides/viewproperties/#setLastView) พร้อมค่าของ [ViewType](https://reference.aspose.com/slides/th/php-java/aspose.slides/viewtype/) ก่อนบันทึก
+
+ตัวอย่างต่อไปนี้ตั้งค่าให้มุมมอง Slide Master เป็นมุมมองเริ่มต้น:
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ViewType;
+
 $presentation = new Presentation();
 try {
     $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
@@ -78,175 +142,187 @@ try {
 }
 ```
 
-## **บันทึกงานนำเสนอในรูปแบบ Strict Office Open XML**
+## **บันทึกการนำเสนอในรูปแบบ Strict Office Open XML**
 
-Aspose.Slides ให้คุณบันทึกงานนำเสนอในรูปแบบ Strict Office Open XML ใช้คลาส [PptxOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxoptions/) และตั้งค่า property `conformance` เมื่อต้องการบันทึก หากตั้งค่าเป็น [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/th/php-java/aspose.slides/conformance/#Iso29500_2008_Strict) ไฟล์ผลลัพธ์จะถูกบันทึกในรูปแบบ Strict Office Open XML
-
-ตัวอย่างด้านล่างสร้างงานนำเสนอและบันทึกในรูปแบบ Strict Office Open XML
+เพื่อสร้างไฟล์ PPTX ที่สอดคล้องกับโปรไฟล์ Strict ของ Office Open XML, สร้างอินสแตนซ์ของ [PptxOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxoptions/) แล้วใช้เมธอด [PptxOptions::setConformance](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxoptions/#setConformance) พร้อมค่า [Conformance::Iso29500_2008_Strict](https://reference.aspose.com/slides/th/php-java/aspose.slides/conformance/#Iso29500-2008-Strict) จากนั้นส่งตัวเลือกไปยังเมธอด [Presentation::save](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#save)
 
 ```php
+use aspose\slides\Conformance;
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $options = new PptxOptions();
 $options->setConformance(Conformance::Iso29500_2008_Strict);
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์งานนำเสนอ.
 $presentation = new Presentation();
 try {
-    // บันทึกงานนำเสนอในรูปแบบ Strict Office Open XML.
     $presentation->save("StrictOfficeOpenXml.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **บันทึกงานนำเสนอในรูปแบบ Office Open XML ในโหมด Zip64**
+## **บันทึกการนำเสนอในรูปแบบ Office Open XML ในโหมด Zip64**
 
-ไฟล์ Office Open XML เป็นไฟล์ ZIP ที่กำหนดขีดจำกัด 4 GB (2^32 ไบต์) สำหรับขนาดที่ไม่บีบอัดของไฟล์ใดไฟล์หนึ่ง ขนาดบีบอัดของไฟล์ใดไฟล์หนึ่ง และขนาดรวมของไฟล์อาร์ไคฟ์เวอร์ รวมถึงจำกัดจำนวนไฟล์สูงสุดที่ 65 535 (2^16‑1) ไฟล์ ส่วนขยายรูปแบบ ZIP64 ขยายขีดจำกัดเหล่านี้เป็น 2^64
+ไฟล์ ZIP มาตรฐานจำกัดขนาดบีบอัดและขนาดไม่บีบอัดของแต่ละรายการ, ขนาดทั้งหมดของอาร์ไคฟ์, และจำนวนรายการ เนื่องจากไฟล์ PPTX เป็นอาร์ไคฟ์ ZIP, การนำเสนอที่มีขนาดใหญ่มากอาจเกินข้อจำกัดเหล่านี้ ส่วนขยาย ZIP64 จะยกข้อจำกัดขนาดและจำนวนรายการที่ใช้ได้
 
-เมธอด [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxoptions/#setZip64Mode) ให้คุณเลือกใช้ส่วนขยายรูปแบบ ZIP64 เมื่อบันทึกไฟล์ Office Open XML
+ใช้เมธอด [PptxOptions::setZip64Mode](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxoptions/#setZip64Mode) เพื่อควบคุมว่าการเขียน ZIP64 จะเปิดหรือไม่:
 
-เมธอดนี้สามารถใช้ได้กับโหมดต่อไปนี้:
+- [IfNecessary](https://reference.aspose.com/slides/th/php-java/aspose.slides/zip64mode/#IfNecessary) ใช้ ZIP64 เฉพาะเมื่อการนำเสนอเกินขีดจำกัด ZIP มาตรฐาน นี่คือโหมดเริ่มต้น
+- [Never](https://reference.aspose.com/slides/th/php-java/aspose.slides/zip64mode/#Never) ปิดการใช้ส่วนขยาย ZIP64
+- [Always](https://reference.aspose.com/slides/th/php-java/aspose.slides/zip64mode/#Always) เขียนส่วนขยาย ZIP64 เสมอ
 
-- [IfNecessary](https://reference.aspose.com/slides/th/php-java/aspose.slides/zip64mode/#IfNecessary) ใช้ส่วนขยายรูปแบบ ZIP64 เฉพาะเมื่อการนำเสนอเกินขีดจำกัดข้างต้น นี้คือโหมดเริ่มต้น
-- [Never](https://reference.aspose.com/slides/th/php-java/aspose.slides/zip64mode/#Never) ไม่เคยใช้ส่วนขยายรูปแบบ ZIP64
-- [Always](https://reference.aspose.com/slides/th/php-java/aspose.slides/zip64mode/#Always) ใช้ส่วนขยายรูปแบบ ZIP64 เสมอ
-
-โค้ดต่อไปนี้แสดงวิธีบันทึกงานนำเสนอเป็นไฟล์ PPTX พร้อมเปิดใช้งานส่วนขยายรูปแบบ ZIP64
+ตัวอย่างต่อไปนี้เปิดใช้งานส่วนขยาย ZIP64 อย่างต่อเนื่องสำหรับการนำเสนอเอาต์พุต:
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setZip64Mode(Zip64Mode::Always);
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\Zip64Mode;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("OutputZip64.pptx", SaveFormat::Pptx, $pptxOptions);
+    $options = new PptxOptions();
+    $options->setZip64Mode(Zip64Mode::Always);
+
+    $presentation->save("OutputZip64.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-เมื่อบันทึกด้วย [Zip64Mode.Never](https://reference.aspose.com/slides/th/php-java/aspose.slides/zip64mode/#Never) จะเกิดข้อยกเว้น [PptxException](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxexception/) หากไม่สามารถบันทึกงานนำเสนอในรูปแบบ ZIP32 ได้
+{{% alert color="warning" title="คำเตือน" %}}
+หากใช้ [Zip64Mode::Never](https://reference.aspose.com/slides/th/php-java/aspose.slides/zip64mode/#Never) และการนำเสนอไม่สามารถพอดีในขีดจำกัด ZIP มาตรฐาน, การบันทึกจะโยนข้อยกเว้น [PptxException](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxexception/).
 {{% /alert %}}
 
-## **บันทึกงานนำเสนอในรูปแบบ Office Open XML พร้อมระดับการบีบอัด**
+## **บันทึกการนำเสนอในรูปแบบ Office Open XML พร้อมระดับการบีบอัด**
 
-เมื่อทำงานกับงานนำเสนอขนาดใหญ่ คุณสามารถปรับระดับการบีบอัดเพื่อสมดุลระหว่างขนาดไฟล์และเวลาในการประมวลผล ขึ้นอยู่กับความต้องการของคุณ คุณอาจต้องการประมวลผลที่เร็วกว่า หรือไฟล์ผลลัพธ์ที่เล็กกว่า
+สำหรับเอาต์พุต PPTX, คุณสามารถปรับสมดุลระหว่างความเร็วในการบันทึกและขนาดไฟล์โดยใช้เมธอด [PptxOptions::setCompressionLevel](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxoptions/#setCompressionLevel) คลาส [CompressionLevel](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/) มีค่าดังนี้:
 
-Aspose.Slides มีเมธอด [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxoptions/#setCompressionLevel) ให้คุณระบุระดับการบีบอัดเมื่อบันทึกงานนำเสนอในรูปแบบ Office Open XML
+- [None](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#None) เก็บข้อมูลโดยไม่มีการบีบอัด
+- [Level1](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#Level1) ให้การบีบอัดที่เร็วที่สุดและผลลัพธ์ที่บีบอัดมากที่สุด
+- [Level2](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#Level2) ถึง [Level5](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#Level5) ให้ความสำคัญกับขนาดไฟล์ที่เล็กลงมากกว่าความเร็วในการบันทึก
+- [Level6](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#Level6) สมดุลระหว่างความเร็วและขนาดไฟล์ นี้คือระดับเริ่มต้น
+- [Level7](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#Level7) และ [Level8](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#Level8) ให้ความสำคัญกับขนาดไฟล์ที่เล็กลงต่อไป
+- [Level9](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#Level9) ให้การบีบอัดที่แรงที่สุดแต่ต้องใช้เวลาประมวลผลมากที่สุด
 
-ระดับการบีบอัดที่มีให้เลือก ได้แก่:
-
-- [**None**](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#None): ไม่บีบอัด ไฟล์จะถูกเก็บไว้ตามเดิม
-- [**Level1**](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#Level1): การบีบอัดที่เร็วที่สุดด้วยอัตราการบีบอัดต่ำที่สุด
-- [**Level2**](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#Level2): การบีบอัดที่เร็วกว่าโดยอัตราการบีบอัดดีกว่า **Level1** เล็กน้อย
-- [**Level3**](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#Level3): ให้การบีบอัดที่ดีกว่า **Level2** ด้วยผลกระทบต่อเวลาประมวลผลปานกลาง
-- [**Level4**](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#Level4): ให้การบีบอัดที่ดีกว่า **Level3**
-- [**Level5**](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#Level5): ปรับปรุงการบีบอัดเหนือ **Level4** โดยใช้เวลาประมวลผลเพิ่ม
-- [**Level6**](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#Level6): การบีบอัดมาตรฐานที่ให้สมดุลที่ดีระหว่างความเร็วและขนาดไฟล์ นี้คือ *ระดับการบีบอัดเริ่มต้น*
-- [**Level7**](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#Level7): ให้การบีบอัดที่ดีกว่า **Level6** แต่ประมวลผลช้ากว่า
-- [**Level8**](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#Level8): ให้การบีบอัดที่ดีกว่า **Level7**
-- [**Level9**](https://reference.aspose.com/slides/th/php-java/aspose.slides/compressionlevel/#Level9): การบีบอัดสูงสุด ให้ขนาดไฟล์ที่เล็กที่สุดแต่ใช้เวลาประมวลผลนานที่สุด
-
-ตัวอย่างต่อไปนี้แสดงวิธีบันทึกงานนำเสนอเป็นไฟล์ PPTX *โดยไม่มีการบีบอัด*:
+ตัวอย่างต่อไปนี้บันทึกการนำเสนอโดยไม่มีการบีบอัด:
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setCompressionLevel(CompressionLevel::None);
+use aspose\slides\CompressionLevel;
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("Sample-out.pptx", SaveFormat::Pptx, $pptxOptions);
+    $options = new PptxOptions();
+    $options->setCompressionLevel(CompressionLevel::None);
+
+    $presentation->save("OutputNoCompression.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-ตัวอย่างนี้แสดงวิธีบันทึกงานนำเสนอเป็นไฟล์ PPTX *ด้วยการบีบอัดสูงสุด*:
+ตัวอย่างต่อไปนี้ใช้ระดับการบีบอัดสูงสุด:
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setCompressionLevel(CompressionLevel::Level9);
+use aspose\slides\CompressionLevel;
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("Sample-level9.pptx", SaveFormat::Pptx, $pptxOptions);
+    $options = new PptxOptions();
+    $options->setCompressionLevel(CompressionLevel::Level9);
+
+    $presentation->save("OutputMaximumCompression.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **บันทึกงานนำเสนอโดยไม่รีเฟรชภาพตัวอย่าง**
+## **บันทึกการนำเสนอโดยไม่รีเฟรชภาพย่อ**
 
-เมธอด [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) ควบคุมการสร้างภาพตัวอย่างเมื่อบันทึกงานนำเสนอเป็น PPTX:
+เมื่อบันทึกการนำเสนอเป็น PPTX, เมธอด [PptxOptions::setRefreshThumbnail](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) จะควบคุมภาพย่อของเอกสาร:
 
-- หากตั้งค่าเป็น `true` ภาพตัวอย่างจะถูกรีเฟรชระหว่างการบันทึก นี่คือค่าเริ่มต้น
-- หากตั้งค่าเป็น `false` ภาพตัวอย่างปัจจุบันจะถูกเก็บไว้ หากงานนำเสนอไม่มีภาพตัวอย่าง จะไม่มีการสร้างภาพใหม่
+- `true` สร้างภาพย่อใหม่ระหว่างการบันทึก นี่คือค่าเริ่มต้น
+- `false` รักษาภาพย่อที่มีอยู่ หากการนำไม่มีภาพย่อ Aspose.Slides จะไม่สร้างภาพย่อ
 
-ในโค้ดด้านล่าง งานนำเสนอจะถูกบันทึกเป็น PPTX โดยไม่รีเฟรชภาพตัวอย่าง
+ตัวอย่างต่อไปนี้บันทึกการนำเสนอโดยไม่รีเฟรชภาพย่อ:
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setRefreshThumbnail(false);
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("Output.pptx", SaveFormat::Pptx, $pptxOptions);
-}
-finally {
+    $options = new PptxOptions();
+    $options->setRefreshThumbnail(false);
+
+    $presentation->save("Output.pptx", SaveFormat::Pptx, $options);
+} finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-ตัวเลือกนี้ช่วยลดเวลาที่ใช้ในการบันทึกงานนำเสนอในรูปแบบ PPTX
+{{% alert color="info" title="หมายเหตุ" %}}
+การปิดการรีเฟรชภาพย่อสามารถลดเวลาที่ใช้ในการบันทึกไฟล์ PPTX ได้
 {{% /alert %}}
 
-## **บันทึกความคืบหน้าเป็นเปอร์เซ็นต์**
+## **อัปเดตความคืบหน้าในการบันทึกเป็นเปอร์เซ็นต์**
 
-การรายงานความคืบหน้าในการบันทึกสามารถกำหนดค่าได้ผ่านเมธอด [setProgressCallback](https://reference.aspose.com/slides/th/php-java/aspose.slides/saveoptions/#setProgressCallback) ของคลาส [SaveOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/saveoptions/) และคลาสย่อยของมัน ให้ Java proxy ที่ทำการ implements อินเทอร์เฟซ [IProgressCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/iprogresscallback/) ระหว่างการส่งออก คอลแบ็คจะได้รับการอัปเดตเปอร์เซ็นต์เป็นช่วง ๆ
+เพื่อเฝ้าติดตามกระบวนการบันทึก, จัดหาโปรกซี Java ที่ implements อินเทอร์เฟซ [IProgressCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/iprogresscallback/) แล้วส่งโปรกซีไปยังเมธอด [SaveOptions::setProgressCallback](https://reference.aspose.com/slides/th/php-java/aspose.slides/saveoptions/#setProgressCallback) Aspose.Slides จะเรียกเมธอด [IProgressCallback::reporting](https://reference.aspose.com/slides/th/java/com.aspose.slides/iprogresscallback/#reporting-double-) พร้อมค่าความคืบหน้าในระหว่างการส่งออก
 
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีใช้ `IProgressCallback`
+ตัวอย่างต่อไปนี้แสดงความคืบหน้าของการส่งออก PDF ไปยังคอนโซล:
 
 ```php
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 class ExportProgressHandler {
     function reporting($progressValue) {
-        // ใช้ค่าร้อยละของความคืบหน้าในที่นี้.
         $progress = java("java.lang.Double")->valueOf($progressValue)->intValue();
-        echo($progress . "% of the file has been converted.");
+        echo($progress . "% of the file has been converted." . PHP_EOL);
     }
 }
 
 $progressHandler = java_closure(new ExportProgressHandler(), null, java("com.aspose.slides.IProgressCallback"));
 
-$saveOptions = new PdfOptions();
-$saveOptions->setProgressCallback($progressHandler);
+$options = new PdfOptions();
+$options->setProgressCallback($progressHandler);
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("Output.pdf", SaveFormat::Pdf, $saveOptions);
+    $presentation->save("Output.pdf", SaveFormat::Pdf, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose ได้พัฒนาแอปพลิเคชัน [free PowerPoint Splitter app](https://products.aspose.app/slides/th/splitter) ด้วย API ของตนเอง แอปนี้ช่วยให้คุณแยกงานนำเสนอเป็นหลายไฟล์โดยบันทึกสไลด์ที่เลือกเป็นไฟล์ PPTX หรือ PPT ใหม่
+{{% alert color="info" title="หมายเหตุ" %}}
+Aspose มีเครื่องมือฟรี [PowerPoint Splitter](https://products.aspose.app/slides/th/splitter) ที่สร้างด้วย API ของ Aspose.Slides มันบันทึกสไลด์ที่เลือกจากการนำเสนอเป็นไฟล์ PPT หรือ PPTX แยกกัน
 {{% /alert %}}
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**“fast save” (การบันทึกแบบเพิ่ม) รองรับให้บันทึกเฉพาะการเปลี่ยนแปลงหรือไม่?**
+**Aspose.Slides รองรับการบันทึกแบบ incremental หรือ “fast save” หรือไม่?**
 
-ไม่มี การบันทึกจะสร้างไฟล์เป้าหมายเต็มรูปแบบทุกครั้ง; การบันทึกแบบ “fast save” แบบเพิ่มไม่ได้รับการสนับสนุน
+ไม่รองรับ การบันทึกแต่ละครั้งจะเขียนไฟล์เอาต์พุตเต็มแทนการอัปเดตเฉพาะส่วนที่เปลี่ยนแปลง
 
-**การบันทึกอินสแตนซ์ Presentation เดียวจากหลายเธรดทำได้อย่างปลอดภัยหรือไม่?**
+**หลายเธรดสามารถบันทึกอินสแตนซ์ Presentation เดียวกันได้หรือไม่?**
 
-ไม่ได้ อินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) **ไม่ปลอดภัยต่อหลายเธรด** (/slides/th/php-java/multithreading/) ควรบันทึกจากเธรดเดียว
+ไม่ได้ อินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) **ไม่ปลอดภัยต่อเธรด** (/slides/th/php-java/multithreading/) ควรเข้าถึงและบันทึกแต่ละอินสแตนซ์จากเธรดเดียวเท่านั้น
 
-**ลิงก์ไฮเปอร์ลิงก์และไฟล์ที่ลิงก์ภายนอกจะเกิดอะไรขึ้นเมื่อบันทึก?**
+**จะเกิดอะไรขึ้นกับไฮเปอร์ลิงก์และไฟล์ที่ลิงก์ภายนอกเมื่อบันทึกการนำเสนอ?**
 
-[Hyperlinks](/slides/th/php-java/manage-hyperlinks/) จะถูกเก็บไว้ ไฟล์ที่ลิงก์ภายนอก (เช่นวิดีโอที่อ้างอิงด้วยเส้นทางสัมพัทธ์) จะไม่ถูกคัดลึกโดยอัตโนมัติ—ต้องตรวจสอบให้เส้นทางที่อ้างอิงยังเข้าถึงได้
+[Hyperlinks](/slides/th/php-java/manage-hyperlinks/) จะคงอยู่ในการนำเสนอ Aspose.Slides ไม่ทำการคัดลอกไฟล์ที่ลิงก์ภายนอก ดังนั้นการนำเสนอที่บันทึกแล้วยังต้องสามารถเข้าถึงตำแหน่งไฟล์เหล่านั้นได้
 
-**ฉันสามารถตั้งค่าหรือบันทึกเมตาดาต้าเอกสาร (ผู้เขียน, ชื่อเรื่อง, บริษัท, วันที่) ได้หรือไม่?**
+**ฉันสามารถบันทึกเมตาดาต้าเอกสาร เช่น ผู้เขียน, ชื่อเรื่อง, บริษัท, และวันที่สร้างได้หรือไม่?**
 
-ได้ คุณสมบัติเพิ่มเติมของเอกสารมาตรฐาน [/slides/th/php-java/presentation-properties/] จะได้รับการสนับสนุนและจะถูกเขียนลงในไฟล์เมื่อบันทึก
+ได้ ตั้งค่า [document properties](/slides/th/php-java/presentation-properties/) ที่เหมาะสมก่อนบันทึก แล้ว Aspose.Slides จะเขียนข้อมูลเหล่านั้นลงในไฟล์เอาต์พุต

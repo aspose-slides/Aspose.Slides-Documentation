@@ -1,5 +1,5 @@
 ---
-title: Otevření prezentací v PHP
+title: Otevírání prezentací v PHP
 linktitle: Otevřít prezentaci
 type: docs
 weight: 20
@@ -20,17 +20,19 @@ keywords:
 - binární objekt
 - PHP
 - Aspose.Slides
-description: "Naučte se, jak v PHP otevírat prezentace PowerPoint a OpenDocument, zadávat otevírací hesla, řídit načítání zdrojů a snižovat využití paměti pomocí Aspose.Slides pro PHP via Java."
+description: "Naučte se, jak v PHP otevírat prezentace PowerPoint a OpenDocument, zadávat otevírací hesla, řídit načítání zdrojů a snižovat využití paměti pomocí Aspose.Slides pro PHP přes Java."
 ---
 ## **Úvod**
 
-[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/cs/php-java/) může načítat prezentace PowerPoint a OpenDocument ze souborů a streamů. Po načtení prezentace můžete prozkoumat její strukturu, upravovat snímky, spravovat zdroje a uložit ji v původním nebo jiném podporovaném formátu.
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/cs/php-java/) může načíst prezentace PowerPoint a OpenDocument ze souborů a streamů. Po načtení prezentace můžete prozkoumat její strukturu, upravovat snímky, spravovat zdroje a uložit ji v původním nebo jiném podporovaném formátu.
 
-Chování načítání lze přizpůsobit pomocí třídy [LoadOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/loadoptions/) . Například můžete zadat otevírací heslo, uchovávat velké binární objekty mimo paměť haldy Java, řídit externí zdroje nebo vynechat vložená binární data.
+Chování načítání lze přizpůsobit pomocí třídy [LoadOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/loadoptions/). Například můžete zadat otevírací heslo, uchovávat velké binární objekty mimo paměť haldy Java, řídit externí zdroje nebo vynechat vložená binární data.
 
 ## **Otevření prezentací**
 
-Chcete-li otevřít existující prezentaci, předáte její cestu k souboru konstruktoru [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) . Po použití prezentaci uvolněte, aby byly souborové handly, dočasná data a další zdroje rychle uvolněny.
+Po načtení souboru nebo streamu můžete [zjistit jeho původní formát prezentace](/slides/cs/php-java/detect-presentation-source-format/), abyste si vybrali, jak vaší aplikaci s ním zacházet.
+
+Pro otevření existující prezentace předáte její cestu k souboru do konstruktoru [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/). Po použití prezentaci uvolněte, aby byly souborové handly, dočasná data a další prostředky rychle uvolněny.
 
 Následující příklad v PHP ukazuje, jak otevřít prezentaci a získat počet snímků:
 
@@ -47,7 +49,7 @@ try {
 
 ## **Otevření heslem chráněných prezentací**
 
-Otevírací heslo šifruje obsah prezentace. Pro načtení celé prezentace předáte správné heslo metodě [LoadOptions::setPassword](https://reference.aspose.com/slides/cs/php-java/aspose.slides/loadoptions/#setPassword) a poskytnete možnosti konstruktoru [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) . Načtení selže, pokud heslo chybí nebo je nesprávné.
+Otevírací heslo šifruje obsah prezentace. Pro načtení celé prezentace předáte správné heslo metodě [LoadOptions::setPassword](https://reference.aspose.com/slides/cs/php-java/aspose.slides/loadoptions/#setPassword) a poskytnete tyto možnosti konstruktoru [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/). Načítání selže, když heslo chybí nebo je nesprávné.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -64,11 +66,11 @@ try {
 }
 ```
 
-Pro detekci hesla, ověřování a šifrovací pracovní postupy viz [Password-Protect Presentations](/slides/cs/php-java/password-protected-presentation/). Pokud byla šifrovaná prezentace úmyslně uložena s veřejnými vlastnostmi dokumentu, lze tyto vlastnosti číst bez hesla; viz [Manage Presentation Properties](/slides/cs/php-java/presentation-properties/).
+Pro detekci hesla, validaci a šifrovací pracovní toky viz [Password-Protect Presentations](/slides/cs/php-java/password-protected-presentation/). Pokud byla šifrovaná prezentace úmyslně uložena s veřejnými vlastnostmi dokumentu, lze tyto vlastnosti přečíst bez hesla; viz [Manage Presentation Properties](/slides/cs/php-java/presentation-properties/).
 
 ## **Otevření velkých prezentací**
 
-[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) vrací možnosti, které řídí, jak Aspose.Slides zachází s velkými binárními objekty, jako jsou obrázky, audio a video. Můžete nechat zdrojový soubor zamčený, povolit dočasné soubory a omezit množství BLOB dat uchovávaných v paměti.
+[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) vrací možnosti, které řídí, jak Aspose.Slides zachází s binárními velkými objekty, jako jsou obrázky, audio a video. Můžete uchovat zdrojový soubor uzamčený, povolit dočasné soubory a omezit množství BLOB dat uchovávaných v paměti.
 
 Následující kód v PHP demonstruje načtení velké prezentace (například 2 GB):
 
@@ -95,14 +97,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-S [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked) zůstane zdrojový soubor zamčený, dokud není instance prezentace uvolněna. Nepřesouvejte, nepřepisujte ani neodstraňujte zdrojový soubor, dokud je tato instance aktivní.
+S [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked) zůstává zdrojový soubor uzamčený, dokud není instance prezentace uvolněna. Nepřesouvejte, nepřepisujte ani neodstraňujte zdrojový soubor, dokud je tato instance aktivní.
 
-Aspose.Slides může během načítání kopírovat obsah vstupního streamu. U velkých prezentací je proto cesta k souboru obecně efektivnější než stream. Viz [Manage BLOBs](/slides/cs/php-java/manage-blob/) pro další možnosti úložiště a správy paměti.
+Aspose.Slides může během načítání kopírovat obsah vstupního streamu. U velkých prezentací je proto cesta k souboru obecně efektivnější než stream. Další možnosti úložiště a správy paměti naleznete v [Manage BLOBs](/slides/cs/php-java/manage-blob/).
 {{% /alert %}}
 
 ## **Řízení externích zdrojů**
 
-[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/cs/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) přijímá implementaci rozhraní Java [IResourceLoadingCallback](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iresourceloadingcallback/) prostřednictvím PHP/Java Bridge. Callback může poskytnout náhradní data, přesměrovat zdroj, použít výchozí načítač nebo zdroj přeskočit. To je užitečné, když prezentace obsahují externí obrázky, které je třeba vyřešit podle specifických bezpečnostních nebo úložných pravidel aplikace.
+[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/cs/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) přijímá implementaci rozhraní Java [IResourceLoadingCallback](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iresourceloadingcallback/) prostřednictvím PHP/Java Bridge. Callback může poskytnout náhradní data, přesměrovat zdroj, použít výchozí načítač nebo zdroj přeskočit. To je užitečné, když prezentace obsahují externí obrázky, které musí být řešeny podle specifických bezpečnostních nebo úložných pravidel aplikace.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -145,15 +147,15 @@ try {
 
 ## **Načtení prezentací bez vložených binárních objektů**
 
-Prezentace může obsahovat vložená binární data, která aplikace nepotřebuje nebo si nepřeje zachovat. Příklady zahrnují:
+Prezentace může obsahovat vložená binární data, která aplikace nepotřebuje nebo nechce uchovávat. Příklady zahrnují:
 
-- projekty VBA, dostupné prostřednictvím [Presentation::getVbaProject](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/#getVbaProject);
-- vložená data OLE, dostupná prostřednictvím [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/cs/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
-- data ovládacích prvků ActiveX, dostupná prostřednictvím [Control::getActiveXControlBinary](https://reference.aspose.com/slides/cs/php-java/aspose.slides/control/#getActiveXControlBinary).
+- VBA projekty, dostupné přes [Presentation::getVbaProject](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/#getVbaProject);
+- vložená OLE data, dostupná přes [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/cs/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- data ovládacích prvků ActiveX, dostupná přes [Control::getActiveXControlBinary](https://reference.aspose.com/slides/cs/php-java/aspose.slides/control/#getActiveXControlBinary).
 
-Nastavte [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/cs/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) na `true`, aby se během načítání odstranila tato binární data. Uložte načtenou prezentaci, aby se zachoval sanitovaný výsledek.
+Nastavte [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/cs/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) na `true`, aby se během načítání tato binární data odstranila. Uložte načtenou prezentaci, aby byl sanitovaný výsledek zachován.
 
-Tato možnost snižuje vystavení nežádoucím vloženým nákladům, ale nejedná se o kompletní systém detekce škodlivého softwaru nebo sanitace obsahu.
+Tato možnost snižuje riziko nežádoucích vložených payloadů, ale nejedná se o kompletní systém pro detekci malware či sanitaci obsahu.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -171,16 +173,16 @@ try {
 }
 ```
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Jak mohu poznat, že soubor je poškozený a nelze jej otevřít?**
+**Jak zjistím, že je soubor poškozený a nelze jej otevřít?**
 
-Aspose.Slides během načítání vyhodí výjimku při parsování nebo formátu. Ošetřete toto selhání samostatně od chyby nesprávného hesla, aby aplikace mohla přesně nahlásit příčinu.
+Aspose.Slides během načítání vyhodí výjimku při parsování nebo formátu. Tento selhání ošetřete odděleně od chyby nesprávného hesla, aby aplikace mohla přesně oznámit příčinu.
 
-**Co se stane, pokud chybí požadovaná písma?**
+**Co se stane, když chybí požadovaná písma?**
 
-Prezentace se může stále načíst, ale při vykreslování a exportu může dojít k nahrazení písem. Můžete [configure font substitution](/slides/cs/php-java/font-substitution/) nebo [provide custom fonts](/slides/cs/php-java/custom-font/) pro zajištění předvídatelnějšího výstupu.
+Prezentace se může i přesto načíst, ale při vykreslování a exportu mohou být písma nahrazena. Můžete [nastavit substituci písem](/slides/cs/php-java/font-substitution/) nebo [poskytnout vlastní písma](/slides/cs/php-java/custom-font/), aby byl výstup předvídatelnější.
 
-**Načítá se při načítání prezentace také její vložená média?**
+**Načítá načtení prezentace také její vložená média?**
 
-Vložené audio a video jsou dostupné prostřednictvím objektového modelu prezentace. Externí zdroje jsou řešeny podle nakonfigurovaného chování načítání zdrojů a mohou být nedostupné, pokud jejich umístění není přístupné.
+Vložený audio a video jsou dostupné prostřednictvím objektového modelu prezentace. Externí zdroje jsou řešeny podle nastaveného chování načítání zdrojů a mohou být nedostupné, pokud nelze jejich umístění přistupovat.

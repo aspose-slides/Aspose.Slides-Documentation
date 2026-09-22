@@ -1,6 +1,6 @@
 ---
-title: Zapisywanie prezentacji w C++
-linktitle: Zapisz prezentację
+title: Zapis prezentacji w C++
+linktitle: Zapis prezentacji
 type: docs
 weight: 80
 url: /pl/cpp/save-presentation/
@@ -14,45 +14,109 @@ keywords:
 - zapisz ODP
 - prezentacja do pliku
 - prezentacja do strumienia
-- wstępnie określony typ widoku
+- zdefiniowany typ widoku
 - Ścisły format Office Open XML
 - tryb Zip64
-- odświeżanie miniaturki
-- zapis postępu
+- odświeżanie miniatury
+- postęp zapisu
 - C++
 - Aspose.Slides
-description: "Dowiedz się, jak zapisywać prezentacje w C++ przy użyciu Aspose.Slides — eksportuj do PowerPoint lub OpenDocument, zachowując układy, czcionki i efekty."
+description: "Zapisz prezentacje PowerPoint i OpenDocument do plików lub strumieni w C++ przy użyciu Aspose.Slides oraz skonfiguruj wyjście PPTX i raportowanie postępu."
 ---
 ## **Przegląd**
 
-[Open Presentations in C++](/slides/pl/cpp/open-presentation/) opisuje, jak używać klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) do otwarcia prezentacji. Ten artykuł wyjaśnia, jak tworzyć i zapisywać prezentacje. Klasa [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) zawiera zawartość prezentacji. Niezależnie od tego, czy tworzysz prezentację od podstaw, czy modyfikujesz istniejącą, będziesz chciał ją zapisać po zakończeniu. Z Aspose.Slides for C++ możesz zapisać ją do **pliku** lub **strumienia**. Ten artykuł opisuje różne sposoby zapisywania prezentacji.
+Po utworzeniu prezentacji lub [otwarciu istniejącej](/slides/pl/cpp/open-presentation/), użyj metody [Presentation::Save](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/save/), aby zapisać wynik. Aspose.Slides for C++ może zapisać prezentację do pliku lub strumienia w formatach PowerPoint, OpenDocument, PDF i innych. Poniższe sekcje opisują standardowe operacje zapisu oraz dostępne opcje wyjścia PPTX.
 
-## **Zapisywanie prezentacji do plików**
+## **Zapis prezentacji do plików**
 
-Zapisz prezentację do pliku, wywołując metodę `Save` klasy Presentation. Przekaż nazwę pliku i format zapisu do metody. Poniższy przykład pokazuje, jak zapisać prezentację przy użyciu Aspose.Slides.
+Aby zapisać prezentację do pliku, przekaż ścieżkę wyjściową oraz wartość [SaveFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/saveformat/) metodzie [Presentation::Save](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/save/). Wartość formatu określa typ pliku tworzonego przez Aspose.Slides.
+
+Poniższy przykład tworzy prezentację i zapisuje ją jako plik PPTX:
 
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
 auto presentation = MakeObject<Presentation>();
 
-// Wykonaj tutaj pewne operacje...
+// Dodaj lub zmodyfikuj zawartość prezentacji tutaj.
 
-// Zapisz prezentację do pliku.
 presentation->Save(u"Output.pptx", SaveFormat::Pptx);
-
 presentation->Dispose();
 ```
 
-## **Zapisywanie prezentacji do strumieni**
+## **Zapis prezentacji w ich oryginalnym formacie**
 
-Możesz zapisać prezentację do strumienia, przekazując strumień wyjściowy do metody `Save` klasy Presentation. Prezentację można zapisać w wielu typach strumieni. W poniższym przykładzie tworzymy nową prezentację i zapisujemy ją do strumienia pliku.
+Aby poznać przykłady wykrywania formatu pliku i strumienia, zachowanie nowo utworzonych prezentacji oraz różnicę między formatem źródłowym a wyjściowym, zobacz [Determine the Original Presentation Format](/slides/pl/cpp/detect-presentation-source-format/).
+
+W aplikacji przetwarzającej wsadowo format wejściowy może nie być znany z góry. Po załadowaniu pliku odczytaj jego oryginalny format przy użyciu [IPresentation::get_SourceFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipresentation/get_sourceformat/). Przekaż otrzymaną wartość [SourceFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/sourceformat/) do [SlideUtil::ToSaveFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides.util/slideutil/tosaveformat/), aby uzyskać odpowiadającą wartość [SaveFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/saveformat/), a następnie użyj [Presentation::Save](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/save/) do zapisania zmodyfikowanej prezentacji.
+
+Poniższy kompletny przykład przetwarza każdy plik w katalogu wejściowym, aktualizuje jego tytuł i zapisuje go do katalogu wyjściowego w formacie, z którego został wczytany:
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/exception.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Util;
+using namespace System;
+using namespace System::IO;
+
+String inputDirectory = u"Input";
+String outputDirectory = u"Output";
+
+Directory::CreateDirectory_(outputDirectory);
+
+auto inputPaths = Directory::GetFiles(inputDirectory);
+for (const auto& inputPath : inputPaths)
+{
+    try
+    {
+        auto presentation = MakeObject<Presentation>(inputPath);
+
+        auto sourceFormat = presentation->get_SourceFormat();
+        auto saveFormat = SlideUtil::ToSaveFormat(sourceFormat);
+
+        presentation->get_DocumentProperties()->set_Title(u"Processed by the batch application");
+
+        auto outputPath = Path::Combine(outputDirectory, Path::GetFileName(inputPath));
+        presentation->Save(outputPath, saveFormat);
+        presentation->Dispose();
+    }
+    catch (ArgumentException& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Cannot map the source format of '{0}': {1}", inputPath, exception->get_Message()));
+    }
+    catch (Exception& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Cannot process '{0}': {1}", inputPath, exception->get_Message()));
+    }
+}
+```
+
+`SlideUtil::ToSaveFormat` mapuje PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP oraz PowerPoint XML na ich odpowiednie formaty zapisu prezentacji. Mapuje wyłącznie formaty źródłowe prezentacji; nie służy do wyboru formatów eksportu takich jak PDF, HTML, TIFF czy obrazy. Przekazanie nieobsługiwanego lub nieprawidłowego wartości [SourceFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/sourceformat/) skutkuje zgłoszeniem [ArgumentException](https://reference.aspose.com/slides/pl/cpp/system/argumentexception/).
+
+Starsze pliki PPT, PPS i POT używają tego samego kontenera binarnego. Gdy taka prezentacja jest ładowana ze strumienia bez rozszerzenia pliku, plik PPS lub POT może zostać rozpoznany jako PPT. Jeśli wymagane jest zachowanie tych starszych podtypów, zachowaj oryginalną nazwę pliku lub metadane formatu osobno i użyj ich przy wyborze nazwy i formatu wyjściowego.
+
+## **Zapis prezentacji do strumieni**
+
+Aby zapisać prezentację bez korzystania z ostatecznej ścieżki pliku, przekaż zapisywalny [Stream](https://reference.aspose.com/slides/pl/cpp/system.io/stream/) oraz wartość [SaveFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/saveformat/) metodzie [Presentation::Save](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/save/). To podejście jest przydatne, gdy wynik ma zostać zwrócony z usługi internetowej, zapisany w bazie danych lub przetworzony w pamięci.
+
+Poniższy przykład zapisuje nową prezentację do strumienia pliku:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -60,26 +124,26 @@ Możesz zapisać prezentację do strumienia, przekazując strumień wyjściowy d
 #include <system/io/file_mode.h>
 #include <system/io/file_stream.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::IO;
 
-// Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
 auto presentation = MakeObject<Presentation>();
+auto outputStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
 
-auto fileStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
+presentation->Save(outputStream, SaveFormat::Pptx);
 
-// Zapisz prezentację do strumienia.
-presentation->Save(fileStream, SaveFormat::Pptx);
-
+outputStream->Close();
 presentation->Dispose();
-fileStream->Close();
 ```
 
-## **Zapisywanie prezentacji z określonym typem widoku**
+## **Zapis prezentacji z określonym typem widoku**
 
-Aspose.Slides pozwala ustawić początkowy widok, którego PowerPoint używa po otwarciu wygenerowanej prezentacji, za pomocą klasy ViewProperties. Użyj metody set_LastView z wartością z enumeracji ViewType.
+Możesz określić widok, w którym PowerPoint otwiera zapisany plik początkowo. Wywołaj [ViewProperties::set_LastView](https://reference.aspose.com/slides/pl/cpp/aspose.slides/viewproperties/set_lastview/) z wartością [ViewType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/viewtype/) przed zapisem.
+
+Poniższy przykład konfiguruje widok Slide Master jako widok początkowy:
 
 ```cpp
 #include <DOM/IViewProperties.h>
@@ -87,6 +151,7 @@ Aspose.Slides pozwala ustawić początkowy widok, którego PowerPoint używa po 
 #include <Export/SaveFormat.h>
 #include <ViewType.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
@@ -94,16 +159,14 @@ using namespace System;
 auto presentation = MakeObject<Presentation>();
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
-
 presentation->Save(u"SlideMasterView.pptx", SaveFormat::Pptx);
+
 presentation->Dispose();
 ```
 
-## **Zapisywanie prezentacji w ścisłym formacie Office Open XML**
+## **Zapis prezentacji w ścisłym formacie Office Open XML**
 
-Aspose.Slides umożliwia zapisanie prezentacji w ścisłym formacie Office Open XML. Użyj klasy PptxOptions i ustaw jej właściwość conformance podczas zapisywania. Jeśli ustawisz `Conformance.Iso29500_2008_Strict`, plik wyjściowy zostanie zapisany w ścisłym formacie Office Open XML.
-
-Poniższy przykład tworzy prezentację i zapisuje ją w ścisłym formacie Office Open XML.
+Aby utworzyć plik PPTX zgodny ze ścisłym profilem Office Open XML, utwórz instancję [PptxOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/pptxoptions/) i wywołaj [PptxOptions::set_Conformance](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/pptxoptions/set_conformance/) z wartością `Conformance::Iso29500_2008_Strict`. Następnie przekaż te opcje metodzie [Presentation::Save](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/save/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -111,6 +174,7 @@ Poniższy przykład tworzy prezentację i zapisuje ją w ścisłym formacie Offi
 #include <Export/PptxOptions.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
@@ -118,27 +182,23 @@ using namespace System;
 auto options = MakeObject<PptxOptions>();
 options->set_Conformance(Conformance::Iso29500_2008_Strict);
 
-// Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
 auto presentation = MakeObject<Presentation>();
 
-// Zapisz prezentację w ścisłym formacie Office Open XML.
 presentation->Save(u"StrictOfficeOpenXml.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-## **Zapisywanie prezentacji w formacie Office Open XML w trybie Zip64**
+## **Zapis prezentacji w formacie Office Open XML w trybie Zip64**
 
-Plik Office Open XML jest archiwum ZIP, które narzuca limity 4 GB (2^32 bajtów) na nieskompresowany rozmiar dowolnego pliku, skompresowany rozmiar dowolnego pliku oraz całkowity rozmiar archiwum, a także ogranicza archiwum do 65 535 (2^16‑1) plików. Rozszerzenia formatu ZIP64 podnoszą te limity do 2^64.
+Standardowe archiwum ZIP ogranicza rozmiar skompresowanego i nieskompresowanego wpisu, łączny rozmiar archiwum oraz liczbę wpisów. Ponieważ plik PPTX jest archiwum ZIP, bardzo duża prezentacja może przekroczyć te limity. Rozszerzenia ZIP64 podnoszą obowiązujące limity rozmiaru i liczby wpisów.
 
-Metoda IPptxOptions::set_Zip64Mode pozwala wybrać, kiedy używać rozszerzeń formatu ZIP64 podczas zapisywania pliku Office Open XML.
+Użyj [PptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/pptxoptions/set_zip64mode/), aby kontrolować, czy Aspose.Slides zapisuje rozszerzenia ZIP64:
 
-Ta metoda może być użyta z następującymi trybami:
+- `IfNecessary` używa ZIP64 tylko wtedy, gdy prezentacja przekracza standardowe limity ZIP. To tryb domyślny.  
+- `Never` wyłącza rozszerzenia ZIP64.  
+- `Always` zawsze zapisuje rozszerzenia ZIP64.  
 
-- `IfNecessary` używa rozszerzeń ZIP64 tylko wtedy, gdy prezentacja przekracza powyższe ograniczenia. Jest to tryb domyślny.
-- `Never` nigdy nie używa rozszerzeń ZIP64.
-- `Always` zawsze używa rozszerzeń ZIP64.
-
-Poniższy kod demonstruje, jak zapisać prezentację jako plik PPTX z włączonymi rozszerzeniami formatu ZIP64:
+Poniższy przykład zawsze włącza rozszerzenia ZIP64 dla wyjściowej prezentacji:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -146,43 +206,36 @@ Poniższy kod demonstruje, jak zapisać prezentację jako plik PPTX z włączony
 #include <Export/SaveFormat.h>
 #include <Export/Zip64Mode.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_Zip64Mode(Zip64Mode::Always);
-
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, pptxOptions);
+auto options = MakeObject<PptxOptions>();
+options->set_Zip64Mode(Zip64Mode::Always);
+
+presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Gdy zapisujesz z `Zip64Mode.Never`, zostaje zgłoszony PptxException, jeśli prezentacji nie można zapisać w formacie ZIP32.
+{{% alert color="warning" title="Ostrzeżenie" %}}
+Jeśli `Zip64Mode` jest ustawiony na `Never` i prezentacja nie mieści się w standardowych limitach ZIP, operacja zapisu zgłasza [PptxException](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pptxexception/).
 {{% /alert %}}
 
-## **Zapisywanie prezentacji w formacie Office Open XML z poziomami kompresji**
+## **Zapis prezentacji w formacie Office Open XML z poziomami kompresji**
 
-Podczas pracy z dużymi prezentacjami możesz dostosować poziom kompresji, aby zrównoważyć rozmiar pliku i czas przetwarzania. W zależności od wymagań możesz preferować szybsze przetwarzanie lub mniejsze pliki wyjściowe.
+Dla wyjścia PPTX możesz wyważyć szybkość zapisu względem rozmiaru pliku, wywołując [PptxOptions::set_CompressionLevel](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/pptxoptions/set_compressionlevel/). Wyliczenie [CompressionLevel](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/compressionlevel/) oferuje następujące wartości:
 
-Aspose.Slides udostępnia metodę PptxOptions::set_CompressionLevel, która pozwala określić poziom kompresji używany przy zapisywaniu prezentacji w formacie Office Open XML.
+- `None` przechowuje dane bez kompresji.  
+- `Level1` zapewnia najszybszą kompresję i największy skompresowany rozmiar.  
+- `Level2` do `Level5` stopniowo faworyzują mniejszy rozmiar wyjściowy kosztem szybkości zapisu.  
+- `Level6` równoważy szybkość zapisu i rozmiar pliku. To domyślny poziom.  
+- `Level7` i `Level8` jeszcze bardziej faworyzują mniejszy rozmiar kosztem szybkości.  
+- `Level9` zapewnia najsilniejszą kompresję i wymaga najwięcej czasu przetwarzania.  
 
-Dostępne poziomy kompresji:
-
-- **None**: Nie stosuje się kompresji. Pliki są przechowywane w niezmienionej formie.
-- **Level1:** Najszybsza kompresja przy najniższym współczynniku kompresji.
-- **Level2:** Szybsza kompresja z nieco lepszym współczynnikiem niż **Level1**.
-- **Level3:** Lepsza kompresja niż **Level2**, przy umiarkowanym wpływie na czas przetwarzania.
-- **Level4:** Lepsza kompresja niż **Level3**.
-- **Level5:** Ulepszona kompresja w stosunku do **Level4**, przy dodatkowym czasie przetwarzania.
-- **Level6:** Standardowa kompresja zapewniająca dobrą równowagę między szybkością przetwarzania a rozmiarem pliku. To jest *domyślny poziom kompresji*.
-- **Level7:** Lepsza kompresja niż **Level6**, przy wolniejszym przetwarzaniu.
-- **Level8:** Lepsza kompresja niż **Level7**.
-- **Level9:** Maksymalna kompresja. Produkuje najmniejszy rozmiar pliku kosztem najdłuższego czasu przetwarzania.
-
-Poniższy przykład demonstruje, jak zapisać prezentację jako plik PPTX *bez kompresji*:
+Poniższy przykład zapisuje prezentację bez kompresji:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -191,21 +244,20 @@ Poniższy przykład demonstruje, jak zapisać prezentację jako plik PPTX *bez k
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
 
-using Aspose::Slides::Export::CompressionLevel;
-using Aspose::Slides::Export::PptxOptions;
-using Aspose::Slides::Export::SaveFormat;
-using Aspose::Slides::Presentation;
-using System::MakeObject;
-
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_CompressionLevel(CompressionLevel::None);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
-presentation->Save(u"Sample-out.pptx", SaveFormat::Pptx, pptxOptions);
+
+auto options = MakeObject<PptxOptions>();
+options->set_CompressionLevel(CompressionLevel::None);
+
+presentation->Save(u"OutputNoCompression.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-Ten przykład pokazuje, jak zapisać prezentację jako plik PPTX z *maksymalną kompresją*:
+Poniższy przykład używa maksymalnego poziomu kompresji:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -214,75 +266,57 @@ Ten przykład pokazuje, jak zapisać prezentację jako plik PPTX z *maksymalną 
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
 
-using Aspose::Slides::Export::CompressionLevel;
-using Aspose::Slides::Export::PptxOptions;
-using Aspose::Slides::Export::SaveFormat;
-using Aspose::Slides::Presentation;
-using System::MakeObject;
-
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_CompressionLevel(CompressionLevel::Level9);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
-presentation->Save(u"Sample-level9.pptx", SaveFormat::Pptx, pptxOptions);
+
+auto options = MakeObject<PptxOptions>();
+options->set_CompressionLevel(CompressionLevel::Level9);
+
+presentation->Save(u"OutputMaximumCompression.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-## **Zapisywanie prezentacji bez odświeżania miniaturki**
+## **Zapis prezentacji bez odświeżania miniatury**
 
-Metoda PptxOptions::set_RefreshThumbnail kontroluje generowanie miniaturki przy zapisywaniu prezentacji do PPTX:
+Podczas zapisu prezentacji jako PPTX, metoda [PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) steruje miniaturą dokumentu:
 
-- Jeśli ustawiona na `true`, miniaturka jest odświeżana podczas zapisu. Jest to ustawienie domyślne.
-- Jeśli ustawiona na `false`, obecna miniaturka jest zachowana. Jeśli prezentacja nie ma miniaturki, nie zostanie wygenerowana.
+- `true` regeneruje miniaturę podczas operacji zapisu. To wartość domyślna.  
+- `false` zachowuje istniejącą miniaturę. Jeśli prezentacja nie ma miniatury, Aspose.Slides nie generuje jej.  
 
-W poniższym kodzie prezentacja jest zapisywana do PPTX bez odświeżania miniaturki.
+Poniższy przykład zapisuje prezentację bez odświeżania miniatury:
 
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/PptxOptions.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_RefreshThumbnail(false);
-
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx, pptxOptions);
+auto options = MakeObject<PptxOptions>();
+options->set_RefreshThumbnail(false);
+
+presentation->Save(u"Output.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
-Ta opcja pomaga skrócić czas potrzebny do zapisania prezentacji w formacie PPTX.
+{{% alert color="info" title="Uwaga" %}}
+Wyłączenie odświeżania miniatury może skrócić czas potrzebny na zapis pliku PPTX.
 {{% /alert %}}
 
-## **Zapisywanie postępu w procentach**
+## **Zapisywanie aktualizacji postępu w procentach**
 
-Interfejs IProgressCallback jest używany poprzez metodę `set_ProgressCallback` udostępnioną przez interfejs ISaveOptions oraz abstrakcyjną klasę SaveOptions. Przypisz implementację IProgressCallback przy użyciu `set_ProgressCallback`, aby otrzymywać aktualizacje postępu zapisu w procentach.
+Aby monitorować operację zapisu, zaimplementuj interfejs [IProgressCallback](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iprogresscallback/) i przekaż implementację do [ISaveOptions::set_ProgressCallback](https://reference.aspose.com/slides/pl/cpp/aspose.slides.export/isaveoptions/set_progresscallback/). Aspose.Slides wywoła [IProgressCallback::Reporting](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iprogresscallback/reporting/) z wartościami postępu podczas eksportu.
 
-Poniższe fragmenty kodu pokazują, jak używać `IProgressCallback`.
+Poniższy przykład raportuje postęp eksportu PDF w konsoli:
 
-```cpp
-#include <IProgressCallback.h>
-#include <system/console.h>
-using namespace Aspose::Slides;
-using namespace System;
-
-class ExportProgressHandler : public IProgressCallback
-{
-public:
-    void Reporting(double progressValue) override
-    {
-        // Użyj tutaj wartości procentowej postępu.
-        int progress = static_cast<int>(progressValue);
-
-        Console::WriteLine(u"{0}% of the file has been converted.", progress);
-    }
-};
-```
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/PdfOptions.h>
@@ -290,49 +324,44 @@ public:
 #include <IProgressCallback.h>
 #include <system/console.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Klasa obsługi zwrotu postępu zdefiniowana powyżej.
 class ExportProgressHandler : public IProgressCallback
 {
 public:
     void Reporting(double progressValue) override
     {
         int progress = static_cast<int>(progressValue);
-
         Console::WriteLine(u"{0}% of the file has been converted.", progress);
     }
 };
 
-auto saveOptions = MakeObject<PdfOptions>();
-saveOptions->set_ProgressCallback(MakeObject<ExportProgressHandler>());
+auto options = MakeObject<PdfOptions>();
+options->set_ProgressCallback(MakeObject<ExportProgressHandler>());
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"Output.pdf", SaveFormat::Pdf, saveOptions);
+presentation->Save(u"Output.pdf", SaveFormat::Pdf, options);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose opracowało bezpłatną aplikację PowerPoint Splitter wykorzystującą własne API. Aplikacja umożliwia podzielenie prezentacji na wiele plików poprzez zapis wybranych slajdów jako nowych plików PPTX lub PPT.
+{{% alert color="info" title="Uwaga" %}}
+Aspose udostępnia bezpłatny [PowerPoint Splitter](https://products.aspose.app/slides/pl/splitter) zbudowany w oparciu o API Aspose.Slides. Zapisuje wybrane slajdy z prezentacji jako oddzielne pliki PPT lub PPTX.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Czy „szybki zapis” (zapis przyrostowy) jest obsługiwany, aby zapisywać tylko zmiany?**
+**Czy Aspose.Slides obsługuje zapisy przyrostowe lub „szybki zapis”?**  
+Nie. Każda operacja zapisu tworzy pełny plik wyjściowy, a nie aktualizuje jedynie zmienione części.
 
-Nie. Zapisywanie tworzy pełny plik docelowy za każdym razem; przyrostowy „szybki zapis” nie jest obsługiwany.
+**Czy wiele wątków może zapisywać tę samą instancję Presentation?**  
+Nie. Instancja [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) **nie jest wątkowo‑bezpieczna**. Dostęp i zapis każdej instancji powinny odbywać się jednocześnie tylko w jednym wątku.
 
-**Czy zapisywanie tej samej instancji Presentation z wielu wątków jest bezpieczne wątkowo?**
+**Co się dzieje z hiperlinkami i zewnętrznie powiązanymi plikami przy zapisie prezentacji?**  
+[Hyperlinki](/slides/pl/cpp/manage-hyperlinks/) pozostają w prezentacji. Aspose.Slides nie kopiuje plików powiązanych zewnętrznie, więc zapisana prezentacja musi nadal mieć dostęp do ich lokalizacji.
 
-Nie. Instancja Presentation nie jest bezpieczna wątkowo; zapisuj ją z jednego wątku.
-
-**Co się dzieje z odnośnikami i zewnętrznie powiązanymi plikami podczas zapisywania?**
-
-Odnośniki są zachowane. Zewnętrznie powiązane pliki (np. wideo przy użyciu ścieżek względnych) nie są kopiowane automatycznie — upewnij się, że odwoływane ścieżki pozostają dostępne.
-
-**Czy mogę ustawiać/zapisywać metadane dokumentu (Autor, Tytuł, Firma, Data)?**
-
-Tak. Standardowe właściwości dokumentu są obsługiwane i zostaną zapisane w pliku podczas zapisu.
+**Czy mogę zapisać metadane dokumentu, takie jak autor, tytuł, firma i data utworzenia?**  
+Tak. Ustaw odpowiednie [właściwości dokumentu](/slides/pl/cpp/presentation-properties/) przed zapisem, a Aspose.Slides zapisze je w pliku wyjściowym.

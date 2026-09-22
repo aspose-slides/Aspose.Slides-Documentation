@@ -1,6 +1,6 @@
 ---
 title: JavaScript でプレゼンテーションを保存
-linktitle: プレゼンテーションの保存
+linktitle: プレゼンテーションを保存
 type: docs
 weight: 80
 url: /ja/nodejs-java/save-presentation/
@@ -12,60 +12,106 @@ keywords:
 - PPT を保存
 - PPTX を保存
 - ODP を保存
-- ファイルへのプレゼンテーション変換
-- ストリームへのプレゼンテーション変換
+- プレゼンテーションをファイルへ
+- プレゼンテーションをストリームへ
 - 事前定義ビュータイプ
 - Strict Office Open XML 形式
 - Zip64 モード
 - サムネイルの更新
-- 保存進行状況
+- 保存進捗
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js を使用して Java でプレゼンテーションを保存する方法を紹介します—レイアウト、フォント、エフェクトを保持したまま PowerPoint または OpenDocument にエクスポートできます。"
+description: "Aspose.Slides を使用して JavaScript で PowerPoint および OpenDocument のプレゼンテーションをファイルまたはストリームに保存し、PPTX の出力設定や進捗報告を構成します。"
 ---
 ## **概要**
 
-[Open Presentations in JavaScript](/slides/ja/nodejs-java/open-presentation/) では、プレゼンテーションを開くために [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスを使用する方法が説明されています。本稿では、プレゼンテーションの作成と保存方法を解説します。[Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスはプレゼンテーションの内容を保持します。ゼロからプレゼンテーションを作成する場合でも、既存のものを変更する場合でも、作業が完了したら保存したくなります。Aspose.Slides for Node.js を使用すると、**ファイル** または **ストリーム** に保存できます。本稿では、プレゼンテーションを保存するさまざまな方法を説明します。
+プレゼンテーションを作成するか、[既存のプレゼンテーションを開く](/slides/ja/nodejs-java/open-presentation/)と、[Presentation.save](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#save) メソッドを使用して結果を書き込みます。Aspose.Slides for Node.js via Java は、PowerPoint、OpenDocument、PDF、その他の形式でプレゼンテーションをファイルまたはストリームに保存できます。以下のセクションでは、標準的な保存操作と PPTX 出力で利用可能なオプションについて説明します。
 
 ## **ファイルにプレゼンテーションを保存**
 
-プレゼンテーションは、[Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスの `save` メソッドを呼び出すことでファイルに保存できます。メソッドにファイル名と保存形式を渡します。以下の例は、Aspose.Slides を使用してプレゼンテーションを保存する方法を示しています。
+プレゼンテーションをファイルに保存するには、出力パスと [SaveFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/saveformat/) の値を [Presentation.save](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#save) メソッドに渡します。format の値は、Aspose.Slides が作成するファイルの種類を決定します。
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+以下の例は、プレゼンテーションを作成し、PPTX ファイルとして保存します。
 
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
-let presentation = new aspose.slides.Presentation();
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // ここで何らかの処理を行います...
+    // プレゼンテーションのコンテンツを追加または変更してください。
 
-    // プレゼンテーションをファイルに保存します。
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **ストリームにプレゼンテーションを保存**
+## **元の形式でプレゼンテーションを保存**
 
-出力ストリームを [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスの `save` メソッドに渡すことで、プレゼンテーションをストリームに保存できます。プレゼンテーションはさまざまなストリームタイプに書き込むことができます。以下の例では、新しいプレゼンテーションを作成し、ファイルストリームに保存します。
+ファイルとストリームの検出例、新規作成されたプレゼンテーションの動作、ソース形式と出力形式の区別については、[元のプレゼンテーション形式の判定](/slides/ja/nodejs-java/detect-presentation-source-format/) を参照してください。
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+バッチ処理アプリケーションでは、入力形式が事前に分からないことがあります。ファイルをロードした後、[Presentation.getSourceFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#getSourceFormat) メソッドで元の形式を取得します。得られた [SourceFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/sourceformat/) の値を [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slideutil/#toSaveFormat) に渡して対応する [SaveFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/saveformat/) の値を取得し、[Presentation.save](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#save) で変更されたプレゼンテーションを書き込みます。
+
+以下の完全な例は、入力ディレクトリ内のすべてのファイルを処理し、タイトルを更新し、ロードされた形式のまま出力ディレクトリに保存します。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const fs = require("fs");
+const path = require("path");
+
+const inputDirectory = "Input";
+const outputDirectory = "Output";
+
+if (!fs.existsSync(inputDirectory)) {
+    console.error("The input directory does not exist.");
+} else {
+    fs.mkdirSync(outputDirectory, { recursive: true });
+
+    const inputFiles = fs.readdirSync(inputDirectory, { withFileTypes: true })
+        .filter((entry) => entry.isFile());
+
+    for (const inputFile of inputFiles) {
+        const inputPath = path.join(inputDirectory, inputFile.name);
+        try {
+            const presentation = new aspose.slides.Presentation(inputPath);
+            try {
+                const saveFormat = aspose.slides.SlideUtil.toSaveFormat(presentation.getSourceFormat());
+                presentation.getDocumentProperties().setTitle("Processed by the batch application");
+
+                const outputPath = path.join(outputDirectory, inputFile.name);
+                presentation.save(outputPath, saveFormat);
+            } finally {
+                presentation.dispose();
+            }
+        } catch (error) {
+            console.error(`Cannot process '${inputPath}': ${error.message}`);
+        }
+    }
+}
+```
+
+[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slideutil/#toSaveFormat) は、PPT、PPTX、ODP、PPTM、PPSX、PPSM、POTX、POTM、PPS、POT、OTP、FODP、PowerPoint XML をそれぞれのプレゼンテーション保存形式にマッピングします。プレゼンテーションのソース形式のみをマッピングし、PDF、HTML、TIFF、画像などのエクスポート形式を選択する目的ではありません。サポートされていない、または無効な [SourceFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/sourceformat/) の値を渡すとエラーが発生します。
+
+レガシーな PPT、PPS、POT ファイルは同じバイナリコンテナを使用します。このようなプレゼンテーションを拡張子なしのストリームからロードすると、PPS や POT ファイルが PPT として識別されることがあります。これらのレガシーサブタイプを保持する必要がある場合は、元のファイル名またはフォーマットメタデータを別途保持し、出力ファイル名と形式を選択する際に使用してください。
+
+## **ストリームへのプレゼンテーション保存**
+
+最終的なファイルパスに依存せずにプレゼンテーションを書き込むには、書き込み可能なストリームと [SaveFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/saveformat/) の値を [Presentation.save](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#save) メソッドに渡します。この方法は、出力を Web サービスから返す必要がある場合や、データベースに保存する場合、メモリ内で処理する場合に便利です。
+
+以下の例は、新しいプレゼンテーションをファイルストリームに保存します。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
-let presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    let fileStream = java.newInstanceSync("java.io.FileOutputStream", "Output.pptx");
+    const outputStream = java.newInstanceSync("java.io.FileOutputStream", "output.pptx");
     try {
-        // プレゼンテーションをストリームに保存します。
-        presentation.save(fileStream, aspose.slides.SaveFormat.Pptx);
+        presentation.save(outputStream, aspose.slides.SaveFormat.Pptx);
     } finally {
-        fileStream.close();
+        outputStream.close();
     }
 } finally {
     presentation.dispose();
@@ -74,16 +120,17 @@ try {
 
 ## **事前定義されたビュータイプでプレゼンテーションを保存**
 
-Aspose.Slides を使用すると、生成されたプレゼンテーションが開かれたときに PowerPoint が使用する初期ビューを [ViewProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/viewproperties/) クラスで設定できます。[setLastView](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/viewproperties/#setLastView) メソッドに [ViewType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/viewtype/) 列挙体の値を渡して使用します。
+保存されたプレゼンテーションを PowerPoint が最初に開くビューを指定できます。[ViewProperties.setLastView](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/viewproperties/#setLastView) メソッドに [ViewType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/viewtype/) の値を設定してから保存してください。
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+以下の例は、スライドマスタービューを初期ビューとして設定します。
 
-let presentation = new aspose.slides.Presentation();
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
     presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
-    presentation.save("SlideMasterView.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("slide-master-view.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -91,106 +138,90 @@ try {
 
 ## **Strict Office Open XML 形式でプレゼンテーションを保存**
 
-Aspose.Slides では、プレゼンテーションを Strict Office Open XML 形式で保存できます。保存時に [PptxOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/pptxoptions/) クラスを使用し、その conformance プロパティを設定します。[Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/conformance/#Iso29500_2008_Strict) を設定すると、出力ファイルは Strict Office Open XML 形式で保存されます。
+Strict プロファイルの Office Open XML に準拠した PPTX ファイルを作成するには、[PptxOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/pptxoptions/) インスタンスを作成し、その [setConformance](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/pptxoptions/#setConformance) メソッドに [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/conformance/#Iso29500_2008_Strict) を指定します。そのオプションを [Presentation.save](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#save) メソッドに渡します。
 
-以下の例は、プレゼンテーションを作成し、Strict Office Open XML 形式で保存するものです。
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-let options = new aspose.slides.PptxOptions();
+const options = new aspose.slides.PptxOptions();
 options.setConformance(aspose.slides.Conformance.Iso29500_2008_Strict);
 
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
-let presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // プレゼンテーションを Strict Office Open XML 形式で保存します。
-    presentation.save("StrictOfficeOpenXml.pptx", aspose.slides.SaveFormat.Pptx, options);
+    presentation.save("strict-office-open-xml.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Office Open XML 形式で Zip64 モードでプレゼンテーションを保存**
+## **Zip64 モードで Office Open XML 形式でプレゼンテーションを保存**
 
-Office Open XML ファイルは ZIP アーカイブで、圧縮されていない任意のファイルのサイズ、圧縮後のサイズ、アーカイブ全体のサイズに 4 GB (2^32 バイト) の制限があり、ファイル数は 65 535 (2^16‑1) に制限されます。ZIP64 形式拡張により、これらの制限が 2^64 まで緩和されます。
+標準的な ZIP アーカイブは、各エントリの圧縮・非圧縮サイズ、アーカイブ全体のサイズ、およびエントリ数に制限があります。PPTX ファイルは ZIP アーカイブであるため、非常に大きなプレゼンテーションはこれらの制限を超えることがあります。ZIP64 拡張は、適用可能なサイズとエントリ数の制限を緩和します。
 
-[PptxOptions.setZip64Mode](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/pptxoptions/#getZip64Mode) メソッドを使用すると、Office Open XML ファイルを保存する際に ZIP64 形式拡張を使用するタイミングを選択できます。
+[PptxOptions.setZip64Mode](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/pptxoptions/#setZip64Mode) メソッドを使用して、Aspose.Slides が ZIP64 拡張を書き込むかどうかを制御します：
 
-このメソッドは以下のモードで使用できます:
+- [IfNecessary](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/zip64mode/#IfNecessary) は、プレゼンテーションが標準 ZIP 制限を超えた場合にのみ ZIP64 を使用します。これがデフォルトモードです。
+- [Never](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/zip64mode/#Never) は ZIP64 拡張を無効にします。
+- [Always](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/zip64mode/#Always) は常に ZIP64 拡張を書き込みます。
 
-- [IfNecessary](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/zip64mode/#IfNecessary) は、プレゼンテーションが上記の制限を超える場合にのみ ZIP64 形式拡張を使用します。これはデフォルトモードです。
-- [Never](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/zip64mode/#Never) は、ZIP64 形式拡張を使用しません。
-- [Always](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/zip64mode/#Always) は、常に ZIP64 形式拡張を使用します。
+以下の例は、出力プレゼンテーションに対して常に ZIP64 拡張を有効にします。
 
-以下のコードは、ZIP64 形式拡張を有効にして PPTX ファイルとしてプレゼンテーションを保存する方法を示しています:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-let pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setZip64Mode(aspose.slides.Zip64Mode.Always);
-
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    presentation.save("OutputZip64.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
+    const options = new aspose.slides.PptxOptions();
+    options.setZip64Mode(aspose.slides.Zip64Mode.Always);
+
+    presentation.save("output-zip64.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-[Zip64Mode.Never](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/zip64mode/#Never) で保存すると、プレゼンテーションを ZIP32 形式で保存できない場合に [PptxException](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/pptxexception/) がスローされます。
+{{% alert color="warning" title="Warning" %}}
+If [Zip64Mode.Never](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/zip64mode/#Never) が使用され、プレゼンテーションが標準 ZIP 制限内に収まらない場合、保存操作は [PptxException](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/pptxexception/) をスローします。
 {{% /alert %}}
 
-## **Office Open XML 形式で圧縮レベルを指定してプレゼンテーションを保存**
+## **圧縮レベル付きで Office Open XML 形式でプレゼンテーションを保存**
 
-大きなプレゼンテーションを扱う場合、圧縮レベルを調整してファイルサイズと処理時間のバランスを取ることができます。要件に応じて、処理速度を優先したり、出力ファイルを小さくしたりできます。
+PPTX 出力では、[PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/pptxoptions/#setCompressionLevel) メソッドを使用して保存速度とファイルサイズのバランスを取ることができます。[CompressionLevel](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/) クラスは以下の値を提供します：
 
-Aspose.Slides は、[PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/pptxoptions/#setCompressionLevel) メソッドを提供しており、Office Open XML 形式で保存する際に使用する圧縮レベルを指定できます。
+- [None](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#None) は圧縮せずにデータを保存します。
+- [Level1](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#Level1) は最速の圧縮を提供し、圧縮後の出力が最大になります。
+- [Level2](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#Level2) から [Level5](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#Level5) は、保存速度よりも小さな出力を徐々に優先します。
+- [Level6](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#Level6) は保存速度とファイルサイズのバランスを取ります。これがデフォルトレベルです。
+- [Level7](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#Level7) と [Level8](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#Level8) は、さらに保存速度よりも小さな出力を優先します。
+- [Level9](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#Level9) は最強の圧縮を提供し、最も多くの処理時間が必要です。
 
-利用可能な圧縮レベルは以下のとおりです:
+以下の例は、圧縮せずにプレゼンテーションを保存します。
 
-- [**None**](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#None): 圧縮は行われません。ファイルはそのまま保存されます。
-- [**Level1**](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#Level1): 圧縮率が最も低く、最速の圧縮です。
-- [**Level2**](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#Level2): **Level1** より若干高い圧縮率で、比較的高速に圧縮します。
-- [**Level3**](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#Level3): **Level2** より高い圧縮率で、処理時間への影響は中程度です。
-- [**Level4**](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#Level4): **Level3** より高い圧縮率です。
-- [**Level5**](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#Level5): **Level4** より高い圧縮率で、追加の処理時間がかかります。
-- [**Level6**](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#Level6): 標準的な圧縮で、処理速度とファイルサイズのバランスが良好です。*デフォルトの圧縮レベル* です。
-- [**Level7**](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#Level7): **Level6** より高い圧縮率ですが、処理は遅くなります。
-- [**Level8**](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#Level8): **Level7** より高い圧縮率です。
-- [**Level9**](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/compressionlevel/#Level9): 最高の圧縮率で、最も小さいファイルサイズになりますが、処理時間が最も長くなります。
-
-以下の例は、圧縮なしで PPTX ファイルとしてプレゼンテーションを保存する方法を示しています:
-
-```js
+```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 
-const pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setCompressionLevel(aspose.slides.CompressionLevel.None);
-
-const presentation = new aspose.slides.Presentation("Sample.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    presentation.save("Sample-out.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
+    const options = new aspose.slides.PptxOptions();
+    options.setCompressionLevel(aspose.slides.CompressionLevel.None);
+
+    presentation.save("output-no-compression.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-この例は、最大圧縮で PPTX ファイルとしてプレゼンテーションを保存する方法を示しています:
+以下の例は、最大の圧縮レベルを使用します。
 
-```js
+```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 
-const pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setCompressionLevel(aspose.slides.CompressionLevel.Level9);
-
-const presentation = new aspose.slides.Presentation("Sample.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    presentation.save("Sample-level9.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
+    const options = new aspose.slides.PptxOptions();
+    options.setCompressionLevel(aspose.slides.CompressionLevel.Level9);
+
+    presentation.save("output-maximum-compression.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
@@ -198,81 +229,77 @@ try {
 
 ## **サムネイルを更新せずにプレゼンテーションを保存**
 
-[PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/pptxoptions/#setRefreshThumbnail) メソッドは、プレゼンテーションを PPTX に保存する際のサムネイル生成を制御します。
+PPTX としてプレゼンテーションを保存する際、[PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/pptxoptions/#setRefreshThumbnail) メソッドがドキュメントのサムネイルを制御します：
 
-- `true` に設定すると、保存時にサムネイルが更新されます。これはデフォルトです。
-- `false` に設定すると、現在のサムネイルが保持されます。プレゼンテーションにサムネイルがない場合は生成されません。
+- `true` は保存時にサムネイルを再生成します。これがデフォルト値です。
+- `false` は既存のサムネイルを保持します。プレゼンテーションにサムネイルがない場合、Aspose.Slides は生成しません。
 
-以下のコードでは、サムネイルを更新せずに PPTX としてプレゼンテーションを保存しています。
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-let pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setRefreshThumbnail(false);
-
-let presentation = new aspose.slides.Presentation("Sample.pptx");
-try {
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
-}
-finally {
-    presentation.dispose();
-}
-```
-
-{{% alert title="Info" color="info" %}}
-このオプションは、PPTX 形式でプレゼンテーションを保存するのにかかる時間を短縮するのに役立ちます。
-{{% /alert %}}
-
-## **保存進行状況をパーセンテージで更新**
-
-保存進捗のレポートは、[SaveOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/saveoptions/) およびそのサブクラスの [setProgressCallback](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/saveoptions/#setProgressCallback) メソッドで構成します。[IProgressCallback](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iprogresscallback/) インターフェイスを実装した Java プロキシを提供します。エクスポート中にコールバックは定期的にパーセンテージの更新を受け取ります。
-
-以下のコードスニペットは `IProgressCallback` の使用方法を示しています。
+以下の例は、サムネイルを更新せずにプレゼンテーションを保存します。
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-const ExportProgressHandler = java.newProxy("com.aspose.slides.IProgressCallback", {
-    reporting: function(progressValue) {
-        // ここで進捗のパーセンテージ値を使用します。
-        const progress = Math.floor(progressValue);
-        console.log(`${progress}% of the file has been converted.`);
-    }
-});
-
-let saveOptions = new aspose.slides.PdfOptions();
-saveOptions.setProgressCallback(ExportProgressHandler);
-
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    presentation.save("Output.pdf", aspose.slides.SaveFormat.Pdf, saveOptions);
+    const options = new aspose.slides.PptxOptions();
+    options.setRefreshThumbnail(false);
+
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose は、独自の API を使用した無料の PowerPoint Splitter アプリを開発しています。このアプリは、選択したスライドを新しい PPTX または PPT ファイルとして保存することで、プレゼンテーションを複数のファイルに分割できます。
+{{% alert color="info" title="Note" %}}
+サムネイルの更新を無効にすると、PPTX ファイルの保存に要する時間を短縮できます。
+{{% /alert %}}
+
+## **保存時の進捗をパーセンテージで取得**
+
+保存操作を監視するには、Java プロキシで [IProgressCallback](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iprogresscallback/) インターフェイスを実装し、その実装を [SaveOptions.setProgressCallback](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/saveoptions/#setProgressCallback) メソッドに渡します。Aspose.Slides はエクスポート中に進捗値を伴って [IProgressCallback.reporting](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iprogresscallback/#reporting-double-) メソッドを呼び出します。
+
+以下の例は、PDF エクスポートの進捗をコンソールに報告します。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const exportProgressHandler = java.newProxy("com.aspose.slides.IProgressCallback", {
+    reporting: function(progressValue) {
+        const progress = Math.floor(progressValue);
+        console.log(`${progress}% of the file has been converted.`);
+    }
+});
+
+const options = new aspose.slides.PdfOptions();
+options.setProgressCallback(exportProgressHandler);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    presentation.save("output.pdf", aspose.slides.SaveFormat.Pdf, options);
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Aspose は、Aspose.Slides API を使用して構築された無料の [PowerPoint Splitter](https://products.aspose.app/slides/ja/splitter) を提供します。これにより、プレゼンテーションから選択したスライドを個別の PPT または PPTX ファイルとして保存できます。
 {{% /alert %}}
 
 ## **FAQ**
 
-**“高速保存”（インクリメンタル保存）は、変更部分だけが書き込まれるようにサポートされていますか？**
+**Aspose.Slides は増分保存または「高速保存」をサポートしていますか？**
 
-いいえ。保存は毎回完全なターゲット ファイルを作成します。インクリメンタルな「高速保存」はサポートされていません。
+いいえ。各保存操作は変更された部分だけを更新するのではなく、完全な出力ファイルを書き込みます。
 
-**複数スレッドから同じ Presentation インスタンスを保存することはスレッドセーフですか？**
+**複数のスレッドが同じ Presentation インスタンスを保存できますか？**
 
-いいえ。 [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) インスタンスはスレッドセーフではありません。単一のスレッドから保存してください。
+いいえ。[Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) インスタンスは [/slides/ja/nodejs-java/multithreading/](/slides/ja/nodejs-java/multithreading/) で説明されているようにスレッドセーフではありません。各インスタンスへのアクセスと保存は、同時に 1 スレッドからのみ行ってください。
 
-**保存時にハイパーリンクや外部リンクされたファイルはどうなりますか？**
+**プレゼンテーションを保存すると、ハイパーリンクや外部リンクされたファイルはどうなりますか？**
 
-[ハイパーリンク](/slides/ja/nodejs-java/manage-hyperlinks/) は保持されます。外部リンクされたファイル（例: 相対パスで参照される動画など）は自動的にコピーされません。参照パスが引き続きアクセス可能であることを確認してください。
+[ハイパーリンク](/slides/ja/nodejs-java/manage-hyperlinks/) はプレゼンテーションに残ります。Aspose.Slides は外部リンクされたファイルをコピーしないため、保存されたプレゼンテーションはそれらの場所に引き続きアクセスできる必要があります。
 
-**ドキュメントメタデータ（作者、タイトル、会社、日付）を設定/保存できますか？**
+**著者、タイトル、会社、作成日などのドキュメントメタデータを保存できますか？**
 
-はい。標準の [document properties](/slides/ja/nodejs-java/presentation-properties/) がサポートされており、保存時にファイルに書き込まれます。
+はい。保存前に適切な [ドキュメントプロパティ](/slides/ja/nodejs-java/presentation-properties/) を設定すれば、Aspose.Slides がそれらを出力ファイルに書き込みます。

@@ -1,39 +1,41 @@
 ---
-title: Python aracılığıyla Java ile Sunumları Açma
+title: Python üzerinden Java ile Sunumları Açma
 linktitle: Sunumu Aç
 type: docs
 weight: 20
 url: /tr/python-java/open-presentation/
 keywords:
-- PowerPoint Aç
-- Sunum Aç
-- PPTX Aç
-- PPT Aç
-- ODP Aç
-- Sunumu Yükle
-- PPTX Yükle
-- PPT Yükle
-- ODP Yükle
-- Korunmuş Sunum
-- Büyük Sunum
-- Harici Kaynak
-- İkili Nesne
+- PowerPoint aç
+- sunum aç
+- PPTX aç
+- PPT aç
+- ODP aç
+- sunumu yükle
+- PPTX yükle
+- PPT yükle
+- ODP yükle
+- korumalı sunum
+- büyük sunum
+- harici kaynak
+- ikili nesne
 - Python
 - Java
 - Aspose.Slides
-description: "Python üzerinden Java ile PowerPoint ve OpenDocument sunumlarını nasıl açacağınızı, açma şifreleri sağlayarak, kaynak yüklemeyi kontrol ederek ve Aspose.Slides for Python via Java ile bellek kullanımını nasıl azaltacağınızı öğrenin."
+description: "Python üzerinden Java ile PowerPoint ve OpenDocument sunumlarını nasıl açacağınızı, açma şifreleri sağlamayı, kaynak yüklemeyi kontrol etmeyi ve Aspose.Slides for Python via Java ile bellek kullanımını azaltmayı öğrenin."
 ---
 ## **Giriş**
 
-[Aspose.Slides for Python via Java](https://products.aspose.com/slides/tr/python-java/) dosyalar ve akışlardan PowerPoint ve OpenDocument sunumlarını yükleyebilir. Bir sunum yüklendikten sonra yapısını inceleyebilir, slaytları düzenleyebilir, kaynakları yönetebilir ve orijinal ya da başka bir desteklenen formatta kaydedebilirsiniz.
+[Aspose.Slides for Python via Java](https://products.aspose.com/slides/tr/python-java/) dosyalardan ve akışlardan PowerPoint ve OpenDocument sunumlarını yükleyebilir. Bir sunum yüklendikten sonra yapısını inceleyebilir, slaytları düzenleyebilir, kaynakları yönetebilir ve orijinal ya da başka bir desteklenen formatta kaydedebilirsiniz.
 
-Yükleme davranışı, [LoadOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/) sınıfı aracılığıyla özelleştirilebilir. Örneğin, bir açma parolası belirleyebilir, büyük ikili nesneleri Java yığını dışına tutabilir, harici kaynakları kontrol edebilir ya da gömülü ikili verileri atlayabilirsiniz.
+Yükleme davranışı, [LoadOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/) sınıfı aracılığıyla özelleştirilebilir. Örneğin, bir açma şifresi sağlayabilir, büyük ikili nesneleri Java yığını dışına tutabilir, dış kaynakları kontrol edebilir veya gömülü ikili verileri atlayabilirsiniz.
 
-## **Sunumları Aç**
+## **Sunumları Açma**
 
-Mevcut bir sunumu açmak için dosya yolunu [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) yapıcısına geçirin. Dosya tutamaçları, geçici veriler ve diğer kaynakların hızlıca serbest bırakılması için sunumu kullanım sonrası serbest bırakın.
+Bir dosya veya akış yüklendikten sonra, uygulamanızın nasıl işlem yapacağını belirlemek için [orijinal sunum formatını belirleyebilirsiniz](/slides/tr/python-java/detect-presentation-source-format/).
 
-Aşağıdaki Python örneği bir sunumu nasıl açıp slayt sayısını alabileceğinizi gösterir:
+Mevcut bir sunumu açmak için dosya yolunu [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) yapıcı metoduna geçirin. Sunumu kullandıktan sonra, dosya tutamaçları, geçici veriler ve diğer kaynakların hızlıca serbest bırakılması için sunumu kapatın.
+
+Aşağıdaki Python örneği, bir sunumu nasıl açıp slayt sayısını alacağınızı gösterir:
 
 ```python
 import jpype
@@ -51,9 +53,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Şifre Koruması Olan Sunumları Aç**
+## **Şifreli Sunumları Açma**
 
-Açma parolası sunum içeriğini şifreler. Tam sunumu yüklemek için doğru parolayı [LoadOptions.setPassword](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/#setPassword) metoduna geçirip seçenekleri [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) yapıcısına sağlayın. Parola eksik ya da hatalı olduğunda yükleme başarısız olur.
+Açma şifresi, sunum içeriğini şifreler. Tam sunumu yüklemek için doğru şifreyi [LoadOptions.setPassword](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/#setPassword) metoduna geçirip bu seçenekleri [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) yapıcı metoduna verin. Şifre eksik ya da hatalı olduğunda yükleme başarısız olur.
 
 ```python
 import jpype
@@ -74,13 +76,13 @@ finally:
     presentation.dispose()
 ```
 
-Parola algılama, doğrulama ve şifreleme iş akışları için [Password-Protect Presentations](/slides/tr/python-java/password-protected-presentation/) sayfasına bakın. Şifreli bir sunum, kasıtlı olarak herkese açık belge özellikleriyle kaydedildiyse, bu özellikler parola olmadan okunabilir; bunun için [Manage Presentation Properties](/slides/tr/python-java/presentation-properties/) bölümüne bakın.
+Şifre algılama, doğrulama ve şifreleme iş akışları için [Şifreli Sunumlar](/slides/tr/python-java/password-protected-presentation/) bölümüne bakın. Şifreli bir sunum, kasıtlı olarak genel belge özellikleriyle kaydedildiyse, bu özellikler şifresiz okunabilir; bununla ilgili bilgiye [Sunum Özelliklerini Yönetme](/slides/tr/python-java/presentation-properties/) bölümünden ulaşabilirsiniz.
 
-## **Büyük Sunumları Aç**
+## **Büyük Sunumları Açma**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) yöntemi, Aspose.Slides'ın görüntüler, ses ve video gibi büyük ikili nesneleri nasıl ele aldığını kontrol eden seçenekleri döndürür. Kaynak dosyayı kilitli tutabilir, geçici dosyalara izin verebilir ve bellekte tutulan BLOB veri miktarını sınırlayabilirsiniz.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) yöntemi, Aspose.Slides’in resimler, ses ve video gibi büyük ikili nesneleri nasıl ele alacağını kontrol eden seçenekleri döndürür. Kaynak dosyayı kilitli tutabilir, geçici dosyalara izin verebilir ve bellek içinde tutulan BLOB verisinin miktarını sınırlayabilirsiniz.
 
-Aşağıdaki Python kodu büyük bir sunumu (örneğin 2 GB) yüklemeyi gösterir:
+Aşağıdaki Python kodu, büyük bir sunumu (örneğin 2 GB) yüklemeyi gösterir:
 
 ```python
 import jpype
@@ -107,16 +109,13 @@ finally:
 ```
 
 {{% alert color="info" title="Not" %}}
-
-[PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked) ile kaynak dosya, sunum örneği serbest bırakılana kadar kilitli kalır. Bu örnek yaşam süresi boyunca kaynak dosyayı taşıma, üzerine yazma veya silme yapmayın.
-
-Aspose.Slides, bir giriş akışının içeriğini yüklerken kopyalayabilir. Büyük sunumlar için dosya yolu, akışa göre genellikle daha verimlidir. Ek depolama ve bellek yönetimi seçenekleri için [Manage BLOBs](/slides/tr/python-java/manage-blob/) sayfasına bakın.
-
+[PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked) ile kaynak dosya, sunum nesnesi serbest bırakılana kadar kilitli kalır. Bu nesne hâlâ etkinken kaynak dosyayı taşımayın, üzerine yazmayın ya da silmeyin.
+Aspose.Slides, yükleme sırasında bir giriş akışının içeriğini kopyalayabilir. Büyük sunumlar için dosya yolu, genellikle akıştan daha verimlidir. Ek depolama ve bellek yönetimi seçenekleri için [BLOB'ları Yönetme](/slides/tr/python-java/manage-blob/) bölümüne bakın.
 {{% /alert %}}
 
-## **Harici Kaynakları Kontrol Et**
+## **Dış Kaynakları Kontrol Etme**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) metodu, Java kaynak yükleme geri arama arayüzünü uygulayan bir JPype vekilini kabul eder. Geri arama, yerine koyma verisi sağlayabilir, bir kaynağı yönlendirebilir, varsayılan yükleyiciyi kullanabilir veya kaynağı atlayabilir. Bu, sunumların uygulamaya özgü güvenlik veya depolama kurallarına göre çözülmesi gereken harici görseller içerdiği durumlarda faydalıdır.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) metodu, Java kaynak yükleme geri arama arabirimini uygulayan bir JPype vekilini kabul eder. Geri arama, yerine geçecek veri sağlayabilir, bir kaynağı yönlendirebilir, varsayılan yükleyiciyi kullanabilir ya da kaynağı atlayabilir. Bu, sunumların dış resimler içermesi ve bu resimlerin uygulama‑spesifik güvenlik veya depolama kurallarına göre çözülmesi gerektiğinde faydalıdır.
 
 ```python
 import jpype
@@ -156,17 +155,16 @@ finally:
     presentation.dispose()
 ```
 
-## **Gömülü İkili Nesneler Olmadan Sunumları Yükle**
+## **Gömülü Ikili Nesneler Olmadan Sunumları Yükleme**
 
-Bir sunum, uygulamanın ihtiyaç duymadığı veya tutmak istemediği gömülü ikili veri içerebilir. Örnekler:
+Bir sunum, uygulamanın gerekmeyen veya saklamak istemediği gömülü ikili veriler içerebilir. Örnekler:
+- VBA projeleri, [Presentation.getVbaProject](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getVbaProject) aracılığıyla alınabilir;
+- gömülü OLE verileri, [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) aracılığıyla alınabilir;
+- ActiveX denetim verileri, [Control.getActiveXControlBinary](https://reference.aspose.com/slides/tr/python-java/aspose.slides/control/#getActiveXControlBinary) aracılığıyla alınabilir.
 
-- VBA projeleri, [Presentation.getVbaProject](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getVbaProject) üzerinden erişilebilir;
-- gömülü OLE verileri, [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) üzerinden erişilebilir;
-- ActiveX kontrol verileri, [Control.getActiveXControlBinary](https://reference.aspose.com/slides/tr/python-java/aspose.slides/control/#getActiveXControlBinary) üzerinden erişilebilir.
+Yükleme sırasında bu ikili verileri kaldırmak için [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) seçeneğini `True` yapın. Temizlenmiş sonucu saklamak için yüklü sunumu kaydedin.
 
-[LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) özelliğini `True` olarak ayarlayarak bu ikili verileri yükleme sırasında kaldırın. Temizlenmiş sonucu kalıcı kılmak için yüklü sunumu kaydedin.
-
-Bu seçenek istenmeyen gömülü yükleri azaltır, ancak tam bir kötü amaçlı yazılım tespiti veya içerik temizleme sistemi değildir.
+Bu seçenek, istenmeyen gömülü yükleri azaltır, ancak tam bir kötü amaçlı yazılım algılama veya içerik temizleme sistemi değildir.
 
 ```python
 import jpype
@@ -189,14 +187,14 @@ finally:
 
 ## **SSS**
 
-**Bir dosyanın bozuk olduğunu ve açılamadığını nasıl anlayabilirim?**
+**Bir dosyanın bozuk olduğunu ve açılamadığını nasıl anlarım?**
 
-Aspose.Slides, yükleme sırasında bir ayrıştırma veya format istisnası fırlatır. Bu hatayı hatalı parola hatasından ayrı şekilde ele alın ki uygulama nedeni doğru raporlayabilsin.
+Aspose.Slides, yükleme sırasında bir ayrıştırma veya format istisnası fırlatır. Bu hatayı yanlış şifre hatasından ayrı olarak yakalayın ki uygulama nedeni doğru raporlayabilsin.
 
-**Gerekli yazı tipleri eksik olduğunda ne olur?**
+**Gerekli yazı tipleri eksik olursa ne olur?**
 
-Sunum hâlâ yüklenebilir, ancak yürütme ve dışa aktarım yazı tiplerini değiştirebilir. Çıktının daha öngörülebilir olması için [yazı tipi ikamesi yapılandırmasını](/slides/tr/python-java/font-substitution/) veya [özel yazı tipleri sağlamayı](/slides/tr/python-java/custom-font/) kullanabilirsiniz.
+Sunum hâlâ yüklenebilir, ancak oluşturma ve dışa aktarma işlemleri yazı tiplerini değiştirebilir. Çıktının daha öngörülebilir olması için [yazı tipi ikamesini yapılandırabilir](/slides/tr/python-java/font-substitution/) ya da [özel yazı tipleri sağlayabilirsiniz](/slides/tr/python-java/custom-font/).
 
-**Bir sunumu yüklemek aynı zamanda gömülü medyasını da yükler mi?**
+**Bir sunumu yüklemek gömülü medyasını da yükler mi?**
 
-Gömülü ses ve video, sunum nesne modeli aracılığıyla kullanılabilir hale gelir. Harici kaynaklar, yapılandırılmış kaynak yükleme davranışına göre çözülür ve konumlarına erişilemezse kullanılamaz olabilir.
+Gömülü ses ve video, sunum nesne modelinde erişilebilir hâle gelir. Dış kaynaklar, yapılandırılmış kaynak‑yükleme davranışına göre çözülür ve konumlarına erişilemezse kullanılabilir olmaz.

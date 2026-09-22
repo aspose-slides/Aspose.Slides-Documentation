@@ -17,22 +17,22 @@ keywords:
 - előre definiált nézettípus
 - Szigorú Office Open XML formátum
 - Zip64 mód
-- bélyegkép frissítése
-- mentés előrehaladása
+- miniaturák frissítése
+- mentési előrehaladás
 - Python
 - Java
 - Aspose.Slides
-description: "PowerPoint és OpenDocument prezentációk mentése fájlokba vagy adatfolyamba Pythonon keresztül Java-val az Aspose.Slides használatával, valamint a PPTX kimenet és a folyamatjelentés beállítása."
+description: "PowerPoint és OpenDocument prezentációk mentése fájlokba vagy adatfolyamokba Pythonon keresztül Java-val az Aspose.Slides segítségével, valamint a PPTX kimenet és a mentési előrehaladás beállítása."
 ---
 ## **Áttekintés**
 
-Miután létrehoz egy prezentációt vagy [nyiss meg egy meglévőt](/slides/hu/python-java/open-presentation/), használja a [Presentation.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódust az eredmény írásához. Az Aspose.Slides for Python via Java képes a prezentációt fájlba vagy adatfolyamba menteni PowerPoint, OpenDocument, PDF és egyéb formátumokban. Az alábbi szakaszok a szabványos mentési műveleteket és a PPTX kimenetre elérhető beállításokat tárgyalják.
+Miután létrehoz egy prezentációt vagy [nyisson meg egy meglévőt](/slides/hu/python-java/open-presentation/), használja a [Presentation.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódust az eredmény írásához. Az Aspose.Slides for Python via Java képes egy prezentációt fájlba vagy adatfolyamba menteni PowerPoint, OpenDocument, PDF és egyéb formátumokban. A következő szakaszok a standard mentési műveleteket és a PPTX kimenethez elérhető beállításokat mutatják be.
 
 ## **Prezentációk mentése fájlokba**
 
-A prezentáció fájlba mentéséhez adja meg a kimeneti útvonalat és egy [SaveFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/saveformat/) értéket a [Presentation.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódusnak. A formátumérték határozza meg, milyen típusú fájlt hoz létre az Aspose.Slides.
+A prezentáció fájlba mentéséhez adja meg a kimeneti útvonalat és egy [SaveFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/saveformat/) értéket a [Presentation.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódusnak. A formátumérték határozza meg az Aspose.Slides által létrehozott fájl típusát.
 
-Az alábbi példa létrehoz egy prezentációt, és PPTX fájlként menti el:
+Az alábbi példa egy prezentációt hoz létre, és PPTX fájlként menti el:
 
 ```python
 import jpype
@@ -45,18 +45,20 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # Itt adja hozzá vagy módosítsa a prezentáció tartalmát.
+    # Ide adjon hozzá vagy módosítsa a prezentáció tartalmát.
 
     presentation.save("Output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Prezentációk mentése eredeti formátumban**
+## **Prezentációk mentése az eredeti formátumban**
 
-Kötegfeldolgozó alkalmazásban a bemeneti formátum előre nem ismert. Fájl betöltése után olvassa ki az eredeti formátumot a [Presentation.getSourceFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getSourceFormat) metódussal. Adja át a kapott [SourceFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sourceformat/) értéket a [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideutil/#toSaveFormat) metódusnak, hogy megkapja a megfelelő [SaveFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/saveformat/) értéket, majd használja a [Presentation.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódust a módosított prezentáció írásához.
+A fájl- és adatfolyam‑felismerési példákért, az újonnan létrehozott prezentációk viselkedéséért, valamint a forrás‑ és kimeneti formátumok megkülönböztetéséért lásd a [Determine the Original Presentation Format](/slides/hu/python-java/detect-presentation-source-format/) oldalt.
 
-Az alábbi teljes példa minden fájlt feldolgoz egy bemeneti könyvtárban, frissíti a címét, és egy kimeneti könyvtárba menti abban a formátumban, amiben betöltötték:
+Kötegelt feldolgozási alkalmazásban a bemeneti formátum nem ismerhető előre. Fájl betöltése után olvassa ki az eredeti formátumot a [Presentation.getSourceFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getSourceFormat) metódussal. Adja át a kapott [SourceFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sourceformat/) értéket a [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideutil/#toSaveFormat) metódusnak a megfelelő [SaveFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/saveformat/) érték lekéréséhez, majd használja a [Presentation.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódust a módosított prezentáció írásához.
+
+Az alábbi teljes példa minden fájlt feldolgoz egy bemeneti könyvtárban, frissíti a címét, és a betöltött formátumból a kimeneti könyvtárba menti:
 
 ```python
 import jpype
@@ -96,15 +98,15 @@ if input_directory.is_dir() and output_directory.is_dir():
                 print(f"Cannot process '{input_file}': {exception}")
 ```
 
-[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideutil/#toSaveFormat) PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP és PowerPoint XML formátumokat térképezi a megfelelő prezentáció mentési formátumokra. Csak prezentáció forrásformátumokat térképez; nem célja exportformátumok, például PDF, HTML, TIFF vagy képek kiválasztása. Nem támogatott vagy érvénytelen [SourceFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sourceformat/) érték átadása [IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html) kivételt eredményez.
+[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideutil/#toSaveFormat) PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP és PowerPoint XML formátumokat térképezi a megfelelő prezentáció‑mentés formátumokra. Csak a prezentáció forrásformátumait térképezi; nem arra szolgál, hogy exportformátumokat, például PDF, HTML, TIFF vagy képek válasszon. Nem támogatott vagy érvénytelen [SourceFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/sourceformat/) érték átadása [IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html) kivételt eredményez.
 
-A régi PPT, PPS és POT fájlok ugyanazt a bináris konténert használják. Ha egy ilyen prezentációt kiterjesztés nélküli adatfolyamból töltik be, egy PPS vagy POT fájl ezért PPT‑ként azonosítható. Ha meg kell őrizni ezeket a régi altípusokat, tartsa meg az eredeti fájlnevet vagy formátummetaadatokat külön, és használja őket a kimeneti fájlnév és formátum kiválasztásakor.
+A régi PPT, PPS és POT fájlok ugyanazt a bináris konténert használják. Ha egy ilyen prezentációt kiterjesztés nélküli adatfolyamból töltik be, egy PPS vagy POT fájlt ezért PPT‑nek azonosíthatnak. Ha meg kell őrizni ezeket a régi al-típusokat, tartsa meg az eredeti fájlnevet vagy formátum‑metaadatot külön, és használja őket a kimeneti fájlnév és formátum meghatározásához.
 
 ## **Prezentációk mentése adatfolyamokba**
 
-A prezentáció írásához, anélkül hogy végleges fájlútvonalra támaszkodna, adjon meg egy írható adatfolyamot és egy [SaveFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/saveformat/) értéket a [Presentation.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódusnak. Ez a megközelítés hasznos, ha a kimenetet webszolgáltatásból kell visszaadni, adatbázisban tárolni vagy memóriában feldolgozni.
+Prezentáció írásához végső fájlútvonal nélkül adjon meg egy írható adatfolyamot és egy [SaveFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/saveformat/) értéket a [Presentation.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódusnak. Ez a megközelítés akkor hasznos, ha a kimenetet egy webszolgáltatásból kell visszaadni, adatbázisba tárolni vagy memória‑szinten feldolgozni.
 
-Az alábbi példa egy új prezentációt fájl adatfolyamba ment:
+Az alábbi példa egy új prezentációt fájl‑adatfolyamba ment:
 
 ```python
 import jpype
@@ -128,11 +130,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Prezentációk mentése előre meghatározott nézet típussal**
+## **Prezentációk mentése előre meghatározott nézettípussal**
 
-Megadhatja azt a nézetet, amelyben a PowerPoint kezdetben megnyit egy mentett prezentációt. Használja a [ViewProperties.setLastView](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#setLastView) metódust egy [ViewType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewtype/) értékkel a mentés előtt.
+Megadhatja azt a nézetet, amelyben a PowerPoint először megnyitja a mentett prezentációt. Használja a [ViewProperties.setLastView](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#setLastView) metódust egy [ViewType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewtype/) értékkel a mentés előtt.
 
-Az alábbi példa a Dia Mester nézetet állítja be kezdeti nézetként:
+Az alábbi példa a Dia‑mester nézetet állítja be kezdeti nézetként:
 
 ```python
 import jpype
@@ -151,9 +153,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Prezentációk mentése a szigorú Office Open XML formátumban**
+## **Prezentációk mentése szigorú Office Open XML formátumban**
 
-A Strict profilú Office Open XML‑nek megfelelő PPTX fájl létrehozásához hozza létre egy [PptxOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxoptions/) példányt, és használja a [setConformance](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxoptions/#setConformance) metódust a [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/hu/python-java/aspose.slides/conformance/#Iso29500_2008_Strict) értékkel. Ezután adja át az opciókat a [Presentation.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódusnak.
+Ahhoz, hogy egy PPTX fájl a Office Open XML szigorú profiljának megfeleljen, hozzon létre egy [PptxOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxoptions/) példányt, és használja a [setConformance](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxoptions/#setConformance) metódust a [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/hu/python-java/aspose.slides/conformance/#Iso29500_2008_Strict) értékkel. Ezután adja át az opciókat a [Presentation.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódusnak.
 
 ```python
 import jpype
@@ -176,13 +178,13 @@ finally:
 
 ## **Prezentációk mentése Office Open XML formátumban Zip64 módban**
 
-Egy szabványos ZIP archívum korlátozza az egyes bejegyzések tömörített és tömörítetlen méretét, a teljes archívum méretét és a bejegyzések számát. Mivel egy PPTX fájl ZIP archívum, egy nagyon nagy prezentáció túllépheti ezeket a határokat. A ZIP64 kiterjesztések megemelik a vonatkozó méret- és bejegyzésszám‑korlátokat.
+Egy szabványos ZIP archívum korlátozza az egyes bejegyzések tömörített és tömörítetlen méretét, a teljes archívum méretét és a bejegyzések számát. Mivel egy PPTX fájl ZIP archívum, egy nagyon nagy prezentáció túllépheti ezeket a korlátokat. A ZIP64 kiterjesztések emelik a vonatkozó méret‑ és bejegyzésszám‑korlátokat.
 
-Használja a [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxoptions/#setZip64Mode) metódust annak szabályozására, hogy az Aspose.Slides ír‑e ZIP64 kiterjesztéseket:
+Használja a [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxoptions/#setZip64Mode) metódust annak szabályozására, hogy az Aspose.Slides ZIP64 kiterjesztéseket írjon-e:
 
-- [IfNecessary](https://reference.aspose.com/slides/hu/python-java/aspose.slides/zip64mode/#IfNecessary) csak akkor használ ZIP64‑et, ha a prezentáció meghaladja a szabványos ZIP határokat. Ez az alapértelmezett mód.
+- [IfNecessary](https://reference.aspose.com/slides/hu/python-java/aspose.slides/zip64mode/#IfNecessary) csak akkor használ ZIP64‑et, ha a prezentáció meghaladja a szabványos ZIP‑korlátokat. Ez az alapértelmezett mód.
 - [Never](https://reference.aspose.com/slides/hu/python-java/aspose.slides/zip64mode/#Never) letiltja a ZIP64 kiterjesztéseket.
-- [Always](https://reference.aspose.com/slides/hu/python-java/aspose.slides/zip64mode/#Always) minden esetben ír ZIP64 kiterjesztéseket.
+- [Always](https://reference.aspose.com/slides/hu/python-java/aspose.slides/zip64mode/#Always) mindig írja a ZIP64 kiterjesztéseket.
 
 Az alábbi példa mindig engedélyezi a ZIP64 kiterjesztéseket a kimeneti prezentációhoz:
 
@@ -205,22 +207,22 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="warning" title="Figyelmeztetés" %}}
-Ha a [Zip64Mode.Never](https://reference.aspose.com/slides/hu/python-java/aspose.slides/zip64mode/#Never) mód van beállítva, és a prezentáció nem fér bele a szabványos ZIP határokba, a mentési művelet [PptxException](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxexception/) kivételt dob.
+{{% alert color="warning" title="Warning" %}}
+Ha a [Zip64Mode.Never](https://reference.aspose.com/slides/hu/python-java/aspose.slides/zip64mode/#Never) kerül használatra, és a prezentáció nem fér bele a szabványos ZIP‑korlátokba, a mentési művelet [PptxException](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxexception/) kivételt dob.
 {{% /alert %}}
 
 ## **Prezentációk mentése Office Open XML formátumban tömörítési szintekkel**
 
-PPTX kimenetnél a mentési sebesség és a fájlméret egyensúlyozásához használhatja a [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxoptions/#setCompressionLevel) metódust. A [CompressionLevel](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compressionlevel/) osztály a következő értékeket biztosítja:
+PPTX kimenetnél a mentési sebesség és a fájlméret egyensúlyozásához használhatja a [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxoptions/#setCompressionLevel) metódust. A [CompressionLevel](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compressionlevel/) osztály a következő értékeket kínálja:
 
 - [None](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compressionlevel/#None) adatot tömörítés nélkül tárol.
 - [Level1](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compressionlevel/#Level1) a leggyorsabb tömörítést és a legnagyobb tömörített kimenetet biztosítja.
-- [Level2](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compressionlevel/#Level2)‑től [Level5](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compressionlevel/#Level5) fokozatosan a kisebb kimenetet részesítik előnyben a mentési sebességgel szemben.
-- [Level6](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compressionlevel/#Level6) egyensúlyt teremt a mentési sebesség és a fájlméret között. Ez az alapértelmezett szint.
-- [Level7](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compressionlevel/#Level7) és [Level8](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compressionlevel/#Level8) továbbra is a kisebb kimenetet részesítik előnyben a sebességgel szemben.
-- [Level9](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compressionlevel/#Level9) a legerősebb tömörítést biztosítja, és a legtöbb feldolgozási időt igényli.
+- [Level2](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compressionlevel/#Level2)‑től [Level5](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compressionlevel/#Level5) fokozatosan a kisebb kimenet felé hajlik a mentési sebesség rovására.
+- [Level6](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compressionlevel/#Level6) egyensúlyban tartja a mentési sebességet és a fájlméretet. Ez az alapértelmezett szint.
+- [Level7](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compressionlevel/#Level7) és [Level8](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compressionlevel/#Level8) tovább részesítik a kisebb kimenetet a sebesség rovására.
+- [Level9](https://reference.aspose.com/slides/hu/python-java/aspose.slides/compressionlevel/#Level9) a legerősebb tömörítést nyújtja, és a legtöbb feldolgozási időt igényli.
 
-Az alábbi példa egy prezentációt tömörítés nélkül ment:
+Az alábbi példa tömörítés nélkül menti a prezentációt:
 
 ```python
 import jpype
@@ -262,14 +264,14 @@ finally:
     presentation.dispose()
 ```
 
-## **Prezentációk mentése a bélyegkép frissítése nélkül**
+## **Prezentációk mentése a miniatűr frissítése nélkül**
 
-Amikor egy prezentációt PPTX‑ként ment, a [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxoptions/#setRefreshThumbnail) metódus szabályozza a dokumentum bélyegképét:
+Amikor egy prezentációt PPTX‑ként ment, a [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxoptions/#setRefreshThumbnail) metódus szabályozza a dokumentum miniatűrjét:
 
-- `True` újra generálja a bélyegképet a mentési művelet során. Ez az alapértelmezett érték.
-- `False` megőrzi a meglévő bélyegképet. Ha a prezentációnak nincs bélyegképe, az Aspose.Slides nem hoz létre újat.
+- `True` a mentés során újra generálja a miniatűröt. Ez az alapértelmezett érték.
+- `False` megőrzi a meglévő miniatűrt. Ha a prezentációnak nincs miniatűre, az Aspose.Slides nem generál újat.
 
-Az alábbi példa egy prezentációt a bélyegkép frissítése nélkül ment:
+Az alábbi példa a miniatűr frissítése nélkül menti a prezentációt:
 
 ```python
 import jpype
@@ -290,15 +292,15 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Megjegyzés" %}}
-A bélyegkép frissítésének letiltása csökkentheti a PPTX fájl mentéséhez szükséges időt.
+{{% alert color="info" title="Note" %}}
+A miniatűr frissítésének letiltása csökkentheti a PPTX fájl mentéséhez szükséges időt.
 {{% /alert %}}
 
-## **Mentési folyamat jelentése százalékban**
+## **Mentés előrehaladásának jelentése százalékban**
 
-A mentési művelet nyomon követéséhez regisztráljon egy Python progress kezelőt a `jpype.JProxy`‑val, és adja át a [SaveOptions.setProgressCallback](https://reference.aspose.com/slides/hu/python-java/aspose.slides/saveoptions/#setProgressCallback) metódusnak. Az Aspose.Slides ezután a handler `reporting` metódusát hívja meg előrehaladási értékekkel az export során.
+A mentési művelet nyomon követéséhez regisztráljon egy Python előrehaladás‑kezelőt a `jpype.JProxy`‑val, és adja át a [SaveOptions.setProgressCallback](https://reference.aspose.com/slides/hu/python-java/aspose.slides/saveoptions/#setProgressCallback) metódusnak. Az Aspose.Slides ekkor a kezelő `reporting` metódusát hívja meg előrehaladási értékekkel az export során.
 
-Az alábbi példa a PDF export előrehaladását konzolra jelenti:
+Az alábbi példa a PDF export előrehaladását jelzi a konzolra:
 
 ```python
 import jpype
@@ -328,24 +330,24 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Megjegyzés" %}}
-Az Aspose ingyenes [PowerPoint Splitter](https://products.aspose.app/slides/hu/splitter) eszközt biztosít, amely az Aspose.Slides API‑val készült. Kiválasztott diákot külön PPT vagy PPTX fájlokként ment.
+{{% alert color="info" title="Note" %}}
+Az Aspose egy ingyenes [PowerPoint Splitter](https://products.aspose.app/slides/hu/splitter) szolgáltatást kínál, amely az Aspose.Slides API‑val készült. Kiválasztott diákat ment külön PPT vagy PPTX fájlokba.
 {{% /alert %}}
 
-## **GYIK**
+## **Gyakran Ismételt Kérdések**
 
 **Támogatja az Aspose.Slides az inkrementális vagy „gyors mentést”?**
 
-Nem. Minden mentési művelet teljes kimeneti fájlt ír, nem csak a megváltozott részeket frissíti.
+Nem. Minden mentési művelet egy teljes kimeneti fájlt ír, nem csak a megváltozott részeket frissíti.
 
 **Több szál mentheti ugyanazt a Presentation példányt?**
 
-Nem. Egy [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) példány [nem szálbiztonságos](/slides/hu/python-java/multithreading/). Mindig csak egy szál férjen hozzá és mentse a példányt egy időben.
+Nem. Egy [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) példány [nem szálbiztos](/slides/hu/python-java/multithreading/). Minden példányt egyszerre csak egy szálól szabad hozzáférni és menteni.
 
-**Mi történik a hiperhivatkozásokkal és a külsőleg linkelt fájlokkal, amikor mentek egy prezentációt?**
+**Mi történik a hiperhivatkozásokkal és külsőleg hivatkozott fájlokkal, amikor mentek egy prezentációt?**
 
-[Hyperlinks](/slides/hu/python-java/manage-hyperlinks/) megmaradnak a prezentációban. Az Aspose.Slides nem másolja a külsőleg linkelt fájlokat, így a mentett prezentációnak továbbra is hozzá kell férnie azok helyeihez.
+[Hyperlinks](/slides/hu/python-java/manage-hyperlinks/) megmaradnak a prezentációban. Az Aspose.Slides nem másolja a külsőleg hivatkozott fájlokat, ezért a mentett prezentációnak továbbra is hozzá kell férnie azok helyéhez.
 
-**Menthetők dokumentum metaadatok, mint például a szerző, cím, cég és létrehozás dátuma?**
+**Menthetek dokumentum metaadatokat, például szerzőt, címet, céget és létrehozás dátumát?**
 
 Igen. Állítsa be a megfelelő [document properties](/slides/hu/python-java/presentation-properties/) értékeket a mentés előtt, és az Aspose.Slides beírja őket a kimeneti fájlba.

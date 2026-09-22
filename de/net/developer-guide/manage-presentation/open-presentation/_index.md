@@ -21,19 +21,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Präsentationen in C# öffnen, Öffnungspasswörter bereitstellen, das Laden von Ressourcen steuern und mit Aspose.Slides für .NET den Speicherverbrauch reduzieren."
+description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Präsentationen in C# öffnen, Öffnungspasswörter angeben, das Laden von Ressourcen steuern und den Speicherverbrauch mit Aspose.Slides für .NET reduzieren."
 ---
-## **Einführung**
+## **Einleitung**
 
-[Aspose.Slides für .NET](https://products.aspose.com/slides/de/net/) kann PowerPoint‑ und OpenDocument‑Präsentationen aus Dateien und Streams laden. Nachdem eine Präsentation geladen wurde, können Sie deren Struktur untersuchen, Folien bearbeiten, Ressourcen verwalten und sie im ursprünglichen oder einem anderen unterstützten Format speichern.
+[Aspose.Slides for .NET](https://products.aspose.com/slides/de/net/) kann PowerPoint- und OpenDocument-Präsentationen aus Dateien und Streams laden. Nachdem eine Präsentation geladen wurde, können Sie ihre Struktur prüfen, Folien bearbeiten, Ressourcen verwalten und sie im ursprünglichen oder in einem anderen unterstützten Format speichern.
 
 Das Ladeverhalten kann über die Klasse [LoadOptions](https://reference.aspose.com/slides/de/net/aspose.slides/loadoptions/) angepasst werden. Beispielsweise können Sie ein Öffnungspasswort angeben, große Binärobjekte außerhalb des verwalteten Speichers halten, externe Ressourcen steuern oder eingebettete Binärdaten weglassen.
 
 ## **Präsentationen öffnen**
 
-Um eine vorhandene Präsentation zu öffnen, übergeben Sie ihren Dateipfad dem Konstruktor von [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/). Entsorgen Sie das Presentation‑Objekt nach der Verwendung, damit Dateihandles, temporäre Daten und andere Ressourcen zeitnah freigegeben werden.
+Nach dem Laden einer Datei oder eines Streams können Sie [das ursprüngliche Präsentationsformat ermitteln](/slides/de/net/detect-presentation-source-format/), um zu entscheiden, wie Ihre Anwendung sie verarbeitet.
 
-Das folgende C#‑Beispiel zeigt, wie eine Präsentation geöffnet und die Folienanzahl ermittelt wird:
+Um eine vorhandene Präsentation zu öffnen, übergeben Sie ihren Dateipfad an den Konstruktor von [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/). Entsorgen Sie das Presentation-Objekt nach Gebrauch, damit Dateihandles, temporäre Daten und andere Ressourcen zügig freigegeben werden.
+
+Das folgende C#-Beispiel zeigt, wie man eine Präsentation öffnet und die Folienzahl ermittelt:
 
 ```csharp
 using System;
@@ -46,7 +48,7 @@ Console.WriteLine("Slide count: " + presentation.Slides.Count);
 
 ## **Passwortgeschützte Präsentationen öffnen**
 
-Ein Öffnungspasswort verschlüsselt den Präsentationsinhalt. Um die komplette Präsentation zu laden, setzen Sie das korrekte Passwort auf [LoadOptions.Password](https://reference.aspose.com/slides/de/net/aspose.slides/loadoptions/password/) und übergeben die Optionen dem Konstruktor von [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/). Das Laden schlägt fehl, wenn das Passwort fehlt oder falsch ist.
+Ein Öffnungspasswort verschlüsselt den Präsentationsinhalt. Um die gesamte Präsentation zu laden, weisen Sie das korrekte Passwort [LoadOptions.Password](https://reference.aspose.com/slides/de/net/aspose.slides/loadoptions/password/) zu und übergeben Sie die Optionen an den [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/)-Konstruktor. Das Laden schlägt fehl, wenn das Passwort fehlt oder falsch ist.
 
 ```csharp
 using System;
@@ -58,13 +60,13 @@ using var presentation = new Presentation("encrypted-presentation.pptx", loadOpt
 Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
-Zum Erkennen, Validieren und Verschlüsseln von Passwörtern siehe [Password-Protect Presentations](/slides/de/net/password-protected-presentation/). Wenn eine verschlüsselte Präsentation absichtlich mit öffentlichen Dokumenteneigenschaften gespeichert wurde, können diese ohne Passwort gelesen werden; siehe [Manage Presentation Properties](/slides/de/net/presentation-properties/).
+Für Passworterkennung, -validierung und -verschlüsselungs-Workflows siehe [Password-Protect Presentations](/slides/de/net/password-protected-presentation/). Wenn eine verschlüsselte Präsentation bewusst mit öffentlichen Dokumenteneigenschaften gespeichert wurde, können diese Eigenschaften ohne Passwort gelesen werden; siehe [Manage Presentation Properties](/slides/de/net/presentation-properties/).
 
 ## **Große Präsentationen öffnen**
 
-[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/de/net/aspose.slides/loadoptions/blobmanagementoptions/) steuert, wie Aspose.Slides große Binärobjekte wie Bilder, Audio und Video behandelt. Sie können die Quelldatei gesperrt halten, temporäre Dateien zulassen und die Menge an im Speicher gehaltenen BLOB‑Daten begrenzen.
+[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/de/net/aspose.slides/loadoptions/blobmanagementoptions/) steuert, wie Aspose.Slides große Binärobjekte wie Bilder, Audio und Video behandelt. Sie können die Quelldatei gesperrt lassen, temporäre Dateien zulassen und die Menge an BLOB-Daten, die im Speicher gehalten wird, begrenzen.
 
-Der folgende C#‑Code demonstriert das Laden einer großen Präsentation (z. B. 2 GB):
+Der folgende C#-Code demonstriert das Laden einer großen Präsentation (z. B. 2 GB):
 
 ```csharp
 using Aspose.Slides;
@@ -90,15 +92,15 @@ presentation.Save("large-presentation-copy.pptx", SaveFormat.Pptx);
 
 {{% alert color="info" title="Hinweis" %}}
 
-Mit `PresentationLockingBehavior.KeepLocked` bleibt die Quelldatei gesperrt, bis das `Presentation`‑Objekt entsorgt wird. Verschieben, überschreiben oder löschen Sie die Quelldatei nicht, solange dieses Objekt lebt.
+Mit `PresentationLockingBehavior.KeepLocked` bleibt die Quelldatei gesperrt, bis das `Presentation`-Objekt freigegeben wird. Verschieben, überschreiben oder löschen Sie die Quelldatei nicht, solange das Objekt aktiv ist.
 
-Aspose.Slides kann beim Laden den Inhalt eines Eingabestreams kopieren. Für große Präsentationen ist ein Dateipfad daher im Allgemeinen effizienter als ein Stream. Siehe [Manage BLOBs](/slides/de/net/manage-blob/) für weitere Speicher‑ und Speicherverwaltungsoptionen.
+Aspose.Slides kann beim Laden den Inhalt eines Eingabestreams kopieren. Für große Präsentationen ist ein Dateipfad daher in der Regel effizienter als ein Stream. Siehe [Manage BLOBs](/slides/de/net/manage-blob/) für weitere Speicher- und Speicherverwaltungsoptionen.
 
 {{% /alert %}}
 
 ## **Externe Ressourcen steuern**
 
-[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/de/net/aspose.slides/loadoptions/resourceloadingcallback/) akzeptiert eine Implementierung von [IResourceLoadingCallback](https://reference.aspose.com/slides/de/net/aspose.slides/iresourceloadingcallback/). Der Rückruf kann Ersatzdaten bereitstellen, eine Ressource umleiten, den Standard‑Lader verwenden oder die Ressource überspringen. Dies ist nützlich, wenn Präsentationen externe Bilder enthalten, die gemäß anwendungsspezifischer Sicherheits‑ oder Speicherregeln aufgelöst werden müssen.
+[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/de/net/aspose.slides/loadoptions/resourceloadingcallback/) akzeptiert eine Implementierung von [IResourceLoadingCallback](https://reference.aspose.com/slides/de/net/aspose.slides/iresourceloadingcallback/). Der Callback kann Ersatzdaten bereitstellen, eine Ressource umleiten, den Standard-Lader verwenden oder die Ressource ueberspringen. Dies ist nützlich, wenn Präsentationen externe Bilder enthalten, die gemessen an anwendungsspezifischen Sicherheits- oder Speicherregeln aufgeloest werden muessen.
 
 ```csharp
 using System;
@@ -138,15 +140,15 @@ internal static class OpenPresentationExample
 
 ## **Präsentationen ohne eingebettete Binärobjekte laden**
 
-Eine Präsentation kann eingebettete Binärdaten enthalten, die eine Anwendung nicht benötigt oder nicht behalten möchte. Beispiele sind:
+Eine Präsentation kann eingebettete Binärdaten enthalten, die eine Anwendung nicht benoetigt oder nicht behalten moechte. Beispiele:
 
-- VBA‑Projekte, verfügbar über [IPresentation.VbaProject](https://reference.aspose.com/slides/de/net/aspose.slides/ipresentation/vbaproject/);
-- eingebettete OLE‑Daten, verfügbar über [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/de/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/);
-- ActiveX‑Steuerungsdaten, verfügbar über [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/de/net/aspose.slides/icontrol/activexcontrolbinary/).
+- VBA-Projekte, verfuegbar ueber [IPresentation.VbaProject](https://reference.aspose.com/slides/de/net/aspose.slides/ipresentation/vbaproject/);
+- eingebettete OLE-Daten, verfuegbar ueber [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/de/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/);
+- ActiveX-Steuerungsdaten, verfuegbar ueber [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/de/net/aspose.slides/icontrol/activexcontrolbinary/).
 
-Setzen Sie [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/de/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) auf `true`, um diese Binärdaten beim Laden zu entfernen. Speichern Sie die geladene Präsentation, um das bereinigte Ergebnis zu behalten.
+Setzen Sie [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/de/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) auf `true`, um diese Binärdaten beim Laden zu entfernen. Speichern Sie die geladene Präsentation, um das bereinigte Ergebnis zu erhalten.
 
-Diese Option reduziert die Exposition gegenüber unerwünschten eingebetteten Payloads, stellt jedoch kein vollständiges Malware‑Erkennungs‑ oder Inhalts‑Sanitisierungssystem dar.
+Diese Option reduziert die Gefahr unerwuenschter eingebetteter Payloads, stellt jedoch kein vollstaendiges Malware-Erkennungs- oder Inhalts-Sanitaersystem dar.
 
 ```csharp
 using Aspose.Slides;
@@ -164,14 +166,14 @@ presentation.Save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Wie kann ich erkennen, dass eine Datei beschädigt ist und nicht geöffnet werden kann?**
+**Wie kann ich feststellen, dass eine Datei beschädigt ist und nicht geoeffnet werden kann?**
 
-Aspose.Slides wirft beim Laden eine Parsing‑ oder Format‑Ausnahme. Behandeln Sie diesen Fehler separat von einem falschen Passwort‑Fehler, damit die Anwendung die Ursache genau melden kann.
+Aspose.Slides wirft beim Laden eine Parsing- oder Format-Ausnahme. Behandeln Sie diesen Fehler separat von einem falschen Passwort-Fehler, damit die Anwendung die Ursache korrekt melden kann.
 
-**Was passiert, wenn erforderliche Schriftarten fehlen?**
+**Was passiert, wenn erforderliche Schriften fehlen?**
 
-Die Präsentation kann weiterhin geladen werden, aber beim Rendern und Exportieren können Schriftarten substituiert werden. Sie können die [Schriftart‑Substitution konfigurieren](/slides/de/net/font-substitution/) oder [benutzerdefinierte Schriftarten bereitstellen](/slides/de/net/custom-font/), um die Ausgabe vorhersagbarer zu machen.
+Die Präsentation kann dennoch geladen werden, aber Rendering und Export koennen Schriften substituieren. Sie können [die Schriftart-Substitution konfigurieren](/slides/de/net/font-substitution/) oder [benutzerdefinierte Schriften bereitstellen](/slides/de/net/custom-font/), um das Ausgabeergebnis vorhersehbarer zu machen.
 
 **Wird beim Laden einer Präsentation auch deren eingebettete Medien geladen?**
 
-Eingebettete Audio‑ und Videodaten werden über das Präsentations‑Objektmodell verfügbar. Externe Ressourcen werden gemäß dem konfigurierten Ressourcen‑Ladeverhalten aufgelöst und können nicht verfügbar sein, wenn ihre Orte nicht zugänglich sind.
+Eingebettete Audio- und Videodaten werden ueber das Praesentation-Objektmodell verfuegbar. Externe Ressourcen werden gemaess dem konfigurierten Ressourcen-Ladeverhalten aufgeloest und koennen nicht verfuegbar sein, wenn ihre Speicherorte nicht erreichbar sind.

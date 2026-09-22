@@ -21,19 +21,21 @@ keywords:
 - binärt objekt
 - C++
 - Aspose.Slides
-description: "Lär dig hur du öppnar PowerPoint- och OpenDocument-presentationer i C++, anger öppningslösenord, styr resurshämtning och minskar minnesanvändning med Aspose.Slides för C++."
+description: "Lär dig hur du öppnar PowerPoint‑ och OpenDocument‑presentationer i C++, anger öppningslösenord, styr resurshämtning och minskar minnesanvändning med Aspose.Slides för C++."
 ---
 ## **Introduktion**
 
-[Aspose.Slides for C++](https://products.aspose.com/slides/sv/cpp/) kan läsa in PowerPoint- och OpenDocument-presentationer från filer och strömmar. När en presentation har lästs in kan du inspektera dess struktur, redigera bilder, hantera resurser och spara den i originalformatet eller ett annat stödformat.
+[Aspose.Slides for C++](https://products.aspose.com/slides/sv/cpp/) kan läsa in PowerPoint‑ och OpenDocument‑presentationer från filer och strömmar. När en presentation har lästs in kan du undersöka dess struktur, redigera bilder, hantera resurser och spara den i originalformatet eller ett annat stödd format.
 
-Inläsningsbeteendet kan anpassas via klassen [LoadOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/). Till exempel kan du ange ett öppningslösenord, hålla stora binära objekt utanför minnet, kontrollera externa resurser eller utesluta inbäddade binära data.
+Laddningsbeteendet kan anpassas via klassen [LoadOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/). Till exempel kan du ange ett öppningslösenord, hålla stora binära objekt utanför minnet, styra externa resurser eller utelämna inbäddade binära data.
 
 ## **Öppna presentationer**
 
-För att öppna en befintlig presentation, skicka dess filsökväg till konstruktorn [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/). Disposera presentationen efter användning så att filhandtag, temporära data och andra resurser frigörs omedelbart.
+Efter att ha läst in en fil eller ström kan du [fastställa dess ursprungliga presentationsformat](/slides/sv/cpp/detect-presentation-source-format/) för att välja hur din applikation bearbetar den.
 
-Följande C++-exempel visar hur man öppnar en presentation och får antalet bilder:
+För att öppna en befintlig presentation, skicka dess filsökväg till konstruktorn för [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/). Avsluta presentationen efter användning så att filhandtag, temporära data och andra resurser frigörs omedelbart.
+
+Följande C++‑exempel visar hur man öppnar en presentation och får dess bildantal:
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -52,7 +54,7 @@ presentation->Dispose();
 
 ## **Öppna lösenordsskyddade presentationer**
 
-Ett öppningslösenord krypterar presentationsinnehållet. För att läsa in hela presentationen, skicka det korrekta lösenordet till [LoadOptions::set_Password](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/set_password/) och skicka alternativen till konstruktorn [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/). Inläsning misslyckas när lösenordet saknas eller är felaktigt.
+Ett öppningslösenord krypterar presentationsinnehållet. För att läsa in hela presentationen, skicka det korrekta lösenordet till [LoadOptions::set_Password](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/set_password/) och skicka alternativet till konstruktorn för [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/). Inläsning misslyckas när lösenordet saknas eller är felaktigt.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -73,13 +75,13 @@ Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count())
 presentation->Dispose();
 ```
 
-För lösenorddetektering, validering och krypteringsarbetsflöden, se [Password-Protect Presentations](/slides/sv/cpp/password-protected-presentation/). Om en krypterad presentation avsiktligt sparades med offentliga dokumentegenskaper kan dessa egenskaper läsas utan lösenord; se [Manage Presentation Properties](/slides/sv/cpp/presentation-properties/).
+För lösenorddetektering, validering och krypteringsarbetsflöden, se [Password-Protect Presentations](/slides/sv/cpp/password-protected-presentation/). Om en krypterad presentation medvetet sparats med offentliga dokumentegenskaper, kan dessa egenskaper läsas utan lösenord; se [Manage Presentation Properties](/slides/sv/cpp/presentation-properties/).
 
 ## **Öppna stora presentationer**
 
-[LoadOptions::get_BlobManagementOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) styr hur Aspose.Slides hanterar binära stora objekt som bilder, audio och video. Du kan behålla källfilen låst, tillåta temporära filer och begränsa mängden BLOB-data som behålls i minnet.
+[LoadOptions::get_BlobManagementOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) styr hur Aspose.Slides hanterar stora binära objekt som bilder, ljud och video. Du kan behålla källfilen låst, tillåta tillfälliga filer och begränsa mängden BLOB‑data som behålls i minnet.
 
-Följande C++-kod visar hur man läser in en stor presentation (till exempel 2 GB):
+Följande C++‑kod demonstrerar inläsning av en stor presentation (till exempel 2 GB):
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -110,14 +112,14 @@ presentation->Dispose();
 ```
 
 {{% alert color="info" title="Note" %}}
-Med `PresentationLockingBehavior::KeepLocked` förblir källfilen låst tills `Presentation`-objektet disposeras. Flytta, skriv över eller radera inte källfilen medan det objektet lever.
+Med `PresentationLockingBehavior::KeepLocked` förblir källfilen låst tills `Presentation`‑objektet avslutas. Flytta, skriv över eller ta inte bort källfilen medan objektet är aktivt.
 
-Aspose.Slides kan kopiera innehållet i en inmatningsström under inläsning. För stora presentationer är en filsökväg därför vanligtvis mer effektiv än en ström. Se [Manage BLOBs](/slides/sv/cpp/manage-blob/) för ytterligare lagrings- och minneshanteringsalternativ.
+Aspose.Slides kan kopiera innehållet i en indataström under inläsning. För stora presentationer är en filsökväg därför vanligtvis mer effektiv än en ström. Se [Manage BLOBs](/slides/sv/cpp/manage-blob/) för ytterligare lagrings- och minneshanteringsalternativ.
 {{% /alert %}}
 
 ## **Styr externa resurser**
 
-[LoadOptions::set_ResourceLoadingCallback](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/set_resourceloadingcallback/) accepterar en implementation av [IResourceLoadingCallback](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iresourceloadingcallback/). Återuppringningen kan tillhandahålla ersättningsdata, omdirigera en resurs, använda standardladdaren eller hoppa över resursen. Detta är användbart när presentationer innehåller externa bilder som måste lösas enligt applikationsspecifika säkerhets- eller lagringsregler.
+[LoadOptions::set_ResourceLoadingCallback](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/set_resourceloadingcallback/) accepterar en implementering av [IResourceLoadingCallback](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iresourceloadingcallback/). Återanropet kan tillhandahålla ersättningsdata, omdirigera en resurs, använda standardladdaren eller hoppa över resursen. Detta är användbart när presentationer innehåller externa bilder som måste lösas enligt applikationsspecifika säkerhets- eller lagringsregler.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -162,15 +164,15 @@ presentation->Dispose();
 
 ## **Läs in presentationer utan inbäddade binära objekt**
 
-En presentation kan innehålla inbäddad binär data som en applikation inte behöver eller vill behålla. Exempel inkluderar:
+En presentation kan innehålla inbäddad binär data som en applikation inte behöver eller inte vill behålla. Exempel inkluderar:
 
-- VBA-projekt, tillgängliga via [IPresentation::get_VbaProject](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipresentation/get_vbaproject/);
-- inbäddad OLE-data, tillgänglig via [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/);
-- ActiveX-kontrolldata, tillgänglig via [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icontrol/get_activexcontrolbinary/).
+- VBA‑projekt, tillgängliga via [IPresentation::get_VbaProject](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipresentation/get_vbaproject/);
+- inbäddad OLE‑data, tillgänglig via [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/);
+- ActiveX‑kontrolldata, tillgänglig via [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icontrol/get_activexcontrolbinary/).
 
-Skicka `true` till [LoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/set_deleteembeddedbinaryobjects/) för att ta bort denna binära data vid inläsning. Spara den inlästa presentationen för att bevara det sanerade resultatet.
+Skicka `true` till [LoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/set_deleteembeddedbinaryobjects/) för att ta bort denna binära data vid inläsning. Spara den inlästa presentationen för att behålla det sanerade resultatet.
 
-Detta alternativ minskar exponeringen för oönskade inbäddade payloads, men det är inte ett komplett system för malware-detektion eller innehållssanering.
+Detta alternativ minskar exponeringen för oönskade inbäddade data, men det är inte ett fullständigt system för malware‑detektion eller innehållssanering.
 
 ```cpp
 #include <DOM/LoadOptions.h>
@@ -193,14 +195,14 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Hur kan jag avgöra att en fil är skadad och inte kan öppnas?**
+**Hur kan jag avgöra att en fil är korrupt och inte kan öppnas?**
 
-Aspose.Slides kastar ett parsnings- eller formatundantag under inläsning. Hantera detta fel separat från ett felaktigt lösenord‑fel så att applikationen kan rapportera orsaken korrekt.
+Aspose.Slides kastar ett parsnings‑ eller formatfel under inläsning. Hantera detta misslyckande separat från ett felaktigt lösenord‑fel så att applikationen kan rapportera orsaken korrekt.
 
 **Vad händer om nödvändiga teckensnitt saknas?**
 
-Presentationen kan fortfarande läsas in, men rendering och export kan ersätta teckensnitt. Du kan [konfigurera teckensnittssubstitution](/slides/sv/cpp/font-substitution/) eller [tillhandahålla anpassade teckensnitt](/slides/sv/cpp/custom-font/) för att göra resultatet mer förutsägbart.
+Presentationen kan fortfarande läsas in, men rendering och export kan ersätta teckensnitt. Du kan [configure font substitution](/slides/sv/cpp/font-substitution/) eller [provide custom fonts](/slides/sv/cpp/custom-font/) för att göra resultatet mer förutsägbart.
 
 **Laddar inläsning av en presentation även dess inbäddade media?**
 
-Inbäddad ljud- och videodata blir tillgänglig via presentationsobjektmodellen. Externa resurser löses upp enligt den konfigurerade resursladdningsbeteendet och kan vara otillgängliga om deras platser inte kan nås.
+Inbäddat ljud och video blir tillgängliga via presentationsobjektmodellen. Externa resurser löses upp enligt den konfigurerade resursningsläsningsbeteendet och kan vara otillgängliga om deras platser inte kan nås.

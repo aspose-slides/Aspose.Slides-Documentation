@@ -14,25 +14,27 @@ keywords:
 - โหลด PPTX
 - โหลด PPT
 - โหลด ODP
-- งานนำเสนอที่ป้องกัน
+- งานนำเสนอที่มีการป้องกัน
 - งานนำเสนอขนาดใหญ่
 - ทรัพยากรภายนอก
 - วัตถุไบนารี
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีเปิดงานนำเสนอ PowerPoint และ OpenDocument ใน Java, จัดหารหัสผ่านการเปิด, ควบคุมการโหลดทรัพยากร, และลดการใช้หน่วยความจำด้วย Aspose.Slides for Java."
+description: "เรียนรู้วิธีเปิดงานนำเสนอ PowerPoint และ OpenDocument ใน Java, จัดหารหัสผ่านสำหรับการเปิด, ควบคุมการโหลดทรัพยากร, และลดการใช้หน่วยความจำด้วย Aspose.Slides สำหรับ Java."
 ---
 ## **บทนำ**
 
-[Aspose.Slides for Java](https://products.aspose.com/slides/th/java/) สามารถโหลดงานนำเสนอ PowerPoint และ OpenDocument จากไฟล์และสตรีมได้ หลังจากโหลดงานนำเสนอแล้ว คุณสามารถตรวจสอบโครงสร้าง แก้ไขสไลด์ จัดการทรัพยากร และบันทึกในรูปแบบเดิมหรือรูปแบบที่สนับสนุนอื่นได้
+[Aspose.Slides for Java](https://products.aspose.com/slides/th/java/) สามารถโหลดงานนำเสนอ PowerPoint และ OpenDocument จากไฟล์และสตรีมได้ หลังจากโหลดงานนำเสนอแล้ว คุณสามารถตรวจสอบโครงสร้าง แก้ไขสไลด์ จัดการทรัพยากร และบันทึกในรูปแบบเดิมหรือรูปแบบที่รองรับอื่นได้
 
-พฤติกรรมการโหลดสามารถปรับแต่งได้ผ่านคลาส [LoadOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/) ตัวอย่างเช่น คุณสามารถระบุรหัสผ่านสำหรับการเปิด เก็บอ็อบเจ็กต์ไบนารี่ขนาดใหญ่แยกออกจากหน่วยความจำ Java heap ควบคุมทรัพยากรภายนอก หรือละเว้นข้อมูลไบนารีที่ฝังอยู่
+พฤติกรรมการโหลดสามารถปรับแต่งได้ผ่านคลาส [LoadOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/) ตัวอย่างเช่น คุณสามารถระบุรหัสผ่านสำหรับการเปิด เก็บวัตถุไบนารีขนาดใหญ่ไว้ไฮป์เมมโมรีของ Java ควบคุมทรัพยากรภายนอก หรือละเว้นข้อมูลไบนารีที่ฝังอยู่
 
 ## **เปิดงานนำเสนอ**
 
-เพื่อเปิดงานนำเสนอที่มีอยู่ ให้ส่งพาธไฟล์ไปยังคอนสตรัคเตอร์ของ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) แล้วทำการ Dispose งานนำเสนอหลังการใช้เพื่อให้แฮนด์เดลไฟล์ ข้อมูลชั่วคราว และทรัพยากรอื่น ๆ ถูกปล่อยออกโดยเร็ว
+หลังจากโหลดไฟล์หรือสตรีมแล้ว คุณสามารถ [determine its original presentation format](/slides/th/java/detect-presentation-source-format/) เพื่อเลือกวิธีที่แอปพลิเคชันของคุณจะประมวลผล
 
-ตัวอย่าง Java ด้านล่างแสดงวิธีเปิดงานนำเสนอและรับจำนวนสไลด์:
+ในการเปิดงานนำเสนอที่มีอยู่ ให้ส่งพาธไฟล์ไปยังคอนสตรัคเตอร์ของ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) แล้วทำการ Dispose งานนำเสนอหลังการใช้งาน เพื่อให้ปล่อยไฟล์แฮนด์เลอร์ ข้อมูลชั่วคราว และทรัพยากรอื่น ๆ อย่างรวดเร็ว
+
+ตัวอย่าง Java ต่อไปนี้แสดงวิธีเปิดงานนำเสนอและรับจำนวนสไลด์:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -47,7 +49,7 @@ try {
 
 ## **เปิดงานนำเสนอที่มีการป้องกันด้วยรหัสผ่าน**
 
-รหัสผ่านที่ใช้ในการเปิดจะเข้ารหัสเนื้อหาของงานนำเสนอ เพื่อโหลดงานนำเสนอเต็มรูปแบบ ให้ส่งรหัสผ่านที่ถูกต้องไปยัง [LoadOptions.setPassword](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) แล้วให้ตัวเลือกเหล่านั้นแก่คอนสตรัคเตอร์ของ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) การโหลดจะล้มเหลือเมื่อรหัสผ่านไม่มีหรือไม่ถูกต้อง
+รหัสผ่านสำหรับการเปิดจะเข้ารหัสเนื้อหาของงานนำเสนอ เพื่อโหลดงานนำเสนออย่างสมบูรณ์ ให้ส่งรหัสผ่านที่ถูกต้องไปยัง [LoadOptions.setPassword](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) แล้วกำหนดออปชันเหล่านี้ให้กับคอนสตรัคเตอร์ของ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) การโหลดจะล้มเหลือเมื่อไม่มีรหัสผ่านหรือรหัสผ่านไม่ถูกต้อง
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -64,13 +66,13 @@ try {
 }
 ```
 
-สำหรับการตรวจจับรหัสผ่าน การตรวจสอบความถูกต้อง และกระบวนการเข้ารหัส โปรดดู [Password-Protect Presentations](/slides/th/java/password-protected-presentation/) หากงานนำเสนอที่เข้ารหัสถูกบันทึกโดยเจตนาพร้อมคุณสมบัติเอกสารสาธารณะ คุณสมบัติเหล่านั้นสามารถอ่านได้โดยไม่ต้องใช้รหัสผ่าน; ดู [Manage Presentation Properties](/slides/th/java/presentation-properties/)
+สำหรับการตรวจจับรหัสผ่าน การตรวจสอบความถูกต้อง และกระบวนการเข้ารหัส โปรดดูที่ [Password-Protect Presentations](/slides/th/java/password-protected-presentation/) หากงานนำเสนอที่เข้ารหัสถูกบันทึกโดยเจตนาพร้อมคุณสมบัติเ�เทเอกสารสาธารณะ คุณสมบัติเหล่านั้นสามารถอ่านได้โดยไม่ต้องใช้รหัสผ่าน; ดูที่ [Manage Presentation Properties](/slides/th/java/presentation-properties/)
 
 ## **เปิดงานนำเสนอขนาดใหญ่**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) คืนค่าตัวเลือกที่ควบคุมวิธีที่ Aspose.Slides จัดการกับ Binary Large Object เช่น รูปภาพ, เสียง, และวิดีโอ คุณสามารถเก็บไฟล์ต้นทางให้ล็อกไว้ อนุญาตไฟล์ชั่วคราว และจำกัดปริมาณข้อมูล BLOB ที่เก็บในหน่วยความจำ
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) คืนค่าออปชันที่ควบคุมวิธีการที่ Aspose.Slides จัดการวัตถุไบนารีขนาดใหญ่ เช่น รูปภาพ เสียง และวิดีโอ คุณสามารถล็อคไฟล์ต้นฉบับไว้, อนุญาตไฟล์ชั่วคราว, และจำกัดปริมาณข้อมูล BLOB ที่เก็บไว้ในหน่วยความจำ
 
-โค้ด Java ด้านล่างแสดงการโหลดงานนำเสนอขนาดใหญ่ (เช่น 2 GB):
+ตัวอย่างโค้ด Java ต่อไปนี้แสดงการโหลดงานนำเสนอขนาดใหญ่ (เช่น 2 GB):
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -95,14 +97,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-ด้วย [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked) ไฟล์ต้นทางจะคงอยู่ในสถานะล็อกจนกว่าตัวอย่างงานนำเสนอจะถูก Dispose อย่าย้าย เขียนทับ หรือทำลายไฟล์ต้นทางขณะที่ตัวอย่างนั้นยังมีชีวิตอยู่
+ด้วย [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked) ไฟล์ต้นฉบับจะถูกล็อคไว้จนกว่าจะทำการ Dispose อินสแตนซ์ของงานนำเสนอ อย่าย้าย แทนที่ หรือ ลบไฟล์ต้นฉบับขณะอินสแตนซ์นั้นยังคงมีอยู่
 
-Aspose.Slides อาจคัดลอกเนื้อหาของสตรีมอินพุตขณะทำการโหลด สำหรับงานนำเสนอขนาดใหญ่ การใช้พาธไฟล์จึงมักจะมีประสิทธิภาพมากกว่าสตรีม ดูที่ [Manage BLOBs](/slides/th/java/manage-blob/) สำหรับตัวเลือกการจัดเก็บและการจัดการหน่วยความจำเพิ่มเติม
+Aspose.Slides อาจคัดลอกเนื้อหาของสตรีมเข้ามาในระหว่างการโหลด สำหรับงานนำเสนอขนาดใหญ่ การใช้พาธไฟล์จึงโดยทั่วไปมีประสิทธิภาพกว่าสตรีม ดูที่ [Manage BLOBs](/slides/th/java/manage-blob/) เพื่อดูตัวเลือกการจัดเก็บและการจัดการหน่วยความจำเพิ่มเติม
 {{% /alert %}}
 
 ## **ควบคุมทรัพยากรภายนอก**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) ยอมรับการนำไปใช้งานของ [IResourceLoadingCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/iresourceloadingcallback/) คอลแบ็กสามารถจัดหาข้อมูลทดแทน, เปลี่ยนเส้นทางทรัพยากร, ใช้ตัวโหลดเริ่มต้น, หรือข้ามทรัพยากรได้ สิ่งนี้มีประโยชน์เมื่องานนำเสนอประกอบด้วยรูปภาพภายนอกที่ต้องถูกแก้ไขตามกฎความปลอดภัยหรือการจัดเก็บของแอปพลิเคชัน
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) ยอมรับการทำงานของ [IResourceLoadingCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/iresourceloadingcallback/) คอลแบ็กสามารถให้ข้อมูลทดแทน เปลี่ยนเส้นทางทรัพยากร ใช้โหลดเริ่มต้น หรือข้ามทรัพยากรได้ ซึ่งมีประโยชน์เมื่องานนำเสนอมีภาพภายนอกที่ต้องแก้ไขตามกฎความปลอดภัยหรือการจัดเก็บของแอปพลิเคชัน
 
 ```java
 import com.aspose.slides.IResourceLoadingArgs;
@@ -146,17 +148,17 @@ try {
 }
 ```
 
-## **โหลดงานนำเสนอโดยไม่รวมอ็อบเจ็กต์ไบนารีฝังอยู่**
+## **โหลดงานนำเสนอโดยไม่รวมวัตถุไบนารีที่ฝังอยู่**
 
-งานนำเสนออาจมีข้อมูลไบนารีฝังอยู่ที่แอปพลิเคชันไม่ต้องการหรือไม่ต้องการเก็บ ตัวอย่างได้แก่:
+งานนำเสนออาจมีข้อมูลไบนารีที่ฝังอยู่ซึ่งแอปพลิเคชันไม่ต้องการหรือไม่ต้องการเก็บไว้ ตัวอย่างได้แก่
 
-- โครงการ VBA ที่สามารถเข้าถึงได้ผ่าน [IPresentation.getVbaProject](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentation/#getVbaProject--);
-- ข้อมูล OLE ฝังอยู่ที่สามารถเข้าถึงได้ผ่าน [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/th/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
-- ข้อมูลควบคุม ActiveX ที่สามารถเข้าถึงได้ผ่าน [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/th/java/com.aspose.slides/icontrol/#getActiveXControlBinary--).
+- โครงการ VBA ที่เข้าถึงได้ผ่าน [IPresentation.getVbaProject](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentation/#getVbaProject--);
+- ข้อมูล OLE ที่ฝังอยู่ที่เข้าถึงได้ผ่าน [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/th/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
+- ข้อมูลคอนโทรล ActiveX ที่เข้าถึงได้ผ่าน [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/th/java/com.aspose.slides/icontrol/#getActiveXControlBinary--).
 
-ตั้งค่า [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) เป็น `true` เพื่อกำจัดข้อมูลไบนารีนี้ขณะโหลด บันทึกงานนำเสนอที่โหลดแล้วเพื่อคงผลลัพธ์ที่ทำความสะอาดไว้
+ตั้งค่า [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) เป็น `true` เพื่อลบข้อมูลไบนารีเหล่านี้ขณะโหลด จากนั้นบันทึกงานนำเสนอที่โหลดแล้วเพื่อทำให้ผลลัพธ์ที่ผ่านการทำความสะอาดคงอยู่
 
-ตัวเลือกนี้ลดความเสี่ยงต่อข้อมูลฝังที่ไม่ต้องการ แต่ไม่ใช่ระบบตรวจจับมัลแวร์หรือการทำความสะอาดเนื้อหาแบบสมบูรณ์
+ออปชันนี้ช่วยลดการเปิดเผยต่อโพลโหลดที่ฝังอยู่โดยไม่ได้ตั้งใจ แต่ไม่ได้เป็นระบบตรวจจับมัลแวร์หรือการทำความสะอาดเนื้อหาแบบครบวงจร
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -176,14 +178,14 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะทราบว่าไฟล์เสียหายและไม่สามารถเปิดได้อย่างไร?**
+**ฉันจะบอกได้อย่างไรว่าไฟล์เสียหายและไม่สามารถเปิดได้?**
 
-Aspose.Slides จะโยนข้อยกเว้นการพาร์สหรือรูปแบบระหว่างการโหลด ให้จัดการความล้มเหลือนี้แยกจากข้อผิดพลาดรหัสผ่านไม่ถูกต้อง เพื่อให้แอปพลิเคชันสามารถรายงานสาเหตุได้อย่างแม่นยำ
+Aspose.Slides จะโยนข้อยกเว้นการพาร์สหรือรูปแบบระหว่างการโหลด ให้จัดการความล้มเหลวนี้แยกจากข้อผิดพลาดรหัสผ่านไม่ถูกต้อง เพื่อให้แอปพลิเคชันสามารถรายงานสาเหตุได้อย่างแม่นยำ
 
-**ถ้าตัวอักษรที่จำเป็นหายไปจะเกิดอะไรขึ้น?**
+**เกิดอะไรขึ้นหากฟอนต์ที่จำเป็นหายไป?**
 
-งานนำเสนอยังสามารถโหลดได้ แต่การเรนเดอร์และการส่งออกอาจแทนที่ตัวอักษรได้ คุณสามารถ [configure font substitution](/slides/th/java/font-substitution/) หรือ [provide custom fonts](/slides/th/java/custom-font/) เพื่อทำให้ผลลัพธ์คาดเดาได้มากขึ้น
+งานนำเสนอยังคงโหลดได้ แต่การเรนเดอร์และการส่งออกอาจใช้ฟอนต์ทดแทน คุณสามารถ [configure font substitution](/slides/th/java/font-substitution/) หรือ [provide custom fonts](/slides/th/java/custom-font/) เพื่อทำให้ผลลัพธ์คาดเดาได้มากขึ้น
 
 **การโหลดงานนำเสนอจะโหลดสื่อที่ฝังอยู่ด้วยหรือไม่?**
 
-เสียงและวิดีโอที่ฝังอยู่จะพร้อมใช้งานผ่านโมเดลอ็อบเจ็กต์ของงานนำเสนอ ทรัพยากรภายนอกจะถูกแก้ไขตามพฤติกรรมการโหลดทรัพยากรที่กำหนดค่าไว้และอาจไม่พร้อมใช้งานหากไม่สามารถเข้าถึงตำแหน่งของมันได้
+เสียงและวิดีโอที่ฝังอยู่จะสามารถเข้าถึงได้ผ่านโมเดลอ็อบเจ็กต์ของงานนำเสนอ ทรัพยากรภายนอกจะถูกแก้ไขตามพฤติกรรมการโหลดทรัพยากรที่ตั้งค่าไว้ และอาจไม่พร้อมใช้งานหากไม่สามารถเข้าถึงตำแหน่งของมันได้

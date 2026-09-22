@@ -1,5 +1,5 @@
 ---
-title: Otevírání prezentací v C++
+title: Otevření prezentací v C++
 linktitle: Otevřít prezentaci
 type: docs
 weight: 20
@@ -21,17 +21,19 @@ keywords:
 - binární objekt
 - C++
 - Aspose.Slides
-description: "Naučte se, jak v C++ otevírat prezentace PowerPoint a OpenDocument, zadávat otevírací hesla, řídit načítání zdrojů a snižovat využití paměti pomocí Aspose.Slides pro C++."
+description: "Zjistěte, jak v C++ otevřít prezentace PowerPoint a OpenDocument, zadat otevírací hesla, řídit načítání zdrojů a snížit využití paměti pomocí Aspose.Slides pro C++."
 ---
 ## **Úvod**
 
-[Aspose.Slides for C++](https://products.aspose.com/slides/cs/cpp/) může načíst prezentace PowerPoint a OpenDocument ze souborů a proudů. Po načtení prezentace můžete prozkoumat její strukturu, upravovat snímky, spravovat zdroje a uložit ji v původním nebo jiném podporovaném formátu.
+[Aspose.Slides for C++](https://products.aspose.com/slides/cs/cpp/) může načítat prezentace PowerPoint a OpenDocument ze souborů a proudů. Po načtení prezentace můžete prozkoumat její strukturu, upravovat snímky, spravovat zdroje a uložit ji v původním nebo jiném podporovaném formátu.
 
-Chování načítání lze přizpůsobit pomocí třídy [LoadOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/). Například můžete zadat otevírací heslo, uchovávat velké binární objekty mimo paměť, řídit externí zdroje nebo vynechat vložená binární data.
+Chování načítání lze přizpůsobit pomocí třídy [LoadOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/). Například můžete zadat otevírací heslo, nechat velké binární objekty mimo paměť, řídit externí zdroje nebo vynechat vložená binární data.
 
-## **Otevírání prezentací**
+## **Otevření prezentací**
 
-Pro otevření existující prezentace předáte její cestu k souboru konstruktoru [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/). Po použití prezentaci uvolněte, aby byly rychle uvolněny souborové handly, dočasná data a další zdroje.
+Po načtení souboru nebo proudu můžete [zjistit jeho původní formát prezentace](/slides/cs/cpp/detect-presentation-source-format/), abyste si vybrali, jak aplikace s ním bude pracovat.
+
+Pro otevření existující prezentace předáte její cestu k souboru do konstruktoru [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/). Po použití prezentaci uvolněte (dispose), aby byly souborové handly, dočasná data a další prostředky okamžitě uvolněny.
 
 Následující příklad v C++ ukazuje, jak otevřít prezentaci a získat počet snímků:
 
@@ -50,7 +52,7 @@ Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count())
 presentation->Dispose();
 ```
 
-## **Otevírání prezentací chráněných heslem**
+## **Otevření prezentací chráněných heslem**
 
 Otevírací heslo šifruje obsah prezentace. Pro načtení celé prezentace předáte správné heslo metodě [LoadOptions::set_Password](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_password/) a předáte možnosti konstruktoru [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/). Načítání selže, pokud heslo chybí nebo je nesprávné.
 
@@ -73,11 +75,11 @@ Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count())
 presentation->Dispose();
 ```
 
-Pro detekci hesla, validaci a šifrovací pracovní postupy viz [Ochrana prezentací heslem](/slides/cs/cpp/password-protected-presentation/). Pokud byla šifrovaná prezentace úmyslně uložena s veřejnými vlastnostmi dokumentu, lze tyto vlastnosti číst bez hesla; viz [Správa vlastností prezentace](/slides/cs/cpp/presentation-properties/).
+Pro detekci hesla, validaci a šifrovací workflow viz [Password-Protect Presentations](/slides/cs/cpp/password-protected-presentation/). Pokud byla šifrovaná prezentace úmyslně uložena s veřejnými vlastnostmi dokumentu, tyto vlastnosti lze číst bez hesla; viz [Manage Presentation Properties](/slides/cs/cpp/presentation-properties/).
 
-## **Otevírání velkých prezentací**
+## **Otevření velkých prezentací**
 
-[LoadOptions::get_BlobManagementOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) řídí, jak Aspose.Slides zachází s velkými binárními objekty, jako jsou obrázky, audio a video. Můžete udržet zdrojový soubor zamčený, povolit dočasné soubory a omezit množství BLOB dat uchovávaných v paměti.
+[LoadOptions::get_BlobManagementOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) řídí, jak Aspose.Slides zachází s velkými binárními objekty, jako jsou obrázky, audio a video. Můžete nechat zdrojový soubor zamčený, povolit dočasné soubory a omezit množství BLOB dat uchovávaných v paměti.
 
 Následující kód v C++ ukazuje načtení velké prezentace (například 2 GB):
 
@@ -109,15 +111,15 @@ presentation->Save(u"large-presentation-copy.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="info" title="Poznámka" %}}
-S `PresentationLockingBehavior::KeepLocked` zdrojový soubor zůstává zamčený, dokud není objekt `Presentation` uvolněn. Nehýbejte, nepřepisujte ani nesmažte zdrojový soubor, dokud je tento objekt aktivní.
+{{% alert color="info" title="Note" %}}
+S `PresentationLockingBehavior::KeepLocked` zůstane zdrojový soubor zamčený, dokud není objekt `Presentation` uvolněn. Nepřesouvejte, nepřepisujte ani nesmažte zdrojový soubor, dokud je tento objekt živý.
 
-Aspose.Slides může při načítání kopírovat obsah vstupního proudu. Pro velké prezentace je cesta k souboru obecně efektivnější než proud. Viz [Správa BLOB](/slides/cs/cpp/manage-blob/) pro další možnosti úložiště a správy paměti.
+Aspose.Slides může během načítání zkopírovat obsah vstupního proudu. Pro velké prezentace je proto cesta k souboru obecně efektivnější než proud. Viz [Manage BLOBs](/slides/cs/cpp/manage-blob/) pro další možnosti úložiště a správy paměti.
 {{% /alert %}}
 
 ## **Řízení externích zdrojů**
 
-[LoadOptions::set_ResourceLoadingCallback](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_resourceloadingcallback/) přijímá implementaci [IResourceLoadingCallback](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iresourceloadingcallback/). Callback může poskytnout náhradní data, přesměrovat zdroj, použít výchozí načítání nebo zdroj přeskočit. To je užitečné, když prezentace obsahují externí obrázky, které je třeba řešit podle specifických bezpečnostních nebo úložných pravidel aplikace.
+[LoadOptions::set_ResourceLoadingCallback](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_resourceloadingcallback/) přijímá implementaci [IResourceLoadingCallback](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iresourceloadingcallback/). Zpětné volání může poskytnout nahrazovací data, přesměrovat zdroj, použít výchozí načítač nebo zdroj přeskočit. To je užitečné, když prezentace obsahují externí obrázky, které je třeba řešit podle bezpečnostních nebo úložných pravidel aplikace.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -160,17 +162,17 @@ Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count())
 presentation->Dispose();
 ```
 
-## **Načítání prezentací bez vložených binárních objektů**
+## **Načtení prezentací bez vložených binárních objektů**
 
-Prezentace může obsahovat vložená binární data, která aplikace nepotřebuje nebo nechce zachovat. Příklady zahrnují:
+Prezentace může obsahovat vložená binární data, která aplikace nepotřebuje ani nechce zachovat. Příklady zahrnují:
 
-- projekty VBA, dostupné přes [IPresentation::get_VbaProject](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/get_vbaproject/);
-- vložená data OLE, dostupná přes [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/);
+- VBA projekty, dostupné přes [IPresentation::get_VbaProject](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/get_vbaproject/);
+- vložená OLE data, dostupná přes [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/);
 - data ovládacích prvků ActiveX, dostupná přes [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icontrol/get_activexcontrolbinary/).
 
-Při načítání předáte `true` metodě [LoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_deleteembeddedbinaryobjects/), aby se tato binární data odstranila. Uložte načtenou prezentaci, aby se výsledek sanitizoval.
+Předáte `true` metodě [LoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_deleteembeddedbinaryobjects/), aby se tato binární data při načítání odstranila. Uložte načtenou prezentaci, aby se zachoval vyčištěný výsledek.
 
-Tato možnost snižuje riziko nechtěných vložených nákladů, ale není kompletním systémem pro detekci malwaru nebo sanitaci obsahu.
+Tato volba snižuje riziko nechtěných vložených škodlivých kódů, ale nejde o kompletní systém detekce malware nebo sanitizace obsahu.
 
 ```cpp
 #include <DOM/LoadOptions.h>
@@ -193,14 +195,14 @@ presentation->Dispose();
 
 ## **Často kladené otázky**
 
-**Jak rozpoznat, že soubor je poškozený a nelze jej otevřít?**
+**Jak mohu poznat, že je soubor poškozený a nelze jej otevřít?**
 
-Aspose.Slides během načítání vyhodí výjimku při parsování nebo formátu. Tuto chybu ošetřete odděleně od chyby nesprávného hesla, aby aplikace mohla přesně oznámit příčinu.
+Aspose.Slides během načítání vyhodí výjimku parsování nebo formátu. Zpracujte toto selhání odděleně od chyby nesprávného hesla, aby aplikace mohla přesně oznámit příčinu.
 
 **Co se stane, pokud chybí požadovaná písma?**
 
-Prezentace se i tak může načíst, ale při vykreslování a exportu může dojít k substituci písem. Můžete [nastavit substituci písem](/slides/cs/cpp/font-substitution/) nebo [poskytnout vlastní písma](/slides/cs/cpp/custom-font/), aby byl výstup předvídatelnější.
+Prezentace se stále může načíst, ale při vykreslování a exportu může dojít k substituci písem. Můžete [konfigurovat substituci písem](/slides/cs/cpp/font-substitution/) nebo [poskytnout vlastní písma](/slides/cs/cpp/custom-font/), aby byl výstup předvídatelnější.
 
-**Načítá se při načítání prezentace také její vložená média?**
+**Načítá načtení prezentace také její vložená média?**
 
-Vložený audio a video jsou dostupné prostřednictvím modelu objektů prezentace. Externí zdroje jsou řešeny podle nastaveného chování načítání zdrojů a mohou být nedostupné, pokud není možné přistupovat k jejich umístěním.
+Vložený audio a video obsah jsou k dispozici prostřednictvím objektového modelu prezentace. Externí zdroje jsou řešeny podle nakonfigurovaného chování načítání zdrojů a mohou být nedostupné, pokud není možné přistupovat k jejich umístěním.

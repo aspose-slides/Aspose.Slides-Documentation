@@ -1,6 +1,6 @@
 ---
 title: Presentaties opslaan in Python
-linktitle: Presentaties opslaan
+linktitle: Presentatie opslaan
 type: docs
 weight: 80
 url: /nl/python-net/save-presentation/
@@ -15,65 +15,100 @@ keywords:
 - presentatie naar bestand
 - presentatie naar stream
 - voorgedefinieerd weergavetype
-- Strict Office Open XML-formaat
+- Strikt Office Open XML-formaat
 - Zip64-modus
 - miniatuur vernieuwen
-- voortgang van opslaan
+- voortgang opslaan
 - Python
 - Aspose.Slides
-description: "Ontdek hoe u presentaties in Python kunt opslaan met Aspose.Slides—exporteer naar PowerPoint of OpenDocument terwijl de lay-outs, lettertypes en effecten behouden blijven."
+description: "PowerPoint- en OpenDocument-presentaties opslaan naar bestanden of streams in Python met Aspose.Slides, en PPTX-outputopties configureren."
 ---
 ## **Overzicht**
 
-[Open een presentatie in Python](/slides/nl/python-net/open-presentation/) beschrijft hoe je de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse gebruikt om een presentatie te openen. Dit artikel legt uit hoe je presentaties maakt en opslaat. De [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse bevat de inhoud van een presentatie. Of je nu een presentatie vanaf nul maakt of een bestaande wijzigt, je wilt deze opslaan wanneer je klaar bent. Met Aspose.Slides for Python kun je opslaan naar een **bestand** of **stream**. Dit artikel bespreekt de verschillende manieren om een presentatie op te slaan.
+Nadat u een presentatie hebt gemaakt of een [een bestaande presentatie openen](/slides/nl/python-net/open-presentation/), gebruikt u de [Presentation.save](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ipresentation/save/) methode om het resultaat te schrijven. Aspose.Slides for Python via .NET kan een presentatie opslaan naar een bestand of stream in PowerPoint, OpenDocument, PDF en andere formaten. De volgende secties behandelen de standaard opslaacties en de opties die beschikbaar zijn voor PPTX‑output.
 
 ## **Presentaties opslaan naar bestanden**
 
-Sla een presentatie op als bestand door de `save`‑methode van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse aan te roepen. Geef de bestandsnaam en het opslagformaat door aan de methode. Het volgende voorbeeld laat zien hoe je een presentatie opslaat met Aspose.Slides for Python.
+Om een presentatie op te slaan naar een bestand, geeft u het uitvoerpad en een [SaveFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/saveformat/) waarde door aan de [Presentation.save](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ipresentation/save/) methode. De formatwaarde bepaalt het type bestand dat Aspose.Slides maakt.
+
+Het volgende voorbeeld maakt een presentatie en slaat deze op als een PPTX‑bestand:
 
 ```py
 import aspose.slides as slides
 
-# Maak een instantie van de Presentation-klasse die een presentatiebestand vertegenwoordigt.
 with slides.Presentation() as presentation:
-    
-    # Voer hier wat werk uit...
+    # Voeg hier de inhoud van de presentatie toe of pas deze aan.
 
-    # Sla de presentatie op naar een bestand.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("Output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Presentaties opslaan in hun oorspronkelijke formaat**
+
+Voor voorbeelden van bestand‑ en streamdetectie, het gedrag van nieuw aangemaakte presentaties en het onderscheid tussen bron‑ en uitvoerformaten, zie [Het oorspronkelijke presentatie‑formaat bepalen](/slides/nl/python-net/detect-presentation-source-format/).
+
+In een batch‑verwerkingsapplicatie is het invoerformaat mogelijk niet van tevoren bekend. Na het laden van een bestand leest u het oorspronkelijke formaat uit de [Presentation.source_format](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/source_format/) eigenschap. Geef de resulterende [SourceFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/sourceformat/) waarde door aan [SlideUtil.to_save_format](https://reference.aspose.com/slides/nl/python-net/aspose.slides.util/slideutil/to_save_format/) om de bijbehorende [SaveFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/saveformat/) waarde te verkrijgen, en gebruik vervolgens [Presentation.save](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ipresentation/save/) om de gewijzigde presentatie te schrijven.
+
+Het volgende volledige voorbeeld verwerkt elk bestand in een invoermap, werkt de titel bij en slaat het op naar een uitvoermap in het formaat waarin het is geladen:
+
+```py
+from pathlib import Path
+
+import aspose.slides as slides
+from aspose.slides.util import SlideUtil
+
+input_directory = Path("Input")
+output_directory = Path("Output")
+
+output_directory.mkdir(exist_ok=True)
+
+for input_path in input_directory.iterdir():
+    if not input_path.is_file():
+        continue
+
+    try:
+        with slides.Presentation(str(input_path)) as presentation:
+            source_format = presentation.source_format
+            save_format = SlideUtil.to_save_format(source_format)
+
+            presentation.document_properties.title = "Processed by the batch application"
+
+            output_path = output_directory / input_path.name
+            presentation.save(str(output_path), save_format)
+    except Exception as exception:
+        print(f"Cannot process '{input_path}': {exception}")
+```
+
+[SlideUtil.to_save_format](https://reference.aspose.com/slides/nl/python-net/aspose.slides.util/slideutil/to_save_format/) map PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP en PowerPoint‑XML naar hun overeenkomstige presentatie‑opslaformaten. Het map alleen bronformaten van presentaties; het is niet bedoeld om exportformaten zoals PDF, HTML, TIFF of afbeeldingen te selecteren. Het doorgeven van een niet‑ondersteunde of ongeldige [SourceFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/sourceformat/) waarde veroorzaakt een uitzondering.
+
+Legacy‑PPT-, PPS‑ en POT‑bestanden gebruiken dezelfde binaire container. Wanneer zo’n presentatie uit een stream zonder bestandsextensie wordt geladen, kan een PPS‑ of POT‑bestand daarom worden geïdentificeerd als PPT. Als het behouden van deze legacy‑subtypes vereist is, bewaar dan de oorspronkelijke bestandsnaam of formatuitle metadata apart en gebruik deze bij het kiezen van de uitvoer‑bestandsnaam en het formaat.
 
 ## **Presentaties opslaan naar streams**
 
-Je kunt een presentatie opslaan naar een stream door een output‑stream door te geven aan de `save`‑methode van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse. Een presentatie kan naar veel verschillende stream‑types worden geschreven. In het onderstaande voorbeeld maken we een nieuwe presentatie en slaan we die op naar een bestands‑stream.
+Om een presentatie te schrijven zonder te vertrouwen op een definitief bestandspad, geeft u een schrijfbare [BinaryIO](https://docs.python.org/3/library/typing.html#typing.BinaryIO) stream en een [SaveFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/saveformat/) waarde door aan de [Presentation.save](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ipresentation/save/) methode. Deze aanpak is nuttig wanneer de output moet worden geretourneerd vanuit een webservice, opgeslagen in een database of in het geheugen moet worden verwerkt.
 
 ```py
 import aspose.slides as slides
 
-# Maak een instantie van de Presentation-klasse die een presentatiebestand vertegenwoordigt.
 with slides.Presentation() as presentation:
-    with open("output.pptx", "bw") as file_stream:
-        # Sla de presentatie op naar de stream.
-        presentation.save(file_stream, slides.export.SaveFormat.PPTX)
+    with open("Output.pptx", "wb") as output_stream:
+        presentation.save(output_stream, slides.export.SaveFormat.PPTX)
 ```
 
 ## **Presentaties opslaan met een vooraf gedefinieerd weergavetype**
 
-Aspose.Slides for Python laat je de initiële weergave instellen die PowerPoint gebruikt wanneer de gegenereerde presentatie wordt geopend via de [ViewProperties](https://reference.aspose.com/slides/nl/python-net/aspose.slides/viewproperties/)‑klasse. Stel de eigenschap `last_view` in op een waarde uit de [ViewType](https://reference.aspose.com/slides/nl/python-net/aspose.slides/viewtype/)‑enumeratie.
+U kunt de weergave specificeren waarin PowerPoint een opgeslagen presentatie aanvankelijk opent. Stel de [ViewProperties.last_view](https://reference.aspose.com/slides/nl/python-net/aspose.slides/viewproperties/last_view/) eigenschap in op een [ViewType](https://reference.aspose.com/slides/nl/python-net/aspose.slides/viewtype/) waarde vóór het opslaan.
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     presentation.view_properties.last_view = slides.ViewType.SLIDE_MASTER_VIEW
-    presentation.save("slide_master_view.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("SlideMasterView.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Presentaties opslaan in het Strict Office Open XML‑formaat**
+## **Presentaties opslaan in het strikte Office Open XML‑formaat**
 
-Aspose.Slides maakt het mogelijk om een presentatie op te slaan in het Strict Office Open XML‑formaat. Gebruik de [PptxOptions](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/pptxoptions/)‑klasse en stel de eigenschap `conformance` in bij het opslaan. Als je `Conformance.ISO_29500_2008_STRICT` instelt, wordt het uitvoerbestand opgeslagen in het Strict Office Open XML‑formaat.
-
-Het onderstaande voorbeeld maakt een presentatie en slaat die op in het Strict Office Open XML‑formaat.
+Om een PPTX‑bestand te maken dat overeenkomt met het Strict‑profiel van Office Open XML, maakt u een [PptxOptions](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/pptxoptions/) instantie en stelt u de [conformance](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/pptxoptions/conformance/) eigenschap in op `Conformance.ISO_29500_2008_STRICT`. Geef vervolgens de opties door aan de [Presentation.save](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ipresentation/save/) methode.
 
 ```py
 import aspose.slides as slides
@@ -81,124 +116,112 @@ import aspose.slides as slides
 options = slides.export.PptxOptions()
 options.conformance = slides.export.Conformance.ISO_29500_2008_STRICT
 
-# Maak een instantie van de Presentation-klasse die een presentatiebestand vertegenwoordigt.
 with slides.Presentation() as presentation:
-    # Sla de presentatie op in het Strict Office Open XML-formaat.
-    presentation.save("strict_office_open_xml.pptx", slides.export.SaveFormat.PPTX, options)
+    presentation.save("StrictOfficeOpenXml.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
 ## **Presentaties opslaan in Office Open XML‑formaat in Zip64‑modus**
 
-Een Office Open XML‑bestand is een ZIP‑archief dat limieten van 4 GB (2^32 bytes) oplegt aan de ongecomprimeerde grootte van elk bestand, de gecomprimeerde grootte van elk bestand en de totale grootte van het archief, en bovendien een limiet van 65 535 (2^16‑1) bestanden. ZIP64‑formatextensies verhogen deze limieten naar 2^64.
+Een standaard ZIP‑archief beperkt de gecomprimeerde en ongecomprimeerde grootte van elke entry, de totale archiefgrootte en het aantal entries. Omdat een PPTX‑bestand een ZIP‑archief is, kan een zeer grote presentatie deze limieten overschrijden. ZIP64‑extensies verhogen de toepasselijke grootte‑ en entry‑limieten.
 
-De eigenschap [PptxOptions.zip_64_mode](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/pptxoptions/zip_64_mode/) stelt je in staat te kiezen wanneer ZIP64‑formatextensies worden gebruikt bij het opslaan van een Office Open XML‑bestand.
+Gebruik de [PptxOptions.zip_64_mode](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/pptxoptions/zip_64_mode/) eigenschap om te bepalen of Aspose.Slides ZIP64‑extensies schrijft:
 
-Deze eigenschap biedt de volgende modi:
+- `IF_NECESSARY` gebruikt ZIP64 alleen wanneer de presentatie de standaard ZIP‑limieten overschrijdt. Dit is de standaardmodus.
+- `NEVER` schakelt ZIP64‑extensies uit.
+- `ALWAYS` schrijft altijd ZIP64‑extensies.
 
-- `IF_NECESSARY` gebruikt ZIP64‑formatextensies alleen als de presentatie de bovenstaande limieten overschrijdt. Dit is de standaardmodus.
-- `NEVER` gebruikt nooit ZIP64‑formatextensies.
-- `ALWAYS` gebruikt altijd ZIP64‑formatextensies.
-
-De volgende code laat zien hoe je een presentatie opslaat als PPTX‑bestand met ingeschakelde ZIP64‑formatextensies:
+Het volgende voorbeeld schakelt ZIP64‑extensies altijd in voor de uitvoerpresentatie:
 
 ```py
 import aspose.slides as slides
 
-pptx_options = slides.export.PptxOptions()
-pptx_options.zip_64_mode = slides.export.Zip64Mode.ALWAYS
+with slides.Presentation("Sample.pptx") as presentation:
+    options = slides.export.PptxOptions()
+    options.zip_64_mode = slides.export.Zip64Mode.ALWAYS
 
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.save("output_zip64.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+    presentation.save("OutputZip64.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Wanneer je opslaat met `Zip64Mode.NEVER`, wordt er een [PptxException](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pptxexception/) gegooid als de presentatie niet kan worden opgeslagen in ZIP32‑formaat.
+{{% alert color="warning" title="Waarschuwing" %}}
+Als `Zip64Mode.NEVER` wordt gebruikt en de presentatie niet binnen de standaard ZIP‑limieten past, zal de opslaan‑bewerking een [PptxException](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pptxexception/) veroorzaken.
 {{% /alert %}}
 
 ## **Presentaties opslaan in Office Open XML‑formaat met compressieniveaus**
 
-Bij het werken met grote presentaties kun je het compressieniveau aanpassen om de bestandsgrootte en verwerkingstijd in balans te brengen. Afhankelijk van je eisen kun je kiezen voor snellere verwerking of kleinere uitvoerbestanden.
+Voor PPTX‑output kunt u de opslagsnelheid balanceren met de bestandsgrootte door de [PptxOptions.compression_level](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/pptxoptions/compression_level/) eigenschap in te stellen. De [CompressionLevel](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/compressionlevel/) enumeratie biedt de volgende waarden:
 
-Aspose.Slides biedt de eigenschap [PptxOptions.compression_level](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/pptxoptions/compression_level/), waarmee je het compressieniveau kunt opgeven dat wordt gebruikt bij het opslaan van een presentatie in Office Open XML‑formaat.
+- `NONE` slaat gegevens op zonder compressie.
+- `LEVEL1` levert de snelste compressie en de grootste gecomprimeerde uitvoer.
+- `LEVEL2` tot en met `LEVEL5` geven steeds de voorkeur aan een kleinere uitvoer boven opslagsnelheid.
+- `LEVEL6` balanceert opslagsnelheid en bestandsgrootte. Dit is het standaardniveau.
+- `LEVEL7` en `LEVEL8` geven nog meer de voorkeur aan een kleinere uitvoer boven opslagsnelheid.
+- `LEVEL9` biedt de sterkste compressie en vereist de meeste verwerkingstijd.
 
-De volgende compressieniveaus zijn beschikbaar:
-
-- [**NONE**](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/compressionlevel/): Er wordt geen compressie toegepast. Bestanden worden ongewijzigd opgeslagen.
-- [**LEVEL1**](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/compressionlevel/): De snelste compressie met de laagste compressieverhouding.
-- [**LEVEL2**](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/compressionlevel/): Snellere compressie met een iets betere compressieverhouding dan **LEVEL1**.
-- [**LEVEL3**](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/compressionlevel/): Biedt betere compressie dan **LEVEL2** met een gematigde impact op de verwerkingstijd.
-- [**LEVEL4**](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/compressionlevel/): Biedt betere compressie dan **LEVEL3**.
-- [**LEVEL5**](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/compressionlevel/): Verbeterde compressie ten opzichte van **LEVEL4** met extra verwerkingstijd.
-- [**LEVEL6**](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/compressionlevel/): Standaardcompressie die een goede balans biedt tussen verwerkingssnelheid en bestandsgrootte. Dit is het *standaardcompressieniveau*.
-- [**LEVEL7**](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/compressionlevel/): Biedt betere compressie dan **LEVEL6** met tragere verwerking.
-- [**LEVEL8**](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/compressionlevel/): Biedt betere compressie dan **LEVEL7**.
-- [**LEVEL9**](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/compressionlevel/): Maximale compressie. Produceert de kleinste bestandsgrootte ten koste van de langste verwerkingstijd.
-
-Het volgende voorbeeld toont hoe je een presentatie opslaat als PPTX‑bestand *zonder compressie*:
+Het volgende voorbeeld slaat een presentatie op zonder compressie:
 
 ```py
 import aspose.slides as slides
 
-pptx_options = slides.export.PptxOptions()
-pptx_options.compression_level = slides.export.CompressionLevel.NONE
+with slides.Presentation("Sample.pptx") as presentation:
+    options = slides.export.PptxOptions()
+    options.compression_level = slides.export.CompressionLevel.NONE
 
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.save("sample_out.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+    presentation.save("OutputNoCompression.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
-Dit voorbeeld laat zien hoe je een presentatie opslaat als PPTX‑bestand met *maximale compressie*:
+Het volgende voorbeeld gebruikt het maximale compressieniveau:
 
 ```py
 import aspose.slides as slides
 
-pptx_options = slides.export.PptxOptions()
-pptx_options.compression_level = slides.export.CompressionLevel.LEVEL9
+with slides.Presentation("Sample.pptx") as presentation:
+    options = slides.export.PptxOptions()
+    options.compression_level = slides.export.CompressionLevel.LEVEL9
 
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.save("sample_level9.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+    presentation.save("OutputMaximumCompression.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
-## **Presentaties opslaan zonder de miniatuur te vernieuwen**
+## **Presentaties opslaan zonder het miniatuur‑beeld te vernieuwen**
 
-De eigenschap [PptxOptions.refresh_thumbnail](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/pptxoptions/refresh_thumbnail/) regelt de generatie van miniaturen bij het opslaan van een presentatie naar PPTX:
+Wanneer een presentatie wordt opgeslagen als PPTX, bepaalt de [PptxOptions.refresh_thumbnail](https://reference.aspose.com/slides/nl/python-net/aspose.slides.export/pptxoptions/refresh_thumbnail/) eigenschap de miniatuur van het document:
 
-- Indien ingesteld op `True`, wordt de miniatuur ververst tijdens het opslaan. Dit is de standaard.
-- Indien ingesteld op `False`, wordt de bestaande miniatuur behouden. Als de presentatie geen miniatuur heeft, wordt er geen gegenereerd.
+- `True` genereert de miniatuur opnieuw tijdens de opslaan‑bewerking. Dit is de standaardwaarde.
+- `False` behoudt de bestaande miniatuur. Als de presentatie geen miniatuur heeft, genereert Aspose.Slides er geen.
 
-In de onderstaande code wordt de presentatie opgeslagen naar PPTX zonder de miniatuur te vernieuwen.
+Het volgende voorbeeld slaat een presentatie op zonder het miniatuur‑beeld te vernieuwen:
 
 ```py
 import aspose.slides as slides
 
-pptx_options = slides.export.PptxOptions()
-pptx_options.refresh_thumbnail = False
+with slides.Presentation("Sample.pptx") as presentation:
+    options = slides.export.PptxOptions()
+    options.refresh_thumbnail = False
 
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+    presentation.save("Output.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
-{{% alert title="Info" color="info" %}}
-Deze optie helpt de tijd te verkorten die nodig is om een presentatie op te slaan in PPTX‑formaat.
+{{% alert color="info" title="Opmerking" %}}
+Het uitschakelen van het vernieuwen van de miniatuur kan de tijd die nodig is om een PPTX‑bestand op te slaan verminderen.
 {{% /alert %}}
 
-{{% alert title="Info" color="info" %}}
-Aspose heeft een [gratis PowerPoint Splitter‑app](https://products.aspose.app/slides/nl/splitter) ontwikkeld met behulp van zijn eigen API. De app laat je een presentatie splitsen in meerdere bestanden door geselecteerde dia’s op te slaan als nieuwe PPTX‑ of PPT‑bestanden.
+{{% alert color="info" title="Opmerking" %}}
+Aspose biedt een gratis [PowerPoint Splitter](https://products.aspose.app/slides/nl/splitter) gebouwd met de Aspose.Slides‑API. Het slaat geselecteerde dia's uit een presentatie op als afzonderlijke PPT‑ of PPTX‑bestanden.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Wordt “snelle opslaan” (incrementeel opslaan) ondersteund zodat alleen wijzigingen worden weggeschreven?**
+**Ondersteunt Aspose.Slides incrementeel of “snelle opslaan”?**
 
-Nee. Opslaan maakt elke keer het volledige doelbestand; incrementeel “snelle opslaan” wordt niet ondersteund.
+Nee. Elke opslaan‑bewerking schrijft een compleet uitvoerbestand in plaats van alleen de gewijzigde delen bij te werken.
 
-**Is het thread‑safe om dezelfde Presentation‑instantie vanuit meerdere threads op te slaan?**
+**Kunnen meerdere threads dezelfde Presentation‑instantie opslaan?**
 
-Nee. Een [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑instantie is niet thread‑safe; sla deze op vanuit één thread.
+Nee. Een [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) instantie [is not thread-safe](/slides/nl/python-net/multithreading/). Toegang en opslaan van elke instantie mag slechts door één thread tegelijk gebeuren.
 
-**Wat gebeurt er met hyperlinks en extern gelinkte bestanden bij het opslaan?**
+**Wat gebeurt er met hyperlinks en extern gelinkte bestanden wanneer ik een presentatie opsla?**
 
-[Hyperlinks](/slides/nl/python-net/manage-hyperlinks/) worden behouden. Extern gelinkte bestanden (bijv. video’s via relatieve paden) worden niet automatisch gekopieerd – zorg ervoor dat de verwezen paden toegankelijk blijven.
+[Hyperlinks](/slides/nl/python-net/manage-hyperlinks/) blijven in de presentatie. Aspose.Slides kopieert geen extern gelinkte bestanden, dus de opgeslagen presentatie moet nog steeds toegang hebben tot hun locaties.
 
-**Kan ik documentmetadata (Auteur, Titel, Bedrijf, Datum) instellen/opslaan?**
+**Kan ik document‑metadata zoals auteur, titel, bedrijf en aanmaakdatum opslaan?**
 
-Ja. Standaard [documenteigenschappen](/slides/nl/python-net/presentation-properties/) worden ondersteund en bij het opslaan naar het bestand weggeschreven.
+Ja. Stel de juiste [documenteigenschappen](/slides/nl/python-net/presentation-properties/) in vóór het opslaan, en Aspose.Slides schrijft ze naar het uitvoerbestand.

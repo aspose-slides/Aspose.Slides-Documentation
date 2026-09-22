@@ -5,16 +5,16 @@ type: docs
 weight: 80
 url: /tr/nodejs-java/save-presentation/
 keywords:
-- PowerPoint kaydet
-- OpenDocument kaydet
+- PowerPoint'i kaydet
+- OpenDocument'i kaydet
 - sunumu kaydet
 - slaytı kaydet
-- PPT kaydet
-- PPTX kaydet
-- ODP kaydet
+- PPT'yi kaydet
+- PPTX'i kaydet
+- ODP'yi kaydet
 - dosyaya sunum
 - akışa sunum
-- ön tanımlı görünüm türü
+- önceden tanımlı görünüm türü
 - Katı Office Open XML Formatı
 - Zip64 modu
 - küçük resmi yenileme
@@ -22,68 +22,115 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js kullanarak Java üzerinden sunumları nasıl kaydedeceğinizi keşfedin—düzenleri, yazı tiplerini ve efektleri koruyarak PowerPoint veya OpenDocument olarak dışa aktarın."
+description: "Aspose.Slides ile JavaScript'te PowerPoint ve OpenDocument sunumlarını dosyalara veya akışlara kaydedin ve PPTX çıktısını ve ilerleme raporlamasını yapılandırın."
 ---
 ## **Genel Bakış**
 
-[JavaScript'te Sunum Açma](/slides/tr/nodejs-java/open-presentation/) Aspose.Slides for Node.js'ta bir sunumu açmak için [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının nasıl kullanılacağını açıkladı. Bu makale, sunumların nasıl oluşturulacağını ve kaydedileceğini açıklar. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfı bir sunumun içeriğini tutar. Sıfırdan bir sunum oluşturuyor ya da var olan bir sunumu değiştiriyor olun, işinizi bitirdiğinizde onu kaydetmek isteyeceksiniz. Aspose.Slides for Node.js ile bir **dosya**ya ya da **akış**a kaydedebilirsiniz. Bu makale, bir sunumu kaydetmenin farklı yollarını açıklar.
+Sunum oluşturduktan sonra veya [var olan bir sunumu açtıktan](/slides/tr/nodejs-java/open-presentation/) sonra, sonucu yazmak için [Presentation.save](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#save) metodunu kullanın. Aspose.Slides for Node.js via Java, bir sunumu PowerPoint, OpenDocument, PDF ve diğer formatlarda bir dosyaya veya akışa kaydedebilir. Aşağıdaki bölümler standart kaydetme işlemlerini ve PPTX çıktısı için mevcut seçenekleri kapsar.
 
 ## **Sunumları Dosyalara Kaydet**
 
-Bir sunumu dosyaya kaydetmek için [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının `save` metodunu çağırın. Metoda dosya adını ve kaydetme formatını geçirin. Aşağıdaki örnek, Aspose.Slides ile bir sunumu nasıl kaydedeceğinizi gösterir.
+Bir sunumu dosyaya kaydetmek için, çıktı yolunu ve bir [SaveFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/saveformat/) değerini [Presentation.save](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#save) metoduna geçirin. Format değeri, Aspose.Slides'ın oluşturacağı dosya türünü belirler.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+Aşağıdaki örnek bir sunum oluşturur ve PPTX dosyası olarak kaydeder:
 
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
-let presentation = new aspose.slides.Presentation();
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Burada bazı işlemler yapın...
+    // Burada sunum içeriğini ekleyin veya değiştirin.
 
-    // Sunumu bir dosyaya kaydedin.
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **Sunumları Orijinal Formatlarında Kaydet**
+
+Dosya ve akış tespiti örnekleri, yeni oluşturulan sunumların davranışı ve kaynak ile çıktı formatları arasındaki ayrım için, [Determine the Original Presentation Format](/slides/tr/nodejs-java/detect-presentation-source-format/) bölümüne bakın.
+
+Batch işleme uygulamasında, giriş formatı önceden bilinmeyebilir. Bir dosya yüklendikten sonra, orijinal formatını [Presentation.getSourceFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#getSourceFormat) metodundan okuyun. Elde edilen [SourceFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/sourceformat/) değerini [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slideutil/#toSaveFormat) metoduna geçirerek karşılık gelen [SaveFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/saveformat/) değerini alın ve ardından [Presentation.save](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#save) ile değiştirilmiş sunumu yazın.
+
+Aşağıdaki tam örnek, bir giriş dizinindeki her dosyayı işler, başlığını günceller ve yüklendiği formatta bir çıktı dizinine kaydeder:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const fs = require("fs");
+const path = require("path");
+
+const inputDirectory = "Input";
+const outputDirectory = "Output";
+
+if (!fs.existsSync(inputDirectory)) {
+    console.error("The input directory does not exist.");
+} else {
+    fs.mkdirSync(outputDirectory, { recursive: true });
+
+    const inputFiles = fs.readdirSync(inputDirectory, { withFileTypes: true })
+        .filter((entry) => entry.isFile());
+
+    for (const inputFile of inputFiles) {
+        const inputPath = path.join(inputDirectory, inputFile.name);
+        try {
+            const presentation = new aspose.slides.Presentation(inputPath);
+            try {
+                const saveFormat = aspose.slides.SlideUtil.toSaveFormat(presentation.getSourceFormat());
+                presentation.getDocumentProperties().setTitle("Processed by the batch application");
+
+                const outputPath = path.join(outputDirectory, inputFile.name);
+                presentation.save(outputPath, saveFormat);
+            } finally {
+                presentation.dispose();
+            }
+        } catch (error) {
+            console.error(`Cannot process '${inputPath}': ${error.message}`);
+        }
+    }
+}
+```
+
+[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slideutil/#toSaveFormat) PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP ve PowerPoint XML'i ilgili sunum kaydetme formatlarına eşler. Yalnızca sunum kaynak formatlarını eşler; PDF, HTML, TIFF veya resimler gibi dışa aktarma formatlarını seçmek için tasarlanmamıştır. Desteklenmeyen veya geçersiz bir [SourceFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/sourceformat/) değeri geçmek bir hataya yol açar.
+
+Eski PPT, PPS ve POT dosyaları aynı ikili konteyneri kullanır. Böyle bir sunum, dosya uzantısı olmadan bir akıştan yüklendiğinde, bir PPS veya POT dosyası PPT olarak tanımlanabilir. Bu eski alt türlerin korunması gerekiyorsa, orijinal dosya adını veya format meta verilerini ayrı olarak tutun ve çıktı dosya adı ve formatını seçerken kullanın.
+
 ## **Sunumları Akışlara Kaydet**
 
-Bir sunumu bir akışa kaydetmek için çıktıyı bir akış olarak [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının `save` metoduna geçirebilirsiniz. Bir sunum birçok akış türüne yazılabilir. Aşağıdaki örnekte yeni bir sunum oluşturup bir dosya akışına kaydediyoruz.
+Son bir dosya yoluna bağlı kalmadan bir sunumu yazmak için, yazılabilir bir akış ve bir [SaveFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/saveformat/) değeri [Presentation.save](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#save) metoduna geçirin. Bu yaklaşım, çıkışın bir web hizmetinden döndürülmesi, bir veritabanına kaydedilmesi veya bellekte işlenmesi gerektiğinde yararlıdır.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+Aşağıdaki örnek yeni bir sunumu bir dosya akışına kaydeder:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
-let presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    let fileStream = java.newInstanceSync("java.io.FileOutputStream", "Output.pptx");
+    const outputStream = java.newInstanceSync("java.io.FileOutputStream", "output.pptx");
     try {
-        // Sunumu akışa kaydedin.
-        presentation.save(fileStream, aspose.slides.SaveFormat.Pptx);
+        presentation.save(outputStream, aspose.slides.SaveFormat.Pptx);
     } finally {
-        fileStream.close();
+        outputStream.close();
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ön Tanımlı Görünüm Türü ile Sunumları Kaydet**
+## **Önceden Tanımlı Görünüm Türüyle Sunumları Kaydet**
 
-Aspose.Slides, oluşturulan sunum açıldığında PowerPoint'in kullandığı başlangıç görünümünü [ViewProperties](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/viewproperties/) sınıfı aracılığıyla ayarlamanıza izin verir. [setLastView](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/viewproperties/#setLastView) metodunu, [ViewType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/viewtype/) enum'ından bir değerle kullanın.
+PowerPoint'in kaydedilmiş bir sunumu ilk açtığı görünümü belirtebilirsiniz. Kaydetmeden önce bir [ViewType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/viewtype/) değeri ile [ViewProperties.setLastView](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/viewproperties/#setLastView) metodunu kullanın.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+Aşağıdaki örnek Slide Master görünümünü başlangıç görünümü olarak yapılandırır:
 
-let presentation = new aspose.slides.Presentation();
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
     presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
-    presentation.save("SlideMasterView.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("slide-master-view.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -91,20 +138,17 @@ try {
 
 ## **Sunumları Katı Office Open XML Formatında Kaydet**
 
-Aspose.Slides, bir sunumu Katı Office Open XML formatında kaydetmenizi sağlar. Kaydederken [PptxOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pptxoptions/) sınıfını kullanın ve conformance özelliğini ayarlayın. [Conformance.Iso29500_2008_Strict] ayarlanırsa, çıktı dosyası Katı Office Open XML formatında kaydedilir.
+Office Open XML'in Strict profiline uyan bir PPTX dosyası oluşturmak için, bir [PptxOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pptxoptions/) örneği oluşturun ve [setConformance](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pptxoptions/#setConformance) metodunu [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/conformance/#Iso29500_2008_Strict) ile kullanın. Ardından seçenekleri [Presentation.save](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#save) metoduna geçirin.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-let options = new aspose.slides.PptxOptions();
+const options = new aspose.slides.PptxOptions();
 options.setConformance(aspose.slides.Conformance.Iso29500_2008_Strict);
 
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
-let presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Sunumu Katı Office Open XML formatında kaydedin.
-    presentation.save("StrictOfficeOpenXml.pptx", aspose.slides.SaveFormat.Pptx, options);
+    presentation.save("strict-office-open-xml.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
@@ -112,83 +156,72 @@ try {
 
 ## **Sunumları Office Open XML Formatında Zip64 Modunda Kaydet**
 
-Office Open XML dosyası, sıkıştırılmamış herhangi bir dosyanın, sıkıştırılmış herhangi bir dosyanın ve arşivin toplam boyutunun 4 GB (2^32 bayt) sınırını getiren bir ZIP arşividir ve ayrıca arşivi 65 535 (2^16‑1) dosya ile sınırlar. ZIP64 formatı uzantıları bu sınırları 2^64’e yükseltir.
+Standart bir ZIP arşivi, her girişin sıkıştırılmış ve sıkıştırılmamış boyutunu, toplam arşiv boyutunu ve giriş sayısını sınırlar. PPTX dosyası bir ZIP arşivi olduğundan, çok büyük bir sunum bu sınırlamaları aşabilir. ZIP64 uzantıları geçerli boyut ve giriş sayısı sınırlamalarını artırır.
 
-[PptxOptions.setZip64Mode](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pptxoptions/#getZip64Mode) metodu, bir Office Open XML dosyası kaydederken ZIP64 formatı uzantılarını ne zaman kullanacağınızı seçmenizi sağlar.
+[PptxOptions.setZip64Mode](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pptxoptions/#setZip64Mode) metodunu kullanarak Aspose.Slides'ın ZIP64 uzantılarını yazıp yazmayacağını kontrol edin:
 
-Bu yöntem aşağıdaki modlarla kullanılabilir:
+- [IfNecessary](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/zip64mode/#IfNecessary) yalnızca sunum standart ZIP limitlerini aştığında ZIP64 kullanır. Bu varsayılan moddur.
+- [Never](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/zip64mode/#Never) ZIP64 uzantılarını devre dışı bırakır.
+- [Always](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/zip64mode/#Always) her zaman ZIP64 uzantılarını yazar.
 
-- [IfNecessary](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/zip64mode/#IfNecessary) ZIP64 format uzantılarını yalnızca sunum yukarıdaki sınırlamaları aşarsa kullanır. Bu varsayılan moddur.
-- [Never](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/zip64mode/#Never) ZIP64 format uzantılarını asla kullanmaz.
-- [Always](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/zip64mode/#Always) ZIP64 format uzantılarını her zaman kullanır.
+Aşağıdaki örnek, çıktı sunumu için her zaman ZIP64 uzantılarını etkinleştirir:
 
-Aşağıdaki kod, ZIP64 format uzantıları etkinleştirilmiş bir PPTX dosyası olarak bir sunumun nasıl kaydedileceğini gösterir:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-let pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setZip64Mode(aspose.slides.Zip64Mode.Always);
-
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    presentation.save("OutputZip64.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
+    const options = new aspose.slides.PptxOptions();
+    options.setZip64Mode(aspose.slides.Zip64Mode.Always);
+
+    presentation.save("output-zip64.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOT" color="warning" %}}
-Zip64Mode.Never ile kaydettiğinizde, sunum ZIP32 formatında kaydedilemezse bir [PptxException](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pptxexception/) hatası fırlatılır.
+{{% alert color="warning" title="Warning" %}}
+Eğer [Zip64Mode.Never](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/zip64mode/#Never) kullanılır ve sunum standart ZIP limitlerine sığamazsa, kaydetme işlemi bir [PptxException](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pptxexception/) fırlatır.
 {{% /alert %}}
 
 ## **Sunumları Office Open XML Formatında Sıkıştırma Düzeyleriyle Kaydet**
 
-Büyük sunumlarla çalışırken, dosya boyutu ve işleme süresi arasında denge kurmak için sıkıştırma düzeyini ayarlayabilirsiniz. Gereksinimlerinize bağlı olarak daha hızlı işleme veya daha küçük çıktı dosyaları tercih edebilirsiniz.
+PPTX çıktısı için, kaydetme hızını dosya boyutuna göre dengelemek üzere [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pptxoptions/#setCompressionLevel) metodunu kullanabilirsiniz. [CompressionLevel](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/) sınıfı aşağıdaki değerleri sağlar:
 
-Aspose.Slides, Office Open XML formatında bir sunumu kaydederken kullanılan sıkıştırma düzeyini belirtmenizi sağlayan [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pptxoptions/#setCompressionLevel) metodunu sunar.
+- [None](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#None) veriyi sıkıştırma olmadan depolar.
+- [Level1](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#Level1) en hızlı sıkıştırmayı ve en büyük sıkıştırılmış çıktıyı sağlar.
+- [Level2](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#Level2) ile [Level5](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#Level5) arasında, kaydetme hızından ziyade daha küçük çıktı elde etmeyi tercih eder.
+- [Level6](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#Level6) kaydetme hızı ile dosya boyutunu dengeler. Bu varsayılan düzeydedir.
+- [Level7](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#Level7) ve [Level8](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#Level8) daha da küçük çıktıyı, kaydetme hızına tercih eder.
+- [Level9](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#Level9) en güçlü sıkıştırmayı sağlar ve en fazla işlem süresi gerektirir.
 
-Aşağıdaki sıkıştırma düzeyleri mevcuttur:
+Aşağıdaki örnek bir sunumu sıkıştırma olmadan kaydeder:
 
-- [**None**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#None): Sıkıştırma uygulanmaz. Dosyalar olduğu gibi saklanır.
-- [**Level1**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#Level1): En hızlı sıkıştırma, en düşük sıkıştırma oranı.
-- [**Level2**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#Level2): Daha hızlı sıkıştırma, **Level1**’e göre biraz daha iyi sıkıştırma oranı.
-- [**Level3**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#Level3): **Level2**'ye göre daha iyi sıkıştırma, işleme süresi üzerinde orta düzeyde etki.
-- [**Level4**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#Level4): **Level3**'e göre daha iyi sıkıştırma.
-- [**Level5**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#Level5): **Level4**'e göre geliştirilmiş sıkıştırma, ek işleme süresi.
-- [**Level6**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#Level6): Standart sıkıştırma, işleme hızı ve dosya boyutu arasında iyi bir denge sunar. Bu *varsayılan sıkıştırma düzeyi*dir.
-- [**Level7**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#Level7): **Level6**'dan daha iyi sıkıştırma, daha yavaş işleme.
-- [**Level8**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#Level8): **Level7**'den daha iyi sıkıştırma.
-- [**Level9**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compressionlevel/#Level9): Maksimum sıkıştırma. En uzun işleme süresi karşılığında en küçük dosya boyutunu üretir.
-
-Aşağıdaki örnek, bir sunumu *sıkıştırma olmadan* PPTX dosyası olarak nasıl kaydedeceğinizi gösterir:
-
-```js
+```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 
-const pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setCompressionLevel(aspose.slides.CompressionLevel.None);
-
-const presentation = new aspose.slides.Presentation("Sample.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    presentation.save("Sample-out.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
+    const options = new aspose.slides.PptxOptions();
+    options.setCompressionLevel(aspose.slides.CompressionLevel.None);
+
+    presentation.save("output-no-compression.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-Bu örnek, bir sunumu *maksimum sıkıştırma* ile PPTX dosyası olarak nasıl kaydedeceğinizi gösterir:
+Aşağıdaki örnek maksimum sıkıştırma düzeyini kullanır:
 
-```js
+```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 
-const pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setCompressionLevel(aspose.slides.CompressionLevel.Level9);
-
-const presentation = new aspose.slides.Presentation("Sample.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    presentation.save("Sample-level9.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
+    const options = new aspose.slides.PptxOptions();
+    options.setCompressionLevel(aspose.slides.CompressionLevel.Level9);
+
+    presentation.save("output-maximum-compression.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
@@ -196,81 +229,77 @@ try {
 
 ## **Küçük Resmi Yenilemeden Sunumları Kaydet**
 
-[PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pptxoptions/#setRefreshThumbnail) metodu, bir sunumu PPTX olarak kaydederken küçük resim (thumbnail) oluşturulmasını kontrol eder:
+PPTX olarak kaydedilen bir sunumda, [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pptxoptions/#setRefreshThumbnail) metodu belge küçük resmini kontrol eder:
 
-- `true` olarak ayarlandığında, kaydetme sırasında küçük resim yenilenir. Bu varsayılandır.
-- `false` olarak ayarlandığında, mevcut küçük resim korunur. Sunumun küçük resmi yoksa, hiçbir şey oluşturulmaz.
+- `true` kaydetme sırasında küçük resmi yeniden oluşturur. Bu varsayılan değerdir.
+- `false` mevcut küçük resmi korur. Sunumda küçük resim yoksa, Aspose.Slides bir tane oluşturmaz.
 
-Aşağıdaki kodda, sunum küçük resmi yenilenmeden PPTX olarak kaydedilir.
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-let pptxOptions = new aspose.slides.PptxOptions();
-pptxOptions.setRefreshThumbnail(false);
-
-let presentation = new aspose.slides.Presentation("Sample.pptx");
-try {
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
-}
-finally {
-    presentation.dispose();
-}
-```
-
-{{% alert title="Bilgi" color="info" %}}
-Bu seçenek, PPTX formatında bir sunumu kaydetme süresini azaltmaya yardımcı olur.
-{{% /alert %}}
-
-## **İlerleme Güncellemelerini Yüzde Olarak Kaydet**
-
-Kaydetme ilerlemesi raporlaması, [SaveOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/saveoptions/) ve alt sınıfları üzerindeki [setProgressCallback](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/saveoptions/#setProgressCallback) metodu aracılığıyla yapılandırılır. [IProgressCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iprogresscallback/) arayüzünü uygulayan bir Java vekili sağlayın; dışa aktarım sırasında geri arama periyodik yüzde güncellemeleri alır.
-
-Aşağıdaki kod parçacıkları, `IProgressCallback` kullanımını gösterir.
+Aşağıdaki örnek, bir sunumu küçük resmi yenilemeden kaydeder:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-const ExportProgressHandler = java.newProxy("com.aspose.slides.IProgressCallback", {
-    reporting: function(progressValue) {
-        // Burada ilerleme yüzde değerini kullanın.
-        const progress = Math.floor(progressValue);
-        console.log(`${progress}% of the file has been converted.`);
-    }
-});
-
-let saveOptions = new aspose.slides.PdfOptions();
-saveOptions.setProgressCallback(ExportProgressHandler);
-
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    presentation.save("Output.pdf", aspose.slides.SaveFormat.Pdf, saveOptions);
+    const options = new aspose.slides.PptxOptions();
+    options.setRefreshThumbnail(false);
+
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Bilgi" color="info" %}}
-Aspose, kendi API'sini kullanarak [ücretsiz PowerPoint Splitter uygulaması](https://products.aspose.app/slides/tr/splitter) geliştirdi. Uygulama, seçilen slaytları yeni PPTX veya PPT dosyaları olarak kaydederek bir sunumu birden fazla dosyaya bölmenizi sağlar.
+{{% alert color="info" title="Note" %}}
+Küçük resim yenilemesini devre dışı bırakmak, PPTX dosyasının kaydedilme süresini azaltabilir.
 {{% /alert %}}
 
-## **SSS**
+## **Kaydetme İlerleme Güncellemelerini Yüzde Olarak Al**
 
-**“Hızlı kaydet” (artımlı kaydetme) yalnızca değişikliklerin yazılması için destekleniyor mu?**
+Kaydetme işlemini izlemek için, bir Java vekiliyle [IProgressCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iprogresscallback/) arayüzünü uygulayın ve uygulamayı [SaveOptions.setProgressCallback](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/saveoptions/#setProgressCallback) metoduna geçirin. Aspose.Slides, dışa aktarma sırasında ilerleme değerleriyle [IProgressCallback.reporting](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iprogresscallback/#reporting-double-) metodunu çağırır.
 
-Hayır. Kaydetme her seferinde tam hedef dosyayı oluşturur; artımlı “hızlı kaydet” desteklenmez.
+Aşağıdaki örnek, bir PDF dışa aktarımının ilerlemesini konsola raporlar:
 
-**Aynı Presentation örneğini birden fazla thread'den kaydetmek güvenli mi?**
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-Hayır. Bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) örneği [thread‑safe değildir](/slides/tr/nodejs-java/multithreading/); tek bir thread'den kaydedilmelidir.
+const exportProgressHandler = java.newProxy("com.aspose.slides.IProgressCallback", {
+    reporting: function(progressValue) {
+        const progress = Math.floor(progressValue);
+        console.log(`${progress}% of the file has been converted.`);
+    }
+});
 
-**Kaydederken hiperlinkler ve dışa bağlı dosyalar ne olur?**
+const options = new aspose.slides.PdfOptions();
+options.setProgressCallback(exportProgressHandler);
 
-[Hiperlinkler](/slides/tr/nodejs-java/manage-hyperlinks/) korunur. Dışarıdan bağlı dosyalar (örneğin göreli yollarla videolar) otomatik olarak kopyalanmaz — referans verilen yolların erişilebilir olduğundan emin olun.
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    presentation.save("output.pdf", aspose.slides.SaveFormat.Pdf, options);
+} finally {
+    presentation.dispose();
+}
+```
 
-**Belge meta verilerini (Yazar, Başlık, Şirket, Tarih) ayarlayıp/kaydedebilir miyim?**
+{{% alert color="info" title="Note" %}}
+Aspose, Aspose.Slides API'si ile oluşturulmuş ücretsiz bir PowerPoint Bölücü sunar. Bu araç, bir sunumdan seçilen slaytları ayrı PPT veya PPTX dosyaları olarak kaydeder.
+{{% /alert %}}
 
-Evet. Standart [belge özellikleri](/slides/tr/nodejs-java/presentation-properties/) desteklenir ve kaydetme sırasında dosyaya yazılır.
+## **FAQ**
+
+**Aspose.Slides artımlı veya “hızlı kaydetme” destekliyor mu?**
+
+Hayır. Her kaydetme işlemi, yalnızca değişen bölümleri güncellemek yerine tam bir çıktı dosyası yazar.
+
+**Birden çok iş parçacığı aynı Presentation örneğini kaydedebilir mi?**
+
+Hayır. Bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) örneği [thread-safe değildir](/slides/tr/nodejs-java/multithreading/). Her bir örneğe aynı anda yalnızca bir iş parçacığından erişin ve kaydedin.
+
+**Sunumu kaydettiğimde bağlantılar ve harici bağlı dosyalar ne olur?**
+
+[Hyperlinks](/slides/tr/nodejs-java/manage-hyperlinks/) sunumda kalır. Aspose.Slides harici bağlı dosyaları kopyalamaz, bu yüzden kaydedilen sunum hâlâ bu dosyaların konumlarına erişebilmelidir.
+
+**Yazar, başlık, şirket ve oluşturulma tarihi gibi belge meta verilerini kaydedebilir miyim?**
+
+Evet. Kaydetmeden önce uygun [document properties](/slides/tr/nodejs-java/presentation-properties/) ayarlayın ve Aspose.Slides bunları çıktı dosyasına yazar.

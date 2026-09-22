@@ -10,13 +10,13 @@ keywords:
 - otwórz PPTX
 - otwórz PPT
 - otwórz ODP
-- wczytaj prezentację
-- wczytaj PPTX
-- wczytaj PPT
-- wczytaj ODP
+- załaduj prezentację
+- załaduj PPTX
+- załaduj PPT
+- załaduj ODP
 - zabezpieczona prezentacja
 - duża prezentacja
-- zewnętrzny zasób
+- zasób zewnętrzny
 - obiekt binarny
 - Android
 - Java
@@ -25,15 +25,17 @@ description: "Dowiedz się, jak otwierać prezentacje PowerPoint i OpenDocument 
 ---
 ## **Wprowadzenie**
 
-[Aspose.Slides for Android via Java](https://products.aspose.com/slides/pl/androidjava/) może ładować prezentacje PowerPoint i OpenDocument z plików oraz strumieni. Po załadowaniu prezentacji możesz przeglądać jej strukturę, edytować slajdy, zarządzać zasobami i zapisać ją w oryginalnym lub innym obsługiwanym formacie.
+[Aspose.Slides for Android via Java](https://products.aspose.com/slides/pl/androidjava/) może ładować prezentacje PowerPoint i OpenDocument z plików i strumieni. Po załadowaniu prezentacji możesz przeglądać jej strukturę, edytować slajdy, zarządzać zasobami i zapisać ją w oryginalnym lub innym obsługiwanym formacie.
 
-Zachowanie ładowania można dostosować za pomocą klasy [LoadOptions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/). Na przykład możesz podać hasło otwierające, przechowywać duże obiekty binarne poza pamięcią sterty Java, kontrolować zasoby zewnętrzne lub pominąć osadzone dane binarne.
+Zachowanie ładowania można dostosować przy użyciu klasy [LoadOptions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/). Na przykład można podać hasło otwierające, przechowywać duże obiekty binarne poza pamięcią sterty Java, kontrolować zasoby zewnętrzne lub pominąć osadzone dane binarne.
 
 ## **Otwieranie prezentacji**
 
-Żeby otworzyć istniejącą prezentację, przekaż jej ścieżkę pliku do konstruktora [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/). Zwolnij obiekt prezentacji po użyciu, aby uchwyty plików, dane tymczasowe i inne zasoby zostały szybko zwolnione.
+Po załadowaniu pliku lub strumienia możesz [określić jego oryginalny format prezentacji](/slides/pl/androidjava/detect-presentation-source-format/), aby wybrać sposób przetwarzania go przez aplikację.
 
-Następujący przykład w języku Java pokazuje, jak otworzyć prezentację i uzyskać liczbę slajdów:
+Aby otworzyć istniejącą prezentację, przekaż jej ścieżkę pliku do konstruktora [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/). Zwolnij prezentację po użyciu, aby uchwyty plików, dane tymczasowe i inne zasoby zostały szybko zwolnione.
+
+Poniższy przykład w języku Java pokazuje, jak otworzyć prezentację i uzyskać liczbę slajdów:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -48,7 +50,7 @@ try {
 
 ## **Otwieranie prezentacji zabezpieczonych hasłem**
 
-Hasło otwierające szyfruje zawartość prezentacji. Aby załadować całą prezentację, przekaż prawidłowe hasło do [LoadOptions.setPassword](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) i podaj opcje konstruktorowi [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/). Ładowanie nie powiedzie się, gdy hasło jest brakujące lub niepoprawne.
+Hasło otwierające szyfruje zawartość prezentacji. Aby załadować całą prezentację, przekaż prawidłowe hasło do [LoadOptions.setPassword](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) i podaj opcje konstruktorowi [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/). Ładowanie nie powiedzie się, gdy hasło jest brakujące lub nieprawidłowe.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -65,11 +67,11 @@ try {
 }
 ```
 
-Dla wykrywania haseł, ich walidacji oraz procesów szyfrowania zobacz [Password‑Protect Presentations](/slides/pl/androidjava/password-protected-presentation/). Jeśli zaszyfrowana prezentacja została celowo zapisana z publicznymi właściwościami dokumentu, można odczytać te właściwości bez hasła; zobacz [Manage Presentation Properties](/slides/pl/androidjava/presentation-properties/).
+Aby uzyskać informacje o wykrywaniu, weryfikacji i szyfrowaniu haseł, zobacz [Password-Protect Presentations](/slides/pl/androidjava/password-protected-presentation/). Jeśli zaszyfrowana prezentacja została celowo zapisana z publicznymi właściwościami dokumentu, te właściwości można odczytać bez hasła; zobacz [Manage Presentation Properties](/slides/pl/androidjava/presentation-properties/).
 
 ## **Otwieranie dużych prezentacji**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) zwraca opcje kontrolujące, jak Aspose.Slides obsługuje duże obiekty binarne, takie jak obrazy, audio i wideo. Możesz utrzymać plik źródłowy w stanie zablokowanym, zezwolić na pliki tymczasowe i ograniczyć ilość danych BLOB przechowywanych w pamięci.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) zwraca opcje kontrolujące, w jaki sposób Aspose.Slides obsługuje duże obiekty binarne, takie jak obrazy, dźwięk i wideo. Możesz utrzymać plik źródłowy w stanie zablokowanym, zezwolić na pliki tymczasowe i ograniczyć ilość danych BLOB przechowywanych w pamięci.
 
 Poniższy kod w języku Java demonstruje ładowanie dużej prezentacji (na przykład 2 GB):
 
@@ -96,14 +98,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-Przy użyciu [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked) plik źródłowy pozostaje zablokowany, dopóki nie zostanie zwolniony obiekt prezentacji. Nie przenoś, nie nadpisuj ani nie usuwaj pliku źródłowego, gdy ta instancja jest aktywna.
+Przy użyciu [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked), plik źródłowy pozostaje zablokowany, dopóki instancja prezentacji nie zostanie zwolniona. Nie przenosz, nie nadpisuj ani nie usuwaj pliku źródłowego, gdy ta instancja jest aktywna.
 
-Aspose.Slides może kopiować zawartość strumienia wejściowego podczas ładowania. Dla dużych prezentacji ścieżka do pliku jest zazwyczaj wydajniejsza niż strumień. Zobacz [Manage BLOBs](/slides/pl/androidjava/manage-blob/) po dodatkowe opcje przechowywania i zarządzania pamięcią.
+Aspose.Slides może kopiować zawartość strumienia wejściowego podczas ładowania. Dla dużych prezentacji ścieżka pliku jest zazwyczaj wydajniejsza niż strumień. Zobacz [Manage BLOBs](/slides/pl/androidjava/manage-blob/) po dodatkowe opcje przechowywania i zarządzania pamięcią.
 {{% /alert %}}
 
 ## **Kontrola zasobów zewnętrznych**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) akceptuje implementację [IResourceLoadingCallback](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iresourceloadingcallback/). Wywołanie zwrotne może dostarczyć dane zamienne, przekierować zasób, użyć domyślnego ładowarki lub pominąć zasób. Jest to przydatne, gdy prezentacje zawierają zewnętrzne obrazy, które muszą być rozwiązywane zgodnie z zasadami bezpieczeństwa lub przechowywania specyficznymi dla aplikacji.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) przyjmuje implementację [IResourceLoadingCallback](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iresourceloadingcallback/). Wywołanie zwrotne może dostarczyć dane zastępcze, przekierować zasób, użyć domyślnego ładowarki lub pominąć zasób. Jest to przydatne, gdy prezentacje zawierają zewnętrzne obrazy, które muszą być rozwiązywane zgodnie z zasadami bezpieczeństwa lub przechowywania specyficznymi dla aplikacji.
 
 ```java
 import com.aspose.slides.IResourceLoadingArgs;
@@ -149,15 +151,15 @@ try {
 
 ## **Ładowanie prezentacji bez osadzonych obiektów binarnych**
 
-Prezentacja może zawierać osadzone dane binarne, których aplikacja nie potrzebuje lub nie chce przechowywać. Przykłady:
+Prezentacja może zawierać osadzone dane binarne, których aplikacja nie potrzebuje lub nie chce zachować. Przykłady obejmują:
 
-- projekty VBA, dostępne poprzez [IPresentation.getVbaProject](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipresentation/#getVbaProject--);
-- osadzone dane OLE, dostępne poprzez [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
-- dane kontroli ActiveX, dostępne poprzez [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--).
+- projekty VBA, dostępne przez [IPresentation.getVbaProject](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipresentation/#getVbaProject--);
+- osadzone dane OLE, dostępne przez [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
+- dane kontrolki ActiveX, dostępne przez [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--).
 
-Ustaw [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) na `true`, aby usunąć te dane binarne podczas ładowania. Zapisz załadowaną prezentację, aby zachować oczyszczony wynik.
+Ustaw [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) na `true`, aby usunąć te dane binarne podczas ładowania. Zapisz załadowaną prezentację, aby zachować wyczyszczony rezultat.
 
-Ta opcja zmniejsza ryzyko niechcianych osadzonych ładunków, ale nie jest kompletnym systemem wykrywania malware ani sanitizacji treści.
+Ta opcja zmniejsza narażenie na niechciane osadzone ładunki, ale nie jest pełnym systemem wykrywania złośliwego oprogramowania ani sanitizacji treści.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -177,14 +179,14 @@ try {
 
 ## **FAQ**
 
-**Jak mogę stwierdzić, że plik jest uszkodzony i nie może zostać otwarty?**
+**Jak mogę stwierdzić, że plik jest uszkodzony i nie można go otworzyć?**
 
-Aspose.Slides zgłasza wyjątek parsowania lub formatowy podczas ładowania. Obsłuż tę niepowodzenie osobno od błędu niewłaściwego hasła, aby aplikacja mogła dokładnie zgłosić przyczynę.
+Aspose.Slides zgłasza wyjątek parsowania lub formatu podczas ładowania. Obsłuż tę awarię osobno od błędu nieprawidłowego hasła, aby aplikacja mogła dokładnie zgłosić przyczynę.
 
 **Co się stanie, jeśli brak wymaganych czcionek?**
 
-Prezentacja może nadal zostać załadowana, ale renderowanie i eksport mogą podmienić czcionki. Możesz [konfigurację zamiany czcionek](/slides/pl/androidjava/font-substitution/) lub [dostarczyć własne czcionki](/slides/pl/androidjava/custom-font/) aby wyniki były bardziej przewidywalne.
+Prezentacja może nadal zostać załadowana, ale renderowanie i eksport mogą zastępować czcionki. Możesz [skonfigurować substytucję czcionek](/slides/pl/androidjava/font-substitution/) lub [dostarczyć własne czcionki](/slides/pl/androidjava/custom-font/), aby uczynić wynik bardziej przewidywalnym.
 
 **Czy ładowanie prezentacji ładuje również jej osadzone media?**
 
-Osadzone audio i wideo stają się dostępne poprzez model obiektowy prezentacji. Zasoby zewnętrzne są rozwiązywane zgodnie ze skonfigurowanym zachowaniem ładowania zasobów i mogą być niedostępne, jeśli ich lokalizacji nie można uzyskać.
+Osadzone audio i wideo stają się dostępne poprzez model obiektowy prezentacji. Zasoby zewnętrzne są rozwiązywane zgodnie z skonfigurowanym zachowaniem ładowania zasobów i mogą być niedostępne, jeśli ich lokalizacji nie można uzyskać.

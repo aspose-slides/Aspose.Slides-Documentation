@@ -21,19 +21,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Leer hoe je PowerPoint- en OpenDocument-presentaties kunt openen in C#, een openingswachtwoord kunt opgeven, het laden van resources kunt beheersen en het geheugenverbruik kunt verminderen met Aspose.Slides voor .NET."
+description: "Leer hoe u PowerPoint- en OpenDocument‑presentaties in C# kunt openen, openingswachtwoorden kunt opgeven, het laden van resources kunt beheersen en het geheugengebruik kunt verminderen met Aspose.Slides voor .NET."
 ---
 ## **Inleiding**
 
-[Aspose.Slides for .NET](https://products.aspose.com/slides/nl/net/) kan PowerPoint- en OpenDocument‑presentaties laden vanaf bestanden en streams. Nadat een presentatie is geladen, kun je de structuur inspecteren, dia’s bewerken, resources beheren en opslaan in het oorspronkelijke of een ander ondersteund formaat.
+[Aspose.Slides for .NET](https://products.aspose.com/slides/nl/net/) kan PowerPoint- en OpenDocument‑presentaties laden vanuit bestanden en streams. Nadat een presentatie is geladen, kunt u de structuur inspecteren, dia’s bewerken, resources beheren en deze opslaan in het oorspronkelijke of een ander ondersteund formaat.
 
-Het laadgedrag kan worden aangepast via de klasse [LoadOptions](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/). Je kunt bijvoorbeeld een openings‑wachtwoord opgeven, grote binaire objecten buiten het beheerde geheugen houden, externe resources controleren of ingebedde binaire gegevens weglaten.
+Het laadgedrag kan aangepast worden via de [LoadOptions](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/)‑klasse. U kunt bijvoorbeeld een openingswachtwoord opgeven, grote binaire objecten buiten het beheerde geheugen houden, externe resources controleren of ingebedde binaire gegevens weglaten.
 
-## **Presentaties Openen**
+## **Presentaties openen**
 
-Om een bestaande presentatie te openen, geef je het bestandspad door aan de constructor van [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/). Maak de presentatie na gebruik vrij zodat bestands‑handles, tijdelijke gegevens en andere resources snel worden vrijgegeven.
+Na het laden van een bestand of stream kunt u [determine its original presentation format](/slides/nl/net/detect-presentation-source-format/) om te kiezen hoe uw applicatie het verwerkt.
 
-Het volgende C#‑voorbeeld toont hoe je een presentatie opent en het aantal dia’s opvraagt:
+Om een bestaande presentatie te openen, geeft u het bestandspad door aan de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑constructor. Maak de presentatie vrij na gebruik zodat bestands‑handles, tijdelijke gegevens en andere resources tijdig worden vrijgegeven.
+
+Het volgende C#‑voorbeeld toont hoe u een presentatie opent en het aantal dia’s opvraagt:
 
 ```csharp
 using System;
@@ -44,9 +46,9 @@ using var presentation = new Presentation("sample.pptx");
 Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
-## **Presentaties Openen met Wachtwoord**
+## **Wachtwoord‑beveiligde presentaties openen**
 
-Een openings‑wachtwoord versleutelt de inhoud van de presentatie. Om de volledige presentatie te laden, ken je het juiste wachtwoord toe aan [LoadOptions.Password](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/password/) en geef je de opties door aan de constructor van [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/). Laden mislukt wanneer het wachtwoord ontbreekt of onjuist is.
+Een openingswachtwoord versleutelt de inhoud van de presentatie. Om de volledige presentatie te laden, wijst u het juiste wachtwoord toe aan [LoadOptions.Password](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/password/) en geeft u de opties door aan de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑constructor. Het laden mislukt wanneer het wachtwoord ontbreekt of onjuist is.
 
 ```csharp
 using System;
@@ -58,13 +60,13 @@ using var presentation = new Presentation("encrypted-presentation.pptx", loadOpt
 Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
-Voor wachtwoorddetectie, validatie en encryptieworkflows, zie [Password‑Protect Presentations](/slides/nl/net/password-protected-presentation/). Als een versleutelde presentatie bewust is opgeslagen met openbare documenteigenschappen, kunnen die eigenschappen zonder wachtwoord worden gelezen; zie [Manage Presentation Properties](/slides/nl/net/presentation-properties/).
+Voor wachtwoorddetectie, validatie en versleutelingsprocessen, zie [Password‑Protect Presentations](/slides/nl/net/password-protected-presentation/). Als een versleutelde presentatie bewust is opgeslagen met openbare documenteigenschappen, kunnen die eigenschappen gelezen worden zonder wachtwoord; zie [Manage Presentation Properties](/slides/nl/net/presentation-properties/).
 
-## **Grote Presentaties Openen**
+## **Grote presentaties openen**
 
-[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/blobmanagementoptions/) bepaalt hoe Aspose.Slides omgaat met grote binaire objecten zoals afbeeldingen, audio en video. Je kunt het bronbestand vergrendeld houden, tijdelijke bestanden toestaan en de hoeveelheid BLOB‑gegevens die in het geheugen worden bewaard beperken.
+[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/blobmanagementoptions/) bepaalt hoe Aspose.Slides omgaat met binaire grote objecten zoals afbeeldingen, audio en video. U kunt het bronbestand vergrendeld houden, tijdelijke bestanden toestaan en de hoeveelheid BLOB‑gegevens die in het geheugen wordt bewaard beperken.
 
-De volgende C#‑code laat zien hoe je een grote presentatie (bijv. 2 GB) laadt:
+De volgende C#‑code laat zien hoe u een grote presentatie laadt (bijvoorbeeld 2 GB):
 
 ```csharp
 using Aspose.Slides;
@@ -89,14 +91,14 @@ presentation.Save("large-presentation-copy.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="info" title="Note" %}}
-Met `PresentationLockingBehavior.KeepLocked` blijft het bronbestand vergrendeld totdat het `Presentation`‑object wordt vrijgegeven. Verplaats, overschrijf of verwijder het bronbestand niet zolang dat object nog bestaat.
+Met `PresentationLockingBehavior.KeepLocked` blijft het bronbestand vergrendeld totdat het `Presentation`‑object wordt vrijgegeven. Verplaats, overschrijf of verwijder het bronbestand niet zolang dat object bestaat.
 
-Aspose.Slides kan de inhoud van een invoer‑stream kopiëren tijdens het laden. Voor grote presentaties is een bestandspad doorgaans efficiënter dan een stream. Zie [Manage BLOBs](/slides/nl/net/manage-blob/) voor extra opslag‑ en geheugen‑beheeropties.
+Aspose.Slides kan de inhoud van een invoerstroom kopiëren tijdens het laden. Voor grote presentaties is een bestandspad doorgaans efficiënter dan een stream. Zie [Manage BLOBs](/slides/nl/net/manage-blob/) voor extra opslag‑ en geheugenbeheeropties.
 {{% /alert %}}
 
-## **Externe Resources Beheren**
+## **Externe resources beheersen**
 
-[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/resourceloadingcallback/) accepteert een implementatie van [IResourceLoadingCallback](https://reference.aspose.com/slides/nl/net/aspose.slides/iresourceloadingcallback/). De callback kan vervangende gegevens leveren, een resource omleiden, de standaardloader gebruiken of de resource overslaan. Dit is handig wanneer presentaties externe afbeeldingen bevatten die volgens toepassingsspecifieke beveiligings‑ of opslagregels moeten worden resolved.
+[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/resourceloadingcallback/) accepteert een [IResourceLoadingCallback](https://reference.aspose.com/slides/nl/net/aspose.slides/iresourceloadingcallback/)‑implementatie. De callback kan vervangende data leveren, een resource omleiden, de standaardlader gebruiken of de resource overslaan. Dit is nuttig wanneer presentaties externe afbeeldingen bevatten die moeten worden opgelost volgens toepassingsspecifieke beveiligings‑ of opslagregels.
 
 ```csharp
 using System;
@@ -134,17 +136,17 @@ internal static class OpenPresentationExample
 }
 ```
 
-## **Presentaties Laden zonder Ingebedde Binaire Objecten**
+## **Presentaties laden zonder ingebedde binaire objecten**
 
 Een presentatie kan ingebedde binaire gegevens bevatten die een applicatie niet nodig heeft of niet wil behouden. Voorbeelden zijn:
 
-- VBA‑projecten, toegankelijk via [IPresentation.VbaProject](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentation/vbaproject/);
-- ingebedde OLE‑gegevens, toegankelijk via [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/nl/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/);
-- ActiveX‑controlegegevens, toegankelijk via [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/nl/net/aspose.slides/icontrol/activexcontrolbinary/).
+- VBA‑projecten, beschikbaar via [IPresentation.VbaProject](https://reference.aspose.com/slides/nl/net/aspose.slides/ipresentation/vbaproject/);
+- ingebedde OLE‑data, beschikbaar via [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/nl/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/);
+- ActiveX‑controlegegevens, beschikbaar via [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/nl/net/aspose.slides/icontrol/activexcontrolbinary/).
 
-Stel [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) in op `true` om deze binaire gegevens bij het laden te verwijderen. Sla de geladen presentatie vervolgens op om het opgeschoonde resultaat te behouden.
+Stel [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) in op `true` om deze binaire gegevens bij het laden te verwijderen. Sla de geladen presentatie op om het opgeschoonde resultaat te behouden.
 
-Deze optie vermindert de blootstelling aan ongewenste ingebedde payloads, maar vormt geen volledige malware‑detectie‑ of content‑sanitiseringsoplossing.
+Deze optie vermindert de blootstelling aan ongewenste ingebedde payloads, maar is geen compleet systeem voor malware‑detectie of inhouds‑sanitisatie.
 
 ```csharp
 using Aspose.Slides;
@@ -160,16 +162,16 @@ using var presentation = new Presentation("presentation-with-embedded-data.pptx"
 presentation.Save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
 **Hoe kan ik bepalen dat een bestand corrupt is en niet geopend kan worden?**
 
-Aspose.Slides gooit een parse‑ of format‑exception tijdens het laden. Verwerk die fout apart van een onjuist‑wachtwoord‑fout zodat de applicatie de oorzaak nauwkeurig kan melden.
+Aspose.Slides gooit een parse‑ of format‑exception tijdens het laden. Verwerk die fout apart van een onjuist‑wachtwoord‑fout zodat de applicatie de oorzaak nauwkeurig kan rapporteren.
 
 **Wat gebeurt er als vereiste lettertypen ontbreken?**
 
-De presentatie kan nog steeds worden geladen, maar weergave en export kunnen lettertypen substitueren. Je kunt [lettertype‑substitutie configureren](/slides/nl/net/font-substitution/) of [aangepaste lettertypen aanbieden](/slides/nl/net/custom-font/) om de output voorspelbaarder te maken.
+De presentatie kan nog steeds geladen worden, maar weergave en export kunnen lettertypen vervangen. U kunt [configure font substitution](/slides/nl/net/font-substitution/) of [provide custom fonts](/slides/nl/net/custom-font/) om de output voorspelbaarder te maken.
 
 **Laadt het laden van een presentatie ook de ingebedde media?**
 
-Ingebedde audio en video worden beschikbaar via het presentatiemodel. Externe resources worden resolved volgens het geconfigureerde resource‑loading‑gedrag en kunnen onbeschikbaar zijn als hun locaties niet toegankelijk zijn.
+Ingebedde audio en video worden beschikbaar via het presentatie‑objectmodel. Externe resources worden opgelost volgens het geconfigureerde resource‑laadgedrag en kunnen onbeschikbaar zijn als hun locaties niet toegankelijk zijn.

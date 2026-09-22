@@ -7,8 +7,8 @@ url: /zh-hant/cpp/save-presentation/
 keywords:
 - 儲存 PowerPoint
 - 儲存 OpenDocument
-- 儲存 簡報
-- 儲存 投影片
+- 儲存簡報
+- 儲存投影片
 - 儲存 PPT
 - 儲存 PPTX
 - 儲存 ODP
@@ -21,38 +21,102 @@ keywords:
 - 儲存進度
 - C++
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides 在 C++ 中儲存簡報—匯出至 PowerPoint 或 OpenDocument，同時保留版面配置、字型與效果。"
+description: "使用 Aspose.Slides 在 C++ 中將 PowerPoint 和 OpenDocument 簡報儲存至檔案或串流，並設定 PPTX 輸出與進度回報。"
 ---
 ## **概觀**
 
-[Open Presentations in C++](/slides/zh-hant/cpp/open-presentation/) 介紹了如何使用 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別開啟簡報。本篇說明如何建立與儲存簡報。[Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別包含簡報的所有內容。無論是從頭建立簡報或是修改既有簡報，完成後皆需要將其儲存。使用 Aspose.Slides for C++，您可以將簡報儲存至 **檔案** 或 **串流**。本篇說明儲存簡報的各種方式。
+建立簡報或[開啟現有簡報](/slides/zh-hant/cpp/open-presentation/)之後，使用[Presentation::Save](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/save/)方法寫入結果。Aspose.Slides for C++ 可以將簡報儲存為檔案或串流，支援 PowerPoint、OpenDocument、PDF 以及其他格式。以下各節說明標準儲存操作以及 PPTX 輸出的可用選項。
 
 ## **將簡報儲存為檔案**
 
-透過呼叫 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的 `Save` 方法，將簡報儲存為檔案。將檔名與儲存格式傳入該方法。下列範例示範如何使用 Aspose.Slides 儲存簡報。
+若要將簡報儲存為檔案，將輸出路徑與[SaveFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/saveformat/)值傳遞給[Presentation::Save](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/save/)方法。格式值決定 Aspose.Slides 所建立檔案的類型。
+
+以下範例會建立一個簡報，並將其儲存為 PPTX 檔案：
 
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// 實例化代表簡報檔案的 Presentation 類別。
 auto presentation = MakeObject<Presentation>();
 
-// 在此執行一些工作…
- 
-// 將簡報儲存至檔案。
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+// 在此新增或修改簡報內容。
 
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **將簡報儲存為串流**
+## **以原始格式儲存簡報**
 
-您可以將輸出串流傳遞給 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的 `Save` 方法，從而將簡報儲存至串流。簡報可以寫入多種串流類型。以下範例建立新簡報並將其儲存至檔案串流。
+欲了解檔案與串流偵測範例、新建立簡報的行為，以及來源與輸出格式的區別，請參閱[判定原始簡報格式](/slides/zh-hant/cpp/detect-presentation-source-format/)。
+
+在批次處理應用程式中，輸入格式可能事先未知。載入檔案後，可使用[IPresentation::get_SourceFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/get_sourceformat/)讀取其原始格式。將得到的[SourceFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/sourceformat/)值傳遞給[SlideUtil::ToSaveFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.util/slideutil/tosaveformat/)，以取得相對應的[SaveFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/saveformat/)值，然後使用[Presentation::Save](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/save/)寫入修改後的簡報。
+
+以下完整範例會處理輸入目錄中的每個檔案，更新其標題，並以載入時的格式儲存至輸出目錄：
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/exception.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Util;
+using namespace System;
+using namespace System::IO;
+
+String inputDirectory = u"Input";
+String outputDirectory = u"Output";
+
+Directory::CreateDirectory_(outputDirectory);
+
+auto inputPaths = Directory::GetFiles(inputDirectory);
+for (const auto& inputPath : inputPaths)
+{
+    try
+    {
+        auto presentation = MakeObject<Presentation>(inputPath);
+
+        auto sourceFormat = presentation->get_SourceFormat();
+        auto saveFormat = SlideUtil::ToSaveFormat(sourceFormat);
+
+        presentation->get_DocumentProperties()->set_Title(u"Processed by the batch application");
+
+        auto outputPath = Path::Combine(outputDirectory, Path::GetFileName(inputPath));
+        presentation->Save(outputPath, saveFormat);
+        presentation->Dispose();
+    }
+    catch (ArgumentException& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Cannot map the source format of '{0}': {1}", inputPath, exception->get_Message()));
+    }
+    catch (Exception& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Cannot process '{0}': {1}", inputPath, exception->get_Message()));
+    }
+}
+```
+
+[SlideUtil::ToSaveFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.util/slideutil/tosaveformat/)將 PPT、PPTX、ODP、PPTM、PPSX、PPSM、POTX、POTM、PPS、POT、OTP、FODP 以及 PowerPoint XML 映射到相應的簡報儲存格式。它僅映射簡報來源格式；並非用於選取 PDF、HTML、TIFF 或影像等匯出格式。傳入不支援或無效的[SourceFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/sourceformat/)值會導致[ArgumentException](https://reference.aspose.com/slides/zh-hant/cpp/system/argumentexception/)。
+
+舊版 PPT、PPS 與 POT 檔案使用相同的二進位容器。若此類簡報從未帶副檔名的串流載入，PPS 或 POT 檔案可能會被識別為 PPT。若需保留這些舊版子類型，請另行保留原始檔名或格式中繼資料，並在選擇輸出檔名與格式時使用它。
+
+## **將簡報儲存至串流**
+
+若不依賴最終檔案路徑寫入簡報，可將可寫入的[Stream](https://reference.aspose.com/slides/zh-hant/cpp/system.io/stream/)與[SaveFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/saveformat/)值傳遞給[Presentation::Save](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/save/)方法。此方式在必須將輸出從 Web 服務傳回、儲存於資料庫或於記憶體中處理時特別有用。
+
+以下範例將新簡報儲存至檔案串流：
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -60,26 +124,26 @@ presentation->Dispose();
 #include <system/io/file_mode.h>
 #include <system/io/file_stream.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::IO;
 
-// 實例化代表簡報檔案的 Presentation 類別。
 auto presentation = MakeObject<Presentation>();
+auto outputStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
 
-auto fileStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
+presentation->Save(outputStream, SaveFormat::Pptx);
 
-// 將簡報儲存至串流。
-presentation->Save(fileStream, SaveFormat::Pptx);
-
+outputStream->Close();
 presentation->Dispose();
-fileStream->Close();
 ```
 
 ## **以預先定義的檢視類型儲存簡報**
 
-Aspose.Slides 允許您透過 [ViewProperties](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/viewproperties/) 類別設定 PowerPoint 開啟產生的簡報時的初始檢視。使用 [set_LastView](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/viewproperties/set_lastview/) 方法，並傳入來自 [ViewType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/viewtype/) 列舉的值。
+您可以指定 PowerPoint 開啟已儲存簡報時的初始檢視。於儲存前呼叫帶有[ViewType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/viewtype/)值的[ViewProperties::set_LastView](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/viewproperties/set_lastview/)方法。
+
+以下範例將投影片母片檢視設定為初始檢視：
 
 ```cpp
 #include <DOM/IViewProperties.h>
@@ -87,6 +151,7 @@ Aspose.Slides 允許您透過 [ViewProperties](https://reference.aspose.com/slid
 #include <Export/SaveFormat.h>
 #include <ViewType.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
@@ -94,16 +159,14 @@ using namespace System;
 auto presentation = MakeObject<Presentation>();
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
-
 presentation->Save(u"SlideMasterView.pptx", SaveFormat::Pptx);
+
 presentation->Dispose();
 ```
 
 ## **以嚴格的 Office Open XML 格式儲存簡報**
 
-Aspose.Slides 允許您以嚴格的 Office Open XML 格式儲存簡報。使用 [PptxOptions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/pptxoptions/) 類別，並在儲存時設定其 `Conformance` 屬性。如將其設定為 `Conformance.Iso29500_2008_Strict`，輸出檔案即會以嚴格的 Office Open XML 格式儲存。
-
-下列範例建立簡報並以嚴格的 Office Open XML 格式儲存。
+若要建立符合 Office Open XML 嚴格規範的 PPTX 檔案，請建立一個[PptxOptions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/pptxoptions/)實例，並以 `Conformance::Iso29500_2008_Strict` 呼叫[PptxOptions::set_Conformance](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/pptxoptions/set_conformance/)。然後將此選項傳遞給[Presentation::Save](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/save/)方法。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -111,6 +174,7 @@ Aspose.Slides 允許您以嚴格的 Office Open XML 格式儲存簡報。使用 
 #include <Export/PptxOptions.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
@@ -118,27 +182,23 @@ using namespace System;
 auto options = MakeObject<PptxOptions>();
 options->set_Conformance(Conformance::Iso29500_2008_Strict);
 
-// 實例化代表簡報檔案的 Presentation 類別。
 auto presentation = MakeObject<Presentation>();
 
-// 以嚴格的 Office Open XML 格式儲存簡報。
 presentation->Save(u"StrictOfficeOpenXml.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-## **以 Zip64 模式儲存 Office Open XML 格式簡報**
+## **以 Zip64 模式儲存 Office Open XML 格式的簡報**
 
-Office Open XML 檔案實際上是一個 ZIP 壓縮檔，對任何未壓縮檔案大小、壓縮後檔案大小以及整個壓縮檔總大小皆限制在 4 GB (2^32 位元組)，且檔案數量上限為 65 535 (2^16‑1) 個。ZIP64 格式擴充可將這些限制提升至 2^64。
+標準 ZIP 壓縮檔對每個條目之壓縮與未壓縮大小、總檔案大小以及條目數量都有上限。由於 PPTX 檔案即為 ZIP 壓縮檔，極大的簡報可能會超出這些限制。ZIP64 延伸可提升相關的大小與條目數上限。
 
-[IPptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/ipptxoptions/set_zip64mode/) 方法讓您在儲存 Office Open XML 檔案時選擇是否使用 ZIP64 格式擴充。
+使用[PptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/pptxoptions/set_zip64mode/)可控制 Aspose.Slides 是否寫入 ZIP64 延伸：
 
-此方法可搭配以下模式使用：
+- `IfNecessary` 只在簡報超過標準 ZIP 限制時使用 ZIP64。這是預設模式。
+- `Never` 停用 ZIP64 延伸。
+- `Always` 總是寫入 ZIP64 延伸。
 
-- `IfNecessary` 只有在簡報超過上述限制時才使用 ZIP64 格式擴充。這是預設模式。
-- `Never` 絕不使用 ZIP64 格式擴充。
-- `Always` 總是使用 ZIP64 格式擴充。
-
-以下程式碼示範如何在啟用 ZIP64 格式擴充的情況下，將簡報儲存為 PPTX 檔案：
+以下範例會在輸出簡報上始終啟用 ZIP64 延伸：
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -146,43 +206,36 @@ Office Open XML 檔案實際上是一個 ZIP 壓縮檔，對任何未壓縮檔�
 #include <Export/SaveFormat.h>
 #include <Export/Zip64Mode.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_Zip64Mode(Zip64Mode::Always);
-
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, pptxOptions);
+auto options = MakeObject<PptxOptions>();
+options->set_Zip64Mode(Zip64Mode::Always);
+
+presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-當您使用 `Zip64Mode.Never` 儲存時，如果簡報無法以 ZIP32 格式儲存，將拋出 [PptxException](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/pptxexception/)。
+{{% alert color="warning" title="Warning" %}}
+如果將 `Zip64Mode` 設為 `Never`，且簡報無法符合標準 ZIP 限制，儲存操作會拋出 [PptxException](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/pptxexception/)。
 {{% /alert %}}
 
-## **以不同壓縮等級儲存 Office Open XML 格式簡報**
+## **以壓縮等級儲存 Office Open XML 格式的簡報**
 
-處理大型簡報時，您可以調整壓縮等級，以在檔案大小與處理時間之間取得平衡。根據需求，您可能會偏好較快的處理速度或較小的輸出檔案。
+對於 PPTX 輸出，您可以透過呼叫[PptxOptions::set_CompressionLevel](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/pptxoptions/set_compressionlevel/)來平衡儲存速度與檔案大小。[CompressionLevel](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/compressionlevel/) 列舉提供以下值：
 
-Aspose.Slides 提供 [PptxOptions::set_CompressionLevel](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/pptxoptions/set_compressionlevel/) 方法，讓您在以 Office Open XML 格式儲存簡報時指定壓縮等級。
+- `None` 不使用壓縮儲存資料。
+- `Level1` 提供最快的壓縮速度，但產生最大的壓縮檔。
+- `Level2` 至 `Level5` 逐漸偏好較小的輸出，而非儲存速度。
+- `Level6` 在儲存速度與檔案大小之間取得平衡。這是預設等級。
+- `Level7` 與 `Level8` 更進一步偏好較小的輸出，而非儲存速度。
+- `Level9` 提供最強的壓縮，且需要最多的處理時間。
 
-可用的壓縮等級如下：
-
-- **None**：不進行壓縮，檔案保持原樣儲存。
-- **Level1**：最快的壓縮速度，但壓縮率最低。
-- **Level2**：較快的壓縮速度，壓縮率略佳於 **Level1**。
-- **Level3**：在處理時間上有中等影響，提供比 **Level2** 更佳的壓縮率。
-- **Level4**：提供比 **Level3** 更好的壓縮率。
-- **Level5**：在 **Level4** 基礎上進一步提升壓縮率，但需額外的處理時間。
-- **Level6**：標準壓縮，兼顧處理速度與檔案大小。這是 *預設壓縮等級*。
-- **Level7**：提供比 **Level6** 更佳的壓縮率，處理速度較慢。
-- **Level8**：提供比 **Level7** 更佳的壓縮率。
-- **Level9**：最高壓縮率，產生最小檔案大小，但需最長的處理時間。
-
-以下範例示範如何在 **不壓縮** 的情況下將簡報儲存為 PPTX 檔案：
+以下範例在不使用壓縮的情況下儲存簡報：
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -191,21 +244,20 @@ Aspose.Slides 提供 [PptxOptions::set_CompressionLevel](https://reference.aspos
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
 
-using Aspose::Slides::Export::CompressionLevel;
-using Aspose::Slides::Export::PptxOptions;
-using Aspose::Slides::Export::SaveFormat;
-using Aspose::Slides::Presentation;
-using System::MakeObject;
-
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_CompressionLevel(CompressionLevel::None);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
-presentation->Save(u"Sample-out.pptx", SaveFormat::Pptx, pptxOptions);
+
+auto options = MakeObject<PptxOptions>();
+options->set_CompressionLevel(CompressionLevel::None);
+
+presentation->Save(u"OutputNoCompression.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-此範例示範如何在 **最大壓縮** 的情況下將簡報儲存為 PPTX 檔案：
+以下範例使用最高的壓縮等級：
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -214,75 +266,57 @@ presentation->Dispose();
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
 
-using Aspose::Slides::Export::CompressionLevel;
-using Aspose::Slides::Export::PptxOptions;
-using Aspose::Slides::Export::SaveFormat;
-using Aspose::Slides::Presentation;
-using System::MakeObject;
-
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_CompressionLevel(CompressionLevel::Level9);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
-presentation->Save(u"Sample-level9.pptx", SaveFormat::Pptx, pptxOptions);
+
+auto options = MakeObject<PptxOptions>();
+options->set_CompressionLevel(CompressionLevel::Level9);
+
+presentation->Save(u"OutputMaximumCompression.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
 ## **儲存簡報時不重新整理縮圖**
 
-[PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) 方法控制在儲存為 PPTX 時是否重新產生縮圖：
+當簡報儲存為 PPTX 時，[PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) 控制其文件縮圖：
 
-- 設為 `true` 時，儲存過程會重新整理縮圖（預設值）。
-- 設為 `false` 時，保留現有縮圖；若簡報本身沒有縮圖，則不會產生任何縮圖。
+- `true` 在儲存過程中重新產生縮圖。這是預設值。
+- `false` 保留現有縮圖。若簡報沒有縮圖，Aspose.Slides 不會產生。
 
-以下程式碼示範將簡報儲存為 PPTX 同時不重新整理縮圖：
+以下範例在儲存簡報時不重新整理縮圖：
 
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/PptxOptions.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_RefreshThumbnail(false);
-
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx, pptxOptions);
+auto options = MakeObject<PptxOptions>();
+options->set_RefreshThumbnail(false);
+
+presentation->Save(u"Output.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
-此選項可減少儲存 PPTX 格式簡報所需的時間。
+{{% alert color="info" title="Note" %}}
+停用縮圖重新整理可減少儲存 PPTX 檔案所需的時間。
 {{% /alert %}}
 
 ## **以百分比顯示儲存進度更新**
 
-[IProgressCallback](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iprogresscallback/) 介面透過 [ISaveOptions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/isaveoptions/) 介面及抽象類別 [SaveOptions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/saveoptions/) 所公開的 `set_ProgressCallback` 方法使用。將實作了 IProgressCallback 的物件以 `set_ProgressCallback` 指定，即可在儲存過程中以百分比接收進度更新。
+若要監控儲存操作，實作[IProgressCallback](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iprogresscallback/)介面，並將實作傳遞給[ISaveOptions::set_ProgressCallback](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/isaveoptions/set_progresscallback/)。在匯出過程中，Aspose.Slides 會以進度數值呼叫[IProgressCallback::Reporting](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iprogresscallback/reporting/)。
 
-以下程式片段示範如何使用 `IProgressCallback`。
+以下範例將 PDF 匯出的進度報告至主控台：
 
-```cpp
-#include <IProgressCallback.h>
-#include <system/console.h>
-using namespace Aspose::Slides;
-using namespace System;
-
-class ExportProgressHandler : public IProgressCallback
-{
-public:
-    void Reporting(double progressValue) override
-    {
-        // 在此使用進度百分比值。
-        int progress = static_cast<int>(progressValue);
-
-        Console::WriteLine(u"{0}% of the file has been converted.", progress);
-    }
-};
-```
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/PdfOptions.h>
@@ -290,49 +324,48 @@ public:
 #include <IProgressCallback.h>
 #include <system/console.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// 上面定義的進度回呼類別。
 class ExportProgressHandler : public IProgressCallback
 {
 public:
     void Reporting(double progressValue) override
     {
         int progress = static_cast<int>(progressValue);
-
         Console::WriteLine(u"{0}% of the file has been converted.", progress);
     }
 };
 
-auto saveOptions = MakeObject<PdfOptions>();
-saveOptions->set_ProgressCallback(MakeObject<ExportProgressHandler>());
+auto options = MakeObject<PdfOptions>();
+options->set_ProgressCallback(MakeObject<ExportProgressHandler>());
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"Output.pdf", SaveFormat::Pdf, saveOptions);
+presentation->Save(u"Output.pdf", SaveFormat::Pdf, options);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose 開發了一款使用其 API 的 [免費 PowerPoint 分割工具](https://products.aspose.app/slides/zh-hant/splitter)。此應用程式可將簡報依選取的投影片分割為多個新 PPTX 或 PPT 檔案。
+{{% alert color="info" title="Note" %}}
+Aspose 提供一個免費的[PowerPoint 分割器](https://products.aspose.app/slides/zh-hant/splitter)，使用 Aspose.Slides API 建置。它可將簡報中選取的投影片儲存為獨立的 PPT 或 PPTX 檔案。
 {{% /alert %}}
 
-## **FAQ**
+## **常見問題**
 
-**是否支援「快速儲存」（增量儲存）只寫入變更？**
+**Aspose.Slides 是否支援增量或「快速儲存」？**
 
-不支援。每次儲存都會重新建立完整目標檔案，未提供增量「快速儲存」功能。
+否。每次儲存操作都會寫入完整的輸出檔案，而不是僅更新變更的部分。
 
-**從多個執行緒同時儲存同一個 Presentation 實例是否安全？**
+**多個執行緒可以同時儲存相同的 Presentation 實例嗎？**
 
-不安全。`Presentation` 實例 **不是執行緒安全** 的（/slides/zh-hant/cpp/multithreading/），請在單一執行緒中完成儲存。
+否。[Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 實例[不是執行緒安全](/slides/zh-hant/cpp/multithreading/)。每次僅允許單一執行緒存取與儲存該實例。
 
-**儲存時超連結與外部連結檔案會發生什麼事？**
+**儲存簡報時，超連結與外部連結檔案會發生什麼情況？**
 
-[超連結](/slides/zh-hant/cpp/manage-hyperlinks/) 會被保留下來。外部連結的檔案（例如以相對路徑引用的影片）不會自動複製，請確保這些路徑在目標環境仍然可存取。
+[超連結](/slides/zh-hant/cpp/manage-hyperlinks/) 仍保留在簡報中。Aspose.Slides 不會複製外部連結的檔案，因此已儲存的簡報仍須能存取其位置。
 
-**我可以設定/儲存文件的中繼資料（作者、標題、公司、日期）嗎？**
+**我可以儲存文件中繼資料（如作者、標題、公司與建立日期）嗎？**
 
-可以。支援標準的 [文件屬性](/slides/zh-hant/cpp/presentation-properties/)，儲存時會將其寫入檔案。
+可以。在儲存之前設定相應的[文件屬性](/slides/zh-hant/cpp/presentation-properties/)，Aspose.Slides 會將其寫入輸出檔案。

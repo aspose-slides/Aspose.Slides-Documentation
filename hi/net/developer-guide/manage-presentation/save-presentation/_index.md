@@ -1,19 +1,19 @@
 ---
-title: .NET में प्रेज़ेंटेशन सहेजें
-linktitle: प्रेज़ेंटेशन सहेजें
+title: .NET में प्रस्तुतियों को सहेजें
+linktitle: प्रस्तुति सहेजें
 type: docs
 weight: 80
 url: /hi/net/save-presentation/
 keywords:
 - PowerPoint सहेजें
 - OpenDocument सहेजें
-- प्रेज़ेंटेशन सहेजें
+- प्रस्तुति सहेजें
 - स्लाइड सहेजें
 - PPT सहेजें
 - PPTX सहेजें
 - ODP सहेजें
-- फ़ाइल में प्रेज़ेंटेशन
-- स्ट्रीम में प्रेज़ेंटेशन
+- फ़ाइल में प्रस्तुति
+- स्ट्रीम में प्रस्तुति
 - पूर्वनिर्धारित व्यू टाइप
 - स्ट्रिक्ट ऑफिस ओपन XML फ़ॉर्मेट
 - Zip64 मोड
@@ -22,245 +22,276 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides का उपयोग करके .NET में प्रेज़ेंटेशन कैसे सहेजें—PowerPoint या OpenDocument में निर्यात करें जबकि लेआउट, फ़ॉन्ट और इफ़ेक्ट्स को बनाए रखें।"
+description: "C# में Aspose.Slides for .NET के साथ PowerPoint और OpenDocument प्रस्तुतियों को फ़ाइलों या स्ट्रीम में सहेजें, तथा PPTX आउटपुट और प्रगति रिपोर्टिंग को कॉन्फ़िगर करें।"
 ---
-## **अवलोकन**
+## **समीक्षा**
 
-[C# में प्रेज़ेंटेशन खोलें](/slides/hi/net/open-presentation/) दर्शाता है कि [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का उपयोग करके प्रेज़ेंटेशन को कैसे खोलें। यह लेख बताता है कि प्रेज़ेंटेशन कैसे बनाएं और सहेजें। [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास में प्रेज़ेंटेशन की सामग्री होती है। चाहे आप शून्य से प्रेज़ेंटेशन बना रहे हों या मौजूदा को संशोधित कर रहे हों, समाप्त होने पर आपको इसे सहेजना चाहिए। Aspose.Slides for .NET के साथ, आप **फ़ाइल** या **स्ट्रीम** में सहेज सकते हैं। यह लेख प्रेज़ेंटेशन को सहेजने के विभिन्न तरीकों की व्याख्या करता है।
+एक प्रस्तुति बनाने या [मौजूदा प्रस्तुति खोलें](/slides/hi/net/open-presentation/) के बाद, परिणाम लिखने के लिए [Presentation.Save](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/save/) मेथड का उपयोग करें। Aspose.Slides for .NET एक प्रस्तुति को फ़ाइल या स्ट्रीम में PowerPoint, OpenDocument, PDF और अन्य फ़ॉर्मैट में सहेज सकता है। नीचे वाले अनुभाग मानक सहेजने की कार्रवाई और PPTX आउटपुट के लिए उपलब्ध विकल्पों को कवर करते हैं।
 
-## **फ़ाइलों में प्रेज़ेंटेशन सहेजें**
+## **फ़ाइलों में प्रस्तुतियों को सहेजें**
 
-[Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास की `Save` मेथड को कॉल करके प्रेज़ेंटेशन को फ़ाइल में सहेजें। मेथड को फ़ाइल नाम और सहेजने का फ़ॉर्मेट पास करें। नीचे दिया गया उदाहरण Aspose.Slides के साथ प्रेज़ेंटेशन को सहेजने का तरीका दिखाता है।
+एक प्रस्तुति को फ़ाइल में सहेजने के लिए, आउटपुट पथ और एक [SaveFormat](https://reference.aspose.com/slides/hi/net/aspose.slides.export/saveformat/) मान को [Presentation.Save](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/save/) मेथड में पास करें। फॉर्मेट मान निर्धारित करता है कि Aspose.Slides किस प्रकार की फ़ाइल बनाता है।
+
+निम्न उदाहरण एक प्रस्तुति बनाता है और उसे PPTX फ़ाइल के रूप में सहेजता है:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं।
-using (Presentation presentation = new Presentation())
-{
-    // यहाँ कुछ कार्य करें...
+using var presentation = new Presentation();
 
-    // प्रेज़ेंटेशन को फ़ाइल में सहेजें।
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+// Add or modify presentation content here.
+
+presentation.Save("Output.pptx", SaveFormat.Pptx);
 ```
 
-## **स्ट्रीम में प्रेज़ेंटेशन सहेजें**
+## **प्रस्तुतियों को उनके मूल फ़ॉर्मैट में सहेजें**
 
-आप [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास की `Save` मेथड में आउटपुट स्ट्रीम पास करके प्रेज़ेंटेशन को स्ट्रीम में सहेज सकते हैं। प्रेज़ेंटेशन को कई प्रकार की स्ट्रीम में लिखा जा सकता है। नीचे के उदाहरण में, हम एक नया प्रेज़ेंटेशन बनाते हैं और उसे फ़ाइल स्ट्रीम में सहेजते हैं।
+फ़ाइल और स्ट्रीम पहचान उदाहरणों, नवीन निर्मित प्रस्तुतियों के व्यवहार, तथा स्रोत और आउटपुट फ़ॉर्मैट के अंतर के लिए, देखें [Determine the Original Presentation Format](/slides/hi/net/detect-presentation-source-format/)।
+
+एक बैच‑प्रोसेसिंग एप्लिकेशन में इनपुट फ़ॉर्मैट अग्रिम में ज्ञात नहीं हो सकता। फ़ाइल लोड करने के बाद, मूल फ़ॉर्मैट को [IPresentation.SourceFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ipresentation/sourceformat/) प्रॉपर्टी से पढ़ें। परिणामस्वरूप [SourceFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/sourceformat/) मान को [SlideUtil.ToSaveFormat](https://reference.aspose.com/slides/hi/net/aspose.slides.util/slideutil/tosaveformat/) को पास करें ताकि संबंधित [SaveFormat](https://reference.aspose.com/slides/hi/net/aspose.slides.export/saveformat/) मान प्राप्त हो, और फिर संशोधित प्रस्तुति को लिखने के लिए [Presentation.Save](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/save/) का उपयोग करें।
+
+निम्न पूर्ण उदाहरण एक इनपुट डायरेक्ट्री की सभी फ़ाइलों को प्रोसेस करता है, उनका शीर्षक अपडेट करता है, और उन्हें उसी फ़ॉर्मैट में आउटपुट डायरेक्ट्री में सहेजता है जिससे वे लोड किए गए थे:
 
 ```cs
+using System;
+using System.IO;
 using Aspose.Slides;
-using Aspose.Slides.Export;
+using Aspose.Slides.Util;
 
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं।
-using (Presentation presentation = new Presentation())
+var inputDirectory = "Input";
+var outputDirectory = "Output";
+
+Directory.CreateDirectory(outputDirectory);
+
+foreach (var inputPath in Directory.EnumerateFiles(inputDirectory))
 {
-    using (FileStream fileStream = new FileStream("Output.pptx", FileMode.Create))
+    try
     {
-        // प्रेज़ेंटेशन को स्ट्रीम में सहेजें।
-        presentation.Save(fileStream, SaveFormat.Pptx);
+        using var presentation = new Presentation(inputPath);
+
+        var sourceFormat = presentation.SourceFormat;
+        var saveFormat = SlideUtil.ToSaveFormat(sourceFormat);
+
+        presentation.DocumentProperties.Title = "Processed by the batch application";
+
+        var outputPath = Path.Combine(outputDirectory, Path.GetFileName(inputPath));
+        presentation.Save(outputPath, saveFormat);
+    }
+    catch (ArgumentException exception)
+    {
+        Console.Error.WriteLine($"Cannot map the source format of '{inputPath}': {exception.Message}");
+    }
+    catch (Exception exception)
+    {
+        Console.Error.WriteLine($"Cannot process '{inputPath}': {exception.Message}");
     }
 }
 ```
 
-## **पहले से परिभाषित व्यू टाइप के साथ प्रेज़ेंटेशन सहेजें**
+[SlideUtil.ToSaveFormat](https://reference.aspose.com/slides/hi/net/aspose.slides.util/slideutil/tosaveformat/) PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP, और PowerPoint XML को उनके संबंधित प्रस्तुति सहेजने के फ़ॉर्मैट से मैप करता है। यह केवल प्रस्तुति स्रोत फ़ॉर्मैट को मैप करता है; यह PDF, HTML, TIFF या छवियों जैसे निर्यात फ़ॉर्मैट चुनने के लिए नहीं है। असमर्थित या अमान्य [SourceFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/sourceformat/) मान पास करने पर एक [ArgumentException](https://learn.microsoft.com/en-us/dotnet/api/system.argumentexception) उत्पन्न होता है।
 
-Aspose.Slides आपको वह प्रारंभिक व्यू सेट करने देता है जिसे PowerPoint जनरेटेड प्रेज़ेंटेशन खोलते समय उपयोग करता है, यह [ViewProperties](https://reference.aspose.com/slides/hi/net/aspose.slides/viewproperties/) क्लास के माध्यम से किया जाता है। [ViewProperties](https://reference.aspose.com/slides/hi/net/aspose.slides/viewproperties/) की `LastView` प्रॉपर्टी को [ViewType](https://reference.aspose.com/slides/hi/net/aspose.slides/viewtype/) एनेमरेशन में से किसी मान पर सेट करें।
+पुराने PPT, PPS, और POT फ़ाइलें समान बाइनरी कंटेनर का उपयोग करती हैं। जब ऐसी प्रस्तुति को फ़ाइल एक्सटेंशन के बिना स्ट्रीम से लोड किया जाता है, तो एक PPS या POT फ़ाइल को PPT के रूप में पहचाना जा सकता है। यदि इन पुराने उपप्रकारों को संरक्षित करना आवश्यक है, तो मूल फ़ाइलनाम या फ़ॉर्मैट मेटाडेटा को अलग से रखें और आउटपुट फ़ाइलनाम और फ़ॉर्मैट चुनते समय उसका उपयोग करें।
+
+## **स्ट्रीम में प्रस्तुतियों को सहेजें**
+
+एक प्रस्तुति को अंतिम फ़ाइल पथ पर निर्भर हुए बिना लिखने के लिए, एक लिखने योग्य [Stream](https://learn.microsoft.com/en-us/dotnet/api/system.io.stream) और एक [SaveFormat](https://reference.aspose.com/slides/hi/net/aspose.slides.export/saveformat/) मान को [Presentation.Save](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/save/) मेथड में पास करें। यह विधि तब उपयोगी होती है जब आउटपुट को वेब सर्विस से लौटाना हो, डेटाबेस में संग्रहित करना हो, या मेमोरी में प्रोसेस करना हो।
+
+निम्न उदाहरण एक नई प्रस्तुति को फ़ाइल स्ट्रीम में सहेजता है:
 
 ```cs
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    presentation.ViewProperties.LastView = ViewType.SlideMasterView;
-    presentation.Save("SlideMasterView.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+using var outputStream = new FileStream("Output.pptx", FileMode.Create);
+
+presentation.Save(outputStream, SaveFormat.Pptx);
 ```
 
-## **स्ट्रिक्ट ऑफिस ओपन XML फ़ॉर्मेट में प्रेज़ेंटेशन सहेजें**
+## **पूर्वनिर्धारित व्यू टाइप के साथ प्रस्तुतियों को सहेजें**
 
-Aspose.Slides आपको स्ट्रिक्ट ऑफिस ओपन XML फ़ॉर्मेट में प्रेज़ेंटेशन सहेजने की सुविधा देता है। सहेजते समय [PptxOptions](https://reference.aspose.com/slides/hi/net/aspose.slides.export/pptxoptions/) क्लास का उपयोग करें और उसकी `Conformance` प्रॉपर्टी सेट करें। यदि आप `Conformance.Iso29500_2008_Strict` सेट करते हैं, तो आउटपुट फ़ाइल स्ट्रिक्ट ऑफिस ओपन XML फ़ॉर्मेट में सहेजी जाएगी।
+आप यह निर्दिष्ट कर सकते हैं कि PowerPoint सहेजी गई प्रस्तुति को प्रारंभ में किस व्यू में खोलती है। सहेजने से पहले [ViewProperties.LastView](https://reference.aspose.com/slides/hi/net/aspose.slides/viewproperties/lastview/) प्रॉपर्टी को एक [ViewType](https://reference.aspose.com/slides/hi/net/aspose.slides/viewtype/) मान पर सेट करें।
 
-नीचे का उदाहरण एक प्रेज़ेंटेशन बनाता है और उसे स्ट्रिक्ट ऑफिस ओपन XML फ़ॉर्मेट में सहेजता है।
+निम्न उदाहरण स्लाइड मास्टर व्यू को प्रारंभिक व्यू के रूप में कॉन्फ़िगर करता है:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-PptxOptions options = new PptxOptions()
+using var presentation = new Presentation();
+
+presentation.ViewProperties.LastView = ViewType.SlideMasterView;
+presentation.Save("SlideMasterView.pptx", SaveFormat.Pptx);
+```
+
+## **स्ट्रिक्ट ऑफिस ओपन XML फ़ॉर्मैट में प्रस्तुतियों को सहेजें**
+
+Office Open XML की स्ट्रिक्ट प्रोफ़ाइल का पालन करने वाली PPTX फ़ाइल बनाने के लिए, एक [PptxOptions](https://reference.aspose.com/slides/hi/net/aspose.slides.export/pptxoptions/) इंस्टेंस बनाएं और उसकी [Conformance](https://reference.aspose.com/slides/hi/net/aspose.slides.export/pptxoptions/conformance/) प्रॉपर्टी को `Conformance.Iso29500_2008_Strict` पर सेट करें। फिर विकल्पों को [Presentation.Save](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/save/) मेथड को पास करें।
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var options = new PptxOptions
 {
     Conformance = Conformance.Iso29500_2008_Strict
 };
 
-// प्रेज़ेंटेशन फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनाएं।
-using (Presentation presentation = new Presentation())
-{
-    // स्ट्रिक्ट ऑफिस ओपन XML फ़ॉर्मेट में प्रेज़ेंटेशन सहेजें।
-    presentation.Save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
-}
+using var presentation = new Presentation();
+
+presentation.Save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
 ```
 
-## **ज़िप64 मोड में ऑफिस ओपन XML फ़ॉर्मेट में प्रेज़ेंटेशन सहेजें**
+## **Zip64 मोड में Office Open XML फ़ॉर्मैट में प्रस्तुतियों को सहेजें**
 
-ऑफिस ओपन XML फ़ाइल एक ZIP आर्काइव होती है जिसमें अनकम्प्रेस्ड फ़ाइल आकार, कम्प्रेस्ड फ़ाइल आकार और कुल आर्काइव आकार पर 4 GB (2^32 बाइट) की सीमा होती है, तथा फाइलों की संख्या 65 535 (2^16‑1) तक सीमित रहती है। ZIP64 फ़ॉर्मेट एक्सटेंशन इन सीमाओं को 2^64 तक बढ़ा देता है।
+एक मानक ZIP अभिलेख प्रत्येक प्रविष्टि, कुल अभिलेख आकार, और प्रविष्टियों की संख्या पर सीमा लगाता है। चूँकि PPTX फ़ाइल एक ZIP अभिलेख है, बहुत बड़ी प्रस्तुति इन सीमाओं को पार कर सकती है। ZIP64 एक्सटेंशन इन आकार और प्रविष्टि‑गणना सीमाओं को बढ़ाते हैं।
 
-[IPptxOptions.Zip64Mode](https://reference.aspose.com/slides/hi/net/aspose.slides.export/ipptxoptions/zip64mode/) प्रॉपर्टी आपको ऑफिस ओपन XML फ़ाइल सहेजते समय ZIP64 फ़ॉर्मेट एक्सटेंशन कब उपयोग करना है, चुनने की अनुमति देती है।
+[PptxOptions.Zip64Mode](https://reference.aspose.com/slides/hi/net/aspose.slides.export/pptxoptions/zip64mode/) प्रॉपर्टी का उपयोग करके नियंत्रित करें कि Aspose.Slides ZIP64 एक्सटेंशन लिखे या नहीं:
 
-यह प्रॉपर्टी निम्न मोड प्रदान करती है:
+- `IfNecessary` केवल तब ZIP64 का उपयोग करता है जब प्रस्तुति मानक ZIP सीमाओं से अधिक हो। यह डिफ़ॉल्ट मोड है।
+- `Never` ZIP64 एक्सटेंशन को निष्क्रिय करता है।
+- `Always` हमेशा ZIP64 एक्सटेंशन लिखता है।
 
-- `IfNecessary` केवल तब ZIP64 फ़ॉर्मेट एक्सटेंशन का उपयोग करती है जब प्रेज़ेंटेशन ऊपर दी गई सीमाओं को पार करता है। यह डिफ़ॉल्ट मोड है।
-- `Never` कभी भी ZIP64 फ़ॉर्मेट एक्सटेंशन का उपयोग नहीं करती।
-- `Always` हमेशा ZIP64 फ़ॉर्मेट एक्सटेंशन का उपयोग करती है।
-
-नीचे दिया गया कोड दिखाता है कि कैसे ZIP64 फ़ॉर्मेट एक्सटेंशन को सक्षम करके PPTX फ़ाइल के रूप में प्रेज़ेंटेशन सहेजा जाता है:
+निम्न उदाहरण आउटपुट प्रस्तुति के लिए हमेशा ZIP64 एक्सटेंशन सक्षम करता है:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("Sample.pptx"))
+using var presentation = new Presentation("Sample.pptx");
+
+var options = new PptxOptions
 {
-    presentation.Save("OutputZip64.pptx", SaveFormat.Pptx, new PptxOptions()
-    {
-        Zip64Mode = Zip64Mode.Always
-    });
-}
+    Zip64Mode = Zip64Mode.Always
+};
+
+presentation.Save("OutputZip64.pptx", SaveFormat.Pptx, options);
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-जब आप `Zip64Mode.Never` के साथ सहेजते हैं, तो यदि प्रेज़ेंटेशन ZIP32 फ़ॉर्मेट में सहेजा नहीं जा सकता तो एक [PptxException](https://reference.aspose.com/slides/hi/net/aspose.slides/pptxexception/) उत्पन्न होता है।
+{{% alert color="warning" title="Warning" %}}
+यदि `Zip64Mode` को `Never` पर सेट किया जाता है और प्रस्तुति मानक ZIP सीमाओं में फिट नहीं हो पाती, तो सहेजने की प्रक्रिया एक [PptxException](https://reference.aspose.com/slides/hi/net/aspose.slides/pptxexception/) फेंकती है।
 {{% /alert %}}
 
-## **कम्प्रेशन लेवल के साथ ऑफिस ओपन XML फ़ॉर्मेट में प्रेज़ेंटेशन सहेजें**
+## **संपीड़न स्तरों के साथ Office Open XML फ़ॉर्मैट में प्रस्तुतियों को सहेजें**
 
-बड़े प्रेज़ेंटेशन के साथ काम करते समय, आप फ़ाइल आकार और प्रोसेसिंग समय के बीच संतुलन बनाने के लिए कम्प्रेशन लेवल को समायोजित कर सकते हैं। आपकी आवश्यकताओं के अनुसार आप तेज़ प्रोसेसिंग या छोटा आउटपुट फ़ाइल आकार पसंद कर सकते हैं।
+PPTX आउटपुट के लिए, आप [PptxOptions.CompressionLevel](https://reference.aspose.com/slides/hi/net/aspose.slides.export/pptxoptions/compressionlevel/) प्रॉपर्टी को सेट करके सहेजने की गति और फ़ाइल आकार के बीच संतुलन बना सकते हैं। [CompressionLevel](https://reference.aspose.com/slides/hi/net/aspose.slides.export/compressionlevel/) एन्नुमरेशन निम्न मान प्रदान करता है:
 
-Aspose.Slides [IPptxOptions.CompressionLevel](https://reference.aspose.com/slides/hi/net/aspose.slides.export/ipptxoptions/compressionlevel/) प्रॉपर्टी प्रदान करता है, जिससे आप ऑफिस ओपन XML फ़ॉर्मेट में प्रेज़ेंटेशन सहेजते समय उपयोग होने वाले कम्प्रेशन लेवल को निर्दिष्ट कर सकते हैं।
+- `None` डेटा को बिना संपीड़न के संग्रहीत करता है।
+- `Level1` सबसे तेज़ संपीड़न और सबसे बड़ा संपीड़ित परिणाम देता है।
+- `Level2` से `Level5` क्रमशः तेज़ सहेजने के बजाय छोटे आउटपुट को प्राथमिकता देते हैं।
+- `Level6` सहेजने की गति और फ़ाइल आकार को संतुलित करता है। यह डिफ़ॉल्ट स्तर है।
+- `Level7` और `Level8` छोटे आउटपुट को तेज़ सहेजने की तुलना में अधिक प्राथमिकता देते हैं।
+- `Level9` सबसे मजबूत संपीड़न प्रदान करता है और सबसे अधिक प्रोसेसिंग समय लेता है।
 
-उपलब्ध कम्प्रेशन लेवल यह हैं:
-
-- **None**: कोई कम्प्रेशन लागू नहीं किया जाता। फ़ाइलें जैसा है वैसा संग्रहीत होती हैं।
-- **Level1**: सबसे तेज़ कम्प्रेशन, सबसे कम कम्प्रेशन अनुपात।
-- **Level2**: **Level1** से थोड़ा बेहतर कम्प्रेशन अनुपात के साथ तेज़ कम्प्रेशन।
-- **Level3**: **Level2** से बेहतर कम्प्रेशन, मध्यम प्रोसेसिंग समय पर प्रभाव।
-- **Level4**: **Level3** से बेहतर कम्प्रेशन।
-- **Level5**: **Level4** से सुधरा हुआ कम्प्रेशन, अतिरिक्त प्रोसेसिंग समय।
-- **Level6**: स्टैंडर्ड कम्प्रेशन जो प्रोसेसिंग गति और फ़ाइल आकार के बीच अच्छा संतुलन प्रदान करता है। यह *डिफ़ॉल्ट कम्प्रेशन लेवल* है।
-- **Level7**: **Level6** से बेहतर कम्प्रेशन, धीमी प्रोसेसिंग।
-- **Level8**: **Level7** से बेहतर कम्प्रेशन।
-- **Level9**: अधिकतम कम्प्रेशन। सबसे छोटा फ़ाइल आकार प्राप्त होता है लेकिन प्रोसेसिंग समय सबसे लंबा रहता है।
-
-नीचे का उदाहरण दिखाता है कि कैसे *कम्प्रेशन के बिना* PPTX फ़ाइल के रूप में प्रेज़ेंटेशन सहेजें:
+निम्न उदाहरण बिना संपीड़न के एक प्रस्तुति सहेजता है:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("Sample.pptx"))
+using var presentation = new Presentation("Sample.pptx");
+
+var options = new PptxOptions
 {
-    pres.Save("Sample-out.pptx", SaveFormat.Pptx, new PptxOptions
-    {
-        CompressionLevel = CompressionLevel.None
-    });
-}
+    CompressionLevel = CompressionLevel.None
+};
+
+presentation.Save("OutputNoCompression.pptx", SaveFormat.Pptx, options);
 ```
 
-यह उदाहरण दिखाता है कि कैसे *अधिकतम कम्प्रेशन* के साथ PPTX फ़ाइल के रूप में प्रेज़ेंटेशन सहेजें:
+निम्न उदाहरण अधिकतम संपीड़न स्तर का उपयोग करता है:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation("Sample.pptx"))
+using var presentation = new Presentation("Sample.pptx");
+
+var options = new PptxOptions
 {
-    pres.Save("Sample-level9.pptx", SaveFormat.Pptx, new PptxOptions
-    {
-        CompressionLevel = CompressionLevel.Level9
-    });
-}
+    CompressionLevel = CompressionLevel.Level9
+};
+
+presentation.Save("OutputMaximumCompression.pptx", SaveFormat.Pptx, options);
 ```
 
-## **थंबनेल को रीफ़्रेश किए बिना प्रेज़ेंटेशन सहेजें**
+## **थंबनेल को रीफ़्रेश किए बिना प्रस्तुतियों को सहेजें**
 
-[PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/hi/net/aspose.slides.export/ipptxoptions/refreshthumbnail/) प्रॉपर्टी PPTX में प्रेज़ेंटेशन सहेजते समय थंबनेल जेनरेशन को नियंत्रित करती है:
+जब कोई प्रस्तुति PPTX के रूप में सहेजी जाती है, तो [PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/hi/net/aspose.slides.export/pptxoptions/refreshthumbnail/) प्रॉपर्टी उसकी दस्तावेज़ थंबनेल को नियंत्रित करती है:
 
-- यदि `true` सेट किया गया है, तो सहेजते समय थंबनेल रीफ़्रेश हो जाता है। यह डिफ़ॉल्ट है।
-- यदि `false` सेट किया गया है, तो मौजूदा थंबनेल बरकरार रहता है। यदि प्रेज़ेंटेशन में थंबनेल नहीं है, तो कोई नया जेनरेट नहीं होगा।
+- `true` सहेजने के दौरान थंबनेल को पुनः उत्पन्न करती है। यह डिफ़ॉल्ट मान है।
+- `false` मौजूदा थंबनेल को संरक्षित रखती है। यदि प्रस्तुति में थंबनेल नहीं है, तो Aspose.Slides नया नहीं बनाता।
 
-नीचे के कोड में प्रेज़ेंटेशन को थंबनेल रीफ़्रेश किए बिना PPTX में सहेजा गया है।
+निम्न उदाहरण थंबनेल को रीफ़्रेश किए बिना एक प्रस्तुति सहेजता है:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("Sample.pptx"))
+using var presentation = new Presentation("Sample.pptx");
+
+var options = new PptxOptions
 {
-    presentation.Save("Output.pptx", SaveFormat.Pptx, new PptxOptions()
-    {
-        RefreshThumbnail = false
-    });
-}
+    RefreshThumbnail = false
+};
+
+presentation.Save("Output.pptx", SaveFormat.Pptx, options);
 ```
 
-{{% alert title="Info" color="info" %}}
-यह विकल्प PPTX फ़ॉर्मेट में प्रेज़ेंटेशन सहेजने में लगने वाले समय को कम करने में मदद करता है।
+{{% alert color="info" title="Note" %}}
+थंबनेल रीफ़्रेश को निष्क्रिय करने से PPTX फ़ाइल को सहेजने में लगने वाला समय घट सकता है।
 {{% /alert %}}
 
 ## **प्रगति अपडेट को प्रतिशत में सहेजें**
 
-[IProgressCallback](https://reference.aspose.com/slides/hi/net/aspose.slides/iprogresscallback/) इंटरफ़ेस का उपयोग [ISaveOptions](https://reference.aspose.com/slides/hi/net/aspose.slides.export/isaveoptions/) इंटरफ़ेस द्वारा एक्सपोज़ किए गए `ProgressCallback` प्रॉपर्टी और एब्स्ट्रैक्ट [SaveOptions](https://reference.aspose.com/slides/hi/net/aspose.slides.export/saveoptions/) क्लास के माध्यम से किया जाता है। `ProgressCallback` को एक [IProgressCallback](https://reference.aspose.com/slides/hi/net/aspose.slides/iprogresscallback/) इम्प्लीमेंटेशन असाइन करने पर सेव‑प्रोग्रेस अपडेट प्रतिशत के रूप में प्राप्त होते हैं।
+सहेजने की प्रक्रिया की निगरानी करने के लिए, [IProgressCallback](https://reference.aspose.com/slides/hi/net/aspose.slides/iprogresscallback/) इंटरफ़ेस को लागू करें और उसे [ISaveOptions.ProgressCallback](https://reference.aspose.com/slides/hi/net/aspose.slides.export/isaveoptions/progresscallback/) प्रॉपर्टी को असाइन करें। Aspose.Slides तब निर्यात के दौरान [IProgressCallback.Reporting](https://reference.aspose.com/slides/hi/net/aspose.slides/iprogresscallback/reporting/) मेथड को प्रगति मानों के साथ कॉल करता है।
 
-नीचे की कोड स्निपेट्स दिखाती हैं कि `IProgressCallback` का उपयोग कैसे करें।
+निम्न उदाहरण PDF निर्यात की प्रगति को कंसोल पर रिपोर्ट करता है:
 
 ```cs
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-ISaveOptions saveOptions = new PdfOptions();
-saveOptions.ProgressCallback = new ExportProgressHandler();
-
-using (Presentation presentation = new Presentation("Sample.pptx"))
+var options = new PdfOptions
 {
-    presentation.Save("Output.pdf", SaveFormat.Pdf, saveOptions);
-}
-```
+    ProgressCallback = new ExportProgressHandler()
+};
 
-```cs
-using Aspose.Slides;
+using var presentation = new Presentation("Sample.pptx");
+
+presentation.Save("Output.pdf", SaveFormat.Pdf, options);
 
 class ExportProgressHandler : IProgressCallback
 {
     public void Reporting(double progressValue)
     {
-        // यहाँ प्रगति प्रतिशत मान का उपयोग करें।
-        int progress = Convert.ToInt32(progressValue);
-
-        Console.WriteLine(progress + "% of the file has been converted.");
+        var progress = Convert.ToInt32(progressValue);
+        Console.WriteLine($"{progress}% of the file has been converted.");
     }
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose ने अपना स्वयं का API उपयोग करके एक [नि:शुल्क PowerPoint Splitter एप्लिकेशन](https://products.aspose.app/slides/hi/splitter) विकसित किया है। यह एप्लिकेशन चयनित स्लाइड्स को नई PPTX या PPT फ़ाइलों के रूप में सहेजकर प्रेज़ेंटेशन को कई फ़ाइलों में विभाजित करने की सुविधा देता है।
+{{% alert color="info" title="Note" %}}
+Aspose एक मुफ्त [PowerPoint Splitter](https://products.aspose.app/slides/hi/splitter) प्रदान करता है जो Aspose.Slides API से बना है। यह चयनित स्लाइडों को अलग‑अलग PPT या PPTX फ़ाइलों के रूप में सहेजता है।
 {{% /alert %}}
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या "फ़ास्ट सेव" (इन्क्रिमेंटल सेव) समर्थित है जिससे केवल परिवर्तन ही लिखे जाएँ?**
+**क्या Aspose.Slides इन्क्रीमेंटल या “फ़ास्ट सहेज” का समर्थन करता है?**
 
-नहीं। सहेजने पर हर बार पूर्ण टारगेट फ़ाइल बनती है; इन्क्रिमेंटल "फ़ास्ट सेव" समर्थित नहीं है।
+नहीं। प्रत्येक सहेजने की प्रक्रिया एक पूर्ण आउटपुट फ़ाइल लिखती है, न कि केवल बदलते भागों को अपडेट करती है।
 
-**क्या कई थ्रेड्स से एक ही Presentation इंस्टेंस को सहेजना थ्रेड‑सेफ़ है?**
+**क्या कई थ्रेड एक ही Presentation इंस्टेंस को सहेज सकते हैं?**
 
-नहीं। एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) इंस्टेंस थ्रेड‑सेफ़ नहीं है; इसे केवल एक थ्रेड से सहेजें।
+नहीं। एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) इंस्टेंस [थ्रेड‑सेफ़ नहीं है](/slides/hi/net/multithreading/)। प्रत्येक इंस्टेंस को एक समय में केवल एक थ्रेड से एक्सेस और सहेजें।
 
-**सहेजते समय हाइपरलिंक्स और बाहरी लिंक वाली फ़ाइलें क्या होती हैं?**
+**जब मैं प्रस्तुति सहेजता हूँ तो हाइपरलिंक और बाहरी लिंक की फ़ाइलें क्या होती हैं?**
 
-[Hyperlinks](/slides/hi/net/manage-hyperlinks/) संरक्षित रहती हैं। बाहरी लिंक वाली फ़ाइलें (जैसे रिलेटिव पाथ वाली वीडियोज़) स्वतः कॉपी नहीं होतीँ—सुनिश्चित करें कि संदर्भित पाथ्स उपलब्ध रहें।
+[हाइपरलिंक](/slides/hi/net/manage-hyperlinks/) प्रस्तुति में रह जाते हैं। Aspose.Slides बाहरी लिंक की फ़ाइलों को कॉपी नहीं करता, इसलिए सहेजी गई प्रस्तुति को अभी भी उन स्थानों तक पहुँचने में सक्षम होना चाहिए।
 
-**क्या मैं दस्तावेज़ मेटाडाटा (लेखक, शीर्षक, कंपनी, तिथि) सेट/सेव कर सकता हूँ?**
+**क्या मैं लेखक, शीर्षक, कंपनी, और निर्माण तिथि जैसी दस्तावेज़ मेटाडेटा सहेज सकता हूँ?**
 
-हां। मानक [डॉक्यूमेंट प्रॉपर्टीज](/slides/hi/net/presentation-properties/) समर्थित हैं और फ़ाइल सहेजते समय लिखी जाएँगी।
+हां। सहेजने से पहले उचित [दस्तावेज़ प्रॉपर्टीज़](/slides/hi/net/presentation-properties/) सेट करें, और Aspose.Slides उन्हें आउटपुट फ़ाइल में लिखता है।

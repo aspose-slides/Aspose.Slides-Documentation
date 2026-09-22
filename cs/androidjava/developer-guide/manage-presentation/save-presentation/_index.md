@@ -15,68 +15,121 @@ keywords:
 - prezentace do souboru
 - prezentace do proudu
 - předdefinovaný typ zobrazení
-- striktní formát Office Open XML
+- přísný formát Office Open XML
 - režim Zip64
-- obnovování miniatury
-- ukládání postupu
+- obnovení miniatury
+- postup ukládání
 - Android
 - Java
 - Aspose.Slides
-description: "Objevte, jak ukládat prezentace v Javě pomocí Aspose.Slides pro Android — exportovat do PowerPointu nebo OpenDocumentu při zachování rozvržení, fontů a efektů."
+description: "Uložte prezentace PowerPoint a OpenDocument do souborů nebo proudů na Androidu pomocí Aspose.Slides a nakonfigurujte výstup PPTX a hlášení postupu."
 ---
 ## **Přehled**
 
-[Open Presentations on Android](/slides/cs/androidjava/open-presentation/) popisuje, jak použít třídu [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) k otevření prezentace. Tento článek vysvětluje, jak vytvářet a ukládat prezentace. Třída [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) obsahuje obsah prezentace. Ať už vytváříte prezentaci od nuly nebo upravujete existující, budete ji chtít po dokončení uložit. S Aspose.Slides pro Android můžete ukládat do **souboru** nebo **proudu**. Tento článek vysvětluje různé způsoby ukládání prezentace.
+Po vytvoření prezentace nebo [open an existing one](/slides/cs/androidjava/open-presentation/), použijte metodu [Presentation.save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) k zápisu výsledku. Aspose.Slides for Android via Java může uložit prezentaci do souboru nebo proudu ve formátech PowerPoint, OpenDocument, PDF a dalších. Následující sekce popisují standardní operace ukládání a možnosti dostupné pro výstup PPTX.
 
-## **Ukládání prezentací do souborů**
+## **Uložit prezentace do souborů**
 
-Uložte prezentaci do souboru voláním metody `save` třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/). Jako argumenty předáte název souboru a formát uložení. Následující příklad ukazuje, jak uložit prezentaci pomocí Aspose.Slides.
+Chcete‑li uložit prezentaci do souboru, předejte cestu k výstupu a hodnotu [SaveFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/saveformat/) metodě [Presentation.save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-). Hodnota formátu určuje typ souboru, který Aspose.Slides vytvoří.
+
+Následující příklad vytvoří prezentaci a uloží ji jako soubor PPTX:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
-// Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 Presentation presentation = new Presentation();
 try {
-    // Proveďte zde nějakou práci...
+    // Přidejte nebo upravte obsah prezentace zde.
 
-    // Uložte prezentaci do souboru.
     presentation.save("Output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ukládání prezentací do proudů**
+## **Uložit prezentace v jejich původním formátu**
 
-Můžete uložit prezentaci do proudu předáním výstupního proudu metodě `save` třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/). Prezentaci lze zapisovat do různých typů proudů. V níže uvedeném příkladu vytvoříme novou prezentaci a uložíme ji do souborového proudu.
+Pro příklady detekce souboru a proudu, chování nově vytvořených prezentací a rozdíl mezi zdrojovým a výstupním formátem viz [Determine the Original Presentation Format](/slides/cs/androidjava/detect-presentation-source-format/).
+
+V aplikaci zpracovávající dávky může být vstupní formát neznámý. Po načtení souboru přečtěte jeho původní formát pomocí metody [IPresentation.getSourceFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentation/#getSourceFormat--). Výslednou hodnotu [SourceFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/sourceformat/) předávejte metodě [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slideutil/#toSaveFormat-int-), abyste získali odpovídající hodnotu [SaveFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/saveformat/), a poté použijte [Presentation.save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) k zápisu upravené prezentace.
+
+Následující kompletní příklad zpracuje každý soubor ve vstupním adresáři, aktualizuje jeho název a uloží jej do výstupního adresáře ve formátu, ze kterého byl načten:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SlideUtil;
+import java.io.File;
+
+File inputDirectory = new File("Input");
+File outputDirectory = new File("Output");
+
+if (!outputDirectory.exists() && !outputDirectory.mkdirs()) {
+    System.err.println("Cannot create the output directory.");
+}
+
+File[] inputFiles = inputDirectory.listFiles(File::isFile);
+if (inputFiles != null && outputDirectory.isDirectory()) {
+    for (File inputFile : inputFiles) {
+        try {
+            Presentation presentation = new Presentation(inputFile.getPath());
+            try {
+                int saveFormat = SlideUtil.toSaveFormat(presentation.getSourceFormat());
+                presentation.getDocumentProperties().setTitle("Processed by the batch application");
+
+                File outputFile = new File(outputDirectory, inputFile.getName());
+                presentation.save(outputFile.getPath(), saveFormat);
+            } finally {
+                presentation.dispose();
+            }
+        } catch (IllegalArgumentException exception) {
+            System.err.println("Cannot map the source format of '" + inputFile.getPath() + "': " + exception.getMessage());
+        } catch (Exception exception) {
+            System.err.println("Cannot process '" + inputFile.getPath() + "': " + exception.getMessage());
+        }
+    }
+}
+```
+
+[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slideutil/#toSaveFormat-int-) mapuje PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP a PowerPoint XML na jejich odpovídající formáty ukládání prezentace. Mapuje pouze zdrojové formáty prezentace; není určeno k výběru exportních formátů, jako jsou PDF, HTML, TIFF nebo obrázky. Předání nepodporované nebo neplatné hodnoty [SourceFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/sourceformat/) vede k výjimce [IllegalArgumentException](https://developer.android.com/reference/java/lang/IllegalArgumentException).
+
+Legacy soubory PPT, PPS a POT používají stejný binární kontejner. Když je taková prezentace načtena z proudu bez přípony souboru, může být soubor PPS nebo POT identifikován jako PPT. Pokud je nutné zachovat tyto starší podtypy, uchovejte původní název souboru nebo metadata formátu samostatně a použijte je při volbě výstupního názvu souboru a formátu.
+
+## **Uložit prezentace do proudu**
+
+Chcete‑li zapsat prezentaci bez použití konečné cesty k souboru, předejte zapisovatelný proud a hodnotu [SaveFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/saveformat/) metodě [Presentation.save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#save-java.io.OutputStream-int-). Tento přístup je užitečný, když je výstup vrácen z webové služby, uložen v databázi nebo zpracován v paměti.
+
+Následující příklad uloží novou prezentaci do souborového proudu:
+
+```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
-// Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 Presentation presentation = new Presentation();
 try {
-    OutputStream fileStream = new FileOutputStream("Output.pptx");
+    OutputStream outputStream = new FileOutputStream("Output.pptx");
     try {
-        // Uložte prezentaci do proudu.
-        presentation.save(fileStream, SaveFormat.Pptx);
+        presentation.save(outputStream, SaveFormat.Pptx);
     } finally {
-        fileStream.close();
+        outputStream.close();
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ukládání prezentací s předdefinovaným typem zobrazení**
+## **Uložit prezentace s předdefinovaným typem zobrazení**
 
-Aspose.Slides umožňuje nastavit počáteční pohled, který PowerPoint použije při otevření vygenerované prezentace, pomocí třídy [ViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/viewproperties/). Použijte metodu [setLastView](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/viewproperties/#setLastView-int-) s hodnotou z výčtu [ViewType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/viewtype/).
+Můžete určit, v jakém zobrazení PowerPoint otevře uloženou prezentaci. Před uložením použijte metodu [ViewProperties.setLastView](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/viewproperties/#setLastView-int-) s hodnotou [ViewType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/viewtype/).
+
+Následující příklad nastaví zobrazení Slide Master jako počáteční zobrazení:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ViewType;
 
 Presentation presentation = new Presentation();
 try {
@@ -87,189 +140,186 @@ try {
 }
 ```
 
-## **Ukládání prezentací ve striktním formátu Office Open XML**
+## **Uložit prezentace ve striktním formátu Office Open XML**
 
-Aspose.Slides umožňuje uložit prezentaci ve striktním formátu Office Open XML. Použijte třídu [PptxOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pptxoptions/) a při ukládání nastavte její vlastnost `conformance`. Pokud nastavíte [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/conformance/#Iso29500-2008-Strict), výstupní soubor bude uložen ve striktním formátu Office Open XML.
-
-Níže uvedený příklad vytvoří prezentaci a uloží ji ve striktním formátu Office Open XML.
+Chcete‑li vytvořit soubor PPTX, který splňuje přísný profil Office Open XML, vytvořte instanci [PptxOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pptxoptions/) a použijte její metodu [setConformance](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pptxoptions/#setConformance-int-) s hodnotou [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/conformance/#Iso29500-2008-Strict). Poté předejte možnosti metodě [Presentation.save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-).
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Conformance;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 PptxOptions options = new PptxOptions();
 options.setConformance(Conformance.Iso29500_2008_Strict);
 
-// Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 Presentation presentation = new Presentation();
 try {
-    // Uložte prezentaci ve striktním formátu Office Open XML.
     presentation.save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ukládání prezentací ve formátu Office Open XML v režimu Zip64**
+## **Uložit prezentace v formátu Office Open XML v režimu Zip64**
 
-Soubor Office Open XML je archiv ZIP, který omezuje nekomprimovanou velikost libovolného souboru, komprimovanou velikost libovolného souboru i celkovou velikost archivu na 4 GB (2^32 bajtů) a maximální počet souborů na 65 535 (2^16‑1). Rozšíření formátu ZIP64 tato omezení zvyšují na 2^64.
+Standardní archiv ZIP omezuje komprimovanou i dekomprimovanou velikost každé položky, celkovou velikost archivu a počet položek. Protože je soubor PPTX archiv ZIP, velmi velká prezentace může tato omezení překročit. Rozšíření ZIP64 zvyšují příslušná omezení velikosti a počtu položek.
 
-Metoda [IPptxOptions.setZip64Mode](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipptxoptions/#setZip64Mode-int-) vám umožňuje zvolit, kdy při ukládání souboru Office Open XML použít rozšíření ZIP64.
+Použijte metodu [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pptxoptions/#setZip64Mode-int-) k určení, zda má Aspose.Slides zapisovat rozšíření ZIP64:
 
-Tuto metodu lze použít s následujícími režimy:
+- [IfNecessary](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/zip64mode/#IfNecessary) používá ZIP64 jen v případě, že prezentace překročí standardní limity ZIP. Toto je výchozí režim.
+- [Never](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/zip64mode/#Never) zakazuje rozšíření ZIP64.
+- [Always](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/zip64mode/#Always) vždy zapisuje rozšíření ZIP64.
 
-- [IfNecessary] používá rozšíření ZIP64 pouze pokud prezentace překročí výše uvedená omezení. Toto je výchozí režim.
-- [Never] nikdy nepoužívá rozšíření ZIP64.
-- [Always] vždy používá rozšíření ZIP64.
-
-Následující kód ukazuje, jak uložit prezentaci jako soubor PPTX s povolenými rozšířeními ZIP64:
+Následující příklad vždy povolí rozšíření ZIP64 pro výstupní prezentaci:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setZip64Mode(Zip64Mode.Always);
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.Zip64Mode;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("OutputZip64.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setZip64Mode(Zip64Mode.Always);
+
+    presentation.save("OutputZip64.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Pokud ukládáte s [Zip64Mode.Never](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/zip64mode/#Never), bude vyhozena [PptxException](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pptxexception/), pokud není možné prezentaci uložit ve formátu ZIP32.
+{{% alert color="warning" title="Warning" %}}
+Pokud je použito [Zip64Mode.Never](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/zip64mode/#Never) a prezentace se nevejde do standardních limitů ZIP, operace uložení vyvolá výjimku [PptxException](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pptxexception/).
 {{% /alert %}}
 
-## **Ukládání prezentací ve formátu Office Open XML s úrovněmi komprese**
+## **Uložit prezentace v formátu Office Open XML s úrovněmi komprese**
 
-Při práci s velkými prezentacemi můžete upravit úroveň komprese tak, aby byl vyvážený poměr mezi velikostí souboru a dobou zpracování. V závislosti na vašich požadavcích můžete upřednostnit rychlejší zpracování nebo menší výstupní soubory.
+Pro výstup PPTX můžete vyvážit rychlost ukládání a velikost souboru pomocí metody [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pptxoptions/#setCompressionLevel-int-). Třída [CompressionLevel](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/compressionlevel/) poskytuje následující hodnoty:
 
-Aspose.Slides poskytuje metodu [IPptxOptions.setCompressionLevel](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipptxoptions/#setCompressionLevel-int-), která umožňuje specifikovat úroveň komprese používanou při ukládání prezentace ve formátu Office Open XML.
+- [None](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/compressionlevel/#None) ukládá data bez komprese.
+- [Level1](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/compressionlevel/#Level1) poskytuje nejrychlejší kompresi a největší komprimovaný výstup.
+- [Level2](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/compressionlevel/#Level2) až [Level5](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/compressionlevel/#Level5) postupně upřednostňují menší výstup před rychlostí ukládání.
+- [Level6](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/compressionlevel/#Level6) vyvažuje rychlost ukládání a velikost souboru. Toto je výchozí úroveň.
+- [Level7](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/compressionlevel/#Level7) a [Level8](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/compressionlevel/#Level8) dále upřednostňují menší výstup před rychlostí ukládání.
+- [Level9](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/compressionlevel/#Level9) poskytuje nejvyšší kompresi a vyžaduje nejvíce času na zpracování.
 
-K dispozici jsou následující úrovně komprese:
-
-- **None**: Žádná komprese není použita. Soubory jsou uloženy v původní podobě.
-- **Level1**: Nejrychlejší komprese s nejnižším kompresním poměrem.
-- **Level2**: Rychlejší komprese s mírně lepším poměrem než **Level1**.
-- **Level3**: Lepší komprese než **Level2** s mírně vyšším dopadem na čas zpracování.
-- **Level4**: Lepší komprese než **Level3**.
-- **Level5**: Vylepšená komprese oproti **Level4** s dodatečným časem zpracování.
-- **Level6**: Standardní komprese, která nabízí dobrý poměr mezi rychlostí zpracování a velikostí souboru. Toto je *výchozí úroveň komprese*.
-- **Level7**: Lepší komprese než **Level6** při pomalejším zpracování.
-- **Level8**: Lepší komprese než **Level7**.
-- **Level9**: Maximální komprese. Vytvoří nejmenší velikost souboru za cenu nejdelšího času zpracování.
-
-Následující příklad ukazuje, jak uložit prezentaci jako soubor PPTX *bez komprese*:
+Následující příklad uloží prezentaci bez komprese:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setCompressionLevel(CompressionLevel.None);
+import com.aspose.slides.CompressionLevel;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Sample-out.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setCompressionLevel(CompressionLevel.None);
+
+    presentation.save("OutputNoCompression.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-Tento příklad ukazuje, jak uložit prezentaci jako soubor PPTX s *maximální kompresí*:
+Následující příklad použije maximální úroveň komprese:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setCompressionLevel(CompressionLevel.Level9);
+import com.aspose.slides.CompressionLevel;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Sample-level9.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setCompressionLevel(CompressionLevel.Level9);
+
+    presentation.save("OutputMaximumCompression.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ukládání prezentací bez aktualizace miniatury**
+## **Uložit prezentace bez obnovení náhledu**
 
-Metoda [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pptxoptions/#setRefreshThumbnail-boolean-) řídí generování miniatury při ukládání prezentace do PPTX:
+Když je prezentace uložena jako PPTX, metoda [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pptxoptions/#setRefreshThumbnail-boolean-) řídí její náhled dokumentu:
 
-- Pokud je nastaven na `true`, miniatura se při ukládání obnoví. Toto je výchozí.
-- Pokud je nastaven na `false`, aktuální miniatura se zachová. Pokud prezentace nemá miniaturu, žádná není vygenerována.
+- `true` znovu vytvoří náhled během operace uložení. Toto je výchozí hodnota.
+- `false` zachová existující náhled. Pokud prezentace nemá náhled, Aspose.Slides jej nevytvoří.
 
-V níže uvedeném kódu je prezentace uložena do PPTX bez aktualizace její miniatury.
+Následující příklad uloží prezentaci bez obnovení jejího náhledu:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setRefreshThumbnail(false);
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Output.pptx", SaveFormat.Pptx, pptxOptions);
-}
-finally {
+    PptxOptions options = new PptxOptions();
+    options.setRefreshThumbnail(false);
+
+    presentation.save("Output.pptx", SaveFormat.Pptx, options);
+} finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Tato volba pomáhá snížit čas potřebný k uložení prezentace ve formátu PPTX.
+{{% alert color="info" title="Note" %}}
+Zakázání obnovení náhledu může zkrátit dobu potřebnou k uložení souboru PPTX.
 {{% /alert %}}
 
-## **Ukládání aktualizací postupu v procentech**
+## **Ukládat průběžné informace o postupu v procentech**
 
-Rozhraní [IProgressCallback](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iprogresscallback/) se používá prostřednictvím metody `setProgressCallback`, kterou poskytuje rozhraní [ISaveOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isaveoptions/) a abstraktní třída [SaveOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/saveoptions/). Přidáním implementace [IProgressCallback](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iprogresscallback/) pomocí `setProgressCallback` získáte aktualizace o průběhu ukládání v procentech.
+Pro sledování operace uložení implementujte rozhraní [IProgressCallback](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iprogresscallback/) a předávejte jeho implementaci metodě [ISaveOptions.setProgressCallback](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isaveoptions/#setProgressCallback-com.aspose.slides.IProgressCallback-). Aspose.Slides pak volá metodu [IProgressCallback.reporting](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iprogresscallback/#reporting-double-) s hodnotami postupu během exportu.
 
-Následující úryvky kódu ukazují, jak použít `IProgressCallback`.
+Následující příklad hlásí postup exportu PDF do konzole:
 
 ```java
-import com.aspose.slides.*;
-
-ISaveOptions saveOptions = new PdfOptions();
-saveOptions.setProgressCallback(new ExportProgressHandler());
-
-Presentation presentation = new Presentation("Sample.pptx");
-try {
-    presentation.save("Output.pdf", SaveFormat.Pdf, saveOptions);
-} finally {
-    presentation.dispose();
-}
-```
-```java
-import com.aspose.slides.*;
+import com.aspose.slides.IProgressCallback;
+import com.aspose.slides.PdfOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 class ExportProgressHandler implements IProgressCallback {
     public void reporting(double progressValue) {
-        // Použijte zde hodnotu procenta postupu.
         int progress = (int) progressValue;
-
         System.out.println(progress + "% of the file has been converted.");
     }
 }
+
+PdfOptions options = new PdfOptions();
+options.setProgressCallback(new ExportProgressHandler());
+
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    presentation.save("Output.pdf", SaveFormat.Pdf, options);
+} finally {
+    presentation.dispose();
+}
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose vyvinulo bezplatnou aplikaci PowerPoint Splitter pomocí svého API. Aplikace vám umožní rozdělit prezentaci na několik souborů tím, že vybrané snímky uloží jako nové soubory PPTX nebo PPT.
+{{% alert color="info" title="Note" %}}
+Aspose nabízí zdarma [PowerPoint Splitter](https://products.aspose.app/slides/cs/splitter) postavený na API Aspose.Slides. Umožňuje uložit vybrané snímky z prezentace jako samostatné soubory PPT nebo PPTX.
 {{% /alert %}}
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Je podporováno „rychlé ukládání“ (inkrementální uložení), takže se zapisují jen změny?**
+**Podporuje Aspose.Slides inkrementální nebo “rychlé uložení”?**
 
-Ne. Ukládání vždy vytvoří celý cílový soubor; inkrementální „rychlé ukládání“ není podporováno.
+Ne. Každá operace ukládání zapíše kompletní výstupní soubor místo aktualizace pouze změněných částí.
 
-**Je bezpečné (thread‑safe) ukládat stejnou instanci [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) z více vláken?**
+**Mohou více vláken ukládat stejnou instanci Presentation?**
 
-Ne. Instance [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) není thread‑safe; ukládejte ji z jediného vlákna.
+Ne. Instance [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) není thread‑safe. Přístup a ukládání každé instance by mělo probíhat z jednoho vlákna najednou.
 
-**Co se stane s hypertextovými odkazy a externě propojenými soubory při ukládání?**
+**Co se stane s hypertextovými odkazy a externě propojenými soubory při uložení prezentace?**
 
-[Hyperlinks](/slides/cs/androidjava/manage-hyperlinks/) jsou zachovány. Externě propojené soubory (např. videa pomocí relativních cest) nejsou automaticky zkopírovány – ujistěte se, že odkazované cesty jsou nadále přístupné.
+[Hyperlinks](/slides/cs/androidjava/manage-hyperlinks/) zůstávají v prezentaci. Aspose.Slides nekopíruje externě propojené soubory, takže uložená prezentace musí mít stále přístup k jejich umístěním.
 
-**Mohu nastavit/uložit metadata dokumentu (Autor, Název, Společnost, Datum)?**
+**Mohu uložit metadata dokumentu, jako autor, název, společnost a datum vytvoření?**
 
-Ano. Standardní [document properties](/slides/cs/androidjava/presentation-properties/) jsou podporovány a při ukládání budou zapsány do souboru.
+Ano. Před uložením nastavte příslušné [document properties](/slides/cs/androidjava/presentation-properties/) a Aspose.Slides je zapíše do výstupního souboru.

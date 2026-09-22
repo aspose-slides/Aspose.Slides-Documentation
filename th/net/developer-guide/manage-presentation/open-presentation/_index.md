@@ -1,39 +1,41 @@
 ---
-title: "เปิดการนำเสนอใน .NET"
-linktitle: "เปิดการนำเสนอ"
+title: เปิดงานนำเสนอใน .NET
+linktitle: เปิดงานนำเสนอ
 type: docs
 weight: 20
 url: /th/net/open-presentation/
 keywords:
-- "เปิด PowerPoint"
-- "เปิดการนำเสนอ"
-- "เปิด PPTX"
-- "เปิด PPT"
-- "เปิด ODP"
-- "โหลดการนำเสนอ"
-- "โหลด PPTX"
-- "โหลด PPT"
-- "โหลด ODP"
-- "การนำเสนอที่ป้องกัน"
-- "การนำเสนอขนาดใหญ่"
-- "ทรัพยากรภายนอก"
-- "วัตถุไบต์"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "เรียนรู้วิธีเปิดการนำเสนอ PowerPoint และ OpenDocument ด้วย C#, จัดหารหัสผ่านสำหรับการเปิด, ควบคุมการโหลดทรัพยากร, และลดการใช้หน่วยความจำด้วย Aspose.Slides สำหรับ .NET."
+- เปิด PowerPoint
+- เปิดงานนำเสนอ
+- เปิด PPTX
+- เปิด PPT
+- เปิด ODP
+- โหลดงานนำเสนอ
+- โหลด PPTX
+- โหลด PPT
+- โหลด ODP
+- งานนำเสนอที่ป้องกัน
+- งานนำเสนอขนาดใหญ่
+- ทรัพยากรภายนอก
+- วัตถุไบนารี
+- .NET
+- C#
+- Aspose.Slides
+description: "เรียนรู้วิธีเปิดงานนำเสนอ PowerPoint และ OpenDocument ด้วย C#, รองรับรหัสผ่านการเปิด, ควบคุมการโหลดทรัพยากร, และลดการใช้หน่วยความจำด้วย Aspose.Slides สำหรับ .NET."
 ---
-## **คำนำ**
+## **บทนำ**
 
-[Aspose.Slides for .NET](https://products.aspose.com/slides/th/net/) สามารถโหลดการนำเสนอ PowerPoint และ OpenDocument จากไฟล์และสตรีมได้ หลังจากโหลดการนำเสนอแล้ว คุณสามารถตรวจสอบโครงสร้าง แก้ไขสไลด์ จัดการทรัพยากร และบันทึกในรูปแบบเดิมหรือรูปแบบที่รองรับอื่นได้
+[Aspose.Slides for .NET](https://products.aspose.com/slides/th/net/) สามารถโหลดงานนำเสนอ PowerPoint และ OpenDocument จากไฟล์และสตรีมได้ หลังจากโหลดงานนำเสนอแล้ว คุณสามารถตรวจสอบโครงสร้าง แก้ไขสไลด์ จัดการทรัพยากร และบันทึกเป็นรูปแบบต้นฉบับหรือรูปแบบที่รองรับอื่นๆ
 
-พฤติกรรมในการโหลดสามารถปรับแต่งได้ผ่านคลาส [LoadOptions](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/) ตัวอย่างเช่น คุณสามารถระบุรหัสผ่านสำหรับการเปิด เก็บวัตถุไบต์ขนาดใหญ่ไอยู่ด้านนอกหน่วยความจำที่จัดการ ควบคุมทรัพยากรภายนอก หรือละเว้นข้อมูลไบต์ที่ฝังไว้
+พฤติกรรมการโหลดสามารถกำหนดค่าได้ผ่านคลาส [LoadOptions](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/) ตัวอย่างเช่น คุณสามารถระบุรหัสผ่านสำหรับการเปิด, เก็บวัตถุไบนารีขนาดใหญ่ให้อยู่นอกหน่วยความจำที่จัดการ, ควบคุมทรัพยากรภายนอก หรือละเว้นข้อมูลไบนารีที่ฝังอยู่
 
-## **เปิดการนำเสนอ**
+## **เปิดงานนำเสนอ**
 
-เพื่อเปิดการนำเสนอที่มีอยู่ ให้ส่งพาธไฟล์ไปยังคอนสตรัคเตอร์ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) ปิดการใช้งานการนำเสนอหลังจากใช้เพื่อให้มั่นใจว่าตัวจัดการไฟล์ ข้อมูลชั่วคราว และทรัพยากรอื่น ๆ ถูกปล่อยออกโดยเร็ว
+หลังจากโหลดไฟล์หรือสตรีมแล้ว คุณสามารถ [กำหนดรูปแบบงานนำเสนอเดิม](/slides/th/net/detect-presentation-source-format/) เพื่อเลือกวิธีที่แอปพลิเคชันของคุณจะประมวลผล
 
-ตัวอย่าง C# ด้านล่างแสดงวิธีเปิดการนำเสนอและรับจำนวนสไลด์ของมัน:
+เพื่อเปิดงานนำเสนอที่มีอยู่ ให้ส่งเส้นทางไฟล์ไปยังคอนสตรักเตอร์ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) ปล่อยงานนำเสนอหลังการใช้เพื่อให้ตัวจัดการไฟล์ ข้อมูลชั่วคราว และทรัพยากรอื่น ๆ ถูกปล่อยออกอย่างรวดเร็ว
+
+ตัวอย่าง C# ด้านล่างแสดงวิธีเปิดงานนำเสนอและรับจำนวนสไลด์:
 
 ```csharp
 using System;
@@ -44,27 +46,29 @@ using var presentation = new Presentation("sample.pptx");
 Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
-## **เปิดการนำเสนอที่มีการป้องกันด้วยรหัสผ่าน**
+## **เปิดงานนำเสนอที่มีการป้องกันด้วยรหัสผ่าน**
 
-รหัสผ่านเปิดทำให้เนื้อหาการนำเสนอถูกเข้ารหัส เพื่อโหลดการนำเสนอเต็มรูปแบบ ให้กำหนดรหัสผ่านที่ถูกต้องให้กับ [LoadOptions.Password](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/password/) แล้วส่งตัวเลือกเหล่านั้นไปยังคอนสตรัคเตอร์ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) การโหลดจะล้มเหลือเมื่อไม่มีรหัสผ่านหรือรหัสผ่านไม่ถูกต้อง
+รหัสผ่านสำหรับการเปิดจะเข้ารหัสเนื้อหาของงานนำเสนอ เพื่อโหลดงานนำเสนอทั้งหมด ให้กำหนดรหัสผ่านที่ถูกต้องให้กับ [LoadOptions.Password](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/password/) และส่งตัวเลือกเหล่านั้นไปยังคอนสตรักเตอร์ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) การโหลดจะล้มเหลวเมื่อรหัสผ่านขาดหายหรือไม่ถูกต้อง
 
 ```csharp
 using System;
 using Aspose.Slides;
 
 var loadOptions = new LoadOptions { Password = "open_password" };
-using var presentation = new Presentation("encrypted-presentation.pptx", loadOptions);
+using var presentation = new Presentation("encrypte
+
+d-presentation.pptx", loadOptions);
 
 Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
-สำหรับการตรวจจับรหัสผ่าน การตรวจสอบความถูกต้อง และกระบวนการเข้ารหัส ดูที่ [การป้องกันรหัสผ่านของการนำเสนอ](/slides/th/net/password-protected-presentation/) หากการนำเสนอที่เข้ารหัสถูกบันทึกโดยเจตนาพร้อมคุณสมบัติเ�เอกสารสาธารณะ คุณสมบัติเหล่านั้นสามารถอ่านได้โดยไม่ต้องใช้รหัสผ่าน; ดูที่ [จัดการคุณสมบัติการนำเสนอ](/slides/th/net/presentation-properties/)
+สำหรับการตรวจจับรหัสผ่าน การตรวจสอบความถูกต้อง และกระแสงานการเข้ารหัส ดูที่ [Password-Protect Presentations](/slides/th/net/password-protected-presentation/). หากงานนำเสนอที่เข้ารหัสถูกบันทึกโดยเจตนาพร้อมคุณสมบัติเอกสารสาธารณะ คุณสมบัตินั้นสามารถอ่านได้โดยไม่ต้องใช้รหัสผ่าน; ดูที่ [Manage Presentation Properties](/slides/th/net/presentation-properties/).
 
-## **เปิดการนำเสนอขนาดใหญ่**
+## **เปิดงานนำเสนอขนาดใหญ่**
 
-[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/blobmanagementoptions/) ควบคุมวิธีการที่ Aspose.Slides จัดการวัตถุไบต์ขนาดใหญ่ เช่น รูปภาพ เสียง และวิดีโอ คุณสามารถล็อกไฟล์ต้นทางไว้ อนุญาตให้สร้างไฟล์ชั่วคราว และจำกัดจำนวนข้อมูล BLOB ที่เก็บในหน่วยความจำ
+[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/blobmanagementoptions/) ควบคุมวิธีที่ Aspose.Slides จัดการวัตถุไบนารีขนาดใหญ่ เช่น รูปภาพ, เสียง, และวีดีโอ คุณสามารถทำให้ไฟล์ต้นทางล็อกไว้, อนุญาตไฟล์ชั่วคราว, และจำกัดจำนวนข้อมูล BLOB ที่เก็บในหน่วยความจำ
 
-โค้ด C# ด้านล่างแสดงการโหลดการนำเสนอขนาดใหญ่ (เช่น 2 GB):
+โค้ด C# ด้านล่างแสดงการโหลดงานนำเสนอขนาดใหญ่ (เช่น 2 GB):
 
 ```csharp
 using Aspose.Slides;
@@ -88,15 +92,15 @@ presentation.Slides[0].Name = "Large presentation";
 presentation.Save("large-presentation-copy.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="info" title="หมายเหตุ" %}}
-ด้วย `PresentationLockingBehavior.KeepLocked` ไฟล์ต้นทางจะคงล็อกไว้จนกว่าอ็อบเจ็กต์ `Presentation` จะถูกปิด อย่าเคลื่อนย้าย เขียนทับ หรือทำลายไฟล์ต้นทางขณะอ็อบเจ็กต์นั้นยังคงอยู่
+{{% alert color="info" title="Note" %}}
+เมื่อใช้ `PresentationLockingBehavior.KeepLocked` ไฟล์ต้นทางจะถูกล็อกไว้จนกว่าอ็อบเจกต์ `Presentation` จะถูกปล่อย อย่าย้าย, เขียนทับหรือทำลายไฟล์ต้นทางในขณะที่อ็อบเจกต์นั้นยังคงอยู่
 
-Aspose.Slides อาจทำสำเนาข้อมูลจากสตรีมอินพุตขณะโหลด สำหรับการนำเสนอขนาดใหญ่ การใช้พาธไฟล์จึงโดยทั่วไปมีประสิทธิภาพมากกว่าสตรีม ดูที่ [จัดการ BLOBs](/slides/th/net/manage-blob/) เพื่อเรียนรู้ตัวเลือกเพิ่มเติมเกี่ยวกับการจัดเก็บและการจัดการหน่วยความจำ
+Aspose.Slides อาจคัดลอกเนื้อหาของสตรีมอินพุตระหว่างการโหลด สำหรับงานนำเสนอขนาดใหญ่ การใช้เส้นทางไฟล์จึงโดยทั่วไปมีประสิทธิภาพมากกว่าสตรีม โปรดดูที่ [Manage BLOBs](/slides/th/net/manage-blob/) สำหรับตัวเลือกการจัดเก็บและการจัดการหน่วยความจำเพิ่มเติม.
 {{% /alert %}}
 
 ## **ควบคุมทรัพยากรภายนอก**
 
-[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/resourceloadingcallback/) รับการนำไปใช้ของ [IResourceLoadingCallback](https://reference.aspose.com/slides/th/net/aspose.slides/iresourceloadingcallback/) คอลแบ็กนี้สามารถให้ข้อมูลแทนที่ ทำการเปลี่ยนเส้นทางของทรัพยากร ใช้โหลดเดฟอลท์ หรือข้ามทรัพยากร การทำเช่นนี้มีประโยชน์เมื่อการนำเสนอมีรูปภาพภายนอกที่ต้องแก้ไขตามกฎความปลอดภัยหรือการจัดเก็บของแอปพลิเคชัน
+[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/resourceloadingcallback/) ยอมรับการทำงานของ [IResourceLoadingCallback](https://reference.aspose.com/slides/th/net/aspose.slides/iresourceloadingcallback/) คอลแบ็กสามารถให้ข้อมูลทดแทน, เปลี่ยนเส้นทางทรัพยากร, ใช้โหลดเดฟอลต์, หรือข้ามทรัพยากรได้ สิ่งนี้มีประโยชน์เมื่องานนำเสนอมีรูปภาพภายนอกที่ต้องถูกแก้ไขตามกฎความปลอดภัยหรือการจัดเก็บของแอปพลิเคชัน
 
 ```csharp
 using System;
@@ -134,17 +138,17 @@ internal static class OpenPresentationExample
 }
 ```
 
-## **โหลดการนำเสนอโดยไม่มีวัตถุไบต์แบบฝัง**
+## **โหลดงานนำเสนอโดยไม่มีวัตถุไบนารีฝังอยู่**
 
-การนำเสนออาจมีข้อมูลไบต์แบบฝังที่แอปพลิเคชันไม่ต้องการหรือไม่ต้องการเก็บ ตัวอย่างเช่น:
+งานนำเสนออาจมีข้อมูลไบนารีฝังอยู่ที่แอปพลิเคชันไม่ต้องการหรือไม่ต้องการเก็บ ตัวอย่างเช่น:
 
-- โปรเจกต์ VBA ที่เข้าถึงได้ผ่าน [IPresentation.VbaProject](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentation/vbaproject/)
-- ข้อมูล OLE ที่ฝังอยู่ที่เข้าถึงได้ผ่าน [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/th/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/)
-- ข้อมูลคอนโทรล ActiveX ที่เข้าถึงได้ผ่าน [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/th/net/aspose.slides/icontrol/activexcontrolbinary/)
+- โครงการ VBA, เข้าถึงได้ผ่าน [IPresentation.VbaProject](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentation/vbaproject/);
+- ข้อมูล OLE ที่ฝังอยู่, เข้าถึงได้ผ่าน [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/th/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/);
+- ข้อมูลคอนโทรล ActiveX, เข้าถึงได้ผ่าน [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/th/net/aspose.slides/icontrol/activexcontrolbinary/).
 
-ตั้งค่า [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) เป็น `true` เพื่อเอาข้อมูลไบต์เหล่านี้ออกขณะโหลด บันทึกการนำเสนอที่โหลดแล้วเพื่อให้ผลลัพธ์ที่ทำความสะอาดคงอยู่
+ตั้งค่า [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) เป็น `true` เพื่อลบข้อมูลไบนารีนี้ขณะโหลด บันทึกรายการงานนำเสนอที่โหลดแล้วเพื่อให้ผลลัพธ์ที่ผ่านการทำความสะอาดคงอยู่
 
-ตัวเลือกนี้ลดความเสี่ยงจากการฝังโค้ดที่ไม่ต้องการ แต่ไม่ได้เป็นระบบตรวจจับมัลแวร์หรือทำความสะอาดเนื้อหาอย่างสมบูรณ์
+ตัวเลือกนี้ช่วยลดการเปิดเผยต่อข้อมูลฝังที่ไม่ต้องการ แต่ไม่ได้เป็นระบบตรวจจับมัลแวร์หรือการทำความสะอาดเนื้อหาอย่างสมบูรณ์
 
 ```csharp
 using Aspose.Slides;
@@ -162,11 +166,14 @@ presentation.Save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะรู้ได้อย่างไรว่าไฟล์เสียหายและไม่สามารถเปิดได้?**  
-Aspose.Slides จะโยนข้อยกเว้นการพาร์สหรือรูปแบบในระหว่างการโหลด ให้จัดการความล้มเหลือนี้แยกจากข้อผิดพลาดรหัสผ่านไม่ถูกต้องเพื่อให้แอปพลิเคชันรายงานสาเหตุได้อย่างแม่นยำ
+**ฉันจะรู้ได้อย่างไรว่าไฟล์เสียและไม่สามารถเปิดได้?**
 
-**จะเกิดอะไรขึ้นหากฟอนต์ที่จำเป็นหายไป?**  
-การนำเสนอยังคงโหลดได้ แต่การเรนเดอร์และการส่งออกอาจแทนที่ฟอนต์ได้ คุณสามารถ [กำหนดค่าการแทนที่ฟอนต์](/slides/th/net/font-substitution/) หรือ [จัดหา ฟอนต์แบบกำหนดเอง](/slides/th/net/custom-font/) เพื่อทำให้ผลลัพธ์คาดการณ์ได้มากขึ้น
+Aspose.Slides จะโยนข้อยกเว้นการพาร์เซหรือรูปแบบระหว่างการโหลด ให้จัดการความล้มเหลวนี้แยกจากข้อผิดพลาดรหัสผ่านไม่ถูกต้อง เพื่อให้แอปพลิเคชันสามารถรายงานสาเหตุได้อย่างแม่นยำ
 
-**การโหลดการนำเสนอจะโหลดสื่อที่ฝังอยู่ด้วยหรือไม่?**  
-เสียงและวิดีโอที่ฝังไว้จะพร้อมใช้ผ่านโมเดลอ็อบเจ็กต์ของการนำเสนอ ทรัพยากรภายนอกจะถูกแก้ไขตามพฤติกรรมการโหลดทรัพยากรที่กำหนดไว้และอาจไม่พร้อมใช้งานหากไม่สามารถเข้าถึงตำแหน่งที่ตั้งของมันได้
+**จะเกิดอะไรขึ้นหากฟอนต์ที่จำเป็นหายไป?**
+
+งานนำเสนอยังสามารถโหลดได้ แต่การเรนเดอร์และการส่งออกอาจใช้ฟอนต์ทดแทน คุณสามารถ [configure font substitution](/slides/th/net/font-substitution/) หรือ [provide custom fonts](/slides/th/net/custom-font/) เพื่อทำให้ผลลัพธ์คาดเดาได้มากขึ้น
+
+**การโหลดงานนำเสนอนั้นโหลดสื่อที่ฝังไว้ด้วยหรือไม่?**
+
+เสียงและวิดีโอที่ฝังอยู่จะสามารถเข้าถึงได้ผ่านโมเดลอ็อบเจกต์ของงานนำเสนอ ทรัพยากรภายนอกจะถูกแก้ไขตามพฤติกรรมการโหลดทรัพยากรที่กำหนดไว้และอาจไม่พร้อมใช้งานหากไม่สามารถเข้าถึงตำแหน่งของมันได้

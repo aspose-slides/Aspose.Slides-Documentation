@@ -1,5 +1,5 @@
 ---
-title: Ukládání prezentací v C++
+title: Uložit prezentace v C++
 linktitle: Uložit prezentaci
 type: docs
 weight: 80
@@ -13,46 +13,110 @@ keywords:
 - uložit PPTX
 - uložit ODP
 - prezentace do souboru
-- prezentace do streamu
+- prezentace do proudu
 - předdefinovaný typ zobrazení
-- Přísný formát Office Open XML
+- přísný formát Office Open XML
 - režim Zip64
-- obnovení náhledu
+- obnovení miniatury
 - průběh ukládání
 - C++
 - Aspose.Slides
-description: "Objevte, jak ukládat prezentace v C++ pomocí Aspose.Slides — exportovat do PowerPointu nebo OpenDocumentu při zachování rozvržení, písem a efektů."
+description: "Uložte prezentace PowerPoint a OpenDocument do souborů nebo proudů v C++ pomocí Aspose.Slides a nakonfigurujte výstup PPTX a reportování průběhu."
 ---
 ## **Přehled**
 
-[Open Presentations in C++](/slides/cs/cpp/open-presentation/) popisuje, jak použít třídu [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) k otevření prezentace. Tento článek vysvětluje, jak vytvářet a ukládat prezentace. Třída [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) obsahuje obsah prezentace. Ať už vytváříte prezentaci od nuly nebo upravujete existující, budete ji chtít po dokončení uložit. S Aspose.Slides pro C++ můžete uložit do **souboru** nebo **streamu**. Tento článek vysvětluje různé způsoby uložení prezentace.
+Po vytvoření prezentace nebo [otevření existující](/slides/cs/cpp/open-presentation/), použijte metodu [Presentation::Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/save/) k zápisu výsledku. Aspose.Slides pro C++ může uložit prezentaci do souboru nebo proudu v formátech PowerPoint, OpenDocument, PDF a dalších. Následující sekce popisují standardní operace ukládání a možnosti dostupné pro výstup PPTX.
 
 ## **Uložit prezentace do souborů**
 
-Uložení prezentace do souboru provedete voláním metody `Save` třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/). Předáte název souboru a formát uložení metodě. Následující příklad ukazuje, jak uložit prezentaci pomocí Aspose.Slides.
+Chcete‑li uložit prezentaci do souboru, předávejte cestu k výstupu a hodnotu [SaveFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/saveformat/) metodě [Presentation::Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/save/). Hodnota formátu určuje typ souboru, který Aspose.Slides vytvoří.
+
+Následující příklad vytvoří prezentaci a uloží ji jako soubor PPTX:
 
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 auto presentation = MakeObject<Presentation>();
 
-// Proveďte zde nějakou práci...
+// Přidejte nebo upravte obsah prezentace zde.
 
-// Uložte prezentaci do souboru.
 presentation->Save(u"Output.pptx", SaveFormat::Pptx);
-
 presentation->Dispose();
 ```
 
-## **Uložit prezentace do streamů**
+## **Uložit prezentace v jejich původním formátu**
 
-Můžete uložit prezentaci do streamu předáním výstupního streamu metodě `Save` třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/). Prezentaci lze zapsat do mnoha typů streamů. V následujícím příkladu vytvoříme novou prezentaci a uložíme ji do souborového streamu.
+Pro příklady detekce souboru a proudu, chování nově vytvořených prezentací a rozdíl mezi zdrojovým a výstupním formátem viz [Determine the Original Presentation Format](/slides/cs/cpp/detect-presentation-source-format/).
+
+V aplikaci pro hromadné zpracování nemusí být vstupní formát znám předem. Po načtení souboru přečtěte jeho původní formát pomocí [IPresentation::get_SourceFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/get_sourceformat/). Výslednou hodnotu [SourceFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/sourceformat/) předávejte metodě [SlideUtil::ToSaveFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides.util/slideutil/tosaveformat/) a získáte odpovídající hodnotu [SaveFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/saveformat/), kterou následně použijete v [Presentation::Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/save/) k zápisu upravené prezentace.
+
+Následující kompletní příklad zpracuje každý soubor ve vstupním adresáři, aktualizuje jeho název a uloží jej do výstupního adresáře ve formátu, ze kterého byl načten:
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/exception.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Util;
+using namespace System;
+using namespace System::IO;
+
+String inputDirectory = u"Input";
+String outputDirectory = u"Output";
+
+Directory::CreateDirectory_(outputDirectory);
+
+auto inputPaths = Directory::GetFiles(inputDirectory);
+for (const auto& inputPath : inputPaths)
+{
+    try
+    {
+        auto presentation = MakeObject<Presentation>(inputPath);
+
+        auto sourceFormat = presentation->get_SourceFormat();
+        auto saveFormat = SlideUtil::ToSaveFormat(sourceFormat);
+
+        presentation->get_DocumentProperties()->set_Title(u"Processed by the batch application");
+
+        auto outputPath = Path::Combine(outputDirectory, Path::GetFileName(inputPath));
+        presentation->Save(outputPath, saveFormat);
+        presentation->Dispose();
+    }
+    catch (ArgumentException& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Cannot map the source format of '{0}': {1}", inputPath, exception->get_Message()));
+    }
+    catch (Exception& exception)
+    {
+        Console::get_Error()->WriteLine(String::Format(u"Cannot process '{0}': {1}", inputPath, exception->get_Message()));
+    }
+}
+```
+
+[SlideUtil::ToSaveFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides.util/slideutil/tosaveformat/) mapuje PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP a PowerPoint XML na jejich odpovídající formáty ukládání prezentací. Mapuje pouze zdrojové formáty prezentací; není určeno k výběru exportních formátů jako PDF, HTML, TIFF nebo obrázky. Předání nepodporované nebo neplatné hodnoty [SourceFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/sourceformat/) vyvolá [ArgumentException](https://reference.aspose.com/slides/cs/cpp/system/argumentexception/).
+
+Legacy soubory PPT, PPS a POT používají stejný binární kontejner. Když je taková prezentace načtena z proudu bez přípony souboru, může být PPS nebo POT identifikován jako PPT. Pokud je vyžadováno zachování těchto legacy podtypů, uchovejte původní název souboru nebo metadata formátu odděleně a použijte je při výběru výstupního názvu souboru a formátu.
+
+## **Uložit prezentace do proudů**
+
+Chcete‑li zapsat prezentaci bez použití konečné cesty k souboru, předávejte zapisovatelný [Stream](https://reference.aspose.com/slides/cs/cpp/system.io/stream/) a hodnotu [SaveFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/saveformat/) metodě [Presentation::Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/save/). Tento přístup je užitečný, když má výstup být vrácen z webové služby, uložen v databázi nebo zpracován v paměti.
+
+Následující příklad uloží novou prezentaci do souborového proudu:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -60,26 +124,26 @@ Můžete uložit prezentaci do streamu předáním výstupního streamu metodě 
 #include <system/io/file_mode.h>
 #include <system/io/file_stream.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::IO;
 
-// Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 auto presentation = MakeObject<Presentation>();
+auto outputStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
 
-auto fileStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
+presentation->Save(outputStream, SaveFormat::Pptx);
 
-// Uložte prezentaci do streamu.
-presentation->Save(fileStream, SaveFormat::Pptx);
-
+outputStream->Close();
 presentation->Dispose();
-fileStream->Close();
 ```
 
 ## **Uložit prezentace s předdefinovaným typem zobrazení**
 
-Aspose.Slides vám umožňuje nastavit počáteční zobrazení, které PowerPoint použije při otevření vygenerované prezentace, prostřednictvím třídy [ViewProperties](https://reference.aspose.com/slides/cs/cpp/aspose.slides/viewproperties/). Použijte metodu [set_LastView](https://reference.aspose.com/slides/cs/cpp/aspose.slides/viewproperties/set_lastview/) s hodnotou z výčtu [ViewType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/viewtype/).
+Můžete určit pohled, ve kterém PowerPoint při otevření uložené prezentace nejprve zobrazí. Zavolejte [ViewProperties::set_LastView](https://reference.aspose.com/slides/cs/cpp/aspose.slides/viewproperties/set_lastview/) s hodnotou [ViewType](https://reference.aspose.com/slides/cs/cpp/aspose.slides/viewtype/) před uložením.
+
+Následující příklad nastaví zobrazení Slide Master jako výchozí:
 
 ```cpp
 #include <DOM/IViewProperties.h>
@@ -87,6 +151,7 @@ Aspose.Slides vám umožňuje nastavit počáteční zobrazení, které PowerPoi
 #include <Export/SaveFormat.h>
 #include <ViewType.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
@@ -94,16 +159,14 @@ using namespace System;
 auto presentation = MakeObject<Presentation>();
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
-
 presentation->Save(u"SlideMasterView.pptx", SaveFormat::Pptx);
+
 presentation->Dispose();
 ```
 
-## **Uložit prezentace ve formátu Strict Office Open XML**
+## **Uložit prezentace ve Strict Office Open XML formátu**
 
-Aspose.Slides vám umožňuje uložit prezentaci ve formátu Strict Office Open XML. Použijte třídu [PptxOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/pptxoptions/) a nastavte její vlastnost conformance při ukládání. Pokud nastavíte `Conformance.Iso29500_2008_Strict`, výstupní soubor se uloží ve formátu Strict Office Open XML.
-
-Příklad níže vytvoří prezentaci a uloží ji ve formátu Strict Office Open XML.
+Chcete‑li vytvořit soubor PPTX, který odpovídá přísnému profilu Office Open XML, vytvořte instanci [PptxOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/pptxoptions/) a zavolejte [PptxOptions::set_Conformance](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/pptxoptions/set_conformance/) s `Conformance::Iso29500_2008_Strict`. Poté předávejte možnosti metodě [Presentation::Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/save/).
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -111,6 +174,7 @@ Příklad níže vytvoří prezentaci a uloží ji ve formátu Strict Office Ope
 #include <Export/PptxOptions.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
@@ -118,27 +182,23 @@ using namespace System;
 auto options = MakeObject<PptxOptions>();
 options->set_Conformance(Conformance::Iso29500_2008_Strict);
 
-// Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 auto presentation = MakeObject<Presentation>();
 
-// Uložte prezentaci ve formátu Strict Office Open XML.
 presentation->Save(u"StrictOfficeOpenXml.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-## **Uložit prezentace ve formátu Office Open XML v režimu Zip64**
+## **Uložit prezentace v Office Open XML formátu v režimu Zip64**
 
-Soubor Office Open XML je ZIP archiv, který omezuje 4 GB (2^32 bajtů) limity na nekomprimovanou velikost libovolného souboru, komprimovanou velikost libovolného souboru a celkovou velikost archivu, a také omezuje archiv na 65 535 (2^16‑1) souborů. ZIP64 formátová rozšíření tyto limity zvyšují na 2^64.
+Standardní ZIP archiv omezuje komprimovanou i nekomprimovanou velikost každé položky, celkovou velikost archivu a počet položek. Protože je soubor PPTX ZIP archivem, velmi velká prezentace může tato omezení překročit. Rozšíření ZIP64 zvyšují platné limity velikosti a počtu položek.
 
-Metoda [IPptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/ipptxoptions/set_zip64mode/) vám umožňuje vybrat, kdy použít rozšíření formátu ZIP64 při ukládání souboru Office Open XML.
+Použijte [PptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/pptxoptions/set_zip64mode/) k nastavení, zda Aspose.Slides zapíše rozšíření ZIP64:
 
-Tato metoda může být použita s následujícími režimy:
+- `IfNecessary` používá ZIP64 jen když prezentace překročí standardní limity ZIP. Toto je výchozí režim.
+- `Never` zakáže rozšíření ZIP64.
+- `Always` vždy zapíše rozšíření ZIP64.
 
-- `IfNecessary` používá rozšíření ZIP64 pouze pokud prezentace překročí výše uvedená omezení. Toto je výchozí režim.
-- `Never` nikdy nepoužívá rozšíření ZIP64.
-- `Always` vždy používá rozšíření ZIP64.
-
-Následující kód ukazuje, jak uložit prezentaci jako soubor PPTX s povolenými rozšířeními ZIP64:
+Následující příklad vždy povolí rozšíření ZIP64 pro výstupní prezentaci:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -146,43 +206,38 @@ Následující kód ukazuje, jak uložit prezentaci jako soubor PPTX s povolený
 #include <Export/SaveFormat.h>
 #include <Export/Zip64Mode.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_Zip64Mode(Zip64Mode::Always);
-
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, pptxOptions);
+auto options = MakeObject<PptxOptions>();
+options->set_Zip64Mode(Zip64Mode::Always);
+
+presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-{{% alert title="POZNÁMKA" color="warning" %}}
-Když uložíte s `Zip64Mode.Never`, vyvolá se [PptxException](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pptxexception/) pokud prezentaci nelze uložit ve formátu ZIP32.
+{{% alert color="warning" title="Warning" %}}
+
+Pokud je `Zip64Mode` nastaven na `Never` a prezentace se nevejde do standardních limitů ZIP, operace ukládání vyvolá [PptxException](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pptxexception/).
+
 {{% /alert %}}
 
-## **Uložit prezentace ve formátu Office Open XML s úrovněmi komprese**
+## **Uložit prezentace v Office Open XML formátu s úrovněmi komprese**
 
-Při práci s velkými prezentacemi můžete upravit úroveň komprese, aby byl vyvážen velikost souboru a doba zpracování. V závislosti na požadavcích můžete preferovat rychlejší zpracování nebo menší výstupní soubory.
+Pro výstup PPTX můžete vyvážit rychlost ukládání a velikost souboru voláním [PptxOptions::set_CompressionLevel](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/pptxoptions/set_compressionlevel/). Výčtová hodnota [CompressionLevel](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/compressionlevel/) poskytuje tyto možnosti:
 
-Aspose.Slides poskytuje metodu [PptxOptions::set_CompressionLevel](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/pptxoptions/set_compressionlevel/), která vám umožňuje určit úroveň komprese při ukládání prezentace ve formátu Office Open XML.
+- `None` ukládá data bez komprese.
+- `Level1` poskytuje nejrychlejší kompresi a největší komprimovaný výstup.
+- `Level2` až `Level5` postupně upřednostňují menší výstup před rychlostí ukládání.
+- `Level6` vyvažuje rychlost ukládání a velikost souboru. Toto je výchozí úroveň.
+- `Level7` a `Level8` dále upřednostňují menší výstup před rychlostí.
+- `Level9` poskytuje nejsilnější kompresi a vyžaduje nejvíce času na zpracování.
 
-K dispozici jsou následující úrovně komprese:
-
-- **None**: Žádná komprese. Soubory jsou uloženy tak, jak jsou.
-- **Level1:** Nejrychlejší komprese s nejnižším poměrem komprese.
-- **Level2:** Rychlejší komprese s mírně lepším poměrem než **Level1**.
-- **Level3:** Poskytuje lepší kompresi než **Level2** s mírným dopadem na dobu zpracování.
-- **Level4:** Poskytuje lepší kompresi než **Level3**.
-- **Level5:** Poskytuje vylepšenou kompresi oproti **Level4** s dodatečnou dobou zpracování.
-- **Level6:** Standardní komprese, která nabízí dobrý poměr mezi rychlostí zpracování a velikostí souboru. Toto je *výchozí úroveň komprese*.
-- **Level7:** Poskytuje lepší kompresi než **Level6** s pomalejším zpracováním.
-- **Level8:** Poskytuje lepší kompresi než **Level7**.
-- **Level9:** Maximální komprese. Produkuje nejmenší velikost souboru za cenu nejdelší doby zpracování.
-
-Následující příklad ukazuje, jak uložit prezentaci jako soubor PPTX *bez komprese*:
+Následující příklad uloží prezentaci bez komprese:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -191,21 +246,20 @@ Následující příklad ukazuje, jak uložit prezentaci jako soubor PPTX *bez k
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
 
-using Aspose::Slides::Export::CompressionLevel;
-using Aspose::Slides::Export::PptxOptions;
-using Aspose::Slides::Export::SaveFormat;
-using Aspose::Slides::Presentation;
-using System::MakeObject;
-
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_CompressionLevel(CompressionLevel::None);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
-presentation->Save(u"Sample-out.pptx", SaveFormat::Pptx, pptxOptions);
+
+auto options = MakeObject<PptxOptions>();
+options->set_CompressionLevel(CompressionLevel::None);
+
+presentation->Save(u"OutputNoCompression.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-Tento příklad ukazuje, jak uložit prezentaci jako soubor PPTX s *maximální kompresí*:
+Následující příklad použije maximální úroveň komprese:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -214,75 +268,59 @@ Tento příklad ukazuje, jak uložit prezentaci jako soubor PPTX s *maximální 
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
 
-using Aspose::Slides::Export::CompressionLevel;
-using Aspose::Slides::Export::PptxOptions;
-using Aspose::Slides::Export::SaveFormat;
-using Aspose::Slides::Presentation;
-using System::MakeObject;
-
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_CompressionLevel(CompressionLevel::Level9);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
-presentation->Save(u"Sample-level9.pptx", SaveFormat::Pptx, pptxOptions);
+
+auto options = MakeObject<PptxOptions>();
+options->set_CompressionLevel(CompressionLevel::Level9);
+
+presentation->Save(u"OutputMaximumCompression.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-## **Uložit prezentace bez obnovení náhledu**
+## **Uložit prezentace bez obnovení miniatury**
 
-Metoda [PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) řídí generování náhledu při ukládání prezentace do PPTX:
+Při uložení prezentace jako PPTX řídí její miniaturu metoda [PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/):
 
-- Pokud je nastavena na `true`, náhled se během ukládání obnoví. Toto je výchozí nastavení.
-- Pokud je nastavena na `false`, aktuální náhled se zachová. Pokud prezentace nemá náhled, žádný se nevygeneruje.
+- `true` obnoví miniaturu během operace ukládání. Toto je výchozí hodnota.
+- `false` zachová existující miniaturu. Pokud prezentace nemá miniaturu, Aspose.Slides ji nevygeneruje.
 
-V následujícím kódu je prezentace uložena do PPTX bez obnovení jejího náhledu.
+Následující příklad uloží prezentaci bez obnovení miniatury:
 
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/PptxOptions.h>
 #include <Export/SaveFormat.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pptxOptions = MakeObject<PptxOptions>();
-pptxOptions->set_RefreshThumbnail(false);
-
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx, pptxOptions);
+auto options = MakeObject<PptxOptions>();
+options->set_RefreshThumbnail(false);
+
+presentation->Save(u"Output.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-{{% alert title="Informace" color="info" %}}
-Tato volba pomáhá snížit dobu potřebnou k uložení prezentace ve formátu PPTX.
+{{% alert color="info" title="Note" %}}
+
+Zakázání obnovení miniatury může zkrátit čas potřebný k uložení souboru PPTX.
+
 {{% /alert %}}
 
-## **Ukládat průběh jako procenta**
+## **Ukládat průběžné aktualizace v procentech**
 
-Rozhraní [IProgressCallback](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iprogresscallback/) se používá prostřednictvím metody `set_ProgressCallback` vystavené rozhraním [ISaveOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/isaveoptions/) a abstraktní třídou [SaveOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/saveoptions/). Přiřaďte implementaci [IProgressCallback] pomocí `set_ProgressCallback`, abyste získali aktualizace průběhu ukládání v procentech.
+Pro sledování operace ukládání implementujte rozhraní [IProgressCallback](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iprogresscallback/) a předávejte implementaci metodě [ISaveOptions::set_ProgressCallback](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/isaveoptions/set_progresscallback/). Aspose.Slides pak během exportu volá [IProgressCallback::Reporting](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iprogresscallback/reporting/) s hodnotami průběhu.
 
-Následující úryvky kódu ukazují, jak použít `IProgressCallback`.
+Následující příklad vypisuje průběh exportu PDF do konzole:
 
-```cpp
-#include <IProgressCallback.h>
-#include <system/console.h>
-using namespace Aspose::Slides;
-using namespace System;
-
-class ExportProgressHandler : public IProgressCallback
-{
-public:
-    void Reporting(double progressValue) override
-    {
-        // Použijte zde hodnotu procenta postupu.
-        int progress = static_cast<int>(progressValue);
-
-        Console::WriteLine(u"{0}% of the file has been converted.", progress);
-    }
-};
-```
 ```cpp
 #include <DOM/Presentation.h>
 #include <Export/PdfOptions.h>
@@ -290,49 +328,50 @@ public:
 #include <IProgressCallback.h>
 #include <system/console.h>
 #include <system/smart_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Třída zpětného volání postupu definovaná výše.
 class ExportProgressHandler : public IProgressCallback
 {
 public:
     void Reporting(double progressValue) override
     {
         int progress = static_cast<int>(progressValue);
-
         Console::WriteLine(u"{0}% of the file has been converted.", progress);
     }
 };
 
-auto saveOptions = MakeObject<PdfOptions>();
-saveOptions->set_ProgressCallback(MakeObject<ExportProgressHandler>());
+auto options = MakeObject<PdfOptions>();
+options->set_ProgressCallback(MakeObject<ExportProgressHandler>());
 
 auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-presentation->Save(u"Output.pdf", SaveFormat::Pdf, saveOptions);
+presentation->Save(u"Output.pdf", SaveFormat::Pdf, options);
 presentation->Dispose();
 ```
 
-{{% alert title="Informace" color="info" %}}
-Aspose vyvinulo [bezplatnou aplikaci PowerPoint Splitter](https://products.aspose.app/slides/cs/splitter) používající své vlastní API. Aplikace umožňuje rozdělit prezentaci do více souborů uložením vybraných snímků jako nové soubory PPTX nebo PPT.
+{{% alert color="info" title="Note" %}}
+
+Aspose poskytuje zdarma [PowerPoint Splitter](https://products.aspose.app/slides/cs/splitter) postavený na API Aspose.Slides. Umožňuje uložit vybrané snímky z prezentace jako samostatné soubory PPT nebo PPTX.
+
 {{% /alert %}}
 
 ## **Často kladené otázky**
 
-**Je podporováno „rychlé ukládání“ (inkrementální ukládání), aby se zapisovaly jen změny?**
+**Podporuje Aspose.Slides inkrementální nebo „rychlé“ ukládání?**
 
-Ne. Ukládání vždy vytvoří celý cílový soubor; inkrementální „rychlé ukládání“ není podporováno.
+Ne. Každá operace ukládání zapíše kompletní výstupní soubor místo aktualizace pouze změněných částí.
 
-**Je bezpečné (thread‑safe) ukládat stejnou instanci Presentation z více vláken?**
+**Může více vláken ukládat stejnou instanci Presentation?**
 
-Ne. Instance [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) není [thread‑safe](/slides/cs/cpp/multithreading/); ukládejte ji z jediného vlákna.
+Ne. Instance [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) **není thread‑safe** (/slides/cs/cpp/multithreading/). Přístup a ukládání každé instance provádějte pouze z jednoho vlákna najednou.
 
-**Co se stane s hypertextovými odkazy a externě propojenými soubory při ukládání?**
+**Co se stane s hypertextovými odkazy a externě propojenými soubory při uložení prezentace?**
 
-[Hyperlinks](/slides/cs/cpp/manage-hyperlinks/) jsou zachovány. Externě propojené soubory (např. videa pomocí relativních cest) se automaticky nekopírují — ujistěte se, že odkazované cesty zůstávají přístupné.
+[Hypertextové odkazy](/slides/cs/cpp/manage-hyperlinks/) zůstávají v prezentaci. Aspose.Slides nekopíruje externě propojené soubory, takže uložená prezentace musí i nadále mít přístup k jejich umístěním.
 
-**Mohu nastavit/uložit metadata dokumentu (Autor, Název, Společnost, Datum)?**
+**Mohu uložit metadata dokumentu, jako jsou autor, název, společnost a datum vytvoření?**
 
-Ano. Standardní [document properties](/slides/cs/cpp/presentation-properties/) jsou podporovány a budou při ukládání zapsány do souboru.
+Ano. Nastavte příslušné [vlastnosti dokumentu](/slides/cs/cpp/presentation-properties/) před uložením a Aspose.Slides je zapíše do výstupního souboru.

@@ -7,56 +7,115 @@ url: /zh/php-java/save-presentation/
 keywords:
 - 保存 PowerPoint
 - 保存 OpenDocument
-- 保存演示文稿
-- 保存幻灯片
+- 保存 演示文稿
+- 保存 幻灯片
 - 保存 PPT
 - 保存 PPTX
 - 保存 ODP
-- 将演示文稿保存为文件
-- 将演示文稿保存为流
-- 预定义视图类型
+- 演示文稿 到 文件
+- 演示文稿 到 流
+- 预定义 视图 类型
 - 严格的 Office Open XML 格式
 - Zip64 模式
-- 刷新缩略图
-- 保存进度
+- 刷新 缩略图
+- 保存 进度
 - PHP
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for PHP via Java 将演示文稿保存——导出为 PowerPoint 或 OpenDocument，同时保留布局、字体和效果。"
+description: "使用 Aspose.Slides 在 PHP 中将 PowerPoint 和 OpenDocument 演示文稿保存为文件或流，并配置 PPTX 输出和进度报告。"
 ---
 ## **概述**
 
-[Open Presentations in PHP](/slides/zh/php-java/open-presentation/) 介绍了如何使用 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 类打开演示文稿。本文说明了如何创建和保存演示文稿。[Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 类包含演示文稿的内容。无论是从头创建演示文稿还是修改已有的，都需要在完成后保存。使用 Aspose.Slides for PHP，您可以保存为 **文件** 或 **流**。本文解释了保存演示文稿的不同方式。
+创建演示文稿或[打开现有演示文稿](/slides/zh/php-java/open-presentation/)后，使用[Presentation::save](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#save)方法写入结果。Aspose.Slides for PHP via Java 可以将演示文稿保存为文件或流，支持 PowerPoint、OpenDocument、PDF 等格式。以下各节介绍标准保存操作以及 PPTX 输出的可用选项。
 
-## **将演示文稿保存为文件**
+## **将演示文稿保存到文件**
 
-通过调用 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 类的 `save` 方法将演示文稿保存到文件。将文件名和保存格式作为参数传递给该方法。以下示例演示了如何使用 Aspose.Slides 保存演示文稿。
+要将演示文稿保存为文件，请将输出路径和一个[SaveFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/saveformat/)值传递给[Presentation::save](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#save)方法。该格式值决定 Aspose.Slides 创建的文件类型。
+
+以下示例创建一个演示文稿并将其保存为 PPTX 文件：
 
 ```php
-// 实例化表示演示文稿文件的 Presentation 类。
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-    // 在此进行一些工作...
-    // 将演示文稿保存为文件。
+    // 在此添加或修改演示文稿内容。
+
     $presentation->save("Output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **将演示文稿保存到流**
+## **以原始格式保存演示文稿**
 
-您可以通过将输出流传递给 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 类的 `save` 方法，将演示文稿保存到流。演示文稿可以写入多种流类型。下面的示例中，我们创建一个新演示文稿并将其保存到文件流。
+有关文件和流检测示例、新创建的演示文稿行为以及源格式和输出格式之间的区别，请参阅[确定原始演示文稿格式](/slides/zh/php-java/detect-presentation-source-format/)。
+
+在批处理应用程序中，输入格式可能事先未知。加载文件后，可通过[Presentation::getSourceFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#getSourceFormat)方法读取其原始格式。将得到的[SourceFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/sourceformat/)值传递给[SlideUtil::toSaveFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/slideutil/#toSaveFormat)以获取相应的[SaveFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/saveformat/)值，然后使用[Presentation::save](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#save)写入修改后的演示文稿。
+
+以下完整示例处理输入目录中的每个文件，更新其标题，并以加载时的格式保存到输出目录：
 
 ```php
-// 实例化表示演示文稿文件的 Presentation 类。
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$inputDirectory = __DIR__ . DIRECTORY_SEPARATOR . "Input";
+$outputDirectory = __DIR__ . DIRECTORY_SEPARATOR . "Output";
+
+if (!is_dir($outputDirectory) && !mkdir($outputDirectory, 0777, true)) {
+    echo("Cannot create the output directory." . PHP_EOL);
+}
+
+$inputFiles = is_dir($inputDirectory) ? scandir($inputDirectory) : false;
+if ($inputFiles !== false && is_dir($outputDirectory)) {
+    foreach ($inputFiles as $fileName) {
+        $inputPath = $inputDirectory . DIRECTORY_SEPARATOR . $fileName;
+        if (!is_file($inputPath)) {
+            continue;
+        }
+
+        $presentation = null;
+        $presentationLoaded = false;
+        try {
+            $presentation = new Presentation($inputPath);
+            $presentationLoaded = true;
+            $saveFormat = SlideUtil::toSaveFormat($presentation->getSourceFormat());
+            $presentation->getDocumentProperties()->setTitle("Processed by the batch application");
+
+            $outputPath = $outputDirectory . DIRECTORY_SEPARATOR . $fileName;
+            $presentation->save($outputPath, $saveFormat);
+        } catch (\Throwable $exception) {
+            echo("Cannot process '" . $inputPath . "': " . $exception->getMessage() . PHP_EOL);
+        } finally {
+            if ($presentationLoaded) {
+                $presentation->dispose();
+            }
+        }
+    }
+}
+```
+
+[SlideUtil::toSaveFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/slideutil/#toSaveFormat) 将 PPT、PPTX、ODP、PPTM、PPSX、PPSM、POTX、POTM、PPS、POT、OTP、FODP 和 PowerPoint XML 映射到相应的演示文稿保存格式。它仅映射演示文稿源格式；并非用于选择如 PDF、HTML、TIFF 或图像等导出格式。传入不受支持或无效的[SourceFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/sourceformat/)值会导致[IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html)。
+
+传统的 PPT、PPS 和 POT 文件使用相同的二进制容器。从流中加载此类演示文稿且没有文件扩展名时，PPS 或 POT 文件可能会被识别为 PPT。如果需要保留这些传统子类型，请单独保留原始文件名或格式元数据，并在选择输出文件名和格式时使用它们。
+
+## **将演示文稿保存到流**
+
+要在不依赖最终文件路径的情况下写入演示文稿，请将可写流和一个[SaveFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/saveformat/)值传递给[Presentation::save](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#save)方法。当输出需要从 Web 服务返回、存储到数据库或在内存中处理时，此方法非常有用。
+
+以下示例将新演示文稿保存到文件流：
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation();
 try {
-    $fileStream = new Java("java.io.FileOutputStream", "Output.pptx");
+    $outputStream = new Java("java.io.FileOutputStream", "Output.pptx");
     try {
-        // 将演示文稿保存到流中。
-        $presentation->save($fileStream, SaveFormat::Pptx);
+        $presentation->save($outputStream, SaveFormat::Pptx);
     } finally {
-        $fileStream->close();
+        $outputStream->close();
     }
 } finally {
     $presentation->dispose();
@@ -65,9 +124,15 @@ try {
 
 ## **使用预定义视图类型保存演示文稿**
 
-Aspose.Slides 允许您通过 [ViewProperties](https://reference.aspose.com/slides/zh/php-java/aspose.slides/viewproperties/) 类设置生成的演示文稿打开时 PowerPoint 使用的初始视图。使用 [setLastView](https://reference.aspose.com/slides/zh/php-java/aspose.slides/viewproperties/#setLastView) 方法，并传入来自 [ViewType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/viewtype/) 枚举的值。
+您可以指定 PowerPoint 打开已保存演示文稿时的初始视图。在保存之前，使用带有[ViewType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/viewtype/)值的[ViewProperties::setLastView](https://reference.aspose.com/slides/zh/php-java/aspose.slides/viewproperties/#setLastView)方法。
+
+以下示例将幻灯片母版视图配置为初始视图：
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ViewType;
+
 $presentation = new Presentation();
 try {
     $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
@@ -79,18 +144,19 @@ try {
 
 ## **以严格的 Office Open XML 格式保存演示文稿**
 
-Aspose.Slides 允许您以严格的 Office Open XML 格式保存演示文稿。保存时使用 [PptxOptions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/pptxoptions/) 类并设置其 conformance 属性。如果将其设为 [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/zh/php-java/aspose.slides/conformance/#Iso29500_2008_Strict)，输出文件将以严格的 Office Open XML 格式保存。
-
-下面的示例创建一个演示文稿并以严格的 Office Open XML 格式保存。
+要创建符合 Office Open XML 严格配置文件的 PPTX 文件，请实例化一个[PptxOptions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/pptxoptions/)对象，并使用其[PptxOptions::setConformance](https://reference.aspose.com/slides/zh/php-java/aspose.slides/pptxoptions/#setConformance)方法，传入[Conformance::Iso29500_2008_Strict](https://reference.aspose.com/slides/zh/php-java/aspose.slides/conformance/#Iso29500-2008-Strict)。随后将该选项传递给[Presentation::save](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#save)方法。
 
 ```php
+use aspose\slides\Conformance;
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $options = new PptxOptions();
 $options->setConformance(Conformance::Iso29500_2008_Strict);
 
-// 实例化表示演示文稿文件的 Presentation 类。
 $presentation = new Presentation();
 try {
-    // 以严格的 Office Open XML 格式保存演示文稿。
     $presentation->save("StrictOfficeOpenXml.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
@@ -99,76 +165,81 @@ try {
 
 ## **在 Zip64 模式下以 Office Open XML 格式保存演示文稿**
 
-Office Open XML 文件是 ZIP 存档，对任何文件的未压缩大小、压缩后大小以及整个存档的总大小均限制为 4 GB（2^32 字节），并且存档中文件数量限制为 65 535（2^16‑1）个。ZIP64 格式扩展将这些限制提升至 2^64。
+标准 ZIP 存档限制每个条目的压缩和未压缩大小、整个存档的总大小以及条目数量。由于 PPTX 文件是 ZIP 存档，极大的演示文稿可能会超出这些限制。ZIP64 扩展提升了相应的大小和条目计数限制。
 
-[PptxOptions.setZip64Mode](https://reference.aspose.com/slides/zh/php-java/aspose.slides/pptxoptions/#setZip64Mode) 方法让您在保存 Office Open XML 文件时选择是否使用 ZIP64 格式扩展。
+使用[PptxOptions::setZip64Mode](https://reference.aspose.com/slides/zh/php-java/aspose.slides/pptxoptions/#setZip64Mode)方法来控制 Aspose.Slides 是否写入 ZIP64 扩展：
 
-此方法可与以下模式一起使用：
+- [IfNecessary](https://reference.aspose.com/slides/zh/php-java/aspose.slides/zip64mode/#IfNecessary) 仅在演示文稿超出标准 ZIP 限制时使用 ZIP64。这是默认模式。
+- [Never](https://reference.aspose.com/slides/zh/php-java/aspose.slides/zip64mode/#Never) 禁用 ZIP64 扩展。
+- [Always](https://reference.aspose.com/slides/zh/php-java/aspose.slides/zip64mode/#Always) 始终写入 ZIP64 扩展。
 
-- [IfNecessary](https://reference.aspose.com/slides/zh/php-java/aspose.slides/zip64mode/#IfNecessary) 仅在演示文稿超出上述限制时使用 ZIP64 格式扩展。这是默认模式。
-- [Never](https://reference.aspose.com/slides/zh/php-java/aspose.slides/zip64mode/#Never) 永不使用 ZIP64 格式扩展。
-- [Always](https://reference.aspose.com/slides/zh/php-java/aspose.slides/zip64mode/#Always) 始终使用 ZIP64 格式扩展。
-
-以下代码演示如何在启用 ZIP64 格式扩展的情况下将演示文稿保存为 PPTX 文件：
+以下示例始终为输出演示文稿启用 ZIP64 扩展：
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setZip64Mode(Zip64Mode::Always);
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\Zip64Mode;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("OutputZip64.pptx", SaveFormat::Pptx, $pptxOptions);
+    $options = new PptxOptions();
+    $options->setZip64Mode(Zip64Mode::Always);
+
+    $presentation->save("OutputZip64.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-当您使用 [Zip64Mode.Never](https://reference.aspose.com/slides/zh/php-java/aspose.slides/zip64mode/#Never) 保存时，如果演示文稿无法以 ZIP32 格式保存，会抛出 [PptxException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/pptxexception/)。
+{{% alert color="warning" title="Warning" %}}
+如果使用[Zip64Mode::Never](https://reference.aspose.com/slides/zh/php-java/aspose.slides/zip64mode/#Never)且演示文稿无法在标准 ZIP 限制内容纳，则保存操作会抛出 [PptxException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/pptxexception/)。
 {{% /alert %}}
 
-## **使用压缩级别在 Office Open XML 格式下保存演示文稿**
+## **在 Office Open XML 格式中使用压缩级别保存演示文稿**
 
-处理大型演示文稿时，您可以调整压缩级别，以在文件大小和处理时间之间取得平衡。根据需求，您可能更倾向于更快的处理速度或更小的输出文件。
+对于 PPTX 输出，您可以通过使用[PptxOptions::setCompressionLevel](https://reference.aspose.com/slides/zh/php-java/aspose.slides/pptxoptions/#setCompressionLevel)方法在保存速度与文件大小之间取得平衡。[CompressionLevel](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/)类提供了以下取值：
 
-Aspose.Slides 提供了 [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/zh/php-java/aspose.slides/pptxoptions/#setCompressionLevel) 方法，允许您指定在 Office Open XML 格式下保存演示文稿时使用的压缩级别。
+- [None](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#None) 不进行压缩地存储数据。
+- [Level1](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#Level1) 提供最快的压缩速度，但压缩后文件最大。
+- [Level2](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#Level2) 到 [Level5](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#Level5) 逐步倾向于更小的输出而牺牲保存速度。
+- [Level6](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#Level6) 在保存速度和文件大小之间取得平衡。这是默认级别。
+- [Level7](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#Level7) 和 [Level8](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#Level8) 更进一步倾向于更小的输出而牺牲保存速度。
+- [Level9](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#Level9) 提供最强的压缩率，但需要最长的处理时间。
 
-可用的压缩级别如下：
-
-- [**None**](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#None)：不进行压缩。文件保持原样存储。
-- [**Level1**](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#Level1)：最快的压缩速度，压缩率最低。
-- [**Level2**](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#Level2)：比 **Level1** 稍好一些的压缩率，压缩速度较快。
-- [**Level3**](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#Level3)：提供比 **Level2** 更好的压缩，处理时间适中。
-- [**Level4**](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#Level4)：提供比 **Level3** 更好的压缩。
-- [**Level5**](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#Level5)：在 **Level4** 基础上改进压缩，但需要额外的处理时间。
-- [**Level6**](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#Level6)：标准压缩，兼顾处理速度和文件大小。这是 *默认压缩级别*。
-- [**Level7**](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#Level7)：提供比 **Level6** 更好的压缩，但处理更慢。
-- [**Level8**](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#Level8)：提供比 **Level7** 更好的压缩。
-- [**Level9**](https://reference.aspose.com/slides/zh/php-java/aspose.slides/compressionlevel/#Level9)：最高压缩。以最长的处理时间生成最小的文件大小。
-
-以下示例演示如何在 *不进行压缩* 的情况下将演示文稿保存为 PPTX 文件：
+以下示例在不进行压缩的情况下保存演示文稿：
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setCompressionLevel(CompressionLevel::None);
+use aspose\slides\CompressionLevel;
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("Sample-out.pptx", SaveFormat::Pptx, $pptxOptions);
+    $options = new PptxOptions();
+    $options->setCompressionLevel(CompressionLevel::None);
+
+    $presentation->save("OutputNoCompression.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-此示例展示如何在 *最大压缩* 的情况下将演示文稿保存为 PPTX 文件：
+以下示例使用最高压缩级别：
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setCompressionLevel(CompressionLevel::Level9);
+use aspose\slides\CompressionLevel;
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("Sample-level9.pptx", SaveFormat::Pptx, $pptxOptions);
+    $options = new PptxOptions();
+    $options->setCompressionLevel(CompressionLevel::Level9);
+
+    $presentation->save("OutputMaximumCompression.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
@@ -176,76 +247,82 @@ try {
 
 ## **保存演示文稿时不刷新缩略图**
 
-[PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/zh/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) 方法控制保存演示文稿为 PPTX 时的缩略图生成行为：
+在将演示文稿保存为 PPTX 时，[PptxOptions::setRefreshThumbnail](https://reference.aspose.com/slides/zh/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) 方法控制文档缩略图：
 
-- 如果设置为 `true`，保存时会刷新缩略图。这是默认值。
-- 如果设置为 `false`，保留当前缩略图。如果演示文稿没有缩略图，则不生成。
+- `true` 在保存过程中重新生成缩略图。这是默认值。
+- `false` 保留现有缩略图。如果演示文稿没有缩略图，Aspose.Slides 不会生成。
 
-下面的代码将演示文稿保存为 PPTX，但不刷新其缩略图。
+以下示例在保存时不刷新其缩略图：
 
 ```php
-$pptxOptions = new PptxOptions();
-$pptxOptions->setRefreshThumbnail(false);
+use aspose\slides\PptxOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
 $presentation = new Presentation("Sample.pptx");
 try {
-    $presentation->save("Output.pptx", SaveFormat::Pptx, $pptxOptions);
-}
-finally {
-    $presentation->dispose();
-}
-```
+    $options = new PptxOptions();
+    $options->setRefreshThumbnail(false);
 
-{{% alert title="Info" color="info" %}}
-此选项有助于减少以 PPTX 格式保存演示文稿所需的时间。
-{{% /alert %}}
-
-## **以百分比形式保存进度更新**
-
-通过在 [SaveOptions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/saveoptions/) 及其子类上使用 [setProgressCallback](https://reference.aspose.com/slides/zh/php-java/aspose.slides/saveoptions/#setProgressCallback) 方法来配置保存进度报告。提供实现了 [IProgressCallback](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iprogresscallback/) 接口的 Java 代理；在导出期间，回调会定期接收百分比更新。
-
-以下代码片段展示了如何使用 `IProgressCallback`。
-
-```php
-class ExportProgressHandler {
-    function reporting($progressValue) {
-        // 在此使用进度百分比值。
-        $progress = java("java.lang.Double")->valueOf($progressValue)->intValue();
-        echo($progress . "% of the file has been converted.");
-    }
-}
-
-$progressHandler = java_closure(new ExportProgressHandler(), null, java("com.aspose.slides.IProgressCallback"));
-
-$saveOptions = new PdfOptions();
-$saveOptions->setProgressCallback($progressHandler);
-
-$presentation = new Presentation("Sample.pptx");
-try {
-    $presentation->save("Output.pdf", SaveFormat::Pdf, $saveOptions);
+    $presentation->save("Output.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose 使用其 API 开发了一个 [免费 PowerPoint Splitter 应用](https://products.aspose.app/slides/zh/splitter)。该应用可通过将选定的幻灯片保存为新的 PPTX 或 PPT 文件，将演示文稿拆分为多个文件。
+{{% alert color="info" title="Note" %}}
+禁用缩略图刷新可以减少保存 PPTX 文件所需的时间。
+{{% /alert %}}
+
+## **以百分比方式保存进度更新**
+
+要监视保存操作，请提供一个实现了[IProgressCallback](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iprogresscallback/)接口的 Java 代理，并将该代理传递给[SaveOptions::setProgressCallback](https://reference.aspose.com/slides/zh/php-java/aspose.slides/saveoptions/#setProgressCallback)方法。Aspose.Slides 随后在导出期间调用[IProgressCallback::reporting](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iprogresscallback/#reporting-double-)方法并传入进度值。
+
+以下示例将 PDF 导出的进度报告到控制台：
+
+```php
+use aspose\slides\PdfOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+class ExportProgressHandler {
+    function reporting($progressValue) {
+        $progress = java("java.lang.Double")->valueOf($progressValue)->intValue();
+        echo($progress . "% of the file has been converted." . PHP_EOL);
+    }
+}
+
+$progressHandler = java_closure(new ExportProgressHandler(), null, java("com.aspose.slides.IProgressCallback"));
+
+$options = new PdfOptions();
+$options->setProgressCallback($progressHandler);
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    $presentation->save("Output.pdf", SaveFormat::Pdf, $options);
+} finally {
+    $presentation->dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Aspose 提供了一个基于 Aspose.Slides API 的免费[PowerPoint Splitter](https://products.aspose.app/slides/zh/splitter)。它可将演示文稿中选定的幻灯片另存为独立的 PPT 或 PPTX 文件。
 {{% /alert %}}
 
 ## **常见问题**
 
-**是否支持“快速保存”（增量保存），仅写入更改？**
+**Aspose.Slides 是否支持增量或“快速保存”？**
 
-不支持。每次保存都会创建完整的目标文件，未提供增量“快速保存”。
+不。每次保存操作都会写入完整的输出文件，而不是仅更新已更改的部分。
 
-**从多个线程保存同一个 Presentation 实例是否线程安全？**
+**多个线程能保存同一个 Presentation 实例吗？**
 
-不安全。`[Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/)` 实例 **不是线程安全的**，请在单个线程中进行保存。
+不。[Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 实例[不是线程安全的](/slides/zh/php-java/multithreading/)。每次只能在单个线程中访问并保存该实例。
 
-**保存时超链接和外部链接文件会怎样？**
+**保存演示文稿时，超链接和外部链接文件会怎样？**
 
-[超链接](/slides/zh/php-java/manage-hyperlinks/) 会被保留。外部链接文件（例如通过相对路径引用的视频）不会自动复制——请确保引用的路径在保存后仍然可访问。
+[Hyperlinks](/slides/zh/php-java/manage-hyperlinks/) 会保留在演示文稿中。Aspose.Slides 不会复制外部链接的文件，因此保存后的演示文稿仍需能够访问这些位置。
 
-**我可以设置/保存文档元数据（作者、标题、公司、日期）吗？**
+**我可以保存文档元数据（如作者、标题、公司和创建日期）吗？**
 
-可以。标准的 [文档属性](/slides/zh/php-java/presentation-properties/) 受支持，保存时会写入文件。
+可以。在保存之前设置相应的[文档属性](/slides/zh/php-java/presentation-properties/)，Aspose.Slides 会将其写入输出文件。

@@ -21,19 +21,21 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Узнайте, как открывать презентации PowerPoint и OpenDocument в JavaScript, задавать пароли при открытии, управлять загрузкой ресурсов и уменьшать использование памяти с помощью Aspose.Slides для Node.js через Java."
+description: "Узнайте, как открывать презентации PowerPoint и OpenDocument в JavaScript, задавать пароли открытия, управлять загрузкой ресурсов и снижать использование памяти с помощью Aspose.Slides для Node.js через Java."
 ---
 ## **Введение**
 
-[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/ru/nodejs-java/) может загружать презентации PowerPoint и OpenDocument из файлов и потоков. После загрузки презентации вы можете просматривать её структуру, редактировать слайды, управлять ресурсами и сохранять её в исходном или другом поддерживаемом формате.
+[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/ru/nodejs-java/) может загружать презентации PowerPoint и OpenDocument из файлов и потоков. После загрузки презентации вы можете исследовать её структуру, редактировать слайды, управлять ресурсами и сохранять её в оригинальном или другом поддерживаемом формате.
 
-Поведение загрузки можно настроить через класс [LoadOptions](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/loadoptions/). Например, можно указать пароль для открытия, удерживать крупные бинарные объекты вне памяти Node.js, контролировать внешние ресурсы или опустить встроенные бинарные данные.
+Поведение загрузки можно настроить с помощью класса [LoadOptions](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/loadoptions/). Например, можно задать пароль открытия, держать крупные бинарные объекты вне памяти Node.js, контролировать внешние ресурсы или исключить внедрённые бинарные данные.
 
 ## **Открытие презентаций**
 
-Чтобы открыть существующую презентацию, передайте её путь к файлу конструктору [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/). После использования освобождайте презентацию, чтобы дескрипторы файлов, временные данные и другие ресурсы были быстро освобождены.
+После загрузки файла или потока вы можете [определить исходный формат презентации](/slides/ru/nodejs-java/detect-presentation-source-format/), чтобы выбрать способ её обработки в вашем приложении.
 
-Ниже приведён пример JavaScript, показывающий, как открыть презентацию и получить количество её слайдов:
+Чтобы открыть существующую презентацию, передайте её путь к конструктору [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/). Освободите презентацию после использования, чтобы дескрипторы файлов, временные данные и другие ресурсы были быстро освобождены.
+
+Следующий пример на JavaScript демонстрирует, как открыть презентацию и получить количество её слайдов:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -46,9 +48,9 @@ try {
 }
 ```
 
-## **Открытие презентаций, защищённых паролем**
+## **Открытие презентаций, защищенных паролем**
 
-Пароль при открытии шифрует содержимое презентации. Чтобы загрузить полную презентацию, передайте правильный пароль методу [LoadOptions.setPassword](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/loadoptions/#setPassword) и передайте параметры в конструктор [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/). Загрузка будет неудачной, если пароль отсутствует или неверен.
+Пароль открытия шифрует содержимое презентации. Чтобы загрузить полную презентацию, передайте правильный пароль в [LoadOptions.setPassword](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/loadoptions/#setPassword) и предоставьте параметры конструктору [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/). Загрузка завершится неудачей, если пароль отсутствует или неверен.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -64,13 +66,13 @@ try {
 }
 ```
 
-Для обнаружения пароля, проверки и процессов шифрования см. раздел [Password-Protect Presentations](/slides/ru/nodejs-java/password-protected-presentation/). Если зашифрованная презентация была намеренно сохранена с открытыми свойствами документа, эти свойства можно прочитать без пароля; см. раздел [Manage Presentation Properties](/slides/ru/nodejs-java/presentation-properties/).
+Для обнаружения пароля, его проверки и процессов шифрования см. [Password-Protect Presentations](/slides/ru/nodejs-java/password-protected-presentation/). Если зашифрованная презентация была намеренно сохранена с публичными свойствами документа, эти свойства можно прочитать без пароля; см. [Manage Presentation Properties](/slides/ru/nodejs-java/presentation-properties/).
 
 ## **Открытие больших презентаций**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) возвращает параметры, которые управляют тем, как Aspose.Slides обрабатывает крупные бинарные объекты, такие как изображения, аудио и видео. Вы можете удерживать исходный файл заблокированным, разрешать использование временных файлов и ограничивать количество BLOB‑данных, сохраняемых в памяти.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) возвращает параметры, управляющие тем, как Aspose.Slides обрабатывает крупные бинарные объекты, такие как изображения, аудио и видео. Вы можете удерживать исходный файл заблокированным, разрешать временные файлы и ограничивать объём BLOB‑данных, хранимых в памяти.
 
-Ниже показан JavaScript‑код, демонстрирующий загрузку большой презентации (например, 2 ГБ):
+Следующий код на JavaScript демонстрирует загрузку большой презентации (например, 2 ГБ):
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -91,17 +93,17 @@ try {
 }
 ```
 
-{{% alert color="info" title="Примечание" %}}
+{{% alert color="info" title="Note" %}}
 
-С помощью [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentationlockingbehavior/#KeepLocked) исходный файл остаётся заблокированным до тех пор, пока экземпляр презентации не будет освобождён. Не перемещайте, не перезаписывайте и не удаляйте исходный файл, пока такой экземпляр существует.
+С помощью [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentationlockingbehavior/#KeepLocked) исходный файл остаётся заблокированным до тех пор, пока экземпляр презентации не будет освобождён. Не перемещайте, не перезаписывайте и не удаляйте исходный файл, пока этот экземпляр жив.
 
-Aspose.Slides может копировать содержимое входного потока во время его загрузки. Для больших презентаций путь к файлу, как правило, более эффективен, чем поток. См. раздел [Manage BLOBs](/slides/ru/nodejs-java/manage-blob/) для дополнительных вариантов хранения и управления памятью.
+Aspose.Slides может копировать содержимое входного потока во время загрузки. Для больших презентаций путь к файлу, как правило, более эффективен, чем поток. См. [Manage BLOBs](/slides/ru/nodejs-java/manage-blob/) для дополнительных вариантов хранения и управления памятью.
 
 {{% /alert %}}
 
 ## **Управление внешними ресурсами**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/loadoptions/#setResourceLoadingCallback) принимает реализацию [IResourceLoadingCallback](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iresourceloadingcallback/). Обратный вызов может предоставить заменяющие данные, перенаправить ресурс, использовать загрузчик по умолчанию или пропустить ресурс. Это полезно, когда презентации содержат внешние изображения, которые необходимо разрешать в соответствии с правилами безопасности или хранения, специфическими для приложения.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/loadoptions/#setResourceLoadingCallback) принимает реализацию [IResourceLoadingCallback](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iresourceloadingcallback/). Колбэк может предоставить заменяющие данные, перенаправить ресурс, использовать загрузчик по умолчанию или пропустить ресурс. Это полезно, когда презентации содержат внешние изображения, которые необходимо обрабатывать в соответствии с правилами безопасности или хранения, специфичными для приложения.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -138,17 +140,17 @@ try {
 }
 ```
 
-## **Загрузка презентаций без встроенных бинарных объектов**
+## **Загрузка презентаций без внедрённых двоичных объектов**
 
-Презентация может содержать встроенные бинарные данные, которые приложение не нуждается или не хочет сохранять. Примеры включают:
+Презентация может содержать внедрённые двоичные данные, которые приложению не нужны или которые оно не хочет сохранять. Примеры включают:
 
-- проекты VBA, доступные через [Presentation.getVbaProject](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/#getVbaProject);
-- встроенные OLE‑данные, доступные через [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- VBA‑проекты, доступные через [Presentation.getVbaProject](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/#getVbaProject);
+- внедрённые OLE‑данные, доступные через [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
 - данные элементов управления ActiveX, доступные через [Control.getActiveXControlBinary](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/control/#getActiveXControlBinary).
 
-Установите [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) в `true`, чтобы удалить эти бинарные данные при загрузке. Сохраните загруженную презентацию, чтобы зафиксировать очищенный результат.
+Установите [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) в `true`, чтобы удалить эти двоичные данные при загрузке. Сохраните загруженную презентацию, чтобы зафиксировать очищенный результат.
 
-Эта опция уменьшает риск нежелательных встроенных полезных нагрузок, но не является полноценной системой обнаружения вредоносного кода или очистки контента.
+Эта опция снижает риск наличия нежелательных внедрённых полезных нагрузок, но не является полноценной системой обнаружения вредоносного кода или очистки содержимого.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -164,16 +166,16 @@ try {
 }
 ```
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Как определить, что файл повреждён и не может быть открыт?**
+**Как определить, что файл повреждён и его нельзя открыть?**
 
 Aspose.Slides генерирует исключение парсинга или формата во время загрузки. Обрабатывайте эту ошибку отдельно от ошибки неверного пароля, чтобы приложение могло точно сообщить о причине.
 
-**Что происходит, если отсутствуют требуемые шрифты?**
+**Что происходит, если требуемые шрифты отсутствуют?**
 
-Презентацию всё равно можно загрузить, но при рендеринге и экспорте шрифты могут быть заменены. Вы можете [настроить замену шрифтов](/slides/ru/nodejs-java/font-substitution/) или [предоставить пользовательские шрифты](/slides/ru/nodejs-java/custom-font/), чтобы сделать вывод более предсказуемым.
+Презентацию всё равно можно загрузить, но при рендеринге и экспорте могут быть использованы заменяющие шрифты. Вы можете [настроить подстановку шрифтов](/slides/ru/nodejs-java/font-substitution/) или [предоставить собственные шрифты](/slides/ru/nodejs-java/custom-font/), чтобы сделать вывод более предсказуемым.
 
-**Загружается ли вместе с презентацией её встроенное медиа?**
+**Загружает ли загрузка презентации также её внедрённые медиа‑файлы?**
 
-Встроенные аудио и видео становятся доступными через объектную модель презентации. Внешние ресурсы разрешаются согласно настроенному поведению загрузки ресурсов и могут быть недоступны, если их местоположения недоступны.
+Встроенные аудио и видео становятся доступными через объектную модель презентации. Внешние ресурсы разрешаются в соответствии с настроенным поведением загрузки ресурсов и могут быть недоступны, если их местоположения недоступны.

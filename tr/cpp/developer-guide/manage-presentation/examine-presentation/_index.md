@@ -1,5 +1,5 @@
 ---
-title: C++'ta Sunum Bilgilerini Getirme ve Güncelleme
+title: C++'ta Sunum Bilgilerini Alma ve Güncelleme
 linktitle: Sunum Bilgileri
 type: docs
 weight: 30
@@ -21,17 +21,19 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "C++ kullanarak PowerPoint ve OpenDocument sunumlarında slaytları, yapıyı ve üst verileri keşfedin; daha hızlı içgörüler ve daha akıllı içerik denetimleri sağlayın."
+description: "C++ kullanarak PowerPoint ve OpenDocument sunumlarında slaytları, yapıyı ve meta verileri keşfedin; daha hızlı içgörüler ve daha akıllı içerik denetimleri sağlayın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, bir sunumun formatını tanımlayabilir ve tam bir sunum nesne modelini oluşturmadan belge üst verilerini okuyabilir. Bu, dosyaları sınıflandırmanız, bir envanter oluşturmanız veya sunum içeriğini yükleyip işlemeye karar vermeden önce özellikleri incelemeniz gerektiğinde yararlıdır.
+Aspose.Slides, bir sunumun formatını tanımlayabilir ve tam bir sunum nesne modelini oluşturmadan belge meta verilerini okuyabilir. Bu, dosyaları sınıflandırmanız, bir envanter oluşturmanız veya içerikleri yükleyip işlemeye karar vermeden önce özellikleri incelemeniz gerektiğinde faydalıdır.
 
-Bu makale, hafif incelemeyi [PresentationFactory](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentationfactory/) ve [IPresentationInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/) aracılığıyla, ayrıca hedefli güncellemeleri [IDocumentProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/idocumentproperties/) üzerinden göstermektedir.
+Bu makale, [PresentationFactory](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentationfactory/) ve [IPresentationInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/) aracılığıyla hafif denetimi ve [IDocumentProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/idocumentproperties/) ile hedefe yönelik güncellemeleri gösterir.
 
-## **Sunum Formatını Kontrol Et**
+## **Bir Sunum Formatını Kontrol Etme**
 
-[IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) kullanarak bir dosyayı [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) örneği oluşturmadan inceleyebilirsiniz. [IPresentationInfo::get_LoadFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/get_loadformat/) yöntemi tespit edilen formatı, örneğin PPTX, PPT veya ODP, bildirir.
+Yüklenmiş bir sunumunuz zaten varsa, yüklemeden sonra tespit için [Determine the Original Presentation Format](/slides/tr/cpp/detect-presentation-source-format/) bölümüne ve eski PPT, PPS ve POT akışlarının sınırlamalarına bakın.
+
+Bir dosyayı [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) örneği oluşturmayarak incelemek için [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) kullanın. [IPresentationInfo::get_LoadFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/get_loadformat/) yöntemi, PPTX, PPT veya ODP gibi tespit edilen formatı raporlar.
 
 ```cpp
 #include <DOM/IPresentationInfo.h>
@@ -54,11 +56,11 @@ for (const auto& fileName : fileNames)
 }
 ```
 
-## **Hafif Bir Sunum Envanteri Oluştur**
+## **Hafif Bir Sunum Envanteri Oluşturma**
 
-Birçok sunum dosyasını işlerken, doğrulama, indeksleme veya bir belge yönetim sistemi için kompakt bir envantere ihtiyaç duyabilirsiniz. Bu senaryoda, bir [IPresentationInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/) nesnesi elde etmek için [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) kullanın ve ardından belge üst verilerini okumak için [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) metodunu çağırın. Bu yaklaşım bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) örneği oluşturmaz ve tam sunum nesne modelini dolaşmanızı gerektirmez.
+Birçok sunum dosyasını işlediğinizde, doğrulama, indeksleme veya belge yönetim sistemi için kompakt bir envantere ihtiyacınız olabilir. Bu senaryoda, [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) kullanarak bir [IPresentationInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/) nesnesi alın ve ardından [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) çağırarak belge meta verilerini okuyun. Bu yaklaşım bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) örneği oluşturmaz ve tam sunum nesne modelinde gezinmeyi gerektirmez.
 
-[IDocumentProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/idocumentproperties/) tarafından ortaya çıkarılan genişletilmiş özellikler aşağıdaki envanter değerlerini sağlar:
+[IDocumentProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/idocumentproperties/) tarafından sunulan genişletilmiş özellikler aşağıdaki envanter değerlerini sağlar:
 
 | Yöntem | Envanter değeri |
 | --- | --- |
@@ -69,7 +71,7 @@ Birçok sunum dosyasını işlerken, doğrulama, indeksleme veya bir belge yöne
 | [get_Words](https://reference.aspose.com/slides/tr/cpp/aspose.slides/idocumentproperties/get_words/) | Toplam kelime sayısı. |
 | [get_MultimediaClips](https://reference.aspose.com/slides/tr/cpp/aspose.slides/idocumentproperties/get_multimediaclips/) | Toplam ses ve video klip sayısı. |
 
-Aşağıdaki örnek, bu değerleri bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) nesnesi oluşturulmadan okur ve kompakt bir envanter yazdırır. Ayrıca [IDocumentProperties::get_HeadingPairs](https://reference.aspose.com/slides/tr/cpp/aspose.slides/idocumentproperties/get_headingpairs/) ve [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/tr/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) birleştirerek yazı tipleri, temalar ve slayt başlıkları gibi içerik gruplarını gösterir.
+Aşağıdaki örnek bu değerleri bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) nesnesi oluşturmadan okur ve kompakt bir envanter yazdırır. Ayrıca [IDocumentProperties::get_HeadingPairs](https://reference.aspose.com/slides/tr/cpp/aspose.slides/idocumentproperties/get_headingpairs/) ile [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/tr/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) birleştirilerek yazı tipleri, temalar ve slayt başlıkları gibi içerik grupları gösterilir.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -139,27 +141,27 @@ else
 }
 ```
 
-Her bir [IHeadingPair](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iheadingpair/) grup adını [IHeadingPair::get_Name](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iheadingpair/get_name/) aracılığıyla ve o gruptaki öğe sayısını [IHeadingPair::get_Count](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iheadingpair/get_count/) aracılığıyla sağlar. [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/tr/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) düz, sıralı bir dizi döndürür; bu nedenle her başlık çifti tarafından belirtilen ardışık başlık sayısını tüketin.
+Her [IHeadingPair](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iheadingpair/) grup adını [IHeadingPair::get_Name](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iheadingpair/get_name/) aracılığıyla ve bu gruptaki öğe sayısını [IHeadingPair::get_Count](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iheadingpair/get_count/) aracılığıyla sağlar. [IDocumentProperties::get_TitlesOfParts](https://reference.aspose.com/slides/tr/cpp/aspose.slides/idocumentproperties/get_titlesofparts/) düz, sıralı bir dizi döndürdüğünden, her başlık çiftinde belirtilen ardışık başlık sayısını tüketin.
 
-### **Depolanmış Üst Veriler ve Biçim Sınırlamaları**
+### **Depolanmış Meta Veri ve Format Sınırlamaları**
 
-[IPresentationInfo::ReadDocumentProperties] tarafından döndürülen envanter özellikleri, kaynak belgede bulunan üst verileri yansıtır. Aspose.Slides bu çağrı için bu değerleri yeniden hesaplamak üzere sunum nesne modelini yükleyip dolaşmaz. Eksik özellikler varsayılan değerlerle temsil edilir ve saklanan değerler, dosyayı son kaydeden uygulama belge özelliklerini güncellememişse eski olabilir.
+[IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) tarafından döndürülen envanter özellikleri, kaynak belgede mevcut meta verileri yansıtır. Aspose.Slides bu çağrı için bu değerleri yeniden hesaplamak üzere sunum nesne modelini yüklemez ve gezmez. Eksik özellikler varsayılan değerlerle temsil edilir ve depolanmış değerler, dosyayı son kaydeden uygulama belge özelliklerini güncellemediyse eski olabilir.
 
-- **PPTX:** Biçim, slayt, not, gizli slayt, paragraf, kelime ve multimedya sayımları için genişletilmiş belge özellikleri, ayrıca başlık çiftleri ve parça başlıkları sağlar. Kullanılabilirlik, belge üreticisinin hangi özellikleri yazdığına bağlıdır.
-- **PPT:** İkili biçim, karşılık gelen belge özeti özelliklerini saklayabilir. Bir özellik eksikse veya belge üreticisi tarafından güncellenmemişse, Aspose.Slides bu özelliği slaytlardan hesaplamak yerine saklanan veya varsayılan değerini döndürür.
-- **ODP:** OpenDocument üst verileri, sayfa, paragraf ve kelime sayısı gibi genel belge istatistikleri sağlar, ancak bu değerler her PowerPoint'e özgü genişletilmiş özelliğe eşlenmez. Gizli slayt, not slaytı, multimedya, başlık çifti ve parça başlığı üst verileri mevcut olmayabilir ve envanter özellikleri varsayılan değerler döndürebilir. Sıfır değerini veya boş bir diziyi ilgili içeriğin yokluğunun kesin kanıtı olarak değerlendirmeyin.
+- **PPTX:** Format, slayt, not, gizli‑slayt, paragraf, kelime ve multimedya sayımları ile başlık çiftleri ve bölüm başlıkları için genişletilmiş belge özellikleri sağlar. Kullanılabilirlik, belge üreticisinin hangi özellikleri yazdığına bağlıdır.
+- **PPT:** İkili format, karşılık gelen belge‑özet özelliklerini saklayabilir. Bir özellik yoksa veya belge üreticisi tarafından yenilenmemişse, Aspose.Slides bu özelliği slaytlardan hesaplamak yerine depolanmış ya da varsayılan değerini döndürür.
+- **ODP:** OpenDocument meta verileri, sayfa, paragraf ve kelime sayısı gibi genel belge istatistikleri sağlar, ancak bu değerler her PowerPoint‑özel genişletilmiş özelliğe eşlenmez. Gizli‑slayt, not‑slayt, multimedya, başlık‑çifti ve bölüm‑başlığı meta verileri mevcut olmayabilir ve envanter özellikleri varsayılan değerleri döndürebilir. Sıfır değeri veya boş dizi, ilgili içeriğin yok olduğunun kesin kanıtı olarak değerlendirilmemelidir.
 
-Envanterler ve ön kontroller için hafif üst veri yaklaşımını kullanın. Sonucun bellekteki değişiklikleri yansıtması gerektiğinde veya gerçek sunum içeriğini doğrulamanız gerektiğinde sunumu yükleyip canlı nesne modelini inceleyin.
+Envanter ve ön kontrol için hafif meta veri yaklaşımını kullanın. Sonuçların bellek içi değişiklikleri yansıtması gerektiğinde veya gerçek sunum içeriğini doğrulamanız gerektiğinde sunumu yükleyin ve canlı nesne modelini inceleyin.
 
-## **Sunum Özelliklerini Güncelle**
+## **Sunum Özelliklerini Güncelleme**
 
-[IPresentationInfo::ReadDocumentProperties] tarafından döndürülen özellikler, bir [Presentation] örneği oluşturmadan da değiştirilebilir. Değişiklikleri [IPresentationInfo::UpdateDocumentProperties] ile uygulayın ve ardından bağlı sunumu [IPresentationInfo::WriteBindedPresentation] ile yazın.
+[IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) tarafından döndürülen özellikler, bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) örneği oluşturulmadan da değiştirilebilir. Değişiklikleri [IPresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/updatedocumentproperties/) ile uygulayın ve ardından bağlı sunumu [IPresentationInfo::WriteBindedPresentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/writebindedpresentation/) ile yazın.
 
-Aşağıdaki görsel, özgün belge özelliklerini göstermektedir.
+Aşağıdaki görsel, orijinal belge özelliklerini gösterir.
 
-![PowerPoint sunumunun özgün belge özellikleri](input_properties.png)
+![PowerPoint sunumunun orijinal belge özellikleri](input_properties.png)
 
-Aşağıdaki örnek, başlığı ve son kaydetme zamanını değiştirir ve sonucu yeni bir dosyaya yazar:
+Aşağıdaki örnek başlığı ve son‑kaydetme zamanını değiştirir ve sonucu yeni bir dosyaya yazar:
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
@@ -183,33 +185,35 @@ presentationInfo->UpdateDocumentProperties(documentProperties);
 presentationInfo->WriteBindedPresentation(outputFile);
 ```
 
+Aşağıdaki görsel, güncellenmiş belge özelliklerini gösterir.
+
 ![PowerPoint sunumunun değiştirilmiş belge özellikleri](output_properties.png)
 
 ## **Faydalı Bağlantılar**
 
 İlgili güvenlik kontrolleri ve koruma ayarları için aşağıdaki makalelere bakın:
 
-- [Parola Korumalı Sunumlar](/slides/tr/cpp/password-protected-presentation/)
-- [Yazma Korumalı Sunumlar](/slides/tr/cpp/write-protected-presentation/)
+- [Password-Protect Presentations](/slides/tr/cpp/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/tr/cpp/write-protected-presentation/)
 
-## **Sıkça Sorulan Sorular**
+## **SSS**
 
-**Yazı tiplerinin gömülü olup olmadığını ve hangi yazı tiplerinin gömülü olduğunu nasıl kontrol edebilirim?**
+**Yazı tiplerinin gömülü olup olmadığını ve hangileri olduğunu nasıl kontrol edebilirim?**
 
-Sunumu yükleyin ve [Presentation::get_FontsManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_fontsmanager/) kullanın. Gömülü yazı tiplerini elde etmek için [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsmanager/getembeddedfonts/), sunum tarafından kullanılan yazı tiplerini elde etmek için ise [FontsManager::GetFonts](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsmanager/getfonts/) metodunu çağırın. İki sonucu karşılaştırarak, render için gerekli ancak gömülmemiş yazı tiplerini bulun.
+Sunumu yükleyin ve [Presentation::get_FontsManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_fontsmanager/) kullanın. Gömülü yazı tiplerini elde etmek için [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsmanager/getembeddedfonts/), sunumda kullanılan yazı tiplerini elde etmek için ise [FontsManager::GetFonts](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fontsmanager/getfonts/) çağırın. İki sonucu karşılaştırarak render için gerekli ama gömülü olmayan yazı tiplerini bulun.
 
-**Dosyada gizli slaytların olup olmadığını ve sayısını nasıl hızlı bir şekilde öğrenebilirim?**
+**Dosyanın gizli slaytları olup olmadığını ve kaç tane olduğunu hızlıca nasıl öğrenebilirim?**
 
-Depolanan belge üst verileri yeterli olduğunda, [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) ve [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) aracılığıyla [IDocumentProperties::get_HiddenSlides](https://reference.aspose.com/slides/tr/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) okuyun. Bu, hafif bir envanter için uygundur. Sunum bellek içinde değiştirilmişse, depolanan üst veriler eksik veya eski olabilir; ya da canlı değerleri doğrulamanız gerekiyorsa, [Presentation::get_Slides](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_slides/) üzerinden döngü yapıp her slaydın [Slide::get_Hidden](https://reference.aspose.com/slides/tr/cpp/aspose.slides/slide/get_hidden/) metodunu inceleyin.
+Depolanmış belge meta verileri yeterli olduğunda, [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) ve [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) aracılığıyla [IDocumentProperties::get_HiddenSlides](https://reference.aspose.com/slides/tr/cpp/aspose.slides/idocumentproperties/get_hiddenslides/) okuyun. Bu, hafif bir envanter için uygundur. Sunum bellek içinde değiştirilmişse, depolanmış meta veriler eksik veya eski olabilir; ya da canlı değerleri doğrulamanız gerekiyorsa, [Presentation::get_Slides](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_slides/) üzerinden döngü kurun ve her slaydın [Slide::get_Hidden](https://reference.aspose.com/slides/tr/cpp/aspose.slides/slide/get_hidden/) metodunu inceleyin.
 
-**Özel slayt boyutu ve yöneliminin kullanılıp kullanılmadığını ve varsayılanlardan farklı olup olmadığını tespit edebilir miyim?**
+**Özel slayt boyutu ve yöneliminin kullanılıp kullanılmadığını ve varsayılanlardan farklı olup olmadığını nasıl tespit edebilirim?**
 
-Evet. Sunumu yükleyin ve [Presentation::get_SlideSize](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_slidesize/) metodunu okuyun. Mevcut ayarları beklenen ön ayar ve boyutlarla karşılaştırmak için [ISlideSize::get_Type](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islidesize/get_type/), [ISlideSize::get_Size](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islidesize/get_size/), ve [ISlideSize::get_Orientation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islidesize/get_orientation/) özelliklerini inceleyin.
+Evet. Sunumu yükleyin ve [Presentation::get_SlideSize](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_slidesize/) okuyun. Mevcut ayarları beklenen ön ayar ve boyutlarla karşılaştırmak için [ISlideSize::get_Type](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islidesize/get_type/), [ISlideSize::get_Size](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islidesize/get_size/) ve [ISlideSize::get_Orientation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islidesize/get_orientation/) özelliklerini inceleyin.
 
-**Grafiklerin harici veri kaynaklarına başvurup başvurmadığını hızlı bir şekilde görmenin bir yolu var mı?**
+**Grafiklerin harici veri kaynaklarına başvurup başvurmadığını hızlıca görmenin bir yolu var mı?**
 
-Evet. Her bir [Chart](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/chart/) öğesini bulun ve [ChartData::get_DataSourceType](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) özelliğini inceleyin. Harici bir çalışma kitabı için [ChartData::get_ExternalWorkbookPath](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) değerini okuyun. Veri kaynağı türü ve yolu dış referansı gösterir, ancak hedefin mevcut olup olmadığını doğrulamak ayrı bir kaynak kontrolü gerektirir.
+Evet. Her bir [Chart](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/chart/) bulun ve [ChartData::get_DataSourceType](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) incele. Harici bir çalışma kitabı için [ChartData::get_ExternalWorkbookPath](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) okuyun. Veri kaynağı türü ve yol, harici bir referansı tanımlar; ancak hedefin mevcut olup olmadığını doğrulamak ayrı bir kaynak kontrolü gerektirir.
 
-**Render süresini veya PDF dışa aktarmayı yavaşlatabilecek 'ağır' slaytları nasıl değerlendirebilirim?**
+**Render veya PDF dışa aktarmayı yavaşlatabilecek 'ağır' slaytları nasıl değerlendirebilirim?**
 
-Tek bir karmaşıklık özelliği yoktur. [Presentation::get_Slides](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_slides/) ve her slaydın [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibaseslide/get_shapes/) koleksiyonunu dolaşın. Şekil sayısını ve büyük görseller, efektler, animasyonlar veya multimedya varlığını tarama sinyalleri olarak kullanın ve bir slaydın performans darboğazı olduğunu kesinleştirmeden önce temsilî bir render veya dışa aktarma ölçümü yapın.
+Tek bir karmaşıklık özelliği yoktur. [Presentation::get_Slides](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_slides/) ve her slaydın [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibaseslide/get_shapes/) koleksiyonunu dolaşın. Şekil sayısı, büyük görüntüler, efektler, animasyonlar veya multimedya varlığı gibi sinyalleri tarama işareti olarak kullanın ve bir slaydın kesin bir performans darboğazı olduğunu doğrulamak için temsili bir render ya da dışa aktarım ölçümü yapın.

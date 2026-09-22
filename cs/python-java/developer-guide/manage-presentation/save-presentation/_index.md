@@ -1,5 +1,5 @@
 ---
-title: Ukládání prezentací v Pythonu přes Java
+title: Ukládání prezentací v Pythonu pomocí Java
 linktitle: Uložit prezentaci
 type: docs
 weight: 80
@@ -13,24 +13,24 @@ keywords:
 - uložit PPTX
 - uložit ODP
 - prezentace do souboru
-- prezentace do streamu
+- prezentace do proudu
 - předdefinovaný typ zobrazení
-- striktní formát Office Open XML
+- Striktní formát Office Open XML
 - režim Zip64
 - obnovení miniatury
 - průběh ukládání
 - Python
 - Java
 - Aspose.Slides
-description: "Ukládejte prezentace PowerPoint a OpenDocument do souborů nebo streamů v Pythonu přes Java pomocí Aspose.Slides a konfigurovat výstup PPTX a hlášení průběhu."
+description: "Ukládejte prezentace PowerPoint a OpenDocument do souborů nebo proudů v Pythonu pomocí Java s Aspose.Slides a nastavujte výstup PPTX a hlášení o průběhu."
 ---
 ## **Přehled**
 
-Po vytvoření prezentace nebo [otevření existující](/slides/cs/python-java/open-presentation/), použijte metodu [Presentation.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save) k zápisu výsledku. Aspose.Slides pro Python via Java může uložit prezentaci do souboru nebo proudu v formátech PowerPoint, OpenDocument, PDF a dalších. Následující sekce popisují standardní operace ukládání a možnosti dostupné pro výstup PPTX.
+Po vytvoření prezentace nebo [otevření existující](/slides/cs/python-java/open-presentation/), použijte metodu [Presentation.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save) k zápisu výsledku. Aspose.Slides pro Python prostřednictvím Java může uložit prezentaci do souboru nebo proudu ve formátech PowerPoint, OpenDocument, PDF a dalších. Následující sekce popisují standardní operace ukládání a možnosti dostupné pro výstup PPTX.
 
-## **Uložit prezentaci do souborů**
+## **Ukládání prezentací do souborů**
 
-Pro uložení prezentace do souboru předáte cestu k výstupu a hodnotu [SaveFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveformat/) metodě [Presentation.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save). Hodnota formátu určuje typ souboru, který Aspose.Slides vytvoří.
+Pro uložení prezentace do souboru předložte cestu k výstupu a hodnotu [SaveFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveformat/) metodě [Presentation.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save). Hodnota formátu určuje typ souboru, který Aspose.Slides vytvoří.
 
 Následující příklad vytvoří prezentaci a uloží ji jako soubor PPTX:
 
@@ -52,11 +52,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Uložit prezentaci v jejich původním formátu**
+## **Ukládání prezentací v jejich původním formátu**
 
-V aplikaci pro dávkové zpracování nemusí být vstupní formát znám předem. Po načtení souboru přečtěte jeho původní formát pomocí metody [Presentation.getSourceFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getSourceFormat). Výslednou hodnotu [SourceFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sourceformat/) předáte metodě [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideutil/#toSaveFormat), abyste získali odpovídající hodnotu [SaveFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveformat/), a poté použijete [Presentation.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save), aby se zapsala upravená prezentace.
+Pro příklady detekce souboru a proudu, chování nově vytvořených prezentací a rozdíl mezi zdrojovým a výstupním formátem viz [Určení původního formátu prezentace](/slides/cs/python-java/detect-presentation-source-format/).
 
-Následující kompletní příklad zpracovává každý soubor ve vstupním adresáři, aktualizuje jeho název a uloží ho do výstupního adresáře ve formátu, ve kterém byl načten:
+V aplikaci pro dávkové zpracování nemusí být vstupní formát znám předem. Po načtení souboru přečtěte jeho původní formát z metody [Presentation.getSourceFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getSourceFormat). Výslednou hodnotu [SourceFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sourceformat/) předložte metodě [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideutil/#toSaveFormat), abyste získali odpovídající hodnotu [SaveFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveformat/), a poté použijte [Presentation.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save) k zápisu upravené prezentace.
+
+Následující kompletní příklad zpracuje každý soubor ve vstupním adresáři, aktualizuje jeho název a uloží jej do výstupního adresáře ve formátu, ze kterého byl načten:
 
 ```python
 import jpype
@@ -96,15 +98,15 @@ if input_directory.is_dir() and output_directory.is_dir():
                 print(f"Cannot process '{input_file}': {exception}")
 ```
 
-[SlideUtil.toSaveFormat] mapuje PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP a PowerPoint XML na jejich odpovídající formáty pro uložení prezentace. Mapuje pouze zdrojové formáty prezentace; není určen k výběru exportních formátů, jako jsou PDF, HTML, TIFF nebo obrázky. Předání nepodporované nebo neplatné hodnoty [SourceFormat] vede k vyvolání [IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html).
+[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideutil/#toSaveFormat) mapuje PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP a PowerPoint XML na jejich odpovídající formáty ukládání prezentací. Mapuje pouze zdrojové formáty prezentací; není určeno k výběru exportních formátů, jako jsou PDF, HTML, TIFF nebo obrázky. Předání nepodporované nebo neplatné hodnoty [SourceFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sourceformat/) vede k výjimce [IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html).
 
-Staré soubory PPT, PPS a POT používají stejný binární kontejner. Když je taková prezentace načtena ze streamu bez přípony souboru, může být soubor PPS nebo POT identifikován jako PPT. Pokud je vyžadováno zachování těchto starých podtypů, uchovejte původní název souboru nebo metadata formátu samostatně a použijte je při výběru výstupního názvu souboru a formátu.
+Starší soubory PPT, PPS a POT používají stejný binární kontejner. Když je taková prezentace načtena z proudu bez přípony souboru, může být soubor PPS nebo POT identifikován jako PPT. Pokud je vyžadováno zachování těchto starších podtypů, uchovejte původní název souboru nebo metadata formátu zvlášť a použijte je při výběru výstupního názvu souboru a formátu.
 
-## **Uložit prezentaci do streamu**
+## **Ukládání prezentací do proudů**
 
-Napsáním prezentace bez závislosti na konečné cestě k souboru předáte zapisovatelný stream a hodnotu [SaveFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveformat/) metodě [Presentation.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save). Tento přístup je užitečný, když výstup musí být vrácen z webové služby, uložen v databázi nebo zpracován v paměti.
+Pro zápis prezentace bez spoléhaní se na konečnou cestu k souboru předložte zapisovatelný proud a hodnotu [SaveFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveformat/) metodě [Presentation.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save). Tento přístup je užitečný, když musí být výstup vrácen z webové služby, uložen v databázi nebo zpracován v paměti.
 
-Následující příklad uloží novou prezentaci do souborového streamu:
+Následující příklad uloží novou prezentaci do souborového proudu:
 
 ```python
 import jpype
@@ -128,17 +130,17 @@ finally:
     presentation.dispose()
 ```
 
-## **Uložit prezentaci s předdefinovaným typem zobrazení**
+## **Ukládání prezentací s předdefinovaným typem zobrazení**
 
-Můžete určit zobrazení, ve kterém PowerPoint při otevření uložené prezentace nejprve zobrazí. Před uložením použijte metodu [ViewProperties.setLastView](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewproperties/#setLastView) s hodnotou [ViewType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewtype/).
+Můžete určit zobrazení, ve kterém PowerPoint při otevření načte uloženou prezentaci. Použijte metodu [ViewProperties.setLastView](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewproperties/#setLastView) s hodnotou [ViewType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/viewtype/) před uložením.
 
-Následující příklad nastaví zobrazení Slide Master jako počáteční zobrazení:
+Následující příklad nastaví zobrazení Slide Master jako výchozí zobrazení:
 
 ```python
 import jpype
 import asposeslides
 
-if not jpime.isJVMStarted():
+if not jpype.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, ViewType
@@ -151,9 +153,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Uložit prezentaci ve striktním formátu Office Open XML**
+## **Ukládání prezentací ve striktním formátu Office Open XML**
 
-Abychom vytvořili soubor PPTX, který odpovídá striktnímu profilu Office Open XML, vytvořte instanci [PptxOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pptxoptions/) a použijte její metodu [setConformance](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pptxoptions/#setConformance) s hodnotou [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/cs/python-java/aspose.slides/conformance/#Iso29500_2008_Strict). Poté předáte možnosti metodě [Presentation.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save).
+Pro vytvoření souboru PPTX, který odpovídá striktnímu profilu Office Open XML, vytvořte instanci [PptxOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pptxoptions/) a použijte její metodu [setConformance](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pptxoptions/#setConformance) s hodnotou [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/cs/python-java/aspose.slides/conformance/#Iso29500_2008_Strict). Poté předejte možnosti metodě [Presentation.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save).
 
 ```python
 import jpype
@@ -174,13 +176,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Uložit prezentaci v formátu Office Open XML v režimu Zip64**
+## **Ukládání prezentací v Office Open XML formátu v režimu Zip64**
 
-Standardní archiv ZIP omezuje komprimovanou i nekomprimovanou velikost každé položky, celkovou velikost archivu a počet položek. Protože je soubor PPTX archiv ZIP, může velmi velká prezentace překročit tato omezení. Rozšíření ZIP64 zvyšují příslušná omezení velikosti a počtu položek.
+Standardní ZIP archiv omezuje komprimovanou i nekomprimovanou velikost každé položky, celkovou velikost archivu a počet položek. Protože je soubor PPTX ZIP archivem, velmi velká prezentace může tato omezení překročit. Rozšíření ZIP64 zvyšují příslušná omezení velikosti a počtu položek.
 
 Použijte metodu [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pptxoptions/#setZip64Mode) k řízení, zda Aspose.Slides zapisuje rozšíření ZIP64:
 
-- [IfNecessary](https://reference.aspose.com/slides/cs/python-java/aspose.slides/zip64mode/#IfNecessary) používá ZIP64 pouze když prezentace překročí standardní omezení ZIP. Toto je výchozí režim.
+- [IfNecessary](https://reference.aspose.com/slides/cs/python-java/aspose.slides/zip64mode/#IfNecessary) používá ZIP64 pouze tehdy, když prezentace překročí standardní limity ZIP. Toto je výchozí režim.
 - [Never](https://reference.aspose.com/slides/cs/python-java/aspose.slides/zip64mode/#Never) zakazuje rozšíření ZIP64.
 - [Always](https://reference.aspose.com/slides/cs/python-java/aspose.slides/zip64mode/#Always) vždy zapisuje rozšíření ZIP64.
 
@@ -206,19 +208,19 @@ finally:
 ```
 
 {{% alert color="warning" title="Upozornění" %}}
-Pokud je použito [Zip64Mode.Never] a prezentace se nevejde do standardních limitů ZIP, operace uložení vyvolá [PptxException](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pptxexception/).
+Pokud je použito [Zip64Mode.Never](https://reference.aspose.com/slides/cs/python-java/aspose.slides/zip64mode/#Never) a prezentace se nevejde do standardních limitů ZIP, operace uložení vyhodí výjimku [PptxException](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pptxexception/).
 {{% /alert %}}
 
-## **Uložit prezentaci v formátu Office Open XML s úrovněmi komprese**
+## **Ukládání prezentací v Office Open XML formátu s úrovněmi komprese**
 
-Pro výstup PPTX můžete vyvážit rychlost ukládání a velikost souboru pomocí metody [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pptxoptions/#setCompressionLevel). Třída [CompressionLevel](https://reference.aspose.com/slides/cs/python-java/aspose.slides/compressionlevel/) poskytuje následující hodnoty:
+Pro výstup PPTX můžete vyvážit rychlost ukládání oproti velikosti souboru pomocí metody [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pptxoptions/#setCompressionLevel). Třída [CompressionLevel](https://reference.aspose.com/slides/cs/python-java/aspose.slides/compressionlevel/) poskytuje následující hodnoty:
 
 - [None](https://reference.aspose.com/slides/cs/python-java/aspose.slides/compressionlevel/#None) ukládá data bez komprese.
 - [Level1](https://reference.aspose.com/slides/cs/python-java/aspose.slides/compressionlevel/#Level1) poskytuje nejrychlejší kompresi a největší komprimovaný výstup.
 - [Level2](https://reference.aspose.com/slides/cs/python-java/aspose.slides/compressionlevel/#Level2) až [Level5](https://reference.aspose.com/slides/cs/python-java/aspose.slides/compressionlevel/#Level5) postupně upřednostňují menší výstup před rychlostí ukládání.
 - [Level6](https://reference.aspose.com/slides/cs/python-java/aspose.slides/compressionlevel/#Level6) vyvažuje rychlost ukládání a velikost souboru. Toto je výchozí úroveň.
 - [Level7](https://reference.aspose.com/slides/cs/python-java/aspose.slides/compressionlevel/#Level7) a [Level8](https://reference.aspose.com/slides/cs/python-java/aspose.slides/compressionlevel/#Level8) dále upřednostňují menší výstup před rychlostí ukládání.
-- [Level9](https://reference.aspose.com/slides/cs/python-java/aspose.slides/compressionlevel/#Level9) poskytuje nejsilnější kompresi a vyžaduje nejvíce času na zpracování.
+- [Level9](https://reference.aspose.com/slides/cs/python-java/aspose.slides/compressionlevel/#Level9) poskytuje nejsilnější kompresi a vyžaduje nejvíce zpracování.
 
 Následující příklad uloží prezentaci bez komprese:
 
@@ -241,7 +243,7 @@ finally:
     presentation.dispose()
 ```
 
-Následující příklad používá maximální úroveň komprese:
+Následující příklad použije maximální úroveň komprese:
 
 ```python
 import jpype
@@ -262,14 +264,14 @@ finally:
     presentation.dispose()
 ```
 
-## **Uložit prezentaci bez aktualizace miniatury**
+## **Ukládání prezentací bez obnovení miniatury**
 
 Když je prezentace uložena jako PPTX, metoda [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pptxoptions/#setRefreshThumbnail) řídí její miniaturu dokumentu:
 
-- `True` regeneruje miniaturu během operace uložení. Toto je výchozí hodnota.
+- `True` znovu vytvoří miniaturu během operace uložení. Toto je výchozí hodnota.
 - `False` zachová existující miniaturu. Pokud prezentace nemá miniaturu, Aspose.Slides ji nevytvoří.
 
-Následující příklad uloží prezentaci bez aktualizace její miniatury:
+Následující příklad uloží prezentaci bez obnovení miniatury:
 
 ```python
 import jpype
@@ -291,14 +293,14 @@ finally:
 ```
 
 {{% alert color="info" title="Poznámka" %}}
-Vypnutí aktualizace miniatury může zkrátit čas potřebný k uložení souboru PPTX.
+Zakázání obnovení miniatury může zkrátit čas potřebný k uložení souboru PPTX.
 {{% /alert %}}
 
-## **Zpráva o průběhu ukládání v procentech**
+## **Zpráva o postupu ukládání v procentech**
 
-Aby bylo možné sledovat operaci ukládání, zaregistrujte Python handler pro průběh pomocí `jpype.JProxy` a předávejte jej metodě [SaveOptions.setProgressCallback](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveoptions/#setProgressCallback). Aspose.Slides pak během exportu volá metodu `reporting` handleru s hodnotami průběhu.
+Pro sledování operace ukládání zaregistrujte v Pythonu obslužnou rutinu pomocí `jpype.JProxy` a předložte ji metodě [SaveOptions.setProgressCallback](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveoptions/#setProgressCallback). Aspose.Slides pak během exportu volá metodu `reporting` obslužné rutiny s hodnotami postupu.
 
-Následující příklad hlásí průběh exportu do PDF na konzoli:
+Následující příklad vypisuje postup exportu PDF do konzole:
 
 ```python
 import jpype
@@ -336,16 +338,16 @@ Aspose poskytuje zdarma [PowerPoint Splitter](https://products.aspose.app/slides
 
 **Podporuje Aspose.Slides inkrementální nebo „rychlé uložení“?**
 
-Ne. Každá operace uložení zapíše kompletní výstupní soubor, místo aktualizace jen změněných částí.
+Ne. Každá operace uložení zapíše kompletní výstupní soubor namísto aktualizace pouze změněných částí.
 
 **Mohou více vláken ukládat stejnou instanci Presentation?**
 
-Ne. Instance [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) [není thread-safe](/slides/cs/python-java/multithreading/). Přístup a ukládání každé instance provádějte pouze z jednoho vlákna najednou.
+Ne. Instance [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) [není vlákny‑bezpečná](/slides/cs/python-java/multithreading/). Přistupujte a ukládejte každou instanci pouze z jednoho vlákna najednou.
 
-**Co se stane s hypertextovými odkazy a externě odkazovanými soubory při uložení prezentace?**
+**Co se stane s hypertextovými odkazy a externě propojenými soubory při uložení prezentace?**
 
-[Hyperlinks](/slides/cs/python-java/manage-hyperlinks/) zůstávají v prezentaci. Aspose.Slides nekopíruje externě odkazované soubory, takže uložená prezentace musí nadále mít přístup k jejich umístěním.
+[Hypertextové odkazy](/slides/cs/python-java/manage-hyperlinks/) zůstávají v prezentaci. Aspose.Slides nekopíruje externě propojené soubory, takže uložená prezentace musí stále mít přístup k jejich umístěním.
 
-**Mohu uložit metadata dokumentu, jako autor, název, společnost a datum vytvoření?**
+**Mohu uložit metadata dokumentu, jako je autor, název, společnost a datum vytvoření?**
 
-Ano. Před uložením nastavte příslušné [vlastnosti dokumentu](/slides/cs/python-java/presentation-properties/) a Aspose.Slides je zapíše do výstupního souboru.
+Ano. Nastavte příslušné [vlastnosti dokumentu](/slides/cs/python-java/presentation-properties/) před uložením a Aspose.Slides je zapíše do výstupního souboru.

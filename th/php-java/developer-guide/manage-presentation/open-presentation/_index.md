@@ -1,36 +1,38 @@
 ---
-title: เปิดการนำเสนอใน PHP
-linktitle: เปิดการนำเสนอ
+title: เปิดไฟล์นำเสนอใน PHP
+linktitle: เปิดไฟล์นำเสนอ
 type: docs
 weight: 20
 url: /th/php-java/open-presentation/
 keywords:
 - เปิด PowerPoint
-- เปิดการนำเสนอ
+- เปิดไฟล์นำเสนอ
 - เปิด PPTX
 - เปิด PPT
 - เปิด ODP
-- โหลดการนำเสนอ
+- โหลดไฟล์นำเสนอ
 - โหลด PPTX
 - โหลด PPT
 - โหลด ODP
-- การนำเสนอที่ได้รับการป้องกัน
-- การนำเสนอขนาดใหญ่
+- ไฟล์นำเสนอที่ป้องกัน
+- ไฟล์นำเสนอขนาดใหญ่
 - ทรัพยากรภายนอก
-- ออบเจกต์ไบนารี
+- ออบเจ็กต์ไบนารี
 - PHP
 - Aspose.Slides
-description: "เรียนรู้วิธีเปิดไฟล์นำเสนอ PowerPoint และ OpenDocument ใน PHP, ระบุรหัสผ่านเปิดไฟล์, ควบคุมการโหลดทรัพยากร, และลดการใช้หน่วยความจำด้วย Aspose.Slides สำหรับ PHP ผ่าน Java."
+description: "เรียนรู้วิธีเปิดไฟล์นำเสนอ PowerPoint และ OpenDocument ใน PHP, ระบุรหัสผ่านการเปิด, ควบคุมการโหลดทรัพยากร, และลดการใช้หน่วยความจำด้วย Aspose.Slides for PHP via Java."
 ---
 ## **บทนำ**
 
-[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/th/php-java/) สามารถโหลดไฟล์นำเสนอ PowerPoint และ OpenDocument จากไฟล์และสตรีมได้ หลังจากที่ไฟล์นำเสนอโหลดแล้ว คุณสามารถตรวจสอบโครงสร้างของมัน แก้ไขสไลด์ จัดการทรัพยากร และบันทึกเป็นรูปแบบเดิมหรือรูปแบบที่รองรับอื่นๆ
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/th/php-java/) สามารถโหลดไฟล์นำเสนอ PowerPoint และ OpenDocument จากไฟล์และสตรีมได้ หลังจากโหลดไฟล์นำเสนอแล้ว คุณสามารถตรวจสอบโครงสร้าง แก้ไขสไลด์ จัดการทรัพยากร และบันทึกในรูปแบบเดิมหรือรูปแบบอื่นที่สนับสนุนได้
 
-พฤติกรรมการโหลดสามารถกำหนดค่าได้ผ่านคลาส [LoadOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/loadoptions/) ตัวอย่างเช่น คุณสามารถระบุรหัสผ่านเปิดไฟล์ เก็บออบเจ็กต์ไบนารีขนาดใหญ่ให้อยู่ภายนอกหน่วยความจำ heap ของ Java ควบคุมทรัพยากรภายนอก หรือละเว้นข้อมูลไบนารีที่ฝังอยู่
+พฤติกรรมการโหลดสามารถปรับแต่งได้ผ่านคลาส [LoadOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/loadoptions/) ตัวอย่างเช่น คุณสามารถระบุรหัสผ่านเปิดไฟล์ เก็บออบเจ็กต์ไบนารีขนาดใหญ่ให้อยู่ไกลจากหน่วยความจำ Heap ของ Java ควบคุมทรัพยากรภายนอก หรือละเว้นข้อมูลไบนารีที่ฝังอยู่
 
 ## **เปิดไฟล์นำเสนอ**
 
-เพื่อเปิดไฟล์นำเสนอที่มีอยู่ ให้ส่งพาธไฟล์ไปยังคอนสตรักเตอร์ของ [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) อย่าลืมทำการ Dispose ไฟล์นำเสนอหลังการใช้งานเพื่อให้การจัดการไฟล์ชั่วคราวและทรัพยากรอื่นๆ ถูกปล่อยอย่างรวดเร็ว
+หลังจากโหลดไฟล์หรือสตรีมแล้ว คุณสามารถ [กำหนดรูปแบบไฟล์นำเสนอเดิม](/slides/th/php-java/detect-presentation-source-format/) เพื่อเลือกวิธีที่แอปพลิเคชันของคุณจะประมวลผล
+
+เพื่อเปิดไฟล์นำเสนอที่มีอยู่ ให้ส่งพาธไฟล์ไปยังตัวสร้าง [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) หลังจากใช้งานเสร็จ ควรทำการกำจัด (dispose) ไฟล์นำเสนอเพื่อให้ตัวจัดการไฟล์ ข้อมูลชั่วคราว และทรัพยากรอื่น ๆ ถูกปล่อยออกอย่างรวดเร็ว
 
 ตัวอย่าง PHP ด้านล่างแสดงวิธีเปิดไฟล์นำเสนอและรับจำนวนสไลด์:
 
@@ -45,9 +47,9 @@ try {
 }
 ```
 
-## **เปิดไฟล์นำเสนอที่ป้องกันด้วยรหัสผ่าน**
+## **เปิดไฟล์นำเสนอที่มีการป้องกันด้วยรหัสผ่าน**
 
-รหัสผ่านเปิดไฟล์ทำให้เนื้อหาไฟล์นำเสนอถูกเข้ารหัส เพื่อโหลดไฟล์นำเสนออย่างเต็มรูปแบบ ให้ส่งรหัสผ่านที่ถูกต้องไปยัง [LoadOptions::setPassword](https://reference.aspose.com/slides/th/php-java/aspose.slides/loadoptions/#setPassword) และให้ตัวเลือกนี้กับคอนสตรักเตอร์ของ [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) การโหลดจะล้มเหลือหากรหัสผ่านหายไปหรือไม่ถูกต้อง
+รหัสผ่านเปิดไฟล์ทำให้เนื้อหาไฟล์นำเสนอถูกเข้ารหัส เพื่อโหลดไฟล์นำเสนอเต็มรูปแบบ ให้ส่งรหัสผ่านที่ถูกต้องไปยัง [LoadOptions::setPassword](https://reference.aspose.com/slides/th/php-java/aspose.slides/loadoptions/#setPassword) แล้วให้ตัวเลือกเหล่านั้นกับตัวสร้าง [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) การโหลดจะล้มเหลวเมื่อรหัสผ่านหายหรือไม่ถูกต้อง
 
 ```php
 use aspose\slides\LoadOptions;
@@ -64,11 +66,11 @@ try {
 }
 ```
 
-สำหรับการตรวจจับ รหัสผ่าน การตรวจสอบความถูกต้อง และกระบวนการเข้ารหัส โปรดดูที่ [Password-Protect Presentations](/slides/th/php-java/password-protected-presentation/) หากไฟล์นำเสนอที่เข้ารหัสถูกบันทึกโดยเจตนาด้วยคุณสมบัติของเอกสารสาธารณะ คุณสมบัติเหล่านั้นสามารถอ่านได้โดยไม่ต้องใช้รหัสผ่าน; ดูที่ [Manage Presentation Properties](/slides/th/php-java/presentation-properties/)
+สำหรับการตรวจจับรหัสผ่าน การตรวจสอบความถูกต้อง และกระบวนการเข้ารหัส โปรดดูที่ [Password-Protect Presentations](/slides/th/php-java/password-protected-presentation/) หากไฟล์นำเสนอที่เข้ารหัสถูกบันทึกโดยเจตนาพร้อมกับคุณสมบัติเอกสารสาธารณะ คุณสมบัติเหล่านั้นสามารถอ่านได้โดยไม่ต้องใช้รหัสผ่าน; ดูที่ [Manage Presentation Properties](/slides/th/php-java/presentation-properties/)
 
 ## **เปิดไฟล์นำเสนอขนาดใหญ่**
 
-[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) คืนค่าตัวเลือกที่ควบคุมวิธีที่ Aspose.Slides จัดการออบเจ็กต์ไบนารีขนาดใหญ่ เช่น รูปภาพ เสียง และวิดีโอ คุณสามารถทำให้ไฟล์ต้นทางถูกล็อก อนุญาตไฟล์ชั่วคราว และจำกัดจำนวนข้อมูล BLOB ที่เก็บไว้ในหน่วยความจำ
+[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) คืนค่าตัวเลือกที่ควบคุมวิธีที่ Aspose.Slides จัดการกับออบเจ็กต์ไบนารีขนาดใหญ่ เช่น ภาพ เสียง และวิดีโอ คุณสามารถล็อกไฟล์ต้นทาง ให้อนุญาตไฟล์ชั่วคราว และจำกัดปริมาณข้อมูล BLOB ที่เก็บไว้ในหน่วยความจำ
 
 โค้ด PHP ด้านล่างแสดงการโหลดไฟล์นำเสนอขนาดใหญ่ (เช่น 2 GB):
 
@@ -95,14 +97,14 @@ try {
 ```
 
 {{% alert color="info" title="Note" %}}
-ด้วย [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked) ไฟล์ต้นทางจะถูกล็อกจนกว่าจะทำการ Dispose อินสแตนซ์ของไฟล์นำเสนอ อย่าย้าย เขียนทับ หรือทำลายไฟล์ต้นทางขณะที่อินสแตนซ์นั้นยังคงอยู่
+ด้วย [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked) ไฟล์ต้นทางจะถูกล็อกจนกว่าตัวอย่างไฟล์นำเสนอจะถูกกำจัด อย่าเคลื่อนย้าย เขียนทับ หรือ ลบไฟล์ต้นทางขณะที่อินสแตนซ์นั้นยังอยู่
 
-Aspose.Slides อาจคัดลอกเนื้อหาของสตรีมอินพุตขณะโหลดสำหรับไฟล์นำเสนอขนาดใหญ่ ดังนั้นการใช้พาธไฟล์มักจะมีประสิทธิภาพกว่าสตรีม โปรดดูที่ [Manage BLOBs](/slides/th/php-java/manage-blob/) เพื่อดูตัวเลือกการจัดเก็บและการจัดการหน่วยความจำเพิ่มเติม
+Aspose.Slides อาจคัดลอกเนื้อหาของอินพุตสตรีมขณะโหลด สำหรับไฟล์นำเสนอขนาดใหญ่ ดังนั้นการใช้พาธไฟล์โดยทั่วไปจะมีประสิทธิภาพมากกว่าสตรีม ดูที่ [Manage BLOBs](/slides/th/php-java/manage-blob/) เพื่อดูตัวเลือกการจัดเก็บและการจัดการหน่วยความจำเพิ่มเติม
 {{% /alert %}}
 
 ## **ควบคุมทรัพยากรภายนอก**
 
-[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/th/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) รับการทำงานของอินเทอร์เฟซ Java [IResourceLoadingCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/iresourceloadingcallback/) ผ่าน PHP/Java Bridge คอลแบ็กสามารถให้ข้อมูลทดแทน เปลี่ยนเส้นทางทรัพยากร ใช้โหลดเดฟอลต์ หรือข้ามทรัพยากรได้ ซึ่งเป็นประโยชน์เมื่อไฟล์นำเสนอมีรูปภาพภายนอกที่ต้องแก้ไขตามกฎความปลอดภัยหรือการจัดเก็บของแอปพลิเคชัน
+[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/th/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) ยอมรับการทำงานของอินเตอร์เฟส Java [IResourceLoadingCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/iresourceloadingcallback/) ผ่าน PHP/Java Bridge คอลแบ็คนี้สามารถให้ข้อมูลทดแทน เปลี่ยนเส้นทางทรัพยากร ใช้โหลดเดฟอลต์ หรือข้ามทรัพยากรได้ ประโยชน์เมื่อไฟล์นำเสนอมีภาพภายนอกที่ต้อง resolve ตามกฎความปลอดภัยหรือกฎการจัดเก็บข้อมูลของแอปพลิเคชัน
 
 ```php
 use aspose\slides\LoadOptions;
@@ -143,17 +145,17 @@ try {
 }
 ```
 
-## **โหลดไฟล์นำเสนอโดยไม่ต้องมีออบเจ็กต์ไบนารีที่ฝังอยู่**
+## **โหลดไฟล์นำเสนอโดยไม่รวมออบเจ็กต์ไบนารีฝัง**
 
-ไฟล์นำเสนออาจมีข้อมูลไบนารีที่ฝังอยู่ซึ่งแอปพลิเคชันไม่ต้องการหรือไม่ต้องการเก็บไว้ ตัวอย่างได้แก่:
+ไฟล์นำเสนออาจมีข้อมูลไบนารีฝังที่แอปพลิเคชันไม่จำเป็นต้องใช้หรือไม่ต้องการเก็บ ตัวอย่างเช่น:
 
-- โครงการ VBA ที่เข้าถึงได้ผ่าน [Presentation::getVbaProject](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getVbaProject);
-- ข้อมูล OLE ที่ฝังอยู่ที่เข้าถึงได้ผ่าน [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/th/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
-- ข้อมูลคอนโทรล ActiveX ที่เข้าถึงได้ผ่าน [Control::getActiveXControlBinary](https://reference.aspose.com/slides/th/php-java/aspose.slides/control/#getActiveXControlBinary).
+- โครงการ VBA, สามารถเข้าถึงได้ผ่าน [Presentation::getVbaProject](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getVbaProject);
+- ข้อมูล OLE ฝัง, สามารถเข้าถึงได้ผ่าน [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/th/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- ข้อมูลคอนโทรล ActiveX, สามารถเข้าถึงได้ผ่าน [Control::getActiveXControlBinary](https://reference.aspose.com/slides/th/php-java/aspose.slides/control/#getActiveXControlBinary).
 
-กำหนด [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/th/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) ให้เป็น `true` เพื่อลบข้อมูลไบนารีเหล่านี้ขณะโหลด บันทึกไฟล์นำเสนอที่โหลดแล้วเพื่อให้ผลลัพธ์ที่ผ่านการทำความสะอาดคงอยู่
+ตั้งค่า [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/th/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) เป็น `true` เพื่อเอาข้อมูลไบนารีนี้ออกระหว่างการโหลด บันทึกไฟล์นำเสนอที่โหลดแล้วเพื่อให้ผลลัพธ์ที่ทำความสะอาดคงอยู่
 
-ตัวเลือกนี้ช่วยลดความเสี่ยงจาก payload ที่ฝังอยู่โดยไม่ต้องการ แต่ไม่ได้เป็นระบบตรวจจับมัลแวร์หรือทำความสะอาดเนื้อหาอย่างสมบูรณ์
+ตัวเลือกนี้ช่วยลดความเสี่ยงจากข้อมูลฝังที่ไม่ต้องการ แต่ไม่ได้เป็นระบบตรวจจับมัลแวร์หรือการทำความสะอาดเนื้อหาอย่างสมบูรณ์
 
 ```php
 use aspose\slides\LoadOptions;
@@ -173,11 +175,14 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**How can I tell that a file is corrupted and cannot be opened?**  
-Aspose.Slides จะโยนข้อยกเว้นการพาร์สหรือรูปแบบระหว่างการโหลด ให้จัดการความล้มเหลือนี้แยกจากข้อผิดพลาดรหัสผ่านไม่ถูกต้องเพื่อให้แอปพลิเคชันสามารถรายงานสาเหตุได้อย่างแม่นยำ
+**ฉันจะรู้ได้อย่างไรว่าไฟล์เสียและไม่สามารถเปิดได้?**
 
-**What happens if required fonts are missing?**  
-ไฟล์นำเสนอยังคงโหลดได้ แต่การเรนเดอร์และการส่งออกอาจใช้ฟอนต์สำรอง คุณสามารถ [configure font substitution](/slides/th/php-java/font-substitution/) หรือ [provide custom fonts](/slides/th/php-java/custom-font/) เพื่อทำให้ผลลัพธ์คาดเดาได้มากขึ้น
+Aspose.Slides จะโยนข้อยกเว้นการพาร์สหรือรูปแบบระหว่างการโหลด จัดการข้อผิดพลาดนี้แยกจากข้อผิดพลาดรหัสผ่านไม่ถูกต้อง เพื่อให้แอปพลิเคชันสามารถรายงานสาเหตุได้อย่างแม่นยำ
 
-**Does loading a presentation also load its embedded media?**  
-สื่อเสียงและวิดีโอที่ฝังอยู่จะพร้อมใช้งานผ่านโมเดลอ็อบเจ็กต์ของไฟล์นำเสนอ ส่วนทรัพยากรภายนอกจะถูกแก้ไขตามพฤติกรรมการโหลดทรัพยากรที่กำหนด และอาจไม่สามารถเข้าถึงได้หากตำแหน่งไฟล์ไม่สามารถเข้าถึงได้
+**จะเกิดอะไรขึ้นหากฟอนต์ที่จำเป็นไม่มีอยู่?**
+
+ไฟล์นำเสนอยังสามารถโหลดได้ แต่การเรนเดอร์และการส่งออกอาจใช้ฟอนต์ทดแทน คุณสามารถ [กำหนดค่าการทดแทนฟอนต์](/slides/th/php-java/font-substitution/) หรือ [จัดหา ฟอนต์กำหนดเอง](/slides/th/php-java/custom-font/) เพื่อให้ผลลัพธ์คาดเดาได้มากขึ้น
+
+**การโหลดไฟล์นำเสนอจะโหลดสื่อที่ฝังอยู่ด้วยหรือไม่?**
+
+เสียงและวิดีโอที่ฝังอยู่จะพร้อมใช้งานผ่านโมเดลออบเจ็กต์ของไฟล์นำเสนอ ทรัพยากรภายนอกจะถูก resolve ตามพฤติกรรมการโหลดทรัพยากรที่กำหนดไว้และอาจไม่พร้อมใช้งานหากไม่สามารถเข้าถึงตำแหน่งของมันได้

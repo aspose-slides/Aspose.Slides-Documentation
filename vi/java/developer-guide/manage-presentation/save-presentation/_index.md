@@ -1,81 +1,134 @@
 ---
-title: Lưu Bài Trình Chiếu trong Java
-linktitle: Lưu Bài Trình Chiếu
+title: Lưu các bản thuyết trình trong Java
+linktitle: Lưu bản thuyết trình
 type: docs
 weight: 80
 url: /vi/java/save-presentation/
 keywords:
 - lưu PowerPoint
 - lưu OpenDocument
-- lưu bài trình chiếu
+- lưu bản thuyết trình
 - lưu slide
 - lưu PPT
 - lưu PPTX
 - lưu ODP
-- bài trình chiếu thành tệp
-- bài trình chiếu thành stream
-- kiểu xem được định nghĩa trước
-- Định dạng Strict Office Open XML
+- bản thuyết trình thành tệp
+- bản thuyết trình thành luồng
+- kiểu xem định trước
+- Định dạng Office Open XML chặt chẽ
 - chế độ Zip64
 - làm mới hình thu nhỏ
-- tiến trình lưu
+- tiến độ lưu
 - Java
 - Aspose.Slides
-description: "Khám phá cách lưu các bài trình chiếu trong Java sử dụng Aspose.Slides — xuất ra PowerPoint hoặc OpenDocument trong khi giữ nguyên bố cục, phông chữ và hiệu ứng."
+description: "Lưu các bản thuyết trình PowerPoint và OpenDocument thành tệp hoặc luồng trong Java với Aspose.Slides, và cấu hình đầu ra PPTX cũng như báo cáo tiến độ."
 ---
 ## **Tổng quan**
 
-[Open Presentations in Java](/slides/vi/java/open-presentation/) mô tả cách sử dụng lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) để mở một bài trình chiếu. Bài viết này giải thích cách tạo và lưu các bài trình chiếu. Lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) chứa nội dung của một bài trình chiếu. Cho dù bạn đang tạo một bài trình chiếu từ đầu hay chỉnh sửa một bài hiện có, bạn sẽ muốn lưu nó khi hoàn thành. Với Aspose.Slides for Java, bạn có thể lưu thành **file** hoặc **stream**. Bài viết này giải thích các cách khác nhau để lưu một bài trình chiếu.
+Sau khi bạn tạo một bản thuyết trình hoặc [mở một bản hiện có](/slides/vi/java/open-presentation/), hãy sử dụng phương thức [Presentation.save](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#save-java.lang.String-int-) để ghi kết quả. Aspose.Slides cho Java có thể lưu một bản thuyết trình vào tệp hoặc luồng ở các định dạng PowerPoint, OpenDocument, PDF và các định dạng khác. Các phần sau đây đề cập đến các thao tác lưu chuẩn và các tùy chọn có sẵn cho đầu ra PPTX.
 
-## **Lưu Bài Trình Chiếu vào Tập Tin**
+## **Lưu bản thuyết trình vào tệp**
 
-Lưu một bài trình chiếu vào tập tin bằng cách gọi phương thức `save` của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/). Cung cấp tên tập tin và định dạng lưu cho phương thức. Ví dụ sau cho thấy cách lưu một bài trình chiếu bằng Aspose.Slides.
+Để lưu bản thuyết trình vào tệp, truyền đường dẫn đầu ra và một giá trị [SaveFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/saveformat/) vào phương thức [Presentation.save](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#save-java.lang.String-int-). Giá trị định dạng xác định loại tệp mà Aspose.Slides sẽ tạo.
+
+Ví dụ sau tạo một bản thuyết trình và lưu nó dưới dạng tệp PPTX:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
-// Khởi tạo lớp Presentation đại diện cho một tệp bài trình chiếu.
 Presentation presentation = new Presentation();
 try {
-    // Thực hiện một số công việc ở đây...
+    // Thêm hoặc sửa nội dung bản thuyết trình tại đây.
 
-    // Lưu bài trình chiếu thành tệp.
     presentation.save("Output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Lưu Bài Trình Chiếu vào Stream**
+## **Lưu bản thuyết trình ở định dạng gốc**
 
-Bạn có thể lưu một bài trình chiếu vào stream bằng cách truyền một output stream vào phương thức `save` của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/). Một bài trình chiếu có thể được ghi vào nhiều loại stream. Trong ví dụ dưới đây, chúng tôi tạo một bài trình chiếu mới và lưu nó vào một file stream.
+Đối với các ví dụ phát hiện tệp và luồng, hành vi của các bản thuyết trình mới tạo, và sự khác biệt giữa định dạng nguồn và đầu ra, xem [Determine the Original Presentation Format](/slides/vi/java/detect-presentation-source-format/).
+
+Trong một ứng dụng xử lý hàng loạt, định dạng đầu vào có thể không được biết trước. Sau khi tải tệp, đọc định dạng gốc của nó từ phương thức [IPresentation.getSourceFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentation/#getSourceFormat--) . Truyền giá trị [SourceFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/sourceformat/) thu được cho [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slideutil/#toSaveFormat-int-) để lấy giá trị [SaveFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/saveformat/) tương ứng, sau đó sử dụng [Presentation.save](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#save-java.lang.String-int-) để ghi bản thuyết trình đã sửa đổi.
+
+Ví dụ hoàn chỉnh sau xử lý mọi tệp trong một thư mục đầu vào, cập nhật tiêu đề và lưu chúng vào thư mục đầu ra ở định dạng mà chúng đã được tải:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SlideUtil;
+import java.io.File;
+
+File inputDirectory = new File("Input");
+File outputDirectory = new File("Output");
+
+if (!outputDirectory.exists() && !outputDirectory.mkdirs()) {
+    System.err.println("Cannot create the output directory.");
+}
+
+File[] inputFiles = inputDirectory.listFiles(File::isFile);
+if (inputFiles != null && outputDirectory.isDirectory()) {
+    for (File inputFile : inputFiles) {
+        try {
+            Presentation presentation = new Presentation(inputFile.getPath());
+            try {
+                int saveFormat = SlideUtil.toSaveFormat(presentation.getSourceFormat());
+                presentation.getDocumentProperties().setTitle("Processed by the batch application");
+
+                File outputFile = new File(outputDirectory, inputFile.getName());
+                presentation.save(outputFile.getPath(), saveFormat);
+            } finally {
+                presentation.dispose();
+            }
+        } catch (IllegalArgumentException exception) {
+            System.err.println("Cannot map the source format of '" + inputFile.getPath() + "': " + exception.getMessage());
+        } catch (Exception exception) {
+            System.err.println("Cannot process '" + inputFile.getPath() + "': " + exception.getMessage());
+        }
+    }
+}
+```
+
+[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slideutil/#toSaveFormat-int-) ánh xạ PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP và PowerPoint XML sang các định dạng lưu bản thuyết trình tương ứng. Nó chỉ ánh xạ các định dạng nguồn của bản thuyết trình; không nhằm chọn các định dạng xuất như PDF, HTML, TIFF hoặc hình ảnh. Truyền một giá trị [SourceFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/sourceformat/) không được hỗ trợ hoặc không hợp lệ sẽ gây ra một [IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html).
+
+Các tệp PPT, PPS và POT legacy sử dụng cùng một container nhị phân. Khi một bản thuyết trình như vậy được tải từ luồng mà không có phần mở rộng tệp, một tệp PPS hoặc POT có thể do đó được nhận dạng là PPT. Nếu cần bảo toàn các kiểu phụ legacy này, hãy giữ nguyên tên tệp hoặc siêu dữ liệu định dạng gốc riêng biệt và sử dụng chúng khi chọn tên tệp và định dạng đầu ra.
+
+## **Lưu bản thuyết trình vào luồng**
+
+Để ghi một bản thuyết trình mà không phụ thuộc vào đường dẫn tệp cuối cùng, truyền một luồng có thể ghi và một giá trị [SaveFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/saveformat/) vào phương thức [Presentation.save](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#save-java.io.OutputStream-int-). Cách tiếp cận này hữu ích khi đầu ra phải được trả về từ một dịch vụ web, lưu trong cơ sở dữ liệu hoặc xử lý trong bộ nhớ.
+
+Ví dụ sau lưu một bản thuyết trình mới vào một luồng tệp:
+
+```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
-// Khởi tạo lớp Presentation đại diện cho một tệp bài trình chiếu.
 Presentation presentation = new Presentation();
 try {
-    OutputStream fileStream = new FileOutputStream("Output.pptx");
+    OutputStream outputStream = new FileOutputStream("Output.pptx");
     try {
-        // Lưu bài trình chiếu vào stream.
-        presentation.save(fileStream, SaveFormat.Pptx);
+        presentation.save(outputStream, SaveFormat.Pptx);
     } finally {
-        fileStream.close();
+        outputStream.close();
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Lưu Bài Trình Chiếu với Kiểu Xem Được Định Nghĩa Trước**
+## **Lưu bản thuyết trình với Kiểu xem được xác định trước**
 
-Aspose.Slides cho phép bạn đặt chế độ xem ban đầu mà PowerPoint sử dụng khi mở bài trình chiếu đã tạo thông qua lớp [ViewProperties](https://reference.aspose.com/slides/vi/java/com.aspose.slides/viewproperties/). Sử dụng phương thức [setLastView](https://reference.aspose.com/slides/vi/java/com.aspose.slides/viewproperties/#setLastView-int-) với một giá trị từ enumeration [ViewType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/viewtype/).
+Bạn có thể chỉ định kiểu xem mà PowerPoint sẽ mở bản thuyết trình đã lưu. Sử dụng phương thức [ViewProperties.setLastView](https://reference.aspose.com/slides/vi/java/com.aspose.slides/viewproperties/#setLastView-int-) với một giá trị [ViewType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/viewtype/) trước khi lưu.
+
+Ví dụ sau cấu hình kiểu xem Slide Master làm kiểu xem ban đầu:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ViewType;
 
 Presentation presentation = new Presentation();
 try {
@@ -86,184 +139,186 @@ try {
 }
 ```
 
-## **Lưu Bài Trình Chiếu ở Định Dạng Strict Office Open XML**
+## **Lưu bản thuyết trình ở Định dạng Office Open XML Chặt chẽ**
 
-Aspose.Slides cho phép bạn lưu một bài trình chiếu ở định dạng Strict Office Open XML. Sử dụng lớp [PptxOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxoptions/) và đặt thuộc tính conformance khi lưu. Nếu bạn đặt [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/vi/java/com.aspose.slides/conformance/#Iso29500-2008-Strict), tệp đầu ra sẽ được lưu ở định dạng Strict Office Open XML.
+Để tạo một tệp PPTX tuân theo hồ sơ Strict của Office Open XML, tạo một thể hiện [PptxOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxoptions/) và sử dụng phương thức [setConformance](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxoptions/#setConformance-int-) của nó với [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/vi/java/com.aspose.slides/conformance/#Iso29500-2008-Strict). Sau đó truyền các tùy chọn này vào phương thức [Presentation.save](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-).
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Conformance;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 PptxOptions options = new PptxOptions();
 options.setConformance(Conformance.Iso29500_2008_Strict);
 
-// Khởi tạo lớp Presentation đại diện cho một tệp bài trình chiếu.
 Presentation presentation = new Presentation();
 try {
-    // Lưu bài trình chiếu ở định dạng Strict Office Open XML.
     presentation.save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Lưu Bài Trình Chiếu ở Định Dạng Office Open XML trong Chế Độ Zip64**
+## **Lưu bản thuyết trình ở Định dạng Office Open XML ở Chế độ Zip64**
 
-File Office Open XML là một archive ZIP áp đặt giới hạn 4 GB (2^32 byte) cho kích thước không nén, kích thước nén và tổng kích thước của archive, và cũng giới hạn số file trong archive là 65 535 (2^16‑1). Các phần mở rộng định dạng ZIP64 nâng các giới hạn này lên 2^64.
+Một kho lưu trữ ZIP chuẩn giới hạn kích thước nén và không nén của mỗi mục, tổng kích thước kho và số mục. Vì một tệp PPTX là một kho ZIP, một bản thuyết trình rất lớn có thể vượt quá các giới hạn này. Các phần mở rộng ZIP64 nâng cao các giới hạn kích thước và số mục áp dụng.
 
-Phương thức [IPptxOptions.setZip64Mode](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipptxoptions/#setZip64Mode-int-) cho phép bạn chọn khi nào sử dụng các phần mở rộng định dạng ZIP64 khi lưu một tệp Office Open XML.
+Sử dụng phương thức [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxoptions/#setZip64Mode-int-) để kiểm soát việc Aspose.Slides có ghi các phần mở rộng ZIP64 hay không:
 
-Phương thức này có thể được sử dụng với các chế độ sau:
+- [IfNecessary](https://reference.aspose.com/slides/vi/java/com.aspose.slides/zip64mode/#IfNecessary) chỉ sử dụng ZIP64 khi bản thuyết trình vượt quá giới hạn ZIP tiêu chuẩn. Đây là chế độ mặc định.
+- [Never](https://reference.aspose.com/slides/vi/java/com.aspose.slides/zip64mode/#Never) vô hiệu hoá các phần mở rộng ZIP64.
+- [Always](https://reference.aspose.com/slides/vi/java/com.aspose.slides/zip64mode/#Always) luôn ghi các phần mở rộng ZIP64.
 
-- [IfNecessary](https://reference.aspose.com/slides/vi/java/com.aspose.slides/zip64mode/#IfNecessary) sử dụng các phần mở rộng ZIP64 chỉ nếu bài trình chiếu vượt quá các giới hạn trên. Đây là chế độ mặc định.
-- [Never](https://reference.aspose.com/slides/vi/java/com.aspose.slides/zip64mode/#Never) không bao giờ sử dụng các phần mở rộng ZIP64.
-- [Always](https://reference.aspose.com/slides/vi/java/com.aspose.slides/zip64mode/#Always) luôn luôn sử dụng các phần mở rộng ZIP64.
-
-Đoạn code dưới đây minh họa cách lưu một bài trình chiếu dưới dạng tệp PPTX với các phần mở rộng định dạng ZIP64 được bật:
+Ví dụ sau luôn bật các phần mở rộng ZIP64 cho bản thuyết trình đầu ra:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setZip64Mode(Zip64Mode.Always);
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.Zip64Mode;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("OutputZip64.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setZip64Mode(Zip64Mode.Always);
+
+    presentation.save("OutputZip64.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Khi bạn lưu với [Zip64Mode.Never](https://reference.aspose.com/slides/vi/java/com.aspose.slides/zip64mode/#Never), một [PptxException](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxexception/) sẽ được ném nếu không thể lưu bài trình chiếu ở định dạng ZIP32.
+{{% alert color="warning" title="Warning" %}}
+Nếu [Zip64Mode.Never](https://reference.aspose.com/slides/vi/java/com.aspose.slides/zip64mode/#Never) được sử dụng và bản thuyết trình không thể vừa trong giới hạn ZIP tiêu chuẩn, thao tác lưu sẽ ném ra một [PptxException](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxexception/).
 {{% /alert %}}
 
-## **Lưu Bài Trình Chiếu ở Định Dạng Office Open XML với Các Mức Nén**
+## **Lưu bản thuyết trình ở Định dạng Office Open XML với Các mức nén**
 
-Khi làm việc với các bài trình chiếu lớn, bạn có thể điều chỉnh mức nén để cân bằng giữa kích thước tệp và thời gian xử lý. Tùy theo nhu cầu, bạn có thể ưu tiên xử lý nhanh hơn hoặc tệp đầu ra nhỏ hơn.
+Đối với đầu ra PPTX, bạn có thể cân bằng tốc độ lưu và kích thước tệp bằng cách sử dụng phương thức [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxoptions/#setCompressionLevel-int-). Lớp [CompressionLevel](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/) cung cấp các giá trị sau:
 
-Aspose.Slides cung cấp phương thức [IPptxOptions.setCompressionLevel](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipptxoptions/#setCompressionLevel-int-) cho phép bạn chỉ định mức nén được sử dụng khi lưu một bài trình chiếu ở định dạng Office Open XML.
+- [None](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#None) lưu dữ liệu mà không nén.
+- [Level1](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#Level1) cung cấp mức nén nhanh nhất và đầu ra nén lớn nhất.
+- [Level2](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#Level2) đến [Level5](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#Level5) dần ưu tiên đầu ra nhỏ hơn hơn tốc độ lưu.
+- [Level6](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#Level6) cân bằng tốc độ lưu và kích thước tệp. Đây là mức mặc định.
+- [Level7](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#Level7) và [Level8](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#Level8) tiếp tục ưu tiên đầu ra nhỏ hơn hơn tốc độ lưu.
+- [Level9](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#Level9) cung cấp mức nén mạnh nhất và yêu cầu thời gian xử lý lâu nhất.
 
-Các mức nén sau có sẵn:
-
-- [**None**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#None): Không áp dụng nén. Các tệp được lưu nguyên như hiện tại.
-- [**Level1**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#Level1): Nén nhanh nhất với tỷ lệ nén thấp nhất.
-- [**Level2**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#Level2): Nén nhanh hơn với tỷ lệ nén hơi tốt hơn **Level1**.
-- [**Level3**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#Level3): Cung cấp nén tốt hơn **Level2** với ảnh hưởng vừa phải đến thời gian xử lý.
-- [**Level4**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#Level4): Cung cấp nén tốt hơn **Level3**.
-- [**Level5**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#Level5): Cung cấp nén cải thiện hơn **Level4** với thời gian xử lý bổ sung.
-- [**Level6**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#Level6): Nén tiêu chuẩn, cân bằng tốt giữa tốc độ xử lý và kích thước tệp. Đây là *mức nén mặc định*.
-- [**Level7**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#Level7): Cung cấp nén tốt hơn **Level6** nhưng xử lý chậm hơn.
-- [**Level8**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#Level8): Cung cấp nén tốt hơn **Level7**.
-- [**Level9**](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compressionlevel/#Level9): Nén tối đa. Tạo kích thước tệp nhỏ nhất với thời gian xử lý dài nhất.
-
-Đoạn code dưới đây minh họa cách lưu một bài trình chiếu dưới dạng tệp PPTX *không nén*:
+Ví dụ sau lưu một bản thuyết trình mà không nén:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setCompressionLevel(CompressionLevel.None);
+import com.aspose.slides.CompressionLevel;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Sample-out.pptx", SaveFormat.Pptx, pptxOptions);
+    PpptxOptions options = new PptxOptions();
+    options.setCompressionLevel(CompressionLevel.None);
+
+    presentation.save("OutputNoCompression.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-Ví dụ này cho thấy cách lưu một bài trình chiếu dưới dạng tệp PPTX với *nén tối đa*:
+Ví dụ sau sử dụng mức nén tối đa:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setCompressionLevel(CompressionLevel.Level9);
+import com.aspose.slides.CompressionLevel;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Sample-level9.pptx", SaveFormat.Pptx, pptxOptions);
+    PptxOptions options = new PptxOptions();
+    options.setCompressionLevel(CompressionLevel.Level9);
+
+    presentation.save("OutputMaximumCompression.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Lưu Bài Trình Chiếu mà Không Làm Mới Hình Thu Nhỏ**
+## **Lưu bản thuyết trình mà không làm mới hình thu nhỏ**
 
-Phương thức [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxoptions/#setRefreshThumbnail-boolean-) kiểm soát việc tạo hình thu nhỏ khi lưu một bài trình chiếu sang PPTX:
+Khi một bản thuyết trình được lưu dưới dạng PPTX, phương thức [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxoptions/#setRefreshThumbnail-boolean-) kiểm soát hình thu nhỏ tài liệu:
 
-- Nếu được đặt thành `true`, hình thu nhỏ sẽ được làm mới trong quá trình lưu. Đây là mặc định.
-- Nếu được đặt thành `false`, hình thu nhỏ hiện tại sẽ được giữ nguyên. Nếu bài trình chiếu không có hình thu nhỏ, sẽ không tạo ra hình thu nhỏ nào.
+- `true` tạo lại hình thu nhỏ trong quá trình lưu. Đây là giá trị mặc định.
+- `false` giữ nguyên hình thu nhỏ hiện có. Nếu bản thuyết trình không có hình thu nhỏ, Aspose.Slides sẽ không tạo hình mới.
 
-Trong đoạn code dưới đây, bài trình chiếu được lưu dưới dạng PPTX mà không làm mới hình thu nhỏ của nó.
+Ví dụ sau lưu một bản thuyết trình mà không làm mới hình thu nhỏ:
 
 ```java
-import com.aspose.slides.*;
-
-PptxOptions pptxOptions = new PptxOptions();
-pptxOptions.setRefreshThumbnail(false);
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Output.pptx", SaveFormat.Pptx, pptxOptions);
-}
-finally {
+    PptxOptions options = new PptxOptions();
+    options.setRefreshThumbnail(false);
+
+    presentation.save("Output.pptx", SaveFormat.Pptx, options);
+} finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Tùy chọn này giúp giảm thời gian cần thiết để lưu một bài trình chiếu ở định dạng PPTX.
+{{% alert color="info" title="Note" %}}
+Vô hiệu hoá việc làm mới hình thu nhỏ có thể giảm thời gian cần thiết để lưu một tệp PPTX.
 {{% /alert %}}
 
-## **Cập Nhật Tiến Trình Lưu Theo Phần Trăm**
+## **Cập nhật Tiến trình Lưu theo Phần Trăm**
 
-Giao diện [IProgressCallback](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iprogresscallback/) được sử dụng thông qua phương thức `setProgressCallback` được cung cấp bởi giao diện [ISaveOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isaveoptions/) và lớp trừu tượng [SaveOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/saveoptions/). Gán một triển khai [IProgressCallback](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iprogresscallback/) với `setProgressCallback` để nhận các cập nhật tiến độ lưu dưới dạng phần trăm.
+Để giám sát một thao tác lưu, triển khai giao diện [IProgressCallback](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iprogresscallback/) và truyền triển khai này vào phương thức [ISaveOptions.setProgressCallback](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isaveoptions/#setProgressCallback-com.aspose.slides.IProgressCallback-). Aspose.Slides sau đó sẽ gọi phương thức [IProgressCallback.reporting](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iprogresscallback/#reporting-double-) với các giá trị tiến độ trong quá trình xuất.
 
-Đoạn code sau đây cho thấy cách sử dụng `IProgressCallback`.
+Ví dụ sau báo cáo tiến độ xuất PDF lên console:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.IProgressCallback;
+import com.aspose.slides.PdfOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
 class ExportProgressHandler implements IProgressCallback {
     public void reporting(double progressValue) {
-        // Sử dụng giá trị phần trăm tiến độ ở đây.
         int progress = (int) progressValue;
-
         System.out.println(progress + "% of the file has been converted.");
     }
 }
 
-ISaveOptions saveOptions = new PdfOptions();
-saveOptions.setProgressCallback(new ExportProgressHandler());
+PdfOptions options = new PdfOptions();
+options.setProgressCallback(new ExportProgressHandler());
 
 Presentation presentation = new Presentation("Sample.pptx");
 try {
-    presentation.save("Output.pdf", SaveFormat.Pdf, saveOptions);
+    presentation.save("Output.pdf", SaveFormat.Pdf, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose đã phát triển một [ứng dụng tách PowerPoint miễn phí](https://products.aspose.app/slides/vi/splitter) sử dụng API của mình. Ứng dụng cho phép bạn tách một bài trình chiếu thành nhiều tệp bằng cách lưu các slide đã chọn thành các tệp PPTX hoặc PPT mới.
+{{% alert color="info" title="Note" %}}
+Aspose cung cấp một công cụ [PowerPoint Splitter](https://products.aspose.app/slides/vi/splitter) miễn phí được xây dựng bằng API Aspose.Slides. Nó lưu các slide đã chọn từ một bản thuyết trình dưới dạng các tệp PPT hoặc PPTX riêng biệt.
 {{% /alert %}}
 
-## **Câu Hỏi Thường Gặp**
+## **Câu hỏi thường gặp**
 
-**Có hỗ trợ “lưu nhanh” (lưu tăng dần) để chỉ ghi những thay đổi không?**
+**Aspose.Slides có hỗ trợ lưu tăng dần hoặc “fast save” không?**
 
-Không. Khi lưu, luôn tạo ra toàn bộ tệp đích mỗi lần; “lưu nhanh” tăng dần không được hỗ trợ.
+Không. Mỗi thao tác lưu đều ghi một tệp đầu ra hoàn chỉnh thay vì chỉ cập nhật các phần đã thay đổi.
 
-**Có thể lưu cùng một đối tượng Presentation từ nhiều luồng một cách an toàn không?**
+**Nhiều luồng có thể lưu cùng một đối tượng Presentation không?**
 
-Không. Một đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) [không an toàn với đa luồng](/slides/vi/java/multithreading/); hãy lưu nó từ một luồng duy nhất.
+Không. Một đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) **không an toàn với đa luồng** (/slides/vi/java/multithreading/). Hãy truy cập và lưu mỗi đối tượng chỉ từ một luồng tại một thời điểm.
 
-**Điều gì xảy ra với các siêu liên kết và tệp liên kết bên ngoài khi lưu?**
+**Liên kết siêu văn bản và các tệp được liên kết bên ngoài sẽ như thế nào khi tôi lưu bản thuyết trình?**
 
-[Hyperlinks](/slides/vi/java/manage-hyperlinks/) được giữ nguyên. Các tệp liên kết bên ngoài (ví dụ: video qua đường dẫn tương đối) không được sao chép tự động — hãy đảm bảo các đường dẫn tham chiếu vẫn có thể truy cập.
+[Hyperlinks](/slides/vi/java/manage-hyperlinks/) vẫn còn trong bản thuyết trình. Aspose.Slides không sao chép các tệp liên kết bên ngoài, vì vậy bản thuyết trình đã lưu vẫn phải có khả năng truy cập tới vị trí của chúng.
 
-**Tôi có thể đặt/lưu siêu dữ liệu tài liệu (Tác giả, Tiêu đề, Công ty, Ngày) không?**
+**Tôi có thể lưu siêu dữ liệu tài liệu như tác giả, tiêu đề, công ty và ngày tạo không?**
 
-Có. Các [thuộc tính tài liệu](/slides/vi/java/presentation-properties/) tiêu chuẩn được hỗ trợ và sẽ được ghi vào tệp khi lưu.
+Có. Đặt các [document properties](/slides/vi/java/presentation-properties/) thích hợp trước khi lưu, và Aspose.Slides sẽ ghi chúng vào tệp đầu ra.
