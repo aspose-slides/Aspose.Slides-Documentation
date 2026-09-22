@@ -48,6 +48,8 @@ presentation.Save("Output.pptx", SaveFormat.Pptx);
 
 ## **Save Presentations in Their Original Format**
 
+For file and stream detection examples, the behavior of newly created presentations, and the distinction between source and output formats, see [Determine the Original Presentation Format](/slides/net/detect-presentation-source-format/).
+
 In a batch-processing application, the input format may not be known in advance. After loading a file, read its original format from the [IPresentation.SourceFormat](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/sourceformat/) property. Pass the resulting [SourceFormat](https://reference.aspose.com/slides/net/aspose.slides/sourceformat/) value to [SlideUtil.ToSaveFormat](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/tosaveformat/) to obtain the corresponding [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/) value, and then use [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/) to write the modified presentation.
 
 The following complete example processes every file in an input directory, updates its title, and saves it to an output directory in the format from which it was loaded:

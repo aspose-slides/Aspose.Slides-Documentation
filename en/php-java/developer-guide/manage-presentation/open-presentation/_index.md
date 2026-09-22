@@ -31,6 +31,8 @@ Loading behavior can be customized through the [LoadOptions](https://reference.a
 
 ## **Open Presentations**
 
+After loading a file or stream, you can [determine its original presentation format](/slides/php-java/detect-presentation-source-format/) to choose how your application processes it.
+
 To open an existing presentation, pass its file path to the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) constructor. Dispose the presentation after use so that file handles, temporary data, and other resources are released promptly.
 
 The following PHP example shows how to open a presentation and get its slide count:

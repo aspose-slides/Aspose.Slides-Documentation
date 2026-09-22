@@ -33,6 +33,8 @@ This article demonstrates lightweight inspection through [PresentationFactory](h
 
 ## **Check a Presentation Format**
 
+If you already have a loaded presentation, see [Determine the Original Presentation Format](/slides/nodejs-java/detect-presentation-source-format/) for detection after loading and the limitations of legacy PPT, PPS, and POT streams.
+
 Use [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) to inspect a file without creating a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) instance. The [PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationinfo/getloadformat/) method reports the detected format, such as PPTX, PPT, or ODP.
 
 ```javascript

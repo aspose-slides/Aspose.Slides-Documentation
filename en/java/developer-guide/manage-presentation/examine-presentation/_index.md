@@ -32,6 +32,8 @@ This article demonstrates lightweight inspection through [PresentationFactory](h
 
 ## **Check a Presentation Format**
 
+If you already have a loaded presentation, see [Determine the Original Presentation Format](/slides/java/detect-presentation-source-format/) for detection after loading and the limitations of legacy PPT, PPS, and POT streams.
+
 Use [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) to inspect a file without creating a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) instance. The [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#getLoadFormat--) method reports the detected format, such as PPTX, PPT, or ODP.
 
 ```java

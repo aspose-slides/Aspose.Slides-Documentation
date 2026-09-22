@@ -45,6 +45,8 @@ with slides.Presentation() as presentation:
 
 ## **Save Presentations in Their Original Format**
 
+For file and stream detection examples, the behavior of newly created presentations, and the distinction between source and output formats, see [Determine the Original Presentation Format](/slides/python-net/detect-presentation-source-format/).
+
 In a batch-processing application, the input format may not be known in advance. After loading a file, read its original format from the [Presentation.source_format](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/source_format/) property. Pass the resulting [SourceFormat](https://reference.aspose.com/slides/python-net/aspose.slides/sourceformat/) value to [SlideUtil.to_save_format](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/to_save_format/) to obtain the corresponding [SaveFormat](https://reference.aspose.com/slides/python-net/aspose.slides.export/saveformat/) value, and then use [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentation/save/) to write the modified presentation.
 
 The following complete example processes every file in an input directory, updates its title, and saves it to an output directory in the format from which it was loaded:

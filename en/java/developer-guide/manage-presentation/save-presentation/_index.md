@@ -50,6 +50,8 @@ try {
 
 ## **Save Presentations in Their Original Format**
 
+For file and stream detection examples, the behavior of newly created presentations, and the distinction between source and output formats, see [Determine the Original Presentation Format](/slides/java/detect-presentation-source-format/).
+
 In a batch-processing application, the input format may not be known in advance. After loading a file, read its original format from the [IPresentation.getSourceFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getSourceFormat--) method. Pass the resulting [SourceFormat](https://reference.aspose.com/slides/java/com.aspose.slides/sourceformat/) value to [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/java/com.aspose.slides/slideutil/#toSaveFormat-int-) to obtain the corresponding [SaveFormat](https://reference.aspose.com/slides/java/com.aspose.slides/saveformat/) value, and then use [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) to write the modified presentation.
 
 The following complete example processes every file in an input directory, updates its title, and saves it to an output directory in the format from which it was loaded:
