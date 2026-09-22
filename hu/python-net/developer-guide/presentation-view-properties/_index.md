@@ -1,5 +1,5 @@
 ---
-title: Prezentációs nézet tulajdonságok lekérése és frissítése Pythonban
+title: Prezentáció nézet tulajdonságainak lekérése és frissítése Pythonban
 linktitle: Nézet tulajdonságok
 type: docs
 weight: 80
@@ -10,57 +10,57 @@ keywords:
 - vázlat tartalom
 - vázlat ikonok
 - függőleges elválasztó rögzítése
-- egyes nézet
+- egyszemélyes nézet
 - sáv állapot
 - dimenzió méret
 - automatikus igazítás
 - alapértelmezett nagyítás
 - PowerPoint
-- bemutató
+- prezentáció
 - Python
 - Aspose.Slides
-description: "Fedezze fel az Aspose.Slides for Python via .NET nézet tulajdonságait, hogy testre szabja a PPT, PPTX és ODP diák formátumát – módosítsa az elrendezéseket, a nagyítási szinteket és a megjelenítési beállításokat."
+description: "Ismerje meg az Aspose.Slides for Python via .NET nézet tulajdonságait, hogy testreszabja a PPT, PPTX és ODP diák formátumait – állítsa be az elrendezéseket, nagyítási szinteket és megjelenítési beállításokat."
 ---
 ## **Bevezetés**
 
-A normál nézet három tartalmi területből áll: magából a diából, egy oldalsó tartalmi területből és egy alsó tartalmi területből. A különböző tartalmi területek elhelyezésével kapcsolatos tulajdonságok. Ez az információ lehetővé teszi, hogy az alkalmazás elmentse a nézet állapotát a fájlba, így amikor újra megnyílik, a nézet ugyanabban az állapotban van, mint amikor a bemutatót legutóbb elmentették.
+A normál nézet három tartalmi régióból áll: a diából, egy oldalsó tartalmi régióból és egy alsó tartalmi régióból. A különböző régiók elhelyezésével kapcsolatos tulajdonságok. Ezek az információk lehetővé teszik az alkalmazás számára, hogy a nézet állapotát a fájlba mentse, így újbóli megnyitáskor a nézet ugyanabban az állapotban lesz, mint amikor a prezentációt legutóbb mentették.
 
-A [ViewProperties.normal_view_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/viewproperties/normal_view_properties/) tulajdonság hozzá lett adva, hogy hozzáférést biztosítson a bemutató normál nézet tulajdonságaihoz.  
+A [ViewProperties.normal_view_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/viewproperties/normal_view_properties/) tulajdonság hozzáadva lett a prezentáció normál nézetének tulajdonságaihoz való hozzáféréshez.
 
-Az [NormalViewProperties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/normalviewproperties/), [NormalViewRestoredProperties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/normalviewrestoredproperties/) osztályok és azok leszármazottai, valamint a [SplitterBarStateType](https://reference.aspose.com/slides/hu/python-net/aspose.slides/splitterbarstatetype/) enum hozzá lett adva.
+A [NormalViewProperties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/normalviewproperties/), [NormalViewRestoredProperties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/normalviewrestoredproperties/) osztályok és azok leszármazottai, valamint a [SplitterBarStateType](https://reference.aspose.com/slides/hu/python-net/aspose.slides/splitterbarstatetype/) enumeráció került hozzáadásra.
 
-## **Az INormalViewProperties leírása** 
+## **Az INormalViewProperties leírása**
 
-A normál nézet tulajdonságait képviseli.
+A normál nézet tulajdonságait reprezentálja.
 
-A **ShowOutlineIcons** tulajdonság meghatározza, hogy az alkalmazás ikonokat jelenítsen-e meg, ha a vázlat tartalmat bármelyik normál nézet tartalmi területben jeleníti meg.
+A **ShowOutlineIcons** tulajdonság azt határozza meg, hogy az alkalmazás megjelenítse-e az ikonokat, ha vázlatot jelenít meg a normál nézet bármely tartalmi régiójában.
 
-A **SnapVerticalSplitter** tulajdonság meghatározza, hogy a függőleges elválasztó minimalizált állapotba lépjen-e, amikor az oldalsó terület elég kicsi.
+A **SnapVerticalSplitter** tulajdonság azt határozza meg, hogy a függőleges elválasztó mínimum méretű állapotba ugorjon-e, ha az oldalsó régió elég kicsi.
 
-A **PreferSingleView** tulajdonság azt adja meg, hogy a felhasználó előnyben részesíti-e a teljesablakos egyetlen tartalmi területet a három tartalmi területet tartalmazó szabványos normál nézettel szemben. Ha engedélyezve van, az alkalmazás egy tartalmi területet megjeleníthet az egész ablakban.
+A **PreferSingleView** tulajdonság azt határozza meg, hogy a felhasználó a három tartalmi régióval rendelkező szabványos normál nézet helyett egy teljes ablakban megjelenő egyetlen tartalmi régiót részesíti-e előnyben. Ha engedélyezve van, az alkalmazás egy tartalmi régiót jeleníthet meg az egész ablakban.
 
-A **VerticalBarState** és a **HorizontalBarState** tulajdonságok határozzák meg, hogy a vízszintes vagy függőleges elválasztó sáv milyen állapotban legyen megjelenítve. A vízszintes elválasztó sáv a diát elválasztja a diát alatti tartalmi területtől, a függőleges elválasztó sáv pedig a diát az oldalsó tartalmi területtől. Lehetséges értékek: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** és **SplitterBarStateType.Restored.**
+A **VerticalBarState** és **HorizontalBarState** tulajdonságok határozzák meg, hogy a függőleges vagy vízszintes elválasztó sáv milyen állapotban jelenjen meg. A vízszintes elválasztó sáv a diától elválasztja az alatta lévő tartalmi régiót, a függőleges elválasztó sáv pedig a diától elválasztja az oldalsó tartalmi régiót. Lehetséges értékek: **SplitterBarStateType.Minimized**, **SplitterBarStateType.Maximized** és **SplitterBarStateType.Restored**.
 
-A **RestoredLeft** és a **RestoredTop** tulajdonságok határozzák meg a normál nézet felső vagy oldalsó diaterületének méretét, amikor a **VerticalBarState** illetve a **HorizontalBarState** esetén a **SplitterBarStateType.Restored** érték van alkalmazva.
+A **RestoredLeft** és **RestoredTop** tulajdonságok határozzák meg a normál nézet felső vagy oldalsó diaterületének méretét, amikor a **VerticalBarState** illetve **HorizontalBarState** értéke **SplitterBarStateType.Restored**.
 
-## **Az INormalViewProperties visszaállításának leírása**
+## **Az INormalViewProperties helyreállításáról**
 
-Meghatározza a diaterület méretét (szélesség, ha a RestoredTop gyermekével van, magasság, ha a RestoredLeft gyermekével van) a normál nézetben, amikor a terület változó visszaállított mérettel rendelkezik (sem minimalizált, sem maximalizált).
+A normál nézet diaterületének (szélesség, ha a **RestoredTop** gyermeke, magasság, ha a **RestoredLeft** gyermeke) méretét határozza meg, amikor a régió változó, helyreállított méretű (sem minimalizált, sem maximalizált) állapotban van.
 
-A **DimensionSize** tulajdonság meghatározza a diaterület méretét (szélesség, ha a restoredTop gyermekével van, magasság, ha a restoredLeft gyermekével van).
+A **DimensionSize** tulajdonság a diaterület méretét adja meg (szélesség, ha a **restoredTop** gyermeke, magasság, ha a **restoredLeft** gyermeke).
 
-A **AutoAdjust** tulajdonság azt határozza meg, hogy a oldalsó tartalmi terület mérete kompenzálja-e az új méretet, amikor az alkalmazáson belül a nézetet tartalmazó ablakot átméretezik.
+Az **AutoAdjust** tulajdonság azt határozza meg, hogy az oldalsó tartalmi régió mérete kompenzálja-e az alkalmazáson belül a nézetet tartalmazó ablak újraméretezését.
 
-Az alábbi példában megmutatjuk, hogyan férhet hozzá a **ViewProperties.NormalViewProperties** tulajdonságokhoz egy bemutatóban.
+Az alábbi példa bemutatja, hogyan érhetők el a **ViewProperties.NormalViewProperties** tulajdonságai egy prezentációban.
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as pres:
+with slides.Presentation("AccessSlides.pptx") as pres:
     pres.view_properties.normal_view_properties.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
     pres.view_properties.normal_view_properties.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
 
-    # A bemutató nézet tulajdonságainak visszaállítása
+    # Állítsa vissza a prezentáció nézet tulajdonságait
     pres.view_properties.normal_view_properties.restored_top.auto_adjust = True
     pres.view_properties.normal_view_properties.restored_top.dimension_size = 80
     pres.view_properties.normal_view_properties.show_outline_icons = True
@@ -70,37 +70,66 @@ with slides.Presentation(path + "AccessSlides.pptx") as pres:
 
 ## **Alapértelmezett nagyítási érték beállítása**
 
-Az Aspose.Slides for Python via .NET most már támogatja az alapértelmezett nagyítási érték beállítását a bemutatóhoz, így a bemutató megnyitásakor a nagyítás már be van állítva. Ezt a bemutató [view_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/view_properties/) beállításával lehet elérni. A Dianézet tulajdonságok és a [notes_view_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/viewproperties/notes_view_properties/) is programozottan állíthatók. Ebben a témában egy példán keresztül megmutatjuk, hogyan állítható be a bemutató View Properties az Aspose.Slides-ben.
+Az Aspose.Slides for Python via .NET most már támogatja az alapértelmezett nagyítási érték beállítását a prezentációhoz, így a prezentáció megnyitásakor a nagyítás már be van állítva. Ez a [view_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/view_properties/) beállításával történhet a prezentációban. A Dia nézet tulajdonságok és a [notes_view_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/viewproperties/notes_view_properties/) programozottan is beállíthatók. Ebben a témában példával mutatjuk be, hogyan állítható be a prezentáció nézet tulajdonságai az Aspose.Slides használatával.
 
-A nézet tulajdonságainak beállításához kövesse az alábbi lépéseket:
+A nézet tulajdonságok beállításához kövesse az alábbi lépéseket:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból
-1. Állítsa be a bemutató [view properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/viewproperties/) értékét
-1. Írja ki a bemutatót PPTX fájlként
+1. Állítsa be a prezentáció [view properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/viewproperties/) értékeit
+1. Mentse a prezentációt PPTX fájlként
 
-Az alábbi példában beállítottuk a nagyítási értéket a dianézethez és a jegyzetek nézethez is.
+Az alább bemutatott példában a dianézet és a jegyzetnézet nagyítási értékét állítottuk be.
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # A bemutató nézet tulajdonságainak beállítása
-    presentation.view_properties.slide_view_properties.scale = 100 # Dianézet nagyítási értéke százalékban
-    presentation.view_properties.notes_view_properties.scale = 100 # Jegyzetek nézetének nagyítási értéke százalékban
+with slides.Presentation("AccessSlides.pptx") as presentation:
+    # A prezentáció nézet tulajdonságainak beállítása
+    presentation.view_properties.slide_view_properties.scale = 100 # Nagyítási érték százalékban a dianézethez
+    presentation.view_properties.notes_view_properties.scale = 100 # Nagyítási érték százalékban a jegyzet nézethez
 
     presentation.save("Zoom_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **GYIK**
+## **Rácstávolság beállítása**
 
-**Beállíthatok különböző nézetbeállításokat a bemutató különböző szakaszaira?**  
+Használja a [Presentation.view_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/view_properties/) elemet a prezentáció szintű nézetbeállítások eléréséhez. A [ViewProperties.grid_spacing](https://reference.aspose.com/slides/hu/python-net/aspose.slides/viewproperties/grid_spacing/) tulajdonság olvassa vagy módosítja a szerkesztési rács alapvető intervallumát. Ez a beállítás az egész prezentációra vonatkozik, nem egyetlen diára. A rácstávolság pontban van megadva, ahol 72 pont egy hüvelyknek felel meg. Pozitív értéket használjon, ahogy az API dokumentációja előírja.
 
-A [Nézet beállítások](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/view_properties/) a bemutató szintjén vannak meghatározva ([Normál nézet](https://reference.aspose.com/slides/hu/python-net/aspose.slides/viewproperties/normal_view_properties/)/[Dia nézet](https://reference.aspose.com/slides/hu/python-net/aspose.slides/viewproperties/slide_view_properties/)), nem szekciónként, így egyetlen paraméterkészlet érvényes a teljes dokumentumra, amikor megnyílik.
+Az alábbi példa megnyit egy meglévő `demo.pptx` fájlt, kiírja a jelenlegi rácstávolságot, egy negyed hüvelykes intervallumra állítja, majd elmenti az eredményt.
 
-**Előre meghatározhatok különböző nézetállapotokat különböző felhasználók számára?**  
+```py
+import aspose.slides as slides
 
-Nem. A beállítások a fájlban vannak tárolva és meg vannak osztva. A megjelenítő alkalmazások figyelembe vehetik a felhasználói preferenciákat, de maga a fájl csak egy nézet tulajdonságkészletet tartalmaz.
+with slides.Presentation("demo.pptx") as presentation:
+    grid_spacing = presentation.view_properties.grid_spacing
+    print(f"Current grid spacing: {grid_spacing} points")
 
-**Készíthetek olyan sablont előre definiált nézet tulajdonságokkal, hogy az új bemutatók ugyanúgy nyíljanak meg?**  
+    presentation.view_properties.grid_spacing = 18.0
+    presentation.save("grid-spacing.pptx", slides.export.SaveFormat.PPTX)
+```
 
-Igen. Mivel a [view properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/view_properties/) a bemutató szintjén vannak tárolva, beágyazhatja őket egy sablonba, és új dokumentumokat hozhat létre belőle ugyanazzal a kezdeti nézetkonfigurációval.
+A rács különbözik a [drawing guides](/slides/hu/python-net/drawing-guides/) elemtől. A rács távolság egy szabályos intervallumot szabályoz, míg a rajzolási segédvonalak egyedileg elhelyezett vízszintes vagy függőleges igazítási vonalak. A segédvonalak hozzáadása, áthelyezése vagy törlése nem változtatja meg a rács távolságát.
+
+Mind a rács, mind a rajzolási segédvonalak szerkesztési segédeszközök. Nem jelennek meg dia tartalomként PDF‑ben, képeken, SVG‑ben vagy diavetítésben. A rács távolságának tárolása nem garantálja, hogy a szerkesztő megjeleníti a rácsot: láthatósága a megjelenítő vagy szerkesztő beállításaitól is függ.
+
+## **Gyakran feltett kérdések**
+
+**Miért nem látható a rács a prezentáció újbóli megnyitása után?**
+
+A fájl tárolja a rácstávolságot, de a szerkesztő határozza meg, hogy a rács megjelenik-e. Ellenőrizze a szerkesztő rács láthatósági beállításait.
+
+**A rajzolási segédvonalak törlése megváltoztatja a rács távolságát?**
+
+Nem. A rajzolási segédvonalak és a rács távolsága független beállítások. A segédvonalak törlése nem változtatja meg a tárolt rács intervallumot.
+
+**Beállíthatok különböző nézetbeállításokat a prezentáció különböző szekcióihoz?**
+
+A [View settings](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/view_properties/) a prezentáció szintjén vannak definiálva ([Normal View](https://reference.aspose.com/slides/hu/python-net/aspose.slides/viewproperties/normal_view_properties/)/[Slide View](https://reference.aspose.com/slides/hu/python-net/aspose.slides/viewproperties/slide_view_properties/)), nem szekciónként, így egyetlen paraméterkészlet érvényes az egész dokumentumra a megnyitáskor.
+
+**Előre definiálhatok különböző nézetállapotokat különböző felhasználók számára?**
+
+Nem. A beállítások a fájlban tárolódnak és megosztottak. A megjelenítő alkalmazások tiszteletben tarthatják a felhasználói preferenciákat, de a fájl csak egy nézettulajdonság‑készletet tartalmaz.
+
+**Létrehozhatok egy sablont előre definiált nézettulajdonságokkal, hogy az új prezentációk ugyanúgy nyíljanak meg?**
+
+Igen. Mivel a [view properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/view_properties/) a prezentáció szintjén vannak tárolva, beágyazhatja őket egy sablonba, és új dokumentumokat hozhat létre belőle ugyanazzal a kezdeti nézetkonfigurációval.

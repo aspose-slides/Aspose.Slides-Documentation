@@ -1,63 +1,63 @@
 ---
-title: استرجاع وتحديث خصائص عرض العرض التقديمي على Android
-linktitle: خصائص العرض
+title: "استرجاع وتحديث خصائص عرض العرض التقديمي على Android"
+linktitle: "خصائص العرض"
 type: docs
 weight: 80
 url: /ar/androidjava/presentation-view-properties/
 keywords:
-- خصائص العرض
-- العرض العادي
-- محتوى المخطط
-- أيقونات المخطط
-- تثبيت الفاصل الرأسي
-- عرض منفرد
-- حالة الشريط
-- حجم البُعد
-- تعديل تلقائي
-- التكبير الافتراضي
+- "خصائص العرض"
+- "العرض العادي"
+- "محتوى المخطط"
+- "أيقونات المخطط"
+- "إقفال الفاصل العمودي"
+- "العرض المفرد"
+- "حالة الشريط"
+- "حجم البُعد"
+- "تعديل تلقائي"
+- "تكبير افتراضي"
 - PowerPoint
 - OpenDocument
-- عرض تقديمي
+- "العرض التقديمي"
 - Android
 - Java
 - Aspose.Slides
-description: "اكتشف Aspose.Slides لنظام Android عبر Java لخصائص العرض لتخصيص صيغ PPT و PPTX و ODP—ضبط التخطيطات ومستويات التكبير وإعدادات العرض."
+description: "اكتشف خصائص العرض في Aspose.Slides للـ Android عبر Java لتخصيص صيغ شرائح PPT و PPTX و ODP — ضبط التخطيطات ومستويات التكبير وإعدادات العرض."
 ---
+## **المقدمة**
 
-{{% alert color="primary" %}} 
+العرض العادي يتكون من ثلاث مناطق محتوى: الشريحة نفسها، منطقة محتوى جانبية، ومنطقة محتوى سفلية. الخصائص المتعلقة بموضع المناطق المختلفة للمحتوى. تسمح هذه المعلومات للتطبيق بحفظ حالة العرض في الملف، بحيث عند إعادة الفتح تكون الحالة نفسها كما كانت عندما تم حفظ العرض الأخير.
 
-العرض العادي يتكون من ثلاث مناطق محتوى: الشريحة نفسها، منطقة محتوى جانبية، ومنطقة محتوى سفلية. الخصائص المتعلقة بموضع مناطق المحتوى المختلفة. تسمح هذه المعلومات للتطبيق بحفظ حالة العرض في الملف، بحيث عندما يتم فتحه مرة أخرى تكون الحالة كما كانت عندما تم حفظ العرض آخر مرة.
+تم إضافة طريقة [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IViewProperties#getNormalViewProperties--) لتوفير الوصول إلى خصائص العرض العادي للعرض التقديمي.
 
-تمت إضافة الطريقة [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IViewProperties#getNormalViewProperties--) لتوفير الوصول إلى خصائص العرض العادي للعرض التقديمي.  
-
-تمت إضافة الواجهات [INormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewRestoredProperties) وسلالتها، وكذلك التعداد [SplitterBarStateType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SplitterBarStateType) تم إضافته.  
-
-{{% /alert %}} 
+تم إضافة الواجهات [INormalViewProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewRestoredProperties) ونسلها، وتعداد [SplitterBarStateType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SplitterBarStateType) enum have been added.
 
 ## **حول INormalViewProperties**
 
-تمثل خصائص العرض العادي.
+يمثل خصائص العرض العادي.
 
-تحدد الطرق [getShowOutlineIcons](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) و [setShowOutlineIcons](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) ما إذا كان ينبغي للتطبيق إظهار الأيقونات عند عرض محتوى المخطط في أي من مناطق المحتوى في وضع العرض العادي.
+تحدد الطريقتان [getShowOutlineIcons](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) و[setShowOutlineIcons](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) ما إذا كان يجب على التطبيق عرض الأيقونات عند عرض محتوى المخطط في أي من مناطق المحتوى في وضع العرض العادي.
 
-تحدد الطرق [getSnapVerticalSplitter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) و [setSnapVerticalSplitter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) ما إذا كان الفاصل الرأسي يجب أن ينتقل إلى حالة مصغرة عندما تكون المنطقة الجانبية صغيرة بما يكفي.
+تحدد الطريقتان [getSnapVerticalSplitter](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) و[setSnapVerticalSplitter](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) ما إذا كان يجب أن يلتقط الفاصل العمودي إلى الحالة المصغرة عندما تكون المنطقة الجانبية صغيرة بما فيه الكفاية.
 
-تحدد الخاصية [getPreferSingleView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getPreferSingleView--) و [setPreferSingleView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean--) ما إذا كان المستخدم يفضّل مشاهدة منطقة محتوى واحدة بملء النافذة بدلًا من العرض العادي القياسي الذي يحتوي على ثلاث مناطق محتوى. إذا تم تمكينها، قد يختار التطبيق عرض إحدى مناطق المحتوى في كامل النافذة.
+تحدد الخاصيتان [getPreferSingleView](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewProperties#getPreferSingleView--) و[setPreferSingleView](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) ما إذا كان المستخدم يفضل رؤية منطقة محتوى واحدة في نافذة كاملة بدلاً من العرض العادي القياسي الذي يحتوي على ثلاث مناطق محتوى. إذا تم تمكينها، قد يختار التطبيق عرض إحدى مناطق المحتوى في النافذة بأكملها.
 
-تحدد الطرق [getVerticalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) و [getHorizontalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) الحالة التي يجب أن يُظهر فيها شريط الفاصل الأفقي أو الرأسي. شريط الفاصل الأفقي يفصل الشريحة عن منطقة المحتوى أسفل الشريحة، وشريط الفاصل الرأسي يفصل الشريحة عن المنطقة الجانبية. القيم الممكنة هي: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SplitterBarStateType#Maximized) و [SplitterBarStateType.Restored](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SplitterBarStateType#Restored).
+تحدد الطريقتان [getVerticalBarState](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) و[getHorizontalBarState](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) الحالة التي يجب أن يُعرض بها شريط الفاصل الأفقي أو العمودي. يفصل شريط الفاصل الأفقي بين الشريحة ومنطقة المحتوى أسفل الشريحة، بينما يفصل شريط الفاصل العمودي بين الشريحة ومنطقة المحتوى الجانبية. القيم الممكنة هي: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SplitterBarStateType#Maximized) و[SplitterBarStateType.Restored](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SplitterBarStateType#Restored).
 
-تحدد الطرق [getRestoredLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--) و [getRestoredTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--) حجم المنطقة العلوية أو الجانبية في العرض العادي، عندما تُطبق قيمة [SplitterBarStateType.Restored](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SplitterBarStateType#Restored) على [getVerticalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) و [getHorizontalBarState](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) وفقًا لذلك.
+تحدد الطريقتان [getRestoredLeft](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--) و[getRestoredTop](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--) حجم المنطقة العليا أو الجانبية للشريحة في العرض العادي، عندما تكون القيمة [SplitterBarStateType.Restored](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SplitterBarStateType#Restored) مُطبقة على [getVerticalBarState](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) و[getHorizontalBarState](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) وفقًا لذلك.
 
 ## **حول استعادة INormalViewProperties**
 
-تحدد حجم منطقة الشريحة (العرض عندما تكون فرعًا لـ [getRestoredTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--)، الارتفاع عندما تكون فرعًا لـ [getRestoredLeft](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) في العرض العادي، عندما تكون المنطقة ذات حجم مستعاد متغير (ليس مصغّرًا ولا مكبّرًا).  
+يحدد حجم منطقة الشريحة (العرض عندما تكون فرعًا لـ [getRestoredTop](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--)، الارتفاع عندما تكون فرعًا لـ [getRestoredLeft](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) في العرض العادي، عندما تكون المنطقة ذات حجم مستعاد متغير (ليس مصغرة ولا مكبرة).
 
-تحدد الطريقة [getDimensionSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) حجم منطقة الشريحة (العرض عندما تكون فرعًا لـ restoredTop، الارتفاع عندما تكون فرعًا لـ restoredLeft).  
+تحدد الطريقة [getDimensionSize](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) حجم منطقة الشريحة (العرض عندما تكون فرعًا لـ restoredTop، الارتفاع عندما تكون فرعًا لـ restoredLeft).
 
-تحدد الطريقة [getAutoAdjust](https://reference.aspose.com/slides/androidjava/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) ما إذا كان يجب أن يتعوض حجم منطقة المحتوى الجانبية عن الحجم الجديد عند تعديل حجم النافذة التي تحتوي على العرض داخل التطبيق.  
+تحدد الطريقة [getAutoAdjust](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) ما إذا كان يجب على حجم منطقة المحتوى الجانبية التعويض عن الحجم الجديد عند تغيير حجم النافذة التي تحتوي على العرض داخل التطبيق.
 
-يُعطى المثال أدناه يوضح كيفية الوصول إلى خصائص [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getNormalViewProperties--) لعرض تقديمي.  
+يُظهر المثال أدناه كيفية الوصول إلى خصائص [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ViewProperties#getNormalViewProperties--) لعرض تقديمي.
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
@@ -74,22 +74,23 @@ try {
 }
 ```
 
-
 ## **تعيين قيمة التكبير الافتراضية**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-يدعم Aspose.Slides لنظام Android عبر Java الآن تعيين قيمة التكبير الافتراضية للعرض التقديمي بحيث يتم تعيين التكبير بالفعل عند فتح العرض. يمكن تحقيق ذلك عن طريق تعيين [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) للعرض التقديمي. يمكن ضبط كل من [getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) و [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) برمجيًا. في هذا الموضوع، سنرى مثالًا يوضح كيفية تعيين [View Properties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) لـ [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) في [Aspose.Slides](/slides/ar/).  
+أصبحت مكتبة Aspose.Slides for Android عبر Java الآن تدعم تعيين قيمة التكبير الافتراضية للعرض التقديمي بحيث يكون التكبير مضبوطًا بالفعل عند فتح العرض التقديمي. يمكن القيام بذلك عن طريق تعيين [ViewProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ViewProperties) لعرض تقديمي. يمكن تعيين كل من [getSlideViewProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) و[getNotesViewProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) برمجيًا. في هذا الموضوع، سنرى من خلال مثال كيفية تعيين [View Properties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ViewProperties) لـ [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation) في Aspose.Slides.
 
 {{% /alert %}} 
 
-لتعيين خصائص العرض، يرجى اتباع الخطوات التالية:
+لإعداد خصائص العرض، يرجى اتباع الخطوات التالية:
 
-1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. تعيين [View Properties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) لـ [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. كتابة العرض التقديمي كملف [PPTX](https://docs.fileformat.com/presentation/pptx/).  
-في المثال المعطى أدناه، قمنا بتعيين قيمة التكبير لعرض الشريحة وكذلك لعرض الملاحظات.  
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation).
+1. تعيين [View Properties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ViewProperties) لـ [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation).
+1. كتابة العرض التقديمي كملف [PPTX](https://docs.fileformat.com/presentation/pptx/) . في المثال أدناه، قمنا بتعيين قيمة التكبير لعرض الشريحة وكذلك عرض الملاحظات.
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     // تعيين خصائص العرض للعرض التقديمي
@@ -102,17 +103,50 @@ try {
 }
 ```
 
+## **تعيين تباعد الشبكة**
 
-## **الأسئلة الشائعة**
+استخدم [Presentation.getViewProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getViewProperties--) للوصول إلى إعدادات العرض على مستوى العرض التقديمي. تقرأ وتغيير الفاصل الزمني للشبكة التحريرية الأساسية طرق [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iviewproperties/#getGridSpacing--) و[IViewProperties.setGridSpacing](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) . ينطبق هذا الإعداد على كامل العرض التقديمي، وليس على شريحة فردية. يتم تحديد تباعد الشبكة بالنقاط، حيث أن 72 نقطة تساوي بوصة واحدة. استخدم قيمة موجبة، كما هو مطلوب في وثائق API.
 
-**هل يمكنني تعيين إعدادات عرض مختلفة لأقسام مختلفة من العرض التقديمي؟**
+المثال التالي يفتح ملف `demo.pptx` موجود، يطبع تباعد الشبكة الحالي، يضبط فاصلًا ربع بوصة، ويحفظ النتيجة.
 
-يتم تعريف [إعدادات العرض](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--) على مستوى العرض التقديمي ([Normal View](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewproperties/#getSlideViewProperties--))، وليس لكل قسم، لذا مجموعة واحدة من المعلمات تنطبق على المستند بأكمله عند فتحه.
+```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
-**هل يمكنني تعريف حالات عرض مختلفة لمستخدمين مختلفين مسبقًا؟**
+Presentation presentation = new Presentation("demo.pptx");
+try {
+    float gridSpacing = presentation.getViewProperties().getGridSpacing();
+    System.out.println("Current grid spacing: " + gridSpacing + " points");
 
-لا. يتم تخزين الإعدادات في الملف وتُشارك. قد تحترم تطبيقات العرض تفضيلات المستخدم، لكن الملف نفسه يحتوي على مجموعة واحدة من خصائص العرض.
+    presentation.getViewProperties().setGridSpacing(18f);
+    presentation.save("grid-spacing.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-**هل يمكنني إعداد قالب يحتوي على خصائص عرض معرفة مسبقًا بحيث تُفتح العروض التقديمية الجديدة بنفس الطريقة؟**
+الشبكة مختلفة عن [drawing guides](/slides/ar/androidjava/drawing-guides/). يتحكم تباعد الشبكة في فاصل منتظم، بينما الأدلة الرسومية هي خطوط محاذاة أفقية أو عمودية موضوعة بشكل فردي. إضافة أو نقل أو مسح الأدلة الرسومية لا يغيّر تباعد الشبكة.
 
-نعم. نظرًا لأن [خصائص العرض](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--) تُخزن على مستوى العرض التقديمي، يمكنك تضمينها في قالب وإنشاء مستندات جديدة منه بنفس تكوين العرض الأولي.
+كل من الشبكة والأدلة الرسومية هي مساعدات تحرير. لا يتم عرضها كمحتوى شريحة في PDF أو صور أو SVG أو عرض شرائح. تخزين تباعد الشبكة لا يضمن أن المحرر سيعرض الشبكة: اعتماد رؤيتها أيضًا على تفضيلات المشاهد أو المحرر.
+
+## **الأسئلة المتكررة**
+
+**لماذا لا تظهر الشبكة بعد إعادة فتح العرض التقديمي؟**
+
+الملف يخزن تباعد الشبكة، لكن المحرر يتحكم فيما إذا كانت الشبكة معروضة. تحقق من إعدادات رؤية الشبكة في المحرر.
+
+**هل يؤدي مسح الأدلة الرسومية إلى تغيير تباعد الشبكة؟**
+
+لا. الأدلة الرسومية وتباعد الشبكة إعدادات مستقلة. مسح الأدلة يترك الفاصل المخزن للشبكة دون تغيير.
+
+**هل يمكنني ضبط إعدادات عرض مختلفة لأقسام مختلفة من العرض التقديمي؟**
+
+يتم تعريف [إعدادات العرض](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getViewProperties--) على مستوى العرض التقديمي ([Normal View](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/viewproperties/#getSlideViewProperties--))، وليس لكل قسم، لذلك يتم تطبيق مجموعة واحدة من المعلمات على المستند بأكمله عند فتحه.
+
+**هل يمكنني تعريف حالات عرض مختلفة مسبقًا لمستخدمين مختلفين؟**
+
+لا. يتم تخزين الإعدادات في الملف وتُشارك. قد تلتزم تطبيقات المشاهدة بتفضيلات المستخدم، لكن الملف نفسه يحتوي على مجموعة واحدة فقط من خصائص العرض.
+
+**هل يمكنني إعداد قالب بخصائص عرض مسبقة التعريف بحيث تفتح العروض الجديدة بنفس الطريقة؟**
+
+نعم. لأن [خصائص العرض](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getViewProperties--) تُخزن على مستوى العرض التقديمي، يمكنك تضمينها في قالب وإنشاء مستندات جديدة منه بنفس تكوين العرض الأولي.

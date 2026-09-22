@@ -1,5 +1,5 @@
 ---
-title: पाइथन में प्रस्तुति दृश्य गुण प्राप्त करें और अपडेट करें
+title: Python में प्रस्तुति दृश्य गुणों को प्राप्त करें और अपडेट करें
 linktitle: दृश्य गुण
 type: docs
 weight: 80
@@ -7,56 +7,56 @@ url: /hi/python-net/presentation-view-properties/
 keywords:
 - दृश्य गुण
 - सामान्य दृश्य
-- रूपरेखा सामग्री
-- रूपरेखा आइकॉन
-- वर्टिकल स्प्लिटर स्नैप
-- सिंगल व्यू
+- आउटलाइन सामग्री
+- आउटलाइन आइकॉन
+- वर्टिकल स्प्लिटर को स्नैप करें
+- एकल दृश्य
 - बार स्थिति
-- आयाम आकार
-- स्व समायोजन
+- आकार आयाम
+- स्वचालित समायोजन
 - डिफ़ॉल्ट ज़ूम
-- पावरपॉइंट
+- PowerPoint
 - प्रस्तुति
-- पाइथन
+- Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET के दृश्य गुणों का उपयोग करके PPT, PPTX और ODP स्लाइड्स को अनुकूलित करें—लेआउट, ज़ूम स्तर और प्रदर्शन सेटिंग्स को समायोजित करें।"
+description: "Aspose.Slides for Python via .NET के दृश्य गुणों की खोज करें ताकि PPT, PPTX और ODP स्लाइड्स के स्वरूप को अनुकूलित किया जा सके—लेआउट, ज़ूम स्तर और प्रदर्शन सेटिंग्स को समायोजित करें।"
 ---
 ## **परिचय**
 
-सामान्य दृश्य में तीन सामग्री क्षेत्रों होते हैं: स्वयं स्लाइड, एक साइड सामग्री क्षेत्र, और नीचे का सामग्री क्षेत्र। विभिन्न सामग्री क्षेत्रों की स्थिति से संबंधित गुण। यह जानकारी एप्लिकेशन को दृश्य स्थिति को फ़ाइल में सहेजने की अनुमति देती है, ताकि जब इसे फिर से खोला जाए तो दृश्य उसी स्थिति में हो जैसा कि प्रस्तुति अंतिम बार सहेजे जाने पर थी।
+Normal view तीन सामग्री क्षेत्रों से बना होता है: स्वयं स्लाइड, एक साइड सामग्री क्षेत्र, और नीचे का सामग्री क्षेत्र। विभिन्न सामग्री क्षेत्रों की स्थिति से संबंधित गुण। यह जानकारी एप्लिकेशन को अपना view state फ़ाइल में सहेजने की अनुमति देती है, ताकि फिर से खोलने पर view उसी स्थिति में हो जैसा कि प्रस्तुति को अंतिम बार सहेजा गया था।
 
-प्रॉपर्टी [ViewProperties.normal_view_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/normal_view_properties/) को प्रस्तुति के सामान्य दृश्य गुणों तक पहुँच प्रदान करने के लिए जोड़ा गया है।  
+प्रॉपर्टी [ViewProperties.normal_view_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/normal_view_properties/) को प्रस्तुति के normal view गुणों तक पहुँच प्रदान करने के लिए जोड़ा गया है।
 
-[NormalViewProperties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/normalviewproperties/), [NormalViewRestoredProperties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/normalviewrestoredproperties/) क्लासें और उनकी संतानें, तथा [SplitterBarStateType](https://reference.aspose.com/slides/hi/python-net/aspose.slides/splitterbarstatetype/) एनीम जोड़ी गई हैं।
+[NormalViewProperties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/normalviewproperties/), [NormalViewRestoredProperties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/normalviewrestoredproperties/) क्लासेस और उनके वंशज, [SplitterBarStateType](https://reference.aspose.com/slides/hi/python-net/aspose.slides/splitterbarstatetype/) एना‍म को जोड़ा गया है।
 
-## **INormalViewProperties के बारे में** 
+## **About INormalViewProperties**
 
-सामान्य दृश्य गुणों का प्रतिनिधित्व करता है।
+Normal view गुणों का प्रतिनिधित्व करता है।
 
-प्रॉपर्टी **ShowOutlineIcons** निर्धारित करती है कि क्या एप्लिकेशन को सामान्य दृश्य मोड में किसी भी सामग्री क्षेत्र में रूपरेखा सामग्री प्रदर्शित करते समय आइकॉन दिखाने चाहिए।  
+प्रॉपर्टी **ShowOutlineIcons** निर्धारित करती है कि normal view मोड के किसी भी सामग्री क्षेत्र में रूपरेखा सामग्री प्रदर्शित करते समय एप्लिकेशन को आइकॉन दिखाने चाहिए या नहीं।
 
-प्रॉपर्टी **SnapVerticalSplitter** निर्धारित करती है कि क्या साइड क्षेत्र पर्याप्त छोटा होने पर वर्टिकल स्प्लिटर को न्यूनतम स्थिति में स्नैप करना चाहिए।  
+प्रॉपर्टी **SnapVerticalSplitter** निर्धारित करती है कि साइड क्षेत्र पर्याप्त छोटा होने पर वर्टिकल स्प्लिटर को न्यूनतम स्थिति में स्नैप किया जाना चाहिए या नहीं।
 
-प्रॉपर्टी **PreferSingleView** निर्धारित करती है कि उपयोगकर्ता मानक तीन सामग्री क्षेत्रों वाले सामान्य दृश्य के बजाय पूर्ण‑खिड़की एकल‑सामग्री क्षेत्र देखना पसंद करता है या नहीं। यदि सक्षम किया गया, तो एप्लिकेशन संपूर्ण खिड़की में किसी एक सामग्री क्षेत्र को प्रदर्शित करने का विकल्प चुन सकता है।  
+प्रॉपर्टी **PreferSingleView** निर्धारित करती है कि उपयोगकर्ता तीन सामग्री क्षेत्रों वाले मानक normal view के बजाय पूरी विंडो में एकल‑सामग्री क्षेत्र देखना चाहते हैं या नहीं। यदि सक्षम किया गया, तो एप्लिकेशन पूरे विंडो में इन में से किसी एक सामग्री क्षेत्र को प्रदर्शित कर सकता है।
 
-प्रॉपर्टी **VerticalBarState** और **HorizontalBarState** निर्धारित करती हैं कि क्षैतिज या लंबवत स्प्लिटर बार किस स्थिति में दिखाया जाना चाहिए। एक क्षैतिज स्प्लिटर बार स्लाइड को नीचे के सामग्री क्षेत्र से अलग करता है, जबकि लंबवत स्प्लिटर बार स्लाइड को साइड सामग्री क्षेत्र से अलग करता है। संभावित मान हैं: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** और **SplitterBarStateType.Restored**।  
+प्रॉपर्टी **VerticalBarState** और **HorizontalBarState** निर्धारित करती है कि क्षैतिज या ऊर्ध्वाधर स्प्लिटर बार किस स्थिति में दिखाया जाना चाहिए। एक क्षैतिज स्प्लिटर बार स्लाइड को नीचे की सामग्री क्षेत्र से अलग करता है, जबकि ऊर्ध्वाधर स्प्लिटर बार स्लाइड को साइड सामग्री क्षेत्र से अलग करता है। संभावित मान हैं: **SplitterBarStateType.Minimized, SplitterBarStateType.Maximized** और **SplitterBarStateType.Restored**।
 
-प्रॉपर्टी **RestoredLeft** और **RestoredTop** निर्धारित करती हैं कि सामान्य दृश्य के ऊपरी या साइड स्लाइड क्षेत्र का आकार क्या होना चाहिए, जब **VerticalBarState** और **HorizontalBarState** के लिए क्रमशः **SplitterBarStateType.Restored** मान लागू किया गया हो।  
+प्रॉपर्टी **RestoredLeft** और **RestoredTop** normal view के शीर्ष या साइड स्लाइड क्षेत्र का आकार निर्दिष्ट करती हैं, जब **VerticalBarState** और **HorizontalBarState** के लिए **SplitterBarStateType.Restored** मान लागू हो।
 
-## **INormalViewProperties को पुनर्स्थापित करने के बारे में** 
+## **About Restoring INormalViewProperties**
 
-सामान्य दृश्य में स्लाइड क्षेत्र (RestoredTop का बच्चा होने पर चौड़ाई, RestoredLeft का बच्चा होने पर ऊँचाई) का आकार निर्दिष्ट करता है, जब क्षेत्र का आकार परिवर्तनशील पुनर्स्थापित आकार (न तो न्यूनतम और न ही अधिकतम) होता है।  
+जब क्षेत्र परिवर्ती पुनर्स्थापित आकार (न तो न्यूनतम और न ही अधिकतम) में होता है, तो normal view के स्लाइड क्षेत्र (RestoredTop का बच्चा होने पर चौड़ाई, RestoredLeft का बच्चा होने पर ऊँचाई) का आकार निर्दिष्ट करता है।
 
-प्रॉपर्टी **DimensionSize** स्लाइड क्षेत्र का आकार (RestoredTop का बच्चा होने पर चौड़ाई, RestoredLeft का बच्चा होने पर ऊँचाई) निर्दिष्ट करती है।  
+प्रॉपर्टी **DimensionSize** स्लाइड क्षेत्र का आकार (restoredTop का बच्चा होने पर चौड़ाई, restoredLeft का बच्चा होने पर ऊँचाई) निर्दिष्ट करती है।
 
-प्रॉपर्टी **AutoAdjust** निर्धारित करती है कि जब एप्लिकेशन में दृश्य वाली विंडो को पुन:आकारित किया जाता है, तो साइड सामग्री क्षेत्र का आकार नई आकार के अनुसार स्वयं समायोजित होना चाहिए या नहीं।  
+प्रॉपर्टी **AutoAdjust** निर्धारित करती है कि विंडो के आकार बदलने पर साइड सामग्री क्षेत्र का आकार नई स्थिति के अनुसार समायोजित होना चाहिए या नहीं।
 
-नीचे दिया गया उदाहरण दर्शाता है कि आप प्रस्तुति के लिए **ViewProperties.NormalViewProperties** प्रॉपर्टी तक कैसे पहुँच सकते हैं।  
+नीचे दिया गया उदाहरण दर्शाता है कि कैसे आप प्रस्तुति के लिए **ViewProperties.NormalViewProperties** प्रॉपर्टीज़ तक पहुँच सकते हैं।
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as pres:
+with slides.Presentation("AccessSlides.pptx") as pres:
     pres.view_properties.normal_view_properties.horizontal_bar_state = slides.SplitterBarStateType.RESTORED
     pres.view_properties.normal_view_properties.vertical_bar_state = slides.SplitterBarStateType.MAXIMIZED
 
@@ -68,39 +68,68 @@ with slides.Presentation(path + "AccessSlides.pptx") as pres:
     pres.save("presentation_normal_view_state.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **डिफ़ॉल्ट ज़ूम मान सेट करें** 
+## **Set Default Zoom Value**
 
-Aspose.Slides for Python via .NET अब प्रस्तुति के लिए डिफ़ॉल्ट ज़ूम मान सेट करने का समर्थन करता है ताकि जब प्रस्तुति खोली जाए तो ज़ूम पहले से सेट हो। यह किसी प्रस्तुति के [view_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/view_properties/) को सेट करके किया जा सकता है। स्लाइड दृश्य प्रॉपर्टी तथा [notes_view_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/notes_view_properties/) को प्रोग्रामेटिक रूप से सेट किया जा सकता है। इस विषय में, हम एक उदाहरण के साथ दिखाएंगे कि Aspose.Slides में प्रस्तुति की View Properties कैसे सेट करें।  
+Aspose.Slides for Python via .NET अब प्रस्तुति के लिए डिफ़ॉल्ट ज़ूम मान सेट करने का समर्थन करता है, जिससे प्रस्तुति खोलते समय ज़ूम पहले से ही निर्धारित हो जाता है। यह **[view_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/view_properties/)** को सेट करके किया जा सकता है। स्लाइड व्यू प्रॉपर्टीज़ के साथ-साथ **[notes_view_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/notes_view_properties/)** को भी प्रोग्रामेटिक रूप से सेट किया जा सकता है। इस टॉपिक में, हम एक उदाहरण के साथ देखेंगे कि Aspose.Slides में प्रस्तुति की View Properties कैसे सेट करें।
 
-View Properties सेट करने के लिए, कृपया नीचे दिए गए चरणों का पालन करें:
+व्यू प्रॉपर्टीज़ सेट करने के लिए नीचे दिए गए चरणों का पालन करें:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का उदाहरण बनाएँ
-1. प्रस्तुति की [view properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/) सेट करें
-1. प्रस्तुति को PPTX फ़ाइल के रूप में लिखें
+1. एक **[Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/)** क्लास का उदाहरण बनाएँ
+2. प्रस्तुति की **[view properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/)** सेट करें
+3. प्रस्तुति को PPTX फ़ाइल के रूप में लिखें
 
-नीचे दिए गए उदाहरण में, हमने स्लाइड दृश्य और नोट्स दृश्य दोनों के लिए ज़ूम मान सेट किया है।  
+नीचे दिए गए उदाहरण में, हमने स्लाइड व्यू और नोट्स व्यू दोनों के लिए ज़ूम मान सेट किया है।
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "AccessSlides.pptx") as presentation:
-    # प्रस्तुति के दृश्य गुण सेट करना
-    presentation.view_properties.slide_view_properties.scale = 100 # स्लाइड दृश्य के लिए प्रतिशत में ज़ूम मान
-    presentation.view_properties.notes_view_properties.scale = 100 # नोट्स दृश्य के लिए प्रतिशत में ज़ूम मान 
+with slides.Presentation("AccessSlides.pptx") as presentation:
+    # प्रस्तुति के दृश्य गुणों को सेट करना
+    presentation.view_properties.slide_view_properties.scale = 100 # स्लाइड व्यू के लिए प्रतिशत में ज़ूम मान
+    presentation.view_properties.notes_view_properties.scale = 100 # नोट्स व्यू के लिए प्रतिशत में ज़ूम मान
 
     presentation.save("Zoom_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न** 
+## **Set the Grid Spacing**
 
-**क्या मैं प्रस्तुति के विभिन्न सेक्शन के लिए अलग-अलग दृश्य सेटिंग्स सेट कर सकता हूँ?**  
+परिचालन‑व्यापक व्यू सेटिंग्स तक पहुँचने के लिए **[Presentation.view_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/view_properties/)** का उपयोग करें। प्रॉपर्टी **[ViewProperties.grid_spacing](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/grid_spacing/)** अंतर्निहित एडिटिंग ग्रिड का अंतराल पढ़ती या बदलती है। यह सेटिंग पूरी प्रस्तुति पर लागू होती है, न कि व्यक्तिगत स्लाइड पर। ग्रिड अंतराल पॉइंट्स में निर्दिष्ट किया जाता है, जहाँ 72 पॉइंट्स एक इंच के बराबर होते हैं। API दस्तावेज़ में आवश्यकतानुसार सकारात्मक मान का उपयोग करें।
 
-[View settings](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/view_properties/) प्रस्तुति स्तर पर ([Normal View](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/normal_view_properties/)/[Slide View](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/slide_view_properties/)) पर परिभाषित होते हैं, न कि प्रत्येक सेक्शन पर, इसलिए एक ही पैरामीटर सेट पूरे दस्तावेज़ पर लागू होता है जब वह खुलता है।  
+निम्नलिखित उदाहरण मौजूदा `demo.pptx` खोलता है, उसकी वर्तमान ग्रिड स्पेसिंग को प्रिंट करता है, एक चौथाइ‑इंच का अंतराल सेट करता है, और परिणाम को सहेजता है।
 
-**क्या मैं विभिन्न उपयोगकर्ताओं के लिए अलग-अलग दृश्य स्थितियाँ पहले से परिभाषित कर सकता हूँ?**  
+```py
+import aspose.slides as slides
 
-नहीं। सेटिंग्स फ़ाइल में संग्रहीत रहती हैं और सभी के बीच साझा की जाती हैं। व्यूअर एप्लिकेशन उपयोगकर्ता प्राथमिकताओं का सम्मान कर सकते हैं, परंतु फ़ाइल में केवल एक ही सेट के दृश्य प्रॉपर्टी होते हैं।  
+with slides.Presentation("demo.pptx") as presentation:
+    grid_spacing = presentation.view_properties.grid_spacing
+    print(f"Current grid spacing: {grid_spacing} points")
 
-**क्या मैं पूर्वनिर्धारित View Properties के साथ एक टेम्पलेट तैयार कर सकता हूँ ताकि नई प्रस्तुतियों को वही तरीके से खुला जा सके?**  
+    presentation.view_properties.grid_spacing = 18.0
+    presentation.save("grid-spacing.pptx", slides.export.SaveFormat.PPTX)
+```
 
-हां। क्योंकि [view properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/view_properties/) प्रस्तुति स्तर पर संग्रहीत होते हैं, आप उन्हें एक टेम्पलेट में एम्बेड कर सकते हैं और उसी प्रारंभिक दृश्य कॉन्फ़िगरेशन के साथ नई दस्तावेज़ बना सकते हैं।
+ग्रिड **[drawing guides](/slides/hi/python-net/drawing-guides/)** से अलग है। ग्रिड स्पेसिंग नियमित अंतराल को नियंत्रित करती है, जबकि ड्राइंग गाइड्स व्यक्तिगत रूप से स्थित क्षैतिज या ऊर्ध्वाधर संरेखण रेखाएँ होती हैं। गाइड्स को जोड़ना, स्थानांतरित करना या हटाना ग्रिड स्पेसिंग को नहीं बदलता।
+
+ग्रिड और ड्राइंग गाइड दोनों ही एडिटिंग सहायता उपकरण हैं। वे PDF, इमेज, SVG या स्लाइड शो में स्लाइड सामग्री के रूप में रेंडर नहीं होते। ग्रिड स्पेसिंग को संग्रहीत करने से यह गारंटी नहीं मिलती कि कोई एडिटर ग्रिड प्रदर्शित करेगा; इसकी दृश्यता व्यूअर या एडिटर की प्राथमिकताओं पर भी निर्भर करती है।
+
+## **FAQ**
+
+**ग्रिड प्रस्तुति पुनः खोलने के बाद क्यों दिखाई नहीं देता?**
+
+फ़ाइल ग्रिड स्पेसिंग संग्रहीत करती है, लेकिन एडिटर नियंत्रित करता है कि ग्रिड प्रदर्शित हो या नहीं। एडिटर की ग्रिड दृश्यता सेटिंग्स की जाँच करें।
+
+**क्या ड्राइंग गाइड्स को साफ़ करने से ग्रिड स्पेसिंग बदलती है?**
+
+नहीं। ड्राइंग गाइड्स और ग्रिड स्पेसिंग स्वतंत्र सेटिंग्स हैं। गाइड्स को साफ़ करने से संग्रहीत ग्रिड अंतराल अपरिवर्तित रहता है।
+
+**क्या मैं प्रस्तुति के विभिन्न सेक्शन के लिए अलग‑अलग व्यू सेटिंग्स सेट कर सकता हूँ?**
+
+[View settings](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/view_properties/) प्रस्तुति स्तर पर परिभाषित होते हैं ([Normal View](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/normal_view_properties/)/[Slide View](https://reference.aspose.com/slides/hi/python-net/aspose.slides/viewproperties/slide_view_properties/)), न कि सेक्शन‑वार, इसलिए जब दस्तावेज़ खुलता है तो सभी सेक्शन एक ही पैरामीटर सेट को उपयोग करते हैं।
+
+**क्या मैं विभिन्न उपयोगकर्ताओं के लिए अलग‑अलग व्यू स्टेट्स पूर्व‑निर्धारित कर सकता हूँ?**
+
+नहीं। सेटिंग्स फ़ाइल में संग्रहीत रहती हैं और सभी उपयोगकर्ताओं के बीच साझा होती हैं। व्यूअर एप्लिकेशन उपयोगकर्ता प्राथमिकताओं को मान सकते हैं, पर फ़ाइल स्वयं केवल एक ही सेट की view properties रखती है।
+
+**क्या मैं पूर्व‑परिभाषित View Properties के साथ एक टेम्पलेट तैयार कर सकता हूँ ताकि नई प्रस्तुतियाँ उसी तरह खुलें?**
+
+हाँ। चूँकि **[view properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/view_properties/)** प्रस्तुति स्तर पर संग्रहीत होते हैं, आप उन्हें टेम्पलेट में एम्बेड कर सकते हैं और नई डॉक्यूमेंट्स उसी प्रारम्भिक view कॉन्फ़िगरेशन के साथ बना सकते हैं।
