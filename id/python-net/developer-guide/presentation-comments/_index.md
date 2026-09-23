@@ -10,25 +10,27 @@ keywords:
 - komentar PowerPoint
 - komentar presentasi
 - komentar slide
-- tambah komentar
-- akses komentar
-- edit komentar
-- balas komentar
-- hapus komentar
+- menambahkan komentar
+- mengakses komentar
+- mengedit komentar
+- membalas komentar
 - menghapus komentar
+- menghilangkan komentar
 - PowerPoint
 - presentasi
 - Python
 - Aspose.Slides
-description: "Kelola komentar presentasi dengan Aspose.Slides untuk Python via .NET: menambah, membaca, mengedit, membalas, dan menghapus komentar dalam presentasi PowerPoint."
+description: "Kelola komentar presentasi dengan Aspose.Slides untuk Python via .NET: menambahkan, membaca, mengedit, membalas, dan menghapus komentar dalam presentasi PowerPoint."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara mengelola komentar presentasi dengan Aspose.Slides untuk Python via .NET. Artikel ini memperkenalkan tipe utama yang terkait dengan komentar dan memperlihatkan cara menambahkan komentar ke slide, mengakses komentar yang ada, bekerja dengan balasan dan komentar modern, serta menghapus komentar dari presentasi.
+Artikel ini menjelaskan cara mengelola komentar presentasi dengan Aspose.Slides untuk Python via .NET. Artikel ini memperkenalkan tipe utama yang terkait dengan komentar dan mendemonstrasikan cara menambahkan komentar ke slide, mengakses komentar yang ada, bekerja dengan balasan dan komentar modern, serta menghapus komentar dari sebuah presentasi.
 
-Contoh-contoh mencakup skenario peninjauan dan kolaborasi umum di PowerPoint, seperti menetapkan komentar kepada penulis, membaca teks komentar dan metadata, membuat rantai balasan, serta menghapus komentar yang dipilih atau semua komentar.
+Contoh-contoh mencakup skenario tinjauan dan kolaborasi umum di PowerPoint, seperti menetapkan komentar ke penulis, membaca teks komentar dan metadata, membangun rantai balasan, serta menghapus komentar yang dipilih atau semua komentar.
 
 Di PowerPoint, komentar muncul sebagai anotasi pada slide. Memilih sebuah komentar menampilkan teksnya dan diskusi terkait.
+
+Untuk meminta agar komentar ditampilkan atau disembunyikan saat presentasi dibuka tanpa mengubah komentar itu sendiri, lihat [Tampilkan atau Sembunyikan Komentar Saat Membuka Presentasi](/slides/id/python-net/presentation-view-properties/).
 
 ## **Mengapa Menambahkan Komentar ke Presentasi?**
 
@@ -37,13 +39,13 @@ Anda dapat menggunakan komentar untuk memberikan umpan balik dan berkolaborasi d
 Aspose.Slides untuk Python via .NET menyediakan API berikut untuk bekerja dengan komentar:
 
 * Kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) yang menyediakan akses ke penulis komentar presentasi.
-* Kelas [CommentCollection](https://reference.aspose.com/slides/id/python-net/aspose.slides/commentcollection/) yang mewakili komentar yang terkait dengan penulis tertentu.
+* Kelas [CommentCollection](https://reference.aspose.com/slides/id/python-net/aspose.slides/commentcollection/) yang mewakili komentar yang terkait dengan seorang penulis.
 * Kelas [Comment](https://reference.aspose.com/slides/id/python-net/aspose.slides/comment/) yang menyediakan informasi tentang sebuah komentar, termasuk penulisnya, waktu pembuatan, posisi, dan teks.
-* Kelas [CommentAuthor](https://reference.aspose.com/slides/id/python-net/aspose.slides/commentauthor/) yang menyediakan informasi tentang seorang penulis, termasuk nama, inisial, dan komentar terkait.
+* Kelas [CommentAuthor](https://reference.aspose.com/slides/id/python-net/aspose.slides/commentauthor/) yang menyediakan informasi tentang seorang penulis, termasuk nama, inisial, dan komentar yang terkait.
 
 ## **Menambahkan Komentar Slide**
 
-Contoh berikut menunjukkan cara menambahkan komentar ke slide dalam presentasi PowerPoint:
+Contoh berikut menunjukkan cara menambahkan komentar ke slide dalam sebuah presentasi PowerPoint:
 
 ```python
 from datetime import datetime
@@ -74,7 +76,7 @@ with slides.Presentation() as presentation:
 
 ## **Mengakses Komentar Slide**
 
-Contoh berikut menunjukkan cara mengakses komentar yang ada dalam presentasi PowerPoint:
+Contoh berikut menunjukkan cara mengakses komentar yang ada dalam sebuah presentasi PowerPoint:
 
 ```python
 import aspose.slides as slides
@@ -91,7 +93,7 @@ with slides.Presentation("Comments1.pptx") as presentation:
 
 ## **Membalas Komentar**
 
-Komentar induk adalah komentar asli di puncak hierarki balasan. Properti [parent_comment](https://reference.aspose.com/slides/id/python-net/aspose.slides/comment/parent_comment/) dari kelas [Comment](https://reference.aspose.com/slides/id/python-net/aspose.slides/comment/) memungkinkan Anda mendapatkan atau mengatur induk sebuah komentar.
+Komentar induk adalah komentar asli di bagian atas hierarki balasan. Properti [parent_comment](https://reference.aspose.com/slides/id/python-net/aspose.slides/comment/parent_comment/) dari kelas [Comment](https://reference.aspose.com/slides/id/python-net/aspose.slides/comment/) memungkinkan Anda mendapatkan atau mengatur induk sebuah komentar.
 
 Contoh berikut menunjukkan cara menambahkan balasan dan memeriksa hierarki komentar yang dihasilkan:
 
@@ -141,7 +143,7 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Saat metode [remove](https://reference.aspose.com/slides/id/python-net/aspose.slides/comment/remove/) dari kelas [Comment](https://reference.aspose.com/slides/id/python-net/aspose.slides/comment/) digunakan untuk menghapus sebuah komentar, semua balasan terhadap komentar tersebut juga dihapus.
+* Ketika metode [remove](https://reference.aspose.com/slides/id/python-net/aspose.slides/comment/remove/) dari kelas [Comment](https://reference.aspose.com/slides/id/python-net/aspose.slides/comment/) digunakan untuk menghapus sebuah komentar, semua balasan ke komentar tersebut juga dihapus.
 * Jika properti [parent_comment](https://reference.aspose.com/slides/id/python-net/aspose.slides/comment/parent_comment/) membuat referensi melingkar, sebuah [PptxEditException](https://reference.aspose.com/slides/id/python-net/aspose.slides/pptxeditexception/) akan dilempar.
 {{% /alert %}}
 
@@ -149,11 +151,11 @@ with slides.Presentation() as presentation:
 
 Komentar modern dapat dikaitkan dengan slide itu sendiri, dengan bentuk tertentu, atau dengan rentang teks di dalam AutoShape. Metode [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/id/python-net/aspose.slides/commentcollection/add_modern_comment/) menerima argumen [Shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/) selain slide dan koordinat penanda komentar.
 
-Ketika `None` diberikan untuk argumen shape, komentar tersebut menjadi komentar tingkat slide. Penandanya diposisikan oleh koordinat yang diberikan, namun tidak terkait dengan shape tertentu, sehingga [ModernComment.shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/shape/) mengembalikan `None`. Ketika sebuah [Shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/) diberikan, komentar dipasang pada shape tersebut. Koordinat tetap menentukan posisi penanda komentar pada slide, sementara asosiasi shape dapat diambil melalui [ModernComment.shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/shape/).
+Ketika `None` diberikan untuk argumen shape, komentar menjadi komentar tingkat slide. Penandanya diposisikan oleh koordinat yang diberikan, tetapi tidak terkait dengan bentuk tertentu, sehingga [ModernComment.shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/shape/) mengembalikan `None`. Ketika sebuah [Shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/) disediakan, komentar diikat ke bentuk tersebut. Koordinat tetap menentukan posisi penanda komentar pada slide, sementara asosiasi bentuk dapat diambil melalui [ModernComment.shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/shape/).
 
-### **Menyambungkan Komentar Modern ke Sebuah Shape**
+### **Menambatkan Komentar Modern ke Bentuk**
 
-Contoh berikut membuat komentar modern tingkat slide dan komentar modern yang dipasang pada AutoShape tertentu. Kemudian membaca shape yang terkait dari setiap komentar.
+Contoh berikut membuat komentar modern tingkat slide dan komentar modern yang diikat ke AutoShape tertentu. Kemudian membaca bentuk yang terkait dari masing‑masing komentar.
 
 ```python
 from datetime import datetime
@@ -180,11 +182,11 @@ with slides.Presentation() as presentation:
     presentation.save("modern_comments.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Menyambungkan Komentar ke Berbagai Jenis Shape**
+### **Menambatkan Komentar ke Berbagai Jenis Bentuk**
 
-Setiap objek slide yang diturunkan dari [Shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/) dapat digunakan sebagai jangkar shape. Contoh umum meliputi [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/id/python-net/aspose.slides/connector/), dan instance [GraphicalObject](https://reference.aspose.com/slides/id/python-net/aspose.slides/graphicalobject/) seperti diagram.
+Setiap objek slide yang diturunkan dari [Shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/shape/) dapat digunakan sebagai jangkar bentuk. Contoh umum meliputi [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/id/python-net/aspose.slides/connector/), dan instance [GraphicalObject](https://reference.aspose.com/slides/id/python-net/aspose.slides/graphicalobject/) seperti bagan.
 
-Contoh berikut membuat beberapa jenis shape umum dan mengaitkan komentar modern dengan masing-masing.
+Contoh berikut membuat beberapa jenis bentuk umum dan mengaitkan komentar modern dengan masing‑masingnya.
 
 ```python
 import base64
@@ -227,18 +229,18 @@ with slides.Presentation() as presentation:
     presentation.save("modern_comment_shape_types.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Menyambungkan Komentar ke Teks dan Mengatur Statusnya**
+### **Menambatkan Komentar ke Teks dan Menetapkan Statusnya**
 
-Untuk komentar modern yang terkait dengan sebuah [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/text_selection_start/) menentukan posisi awal teks yang dipilih dalam bingkai teks shape, sedangkan [ModernComment.text_selection_length](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/text_selection_length/) menentukan panjang pilihan. Bersama-sama, properti ini mengaitkan komentar dengan rentang teks tertentu di dalam AutoShape.
+Untuk komentar modern yang terkait dengan sebuah [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/text_selection_start/) menentukan posisi mulai teks yang dipilih dalam bingkai teks bentuk, sementara [ModernComment.text_selection_length](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/text_selection_length/) menentukan panjang pemilihan. Bersama‑sama, properti ini mengaitkan komentar dengan rentang teks tertentu di dalam AutoShape.
 
 Properti [ModernComment.status](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/status/) dapat dibaca atau diperbarui dengan nilai dari enumerasi [ModernCommentStatus](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncommentstatus/):
 
-- `NOT_DEFINED` — tidak ada status komentar modern yang spesifik yang didefinisikan.
+- `NOT_DEFINED` — tidak ada status komentar modern tertentu yang didefinisikan.
 - `ACTIVE` — komentar aktif.
 - `RESOLVED` — komentar telah diselesaikan.
 - `CLOSED` — komentar ditutup.
 
-Contoh berikut membuat komentar modern yang dipasang pada shape, mengaitkannya dengan seleksi teks, menandainya sebagai terselesaikan, menyimpan presentasi, dan memverifikasi nilai-nilai setelah membuka kembali file.
+Contoh berikut membuat komentar modern yang diikat ke bentuk, mengaitkannya dengan pemilihan teks, menandainya sebagai terselesaikan, menyimpan presentasi, dan memverifikasi nilai‑nilai setelah file dibuka kembali.
 
 ```python
 from datetime import datetime
@@ -287,7 +289,7 @@ with slides.Presentation(output_file) as reopened_presentation:
 
 ### **Memeriksa Komentar Modern yang Ada**
 
-Untuk memeriksa presentasi yang ada, periksa komentar mana yang merupakan instance [ModernComment](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/), kemudian periksa [ModernComment.shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/text_selection_length/), dan [ModernComment.status](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/status/). Shape `None` menunjukkan komentar tingkat slide. Untuk jangkar [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/), properti seleksi teks mengidentifikasi rentang yang terkait dalam bingkai teks shape.
+Untuk memeriksa presentasi yang ada, periksa komentar mana yang merupakan instance [ModernComment](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/), kemudian tinjau [ModernComment.shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/text_selection_length/), dan [ModernComment.status](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/status/). Bentuk `None` menunjukkan komentar tingkat slide. Untuk jangkar [AutoShape](https://reference.aspose.com/slides/id/python-net/aspose.slides/autoshape/), properti pemilihan teks mengidentifikasi rentang yang terkait dalam bingkai teks bentuk.
 
 ```python
 import aspose.slides as slides
@@ -372,12 +374,12 @@ with slides.Presentation() as presentation:
 
 **Apakah Aspose.Slides mendukung status terselesaikan untuk komentar modern?**
 
-Ya. [ModernComment.status](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/status/) dapat dibaca dan diatur dengan nilai [ModernCommentStatus](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncommentstatus/), termasuk `RESOLVED`. Status tersebut disimpan dalam presentasi dan dapat dibaca kembali setelah file dibuka kembali.
+Ya. [ModernComment.status](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncomment/status/) dapat dibaca dan diatur dengan nilai [ModernCommentStatus](https://reference.aspose.com/slides/id/python-net/aspose.slides/moderncommentstatus/) termasuk `RESOLVED`. Status disimpan dalam presentasi dan dapat dibaca kembali setelah file dibuka kembali.
 
-**Apakah diskusi berulir (rantai balasan) didukung, dan apakah ada batas kedalaman nesting?**
+**Apakah diskusi berulir (rantai balasan) didukung, dan apakah ada batas kedalaman?**
 
-Ya. Setiap komentar dapat merujuk ke [parent comment](https://reference.aspose.com/slides/id/python-net/aspose.slides/comment/parent_comment/)‑nya, memungkinkan rantai balasan. API tidak menetapkan batas kedalaman nesting yang spesifik.
+Ya. Setiap komentar dapat merujuk ke [parent comment](https://reference.aspose.com/slides/id/python-net/aspose.slides/comment/parent_comment/), memungkinkan rantai balasan. API tidak mendefinisikan batas kedalaman tertentu.
 
-**Dalam sistem koordinat apa posisi penanda komentar didefinisikan pada slide?**
+**Dalam sistem koordinat apa posisi penanda komentar pada slide didefinisikan?**
 
-Posisi penanda didefinisikan oleh koordinat floating-point dalam sistem koordinat slide, memungkinkan Anda menempatkannya secara tepat pada slide.
+Posisi penanda didefinisikan oleh koordinat floating‑point dalam sistem koordinat slide, memungkinkan Anda menempatkannya secara tepat pada slide.

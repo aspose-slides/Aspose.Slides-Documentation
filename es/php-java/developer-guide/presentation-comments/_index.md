@@ -1,5 +1,5 @@
 ---
-title: Gestionar comentarios de presentaciones en PHP
+title: Gestionar comentarios de presentación en PHP
 linktitle: Comentarios de presentación
 type: docs
 weight: 100
@@ -9,37 +9,39 @@ keywords:
 - comentario moderno
 - comentarios de PowerPoint
 - comentarios de presentación
-- comentarios en diapositivas
+- comentarios de diapositiva
 - añadir comentario
 - acceder al comentario
 - editar comentario
-- responder al comentario
+- responder comentario
 - eliminar comentario
 - borrar comentario
 - PowerPoint
 - presentación
 - PHP
 - Aspose.Slides
-description: "Gestiona los comentarios de presentaciones con Aspose.Slides para PHP mediante Java: añade, lee, edita, responde y elimina comentarios en presentaciones de PowerPoint de forma rápida y sencilla."
+description: "Gestione los comentarios de presentación con Aspose.Slides for PHP via Java: añada, lea, edite, responda y elimine comentarios en presentaciones de PowerPoint de forma rápida y sencilla."
 ---
 ## **Visión general**
 
-Este artículo explica cómo gestionar los comentarios de presentaciones con Aspose.Slides para PHP mediante Java. Presenta los tipos principales relacionados con los comentarios y muestra cómo añadir comentarios a las diapositivas, acceder a los comentarios existentes, trabajar con respuestas y comentarios modernos, y eliminar comentarios de una presentación.
+Este artículo explica cómo gestionar los comentarios de presentación con Aspose.Slides for PHP via Java. Introduce los principales tipos relacionados con los comentarios y demuestra cómo añadir comentarios a diapositivas, acceder a los comentarios existentes, trabajar con respuestas y comentarios modernos, y eliminar comentarios de una presentación.
 
-Los ejemplos abarcan escenarios comunes de revisión y colaboración en PowerPoint, como asignar comentarios a autores, leer el texto y los metadatos de los comentarios, crear cadenas de respuestas y eliminar comentarios seleccionados o todos los comentarios.
+Los ejemplos cubren escenarios comunes de revisión y colaboración en PowerPoint, como asignar comentarios a autores, leer el texto y los metadatos de los comentarios, crear cadenas de respuestas y eliminar comentarios seleccionados o todos los comentarios.
 
 En PowerPoint, los comentarios aparecen como anotaciones en las diapositivas. Seleccionar un comentario muestra su texto y la discusión relacionada.
+
+Para solicitar que los comentarios se muestren u oculten al abrir una presentación sin modificar los propios comentarios, consulte [Mostrar u ocultar comentarios al abrir una presentación](/slides/es/php-java/presentation-view-properties/).
 
 ## **¿Por qué añadir comentarios a las presentaciones?**
 
 Puede usar los comentarios para proporcionar retroalimentación y colaborar con colegas al revisar presentaciones.
 
-Aspose.Slides para PHP mediante Java ofrece las siguientes API para trabajar con comentarios:
+Aspose.Slides for PHP via Java ofrece las siguientes API para trabajar con comentarios:
 
-* La clase [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/) que proporciona acceso a los autores de comentarios de la presentación.
-* La clase [CommentCollection](https://reference.aspose.com/slides/es/php-java/aspose.slides/commentcollection/) que representa los comentarios asociados a un autor individual.
-* La clase [Comment](https://reference.aspose.com/slides/es/php-java/aspose.slides/comment/) que proporciona información sobre un comentario, incluido su autor, tiempo de creación, posición y texto.
-* La clase [CommentAuthor](https://reference.aspose.com/slides/es/php-java/aspose.slides/commentauthor/) que proporciona información sobre un autor, incluido su nombre, iniciales y los comentarios asociados.
+* La clase [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/), que brinda acceso a los autores de comentarios de la presentación.
+* La clase [CommentCollection](https://reference.aspose.com/slides/es/php-java/aspose.slides/commentcollection/), que representa los comentarios asociados a un autor individual.
+* La clase [Comment](https://reference.aspose.com/slides/es/php-java/aspose.slides/comment/), que proporciona información sobre un comentario, incluido su autor, hora de creación, posición y texto.
+* La clase [CommentAuthor](https://reference.aspose.com/slides/es/php-java/aspose.slides/commentauthor/), que brinda información sobre un autor, incluido su nombre, iniciales y comentarios asociados.
 
 ## **Añadir comentarios a diapositivas**
 
@@ -79,7 +81,7 @@ try {
 }
 ```
 
-## **Acceder a comentarios de diapositivas**
+## **Acceder a los comentarios de diapositivas**
 
 El siguiente ejemplo muestra cómo acceder a los comentarios existentes en una presentación de PowerPoint:
 
@@ -102,7 +104,7 @@ try {
 }
 ```
 
-## **Responder a comentarios**
+## **Responder a los comentarios**
 
 Un comentario padre es el comentario original en la parte superior de una jerarquía de respuestas. Los métodos [Comment::getParentComment](https://reference.aspose.com/slides/es/php-java/aspose.slides/comment/getparentcomment/) y [Comment::setParentComment](https://reference.aspose.com/slides/es/php-java/aspose.slides/comment/setparentcomment/) le permiten obtener o establecer el padre de un comentario.
 
@@ -161,21 +163,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-
 * Cuando se utiliza el método [Comment::remove](https://reference.aspose.com/slides/es/php-java/aspose.slides/comment/remove/) para eliminar un comentario, también se eliminan todas las respuestas a ese comentario.
 * Si [Comment::setParentComment](https://reference.aspose.com/slides/es/php-java/aspose.slides/comment/setparentcomment/) crea una referencia circular, se lanza una [PptxEditException](https://reference.aspose.com/slides/es/php-java/aspose.slides/pptxeditexception/).
-
 {{% /alert %}}
 
 ## **Añadir comentarios modernos**
 
-Los comentarios modernos pueden asociarse a la propia diapositiva, a una forma específica o a un rango de texto dentro de una AutoShape. El método [CommentCollection::addModernComment](https://reference.aspose.com/slides/es/php-java/aspose.slides/commentcollection/addmoderncomment/) acepta un argumento [Shape](https://reference.aspose.com/slides/es/php-java/aspose.slides/shape/) además de la diapositiva y las coordenadas del marcador del comentario.
+Los comentarios modernos pueden asociarse a la propia diapositiva, a una forma concreta o a un rango de texto dentro de una AutoShape. El método [CommentCollection::addModernComment](https://reference.aspose.com/slides/es/php-java/aspose.slides/commentcollection/addmoderncomment/) acepta un argumento [Shape](https://reference.aspose.com/slides/es/php-java/aspose.slides/shape/) además de la diapositiva y las coordenadas del marcador del comentario.
 
-Cuando se pasa `null` para el argumento de forma, el comentario es un comentario a nivel de diapositiva. Su marcador se posiciona mediante las coordenadas proporcionadas, pero no está asociado a una forma concreta, por lo que [ModernComment::getShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/getshape/) devuelve `null`. Cuando se suministra una [Shape](https://reference.aspose.com/slides/es/php-java/aspose.slides/shape/), el comentario se ancla a esa forma. Las coordenadas siguen definiendo la posición del marcador del comentario en la diapositiva, mientras que la asociación con la forma puede obtenerse a través de [ModernComment::getShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/getshape/).
+Cuando se pasa `null` para el argumento de forma, el comentario es un comentario a nivel de diapositiva. Su marcador se posiciona mediante las coordenadas suministradas, pero no está asociado a una forma concreta, por lo que [ModernComment::getShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/getshape/) devuelve `null`. Cuando se proporciona una [Shape](https://reference.aspose.com/slides/es/php-java/aspose.slides/shape/), el comentario se ancla a esa forma. Las coordenadas siguen definiendo la posición del marcador del comentario en la diapositiva, mientras que la asociación con la forma puede obtenerse a través de [ModernComment::getShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/getshape/).
 
 ### **Anclar un comentario moderno a una forma**
 
-El siguiente ejemplo crea tanto un comentario moderno a nivel de diapositiva como un comentario moderno anclado a una AutoShape específica. Luego lee la forma asociada de cada comentario.
+El siguiente ejemplo crea tanto un comentario moderno a nivel de diapositiva como un comentario moderno anclado a una AutoShape específica. A continuación lee la forma asociada de cada comentario.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -208,9 +208,9 @@ try {
 
 ### **Anclar comentarios a diferentes tipos de forma**
 
-Cualquier objeto de diapositiva representado por la clase [Shape](https://reference.aspose.com/slides/es/php-java/aspose.slides/shape/) puede usarse como ancla de forma. Los ejemplos más habituales incluyen [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/es/php-java/aspose.slides/connector/) y [GraphicalObject](https://reference.aspose.com/slides/es/php-java/aspose.slides/graphicalobject/) como gráficos.
+Cualquier objeto de diapositiva representado por la clase [Shape](https://reference.aspose.com/slides/es/php-java/aspose.slides/shape/) puede usarse como ancla de forma. Los ejemplos habituales incluyen [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/es/php-java/aspose.slides/connector/) y [GraphicalObject](https://reference.aspose.com/slides/es/php-java/aspose.slides/graphicalobject/) como gráficos.
 
-El siguiente ejemplo crea varios tipos de forma comunes y asocia un comentario moderno con cada una de ellas.
+El siguiente ejemplo crea varios tipos de forma comunes y asocia un comentario moderno a cada una.
 
 ```php
 use aspose\slides\ChartType;
@@ -258,15 +258,15 @@ try {
 }
 ```
 
-### **Anclar un comentario a texto y establecer su estado**
+### **Anclar un comentario a texto y definir su estado**
 
-Para un comentario moderno asociado a una [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/), los métodos [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/gettextselectionstart/) y [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/settextselectionstart/) acceden a la posición inicial del texto seleccionado en el marco de texto de la forma. Los métodos [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/gettextselectionlength/) y [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/settextselectionlength/) acceden a la longitud de la selección. Juntos, estos valores asocian el comentario a un rango de texto específico dentro de la AutoShape.
+Para un comentario moderno asociado a una [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/gettextselectionstart/) y [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/settextselectionstart/) acceden a la posición inicial del texto seleccionado en el marco de texto de la forma. [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/gettextselectionlength/) y [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/settextselectionlength/) acceden a la longitud de la selección. Juntos, estos valores asocian el comentario a un rango de texto específico dentro de la AutoShape.
 
-Los métodos [ModernComment::getStatus](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/getstatus/) y [ModernComment::setStatus](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/setstatus/) acceden a un valor de las constantes [ModernCommentStatus](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncommentstatus/):
+Los métodos [ModernComment::getStatus](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/getstatus/) y [ModernComment::setStatus](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/setstatus/) acceden a un valor de los constantes [ModernCommentStatus](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — no se ha definido un estado específico para el comentario moderno.
+- `NotDefined` — no se ha definido ningún estado específico para el comentario moderno.
 - `Active` — el comentario está activo.
-- `Resolved` — el comentario se ha resuelto.
+- `Resolved` — el comentario ha sido resuelto.
 - `Closed` — el comentario está cerrado.
 
 El siguiente ejemplo crea un comentario moderno anclado a una forma, lo asocia a una selección de texto, lo marca como resuelto, guarda la presentación y verifica los valores después de volver a abrir el archivo.
@@ -331,7 +331,7 @@ try {
 
 ### **Inspeccionar comentarios modernos existentes**
 
-Para inspeccionar una presentación existente, compruebe si cada comentario es un [ModernComment](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/), luego examine [ModernComment::getShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/gettextselectionlength/) y [ModernComment::getStatus](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/getstatus/). Una forma `null` indica un comentario a nivel de diapositiva. Para un ancla de [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/), los métodos de selección de texto identifican el rango asociado en el marco de texto de la forma.
+Para inspeccionar una presentación existente, compruebe si cada comentario es un [ModernComment](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/), luego examine [ModernComment::getShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/gettextselectionlength/) y [ModernComment::getStatus](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/getstatus/). Una forma `null` indica un comentario a nivel de diapositiva. Para una ancla de [AutoShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/autoshape/), los métodos de selección de texto identifican el rango asociado en el marco de texto de la forma.
 
 ```php
 use aspose\slides\Presentation;
@@ -441,12 +441,12 @@ try {
 
 **¿Aspose.Slides admite un estado resuelto para los comentarios modernos?**
 
-Sí. Los métodos [ModernComment::getStatus](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/getstatus/) y [ModernComment::setStatus](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/setstatus/) acceden a un valor de [ModernCommentStatus](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncommentstatus/), incluido `Resolved`. El estado se almacena en la presentación y puede leerse nuevamente después de volver a abrir el archivo.
+Sí. [ModernComment::getStatus](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/getstatus/) y [ModernComment::setStatus](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncomment/setstatus/) acceden a un valor de [ModernCommentStatus](https://reference.aspose.com/slides/es/php-java/aspose.slides/moderncommentstatus/), incluido `Resolved`. El estado se almacena en la presentación y puede leerse nuevamente después de volver a abrir el archivo.
 
-**¿Se admiten discusiones en hilos (cadenas de respuestas) y hay un límite de anidación?**
+**¿Se admiten discusiones en hilo (cadenas de respuestas) y existe un límite de anidación?**
 
-Sí. Cada comentario puede referenciar su [parent comment](https://reference.aspose.com/slides/es/php-java/aspose.slides/comment/getparentcomment/), lo que permite crear cadenas de respuestas. La API no define un límite específico de profundidad de anidación.
+Sí. Cada comentario puede referenciar su [comentario padre](https://reference.aspose.com/slides/es/php-java/aspose.slides/comment/getparentcomment/), lo que permite cadenas de respuestas. La API no define un límite específico de profundidad de anidación.
 
-**¿En qué sistema de coordenadas se define la posición del marcador de comentario en una diapositiva?**
+**¿En qué sistema de coordenadas se define la posición del marcador de un comentario en una diapositiva?**
 
-La posición del marcador se define mediante coordenadas de punto flotante en el sistema de coordenadas de la diapositiva, lo que permite colocarlo con precisión en la diapositiva.
+La posición del marcador se define mediante coordenadas en coma flotante en el sistema de coordenadas de la diapositiva, lo que permite colocarlo con precisión en la diapositiva.

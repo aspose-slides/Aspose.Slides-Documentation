@@ -1,5 +1,5 @@
 ---
-title: Správa komentářů v prezentaci na Androidu
+title: Správa komentářů prezentace na Androidu
 linktitle: Komentáře k prezentaci
 type: docs
 weight: 100
@@ -8,8 +8,8 @@ keywords:
 - komentář
 - moderní komentář
 - komentáře PowerPoint
-- komentáře k prezentaci
-- komentáře ke snímkům
+- komentáře prezentace
+- komentáře snímků
 - přidat komentář
 - přístup ke komentáři
 - upravit komentář
@@ -21,30 +21,32 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Spravujte komentáře v prezentacích pomocí Aspose.Slides pro Android prostřednictvím Javy: přidávejte, čtěte, upravujte, odpovídejte a odstraňujte komentáře v PowerPoint prezentacích rychle a snadno."
+description: "Spravujte komentáře prezentací pomocí Aspose.Slides pro Android prostřednictvím Javy: přidávejte, čtěte, upravujte, odpovídejte a odstraňujte komentáře v PowerPoint prezentacích rychle a snadno."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak spravovat komentáře v prezentaci pomocí Aspose.Slides pro Android prostřednictvím Javy. Představuje hlavní typy související s komentáři a ukazuje, jak přidávat komentáře do snímků, přistupovat k existujícím komentářům, pracovat s odpověďmi a moderními komentáři a odstraňovat komentáře z prezentace.
+V tomto článku se vysvětluje, jak spravovat komentáře prezentace s Aspose.Slides pro Android prostřednictvím Javy. Představuje hlavní typy související s komentáři a ukazuje, jak přidávat komentáře na snímky, přistupovat k existujícím komentářům, pracovat s odpověďmi a moderními komentáři a odstraňovat komentáře z prezentace.
 
-Příklady pokrývají běžné scénáře revizí a spolupráce v PowerPointu, jako je přiřazování komentářů autorům, čtení textu a metadat komentáře, vytváření řetězců odpovědí a odstraňování vybraných nebo všech komentářů.
+Ukázky pokrývají běžné scénáře revize a spolupráce v PowerPointu, jako je přiřazení komentářů autorům, čtení textu komentářů a metadat, vytváření řetězců odpovědí a odstraňování vybraných komentářů nebo všech komentářů.
 
-V PowerPointu se komentáře zobrazují jako anotace na snímcích. Výběr komentáře zobrazí jeho text a související diskusi.
+Komentáře se v PowerPointu zobrazují jako anotace na snímcích. Výběrem komentáře se zobrazí jeho text a související diskuse.
 
-## **Proč přidávat komentáře k prezentacím?**
+Pro požadavek, aby byly komentáře při otevírání prezentace zobrazeny nebo skryty bez změny samotných komentářů, viz [Zobrazit nebo skrýt komentáře při otevírání prezentace](/slides/cs/androidjava/presentation-view-properties/).
+
+## **Proč přidávat komentáře do prezentací?**
 
 Komentáře můžete použít k poskytování zpětné vazby a spolupráci s kolegy při revizi prezentací.
 
-Aspose.Slides pro Android prostřednictvím Javy poskytuje následující rozhraní pro práci s komentáři:
+Aspose.Slides pro Android prostřednictvím Javy poskytuje následující API pro práci s komentáři:
 
 * Třída [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) poskytuje přístup k autorům komentářů prezentace.
-* Rozhraní [ICommentCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icommentcollection/) představuje komentáře přiřazené konkrétnímu autorovi.
-* Rozhraní [IComment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icomment/) poskytuje informace o komentáři, včetně jeho autora, času vytvoření, pozice a textu.
-* Třída [CommentAuthor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/commentauthor/) poskytuje informace o autorovi, včetně jeho jména, iniciál a přiřazených komentářů.
+* Rozhraní [ICommentCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icommentcollection/) představuje komentáře přiřazené jednotlivému autorovi.
+* Rozhraní [IComment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icomment/) poskytuje informace o komentáři, včetně autora, času vytvoření, pozice a textu.
+* Třída [CommentAuthor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/commentauthor/) poskytuje informace o autorovi, včetně jména, iniciál a přiřazených komentářů.
 
-## **Přidání komentářů k snímkům**
+## **Přidat komentáře ke snímkům**
 
-Následující příklad ukazuje, jak přidat komentáře do snímků v prezentaci PowerPoint:
+Následující příklad ukazuje, jak přidat komentáře na snímky v PowerPoint prezentaci:
 
 ```java
 import com.aspose.slides.IComment;
@@ -85,7 +87,7 @@ try {
 
 ## **Přístup ke komentářům na snímcích**
 
-Následující příklad ukazuje, jak přistupovat k existujícím komentářům v prezentaci PowerPoint:
+Následující příklad ukazuje, jak přistupovat k existujícím komentářům v PowerPoint prezentaci:
 
 ```java
 import com.aspose.slides.IComment;
@@ -108,11 +110,11 @@ try {
 }
 ```
 
-## **Odpovědi na komentáře**
+## **Odpovídat na komentáře**
 
-Rodičovský komentář je původní komentář na vrcholu hierarchie odpovědí. Metody [IComment.getParentComment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icomment/#getParentComment--) a [IComment.setParentComment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) umožňují získat nebo nastavit rodiče komentáře.
+Rodičovský komentář je původní komentář na vrcholu hierarchie odpovědí. Metody [IComment.getParentComment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icomment/#getParentComment--) a [IComment.setParentComment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) vám umožňují získat nebo nastavit rodiče komentáře.
 
-Následující příklad ukazuje, jak přidávat odpovědi a zkoumat výslednou hierarchii komentářů:
+Následující příklad ukazuje, jak přidávat odpovědi a prozkoumat vzniklou hierarchii komentářů:
 
 ```java
 import com.aspose.slides.IComment;
@@ -169,19 +171,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Když je použita metoda [IComment.remove](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icomment/#remove--), jsou smazány také všechny odpovědi na daný komentář.
-* Pokud metoda [IComment.setParentComment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) vytvoří kruhový odkaz, je vyvolána výjimka [PptxEditException](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pptxeditexception/).
+* Když je metoda [IComment.remove](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icomment/#remove--) použita k smazání komentáře, všechny odpovědi na tento komentář jsou také smazány.
+* Pokud metoda [IComment.setParentComment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) vytvoří kruhovou referenci, je vyvolána výjimka [PptxEditException](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
-## **Přidání moderních komentářů**
+## **Přidat moderní komentáře**
 
-Moderní komentáře mohou být přiřazeny přímo ke snímku, konkrétnímu tvaru nebo textovému rozsahu uvnitř AutoShape. Metoda [ICommentCollection.addModernComment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) přijímá argument [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/) kromě snímku a souřadnic značky komentáře.
+Moderní komentáře mohou být přiřazeny samotnému snímku, konkrétnímu tvaru nebo rozsahu textu uvnitř AutoShape. Metoda [ICommentCollection.addModernComment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) přijímá argument [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/) kromě snímku a souřadnic značky komentáře.
 
-Když je pro argument tvaru předáno `null`, jedná se o komentář úrovně snímku. Jeho značka je umístěna podle dodaných souřadnic, ale není přiřazena k žádnému konkrétnímu tvaru, takže [IModernComment.getShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getShape--) vrací `null`. Když je zadán [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/), je komentář ukotven k tomuto tvaru. Souřadnice i nadále určují pozici značky komentáře na snímku, zatímco přiřazení tvaru lze získat přes [IModernComment.getShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getShape--).
+Když je jako argument tvaru předáno `null`, jedná se o komentář na úrovni snímku. Jeho značka je umístěna podle zadaných souřadnic, ale není přiřazena k žádnému konkrétnímu tvaru, takže [IModernComment.getShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getShape--) vrací `null`. Když je poskytnut [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/), je komentář ukotven k tomuto tvaru. Souřadnice stále určují pozici značky komentáře na snímku, zatímco asociaci s tvarem lze získat pomocí [IModernComment.getShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getShape--).
 
-### **Ukotvení moderního komentáře k tvaru**
+### **Ukotvit moderní komentář k tvaru**
 
-Následující příklad vytvoří jak moderní komentář úrovně snímku, tak moderní komentář ukotvený k určitému AutoShape. Poté přečte přiřazený tvar z každého komentáře.
+Následující příklad vytvoří jak moderní komentář na úrovni snímku, tak moderní komentář ukotvený k určitému AutoShape. Poté načte přiřazený tvar z každého komentáře.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -217,9 +219,9 @@ try {
 }
 ```
 
-### **Ukotvení komentářů k různým typům tvarů**
+### **Ukotvit komentáře k různým typům tvarů**
 
-Jakýkoli objekt snímku, který implementuje [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/), může být použit jako ukotvení tvaru. Běžné příklady zahrnují [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iconnector/) a instance [IGraphicalObject](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/igraphicalobject/) jako jsou grafy.
+Libovolný objekt snímku, který implementuje rozhraní [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/), může být použit jako ukotvení tvaru. Běžné příklady zahrnují [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iconnector/) a instance [IGraphicalObject](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/igraphicalobject/), například grafy.
 
 Následující příklad vytvoří několik běžných typů tvarů a přiřadí k nim moderní komentář.
 
@@ -278,18 +280,18 @@ try {
 }
 ```
 
-### **Ukotvení komentáře k textu a nastavení jeho stavu**
+### **Ukotvit komentář k textu a nastavit jeho stav**
 
-Pro moderní komentář přiřazený k [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/), metody [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) a [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) přistupují k počáteční pozici vybraného textu v textovém rámečku tvaru. Metody [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) a [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) přistupují k délce výběru. Společně tyto hodnoty přiřazují komentář ke konkrétnímu textovému rozsahu uvnitř AutoShape.
+Pro moderní komentář přiřazený k [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/), metody [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) a [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int--) přistupují k počáteční pozici vybraného textu v textovém rámci tvaru. Metody [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) a [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) přistupují k délce výběru. Společně tyto hodnoty přiřazují komentář ke konkrétnímu rozsahu textu uvnitř AutoShape.
 
-Metody [IModernComment.getStatus](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getStatus--) a [IModernComment.setStatus](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) získávají hodnotu z konstant [ModernCommentStatus](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/moderncommentstatus/):
+Metody [IModernComment.getStatus](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getStatus--) a [IModernComment.setStatus](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) přistupují k hodnotě ze konstant [ModernCommentStatus](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/moderncommentstatus/):
 
 - `NotDefined` — není definován žádný konkrétní stav moderního komentáře.
 - `Active` — komentář je aktivní.
 - `Resolved` — komentář byl vyřešen.
 - `Closed` — komentář je uzavřen.
 
-Následující příklad vytvoří moderní komentář ukotvený k tvaru, přiřadí jej k výběru textu, označí jej jako vyřešený, uloží prezentaci a po opětovném otevření souboru ověří hodnoty.
+Následující příklad vytvoří moderní komentář ukotvený k tvaru, přiřadí jej k výběru textu, označí jej jako vyřešený, uloží prezentaci a ověří hodnoty po opětovném otevření souboru.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -354,9 +356,9 @@ try {
 }
 ```
 
-### **Prozkoumání existujících moderních komentářů**
+### **Prozkoumat existující moderní komentáře**
 
-Pro prozkoumání existující prezentace zjistěte, které komentáře implementují [IModernComment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/), pak prověřte [IModernComment.getShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) a [IModernComment.getStatus](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getStatus--). `null` tvar označuje komentář úrovně snímku. Pro ukotvení k [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) metody výběru textu určují související rozsah v textovém rámečku tvaru.
+K prozkoumání existující prezentace zkontrolujte, které komentáře implementují rozhraní [IModernComment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/), a poté prozkoumejte [IModernComment.getShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) a [IModernComment.getStatus](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getStatus--). `null` tvar indikuje komentář na úrovni snímku. Pro ukotvení k [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) metody výběru textu identifikují přiřazený rozsah v textovém rámci tvaru.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -401,9 +403,9 @@ try {
 }
 ```
 
-## **Odstranění komentářů**
+## **Odstranit komentáře**
 
-### **Odstranění všech komentářů a autorů komentářů**
+### **Odstranit všechny komentáře a autory komentářů**
 
 Následující příklad ukazuje, jak odstranit všechny komentáře a autory komentářů z prezentace:
 
@@ -425,7 +427,7 @@ try {
 }
 ```
 
-### **Odstranění konkrétních komentářů**
+### **Odstranit konkrétní komentáře**
 
 Následující příklad ukazuje, jak odstranit konkrétní komentáře ze snímku:
 
@@ -474,14 +476,14 @@ try {
 
 ## **Často kladené otázky**
 
-**Podporuje Aspose.Slides stav vyřešený pro moderní komentáře?**
+**Podporuje Aspose.Slides stav 'vyřešen' pro moderní komentáře?**
 
-Ano. Metody [IModernComment.getStatus](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getStatus--) a [IModernComment.setStatus](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) přistupují k hodnotě [ModernCommentStatus](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/moderncommentstatus/), včetně `Resolved`. Stav je uložen v prezentaci a lze jej znovu přečíst po opětovném otevření souboru.
+Ano. Metody [IModernComment.getStatus](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#getStatus--) a [IModernComment.setStatus](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) přistupují k hodnotě [ModernCommentStatus](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/moderncommentstatus/), včetně `Resolved`. Stav je uložen v prezentaci a lze jej znovu přečíst po opětovném otevření souboru.
 
-**Jsou podporovány vlákna diskusí (řetězce odpovědí) a existuje omezení hloubky?**
+**Jsou podporovány vlákna diskusí (řetězce odpovědí) a existuje limit hloubky vnoření?**
 
 Ano. Každý komentář může odkazovat na svůj [parent comment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icomment/#getParentComment--), což umožňuje řetězce odpovědí. API nedefinuje konkrétní limit hloubky vnoření.
 
 **V jakém souřadnicovém systému je definována pozice značky komentáře na snímku?**
 
-Pozice značky je definována pomocí souřadnic s desetinnou čárkou v souřadnicovém systému snímku, což umožňuje přesné umístění na snímku.
+Pozice značky je definována pomocí souřadnic s plovoucí desetinnou čárkou v souřadnicovém systému snímku, což vám umožňuje ji přesně umístit na snímek.

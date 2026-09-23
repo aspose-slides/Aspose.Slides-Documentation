@@ -15,36 +15,38 @@ keywords:
 - ویرایش نظر
 - پاسخ به نظر
 - حذف نظر
-- حذف نظر
+- پاک کردن نظر
 - پاورپوینت
 - ارائه
 - پایتون
 - جاوا
 - Aspose.Slides
-description: "نظرات ارائه را با Aspose.Slides برای پایتون از طریق جاوا مدیریت کنید: اضافه کردن، خواندن، ویرایش، پاسخ به و حذف نظرات در ارائه‌های پاورپوینت به‌سرعت و به‌راحتی."
+description: "نظرات ارائه را با Aspose.Slides برای پایتون از طریق جاوا مدیریت کنید: افزودن، خواندن، ویرایش، پاسخ دادن و حذف نظرات در ارائه‌های پاورپوینت را به‌سرعت و به‌سادگی انجام دهید."
 ---
 ## **مرور کلی**
 
-این مقاله توضیح می‌دهد چگونه نظرات ارائه را با Aspose.Slides برای Python از طریق Java مدیریت کنیم. این مقاله انواع اصلی مرتبط با نظرات را معرفی می‌کند و نشان می‌دهد چگونه نظرات را به اسلایدها اضافه کنیم، نظرات موجود را دسترسی داشته باشیم، با پاسخ‌ها و نظرات مدرن کار کنیم و نظرات را از یک ارائه حذف کنیم.
+این مقاله توضیح می‌دهد که چگونه می‌توانید نظرات ارائه را با Aspose.Slides for Python via Java مدیریت کنید. این مقاله انواع اصلی مربوط به نظرات را معرفی می‌کند و نمایش می‌دهد چگونه نظرات را به اسلایدها اضافه کنید، به نظرات موجود دسترسی پیدا کنید، با پاسخ‌ها و نظرات مدرن کار کنید و نظرات را از یک ارائه حذف کنید.
 
-مثال‌ها سناریوهای رایج بررسی و همکاری در PowerPoint را پوشش می‌دهند، همچون اختصاص نظرات به نویسندگان، خواندن متن نظر و داده‌های متا، ساخت زنجیره پاسخ‌ها و حذف نظرات انتخاب شده یا تمام نظرات.
+نمونه‌ها موقعیت‌های معمول بازبینی و همکاری در PowerPoint را شامل می‌شوند، مانند اختصاص نظرات به نویسندگان، خواندن متن نظر و داده‌های متادیتا، ساخت زنجیره‌ پاسخ‌ها، و حذف نظرات انتخابی یا تمام نظرات.
 
-در PowerPoint، نظرات به عنوان حاشیه‌نویسی روی اسلایدها نمایش داده می‌شوند. انتخاب یک نظر متن آن و بحث مرتبط را نشان می‌دهد.
+در PowerPoint، نظرات به‌عنوان حاشیه‌نویسی روی اسلایدها نمایش داده می‌شوند. انتخاب یک نظر متن و بحث مرتبط با آن را نشان می‌دهد.
 
-## **چرا نظرات به ارائه‌ها اضافه کنیم؟**
+برای درخواست نمایش یا پنهان کردن نظرات هنگام باز کردن یک ارائه بدون تغییر در خود نظرات، ببینید [نمایش یا پنهان کردن نظرات هنگام باز کردن یک ارائه](/slides/fa/python-java/presentation-view-properties/).
 
-می‌توانید از نظرات برای ارائه بازخورد و همکاری با همکاران هنگام بررسی ارائه‌ها استفاده کنید.
+## **چرا نظرات را به ارائه‌ها اضافه کنیم؟**
 
-Aspose.Slides برای Python از طریق Java APIهای زیر را برای کار با نظرات فراهم می‌کند:
+می‌توانید از نظرات برای ارائه بازخورد و همکاری با همکاران هنگام بازبینی ارائه‌ها استفاده کنید.
+
+Aspose.Slides for Python via Java APIهای زیر را برای کار با نظرات فراهم می‌کند:
 
 * کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) که دسترسی به نویسندگان نظرات ارائه را فراهم می‌کند.
-* کلاس [CommentCollection](https://reference.aspose.com/slides/fa/python-java/aspose.slides/commentcollection/) که نظرات مرتبط با یک نویسنده را نمایش می‌دهد.
+* کلاس [CommentCollection](https://reference.aspose.com/slides/fa/python-java/aspose.slides/commentcollection/) که نظرات مرتبط با یک نویسنده خاص را نمایندگی می‌کند.
 * کلاس [Comment](https://reference.aspose.com/slides/fa/python-java/aspose.slides/comment/) که اطلاعاتی درباره یک نظر شامل نویسنده، زمان ایجاد، موقعیت و متن را ارائه می‌دهد.
-* کلاس [CommentAuthor](https://reference.aspose.com/slides/fa/python-java/aspose.slides/commentauthor/) که اطلاعاتی درباره یک نویسنده شامل نام، حروف اختصاری و نظرات مرتبط را فراهم می‌کند.
+* کلاس [CommentAuthor](https://reference.aspose.com/slides/fa/python-java/aspose.slides/commentauthor/) که اطلاعاتی درباره یک نویسنده شامل نام، حروف اولیه و نظرات مرتبط را فراهم می‌کند.
 
 ## **افزودن نظرات به اسلاید**
 
-مثال زیر نشان می‌دهد چگونه نظرات را به اسلایدهای یک ارائه PowerPoint اضافه کنیم:
+مثال زیر نشان می‌دهد چگونه نظرات را به اسلایدهای یک ارائه PowerPoint اضافه کنید:
 
 ```python
 import jpype
@@ -85,7 +87,7 @@ finally:
 
 ## **دسترسی به نظرات اسلاید**
 
-مثال زیر نشان می‌دهد چگونه به نظرات موجود در یک ارائه PowerPoint دسترسی پیدا کنیم:
+مثال زیر نشان می‌دهد چگونه به نظرات موجود در یک ارائه PowerPoint دسترسی پیدا کنید:
 
 ```python
 import jpype
@@ -111,9 +113,9 @@ finally:
 
 ## **پاسخ به نظرات**
 
-یک نظر والد، نظر اصلی در بالای سلسله‌مراتبی پاسخ‌ها است. متدهای [Comment.getParentComment](https://reference.aspose.com/slides/fa/python-java/aspose.slides/comment/#getParentComment) و [Comment.setParentComment](https://reference.aspose.com/slides/fa/python-java/aspose.slides/comment/#setParentComment) به شما اجازه می‌دهند والد یک نظر را دریافت یا تنظیم کنید.
+یک نظر والد، نظر اصلی در بالای یک سلسله‌مراتب پاسخ است. متدهای [Comment.getParentComment](https://reference.aspose.com/slides/fa/python-java/aspose.slides/comment/#getParentComment) و [Comment.setParentComment](https://reference.aspose.com/slides/fa/python-java/aspose.slides/comment/#setParentComment) به شما امکان می‌دهند والد یک نظر را دریافت یا تنظیم کنید.
 
-مثال زیر نشان می‌دهد چگونه پاسخ‌ها را اضافه کرده و سلسله‌مراتب نظرات حاصل را بررسی کنیم:
+مثال زیر نشان می‌دهد چگونه پاسخ‌ها را اضافه کنید و ساختار سلسله‌مراتبی نتایج را بررسی کنید:
 
 ```python
 import jpype
@@ -171,18 +173,18 @@ finally:
 
 {{% alert color="warning" title="Warning" %}}
 * وقتی متد [Comment.remove](https://reference.aspose.com/slides/fa/python-java/aspose.slides/comment/#remove) برای حذف یک نظر استفاده می‌شود، تمام پاسخ‌های آن نظر نیز حذف می‌شوند.
-* اگر [Comment.setParentComment](https://reference.aspose.com/slides/fa/python-java/aspose.slides/comment/#setParentComment) یک مرجع حلقه‌ای ایجاد کند، یک [PptxEditException](https://reference.aspose.com/slides/fa/python-java/aspose.slides/pptxeditexception/) پرتاب می‌شود.
+* اگر [Comment.setParentComment](https://reference.aspose.com/slides/fa/python-java/aspose.slides/comment/#setParentComment) یک مرجع چرخه‌ای ایجاد کند، یک استثنای [PptxEditException](https://reference.aspose.com/slides/fa/python-java/aspose.slides/pptxeditexception/) پرتاب می‌شود.
 {{% /alert %}}
 
 ## **افزودن نظرات مدرن**
 
-نظرات مدرن می‌توانند به خود اسلاید، به یک شکل خاص یا به بازه متنی داخل یک [AutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/autoshape/) مرتبط شوند. متد [CommentCollection.addModernComment](https://reference.aspose.com/slides/fa/python-java/aspose.slides/commentcollection/#addModernComment) علاوه بر اسلاید و مختصات نشانگر نظر، پارامتر یک [Shape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shape/) را می‌پذیرد.
+نظرات مدرن می‌توانند به خود اسلاید، به یک شکل خاص، یا به یک بازه متنی در داخل یک [AutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/autoshape/) مرتبط شوند. متد [CommentCollection.addModernComment](https://reference.aspose.com/slides/fa/python-java/aspose.slides/commentcollection/#addModernComment) علاوه بر اسلاید و مختصات نشانگر نظر، یک آرگومان [Shape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shape/) را نیز می‌پذیرد.
 
-زمانی که `None` برای پارامتر shape ارسال شود، نظر یک نظر سطح اسلاید است. نشانگر آن با مختصات ارائه شده موقعیت‌گیری می‌شود اما به شکل خاصی مرتبط نیست، بنابراین [ModernComment.getShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#getShape) مقدار `None` برمی‌گرداند. وقتی یک [Shape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shape/) فراهم شود، نظر به آن شکل متصل می‌شود. مختصات همچنان موقعیت نشانگر نظر روی اسلاید را تعریف می‌کند، در حالی که ارتباط شکل از طریق [ModernComment.getShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#getShape) قابل بازیابی است.
+زمانی که برای آرگومان shape مقدار `None` ارسال شود، نظر یک نظر سطح اسلاید است. نشانگر آن با مختصات ارائه‌شده موقعیت می‌گیرد، اما به شکل خاصی مرتبط نیست، بنابراین [ModernComment.getShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#getShape) مقدار `None` باز می‌گرداند. وقتی یک [Shape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shape/) فراهم شود، نظر به آن شکل متصل می‌شود. مختصات همچنان موقعیت نشانگر نظر روی اسلاید را تعریف می‌کند، در حالی که ارتباط شکل می‌تواند از طریق [ModernComment.getShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#getShape) بازیابی شود.
 
-### **پیوست یک نظر مدرن به یک شکل**
+### **اتصال یک نظر مدرن به یک شکل**
 
-مثال زیر هم یک نظر مدرن سطح اسلاید و هم یک نظر مدرن متصل به یک [AutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/autoshape/) ایجاد می‌کند. سپس شکل مرتبط با هر نظر را می‌خواند.
+مثال زیر هم یک نظر مدرن سطح اسلاید و هم یک نظر مدرن متصل به یک [AutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/autoshape/) خاص ایجاد می‌کند. سپس شکل مرتبط با هر نظر را می‌خواند.
 
 ```python
 import jpype
@@ -218,11 +220,11 @@ finally:
     presentation.dispose()
 ```
 
-### **پیوست نظرات به انواع مختلف شکل‌ها**
+### **اتصال نظرات به انواع مختلف شکل‌ها**
 
-هر شیء اسلایدی که از [Shape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shape/) ارث‌بری می‌کند می‌تواند به عنوان لنگر شکل استفاده شود. مثال‌های رایج شامل [AutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/autoshape/)، [PictureFrame](https://reference.aspose.com/slides/fa/python-java/aspose.slides/pictureframe/)، [GroupShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/groupshape/)، [Connector](https://reference.aspose.com/slides/fa/python-java/aspose.slides/connector/) و نمونه‌های [GraphicalObject](https://reference.aspose.com/slides/fa/python-java/aspose.slides/graphicalobject/) مانند نمودارها هستند.
+هر شیء اسلایدی که از [Shape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/shape/) ارث‌بری می‌کند می‌تواند به‌عنوان پیوست شکل استفاده شود. مثال‌های رایج شامل [AutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/autoshape/)، [PictureFrame](https://reference.aspose.com/slides/fa/python-java/aspose.slides/pictureframe/)، [GroupShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/groupshape/)، [Connector](https://reference.aspose.com/slides/fa/python-java/aspose.slides/connector/) و نمونه‌های [GraphicalObject](https://reference.aspose.com/slides/fa/python-java/aspose.slides/graphicalobject/) مانند نمودارها هستند.
 
-مثال زیر چند نوع شکل رایج ایجاد کرده و برای هر کدام یک نظر مدرن مرتبط می‌کند.
+مثال زیر چند نوع شکل رایج ایجاد می‌کند و برای هر یک یک نظر مدرن مرتبط می‌سازد.
 
 ```python
 import jpype
@@ -274,21 +276,21 @@ finally:
     presentation.dispose()
 ```
 
-### **پیوست یک نظر به متن و تنظیم وضعیت آن**
+### **اتصال یک نظر به متن و تنظیم وضعیت آن**
 
-برای یک نظر مدرن مرتبط با یک [AutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/autoshape/)، متدهای [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#getTextSelectionStart) و [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#setTextSelectionStart) موقعیت شروع متن انتخاب‌شده در قاب متن شکل را دسترسی می‌دهند. متدهای [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#getTextSelectionLength) و [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#setTextSelectionLength) طول انتخاب را باز می‌گردانند. این مقادیر با هم نظر را به بازه متنی مشخصی داخل AutoShape مرتبط می‌سازند.
+برای یک نظر مدرن مرتبط با یک [AutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/autoshape/)، متدهای [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#getTextSelectionStart) و [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#setTextSelectionStart) موقعیت شروع متن انتخاب‌شده در فریم متن شکل را برمی‌گردانند. متدهای [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#getTextSelectionLength) و [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#setTextSelectionLength) طول انتخاب را برمی‌گردانند. این مقادیر همراه با هم نظر را به بازه متنی خاصی داخل AutoShape مرتبط می‌کنند.
 
-متدهای [ModernComment.getStatus](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#getStatus) و [ModernComment.setStatus](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#setStatus) مقداریک از ثابت‌های [ModernCommentStatus](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncommentstatus/) را برمی‌گردانند:
+متدهای [ModernComment.getStatus](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#getStatus) و [ModernComment.setStatus](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#setStatus) مقداریک مقدار از ثابت‌های [ModernCommentStatus](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncommentstatus/) را برمی‌گردانند:
 
-- [NotDefined](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncommentstatus/#NotDefined) — هیچ وضعیت خاصی برای نظر مدرن تعریف نشده است.
-- [Active](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncommentstatus/#Active) — نظر فعال است.
-- [Resolved](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncommentstatus/#Resolved) — نظر حل شده است.
-- [Closed](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncommentstatus/#Closed) — نظر بسته است.
+- [NotDefined] — وضعیت خاصی برای نظر مدرن تعریف نشده است.
+- [Active] — نظر فعال است.
+- [Resolved] — نظر حل شده است.
+- [Closed] — نظر بسته شده است.
 
-مثال زیر یک نظر مدرن متصل به شکل ایجاد می‌کند، آن را به یک انتخاب متنی پیوست می‌کند، به عنوان حل شده علامت‌گذاری می‌کند، ارائه را ذخیره می‌کند و پس از باز کردن مجدد فایل مقادیر را بررسی می‌کند.
+مثال زیر یک نظر مدرن متصل به شکل ایجاد می‌کند، آن را به یک انتخاب متنی مرتبط می‌سازد، به عنوان حل شده علامت می‌زند، ارائه را ذخیره می‌کند و پس از باز کردن مجدد فایل مقادیر را تأیید می‌کند.
 
 ```python
-import jpime
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -348,7 +350,7 @@ finally:
 
 ### **بررسی نظرات مدرن موجود**
 
-برای بررسی یک ارائه موجود، بررسی کنید کدام نظرات نمونه [ModernComment](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/) هستند، سپس به [ModernComment.getShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#getShape)، [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#getTextSelectionStart)، [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#getTextSelectionLength) و [ModernComment.getStatus](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#getStatus) مراجعه کنید. یک شکل `None` نشانگر نظری در سطح اسلاید است. برای لنگر یک [AutoShape](https://reference.aspose.com/slides/fa/python-java/aspose.slides/autoshape/)، متدهای انتخاب متن بازه مرتبط در قاب متن شکل را شناسایی می‌کنند.
+برای بررسی یک ارائه موجود، بررسی کنید که کدام نظرات نمونه‌ای از [ModernComment] هستند، سپس [ModernComment.getShape]، [ModernComment.getTextSelectionStart]، [ModernComment.getTextSelectionLength] و [ModernComment.getStatus] را بررسی کنید. یک شکل `None` نشانگر یک نظر سطح اسلاید است. برای یک پیوست [AutoShape]، متدهای انتخاب متن بازه مرتبط در فریم متن شکل را مشخص می‌کنند.
 
 ```python
 import jpype
@@ -392,7 +394,7 @@ finally:
 
 ### **حذف تمام نظرات و نویسندگان نظرات**
 
-مثال زیر نشان می‌دهد چگونه تمام نظرات و نویسندگان نظرات را از یک ارائه حذف کنیم:
+مثال زیر نشان می‌دهد چگونه تمام نظرات و نویسندگان نظرات را از یک ارائه حذف کنید:
 
 ```python
 import jpype
@@ -416,7 +418,7 @@ finally:
 
 ### **حذف نظرات خاص**
 
-مثال زیر نشان می‌دهد چگونه نظرات خاصی را از یک اسلاید حذف کنیم:
+مثال زیر نشان می‌دهد چگونه نظرات خاصی را از یک اسلاید حذف کنید:
 
 ```python
 import jpype
@@ -457,16 +459,16 @@ finally:
     presentation.dispose()
 ```
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**آیا Aspose.Slides از وضعیت حل شده برای نظرات مدرن پشتیبانی می‌کند؟**
+**آیا Aspose.Slides وضعیت حل شده برای نظرات مدرن را پشتیبانی می‌کند؟**
 
-بله. متدهای [ModernComment.getStatus](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#getStatus) و [ModernComment.setStatus](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#setStatus) مقدار یک [ModernCommentStatus](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncommentstatus/) را برمی‌گردانند، از جمله `Resolved`. این وضعیت در ارائه ذخیره می‌شود و پس از باز کردن مجدد فایل قابل خواندن است.
+بله. متدهای [ModernComment.getStatus](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#getStatus) و [ModernComment.setStatus](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncomment/#setStatus) یک مقدار از [ModernCommentStatus](https://reference.aspose.com/slides/fa/python-java/aspose.slides/moderncommentstatus/) را برمی‌گردانند، از جمله `Resolved`. این وضعیت در ارائه ذخیره می‌شود و می‌تواند پس از باز کردن مجدد فایل دوباره خوانده شود.
 
-**آیا بحث‌های رشته‌ای (زنجیره‌های پاسخ) پشتیبانی می‌شوند و آیا محدودیتی برای تو در تو بودن وجود دارد؟**
+**آیا بحث‌های زنجیره‌ای (زنجیره‌های پاسخ) پشتیبانی می‌شوند و آیا محدودیتی برای تو در تو بودن وجود دارد؟**
 
-بله. هر نظر می‌تواند به [parent comment](https://reference.aspose.com/slides/fa/python-java/aspose.slides/comment/#getParentComment) خود ارجاع دهد و زنجیره پاسخ‌ها را فعال کند. API محدودیت عمق تو در توی خاصی تعریف نمی‌کند.
+بله. هر نظر می‌تواند به [parent comment] خود ارجاع دهد که امکان ایجاد زنجیره‌های پاسخ را می‌دهد. API محدودیت عمق تو در توی خاصی تعریف نکرده است.
 
-**موقعیت نشانگر نظر در اسلاید بر چه سیستم مختصاتی تعریف می‌شود؟**
+**موقعیت نشانگر نظر بر روی اسلاید در کدام سیستم مختصاتی تعریف می‌شود؟**
 
-موقعیت نشانگر توسط مختصات عددی شناور در سیستم مختصات اسلاید تعریف می‌شود که امکان قرار دادن دقیق آن روی اسلاید را می‌دهد.
+موقعیت نشانگر با مختصات نقطه شناور در سیستم مختصات اسلاید تعریف می‌شود، که اجازه می‌دهد آن را دقیقاً روی اسلاید قرار دهید.

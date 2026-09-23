@@ -6,14 +6,14 @@ weight: 80
 url: /ar/net/presentation-view-properties/
 keywords:
 - خصائص العرض
-- العرض العادي
+- العرض الطبيعي
 - محتوى المخطط
 - أيقونات المخطط
-- تثبيت المقسم العمودي
-- العرض الفردي
+- تثبيت الفاصل العمودي
+- العرض المفرد
 - حالة الشريط
 - حجم البُعد
-- تعديل تلقائي
+- ضبط تلقائي
 - تكبير افتراضي
 - PowerPoint
 - OpenDocument
@@ -21,39 +21,39 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "اكتشف خصائص عرض Aspose.Slides لـ .NET لتخصيص صيغ شرائح PPT، PPTX، وODP—ضبط التخطيطات ومستويات التكبير وإعدادات العرض."
+description: "اكتشف خصائص العرض في Aspose.Slides for .NET لتخصيص صيغ شرائح PPT و PPTX و ODP — ضبط التخطيطات ومستويات التكبير وإعدادات العرض."
 ---
-## **مقدمة**
+## **المقدمة**
 
-العرض العادي يتكون من ثلاث مناطق محتوى: الشريحة نفسها، منطقة محتوى جانبية، ومنطقة محتوى سفلية. الخصائص المتعلقة بموضع المناطق المختلفة للمحتوى. هذه المعلومات تسمح للتطبيق بحفظ حالة العرض إلى الملف، بحيث عند إعادة الفتح يكون العرض في نفس الحالة التي كان عليها عندما تم حفظ العرض آخر مرة.
+يتكون العرض الطبيعي من ثلاث مناطق محتوى: الشريحة نفسها، منطقة محتوى جانبية، ومنطقة محتوى سفلية. الخصائص المتعلقة بموضع المناطق المختلفة للمحتوى. تسمح هذه المعلومات للتطبيق بحفظ حالة العرض في الملف، بحيث يكون العرض في نفس الحالة عند إعادة فتحه كما كان عندما تم حفظ العرض آخر مرة.
 
-تمت إضافة الخاصية [IViewProperties.NormalViewProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/iviewproperties/properties/normalviewproperties) لتوفير الوصول إلى خصائص العرض العادي للعرض التقديمي.  
+تمت إضافة الخاصية [IViewProperties.NormalViewProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/iviewproperties/properties/normalviewproperties) لتوفير الوصول إلى خصائص العرض الطبيعي للعرض التقديمي.  
 
-تمت إضافة الواجهات [INormalViewProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/inormalviewproperties)، [INormalViewRestoredProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/inormalviewrestoredproperties) وكذلك سابقتها، وتعداد [SplitterBarStateType](https://reference.aspose.com/slides/ar/net/aspose.slides/splitterbarstatetype).
+تمت إضافة الواجهات [INormalViewProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/inormalviewproperties)، [INormalViewRestoredProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/inormalviewrestoredproperties) وسلالتها، وتعداد [SplitterBarStateType](https://reference.aspose.com/slides/ar/net/aspose.slides/splitterbarstatetype).
 
 ## **حول INormalViewProperties**
 
-يمثل خصائص العرض العادي.
+يمثل خصائص العرض الطبيعي.
 
-الخاصية **ShowOutlineIcons** تحدد ما إذا كان يجب على التطبيق إظهار الأيقونات عند عرض محتوى المخطط التفصيلي في أي من مناطق المحتوى في وضع العرض العادي.
+تحدد الخاصية **ShowOutlineIcons** ما إذا كان يجب على التطبيق إظهار الأيقونات عند عرض محتوى المخطط في أي من مناطق المحتوى في وضع العرض الطبيعي.
 
-الخاصية **SnapVerticalSplitter** تحدد ما إذا كان يجب أن ينكمش المقسم العمودي إلى حالة مصغرة عندما تكون المنطقة الجانبية صغيرة بما يكفي.
+تحدد الخاصية **SnapVerticalSplitter** ما إذا كان يجب أن ينتقل الفاصل الرأسي إلى حالة مصغرة عندما تكون المنطقة الجانبية صغيرة بما يكفي.
 
-الخاصية **PreferSingleView** تحدد ما إذا كان المستخدم يفضل رؤية منطقة محتوى واحدة تملأ النافذة بالكامل بدلاً من العرض العادي القياسي بثلاث مناطق محتوى. إذا تم تفعيلها، قد يختار التطبيق عرض إحدى مناطق المحتوى في كامل النافذة.
+تحدد الخاصية **PreferSingleView** ما إذا كان المستخدم يفضّل رؤية منطقة محتوى واحدة بملء النافذة بدلاً من العرض الطبيعي القياسي بثلاث مناطق محتوى. إذا تم تمكينها، قد يختار التطبيق عرض إحدى مناطق المحتوى في النافذة بالكامل.
 
-الخاصيتان **VerticalBarState** و **HorizontalBarState** تحددان الحالة التي يجب أن يظهر فيها شريط المقسم الأفقي أو العمودي. شريط المقسم الأفقي يفصل الشريحة عن منطقة المحتوى أسفل الشريحة، وشريط المقسم العمودي يفصل الشريحة عن المنطقة الجانبية. القيم الممكنة هي: **SplitterBarStateType.Minimized**، **SplitterBarStateType.Maximized** و **SplitterBarStateType.Restored**.
+تحدد الخصائص **VerticalBarState** و**HorizontalBarState** الحالة التي يجب أن يُظهر فيها شريط الفاصل الرأسي أو الأفقي. شريط الفاصل الأفقي يفصل الشريحة عن منطقة المحتوى أسفل الشريحة، وشريط الفاصل الرأسي يفصل الشريحة عن منطقة المحتوى الجانبية. القيم المحتملة هي: **SplitterBarStateType.Minimized**، **SplitterBarStateType.Maximized** و**SplitterBarStateType.Restored**.
 
-الخاصيتان **RestoredLeft** و **RestoredTop** تحددان حجم المنطقة العلوية أو الجانبية للشريحة في العرض العادي عندما تُطبق القيمة **SplitterBarStateType.Restored** على **VerticalBarState** و **HorizontalBarState** وفقًا لذلك.
+تحدد الخصائص **RestoredLeft** و**RestoredTop** حجم منطقة الشريحة العلوية أو الجانبية في العرض الطبيعي عندما تكون قيمة **SplitterBarStateType.Restored** مُطبقة على **VerticalBarState** و**HorizontalBarState** على التوالي.
 
 ## **حول استعادة INormalViewProperties**
 
-تحدد حجم منطقة الشريحة (العرض عندما تكون فرعًا من RestoredTop، الارتفاع عندما تكون فرعًا من RestoredLeft) في العرض العادي، عندما تكون المنطقة بحجم مستعادة متغير (ليس مصغرة ولا موسعة).
+تحدد حجم منطقة الشريحة (العرض عندما تكون فرعًا من RestoredTop، الارتفاع عندما تكون فرعًا من RestoredLeft) في العرض الطبيعي، عندما تكون المنطقة بحجم مستعاد متغيّر (ليس مصغّرًا ولا مكبّرًا).
 
-الخاصية **DimensionSize** تحدد حجم منطقة الشريحة (العرض عندما تكون فرعًا من RestoredTop، الارتفاع عندما تكون فرعًا من RestoredLeft).
+تحدد الخاصية **DimensionSize** حجم منطقة الشريحة (العرض عندما تكون فرعًا من RestoredTop، الارتفاع عندما تكون فرعًا من RestoredLeft).
 
-الخاصية **AutoAdjust** تحدد ما إذا كان يجب على منطقة المحتوى الجانبية تعويض الحجم الجديد عند تغيير حجم النافذة التي تحتوي على العرض داخل التطبيق.
+تحدد الخاصية **AutoAdjust** ما إذا كان يجب على منطقة المحتوى الجانبية التعويض عن الحجم الجديد عند تغيير حجم النافذة التي تحتوي على العرض داخل التطبيق.
 
-في المثال أدناه يوضح كيفية الوصول إلى خصائص **ViewProperties.NormalViewProperties** لعرض تقديمي.
+يُظهر المثال أدناه كيفية الوصول إلى خصائص **ViewProperties.NormalViewProperties** لعرض تقديمي.
 
 ```c#
 using Aspose.Slides;
@@ -73,17 +73,17 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
-## **تعيين قيمة التكبير الافتراضية**
+## **ضبط قيمة التكبير الافتراضية**
 
-أصبحت Aspose.Slides for .NET تدعم الآن تعيين قيمة التكبير الافتراضية للعرض التقديمي بحيث يتم تعيين التكبير بالفعل عند فتح العرض. يمكن تحقيق ذلك بتعيين [ViewProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/viewproperties) للعرض التقديمي. يمكن تعيين خصائص عرض الشريحة وكذلك [NotesViewProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/viewproperties/properties/notesviewproperties) برمجيًا. في هذا الموضوع، سنوضح من خلال مثال كيفية تعيين خصائص العرض للعرض التقديمي في Aspose.Slides.
+يدعم Aspose.Slides for .NET الآن ضبط قيمة التكبير الافتراضية للعرض التقديمي بحيث يتم تعيين التكبير مسبقًا عند فتح العرض. يمكن القيام بذلك عن طريق ضبط [ViewProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/viewproperties) للعرض التقديمي. يمكن ضبط خصائص عرض الشريحة بالإضافة إلى [NotesViewProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/viewproperties/properties/notesviewproperties) برمجيًا. في هذا الموضوع، سنرى من خلال مثال كيف نضبط خصائص العرض للعرض التقديمي في Aspose.Slides.
 
-لتعيين خصائص العرض، يرجى اتباع الخطوات التالية:
+لضبط خصائص العرض، يرجى اتباع الخطوات التالية:
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation)
-1. تعيين [Properties](https://reference.aspose.com/slides/ar/net/aspose.slides/viewproperties) للعرض التقديمي
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation)
+1. ضبط [Properties](https://reference.aspose.com/slides/ar/net/aspose.slides/viewproperties) للعرض للعرض التقديمي
 1. كتابة العرض التقديمي كملف PPTX
 
-في المثال المقدم أدناه، قمنا بتعيين قيمة التكبير لكل من عرض الشريحة وعرض الملاحظات.
+في المثال المرفق أدناه، قمنا بضبط قيمة التكبير لعرض الشريحة وعرض الملاحظات.
 
 ```c#
 using Aspose.Slides;
@@ -91,7 +91,7 @@ using Aspose.Slides.Export;
 
 using (Presentation presentation = new Presentation("demo.pptx"))
 {
-    // تعيين خصائص العرض للعرض التقديمي
+    // ضبط خصائص العرض للعرض التقديمي
     presentation.ViewProperties.SlideViewProperties.Scale = 100; // قيمة التكبير بالنسبة المئوية لعرض الشريحة
     presentation.ViewProperties.NotesViewProperties.Scale = 100; // قيمة التكبير بالنسبة المئوية لعرض الملاحظات 
 
@@ -99,11 +99,11 @@ using (Presentation presentation = new Presentation("demo.pptx"))
 }
 ```
 
-## **تعيين تباعد الشبكة**
+## **ضبط تباعد الشبكة**
 
-استخدم [Presentation.ViewProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/viewproperties/) للوصول إلى إعدادات العرض على مستوى العرض التقديمي. الخاصية [IViewProperties.GridSpacing](https://reference.aspose.com/slides/ar/net/aspose.slides/iviewproperties/gridspacing/) تقرأ أو تغير فاصلة الشبكة التحريرية الأساسية. ينطبق هذا الإعداد على العرض التقديمي بأكمله، لا على شريحة منفردة. يتم تحديد تباعد الشبكة بالنقاط، حيث يساوي 72 نقطة بوصة واحدة. استخدم قيمة موجبة كما هو مطلوب في وثائق API.
+استخدم [Presentation.ViewProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/viewproperties/) للوصول إلى إعدادات العرض على مستوى العرض التقديمي. الخاصية [IViewProperties.GridSpacing](https://reference.aspose.com/slides/ar/net/aspose.slides/iviewproperties/gridspacing/) تقرأ أو تغير الفاصل الزمني للشبكة التحريرية الأساسية. يُطبق هذا الإعداد على كامل العرض التقديمي، وليس على شريحة فردية. يُحدد تباعد الشبكة بالنقاط، حيث أن 72 نقطة تساوي بوصة واحدة. استخدم قيمة موجبة كما هو مطلوب في وثائق API.
 
-المثال التالي يفتح ملف `demo.pptx` الموجود، يطبع تباعد الشبكة الحالي، يضبط فاصلة ربع بوصة، ثم يحفظ النتيجة.
+يفتح المثال التالي ملف `demo.pptx` الموجود، يطبع تباعد الشبكة الحالي، يضبط فاصل ربع بوصة، ويحفظ النتيجة.
 
 ```csharp
 using System;
@@ -118,28 +118,52 @@ presentation.ViewProperties.GridSpacing = 18f;
 presentation.Save("grid-spacing.pptx", SaveFormat.Pptx);
 ```
 
-الشبكة تختلف عن [drawing guides](/slides/ar/net/drawing-guides/). تباعد الشبكة يتحكم في فواصل منتظمة، بينما الأدلة الرسمية هي خطوط محاذاة أفقية أو عمودية يتم موضعها بشكل فردي. إضافة أو نقل أو مسح الأدلة لا يغير تباعد الشبكة.
+الشبكة تختلف عن [drawing guides](/slides/ar/net/drawing-guides/). يتحكم تباعد الشبكة في فاصل منتظم، بينما الأدلة الرسومية هي خطوط محاذاة أفقية أو رأسية موضوعة بشكل فردي. إضافة أو نقل أو مسح الأدلة الرسومية لا يغيّر تباعد الشبكة.
 
-كلا من الشبكة والأدلة هي مساعدات تحرير. لا يتم عرضها كجزء من محتوى الشريحة في ملفات PDF أو الصور أو SVG أو عرض الشرائح. تخزين تباعد الشبكة لا يضمن أن محررًا سيعرض الشبكة: يعتمد ظهورها أيضًا على تفضيلات المشاهد أو المحرر.
+كل من الشبكة والأدلة الرسومية هي مساعدات تحرير. لا يتم عرضها كمحتوى شريحة في PDF أو صور أو SVG أو عرض شرائح. تخزين تباعد الشبكة لا يضمن أن المحرر سيعرض الشبكة: تعتمد رؤيتها أيضًا على تفضيلات المشاهد أو المحرر.
 
-## **الأسئلة المتكررة**
+## **إظهار أو إخفاء التعليقات عند فتح عرض تقديمي**
 
-**لماذا لا تكون الشبكة مرئية بعد إعادة فتح العرض التقديمي؟**
+استخدم [Presentation.ViewProperties](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/viewproperties/) للوصول إلى إعدادات العرض على مستوى العرض التقديمي. اقرأ أو غير [IViewProperties.ShowComments](https://reference.aspose.com/slides/ar/net/aspose.slides/iviewproperties/showcomments/) لتخزين تفضيل ما إذا كان يجب إظهار التعليقات عند فتح العرض التقديمي في PowerPoint أو محرر متوافق آخر.
 
-يقوم الملف بتخزين تباعد الشبكة، لكن المحرر يتحكم في ما إذا كانت الشبكة تُعرض. تحقق من إعدادات رؤية الشبكة في المحرر.
+هذا الإعداد يتحكم فقط في تفضيل العرض المخزن. لا يضيف، لا يزيل، لا يحرّر، ولا يحلّ التعليقات. إخفاء التعليقات يحافظ على محتواها، مؤلفيها، مواقعها، ردودها، وحالاتها. راجع [Presentation Comments](/slides/ar/net/presentation-comments/) للعمليات التي تغير التعليقات نفسها.
 
-**هل مسح الأدلة الرسمية يغير تباعد الشبكة؟**
+المثال التالي يتطلب وجود `comments.pptx` يحتوي على تعليقات. يطبع إعداد الرؤية الحالي، يطلب إخفاء التعليقات، ويحفظ ملف PPTX جديد دون إزالة أي تعليقات. كما يضبط [IViewProperties.LastView](https://reference.aspose.com/slides/ar/net/aspose.slides/iviewproperties/lastview/) إلى [ViewType.SlideView](https://reference.aspose.com/slides/ar/net/aspose.slides/viewtype/) لتكوين طريقة التحرير الأولية جنبًا إلى جنب مع رؤية التعليقات.
 
-لا. الأدلة الرسمية وتباعد الشبكة إعدادات مستقلة. مسح الأدلة يترك فترة الشبكة المخزنة دون تغيير.
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-**هل يمكنني تعيين إعدادات عرض مختلفة لأقسام مختلفة من العرض التقديمي؟**
+using var presentation = new Presentation("comments.pptx");
+var showComments = presentation.ViewProperties.ShowComments;
+Console.WriteLine($"Current comment visibility: {showComments}");
 
-يتم تعريف [إعدادات العرض](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/viewproperties/) على مستوى العرض التقديمي ([Normal View](https://reference.aspose.com/slides/ar/net/aspose.slides/viewproperties/normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/ar/net/aspose.slides/viewproperties/slideviewproperties/))، وليس لكل قسم على حدة، لذا مجموعة واحدة من المعلمات تنطبق على المستند بأكمله عند الفتح.
+presentation.ViewProperties.ShowComments = NullableBool.False;
+presentation.ViewProperties.LastView = ViewType.SlideView;
+presentation.Save("comments-hidden.pptx", SaveFormat.Pptx);
+```
 
-**هل يمكنني تحديد حالات عرض مختلفة لمستخدمين مختلفين مسبقًا؟**
+هذا الإعداد لا يحدد ما إذا كانت التعليقات تُضمّن في تصدير PDF أو HTML أو صورة أو ملاحظات أو نشرة. قم بتهيئة الخيارات الخاصة بالتصدير ذات الصلة بشكل منفصل.
 
-لا. تُخزن الإعدادات في الملف وتُشارك. قد تحترم تطبيقات المشاهدة تفضيلات المستخدم، لكن الملف نفسه يحتوي على مجموعة واحدة من خصائص العرض.
+## **الأسئلة الشائعة**
 
-**هل يمكنني إعداد قالب مع خصائص عرض مسبقة التحديد بحيث يفتح العروض الجديدة بنفس الطريقة؟**
+**لماذا لا تظهر الشبكة بعد إعادة فتح العرض التقديمي؟**
 
-نعم. نظرًا لأن [خصائص العرض](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/viewproperties/) تُخزن على مستوى العرض التقديمي، يمكنك تضمينها في قالب وإنشاء مستندات جديدة منه بنفس تكوين العرض الأولي.
+الملف يخزن تباعد الشبكة، لكن المحرر يتحكم ما إذا كانت الشبكة تُعرض. تحقق من إعدادات رؤية الشبكة في المحرر.
+
+**هل مسح الأدلة الرسومية يغيّر تباعد الشبكة؟**
+
+لا. الأدلة الرسومية وتباعد الشبكة إعدادات مستقلة. مسح الأدلة يترك الفاصل المخزن للشبكة دون تغيير.
+
+**هل يمكن ضبط إعدادات عرض مختلفة لأقسام مختلفة من العرض التقديمي؟**
+
+إعدادات العرض [View settings](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/viewproperties/) تُعرّف على مستوى العرض التقديمي ([Normal View](https://reference.aspose.com/slides/ar/net/aspose.slides/viewproperties/normalviewproperties/)/[Slide View](https://reference.aspose.com/slides/ar/net/aspose.slides/viewproperties/slideviewproperties/))، وليس لكل قسم، لذا تُطبق مجموعة واحدة من المعاملات على المستند بأكمله عند الفتح.
+
+**هل يمكنني تحديد حالات عرض مختلفة مسبقًا لمستخدمين مختلفين؟**
+
+لا. تُخزن الإعدادات في الملف وتُشارك. قد تُراعي تطبيقات العرض تفضيلات المستخدم، لكن الملف نفسه يحتوي على مجموعة واحدة من خصائص العرض.
+
+**هل يمكنني إعداد قالب بخصائص عرض معرفة مسبقًا بحيث تُفتح العروض الجديدة بنفس الطريقة؟**
+
+نعم. بما أن [view properties](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/viewproperties/) تُخزن على مستوى العرض التقديمي، يمكنك تضمينها في قالب وإنشاء مستندات جديدة منه بنفس تكوين العرض الأولي.

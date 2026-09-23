@@ -1,49 +1,51 @@
 ---
-title: Quản lý nhận xét trong bài thuyết trình bằng Python
-linktitle: Nhận xét bài thuyết trình
+title: Quản lý bình luận bài trình chiếu trong Python
+linktitle: Bình luận bài trình chiếu
 type: docs
 weight: 100
 url: /vi/python-net/presentation-comments/
 keywords:
-- nhận xét
-- nhận xét hiện đại
-- nhận xét PowerPoint
-- nhận xét bài thuyết trình
-- nhận xét slide
-- thêm nhận xét
-- truy cập nhận xét
-- chỉnh sửa nhận xét
-- phản hồi nhận xét
-- xóa nhận xét
-- xóa nhận xét
+- bình luận
+- bình luận hiện đại
+- bình luận PowerPoint
+- bình luận bài trình chiếu
+- bình luận slide
+- thêm bình luận
+- truy cập bình luận
+- chỉnh sửa bình luận
+- phản hồi bình luận
+- xóa bình luận
+- xoá bình luận
 - PowerPoint
-- bài thuyết trình
+- bài trình chiếu
 - Python
 - Aspose.Slides
-description: "Quản lý nhận xét trong bài thuyết trình với Aspose.Slides cho Python qua .NET: thêm, đọc, chỉnh sửa, phản hồi và xóa nhận xét trong các bài thuyết trình PowerPoint."
+description: "Quản lý bình luận trong bài trình chiếu bằng Aspose.Slides cho Python qua .NET: thêm, đọc, chỉnh sửa, trả lời và xóa bình luận trong các bản trình chiếu PowerPoint."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách quản lý nhận xét trong bài thuyết trình bằng Aspose.Slides cho Python qua .NET. Nó giới thiệu các kiểu liên quan đến nhận xét chính và trình bày cách thêm nhận xét vào các slide, truy cập các nhận xét hiện có, làm việc với phản hồi và nhận xét hiện đại, và xóa nhận xét khỏi một bài thuyết trình.
+Bài viết này giải thích cách quản lý bình luận trong bài trình chiếu bằng Aspose.Slides for Python via .NET. Nó giới thiệu các kiểu liên quan tới bình luận chính và trình bày cách thêm bình luận vào các slide, truy cập các bình luận hiện có, làm việc với phản hồi và bình luận hiện đại, đồng thời xóa bình luận khỏi một bài trình chiếu.
 
-Các ví dụ bao gồm các kịch bản đánh giá và cộng tác phổ biến trong PowerPoint, chẳng hạn gán nhận xét cho tác giả, đọc nội dung và siêu dữ liệu của nhận xét, xây dựng chuỗi phản hồi, và xóa các nhận xét đã chọn hoặc toàn bộ nhận xét.
+Các ví dụ bao gồm các kịch bản đánh giá và cộng tác phổ biến trong PowerPoint, chẳng hạn như gán bình luận cho các tác giả, đọc nội dung và siêu dữ liệu của bình luận, xây dựng chuỗi phản hồi, và xóa các bình luận đã chọn hoặc tất cả các bình luận.
 
-Trong PowerPoint, nhận xét xuất hiện dưới dạng chú thích trên các slide. Khi chọn một nhận xét, nó hiển thị văn bản và cuộc thảo luận liên quan.
+Trong PowerPoint, bình luận xuất hiện như các chú thích trên slide. Khi chọn một bình luận, nội dung và cuộc thảo luận liên quan sẽ được hiển thị.
 
-## **Tại sao thêm nhận xét vào bài thuyết trình?**
+Để yêu cầu hiển thị hoặc ẩn bình luận khi mở một bài trình chiếu mà không thay đổi nội dung bình luận, xem [Show or Hide Comments When Opening a Presentation](/slides/vi/python-net/presentation-view-properties/).
 
-Bạn có thể sử dụng nhận xét để cung cấp phản hồi và cộng tác với đồng nghiệp khi đánh giá các bài thuyết trình.
+## **Tại sao nên thêm bình luận vào bài trình chiếu?**
 
-Aspose.Slides cho Python qua .NET cung cấp các API sau để làm việc với nhận xét:
+Bạn có thể sử dụng bình luận để cung cấp phản hồi và cộng tác với đồng nghiệp khi duyệt các bài trình chiếu.
 
-* Lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) cung cấp quyền truy cập vào các tác giả nhận xét của bài thuyết trình.
-* Lớp [CommentCollection](https://reference.aspose.com/slides/vi/python-net/aspose.slides/commentcollection/) đại diện cho các nhận xét liên quan đến một tác giả cá nhân.
-* Lớp [Comment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/comment/) cung cấp thông tin về một nhận xét, bao gồm tác giả, thời gian tạo, vị trí và nội dung.
-* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/python-net/aspose.slides/commentauthor/) cung cấp thông tin về một tác giả, bao gồm tên, chữ viết tắt và các nhận xét liên quan.
+Aspose.Slides for Python via .NET cung cấp các API sau để làm việc với bình luận:
 
-## **Thêm nhận xét vào slide**
+* The [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) class, which provides access to the presentation's comment authors.
+* The [CommentCollection](https://reference.aspose.com/slides/vi/python-net/aspose.slides/commentcollection/) class, which represents the comments associated with an individual author.
+* The [Comment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/comment/) class, which provides information about a comment, including its author, creation time, position, and text.
+* The [CommentAuthor](https://reference.aspose.com/slides/vi/python-net/aspose.slides/commentauthor/) class, which provides information about an author, including their name, initials, and associated comments.
 
-Ví dụ sau cho thấy cách thêm nhận xét vào các slide trong một bài thuyết trình PowerPoint:
+## **Thêm bình luận vào slide**
+
+Ví dụ sau cho thấy cách thêm bình luận vào các slide trong một bài trình chiếu PowerPoint:
 
 ```python
 from datetime import datetime
@@ -72,9 +74,9 @@ with slides.Presentation() as presentation:
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Truy cập nhận xét trên slide**
+## **Truy cập bình luận trên slide**
 
-Ví dụ sau cho thấy cách truy cập các nhận xét hiện có trong một bài thuyết trình PowerPoint:
+Ví dụ sau cho thấy cách truy cập các bình luận hiện có trong một bài trình chiếu PowerPoint:
 
 ```python
 import aspose.slides as slides
@@ -89,11 +91,11 @@ with slides.Presentation("Comments1.pptx") as presentation:
             print()
 ```
 
-## **Phản hồi cho nhận xét**
+## **Phản hồi bình luận**
 
-Một nhận xét cha là nhận xét gốc ở đầu của một chuỗi phản hồi. Thuộc tính [parent_comment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/comment/parent_comment/) của lớp [Comment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/comment/) cho phép bạn lấy hoặc đặt cha của một nhận xét.
+Một bình luận cha là bình luận gốc ở đầu chuỗi phản hồi. Thuộc tính [parent_comment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/comment/parent_comment/) của lớp [Comment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/comment/) cho phép bạn lấy hoặc đặt cha của một bình luận.
 
-Ví dụ sau cho thấy cách thêm phản hồi và kiểm tra cấu trúc nhận xét tạo ra:
+Ví dụ sau cho thấy cách thêm phản hồi và kiểm tra cấu trúc bình luận thu được:
 
 ```python
 from datetime import datetime
@@ -140,20 +142,20 @@ with slides.Presentation() as presentation:
     presentation.save("remove_comment.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="warning" title="Cảnh báo" %}}
-* Khi phương thức [remove](https://reference.aspose.com/slides/vi/python-net/aspose.slides/comment/remove/) của lớp [Comment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/comment/) được sử dụng để xóa một nhận xét, tất cả các phản hồi của nhận xét đó cũng sẽ bị xóa.
-* Nếu thuộc tính [parent_comment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/comment/parent_comment/) tạo ra một tham chiếu vòng, một [PptxEditException](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pptxeditexception/) sẽ được ném.
+{{% alert color="warning" title="Warning" %}}
+* Khi phương thức [remove](https://reference.aspose.com/slides/vi/python-net/aspose.slides/comment/remove/) của lớp [Comment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/comment/) được sử dụng để xóa một bình luận, tất cả các phản hồi của bình luận đó cũng sẽ bị xóa.
+* Nếu thuộc tính [parent_comment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/comment/parent_comment/) tạo ra một tham chiếu vòng, một [PptxEditException](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pptxeditexception/) sẽ được ném ra.
 {{% /alert %}}
 
-## **Thêm nhận xét hiện đại**
+## **Thêm bình luận hiện đại**
 
-Nhận xét hiện đại có thể được liên kết với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong một AutoShape. Phương thức [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/commentcollection/add_modern_comment/) nhận một đối số [Shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/) ngoài slide và tọa độ của bộ đánh dấu nhận xét.
+Bình luận hiện đại có thể được gắn với slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong một AutoShape. Phương thức [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/commentcollection/add_modern_comment/) chấp nhận một đối số [Shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/) bên cạnh slide và tọa độ dấu đánh dấu bình luận.
 
-Khi `None` được truyền cho đối số shape, nhận xét là một nhận xét ở mức slide. Bộ đánh dấu của nó được định vị bằng các tọa độ đã cung cấp, nhưng không gắn với một hình dạng cụ thể, vì vậy [ModernComment.shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/shape/) trả về `None`. Khi một [Shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/) được cung cấp, nhận xét được neo vào hình dạng đó. Các tọa độ vẫn xác định vị trí của bộ đánh dấu nhận xét trên slide, trong khi việc gắn kết hình dạng có thể được truy xuất qua [ModernComment.shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/shape/).
+Khi truyền `None` cho đối số shape, bình luận sẽ là bình luận ở mức slide. Dấu đánh dấu được định vị bằng các tọa độ đã cung cấp, nhưng không gắn với một shape nào, vì vậy [ModernComment.shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/shape/) trả về `None`. Khi cung cấp một [Shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/), bình luận sẽ được neo vào shape đó. Các tọa độ vẫn xác định vị trí của dấu đánh dấu bình luận trên slide, trong khi mối liên kết với shape có thể được truy xuất thông qua [ModernComment.shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/shape/).
 
-### **Neo một nhận xét hiện đại vào một Shape**
+### **Neo một bình luận hiện đại vào một Shape**
 
-Ví dụ sau tạo cả một nhận xét hiện đại ở mức slide và một nhận xét hiện đại được neo vào một AutoShape cụ thể. Sau đó nó đọc shape liên quan từ mỗi nhận xét.
+Ví dụ sau tạo cả một bình luận hiện đại ở mức slide và một bình luận hiện đại được neo vào một AutoShape cụ thể. Sau đó đọc shape liên quan từ mỗi bình luận.
 
 ```python
 from datetime import datetime
@@ -180,11 +182,11 @@ with slides.Presentation() as presentation:
     presentation.save("modern_comments.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Neo nhận xét vào các loại Shape khác nhau**
+### **Neo bình luận vào các loại Shape khác nhau**
 
-Bất kỳ đối tượng slide nào kế thừa từ [Shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/) đều có thể được dùng làm neo shape. Các ví dụ phổ biến bao gồm [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/vi/python-net/aspose.slides/connector/), và các thể hiện [GraphicalObject](https://reference.aspose.com/slides/vi/python-net/aspose.slides/graphicalobject/) như biểu đồ.
+Bất kỳ đối tượng slide nào kế thừa từ [Shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shape/) đều có thể được dùng làm anchor cho shape. Các ví dụ phổ biến bao gồm [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/vi/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/vi/python-net/aspose.slides/connector/), và các thể hiện [GraphicalObject](https://reference.aspose.com/slides/vi/python-net/aspose.slides/graphicalobject/) như biểu đồ.
 
-Ví dụ sau tạo một số loại shape phổ biến và gắn một nhận xét hiện đại vào mỗi shape.
+Ví dụ sau tạo một số loại shape phổ biến và gắn một bình luận hiện đại vào từng shape.
 
 ```python
 import base64
@@ -227,18 +229,18 @@ with slides.Presentation() as presentation:
     presentation.save("modern_comment_shape_types.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Neo nhận xét vào văn bản và đặt trạng thái**
+### **Neo bình luận vào văn bản và đặt trạng thái**
 
-Đối với một nhận xét hiện đại được gắn với một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/), thuộc tính [ModernComment.text_selection_start](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/text_selection_start/) chỉ vị trí bắt đầu của văn bản đã chọn trong khung văn bản của shape, trong khi [ModernComment.text_selection_length](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/text_selection_length/) chỉ độ dài của lựa chọn. Hai thuộc tính này kết hợp để liên kết nhận xét với một đoạn văn bản cụ thể bên trong AutoShape.
+Đối với một bình luận hiện đại gắn với một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/), thuộc tính [ModernComment.text_selection_start](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/text_selection_start/) chỉ vị trí bắt đầu của đoạn văn bản được chọn trong khung văn bản của shape, trong khi [ModernComment.text_selection_length](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/text_selection_length/) chỉ độ dài của đoạn chọn. Hai thuộc tính này kết hợp để gắn bình luận với một đoạn văn bản cụ thể bên trong AutoShape.
 
-Thuộc tính [ModernComment.status](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/status/) có thể được đọc hoặc cập nhật với một giá trị từ enum [ModernCommentStatus](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncommentstatus/):
+Thuộc tính [ModernComment.status](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/status/) có thể được đọc hoặc cập nhật với một giá trị từ liệt kê [ModernCommentStatus](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncommentstatus/):
 
-- `NOT_DEFINED` — không có trạng thái nhận xét hiện đại cụ thể nào được định nghĩa.
-- `ACTIVE` — nhận xét đang hoạt động.
-- `RESOLVED` — nhận xét đã được giải quyết.
-- `CLOSED` — nhận xét đã đóng.
+- `NOT_DEFINED` — không có trạng thái bình luận hiện đại cụ thể nào được định nghĩa.
+- `ACTIVE` — bình luận đang hoạt động.
+- `RESOLVED` — bình luận đã được giải quyết.
+- `CLOSED` — bình luận đã được đóng.
 
-Ví dụ sau tạo một nhận xét hiện đại được neo vào shape, gắn nó với một đoạn văn bản đã chọn, đánh dấu là đã giải quyết, lưu bài thuyết trình và xác minh các giá trị sau khi mở lại tệp.
+Ví dụ sau tạo một bình luận hiện đại được neo vào shape, gắn nó với một đoạn văn bản được chọn, đánh dấu là đã giải quyết, lưu bài trình chiếu và xác minh các giá trị sau khi mở lại tệp.
 
 ```python
 from datetime import datetime
@@ -285,9 +287,9 @@ with slides.Presentation(output_file) as reopened_presentation:
         print("Resolved status preserved: " + str(status_matches))
 ```
 
-### **Kiểm tra các nhận xét hiện đại hiện có**
+### **Kiểm tra các bình luận hiện đại hiện có**
 
-Để kiểm tra một bài thuyết trình hiện có, xác định các nhận xét nào là thể hiện của [ModernComment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/), sau đó xem xét [ModernComment.shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/text_selection_length/), và [ModernComment.status](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/status/). Một shape `None` cho thấy đó là một nhận xét ở mức slide. Đối với một neo AutoShape, các thuộc tính chọn văn bản xác định đoạn văn bản liên quan trong khung văn bản của shape.
+Để kiểm tra một bài trình chiếu hiện có, xác định các bình luận nào là thể hiện của [ModernComment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/), sau đó xem xét [ModernComment.shape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/text_selection_length/) và [ModernComment.status](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/status/). Một shape `None` cho biết đây là bình luận ở mức slide. Đối với anchor là một [AutoShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/autoshape/), các thuộc tính lựa chọn văn bản xác định đoạn liên quan trong khung văn bản của shape.
 
 ```python
 import aspose.slides as slides
@@ -317,11 +319,11 @@ with slides.Presentation("comments.pptx") as presentation:
             print()
 ```
 
-## **Xóa nhận xét**
+## **Xóa bình luận**
 
-### **Xóa toàn bộ nhận xét và tác giả nhận xét**
+### **Xóa tất cả bình luận và các tác giả bình luận**
 
-Ví dụ sau cho thấy cách xóa toàn bộ nhận xét và các tác giả nhận xét khỏi một bài thuyết trình:
+Ví dụ sau cho thấy cách xóa tất cả bình luận và các tác giả bình luận khỏi một bài trình chiếu:
 
 ```python
 import aspose.slides as slides
@@ -334,9 +336,9 @@ with slides.Presentation("example.pptx") as presentation:
     presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Xóa các nhận xét cụ thể**
+### **Xóa các bình luận cụ thể**
 
-Ví dụ sau cho thấy cách xóa các nhận xét cụ thể khỏi một slide:
+Ví dụ sau cho thấy cách xóa các bình luận cụ thể khỏi một slide:
 
 ```python
 from datetime import datetime
@@ -370,14 +372,14 @@ with slides.Presentation() as presentation:
 
 ## **Câu hỏi thường gặp**
 
-**Aspose.Slides có hỗ trợ trạng thái đã giải quyết cho nhận xét hiện đại không?**
+**Aspose.Slides có hỗ trợ trạng thái đã giải quyết cho bình luận hiện đại không?**
 
-Có. Thuộc tính [ModernComment.status](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/status/) có thể được đọc và đặt bằng một giá trị của [ModernCommentStatus](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncommentstatus/), bao gồm `RESOLVED`. Trạng thái được lưu trong bài thuyết trình và có thể được đọc lại sau khi tệp được mở lại.
+Có. [ModernComment.status](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncomment/status/) có thể được đọc và đặt bằng một giá trị của [ModernCommentStatus](https://reference.aspose.com/slides/vi/python-net/aspose.slides/moderncommentstatus/), bao gồm `RESOLVED`. Trạng thái được lưu trong bài trình chiếu và có thể đọc lại sau khi tệp được mở lại.
 
-**Các cuộc thảo luận dạng chuỗi trả lời có được hỗ trợ không, và có giới hạn độ sâu không?**
+**Có hỗ trợ thảo luận dạng chuỗi (reply chains) không, và có giới hạn độ sâu lồng nhau không?**
 
-Có. Mỗi nhận xét có thể tham chiếu đến [parent comment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/comment/parent_comment/), cho phép tạo chuỗi trả lời. API không định nghĩa giới hạn độ sâu cụ thể nào.
+Có. Mỗi bình luận có thể tham chiếu tới [parent comment](https://reference.aspose.com/slides/vi/python-net/aspose.slides/comment/parent_comment/), cho phép tạo chuỗi phản hồi. API không xác định một giới hạn độ sâu lồng nhau cụ thể.
 
-**Vị trí của bộ đánh dấu nhận xét trên slide được định nghĩa trong hệ tọa độ nào?**
+**Vị trí của dấu đánh dấu bình luận trên slide được xác định bằng hệ tọa độ nào?**
 
-Vị trí của bộ đánh dấu được định nghĩa bằng các tọa độ số thực trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.
+Vị trí dấu đánh dấu được xác định bằng các tọa độ dấu chấm thập phân trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.

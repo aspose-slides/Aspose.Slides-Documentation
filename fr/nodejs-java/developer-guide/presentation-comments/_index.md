@@ -1,5 +1,5 @@
 ---
-title: Gérer les commentaires de présentation dans Node.js
+title: Gestion des commentaires de présentation dans Node.js
 linktitle: Commentaires de présentation
 type: docs
 weight: 100
@@ -11,36 +11,38 @@ keywords:
 - commentaires de présentation
 - commentaires de diapositive
 - ajouter un commentaire
-- accéder à un commentaire
+- accéder aux commentaires
 - modifier un commentaire
 - répondre à un commentaire
 - supprimer un commentaire
-- supprimer un commentaire
+- effacer un commentaire
 - PowerPoint
 - présentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Gérer les commentaires de présentation avec Aspose.Slides for Node.js via Java : ajouter, lire, modifier, répondre et supprimer les commentaires dans les présentations PowerPoint."
+description: "Gérez les commentaires de présentation avec Aspose.Slides pour Node.js via Java : ajoutez, lisez, modifiez, répondez et supprimez les commentaires dans les présentations PowerPoint."
 ---
 ## **Vue d'ensemble**
 
-Cet article explique comment gérer les commentaires de présentation avec Aspose.Slides for Node.js via Java. Il présente les principaux types liés aux commentaires et montre comment ajouter des commentaires aux diapositives, accéder aux commentaires existants, travailler avec les réponses et les commentaires modernes, et supprimer des commentaires d'une présentation.
+Cet article explique comment gérer les commentaires de présentation avec Aspose.Slides pour Node.js via Java. Il présente les principaux types liés aux commentaires et montre comment ajouter des commentaires aux diapositives, accéder aux commentaires existants, travailler avec les réponses et les commentaires modernes, et supprimer les commentaires d’une présentation.
 
-Les exemples couvrent des scénarios courants de révision et de collaboration dans PowerPoint, tels que l'attribution de commentaires aux auteurs, la lecture du texte et des métadonnées des commentaires, la création de chaînes de réponses et la suppression de commentaires sélectionnés ou de tous les commentaires.
+Les exemples couvrent des scénarios courants de révision et de collaboration dans PowerPoint, tels que l'attribution de commentaires aux auteurs, la lecture du texte et des métadonnées des commentaires, la création de chaînes de réponses, et la suppression des commentaires sélectionnés ou de tous les commentaires.
 
 Dans PowerPoint, les commentaires apparaissent comme des annotations sur les diapositives. Sélectionner un commentaire affiche son texte et la discussion associée.
 
+Pour demander que les commentaires soient affichés ou masqués à l’ouverture d’une présentation sans modifier les commentaires eux‑mêmes, voir [Afficher ou masquer les commentaires lors de l’ouverture d’une présentation](/slides/fr/nodejs-java/presentation-view-properties/).
+
 ## **Pourquoi ajouter des commentaires aux présentations ?**
 
-Vous pouvez utiliser les commentaires pour fournir des retours et collaborer avec des collègues lors de la révision des présentations.
+Vous pouvez utiliser les commentaires pour fournir des retours et collaborer avec des collègues lors de la révision de présentations.
 
-Aspose.Slides for Node.js via Java fournit les API suivantes pour travailler avec les commentaires :
+Aspose.Slides pour Node.js via Java fournit les API suivantes pour travailler avec les commentaires :
 
 * La classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/) qui donne accès aux auteurs de commentaires de la présentation.
 * La classe [CommentCollection](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/commentcollection/) qui représente les commentaires associés à un auteur individuel.
-* La classe [Comment](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/comment/) qui fournit des informations sur un commentaire, notamment son auteur, l'heure de création, la position et le texte.
-* La classe [CommentAuthor](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/commentauthor/) qui fournit des informations sur un auteur, notamment son nom, ses initiales et les commentaires associés.
+* La classe [Comment](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/comment/) qui fournit des informations sur un commentaire, y compris son auteur, sa date de création, sa position et son texte.
+* La classe [CommentAuthor](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/commentauthor/) qui fournit des informations sur un auteur, y compris son nom, ses initiales et les commentaires associés.
 
 ## **Ajouter des commentaires aux diapositives**
 
@@ -109,7 +111,7 @@ try {
 
 ## **Répondre aux commentaires**
 
-Un commentaire parent est le commentaire original au sommet d'une hiérarchie de réponses. Les méthodes [Comment.getParentComment](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/comment/getparentcomment/) et [Comment.setParentComment](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/comment/setparentcomment/) vous permettent d'obtenir ou de définir le parent d'un commentaire.
+Un commentaire parent est le commentaire original au sommet d’une hiérarchie de réponses. Les méthodes [Comment.getParentComment](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/comment/getparentcomment/) et [Comment.setParentComment](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/comment/setparentcomment/) vous permettent d’obtenir ou de définir le parent d’un commentaire.
 
 L'exemple suivant montre comment ajouter des réponses et inspecter la hiérarchie de commentaires résultante :
 
@@ -164,16 +166,16 @@ try {
 }
 ```
 
-{{% alert color="warning" title="Avertissement" %}}
+{{% alert color="warning" title="Warning" %}}
 * Lorsque la méthode [Comment.remove](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/comment/remove/) est utilisée pour supprimer un commentaire, toutes les réponses à ce commentaire sont également supprimées.
 * Si [Comment.setParentComment](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/comment/setparentcomment/) crée une référence circulaire, une [PptxEditException](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/pptxeditexception/) est levée.
 {{% /alert %}}
 
 ## **Ajouter des commentaires modernes**
 
-Les commentaires modernes peuvent être associés à la diapositive elle-même, à une forme spécifique ou à une plage de texte dans une [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/). La méthode [CommentCollection.addModernComment](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) accepte un argument [Shape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/shape/) en plus de la diapositive et des coordonnées du marqueur de commentaire.
+Les commentaires modernes peuvent être associés à la diapositive elle-même, à une forme spécifique, ou à une plage de texte à l'intérieur d'une [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/). La méthode [CommentCollection.addModernComment](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) accepte un argument [Shape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/shape/) en plus de la diapositive et des coordonnées du marqueur de commentaire.
 
-Lorsque `null` est passé pour l'argument shape, le commentaire est un commentaire au niveau de la diapositive. Son marqueur est positionné selon les coordonnées fournies, mais il n'est associé à aucune forme particulière, ainsi [ModernComment.getShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/getshape/) renvoie `null`. Lorsqu'une [Shape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/shape/) est fournie, le commentaire est ancré à cette forme. Les coordonnées définissent toujours la position du marqueur de commentaire sur la diapositive, tandis que l'association à la forme peut être récupérée via [ModernComment.getShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/getshape/).
+Lorsque `null` est passé pour l’argument de forme, le commentaire est un commentaire au niveau de la diapositive. Son marqueur est positionné selon les coordonnées fournies, mais il n’est pas associé à une forme particulière, ainsi [ModernComment.getShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/getshape/) renvoie `null`. Lorsqu’une [Shape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/shape/) est fournie, le commentaire est ancré à cette forme. Les coordonnées définissent toujours la position du marqueur de commentaire sur la diapositive, tandis que l’association à la forme peut être récupérée via [ModernComment.getShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/getshape/).
 
 ### **Ancrer un commentaire moderne à une forme**
 
@@ -209,7 +211,9 @@ try {
 
 ### **Ancrer des commentaires à différents types de formes**
 
-Tout objet de diapositive dérivé de [Shape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/shape/) peut être utilisé comme ancre de forme. Parmi les exemples courants figurent [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/connector/) et les instances de [GraphicalObject](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/graphicalobject/) telles que les graphiques.
+Tout objet de diapositive dérivé de [Shape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/shape/) peut être utilisé comme ancre de forme. Des exemples courants incluent [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/connector/) et des instances de [GraphicalObject](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/graphicalobject/) telles que les graphiques.
+
+L'exemple suivant crée plusieurs types de formes courants et associe un commentaire moderne à chacun d’eux.
 
 ```javascript
 var aspose = aspose || {};
@@ -256,16 +260,16 @@ try {
 
 ### **Ancrer un commentaire à du texte et définir son statut**
 
-Pour un commentaire moderne associé à une [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/), les méthodes [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) et [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) permettent d'accéder à la position de départ du texte sélectionné dans le cadre de texte de la forme. Les méthodes [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) et [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) donnent la longueur de la sélection. Ensemble, ces valeurs associent le commentaire à une plage de texte spécifique à l'intérieur de l'[AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/).
+Pour un commentaire moderne associé à une [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/), les méthodes [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) et [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) accèdent à la position de départ du texte sélectionné dans le cadre de texte de la forme. Les méthodes [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) et [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) accèdent à la longueur de la sélection. Ensemble, ces valeurs associent le commentaire à une plage de texte spécifique à l'intérieur de l'[AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/).
 
-Les méthodes [ModernComment.getStatus](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/getstatus/) et [ModernComment.setStatus](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/setstatus/) accèdent à une valeur de l'énumération [ModernCommentStatus](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncommentstatus/) :
+Les méthodes [ModernComment.getStatus](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/getstatus/) et [ModernComment.setStatus](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/setstatus/) accèdent à une valeur de l’énumération [ModernCommentStatus](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncommentstatus/) :
 
-- `NotDefined` — aucun statut de commentaire moderne n'est défini.
+- `NotDefined` — aucun statut de commentaire moderne spécifique n’est défini.
 - `Active` — le commentaire est actif.
 - `Resolved` — le commentaire a été résolu.
-- `Closed` — le commentaire est clôturé.
+- `Closed` — le commentaire est fermé.
 
-L'exemple suivant crée un commentaire moderne ancré à une forme, l'associe à une sélection de texte, le marque comme résolu, enregistre la présentation et vérifie les valeurs après réouverture du fichier.
+L'exemple suivant crée un commentaire moderne ancré à une forme, l’associe à une sélection de texte, le marque comme résolu, enregistre la présentation et vérifie les valeurs après la réouverture du fichier.
 
 ```javascript
 var aspose = aspose || {};
@@ -325,7 +329,7 @@ try {
 
 ### **Inspecter les commentaires modernes existants**
 
-Pour examiner une présentation existante, vérifiez quels commentaires sont des instances de [ModernComment](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/), puis examinez [ModernComment.getShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) et [ModernComment.getStatus](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/getstatus/). Une forme `null` indique un commentaire au niveau de la diapositive. Pour une ancre [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/), les méthodes de sélection de texte identifient la plage associée dans le cadre de texte de la forme.
+Pour inspecter une présentation existante, vérifiez quels commentaires sont des instances de [ModernComment](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/), puis examinez [ModernComment.getShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/), et [ModernComment.getStatus](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/getstatus/). Une forme `null` indique un commentaire au niveau de la diapositive. Pour une ancre [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/), les méthodes de sélection de texte identifient la plage associée dans le cadre de texte de la forme.
 
 ```javascript
 var aspose = aspose || {};
@@ -370,11 +374,11 @@ try {
 }
 ```
 
-## **Supprimer des commentaires**
+## **Supprimer les commentaires**
 
-### **Supprimer tous les commentaires et les auteurs de commentaires**
+### **Supprimer tous les commentaires et auteurs de commentaires**
 
-L'exemple suivant montre comment supprimer tous les commentaires et les auteurs de commentaires d'une présentation :
+L'exemple suivant montre comment supprimer tous les commentaires et auteurs de commentaires d’une présentation :
 
 ```javascript
 var aspose = aspose || {};
@@ -396,7 +400,7 @@ try {
 
 ### **Supprimer des commentaires spécifiques**
 
-L'exemple suivant montre comment supprimer des commentaires spécifiques d'une diapositive :
+L'exemple suivant montre comment supprimer des commentaires spécifiques d’une diapositive :
 
 ```javascript
 var aspose = aspose || {};
@@ -442,11 +446,11 @@ try {
 
 **Aspose.Slides prend‑il en charge un statut résolu pour les commentaires modernes ?**
 
-Oui. Les méthodes [ModernComment.getStatus](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/getstatus/) et [ModernComment.setStatus](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/setstatus/) accèdent à une valeur de [ModernCommentStatus](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncommentstatus/), y compris `Resolved`. Le statut est stocké dans la présentation et peut être relu après la réouverture du fichier.
+Oui. Les méthodes [ModernComment.getStatus](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/getstatus/) et [ModernComment.setStatus](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncomment/setstatus/) accèdent à une valeur [ModernCommentStatus](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/moderncommentstatus/), incluant `Resolved`. Le statut est stocké dans la présentation et peut être relu après la réouverture du fichier.
 
-**Les discussions en fil (chaînes de réponses) sont‑elles prises en charge, et existe‑t‑il une limite de profondeur ?**
+**Les discussions en fil (chaînes de réponses) sont‑elles prises en charge, et y a‑t‑il une limite de profondeur ?**
 
-Oui. Chaque commentaire peut référencer son [parent comment](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/comment/getparentcomment/), ce qui permet les chaînes de réponses. L'API ne définit pas de limite spécifique de profondeur d’imbrication.
+Oui. Chaque commentaire peut référencer son [parent comment](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/comment/getparentcomment/), ce qui permet des chaînes de réponses. L’API ne définit pas de limite spécifique de profondeur d’imbrication.
 
 **Dans quel système de coordonnées la position du marqueur de commentaire est‑elle définie sur une diapositive ?**
 

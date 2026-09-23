@@ -24,11 +24,13 @@ description: "Hantera presentationskommentarer med Aspose.Slides för Java: läg
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man hanterar presentationskommentarer med Aspose.Slides för Java. Den introducerar de huvudsakliga typerna relaterade till kommentarer och demonstrerar hur man lägger till kommentarer på bilder, får åtkomst till befintliga kommentarer, arbetar med svar och moderna kommentarer samt tar bort kommentarer från en presentation.
+Denna artikel förklarar hur du hanterar presentationskommentarer med Aspose.Slides för Java. Den introducerar de viktigaste kommentarrelaterade typerna och visar hur du lägger till kommentarer i bilder, får åtkomst till befintliga kommentarer, arbetar med svar och moderna kommentarer, samt tar bort kommentarer från en presentation.
 
-Exemplen täcker vanliga gransknings- och samarbets scenarier i PowerPoint, såsom att tilldela kommentarer till författare, läsa kommentartext och metadata, bygga svarskedjor och ta bort valda kommentarer eller alla kommentarer.
+Exemplen täcker vanliga gransknings- och samarbetsscenarier i PowerPoint, såsom att tilldela kommentarer till författare, läsa kommentartext och metadata, bygga svarskedjor samt ta bort valda kommentarer eller alla kommentarer.
 
-I PowerPoint visas kommentarer som anteckningar på bilder. När du markerar en kommentar visas dess text och relaterade diskussion.
+I PowerPoint visas kommentarer som annotationer på bilder. När du markerar en kommentar visas dess text och relaterade diskussion.
+
+För att begära att kommentarer visas eller döljs när en presentation öppnas utan att ändra kommentarerna själva, se [Visa eller dölja kommentarer när du öppnar en presentation](/slides/sv/java/presentation-view-properties/).
 
 ## **Varför lägga till kommentarer i presentationer?**
 
@@ -36,14 +38,14 @@ Du kan använda kommentarer för att ge återkoppling och samarbeta med kollegor
 
 Aspose.Slides för Java tillhandahåller följande API:er för att arbeta med kommentarer:
 
-* Klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/) ger åtkomst till presentationens kommentarförfattare.
-* Interface [ICommentCollection](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icommentcollection/) som representerar kommentarer som är associerade med en enskild författare.
-* Interface [IComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icomment/) som tillhandahåller information om en kommentar, inklusive dess författare, skapningstid, position och text.
+* Klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/) som ger åtkomst till presentationens kommentarförfattare.
+* Gränssnittet [ICommentCollection](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icommentcollection/) som representerar kommentarer som är knutna till en enskild författare.
+* Gränssnittet [IComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icomment/) som ger information om en kommentar, inklusive dess författare, skapningstid, position och text.
 * Klassen [CommentAuthor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/commentauthor/) som ger information om en författare, inklusive namn, initialer och associerade kommentarer.
 
 ## **Lägg till bildkommentarer**
 
-Följande exempel visar hur man lägger till kommentarer på bilder i en PowerPoint-presentation:
+Följande exempel visar hur du lägger till kommentarer i bilder i en PowerPoint-presentation:
 
 ```java
 import com.aspose.slides.IComment;
@@ -82,9 +84,9 @@ try {
 }
 ```
 
-## **Få åtkomst till bildkommentarer**
+## **Åtkomst till bildkommentarer**
 
-Följande exempel visar hur man får åtkomst till befintliga kommentarer i en PowerPoint-presentation:
+Följande exempel visar hur du får åtkomst till befintliga kommentarer i en PowerPoint-presentation:
 
 ```java
 import com.aspose.slides.IComment;
@@ -109,9 +111,9 @@ try {
 
 ## **Svara på kommentarer**
 
-En föräldrakommentar är den ursprungliga kommentaren högst upp i en svarshierarki. Metoderna [IComment.getParentComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icomment/#getParentComment--) och [IComment.setParentComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) låter dig hämta eller ange föräldern för en kommentar.
+En föräldrakommentar är den ursprungliga kommentaren högst upp i ett svarshierarki. Metoderna [IComment.getParentComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icomment/#getParentComment--) och [IComment.setParentComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) låter dig hämta eller ange föräldern till en kommentar.
 
-Följande exempel visar hur man lägger till svar och undersöker den resulterande kommentarshierarkin:
+Följande exempel visar hur du lägger till svar och inspekterar den resulterande kommentarhierarkin:
 
 ```java
 import com.aspose.slides.IComment;
@@ -168,15 +170,15 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* När metoden [IComment.remove](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icomment/#remove--) används för att radera en kommentar, tas alla svar på den kommentaren också bort.
+* När metoden [IComment.remove](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icomment/#remove--) används för att ta bort en kommentar, tas även alla svar till den kommentaren bort.
 * Om [IComment.setParentComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) skapar en cirkulär referens, kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Lägg till moderna kommentarer**
 
-Moderna kommentarer kan associeras med själva bilden, med en specifik form eller med ett textintervall i en AutoShape. Metoden [ICommentCollection.addModernComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) accepterar ett [IShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/)‑argument utöver bild‑ och kommentarmarkörkoordinaterna.
+Moderna kommentarer kan kopplas till själva bilden, till en specifik form eller till ett textområde i en AutoShape. Metoden [ICommentCollection.addModernComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) accepterar ett [IShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/)‑argument utöver bild‑ och kommentarmärkeskoordinaterna.
 
-När `null` skickas för formargumentet är kommentaren en bildnivåkommentar. Dess markör placeras enligt de angivna koordinaterna, men den är inte kopplad till en specifik form, så [IModernComment.getShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getShape--) returnerar `null`. När en [IShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/) anges, förankras kommentaren till den formen. Koordinaterna definierar fortfarande positionen för kommentarmarkören på bilden, medan formkopplingen kan hämtas via [IModernComment.getShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getShape--).
+När `null` skickas för form‑argumentet är kommentaren en bildnivåkommentar. Dess markör placeras enligt de angivna koordinaterna, men den är inte knuten till någon specifik form, så [IModernComment.getShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getShape--) returnerar `null`. När ett [IShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/) tillhandahålls, förankras kommentaren till den formen. Koordinaterna definierar fortfarande positionen för kommentarmärket på bilden, medan form‑kopplingen kan hämtas via [IModernComment.getShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getShape--).
 
 ### **Förankra en modern kommentar till en form**
 
@@ -218,7 +220,7 @@ try {
 
 ### **Förankra kommentarer till olika formtyper**
 
-Alla bildobjekt som implementerar [IShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/) kan användas som en formförankring. Vanliga exempel inkluderar [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iconnector/) och [IGraphicalObject](https://reference.aspose.com/slides/sv/java/com.aspose.slides/igraphicalobject/)‑instanser såsom diagram.
+Alla bildobjekt som implementerar [IShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/) kan användas som en formankare. Vanliga exempel inkluderar [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iconnector/) och [IGraphicalObject](https://reference.aspose.com/slides/sv/java/com.aspose.slides/igraphicalobject/)‑instanser såsom diagram.
 
 Följande exempel skapar flera vanliga formtyper och associerar en modern kommentar med var och en.
 
@@ -279,16 +281,16 @@ try {
 
 ### **Förankra en kommentar till text och ange dess status**
 
-För en modern kommentar som är associerad med en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/), ger [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) och [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int--) åtkomst till startpositionen för den markerade texten i formens textruta. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) och [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) ger åtkomst till urvalets längd. Tillsammans associerar dessa värden kommentaren med ett specifikt textintervall i AutoShape.
+För en modern kommentar som är associerad med en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/), ger [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) och [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) åtkomst till startpositionen för den markerade texten i formens textruta. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) och [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) ger åtkomst till längden på markeringen. Tillsammans associerar dessa värden kommentaren med ett specifikt textområde i AutoShape.
 
 Metoderna [IModernComment.getStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getStatus--) och [IModernComment.setStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#setStatus-byte--) hämtar ett värde från konstanten [ModernCommentStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/moderncommentstatus/):
 
 - `NotDefined` — ingen specifik modern‑kommentarstatus är definierad.
 - `Active` — kommentaren är aktiv.
-- `Resolved` — kommentaren har lösts.
+- `Resolved` — kommentaren har markerats som löst.
 - `Closed` — kommentaren är stängd.
 
-Följande exempel skapar en modern kommentar förankrad till en form, associerar den med ett texturval, markerar den som löst, sparar presentationen och verifierar värdena efter att filen har öppnats igen.
+Följande exempel skapar en formförankrad modern kommentar, associerar den med en textmarkering, markerar den som löst, sparar presentationen och verifierar värdena efter att filen har öppnats igen.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -355,7 +357,7 @@ try {
 
 ### **Inspektera befintliga moderna kommentarer**
 
-För att inspektera en befintlig presentation, kontrollera vilka kommentarer som implementerar [IModernComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/), och undersök sedan [IModernComment.getShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) och [IModernComment.getStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getStatus--). En `null`‑form indikerar en kommentar på bildnivå. För en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/)‑förankring identifierar texturval‑metoderna det associerade intervallet i formens textruta.
+För att inspektera en befintlig presentation, kontrollera vilka kommentarer som implementerar [IModernComment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/), och granska sedan [IModernComment.getShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) och [IModernComment.getStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getStatus--). En `null`‑form indikerar en bildnivåkommentar. För ett [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iautoshape/)‑ankare identifierar textmarkerings‑metoderna det associerade området i formens textruta.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -402,9 +404,9 @@ try {
 
 ## **Ta bort kommentarer**
 
-### **Ta bort alla kommentarer och kommentarförfattare**
+### **Ta bort alla kommentarer och kommentar­författare**
 
-Följande exempel visar hur man tar bort alla kommentarer och kommentarförfattare från en presentation:
+Följande exempel visar hur du tar bort alla kommentarer och kommentar­författare från en presentation:
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -426,7 +428,7 @@ try {
 
 ### **Ta bort specifika kommentarer**
 
-Följande exempel visar hur man tar bort specifika kommentarer från en bild:
+Följande exempel visar hur du tar bort specifika kommentarer från en bild:
 
 ```java
 import com.aspose.slides.IComment;
@@ -471,16 +473,16 @@ try {
 }
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Stöder Aspose.Slides ett löst-status för moderna kommentarer?**
+**Stöder Aspose.Slides ett löst‑status för moderna kommentarer?**
 
-Ja. [IModernComment.getStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getStatus--) och [IModernComment.setStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#setStatus-byte--) ger åtkomst till ett [ModernCommentStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/moderncommentstatus/)‑värde, inklusive `Resolved`. Statusen lagras i presentationen och kan läsas igen efter att filen har öppnats igen.
+Ja. [IModernComment.getStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#getStatus--) och [IModernComment.setStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imoderncomment/#setStatus-byte-) hämtar ett [ModernCommentStatus](https://reference.aspose.com/slides/sv/java/com.aspose.slides/moderncommentstatus/)‑värde, inklusive `Resolved`. Statusen lagras i presentationen och kan läsas igen efter att filen har öppnats igen.
 
-**Stöds trådade diskussioner (svarskedjor), och finns det någon begränsning för nästning?**
+**Stöds trådade diskussioner (svarskedjor) och finns det någon begränsning för nästling?**
 
-Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icomment/#getParentComment--), vilket möjliggör svarskedjor. API:et definierar ingen specifik gräns för nästningsdjup.
+Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icomment/#getParentComment--), vilket möjliggör svarskedjor. API‑et definierar ingen specifik gräns för nästlingsdjup.
 
-**I vilket koordinatsystem är en kommentarmarkörs position definierad på en bild?**
+**I vilket koordinatsystem definieras ett kommentarmärkes position på en bild?**
 
 Markörens position definieras av flyttalskoordinater i bildens koordinatsystem, vilket gör att du kan placera den exakt på bilden.

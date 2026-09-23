@@ -8,7 +8,7 @@ keywords:
 - comentário
 - comentário moderno
 - comentários do PowerPoint
-- comentários da apresentação
+- comentários de apresentação
 - comentários de slide
 - adicionar comentário
 - acessar comentário
@@ -20,30 +20,32 @@ keywords:
 - apresentação
 - Java
 - Aspose.Slides
-description: "Gerencie comentários de apresentação com Aspose.Slides for Java: adicione, leia, edite, responda e remova comentários em apresentações PowerPoint rápida e facilmente."
+description: "Gerencie comentários de apresentação com Aspose.Slides for Java: adicione, leia, edite, responda e remova comentários em apresentações PowerPoint de forma rápida e fácil."
 ---
 ## **Visão geral**
 
-Este artigo explica como gerenciar comentários em apresentações com Aspose.Slides for Java. Ele apresenta os principais tipos relacionados a comentários e demonstra como adicionar comentários a slides, acessar comentários existentes, trabalhar com respostas e comentários modernos e remover comentários de uma apresentação.
+Este artigo explica como gerenciar comentários de apresentação com Aspose.Slides for Java. Ele apresenta os principais tipos relacionados a comentários e demonstra como adicionar comentários aos slides, acessar comentários existentes, trabalhar com respostas e comentários modernos, e remover comentários de uma apresentação.
 
-Os exemplos cobrem cenários comuns de revisão e colaboração no PowerPoint, como atribuir comentários a autores, ler o texto e os metadados dos comentários, criar cadeias de respostas e remover comentários selecionados ou todos os comentários.
+Os exemplos cobrem cenários comuns de revisão e colaboração no PowerPoint, como atribuir comentários a autores, ler o texto e os metadados dos comentários, construir cadeias de respostas e remover comentários selecionados ou todos os comentários.
 
 No PowerPoint, os comentários aparecem como anotações nos slides. Selecionar um comentário exibe seu texto e a discussão relacionada.
 
-## **Por que adicionar comentários a apresentações?**
+Para solicitar que os comentários sejam mostrados ou ocultados ao abrir uma apresentação sem alterar os próprios comentários, veja [Mostrar ou ocultar comentários ao abrir uma apresentação](/slides/pt/java/presentation-view-properties/).
+
+## **Por que adicionar comentários às apresentações?**
 
 Você pode usar comentários para fornecer feedback e colaborar com colegas ao revisar apresentações.
 
-Aspose.Slides for Java fornece as seguintes APIs para trabalhar com comentários:
+Aspose.Slides for Java oferece as seguintes APIs para trabalhar com comentários:
 
-* A classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/) fornece acesso aos autores de comentários da apresentação.
-* A interface [ICommentCollection](https://reference.aspose.com/slides/pt/java/com.aspose.slides/icommentcollection/) representa os comentários associados a um autor individual.
-* A interface [IComment](https://reference.aspose.com/slides/pt/java/com.aspose.slides/icomment/) fornece informações sobre um comentário, incluindo seu autor, horário de criação, posição e texto.
-* A classe [CommentAuthor](https://reference.aspose.com/slides/pt/java/com.aspose.slides/commentauthor/) fornece informações sobre um autor, incluindo seu nome, iniciais e comentários associados.
+* A classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/) que fornece acesso aos autores de comentários da apresentação.
+* A interface [ICommentCollection](https://reference.aspose.com/slides/pt/java/com.aspose.slides/icommentcollection/) que representa os comentários associados a um autor individual.
+* A interface [IComment](https://reference.aspose.com/slides/pt/java/com.aspose.slides/icomment/) que fornece informações sobre um comentário, incluindo seu autor, horário de criação, posição e texto.
+* A classe [CommentAuthor](https://reference.aspose.com/slides/pt/java/com.aspose.slides/commentauthor/) que fornece informações sobre um autor, incluindo seu nome, iniciais e comentários associados.
 
-## **Adicionar Comentários ao Slide**
+## **Adicionar comentários ao slide**
 
-O exemplo a seguir mostra como adicionar comentários a slides em uma apresentação PowerPoint:
+O exemplo a seguir mostra como adicionar comentários aos slides em uma apresentação PowerPoint:
 
 ```java
 import com.aspose.slides.IComment;
@@ -82,7 +84,7 @@ try {
 }
 ```
 
-## **Acessar Comentários do Slide**
+## **Acessar comentários do slide**
 
 O exemplo a seguir mostra como acessar comentários existentes em uma apresentação PowerPoint:
 
@@ -107,7 +109,7 @@ try {
 }
 ```
 
-## **Responder a Comentários**
+## **Responder a comentários**
 
 Um comentário pai é o comentário original no topo de uma hierarquia de respostas. Os métodos [IComment.getParentComment](https://reference.aspose.com/slides/pt/java/com.aspose.slides/icomment/#getParentComment--) e [IComment.setParentComment](https://reference.aspose.com/slides/pt/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) permitem obter ou definir o pai de um comentário.
 
@@ -169,18 +171,18 @@ try {
 
 {{% alert color="warning" title="Warning" %}}
 * Quando o método [IComment.remove](https://reference.aspose.com/slides/pt/java/com.aspose.slides/icomment/#remove--) é usado para excluir um comentário, todas as respostas a esse comentário também são excluídas.
-* Se [IComment.setParentComment](https://reference.aspose.com/slides/pt/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) criar uma referência circular, uma [PptxEditException](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pptxeditexception/) é lançada.
+* Se [IComment.setParentComment](https://reference.aspose.com/slides/pt/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) criar uma referência circular, uma [PptxEditException](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pptxeditexception/) será lançada.
 {{% /alert %}}
 
-## **Adicionar Comentários Modernos**
+## **Adicionar comentários modernos**
 
 Comentários modernos podem ser associados ao próprio slide, a uma forma específica ou a um intervalo de texto dentro de um AutoShape. O método [ICommentCollection.addModernComment](https://reference.aspose.com/slides/pt/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) aceita um argumento [IShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ishape/) além do slide e das coordenadas do marcador de comentário.
 
-Quando `null` é passado para o argumento de forma, o comentário é um comentário de nível de slide. Seu marcador é posicionado pelas coordenadas fornecidas, mas não está associado a uma forma específica, portanto [IModernComment.getShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#getShape--) retorna `null`. Quando um [IShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ishape/) é fornecido, o comentário fica ancorado a essa forma. As coordenadas ainda definem a posição do marcador de comentário no slide, enquanto a associação à forma pode ser obtida através de [IModernComment.getShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#getShape--).
+Quando `null` é passado para o argumento de forma, o comentário é um comentário de nível de slide. Seu marcador é posicionado pelas coordenadas fornecidas, mas não está associado a uma forma específica, portanto [IModernComment.getShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#getShape--) retorna `null`. Quando uma [IShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ishape/) é fornecida, o comentário fica ancorado a essa forma. As coordenadas ainda definem a posição do marcador de comentário no slide, enquanto a associação à forma pode ser recuperada através de [IModernComment.getShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#getShape--).
 
-### **Ancorar um Comentário Moderno a uma Forma**
+### **Ancorar um comentário moderno a uma forma**
 
-O exemplo a seguir cria tanto um comentário moderno de nível de slide quanto um comentário moderno ancorado a um AutoShape específico. Em seguida, lê a forma associada de cada comentário.
+O exemplo a seguir cria tanto um comentário moderno de nível de slide quanto um comentário moderno ancorado a um AutoShape específico. Em seguida, lê a forma associada a cada comentário.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -216,7 +218,7 @@ try {
 }
 ```
 
-### **Ancorar Comentários a Diferentes Tipos de Forma**
+### **Ancorar comentários a diferentes tipos de forma**
 
 Qualquer objeto de slide que implemente [IShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ishape/) pode ser usado como âncora de forma. Exemplos comuns incluem [IAutoShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iconnector/) e instâncias de [IGraphicalObject](https://reference.aspose.com/slides/pt/java/com.aspose.slides/igraphicalobject/) como gráficos.
 
@@ -277,7 +279,7 @@ try {
 }
 ```
 
-### **Ancorar um Comentário a Texto e Definir Seu Status**
+### **Ancorar um comentário ao texto e definir seu status**
 
 Para um comentário moderno associado a um [IAutoShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iautoshape/), os métodos [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) e [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) acessam a posição inicial do texto selecionado na caixa de texto da forma. Os métodos [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) e [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) acessam o comprimento da seleção. Juntos, esses valores associam o comentário a um intervalo de texto específico dentro do AutoShape.
 
@@ -288,7 +290,7 @@ Os métodos [IModernComment.getStatus](https://reference.aspose.com/slides/pt/ja
 - `Resolved` — o comentário foi resolvido.
 - `Closed` — o comentário está fechado.
 
-O exemplo a seguir cria um comentário moderno ancorado a uma forma, associa‑o a uma seleção de texto, marca‑o como resolvido, salva a apresentação e verifica os valores após reabrir o arquivo.
+O exemplo a seguir cria um comentário moderno ancorado a uma forma, associa-o a uma seleção de texto, marca-o como resolvido, salva a apresentação e verifica os valores após reabrir o arquivo.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -353,9 +355,9 @@ try {
 }
 ```
 
-### **Inspecionar Comentários Modernos Existentes**
+### **Inspecionar comentários modernos existentes**
 
-Para inspecionar uma apresentação existente, verifique quais comentários implementam [IModernComment](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/), em seguida examine [IModernComment.getShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--), e [IModernComment.getStatus](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#getStatus--). Uma forma `null` indica um comentário de nível de slide. Para uma âncora [IAutoShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iautoshape/), os métodos de seleção de texto identificam o intervalo associado na caixa de texto da forma.
+Para inspecionar uma apresentação existente, verifique quais comentários implementam [IModernComment](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/), depois examine [IModernComment.getShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) e [IModernComment.getStatus](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#getStatus--). Uma forma `null` indica um comentário de nível de slide. Para uma âncora [IAutoShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/iautoshape/), os métodos de seleção de texto identificam o intervalo associado na caixa de texto da forma.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -400,9 +402,9 @@ try {
 }
 ```
 
-## **Remover Comentários**
+## **Remover comentários**
 
-### **Remover Todos os Comentários e Autores de Comentários**
+### **Remover todos os comentários e autores de comentários**
 
 O exemplo a seguir mostra como remover todos os comentários e autores de comentários de uma apresentação:
 
@@ -424,7 +426,7 @@ try {
 }
 ```
 
-### **Remover Comentários Específicos**
+### **Remover comentários específicos**
 
 O exemplo a seguir mostra como remover comentários específicos de um slide:
 
@@ -471,16 +473,16 @@ try {
 }
 ```
 
-## **Perguntas Frequentes**
+## **FAQ**
 
-**O Aspose.Slides suporta um status resolvido para comentários modernos?**
+**O Aspose.Slides oferece suporte a um status resolvido para comentários modernos?**
 
-Sim. [IModernComment.getStatus](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#getStatus--) e [IModernComment.setStatus](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#setStatus-byte-) acessam um valor de [ModernCommentStatus](https://reference.aspose.com/slides/pt/java/com.aspose.slides/moderncommentstatus/), incluindo `Resolved`. O status é armazenado na apresentação e pode ser lido novamente após o arquivo ser reaberto.
+Sim. [IModernComment.getStatus](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#getStatus--) e [IModernComment.setStatus](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imoderncomment/#setStatus-byte-) acessam um valor de [ModernCommentStatus](https://reference.aspose.com/slides/pt/java/com.aspose.slides/moderncommentstatus/) que inclui `Resolved`. O status é armazenado na apresentação e pode ser lido novamente após o arquivo ser reaberto.
 
-**As discussões em thread (cadeias de respostas) são suportadas e existe um limite de aninhamento?**
+**Discussões em tópicos (cadeias de respostas) são suportadas e há um limite de aninhamento?**
 
 Sim. Cada comentário pode referenciar seu [parent comment](https://reference.aspose.com/slides/pt/java/com.aspose.slides/icomment/#getParentComment--), permitindo cadeias de respostas. A API não define um limite específico de profundidade de aninhamento.
 
-**Em qual sistema de coordenadas a posição do marcador de comentário é definida em um slide?**
+**Em que sistema de coordenadas a posição do marcador de comentário é definida em um slide?**
 
-A posição do marcador é definida por coordenadas de ponto flutuante no sistema de coordenadas do slide, permitindo que você o posicione com precisão no slide.
+A posição do marcador é definida por coordenadas de ponto flutuante no sistema de coordenadas do slide, permitindo posicioná‑lo precisamente no slide.

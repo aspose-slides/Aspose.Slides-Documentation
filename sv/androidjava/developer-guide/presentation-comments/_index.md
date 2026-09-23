@@ -1,6 +1,6 @@
 ---
-title: "Hantera presentationskommentarer på Android"
-linktitle: "Presentationskommentarer"
+title: Hantera presentationskommentarer på Android
+linktitle: Presentationskommentarer
 type: docs
 weight: 100
 url: /sv/androidjava/presentation-comments/
@@ -10,7 +10,7 @@ keywords:
 - PowerPoint-kommentarer
 - presentationskommentarer
 - bildkommentarer
-- lägg till kommentar
+- lägga till kommentar
 - åtkomst till kommentar
 - redigera kommentar
 - svara på kommentar
@@ -29,7 +29,9 @@ Den här artikeln förklarar hur du hanterar presentationskommentarer med Aspose
 
 Exemplen täcker vanliga gransknings- och samarbets scenarier i PowerPoint, såsom att tilldela kommentarer till författare, läsa kommentartext och metadata, bygga svarskedjor och ta bort valda kommentarer eller alla kommentarer.
 
-I PowerPoint visas kommentarer som anteckningar på bilder. När du markerar en kommentar visas dess text och tillhörande diskussion.
+I PowerPoint visas kommentarer som annoteringar på bilder. När du markerar en kommentar visas dess text och relaterade diskussion.
+
+För att begära att kommentarer visas eller döljas när en presentation öppnas utan att ändra själva kommentarerna, se [Show or Hide Comments When Opening a Presentation](/slides/sv/androidjava/presentation-view-properties/).
 
 ## **Varför lägga till kommentarer i presentationer?**
 
@@ -37,14 +39,14 @@ Du kan använda kommentarer för att ge återkoppling och samarbeta med kollegor
 
 Aspose.Slides för Android via Java tillhandahåller följande API:er för att arbeta med kommentarer:
 
-* Klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) som ger åtkomst till presentationens kommentarförfattare.
-* Gränssnittet [ICommentCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icommentcollection/) som representerar kommentarerna som är kopplade till en enskild författare.
-* Gränssnittet [IComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/) som ger information om en kommentar, inklusive dess författare, tidpunkt för skapande, position och text.
-* Klassen [CommentAuthor](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/commentauthor/) som ger information om en författare, inklusive namn, initialer och tillhörande kommentarer.
+* The [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) class, which provides access to the presentation's comment authors.
+* The [ICommentCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icommentcollection/) interface, which represents the comments associated with an individual author.
+* The [IComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/) interface, which provides information about a comment, including its author, creation time, position, and text.
+* The [CommentAuthor](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/commentauthor/) class, which provides information about an author, including their name, initials, and associated comments.
 
 ## **Lägg till bildkommentarer**
 
-Följande exempel visar hur du lägger till kommentarer på bilder i en PowerPoint‑presentation:
+Följande exempel visar hur du lägger till kommentarer på bilder i en PowerPoint-presentation:
 
 ```java
 import com.aspose.slides.IComment;
@@ -83,9 +85,9 @@ try {
 }
 ```
 
-## **Få åtkomst till bildkommentarer**
+## **Kom åt bildkommentarer**
 
-Följande exempel visar hur du får åtkomst till befintliga kommentarer i en PowerPoint‑presentation:
+Följande exempel visar hur du får åtkomst till befintliga kommentarer i en PowerPoint-presentation:
 
 ```java
 import com.aspose.slides.IComment;
@@ -110,9 +112,9 @@ try {
 
 ## **Svara på kommentarer**
 
-En föräldrakommentar är den ursprungliga kommentaren högst upp i en svarshierarki. Metoderna [IComment.getParentComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/#getParentComment--) och [IComment.setParentComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) låter dig hämta eller ange föräldern för en kommentar.
+En huvudkommentar är den ursprungliga kommentaren högst upp i en svarshierarki. Metoderna [IComment.getParentComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/#getParentComment--) och [IComment.setParentComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) låter dig hämta eller sätta föräldrakommentaren för en kommentar.
 
-Följande exempel visar hur du lägger till svar och undersöker den resulterande kommentarhierarkin:
+Följande exempel visar hur du lägger till svar och inspekterar den resulterande kommentarshierarkin:
 
 ```java
 import com.aspose.slides.IComment;
@@ -169,21 +171,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-
-* När metoden [IComment.remove](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/#remove--) används för att ta bort en kommentar, tas alla svar på den kommentaren också bort.
-* Om [IComment.setParentComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) skapar en cirkulär referens, kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/pptxeditexception/).
-
+* När metoden [IComment.remove](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/#remove--) används för att radera en kommentar, raderas också alla svar på den kommentaren.
+* Om [IComment.setParentComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) skapar en cirkulär referens kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Lägg till moderna kommentarer**
 
-Moderna kommentarer kan vara kopplade till själva bilden, till en specifik form eller till ett textintervall i en AutoShape. Metoden [ICommentCollection.addModernComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) accepterar ett [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/)‑argument utöver bilden och koordinater för kommentarmarkören.
+Moderna kommentarer kan kopplas till själva bilden, till en specifik form eller till ett textintervall i en AutoShape. Metoden [ICommentCollection.addModernComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) accepterar ett [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/)‑argument utöver bildens och kommentarens markörkoordinater.
 
-När `null` skickas för shape‑argumentet är kommentaren en bildnivå‑kommentar. Dess markör placeras enligt de angivna koordinaterna, men den är inte knuten till någon specifik form, så [IModernComment.getShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getShape--) returnerar `null`. När en [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/) tillhandahålls, förankras kommentaren till den formen. Koordinaterna definierar fortfarande positionen för kommentarmarkören på bilden, medan formkopplingen kan hämtas via [IModernComment.getShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getShape--).
+När `null` skickas för formargumentet blir kommentaren en bildnivåkommentar. Dess markör placeras enligt de angivna koordinaterna, men den är inte kopplad till en specifik form, så [IModernComment.getShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getShape--) returnerar `null`. När en [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/) tillhandahålls, förankras kommentaren till den formen. Koordinaterna definierar fortfarande positionen för kommentarens markör på bilden, medan formkopplingen kan hämtas via [IModernComment.getShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getShape--).
 
 ### **Förankra en modern kommentar till en form**
 
-Följande exempel skapar både en bildnivå‑modern kommentar och en modern kommentar förankrad till en specifik AutoShape. Det läser sedan den kopplade formen från varje kommentar.
+Följande exempel skapar både en modern kommentar på bildnivå och en modern kommentar som är förankrad till en specifik AutoShape. Det läser sedan den associerade formen från varje kommentar.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -221,9 +221,9 @@ try {
 
 ### **Förankra kommentarer till olika formtyper**
 
-Alla bildobjekt som implementerar [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/) kan användas som formankare. Vanliga exempel inkluderar [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iconnector/) och [IGraphicalObject](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/igraphicalobject/)-instanser såsom diagram.
+Alla bildobjekt som implementerar [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/) kan användas som en formankare. Vanliga exempel inkluderar [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iconnector/) och [IGraphicalObject](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/igraphicalobject/)‑instanser såsom diagram.
 
-Följande exempel skapar flera vanliga formtyper och kopplar en modern kommentar till var och en.
+Följande exempel skapar flera vanliga formtyper och associerar en modern kommentar med var och en.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -282,16 +282,15 @@ try {
 
 ### **Förankra en kommentar till text och ange dess status**
 
-För en modern kommentar som är kopplad till en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/), ger [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) och [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) åtkomst till startpositionen för den markerade texten i formens textram. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) och [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) ger åtkomst till urvalets längd. Tillsammans associerar dessa värden kommentaren med ett specifikt textintervall i AutoShape.
+För en modern kommentar som är associerad med en [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/), ger [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) och [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int--) åtkomst till startpositionen för den markerade texten i formens textruta. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) och [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) ger åtkomst till längden på markeringen. Tillsammans associerar dessa värden kommentaren med ett specifikt textrange i AutoShape.
 
-Metoderna [IModernComment.getStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getStatus--) och [IModernComment.setStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) ger åtkomst till ett värde från konstanten [ModernCommentStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/moderncommentstatus/):
-
-- `NotDefined` — ingen specifik modern kommentarsstatus är definierad.
+Metoderna [IModernComment.getStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getStatus--) och [IModernComment.setStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) ger åtkomst till ett värde från [ModernCommentStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/moderncommentstatus/) konstanter:
+- `NotDefined` — ingen specifik modern-kommentarsstatus är definierad.
 - `Active` — kommentaren är aktiv.
-- `Resolved` — kommentaren har markerats som löst.
+- `Resolved` — kommentaren har lösts.
 - `Closed` — kommentaren är stängd.
 
-Följande exempel skapar en formförankrad modern kommentar, kopplar den till ett texturval, markerar den som löst, sparar presentationen och verifierar värdena efter att filen har öppnats igen.
+Följande exempel skapar en formförankrad modern kommentar, associerar den med en textmarkering, markerar den som löst, sparar presentationen och verifierar värdena efter att filen har öppnats igen.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -358,7 +357,7 @@ try {
 
 ### **Inspektera befintliga moderna kommentarer**
 
-För att inspektera en befintlig presentation, kontrollera vilka kommentarer som implementerar [IModernComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/), granska sedan [IModernComment.getShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) och [IModernComment.getStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getStatus--). En `null`‑form indikerar en bildnivå‑kommentar. För ett [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/)-ankare identifierar texturvals‑metoderna det associerade intervallet i formens textram.
+För att inspektera en befintlig presentation, kontrollera vilka kommentarer som implementerar [IModernComment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/), och granska sedan [IModernComment.getShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) och [IModernComment.getStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getStatus--). En `null` form indikerar en bildnivåkommentar. För ett [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/)-ankare identifierar textmarkeringsmetoderna det associerade intervallet i formens textruta.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -476,14 +475,14 @@ try {
 
 ## **FAQ**
 
-**Stöder Aspose.Slides ett löst‑status för moderna kommentarer?**
+**Stöder Aspose.Slides ett löst status för moderna kommentarer?**
 
-Ja. [IModernComment.getStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getStatus--) och [IModernComment.setStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) ger åtkomst till ett [ModernCommentStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/moderncommentstatus/)-värde, inklusive `Resolved`. Statusen lagras i presentationen och kan läsas igen efter att filen har öppnats på nytt.
+Ja. [IModernComment.getStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#getStatus--) och [IModernComment.setStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) ger åtkomst till ett [ModernCommentStatus](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/moderncommentstatus/) värde, inklusive `Resolved`. Statusen lagras i presentationen och kan läsas igen efter att filen har öppnats på nytt.
 
-**Stöds trådade diskussioner (svarskedjor), och finns det någon begränsning för nästlingsdjup?**
+**Stöds trådade diskussioner (svarskedjor) och finns det en begränsning för nästling?**
 
-Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/#getParentComment--), vilket möjliggör svarskedjor. API:et definierar ingen specifik gräns för nästlingsdjup.
+Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icomment/#getParentComment--), vilket möjliggör svarskedjor. API:et definierar ingen specifik begränsning för nästlingsdjup.
 
-**I vilket koordinatsystem definieras en kommentarmarkörs position på en bild?**
+**I vilket koordinatsystem definieras en kommentarers markörs position på en bild?**
 
-Markörens position definieras av flyttal‑koordinater i bildens koordinatsystem, vilket gör att du kan placera den exakt där du vill på bilden.
+Markörens position definieras av flyttalskoordinater i bildens koordinatsystem, vilket gör att du kan placera den exakt på bilden.

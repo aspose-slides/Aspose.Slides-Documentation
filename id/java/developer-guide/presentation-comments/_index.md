@@ -10,7 +10,7 @@ keywords:
 - komentar PowerPoint
 - komentar presentasi
 - komentar slide
-- menambah komentar
+- menambahkan komentar
 - mengakses komentar
 - mengedit komentar
 - membalas komentar
@@ -20,30 +20,32 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Kelola komentar presentasi dengan Aspose.Slides untuk Java: tambahkan, baca, edit, balas, dan hapus komentar dalam presentasi PowerPoint secara cepat dan mudah."
+description: "Kelola komentar presentasi dengan Aspose.Slides untuk Java: tambahkan, baca, edit, balas, dan hapus komentar dalam presentasi PowerPoint dengan cepat dan mudah."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Artikel ini menjelaskan cara mengelola komentar presentasi dengan Aspose.Slides for Java. Artikel ini memperkenalkan tipe utama yang terkait dengan komentar dan mendemonstrasikan cara menambahkan komentar ke slide, mengakses komentar yang ada, bekerja dengan balasan dan komentar modern, serta menghapus komentar dari sebuah presentasi.
+Artikel ini menjelaskan cara mengelola komentar presentasi dengan Aspose.Slides for Java. Artikel ini memperkenalkan tipe utama yang berkaitan dengan komentar dan menunjukkan cara menambahkan komentar ke slide, mengakses komentar yang ada, bekerja dengan balasan dan komentar modern, serta menghapus komentar dari presentasi.
 
-Contoh-contoh mencakup skenario peninjauan dan kolaborasi umum dalam PowerPoint, seperti menetapkan komentar kepada penulis, membaca teks komentar dan metadata, membangun rantai balasan, serta menghapus komentar yang dipilih atau semua komentar.
+Contoh-contoh mencakup skenario peninjauan dan kolaborasi umum di PowerPoint, seperti menetapkan komentar kepada penulis, membaca teks komentar dan metadata, membangun rantai balasan, dan menghapus komentar yang dipilih atau semua komentar.
 
 Di PowerPoint, komentar muncul sebagai anotasi pada slide. Memilih komentar menampilkan teksnya dan diskusi terkait.
 
+Untuk meminta agar komentar ditampilkan atau disembunyikan saat presentasi dibuka tanpa mengubah komentar itu sendiri, lihat [Tampilkan atau Sembunyikan Komentar Saat Membuka Presentasi](/slides/id/java/presentation-view-properties/).
+
 ## **Mengapa Menambahkan Komentar ke Presentasi?**
 
-Anda dapat menggunakan komentar untuk memberikan umpan balik dan berkolaborasi dengan rekan saat meninjau presentasi.
+Anda dapat menggunakan komentar untuk memberikan masukan dan berkolaborasi dengan rekan kerja saat meninjau presentasi.
 
 Aspose.Slides for Java menyediakan API berikut untuk bekerja dengan komentar:
 
-* The [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) class, yang menyediakan akses ke penulis komentar presentasi.
-* The [ICommentCollection](https://reference.aspose.com/slides/id/java/com.aspose.slides/icommentcollection/) interface, yang mewakili komentar yang terkait dengan penulis individu.
-* The [IComment](https://reference.aspose.com/slides/id/java/com.aspose.slides/icomment/) interface, yang menyediakan informasi tentang komentar, termasuk penulisnya, waktu pembuatan, posisi, dan teks.
-* The [CommentAuthor](https://reference.aspose.com/slides/id/java/com.aspose.slides/commentauthor/) class, yang menyediakan informasi tentang penulis, termasuk nama, inisial, dan komentar yang terkait.
+* Kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) yang memberikan akses ke penulis komentar presentasi.
+* Antarmuka [ICommentCollection](https://reference.aspose.com/slides/id/java/com.aspose.slides/icommentcollection/) yang mewakili komentar yang terkait dengan seorang penulis tertentu.
+* Antarmuka [IComment](https://reference.aspose.com/slides/id/java/com.aspose.slides/icomment/) yang menyediakan informasi tentang sebuah komentar, termasuk penulis, waktu pembuatan, posisi, dan teks.
+* Kelas [CommentAuthor](https://reference.aspose.com/slides/id/java/com.aspose.slides/commentauthor/) yang memberikan informasi tentang seorang penulis, termasuk nama, inisial, dan komentar yang terkait.
 
 ## **Menambahkan Komentar Slide**
 
-Contoh berikut menunjukkan cara menambahkan komentar ke slide dalam sebuah presentasi PowerPoint:
+Contoh berikut menunjukkan cara menambahkan komentar ke slide dalam presentasi PowerPoint:
 
 ```java
 import com.aspose.slides.IComment;
@@ -84,7 +86,7 @@ try {
 
 ## **Mengakses Komentar Slide**
 
-Contoh berikut menunjukkan cara mengakses komentar yang ada dalam sebuah presentasi PowerPoint:
+Contoh berikut menunjukkan cara mengakses komentar yang ada dalam presentasi PowerPoint:
 
 ```java
 import com.aspose.slides.IComment;
@@ -109,7 +111,7 @@ try {
 
 ## **Membalas Komentar**
 
-Komentar induk adalah komentar asli di bagian atas hierarki balasan. Metode [IComment.getParentComment](https://reference.aspose.com/slides/id/java/com.aspose.slides/icomment/#getParentComment--) dan [IComment.setParentComment](https://reference.aspose.com/slides/id/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) memungkinkan Anda mendapatkan atau menetapkan induk sebuah komentar.
+Komentar induk adalah komentar asli di bagian atas hierarki balasan. Metode [IComment.getParentComment](https://reference.aspose.com/slides/id/java/com.aspose.slides/icomment/#getParentComment--) dan [IComment.setParentComment](https://reference.aspose.com/slides/id/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) memungkinkan Anda mendapatkan atau mengatur induk sebuah komentar.
 
 Contoh berikut menunjukkan cara menambahkan balasan dan memeriksa hierarki komentar yang dihasilkan:
 
@@ -169,18 +171,18 @@ try {
 
 {{% alert color="warning" title="Warning" %}}
 * Ketika metode [IComment.remove](https://reference.aspose.com/slides/id/java/com.aspose.slides/icomment/#remove--) digunakan untuk menghapus sebuah komentar, semua balasan ke komentar tersebut juga dihapus.
-* Jika [IComment.setParentComment](https://reference.aspose.com/slides/id/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) membuat referensi melingkar, sebuah [PptxEditException](https://reference.aspose.com/slides/id/java/com.aspose.slides/pptxeditexception/) dilemparkan.
+* Jika [IComment.setParentComment](https://reference.aspose.com/slides/id/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) membuat referensi melingkar, sebuah [PptxEditException](https://reference.aspose.com/slides/id/java/com.aspose.slides/pptxeditexception/) akan dilemparkan.
 {{% /alert %}}
 
 ## **Menambahkan Komentar Modern**
 
 Komentar modern dapat dikaitkan dengan slide itu sendiri, dengan bentuk tertentu, atau dengan rentang teks di dalam AutoShape. Metode [ICommentCollection.addModernComment](https://reference.aspose.com/slides/id/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) menerima argumen [IShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishape/) selain slide dan koordinat penanda komentar.
 
-Ketika `null` diberikan untuk argumen shape, komentar menjadi komentar tingkat slide. Penandanya diposisikan oleh koordinat yang diberikan, tetapi tidak terkait dengan bentuk tertentu, sehingga [IModernComment.getShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getShape--) mengembalikan `null`. Ketika sebuah [IShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishape/) disediakan, komentar diikat ke bentuk tersebut. Koordinat tetap menentukan posisi penanda komentar pada slide, sementara asosiasi bentuk dapat diambil melalui [IModernComment.getShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getShape--).
+Ketika `null` diberikan untuk argumen shape, komentar tersebut menjadi komentar tingkat slide. Penandakannya diposisikan oleh koordinat yang diberikan, tetapi tidak terkait dengan shape tertentu, sehingga [IModernComment.getShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getShape--) mengembalikan `null`. Ketika sebuah [IShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishape/) disediakan, komentar tersebut diikat pada shape tersebut. Koordinat masih menentukan posisi penanda komentar pada slide, sementara asosiasi shape dapat diambil melalui [IModernComment.getShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getShape--).
 
-### **Menyematkan Komentar Modern pada Sebuah Bentuk**
+### **Menambatkan Komentar Modern pada Sebuah Shape**
 
-Contoh berikut membuat komentar modern tingkat slide dan komentar modern yang disematkan pada AutoShape tertentu. Kemudian membaca bentuk yang terkait dari masing-masing komentar.
+Contoh berikut membuat komentar modern tingkat slide serta komentar modern yang ditambatkan pada AutoShape tertentu. Kemudian contoh tersebut membaca shape yang terkait dari masing‑masing komentar.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -216,11 +218,11 @@ try {
 }
 ```
 
-### **Menyematkan Komentar ke Berbagai Tipe Bentuk**
+### **Menambatkan Komentar pada Berbagai Jenis Shape**
 
-Setiap objek slide yang mengimplementasikan [IShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishape/) dapat digunakan sebagai jangkar bentuk. Contoh umum meliputi [IAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/id/java/com.aspose.slides/iconnector/), dan instance [IGraphicalObject](https://reference.aspose.com/slides/id/java/com.aspose.slides/igraphicalobject/) seperti diagram.
+Setiap objek slide yang mengimplementasikan [IShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishape/) dapat digunakan sebagai anchor shape. Contoh umum meliputi [IAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/id/java/com.aspose.slides/iconnector/), dan instance [IGraphicalObject](https://reference.aspose.com/slides/id/java/com.aspose.slides/igraphicalobject/) seperti bagan.
 
-Contoh berikut membuat beberapa tipe bentuk umum dan mengaitkan komentar modern dengan masing-masing.
+Contoh berikut membuat beberapa tipe shape umum dan mengaitkan komentar modern dengan masing‑masingnya.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -277,18 +279,18 @@ try {
 }
 ```
 
-### **Menyematkan Komentar pada Teks dan Menetapkan Statusnya**
+### **Menambatkan Komentar pada Teks dan Menetapkan Statusnya**
 
-Untuk komentar modern yang terkait dengan sebuah [IAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/iautoshape/), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) dan [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) mengakses posisi awal teks yang dipilih dalam frame teks bentuk. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) dan [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) mengakses panjang pilihan. Bersama-sama, nilai-nilai ini mengaitkan komentar dengan rentang teks tertentu di dalam AutoShape.
+Untuk komentar modern yang terkait dengan sebuah [IAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/iautoshape/), metode [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) dan [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) mengakses posisi awal teks yang dipilih dalam frame teks shape. Metode [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) dan [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) mengakses panjang pemilihan. Bersama‑sama, nilai‑nilai ini mengaitkan komentar dengan rentang teks tertentu di dalam AutoShape.
 
-Metode [IModernComment.getStatus](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getStatus--) dan [IModernComment.setStatus](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#setStatus-byte--) mengakses nilai dari konstanta [ModernCommentStatus](https://reference.aspose.com/slides/id/java/com.aspose.slides/moderncommentstatus/) :
+Metode [IModernComment.getStatus](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getStatus--) dan [IModernComment.setStatus](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#setStatus-byte-) mengakses nilai dari konstanta [ModernCommentStatus](https://reference.aspose.com/slides/id/java/com.aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — tidak ada status komentar modern khusus yang didefinisikan.
+- `NotDefined` — tidak ada status komentar modern yang ditentukan.
 - `Active` — komentar sedang aktif.
 - `Resolved` — komentar telah diselesaikan.
 - `Closed` — komentar ditutup.
 
-Contoh berikut membuat komentar modern yang disematkan pada bentuk, mengaitkannya dengan pilihan teks, menandainya sebagai selesai, menyimpan presentasi, dan memverifikasi nilai-nilai setelah membuka kembali file.
+Contoh berikut membuat komentar modern yang ditambatkan pada shape, mengaitkannya dengan pemilihan teks, menandainya sebagai diselesaikan, menyimpan presentasi, dan memverifikasi nilai setelah membuka kembali berkas.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -355,7 +357,7 @@ try {
 
 ### **Memeriksa Komentar Modern yang Ada**
 
-Untuk memeriksa presentasi yang ada, periksa komentar mana yang mengimplementasikan [IModernComment](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/), kemudian periksa [IModernComment.getShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--), dan [IModernComment.getStatus](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getStatus--). Bentuk `null` menunjukkan komentar tingkat slide. Untuk jangkar [IAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/iautoshape/) , metode pilihan teks mengidentifikasi rentang yang terkait dalam frame teks bentuk.
+Untuk memeriksa presentasi yang ada, periksa komentar mana yang mengimplementasikan [IModernComment](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/), kemudian periksa [IModernComment.getShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--), dan [IModernComment.getStatus](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getStatus--). Sebuah shape `null` menunjukkan komentar tingkat slide. Untuk anchor [IAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/iautoshape/), metode pemilihan teks mengidentifikasi rentang yang terkait dalam frame teks shape.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -473,14 +475,14 @@ try {
 
 ## **FAQ**
 
-**Apakah Aspose.Slides mendukung status selesai untuk komentar modern?**
+**Apakah Aspose.Slides mendukung status diselesaikan untuk komentar modern?**
 
-Ya. [IModernComment.getStatus](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getStatus--) dan [IModernComment.setStatus](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#setStatus-byte--) mengakses nilai [ModernCommentStatus](https://reference.aspose.com/slides/id/java/com.aspose.slides/moderncommentstatus/), termasuk `Resolved`. Status disimpan dalam presentasi dan dapat dibaca kembali setelah file dibuka kembali.
+Ya. [IModernComment.getStatus](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#getStatus--) dan [IModernComment.setStatus](https://reference.aspose.com/slides/id/java/com.aspose.slides/imoderncomment/#setStatus-byte-) mengakses nilai [ModernCommentStatus](https://reference.aspose.com/slides/id/java/com.aspose.slides/moderncommentstatus/) termasuk `Resolved`. Status disimpan dalam presentasi dan dapat dibaca kembali setelah berkas dibuka ulang.
 
-**Apakah diskusi beruntai (rantai balasan) didukung, dan apakah ada batas kedalaman?**
+**Apakah diskusi beruntun (rantai balasan) didukung, dan apakah ada batas kedalaman?**
 
-Ya. Setiap komentar dapat merujuk ke [parent comment](https://reference.aspose.com/slides/id/java/com.aspose.slides/icomment/#getParentComment--), memungkinkan rantai balasan. API tidak menentukan batas kedalaman tertentu.
+Ya. Setiap komentar dapat merujuk ke [parent comment](https://reference.aspose.com/slides/id/java/com.aspose.slides/icomment/#getParentComment--), memungkinkan rantai balasan. API tidak menentukan batas kedalaman penumpukan tertentu.
 
-**Dalam sistem koordinat apa posisi penanda komentar pada slide didefinisikan?**
+**Dalam sistem koordinat apa posisi penanda komentar didefinisikan pada slide?**
 
-Posisi penanda didefinisikan oleh koordinat floating-point dalam sistem koordinat slide, memungkinkan Anda menempatkannya secara tepat pada slide.
+Posisi penanda didefinisikan oleh koordinat floating‑point dalam sistem koordinat slide, memungkinkan Anda menempatkannya secara tepat pada slide.

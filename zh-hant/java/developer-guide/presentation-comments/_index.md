@@ -1,49 +1,51 @@
 ---
-title: 在 Java 中管理簡報批註
-linktitle: 簡報批註
+title: 在 Java 中管理簡報註解
+linktitle: 簡報註解
 type: docs
 weight: 100
 url: /zh-hant/java/presentation-comments/
 keywords:
-- 批註
-- 現代批註
-- PowerPoint 批註
-- 簡報批註
-- 投影片批註
-- 新增批註
-- 存取批註
-- 編輯批註
-- 回覆批註
-- 移除批註
-- 刪除批註
+- 註解
+- 現代註解
+- PowerPoint 註解
+- 簡報註解
+- 投影片註解
+- 新增註解
+- 存取註解
+- 編輯註解
+- 回覆註解
+- 移除註解
+- 刪除註解
 - PowerPoint
 - 簡報
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Java 管理簡報批註：快速且輕鬆地在 PowerPoint 簡報中新增、讀取、編輯、回覆及移除批註。"
+description: "使用 Aspose.Slides for Java 管理簡報註解：快速輕鬆地在 PowerPoint 簡報中新增、讀取、編輯、回覆和移除註解。"
 ---
-## **概觀**
+## **概述**
 
-本文說明如何使用 Aspose.Slides for Java 管理簡報批註。它介紹主要的批註相關型別，並示範如何將批註加入投影片、存取現有批註、處理回覆與現代批註，以及如何從簡報中移除批註。
+本文說明如何使用 Aspose.Slides for Java 管理簡報註解。它介紹了主要的註解相關型別，並示範如何向投影片新增註解、存取現有註解、處理回覆與現代註解，以及從簡報中移除註解。
 
-這些範例涵蓋 PowerPoint 中常見的審閱與協作情境，例如指派批註給作者、讀取批註文字與中繼資料、建立回覆鏈，以及移除選取的批註或全部批註。
+這些範例涵蓋了 PowerPoint 中常見的審閱與協作情境，例如將註解指派給作者、讀取註解文字與中繼資料、建立回覆鏈，以及移除所選註解或全部註解。
 
-在 PowerPoint 中，批註會以註解的形式顯示在投影片上。選取批註時會顯示其文字與相關討論。
+在 PowerPoint 中，註解會以投影片上的標註形式顯示。選取註解時會顯示其文字與相關討論。
 
-## **為何要在簡報中加入批註？**
+若要在簡報開啟時要求顯示或隱藏註解而不變更註解本身，請參閱[在開啟簡報時顯示或隱藏註解](/slides/zh-hant/java/presentation-view-properties/)。
 
-在審閱簡報時，您可以使用批註提供回饋並與同事協作。
+## **為何在簡報中加入註解？**
 
-Aspose.Slides for Java 提供以下 API 以處理批註：
+在審閱簡報時，您可以使用註解提供回饋並與同事協作。
 
-* [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別，可存取簡報的批註作者。
-* [ICommentCollection](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icommentcollection/) 介面，代表與單一作者相關的批註集合。
-* [IComment](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icomment/) 介面，提供關於批註的資訊，包括作者、建立時間、位置與文字。
-* [CommentAuthor](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/commentauthor/) 類別，提供作者資訊，包括名稱、縮寫與相關批註。
+Aspose.Slides for Java 提供了以下用於處理註解的 API：
 
-## **加入投影片批註**
+* [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別，可存取簡報的註解作者。
+* [ICommentCollection](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icommentcollection/) 介面，表示與單一作者相關聯的註解集合。
+* [IComment](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icomment/) 介面，提供有關註解的資訊，包括作者、建立時間、位置與文字。
+* [CommentAuthor](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/commentauthor/) 類別，提供作者資訊，包括姓名、縮寫以及相關註解。
 
-下列範例示範如何在 PowerPoint 簡報的投影片中加入批註：
+## **新增投影片註解**
+
+以下範例示範如何在 PowerPoint 簡報的投影片中新增註解：
 
 ```java
 import com.aspose.slides.IComment;
@@ -82,9 +84,9 @@ try {
 }
 ```
 
-## **存取投影片批註**
+## **存取投影片註解**
 
-下列範例示範如何存取 PowerPoint 簡報中的現有批註：
+以下範例示範如何在 PowerPoint 簡報中存取現有註解：
 
 ```java
 import com.aspose.slides.IComment;
@@ -107,11 +109,11 @@ try {
 }
 ```
 
-## **回覆批註**
+## **回覆註解**
 
-父批註是回覆層級最上層的原始批註。[IComment.getParentComment](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icomment/#getParentComment--) 與 [IComment.setParentComment](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 方法讓您取得或設定批註的父批註。
+父註解是回覆層級頂端的原始註解。[IComment.getParentComment](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icomment/#getParentComment--) 與 [IComment.setParentComment](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 方法可讓您取得或設定註解的父註解。
 
-下列範例示範如何加入回覆並檢查產生的批註層級結構：
+以下範例示範如何新增回覆並檢查產生的註解層級結構：
 
 ```java
 import com.aspose.slides.IComment;
@@ -167,20 +169,20 @@ try {
 }
 ```
 
-{{% alert color="warning" title="警告" %}}
-* 當使用 [IComment.remove](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icomment/#remove--) 方法刪除批註時，該批註的所有回覆亦會被刪除。  
-* 若 [IComment.setParentComment](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 產生循環參照，將拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/pptxeditexception/)。  
+{{% alert color="warning" title="Warning" %}}
+* 使用 [IComment.remove](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icomment/#remove--) 方法刪除註解時，該註解的所有回覆亦會被刪除。
+* 若 [IComment.setParentComment](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 產生循環參考，則會拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/pptxeditexception/)。
 {{% /alert %}}
 
-## **加入現代批註**
+## **新增現代註解**
 
-現代批註可以關聯到投影片本身、特定圖形，或 AutoShape 內的文字範圍。[ICommentCollection.addModernComment](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) 方法除了接受投影片與批註標記座標外，還接受一個 [IShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/) 參數。
+現代註解可以與投影片本身、特定圖形，或 AutoShape 內的文字範圍關聯。[ICommentCollection.addModernComment](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) 方法除了投影片與註解標記座標外，還接受一個 [IShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/) 參數。
 
-當 shape 參數傳入 `null` 時，該批註為投影片層級批註。其標記位置由提供的座標決定，但不會與特定圖形關聯，因而 [IModernComment.getShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getShape--) 會回傳 `null`。若傳入 [IShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/)，則批註會錨定於該圖形。座標仍然決定批註標記在投影片上的位置，而圖形關聯可透過 [IModernComment.getShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getShape--) 取得。
+如果形狀參數傳入 `null`，則註解為投影片層級註解。其標記由提供的座標定位，但不會與特定圖形關聯，因而 [IModernComment.getShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getShape--) 會回傳 `null`。若提供了 [IShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/)，則註解會錨定於該圖形。座標仍決定註解標記在投影片上的位置，而圖形關聯可透過 [IModernComment.getShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getShape--) 取得。
 
-### **將現代批註錨定到圖形**
+### **將現代註解錨定至圖形**
 
-下列範例同時建立投影片層級的現代批註以及錨定於特定 AutoShape 的現代批註，然後讀取每個批註所關聯的圖形：
+以下範例同時建立投影片層級的現代註解以及錨定於特定 AutoShape 的現代註解，並從每個註解讀取其關聯的圖形。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -216,11 +218,11 @@ try {
 }
 ```
 
-### **將批註錨定到不同類型的圖形**
+### **將註解錨定至不同圖形類型**
 
-任何實作 [IShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/) 的投影片物件皆可作為圖形錨點。常見例子包括 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iconnector/) 與 [IGraphicalObject](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/igraphicalobject/)（如圖表）等實例。
+任何實作了 [IShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/) 的投影片物件皆可作為圖形錨點。常見例子包括 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iconnector/) 以及像是圖表的 [IGraphicalObject](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/igraphicalobject/) 實例。
 
-下列範例建立多種常見圖形類型，並為每一個圖形關聯一個現代批註：
+以下範例建立數種常見圖形類型，並為每個圖形關聯一個現代註解。
 
 ```java
 import com.aspose.slides.ChartType;
@@ -277,18 +279,18 @@ try {
 }
 ```
 
-### **將批註錨定到文字並設定其狀態**
+### **將註解錨定至文字並設定其狀態**
 
-對於關聯於 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/) 的現代批註，[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) 與 [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) 可取得形狀文字框中選取文字的起始位置。[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 與 [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) 可取得選取的長度。這兩個值共同將批註與 AutoShape 內的特定文字範圍關聯起來。
+對於關聯於 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/) 的現代註解，[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) 與 [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) 可取得形狀文字框內已選取文字的起始位置。[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 與 [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) 可取得選取的長度。這兩個值共同將註解與 AutoShape 內的特定文字範圍關聯起來。
 
-[IModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getStatus--) 與 [IModernComment.setStatus](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#setStatus-byte-) 方法可取得或設定來自 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/moderncommentstatus/) 常數的值：
+[IModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getStatus--) 與 [IModernComment.setStatus](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#setStatus-byte-) 方法可取得 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/moderncommentstatus/) 常數中的值：
 
-- `NotDefined` — 未定義特定的現代批註狀態。  
-- `Active` — 批註為啟用狀態。  
-- `Resolved` — 批註已解決。  
-- `Closed` — 批註已關閉。  
+- `NotDefined` — 未定義特定的現代註解狀態。
+- `Active` — 註解為啟用狀態。
+- `Resolved` — 註解已解決。
+- `Closed` — 註解已關閉。
 
-下列範例建立一個錨定於圖形的現代批註，將其與文字選取關聯，標記為已解決，儲存簡報，並在重新開啟檔案後驗證其值：
+以下範例建立一個錨定於圖形的現代註解，將其與文字選取關聯，將狀態標記為已解決，保存簡報，並在重新開啟檔案後驗證其值。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -353,9 +355,9 @@ try {
 }
 ```
 
-### **檢查現有的現代批註**
+### **檢查現有的現代註解**
 
-若要檢查已存在的簡報，先確認哪些批註實作了 [IModernComment](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/)，然後檢查 [IModernComment.getShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getShape--)、[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--)、[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 與 [IModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getStatus--)。`null` 的 shape 表示此批註為投影片層級批註。若為 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/) 錨點，文字選取方法會指出該圖形文字框中的相關範圍。
+若要檢查現有簡報，先確認哪些註解實作了 [IModernComment](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/)，接著檢查 [IModernComment.getShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getShape--)、[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--)、[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 與 [IModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getStatus--)。`null` 形狀表示投影片層級的註解。對於錨定於 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/) 的情況，文字選取方法會指出該圖形文字框中相關的範圍。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -400,11 +402,11 @@ try {
 }
 ```
 
-## **移除批註**
+## **移除註解**
 
-### **移除所有批註與批註作者**
+### **移除所有註解與註解作者**
 
-下列範例示範如何移除簡報中的全部批註與批註作者：
+以下範例示範如何從簡報中移除所有註解與註解作者：
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -424,9 +426,9 @@ try {
 }
 ```
 
-### **移除特定批註**
+### **移除特定註解**
 
-下列範例示範如何從投影片中移除特定批註：
+以下範例示範如何從投影片中移除特定註解：
 
 ```java
 import com.aspose.slides.IComment;
@@ -473,14 +475,14 @@ try {
 
 ## **常見問題**
 
-**Aspose.Slides 是否支援現代批註的已解決狀態？**
+**Aspose.Slides 是否支援現代註解的已解決狀態？**
 
-是的。[IModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getStatus--) 與 [IModernComment.setStatus](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#setStatus-byte-) 可存取 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/moderncommentstatus/) 值，包括 `Resolved`。此狀態會儲存在簡報中，重新開啟檔案後仍可讀取。
+是。[IModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#getStatus--) 與 [IModernComment.setStatus](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imoderncomment/#setStatus-byte-) 可存取 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/moderncommentstatus/) 的值，包括 `Resolved`。此狀態會儲存在簡報中，重新開啟檔案後仍可再次讀取。
 
-**是否支援串接討論（回覆鏈），且有巢狀深度限制嗎？**
+**是否支援具層次的討論（回覆鏈），且是否有巢狀深度限制？**
 
-是的。每個批註都可以參照其 [parent comment](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icomment/#getParentComment--)，從而形成回覆鏈。API 並未定義特定的巢狀深度上限。
+是。每個註解皆可參照其[父註解](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icomment/#getParentComment--)，從而形成回覆鏈。API 未定義具體的巢狀深度限制。
 
-**批註標記在投影片上的位置是以哪種座標系統定義的？**
+**註解標記在投影片上的位置是以哪個座標系統定義的？**
 
-標記位置使用投影片座標系統的浮點座標，讓您能精確定位於投影片上的任意位置。
+標記位置是以投影片座標系統中的浮點座標定義，讓您能精確地將其放置於投影片上。

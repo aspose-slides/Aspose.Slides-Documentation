@@ -25,24 +25,26 @@ description: "Hantera presentationskommentarer med Aspose.Slides för Python via
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur du hanterar presentationskommentarer med Aspose.Slides för Python via Java. Den introducerar de viktigaste typerna relaterade till kommentarer och visar hur du lägger till kommentarer på bilder, får åtkomst till befintliga kommentarer, arbetar med svar och moderna kommentarer samt tar bort kommentarer från en presentation.
+Den här artikeln förklarar hur du hanterar presentationskommentarer med Aspose.Slides för Python via Java. Den introducerar de viktigaste kommentarrelaterade typerna och demonstrerar hur du lägger till kommentarer på bilder, får åtkomst till befintliga kommentarer, arbetar med svar och moderna kommentarer samt tar bort kommentarer från en presentation.
 
-Exemplen täcker vanliga gransknings- och samarbetsscenarier i PowerPoint, såsom att tilldela kommentarer till författare, läsa kommentarsinnehåll och metadata, bygga svarskedjor och ta bort valda kommentarer eller alla kommentarer.
+Exemplen täcker vanliga gransknings- och samarbets scenarier i PowerPoint, såsom att tilldela kommentarer till författare, läsa kommentartext och metadata, bygga svarskedjor och ta bort valda kommentarer eller alla kommentarer.
 
-I PowerPoint visas kommentarer som anteckningar på bilder. När du markerar en kommentar visas dess text och relaterade diskussion.
+I PowerPoint visas kommentarer som anteckningar på bilder. Att välja en kommentar visar dess text och relaterade diskussion.
 
-## **Varför lägga till kommentarer i presentationer?**
+För att begära att kommentarer visas eller döljas när en presentation öppnas utan att ändra kommentarerna själva, se [Visa eller Dölj Kommentarer När en Presentation Öppnas](/slides/sv/python-java/presentation-view-properties/).
 
-Du kan använda kommentarer för att ge återkoppling och samarbeta med kollegor när du granskar presentationer.
+## **Varför Lägga Till Kommentarer i Presentationer?**
 
-Aspose.Slides för Python via Java tillhandahåller följande API:er för att arbeta med kommentarer:
+Du kan använda kommentarer för att ge feedback och samarbeta med kollegor när du granskar presentationer.
 
-* Klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) som ger åtkomst till presentationens kommentarförfattare.
-* Klassen [CommentCollection](https://reference.aspose.com/slides/sv/python-java/aspose.slides/commentcollection/) som representerar kommentarer som är kopplade till en enskild författare.
-* Klassen [Comment](https://reference.aspose.com/slides/sv/python-java/aspose.slides/comment/) som tillhandahåller information om en kommentar, inklusive dess författare, skapningstid, position och text.
-* Klassen [CommentAuthor](https://reference.aspose.com/slides/sv/python-java/aspose.slides/commentauthor/) som ger information om en författare, inklusive namn, initialer och associerade kommentarer.
+Aspose.Slides för Python via Java tillhandahåller följande API för arbete med kommentarer:
 
-## **Lägg till bildkommentarer**
+* Klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) ger åtkomst till presentationens kommentarförfattare.
+* Klassen [CommentCollection](https://reference.aspose.com/slides/sv/python-java/aspose.slides/commentcollection/) som representerar kommentarerna som är kopplade till en enskild författare.
+* Klassen [Comment](https://reference.aspose.com/slides/sv/python-java/aspose.slides/comment/) som ger information om en kommentar, inklusive dess författare, skapningstid, position och text.
+* Klassen [CommentAuthor](https://reference.aspose.com/slides/sv/python-java/aspose.slides/commentauthor/) som ger information om en författare, inklusive namn, initialer och tillhörande kommentarer.
+
+## **Lägg Till Bildkommentarer**
 
 Följande exempel visar hur du lägger till kommentarer på bilder i en PowerPoint-presentation:
 
@@ -83,7 +85,7 @@ finally:
     presentation.dispose()
 ```
 
-## **Hämta bildkommentarer**
+## **Få Tillgång till Bildkommentarer**
 
 Följande exempel visar hur du får åtkomst till befintliga kommentarer i en PowerPoint-presentation:
 
@@ -109,11 +111,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Svara på kommentarer**
+## **Svara på Kommentarer**
 
 En föräldrakommentar är den ursprungliga kommentaren högst upp i en svarshierarki. Metoderna [Comment.getParentComment](https://reference.aspose.com/slides/sv/python-java/aspose.slides/comment/#getParentComment) och [Comment.setParentComment](https://reference.aspose.com/slides/sv/python-java/aspose.slides/comment/#setParentComment) låter dig hämta eller ange föräldern för en kommentar.
 
-Följande exempel visar hur du lägger till svar och inspekterar den resulterande kommentarshierarkin:
+Följande exempel visar hur du lägger till svar och granskar den resulterande kommentarhierarkin:
 
 ```python
 import jpype
@@ -170,19 +172,19 @@ finally:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* När metoden [Comment.remove](https://reference.aspose.com/slides/sv/python-java/aspose.slides/comment/#remove) används för att ta bort en kommentar, tas också alla svar på den kommentaren bort.
+* När metoden [Comment.remove](https://reference.aspose.com/slides/sv/python-java/aspose.slides/comment/#remove) används för att ta bort en kommentar, tas alla svar på den kommentaren också bort.
 * Om [Comment.setParentComment](https://reference.aspose.com/slides/sv/python-java/aspose.slides/comment/#setParentComment) skapar en cirkulär referens, kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
-## **Lägg till moderna kommentarer**
+## **Lägg Till Moderna Kommentarer**
 
-Moderna kommentarer kan kopplas till själva bilden, till en specifik form eller till ett textintervall i en [AutoShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/autoshape/). Metoden [CommentCollection.addModernComment](https://reference.aspose.com/slides/sv/python-java/aspose.slides/commentcollection/#addModernComment) accepterar ett [Shape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shape/)‑argument utöver bild‑ och kommentarmarkörkoordinaterna.
+Moderna kommentarer kan associeras med själva bilden, med en specifik form, eller med ett textområde i en [AutoShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/autoshape/). Metoden [CommentCollection.addModernComment](https://reference.aspose.com/slides/sv/python-java/aspose.slides/commentcollection/#addModernComment) accepterar ett [Shape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shape/)‑argument utöver bilden och koordinaterna för kommentarens markör.
 
-När `None` skickas för shape‑argumentet är kommentaren en bildnivåkommentar. Dess markör placeras enligt de angivna koordinaterna, men den är inte kopplad till någon särskild form, så [ModernComment.getShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getShape) returnerar `None`. När en [Shape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shape/) anges, förankras kommentaren i den formen. Koordinaterna definierar fortfarande positionen för kommentarmarkören på bilden, medan formkopplingen kan hämtas via [ModernComment.getShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getShape).
+När `None` skickas in för formargumentet är kommentaren en bildnivåkommentar. Dess markör placeras av de angivna koordinaterna, men den är inte kopplad till någon specifik form, så [ModernComment.getShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getShape) returnerar `None`. När en [Shape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shape/) tillhandahålls, förankras kommentaren till den formen. Koordinaterna definierar fortfarande positionen för kommentarens markör på bilden, medan formkopplingen kan hämtas via [ModernComment.getShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getShape).
 
-### **Förankra en modern kommentar till en form**
+### **Förankra en Modern Kommentar till en Form**
 
-Följande exempel skapar både en bildnivå modern kommentar och en modern kommentar förankrad till en specifik [AutoShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/autoshape/). Det läser sedan den associerade formen från varje kommentar.
+Följande exempel skapar både en modern kommentar på bildnivå och en modern kommentar förankrad till en specifik [AutoShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/autoshape/). Det läser sedan den associerade formen från varje kommentar.
 
 ```python
 import jpype
@@ -218,11 +220,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Förankra kommentarer till olika formtyper**
+### **Förankra Kommentarer till Olika Formtyper**
 
-Alla bildobjekt som ärver från [Shape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shape/) kan användas som formankare. Vanliga exempel inkluderar [AutoShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/sv/python-java/aspose.slides/connector/) och [GraphicalObject](https://reference.aspose.com/slides/sv/python-java/aspose.slides/graphicalobject/)-instanser såsom diagram.
+Alla bildobjekt som ärver från [Shape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shape/) kan användas som en formförankring. Vanliga exempel inkluderar [AutoShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/sv/python-java/aspose.slides/connector/) och [GraphicalObject](https://reference.aspose.com/slides/sv/python-java/aspose.slides/graphicalobject/) instanser såsom diagram.
 
-Följande exempel skapar flera vanliga formtyper och kopplar en modern kommentar till var och en.
+Följande exempel skapar flera vanliga formtyper och associerar en modern kommentar med varje.
 
 ```python
 import jpype
@@ -274,18 +276,17 @@ finally:
     presentation.dispose()
 ```
 
-### **Förankra en kommentar till text och ange dess status**
+### **Förankra en Kommentar till Text och Ställ in Dess Status**
 
-För en modern kommentar kopplad till en [AutoShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/autoshape/), ger [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getTextSelectionStart) och [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#setTextSelectionStart) åtkomst till startpositionen för den markerade texten i formens textruta. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getTextSelectionLength) och [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#setTextSelectionLength) ger åtkomst till längden på markeringen. Tillsammans binder dessa värden kommentaren till ett specifikt textintervall i AutoShape.
+För en modern kommentar som är associerad med en [AutoShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/autoshape/), får [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getTextSelectionStart) och [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#setTextSelectionStart) åtkomst till startpositionen för den markerade texten i formens textruta. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getTextSelectionLength) och [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#setTextSelectionLength) får åtkomst till längden på markeringen. Tillsammans associerar dessa värden kommentaren med ett specifikt textområde i AutoShape.
 
-[ModernComment.getStatus](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getStatus) och [ModernComment.setStatus](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#setStatus) metoderna hämtar ett värde från [ModernCommentStatus](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncommentstatus/)‑konstanterna:
+Metoderna [ModernComment.getStatus](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getStatus) och [ModernComment.setStatus](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#setStatus) hämtar ett värde från [ModernCommentStatus](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncommentstatus/)‑konstanterna:
+- [NotDefined] — ingen specifik modern‑kommentarstatus är definierad.
+- [Active] — kommentaren är aktiv.
+- [Resolved] — kommentaren har lösts.
+- [Closed] — kommentaren är stängd.
 
-- [NotDefined](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncommentstatus/#NotDefined) — ingen specifik modern‑kommentarstatus är definierad.
-- [Active](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncommentstatus/#Active) — kommentaren är aktiv.
-- [Resolved](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncommentstatus/#Resolved) — kommentaren har lösts.
-- [Closed](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncommentstatus/#Closed) — kommentaren är stängd.
-
-Följande exempel skapar en formförankrad modern kommentar, kopplar den till en textmarkering, markerar den som löst, sparar presentationen och verifierar värdena efter att filen har öppnats igen.
+Följande exempel skapar en formförankrad modern kommentar, associerar den med en textmarkering, markerar den som löst, sparar presentationen och verifierar värdena efter att filen har öppnats på nytt.
 
 ```python
 import jpype
@@ -346,9 +347,9 @@ finally:
     reopened_presentation.dispose()
 ```
 
-### **Inspektera befintliga moderna kommentarer**
+### **Granska Befintliga Moderna Kommentarer**
 
-För att inspektera en befintlig presentation, kontrollera vilka kommentarer som är instanser av [ModernComment](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/), och undersök sedan [ModernComment.getShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getTextSelectionLength) och [ModernComment.getStatus](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getStatus). En `None`‑form indikerar en bildnivåkommentar. För ett [AutoShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/autoshape/)‑ankare identifierar textmarkeringsmetoderna det associerade intervallet i formens textruta.
+För att granska en befintlig presentation, kontrollera vilka kommentarer som är instanser av [ModernComment](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/), och undersök sedan [ModernComment.getShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getTextSelectionLength), och [ModernComment.getStatus](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getStatus). En `None`‑form indikerar en bildnivåkommentar. För en [AutoShape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/autoshape/)‑förankring identifierar textmarkeringsmetoderna det associerade området i formens textruta.
 
 ```python
 import jpype
@@ -388,9 +389,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Ta bort kommentarer**
+## **Ta Bort Kommentarer**
 
-### **Ta bort alla kommentarer och kommentarförfattare**
+### **Ta Bort Alla Kommentarer och Kommentarförfattare**
 
 Följande exempel visar hur du tar bort alla kommentarer och kommentarförfattare från en presentation:
 
@@ -414,7 +415,7 @@ finally:
     presentation.dispose()
 ```
 
-### **Ta bort specifika kommentarer**
+### **Ta Bort Specifika Kommentarer**
 
 Följande exempel visar hur du tar bort specifika kommentarer från en bild:
 
@@ -457,16 +458,16 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Vanliga Frågor**
 
-**Stöder Aspose.Slides en löst status för moderna kommentarer?**
+**Stöder Aspose.Slides ett löst status för moderna kommentarer?**
 
-Ja. [ModernComment.getStatus](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getStatus) och [ModernComment.setStatus](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#setStatus) hämtar ett [ModernCommentStatus](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncommentstatus/)‑värde, inklusive `Resolved`. Statusen lagras i presentationen och kan läsas igen när filen öppnas på nytt.
+Ja. [ModernComment.getStatus](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#getStatus) och [ModernComment.setStatus](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncomment/#setStatus) ger åtkomst till ett [ModernCommentStatus](https://reference.aspose.com/slides/sv/python-java/aspose.slides/moderncommentstatus/)‑värde, inklusive `Resolved`. Statusen sparas i presentationen och kan läsas igen efter att filen har öppnats på nytt.
 
-**Stöds trådade diskussioner (svarskedjor) och finns det en gräns för nästlingsnivå?**
+**Stöds trådade diskussioner (svarskedjor) och finns det en nästlingsgräns?**
 
-Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/sv/python-java/aspose.slides/comment/#getParentComment), vilket möjliggör svarskedjor. API‑et definierar ingen specifik gräns för nästlingsdjup.
+Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/sv/python-java/aspose.slides/comment/#getParentComment), vilket möjliggör svarskedjor. API:et definierar ingen specifik gräns för nästlingsdjup.
 
-**I vilket koordinatsystem är en kommentarmärkas position definierad på en bild?**
+**I vilket koordinatsystem definieras en kommentarens markörposition på en bild?**
 
-Markörens position definieras av flyttal‑koordinater i bildens koordinatsystem, vilket gör att du kan placera den exakt på bilden.
+Markörens position definieras av flyttal i bildens koordinatsystem, vilket låter dig placera den exakt på bilden.

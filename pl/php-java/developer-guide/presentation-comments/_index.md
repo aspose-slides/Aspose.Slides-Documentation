@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie komentarzami prezentacji w PHP
-linktitle: Komentarze prezentacji
+title: Zarządzanie komentarzami w prezentacji w PHP
+linktitle: Komentarze w prezentacji
 type: docs
 weight: 100
 url: /pl/php-java/presentation-comments/
@@ -13,37 +13,39 @@ keywords:
 - dodaj komentarz
 - dostęp do komentarza
 - edytuj komentarz
-- odpowiedź na komentarz
+- odpowiedz na komentarz
 - usuń komentarz
 - kasuj komentarz
 - PowerPoint
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Zarządzaj komentarzami prezentacji przy użyciu Aspose.Slides for PHP via Java: dodawaj, odczytuj, edytuj, odpowiadaj i usuwaj komentarze w prezentacjach PowerPoint szybko i łatwo."
+description: "Zarządzaj komentarzami w prezentacjach przy użyciu Aspose.Slides for PHP via Java: dodawaj, odczytuj, edytuj, odpowiadaj i usuwaj komentarze w prezentacjach PowerPoint szybko i łatwo."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak zarządzać komentarzami w prezentacji przy użyciu Aspose.Slides for PHP via Java. Wprowadza główne typy związane z komentarzami i demonstruje, jak dodawać komentarze do slajdów, uzyskiwać dostęp do istniejących komentarzy, pracować z odpowiedziami i nowoczesnymi komentarzami oraz usuwać komentarze z prezentacji.
+Ten artykuł wyjaśnia, jak zarządzać komentarzami w prezentacji przy użyciu Aspose.Slides for PHP via Java. Przedstawia główne typy związane z komentarzami i demonstruje, jak dodawać komentarze do slajdów, uzyskiwać dostęp do istniejących komentarzy, pracować z odpowiedziami i nowoczesnymi komentarzami oraz usuwać komentarze z prezentacji.
 
-Przykłady obejmują typowe scenariusze przeglądu i współpracy w programie PowerPoint, takie jak przypisywanie komentarzy do autorów, odczytywanie tekstu komentarza i metadanych, budowanie łańcuchów odpowiedzi oraz usuwanie wybranych komentarzy lub wszystkich komentarzy.
+Przykłady obejmują typowe scenariusze recenzji i współpracy w programie PowerPoint, takie jak przypisywanie komentarzy do autorów, odczytywanie tekstu i metadanych komentarzy, budowanie łańcuchów odpowiedzi oraz usuwanie wybranych komentarzy lub wszystkich komentarzy.
 
-W programie PowerPoint komentarze pojawiają się jako adnotacje na slajdach. Wybranie komentarza wyświetla jego tekst oraz powiązaną dyskusję.
+W programie PowerPoint komentarze pojawiają się jako adnotacje na slajdach. Wybranie komentarza wyświetla jego tekst i powiązaną dyskusję.
+
+Aby żądać wyświetlenia lub ukrycia komentarzy przy otwieraniu prezentacji bez zmiany samych komentarzy, zobacz [Pokaż lub ukryj komentarze przy otwieraniu prezentacji](/slides/pl/php-java/presentation-view-properties/).
 
 ## **Dlaczego dodawać komentarze do prezentacji?**
 
-Możesz używać komentarzy, aby przekazywać uwagi i współpracować z współpracownikami podczas przeglądania prezentacji.
+Możesz używać komentarzy, aby przekazywać opinie i współpracować z kolegami przy przeglądaniu prezentacji.
 
 Aspose.Slides for PHP via Java udostępnia następujące interfejsy API do pracy z komentarzami:
 
-* Klasa [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) zapewnia dostęp do autorów komentarzy prezentacji.
-* Klasa [CommentCollection](https://reference.aspose.com/slides/pl/php-java/aspose.slides/commentcollection/) reprezentuje komentarze powiązane z poszczególnym autorem.
-* Klasa [Comment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/comment/) dostarcza informacje o komentarzu, w tym jego autora, czas utworzenia, pozycję oraz tekst.
-* Klasa [CommentAuthor](https://reference.aspose.com/slides/pl/php-java/aspose.slides/commentauthor/) dostarcza informacje o autorze, w tym jego imię i nazwisko, inicjały oraz powiązane komentarze.
+* Klasa [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/), która zapewnia dostęp do autorów komentarzy w prezentacji.
+* Klasa [CommentCollection](https://reference.aspose.com/slides/pl/php-java/aspose.slides/commentcollection/), która reprezentuje komentarze powiązane z konkretnym autorem.
+* Klasa [Comment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/comment/), która dostarcza informacje o komentarzu, w tym jego autora, czas utworzenia, pozycję i tekst.
+* Klasa [CommentAuthor](https://reference.aspose.com/slides/pl/php-java/aspose.slides/commentauthor/), która dostarcza informacje o autorze, w tym jego imię i nazwisko, inicjały oraz powiązane komentarze.
 
 ## **Dodawanie komentarzy do slajdów**
 
-Poniższy przykład pokazuje, jak dodać komentarze do slajdów w prezentacji PowerPoint:
+Poniższy przykład pokazuje, jak dodawać komentarze do slajdów w prezentacji PowerPoint:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -79,7 +81,7 @@ try {
 }
 ```
 
-## **Dostęp do komentarzy slajdów**
+## **Uzyskiwanie komentarzy slajdów**
 
 Poniższy przykład pokazuje, jak uzyskać dostęp do istniejących komentarzy w prezentacji PowerPoint:
 
@@ -104,9 +106,9 @@ try {
 
 ## **Odpowiadanie na komentarze**
 
-Komentarz nadrzędny to oryginalny komentarz znajdujący się u góry hierarchii odpowiedzi. Metody [Comment::getParentComment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/comment/getparentcomment/) i [Comment::setParentComment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/comment/setparentcomment/) umożliwiają odczyt lub ustawienie komentarza nadrzędnego.
+Komentarz nadrzędny to oryginalny komentarz na szczycie hierarchii odpowiedzi. Metody [Comment::getParentComment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/comment/getparentcomment/) i [Comment::setParentComment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/comment/setparentcomment/) umożliwiają pobranie lub ustawienie komentarza nadrzędnego.
 
-Poniższy przykład pokazuje, jak dodać odpowiedzi i zbadać wynikową hierarchię komentarzy:
+Poniższy przykład pokazuje, jak dodawać odpowiedzi i sprawdzać powstałą hierarchię komentarzy:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -161,19 +163,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Gdy metoda [Comment::remove](https://reference.aspose.com/slides/pl/php-java/aspose.slides/comment/remove/) jest używana do usunięcia komentarza, wszystkie odpowiedzi na ten komentarz również zostają usunięte.
-* Jeśli [Comment::setParentComment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/comment/setparentcomment/) tworzy odniesienie cykliczne, zostaje rzucony wyjątek [PptxEditException](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pptxeditexception/).
+* Gdy metoda [Comment::remove](https://reference.aspose.com/slides/pl/php-java/aspose.slides/comment/remove/) jest używana do usunięcia komentarza, wszystkie odpowiedzi na ten komentarz są również usuwane.
+* Jeśli [Comment::setParentComment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/comment/setparentcomment/) tworzy odwołanie cykliczne, zostaje rzucony wyjątek [PptxEditException](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Dodawanie nowoczesnych komentarzy**
 
-Nowoczesne komentarze mogą być powiązane z samym slajdem, konkretnym kształtem lub zakresem tekstu wewnątrz AutoShape. Metoda [CommentCollection::addModernComment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/commentcollection/addmoderncomment/) przyjmuje argument typu [Shape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/) oprócz współrzędnych slajdu i markera komentarza.
+Nowoczesne komentarze mogą być powiązane z samym slajdem, konkretnym kształtem lub zakresem tekstu wewnątrz AutoShape. Metoda [CommentCollection::addModernComment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/commentcollection/addmoderncomment/) przyjmuje argument [Shape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/), oprócz slajdu i współrzędnych znacznika komentarza.
 
-Gdy jako argument shape przekazywany jest `null`, komentarz jest komentarzem na poziomie slajdu. Jego marker jest pozycjonowany według podanych współrzędnych, ale nie jest powiązany z konkretnym kształtem, więc [ModernComment::getShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/getshape/) zwraca `null`. Gdy podany jest obiekt [Shape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/), komentarz jest przypięty do tego kształtu. Współrzędne nadal określają pozycję markera komentarza na slajdzie, a powiązanie z kształtem można pobrać za pomocą [ModernComment::getShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/getshape/).
+Kiedy jako argument shape przekazywane jest `null`, komentarz jest komentarzem na poziomie slajdu. Jego znacznik jest pozycjonowany zgodnie z podanymi współrzędnymi, ale nie jest powiązany z konkretnym kształtem, więc [ModernComment::getShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/getshape/) zwraca `null`. Gdy podany jest [Shape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/), komentarz jest zakotwiczony do tego kształtu. Współrzędne nadal określają pozycję znacznika komentarza na slajdzie, natomiast powiązanie z kształtem można uzyskać za pomocą [ModernComment::getShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/getshape/).
 
-### **Przypięcie nowoczesnego komentarza do kształtu**
+### **Zakotwiczenie nowoczesnego komentarza w kształcie**
 
-Poniższy przykład tworzy zarówno nowoczesny komentarz na poziomie slajdu, jak i nowoczesny komentarz przypięty do konkretnego AutoShape. Następnie odczytuje powiązany kształt z każdego komentarza.
+Poniższy przykład tworzy zarówno nowoczesny komentarz na poziomie slajdu, jak i nowoczesny komentarz zakotwiczony w konkretnym AutoShape. Następnie odczytuje powiązany kształt z każdego komentarza.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -204,11 +206,11 @@ try {
 }
 ```
 
-### **Przypinanie komentarzy do różnych typów kształtów**
+### **Zakotwiczenie komentarzy w różnych typach kształtów**
 
-Każdy obiekt slajdu reprezentowany przez klasę [Shape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/) może być użyty jako kotwica kształtu. Przykłady typowych obiektów to [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/pl/php-java/aspose.slides/connector/) oraz wersje [GraphicalObject](https://reference.aspose.com/slides/pl/php-java/aspose.slides/graphicalobject/) takie jak wykresy.
+Dowolny obiekt slajdu reprezentowany przez klasę [Shape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/) może być użyty jako kotwica kształtu. Typowe przykłady obejmują [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/pl/php-java/aspose.slides/connector/) oraz [GraphicalObject](https://reference.aspose.com/slides/pl/php-java/aspose.slides/graphicalobject/) takie jak wykresy.
 
-Poniższy przykład tworzy kilka powszechnych typów kształtów i powiązuje z każdym z nich nowoczesny komentarz.
+Poniższy przykład tworzy kilka typowych kształtów i powiązuje z każdym z nich nowoczesny komentarz.
 
 ```php
 use aspose\slides\ChartType;
@@ -256,18 +258,18 @@ try {
 }
 ```
 
-### **Przypięcie komentarza do tekstu i ustawienie jego statusu**
+### **Zakotwiczenie komentarza w tekście i ustawienie jego statusu**
 
-Dla nowoczesnego komentarza powiązanego z [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/), metody [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/gettextselectionstart/) i [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/settextselectionstart/) zwracają początkową pozycję wybranego tekstu w ramce tekstowej kształtu. Metody [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/gettextselectionlength/) i [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/settextselectionlength/) zwracają długość zaznaczenia. Razem te wartości wiążą komentarz z określonym zakresem tekstu wewnątrz AutoShape.
+Dla nowoczesnego komentarza powiązanego z [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/), metody [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/gettextselectionstart/) i [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/settextselectionstart/) pobierają początkową pozycję zaznaczonego tekstu w ramce tekstowej kształtu. Metody [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/gettextselectionlength/) i [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/settextselectionlength/) pobierają długość zaznaczenia. Razem te wartości wiążą komentarz z określonym zakresem tekstu wewnątrz AutoShape.
 
-Metody [ModernComment::getStatus](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/getstatus/) i [ModernComment::setStatus](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/setstatus/) odczytują wartość z stałych [ModernCommentStatus](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncommentstatus/):
+Metody [ModernComment::getStatus](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/getstatus/) i [ModernComment::setStatus](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/setstatus/) uzyskują wartość z stałych [ModernCommentStatus](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncommentstatus/):
 
 - `NotDefined` — nie określono konkretnego statusu nowoczesnego komentarza.
 - `Active` — komentarz jest aktywny.
 - `Resolved` — komentarz został rozwiązany.
 - `Closed` — komentarz jest zamknięty.
 
-Poniższy przykład tworzy nowoczesny komentarz przypięty do kształtu, powiązuje go z zaznaczeniem tekstu, oznacza jako rozwiązany, zapisuje prezentację i weryfikuje wartości po ponownym otwarciu pliku.
+Poniższy przykład tworzy nowoczesny komentarz zakotwiczony w kształcie, powiązuje go z zaznaczeniem tekstu, oznacza jako rozwiązany, zapisuje prezentację i weryfikuje wartości po ponownym otwarciu pliku.
 
 ```php
 use aspose\slides\ModernCommentStatus;
@@ -329,7 +331,7 @@ try {
 
 ### **Sprawdzanie istniejących nowoczesnych komentarzy**
 
-Aby sprawdzić istniejącą prezentację, sprawdź, czy każdy komentarz jest typu [ModernComment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/), a następnie zbadaj [ModernComment::getShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/gettextselectionlength/) oraz [ModernComment::getStatus](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/getstatus/). Kształt `null` oznacza komentarz na poziomie slajdu. Dla kotwicy typu [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) metody wyboru tekstu identyfikują powiązany zakres w ramce tekstowej kształtu.
+Aby sprawdzić istniejącą prezentację, sprawdź, czy każdy komentarz jest [ModernComment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/), a następnie zbadaj [ModernComment::getShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/gettextselectionlength/) i [ModernComment::getStatus](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/getstatus/). Kształt `null` oznacza komentarz na poziomie slajdu. Dla kotwicy [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/), metody wyboru tekstu wskazują powiązany zakres w ramce tekstowej kształtu.
 
 ```php
 use aspose\slides\Presentation;
@@ -373,7 +375,7 @@ try {
 
 ## **Usuwanie komentarzy**
 
-### **Usuwanie wszystkich komentarzy i autorów komentarzy**
+### **Usunięcie wszystkich komentarzy i autorów komentarzy**
 
 Poniższy przykład pokazuje, jak usunąć wszystkie komentarze i autorów komentarzy z prezentacji:
 
@@ -394,7 +396,7 @@ try {
 }
 ```
 
-### **Usuwanie konkretnych komentarzy**
+### **Usunięcie wybranych komentarzy**
 
 Poniższy przykład pokazuje, jak usunąć wybrane komentarze ze slajdu:
 
@@ -439,12 +441,12 @@ try {
 
 **Czy Aspose.Slides obsługuje status rozwiązany dla nowoczesnych komentarzy?**
 
-Tak. Metody [ModernComment::getStatus](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/getstatus/) i [ModernComment::setStatus](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/setstatus/) odczytują wartość z [ModernCommentStatus](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncommentstatus/), w tym `Resolved`. Status jest przechowywany w prezentacji i może być odczytany ponownie po ponownym otwarciu pliku.
+Tak. [ModernComment::getStatus](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/getstatus/) i [ModernComment::setStatus](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncomment/setstatus/) uzyskują wartość z [ModernCommentStatus](https://reference.aspose.com/slides/pl/php-java/aspose.slides/moderncommentstatus/), w tym `Resolved`. Status jest przechowywany w prezentacji i może być odczytany ponownie po ponownym otwarciu pliku.
 
-**Czy obsługiwane są dyskusje wątkowane (łańcuchy odpowiedzi) i czy istnieje limit zagnieżdżania?**
+**Czy obsługiwane są dyskusje wątkowe (łańcuchy odpowiedzi) i czy istnieje limit zagnieżdżania?**
 
-Tak. Każdy komentarz może odwoływać się do swojego [parent comment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/comment/getparentcomment/), co umożliwia tworzenie łańcuchów odpowiedzi. API nie definiuje konkretnego limitu głębokości zagnieżdżenia.
+Tak. Każdy komentarz może odwoływać się do swojego [parent comment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/comment/getparentcomment/), co umożliwia łańcuchy odpowiedzi. API nie definiuje konkretnego limitu głębokości zagnieżdżenia.
 
-**W jakim systemie współrzędnych definiowana jest pozycja markera komentarza na slajdzie?**
+**W jakim układzie współrzędnych określona jest pozycja znacznika komentarza na slajdzie?**
 
-Pozycja markera jest definiowana za pomocą współrzędnych zmiennoprzecinkowych w systemie współrzędnych slajdu, co pozwala precyzyjnie umieścić go na slajdzie.
+Pozycja znacznika jest określona za pomocą współrzędnych zmiennoprzecinkowych w układzie współrzędnych slajdu, co pozwala precyzyjnie umieścić go na slajdzie.

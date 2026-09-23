@@ -25,26 +25,28 @@ description: "Hantera presentationskommentarer med Aspose.Slides för Node.js vi
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur du hanterar presentationskommentarer med Aspose.Slides för Node.js via Java. Den introducerar de viktigaste kommentarrelaterade typerna och demonstrerar hur du lägger till kommentarer på bilder, får åtkomst till befintliga kommentarer, arbetar med svar och moderna kommentarer samt tar bort kommentarer från en presentation.
+Den här artikeln förklarar hur du hanterar presentationskommentarer med Aspose.Slides för Node.js via Java. Den introducerar de viktigaste typerna relaterade till kommentarer och demonstrerar hur du lägger till kommentarer på bildspel, får åtkomst till befintliga kommentarer, arbetar med svar och moderna kommentarer samt tar bort kommentarer från en presentation.
 
 Exemplen täcker vanliga gransknings- och samarbets scenarier i PowerPoint, såsom att tilldela kommentarer till författare, läsa kommentartext och metadata, bygga svarskedjor och ta bort valda kommentarer eller alla kommentarer.
 
-I PowerPoint visas kommentarer som annoteringar på bilder. När du markerar en kommentar visas dess text och relaterade diskussion.
+I PowerPoint visas kommentarer som anteckningar på bildspel. När du markerar en kommentar visas dess text och relaterade diskussion.
+
+För att begära att kommentarer visas eller döljas när en presentation öppnas utan att ändra kommentarerna själva, se [Visa eller dölj kommentarer när du öppnar en presentation](/slides/sv/nodejs-java/presentation-view-properties/).
 
 ## **Varför lägga till kommentarer i presentationer?**
 
 Du kan använda kommentarer för att ge feedback och samarbeta med kollegor när du granskar presentationer.
 
-Aspose.Slides för Node.js via Java tillhandahåller följande API: för att arbeta med kommentarer:
+Aspose.Slides för Node.js via Java tillhandahåller följande API:er för att arbeta med kommentarer:
 
-* Klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) ger åtkomst till presentationens kommentarförfattare.
-* Klassen [CommentCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/commentcollection/) representerar kommentarerna som är kopplade till en enskild författare.
-* Klassen [Comment](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/comment/) ger information om en kommentar, inklusive författare, skapandetid, position och text.
-* Klassen [CommentAuthor](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/commentauthor/) ger information om en författare, inklusive namn, initialer och tillhörande kommentarer.
+* The [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) klassen, som ger åtkomst till presentationens kommentar‑författare.
+* The [CommentCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/commentcollection/) klassen, som representerar kommentarer som är kopplade till en individuell författare.
+* The [Comment](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/comment/) klassen, som tillhandahåller information om en kommentar, inklusive dess författare, skapandetid, position och text.
+* The [CommentAuthor](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/commentauthor/) klassen, som ger information om en författare, inklusive namn, initialer och associerade kommentarer.
 
 ## **Lägg till bildkommentarer**
 
-Följande exempel visar hur du lägger till kommentarer på bilder i en PowerPoint-presentation:
+Följande exempel visar hur du lägger till kommentarer på bildspel i en PowerPoint-presentation:
 
 ```javascript
 var aspose = aspose || {};
@@ -109,7 +111,7 @@ try {
 
 ## **Svara på kommentarer**
 
-En föräldrakommentar är den ursprungliga kommentaren högst upp i en svarshierarki. Metoderna [Comment.getParentComment](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/comment/getparentcomment/) och [Comment.setParentComment](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/comment/setparentcomment/) låter dig hämta eller ange föräldern för en kommentar.
+Den överordnade kommentaren är den ursprungliga kommentaren högst upp i en svarshierarki. Metoderna [Comment.getParentComment](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/comment/getparentcomment/) och [Comment.setParentComment](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/comment/setparentcomment/) låter dig hämta eller ange den överordnade kommentaren.
 
 Följande exempel visar hur du lägger till svar och inspekterar den resulterande kommentarshierarkin:
 
@@ -165,19 +167,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* När metoden [Comment.remove](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/comment/remove/) används för att ta bort en kommentar, tas även alla svar till den kommentaren bort.
+* När metoden [Comment.remove](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/comment/remove/) används för att ta bort en kommentar, tas även alla svar på den kommentaren bort.
 * Om [Comment.setParentComment](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/comment/setparentcomment/) skapar en cirkulär referens, kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Lägg till moderna kommentarer**
 
-Moderna kommentarer kan associeras med själva bilden, med en specifik form eller med ett textområde inuti en [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/). Metoden [CommentCollection.addModernComment](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) accepterar ett [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/)‑argument utöver bilden och kommentar‑markörens koordinater.
+Moderna kommentarer kan kopplas till själva bilden, till en specifik form eller till ett textområde inuti en [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/). Metoden [CommentCollection.addModernComment](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) accepterar ett [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/)‑argument utöver bild‑ och kommentarmarkörkoordinaterna.
 
-När `null` skickas som shape‑argument är kommentaren en bildnivåkommentar. Dess markör placeras enligt de angivna koordinaterna, men den är inte kopplad till någon specifik form, så [ModernComment.getShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/getshape/) returnerar `null`. När en [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/) tillhandahålls är kommentaren förankrad i den formen. Koordinaterna definierar fortfarande positionen för kommentarens markör på bilden, medan formkopplingen kan hämtas via [ModernComment.getShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/getshape/).
+När `null` skickas för form‑argumentet är kommentaren en bildnivå‑kommentar. Dess markör placeras enligt de angivna koordinaterna, men den är inte knuten till någon specifik form, så [ModernComment.getShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/getshape/) returnerar `null`. När en [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/) tillhandahålls är kommentaren fäst vid den formen. Koordinaterna definierar fortfarande positionen för kommentarmarkören på bilden, medan form‑associationen kan hämtas via [ModernComment.getShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/getshape/).
 
-### **Förankra en modern kommentar till en form**
+### **Fäst en modern kommentar till en form**
 
-Följande exempel skapar både en modern kommentar på bildnivå och en modern kommentar förankrad till en specifik [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/). Det läser sedan den associerade formen från varje kommentar.
+Följande exempel skapar både en modern kommentar på bildnivå och en modern kommentar fäst vid en specifik [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/). Det läser sedan den associerade formen från varje kommentar.
 
 ```javascript
 var aspose = aspose || {};
@@ -207,9 +209,9 @@ try {
 }
 ```
 
-### **Förankra kommentarer till olika formtyper**
+### **Fäst kommentarer till olika typer av former**
 
-Alla bildobjekt som härstammar från [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/) kan användas som formankare. Vanliga exempel inkluderar [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/connector/) och [GraphicalObject](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/graphicalobject/)-instanser såsom diagram.
+Alla bildobjekt som härstammar från [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/) kan användas som en formankare. Vanliga exempel inkluderar [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/connector/) och [GraphicalObject](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/graphicalobject/)‑instanser såsom diagram.
 
 Följande exempel skapar flera vanliga formtyper och associerar en modern kommentar med var och en.
 
@@ -256,18 +258,18 @@ try {
 }
 ```
 
-### **Förankra en kommentar till text och sätt dess status**
+### **Fäst en kommentar på text och ange dess status**
 
-För en modern kommentar som är kopplad till en [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/) ger [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) och [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) åtkomst till startpositionen för den markerade texten i formens textruta. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) och [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) ger åtkomst till längden på markeringen. Tillsammans associerar dessa värden kommentaren med ett specifikt textområde i [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/).
+För en modern kommentar som är kopplad till en [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) och [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) ger åtkomst till startpositionen för den markerade texten i formens textruta. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) och [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) ger åtkomst till markeringens längd. Tillsammans associerar dessa värden kommentaren med ett specifikt textområde inuti [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/).
 
-[ModernComment.getStatus](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/getstatus/) och [ModernComment.setStatus](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/setstatus/) metoder ger åtkomst till ett [ModernCommentStatus](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncommentstatus/)‑värde:
+[ModernComment.getStatus](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/getstatus/) och [ModernComment.setStatus](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/setstatus/) metoderna hämtar ett värde från uppräkningen [ModernCommentStatus](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncommentstatus/):
 
 - `NotDefined` — ingen specifik modern‑kommentarstatus är definierad.
 - `Active` — kommentaren är aktiv.
 - `Resolved` — kommentaren har lösts.
 - `Closed` — kommentaren är stängd.
 
-Följande exempel skapar en formförankrad modern kommentar, associerar den med en textmarkering, markerar den som löst, sparar presentationen och verifierar värdena efter att filen har öppnats igen.
+Följande exempel skapar en form‑fäst modern kommentar, associerar den med en textmarkering, markerar den som löst, sparar presentationen och verifierar värdena efter att filen har öppnats igen.
 
 ```javascript
 var aspose = aspose || {};
@@ -327,7 +329,7 @@ try {
 
 ### **Inspektera befintliga moderna kommentarer**
 
-För att inspektera en befintlig presentation, kontrollera vilka kommentarer som är [ModernComment]-instanser, och undersök sedan [ModernComment.getShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/gettex tselectionlength/) och [ModernComment.getStatus](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/getstatus/). En `null`‑form indikerar en kommentar på bildnivå. För ett [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/)-ankare identifierar textmarkeringsmetoderna det associerade området i formens textruta.
+För att inspektera en befintlig presentation, kontrollera vilka kommentarer som är [ModernComment](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/)‑instanser, och granska sedan [ModernComment.getShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) och [ModernComment.getStatus](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/getstatus/). En `null`‑form indikerar en kommentar på bildnivå. För en [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/)‑ankare identifierar text‑urvalsmetoderna det associerade området i formens textruta.
 
 ```javascript
 var aspose = aspose || {};
@@ -442,14 +444,14 @@ try {
 
 ## **FAQ**
 
-**Stöder Aspose.Slides ett löst status för moderna kommentarer?**
+**Stöder Aspose.Slides en löst status för moderna kommentarer?**
 
-Ja. [ModernComment.getStatus](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/getstatus/) och [ModernComment.setStatus](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/setstatus/) ger åtkomst till ett [ModernCommentStatus](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncommentstatus/)‑värde, inklusive `Resolved`. Statusen sparas i presentationen och kan läsas igen efter att filen har öppnats på nytt.
+Ja. [ModernComment.getStatus](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/getstatus/) och [ModernComment.setStatus](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncomment/setstatus/) ger åtkomst till ett [ModernCommentStatus](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/moderncommentstatus/)‑värde, inklusive `Resolved`. Statusen lagras i presentationen och kan läsas igen efter att filen har öppnats på nytt.
 
-**Stöds trådade diskussioner (svarskedjor), och finns det någon begränsning för nästlingsdjup?**
+**Stöds trådade diskussioner (svarskedjor) och finns det en begränsning för nästling?**
 
-Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/comment/getparentcomment/), vilket möjliggör svarskedjor. API:et definierar ingen specifik begränsning för nästlingsdjup.
+Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/comment/getparentcomment/), vilket möjliggör svarskedjor. API:et definierar ingen specifik gräns för nästlingsdjup.
 
 **I vilket koordinatsystem definieras en kommentarmarkörs position på en bild?**
 
-Markörens position definieras av flyttalskoordinator i bildens koordinatsystem, vilket gör att du kan placera den exakt på bilden.
+Markörens position definieras av flyttalskoordinater i bildens koordinatsystem, vilket gör att du kan placera den exakt på bilden.

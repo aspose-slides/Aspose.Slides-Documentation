@@ -1,48 +1,52 @@
 ---
-title: จัดการความคิดเห็นงานนำเสนอใน Python
-linktitle: ความคิดเห็นงานนำเสนอ
+title: จัดการคอมเมนต์งานนำเสนอใน Python
+linktitle: คอมเมนต์งานนำเสนอ
 type: docs
 weight: 100
 url: /th/python-net/presentation-comments/
 keywords:
-- ความคิดเห็น
-- ความคิดเห็นสมัยใหม่
-- ความคิดเห็น PowerPoint
-- ความคิดเห็นงานนำเสนอ
-- ความคิดเห็นสไลด์
-- เพิ่มความคิดเห็น
-- เข้าถึงความคิดเห็น
-- แก้ไขความคิดเห็น
-- ตอบกลับความคิดเห็น
-- ลบความคิดเห็น
-- ลบความคิดเห็น
+- คอมเมนต์
+- คอมเมนต์สมัยใหม่
+- คอมเมนต์ PowerPoint
+- คอมเมนต์งานนำเสนอ
+- คอมเมนต์สไลด์
+- เพิ่มคอมเมนต์
+- เข้าถึงคอมเมนต์
+- แก้ไขคอมเมนต์
+- ตอบคอมเมนต์
+- ลบคอมเมนต์
+- ลบคอมเมนต์
 - PowerPoint
 - งานนำเสนอ
 - Python
 - Aspose.Slides
-description: "จัดการความคิดเห็นงานนำเสนอด้วย Aspose.Slides for Python via .NET: เพิ่ม, อ่าน, แก้ไข, ตอบกลับ, และลบความคิดเห็นในงานนำเสนอ PowerPoint."
+description: "จัดการคอมเมนต์งานนำเสนอด้วย Aspose.Slides สำหรับ Python ผ่าน .NET: เพิ่ม, อ่าน, แก้ไข, ตอบกลับ, และลบคอมเมนต์ในงานนำเสนอ PowerPoint."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการจัดการความคิดเห็นในงานนำเสนอด้วย Aspose.Slides for Python via .NET จะนำเสนอประเภทที่เกี่ยวข้องกับความคิดเห็นหลักและสาธิตวิธีการเพิ่มความคิดเห็นลงในสไลด์, เข้าถึงความคิดเห็นที่มีอยู่, ทำงานกับการตอบกลับและความคิดเห็นสมัยใหม่, และลบความคิดเห็นออกจากงานนำเสนอ
+บทความนี้อธิบายวิธีจัดการคอมเมนต์งานนำเสนอด้วย Aspose.Slides for Python via .NET แนะนำประเภทหลักที่เกี่ยวกับคอมเมนต์และแสดงวิธีเพิ่มคอมเมนต์ในสไลด์, เข้าถึงคอมเมนต์ที่มีอยู่, ทำงานกับการตอบกลับและคอมเมนต์สมัยใหม่, และลบคอมเมนต์ออกจากงานนำเสนอ
 
-ตัวอย่างเหล่านี้ครอบคลุมสถานการณ์การตรวจสอบและการทำงานร่วมกันทั่วไปใน PowerPoint เช่น การกำหนดความคิดเห็นให้กับผู้เขียน, การอ่านข้อความและเมตาดาต้าของความคิดเห็น, การสร้างโซ่มาการตอบกลับ, และการลบความคิดเห็นที่เลือกหรือทุกความคิดเห็น
+ตัวอย่างครอบคลุมสถานการณ์การตรวจสอบและการทำงานร่วมกันทั่วไปใน PowerPoint เช่น การกำหนดคอมเมนต์ให้กับผู้เขียน, การอ่านข้อความคอมเมนต์และเมตาดาต้า, การสร้างสายตอบกลับ, และการลบคอมเมนต์ที่เลือกหรือคอมเมนต์ทั้งหมด
 
-ใน PowerPoint ความคิดเห็นจะแสดงเป็นหมายเหตุบนสไลด์ การเลือกความคิดเห็นจะแสดงข้อความและการสนทนาที่เกี่ยวข้อง
+ใน PowerPoint คอมเมนต์ปรากฏเป็นคำอธิบายบนสไลด์ การเลือกคอมเมนต์จะแสดงข้อความและการสนทนาที่เกี่ยวข้อง
 
-## **ทำไมต้องเพิ่มความคิดเห็นในงานนำเสนอ?**
+หากต้องการให้คอมเมนต์แสดงหรือซ่อนเมื่อเปิดงานนำเสนอโดยไม่ทำการเปลี่ยนแปลงคอมเมนต์เอง, ดู [แสดงหรือซ่อนคอมเมนต์เมื่อเปิดงานนำเสนอ](/slides/th/python-net/presentation-view-properties/)
 
-คุณสามารถใช้ความคิดเห็นเพื่อให้ข้อเสนอแนะและทำงานร่วมกับเพื่อนร่วมงานเมื่อตรวจสอบงานนำเสนอได้
+## **ทำไมต้องเพิ่มคอมเมนต์ในงานนำเสนอ?**
 
-Aspose.Slides for Python via .NET มี API ต่อไปนี้สำหรับการทำงานกับความคิดเห็น:
-* The [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) class, คลาสที่ให้การเข้าถึงผู้เขียนความคิดเห็นของงานนำเสนอ
-* The [CommentCollection](https://reference.aspose.com/slides/th/python-net/aspose.slides/commentcollection/) class, คลาสที่แสดงความคิดเห็นที่เชื่อมโยงกับผู้เขียนแต่ละคน
-* The [Comment](https://reference.aspose.com/slides/th/python-net/aspose.slides/comment/) class, คลาสที่ให้ข้อมูลเกี่ยวกับความคิดเห็น รวมถึงผู้เขียน เวลาการสร้าง ตำแหน่ง และข้อความ
-* The [CommentAuthor](https://reference.aspose.com/slides/th/python-net/aspose.slides/commentauthor/) class, คลาสที่ให้ข้อมูลเกี่ยวกับผู้เขียน ได้แก่ ชื่อ, อักษรย่อ, และความคิดเห็นที่เชื่อมโยง
+คุณสามารถใช้คอมเมนต์เพื่อให้ข้อเสนอแนะและทำงานร่วมกับเพื่อนร่วมงานเมื่อรีวิวงานนำเสนอ
 
-## **เพิ่มความคิดเห็นบนสไลด์**
+Aspose.Slides for Python via .NET ให้ API ต่อไปนี้สำหรับการทำงานกับคอมเมนต์:
 
-ตัวอย่างต่อไปนี้แสดงวิธีการเพิ่มความคิดเห็นลงในสไลด์ของงานนำเสนอ PowerPoint:
+* คลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) ที่ให้การเข้าถึงผู้เขียนคอมเมนต์ของงานนำเสนอ
+* คลาส [CommentCollection](https://reference.aspose.com/slides/th/python-net/aspose.slides/commentcollection/) ที่แสดงคอมเมนต์ที่เชื่อมโยงกับผู้เขียนแต่ละคน
+* คลาส [Comment](https://reference.aspose.com/slides/th/python-net/aspose.slides/comment/) ที่ให้ข้อมูลเกี่ยวกับคอมเมนต์ รวมถึงผู้เขียน, เวลาสร้าง, ตำแหน่ง, และข้อความ
+* คลาส [CommentAuthor](https://reference.aspose.com/slides/th/python-net/aspose.slides/commentauthor/) ที่ให้ข้อมูลเกี่ยวกับผู้เขียน รวมถึงชื่อ, ตัวย่อ, และคอมเมนต์ที่เชื่อมโยง
+
+## **เพิ่มคอมเมนต์ในสไลด์**
+
+ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มคอมเมนต์ในสไลด์ของงานนำเสนอ PowerPoint:
+
 ```python
 from datetime import datetime
 
@@ -70,9 +74,10 @@ with slides.Presentation() as presentation:
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **เข้าถึงความคิดเห็นบนสไลด์**
+## **เข้าถึงคอมเมนต์ในสไลด์**
 
-ตัวอย่างต่อไปนี้แสดงวิธีการเข้าถึงความคิดเห็นที่มีอยู่ในงานนำเสนอ PowerPoint:
+ตัวอย่างต่อไปนี้แสดงวิธีเข้าถึงคอมเมนต์ที่มีอยู่ในงานนำเสนอ PowerPoint:
+
 ```python
 import aspose.slides as slides
 
@@ -86,11 +91,12 @@ with slides.Presentation("Comments1.pptx") as presentation:
             print()
 ```
 
-## **ตอบกลับความคิดเห็น**
+## **ตอบกลับคอมเมนต์**
 
-ความคิดเห็นพาเรนต์คือความคิดเห็นต้นฉบับที่อยู่บนสุดของลำดับชั้นการตอบกลับ property [parent_comment](https://reference.aspose.com/slides/th/python-net/aspose.slides/comment/parent_comment/) ของคลาส [Comment](https://reference.aspose.com/slides/th/python-net/aspose.slides/comment/) ให้คุณดึงหรือกำหนดความคิดเห็นพาเรนต์ของความคิดเห็น
+คอมเมนต์พาเรนต์คือคอมเมนต์ต้นฉบับที่อยู่บนสุดของโครงสร้างการตอบกลับ คุณสมบัติ [parent_comment](https://reference.aspose.com/slides/th/python-net/aspose.slides/comment/parent_comment/) ของคลาส [Comment](https://reference.aspose.com/slides/th/python-net/aspose.slides/comment/) ช่วยให้คุณรับหรือกำหนดคอมเมนต์พาเรนต์ได้
 
-ตัวอย่างต่อไปนี้แสดงวิธีการเพิ่มการตอบกลับและตรวจสอบลำดับชั้นของความคิดเห็นที่ได้:
+ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มการตอบกลับและตรวจสอบโครงสร้างคอมเมนต์ที่ได้:
+
 ```python
 from datetime import datetime
 
@@ -137,19 +143,20 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* เมื่อใช้เมธอด [remove](https://reference.aspose.com/slides/th/python-net/aspose.slides/comment/remove/) ของคลาส [Comment](https://reference.aspose.com/slides/th/python-net/aspose.slides/comment/) เพื่อลบความคิดเห็น การตอบกลับทั้งหมดของความคิดเห็นนั้นก็จะถูกลบด้วย
-* หาก property [parent_comment](https://reference.aspose.com/slides/th/python-net/aspose.slides/comment/parent_comment/) สร้างการอ้างอิงแบบวงกลม จะทำให้เกิด [PptxEditException](https://reference.aspose.com/slides/th/python-net/aspose.slides/pptxeditexception/)
+* เมื่อใช้เมธอด [remove](https://reference.aspose.com/slides/th/python-net/aspose.slides/comment/remove/) ของคลาส [Comment](https://reference.aspose.com/slides/th/python-net/aspose.slides/comment/) เพื่อลบคอมเมนต์, การตอบกลับทั้งหมดของคอมเมนต์นั้นก็จะถูกลบด้วย
+* หากคุณสมบัติ [parent_comment](https://reference.aspose.com/slides/th/python-net/aspose.slides/comment/parent_comment/) สร้างการอ้างอิงวนลูป, จะเกิด [PptxEditException](https://reference.aspose.com/slides/th/python-net/aspose.slides/pptxeditexception/)
 {{% /alert %}}
 
-## **เพิ่มความคิดเห็นสมัยใหม่**
+## **เพิ่มคอมเมนต์สมัยใหม่**
 
-ความคิดเห็นสมัยใหม่สามารถเชื่อมโยงกับสไลด์เอง, กับรูปร่างเฉพาะ, หรือกับช่วงข้อความภายใน AutoShape เมธอด [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/th/python-net/aspose.slides/commentcollection/add_modern_comment/) รับอาร์กิวเมนต์ประเภท [Shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/) นอกจากสไลด์และพิกัดของเครื่องหมายความคิดเห็น
+คอมเมนต์สมัยใหม่สามารถเชื่อมโยงกับสไลด์เอง, กับรูปร่างเฉพาะ, หรือกับช่วงข้อความภายใน AutoShape เมธอด [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/th/python-net/aspose.slides/commentcollection/add_modern_comment/) ยอมรับอาร์กิวเมนต์ [Shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/) นอกเหนือจากสไลด์และพิกัดเครื่องหมายคอมเมนต์
 
-เมื่อส่งค่า `None` ให้กับอาร์กิวเมนต์ shape ความคิดเห็นจะเป็นความคิดเห็นระดับสไลด์ เครื่องหมายของมันจะถูกกำหนดตำแหน่งโดยพิกัดที่ให้มา แต่ไม่ได้เชื่อมโยงกับรูปใดเป็นพิเศษ ดังนั้น [ModernComment.shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/shape/) จะคืนค่า `None` เมื่อใส่ [Shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/) มา ความคิดเห็นจะถูกยึดกับรูปนั้น พิกัดยังคงกำหนดตำแหน่งของเครื่องหมายความคิดเห็นบนสไลด์ ส่วนการเชื่อมโยงรูปสามารถดึงได้ผ่าน [ModernComment.shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/shape/)
+เมื่อส่งค่า `None` ให้กับอาร์กิวเมนต์รูปร่าง, คอมเมนต์จะเป็นคอมเมนต์ระดับสไลด์ เครื่องหมายจะถูกกำหนดตำแหน่งตามพิกัดที่ให้มา แต่จะไม่เชื่อมกับรูปร่างใด, ดังนั้น [ModernComment.shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/shape/) จะคืนค่า `None` เมื่อมีการระบุ [Shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/) คอมเมนต์จะถูกยึดกับรูปร่างนั้น พิกัดยังคงกำหนดตำแหน่งของเครื่องหมายคอมเมนต์บนสไลด์, ในขณะที่การเชื่อมกับรูปร่างสามารถดึงข้อมูลผ่าน [ModernComment.shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/shape/) ได้
 
-### **ยึดความคิดเห็นสมัยใหม่กับรูป**
+### **เชื่อมคอมเมนต์สมัยใหม่กับรูปร่าง**
 
-ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ระดับสไลด์และความคิดเห็นสมัยใหม่ที่ยึดกับ AutoShape เฉพาะ จากนั้นอ่านรูปที่เชื่อมโยงจากแต่ละความคิดเห็น
+ตัวอย่างต่อไปนี้สร้างคอมเมนต์สมัยใหม่ระดับสไลด์และคอมเมนต์สมัยใหม่ที่ยึดกับ AutoShape เฉพาะ แล้วอ่านรูปร่างที่เชื่อมโยงจากแต่ละคอมเมนต์
+
 ```python
 from datetime import datetime
 
@@ -175,11 +182,12 @@ with slides.Presentation() as presentation:
     presentation.save("modern_comments.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **ยึดความคิดเห็นกับประเภทรูปต่าง ๆ**
+### **เชื่อมคอมเมนต์กับประเภทรูปร่างต่าง ๆ**
 
-ออบเจ็กต์สไลด์ใด ๆ ที่สืบทอดจาก [Shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/) สามารถใช้เป็นตัวยึดรูปได้ ตัวอย่างทั่วไปได้แก่ [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/th/python-net/aspose.slides/connector/), และอินสแตนซ์ของ [GraphicalObject](https://reference.aspose.com/slides/th/python-net/aspose.slides/graphicalobject/) เช่น แผนภูมิ
+อ็อบเจกต์สไลด์ใด ๆ ที่สืบทอดจาก [Shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/) สามารถใช้เป็นตัวยึดรูปร่างได้ ตัวอย่างทั่วไปได้แก่ [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/th/python-net/aspose.slides/connector/), และอินสแตนซ์ [GraphicalObject](https://reference.aspose.com/slides/th/python-net/aspose.slides/graphicalobject/) เช่น แผนภูมิ
 
-ตัวอย่างต่อไปนี้สร้างรูปหลายประเภทที่พบบ่อยและเชื่อมโยงความคิดเห็นสมัยใหม่กับแต่ละรูป
+ตัวอย่างต่อไปนี้สร้างหลายประเภทรูปร่างทั่วไปและเชื่อมคอมเมนต์สมัยใหม่กับแต่ละประเภท
+
 ```python
 import base64
 from datetime import datetime
@@ -221,17 +229,19 @@ with slides.Presentation() as presentation:
     presentation.save("modern_comment_shape_types.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **ยึดความคิดเห็นกับข้อความและกำหนดสถานะ**
+### **เชื่อมคอมเมนต์กับข้อความและตั้งค่าสถานะ**
 
-สำหรับความคิดเห็นสมัยใหม่ที่เชื่อมโยงกับ [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/text_selection_start/) ระบุตำแหน่งเริ่มต้นของข้อความที่เลือกในกรอบข้อความของรูปนั้น ส่วน [ModernComment.text_selection_length](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/text_selection_length/) ระบุความยาวของการเลือก ทั้งสองคุณสมบัติร่วมกันทำให้ความคิดเห็นเชื่อมโยงกับช่วงข้อความเฉพาะภายใน AutoShape
+สำหรับคอมเมนต์สมัยใหม่ที่เชื่อมกับ [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/), คุณสมบัติ [ModernComment.text_selection_start](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/text_selection_start/) ระบุตำแหน่งเริ่มต้นของข้อความที่เลือกในเฟรมข้อความของรูปร่าง, ขณะที่ [ModernComment.text_selection_length](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/text_selection_length/) ระบุความยาวของการเลือก ทั้งสองคุณสมบัตินี้ทำให้คอมเมนต์เชื่อมกับช่วงข้อความเฉพาะภายใน AutoShape
 
-คุณสมบัติ [ModernComment.status](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/status/) สามารถอ่านหรืออัปเดตด้วยค่าจาก enumeration [ModernCommentStatus](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncommentstatus/) ได้ดังนี้:
-- `NOT_DEFINED` — ไม่ได้กำหนดสถานะของความคิดเห็นสมัยใหม่เฉพาะ
-- `ACTIVE` — ความคิดเห็นอยู่ในสถานะทำงาน
-- `RESOLVED` — ความคิดเห็นได้รับการแก้ไขแล้ว
-- `CLOSED` — ความคิดเห็นถูกปิด
+คุณสมบัติ [ModernComment.status](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/status/) สามารถอ่านหรืออัปเดตด้วยค่าจาก enumeration [ModernCommentStatus](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncommentstatus/) ดังนี้
 
-ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ที่ยึดกับรูป, เชื่อมโยงกับการเลือกข้อความ, ทำเครื่องหมายว่าแก้ไขแล้ว, บันทึกงานนำเสนอ, และตรวจสอบค่าหลังจากเปิดไฟล์ใหม่
+- `NOT_DEFINED` — ไม่ได้กำหนดสถานะคอมเมนต์สมัยใหม่เฉพาะ
+- `ACTIVE` — คอมเมนต์อยู่ในสถานะทำงาน
+- `RESOLVED` — คอมเมนต์ได้รับการแก้ไขแล้ว
+- `CLOSED` — คอมเมนต์ถูกปิด
+
+ตัวอย่างต่อไปนี้สร้างคอมเมนต์สมัยใหม่ที่ยึดกับรูปร่าง, เชื่อมกับการเลือกข้อความ, ตั้งค่าสถานะเป็น `RESOLVED`, บันทึกงานนำเสนอ, และตรวจสอบค่าเมื่อเปิดไฟล์อีกครั้ง
+
 ```python
 from datetime import datetime
 
@@ -277,9 +287,10 @@ with slides.Presentation(output_file) as reopened_presentation:
         print("Resolved status preserved: " + str(status_matches))
 ```
 
-### **ตรวจสอบความคิดเห็นสมัยใหม่ที่มีอยู่**
+### **ตรวจสอบคอมเมนต์สมัยใหม่ที่มีอยู่**
 
-เพื่อทำการตรวจสอบงานนำเสนอที่มีอยู่ ให้ตรวจสอบว่าความคิดเห็นใดเป็นอินสแตนซ์ของ [ModernComment](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/) จากนั้นตรวจสอบ [ModernComment.shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/text_selection_length/), และ [ModernComment.status](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/status/). รูปแบบ `None` หมายถึงความคิดเห็นระดับสไลด์ สำหรับการยึดกับ [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) คุณสมบัติการเลือกข้อความจะบ่งชี้ช่วงที่เชื่อมโยงในกรอบข้อความของรูป
+เพื่อทำการตรวจสอบงานนำเสนอที่มีอยู่, ตรวจสอบว่าคอมเมนต์ใดเป็นอินสแตนซ์ของ [ModernComment](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/) แล้วตรวจสอบ [ModernComment.shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/text_selection_length/), และ [ModernComment.status](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/status/). รูปร่างที่เป็น `None` หมายถึงคอมเมนต์ระดับสไลด์ สำหรับการยึดกับ [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) คุณสมบัติการเลือกข้อความจะระบุช่วงที่เชื่อมกับเฟรมข้อความของรูปร่าง
+
 ```python
 import aspose.slides as slides
 
@@ -308,11 +319,12 @@ with slides.Presentation("comments.pptx") as presentation:
             print()
 ```
 
-## **ลบความคิดเห็น**
+## **ลบคอมเมนต์**
 
-### **ลบความคิดเห็นและผู้เขียนทั้งหมด**
+### **ลบคอมเมนต์ทั้งหมดและผู้เขียนคอมเมนต์**
 
-ตัวอย่างต่อไปนี้แสดงวิธีการลบความคิดเห็นและผู้เขียนความคิดเห็นทั้งหมดจากงานนำเสนอ:
+ตัวอย่างต่อไปนี้แสดงวิธีลบคอมเมนต์ทั้งหมดและผู้เขียนคอมเมนต์จากงานนำเสนอ:
+
 ```python
 import aspose.slides as slides
 
@@ -324,9 +336,10 @@ with slides.Presentation("example.pptx") as presentation:
     presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **ลบความคิดเห็นเฉพาะ**
+### **ลบคอมเมนต์เฉพาะ**
 
-ตัวอย่างต่อไปนี้แสดงวิธีการลบความคิดเห็นเฉพาะจากสไลด์:
+ตัวอย่างต่อไปนี้แสดงวิธีลบคอมเมนต์เฉพาะจากสไลด์:
+
 ```python
 from datetime import datetime
 
@@ -359,14 +372,14 @@ with slides.Presentation() as presentation:
 
 ## **คำถามที่พบบ่อย**
 
-**Aspose.Slides รองรับสถานะ resolved สำหรับความคิดเห็นสมัยใหม่หรือไม่?**
+**Aspose.Slides รองรับสถานะที่แก้ไขแล้วสำหรับคอมเมนต์สมัยใหม่หรือไม่?**
 
-ใช่. [ModernComment.status](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/status/) สามารถอ่านและตั้งค่าได้ด้วยค่าจาก [ModernCommentStatus](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncommentstatus/), รวมถึง `RESOLVED`. สถานะนี้จะถูกบันทึกในงานนำเสนอและสามารถอ่านได้อีกครั้งหลังจากเปิดไฟล์ใหม่
+ใช่. [ModernComment.status](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncomment/status/) สามารถอ่านและตั้งค่าได้ด้วยค่าใน enumeration [ModernCommentStatus](https://reference.aspose.com/slides/th/python-net/aspose.slides/moderncommentstatus/) รวมถึง `RESOLVED`. สถานะจะถูกบันทึกในงานนำเสนอและสามารถอ่านใหม่ได้หลังจากเปิดไฟล์อีกครั้ง
 
-**การสนทนาที่เป็นเธรด (โซ่ตอบกลับ) ได้รับการสนับสนุนหรือไม่, และมีขีดจำกัดของการซ้อนกันหรือไม่?**
+**สนับสนุนการสนทนาเชิงเธรด (สายตอบกลับ) หรือไม่ และมีขีดจำกัดการซ้อนกันหรือไม่?**
 
-ใช่. ความคิดเห็นแต่ละรายการสามารถอ้างอิงถึง [parent comment](https://reference.aspose.com/slides/th/python-net/aspose.slides/comment/parent_comment/) ของมันได้, ทำให้สามารถสร้างโซ่ตอบกลับได้ API ไม่ได้กำหนดขีดจำกัดความลึกของการซ้อนกันเป็นพิเศษ
+ใช่. แต่ละคอมเมนต์สามารถอ้างอิง [parent comment](https://reference.aspose.com/slides/th/python-net/aspose.slides/comment/parent_comment/) ของมันเอง ทำให้สามารถสร้างสายตอบกลับได้ API ไม่ได้กำหนดขีดจำกัดความลึกของการซ้อนกันโดยเฉพาะ
 
-**ตำแหน่งของเครื่องหมายความคิดเห็นบนสไลด์ถูกกำหนดในระบบพิกัดใด?**
+**ตำแหน่งของเครื่องหมายคอมเมนต์บนสไลด์กำหนดด้วยระบบพิกัดอะไร?**
 
-ตำแหน่งของเครื่องหมายถูกกำหนดด้วยพิกัดแบบ floating-point ในระบบพิกัดของสไลด์ ซึ่งทำให้คุณสามารถวางตำแหน่งได้อย่างแม่นยำบนสไลด์
+ตำแหน่งของเครื่องหมายถูกกำหนดด้วยพิกัดแบบ floating-point ในระบบพิกัดของสไลด์ ทำให้คุณสามารถวางตำแหน่งได้อย่างแม่นยำบนสไลด์

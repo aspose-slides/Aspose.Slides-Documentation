@@ -1,49 +1,51 @@
 ---
-title: Quản lý Nhận xét Bản trình bày trong .NET
-linktitle: Nhận xét Bản trình bày
+title: Quản lý bình luận bài thuyết trình trong .NET
+linktitle: Bình luận bài thuyết trình
 type: docs
 weight: 100
 url: /vi/net/presentation-comments/
 keywords:
-- nhận xét
-- nhận xét hiện đại
-- nhận xét PowerPoint
-- nhận xét bản trình bày
-- nhận xét slide
-- thêm nhận xét
-- truy cập nhận xét
-- chỉnh sửa nhận xét
-- trả lời nhận xét
-- xóa nhận xét
-- xoá nhận xét
+- bình luận
+- bình luận hiện đại
+- bình luận PowerPoint
+- bình luận bài thuyết trình
+- bình luận slide
+- thêm bình luận
+- truy cập bình luận
+- chỉnh sửa bình luận
+- trả lời bình luận
+- loại bỏ bình luận
+- xóa bình luận
 - PowerPoint
-- bản trình bày
+- bài thuyết trình
 - .NET
 - C#
 - Aspose.Slides
-description: "Quản lý nhận xét bản trình bày với Aspose.Slides cho .NET: thêm, đọc, chỉnh sửa, trả lời và xóa nhận xét trong các bản trình bày PowerPoint một cách nhanh chóng và dễ dàng."
+description: "Quản lý bình luận bài thuyết trình với Aspose.Slides cho .NET: thêm, đọc, chỉnh sửa, trả lời và xóa bình luận trong các bài thuyết trình PowerPoint một cách nhanh chóng và dễ dàng."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách quản lý nhận xét trong bản trình bày bằng Aspose.Slides cho .NET. Nó giới thiệu các kiểu liên quan đến nhận xét chính và trình bày cách thêm nhận xét vào các slide, truy cập các nhận xét hiện có, làm việc với trả lời và nhận xét hiện đại, và xóa nhận xét khỏi một bản trình bày.
+Bài viết này giải thích cách quản lý các bình luận trong bài thuyết trình bằng Aspose.Slides for .NET. Nó giới thiệu các kiểu dữ liệu liên quan đến bình luận chính và trình bày cách thêm bình luận vào các slide, truy cập các bình luận hiện có, làm việc với trả lời và bình luận hiện đại, cũng như xóa bình luận khỏi bài thuyết trình.
 
-Các ví dụ bao phủ các kịch bản đánh giá và cộng tác phổ biến trong PowerPoint, chẳng hạn như gán nhận xét cho tác giả, đọc nội dung và siêu dữ liệu của nhận xét, xây dựng chuỗi trả lời, và xóa các nhận xét đã chọn hoặc tất cả các nhận xét.
+Các ví dụ bao phủ các kịch bản xem xét và cộng tác phổ biến trong PowerPoint, chẳng hạn như gán bình luận cho tác giả, đọc văn bản và siêu dữ liệu của bình luận, xây dựng chuỗi trả lời, và xóa các bình luận đã chọn hoặc tất cả bình luận.
 
-Trong PowerPoint, nhận xét xuất hiện dưới dạng chú thích trên slide. Khi chọn một nhận xét, nó sẽ hiển thị văn bản và cuộc thảo luận liên quan.
+Trong PowerPoint, bình luận xuất hiện như các chú thích trên slide. Khi chọn một bình luận, văn bản và cuộc thảo luận liên quan sẽ được hiển thị.
 
-## **Tại sao cần thêm nhận xét vào bản trình bày?**
+Để yêu cầu hiển thị hoặc ẩn bình luận khi mở bài thuyết trình mà không thay đổi nội dung bình luận, hãy xem [Show or Hide Comments When Opening a Presentation](/slides/vi/net/presentation-view-properties/).
 
-Bạn có thể sử dụng nhận xét để đưa ra phản hồi và cộng tác với đồng nghiệp khi xem xét bản trình bày.
+## **Tại sao nên thêm bình luận vào bài thuyết trình?**
 
-Aspose.Slides cho .NET cung cấp các API sau để làm việc với nhận xét:
+Bạn có thể sử dụng bình luận để cung cấp phản hồi và cộng tác với đồng nghiệp khi xem xét bài thuyết trình.
 
-* Lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation), cung cấp quyền truy cập vào các tác giả nhận xét của bản trình bày.
-* Giao diện [ICommentCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/icommentcollection), đại diện cho các nhận xét liên quan đến một tác giả cụ thể.
-* Giao diện [IComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment), cung cấp thông tin về một nhận xét, bao gồm tác giả, thời gian tạo, vị trí và nội dung.
-* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/net/aspose.slides/commentauthor), cung cấp thông tin về một tác giả, bao gồm tên, ký hiệu và các nhận xét liên quan.
+Aspose.Slides for .NET cung cấp các API sau để làm việc với bình luận:
 
-## **Thêm nhận xét vào slide**
-Ví dụ sau cho thấy cách thêm nhận xét vào các slide trong một bản trình bày PowerPoint:
+* Lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation) cung cấp quyền truy cập vào các tác giả bình luận của bài thuyết trình.
+* Giao diện [ICommentCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/icommentcollection) đại diện cho các bình luận liên kết với một tác giả cụ thể.
+* Giao diện [IComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment) cung cấp thông tin về một bình luận, bao gồm tác giả, thời gian tạo, vị trí và nội dung.
+* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/net/aspose.slides/commentauthor) cung cấp thông tin về một tác giả, bao gồm tên, ký tự viết tắt và các bình luận liên quan.
+
+## **Thêm bình luận vào slide**
+Ví dụ sau cho thấy cách thêm bình luận vào các slide trong một bài thuyết trình PowerPoint:
 
 ```csharp
 using System;
@@ -74,8 +76,8 @@ if (comments.Length > 0)
 presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Truy cập nhận xét của slide**
-Ví dụ sau cho thấy cách truy cập các nhận xét hiện có trong một bản trình bày PowerPoint:
+## **Truy cập bình luận trên slide**
+Ví dụ sau cho thấy cách truy cập các bình luận hiện có trong một bài thuyết trình PowerPoint:
 
 ```csharp
 using System;
@@ -96,10 +98,10 @@ foreach (var author in presentation.CommentAuthors)
 }
 ```
 
-## **Trả lời nhận xét**
-Một nhận xét cha là nhận xét gốc ở đầu chuỗi trả lời. Thuộc tính [ParentComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment/properties/parentcomment) của giao diện [IComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment) cho phép bạn lấy hoặc đặt cha của một nhận xét.
+## **Trả lời bình luận**
+Một bình luận gốc là bình luận ban đầu ở đầu cây trả lời. Thuộc tính [ParentComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment/properties/parentcomment) của giao diện [IComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment) cho phép bạn lấy hoặc đặt bình luận cha của một bình luận.
 
-Ví dụ sau cho thấy cách thêm trả lời và kiểm tra cấu trúc nhận xét tạo ra:
+Ví dụ sau cho thấy cách thêm trả lời và kiểm tra cấu trúc cây bình luận tạo ra:
 
 ```csharp
 using System;
@@ -150,22 +152,22 @@ comment1.Remove();
 presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="warning" title="Chú ý" %}} 
+{{% alert color="warning" title="Attention" %}} 
 
-* Khi sử dụng phương thức [Remove](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment/methods/remove) của giao diện [IComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment) để xóa một nhận xét, tất cả các trả lời của nhận xét đó cũng sẽ bị xóa.
-* Nếu thuộc tính [ParentComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment/properties/parentcomment) tạo ra một tham chiếu vòng, một [PptxEditException](https://reference.aspose.com/slides/vi/net/aspose.slides/pptxeditexception) sẽ được ném ra.
+* Khi sử dụng phương thức [Remove](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment/methods/remove) của giao diện [IComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment) để xóa một bình luận, tất cả các trả lời của bình luận đó cũng sẽ bị xóa.
+* Nếu thuộc tính [ParentComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icomment/properties/parentcomment) tạo ra một vòng tham chiếu, một [PptxEditException](https://reference.aspose.com/slides/vi/net/aspose.slides/pptxeditexception) sẽ được ném ra.
 
 {{% /alert %}}
 
-## **Thêm nhận xét hiện đại**
+## **Thêm bình luận hiện đại**
 
-Nhận xét hiện đại có thể được gắn với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong AutoShape. Phương thức [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icommentcollection/addmoderncomment/) chấp nhận một đối số [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/) bên cạnh slide và tọa độ dấu nhận xét.
+Bình luận hiện đại có thể được liên kết với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong một AutoShape. Phương thức [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/vi/net/aspose.slides/icommentcollection/addmoderncomment/) chấp nhận một đối số [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/) bổ sung cho slide và tọa độ đánh dấu bình luận.
 
-Khi truyền `null` cho đối số shape, nhận xét sẽ là một nhận xét cấp slide. Dấu nhận xét được định vị bằng các tọa độ đã cung cấp, nhưng không được gắn với một shape cụ thể, vì vậy [IModernComment.Shape](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/shape/) trả về `null`. Khi cung cấp một [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/), nhận xét sẽ được neo vào shape đó. Các tọa độ vẫn xác định vị trí của dấu nhận xét trên slide, trong khi việc gắn shape có thể được lấy thông qua [IModernComment.Shape](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/shape/).
+Khi truyền `null` cho đối số shape, bình luận sẽ là bình luận cấp slide. Dấu đánh dấu của nó được định vị bằng các tọa độ được cung cấp, nhưng không gắn với một shape cụ thể, do đó [IModernComment.Shape](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/shape/) trả về `null`. Khi cung cấp một [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/), bình luận sẽ được neo vào shape đó. Các tọa độ vẫn xác định vị trí của dấu đánh dấu bình luận trên slide, trong khi việc liên kết shape có thể được truy xuất qua [IModernComment.Shape](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/shape/).
 
-### **Neo một nhận xét hiện đại vào shape**
+### **Neo một bình luận hiện đại vào một shape**
 
-Ví dụ sau tạo cả một nhận xét hiện đại cấp slide và một nhận xét hiện đại được neo vào một AutoShape cụ thể. Sau đó nó đọc shape liên quan từ mỗi nhận xét.
+Ví dụ sau tạo cả bình luận hiện đại cấp slide và bình luận hiện đại được neo vào một AutoShape cụ thể. Sau đó nó đọc shape liên kết từ mỗi bình luận.
 
 ```csharp
 using System;
@@ -192,11 +194,11 @@ Console.WriteLine(shapeComment.Shape?.Name);
 presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 ```
 
-### **Neo nhận xét vào các kiểu shape khác nhau**
+### **Neo bình luận vào các loại shape khác nhau**
 
 Bất kỳ đối tượng slide nào triển khai [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/) đều có thể được dùng làm neo shape. Các ví dụ phổ biến bao gồm [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/vi/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/vi/net/aspose.slides/iconnector/), và các thể hiện [IGraphicalObject](https://reference.aspose.com/slides/vi/net/aspose.slides/igraphicalobject/) như biểu đồ.
 
-Ví dụ sau tạo một số kiểu shape thông thường và gắn một nhận xét hiện đại vào mỗi shape đó.
+Ví dụ sau tạo một số loại shape thông dụng và gắn một bình luận hiện đại vào mỗi shape.
 
 ```csharp
 using System;
@@ -239,18 +241,18 @@ author.Comments.AddModernComment("Comment on a graphical object.", slide, chart,
 presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 ```
 
-### **Neo nhận xét vào văn bản và đặt trạng thái**
+### **Neo bình luận vào văn bản và đặt trạng thái**
 
-Đối với một nhận xét hiện đại được gắn với [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/), thuộc tính [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/textselectionstart/) chỉ vị trí bắt đầu của đoạn văn bản đã chọn trong khung văn bản của shape, trong khi [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/textselectionlength/) chỉ độ dài của đoạn chọn. Cả hai thuộc tính này kết hợp để gắn nhận xét với một đoạn văn bản cụ thể bên trong AutoShape.
+Đối với một bình luận hiện đại được gắn với một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/), thuộc tính [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/textselectionstart/) chỉ vị trí bắt đầu của đoạn văn bản được chọn trong khung văn bản của shape, trong khi [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/textselectionlength/) chỉ độ dài của phần chọn. Hai thuộc tính này kết hợp lại để liên kết bình luận với một đoạn văn bản cụ thể bên trong AutoShape.
 
 Thuộc tính [IModernComment.Status](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/status/) có thể được đọc hoặc cập nhật bằng một giá trị từ enum [ModernCommentStatus](https://reference.aspose.com/slides/vi/net/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — không có trạng thái nhận xét hiện đại cụ thể nào được xác định.
-- `Active` — nhận xét đang hoạt động.
-- `Resolved` — nhận xét đã được giải quyết.
-- `Closed` — nhận xét đã đóng.
+- `NotDefined` — không có trạng thái bình luận hiện đại cụ thể nào được xác định.
+- `Active` — bình luận đang hoạt động.
+- `Resolved` — bình luận đã được giải quyết.
+- `Closed` — bình luận đã đóng.
 
-Ví dụ sau tạo một nhận xét hiện đại được neo vào shape, gắn nó với một đoạn văn bản đã chọn, đánh dấu là đã giải quyết, lưu bản trình bày, và kiểm tra các giá trị sau khi mở lại tệp.
+Ví dụ sau tạo một bình luận hiện đại được neo vào shape, liên kết nó với một đoạn văn bản được chọn, đánh dấu là đã giải quyết, lưu bài thuyết trình và kiểm tra các giá trị sau khi mở lại tệp.
 
 ```csharp
 using System;
@@ -301,9 +303,9 @@ foreach (var reopenedComment in reopenedComments)
 }
 ```
 
-### **Kiểm tra các nhận xét hiện đại đã tồn tại**
+### **Kiểm tra các bình luận hiện đại hiện có**
 
-Để kiểm tra một bản trình bày hiện có, xác định các nhận xét thực hiện [IModernComment](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/), sau đó xem xét [IModernComment.Shape](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/textselectionlength/), và [IModernComment.Status](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/status/). Một shape `null` cho thấy là nhận xét cấp slide. Đối với một neo [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/), các thuộc tính lựa chọn văn bản xác định phạm vi liên quan trong khung văn bản của shape.
+Để kiểm tra một bài thuyết trình hiện có, xác định những bình luận nào triển khai [IModernComment](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/), sau đó xem xét [IModernComment.Shape](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/textselectionlength/) và [IModernComment.Status](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/status/). Một shape `null` cho thấy bình luận cấp slide. Đối với neo vào [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/), các thuộc tính chọn văn bản xác định đoạn văn bản liên quan trong khung văn bản của shape.
 
 ```csharp
 using System;
@@ -347,11 +349,11 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-## **Xóa nhận xét**
+## **Xóa bình luận**
 
-### **Xóa tất cả nhận xét và tác giả nhận xét**
+### **Xóa tất cả bình luận và tác giả bình luận**
 
-Ví dụ sau cho thấy cách xóa tất cả nhận xét và các tác giả nhận xét khỏi một bản trình bày:
+Ví dụ sau cho thấy cách xóa tất cả bình luận và tác giả bình luận khỏi một bài thuyết trình:
 
 ```csharp
 using Aspose.Slides;
@@ -368,9 +370,9 @@ presentation.CommentAuthors.Clear();
 presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
-### **Xóa các nhận xét cụ thể**
+### **Xóa các bình luận cụ thể**
 
-Ví dụ sau cho thấy cách xóa các nhận xét cụ thể khỏi một slide:
+Ví dụ sau cho thấy cách xóa các bình luận cụ thể khỏi một slide:
 
 ```csharp
 using System;
@@ -413,14 +415,14 @@ presentation.Save("pres.pptx", SaveFormat.Pptx);
 
 ## **Câu hỏi thường gặp**
 
-**Aspose.Slides có hỗ trợ trạng thái đã giải quyết cho nhận xét hiện đại không?**
+**Aspose.Slides có hỗ trợ trạng thái đã giải quyết cho bình luận hiện đại không?**
 
-Có. [IModernComment.Status](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/status/) có thể được đọc và đặt bằng một giá trị [ModernCommentStatus](https://reference.aspose.com/slides/vi/net/aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái này được lưu trong bản trình bày và có thể đọc lại sau khi tệp được mở lại.
+Có. Thuộc tính [IModernComment.Status](https://reference.aspose.com/slides/vi/net/aspose.slides/imoderncomment/status/) có thể được đọc và đặt bằng một giá trị [ModernCommentStatus](https://reference.aspose.com/slides/vi/net/aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái này được lưu trong bài thuyết trình và có thể được đọc lại sau khi mở lại tệp.
 
-**Liệu các cuộc thảo luận dạng chuỗi trả lời có được hỗ trợ không, và có giới hạn mức lồng nhau không?**
+**Liệu có hỗ trợ các cuộc thảo luận dạng chuỗi trả lời (threaded discussions) và có giới hạn độ sâu lồng nhau không?**
 
-Có. Mỗi nhận xét có thể tham chiếu đến [parent comment](https://reference.aspose.com/slides/vi/net/aspose.slides/comment/parentcomment/), cho phép tạo chuỗi trả lời. API không định nghĩa giới hạn độ sâu lồng nhau cụ thể.
+Có. Mỗi bình luận có thể tham chiếu đến [parent comment](https://reference.aspose.com/slides/vi/net/aspose.slides/comment/parentcomment/), cho phép tạo chuỗi trả lời. API không xác định giới hạn độ sâu lồng nhau cụ thể.
 
-**Vị trí của dấu nhận xét trên slide được xác định trong hệ tọa độ nào?**
+**Vị trí dấu đánh dấu bình luận trên slide được xác định bằng hệ tọa độ nào?**
 
-Vị trí dấu nhận xét được xác định bằng các tọa độ kiểu số thực trong hệ tọa độ của slide, cho phép bạn đặt nó chính xác trên slide.
+Vị trí dấu đánh dấu được xác định bằng các tọa độ số thực trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.

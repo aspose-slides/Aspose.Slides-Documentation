@@ -1,5 +1,5 @@
 ---
-title: Gestionar comentarios de presentación en Node.js
+title: Administrar comentarios de presentación en Node.js
 linktitle: Comentarios de presentación
 type: docs
 weight: 100
@@ -21,30 +21,32 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Gestiona los comentarios de presentaciones con Aspose.Slides for Node.js mediante Java: añade, lee, edita, responde y elimina comentarios en presentaciones de PowerPoint."
+description: "Administre los comentarios de presentación con Aspose.Slides para Node.js a través de Java: añada, lea, edite, responda y elimine comentarios en presentaciones de PowerPoint."
 ---
 ## **Visión general**
 
-Este artículo explica cómo administrar los comentarios de una presentación con Aspose.Slides para Node.js mediante Java. Presenta los principales tipos relacionados con los comentarios y muestra cómo añadir comentarios a diapositivas, acceder a los comentarios existentes, trabajar con respuestas y comentarios modernos, y eliminar comentarios de una presentación.
+Este artículo explica cómo gestionar los comentarios de presentaciones con Aspose.Slides for Node.js via Java. Presenta los principales tipos relacionados con los comentarios y muestra cómo añadir comentarios a diapositivas, acceder a los comentarios existentes, trabajar con respuestas y comentarios modernos, y eliminar comentarios de una presentación.
 
 Los ejemplos cubren escenarios comunes de revisión y colaboración en PowerPoint, como asignar comentarios a autores, leer el texto y los metadatos de los comentarios, crear cadenas de respuestas y eliminar comentarios seleccionados o todos los comentarios.
 
-En PowerPoint, los comentarios aparecen como anotaciones en las diapositivas. Al seleccionar un comentario se muestra su texto y la discusión relacionada.
+En PowerPoint, los comentarios aparecen como anotaciones en las diapositivas. Seleccionar un comentario muestra su texto y la discusión relacionada.
+
+Para solicitar que los comentarios se muestren o oculten al abrir una presentación sin modificar los propios comentarios, consulte [Mostrar u ocultar comentarios al abrir una presentación](/slides/es/nodejs-java/presentation-view-properties/).
 
 ## **¿Por qué añadir comentarios a las presentaciones?**
 
 Puede utilizar los comentarios para proporcionar retroalimentación y colaborar con colegas al revisar presentaciones.
 
-Aspose.Slides para Node.js mediante Java ofrece las siguientes API para trabajar con comentarios:
+Aspose.Slides for Node.js via Java proporciona las siguientes API para trabajar con comentarios:
 
-* La clase [Presentation](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/presentation/) que permite acceder a los autores de comentarios de la presentación.
+* La clase [Presentation](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/presentation/) que brinda acceso a los autores de comentarios de la presentación.
 * La clase [CommentCollection](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/commentcollection/) que representa los comentarios asociados a un autor individual.
 * La clase [Comment](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/comment/) que proporciona información sobre un comentario, incluido su autor, hora de creación, posición y texto.
-* La clase [CommentAuthor](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/commentauthor/) que ofrece información sobre un autor, incluido su nombre, iniciales y los comentarios asociados.
+* La clase [CommentAuthor](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/commentauthor/) que brinda información sobre un autor, incluido su nombre, iniciales y comentarios asociados.
 
-## **Añadir comentarios a diapositivas**
+## **Agregar comentarios a diapositivas**
 
-El siguiente ejemplo muestra cómo añadir comentarios a diapositivas en una presentación de PowerPoint:
+El siguiente ejemplo muestra cómo agregar comentarios a diapositivas en una presentación de PowerPoint:
 
 ```javascript
 var aspose = aspose || {};
@@ -78,7 +80,7 @@ try {
 }
 ```
 
-## **Acceder a los comentarios de las diapositivas**
+## **Acceder a los comentarios de diapositivas**
 
 El siguiente ejemplo muestra cómo acceder a los comentarios existentes en una presentación de PowerPoint:
 
@@ -111,7 +113,7 @@ try {
 
 Un comentario principal es el comentario original en la parte superior de una jerarquía de respuestas. Los métodos [Comment.getParentComment](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/comment/getparentcomment/) y [Comment.setParentComment](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/comment/setparentcomment/) le permiten obtener o establecer el comentario padre.
 
-El siguiente ejemplo muestra cómo añadir respuestas e inspeccionar la jerarquía de comentarios resultante:
+El siguiente ejemplo muestra cómo agregar respuestas e inspeccionar la jerarquía de comentarios resultante:
 
 ```javascript
 var aspose = aspose || {};
@@ -165,19 +167,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Cuando se utiliza el método [Comment.remove](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/comment/remove/) para eliminar un comentario, también se eliminan todas las respuestas a ese comentario.
+* Cuando se utiliza el método [Comment.remove](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/comment/remove/) para eliminar un comentario, todas las respuestas a ese comentario también se eliminan.
 * Si [Comment.setParentComment](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/comment/setparentcomment/) crea una referencia circular, se lanza una [PptxEditException](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
-## **Añadir comentarios modernos**
+## **Agregar comentarios modernos**
 
-Los comentarios modernos pueden asociarse a la propia diapositiva, a una forma concreta o a un rango de texto dentro de un [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/). El método [CommentCollection.addModernComment](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) acepta un argumento [Shape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/) además de la diapositiva y las coordenadas del marcador de comentario.
+Los comentarios modernos pueden asociarse a la propia diapositiva, a una forma específica o a un rango de texto dentro de un [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/). El método [CommentCollection.addModernComment](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) acepta un argumento [Shape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/) además de la diapositiva y las coordenadas del marcador de comentario.
 
-Cuando se pasa `null` para el argumento de forma, el comentario es un comentario a nivel de diapositiva. Su marcador se posiciona mediante las coordenadas suministradas, pero no está asociado a una forma concreta, por lo que [ModernComment.getShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/getshape/) devuelve `null`. Cuando se proporciona una [Shape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/), el comentario se ancla a esa forma. Las coordenadas siguen definiendo la posición del marcador de comentario en la diapositiva, mientras que la asociación con la forma puede recuperarse mediante [ModernComment.getShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/getshape/).
+Cuando se pasa `null` como argumento de forma, el comentario es un comentario a nivel de diapositiva. Su marcador se posiciona con las coordenadas suministradas, pero no está asociado a ninguna forma específica, por lo que [ModernComment.getShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/getshape/) devuelve `null`. Cuando se proporciona una [Shape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/), el comentario se ancla a esa forma. Las coordenadas siguen definiendo la posición del marcador de comentario en la diapositiva, mientras que la asociación de forma puede obtenerse mediante [ModernComment.getShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/getshape/).
 
 ### **Anclar un comentario moderno a una forma**
 
-El siguiente ejemplo crea tanto un comentario moderno a nivel de diapositiva como un comentario moderno anclado a un [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/) concreto. A continuación, lee la forma asociada a cada comentario.
+El siguiente ejemplo crea tanto un comentario moderno a nivel de diapositiva como un comentario moderno anclado a un [AutoShape] específico. Luego lee la forma asociada de cada comentario.
 
 ```javascript
 var aspose = aspose || {};
@@ -209,7 +211,7 @@ try {
 
 ### **Anclar comentarios a diferentes tipos de forma**
 
-Cualquier objeto de diapositiva derivado de [Shape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/) puede utilizarse como ancla de forma. Los ejemplos más habituales incluyen [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/connector/) y [GraphicalObject](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/graphicalobject/) como gráficos.
+Cualquier objeto de diapositiva derivado de [Shape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/) puede usarse como ancla de forma. Ejemplos comunes incluyen [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/connector/) y [GraphicalObject](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/graphicalobject/) como gráficos.
 
 El siguiente ejemplo crea varios tipos de forma comunes y asocia un comentario moderno a cada uno.
 
@@ -258,16 +260,16 @@ try {
 
 ### **Anclar un comentario a texto y establecer su estado**
 
-Para un comentario moderno asociado a un [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) y [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) acceden a la posición inicial del texto seleccionado en el marco de texto de la forma. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) y [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) acceden a la longitud de la selección. En conjunto, estos valores asocian el comentario a un rango de texto específico dentro del [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/).
+Para un comentario moderno asociado a un [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) y [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) acceden a la posición inicial del texto seleccionado en el marco de texto de la forma. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) y [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) acceden a la longitud de la selección. Juntos, estos valores asocian el comentario con un rango de texto específico dentro del [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/).
 
 Los métodos [ModernComment.getStatus](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/getstatus/) y [ModernComment.setStatus](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/setstatus/) acceden a un valor de la enumeración [ModernCommentStatus](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — no se ha definido un estado concreto para el comentario moderno.
+- `NotDefined` — no se ha definido un estado específico para el comentario moderno.
 - `Active` — el comentario está activo.
 - `Resolved` — el comentario ha sido resuelto.
 - `Closed` — el comentario está cerrado.
 
-El siguiente ejemplo crea un comentario moderno anclado a una forma, lo asocia a una selección de texto, lo marca como resuelto, guarda la presentación y verifica los valores tras volver a abrir el archivo.
+El siguiente ejemplo crea un comentario moderno anclado a una forma, lo asocia a una selección de texto, lo marca como resuelto, guarda la presentación y verifica los valores después de volver a abrir el archivo.
 
 ```javascript
 var aspose = aspose || {};
@@ -325,9 +327,9 @@ try {
 }
 ```
 
-### **Examinar los comentarios modernos existentes**
+### **Inspeccionar comentarios modernos existentes**
 
-Para examinar una presentación existente, compruebe qué comentarios son instancias de [ModernComment](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/), luego inspeccione [ModernComment.getShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) y [ModernComment.getStatus](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/getstatus/). Una forma `null` indica un comentario a nivel de diapositiva. Para una ancla de [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/), los métodos de selección de texto identifican el rango asociado en el marco de texto de la forma.
+Para inspeccionar una presentación existente, compruebe qué comentarios son instancias de [ModernComment](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/), luego examine [ModernComment.getShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) y [ModernComment.getStatus](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/getstatus/). Una forma `null` indica un comentario a nivel de diapositiva. Para un ancla de [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/), los métodos de selección de texto identifican el rango asociado en el marco de texto de la forma.
 
 ```javascript
 var aspose = aspose || {};
@@ -444,12 +446,12 @@ try {
 
 **¿Aspose.Slides admite un estado resuelto para los comentarios modernos?**
 
-Sí. [ModernComment.getStatus](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/getstatus/) y [ModernComment.setStatus](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/setstatus/) acceden a un valor de [ModernCommentStatus](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncommentstatus/), incluido `Resolved`. El estado se almacena en la presentación y puede leerse nuevamente después de volver a abrir el archivo.
+Sí. Los métodos [ModernComment.getStatus](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/getstatus/) y [ModernComment.setStatus](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncomment/setstatus/) acceden a un valor de [ModernCommentStatus](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/moderncommentstatus/), incluido `Resolved`. El estado se almacena en la presentación y puede leerse nuevamente después de volver a abrir el archivo.
 
 **¿Se admiten discusiones en hilo (cadenas de respuestas) y existe un límite de anidamiento?**
 
-Sí. Cada comentario puede referenciar su [parent comment](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/comment/getparentcomment/), lo que permite crear cadenas de respuestas. La API no define un límite específico de profundidad de anidamiento.
+Sí. Cada comentario puede hacer referencia a su [parent comment](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/comment/getparentcomment/), lo que permite cadenas de respuestas. La API no define un límite específico de profundidad de anidamiento.
 
-**¿En qué sistema de coordenadas se define la posición del marcador de un comentario en una diapositiva?**
+**¿En qué sistema de coordenadas se define la posición del marcador de comentario en una diapositiva?**
 
-La posición del marcador se define mediante coordenadas de punto flotante en el sistema de coordenadas de la diapositiva, lo que permite colocarlo con precisión en la diapositiva.
+La posición del marcador se define mediante coordenadas de punto flotante en el sistema de coordenadas de la diapositiva, lo que le permite colocarlo con precisión en la diapositiva.

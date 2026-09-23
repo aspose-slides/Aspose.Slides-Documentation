@@ -1,49 +1,51 @@
 ---
-title: Java에서 프레젠테이션 댓글 관리
-linktitle: 프레젠테이션 댓글
+title: Java에서 프레젠테이션 주석 관리
+linktitle: 프레젠테이션 주석
 type: docs
 weight: 100
 url: /ko/java/presentation-comments/
 keywords:
-- 댓글
-- 최신 댓글
-- PowerPoint 댓글
-- 프레젠테이션 댓글
-- 슬라이드 댓글
-- 댓글 추가
-- 댓글 접근
-- 댓글 편집
-- 댓글 답글
-- 댓글 제거
-- 댓글 삭제
+- 주석
+- 현대 주석
+- PowerPoint 주석
+- 프레젠테이션 주석
+- 슬라이드 주석
+- 주석 추가
+- 주석 접근
+- 주석 편집
+- 주석 답글
+- 주석 제거
+- 주석 삭제
 - PowerPoint
 - 프레젠테이션
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java를 사용하여 프레젠테이션 댓글을 관리합니다: PowerPoint 프레젠테이션에서 댓글을 빠르고 쉽게 추가, 읽기, 편집, 답글 달기 및 제거합니다."
+description: "Aspose.Slides for Java를 사용하여 프레젠테이션 주석을 관리합니다: PowerPoint 프레젠테이션에서 주석을 빠르고 쉽게 추가, 읽기, 편집, 답글 달기 및 제거합니다."
 ---
 ## **개요**
 
-이 문서는 Aspose.Slides for Java를 사용하여 프레젠테이션 댓글을 관리하는 방법을 설명합니다. 주요 댓글 관련 유형을 소개하고 슬라이드에 댓글을 추가하고, 기존 댓글에 접근하며, 답글 및 최신 댓글을 처리하고, 프레젠테이션에서 댓글을 제거하는 방법을 보여줍니다.
+이 문서에서는 Aspose.Slides for Java를 사용하여 프레젠테이션 주석을 관리하는 방법을 설명합니다. 주요 주석 관련 유형을 소개하고 슬라이드에 주석을 추가하고, 기존 주석에 접근하고, 답글 및 최신 주석을 작업하며, 프레젠테이션에서 주석을 제거하는 방법을 시연합니다.
 
-예제는 PowerPoint에서 일반적인 검토 및 협업 시나리오를 다루며, 작성자별 댓글 할당, 댓글 텍스트 및 메타데이터 읽기, 답글 체인 구축, 선택된 댓글 또는 모든 댓글 삭제 등을 포함합니다.
+예제에서는 PowerPoint의 일반적인 검토 및 협업 시나리오를 다루며, 저자에게 주석을 할당하고, 주석 텍스트와 메타데이터를 읽고, 답글 체인을 구축하고, 선택된 주석 또는 모든 주석을 제거하는 방법을 보여줍니다.
 
-PowerPoint에서 댓글은 슬라이드에 표시되는 주석 형태로 나타납니다. 댓글을 선택하면 해당 텍스트와 관련 논의가 표시됩니다.
+PowerPoint에서 주석은 슬라이드에 표시되는 주석으로 나타납니다. 주석을 선택하면 해당 텍스트와 관련 토론이 표시됩니다.
 
-## **왜 프레젠테이션에 댓글을 추가해야 할까요?**
+프레젠테이션을 열 때 주석 자체를 변경하지 않고 주석을 표시하거나 숨기려면, [Show or Hide Comments When Opening a Presentation](/slides/ko/java/presentation-view-properties/)를 참조하십시오.
 
-프레젠테이션을 검토할 때 피드백을 제공하고 동료와 협업하기 위해 댓글을 사용할 수 있습니다.
+## **프레젠테이션에 주석을 추가하는 이유는?**
 
-Aspose.Slides for Java는 댓글 작업을 위한 다음 API를 제공합니다:
+프레젠테이션을 검토할 때 주석을 사용하여 피드백을 제공하고 동료와 협업할 수 있습니다.
 
-* [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/) 클래스 – 프레젠테이션의 댓글 작성자에 접근합니다.
-* [ICommentCollection](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icommentcollection/) 인터페이스 – 개별 작성자와 연결된 댓글을 나타냅니다.
-* [IComment](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icomment/) 인터페이스 – 작성자, 생성 시각, 위치, 텍스트 등을 포함한 댓글 정보를 제공합니다.
-* [CommentAuthor](https://reference.aspose.com/slides/ko/java/com.aspose.slides/commentauthor/) 클래스 – 이름, 이니셜 및 연결된 댓글을 포함한 작성자 정보를 제공합니다.
+Aspose.Slides for Java는 주석 작업을 위한 다음 API를 제공합니다:
 
-## **슬라이드 댓글 추가**
+* [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/) 클래스는 프레젠테이션의 주석 저자에 대한 접근을 제공합니다.
+* [ICommentCollection](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icommentcollection/) 인터페이스는 개별 저자와 연결된 주석을 나타냅니다.
+* [IComment](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icomment/) 인터페이스는 주석에 대한 정보를 제공하며, 여기에는 저자, 생성 시간, 위치 및 텍스트가 포함됩니다.
+* [CommentAuthor](https://reference.aspose.com/slides/ko/java/com.aspose.slides/commentauthor/) 클래스는 저자에 대한 정보를 제공하고, 이름, 이니셜 및 연결된 주석을 포함합니다.
 
-다음 예제는 PowerPoint 프레젠테이션에 슬라이드 댓글을 추가하는 방법을 보여줍니다:
+## **슬라이드 주석 추가**
+
+다음 예제는 PowerPoint 프레젠테이션의 슬라이드에 주석을 추가하는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.IComment;
@@ -82,9 +84,9 @@ try {
 }
 ```
 
-## **슬라이드 댓글 접근**
+## **슬라이드 주석 접근**
 
-다음 예제는 PowerPoint 프레젠테이션에서 기존 댓글에 접근하는 방법을 보여줍니다:
+다음 예제는 PowerPoint 프레젠테이션에서 기존 주석에 접근하는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.IComment;
@@ -107,11 +109,11 @@ try {
 }
 ```
 
-## **댓글에 답글 달기**
+## **주석에 답글 달기**
 
-상위 댓글은 답글 계층 구조의 최상위에 있는 원본 댓글입니다. [IComment.getParentComment](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icomment/#getParentComment--) 및 [IComment.setParentComment](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 메서드를 사용하면 댓글의 상위 댓글을 가져오거나 설정할 수 있습니다.
+부모 주석은 답글 계층 구조의 최상위에 있는 원래 주석입니다. [IComment.getParentComment](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icomment/#getParentComment--) 및 [IComment.setParentComment](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 메서드를 사용하면 주석의 부모를 가져오거나 설정할 수 있습니다.
 
-다음 예제는 답글을 추가하고 결과 댓글 계층 구조를 검사하는 방법을 보여줍니다:
+다음 예제는 답글을 추가하고 결과적인 주석 계층 구조를 검사하는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.IComment;
@@ -167,20 +169,20 @@ try {
 }
 ```
 
-{{% alert color="warning" title="경고" %}}
-* [IComment.remove](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icomment/#remove--) 메서드로 댓글을 삭제하면 해당 댓글에 대한 모든 답글도 함께 삭제됩니다.
-* [IComment.setParentComment](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 메서드가 순환 참조를 만들 경우 [PptxEditException](https://reference.aspose.com/slides/ko/java/com.aspose.slides/pptxeditexception/)이 발생합니다.
+{{% alert color="warning" title="Warning" %}}
+* 주석을 삭제하기 위해 [IComment.remove](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icomment/#remove--) 메서드를 사용하면 해당 주석에 대한 모든 답글도 삭제됩니다.
+* [IComment.setParentComment](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 이 순환 참조를 만들 경우, [PptxEditException](https://reference.aspose.com/slides/ko/java/com.aspose.slides/pptxeditexception/)이 발생합니다.
 {{% /alert %}}
 
-## **최신 댓글 추가**
+## **현대 주석 추가**
 
-최신 댓글은 슬라이드 자체, 특정 도형, 또는 AutoShape 내부의 텍스트 범위와 연결될 수 있습니다. [ICommentCollection.addModernComment](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) 메서드는 슬라이드 및 댓글 마커 좌표 외에 [IShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishape/) 인수를 추가로 받습니다.
+현대 주석은 슬라이드 자체, 특정 도형, 또는 AutoShape 내부의 텍스트 범위와 연결될 수 있습니다. [ICommentCollection.addModernComment](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) 메서드는 슬라이드와 주석 표시기 좌표 외에 [IShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishape/) 매개변수를 허용합니다.
 
-`null`을 도형 인수로 전달하면 해당 댓글은 슬라이드 수준 댓글이 됩니다. 마커는 제공된 좌표에 따라 배치되지만 특정 도형과 연결되지 않으므로 [IModernComment.getShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getShape--)은 `null`을 반환합니다. [IShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishape/)을 제공하면 댓글이 해당 도형에 고정됩니다. 좌표는 여전히 슬라이드상의 마커 위치를 정의하고, 도형 연결은 [IModernComment.getShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getShape--)을 통해 확인할 수 있습니다.
+`null`을 shape 매개변수로 전달하면 주석은 슬라이드 수준 주석이 됩니다. 표시기는 제공된 좌표에 따라 배치되지만 특정 도형과 연결되지 않으므로 [IModernComment.getShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getShape--)은 `null`을 반환합니다. [IShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishape/)을 제공하면 주석은 해당 도형에 고정됩니다. 좌표는 여전히 슬라이드에서 주석 표시기의 위치를 정의하며, 도형 연관성은 [IModernComment.getShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getShape--)을 통해 가져올 수 있습니다.
 
-### **현대 댓글을 도형에 고정하기**
+### **모던 주석을 도형에 고정**
 
-다음 예제는 슬라이드 수준 최신 댓글과 특정 AutoShape에 고정된 최신 댓글을 모두 생성하고, 각 댓글에서 연결된 도형을 읽어옵니다.
+다음 예제는 슬라이드 수준의 현대 주석과 특정 AutoShape에 고정된 현대 주석을 모두 생성합니다. 그런 다음 각 주석에서 연결된 도형을 읽어옵니다.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -216,11 +218,11 @@ try {
 }
 ```
 
-### **다양한 도형 유형에 댓글 고정하기**
+### **다양한 도형 유형에 주석 고정**
 
-[IShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishape/)을 구현하는 모든 슬라이드 객체를 도형 고정점으로 사용할 수 있습니다. 일반적인 예로는 [IAutoShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iconnector/), 그리고 차트와 같은 [IGraphicalObject](https://reference.aspose.com/slides/ko/java/com.aspose.slides/igraphicalobject/) 인스턴스가 포함됩니다.
+[IShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishape/)를 구현하는 모든 슬라이드 객체는 도형 고정점으로 사용할 수 있습니다. 일반적인 예제로는 [IAutoShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iconnector/), 차트와 같은 [IGraphicalObject](https://reference.aspose.com/slides/ko/java/com.aspose.slides/igraphicalobject/) 인스턴스가 있습니다.
 
-다음 예제는 여러 일반 도형 유형을 생성하고 각각에 최신 댓글을 연결합니다.
+다음 예제는 여러 일반 도형 유형을 생성하고 각각에 현대 주석을 연결합니다.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -277,18 +279,18 @@ try {
 }
 ```
 
-### **텍스트에 댓글 고정하고 상태 설정하기**
+### **텍스트에 주석 고정 및 상태 설정**
 
-[IAutoShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iautoshape/)에 연결된 최신 댓글의 경우, [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) 및 [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int--) 메서드로 도형 텍스트 프레임에서 선택된 텍스트의 시작 위치에 접근합니다. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 및 [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) 메서드로 선택 영역의 길이를 접근합니다. 이 값들을 함께 사용하면 댓글을 AutoShape 내부의 특정 텍스트 범위와 연결할 수 있습니다.
+[IAutoShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iautoshape/)와 연결된 현대 주석의 경우, [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) 및 [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int--)는 도형 텍스트 프레임에서 선택된 텍스트의 시작 위치에 접근합니다. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 및 [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--)는 선택 길이에 접근합니다. 이 값들을 함께 사용하면 주석을 AutoShape 내부의 특정 텍스트 범위와 연결합니다.
 
-[IModernComment.getStatus](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getStatus--) 및 [IModernComment.setStatus](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#setStatus-byte--) 메서드는 [ModernCommentStatus](https://reference.aspose.com/slides/ko/java/com.aspose.slides/moderncommentstatus/) 상수 중 하나인 값을 접근합니다:
+[IModernComment.getStatus](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getStatus--) 및 [IModernComment.setStatus](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#setStatus-byte--) 메서드는 [ModernCommentStatus](https://reference.aspose.com/slides/ko/java/com.aspose.slides/moderncommentstatus/) 상수값에 접근합니다:
 
-- `NotDefined` — 특정 최신 댓글 상태가 정의되지 않음.
-- `Active` — 댓글이 활성 상태임.
-- `Resolved` — 댓글이 해결됨.
-- `Closed` — 댓글이 닫힘.
+- `NotDefined` — 특정 현대 주석 상태가 정의되지 않음.
+- `Active` — 주석이 활성 상태임.
+- `Resolved` — 주석이 해결됨.
+- `Closed` — 주석이 종료됨.
 
-다음 예제는 도형에 고정된 최신 댓글을 생성하고, 텍스트 선택에 연결하며, 해결된 상태로 표시하고, 프레젠테이션을 저장한 뒤 파일을 다시 연 후 값을 검증합니다.
+다음 예제는 도형에 고정된 현대 주석을 만들고, 텍스트 선택과 연결한 뒤, 해결된 것으로 표시하고, 프레젠테이션을 저장한 후 파일을 다시 열어 값을 검증합니다.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -353,9 +355,9 @@ try {
 }
 ```
 
-### **기존 최신 댓글 검사하기**
+### **기존 현대 주석 검사**
 
-기존 프레젠테이션을 검사하려면 먼저 어떤 댓글이 [IModernComment](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/)를 구현하는지 확인하고, 그 후 [IModernComment.getShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--), 그리고 [IModernComment.getStatus](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getStatus--)를 조사합니다. `null` 도형은 슬라이드 수준 댓글을 나타냅니다. [IAutoShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iautoshape/)에 고정된 경우 텍스트 선택 메서드가 도형 텍스트 프레임 내의 해당 범위를 식별합니다.
+기존 프레젠테이션을 검사하려면, 어떤 주석이 [IModernComment](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/)을 구현하는지 확인한 다음, [IModernComment.getShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--), 및 [IModernComment.getStatus](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getStatus--)를 검사합니다. `null` 도형은 슬라이드 수준 주석을 의미합니다. [IAutoShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iautoshape/) 고정점의 경우, 텍스트 선택 메서드는 도형 텍스트 프레임 내의 관련 범위를 식별합니다.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -400,11 +402,11 @@ try {
 }
 ```
 
-## **댓글 제거**
+## **주석 제거**
 
-### **모든 댓글 및 댓글 작성자 제거**
+### **모든 주석 및 주석 작성자 제거**
 
-다음 예제는 프레젠테이션에서 모든 댓글과 댓글 작성자를 제거하는 방법을 보여줍니다:
+다음 예제는 프레젠테이션에서 모든 주석 및 주석 작성자를 제거하는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -424,9 +426,9 @@ try {
 }
 ```
 
-### **특정 댓글 제거**
+### **특정 주석 제거**
 
-다음 예제는 슬라이드에서 특정 댓글을 제거하는 방법을 보여줍니다:
+다음 예제는 슬라이드에서 특정 주석을 제거하는 방법을 보여줍니다:
 
 ```java
 import com.aspose.slides.IComment;
@@ -473,14 +475,14 @@ try {
 
 ## **FAQ**
 
-**Aspose.Slides가 최신 댓글에 대한 해결 상태를 지원하나요?**
+**Aspose.Slides가 현대 주석에 대한 해결 상태를 지원합니까?**
 
-예. [IModernComment.getStatus](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getStatus--) 및 [IModernComment.setStatus](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#setStatus-byte-) 메서드를 통해 [ModernCommentStatus](https://reference.aspose.com/slides/ko/java/com.aspose.slides/moderncommentstatus/) 값 중 `Resolved`를 포함한 상태에 접근할 수 있습니다. 상태는 프레젠테이션에 저장되며 파일을 다시 연 후에도 읽을 수 있습니다.
+예. [IModernComment.getStatus](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#getStatus--) 및 [IModernComment.setStatus](https://reference.aspose.com/slides/ko/java/com.aspose.slides/imoderncomment/#setStatus-byte--)는 `Resolved`를 포함한 [ModernCommentStatus](https://reference.aspose.com/slides/ko/java/com.aspose.slides/moderncommentstatus/) 값을 가져옵니다. 이 상태는 프레젠테이션에 저장되며 파일을 다시 열어도 다시 읽을 수 있습니다.
 
-**스레드형 토론(답글 체인)이 지원되며 중첩 제한은 있나요?**
+**스레드형 토론(답글 체인)이 지원되며, 중첩 제한이 있습니까?**
 
-예. 각 댓글은 [parent comment](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icomment/#getParentComment--)를 참조할 수 있어 답글 체인을 만들 수 있습니다. API에서 특정 중첩 깊이 제한을 정의하고 있지 않습니다.
+예. 각 주석은 [parent comment](https://reference.aspose.com/slides/ko/java/com.aspose.slides/icomment/#getParentComment--)을 참조할 수 있어 답글 체인을 가능하게 합니다. API에서는 특정 중첩 깊이 제한을 정의하지 않습니다.
 
-**댓글 마커 위치는 슬라이드의 어떤 좌표계로 정의되나요?**
+**슬라이드에서 주석 표시기의 위치는 어떤 좌표계로 정의됩니까?**
 
-마커 위치는 슬라이드 좌표계의 부동 소수점 좌표로 정의되어 슬라이드 상의 정확한 위치에 배치할 수 있습니다.
+표시기 위치는 슬라이드 좌표계의 부동 소수점 좌표로 정의되며, 슬라이드 상에 정확히 배치할 수 있습니다.

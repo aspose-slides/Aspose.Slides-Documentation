@@ -11,39 +11,41 @@ keywords:
 - تعليقات العرض التقديمي
 - تعليقات الشريحة
 - إضافة تعليق
-- الوصول إلى التعليق
-- تحرير التعليق
+- الوصول إلى تعليق
+- تحرير تعليق
 - الرد على التعليق
-- إزالة التعليق
-- حذف التعليق
+- إزالة تعليق
+- حذف تعليق
 - PowerPoint
-- العرض التقديمي
-- جافا
+- عرض تقديمي
+- Java
 - Aspose.Slides
-description: "إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides لجافا: إضافة، قراءة، تحرير، الرد على، وإزالة التعليقات في عروض PowerPoint بسرعة وسهولة."
+description: "إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides for Java: إضافة، قراءة، تحرير، الرد على، وإزالة التعليقات في عروض PowerPoint بسرعة وسهولة."
 ---
 ## **نظرة عامة**
 
-يشرح هذا المقال كيفية إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides for Java. يقدم الأنواع الرئيسية المتعلقة بالتعليقات ويظهر كيفية إضافة تعليقات إلى الشرائح، الوصول إلى التعليقات الموجودة، التعامل مع الردود والتعليقات الحديثة، وإزالة التعليقات من العرض التقديمي.
+تشرح هذه المقالة كيفية إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides for Java. وتُعرّف الأنواع الرئيسية المتعلقة بالتعليقات وتُظهر كيفية إضافة تعليقات إلى الشرائح، والوصول إلى التعليقات الموجودة، والعمل مع الردود والتعليقات الحديثة، وإزالة التعليقات من العرض التقديمي.
 
-تغطي الأمثلة السيناريوهات الشائعة للمراجعة والتعاون في PowerPoint، مثل تعيين التعليقات للمؤلفين، قراءة نص التعليق والبيانات الوصفية، بناء سلاسل الردود، وإزالة التعليقات المحددة أو جميع التعليقات.
+تغطي الأمثلة سيناريوهات المراجعة والتعاون الشائعة في PowerPoint، مثل تعيين التعليقات للمؤلفين، قراءة نص التعليق والبيانات الوصفية، بناء سلاسل الردود، وإزالة التعليقات المحددة أو جميع التعليقات.
 
-في PowerPoint، تظهر التعليقات كأنوتات على الشرائح. عند اختيار تعليق يتم عرض نصه والنقاش المرتبط به.
+في PowerPoint، تظهر التعليقات كتعليقات توضيحية على الشرائح. يتيح اختيار تعليق عرض نصه والنقاش المتعلق به.
 
-## **لماذا نضيف تعليقات إلى العروض التقديمية؟**
+لطلب إظهار أو إخفاء التعليقات عند فتح عرض تقديمي دون تغيير التعليقات نفسها، راجع [إظهار أو إخفاء التعليقات عند فتح عرض تقديمي](/slides/ar/java/presentation-view-properties/).
+
+## **لماذا إضافة تعليقات إلى العروض التقديمية؟**
 
 يمكنك استخدام التعليقات لتقديم ملاحظات والتعاون مع الزملاء عند مراجعة العروض التقديمية.
 
-توفر Aspose.Slides for Java الـ APIs التالية للعمل مع التعليقات:
+توفر Aspose.Slides for Java الواجهات البرمجية التالية للعمل مع التعليقات:
 
-* الفئة [العرض] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/) التي توفر الوصول إلى مؤلفي تعليقات العرض التقديمي.
-* الواجهة [ICommentCollection] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/icommentcollection/) التي تمثل التعليقات المرتبطة بمؤلف فردي.
-* الواجهة [IComment] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/icomment/) التي توفر معلومات حول التعليق، بما في ذلك المؤلف، وقت الإنشاء، الموقع، والنص.
-* الفئة [CommentAuthor] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/commentauthor/) التي توفر معلومات حول المؤلف، بما في ذلك اسمه، الأحرف الأولى، والتعليقات المرتبطة به.
+* الفئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/) التي توفر الوصول إلى مؤلفي تعليقات العرض التقديمي.
+* الواجهة [ICommentCollection](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icommentcollection/) التي تمثل التعليقات المرتبطة بمؤلف واحد.
+* الواجهة [IComment](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icomment/) التي توفر معلومات حول التعليق، بما في ذلك مؤلفه، وقت الإنشاء، الموضع، والنص.
+* الفئة [CommentAuthor](https://reference.aspose.com/slides/ar/java/com.aspose.slides/commentauthor/) التي توفر معلومات حول المؤلف، بما في ذلك اسمه، الأحرف الأولى، والتعليقات المرتبطة به.
 
 ## **إضافة تعليقات إلى الشرائح**
 
-يوضح المثال التالي كيفية إضافة تعليقات إلى الشرائح في عرض PowerPoint:
+المثال التالي يوضح كيفية إضافة تعليقات إلى الشرائح في عرض PowerPoint:
 
 ```java
 import com.aspose.slides.IComment;
@@ -84,7 +86,7 @@ try {
 
 ## **الوصول إلى تعليقات الشرائح**
 
-يوضح المثال التالي كيفية الوصول إلى التعليقات الموجودة في عرض PowerPoint:
+المثال التالي يوضح كيفية الوصول إلى التعليقات الموجودة في عرض PowerPoint:
 
 ```java
 import com.aspose.slides.IComment;
@@ -109,9 +111,9 @@ try {
 
 ## **الرد على التعليقات**
 
-التعليق الأصلي هو التعليق الأساسي في أعلى هيكل الردود. تتيح لك طريقتا [IComment.getParentComment] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/icomment/#getParentComment--) و[IComment.setParentComment] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) الحصول على أو تعيين التعليق الأصلي.
+التعليق الأصلي هو التعليق الأول في شجرة الردود. تُمكّنك طُرُق [IComment.getParentComment](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icomment/#getParentComment--) و[IComment.setParentComment](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) من الحصول على التعليق الأصل أو تعيينه.
 
-يوضح المثال التالي كيفية إضافة ردود وفحص هيكل التعليقات الناتج:
+المثال التالي يوضح كيفية إضافة ردود وفحص هيكلية التعليقات الناتجة:
 
 ```java
 import com.aspose.slides.IComment;
@@ -168,19 +170,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* عند استخدام طريقة [IComment.remove] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/icomment/#remove--) لحذف تعليق، يتم حذف جميع الردود المرتبطة به أيضًا.
-* إذا أنشأت طريقة [IComment.setParentComment] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) إشارة دائرية، سيتم رمي استثناء [PptxEditException] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/pptxeditexception/).
+* عند استخدام طريقة [IComment.remove](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icomment/#remove--) لحذف تعليق، تُحذف جميع الردود على ذلك التعليق أيضًا.
+* إذا تسببت طريقة [IComment.setParentComment](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) في إنشاء إشارة دائرية، يتم إلقاء استثناء [PptxEditException](https://reference.aspose.com/slides/ar/java/com.aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **إضافة تعليقات حديثة**
 
-يمكن ربط التعليقات الحديثة بالشرائح نفسها، أو بصورة محددة، أو بنطاق نص داخل AutoShape. تقبل طريقة [ICommentCollection.addModernComment] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) معاملًا من نوع [IShape] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishape/) بالإضافة إلى الشريحة وإحداثيات علامة التعليق.
+يمكن ربط التعليقات الحديثة بالشريحة نفسها، أو بشكّل معين، أو بنطاق نص داخل AutoShape. تقبل طريقة [ICommentCollection.addModernComment](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) وسيطة من نوع [IShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishape/) بالإضافة إلى الشريحة وإحداثيات علامة التعليق.
 
-عند تمرير `null` كقيمة للمعامل shape، تكون التعليق تعليقًا على مستوى الشريحة. يتم تحديد موقع العلامة بالإحداثيات المقدمة، لكنه لا يرتبط بصورة معينة، لذلك تُعيد طريقة [IModernComment.getShape] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getShape--) القيمة `null`. عند تزويد [IShape]، يتم تثبيت التعليق على تلك الصورة. لا تزال الإحداثيات تحدد موقع علامة التعليق على الشريحة، بينما يمكن استرجاع الارتباط بالصورة عبر [IModernComment.getShape] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getShape--).
+عند تمرير `null` كقيمة للوسيطة shape، يصبح التعليق تعليقًا على مستوى الشريحة. تُحدد إحداثيات العلامة موضعها، لكن لا يُربط بشكل معين، لذا تُعيد طريقة [IModernComment.getShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getShape--) القيمة `null`. عندما يتم توفير كائن [IShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishape/)، يتم تثبيت التعليق على ذلك الشكل. لا تزال الإحداثيات تحدد موضع علامة التعليق على الشريحة، ويمكن استرجاع ربط الشكل عبر طريقة [IModernComment.getShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getShape--).
 
-### **تثبيت تعليق حديث على صورة**
+### **إرساء تعليق حديث على شكل**
 
-ينشئ المثال التالي كلًا من تعليق حديث على مستوى الشريحة وتعليق حديث مثبت على AutoShape محدد. ثم يقرأ الصورة المرتبطة بكل تعليق.
+المثال التالي ينشئ كلًا من تعليق حديث على مستوى الشريحة وتعليق حديث مثبت على AutoShape محدد. ثم يقرأ الشكل المرتبط بكل تعليق.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -216,11 +218,11 @@ try {
 }
 ```
 
-### **تثبيت التعليقات على أنواع صور مختلفة**
+### **إرساء التعليقات إلى أنواع أشكال مختلفة**
 
-يمكن استخدام أي كائن شريحة يطبق [IShape] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishape/) كمرساة للصورة. تشمل الأمثلة الشائعة [IAutoShape] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/iautoshape/)، [IPictureFrame] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipictureframe/)، [IGroupShape] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/igroupshape/)، [IConnector] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/iconnector/)، و[IGraphicalObject] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/igraphicalobject/) مثل المخططات.
+يمكن استخدام أي كائن شريحة يُطبق الواجهة [IShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishape/) كمرساة للشكل. من الأمثلة الشائعة [IAutoShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iautoshape/)، [IPictureFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipictureframe/)، [IGroupShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/igroupshape/)، [IConnector](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iconnector/)، و[IGraphicalObject](https://reference.aspose.com/slides/ar/java/com.aspose.slides/igraphicalobject/) مثل المخططات.
 
-ينشئ المثال التالي عدة أنواع صور شائعة ويربط كل منها بتعليق حديث.
+المثال التالي ينشئ عدة أنواع أشكال شائعة ويربط كل منها بتعليق حديث.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -277,18 +279,18 @@ try {
 }
 ```
 
-### **تثبيت تعليق على نص وتعيين حالته**
+### **إرساء تعليق إلى نص وتحديد حالته**
 
-بالنسبة لتعليق حديث مرتبط بـ [IAutoShape] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/iautoshape/)، توفر طرق [IModernComment.getTextSelectionStart] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) و[IModernComment.setTextSelectionStart] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) موضع بداية النص المحدد داخل إطار النص الخاص بالصورة. وتوفر طرق [IModernComment.getTextSelectionLength] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) و[IModernComment.setTextSelectionLength] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) طول التحديد. معًا، تربط هذه القيم التعليق بنطاق نص محدد داخل AutoShape.
+بالنسبة لتعليق حديث مرتبط بـ[IAutoShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iautoshape/)، تُتيح طُرُق [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) و[IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) الحصول على موضع بداية النص المحدد في إطار نص الشكل. وتُتيح طُرُق [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) و[IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) معرفة طول الاختيار. تجمع هذه القيم التعليق بنطاق نص محدد داخل AutoShape.
 
-توفر طريقتا [IModernComment.getStatus] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getStatus--) و[IModernComment.setStatus] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#setStatus-byte--) قيمة من ثوابت [ModernCommentStatus] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/moderncommentstatus/):
+تُتيح طُرُق [IModernComment.getStatus](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getStatus--) و[IModernComment.setStatus](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#setStatus-byte--) الوصول إلى قيمة من ثوابت [ModernCommentStatus](https://reference.aspose.com/slides/ar/java/com.aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — لا يتم تعريف حالة تعليق حديث محددة.
+- `NotDefined` — لا حالة محددة للتعليق الحديث.
 - `Active` — التعليق نشط.
 - `Resolved` — تم حل التعليق.
 - `Closed` — التعليق مغلق.
 
-ينشئ المثال التالي تعليقًا حديثًا مثبتًا على صورة، يربطه باختيار نص، يحدد حالته كـ "محلول"، يحفظ العرض التقديمي، ويتحقق من القيم بعد إعادة فتح الملف.
+المثال التالي ينشئ تعليقًا حديثًا مثبتًا على شكل، يربطه بنص مختار، يحدده كـ `Resolved`، يحفظ العرض التقديمي، ويتحقق من القيم بعد إعادة فتح الملف.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -355,7 +357,7 @@ try {
 
 ### **فحص التعليقات الحديثة الموجودة**
 
-لفحص عرض تقديمي موجود، تحقق من التعليقات التي تنفذ [IModernComment] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/)، ثم استعرض [IModernComment.getShape] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getShape--)، [IModernComment.getTextSelectionStart] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--)، [IModernComment.getTextSelectionLength] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--)، و[IModernComment.getStatus] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getStatus--). يشير الشكل `null` إلى تعليق على مستوى الشريحة. بالنسبة لمرساة [IAutoShape]، تحدد طرق اختيار النص النطاق المرتبط بإطار نص الصورة.
+لفحص عرض تقديمي موجود، تحقق أي التعليقات تُطبق الواجهة [IModernComment](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/)، ثم استعرض طرق [IModernComment.getShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getShape--)، [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--)، [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--)، و[IModernComment.getStatus](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getStatus--). يشير الشكل `null` إلى تعليق على مستوى الشريحة. بالنسبة لمرساة [IAutoShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iautoshape/)، تحدد طرق اختيار النص النطاق المرتبط بإطار نص الشكل.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -404,7 +406,7 @@ try {
 
 ### **إزالة جميع التعليقات ومؤلفي التعليقات**
 
-يعرض المثال التالي كيفية إزالة جميع التعليقات ومؤلفي التعليقات من عرض تقديمي:
+المثال التالي يوضح كيفية إزالة جميع التعليقات ومؤلفي التعليقات من عرض تقديمي:
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -426,7 +428,7 @@ try {
 
 ### **إزالة تعليقات محددة**
 
-يعرض المثال التالي كيفية إزالة تعليقات محددة من شريحة:
+المثال التالي يوضح كيفية إزالة تعليقات معينة من شريحة:
 
 ```java
 import com.aspose.slides.IComment;
@@ -471,16 +473,16 @@ try {
 }
 ```
 
-## **الأسئلة المتكررة**
+## **التعليمات المتكررة**
 
-**هل تدعم Aspose.Slides حالة "محلول" للتعليقات الحديثة؟**
+**هل يدعم Aspose.Slides حالة “تم الحل” للتعليقات الحديثة؟**
 
-نعم. تُتيح طريقتا [IModernComment.getStatus] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getStatus--) و[IModernComment.setStatus] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#setStatus-byte-) الوصول إلى قيمة من [ModernCommentStatus] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/moderncommentstatus/) تشمل `Resolved`. تُحفظ الحالة في العرض التقديمي ويمكن قراءتها مرة أخرى بعد إعادة فتح الملف.
+نعم. تُتيح طُرُق [IModernComment.getStatus](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#getStatus--) و[IModernComment.setStatus](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imoderncomment/#setStatus-byte-) الوصول إلى قيمة من ثوابت [ModernCommentStatus](https://reference.aspose.com/slides/ar/java/com.aspose.slides/moderncommentstatus/)، بما في ذلك `Resolved`. تُخزن الحالة في العرض التقديمي ويمكن قرائتها مرة أخرى بعد إعادة فتح الملف.
 
-**هل يتم دعم المناقشات المتسلسلة (سلاسل الردود)، وهل هناك حد للتعشيق؟**
+**هل تُدعم المناقشات المتسلسلة (سلاسل الردود) وهل هناك حد للتعشيق؟**
 
-نعم. يمكن لكل تعليق الإشارة إلى [التعليق الأصلي] (https://reference.aspose.com/slides/ar/java/com.aspose.slides/icomment/#getParentComment--) الخاص به، مما يتيح سلاسل الردود. لا تُعرّف الـ API حدًا محددًا لعمق التعشيق.
+نعم. يمكن لكل تعليق الإشارة إلى [التعليق الأصلي](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icomment/#getParentComment--)، مما يُتيح إنشاء سلاسل ردود. لا تحدد الواجهة حدًا معينًا لعمق التعشيق.
 
-**في أي نظام إحداثيات يتم تعريف موضع علامة التعليق على الشريحة؟**
+**في أي نظام إحداثيات يُعرّف موضع علامة التعليق على الشريحة؟**
 
-يتم تعريف موضع العلامة بواسطة إحداثيات ذات نقطة عائمة في نظام إحداثيات الشريحة، مما يتيح لك وضعها بدقة على الشريحة.
+يُحدّد موضع العلامة بإحداثيات عائمة داخل نظام إحداثيات الشريحة، مما يتيح وضعها بدقة على الشريحة.

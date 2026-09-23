@@ -1,6 +1,6 @@
 ---
 title: إدارة تعليقات العرض التقديمي في C++
-linktitle: تعليقات العرض التقديمي
+linktitle: تعليقات العرض
 type: docs
 weight: 100
 url: /ar/cpp/presentation-comments/
@@ -20,30 +20,32 @@ keywords:
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides للغة C++: إضافة، قراءة، تحرير، الرد على، وإزالة التعليقات في عروض PowerPoint بسرعة وسهولة."
+description: "إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides لـ C++: إضافة، قراءة، تحرير، الرد على، وإزالة التعليقات في عروض PowerPoint بسرعة وسهولة."
 ---
 ## **نظرة عامة**
 
-توضح هذه المقالة كيفية إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides للغة C++. تُقدِّم الأنواع الرئيسية المتعلقة بالتعليقات وتُظهر كيفية إضافة تعليقات إلى الشرائح، والوصول إلى التعليقات الموجودة، والعمل مع الردود والتعليقات الحديثة، وحذف التعليقات من العرض التقديمي.
+تشرح هذه المقالة كيفية إدارة تعليقات العروض التقديمية باستخدام Aspose.Slides for C++. تُعرِّف الأنواع الأساسية المتعلقة بالتعليقات وتُظهر كيفية إضافة تعليقات إلى الشرائح، الوصول إلى التعليقات الموجودة، التعامل مع الردود والتعليقات الحديثة، وإزالة التعليقات من العرض التقديمي.
 
-تغطي الأمثلة سيناريوهات المراجعة والتعاون الشائعة في PowerPoint، مثل إسناد التعليقات إلى مؤلفين، قراءة نص التعليق والبيانات الوصفية، بناء سلاسل الردود، وحذف التعليقات المختارة أو جميع التعليقات.
+تغطي الأمثلة سيناريوهات المراجعة والتعاون الشائعة في PowerPoint، مثل تعيين التعليقات للمؤلفين، قراءة نص التعليق والبيانات الوصفية، إنشاء سلاسل الردود، وإزالة التعليقات المحددة أو جميع التعليقات.
 
-في PowerPoint، تظهر التعليقات كتعليقات توضيحية على الشرائح. عند تحديد تعليق، يتم عرض نصه والنقاش المرتبط به.
+في PowerPoint، تظهر التعليقات كعلامات توضيحية على الشرائح. يؤدي اختيار التعليق إلى عرض نصه والنقاش المرتبط به.
+
+لطلب إظهار أو إخفاء التعليقات عند فتح عرض تقديمي دون تغيير التعليقات نفسها، راجع [Show or Hide Comments When Opening a Presentation](/slides/ar/cpp/presentation-view-properties/).
 
 ## **لماذا نضيف تعليقات إلى العروض التقديمية؟**
 
 يمكنك استخدام التعليقات لتقديم ملاحظات والتعاون مع الزملاء عند مراجعة العروض التقديمية.
 
-توفر Aspose.Slides للغة C++ واجهات برمجة التطبيقات التالية للعمل مع التعليقات:
+توفر Aspose.Slides for C++ واجهات برمجة التطبيقات التالية للعمل مع التعليقات:
 
-* الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/) التي تُوفِّر إمكانية الوصول إلى مؤلفي التعليقات في العرض التقديمي.
-* الواجهة [ICommentCollection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icommentcollection/) التي تمثّل التعليقات المرتبطة بمؤلف معين.
-* الواجهة [IComment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icomment/) التي تُقدِّم معلومات حول التعليق، بما في ذلك المؤلف، ووقت الإنشاء، والموقع، والنص.
-* الفئة [CommentAuthor](https://reference.aspose.com/slides/ar/cpp/aspose.slides/commentauthor/) التي تُقدِّر معلومات عن المؤلف، بما في ذلك اسمه، وأحرفه الأولى، والتعليقات المرتبطة به.
+* الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/) التي تُتيح الوصول إلى مؤلفي التعليقات في العرض.
+* الواجهة [ICommentCollection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icommentcollection/) التي تمثل التعليقات المرتبطة بمؤلف فردي.
+* الواجهة [IComment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icomment/) التي تُوفر معلومات حول التعليق، بما في ذلك المؤلف، وقت الإنشاء، الموضع، والنص.
+* الفئة [CommentAuthor](https://reference.aspose.com/slides/ar/cpp/aspose.slides/commentauthor/) التي تُوفر معلومات حول المؤلف، بما في ذلك اسمه، الأحرف الأولى، والتعليقات المرتبطة به.
 
 ## **إضافة تعليقات إلى الشرائح**
 
-المثال التالي يوضح كيفية إضافة تعليقات إلى الشرائح في عرض PowerPoint:
+المثال التالي يُظهر كيفية إضافة تعليقات إلى الشرائح في عرض PowerPoint:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -88,7 +90,7 @@ presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
 
 ## **الوصول إلى تعليقات الشرائح**
 
-المثال التالي يوضح كيفية الوصول إلى التعليقات الموجودة في عرض PowerPoint:
+المثال التالي يُظهر كيفية الوصول إلى التعليقات الموجودة في عرض PowerPoint:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -119,9 +121,9 @@ for (auto&& author : presentation->get_CommentAuthors())
 
 ## **الرد على التعليقات**
 
-التعليق الأصلي هو التعليق الأصلي في أعلى تسلسل الردود. تُتيح طُرُق [get_ParentComment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icomment/get_parentcomment/) و[set_ParentComment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icomment/set_parentcomment/) في الواجهة [IComment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icomment/) الحصول على التعليق الأصلي أو تحديده.
+التعليق الأصلي هو التعليق الأصلي في أعلى تسلسل الردود. تتيح طُرُق [get_ParentComment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icomment/get_parentcomment/) و[set_ParentComment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icomment/set_parentcomment/) في الواجهة [IComment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icomment/) الحصول على أصل التعليق أو تعيينه.
 
-المثال التالي يوضح كيفية إضافة ردود وفحص هيكلية التعليقات الناتجة:
+المثال التالي يُظهر كيفية إضافة ردود وفحص تسلسل التعليقات الناتج:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -184,19 +186,19 @@ presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* عند استخدام طريقة [Remove](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icomment/remove/) في الواجهة [IComment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icomment/) لحذف تعليق، يتم حذف جميع الردود المرتبطة بهذا التعليق أيضًا.
+* عند استخدام طريقة [Remove](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icomment/remove/) في الواجهة [IComment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icomment/) لحذف تعليق، تُحذف جميع الردود على ذلك التعليق أيضًا.
 * إذا أدت طريقة [set_ParentComment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icomment/set_parentcomment/) إلى إنشاء إشارة دائرية، يتم إثارة استثناء [PptxEditException](https://reference.aspose.com/slides/ar/cpp/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **إضافة تعليقات حديثة**
 
-يمكن ربط التعليقات الحديثة بالشفرة نفسها، أو بشكل محدد، أو بنطاق نص داخل AutoShape. تقبل طريقة [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icommentcollection/addmoderncomment/) معاملًا من نوع [IShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/) بالإضافة إلى إحداثيات الشريحة وعلامة التعليق.
+يمكن ربط التعليقات الحديثة بالشفرة نفسها، أو بشكل محدد، أو بمدى نص داخل AutoShape. تقبل طريقة [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icommentcollection/addmoderncomment/) وسيطة من نوع [IShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/) بالإضافة إلى إحداثيات الشريحة وعلامة التعليق.
 
-عند تمرير `nullptr` كمعامل الشكل، يكون التعليق تعليقًا على مستوى الشريحة. يتم تحديد موقع العلامة بالإحداثيات المقدمة، لكنه لا يرتبط بشكل معين، لذا تُعيد طريقة [IModernComment::get_Shape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_shape/) `nullptr`. عند توفير [IShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/)، يتم تثبيت التعليق على ذلك الشكل. ما تزال الإحداثيات تحدد موقع علامة التعليق على الشريحة، بينما يمكن استرجاع ارتباط الشكل عبر [IModernComment::get_Shape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_shape/).
+عند تمرير `nullptr` كقيمة للوسيط shape، يكون التعليق تعليقًا على مستوى الشريحة. يتم وضع علامته بالإحداثيات المقدمة، لكنه غير مرتبط بشكل محدد بأية shape، لذا تعيد طريقة [IModernComment::get_Shape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_shape/) `nullptr`. عندما يتم توفير [IShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/)، يُثبت التعليق على تلك shape. لا تزال الإحداثيات تحدد موضع علامة التعليق على الشريحة، بينما يمكن استرجاع ارتباط الـ shape عبر [IModernComment::get_Shape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_shape/).
 
 ### **تثبيت تعليق حديث على شكل**
 
-المثال التالي ينشئ كلًا من تعليق حديث على مستوى الشريحة وتعليق حديث مثبت إلى AutoShape محدد. ثم يقرأ الشكل المرتبط بكل تعليق.
+المثال التالي يُنشئ تعليقًا حديثًا على مستوى الشريحة وتعليقًا حديثًا مثبتًا على AutoShape محدد. ثم يقرأ الـ shape المرتبط بكل تعليق.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -243,11 +245,11 @@ if (shapeAnchor != nullptr)
 presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
 ```
 
-### **تثبيت التعليقات على أنواع أشكال مختلفة**
+### **تثبيت التعليقات على أنواع مختلفة من الأشكال**
 
-يمكن استخدام أي كائن شريحة يُنفّذ الواجهة [IShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/) كمرساة للشكل. تشمل الأمثلة الشائعة [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/)، [IPictureFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipictureframe/)، [IGroupShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/igroupshape/)، [IConnector](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iconnector/)، و[IGraphicalObject](https://reference.aspose.com/slides/ar/cpp/aspose.slides/igraphicalobject/) مثل المخططات.
+يمكن استخدام أي كائن شريحة يُطبق الواجهة [IShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/) كمرساة للـ shape. من الأمثلة الشائعة [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/)، [IPictureFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipictureframe/)، [IGroupShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/igroupshape/)، [IConnector](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iconnector/)، ومثيلات [IGraphicalObject](https://reference.aspose.com/slides/ar/cpp/aspose.slides/igraphicalobject/) مثل المخططات.
 
-المثال التالي ينشئ عدة أنواع شائعة من الأشكال ويربط تعليقًا حديثًا بكل منها.
+المثال التالي يُنشئ عدة أنواع شائعة من الأشكال ويربط كل منها بتعليق حديث.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -313,16 +315,16 @@ presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 
 ### **تثبيت تعليق على نص وتعيين حالته**
 
-بالنسبة لتعليق حديث مرتبط بـ [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/)، تتحكم الطريقة [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_textselectionstart/) والطريقة [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/set_textselectionstart/) في موضع بدء النص المحدد داخل إطار نص الشكل. بالمثل، تتحكم الطريقة [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_textselectionlength/) والطريقة [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/set_textselectionlength/) في طول التحديد. معًا، تُربط هذه الطرق التعليق بنطاق نص محدد داخل AutoShape.
+بالنسبة لتعليق حديث مرتبط بـ [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/)، تتحكم طُرُق [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_textselectionstart/) و[IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/set_textselectionstart/) في موضع بدء النص المحدد داخل إطار النص الخاص بالـ shape. بالمثل، تتحكم طُرُق [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_textselectionlength/) و[IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/set_textselectionlength/) في طول التحديد. معًا، تُربط هذه الطُرُق التعليق بمدى نص معين داخل الـ AutoShape.
 
-تستخدم الطريقتان [IModernComment::get_Status](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_status/) و[IModernComment::set_Status](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/set_status/) قيمة من تعداد [ModernCommentStatus](https://reference.aspose.com/slides/ar/cpp/aspose.slides/moderncommentstatus/):
+تستخدم طُرُق [IModernComment::get_Status](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_status/) و[IModernComment::set_Status](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/set_status/) قيمة من تعداد [ModernCommentStatus](https://reference.aspose.com/slides/ar/cpp/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — لا توجد حالة محددة للتعليق الحديث.
+- `NotDefined` — لا توجد حالة حديثة محددة.
 - `Active` — التعليق نشط.
 - `Resolved` — تم حل التعليق.
 - `Closed` — التعليق مغلق.
 
-المثال التالي ينشئ تعليقًا حديثًا ثابتًا على شكل، ويربطه بتحديد نص، ويُحدِّده كـ "تم حلّه"، ثم يحفظ العرض التقديمي ويتحقق من القيم بعد إعادة فتح الملف.
+المثال التالي يُنشئ تعليقًا حديثًا مثبتًا على shape، يربطه بتحديد نص، يعينه على أنه مُحَلّ، يحفظ العرض التقديمي، ويتحقق من القيم بعد إعادة فتح الملف.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -397,7 +399,7 @@ for (auto&& reopenedComment : reopenedComments)
 
 ### **فحص التعليقات الحديثة الموجودة**
 
-لفحص عرض تقديمي موجود، تحقق من التعليقات التي تُنفّذ الواجهة [IModernComment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/)، ثم افحص [IModernComment::get_Shape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_shape/)، [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_textselectionstart/)، [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_textselectionlength/)، و[IModernComment::get_Status](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_status/). يشير الشكل `nullptr` إلى تعليق على مستوى الشريحة. بالنسبة لمرساة [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/)، تحدد طرق اختيار النص النطاق المرتبط في إطار نص الشكل.
+لفحص عرض تقديمي موجود، تحقق من أي تعليقات تُطبق الواجهة [IModernComment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/)، ثم افحص [IModernComment::get_Shape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_shape/)، [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_textselectionstart/)، [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_textselectionlength/)، و[IModernComment::get_Status](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_status/). يشير الـ shape إلى `nullptr` عندما يكون التعليق على مستوى الشريحة. بالنسبة لمرساة [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/)، تحدد طرق تحديد النص النطاق المرتبط بإطار نص الـ shape.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -458,7 +460,7 @@ for (auto&& slide : presentation->get_Slides())
 
 ### **إزالة جميع التعليقات ومؤلفي التعليقات**
 
-المثال التالي يوضح كيفية إزالة جميع التعليقات ومؤلفي التعليقات من عرض تقديمي:
+المثال التالي يُظهر كيفية إزالة جميع التعليقات ومؤلفي التعليقات من عرض تقديمي:
 
 ```cpp
 #include <DOM/ICommentAuthor.h>
@@ -482,9 +484,9 @@ presentation->get_CommentAuthors()->Clear();
 presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
-### **إزالة تعليقات معينة**
+### **إزالة تعليقات محددة**
 
-المثال التالي يوضح كيفية إزالة تعليقات معينة من شريحة:
+المثال التالي يُظهر كيفية إزالة تعليقات محددة من شريحة:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -538,14 +540,14 @@ presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **الأسئلة الشائعة**
 
-**هل تدعم Aspose.Slides حالة "تم الحل" للتعليقات الحديثة؟**
+**هل تدعم Aspose.Slides حالة “تم الحل” للتعليقات الحديثة؟**
 
-نعم. تستخدم الطريقتان [IModernComment::get_Status](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_status/) و[IModernComment::set_Status](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/set_status/) قيمة من تعداد [ModernCommentStatus](https://reference.aspose.com/slides/ar/cpp/aspose.slides/moderncommentstatus/)، بما في ذلك `Resolved`. تُخزن الحالة في العرض التقديمي ويمكن قراءتها مرة أخرى بعد إعادة فتح الملف.
+نعم. تستخدم طُرُق [IModernComment::get_Status](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/get_status/) و[IModernComment::set_Status](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imoderncomment/set_status/) قيمة من تعداد [ModernCommentStatus](https://reference.aspose.com/slides/ar/cpp/aspose.slides/moderncommentstatus/)، بما في ذلك `Resolved`. تُحفظ الحالة في العرض التقديمي ويمكن قراءتها مرة أخرى بعد إعادة فتح الملف.
 
-**هل تدعم المناقشات المتسلسلة (سلاسل الردود) وهل هناك حد للتعشيق؟**
+**هل تُدعم المناقشات المتسلسلة (سلاسل الردود)، وهل هناك حد للتعشيق؟**
 
-نعم. يمكن لكل تعليق الإشارة إلى [التعليق الأصلي](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icomment/set_parentcomment/)، مما يتيح سلاسل الردود. لا تُحدِّد واجهة برمجة التطبيقات حدًا معينًا لعمق التعشيق.
+نعم. يمكن لكل تعليق الإشارة إلى [parent comment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icomment/set_parentcomment/)، مما يتيح سلاسل الردود. لا تحدد API حدًا محددًا لعمق التعشيق.
 
-**في أي نظام إحداثيات يتم تعريف موقع علامة التعليق على الشريحة؟**
+**في أي نظام إحداثيات يتم تعريف موضع علامة التعليق على الشريحة؟**
 
-يتم تعريف موقع العلامة بإحداثيات ذات نقطتين عشريتين في نظام إحداثيات الشريحة، مما يتيح لك وضعها بدقة على الشريحة.
+يُعرف موضع العلامة بإحداثيات عددية عائمة في نظام إحداثيات الشريحة، مما يتيح وضعها بدقة على الشريحة.

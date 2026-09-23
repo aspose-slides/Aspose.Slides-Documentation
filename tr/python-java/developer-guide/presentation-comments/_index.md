@@ -12,39 +12,41 @@ keywords:
 - slayt yorumları
 - yorum ekle
 - yoruma eriş
-- yorum düzenle
+- yorumu düzenle
 - yoruma yanıtla
-- yorum kaldır
-- yorum sil
+- yorumu kaldır
+- yorumu sil
 - PowerPoint
 - sunum
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java ile sunum yorumlarını yönetin: PowerPoint sunumlarında yorumları hızlı ve kolay bir şekilde ekleyin, okuyun, düzenleyin, yanıtlayın ve kaldırın."
+description: "Aspose.Slides for Python via Java ile sunum yorumlarını yönetin: PowerPoint sunumlarında yorumları ekleyin, okuyun, düzenleyin, yanıtlayın ve hızlı ve kolay bir şekilde kaldırın."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Python via Java kullanarak sunum yorumlarını nasıl yöneteceğinizi açıklar. Ana yorumla ilgili türleri tanıtır ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlar ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma konularını gösterir.
+Bu makale, Aspose.Slides for Python via Java ile sunum yorumlarını nasıl yöneteceğinizi açıklar. Ana yorumla ilgili türleri tanıtır ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlar ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma konularını gösterir.
 
-Örnekler, PowerPoint'te yaygın inceleme ve iş birliği senaryolarını kapsar; örneğin yorumları yazarlara atama, yorum metni ve meta verileri okuma, yanıt zincirleri oluşturma ve seçili yorumları veya tüm yorumları kaldırma.
+Örnekler, PowerPoint'te yaygın inceleme ve iş birliği senaryolarını kapsar; yorumları yazarlara atama, yorum metni ve meta verilerini okuma, yanıt zincirleri oluşturma ve seçili yorumları ya da tüm yorumları kaldırma gibi.
 
-PowerPoint'te yorumlar, slaytlardaki ek açıklamalar olarak görünür. Bir yorumu seçmek, metnini ve ilgili tartışmayı gösterir.
+PowerPoint'te yorumlar slaytlarda ek açıklama olarak görünür. Bir yorumu seçmek, metnini ve ilgili tartışmayı gösterir.
+
+Yorumların kendileri değişmeden bir sunum açıldığında gösterilmesi veya gizlenmesi isteniyorsa, bkz. [Sunum Açılırken Yorumları Göster veya Gizle](/slides/tr/python-java/presentation-view-properties/).
 
 ## **Sunumlara Neden Yorum Eklenir?**
 
-Sunumları incelerken geri bildirim sağlamak ve iş arkadaşlarınızla iş birliği yapmak için yorumları kullanabilirsiniz.
+Yorumları, sunumları incelerken geri bildirim sağlamak ve meslektaşlarla iş birliği yapmak için kullanabilirsiniz.
 
 Aspose.Slides for Python via Java, yorumlarla çalışmak için aşağıdaki API'leri sunar:
 
 * The [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfı, sunumun yorum yazarlarına erişim sağlar.
-* The [CommentCollection](https://reference.aspose.com/slides/tr/python-java/aspose.slides/commentcollection/) sınıfı, belirli bir yazarla ilişkili yorumları temsil eder.
-* The [Comment](https://reference.aspose.com/slides/tr/python-java/aspose.slides/comment/) sınıfı, bir yorum hakkında yazar, oluşturulma zamanı, konum ve metin gibi bilgiler sağlar.
-* The [CommentAuthor](https://reference.aspose.com/slides/tr/python-java/aspose.slides/commentauthor/) sınıfı, bir yazarın adı, baş harfleri ve ilişkili yorumları dahil olmak üzere bilgiler sunar.
+* The [CommentCollection](https://reference.aspose.com/slides/tr/python-java/aspose.slides/commentcollection/) sınıfı, bireysel bir yazarla ilişkili yorumları temsil eder.
+* The [Comment](https://reference.aspose.com/slides/tr/python-java/aspose.slides/comment/) sınıfı, bir yorum hakkında yazar, oluşturulma zamanı, konum ve metin gibi bilgileri sağlar.
+* The [CommentAuthor](https://reference.aspose.com/slides/tr/python-java/aspose.slides/commentauthor/) sınıfı, yazar hakkında isim, baş harfler ve ilişkili yorumlar gibi bilgiler verir.
 
-## **Slayt Yorumları Ekleme**
+## **Slayt Yorumları Ekle**
 
-Aşağıdaki örnek, bir PowerPoint sunumunda slaytlara yorum eklemenin nasıl yapılacağını gösterir:
+PowerPoint sunumunda slaytlara yorum eklemenin örneği aşağıdadır:
 
 ```python
 import jpype
@@ -85,7 +87,7 @@ finally:
 
 ## **Slayt Yorumlarına Erişim**
 
-Aşağıdaki örnek, bir PowerPoint sunumunda mevcut yorumlara nasıl erişileceğini gösterir:
+PowerPoint sunumunda mevcut yorumlara nasıl erişileceğini gösteren örnek aşağıdadır:
 
 ```python
 import jpype
@@ -111,9 +113,9 @@ finally:
 
 ## **Yorumlara Yanıt Verme**
 
-Bir ana yorum, yanıt hiyerarşisinin en üstündeki orijinal yorumdur. The [Comment.getParentComment](https://reference.aspose.com/slides/tr/python-java/aspose.slides/comment/#getParentComment) ve [Comment.setParentComment](https://reference.aspose.com/slides/tr/python-java/aspose.slides/comment/#setParentComment) metodları, bir yorumun ebeveynini almanıza veya ayarlamanıza olanak tanır.
+Üst yorum, yanıt hiyerarşisinin en üstündeki orijinal yorumdur. [Comment.getParentComment](https://reference.aspose.com/slides/tr/python-java/aspose.slides/comment/#getParentComment) ve [Comment.setParentComment](https://reference.aspose.com/slides/tr/python-java/aspose.slides/comment/#setParentComment) yöntemleri bir yorumun üst yorumunu almanıza veya ayarlamanıza izin verir.
 
-Aşağıdaki örnek, yanıt eklemeyi ve ortaya çıkan yorum hiyerarşisini incelemeyi gösterir:
+Yanıtlar ekleme ve ortaya çıkan yorum hiyerarşisini inceleme örneği aşağıdadır:
 
 ```python
 import jpype
@@ -170,19 +172,19 @@ finally:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* [Comment.remove](https://reference.aspose.com/slides/tr/python-java/aspose.slides/comment/#remove) yöntemi bir yorumu silmek için kullanıldığında, o yoruma ait tüm yanıtlar da silinir.
-* [Comment.setParentComment](https://reference.aspose.com/slides/tr/python-java/aspose.slides/comment/#setParentComment) döngüsel bir referans oluşturursa, bir [PptxEditException](https://reference.aspose.com/slides/tr/python-java/aspose.slides/pptxeditexception/) fırlatılır.
+* [Comment.remove](https://reference.aspose.com/slides/tr/python-java/aspose.slides/comment/#remove) yöntemi bir yorumu silmek için kullanıldığında, o yorumun tüm yanıtları da silinir.
+* [Comment.setParentComment](https://reference.aspose.com/slides/tr/python-java/aspose.slides/comment/#setParentComment) bir döngüsel referans oluşturursa, bir [PptxEditException](https://reference.aspose.com/slides/tr/python-java/aspose.slides/pptxeditexception/) fırlatılır.
 {{% /alert %}}
 
-## **Modern Yorumlar Ekleme**
+## **Modern Yorumlar Ekle**
 
-Modern yorumlar, slaytın kendisine, belirli bir şekle veya bir [AutoShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/autoshape/) içindeki metin aralığına ilişkilendirilebilir. The [CommentCollection.addModernComment](https://reference.aspose.com/slides/tr/python-java/aspose.slides/commentcollection/#addModernComment) yöntemi, slayt ve yorum işaretleyici koordinatlarına ek olarak bir [Shape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shape/) argümanı kabul eder.
+Modern yorumlar slaytın kendisiyle, belirli bir şekille veya bir [AutoShape] içindeki metin aralığıyla ilişkilendirilebilir. [CommentCollection.addModernComment] yöntemi, slayt ve yorum işaretçisi koordinatlarının yanı sıra bir [Shape] parametresi alır.
 
-`None` şekil argümanı olarak geçirildiğinde, yorum bir slayt‑seviyesinde yorum olur. İşaretleyici sağlanan koordinatlarla konumlandırılır, ancak belirli bir şekle bağlı değildir, bu yüzden [ModernComment.getShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncomment/#getShape) `None` döndürür. Bir [Shape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shape/) sağlandığında, yorum o şekle sabitlenir. Koordinatlar hâlâ yorum işaretleyicisinin slayttaki konumunu tanımlar, şekil ilişkilendirmesi ise [ModernComment.getShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncomment/#getShape) aracılığıyla elde edilebilir.
+`shape` parametresi için `None` geçirildiğinde yorum, slayt düzeyinde bir yorum olur. İşaretçi sağlanan koordinatlarla konumlandırılır, ancak belirli bir şekille ilişkilendirilmez; bu nedenle [ModernComment.getShape] `None` döndürür. Bir [Shape] sağlandığında yorum o şekle sabitlenir. Koordinatlar yine de yorum işaretçisinin slayt üzerindeki konumunu tanımlar, şekil ilişkisi ise [ModernComment.getShape] aracılığıyla alınabilir.
 
-### **Modern Yorumu Bir Şekle Bağlama**
+### **Modern Yorumları Bir Şekle Sabitleme**
 
-Aşağıdaki örnek, bir slayt‑seviyesinde modern yorum ve belirli bir [AutoShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/autoshape/) üzerine sabitlenmiş bir modern yorum oluşturur. Ardından her iki yorumdan da ilişkili şekli okur.
+Aşağıdaki örnek, hem slayt düzeyinde bir modern yorum hem de belirli bir [AutoShape]'a sabitlenmiş bir modern yorum oluşturur. Ardından her yorumdan ilişkili şekli okur.
 
 ```python
 import jpype
@@ -218,11 +220,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Yorumları Farklı Şekil Türlerine Bağlama**
+### **Yorumları Farklı Şekil Türlerine Sabitleme**
 
-[Shape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shape/) sınıfından türetilen herhangi bir slayt nesnesi şekil sabitleyicisi olarak kullanılabilir. Yaygın örnekler arasında [AutoShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/tr/python-java/aspose.slides/connector/) ve grafik nesneleri (örneğin grafikler) bulunur.
+[Shape] sınıfından türeten herhangi bir slayt nesnesi şekil bağlantısı olarak kullanılabilir. Yaygın örnekler arasında [AutoShape], [PictureFrame], [GroupShape], [Connector] ve grafik nesneleri (ör. grafikler) yer alır.
 
-Aşağıdaki örnek, birkaç yaygın şekil türü oluşturur ve her birine modern bir yorum ilişkilendirir.
+Aşağıdaki örnek birkaç yaygın şekil türü oluşturur ve her biriyle bir modern yorum ilişkilendirir.
 
 ```python
 import jpype
@@ -274,18 +276,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Yorumu Metne Bağlama ve Durumunu Ayarlama**
+### **Yorumu Metne Sabitle ve Durumunu Ayarla**
 
-Bir [AutoShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/autoshape/) ile ilişkili modern yorum için, [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncomment/#getTextSelectionStart) ve [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncomment/#setTextSelectionStart) şeklin metin çerçevesindeki seçili metnin başlangıç konumuna erişir. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncomment/#getTextSelectionLength) ve [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncomment/#setTextSelectionLength) seçim uzunluğunu verir. Bu iki değer birlikte, yorumu AutoShape içindeki belirli bir metin aralığıyla ilişkilendirir.
+Bir [AutoShape] ile ilişkili modern bir yorum için, [ModernComment.getTextSelectionStart] ve [ModernComment.setTextSelectionStart] şeklin metin çerçevesindeki seçili metnin başlangıç konumunu alır. [ModernComment.getTextSelectionLength] ve [ModernComment.setTextSelectionLength] seçimin uzunluğunu alır. Bu değerler birlikte yorumu AutoShape içindeki belirli bir metin aralığına bağlar.
 
-[ModernComment.getStatus](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncomment/#getStatus) ve [ModernComment.setStatus](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncomment/#setStatus) metodları, [ModernCommentStatus](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncommentstatus/) sabitlerinden bir değere erişir:
+[ModernComment.getStatus] ve [ModernComment.setStatus] yöntemleri [ModernCommentStatus] sabitlerinden bir değere erişir:
 
-- [NotDefined](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncommentstatus/#NotDefined) — belirli bir modern‑yorum durumu tanımlanmamıştır.
-- [Active](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncommentstatus/#Active) — yorum aktiftir.
-- [Resolved](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncommentstatus/#Resolved) — yorum çözülmüştür.
-- [Closed](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncommentstatus/#Closed) — yorum kapatılmıştır.
+- [NotDefined](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncommentstatus/#NotDefined) — Belirli bir modern yorum durumu tanımlanmamış.
+- [Active](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncommentstatus/#Active) — Yorum aktiftir.
+- [Resolved](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncommentstatus/#Resolved) — Yorum çözülmüş olarak işaretlenmiştir.
+- [Closed](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncommentstatus/#Closed) — Yorum kapatılmıştır.
 
-Aşağıdaki örnek, bir şekle sabitlenmiş modern yorum oluşturur, onu bir metin seçimiyle ilişkilendirir, çözülmüş olarak işaretler, sunumu kaydeder ve dosya yeniden açıldıktan sonra değerleri doğrular.
+Aşağıdaki örnek, şekle sabitlenmiş bir modern yorum oluşturur, onu bir metin seçimiyle ilişkilendirir, çözülmüş olarak işaretler, sunumu kaydeder ve dosyayı yeniden açtıktan sonra değerleri doğrular.
 
 ```python
 import jpype
@@ -348,7 +350,7 @@ finally:
 
 ### **Mevcut Modern Yorumları İnceleme**
 
-Mevcut bir sunumu incelemek için, hangi yorumların [ModernComment](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncomment/) örnekleri olduğunu kontrol edin, ardından [ModernComment.getShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncomment/#getTextSelectionLength) ve [ModernComment.getStatus](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncomment/#getStatus) metodlarına bakın. `None` bir şekil, slayt‑seviyesinde bir yorum olduğunu gösterir. Bir [AutoShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/autoshape/) sabitleyicisi için, metin‑seçim metodları şeklin metin çerçevesindeki ilgili aralığı tanımlar.
+Mevcut bir sunumu incelemek için, hangi yorumların [ModernComment] örneği olduğunu kontrol edin, ardından [ModernComment.getShape], [ModernComment.getTextSelectionStart], [ModernComment.getTextSelectionLength] ve [ModernComment.getStatus] elemanlarını inceleyin. `None` şekil bir slayt düzeyinde yorum olduğunu gösterir. Bir [AutoShape] bağlantısı için metin seçimi yöntemleri, şeklin metin çerçevesindeki ilişkili aralığı belirler.
 
 ```python
 import jpype
@@ -388,11 +390,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Yorumları Kaldırma**
+## **Yorumları Kaldır**
 
-### **Tüm Yorumları ve Yorum Yazarlarını Kaldırma**
+### **Tüm Yorumları ve Yorum Yazarlarını Kaldır**
 
-Aşağıdaki örnek, bir sunumdan tüm yorumları ve yorum yazarlarını nasıl kaldıracağınızı gösterir:
+Aşağıdaki örnek, bir sunumdan tüm yorumları ve yorum yazarlarını kaldırmanın nasıl yapılacağını gösterir:
 
 ```python
 import jpype
@@ -414,9 +416,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Belirli Yorumları Kaldırma**
+### **Belirli Yorumları Kaldır**
 
-Aşağıdaki örnek, bir slayttan belirli yorumları nasıl kaldıracağınızı gösterir:
+Aşağıdaki örnek, bir slayttan belirli yorumları kaldırmanın nasıl yapılacağını gösterir:
 
 ```python
 import jpype
@@ -457,16 +459,16 @@ finally:
     presentation.dispose()
 ```
 
-## **SSS**
+## **FAQ**
 
-**Aspose.Slides modern yorumlar için çözülmüş (resolved) durumunu destekliyor mu?**
+**Aspose.Slides modern yorumlar için çözülmüş durumunu destekliyor mu?**
 
-Evet. [ModernComment.getStatus](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncomment/#getStatus) ve [ModernComment.setStatus](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncomment/#setStatus) yöntemleri, `Resolved` dahil olmak üzere bir [ModernCommentStatus](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncommentstatus/) değerine erişir. Durum sunumda saklanır ve dosya yeniden açıldıktan sonra tekrar okunabilir.
+Evet. [ModernComment.getStatus](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncomment/#getStatus) ve [ModernComment.setStatus](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncomment/#setStatus) bir [ModernCommentStatus](https://reference.aspose.com/slides/tr/python-java/aspose.slides/moderncommentstatus/) değerine (ör. `Resolved`) erişir. Durum sunumda depolanır ve dosya yeniden açıldığında tekrar okunabilir.
 
-**İşlemeli tartışmalar (yanıt zincirleri) destekleniyor mu ve bir derinlik sınırı var mı?**
+**İş parçacıklı tartışmalar (yanıt zincirleri) destekleniyor mu ve bir iç içeleme sınırı var mı?**
 
-Evet. Her yorum, yanıt zincirlerini etkinleştiren bir [parent comment](https://reference.aspose.com/slides/tr/python-java/aspose.slides/comment/#getParentComment) referansına sahip olabilir. API, belirli bir iç içeleme derinliği sınırlaması tanımlamaz.
+Evet. Her yorum, bir [parent comment](https://reference.aspose.com/slides/tr/python-java/aspose.slides/comment/#getParentComment) referansı içerebilir, bu da yanıt zincirlerini mümkün kılar. API belirli bir iç içeleme derinliği sınırı tanımlamaz.
 
-**Bir yorum işaretleyicisinin slayttaki konumu hangi koordinat sistemine göre tanımlanır?**
+**Bir slayttaki yorum işaretçisinin konumu hangi koordinat sisteminde tanımlanır?**
 
-İşaretleyici konumu, slayt koordinat sistemindeki kayan nokta koordinatlarıyla tanımlanır; bu sayede işaretleyiciyi slayt üzerinde hassas bir şekilde konumlandırabilirsiniz.
+İşaretçi konumu, slayt koordinat sistemindeki kayan nokta (floating‑point) koordinatlarla tanımlanır; böylece işaretçiyi slayt üzerinde tam olarak konumlandırabilirsiniz.

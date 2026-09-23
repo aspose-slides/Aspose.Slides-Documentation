@@ -1,49 +1,51 @@
 ---
-title: Presentatiecommentaren beheren in PHP
-linktitle: Presentatiecommentaren
+title: Beheer presentatieopmerkingen in PHP
+linktitle: Presentatie‑opmerkingen
 type: docs
 weight: 100
 url: /nl/php-java/presentation-comments/
 keywords:
-- commentaar
-- modern commentaar
-- PowerPoint commentaren
-- presentatiecommentaren
-- dia-commentaren
-- commentaar toevoegen
-- commentaar benaderen
-- commentaar bewerken
-- commentaar beantwoorden
-- commentaar verwijderen
-- commentaar wissen
+- opmerking
+- moderne opmerking
+- PowerPoint‑opmerkingen
+- presentatie‑opmerkingen
+- dia‑opmerkingen
+- opmerking toevoegen
+- opmerking benaderen
+- opmerking bewerken
+- opmerking beantwoorden
+- opmerking verwijderen
+- opmerking verwijderen
 - PowerPoint
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Beheer presentatiecommentaren met Aspose.Slides voor PHP via Java: voeg commentaren toe, lees, bewerk, beantwoord en verwijder commentaren in PowerPoint-presentaties snel en eenvoudig."
+description: "Beheer presentatie‑opmerkingen met Aspose.Slides for PHP via Java: voeg toe, lees, bewerk, beantwoord en verwijder opmerkingen in PowerPoint‑presentaties snel en eenvoudig."
 ---
 ## **Overzicht**
 
-Dit artikel beschrijft hoe u presentatiecommentaren kunt beheren met Aspose.Slides voor PHP via Java. Het introduceert de belangrijkste typen die met commentaren te maken hebben en laat zien hoe u commentaren aan dia's kunt toevoegen, bestaande commentaren kunt benaderen, met antwoorden en moderne commentaren kunt werken, en commentaren uit een presentatie kunt verwijderen.
+Dit artikel legt uit hoe u presentatie‑opmerkingen beheert met Aspose.Slides for PHP via Java. Het introduceert de belangrijkste opmerking‑gerelateerde types en toont hoe u opmerkingen aan dia's toevoegt, bestaande opmerkingen benadert, werkt met antwoorden en moderne opmerkingen, en opmerkingen uit een presentatie verwijdert.
 
-De voorbeelden behandelen veelvoorkomende review‑ en samenwerkingsscenario's in PowerPoint, zoals commentaren toewijzen aan auteurs, commentaartekst en metadata lezen, antwoordketens opbouwen en geselecteerde commentaren of alle commentaren verwijderen.
+De voorbeelden behandelen veelvoorkomende beoordelings‑ en samenwerkingsscenario's in PowerPoint, zoals het toewijzen van opmerkingen aan auteurs, het lezen van de opmerkingtekst en metadata, het opbouwen van antwoordketens, en het verwijderen van geselecteerde opmerkingen of alle opmerkingen.
 
-In PowerPoint verschijnen commentaren als annotaties op dia's. Het selecteren van een commentaar toont de tekst en de bijbehorende discussie.
+In PowerPoint verschijnen opmerkingen als annotaties op dia's. Het selecteren van een opmerking toont de tekst en de bijbehorende discussie.
 
-## **Waarom commentaren aan presentaties toevoegen?**
+Om ervoor te zorgen dat opmerkingen worden getoond of verborgen wanneer een presentatie wordt geopend zonder de opmerkingen zelf te wijzigen, zie [Toon of verberg opmerkingen bij het openen van een presentatie](/slides/nl/php-java/presentation-view-properties/).
 
-U kunt commentaren gebruiken om feedback te geven en samen te werken met collega's bij het beoordelen van presentaties.
+## **Waarom opmerkingen aan presentaties toevoegen?**
 
-Aspose.Slides voor PHP via Java biedt de volgende API's voor het werken met commentaren:
+U kunt opmerkingen gebruiken om feedback te geven en samen te werken met collega's bij het beoordelen van presentaties.
 
-* De [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑klasse, die toegang biedt tot de commentaarauteurs van de presentatie.
-* De [CommentCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/commentcollection/)‑klasse, die de commentaren weergeeft die aan een individuele auteur zijn gekoppeld.
-* De [Comment](https://reference.aspose.com/slides/nl/php-java/aspose.slides/comment/)‑klasse, die informatie over een commentaar biedt, inclusief auteur, aanmaaktijd, positie en tekst.
-* De [CommentAuthor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/commentauthor/)‑klasse, die informatie over een auteur biedt, inclusief hun naam, initialen en gekoppelde commentaren.
+Aspose.Slides for PHP via Java biedt de volgende API's voor het werken met opmerkingen:
 
-## **Commentaren aan dia's toevoegen**
+* De klasse [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) die toegang biedt tot de opmerkingauteurs van de presentatie.
+* De klasse [CommentCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/commentcollection/) die de opmerkingen weergeeft die aan een individuele auteur zijn gekoppeld.
+* De klasse [Comment](https://reference.aspose.com/slides/nl/php-java/aspose.slides/comment/) die informatie over een opmerking geeft, inclusief auteur, aanmaakdatum, positie en tekst.
+* De klasse [CommentAuthor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/commentauthor/) die informatie over een auteur geeft, inclusief naam, initialen en gekoppelde opmerkingen.
 
-Het volgende voorbeeld toont hoe u commentaren aan dia's kunt toevoegen in een PowerPoint‑presentatie:
+## **Dia-opmerkingen toevoegen**
+
+Het volgende voorbeeld toont hoe u opmerkingen aan dia's in een PowerPoint‑presentatie toevoegt:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -79,9 +81,9 @@ try {
 }
 ```
 
-## **Commentaren op dia's benaderen**
+## **Dia‑opmerkingen benaderen**
 
-Het volgende voorbeeld toont hoe u bestaande commentaren in een PowerPoint‑presentatie kunt benaderen:
+Het volgende voorbeeld toont hoe u bestaande opmerkingen in een PowerPoint‑presentatie benadert:
 
 ```php
 use aspose\slides\Presentation;
@@ -102,11 +104,11 @@ try {
 }
 ```
 
-## **Antwoorden op commentaren**
+## **Beantwoorden van opmerkingen**
 
-Een hoofdcommentaar is het oorspronkelijke commentaar bovenaan een antwoorderhiarchie. De [Comment::getParentComment](https://reference.aspose.com/slides/nl/php-java/aspose.slides/comment/getparentcomment/) en [Comment::setParentComment](https://reference.aspose.com/slides/nl/php-java/aspose.slides/comment/setparentcomment/)‑methoden laten u de ouder van een commentaar ophalen of instellen.
+Een hoofdopmerking is de oorspronkelijke opmerking bovenaan een antwoordhiërarchie. De methoden [Comment::getParentComment](https://reference.aspose.com/slides/nl/php-java/aspose.slides/comment/getparentcomment/) en [Comment::setParentComment](https://reference.aspose.com/slides/nl/php-java/aspose.slides/comment/setparentcomment/) laten u de hoofdopmerking van een opmerking opvragen of instellen.
 
-Het volgende voorbeeld toont hoe u antwoorden kunt toevoegen en de resulterende commentaarhiërarchie kunt inspecteren:
+Het volgende voorbeeld toont hoe u antwoorden toevoegt en de resulterende opmerkinghiërarchie inspecteert:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -160,20 +162,20 @@ try {
 }
 ```
 
-{{% alert color="warning" title="Waarschuwing" %}}
-* Wanneer de [Comment::remove](https://reference.aspose.com/slides/nl/php-java/aspose.slides/comment/remove/)‑methode wordt gebruikt om een commentaar te verwijderen, worden ook alle antwoorden op dat commentaar verwijderd.
-* Als [Comment::setParentComment](https://reference.aspose.com/slides/nl/php-java/aspose.slides/comment/setparentcomment/) een circulaire verwijzing creëert, wordt een [PptxEditException](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pptxeditexception/) opgegooid.
+{{% alert color="warning" title="Warning" %}}
+* Wanneer de methode [Comment::remove](https://reference.aspose.com/slides/nl/php-java/aspose.slides/comment/remove/) wordt gebruikt om een opmerking te verwijderen, worden ook alle antwoorden op die opmerking verwijderd.
+* Als [Comment::setParentComment](https://reference.aspose.com/slides/nl/php-java/aspose.slides/comment/setparentcomment/) een circulaire referentie creëert, wordt een [PptxEditException](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pptxeditexception/) opgegooid.
 {{% /alert %}}
 
-## **Moderne commentaren toevoegen**
+## **Moderne opmerkingen toevoegen**
 
-Moderne commentaren kunnen worden gekoppeld aan de dia zelf, aan een specifieke vorm, of aan een tekstreeks binnen een AutoShape. De [CommentCollection::addModernComment](https://reference.aspose.com/slides/nl/php-java/aspose.slides/commentcollection/addmoderncomment/)‑methode accepteert een [Shape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/)‑argument naast de dia‑ en commentaar‑markercoördinaten.
+Moderne opmerkingen kunnen worden gekoppeld aan de dia zelf, aan een specifiek vormobject, of aan een tekstreeks binnen een AutoShape. De methode [CommentCollection::addModernComment](https://reference.aspose.com/slides/nl/php-java/aspose.slides/commentcollection/addmoderncomment/) accepteert een argument van het type [Shape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/) naast de dia‑ en commentaar‑markercoördinaten.
 
-Wanneer `null` wordt doorgegeven voor het shape‑argument, is het commentaar een dia‑niveau commentaar. De marker wordt gepositioneerd volgens de opgegeven coördinaten, maar is niet gekoppeld aan een specifieke vorm, zodat [ModernComment::getShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/getshape/) `null` retourneert. Wanneer een [Shape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/) wordt opgegeven, wordt het commentaar verankerd aan die vorm. De coördinaten bepalen nog steeds de positie van de commentaar‑marker op de dia, terwijl de vormkoppeling kan worden opgehaald via [ModernComment::getShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/getshape/).
+Wanneer `null` wordt doorgegeven voor het vorm‑argument, is de opmerking een dia‑niveau opmerking. De marker wordt gepositioneerd op basis van de opgegeven coördinaten, maar is niet gekoppeld aan een specifieke vorm, zodat [ModernComment::getShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/getshape/) `null` retourneert. Wanneer een [Shape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/) wordt opgegeven, wordt de opmerking verankerd aan die vorm. De coördinaten definiëren nog steeds de positie van de marker op de dia, terwijl de vormassociatie kan worden opgehaald via [ModernComment::getShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/getshape/).
 
-### **Een modern commentaar aan een vorm verankeren**
+### **Een moderne opmerking verankeren aan een vorm**
 
-Het volgende voorbeeld maakt zowel een modern commentaar op dia‑niveau als een modern commentaar dat verankerd is aan een specifieke AutoShape. Vervolgens leest het de gekoppelde vorm uit elk commentaar.
+Het volgende voorbeeld maakt zowel een moderne opmerking op dia‑niveau als een moderne opmerking verankerd aan een specifieke AutoShape. Het leest vervolgens de bijbehorende vorm van elke opmerking.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -204,11 +206,9 @@ try {
 }
 ```
 
-### **Commentaren aan verschillende vormtypen verankeren**
+### **Opmerkingen verankeren aan verschillende vormtypen**
 
-Elk dia‑object dat wordt vertegenwoordigd door de [Shape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/)‑klasse kan worden gebruikt als vormankerpunt. Veelvoorkomende voorbeelden zijn [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/nl/php-java/aspose.slides/connector/), en [GraphicalObject](https://reference.aspose.com/slides/nl/php-java/aspose.slides/graphicalobject/)-instanties zoals grafieken.
-
-Het volgende voorbeeld maakt verschillende veelvoorkomende vormtypen en koppelt een modern commentaar aan elk van hen.
+Elk dia‑object dat wordt weergegeven door de klasse [Shape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/) kan worden gebruikt als vorm‑anker. Veelvoorkomende voorbeelden zijn onder andere [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/nl/php-java/aspose.slides/connector/), en [GraphicalObject](https://reference.aspose.com/slides/nl/php-java/aspose.slides/graphicalobject/) zoals diagrammen.
 
 ```php
 use aspose\slides\ChartType;
@@ -256,18 +256,18 @@ try {
 }
 ```
 
-### **Commentaar aan tekst verankeren en status instellen**
+### **Een opmerking verankeren aan tekst en de status instellen**
 
-Voor een modern commentaar dat gekoppeld is aan een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/), geven [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/gettextselectionstart/) en [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/settextselectionstart/) de startpositie van de geselecteerde tekst in het tekstvak van de vorm terug. [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/gettextselectionlength/) en [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/settextselectionlength/) geven de lengte van de selectie terug. Samen associëren deze waarden het commentaar met een specifieke tekstreeks binnen de AutoShape.
+Voor een moderne opmerking die is gekoppeld aan een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/), geven [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/gettextselectionstart/) en [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/settextselectionstart/) de startpositie van de geselecteerde tekst in het tekstvak van de vorm. [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/gettextselectionlength/) en [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/settextselectionlength/) geven de lengte van de selectie. Samen koppelen deze waarden de opmerking aan een specifiek tekstdomein binnen de AutoShape.
 
-De [ModernComment::getStatus](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/getstatus/) en [ModernComment::setStatus](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/setstatus/)‑methoden lezen een waarde uit de [ModernCommentStatus](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncommentstatus/)‑constants:
+De methoden [ModernComment::getStatus](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/getstatus/) en [ModernComment::setStatus](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/setstatus/) geven een waarde uit de [ModernCommentStatus](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncommentstatus/)‑constants terug:
 
-- `NotDefined` — er is geen specifieke status voor moderne commentaren gedefinieerd.
-- `Active` — het commentaar is actief.
-- `Resolved` — het commentaar is opgelost.
-- `Closed` — het commentaar is gesloten.
+- `NotDefined` — er is geen specifieke moderne‑opmerkingstatus gedefinieerd.
+- `Active` — de opmerking is actief.
+- `Resolved` — de opmerking is opgelost.
+- `Closed` — de opmerking is gesloten.
 
-Het volgende voorbeeld maakt een vormverankerd modern commentaar, koppelt het aan een tekstselectie, markeert het als opgelost, slaat de presentatie op en controleert de waarden na het opnieuw openen van het bestand.
+Het volgende voorbeeld maakt een vorm‑verankerde moderne opmerking, koppelt deze aan een tekstreek, markeert hem als opgelost, slaat de presentatie op en controleert de waarden na het heropenen van het bestand.
 
 ```php
 use aspose\slides\ModernCommentStatus;
@@ -327,9 +327,9 @@ try {
 }
 ```
 
-### **Bestaande moderne commentaren inspecteren**
+### **Bestaande moderne opmerkingen inspecteren**
 
-Om een bestaande presentatie te inspecteren, controleer of elk commentaar een [ModernComment](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/) is, en onderzoek vervolgens [ModernComment::getShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/gettextselectionlength/), en [ModernComment::getStatus](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/getstatus/). Een `null`‑vorm duidt op een commentaar op dia‑niveau. Voor een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/)‑ankerpunt identificeren de tekstselectiemethoden de bijbehorende reeks in het tekstvak van de vorm.
+Om een bestaande presentatie te inspecteren, controleert u of elke opmerking een [ModernComment](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/) is, en bekijkt u vervolgens [ModernComment::getShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/gettextselectionlength/) en [ModernComment::getStatus](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/getstatus/). Een `null` vorm duidt op een opmerking op dia‑niveau. Voor een [AutoShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/autoshape/)‑anker identificeren de tekst‑selectiemethoden het bijbehorende bereik in het tekstvak van de vorm.
 
 ```php
 use aspose\slides\Presentation;
@@ -371,11 +371,11 @@ try {
 }
 ```
 
-## **Commentaren verwijderen**
+## **Opmerkingen verwijderen**
 
-### **Alle commentaren en commentaarauteurs verwijderen**
+### **Alle opmerkingen en opmerkingauteurs verwijderen**
 
-Het volgende voorbeeld toont hoe u alle commentaren en commentaarauteurs uit een presentatie kunt verwijderen:
+Het volgende voorbeeld toont hoe u alle opmerkingen en opmerkingauteurs uit een presentatie verwijdert:
 
 ```php
 use aspose\slides\Presentation;
@@ -394,9 +394,9 @@ try {
 }
 ```
 
-### **Specifieke commentaren verwijderen**
+### **Specifieke opmerkingen verwijderen**
 
-Het volgende voorbeeld toont hoe u specifieke commentaren van een dia kunt verwijderen:
+Het volgende voorbeeld toont hoe u specifieke opmerkingen van een dia verwijdert:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -437,14 +437,14 @@ try {
 
 ## **FAQ**
 
-**Ondersteunt Aspose.Slides een resolved‑status voor moderne commentaren?**
+**Ondersteunt Aspose.Slides een opgeloste status voor moderne opmerkingen?**
 
-Ja. [ModernComment::getStatus](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/getstatus/) en [ModernComment::setStatus](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/setstatus/) lezen een [ModernCommentStatus](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncommentstatus/)‑waarde, inclusief `Resolved`. De status wordt opgeslagen in de presentatie en kan opnieuw worden gelezen nadat het bestand opnieuw is geopend.
+Ja. [ModernComment::getStatus](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/getstatus/) en [ModernComment::setStatus](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncomment/setstatus/) geven een [ModernCommentStatus](https://reference.aspose.com/slides/nl/php-java/aspose.slides/moderncommentstatus/)‑waarde terug, waaronder `Resolved`. De status wordt opgeslagen in de presentatie en kan opnieuw worden gelezen nadat het bestand is heropend.
 
-**Worden discussies in thread‑vorm (antwoordketens) ondersteund, en is er een limiet op het aantal niveaus?**
+**Worden doorlopende discussies (antwoordketens) ondersteund, en is er een limiet op nesting?**
 
-Ja. Elk commentaar kan naar zijn [parent comment](https://reference.aspose.com/slides/nl/php-java/aspose.slides/comment/getparentcomment/) verwijzen, waardoor antwoordketens mogelijk zijn. De API definieert geen specifieke limiet voor de diepte van nesting.
+Ja. Elke opmerking kan verwijzen naar zijn [parent comment](https://reference.aspose.com/slides/nl/php-java/aspose.slides/comment/getparentcomment/), waardoor antwoordketens mogelijk zijn. De API definieert geen specifieke diepte‑limiet voor nesting.
 
-**In welk coördinatensysteem wordt de positie van een commentaar‑marker op een dia gedefinieerd?**
+**In welk coördinatensysteem is de positie van een opmerkingmarker op een dia gedefinieerd?**
 
-De markerpositie wordt gedefinieerd door zwevende‑punt coördinaten in het dia‑coördinatensysteem, waardoor u deze nauwkeurig op de dia kunt plaatsen.
+De markerpositie wordt gedefinieerd door zwevende‑komma‑coördinaten in het dia‑coördinatensysteem, zodat u de marker precies op de gewenste plaats op de dia kunt positioneren.

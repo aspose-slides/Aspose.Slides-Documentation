@@ -14,37 +14,39 @@ keywords:
 - yoruma eriş
 - yorumu düzenle
 - yoruma yanıtla
-- yorumu kaldır
-- yorumu sil
+- yorum kaldır
+- yorum sil
 - PowerPoint
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java ile sunum yorumlarını yönetin: PowerPoint sunumlarında yorum ekleme, okuma, düzenleme, yanıtlama ve kaldırma işlemlerini hızlı ve kolay bir şekilde yapın."
+description: "Aspose.Slides for Android via Java ile sunum yorumlarını yönetin: PowerPoint sunumlarında yorumları ekleyin, okuyun, düzenleyin, yanıtlayın ve hızlı ve kolay bir şekilde kaldırın."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Android via Java ile sunum yorumlarını nasıl yöneteceğinizi açıklar. Yorumlarla ilgili temel tipleri tanıtır ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlar ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma konularını gösterir.
+Bu makale, Aspose.Slides for Android via Java ile sunum yorumlarını nasıl yöneteceğinizi açıklar. Ana yorumla ilgili türleri tanıtarak slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlar ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma konularını gösterir.
 
-Örnekler, PowerPoint’te yaygın inceleme ve iş birliği senaryolarını kapsar; örneğin yorumları yazarlarına atama, yorum metnini ve meta verilerini okuma, yanıt zincirleri oluşturma ve seçili yorumları ya da tüm yorumları kaldırma.
+Örnekler, PowerPoint'te yaygın inceleme ve işbirliği senaryolarını kapsar; yorumları yazarlara atama, yorum metni ve meta verileri okuma, yanıt zincirleri oluşturma ve seçili yorumları ya da tüm yorumları kaldırma gibi.
 
-PowerPoint’te yorumlar, slaytlar üzerindeki ek açıklamalar olarak görünür. Bir yorumu seçtiğinizde metni ve ilgili tartışma görüntülenir.
+PowerPoint'te yorumlar, slaytlardaki ek açıklamalar olarak görünür. Bir yorumu seçmek, metnini ve ilgili tartışmayı gösterir.
+
+Yorumların kendileri değiştirilmeden bir sunum açıldığında gösterilmesini veya gizlenmesini isteyebilmek için, bakınız [Sunum Açılırken Yorumları Göster veya Gizle](/slides/tr/androidjava/presentation-view-properties/).
 
 ## **Sunumlara Neden Yorum Eklenir?**
 
-Sunumları incelerken geri bildirim vermek ve meslektaşlarınızla iş birliği yapmak için yorumları kullanabilirsiniz.
+Sunumları incelerken geri bildirim sağlamak ve çalışma arkadaşlarıyla işbirliği yapmak için yorumları kullanabilirsiniz.
 
-Aspose.Slides for Android via Java, yorumlarla çalışmak için aşağıdaki API’leri sunar:
+Aspose.Slides for Android via Java, yorumlarla çalışmak için aşağıdaki API'leri sunar:
 
 * [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) sınıfı, sunumun yorum yazarlarına erişim sağlar.
-* [ICommentCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icommentcollection/) arayüzü, belirli bir yazarla ilişkilendirilmiş yorumları temsil eder.
-* [IComment](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icomment/) arayüzü, bir yorumun yazarını, oluşturulma zamanını, konumunu ve metnini içeren bilgileri sağlar.
-* [CommentAuthor](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/commentauthor/) sınıfı, bir yazarın adını, baş harflerini ve ilişkili yorumlarını içerir.
+* [ICommentCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icommentcollection/) arabirimi, belirli bir yazarla ilişkili yorumları temsil eder.
+* [IComment](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icomment/) arabirimi, bir yorum hakkında yazar, oluşturulma zamanı, konum ve metin gibi bilgiler sunar.
+* [CommentAuthor](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/commentauthor/) sınıfı, yazar hakkında adı, baş harfleri ve ilişkili yorumlar gibi bilgiler sağlar.
 
 ## **Slayt Yorumları Ekleme**
 
-Aşağıdaki örnek, bir PowerPoint sunumundaki slaytlara nasıl yorum ekleyeceğinizi gösterir:
+Aşağıdaki örnek, bir PowerPoint sunumundaki slaytlara yorum eklemenin nasıl yapıldığını gösterir:
 
 ```java
 import com.aspose.slides.IComment;
@@ -110,9 +112,9 @@ try {
 
 ## **Yorumlara Yanıt Verme**
 
-Bir üst yorum, yanıt hiyerarşisinin en üstündeki orijinal yorumdur. [IComment.getParentComment](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icomment/#getParentComment--) ve [IComment.setParentComment](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) metodları, bir yorumun üst öğesini almanıza veya ayarlamanıza olanak tanır.
+Üst yorum, yanıt hiyerarşisinin en üstündeki orijinal yorumdur. [IComment.getParentComment](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icomment/#getParentComment--) ve [IComment.setParentComment](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) yöntemleri, bir yorumun üst yorumunu almanıza veya ayarlamanıza olanak tanır.
 
-Aşağıdaki örnek, yanıtlar eklemeyi ve ortaya çıkan yorum hiyerarşisini incelemeyi gösterir:
+Aşağıdaki örnek, yanıt eklemeyi ve ortaya çıkan yorum hiyerarşisini incelemeyi gösterir:
 
 ```java
 import com.aspose.slides.IComment;
@@ -169,21 +171,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-
-* [IComment.remove](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icomment/#remove--) metodu bir yorumu silmek için kullanıldığında, o yoruma ait tüm yanıtlar da silinir.
-* [IComment.setParentComment](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) dairesel bir referans oluşturursa, bir [PptxEditException](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/pptxeditexception/) fırlatılır.
-
+* [IComment.remove](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icomment/#remove--) yöntemi bir yorumu silmek için kullanıldığında, o yoruma ait tüm yanıtlar da silinir.
+* [IComment.setParentComment](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) döngüsel bir referans oluşturursa, bir [PptxEditException](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/pptxeditexception/) fırlatılır.
 {{% /alert %}}
 
 ## **Modern Yorumlar Ekleme**
 
-Modern yorumlar, slaytın kendisine, belirli bir şekle veya bir AutoShape içindeki bir metin aralığına ilişkilendirilebilir. [ICommentCollection.addModernComment](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) metodu, slayt ve yorum işaretleyici koordinatlarına ek olarak bir [IShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/) parametresi alır.
+Modern yorumlar slayt kendisiyle, belirli bir şekil ile ya da bir AutoShape içindeki metin aralığıyla ilişkilendirilebilir. [ICommentCollection.addModernComment](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) yöntemi, slayt ve yorum işaretleyici koordinatlarının yanı sıra bir [IShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/) argümanı kabul eder.
 
-Şekil parametresi için `null` gönderildiğinde yorum, slayt‑seviyesine ait bir yorum olur. İşaretleyici sağlanan koordinatlarla konumlandırılır, ancak belirli bir şekle bağlı değildir; bu nedenle [IModernComment.getShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getShape--) `null` döndürür. Bir [IShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/) sağlandığında yorum o şekle bağlanır. Koordinatlar hâlâ yorum işaretleyicisinin slayt üzerindeki konumunu tanımlar, şekil ilişkilendirmesi ise [IModernComment.getShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getShape--) aracılığıyla elde edilebilir.
+`null` şekil argümanı olarak verildiğinde, yorum slayt seviyesinde bir yorum olur. İşaretleyicisi verilen koordinatlarla konumlandırılır, ancak belirli bir şekille ilişkilendirilmez, bu yüzden [IModernComment.getShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getShape--) `null` döndürür. Bir [IShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/) sağlandığında, yorum o şekle bağlanır. Koordinatlar yine de yorum işaretleyicisinin slayttaki konumunu tanımlar, şekil ilişkisi ise [IModernComment.getShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getShape--) aracılığıyla alınabilir.
 
-### **Modern Yorumları Bir Şekle Bağlama**
+### **Modern Yorumu Bir Şekle Bağlama**
 
-Aşağıdaki örnek, hem slayt‑seviyesinde bir modern yorum hem de belirli bir AutoShape’e bağlanmış bir modern yorum oluşturur. Ardından her yorumdan ilişkili şekli okur.
+Aşağıdaki örnek, hem slayt seviyesinde bir modern yorum hem de belirli bir AutoShape'e bağlanan bir modern yorum oluşturur. Ardından her bir yorumdan ilişkili şekli okur.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -221,7 +221,7 @@ try {
 
 ### **Yorumları Farklı Şekil Türlerine Bağlama**
 
-[IShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/) arayüzünü uygulayan herhangi bir slayt nesnesi şekil bağlantısı olarak kullanılabilir. Yaygın örnekler arasında [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iconnector/) ve grafik nesne örnekleri (örneğin grafikler) bulunur.
+[IShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishape/) arabirimini uygulayan herhangi bir slayt nesnesi şekil çapa olarak kullanılabilir. Yaygın örnekler arasında [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iconnector/) ve grafik nesneleri gibi [IGraphicalObject](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/igraphicalobject/) örnekleri bulunur.
 
 Aşağıdaki örnek, birkaç yaygın şekil türü oluşturur ve her birine bir modern yorum ilişkilendirir.
 
@@ -282,16 +282,16 @@ try {
 
 ### **Yorumu Metne Bağlama ve Durumunu Ayarlama**
 
-[IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ile ilişkilendirilmiş bir modern yorum için, [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) ve [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) metotları, şeklin metin çerçevesindeki seçili metnin başlangıç konumuna erişir. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) ve [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) metotları ise seçimin uzunluğunu alır. Bu değerler, yorumu AutoShape içindeki belirli bir metin aralığıyla ilişkilendirir.
+[IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) ile ilişkili bir modern yorum için, [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) ve [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) seçili metnin şeklin metin çerçevesindeki başlangıç konumuna erişir. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) ve [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) seçimin uzunluğuna erişir. Birlikte, bu değerler yorumu AutoShape içindeki belirli bir metin aralığıyla ilişkilendirir.
 
-[IModernComment.getStatus](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getStatus--) ve [IModernComment.setStatus](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) metodları, [ModernCommentStatus](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/moderncommentstatus/) sabitlerinden bir değere erişir:
+[IModernComment.getStatus](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getStatus--) ve [IModernComment.setStatus](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) yöntemleri, [ModernCommentStatus](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/moderncommentstatus/) sabitlerinden bir değere, `Resolved` dahil, erişir:
 
-- `NotDefined` — özel bir modern‑yorum durumu tanımlanmamıştır.
-- `Active` — yorum aktiftir.
+- `NotDefined` — belirli bir modern yorum durumu tanımlı değildir.
+- `Active` — yorum etkindir.
 - `Resolved` — yorum çözülmüştür.
 - `Closed` — yorum kapatılmıştır.
 
-Aşağıdaki örnek, şekle bağlanmış bir modern yorum oluşturur, metin seçimiyle ilişkilendirir, çözüldü olarak işaretler, sunumu kaydeder ve dosya yeniden açıldıktan sonra değerleri doğrular.
+Aşağıdaki örnek, şekle bağlanmış bir modern yorum oluşturur, metin seçimiyle ilişkilendirir, çözülmüş olarak işaretler, sunumu kaydeder ve dosyayı yeniden açtıktan sonra değerleri doğrular.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -358,7 +358,7 @@ try {
 
 ### **Mevcut Modern Yorumları İnceleme**
 
-Mevcut bir sunumu incelemek için, hangi yorumların [IModernComment](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/) uyguladığını kontrol edin, ardından [IModernComment.getShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) ve [IModernComment.getStatus](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getStatus--) özelliklerine bakın. `null` bir şekil, slayt‑seviyesinde bir yorum olduğunu gösterir. Bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) bağlamı için metin‑seçim metodları, şeklin metin çerçevesindeki ilgili aralığı belirler.
+Mevcut bir sunumu incelemek için, hangi yorumların [IModernComment](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/) uyguladığını kontrol edin, ardından [IModernComment.getShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--), ve [IModernComment.getStatus](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getStatus--) öğelerini inceleyin. `null` bir şekil, slayt seviyesindeki bir yorumu gösterir. Bir [IAutoShape](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iautoshape/) çapa için, metin seçimi yöntemleri şeklin metin çerçevesindeki ilişkilendirilen aralığı belirler.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -476,14 +476,14 @@ try {
 
 ## **SSS**
 
-**Aspose.Slides modern yorumlar için çözülmüş (resolved) durumunu destekliyor mu?**
+**Modern yorumlar için çözülmüş durumu Aspose.Slides destekliyor mu?**
 
-Evet. [IModernComment.getStatus](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getStatus--) ve [IModernComment.setStatus](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) bir [ModernCommentStatus](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/moderncommentstatus/) değerine, `Resolved` dahil, erişir. Durum sunumda depolanır ve dosya yeniden açıldıktan sonra tekrar okunabilir.
+Evet. [IModernComment.getStatus](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#getStatus--) ve [IModernComment.setStatus](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) bir [ModernCommentStatus](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/moderncommentstatus/) değerine, `Resolved` dahil, erişir. Durum sunumda depolanır ve dosya yeniden açıldıktan sonra tekrar okunabilir.
 
-**İleti zincirleri (reply chains) destekleniyor mu ve bir derinlik sınırı var mı?**
+**İş parçacıklı tartışmalar (yanıt zincirleri) destekleniyor mu ve bir iç içe limit var mı?**
 
-Evet. Her yorum, [parent comment](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icomment/#getParentComment--) referansı aracılığıyla bir üst yoruma bağlanabilir; bu da yanıt zincirlerini mümkün kılar. API, belirli bir iç içe geçme derinliği sınırı tanımlamaz.
+Evet. Her yorum, [üst yorum](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icomment/#getParentComment--) referansına sahip olabilir, bu da yanıt zincirlerini mümkün kılar. API, belirli bir iç içe derinlik sınırı tanımlamaz.
 
-**Yorum işaretleyicisinin slayt üzerindeki konumu hangi koordinat sistemine göre tanımlanır?**
+**Bir slaytta yorum işaretleyicisinin konumu hangi koordinat sisteminde tanımlanır?**
 
-İşaretleyici konumu, slayt koordinat sistemindeki kayan nokta koordinatlarıyla tanımlanır; böylece işaretleyiciyi slayt üzerinde hassas bir şekilde konumlandırabilirsiniz.
+İşaretleyici konumu, slayt koordinat sistemindeki kayan nokta koordinatlarıyla tanımlanır; bu sayede işaretleyiciyi slaytta hassas bir şekilde konumlandırabilirsiniz.

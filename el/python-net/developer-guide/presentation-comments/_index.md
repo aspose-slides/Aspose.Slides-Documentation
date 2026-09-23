@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση Σχολίων Παρουσίασης σε Python
-linktitle: Σχόλια Παρουσίασης
+title: Διαχείριση σχολίων παρουσίασης σε Python
+linktitle: Σχόλια παρουσίασης
 type: docs
 weight: 100
 url: /el/python-net/presentation-comments/
@@ -10,7 +10,7 @@ keywords:
 - σχόλια PowerPoint
 - σχόλια παρουσίασης
 - σχόλια διαφάνειας
-- προσθήκη σχολίου
+- πρόσθεση σχολίου
 - πρόσβαση σε σχόλιο
 - επεξεργασία σχολίου
 - απάντηση σε σχόλιο
@@ -20,28 +20,30 @@ keywords:
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Διαχειριστείτε τα σχόλια παρουσίασης με το Aspose.Slides for Python μέσω .NET: προσθέστε, διαβάστε, επεξεργαστείτε, απαντήστε και αφαιρέστε σχόλια σε παρουσιάσεις PowerPoint."
+description: "Διαχειριστείτε τα σχόλια παρουσίασης με το Aspose.Slides για Python μέσω .NET: προσθέστε, διαβάστε, επεξεργαστείτε, απαντήστε και αφαιρέστε σχόλια σε παρουσιάσεις PowerPoint."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να διαχειριστείτε σχόλια παρουσίασης με το Aspose.Slides for Python via .NET. Παρουσιάζει τους κύριους τύπους που σχετίζονται με τα σχόλια και δείχνει πώς να προσθέτετε σχόλια σε διαφάνειες, να έχετε πρόσβαση σε υπάρχοντα σχόλια, να εργάζεστε με απαντήσεις και σύγχρονα σχόλια και να αφαιρείτε σχόλια από μια παρουσίαση.
+Αυτό το άρθρο εξηγεί πώς να διαχειρίζεστε τα σχόλια παρουσίασης με το Aspose.Slides για Python μέσω .NET. Παρουσιάζει τους κύριους τύπους που σχετίζονται με τα σχόλια και επιδεικνύει πώς να προσθέτετε σχημικά σχόλια, να έχετε πρόσβαση σε υπάρχοντα σχόλια, να δουλεύετε με απαντήσεις και σύγχρονα σχόλια, και να αφαιρείτε σχόλια από μια παρουσίαση.
 
-Τα παραδείγματα καλύπτουν συνήθεις περιπτώσεις αξιολόγησης και συνεργασίας στο PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση κειμένου σχολίου και μεταδεδομένων, η δημιουργία αλυσίδων απαντήσεων και η κατάργηση επιλεγμένων σχολίων ή όλων των σχολίων.
+Τα παραδείγματα καλύπτουν κοινά σενάρια ελέγχου και συνεργασίας στο PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση κειμένου σχολίων και μεταδεδομένων, η δημιουργία αλυσίδων απαντήσεων, και η αφαίρεση επιλεγμένων σχολίων ή όλων των σχολίων.
 
 Στο PowerPoint, τα σχόλια εμφανίζονται ως σημειώσεις πάνω στις διαφάνειες. Η επιλογή ενός σχολίου εμφανίζει το κείμενό του και τη σχετική συζήτηση.
 
-## **Γιατί να Προσθέτετε Σχόλια σε Παρουσιάσεις;**
+Για να ζητήσετε εμφάνιση ή απόκρυψη των σχολίων όταν ανοίγει μια παρουσίαση χωρίς να αλλάξετε τα σχόλια, δείτε [Show or Hide Comments When Opening a Presentation](/slides/el/python-net/presentation-view-properties/).
 
-Μπορείτε να χρησιμοποιείτε σχόλια για να παρέχετε ανατροφοδότηση και να συνεργάζεστε με συναδέλφους κατά την αξιολόγηση παρουσιάσεων.
+## **Γιατί να προσθέτετε σχόλια σε παρουσιάσεις;**
 
-Aspose.Slides for Python via .NET παρέχει τα ακόλουθα API για εργασία με σχόλια:
+Μπορείτε να χρησιμοποιήσετε σχόλια για να παρέχετε ανατροφοδότηση και να συνεργάζεστε με συναδέλφους κατά την αξιολόγηση παρουσιάσεων.
 
-* Η [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) κλάση, η οποία παρέχει πρόσβαση στους συγγραφείς σχολίων της παρουσίασης.
-* Η [CommentCollection](https://reference.aspose.com/slides/el/python-net/aspose.slides/commentcollection/) κλάση, η οποία αντιπροσωπεύει τα σχόλια που σχετίζονται με έναν συγκεκριμένο συγγραφέα.
-* Η [Comment](https://reference.aspose.com/slides/el/python-net/aspose.slides/comment/) κλάση, η οποία παρέχει πληροφορίες για ένα σχόλιο, συμπεριλαμβανομένου του συγγραφέα, της ημερομηνίας δημιουργίας, της θέσης και του κειμένου.
-* Η [CommentAuthor](https://reference.aspose.com/slides/el/python-net/aspose.slides/commentauthor/) κλάση, η οποία παρέχει πληροφορίες για έναν συγγραφέα, όπως το όνομα, τα αρχικά και τα συσχετισμένα σχόλια.
+Το Aspose.Slides για Python μέσω .NET παρέχει τα παρακάτω API για εργασία με σχόλια:
 
-## **Προσθήκη Σχολίων σε Διαφάνειες**
+* Η [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) κλάση, η οποία παρέχει πρόσβαση στους δημιουργούς σχολίων της παρουσίασης.
+* Η [CommentCollection](https://reference.aspose.com/slides/el/python-net/aspose.slides/commentcollection/) κλάση, η οποία αντιπροσωπεύει τα σχόλια που σχετίζονται με έναν μεμονωμένο δημιουργό.
+* Η [Comment](https://reference.aspose.com/slides/el/python-net/aspose.slides/comment/) κλάση, η οποία παρέχει πληροφορίες για ένα σχόλιο, όπως ο δημιουργός, η ώρα δημιουργίας, η θέση και το κείμενο.
+* Η [CommentAuthor](https://reference.aspose.com/slides/el/python-net/aspose.slides/commentauthor/) κλάση, η οποία παρέχει πληροφορίες για έναν δημιουργό, όπως το όνομα, τα αρχικά και τα συνδεόμενα σχόλια.
+
+## **Προσθήκη σχολίων σε διαφάνειες**
 
 Το παρακάτω παράδειγμα δείχνει πώς να προσθέσετε σχόλια σε διαφάνειες σε μια παρουσίαση PowerPoint:
 
@@ -72,9 +74,9 @@ with slides.Presentation() as presentation:
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Πρόσβαση σε Σχόλια Διαφάνειας**
+## **Πρόσβαση σε σχόλια διαφάνειας**
 
-Το παρακάτω παράδειγμα δείχνει πώς να αποκτήσετε πρόσβαση σε υπάρχοντα σχόλια σε μια παρουσίαση PowerPoint:
+Το παρακάτω παράδειγμα δείχνει πώς να προσπελάσετε υπάρχοντα σχόλια σε μια παρουσίαση PowerPoint:
 
 ```python
 import aspose.slides as slides
@@ -89,9 +91,9 @@ with slides.Presentation("Comments1.pptx") as presentation:
             print()
 ```
 
-## **Απάντηση σε Σχόλια**
+## **Απάντηση σε σχόλια**
 
-Ένα γονικό σχόλιο είναι το αρχικό σχόλιο στην κορυφή μιας ιεραρχίας απαντήσεων. Η [parent_comment](https://reference.aspose.com/slides/el/python-net/aspose.slides/comment/parent_comment/) ιδιότητα της [Comment](https://reference.aspose.com/slides/el/python-net/aspose.slides/comment/) κλάσης σάς επιτρέπει να λάβετε ή να ορίσετε το γονικό ενός σχολίου.
+Ένα γονικό σχόλιο είναι το αρχικό σχόλιο στην κορυφή μιας ιεραρχίας απαντήσεων. Η ιδιότητα [parent_comment](https://reference.aspose.com/slides/el/python-net/aspose.slides/comment/parent_comment/) της κλάσης [Comment](https://reference.aspose.com/slides/el/python-net/aspose.slides/comment/) σάς επιτρέπει να λάβετε ή να ορίσετε το γονικό σχόλιο.
 
 Το παρακάτω παράδειγμα δείχνει πώς να προσθέσετε απαντήσεις και να εξετάσετε την προκύπτουσα ιεραρχία σχολίων:
 
@@ -141,19 +143,19 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Όταν η [remove](https://reference.aspose.com/slides/el/python-net/aspose.slides/comment/remove/) μέθοδος της [Comment](https://reference.aspose.com/slides/el/python-net/aspose.slides/comment/) κλάσης χρησιμοποιείται για τη διαγραφή ενός σχολίου, όλες οι απαντήσεις σε εκείνο το σχόλιο διαγράφονται επίσης.
-* Εάν η ιδιότητα [parent_comment](https://reference.aspose.com/slides/el/python-net/aspose.slides/comment/parent_comment/) δημιουργεί κυκλική αναφορά, προκύπτει μια [PptxEditException](https://reference.aspose.com/slides/el/python-net/aspose.slides/pptxeditexception/).
+* Όταν η μέθοδος [remove](https://reference.aspose.com/slides/el/python-net/aspose.slides/comment/remove/) της κλάσης [Comment](https://reference.aspose.com/slides/el/python-net/aspose.slides/comment/) χρησιμοποιείται για τη διαγραφή ενός σχολίου, όλες οι απαντήσεις σε αυτό το σχόλιο διαγράφονται επίσης.
+* Εάν η ιδιότητα [parent_comment](https://reference.aspose.com/slides/el/python-net/aspose.slides/comment/parent_comment/) δημιουργεί κυκλική αναφορά, ρουφάται μια [PptxEditException](https://reference.aspose.com/slides/el/python-net/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
-## **Προσθήκη Σύγχρονων Σχολίων**
+## **Προσθήκη σύγχρονων σχολίων**
 
-Τα σύγχρονα σχόλια μπορούν να συσχετιστούν με την ίδια τη διαφάνεια, με ένα συγκεκριμένο σχήμα ή με ένα εύρος κειμένου μέσα σε ένα AutoShape. Η μέθοδος [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/el/python-net/aspose.slides/commentcollection/add_modern_comment/) δέχεται ένα όρισμα [Shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/) εκτός από τη διαφάνεια και τις συντεταγμένες του δείκτη σχολίου.
+Τα σύγχρονα σχόλια μπορούν να συνδεθούν με την ίδια τη διαφάνεια, με ένα συγκεκριμένο σχήμα ή με ένα εύρος κειμένου μέσα σε AutoShape. Η μέθοδος [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/el/python-net/aspose.slides/commentcollection/add_modern_comment/) δέχεται ένα όρισμα [Shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/) επιπλέον της διαφάνειας και των συντεταγμένων του δείκτη σχολίου.
 
-Όταν το `None` περνιέται ως όρισμα σχήματος, το σχόλιο είναι σχόλιο σε επίπεδο διαφάνειας. Ο δείκτης του θέτεται από τις δοθείσες συντεταγμένες, αλλά δεν συσχετίζεται με κάποιο συγκεκριμένο σχήμα, έτσι η [ModernComment.shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/shape/) επιστρέφει `None`. Όταν παρέχεται ένα [Shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/), το σχόλιο αγκυροβολείται σε αυτό το σχήμα. Οι συντεταγμένες συνεχίζουν να ορίζουν τη θέση του δείκτη σχολίου στη διαφάνεια, ενώ η συσχέτιση με το σχήμα μπορεί να ανακτηθεί μέσω της [ModernComment.shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/shape/).
+Όταν το `None` περνιέται ως όρισμα σχήματος, το σχόλιο είναι σχολιο σε επίπεδο διαφάνειας. Ο δείκτης τοποθετείται με τις παρεχόμενες συντεταγμένες, αλλά δεν συνδέεται με κάποιο συγκεκριμένο σχήμα, έτσι η ιδιότητα [ModernComment.shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/shape/) επιστρέφει `None`. Όταν παρέχεται ένα [Shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/), το σχόλιο αγκυροβολείται σε αυτό το σχήμα. Οι συντεταγμένες συνεχίζουν να ορίζουν τη θέση του δείκτη σχολίου στη διαφάνεια, ενώ η σύνδεση σχήματος μπορεί να ληφθεί μέσω της [ModernComment.shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/shape/).
 
-### **Αγκυροβολή ενός Σύγχρονου Σχολίου σε Σχήμα**
+### **Αγκύρωση ενός σύγχρονου σχολίου σε σχήμα**
 
-Το παρακάτω παράδειγμα δημιουργεί τόσο ένα σχόλιο σε επίπεδο διαφάνειας όσο και ένα σύγχρονο σχόλιο αγκυροβολημένο σε ένα συγκεκριμένο AutoShape. Στη συνέχεια διαβάζει το συσχετισμένο σχήμα από κάθε σχόλιο.
+Το παρακάτω παράδειγμα δημιουργεί τόσο ένα σχολιο σε επίπεδο διαφάνειας όσο και ένα σύγχρονο σχόλιο αγκυροβολημένο σε ένα συγκεκριμένο AutoShape. Στη συνέχεια διαβάζει το συνδεδεμένο σχήμα από κάθε σχόλιο.
 
 ```python
 from datetime import datetime
@@ -180,11 +182,11 @@ with slides.Presentation() as presentation:
     presentation.save("modern_comments.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Αγκυροβολή Σχολίων σε Διαφορετικούς Τύπους Σχημάτων**
+### **Αγκύρωση σχολίων σε διαφορετικούς τύπους σχημάτων**
 
-Οποιοδήποτε αντικείμενο διαφάνειας που προέρχεται από την [Shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/) μπορεί να χρησιμοποιηθεί ως άγκυρα σχήματος. Συνήθεις παράδειγμα περιλαμβάνουν τα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/el/python-net/aspose.slides/connector/) και [GraphicalObject](https://reference.aspose.com/slides/el/python-net/aspose.slides/graphicalobject/) όπως τα διαγράμματα.
+Οποιοδήποτε αντικείμενο διαφάνειας που προέρχεται από την κλάση [Shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/) μπορεί να χρησιμοποιηθεί ως αγκυστρώμα σχήματος. Συνηθισμένα παραδείγματα είναι τα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/el/python-net/aspose.slides/connector/), και [GraphicalObject](https://reference.aspose.com/slides/el/python-net/aspose.slides/graphicalobject/) όπως γραφήματα.
 
-Το παρακάτω παράδειγμα δημιουργεί πολλούς κοινούς τύπους σχημάτων και συσχετίζει ένα σύγχρονο σχόλιο με το καθένα.
+Το παρακάτω παράδειγμα δημιουργεί αρκετούς συνηθισμένους τύπους σχημάτων και συνδέει ένα σύγχρονο σχόλιο με καθέναν από αυτούς.
 
 ```python
 import base64
@@ -227,18 +229,18 @@ with slides.Presentation() as presentation:
     presentation.save("modern_comment_shape_types.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Αγκυροβολή Σχολίου σε Κείμενο και Ορισμός της Κατάστασής του**
+### **Αγκύρωση σχολίου σε κείμενο και ορισμός της κατάστασής του**
 
-Για ένα σύγχρονο σχόλιο που σχετίζεται με ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/), η [ModernComment.text_selection_start](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/text_selection_start/) καθορίζει τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος, ενώ η [ModernComment.text_selection_length](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/text_selection_length/) καθορίζει το μήκος της επιλογής. Μαζί, αυτές οι ιδιότητες συσχετίζουν το σχόλιο με ένα συγκεκριμένο εύρος κειμένου μέσα στο AutoShape.
+Για ένα σύγχρονο σχόλιο που συνδέεται με ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/), η ιδιότητα [ModernComment.text_selection_start](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/text_selection_start/) καθορίζει τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος, ενώ η ιδιότητα [ModernComment.text_selection_length](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/text_selection_length/) καθορίζει το μήκος της επιλογής. Μαζί, αυτές οι ιδιότητες συνδέουν το σχόλιο με μια συγκεκριμένη περιοχή κειμένου μέσα στο AutoShape.
 
-Η ιδιότητα [ModernComment.status](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/status/) μπορεί να διαβαστεί ή να ενημερωθεί με μια τιμή από την απαρίθμηση [ModernCommentStatus](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncommentstatus/):
+Η ιδιότητα [ModernComment.status](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/status/) μπορεί να διαβαστεί ή να ενημερωθεί με μια τιμή από την αρίθμηση [ModernCommentStatus](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncommentstatus/):
 
 - `NOT_DEFINED` — δεν έχει οριστεί συγκεκριμένη κατάσταση σύγχρονου σχολίου.
 - `ACTIVE` — το σχόλιο είναι ενεργό.
 - `RESOLVED` — το σχόλιο έχει επιλυθεί.
 - `CLOSED` — το σχόλιο είναι κλειστό.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα σχόλιο αγκυροβολημένο σε σχήμα, το συσχετίζει με μια επιλογή κειμένου, το σηματοδοτεί ως επιλυμένο, αποθηκεύει την παρουσίαση και επαληθεύει τις τιμές μετά το άνοιγμα του αρχείου.
+Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα‑αγκυροβολημένο σύγχρονο σχόλιο, το συνδέει με μια επιλογή κειμένου, το επισήμως σημειώνει ως επιλυμένο, αποθηκεύει την παρουσίαση και επαληθεύει τις τιμές μετά το άνοιγμα του αρχείου ξανά.
 
 ```python
 from datetime import datetime
@@ -285,9 +287,9 @@ with slides.Presentation(output_file) as reopened_presentation:
         print("Resolved status preserved: " + str(status_matches))
 ```
 
-### **Επιθεώρηση Υπαρχόντων Σύγχρονων Σχολίων**
+### **Έλεγχος υπαρχόντων σύγχρονων σχολίων**
 
-Για να επιθεωρήσετε μια υπάρχουσα παρουσίαση, ελέγξτε ποια σχόλια είναι [ModernComment](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/) αντικείμενα, στη συνέχεια εξετάστε τις [ModernComment.shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/text_selection_length/) και [ModernComment.status](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/status/). Ένα σχήμα `None` υποδεικνύει σχόλιο σε επίπεδο διαφάνειας. Για άγκυρα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/), οι ιδιότητες επιλογής κειμένου προσδιορίζουν το συσχετισμένο εύρος στο πλαίσιο κειμένου του σχήματος.
+Για να ελέγξετε μια υπάρχουσα παρουσίαση, ελέγξτε ποια σχόλια είναι παραδείγματα [ModernComment](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/), στη συνέχεια εξετάστε τις ιδιότητες [ModernComment.shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/text_selection_length/), και [ModernComment.status](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/status/). Ένα σχήμα `None` υποδεικνύει σχόλιο σε επίπεδο διαφάνειας. Για ένα αγκυστρωμένο [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/), οι ιδιότητες επιλογής κειμένου προσδιορίζουν το σχετικό εύρος στο πλαίσιο κειμένου του σχήματος.
 
 ```python
 import aspose.slides as slides
@@ -317,11 +319,11 @@ with slides.Presentation("comments.pptx") as presentation:
             print()
 ```
 
-## **Κατάργηση Σχολίων**
+## **Αφαίρεση σχολίων**
 
-### **Κατάργηση Όλων των Σχολίων και Συγγραφέων Σχολίων**
+### **Αφαίρεση όλων των σχολίων και των δημιουργών σχολίων**
 
-Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε όλα τα σχόλια και τους συγγραφείς σχολίων από μια παρουσίαση:
+Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε όλα τα σχόλια και τους δημιουργούς σχολίων από μια παρουσίαση:
 
 ```python
 import aspose.slides as slides
@@ -334,7 +336,7 @@ with slides.Presentation("example.pptx") as presentation:
     presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Κατάργηση Συγκεκριμένων Σχολίων**
+### **Αφαίρεση συγκεκριμένων σχολίων**
 
 Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε συγκεκριμένα σχόλια από μια διαφάνεια:
 
@@ -368,16 +370,16 @@ with slides.Presentation() as presentation:
     presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
 **Υποστηρίζει το Aspose.Slides κατάσταση επιλυμένου για σύγχρονα σχόλια;**
 
-Ναι. Η [ModernComment.status](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/status/) μπορεί να διαβαστεί και να οριστεί με μια τιμή του [ModernCommentStatus](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncommentstatus/), συμπεριλαμβανομένου του `RESOLVED`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να διαβαστεί ξανά μετά το άνοιγμα του αρχείου.
+Ναι. Η [ModernComment.status](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncomment/status/) μπορεί να διαβαστεί και να οριστεί με τιμή από το [ModernCommentStatus](https://reference.aspose.com/slides/el/python-net/aspose.slides/moderncommentstatus/), συμπεριλαμβανομένου του `RESOLVED`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να διαβαστεί ξανά μετά το άνοιγμα του αρχείου.
 
-**Υποστηρίζονται οι αλληλουχίες συζητήσεων (αλυσίδες απαντήσεων) και υπάρχει όριο εσωτερικής εσοχής;**
+**Υποστηρίζονται οι αλληλουχίες απαντήσεων (αλυσίδες απαντήσεων) και υπάρχει όριο βάθους ενσωμάτωσης;**
 
-Ναι. Κάθε σχόλιο μπορεί να αναφερθεί στο [parent comment](https://reference.aspose.com/slides/el/python-net/aspose.slides/comment/parent_comment/), επιτρέποντας αλυσίδες απαντήσεων. Το API δεν ορίζει συγκεκριμένο όριο βάθους εσωτερικής εσοχής.
+Ναι. Κάθε σχόλιο μπορεί να αναφέρει το [parent comment](https://reference.aspose.com/slides/el/python-net/aspose.slides/comment/parent_comment/), επιτρέποντας αλυσίδες απαντήσεων. Το API δεν ορίζει κάποιο συγκεκριμένο όριο βάθους ενσωμάτωσης.
 
 **Σε ποιο σύστημα συντεταγμένων ορίζεται η θέση του δείκτη σχολίου σε μια διαφάνεια;**
 
-Η θέση του δείκτη ορίζεται από συντεταγμένες κινητής υποδιαστολής στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντάς σας να το τοποθετήσετε ακριβώς στη διαφάνεια.
+Η θέση του δείκτη ορίζεται από συντεταγμένες κινητής υποδιαστολής στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντάς σας να τοποθετείτε ακριβώς το δείκτη στη διαφάνεια.

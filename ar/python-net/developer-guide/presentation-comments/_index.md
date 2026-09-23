@@ -17,33 +17,35 @@ keywords:
 - إزالة التعليق
 - حذف التعليق
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - Python
 - Aspose.Slides
-description: "إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides for Python عبر .NET: إضافة، قراءة، تحرير، الرد على، وإزالة التعليقات في عروض PowerPoint."
+description: "إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides لبايثون عبر .NET: إضافة، قراءة، تحرير، الرد على، وإزالة التعليقات في عروض PowerPoint."
 ---
 ## **نظرة عامة**
 
-توضح هذه المقالة كيفية إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides for Python via .NET. تُعرّف الأنواع الرئيسية المتصلة بالتعليقات وتُظهر كيفية إضافة تعليقات إلى الشرائح، الوصول إلى التعليقات الموجودة، التعامل مع الردود والتعليقات الحديثة، وإزالة التعليقات من العرض التقديمي.
+توضح هذه المقالة كيفية إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides للغة Python عبر .NET. تُعرف الأنواع الرئيسية المرتبطة بالتعليقات وتُظهر كيفية إضافة تعليقات إلى الشرائح، الوصول إلى التعليقات الموجودة، العمل مع الردود والتعليقات الحديثة، وإزالة التعليقات من العرض التقديمي.
 
-تغطي الأمثلة سيناريوهات المراجعة والتعاون الشائعة في PowerPoint، مثل تعيين التعليقات للمؤلفين، قراءة نص التعليق والبيانات الوصفية، بناء سلاسل الردود، وإزالة التعليقات المحددة أو جميع التعليقات.
+تغطي الأمثلة سيناريوهات المراجعة والتعاون الشائعة في PowerPoint، مثل تعيين التعليقات إلى المؤلفين، قراءة نص التعليق والبيانات الوصفية، بناء سلاسل الردود، وإزالة التعليقات المحددة أو جميع التعليقات.
 
-في PowerPoint، تظهر التعليقات كتوابع توضيحية على الشرائح. عند اختيار تعليق يتم عرض نصه والنقاش المتعلق به.
+في PowerPoint، تظهر التعليقات كتعليقات توضيحية على الشرائح. عند تحديد تعليق يتم عرض نصه والنقاش المتعلق به.
 
-## **لماذا نضيف تعليقات إلى العروض التقديمية؟**
+لطلب إظهار أو إخفاء التعليقات عند فتح العرض التقديمي دون تغيير التعليقات نفسها، راجع [Show or Hide Comments When Opening a Presentation](/slides/ar/python-net/presentation-view-properties/).
 
-يمكنك استخدام التعليقات لتقديم ملاحظات والتعاون مع الزملاء أثناء مراجعة العروض التقديمية.
+## **لماذا إضافة تعليقات إلى العروض التقديمية؟**
 
-توفر Aspose.Slides for Python via .NET واجهات برمجة التطبيقات التالية للعمل مع التعليقات:
+يمكنك استخدام التعليقات لتقديم الملاحظات والتعاون مع الزملاء عند مراجعة العروض التقديمية.
+
+يوفر Aspose.Slides للغة Python عبر .NET واجهات برمجة التطبيقات التالية للعمل مع التعليقات:
 
 * الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/) التي توفر الوصول إلى مؤلفي التعليقات في العرض التقديمي.
-* الفئة [CommentCollection](https://reference.aspose.com/slides/ar/python-net/aspose.slides/commentcollection/) التي تمثل التعليقات المرتبطة بمؤلف فردي.
-* الفئة [Comment](https://reference.aspose.com/slides/ar/python-net/aspose.slides/comment/) التي تقدم معلومات حول التعليق، بما في ذلك المؤلف، وقت الإنشاء، الموقع، والنص.
-* الفئة [CommentAuthor](https://reference.aspose.com/slides/ar/python-net/aspose.slides/commentauthor/) التي تقدم معلومات حول المؤلف، بما في ذلك اسمه، حروفه الأولى، والتعليقات المرتبطة به.
+* الفئة [CommentCollection](https://reference.aspose.com/slides/ar/python-net/aspose.slides/commentcollection/) التي تمثل التعليقات المرتبطة بمؤلف معين.
+* الفئة [Comment](https://reference.aspose.com/slides/ar/python-net/aspose.slides/comment/) التي توفر معلومات حول التعليق، بما في ذلك مؤلفه، وقت الإنشاء، الموضع، والنص.
+* الفئة [CommentAuthor](https://reference.aspose.com/slides/ar/python-net/aspose.slides/commentauthor/) التي توفر معلومات حول المؤلف، بما في ذلك اسمه، الأحرف الأولى، والتعليقات المرتبطة به.
 
-## **إضافة تعليقات إلى الشريحة**
+## **إضافة تعليقات إلى الشرائح**
 
-المثال التالي يوضح كيفية إضافة تعليقات إلى الشرائح في عرض PowerPoint:
+توضح المثال التالي كيفية إضافة تعليقات إلى الشرائح في عرض PowerPoint:
 
 ```python
 from datetime import datetime
@@ -72,9 +74,9 @@ with slides.Presentation() as presentation:
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **الوصول إلى تعليقات الشريحة**
+## **الوصول إلى تعليقات الشرائح**
 
-المثال التالي يوضح كيفية الوصول إلى التعليقات الموجودة في عرض PowerPoint:
+يوضح المثال التالي كيفية الوصول إلى التعليقات الموجودة في عرض PowerPoint:
 
 ```python
 import aspose.slides as slides
@@ -91,9 +93,9 @@ with slides.Presentation("Comments1.pptx") as presentation:
 
 ## **الرد على التعليقات**
 
-التعليق الأصلي هو التعليق الأعلى في تسلسل الردود. خاصية [parent_comment](https://reference.aspose.com/slides/ar/python-net/aspose.slides/comment/parent_comment/) في الفئة [Comment](https://reference.aspose.com/slides/ar/python-net/aspose.slides/comment/) تتيح لك الحصول على أو تعيين التعليق الأصلي.
+التعليق الأصلي هو التعليق الأول في تسلسل الردود. تسمح الخاصية [parent_comment](https://reference.aspose.com/slides/ar/python-net/aspose.slides/comment/parent_comment/) من الفئة [Comment](https://reference.aspose.com/slides/ar/python-net/aspose.slides/comment/) بالحصول على أو تعيين التعليق الأصلي.
 
-المثال التالي يوضح كيفية إضافة ردود وفحص هيكلية التعليقات الناتجة:
+يوضح المثال التالي كيفية إضافة الردود وفحص هيكل التعليقات الناتج:
 
 ```python
 from datetime import datetime
@@ -141,19 +143,19 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* عند استخدام طريقة [remove](https://reference.aspose.com/slides/ar/python-net/aspose.slides/comment/remove/) في الفئة [Comment] لحذف تعليق، تُحذف جميع الردود على ذلك التعليق أيضًا.
-* إذا أدت خاصية [parent_comment](https://reference.aspose.com/slides/ar/python-net/aspose.slides/comment/parent_comment/) إلى إنشاء مرجع دائري، يتم رفع استثناء [PptxEditException](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pptxeditexception/).
+* عند استخدام طريقة [remove](https://reference.aspose.com/slides/ar/python-net/aspose.slides/comment/remove/) من الفئة [Comment](https://reference.aspose.com/slides/ar/python-net/aspose.slides/comment/) لحذف تعليق، يتم حذف جميع الردود على ذلك التعليق أيضًا.
+* إذا أدت الخاصية [parent_comment](https://reference.aspose.com/slides/ar/python-net/aspose.slides/comment/parent_comment/) إلى إنشاء إشارة دائرية، يتم رفع استثناء [PptxEditException](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **إضافة تعليقات حديثة**
 
-يمكن ربط التعليقات الحديثة بالشريحة نفسها، أو بشكل محدد، أو بنطاق نص داخل AutoShape. طريقة [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/ar/python-net/aspose.slides/commentcollection/add_modern_comment/) تقبل معاملًا من نوع [Shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/) بالإضافة إلى إحداثيات الشريحة ومؤشر التعليق.
+يمكن ربط التعليقات الحديثة بالشرائح نفسها، أو بشكل محدد، أو بنطاق نص داخل AutoShape. تقبل طريقة [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/ar/python-net/aspose.slides/commentcollection/add_modern_comment/) وسيطًا من نوع [Shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/) بالإضافة إلى إحداثيات الشريحة وعلامة التعليق.
 
-عند تمرير `None` كقيمة للمعامل shape، يكون التعليق تعليقًا على مستوى الشريحة. يُحدد موقع العلامة بالإحداثيات المقدمة، لكنه غير مرتبط بشكل معين، لذا تُعيد الخاصية [ModernComment.shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/shape/) القيمة `None`. عندما يتم توفير كائن [Shape]، يُثبت التعليق على ذلك الشكل. ما زالت الإحداثيات تحدد موقع علامة التعليق على الشريحة، بينما يمكن استرداد ارتباط الشكل عبر [ModernComment.shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/shape/).
+عند تمرير `None` كقيمة للوسيطة shape، يكون التعليق تعليقًا على مستوى الشريحة. يتم وضع علامته وفقًا للإحداثيات المقدمة، لكنه غير مرتبط بشكل معين، لذا تُعيد [ModernComment.shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/shape/) القيمة `None`. عندما يتم توفير [Shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/)، يتم تثبيت التعليق على ذلك الشكل. لا تزال الإحداثيات تحدد موضع علامة التعليق على الشريحة، بينما يمكن استرداد ارتباط الشكل عبر [ModernComment.shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/shape/).
 
-### **تثبيت تعليق حديث على شكل**
+### **تثبيت تعليق حديث إلى شكل**
 
-المثال التالي ينشئ تعليقًا حديثًا على مستوى الشريحة وتعليقًا حديثًا مثبتًا على AutoShape محدد. ثم يقرأ الشكل المرتبط بكل تعليق.
+يوضح المثال التالي إنشاء كل من تعليق حديث على مستوى الشريحة وتعليق حديث مثبت إلى AutoShape محدد. ثم يقرأ الشكل المرتبط بكل تعليق.
 
 ```python
 from datetime import datetime
@@ -180,11 +182,11 @@ with slides.Presentation() as presentation:
     presentation.save("modern_comments.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **تثبيت التعليقات على أنواع مختلفة من الأشكال**
+### **تثبيت التعليقات إلى أنواع أشكال مختلفة**
 
-يمكن استخدام أي كائن شريحة مشتق من الفئة [Shape] كمرساة لشكل. تشمل الأمثلة الشائعة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/)، [PictureFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframe/)، [GroupShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/groupshape/)، [Connector](https://reference.aspose.com/slides/ar/python-net/aspose.slides/connector/)، و[GraphicalObject](https://reference.aspose.com/slides/ar/python-net/aspose.slides/graphicalobject/) مثل المخططات.
+يمكن استخدام أي كائن شريحة مشتق من [Shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/) كمرساة شكل. تشمل الأمثلة الشائعة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/ar/python-net/aspose.slides/connector/), و[GraphicalObject](https://reference.aspose.com/slides/ar/python-net/aspose.slides/graphicalobject/) مثل المخططات.
 
-المثال التالي ينشئ عدة أنواع شائعة من الأشكال ويُربط كل منها بتعليق حديث.
+يوضح المثال التالي إنشاء عدة أنواع شائعة من الأشكال وربط تعليق حديث بكل منها.
 
 ```python
 import base64
@@ -227,18 +229,18 @@ with slides.Presentation() as presentation:
     presentation.save("modern_comment_shape_types.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **تثبيت تعليق على نص وتعيين حالته**
+### **تثبيت تعليق إلى نص وتعيين حالته**
 
-للتعليق الحديث المرتبط بـ [AutoShape]، تُحدد الخاصية [ModernComment.text_selection_start](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/text_selection_start/) موضع بداية النص المحدد في إطار نص الشكل، بينما تُحدد الخاصية [ModernComment.text_selection_length](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/text_selection_length/) طول الاختيار. معًا، تربط هذه الخصائص التعليق بنطاق نص محدد داخل AutoShape.
+بالنسبة لتعليق حديث مرتبط بـ [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/)، تحدد الخاصية [ModernComment.text_selection_start](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/text_selection_start/) موضع البداية للنص المحدد في إطار النص الخاص بالشكل، بينما تحدد [ModernComment.text_selection_length](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/text_selection_length/) طول التحديد. معًا، تربط هذه الخصائص التعليق بنطاق نص محدد داخل الـ AutoShape.
 
-يمكن قراءة أو تحديث الخاصية [ModernComment.status](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/status/) بقيمة من تعداد [ModernCommentStatus](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncommentstatus/):
+يمكن قراءة الخاصية [ModernComment.status](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/status/) أو تحديثها بقيمة من تعداد [ModernCommentStatus](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncommentstatus/):
 
-- `NOT_DEFINED` — لا توجد حالة محددة للتعليق الحديث.
+- `NOT_DEFINED` — لا يتم تعريف حالة تعليق حديث محددة.
 - `ACTIVE` — التعليق نشط.
 - `RESOLVED` — تم حل التعليق.
 - `CLOSED` — التعليق مغلق.
 
-المثال التالي ينشئ تعليقًا حديثًا مثبتًا على شكل، يربطه بتحديد نص، يحدده كـ "محلول"، يحفظ العرض التقديمي، ويتحقق من القيم بعد فتح الملف مرة أخرى.
+يوضح المثال التالي إنشاء تعليق حديث مثبت إلى شكل، ربطه بتحديد نص، تعيينه كمنحل، حفظ العرض التقديمي، والتحقق من القيم بعد إعادة فتح الملف.
 
 ```python
 from datetime import datetime
@@ -287,7 +289,7 @@ with slides.Presentation(output_file) as reopened_presentation:
 
 ### **فحص التعليقات الحديثة الموجودة**
 
-لفحص عرض تقديمي موجود، تحقق من أي تعليقات هي كائنات [ModernComment]، ثم استعرض الخصائص [ModernComment.shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/shape/)، [ModernComment.text_selection_start](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/text_selection_start/)، [ModernComment.text_selection_length](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/text_selection_length/)، و[ModernComment.status](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/status/). يشير الشكل `None` إلى تعليق على مستوى الشريحة. بالنسبة لمرساة [AutoShape]، تحدد خصائص اختيار النص النطاق المرتبط في إطار نص الشكل.
+لفحص عرض تقديمي موجود، تحقق من أي التعليقات هي مثيلات [ModernComment](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/)، ثم فحص [ModernComment.shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/text_selection_length/), و[ModernComment.status](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/status/). يشير الشكل `None` إلى تعليق على مستوى الشريحة. بالنسبة لمرساة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/)، تحدد خصائص تحديد النص النطاق المرتبط في إطار نص الشكل.
 
 ```python
 import aspose.slides as slides
@@ -321,7 +323,7 @@ with slides.Presentation("comments.pptx") as presentation:
 
 ### **إزالة جميع التعليقات ومؤلفي التعليقات**
 
-المثال التالي يوضح كيفية إزالة جميع التعليقات ومؤلفي التعليقات من عرض تقديمي:
+يوضح المثال التالي كيفية إزالة جميع التعليقات ومؤلفي التعليقات من عرض تقديمي:
 
 ```python
 import aspose.slides as slides
@@ -336,7 +338,7 @@ with slides.Presentation("example.pptx") as presentation:
 
 ### **إزالة تعليقات محددة**
 
-المثال التالي يوضح كيفية إزالة تعليقات محددة من شريحة:
+يوضح المثال التالي كيفية إزالة تعليقات محددة من شريحة:
 
 ```python
 from datetime import datetime
@@ -370,14 +372,14 @@ with slides.Presentation() as presentation:
 
 ## **الأسئلة الشائعة**
 
-**هل تدعم Aspose.Slides حالة "محلول" للتعليقات الحديثة؟**
+**هل يدعم Aspose.Slides حالة الحل للتعليقات الحديثة؟**
 
-نعم. يمكن قراءة وتعيين الخاصية [ModernComment.status](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/status/) باستخدام قيمة من تعداد [ModernCommentStatus]، بما في ذلك `RESOLVED`. تُخزن الحالة في العرض التقديمي ويمكن قراءتها مرة أخرى بعد إعادة فتح الملف.
+نعم. يمكن قراءة وتعيين الخاصية [ModernComment.status](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncomment/status/) بقيمة من تعداد [ModernCommentStatus](https://reference.aspose.com/slides/ar/python-net/aspose.slides/moderncommentstatus/)، بما في ذلك `RESOLVED`. تُخزن الحالة في العرض التقديمي ويمكن قراءتها مرة أخرى بعد إعادة فتح الملف.
 
-**هل تُدعم المناقشات المتسلسلة (سلاسل الردود) وهل هناك حد للتعشيق؟**
+**هل يتم دعم المناقشات المتسلسلة (سلاسل الردود) وهل هناك حد للتعشيق؟**
 
-نعم. يمكن لكل تعليق الإشارة إلى [parent comment] الخاص به، مما يتيح سلاسل الردود. لا تُحدِّد الواجهة حدًا معينًا لعمق التعشيق.
+نعم. يمكن لكل تعليق الإشارة إلى [parent comment](https://reference.aspose.com/slides/ar/python-net/aspose.slides/comment/parent_comment/)، مما يتيح سلاسل الردود. لا تحدد واجهة برمجة التطبيقات حدًا معينًا لعمق التعشيق.
 
-**في أي نظام إحداثيات يتم تعريف موقع علامة التعليق على الشريحة؟**
+**في أي نظام إحداثيات يتم تعريف موضع علامة التعليق على الشريحة؟**
 
-يتم تعريف موقع العلامة بإحداثيات نقطية عائمة في نظام إحداثيات الشريحة، مما يتيح لك وضعها بدقة على الشريحة.
+يتم تعريف موضع العلامة بإحداثيات نقطية (floating‑point) في نظام إحداثيات الشريحة، مما يتيح لك وضعها بدقة على الشريحة.

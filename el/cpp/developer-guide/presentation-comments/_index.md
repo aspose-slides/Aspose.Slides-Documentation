@@ -10,8 +10,8 @@ keywords:
 - σχόλια PowerPoint
 - σχόλια παρουσίασης
 - σχόλια διαφάνειας
-- προσθήκη σχολίου
-- πρόσβαση σχολίου
+- πρόσθήκη σχολίου
+- πρόσβαση σε σχόλιο
 - επεξεργασία σχολίου
 - απάντηση σε σχόλιο
 - αφαίρεση σχολίου
@@ -20,26 +20,28 @@ keywords:
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Διαχειριστείτε τα σχόλια παρουσίασης με το Aspose.Slides for C++: προσθέστε, διαβάστε, επεξεργαστείτε, απαντήστε και αφαιρέστε σχόλια σε παρουσιάσεις PowerPoint γρήγορα και εύκολα."
+description: "Διαχειριστείτε τα σχόλια παρουσίασης με το Aspose.Slides για C++: προσθέστε, διαβάστε, επεξεργαστείτε, απαντήστε και αφαιρέστε σχόλια σε παρουσιάσεις PowerPoint γρήγορα και εύκολα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να διαχειρίζεστε τα σχόλια παρουσίασης με το Aspose.Slides for C++. Παρέχει μια εισαγωγή στους κύριους τύπους σχετικού με τα σχόλια και δείχνει πώς να προσθέτετε σχόλια στις διαφάνειες, να έχετε πρόσβαση σε υπάρχοντα σχόλια, να εργάζεστε με απαντήσεις και σύγχρονα σχόλια, και να αφαιρείτε σχόλια από μια παρουσίαση.
+Αυτό το άρθρο εξηγεί πώς να διαχειρίζεστε τα σχόλια παρουσίασης με το Aspose.Slides for C++. Παρουσιάζει τους κύριους τύπους που σχετίζονται με τα σχόλια και δείχνει πώς να προσθέτετε σχόλια σε διαφάνειες, να προσπελάζετε υπάρχοντα σχόλια, να εργάζεστε με απαντήσεις και σύγχρονα σχόλια, και να διαγράφετε σχόλια από μια παρουσίαση.
 
-Τα παραδείγματα καλύπτουν κοινά σενάρια ελέγχου και συνεργασίας στο PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση κειμένου σχολίου και μεταδεδομένων, η δημιουργία αλυσίδων απαντήσεων, και η αφαίρεση επιλεγμένων σχολίων ή όλων των σχολίων.
+Τα παραδείγματα καλύπτουν κοινά σενάρια ελέγχου και συνεργασίας σε PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση κειμένου σχολίου και μεταδεδομένων, η δημιουργία αλυσίδων απαντήσεων, και η αφαίρεση επιλεγμένων σχολίων ή όλων των σχολίων.
 
 Στο PowerPoint, τα σχόλια εμφανίζονται ως σημειώσεις στις διαφάνειες. Η επιλογή ενός σχολίου εμφανίζει το κείμενό του και τη σχετική συζήτηση.
 
-## **Γιατί να Προσθέτετε Σχόλια σε Παρουσιάσεις;**
+Για να ζητήσετε τα σχόλια να εμφανίζονται ή να κρύβονται όταν ανοίγει μια παρουσίαση χωρίς αλλαγή των σχολίων, δείτε [Show or Hide Comments When Opening a Presentation](/slides/el/cpp/presentation-view-properties/).
 
-Μπορείτε να χρησιμοποιήσετε τα σχόλια για να παρέχετε ανατροφοδότηση και να συνεργάζεστε με συναδέλφους κατά την ανασκόπηση παρουσιάσεων.
+## **Γιατί να Προσθέσετε Σχόλια σε Παρουσιάσεις;**
 
-Το Aspose.Slides for C++ παρέχει τα παρακάτω API για εργασία με σχόλια:
+Μπορείτε να χρησιμοποιήσετε τα σχόλια για να παρέχετε ανατροφοδότηση και να συνεργαστείτε με συναδέλφους κατά την αξιολόγηση παρουσιάσεων.
 
-* Η κλάση [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) που παρέχει πρόσβαση στους συγγραφείς σχολίων της παρουσίασης.
-* Η διεπαφή [ICommentCollection](https://reference.aspose.com/slides/el/cpp/aspose.slides/icommentcollection/) που αντιπροσωπεύει τα σχόλια που σχετίζονται με έναν συγκεκριμένο συγγραφέα.
-* Η διεπαφή [IComment](https://reference.aspose.com/slides/el/cpp/aspose.slides/icomment/) που παρέχει πληροφορίες σχετικά με ένα σχόλιο, συμπεριλαμβανομένου του συγγραφέα, του χρόνου δημιουργίας, της θέσης και του κειμένου.
-* Η κλάση [CommentAuthor](https://reference.aspose.com/slides/el/cpp/aspose.slides/commentauthor/) που παρέχει πληροφορίες για έναν συγγραφέα, όπως το όνομα, τα αρχικά και τα συσχετισμένα σχόλια.
+Το Aspose.Slides for C++ παρέχει τα ακόλουθα API για εργασία με σχόλια:
+
+* Η κλάση [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) παρέχει πρόσβαση στους συγγραφείς σχολίων της παρουσίασης.
+* Η διεπαφή [ICommentCollection](https://reference.aspose.com/slides/el/cpp/aspose.slides/icommentcollection/) αντιπροσωπεύει τα σχόλια που σχετίζονται με έναν συγκεκριμένο συγγραφέα.
+* Η διεπαφή [IComment](https://reference.aspose.com/slides/el/cpp/aspose.slides/icomment/) παρέχει πληροφορίες για ένα σχόλιο, συμπεριλαμβανομένου του συγγραφέα, της ώρας δημιουργίας, της θέσης και του κειμένου.
+* Η κλάση [CommentAuthor](https://reference.aspose.com/slides/el/cpp/aspose.slides/commentauthor/) παρέχει πληροφορίες για έναν συγγραφέα, συμπεριλαμβανομένου του ονόματός του, των αρχικών και των συνδεδεμένων σχολίων.
 
 ## **Προσθήκη Σχολίων σε Διαφάνειες**
 
@@ -88,7 +90,7 @@ presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
 
 ## **Πρόσβαση σε Σχόλια Διαφάνειας**
 
-Το παρακάτω παράδειγμα δείχνει πώς να αποκτήσετε πρόσβαση σε υπάρχοντα σχόλια σε μια παρουσίαση PowerPoint:
+Το παρακάτω παράδειγμα δείχνει πώς να έχετε πρόσβαση σε υπάρχοντα σχόλια σε μια παρουσίαση PowerPoint:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -119,9 +121,9 @@ for (auto&& author : presentation->get_CommentAuthors())
 
 ## **Απάντηση σε Σχόλια**
 
-Ένα γονικό σχόλιο είναι το αρχικό σχόλιο στην κορυφή μιας ιεραρχίας απαντήσεων. Οι μέθοδοι [get_ParentComment](https://reference.aspose.com/slides/el/cpp/aspose.slides/icomment/get_parentcomment/) και [set_ParentComment](https://reference.aspose.com/slides/el/cpp/aspose.slides/icomment/set_parentcomment/) της διεπαφής [IComment](https://reference.aspose.com/slides/el/cpp/aspose.slides/icomment/) σάς επιτρέπουν να πάρετε ή να ορίσετε το γονικό στοιχείο ενός σχολίου.
+Ένα γονικό σχόλιο είναι το αρχικό σχόλιο στην κορυφή μιας ιεραρχίας απαντήσεων. Οι μέθοδοι [get_ParentComment](https://reference.aspose.com/slides/el/cpp/aspose.slides/icomment/get_parentcomment/) και [set_ParentComment](https://reference.aspose.com/slides/el/cpp/aspose.slides/icomment/set_parentcomment/) της διεπαφής [IComment](https://reference.aspose.com/slides/el/cpp/aspose.slides/icomment/) σας επιτρέπουν να λάβετε ή να ορίσετε το γονικό σχόλιο.
 
-Το παρακάτω παράδειγμα δείχνει πώς να προσθέσετε απαντήσεις και να εξετάσετε την προκύπτουσα ιεραρχία σχολίων:
+Το παρακάτω παράδειγμα δείχνει πώς να προσθέσετε απαντήσεις και να ελέγξετε την προκύπτουσα ιεραρχία σχολίων:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -183,20 +185,20 @@ comment1->Remove();
 presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert color="warning" title="Προειδοποίηση" %}}
-* Όταν χρησιμοποιείται η μέθοδος [Remove](https://reference.aspose.com/slides/el/cpp/aspose.slides/icomment/remove/) της διεπαφής [IComment](https://reference.aspose.com/slides/el/cpp/aspose.slides/icomment/) για διαγραφή ενός σχολίου, όλες οι απαντήσεις σε αυτό το σχόλιο διαγράφονται επίσης.
-* Εάν η μέθοδος [set_ParentComment](https://reference.aspose.com/slides/el/cpp/aspose.slides/icomment/set_parentcomment/) δημιουργήσει κυκλική αναφορά, προκαλείται εξαίρεση [PptxEditException](https://reference.aspose.com/slides/el/cpp/aspose.slides/pptxeditexception/).
+{{% alert color="warning" title="Warning" %}}
+* Όταν η μέθοδος [Remove](https://reference.aspose.com/slides/el/cpp/aspose.slides/icomment/remove/) της διεπαφής [IComment](https://reference.aspose.com/slides/el/cpp/aspose.slides/icomment/) χρησιμοποιείται για τη διαγραφή ενός σχολίου, όλες οι απαντήσεις σε αυτό το σχόλιο διαγράφονται επίσης.
+* Εάν η μέθοδος [set_ParentComment](https://reference.aspose.com/slides/el/cpp/aspose.slides/icomment/set_parentcomment/) δημιουργήσει κυκλική αναφορά, θα ριχτεί μια [PptxEditException](https://reference.aspose.com/slides/el/cpp/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Προσθήκη Σύγχρονων Σχολίων**
 
-Τα σύγχρονα σχόλια μπορούν να συσχετιστούν με την ίδια τη διαφάνεια, με ένα συγκεκριμένο σχήμα ή με μια περιοχή κειμένου μέσα σε AutoShape. Η μέθοδος [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/el/cpp/aspose.slides/icommentcollection/addmoderncomment/) δέχεται ένα όρισμα [IShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/) επιπλέον των συντεταγμένων της διαφάνειας και του δείκτη σχολίου.
+Τα σύγχρονα σχόλια μπορούν να συνδεθούν με τη διαφάνεια αυτή καθαυτή, με ένα συγκεκριμένο σχήμα ή με μια περιοχή κειμένου μέσα σε AutoShape. Η μέθοδος [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/el/cpp/aspose.slides/icommentcollection/addmoderncomment/) δέχεται ένα όρισμα τύπου [IShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/) εκτός από τις συντεταγμένες της διαφάνειας και του δείκτη σχολίου.
 
-Όταν το `nullptr` περνιέται ως όρισμα σχήματος, το σχόλιο είναι σχόλιο επιπέδου διαφάνειας. Ο δείκτης τοποθετείται με τις δοσμένες συντεταγμένες, αλλά δεν είναι συνδεδεμένο με κάποιο συγκεκριμένο σχήμα, έτσι η μέθοδος [IModernComment::get_Shape](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_shape/) επιστρέφει `nullptr`. Όταν παρέχεται ένα [IShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/), το σχόλιο αγκώζεται σε αυτό το σχήμα. Οι συντεταγμένες συνεχίζουν να ορίζουν τη θέση του δείκτη σχολίου στη διαφάνεια, ενώ η σύνδεση σχήματος μπορεί να ληφθεί μέσω της [IModernComment::get_Shape](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_shape/).
+Όταν `nullptr` περάσει ως όρισμα σχήματος, το σχόλιο είναι σχόλιο επιπέδου διαφάνειας. Ο δείκτης του τοποθετείται σύμφωνα με τις δοσμένες συντεταγμένες, αλλά δεν συνδέεται με κάποιο συγκεκριμένο σχήμα, επομένως η [IModernComment::get_Shape](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_shape/) επιστρέφει `nullptr`. Όταν δοθεί ένα [IShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/), το σχόλιο αγκυροβολείται σε αυτό το σχήμα. Οι συντεταγμένες εξακολουθούν να ορίζουν τη θέση του δείκτη σχολίου στη διαφάνεια, ενώ η συσχέτιση σχήματος μπορεί να ληφθεί μέσω της [IModernComment::get_Shape](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_shape/).
 
-### **Αγκύρωση Σύγχρονου Σχολίου σε Σχήμα**
+### **Αγκυροθέτηση Σύγχρονου Σχολίου σε Σχήμα**
 
-Το παρακάτω παράδειγμα δημιουργεί τόσο ένα σύγχρονο σχόλιο επιπέδου διαφάνειας όσο και ένα σύγχρονο σχόλιο αγκυρωμένο σε συγκεκριμένο AutoShape. Στη συνέχεια διαβάζει το συναφές σχήμα από κάθε σχόλιο.
+Το παρακάτω παράδειγμα δημιουργεί τόσο ένα σχόλιο επιπέδου διαφάνειας όσο και ένα σύγχρονο σχόλιο αγκυροθετημένο σε συγκεκριμένο AutoShape. Στη συνέχεια διαβάζει το σχετικό σχήμα από κάθε σχόλιο.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -243,11 +245,11 @@ if (shapeAnchor != nullptr)
 presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
 ```
 
-### **Αγκύρωση Σχολίων σε Διαφορούς Τύπους Σχημάτων**
+### **Αγκυροθέτηση Σχολίων σε Διαφορετικούς Τύπους Σχημάτων**
 
-Οποιοδήποτε αντικείμενο διαφάνειας που υλοποιεί το [IShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/) μπορεί να χρησιμοποιηθεί ως άγκυρο σχήματος. Συνηθισμένα παραδείγματα περιλαμβάνουν [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/el/cpp/aspose.slides/iconnector/), και παραδείγματα [IGraphicalObject](https://reference.aspose.com/slides/el/cpp/aspose.slides/igraphicalobject/) όπως διαγράμματα.
+Οποιοδήποτε αντικείμενο διαφάνειας που υλοποιεί την [IShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/) μπορεί να χρησιμοποιηθεί ως αγκύρωση σχήματος. Κοινά παραδείγματα περιλαμβάνουν τις [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/el/cpp/aspose.slides/iconnector/) και [IGraphicalObject](https://reference.aspose.com/slides/el/cpp/aspose.slides/igraphicalobject/) όπως διαγράμματα.
 
-Το παρακάτω παράδειγμα δημιουργεί διάφορους κοινώς χρησιμοποιούμενους τύπους σχημάτων και συσχετίζει ένα σύγχρονο σχόλιο με καθένα από αυτά.
+Το παρακάτω παράδειγμα δημιουργεί αρκετούς συνηθισμένους τύπους σχημάτων και συσχετίζει ένα σύγχρονο σχόλιο με καθένα από αυτά.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -311,18 +313,18 @@ author->get_Comments()->AddModernComment(u"Comment on a graphical object.", slid
 presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 ```
 
-### **Αγκύρωση Σχολίου σε Κείμενο και Ορισμός Κατάστασής του**
+### **Αγκυροθέτηση Σχολίου σε Κείμενο και Ορισμός Κατάστασης**
 
-Για ένα σύγχρονο σχόλιο που συσχετίζεται με ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/), οι μέθοδοι [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_textselectionstart/) και [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/set_textselectionstart/) ελέγχουν τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος. Παρομοίως, οι μέθοδοι [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_textselectionlength/) και [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/set_textselectionlength/) ελέγχουν το μήκος της επιλογής. Μαζί, αυτές οι μέθοδοι συσχετίζουν το σχόλιο με μια συγκεκριμένη περιοχή κειμένου μέσα στο AutoShape.
+Για ένα σύγχρονο σχόλιο που συνδέεται με μια [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/), οι μέθοδοι [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_textselectionstart/) και [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/set_textselectionstart/) ελέγχουν τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος. Ομοίως, οι μέθοδοι [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_textselectionlength/) και [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/set_textselectionlength/) ελέγχουν το μήκος της επιλογής. Μαζί, αυτές οι μέθοδοι συσχετίζουν το σχόλιο με μια συγκεκριμένη περιοχή κειμένου μέσα στο AutoShape.
 
-Οι μέθοδοι [IModernComment::get_Status](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_status/) και [IModernComment::set_Status](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/set_status/) χρησιμοποιούν τιμή από την απαρίθμηση [ModernCommentStatus](https://reference.aspose.com/slides/el/cpp/aspose.slides/moderncommentstatus/):
+Οι μέθοδοι [IModernComment::get_Status](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_status/) και [IModernComment::set_Status](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/set_status/) χρησιμοποιούν μια τιμή από την αρίθμηση [ModernCommentStatus](https://reference.aspose.com/slides/el/cpp/aspose.slides/moderncommentstatus/):
 
 - `NotDefined` — δεν έχει οριστεί συγκεκριμένη κατάσταση σύγχρονου σχολίου.
 - `Active` — το σχόλιο είναι ενεργό.
 - `Resolved` — το σχόλιο έχει επιλυθεί.
 - `Closed` — το σχόλιο είναι κλειστό.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα‑αγκυρωμένο σύγχρονο σχόλιο, το συσχετίζει με μια επιλογή κειμένου, το σημάνει ως επιλυμένο, αποθηκεύει την παρουσίαση και επαληθεύει τις τιμές μετά το άνοιγμα του αρχείου ξανά.
+Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα‑αγκυροθετημένο σύγχρονο σχόλιο, το συσχετίζει με επιλογή κειμένου, το ορίζει ως επιλυμένο, αποθηκεύει την παρουσίαση και επαληθεύει τις τιμές μετά το άνοιγμα ξανά του αρχείου.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -395,9 +397,9 @@ for (auto&& reopenedComment : reopenedComments)
 }
 ```
 
-### **Επιθεώρηση Υπάρχοντων Συγχρόνων Σχολίων**
+### **Έλεγχος Υπαρχόντων Συγχρόνων Σχολίων**
 
-Για να ελέγξετε μια υπάρχουσα παρουσίαση, εντοπίστε ποια σχόλια υλοποιούν το [IModernComment](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/), μετά ελέγξτε τις μεθόδους [IModernComment::get_Shape](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_textselectionlength/), και [IModernComment::get_Status](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_status/). Ένα σχήμα `nullptr` υποδεικνύει σχόλιο επιπέδου διαφάνειας. Για άγκυρο [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/), οι μέθοδοι επιλογής κειμένου προσδιορίζουν το σχετικό εύρος στο πλαίσιο κειμένου του σχήματος.
+Για να ελέγξετε μια υπάρχουσα παρουσίαση, εντοπίστε ποια σχόλια υλοποιούν το [IModernComment](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/), έπειτα εξετάστε τις [IModernComment::get_Shape](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_textselectionlength/) και [IModernComment::get_Status](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_status/). Ένα σχήμα `nullptr` υποδηλώνει σχόλιο επιπέδου διαφάνειας. Για αγκύρωση σε [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/), οι μέθοδοι επιλογής κειμένου εντοπίζουν τη σχετική περιοχή στο πλαίσιο κειμένου του σχήματος.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -454,11 +456,11 @@ for (auto&& slide : presentation->get_Slides())
 }
 ```
 
-## **Αφαίρεση Σχολίων**
+## **Διαγραφή Σχολίων**
 
-### **Αφαίρεση Όλων των Σχολίων και Συγγραφέων Σχολίων**
+### **Διαγραφή Όλων των Σχολίων και Συγγραφέων Σχολίων**
 
-Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε όλα τα σχόλια και τους συγγραφείς σχολίων από μια παρουσίαση:
+Το παρακάτω παράδειγμα δείχνει πώς να διαγράψετε όλα τα σχόλια και τους συγγραφείς σχολίων από μια παρουσίαση:
 
 ```cpp
 #include <DOM/ICommentAuthor.h>
@@ -482,9 +484,9 @@ presentation->get_CommentAuthors()->Clear();
 presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
-### **Αφαίρεση Συγκεκριμένων Σχολίων**
+### **Διαγραφή Συγκεκριμένων Σχολίων**
 
-Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε συγκεκριμένα σχόλια από μια διαφάνεια:
+Το παρακάτω παράδειγμα δείχνει πώς να διαγράψετε συγκεκριμένα σχόλια από μια διαφάνεια:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -536,16 +538,16 @@ for (auto&& commentAuthor : presentation->get_CommentAuthors())
 presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
-**Υποστηρίζει το Aspose.Slides κατάσταση "επιλυμένο" για σύγχρονα σχόλια;**
+**Υποστηρίζει το Aspose.Slides κατάσταση 'resolved' για σύγχρονα σχόλια;**
 
-Ναι. Οι μέθοδοι [IModernComment::get_Status](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_status/) και [IModernComment::set_Status](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/set_status/) χρησιμοποιούν τιμή από την [ModernCommentStatus](https://reference.aspose.com/slides/el/cpp/aspose.slides/moderncommentstatus/), συμπεριλαμβανομένου του `Resolved`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να διαβαστεί ξανά μετά το άνοιγμα του αρχείου.
+Ναι. Οι μέθοδοι [IModernComment::get_Status](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/get_status/) και [IModernComment::set_Status](https://reference.aspose.com/slides/el/cpp/aspose.slides/imoderncomment/set_status/) χρησιμοποιούν μια τιμή από το [ModernCommentStatus](https://reference.aspose.com/slides/el/cpp/aspose.slides/moderncommentstatus/), συμπεριλαμβανομένου του `Resolved`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να ανακτηθεί ξανά μετά το άνοιγμα του αρχείου.
 
-**Υποστηρίζονται οι αλληλουχίες συζητήσεων (αλυσιδωτές απαντήσεις) και υπάρχει όριο εμφώλευσης;**
+**Υποστηρίζονται οι νηματοειδείς συζητήσεις (αλυσίδες απαντήσεων) και υπάρχει όριο βάθους εμφώλευσης;**
 
-Ναι. Κάθε σχόλιο μπορεί να αναφέρεται στο [parent comment](https://reference.aspose.com/slides/el/cpp/aspose.slides/icomment/set_parentcomment/), επιτρέποντας αλυσίδες απαντήσεων. Η API δεν ορίζει συγκεκριμένο όριο βάθους εμφώλευσης.
+Ναι. Κάθε σχόλιο μπορεί να αναφέρει το [parent comment](https://reference.aspose.com/slides/el/cpp/aspose.slides/icomment/set_parentcomment/), επιτρέποντας αλυσίδες απαντήσεων. Το API δεν ορίζει συγκεκριμένο όριο βάθους εμφώλευσης.
 
 **Σε ποιο σύστημα συντεταγμένων ορίζεται η θέση του δείκτη σχολίου σε μια διαφάνεια;**
 
-Η θέση του δείκτη ορίζεται από συντεταγμένες κινητής υποδιαστολής στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντάς σας να τοποθετήσετε το δείκτη ακριβώς στη διαφάνεια.
+Η θέση του δείκτη ορίζεται από δεκαδικές συντεταγμένες στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντάς σας να τοποθετήσετε τον δείκτη ακριβώς στη θέση που επιθυμείτε.

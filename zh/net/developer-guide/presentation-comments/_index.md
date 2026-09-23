@@ -21,29 +21,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 管理演示文稿批注：快速轻松地在 PowerPoint 演示文稿中添加、读取、编辑、回复和删除批注。"
+description: "使用 Aspose.Slides for .NET 管理演示文稿批注：在 PowerPoint 演示文稿中快速轻松地添加、读取、编辑、回复和删除批注。"
 ---
 ## **概述**
 
-本文介绍如何使用 Aspose.Slides for .NET 管理演示文稿中的批注。它介绍了主要的批注相关类型，并演示了如何向幻灯片添加批注、访问现有批注、处理回复和现代批注以及从演示文稿中删除批注。
+本文说明如何使用 Aspose.Slides for .NET 管理演示文稿中的批注。它介绍了主要的批注相关类型，并演示了如何向幻灯片添加批注、访问现有批注、处理回复和现代批注，以及如何从演示文稿中删除批注。
 
-示例涵盖了 PowerPoint 中常见的审阅和协作场景，例如将批注分配给作者、读取批注文本和元数据、构建回复链，以及删除选定的批注或全部批注。
+示例覆盖了 PowerPoint 中常见的审阅和协作场景，例如为作者分配批注、读取批注文本和元数据、构建回复链，以及删除选定批注或全部批注。
 
-在 PowerPoint 中，批注显示为幻灯片上的注释。选中批注后会显示其文本和相关讨论。
+在 PowerPoint 中，批注显示为幻灯片上的注释。选中批注会显示其文本和相关讨论。
 
-## **为何向演示文稿添加批注？**
+要在打开演示文稿时请求显示或隐藏批注（而不更改批注本身），请参阅 [Show or Hide Comments When Opening a Presentation](/slides/zh/net/presentation-view-properties/)。
+
+## **为什么要向演示文稿添加批注？**
 
 在审阅演示文稿时，您可以使用批注提供反馈并与同事协作。
 
 Aspose.Slides for .NET 提供以下用于操作批注的 API：
 
-* [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation) 类，提供对演示文稿批注作者的访问。
+* [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation) 类，提供对演示文稿的批注作者的访问。
 * [ICommentCollection](https://reference.aspose.com/slides/zh/net/aspose.slides/icommentcollection) 接口，表示与单个作者关联的批注集合。
-* [IComment](https://reference.aspose.com/slides/zh/net/aspose.slides/icomment) 接口，提供批注的信息，包括作者、创建时间、位置和文本。
-* [CommentAuthor](https://reference.aspose.com/slides/zh/net/aspose.slides/commentauthor) 类，提供作者的信息，包括名称、缩写和关联的批注。
+* [IComment](https://reference.aspose.com/slides/zh/net/aspose.slides/icomment) 接口，提供有关批注的信息，包括作者、创建时间、位置和文本。
+* [CommentAuthor](https://reference.aspose.com/slides/zh/net/aspose.slides/commentauthor) 类，提供有关作者的信息，包括姓名、首字母和关联的批注。
 
 ## **添加幻灯片批注**
-以下示例展示了如何在 PowerPoint 演示文稿的幻灯片中添加批注：
+以下示例演示了如何向 PowerPoint 演示文稿的幻灯片添加批注：
 
 ```csharp
 using System;
@@ -75,7 +77,7 @@ presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **访问幻灯片批注**
-以下示例展示了如何访问 PowerPoint 演示文稿中已有的批注：
+以下示例演示了如何访问 PowerPoint 演示文稿中已有的批注：
 
 ```csharp
 using System;
@@ -97,9 +99,9 @@ foreach (var author in presentation.CommentAuthors)
 ```
 
 ## **回复批注**
-父批注是回复层级顶部的原始批注。[IComment](https://reference.aspose.com/slides/zh/net/aspose.slides/icomment) 接口的 [ParentComment](https://reference.aspose.com/slides/zh/net/aspose.slides/icomment/properties/parentcomment) 属性允许获取或设置批注的父批注。
+父批注是回复层级顶部的原始批注。`IComment` 接口的 [ParentComment](https://reference.aspose.com/slides/zh/net/aspose.slides/icomment/properties/parentcomment) 属性可用于获取或设置批注的父批注。
 
-以下示例展示了如何添加回复并检查生成的批注层级结构：
+以下示例演示了如何添加回复并检查生成的批注层级结构：
 
 ```csharp
 using System;
@@ -151,19 +153,19 @@ presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="warning" title="Attention" %}} 
-* 当使用 [IComment](https://reference.aspose.com/slides/zh/net/aspose.slides/icomment) 接口的 [Remove](https://reference.aspose.com/slides/zh/net/aspose.slides/icomment/methods/remove) 方法删除批注时，该批注的所有回复也会被删除。
-* 如果 [ParentComment](https://reference.aspose.com/slides/zh/net/aspose.slides/icomment/properties/parentcomment) 属性产生循环引用，则会抛出 [PptxEditException](https://reference.aspose.com/slides/zh/net/aspose.slides/pptxeditexception)。
+* 当使用 `IComment` 接口的 [Remove](https://reference.aspose.com/slides/zh/net/aspose.slides/icomment/methods/remove) 方法删除批注时，该批注的所有回复也会被删除。
+* 如果 [ParentComment](https://reference.aspose.com/slides/zh/net/aspose.slides/icomment/properties/parentcomment) 属性导致循环引用，则会抛出 [PptxEditException](https://reference.aspose.com/slides/zh/net/aspose.slides/pptxeditexception)。
 {{% /alert %}}
 
 ## **添加现代批注**
 
-现代批注可以关联到幻灯片本身、特定形状或 AutoShape 中的文本范围。[ICommentCollection.AddModernComment](https://reference.aspose.com/slides/zh/net/aspose.slides/icommentcollection/addmoderncomment/) 方法除了接受幻灯片和批注标记坐标外，还接受一个 [IShape](https://reference.aspose.com/slides/zh/net/aspose.slides/ishape/) 参数。
+现代批注可以关联到幻灯片本身、特定形状或 AutoShape 中的文本范围。`ICommentCollection.AddModernComment` 方法接受一个 `IShape` 参数（除幻灯片和批注标记坐标外）。
 
-如果对形状参数传入 `null`，则该批注为幻灯片级批注。其标记位置由提供的坐标决定，但不关联到特定形状，因此 [IModernComment.Shape](https://reference.aspose.com/slides/zh/net/aspose.slides/imoderncomment/shape/) 返回 `null`。如果提供了 [IShape](https://reference.aspose.com/slides/zh/net/aspose.slides/ishape/)，批注将锚定到该形状。坐标仍然定义批注标记在幻灯片上的位置，而通过 [IModernComment.Shape](https://reference.aspose.com/slides/zh/net/aspose.slides/imoderncomment/shape/) 可以获取形状关联。
+当对形状参数传入 `null` 时，批注为幻灯片级批注。其标记由提供的坐标定位，但不与特定形状关联，因此 `IModernComment.Shape` 返回 `null`。当提供 `IShape` 时，批注锚定到该形状。坐标仍定义批注标记在幻灯片上的位置，而形状关联可通过 `IModernComment.Shape` 获取。
 
 ### **将现代批注锚定到形状**
 
-以下示例创建了一个幻灯片级现代批注和一个锚定到特定 AutoShape 的现代批注。随后读取每个批注关联的形状。
+以下示例创建了一个幻灯片级现代批注和一个锚定到特定 AutoShape 的现代批注，并读取每个批注关联的形状。
 
 ```csharp
 using System;
@@ -192,9 +194,9 @@ presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 
 ### **将批注锚定到不同的形状类型**
 
-任何实现了 [IShape](https://reference.aspose.com/slides/zh/net/aspose.slides/ishape/) 的幻灯片对象都可以用作形状锚点。常见示例包括 [IAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/zh/net/aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/zh/net/aspose.slides/iconnector/) 以及像图表这样的 [IGraphicalObject](https://reference.aspose.com/slides/zh/net/aspose.slides/igraphicalobject/) 实例。
+任何实现了 `IShape` 的幻灯片对象都可以用作形状锚点。常见示例包括 `IAutoShape`、`IPictureFrame`、`IGroupShape`、`IConnector` 和 `IGraphicalObject`（如图表）实例。
 
-以下示例创建了几种常见形状类型，并为每种形状关联了一个现代批注。
+以下示例创建了多种常见形状类型，并为每种形状关联了一个现代批注。
 
 ```csharp
 using System;
@@ -239,16 +241,16 @@ presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 
 ### **将批注锚定到文本并设置其状态**
 
-对于与 [IAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/iautoshape/) 关联的现代批注，[IModernComment.TextSelectionStart](https://reference.aspose.com/slides/zh/net/aspose.slides/imoderncomment/textselectionstart/) 指定形状文本框中所选文本的起始位置，而 [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/zh/net/aspose.slides/imoderncomment/textselectionlength/) 指定选择的长度。这两个属性共同将批注关联到 AutoShape 中的特定文本范围。
+对于关联到 `IAutoShape` 的现代批注，`IModernComment.TextSelectionStart` 指定形状文本框中所选文本的起始位置，`IModernComment.TextSelectionLength` 指定选区长度。这两个属性共同将批注关联到 AutoShape 中的特定文本范围。
 
-[IModernComment.Status](https://reference.aspose.com/slides/zh/net/aspose.slides/imoderncomment/status/) 属性可读取或使用 [ModernCommentStatus](https://reference.aspose.com/slides/zh/net/aspose.slides/moderncommentstatus/) 枚举的值进行更新：
+`IModernComment.Status` 属性可以读取或使用 `ModernCommentStatus` 枚举的值进行更新：
 
 - `NotDefined` — 未定义特定的现代批注状态。
 - `Active` — 批注处于活动状态。
 - `Resolved` — 批注已解决。
 - `Closed` — 批注已关闭。
 
-以下示例创建了一个锚定到形状的现代批注，将其关联到文本选择，标记为已解决，保存演示文稿，并在重新打开文件后验证这些值。
+以下示例创建了一个锚定到形状的现代批注，关联文本选区，将其标记为已解决，保存演示文稿，并在重新打开文件后验证这些值。
 
 ```csharp
 using System;
@@ -299,9 +301,9 @@ foreach (var reopenedComment in reopenedComments)
 }
 ```
 
-### **检查现有的现代批注**
+### **检查现有现代批注**
 
-要检查现有的演示文稿，首先确定哪些批注实现了 [IModernComment](https://reference.aspose.com/slides/zh/net/aspose.slides/imoderncomment/)，然后检查 [IModernComment.Shape](https://reference.aspose.com/slides/zh/net/aspose.slides/imoderncomment/shape/)、[IModernComment.TextSelectionStart](https://reference.aspose.com/slides/zh/net/aspose.slides/imoderncomment/textselectionstart/)、[IModernComment.TextSelectionLength](https://reference.aspose.com/slides/zh/net/aspose.slides/imoderncomment/textselectionlength/) 和 [IModernComment.Status](https://reference.aspose.com/slides/zh/net/aspose.slides/imoderncomment/status/)。`null` 形状表示幻灯片级批注。对于 [IAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/iautoshape/) 锚点，文本选择属性指示形状文本框中的相应范围。
+要检查现有演示文稿，先查找实现了 `IModernComment` 的批注，然后检查 `IModernComment.Shape`、`IModernComment.TextSelectionStart`、`IModernComment.TextSelectionLength` 和 `IModernComment.Status`。`null` 形状表示幻灯片级批注。对于 `IAutoShape` 锚定，文本选区属性标识形状文本框中的关联范围。
 
 ```csharp
 using System;
@@ -349,7 +351,7 @@ foreach (var slide in presentation.Slides)
 
 ### **删除所有批注和批注作者**
 
-以下示例展示了如何从演示文稿中删除所有批注和批注作者：
+以下示例演示了如何删除演示文稿中的所有批注和批注作者：
 
 ```csharp
 using Aspose.Slides;
@@ -368,7 +370,7 @@ presentation.Save("example_out.pptx", SaveFormat.Pptx);
 
 ### **删除特定批注**
 
-以下示例展示了如何从幻灯片中删除特定批注：
+以下示例演示了如何从幻灯片中删除特定批注：
 
 ```csharp
 using System;
@@ -409,16 +411,16 @@ foreach (var commentAuthor in presentation.CommentAuthors)
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **常见问题**
 
 **Aspose.Slides 是否支持现代批注的已解决状态？**
 
-是的。可以读取和设置 [IModernComment.Status](https://reference.aspose.com/slides/zh/net/aspose.slides/imoderncomment/status/) 为 [ModernCommentStatus](https://reference.aspose.com/slides/zh/net/aspose.slides/moderncommentstatus/) 值，包括 `Resolved`。该状态保存在演示文稿中，文件重新打开后仍可读取。
+是的。`IModernComment.Status` 可以读取和设置 `ModernCommentStatus` 枚举值，包括 `Resolved`。该状态会保存在演示文稿中，重新打开文件后仍可读取。
 
-**是否支持线程式讨论（回复链），以及是否有嵌套深度限制？**
+**是否支持线程式讨论（回复链），并且是否有嵌套层级限制？**
 
-是的。每个批注都可以引用其 [parent comment](https://reference.aspose.com/slides/zh/net/aspose.slides/comment/parentcomment/)，从而实现回复链。API 未定义具体的嵌套深度限制。
+是的。每个批注可以引用其父批注，实现回复链。API 未定义具体的嵌套深度限制。
 
-**批注标记在幻灯片上的位置采用何种坐标系定义？**
+**批注标记在幻灯片上的位置使用何种坐标系定义？**
 
-标记位置使用幻灯片坐标系中的浮点坐标定义，您可以在幻灯片上精确定位。
+标记位置使用幻灯片坐标系中的浮点坐标，可精确定位在幻灯片上的任意位置。

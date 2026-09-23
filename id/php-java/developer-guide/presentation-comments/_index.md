@@ -1,6 +1,6 @@
 ---
-title: "Kelola Komentar Presentasi di PHP"
-linktitle: "Komentar Presentasi"
+title: Kelola Komentar Presentasi di PHP
+linktitle: Komentar Presentasi
 type: docs
 weight: 100
 url: /id/php-java/presentation-comments/
@@ -20,15 +20,17 @@ keywords:
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Kelola komentar presentasi dengan Aspose.Slides untuk PHP via Java: tambahkan, baca, edit, balas, dan hapus komentar dalam presentasi PowerPoint dengan cepat dan mudah."
+description: "Kelola komentar presentasi dengan Aspose.Slides untuk PHP via Java: menambahkan, membaca, mengedit, membalas, dan menghapus komentar dalam presentasi PowerPoint dengan cepat dan mudah."
 ---
-## **Gambaran Umum**
+## **Overview**
 
-Artikel ini menjelaskan cara mengelola komentar presentasi dengan Aspose.Slides untuk PHP via Java. Artikel ini memperkenalkan tipe utama yang terkait dengan komentar dan mendemonstrasikan cara menambahkan komentar ke slide, mengakses komentar yang ada, bekerja dengan balasan dan komentar modern, serta menghapus komentar dari sebuah presentasi.
+Artikel ini menjelaskan cara mengelola komentar presentasi dengan Aspose.Slides untuk PHP via Java. Artikel ini memperkenalkan tipe utama yang berhubungan dengan komentar dan mendemonstrasikan cara menambahkan komentar ke slide, mengakses komentar yang ada, bekerja dengan balasan dan komentar modern, serta menghapus komentar dari sebuah presentasi.
 
-Contoh mencakup skenario peninjauan dan kolaborasi umum di PowerPoint, seperti menetapkan komentar kepada penulis, membaca teks komentar dan metadata, membangun rantai balasan, serta menghapus komentar yang dipilih atau semua komentar.
+Contoh-contoh mencakup skenario peninjauan dan kolaborasi umum di PowerPoint, seperti menetapkan komentar kepada penulis, membaca teks komentar dan metadata, membangun rantai balasan, serta menghapus komentar yang dipilih atau semua komentar.
 
-Di PowerPoint, komentar muncul sebagai anotasi pada slide. Memilih komentar menampilkan teksnya serta diskusi terkait.
+Di PowerPoint, komentar muncul sebagai anotasi pada slide. Memilih sebuah komentar menampilkan teksnya dan diskusi terkait.
+
+Untuk meminta agar komentar ditampilkan atau disembunyikan saat presentasi dibuka tanpa mengubah komentar itu sendiri, lihat [Tampilkan atau Sembunyikan Komentar Saat Membuka Presentasi](/slides/id/php-java/presentation-view-properties/).
 
 ## **Mengapa Menambahkan Komentar ke Presentasi?**
 
@@ -36,14 +38,14 @@ Anda dapat menggunakan komentar untuk memberikan umpan balik dan berkolaborasi d
 
 Aspose.Slides untuk PHP via Java menyediakan API berikut untuk bekerja dengan komentar:
 
-* Kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) yang menyediakan akses ke penulis komentar presentasi.
-* Kelas [CommentCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/commentcollection/) yang mewakili komentar yang terkait dengan satu penulis.
-* Kelas [Comment](https://reference.aspose.com/slides/id/php-java/aspose.slides/comment/) yang menyediakan informasi tentang sebuah komentar, termasuk penulis, waktu pembuatan, posisi, dan teks.
+* Kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) yang memberikan akses ke penulis komentar presentasi.
+* Kelas [CommentCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/commentcollection/) yang mewakili komentar yang terkait dengan seorang penulis.
+* Kelas [Comment](https://reference.aspose.com/slides/id/php-java/aspose.slides/comment/) yang menyediakan informasi tentang sebuah komentar, termasuk penulisnya, waktu pembuatan, posisi, dan teks.
 * Kelas [CommentAuthor](https://reference.aspose.com/slides/id/php-java/aspose.slides/commentauthor/) yang menyediakan informasi tentang seorang penulis, termasuk nama, inisial, dan komentar yang terkait.
 
 ## **Menambahkan Komentar Slide**
 
-Contoh berikut memperlihatkan cara menambahkan komentar ke slide dalam sebuah presentasi PowerPoint:
+Contoh berikut menunjukkan cara menambahkan komentar ke slide dalam presentasi PowerPoint:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -81,7 +83,7 @@ try {
 
 ## **Mengakses Komentar Slide**
 
-Contoh berikut memperlihatkan cara mengakses komentar yang ada dalam presentasi PowerPoint:
+Contoh berikut menunjukkan cara mengakses komentar yang ada dalam presentasi PowerPoint:
 
 ```php
 use aspose\slides\Presentation;
@@ -104,9 +106,9 @@ try {
 
 ## **Membalas Komentar**
 
-Komentar induk adalah komentar asli di puncak hierarki balasan. Metode [Comment::getParentComment](https://reference.aspose.com/slides/id/php-java/aspose.slides/comment/getparentcomment/) dan [Comment::setParentComment](https://reference.aspose.com/slides/id/php-java/aspose.slides/comment/setparentcomment/) memungkinkan Anda mendapatkan atau menetapkan induk sebuah komentar.
+Komentar induk adalah komentar asli di bagian atas hierarki balasan. Metode [Comment::getParentComment](https://reference.aspose.com/slides/id/php-java/aspose.slides/comment/getparentcomment/) dan [Comment::setParentComment](https://reference.aspose.com/slides/id/php-java/aspose.slides/comment/setparentcomment/) memungkinkan Anda mendapatkan atau mengatur komentar induk.
 
-Contoh berikut memperlihatkan cara menambahkan balasan dan memeriksa hierarki komentar yang dihasilkan:
+Contoh berikut menunjukkan cara menambahkan balasan dan memeriksa hierarki komentar yang dihasilkan:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -161,19 +163,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Ketika metode [Comment::remove](https://reference.aspose.com/slides/id/php-java/aspose.slides/comment/remove/) digunakan untuk menghapus sebuah komentar, semua balasan untuk komentar tersebut juga dihapus.
-* Jika [Comment::setParentComment](https://reference.aspose.com/slides/id/php-java/aspose.slides/comment/setparentcomment/) membuat referensi melingkar, sebuah [PptxEditException](https://reference.aspose.com/slides/id/php-java/aspose.slides/pptxeditexception/) dilemparkan.
+* Ketika metode [Comment::remove](https://reference.aspose.com/slides/id/php-java/aspose.slides/comment/remove/) digunakan untuk menghapus sebuah komentar, semua balasan terhadap komentar tersebut juga dihapus.
+* Jika [Comment::setParentComment](https://reference.aspose.com/slides/id/php-java/aspose.slides/comment/setparentcomment/) menghasilkan referensi melingkar, sebuah [PptxEditException](https://reference.aspose.com/slides/id/php-java/aspose.slides/pptxeditexception/) akan dilempar.
 {{% /alert %}}
 
 ## **Menambahkan Komentar Modern**
 
 Komentar modern dapat terkait dengan slide itu sendiri, dengan bentuk tertentu, atau dengan rentang teks di dalam AutoShape. Metode [CommentCollection::addModernComment](https://reference.aspose.com/slides/id/php-java/aspose.slides/commentcollection/addmoderncomment/) menerima argumen [Shape](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/) selain slide dan koordinat penanda komentar.
 
-When `null` diberikan untuk argumen shape, komentar menjadi komentar tingkat slide. Penandanya diposisikan oleh koordinat yang diberikan, tetapi tidak terkait dengan shape tertentu, sehingga [ModernComment::getShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/getshape/) mengembalikan `null`. Ketika sebuah [Shape](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/) disediakan, komentar dijangkar pada shape tersebut. Koordinat tetap menentukan posisi penanda komentar pada slide, sementara asosiasi shape dapat diambil melalui [ModernComment::getShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/getshape/).
+Ketika `null` diberikan untuk argumen shape, komentar menjadi komentar tingkat slide. Penandanya diposisikan oleh koordinat yang diberikan, tetapi tidak terkait dengan shape tertentu, sehingga [ModernComment::getShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/getshape/) mengembalikan `null`. Ketika sebuah [Shape](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/) disediakan, komentar dipasang pada shape tersebut. Koordinat masih menentukan posisi penanda komentar pada slide, sementara asosiasi shape dapat diperoleh melalui [ModernComment::getShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/getshape/).
 
-### **Menambatkan Komentar Modern ke Sebuah Shape**
+### **Menambatkan Komentar Modern ke Shape**
 
-Contoh berikut membuat baik komentar modern tingkat slide maupun komentar modern yang dijangkarkan pada AutoShape tertentu. Kemudian membaca shape yang terkait dari setiap komentar.
+Contoh berikut membuat komentar modern tingkat slide dan komentar modern yang ditambatkan pada AutoShape tertentu. Kemudian membaca shape yang terkait dari setiap komentar.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -206,9 +208,9 @@ try {
 
 ### **Menambatkan Komentar ke Berbagai Tipe Shape**
 
-Setiap objek slide yang direpresentasikan oleh kelas [Shape](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/) dapat digunakan sebagai jangkar shape. Contoh umum meliputi [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/id/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/id/php-java/aspose.slides/connector/), dan instance [GraphicalObject](https://reference.aspose.com/slides/id/php-java/aspose.slides/graphicalobject/) seperti bagan.
+Setiap objek slide yang diwakili oleh kelas [Shape](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/) dapat digunakan sebagai jangkar shape. Contoh umum meliputi [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/id/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/id/php-java/aspose.slides/connector/), dan instance [GraphicalObject](https://reference.aspose.com/slides/id/php-java/aspose.slides/graphicalobject/) seperti bagan.
 
-Contoh berikut membuat beberapa tipe shape umum dan mengaitkan komentar modern dengan masing‑masing.
+Contoh berikut membuat beberapa tipe shape umum dan mengaitkan komentar modern dengan masing-masing.
 
 ```php
 use aspose\slides\ChartType;
@@ -258,16 +260,15 @@ try {
 
 ### **Menambatkan Komentar ke Teks dan Mengatur Statusnya**
 
-Untuk komentar modern yang terkait dengan sebuah [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/gettextselectionstart/) dan [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/settextselectionstart/) mengakses posisi awal teks yang dipilih dalam bingkai teks shape tersebut. [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/gettextselectionlength/) dan [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/settextselectionlength/) mengakses panjang pilihan. Bersama‑sama, nilai‑nilai ini mengaitkan komentar dengan rentang teks tertentu di dalam AutoShape.
+Untuk komentar modern yang terkait dengan [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/gettextselectionstart/) dan [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/settextselectionstart/) mengakses posisi awal teks yang dipilih dalam frame teks shape. [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/gettextselectionlength/) dan [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/settextselectionlength/) mengakses panjang seleksi. Bersama-sama, nilai-nilai ini mengaitkan komentar dengan rentang teks tertentu di dalam AutoShape.
 
-[ModernComment::getStatus](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/getstatus/) dan [ModernComment::setStatus](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/setstatus/) mengakses nilai dari konstanta [ModernCommentStatus](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncommentstatus/):
-
-- `NotDefined` — tidak ada status komentar modern khusus yang didefinisikan.
-- `Active` — komentar bersifat aktif.
+Metode [ModernComment::getStatus](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/getstatus/) dan [ModernComment::setStatus](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/setstatus/) mengakses nilai dari konstanta [ModernCommentStatus](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncommentstatus/):
+- `NotDefined` — tidak ada status komentar modern yang spesifik didefinisikan.
+- `Active` — komentar aktif.
 - `Resolved` — komentar telah diselesaikan.
 - `Closed` — komentar ditutup.
 
-Contoh berikut membuat komentar modern yang dijangkarkan pada shape, mengaitkannya dengan pilihan teks, menandainya sebagai selesai, menyimpan presentasi, dan memverifikasi nilai‑nilai setelah membuka kembali file.
+Contoh berikut membuat komentar modern yang ditambatkan pada shape, mengaitkannya dengan seleksi teks, menandainya sebagai diselesaikan, menyimpan presentasi, dan memverifikasi nilai-nilai setelah membuka kembali file.
 
 ```php
 use aspose\slides\ModernCommentStatus;
@@ -329,7 +330,7 @@ try {
 
 ### **Memeriksa Komentar Modern yang Ada**
 
-Untuk memeriksa sebuah presentasi yang ada, periksa apakah setiap komentar adalah [ModernComment](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/), lalu tinjau [ModernComment::getShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/gettextselectionlength/), dan [ModernComment::getStatus](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/getstatus/). Shape `null` menunjukkan komentar tingkat slide. Untuk jangkar [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/), metode pemilihan teks mengidentifikasi rentang yang terkait dalam bingkai teks shape.
+Untuk memeriksa presentasi yang ada, periksa apakah setiap komentar adalah [ModernComment](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/), kemudian tinjau [ModernComment::getShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/gettextselectionlength/), dan [ModernComment::getStatus](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/getstatus/). Shape `null` menunjukkan komentar tingkat slide. Untuk jangkar [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/), metode seleksi teks mengidentifikasi rentang yang terkait dalam frame teks shape.
 
 ```php
 use aspose\slides\Presentation;
@@ -375,7 +376,7 @@ try {
 
 ### **Menghapus Semua Komentar dan Penulis Komentar**
 
-Contoh berikut memperlihatkan cara menghapus semua komentar dan penulis komentar dari sebuah presentasi:
+Contoh berikut menunjukkan cara menghapus semua komentar dan penulis komentar dari sebuah presentasi:
 
 ```php
 use aspose\slides\Presentation;
@@ -396,7 +397,7 @@ try {
 
 ### **Menghapus Komentar Tertentu**
 
-Contoh berikut memperlihatkan cara menghapus komentar tertentu dari sebuah slide:
+Contoh berikut menunjukkan cara menghapus komentar tertentu dari sebuah slide:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -437,14 +438,14 @@ try {
 
 ## **FAQ**
 
-**Apakah Aspose.Slides mendukung status terselesaikan untuk komentar modern?**
+**Apakah Aspose.Slides mendukung status selesai untuk komentar modern?**
 
 Ya. [ModernComment::getStatus](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/getstatus/) dan [ModernComment::setStatus](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncomment/setstatus/) mengakses nilai [ModernCommentStatus](https://reference.aspose.com/slides/id/php-java/aspose.slides/moderncommentstatus/), termasuk `Resolved`. Status disimpan dalam presentasi dan dapat dibaca kembali setelah file dibuka kembali.
 
-**Apakah diskusi berulir (rantai balasan) didukung, dan apakah ada batas kedalaman?**
+**Apakah diskusi beruntai (rantai balasan) didukung, dan apakah ada batas kedalaman?**
 
-Ya. Setiap komentar dapat merujuk ke [parent comment](https://reference.aspose.com/slides/id/php-java/aspose.slides/comment/getparentcomment/), memungkinkan rantai balasan. API tidak mendefinisikan batas kedalaman penumpukan tertentu.
+Ya. Setiap komentar dapat merujuk ke [komentar induk](https://reference.aspose.com/slides/id/php-java/aspose.slides/comment/getparentcomment/), memungkinkan rantai balasan. API tidak mendefinisikan batas kedalaman pengulangan tertentu.
 
-**Dalam sistem koordinat apa posisi penanda komentar pada slide didefinisikan?**
+**Dalam sistem koordinat apa posisi penanda komentar didefinisikan pada slide?**
 
-Posisi penanda didefinisikan oleh koordinat floating‑point dalam sistem koordinat slide, memungkinkan Anda menempatkannya secara tepat pada slide.
+Posisi penanda didefinisikan oleh koordinat floating-point dalam sistem koordinat slide, memungkinkan Anda menempatkannya secara tepat pada slide.

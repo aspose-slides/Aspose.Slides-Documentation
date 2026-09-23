@@ -1,49 +1,51 @@
 ---
-title: จัดการความคิดเห็นในงานนำเสนอด้วย PHP
-linktitle: ความคิดเห็นในงานนำเสนอ
+title: จัดการคอมเมนต์พรีเซนเทชันใน PHP
+linktitle: คอมเมนต์พรีเซนเทชัน
 type: docs
 weight: 100
 url: /th/php-java/presentation-comments/
 keywords:
-- ความคิดเห็น
-- ความคิดเห็นสมัยใหม่
-- ความคิดเห็น PowerPoint
-- ความคิดเห็นในงานนำเสนอ
-- ความคิดเห็นสไลด์
-- เพิ่มความคิดเห็น
-- เข้าถึงความคิดเห็น
-- แก้ไขความคิดเห็น
-- ตอบกลับความคิดเห็น
-- ลบความคิดเห็น
-- ลบความคิดเห็น
+- คอมเมนต์
+- คอมเมนต์สมัยใหม่
+- คอมเมนต์ PowerPoint
+- คอมเมนต์พรีเซนเทชัน
+- คอมเมนต์สไลด์
+- เพิ่มคอมเมนต์
+- เข้าถึงคอมเมนต์
+- แก้ไขคอมเมนต์
+- ตอบกลับคอมเมนต์
+- ลบคอมเมนต์
+- ลบคอมเมนต์
 - PowerPoint
-- งานนำเสนอ
+- พรีเซนเทชัน
 - PHP
 - Aspose.Slides
-description: "จัดการความคิดเห็นในงานนำเสนอด้วย Aspose.Slides for PHP via Java: เพิ่ม, อ่าน, แก้ไข, ตอบกลับ, และลบความคิดเห็นในงานนำเสนอ PowerPoint อย่างรวดเร็วและง่ายดาย."
+description: "จัดการคอมเมนต์พรีเซนเทชันด้วย Aspose.Slides สำหรับ PHP ผ่าน Java: เพิ่ม, อ่าน, แก้ไข, ตอบกลับ, และลบคอมเมนต์ในพรีเซนเทชัน PowerPoint อย่างรวดเร็วและง่ายดาย."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการจัดการความคิดเห็นในงานนำเสนอด้วย Aspose.Slides for PHP via Java โดยแนะนำประเภทที่เกี่ยวข้องกับความคิดเห็นหลักและสาธิตวิธีเพิ่มความคิดเห็นลงในสไลด์, เข้าถึงความคิดเห็นที่มีอยู่, ทำงานกับการตอบกลับและความคิดเห็นสมัยใหม่, และลบความคิดเห็นจากงานนำเสนอ  
+บทความนี้อธิบายวิธีจัดการคอมเมนต์ของงานพรีเซนเทชันด้วย Aspose.Slides for PHP via Java โดยจะแนะนำประเภทหลักที่เกี่ยวข้องกับคอมเมนต์และสาธิตวิธีเพิ่มคอมเมนต์ลงบนสไลด์, เข้าถึงคอมเมนต์ที่มีอยู่, ทำงานกับการตอบกลับและคอมเมนต์สมัยใหม่, และลบคอมเมนต์ออกจากพรีเซนเทชัน  
 
-ตัวอย่างครอบคลุมสถานการณ์การตรวจสอบและการทำงานร่วมกันทั่วไปใน PowerPoint เช่น การกำหนดความคิดเห็นให้กับผู้เขียน, การอ่านข้อความและเมตาดาต้าของความคิดเห็น, การสร้างสายตอบกลับ, และการลบความคิดเห็นที่เลือกหรือทั้งหมด  
+ตัวอย่างครอบคลุมสถานการณ์การตรวจสอบและการทำงานร่วมกันทั่วไปใน PowerPoint เช่น การกำหนดคอมเมนต์ให้กับผู้เขียน, อ่านข้อความคอมเมนต์และเมตาดาต้า, สร้างสายตอบกลับ, และลบคอมเมนต์ที่เลือกหรือคอมเมนต์ทั้งหมด  
 
-ใน PowerPoint, ความคิดเห็นปรากฏเป็นหมายเหตุบนสไลด์ การเลือกความคิดเห็นจะแสดงข้อความและการสนทนาที่เกี่ยวข้อง  
+ใน PowerPoint คอมเมนต์จะแสดงเป็นคำอธิบายบนสไลด์ การเลือกคอมเมนต์จะแสดงข้อความและการสนทนาที่เกี่ยวข้อง  
 
-## **ทำไมต้องเพิ่มความคิดเห็นลงในงานนำเสนอ?**
+เพื่อขอให้คอมเมนต์แสดงหรือซ่อนเมื่อเปิดพรีเซนเทชันโดยไม่เปลี่ยนแปลงคอมเมนต์เอง ดูที่[Show or Hide Comments When Opening a Presentation](/slides/th/php-java/presentation-view-properties/)
 
-คุณสามารถใช้ความคิดเห็นเพื่อให้ข้อเสนอแนะและทำงานร่วมกับเพื่อนร่วมงานเมื่อตรวจสอบงานนำเสนอ  
+## **ทำไมต้องเพิ่มคอมเมนต์ในพรีเซนเทชัน?**
 
-Aspose.Slides for PHP via Java มี API ต่อไปนี้สำหรับการทำงานกับความคิดเห็น:  
+คุณสามารถใช้คอมเมนต์เพื่อให้ข้อเสนอแนะและทำงานร่วมกับเพื่อนร่วมงานเมื่อทำการตรวจสอบพรีเซนเทชัน  
 
-* คลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) ให้เข้าถึงผู้เขียนความคิดเห็นของงานนำเสนอ  
-* คลาส [CommentCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/commentcollection/) แสดงความคิดเห็นที่เชื่อมโยงกับผู้เขียนแต่ละคน  
-* คลาส [Comment](https://reference.aspose.com/slides/th/php-java/aspose.slides/comment/) ให้ข้อมูลเกี่ยวกับความคิดเห็น รวมถึงผู้เขียน, เวลาสร้าง, ตำแหน่ง, และข้อความ  
-* คลาส [CommentAuthor](https://reference.aspose.com/slides/th/php-java/aspose.slides/commentauthor/) ให้ข้อมูลเกี่ยวกับผู้เขียน รวมถึงชื่อ, ชื่อย่อ, และความคิดเห็นที่เชื่อมโยง  
+Aspose.Slides for PHP via Java มี API ต่อไปนี้สำหรับทำงานกับคอมเมนต์:
 
-## **เพิ่มความคิดเห็นในสไลด์**
+* คลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) ซึ่งให้การเข้าถึงผู้เขียนคอมเมนต์ของพรีเซนเทชัน
+* คลาส [CommentCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/commentcollection/) ซึ่งแสดงคอมเมนต์ที่เชื่อมโยงกับผู้เขียนแต่ละคน
+* คลาส [Comment](https://reference.aspose.com/slides/th/php-java/aspose.slides/comment/) ซึ่งให้ข้อมูลเกี่ยวกับคอมเมนต์ รวมถึงผู้เขียน, เวลาสร้าง, ตำแหน่ง, และข้อความ
+* คลาส [CommentAuthor](https://reference.aspose.com/slides/th/php-java/aspose.slides/commentauthor/) ซึ่งให้ข้อมูลเกี่ยวกับผู้เขียน รวมถึงชื่อ, ชื่อย่อ, และคอมเมนต์ที่เชื่อมโยง
 
-ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มความคิดเห็นลงในสไลด์ของงานนำเสนอ PowerPoint:
+## **เพิ่มคอมเมนต์สไลด์**
+
+ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มคอมเมนต์ลงบนสไลด์ในพรีเซนเทชัน PowerPoint:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -79,9 +81,9 @@ try {
 }
 ```
 
-## **เข้าถึงความคิดเห็นในสไลด์**
+## **เข้าถึงคอมเมนต์สไลด์**
 
-ตัวอย่างต่อไปนี้แสดงวิธีเข้าถึงความคิดเห็นที่มีอยู่ในงานนำเสนอ PowerPoint:
+ตัวอย่างต่อไปนี้แสดงวิธีเข้าถึงคอมเมนต์ที่มีอยู่ในพรีเซนเทชัน PowerPoint:
 
 ```php
 use aspose\slides\Presentation;
@@ -102,11 +104,11 @@ try {
 }
 ```
 
-## **ตอบกลับความคิดเห็น**
+## **ตอบกลับคอมเมนต์**
 
-คอมเมนต์พาเรนต์คือคอมเมนต์ต้นฉบับที่อยู่บนสุดของลำดับการตอบกลับ. เมธอด [Comment::getParentComment](https://reference.aspose.com/slides/th/php-java/aspose.slides/comment/getparentcomment/) และ [Comment::setParentComment](https://reference.aspose.com/slides/th/php-java/aspose.slides/comment/setparentcomment/) ให้คุณรับหรือกำหนดพาเรนต์ของคอมเมนต์  
+คอมเมนต์แม่คือคอมเมนต์ดั้งเดิมที่อยู่บนสุดของลำดับการตอบกลับ วิธี [Comment::getParentComment](https://reference.aspose.com/slides/th/php-java/aspose.slides/comment/getparentcomment/) และ [Comment::setParentComment](https://reference.aspose.com/slides/th/php-java/aspose.slides/comment/setparentcomment/) ช่วยให้คุณดึงหรือกำหนดคอมเมนต์แม่ได้  
 
-ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มการตอบกลับและตรวจสอบโครงสร้างคอมเมนต์ที่ได้:
+ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มการตอบกลับและตรวจสอบลำดับคอมเมนต์ที่ได้:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -161,19 +163,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* เมื่อใช้เมธอด [Comment::remove](https://reference.aspose.com/slides/th/php-java/aspose.slides/comment/remove/) เพื่อลบคอมเมนต์, การตอบกลับทั้งหมดของคอมเมนต์นั้นก็จะถูกลบด้วย  
-* หาก [Comment::setParentComment](https://reference.aspose.com/slides/th/php-java/aspose.slides/comment/setparentcomment/) สร้างการอ้างอิงแบบวงกลม, จะมีการโยน [PptxEditException](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxeditexception/) ขึ้น  
+* เมื่อใช้เมธอด [Comment::remove](https://reference.aspose.com/slides/th/php-java/aspose.slides/comment/remove/) เพื่อลบคอมเมนต์ คำตอบทั้งหมดของคอมเมนต์นั้นก็จะถูกลบด้วย
+* หาก [Comment::setParentComment](https://reference.aspose.com/slides/th/php-java/aspose.slides/comment/setparentcomment/) สร้างการอ้างอิงวนรอบ จะมีการโยน [PptxEditException](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxeditexception/) ออกมา
 {{% /alert %}}
 
-## **เพิ่มความคิดเห็นสมัยใหม่**
+## **เพิ่มคอมเมนต์สมัยใหม่**
 
-ความคิดเห็นสมัยใหม่สามารถเชื่อมโยงกับสไลด์เอง, กับรูปทรงเฉพาะ, หรือกับช่วงข้อความภายใน AutoShape. เมธอด [CommentCollection::addModernComment](https://reference.aspose.com/slides/th/php-java/aspose.slides/commentcollection/addmoderncomment/) รับอาร์กิวเมนต์ [Shape](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/) นอกเหนือจากพิกัดของสไลด์และเครื่องหมายความคิดเห็น  
+คอมเมนต์สมัยใหม่สามารถเชื่อมโยงกับสไลด์เอง, กับรูปร่างเฉพาะ, หรือกับช่วงข้อความภายใน AutoShape เมธอด [CommentCollection::addModernComment](https://reference.aspose.com/slides/th/php-java/aspose.slides/commentcollection/addmoderncomment/) รับอาร์กิวเมนต์ [Shape](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/) เพิ่มเติมนอกจากพิกัดของสไลด์และเครื่องหมายคอมเมนต์  
 
-เมื่อส่งค่า `null` เป็นอาร์กิวเมนต์ shape, ความคิดเห็นจะเป็นความคิดเห็นระดับสไลด์. เครื่องหมายจะถูกวางตามพิกัดที่ให้, แต่ไม่ได้เชื่อมโยงกับรูปทรงใด, ดังนั้น [ModernComment::getShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/getshape/) จะคืนค่า `null`. เมื่อให้ค่า [Shape](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/), ความคิดเห็นจะถูกผูกติดกับรูปทรงนั้น. พิกัดยังคงกำหนดตำแหน่งของเครื่องหมายความคิดเห็นบนสไลด์, ในขณะที่การเชื่อมโยงรูปทรงสามารถดึงได้ผ่าน [ModernComment::getShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/getshape/)  
+เมื่อส่งค่า `null` สำหรับอาร์กิวเมนต์รูปร่าง คอมเมนต์จะเป็นคอมเมนต์ระดับสไลด์ เครื่องหมายจะถูกวางตามพิกัดที่ให้ไว้แต่จะไม่เชื่อมกับรูปร่างใด ดังนั้น [ModernComment::getShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/getshape/) จะคืนค่า `null` หากส่ง [Shape](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/) เข้ามา คอมเมนต์จะจมอยู่กับรูปร่างนั้น พิกัดยังคงกำหนดตำแหน่งของเครื่องหมายคอมเมนต์บนสไลด์ในขณะที่การเชื่อมกับรูปร่างสามารถดึงได้ผ่าน [ModernComment::getShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/getshape/)
 
-### **ผูกความคิดเห็นสมัยใหม่กับรูปทรง**
+### **ผูกคอมเมนต์สมัยใหม่กับรูปร่าง**
 
-ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ระดับสไลด์และความคิดเห็นสมัยใหม่ที่ผูกกับ AutoShape เฉพาะ. จากนั้นอ่านรูปทรงที่เชื่อมโยงจากแต่ละความคิดเห็น
+ตัวอย่างต่อไปนี้สร้างคอมเมนต์สมัยใหม่ระดับสไลด์และคอมเมนต์สมัยใหม่ที่จมอยู่กับ AutoShape เฉพาะ แล้วอ่านรูปร่างที่เชื่อมโยงจากแต่ละคอมเมนต์
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -204,11 +206,11 @@ try {
 }
 ```
 
-### **ผูกความคิดเห็นกับรูปทรงประเภทต่าง ๆ**
+### **ผูกคอมเมนต์กับประเภทรูปร่างที่แตกต่างกัน**
 
-อ็อบเจกต์สไลด์ใด ๆ ที่แสดงโดยคลาส [Shape](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/) สามารถใช้เป็นจุดยึดรูปทรงได้. ตัวอย่างทั่วไปรวมถึง [AutoShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/th/php-java/aspose.slides/connector/), และอินสแตนซ์ของ [GraphicalObject](https://reference.aspose.com/slides/th/php-java/aspose.slides/graphicalobject/) เช่นแผนภูมิ  
+อ็อบเจกต์สไลด์ใด ๆ ที่แสดงโดยคลาส [Shape](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/) สามารถใช้เป็นจุดยึดรูปร่างได้ ตัวอย่างทั่วไปได้แก่ [AutoShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/th/php-java/aspose.slides/connector/), และ [GraphicalObject](https://reference.aspose.com/slides/th/php-java/aspose.slides/graphicalobject/) เช่นแผนภูมิ  
 
-ตัวอย่างต่อไปนี้สร้างรูปทรงประเภททั่วไปหลายประเภทและเชื่อมโยงความคิดเห็นสมัยใหม่กับแต่ละรูปทรง
+ตัวอย่างต่อไปนี้สร้างรูปร่างประเภทต่าง ๆ ที่พบบ่อยหลายประเภทและเชื่อมคอมเมนต์สมัยใหม่กับแต่ละรูปร่าง
 
 ```php
 use aspose\slides\ChartType;
@@ -256,18 +258,18 @@ try {
 }
 ```
 
-### **ผูกความคิดเห็นกับข้อความและกำหนดสถานะ**
+### **ผูกคอมเมนต์กับข้อความและตั้งค่าสถานะ**
 
-สำหรับความคิดเห็นสมัยใหม่ที่เชื่อมโยงกับ [AutoShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/autoshape/), เมธอด [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/gettextselectionstart/) และ [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/settextselectionstart/) เข้าถึงตำแหน่งเริ่มต้นของข้อความที่เลือกในเฟรมข้อความของรูปทรง. เมธอด [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/gettextselectionlength/) และ [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/settextselectionlength/) เข้าถึงความยาวของการเลือก. ค่าทั้งสองร่วมกันทำให้ความคิดเห็นเชื่อมโยงกับช่วงข้อความเฉพาะภายใน AutoShape  
+สำหรับคอมเมนต์สมัยใหม่ที่เชื่อมกับ [AutoShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/autoshape/) เมธอด [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/gettextselectionstart/) และ [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/settextselectionstart/) เข้าถึงตำแหน่งเริ่มต้นของข้อความที่เลือกในเฟรมข้อความของรูปร่าง [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/gettextselectionlength/) และ [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/settextselectionlength/) เข้าถึงความยาวของการเลือก ค่าทั้งสองนี้ทำให้คอมเมนต์เชื่อมกับช่วงข้อความเฉพาะภายใน AutoShape  
 
-เมธอด [ModernComment::getStatus](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/getstatus/) และ [ModernComment::setStatus](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/setstatus/) เข้าถึงค่าจากคอนสแตนท์ [ModernCommentStatus](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncommentstatus/):  
+เมธอด [ModernComment::getStatus](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/getstatus/) และ [ModernComment::setStatus](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/setstatus/) เข้าถึงค่าจากคอนสแตนท์ [ModernCommentStatus](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncommentstatus/) ดังนี้:
 
-- `NotDefined` — ไม่ได้กำหนดสถานะของความคิดเห็นสมัยใหม่เฉพาะ  
-- `Active` — ความคิดเห็นอยู่ในสถานะใช้งาน  
-- `Resolved` — ความคิดเห็นได้ถูกแก้ไขแล้ว  
-- `Closed` — ความคิดเห็นถูกปิด  
+- `NotDefined` — ไม่ได้กำหนดสถานะคอมเมนต์สมัยใหม่ใด ๆ
+- `Active` — คอมเมนต์อยู่ในสถานะใช้งาน
+- `Resolved` — คอมเมนต์ได้รับการแก้ไขแล้ว
+- `Closed` — คอมเมนต์ปิดการใช้งานแล้ว  
 
-ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ที่ผูกกับรูปทรง, เชื่อมโยงกับการเลือกข้อความ, ทำเครื่องหมายว่าแก้ไขแล้ว, บันทึกงานนำเสนอ, และตรวจสอบค่าหลังจากเปิดไฟล์อีกครั้ง
+ตัวอย่างต่อไปนี้สร้างคอมเมนต์สมัยใหม่ที่จมกับรูปร่าง, เชื่อมกับการเลือกข้อความ, ทำเครื่องหมายว่าได้แก้ไขแล้ว, บันทึกพรีเซนเทชัน, และตรวจสอบค่าหลังจากเปิดไฟล์ใหม่อีกครั้ง
 
 ```php
 use aspose\slides\ModernCommentStatus;
@@ -327,9 +329,9 @@ try {
 }
 ```
 
-### **ตรวจสอบความคิดเห็นสมัยใหม่ที่มีอยู่**
+### **ตรวจสอบคอมเมนต์สมัยใหม่ที่มีอยู่**
 
-เพื่อทำการตรวจสอบงานนำเสนอที่มีอยู่, ตรวจสอบว่าคอมเมนต์แต่ละรายการเป็น [ModernComment](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/) หรือไม่, จากนั้นตรวจสอบ [ModernComment::getShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/gettextselectionlength/), และ [ModernComment::getStatus](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/getstatus/). รูปทรง `null` หมายถึงความคิดเห็นระดับสไลด์. สำหรับจุดยึด [AutoShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/autoshape/), เมธอดการเลือกข้อความจะระบุช่วงที่เชื่อมโยงในเฟรมข้อความของรูปทรง  
+เพื่อทำการตรวจสอบพรีเซนเทชันที่มีอยู่ ให้ตรวจดูว่าคอมเมนต์แต่ละรายการเป็น [ModernComment](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/) หรือไม่ จากนั้นตรวจสอบ [ModernComment::getShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/gettextselectionlength/), และ [ModernComment::getStatus](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/getstatus/). รูปร่างที่เป็น `null` บ่งชี้ว่าเป็นคอมเมนต์ระดับสไลด์ สำหรับจุดยึด [AutoShape](https://reference.aspose.com/slides/th/php-java/aspose.slides/autoshape/) เมธอดการเลือกข้อความจะแสดงช่วงที่เชื่อมโยงในเฟรมข้อความของรูปร่างนั้น
 
 ```php
 use aspose\slides\Presentation;
@@ -371,11 +373,11 @@ try {
 }
 ```
 
-## **ลบความคิดเห็น**
+## **ลบคอมเมนต์**
 
-### **ลบความคิดเห็นและผู้เขียนความคิดเห็นทั้งหมด**
+### **ลบคอมเมนต์ทั้งหมดและผู้เขียนคอมเมนต์**
 
-ตัวอย่างต่อไปนี้แสดงวิธีลบความคิดเห็นและผู้เขียนความคิดเห็นทั้งหมดจากงานนำเสนอ:
+ตัวอย่างต่อไปนี้แสดงวิธีลบคอมเมนต์ทั้งหมดและผู้เขียนคอมเมนต์จากพรีเซนเทชัน:
 
 ```php
 use aspose\slides\Presentation;
@@ -394,9 +396,9 @@ try {
 }
 ```
 
-### **ลบความคิดเห็นเฉพาะ**
+### **ลบคอมเมนต์เฉพาะ**
 
-ตัวอย่างต่อไปนี้แสดงวิธีลบความคิดเห็นเฉพาะจากสไลด์:
+ตัวอย่างต่อไปนี้แสดงวิธีลบคอมเมนต์เฉพาะจากสไลด์:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -437,14 +439,14 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**Aspose.Slides รองรับสถานะ resolved สำหรับความคิดเห็นสมัยใหม่หรือไม่?**  
+**Aspose.Slides รองรับสถานะที่แก้ไขแล้วสำหรับคอมเมนต์สมัยใหม่หรือไม่?**
 
-ใช่. [ModernComment::getStatus](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/getstatus/) และ [ModernComment::setStatus](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/setstatus/) เข้าถึงค่า [ModernCommentStatus](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncommentstatus/) ซึ่งรวมถึง `Resolved`. สถานะนี้ถูกเก็บในงานนำเสนอและสามารถอ่านได้อีกครั้งหลังจากเปิดไฟล์ใหม่  
+ใช่ [ModernComment::getStatus](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/getstatus/) และ [ModernComment::setStatus](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncomment/setstatus/) เข้าถึงค่าจาก [ModernCommentStatus](https://reference.aspose.com/slides/th/php-java/aspose.slides/moderncommentstatus/) รวมถึง `Resolved` สถานะนี้จะถูกเก็บในพรีเซนเทชันและสามารถอ่านได้อีกครั้งหลังจากเปิดไฟล์ใหม่  
 
-**การสนทนาที่เป็นเธรด (สายตอบกลับ) ได้รับการสนับสนุนหรือไม่, และมีขีดจำกัดในการซ้อนกันหรือไม่?**  
+**การสนทนาแบบเธรด (สายตอบกลับ) ได้รับการสนับสนุนหรือไม่ และมีขีดจำกัดการซ้อนกันหรือไม่?**
 
-ใช่. คอมเมนต์แต่ละรายการสามารถอ้างอิงถึง [parent comment](https://reference.aspose.com/slides/th/php-java/aspose.slides/comment/getparentcomment/) ของตน, ทำให้สามารถสร้างสายตอบกลับได้. API ไม่ได้กำหนดขีดจำกัดความลึกของการซ้อนกันโดยเฉพาะ  
+ได้รับการสนับสนุน ทุกคอมเมนต์สามารถอ้างอิง [parent comment](https://reference.aspose.com/slides/th/php-java/aspose.slides/comment/getparentcomment/) ของตัวเอง ทำให้สามารถสร้างสายตอบกลับได้ API ไม่ได้กำหนดขีดจำกัดความลึกของการซ้อนกันเป็นค่าเฉพาะ  
 
-**พิกัดของตำแหน่งเครื่องหมายความคิดเห็นบนสไลด์ถูกกำหนดในระบบพิกัดใด?**  
+**ตำแหน่งของเครื่องหมายคอมเมนต์บนสไลด์ถูกกำหนดในระบบพิกัดใด?**
 
-ตำแหน่งของเครื่องหมายจะถูกกำหนดโดยพิกัดแบบ floating-point ในระบบพิกัดของสไลด์, ทำให้คุณสามารถวางตำแหน่งได้อย่างแม่นยำบนสไลด์
+ตำแหน่งเครื่องหมายถูกกำหนดด้วยพิกัดแบบ floating‑point ในระบบพิกัดของสไลด์ ซึ่งช่วยให้คุณวางตำแหน่งได้อย่างแม่นยำบนสไลด์

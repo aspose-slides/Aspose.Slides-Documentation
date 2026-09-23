@@ -1,6 +1,6 @@
 ---
-title: PHPでプレゼンテーションコメントを管理
-linktitle: プレゼンテーションコメント
+title: PHP でプレゼンテーション コメントを管理する
+linktitle: プレゼンテーション コメント
 type: docs
 weight: 100
 url: /ja/php-java/presentation-comments/
@@ -20,30 +20,32 @@ keywords:
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java を使用してプレゼンテーションコメントを管理します。PowerPoint プレゼンテーション内のコメントを簡単かつ迅速に追加、読み取り、編集、返信、削除できます。"
+description: "Aspose.Slides for PHP via Java を使用してプレゼンテーション コメントを管理します：PowerPoint プレゼンテーション内のコメントを追加、読み取り、編集、返信、削除を迅速かつ簡単に行えます。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides for PHP via Java を使用してプレゼンテーションのコメントを管理する方法を説明します。主なコメント関連の型を紹介し、スライドへのコメントの追加、既存コメントへのアクセス、返信やモダンコメントの操作、プレゼンテーションからのコメント削除の手順を実演します。
+本記事では、Aspose.Slides for PHP via Java を使用してプレゼンテーションのコメントを管理する方法を説明します。主なコメント関連の型を紹介し、スライドへのコメント追加、既存コメントへのアクセス、返信やモダンコメントの操作、プレゼンテーションからのコメント削除を実演します。
 
-例では、PowerPoint の一般的なレビューおよび共同作業シナリオ、たとえばコメントの作成者への割り当て、コメント本文やメタデータの読み取り、返信チェーンの構築、選択したコメントまたはすべてのコメントの削除などを取り上げています。
+例では、PowerPoint における一般的なレビューや共同作業シナリオ、たとえばコメントを作成者に割り当てること、コメント本文やメタデータを読み取ること、返信チェーンを構築すること、選択したコメントまたはすべてのコメントを削除すること、などを扱います。
 
 PowerPoint では、コメントはスライド上の注釈として表示されます。コメントを選択すると、そのテキストと関連するディスカッションが表示されます。
 
-## **プレゼンテーションにコメントを追加する理由**
+コメント自体を変更せずに、プレゼンテーションを開く際にコメントを表示または非表示にしたい場合は、[プレゼンテーションを開くときにコメントを表示または非表示にする](/slides/ja/php-java/presentation-view-properties/) を参照してください。
 
-プレゼンテーションのレビュー時に、コメントを使用してフィードバックを提供したり、同僚と共同作業したりできます。
+## **なぜプレゼンテーションにコメントを追加するのか？**
+
+プレゼンテーションをレビューする際に、コメントを使用してフィードバックを提供し、同僚と共同作業することができます。
 
 Aspose.Slides for PHP via Java は、コメント操作のために以下の API を提供します。
 
-* The [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスは、プレゼンテーションのコメント作成者へのアクセスを提供します。
-* The [CommentCollection](https://reference.aspose.com/slides/ja/php-java/aspose.slides/commentcollection/) クラスは、個々の作成者に関連付けられたコメントを表します。
-* The [Comment](https://reference.aspose.com/slides/ja/php-java/aspose.slides/comment/) クラスは、作成者、作成時刻、位置、テキストなど、コメントに関する情報を提供します。
-* The [CommentAuthor](https://reference.aspose.com/slides/ja/php-java/aspose.slides/commentauthor/) クラスは、名前、イニシャル、関連コメントなど、作成者に関する情報を提供します。
+* [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスは、プレゼンテーションのコメント作成者へのアクセスを提供します。
+* [CommentCollection](https://reference.aspose.com/slides/ja/php-java/aspose.slides/commentcollection/) クラスは、個々の作成者に関連付けられたコメントを表します。
+* [Comment](https://reference.aspose.com/slides/ja/php-java/aspose.slides/comment/) クラスは、コメントの作成者、作成時刻、位置、テキストなどの情報を提供します。
+* [CommentAuthor](https://reference.aspose.com/slides/ja/php-java/aspose.slides/commentauthor/) クラスは、作成者の名前、イニシャル、関連コメントなどの情報を提供します。
 
 ## **スライドコメントの追加**
 
-以下の例は、PowerPoint プレゼンテーションのスライドにコメントを追加する方法を示します：
+以下の例は、PowerPoint プレゼンテーションのスライドにコメントを追加する方法を示しています。
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -81,7 +83,7 @@ try {
 
 ## **スライドコメントへのアクセス**
 
-以下の例は、PowerPoint プレゼンテーション内の既存コメントにアクセスする方法を示します：
+以下の例は、PowerPoint プレゼンテーション内の既存のコメントにアクセスする方法を示しています。
 
 ```php
 use aspose\slides\Presentation;
@@ -104,9 +106,9 @@ try {
 
 ## **コメントへの返信**
 
-親コメントとは、返信階層の最上位にある元のコメントです。 [Comment::getParentComment](https://reference.aspose.com/slides/ja/php-java/aspose.slides/comment/getparentcomment/) および [Comment::setParentComment](https://reference.aspose.com/slides/ja/php-java/aspose.slides/comment/setparentcomment/) メソッドを使用して、コメントの親を取得または設定できます。
+親コメントは、返信階層のトップにある元のコメントです。[Comment::getParentComment](https://reference.aspose.com/slides/ja/php-java/aspose.slides/comment/getparentcomment/) および [Comment::setParentComment](https://reference.aspose.com/slides/ja/php-java/aspose.slides/comment/setparentcomment/) メソッドを使用して、コメントの親を取得または設定できます。
 
-以下の例は、返信を追加し、生成されたコメント階層を検査する方法を示します：
+以下の例は、返信を追加し、結果として得られるコメント階層を検査する方法を示しています。
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -161,19 +163,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* When the [Comment::remove](https://reference.aspose.com/slides/ja/php-java/aspose.slides/comment/remove/) メソッドが使用されてコメントを削除すると、そのコメントへのすべての返信も削除されます。
-* If [Comment::setParentComment](https://reference.aspose.com/slides/ja/php-java/aspose.slides/comment/setparentcomment/) が循環参照を作成した場合、[PptxEditException](https://reference.aspose.com/slides/ja/php-java/aspose.slides/pptxeditexception/) がスローされます。
+* コメントを削除するために [Comment::remove](https://reference.aspose.com/slides/ja/php-java/aspose.slides/comment/remove/) メソッドを使用すると、そのコメントへのすべての返信も削除されます。
+* [Comment::setParentComment](https://reference.aspose.com/slides/ja/php-java/aspose.slides/comment/setparentcomment/) が循環参照を作成した場合、[PptxEditException](https://reference.aspose.com/slides/ja/php-java/aspose.slides/pptxeditexception/) がスローされます。
 {{% /alert %}}
 
 ## **モダンコメントの追加**
 
-モダンコメントは、スライド自体、特定のシェイプ、または AutoShape 内のテキスト範囲に関連付けることができます。 [CommentCollection::addModernComment](https://reference.aspose.com/slides/ja/php-java/aspose.slides/commentcollection/addmoderncomment/) メソッドは、スライドとコメントマーカー座標に加えて [Shape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/) 引数を受け取ります。
+モダンコメントはスライド自体、特定のシェイプ、または AutoShape 内のテキスト範囲に関連付けることができます。[CommentCollection::addModernComment](https://reference.aspose.com/slides/ja/php-java/aspose.slides/commentcollection/addmoderncomment/) メソッドは、スライドとコメントマーカーの座標に加えて、[Shape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/) 引数を受け取ります。
 
-`null` がシェイプ引数として渡された場合、コメントはスライドレベルのコメントになります。マーカーは指定された座標で配置されますが、特定のシェイプには紐付いていないため、[ModernComment::getShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/getshape/) は `null` を返します。シェイプが指定された場合、コメントはそのシェイプにアンカーされます。座標は依然としてスライド上のマーカー位置を定義し、シェイプの関連付けは [ModernComment::getShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/getshape/) で取得できます。
+`null` がシェイプ引数として渡されると、コメントはスライドレベルのコメントになります。マーカーは指定された座標で配置されますが、特定のシェイプには紐付けられないため、[ModernComment::getShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/getshape/) は `null` を返します。[Shape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/) が指定されると、コメントはそのシェイプにアンカーされます。座標は引き続きスライド上のコメントマーカー位置を定義し、シェイプとの紐付けは [ModernComment::getShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/getshape/) で取得できます。
 
 ### **モダンコメントをシェイプにアンカーする**
 
-以下の例は、スライドレベルのモダンコメントと、特定の AutoShape にアンカーされたモダンコメントの両方を作成し、各コメントから関連シェイプを取得します。
+以下の例は、スライドレベルのモダンコメントと特定の AutoShape にアンカーされたモダンコメントの両方を作成し、各コメントから関連するシェイプを取得します。
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -204,11 +206,11 @@ try {
 }
 ```
 
-### **異なるシェイプタイプへのコメントのアンカー**
+### **異なるシェイプタイプへのコメントアンカー**
 
-[Shape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/) クラスで表される任意のスライドオブジェクトをシェイプアンカーとして使用できます。代表的な例として [AutoShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/autoshape/)、[PictureFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/pictureframe/)、[GroupShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/groupshape/)、[Connector](https://reference.aspose.com/slides/ja/php-java/aspose.slides/connector/)、およびチャートなどの [GraphicalObject](https://reference.aspose.com/slides/ja/php-java/aspose.slides/graphicalobject/) インスタンスがあります。
+[Shape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shape/) クラスで表される任意のスライドオブジェクトは、シェイプのアンカーとして使用できます。一般的な例として、[AutoShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/autoshape/)、[PictureFrame](https://reference.aspose.com/slides/ja/php-java/aspose.slides/pictureframe/)、[GroupShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/groupshape/)、[Connector](https://reference.aspose.com/slides/ja/php-java/aspose.slides/connector/)、およびチャートなどの [GraphicalObject](https://reference.aspose.com/slides/ja/php-java/aspose.slides/graphicalobject/) インスタンスがあります。
 
-以下の例は、いくつかの一般的なシェイプタイプを作成し、各シェイプにモダンコメントを関連付けます。
+以下の例は、いくつかの一般的なシェイプタイプを作成し、それぞれにモダンコメントを関連付けます。
 
 ```php
 use aspose\slides\ChartType;
@@ -256,18 +258,18 @@ try {
 }
 ```
 
-### **テキストへのコメントのアンカーとステータス設定**
+### **テキストにコメントをアンカーしステータスを設定する**
 
-[AutoShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/autoshape/) に関連付けられたモダンコメントの場合、[ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/gettextselectionstart/) および [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/settextselectionstart/) はシェイプのテキストフレーム内で選択されたテキストの開始位置にアクセスします。[ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/gettextselectionlength/) と [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/settextselectionlength/) は選択範囲の長さにアクセスします。これらの値を組み合わせることで、コメントを AutoShape 内の特定のテキスト範囲に関連付けます。
+[AutoShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/autoshape/) に関連付けられたモダンコメントの場合、[ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/gettextselectionstart/) と [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/settextselectionstart/) はシェイプのテキストフレーム内で選択されたテキストの開始位置にアクセスします。[ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/gettextselectionlength/) と [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/settextselectionlength/) は選択範囲の長さにアクセスします。これらの値を組み合わせることで、コメントを AutoShape 内の特定のテキスト範囲に関連付けます。
 
-[ModernComment::getStatus](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/getstatus/) および [ModernComment::setStatus](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/setstatus/) メソッドは、[ModernCommentStatus](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncommentstatus/) 定数から以下の値を取得または設定します:
+[ModernComment::getStatus](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/getstatus/) および [ModernComment::setStatus](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/setstatus/) メソッドは、[ModernCommentStatus](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncommentstatus/) 定数から値を取得します。
 
 - `NotDefined` — 特定のモダンコメントステータスは定義されていません。
 - `Active` — コメントはアクティブです。
 - `Resolved` — コメントは解決済みです。
 - `Closed` — コメントはクローズされています。
 
-以下の例は、シェイプにアンカーされたモダンコメントを作成し、テキスト選択に関連付け、解決済みとしてマークし、プレゼンテーションを保存した後にファイルを再度開いて値を検証します。
+以下の例は、シェイプにアンカーされたモダンコメントを作成し、テキスト選択に関連付け、解決済みとしてマークし、プレゼンテーションを保存してファイルを再度開いた後に値を検証します。
 
 ```php
 use aspose\slides\ModernCommentStatus;
@@ -327,9 +329,9 @@ try {
 }
 ```
 
-### **既存のモダンコメントの検査**
+### **既存のモダンコメントを検査する**
 
-既存のプレゼンテーションを検査するには、各コメントが [ModernComment](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/) かどうかを確認し、[ModernComment::getShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/getshape/)、[ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/gettextselectionstart/)、[ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/gettextselectionlength/)、および [ModernComment::getStatus](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/getstatus/) を調べます。`null` のシェイプはスライドレベルのコメントを示します。AutoShape アンカーの場合、テキスト選択メソッドはシェイプのテキストフレーム内の該当範囲を特定します。
+既存のプレゼンテーションを検査するには、各コメントが [ModernComment](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/) かどうかを確認し、[ModernComment::getShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/getshape/)、[ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/gettextselectionstart/)、[ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/gettextselectionlength/)、[ModernComment::getStatus](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/getstatus/) を調べます。`null` のシェイプはスライドレベルのコメントを示します。[AutoShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/autoshape/) にアンカーされている場合、テキスト選択メソッドはシェイプのテキストフレーム内の関連範囲を特定します。
 
 ```php
 use aspose\slides\Presentation;
@@ -375,7 +377,7 @@ try {
 
 ### **すべてのコメントとコメント作成者の削除**
 
-以下の例は、プレゼンテーションからすべてのコメントとコメント作成者を削除する方法を示します：
+以下の例は、プレゼンテーションからすべてのコメントとコメント作成者を削除する方法を示しています。
 
 ```php
 use aspose\slides\Presentation;
@@ -396,7 +398,7 @@ try {
 
 ### **特定のコメントの削除**
 
-以下の例は、スライドから特定のコメントを削除する方法を示します：
+以下の例は、スライドから特定のコメントを削除する方法を示しています。
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -435,16 +437,16 @@ try {
 }
 ```
 
-## **FAQ**
+## **よくある質問**
 
-**Aspose.Slides はモダンコメントに対して解決済みステータスをサポートしていますか？**
+**Aspose.Slides はモダンコメントの解決済みステータスをサポートしていますか？**
 
-はい。[ModernComment::getStatus](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/getstatus/) と [ModernComment::setStatus](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/setstatus/) は、`Resolved` を含む [ModernCommentStatus](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncommentstatus/) の値にアクセスできます。ステータスはプレゼンテーションに保存され、ファイルを再度開いた後でも読み取れます。
+はい。[ModernComment::getStatus](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/getstatus/) と [ModernComment::setStatus](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncomment/setstatus/) は `Resolved` を含む [ModernCommentStatus](https://reference.aspose.com/slides/ja/php-java/aspose.slides/moderncommentstatus/) の値にアクセスします。ステータスはプレゼンテーションに保存され、ファイルを再度開いた後でも読み取ることができます。
 
-**スレッド化されたディスカッション（返信チェーン）はサポートされていますか？また、入れ子の上限はありますか？**
+**スレッド化されたディスカッション（返信チェーン）はサポートされていますか？また、入れ子の制限はありますか？**
 
-はい。各コメントは [parent comment](https://reference.aspose.com/slides/ja/php-java/aspose.slides/comment/getparentcomment/) を参照できるため、返信チェーンが可能です。API には具体的な入れ子深さの上限は定義されていません。
+はい。各コメントは [parent comment](https://reference.aspose.com/slides/ja/php-java/aspose.slides/comment/getparentcomment/) を参照できるため、返信チェーンが可能です。API では特定の入れ子深さの上限は定義されていません。
 
-**スライド上のコメントマーカーの位置はどの座標系で定義されていますか？**
+**コメントマーカーの位置はスライド上でどの座標系で定義されていますか？**
 
-マーカーの位置はスライド座標系の浮動小数点座標で定義されており、スライド上の任意の場所に正確に配置できます。
+マーカーの位置はスライド座標系の浮動小数点座標で定義されており、スライド上の任意の位置に正確に配置できます。

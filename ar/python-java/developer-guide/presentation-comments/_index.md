@@ -11,40 +11,42 @@ keywords:
 - تعليقات العرض التقديمي
 - تعليقات الشريحة
 - إضافة تعليق
-- الوصول إلى التعليق
-- تعديل التعليق
-- الرد على التعليق
-- إزالة التعليق
-- حذف التعليق
+- الوصول إلى تعليق
+- تحرير تعليق
+- الرد على تعليق
+- إزالة تعليق
+- حذف تعليق
 - PowerPoint
 - عرض تقديمي
 - Python
 - Java
 - Aspose.Slides
-description: "إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides للغة Python عبر Java: إضافة، قراءة، تعديل، الرد على، وإزالة التعليقات في عروض PowerPoint بسرعة وسهولة."
+description: "إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides للغة Python عبر Java: إضافة، قراءة، تحرير، الرد على، وإزالة التعليقات في عروض PowerPoint بسرعة وسهولة."
 ---
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides للغة Python عبر Java. تقدم الأنواع الرئيسية المتعلقة بالتعليقات وتوضح كيفية إضافة تعليقات إلى الشرائح، والوصول إلى التعليقات الموجودة، والعمل مع الردود والتعليقات الحديثة، وإزالة التعليقات من العرض التقديمي.
+توضح هذه المقالة كيفية إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides للغة Python عبر Java. وهي تقدم الأنواع الأساسية المتعلقة بالتعليقات وتظهر كيفية إضافة تعليقات إلى الشرائح، والوصول إلى التعليقات الموجودة، والعمل مع الردود والتعليقات الحديثة، وحذف التعليقات من العرض التقديمي.
 
-تغطي الأمثلة سيناريوهات المراجعة والتعاون الشائعة في PowerPoint، مثل تعيين التعليقات إلى المؤلفين، قراءة نص التعليق والبيانات الوصفية، إنشاء سلسلات الردود، وإزالة التعليقات المحددة أو جميع التعليقات.
+تغطي الأمثلة سيناريوهات المراجعة والتعاون الشائعة في PowerPoint، مثل تعيين التعليقات للمؤلفين، قراءة نص التعليق والبيانات الوصفية، بناء سلاسل الردود، وحذف التعليقات المحددة أو جميع التعليقات.
 
-في PowerPoint، تظهر التعليقات كتوثيقات على الشرائح. عند تحديد تعليق يتم عرض نصه والنقاش المتعلق به.
+في PowerPoint، تظهر التعليقات كتعليقات توضيحية على الشرائح. عند تحديد تعليق يتم عرض نصه والنقاش المتعلق به.
+
+لإظهار أو إخفاء التعليقات عند فتح العرض التقديمي دون تغيير التعليقات نفسها، راجع [إظهار أو إخفاء التعليقات عند فتح العرض التقديمي](/slides/ar/python-java/presentation-view-properties/).
 
 ## **لماذا إضافة تعليقات إلى العروض التقديمية؟**
 
 يمكنك استخدام التعليقات لتقديم الملاحظات والتعاون مع الزملاء عند مراجعة العروض التقديمية.
 
-يوفر Aspose.Slides للغة Python عبر Java واجهات برمجة التطبيقات التالية للعمل مع التعليقات:
+توفر Aspose.Slides للغة Python عبر Java واجهات برمجة التطبيقات (APIs) التالية للعمل مع التعليقات:
 
-* الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) التي توفر الوصول إلى مؤلفي التعليقات في العرض التقديمي.
-* الفئة [CommentCollection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/commentcollection/) والتي تمثل التعليقات المرتبطة بمؤلف فردي.
-* الفئة [Comment](https://reference.aspose.com/slides/ar/python-java/aspose.slides/comment/) التي تقدم معلومات حول التعليق، بما في ذلك المؤلف، وقت الإنشاء، الموضع، والنص.
-* الفئة [CommentAuthor](https://reference.aspose.com/slides/ar/python-java/aspose.slides/commentauthor/) التي توفر معلومات حول المؤلف، بما في ذلك اسمه، الحروف الأولى، والتعليقات المرتبطة به.
+* الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) التي توفر الوصول إلى مؤلفي تعليقات العرض التقديمي.
+* الفئة [CommentCollection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/commentcollection/) التي تمثل التعليقات المرتبطة بمؤلف محدد.
+* الفئة [Comment](https://reference.aspose.com/slides/ar/python-java/aspose.slides/comment/) التي توفر معلومات حول التعليق، بما في ذلك مؤلفه، وقت الإنشاء، الموقع، والنص.
+* الفئة [CommentAuthor](https://reference.aspose.com/slides/ar/python-java/aspose.slides/commentauthor/) التي توفر معلومات حول المؤلف، بما في ذلك اسمه، الأحرف الأولى، والتعليقات المرتبطة به.
 
 ## **إضافة تعليقات إلى الشرائح**
 
-المثال التالي يوضح كيفية إضافة تعليقات إلى الشرائح في عرض PowerPoint:
+يوضح المثال التالي كيفية إضافة تعليقات إلى الشرائح في عرض PowerPoint التقديمي:
 
 ```python
 import jpype
@@ -85,7 +87,7 @@ finally:
 
 ## **الوصول إلى تعليقات الشرائح**
 
-المثال التالي يوضح كيفية الوصول إلى التعليقات الموجودة في عرض PowerPoint:
+يوضح المثال التالي كيفية الوصول إلى التعليقات الموجودة في عرض PowerPoint التقديمي:
 
 ```python
 import jpype
@@ -111,9 +113,9 @@ finally:
 
 ## **الرد على التعليقات**
 
-التعليق الأصلي هو التعليق الأصلي في أعلى تسلسل الردود. تسمح لك الطريقتان [Comment.getParentComment](https://reference.aspose.com/slides/ar/python-java/aspose.slides/comment/#getParentComment) و[Comment.setParentComment](https://reference.aspose.com/slides/ar/python-java/aspose.slides/comment/#setParentComment) بالحصول على المعرف أو ضبطه كأصل للتعليق.
+التعليق الأصلي هو التعليق الأصلي في أعلى تسلسل الردود. تتيح لك طريقتا [Comment.getParentComment](https://reference.aspose.com/slides/ar/python-java/aspose.slides/comment/#getParentComment) و[Comment.setParentComment](https://reference.aspose.com/slides/ar/python-java/aspose.slides/comment/#setParentComment) الحصول على أو تعيين التعليق الأصلي.
 
-المثال التالي يوضح كيفية إضافة ردود وفحص التسلسل الهرمي للتعليقات الناتج:
+يوضح المثال التالي كيفية إضافة ردود وفحص تسلسل التعليقات الناتج:
 
 ```python
 import jpype
@@ -170,19 +172,19 @@ finally:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* عند استخدام طريقة [Comment.remove](https://reference.aspose.com/slides/ar/python-java/aspose.slides/comment/#remove) لحذف تعليق، يتم أيضًا حذف جميع الردود على ذلك التعليق.
-* إذا أنشأت طريقة [Comment.setParentComment](https://reference.aspose.com/slides/ar/python-java/aspose.slides/comment/#setParentComment) إشارة دائرية، يتم رفع استثناء [PptxEditException](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pptxeditexception/).
+* عند استخدام طريقة [Comment.remove](https://reference.aspose.com/slides/ar/python-java/aspose.slides/comment/#remove) لحذف تعليق، يتم حذف جميع الردود على ذلك التعليق أيضاً.
+* إذا أنشأت طريقة [Comment.setParentComment](https://reference.aspose.com/slides/ar/python-java/aspose.slides/comment/#setParentComment) مرجعًا دائريًا، يتم طرح استثناء [PptxEditException](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **إضافة تعليقات حديثة**
 
-يمكن ربط التعليقات الحديثة بالشفرة نفسها، أو بشكل محدد، أو بنطاق نص داخل [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/). تقبل طريقة [CommentCollection.addModernComment](https://reference.aspose.com/slides/ar/python-java/aspose.slides/commentcollection/#addModernComment) معاملًا من نوع [Shape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/) بالإضافة إلى الشريحة وإحداثيات علامة التعليق.
+يمكن ربط التعليقات الحديثة بالشرحة نفسها، أو بصورة محددة، أو بنطاق نص داخل [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/). تقبل طريقة [CommentCollection.addModernComment](https://reference.aspose.com/slides/ar/python-java/aspose.slides/commentcollection/#addModernComment) وسيطًا من نوع [Shape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/) بالإضافة إلى إحداثيات الشريحة وعلامة التعليق.
 
-عند تمرير `None` كقيمة للمعامل shape، يكون التعليق تعليقا على مستوى الشريحة. يتم وضع علامته وفقًا للإحداثيات المقدمة، ولكن لا يرتبط بشكل محدد، لذا تُعيد [ModernComment.getShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getShape) القيمة `None`. عندما يتم توفير كائن [Shape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/)، يتم تثبيت التعليق على ذلك الشكل. لا تزال الإحداثيات تحدد موقع علامة التعليق على الشريحة، بينما يمكن استرجاع ارتباط الشكل عبر [ModernComment.getShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getShape).
+عند تمرير `None` كقيمة للوسيطة shape، يكون التعليق تعليقا على مستوى الشريحة. يتم وضع علامته بناءً على الإحداثيات المقدمة، لكنه غير مرتبط بصورة معينة، لذا تُرجع [ModernComment.getShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getShape) القيمة `None`. عندما يتم توفير [Shape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/)، يتم تثبيت التعليق على تلك الصورة. لا تزال الإحداثيات تحدد موقع علامة التعليق على الشريحة، بينما يمكن استرجاع ارتباط الصورة عبر [ModernComment.getShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getShape).
 
-### **تثبيت تعليق حديث إلى شكل**
+### **تثبيت تعليق حديث إلى صورة**
 
-المثال التالي ينشئ كلًا من تعليق حديث على مستوى الشريحة وتعليق حديث مثبت على [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/) محدد. ثم يقرأ الشكل المرتبط من كل تعليق.
+يوضح المثال التالي إنشاء تعليق حديث على مستوى الشريحة وتعليق حديث مثبت إلى [AutoShape] محددة. ثم يقرأ الصورة المرتبطة من كل تعليق.
 
 ```python
 import jpype
@@ -218,11 +220,11 @@ finally:
     presentation.dispose()
 ```
 
-### **تثبيت التعليقات على أنواع أشكال مختلفة**
+### **تثبيت التعليقات إلى أنواع صور مختلفة**
 
-يمكن استخدام أي كائن شريحة يرث من [Shape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/) كمرساة شكل. تشمل الأمثلة الشائعة [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/)، [PictureFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pictureframe/)، [GroupShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/groupshape/)، [Connector](https://reference.aspose.com/slides/ar/python-java/aspose.slides/connector/)، ونسخ [GraphicalObject](https://reference.aspose.com/slides/ar/python-java/aspose.slides/graphicalobject/) مثل المخططات.
+يمكن استخدام أي عنصر شريحة يرث من [Shape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/) كمرساة للصورة. تشمل الأمثلة الشائعة [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/)، [PictureFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pictureframe/)، [GroupShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/groupshape/)، [Connector](https://reference.aspose.com/slides/ar/python-java/aspose.slides/connector/)، و[GraphicalObject](https://reference.aspose.com/slides/ar/python-java/aspose.slides/graphicalobject/) مثل المخططات.
 
-المثال التالي ينشئ عدة أنواع شائعة من الأشكال ويربط تعليقًا حديثًا بكلٍ منها.
+يوضح المثال التالي إنشاء عدة أنواع شائعة من الصور وربط تعليق حديث بكل منها.
 
 ```python
 import jpype
@@ -276,16 +278,15 @@ finally:
 
 ### **تثبيت تعليق إلى نص وتعيين حالته**
 
-بالنسبة لتعليق حديث مرتبط بـ [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/)، تتيح طريقتا [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getTextSelectionStart) و[ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#setTextSelectionStart) الوصول إلى موضع بداية النص المحدد في إطار نص الشكل. تتيح طريقتا [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getTextSelectionLength) و[ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#setTextSelectionLength) الوصول إلى طول التحديد. معًا، تربط هذه القيم التعليق بنطاق نص معين داخل الـ AutoShape.
+بالنسبة لتعليق حديث مرتبط بـ [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/)، تصل طريقتا [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getTextSelectionStart) و[ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#setTextSelectionStart) إلى موضع البداية للنص المحدد في إطار نص الصورة. وتصل طريقتا [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getTextSelectionLength) و[ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#setTextSelectionLength) إلى طول التحديد. معًا، تربط هذه القيم التعليق بنطاق نصي محدد داخل الـ AutoShape.
 
-توفر طريقتا [ModernComment.getStatus](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getStatus) و[ModernComment.setStatus](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#setStatus) الوصول إلى قيمة من ثوابت [ModernCommentStatus](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncommentstatus/):
+تصل طريقتا [ModernComment.getStatus](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getStatus) و[ModernComment.setStatus](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#setStatus) إلى قيمة من الثوابت [ModernCommentStatus](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncommentstatus/):
+- [NotDefined] — لا يتم تعريف حالة تعليق حديث محددة.
+- [Active] — التعليق نشط.
+- [Resolved] — تم حل التعليق.
+- [Closed] — التعليق مغلق.
 
-- [NotDefined](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncommentstatus/#NotDefined) — لا يتم تعريف حالة تعليق حديث محددة.
-- [Active](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncommentstatus/#Active) — التعليق نشط.
-- [Resolved](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncommentstatus/#Resolved) — تم حل التعليق.
-- [Closed](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncommentstatus/#Closed) — التعليق مغلق.
-
-المثال التالي ينشئ تعليقًا حديثًا مثبتًا على شكل، يربطه بتحديد نص، يعلّمه كمحلول، يحفظ العرض التقديمي، ويتحقق من القيم بعد إعادة فتح الملف.
+يوضح المثال التالي إنشاء تعليق حديث مثبت إلى صورة، ربطه بتحديد نص، وضع علامة أنه تم حله، حفظ العرض التقديمي، والتحقق من القيم بعد إعادة فتح الملف.
 
 ```python
 import jpype
@@ -348,7 +349,7 @@ finally:
 
 ### **فحص التعليقات الحديثة الموجودة**
 
-لفحص عرض تقديمي موجود، تحقق من أي التعليقات هي مثيلات لـ [ModernComment](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/)، ثم استعرض [ModernComment.getShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getShape)، [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getTextSelectionStart)، [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getTextSelectionLength)، و[ModernComment.getStatus](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getStatus). يشير الشكل `None` إلى تعليق على مستوى الشريحة. بالنسبة لمرساة [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/)، تحدد طرق اختيار النص النطاق المرتبط في إطار نص الشكل.
+لفحص عرض تقديمي موجود، تحقق من أي التعليقات هي مثيلات من [ModernComment](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/)، ثم فحص [ModernComment.getShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getShape)، [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getTextSelectionStart)، [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getTextSelectionLength)، و[ModernComment.getStatus](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getStatus). تمثل صورة `None` تعليقًا على مستوى الشريحة. بالنسبة لمرساة [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/)، تحدد طرق اختيار النص النطاق المرتبط في إطار نص الصورة.
 
 ```python
 import jpype
@@ -392,7 +393,7 @@ finally:
 
 ### **إزالة جميع التعليقات ومؤلفي التعليقات**
 
-المثال التالي يوضح كيفية إزالة جميع التعليقات ومؤلفي التعليقات من عرض تقديمي:
+يوضح المثال التالي كيفية إزالة جميع التعليقات ومؤلفي التعليقات من عرض تقديمي:
 
 ```python
 import jpype
@@ -416,7 +417,7 @@ finally:
 
 ### **إزالة تعليقات محددة**
 
-المثال التالي يوضح كيفية إزالة تعليقات محددة من شريحة:
+يوضح المثال التالي كيفية إزالة تعليقات محددة من شريحة:
 
 ```python
 import jpype
@@ -457,16 +458,16 @@ finally:
     presentation.dispose()
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يدعم Aspose.Slides حالة مكتملة للتعليقات الحديثة؟**
+**هل تدعم Aspose.Slides حالة تم حلها للتعليقات الحديثة؟**
 
-نعم. تتيح طريقتا [ModernComment.getStatus](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getStatus) و[ModernComment.setStatus](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#setStatus) الوصول إلى قيمة من [ModernCommentStatus](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncommentstatus/)، تشمل `Resolved`. يتم تخزين الحالة في العرض التقديمي ويمكن قراءتها مرة أخرى بعد إعادة فتح الملف.
+نعم. تتيح طريقتا [ModernComment.getStatus](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#getStatus) و[ModernComment.setStatus](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncomment/#setStatus) الوصول إلى قيمة من [ModernCommentStatus](https://reference.aspose.com/slides/ar/python-java/aspose.slides/moderncommentstatus/)، بما في ذلك `Resolved`. يتم تخزين الحالة في العرض التقديمي ويمكن قراءتها مرة أخرى بعد إعادة فتح الملف.
 
-**هل يتم دعم المناقشات المتسلسلة (سلاسل الردود)، وهل هناك حد للتعشيق؟**
+**هل يتم دعم المناقشات المتسلسلة (سلاسل الرد) وهل هناك حد للتعشيق؟**
 
-نعم. يمكن لكل تعليق الإشارة إلى [parent comment](https://reference.aspose.com/slides/ar/python-java/aspose.slides/comment/#getParentComment)، مما يتيح سلاسل الردود. لا تحدد واجهة البرمجة حدًا معينًا لعمق التعشيق.
+نعم. يمكن لكل تعليق الإشارة إلى [parent comment](https://reference.aspose.com/slides/ar/python-java/aspose.slides/comment/#getParentComment) الخاص به، مما يتيح سلاسل الرد. لا تحدد واجهة برمجة التطبيقات حدًا معينًا لعمق التعشيق.
 
 **في أي نظام إحداثيات يتم تعريف موضع علامة التعليق على الشريحة؟**
 
-يتم تعريف موضع العلامة باستخدام إحداثيات ذات نقطة عائمة في نظام إحداثيات الشريحة، مما يتيح لك وضعه بدقة على الشريحة.
+يتم تعريف موضع العلامة بواسطة إحداثيات ذات نقطة عائمة في نظام إحداثيات الشريحة، مما يتيح لك وضعها بدقة على الشريحة.

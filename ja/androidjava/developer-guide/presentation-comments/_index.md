@@ -21,30 +21,32 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java を使用してプレゼンテーション コメントを管理します。PowerPoint プレゼンテーション内のコメントを簡単かつ迅速に追加、読み取り、編集、返信、削除できます。"
+description: "Aspose.Slides for Android via Java を使用してプレゼンテーション コメントを管理します。PowerPoint プレゼンテーション内のコメントを追加、読み取り、編集、返信、削除を迅速かつ簡単に行えます。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides for Android via Java を使用してプレゼンテーションのコメントを管理する方法を説明します。主なコメント関連の型を紹介し、スライドへのコメントの追加、既存コメントへのアクセス、返信やモダンコメントの操作、プレゼンテーションからのコメントの削除方法をデモンストレーションします。
+この記事では、Aspose.Slides for Android via Java を使用してプレゼンテーションのコメントを管理する方法を説明します。主なコメント関連の型を紹介し、スライドへのコメントの追加、既存コメントへのアクセス、返信やモダンコメントの操作、プレゼンテーションからのコメントの削除方法を示します。
 
-これらの例は、PowerPoint での一般的なレビューおよびコラボレーションシナリオ、例えばコメントを作者に割り当てる、コメントのテキストやメタデータを読み取る、返信チェーンを構築する、選択したコメントまたはすべてのコメントを削除する、などをカバーしています。
+例は、PowerPoint の一般的なレビューおよびコラボレーションシナリオをカバーしています。たとえば、コメントを作成者に割り当てる、コメントテキストとメタデータを読み取る、返信チェーンを構築する、選択したコメントまたはすべてのコメントを削除する、などです。
 
-PowerPoint では、コメントはスライド上の注釈として表示されます。コメントを選択すると、そのテキストと関連するディスカッションが表示されます。
+PowerPoint では、コメントはスライド上の注釈として表示されます。コメントを選択すると、テキストと関連するディスカッションが表示されます。
 
-## **なぜプレゼンテーションにコメントを追加するのか？**
+プレゼンテーションを開くときにコメントの表示/非表示を要求し、コメント自体は変更しない方法については、[Show or Hide Comments When Opening a Presentation](/slides/ja/androidjava/presentation-view-properties/) を参照してください。
+
+## **プレゼンテーションにコメントを追加する理由**
 
 プレゼンテーションをレビューする際に、コメントを使用してフィードバックを提供したり、同僚と共同作業したりできます。
 
-Aspose.Slides for Android via Java は、コメント操作のために以下の API を提供します：
+Aspose.Slides for Android via Java は、コメント操作向けに以下の API を提供します。
 
-* The [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) class, which provides access to the presentation's comment authors.
-* The [ICommentCollection](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icommentcollection/) interface, which represents the comments associated with an individual author.
-* The [IComment](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icomment/) interface, which provides information about a comment, including its author, creation time, position, and text.
-* The [CommentAuthor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/commentauthor/) class, which provides information about an author, including their name, initials, and associated comments.
+* The [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスは、プレゼンテーションのコメント作成者へのアクセスを提供します。
+* The [ICommentCollection](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icommentcollection/) インターフェイスは、個々の作成者に関連付けられたコメントを表します。
+* The [IComment](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icomment/) インターフェイスは、作成者、作成時刻、位置、テキストなど、コメントに関する情報を提供します。
+* The [CommentAuthor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/commentauthor/) クラスは、名前、イニシャル、関連付けられたコメントなど、作成者に関する情報を提供します。
 
 ## **スライドコメントの追加**
 
-次の例は、PowerPoint プレゼンテーションのスライドにコメントを追加する方法を示しています：
+以下の例は、PowerPoint プレゼンテーションのスライドにコメントを追加する方法を示します。
 
 ```java
 import com.aspose.slides.IComment;
@@ -85,7 +87,7 @@ try {
 
 ## **スライドコメントへのアクセス**
 
-次の例は、PowerPoint プレゼンテーション内の既存コメントにアクセスする方法を示しています：
+以下の例は、PowerPoint プレゼンテーション内の既存コメントにアクセスする方法を示します。
 
 ```java
 import com.aspose.slides.IComment;
@@ -110,9 +112,9 @@ try {
 
 ## **コメントへの返信**
 
-親コメントは、返信階層の最上部にある元のコメントです。`[IComment.getParentComment](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icomment/#getParentComment--)` および `[IComment.setParentComment](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-)` メソッドを使用して、コメントの親を取得または設定できます。
+親コメントとは、返信階層のトップにある元のコメントです。[IComment.getParentComment](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icomment/#getParentComment--) および [IComment.setParentComment](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) メソッドを使用すると、コメントの親を取得または設定できます。
 
-次の例は、返信を追加し、 resulting comment hierarchy を検査する方法を示しています：
+以下の例は、返信を追加し、結果として得られるコメント階層を調べる方法を示します。
 
 ```java
 import com.aspose.slides.IComment;
@@ -169,19 +171,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* `[IComment.remove](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icomment/#remove--)` メソッドでコメントを削除すると、そのコメントへのすべての返信も削除されます。
-* `[IComment.setParentComment](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-)` が循環参照を作成すると、`[PptxEditException](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/pptxeditexception/)` がスローされます。
+* [IComment.remove](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icomment/#remove--) メソッドでコメントを削除すると、そのコメントへのすべての返信も同時に削除されます。  
+* [IComment.setParentComment](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) が循環参照を作成した場合、[PptxEditException](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/pptxeditexception/) がスローされます。  
 {{% /alert %}}
 
 ## **モダンコメントの追加**
 
-モダンコメントは、スライド自体、特定のシェイプ、または AutoShape 内のテキスト範囲に関連付けることができます。`[ICommentCollection.addModernComment](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-)` メソッドは、スライドとコメントマーカー座標に加えて `[IShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/)` 引数を受け取ります。
+モダンコメントは、スライド自体、特定のシェイプ、または AutoShape 内のテキスト範囲に関連付けることができます。[ICommentCollection.addModernComment](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) メソッドは、スライドとコメントマーカー座標に加えて [IShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/) 引数を受け取ります。
 
-`null` がシェイプ引数として渡された場合、コメントはスライドレベルのコメントとなります。そのマーカーは提供された座標で配置されますが、特定のシェイプには関連付けられないため、`[IModernComment.getShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getShape--)` は `null` を返します。`[IShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/)` が指定された場合、コメントはそのシェイプに固定されます。座標は依然としてスライド上のコメントマーカーの位置を定義し、シェイプの関連付けは `[IModernComment.getShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getShape--)` を通じて取得できます。
+シェイプ引数に `null` を渡すと、コメントはスライドレベルのコメントになります。マーカーは指定された座標で配置されますが、特定のシェイプには関連付けられないため、[IModernComment.getShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getShape--) は `null` を返します。`IShape` が提供される場合、コメントはそのシェイプにアンカーされます。座標は依然としてスライド上のマーカー位置を定義し、シェイプの関連付けは [IModernComment.getShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getShape--) で取得できます。
 
-### **モダンコメントをシェイプに固定する**
+### **モダンコメントをシェイプにアンカーする**
 
-次の例は、スライドレベルのモダンコメントと特定の AutoShape に固定されたモダンコメントの両方を作成し、各コメントから関連シェイプを取得します。
+以下の例は、スライドレベルのモダンコメントと特定の AutoShape にアンカーされたモダンコメントの両方を作成し、各コメントから関連シェイプを取得します。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -217,11 +219,11 @@ try {
 }
 ```
 
-### **異なるシェイプタイプへのコメント固定**
+### **異なるシェイプタイプへのコメントのアンカー**
 
-`[IShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/)` を実装する任意のスライドオブジェクトをシェイプのアンカーとして使用できます。一般的な例として、`[IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/)`、`[IPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/)`、`[IGroupShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/igroupshape/)`、`[IConnector](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iconnector/)`、およびチャートなどの `[IGraphicalObject](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/igraphicalobject/)` インスタンスがあります。
+[IShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/) を実装する任意のスライドオブジェクトをシェイプアンカーとして使用できます。一般的な例としては、[IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iconnector/)、およびチャートなどの [IGraphicalObject](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/igraphicalobject/) インスタンスがあります。
 
-次の例は、いくつかの一般的なシェイプタイプを作成し、各シェイプにモダンコメントを関連付けます。
+以下の例は、複数の一般的なシェイプタイプを作成し、各シェイプにモダンコメントを関連付けます。
 
 ```java
 import com.aspose.slides.ChartType;
@@ -278,18 +280,18 @@ try {
 }
 ```
 
-### **テキストへのコメント固定とステータス設定**
+### **テキストへのコメントのアンカーとステータスの設定**
 
-`[IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/)` に関連付けられたモダンコメントの場合、`[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--)` および `[IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-)` はシェイプのテキストフレーム内で選択されたテキストの開始位置にアクセスします。`[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--)` および `[IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-)` は選択範囲の長さにアクセスします。これらの値により、コメントは AutoShape 内の特定のテキスト範囲に関連付けられます。
+[IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) に関連付けられたモダンコメントについては、[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) および [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) がシェイプのテキストフレーム内で選択されたテキストの開始位置にアクセスします。[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) と [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) は選択範囲の長さにアクセスします。これらの値を組み合わせることで、コメントを AutoShape 内の特定テキスト範囲に関連付けます。
 
-`[IModernComment.getStatus](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getStatus--)` および `[IModernComment.setStatus](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-)` メソッドは、`[ModernCommentStatus](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/moderncommentstatus/)` 定数から次のいずれかの値にアクセスします：
+[IModernComment.getStatus](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getStatus--) および [IModernComment.setStatus](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) メソッドは、[ModernCommentStatus](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/moderncommentstatus/) 定数の値にアクセスします。
 
-- `NotDefined` — 特定のモダンコメントステータスは定義されていません。
-- `Active` — コメントはアクティブです。
-- `Resolved` — コメントは解決済みです。
-- `Closed` — コメントはクローズされています。
+- `NotDefined` — 特定のモダンコメントステータスが定義されていません。  
+- `Active` — コメントはアクティブです。  
+- `Resolved` — コメントは解決済みです。  
+- `Closed` — コメントはクローズされています。  
 
-次の例は、シェイプに固定されたモダンコメントを作成し、テキスト選択に関連付け、解決済みとしてマークし、プレゼンテーションを保存してからファイルを再度開いた際に値を検証します。
+以下の例は、シェイプにアンカーされたモダンコメントを作成し、テキスト選択に関連付け、解決済みとしてマークし、プレゼンテーションを保存した後にファイルを再度開いて値を検証します。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -356,7 +358,7 @@ try {
 
 ### **既存のモダンコメントの検査**
 
-既存のプレゼンテーションを検査するには、どのコメントが `[IModernComment](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/)` を実装しているか確認し、次に `[IModernComment.getShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getShape--)`、`[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--)`、`[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--)`、および `[IModernComment.getStatus](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getStatus--)` を調べます。`null` のシェイプはスライドレベルのコメントを示します。`[IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/)` がアンカーの場合、テキスト選択メソッドはシェイプのテキストフレーム内の関連範囲を特定します。
+既存のプレゼンテーションを調べるには、[IModernComment](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/) を実装しているコメントを確認し、[IModernComment.getShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getShape--)、[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--)、[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--)、および [IModernComment.getStatus](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getStatus--) を調べます。`null` のシェイプはスライドレベルのコメントを示します。[IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) がアンカーの場合、テキスト選択メソッドはシェイプのテキストフレーム内の対象範囲を特定します。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -405,7 +407,7 @@ try {
 
 ### **すべてのコメントとコメント作成者の削除**
 
-次の例は、プレゼンテーションからすべてのコメントとコメント作成者を削除する方法を示しています：
+以下の例は、プレゼンテーションからすべてのコメントとコメント作成者を削除する方法を示します。
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -427,7 +429,7 @@ try {
 
 ### **特定のコメントの削除**
 
-次の例は、スライドから特定のコメントを削除する方法を示しています：
+以下の例は、スライドから特定のコメントを削除する方法を示します。
 
 ```java
 import com.aspose.slides.IComment;
@@ -476,12 +478,12 @@ try {
 
 **Aspose.Slides はモダンコメントの解決済みステータスをサポートしていますか？**
 
-はい。`[IModernComment.getStatus](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getStatus--)` および `[IModernComment.setStatus](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-)` は `[ModernCommentStatus](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/moderncommentstatus/)` の値にアクセスでき、`Resolved` を含みます。このステータスはプレゼンテーションに保存され、ファイルを再度開いた後でも読み取ることができます。
+はい。[IModernComment.getStatus](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#getStatus--) と [IModernComment.setStatus](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) は、`Resolved` を含む [ModernCommentStatus](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/moderncommentstatus/) の値にアクセスします。このステータスはプレゼンテーションに保存され、ファイルを再度開いた後でも読み取れます。
 
-**スレッド化されたディスカッション（返信チェーン）はサポートされていますか？ ネストの上限はありますか？**
+**スレッド形式のディスカッション（返信チェーン）はサポートされていますか？また、ネストの上限はありますか？**
 
-はい。各コメントは `[parent comment](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icomment/#getParentComment--)` を参照できるため、返信チェーンを実現できます。API には特定のネスト深さ上限は定義されていません。
+はい。各コメントは [parent comment](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icomment/#getParentComment--) を参照できるため、返信チェーンが可能です。API では特定のネスト深さ上限は定義されていません。
 
-**スライド上のコメントマーカーの位置はどの座標系で定義されていますか？**
+**コメントマーカーの位置はスライドのどの座標系で定義されていますか？**
 
-マーカーポジションはスライド座標系の浮動小数点座標で定義されており、スライド上の任意の位置に正確に配置できます。
+マーカー位置はスライド座標系の浮動小数点座標で定義されており、スライド上の任意の位置に正確に配置できます。

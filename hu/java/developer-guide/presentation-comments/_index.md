@@ -1,48 +1,51 @@
 ---
-title: "Prezentációs megjegyzések kezelése Java-ban"
-linktitle: "Prezentációs megjegyzések"
+title: Prezentációs megjegyzések kezelése Java-ban
+linktitle: Prezentációs megjegyzések
 type: docs
 weight: 100
 url: /hu/java/presentation-comments/
 keywords:
-- "megjegyzés"
-- "modern megjegyzés"
-- "PowerPoint megjegyzések"
-- "prezentációs megjegyzések"
-- "dia megjegyzések"
-- "megjegyzés hozzáadása"
-- "megjegyzés elérése"
-- "megjegyzés szerkesztése"
-- "megjegyzésre válasz"
-- "megjegyzés eltávolítása"
-- "megjegyzés törlése"
-- "PowerPoint"
-- "prezentáció"
-- "Java"
-- "Aspose.Slides"
-description: "Kezelje a prezentációs megjegyzéseket az Aspose.Slides for Java segítségével: gyorsan és egyszerűen adjon hozzá, olvasson, szerkesszen, válaszoljon, és távolítson el megjegyzéseket a PowerPoint prezentációkban."
+- megjegyzés
+- modern megjegyzés
+- PowerPoint megjegyzések
+- prezentációs megjegyzések
+- dia megjegyzések
+- megjegyzés hozzáadása
+- megjegyzés elérése
+- megjegyzés szerkesztése
+- megjegyzés válasza
+- megjegyzés eltávolítása
+- megjegyzés törlése
+- PowerPoint
+- prezentáció
+- Java
+- Aspose.Slides
+description: "Prezentációs megjegyzések kezelése az Aspose.Slides for Java-val: gyorsan és egyszerűen adjon hozzá, olvasson, szerkesszen, válaszoljon, és távolítson el megjegyzéseket PowerPoint‑prezentációkban."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan kezelhetők a prezentáció megjegyzései az Aspose.Slides for Java használatával. Bemutatja a megjegyzésekkel kapcsolatos fő típusokat, és demonstrálja, hogyan lehet megjegyzéseket hozzáadni a diákhoz, meglévő megjegyzéseket elérni, válaszokkal és modern megjegyzésekkel dolgozni, valamint megjegyzéseket eltávolítani egy prezentációból.
+Ez a cikk ismerteti, hogyan kezelhetők a prezentációs megjegyzések az Aspose.Slides for Java-val. Bemutatja a megjegyzésekkel kapcsolatos fő típusokat, és példákat nyújt arra, hogyan adhatók megjegyzések a diahoz, hogyan érhetők el a meglévő megjegyzések, hogyan dolgozhatunk válaszokkal és modern megjegyzésekkel, valamint hogyan távolíthatók el a megjegyzések a prezentációból.
 
-A példák lefedik a PowerPointban előforduló gyakori felülvizsgálati és együttműködési helyzeteket, például a megjegyzések szerzőkhöz való hozzárendelését, a megjegyzés szövegének és metaadatainak olvasását, válaszképek építését, valamint kiválasztott vagy az összes megjegyzés eltávolítását.
+A példák lefedik a PowerPointban gyakori felülvizsgálati és együttműködési forgatókönyveket, például a megjegyzések szerzőkhöz rendelését, a megjegyzés szövegének és metaadatainak olvasását, válaszláncok építését, valamint a kijelölt vagy az összes megjegyzés eltávolítását.
 
-A PowerPointban a megjegyzések annotációként jelennek meg a diákon. Egy megjegyzés kiválasztása megjeleníti a szövegét és a kapcsolódó beszélgetést.
+A PowerPointban a megjegyzések annotációként jelennek meg a diákon. Egy megjegyzés kiválasztásakor megjelenik a szövege és a kapcsolódó vita.
 
-## **Miért Adjunk Megjegyzéseket a Prezentációkhoz?**
+A megjegyzések megjelenítésének vagy elrejtésének kéréséhez a prezentáció megnyitásakor, anélkül, hogy magukat a megjegyzéseket módosítanánk, lásd a [Show or Hide Comments When Opening a Presentation](/slides/hu/java/presentation-view-properties/).
 
-A megjegyzéseket visszajelzés nyújtására és a kollégákkal való együttműködésre használhatja a prezentációk felülvizsgálata során.
+## **Miért adjon megjegyzéseket a prezentációkhoz?**
+
+A megjegyzésekkel visszajelzést adhat, és együttműködhet a kollégákkal a prezentációk felülvizsgálata során.
 
 Az Aspose.Slides for Java a következő API-kat biztosítja a megjegyzésekkel való munkához:
+
 * A [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztály, amely hozzáférést biztosít a prezentáció megjegyzés szerzőihez.
-* Az [ICommentCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icommentcollection/) interfész, amely egy adott szerzőhöz tartozó megjegyzéseket képviseli.
-* Az [IComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icomment/) interfész, amely információt nyújt egy megjegyzésről, beleértve a szerzőjét, létrehozási időt, pozíciót és szöveget.
-* A [CommentAuthor](https://reference.aspose.com/slides/hu/java/com.aspose.slides/commentauthor/) osztály, amely információt ad egy szerzőről, beleértve a nevét, monogramját és a kapcsolódó megjegyzéseket.
+* The [ICommentCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icommentcollection/) interface, which represents the comments associated with an individual author.
+* The [IComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icomment/) interface, which provides information about a comment, including its author, creation time, position, and text.
+* The [CommentAuthor](https://reference.aspose.com/slides/hu/java/com.aspose.slides/commentauthor/) class, which provides information about an author, including their name, initials, and associated comments.
 
-## **Dia Megjegyzések Hozzáadása**
+## **Dia megjegyzések hozzáadása**
 
-Az alábbi példa bemutatja, hogyan adhat megjegyzéseket a diákhoz egy PowerPoint prezentációban:
+Az alábbi példa bemutatja, hogyan adhatók megjegyzések egy PowerPoint prezentáció diáihoz:
 
 ```java
 import com.aspose.slides.IComment;
@@ -81,9 +84,9 @@ try {
 }
 ```
 
-## **Dia Megjegyzések Elérése**
+## **Dia megjegyzések elérése**
 
-Az alábbi példa bemutatja, hogyan érheti el a meglévő megjegyzéseket egy PowerPoint prezentációban:
+Az alábbi példa bemutatja, hogyan érhetők el a meglévő megjegyzések egy PowerPoint prezentációban:
 
 ```java
 import com.aspose.slides.IComment;
@@ -106,11 +109,11 @@ try {
 }
 ```
 
-## **Válasz a Megjegyzésekre**
+## **Válasz a megjegyzésekre**
 
-A szülő megjegyzés az eredeti megjegyzés a válaszhierarchia tetején. Az [IComment.getParentComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icomment/#getParentComment--) és az [IComment.setParentComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) metódusok lehetővé teszik a megjegyzés szülőjének lekérését vagy beállítását.
+Egy szülő megjegyzés az eredeti megjegyzés a válaszhierarchia tetején. Az [IComment.getParentComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icomment/#getParentComment--) és az [IComment.setParentComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) metódusok lehetővé teszik a megjegyzés szülőjének lekérdezését vagy beállítását.
 
-Az alábbi példa bemutatja, hogyan adhat hozzá válaszokat, és hogyan vizsgálhatja meg a resulting megjegyzés hierarchiát:
+Az alábbi példa bemutatja, hogyan adhatók hozzá válaszok, és hogyan vizsgálható meg a kapott megjegyzés hierarchia:
 
 ```java
 import com.aspose.slides.IComment;
@@ -168,18 +171,18 @@ try {
 
 {{% alert color="warning" title="Warning" %}}
 * Amikor az [IComment.remove](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icomment/#remove--) metódust használják egy megjegyzés törlésére, a megjegyzéshez tartozó összes válasz is törlődik.
-* Ha az [IComment.setParentComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) körkörös hivatkozást hoz létre, egy [PptxEditException](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pptxeditexception/) lesz dobva.
+* Ha az [IComment.setParentComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) körkörös hivatkozást hoz létre, akkor egy [PptxEditException](https://reference.aspose.com/slides/hu/java/com.aspose.slides/pptxeditexception/) kerül feldobásra.
 {{% /alert %}}
 
-## **Modern Megjegyzések Hozzáadása**
+## **Modern megjegyzések hozzáadása**
 
-A modern megjegyzések a diával, egy konkrét alakzattal vagy egy AutoShape belüli szövegtartománnyal társíthatók. Az [ICommentCollection.addModernComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) metódus egy [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/) argumentumot is elfogad a dia és a megjegyzésjelző koordinátákon kívül.
+A modern megjegyzések a diára, egy konkrét alakzatra vagy egy AutoShape szövegtartományára vonatkozhatnak. Az [ICommentCollection.addModernComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) metódus egy [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/) argumentumot is elfogad a dián és a megjegyzés‑jelző koordinátákon felül.
 
-Ha a shape argumentumnak `null` értéket adunk, a megjegyzés diaszintű megjegyzés lesz. Jelzője a megadott koordináták alapján helyezkedik el, de nem kapcsolódik konkrét alakzathoz, így az [IModernComment.getShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getShape--) `null`-t ad vissza. Ha egy [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/) kerül megadásra, a megjegyzés erre az alakzatra lesz rögzítve. A koordináták továbbra is a megjegyzésjelző helyét határozzák meg a dián, míg az alakzatkapcsolat a [IModernComment.getShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getShape--) segítségével kérhető le.
+Amikor a form argumentumként `null` értéket kap, a megjegyzés diaszintű megjegyzés lesz. Jelzője az adott koordinátákkal kerül elhelyezésre, de nem kapcsolódik konkrét alakzathoz, ezért az [IModernComment.getShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getShape--) `null` értéket ad vissza. Ha egy [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/) kerül megadásra, a megjegyzés ehhez az alakzathoz lesz rögzítve. A koordináták továbbra is a megjegyzés jelző pozícióját határozzák meg a dián, míg az alakzathoz való kapcsolódás lekérdezhető az [IModernComment.getShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getShape--) metódussal.
 
-### **Modern Megjegyzés Rögzítése egy Alakzatra**
+### **Modern megjegyzés rögzítése alakzatra**
 
-Az alábbi példa létrehoz egy diaszintű modern megjegyzést és egy konkrét AutoShape-hez rögzített modern megjegyzést is. Ezután minden megjegyzéshez kiolvassa a kapcsolódó alakzatot.
+Az alábbi példa létrehoz egy diaszintű modern megjegyzést és egy konkrét AutoShape‑hez rögzített modern megjegyzést is. Ezután minden megjegyzéshez kiolvassa a hozzárendelt alakzatot.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -215,11 +218,11 @@ try {
 }
 ```
 
-### **Megjegyzések Rögzítése Különböző Alakzattípusokhoz**
+### **Megjegyzések rögzítése különböző alakzattípusokhoz**
 
-Bármely diakép, amely megvalósítja az [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/) interfészt, használható alakzatankerületi horgonyként. Gyakori példák a [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iconnector/) és a diagramokhoz hasonló [IGraphicalObject](https://reference.aspose.com/slides/hu/java/com.aspose.slides/igraphicalobject/) példányok.
+Bármely diaobjektum, amely megvalósítja az [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/) interfészt, használható alakzat‑horgonyként. Gyakori példák: [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iconnector/), valamint [IGraphicalObject](https://reference.aspose.com/slides/hu/java/com.aspose.slides/igraphicalobject/) példányok, például diagramok.
 
-Az alábbi példa létrehoz több gyakori alakzattípust, és mindegyikhez modern megjegyzést rendel.
+Az alábbi példa több gyakori alakzattípust hoz létre, és mindegyikhez modern megjegyzést rendel.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -276,17 +279,18 @@ try {
 }
 ```
 
-### **Megjegyzés Rögzítése Szöveghez és Állapotának Beállítása**
+### **Megjegyzés rögzítése szöveghez és állapotának beállítása**
 
-Egy [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/)‑hez társított modern megjegyzés esetén az [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) és az [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int--) a szövegkeretben a kiválasztott szöveg kezdőpozícióját adják. Az [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) és az [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) a kiválasztás hosszát adják meg. Ezek együtt a megjegyzést egy adott szövegtartománnyal kötik az AutoShape‑ben.
+Egy [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/)-hez kapcsolt modern megjegyzés esetén az [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) és az [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int--) a kiválasztott szöveg kezdőpozícióját adja vissza az alakzat szövegdobozában. Az [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) és az [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) a kijelölés hosszát adja meg. Ezek együtt a megjegyzést egy konkrét szövegtartományhoz kapcsolják az AutoShape‑ben.
 
-Az [IModernComment.getStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getStatus--) és az [IModernComment.setStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#setStatus-byte--) metódusok a [ModernCommentStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/moderncommentstatus/) konstansok egyik értékét adják vissza:
-- `NotDefined` — nincs meghatározott modern megjegyzés állapot.
+Az [IModernComment.getStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getStatus--) és az [IModernComment.setStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#setStatus-byte-) metódusok egy értéket adnak vissza a [ModernCommentStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/moderncommentstatus/) állandókból:
+
+- `NotDefined` — nincs meghatározott modern‑megjegyzés állapot.
 - `Active` — a megjegyzés aktív.
 - `Resolved` — a megjegyzés megoldott.
 - `Closed` — a megjegyzés lezárt.
 
-Az alábbi példa létrehoz egy alakzatra rögzített modern megjegyzést, szövegkiválasztáshoz társítja, megoldottként jelöli, elmenti a prezentációt, és a fájl újranyitása után ellenőrzi az értékeket.
+Az alábbi példa létrehoz egy alakzathoz rögzített modern megjegyzést, szövegkijelöléshez rendeli, megoldottként jelöli, elmenti a prezentációt, majd a fájl újranyitása után ellenőrzi az értékeket.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -351,9 +355,9 @@ try {
 }
 ```
 
-### **Létező Modern Megjegyzések Ellenőrzése**
+### **Meglévő modern megjegyzések vizsgálata**
 
-Egy meglévő prezentáció ellenőrzéséhez vizsgálja meg, mely megjegyzések valósítják meg az [IModernComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/) interfészt, majd tekintse meg az [IModernComment.getShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) és [IModernComment.getStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getStatus--) értékeket. A `null` alakzat diaszintű megjegyzést jelez. Egy [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/) horgony esetén a szövegkiválasztási metódusok a alakzat szövegtömbjében a kapcsolódó tartományt azonosítják.
+Egy meglévő prezentáció vizsgálatához ellenőrizze, mely megjegyzések valósítják meg az [IModernComment](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/) interfészt, majd tekintse meg az [IModernComment.getShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getShape--), az [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), az [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--), valamint az [IModernComment.getStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getStatus--) értékeket. A `null` alakzat diaszintű megjegyzést jelez. Egy [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/) horgony esetén a szövegkijelölés‑metódusok az alakzat szövegdobozában lévő tartományt határozzák meg.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -398,11 +402,11 @@ try {
 }
 ```
 
-## **Megjegyzések Eltávolítása**
+## **Megjegyzések eltávolítása**
 
-### **Minden Megjegyzés és Megjegyzés Szerző Eltávolítása**
+### **Az összes megjegyzés és megjegyzés‑szerző eltávolítása**
 
-Az alábbi példa bemutatja, hogyan távolíthatók el egy prezentációból az összes megjegyzés és megjegyzés szerző:
+Az alábbi példa bemutatja, hogyan lehet eltávolítani az összes megjegyzést és megjegyzés‑szerzőt egy prezentációból:
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -422,9 +426,9 @@ try {
 }
 ```
 
-### **Különálló Megjegyzések Eltávolítása**
+### **Speciális megjegyzések eltávolítása**
 
-Az alábbi példa bemutatja, hogyan távolíthatók el konkrét megjegyzések egy diáról:
+Az alábbi példa bemutatja, hogyan lehet egy diáról konkrét megjegyzéseket eltávolítani:
 
 ```java
 import com.aspose.slides.IComment;
@@ -471,14 +475,14 @@ try {
 
 ## **GYIK**
 
-**Támogatja-e az Aspose.Slides a megoldott állapotot a modern megjegyzéseknél?**
+**Támogatja-e az Aspose.Slides a modern megjegyzések megoldott állapotát?**
 
-Igen. Az [IModernComment.getStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getStatus--) és az [IModernComment.setStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#setStatus-byte--) a [ModernCommentStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/moderncommentstatus/) értékét adja vissza, beleértve a `Resolved` értéket. Az állapot a prezentációban tárolódik, és a fájl újranyitása után újra leolvasható.
+Igen. Az [IModernComment.getStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#getStatus--) és az [IModernComment.setStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imoderncomment/#setStatus-byte--) egy [ModernCommentStatus](https://reference.aspose.com/slides/hu/java/com.aspose.slides/moderncommentstatus/) értéket ad vissza, beleértve a `Resolved` állapotot. Az állapot a prezentációban tárolódik, és a fájl újranyitása után ismét olvasható.
 
-**Támogatottak-e a szálas megbeszélések (válaszképek), és van-e mélységi korlát?**
+**Támogatottak-e a szálas viták (válaszláncok), és van-e mélységkorlát?**
 
-Igen. Minden megjegyzés hivatkozhat a saját [szülő megjegyzésére](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icomment/#getParentComment--), lehetővé téve a válaszképeket. Az API nem definiál konkrét beágyazási mélységkorlátot.
+Igen. Minden megjegyzés hivatkozhat a [szülő megjegyzésére](https://reference.aspose.com/slides/hu/java/com.aspose.slides/icomment/#getParentComment--), lehetővé téve a válaszláncokat. Az API nem határoz meg konkrét mélységkorlátot.
 
-**Milyen koordináta‑rendszerben van meghatározva egy megjegyzésjelző pozíciója a dián?**
+**Mely koordináta‑rendszerben van definiálva egy megjegyzés‑jelző pozíciója a dián?**
 
 A jelző pozíciója lebegőpontos koordinátákkal van meghatározva a dia koordináta‑rendszerében, ami lehetővé teszi a pontos elhelyezést a dián.

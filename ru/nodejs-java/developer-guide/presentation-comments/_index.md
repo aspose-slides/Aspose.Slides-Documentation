@@ -1,5 +1,5 @@
 ---
-title: Управление комментариями презентаций в Node.js
+title: Управление комментариями презентации в Node.js
 linktitle: Комментарии к презентации
 type: docs
 weight: 100
@@ -8,12 +8,12 @@ keywords:
 - комментарий
 - современный комментарий
 - комментарии PowerPoint
-- комментарии к презентации
-- комментарии к слайдам
+- комментарии презентации
+- комментарии слайдов
 - добавить комментарий
-- доступ к комментариям
+- получить комментарий
 - редактировать комментарий
-- отвечать на комментарий
+- ответить на комментарий
 - удалить комментарий
 - удалить комментарий
 - PowerPoint
@@ -21,26 +21,30 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Управляйте комментариями к презентациям с помощью Aspose.Slides for Node.js via Java: добавляйте, читайте, редактируйте, отвечайте и удаляйте комментарии в презентациях PowerPoint."
+description: "Управляйте комментариями презентации с помощью Aspose.Slides for Node.js via Java: добавляйте, читайте, редактируйте, отвечайте и удаляйте комментарии в презентациях PowerPoint."
 ---
 ## **Обзор**
 
-В этой статье объясняется, как управлять комментариями презентации с помощью Aspose.Slides for Node.js via Java. Описываются основные типы, связанные с комментариями, и демонстрируется, как добавлять комментарии на слайды, получать доступ к существующим комментариям, работать с ответами и современными комментариями, а также удалять комментарии из презентации.
+Эта статья объясняет, как управлять комментариями презентации с помощью Aspose.Slides for Node.js via Java. Она представляет основные типы, связанные с комментариями, и демонстрирует, как добавлять комментарии к слайдам, получать доступ к существующим комментариям, работать с ответами и современными комментариями, а также удалять комментарии из презентации.
 
-Примеры охватывают типичные сценарии рецензирования и совместной работы в PowerPoint, такие как назначение комментариев авторам, чтение текста комментариев и метаданных, построение цепочек ответов и удаление выбранных комментариев или всех комментариев.
+Примеры охватывают типичные сценарии рецензирования и совместной работы в PowerPoint, такие как назначение комментариев авторам, чтение текста и метаданных комментариев, построение цепочек ответов и удаление выбранных комментариев или всех комментариев.
 
 В PowerPoint комментарии отображаются как аннотации на слайдах. Выбор комментария показывает его текст и связанную дискуссию.
 
+Чтобы указать, что комментарии должны отображаться или скрываться при открытии презентации без изменения самих комментариев, см. [Показать или скрыть комментарии при открытии презентации](/slides/ru/nodejs-java/presentation-view-properties/).
+
 ## **Зачем добавлять комментарии к презентациям?**
 
-Вы можете использовать комментарии для предоставления обратной связи и совместной работы с коллегами при просмотре презентаций.
+Вы можете использовать комментарии для предоставления обратной связи и совместной работы с коллегами при рецензировании презентаций.
 
-* Класс [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/) предоставляет доступ к авторам комментариев презентации.
-* Класс [CommentCollection](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/commentcollection/) представляет комментарии, связанные с отдельным автором.
-* Класс [Comment](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/comment/) предоставляет информацию о комментарии, включая его автора, время создания, позицию и текст.
-* Класс [CommentAuthor](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/commentauthor/) предоставляет информацию об авторе, включая его имя, инициалы и связанные комментарии.
+Aspose.Slides for Node.js via Java предоставляет следующие API для работы с комментариями:
 
-## **Добавить комментарии к слайдам**
+* Класс [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/), который предоставляет доступ к авторам комментариев презентации.
+* Класс [CommentCollection](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/commentcollection/), который представляет комментарии, связанные с отдельным автором.
+* Класс [Comment](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/comment/), который содержит информацию о комментарии, включая автора, время создания, позицию и текст.
+* Класс [CommentAuthor](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/commentauthor/), который содержит информацию об авторе, включая имя, инициалы и связанные комментарии.
+
+## **Добавление комментариев к слайдам**
 
 Следующий пример показывает, как добавить комментарии к слайдам в презентации PowerPoint:
 
@@ -76,7 +80,7 @@ try {
 }
 ```
 
-## **Получить комментарии со слайдов**
+## **Доступ к комментариям слайда**
 
 Следующий пример показывает, как получить доступ к существующим комментариям в презентации PowerPoint:
 
@@ -105,9 +109,9 @@ try {
 }
 ```
 
-## **Ответить на комментарии**
+## **Ответы на комментарии**
 
-Родительский комментарий — это исходный комментарий в вершине иерархии ответов. Методы [Comment.getParentComment](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/comment/getparentcomment/) и [Comment.setParentComment](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/comment/setparentcomment/) позволяют получить или установить родительский комментарий.
+Родительским комментарием считается исходный комментарий в верхней части иерархии ответов. Методы [Comment.getParentComment](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/comment/getparentcomment/) и [Comment.setParentComment](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/comment/setparentcomment/) позволяют получить или установить родительский комментарий.
 
 Следующий пример показывает, как добавить ответы и исследовать получившуюся иерархию комментариев:
 
@@ -163,19 +167,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* При использовании метода [Comment.remove](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/comment/remove/) для удаления комментария все ответы на этот комментарий также удаляются.
-* Если метод [Comment.setParentComment](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/comment/setparentcomment/) создает кольцевую ссылку, будет выброшено исключение [PptxEditException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pptxeditexception/).
+* При использовании метода [Comment.remove](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/comment/remove/) для удаления комментария также удаляются все ответы на этот комментарий.
+* Если [Comment.setParentComment](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/comment/setparentcomment/) создаёт круговую ссылку, генерируется исключение [PptxEditException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
-## **Добавить современные комментарии**
+## **Добавление современных комментариев**
 
-Современные комментарии могут быть связаны со слайдом, с конкретной фигурой или с диапазоном текста внутри [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/). Метод [CommentCollection.addModernComment](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) принимает аргумент [Shape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/) в дополнение к координатам слайда и маркера комментария.
+Современные комментарии могут быть связаны непосредственно со слайдом, с конкретной фигурой или с диапазоном текста внутри [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/). Метод [CommentCollection.addModernComment](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) принимает в качестве аргумента объект [Shape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/) в дополнение к слайду и координатам маркера комментария.
 
-Когда в аргумент shape передаётся `null`, комментарий является комментариев уровня слайда. Его маркер позиционируется по указанным координатам, но не связан с конкретной фигурой, поэтому [ModernComment.getShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/getshape/) возвращает `null`. Когда передаётся [Shape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/), комментарий привязывается к этой фигуре. Координаты всё равно определяют позицию маркера комментария на слайде, а связь с фигурой можно получить через [ModernComment.getShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/getshape/).
+Когда в качестве аргумента shape передаётся `null`, комментарий считается слайд‑уровневым. Его маркер позиционируется по заданным координатам, но не связан с конкретной фигурой, поэтому [ModernComment.getShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/getshape/) возвращает `null`. Когда передаётся объект [Shape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/), комментарий привязывается к этой фигуре. Координаты по‑прежнему определяют позицию маркера комментария на слайде, а связь с фигурой можно получить через [ModernComment.getShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/getshape/).
 
-### **Привязать современный комментарий к фигуре**
+### **Привязка современного комментария к фигуре**
 
-Следующий пример создает как современный комментарий уровня слайда, так и современный комментарий, привязанный к конкретному [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/). Затем он считывает связанную фигуру из каждого комментария.
+Следующий пример создаёт как слайд‑уровневый современный комментарий, так и современный комментарий, привязанный к конкретному [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/). Затем он читает связанную фигуру из каждого комментария.
 
 ```javascript
 var aspose = aspose || {};
@@ -205,9 +209,9 @@ try {
 }
 ```
 
-### **Привязать комментарии к разным типам фигур**
+### **Привязка комментариев к различным типам фигур**
 
-Любой объект слайда, производный от [Shape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/), может использоваться в качестве привязки к фигуре. Общие примеры включают [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/connector/) и экземпляры [GraphicalObject](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/graphicalobject/), такие как диаграммы.
+Любой объект слайда, наследующийся от [Shape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/), может использоваться в качестве привязки. Часто используемые примеры включают [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/connector/) и объекты [GraphicalObject](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/graphicalobject/), такие как диаграммы.
 
 Следующий пример создаёт несколько распространённых типов фигур и связывает с каждой из них современный комментарий.
 
@@ -254,18 +258,18 @@ try {
 }
 ```
 
-### **Привязать комментарий к тексту и установить его статус**
+### **Привязка комментария к тексту и установка его статуса**
 
-Для современного комментария, связанного с [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/), методы [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) и [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) получают начальную позицию выбранного текста в текстовом фрейме фигуры. Методы [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) и [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) получают длину выделения. Вместе эти значения связывают комментарий с конкретным диапазоном текста внутри [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/).
+Для современного комментария, связанного с [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/), методы [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) и [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) получают начальную позицию выбранного текста во фрейме текста фигуры. Методы [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) и [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) получают длину выделения. Вместе эти значения связывают комментарий с конкретным диапазоном текста внутри [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/).
 
 Методы [ModernComment.getStatus](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/getstatus/) и [ModernComment.setStatus](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/setstatus/) получают значение из перечисления [ModernCommentStatus](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — не определён конкретный статус современного комментария.
+- `NotDefined` — специфический статус современного комментария не определён.
 - `Active` — комментарий активен.
-- `Resolved` — комментарий разрешён.
+- `Resolved` — комментарий решён.
 - `Closed` — комментарий закрыт.
 
-Следующий пример создаёт современный комментарий, привязанный к фигуре, связывает его с выделением текста, отмечает как разрешённый, сохраняет презентацию и проверяет значения после повторного открытия файла.
+Следующий пример создаёт современный комментарий, привязанный к фигуре, связывает его с выделением текста, помечает как решённый, сохраняет презентацию и проверяет значения после повторного открытия файла.
 
 ```javascript
 var aspose = aspose || {};
@@ -323,9 +327,9 @@ try {
 }
 ```
 
-### **Проверить существующие современные комментарии**
+### **Проверка существующих современных комментариев**
 
-Чтобы проверить существующую презентацию, определите, какие комментарии являются экземплярами [ModernComment](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/), затем изучите [ModernComment.getShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) и [ModernComment.getStatus](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/getstatus/). Фигура `null` указывает на комментарий уровня слайда. Для привязки к [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/) методы выбора текста определяют соответствующий диапазон в текстовом фрейме фигуры.
+Чтобы исследовать существующую презентацию, проверьте, какие комментарии являются объектами [ModernComment](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/), затем изучите [ModernComment.getShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) и [ModernComment.getStatus](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/getstatus/). `null` в качестве фигуры указывает на слайд‑уровневый комментарий. Для привязки к [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/) методы выбора текста определяют соответствующий диапазон во фрейме текста фигуры.
 
 ```javascript
 var aspose = aspose || {};
@@ -370,9 +374,9 @@ try {
 }
 ```
 
-## **Удалить комментарии**
+## **Удаление комментариев**
 
-### **Удалить все комментарии и их авторов**
+### **Удаление всех комментариев и их авторов**
 
 Следующий пример показывает, как удалить все комментарии и их авторов из презентации:
 
@@ -394,9 +398,9 @@ try {
 }
 ```
 
-### **Удалить отдельные комментарии**
+### **Удаление конкретных комментариев**
 
-Следующий пример показывает, как удалить отдельные комментарии со слайда:
+Следующий пример демонстрирует, как удалить определённые комментарии со слайда:
 
 ```javascript
 var aspose = aspose || {};
@@ -440,14 +444,14 @@ try {
 
 ## **FAQ**
 
-**Поддерживает ли Aspose.Slides статус «разрешён» для современных комментариев?**
+**Поддерживает ли Aspose.Slides статус «решено» для современных комментариев?**
 
-Да. Методы [ModernComment.getStatus](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/getstatus/) и [ModernComment.setStatus](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/setstatus/) получают значение [ModernCommentStatus](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncommentstatus/), включая `Resolved`. Статус сохраняется в презентации и может быть снова считан после повторного открытия файла.
+Да. Методы [ModernComment.getStatus](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/getstatus/) и [ModernComment.setStatus](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncomment/setstatus/) позволяют получить значение из перечисления [ModernCommentStatus](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/moderncommentstatus/), включая `Resolved`. Статус сохраняется в презентации и может быть считан после повторного открытия файла.
 
-**Поддерживаются ли цепочки обсуждений (ветвленные ответы) и есть ли ограничение вложенности?**
+**Поддерживаются ли ветвящиеся обсуждения (цепочки ответов) и существует ли ограничение на вложенность?**
 
-Да. Каждый комментарий может ссылаться на свой [parent comment](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/comment/getparentcomment/), что позволяет создавать цепочки ответов. API не задаёт конкретного ограничения глубины вложенности.
+Да. Каждый комментарий может ссылаться на свой [parent comment](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/comment/getparentcomment/), что позволяет формировать цепочки ответов. API не задаёт конкретного ограничения глубины вложенности.
 
-**В какой системе координат определено положение маркера комментария на слайде?**
+**В какой системе координат задаётся позиция маркера комментария на слайде?**
 
-Позиция маркера задаётся координатами с плавающей точкой в системе координат слайда, что позволяет точно разместить его на слайде.
+Позиция маркера задаётся плавающими координатами в системе координат слайда, что позволяет точно разместить его на слайде.

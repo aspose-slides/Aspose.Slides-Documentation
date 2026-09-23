@@ -1,6 +1,6 @@
 ---
 title: Διαχείριση σχολίων παρουσίασης σε Android
-linktitle: Σχόλια Παρουσίασης
+linktitle: Σχόλια παρουσίασης
 type: docs
 weight: 100
 url: /el/androidjava/presentation-comments/
@@ -25,26 +25,28 @@ description: "Διαχειριστείτε τα σχόλια παρουσίασ�
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να διαχειριστείτε σχόλια παρουσίασης με το Aspose.Slides for Android via Java. Παρουσιάζει τους κύριους τύπους που σχετίζονται με σχόλια και δείχνει πώς να προσθέτετε σχόλια σε διαφάνειες, να έχετε πρόσβαση σε υπάρχοντα σχόλια, να εργάζεστε με απαντήσεις και σύγχρονα σχόλια και να καταργείτε σχόλια από μια παρουσίαση.
+Αυτό το άρθρο εξηγεί πώς να διαχειρίζεστε σχόλια παρουσίασης με το Aspose.Slides για Android μέσω Java. Παρουσιάζει τους κύριους τύπους σχετικούς με τα σχόλια και δείχνει πώς να προσθέτετε σχόλια στις διαφάνειες, να έχετε πρόσβαση σε υπάρχοντα σχόλια, να εργάζεστε με απαντήσεις και σύγχρονα σχόλια, και να αφαιρείτε σχόλια από μια παρουσίαση.
 
-Τα παραδείγματα καλύπτουν κοινά σενάρια ελέγχου και συνεργασίας στο PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση κειμένου σχολίου και μεταδεδομένων, η δημιουργία αλυσίδων απαντήσεων και η κατάργηση επιλεγμένων σχολίων ή όλων των σχολίων.
+Τα παραδείγματα καλύπτουν κοινά σενάρια ελέγχου και συνεργασίας σε PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση κειμένου σχολίου και μεταδεδομένων, η δημιουργία αλυσίδων απαντήσεων και η αφαίρεση επιλεγμένων σχολίων ή όλων των σχολίων.
 
 Στο PowerPoint, τα σχόλια εμφανίζονται ως σημειώσεις στις διαφάνειες. Η επιλογή ενός σχολίου εμφανίζει το κείμενό του και τη σχετική συζήτηση.
 
+Για να ζητήσετε να εμφανίζονται ή να κρύβονται τα σχόλια όταν ανοίγει μια παρουσίαση χωρίς να αλλάξετε τα ίδια τα σχόλια, δείτε [Show or Hide Comments When Opening a Presentation](/slides/el/androidjava/presentation-view-properties/).
+
 ## **Γιατί να Προσθέσετε Σχόλια σε Παρουσιάσεις;**
 
-Μπορείτε να χρησιμοποιήσετε σχόλια για να παρέχετε ανατροφοδότηση και να συνεργάζεστε με συναδέλφους κατά την αξιολόγηση παρουσιάσεων.
+Μπορείτε να χρησιμοποιείτε σχόλια για να παρέχετε ανάδραση και να συνεργάζεστε με συναδέλφους κατά την αξιολόγηση παρουσιάσεων.
 
-Το Aspose.Slides for Android via Java παρέχει τα ακόλουθα API για εργασία με σχόλια:
+Aspose.Slides for Android via Java παρέχει τα ακόλουθα API για εργασία με σχόλια:
 
-* Η κλάση [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/) παρέχει πρόσβαση στους συγγραφείς σχολίων της παρουσίασης.
-* Η διεπαφή [ICommentCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icommentcollection/) αντιπροσωπεύει τα σχόλια που συνδέονται με έναν συγκεκριμένο συγγραφέα.
-* Η διεπαφή [IComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/) παρέχει πληροφορίες σχετικά με ένα σχόλιο, συμπεριλαμβανομένου του συγγραφέα, του χρόνου δημιουργίας, της θέσης και του κειμένου.
-* Η κλάση [CommentAuthor](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/commentauthor/) παρέχει πληροφορίες για έναν συγγραφέα, όπως το όνομα, τα αρχικά και τα συνδεδεμένα σχόλια.
+* Η κλάση [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/) που παρέχει πρόσβαση στους συγγραφείς σχολίων της παρουσίασης.
+* Η διεπαφή [ICommentCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icommentcollection/) που αντιπροσωπεύει τα σχόλια που σχετίζονται με έναν συγκεκριμένο συγγραφέα.
+* Η διεπαφή [IComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/) που παρέχει πληροφορίες για ένα σχόλιο, συμπεριλαμβανομένου του συγγραφέα, του χρόνου δημιουργίας, της θέσης και του κειμένου.
+* Η κλάση [CommentAuthor](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/commentauthor/) που παρέχει πληροφορίες για έναν συγγραφέα, όπως το όνομα, τα αρχικά και τα σχετικά σχόλια.
 
-## **Προσθήκη Σχολίων σε Διαφάνειες**
+## **Προσθήκη Σχολίων στις Διαφάνειες**
 
-Το παρακάτω παράδειγμα δείχνει πώς να προσθέσετε σχόλια σε διαφάνειες σε μια παρουσίαση PowerPoint:
+Το παρακάτω παράδειγμα δείχνει πώς να προσθέσετε σχόλια στις διαφάνειες μιας παρουσίασης PowerPoint:
 
 ```java
 import com.aspose.slides.IComment;
@@ -83,7 +85,7 @@ try {
 }
 ```
 
-## **Πρόσβαση σε Σχόλια Διαφάνειας**
+## **Πρόσβαση στα Σχόλια Διαφάνειας**
 
 Το παρακάτω παράδειγμα δείχνει πώς να έχετε πρόσβαση σε υπάρχοντα σχόλια σε μια παρουσίαση PowerPoint:
 
@@ -110,7 +112,7 @@ try {
 
 ## **Απάντηση σε Σχόλια**
 
-Ένα γονικό σχόλιο είναι το αρχικό σχόλιο στην κορυφή μιας ιεραρχίας απαντήσεων. Οι μέθοδοι [IComment.getParentComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/#getParentComment--) και [IComment.setParentComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) σάς επιτρέπουν να λάβετε ή να ορίσετε το γονικό σχόλιο.
+Ένα γονικό σχόλιο είναι το αρχικό σχόλιο στην κορυφή μιας ιεραρχίας απαντήσεων. Οι μέθοδοι [IComment.getParentComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/#getParentComment--) και [IComment.setParentComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) σας επιτρέπουν να λάβετε ή να ορίσετε το γονίδιο ενός σχολίου.
 
 Το παρακάτω παράδειγμα δείχνει πώς να προσθέσετε απαντήσεις και να εξετάσετε την προκύπτουσα ιεραρχία σχολίων:
 
@@ -168,20 +170,20 @@ try {
 }
 ```
 
-{{% alert color="warning" title="Warning" %}}
-* Όταν χρησιμοποιείται η μέθοδος [IComment.remove](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/#remove--) για διαγραφή ενός σχολίου, διαγράψονται επίσης όλες οι απαντήσεις σε αυτό το σχόλιο.
-* Εάν η μέθοδος [IComment.setParentComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) δημιουργεί κυκλική αναφορά, πετιέται μια [PptxEditException](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/pptxeditexception/).
+{{% alert color="warning" title="Προειδοποίηση" %}}
+* Όταν η μέθοδος [IComment.remove](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/#remove--) χρησιμοποιείται για διαγραφή ενός σχολίου, διαγράφονται επίσης όλες οι απαντήσεις σε αυτό το σχόλιο.
+* Εάν η [IComment.setParentComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) δημιουργεί κυκλική παραπομπή, εκτοξεύεται μια [PptxEditException](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Προσθήκη Σύγχρονων Σχολίων**
 
-Τα σύγχρονα σχόλια μπορούν να συνδεθούν με την ίδια τη διαφάνεια, με ένα συγκεκριμένο σχήμα ή με μια περιοχή κειμένου μέσα σε AutoShape. Η μέθοδος [ICommentCollection.addModernComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) δέχεται ένα όρισμα [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/) επιπλέον της διαφάνειας και των συντεταγμένων του δείκτη σχολίου.
+Τα σύγχρονα σχόλια μπορούν να συνδεθούν με την ίδια τη διαφάνεια, με ένα συγκεκριμένο σχήμα ή με ένα εύρος κειμένου μέσα σε AutoShape. Η μέθοδος [ICommentCollection.addModernComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) δέχεται ένα όρισμα [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/) επιπλέον της διαφάνειας και των συντεταγμένων του δείκτη σχολίου.
 
-Όταν περνιέται `null` για το όρισμα του σχήματος, το σχόλιο είναι σχόλιο επιπέδου διαφάνειας. Ο δείκτης του τοποθετείται με τις παρεχόμενες συντεταγμένες, αλλά δεν συνδέεται με συγκεκριμένο σχήμα, έτσι η μέθοδος [IModernComment.getShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getShape--) επιστρέφει `null`. Όταν παρέχεται ένα [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/), το σχόλιο αγκυροβολείται σε αυτό το σχήμα. Οι συντεταγμένες εξακολουθούν να ορίζουν τη θέση του δείκτη σχολίου στη διαφάνεια, ενώ η σύνδεση του σχήματος μπορεί να ανακτηθεί μέσω της [IModernComment.getShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getShape--).
+Όταν `null` περνιέται ως όρισμα του σχήματος, το σχόλιο είναι σχόλιο επιπέδου διαφάνειας. Ο δείκτης τοποθετείται με βάση τις δοθείσες συντεταγμένες, αλλά δεν συνδέεται με κάποιο συγκεκριμένο σχήμα, έτσι η μέθοδος [IModernComment.getShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getShape--) επιστρέφει `null`. Όταν παρέχεται ένα [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/), το σχόλιο αγκυροβολείται σε αυτό το σχήμα. Οι συντεταγμένες συνεχίζουν να ορίζουν τη θέση του δείκτη σχολίου στη διαφάνεια, ενώ η σύνδεση με το σχήμα μπορεί να ανακτηθεί μέσω του [IModernComment.getShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getShape--).
 
-### **Σύνδεση Σχόλιου με Σχήμα**
+### **Σύνδεση ενός σύγχρονου σχολίου σε σχήμα**
 
-Το παρακάτω παράδειγμα δημιουργεί τόσο ένα σύγχρονο σχόλιο επιπέδου διαφάνειας όσο και ένα σύγχρονο σχόλιο αγκυροβολημένο σε συγκεκριμένο AutoShape. Στη συνέχεια διαβάζει το σχετικό σχήμα από κάθε σχόλιο.
+Το παρακάτω παράδειγμα δημιουργεί τόσο ένα σχόλιο επιπέδου διαφάνειας όσο και ένα σύγχρονο σχόλιο αγκυροβολημένο σε συγκεκριμένη AutoShape. Στη συνέχεια διαβάζει το συσχετισμένο σχήμα από κάθε σχόλιο.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -217,11 +219,11 @@ try {
 }
 ```
 
-### **Σύνδεση Σχολίων σε Διάφορους Τύπους Σχημάτων**
+### **Σύνδεση σχολίων σε διαφορετικούς τύπους σχημάτων**
 
-Οποιοδήποτε αντικείμενο διαφάνειας που υλοποιεί το [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/) μπορεί να χρησιμοποιηθεί ως άγκυρα σχήματος. Συνηθισμένα παραδείγματα περιλαμβάνουν [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iconnector/) και [IGraphicalObject](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/igraphicalobject/) όπως διαγράμματα.
+Οποιοδήποτε αντικείμενο διαφάνειας που υλοποιεί το [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/) μπορεί να χρησιμοποιηθεί ως άγκυρα σχήματος. Συνηθισμένα παραδείγματα περιλαμβάνουν [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iconnector/), και παραδείγματα [IGraphicalObject](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/igraphicalobject/) όπως γραφήματα.
 
-Το παρακάτω παράδειγμα δημιουργεί αρκετούς κοινά τύπους σχημάτων και συνδέει ένα σύγχρονο σχόλιο με το καθένα.
+Το παρακάτω παράδειγμα δημιουργεί αρκετούς συνηθισμένους τύπους σχημάτων και συσχετίζει ένα σύγχρονο σχόλιο με τον καθένα.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -278,9 +280,9 @@ try {
 }
 ```
 
-### **Σύνδεση Σχολίου σε Κείμενο και Ορισμός Κατάστασης**
+### **Σύνδεση σχολίου σε κείμενο και ορισμός της κατάστασής του**
 
-Για ένα σύγχρονο σχόλιο που συνδέεται με ένα [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/), οι μέθοδοι [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) και [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) προσπελάζουν τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος. Οι μέθοδοι [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) και [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) προσπελάζουν το μήκος της επιλογής. Συνολικά, αυτές οι τιμές συνδέουν το σχόλιο με μια συγκεκριμένη περιοχή κειμένου μέσα στο AutoShape.
+Για ένα σύγχρονο σχόλιο που συσχετίζεται με [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/), οι μέθοδοι [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) και [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) προσπελάζουν τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος. Οι μέθοδοι [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) και [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) προσπελάζουν το μήκος της επιλογής. Μαζί, αυτές οι τιμές συσχετίζουν το σχόλιο με ένα συγκεκριμένο εύρος κειμένου μέσα στην AutoShape.
 
 Οι μέθοδοι [IModernComment.getStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getStatus--) και [IModernComment.setStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) προσπελάζουν μια τιμή από τις σταθερές [ModernCommentStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/moderncommentstatus/):
 
@@ -289,7 +291,7 @@ try {
 - `Resolved` — το σχόλιο έχει επιλυθεί.
 - `Closed` — το σχόλιο είναι κλειστό.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα σχόλιο αγκυροβολημένο σε σχήμα, το συνδέει με μια επιλογή κειμένου, το δηλώνει ως επιλυμένο, αποθηκεύει την παρουσίαση και επαληθεύει τις τιμές μετά το άνοιγμα του αρχείου.
+Το παρακάτω παράδειγμα δημιουργεί ένα σχόλιο αγκυροβολημένο σε σχήμα, το συσχετίζει με επιλογή κειμένου, το σηματοδοτεί ως επιλυμένο, αποθηκεύει την παρουσίαση και ελέγχει τις τιμές μετά το άνοιγμα του αρχείου.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -354,9 +356,9 @@ try {
 }
 ```
 
-### **Επιθεώρηση Υφιστάμενων Σύγχρονων Σχολίων**
+### **Έλεγχος Υπαρχόντων Σύγχρονων Σχολίων**
 
-Για να επιθεωρήσετε μια υπάρχουσα παρουσίαση, ελέγξτε ποια σχόλια υλοποιούν το [IModernComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/), στη συνέχεια εξετάστε τις μεθόδους [IModernComment.getShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--), και [IModernComment.getStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getStatus--). Ένα σχήμα `null` υποδηλώνει σχόλιο επιπέδου διαφάνειας. Για άγκυρα [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/), οι μέθοδοι επιλογής κειμένου προσδιορίζουν το σχετικό εύρος στο πλαίσιο κειμένου του σχήματος.
+Για να ελέγξετε μια υπάρχουσα παρουσίαση, ελέγξτε ποια σχόλια υλοποιούν το [IModernComment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/), έπειτα εξετάστε [IModernComment.getShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--), και [IModernComment.getStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getStatus--). Ένα σχήμα `null` υποδεικνύει σχόλιο επιπέδου διαφάνειας. Για άγκυρα [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/), οι μέθοδοι επιλογής κειμένου εντοπίζουν το σχετικό εύρος στο πλαίσιο κειμένου του σχήματος.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -401,11 +403,11 @@ try {
 }
 ```
 
-## **Κατάργηση Σχολίων**
+## **Αφαίρεση Σχολίων**
 
-### **Κατάργηση Όλων των Σχολίων και Συντελεστών Σχολίων**
+### **Αφαίρεση Όλων των Σχολίων και Συγγραφέων Σχολίων**
 
-Το παρακάτω παράδειγμα δείχνει πώς να καταργήσετε όλα τα σχόλια και τους συγγραφείς σχολίων από μια παρουσίαση:
+Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε όλα τα σχόλια και τους συγγραφείς σχολίων από μια παρουσίαση:
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -425,9 +427,9 @@ try {
 }
 ```
 
-### **Κατάργηση Συγκεκριμένων Σχολίων**
+### **Αφαίρεση Συγκεκριμένων Σχολίων**
 
-Το παρακάτω παράδειγμα δείχνει πώς να καταργήσετε συγκεκριμένα σχόλια από μια διαφάνεια:
+Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε συγκεκριμένα σχόλια από μια διαφάνεια:
 
 ```java
 import com.aspose.slides.IComment;
@@ -472,16 +474,16 @@ try {
 }
 ```
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+## **Συχνές Ερωτήσεις**
 
-**Υποστηρίζει το Aspose.Slides κατάσταση επιλυμένου για σύγχρονα σχόλια;**
+**Υποστηρίζει το Aspose.Slides μια κατάσταση 'επιλύθηκε' για τα σύγχρονα σχόλια;**
 
-Ναι. Οι μέθοδοι [IModernComment.getStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getStatus--) και [IModernComment.setStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) προσπελάζουν μια τιμή του [ModernCommentStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/moderncommentstatus/), συμπεριλαμβανομένου του `Resolved`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να αναγνωστεί ξανά μετά το άνοιγμα του αρχείου.
+Ναι. Οι μέθοδοι [IModernComment.getStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#getStatus--) και [IModernComment.setStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) προσπελάζουν μια τιμή του [ModernCommentStatus](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/moderncommentstatus/), συμπεριλαμβανομένου του `Resolved`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να διαβαστεί ξανά μετά το άνοιγμα του αρχείου.
 
-**Υποστηρίζονται οι αλυσίδες απαντήσεων (threaded discussions) και υπάρχει όριο σε βάθος εμφώλευσης;**
+**Υποστηρίζονται συζητήσεις σε νήμα (αλυσίδες απαντήσεων) και υπάρχει όριο στο βάθος εσοχής;**
 
-Ναι. Κάθε σχόλιο μπορεί να αναφέρεται στο [parent comment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/#getParentComment--), επιτρέποντας αλυσίδες απαντήσεων. Το API δεν ορίζει συγκεκριμένο όριο βάθους εμφώλευσης.
+Ναι. Κάθε σχόλιο μπορεί να παραπέμπει στο [parent comment](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icomment/#getParentComment--), επιτρέποντας αλυσίδες απαντήσεων. Το API δεν ορίζει συγκεκριμένο όριο βάθους εσοχής.
 
 **Σε ποιο σύστημα συντεταγμένων ορίζεται η θέση του δείκτη σχολίου σε μια διαφάνεια;**
 
-Η θέση του δείκτη ορίζεται από συντεταγμένες τύπου floating‑point στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντάς σας να τοποθετήσετε ακριβώς το δείκτη στη διαφάνεια.
+Η θέση του δείκτη ορίζεται από συντεταγμένες κινητής υποδιαστολής στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντάς σας να τοποθετήσετε ακριβώς το δείκτη στη διαφάνεια.

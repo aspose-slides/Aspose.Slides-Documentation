@@ -1,50 +1,52 @@
 ---
-title: Quản lý bình luận trên bản trình chiếu trong Node.js
-linktitle: Bình luận bản trình chiếu
+title: Quản lý nhận xét bản trình bày trong Node.js
+linktitle: Nhận xét bản trình bày
 type: docs
 weight: 100
 url: /vi/nodejs-java/presentation-comments/
 keywords:
-- bình luận
-- bình luận hiện đại
-- bình luận PowerPoint
-- bình luận bản trình chiếu
-- bình luận slide
-- thêm bình luận
-- truy cập bình luận
-- chỉnh sửa bình luận
-- phản hồi bình luận
-- loại bỏ bình luận
-- xóa bình luận
+- nhận xét
+- nhận xét hiện đại
+- nhận xét PowerPoint
+- nhận xét bản trình bày
+- nhận xét slide
+- thêm nhận xét
+- truy cập nhận xét
+- chỉnh sửa nhận xét
+- trả lời nhận xét
+- xoá nhận xét
+- xóa nhận xét
 - PowerPoint
-- bản trình chiếu
+- bản trình bày
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Quản lý bình luận trên bản trình chiếu bằng Aspose.Slides cho Node.js qua Java: thêm, đọc, chỉnh sửa, trả lời và xóa bình luận trong các bản trình chiếu PowerPoint."
+description: "Quản lý nhận xét bản trình bày với Aspose.Slides cho Node.js thông qua Java: thêm, đọc, chỉnh sửa, trả lời và xóa nhận xét trong các bản trình bày PowerPoint."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách quản lý bình luận trên bản trình chiếu bằng Aspose.Slides for Node.js via Java. Nó giới thiệu các kiểu dữ liệu liên quan đến bình luận và trình bày cách thêm bình luận vào các slide, truy cập các bình luận hiện có, làm việc với các phản hồi và bình luận hiện đại, và xoá bình luận khỏi bản trình chiếu.
+Bài viết này giải thích cách quản lý nhận xét trong bản trình bày bằng Aspose.Slides cho Node.js thông qua Java. Nó giới thiệu các kiểu liên quan đến nhận xét chính và trình bày cách thêm nhận xét vào các slide, truy cập các nhận xét hiện có, làm việc với các phản hồi và nhận xét hiện đại, và xóa nhận xét khỏi bản trình bày.
 
-Các ví dụ bao phủ các kịch bản xem xét và cộng tác thường gặp trong PowerPoint, chẳng hạn như chỉ định bình luận cho tác giả, đọc nội dung và siêu dữ liệu của bình luận, xây dựng chuỗi phản hồi, và xoá các bình luận đã chọn hoặc tất cả bình luận.
+Các ví dụ bao gồm các kịch bản xem xét và cộng tác phổ biến trong PowerPoint, chẳng hạn như gán nhận xét cho tác giả, đọc nội dung và siêu dữ liệu của nhận xét, xây dựng chuỗi trả lời, và xóa các nhận xét đã chọn hoặc tất cả các nhận xét.
 
-Trong PowerPoint, bình luận xuất hiện dưới dạng chú thích trên các slide. Khi chọn một bình luận, nội dung và cuộc thảo luận liên quan sẽ được hiển thị.
+Trong PowerPoint, nhận xét xuất hiện dưới dạng chú thích trên các slide. Khi chọn một nhận xét, nội dung và cuộc thảo luận liên quan sẽ được hiển thị.
 
-## **Tại sao phải thêm bình luận vào bản trình chiếu?**
+Để yêu cầu hiển thị hoặc ẩn nhận xét khi mở một bản trình bày mà không thay đổi các nhận xét, hãy xem [Show or Hide Comments When Opening a Presentation](/slides/vi/nodejs-java/presentation-view-properties/).
 
-Bạn có thể sử dụng bình luận để cung cấp phản hồi và cộng tác với đồng nghiệp khi xem xét bản trình chiếu.
+## **Tại sao cần thêm nhận xét vào bản trình bày?**
 
-Aspose.Slides for Node.js via Java cung cấp các API sau để làm việc với bình luận:
+Bạn có thể sử dụng nhận xét để đưa ra phản hồi và cộng tác với đồng nghiệp khi xem xét bản trình bày.
 
-* Lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) cung cấp truy cập tới các tác giả bình luận của bản trình chiếu.
-* Lớp [CommentCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/commentcollection/) đại diện cho các bình luận liên kết với một tác giả cụ thể.
-* Lớp [Comment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/) cung cấp thông tin về một bình luận, bao gồm tác giả, thời gian tạo, vị trí và nội dung.
-* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/commentauthor/) cung cấp thông tin về một tác giả, bao gồm tên, chữ viết tắt và các bình luận liên quan.
+Aspose.Slides cho Node.js thông qua Java cung cấp các API sau để làm việc với nhận xét:
 
-## **Thêm bình luận cho slide**
+* Lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) cung cấp quyền truy cập vào các tác giả nhận xét của bản trình bày.
+* Lớp [CommentCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/commentcollection/) đại diện cho các nhận xét liên quan đến một tác giả cụ thể.
+* Lớp [Comment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/) cung cấp thông tin về một nhận xét, bao gồm tác giả, thời gian tạo, vị trí và nội dung.
+* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/commentauthor/) cung cấp thông tin về một tác giả, bao gồm tên, chữ viết tắt và các nhận xét liên quan.
 
-Ví dụ sau cho thấy cách thêm bình luận vào các slide trong một bản trình chiếu PowerPoint:
+## **Thêm Nhận xét cho Slide**
+
+Ví dụ sau cho thấy cách thêm nhận xét vào các slide trong một bản trình bày PowerPoint:
 
 ```javascript
 var aspose = aspose || {};
@@ -78,9 +80,9 @@ try {
 }
 ```
 
-## **Truy cập bình luận của slide**
+## **Truy cập Nhận xét của Slide**
 
-Ví dụ sau cho thấy cách truy cập các bình luận hiện có trong một bản trình chiếu PowerPoint:
+Ví dụ sau cho thấy cách truy cập các nhận xét hiện có trong một bản trình bày PowerPoint:
 
 ```javascript
 var aspose = aspose || {};
@@ -107,11 +109,11 @@ try {
 }
 ```
 
-## **Phản hồi bình luận**
+## **Trả lời Nhận xét**
 
-Một bình luận cha là bình luận gốc ở đầu cây phản hồi. Các phương thức [Comment.getParentComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/getparentcomment/) và [Comment.setParentComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/setparentcomment/) cho phép bạn lấy hoặc đặt bình luận cha.
+Một nhận xét cha là nhận xét gốc ở đầu của một cấu trúc trả lời. Các phương thức [Comment.getParentComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/getparentcomment/) và [Comment.setParentComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/setparentcomment/) cho phép bạn lấy hoặc đặt nhận xét cha của một nhận xét.
 
-Ví dụ sau cho thấy cách thêm phản hồi và kiểm tra cấu trúc cây bình luận kết quả:
+Ví dụ sau cho thấy cách thêm phản hồi và kiểm tra cấu trúc nhận xét kết quả:
 
 ```javascript
 var aspose = aspose || {};
@@ -165,19 +167,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Khi sử dụng phương thức [Comment.remove](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/remove/) để xoá một bình luận, tất cả các phản hồi của bình luận đó cũng sẽ bị xoá.
-* Nếu [Comment.setParentComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/setparentcomment/) tạo ra một tham chiếu vòng, một [PptxEditException](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxeditexception/) sẽ được ném.
+* Khi phương thức [Comment.remove](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/remove/) được sử dụng để xóa một nhận xét, tất cả các phản hồi của nhận xét đó cũng sẽ bị xóa.
+* Nếu [Comment.setParentComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/setparentcomment/) tạo ra một tham chiếu vòng, một [PptxEditException](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxeditexception/) sẽ bị ném.
 {{% /alert %}}
 
-## **Thêm bình luận hiện đại**
+## **Thêm Nhận xét Hiện đại**
 
-Bình luận hiện đại có thể được liên kết với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/). Phương thức [CommentCollection.addModernComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) nhận một đối số [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/) bên cạnh slide và tọa độ của dấu đánh dấu bình luận.
+Nhận xét hiện đại có thể được liên kết với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/). Phương thức [CommentCollection.addModernComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) chấp nhận một đối số [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/) ngoài slide và tọa độ của dấu nhận xét.
 
-Khi truyền `null` cho đối số shape, bình luận sẽ là bình luận cấp slide. Dấu đánh dấu của nó được định vị bằng các tọa độ đã cung cấp, nhưng không được liên kết với một shape cụ thể, do đó [ModernComment.getShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getshape/) trả về `null`. Khi cung cấp một [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/), bình luận sẽ được neo vào shape đó. Các tọa độ vẫn xác định vị trí của dấu đánh dấu trên slide, trong khi việc liên kết với shape có thể được truy xuất qua [ModernComment.getShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getshape/).
+Khi `null` được truyền cho đối số shape, nhận xét là một nhận xét ở mức slide. Dấu của nó được định vị bằng các tọa độ đã cung cấp, nhưng không được liên kết với một shape cụ thể, vì vậy [ModernComment.getShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getshape/) trả về `null`. Khi một [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/) được cung cấp, nhận xét được gắn vào shape đó. Các tọa độ vẫn xác định vị trí của dấu nhận xét trên slide, trong khi việc liên kết shape có thể được lấy thông qua [ModernComment.getShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getshape/).
 
-### **Neo một bình luận hiện đại vào shape**
+### **Gắn Nhận xét Hiện đại vào một Shape**
 
-Ví dụ sau tạo cả một bình luận hiện đại cấp slide và một bình luận hiện đại được neo vào một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) cụ thể. Sau đó nó đọc shape liên quan từ mỗi bình luận.
+Ví dụ sau tạo cả một nhận xét hiện đại ở mức slide và một nhận xét hiện đại được gắn vào một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) cụ thể. Sau đó nó đọc shape liên quan từ mỗi nhận xét.
 
 ```javascript
 var aspose = aspose || {};
@@ -207,11 +209,11 @@ try {
 }
 ```
 
-### **Neo bình luận vào các loại shape khác nhau**
+### **Gắn Nhận xét vào Các Loại Shape Khác nhau**
 
-Bất kỳ đối tượng slide nào kế thừa từ [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/) đều có thể được dùng làm anchor cho shape. Các ví dụ phổ biến bao gồm [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/connector/), và các đối tượng [GraphicalObject](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/graphicalobject/) như biểu đồ.
+Bất kỳ đối tượng slide nào kế thừa từ [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/) đều có thể được sử dụng làm điểm gắn shape. Các ví dụ phổ biến bao gồm [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/connector/), và các thể hiện [GraphicalObject](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/graphicalobject/) như biểu đồ.
 
-Ví dụ sau tạo một số loại shape thông dụng và liên kết một bình luận hiện đại với mỗi shape.
+Ví dụ sau tạo một số loại shape phổ biến và gắn một nhận xét hiện đại vào mỗi shape.
 
 ```javascript
 var aspose = aspose || {};
@@ -256,18 +258,18 @@ try {
 }
 ```
 
-### **Neo bình luận vào văn bản và đặt trạng thái**
+### **Gắn Nhận xét vào Văn bản và Đặt Trạng Thái**
 
-Đối với một bình luận hiện đại được liên kết với một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/), các phương thức [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) và [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) truy cập vị trí bắt đầu của đoạn văn bản đã chọn trong khung văn bản của shape. Các phương thức [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) và [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) truy cập độ dài của phần chọn. Cùng nhau, các giá trị này liên kết bình luận với một đoạn văn bản cụ thể bên trong [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/).
+Đối với một nhận xét hiện đại liên kết với một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/), các phương thức [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) và [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) truy cập vị trí bắt đầu của văn bản được chọn trong khung văn bản của shape. Các phương thức [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) và [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) truy cập độ dài của vùng chọn. Cùng nhau, các giá trị này liên kết nhận xét với một đoạn văn bản cụ thể bên trong [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/).
 
-Các phương thức [ModernComment.getStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getstatus/) và [ModernComment.setStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/setstatus/) truy cập một giá trị từ enumeration [ModernCommentStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncommentstatus/):
+Các phương thức [ModernComment.getStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getstatus/) và [ModernComment.setStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/setstatus/) truy cập một giá trị từ liệt kê [ModernCommentStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncommentstatus/) :
 
-- `NotDefined` — không có trạng thái bình luận hiện đại cụ thể nào được xác định.
-- `Active` — bình luận đang hoạt động.
-- `Resolved` — bình luận đã được giải quyết.
-- `Closed` — bình luận đã đóng.
+- `NotDefined` — không có trạng thái nhận xét hiện đại cụ thể nào được định nghĩa.
+- `Active` — nhận xét đang hoạt động.
+- `Resolved` — nhận xét đã được giải quyết.
+- `Closed` — nhận xét đã đóng.
 
-Ví dụ sau tạo một bình luận hiện đại được neo vào shape, liên kết nó với một đoạn văn bản đã chọn, đánh dấu là đã giải quyết, lưu bản trình chiếu và kiểm tra các giá trị sau khi mở lại tệp.
+Ví dụ sau tạo một nhận xét hiện đại được gắn vào shape, liên kết nó với một đoạn văn bản được chọn, đánh dấu là đã giải quyết, lưu bản trình bày và xác minh các giá trị sau khi mở lại tệp.
 
 ```javascript
 var aspose = aspose || {};
@@ -325,9 +327,9 @@ try {
 }
 ```
 
-### **Kiểm tra các bình luận hiện đại hiện có**
+### **Kiểm tra Nhận xét Hiện đại hiện có**
 
-Để kiểm tra một bản trình chiếu hiện có, xác định các đối tượng [ModernComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/), sau đó xem xét [ModernComment.getShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/), và [ModernComment.getStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getstatus/). Một shape `null` cho biết đây là bình luận cấp slide. Đối với anchor là một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/), các phương thức chọn văn bản sẽ chỉ ra đoạn văn bản liên quan trong khung văn bản của shape.
+Để kiểm tra một bản trình bày hiện có, xác định các nhận xét là các thể hiện của [ModernComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/), sau đó kiểm tra [ModernComment.getShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/), và [ModernComment.getStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getstatus/). Một shape `null` cho biết là nhận xét ở mức slide. Đối với một anchor [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/), các phương thức lựa chọn văn bản xác định đoạn văn bản liên quan trong khung văn bản của shape.
 
 ```javascript
 var aspose = aspose || {};
@@ -372,11 +374,11 @@ try {
 }
 ```
 
-## **Xoá bình luận**
+## **Xóa Nhận xét**
 
-### **Xoá tất cả bình luận và tác giả bình luận**
+### **Xóa Tất cả Nhận xét và Tác giả Nhận xét**
 
-Ví dụ sau cho thấy cách xoá tất cả bình luận và các tác giả bình luận khỏi một bản trình chiếu:
+Ví dụ sau cho thấy cách xóa tất cả nhận xét và tác giả nhận xét khỏi một bản trình bày:
 
 ```javascript
 var aspose = aspose || {};
@@ -396,9 +398,9 @@ try {
 }
 ```
 
-### **Xoá các bình luận cụ thể**
+### **Xóa Nhận xét Cụ thể**
 
-Ví dụ sau cho thấy cách xoá các bình luận cụ thể khỏi một slide:
+Ví dụ sau cho thấy cách xóa các nhận xét cụ thể khỏi một slide:
 
 ```javascript
 var aspose = aspose || {};
@@ -440,16 +442,16 @@ try {
 }
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Aspose.Slides có hỗ trợ trạng thái giải quyết cho bình luận hiện đại không?**
+**Aspose.Slides có hỗ trợ trạng thái đã giải quyết cho nhận xét hiện đại không?**
 
-Có. Các phương thức [ModernComment.getStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getstatus/) và [ModernComment.setStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/setstatus/) truy cập một giá trị của [ModernCommentStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái được lưu trong bản trình chiếu và có thể đọc lại sau khi tệp được mở lại.
+Có. Các phương thức [ModernComment.getStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getstatus/) và [ModernComment.setStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/setstatus/) truy cập một giá trị [ModernCommentStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái này được lưu trong bản trình bày và có thể được đọc lại sau khi tệp được mở lại.
 
-**Các cuộc thảo luận dạng chuỗi phản hồi có được hỗ trợ không, và có giới hạn mức độ lồng nhau không?**
+**Các cuộc thảo luận dạng chuỗi (reply chains) có được hỗ trợ không, và có giới hạn về mức độ lồng nhau không?**
 
-Có. Mỗi bình luận có thể tham chiếu tới [parent comment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/getparentcomment/), cho phép tạo chuỗi phản hồi. API không đưa ra giới hạn cụ thể về độ sâu lồng nhau.
+Có. Mỗi nhận xét có thể tham chiếu tới [parent comment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/getparentcomment/), cho phép tạo chuỗi trả lời. API không định nghĩa giới hạn độ sâu lồng nhau cụ thể.
 
-**Vị trí của dấu đánh dấu bình luận trên slide được định nghĩa trong hệ tọa độ nào?**
+**Vị trí của dấu nhận xét trên slide được xác định trong hệ tọa độ nào?**
 
-Vị trí dấu đánh dấu được xác định bằng các tọa độ dạng số thực trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.
+Vị trí của dấu nhận xét được xác định bằng các tọa độ dấu chấm thập phân trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.

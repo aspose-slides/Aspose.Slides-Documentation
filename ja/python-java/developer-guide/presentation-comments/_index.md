@@ -1,12 +1,12 @@
 ---
-title: Python via Java でプレゼンテーションコメントを管理する
-linktitle: プレゼンテーションコメント
+title: Python via Java でプレゼンテーション コメントを管理する
+linktitle: プレゼンテーション コメント
 type: docs
 weight: 100
 url: /ja/python-java/presentation-comments/
 keywords:
 - コメント
-- モダンコメント
+- モダン コメント
 - PowerPoint コメント
 - プレゼンテーション コメント
 - スライド コメント
@@ -21,28 +21,30 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java を使用してプレゼンテーションコメントを管理します：PowerPoint プレゼンテーション内のコメントを追加、読み取り、編集、返信、削除を迅速かつ簡単に行います。"
+description: "Aspose.Slides for Python via Java を使用してプレゼンテーションのコメントを管理します。PowerPoint プレゼンテーションでコメントを追加、読み取り、編集、返信、削除を迅速かつ簡単に行えます。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides for Python via Java を使用したプレゼンテーションコメントの管理方法を説明します。主なコメント関連の型を紹介し、スライドへのコメント追加、既存コメントへのアクセス、返信やモダンコメントの操作、プレゼンテーションからのコメント削除の方法を実演します。
+この記事では、Aspose.Slides for Python via Java を使用してプレゼンテーション コメントを管理する方法を説明します。コメントに関連する主要な型を紹介し、スライドにコメントを追加する方法、既存のコメントにアクセスする方法、返信やモダンコメントの操作方法、プレゼンテーションからコメントを削除する方法を示します。
 
-例では、PowerPoint の一般的なレビューや共同作業シナリオ（コメントを作者に割り当てる、コメントテキストやメタデータを取得する、返信チェーンを構築する、選択したコメントまたはすべてのコメントを削除する）を取り上げています。
+例では、PowerPoint の一般的なレビューおよびコラボレーション シナリオ、たとえばコメントの作成者を割り当てる、コメントテキストとメタデータを読み取る、返信チェーンを構築する、選択したコメントまたはすべてのコメントを削除する、などをカバーしています。
 
-PowerPoint では、コメントはスライド上の注釈として表示されます。コメントを選択すると、そのテキストと関連するディスカッションが表示されます。
+PowerPoint では、コメントはスライド上のアノテーションとして表示されます。コメントを選択すると、そのテキストと関連する議論が表示されます。
 
-## **プレゼンテーションにコメントを追加する理由**
+コメント自体を変更せずにプレゼンテーションを開くときにコメントの表示/非表示を設定したい場合は、[プレゼンテーションを開くときにコメントを表示または非表示にする](/slides/ja/python-java/presentation-view-properties/) を参照してください。
 
-プレゼンテーションをレビューする際、コメントを使用してフィードバックを提供したり、同僚と共同作業したりできます。
+## **なぜプレゼンテーションにコメントを追加するのか？**
 
-Aspose.Slides for Python via Java は、コメント操作のために次の API を提供します：
+プレゼンテーションのレビュー時に、フィードバックを提供し、同僚と共同作業するためにコメントを使用できます。
 
-* The [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスは、プレゼンテーションのコメント作成者へのアクセスを提供します。
-* The [CommentCollection](https://reference.aspose.com/slides/ja/python-java/aspose.slides/commentcollection/) クラスは、個々の作成者に関連付けられたコメントを表します。
-* The [Comment](https://reference.aspose.com/slides/ja/python-java/aspose.slides/comment/) クラスは、コメントの作成者、作成時刻、位置、テキストなどの情報を提供します。
-* The [CommentAuthor](https://reference.aspose.com/slides/ja/python-java/aspose.slides/commentauthor/) クラスは、作成者の名前、イニシャル、および関連コメントの情報を提供します。
+Aspose.Slides for Python via Java は、コメント操作のために以下の API を提供します。
 
-## **スライドコメントの追加**
+* **[Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/)** クラス – プレゼンテーションのコメント作成者へのアクセスを提供します。
+* **[CommentCollection](https://reference.aspose.com/slides/ja/python-java/aspose.slides/commentcollection/)** クラス – 個々の作成者に関連付けられたコメントを表します。
+* **[Comment](https://reference.aspose.com/slides/ja/python-java/aspose.slides/comment/)** クラス – コメントの作成者、作成時刻、位置、テキストなどの情報を提供します。
+* **[CommentAuthor](https://reference.aspose.com/slides/ja/python-java/aspose.slides/commentauthor/)** クラス – 作成者の名前、イニシャル、関連コメントなどの情報を提供します。
+
+## **スライド コメントの追加**
 
 以下の例は、PowerPoint プレゼンテーションのスライドにコメントを追加する方法を示しています。
 
@@ -83,7 +85,7 @@ finally:
     presentation.dispose()
 ```
 
-## **スライドコメントへのアクセス**
+## **スライド コメントへのアクセス**
 
 以下の例は、PowerPoint プレゼンテーション内の既存コメントにアクセスする方法を示しています。
 
@@ -111,7 +113,7 @@ finally:
 
 ## **コメントへの返信**
 
-親コメントは、返信階層の最上位にある元のコメントです。[Comment.getParentComment](https://reference.aspose.com/slides/ja/python-java/aspose.slides/comment/#getParentComment) および [Comment.setParentComment](https://reference.aspose.com/slides/ja/python-java/aspose.slides/comment/#setParentComment) メソッドを使用して、コメントの親を取得または設定できます。
+親コメントは返信階層のトップにある元のコメントです。**[Comment.getParentComment](https://reference.aspose.com/slides/ja/python-java/aspose.slides/comment/#getParentComment)** および **[Comment.setParentComment](https://reference.aspose.com/slides/ja/python-java/aspose.slides/comment/#setParentComment)** メソッドを使用して、コメントの親を取得または設定できます。
 
 以下の例は、返信を追加し、結果として得られるコメント階層を検査する方法を示しています。
 
@@ -170,19 +172,19 @@ finally:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* [Comment.remove] メソッドでコメントを削除すると、そのコメントへのすべての返信も削除されます。
-* [Comment.setParentComment] が循環参照を作成した場合、[PptxEditException] がスローされます。
+* **[Comment.remove](https://reference.aspose.com/slides/ja/python-java/aspose.slides/comment/#remove)** メソッドでコメントを削除すると、そのコメントへのすべての返信も削除されます。  
+* **[Comment.setParentComment](https://reference.aspose.com/slides/ja/python-java/aspose.slides/comment/#setParentComment)** が循環参照を作成した場合、**[PptxEditException](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pptxeditexception/)** がスローされます。
 {{% /alert %}}
 
-## **モダンコメントの追加**
+## **モダン コメントの追加**
 
-モダンコメントは、スライド自体、特定のシェイプ、または [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) 内のテキスト範囲に関連付けることができます。[CommentCollection.addModernComment](https://reference.aspose.com/slides/ja/python-java/aspose.slides/commentcollection/#addModernComment) メソッドは、スライドとコメントマーカー座標に加えて [Shape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/) 引数を受け取ります。
+モダン コメントはスライド自体、特定のシェイプ、または **[AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/)** 内のテキスト範囲に関連付けることができます。**[CommentCollection.addModernComment](https://reference.aspose.com/slides/ja/python-java/aspose.slides/commentcollection/#addModernComment)** メソッドは、スライドとコメントマーカー座標に加えて **[Shape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/)** 引数を受け取ります。
 
-`None` がシェイプ引数として渡された場合、コメントはスライドレベルのコメントとなります。マーカーは指定された座標で配置されますが、特定のシェイプには関連付けられないため、[ModernComment.getShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getShape) は `None` を返します。シェイプが指定された場合、コメントはそのシェイプに固定されます。座標は依然としてスライド上のマーカ位置を定義し、シェイプの関連付けは [ModernComment.getShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getShape) で取得できます。
+シェイプ引数に **None** を渡すと、コメントはスライド レベルのコメントになります。マーカーは指定された座標で配置されますが、特定のシェイプには関連付けられないため、**[ModernComment.getShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getShape)** は **None** を返します。**[Shape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/)** が指定された場合、コメントはそのシェイプにアンカー付けされます。座標は依然としてスライド上のコメントマーカーの位置を定義し、シェイプの関連付けは **[ModernComment.getShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getShape)** で取得できます。
 
-### **シェイプにモダンコメントを固定する**
+### **シェイプにモダン コメントをアンカー付けする**
 
-以下の例は、スライドレベルのモダンコメントと、特定の [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) に固定されたモダンコメントの両方を作成し、各コメントから関連シェイプを取得します。
+以下の例は、スライド レベルのモダン コメントと、特定の **[AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/)** にアンカー付けされたモダン コメントの両方を作成し、各コメントから関連シェイプを取得します。
 
 ```python
 import jpype
@@ -218,11 +220,11 @@ finally:
     presentation.dispose()
 ```
 
-### **異なるシェイプタイプへのコメント固定**
+### **異なるシェイプ タイプへのアンカー コメント**
 
-[Shape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/) を継承する任意のスライドオブジェクトをシェイプアンカーとして使用できます。一般的な例としては、[AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/)、[PictureFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframe/)、[GroupShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/groupshape/)、[Connector](https://reference.aspose.com/slides/ja/python-java/aspose.slides/connector/)、およびチャートなどの [GraphicalObject](https://reference.aspose.com/slides/ja/python-java/aspose.slides/graphicalobject/) インスタンスがあります。
+**[Shape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/)** から派生したスライド オブジェクトは、シェイプ アンカーとして使用できます。一般的な例として **[AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/)、[PictureFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframe/)、[GroupShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/groupshape/)、[Connector](https://reference.aspose.com/slides/ja/python-java/aspose.slides/connector/)、[GraphicalObject](https://reference.aspose.com/slides/ja/python-java/aspose.slides/graphicalobject/)** などのチャートがあります。
 
-以下の例は、いくつかの一般的なシェイプタイプを作成し、それぞれにモダンコメントを関連付けます。
+以下の例は、いくつかの一般的なシェイプタイプを作成し、各シェイプにモダン コメントを関連付けます。
 
 ```python
 import jpype
@@ -274,18 +276,18 @@ finally:
     presentation.dispose()
 ```
 
-### **テキストにコメントを固定しステータスを設定する**
+### **テキストにアンカー付けしステータスを設定するコメント**
 
-[AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) に関連付けられたモダンコメントの場合、[ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getTextSelectionStart) と [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#setTextSelectionStart) はシェイプのテキストフレーム内で選択されたテキストの開始位置にアクセスします。[ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getTextSelectionLength) と [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#setTextSelectionLength) は選択範囲の長さにアクセスします。これらの値を組み合わせることで、コメントを AutoShape 内の特定のテキスト範囲に関連付けます。
+**[AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/)** に関連付けられたモダン コメントの場合、**[ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getTextSelectionStart)** と **[ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#setTextSelectionStart)** はシェイプのテキストフレーム内で選択されたテキストの開始位置にアクセスします。**[ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getTextSelectionLength)** と **[ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#setTextSelectionLength)** は選択範囲の長さにアクセスします。これらの値により、コメントは AutoShape 内の特定のテキスト範囲に結び付けられます。
 
-[ModernComment.getStatus](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getStatus) と [ModernComment.setStatus](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#setStatus) メソッドは、[ModernCommentStatus](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncommentstatus/) 定数から次の値にアクセスします：
+**[ModernComment.getStatus](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getStatus)** と **[ModernComment.setStatus](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#setStatus)** メソッドは、**[ModernCommentStatus](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncommentstatus/)** 定数から以下の値を取得または設定します。
 
-- [NotDefined](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncommentstatus/#NotDefined) — 特定のモダンコメントステータスが定義されていません。
-- [Active](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncommentstatus/#Active) — コメントがアクティブです。
-- [Resolved](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncommentstatus/#Resolved) — コメントが解決済みです。
-- [Closed](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncommentstatus/#Closed) — コメントがクローズされています。
+- **[NotDefined](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncommentstatus/#NotDefined)** — 特定のモダン コメントステータスが未定義です。  
+- **[Active](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncommentstatus/#Active)** — コメントはアクティブです。  
+- **[Resolved](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncommentstatus/#Resolved)** — コメントは解決済みです。  
+- **[Closed](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncommentstatus/#Closed)** — コメントはクローズされています。
 
-以下の例は、シェイプに固定されたモダンコメントを作成し、テキスト選択に関連付け、解決済みとしてマークし、プレゼンテーションを保存してファイルを再度開いた後に値を検証します。
+以下の例は、シェイプにアンカー付けされたモダン コメントを作成し、テキスト選択に関連付け、解決済みとしてマークし、プレゼンテーションを保存した後にファイルを再度開いて値を検証します。
 
 ```python
 import jpype
@@ -346,9 +348,9 @@ finally:
     reopened_presentation.dispose()
 ```
 
-### **既存のモダンコメントを検査する**
+### **既存のモダン コメントを検査する**
 
-既存のプレゼンテーションを検査するには、どのコメントが [ModernComment](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/) のインスタンスであるかを確認し、[ModernComment.getShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getShape)、[ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getTextSelectionStart)、[ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getTextSelectionLength)、および [ModernComment.getStatus](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getStatus) を調べます。`None` のシェイプはスライドレベルのコメントを示します。[AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) に固定された場合、テキスト選択メソッドはシェイプのテキストフレーム内の関連範囲を特定します。
+既存のプレゼンテーションを検査するには、コメントが **[ModernComment](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/)** のインスタンスかどうかを確認し、次に **[ModernComment.getShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getShape)**、**[ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getTextSelectionStart)**、**[ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getTextSelectionLength)**、**[ModernComment.getStatus](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getStatus)** を調べます。**None** のシェイプはスライド レベルのコメントを示します。**[AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/)** がアンカーの場合、テキスト選択メソッドはシェイプのテキストフレーム内の関連範囲を特定します。
 
 ```python
 import jpype
@@ -459,14 +461,14 @@ finally:
 
 ## **FAQ**
 
-**Aspose.Slides はモダンコメントの解決ステータスをサポートしていますか？**
+**Aspose.Slides はモダン コメントの解決ステータスをサポートしていますか？**
 
-はい。[ModernComment.getStatus](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getStatus) と [ModernComment.setStatus](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#setStatus) は、`Resolved` を含む [ModernCommentStatus](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncommentstatus/) の値にアクセスできます。ステータスはプレゼンテーションに保存され、ファイルを再度開いた後でも読み取れます。
+はい。**[ModernComment.getStatus](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#getStatus)** および **[ModernComment.setStatus](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncomment/#setStatus)** は **[ModernCommentStatus](https://reference.aspose.com/slides/ja/python-java/aspose.slides/moderncommentstatus/)** の値、例えば `Resolved` にアクセスします。ステータスはプレゼンテーションに保存され、ファイルを再度開いた後でも読み取れます。
 
-**スレッド化されたディスカッション（返信チェーン）はサポートされますか？また、ネストの上限はありますか？**
+**スレッド化されたディスカッション（返信チェーン）はサポートされていますか？また、ネストの上限はありますか？**
 
-はい。各コメントは [parent comment](https://reference.aspose.com/slides/ja/python-java/aspose.slides/comment/#getParentComment) を参照できるため、返信チェーンが可能です。API には特定のネスト深度の制限は定義されていません。
+はい。各コメントは **[parent comment](https://reference.aspose.com/slides/ja/python-java/aspose.slides/comment/#getParentComment)** を参照できるため、返信チェーンが可能です。API には特定のネスト深さの上限は定義されていません。
 
-**コメントマーカーの位置はスライド上のどの座標系で定義されていますか？**
+**コメントマーカーの位置はスライドのどの座標系で定義されていますか？**
 
-マーカー位置はスライド座標系の浮動小数点座標で定義されるため、スライド上の任意の場所に正確に配置できます。
+マーカーの位置はスライド座標系の浮動小数点座標で定義されており、スライド上の任意の場所に正確に配置できます。

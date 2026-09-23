@@ -1,5 +1,5 @@
 ---
-title: إدارة تعليقات العرض التقديمي في Node.js
+title: إدارة تعليقات العروض التقديمية في Node.js
 linktitle: تعليقات العرض التقديمي
 type: docs
 weight: 100
@@ -11,7 +11,7 @@ keywords:
 - تعليقات العرض التقديمي
 - تعليقات الشريحة
 - إضافة تعليق
-- الوصول إلى تعليق
+- الوصول إلى التعليق
 - تعديل تعليق
 - الرد على التعليق
 - إزالة تعليق
@@ -21,30 +21,32 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides لـ Node.js عبر Java: إضافة، قراءة، تعديل، الرد على، وإزالة التعليقات في عروض PowerPoint."
+description: "إدارة تعليقات العروض التقديمية باستخدام Aspose.Slides لـ Node.js عبر Java: إضافة، قراءة، تعديل، الرد على، وإزالة التعليقات في عروض PowerPoint."
 ---
-## **النظرة العامة**
+## **نظرة عامة**
 
-تشرح هذه المقالة كيفية إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides for Node.js عبر Java. تُظهر الأنواع المرتبطة بالتعليقات الأساسية وتوضح كيفية إضافة تعليقات إلى الشرائح، الوصول إلى التعليقات الموجودة، العمل مع الردود والتعليقات الحديثة، وإزالة التعليقات من العرض التقديمي.
+تشرح هذه المقالة كيفية إدارة تعليقات العروض التقديمية باستخدام Aspose.Slides لـ Node.js عبر Java. تقدم الأنواع الرئيسية المتعلقة بالتعليقات وتوضح كيفية إضافة تعليقات إلى الشرائح، والوصول إلى التعليقات الموجودة، والعمل مع الردود والتعليقات الحديثة، وإزالة التعليقات من عرض تقديمي.
 
-تغطي الأمثلة سيناريوهات المراجعة والتعاون الشائعة في PowerPoint، مثل تعيين تعليقات للمؤلفين، قراءة نص التعليق والبيانات الوصفية، بناء سلاسل الردود، وإزالة التعليقات المحددة أو جميع التعليقات.
+تغطي الأمثلة سيناريوهات المراجعة والتعاون الشائعة في PowerPoint، مثل تعيين التعليقات للمؤلفين، قراءة نص التعليق والبيانات الوصفية، بناء سلاسل الردود، وإزالة التعليقات المحددة أو جميع التعليقات.
 
-في PowerPoint، تظهر التعليقات كتوثيقات على الشرائح. عند اختيار تعليق يتم عرض نصه والنقاش المتعلق به.
+في PowerPoint، تظهر التعليقات كتعليقات توضيحية على الشرائح. يؤدي اختيار تعليق إلى عرض نصه والنقاش المرتبط به.
+
+لرؤية كيفية إظهار أو إخفاء التعليقات عند فتح عرض تقديمي دون تعديل التعليقات نفسها، انظر [إظهار أو إخفاء التعليقات عند فتح عرض تقديمي](/slides/ar/nodejs-java/presentation-view-properties/).
 
 ## **لماذا إضافة تعليقات إلى العروض التقديمية؟**
 
-يمكنك استخدام التعليقات لتقديم ملاحظات والتعاون مع الزملاء عند مراجعة العروض التقديمية.
+يمكنك استخدام التعليقات لتقديم الملاحظات والتعاون مع الزملاء عند مراجعة العروض التقديمية.
 
-يوفر Aspose.Slides for Node.js عبر Java الـ APIs التالية للعمل مع التعليقات:
+يوفر Aspose.Slides لـ Node.js عبر Java واجهات برمجة التطبيقات التالية للعمل مع التعليقات:
 
-* الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) التي تُوفر إمكانية الوصول إلى مؤلفي تعليقات العرض التقديمي.
-* الفئة [CommentCollection](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/commentcollection/) التي تمثل التعليقات المرتبطة بمؤلف فردي.
-* الفئة [Comment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/comment/) التي تُوفر معلومات حول التعليق، بما في ذلك المؤلف، وقت الإنشاء، الموضع، والنص.
-* الفئة [CommentAuthor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/commentauthor/) التي تُوفر معلومات حول المؤلف، بما في ذلك الاسم، الأحرف الأولى، والتعليقات المرتبطة به.
+* الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) التي توفر الوصول إلى مؤلفي تعليقات العرض التقديمي.
+* الفئة [CommentCollection](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/commentcollection/) التي تمثل التعليقات المرتبطة بكاتب معين.
+* الفئة [Comment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/comment/) التي توفر معلومات حول التعليق، بما في ذلك مؤلفه، وقت الإنشاء، الموقع، والنص.
+* الفئة [CommentAuthor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/commentauthor/) التي توفر معلومات عن الكاتب، بما في ذلك اسمه، الأحرف الأولى، والتعليقات المرتبطة به.
 
-## **إضافة تعليقات إلى الشرائح**
+## **إضافة تعليقات إلى الشريحة**
 
-يوضح المثال التالي كيفية إضافة تعليقات إلى الشرائح في عرض PowerPoint:
+يوضح المثال التالي كيفية إضافة تعليقات إلى الشرائح في عرض PowerPoint تقديمي:
 
 ```javascript
 var aspose = aspose || {};
@@ -78,9 +80,9 @@ try {
 }
 ```
 
-## **الوصول إلى تعليقات الشرائح**
+## **الوصول إلى تعليقات الشريحة**
 
-يوضح المثال التالي كيفية الوصول إلى التعليقات الموجودة في عرض PowerPoint:
+يوضح المثال التالي كيفية الوصول إلى التعليقات الموجودة في عرض PowerPoint تقديمي:
 
 ```javascript
 var aspose = aspose || {};
@@ -109,9 +111,9 @@ try {
 
 ## **الرد على التعليقات**
 
-التعليق الأصلي هو التعليق الأساسي في أعلى شجرة الردود. تسمح طريقتا [Comment.getParentComment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/comment/getparentcomment/) و[Comment.setParentComment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/comment/setparentcomment/) بالحصول على التعليق الأصلي أو تعيينه.
+التعليق الأصلي هو التعليق الأصلي في أعلى تسلسل الردود. تسمح لك طريقتا [Comment.getParentComment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/comment/getparentcomment/) و[Comment.setParentComment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/comment/setparentcomment/) بالحصول على أصل التعليق أو تعيينه.
 
-يوضح المثال التالي كيفية إضافة ردود وفحص شجرة التعليقات الناتجة:
+يوضح المثال التالي كيفية إضافة ردود وفحص تسلسل التعليقات الناتج:
 
 ```javascript
 var aspose = aspose || {};
@@ -165,19 +167,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* عندما تُستَخدم طريقة [Comment.remove](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/comment/remove/) لحذف تعليق، تُحذف جميع الردود على ذلك التعليق أيضًا.
-* إذا أنشأت طريقة [Comment.setParentComment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/comment/setparentcomment/) مرجعًا دائريًا، يتم إلقاء استثناء [PptxEditException](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pptxeditexception/).
+* عند استخدام طريقة [Comment.remove](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/comment/remove/) لحذف تعليق، يتم أيضًا حذف جميع الردود على ذلك التعليق.
+* إذا أنشأت [Comment.setParentComment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/comment/setparentcomment/) مرجعًا دائريًا، يتم إلقاء استثناء [PptxEditException](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **إضافة تعليقات حديثة**
 
-يمكن ربط التعليقات الحديثة بالشفرة نفسها، أو بشكل محدد، أو بنطاق نص داخل [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/). تقبل طريقة [CommentCollection.addModernComment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) معاملًا من نوع [Shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/) بالإضافة إلى الشريحة وإحداثيات علامة التعليق.
+يمكن ربط التعليقات الحديثة بالشريحة نفسها، أو بشكل محدد، أو بنطاق نص داخل [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/). تقبل طريقة [CommentCollection.addModernComment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) معاملًا من نوع [Shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/) إلى جانب إحداثيات الشريحة وعلامة التعليق.
 
-عند تمرير `null` كقيمة للمعامل shape، يكون التعليق تعليقًا على مستوى الشريحة. توضع علامته وفقًا للإحداثيات المقدمة، لكنه لا يرتبط بشكَل معين، لذا تُعيد طريقة [ModernComment.getShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/getshape/) القيمة `null`. عند توفير كائن [Shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/)، يتم تثبيت التعليق على ذلك الشكل. لا تزال الإحداثيات تحدد موضع علامة التعليق على الشريحة، بينما يمكن استرجاع ارتباط الشكل عبر [ModernComment.getShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/getshape/).
+عند تمرير `null` كقيمة للمعامل shape، يكون التعليق تعليقا على مستوى الشريحة. يتم تموضع علامته بالإحداثيات المقدمة، لكنه غير مرتبط بشكل معين، لذا تُرجع [ModernComment.getShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/getshape/) القيمة `null`. عندما يتم توفير [Shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/)، يتم تثبيت التعليق على ذلك الشكل. لا تزال الإحداثيات تحدد موقع علامة التعليق على الشريحة، بينما يمكن استرجاع ارتباط الشكل عبر [ModernComment.getShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/getshape/).
 
-### **تثبيت تعليق حديث على شكل**
+### **تثبيت تعليق حديث إلى شكل**
 
-يوضح المثال التالي إنشاء كل من تعليق حديث على مستوى الشريحة وتعليق حديث مثبت إلى [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) محدد. ثم يقرأ الشكل المرتبط بكل تعليق.
+يُنشئ المثال التالي كلًا من تعليق حديث على مستوى الشريحة وتعليق حديث مثبت إلى [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) محدد. ثم يقرأ الشكل المرتبط من كل تعليق.
 
 ```javascript
 var aspose = aspose || {};
@@ -209,9 +211,9 @@ try {
 
 ### **تثبيت التعليقات على أنواع أشكال مختلفة**
 
-يمكن استخدام أي كائن شريحة مشتق من [Shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/) كمرساة للشكل. تشمل الأمثلة الشائعة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/)، [PictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/)، [GroupShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/groupshape/)، [Connector](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/connector/)، و[GraphicalObject](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/graphicalobject/) مثل المخططات.
+يمكن استخدام أي كائن شريحة مشتق من [Shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/) كمرساة شكل. تشمل الأمثلة الشائعة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/)، [PictureFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pictureframe/)، [GroupShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/connector/)، ونسخ [GraphicalObject](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/graphicalobject/) مثل المخططات.
 
-يوضح المثال التالي إنشاء عدة أنواع أشكال شائعة وربط تعليق حديث بكل منها.
+يُنشئ المثال التالي عدة أنواع شائعة من الأشكال ويربط تعليقا حديثًا بكل منها.
 
 ```javascript
 var aspose = aspose || {};
@@ -256,18 +258,17 @@ try {
 }
 ```
 
-### **تثبيت تعليق على نص وتعيين حالته**
+### **تثبيت تعليق إلى نص وتعيين حالته**
 
-بالنسبة لتعليق حديث مرتبط بـ [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/)، تُتيح طريقتا [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) و[ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) الوصول إلى موضع بدء النص المحدد داخل إطار النص الخاص بالشكل. وتُتيح طريقتا [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) و[ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) الوصول إلى طول الاختيار. معًا، تُربط هذه القيم التعليق بنطاق نص محدد داخل الـ [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/).
+بالنسبة لتعليق حديث مرتبط بـ [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/)، تسمح طريقتا [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) و[ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) بالوصول إلى موضع البداية للنص المحدد في إطار نص الشكل. وتتيح طريقتا [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) و[ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) طول التحديد. معًا، تربط هذه القيم التعليق بنطاق نص معين داخل [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/).
 
 توفر طريقتا [ModernComment.getStatus](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/getstatus/) و[ModernComment.setStatus](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/setstatus/) قيمة من تعداد [ModernCommentStatus](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncommentstatus/):
-
-- `NotDefined` — لا يتم تعريف حالة حديثة معينة للتعليق.
+- `NotDefined` — لا يتم تعريف حالة تعليق حديث محددة.
 - `Active` — التعليق نشط.
 - `Resolved` — تم حل التعليق.
-- `Closed` — التعليق مُغلق.
+- `Closed` — التعليق مغلق.
 
-يوضح المثال التالي إنشاء تعليق حديث مثبت إلى شكل، ربطه باختيار نص، وضع علامة "تم الحل"، حفظ العرض التقديمي، والتحقق من القيم بعد إعادة فتح الملف.
+يُنشئ المثال التالي تعليقًا حديثًا مثبتًا إلى شكل، ويربطه بتحديد نص، ويضع علامة بأنه تم حله، ثم يحفظ العرض التقديمي، ويتحقق من القيم بعد إعادة فتح الملف.
 
 ```javascript
 var aspose = aspose || {};
@@ -327,7 +328,7 @@ try {
 
 ### **فحص التعليقات الحديثة الموجودة**
 
-لفحص عرض تقديمي موجود، تحقق من أي تعليقات هي من نوع [ModernComment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/)، ثم افحص [ModernComment.getShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/getshape/)، [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/)، [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/)، و[ModernComment.getStatus](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/getstatus/). يشير الشكل `null` إلى تعليق على مستوى الشريحة. بالنسبة لمرساة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/)، تحدد طرق اختيار النص النطاق المرتبط داخل إطار النص الخاص بالشكل.
+لفحص عرض تقديمي موجود، تحقق من أي التعليقات هي مثيلات [ModernComment](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/)، ثم فحص [ModernComment.getShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/), و[ModernComment.getStatus](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/getstatus/). يشير الشكل `null` إلى تعليق على مستوى الشريحة. بالنسبة لمرساة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/)، تحدد طرق اختيار النص النطاق المرتبط في إطار نص الشكل.
 
 ```javascript
 var aspose = aspose || {};
@@ -442,14 +443,14 @@ try {
 
 ## **الأسئلة المتكررة**
 
-**هل يدعم Aspose.Slides حالة "تم الحل" للتعليقات الحديثة؟**
+**هل يدعم Aspose.Slides حالة حل للتعليقات الحديثة؟**
 
-نعم. تُتيح طريقتا [ModernComment.getStatus](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/getstatus/) و[ModernComment.setStatus](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/setstatus/) الوصول إلى قيمة من تعداد [ModernCommentStatus](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncommentstatus/)، بما في ذلك `Resolved`. تُحفظ الحالة في العرض التقديمي ويمكن قراءتها مرة أخرى بعد إعادة فتح الملف.
+نعم. تُتيح [ModernComment.getStatus](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/getstatus/) و[ModernComment.setStatus](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncomment/setstatus/) الوصول إلى قيمة من [ModernCommentStatus](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/moderncommentstatus/)، بما في ذلك `Resolved`. يتم تخزين الحالة في العرض التقديمي ويمكن قراءتها مرة أخرى بعد إعادة فتح الملف.
 
-**هل تُدعم المناقشات المتسلسلة (سلاسل الردود) وهل هناك حد للتعمق؟**
+**هل تدعم المناقشات المتسلسلة (سلاسل الردود)، وهل هناك حد للتعشيق؟**
 
-نعم. يمكن لكل تعليق الإشارة إلى [التعليق الأصلي](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/comment/getparentcomment/)، مما يتيح سلاسل ردود. لا تُحدِّد الـ API حدًا معينًا لعمق التداخل.
+نعم. يمكن لكل تعليق الإشارة إلى [التعليق الأصلي](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/comment/getparentcomment/)، مما يتيح سلاسل الردود. لا تحدد واجهة البرمجة حدًا معينًا لعمق التعشيق.
 
-**في أي نظام إحداثيات يتم تعريف موضع علامة التعليق على الشريحة؟**
+**في أي نظام إحداثيات يتم تحديد موضع علامة التعليق على الشريحة؟**
 
-يُحدَّد موضع العلامة بإحداثيات ذات نقطة عائمة في نظام إحداثيات الشريحة، مما يتيح وضعها بدقة على الشريحة.
+يتم تعريف موضع العلامة بواسطة إحداثيات ذات فاصلة عائمة في نظام إحداثيات الشريحة، مما يتيح لك وضعها بدقة على الشريحة.

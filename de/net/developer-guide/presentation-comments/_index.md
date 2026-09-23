@@ -1,19 +1,19 @@
 ---
-title: Verwalten von Präsentationskommentaren in .NET
+title: Präsentationskommentare verwalten in .NET
 linktitle: Präsentationskommentare
 type: docs
 weight: 100
 url: /de/net/presentation-comments/
 keywords:
 - Kommentar
-- moderner Kommentar
+- Moderner Kommentar
 - PowerPoint-Kommentare
 - Präsentationskommentare
 - Folienkommentare
 - Kommentar hinzufügen
 - Kommentar abrufen
 - Kommentar bearbeiten
-- Auf Kommentar antworten
+- Kommentar beantworten
 - Kommentar entfernen
 - Kommentar löschen
 - PowerPoint
@@ -21,29 +21,32 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Verwalten Sie Präsentationskommentare mit Aspose.Slides für .NET: Kommentare in PowerPoint‑Präsentationen schnell und einfach hinzufügen, lesen, bearbeiten, darauf antworten und entfernen."
+description: "Verwalten Sie Präsentationskommentare mit Aspose.Slides für .NET: Kommentare in PowerPoint-Präsentationen schnell und einfach hinzufügen, lesen, bearbeiten, beantworten und entfernen."
 ---
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie man Präsentationskommentare mit Aspose.Slides für .NET verwaltet. Er stellt die wichtigsten kommentarbezogenen Typen vor und demonstriert, wie man Kommentare zu Folien hinzufügt, vorhandene Kommentare abruft, mit Antworten und modernen Kommentaren arbeitet und Kommentare aus einer Präsentation entfernt.
+Dieser Artikel erklärt, wie man Präsentationskommentare mit Aspose.Slides für .NET verwaltet. Er führt die wichtigsten kommentarbezogenen Typen ein und zeigt, wie man Kommentare zu Folien hinzufügt, vorhandene Kommentare abruft, mit Antworten und modernen Kommentaren arbeitet und Kommentare aus einer Präsentation entfernt.
 
-Die Beispiele decken gängige Prüf‑ und Zusammenarbeitsszenarien in PowerPoint ab, wie das Zuweisen von Kommentaren zu Autoren, das Lesen von Kommentartexten und Metadaten, das Erstellen von Antwortketten und das Entfernen ausgewählter Kommentare oder aller Kommentare.
+Die Beispiele decken gängige Überprüfungs- und Zusammenarbeitsszenarien in PowerPoint ab, z. B. das Zuordnen von Kommentaren zu Autoren, das Lesen von Kommentartexten und Metadaten, das Erstellen von Antwortketten und das Entfernen ausgewählter Kommentare oder aller Kommentare.
 
-In PowerPoint erscheinen Kommentare als Anmerkungen auf den Folien. Das Auswählen eines Kommentars zeigt dessen Text und die zugehörige Diskussion an.
+In PowerPoint erscheinen Kommentare als Anmerkungen auf Folien. Das Auswählen eines Kommentars zeigt dessen Text und die zugehörige Diskussion an.
+
+Um zu verlangen, dass Kommentare beim Öffnen einer Präsentation angezeigt oder ausgeblendet werden, ohne die Kommentare selbst zu ändern, siehe [Kommentare beim Öffnen einer Präsentation ein- oder ausblenden](/slides/de/net/presentation-view-properties/).
 
 ## **Warum Kommentare zu Präsentationen hinzufügen?**
 
-Sie können Kommentare verwenden, um Feedback zu geben und mit Kollegen zusammenzuarbeiten, wenn Sie Präsentationen prüfen.
+Sie können Kommentare verwenden, um Feedback zu geben und bei der Überprüfung von Präsentationen mit Kollegen zusammenzuarbeiten.
 
 Aspose.Slides für .NET stellt die folgenden APIs für die Arbeit mit Kommentaren bereit:
 
-* Die [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation) Klasse, die Zugriff auf die Kommentar‑Autoren der Präsentation bietet.
-* Die [ICommentCollection](https://reference.aspose.com/slides/de/net/aspose.slides/icommentcollection) Schnittstelle, die die Kommentare eines einzelnen Autors darstellt.
-* Die [IComment](https://reference.aspose.com/slides/de/net/aspose.slides/icomment) Schnittstelle, die Informationen zu einem Kommentar liefert, einschließlich Autor, Erstellungszeit, Position und Text.
-* Die [CommentAuthor](https://reference.aspose.com/slides/de/net/aspose.slides/commentauthor) Klasse, die Informationen zu einem Autor bereitstellt, darunter Name, Initialen und zugehörige Kommentare.
+* Die [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation)-Klasse, die Zugriff auf die Kommentarautoren der Präsentation bietet.
+* Das [ICommentCollection](https://reference.aspose.com/slides/de/net/aspose.slides/icommentcollection)-Interface, das die mit einem einzelnen Autor verbundenen Kommentare darstellt.
+* Das [IComment](https://reference.aspose.com/slides/de/net/aspose.slides/icomment)-Interface, das Informationen zu einem Kommentar bereitstellt, einschließlich Autor, Erstellungszeit, Position und Text.
+* Die [CommentAuthor](https://reference.aspose.com/slides/de/net/aspose.slides/commentauthor)-Klasse, die Informationen zu einem Autor liefert, einschließlich Name, Initialen und zugehöriger Kommentare.
 
-## **Folienkommentare hinzufügen**
-Das folgende Beispiel zeigt, wie man Kommentare zu Folien in einer PowerPoint‑Präsentation hinzufügt:
+## **Foliekommentare hinzufügen**
+
+Das folgende Beispiel zeigt, wie man Kommentare zu Folien in einer PowerPoint-Präsentation hinzufügt:
 
 ```csharp
 using System;
@@ -74,8 +77,9 @@ if (comments.Length > 0)
 presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Folienkommentare abrufen**
-Das folgende Beispiel zeigt, wie man vorhandene Kommentare in einer PowerPoint‑Präsentation abruft:
+## **Foliekommentare abrufen**
+
+Das folgende Beispiel zeigt, wie man vorhandene Kommentare in einer PowerPoint-Präsentation abruft:
 
 ```csharp
 using System;
@@ -97,9 +101,10 @@ foreach (var author in presentation.CommentAuthors)
 ```
 
 ## **Auf Kommentare antworten**
-Ein Eltern‑Kommentar ist der ursprüngliche Kommentar an der Spitze einer Antwort‑Hierarchie. Die [ParentComment](https://reference.aspose.com/slides/de/net/aspose.slides/icomment/properties/parentcomment) Eigenschaft der [IComment](https://reference.aspose.com/slides/de/net/aspose.slides/icomment) Schnittstelle ermöglicht das Abrufen oder Setzen des Elternteils eines Kommentars.
 
-Das folgende Beispiel zeigt, wie man Antworten hinzufügt und die resultierende Kommentar‑Hierarchie inspiziert:
+Ein übergeordneter Kommentar ist der ursprüngliche Kommentar an der Spitze einer Antworthierarchie. Die [ParentComment](https://reference.aspose.com/slides/de/net/aspose.slides/icomment/properties/parentcomment)-Eigenschaft des [IComment](https://reference.aspose.com/slides/de/net/aspose.slides/icomment)-Interfaces ermöglicht das Abrufen oder Festlegen des übergeordneten Kommentars.
+
+Das folgende Beispiel zeigt, wie man Antworten hinzufügt und die resultierende Kommentarhierarchie untersucht:
 
 ```csharp
 using System;
@@ -151,21 +156,19 @@ presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="warning" title="Attention" %}} 
-
-* Wenn die [Remove](https://reference.aspose.com/slides/de/net/aspose.slides/icomment/methods/remove) Methode der [IComment](https://reference.aspose.com/slides/de/net/aspose.slides/icomment) Schnittstelle verwendet wird, um einen Kommentar zu löschen, werden alle Antworten auf diesen Kommentar ebenfalls gelöscht.
-* Wenn die [ParentComment](https://reference.aspose.com/slides/de/net/aspose.slides/icomment/properties/parentcomment) Eigenschaft eine zirkuläre Referenz erzeugt, wird eine [PptxEditException](https://reference.aspose.com/slides/de/net/aspose.slides/pptxeditexception) ausgelöst.
-
+* Wenn die [Remove](https://reference.aspose.com/slides/de/net/aspose.slides/icomment/methods/remove)-Methode des [IComment](https://reference.aspose.com/slides/de/net/aspose.slides/icomment)-Interfaces verwendet wird, um einen Kommentar zu löschen, werden auch alle Antworten auf diesen Kommentar gelöscht.
+* Wenn die [ParentComment](https://reference.aspose.com/slides/de/net/aspose.slides/icomment/properties/parentcomment)-Eigenschaft eine zyklische Referenz erzeugt, wird eine [PptxEditException](https://reference.aspose.com/slides/de/net/aspose.slides/pptxeditexception) ausgelöst.
 {{% /alert %}}
 
 ## **Moderne Kommentare hinzufügen**
 
-Moderne Kommentare können der Folie selbst, einer bestimmten Form oder einem Textbereich innerhalb einer AutoShape zugeordnet werden. Die [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/de/net/aspose.slides/icommentcollection/addmoderncomment/) Methode akzeptiert ein [IShape](https://reference.aspose.com/slides/de/net/aspose.slides/ishape/) Argument zusätzlich zu den Folien‑ und Kommentar‑Marker‑Koordinaten.
+Moderne Kommentare können der Folie selbst, einer bestimmten Form oder einem Textbereich innerhalb einer AutoShape zugeordnet werden. Die Methode [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/de/net/aspose.slides/icommentcollection/addmoderncomment/) akzeptiert ein [IShape](https://reference.aspose.com/slides/de/net/aspose.slides/ishape/)-Argument zusätzlich zu den Folien‑ und Kommentar‑Marker‑Koordinaten.
 
-Wenn `null` für das Shape‑Argument übergeben wird, handelt es sich bei dem Kommentar um einen Folien‑Kommentar. Sein Marker wird anhand der angegebenen Koordinaten positioniert, ist jedoch keiner bestimmten Form zugeordnet, sodass [IModernComment.Shape](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/shape/) `null` zurückgibt. Wird ein [IShape](https://reference.aspose.com/slides/de/net/aspose.slides/ishape/) angegeben, wird der Kommentar an dieser Form verankert. Die Koordinaten definieren weiterhin die Position des Kommentar‑Markers auf der Folie, während die Formzugehörigkeit über [IModernComment.Shape](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/shape/) abgerufen werden kann.
+Wenn für das Shape‑Argument `null` übergeben wird, handelt es sich bei dem Kommentar um einen Folien‑Kommentar. Sein Marker wird durch die angegebenen Koordinaten positioniert, ist jedoch keiner bestimmten Form zugeordnet, sodass [IModernComment.Shape](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/shape/) `null` zurückgibt. Wird ein [IShape](https://reference.aspose.com/slides/de/net/aspose.slides/ishape/) übergeben, wird der Kommentar an diese Form verankert. Die Koordinaten bestimmen weiterhin die Position des Kommentar‑Markers auf der Folie, während die Formzuordnung über [IModernComment.Shape](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/shape/) abgerufen werden kann.
 
 ### **Einen modernen Kommentar an einer Form verankern**
 
-Das folgende Beispiel erstellt sowohl einen Folien‑Kommentar als auch einen modernen Kommentar, der an einer bestimmten AutoShape verankert ist. Anschließend wird die zugehörige Form jedes Kommentars ausgelesen.
+Das folgende Beispiel erstellt sowohl einen modernen Kommentar auf Folienebene als auch einen modernen Kommentar, der an einer bestimmten AutoShape verankert ist. Anschließend liest es die zugehörige Form aus jedem Kommentar.
 
 ```csharp
 using System;
@@ -192,9 +195,9 @@ Console.WriteLine(shapeComment.Shape?.Name);
 presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 ```
 
-### **Kommentare an verschiedenen Formtypen verankern**
+### **Kommentare an verschiedene Formtypen verankern**
 
-Jedes Folienobjekt, das die [IShape](https://reference.aspose.com/slides/de/net/aspose.slides/ishape/) Schnittstelle implementiert, kann als Anker verwendet werden. Übliche Beispiele umfassen [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/de/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/de/net/aspose.slides/iconnector/) und [IGraphicalObject](https://reference.aspose.com/slides/de/net/aspose.slides/igraphicalobject/) Instanzen wie Diagramme.
+Jedes Folienobjekt, das [IShape](https://reference.aspose.com/slides/de/net/aspose.slides/ishape/) implementiert, kann als Anker für einen Kommentar verwendet werden. Häufige Beispiele sind [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/de/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/de/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/de/net/aspose.slides/iconnector/) und [IGraphicalObject](https://reference.aspose.com/slides/de/net/aspose.slides/igraphicalobject/)-Instanzen wie Diagramme.
 
 Das folgende Beispiel erstellt mehrere gängige Formtypen und verknüpft einen modernen Kommentar mit jedem von ihnen.
 
@@ -239,13 +242,13 @@ author.Comments.AddModernComment("Comment on a graphical object.", slide, chart,
 presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 ```
 
-### **Einen Kommentar an Text anhängen und seinen Status festlegen**
+### **Einen Kommentar an Text verankern und dessen Status festlegen**
 
-Für einen modernen Kommentar, der einer [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) zugeordnet ist, gibt [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/textselectionstart/) die Startposition des ausgewählten Textes im Textfeld der Form an, während [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/textselectionlength/) die Länge der Auswahl angibt. Zusammen verknüpfen diese Eigenschaften den Kommentar mit einem bestimmten Textbereich innerhalb der AutoShape.
+Für einen modernen Kommentar, der mit einer [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) verknüpft ist, gibt [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/textselectionstart/) die Startposition des ausgewählten Textes im Textfeld der Form an, während [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/textselectionlength/) die Länge der Auswahl angibt. Zusammen verknüpfen diese Eigenschaften den Kommentar mit einem bestimmten Textbereich innerhalb der AutoShape.
 
-Die [IModernComment.Status](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/status/) Eigenschaft kann gelesen oder mit einem Wert aus der [ModernCommentStatus](https://reference.aspose.com/slides/de/net/aspose.slides/moderncommentstatus/) Aufzählung aktualisiert werden:
+Die [IModernComment.Status](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/status/)-Eigenschaft kann mit einem Wert aus der Aufzählung [ModernCommentStatus](https://reference.aspose.com/slides/de/net/aspose.slides/moderncommentstatus/) gelesen oder gesetzt werden:
 
-- `NotDefined` — kein spezifischer moderner Kommentarstatus ist definiert.
+- `NotDefined` — kein spezifischer Modern‑Comment‑Status ist definiert.
 - `Active` — der Kommentar ist aktiv.
 - `Resolved` — der Kommentar wurde gelöst.
 - `Closed` — der Kommentar ist geschlossen.
@@ -301,9 +304,9 @@ foreach (var reopenedComment in reopenedComments)
 }
 ```
 
-### **Vorhandene moderne Kommentare untersuchen**
+### **Vorhandene moderne Kommentare inspizieren**
 
-Um eine bestehende Präsentation zu prüfen, ermitteln Sie, welche Kommentare die [IModernComment](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/) Schnittstelle implementieren, und untersuchen Sie dann [IModernComment.Shape](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/textselectionlength/) und [IModernComment.Status](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/status/). Ein `null` Shape weist auf einen Folien‑Kommentar hin. Bei einem [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) Anker identifizieren die Textauswahl‑Eigenschaften den zugehörigen Bereich im Textfeld der Form.
+Um eine vorhandene Präsentation zu untersuchen, prüfen Sie, welche Kommentare [IModernComment](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/) implementieren, und betrachten Sie anschließend [IModernComment.Shape](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/textselectionlength/) und [IModernComment.Status](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/status/). Ein `null`‑Shape weist auf einen Kommentar auf Folienebene hin. Für einen [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/)-Anker kennzeichnen die Textauswahl‑Eigenschaften den zugehörigen Bereich im Textfeld der Form.
 
 ```csharp
 using System;
@@ -415,12 +418,12 @@ presentation.Save("pres.pptx", SaveFormat.Pptx);
 
 **Unterstützt Aspose.Slides einen gelösten Status für moderne Kommentare?**
 
-Ja. [IModernComment.Status](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/status/) kann mit einem [ModernCommentStatus](https://reference.aspose.com/slides/de/net/aspose.slides/moderncommentstatus/) Wert gelesen und gesetzt werden, einschließlich `Resolved`. Der Status wird in der Präsentation gespeichert und kann nach erneutem Öffnen der Datei wieder ausgelesen werden.
+Ja. [IModernComment.Status](https://reference.aspose.com/slides/de/net/aspose.slides/imoderncomment/status/) kann mit einem Wert aus [ModernCommentStatus](https://reference.aspose.com/slides/de/net/aspose.slides/moderncommentstatus/) gelesen und gesetzt werden, einschließlich `Resolved`. Der Status wird in der Präsentation gespeichert und kann nach erneutem Öffnen der Datei wieder ausgelesen werden.
 
-**Werden Threaded Discussions (Antwortketten) unterstützt und gibt es ein Verschachtelungs‑Limit?**
+**Werden Threaded Discussions (Antwortketten) unterstützt und gibt es ein Begrenzung für die Verschachtelung?**
 
-Ja. Jeder Kommentar kann auf seinen [parent comment](https://reference.aspose.com/slides/de/net/aspose.slides/comment/parentcomment/) verweisen, wodurch Antwortketten ermöglicht werden. Die API definiert kein spezifisches Begrenzungs‑Tiefe‑Limit.
+Ja. Jeder Kommentar kann auf seinen [parent comment](https://reference.aspose.com/slides/de/net/aspose.slides/comment/parentcomment/) verweisen, wodurch Antwortketten ermöglicht werden. Die API definiert keine spezifische Begrenzung für die Verschachtelungstiefe.
 
 **In welchem Koordinatensystem ist die Position eines Kommentar‑Markers auf einer Folie definiert?**
 
-Die Marker‑Position wird durch Gleitkomma‑Koordinaten im Folien‑Koordinatensystem definiert, sodass Sie ihn präzise auf der Folie platzieren können.
+Die Position des Markers wird durch Gleitkomma‑Koordinaten im Folien‑Koordinatensystem definiert, sodass Sie ihn präzise auf der Folie platzieren können.

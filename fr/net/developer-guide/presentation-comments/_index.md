@@ -15,32 +15,34 @@ keywords:
 - modifier le commentaire
 - répondre au commentaire
 - supprimer le commentaire
-- effacer le commentaire
+- enlever le commentaire
 - PowerPoint
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Gérer les commentaires de présentation avec Aspose.Slides pour .NET : ajouter, lire, modifier, répondre et supprimer des commentaires dans les présentations PowerPoint rapidement et facilement."
+description: "Gérez les commentaires de présentation avec Aspose.Slides pour .NET : ajoutez, lisez, modifiez, répondez et supprimez les commentaires dans les présentations PowerPoint rapidement et facilement."
 ---
 ## **Vue d'ensemble**
 
 Cet article explique comment gérer les commentaires de présentation avec Aspose.Slides pour .NET. Il présente les principaux types liés aux commentaires et montre comment ajouter des commentaires aux diapositives, accéder aux commentaires existants, travailler avec les réponses et les commentaires modernes, et supprimer des commentaires d’une présentation.
 
-Les exemples couvrent les scénarios courants de révision et de collaboration dans PowerPoint, tels que l’attribution de commentaires à des auteurs, la lecture du texte et des métadonnées des commentaires, la création de chaînes de réponses, et la suppression de commentaires sélectionnés ou de tous les commentaires.
+Les exemples couvrent des scénarios courants d’examen et de collaboration dans PowerPoint, tels que l’attribution de commentaires à des auteurs, la lecture du texte et des métadonnées des commentaires, la création de chaînes de réponses et la suppression de commentaires sélectionnés ou de tous les commentaires.
 
-Dans PowerPoint, les commentaires apparaissent sous forme d’annotations sur les diapositives. La sélection d’un commentaire affiche son texte et la discussion associée.
+Dans PowerPoint, les commentaires apparaissent comme des annotations sur les diapositives. Sélectionner un commentaire affiche son texte et la discussion associée.
+
+Pour demander que les commentaires soient affichés ou masqués lors de l’ouverture d’une présentation sans modifier les commentaires eux‑mêmes, voir [Afficher ou masquer les commentaires lors de l'ouverture d'une présentation](/slides/fr/net/presentation-view-properties/).
 
 ## **Pourquoi ajouter des commentaires aux présentations ?**
 
-Vous pouvez utiliser les commentaires pour fournir des retours et collaborer avec vos collègues lors de la révision de présentations.
+Vous pouvez utiliser les commentaires pour fournir des retours et collaborer avec des collègues lors de la révision de présentations.
 
-Aspose.Slides pour .NET propose les API suivantes pour travailler avec les commentaires :
+Aspose.Slides pour .NET fournit les API suivantes pour travailler avec les commentaires :
 
 * La classe [Presentation](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation) qui donne accès aux auteurs de commentaires de la présentation.
 * L’interface [ICommentCollection](https://reference.aspose.com/slides/fr/net/aspose.slides/icommentcollection) qui représente les commentaires associés à un auteur individuel.
-* L’interface [IComment](https://reference.aspose.com/slides/fr/net/aspose.slides/icomment) qui fournit des informations sur un commentaire, y compris son auteur, l’heure de création, la position et le texte.
-* La classe [CommentAuthor](https://reference.aspose.com/slides/fr/net/aspose.slides/commentauthor) qui fournit des informations sur un auteur, notamment son nom, ses initiales et les commentaires associés.
+* L’interface [IComment](https://reference.aspose.com/slides/fr/net/aspose.slides/icomment) qui fournit des informations sur un commentaire, y compris son auteur, la date de création, la position et le texte.
+* La classe [CommentAuthor](https://reference.aspose.com/slides/fr/net/aspose.slides/commentauthor) qui fournit des informations sur un auteur, y compris son nom, ses initiales et les commentaires associés.
 
 ## **Ajouter des commentaires aux diapositives**
 L’exemple suivant montre comment ajouter des commentaires aux diapositives d’une présentation PowerPoint :
@@ -99,7 +101,7 @@ foreach (var author in presentation.CommentAuthors)
 ## **Répondre aux commentaires**
 Un commentaire parent est le commentaire original au sommet d’une hiérarchie de réponses. La propriété [ParentComment](https://reference.aspose.com/slides/fr/net/aspose.slides/icomment/properties/parentcomment) de l’interface [IComment](https://reference.aspose.com/slides/fr/net/aspose.slides/icomment) vous permet d’obtenir ou de définir le parent d’un commentaire.
 
-L’exemple suivant montre comment ajouter des réponses et inspecter la hiérarchie de commentaires résultante :
+L’exemple suivant montre comment ajouter des réponses et examiner la hiérarchie de commentaires résultante :
 
 ```csharp
 using System;
@@ -159,11 +161,10 @@ presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 
 Les commentaires modernes peuvent être associés à la diapositive elle‑même, à une forme spécifique ou à une plage de texte à l’intérieur d’une AutoShape. La méthode [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/fr/net/aspose.slides/icommentcollection/addmoderncomment/) accepte un argument [IShape](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/) en plus de la diapositive et des coordonnées du marqueur de commentaire.
 
-Lorsque `null` est passé pour l’argument shape, le commentaire est un commentaire au niveau de la diapositive. Son marqueur est positionné selon les coordonnées fournies, mais il n’est pas associé à une forme particulière, de sorte que [IModernComment.Shape](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/shape/) renvoie `null`. Lorsqu’une [IShape](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/) est fournie, le commentaire est ancré à cette forme. Les coordonnées définissent toujours la position du marqueur de commentaire sur la diapositive, tandis que l’association de forme peut être récupérée via [IModernComment.Shape](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/shape/).
+Lorsque `null` est passé pour l’argument shape, le commentaire est un commentaire de niveau diapositive. Son marqueur est positionné par les coordonnées fournies, mais il n’est pas associé à une forme particulière, ainsi [IModernComment.Shape](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/shape/) renvoie `null`. Lorsqu’une [IShape](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/) est fournie, le commentaire est ancré à cette forme. Les coordonnées définissent toujours la position du marqueur de commentaire sur la diapositive, tandis que l’association à la forme peut être récupérée via [IModernComment.Shape](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/shape/).
 
 ### **Ancrer un commentaire moderne à une forme**
-
-L’exemple suivant crée à la fois un commentaire moderne au niveau de la diapositive et un commentaire moderne ancré à une AutoShape spécifique. Il lit ensuite la forme associée à chaque commentaire.
+L’exemple suivant crée à la fois un commentaire moderne de niveau diapositive et un commentaire moderne ancré à une AutoShape spécifique. Il lit ensuite la forme associée à chaque commentaire.
 
 ```csharp
 using System;
@@ -191,10 +192,9 @@ presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 ```
 
 ### **Ancrer des commentaires à différents types de formes**
+Tout objet de diapositive qui implémente [IShape](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/) peut être utilisé comme ancre de forme. Des exemples courants incluent [IAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/fr/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/fr/net/aspose.slides/iconnector/) et des instances [IGraphicalObject](https://reference.aspose.com/slides/fr/net/aspose.slides/igraphicalobject/) comme les graphiques.
 
-Tout objet de diapositive implémentant [IShape](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/) peut être utilisé comme ancre de forme. Parmi les exemples courants figurent [IAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/fr/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/fr/net/aspose.slides/iconnector/) et les instances [IGraphicalObject](https://reference.aspose.com/slides/fr/net/aspose.slides/igraphicalobject/) telles que les graphiques.
-
-L’exemple suivant crée plusieurs types de formes courantes et associe un commentaire moderne à chacune d’elles.
+L’exemple suivant crée plusieurs types de formes courants et associe un commentaire moderne à chacun d’eux.
 
 ```csharp
 using System;
@@ -237,18 +237,17 @@ author.Comments.AddModernComment("Comment on a graphical object.", slide, chart,
 presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 ```
 
-### **Ancrer un commentaire à du texte et définir son statut**
+### **Ancrer un commentaire au texte et définir son statut**
+Pour un commentaire moderne associé à une [IAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/textselectionstart/) indique la position de départ du texte sélectionné dans le cadre de texte de la forme, tandis que [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/textselectionlength/) indique la longueur de la sélection. Ensemble, ces propriétés associent le commentaire à une plage de texte spécifique à l’intérieur de l’AutoShape.
 
-Pour un commentaire moderne associé à une [IAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/), la propriété [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/textselectionstart/) indique la position de départ du texte sélectionné dans le cadre de texte de la forme, tandis que [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/textselectionlength/) indique la longueur de la sélection. Ensemble, ces propriétés associent le commentaire à une plage de texte spécifique à l’intérieur de l’AutoShape.
-
-La propriété [IModernComment.Status](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/status/) peut être lue ou mise à jour avec une valeur de l’énumération [ModernCommentStatus](https://reference.aspose.com/slides/fr/net/aspose.slides/moderncommentstatus/) :
+Le statut [IModernComment.Status](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/status/) peut être lu ou mis à jour avec une valeur de l’enumération [ModernCommentStatus](https://reference.aspose.com/slides/fr/net/aspose.slides/moderncommentstatus/) :
 
 - `NotDefined` — aucun statut de commentaire moderne spécifique n’est défini.
 - `Active` — le commentaire est actif.
 - `Resolved` — le commentaire a été résolu.
 - `Closed` — le commentaire est fermé.
 
-L’exemple suivant crée un commentaire moderne ancré à une forme, l’associe à une sélection de texte, le marque comme résolu, enregistre la présentation et vérifie les valeurs après réouverture du fichier.
+L’exemple suivant crée un commentaire moderne ancré à une forme, l’associe à une sélection de texte, le marque comme résolu, enregistre la présentation et vérifie les valeurs après la réouverture du fichier.
 
 ```csharp
 using System;
@@ -300,8 +299,7 @@ foreach (var reopenedComment in reopenedComments)
 ```
 
 ### **Inspecter les commentaires modernes existants**
-
-Pour examiner une présentation existante, identifiez les commentaires implémentant [IModernComment](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/), puis examinez [IModernComment.Shape](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/textselectionlength/) et [IModernComment.Status](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/status/). Une forme `null` indique un commentaire au niveau de la diapositive. Pour une ancre [IAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/), les propriétés de sélection de texte identifient la plage associée dans le cadre de texte de la forme.
+Pour inspecter une présentation existante, vérifiez quels commentaires implémentent [IModernComment](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/), puis examinez [IModernComment.Shape](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/textselectionlength/) et [IModernComment.Status](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/status/). Une forme `null` indique un commentaire de niveau diapositive. Pour une ancre [IAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/), les propriétés de sélection de texte identifient la plage associée dans le cadre de texte de la forme.
 
 ```csharp
 using System;
@@ -347,9 +345,8 @@ foreach (var slide in presentation.Slides)
 
 ## **Supprimer les commentaires**
 
-### **Supprimer tous les commentaires et leurs auteurs**
-
-L’exemple suivant montre comment supprimer tous les commentaires et leurs auteurs d’une présentation :
+### **Supprimer tous les commentaires et les auteurs de commentaires**
+L’exemple suivant montre comment supprimer tous les commentaires et les auteurs de commentaires d’une présentation :
 
 ```csharp
 using Aspose.Slides;
@@ -367,7 +364,6 @@ presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
 ### **Supprimer des commentaires spécifiques**
-
 L’exemple suivant montre comment supprimer des commentaires spécifiques d’une diapositive :
 
 ```csharp
@@ -413,12 +409,12 @@ presentation.Save("pres.pptx", SaveFormat.Pptx);
 
 **Aspose.Slides prend‑il en charge un statut résolu pour les commentaires modernes ?**
 
-Oui. La propriété [IModernComment.Status](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/status/) peut être lue et définie avec une valeur de l’énumération [ModernCommentStatus](https://reference.aspose.com/slides/fr/net/aspose.slides/moderncommentstatus/), y compris `Resolved`. Le statut est stocké dans la présentation et peut être relu après réouverture du fichier.
+Oui. [IModernComment.Status](https://reference.aspose.com/slides/fr/net/aspose.slides/imoderncomment/status/) peut être lu et défini avec une valeur [ModernCommentStatus](https://reference.aspose.com/slides/fr/net/aspose.slides/moderncommentstatus/), y compris `Resolved`. Le statut est stocké dans la présentation et peut être relu après la réouverture du fichier.
 
-**Les discussions en chaîne (réponses imbriquées) sont‑elles prises en charge, et existe‑t‑il une limite de profondeur ?**
+**Les discussions en fil (chaînes de réponses) sont‑elles prises en charge et existe‑t‑il une limite de profondeur ?**
 
 Oui. Chaque commentaire peut référencer son [parent comment](https://reference.aspose.com/slides/fr/net/aspose.slides/comment/parentcomment/), ce qui permet des chaînes de réponses. L’API ne définit pas de limite spécifique de profondeur d’imbrication.
 
-**Dans quel système de coordonnées la position du marqueur de commentaire est‑elle définie sur une diapositive ?**
+**Dans quel système de coordonnées la position d’un marqueur de commentaire est‑elle définie sur une diapositive ?**
 
-La position du marqueur est définie par des coordonnées à virgule flottante dans le système de coordonnées de la diapositive, ce qui vous permet de le placer avec précision sur la diapositive.
+La position du marqueur est définée par des coordonnées à virgule flottante dans le système de coordonnées de la diapositive, ce qui vous permet de le placer précisément sur la diapositive.

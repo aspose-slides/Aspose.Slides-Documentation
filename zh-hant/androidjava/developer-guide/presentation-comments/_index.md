@@ -21,30 +21,32 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Android via Java 來管理簡報評論：快速且輕鬆地在 PowerPoint 簡報中新增、閱讀、編輯、回覆以及移除評論。"
+description: "使用 Aspose.Slides for Android via Java 管理簡報評論：快速且輕鬆地在 PowerPoint 簡報中新增、閱讀、編輯、回覆與移除評論。"
 ---
-## **概覽**
+## **概述**
 
-本文說明如何使用 Aspose.Slides for Android via Java 來管理簡報評論。它會介紹主要的與評論相關的型別，並示範如何在投影片上新增評論、存取現有評論、處理回覆與現代評論，以及如何從簡報中移除評論。
+本文說明如何使用 Aspose.Slides for Android via Java 來管理簡報評論。它會介紹主要的與評論相關的類型，並示範如何向投影片新增評論、存取現有評論、處理回覆與現代評論，以及如何從簡報中移除評論。
 
-這些範例涵蓋 PowerPoint 中常見的審閱與協作情境，例如指派評論給作者、讀取評論文字與中繼資料、建立回覆鏈，以及移除選取的評論或全部評論。
+這些範例涵蓋 PowerPoint 中常見的審閱與協作情境，例如將評論指派給作者、讀取評論文字與中繼資料、建立回覆鏈，以及移除選取的評論或全部評論。
 
-在 PowerPoint 中，評論會以註記的形式顯示在投影片上。選取評論時會顯示其文字與相關討論。
+在 PowerPoint 中，評論會以投影片上的註解形式顯示。選取評論即可顯示其文字與相關討論。
 
-## **為何在簡報中加入評論？**
+若要在開啟簡報時請求顯示或隱藏評論（而不變更評論本身），請參閱[在開啟簡報時顯示或隱藏評論](/slides/zh-hant/androidjava/presentation-view-properties/)。
 
-在審閱簡報時，可使用評論提供回饋並與同事協作。
+## **為何要在簡報中加入評論？**
 
-Aspose.Slides for Android via Java 提供以下 API 以操作評論：
+您可以在審閱簡報時使用評論提供回饋，並與同事協作。
 
-* [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別，提供存取簡報評論作者的功能。
-* [ICommentCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icommentcollection/) 介面，代表與特定作者相關的評論集合。
-* [IComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icomment/) 介面，提供評論的資訊，包括作者、建立時間、位置與文字。
-* [CommentAuthor](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/commentauthor/) 類別，提供作者資訊，包含名稱、縮寫與關聯的評論。
+Aspose.Slides for Android via Java 提供以下用於處理評論的 API：
+
+* The [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別，提供對簡報之評論作者的存取。
+* The [ICommentCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icommentcollection/) 介面，代表與單一作者關聯的評論。
+* The [IComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icomment/) 介面，提供有關評論的資訊，包括作者、建立時間、位置與文字。
+* The [CommentAuthor](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/commentauthor/) 類別，提供關於作者的資訊，包括名稱、縮寫與相關評論。
 
 ## **新增投影片評論**
 
-以下範例示範如何在 PowerPoint 簡報的投影片中新增評論：
+以下範例說明如何在 PowerPoint 簡報的投影片中新增評論：
 
 ```java
 import com.aspose.slides.IComment;
@@ -85,7 +87,7 @@ try {
 
 ## **存取投影片評論**
 
-以下範例示範如何在 PowerPoint 簡報中存取現有評論：
+以下範例說明如何存取 PowerPoint 簡報中現有的評論：
 
 ```java
 import com.aspose.slides.IComment;
@@ -110,7 +112,7 @@ try {
 
 ## **回覆評論**
 
-父評論是回覆層級頂端的原始評論。[IComment.getParentComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icomment/#getParentComment--) 與 [IComment.setParentComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 方法可讓您取得或設定評論的父項。
+父評論是回覆層級頂端的原始評論。IComment.getParentComment 與 IComment.setParentComment 方法讓您取得或設定評論的父評論。
 
 以下範例示範如何新增回覆並檢查產生的評論層級結構：
 
@@ -168,20 +170,20 @@ try {
 }
 ```
 
-{{% alert color="warning" title="警告" %}}
-* 使用 [IComment.remove](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icomment/#remove--) 方法刪除評論時，該評論的所有回覆也會一起被刪除。
-* 若 [IComment.setParentComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 產生循環參照，將拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/pptxeditexception/)。
+{{% alert color="warning" title="Warning" %}}
+* 當使用 IComment.remove 方法刪除評論時，所有對該評論的回覆也會被刪除。
+* 如果 IComment.setParentComment 產生循環參照，會拋出 PptxEditException。
 {{% /alert %}}
 
 ## **新增現代評論**
 
-現代評論可以與投影片本身、特定形狀，或 AutoShape 內的文字範圍關聯。 [ICommentCollection.addModernComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) 方法除了接受投影片與評論標記座標外，亦接受一個 [IShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/) 參數。
+現代評論可以關聯到投影片本身、特定圖形，或 AutoShape 內的文字範圍。[ICommentCollection.addModernComment] 方法接受除投影片與評論標記座標之外的 [IShape] 參數。
 
-當傳入 `null` 作為形狀參數時，該評論為投影片層級的評論。其標記位置由提供的座標決定，但不會與特定形狀關聯，因此 [IModernComment.getShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getShape--) 會回傳 `null`。若提供了 [IShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/)，則評論會錨定在該形狀上。座標仍然決定評論標記在投影片上的位置，而形狀的關聯可透過 [IModernComment.getShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getShape--) 取得。
+當形狀參數傳入 `null` 時，評論為投影片層級的評論。其標記由提供的座標定位，但不關聯到特定圖形，故 [IModernComment.getShape] 會回傳 `null`。若提供了 [IShape]，則評論會錨定於該圖形。座標仍決定評論標記在投影片上的位置，而可透過 [IModernComment.getShape] 取得圖形關聯。
 
-### **將現代評論錨定至形狀**
+### **將現代評論錨定至圖形**
 
-以下範例同時建立投影片層級的現代評論以及錨定於特定 AutoShape 的現代評論，並讀取每個評論所關聯的形狀：
+以下範例同時建立投影片層級的現代評論與錨定至特定 AutoShape 的現代評論，並從每個評論讀取其關聯的圖形。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -217,11 +219,11 @@ try {
 }
 ```
 
-### **將評論錨定至不同類型的形狀**
+### **將評論錨定至不同類型的圖形**
 
-任何實作了 [IShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/) 的投影片物件皆可作為形狀錨點。常見的例子包括 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iconnector/) 與 [IGraphicalObject](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/igraphicalobject/)（如圖表）等實例。
+任何實作 IShape 之投影片物件皆可作為圖形錨點。常見範例包括 IAutoShape、IPictureFrame、IGroupShape、IConnector 與 IGraphicalObject（如圖表）等實例。
 
-以下範例建立多種常見形狀類型，並為每一個形狀關聯一則現代評論：
+以下範例建立多種常見圖形類型，並為每個圖形關聯一則現代評論。
 
 ```java
 import com.aspose.slides.ChartType;
@@ -280,16 +282,16 @@ try {
 
 ### **將評論錨定至文字並設定其狀態**
 
-對於關聯於 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/) 的現代評論，[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) 與 [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) 可取得形狀文字框中所選文字的起始位置。 [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 與 [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) 可取得選取的長度。這兩個值共同將評論與 AutoShape 內的特定文字範圍關聯起來。
+對於關聯於 IAutoShape 的現代評論，[IModernComment.getTextSelectionStart] 與 [IModernComment.setTextSelectionStart] 取得形狀文字框中所選取文字的起始位置。[IModernComment.getTextSelectionLength] 與 [IModernComment.setTextSelectionLength] 取得選取的長度。結合這些值即可將評論與 AutoShape 內特定文字範圍關聯。
 
-[IModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getStatus--) 與 [IModernComment.setStatus](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) 方法可取得 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/moderncommentstatus/) 常數中的值：
+[IModernComment.getStatus] 與 [IModernComment.setStatus] 方法存取 ModernCommentStatus 常數中的值：
 
 - `NotDefined` — 未定義特定的現代評論狀態。
-- `Active` — 評論處於活躍狀態。
+- `Active` — 評論為啟用狀態。
 - `Resolved` — 評論已解決。
 - `Closed` — 評論已關閉。
 
-以下範例建立一個錨定於形狀的現代評論，將其與文字選取關聯，標記為已解決，儲存簡報，並在重新開啟檔案後驗證各項值：
+以下範例建立一則錨定於圖形的現代評論，將其關聯至文字選取，標記為已解決，儲存簡報，並在重新開啟檔案後驗證其值。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -356,7 +358,7 @@ try {
 
 ### **檢查現有的現代評論**
 
-要檢查現有的簡報，先判斷哪些評論實作了 [IModernComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/)，之後檢查 [IModernComment.getShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getShape--)、[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--)、[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 與 [IModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getStatus--)。`null` 形狀表示投影片層級的評論。若是以 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/) 為錨點，文字選取方法會指出該形狀文字框中相關的文字範圍。
+若要檢查現有簡報，請先確認哪些評論實作 IModernComment，然後檢查 IModernComment.getShape、IModernComment.getTextSelectionStart、IModernComment.getTextSelectionLength 與 IModernComment.getStatus。`null` 形狀表示投影片層級的評論。對於 IAutoShape 錨點，文字選取方法會指出該圖形文字框中的相關範圍。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -476,12 +478,12 @@ try {
 
 **Aspose.Slides 是否支援現代評論的已解決狀態？**
 
-是的。 [IModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getStatus--) 與 [IModernComment.setStatus](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) 可取得 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/moderncommentstatus/) 中的值，包括 `Resolved`。此狀態會儲存在簡報中，重新開啟檔案後仍可再次讀取。
+是。IModernComment.getStatus 與 IModernComment.setStatus 可存取 ModernCommentStatus 的值，包括 `Resolved`。此狀態會儲存在簡報中，重新開啟檔案後仍可讀取。
 
-**是否支援串接式討論（回覆鏈），且有巢狀深度限制嗎？**
+**是否支援串列討論（回覆鏈），且是否有巢狀深度限制？**
 
-支援。每則評論都可以參照其 [parent comment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icomment/#getParentComment--)，從而形成回覆鏈。API 並未定義特定的巢狀深度上限。
+是。每則評論皆可參照其父評論，從而形成回覆鏈。API 未定義特定的巢狀深度限制。
 
-**評論標記在投影片上的位置使用哪種座標系統定義？**
+**評論標記在投影片上的位置是以哪種座標系統定義的？**
 
-標記位置是以浮點座標在投影片座標系統中定義的，允許您精確地將其放置於投影片的任意位置。
+標記位置以投影片座標系統中的浮點座標定義，讓您能精確地將其放置於投影片上。

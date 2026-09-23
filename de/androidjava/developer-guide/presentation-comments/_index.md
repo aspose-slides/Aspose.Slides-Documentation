@@ -1,5 +1,5 @@
 ---
-title: Präsentationskommentare auf Android verwalten
+title: Verwalten von Präsentationskommentaren auf Android
 linktitle: Präsentationskommentare
 type: docs
 weight: 100
@@ -13,7 +13,7 @@ keywords:
 - Kommentar hinzufügen
 - Kommentar abrufen
 - Kommentar bearbeiten
-- Kommentar beantworten
+- Auf Kommentar antworten
 - Kommentar entfernen
 - Kommentar löschen
 - PowerPoint
@@ -21,26 +21,28 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Verwalten Sie Präsentationskommentare mit Aspose.Slides für Android über Java: Kommentare in PowerPoint-Präsentationen schnell und einfach hinzufügen, lesen, bearbeiten, beantworten und entfernen."
+description: "Verwalten Sie Präsentationskommentare mit Aspose.Slides für Android via Java: Kommentare in PowerPoint-Präsentationen schnell und einfach hinzufügen, lesen, bearbeiten, darauf antworten und entfernen."
 ---
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie Kommentare in einer Präsentation mit Aspose.Slides für Android über Java verwaltet werden. Er stellt die wichtigsten kommentarbezogenen Typen vor und demonstriert, wie Kommentare zu Folien hinzugefügt, vorhandene Kommentare abgerufen, mit Antworten und modernen Kommentaren gearbeitet und Kommentare aus einer Präsentation entfernt werden.
+Dieser Artikel erklärt, wie Präsentationskommentare mit Aspose.Slides für Android via Java verwaltet werden. Er führt die wichtigsten kommentarbezogenen Typen ein und zeigt, wie Kommentare zu Folien hinzugefügt, vorhandene Kommentare abgerufen, mit Antworten und modernen Kommentaren gearbeitet und Kommentare aus einer Präsentation entfernt werden.
 
-Die Beispiele decken gängige Überprüfungs‑ und Zusammenarbeitsszenarien in PowerPoint ab, z. B. das Zuweisen von Kommentaren zu Autoren, das Lesen von Kommentartexten und Metadaten, das Erstellen von Antwortketten sowie das Entfernen ausgewählter Kommentare oder aller Kommentare.
+Die Beispiele decken gängige Überprüfungs‑ und Zusammenarbeitsszenarien in PowerPoint ab, wie das Zuweisen von Kommentaren zu Autoren, das Lesen von Kommentartexten und Metadaten, das Erstellen von Antwortketten und das Entfernen ausgewählter Kommentare oder aller Kommentare.
 
 In PowerPoint erscheinen Kommentare als Anmerkungen auf Folien. Das Auswählen eines Kommentars zeigt dessen Text und die zugehörige Diskussion an.
 
+Um beim Öffnen einer Präsentation Kommentare ein‑ oder auszublenden, ohne die Kommentare selbst zu ändern, siehe [Kommentare beim Öffnen einer Präsentation ein‑ oder ausblenden](/slides/de/androidjava/presentation-view-properties/).
+
 ## **Warum Kommentare zu Präsentationen hinzufügen?**
 
-Sie können Kommentare verwenden, um Feedback zu geben und mit Kollegen zusammenzuarbeiten, wenn Sie Präsentationen prüfen.
+Sie können Kommentare verwenden, um Feedback zu geben und bei der Durchsicht von Präsentationen mit Kollegen zusammenzuarbeiten.
 
-Aspose.Slides für Android über Java stellt die folgenden APIs für die Arbeit mit Kommentaren bereit:
+Aspose.Slides für Android via Java stellt die folgenden APIs für die Arbeit mit Kommentaren bereit:
 
 * Die [Presentation](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/)‑Klasse, die Zugriff auf die Kommentarautoren der Präsentation bietet.
-* Das [ICommentCollection](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icommentcollection/)‑Interface, das die Kommentare eines einzelnen Autors repräsentiert.
-* Das [IComment](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icomment/)‑Interface, das Informationen zu einem Kommentar bereitstellt, einschließlich Autor, Erstellungszeit, Position und Text.
-* Die [CommentAuthor](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/commentauthor/)‑Klasse, die Informationen zu einem Autor liefert, darunter Name, Initialen und zugehörige Kommentare.
+* Die [ICommentCollection](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icommentcollection/)‑Schnittstelle, die die Kommentare eines einzelnen Autors darstellt.
+* Die [IComment](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icomment/)‑Schnittstelle, die Informationen zu einem Kommentar bereitstellt, einschließlich Autor, Erstellungszeit, Position und Text.
+* Die [CommentAuthor](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/commentauthor/)‑Klasse, die Informationen über einen Autor bereitstellt, einschließlich Name, Initialen und zugehörige Kommentare.
 
 ## **Folienkommentare hinzufügen**
 
@@ -83,7 +85,7 @@ try {
 }
 ```
 
-## **Zugriff auf Folienkommentare**
+## **Folienkommentare abrufen**
 
 Das folgende Beispiel zeigt, wie vorhandene Kommentare in einer PowerPoint‑Präsentation abgerufen werden:
 
@@ -108,11 +110,11 @@ try {
 }
 ```
 
-## **Antworten zu Kommentaren**
+## **Auf Kommentare antworten**
 
-Ein übergeordneter Kommentar ist der ursprüngliche Kommentar an der Spitze einer Antwort‑Hierarchie. Die Methoden [IComment.getParentComment](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icomment/#getParentComment--) und [IComment.setParentComment](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) ermöglichen das Abrufen bzw. Festlegen des übergeordneten Kommentars.
+Ein übergeordneter Kommentar ist der ursprüngliche Kommentar oben in einer Antwort‑Hierarchie. Die Methoden [IComment.getParentComment](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icomment/#getParentComment--) und [IComment.setParentComment](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) ermöglichen das Abrufen bzw. Festlegen des übergeordneten Kommentars.
 
-Das folgende Beispiel zeigt, wie Antworten hinzugefügt und die resultierende Kommentar‑Hierarchie untersucht werden:
+Das folgende Beispiel zeigt, wie Antworten hinzugefügt und die resultierende Kommentar‑Hierarchie inspiziert werden:
 
 ```java
 import com.aspose.slides.IComment;
@@ -169,21 +171,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-
-* Wenn die Methode [IComment.remove](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icomment/#remove--) verwendet wird, um einen Kommentar zu löschen, werden auch alle Antworten auf diesen Kommentar gelöscht.
-* Wenn [IComment.setParentComment](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) eine zirkuläre Referenz erzeugt, wird eine [PptxEditException](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/pptxeditexception/) ausgelöst.
-
+* Wird die Methode [IComment.remove](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icomment/#remove--) verwendet, um einen Kommentar zu löschen, werden alle Antworten auf diesen Kommentar ebenfalls gelöscht.
+* Führt [IComment.setParentComment](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) zu einer zirkulären Referenz, wird eine [PptxEditException](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/pptxeditexception/) ausgelöst.
 {{% /alert %}}
 
 ## **Moderne Kommentare hinzufügen**
 
-Moderne Kommentare können der Folie selbst, einer bestimmten Form oder einem Textbereich innerhalb einer AutoShape zugeordnet werden. Die Methode [ICommentCollection.addModernComment](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) akzeptiert ein [IShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishape/)-Argument zusätzlich zu den Folien‑ und Marker‑Koordinaten.
+Moderne Kommentare können der Folie selbst, einer bestimmten Form oder einem Textbereich innerhalb einer AutoShape zugeordnet werden. Die Methode [ICommentCollection.addModernComment](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) akzeptiert ein [IShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishape/)‑Argument zusätzlich zur Folie und den Koordinaten des Kommentarmarkers.
 
-Wird für das Shape‑Argument `null` übergeben, handelt es sich um einen Folien‑Kommentar. Sein Marker wird anhand der übergebenen Koordinaten positioniert, ist jedoch keiner bestimmten Form zugeordnet, sodass [IModernComment.getShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getShape--) `null` zurückgibt. Wird ein [IShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishape/) angegeben, ist der Kommentar an diese Form verankert. Die Koordinaten bestimmen weiterhin die Position des Kommentar‑Markers auf der Folie, während die Form‑Zuordnung über [IModernComment.getShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getShape--) abgerufen werden kann.
+Wird für das Shape‑Argument `null` übergeben, handelt es sich bei dem Kommentar um einen Folien‑Kommentar. Sein Marker wird anhand der angegebenen Koordinaten positioniert, ist jedoch keiner bestimmten Form zugeordnet, sodass [IModernComment.getShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getShape--) `null` zurückgibt. Wird ein [IShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishape/) angegeben, wird der Kommentar an diese Form verankert. Die Koordinaten geben weiterhin die Position des Kommentarmarkers auf der Folie an, während die Formzuordnung über [IModernComment.getShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getShape--) abgerufen werden kann.
 
 ### **Einen modernen Kommentar an einer Form verankern**
 
-Das folgende Beispiel erstellt sowohl einen Folien‑Kommentar als auch einen an einer bestimmten AutoShape verankerten modernen Kommentar und liest anschließend die zugehörige Form jedes Kommentars aus:
+Das folgende Beispiel erstellt sowohl einen modernen Folien‑Kommentar als auch einen modernen Kommentar, der an einer bestimmten AutoShape verankert ist. Anschließend wird die zugehörige Form aus jedem Kommentar gelesen.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -219,11 +219,11 @@ try {
 }
 ```
 
-### **Kommentare an verschiedenen Formtypen verankern**
+### **Kommentare an verschiedene Formtypen verankern**
 
-Jedes Folienobjekt, das [IShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishape/) implementiert, kann als Anker verwendet werden. Übliche Beispiele sind [IAutoShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iconnector/) und [IGraphicalObject](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/igraphicalobject/)-Instanzen wie Diagramme.
+Jedes Folienobjekt, das [IShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishape/) implementiert, kann als Formverankerung verwendet werden. Häufige Beispiele sind [IAutoShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iconnector/) und [IGraphicalObject](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/igraphicalobject/)-Instanzen wie Diagramme.
 
-Das folgende Beispiel erstellt mehrere gängige Formtypen und weist jedem einen modernen Kommentar zu:
+Das folgende Beispiel erstellt mehrere gängige Formtypen und ordnet jedem einen modernen Kommentar zu.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -280,18 +280,18 @@ try {
 }
 ```
 
-### **Einen Kommentar an Text verankern und dessen Status festlegen**
+### **Einen Kommentar an Text verankern und seinen Status festlegen**
 
-Für einen modernen Kommentar, der einer [IAutoShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iautoshape/) zugeordnet ist, ermöglichen [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) und [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) den Zugriff auf die Startposition des ausgewählten Textes im Textfeld der Form. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) und [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) geben die Länge der Auswahl zurück. Zusammen verknüpfen diese Werte den Kommentar mit einem bestimmten Textbereich innerhalb der AutoShape.
+Für einen modernen Kommentar, der mit einer [IAutoShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iautoshape/) verknüpft ist, greifen [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) und [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) auf die Startposition des ausgewählten Textes im Textfeld der Form zu. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) und [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) greifen auf die Länge der Auswahl zu. Zusammengenommen verknüpfen diese Werte den Kommentar mit einem bestimmten Textbereich innerhalb der AutoShape.
 
-Die Methoden [IModernComment.getStatus](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getStatus--) und [IModernComment.setStatus](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) greifen auf einen Wert der Konstanten [ModernCommentStatus](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/moderncommentstatus/) zu:
+Die Methoden [IModernComment.getStatus](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getStatus--) und [IModernComment.setStatus](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) greifen auf einen Wert aus den Konstanten [ModernCommentStatus](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/moderncommentstatus/) zu:
 
-- `NotDefined` — kein spezifischer moderner Kommentar‑Status ist definiert.
+- `NotDefined` — kein spezifischer Status für modernen Kommentar ist definiert.
 - `Active` — der Kommentar ist aktiv.
 - `Resolved` — der Kommentar wurde gelöst.
 - `Closed` — der Kommentar ist geschlossen.
 
-Das folgende Beispiel erstellt einen an einer Form verankerten modernen Kommentar, ordnet ihn einer Textauswahl zu, markiert ihn als gelöst, speichert die Präsentation und prüft die Werte nach dem erneuten Öffnen der Datei:
+Das folgende Beispiel erstellt einen an einer Form verankerten modernen Kommentar, verknüpft ihn mit einer Textauswahl, markiert ihn als gelöst, speichert die Präsentation und überprüft die Werte nach dem erneuten Öffnen der Datei.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -356,9 +356,9 @@ try {
 }
 ```
 
-### **Vorhandene moderne Kommentare untersuchen**
+### **Vorhandene moderne Kommentare inspizieren**
 
-Um eine vorhandene Präsentation zu untersuchen, prüfen Sie, welche Kommentare das Interface [IModernComment](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/) implementieren, und betrachten Sie dann [IModernComment.getShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) sowie [IModernComment.getStatus](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getStatus--). Ein `null`‑Shape bedeutet einen Folien‑Kommentar. Bei einem [IAutoShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iautoshape/)-Anker identifizieren die Textauswahl‑Methoden den zugehörigen Bereich im Textfeld der Form.
+Um eine vorhandene Präsentation zu inspizieren, prüfen Sie, welche Kommentare [IModernComment](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/) implementieren, und untersuchen anschließend [IModernComment.getShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) und [IModernComment.getStatus](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getStatus--). Eine `null`‑Form zeigt einen Folien‑Kommentar an. Für eine [IAutoShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iautoshape/)-Verankerung identifizieren die Textauswahl‑Methoden den zugehörigen Bereich im Textfeld der Form.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -427,7 +427,7 @@ try {
 }
 ```
 
-### **Bestimmte Kommentare entfernen**
+### **Spezifische Kommentare entfernen**
 
 Das folgende Beispiel zeigt, wie bestimmte Kommentare von einer Folie entfernt werden:
 
@@ -476,14 +476,14 @@ try {
 
 ## **FAQ**
 
-**Unterstützt Aspose.Slides einen gelösten Status für moderne Kommentare?**
+**Unterstützt Aspose.Slides einen erledigt‑Status für moderne Kommentare?**
 
-Ja. Die Methoden [IModernComment.getStatus](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getStatus--) und [IModernComment.setStatus](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) greifen auf einen Wert von [ModernCommentStatus](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/moderncommentstatus/) zu, einschließlich `Resolved`. Der Status wird in der Präsentation gespeichert und kann nach erneutem Öffnen der Datei wieder ausgelesen werden.
+Ja. [IModernComment.getStatus](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#getStatus--) und [IModernComment.setStatus](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) greifen auf einen [ModernCommentStatus](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/moderncommentstatus/)‑Wert zu, einschließlich `Resolved`. Der Status wird in der Präsentation gespeichert und kann nach dem erneuten Öffnen der Datei wieder ausgelesen werden.
 
-**Werden verschachtelte Diskussionen (Antwortketten) unterstützt und gibt es ein Begrenzungsniveau?**
+**Werden verschachtelte Diskussionen (Antwortketten) unterstützt und gibt es ein Begrenzungslevel?**
 
-Ja. Jeder Kommentar kann auf seinen [parent comment](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icomment/#getParentComment--) verweisen, wodurch Antwortketten möglich sind. Die API definiert kein spezifisches Begrenzungsniveau für die Verschachtelungstiefe.
+Ja. Jeder Kommentar kann auf seinen [übergeordneten Kommentar](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icomment/#getParentComment--), wodurch Antwortketten ermöglicht werden. Die API definiert keine spezifische Begrenzung der Verschachtelungstiefe.
 
-**In welchem Koordinatensystem ist die Position eines Kommentar‑Markers auf einer Folie definiert?**
+**In welchem Koordinatensystem ist die Position eines Kommentarmarkers auf einer Folie definiert?**
 
-Die Marker‑Position wird durch Gleitkomma‑Koordinaten im Folien‑Koordinatensystem definiert, sodass Sie sie präzise auf der Folie positionieren können.
+Die Marker‑Position wird durch Gleitkomma‑Koordinaten im Folien‑Koordinatensystem definiert, sodass Sie ihn präzise auf der Folie platzieren können.

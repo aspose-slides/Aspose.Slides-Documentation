@@ -21,26 +21,28 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java ile sunum yorumlarını yönetin: PowerPoint sunumlarında yorum ekleme, okuma, düzenleme, yanıtlama ve kaldırma."
+description: "Aspose.Slides for Node.js via Java ile sunum yorumlarını yönetin: PowerPoint sunumlarında yorum ekleme, okuma, düzenleme, yanıt verme ve kaldırma."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Node.js via Java kullanarak sunum yorumlarını nasıl yöneteceğinizi açıklar. Ana yorumla ilgili tipleri tanıtır ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlar ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma konularını gösterir.
+Bu makale, Aspose.Slides for Node.js via Java ile sunum yorumlarını nasıl yöneteceğinizi açıklar. Ana yorumla ilişkili tipleri tanıtır ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlar ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma konularını gösterir.
 
-Örnekler, PowerPoint'te yaygın inceleme ve işbirliği senaryolarını kapsar; örneğin yazarlarla yorum atama, yorum metni ve meta verilerini okuma, yanıt zincirleri oluşturma ve seçili yorumları ya da tüm yorumları silme.
+Örnekler, PowerPoint'te yorumları yazara atama, yorum metni ve meta verilerini okuma, yanıt zincirleri oluşturma ve seçili yorumları ya da tüm yorumları kaldırma gibi yaygın inceleme ve iş birliği senaryolarını kapsar.
 
-PowerPoint'te yorumlar, slaytlardaki açıklama olarak görünür. Bir yorumu seçmek, metnini ve ilgili tartışmayı gösterir.
+PowerPoint'te yorumlar, slaytlardaki açıklamalar olarak görünür. Bir yorumu seçmek, metnini ve ilgili tartışmayı gösterir.
+
+Sunum açıldığında yorumların gösterilmesini veya gizlenmesini, yorumların kendisini değiştirmeden isteğe bağlı olarak ayarlamak için [Show or Hide Comments When Opening a Presentation](/slides/tr/nodejs-java/presentation-view-properties/) bölümüne bakın.
 
 ## **Sunumlara Neden Yorum Eklenir?**
 
-Sunumları incelerken geri bildirim sağlamak ve meslektaşlarla işbirliği yapmak için yorumları kullanabilirsiniz.
+Sunumları incelerken geri bildirim sağlamak ve çalışanlarla iş birliği yapmak için yorumları kullanabilirsiniz.
 
-Aspose.Slides for Node.js via Java, yorumlarla çalışmak için aşağıdaki API'leri sunar:
+Aspose.Slides for Node.js via Java, yorumlarla çalışma için aşağıdaki API'leri sunar:
 
 * [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfı, sunumun yorum yazarlarına erişim sağlar.
-* [CommentCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/commentcollection/) sınıfı, tek bir yazarla ilişkili yorumları temsil eder.
-* [Comment](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/comment/) sınıfı, bir yorum hakkında yazar, oluşturma zamanı, konum ve metin gibi bilgileri verir.
-* [CommentAuthor](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/commentauthor/) sınıfı, yazarın adı, baş harfleri ve ilişkili yorumları gibi bilgileri sağlar.
+* [CommentCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/commentcollection/) sınıfı, belirli bir yazarla ilişkili yorumları temsil eder.
+* [Comment](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/comment/) sınıfı, bir yorumun yazarını, oluşturma zamanını, konumunu ve metnini içeren bilgileri sağlar.
+* [CommentAuthor](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/commentauthor/) sınıfı, yazarın adını, baş harflerini ve ilişkili yorumlarını içerir.
 
 ## **Slayt Yorumları Ekleme**
 
@@ -78,7 +80,7 @@ try {
 }
 ```
 
-## **Slayt Yorumlarına Erişme**
+## **Slayt Yorumlarına Erişim**
 
 Aşağıdaki örnek, bir PowerPoint sunumunda mevcut yorumlara nasıl erişileceğini gösterir:
 
@@ -109,7 +111,7 @@ try {
 
 ## **Yorumlara Yanıt Verme**
 
-Üst yorum, yanıt hiyerarşisinin en üstündeki orijinal yorumdur. [Comment.getParentComment](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/comment/getparentcomment/) ve [Comment.setParentComment](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/comment/setparentcomment/) yöntemleri, bir yorumun üst yorumunu almanıza veya ayarlamanıza olanak tanır.
+Üst yorum, yanıt hiyerarşisinin en üstündeki orijinal yorumdur. [Comment.getParentComment](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/comment/getparentcomment/) ve [Comment.setParentComment](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/comment/setparentcomment/) metotları, bir yorumun üst yorumunu almanızı veya ayarlamanızı sağlar.
 
 Aşağıdaki örnek, yanıt eklemeyi ve ortaya çıkan yorum hiyerarşisini incelemeyi gösterir:
 
@@ -165,19 +167,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* [Comment.remove](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/comment/remove/) yöntemi bir yorumu silmek için kullanıldığında, o yoruma ait tüm yanıtlar da silinir.
-* [Comment.setParentComment](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/comment/setparentcomment/) döngüsel bir referans oluşturursa, bir [PptxEditException](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pptxeditexception/) fırlatılır.
+* [Comment.remove](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/comment/remove/) metodu kullanılarak bir yorum silindiğinde, o yoruma ait tüm yanıtlar da silinir.  
+* [Comment.setParentComment](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/comment/setparentcomment/) dairesel bir referans oluşturursa, bir [PptxEditException](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pptxeditexception/) fırlatılır.  
 {{% /alert %}}
 
 ## **Modern Yorumlar Ekleme**
 
-Modern yorumlar, doğrudan slayt, belirli bir şekil veya bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) içindeki metin aralığıyla ilişkilendirilebilir. [CommentCollection.addModernComment](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) yöntemi, slayt ve yorum işaretleyici koordinatlarının yanı sıra bir [Shape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/) argümanı kabul eder.
+Modern yorumlar, slaytın kendisine, belirli bir şekle veya bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) içindeki metin aralığına ilişkilendirilebilir. [CommentCollection.addModernComment](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) metodu, slayt ve yorum işaretçisi koordinatlarının yanı sıra bir [Shape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/) argümanı kabul eder.
 
-Şekil argümanı için `null` geçildiğinde, yorum slayt‑seviyesinde bir yorum olur. İşaretleyici sağlanan koordinatlarla konumlandırılır, ancak belirli bir şekille ilişkilendirilmez, bu nedenle [ModernComment.getShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/getshape/) `null` döner. Bir [Shape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/) sağlandığında, yorum o şekle bağlanır. Koordinatlar hâlâ yorum işaretleyicisinin slayt üzerindeki konumunu tanımlar, şekil ilişkisi ise [ModernComment.getShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/getshape/) ile alınabilir.
+Şekil argümanı için `null` geçirilirse, yorum bir slayt‑seviyesi yorum olur. İşaretçi sağlanan koordinatlarla konumlandırılır, ancak belirli bir şekle ilişkilendirilmez; bu nedenle [ModernComment.getShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/getshape/) `null` döndürür. Bir [Shape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/) verildiğinde, yorum o şekle sabitlenir. Koordinatlar hâlâ yorum işaretçisinin slayttaki konumunu tanımlar, şekil ilişkisi ise [ModernComment.getShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/getshape/) ile alınabilir.
 
-### **Bir Modern Yorumu Şekle Bağlama**
+### **Modern Yorumu Bir Şekle Sabitleme**
 
-Aşağıdaki örnek, hem slayt‑seviyesinde bir modern yorum hem de belirli bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) üzerine bağlanmış bir modern yorum oluşturur. Ardından her yorumdan ilişkili şekli okur.
+Aşağıdaki örnek, hem bir slayt‑seviyesi modern yorum hem de belirli bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) üzerine sabitlenmiş bir modern yorum oluşturur. Ardından her yorumun ilişkili şekli okunur.
 
 ```javascript
 var aspose = aspose || {};
@@ -207,9 +209,9 @@ try {
 }
 ```
 
-### **Yorumları Farklı Şekil Türlerine Bağlama**
+### **Yorumları Farklı Şekil Türlerine Sabitleme**
 
-[Shape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/) türevi herhangi bir slayt nesnesi, şekil bağlantısı olarak kullanılabilir. Yaygın örnekler arasında [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/connector/) ve grafik nesneleri (örneğin grafikler) yer alır.
+[Shape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/) türünden türetilen herhangi bir slayt nesnesi şekil sabitleme olarak kullanılabilir. Yaygın örnekler şunlardır: [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/connector/) ve grafik nesneleri (örneğin grafikler) gibi [GraphicalObject](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/graphicalobject/) örnekleri.
 
 Aşağıdaki örnek, birkaç yaygın şekil türü oluşturur ve her birine modern bir yorum ilişkilendirir.
 
@@ -256,18 +258,18 @@ try {
 }
 ```
 
-### **Bir Yorumu Metne Bağlama ve Durumunu Ayarlama**
+### **Yorumu Metne Sabitleme ve Durumunu Ayarlama**
 
-Bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) ile ilişkili modern yorum için, [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) ve [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) yöntemleri, şeklin metin çerçevesindeki seçili metnin başlangıç konumuna erişir. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) ve [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) ise seçimin uzunluğunu verir. Bu değerler birlikte, yorumu [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) içindeki belirli bir metin aralığıyla ilişkilendirir.
+Bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) ile ilişkili modern yorum için, [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) ve [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) seçili metnin şeklin metin çerçevesindeki başlangıç konumuna erişir. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) ve [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) seçimin uzunluğunu alır. Bu değerler birlikte yorumun [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) içindeki belirli bir metin aralığıyla ilişkilendirilmesini sağlar.
 
-[ModernComment.getStatus](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/getstatus/) ve [ModernComment.setStatus](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/setstatus/) yöntemleri, [ModernCommentStatus](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncommentstatus/) enum'undan bir değere erişir:
+[ModernComment.getStatus](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/getstatus/) ve [ModernComment.setStatus](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/setstatus/) metotları, [ModernCommentStatus](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncommentstatus/) enumarasyonundan bir değere erişir:
 
-- `NotDefined` — belirli bir modern yorum durumu tanımlanmamış.
-- `Active` — yorum etkindir.
-- `Resolved` — yorum çözülmüştür.
+- `NotDefined` — belirli bir modern yorum durumu tanımlanmamıştır.  
+- `Active` — yorum aktiftir.  
+- `Resolved` — yorum çözülmüştür.  
 - `Closed` — yorum kapatılmıştır.
 
-Aşağıdaki örnek, şekil‑bağlantılı bir modern yorum oluşturur, bir metin seçimiyle ilişkilendirir, çözülmüş olarak işaretler, sunumu kaydeder ve dosya yeniden açıldıktan sonra değerleri doğrular.
+Aşağıdaki örnek, şekle sabitlenmiş bir modern yorum oluşturur, bir metin seçimiyle ilişkilendirir, çözüldü olarak işaretler, sunumu kaydeder ve dosyayı tekrar açtıktan sonra değerleri doğrular.
 
 ```javascript
 var aspose = aspose || {};
@@ -327,7 +329,7 @@ try {
 
 ### **Mevcut Modern Yorumları İnceleme**
 
-Mevcut bir sunumu incelemek için, hangi yorumların [ModernComment](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/) örneği olduğunu kontrol edin, ardından [ModernComment.getShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) ve [ModernComment.getStatus](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/getstatus/) yöntemlerine bakın. `null` bir şekil, slayt‑seviyesinde bir yorum olduğunu gösterir. Bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) bağlantısı için, metin‑seçim yöntemleri şeklin metin çerçevesindeki ilgili aralığı tanımlar.
+Mevcut bir sunumu incelemek için, hangi yorumların [ModernComment](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/) örnekleri olduğunu kontrol edin, ardından [ModernComment.getShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) ve [ModernComment.getStatus](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/getstatus/) metotlarını inceleyin. `null` bir şekil, slayt‑seviyesi bir yorum olduğunu gösterir. Bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) sapanı için, metin‑seçim metodları şeklin metin çerçevesindeki ilişkili aralığı tanımlar.
 
 ```javascript
 var aspose = aspose || {};
@@ -442,14 +444,14 @@ try {
 
 ## **SSS**
 
-**Aspose.Slides modern yorumlar için bir çözülmüş durumu destekliyor mu?**
+**Aspose.Slides modern yorumlar için çözüldü durumu destekliyor mu?**
 
-Evet. [ModernComment.getStatus](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/getstatus/) ve [ModernComment.setStatus](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/setstatus/) bir [ModernCommentStatus](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncommentstatus/) değerine, `Resolved` dahil, erişir. Durum sunumda depolanır ve dosya yeniden açıldıktan sonra tekrar okunabilir.
+Evet. [ModernComment.getStatus](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/getstatus/) ve [ModernComment.setStatus](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncomment/setstatus/) [ModernCommentStatus](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/moderncommentstatus/) değeri, `Resolved` dahil olmak üzere, erişir. Durum sunumda depolanır ve dosya tekrar açıldıktan sonra yeniden okunabilir.
 
-**İşlemeli tartışmalar (yanıt zincirleri) destekleniyor mu, bir iç içe limit var mı?**
+**İşlemeli tartışmalar (yanıt zincirleri) destekleniyor mu, ve bir iç içe limit var mı?**
 
-Evet. Her yorum, bir [parent comment](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/comment/getparentcomment/) referansı taşıyabilir; bu da yanıt zincirlerini mümkün kılar. API belirli bir iç içe derinlik sınırı tanımlamaz.
+Evet. Her yorum, bir [parent comment](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/comment/getparentcomment/) referansı gösterebilir; bu sayede yanıt zincirleri oluşturulabilir. API, belirli bir iç içe derinlik sınırı tanımlamaz.
 
-**Bir yorum işaretleyicisinin slayt üzerindeki konumu hangi koordinat sisteminde tanımlanır?**
+**Bir yorum işaretçisinin slayt üzerindeki konumu hangi koordinat sisteminde tanımlanır?**
 
-İşaretleyici konumu, slayt koordinat sisteminde kayan nokta koordinatlarıyla tanımlanır; böylece işaretleyiciyi slayt üzerinde tam olarak konumlandırabilirsiniz.
+İşaretçi konumu, slayt koordinat sistemindeki kayan nokta koordinatlarıyla tanımlanır; bu sayede işaretçi slayt üzerinde hassas bir konuma yerleştirilebilir.

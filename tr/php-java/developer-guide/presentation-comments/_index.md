@@ -1,5 +1,5 @@
 ---
-title: PHP'de Sunum Yorumlarını Yönetin
+title: PHP'de Sunum Yorumlarını Yönet
 linktitle: Sunum Yorumları
 type: docs
 weight: 100
@@ -10,40 +10,42 @@ keywords:
 - PowerPoint yorumları
 - sunum yorumları
 - slayt yorumları
-- yorumu ekle
+- yorum ekle
 - yoruma eriş
-- yorumu düzenle
-- yoruma yanıtla
-- yorumu kaldır
-- yorumu sil
+- yorum düzenle
+- yorum yanıtla
+- yorum kaldır
+- yorum sil
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java ile sunum yorumlarını yönetin: PowerPoint sunumlarında yorumları hızlı ve kolay bir şekilde ekleyin, okuyun, düzenleyin, yanıtlayın ve kaldırın."
+description: "Aspose.Slides for PHP via Java ile sunum yorumlarını yönetin: PowerPoint sunumlarında yorum ekleyin, okuyun, düzenleyin, yanıtlayın ve kaldırın, hızlı ve kolay bir şekilde."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for PHP via Java ile sunum yorumlarını nasıl yöneteceğinizi açıklar. Ana yorumla ilgili tipleri tanıtır ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlar ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma konularını gösterir.
+Bu makale, Aspose.Slides for PHP via Java ile sunum yorumlarını nasıl yöneteceğinizi açıklar. Ana yorumla ilgili türleri tanıtır ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlar ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma konularını gösterir.
 
-Örnekler, PowerPoint'teki yaygın inceleme ve iş birliği senaryolarını kapsar; örneğin yorumları yazarlara atama, yorum metni ve meta verileri okuma, yanıt zincirleri oluşturma ve seçili yorumları ya da tüm yorumları kaldırma.
+Örnekler, PowerPoint'te yaygın inceleme ve işbirliği senaryolarını kapsar; yorumları yazarlara atama, yorum metnini ve meta verileri okuma, yanıt zincirleri oluşturma ve seçili yorumları ya da tüm yorumları kaldırma gibi.
 
-PowerPoint'te yorumlar slaytlar üzerindeki ek açıklamalar olarak görünür. Bir yorumu seçmek, metnini ve ilgili tartışmayı gösterir.
+PowerPoint'te yorumlar, slaytlardaki açıklama olarak görünür. Bir yorumu seçmek, metnini ve ilgili tartışmayı gösterir.
 
-## **Sunumlara Neden Yorum Eklemeliyiz?**
+Sunum açılırken yorumları göster veya gizlemek için yorumları kendileri değiştirilmeden, bkz. [Sunum Açılırken Yorumları Göster veya Gizle](/slides/tr/php-java/presentation-view-properties/).
 
-Yorumları, sunumları incelerken geri bildirim sağlamak ve meslektaşlarınızla iş birliği yapmak için kullanabilirsiniz.
+## **Sunumlara Neden Yorum Eklenir?**
+
+Sunumları incelerken geri bildirim sağlamak ve çalışma arkadaşlarınızla işbirliği yapmak için yorumları kullanabilirsiniz.
 
 Aspose.Slides for PHP via Java, yorumlarla çalışmak için aşağıdaki API'leri sağlar:
 
 * The [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı, sunumun yorum yazarlarına erişim sağlar.
 * The [CommentCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/commentcollection/) sınıfı, belirli bir yazarla ilişkili yorumları temsil eder.
-* The [Comment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/) sınıfı, bir yorum hakkında yazar, oluşturulma zamanı, konum ve metin gibi bilgiler sunar.
-* The [CommentAuthor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/commentauthor/) sınıfı, ad, baş harfler ve ilişkili yorumlar gibi yazar bilgisini sağlar.
+* The [Comment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/) sınıfı, bir yorum hakkında bilgi sağlar; yazarını, oluşturulma zamanını, konumunu ve metnini içerir.
+* The [CommentAuthor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/commentauthor/) sınıfı, bir yazar hakkında bilgi verir; adını, baş harflerini ve ilişkili yorumları içerir.
 
-## **Slayt Yorumları Ekle**
+## **Slayt Yorumları Ekleme**
 
-Aşağıdaki örnek, PowerPoint sunumundaki slaytlara yorum eklemenin nasıl yapılacağını gösterir:
+Aşağıdaki örnek, bir PowerPoint sunumunda slaytlara yorum eklemenin nasıl yapılacağını gösterir:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -79,9 +81,9 @@ try {
 }
 ```
 
-## **Slayt Yorumlarına Erişme**
+## **Slayt Yorumlarına Erişim**
 
-Aşağıdaki örnek, PowerPoint sunumundaki mevcut yorumlara nasıl erişileceğini gösterir:
+Aşağıdaki örnek, bir PowerPoint sunumundaki mevcut yorumlara nasıl erişileceğini gösterir:
 
 ```php
 use aspose\slides\Presentation;
@@ -104,9 +106,9 @@ try {
 
 ## **Yorumlara Yanıt Verme**
 
-Üst yorum, yanıt hiyerarşisinin en üstündeki orijinal yorumdur. The [Comment::getParentComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/getparentcomment/) ve [Comment::setParentComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/setparentcomment/) yöntemleri bir yorumun üst yorumunu almanıza veya ayarlamanıza olanak tanır.
+Bir üst yorum, yanıt hiyerarşisinin en üstündeki özgün yorumdur. [Comment::getParentComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/getparentcomment/) ve [Comment::setParentComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/setparentcomment/) yöntemleri, bir yorumun üst yorumunu almanıza veya ayarlamanıza olanak tanır.
 
-Aşağıdaki örnek, yanıt eklemeyi ve ortaya çıkan yorum hiyerarşisini incelemeyi gösterir:
+Aşağıdaki örnek, yanıt eklemenin ve ortaya çıkan yorum hiyerarşisini incelemenin nasıl yapılacağını gösterir:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -162,18 +164,18 @@ try {
 
 {{% alert color="warning" title="Uyarı" %}}
 * [Comment::remove](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/remove/) yöntemi bir yorumu silmek için kullanıldığında, o yoruma ait tüm yanıtlar da silinir.
-* [Comment::setParentComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/setparentcomment/) dairesel bir referans oluşturursa, bir [PptxEditException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxeditexception/) fırlatılır.
+* [Comment::setParentComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/setparentcomment/) bir döngüsel referans oluşturursa, bir [PptxEditException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxeditexception/) fırlatılır.
 {{% /alert %}}
 
-## **Modern Yorumlar Ekle**
+## **Modern Yorumlar Ekleme**
 
-Modern yorumlar slaytın kendisiyle, belirli bir şekilyle veya bir AutoShape içindeki metin aralığıyla ilişkilendirilebilir. The [CommentCollection::addModernComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/commentcollection/addmoderncomment/) yöntemi, slayt ve yorum işaretleyici koordinatlarına ek olarak bir [Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) argümansını kabul eder.
+Modern yorumlar, slaytın kendisiyle, belirli bir şekille veya bir AutoShape içindeki metin aralığıyla ilişkilendirilebilir. [CommentCollection::addModernComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/commentcollection/addmoderncomment/) yöntemi, slayt ve yorum işaretleyici koordinatlarına ek olarak bir [Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) argümanı kabul eder.
 
-`null` şekil argümanı verildiğinde yorum bir slayt‑seviyesi yorum olur. İşaretleyicisi sağlanan koordinatlarla konumlandırılır, ancak belirli bir şekille ilişkilendirilmez, bu yüzden [ModernComment::getShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/getshape/) `null` döndürür. Bir [Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) sağlandığında yorum o şekle sabitlenir. Koordinatlar hâlâ yorum işaretleyicisinin slayt üzerindeki konumunu tanımlar, şekil ilişkisi ise [ModernComment::getShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/getshape/) üzerinden alınabilir.
+`null` bir şekil argümanı olarak geçirildiğinde, yorum slayt düzeyinde bir yorum olur. İşaretleyici verilen koordinatlarla konumlandırılır, ancak belirli bir şekille ilişkilendirilmez, bu yüzden [ModernComment::getShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/getshape/) `null` döndürür. Bir [Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) sağlandığında, yorum o şekle sabitlenir. Koordinatlar hâlâ yorum işaretleyicisinin slayttaki konumunu tanımlar, şekil ilişkilendirmesi ise [ModernComment::getShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/getshape/) ile alınabilir.
 
-### **Modern Yorumları Bir Şekle Bağlama**
+### **Modern Yorumu Bir Şekle Sabitleme**
 
-Aşağıdaki örnek, hem slayt‑seviyesi modern yorum hem de belirli bir AutoShape'e sabitlenmiş modern yorum oluşturur. Ardından her iki yorumdan da ilişkili şekli okur.
+Aşağıdaki örnek, hem slayt düzeyinde bir modern yorum hem de belirli bir AutoShape'e sabitlenmiş bir modern yorum oluşturur. Ardından her bir yorumdan ilişkili şekli okur.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -204,11 +206,11 @@ try {
 }
 ```
 
-### **Yorumları Farklı Şekil Türlerine Bağlama**
+### **Yorumları Farklı Şekil Türlerine Sabitleme**
 
-[Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) sınıfı ile temsil edilen herhangi bir slayt nesnesi şekil bağlantısı olarak kullanılabilir. Yaygın örnekler arasında [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/tr/php-java/aspose.slides/connector/) ve grafik nesneleri (örneğin grafikler) bulunur.
+[Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) sınıfı tarafından temsil edilen herhangi bir slayt nesnesi şekil sabitleyicisi olarak kullanılabilir. Yaygın örnekler arasında [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/tr/php-java/aspose.slides/connector/) ve grafik nesnesi (örneğin grafikler) gibi [GraphicalObject](https://reference.aspose.com/slides/tr/php-java/aspose.slides/graphicalobject/) örnekleri bulunur.
 
-Aşağıdaki örnek, birkaç yaygın şekil türü oluşturur ve her birine modern bir yorum ilişkilendirir.
+Aşağıdaki örnek, birkaç yaygın şekil türü oluşturur ve her biriyle bir modern yorum ilişkilendirir.
 
 ```php
 use aspose\slides\ChartType;
@@ -256,18 +258,18 @@ try {
 }
 ```
 
-### **Yorumu Metne Bağlama ve Durumunu Ayarlama**
+### **Yorumu Metne Sabitleme ve Durumunu Ayarlama**
 
-Bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ile ilişkili modern yorum için [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/gettextselectionstart/) ve [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/settextselectionstart/) şeklin metin çerçevesindeki seçili metnin başlangıç konumunu alır ve ayarlar. [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/gettextselectionlength/) ve [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/settextselectionlength/) seçimin uzunluğunu alır. Bu değerler birlikte yorumu AutoShape içinde belirli bir metin aralığıyla ilişkilendirir.
+Bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ile ilişkili modern yorum için, [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/gettextselectionstart/) ve [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/settextselectionstart/) şeklin metin çerçevesindeki seçili metnin başlangıç konumuna erişir. [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/gettextselectionlength/) ve [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/settextselectionlength/) seçimin uzunluğunu alır. Bu iki değer bir arada, yorumu AutoShape içindeki belirli bir metin aralığıyla ilişkilendirir.
 
 [ModernComment::getStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/getstatus/) ve [ModernComment::setStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/setstatus/) yöntemleri, [ModernCommentStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncommentstatus/) sabitlerinden bir değer alır:
 
-- `NotDefined` — özel bir modern‑yorum durumu tanımlanmamış.
-- `Active` — yorum etkin.
-- `Resolved` — yorum çözülmüş.
-- `Closed` — yorum kapalı.
+- `NotDefined` — belirli bir modern yorum durumu tanımlanmamıştır.
+- `Active` — yorum aktiftir.
+- `Resolved` — yorum çözülmüştür.
+- `Closed` — yorum kapatılmıştır.
 
-Aşağıdaki örnek, şekle sabitlenmiş bir modern yorum oluşturur, bir metin seçimiyle ilişkilendirir, çözülmüş olarak işaretler, sunumu kaydeder ve dosya yeniden açıldıktan sonra değerleri doğrular.
+Aşağıdaki örnek, şekle sabitlenmiş bir modern yorum oluşturur, bir metin seçimiyle ilişkilendirir, çözülmüş olarak işaretler, sunumu kaydeder ve dosyayı yeniden açtıktan sonra değerleri doğrular.
 
 ```php
 use aspose\slides\ModernCommentStatus;
@@ -329,7 +331,7 @@ try {
 
 ### **Mevcut Modern Yorumları İnceleme**
 
-Mevcut bir sunumu incelerken, her yorumun bir [ModernComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/) olup olmadığını kontrol edin, ardından [ModernComment::getShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/gettextselectionlength/) ve [ModernComment::getStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/getstatus/) incelenir. `null` bir şekil, slayt‑seviyesi yorum olduğunu gösterir. Bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) bağlantısı için metin‑seçim yöntemleri, şeklin metin çerçevesindeki ilgili aralığı belirler.
+Mevcut bir sunumu incelemek için, her yorumun bir [ModernComment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/) olup olmadığını kontrol edin, ardından [ModernComment::getShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/gettextselectionlength/) ve [ModernComment::getStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/getstatus/) inceleyin. `null` bir şekil, slayt düzeyinde bir yorum olduğunu gösterir. Bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) sabitleyicisi için, metin‑seçim yöntemleri şeklin metin çerçevesindeki ilgili aralığı belirler.
 
 ```php
 use aspose\slides\Presentation;
@@ -371,11 +373,11 @@ try {
 }
 ```
 
-## **Yorumları Kaldır**
+## **Yorumları Kaldırma**
 
-### **Tüm Yorumları ve Yorum Yazarlarını Kaldır**
+### **Tüm Yorumları ve Yorum Yazarlarını Kaldırma**
 
-Aşağıdaki örnek, bir sunumdan tüm yorumları ve yorum yazarlarını kaldırmayı gösterir:
+Aşağıdaki örnek, bir sunumdan tüm yorumları ve yorum yazarlarını nasıl kaldıracağınızı gösterir:
 
 ```php
 use aspose\slides\Presentation;
@@ -394,9 +396,9 @@ try {
 }
 ```
 
-### **Belirli Yorumları Kaldır**
+### **Belirli Yorumları Kaldırma**
 
-Aşağıdaki örnek, bir slayttan belirli yorumları kaldırmayı gösterir:
+Aşağıdaki örnek, bir slayttan belirli yorumları nasıl kaldıracağınızı gösterir:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -437,14 +439,14 @@ try {
 
 ## **SSS**
 
-**Aspose.Slides modern yorumlar için çözülmüş bir durum desteği sağlar mı?**
+**Aspose.Slides modern yorumlar için çözülmüş durumunu destekliyor mu?**
 
-Evet. [ModernComment::getStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/getstatus/) ve [ModernComment::setStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/setstatus/) bir [ModernCommentStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncommentstatus/) değeri, `Resolved` dahil, erişir. Durum sunumda depolanır ve dosya yeniden açıldıktan sonra tekrar okunabilir.
+Evet. [ModernComment::getStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/getstatus/) ve [ModernComment::setStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncomment/setstatus/) bir [ModernCommentStatus](https://reference.aspose.com/slides/tr/php-java/aspose.slides/moderncommentstatus/) değerine erişir, `Resolved` dahil. Durum sunumda depolanır ve dosya yeniden açıldığında tekrar okunabilir.
 
-**İş parçacıklı tartışmalar (yanıt zincirleri) destekleniyor mu ve bir iç içe derinlik sınırı var mı?**
+**İş parçacıklı tartışmalar (yanıt zincirleri) destekleniyor mu ve bir iç içeleme sınırı var mı?**
 
-Evet. Her yorum, bir [parent comment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/getparentcomment/) referansı ile yanıt zincirleri oluşturabilir. API, belirli bir iç içe derinlik sınırı tanımlamaz.
+Evet. Her yorum, [parent comment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/comment/getparentcomment/)’a referans verebilir, bu da yanıt zincirlerini etkinleştirir. API, belirli bir iç içeleme derinliği sınırı tanımlamaz.
 
-**Bir slaytta yorum işaretleyicisinin konumu hangi koordinat sistemine göre tanımlanır?**
+**Bir yorum işaretleyicisinin konumu slayt üzerinde hangi koordinat sisteminde tanımlanır?**
 
-İşaretleyici konumu, slayt koordinat sistemindeki kayan nokta koordinatlarıyla tanımlanır; bu, işaretleyiciyi slayt üzerinde tam olarak konumlandırmanıza olanak tanır.
+İşaretleyici konumu, slayt koordinat sistemindeki kayan noktalı koordinatlarla tanımlanır; bu sayede onu slayt üzerinde kesin olarak yerleştirebilirsiniz.

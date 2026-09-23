@@ -12,7 +12,7 @@ keywords:
 - slayt yorumları
 - yorum ekle
 - yoruma eriş
-- yorumu düzenle
+- yorum düzenle
 - yoruma yanıtla
 - yorumu kaldır
 - yorumu sil
@@ -20,28 +20,32 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile sunum yorumlarını yönetin: PowerPoint sunumlarında yorumları hızlı ve kolay bir şekilde ekleyin, okuyun, düzenleyin, yanıtlayın ve kaldırın."
+description: "Aspose.Slides for Java ile sunum yorumlarını yönetin: PowerPoint sunumlarında yorum ekleme, okuma, düzenleme, yanıtlama ve kaldırma işlemlerini hızlı ve kolay bir şekilde gerçekleştirin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Java ile sunum yorumlarını nasıl yöneteceğinizi açıklar. Yorumlarla ilgili ana tipleri tanıtır ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlar ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma konularını gösterir.
+Bu makale, Aspose.Slides for Java ile sunum yorumlarını nasıl yöneteceğinizi açıklar. Ana yorumla ilgili türleri tanıtır ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlar ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma konularını gösterir.
 
-Örnekler, PowerPoint'te yaygın inceleme ve işbirliği senaryolarını kapsar; örneğin yorumları yazarlara atama, yorum metni ve meta verileri okuma, yanıt zincirleri oluşturma ve seçili yorumları veya tüm yorumları kaldırma.
+Örnekler, PowerPoint'te yaygın inceleme ve iş birliği senaryolarını kapsar; yorumları yazarlarla ilişkilendirme, yorum metnini ve meta verileri okuma, yanıt zincirleri oluşturma ve seçili yorumları ya da tüm yorumları kaldırma gibi.
 
-PowerPoint'te yorumlar, slaytlardaki ek açıklamalar olarak görünür. Bir yorumu seçmek, metnini ve ilgili tartışmayı gösterir.
+PowerPoint'te yorumlar, slaytlardaki açıklama olarak görünür. Bir yorumu seçmek, metnini ve ilgili tartışmayı gösterir.
 
-## **Sunumlara Yorum Eklemek Neden Önemlidir?**
+Sunum açılırken yorumların gösterilmesini veya gizlenmesini, yorumların kendisini değiştirmeden talep etmek için bkz. [Sunum Açılırken Yorumları Gösterme veya Gizleme](/slides/tr/java/presentation-view-properties/).
+
+## **Sunumlara Neden Yorum Eklenir?**
 
 Sunumları incelerken geri bildirim sağlamak ve meslektaşlarla iş birliği yapmak için yorumları kullanabilirsiniz.
 
+Aspose.Slides for Java, yorumlarla çalışmak için aşağıdaki API'leri sağlar:
+
 * The [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfı, sunumun yorum yazarlarına erişim sağlar.
-* The [ICommentCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icommentcollection/) arabirimi, tek bir yazarla ilişkili yorumları temsil eder.
-* The [IComment](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icomment/) arabirimi, bir yorum hakkında yazar, oluşturulma zamanı, konum ve metin gibi bilgiler sağlar.
+* The [ICommentCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icommentcollection/) arayüzü, tek bir yazarla ilişkili yorumları temsil eder.
+* The [IComment](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icomment/) arayüzü, bir yorum hakkında yazar, oluşturulma zamanı, konum ve metin gibi bilgiler sunar.
 * The [CommentAuthor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/commentauthor/) sınıfı, yazarın adı, baş harfleri ve ilişkili yorumlar dahil olmak üzere yazar hakkında bilgi verir.
 
-## **Slaytlara Yorum Ekleme**
+## **Slayt Yorumları Ekleme**
 
-Aşağıdaki örnek, PowerPoint sunumundaki slaytlara yorum eklemenin nasıl yapılacağını gösterir:
+Aşağıdaki örnek, bir PowerPoint sunumundaki slaytlara nasıl yorum ekleneceğini gösterir:
 
 ```java
 import com.aspose.slides.IComment;
@@ -80,9 +84,9 @@ try {
 }
 ```
 
-## **Slayt Yorumlarına Erişme**
+## **Slayt Yorumlarına Erişim**
 
-Aşağıdaki örnek, PowerPoint sunumundaki mevcut yorumlara nasıl erişileceğini gösterir:
+Aşağıdaki örnek, bir PowerPoint sunumundaki mevcut yorumlara nasıl erişileceğini gösterir:
 
 ```java
 import com.aspose.slides.IComment;
@@ -107,9 +111,9 @@ try {
 
 ## **Yorumlara Yanıt Verme**
 
-Üst yorum, yanıt hiyerarşisinin en üstündeki orijinal yorumdur. [IComment.getParentComment](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icomment/#getParentComment--) ve [IComment.setParentComment](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) metodları, bir yorumun üst yorumunu almanızı veya ayarlamanızı sağlar.
+Üst yorum, yanıt hiyerarşisinin en üstündeki orijinal yorumdur. [IComment.getParentComment](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icomment/#getParentComment--) ve [IComment.setParentComment](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) metotları, bir yorumun üst yorumunu almanıza veya ayarlamanıza olanak tanır.
 
-Aşağıdaki örnek, yanıt eklemenin ve ortaya çıkan yorum hiyerarşisini incelemenin nasıl yapılacağını gösterir:
+Aşağıdaki örnek, yanıt eklemeyi ve ortaya çıkan yorum hiyerarşisini incelemeyi gösterir:
 
 ```java
 import com.aspose.slides.IComment;
@@ -166,19 +170,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* [IComment.remove](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icomment/#remove--) yöntemi bir yorumu silmek için kullanıldığında, o yoruma ait tüm yanıtlar da silinir.
-* [IComment.setParentComment](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) bir döngüsel referans oluşturursa, bir [PptxEditException](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pptxeditexception/) istisnası fırlatılır.
+* Bir yorumu silmek için [IComment.remove](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icomment/#remove--) metodu kullanıldığında, o yoruma ait tüm yanıtlar da silinir.
+* Eğer [IComment.setParentComment](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) döngüsel bir referans oluşturursa, bir [PptxEditException](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pptxeditexception/) istisnası fırlatılır.
 {{% /alert %}}
 
 ## **Modern Yorumlar Ekleme**
 
-Modern yorumlar slaytla, belirli bir şekille veya bir AutoShape içindeki metin aralığıyla ilişkilendirilebilir. [ICommentCollection.addModernComment](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) yöntemi, slayt ve yorum işaretçisi koordinatlarına ek olarak bir [IShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/) argümanını kabul eder.
+Modern yorumlar, slaytın kendisiyle, belirli bir şekille veya bir AutoShape içindeki metin aralığıyla ilişkilendirilebilir. [ICommentCollection.addModernComment](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) metodu, slayt ve yorum işaretçi koordinatlarına ek olarak bir [IShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/) argümanı alır.
 
-`null` şekil argümanı olarak verildiğinde, yorum slayt düzeyinde bir yorum olur. İşaretçi, sağlanan koordinatlarla konumlandırılır, ancak belirli bir şekle bağlanmadığı için [IModernComment.getShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getShape--) `null` döndürür. Bir [IShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/) sağlandığında, yorum o şekle bağlı olur. Koordinatlar hâlâ yorum işaretçisinin slayttaki konumunu tanımlar, şekil ilişkisi ise [IModernComment.getShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getShape--) üzerinden alınabilir.
+Şekil argümanı için `null` geçildiğinde yorum, slayt düzeyinde bir yorum olur. İşaretçi verilen koordinatlarla konumlandırılır, ancak belirli bir şekille ilişkilendirilmediği için [IModernComment.getShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getShape--) `null` döndürür. Bir [IShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/) sağlandığında yorum o şekle sabitlenir. Koordinatlar hâlâ yorum işaretçisinin slayttaki konumunu belirlerken, şekil ilişkilendirmesi [IModernComment.getShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getShape--) ile alınabilir.
 
-### **Modern Yorumu Bir Şekle Sabitleme**
+### **Modern Bir Yorumu Şekle Sabitleme**
 
-Aşağıdaki örnek, hem slayt düzeyinde bir modern yorum hem de belirli bir AutoShape'e sabitlenen bir modern yorum oluşturur. Ardından her yorumdan ilişkili şekli okur.
+Aşağıdaki örnek, bir slayt düzeyinde modern yorum ve belirli bir AutoShape'e sabitlenmiş modern yorum oluşturur. Ardından her yorumdan ilişkili şekli okur.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -216,9 +220,9 @@ try {
 
 ### **Yorumları Farklı Şekil Türlerine Sabitleme**
 
-[IShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/) arabirimini uygulayan herhangi bir slayt nesnesi şekil sabitleyicisi olarak kullanılabilir. Yaygın örnekler arasında [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iconnector/) ve grafik nesneleri (örneğin grafikler) bulunur.
+[IShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/) uygulayan herhangi bir slayt nesnesi şekil sabitleme için kullanılabilir. Yaygın örnekler arasında [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iconnector/) ve grafik nesne örnekleri (ör. grafikler) bulunur.
 
-Aşağıdaki örnek, birkaç yaygın şekil türü oluşturur ve her birine modern bir yorum ilişkilendirir.
+Aşağıdaki örnek, çeşitli yaygın şekil türleri oluşturur ve her birine modern bir yorum ilişkilendirir.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -275,18 +279,18 @@ try {
 }
 ```
 
-### **Bir Yorumu Metne Sabitle ve Durumunu Ayarla**
+### **Yorumu Metne Sabitle ve Durumunu Ayarla**
 
-Bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) ile ilişkili modern yorum için, [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) ve [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int--) şeklin metin çerçevesindeki seçili metnin başlangıç konumuna erişir. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) ve [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) ise seçimin uzunluğunu belirler. Bu değerler, yorumu AutoShape içindeki belirli bir metin aralığıyla ilişkilendirir.
+[IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) ile ilişkili bir modern yorum için [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) ve [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int--) şeklin metin çerçevesindeki seçili metnin başlangıç konumuna erişir. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) ve [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) seçimin uzunluğunu alır. Bu iki değer, yorumu AutoShape içindeki belirli bir metin aralığıyla ilişkilendirir.
 
-[IModernComment.getStatus](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getStatus--) ve [IModernComment.setStatus](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#setStatus-byte--) metodları, [ModernCommentStatus](https://reference.aspose.com/slides/tr/java/com.aspose.slides/moderncommentstatus/) sabitlerinden bir değere erişir:
+[IModernComment.getStatus](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getStatus--) ve [IModernComment.setStatus](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#setStatus-byte--) metotları, [ModernCommentStatus](https://reference.aspose.com/slides/tr/java/com.aspose.slides/moderncommentstatus/) sabitlerinden bir değer alır:
 
-- `NotDefined` — belirli bir modern yorum durumu tanımlanmamış.
+- `NotDefined` — belirli bir modern yorum durumu tanımlanmamıştır.
 - `Active` — yorum aktiftir.
 - `Resolved` — yorum çözümlenmiştir.
 - `Closed` — yorum kapatılmıştır.
 
-Aşağıdaki örnek, şekle sabitlenmiş bir modern yorum oluşturur, bunu bir metin seçimiyle ilişkilendirir, çözülmüş olarak işaretler, sunumu kaydeder ve dosyayı yeniden açtıktan sonra değerleri doğrular.
+Aşağıdaki örnek, şekle sabitlenmiş bir modern yorum oluşturur, metin seçimiyle ilişkilendirir, çözümlenmiş olarak işaretler, sunumu kaydeder ve dosya yeniden açıldıktan sonra değerleri doğrular.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -353,7 +357,7 @@ try {
 
 ### **Mevcut Modern Yorumları İnceleme**
 
-Mevcut bir sunumu incelemek için, hangi yorumların [IModernComment](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/) uyguladığını kontrol edin, ardından [IModernComment.getShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--), ve [IModernComment.getStatus](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getStatus--) metodlarını inceleyin. `null` bir şekil, slayt düzeyinde bir yorum olduğunu gösterir. Bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) sabitleyicisi için, metin seçimi metodları şeklin metin çerçevesindeki ilgili aralığı belirler.
+Mevcut bir sunumu incelemek için hangi yorumların [IModernComment](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/) uyguladığını kontrol edin, ardından [IModernComment.getShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) ve [IModernComment.getStatus](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getStatus--) incelenir. `null` bir şekil, slayt düzeyinde bir yorum olduğunu gösterir. Bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) sabitlemesi için metin‑seçim metotları, şeklin metin çerçevesindeki ilişkili aralığı tanımlar.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -400,7 +404,7 @@ try {
 
 ## **Yorumları Kaldırma**
 
-### **Tüm Yorumları ve Yazarları Kaldırma**
+### **Tüm Yorumları ve Yorum Yazarlarını Kaldırma**
 
 Aşağıdaki örnek, bir sunumdan tüm yorumları ve yorum yazarlarını nasıl kaldıracağınızı gösterir:
 
@@ -471,14 +475,14 @@ try {
 
 ## **SSS**
 
-**Aspose.Slides modern yorumlar için çözümlenmiş bir durumu destekliyor mu?**
+**Aspose.Slides modern yorumlar için çözümlenmiş durumu destekliyor mu?**
 
-Evet. [IModernComment.getStatus](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getStatus--) ve [IModernComment.setStatus](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#setStatus-byte--) bir [ModernCommentStatus](https://reference.aspose.com/slides/tr/java/com.aspose.slides/moderncommentstatus/) değerine, özellikle `Resolved` durumuna erişir. Durum, sunumda saklanır ve dosya yeniden açıldıktan sonra tekrar okunabilir.
+Evet. [IModernComment.getStatus](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#getStatus--) ve [IModernComment.setStatus](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imoderncomment/#setStatus-byte--) [ModernCommentStatus](https://reference.aspose.com/slides/tr/java/com.aspose.slides/moderncommentstatus/) değerine, `Resolved` dahil, erişir. Durum sunumda depolanır ve dosya yeniden açıldıktan sonra tekrar okunabilir.
 
-**İşlemeli tartışmalar (yanıt zincirleri) destekleniyor mu ve bir derinlik sınırlaması var mı?**
+**İleti zinciri (yanıt zincirleri) destekleniyor mu ve bir iç içe limit var mı?**
 
-Evet. Her yorum, [parent comment](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icomment/#getParentComment--) referansıyla bir üst yoruma işaret edebilir, böylece yanıt zincirleri oluşur. API, belirli bir iç içe derinlik sınırı tanımlamaz.
+Evet. Her yorum, [üst yorum](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icomment/#getParentComment--) referansını tutabilir, bu da yanıt zincirlerini mümkün kılar. API, belirli bir iç içe derinlik sınırı tanımlamaz.
 
 **Bir slayttaki yorum işaretçisinin konumu hangi koordinat sisteminde tanımlanır?**
 
-İşaretçi konumu, slayt koordinat sistemi içinde kayan nokta koordinatlarıyla tanımlanır; bu sayede işaretçiyi slayt üzerinde tam olarak konumlandırabilirsiniz.
+İşaretçi konumu, slayt koordinat sistemindeki kayan nokta koordinatlarıyla tanımlanır; böylece işaretçi slayt üzerinde tam olarak konumlandırılabilir.

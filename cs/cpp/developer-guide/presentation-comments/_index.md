@@ -8,42 +8,44 @@ keywords:
 - komentář
 - moderní komentář
 - komentáře PowerPoint
-- komentáře prezentace
-- komentáře snímku
+- komentáře v prezentaci
+- komentáře na snímcích
 - přidat komentář
 - přístup ke komentáři
 - upravit komentář
-- odpověď na komentář
+- odpovědět na komentář
 - odstranit komentář
 - smazat komentář
 - PowerPoint
 - prezentace
 - C++
 - Aspose.Slides
-description: "Spravujte komentáře v prezentacích pomocí Aspose.Slides pro C++: přidávejte, čtěte, upravujte, odpovídejte na a odstraňujte komentáře v PowerPointových prezentacích rychle a snadno."
+description: "Spravujte komentáře v prezentacích pomocí Aspose.Slides pro C++: přidávejte, čtěte, upravujte, odpovídejte na a odstraňujte komentáře v prezentacích PowerPoint rychle a snadno."
 ---
 ## **Přehled**
 
 Tento článek vysvětluje, jak spravovat komentáře v prezentaci pomocí Aspose.Slides pro C++. Představuje hlavní typy související s komentáři a ukazuje, jak přidávat komentáře do snímků, přistupovat k existujícím komentářům, pracovat s odpověďmi a moderními komentáři a odstraňovat komentáře z prezentace.
 
-Příklady pokrývají běžné scénáře revizí a spolupráce v PowerPointu, jako je přiřazování komentářů autorům, čtení textu a metadat komentáře, vytváření řetězců odpovědí a odstraňování vybraných nebo všech komentářů.
+Příklady pokrývají běžné scénáře revize a spolupráce v PowerPointu, jako je přiřazení komentářů autorům, čtení textu a metadat komentářů, vytváření řetězců odpovědí a odstraňování vybraných nebo všech komentářů.
 
-V PowerPointu se komentáře zobrazují jako anotace na snímcích. Výběr komentáře zobrazí jeho text a související diskusi.
+V PowerPointu se komentáře zobrazují jako anotace na snímcích. Výběrem komentáře se zobrazí jeho text a související diskuse.
+
+Chcete-li, aby se při otevření prezentace zobrazovaly nebo skrývaly komentáře bez změny samotných komentářů, viz [Zobrazit nebo skrýt komentáře při otevření prezentace](/slides/cs/cpp/presentation-view-properties/).
 
 ## **Proč přidávat komentáře do prezentací?**
 
-Můžete použít komentáře k poskytování zpětné vazby a spolupráci s kolegy při revizi prezentací.
+Komentáře můžete použít k poskytování zpětné vazby a spolupráci s kolegy při revizi prezentací.
 
-Aspose.Slides pro C++ poskytuje následující API pro práci s komentáři:
+Aspose.Slides pro C++ poskytuje následující rozhraní API pro práci s komentáři:
 
 * Třída [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) poskytuje přístup k autorům komentářů v prezentaci.
-* Rozhraní [ICommentCollection](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icommentcollection/) představuje komentáře přiřazené k jednotlivému autorovi.
+* Rozhraní [ICommentCollection](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icommentcollection/) představuje komentáře přiřazené konkrétnímu autorovi.
 * Rozhraní [IComment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icomment/) poskytuje informace o komentáři, včetně jeho autora, času vytvoření, pozice a textu.
-* Třída [CommentAuthor](https://reference.aspose.com/slides/cs/cpp/aspose.slides/commentauthor/) poskytuje informace o autorovi, včetně jména, iniciál a souvisejících komentářů.
+* Třída [CommentAuthor](https://reference.aspose.com/slides/cs/cpp/aspose.slides/commentauthor/) poskytuje informace o autorovi, včetně jeho jména, iniciál a přiřazených komentářů.
 
-## **Přidání komentářů do snímků**
+## **Přidání komentářů do snímku**
 
-Následující příklad ukazuje, jak přidat komentáře do snímků v PowerPointové prezentaci:
+Následující příklad ukazuje, jak přidat komentáře do snímků v prezentaci PowerPoint:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -88,7 +90,7 @@ presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
 
 ## **Přístup ke komentářům ve snímcích**
 
-Následující příklad ukazuje, jak přistupovat k existujícím komentářům v PowerPointové prezentaci:
+Následující příklad ukazuje, jak získat přístup k existujícím komentářům v prezentaci PowerPoint:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -119,7 +121,7 @@ for (auto&& author : presentation->get_CommentAuthors())
 
 ## **Odpovědi na komentáře**
 
-Rodičovský komentář je původní komentář na vrcholu hierarchie odpovědí. Metody [get_ParentComment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icomment/get_parentcomment/) a [set_ParentComment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icomment/set_parentcomment/) rozhraní [IComment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icomment/) vám umožňují získat nebo nastavit rodiče komentáře.
+Nadřazený komentář je původní komentář na vrcholu hierarchie odpovědí. Metody [get_ParentComment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icomment/get_parentcomment/) a [set_ParentComment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icomment/set_parentcomment/) rozhraní [IComment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icomment/) umožňují získat nebo nastavit nadřazený komentář.
 
 Následující příklad ukazuje, jak přidat odpovědi a prozkoumat vzniklou hierarchii komentářů:
 
@@ -184,19 +186,19 @@ presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Když je metoda [Remove](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icomment/remove/) rozhraní [IComment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icomment/) použita k odstranění komentáře, jsou také odstraněny všechny odpovědi na tento komentář.
-* Pokud metoda [set_ParentComment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icomment/set_parentcomment/) vytvoří kruhovou referenci, je vyhozena výjimka [PptxEditException](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pptxeditexception/).
+* Když je metoda [Remove](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icomment/remove/) rozhraní [IComment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icomment/) použita k odstranění komentáře, všechny odpovědi na tento komentář jsou také smazány.
+* Pokud metoda [set_ParentComment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icomment/set_parentcomment/) vytvoří kruhovou referenci, je vyvolána výjimka [PptxEditException](https://reference.aspose.com/slides/cs/cpp/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Přidání moderních komentářů**
 
-Moderní komentáře mohou být přiřazeny k samotnému snímku, ke konkrétnímu tvaru nebo k rozsahu textu uvnitř AutoShape. Metoda [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icommentcollection/addmoderncomment/) přijímá jako argument [IShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/) kromě snímku a souřadnic značky komentáře.
+Moderní komentáře mohou být přiřazeny k samotnému snímku, ke konkrétnímu tvaru nebo k úseku textu uvnitř AutoShape. Metoda [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icommentcollection/addmoderncomment/) přijímá argument typu [IShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/) kromě souřadnic snímku a značky komentáře.
 
-Když je pro argument tvaru předáno `nullptr`, jedná se o komentář na úrovni snímku. Jeho značka je umístěna podle zadaných souřadnic, ale není přiřazena k žádnému konkrétnímu tvaru, takže [IModernComment::get_Shape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_shape/) vrací `nullptr`. Když je zadán [IShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/), komentář je ukotven k tomuto tvaru. Souřadnice i nadále určují polohu značky komentáře na snímku, zatímco přiřazení tvaru lze získat pomocí [IModernComment::get_Shape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_shape/).
+Když je pro argument shape předán `nullptr`, jedná se o komentář na úrovni snímku. Jeho značka je umístěna podle zadaných souřadnic, ale není přiřazena k žádnému konkrétnímu tvaru, takže [IModernComment::get_Shape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_shape/) vrací `nullptr`. Když je poskytnut [IShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/), komentář je ukotven k tomuto tvaru. Souřadnice i nadále určují pozici značky komentáře na snímku, zatímco přiřazení tvaru lze získat pomocí [IModernComment::get_Shape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_shape/).
 
 ### **Ukotvení moderního komentáře k tvaru**
 
-Následující příklad vytvoří jak moderní komentář na úrovni snímku, tak moderní komentář ukotvený ke konkrétnímu AutoShape. Pak přečte přiřazený tvar u každého komentáře.
+Následující příklad vytvoří jak moderní komentář na úrovni snímku, tak moderní komentář ukotvený ke konkrétnímu AutoShape. Poté načte přiřazený tvar z každého komentáře.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -313,16 +315,15 @@ presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 
 ### **Ukotvení komentáře k textu a nastavení jeho stavu**
 
-Pro moderní komentář přiřazený k [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) řídí [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_textselectionstart/) a [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/set_textselectionstart/) počáteční pozici vybraného textu v textovém rámci tvaru. Podobně [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_textselectionlength/) a [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/set_textselectionlength/) řídí délku výběru. Společně tyto metody přiřazují komentář k určitému textovému rozsahu uvnitř AutoShape.
+U moderního komentáře přiřazeného k [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) řídí [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_textselectionstart/) a [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/set_textselectionstart/) počáteční pozici vybraného textu v textovém rámci tvaru. Podobně [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_textselectionlength/) a [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/set_textselectionlength/) určují délku výběru. Společně tyto metody přiřadí komentář ke konkrétnímu úseku textu uvnitř AutoShape.
 
 Metody [IModernComment::get_Status](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_status/) a [IModernComment::set_Status](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/set_status/) používají hodnotu z výčtu [ModernCommentStatus](https://reference.aspose.com/slides/cs/cpp/aspose.slides/moderncommentstatus/):
-
 - `NotDefined` — není definován žádný konkrétní stav moderního komentáře.
 - `Active` — komentář je aktivní.
 - `Resolved` — komentář byl vyřešen.
 - `Closed` — komentář je uzavřen.
 
-Následující příklad vytvoří moderní komentář ukotvený k tvaru, přiřadí jej k výběru textu, označí jej jako vyřešený, uloží prezentaci a po opětovném otevření souboru ověří hodnoty.
+Následující příklad vytvoří moderní komentář ukotvený k tvaru, přiřadí jej k výběru textu, označí jej jako vyřešený, uloží prezentaci a ověří hodnoty po opětovném otevření souboru.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -395,9 +396,9 @@ for (auto&& reopenedComment : reopenedComments)
 }
 ```
 
-### **Prohlédnutí existujících moderních komentářů**
+### **Prozkoumání existujících moderních komentářů**
 
-Pro prozkoumání existující prezentace zkontrolujte, které komentáře implementují [IModernComment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/), a poté prozkoumejte [IModernComment::get_Shape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_textselectionlength/) a [IModernComment::get_Status](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_status/). Tvar `nullptr` označuje komentář na úrovni snímku. Pro ukotvení k [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) metody výběru textu identifikují příslušný rozsah v textovém rámci tvaru.
+Chcete-li prozkoumat existující prezentaci, zjistěte, které komentáře implementují [IModernComment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/), a poté prozkoumejte [IModernComment::get_Shape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_textselectionlength/) a [IModernComment::get_Status](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_status/). Tvar `nullptr` označuje komentář na úrovni snímku. Pro ukotvení k [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) metody výběru textu určují přiřazený úsek v textovém rámci tvaru.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -538,14 +539,14 @@ presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **Často kladené otázky**
 
-**Podporuje Aspose.Slides stav „vyřešeno“ pro moderní komentáře?**
+**Podporuje Aspose.Slides stav "vyřešeno" pro moderní komentáře?**
 
-Ano. Metody [IModernComment::get_Status](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_status/) a [IModernComment::set_Status](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/set_status/) používají hodnotu z výčtu [ModernCommentStatus](https://reference.aspose.com/slides/cs/cpp/aspose.slides/moderncommentstatus/), včetně `Resolved`. Stav je uložen v prezentaci a může být po opětovném otevření souboru znovu přečten.
+Ano. Metody [IModernComment::get_Status](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/get_status/) a [IModernComment::set_Status](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imoderncomment/set_status/) používají hodnotu z výčtu [ModernCommentStatus](https://reference.aspose.com/slides/cs/cpp/aspose.slides/moderncommentstatus/), včetně `Resolved`. Stav je uložen v prezentaci a lze jej opět načíst po znovuotevření souboru.
 
-**Jsou podporována vlákna diskuzí (řetězce odpovědí) a existuje limit hloubky?**
+**Jsou podporovány vlákna diskusí (řetězce odpovědí) a existuje omezení hloubky?**
 
-Ano. Každý komentář může odkazovat na svůj [parent comment](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icomment/set_parentcomment/), což umožňuje řetězce odpovědí. API nedefinuje konkrétní limit hloubky vnoření.
+Ano. Každý komentář může odkazovat na svůj [nadřazený komentář](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icomment/set_parentcomment/), což umožňuje řetězce odpovědí. API nedefinuje konkrétní limit hloubky vnoření.
 
 **V jakém souřadnicovém systému je definována pozice značky komentáře na snímku?**
 
-Pozice značky je definována pomocí desetinných souřadnic v souřadnicovém systému snímku, což vám umožní ji přesně umístit na snímek.
+Pozice značky je určena desetinnými souřadnicemi v souřadnicovém systému snímku, což umožňuje její přesné umístění na snímku.

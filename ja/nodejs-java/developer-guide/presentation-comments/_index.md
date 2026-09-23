@@ -1,50 +1,52 @@
 ---
-title: Node.js でプレゼンテーションのコメントを管理する
+title: Node.js でプレゼンテーションコメントを管理
 linktitle: プレゼンテーション コメント
 type: docs
 weight: 100
 url: /ja/nodejs-java/presentation-comments/
 keywords:
 - コメント
-- モダンコメント
+- モダン コメント
 - PowerPoint コメント
 - プレゼンテーション コメント
 - スライド コメント
-- コメントを追加する
-- コメントにアクセスする
-- コメントを編集する
-- コメントへ返信する
-- コメントを削除する
-- コメントを削除する
+- コメントの追加
+- コメントへのアクセス
+- コメントの編集
+- コメントへの返信
+- コメントの削除
+- コメントの削除
 - PowerPoint
 - プレゼンテーション
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java を使用して、PowerPoint プレゼンテーションのコメントを管理します：コメントの追加、読み取り、編集、返信、および削除が可能です。"
+description: "Aspose.Slides for Node.js via Java を使用してプレゼンテーションのコメントを管理します。PowerPoint プレゼンテーションでコメントの追加、読み取り、編集、返信、削除が可能です。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides for Node.js via Java を使用してプレゼンテーションのコメントを管理する方法を説明します。主なコメント関連タイプを紹介し、スライドへのコメントの追加、既存コメントへのアクセス、返信やモダンコメントの操作、プレゼンテーションからのコメント削除をデモします。
+この記事では、Aspose.Slides for Node.js via Java を使用してプレゼンテーションのコメントを管理する方法を説明します。主なコメント関連型を紹介し、スライドにコメントを追加する方法、既存のコメントにアクセスする方法、返信やモダンコメントを操作する方法、プレゼンテーションからコメントを削除する方法を示します。
 
-例では、PowerPoint の一般的なレビューおよびコラボレーションシナリオ、たとえばコメントを作成者に割り当てる方法、コメントテキストやメタデータの読み取り、返信チェーンの構築、選択したコメントまたはすべてのコメントの削除などを扱います。
+これらの例は、PowerPoint の一般的なレビューおよびコラボレーションシナリオ（コメントを作成者に割り当てる、コメントのテキストとメタデータを読み取る、返信チェーンを構築する、選択したコメントまたはすべてのコメントを削除する）をカバーしています。
 
 PowerPoint では、コメントはスライド上の注釈として表示されます。コメントを選択すると、そのテキストと関連するディスカッションが表示されます。
 
-## **プレゼンテーションにコメントを追加する理由は？**
+プレゼンテーションを開く際にコメントを表示または非表示にするには、[Show or Hide Comments When Opening a Presentation](/slides/ja/nodejs-java/presentation-view-properties/) を参照してください。
 
-コメントを使用すると、プレゼンテーションのレビュー時にフィードバックを提供し、同僚と共同作業ができます。
+## **プレゼンテーションにコメントを追加する理由**
 
-Aspose.Slides for Node.js via Java は、コメント操作のために次の API を提供します。
+プレゼンテーションをレビューする際に、コメントを使用してフィードバックを提供し、同僚と共同作業できます。
 
-* The [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) class, which provides access to the presentation's comment authors.
-* The [CommentCollection](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/commentcollection/) class, which represents the comments associated with an individual author.
-* The [Comment](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/comment/) class, which provides information about a comment, including its author, creation time, position, and text.
-* The [CommentAuthor](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/commentauthor/) class, which provides information about an author, including their name, initials, and associated comments.
+Aspose.Slides for Node.js via Java は、コメント操作のために以下の API を提供します。
+
+* The [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスは、プレゼンテーションのコメント作成者へのアクセスを提供します。
+* The [CommentCollection](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/commentcollection/) クラスは、個々の作成者に関連付けられたコメントを表します。
+* The [Comment](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/comment/) クラスは、コメントの作成者、作成時刻、位置、テキストなどの情報を提供します。
+* The [CommentAuthor](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/commentauthor/) クラスは、作成者の名前、イニシャル、関連するコメントなどの情報を提供します。
 
 ## **スライドコメントの追加**
 
-以下の例は、PowerPoint プレゼンテーションのスライドにコメントを追加する方法を示しています:
+以下の例は、PowerPoint プレゼンテーションのスライドにコメントを追加する方法を示しています。
 
 ```javascript
 var aspose = aspose || {};
@@ -80,7 +82,7 @@ try {
 
 ## **スライドコメントへのアクセス**
 
-以下の例は、PowerPoint プレゼンテーション内の既存コメントにアクセスする方法を示しています:
+以下の例は、PowerPoint プレゼンテーションの既存のコメントにアクセスする方法を示しています。
 
 ```javascript
 var aspose = aspose || {};
@@ -109,9 +111,9 @@ try {
 
 ## **コメントへの返信**
 
-親コメントは返信階層のトップにある元のコメントです。[Comment.getParentComment](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/comment/getparentcomment/) および [Comment.setParentComment](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/comment/setparentcomment/) メソッドを使用すると、コメントの親を取得または設定できます。
+親コメントは、返信階層の最上位にある元のコメントです。[Comment.getParentComment](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/comment/getparentcomment/) および [Comment.setParentComment](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/comment/setparentcomment/) メソッドを使用して、コメントの親を取得または設定できます。
 
-以下の例は、返信を追加し、結果として得られるコメント階層を検査する方法を示しています:
+以下の例は、返信を追加し、結果として得られるコメント階層を検査する方法を示しています。
 
 ```javascript
 var aspose = aspose || {};
@@ -164,20 +166,20 @@ try {
 }
 ```
 
-{{% alert color="warning" title="警告" %}}
-* [Comment.remove](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/comment/remove/) メソッドでコメントを削除すると、そのコメントへのすべての返信も削除されます。
-* [Comment.setParentComment](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/comment/setparentcomment/) が循環参照を作成した場合、[PptxEditException](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/pptxeditexception/) がスローされます。
+{{% alert color="warning" title="Warning" %}}
+* Comment.remove メソッドを使用してコメントを削除すると、そのコメントへのすべての返信も削除されます。
+* Comment.setParentComment が循環参照を作成した場合、[PptxEditException] がスローされます。
 {{% /alert %}}
 
 ## **モダンコメントの追加**
 
-モダンコメントは、スライド自体、特定のシェイプ、または [AutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/) 内のテキスト範囲に関連付けることができます。[CommentCollection.addModernComment](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) メソッドは、スライドとコメントマーカー座標に加えて [Shape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shape/) 引数を受け取ります。
+モダンコメントは、スライド自体、特定のシェイプ、または [AutoShape] 内のテキスト範囲に関連付けることができます。[CommentCollection.addModernComment] メソッドは、スライドとコメントマーカーの座標に加えて [Shape] 引数を受け取ります。
 
-`null` がシェイプ引数として渡された場合、コメントはスライドレベルのコメントとなります。マーカーは指定された座標で配置されますが、特定のシェイプに関連付けられないため、[ModernComment.getShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/moderncomment/getshape/) は `null` を返します。シェイプが指定された場合、コメントはそのシェイプにアンカリングされます。座標は依然としてスライド上のコメントマーカーの位置を定義し、シェイプとの関連は [ModernComment.getShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/moderncomment/getshape/) で取得できます。
+`null` を shape 引数に渡すと、コメントはスライドレベルのコメントになります。そのマーカーは指定された座標で配置されますが、特定のシェイプには関連付けられないため、[ModernComment.getShape] は `null` を返します。[Shape] が指定された場合、コメントはそのシェイプにアンカリングされます。座標は依然としてスライド上のコメントマーカーの位置を定義し、シェイプとの関連は [ModernComment.getShape] で取得できます。
 
-### **モダンコメントをシェイプに固定**
+### **モダンコメントをシェイプにアンカリングする**
 
-以下の例は、スライドレベルのモダンコメントと、特定の [AutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/) にアンカリングされたモダンコメントの両方を作成し、各コメントから関連シェイプを取得します。
+以下の例は、スライドレベルのモダンコメントと特定の [AutoShape] にアンカリングされたモダンコメントの両方を作成します。その後、各コメントから関連付けられたシェイプを取得します。
 
 ```javascript
 var aspose = aspose || {};
@@ -207,9 +209,9 @@ try {
 }
 ```
 
-### **異なるシェイプタイプへのコメントのアンカリング**
+### **異なるシェイプタイプへのコメントアンカリング**
 
-[Shape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shape/) を継承するスライドオブジェクトはすべてシェイプアンカーとして使用できます。一般的な例としては、[AutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/)、[PictureFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/pictureframe/)、[GroupShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/groupshape/)、[Connector](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/connector/)、およびグラフなどの [GraphicalObject](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/graphicalobject/) インスタンスが含まれます。
+[Shape] から派生した任意のスライドオブジェクトはシェイプアンカーとして使用できます。一般的な例として、[AutoShape]、[PictureFrame]、[GroupShape]、[Connector]、およびチャートなどの [GraphicalObject] インスタンスがあります。
 
 以下の例は、いくつかの一般的なシェイプタイプを作成し、それぞれにモダンコメントを関連付けます。
 
@@ -256,18 +258,18 @@ try {
 }
 ```
 
-### **テキストへのコメントのアンカリングとステータス設定**
+### **テキストにコメントをアンカリングし、ステータスを設定する**
 
-[AutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/) に関連付けられたモダンコメントの場合、[ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) と [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) はシェイプのテキストフレーム内で選択されたテキストの開始位置にアクセスします。[ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) と [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) は選択範囲の長さにアクセスします。これらの値を組み合わせることで、コメントを特定のテキスト範囲に関連付けます。
+[AutoShape] に関連付けられたモダンコメントの場合、[ModernComment.getTextSelectionStart] と [ModernComment.setTextSelectionStart] はシェイプのテキストフレーム内で選択されたテキストの開始位置にアクセスします。[ModernComment.getTextSelectionLength] と [ModernComment.setTextSelectionLength] は選択範囲の長さにアクセスします。これらの値を組み合わせることで、コメントは [AutoShape] 内の特定のテキスト範囲に関連付けられます。
 
-[ModernComment.getStatus](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/moderncomment/getstatus/) と [ModernComment.setStatus](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/moderncomment/setstatus/) メソッドは、[ModernCommentStatus](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/moderncommentstatus/) 列挙体の値にアクセスします。
+[ModernComment.getStatus] と [ModernComment.setStatus] メソッドは、[ModernCommentStatus] 列挙体の値にアクセスします。
 
 - `NotDefined` — 特定のモダンコメントステータスは定義されていません。
 - `Active` — コメントはアクティブです。
 - `Resolved` — コメントは解決済みです。
 - `Closed` — コメントはクローズされています。
 
-以下の例は、シェイプにアンカリングされたモダンコメントを作成し、テキスト選択に関連付け、解決済みとしてマークし、プレゼンテーションを保存した後にファイルを再度開いて値を検証します。
+以下の例は、シェイプにアンカリングされたモダンコメントを作成し、テキスト選択に関連付け、解決済みとしてマークし、プレゼンテーションを保存し、ファイルを再度開いた後に値を検証します。
 
 ```javascript
 var aspose = aspose || {};
@@ -327,7 +329,7 @@ try {
 
 ### **既存のモダンコメントの検査**
 
-既存のプレゼンテーションを検査するには、どのコメントが [ModernComment](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/moderncomment/) インスタンスであるかを確認し、[ModernComment.getShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/moderncomment/getshape/)、[ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/)、[ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/)、および [ModernComment.getStatus](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/moderncomment/getstatus/) を調べます。`null` シェイプはスライドレベルのコメントを示します。[AutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/) にアンカリングされた場合、テキスト選択メソッドはシェイプのテキストフレーム内の対象範囲を特定します。
+既存のプレゼンテーションを検査するには、どのコメントが [ModernComment] インスタンスであるかを確認し、[ModernComment.getShape]、[ModernComment.getTextSelectionStart]、[ModernComment.getTextSelectionLength]、および [ModernComment.getStatus] を調べます。`null` のシェイプはスライドレベルのコメントを示します。[AutoShape] アンカーの場合、テキスト選択メソッドはシェイプのテキストフレーム内の関連範囲を特定します。
 
 ```javascript
 var aspose = aspose || {};
@@ -374,9 +376,9 @@ try {
 
 ## **コメントの削除**
 
-### **すべてのコメントとコメント作成者の削除**
+### **すべてのコメントおよびコメント作成者の削除**
 
-以下の例は、プレゼンテーションからすべてのコメントとコメント作成者を削除する方法を示しています:
+以下の例は、プレゼンテーションからすべてのコメントおよびコメント作成者を削除する方法を示しています。
 
 ```javascript
 var aspose = aspose || {};
@@ -398,7 +400,7 @@ try {
 
 ### **特定のコメントの削除**
 
-以下の例は、スライドから特定のコメントを削除する方法を示しています:
+以下の例は、スライドから特定のコメントを削除する方法を示しています。
 
 ```javascript
 var aspose = aspose || {};
@@ -442,14 +444,14 @@ try {
 
 ## **FAQ**
 
-**Aspose.Slidesはモダンコメントの解決済ステータスをサポートしていますか？**
+**Aspose.Slides はモダンコメントの解決ステータスをサポートしていますか？**
 
-はい。[ModernComment.getStatus](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/moderncomment/getstatus/) と [ModernComment.setStatus](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/moderncomment/setstatus/) は、`Resolved` を含む [ModernCommentStatus](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/moderncommentstatus/) の値にアクセスできます。このステータスはプレゼンテーションに保存され、ファイルを再度開いた後でも読み取れます。
+はい。[ModernComment.getStatus] と [ModernComment.setStatus] は、`Resolved` を含む [ModernCommentStatus] の値にアクセスします。このステータスはプレゼンテーションに保存され、ファイルを再度開いた後でも読み取ることができます。
 
 **スレッド化されたディスカッション（返信チェーン）はサポートされていますか？また、ネストの上限はありますか？**
 
-はい。各コメントは [parent comment](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/comment/getparentcomment/) を参照できるため、返信チェーンが可能です。API には特定のネスト深度の上限は定義されていません。
+はい。各コメントは [parent comment] を参照でき、返信チェーンを実現します。API には特定のネスト深さの上限は定義されていません。
 
 **スライド上のコメントマーカーの位置はどの座標系で定義されていますか？**
 
-マーカーの位置はスライド座標系の浮動小数点座標で定義されており、スライド上の任意の場所に正確に配置できます。
+マーカーの位置は、スライド座標系の浮動小数点座標で定義されており、スライド上に正確に配置できます。

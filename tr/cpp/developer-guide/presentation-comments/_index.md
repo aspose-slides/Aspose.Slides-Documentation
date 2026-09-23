@@ -1,5 +1,5 @@
 ---
-title: C++ ile Sunum Yorumlarını Yönetme
+title: C++'ta Sunum Yorumlarını Yönetme
 linktitle: Sunum Yorumları
 type: docs
 weight: 100
@@ -12,38 +12,40 @@ keywords:
 - slayt yorumları
 - yorum ekle
 - yoruma eriş
-- yorumu düzenle
-- yoruma yanıtla
-- yorumu kaldır
-- yorumu sil
+- yorum düzenle
+- yorum yanıtla
+- yorum kaldır
+- yorum sil
 - PowerPoint
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ ile sunum yorumlarını yönetin: PowerPoint sunumlarında yorum ekleyin, okuyun, düzenleyin, yanıtlayın ve kaldırın, hızlı ve kolay bir şekilde."
+description: "Aspose.Slides for C++ ile sunum yorumlarını yönetin: PowerPoint sunumlarında yorumları hızlı ve kolay bir şekilde ekleyin, okuyun, düzenleyin, yanıtlayın ve kaldırın."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for C++ ile sunum yorumlarını nasıl yöneteceğinizi açıklar. Yorumlarla ilgili temel türleri tanıtır ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlar ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma konularını gösterir.
+Bu makale, Aspose.Slides for C++ ile sunum yorumlarını nasıl yöneteceğinizi açıklar. Yorumlarla ilgili temel türleri tanıtır ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlarla ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma konularını gösterir.
 
-Örnekler, PowerPoint'te yaygın inceleme ve iş birliği senaryolarını kapsar; örneğin, yorumları yazarlarla ilişkilendirme, yorum metni ve meta verileri okuma, yanıt zincirleri oluşturma ve seçili yorumları ya da tüm yorumları kaldırma.
+Örnekler, PowerPoint’te yaygın inceleme ve iş birliği senaryolarını kapsar; örneğin yorumları yazarlara atama, yorum metnini ve meta verilerini okuma, yanıt zincirleri oluşturma ve seçili yorumları ya da tüm yorumları kaldırma.
 
-PowerPoint'te yorumlar slaytlar üzerindeki açıklama işaretleri olarak görünür. Bir yorumu seçmek, metnini ve ilgili tartışmayı gösterir.
+PowerPoint’te yorumlar, slaytlara eklenen açıklamalar olarak görünür. Bir yorumu seçmek, metnini ve ilgili tartışmayı gösterir.
+
+Sunum açıldığında yorumların gösterilip gösterilmeyeceğini, yorumların kendisini değiştirmeden ayarlamak için [Sunum Açılırken Yorumları Göster veya Gizle](/slides/tr/cpp/presentation-view-properties/) bölümüne bakın.
 
 ## **Sunumlara Neden Yorum Eklenir?**
 
-Sunumları incelerken geri bildirim sağlamak ve ekip arkadaşlarınızla iş birliği yapmak için yorumları kullanabilirsiniz.
+Sunumları incelerken geri bildirim vermek ve meslektaşlarla iş birliği yapmak için yorumları kullanabilirsiniz.
 
-Aspose.Slides for C++ aşağıdaki API'leri sağlar:
+Aspose.Slides for C++ aşağıdaki API’leri sağlar:
 
 * [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfı, sunumun yorum yazarlarına erişim sağlar.
-* [ICommentCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icommentcollection/) arayüzü, belirli bir yazarla ilişkili yorumları temsil eder.
-* [IComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/) arayüzü, bir yorum hakkında yazar, oluşturulma zamanı, konum ve metin gibi bilgileri sunar.
-* [CommentAuthor](https://reference.aspose.com/slides/tr/cpp/aspose.slides/commentauthor/) sınıfı, bir yazar hakkında ad, baş harfler ve ilişkili yorumlar gibi bilgiler sağlar.
+* [ICommentCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icommentcollection/) arayüzü, tek bir yazarla ilişkili yorumları temsil eder.
+* [IComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/) arayüzü, bir yorumun yazarı, oluşturulma zamanı, konumu ve metni gibi bilgileri sunar.
+* [CommentAuthor](https://reference.aspose.com/slides/tr/cpp/aspose.slides/commentauthor/) sınıfı, yazarın adı, baş harfleri ve ilişkili yorumları gibi bilgileri sağlar.
 
-## **Slayta Yorum Ekleme**
+## **Slayt Yorumları Ekleme**
 
-Aşağıdaki örnek, bir PowerPoint sunumunda slaytlara yorum eklemenin nasıl yapılacağını gösterir:
+Aşağıdaki örnek, bir PowerPoint sunumunda slaytlara yorum eklemeyi gösterir:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -86,7 +88,7 @@ if (comments->get_Length() > 0)
 presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Slayt Yorumlarına Erişim**
+## **Slayt Yorumlarına Erişme**
 
 Aşağıdaki örnek, bir PowerPoint sunumunda mevcut yorumlara nasıl erişileceğini gösterir:
 
@@ -119,7 +121,7 @@ for (auto&& author : presentation->get_CommentAuthors())
 
 ## **Yorumlara Yanıt Verme**
 
-Üst yorum, yanıt hiyerarşisinin en üstündeki orijinal yorumdur. [IComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/) arayüzünün [get_ParentComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/get_parentcomment/) ve [set_ParentComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/set_parentcomment/) yöntemleri, bir yorumun üst yorumunu almanızı veya ayarlamanızı sağlar.
+Üst yorum, yanıt hiyerarşisinin en üstündeki orijinal yorumdur. [IComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/) arayüzünün [get_ParentComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/get_parentcomment/) ve [set_ParentComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/set_parentcomment/) yöntemleri, bir yorumun üst yorumunu almanıza veya ayarlamanıza olanak tanır.
 
 Aşağıdaki örnek, yanıt eklemeyi ve ortaya çıkan yorum hiyerarşisini incelemeyi gösterir:
 
@@ -183,20 +185,20 @@ comment1->Remove();
 presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert color="warning" title="Uyarı" %}}
+{{% alert color="warning" title="Warning" %}}
 * [IComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/) arayüzünün [Remove](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/remove/) yöntemi bir yorumu silmek için kullanıldığında, o yoruma ait tüm yanıtlar da silinir.
-* [set_ParentComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/set_parentcomment/) yöntemi dairesel bir referans oluşturursa, bir [PptxEditException](https://reference.aspose.com/slides/tr/cpp/aspose.slides/pptxeditexception/) fırlatılır.
+* [set_ParentComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/set_parentcomment/) yöntemi döngüsel bir başvuru oluşturursa, bir [PptxEditException](https://reference.aspose.com/slides/tr/cpp/aspose.slides/pptxeditexception/) fırlatılır.
 {{% /alert %}}
 
 ## **Modern Yorumlar Ekleme**
 
-Modern yorumlar slaytın kendisine, belirli bir şekle veya bir AutoShape içindeki bir metin aralığına ilişkilendirilebilir. [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icommentcollection/addmoderncomment/) yöntemi, slayt ve yorum işaretçi koordinatlarının yanı sıra bir [IShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/) argümanını da kabul eder.
+Modern yorumlar slaytın kendisine, belirli bir şekle veya bir AutoShape içindeki metin aralığına bağlanabilir. [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icommentcollection/addmoderncomment/) yöntemi, slayt ve yorum işaretleyici koordinatlarına ek olarak bir [IShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/) argümanı alır.
 
-Şekil argümanı için `nullptr` geçildiğinde, yorum bir slayt‑seviyesi yorumdur. İşaretçi verilen koordinatlarla konumlandırılır, ancak belirli bir şekle bağlı değildir; bu nedenle [IModernComment::get_Shape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_shape/) `nullptr` döndürür. Bir [IShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/) sağlandığında, yorum o şekle bağlanır. Koordinatlar hâlâ yorum işaretçisinin slayttaki konumunu tanımlar, şekil ilişkisi ise [IModernComment::get_Shape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_shape/) üzerinden elde edilebilir.
+Şekil argümanı için `nullptr` gönderildiğinde, yorum bir slayt‑seviyesi yorum olur. İşaretleyicisi sağlanan koordinatlarla konumlandırılır, ancak belirli bir şekle bağlı değildir; bu nedenle [IModernComment::get_Shape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_shape/) `nullptr` döndürür. Bir [IShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/) sağlandığında, yorum o şekle bağlanır. Koordinatlar hâlâ yorum işaretleyicisinin slayttaki konumunu tanımlar, şekil bağlantısı ise [IModernComment::get_Shape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_shape/) ile elde edilebilir.
 
 ### **Modern Bir Yorumu Şekle Bağlama**
 
-Aşağıdaki örnek, bir slayt‑seviyesi modern yorum ile belirli bir AutoShape'e bağlanmış modern bir yorum oluşturur ve ardından her iki yorumdan da ilişkili şekli okur:
+Aşağıdaki örnek, bir slayt‑seviyesi modern yorum ve belirli bir AutoShape’e bağlanmış bir modern yorum oluşturur. Ardından her iki yorumdan da ilişkili şekli okur.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -245,9 +247,9 @@ presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
 
 ### **Yorumları Farklı Şekil Türlerine Bağlama**
 
-[IShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/) uygulayan herhangi bir slayt nesnesi şekil bağlama amacıyla kullanılabilir. Yaygın örnekler arasında [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iconnector/) ve grafik nesneleri (örneğin, grafikler) gibi [IGraphicalObject](https://reference.aspose.com/slides/tr/cpp/aspose.slides/igraphicalobject/) örnekleri bulunur.
+[IShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/) arayüzünü uygulayan herhangi bir slayt nesnesi şekil bağlayıcı olarak kullanılabilir. Yaygın örnekler şunlardır: [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iconnector/) ve grafik nesneleri ([IGraphicalObject](https://reference.aspose.com/slides/tr/cpp/aspose.slides/igraphicalobject/) gibi) gibi grafikler.
 
-Aşağıdaki örnek, çeşitli yaygın şekil türleri oluşturur ve her biriyle bir modern yorum ilişkilendirir:
+Aşağıdaki örnek, birkaç yaygın şekil türü oluşturur ve her birine modern bir yorum bağlar.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -311,18 +313,18 @@ author->get_Comments()->AddModernComment(u"Comment on a graphical object.", slid
 presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 ```
 
-### **Yorumu Metne Bağla ve Durumunu Ayarla**
+### **Yorumu Metne Bağlama ve Durumunu Ayarlama**
 
-[IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) ile ilişkilendirilen bir modern yorum için, [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_textselectionstart/) ve [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/set_textselectionstart/) yöntemi, şeklin metin çerçevesindeki seçili metnin başlangıç konumunu kontrol eder. Benzer şekilde, [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_textselectionlength/) ve [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/set_textselectionlength/) yöntemi seçimin uzunluğunu belirler. Bu yöntemler, yorumu AutoShape içindeki belirli bir metin aralığı ile ilişkilendirir.
+Bir [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) ile ilişkili modern yorum için, [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_textselectionstart/) ve [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/set_textselectionstart/) yöntemi, şeklin metin çerçevesindeki seçili metnin başlangıç konumunu kontrol eder. Benzer şekilde, [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_textselectionlength/) ve [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/set_textselectionlength/) yöntemi seçimin uzunluğunu ayarlar. Bu yöntemler birlikte, yorumu AutoShape içindeki belirli bir metin aralığına bağlar.
 
 [IModernComment::get_Status](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_status/) ve [IModernComment::set_Status](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/set_status/) yöntemleri, [ModernCommentStatus](https://reference.aspose.com/slides/tr/cpp/aspose.slides/moderncommentstatus/) enum değerlerinden birini kullanır:
 
-- `NotDefined` — özel bir modern‑yorum durumu tanımlı değildir.
+- `NotDefined` — belirli bir modern‑yorum durumu tanımlanmamıştır.
 - `Active` — yorum aktiftir.
 - `Resolved` — yorum çözülmüştür.
 - `Closed` — yorum kapatılmıştır.
 
-Aşağıdaki örnek, şekle bağlı bir modern yorum oluşturur, bir metin seçimiyle ilişkilendirir, çözülmüş olarak işaretler, sunumu kaydeder ve dosyayı yeniden açtıktan sonra değerleri doğrular:
+Aşağıdaki örnek, şekil‑bağlantılı bir modern yorum oluşturur, onu bir metin seçimiyle ilişkilendirir, çözülmüş olarak işaretler, sunumu kaydeder ve dosyayı yeniden açtıktan sonra değerleri doğrular.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -397,7 +399,7 @@ for (auto&& reopenedComment : reopenedComments)
 
 ### **Mevcut Modern Yorumları İnceleme**
 
-Varolan bir sunumu incelemek için, hangi yorumların [IModernComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/) uyguladığını kontrol edin, ardından [IModernComment::get_Shape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_textselectionlength/) ve [IModernComment::get_Status](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_status/) özelliklerini inceleyin. `nullptr` bir şekil, slayt‑seviyesi bir yorum olduğunu gösterir. Bir [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) bağlaması için, metin‑seçim yöntemleri şeklin metin çerçevesindeki ilişkili aralığı tanımlar.
+Var olan bir sunumu incelerken, hangi yorumların [IModernComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/) uyguladığını kontrol edin, ardından [IModernComment::get_Shape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_textselectionlength/) ve [IModernComment::get_Status](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_status/) öğelerini inceleyin. `nullptr` bir şekil, slayt‑seviyesi bir yorum olduğunu gösterir. Bir [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) bağlayıcısı için, metin‑seçimi yöntemleri şeklin metin çerçevesindeki ilgili aralığı belirler.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -538,14 +540,14 @@ presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **SSS**
 
-**Aspose.Slides modern yorumlar için çözülmüş durumunu destekliyor mu?**
+**Aspose.Slides modern yorumlar için çözülmüş bir durum destekliyor mu?**
 
-Evet. [IModernComment::get_Status](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_status/) ve [IModernComment::set_Status](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/set_status/) bir [ModernCommentStatus](https://reference.aspose.com/slides/tr/cpp/aspose.slides/moderncommentstatus/) değeri, `Resolved` dahil olmak üzere, kullanır. Durum sunumda depolanır ve dosya yeniden açıldıktan sonra tekrar okunabilir.
+Evet. [IModernComment::get_Status](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_status/) ve [IModernComment::set_Status](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/set_status/) bir [ModernCommentStatus](https://reference.aspose.com/slides/tr/cpp/aspose.slides/moderncommentstatus/) değeri kullanır; bu değer `Resolved` durumunu da içerir. Durum sunumda saklanır ve dosya yeniden açıldıktan sonra tekrar okunabilir.
 
-**İşlemeli tartışmalar (yanıt zincirleri) destekleniyor mu ve bir iç içeleme sınırı var mı?**
+**İletişim zincirleri (yanıt zincirleri) destekleniyor mu ve bir iç içeleme sınırı var mı?**
 
-Evet. Her yorum, bir [parent comment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/set_parentcomment/) referansı aracılığıyla başka bir yoruma bağlanabilir; bu da yanıt zincirlerini mümkün kılar. API, belirli bir iç içeleme derinliği sınırı tanımlamaz.
+Evet. Her yorum, [üst yorum](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/set_parentcomment/) referansı vererek yanıt zincirleri oluşturabilir. API belirli bir iç içeleme derinliği sınırı tanımlamaz.
 
-**Yorum işaretçisinin konumu slaytta hangi koordinat sistemine göre tanımlanır?**
+**Bir yorum işaretleyicisinin slayt üzerindeki konumu hangi koordinat sisteminde tanımlanır?**
 
-İşaretçi konumu, slayt koordinat sistemindeki kayan nokta koordinatlarıyla tanımlanır; bu sayede işaretçiyi slayt üzerinde tam olarak istediğiniz yere yerleştirebilirsiniz.
+İşaretleyici konumu, slayt koordinat sistemindeki kayan noktalı koordinatlarla tanımlanır; bu sayede işaretleyici slayt üzerinde tam olarak yerleştirilebilir.

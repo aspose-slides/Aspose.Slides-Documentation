@@ -1,6 +1,6 @@
 ---
-title: "Hantera presentationskommentarer i Python"
-linktitle: "Presentationskommentarer"
+title: Hantera presentationskommentarer i Python
+linktitle: Presentationskommentarer
 type: docs
 weight: 100
 url: /sv/python-net/presentation-comments/
@@ -10,7 +10,7 @@ keywords:
 - PowerPoint-kommentarer
 - presentationskommentarer
 - bildkommentarer
-- lägg till kommentar
+- lägga till kommentar
 - åtkomst till kommentar
 - redigera kommentar
 - svara på kommentar
@@ -24,26 +24,26 @@ description: "Hantera presentationskommentarer med Aspose.Slides för Python via
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur du hanterar presentationskommentarer med Aspose.Slides för Python via .NET. Den introducerar de viktigaste kommentarrelaterade typerna och demonstrerar hur du lägger till kommentarer på bilder, får åtkomst till befintliga kommentarer, arbetar med svar och moderna kommentarer samt tar bort kommentarer från en presentation.
+Den här artikeln förklarar hur du hanterar presentationskommentarer med Aspose.Slides för Python via .NET. Den introducerar de huvudsakliga typerna relaterade till kommentarer och demonstrerar hur du lägger till kommentarer på bilder, får åtkomst till befintliga kommentarer, arbetar med svar och moderna kommentarer samt tar bort kommentarer från en presentation.
 
-Exemplen täcker vanliga gransknings- och samarbetsscenarier i PowerPoint, såsom att tilldela kommentarer till författare, läsa kommentartext och metadata, bygga svarskedjor och ta bort valda kommentarer eller alla kommentarer.
+Exemplen täcker vanliga gransknings‑ och samarbets scenarier i PowerPoint, såsom att tilldela kommentarer till författare, läsa kommentartexter och metadata, bygga svarskedjor och ta bort valda kommentarer eller alla kommentarer.
 
-I PowerPoint visas kommentarer som annotationer på bilder. När du markerar en kommentar visas dess text och relaterade diskussion.
+I PowerPoint visas kommentarer som anteckningar på bilder. När du markerar en kommentar visas dess text och relaterade diskussion.
+
+För att begära att kommentarer ska visas eller döljas när en presentation öppnas utan att ändra själva kommentarerna, se [Visa eller dölja kommentarer när du öppnar en presentation](/slides/sv/python-net/presentation-view-properties/).
 
 ## **Varför lägga till kommentarer i presentationer?**
 
-Du kan använda kommentarer för att ge återkoppling och samarbeta med kollegor när du granskar presentationer.
+Du kan använda kommentarer för att ge feedback och samarbeta med kollegor när du granskar presentationer.
 
 Aspose.Slides för Python via .NET tillhandahåller följande API:er för att arbeta med kommentarer:
 
 * Klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) som ger åtkomst till presentationens kommentarförfattare.
-* Klassen [CommentCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/commentcollection/) som representerar kommentarer som är knutna till en enskild författare.
-* Klassen [Comment](https://reference.aspose.com/slides/sv/python-net/aspose.slides/comment/) som tillhandahåller information om en kommentar, inklusive dess författare, skapandetid, position och text.
-* Klassen [CommentAuthor](https://reference.aspose.com/slides/sv/python-net/aspose.slides/commentauthor/) som ger information om en författare, inklusive namn, initialer och associerade kommentarer.
+* Klassen [CommentCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/commentcollection/) som representerar kommentarer som är kopplade till en enskild författare.
+* Klassen [Comment](https://reference.aspose.com/slides/sv/python-net/aspose.slides/comment/) som ger information om en kommentar, inklusive dess författare, skapelsestid, position och text.
+* Klassen [CommentAuthor](https://reference.aspose.com/slides/sv/python-net/aspose.slides/commentauthor/) som ger information om en författare, inklusive deras namn, initialer och kopplade kommentarer.
 
 ## **Lägg till bildkommentarer**
-
-Följande exempel visar hur du lägger till kommentarer på bilder i en PowerPoint-presentation:
 
 ```python
 from datetime import datetime
@@ -72,9 +72,7 @@ with slides.Presentation() as presentation:
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Åtkomst till bildkommentarer**
-
-Följande exempel visar hur du får åtkomst till befintliga kommentarer i en PowerPoint-presentation:
+## **Få åtkomst till bildkommentarer**
 
 ```python
 import aspose.slides as slides
@@ -91,9 +89,9 @@ with slides.Presentation("Comments1.pptx") as presentation:
 
 ## **Svara på kommentarer**
 
-En föräldrakommentar är den ursprungliga kommentaren högst upp i en svarshierarki. Egenskapen [parent_comment](https://reference.aspose.com/slides/sv/python-net/aspose.slides/comment/parent_comment/) i klassen [Comment](https://reference.aspose.com/slides/sv/python-net/aspose.slides/comment/) låter dig hämta eller ange föräldern till en kommentar.
+En föräldrakommentar är den ursprungliga kommentaren högst upp i en svarshierarki. Egenskapen [parent_comment](https://reference.aspose.com/slides/sv/python-net/aspose.slides/comment/parent_comment/) i klassen [Comment](https://reference.aspose.com/slides/sv/python-net/aspose.slides/comment/) låter dig hämta eller ange föräldern för en kommentar.
 
-Följande exempel visar hur du lägger till svar och granskar den resulterande kommentarshierarkin:
+Det följande exemplet visar hur du lägger till svar och inspekterar den resulterande kommentarsstrukturen:
 
 ```python
 from datetime import datetime
@@ -140,22 +138,20 @@ with slides.Presentation() as presentation:
     presentation.save("remove_comment.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="warning" title="Varning" %}}
-
-* När [remove](https://reference.aspose.com/slides/sv/python-net/aspose.slides/comment/remove/)‑metoden i klassen [Comment](https://reference.aspose.com/slides/sv/python-net/aspose.slides/comment/) används för att ta bort en kommentar, tas alla svar till den kommentaren också bort.
-* Om egenskapen [parent_comment](https://reference.aspose.com/slides/sv/python-net/aspose.slides/comment/parent_comment/) skapar en cirkulär referens kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pptxeditexception/).
-
+{{% alert color="warning" title="Warning" %}}
+* När metoden [remove](https://reference.aspose.com/slides/sv/python-net/aspose.slides/comment/remove/) i klassen [Comment](https://reference.aspose.com/slides/sv/python-net/aspose.slides/comment/) används för att ta bort en kommentar, tas även alla svar på den kommentaren bort.
+* Om egenskapen [parent_comment](https://reference.aspose.com/slides/sv/python-net/aspose.slides/comment/parent_comment/) skapar en cirkulär referens, kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Lägg till moderna kommentarer**
 
-Moderna kommentarer kan associeras med själva bilden, med en specifik form eller med ett textintervall i en AutoShape. Metoden [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/sv/python-net/aspose.slides/commentcollection/add_modern_comment/) accepterar ett [Shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/)‑argument utöver bild- och kommentarmarkörkoordinaterna.
+Moderna kommentarer kan kopplas till själva bilden, till en specifik form eller till ett textområde inuti en AutoShape. Metoden [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/sv/python-net/aspose.slides/commentcollection/add_modern_comment/) accepterar ett [Shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/)-argument utöver bild- och kommentarmarkörkoordinaterna.
 
-När `None` skickas för shape‑argumentet är kommentaren en bildnivåkommentar. Dess markör placeras enligt de angivna koordinaterna, men den är inte knuten till någon specifik form, så [ModernComment.shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/shape/) returnerar `None`. När en [Shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/) tillhandahålls, förankras kommentaren till den formen. Koordinaterna definierar fortfarande positionen för kommentarmarkören på bilden, medan form‑associationen kan hämtas via [ModernComment.shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/shape/).
+När `None` skickas för shape‑argumentet är kommentaren en bildnivåkommentar. Dess markör placeras enligt de angivna koordinaterna, men den är inte kopplad till någon specifik form, så [ModernComment.shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/shape/) returnerar `None`. När en [Shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/) tillhandahålls, förankras kommentaren till den formen. Koordinaterna definierar fortfarande positionen för kommentarmarkören på bilden, medan formkopplingen kan hämtas via [ModernComment.shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/shape/).
 
 ### **Förankra en modern kommentar till en form**
 
-Följande exempel skapar både en modern kommentar på bildnivå och en modern kommentar förankrad till en specifik AutoShape. Det läser sedan den associerade formen från varje kommentar.
+Det följande exemplet skapar både en bildnivåmodern kommentar och en modern kommentar förankrad till en specifik AutoShape. Det läser sedan den associerade formen från varje kommentar.
 
 ```python
 from datetime import datetime
@@ -184,9 +180,9 @@ with slides.Presentation() as presentation:
 
 ### **Förankra kommentarer till olika formtyper**
 
-Alla bildobjekt som är avledda från [Shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/) kan användas som en formankare. Vanliga exempel inkluderar [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/sv/python-net/aspose.slides/connector/) och [GraphicalObject](https://reference.aspose.com/slides/sv/python-net/aspose.slides/graphicalobject/)-instanser såsom diagram.
+Alla bildobjekt som är ärvda från [Shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/) kan användas som en formförankring. Vanliga exempel inkluderar [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/sv/python-net/aspose.slides/connector/) och [GraphicalObject](https://reference.aspose.com/slides/sv/python-net/aspose.slides/graphicalobject/)-instanser såsom diagram.
 
-Följande exempel skapar flera vanliga formtyper och associerar en modern kommentar med var och en.
+Det följande exemplet skapar flera vanliga formtyper och associerar en modern kommentar med var och en.
 
 ```python
 import base64
@@ -231,16 +227,16 @@ with slides.Presentation() as presentation:
 
 ### **Förankra en kommentar till text och ange dess status**
 
-För en modern kommentar som är knuten till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) specificerar [ModernComment.text_selection_start](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/text_selection_start/) startpositionen för den markerade texten i formens textruta, medan [ModernComment.text_selection_length](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/text_selection_length/) specificerar längden på markeringen. Tillsammans associerar dessa egenskaper kommentaren med ett specifikt textintervall i AutoShape.
+För en modern kommentar som är kopplad till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/), specificerar [ModernComment.text_selection_start](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/text_selection_start/) startpositionen för den markerade texten i formens textruta, medan [ModernComment.text_selection_length](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/text_selection_length/) anger längden på markeringen. Tillsammans associerar dessa egenskaper kommentaren med ett specifikt textområde inuti AutoShape.
 
-Egenskapet [ModernComment.status](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/status/) kan läsas eller uppdateras med ett värde från uppräkningen [ModernCommentStatus](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncommentstatus/):
+Egenskapen [ModernComment.status](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/status/) kan läsas eller uppdateras med ett värde från uppräkningen [ModernCommentStatus](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncommentstatus/):
 
-- `NOT_DEFINED` — ingen specifik modern kommentarstatus är definierad.
+- `NOT_DEFINED` — ingen specifik modern‑kommentarstatus är definierad.
 - `ACTIVE` — kommentaren är aktiv.
-- `RESOLVED` — kommentaren har lösts.
+- `RESOLVED` — kommentaren har markerats som löst.
 - `CLOSED` — kommentaren är stängd.
 
-Följande exempel skapar en formförankrad modern kommentar, associerar den med en textmarkering, markerar den som löst, sparar presentationen och verifierar värdena efter att filen har öppnats igen.
+Det följande exemplet skapar en form‑förankrad modern kommentar, associerar den med en textmarkering, markerar den som löst, sparar presentationen och verifierar värdena efter att filen öppnats igen.
 
 ```python
 from datetime import datetime
@@ -289,7 +285,7 @@ with slides.Presentation(output_file) as reopened_presentation:
 
 ### **Inspektera befintliga moderna kommentarer**
 
-För att inspektera en befintlig presentation, kontrollera vilka kommentarer som är [ModernComment](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/)‑instanser, och granska sedan [ModernComment.shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/text_selection_length/) samt [ModernComment.status](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/status/). En `None`‑form indikerar en kommentar på bildnivå. För en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/)‑ankare identifierar textmarkeringsegenskaperna det associerade intervallet i formens textruta.
+För att inspektera en befintlig presentation, kontrollera vilka kommentarer som är [ModernComment](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/)-instanser, och undersök sedan [ModernComment.shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/text_selection_length/) och [ModernComment.status](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/status/). En `None`‑form indikerar en bildnivåkommentar. För en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/)-förankring identifierar textmarkeringsegenskaperna det associerade intervallet i formens textruta.
 
 ```python
 import aspose.slides as slides
@@ -321,9 +317,9 @@ with slides.Presentation("comments.pptx") as presentation:
 
 ## **Ta bort kommentarer**
 
-### **Ta bort alla kommentarer och kommentarförfattare**
+### **Ta bort alla kommentarer och kommentar‑författare**
 
-Följande exempel visar hur du tar bort alla kommentarer och kommentarförfattare från en presentation:
+Det följande exemplet visar hur du tar bort alla kommentarer och kommentar‑författare från en presentation:
 
 ```python
 import aspose.slides as slides
@@ -338,7 +334,7 @@ with slides.Presentation("example.pptx") as presentation:
 
 ### **Ta bort specifika kommentarer**
 
-Följande exempel visar hur du tar bort specifika kommentarer från en bild:
+Det följande exemplet visar hur du tar bort specifika kommentarer från en bild:
 
 ```python
 from datetime import datetime
@@ -372,14 +368,14 @@ with slides.Presentation() as presentation:
 
 ## **FAQ**
 
-**Stöder Aspose.Slides ett löst status för moderna kommentarer?**
+**Stöder Aspose.Slides en status för lösta moderna kommentarer?**
 
-Ja. [ModernComment.status](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncomment/status/) kan läsas och sättas med ett [ModernCommentStatus](https://reference.aspose.com/slides/sv/python-net/aspose.slides/moderncommentstatus/)‑värde, inklusive `RESOLVED`. Statusen sparas i presentationen och kan läsas igen efter att filen har öppnats.
+Ja. [ModernComment.status] kan läsas och sättas med ett [ModernCommentStatus]-värde, inklusive `RESOLVED`. Statusen lagras i presentationen och kan läsas igen efter att filen har öppnats på nytt.
 
-**Stöds trådade diskussioner (svarskedjor) och finns det någon begränsning för nästning?**
+**Stöds trådade diskussioner (svarskedjor) och finns det någon begränsning för djupet?**
 
-Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/sv/python-net/aspose.slides/comment/parent_comment/), vilket möjliggör svarskedjor. API:et definierar ingen specifik begränsning för nästningsdjup.
+Ja. Varje kommentar kan referera till sin [föräldrakommentar](https://reference.aspose.com/slides/sv/python-net/aspose.slides/comment/parent_comment/), vilket möjliggör svarskedjor. API:et definierar ingen specifik begränsning för nästningsdjup.
 
 **I vilket koordinatsystem definieras en kommentarmarkörs position på en bild?**
 
-Markörens position definieras av flyttalskoordinater i bildens koordinatsystem, vilket gör att du kan placera den exakt på bilden.
+Markeringspositionen definieras av flyttalskoordinater i bildens koordinatsystem, vilket gör att du kan placera den exakt på bilden.
