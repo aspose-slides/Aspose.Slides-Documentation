@@ -9,209 +9,273 @@ keywords:
 - دقة البيانات
 - نسبة مئوية
 - مسافة التسمية
-- موضع التسمية
+- موقع التسمية
 - PowerPoint
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides for .NET للحصول على شرائح أكثر جاذبية."
+description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides لـ .NET للحصول على شرائح أكثر جاذبية."
 ---
+## **المقدمة**
 
-توفر تسميات البيانات على المخطط تفاصيل حول سلسلة بيانات المخطط أو نقاط البيانات الفردية. فهي تمكّن القراء من التعرف بسرعة على سلاسل البيانات وتساعد أيضًا في جعل المخططات أسهل للفهم.
+تُظهر تسميات البيانات معلومات حول سلاسل المخطط والنقاط الفردية، مما يساعد القارئ على تحديد القيم وفهم المخطط. يوضح هذا المقال كيفية تنسيق القيم، وعرض النسب المئوية، وقراءة نص التسمية، وضبط تباعد تسميات محور الفئات، وتحديد موضع تسميات المخطط الدائري.
 
 ## **تعيين دقة البيانات في تسميات بيانات المخطط**
 
-يُظهر لك هذا الكود C# كيفية تعيين دقة البيانات في تسمية بيانات المخطط:
-```c#
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 50, 50, 450, 300);
-	chart.HasDataTable = true;
-	chart.ChartData.Series[0].NumberFormatOfValues = "#,##0.00";
+استخدم [NumberFormatOfValues](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ichartseries/numberformatofvalues/) لتنسيق قيم السلسلة. يخلق هذا المثال مخطط خط مع بيانات افتراضية، يعرض جدول البيانات الخاص به، ويمكن تسميات القيم للسلسلة الأولى. التنسيق `#,##0.00` يعرض فاصل الآلاف ومكانين عشريين دون تغيير القيم الأساسية.
 
-	pres.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
-}
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Line, 50, 50, 450, 300);
+chart.HasDataTable = true;
+
+var series = chart.ChartData.Series[0];
+series.NumberFormatOfValues = "#,##0.00";
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+
+presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
+## **عرض النسبة المئوية كعناوين**
 
-## **عرض النسبة المئوية كعلامات**
+في مخطط الأعمدة المتراصة، احسب كل قيمة كنسبة مئوية من إجمالي الفئة الخاصة بها وعيّن النص إلى [TextFrameForOverriding](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). يستخدم هذا المثال بيانات المخطط الافتراضية ويعرض النسب المئوية بمكانين عشريين بخط بحجم 8 نقاط. يتم تخطي الفئات التي يكون مجموعها صفرًا لتجنب القسمة على صفر. أعد حساب نص التسمية المخصص إذا تغيرت بيانات المخطط.
 
-يتيح لك Aspose.Slides for .NET تعيين تسميات النسبة المئوية على المخططات المعروضة. يُظهر لك هذا الكود C# العملية:
-```c#
-// إنشاء مثيل من فئة Presentation
-Presentation presentation = new Presentation();
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-ISlide slide = presentation.Slides[0];
-IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 400, 400);
-IChartSeries series = chart.ChartData.Series[0];
-IChartCategory cat;
-double[] total_for_Cat = new double[chart.ChartData.Categories.Count];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 400, 400);
+
+var categoryTotals = new double[chart.ChartData.Categories.Count];
 for (int k = 0; k < chart.ChartData.Categories.Count; k++)
 {
-    cat = chart.ChartData.Categories[k];
-
     for (int i = 0; i < chart.ChartData.Series.Count; i++)
     {
-        total_for_Cat[k] = total_for_Cat[k] + Convert.ToDouble(chart.ChartData.Series[i].DataPoints[k].Value.Data);
+        var series = chart.ChartData.Series[i];
+        var pointValue = Convert.ToDouble(series.DataPoints[k].Value.Data);
+        categoryTotals[k] += pointValue;
     }
 }
 
-double dataPontPercent = 0f;
-
 for (int x = 0; x < chart.ChartData.Series.Count; x++)
 {
-    series = chart.ChartData.Series[x];
+    var series = chart.ChartData.Series[x];
     series.Labels.DefaultDataLabelFormat.ShowLegendKey = false;
 
     for (int j = 0; j < series.DataPoints.Count; j++)
     {
-        IDataLabel lbl = series.DataPoints[j].Label;
-        dataPontPercent = (Convert.ToDouble(series.DataPoints[j].Value.Data) / total_for_Cat[j]) * 100;
+        var label = series.DataPoints[j].Label;
+        if (categoryTotals[j] == 0)
+        {
+            continue;
+        }
 
-        IPortion port = new Portion();
-        port.Text = String.Format("{0:F2} %", dataPontPercent);
-        port.PortionFormat.FontHeight = 8f;
-        lbl.TextFrameForOverriding.Text = "";
-        IParagraph para = lbl.TextFrameForOverriding.Paragraphs[0];
-        para.Portions.Add(port);
+        var pointValue = Convert.ToDouble(series.DataPoints[j].Value.Data);
+        var dataPointPercent = (pointValue / categoryTotals[j]) * 100;
 
-        lbl.DataLabelFormat.ShowSeriesName = false;
-        lbl.DataLabelFormat.ShowPercentage = false;
-        lbl.DataLabelFormat.ShowLegendKey = false;
-        lbl.DataLabelFormat.ShowCategoryName = false;
-        lbl.DataLabelFormat.ShowBubbleSize = false;
+        var portion = new Portion();
+        portion.Text = string.Format("{0:F2} %", dataPointPercent);
+        portion.PortionFormat.FontHeight = 8f;
+
+        label.TextFrameForOverriding.Text = "";
+
+        var paragraph = label.TextFrameForOverriding.Paragraphs[0];
+        paragraph.Portions.Add(portion);
+
+        label.DataLabelFormat.ShowValue = true;
+        label.DataLabelFormat.ShowSeriesName = false;
+        label.DataLabelFormat.ShowPercentage = false;
+        label.DataLabelFormat.ShowLegendKey = false;
+        label.DataLabelFormat.ShowCategoryName = false;
+        label.DataLabelFormat.ShowBubbleSize = false;
     }
 }
 
-// يحفظ العرض التقديمي الذي يحتوي على المخطط
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-
 ## **تعيين علامة النسبة المئوية مع تسميات بيانات المخطط**
 
-يُظهر لك هذا الكود C# كيفية تعيين علامة النسبة المئوية لتسمية بيانات المخطط:
-```c#
-// إنشاء مثيل من فئة Presentation
-Presentation presentation = new Presentation();
+عند تخزين القيم ككسرات، استخدم [NumberFormat](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/idatalabelformat/numberformat/) لعرض النسب المئوية. عيّن [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) إلى `false` لتطبيق تنسيق التسمية بشكل مستقل عن خلايا المصدر.
 
-ISlide slide = presentation.Slides[0];
+ينشئ هذا المثال مخطط أعمدة متراص بنسبة 100٪ مع سلاسل حمراء وزرقاء عبر أربعة فئات. كل زوج من القيم يجموع إلى 1. تنسيق التسمية `0.0%` يعرض 0.30 كـ 30.0٪، بينما يستخدم المحور العمودي مكانين عشريين. كلا السلسلتين تستخدم نص تسمية أبيض بحجم 10 نقاط.
 
-// الحصول على مرجع الشريحة عبر الفهرس
-// (هذه السطر تم ترجمته بالفعل أعلاه، يتم الاحتفاظ به كما هو لا تعديل الكود)
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// إنشاء مخطط PercentsStackedColumn على شريحة
-IChart chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
-// تعيين NumberFormatLinkedToSource إلى false
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.NumberFormat = "0.00%";
 
 chart.ChartData.Series.Clear();
-int defaultWorksheetIndex = 0;
+chart.ChartData.Categories.Clear();
 
-// Gets the chart data worksheet
-IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+var workbook = chart.ChartData.ChartDataWorkbook;
+int worksheetIndex = 0;
+for (int i = 0; i < 4; i++)
+{
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, $"Category {i + 1}");
+    chart.ChartData.Categories.Add(categoryCell);
+}
 
-// Adds new series
-IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.Type);
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 1, 0.30));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 1, 0.50));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 1, 0.80));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 1, 0.65));
+string[] seriesNames = { "Reds", "Blues" };
+Color[] seriesColors = { Color.Red, Color.Blue };
+double[,] values = { { 0.30, 0.50, 0.80, 0.65 }, { 0.70, 0.50, 0.20, 0.35 } };
 
-// Sets the fill color of series
-series.Format.Fill.FillType = FillType.Solid;
-series.Format.Fill.SolidFillColor.Color = Color.Red;
+for (int i = 0; i < seriesNames.Length; i++)
+{
+    var seriesCell = workbook.GetCell(worksheetIndex, 0, i + 1, seriesNames[i]);
+    var series = chart.ChartData.Series.Add(seriesCell, chart.Type);
+    for (int j = 0; j < 4; j++)
+    {
+        var valueCell = workbook.GetCell(worksheetIndex, j + 1, i + 1, values[i, j]);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+    }
 
-// Sets the LabelFormat properties
-series.Labels.DefaultDataLabelFormat.ShowValue = true;
-series.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
-series.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
-series.Labels.DefaultDataLabelFormat.ShowValue = true;
+    series.Format.Fill.FillType = FillType.Solid;
+    series.Format.Fill.SolidFillColor.Color = seriesColors[i];
 
-// Adds new series
-IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.Type);
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 2, 0.70));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 2, 0.50));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 2, 0.20));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 2, 0.35));
+    var labelFormat = series.Labels.DefaultDataLabelFormat;
+    labelFormat.ShowValue = true;
+    labelFormat.IsNumberFormatLinkedToSource = false;
+    labelFormat.NumberFormat = "0.0%";
+    labelFormat.TextFormat.PortionFormat.FontHeight = 10;
+    labelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
+    labelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
+}
 
-// Sets Fill type and color
-series2.Format.Fill.FillType = FillType.Solid;
-series2.Format.Fill.SolidFillColor.Color = Color.Blue;
-series2.Labels.DefaultDataLabelFormat.ShowValue = true;
-series2.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
-series2.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
-
-// حفظ العرض التقديمي إلى القرص
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
+## **قراءة النص الفعلي لتسميات البيانات**
 
-## **تعيين مسافة التسمية من المحور**
+استخدم [GetActualLabelText](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/idatalabel/getactuallabeltext/) لاسترجاع النص الذي تنتجه إعدادات تسمية البيانات. هذا مفيد عند استخراج التسميات للتقارير، أو البحث في محتوى العرض التقديمي، أو التحقق من صحة المخططات المُنشأة. في المثال أدناه، يجمع تنسيق [تنسيق تسمية البيانات](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/idatalabelformat/) الافتراضي كل اسم فئة واسم سلسلة وقيمة. ينسق أحد النقاط قيمته كنسبة مئوية، وآخر يستخدم نصًا مخصصًا من [TextFrameForOverriding](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
 
-يُظهر لك هذا الكود C# كيفية تعيين مسافة التسمية من محور الفئة عندما تتعامل مع مخطط مرسوم من المحاور:
-```c#
-// إنشاء مثيل من فئة Presentation
-Presentation presentation = new Presentation();
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
 
-// الحصول على مرجع الشريحة
-ISlide sld = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-// إنشاء مخطط على الشريحة
-IChart ch = sld.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
 
-// تعيين مسافة التسمية من المحور
-ch.Axes.HorizontalAxis.LabelOffset = 500;
+var workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "Q1"));
+chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "Q2"));
 
-// حفظ العرض التقديمي إلى القرص
-presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
-```
+var north = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "North"), chart.Type);
+north.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, 1, 1, 0.25));
+north.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, 2, 1, 0.75));
 
+var south = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "South"), chart.Type);
+south.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, 1, 2, 0.40));
+south.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, 2, 2, 0.60));
 
-## **ضبط موضع التسمية**
-
-عند إنشاء مخطط لا يعتمد على أي محور مثل مخطط الفطيرة، قد تصبح تسميات بيانات المخطط قريبة جدًا من حافته. في هذه الحالة، يتعين عليك ضبط موضع التسمية بحيث يتم عرض خطوط الربط بوضوح.
-
-يُظهر لك هذا الكود C# كيفية ضبط موضع التسمية على مخطط الفطيرة:
-```c#
-using (Presentation pres = new Presentation())
+foreach (var series in chart.ChartData.Series)
 {
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 200, 200);
+    var format = series.Labels.DefaultDataLabelFormat;
+    format.ShowCategoryName = true;
+    format.ShowSeriesName = true;
+    format.ShowValue = true;
+}
 
-    IChartSeriesCollection series = chart.ChartData.Series;
-    IDataLabel label = series[0].Labels[0];
+north.Labels[1].DataLabelFormat.IsNumberFormatLinkedToSource = false;
+north.Labels[1].DataLabelFormat.NumberFormat = "0%";
+south.Labels[0].TextFrameForOverriding.Text = "Reviewed";
 
-    label.DataLabelFormat.ShowValue = true;
-    label.DataLabelFormat.Position = LegendDataLabelPosition.OutsideEnd;
-    label.X = 0.71f;
-    label.Y = 0.04f;
+foreach (var series in chart.ChartData.Series)
+{
+    foreach (var point in series.DataPoints)
+    {
+        var label = point.Label;
+        if (!label.IsVisible)
+        {
+            continue;
+        }
 
-    pres.Save("pres.pptx", SaveFormat.Pptx);
+        Console.WriteLine($"Value: {point.Value.Data}; label: {label.GetActualLabelText()}");
+    }
 }
 ```
 
+الرقم المخزن في نقطة البيانات يبقى `0.75`، حتى عندما تُظهر تسميته `75%` مع أسماء الفئة والسلسلة. النص المخصص يستبدل نص التسمية المُولَّد. [GetActualLabelText](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/idatalabel/getactuallabeltext/) يُعيد سلسلة التسمية الناتجة في كلتا الحالتين. تحقق من [IsVisible](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/idatalabel/isvisible/) بشكل منفصل، كما هو موضح أعلاه، عندما تريد استخراج التسميات الظاهرة فقط.
 
-![مخطط فطيرة مع تعديل التسمية](pie-chart-adjusted-label.png)
+## **تعيين مسافة التسمية من المحور**
+
+استخدم [LabelOffset](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/iaxis/labeloffset/) للتحكم في المسافة بين تسميات محور الفئات والمحور. القيمة هي نسبة مئوية من الحد الأقصى لحجم الخط لتسميات المحور. ينشئ هذا المثال مخطط أعمدة مجمع ويضبط إزاحة تسمية المحور الأفقي إلى 500. يؤثر هذا الإعداد على تسميات محور الفئات بدلاً من التسميات المرتبطة بالنقاط الفردية.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+chart.Axes.HorizontalAxis.LabelOffset = 500;
+
+presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
+```
+
+## **ضبط موضع التسمية**
+
+في مخطط دائري، اضبط مواضع تسميات البيانات لتحسين التباعد وإتاحة مساحة لخطوط الربط.
+
+يعرض هذا المثال قيمة أول نقطة بيانات، يضع تسميتها خارج الشريحة، ويضبط إزاحات [X](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ilayoutable/x/) و[Y](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/ilayoutable/y/) الخاصة بها. هذه الإزاحات نسبية إلى عرض المخطط وارتفاعه على التوالي.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.Pie, 50, 50, 200, 200);
+var series = chart.ChartData.Series;
+
+var label = series[0].Labels[0];
+label.DataLabelFormat.ShowValue = true;
+label.DataLabelFormat.Position = LegendDataLabelPosition.OutsideEnd;
+label.X = 0.71f;
+label.Y = 0.04f;
+
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
+```
+
+![مخطط دائري مع موضع تسمية بيانات معدَّل](pie-chart-adjusted-label.png)
 
 ## **الأسئلة المتكررة**
 
-**كيف يمكنني منع تداخل تسميات البيانات في المخططات المكثفة؟**
+**كيف يمكنني منع تداخل تسميات البيانات في المخططات المكتظة؟**
 
-استخدم وضعية التسمية التلقائية، خطوط الربط، وتقليل حجم الخط؛ وإذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو اعرض التسميات فقط للنقاط المتطرفة/المفتاحية.
+استخدم دمج وضعية التسمية التلقائية، وخطوط الربط، وتقليل حجم الخط؛ إذا لزم الأمر، أخفِ بعض الحقول (مثلاً الفئة) أو اعرض التسميات فقط للقيم المتطرفة أو النقاط الرئيسية.
 
-**كيف يمكنني تعطيل التسميات للقيم الصفرية أو السلبية أو الفارغة فقط؟**
+**كيف يمكنني إلغاء تمكين التسميات للقيم الصفرية أو السلبية أو الفارغة فقط؟**
 
-قم بترشيح نقاط البيانات قبل تمكين التسميات وأوقف العرض للقيم التي تساوي 0 أو القيم السلبية أو القيم الفارغة وفقاً لقاعدة محددة.
+قُم بفلترة نقاط البيانات قبل تمكين التسميات وأوقف العرض للقيم 0 أو القيم السلبية أو القيم المفقودة وفق قاعدة محددة.
 
-**كيف أضمن نمط تسميات متسق عند التصدير إلى PDF/صور؟**
+**كيف يمكنني ضمان نمط تسمية ثابت عند التصدير إلى PDF/الصور؟**
 
-حدّد الخطوط (العائلة، الحجم) صراحةً وتأكد من توفر الخط على جانب العرض لتجنّب الاعتماد على الخطوط البديلة.
+حدِّد صراحةً عائلة الخط وحجمه وتأكد من توفر الخط في بيئة العرض لتجنب الاستبدال.

@@ -7,7 +7,7 @@ keywords:
 - gráfico
 - rótulo de dados
 - precisão de dados
-- percentual
+- porcentagem
 - distância do rótulo
 - localização do rótulo
 - PowerPoint
@@ -15,199 +15,267 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda a adicionar e formatar rótulos de dados em gráficos em apresentações do PowerPoint usando Aspose.Slides para .NET para slides mais envolventes."
+description: "Aprenda a adicionar e formatar rótulos de dados de gráficos em apresentações do PowerPoint usando Aspose.Slides para .NET para criar slides mais envolventes."
 ---
 ## **Introdução**
 
-Os rótulos de dados em um gráfico mostram detalhes sobre a série de dados do gráfico ou pontos de dados individuais. Eles permitem que os leitores identifiquem rapidamente as séries de dados e também facilitam a compreensão dos gráficos.
+Rótulos de dados exibem informações sobre séries de gráficos e pontos de dados individuais, ajudando os leitores a identificar valores e entender o gráfico. Este artigo explica como formatar valores, exibir porcentagens, ler o texto do rótulo, ajustar o espaçamento dos rótulos do eixo de categorias e posicionar os rótulos de gráficos de pizza.
 
-## **Definir Precisão dos Dados nos Rótulos de Dados do Gráfico**
+## **Definir Precisão de Dados em Rótulos de Dados do Gráfico**
 
-Este código C# mostra como definir a precisão dos dados em um rótulo de dados de um gráfico:
+Use [NumberFormatOfValues](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/ichartseries/numberformatofvalues/) para formatar valores da série. Este exemplo cria um gráfico de linhas com dados padrão, exibe sua tabela de dados e habilita rótulos de valores para a primeira série. O formato `#,##0.00` exibe um separador de milhares e duas casas decimais sem alterar os valores subjacentes.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 50, 50, 450, 300);
-	chart.HasDataTable = true;
-	chart.ChartData.Series[0].NumberFormatOfValues = "#,##0.00";
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	pres.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Line, 50, 50, 450, 300);
+chart.HasDataTable = true;
+
+var series = chart.ChartData.Series[0];
+series.NumberFormatOfValues = "#,##0.00";
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+
+presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Exibir Percentual como Rótulos**
-Aspose.Slides for .NET permite definir rótulos de percentual em gráficos exibidos. Este código C# demonstra a operação:
+## **Exibir Porcentagem como Rótulos**
 
-```c#
- // Cria uma instância da classe Presentation
-Presentation presentation = new Presentation();
+Para um gráfico de colunas empilhadas, calcule cada valor como uma porcentagem do total da sua categoria e atribua o texto a [TextFrameForOverriding](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Este exemplo usa os dados padrão do gráfico e exibe porcentagens com duas casas decimais em fonte de 8 pt. Categorias com total zero são ignoradas para evitar divisão por zero. Recalcule o texto personalizado do rótulo se os dados do gráfico mudarem.
 
-ISlide slide = presentation.Slides[0];
-IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 400, 400);
-IChartSeries series = chart.ChartData.Series[0];
-IChartCategory cat;
-double[] total_for_Cat = new double[chart.ChartData.Categories.Count];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 400, 400);
+
+var categoryTotals = new double[chart.ChartData.Categories.Count];
 for (int k = 0; k < chart.ChartData.Categories.Count; k++)
 {
-    cat = chart.ChartData.Categories[k];
-
     for (int i = 0; i < chart.ChartData.Series.Count; i++)
     {
-        total_for_Cat[k] = total_for_Cat[k] + Convert.ToDouble(chart.ChartData.Series[i].DataPoints[k].Value.Data);
+        var series = chart.ChartData.Series[i];
+        var pointValue = Convert.ToDouble(series.DataPoints[k].Value.Data);
+        categoryTotals[k] += pointValue;
     }
 }
 
-double dataPontPercent = 0f;
-
 for (int x = 0; x < chart.ChartData.Series.Count; x++)
 {
-    series = chart.ChartData.Series[x];
+    var series = chart.ChartData.Series[x];
     series.Labels.DefaultDataLabelFormat.ShowLegendKey = false;
 
     for (int j = 0; j < series.DataPoints.Count; j++)
     {
-        IDataLabel lbl = series.DataPoints[j].Label;
-        dataPontPercent = (Convert.ToDouble(series.DataPoints[j].Value.Data) / total_for_Cat[j]) * 100;
+        var label = series.DataPoints[j].Label;
+        if (categoryTotals[j] == 0)
+        {
+            continue;
+        }
 
-        IPortion port = new Portion();
-        port.Text = String.Format("{0:F2} %", dataPontPercent);
-        port.PortionFormat.FontHeight = 8f;
-        lbl.TextFrameForOverriding.Text = "";
-        IParagraph para = lbl.TextFrameForOverriding.Paragraphs[0];
-        para.Portions.Add(port);
+        var pointValue = Convert.ToDouble(series.DataPoints[j].Value.Data);
+        var dataPointPercent = (pointValue / categoryTotals[j]) * 100;
 
-        lbl.DataLabelFormat.ShowSeriesName = false;
-        lbl.DataLabelFormat.ShowPercentage = false;
-        lbl.DataLabelFormat.ShowLegendKey = false;
-        lbl.DataLabelFormat.ShowCategoryName = false;
-        lbl.DataLabelFormat.ShowBubbleSize = false;
+        var portion = new Portion();
+        portion.Text = string.Format("{0:F2} %", dataPointPercent);
+        portion.PortionFormat.FontHeight = 8f;
+
+        label.TextFrameForOverriding.Text = "";
+
+        var paragraph = label.TextFrameForOverriding.Paragraphs[0];
+        paragraph.Portions.Add(portion);
+
+        label.DataLabelFormat.ShowValue = true;
+        label.DataLabelFormat.ShowSeriesName = false;
+        label.DataLabelFormat.ShowPercentage = false;
+        label.DataLabelFormat.ShowLegendKey = false;
+        label.DataLabelFormat.ShowCategoryName = false;
+        label.DataLabelFormat.ShowBubbleSize = false;
     }
 }
 
-// Salva a apresentação que contém o gráfico
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Definir Sinal de Percentual nos Rótulos de Dados do Gráfico**
-Este código C# mostra como definir o sinal de percentual para um rótulo de dados de um gráfico:
+## **Definir Sinal de Porcentagem em Rótulos de Dados do Gráfico**
 
-```c#
-// Cria uma instância da classe Presentation
-Presentation presentation = new Presentation();
+Quando os valores são armazenados como frações, use [NumberFormat](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/idatalabelformat/numberformat/) para exibir porcentagens. Defina [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) como `false` para aplicar o formato do rótulo independentemente das células de origem.
 
-// Obtém a referência de um slide através do seu índice
-ISlide slide = presentation.Slides[0];
+Este exemplo cria um gráfico de colunas empilhadas 100% com séries vermelha e azul em quatro categorias. Cada par de valores soma 1. O formato de rótulo `0.0%` exibe 0.30 como 30.0% enquanto o eixo vertical usa duas casas decimais. Ambas as séries utilizam texto de rótulo branco, fonte de 10 pt.
 
-// Cria o gráfico PercentsStackedColumn em um slide
-IChart chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Define NumberFormatLinkedToSource como false
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
+
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.NumberFormat = "0.00%";
 
 chart.ChartData.Series.Clear();
-int defaultWorksheetIndex = 0;
+chart.ChartData.Categories.Clear();
 
-// Obtém a planilha de dados do gráfico
-IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+var workbook = chart.ChartData.ChartDataWorkbook;
+int worksheetIndex = 0;
+for (int i = 0; i < 4; i++)
+{
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, $"Category {i + 1}");
+    chart.ChartData.Categories.Add(categoryCell);
+}
 
-// Adiciona nova série
-IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.Type);
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 1, 0.30));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 1, 0.50));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 1, 0.80));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 1, 0.65));
+string[] seriesNames = { "Reds", "Blues" };
+Color[] seriesColors = { Color.Red, Color.Blue };
+double[,] values = { { 0.30, 0.50, 0.80, 0.65 }, { 0.70, 0.50, 0.20, 0.35 } };
 
-// Define a cor de preenchimento da série
-series.Format.Fill.FillType = FillType.Solid;
-series.Format.Fill.SolidFillColor.Color = Color.Red;
+for (int i = 0; i < seriesNames.Length; i++)
+{
+    var seriesCell = workbook.GetCell(worksheetIndex, 0, i + 1, seriesNames[i]);
+    var series = chart.ChartData.Series.Add(seriesCell, chart.Type);
+    for (int j = 0; j < 4; j++)
+    {
+        var valueCell = workbook.GetCell(worksheetIndex, j + 1, i + 1, values[i, j]);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+    }
 
-// Define as propriedades de LabelFormat
-series.Labels.DefaultDataLabelFormat.ShowValue = true;
-series.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
-series.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
-series.Labels.DefaultDataLabelFormat.ShowValue = true;
+    series.Format.Fill.FillType = FillType.Solid;
+    series.Format.Fill.SolidFillColor.Color = seriesColors[i];
 
-// Adiciona nova série
-IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.Type);
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 2, 0.70));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 2, 0.50));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 2, 0.20));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 2, 0.35));
+    var labelFormat = series.Labels.DefaultDataLabelFormat;
+    labelFormat.ShowValue = true;
+    labelFormat.IsNumberFormatLinkedToSource = false;
+    labelFormat.NumberFormat = "0.0%";
+    labelFormat.TextFormat.PortionFormat.FontHeight = 10;
+    labelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
+    labelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
+}
 
-// Define o tipo de preenchimento e a cor
-series2.Format.Fill.FillType = FillType.Solid;
-series2.Format.Fill.SolidFillColor.Color = Color.Blue;
-series2.Labels.DefaultDataLabelFormat.ShowValue = true;
-series2.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
-series2.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
-
-// Salva a apresentação no disco
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Definir Distância do Rótulo a partir de um Eixo**
-Este código C# mostra como definir a distância do rótulo a partir de um eixo de categoria ao lidar com um gráfico plotado a partir de eixos:
+## **Ler o Texto Real dos Rótulos de Dados**
 
-```c#
-// Cria uma instância da classe Presentation
-Presentation presentation = new Presentation();
+Use [GetActualLabelText](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/idatalabel/getactuallabeltext/) para obter o texto gerado pelas configurações de um rótulo de dados. Isso é útil ao extrair rótulos para relatórios, pesquisar conteúdo da apresentação ou validar gráficos gerados. No exemplo abaixo, o [formato de rótulo de dados](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/idatalabelformat/) padrão combina o nome de cada categoria, o nome da série e o valor. Um ponto formata seu valor como porcentagem, e outro usa texto personalizado de [TextFrameForOverriding](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
 
-// Obtém a referência de um slide
-ISlide sld = presentation.Slides[0];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
 
-// Cria um gráfico no slide
-IChart ch = sld.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-// Define a distância do rótulo a partir de um eixo
-ch.Axes.HorizontalAxis.LabelOffset = 500;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
 
-// Salva a apresentação no disco
-presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
-```
+var workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "Q1"));
+chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "Q2"));
 
-## **Ajustar Localização do Rótulo**
+var north = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "North"), chart.Type);
+north.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, 1, 1, 0.25));
+north.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, 2, 1, 0.75));
 
-Ao criar um gráfico que não depende de nenhum eixo, como um gráfico de pizza, os rótulos de dados do gráfico podem ficar muito próximos da borda. Nesse caso, é necessário ajustar a localização do rótulo de dados para que as linhas de ligação sejam exibidas claramente.
+var south = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "South"), chart.Type);
+south.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, 1, 2, 0.40));
+south.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, 2, 2, 0.60));
 
-Este código C# mostra como ajustar a localização do rótulo em um gráfico de pizza: 
-
-```c#
-using (Presentation pres = new Presentation())
+foreach (var series in chart.ChartData.Series)
 {
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 200, 200);
+    var format = series.Labels.DefaultDataLabelFormat;
+    format.ShowCategoryName = true;
+    format.ShowSeriesName = true;
+    format.ShowValue = true;
+}
 
-    IChartSeriesCollection series = chart.ChartData.Series;
-    IDataLabel label = series[0].Labels[0];
+north.Labels[1].DataLabelFormat.IsNumberFormatLinkedToSource = false;
+north.Labels[1].DataLabelFormat.NumberFormat = "0%";
+south.Labels[0].TextFrameForOverriding.Text = "Reviewed";
 
-    label.DataLabelFormat.ShowValue = true;
-    label.DataLabelFormat.Position = LegendDataLabelPosition.OutsideEnd;
-    label.X = 0.71f;
-    label.Y = 0.04f;
+foreach (var series in chart.ChartData.Series)
+{
+    foreach (var point in series.DataPoints)
+    {
+        var label = point.Label;
+        if (!label.IsVisible)
+        {
+            continue;
+        }
 
-    pres.Save("pres.pptx", SaveFormat.Pptx);
+        Console.WriteLine($"Value: {point.Value.Data}; label: {label.GetActualLabelText()}");
+    }
 }
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+O número armazenado em um ponto de dados permanece `0.75`, mesmo quando seu rótulo exibe `75%` junto com os nomes da categoria e da série. Texto personalizado substitui o texto gerado do rótulo. [GetActualLabelText](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/idatalabel/getactuallabeltext/) retorna a string do rótulo resultante em ambos os casos. Verifique [IsVisible](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/idatalabel/isvisible/) separadamente, como mostrado acima, quando quiser extrair somente rótulos visíveis.
 
-## **Perguntas Frequentes**
+## **Definir Distância do Rótulo a partir de um Eixo**
 
-**Como posso impedir que os rótulos de dados se sobreponham em gráficos densos?**
+Use [LabelOffset](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/iaxis/labeloffset/) para controlar a distância entre os rótulos do eixo de categorias e o eixo. O valor é uma porcentagem do tamanho máximo da fonte dos rótulos do eixo. Este exemplo cria um gráfico de colunas agrupadas e define o deslocamento do rótulo do eixo horizontal para 500. Essa configuração afeta os rótulos do eixo de categorias em vez dos rótulos ligados a pontos de dados individuais.
 
-Combine posicionamento automático de rótulos, linhas de ligação e redução do tamanho da fonte; se necessário, oculte alguns campos (por exemplo, a categoria) ou exiba rótulos apenas para pontos extremos/chave.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+chart.Axes.HorizontalAxis.LabelOffset = 500;
+
+presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
+```
+
+## **Ajustar a Posição do Rótulo**
+
+Em um gráfico de pizza, ajuste as posições dos rótulos de dados para melhorar o espaçamento e deixar espaço para linhas de ligação.
+
+Este exemplo exibe o valor do primeiro ponto de dados, coloca seu rótulo fora da fatia e ajusta seus deslocamentos [X](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/ilayoutable/x/) e [Y](https://reference.aspose.com/slides/pt/net/aspose.slides.charts/ilayoutable/y/). Esses deslocamentos são relativos à largura e altura do gráfico, respectivamente.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.Pie, 50, 50, 200, 200);
+var series = chart.ChartData.Series;
+
+var label = series[0].Labels[0];
+label.DataLabelFormat.ShowValue = true;
+label.DataLabelFormat.Position = LegendDataLabelPosition.OutsideEnd;
+label.X = 0.71f;
+label.Y = 0.04f;
+
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
+```
+
+![Gráfico de pizza com posição de rótulo de dados ajustada](pie-chart-adjusted-label.png)
+
+## **FAQ**
+
+**Como posso evitar que os rótulos de dados se sobreponham em gráficos densos?**
+
+Combine posicionamento automático de rótulos, linhas de ligação e redução do tamanho da fonte; se necessário, oculte alguns campos (por exemplo, a categoria) ou mostre rótulos apenas para valores extremos ou pontos‑chave.
 
 **Como posso desativar rótulos apenas para valores zero, negativos ou vazios?**
 
-Filtre os pontos de dados antes de habilitar os rótulos e desative a exibição para valores 0, valores negativos ou valores ausentes de acordo com uma regra definida.
+Filtre os pontos de dados antes de habilitar rótulos e desative a exibição para valores 0, valores negativos ou valores ausentes de acordo com uma regra definida.
 
-**Como garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**
+**Como posso garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**
 
-Defina explicitamente as fontes (família, tamanho) e verifique se a fonte está disponível no lado da renderização para evitar fallback.
+Defina explicitamente a família e o tamanho da fonte e verifique se a fonte está disponível no ambiente de renderização para evitar fallback.

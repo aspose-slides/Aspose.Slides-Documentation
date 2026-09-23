@@ -1,195 +1,28 @@
 ---
-title: Hantera diagramdataetiketter i presentationer med Python
-linktitle: Dataetikett
+title: Hantera diagramdatamärkningar i presentationer med Python
+linktitle: Datamärkning
 type: docs
 url: /sv/python-net/chart-data-label/
 keywords:
 - diagram
-- dataetikett
+- datamärkning
 - dataprecision
 - procent
-- etikettsavstånd
-- etikettposition
+- etikettavstånd
+- etikettplacering
 - PowerPoint
-- OpenDocument
 - presentation
 - Python
 - Aspose.Slides
-description: "Lär dig att lägga till och formatera diagramdataetiketter i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för Python via .NET för mer engagerande bilder."
+description: "Lär dig att lägga till och formatera diagramdatamärkningar i PowerPoint-presentationer med Aspose.Slides för Python via .NET för mer engagerande bilder."
 ---
-## **Översikt**
+## **Introduction**
 
-Dataetiketter i ett diagram visar detaljer om diagrammets dataserier eller enskilda datapunkter. De gör det möjligt för läsarna att snabbt identifiera dataserier och de underlättar även förståelsen av diagrammen. I Aspose.Slides för Python kan du aktivera, anpassa och formatera dataetiketter för vilket diagram som helst—genom att välja vad som ska visas (värden, procenttal, serie- eller kategorinamn), var etiketter ska placeras och hur de ser ut (teckensnitt, talformat, avgränsare, ledlinjer med mera). Denna artikel beskriver de viktigaste API:erna och exemplen du behöver för att lägga till tydliga, informativa etiketter i dina diagram.
+Datamärkningar visar information om diagramserier och enskilda datapunkter, vilket hjälper läsarna att identifiera värden och förstå diagrammet. Denna artikel förklarar hur man formaterar värden, visar procenttal, läser etiketttext, justerar avståndet mellan etiketter på kategoriaxeln och placerar pajdiagrametiketter.
 
-## **Ange precision för dataetiketter**
+## **Ställ in dataprecision i diagrammets datamärkningar**
 
-Diagrammets dataetiketter visar ofta numeriska värden som kräver konsekvent precision. Detta avsnitt visar hur du styr antalet decimaler för dataetiketter i Aspose.Slides genom att tillämpa ett lämpligt talformat.
-
-Följande Python-exempel visar hur du anger den numeriska precisionen för diagrammets dataetiketter:
-
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    chart = slide.shapes.add_chart(charts.ChartType.LINE, 50, 50, 500, 300)
-
-    series = chart.chart_data.series[0]
-    series.labels.default_data_label_format.show_value = True
-    series.number_format_of_values = "#,##0.00"
-
-    presentation.save("data_label_precision.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Visa procenttal som etiketter**
-
-Med Aspose.Slides kan du visa procenttal som dataetiketter i diagram. Exemplet nedan beräknar varje punkts andel inom sin kategori och formaterar etiketten så att procenttalet visas.
-
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-# Skapa en instans av Presentation-klassen.
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 600, 400)
-    series = chart.chart_data.series[0]
-
-    total_for_categories = [0]*len(chart.chart_data.categories)
-    for k in range(len(chart.chart_data.categories)):
-        for i in range(len(chart.chart_data.series)):
-            total_for_categories[k] += chart.chart_data.series[i].data_points[k].value.data
-
-    for i in range(len(chart.chart_data.series)):
-        series = chart.chart_data.series[i]
-        series.labels.default_data_label_format.show_legend_key = False
-
-        for j in range(len(series.data_points)):
-            data_point_percent = series.data_points[j].value.data / total_for_categories[j] * 100
-
-            text_portion = slides.Portion()
-            text_portion.text = "{0:.2f} %".format(data_point_percent)
-            text_portion.portion_format.font_height = 8
-
-            label = series.data_points[j].label
-            label.text_frame_for_overriding.text = ""
-
-            paragraph = label.text_frame_for_overriding.paragraphs[0]
-            paragraph.portions.add(text_portion)
-
-            label.data_label_format.show_series_name = False
-            label.data_label_format.show_percentage = False
-            label.data_label_format.show_legend_key = False
-            label.data_label_format.show_category_name = False
-            label.data_label_format.show_bubble_size = False
-
-    # Spara presentationen som innehåller diagrammet.
-    presentation.save("percentage_as_label.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Visa procenttecken med diagrammets dataetiketter**
-
-Detta avsnitt visar hur du visar procenttal i diagrammets dataetiketter och inkluderar procenttecknet med hjälp av Aspose.Slides. Du lär dig hur du aktiverar procentvärden för hela serier eller enskilda punkter (idealiskt för paj-, doughnut- och 100% staplade diagram) och hur du styr formateringen via etikettalternativ eller ett anpassat talformat.
-
-Följande Python-exempel visar hur du lägger till ett procenttecken i diagrammets dataetikett:
-
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-import aspose.pydrawing as draw
-
-# Skapa en instans av Presentation-klassen.
-with slides.Presentation() as presentation:
-
-    # Hämta en bildreferens med index.
-    slide = presentation.slides[0]
-
-    # Skapa ett PercentsStackedColumn-diagram på bilden.
-    chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 20, 20, 600, 400)
-
-    chart.axes.vertical_axis.is_number_format_linked_to_source = False
-    chart.axes.vertical_axis.number_format = "0.00%"
-
-    chart.chart_data.series.clear()
-
-    # Hämta diagrammets dataarbetsbok.
-    workbook = chart.chart_data.chart_data_workbook
-    worksheet_index = 0
-
-    # Lägg till en ny serie.
-    series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Reds"), chart.type)
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 0.30))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 0.50))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 0.80))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 1, 0.65))
-
-    # Ställ in seriens fyllningsfärg.
-    series.format.fill.fill_type = slides.FillType.SOLID
-    series.format.fill.solid_fill_color.color = draw.Color.red
-
-    # Ställ in etikettformatets egenskaper.
-    series.labels.default_data_label_format.show_value = True
-    series.labels.default_data_label_format.is_number_format_linked_to_source = False
-    series.labels.default_data_label_format.number_format = "0.0%"
-    series.labels.default_data_label_format.text_format.portion_format.font_height = 10
-    series.labels.default_data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    series.labels.default_data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.white
-    series.labels.default_data_label_format.show_value = True
-
-    # Lägg till en ny serie.
-    series2 = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Blues"), chart.type)
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 0.70))
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 0.50))
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 0.20))
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 2, 0.35))
-
-    # Ställ in fyllningstyp och färg.
-    series2.format.fill.fill_type = slides.FillType.SOLID
-    series2.format.fill.solid_fill_color.color = draw.Color.blue
-    series2.labels.default_data_label_format.show_value = True
-    series2.labels.default_data_label_format.is_number_format_linked_to_source = False
-    series2.labels.default_data_label_format.number_format = "0.0%"
-    series2.labels.default_data_label_format.text_format.portion_format.font_height = 10
-    series2.labels.default_data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    series2.labels.default_data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.white
-
-    # Spara presentationen.
-    presentation.save("percentage_sign.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Ange etikettavstånd från axel**
-
-Detta avsnitt visar hur du styr avståndet mellan dataetiketter och diagrammets axel i Aspose.Slides. Att justera detta avstånd hjälper till att undvika överlappningar och förbättrar läsbarheten i täta visualiseringar.
-
-Följande Python-kod visar hur du anger etikettavståndet från kategoraxeln när du arbetar med ett axelbaserat diagram:
-
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-# Skapa en instans av Presentation-klassen.
-with slides.Presentation() as presentation:
-    # Hämta en bildreferens.
-    slide = presentation.slides[0]
-
-    # Skapa ett grupperat stapeldiagram på bilden.
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
-
-    # Ställ in etikettavståndet från kategorins (horisontella) axel.
-    chart.axes.horizontal_axis.label_offset = 500
-
-    # Spara presentationen.
-    presentation.save("axis_label_distance.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Justera etikettposition**
-
-När du skapar ett diagram som inte använder axlar, till exempel ett pajdiagram, kan dataetiketterna ligga för nära kanten. I så fall justerar du etikettpositionen så att ledlinjerna visas tydligt.
-
-Följande Python-kod visar hur du justerar etikettpositionen i ett pajdiagram:
+Använd [number_format_of_values](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/number_format_of_values/) för att formatera serievärden. Detta exempel skapar ett linjediagram med standarddata, visar dess datatabell och aktiverar värdeetiketter för den första serien. Formatet `#,##0.00` visar ett tusentalsavgränsare och två decimaler utan att ändra de underliggande värdena.
 
 ```python
 import aspose.slides as slides
@@ -198,33 +31,223 @@ import aspose.slides.charts as charts
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 600, 300)
+    chart = slide.shapes.add_chart(charts.ChartType.LINE, 50, 50, 450, 300)
+    chart.has_data_table = True
 
     series = chart.chart_data.series[0]
+    series.number_format_of_values = "#,##0.00"
     series.labels.default_data_label_format.show_value = True
-    series.labels.default_data_label_format.show_leader_lines = True
 
-    label = series.labels[0]
+    presentation.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Visa procent som etiketter**
+
+För ett staplat stapeldiagram beräknas varje värde som en procentsats av dess kategori‑total och texten tilldelas [text_frame_for_overriding](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/). Detta exempel använder standarddiagramdata och visar procent med två decimaler i en 8‑punkts teckensnitt. Kategorier med en total på noll hoppas över för att undvika division med noll. Beräkna om den anpassade etikettttexten om diagramdata ändras.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 400, 400)
+
+    category_totals = [0.0] * len(chart.chart_data.categories)
+    for k in range(len(chart.chart_data.categories)):
+        for series in chart.chart_data.series:
+            point_value = float(series.data_points[k].value.data)
+            category_totals[k] += point_value
+
+    for series in chart.chart_data.series:
+        series.labels.default_data_label_format.show_legend_key = False
+
+        for j in range(len(series.data_points)):
+            label = series.data_points[j].label
+            if category_totals[j] == 0:
+                continue
+
+            point_value = float(series.data_points[j].value.data)
+            data_point_percent = point_value / category_totals[j] * 100
+
+            portion = slides.Portion()
+            portion.text = f"{data_point_percent:.2f} %"
+            portion.portion_format.font_height = 8
+
+            label.text_frame_for_overriding.text = ""
+
+            paragraph = label.text_frame_for_overriding.paragraphs[0]
+            paragraph.portions.add(portion)
+
+            label.data_label_format.show_value = True
+            label.data_label_format.show_series_name = False
+            label.data_label_format.show_percentage = False
+            label.data_label_format.show_legend_key = False
+            label.data_label_format.show_category_name = False
+            label.data_label_format.show_bubble_size = False
+
+    presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Ange procenttecken med diagrammets datamärkningar**
+
+När värden lagras som bråk, använd [number_format](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/datalabelformat/number_format/) för att visa procent. Ställ in [is_number_format_linked_to_source](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) till `False` för att tillämpa etiketformatet oberoende av källcellerna.
+
+Detta exempel skapar ett 100 % staplat stapeldiagram med röda och blå serier över fyra kategorier. Varje par av värden summerar till 1. Etiketformatet `0.0%` visar 0.30 som 30.0 %, medan den vertikala axeln använder två decimaler. Båda serierna använder vit, 10‑punkts etikettext.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.pydrawing as drawing
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 20, 20, 500, 400)
+
+    chart.axes.vertical_axis.is_number_format_linked_to_source = False
+    chart.axes.vertical_axis.number_format = "0.00%"
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
+    for i in range(4):
+        category_cell = workbook.get_cell(worksheet_index, i + 1, 0, f"Category {i + 1}")
+        chart.chart_data.categories.add(category_cell)
+
+    series_names = ["Reds", "Blues"]
+    series_colors = [drawing.Color.red, drawing.Color.blue]
+    values = [[0.30, 0.50, 0.80, 0.65], [0.70, 0.50, 0.20, 0.35]]
+
+    for i in range(len(series_names)):
+        series_cell = workbook.get_cell(worksheet_index, 0, i + 1, series_names[i])
+        series = chart.chart_data.series.add(series_cell, chart.type)
+        for j in range(4):
+            value_cell = workbook.get_cell(worksheet_index, j + 1, i + 1, values[i][j])
+            series.data_points.add_data_point_for_bar_series(value_cell)
+
+        series.format.fill.fill_type = slides.FillType.SOLID
+        series.format.fill.solid_fill_color.color = series_colors[i]
+
+        label_format = series.labels.default_data_label_format
+        label_format.show_value = True
+        label_format.is_number_format_linked_to_source = False
+        label_format.number_format = "0.0%"
+        label_format.text_format.portion_format.font_height = 10
+        label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
+        label_format.text_format.portion_format.fill_format.solid_fill_color.color = drawing.Color.white
+
+    presentation.save("SetDataLabelsPercentageSign_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Läs den faktiska texten för datamärkningar**
+
+Använd [get_actual_label_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) för att hämta den text som genereras av en datamärknings inställningar. Detta är användbart när man extraherar etiketter för rapporter, söker i presentationsinnehåll eller validerar genererade diagram. I exemplet nedan kombinerar standard‑[data label format](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/datalabelformat/) varje kategorinamn, serienamn och värde. En datapunkt formaterar sitt värde som procent, och en annan använder anpassad text från [text_frame_for_overriding](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/).
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    for i, category_name in enumerate(["Q1", "Q2"]):
+        category_cell = workbook.get_cell(0, i + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
+
+    north_cell = workbook.get_cell(0, 0, 1, "North")
+    north = chart.chart_data.series.add(north_cell, chart.type)
+    for i, value in enumerate([0.25, 0.75]):
+        value_cell = workbook.get_cell(0, i + 1, 1, value)
+        north.data_points.add_data_point_for_bar_series(value_cell)
+
+    south_cell = workbook.get_cell(0, 0, 2, "South")
+    south = chart.chart_data.series.add(south_cell, chart.type)
+    for i, value in enumerate([0.40, 0.60]):
+        value_cell = workbook.get_cell(0, i + 1, 2, value)
+        south.data_points.add_data_point_for_bar_series(value_cell)
+
+    for series in chart.chart_data.series:
+        label_format = series.labels.default_data_label_format
+        label_format.show_category_name = True
+        label_format.show_series_name = True
+        label_format.show_value = True
+
+    north.labels[1].data_label_format.is_number_format_linked_to_source = False
+    north.labels[1].data_label_format.number_format = "0%"
+    south.labels[0].text_frame_for_overriding.text = "Reviewed"
+
+    for series in chart.chart_data.series:
+        for point in series.data_points:
+            label = point.label
+            if not label.is_visible:
+                continue
+
+            label_text = label.get_actual_label_text()
+            print(f"Value: {point.value.data}; label: {label_text}")
+```
+
+Talet som lagras i en datapunkt förblir `0.75`, även när dess etikett visar `75%` tillsammans med kategori‑ och serienamnen. Anpassad text ersätter den genererade etiketttexten. [get_actual_label_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) returnerar den resulterande etikettssträngen i båda fallen. Kontrollera [is_visible](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/datalabel/is_visible/) separat, som visas ovan, när du bara vill extrahera synliga etiketter.
+
+## **Ställ in etikettavstånd från en axel**
+
+Använd [label_offset](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/axis/label_offset/) för att styra avståndet mellan etiketter på kategori‑axeln och själva axeln. Värdet är en procentsats av den största teckenstorleken för axel­etiketterna. Detta exempel skapar ett grupperat stapeldiagram och sätter den horisontella axelns etikettoffset till 500. Denna inställning påverkar kategori‑axelns etiketter snarare än etiketter som är knutna till enskilda datapunkter.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+    chart.axes.horizontal_axis.label_offset = 500
+
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Justera etikettplacering**
+
+I ett pajdiagram justeras datamärkningspositionerna för att förbättra avståndet och göra plats för ledare‑linjer.
+
+Detta exempel visar värdet för den första datapunkten, placerar dess etikett utanför sektorn och justerar dess [x](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/datalabel/x/) och [y](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/datalabel/y/) offset. Dessa offset är relativa till diagrammets bredd respektive höjd.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 200, 200)
+    series = chart.chart_data.series
+
+    label = series[0].labels[0]
+    label.data_label_format.show_value = True
     label.data_label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
-
-    label.x = 0.05
-    label.y = 0.1
+    label.x = 0.71
+    label.y = 0.04
 
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Ändrad etikettposition](changed_label_position.png)
+![Pajdiagram med en justerad datamärkningsposition](pie-chart-adjusted-label.png)
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Hur kan jag förhindra att dataetiketter överlappar i täta diagram?**
+**Hur kan jag förhindra att datamärkningar överlappar på täta diagram?**
 
-Kombinera automatisk etikettplacering, ledlinjer och mindre teckensnitt; om nödvändigt, dölja vissa fält (till exempel kategorin) eller visa etiketter endast för extrema/nyckelpunkter.
+Kombinera automatisk etikettplacering, ledare‑linjer och minskad teckenstorlek; vid behov dölja vissa fält (till exempel kategori) eller visa etiketter endast för extrema värden eller nyckelpunkter.
 
 **Hur kan jag inaktivera etiketter endast för noll-, negativa eller tomma värden?**
 
-Filtrera datapunkter innan du aktiverar etiketter och stäng av visning för värden som är 0, negativa värden eller saknade värden enligt en definierad regel.
+Filtrera datapunkter innan etiketter aktiveras och stäng av visning för värden som är 0, negativa värden eller saknade värden enligt en definierad regel.
 
 **Hur kan jag säkerställa en konsekvent etikettstil vid export till PDF/bilder?**
 
-Ange explicit teckensnitt (familj, storlek) och verifiera att teckensnittet finns tillgängligt på renderingssidan för att undvika reservteckensnitt.
+Ange explicit teckensnittsfamilj och storlek samt verifiera att teckensnittet är tillgängligt i renderingsmiljön för att undvika reservteckensnitt.

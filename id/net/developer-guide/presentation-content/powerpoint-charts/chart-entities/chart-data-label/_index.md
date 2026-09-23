@@ -1,10 +1,10 @@
 ---
-title: Kelola Label Data Grafik dalam Presentasi di .NET
+title: Kelola Label Data Diagram dalam Presentasi di .NET
 linktitle: Label Data
 type: docs
 url: /id/net/chart-data-label/
 keywords:
-- grafik
+- diagram
 - label data
 - presisi data
 - persentase
@@ -15,199 +15,267 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Pelajari cara menambahkan dan memformat label data grafik dalam presentasi PowerPoint menggunakan Aspose.Slides untuk .NET agar slide lebih menarik."
+description: "Pelajari cara menambahkan dan memformat label data diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk .NET agar slide lebih menarik."
 ---
-## **Introduction**
+## **Pendahuluan**
 
-Label data pada grafik menampilkan detail tentang seri data grafik atau titik data individual. Mereka memungkinkan pembaca dengan cepat mengidentifikasi seri data dan juga membuat grafik lebih mudah dipahami.
+Label data menampilkan informasi tentang seri diagram dan titik data individu, membantu pembaca mengidentifikasi nilai dan memahami diagram. Artikel ini menjelaskan cara memformat nilai, menampilkan persentase, membaca teks label, menyesuaikan jarak label sumbu kategori, dan memposisikan label diagram pai.
 
-## **Set Data Precision in Chart Data Labels**
+## **Atur Presisi Data pada Label Data Diagram**
 
-Kode C# ini menunjukkan cara menetapkan presisi data pada label data grafik:
+Gunakan [NumberFormatOfValues](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartseries/numberformatofvalues/) untuk memformat nilai seri. Contoh ini membuat diagram garis dengan data default, menampilkan tabel datanya, dan mengaktifkan label nilai untuk seri pertama. Format `#,##0.00` menampilkan pemisah ribuan dan dua angka desimal tanpa mengubah nilai dasarnya.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 50, 50, 450, 300);
-	chart.HasDataTable = true;
-	chart.ChartData.Series[0].NumberFormatOfValues = "#,##0.00";
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	pres.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Line, 50, 50, 450, 300);
+chart.HasDataTable = true;
+
+var series = chart.ChartData.Series[0];
+series.NumberFormatOfValues = "#,##0.00";
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+
+presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Display Percentage as Labels**
-Aspose.Slides for .NET memungkinkan Anda menetapkan label persentase pada grafik yang ditampilkan. Kode C# ini mendemonstrasikan operasinya:
+## **Tampilkan Persentase sebagai Label**
 
-```c#
-// Membuat instance dari kelas Presentation
-Presentation presentation = new Presentation();
+Untuk diagram kolom bertumpuk, hitung setiap nilai sebagai persentase dari total kategori dan tetapkan teksnya ke [TextFrameForOverriding](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Contoh ini menggunakan data diagram default dan menampilkan persentase dengan dua angka desimal dalam font 8 poin. Kategori dengan total nol dilewati untuk menghindari pembagian dengan nol. Hitung ulang teks label khusus jika data diagram berubah.
 
-ISlide slide = presentation.Slides[0];
-IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 400, 400);
-IChartSeries series = chart.ChartData.Series[0];
-IChartCategory cat;
-double[] total_for_Cat = new double[chart.ChartData.Categories.Count];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 400, 400);
+
+var categoryTotals = new double[chart.ChartData.Categories.Count];
 for (int k = 0; k < chart.ChartData.Categories.Count; k++)
 {
-    cat = chart.ChartData.Categories[k];
-
     for (int i = 0; i < chart.ChartData.Series.Count; i++)
     {
-        total_for_Cat[k] = total_for_Cat[k] + Convert.ToDouble(chart.ChartData.Series[i].DataPoints[k].Value.Data);
+        var series = chart.ChartData.Series[i];
+        var pointValue = Convert.ToDouble(series.DataPoints[k].Value.Data);
+        categoryTotals[k] += pointValue;
     }
 }
 
-double dataPontPercent = 0f;
-
 for (int x = 0; x < chart.ChartData.Series.Count; x++)
 {
-    series = chart.ChartData.Series[x];
+    var series = chart.ChartData.Series[x];
     series.Labels.DefaultDataLabelFormat.ShowLegendKey = false;
 
     for (int j = 0; j < series.DataPoints.Count; j++)
     {
-        IDataLabel lbl = series.DataPoints[j].Label;
-        dataPontPercent = (Convert.ToDouble(series.DataPoints[j].Value.Data) / total_for_Cat[j]) * 100;
+        var label = series.DataPoints[j].Label;
+        if (categoryTotals[j] == 0)
+        {
+            continue;
+        }
 
-        IPortion port = new Portion();
-        port.Text = String.Format("{0:F2} %", dataPontPercent);
-        port.PortionFormat.FontHeight = 8f;
-        lbl.TextFrameForOverriding.Text = "";
-        IParagraph para = lbl.TextFrameForOverriding.Paragraphs[0];
-        para.Portions.Add(port);
+        var pointValue = Convert.ToDouble(series.DataPoints[j].Value.Data);
+        var dataPointPercent = (pointValue / categoryTotals[j]) * 100;
 
-        lbl.DataLabelFormat.ShowSeriesName = false;
-        lbl.DataLabelFormat.ShowPercentage = false;
-        lbl.DataLabelFormat.ShowLegendKey = false;
-        lbl.DataLabelFormat.ShowCategoryName = false;
-        lbl.DataLabelFormat.ShowBubbleSize = false;
+        var portion = new Portion();
+        portion.Text = string.Format("{0:F2} %", dataPointPercent);
+        portion.PortionFormat.FontHeight = 8f;
+
+        label.TextFrameForOverriding.Text = "";
+
+        var paragraph = label.TextFrameForOverriding.Paragraphs[0];
+        paragraph.Portions.Add(portion);
+
+        label.DataLabelFormat.ShowValue = true;
+        label.DataLabelFormat.ShowSeriesName = false;
+        label.DataLabelFormat.ShowPercentage = false;
+        label.DataLabelFormat.ShowLegendKey = false;
+        label.DataLabelFormat.ShowCategoryName = false;
+        label.DataLabelFormat.ShowBubbleSize = false;
     }
 }
 
-// Menyimpan presentasi yang berisi grafik
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Set Percentage Sign with Chart Data Labels**
-Kode C# ini menunjukkan cara menetapkan tanda persentase untuk label data grafik:
+## **Atur Tanda Persentase dengan Label Data Diagram**
 
-```c#
-// Membuat instance dari kelas Presentation
-Presentation presentation = new Presentation();
+Ketika nilai disimpan sebagai pecahan, gunakan [NumberFormat](https://reference.aspose.com/slides/id/net/aspose.slides.charts/idatalabelformat/numberformat/) untuk menampilkan persentase. Atur [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/id/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) menjadi `false` untuk menerapkan format label secara independen dari sel sumber.
 
-// Mendapatkan referensi slide melalui indeksnya
-ISlide slide = presentation.Slides[0];
+Contoh ini membuat diagram kolom bertumpuk 100% dengan seri merah dan biru pada empat kategori. Setiap pasangan nilai menjumlahkan menjadi 1. Format label `0.0%` menampilkan 0.30 sebagai 30.0%, sementara sumbu vertikal menggunakan dua angka desimal. Kedua seri menggunakan teks label berwarna putih, ukuran 10 poin.
 
-// Membuat grafik PercentsStackedColumn pada slide
-IChart chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Mengatur NumberFormatLinkedToSource menjadi false
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
+
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.NumberFormat = "0.00%";
 
 chart.ChartData.Series.Clear();
-int defaultWorksheetIndex = 0;
+chart.ChartData.Categories.Clear();
 
-// Mendapatkan worksheet data grafik
-IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+var workbook = chart.ChartData.ChartDataWorkbook;
+int worksheetIndex = 0;
+for (int i = 0; i < 4; i++)
+{
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, $"Category {i + 1}");
+    chart.ChartData.Categories.Add(categoryCell);
+}
 
-// Menambahkan seri baru
-IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.Type);
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 1, 0.30));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 1, 0.50));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 1, 0.80));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 1, 0.65));
+string[] seriesNames = { "Reds", "Blues" };
+Color[] seriesColors = { Color.Red, Color.Blue };
+double[,] values = { { 0.30, 0.50, 0.80, 0.65 }, { 0.70, 0.50, 0.20, 0.35 } };
 
-// Mengatur warna isi seri
-series.Format.Fill.FillType = FillType.Solid;
-series.Format.Fill.SolidFillColor.Color = Color.Red;
+for (int i = 0; i < seriesNames.Length; i++)
+{
+    var seriesCell = workbook.GetCell(worksheetIndex, 0, i + 1, seriesNames[i]);
+    var series = chart.ChartData.Series.Add(seriesCell, chart.Type);
+    for (int j = 0; j < 4; j++)
+    {
+        var valueCell = workbook.GetCell(worksheetIndex, j + 1, i + 1, values[i, j]);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+    }
 
-// Mengatur properti LabelFormat
-series.Labels.DefaultDataLabelFormat.ShowValue = true;
-series.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
-series.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
-series.Labels.DefaultDataLabelFormat.ShowValue = true;
+    series.Format.Fill.FillType = FillType.Solid;
+    series.Format.Fill.SolidFillColor.Color = seriesColors[i];
 
-// Menambahkan seri baru
-IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.Type);
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 2, 0.70));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 2, 0.50));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 2, 0.20));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 2, 0.35));
+    var labelFormat = series.Labels.DefaultDataLabelFormat;
+    labelFormat.ShowValue = true;
+    labelFormat.IsNumberFormatLinkedToSource = false;
+    labelFormat.NumberFormat = "0.0%";
+    labelFormat.TextFormat.PortionFormat.FontHeight = 10;
+    labelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
+    labelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
+}
 
-// Mengatur tipe dan warna isi
-series2.Format.Fill.FillType = FillType.Solid;
-series2.Format.Fill.SolidFillColor.Color = Color.Blue;
-series2.Labels.DefaultDataLabelFormat.ShowValue = true;
-series2.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
-series2.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
-
-// Menulis presentasi ke disk
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Set Label Distance from an Axis**
-Kode C# ini menunjukkan cara menetapkan jarak label dari sumbu kategori ketika Anda bekerja dengan grafik yang dipetakan dari sumbu:
+## **Baca Teks Sebenarnya dari Label Data**
 
-```c#
-// Membuat instance dari kelas Presentation
-Presentation presentation = new Presentation();
+Gunakan [GetActualLabelText](https://reference.aspose.com/slides/id/net/aspose.slides.charts/idatalabel/getactuallabeltext/) untuk mengambil teks yang dihasilkan oleh pengaturan label data. Ini berguna saat mengekstrak label untuk laporan, mencari konten presentasi, atau memvalidasi diagram yang dihasilkan. Pada contoh di bawah, [format label data](https://reference.aspose.com/slides/id/net/aspose.slides.charts/idatalabelformat/) default menggabungkan setiap nama kategori, nama seri, dan nilai. satu titik memformat nilainya sebagai persentase, dan titik lain menggunakan teks khusus dari [TextFrameForOverriding](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
 
-// Mendapatkan referensi slide
-ISlide sld = presentation.Slides[0];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
 
-// Membuat grafik pada slide
-IChart ch = sld.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-// Mengatur jarak label dari sumbu
-ch.Axes.HorizontalAxis.LabelOffset = 500;
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
 
-// Menulis presentasi ke disk
-presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
-```
+var workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "Q1"));
+chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "Q2"));
 
-## **Adjust Label Location**
+var north = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "North"), chart.Type);
+north.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, 1, 1, 0.25));
+north.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, 2, 1, 0.75));
 
-Saat Anda membuat grafik yang tidak bergantung pada sumbu apa pun seperti diagram lingkaran, label data grafik dapat berakhir terlalu dekat dengan tepinya. Dalam kasus seperti itu, Anda harus menyesuaikan lokasi label data agar garis penghubung ditampilkan dengan jelas.
+var south = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "South"), chart.Type);
+south.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, 1, 2, 0.40));
+south.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, 2, 2, 0.60));
 
-Kode C# ini menunjukkan cara menyesuaikan lokasi label pada diagram lingkaran: 
-
-```c#
-using (Presentation pres = new Presentation())
+foreach (var series in chart.ChartData.Series)
 {
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 200, 200);
+    var format = series.Labels.DefaultDataLabelFormat;
+    format.ShowCategoryName = true;
+    format.ShowSeriesName = true;
+    format.ShowValue = true;
+}
 
-    IChartSeriesCollection series = chart.ChartData.Series;
-    IDataLabel label = series[0].Labels[0];
+north.Labels[1].DataLabelFormat.IsNumberFormatLinkedToSource = false;
+north.Labels[1].DataLabelFormat.NumberFormat = "0%";
+south.Labels[0].TextFrameForOverriding.Text = "Reviewed";
 
-    label.DataLabelFormat.ShowValue = true;
-    label.DataLabelFormat.Position = LegendDataLabelPosition.OutsideEnd;
-    label.X = 0.71f;
-    label.Y = 0.04f;
+foreach (var series in chart.ChartData.Series)
+{
+    foreach (var point in series.DataPoints)
+    {
+        var label = point.Label;
+        if (!label.IsVisible)
+        {
+            continue;
+        }
 
-    pres.Save("pres.pptx", SaveFormat.Pptx);
+        Console.WriteLine($"Value: {point.Value.Data}; label: {label.GetActualLabelText()}");
+    }
 }
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+Angka yang disimpan dalam titik data tetap `0.75`, meskipun labelnya menampilkan `75%` bersama nama kategori dan seri. Teks khusus menggantikan teks label yang dihasilkan. [GetActualLabelText](https://reference.aspose.com/slides/id/net/aspose.slides.charts/idatalabel/getactuallabeltext/) mengembalikan string label yang dihasilkan dalam kedua kasus. Periksa [IsVisible](https://reference.aspose.com/slides/id/net/aspose.slides.charts/idatalabel/isvisible/) secara terpisah, seperti yang ditunjukkan di atas, ketika Anda ingin mengekstrak hanya label yang terlihat.
+
+## **Atur Jarak Label dari Sumbu**
+
+Gunakan [LabelOffset](https://reference.aspose.com/slides/id/net/aspose.slides.charts/iaxis/labeloffset/) untuk mengendalikan jarak antara label sumbu kategori dan sumbu. Nilainya berupa persentase dari ukuran font maksimum label sumbu. Contoh ini membuat diagram kolom berkelompok dan mengatur offset label sumbu horizontal menjadi 500. Pengaturan ini memengaruhi label sumbu kategori bukan label yang terpasang pada titik data individu.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+chart.Axes.HorizontalAxis.LabelOffset = 500;
+
+presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
+```
+
+## **Sesuaikan Lokasi Label**
+
+Pada diagram pai, sesuaikan posisi label data untuk memperbaiki jarak dan memberi ruang bagi garis penunjuk.
+
+Contoh ini menampilkan nilai titik data pertama, menempatkan labelnya di luar irisan, dan mengatur offset [X](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ilayoutable/x/) dan [Y](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ilayoutable/y/). Offset ini relatif terhadap lebar dan tinggi diagram, masing-masing.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.Pie, 50, 50, 200, 200);
+var series = chart.ChartData.Series;
+
+var label = series[0].Labels[0];
+label.DataLabelFormat.ShowValue = true;
+label.DataLabelFormat.Position = LegendDataLabelPosition.OutsideEnd;
+label.X = 0.71f;
+label.Y = 0.04f;
+
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
+```
+
+![Diagram pai dengan posisi label data yang disesuaikan](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
-**How can I prevent data labels from overlapping on dense charts?**
+**Bagaimana cara mencegah label data saling bertumpuk pada diagram yang padat?**
 
-Gabungkan penempatan label otomatis, garis penghubung, dan ukuran font yang lebih kecil; jika diperlukan, sembunyikan beberapa bidang (misalnya kategori) atau tampilkan label hanya untuk titik ekstrem/kunci.
+Gabungkan penempatan label otomatis, garis penunjuk, dan ukuran font yang lebih kecil; jika diperlukan, sembunyikan beberapa bidang (misalnya, kategori) atau tampilkan label hanya untuk nilai ekstrem atau titik kunci.
 
-**How can I disable labels only for zero, negative, or empty values?**
+**Bagaimana cara menonaktifkan label hanya untuk nilai nol, negatif, atau kosong?**
 
-Saring titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai dengan aturan yang ditetapkan.
+Filter titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai aturan yang ditentukan.
 
-**How can I ensure a consistent label style when exporting to PDF/images?**
+**Bagaimana cara memastikan gaya label konsisten saat mengekspor ke PDF/gambar?**
 
-Tetapkan font (keluarga, ukuran) secara eksplisit dan pastikan font tersedia di sisi rendering untuk menghindari fallback.
+Tentukan secara eksplisit jenis dan ukuran font serta verifikasi bahwa font tersebut tersedia di lingkungan render untuk menghindari fallback.

@@ -11,185 +11,18 @@ keywords:
 - etiket mesafesi
 - etiket konumu
 - PowerPoint
-- OpenDocument
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET kullanarak PowerPoint ve OpenDocument sunumlarına grafik veri etiketleri eklemeyi ve biçimlendirmeyi öğrenin, böylece daha etkileyici slaytlar oluşturun."
+description: "PowerPoint sunumlarına Aspose.Slides for Python via .NET kullanarak grafik veri etiketlerini eklemeyi ve biçimlendirmeyi öğrenin, daha etkileyici slaytlar için."
 ---
-## **Genel Bakış**
+## **Giriş**
 
-Bir grafikteki veri etiketleri, grafik veri serisi veya tek tek veri noktaları hakkında ayrıntılar gösterir. Okuyucuların veri serilerini hızlıca tanımlamasını sağlar ve grafiklerin anlaşılmasını kolaylaştırır. Aspose.Slides for Python’da, herhangi bir grafik için veri etiketlerini etkinleştirebilir, özelleştirebilir ve biçimlendirebilirsiniz—gösterilecek öğeyi (değerler, yüzde, seri veya kategori adları) seçebilir, etiketlerin konumunu belirleyebilir ve görünümünü (yazı tipi, sayı biçimi, ayırıcılar, lider çizgileri ve daha fazlası) ayarlayabilirsiniz. Bu makale, grafiklerinize net ve bilgilendirici etiketler eklemek için ihtiyaç duyacağınız temel API’leri ve örnekleri özetlemektedir.
+Veri etiketleri, grafik serileri ve tek tek veri noktaları hakkında bilgi gösterir ve okuyucuların değerleri tanımasına ve grafiği anlamasına yardımcı olur. Bu makale, değerleri biçimlendirme, yüzde gösterme, etiket metnini okuma, kategori ekseni etiketi aralığını ayarlama ve pasta grafiği etiketlerini konumlandırma konularını açıklar.
 
-## **Veri Etiketi Hassasiyetini Ayarlama**
+## **Grafik Veri Etiketlerinde Veri Hassasiyetini Ayarlama**
 
-Grafik veri etiketleri genellikle tutarlı hassasiyet gerektiren sayısal değerler gösterir. Bu bölüm, Aspose.Slides’da veri etiketleri için ondalık basamak sayısını uygun bir sayı biçimi uygulayarak nasıl kontrol edeceğinizi gösterir.
-
-Aşağıdaki Python örneği, grafik veri etiketleri için sayısal hassasiyeti nasıl ayarlayacağınızı gösterir:
-
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    chart = slide.shapes.add_chart(charts.ChartType.LINE, 50, 50, 500, 300)
-
-    series = chart.chart_data.series[0]
-    series.labels.default_data_label_format.show_value = True
-    series.number_format_of_values = "#,##0.00"
-
-    presentation.save("data_label_precision.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Yüzdeleri Etiket Olarak Görüntüleme**
-
-Aspose.Slides ile, grafiklerde yüzde değerlerini veri etiketi olarak gösterebilirsiniz. Aşağıdaki örnek, her noktanın kendi kategorisi içindeki payını hesaplar ve etiketi yüzde olarak biçimlendirir.
-
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-# Presentation sınıfının bir örneğini oluştur.
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 600, 400)
-    series = chart.chart_data.series[0]
-
-    total_for_categories = [0]*len(chart.chart_data.categories)
-    for k in range(len(chart.chart_data.categories)):
-        for i in range(len(chart.chart_data.series)):
-            total_for_categories[k] += chart.chart_data.series[i].data_points[k].value.data
-
-    for i in range(len(chart.chart_data.series)):
-        series = chart.chart_data.series[i]
-        series.labels.default_data_label_format.show_legend_key = False
-
-        for j in range(len(series.data_points)):
-            data_point_percent = series.data_points[j].value.data / total_for_categories[j] * 100
-
-            text_portion = slides.Portion()
-            text_portion.text = "{0:.2f} %".format(data_point_percent)
-            text_portion.portion_format.font_height = 8
-
-            label = series.data_points[j].label
-            label.text_frame_for_overriding.text = ""
-
-            paragraph = label.text_frame_for_overriding.paragraphs[0]
-            paragraph.portions.add(text_portion)
-
-            label.data_label_format.show_series_name = False
-            label.data_label_format.show_percentage = False
-            label.data_label_format.show_legend_key = False
-            label.data_label_format.show_category_name = False
-            label.data_label_format.show_bubble_size = False
-
-    # Grafiği içeren sunumu kaydet.
-    presentation.save("percentage_as_label.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Grafik Veri Etiketleriyle Yüzde İşaretlerini Gösterme**
-
-Bu bölüm, grafik veri etiketlerinde yüzde değerlerini gösterme ve yüzde işaretini ekleme yöntemlerini Aspose.Slides kullanarak anlatır. Tüm seri için veya belirli noktalar için yüzde değerlerini nasıl etkinleştireceğinizi (pie, doughnut ve %100 yığılmış grafikler için ideal) ve etiket seçenekleri ya da özel bir sayı biçimi aracılığıyla biçimlendirmeyi nasıl kontrol edeceğinizi öğreneceksiniz.
-
-Aşağıdaki Python örneği, bir grafiğin veri etiketine yüzde işareti eklemenin nasıl yapılacağını gösterir:
-
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-import aspose.pydrawing as draw
-
-# Presentation sınıfının bir örneğini oluştur.
-with slides.Presentation() as presentation:
-
-    # İndeksle bir slayt referansı al.
-    slide = presentation.slides[0]
-
-    # Slaytta bir PercentsStackedColumn grafik oluştur.
-    chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 20, 20, 600, 400)
-
-    chart.axes.vertical_axis.is_number_format_linked_to_source = False
-    chart.axes.vertical_axis.number_format = "0.00%"
-
-    chart.chart_data.series.clear()
-
-    # Grafik veri çalışma kitabını al.
-    workbook = chart.chart_data.chart_data_workbook
-    worksheet_index = 0
-
-    # Yeni bir seri ekle.
-    series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Reds"), chart.type)
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 0.30))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 0.50))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 0.80))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 1, 0.65))
-
-    # Serinin dolgu rengini ayarla.
-    series.format.fill.fill_type = slides.FillType.SOLID
-    series.format.fill.solid_fill_color.color = draw.Color.red
-
-    # Etiket biçim özelliklerini ayarla.
-    series.labels.default_data_label_format.show_value = True
-    series.labels.default_data_label_format.is_number_format_linked_to_source = False
-    series.labels.default_data_label_format.number_format = "0.0%"
-    series.labels.default_data_label_format.text_format.portion_format.font_height = 10
-    series.labels.default_data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    series.labels.default_data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.white
-    series.labels.default_data_label_format.show_value = True
-
-    # Yeni bir seri ekle.
-    series2 = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Blues"), chart.type)
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 0.70))
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 0.50))
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 0.20))
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 2, 0.35))
-
-    # Dolgu tipini ve rengini ayarla.
-    series2.format.fill.fill_type = slides.FillType.SOLID
-    series2.format.fill.solid_fill_color.color = draw.Color.blue
-    series2.labels.default_data_label_format.show_value = True
-    series2.labels.default_data_label_format.is_number_format_linked_to_source = False
-    series2.labels.default_data_label_format.number_format = "0.0%"
-    series2.labels.default_data_label_format.text_format.portion_format.font_height = 10
-    series2.labels.default_data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    series2.labels.default_data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.white
-
-    # Sunumu kaydet.
-    presentation.save("percentage_sign.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Etiket Mesafesini Eksen’den Ayarlama**
-
-Bu bölüm, Aspose.Slides’da veri etiketleri ile grafik ekseni arasındaki mesafeyi nasıl kontrol edeceğinizi gösterir. Bu ofseti ayarlamak, çakışmaları önlemeye ve yoğun görsellerde okunabilirliği artırmaya yardımcı olur.
-
-Aşağıdaki Python kodu, eksen tabanlı bir grafik ile çalışırken kategori ekseninden etiket mesafesini nasıl ayarlayacağınızı gösterir:
-
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-# Presentation sınıfının bir örneğini oluştur.
-with slides.Presentation() as presentation:
-    # Bir slayt referansı al.
-    slide = presentation.slides[0]
-
-    # Slayta bir clustered column grafik oluştur.
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
-
-    # Kategori (yatay) ekseninden etiket mesafesini ayarla.
-    chart.axes.horizontal_axis.label_offset = 500
-
-    # Sunumu kaydet.
-    presentation.save("axis_label_distance.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Etiket Konumunu Ayarlama**
-
-Eksen kullanmayan bir grafik (örneğin pie grafiği) oluşturduğunuzda, veri etiketleri kenara çok yakın olabilir. Bu durumda, lider çizgilerin net görünmesi için etiket konumunu ayarlayın.
-
-Aşağıdaki Python kodu, pie grafiğinde etiket konumunu nasıl ayarlayacağınızı gösterir:
+Seri değerlerini biçimlendirmek için [number_format_of_values](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseries/number_format_of_values/) kullanın. Bu örnek, varsayılan verilerle bir çizgi grafiği oluşturur, veri tablosunu gösterir ve ilk seri için değer etiketlerini etkinleştirir. `#,##0.00` biçimi, binlik ayırıcı ve iki ondalık basamak gösterir ve temel değerleri değiştirmez.
 
 ```python
 import aspose.slides as slides
@@ -198,30 +31,220 @@ import aspose.slides.charts as charts
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 600, 300)
+    chart = slide.shapes.add_chart(charts.ChartType.LINE, 50, 50, 450, 300)
+    chart.has_data_table = True
 
     series = chart.chart_data.series[0]
+    series.number_format_of_values = "#,##0.00"
     series.labels.default_data_label_format.show_value = True
-    series.labels.default_data_label_format.show_leader_lines = True
 
-    label = series.labels[0]
+    presentation.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Yüzdeyi Etiket Olarak Görüntüleme**
+
+Yığınlı bir sütun grafik için, her değeri kategori toplamının yüzdesi olarak hesaplayın ve metni [text_frame_for_overriding](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) aracılığıyla atayın. Bu örnek, varsayılan grafik verilerini kullanır ve yüzdeyi 8 puanlık bir yazı tipinde iki ondalık basamakla gösterir. Toplamı sıfır olan kategoriler, bölme hatasından kaçınmak için atlanır. Grafik verileri değişirse özel etiket metnini yeniden hesaplayın.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 400, 400)
+
+    category_totals = [0.0] * len(chart.chart_data.categories)
+    for k in range(len(chart.chart_data.categories)):
+        for series in chart.chart_data.series:
+            point_value = float(series.data_points[k].value.data)
+            category_totals[k] += point_value
+
+    for series in chart.chart_data.series:
+        series.labels.default_data_label_format.show_legend_key = False
+
+        for j in range(len(series.data_points)):
+            label = series.data_points[j].label
+            if category_totals[j] == 0:
+                continue
+
+            point_value = float(series.data_points[j].value.data)
+            data_point_percent = point_value / category_totals[j] * 100
+
+            portion = slides.Portion()
+            portion.text = f"{data_point_percent:.2f} %"
+            portion.portion_format.font_height = 8
+
+            label.text_frame_for_overriding.text = ""
+
+            paragraph = label.text_frame_for_overriding.paragraphs[0]
+            paragraph.portions.add(portion)
+
+            label.data_label_format.show_value = True
+            label.data_label_format.show_series_name = False
+            label.data_label_format.show_percentage = False
+            label.data_label_format.show_legend_key = False
+            label.data_label_format.show_category_name = False
+            label.data_label_format.show_bubble_size = False
+
+    presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Grafik Veri Etiketlerinde Yüzde İşaretini Ayarlama**
+
+Değerler kesir olarak depolandığında, yüzde göstermek için [number_format](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabelformat/number_format/) kullanın. Etiket biçimini kaynak hücrelerden bağımsız olarak uygulamak için [is_number_format_linked_to_source](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/) özelliğini `False` olarak ayarlayın.
+
+Bu örnek, dört kategori boyunca kırmızı ve mavi serilerle %100 yığınlı bir sütun grafik oluşturur. Her değer çifti toplamı 1'dir. `0.0%` etiket biçimi, 0.30 değerini %30.0 olarak gösterir; dikey eksen iki ondalık basamak kullanır. Her iki seri de beyaz, 10 puanlık etiket metni kullanır.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.pydrawing as drawing
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 20, 20, 500, 400)
+
+    chart.axes.vertical_axis.is_number_format_linked_to_source = False
+    chart.axes.vertical_axis.number_format = "0.00%"
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
+    for i in range(4):
+        category_cell = workbook.get_cell(worksheet_index, i + 1, 0, f"Category {i + 1}")
+        chart.chart_data.categories.add(category_cell)
+
+    series_names = ["Reds", "Blues"]
+    series_colors = [drawing.Color.red, drawing.Color.blue]
+    values = [[0.30, 0.50, 0.80, 0.65], [0.70, 0.50, 0.20, 0.35]]
+
+    for i in range(len(series_names)):
+        series_cell = workbook.get_cell(worksheet_index, 0, i + 1, series_names[i])
+        series = chart.chart_data.series.add(series_cell, chart.type)
+        for j in range(4):
+            value_cell = workbook.get_cell(worksheet_index, j + 1, i + 1, values[i][j])
+            series.data_points.add_data_point_for_bar_series(value_cell)
+
+        series.format.fill.fill_type = slides.FillType.SOLID
+        series.format.fill.solid_fill_color.color = series_colors[i]
+
+        label_format = series.labels.default_data_label_format
+        label_format.show_value = True
+        label_format.is_number_format_linked_to_source = False
+        label_format.number_format = "0.0%"
+        label_format.text_format.portion_format.font_height = 10
+        label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
+        label_format.text_format.portion_format.fill_format.solid_fill_color.color = drawing.Color.white
+
+    presentation.save("SetDataLabelsPercentageSign_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Veri Etiketlerinin Gerçek Metnini Okuma**
+
+[get_actual_label_text](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) kullanarak bir veri etiketinin ayarları tarafından üretilen metni alabilirsiniz. Bu, raporlar için etiketleri çıkarmak, sunum içeriğinde arama yapmak veya oluşturulan grafikleri doğrulamak için faydalıdır. Aşağıdaki örnekte, varsayılan [data label format](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabelformat/) her kategori adını, seri adını ve değeri birleştirir. Bir nokta değerini yüzde olarak biçimler, bir diğeri ise [text_frame_for_overriding](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) üzerinden özel metin kullanır.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    for i, category_name in enumerate(["Q1", "Q2"]):
+        category_cell = workbook.get_cell(0, i + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
+
+    north_cell = workbook.get_cell(0, 0, 1, "North")
+    north = chart.chart_data.series.add(north_cell, chart.type)
+    for i, value in enumerate([0.25, 0.75]):
+        value_cell = workbook.get_cell(0, i + 1, 1, value)
+        north.data_points.add_data_point_for_bar_series(value_cell)
+
+    south_cell = workbook.get_cell(0, 0, 2, "South")
+    south = chart.chart_data.series.add(south_cell, chart.type)
+    for i, value in enumerate([0.40, 0.60]):
+        value_cell = workbook.get_cell(0, i + 1, 2, value)
+        south.data_points.add_data_point_for_bar_series(value_cell)
+
+    for series in chart.chart_data.series:
+        label_format = series.labels.default_data_label_format
+        label_format.show_category_name = True
+        label_format.show_series_name = True
+        label_format.show_value = True
+
+    north.labels[1].data_label_format.is_number_format_linked_to_source = False
+    north.labels[1].data_label_format.number_format = "0%"
+    south.labels[0].text_frame_for_overriding.text = "Reviewed"
+
+    for series in chart.chart_data.series:
+        for point in series.data_points:
+            label = point.label
+            if not label.is_visible:
+                continue
+
+            label_text = label.get_actual_label_text()
+            print(f"Value: {point.value.data}; label: {label_text}")
+```
+
+Bir veri noktasında depolanan sayı `0.75` olarak kalır, etiketinde kategori ve seri adlarıyla birlikte `75%` gösterse bile. Özel metin, oluşturulan etiket metninin yerini alır. [get_actual_label_text](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) her iki durumda da sonuç etiket dizesini döndürür. Sadece görünen etiketleri çıkarmak istediğinizde, yukarıda gösterildiği gibi, [is_visible](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/is_visible/) ayrı ayrı kontrol edin.
+
+## **Etiketi Eksen’den Uzaklık Olarak Ayarlama**
+
+[label_offset](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/axis/label_offset/) kullanarak kategori ekseni etiketleri ile eksen arasındaki mesafeyi kontrol edebilirsiniz. Değer, eksen etiketlerinin maksimum yazı tipi boyutunun bir yüzdesidir. Bu örnek, kümelenmiş bir sütun grafik oluşturur ve yatay eksen etiketi ofsetini 500 olarak ayarlar. Bu ayar, bireysel veri noktalarına eklenmiş etiketlerden ziyade kategori ekseni etiketlerini etkiler.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+    chart.axes.horizontal_axis.label_offset = 500
+
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Etiket Konumunu Ayarlama**
+
+Bir pasta grafiğinde, veri etiketi konumlarını ayarlayarak boşlukları iyileştirin ve gösterge çizgileri için yer açın.
+
+Bu örnek, ilk veri noktasının değerini gösterir, etiketini dilimin dışına konumlandırır ve [x](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/x/) ve [y](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/y/) ofsetlerini ayarlar. Bu ofsetler, sırasıyla grafik genişliği ve yüksekliğine göre relatifdir.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 200, 200)
+    series = chart.chart_data.series
+
+    label = series[0].labels[0]
+    label.data_label_format.show_value = True
     label.data_label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
-
-    label.x = 0.05
-    label.y = 0.1
+    label.x = 0.71
+    label.y = 0.04
 
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Etiket konumu değiştirildi](changed_label_position.png)
+![Ayarlanmış veri etiketi konumu](pie-chart-adjusted-label.png)
 
 ## **SSS**
 
-**Yoğun grafiklerde veri etiketlerinin çakışmasını nasıl önleyebilirim?**  
-Otomatik etiket yerleştirme, lider çizgileri ve daha küçük yazı tipi boyutunu birleştirin; gerekirse bazı alanları (örneğin kategoriyi) gizleyin veya yalnızca uç/anahtar noktalara etiket gösterin.
+**Yoğun grafiklerde veri etiketlerinin üst üste binmesini nasıl önleyebilirim?**  
+Otomatik etiket konumlandırma, gösterge çizgileri ve küçültülmüş yazı tipi boyutunu birleştirin; gerekirse bazı alanları (örneğin kategori) gizleyin veya yalnızca uç değerler veya ana noktalar için etiketleri gösterin.
 
-**Sıfır, negatif veya boş değerler için etiketleri yalnızca nasıl devre dışı bırakabilirim?**  
-Etiketleri etkinleştirmeden önce veri noktalarını filtreleyin ve tanımlı bir kurala göre 0, negatif veya eksik değerlere sahip noktaların görüntülenmesini kapatın.
+**Sıfır, negatif veya boş değerler için yalnızca etiketleri nasıl devre dışı bırakabilirim?**  
+Etiketleri etkinleştirmeden önce veri noktalarını filtreleyin ve tanımlı bir kurala göre 0, negatif veya eksik değerlerin gösterimini kapatın.
 
-**PDF/görsellere dışa aktarırken tutarlı bir etiket stilini nasıl sağlayabilirim?**  
-Yazı tiplerini (aile, boyut) açıkça ayarlayın ve yedekleme oluşmaması için render tarafında yazı tipinin mevcut olduğunu doğrulayın.
+**PDF/görsellere dışa aktarırken tutarlı bir etiket stili nasıl sağlanır?**  
+Yazı tipi ailesi ve boyutunu açıkça ayarlayın ve yedekleme (fallback) oluşmaması için yazı tipinin oluşturma ortamında mevcut olduğundan emin olun.

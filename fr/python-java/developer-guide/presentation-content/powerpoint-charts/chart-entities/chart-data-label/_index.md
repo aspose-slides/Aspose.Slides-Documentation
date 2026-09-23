@@ -8,22 +8,22 @@ keywords:
 - étiquette de données
 - précision des données
 - pourcentage
-- "distance de l'étiquette"
-- "position de l'étiquette"
+- distance d'étiquette
+- emplacement d'étiquette
 - PowerPoint
 - présentation
 - Python
 - Java
 - Aspose.Slides
-description: "Apprenez à ajouter et à formater les étiquettes de données de graphique dans les présentations PowerPoint en utilisant Aspose.Slides for Python via Java pour des diapositives plus attrayantes."
+description: "Apprenez à ajouter et formater les étiquettes de données de graphique dans les présentations PowerPoint en utilisant Aspose.Slides pour Python via Java pour des diapositives plus attrayantes."
 ---
 ## **Introduction**
 
-Les étiquettes de données sur un graphique affichent des détails sur les séries de données du graphique ou sur des points de données individuels. Elles permettent aux lecteurs d'identifier rapidement les séries de données et facilitent également la compréhension des graphiques.
+Les étiquettes de données affichent des informations sur les séries de graphiques et les points de données individuels, aidant les lecteurs à identifier les valeurs et à comprendre le graphique. Cet article explique comment formater les valeurs, afficher les pourcentages, lire le texte des étiquettes, ajuster l'espacement des étiquettes de l'axe des catégories et positionner les étiquettes d'un diagramme circulaire.
 
 ## **Définir la précision des données dans les étiquettes de graphique**
 
-Ce code Python montre comment définir la précision des données dans une étiquette de graphique :
+Utilisez [setNumberFormatOfValues](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) pour formater les valeurs des séries. Cet exemple crée un graphique en courbes avec des données par défaut, affiche son tableau de données et active les étiquettes de valeurs pour la première série. Le format `#,##0.00` affiche un séparateur de milliers et deux décimales sans modifier les valeurs sous-jacentes.
 
 ```python
 import jpype
@@ -36,17 +36,23 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 50, 50, 450, 300)
-    chart.setDataTable(True)
-    chart.getChartData().getSeries().get_Item(0).setNumberFormatOfValues("#,##0.00")
+    slide = presentation.getSlides().get_Item(0)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300)
+    chart.setDataTable(True)
+
+    series = chart.getChartData().getSeries().get_Item(0)
+    series.setNumberFormatOfValues("#,##0.00")
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+
+    presentation.save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Afficher les pourcentages comme étiquettes**
-Aspose.Slides for Python via Java vous permet de définir des étiquettes de pourcentage sur les graphiques affichés. Ce code Python démontre l'opération :
+## **Afficher le pourcentage en tant qu'étiquettes**
+
+Pour un graphique à colonnes empilées, calculez chaque valeur comme un pourcentage du total de sa catégorie et attribuez le texte au cadre de texte renvoyé par [getTextFrameForOverriding](https://reference.aspose.com/slides/fr/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). Cet exemple utilise les données de graphique par défaut et affiche les pourcentages avec deux décimales dans une police de 8 points. Les catégories dont le total est zéro sont ignorées afin d'éviter une division par zéro. Recalculez le texte personnalisé de l'étiquette si les données du graphique changent.
 
 ```python
 import jpype
@@ -61,6 +67,7 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
     chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400)
+
     chart_series = chart.getChartData().getSeries()
     category_totals = [0.0] * chart.getChartData().getCategories().size()
     for category_index in range(len(category_totals)):
@@ -88,19 +95,23 @@ try:
             paragraph.getPortions().add(portion)
 
             label_format = label.getDataLabelFormat()
+            label_format.setShowValue(True)
             label_format.setShowSeriesName(False)
             label_format.setShowPercentage(False)
             label_format.setShowLegendKey(False)
             label_format.setShowCategoryName(False)
             label_format.setShowBubbleSize(False)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Définir le signe de pourcentage avec les étiquettes de graphique**
-Ce code Python montre comment définir le signe de pourcentage pour une étiquette de graphique :
+## **Définir le signe de pourcentage avec les étiquettes de données du graphique**
+
+Lorsque les valeurs sont stockées sous forme de fractions, utilisez [setNumberFormat](https://reference.aspose.com/slides/fr/python-java/aspose.slides/datalabelformat/#setNumberFormat) pour afficher les pourcentages. Passez `False` à [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/fr/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) pour appliquer le format d'étiquette indépendamment des cellules sources.
+
+Cet exemple crée un graphique à colonnes empilées à 100 % avec des séries rouge et bleue sur quatre catégories. Chaque paire de valeurs s'additionne à 1. Le format d'étiquette `0.0%` affiche 0,30 sous la forme 30,0 %, tandis que l'axe vertical utilise deux décimales. Les deux séries utilisent un texte d'étiquette blanc de 10 points.
 
 ```python
 import jpype
@@ -117,55 +128,114 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
     chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400)
+
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
     chart.getAxes().getVerticalAxis().setNumberFormat("0.00%")
+
     chart.getChartData().getSeries().clear()
-    worksheet_index = 0
+    chart.getChartData().getCategories().clear()
+
     workbook = chart.getChartData().getChartDataWorkbook()
+    worksheet_index = 0
+    for i in range(4):
+        category_cell = workbook.getCell(worksheet_index, i + 1, 0, f"Category {i + 1}")
+        chart.getChartData().getCategories().add(category_cell)
 
-    # Ajouter la série rouge.
-    series_cell = workbook.getCell(worksheet_index, 0, 1, "Reds")
-    red_series = chart.getChartData().getSeries().add(series_cell, chart.getType())
-    for row_index, value in enumerate([0.30, 0.50, 0.80, 0.65], start=1):
-        data_cell = workbook.getCell(worksheet_index, row_index, 1, jpype.JDouble(value))
-        red_series.getDataPoints().addDataPointForBarSeries(data_cell)
+    series_names = ["Reds", "Blues"]
+    series_colors = [Color.RED, Color.BLUE]
+    values = [[0.30, 0.50, 0.80, 0.65], [0.70, 0.50, 0.20, 0.35]]
 
-    red_series.getFormat().getFill().setFillType(FillType.Solid)
-    red_series.getFormat().getFill().getSolidFillColor().setColor(Color.RED)
-    red_label_format = red_series.getLabels().getDefaultDataLabelFormat()
-    red_label_format.setShowValue(True)
-    red_label_format.setNumberFormatLinkedToSource(False)
-    red_label_format.setNumberFormat("0.0%")
-    red_portion_format = red_label_format.getTextFormat().getPortionFormat()
-    red_portion_format.setFontHeight(10)
-    red_portion_format.getFillFormat().setFillType(FillType.Solid)
-    red_portion_format.getFillFormat().getSolidFillColor().setColor(Color.WHITE)
+    for i, series_name in enumerate(series_names):
+        series_cell = workbook.getCell(worksheet_index, 0, i + 1, series_name)
+        series = chart.getChartData().getSeries().add(series_cell, chart.getType())
+        for j, value in enumerate(values[i]):
+            value_cell = workbook.getCell(worksheet_index, j + 1, i + 1, jpype.JDouble(value))
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
 
-    # Ajouter la série bleue.
-    series_cell = workbook.getCell(worksheet_index, 0, 2, "Blues")
-    blue_series = chart.getChartData().getSeries().add(series_cell, chart.getType())
-    for row_index, value in enumerate([0.70, 0.50, 0.20, 0.35], start=1):
-        data_cell = workbook.getCell(worksheet_index, row_index, 2, jpype.JDouble(value))
-        blue_series.getDataPoints().addDataPointForBarSeries(data_cell)
+        series.getFormat().getFill().setFillType(FillType.Solid)
+        series.getFormat().getFill().getSolidFillColor().setColor(series_colors[i])
 
-    blue_series.getFormat().getFill().setFillType(FillType.Solid)
-    blue_series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE)
-    blue_label_format = blue_series.getLabels().getDefaultDataLabelFormat()
-    blue_label_format.setShowValue(True)
-    blue_label_format.setNumberFormatLinkedToSource(False)
-    blue_label_format.setNumberFormat("0.0%")
-    blue_portion_format = blue_label_format.getTextFormat().getPortionFormat()
-    blue_portion_format.setFontHeight(10)
-    blue_portion_format.getFillFormat().setFillType(FillType.Solid)
-    blue_portion_format.getFillFormat().getSolidFillColor().setColor(Color.WHITE)
+        label_format = series.getLabels().getDefaultDataLabelFormat()
+        label_format.setShowValue(True)
+        label_format.setNumberFormatLinkedToSource(False)
+        label_format.setNumberFormat("0.0%")
+        portion_format = label_format.getTextFormat().getPortionFormat()
+        portion_format.setFontHeight(10)
+        portion_format.getFillFormat().setFillType(FillType.Solid)
+        portion_format.getFillFormat().getSolidFillColor().setColor(Color.WHITE)
 
     presentation.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+## **Lire le texte réel des étiquettes de données**
+
+Utilisez [getActualLabelText](https://reference.aspose.com/slides/fr/python-java/aspose.slides/datalabel/#getActualLabelText) pour récupérer le texte généré par les paramètres d'une étiquette de données. Ceci est utile lors de l'extraction d'étiquettes pour des rapports, la recherche dans le contenu d'une présentation ou la validation de graphiques générés. Dans l'exemple ci‑dessous, le [format d'étiquette de données](https://reference.aspose.com/slides/fr/python-java/aspose.slides/datalabelformat/) par défaut combine le nom de chaque catégorie, le nom de la série et la valeur. Un point formate sa valeur en pourcentage, et un autre utilise un texte personnalisé provenant de [getTextFrameForOverriding](https://reference.aspose.com/slides/fr/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    first_category_cell = workbook.getCell(0, 1, 0, "Q1")
+    chart.getChartData().getCategories().add(first_category_cell)
+    second_category_cell = workbook.getCell(0, 2, 0, "Q2")
+    chart.getChartData().getCategories().add(second_category_cell)
+
+    north_series_cell = workbook.getCell(0, 0, 1, "North")
+    north = chart.getChartData().getSeries().add(north_series_cell, chart.getType())
+    north_first_value_cell = workbook.getCell(0, 1, 1, jpype.JDouble(0.25))
+    north.getDataPoints().addDataPointForBarSeries(north_first_value_cell)
+    north_second_value_cell = workbook.getCell(0, 2, 1, jpype.JDouble(0.75))
+    north.getDataPoints().addDataPointForBarSeries(north_second_value_cell)
+
+    south_series_cell = workbook.getCell(0, 0, 2, "South")
+    south = chart.getChartData().getSeries().add(south_series_cell, chart.getType())
+    south_first_value_cell = workbook.getCell(0, 1, 2, jpype.JDouble(0.40))
+    south.getDataPoints().addDataPointForBarSeries(south_first_value_cell)
+    south_second_value_cell = workbook.getCell(0, 2, 2, jpype.JDouble(0.60))
+    south.getDataPoints().addDataPointForBarSeries(south_second_value_cell)
+
+    for series in chart.getChartData().getSeries():
+        label_format = series.getLabels().getDefaultDataLabelFormat()
+        label_format.setShowCategoryName(True)
+        label_format.setShowSeriesName(True)
+        label_format.setShowValue(True)
+
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormatLinkedToSource(False)
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormat("0%")
+    south.getLabels().get_Item(0).getTextFrameForOverriding().setText("Reviewed")
+
+    for series in chart.getChartData().getSeries():
+        for point in series.getDataPoints():
+            label = point.getLabel()
+            if not label.isVisible():
+                continue
+
+            print(f"Value: {point.getValue().getData()}; label: {label.getActualLabelText()}")
+finally:
+    presentation.dispose()
+```
+
+Le nombre stocké dans un point de données reste `0.75`, même si son étiquette affiche `75%` avec les noms de catégorie et de série. Le texte personnalisé remplace le texte d'étiquette généré. [getActualLabelText](https://reference.aspose.com/slides/fr/python-java/aspose.slides/datalabel/#getActualLabelText) renvoie la chaîne d'étiquette résultante dans les deux cas. Vérifiez [isVisible](https://reference.aspose.com/slides/fr/python-java/aspose.slides/datalabel/#isVisible) séparément, comme indiqué ci‑dessus, lorsque vous ne voulez extraire que les étiquettes visibles.
+
 ## **Définir la distance de l'étiquette par rapport à un axe**
-Ce code Python montre comment définir la distance de l'étiquette par rapport à un axe de catégorie lorsque vous traitez un graphique tracé à partir d'axes :
+
+Utilisez [setLabelOffset](https://reference.aspose.com/slides/fr/python-java/aspose.slides/axis/#setLabelOffset) pour contrôler la distance entre les étiquettes de l'axe des catégories et l'axe. La valeur est un pourcentage de la taille maximale de police des étiquettes d'axe. Cet exemple crée un graphique à colonnes groupées et définit le décalage des étiquettes de l'axe horizontal à 500. Ce réglage affecte les étiquettes de l'axe des catégories plutôt que les étiquettes attachées aux points de données individuels.
 
 ```python
 import jpype
@@ -179,19 +249,20 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
     chart.getAxes().getHorizontalAxis().setLabelOffset(500)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **Ajuster la position de l'étiquette**
 
-Lorsque vous créez un graphique qui ne dépend d'aucun axe, comme un graphique circulaire, les étiquettes de données du graphique peuvent se retrouver trop proches de son bord. Dans ce cas, vous devez ajuster la position de l'étiquette de données afin que les lignes de liaison s'affichent clairement.
+Sur un diagramme circulaire, ajustez la position des étiquettes de données pour améliorer l'espacement et laisser de la place aux lignes directrices.
 
-Ce code Python montre comment ajuster la position de l'étiquette sur un graphique circulaire :
+Cet exemple affiche la valeur du premier point de données, place son étiquette à l'extérieur de la tranche et ajuste ses décalages horizontaux et verticaux à l'aide de [setX](https://reference.aspose.com/slides/fr/python-java/aspose.slides/datalabel/#setX) et [setY](https://reference.aspose.com/slides/fr/python-java/aspose.slides/datalabel/#setY). Ces décalages sont relatifs à la largeur et à la hauteur du graphique, respectivement.
 
 ```python
 import jpype
@@ -204,31 +275,33 @@ from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, S
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 200, 200)
+    slide = presentation.getSlides().get_Item(0)
+    chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200)
     series = chart.getChartData().getSeries()
+    
     label = series.get_Item(0).getLabels().get_Item(0)
     label.getDataLabelFormat().setShowValue(True)
     label.getDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd)
     label.setX(0.71)
     label.setY(0.04)
 
-    presentation.save("pres.pptx", SaveFormat.Pptx)
+    presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![Diagramme circulaire avec une position d'étiquette de données ajustée](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
-**Comment empêcher les étiquettes de données de se chevaucher sur des graphiques denses ?**
+**Comment puis‑je empêcher les étiquettes de données de se chevaucher sur des graphiques denses ?**
 
-Combinez le placement automatique des étiquettes, les lignes de liaison et une taille de police réduite ; si nécessaire, masquez certains champs (par exemple, la catégorie) ou n'affichez les étiquettes que pour les points extrêmes/clé.
+Combinez le placement automatique des étiquettes, les lignes directrices et une taille de police réduite ; si nécessaire, masquez certains champs (par exemple, la catégorie) ou n'affichez les étiquettes que pour les valeurs extrêmes ou les points clés.
 
 **Comment désactiver les étiquettes uniquement pour les valeurs zéro, négatives ou vides ?**
 
 Filtrez les points de données avant d'activer les étiquettes et désactivez l'affichage pour les valeurs égales à 0, les valeurs négatives ou les valeurs manquantes selon une règle définie.
 
-**Comment garantir un style d'étiquette cohérent lors de l'exportation en PDF/images ?**
+**Comment garantir un style d'étiquette cohérent lors de l'exportation vers PDF/images ?**
 
-Définissez explicitement les polices (famille, taille) et vérifiez que la police est disponible du côté du rendu pour éviter le recours à une police de secours.
+Définissez explicitement la famille et la taille de police et vérifiez que la police est disponible dans l'environnement de rendu afin d'éviter le recours à une police de substitution.

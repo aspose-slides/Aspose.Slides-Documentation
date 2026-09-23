@@ -5,25 +5,25 @@ type: docs
 url: /ar/python-java/chart-data-label/
 keywords:
 - مخطط
-- تسمية بيانات
+- تسمية البيانات
 - دقة البيانات
 - نسبة مئوية
 - مسافة التسمية
-- موقع التسمية
+- موضع التسمية
 - PowerPoint
 - عرض تقديمي
 - Python
 - Java
 - Aspose.Slides
-description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides for Python via Java للحصول على شرائح أكثر جذبًا."
+description: "تعلم كيفية إضافة وتنسيق تسميات بيانات المخطط في عروض PowerPoint التقديمية باستخدام Aspose.Slides للبايثون عبر جافا لشرائح أكثر جذبًا."
 ---
-## **مقدمة**
+## **المقدمة**
 
-تُظهر تسميات البيانات على المخطط تفاصيل حول سلسلة بيانات المخطط أو نقاط البيانات الفردية. إنها تسمح للقراء بتحديد سلاسل البيانات بسرعة، وتُسهل أيضًا فهم المخططات.
+تُظهر تسميات البيانات معلومات حول سلاسل المخطط ونقاط البيانات الفردية، مما يساعد القارئ على تحديد القيم وفهم المخطط. يشرح هذا المقال كيفية تنسيق القيم، وعرض النسب المئوية، وقراءة نص التسمية، وضبط تباعد تسميات محور الفئة، وتحديد موضع تسميات مخطط الفطيرة.
 
-## **تحديد دقة البيانات في تسميات بيانات المخطط**
+## **ضبط دقة البيانات في تسميات بيانات المخطط**
 
-يعرض لك هذا الكود بلغة بايثون كيفية تعيين دقة البيانات في تسمية بيانات المخطط:
+استخدم [setNumberFormatOfValues](https://reference.aspose.com/slides/ar/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) لتنسيق قيم السلسلة. ينشئ هذا المثال مخطط خط مع بيانات افتراضية، يعرض جدول البيانات الخاص به، ويفعل تسميات القيم للسلسلة الأولى. التنسيق `#,##0.00` يعرض فاصل الآلاف ومكانين عشريين دون تغيير القيم الأصلية.
 
 ```python
 import jpype
@@ -36,18 +36,23 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 50, 50, 450, 300)
-    chart.setDataTable(True)
-    chart.getChartData().getSeries().get_Item(0).setNumberFormatOfValues("#,##0.00")
+    slide = presentation.getSlides().get_Item(0)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300)
+    chart.setDataTable(True)
+
+    series = chart.getChartData().getSeries().get_Item(0)
+    series.setNumberFormatOfValues("#,##0.00")
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+
+    presentation.save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **عرض النسبة المئوية كتسميات**
+## **عرض النسبة المئوية كملصقات**
 
-تتيح لك Aspose.Slides for Python via Java تعيين تسميات النسبة المئوية على المخططات المعروضة. يوضح لك هذا الكود بلغة بايثون العملية:
+في مخطط عمود مكدس، احسب كل قيمة كنسبة مئوية من إجمالي فئتها وعيّن النص إلى إطار النص الذي تعيده الدالة [getTextFrameForOverriding](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#getTextFrameForOverriding). يستخدم هذا المثال بيانات المخطط الافتراضية ويعرض النسب المئوية بمكانين عشريين بخط بحجم 8 نقاط. يتم تخطي الفئات التي إجماليها صفر لتجنب القسمة على الصفر. أعد حساب نص التسمية المخصص إذا تغيرت بيانات المخطط.
 
 ```python
 import jpype
@@ -62,6 +67,7 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
     chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400)
+
     chart_series = chart.getChartData().getSeries()
     category_totals = [0.0] * chart.getChartData().getCategories().size()
     for category_index in range(len(category_totals)):
@@ -89,20 +95,23 @@ try:
             paragraph.getPortions().add(portion)
 
             label_format = label.getDataLabelFormat()
+            label_format.setShowValue(True)
             label_format.setShowSeriesName(False)
             label_format.setShowPercentage(False)
             label_format.setShowLegendKey(False)
             label_format.setShowCategoryName(False)
             label_format.setShowBubbleSize(False)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **تعيين علامة النسبة المئوية في تسميات بيانات المخطط**
+## **ضبط علامة النسبة المئوية مع تسميات بيانات المخطط**
 
-يعرض لك هذا الكود بلغة بايثون كيفية تعيين علامة النسبة المئوية لتسمية بيانات المخطط:
+عندما تُخزن القيم ككسر، استخدم [setNumberFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabelformat/#setNumberFormat). مرّر `False` إلى الدالة [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) لتطبيق تنسيق التسمية بشكل مستقل عن خلايا المصدر.
+
+هذا المثال ينشئ مخطط عمود مكدس بنسبة 100% يحتوي على سلسلتين باللونين الأحمر والأزرق عبر أربع فئات. كل زوج من القيم يضيف إلى 1. تنسيق التسمية `0.0%` يعرض 0.30 كـ 30.0%، بينما يستخدم المحور الرأسي مكانين عشريين. تستخدم السلسلتان نص تسمية أبيض بحجم 10 نقاط.
 
 ```python
 import jpype
@@ -119,56 +128,114 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
     chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400)
+
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
     chart.getAxes().getVerticalAxis().setNumberFormat("0.00%")
+
     chart.getChartData().getSeries().clear()
-    worksheet_index = 0
+    chart.getChartData().getCategories().clear()
+
     workbook = chart.getChartData().getChartDataWorkbook()
+    worksheet_index = 0
+    for i in range(4):
+        category_cell = workbook.getCell(worksheet_index, i + 1, 0, f"Category {i + 1}")
+        chart.getChartData().getCategories().add(category_cell)
 
-    # أضف السلسلة الحمراء.
-    series_cell = workbook.getCell(worksheet_index, 0, 1, "Reds")
-    red_series = chart.getChartData().getSeries().add(series_cell, chart.getType())
-    for row_index, value in enumerate([0.30, 0.50, 0.80, 0.65], start=1):
-        data_cell = workbook.getCell(worksheet_index, row_index, 1, jpype.JDouble(value))
-        red_series.getDataPoints().addDataPointForBarSeries(data_cell)
+    series_names = ["Reds", "Blues"]
+    series_colors = [Color.RED, Color.BLUE]
+    values = [[0.30, 0.50, 0.80, 0.65], [0.70, 0.50, 0.20, 0.35]]
 
-    red_series.getFormat().getFill().setFillType(FillType.Solid)
-    red_series.getFormat().getFill().getSolidFillColor().setColor(Color.RED)
-    red_label_format = red_series.getLabels().getDefaultDataLabelFormat()
-    red_label_format.setShowValue(True)
-    red_label_format.setNumberFormatLinkedToSource(False)
-    red_label_format.setNumberFormat("0.0%")
-    red_portion_format = red_label_format.getTextFormat().getPortionFormat()
-    red_portion_format.setFontHeight(10)
-    red_portion_format.getFillFormat().setFillType(FillType.Solid)
-    red_portion_format.getFillFormat().getSolidFillColor().setColor(Color.WHITE)
+    for i, series_name in enumerate(series_names):
+        series_cell = workbook.getCell(worksheet_index, 0, i + 1, series_name)
+        series = chart.getChartData().getSeries().add(series_cell, chart.getType())
+        for j, value in enumerate(values[i]):
+            value_cell = workbook.getCell(worksheet_index, j + 1, i + 1, jpype.JDouble(value))
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
 
-    # أضف السلسلة الزرقاء.
-    series_cell = workbook.getCell(worksheet_index, 0, 2, "Blues")
-    blue_series = chart.getChartData().getSeries().add(series_cell, chart.getType())
-    for row_index, value in enumerate([0.70, 0.50, 0.20, 0.35], start=1):
-        data_cell = workbook.getCell(worksheet_index, row_index, 2, jpype.JDouble(value))
-        blue_series.getDataPoints().addDataPointForBarSeries(data_cell)
+        series.getFormat().getFill().setFillType(FillType.Solid)
+        series.getFormat().getFill().getSolidFillColor().setColor(series_colors[i])
 
-    blue_series.getFormat().getFill().setFillType(FillType.Solid)
-    blue_series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE)
-    blue_label_format = blue_series.getLabels().getDefaultDataLabelFormat()
-    blue_label_format.setShowValue(True)
-    blue_label_format.setNumberFormatLinkedToSource(False)
-    blue_label_format.setNumberFormat("0.0%")
-    blue_portion_format = blue_label_format.getTextFormat().getPortionFormat()
-    blue_portion_format.setFontHeight(10)
-    blue_portion_format.getFillFormat().setFillType(FillType.Solid)
-    blue_portion_format.getFillFormat().getSolidFillColor().setColor(Color.WHITE)
+        label_format = series.getLabels().getDefaultDataLabelFormat()
+        label_format.setShowValue(True)
+        label_format.setNumberFormatLinkedToSource(False)
+        label_format.setNumberFormat("0.0%")
+        portion_format = label_format.getTextFormat().getPortionFormat()
+        portion_format.setFontHeight(10)
+        portion_format.getFillFormat().setFillType(FillType.Solid)
+        portion_format.getFillFormat().getSolidFillColor().setColor(Color.WHITE)
 
     presentation.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **تعيين مسافة التسمية من المحور**
+## **قراءة النص الفعلي لتسميات البيانات**
 
-يعرض لك هذا الكود بلغة بايثون كيفية تعيين مسافة التسمية من محور الفئة عندما تتعامل مع مخطط مرسوم من المحاور:
+استخدم [getActualLabelText](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#getActualLabelText) لاسترداد النص الناتج عن إعدادات تسمية البيانات. هذا مفيد عند استخراج التسميات للتقارير، أو البحث في محتوى العرض التقديمي، أو التحقق من صحة المخططات المُنشأة. في المثال أدناه، يجمع تنسيق تسمية البيانات الافتراضي [data label format](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabelformat/) كل اسم فئة، اسم السلسلة، والقيمة. ينسق أحد النقاط قيمته كنسبة مئوية، وآخر يستخدم نصًا مخصصًا من الدالة [getTextFrameForOverriding](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    first_category_cell = workbook.getCell(0, 1, 0, "Q1")
+    chart.getChartData().getCategories().add(first_category_cell)
+    second_category_cell = workbook.getCell(0, 2, 0, "Q2")
+    chart.getChartData().getCategories().add(second_category_cell)
+
+    north_series_cell = workbook.getCell(0, 0, 1, "North")
+    north = chart.getChartData().getSeries().add(north_series_cell, chart.getType())
+    north_first_value_cell = workbook.getCell(0, 1, 1, jpype.JDouble(0.25))
+    north.getDataPoints().addDataPointForBarSeries(north_first_value_cell)
+    north_second_value_cell = workbook.getCell(0, 2, 1, jpype.JDouble(0.75))
+    north.getDataPoints().addDataPointForBarSeries(north_second_value_cell)
+
+    south_series_cell = workbook.getCell(0, 0, 2, "South")
+    south = chart.getChartData().getSeries().add(south_series_cell, chart.getType())
+    south_first_value_cell = workbook.getCell(0, 1, 2, jpype.JDouble(0.40))
+    south.getDataPoints().addDataPointForBarSeries(south_first_value_cell)
+    south_second_value_cell = workbook.getCell(0, 2, 2, jpype.JDouble(0.60))
+    south.getDataPoints().addDataPointForBarSeries(south_second_value_cell)
+
+    for series in chart.getChartData().getSeries():
+        label_format = series.getLabels().getDefaultDataLabelFormat()
+        label_format.setShowCategoryName(True)
+        label_format.setShowSeriesName(True)
+        label_format.setShowValue(True)
+
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormatLinkedToSource(False)
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormat("0%")
+    south.getLabels().get_Item(0).getTextFrameForOverriding().setText("Reviewed")
+
+    for series in chart.getChartData().getSeries():
+        for point in series.getDataPoints():
+            label = point.getLabel()
+            if not label.isVisible():
+                continue
+
+            print(f"Value: {point.getValue().getData()}; label: {label.getActualLabelText()}")
+finally:
+    presentation.dispose()
+```
+
+العدد المخزن في نقطة البيانات يبقى `0.75`، حتى عندما تُظهر تسميتها `75%` مع أسماء الفئة والسلسلة. يستبدل النص المخصص النص المُولد للتسمية. تُعيد الدالة [getActualLabelText](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#getActualLabelText) سلسلة التسمية الناتجة في كلتا الحالتين. تحقق من الدالة [isVisible](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#isVisible) بشكل منفصل، كما هو موضح أعلاه، عندما تريد استخراج التسميات الظاهرة فقط.
+
+## **ضبط مسافة التسمية من المحور**
+
+استخدم [setLabelOffset](https://reference.aspose.com/slides/ar/python-java/aspose.slides/axis/#setLabelOffset) للتحكم في المسافة بين تسميات محور الفئة والمحور. القيمة هي نسبة مئوية من الحد الأقصى لحجم خط تسميات المحور. ينشئ هذا المثال مخطط عمود متجمع ويضبط إزاحة تسمية المحور الأفقي إلى 500. يؤثر هذا الإعداد على تسميات محور الفئة بدلاً من التسميات المرفقة بنقاط البيانات الفردية.
 
 ```python
 import jpype
@@ -182,19 +249,20 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
     chart.getAxes().getHorizontalAxis().setLabelOffset(500)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **ضبط موقع التسمية**
 
-عند إنشاء مخطط لا يعتمد على أي محور، مثل المخطط الدائري، قد تكون تسميات البيانات للمخطط قريبة جدًا من حافته. في مثل هذه الحالة، عليك ضبط موقع تسمية البيانات بحيث تُعرض خطوط القائد بوضوح.
+في مخطط الفطيرة، اضبط مواضع تسميات البيانات لتحسين التباعد وإتاحة مساحة لخطوط الربط.
 
-يعرض لك هذا الكود بلغة بايثون كيفية ضبط موقع التسمية على مخطط دائري:
+يعرض هذا المثال قيمة نقطة البيانات الأولى، يضع تسميتها خارج الشريحة، ويضبط إزاحتها الأفقية والرأسية باستخدام الدالتين [setX](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#setX) و[setY](https://reference.aspose.com/slides/ar/python-java/aspose.slides/datalabel/#setY). هذه الإزاحات نسبية لعرض وارتفاع المخطط على التوالي.
 
 ```python
 import jpype
@@ -207,31 +275,33 @@ from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, S
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 200, 200)
+    slide = presentation.getSlides().get_Item(0)
+    chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200)
     series = chart.getChartData().getSeries()
+    
     label = series.get_Item(0).getLabels().get_Item(0)
     label.getDataLabelFormat().setShowValue(True)
     label.getDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd)
     label.setX(0.71)
     label.setY(0.04)
 
-    presentation.save("pres.pptx", SaveFormat.Pptx)
+    presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-![مخطط دائري مع تسمية مضبوطة](pie-chart-adjusted-label.png)
+![مخطط فطيرة مع موضع تسمية البيانات المعدل](pie-chart-adjusted-label.png)
 
 ## **الأسئلة الشائعة**
 
 **كيف يمكنني منع تداخل تسميات البيانات في المخططات الكثيفة؟**
 
-استخدم وضعية وضع التسميات التلقائية، خطوط القائد، وتقليل حجم الخط؛ إذا لزم الأمر، إخفاء بعض الحقول (مثل الفئة) أو إظهار التسميات فقط للنقاط المتطرفة/المهمة.
+استخدم وضعية التسميات التلقائية، وخطوط الربط، وتقليل حجم الخط؛ إذا لزم الأمر، أخفِ بعض الحقول (مثل الفئة) أو اعرض التسميات فقط للقيم المتطرفة أو النقاط الرئيسية.
 
-**كيف يمكنني تعطيل التسميات للقيم الصفرية أو السلبية أو الفارغة فقط؟**
+**كيف يمكنني إيقاف تشغيل التسميات للقيم الصفرية أو السالبة أو الفارغة فقط؟**
 
-قم بترشيح نقاط البيانات قبل تمكين التسميات وأوقف العرض للقيم 0 أو القيم السلبية أو القيم المفقودة وفقًا لقاعدة محددة.
+قم بتصفية نقاط البيانات قبل تمكين التسميات وأوقف العرض للقيم التي تساوي 0 أو القيم السالبة أو القيم المفقودة وفق قاعدة محددة.
 
-**كيف أضمن نمط تسمية موحد عند التصدير إلى PDF/الصور؟**
+**كيف يمكنني ضمان نمط تسميات متسق عند التصدير إلى PDF/صور؟**
 
-حدد الخطوط صراحةً (العائلة، الحجم) وتأكد من توفر الخط على جانب العرض لتجنب fallback.
+حدّد عائلة الخط وحجمه صراحةً وتأكد من توفر الخط في بيئة العرض لتجنب التحويل الافتراضي.
