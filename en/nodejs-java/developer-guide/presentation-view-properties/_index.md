@@ -131,6 +131,35 @@ The grid is different from [drawing guides](/slides/nodejs-java/drawing-guides/)
 
 Both the grid and drawing guides are editing aids. They are not rendered as slide content in PDF, images, SVG, or a slide show. Storing the grid spacing does not guarantee that an editor will display the grid: its visibility also depends on the viewer or editor's preferences.
 
+## **Show or Hide Comments When Opening a Presentation**
+
+Use [Presentation.getViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getViewProperties--) to access presentation-wide view settings. Use [ViewProperties.getShowComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#getShowComments--) and [ViewProperties.setShowComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setShowComments-byte-) to read or change the stored preference for whether comments should be shown when the presentation opens in PowerPoint or another compatible editor.
+
+This setting only controls the stored view preference. It does not add, remove, edit, or resolve comments. Hiding comments preserves their content, authors, positions, replies, and statuses. See [Presentation Comments](/slides/nodejs-java/presentation-comments/) for operations that change the comments themselves.
+
+The following example requires an existing `comments.pptx` containing comments. It prints the current visibility setting, requests that comments be hidden, and saves a new PPTX without removing any comments. It also uses [ViewProperties.setLastView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setLastView-int-) with [ViewType.SlideView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewtype/#SlideView) to configure the initial editing view alongside comment visibility.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation("comments.pptx");
+try {
+    var showComments = presentation.getViewProperties().getShowComments();
+    console.log("Current comment visibility: " + showComments);
+
+    var hideComments = java.newByte(aspose.slides.NullableBool.False);
+    presentation.getViewProperties().setShowComments(hideComments);
+    presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideView);
+    presentation.save("comments-hidden.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+This setting does not determine whether comments are included in PDF, HTML, image, notes, or handout exports. Configure the relevant export-specific options separately.
+
 ## **FAQ**
 
 **Why is the grid not visible after I reopen the presentation?**

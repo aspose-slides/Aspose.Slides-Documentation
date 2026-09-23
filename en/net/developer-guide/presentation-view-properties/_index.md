@@ -123,6 +123,30 @@ The grid is different from [drawing guides](/slides/net/drawing-guides/). Grid s
 
 Both the grid and drawing guides are editing aids. They are not rendered as slide content in PDF, images, SVG, or a slide show. Storing the grid spacing does not guarantee that an editor will display the grid: its visibility also depends on the viewer or editor's preferences.
 
+## **Show or Hide Comments When Opening a Presentation**
+
+Use [Presentation.ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/viewproperties/) to access presentation-wide view settings. Read or change [IViewProperties.ShowComments](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/showcomments/) to store a preference for whether comments should be shown when the presentation opens in PowerPoint or another compatible editor.
+
+This setting only controls the stored view preference. It does not add, remove, edit, or resolve comments. Hiding comments preserves their content, authors, positions, replies, and statuses. See [Presentation Comments](/slides/net/presentation-comments/) for operations that change the comments themselves.
+
+The following example requires an existing `comments.pptx` containing comments. It prints the current visibility setting, requests that comments be hidden, and saves a new PPTX without removing any comments. It also sets [IViewProperties.LastView](https://reference.aspose.com/slides/net/aspose.slides/iviewproperties/lastview/) to [ViewType.SlideView](https://reference.aspose.com/slides/net/aspose.slides/viewtype/) to configure the initial editing view alongside comment visibility.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("comments.pptx");
+var showComments = presentation.ViewProperties.ShowComments;
+Console.WriteLine($"Current comment visibility: {showComments}");
+
+presentation.ViewProperties.ShowComments = NullableBool.False;
+presentation.ViewProperties.LastView = ViewType.SlideView;
+presentation.Save("comments-hidden.pptx", SaveFormat.Pptx);
+```
+
+This setting does not determine whether comments are included in PDF, HTML, image, notes, or handout exports. Configure the relevant export-specific options separately.
+
 ## **FAQ**
 
 **Why is the grid not visible after I reopen the presentation?**

@@ -131,6 +131,35 @@ The grid is different from [drawing guides](/slides/androidjava/drawing-guides/)
 
 Both the grid and drawing guides are editing aids. They are not rendered as slide content in PDF, images, SVG, or a slide show. Storing the grid spacing does not guarantee that an editor will display the grid: its visibility also depends on the viewer or editor's preferences.
 
+## **Show or Hide Comments When Opening a Presentation**
+
+Use [Presentation.getViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getViewProperties--) to access presentation-wide view settings. Use [IViewProperties.getShowComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#getShowComments--) and [IViewProperties.setShowComments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setShowComments-byte-) to read or change the stored preference for whether comments should be shown when the presentation opens in PowerPoint or another compatible editor.
+
+This setting only controls the stored view preference. It does not add, remove, edit, or resolve comments. Hiding comments preserves their content, authors, positions, replies, and statuses. See [Presentation Comments](/slides/androidjava/presentation-comments/) for operations that change the comments themselves.
+
+The following example requires an existing `comments.pptx` containing comments. It prints the current visibility setting, requests that comments be hidden, and saves a new PPTX without removing any comments. It also uses [IViewProperties.setLastView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iviewproperties/#setLastView-int-) with [ViewType.SlideView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewtype/#SlideView) to configure the initial editing view alongside comment visibility.
+
+```java
+import com.aspose.slides.NullableBool;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ViewType;
+
+Presentation presentation = new Presentation("comments.pptx");
+try {
+    byte showComments = presentation.getViewProperties().getShowComments();
+    System.out.println("Current comment visibility: " + showComments);
+
+    presentation.getViewProperties().setShowComments(NullableBool.False);
+    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+This setting does not determine whether comments are included in PDF, HTML, image, notes, or handout exports. Configure the relevant export-specific options separately.
+
 ## **FAQ**
 
 **Why is the grid not visible after I reopen the presentation?**
