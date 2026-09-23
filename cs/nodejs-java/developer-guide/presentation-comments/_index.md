@@ -1,50 +1,51 @@
 ---
-title: Správa komentářů prezentací v Node.js
-linktitle: Komentáře prezentace
+title: Spravovat komentáře k prezentaci v Node.js
+linktitle: Komentáře k prezentaci
 type: docs
 weight: 100
 url: /cs/nodejs-java/presentation-comments/
 keywords:
-  - komentář
-  - moderní komentář
-  - komentáře PowerPoint
-  - komentáře prezentace
-  - komentáře snímku
-  - přidat komentář
-  - přístup ke komentáři
-  - upravit komentář
-  - odpovědět na komentář
-  - odstranit komentář
-  - smazat komentář
-  - PowerPoint
-  - prezentace
-  - Node.js
-  - JavaScript
-  - Aspose.Slides
-description: "Spravujte komentáře prezentací pomocí Aspose.Slides pro Node.js přes Java: přidávejte, čtěte, upravujte, odpovídejte na a odstraňujte komentáře v prezentacích PowerPoint."
+- komentář
+- moderní komentář
+- komentáře v PowerPointu
+- komentáře k prezentaci
+- komentáře ke snímku
+- přidat komentář
+- přístup ke komentáři
+- upravit komentář
+- odpovědět na komentář
+- odstranit komentář
+- smazat komentář
+- PowerPoint
+- prezentace
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Spravovat komentáře k prezentaci pomocí Aspose.Slides for Node.js via Java: přidávat, číst, upravovat, odpovídat a odstraňovat komentáře v prezentacích PowerPoint."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak spravovat komentáře prezentace pomocí Aspose.Slides pro Node.js přes Java. Představuje hlavní typy související s komentáři a ukazuje, jak přidávat komentáře do snímků, přistupovat k existujícím komentářům, pracovat s odpověďmi a moderními komentáři a odstraňovat komentáře z prezentace.
+Tento článek vysvětluje, jak spravovat komentáře v prezentaci pomocí Aspose.Slides for Node.js via Java. Představuje hlavní typy související s komentáři a ukazuje, jak přidávat komentáře do snímků, přistupovat k existujícím komentářům, pracovat s odpověďmi a moderními komentáři a odstraňovat komentáře z prezentace.
 
 Příklady pokrývají běžné scénáře recenzí a spolupráce v PowerPointu, jako je přiřazování komentářů autorům, čtení textu a metadat komentářů, vytváření řetězců odpovědí a odstraňování vybraných nebo všech komentářů.
 
-V PowerPointu se komentáře objevují jako anotace na snímcích. Výběrem komentáře se zobrazí jeho text a související diskuse.
+V PowerPointu se komentáře zobrazují jako anotace na snímcích. Výběrem komentáře se zobrazí jeho text a související diskuse.
+
+Pro požadavek, aby byly komentáře při otevření prezentace zobrazeny nebo skryty, aniž by se změnily samotné komentáře, viz [Zobrazit nebo skrýt komentáře při otevírání prezentace](/slides/cs/nodejs-java/presentation-view-properties/).
 
 ## **Proč přidávat komentáře do prezentací?**
 
 Komentáře můžete použít k poskytování zpětné vazby a spolupráci s kolegy při recenzování prezentací.
 
-Aspose.Slides pro Node.js přes Java poskytuje následující API pro práci s komentáři:
-
-* Třída [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) poskytuje přístup k autorům komentářů v prezentaci.
-* Třída [CommentCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/commentcollection/) představuje komentáře spojené s jednotlivým autorem.
-* Třída [Comment](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/comment/) poskytuje informace o komentáři, včetně jeho autora, času vytvoření, pozice a textu.
-* Třída [CommentAuthor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/commentauthor/) poskytuje informace o autorovi, včetně jeho jména, iniciál a přidružených komentářů.
+Aspose.Slides for Node.js via Java poskytuje následující rozhraní API pro práci s komentáři:
+* Třída [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/) která poskytuje přístup k autorům komentářů v prezentaci.
+* Třída [CommentCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/commentcollection/) která představuje komentáře přiřazené konkrétnímu autorovi.
+* Třída [Comment](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/comment/) která poskytuje informace o komentáři, včetně jeho autora, času vytvoření, polohy a textu.
+* Třída [CommentAuthor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/commentauthor/) která poskytuje informace o autorovi, včetně jeho jména, iniciál a přiřazených komentářů.
 
 ## **Přidat komentáře ke snímkům**
 
-Následující příklad ukazuje, jak přidat komentáře do snímků v PowerPointové prezentaci:
+Následující příklad ukazuje, jak přidat komentáře do snímků v PowerPoint prezentaci:
 
 ```javascript
 var aspose = aspose || {};
@@ -78,9 +79,9 @@ try {
 }
 ```
 
-## **Přístup k komentářům na snímcích**
+## **Přístup ke komentářům na snímcích**
 
-Následující příklad ukazuje, jak přistupovat k existujícím komentářům v PowerPointové prezentaci:
+Následující příklad ukazuje, jak získat přístup k existujícím komentářům v PowerPoint prezentaci:
 
 ```javascript
 var aspose = aspose || {};
@@ -164,20 +165,20 @@ try {
 }
 ```
 
-{{% alert color="warning" title="Upozornění" %}}
-* Když je metoda [Comment.remove](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/comment/remove/) použita ke smazání komentáře, všechny odpovědi na tento komentář jsou také smazány.
-* Pokud [Comment.setParentComment](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/comment/setparentcomment/) vytvoří kruhový odkaz, je vyvolána výjimka [PptxEditException](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pptxeditexception/).
+{{% alert color="warning" title="Warning" %}}
+* Když je metoda [Comment.remove](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/comment/remove/) použita k odstranění komentáře, jsou také smazány všechny odpovědi na tento komentář.
+* Pokud [Comment.setParentComment](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/comment/setparentcomment/) vytvoří kruhovou referenci, je vyvolána výjimka [PptxEditException](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Přidat moderní komentáře**
 
-Moderní komentáře mohou být asociovány přímo se snímkem, s konkrétním tvarem nebo s textovým rozsahem uvnitř [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/). Metoda [CommentCollection.addModernComment](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) přijímá argument [Shape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/) kromě snímku a souřadnic markeru komentáře.
+Moderní komentáře mohou být přiřazeny k samotnému snímku, ke konkrétnímu tvaru nebo k textovému rozsahu uvnitř [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/). Metoda [CommentCollection.addModernComment](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) přijímá argument [Shape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/) kromě snímku a souřadnic značky komentáře.
 
-Pokud je jako argument shape předáno `null`, jedná se o komentář na úrovni snímku. Jeho marker je umístěn pomocí dodaných souřadnic, ale není asociován s konkrétním tvarem, takže [ModernComment.getShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/getshape/) vrací `null`. Pokud je předán [Shape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/), je komentář ukotven k tomuto tvaru. Souřadnice stále definují pozici markeru komentáře na snímku, zatímco asociaci s tvarem lze získat přes [ModernComment.getShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/getshape/).
+Když je jako argument tvaru předáno `null`, jedná se o komentář na úrovni snímku. Jeho značka je umístěna podle dodaných souřadnic, ale není přiřazena k žádnému konkrétnímu tvaru, takže [ModernComment.getShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/getshape/) vrací `null`. Když je předán [Shape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/), je komentář ukotven k tomuto tvaru. Souřadnice i nadále určují polohu značky komentáře na snímku, zatímco přiřazení tvaru lze získat pomocí [ModernComment.getShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/getshape/).
 
 ### **Ukotvit moderní komentář k tvaru**
 
-Následující příklad vytvoří jak moderní komentář na úrovni snímku, tak moderní komentář ukotvený ke konkrétnímu [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/). Pak načte přidružený tvar z každého komentáře.
+Následující příklad vytvoří jak moderní komentář na úrovni snímku, tak moderní komentář ukotvený k určitému [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/). Poté načte přiřazený tvar z každého komentáře.
 
 ```javascript
 var aspose = aspose || {};
@@ -209,9 +210,9 @@ try {
 
 ### **Ukotvit komentáře k různým typům tvarů**
 
-Jakýkoli objekt snímku odvozený od [Shape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/) může být použit jako ukotvení tvaru. Běžné příklady zahrnují [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/connector/), a instance [GraphicalObject](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/graphicalobject/) jako jsou grafy.
+Jakýkoli objekt snímku odvozený od [Shape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/) může být použit jako ukotvení tvaru. Běžné příklady zahrnují [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/connector/) a instance [GraphicalObject](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/graphicalobject/), například grafy.
 
-Následující příklad vytvoří několik běžných typů tvarů a přiřadí k nim moderní komentář.
+Následující příklad vytváří několik běžných typů tvarů a přiřazuje k nim moderní komentář.
 
 ```javascript
 var aspose = aspose || {};
@@ -258,16 +259,15 @@ try {
 
 ### **Ukotvit komentář k textu a nastavit jeho stav**
 
-Pro moderní komentář spojený s [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) a [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) přistupují k počáteční pozici vybraného textu v textovém rámci tvaru. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) a [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) přistupují k délce výběru. Společně tyto hodnoty spojují komentář s konkrétním textovým rozsahem uvnitř [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/).
+Pro moderní komentář přiřazený k [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/), metody [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) a [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) přistupují k počáteční pozici vybraného textu v textovém rámci tvaru. Metody [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) a [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) získávají délku výběru. Společně tyto hodnoty spojují komentář s konkrétním textovým rozsahem uvnitř [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/).
 
 Metody [ModernComment.getStatus](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/getstatus/) a [ModernComment.setStatus](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/setstatus/) přistupují k hodnotě z výčtu [ModernCommentStatus](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncommentstatus/):
-
-- `NotDefined` — není definován konkrétní stav moderního komentáře.
+- `NotDefined` — není definován žádný konkrétní stav moderního komentáře.
 - `Active` — komentář je aktivní.
 - `Resolved` — komentář byl vyřešen.
 - `Closed` — komentář je uzavřen.
 
-Následující příklad vytvoří moderní komentář ukotvený k tvaru, přiřadí jej k výběru textu, označí jej jako vyřešený, uloží prezentaci a ověří hodnoty po opětovném otevření souboru.
+Následující příklad vytvoří moderní komentář ukotvený k tvaru, přiřadí jej k výběru textu, označí jej jako vyřešený, uloží prezentaci a po opětovném otevření souboru ověří hodnoty.
 
 ```javascript
 var aspose = aspose || {};
@@ -327,7 +327,7 @@ try {
 
 ### **Prozkoumat existující moderní komentáře**
 
-Aby bylo možné prozkoumat existující prezentaci, zjistěte, které komentáře jsou instance [ModernComment](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/), pak prozkoumejte [ModernComment.getShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) a [ModernComment.getStatus](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/getstatus/). `null` tvar označuje komentář na úrovni snímku. Pro ukotvení k [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/) se metody výběru textu identifikují související rozsah v textovém rámci tvaru.
+Abychom prozkoumali existující prezentaci, zjistíme, které komentáře jsou instance [ModernComment](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/), a poté zkontrolujeme [ModernComment.getShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) a [ModernComment.getStatus](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/getstatus/). `null` tvar značí komentář na úrovni snímku. Pro ukotvení k [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/) metody výběru textu identifikují odpovídající rozsah v textovém rámci tvaru.
 
 ```javascript
 var aspose = aspose || {};
@@ -442,14 +442,14 @@ try {
 
 ## **Často kladené otázky**
 
-**Podporuje Aspose.Slides stav vyřešen pro moderní komentáře?**
+**Podporuje Aspose.Slides stav vyřešeno pro moderní komentáře?**
 
-Ano. [ModernComment.getStatus](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/getstatus/) a [ModernComment.setStatus](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/setstatus/) přistupují k hodnotě [ModernCommentStatus](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncommentstatus/), včetně `Resolved`. Stav je uložen v prezentaci a může být znovu načten po opětovném otevření souboru.
+Ano. Metody [ModernComment.getStatus](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/getstatus/) a [ModernComment.setStatus](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncomment/setstatus/) přistupují k hodnotě [ModernCommentStatus](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/moderncommentstatus/), včetně `Resolved`. Stav je uložen v prezentaci a lze jej po opětovném otevření souboru znovu přečíst.
 
-**Jsou podporovány vláknové diskuse (řetězce odpovědí) a existuje omezení hloubky vnoření?**
+**Jsou podporovány vlákna diskuzí (řetězce odpovědí) a existuje limit vnoření?**
 
-Ano. Každý komentář může odkazovat na svůj [parent comment](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/comment/getparentcomment/), čímž umožňuje řetězce odpovědí. API nedefinuje konkrétní omezení hloubky vnoření.
+Ano. Každý komentář může odkazovat na svůj [parent comment](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/comment/getparentcomment/), což umožňuje řetězce odpovědí. API nespecifikuje konkrétní limit hloubky vnoření.
 
-**V jakém souřadnicovém systému je definována pozice markeru komentáře na snímku?**
+**V jakém souřadnicovém systému je definována pozice značky komentáře na snímku?**
 
-Pozice markeru je definována pomocí souřadnic s plovoucí desetinnou čárkou v souřadnicovém systému snímku, což vám umožňuje jej přesně umístit na snímek.
+Pozice značky je určena pomocí souřadnic s plovoucí desetinnou čárkou v souřadnicovém systému snímku, což vám umožňuje ji umístit přesně na snímek.

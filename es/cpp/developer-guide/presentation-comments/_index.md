@@ -1,5 +1,5 @@
 ---
-title: Administrar comentarios de presentación en C++
+title: Gestionar comentarios de presentaciones en C++
 linktitle: Comentarios de presentación
 type: docs
 weight: 100
@@ -10,8 +10,8 @@ keywords:
 - comentarios de PowerPoint
 - comentarios de presentación
 - comentarios de diapositiva
-- añadir comentario
-- acceder al comentario
+- agregar comentario
+- acceder a comentario
 - editar comentario
 - responder comentario
 - eliminar comentario
@@ -20,30 +20,32 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Administre los comentarios de presentación con Aspose.Slides para C++: añada, lea, edite, responda y elimine comentarios en presentaciones de PowerPoint de forma rápida y sencilla."
+description: "Gestiona los comentarios de la presentación con Aspose.Slides para C++: agrega, lee, edita, responde y elimina comentarios en presentaciones de PowerPoint de forma rápida y sencilla."
 ---
 ## **Visión general**
 
-Este artículo explica cómo gestionar los comentarios de presentación con Aspose.Slides para C++. Introduce los principales tipos relacionados con los comentarios y muestra cómo añadir comentarios a diapositivas, acceder a los comentarios existentes, trabajar con respuestas y comentarios modernos, y eliminar comentarios de una presentación.
+Este artículo explica cómo gestionar los comentarios de una presentación con Aspose.Slides para C++. Presenta los tipos principales relacionados con los comentarios y demuestra cómo agregar comentarios a diapositivas, acceder a los comentarios existentes, trabajar con respuestas y comentarios modernos, y eliminar comentarios de una presentación.
 
-Los ejemplos cubren escenarios comunes de revisión y colaboración en PowerPoint, como asignar comentarios a autores, leer el texto y los metadatos de los comentarios, construir cadenas de respuestas y eliminar comentarios seleccionados o todos los comentarios.
+Los ejemplos cubren escenarios habituales de revisión y colaboración en PowerPoint, como asignar comentarios a autores, leer el texto y los metadatos de los comentarios, construir cadenas de respuestas y eliminar comentarios seleccionados o todos los comentarios.
 
-En PowerPoint, los comentarios aparecen como anotaciones en las diapositivas. Al seleccionar un comentario se muestra su texto y la discusión relacionada.
+En PowerPoint, los comentarios aparecen como anotaciones en las diapositivas. Seleccionar un comentario muestra su texto y la discusión relacionada.
 
-## **¿Por qué añadir comentarios a las presentaciones?**
+Para solicitar que los comentarios se muestren u oculten al abrir una presentación sin modificar los propios comentarios, consulte [Show or Hide Comments When Opening a Presentation](/slides/es/cpp/presentation-view-properties/).
+
+## **¿Por qué agregar comentarios a las presentaciones?**
 
 Puede usar los comentarios para proporcionar retroalimentación y colaborar con colegas al revisar presentaciones.
 
 Aspose.Slides para C++ ofrece las siguientes API para trabajar con comentarios:
 
-* La clase [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/) , que proporciona acceso a los autores de comentarios de la presentación.
-* La interfaz [ICommentCollection](https://reference.aspose.com/slides/es/cpp/aspose.slides/icommentcollection/) , que representa los comentarios asociados a un autor individual.
-* La interfaz [IComment](https://reference.aspose.com/slides/es/cpp/aspose.slides/icomment/) , que brinda información sobre un comentario, incluido su autor, hora de creación, posición y texto.
-* La clase [CommentAuthor](https://reference.aspose.com/slides/es/cpp/aspose.slides/commentauthor/) , que proporciona información sobre un autor, incluido su nombre, iniciales y comentarios asociados.
+* La clase [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/) que proporciona acceso a los autores de comentarios de la presentación.
+* La interfaz [ICommentCollection](https://reference.aspose.com/slides/es/cpp/aspose.slides/icommentcollection/) que representa los comentarios asociados a un autor concreto.
+* La interfaz [IComment](https://reference.aspose.com/slides/es/cpp/aspose.slides/icomment/) que brinda información sobre un comentario, incluido su autor, fecha de creación, posición y texto.
+* La clase [CommentAuthor](https://reference.aspose.com/slides/es/cpp/aspose.slides/commentauthor/) que ofrece información sobre un autor, incluido su nombre, iniciales y los comentarios asociados.
 
-## **Añadir comentarios a diapositivas**
+## **Agregar comentarios a diapositivas**
 
-La siguiente muestra cómo añadir comentarios a diapositivas en una presentación de PowerPoint:
+El siguiente ejemplo muestra cómo agregar comentarios a diapositivas en una presentación de PowerPoint:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -88,7 +90,7 @@ presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
 
 ## **Acceder a los comentarios de diapositivas**
 
-La siguiente muestra cómo acceder a los comentarios existentes en una presentación de PowerPoint:
+El siguiente ejemplo muestra cómo acceder a los comentarios existentes en una presentación de PowerPoint:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -119,9 +121,9 @@ for (auto&& author : presentation->get_CommentAuthors())
 
 ## **Responder a los comentarios**
 
-Un comentario principal es el comentario original en la parte superior de una jerarquía de respuestas. Los métodos [get_ParentComment](https://reference.aspose.com/slides/es/cpp/aspose.slides/icomment/get_parentcomment/) y [set_ParentComment](https://reference.aspose.com/slides/es/cpp/aspose.slides/icomment/set_parentcomment/) de la interfaz [IComment](https://reference.aspose.com/slides/es/cpp/aspose.slides/icomment/) le permiten obtener o establecer el comentario principal de un comentario.
+Un comentario padre es el comentario original en la parte superior de una jerarquía de respuestas. Los métodos [get_ParentComment](https://reference.aspose.com/slides/es/cpp/aspose.slides/icomment/get_parentcomment/) y [set_ParentComment](https://reference.aspose.com/slides/es/cpp/aspose.slides/icomment/set_parentcomment/) de la interfaz [IComment](https://reference.aspose.com/slides/es/cpp/aspose.slides/icomment/) le permiten obtener o establecer el padre de un comentario.
 
-La siguiente muestra cómo añadir respuestas e inspeccionar la jerarquía de comentarios resultante:
+El siguiente ejemplo muestra cómo agregar respuestas e inspeccionar la jerarquía de comentarios resultante:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -184,19 +186,19 @@ presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Cuando se usa el método [Remove](https://reference.aspose.com/slides/es/cpp/aspose.slides/icomment/remove/) de la interfaz [IComment](https://reference.aspose.com/slides/es/cpp/aspose.slides/icomment/) , todas las respuestas a ese comentario también se eliminan.
-* Si el método [set_ParentComment](https://reference.aspose.com/slides/es/cpp/aspose.slides/icomment/set_parentcomment/) crea una referencia circular, se lanza una [PptxEditException](https://reference.aspose.com/slides/es/cpp/aspose.slides/pptxeditexception/) .
+* Cuando se usa el método [Remove](https://reference.aspose.com/slides/es/cpp/aspose.slides/icomment/remove/) de la interfaz [IComment](https://reference.aspose.com/slides/es/cpp/aspose.slides/icomment/) para eliminar un comentario, también se eliminan todas las respuestas a ese comentario.
+* Si el método [set_ParentComment](https://reference.aspose.com/slides/es/cpp/aspose.slides/icomment/set_parentcomment/) crea una referencia circular, se lanza una [PptxEditException](https://reference.aspose.com/slides/es/cpp/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
-## **Añadir comentarios modernos**
+## **Agregar comentarios modernos**
 
-Los comentarios modernos pueden estar asociados a la propia diapositiva, a una forma específica o a un rango de texto dentro de una AutoShape. El método [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/es/cpp/aspose.slides/icommentcollection/addmoderncomment/) acepta un argumento [IShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/ishape/) además de la diapositiva y las coordenadas del marcador del comentario.
+Los comentarios modernos pueden asociarse a la propia diapositiva, a una forma concreta o a un rango de texto dentro de un AutoShape. El método [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/es/cpp/aspose.slides/icommentcollection/addmoderncomment/) acepta un argumento [IShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/ishape/) además de la diapositiva y las coordenadas del marcador del comentario.
 
-Cuando se pasa `nullptr` como argumento de forma, el comentario es un comentario a nivel de diapositiva. Su marcador se posiciona con las coordenadas suministradas, pero no está asociado a una forma concreta, por lo que [IModernComment::get_Shape](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_shape/) devuelve `nullptr`. Cuando se proporciona un [IShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/ishape/) , el comentario se ancla a esa forma. Las coordenadas siguen definiendo la posición del marcador del comentario en la diapositiva, mientras que la asociación con la forma puede obtenerse mediante [IModernComment::get_Shape](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_shape/) .
+Cuando se pasa `nullptr` como argumento de forma, el comentario es un comentario a nivel de diapositiva. Su marcador se posiciona mediante las coordenadas suministradas, pero no está asociado a una forma concreta, por lo que [IModernComment::get_Shape](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_shape/) devuelve `nullptr`. Cuando se proporciona un [IShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/ishape/), el comentario se ancla a esa forma. Las coordenadas siguen definiendo la posición del marcador del comentario en la diapositiva, mientras que la asociación con la forma puede recuperarse a través de [IModernComment::get_Shape](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_shape/).
 
 ### **Anclar un comentario moderno a una forma**
 
-La siguiente muestra crea tanto un comentario moderno a nivel de diapositiva como un comentario moderno anclado a una AutoShape específica. Luego lee la forma asociada a cada comentario.
+El siguiente ejemplo crea tanto un comentario moderno a nivel de diapositiva como un comentario moderno anclado a un AutoShape concreto. Luego lee la forma asociada a cada comentario.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -245,9 +247,9 @@ presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
 
 ### **Anclar comentarios a diferentes tipos de forma**
 
-Cualquier objeto de diapositiva que implemente [IShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/ishape/) puede usarse como ancla de forma. Los ejemplos comunes incluyen [IAutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) , [IPictureFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipictureframe/) , [IGroupShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/igroupshape/) , [IConnector](https://reference.aspose.com/slides/es/cpp/aspose.slides/iconnector/) y [IGraphicalObject](https://reference.aspose.com/slides/es/cpp/aspose.slides/igraphicalobject/) como gráficos.
+Cualquier objeto de diapositiva que implemente [IShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/ishape/) puede usarse como ancla de forma. Los ejemplos habituales incluyen [IAutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/es/cpp/aspose.slides/iconnector/), y [IGraphicalObject](https://reference.aspose.com/slides/es/cpp/aspose.slides/igraphicalobject/) como gráficos.
 
-La siguiente muestra crea varios tipos de forma comunes y asocia un comentario moderno con cada una.
+El siguiente ejemplo crea varios tipos de forma habituales y asocia un comentario moderno a cada uno.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -313,16 +315,16 @@ presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 
 ### **Anclar un comentario a texto y establecer su estado**
 
-Para un comentario moderno asociado a una [IAutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) , los métodos [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_textselectionstart/) y [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/set_textselectionstart/) controlan la posición inicial del texto seleccionado en el marco de texto de la forma. De manera similar, [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_textselectionlength/) y [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/set_textselectionlength/) controlan la longitud de la selección. Juntos, estos métodos asocian el comentario con un rango de texto específico dentro de la AutoShape.
+Para un comentario moderno asociado a un [IAutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/), los métodos [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_textselectionstart/) y [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/set_textselectionstart/) controlan la posición inicial del texto seleccionado en el marco de texto de la forma. De forma similar, [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_textselectionlength/) y [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/set_textselectionlength/) controlan la longitud de la selección. Juntos, estos métodos asocian el comentario a un rango de texto específico dentro del AutoShape.
 
-Los métodos [IModernComment::get_Status](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_status/) y [IModernComment::set_Status](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/set_status/) utilizan un valor de la enumeración [ModernCommentStatus](https://reference.aspose.com/slides/es/cpp/aspose.slides/moderncommentstatus/) :
+Los métodos [IModernComment::get_Status](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_status/) y [IModernComment::set_Status](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/set_status/) usan un valor de la enumeración [ModernCommentStatus](https://reference.aspose.com/slides/es/cpp/aspose.slides/moderncommentstatus/):
 
 - `NotDefined` — no se define un estado específico para el comentario moderno.
 - `Active` — el comentario está activo.
-- `Resolved` — el comentario ha sido resuelto.
+- `Resolved` — el comentario se ha resuelto.
 - `Closed` — el comentario está cerrado.
 
-La siguiente muestra crea un comentario moderno anclado a una forma, lo asocia a una selección de texto, lo marca como resuelto, guarda la presentación y verifica los valores después de volver a abrir el archivo.
+El siguiente ejemplo crea un comentario moderno anclado a una forma, lo asocia a una selección de texto, lo marca como resuelto, guarda la presentación y verifica los valores al volver a abrir el archivo.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -395,9 +397,9 @@ for (auto&& reopenedComment : reopenedComments)
 }
 ```
 
-### **Inspeccionar comentarios modernos existentes**
+### **Inspeccionar los comentarios modernos existentes**
 
-Para inspeccionar una presentación existente, verifique qué comentarios implementan [IModernComment](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/) , luego examine [IModernComment::get_Shape](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_shape/) , [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_textselectionstart/) , [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_textselectionlength/) y [IModernComment::get_Status](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_status/) . Una forma `nullptr` indica un comentario a nivel de diapositiva. Para un ancla [IAutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) , los métodos de selección de texto identifican el rango asociado en el marco de texto de la forma.
+Para inspeccionar una presentación existente, compruebe qué comentarios implementan [IModernComment](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/), luego examine [IModernComment::get_Shape](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_textselectionlength/) y [IModernComment::get_Status](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_status/). Una forma `nullptr` indica un comentario a nivel de diapositiva. Para una ancla [IAutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/), los métodos de selección de texto identifican el rango asociado en el marco de texto de la forma.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -456,9 +458,9 @@ for (auto&& slide : presentation->get_Slides())
 
 ## **Eliminar comentarios**
 
-### **Eliminar todos los comentarios y autores de comentarios**
+### **Eliminar todos los comentarios y los autores de comentarios**
 
-La siguiente muestra cómo eliminar todos los comentarios y autores de comentarios de una presentación:
+El siguiente ejemplo muestra cómo eliminar todos los comentarios y los autores de comentarios de una presentación:
 
 ```cpp
 #include <DOM/ICommentAuthor.h>
@@ -484,7 +486,7 @@ presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 
 ### **Eliminar comentarios específicos**
 
-La siguiente muestra cómo eliminar comentarios específicos de una diapositiva:
+El siguiente ejemplo muestra cómo eliminar comentarios específicos de una diapositiva:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -540,12 +542,12 @@ presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 
 **¿Aspose.Slides admite un estado resuelto para los comentarios modernos?**
 
-Sí. Los métodos [IModernComment::get_Status](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_status/) y [IModernComment::set_Status](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/set_status/) utilizan un valor de [ModernCommentStatus](https://reference.aspose.com/slides/es/cpp/aspose.slides/moderncommentstatus/) , incluido `Resolved`. El estado se almacena en la presentación y puede leerse nuevamente después de volver a abrir el archivo.
+Sí. Los métodos [IModernComment::get_Status](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/get_status/) y [IModernComment::set_Status](https://reference.aspose.com/slides/es/cpp/aspose.slides/imoderncomment/set_status/) usan un valor de [ModernCommentStatus](https://reference.aspose.com/slides/es/cpp/aspose.slides/moderncommentstatus/), incluido `Resolved`. El estado se almacena en la presentación y puede leerse nuevamente después de volver a abrir el archivo.
 
 **¿Se admiten discusiones en hilos (cadenas de respuestas) y existe un límite de anidamiento?**
 
-Sí. Cada comentario puede referenciar su [comentario principal](https://reference.aspose.com/slides/es/cpp/aspose.slides/icomment/set_parentcomment/) , lo que permite cadenas de respuestas. La API no define un límite específico de profundidad de anidamiento.
+Sí. Cada comentario puede referenciar su [parent comment](https://reference.aspose.com/slides/es/cpp/aspose.slides/icomment/set_parentcomment/), lo que permite cadenas de respuestas. La API no define un límite específico de profundidad de anidamiento.
 
 **¿En qué sistema de coordenadas se define la posición del marcador de un comentario en una diapositiva?**
 
-La posición del marcador se define mediante coordenadas en coma flotante en el sistema de coordenadas de la diapositiva, lo que permite colocarlo con precisión en la diapositiva.
+La posición del marcador se define mediante coordenadas de punto flotante en el sistema de coordenadas de la diapositiva, lo que permite colocarla con precisión en la diapositiva.

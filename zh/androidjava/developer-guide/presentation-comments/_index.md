@@ -1,50 +1,52 @@
 ---
-title: 管理 Android 上的演示文稿批注
-linktitle: 演示文稿批注
+title: 管理 Android 上的演示文稿注释
+linktitle: 演示文稿注释
 type: docs
 weight: 100
 url: /zh/androidjava/presentation-comments/
 keywords:
-- 批注
-- 现代批注
-- PowerPoint 批注
-- 演示文稿批注
-- 幻灯片批注
-- 添加批注
-- 访问批注
-- 编辑批注
-- 回复批注
-- 移除批注
-- 删除批注
+- 注释
+- 现代注释
+- PowerPoint 注释
+- 演示文稿注释
+- 幻灯片注释
+- 添加注释
+- 访问注释
+- 编辑注释
+- 回复注释
+- 删除注释
+- 删除注释
 - PowerPoint
 - 演示文稿
 - Android
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Android via Java 管理演示文稿批注：在 PowerPoint 演示文稿中快速轻松地添加、读取、编辑、回复和移除批注。"
+description: "使用 Aspose.Slides for Android via Java 管理演示文稿注释：快速轻松地在 PowerPoint 演示文稿中添加、读取、编辑、回复和删除注释。"
 ---
-## **概述**
+## **概览**
 
-本文介绍了如何使用 Aspose.Slides for Android via Java 管理演示文稿中的批注。它介绍了主要的批注相关类型，并演示了如何向幻灯片添加批注、访问已有批注、处理回复和现代批注，以及如何从演示文稿中删除批注。
+本文说明如何使用 Aspose.Slides for Android via Java 管理演示文稿注释。它介绍了主要的与注释相关的类型，并演示了如何向幻灯片添加注释、访问现有注释、处理回复和现代注释，以及从演示文稿中删除注释。
 
-示例涵盖了 PowerPoint 中常见的审阅与协作场景，例如为批注分配作者、读取批注文本和元数据、构建回复链，以及删除选定的批注或全部批注。
+示例涵盖了 PowerPoint 中常见的审阅和协作场景，例如将注释分配给作者、读取注释文本和元数据、构建回复链，以及删除选定的注释或所有注释。
 
-在 PowerPoint 中，批注显示为幻灯片上的注释。选中批注后会显示其文本和相关讨论。
+在 PowerPoint 中，注释显示为幻灯片上的注释标注。选择注释会显示其文本及相关讨论。
 
-## **为什么要在演示文稿中添加批注？**
+若希望在打开演示文稿时显示或隐藏注释且不更改注释本身，请参阅[在打开演示文稿时显示或隐藏注释](/slides/zh/androidjava/presentation-view-properties/)。
 
-在审阅演示文稿时，可以使用批注提供反馈并与同事协作。
+## **为什么向演示文稿添加注释？**
 
-Aspose.Slides for Android via Java 提供以下 API 用于操作批注：
+在审阅演示文稿时，您可以使用注释提供反馈并与同事协作。
 
-* The [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类，提供对演示文稿批注作者的访问。
-* The [ICommentCollection](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icommentcollection/) 接口，表示与单个作者关联的批注。
-* The [IComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/) 接口，提供有关批注的信息，包括作者、创建时间、位置和文本。
-* The [CommentAuthor](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/commentauthor/) 类，提供有关作者的信息，包括姓名、缩写和关联的批注。
+Aspose.Slides for Android via Java 提供以下 API 用于操作注释：
 
-## **添加幻灯片批注**
+* [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类，提供对演示文稿的注释作者的访问。
+* [ICommentCollection](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icommentcollection/) 接口，表示与单个作者关联的注释。
+* [IComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/) 接口，提供有关注释的信息，包括作者、创建时间、位置和文本。
+* [CommentAuthor](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/commentauthor/) 类，提供有关作者的信息，包括其姓名、缩写和关联的注释。
 
-以下示例演示了如何在 PowerPoint 演示文稿的幻灯片中添加批注：
+## **添加幻灯片注释**
+
+以下示例演示了如何在 PowerPoint 演示文稿的幻灯片中添加注释：
 
 ```java
 import com.aspose.slides.IComment;
@@ -83,9 +85,9 @@ try {
 }
 ```
 
-## **访问幻灯片批注**
+## **访问幻灯片注释**
 
-以下示例演示了如何访问 PowerPoint 演示文稿中已有的批注：
+以下示例演示了如何访问 PowerPoint 演示文稿中已有的注释：
 
 ```java
 import com.aspose.slides.IComment;
@@ -108,11 +110,11 @@ try {
 }
 ```
 
-## **回复批注**
+## **回复注释**
 
-父批注是回复层级顶部的原始批注。 [IComment.getParentComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/#getParentComment--) 和 [IComment.setParentComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 方法可获取或设置批注的父批注。
+父注释是回复层级顶部的原始注释。[IComment.getParentComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/#getParentComment--) 和 [IComment.setParentComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 方法可让您获取或设置注释的父注释。
 
-以下示例演示了如何添加回复并检查生成的批注层级结构：
+以下示例演示了如何添加回复并检查生成的注释层级结构：
 
 ```java
 import com.aspose.slides.IComment;
@@ -169,19 +171,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* 当使用 [IComment.remove](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/#remove--) 方法删除批注时，该批注的所有回复也会被删除。
-* 如果 [IComment.setParentComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 创建了循环引用，则会抛出 [PptxEditException](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/pptxeditexception/)。
+* 当使用 [IComment.remove](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/#remove--) 方法删除注释时，该注释的所有回复也会被删除。
+* 如果 [IComment.setParentComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 创建循环引用，则会抛出 [PptxEditException](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/pptxeditexception/)。
 {{% /alert %}}
 
-## **添加现代批注**
+## **添加现代注释**
 
-现代批注可以关联到幻灯片本身、特定形状或 AutoShape 中的文本范围。 [ICommentCollection.addModernComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) 方法除了幻灯片和批注标记坐标外，还接受一个 [IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/) 参数。
+现代注释可以关联到幻灯片本身、特定形状或 AutoShape 内的文本范围。[ICommentCollection.addModernComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) 方法除了幻灯片和注释标记坐标外，还接受一个 [IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/) 参数。
 
-当形状参数为 `null` 时，批注为幻灯片级批注。其标记由提供的坐标定位，但不关联特定形状，因此 [IModernComment.getShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getShape--) 返回 `null`。当提供了 [IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/) 时，批注锚定到该形状。坐标仍定义批注标记在幻灯片上的位置，而形状关联可通过 [IModernComment.getShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getShape--) 获取。
+如果为 shape 参数传入 `null`，则该注释为幻灯片级别的注释。其标记由提供的坐标定位，但未关联到特定形状，因此 [IModernComment.getShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getShape--) 返回 `null`。当提供了 [IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/) 时，注释会锚定到该形状。坐标仍然定义注释标记在幻灯片上的位置，而形状关联可通过 [IModernComment.getShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getShape--) 获取。
 
-### **将现代批注锚定到形状**
+### **将现代注释锚定到形状**
 
-以下示例创建了一个幻灯片级现代批注和一个锚定到特定 AutoShape 的现代批注，然后读取每个批注关联的形状。
+以下示例创建了一个幻灯片级别的现代注释和一个锚定到特定 AutoShape 的现代注释。随后读取每个注释关联的形状。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -217,11 +219,11 @@ try {
 }
 ```
 
-### **将批注锚定到不同的形状类型**
+### **将注释锚定到不同的形状类型**
 
-任何实现了 [IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/) 的幻灯片对象都可以用作形状锚定。常见示例包括 [IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iconnector/) 和 [IGraphicalObject](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/igraphicalobject/)（如图表）实例。
+任何实现了 [IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/) 的幻灯片对象都可以用作形状锚点。常见示例包括 [IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iconnector/) 和 [IGraphicalObject](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/igraphicalobject/)（如图表）实例。
 
-以下示例创建了几种常见形状类型，并为每种形状关联了一个现代批注。
+以下示例创建了几种常见的形状类型，并为每种形状关联了一个现代注释。
 
 ```java
 import com.aspose.slides.ChartType;
@@ -278,18 +280,18 @@ try {
 }
 ```
 
-### **将批注锚定到文本并设置其状态**
+### **将注释锚定到文本并设置其状态**
 
-对于关联到 [IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/) 的现代批注， [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) 和 [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) 可访问形状文本框中所选文本的起始位置。 [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 和 [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) 可访问选择的长度。这些值共同将批注关联到 AutoShape 中文本的特定范围。
+对于关联到 [IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/) 的现代注释，[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) 和 [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) 用于获取形状文本框中选中文本的起始位置。[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 和 [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) 用于获取选区的长度。这些值共同将注释关联到 AutoShape 内的特定文本范围。
 
-[IModernComment.getStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getStatus--) 和 [IModernComment.setStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) 方法访问 [ModernCommentStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/moderncommentstatus/) 常量中的值：
+[IModernComment.getStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getStatus--) 和 [IModernComment.setStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) 方法访问来自 [ModernCommentStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/moderncommentstatus/) 常量的值：
 
-- `NotDefined` — 未定义特定的现代批注状态。
-- `Active` — 批注处于活动状态。
-- `Resolved` — 批注已解决。
-- `Closed` — 批注已关闭。
+- `NotDefined` — 未定义特定的现代注释状态。
+- `Active` — 注释处于活动状态。
+- `Resolved` — 注释已解决。
+- `Closed` — 注释已关闭。
 
-以下示例创建了一个锚定到形状的现代批注，将其与文本选择关联，标记为已解决，保存演示文稿，并在重新打开文件后验证这些值。
+以下示例创建了一个锚定到形状的现代注释，将其关联到文本选区，标记为已解决，保存演示文稿，并在重新打开文件后验证这些值。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -354,9 +356,9 @@ try {
 }
 ```
 
-### **检查现有的现代批注**
+### **检查现有的现代注释**
 
-要检查现有演示文稿，请查看哪些批注实现了 [IModernComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/)，然后检查 [IModernComment.getShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getShape--)、[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--)、[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 和 [IModernComment.getStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getStatus--)。`null` 形状表示幻灯片级批注。对于锚定到 [IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/) 的批注，文本选择方法可确定该形状文本框中的关联范围。
+要检查现有的演示文稿，首先确认哪些注释实现了 [IModernComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/)，然后检查 [IModernComment.getShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getShape--)、[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--)、[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 和 [IModernComment.getStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getStatus--)。`null` 形状表示幻灯片级别的注释。对于 [IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/) 锚定，文本选取方法可识别形状文本框中的关联范围。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -401,11 +403,11 @@ try {
 }
 ```
 
-## **删除批注**
+## **删除注释**
 
-### **删除所有批注及批注作者**
+### **删除所有注释和注释作者**
 
-以下示例展示了如何删除演示文稿中的所有批注和批注作者：
+以下示例演示了如何从演示文稿中删除所有注释和注释作者：
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -425,9 +427,9 @@ try {
 }
 ```
 
-### **删除特定批注**
+### **删除特定注释**
 
-以下示例展示了如何从幻灯片中删除特定批注：
+以下示例演示了如何从幻灯片中删除特定注释：
 
 ```java
 import com.aspose.slides.IComment;
@@ -474,14 +476,14 @@ try {
 
 ## **常见问题**
 
-**Aspose.Slides 是否支持现代批注的已解决状态？**
+**Aspose.Slides 是否支持现代注释的已解决状态？**
 
-是的。 [IModernComment.getStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getStatus--) 和 [IModernComment.setStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) 可访问 [ModernCommentStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/moderncommentstatus/) 值，包括 `Resolved`。该状态会保存在演示文稿中，重新打开文件后仍可读取。
+是的。[IModernComment.getStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getStatus--) 和 [IModernComment.setStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) 可访问 [ModernCommentStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/moderncommentstatus/) 的值，包括 `Resolved`。该状态保存在演示文稿中，文件重新打开后仍可读取。
 
-**是否支持线程式讨论（回复链），以及是否有嵌套层级限制？**
+**是否支持线程式讨论（回复链），以及有没有嵌套深度限制？**
 
-是的。每个批注都可以引用其 [parent comment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/#getParentComment--)，从而实现回复链。API 并未定义具体的嵌套深度限制。
+是的。每个注释都可以引用其[父注释](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/#getParentComment--)，从而实现回复链。API 并未定义具体的嵌套深度限制。
 
-**批注标记在幻灯片上的位置使用哪种坐标系定义？**
+**注释标记在幻灯片上的位置采用何种坐标系定义？**
 
-标记位置使用幻灯片坐标系中的浮点坐标定义，您可以精确地将其放置在幻灯片的任意位置。
+标记位置以幻灯片坐标系中的浮点坐标定义，可让您在幻灯片上精确放置。

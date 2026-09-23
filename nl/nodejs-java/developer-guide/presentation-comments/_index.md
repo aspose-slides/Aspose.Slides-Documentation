@@ -1,5 +1,5 @@
 ---
-title: Presentatiecommentaren beheren in Node.js
+title: Beheer presentatiecommentaren in Node.js
 linktitle: Presentatiecommentaren
 type: docs
 weight: 100
@@ -9,7 +9,7 @@ keywords:
 - modern commentaar
 - PowerPoint-commentaren
 - presentatiecommentaren
-- dia commentaren
+- dia-commentaren
 - commentaar toevoegen
 - commentaar benaderen
 - commentaar bewerken
@@ -21,30 +21,32 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Beheer presentatiecommentaren met Aspose.Slides voor Node.js via Java: commentaren toevoegen, lezen, bewerken, beantwoorden en verwijderen in PowerPoint-presentaties."
+description: "Beheer presentatiecommentaren met Aspose.Slides for Node.js via Java: voeg commentaren toe, lees ze, bewerk ze, beantwoord ze en verwijder ze in PowerPoint‑presentaties."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u presentatie­commentaren kunt beheren met Aspose.Slides voor Node.js via Java. Het introduceert de belangrijkste commentaar‑gerelateerde typen en toont hoe u commentaren aan dia’s kunt toevoegen, bestaande commentaren kunt benaderen, kunt werken met antwoorden en moderne commentaren, en commentaren uit een presentatie kunt verwijderen.
+Dit artikel legt uit hoe u presentatie‑commentaren kunt beheren met Aspose.Slides for Node.js via Java. Het introduceert de belangrijkste commentaar‑gerelateerde typen en laat zien hoe u commentaren aan dia’s toevoegt, bestaande commentaren benadert, werkt met antwoorden en moderne commentaren, en commentaren uit een presentatie verwijdert.
 
-De voorbeelden behandelen veelvoorkomende review‑ en samenwerking­scenario’s in PowerPoint, zoals commentaren toewijzen aan auteurs, commentaartekst en metadata lezen, antwoordketens opbouwen, en geselecteerde commentaren of alle commentaren verwijderen.
+De voorbeelden behandelen veelvoorkomende beoordelings‑ en samenwerkingsscenario’s in PowerPoint, zoals het toewijzen van commentaren aan auteurs, het lezen van commentaartekst en metadata, het opbouwen van antwoordketens, en het verwijderen van geselecteerde commentaren of alle commentaren.
 
-In PowerPoint verschijnen commentaren als annotaties op dia’s. Wanneer u een commentaar selecteert, wordt de tekst en de bijbehorende discussie weergegeven.
+In PowerPoint verschijnen commentaren als annotaties op dia’s. Het selecteren van een commentaar toont de tekst en de bijbehorende discussie.
+
+Om aan te geven dat commentaren getoond of verborgen moeten worden wanneer een presentatie wordt geopend zonder de commentaren zelf te wijzigen, zie [Show or Hide Comments When Opening a Presentation](/slides/nl/nodejs-java/presentation-view-properties/).
 
 ## **Waarom commentaren aan presentaties toevoegen?**
 
-U kunt commentaren gebruiken om feedback te geven en samen te werken met collega’s bij het beoordelen van presentaties.
+U kunt commentaren gebruiken om feedback te geven en samen te werken met collega's bij het beoordelen van presentaties.
 
-Aspose.Slides voor Node.js via Java biedt de volgende API’s voor werken met commentaren:
+Aspose.Slides for Node.js via Java biedt de volgende API’s voor het werken met commentaren:
 
-* De [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse, die toegang geeft tot de commentaarauteurs van de presentatie.
-* De [CommentCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/commentcollection/)‑klasse, die de commentaren vertegenwoordigt die aan een specifieke auteur zijn gekoppeld.
+* De [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse, die toegang geeft tot de auteurs van commentaren in de presentatie.
+* De [CommentCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/commentcollection/)‑klasse, die de commentaren vertegenwoordigt die aan een individuele auteur zijn gekoppeld.
 * De [Comment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/)‑klasse, die informatie over een commentaar biedt, inclusief auteur, aanmaaktijd, positie en tekst.
-* De [CommentAuthor](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/commentauthor/)‑klasse, die informatie over een auteur biedt, inclusief naam, initialen en gekoppelde commentaren.
+* De [CommentAuthor](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/commentauthor/)‑klasse, die informatie over een auteur bevat, inclusief hun naam, initialen en gekoppelde commentaren.
 
 ## **Dia‑commentaren toevoegen**
 
-Het volgende voorbeeld laat zien hoe u commentaren aan dia’s in een PowerPoint‑presentatie kunt toevoegen:
+Het volgende voorbeeld laat zien hoe u commentaren aan dia’s in een PowerPoint‑presentatie toevoegt:
 
 ```javascript
 var aspose = aspose || {};
@@ -80,7 +82,7 @@ try {
 
 ## **Dia‑commentaren benaderen**
 
-Het volgende voorbeeld laat zien hoe u bestaande commentaren in een PowerPoint‑presentatie kunt benaderen:
+Het volgende voorbeeld laat zien hoe u bestaande commentaren in een PowerPoint‑presentatie benadert:
 
 ```javascript
 var aspose = aspose || {};
@@ -109,9 +111,9 @@ try {
 
 ## **Antwoorden op commentaren**
 
-Een hoofdcommentaar is het oorspronkelijke commentaar bovenaan een antwoord‑hiërarchie. Met de methoden [Comment.getParentComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/getparentcomment/) en [Comment.setParentComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/setparentcomment/) kunt u het bovenliggende commentaar van een commentaar ophalen of instellen.
+Een bovenliggend commentaar is het oorspronkelijke commentaar bovenaan een antwoordhiërarchie. De methoden [Comment.getParentComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/getparentcomment/) en [Comment.setParentComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/setparentcomment/) stellen u in staat het bovenliggende commentaar van een commentaar op te halen of in te stellen.
 
-Het volgende voorbeeld laat zien hoe u antwoorden kunt toevoegen en de resulterende commentaar‑hiërarchie kunt inspecteren:
+Het volgende voorbeeld laat zien hoe u antwoorden toevoegt en de resulterende commentaariharchie inspecteert:
 
 ```javascript
 var aspose = aspose || {};
@@ -165,21 +167,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-
-* Wanneer de [Comment.remove](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/remove/)‑methode wordt gebruikt om een commentaar te verwijderen, worden ook alle antwoorden op dat commentaar verwijderd.
-* Als [Comment.setParentComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/setparentcomment/) een cirkelvormige verwijzing creëert, wordt een [PptxEditException](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pptxeditexception/) gegooid.
-
+* Wanneer de methode [Comment.remove](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/remove/) wordt gebruikt om een commentaar te verwijderen, worden ook alle antwoorden op dat commentaar verwijderd.
+* Als [Comment.setParentComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/setparentcomment/) een circulaire referentie creëert, wordt een [PptxEditException](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pptxeditexception/) gegooid.
 {{% /alert %}}
 
 ## **Moderne commentaren toevoegen**
 
-Moderne commentaren kunnen worden gekoppeld aan de dia zelf, aan een specifieke vorm, of aan een tekstbereik binnen een [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/). De methode [CommentCollection.addModernComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) accepteert een [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/)‑argument naast de dia‑ en commentaar‑marker‑coördinaten.
+Moderne commentaren kunnen worden gekoppeld aan de dia zelf, aan een specifieke vorm, of aan een tekstreeks binnen een [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/). De methode [CommentCollection.addModernComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) accepteert een [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/)‑argument naast de dia‑ en commentarmarker‑coördinaten.
 
-Wanneer `null` wordt doorgegeven voor het shape‑argument, is het commentaar een dia‑niveau commentaar. De marker wordt gepositioneerd volgens de opgegeven coördinaten, maar is niet gekoppeld aan een specifieke vorm, zodat [ModernComment.getShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getshape/) `null` retourneert. Wanneer een [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/) wordt opgegeven, wordt het commentaar aan die vorm verankerd. De coördinaten bepalen nog steeds de positie van de commentaar‑marker op de dia, terwijl de vormkoppeling kan worden opgehaald via [ModernComment.getShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getshape/).
+Wanneer `null` wordt doorgegeven voor het vorm‑argument, is het commentaar een dia‑niveau commentaar. De marker wordt geplaatst op basis van de meegeleverde coördinaten, maar is niet gekoppeld aan een specifieke vorm, dus [ModernComment.getShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getshape/) retourneert `null`. Wanneer een [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/) wordt opgegeven, wordt het commentaar verankerd aan die vorm. De coördinaten bepalen nog steeds de positie van de commentarmarker op de dia, terwijl de vormkoppeling kan worden opgehaald via [ModernComment.getShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getshape/).
 
-### **Moderne commentaar aan een vorm verankeren**
+### **Een modern commentaar aan een vorm verankeren**
 
-Het volgende voorbeeld maakt zowel een dia‑niveau moderne commentaar als een moderne commentaar verankerd aan een specifieke [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/). Vervolgens leest het de gekoppelde vorm uit elk commentaar.
+Het volgende voorbeeld maakt zowel een dia‑niveau modern commentaar als een modern commentaar verankerd aan een specifieke [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/). Vervolgens leest het de gekoppelde vorm van elk commentaar.
 
 ```javascript
 var aspose = aspose || {};
@@ -209,11 +209,11 @@ try {
 }
 ```
 
-### **Commentaren verankeren aan verschillende vorm‑typen**
+### **Commentaren aan verschillende vormtypen verankeren**
 
-Elk dia‑object dat afgeleid is van [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/) kan worden gebruikt als vorm‑anker. Veelvoorkomende voorbeelden zijn [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/connector/) en [GraphicalObject](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/graphicalobject/) ‑ instellingen zoals grafieken.
+Elk dia‑object dat is afgeleid van [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/) kan worden gebruikt als anker. Veelvoorkomende voorbeelden zijn [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/connector/) en [GraphicalObject](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/graphicalobject/)‑instanties zoals grafieken.
 
-Het volgende voorbeeld maakt verschillende veelvoorkomende vorm‑typen en koppelt een moderne commentaar aan elk van hen.
+Het volgende voorbeeld maakt verschillende veelvoorkomende vormtypen en koppelt een modern commentaar aan elk van hen.
 
 ```javascript
 var aspose = aspose || {};
@@ -258,18 +258,18 @@ try {
 }
 ```
 
-### **Commentaar aan tekst verankeren en de status instellen**
+### **Een commentaar aan tekst verankeren en de status instellen**
 
-Voor een moderne commentaar gekoppeld aan een [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/), geven [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) en [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) de startpositie van de geselecteerde tekst in het tekstaanduidingskader van de vorm. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) en [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) geven de lengte van de selectie. Samen koppelen deze waarden het commentaar aan een specifiek tekstbereik binnen de [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/).
+Voor een modern commentaar gekoppeld aan een [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/), geven [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) en [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) de startpositie van de geselecteerde tekst in het tekstvak van de vorm terug. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) en [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) geven de lengte van de selectie terug. Samen koppelen deze waarden het commentaar aan een specifiek tekstreeks binnen de [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/).
 
 De methoden [ModernComment.getStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getstatus/) en [ModernComment.setStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/setstatus/) geven een waarde uit de enumeratie [ModernCommentStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncommentstatus/) terug:
 
-- `NotDefined` — er is geen specifieke moderne‑commentaarstatus gedefinieerd.
+- `NotDefined` — er is geen specifieke modern‑commentaarstatus gedefinieerd.
 - `Active` — het commentaar is actief.
 - `Resolved` — het commentaar is opgelost.
 - `Closed` — het commentaar is gesloten.
 
-Het volgende voorbeeld maakt een vorm‑verankerd moderne commentaar, koppelt het aan een tekstselectie, markeert het als opgelost, slaat de presentatie op, en controleert de waarden na het opnieuw openen van het bestand.
+Het volgende voorbeeld maakt een vorm‑verankerd modern commentaar, koppelt het aan een tekstreeks, markeert het als opgelost, slaat de presentatie op en controleert de waarden na het heropenen van het bestand.
 
 ```javascript
 var aspose = aspose || {};
@@ -329,7 +329,7 @@ try {
 
 ### **Bestaande moderne commentaren inspecteren**
 
-Om een bestaande presentatie te inspecteren, controleert u welke commentaren [ModernComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/)‑instanties zijn, vervolgens bekijkt u [ModernComment.getShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/), en [ModernComment.getStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getstatus/). Een `null`‑vorm duidt op een commentaar op dia‑niveau. Voor een [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/)‑anker identificeren de tekst‑selectiemethoden het bijbehorende bereik in het tekstaanduidingskader van de vorm.
+Om een bestaande presentatie te inspecteren, controleer welke commentaren [ModernComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/)‑instanties zijn, en bekijk vervolgens [ModernComment.getShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) en [ModernComment.getStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getstatus/). Een `null` vorm duidt op een commentaar op dia‑niveau. Voor een anker op een [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/) identificeren de tekst‑selectiemethoden het gekoppelde bereik in het tekstvak van de vorm.
 
 ```javascript
 var aspose = aspose || {};
@@ -376,9 +376,9 @@ try {
 
 ## **Commentaren verwijderen**
 
-### **Alle commentaren en commentaarauteurs verwijderen**
+### **Alle commentaren en commentauteur​s verwijderen**
 
-Het volgende voorbeeld laat zien hoe u alle commentaren en commentaarauteurs uit een presentatie kunt verwijderen:
+Het volgende voorbeeld laat zien hoe u alle commentaren en commentauteur​s uit een presentatie verwijdert:
 
 ```javascript
 var aspose = aspose || {};
@@ -400,7 +400,7 @@ try {
 
 ### **Specifieke commentaren verwijderen**
 
-Het volgende voorbeeld laat zien hoe u specifieke commentaren van een dia kunt verwijderen:
+Het volgende voorbeeld laat zien hoe u specifieke commentaren van een dia verwijdert:
 
 ```javascript
 var aspose = aspose || {};
@@ -444,14 +444,14 @@ try {
 
 ## **FAQ**
 
-**Ondersteunt Aspose.Slides een opgeloste status voor moderne commentaren?**
+**Ondersteunt Aspose.Slides een ‘opgelost’-status voor moderne commentaren?**
 
-Ja. [ModernComment.getStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getstatus/) en [ModernComment.setStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/setstatus/) geven een [ModernCommentStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncommentstatus/)‑waarde terug, inclusief `Resolved`. De status wordt opgeslagen in de presentatie en kan opnieuw gelezen worden nadat het bestand is heropend.
+Ja. [ModernComment.getStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getstatus/) en [ModernComment.setStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/setstatus/) geven een [ModernCommentStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncommentstatus/)‑waarde terug, inclusief `Resolved`. De status wordt opgeslagen in de presentatie en kan opnieuw worden uitgelezen nadat het bestand is heropend.
 
-**Worden gespreksketens (antwoord‑ketens) ondersteund, en is er een limiet op het aantal niveaus?**
+**Worden gearchiveerde discussies (antwoordketens) ondersteund en is er een limiet voor nesting?**
 
-Ja. Elk commentaar kan verwijzen naar zijn [parent comment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/getparentcomment/), waardoor antwoord‑ketens mogelijk zijn. De API definieert geen specifieke diepte‑limiet.
+Ja. Elk commentaar kan verwijzen naar zijn [parent comment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/getparentcomment/), waardoor antwoordketens mogelijk zijn. De API definieert geen specifieke limiet voor de diepte van nesting.
 
-**In welk coördinatensysteem wordt de positie van een commentaar‑marker op een dia gedefinieerd?**
+**In welk coördinatensysteem wordt de positie van een commentarmarker op een dia gedefinieerd?**
 
-De markerpositie wordt gedefinieerd door zwevende‑punt‑coördinaten in het dia‑coördinatensysteem, waardoor u de marker nauwkeurig op de dia kunt plaatsen.
+De markerpositie wordt gedefinieerd door zwevende‑kommagetallen in het dia‑coördinatensysteem, zodat u de marker nauwkeurig op de dia kunt plaatsen.

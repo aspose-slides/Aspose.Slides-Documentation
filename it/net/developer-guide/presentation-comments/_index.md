@@ -1,5 +1,5 @@
 ---
-title: Gestire i commenti delle presentazioni in .NET
+title: Gestire i commenti della presentazione in .NET
 linktitle: Commenti della presentazione
 type: docs
 weight: 100
@@ -10,26 +10,28 @@ keywords:
 - commenti PowerPoint
 - commenti della presentazione
 - commenti della diapositiva
-- aggiungere commento
-- accedere al commento
-- modificare commento
-- rispondere al commento
-- rimuovere commento
-- eliminare commento
+- aggiungi commento
+- accedi al commento
+- modifica commento
+- rispondi al commento
+- rimuovi commento
+- elimina commento
 - PowerPoint
 - presentazione
 - .NET
 - C#
 - Aspose.Slides
-description: "Gestisci i commenti delle presentazioni con Aspose.Slides per .NET: aggiungi, leggi, modifica, rispondi e rimuovi i commenti nelle presentazioni PowerPoint in modo rapido e semplice."
+description: "Gestisci i commenti della presentazione con Aspose.Slides per .NET: aggiungi, leggi, modifica, rispondi e rimuovi i commenti nelle presentazioni PowerPoint in modo rapido e semplice."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come gestire i commenti delle presentazioni con Aspose.Slides per .NET. Introduce i principali tipi correlati ai commenti e dimostra come aggiungere commenti alle diapositive, accedere ai commenti esistenti, lavorare con risposte e commenti moderni e rimuovere i commenti da una presentazione.
+Questo articolo spiega come gestire i commenti delle presentazioni con Aspose.Slides per .NET. Presenta i principali tipi relativi ai commenti e dimostra come aggiungere commenti alle diapositive, accedere ai commenti esistenti, lavorare con le risposte e i commenti moderni, e rimuovere i commenti da una presentazione.
 
-Gli esempi coprono scenari comuni di revisione e collaborazione in PowerPoint, come assegnare commenti agli autori, leggere il testo e i metadati dei commenti, creare catene di risposte e rimuovere commenti selezionati o tutti i commenti.
+Esempi coprono scenari comuni di revisione e collaborazione in PowerPoint, come assegnare commenti agli autori, leggere il testo e i metadati dei commenti, costruire catene di risposte e rimuovere commenti selezionati o tutti i commenti.
 
-In PowerPoint, i commenti appaiono come annotazioni sulle diapositive. Selezionare un commento visualizza il suo testo e la discussione correlata.
+In PowerPoint, i commenti appaiono come annotazioni sulle diapositive. Selezionare un commento ne visualizza il testo e la discussione correlata.
+
+Per richiedere che i commenti siano mostrati o nascosti quando una presentazione viene aperta senza modificare i commenti stessi, vedere [Mostra o nascondi i commenti all'apertura di una presentazione](/slides/it/net/presentation-view-properties/).
 
 ## **Perché aggiungere commenti alle presentazioni?**
 
@@ -39,11 +41,11 @@ Aspose.Slides per .NET fornisce le seguenti API per lavorare con i commenti:
 
 * La classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation) fornisce l'accesso agli autori dei commenti della presentazione.
 * L'interfaccia [ICommentCollection](https://reference.aspose.com/slides/it/net/aspose.slides/icommentcollection) rappresenta i commenti associati a un singolo autore.
-* L'interfaccia [IComment](https://reference.aspose.com/slides/it/net/aspose.slides/icomment) fornisce informazioni su un commento, includendo autore, data di creazione, posizione e testo.
-* La classe [CommentAuthor](https://reference.aspose.com/slides/it/net/aspose.slides/commentauthor) fornisce informazioni su un autore, includendo nome, iniziali e commenti associati.
+* L'interfaccia [IComment](https://reference.aspose.com/slides/it/net/aspose.slides/icomment) fornisce informazioni su un commento, inclusi autore, data di creazione, posizione e testo.
+* La classe [CommentAuthor](https://reference.aspose.com/slides/it/net/aspose.slides/commentauthor) fornisce informazioni su un autore, inclusi nome, iniziali e commenti associati.
 
 ## **Aggiungere commenti alle diapositive**
-L'esempio seguente mostra come aggiungere commenti alle diapositive in una presentazione PowerPoint:
+Il seguente esempio mostra come aggiungere commenti alle diapositive in una presentazione PowerPoint:
 
 ```csharp
 using System;
@@ -75,7 +77,7 @@ presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Accedere ai commenti delle diapositive**
-L'esempio seguente mostra come accedere ai commenti esistenti in una presentazione PowerPoint:
+Il seguente esempio mostra come accedere ai commenti esistenti in una presentazione PowerPoint:
 
 ```csharp
 using System;
@@ -97,9 +99,9 @@ foreach (var author in presentation.CommentAuthors)
 ```
 
 ## **Rispondere ai commenti**
-Un commento padre è il commento originale in cima a una gerarchia di risposte. La proprietà [ParentComment](https://reference.aspose.com/slides/it/net/aspose.slides/icomment/properties/parentcomment) dell'interfaccia [IComment](https://reference.aspose.com/slides/it/net/aspose.slides/icomment) consente di ottenere o impostare il commento padre di un commento.
+Un commento genitore è il commento originale in cima a una gerarchia di risposte. La proprietà [ParentComment](https://reference.aspose.com/slides/it/net/aspose.slides/icomment/properties/parentcomment) dell'interfaccia [IComment](https://reference.aspose.com/slides/it/net/aspose.slides/icomment) consente di ottenere o impostare il genitore di un commento.
 
-L'esempio seguente mostra come aggiungere risposte e ispezionare la gerarchia di commenti risultante:
+Il seguente esempio mostra come aggiungere risposte e ispezionare la gerarchia di commenti risultante:
 
 ```csharp
 using System;
@@ -152,20 +154,20 @@ presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 
 {{% alert color="warning" title="Attention" %}} 
 
-* Quando il metodo [Remove](https://reference.aspose.com/slides/it/net/aspose.slides/icomment/methods/remove) dell'interfaccia [IComment](https://reference.aspose.com/slides/it/net/aspose.slides/icomment) viene utilizzato per eliminare un commento, tutte le risposte a quel commento vengono eliminate anch'esse.
+* Quando il metodo [Remove](https://reference.aspose.com/slides/it/net/aspose.slides/icomment/methods/remove) dell'interfaccia [IComment](https://reference.aspose.com/slides/it/net/aspose.slides/icomment) viene usato per eliminare un commento, tutte le risposte a quel commento vengono anch'esse eliminate.
 * Se la proprietà [ParentComment](https://reference.aspose.com/slides/it/net/aspose.slides/icomment/properties/parentcomment) crea un riferimento circolare, viene generata un'eccezione [PptxEditException](https://reference.aspose.com/slides/it/net/aspose.slides/pptxeditexception).
 
 {{% /alert %}}
 
 ## **Aggiungere commenti moderni**
 
-I commenti moderni possono essere associati alla diapositiva stessa, a una forma specifica o a un intervallo di testo all'interno di un'AutoShape. Il metodo [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/it/net/aspose.slides/icommentcollection/addmoderncomment/) accetta un argomento [IShape](https://reference.aspose.com/slides/it/net/aspose.slides/ishape/) in aggiunta alla diapositiva e alle coordinate del marcatore del commento.
+I commenti moderni possono essere associati alla diapositiva stessa, a una forma specifica o a un intervallo di testo all'interno di un'AutoShape. Il metodo [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/it/net/aspose.slides/icommentcollection/addmoderncomment/) accetta un argomento [IShape](https://reference.aspose.com/slides/it/net/aspose.slides/ishape/) oltre alla diapositiva e alle coordinate del marcatore del commento.
 
-Quando viene passato `null` per l'argomento forma, il commento è un commento a livello di diapositiva. Il suo marcatore è posizionato secondo le coordinate fornite, ma non è associato a una forma particolare, quindi [IModernComment.Shape](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/shape/) restituisce `null`. Quando viene fornita una [IShape](https://reference.aspose.com/slides/it/net/aspose.slides/ishape/), il commento è ancorato a quella forma. Le coordinate definiscono comunque la posizione del marcatore del commento sulla diapositiva, mentre l'associazione alla forma può essere recuperata tramite [IModernComment.Shape](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/shape/).
+Quando `null` è passato per l'argomento shape, il commento è un commento a livello di diapositiva. Il suo marcatore è posizionato dalle coordinate fornite, ma non è associato a una forma specifica, quindi [IModernComment.Shape](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/shape/) restituisce `null`. Quando viene fornito un [IShape](https://reference.aspose.com/slides/it/net/aspose.slides/ishape/), il commento è ancorato a quella forma. Le coordinate continuano a definire la posizione del marcatore del commento sulla diapositiva, mentre l'associazione alla forma può essere recuperata tramite [IModernComment.Shape](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/shape/).
 
 ### **Ancorare un commento moderno a una forma**
 
-L'esempio seguente crea sia un commento moderno a livello di diapositiva sia un commento moderno ancorato a una AutoShape specifica. Quindi legge la forma associata a ciascun commento.
+Il seguente esempio crea sia un commento moderno a livello di diapositiva sia un commento moderno ancorato a una AutoShape specifica. Successivamente legge la forma associata da ciascun commento.
 
 ```csharp
 using System;
@@ -192,11 +194,11 @@ Console.WriteLine(shapeComment.Shape?.Name);
 presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 ```
 
-### **Ancorare i commenti a diversi tipi di forma**
+### **Ancorare commenti a diversi tipi di forma**
 
-Qualsiasi oggetto diapositiva che implementa [IShape](https://reference.aspose.com/slides/it/net/aspose.slides/ishape/) può essere usato come ancoraggio di forma. Esempi comuni includono [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/it/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/it/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/it/net/aspose.slides/iconnector/) e istanze di [IGraphicalObject](https://reference.aspose.com/slides/it/net/aspose.slides/igraphicalobject/) come i grafici.
+Qualsiasi oggetto della diapositiva che implementa [IShape](https://reference.aspose.com/slides/it/net/aspose.slides/ishape/) può essere usato come ancoraggio di forma. Esempi comuni includono [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/it/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/it/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/it/net/aspose.slides/iconnector/) e istanze di [IGraphicalObject](https://reference.aspose.com/slides/it/net/aspose.slides/igraphicalobject/) come i grafici.
 
-L'esempio seguente crea diversi tipi di forma comuni e associa a ciascuno un commento moderno.
+Il seguente esempio crea diversi tipi di forma comuni e associa a ciascuno un commento moderno.
 
 ```csharp
 using System;
@@ -239,9 +241,9 @@ author.Comments.AddModernComment("Comment on a graphical object.", slide, chart,
 presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 ```
 
-### **Ancorare un commento al testo e impostarne lo stato**
+### **Ancorare un commento a del testo e impostarne lo stato**
 
-Per un commento moderno associato a una [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape/), la proprietà [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/textselectionstart/) specifica la posizione iniziale del testo selezionato nel frame di testo della forma, mentre [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/textselectionlength/) specifica la lunghezza della selezione. Insieme, queste proprietà associano il commento a un intervallo di testo specifico all'interno dell'AutoShape.
+Per un commento moderno associato a un [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/textselectionstart/) indica la posizione iniziale del testo selezionato nel frame di testo della forma, mentre [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/textselectionlength/) indica la lunghezza della selezione. Insieme, queste proprietà associano il commento a un intervallo di testo specifico all'interno dell'AutoShape.
 
 La proprietà [IModernComment.Status](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/status/) può essere letta o aggiornata con un valore dell'enumerazione [ModernCommentStatus](https://reference.aspose.com/slides/it/net/aspose.slides/moderncommentstatus/):
 
@@ -250,7 +252,7 @@ La proprietà [IModernComment.Status](https://reference.aspose.com/slides/it/net
 - `Resolved` — il commento è stato risolto.
 - `Closed` — il commento è chiuso.
 
-L'esempio seguente crea un commento moderno ancorato a una forma, lo associa a una selezione di testo, lo segna come risolto, salva la presentazione e verifica i valori dopo aver riaperto il file.
+Il seguente esempio crea un commento moderno ancorato a una forma, lo associa a una selezione di testo, lo segna come risolto, salva la presentazione e verifica i valori dopo aver riaperto il file.
 
 ```csharp
 using System;
@@ -303,7 +305,7 @@ foreach (var reopenedComment in reopenedComments)
 
 ### **Ispezionare i commenti moderni esistenti**
 
-Per ispezionare una presentazione esistente, verificare quali commenti implementano [IModernComment](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/), quindi esaminare [IModernComment.Shape](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/textselectionlength/) e [IModernComment.Status](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/status/). Una forma `null` indica un commento a livello di diapositiva. Per un ancoraggio a [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape/), le proprietà di selezione del testo identificano l'intervallo associato nel frame di testo della forma.
+Per ispezionare una presentazione esistente, verificare quali commenti implementano [IModernComment](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/), quindi esaminare [IModernComment.Shape](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/textselectionlength/) e [IModernComment.Status](https://reference.aspose.com/slides/it/net/aspose.slides/imoderncomment/status/). Una forma `null` indica un commento a livello di diapositiva. Per un ancoraggio [IAutoShape], le proprietà di selezione del testo identificano l'intervallo associato nel frame di testo della forma.
 
 ```csharp
 using System;
@@ -351,7 +353,7 @@ foreach (var slide in presentation.Slides)
 
 ### **Rimuovere tutti i commenti e gli autori dei commenti**
 
-L'esempio seguente mostra come rimuovere tutti i commenti e gli autori dei commenti da una presentazione:
+Il seguente esempio mostra come rimuovere tutti i commenti e gli autori dei commenti da una presentazione:
 
 ```csharp
 using Aspose.Slides;
@@ -370,7 +372,7 @@ presentation.Save("example_out.pptx", SaveFormat.Pptx);
 
 ### **Rimuovere commenti specifici**
 
-L'esempio seguente mostra come rimuovere commenti specifici da una diapositiva:
+Il seguente esempio mostra come rimuovere commenti specifici da una diapositiva:
 
 ```csharp
 using System;
@@ -419,8 +421,8 @@ Sì. La proprietà [IModernComment.Status](https://reference.aspose.com/slides/i
 
 **Le discussioni a thread (catene di risposte) sono supportate e c'è un limite di annidamento?**
 
-Sì. Ogni commento può fare riferimento al proprio [parent comment](https://reference.aspose.com/slides/it/net/aspose.slides/comment/parentcomment/), consentendo catene di risposte. L'API non definisce un limite specifico di profondità di annidamento.
+Sì. Ogni commento può fare riferimento al suo [parent comment](https://reference.aspose.com/slides/it/net/aspose.slides/comment/parentcomment/), consentendo catene di risposte. L'API non definisce un limite specifico di profondità di annidamento.
 
 **In quale sistema di coordinate è definita la posizione del marcatore di un commento su una diapositiva?**
 
-La posizione del marcatore è definita da coordinate in virgola mobile nel sistema di coordinate della diapositiva, consentendo di posizionarlo con precisione sulla diapositiva.
+La posizione del marcatore è definita da coordinate a virgola mobile nel sistema di coordinate della diapositiva, consentendo di posizionarlo con precisione sulla diapositiva.

@@ -1,50 +1,52 @@
 ---
-title: Node.js में प्रस्तुति टिप्पणियों का प्रबंधन
-linktitle: प्रस्तुति टिप्पणियाँ
+title: "Node.js में प्रस्तुति टिप्पणियों का प्रबंधन"
+linktitle: "प्रस्तुति टिप्पणियाँ"
 type: docs
 weight: 100
 url: /hi/nodejs-java/presentation-comments/
 keywords:
-- टिप्पणी
-- आधुनिक टिप्पणी
-- PowerPoint टिप्पणियाँ
-- प्रस्तुति टिप्पणियाँ
-- स्लाइड टिप्पणियाँ
-- टिप्पणी जोड़ें
-- टिप्पणी तक पहुँचें
-- टिप्पणी संपादित करें
-- टिप्पणी का उत्तर दें
-- टिप्पणी हटाएँ
-- टिप्पणी मिटाएँ
-- PowerPoint
-- प्रस्तुति
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Aspose.Slides for Node.js via Java के साथ प्रस्तुति टिप्पणियों का प्रबंधन: PowerPoint प्रस्तुतियों में टिप्पणियाँ जोड़ें, पढ़ें, संपादित करें, उत्तर दें और हटाएँ।"
+- "टिप्पणी"
+- "आधुनिक टिप्पणी"
+- "PowerPoint टिप्पणियाँ"
+- "प्रस्तुति टिप्पणियाँ"
+- "स्लाइड टिप्पणियाँ"
+- "टिप्पणी जोड़ें"
+- "टिप्पणी पहुँचें"
+- "टिप्पणी संपादित करें"
+- "टिप्पणी का उत्तर दें"
+- "टिप्पणी हटाएँ"
+- "टिप्पणी मिटाएँ"
+- "PowerPoint"
+- "प्रस्तुति"
+- "Node.js"
+- "JavaScript"
+- "Aspose.Slides"
+description: "Aspose.Slides for Node.js via Java के साथ प्रस्तुति टिप्पणियों का प्रबंधन: PowerPoint प्रस्तुतियों में टिप्पणियों को जोड़ें, पढ़ें, संपादित करें, उत्तर दें और हटाएँ।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-यह लेख Aspose.Slides for Node.js via Java के साथ प्रेज़ेंटेशन टिप्पणियों को प्रबंधित करने का तरीका समझाता है। यह मुख्य टिप्पणी-से सम्बंधित प्रकारों का परिचय कराता है और दर्शाता है कि स्लाइड्स में टिप्पणियाँ कैसे जोड़ी जाएँ, मौजूदा टिप्पणियों तक कैसे पहुँचें, उत्तरों और आधुनिक टिप्पणियों के साथ कैसे काम करें, और प्रेज़ेंटेशन से टिप्पणियाँ कैसे हटाएँ।
+यह लेख Aspose.Slides for Node.js via Java के साथ प्रस्तुति टिप्पणियों को प्रबंधित करने के तरीके को समझाता है। यह मुख्य टिप्पणी‑संबंधित प्रकारों का परिचय कराता है और दिखाता है कि स्लाइड्स में टिप्पणियां कैसे जोड़ें, मौजूदा टिप्पणियों तक कैसे पहुँचें, उत्तरों और आधुनिक टिप्पणियों के साथ कैसे काम करें, तथा प्रस्तुति से टिप्पणियों को कैसे हटाएँ।
 
-उदाहरण PowerPoint में सामान्य समीक्षा और सहयोग परिदृश्यों को कवर करते हैं, जैसे लेखकों को टिप्पणियाँ असाइन करना, टिप्पणी का पाठ और मेटाडेटा पढ़ना, उत्तर श्रृंखलाएँ बनाना, और चयनित टिप्पणियों या सभी टिप्पणियों को हटाना।
+उदाहरण सामान्य समीक्षा और सहयोग परिदृश्यों को कवर करते हैं, जैसे टिप्पणी लेखकों को सौंपना, टिप्पणी टेक्स्ट और मेटाडेटा पढ़ना, उत्तर श्रृंखलाएँ बनाना, और चयनित टिप्पणियों या सभी टिप्पणियों को हटाना।
 
-PowerPoint में, टिप्पणियाँ स्लाइड्स पर एनोटेशन के रूप में प्रदर्शित होती हैं। किसी टिप्पणी का चयन करने पर उसका पाठ और संबंधित चर्चा दिखती है।
+PowerPoint में, टिप्पणियां स्लाइड्स पर एनोटेशन के रूप में प्रदर्शित होती हैं। टिप्पणी का चयन करने पर उसका टेक्स्ट और संबंधित चर्चा दिखती है।
 
-## **प्रेज़ेंटेशन में टिप्पणियाँ क्यों जोड़ें?**
+जब आप चाहते हैं कि प्रस्तुति खोलते समय टिप्पणियां दिखें या छिपें, बिना स्वयं टिप्पणियों को बदले, तो देखें [प्रस्तुति खोलते समय टिप्पणियों को दिखाएँ या छिपाएँ](/slides/hi/nodejs-java/presentation-view-properties/)।
 
-आप प्रेज़ेंटेशन की समीक्षा करते समय फ़ीडबैक देने और सहयोगियों के साथ सहयोग करने के लिए टिप्पणियों का उपयोग कर सकते हैं।
+## **प्रस्तुतियों में टिप्पणियां क्यों जोड़ें?**
 
-Aspose.Slides for Node.js via Java टिप्पणियों के साथ काम करने के लिए निम्नलिखित API प्रदान करता है:
+आप टिप्पणी का उपयोग प्रतिक्रिया देने और प्रस्तुतियों की समीक्षा के दौरान सहयोगियों के साथ मिलकर काम करने के लिए कर सकते हैं।
 
-* The [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) class, जो प्रस्तुति के टिप्पणी लेखकों तक पहुँच प्रदान करती है।
-* The [CommentCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/commentcollection/) class, जो एक व्यक्तिगत लेखक से जुड़ी टिप्पणियों का प्रतिनिधित्व करती है।
-* The [Comment](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/comment/) class, जो एक टिप्पणी के बारे में जानकारी प्रदान करती है, जिसमें लेखक, निर्माण समय, स्थिति और पाठ शामिल है।
-* The [CommentAuthor](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/commentauthor/) class, जो एक लेखक के बारे में जानकारी प्रदान करती है, जिसमें उनका नाम, प्रारम्भिक अक्षर और जुड़ी टिप्पणियाँ शामिल हैं।
+Aspose.Slides for Node.js via Java टिप्पणी के साथ काम करने के लिए निम्नलिखित API प्रदान करता है:
 
-## **स्लाइड टिप्पणियाँ जोड़ें**
+* The [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) क्लास, जो प्रस्तुति के टिप्पणी लेखकों तक पहुँच प्रदान करती है।
+* The [CommentCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/commentcollection/) क्लास, जो एक व्यक्तिगत लेखक से संबंधित टिप्पणियों का प्रतिनिधित्व करती है।
+* The [Comment](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/comment/) क्लास, जो टिप्पणी के बारे में जानकारी देती है, जिसमें लेखक, निर्माण समय, स्थिति, और टेक्स्ट शामिल हैं।
+* The [CommentAuthor](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/commentauthor/) क्लास, जो लेखक के बारे में जानकारी देती है, जिसमें उनका नाम, आद्याक्षर, और संबंधित टिप्पणियाँ शामिल हैं।
 
-निम्नलिखित उदाहरण दिखाता है कि PowerPoint प्रस्तुति में स्लाइड्स में टिप्पणियाँ कैसे जोड़ी जाती हैं:
+## **स्लाइड टिप्पणियां जोड़ें**
+
+निम्न उदाहरण दिखाता है कि PowerPoint प्रस्तुति में स्लाइड्स पर टिप्पणियां कैसे जोड़ें:
 
 ```javascript
 var aspose = aspose || {};
@@ -78,9 +80,9 @@ try {
 }
 ```
 
-## **स्लाइड टिप्पणियों तक पहुँचें**
+## **स्लाइड टिप्पणियां पढ़ें**
 
-निम्नलिखित उदाहरण दिखाता है कि PowerPoint प्रस्तुति में मौजूदा टिप्पणियों तक कैसे पहुँचें:
+निम्न उदाहरण दिखाता है कि PowerPoint प्रस्तुति में मौजूदा टिप्पणियों तक कैसे पहुँचें:
 
 ```javascript
 var aspose = aspose || {};
@@ -109,9 +111,9 @@ try {
 
 ## **टिप्पणियों का उत्तर देना**
 
-एक पैरेंट टिप्पणी उत्तर पदानुक्रम के शीर्ष पर मूल टिप्पणी होती है। [Comment.getParentComment](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/comment/getparentcomment/) और [Comment.setParentComment](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/comment/setparentcomment/) मेथड आपको टिप्पणी के पैरेंट को प्राप्त या सेट करने की अनुमति देते हैं।
+पैरेंट टिप्पणी वह मूल टिप्पणी है जो उत्तर पदानुक्रम के शीर्ष पर स्थित होती है। The [Comment.getParentComment](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/comment/getparentcomment/) और [Comment.setParentComment](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/comment/setparentcomment/) मेथड आपको टिप्पणी के पैरेंट को प्राप्त या सेट करने की अनुमति देते हैं।
 
-निम्नलिखित उदाहरण दिखाता है कि उत्तर कैसे जोड़ें और परिणामी टिप्पणी पदानुक्रम का निरीक्षण कैसे करें:
+निम्न उदाहरण दिखाता है कि उत्तर कैसे जोड़ें और परिणामी टिप्पणी पदानुक्रम की जांच कैसे करें:
 
 ```javascript
 var aspose = aspose || {};
@@ -165,19 +167,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* जब [Comment.remove](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/comment/remove/) मेथड का उपयोग करके कोई टिप्पणी हटाई जाती है, तो उस टिप्पणी के सभी उत्तर भी हटा दिए जाते हैं।
-* यदि [Comment.setParentComment](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/comment/setparentcomment/) एक सर्कुलर रेफ़रेंस बनाता है, तो एक [PptxEditException](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pptxeditexception/) फेंका जाता है।
+* जब [Comment.remove](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/comment/remove/) मेथड का उपयोग किसी टिप्पणी को हटाने के लिए किया जाता है, तो उस टिप्पणी के सभी उत्तर भी हटाए जाते हैं।
+* यदि [Comment.setParentComment](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/comment/setparentcomment/) एक चक्रीय संदर्भ बनाता है, तो एक [PptxEditException](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pptxeditexception/) उत्पन्न किया जाता है।
 {{% /alert %}}
 
-## **आधुनिक टिप्पणियाँ जोड़ें**
+## **आधुनिक टिप्पणियां जोड़ें**
 
-आधुनिक टिप्पणियों को स्लाइड स्वयं, किसी विशिष्ट शैप, या किसी [AutoShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/autoshape/) के अंदर टेक्स्ट रेंज के साथ जोड़ा जा सकता है। [CommentCollection.addModernComment](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) मेथड स्लाइड और टिप्पणी-मार्कर निर्देशांकों के अतिरिक्त एक [Shape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/) आर्ग्यूमेंट स्वीकार करता है।
+आधुनिक टिप्पणियां स्लाइड स्वयं, किसी विशिष्ट आकार, या एक [AutoShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/autoshape/) के भीतर टेक्स्ट रेंज से जोड़ी जा सकती हैं। The [CommentCollection.addModernComment](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) मेथड स्लाइड और टिप्पणी‑मार्कर निर्देशांक के अलावा एक [Shape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/) तर्क भी स्वीकार करता है।
 
-जब शैप आर्ग्यूमेंट के लिए `null` पास किया जाता है, तो टिप्पणी स्लाइड-स्तरीय टिप्पणी होती है। उसका मार्कर प्रदान किए गए निर्देशांकों द्वारा स्थित किया जाता है, लेकिन यह किसी विशिष्ट शैप से जुड़ा नहीं होता, इसलिए [ModernComment.getShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/getshape/) `null` लौटाता है। जब एक [Shape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/) प्रदान किया जाता है, तो टिप्पणी उस शैप से जुड़ी होती है। निर्देशांक अभी भी स्लाइड पर टिप्पणी मार्कर की स्थिति निर्धारित करते हैं, जबकि शैप एसोसिएशन को [ModernComment.getShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/getshape/) के माध्यम से प्राप्त किया जा सकता है।
+जब `null` को shape तर्क के रूप में पास किया जाता है, तो टिप्पणी एक स्लाइड‑स्तरीय टिप्पणी होती है। इसका मार्कर प्रदान किए गए निर्देशांक द्वारा स्थित होता है, लेकिन यह किसी विशेष आकार से जुड़ी नहीं होती, इसलिए [ModernComment.getShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/getshape/) `null` लौटाता है। जब एक [Shape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/) दिया जाता है, तो टिप्पणी उस आकार से जुड़ जाती है। निर्देशांक अभी भी स्लाइड पर टिप्पणी मार्कर की स्थिति को परिभाषित करते हैं, जबकि आकार संबंध को [ModernComment.getShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/getshape/) के माध्यम से प्राप्त किया जा सकता है।
 
-### **एक आधुनिक टिप्पणी को शैप पर एंकर करें**
+### **आधुनिक टिप्पणी को आकार से जोड़ें**
 
-निम्नलिखित उदाहरण एक स्लाइड-स्तरीय आधुनिक टिप्पणी और एक विशिष्ट [AutoShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/autoshape/) से एंकर की गई आधुनिक टिप्पणी दोनों बनाता है। फिर यह प्रत्येक टिप्पणी से संबंधित शैप को पढ़ता है।
+निम्न उदाहरण एक स्लाइड‑स्तरीय आधुनिक टिप्पणी और एक विशिष्ट [AutoShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/autoshape/) से जुड़ी आधुनिक टिप्पणी बनाता है। फिर यह प्रत्येक टिप्पणी से संबंधित आकार को पढ़ता है।
 
 ```javascript
 var aspose = aspose || {};
@@ -207,11 +209,11 @@ try {
 }
 ```
 
-### **विभिन्न शैप प्रकारों पर टिप्पणियों को एंकर करें**
+### **विभिन्न आकार प्रकारों पर टिप्पणियां जोड़ें**
 
-कोई भी स्लाइड ऑब्जेक्ट जो [Shape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/) से व्युत्पन्न है, शैप एंकर के रूप में उपयोग किया जा सकता है। सामान्य उदाहरणों में [AutoShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/connector/), और चार्ट जैसी [GraphicalObject](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/graphicalobject/) इंस्टेंसेज़ शामिल हैं।
+[Shape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/shape/) से व्युत्पन्न कोई भी स्लाइड ऑब्जेक्ट आकार एंकर के रूप में उपयोग किया जा सकता है। सामान्य उदाहरणों में [AutoShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/connector/), और चार्ट जैसी [GraphicalObject](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/graphicalobject/) उदाहरण शामिल हैं।
 
-निम्नलिखित उदाहरण कई सामान्य शैप प्रकार बनाता है और प्रत्येक के साथ एक आधुनिक टिप्पणी को जोड़ता है।
+निम्न उदाहरण कई सामान्य आकार प्रकार बनाता है और प्रत्येक के साथ एक आधुनिक टिप्पणी को जोड़ता है।
 
 ```javascript
 var aspose = aspose || {};
@@ -256,17 +258,18 @@ try {
 }
 ```
 
-### **टेक्स्ट पर टिप्पणी को एंकर करें और उसकी स्थिति सेट करें**
+### **टेक्स्ट पर टिप्पणी जोड़ें और उसकी स्थिति सेट करें**
 
-एक [AutoShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/autoshape/) से जुड़ी आधुनिक टिप्पणी के लिए, [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) और [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) शैप के टेक्स्ट फ्रेम में चयनित टेक्स्ट की शुरुआती स्थिति तक पहुँचते हैं। [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) और [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) चयन की लंबाई तक पहुँचते हैं। साथ में, ये मान टिप्पणी को [AutoShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/autoshape/) के अंदर एक विशिष्ट टेक्स्ट रेंज के साथ जोड़ते हैं।
+एक [AutoShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/autoshape/) से जुड़ी आधुनिक टिप्पणी के लिए, [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) और [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) आकार के टेक्स्ट फ़्रेम में चयनित टेक्स्ट की प्रारंभिक स्थिति तक पहुँचते हैं। [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) और [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) चयन की लंबाई तक पहुँचते हैं। ये मान मिलकर टिप्पणी को [AutoShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/autoshape/) के भीतर एक विशिष्ट टेक्स्ट रेंज से जोड़ते हैं।
 
-[ModernComment.getStatus](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/getstatus/) और [ModernComment.setStatus](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/setstatus/) मेथड्स [ModernCommentStatus](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncommentstatus/) एनेमरेशन से एक मान प्राप्त करते हैं:
-- `NotDefined` — कोई विशिष्ट आधुनिक-टिप्पणी स्थिति परिभाषित नहीं है।
+[ModernComment.getStatus](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/getstatus/) और [ModernComment.setStatus](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/setstatus/) मेथड [ModernCommentStatus](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncommentstatus/) enumeration से एक मान प्राप्त करते हैं:
+
+- `NotDefined` — कोई विशिष्ट आधुनिक‑टिप्पणी स्थिति परिभाषित नहीं है।
 - `Active` — टिप्पणी सक्रिय है।
-- `Resolved` — टिप्पणी को हल किया गया है।
+- `Resolved` — टिप्पणी हल की गई है।
 - `Closed` — टिप्पणी बंद है।
 
-निम्नलित उदाहरण एक शैप-एंकर की गई आधुनिक टिप्पणी बनाता है, इसे टेक्स्ट चयन के साथ जोड़ता है, इसे हल किए हुए चिह्नित करता है, प्रस्तुति को सहेजता है, और फ़ाइल को पुनः खोलने के बाद मानों की पुष्टि करता है।
+निम्न उदाहरण एक आकार‑एंकर वाली आधुनिक टिप्पणी बनाता है, उसे टेक्स्ट चयन से जोड़ता है, उसे हल के रूप में चिह्नित करता है, प्रस्तुति को सहेजता है, और फ़ाइल पुनः खोलने के बाद मानों की पुष्टि करता है।
 
 ```javascript
 var aspose = aspose || {};
@@ -324,9 +327,9 @@ try {
 }
 ```
 
-### **मौजूदा आधुनिक टिप्पणियों की जाँच करें**
+### **मौजूदा आधुनिक टिप्पणियों का निरीक्षण करें**
 
-किसी मौजूदा प्रस्तुति की जाँच करने के लिए, देखें कि कौन सी टिप्पणियाँ [ModernComment](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/) इंस्टेंसेज़ हैं, फिर [ModernComment.getShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/), और [ModernComment.getStatus](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/getstatus/) की जाँच करें। एक `null` शैप स्लाइड-स्तरीय टिप्पणी दर्शाता है। एक [AutoShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/autoshape/) एंकर के लिए, टेक्स्ट-सेलेक्शन मेथड्स शैप के टेक्स्ट फ्रेम में संबंधित रेंज की पहचान करते हैं।
+किसी मौजूदा प्रस्तुति का निरीक्षण करने के लिए, देखें कौन सी टिप्पणियां [ModernComment](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/) उदाहरण हैं, फिर [ModernComment.getShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/), और [ModernComment.getStatus](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/getstatus/) की जाँच करें। `null` आकार का अर्थ है स्लाइड‑स्तरीय टिप्पणी। किसी [AutoShape](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/autoshape/) एंकर के लिए, टेक्स्ट‑सेलेक्शन मेथड आकार के टेक्स्ट फ़्रेम में संबंधित रेंज की पहचान करते हैं।
 
 ```javascript
 var aspose = aspose || {};
@@ -371,11 +374,11 @@ try {
 }
 ```
 
-## **टिप्पणियाँ हटाएँ**
+## **टिप्पणियां हटाएँ**
 
-### **सभी टिप्पणियाँ और टिप्पणी लेखकों को हटाएँ**
+### **सभी टिप्पणियां और टिप्पणी लेखकों को हटाएँ**
 
-निम्नलित उदाहरण दिखाता है कि प्रस्तुति से सभी टिप्पणियों और टिप्पणी लेखकों को कैसे हटाया जाए:
+निम्न उदाहरण दिखाता है कि प्रस्तुति से सभी टिप्पणियां और टिप्पणी लेखक कैसे हटाएँ:
 
 ```javascript
 var aspose = aspose || {};
@@ -395,9 +398,9 @@ try {
 }
 ```
 
-### **विशिष्ट टिप्पणियों को हटाएँ**
+### **विशिष्ट टिप्पणियां हटाएँ**
 
-निम्नलित उदाहरण दिखाता है कि स्लाइड से विशिष्ट टिप्पणियों को कैसे हटाया जाए:
+निम्न उदाहरण दिखाता है कि स्लाइड से विशिष्ट टिप्पणियां कैसे हटाएँ:
 
 ```javascript
 var aspose = aspose || {};
@@ -443,12 +446,12 @@ try {
 
 **क्या Aspose.Slides आधुनिक टिप्पणियों के लिए हल की गई स्थिति का समर्थन करता है?**
 
-हां। [ModernComment.getStatus](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/getstatus/) और [ModernComment.setStatus](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/setstatus/) एक [ModernCommentStatus](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncommentstatus/) मान तक पहुँचते हैं, जिसमें `Resolved` भी शामिल है। यह स्थिति प्रस्तुति में संग्रहीत रहती है और फ़ाइल को पुनः खोलने के बाद फिर से पढ़ी जा सकती है।
+हाँ। [ModernComment.getStatus](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/getstatus/) और [ModernComment.setStatus](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncomment/setstatus/) एक [ModernCommentStatus](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/moderncommentstatus/) मान तक पहुंचते हैं, जिसमें `Resolved` शामिल है। स्थिति प्रस्तुति में संग्रहीत रहती है और फ़ाइल पुनः खोलने के बाद फिर से पढ़ी जा सकती है।
 
-**क्या थ्रेडेड डिस्कशन (उत्तर श्रृंखलाएँ) समर्थित हैं, और क्या कोई नेस्टिंग सीमा है?**
+**क्या थ्रेडेड चर्चा (उत्तर श्रृंखलाएँ) समर्थित हैं, और क्या कोई नेस्टिंग सीमा है?**
 
-हां। प्रत्येक टिप्पणी अपने [parent comment](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/comment/getparentcomment/) को संदर्भित कर सकती है, जिससे उत्तर श्रृंखलाएँ सक्षम होती हैं। API कोई विशिष्ट नेस्टिंग-गहराई सीमा निर्धारित नहीं करती।
+हाँ। प्रत्येक टिप्पणी अपने [parent comment](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/comment/getparentcomment/) को संदर्भित कर सकती है, जिससे उत्तर श्रृंखलाएँ बनती हैं। API कोई विशिष्ट नेस्टिंग‑गहराई सीमा निर्धारित नहीं करता।
 
 **स्लाइड पर टिप्पणी मार्कर की स्थिति किस कॉर्डिनेट सिस्टम में परिभाषित होती है?**
 
-मार्कर की स्थिति स्लाइड कॉर्डिनेट सिस्टम में फ्लोटिंग-पॉइंट निर्देशांकों द्वारा परिभाषित होती है, जिससे आप इसे सटीक रूप से स्लाइड पर रख सकते हैं।
+मार्कर की स्थिति स्लाइड कॉर्डिनेट सिस्टम में फ्लोटिंग‑पॉइंट कॉर्डिनेट्स द्वारा परिभाषित की जाती है, जिससे आप इसे स्लाइड पर सटीक रूप से रख सकते हैं।

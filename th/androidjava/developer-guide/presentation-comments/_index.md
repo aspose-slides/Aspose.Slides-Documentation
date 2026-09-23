@@ -1,50 +1,52 @@
 ---
-title: จัดการความคิดเห็นของงานนำเสนอบน Android
-linktitle: ความคิดเห็นของงานนำเสนอ
+title: จัดการคอมเมนต์การนำเสนอบน Android
+linktitle: คอมเมนต์การนำเสนอ
 type: docs
 weight: 100
 url: /th/androidjava/presentation-comments/
 keywords:
-- ความคิดเห็น
-- ความคิดเห็นสมัยใหม่
-- ความคิดเห็น PowerPoint
-- ความคิดเห็นงานนำเสนอ
-- ความคิดเห็นสไลด์
-- เพิ่มความคิดเห็น
-- เข้าถึงความคิดเห็น
-- แก้ไขความคิดเห็น
-- ตอบกลับความคิดเห็น
-- ลบความคิดเห็น
-- ลบความคิดเห็น
+- คอมเมนต์
+- คอมเมนต์สมัยใหม่
+- คอมเมนต์ PowerPoint
+- คอมเมนต์การนำเสนอ
+- คอมเมนต์สไลด์
+- เพิ่มคอมเมนต์
+- เข้าถึงคอมเมนต์
+- แก้ไขคอมเมนต์
+- ตอบกลับคอมเมนต์
+- ลบคอมเมนต์
+- ลบคอมเมนต์
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "จัดการความคิดเห็นในงานนำเสนอด้วย Aspose.Slides for Android via Java: เพิ่ม, อ่าน, แก้ไข, ตอบกลับ, และลบความคิดเห็นในงานนำเสนอ PowerPoint อย่างรวดเร็วและง่ายดาย."
+description: "จัดการคอมเมนต์การนำเสนอด้วย Aspose.Slides สำหรับ Android ผ่าน Java: เพิ่ม, อ่าน, แก้ไข, ตอบกลับ, และลบคอมเมนต์ในงานนำเสนอ PowerPoint อย่างรวดเร็วและง่ายดาย."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีจัดการความคิดเห็นในงานนำเสนอด้วย Aspose.Slides for Android via Java โดยจะแนะนำประเภทหลักที่เกี่ยวข้องกับความคิดเห็นและสาธิตวิธีการเพิ่มความคิดเห็นลงในสไลด์, เข้าถึงความคิดเห็นที่มีอยู่, ทำงานกับการตอบกลับและความคิดเห็นสมัยใหม่, รวมถึงการลบความคิดเห็นออกจากงานนำเสนอ
+บทความนี้อธิบายวิธีการจัดการคอมเมนต์การนำเสนอด้วย Aspose.Slides for Android via Java. มันแนะนำประเภทที่เกี่ยวข้องกับคอมเมนต์หลักและสาธิตวิธีการเพิ่มคอมเมนต์ลงในสไลด์, เข้าถึงคอมเมนต์ที่มีอยู่, ทำงานกับการตอบกลับและคอมเมนต์สมัยใหม่, และลบคอมเมนต์จากการนำเสนอ
 
-ตัวอย่างเหล่านี้ครอบคลุมสถานการณ์การตรวจทานและการทำงานร่วมกันที่พบทั่วไปใน PowerPoint เช่น การกำหนดความคิดเห็นให้กับผู้เขียน, การอ่านข้อความและเมตาดาต้าของความคิดเห็น, การสร้างห่วงโซ่การตอบกลับ, และการลบความคิดเห็นที่เลือกหรือทั้งหมด
+ตัวอย่างครอบคลุมสถานการณ์การตรวจสอบและการทำงานร่วมกันทั่วไปใน PowerPoint เช่น การกำหนดคอมเมนต์ให้กับผู้เขียน, อ่านข้อความคอมเมนต์และเมตาดาต้า, สร้างสายตอบกลับ, และลบคอมเมนต์ที่เลือกหรือทั้งหมด
 
-ใน PowerPoint, ความคิดเห็นแสดงเป็นหมายเหตุบนสไลด์ การเลือกความคิดเห็นจะแสดงข้อความและการสนทนาที่เกี่ยวข้อง
+ใน PowerPoint คอมเมนต์จะแสดงเป็นคำอธิบายบนสไลด์ การเลือกคอมเมนต์จะแสดงข้อความและการสนทนาที่เกี่ยวข้อง
 
-## **ทำไมต้องเพิ่มความคิดเห็นในงานนำเสนอ?**
+หากต้องการร้องขอให้แสดงหรือซ่อนคอมเมนต์เมื่อเปิดการนำเสนอโดยไม่เปลี่ยนแปลงคอมเมนต์เอง ให้ดูที่ [แสดงหรือซ่อนคอมเมนต์เมื่อเปิดการนำเสนอ](/slides/th/androidjava/presentation-view-properties/)
 
-คุณสามารถใช้ความคิดเห็นเพื่อให้ข้อเสนอแนะและทำงานร่วมกับเพื่อนร่วมงานเมื่อทำการตรวจทานงานนำเสนอ
+## **ทำไมต้องเพิ่มคอมเมนต์ในงานนำเสนอ?**
 
-Aspose.Slides for Android via Java มี API ต่อไปนี้สำหรับทำงานกับความคิดเห็น:
+คุณสามารถใช้คอมเมนต์เพื่อให้ข้อเสนอแนะและทำงานร่วมกับเพื่อนร่วมงานเมื่อรีวิวงานนำเสนอ
 
-* คลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) ซึ่งให้การเข้าถึงผู้เขียนความคิดเห็นของงานนำเสนอ
-* อินเทอร์เฟส [ICommentCollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icommentcollection/) ซึ่งเป็นตัวแทนของความคิดเห็นที่เชื่อมโยงกับผู้เขียนแต่ละคน
-* อินเทอร์เฟส [IComment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icomment/) ซึ่งให้ข้อมูลเกี่ยวกับความคิดเห็น รวมถึงผู้เขียน, เวลาเขียน, ตำแหน่งและข้อความ
-* คลาส [CommentAuthor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/commentauthor/) ซึ่งให้ข้อมูลเกี่ยวกับผู้เขียน ได้แก่ ชื่อ, ชื่อย่อ และความคิดเห็นที่เชื่อมโยง
+Aspose.Slides for Android via Java มี API ต่อไปนี้สำหรับการทำงานกับคอมเมนต์:
 
-## **เพิ่มความคิดเห็นในสไลด์**
+* คลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) ที่ให้การเข้าถึงผู้เขียนคอมเมนต์ของการนำเสนอ
+* อินเทอร์เฟซ [ICommentCollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icommentcollection/) ที่แสดงคอมเมนต์ที่เชื่อมโยงกับผู้เขียนแต่ละคน
+* อินเทอร์เฟซ [IComment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icomment/) ที่ให้ข้อมูลเกี่ยวกับคอมเมนต์รวมถึงผู้เขียน, เวลาสร้าง, ตำแหน่งและข้อความ
+* คลาส [CommentAuthor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/commentauthor/) ที่ให้ข้อมูลเกี่ยวกับผู้เขียนรวมถึงชื่อ, ชื่อย่อและคอมเมนต์ที่เชื่อมโยง
 
-ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มความคิดเห็นลงในสไลด์ของงานนำเสนอ PowerPoint:
+## **เพิ่มคอมเมนต์ในสไลด์**
+
+ตัวอย่างต่อไปนี้แสดงวิธีการเพิ่มคอมเมนต์ลงในสไลด์ของ PowerPoint presentation:
 
 ```java
 import com.aspose.slides.IComment;
@@ -83,9 +85,9 @@ try {
 }
 ```
 
-## **เข้าถึงความคิดเห็นในสไลด์**
+## **เข้าถึงคอมเมนต์ในสไลด์**
 
-ตัวอย่างต่อไปนี้แสดงวิธีเข้าถึงความคิดเห็นที่มีอยู่ในงานนำเสนอ PowerPoint:
+ตัวอย่างต่อไปนี้แสดงวิธีการเข้าถึงคอมเมนต์ที่มีอยู่ใน PowerPoint presentation:
 
 ```java
 import com.aspose.slides.IComment;
@@ -108,11 +110,11 @@ try {
 }
 ```
 
-## **ตอบกลับความคิดเห็น**
+## **ตอบกลับคอมเมนต์**
 
-ความคิดเห็นพ่อแม่คือความคิดเห็นต้นฉบับที่อยู่บนสุดของลำดับชั้นการตอบกลับ วิธี [IComment.getParentComment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icomment/#getParentComment--) และ [IComment.setParentComment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) ช่วยให้คุณดึงหรือกำหนดพ่อแม่ของความคิดเห็นได้
+คอมเมนต์พาเรนต์คือคอมเมนต์ต้นฉบับที่อยู่บนสุดของลำดับขั้นการตอบกลับ เมธอด [IComment.getParentComment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icomment/#getParentComment--) และ [IComment.setParentComment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) ให้คุณดึงหรือกำหนดพาเรนต์ของคอมเมนต์
 
-ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มการตอบกลับและตรวจสอบลำดับชั้นของความคิดเห็นที่ได้:
+ตัวอย่างต่อไปนี้แสดงวิธีการเพิ่มการตอบกลับและตรวจสอบโครงสร้างคอมเมนต์ที่ได้:
 
 ```java
 import com.aspose.slides.IComment;
@@ -169,19 +171,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* เมื่อใช้เมธอด [IComment.remove](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icomment/#remove--) เพื่อลบความคิดเห็น, การตอบกลับทั้งหมดที่เชื่อมต่อกับความคิดเห็นนั้นก็จะถูกลบด้วย
-* หาก [IComment.setParentComment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) สร้างการอ้างอิงแบบวงกลม จะเกิดข้อยกเว้น [PptxEditException](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pptxeditexception/)
+* เมื่อใช้เมธอด [IComment.remove](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icomment/#remove--) เพื่อลบคอมเมนต์, การตอบกลับทั้งหมดของคอมเมนต์นั้นก็จะถูกลบด้วย
+* หาก [IComment.setParentComment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) สร้างการอ้างอิงแบบวงกลม, จะเกิดข้อยกเว้น [PptxEditException](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pptxeditexception/)
 {{% /alert %}}
 
-## **เพิ่มความคิดเห็นสมัยใหม่**
+## **เพิ่มคอมเมนต์สมัยใหม่**
 
-ความคิดเห็นสมัยใหม่สามารถเชื่อมโยงกับสไลด์เอง, กับรูปทรงเฉพาะ หรือกับช่วงข้อความภายใน AutoShape เมธอด [ICommentCollection.addModernComment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) ยอมรับอาร์กิวเมนต์ประเภท [IShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/) นอกจากสไลด์และพิกัดของเครื่องหมายความคิดเห็น
+คอมเมนต์สมัยใหม่สามารถเชื่อมโยงกับสไลด์โดยตรง, กับรูปร่างเฉพาะ, หรือกับช่วงข้อความภายใน AutoShape เมธอด [ICommentCollection.addModernComment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) รับอาร์กิวเมนต์ [IShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/) นอกเหนือจากสไลด์และพิกัดของเครื่องหมายคอมเมนต์
 
-เมื่อส่งค่า `null` สำหรับอาร์กิวเมนต์ shape, ความคิดเห็นจะเป็นความคิดเห็นระดับสไลด์ ตัวเครื่องหมายจะถูกวางตามพิกัดที่ระบุ แต่ไม่ได้เชื่อมโยงกับรูปทรงใดโดยเฉพาะ ดังนั้นเมธอด [IModernComment.getShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getShape--) จะคืนค่า `null` หากส่งค่า [IShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/) มา, ความคิดเห็นจะถูกยึดกับรูปทรงนั้น พิกัดยังคงกำหนดตำแหน่งของเครื่องหมายบนสไลด์ ส่วนการเชื่อมโยงรูปทรงสามารถดึงได้ผ่าน [IModernComment.getShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getShape--)
+เมื่อ `null` ถูกส่งเป็นอาร์กิวเมนต์รูปร่าง, คอมเมนต์จะเป็นคอมเมนต์ระดับสไลด์ เครื่องหมายจะถูกวางตามพิกัดที่ระบุ แต่จะไม่เชื่อมโยงกับรูปร่างใด, ดังนั้น [IModernComment.getShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getShape--) จะคืนค่า `null` เมื่อส่ง [IShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/) มา, คอมเมนต์จะถูกยึดกับรูปร่างนั้น พิกัดยังคงกำหนดตำแหน่งของเครื่องหมายคอมเมนต์บนสไลด์, ส่วนการเชื่อมโยงรูปร่างสามารถดึงได้ผ่าน [IModernComment.getShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getShape--)
 
-### **ยึดความคิดเห็นสมัยใหม่กับรูปทรง**
+### **ยึดคอมเมนต์สมัยใหม่เข้ากับรูปร่าง**
 
-ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ระดับสไลด์และความคิดเห็นสมัยใหม่ที่ยึดกับ AutoShape เฉพาะ แล้วอ่านรูปทรงที่เชื่อมโยงจากแต่ละความคิดเห็น
+ตัวอย่างต่อไปนี้สร้างคอมเมนต์สมัยใหม่ระดับสไลด์และคอมเมนต์สมัยใหม่ที่ยึดกับ AutoShape เฉพาะ แล้วอ่านรูปร่างที่เชื่อมโยงจากแต่ละคอมเมนต์
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -217,11 +219,11 @@ try {
 }
 ```
 
-### **ยึดความคิดเห็นกับประเภทรูปทรงต่าง ๆ**
+### **ยึดคอมเมนต์ไปยังประเภทรูปร่างต่าง ๆ**
 
-ออบเจ็กต์สไลด์ใด ๆ ที่ติดตั้ง [IShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/) สามารถใช้เป็นจุดยึดรูปทรงได้ ตัวอย่างทั่วไป ได้แก่ [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iconnector/), และอินสแตนซ์ของ [IGraphicalObject](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/igraphicalobject/) เช่น แผนภูมิ
+ออบเจกต์สไลด์ใดที่ implements [IShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/) สามารถใช้เป็นจุดยึดรูปร่างได้ ตัวอย่างทั่วไปได้แก่ [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iconnector/) และอินสแตนซ์ของ [IGraphicalObject](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/igraphicalobject/) เช่น แช็ต
 
-ตัวอย่างต่อไปนี้สร้างรูปทรงประเภทต่าง ๆ ที่พบบ่อยหลายแบบและเชื่อมโยงความคิดเห็นสมัยใหม่กับแต่ละรูปทรง
+ตัวอย่างต่อไปนี้สร้างรูปร่างประเภทต่าง ๆ ที่ใช้บ่อยและเชื่อมโยงคอมเมนต์สมัยใหม่กับแต่ละรูปร่าง
 
 ```java
 import com.aspose.slides.ChartType;
@@ -278,18 +280,18 @@ try {
 }
 ```
 
-### **ยึดความคิดเห็นกับข้อความและกำหนดสถานะ**
+### **ยึดคอมเมนต์ไปยังข้อความและตั้งค่าสถานะ**
 
-สำหรับความคิดเห็นสมัยใหม่ที่เชื่อมโยงกับ [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/), เมธอด [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) และ [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) เข้าถึงตำแหน่งเริ่มต้นของข้อความที่เลือกในกรอบข้อความของรูปทรง ส่วนเมธอด [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) และ [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) เข้าถึงความยาวของการเลือก ค่าทั้งสองนี้ทำให้ความคิดเห็นเชื่อมโยงกับช่วงข้อความเฉพาะภายใน AutoShape
+สำหรับคอมเมนต์สมัยใหม่ที่เชื่อมโยงกับ [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/), เมธอด [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) และ [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) เข้าถึงตำแหน่งเริ่มต้นของข้อความที่เลือกใน TextFrame ของรูปร่าง. เมธอด [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) และ [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) เข้าถึงความยาวของการเลือก. ค่าทั้งสองนี้ทำให้คอมเมนต์เชื่อมโยงกับช่วงข้อความเฉพาะภายใน AutoShape
 
-เมธอด [IModernComment.getStatus](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getStatus--) และ [IModernComment.setStatus](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) เข้าถึงค่าจากคอนสแตนท์ [ModernCommentStatus](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/moderncommentstatus/) ดังนี้
+เมธอด [IModernComment.getStatus](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getStatus--) และ [IModernComment.setStatus](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) เข้าถึงค่าจากคอนสแตนท์ [ModernCommentStatus](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — ไม่ได้กำหนดสถานะของความคิดเห็นสมัยใหม่
-- `Active` — ความคิดเห็นอยู่ในสถานะทำงาน
-- `Resolved` — ความคิดเห็นได้รับการแก้ไขแล้ว
-- `Closed` — ความคิดเห็นถูกปิด
+- `NotDefined` — ไม่ได้กำหนดสถานะคอมเมนต์สมัยใหม่เฉพาะ
+- `Active` — คอมเมนต์อยู่ในสถานะทำงาน
+- `Resolved` — คอมเมนต์ได้รับการแก้ไขแล้ว
+- `Closed` — คอมเมนต์ถูกปิด
 
-ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ที่ยึดกับรูปทรง, เชื่อมโยงกับการเลือกข้อความ, ตั้งสถานะเป็น resolved, บันทึกงานนำเสนอ และตรวจสอบค่าหลังจากเปิดไฟล์ใหม่
+ตัวอย่างต่อไปนี้สร้างคอมเมนต์สมัยใหม่ที่ยึดกับรูปร่าง, เชื่อมโยงกับการเลือกข้อความ, ตั้งค่าสถานะเป็น Resolved, บันทึกการนำเสนอและตรวจสอบค่าหลังเปิดไฟล์ใหม่
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -354,9 +356,9 @@ try {
 }
 ```
 
-### **ตรวจสอบความคิดเห็นสมัยใหม่ที่มีอยู่**
+### **ตรวจสอบคอมเมนต์สมัยใหม่ที่มีอยู่**
 
-เพื่อทำการตรวจสอบงานนำเสนอที่มีอยู่ ให้ตรวจสอบว่าความคิดเห็นใดบ้างที่เป็น [IModernComment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/), จากนั้นเรียก [IModernComment.getShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--), และ [IModernComment.getStatus](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getStatus--) `null` shape แสดงว่าความคิดเห็นเป็นระดับสไลด์ สำหรับจุดยึดแบบ [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) วิธีการเลือกข้อความจะบ่งบอกช่วงที่เชื่อมโยงในกรอบข้อความของรูปทรงนั้น
+เพื่อตรวจสอบการนำเสนอที่มีอยู่, ตรวจสอบคอมเมนต์ที่ implement [IModernComment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/), จากนั้นดูที่ [IModernComment.getShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--), และ [IModernComment.getStatus](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getStatus--). รูปร่างที่เป็น `null` หมายถึงคอมเมนต์ระดับสไลด์ สำหรับจุดยึดเป็น [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/), เมธอดเลือกข้อความจะแสดงช่วงที่เชื่อมโยงใน TextFrame ของรูปร่าง
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -401,11 +403,11 @@ try {
 }
 ```
 
-## **ลบความคิดเห็น**
+## **ลบคอมเมนต์**
 
-### **ลบความคิดเห็นทั้งหมดและผู้เขียนความคิดเห็น**
+### **ลบคอมเมนต์และผู้เขียนคอมเมนต์ทั้งหมด**
 
-ตัวอย่างต่อไปนี้แสดงวิธีลบความคิดเห็นทั้งหมดและผู้เขียนความคิดเห็นจากงานนำเสนอ
+ตัวอย่างต่อไปนี้แสดงวิธีการลบคอมเมนต์และผู้เขียนคอมเมนต์ทั้งหมดจากการนำเสนอ:
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -425,9 +427,9 @@ try {
 }
 ```
 
-### **ลบความคิดเห็นเฉพาะ**
+### **ลบคอมเมนต์เฉพาะ**
 
-ตัวอย่างต่อไปนี้แสดงวิธีลบความคิดเห็นเฉพาะจากสไลด์
+ตัวอย่างต่อไปนี้แสดงวิธีการลบคอมเมนต์เฉพาะจากสไลด์:
 
 ```java
 import com.aspose.slides.IComment;
@@ -474,14 +476,14 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**Aspose.Slides รองรับสถานะที่แก้ไขแล้วสำหรับความคิดเห็นสมัยใหม่หรือไม่?**
+**Aspose.Slides รองรับสถานะ Resolved สำหรับคอมเมนต์สมัยใหม่หรือไม่?**
 
-ใช่. เมธอด [IModernComment.getStatus](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getStatus--) และ [IModernComment.setStatus](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) เข้าถึงค่าจากคอนสแตนท์ [ModernCommentStatus](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/moderncommentstatus/) รวมถึง `Resolved` สถานะนี้จะถูกเก็บในงานนำเสนอและสามารถอ่านได้อีกครั้งหลังจากไฟล์ถูกเปิดใหม่
+ใช่. เมธอด [IModernComment.getStatus](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#getStatus--) และ [IModernComment.setStatus](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) เข้าถึงค่า [ModernCommentStatus](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/moderncommentstatus/) รวมถึง `Resolved`. สถานะจะถูกเก็บไว้ในการนำเสนอและสามารถอ่านได้อีกครั้งหลังจากเปิดไฟล์ใหม่
 
-**การสนทนาที่เป็นเธรด (ห่วงโซ่การตอบกลับ) ได้รับการสนับสนุนหรือไม่และมีขีดจำกัดการซ้อนกันหรือไม่?**
+**การสนทนาที่เป็นเธรด (สายตอบกลับ) ได้รับการสนับสนุนหรือไม่, และมีขีดจำกัดการซ้อนกันหรือไม่?**
 
-ใช่. ทุกความคิดเห็นสามารถอ้างอิงถึง [parent comment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icomment/#getParentComment--) ของตน ทำให้สามารถสร้างห่วงโซ่การตอบกลับได้ API ไม่ได้กำหนดขีดจำกัดความลึกของการซ้อนกันเป็นพิเศษ
+ใช่. คอมเมนต์แต่ละรายการสามารถอ้างอิงไปยัง [parent comment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icomment/#getParentComment--) เพื่อสร้างสายตอบกลับ API ไม่ได้กำหนดขีดจำกัดความลึกการซ้อนเฉพาะ
 
-**ตำแหน่งของเครื่องหมายความคิดเห็นบนสไลด์ถูกกำหนดในระบบพิกัดใด?**
+**ตำแหน่งของเครื่องหมายคอมเมนต์บนสไลด์ถูกกำหนดในระบบพิกัดใด?**
 
-ตำแหน่งเครื่องหมายถูกกำหนดโดยพิกัดจุดลอยในระบบพิกัดของสไลด์ ทำให้คุณสามารถวางเครื่องหมายได้อย่างแม่นยำบนสไลด์
+ตำแหน่งเครื่องหมายถูกกำหนดโดยพิกัด floating‑point ในระบบพิกัดของสไลด์ ทำให้คุณสามารถวางตำแหน่งได้อย่างแม่นยำบนสไลด์

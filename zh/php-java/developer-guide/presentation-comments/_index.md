@@ -24,24 +24,26 @@ description: "使用 Aspose.Slides for PHP via Java 管理演示文稿批注：�
 ---
 ## **概述**
 
-本文档说明如何使用 Aspose.Slides for PHP via Java 管理演示文稿中的批注。它介绍了主要的批注相关类型，并演示了如何向幻灯片添加批注、访问现有批注、处理回复和现代批注，以及从演示文稿中删除批注。
+本文说明如何使用 Aspose.Slides for PHP via Java 管理演示文稿的批注。它介绍了主要的批注相关类型，并演示了如何向幻灯片添加批注、访问现有批注、处理回复和现代批注，以及如何从演示文稿中删除批注。
 
-示例覆盖了 PowerPoint 中常见的审阅与协作场景，例如为作者分配批注、读取批注文本和元数据、构建回复链以及删除选定批注或全部批注。
+示例涵盖了 PowerPoint 中常见的审阅和协作场景，例如将批注分配给作者、读取批注文本和元数据、构建回复链，以及删除选定的批注或全部批注。
 
-在 PowerPoint 中，批注显示为幻灯片上的注释。选中批注后会显示其文本及相关讨论。
+在 PowerPoint 中，批注显示为幻灯片上的注释。选中批注后会显示其文本和相关讨论。
 
-## **为什么要向演示文稿添加批注？**
+如需在打开演示文稿时请求显示或隐藏批注（而不更改批注本身），请参阅[Show or Hide Comments When Opening a Presentation](/slides/zh/php-java/presentation-view-properties/)。
+
+## **为什么要在演示文稿中添加批注？**
 
 在审阅演示文稿时，您可以使用批注提供反馈并与同事协作。
 
-Aspose.Slides for PHP via Java 提供了以下用于处理批注的 API：
+Aspose.Slides for PHP via Java 提供以下用于处理批注的 API：
 
 * [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 类，提供对演示文稿批注作者的访问。
 * [CommentCollection](https://reference.aspose.com/slides/zh/php-java/aspose.slides/commentcollection/) 类，表示与单个作者关联的批注集合。
-* [Comment](https://reference.aspose.com/slides/zh/php-java/aspose.slides/comment/) 类，提供批注的信息，包括作者、创建时间、位置和文本。
-* [CommentAuthor](https://reference.aspose.com/slides/zh/php-java/aspose.slides/commentauthor/) 类，提供作者的信息，包括姓名、缩写和关联的批注。
+* [Comment](https://reference.aspose.com/slides/zh/php-java/aspose.slides/comment/) 类，提供批注信息，包括作者、创建时间、位置和文本。
+* [CommentAuthor](https://reference.aspose.com/slides/zh/php-java/aspose.slides/commentauthor/) 类，提供作者信息，包括姓名、缩写和关联的批注。
 
-## **向幻灯片添加批注**
+## **添加幻灯片批注**
 
 以下示例展示了如何向 PowerPoint 演示文稿的幻灯片添加批注：
 
@@ -104,9 +106,9 @@ try {
 
 ## **回复批注**
 
-父批注是回复层次结构顶部的原始批注。`[Comment::getParentComment](https://reference.aspose.com/slides/zh/php-java/aspose.slides/comment/getparentcomment/)` 和 `[Comment::setParentComment](https://reference.aspose.com/slides/zh/php-java/aspose.slides/comment/setparentcomment/)` 方法可用于获取或设置批注的父批注。
+父批注是回复层级顶部的原始批注。`Comment::getParentComment` 和 `Comment::setParentComment` 方法可让您获取或设置批注的父批注。
 
-以下示例展示了如何添加回复并检查生成的批注层次结构：
+以下示例展示了如何添加回复并检查生成的批注层级结构：
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -160,20 +162,20 @@ try {
 }
 ```
 
-{{% alert color="warning" title="警告" %}}
-* 当使用 `[Comment::remove](https://reference.aspose.com/slides/zh/php-java/aspose.slides/comment/remove/)` 方法删除批注时，该批注的所有回复也会被删除。
-* 如果 `[Comment::setParentComment](https://reference.aspose.com/slides/zh/php-java/aspose.slides/comment/setparentcomment/)` 创建了循环引用，则会抛出 `[PptxEditException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/pptxeditexception/)`。
+{{% alert color="warning" title="Warning" %}}
+* 当使用 `Comment::remove` 方法删除批注时，该批注的所有回复也会被删除。
+* 如果 `Comment::setParentComment` 产生循环引用，则会抛出 `PptxEditException`。
 {{% /alert %}}
 
 ## **添加现代批注**
 
-现代批注可以关联到幻灯片本身、特定形状或 AutoShape 中的文本范围。`[CommentCollection::addModernComment](https://reference.aspose.com/slides/zh/php-java/aspose.slides/commentcollection/addmoderncomment/)` 方法除了接收幻灯片和批注标记坐标外，还接受一个 `[Shape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shape/)` 参数。
+现代批注可以关联到幻灯片本身、特定形状或 AutoShape 内的文本范围。`CommentCollection::addModernComment` 方法除了接受幻灯片和批注标记坐标外，还接受一个 `Shape` 参数。
 
-当为形状参数传入 `null` 时，批注为幻灯片级批注。其标记由提供的坐标定位，但不关联到特定形状，因此 `[ModernComment::getShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/moderncomment/getshape/)` 返回 `null`。当提供 `[Shape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shape/)` 时，批注锚定到该形状。坐标仍定义批注标记在幻灯片上的位置，而形状关联可通过 `[ModernComment::getShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/moderncomment/getshape/)` 获取。
+当为 `shape` 参数传入 `null` 时，批注为幻灯片级批注。其标记位置由提供的坐标确定，但不关联到特定形状，因此 `ModernComment::getShape` 返回 `null`。如果提供了 `Shape`，批注将锚定到该形状。坐标仍然定义批注标记在幻灯片上的位置，而通过 `ModernComment::getShape` 可以获取形状关联。
 
 ### **将现代批注锚定到形状**
 
-以下示例创建了一个幻灯片级现代批注和一个锚定到特定 AutoShape 的现代批注，然后读取每个批注的关联形状。
+以下示例创建了一个幻灯片级现代批注和一个锚定到特定 AutoShape 的现代批注，并读取每个批注关联的形状：
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -206,9 +208,9 @@ try {
 
 ### **将批注锚定到不同的形状类型**
 
-任何由 `[Shape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shape/)` 类表示的幻灯片对象都可用作形状锚点。常见示例包括 `[AutoShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/autoshape/)`、`[PictureFrame](https://reference.aspose.com/slides/zh/php-java/aspose.slides/pictureframe/)`、`[GroupShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/groupshape/)`、`[Connector](https://reference.aspose.com/slides/zh/php-java/aspose.slides/connector/)` 和 `[GraphicalObject](https://reference.aspose.com/slides/zh/php-java/aspose.slides/graphicalobject/)`（如图表）实例。
+任何由 `Shape` 类表示的幻灯片对象都可以用作形状锚点。常见示例包括 `AutoShape`、`PictureFrame`、`GroupShape`、`Connector` 和诸如图表之类的 `GraphicalObject` 实例。
 
-以下示例创建了几种常见形状类型，并为每种形状关联了一个现代批注。
+以下示例创建了多种常见形状类型，并为每种形状关联了一个现代批注：
 
 ```php
 use aspose\slides\ChartType;
@@ -258,16 +260,16 @@ try {
 
 ### **将批注锚定到文本并设置其状态**
 
-对于关联到 `[AutoShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/autoshape/)` 的现代批注，`[ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/zh/php-java/aspose.slides/moderncomment/gettextselectionstart/)` 和 `[ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/zh/php-java/aspose.slides/moderncomment/settextselectionstart/)` 访问形状文本框中选中文本的起始位置。`[ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/zh/php-java/aspose.slides/moderncomment/gettextselectionlength/)` 和 `[ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/zh/php-java/aspose.slides/moderncomment/settextselectionlength/)` 访问选区长度。这些值共同将批注关联到 AutoShape 中的特定文本范围。
+对于与 `AutoShape` 关联的现代批注，`ModernComment::getTextSelectionStart` 和 `ModernComment::setTextSelectionStart` 访问形状文本框中所选文本的起始位置。`ModernComment::getTextSelectionLength` 和 `ModernComment::setTextSelectionLength` 访问选区的长度。这些值共同将批注关联到 AutoShape 内的特定文本范围。
 
-`[ModernComment::getStatus](https://reference.aspose.com/slides/zh/php-java/aspose.slides/moderncomment/getstatus/)` 和 `[ModernComment::setStatus](https://reference.aspose.com/slides/zh/php-java/aspose.slides/moderncomment/setstatus/)` 方法访问来自 `[ModernCommentStatus](https://reference.aspose.com/slides/zh/php-java/aspose.slides/moderncommentstatus/)` 常量的值：
+`ModernComment::getStatus` 和 `ModernComment::setStatus` 方法访问 `ModernCommentStatus` 常量中的值：
 
 - `NotDefined` — 未定义特定的现代批注状态。
 - `Active` — 批注处于活动状态。
 - `Resolved` — 批注已解决。
 - `Closed` — 批注已关闭。
 
-以下示例创建了一个锚定到形状的现代批注，将其关联到文本选区，标记为已解决，保存演示文稿并在重新打开文件后验证这些值。
+以下示例创建了一个锚定到形状的现代批注，将其与文本选区关联，标记为已解决，保存演示文稿，并在重新打开文件后验证这些值：
 
 ```php
 use aspose\slides\ModernCommentStatus;
@@ -329,7 +331,7 @@ try {
 
 ### **检查现有的现代批注**
 
-要检查已有的演示文稿，首先判断每个批注是否为 `[ModernComment](https://reference.aspose.com/slides/zh/php-java/aspose.slides/moderncomment/)`，然后检查 `[ModernComment::getShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/moderncomment/getshape/)`、`[ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/zh/php-java/aspose.slides/moderncomment/gettextselectionstart/)`、`[ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/zh/php-java/aspose.slides/moderncomment/gettextselectionlength/)` 和 `[ModernComment::getStatus](https://reference.aspose.com/slides/zh/php-java/aspose.slides/moderncomment/getstatus/)`。`null` 形状表示幻灯片级批注。对于锚定到 `[AutoShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/autoshape/)` 的批注，文本选区方法标识该形状文本框中的关联范围。
+要检查现有演示文稿，首先判断每个批注是否为 `ModernComment`，然后检查 `ModernComment::getShape`、`ModernComment::getTextSelectionStart`、`ModernComment::getTextSelectionLength` 和 `ModernComment::getStatus`。`null` 形状表示幻灯片级批注。对 `AutoShape` 锚定的情况，文本选区方法可确定形状文本框中关联的范围。
 
 ```php
 use aspose\slides\Presentation;
@@ -373,9 +375,9 @@ try {
 
 ## **删除批注**
 
-### **删除所有批注及批注作者**
+### **删除所有批注和批注作者**
 
-以下示例展示了如何删除演示文稿中的全部批注和批注作者：
+以下示例展示了如何从演示文稿中删除所有批注和批注作者：
 
 ```php
 use aspose\slides\Presentation;
@@ -439,12 +441,12 @@ try {
 
 **Aspose.Slides 是否支持现代批注的已解决状态？**
 
-是的。`[ModernComment::getStatus](https://reference.aspose.com/slides/zh/php-java/aspose.slides/moderncomment/getstatus/)` 和 `[ModernComment::setStatus](https://reference.aspose.com/slides/zh/php-java/aspose.slides/moderncomment/setstatus/)` 可访问 `[ModernCommentStatus](https://reference.aspose.com/slides/zh/php-java/aspose.slides/moderncommentstatus/)` 中的值，包括 `Resolved`。该状态会存储在演示文稿中，文件重新打开后仍可读取。
+是的。`ModernComment::getStatus` 和 `ModernComment::setStatus` 可访问 `ModernCommentStatus` 值，其中包括 `Resolved`。该状态存储在演示文稿中，文件重新打开后仍可读取。
 
-**是否支持线程式讨论（回复链），并且是否有嵌套深度限制？**
+**是否支持线程式讨论（回复链），以及是否有嵌套层级限制？**
 
-是的。每个批注都可以引用其 `[parent comment](https://reference.aspose.com/slides/zh/php-java/aspose.slides/comment/getparentcomment/)`，从而实现回复链。API 未定义具体的嵌套深度限制。
+支持。每个批注都可以引用其父批注，从而形成回复链。API 未定义具体的嵌套深度限制。
 
-**批注标记在幻灯片上的位置使用哪种坐标系定义？**
+**批注标记在幻灯片上的位置是以哪种坐标系定义的？**
 
-标记位置使用幻灯片坐标系中的浮点坐标，可在幻灯片上精确定位。
+标记位置使用幻灯片坐标系中的浮点坐标定义，您可以精确地将其放置在幻灯片的任意位置。

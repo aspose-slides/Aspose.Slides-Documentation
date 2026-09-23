@@ -8,14 +8,14 @@ keywords:
 - ความคิดเห็น
 - ความคิดเห็นสมัยใหม่
 - ความคิดเห็น PowerPoint
-- ความคิดเห็นในงานนำเสนอ
-- ความคิดเห็นในสไลด์
+- ความคิดเห็นงานนำเสนอ
+- ความคิดเห็นสไลด์
 - เพิ่มความคิดเห็น
 - เข้าถึงความคิดเห็น
 - แก้ไขความคิดเห็น
 - ตอบกลับความคิดเห็น
 - ลบความคิดเห็น
-- ลบความเห็น
+- ลบความคิดเห็น
 - PowerPoint
 - งานนำเสนอ
 - C++
@@ -24,26 +24,28 @@ description: "จัดการความคิดเห็นในงาน
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีจัดการความคิดเห็นในงานนำเสนอด้วย Aspose.Slides for C++. แนะนำประเภทที่เกี่ยวข้องกับความคิดเห็นหลักและสาธิตวิธีการเพิ่มความคิดเห็นในสไลด์ เข้าถึงความคิดเห็นที่มีอยู่ ทำงานกับการตอบกลับและความคิดเห็นสมัยใหม่ และลบความคิดเห็นจากงานนำเสนอ
+บทความนี้อธิบายวิธีจัดการความคิดเห็นในงานนำเสนอด้วย Aspose.Slides for C++ โดยแนะนำประเภทหลักที่เกี่ยวข้องกับความคิดเห็นและสาธิตวิธีเพิ่มความคิดเห็นลงในสไลด์, เข้าถึงความคิดเห็นที่มีอยู่, ทำงานกับการตอบกลับและความคิดเห็นสมัยใหม่, และลบความคิดเห็นออกจากงานนำเสนอ
 
-ตัวอย่างครอบคลุมสถานการณ์การตรวจสอบและการทำงานร่วมกันทั่วไปใน PowerPoint เช่น การกำหนดความคิดเห็นให้กับผู้เขียน การอ่านข้อความและเมทาดาต้าของความคิดเห็น การสร้างสายตอบกลับ และการลบความคิดเห็นที่เลือกหรือทั้งหมด
+ตัวอย่างครอบคลุมสถานการณ์การตรวจสอบและการทำงานร่วมกันทั่วไปใน PowerPoint เช่น การกำหนดความคิดเห็นให้กับผู้เขียน, การอ่านข้อความและข้อมูลเมตาของความคิดเห็น, การสร้างห่วงโซ่การตอบกลับ, และการลบความคิดเห็นที่เลือกหรือทั้งหมด
 
-ใน PowerPoint ความคิดเห็นปรากฏเป็นหมายเหตุบนสไลด์ การเลือกความคิดเห็นจะแสดงข้อความและการสนทนาที่เกี่ยวข้อง
+ใน PowerPoint ความคิดเห็นจะแสดงเป็นคำอธิบายบนสไลด์ การเลือกความคิดเห็นจะแสดงข้อความและการสนทนาที่เกี่ยวข้อง
+
+หากต้องการให้แสดงหรือซ่อนความคิดเห็นเมื่อเปิดงานนำเสนอโดยไม่เปลี่ยนแปลงความคิดเห็นเอง, ดูที่ [Show or Hide Comments When Opening a Presentation](/slides/th/cpp/presentation-view-properties/)
 
 ## **ทำไมต้องเพิ่มความคิดเห็นในงานนำเสนอ?**
 
-คุณสามารถใช้ความคิดเห็นเพื่อให้ข้อเสนอแนะและทำงานร่วมกับเพื่อนร่วมงานเมื่อทำการตรวจสอบงานนำเสนอ
+คุณสามารถใช้ความคิดเห็นเพื่อให้ข้อเสนอแนะและร่วมทำงานกับเพื่อนร่วมงานเมื่อทำการตรวจสอบงานนำเสนอ
 
 Aspose.Slides for C++ มี API ต่อไปนี้สำหรับทำงานกับความคิดเห็น:
 
-* The [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) class, which provides access to the presentation's comment authors.
-* The [ICommentCollection](https://reference.aspose.com/slides/th/cpp/aspose.slides/icommentcollection/) interface, which represents the comments associated with an individual author.
-* The [IComment](https://reference.aspose.com/slides/th/cpp/aspose.slides/icomment/) interface, which provides information about a comment, including its author, creation time, position, and text.
-* The [CommentAuthor](https://reference.aspose.com/slides/th/cpp/aspose.slides/commentauthor/) class, which provides information about an author, including their name, initials, and associated comments.
+* คลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) ที่ให้เข้าถึงผู้เขียนความคิดเห็นของงานนำเสนอ
+* อินเทอร์เฟซ [ICommentCollection](https://reference.aspose.com/slides/th/cpp/aspose.slides/icommentcollection/) ที่แสดงความคิดเห็นที่เชื่อมโยงกับผู้เขียนแต่ละคน
+* อินเทอร์เฟซ [IComment](https://reference.aspose.com/slides/th/cpp/aspose.slides/icomment/) ที่ให้ข้อมูลเกี่ยวกับความคิดเห็น รวมถึงผู้เขียน, เวลาสร้าง, ตำแหน่ง, และข้อความ
+* คลาส [CommentAuthor](https://reference.aspose.com/slides/th/cpp/aspose.slides/commentauthor/) ที่ให้ข้อมูลเกี่ยวกับผู้เขียน รวมถึงชื่อ, ย่อ, และความคิดเห็นที่เชื่อมโยง
 
 ## **เพิ่มความคิดเห็นในสไลด์**
 
-ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มความคิดเห็นในสไลด์ของงานนำเสนอ PowerPoint:
+ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มความคิดเห็นลงในสไลด์ของงานนำเสนอ PowerPoint:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -119,9 +121,9 @@ for (auto&& author : presentation->get_CommentAuthors())
 
 ## **ตอบกลับความคิดเห็น**
 
-ความคิดเห็นแม่คือความคิดเห็นต้นฉบับที่อยู่บนสุดของลำดับชั้นการตอบกลับ วิธีการ [get_ParentComment](https://reference.aspose.com/slides/th/cpp/aspose.slides/icomment/get_parentcomment/) และ [set_ParentComment](https://reference.aspose.com/slides/th/cpp/aspose.slides/icomment/set_parentcomment/) ของอินเทอร์เฟซ [IComment](https://reference.aspose.com/slides/th/cpp/aspose.slides/icomment/) ให้คุณดึงหรือกำหนดความคิดเห็นแม่ของความคิดเห็น
+ความคิดเห็นพาเรนท์คือความคิดเห็นต้นฉบับที่ด้านบนของลำดับชั้นการตอบกลับ วิธี [get_ParentComment](https://reference.aspose.com/slides/th/cpp/aspose.slides/icomment/get_parentcomment/) และ [set_ParentComment](https://reference.aspose.com/slides/th/cpp/aspose.slides/icomment/set_parentcomment/) ของอินเทอร์เฟซ [IComment](https://reference.aspose.com/slides/th/cpp/aspose.slides/icomment/) จะให้คุณดึงหรือกำหนดพาเรนท์ของความคิดเห็น
 
-ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มการตอบกลับและตรวจสอบโครงสร้างความคิดเห็นที่ได้:
+ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มการตอบกลับและตรวจสอบลำดับชั้นของความคิดเห็นที่ได้:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -184,19 +186,19 @@ presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* เมื่อใช้เมธอด [Remove](https://reference.aspose.com/slides/th/cpp/aspose.slides/icomment/remove/) ของอินเทอร์เฟซ [IComment](https://reference.aspose.com/slides/th/cpp/aspose.slides/icomment/) เพื่อลบความคิดเห็น การตอบกลับทั้งหมดของความคิดเห็นนั้นก็จะถูกลบด้วย
-* หากเมธอด [set_ParentComment](https://reference.aspose.com/slides/th/cpp/aspose.slides/icomment/set_parentcomment/) สร้างการอ้างอิงเป็นวงกลม จะมีการโยน [PptxEditException](https://reference.aspose.com/slides/th/cpp/aspose.slides/pptxeditexception/)
+* เมื่อใช้เมธอด [Remove](https://reference.aspose.com/slides/th/cpp/aspose.slides/icomment/remove/) ของอินเทอร์เฟซ [IComment](https://reference.aspose.com/slides/th/cpp/aspose.slides/icomment/) เพื่อลบความคิดเห็น, การตอบกลับทั้งหมดของความคิดเห็นนั้นก็จะถูกลบด้วย
+* หากเมธอด [set_ParentComment](https://reference.aspose.com/slides/th/cpp/aspose.slides/icomment/set_parentcomment/) สร้างการอ้างอิงเป็นวงกลม จะเกิดข้อยกเว้น [PptxEditException](https://reference.aspose.com/slides/th/cpp/aspose.slides/pptxeditexception/)
 {{% /alert %}}
 
 ## **เพิ่มความคิดเห็นสมัยใหม่**
 
-ความคิดเห็นสมัยใหม่สามารถเชื่อมโยงกับสไลด์เอง รูปทรงเฉพาะ หรือช่วงข้อความภายใน AutoShape ได้ เมธอด [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/th/cpp/aspose.slides/icommentcollection/addmoderncomment/) รับอาร์กิวเมนต์ประเภท [IShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/) นอกเหนือจากพิกัดของสไลด์และเครื่องหมายความคิดเห็น
+ความคิดเห็นสมัยใหม่สามารถเชื่อมโยงกับสไลด์โดยตรง, กับรูปทรงที่ระบุ, หรือกับช่วงข้อความภายใน AutoShape เมธอด [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/th/cpp/aspose.slides/icommentcollection/addmoderncomment/) รับอาร์กิวเมนต์ประเภท [IShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/) นอกเหนือจากสไลด์และพิกัดของเครื่องหมายความคิดเห็น
 
-เมื่อส่งค่า `nullptr` ให้กับอาร์กิวเมนต์ shape ความคิดเห็นจะเป็นความคิดเห็นระดับสไลด์ เครื่องหมายของมันจะถูกกำหนดตำแหน่งโดยพิกัดที่ให้มา แต่จะไม่ได้เชื่อมโยงกับรูปทรงใดๆ ดังนั้น [IModernComment::get_Shape](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_shape/) จะคืนค่า `nullptr` เมื่อมีการระบุ [IShape] ความคิดเห็นจะถูกยึดตรึงกับรูปทรงนั้น พิกัดยังคงกำหนดตำแหน่งของเครื่องหมายความคิดเห็นบนสไลด์ ในขณะที่การเชื่อมโยงรูปทรงสามารถดึงคืนได้ผ่าน [IModernComment::get_Shape](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_shape/)
+เมื่อส่ง `nullptr` ให้กับอาร์กิวเมนต์ shape, ความคิดเห็นจะเป็นความคิดเห็นระดับสไลด์ เครื่องหมายจะถูกกำหนดตำแหน่งโดยพิกัดที่ให้มา แต่จะไม่ได้เชื่อมโยงกับรูปทรงใด, ดังนั้น [IModernComment::get_Shape](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_shape/) จะคืนค่า `nullptr` หากให้ [IShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/) มา, ความคิดเห็นจะยึดกับรูปทรงนั้น พิกัดยังคงกำหนดตำแหน่งของเครื่องหมายบนสไลด์ ขณะที่การเชื่อมโยงรูปทรงสามารถดึงได้ผ่าน [IModernComment::get_Shape](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_shape/)
 
 ### **ยึดความคิดเห็นสมัยใหม่กับรูปทรง**
 
-ตัวอย่างต่อไปนี้สร้างทั้งความคิดเห็นระดับสไลด์และความคิดเห็นสมัยใหม่ที่ยึดกับ AutoShape ที่กำหนด จากนั้นอ่านรูปทรงที่เชื่อมโยงจากแต่ละความคิดเห็น
+ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ระดับสไลด์และความคิดเห็นสมัยใหม่ที่ยึดกับ AutoShape เฉพาะ จากนั้นอ่านรูปทรงที่เชื่อมโยงจากแต่ละความคิดเห็น
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -243,11 +245,11 @@ if (shapeAnchor != nullptr)
 presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
 ```
 
-### **ยึดความคิดเห็นไปยังรูปแบบรูปทรงต่างๆ**
+### **ยึดความคิดเห็นกับประเภทรูปทรงต่าง ๆ**
 
-ออบเจ็กต์สไลด์ใดที่ทำตาม [IShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/) ก็สามารถใช้เป็นตัวยึดรูปทรงได้ ตัวอย่างทั่วไปได้แก่ [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/th/cpp/aspose.slides/iconnector/), และอินสแตนซ์ [IGraphicalObject](https://reference.aspose.com/slides/th/cpp/aspose.slides/igraphicalobject/) เช่นแผนภูมิ
+อ็อบเจกต์สไลด์ใด ๆ ที่ทำตามอินเทอร์เฟซ [IShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishape/) สามารถใช้เป็นจุดยึดรูปทรงได้ ตัวอย่างทั่วไปรวมถึง [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/th/cpp/aspose.slides/iconnector/), และอินสแตนซ์ของ [IGraphicalObject](https://reference.aspose.com/slides/th/cpp/aspose.slides/igraphicalobject/) เช่น แผนภูมิ
 
-ตัวอย่างต่อไปนี้สร้างรูปทรงหลายประเภททั่วไปและเชื่อมโยงความคิดเห็นสมัยใหม่กับแต่ละรูปทรง
+ตัวอย่างต่อไปนี้สร้างรูปทรงประเภทต่าง ๆ ที่พบบ่อยและเชื่อมโยงความคิดเห็นสมัยใหม่กับแต่ละรูปทรง
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -313,16 +315,16 @@ presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 
 ### **ยึดความคิดเห็นกับข้อความและตั้งค่าสถานะ**
 
-สำหรับความคิดเห็นสมัยใหม่ที่เชื่อมโยงกับ [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/), เมธอด [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_textselectionstart/) และ [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/set_textselectionstart/) ควบคุมตำแหน่งเริ่มต้นของข้อความที่เลือกในกรอบข้อความของรูปทรงเช่นนั้นเดียวกัน เมธอด [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_textselectionlength/) และ [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/set_textselectionlength/) ควบคุมความยาวของการเลือก ทั้งสองเมธอดร่วมกันทำให้ความ​คิดเห็นเชื่อมโยงกับช่วงข้อความเฉพาะภายใน AutoShape
+สำหรับความคิดเห็นสมัยใหม่ที่เชื่อมโยงกับ [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/), เมธอด [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_textselectionstart/) และ [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/set_textselectionstart/) ควบคุมตำแหน่งเริ่มต้นของข้อความที่เลือกในเฟรมข้อความของรูปทรงเดียวกันเช่นกัน, เมธอด [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_textselectionlength/) และ [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/set_textselectionlength/) ควบคุมความยาวของการเลือก ทั้งสองทำให้ความคิดเห็นเชื่อมโยงกับช่วงข้อความเฉพาะภายใน AutoShape
 
-[IModernComment::get_Status](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_status/) และ [IModernComment::set_Status](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/set_status/) ใช้ค่าจาก enumeration [ModernCommentStatus](https://reference.aspose.com/slides/th/cpp/aspose.slides/moderncommentstatus/) :
+เมธอด [IModernComment::get_Status](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_status/) และ [IModernComment::set_Status](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/set_status/) ใช้ค่าจากการนับ Enum [ModernCommentStatus](https://reference.aspose.com/slides/th/cpp/aspose.slides/moderncommentstatus/) ดังนี้:
 
-- `NotDefined` — ไม่ได้กำหนดสถานะความคิดเห็นสมัยใหม่เฉพาะใด
+- `NotDefined` — ไม่ได้กำหนดสถานะความคิดเห็นสมัยใหม่เฉพาะ
 - `Active` — ความคิดเห็นอยู่ในสถานะใช้งาน
-- `Resolved` — ความคิดเห็นถูกทำให้เสร็จสิ้น
+- `Resolved` — ความคิดเห็นถูกแก้ไขแล้ว
 - `Closed` — ความคิดเห็นถูกปิด
 
-ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ที่ยึดกับรูปทรง, เชื่อมโยงกับการเลือกข้อความ, ทำเครื่องหมายว่าได้แก้ไขแล้ว, บันทึกงานนำเสนอ, และตรวจสอบค่าหลังจากเปิดไฟล์ใหม่
+ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ที่ยึดกับรูปทรง, เชื่อมโยงกับการเลือกข้อความ, ทำเครื่องหมายว่าแก้ไขแล้ว, บันทึกงานนำเสนอ, และตรวจสอบค่าหลังเปิดไฟล์ใหม่
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -397,7 +399,7 @@ for (auto&& reopenedComment : reopenedComments)
 
 ### **ตรวจสอบความคิดเห็นสมัยใหม่ที่มีอยู่**
 
-เพื่อสอบตรวจงานนำเสนอที่มีอยู่ ตรวจสอบว่าความคิดเห็นใดบ้างที่ทำตาม [IModernComment](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/), แล้วตรวจสอบ [IModernComment::get_Shape](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_textselectionlength/), และ [IModernComment::get_Status](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_status/). รูปทรงที่เป็น `nullptr` แสดงว่าความคิดเห็นระดับสไลด์ สำหรับตัวยึด [IAutoShape] วิธีการเลือกข้อความจะบ่งบอกช่วงที่เชื่อมโยงในกรอบข้อความของรูปทรงนั้น
+เพื่อวิเคราะห์งานนำเสนอที่มีอยู่, ตรวจสอบความคิดเห็นที่ทำตาม [IModernComment](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/), จากนั้นดูที่ [IModernComment::get_Shape](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_textselectionlength/), และ [IModernComment::get_Status](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_status/). รูปทรง `nullptr` หมายถึงความคิดเห็นระดับสไลด์ สำหรับจุดยึดของ [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/), วิธีการเลือกข้อความจะบ่งบอกช่วงที่เชื่อมโยงในเฟรมข้อความของรูปทรง
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -482,9 +484,9 @@ presentation->get_CommentAuthors()->Clear();
 presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
-### **ลบความคิดเห็นที่ระบุ**
+### **ลบความคิดเห็นเฉพาะ**
 
-ตัวอย่างต่อไปนี้แสดงวิธีลบความคิดเห็นที่ระบุจากสไลด์:
+ตัวอย่างต่อไปนี้แสดงวิธีลบความคิดเห็นเฉพาะจากสไลด์:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -538,14 +540,14 @@ presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **คำถามที่พบบ่อย**
 
-**Aspose.Slides รองรับสถานะ 'Resolved' สำหรับความคิดเห็นสมัยใหม่หรือไม่?**
+**Aspose.Slides รองรับสถานะการแก้ไขสำหรับความคิดเห็นสมัยใหม่หรือไม่?**
 
-ใช่. [IModernComment::get_Status](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_status/) และ [IModernComment::set_Status](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/set_status/) ใช้ค่าจาก enumeration [ModernCommentStatus](https://reference.aspose.com/slides/th/cpp/aspose.slides/moderncommentstatus/) รวมถึง `Resolved`. สถานะนี้ถูกบันทึกในงานนำเสนอและสามารถอ่านได้อีกครั้งหลังจากเปิดไฟล์ใหม่
+ใช่. เมธอด [IModernComment::get_Status](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/get_status/) และ [IModernComment::set_Status](https://reference.aspose.com/slides/th/cpp/aspose.slides/imoderncomment/set_status/) ใช้ค่า [ModernCommentStatus](https://reference.aspose.com/slides/th/cpp/aspose.slides/moderncommentstatus/) รวมถึง `Resolved` สถานะจะถูกเก็บไว้ในงานนำเสนอและสามารถอ่านได้อีกครั้งหลังจากเปิดไฟล์ใหม่
 
-**สนับสนุนการสนทนาที่เป็นเธรด (สายการตอบกลับ) หรือไม่ และมีขีดจำกัดระดับการซ้อนกันหรือไม่?**
+**สนับสนุนการสนทนาแบบเธรด (ห่วงโซ่การตอบ) หรือไม่ และมีขีดจำกัดของการซ้อนกันหรือไม่?**
 
-ใช่. ความคิดเห็นแต่ละข้อสามารถอ้างอิงถึง [parent comment](https://reference.aspose.com/slides/th/cpp/aspose.slides/icomment/set_parentcomment/) ของมัน ทำให้สามารถสร้างสายการตอบกลับได้ API ไม่ได้กำหนดขีดจำกัดความลึกของการซ้อนกันแบบเฉพาะเจาะจง
+ใช่. แต่ละความคิดเห็นสามารถอ้างอิงถึง [parent comment](https://reference.aspose.com/slides/th/cpp/aspose.slides/icomment/set_parentcomment/) ของตนเองได้ ทำให้สามารถสร้างห่วงโซ่การตอบกลับได้ API ไม่ได้กำหนดขีดจำกัดความลึกของการซ้อนกันเป็นพิเศษ
 
-**ตำแหน่งเครื่องหมายความคิดเห็นบนสไลด์กำหนดในระบบพิกัดใด?**
+**ตำแหน่งของเครื่องหมายความคิดเห็นบนสไลด์กำหนดในระบบพิกัดใด?**
 
-ตำแหน่งเครื่องหมายถูกกำหนดด้วยพิกัดจุดลอยในระบบพิกัดของสไลด์ ทำให้คุณสามารถวางตำแหน่งได้อย่างแม่นยำบนสไลด์
+ตำแหน่งของเครื่องหมายจะกำหนดโดยพิกัดแบบ float ในระบบพิกัดของสไลด์ ทำให้คุณสามารถวางเครื่องหมายได้อย่างแม่นยำบนสไลด์

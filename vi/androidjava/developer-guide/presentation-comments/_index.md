@@ -1,6 +1,6 @@
 ---
-title: Quản lý bình luận trong bài thuyết trình trên Android
-linktitle: Bình luận bài thuyết trình
+title: Quản lý bình luận bản trình chiếu trên Android
+linktitle: Bình luận Bản trình chiếu
 type: docs
 weight: 100
 url: /vi/androidjava/presentation-comments/
@@ -8,43 +8,45 @@ keywords:
 - bình luận
 - bình luận hiện đại
 - bình luận PowerPoint
-- bình luận bài thuyết trình
+- bình luận bản trình chiếu
 - bình luận slide
 - thêm bình luận
 - truy cập bình luận
 - chỉnh sửa bình luận
 - trả lời bình luận
-- xóa bình luận
+- gỡ bỏ bình luận
 - xoá bình luận
 - PowerPoint
-- bài thuyết trình
+- bản trình chiếu
 - Android
 - Java
 - Aspose.Slides
-description: "Quản lý bình luận trong bài thuyết trình với Aspose.Slides cho Android qua Java: thêm, đọc, chỉnh sửa, trả lời và xóa bình luận trong các bài thuyết trình PowerPoint một cách nhanh chóng và dễ dàng."
+description: "Quản lý bình luận bản trình chiếu bằng Aspose.Slides cho Android qua Java: thêm, đọc, chỉnh sửa, trả lời và gỡ bỏ bình luận trong các bản trình chiếu PowerPoint một cách nhanh chóng và dễ dàng."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách quản lý bình luận trong bài thuyết trình bằng Aspose.Slides for Android via Java. Nó giới thiệu các kiểu liên quan đến bình luận chính và trình bày cách thêm bình luận vào các slide, truy cập các bình luận hiện có, làm việc với các trả lời và bình luận hiện đại, và xóa bình luận khỏi một bài thuyết trình.
+Bài viết này giải thích cách quản lý các bình luận trong bản trình chiếu bằng Aspose.Slides for Android qua Java. Nó giới thiệu các kiểu dữ liệu liên quan đến bình luận chính và minh họa cách thêm bình luận vào các slide, truy cập các bình luận hiện có, làm việc với trả lời và các bình luận hiện đại, cũng như xóa bình luận khỏi bản trình chiếu.
 
-Các ví dụ bao phủ các kịch bản xem xét và cộng tác phổ biến trong PowerPoint, chẳng hạn như gán bình luận cho tác giả, đọc nội dung và siêu dữ liệu của bình luận, xây dựng chuỗi trả lời, và xóa các bình luận đã chọn hoặc tất cả các bình luận.
+Các ví dụ bao phủ các kịch bản xem xét và cộng tác thường gặp trong PowerPoint, chẳng hạn như gán bình luận cho tác giả, đọc nội dung và siêu dữ liệu của bình luận, xây dựng chuỗi trả lời, và xóa các bình luận đã chọn hoặc tất cả các bình luận.
 
-Trong PowerPoint, bình luận xuất hiện như các chú thích trên slide. Chọn một bình luận sẽ hiển thị nội dung và cuộc thảo luận liên quan.
+Trong PowerPoint, bình luận xuất hiện dưới dạng chú thích trên các slide. Khi chọn một bình luận, nội dung và cuộc thảo luận liên quan sẽ được hiển thị.
 
-## **Tại sao nên thêm bình luận vào bài thuyết trình?**
+Để yêu cầu hiển thị hoặc ẩn bình luận khi mở bản trình chiếu mà không thay đổi nội dung bình luận, xem [Hiển thị hoặc Ẩn Bình luận Khi Mở Bản trình chiếu](/slides/vi/androidjava/presentation-view-properties/).
 
-Bạn có thể sử dụng bình luận để cung cấp phản hồi và hợp tác với đồng nghiệp khi xem xét các bài thuyết trình.
+## **Tại sao cần Thêm Bình luận vào Bản trình chiếu?**
 
-Aspose.Slides for Android via Java cung cấp các API sau để làm việc với bình luận:
+Bạn có thể sử dụng bình luận để cung cấp phản hồi và cộng tác với đồng nghiệp khi xem xét các bản trình chiếu.
 
-* Lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) cung cấp quyền truy cập vào các tác giả bình luận của bài thuyết trình.
-* Giao diện [ICommentCollection](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icommentcollection/) đại diện cho các bình luận được liên kết với một tác giả cụ thể.
+Aspose.Slides for Android qua Java cung cấp các API sau để làm việc với bình luận:
+
+* Lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/) cung cấp quyền truy cập vào các tác giả bình luận của bản trình chiếu.
+* Giao diện [ICommentCollection](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icommentcollection/) đại diện cho các bình luận liên kết với một tác giả cụ thể.
 * Giao diện [IComment](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icomment/) cung cấp thông tin về một bình luận, bao gồm tác giả, thời gian tạo, vị trí và nội dung.
-* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/commentauthor/) cung cấp thông tin về một tác giả, bao gồm tên, ký hiệu và các bình luận liên quan.
+* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/commentauthor/) cung cấp thông tin về một tác giả, bao gồm tên, chữ viết tắt và các bình luận liên quan.
 
-## **Thêm bình luận vào slide**
+## **Thêm Bình luận vào Slide**
 
-Ví dụ sau đây cho thấy cách thêm bình luận vào các slide trong một bài thuyết trình PowerPoint:
+Ví dụ sau cho thấy cách thêm bình luận vào các slide trong một bản trình chiếu PowerPoint:
 
 ```java
 import com.aspose.slides.IComment;
@@ -83,9 +85,9 @@ try {
 }
 ```
 
-## **Truy cập bình luận của slide**
+## **Truy cập Bình luận trên Slide**
 
-Ví dụ sau đây cho thấy cách truy cập các bình luận hiện có trong một bài thuyết trình PowerPoint:
+Ví dụ sau cho thấy cách truy cập các bình luận hiện có trong một bản trình chiếu PowerPoint:
 
 ```java
 import com.aspose.slides.IComment;
@@ -108,11 +110,11 @@ try {
 }
 ```
 
-## **Trả lời bình luận**
+## **Trả lời Bình luận**
 
-Một bình luận cha là bình luận gốc ở đầu cấp độ trả lời. Các phương thức [IComment.getParentComment](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icomment/#getParentComment--) và [IComment.setParentComment](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) cho phép bạn lấy hoặc đặt bình luận cha.
+Một bình luận gốc là bình luận ban đầu ở đầu cây trả lời. Các phương thức [IComment.getParentComment](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icomment/#getParentComment--) và [IComment.setParentComment](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) cho phép bạn lấy hoặc đặt bình luận cha của một bình luận.
 
-Ví dụ sau đây cho thấy cách thêm các trả lời và kiểm tra cấu trúc phân cấp bình luận kết quả:
+Ví dụ sau cho thấy cách thêm trả lời và kiểm tra cấu trúc cây bình luận kết quả:
 
 ```java
 import com.aspose.slides.IComment;
@@ -169,19 +171,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Khi phương thức [IComment.remove](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icomment/#remove--) được sử dụng để xóa một bình luận, tất cả các trả lời cho bình luận đó cũng sẽ bị xóa.
-* Nếu [IComment.setParentComment](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) tạo ra một tham chiếu vòng, một [PptxEditException](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pptxeditexception/) sẽ được ném ra.
+* Khi sử dụng phương thức [IComment.remove](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icomment/#remove--) để xóa một bình luận, tất cả các trả lời của bình luận đó cũng sẽ bị xóa.
+* Nếu [IComment.setParentComment](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) tạo ra một vòng tham chiếu, một [PptxEditException](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pptxeditexception/) sẽ được ném ra.
 {{% /alert %}}
 
-## **Thêm bình luận hiện đại**
+## **Thêm Bình luận Hiện đại**
 
-Bình luận hiện đại có thể được liên kết với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong một AutoShape. Phương thức [ICommentCollection.addModernComment](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) chấp nhận một đối số [IShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/) ngoài slide và các tọa độ của dấu đánh dấu bình luận.
+Bình luận hiện đại có thể được gắn với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong một AutoShape. Phương thức [ICommentCollection.addModernComment](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) chấp nhận một đối số [IShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/) bên cạnh slide và tọa độ đánh dấu bình luận.
 
-Khi truyền `null` cho tham số shape, bình luận sẽ là bình luận cấp slide. Dấu đánh dấu của nó được định vị bằng các tọa độ cung cấp, nhưng không gắn với một hình dạng cụ thể, vì vậy [IModernComment.getShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getShape--) trả về `null`. Khi cung cấp một [IShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/), bình luận được neo vào hình dạng đó. Các tọa độ vẫn xác định vị trí của dấu đánh dấu bình luận trên slide, trong khi việc liên kết với hình dạng có thể được truy xuất qua [IModernComment.getShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getShape--).
+Khi `null` được truyền cho đối số shape, bình luận sẽ là bình luận cấp slide. Đánh dấu của nó được đặt bằng các tọa độ cung cấp, nhưng không gắn với bất kỳ shape nào, vì vậy [IModernComment.getShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getShape--) trả về `null`. Khi một [IShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/) được cung cấp, bình luận sẽ được neo vào shape đó. Các tọa độ vẫn xác định vị trí của dấu bình luận trên slide, trong khi mối liên kết với shape có thể được lấy qua [IModernComment.getShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getShape--).
 
-### **Neót một bình luận hiện đại vào hình dạng**
+### **Neo một Bình luận Hiện đại vào Shape**
 
-Ví dụ sau tạo cả một bình luận hiện đại cấp slide và một bình luận hiện đại được neo vào một AutoShape cụ thể. Sau đó đọc hình dạng liên quan từ mỗi bình luận.
+Ví dụ sau tạo cả bình luận hiện đại cấp slide và bình luận hiện đại được neo vào một AutoShape cụ thể. Sau đó nó đọc shape liên quan từ mỗi bình luận.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -217,11 +219,11 @@ try {
 }
 ```
 
-### **Neót bình luận vào các loại hình dạng khác nhau**
+### **Neo Bình luận vào Các Loại Shape Khác nhau**
 
-Bất kỳ đối tượng slide nào triển khai [IShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/) đều có thể được sử dụng làm neo hình dạng. Các ví dụ phổ biến bao gồm [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iconnector/) và các thể hiện [IGraphicalObject](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/igraphicalobject/) như biểu đồ.
+Bất kỳ đối tượng slide nào thực hiện [IShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/) đều có thể được dùng làm neo shape. Các ví dụ phổ biến bao gồm [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iconnector/) và các thể hiện [IGraphicalObject](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/igraphicalobject/) như biểu đồ.
 
-Ví dụ sau tạo một số loại hình dạng phổ biến và gắn một bình luận hiện đại vào mỗi loại.
+Ví dụ sau tạo một số loại shape thông dụng và gắn một bình luận hiện đại với mỗi shape.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -278,18 +280,18 @@ try {
 }
 ```
 
-### **Neót bình luận vào văn bản và đặt trạng thái**
+### **Neo Bình luận vào Văn bản và Đặt Trạng thái**
 
-Đối với một bình luận hiện đại liên kết với một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/), các phương thức [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) và [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) truy cập vị trí bắt đầu của đoạn văn bản được chọn trong khung văn bản của hình dạng. Các phương thức [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) và [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) truy cập độ dài của phần chọn. Cùng nhau, các giá trị này liên kết bình luận với một phạm vi văn bản cụ thể bên trong AutoShape.
+Đối với một bình luận hiện đại được gắn với một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/), các phương thức [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) và [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) truy cập vị trí bắt đầu của văn bản đã chọn trong khung văn bản của shape. Các phương thức [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) và [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) truy cập độ dài của phần chọn. Cùng nhau, các giá trị này liên kết bình luận với một đoạn văn bản cụ thể bên trong AutoShape.
 
-Các phương thức [IModernComment.getStatus](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getStatus--) và [IModernComment.setStatus](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) truy cập một giá trị từ các hằng số [ModernCommentStatus](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/moderncommentstatus/):
+Các phương thức [IModernComment.getStatus](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getStatus--) và [IModernComment.setStatus](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) truy cập một giá trị trong các hằng số [ModernCommentStatus](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — không có trạng thái bình luận hiện đại cụ thể nào được định nghĩa.
+- `NotDefined` — không có trạng thái bình luận hiện đại cụ thể nào được xác định.
 - `Active` — bình luận đang hoạt động.
 - `Resolved` — bình luận đã được giải quyết.
 - `Closed` — bình luận đã đóng.
 
-Ví dụ sau tạo một bình luận hiện đại neo vào hình dạng, liên kết nó với một lựa chọn văn bản, đánh dấu là đã giải quyết, lưu bài thuyết trình và xác minh các giá trị sau khi mở lại tệp.
+Ví dụ sau tạo một bình luận hiện đại được neo vào shape, gắn nó với một đoạn văn bản, đánh dấu là đã giải quyết, lưu bản trình chiếu và xác minh các giá trị sau khi mở lại tệp.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -354,9 +356,9 @@ try {
 }
 ```
 
-### **Kiểm tra các bình luận hiện đại hiện có**
+### **Kiểm tra Các Bình luận Hiện đại hiện có**
 
-Để kiểm tra một bài thuyết trình hiện có, xác định các bình luận triển khai [IModernComment](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/), sau đó kiểm tra [IModernComment.getShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) và [IModernComment.getStatus](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getStatus--). Một hình dạng `null` cho biết bình luận cấp slide. Đối với neo [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/), các phương thức lựa chọn văn bản xác định phạm vi liên quan trong khung văn bản của hình dạng.
+Để kiểm tra một bản trình chiếu đã có, kiểm tra các bình luận nào triển khai [IModernComment](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/), sau đó xem xét [IModernComment.getShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) và [IModernComment.getStatus](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getStatus--). Một shape `null` cho biết bình luận cấp slide. Đối với một neo [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/), các phương thức chọn văn bản xác định đoạn văn bản liên quan trong khung văn bản của shape.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -401,11 +403,11 @@ try {
 }
 ```
 
-## **Xóa bình luận**
+## **Xóa Bình luận**
 
-### **Xóa tất cả bình luận và tác giả bình luận**
+### **Xóa Tất cả Bình luận và Tác giả Bình luận**
 
-Ví dụ sau cho thấy cách xóa tất cả bình luận và tác giả bình luận khỏi một bài thuyết trình:
+Ví dụ sau cho thấy cách xóa tất cả bình luận và các tác giả bình luận khỏi một bản trình chiếu:
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -425,7 +427,7 @@ try {
 }
 ```
 
-### **Xóa bình luận cụ thể**
+### **Xóa Các Bình luận Cụ thể**
 
 Ví dụ sau cho thấy cách xóa các bình luận cụ thể khỏi một slide:
 
@@ -476,12 +478,12 @@ try {
 
 **Aspose.Slides có hỗ trợ trạng thái đã giải quyết cho bình luận hiện đại không?**
 
-Có. Các phương thức [IModernComment.getStatus](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getStatus--) và [IModernComment.setStatus](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) truy cập một giá trị [ModernCommentStatus](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái được lưu trong bài thuyết trình và có thể được đọc lại sau khi mở lại tệp.
+Có. Các phương thức [IModernComment.getStatus](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#getStatus--) và [IModernComment.setStatus](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) truy cập một giá trị [ModernCommentStatus](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái này được lưu trong bản trình chiếu và có thể được đọc lại sau khi mở lại tệp.
 
-**Các cuộc thảo luận dạng chuỗi (chuỗi trả lời) có được hỗ trợ không, và có giới hạn độ sâu lồng nhau không?**
+**Có hỗ trợ các cuộc thảo luận chuỗi (chuỗi trả lời) không, và có giới hạn độ sâu không?**
 
-Có. Mỗi bình luận có thể tham chiếu đến [bình luận cha](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icomment/#getParentComment--) của nó, cho phép tạo chuỗi trả lời. API không định nghĩa một giới hạn cụ thể về độ sâu lồng nhau.
+Có. Mỗi bình luận có thể tham chiếu đến [parent comment](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icomment/#getParentComment--), cho phép tạo chuỗi trả lời. API không định nghĩa giới hạn độ sâu cụ thể nào.
 
-**Vị trí của dấu đánh dấu bình luận trên slide được xác định trong hệ tọa độ nào?**
+**Vị trí của dấu bình luận trên slide được xác định trong hệ thống tọa độ nào?**
 
-Vị trí dấu đánh dấu được xác định bằng các tọa độ dạng số thực trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.
+Vị trí dấu được xác định bằng các tọa độ kiểu floating‑point trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.

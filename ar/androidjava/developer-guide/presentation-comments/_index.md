@@ -1,5 +1,5 @@
 ---
-title: إدارة تعليقات العرض التقديمي على Android
+title: إدارة تعليقات العروض التقديمية على Android
 linktitle: تعليقات العرض التقديمي
 type: docs
 weight: 100
@@ -17,32 +17,34 @@ keywords:
 - إزالة التعليق
 - حذف التعليق
 - PowerPoint
-- عرض تقديمي
+- العرض التقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides لنظام Android عبر Java: إضافة، قراءة، تحرير، الرد على، وإزالة التعليقات في عروض PowerPoint بسرعة وسهولة."
+description: "إدارة تعليقات العروض التقديمية باستخدام Aspose.Slides for Android عبر Java: إضافة، قراءة، تحرير، الرد على، وإزالة التعليقات في عروض PowerPoint بسرعة وسهولة."
 ---
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية إدارة تعليقات العروض التقديمية باستخدام Aspose.Slides for Android via Java. تُظهر الأنواع الرئيسية المتعلقة بالتعليقات وتُظهر كيفية إضافة تعليقات إلى الشرائح، والوصول إلى التعليقات الموجودة، والعمل مع الردود والتعليقات الحديثة، وإزالة التعليقات من العرض التقديمي.
+تشرح هذه المقالة كيفية إدارة تعليقات العروض التقديمية باستخدام Aspose.Slides for Android via Java. يتم تقديم الأنواع الأساسية المتعلقة بالتعليقات وتوضح كيفية إضافة تعليقات إلى الشرائح، الوصول إلى التعليقات الموجودة، العمل مع الردود والتعليقات الحديثة، وإزالة التعليقات من العرض التقديمي.
 
-تغطي الأمثلة سيناريوهات المراجعة والتعاون الشائعة في PowerPoint، مثل تعيين التعليقات للمؤلفين، قراءة نص التعليق والبيانات الوصفية، بناء سلاسل الرد، وإزالة التعليقات المحددة أو جميع التعليقات.
+تغطي الأمثلة سيناريوهات شائعة للمراجعة والتعاون في PowerPoint، مثل تعيين التعليقات للمؤلفين، قراءة نص التعليق والبيانات الوصفية، بناء سلاسل الردود، وإزالة التعليقات المحددة أو جميع التعليقات.
 
-في PowerPoint، تظهر التعليقات كعلامات توضيحية على الشرائح. عند اختيار تعليق يتم عرض نصه والنقاش المرتبط به.
+في PowerPoint، تظهر التعليقات كتوبيخات على الشرائح. يؤدي تحديد تعليق إلى عرض نصه والنقاش المتعلق به.
 
-## **لماذا إضافة تعليقات إلى العروض التقديمية؟**
+لطلب إظهار أو إخفاء التعليقات عند فتح عرض تقديمي دون تغيير التعليقات نفسها، راجع [إظهار أو إخفاء التعليقات عند فتح عرض تقديمي](/slides/ar/androidjava/presentation-view-properties/).
 
-يمكنك استخدام التعليقات لتقديم ملاحظات والتعاون مع الزملاء أثناء مراجعة العروض التقديمية.
+## **لماذا نضيف تعليقات إلى العروض التقديمية؟**
+
+يمكنك استخدام التعليقات لتقديم ملاحظات والتعاون مع الزملاء عند مراجعة العروض التقديمية.
 
 يوفر Aspose.Slides for Android via Java واجهات برمجة التطبيقات التالية للعمل مع التعليقات:
 
-* الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) التي تُتيح الوصول إلى مؤلفي التعليقات في العرض.
+* الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) التي توفر الوصول إلى مؤلفي التعليقات في العرض التقديمي.
 * الواجهة [ICommentCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icommentcollection/) التي تمثل التعليقات المرتبطة بمؤلف معين.
 * الواجهة [IComment](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icomment/) التي توفر معلومات حول التعليق، بما في ذلك المؤلف، وقت الإنشاء، الموقع، والنص.
-* الفئة [CommentAuthor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/commentauthor/) التي تُظهر معلومات عن المؤلف، مثل الاسم، الحروف الأولية، والتعليقات المرتبطة به.
+* الفئة [CommentAuthor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/commentauthor/) التي توفر معلومات حول المؤلف، بما في ذلك اسمه، الأحرف الأولى، والتعليقات المرتبطة به.
 
-## **إضافة تعليقات إلى الشريحة**
+## **إضافة تعليقات إلى الشرائح**
 
 المثال التالي يوضح كيفية إضافة تعليقات إلى الشرائح في عرض PowerPoint:
 
@@ -83,7 +85,7 @@ try {
 }
 ```
 
-## **الوصول إلى تعليقات الشريحة**
+## **الوصول إلى تعليقات الشرائح**
 
 المثال التالي يوضح كيفية الوصول إلى التعليقات الموجودة في عرض PowerPoint:
 
@@ -110,9 +112,9 @@ try {
 
 ## **الرد على التعليقات**
 
-التعليق الأصلي هو التعليق الأصلي في أعلى هرمية الرد. تُتيح طريقتا [IComment.getParentComment](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icomment/#getParentComment--) و[IComment.setParentComment](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) الحصول على التعليق الأصلي أو تعيينه.
+التعليق الأصلي هو التعليق الأصلي في أعلى تسلسل الردود. تتيح طريقتا [IComment.getParentComment](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icomment/#getParentComment--) و[IComment.setParentComment](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) الحصول على التعليق الأصل أو تعيينه.
 
-المثال التالي يوضح كيفية إضافة ردود وفحص هيكل التعليقات الناتج:
+المثال التالي يوضح كيفية إضافة ردود وفحص هيكلية التعليقات الناتجة:
 
 ```java
 import com.aspose.slides.IComment;
@@ -169,19 +171,21 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* عند استخدام طريقة [IComment.remove](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icomment/#remove--) لحذف تعليق، يتم حذف جميع الردود المرتبطة به أيضًا.
-* إذا أدت طريقة [IComment.setParentComment](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) إلى إنشاء إشارة دائرية، يتم رمي استثناء [PptxEditException](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pptxeditexception/).
+
+* عندما تُستخدم الطريقة [IComment.remove](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icomment/#remove--) لحذف تعليق، يتم حذف جميع الردود على ذلك التعليق أيضًا.
+* إذا أنشأت الطريقة [IComment.setParentComment](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) مرجعًا دائريًا، يُطرح استثناء [PptxEditException](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pptxeditexception/).
+
 {{% /alert %}}
 
 ## **إضافة تعليقات حديثة**
 
-يمكن ربط التعليقات الحديثة بالشريحة نفسها، أو بشكل محدد، أو بنطاق نص داخل AutoShape. تقبل طريقة [ICommentCollection.addModernComment](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) معاملًا من نوع [IShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/) بالإضافة إلى الشريحة وإحداثيات علامة التعليق.
+يمكن ربط التعليقات الحديثة بالشريحة نفسها، أو بشكل معين، أو بنطاق نص داخل AutoShape. تقبل الطريقة [ICommentCollection.addModernComment](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) معلمة [IShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/) بالإضافة إلى الشريحة وإحداثيات علامة التعليق.
 
-عند تمرير `null` كقيمة للمعامل الخاص بالشكل، يكون التعليق تعليقًا على مستوى الشريحة. تُحدد إحداثيات العلامة موقعها باستخدام الإحداثيات المقدمة، لكنه لا يرتبط بشكل معين، لذا تُعيد طريقة [IModernComment.getShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getShape--) القيمة `null`. عندما يتم توفير [IShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/)، يتم تثبيت التعليق على ذلك الشكل. لا تزال الإحداثيات تُحدد موقع علامة التعليق على الشريحة، بينما يمكن الحصول على ارتباط الشكل عبر طريقة [IModernComment.getShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getShape--).
+عند تمرير `null` كمعامل الشكل، يكون التعليق تعليقًا على مستوى الشريحة. تُحدد إحداثيات العلامة موقعها، لكنه غير مرتبط بشكل معين، لذا تُعيد الطريقة [IModernComment.getShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getShape--) القيمة `null`. عند تزويد [IShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/)، يتم تثبيت التعليق على ذلك الشكل. ما تزال الإحداثيات تُحدد موقع علامة التعليق على الشريحة، بينما يمكن استرجاع الارتباط بالشكل عبر [IModernComment.getShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getShape--).
 
-### **إرفاق تعليق حديث إلى شكل**
+### **تثبيت تعليق حديث على شكل**
 
-المثال التالي ينشئ كلًا من تعليق حديث على مستوى الشريحة وتعليق حديث مثبت إلى AutoShape معين. ثم يقرأ الشكل المرتبط بكل تعليق.
+المثال التالي ينشئ تعليقًا حديثًا على مستوى الشريحة وتعليقًا حديثًا مثبتًا على AutoShape محدد. ثم يقرأ الشكل المرتبط بكل تعليق.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -217,11 +221,11 @@ try {
 }
 ```
 
-### **إرفاق التعليقات إلى أنواع مختلفة من الأشكال**
+### **تثبيت تعليقات على أنواع أشكال مختلفة**
 
-يمكن استخدام أي كائن شريحة يُطبق [IShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/) كمرساة للشكل. تشمل الأمثلة الشائعة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/)، [IPictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipictureframe/)، [IGroupShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/igroupshape/)، [IConnector](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iconnector/)، و[IGraphicalObject](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/igraphicalobject/) مثل المخططات.
+يمكن استخدام أي كائن شريحة يطبق [IShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/) كمرساة للشكل. من الأمثلة الشائعة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/)، [IPictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipictureframe/)، [IGroupShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/igroupshape/)، [IConnector](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iconnector/)، و[IGraphicalObject](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/igraphicalobject/) مثل المخططات.
 
-المثال التالي ينشئ عدة أنواع شائعة من الأشكال ويربط تعليقًا حديثًا بكل منها.
+المثال التالي ينشئ عدة أنواع أشكال شائعة ويربط كل منها بتعليق حديث.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -278,18 +282,18 @@ try {
 }
 ```
 
-### **إرفاق تعليق إلى نص وتعيين حالته**
+### **تثبيت تعليق على نص وتعيين حالته**
 
-بالنسبة لتعليق حديث مرتبط بـ [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/)، تُتيح طرقتا [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) و[IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) الوصول إلى موضع بداية النص المحدد داخل إطار النص للشكل. وتُتيح طرقتا [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) و[IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) الوصول إلى طول التحديد. معًا، تربط هذه القيم التعليق بنطاق نص محدد داخل الـ AutoShape.
+للتعليق الحديث المرتبط بـ [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/)، تُتيح الطريقتان [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) و[IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) الوصول إلى موضع بدء النص المحدد في إطار النص بالشكل. تُتيح الطريقتان [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) و[IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) الحصول على طول التحديد. معًا، تُربط هذه القيم التعليق بنطاق نص معين داخل AutoShape.
 
-تُتيح طرقتا [IModernComment.getStatus](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getStatus--) و[IModernComment.setStatus](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) الحصول على قيمة من ثابتات [ModernCommentStatus](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/moderncommentstatus/):
+تُتيح الطريقتان [IModernComment.getStatus](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getStatus--) و[IModernComment.setStatus](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) الوصول إلى قيمة من ثوابت [ModernCommentStatus](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — لا توجد حالة محددة للتعليق الحديث.
+- `NotDefined` — لا توجد حالة حديثة محددة.
 - `Active` — التعليق نشط.
 - `Resolved` — تم حل التعليق.
 - `Closed` — التعليق مغلق.
 
-المثال التالي ينشئ تعليق حديث مثبت إلى شكل، يربطه بتحديد نص، يضع علامة "تم الحل"، يحفظ العرض، ثم يتحقق من القيم بعد إعادة فتح الملف.
+المثال التالي ينشئ تعليقًا حديثًا مثبتًا على شكل، يربطه بتحديد نص، يعيّنه كـ "تم حله"، يحفظ العرض، ويتحقق من القيم بعد إعادة فتح الملف.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -356,7 +360,7 @@ try {
 
 ### **فحص التعليقات الحديثة الموجودة**
 
-لفحص عرض موجود، تحقق من التعليقات التي تُطبق [IModernComment](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/)، ثم افحص [IModernComment.getShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getShape--)، [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--)، [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--)، و[IModernComment.getStatus](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getStatus--). يشير الشكل `null` إلى تعليق على مستوى الشريحة. بالنسبة لمرساة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/)، تحدد طرق تحديد النص النطاق المرتبط بإطار النص للشكل.
+لفحص عرض تقديمي موجود، تحقق من أي تعليقات تُطبق [IModernComment](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/)، ثم استعرض [IModernComment.getShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getShape--)، [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--)، [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--)، و[IModernComment.getStatus](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getStatus--). يشير الشكل `null` إلى تعليق على مستوى الشريحة. بالنسبة لمرساة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/)، تُحدد طرق تحديد النص النطاق المرتبط بإطار النص بالشكل.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -425,7 +429,7 @@ try {
 }
 ```
 
-### **إزالة تعليقات محددة**
+### **إزالة تعليقات معينة**
 
 المثال التالي يوضح كيفية إزالة تعليقات محددة من شريحة:
 
@@ -474,14 +478,14 @@ try {
 
 ## **الأسئلة المتكررة**
 
-**هل يدعم Aspose.Slides حالة تم حلها للتعليقات الحديثة؟**
+**هل يدعم Aspose.Slides حالة "تم الحل" للتعليقات الحديثة؟**
 
-نعم. تُتيح [IModernComment.getStatus](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getStatus--) و[IModernComment.setStatus](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) الوصول إلى قيمة [ModernCommentStatus](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/moderncommentstatus/)، بما في ذلك `Resolved`. تُخزن الحالة في العرض ويمكن قراءتها مرة أخرى بعد إعادة فتح الملف.
+نعم. تُتيح الطريقتان [IModernComment.getStatus](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#getStatus--) و[IModernComment.setStatus](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) الوصول إلى قيمة [ModernCommentStatus](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/moderncommentstatus/) بما في ذلك `Resolved`. تُخزن الحالة في العرض ويمكن قراءتها مرة أخرى بعد إعادة فتح الملف.
 
-**هل يتم دعم المناقشات المتسلسلة (سلاسل الرد) وهل هناك حد للتعشيق؟**
+**هل تُدعم المناقشات المتسلسلة (سلاسل الردود) وهل هناك حد للتعمق؟**
 
-نعم. يمكن لكل تعليق الإشارة إلى [التعليق الأصلي](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icomment/#getParentComment--) الخاص به، مما يُتيح سلاسل رد. لا تُحدد واجهة البرمجة حدًا معينًا لعمق التعشيق.
+نعم. يمكن لكل تعليق الإشارة إلى [التعليق الأصلي](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icomment/#getParentComment--) الخاص به، مما يتيح سلاسل الردود. لا تحدد واجهة البرمجة حدًا معينًا لعمق التداخل.
 
 **في أي نظام إحداثيات يتم تعريف موضع علامة التعليق على الشريحة؟**
 
-يُعرّف موضع العلامة بإحداثيات نقطية عائمة في نظام إحداثيات الشريحة، مما يسمح بوضعها بدقة على الشريحة.
+يُحدد موضع العلامة بإحداثيات ذات نقطتين عائمتين في نظام إحداثيات الشريحة، مما يسمح بوضعها بدقة على الشريحة.

@@ -20,28 +20,30 @@ keywords:
 - ارائه
 - C++
 - Aspose.Slides
-description: "نظرات ارائه را با Aspose.Slides برای C++ مدیریت کنید: افزودن، خواندن، ویرایش، پاسخ دادن و حذف نظرات در ارائه‌های PowerPoint به‌سرعت و به سادگی."
+description: "نظرات ارائه را با Aspose.Slides برای C++ مدیریت کنید: افزودن، خواندن، ویرایش، پاسخ دادن و حذف نظرات در ارائه‌های PowerPoint را به سرعت و به آسانی انجام دهید."
 ---
-## **مروری کلی**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد که چگونه نظرات ارائه را با Aspose.Slides for C++ مدیریت کنید. این مقاله انواع اصلی مرتبط با نظرات را معرفی می‌کند و نشان می‌دهد چگونه نظرات را به اسلایدها اضافه کنید، نظرات موجود را دسترسی پیدا کنید، با پاسخ‌ها و نظرات مدرن کار کنید، و نظرات را از یک ارائه حذف کنید.
+این مقاله توضیح می‌دهد چگونه نظرات ارائه را با Aspose.Slides برای C++ مدیریت کنید. این مقاله انواع اصلی مرتبط با نظرات را معرفی می‌کند و نحوه افزودن نظرات به اسلایدها، دسترسی به نظرات موجود، کار با پاسخ‌ها و نظرات مدرن، و حذف نظرات از یک ارائه را نشان می‌دهد.
 
-مثال‌ها سناریوهای رایج مرور و همکاری در PowerPoint را پوشش می‌دهند، مانند تخصیص نظرات به نویسندگان، خواندن متن نظر و داده‌های متا، ساخت زنجیره‌های پاسخ، و حذف نظرات انتخابی یا تمام نظرات.
+نمونه‌ها شامل سناریوهای رایج مرور و همکاری در PowerPoint هستند، مانند اختصاص نظرات به نویسندگان، خواندن متن نظرات و متادیتا، ساخت زنجیره‌های پاسخ، و حذف نظرات انتخابی یا تمام نظرات.
 
-در PowerPoint، نظرات به‌عنوان حاشیه‌نویسی روی اسلایدها ظاهر می‌شوند. انتخاب یک نظر متن و بحث مرتبط با آن را نمایش می‌دهد.
+در PowerPoint، نظرات به عنوان حاشیه‌نویس بر روی اسلایدها ظاهر می‌شوند. انتخاب یک نظر متن و بحث مرتبط با آن را نمایش می‌دهد.
 
-## **چرا به ارائه‌ها نظرات اضافه کنیم؟**
+برای درخواست نمایش یا مخفی کردن نظرات هنگام باز کردن یک ارائه بدون تغییر خود نظرات، به [Show or Hide Comments When Opening a Presentation](/slides/fa/cpp/presentation-view-properties/) مراجعه کنید.
+
+## **چرا نظرات را به ارائه‌ها اضافه کنیم؟**
 
 می‌توانید از نظرات برای ارائه بازخورد و همکاری با همکاران هنگام مرور ارائه‌ها استفاده کنید.
 
-Aspose.Slides for C++ APIهای زیر را برای کار با نظرات فراهم می‌کند:
+Aspose.Slides برای C++ APIهای زیر را برای کار با نظرات فراهم می‌کند:
 
 * کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) که دسترسی به نویسندگان نظرات ارائه را فراهم می‌کند.
 * اینترفیس [ICommentCollection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icommentcollection/) که نظرات مرتبط با یک نویسنده خاص را نشان می‌دهد.
-* اینترفیس [IComment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icomment/) که اطلاعاتی درباره یک نظر شامل نویسنده، زمان ایجاد، موقعیت و متن آن ارائه می‌دهد.
-* کلاس [CommentAuthor](https://reference.aspose.com/slides/fa/cpp/aspose.slides/commentauthor/) که اطلاعاتی درباره یک نویسنده شامل نام، حروف اول و نظرات مربوطه را فراهم می‌کند.
+* اینترفیس [IComment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icomment/) که اطلاعاتی درباره یک نظر شامل نویسنده، زمان ایجاد، موقعیت و متن را ارائه می‌دهد.
+* کلاس [CommentAuthor](https://reference.aspose.com/slides/fa/cpp/aspose.slides/commentauthor/) که اطلاعاتی درباره یک نویسنده شامل نام، حروف ابتدایی و نظرات مرتبط را فراهم می‌کند.
 
-## **اضافه کردن نظرات به اسلاید**
+## **افزودن نظرات اسلاید**
 
 مثال زیر نشان می‌دهد چگونه نظرات را به اسلایدهای یک ارائه PowerPoint اضافه کنید:
 
@@ -119,9 +121,9 @@ for (auto&& author : presentation->get_CommentAuthors())
 
 ## **پاسخ به نظرات**
 
-یک نظر والد، نظر اصلی در بالای یک سلسله‌مراتب پاسخ است. متدهای [get_ParentComment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icomment/get_parentcomment/) و [set_ParentComment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icomment/set_parentcomment/) از اینترفیس [IComment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icomment/) به شما امکان می‌دهند والد یک نظر را دریافت یا تنظیم کنید.
+یک نظر والد، نظر اصلی در رأس سلسله‌مراتب پاسخ‌ها است. متدهای [get_ParentComment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icomment/get_parentcomment/) و [set_ParentComment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icomment/set_parentcomment/) اینترفیس [IComment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icomment/) به شما امکان می‌دهند تا والد یک نظر را دریافت یا تنظیم کنید.
 
-مثال زیر نشان می‌دهد چگونه پاسخ‌ها را اضافه کرده و سلسله‌مراتب نتیجه‌گیری شدهٔ نظرات را بررسی کنید:
+مثال زیر نشان می‌دهد چگونه پاسخ‌ها را اضافه کنید و سلسله‌مراتب نظرات حاصل را بررسی کنید:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -184,19 +186,19 @@ presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* هنگام استفاده از متد [Remove](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icomment/remove/) از اینترفیس [IComment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icomment/) برای حذف یک نظر، تمام پاسخ‌های آن نظر نیز حذف می‌شوند.
-* اگر متد [set_ParentComment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icomment/set_parentcomment/) یک مرجع چرخشی ایجاد کند، یک [PptxEditException](https://reference.aspose.com/slides/fa/cpp/aspose.slides/pptxeditexception/) پرتاب می‌شود.
+* وقتی متد [Remove](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icomment/remove/) اینترفیس [IComment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icomment/) برای حذف یک نظر استفاده می‌شود، تمام پاسخ‌های آن نظر نیز حذف می‌شوند.
+* اگر متد [set_ParentComment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icomment/set_parentcomment/) یک ارجاع چرخشی ایجاد کند، یک [PptxEditException](https://reference.aspose.com/slides/fa/cpp/aspose.slides/pptxeditexception/) پرتاب می‌شود.
 {{% /alert %}}
 
-## **اضافه کردن نظرات مدرن**
+## **افزودن نظرات مدرن**
 
-نظرات مدرن می‌توانند به خود اسلاید، به یک شکل خاص یا به یک بازهٔ متنی داخل AutoShape مرتبط شوند. متد [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icommentcollection/addmoderncomment/) علاوه بر اسلاید و مختصات نشانگر نظر، یک آرگومان [IShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/) دریافت می‌کند.
+نظرات مدرن می‌توانند به خود اسلاید، به یک شکل خاص یا به یک بازه متنی داخل AutoShape مرتبط شوند. متد [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icommentcollection/addmoderncomment/) علاوه بر اسلاید و مختصات نشانگر نظر، یک آرگومان [IShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/) را می‌پذیرد.
 
-هنگامی که `nullptr` برای پارامتر shape ارسال شود، نظر یک نظر سطح‑اسلاید است. نشانگر آن با مختصات ارائه شده موقعیت می‌یابد، اما به شکل خاصی مرتبط نیست، لذا [IModernComment::get_Shape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_shape/) مقدار `nullptr` برمی‌گرداند. هنگامی که یک [IShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/) فراهم شود، نظر به آن شکل متصل می‌شود. مختصات همچنان موقعیت نشانگر نظر را بر روی اسلاید تعریف می‌کنند، در حالی که ارتباط شکل می‌تواند از طریق [IModernComment::get_Shape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_shape/) بازیابی شود.
+زمانی که `nullptr` برای آرگومان shape عبور داده شود، نظر یک نظر سطح اسلاید است. نشانگر آن توسط مختصات ارائه‌شده موقعیت‌یابی می‌شود، اما به شکل خاصی مرتبط نیست، بنابراین [IModernComment::get_Shape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_shape/) `nullptr` برمی‌گرداند. وقتی یک [IShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/) فراهم شود، نظر به آن شکل لنگر می‌گیرد. مختصات همچنان موقعیت نشانگر نظر روی اسلاید را تعریف می‌کند، در حالی که ارتباط شکل می‌تواند از طریق [IModernComment::get_Shape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_shape/) بازیابی شود.
 
-### **اتصال یک نظر مدرن به یک شکل**
+### **پیوست یک نظر مدرن به یک شکل**
 
-مثال زیر هم یک نظر مدرن سطح‑اسلاید و هم یک نظر مدرن متصل به یک AutoShape خاص ایجاد می‌کند. سپس شکل مرتبط با هر نظر را می‌خواند.
+مثال زیر هم یک نظر مدرن سطح اسلاید و هم یک نظر مدرن لنگرخورده به یک AutoShape خاص ایجاد می‌کند. سپس شکل مرتبط با هر نظر را می‌خواند.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -243,11 +245,11 @@ if (shapeAnchor != nullptr)
 presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
 ```
 
-### **اتصال نظرات به انواع مختلف شکل‌ها**
+### **پیوست نظرات به انواع مختلف شکل‌ها**
 
-هر شیء اسلایدی که اینترفیس [IShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/) را پیاده‌سازی کند، می‌تواند به‌عنوان نقطهٔ اتصال شکل استفاده شود. نمونه‌های رایج شامل [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/)، [IPictureFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipictureframe/)، [IGroupShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/igroupshape/)، [IConnector](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iconnector/) و نمونه‌های [IGraphicalObject](https://reference.aspose.com/slides/fa/cpp/aspose.slides/igraphicalobject/) مانند چارت‌ها هستند.
+هر شیء اسلایدی که اینترفیس [IShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/) را پیاده‌سازی کند می‌تواند به عنوان لنگر شکل استفاده شود. مثال‌های رایج شامل [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/)، [IPictureFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipictureframe/)، [IGroupShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/igroupshape/)، [IConnector](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iconnector/) و نمونه‌های [IGraphicalObject](https://reference.aspose.com/slides/fa/cpp/aspose.slides/igraphicalobject/) مانند نمودارها هستند.
 
-مثال زیر چند نوع شکل رایج ایجاد می‌کند و یک نظر مدرن را با هرکدام مرتبط می‌سازد.
+مثال زیر چند نوع شکل رایج ایجاد می‌کند و یک نظر مدرن را به هر کدام مرتبط می‌سازد.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -311,18 +313,18 @@ author->get_Comments()->AddModernComment(u"Comment on a graphical object.", slid
 presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 ```
 
-### **اتصال نظر به متن و تعیین وضعیت آن**
+### **پیوست یک نظر به متن و تنظیم وضعیت آن**
 
-برای یک نظر مدرن مرتبط با یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/)، متدهای [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_textselectionstart/) و [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/set_textselectionstart/) موقعیت شروع متن منتخب در فریم متنی شکل را کنترل می‌کنند. به‌طور مشابه، متدهای [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_textselectionlength/) و [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/set_textselectionlength/) طول انتخاب را تعیین می‌نمایند. این متدها با هم نظر را به بازهٔ متنی خاصی داخل AutoShape مرتبط می‌کنند.
+برای یک نظر مدرن مرتبط با یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/)، متدهای [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_textselectionstart/) و [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/set_textselectionstart/) موقعیت شروع متن انتخاب‌شده در فریم متن شکل را کنترل می‌کنند. به‌طور مشابه، متدهای [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_textselectionlength/) و [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/set_textselectionlength/) طول انتخاب را کنترل می‌کنند. این متدها با هم نظر را به بازه متنی خاصی داخل AutoShape پیوند می‌دهند.
 
-متدهای [IModernComment::get_Status](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_status/) و [IModernComment::set_Status](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/set_status/) از یک مقدار در شمارندهٔ [ModernCommentStatus](https://reference.aspose.com/slides/fa/cpp/aspose.slides/moderncommentstatus/) استفاده می‌کنند:
+متدهای [IModernComment::get_Status](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_status/) و [IModernComment::set_Status](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/set_status/) از مقدارهای شمارنده [ModernCommentStatus](https://reference.aspose.com/slides/fa/cpp/aspose.slides/moderncommentstatus/) استفاده می‌کنند:
 
 - `NotDefined` — هیچ وضعیت خاصی برای نظر مدرن تعریف نشده است.
 - `Active` — نظر فعال است.
 - `Resolved` — نظر حل شده است.
-- `Closed` — نظر بسته شده است.
+- `Closed` — نظر بسته است.
 
-مثال زیر یک نظر مدرن متصل به شکل ایجاد می‌کند، آن را به یک انتخاب متنی مرتبط می‌سازد، به‌عنوان حل شده علامت‌گذاری می‌کند، ارائه را ذخیره می‌کند و پس از باز کردن مجدد فایل مقادیر را تأیید می‌کند.
+مثال زیر یک نظر مدرن لنگرخورده به شکل ایجاد می‌کند، آن را به یک انتخاب متن پیوست می‌سازد، به عنوان حل‌شده علامت‌گذاری می‌کند، ارائه را ذخیره می‌کند و پس از بازگشایی فایل مقدارها را بررسی می‌کند.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -395,9 +397,9 @@ for (auto&& reopenedComment : reopenedComments)
 }
 ```
 
-### **بررسی نظرات مدرن موجود**
+### **بازرسی نظرات مدرن موجود**
 
-برای بررسی یک ارائه موجود، ابتدا بررسی کنید کدام نظرات اینترفیس [IModernComment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/) را پیاده‌سازی کرده‌اند، سپس به [IModernComment::get_Shape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_shape/)، [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_textselectionstart/)، [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_textselectionlength/) و [IModernComment::get_Status](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_status/) نگاه کنید. یک shape برابر `nullptr` نشان‌دهندهٔ یک نظر سطح‑اسلاید است. برای یک اتصال [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) ، متدهای انتخاب متن بازهٔ مرتبط در فریم متنی شکل را شناسایی می‌کنند.
+برای بررسی یک ارائه موجود، نگاه کنید کدام نظرات اینترفیس [IModernComment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/) را پیاده‌سازی کرده‌اند، سپس [IModernComment::get_Shape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_shape/)، [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_textselectionstart/)، [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_textselectionlength/) و [IModernComment::get_Status](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_status/) را بررسی کنید. یک شکل `nullptr` نشان‌دهنده یک نظر سطح اسلاید است. برای لنگر یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/)، متدهای انتخاب متن بازه مرتبط در فریم متن شکل را شناسایی می‌کنند.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -538,14 +540,14 @@ presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **سوالات متداول**
 
-**آیا Aspose.Slides از وضعیت حل شده برای نظرات مدرن پشتیبانی می‌کند؟**
+**آیا Aspose.Slides وضعیت حل‌شده برای نظرات مدرن را پشتیبانی می‌کند؟**
 
-بله. متدهای [IModernComment::get_Status](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_status/) و [IModernComment::set_Status](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/set_status/) از یک مقدار [ModernCommentStatus](https://reference.aspose.com/slides/fa/cpp/aspose.slides/moderncommentstatus/) استفاده می‌کنند که شامل `Resolved` می‌شود. این وضعیت در ارائه ذخیره می‌شود و پس از بازگشت فایل می‌تواند مجدداً خوانده شود.
+بله. متدهای [IModernComment::get_Status](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/get_status/) و [IModernComment::set_Status](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imoderncomment/set_status/) از مقدار شمارنده [ModernCommentStatus](https://reference.aspose.com/slides/fa/cpp/aspose.slides/moderncommentstatus/) شامل `Resolved` استفاده می‌کنند. این وضعیت در ارائه ذخیره می‌شود و پس از بازگشایی فایل می‌توان آن را دوباره خواند.
 
-**آیا بحث‌های زنجیره‌ای (زنجیره‌های پاسخ) پشتیبانی می‌شوند و آیا محدودیتی برای عمق تو در تویی وجود دارد؟**
+**آیا بحث‌های سلسله‌دار (زنجیره‌های پاسخ) پشتیبانی می‌شوند و آیا محدودیتی برای عمق تو در تویی وجود دارد؟**
 
-بله. هر نظر می‌تواند به [parent comment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icomment/set_parentcomment/) خود ارجاع دهد و امکان ایجاد زنجیره‌های پاسخ را فراهم می‌کند. API محدودیت خاصی برای عمق تو در تو تعریف نمی‌کند.
+بله. هر نظر می‌تواند به [parent comment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icomment/set_parentcomment/) خود ارجاع دهد و زنجیره‌های پاسخ را ممکن می‌سازد. API محدودیت خاصی برای عمق تو در تو تعریف نمی‌کند.
 
-**موقعیت نشانگر نظر در اسلاید بر پایهٔ چه سیستم مختصاتی تعریف می‌شود؟**
+**موقعیت نشانگر یک نظر در اسلاید بر اساس چه سیستم مختصات تعریف می‌شود؟**
 
-موقعیت نشانگر با مختصات اعشاری در سیستم مختصات اسلاید تعریف می‌شود که امکان قرار دادن دقیق آن روی اسلاید را می‌دهد.
+موقعیت نشانگر توسط مختصات نقطه شناور در سیستم مختصات اسلاید تعریف می‌شود که به شما امکان می‌دهد دقیقاً آن را روی اسلاید جای‌گذاری کنید.

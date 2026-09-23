@@ -7,7 +7,7 @@ url: /fa/php-java/presentation-comments/
 keywords:
 - نظر
 - نظر مدرن
-- نظرات PowerPoint
+- نظرات پاورپوینت
 - نظرات ارائه
 - نظرات اسلاید
 - افزودن نظر
@@ -16,34 +16,36 @@ keywords:
 - پاسخ به نظر
 - حذف نظر
 - پاک کردن نظر
-- PowerPoint
+- پاورپوینت
 - ارائه
-- PHP
+- پی‌اچ‌پی
 - Aspose.Slides
-description: "مدیریت نظرات ارائه با Aspose.Slides برای PHP از طریق Java: افزودن، خواندن، ویرایش، پاسخ به و حذف نظرات در ارائه‌های PowerPoint به‌صورت سریع و آسان."
+description: "نظرات ارائه را با Aspose.Slides برای PHP از طریق Java مدیریت کنید: افزودن، خواندن، ویرایش، پاسخ‌دادن و حذف نظرات در ارائه‌های پاورپوینت به‌سرعت و به‌سادگی."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-این مقاله توضیح می‌دهد که چگونه نظرات ارائه را با Aspose.Slides برای PHP از طریق Java مدیریت کنید. این مقاله انواع اصلی مرتبط با نظرات را معرفی می‌کند و نشان می‌دهد چگونه نظرات را به اسلایدها اضافه کنید، به نظرات موجود دسترسی پیدا کنید، با پاسخ‌ها و نظرات مدرن کار کنید و نظرات را از یک ارائه حذف کنید.
+این مقاله توضیح می‌دهد چگونه نظرات ارائه را با Aspose.Slides برای PHP از طریق Java مدیریت کنیم. انواع اصلی مربوط به نظرات را معرفی می‌کند و نشان می‌دهد چگونه نظرات را به اسلایدها اضافه کنیم، به نظرات موجود دسترسی پیدا کنیم، با پاسخ‌ها و نظرات مدرن کار کنیم و نظرات را از یک ارائه حذف کنیم.
 
-مثال‌ها شامل سناریوهای رایج بررسی و همکاری در PowerPoint می‌شوند، از جمله اختصاص نظرات به نویسندگان، خواندن متن نظرات و متادیتا، ساخت زنجیره‌های پاسخ، و حذف نظرات انتخاب شده یا تمام نظرات.
+مثال‌ها شامل سناریوهای رایج بررسی و همکاری در PowerPoint هستند، از جمله اختصاص نظرات به نویسندگان، خواندن متن و فراداده‌های نظر، ساخت زنجیره‌های پاسخ و حذف نظرات انتخاب شده یا تمامی نظرات.
 
-در PowerPoint، نظرات به عنوان حاشیه‌نویسی بر روی اسلایدها ظاهر می‌شوند. انتخاب یک نظر متن و بحث مربوط به آن را نمایش می‌دهد.
+در PowerPoint، نظرات به‌عنوان حاشیه‌نویسی بر روی اسلایدها ظاهر می‌شوند. انتخاب یک نظر، متن و بحث مربوط به آن را نمایش می‌دهد.
+
+برای درخواست نمایش یا مخفی‌کردن نظرات هنگام باز کردن ارائه بدون تغییر در خود نظرات، به [نمایش یا مخفی کردن نظرات هنگام باز کردن ارائه](/slides/fa/php-java/presentation-view-properties/) مراجعه کنید.
 
 ## **چرا نظرات به ارائه‌ها اضافه کنیم؟**
 
 می‌توانید از نظرات برای ارائه بازخورد و همکاری با همکاران هنگام بررسی ارائه‌ها استفاده کنید.
 
-Aspose.Slides for PHP via Java provides the following APIs for working with comments:
+Aspose.Slides برای PHP از طریق Java APIهای زیر را برای کار با نظرات فراهم می‌کند:
 
 * کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) که دسترسی به نویسندگان نظرات ارائه را فراهم می‌کند.
-* کلاس [CommentCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/commentcollection/) که نظرات مرتبط با یک نویسنده را نشان می‌دهد.
-* کلاس [Comment](https://reference.aspose.com/slides/fa/php-java/aspose.slides/comment/) که اطلاعاتی درباره یک نظر شامل نویسنده، زمان ایجاد، موقعیت و متن ارائه می‌دهد.
-* کلاس [CommentAuthor](https://reference.aspose.com/slides/fa/php-java/aspose.slides/commentauthor/) که اطلاعاتی درباره نویسنده شامل نام، حروف اول و نظرات مرتبط را فراهم می‌کند.
+* کلاس [CommentCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/commentcollection/) که نظرات مرتبط با یک نویسنده خاص را نمایندگی می‌کند.
+* کلاس [Comment](https://reference.aspose.com/slides/fa/php-java/aspose.slides/comment/) که اطلاعاتی درباره یک نظر شامل نویسنده، زمان ایجاد، موقعیت و متن را ارائه می‌دهد.
+* کلاس [CommentAuthor](https://reference.aspose.com/slides/fa/php-java/aspose.slides/commentauthor/) که اطلاعاتی درباره یک نویسنده شامل نام، حروف اولیه و نظرات مرتبط را ارائه می‌دهد.
 
-## **اضافه کردن نظرات به اسلاید**
+## **افزودن نظرات به اسلاید**
 
-مثال زیر نشان می‌دهد چگونه نظراتی به اسلایدهای یک ارائه PowerPoint اضافه کنید:
+مثال زیر نشان می‌دهد چگونه نظرات را به اسلایدهای یک ارائه PowerPoint اضافه کنیم:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -81,7 +83,7 @@ try {
 
 ## **دسترسی به نظرات اسلاید**
 
-مثال زیر نشان می‌دهد چگونه به نظرات موجود در یک ارائه PowerPoint دسترسی پیدا کنید:
+مثال زیر نشان می‌دهد چگونه به نظرات موجود در یک ارائه PowerPoint دسترسی پیدا کنیم:
 
 ```php
 use aspose\slides\Presentation;
@@ -104,9 +106,9 @@ try {
 
 ## **پاسخ به نظرات**
 
-یک نظر والد، نظر اصلی در بالای سلسله‌مراتب پاسخ‌ها است. متدهای [Comment::getParentComment](https://reference.aspose.com/slides/fa/php-java/aspose.slides/comment/getparentcomment/) و [Comment::setParentComment](https://reference.aspose.com/slides/fa/php-java/aspose.slides/comment/setparentcomment/) به شما امکان می‌دهند والد یک نظر را دریافت یا تنظیم کنید.
+یک نظر والد، نظر اصلی در بالای یک سلسله مراتب پاسخ‌ها است. متدهای [Comment::getParentComment](https://reference.aspose.com/slides/fa/php-java/aspose.slides/comment/getparentcomment/) و [Comment::setParentComment](https://reference.aspose.com/slides/fa/php-java/aspose.slides/comment/setparentcomment/) به شما امکان می‌دهند والد یک نظر را دریافت یا تنظیم کنید.
 
-مثال زیر نشان می‌دهد چگونه پاسخ‌ها را اضافه کنید و سلسله‌مراتب نظرات حاصل را بررسی کنید:
+مثال زیر نشان می‌دهد چگونه پاسخ‌ها را اضافه کرده و ساختار سلسله‌مراتبی نظرات حاصل را بررسی کنید:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -161,19 +163,21 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* هنگامی که متد [Comment::remove](https://reference.aspose.com/slides/fa/php-java/aspose.slides/comment/remove/) برای حذف یک نظر استفاده می‌شود، تمام پاسخ‌های آن نظر نیز حذف می‌شوند.
-* اگر [Comment::setParentComment](https://reference.aspose.com/slides/fa/php-java/aspose.slides/comment/setparentcomment/) یک ارجاع دایره‌ای ایجاد کند، یک [PptxEditException](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxeditexception/) پرتاب می‌شود.
+
+* هنگامی که متد [Comment::remove](https://reference.aspose.com/slides/fa/php-java/aspose.slides/comment/remove/) برای حذف یک نظر استفاده می‌شود، تمام پاسخ‌های آن نظر نیز حذف می‌گردند.
+* اگر [Comment::setParentComment](https://reference.aspose.com/slides/fa/php-java/aspose.slides/comment/setparentcomment/) یک مرجع دورانی ایجاد کند، یک [PptxEditException](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxeditexception/) پرتاب می‌شود.
+
 {{% /alert %}}
 
-## **اضافه کردن نظرات مدرن**
+## **افزودن نظرات مدرن**
 
-نظرات مدرن می‌توانند به خود اسلاید، به یک شکل خاص یا به یک بازه متنی در داخل AutoShape مرتبط شوند. متد [CommentCollection::addModernComment](https://reference.aspose.com/slides/fa/php-java/aspose.slides/commentcollection/addmoderncomment/) علاوه بر اسلاید و مختصات علامت‌گذاری نظر، یک پارامتر از نوع [Shape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/) را می‌پذیرد.
+نظرات مدرن می‌توانند به خود اسلاید، به یک شکل خاص یا به بازه متنی داخل یک AutoShape مرتبط شوند. متد [CommentCollection::addModernComment](https://reference.aspose.com/slides/fa/php-java/aspose.slides/commentcollection/addmoderncomment/) علاوه بر اسلاید و مختصات نشانگر نظر، یک پارامتر [Shape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/) دریافت می‌کند.
 
-هنگامی که برای پارامتر shape مقدار `null` ارسال شود، نظر به عنوان یک نظر سطح اسلاید در نظر گرفته می‌شود. علامت آن توسط مختصات ارائه‌شده موقعیت‌گیری می‌شود، اما به شکل خاصی مرتبط نیست، بنابراین [ModernComment::getShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/getshape/) مقدار `null` برمی‌گرداند. وقتی یک [Shape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/) فراهم شود، نظر به آن شکل متصل می‌شود. مختصات همچنان مکان علامت نظر را روی اسلاید تعریف می‌کند، در حالی که ارتباط شکل می‌تواند از طریق [ModernComment::getShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/getshape/) بازیابی شود.
+وقتی `null` برای پارامتر shape ارسال شود، نظر به‌صورت نظر سطح اسلاید در نظر گرفته می‌شود. نشانگر آن توسط مختصات ارائه‌شده موقعیت‌یابی می‌شود، اما به شکل خاصی مرتبط نیست، بنابراین [ModernComment::getShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/getshape/) مقدار `null` برمی‌گرداند. هنگامی که یک [Shape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/) ارائه شود، نظر به آن شکل وابسته می‌شود. مختصات همچنان موقعیت نشانگر نظر روی اسلاید را تعریف می‌کند، در حالی که ارتباط شکل از طریق [ModernComment::getShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/getshape/) قابل دریافت است.
 
-### **متصل کردن یک نظر مدرن به یک شکل**
+### **اتصال یک نظر مدرن به یک شکل**
 
-مثال زیر یک نظر مدرن سطح اسلاید و یک نظر مدرن متصل به یک AutoShape خاص ایجاد می‌کند. سپس شکل مرتبط با هر نظر را می‌خواند.
+مثال زیر هم‌زمان یک نظر مدرن سطح اسلاید و یک نظر مدرن متصل به یک AutoShape خاص ایجاد می‌کند. سپس شکل مرتبط با هر نظر را می‌خواند:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -204,11 +208,11 @@ try {
 }
 ```
 
-### **متصل کردن نظرات به انواع مختلف شکل‌ها**
+### **اتصال نظرات به انواع مختلف شکل**
 
-هر شیء اسلایدی که توسط کلاس [Shape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/) نشان داده می‌شود می‌تواند به عنوان نقطه‌ی اتصال شکل استفاده شود. مثال‌های رایج شامل [AutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/autoshape/)، [PictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/)، [GroupShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/groupshape/)، [Connector](https://reference.aspose.com/slides/fa/php-java/aspose.slides/connector/) و نمونه‌های [GraphicalObject](https://reference.aspose.com/slides/fa/php-java/aspose.slides/graphicalobject/) مانند نمودارها هستند.
+هر شیء اسلایدی که توسط کلاس [Shape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/) نمایندگی می‌شود می‌تواند به‌عنوان نقطهٔ اتصال شکل استفاده شود. مثال‌های رایج شامل [AutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/autoshape/)، [PictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pictureframe/)، [GroupShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/groupshape/)، [Connector](https://reference.aspose.com/slides/fa/php-java/aspose.slides/connector/) و نمونه‌های [GraphicalObject](https://reference.aspose.com/slides/fa/php-java/aspose.slides/graphicalobject/) مانند نمودارها هستند.
 
-مثال زیر چند نوع شکل رایج ایجاد می‌کند و یک نظر مدرن را به هر کدام اختصاص می‌دهد.
+مثال زیر چندین نوع شکل معمولی ایجاد کرده و یک نظر مدرن را به هر کدام متصل می‌کند:
 
 ```php
 use aspose\slides\ChartType;
@@ -256,18 +260,18 @@ try {
 }
 ```
 
-### **متصل کردن نظر به متن و تنظیم وضعیت آن**
+### **اتصال یک نظر به متن و تنظیم وضعیت آن**
 
-برای یک نظر مدرن که به یک [AutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/autoshape/) مرتبط است، متدهای [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/gettextselectionstart/) و [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/settextselectionstart/) موقعیت شروع متن انتخاب‌شده در فریم متنی شکل را برمی‌گردانند. متدهای [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/gettextselectionlength/) و [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/settextselectionlength/) طول انتخاب را برمی‌گردانند. با ترکیب این مقادیر، نظر به یک بازه متنی خاص داخل AutoShape متصل می‌شود.
+برای یک نظر مدرن مرتبط با یک [AutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/autoshape/)، متدهای [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/gettextselectionstart/) و [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/settextselectionstart/) موقعیت شروع متن انتخاب‌شده در فریم متنی شکل را برمی‌گردانند/تنظیم می‌کنند. متدهای [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/gettextselectionlength/) و [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/settextselectionlength/) طول انتخاب را برمی‌گردانند/تنظیم می‌کنند. این مقادیر همراه با هم، نظر را به یک بازهٔ متنی خاص داخل AutoShape مرتبط می‌سازند.
 
-متدهای [ModernComment::getStatus](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/getstatus/) و [ModernComment::setStatus](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/setstatus/) مقداری از ثابت‌های [ModernCommentStatus](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncommentstatus/) را دریافت می‌کنند:
+متدهای [ModernComment::getStatus](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/getstatus/) و [ModernComment::setStatus](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/setstatus/) مقداری از ثابت‌های [ModernCommentStatus](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncommentstatus/) برمی‌گردانند:
 
-- `NotDefined` — هیچ وضعیت خاصی برای نظر مدرن تعریف نشده است.
+- `NotDefined` — وضعیت خاصی برای نظر مدرن تعریف نشده است.
 - `Active` — نظر فعال است.
 - `Resolved` — نظر حل شده است.
 - `Closed` — نظر بسته شده است.
 
-مثال زیر یک نظر مدرن متصل به شکل ایجاد می‌کند، آن را به یک بازه متنی پیوست می‌کند، به عنوان حل شده علامت‌گذاری می‌کند، ارائه را ذخیره می‌نماید و پس از باز کردن دوباره فایل، مقادیر را تأیید می‌کند.
+مثال زیر یک نظر مدرن متصل به شکل، آن را به یک انتخاب متنی مرتبط می‌کند، به عنوان حل‌شده علامت‌گذاری می‌کند، ارائه را ذخیره می‌نماید و پس از بازگشایی فایل مقادیر را تأیید می‌کند:
 
 ```php
 use aspose\slides\ModernCommentStatus;
@@ -329,7 +333,7 @@ try {
 
 ### **بررسی نظرات مدرن موجود**
 
-برای بررسی یک ارائه موجود، ابتدا بررسی کنید که هر نظر یک [ModernComment](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/) است یا نه، سپس [ModernComment::getShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/getshape/)، [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/gettextselectionstart/)، [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/gettextselectionlength/) و [ModernComment::getStatus](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/getstatus/) را مورد بررسی قرار دهید. شکل `null` نشان‌دهنده یک نظر سطح اسلاید است. برای یک انتساب به [AutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/autoshape/) ، متدهای انتخاب متن بازه مرتبط در فریم متنی شکل را شناسایی می‌کنند.
+برای بررسی یک ارائه موجود، ابتدا بررسی کنید هر نظر یک [ModernComment](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/) است یا نه، سپس به [ModernComment::getShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/getshape/)، [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/gettextselectionstart/)، [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/gettextselectionlength/) و [ModernComment::getStatus](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/getstatus/) مراجعه کنید. یک شکل `null` نشان‌دهندهٔ نظر سطح اسلاید است. برای اتصالات به یک [AutoShape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/autoshape/)، متدهای انتخاب متن بازهٔ مرتبط در فریم متنی شکل را شناسایی می‌کنند.
 
 ```php
 use aspose\slides\Presentation;
@@ -375,7 +379,7 @@ try {
 
 ### **حذف تمام نظرات و نویسندگان نظرات**
 
-مثال زیر نشان می‌دهد چگونه تمام نظرات و نویسندگان نظرات را از یک ارائه حذف کنید:
+مثال زیر نشان می‌دهد چگونه تمام نظرات و نویسندگان نظرات را از یک ارائه حذف کنیم:
 
 ```php
 use aspose\slides\Presentation;
@@ -396,7 +400,7 @@ try {
 
 ### **حذف نظرات خاص**
 
-مثال زیر نشان می‌دهد چگونه نظرات خاصی را از یک اسلاید حذف کنید:
+مثال زیر نشان می‌دهد چگونه نظرات خاصی را از یک اسلاید حذف کنیم:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -435,16 +439,16 @@ try {
 }
 ```
 
-## **پرسش‌های متداول**
+## **سؤالات متداول**
 
-**آیا Aspose.Slides وضعیت حل‌شده برای نظرات مدرن را پشتیبانی می‌کند؟**
+**آیا Aspose.Slides از وضعیت حل‌شده برای نظرات مدرن پشتیبانی می‌کند؟**
 
-بله. متدهای [ModernComment::getStatus](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/getstatus/) و [ModernComment::setStatus](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/setstatus/) یک مقدار از [ModernCommentStatus](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncommentstatus/) را برمی‌گردانند، از جمله `Resolved`. وضعیت در ارائه ذخیره می‌شود و پس از باز کردن مجدد فایل می‌توان آن را دوباره خواند.
+بله. متدهای [ModernComment::getStatus](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/getstatus/) و [ModernComment::setStatus](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncomment/setstatus/) مقدار [ModernCommentStatus](https://reference.aspose.com/slides/fa/php-java/aspose.slides/moderncommentstatus/) را برمی‌گردانند، از جمله `Resolved`. این وضعیت در ارائه ذخیره می‌شود و پس از بازگشایی فایل می‌تواند دوباره خوانده شود.
 
-**آیا گفتگوهای سلسله‌دار (زنجیره‌های پاسخ) پشتیبانی می‌شود و آیا محدودیتی برای عمق تو در تویی وجود دارد؟**
+**آیا بحث‌های سلسله‌مراتبی (زنجیره‌های پاسخ) پشتیبانی می‌شوند و آیا محدودیتی برای عمق تو در تویی وجود دارد؟**
 
-بله. هر نظر می‌تواند به [parent comment](https://reference.aspose.com/slides/fa/php-java/aspose.slides/comment/getparentcomment/) خود ارجاع دهد، که امکان ایجاد زنجیره‌های پاسخ را فراهم می‌کند. API محدودیت خاصی برای عمق تو در تویی تعریف نکرده است.
+بله. هر نظر می‌تواند به [parent comment](https://reference.aspose.com/slides/fa/php-java/aspose.slides/comment/getparentcomment/) خود ارجاع دهد و زنجیره‌های پاسخ را امکان‌پذیر می‌کند. API محدودیت خاصی برای عمق تو در تو تعریف نکرده است.
 
-**موقعیت علامت‌گذاری نظر در اسلاید بر پایه چه سیستم مختصاتی تعریف می‌شود؟**
+**موقعیت نشانگر نظر بر روی اسلاید در چه سیستم مختصاتی تعریف می‌شود؟**
 
-موقعیت علامت‌گذاری توسط مختصات اعشاری در سیستم مختصات اسلاید تعریف می‌شود که به شما امکان می‌دهد دقیقاً آن را روی اسلاید قرار دهید.
+موقعیت نشانگر توسط مختصات نقطه شناور در سیستم مختصات اسلاید تعریف می‌شود، که امکان قرار دادن دقیق آن را بر روی اسلاید فراهم می‌کند.

@@ -1,6 +1,6 @@
 ---
-title: จัดการความคิดเห็นในการนำเสนอใน .NET
-linktitle: ความคิดเห็นในการนำเสนอ
+title: จัดการความคิดเห็นการนำเสนอใน .NET
+linktitle: ความคิดเห็นการนำเสนอ
 type: docs
 weight: 100
 url: /th/net/presentation-comments/
@@ -10,40 +10,42 @@ keywords:
 - ความคิดเห็น PowerPoint
 - ความคิดเห็นการนำเสนอ
 - ความคิดเห็นสไลด์
-- เพิ่มความเห็น
-- เข้าถึงความเห็น
-- แก้ไขความเห็น
-- ตอบกลับความเห็น
-- ลบความเห็น
-- ลบความเห็น
+- เพิ่มความคิดเห็น
+- เข้าถึงความคิดเห็น
+- แก้ไขความคิดเห็น
+- ตอบกลับความคิดเห็น
+- ลบความคิดเห็น
+- ลบความคิดเห็น
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "จัดการความคิดเห็นในการนำเสนอด้วย Aspose.Slides สำหรับ .NET: เพิ่ม, อ่าน, แก้ไข, ตอบกลับ และลบความคิดเห็นในงานนำเสนอ PowerPoint อย่างรวดเร็วและง่ายดาย."
+description: "จัดการความคิดเห็นการนำเสนอด้วย Aspose.Slides สำหรับ .NET: เพิ่ม, อ่าน, แก้ไข, ตอบกลับ, และลบความคิดเห็นในงานนำเสนอ PowerPoint อย่างรวดเร็วและง่ายดาย."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีจัดการความคิดเห็นในการนำเสนอด้วย Aspose.Slides for .NET แนะนำประเภทที่เกี่ยวกับความคิดเห็นหลักและสาธิตวิธีเพิ่มความคิดเห็นลงในสไลด์, เข้าถึงความคิดเห็นที่มีอยู่, ทำงานกับการตอบกลับและความคิดเห็นสมัยใหม่, และลบความคิดเห็นจากการนำเสนอ
+บทความนี้อธิบายวิธีการจัดการความคิดเห็นในการนำเสนอด้วย Aspose.Slides for .NET โดยจะแนะนำประเภทหลักที่เกี่ยวกับความคิดเห็นและสาธิตวิธีการเพิ่มความคิดเห็นลงในสไลด์, เข้าถึงความคิดเห็นที่มีอยู่, ทำงานกับการตอบกลับและความคิดเห็นสมัยใหม่, และลบความคิดเห็นออกจากการนำเสนอ
 
-ตัวอย่างเหล่านี้ครอบคลุมสถานการณ์การตรวจสอบและการทำงานร่วมกันทั่วไปใน PowerPoint เช่น การกำหนดความคิดเห็นให้กับผู้เขียน, การอ่านข้อความและเมตาดาต้าของความคิดเห็น, การสร้างสายตอบกลับ, และการลบความคิดเห็นที่เลือกหรือความคิดเห็นทั้งหมด
+ตัวอย่างครอบคลุมสถานการณ์การตรวจสอบและการทำงานร่วมกันทั่วไปใน PowerPoint เช่น การกำหนดความคิดเห็นให้กับผู้เขียน, การอ่านข้อความและเมตาดาต้าของความคิดเห็น, การสร้างห่วงโซ่การตอบกลับ, และการลบความคิดเห็นที่เลือกหรือความคิดเห็นทั้งหมด
 
-ใน PowerPoint, ความคิดเห็นปรากฏเป็นหมายเหตุบนสไลด์ การเลือกความคิดเห็นจะแสดงข้อความและการสนทนาที่เกี่ยวข้อง
+ใน PowerPoint ความคิดเห็นจะแสดงเป็นคำอธิบายบนสไลด์ การเลือกความคิดเห็นจะแสดงข้อความและการสนทนาที่เกี่ยวข้อง
+
+หากต้องการกำหนดให้แสดงหรือซ่อนความคิดเห็นเมื่อเปิดการนำเสนอโดยไม่เปลี่ยนแปลงความคิดเห็นเอง ดูที่[แสดงหรือซ่อนความคิดเห็นเมื่อเปิดการนำเสนอ](/slides/th/net/presentation-view-properties/)
 
 ## **ทำไมต้องเพิ่มความคิดเห็นในงานนำเสนอ?**
 
-คุณสามารถใช้ความคิดเห็นเพื่อให้ข้อเสนอแนะและทำงานร่วมกับเพื่อนร่วมงานเมื่อรีวิวงานนำเสนอ
+คุณสามารถใช้ความคิดเห็นเพื่อให้ข้อเสนอแนะและทำงานร่วมกับเพื่อนร่วมงานระหว่างการตรวจทานงานนำเสนอได้
 
-Aspose.Slides for .NET มี API ต่อไปนี้สำหรับการทำงานกับความคิดเห็น:
+Aspose.Slides for .NET มี API ต่อไปนี้สำหรับทำงานกับความคิดเห็น:
 
-* The [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) class, which provides access to the presentation's comment authors.
-* The [ICommentCollection](https://reference.aspose.com/slides/th/net/aspose.slides/icommentcollection) interface, which represents the comments associated with an individual author.
-* The [IComment](https://reference.aspose.com/slides/th/net/aspose.slides/icomment) interface, which provides information about a comment, including its author, creation time, position, and text.
-* The [CommentAuthor](https://reference.aspose.com/slides/th/net/aspose.slides/commentauthor) class, which provides information about an author, including their name, initials, and associated comments.
+* คลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) ที่ให้การเข้าถึงผู้เขียนความคิดเห็นของงานนำเสนอ
+* อินเตอร์เฟส [ICommentCollection](https://reference.aspose.com/slides/th/net/aspose.slides/icommentcollection) ที่แทนความคิดเห็นที่เชื่อมโยงกับผู้เขียนแต่ละคน
+* อินเตอร์เฟส [IComment](https://reference.aspose.com/slides/th/net/aspose.slides/icomment) ที่ให้ข้อมูลเกี่ยวกับความคิดเห็นรวมถึงผู้เขียน, เวลาที่สร้าง, ตำแหน่ง, และข้อความ
+* คลาส [CommentAuthor](https://reference.aspose.com/slides/th/net/aspose.slides/commentauthor) ที่ให้ข้อมูลเกี่ยวกับผู้เขียนรวมถึงชื่อ, ตัวอักษรย่อ, และความคิดเห็นที่เชื่อมโยง
 
 ## **เพิ่มความคิดเห็นในสไลด์**
-ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มความคิดเห็นลงในสไลด์ของงานนำเสนอ PowerPoint:
+ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มความคิดเห็นในสไลด์ของงานนำเสนอ PowerPoint:
 
 ```csharp
 using System;
@@ -97,9 +99,9 @@ foreach (var author in presentation.CommentAuthors)
 ```
 
 ## **ตอบกลับความคิดเห็น**
-ความคิดเห็นแม่คือความคิดเห็นเดิมที่อยู่บนสุดของลำดับชั้นการตอบกลับ คุณลักษณะ [ParentComment](https://reference.aspose.com/slides/th/net/aspose.slides/icomment/properties/parentcomment) ของอินเทอร์เฟซ [IComment](https://reference.aspose.com/slides/th/net/aspose.slides/icomment) ทำให้คุณสามารถรับหรือกำหนดความคิดเห็นแม่ได้
+ความคิดเห็นหลักคือความคิดเห็นต้นฉบับที่อยู่บนสุดของลำดับการตอบกลับ คุณสมบัติ [ParentComment](https://reference.aspose.com/slides/th/net/aspose.slides/icomment/properties/parentcomment) ของอินเตอร์เฟส [IComment](https://reference.aspose.com/slides/th/net/aspose.slides/icomment) ให้คุณรับหรือกำหนดความคิดเห็นพาเรนต์ของความคิดเห็น
 
-ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มการตอบกลับและตรวจสอบลำดับชั้นของความคิดเห็นที่ได้:
+ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มการตอบกลับและตรวจสอบลำดับความสัมพันธ์ของความคิดเห็นที่ได้:
 
 ```csharp
 using System;
@@ -151,17 +153,16 @@ presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="warning" title="Attention" %}} 
-
-* เมื่อใช้เมธอด [Remove](https://reference.aspose.com/slides/th/net/aspose.slides/icomment/methods/remove) ของอินเทอร์เฟซ [IComment](https://reference.aspose.com/slides/th/net/aspose.slides/icomment) เพื่อลบความคิดเห็น จะลบการตอบกลับทั้งหมดที่เกี่ยวข้องกับความคิดเห็นนั้นด้วย
-* หากคุณสมบัติ [ParentComment](https://reference.aspose.com/slides/th/net/aspose.slides/icomment/properties/parentcomment) สร้างอ้างอิงเป็นวงกลม จะเกิดข้อยกเว้น [PptxEditException](https://reference.aspose.com/slides/th/net/aspose.slides/pptxeditexception)
+* เมื่อใช้เมธอด [Remove](https://reference.aspose.com/slides/th/net/aspose.slides/icomment/methods/remove) ของอินเตอร์เฟส [IComment](https://reference.aspose.com/slides/th/net/aspose.slides/icomment) เพื่อลบความคิดเห็น การตอบกลับทั้งหมดของความคิดเห็นนั้นก็จะถูกลบด้วย
+* หากคุณสมบัติ [ParentComment](https://reference.aspose.com/slides/th/net/aspose.slides/icomment/properties/parentcomment) สร้างการอ้างอิงวนซ้ำ จะมีการโยน [PptxEditException](https://reference.aspose.com/slides/th/net/aspose.slides/pptxeditexception)
 
 {{% /alert %}}
 
 ## **เพิ่มความคิดเห็นสมัยใหม่**
 
-ความคิดเห็นสมัยใหม่สามารถเชื่อมโยงกับสไลด์เอง, กับรูปร่างที่ระบุ, หรือกับช่วงข้อความภายใน AutoShape เมธอด [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/th/net/aspose.slides/icommentcollection/addmoderncomment/) รับอาร์กิวเมนต์ประเภท [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/) นอกเหนือจากพิกัดของสไลด์และเครื่องหมายความคิดเห็น
+ความคิดเห็นสมัยใหม่สามารถเชื่อมโยงกับสไลด์เอง, กับรูปร่างเฉพาะ, หรือกับช่วงข้อความภายใน AutoShape เมธอด [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/th/net/aspose.slides/icommentcollection/addmoderncomment/) รับอาร์กิวเมนต์ [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/) เพิ่มเติมนอกจากสไลด์และพิกัดของตัวทำเครื่องหมายความคิดเห็น
 
-เมื่อส่งค่า `null` ให้กับอาร์กิวเมนต์รูปร่าง ความคิดเห็นจะเป็นความคิดเห็นระดับสไลด์ เครื่องหมายจะถูกวางตามพิกัดที่กำหนด แต่ไม่มีการเชื่อมโยงกับรูปร่างใดโดยเฉพาะ ดังนั้น [IModernComment.Shape](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/shape/) จะคืนค่า `null` เมื่อมีการระบุ [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/) ความคิดเห็นจะยึดติดกับรูปร่างนั้น พิกัดยังคงกำหนดตำแหน่งของเครื่องหมายความคิดเห็นบนสไลด์ในขณะที่การเชื่อมโยงรูปร่างสามารถดึงมาผ่าน [IModernComment.Shape](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/shape/) ได้
+เมื่อส่งค่า `null` สำหรับอาร์กิวเมนต์รูปร่าง ความคิดเห็นจะเป็นความคิดเห็นระดับสไลด์ ตัวทำเครื่องหมายจะถูกวางตามพิกัดที่ให้มา แต่จะไม่เชื่อมโยงกับรูปร่างใดโดยเฉพาะ ดังนั้น [IModernComment.Shape](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/shape/) จะคืนค่า `null` หากส่ง [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/) มา ความคิดเห็นจะยึดติดกับรูปร่างนั้น พิกัดยังคงกำหนดตำแหน่งของตัวทำเครื่องหมายบนสไลด์ ส่วนการเชื่อมโยงรูปร่างสามารถดึงได้ผ่าน [IModernComment.Shape](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/shape/)
 
 ### **ยึดความคิดเห็นสมัยใหม่กับรูปร่าง**
 
@@ -194,9 +195,9 @@ presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 
 ### **ยึดความคิดเห็นกับประเภทรูปร่างต่าง ๆ**
 
-ออบเจ็กต์สไลด์ใด ๆ ที่ 구현 [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/) ก็สามารถใช้เป็นตัวยึดรูปร่างได้ ตัวอย่างทั่วไปรวมถึง [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/th/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/th/net/aspose.slides/iconnector/), และอินสแตนซ์ของ [IGraphicalObject](https://reference.aspose.com/slides/th/net/aspose.slides/igraphicalobject/) เช่น แผนภูมิ
+วัตถุสไลด์ใด ๆ ที่ทำงานร่วมกับ [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/) สามารถใช้เป็นจุดยึดของรูปร่างได้ ตัวอย่างทั่วไปได้แก่ [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/th/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/th/net/aspose.slides/iconnector/), และอินสแตนซ์ [IGraphicalObject](https://reference.aspose.com/slides/th/net/aspose.slides/igraphicalobject/) เช่น แผนภูมิ
 
-ตัวอย่างต่อไปนี้สร้างประเภทรูปร่างทั่วไปหลายชนิดและเชื่อมโยงความคิดเห็นสมัยใหม่กับแต่ละประเภท
+ตัวอย่างต่อไปนี้สร้างรูปร่างหลายประเภทที่พบบ่อยและเชื่อมโยงความคิดเห็นสมัยใหม่กับแต่ละรูปร่าง
 
 ```csharp
 using System;
@@ -239,15 +240,15 @@ author.Comments.AddModernComment("Comment on a graphical object.", slide, chart,
 presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 ```
 
-### **ยึดความคิดเห็นกับข้อความและตั้งค่าสถานะ**
+### **ยึดความคิดเห็นกับข้อความและกำหนดสถานะ**
 
-สำหรับความคิดเห็นสมัยใหม่ที่เชื่อมโยงกับ [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/textselectionstart/) ระบุตำแหน่งเริ่มต้นของข้อความที่เลือกในกรอบข้อความของรูปร่าง, ส่วน [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/textselectionlength/) ระบุความยาวของการเลือก ทั้งสองคุณสมบัตินี้รวมกันทำให้ความคิดเห็นเชื่อมโยงกับช่วงข้อความเฉพาะภายใน AutoShape
+สำหรับความคิดเห็นสมัยใหม่ที่เชื่อมโยงกับ [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) คุณสมบัติ [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/textselectionstart/) ระบุตำแหน่งเริ่มต้นของข้อความที่เลือกในกรอบข้อความของรูปร่าง, ขณะที่ [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/textselectionlength/) ระบุความยาวของการเลือก ทั้งสองคุณสมบัตินี้ทำให้ความคิดเห็นเชื่อมโยงกับช่วงข้อความเฉพาะภายใน AutoShape
 
-คุณสมบัติ [IModernComment.Status](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/status/) สามารถอ่านหรืออัปเดตด้วยค่าจาก enumeration [ModernCommentStatus](https://reference.aspose.com/slides/th/net/aspose.slides/moderncommentstatus/):
+คุณสมบัติ [IModernComment.Status](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/status/) สามารถอ่านหรืออัปเดตด้วยค่าใดค่าหนึ่งจากการนับสมาชิก [ModernCommentStatus](https://reference.aspose.com/slides/th/net/aspose.slides/moderncommentstatus/) :
 
-- `NotDefined` — ไม่ได้กำหนดสถานะของความคิดเห็นสมัยใหม่
+- `NotDefined` — ไม่ได้กำหนดสถานะความคิดเห็นสมัยใหม่ใด ๆ
 - `Active` — ความคิดเห็นอยู่ในสถานะทำงาน
-- `Resolved` — ความคิดเห็นถูกแก้ไขแล้ว
+- `Resolved` — ความคิดเห็นได้ถูกแก้ไขแล้ว
 - `Closed` — ความคิดเห็นถูกปิด
 
 ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ที่ยึดกับรูปร่าง, เชื่อมโยงกับการเลือกข้อความ, ทำเครื่องหมายว่าแก้ไขแล้ว, บันทึกงานนำเสนอ, และตรวจสอบค่าหลังจากเปิดไฟล์ใหม่
@@ -303,7 +304,7 @@ foreach (var reopenedComment in reopenedComments)
 
 ### **ตรวจสอบความคิดเห็นสมัยใหม่ที่มีอยู่**
 
-เพื่อตรวจสอบงานนำเสนอที่มีอยู่, ตรวจสอบว่าความคิดเห็นใดบ้างที่ทำงานตาม [IModernComment](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/), จากนั้นตรวจสอบ [IModernComment.Shape](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/textselectionlength/), และ [IModernComment.Status](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/status/). รูปร่างที่เป็น `null` หมายถึงความคิดเห็นระดับสไลด์ สำหรับการยึดกับ [IAutoShape] ตัวเลือกการเลือกข้อความจะบ่งบอกช่วงที่เชื่อมโยงในกรอบข้อความของรูปร่างนั้น
+เพื่อทำการตรวจสอบงานนำเสนอที่มีอยู่ ให้ตรวจสอบว่าความคิดเห็นใดบ้างที่ทำงานกับ [IModernComment](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/), แล้วดู [IModernComment.Shape](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/textselectionlength/), และ [IModernComment.Status](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/status/)  รูปร่างที่เป็น `null` หมายถึงความคิดเห็นระดับสไลด์ สำหรับจุดยึดที่เป็น [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) คุณสมบัติการเลือกข้อความจะบ่งบอกช่วงที่เชื่อมโยงในกรอบข้อความของรูปร่าง
 
 ```csharp
 using System;
@@ -413,14 +414,14 @@ presentation.Save("pres.pptx", SaveFormat.Pptx);
 
 ## **คำถามที่พบบ่อย**
 
-**Aspose.Slides รองรับสถานะที่แก้ไขสำหรับความคิดเห็นสมัยใหม่หรือไม่?**
+**Aspose.Slides รองรับสถานะแก้ไขสำหรับความคิดเห็นสมัยใหม่หรือไม่?**
 
-ใช่. สามารถอ่านและตั้งค่า [IModernComment.Status](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/status/) ด้วยค่าใน enumeration [ModernCommentStatus](https://reference.aspose.com/slides/th/net/aspose.slides/moderncommentstatus/) รวมถึง `Resolved` สถานะจะถูกเก็บไว้ในงานนำเสนอและสามารถอ่านได้อีกครั้งหลังจากไฟล์ถูกเปิดใหม่
+ใช่. คุณสามารถอ่านและตั้งค่า [IModernComment.Status](https://reference.aspose.com/slides/th/net/aspose.slides/imoderncomment/status/) ด้วยค่าจากการนับสมาชิก [ModernCommentStatus](https://reference.aspose.com/slides/th/net/aspose.slides/moderncommentstatus/) รวมถึง `Resolved` สถานะจะถูกบันทึกในงานนำเสนอและสามารถอ่านได้อีกครั้งหลังจากเปิดไฟล์ใหม่
 
-**สนับสนุนการสนทนาที่เป็นเธรด (สายตอบกลับ) หรือไม่และมีขีดจำกัดการซ้อนกันหรือไม่?**
+**รองรับการสนทนาตามเธรด (ห่วงโซ่การตอบกลับ) หรือไม่, มีข้อจำกัดเรื่องระดับการซ้อนกันหรือไม่?**
 
-ใช่. แต่ละความคิดเห็นสามารถอ้างอิงถึง [parent comment] ของมันได้ ทำให้สามารถสร้างสายตอบกลับได้ API ไม่ได้กำหนดขีดจำกัดความลึกของการซ้อนกันไว้เฉพาะ
+ใช่. แต่ละความคิดเห็นสามารถอ้างอิงถึง [parent comment](https://reference.aspose.com/slides/th/net/aspose.slides/comment/parentcomment/) ของตัวเอง, ทำให้สามารถสร้างห่วงโซ่การตอบกลับได้ API ไม่ได้กำหนดขีดจำกัดความลึกของการซ้อนกันเป็นค่าเฉพาะ
 
-**ตำแหน่งเครื่องหมายความคิดเห็นบนสไลด์ถูกกำหนดในระบบพิกัดใด?**
+**ตำแหน่งของตัวทำเครื่องหมายความคิดเห็นบนสไลด์กำหนดในระบบพิกัดใด?**
 
-ตำแหน่งเครื่องหมายจะถูกกำหนดโดยพิกัดทศนิยมในระบบพิกัดของสไลด์ ทำให้คุณสามารถวางตำแหน่งได้อย่างแม่นยำบนสไลด์
+ตำแหน่งของตัวทำเครื่องหมายกำหนดด้วยพิกัดแบบจุดลอยในระบบพิกัดของสไลด์, ซึ่งทำให้คุณวางตำแหน่งได้อย่างแม่นยำบนสไลด์

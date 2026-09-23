@@ -1,6 +1,6 @@
 ---
 title: Gerenciar comentários de apresentação em Python
-linktitle: Comentários de apresentação
+linktitle: Comentários da apresentação
 type: docs
 weight: 100
 url: /pt/python-net/presentation-comments/
@@ -8,7 +8,7 @@ keywords:
 - comentário
 - comentário moderno
 - comentários do PowerPoint
-- comentários de apresentação
+- comentários da apresentação
 - comentários de slide
 - adicionar comentário
 - acessar comentário
@@ -20,28 +20,30 @@ keywords:
 - apresentação
 - Python
 - Aspose.Slides
-description: "Gerenciar comentários de apresentação com Aspose.Slides for Python via .NET: adicionar, ler, editar, responder e remover comentários em apresentações do PowerPoint."
+description: "Gerenciar comentários de apresentação com Aspose.Slides para Python via .NET: adicionar, ler, editar, responder e remover comentários em apresentações do PowerPoint."
 ---
 ## **Visão geral**
 
-Este artigo explica como gerenciar comentários de apresentação com Aspose.Slides for Python via .NET. Ele apresenta os principais tipos relacionados a comentários e demonstra como adicionar comentários aos slides, acessar comentários existentes, trabalhar com respostas e comentários modernos, e remover comentários de uma apresentação.
+Este artigo explica como gerenciar comentários de apresentação com Aspose.Slides para Python via .NET. Ele introduz os principais tipos relacionados a comentários e demonstra como adicionar comentários aos slides, acessar comentários existentes, trabalhar com respostas e comentários modernos, e remover comentários de uma apresentação.
 
-As exemplificações abrangem cenários comuns de revisão e colaboração no PowerPoint, como atribuir comentários a autores, ler o texto e os metadados dos comentários, construir cadeias de respostas e remover comentários selecionados ou todos os comentários.
+Os exemplos cobrem cenários comuns de revisão e colaboração no PowerPoint, como atribuir comentários a autores, ler o texto e os metadados dos comentários, construir cadeias de respostas e remover comentários selecionados ou todos os comentários.
 
 No PowerPoint, os comentários aparecem como anotações nos slides. Selecionar um comentário exibe seu texto e a discussão relacionada.
 
-## **Por que adicionar comentários a apresentações?**
+Para solicitar que os comentários sejam exibidos ou ocultados ao abrir uma apresentação sem alterar os próprios comentários, veja [Exibir ou ocultar comentários ao abrir uma apresentação](/slides/pt/python-net/presentation-view-properties/).
+
+## **Por que adicionar comentários às apresentações?**
 
 Você pode usar comentários para fornecer feedback e colaborar com colegas ao revisar apresentações.
 
-Aspose.Slides for Python via .NET fornece as seguintes APIs para trabalhar com comentários:
+Aspose.Slides para Python via .NET fornece as seguintes APIs para trabalhar com comentários:
 
-* A classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) fornece acesso aos autores de comentários da apresentação.
-* A classe [CommentCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/commentcollection/) representa os comentários associados a um autor específico.
-* A classe [Comment](https://reference.aspose.com/slides/pt/python-net/aspose.slides/comment/) fornece informações sobre um comentário, incluindo seu autor, horário de criação, posição e texto.
-* A classe [CommentAuthor](https://reference.aspose.com/slides/pt/python-net/aspose.slides/commentauthor/) fornece informações sobre um autor, incluindo seu nome, iniciais e comentários associados.
+* A classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) que fornece acesso aos autores de comentários da apresentação.
+* A classe [CommentCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/commentcollection/) que representa os comentários associados a um autor individual.
+* A classe [Comment](https://reference.aspose.com/slides/pt/python-net/aspose.slides/comment/) que fornece informações sobre um comentário, incluindo seu autor, horário de criação, posição e texto.
+* A classe [CommentAuthor](https://reference.aspose.com/slides/pt/python-net/aspose.slides/commentauthor/) que fornece informações sobre um autor, incluindo nome, iniciais e comentários associados.
 
-## **Adicionar comentários aos slides**
+## **Adicionar comentários de slide**
 
 O exemplo a seguir mostra como adicionar comentários aos slides em uma apresentação do PowerPoint:
 
@@ -72,7 +74,7 @@ with slides.Presentation() as presentation:
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Acessar comentários dos slides**
+## **Acessar comentários de slide**
 
 O exemplo a seguir mostra como acessar comentários existentes em uma apresentação do PowerPoint:
 
@@ -141,15 +143,15 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Quando o método [remove](https://reference.aspose.com/slides/pt/python-net/aspose.slides/comment/remove/) da classe [Comment](https://reference.aspose.com/slides/pt/python-net/aspose.slides/comment/) é usado para excluir um comentário, todas as respostas a esse comentário também são removidas.
-* Se a propriedade [parent_comment](https://reference.aspose.com/slides/pt/python-net/aspose.slides/comment/parent_comment/) criar uma referência circular, uma [PptxEditException](https://reference.aspose.com/slides/pt/python-net/aspose.slides/pptxeditexception/) será lançada.
+* Quando o método [remove](https://reference.aspose.com/slides/pt/python-net/aspose.slides/comment/remove/) da classe [Comment](https://reference.aspose.com/slides/pt/python-net/aspose.slides/comment/) é usado para excluir um comentário, todas as respostas a esse comentário também são excluídas.
+* Se a propriedade [parent_comment](https://reference.aspose.com/slides/pt/python-net/aspose.slides/comment/parent_comment/) criar uma referência circular, uma [PptxEditException](https://reference.aspose.com/slides/pt/python-net/aspose.slides/pptxeditexception/) é lançada.
 {{% /alert %}}
 
 ## **Adicionar comentários modernos**
 
 Comentários modernos podem ser associados ao próprio slide, a uma forma específica ou a um intervalo de texto dentro de um AutoShape. O método [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/pt/python-net/aspose.slides/commentcollection/add_modern_comment/) aceita um argumento [Shape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/) além do slide e das coordenadas do marcador de comentário.
 
-Quando `None` é passado para o argumento shape, o comentário é um comentário de nível de slide. Seu marcador é posicionado pelas coordenadas fornecidas, mas não está associado a nenhuma forma específica, portanto [ModernComment.shape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/moderncomment/shape/) retorna `None`. Quando uma [Shape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/) é fornecida, o comentário é ancorado a essa forma. As coordenadas ainda definem a posição do marcador de comentário no slide, enquanto a associação à forma pode ser obtida através de [ModernComment.shape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/moderncomment/shape/).
+Quando `None` é passado para o argumento shape, o comentário é um comentário de nível de slide. Seu marcador é posicionado pelas coordenadas fornecidas, mas não está associado a uma forma específica, portanto [ModernComment.shape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/moderncomment/shape/) retorna `None`. Quando uma [Shape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/) é fornecida, o comentário é ancorado a essa forma. As coordenadas continuam definindo a posição do marcador de comentário no slide, enquanto a associação à forma pode ser obtida através de [ModernComment.shape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/moderncomment/shape/).
 
 ### **Ancorar um comentário moderno a uma forma**
 
@@ -233,12 +235,12 @@ Para um comentário moderno associado a um [AutoShape](https://reference.aspose.
 
 A propriedade [ModernComment.status](https://reference.aspose.com/slides/pt/python-net/aspose.slides/moderncomment/status/) pode ser lida ou atualizada com um valor da enumeração [ModernCommentStatus](https://reference.aspose.com/slides/pt/python-net/aspose.slides/moderncommentstatus/):
 
-- `NOT_DEFINED` — nenhum status específico de comentário moderno está definido.
+- `NOT_DEFINED` — nenhum status de comentário moderno específico está definido.
 - `ACTIVE` — o comentário está ativo.
 - `RESOLVED` — o comentário foi resolvido.
 - `CLOSED` — o comentário está fechado.
 
-O exemplo a seguir cria um comentário moderno ancorado a uma forma, associa‑o a uma seleção de texto, marca‑o como resolvido, salva a apresentação e verifica os valores após reabrir o arquivo.
+O exemplo a seguir cria um comentário moderno ancorado a uma forma, o associa a uma seleção de texto, marca‑o como resolvido, salva a apresentação e verifica os valores após reabrir o arquivo.
 
 ```python
 from datetime import datetime
@@ -368,13 +370,13 @@ with slides.Presentation() as presentation:
     presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Perguntas frequentes**
+## **FAQ**
 
 **O Aspose.Slides oferece suporte a um status resolvido para comentários modernos?**
 
 Sim. [ModernComment.status](https://reference.aspose.com/slides/pt/python-net/aspose.slides/moderncomment/status/) pode ser lido e definido com um valor [ModernCommentStatus](https://reference.aspose.com/slides/pt/python-net/aspose.slides/moderncommentstatus/), incluindo `RESOLVED`. O status é armazenado na apresentação e pode ser lido novamente após o arquivo ser reaberto.
 
-**Discussões em thread (cadeias de respostas) são suportadas, e há um limite de aninhamento?**
+**Discussões em thread (cadeias de respostas) são suportadas, e existe um limite de aninhamento?**
 
 Sim. Cada comentário pode referenciar seu [parent comment](https://reference.aspose.com/slides/pt/python-net/aspose.slides/comment/parent_comment/), permitindo cadeias de respostas. A API não define um limite específico de profundidade de aninhamento.
 

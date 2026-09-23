@@ -1,6 +1,6 @@
 ---
-title: Správa komentářů v prezentaci v Javě
-linktitle: Komentáře v prezentaci
+title: Spravovat komentáře k prezentaci v Javě
+linktitle: Komentáře k prezentaci
 type: docs
 weight: 100
 url: /cs/java/presentation-comments/
@@ -8,42 +8,44 @@ keywords:
 - komentář
 - moderní komentář
 - komentáře PowerPoint
-- komentáře v prezentaci
-- komentáře na snímcích
+- komentáře k prezentaci
+- komentáře ke snímkům
 - přidat komentář
-- přístup ke komentáři
+- přístup k komentáři
 - upravit komentář
-- odpovědět na komentář
+- odpověď na komentář
 - odstranit komentář
 - smazat komentář
 - PowerPoint
 - prezentace
 - Java
 - Aspose.Slides
-description: "Spravujte komentáře v prezentacích pomocí Aspose.Slides pro Java: přidávejte, čtěte, upravujte, odpovídejte na a odstraňujte komentáře v PowerPointových prezentacích rychle a snadno."
+description: "Spravujte komentáře k prezentaci pomocí Aspose.Slides pro Java: přidávejte, čtěte, upravujte, odpovídejte a odstraňujte komentáře v PowerPoint prezentacích rychle a snadno."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak spravovat komentáře v prezentaci pomocí Aspose.Slides pro Java. Představuje hlavní typy související s komentáři a ukazuje, jak přidávat komentáře do snímků, přistupovat k existujícím komentářům, pracovat s odpověďmi a moderními komentáři a odstraňovat komentáře z prezentace.
+Tento článek vysvětluje, jak spravovat komentáře k prezentaci pomocí Aspose.Slides pro Java. Představuje hlavní typy související s komentáři a ukazuje, jak přidávat komentáře do snímků, přistupovat k existujícím komentářům, pracovat s odpověďmi a moderními komentáři a odstraňovat komentáře z prezentace.
 
-Příklady pokrývají běžné scénáře revizí a spolupráce v PowerPointu, jako je přiřazování komentářů autorům, čtení textu komentáře a metadat, vytváření řetězců odpovědí a odstraňování vybraných nebo všech komentářů.
+Příklady pokrývají běžné scénáře revize a spolupráce v PowerPointu, jako je přiřazování komentářů autorům, čtení textu a metadat komentářů, vytváření řetězců odpovědí a odstraňování vybraných nebo všech komentářů.
 
 V PowerPointu se komentáře zobrazují jako anotace na snímcích. Výběrem komentáře se zobrazí jeho text a související diskuse.
 
+Chcete-li, aby se při otevření prezentace zobrazovaly nebo skrývaly komentáře, aniž byste měnili samotné komentáře, viz [Zobrazit nebo skrýt komentáře při otevírání prezentace](/slides/cs/java/presentation-view-properties/).
+
 ## **Proč přidávat komentáře do prezentací?**
 
-Komentáře můžete použít k poskytnutí zpětné vazby a ke spolupráci s kolegy při revizi prezentací.
+Můžete použít komentáře k poskytování zpětné vazby a spolupráci s kolegy při revizi prezentací.
 
 Aspose.Slides pro Java poskytuje následující API pro práci s komentáři:
 
-* Třída [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/), která umožňuje přístup k autorům komentářů v prezentaci.
+* Třída [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/), která poskytuje přístup k autorům komentářů v prezentaci.
 * Rozhraní [ICommentCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icommentcollection/), které představuje komentáře přiřazené konkrétnímu autorovi.
-* Rozhraní [IComment](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icomment/), které poskytuje informace o komentáři, včetně autora, času vytvoření, polohy a textu.
+* Rozhraní [IComment](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icomment/), které poskytuje informace o komentáři, včetně autora, času vytvoření, pozice a textu.
 * Třída [CommentAuthor](https://reference.aspose.com/slides/cs/java/com.aspose.slides/commentauthor/), která poskytuje informace o autorovi, včetně jména, iniciál a přiřazených komentářů.
 
 ## **Přidání komentářů do snímků**
 
-Následující příklad ukazuje, jak přidat komentáře do snímků v PowerPointové prezentaci:
+Následující příklad ukazuje, jak přidat komentáře do snímků v PowerPoint prezentaci:
 
 ```java
 import com.aspose.slides.IComment;
@@ -84,7 +86,7 @@ try {
 
 ## **Přístup ke komentářům ve snímcích**
 
-Následující příklad ukazuje, jak přistupovat k existujícím komentářům v PowerPointové prezentaci:
+Následující příklad ukazuje, jak získat přístup k existujícím komentářům v PowerPoint prezentaci:
 
 ```java
 import com.aspose.slides.IComment;
@@ -109,9 +111,9 @@ try {
 
 ## **Odpovědi na komentáře**
 
-Rodičovský komentář je původní komentář na vrcholu hierarchie odpovědí. Metody [IComment.getParentComment](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icomment/#getParentComment--) a [IComment.setParentComment](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) umožňují získat nebo nastavit rodiče komentáře.
+Rodičovský komentář je původní komentář na vrcholu hierarchie odpovědí. Metody [IComment.getParentComment](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icomment/#getParentComment--) a [IComment.setParentComment](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) umožňují získat nebo nastavit rodičovský komentář.
 
-Následující příklad ukazuje, jak přidat odpovědi a prozkoumat vzniklou hierarchii komentářů:
+Následující příklad ukazuje, jak přidat odpovědi a zkontrolovat výslednou hierarchii komentářů:
 
 ```java
 import com.aspose.slides.IComment;
@@ -168,19 +170,19 @@ try {
 ```
 
 {{% alert color="warning" title="Varování" %}}
-* Když je použita metoda [IComment.remove](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icomment/#remove--), jsou smazány i všechny odpovědi na tento komentář.
-* Pokud metoda [IComment.setParentComment](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) vytvoří kruhovou referenci, je vyhozena výjimka [PptxEditException](https://reference.aspose.com/slides/cs/java/com.aspose.slides/pptxeditexception/).
+* Když je metoda [IComment.remove](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icomment/#remove--) použita k odstranění komentáře, všechny odpovědi na tento komentář jsou také smazány.
+* Pokud [IComment.setParentComment](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) vytvoří cyklický odkaz, je vyvolána výjimka [PptxEditException](https://reference.aspose.com/slides/cs/java/com.aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Přidání moderních komentářů**
 
-Moderní komentáře mohou být přiřazeny přímo ke snímku, konkrétnímu tvaru nebo textovému rozsahu uvnitř AutoShape. Metoda [ICommentCollection.addModernComment](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) přijímá argument [IShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/) kromě snímku a souřadnic ukazatele komentáře.
+Moderní komentáře mohou být přiřazeny přímo ke snímku, ke konkrétnímu tvaru nebo k oblasti textu uvnitř AutoShape. Metoda [ICommentCollection.addModernComment](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) přijímá argument [IShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/) kromě snímku a souřadnic značky komentáře.
 
-Když je pro argument shape předáno `null`, jde o komentář úrovně snímku. Jeho ukazatel je umístěn podle zadaných souřadnic, ale není spojen s konkrétním tvarem, takže [IModernComment.getShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#getShape--) vrací `null`. Když je předán [IShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/), je komentář ukotven k tomuto tvaru. Souřadnice stále určují polohu ukazatele komentáře na snímku, zatímco asociaci s tvarem lze získat přes [IModernComment.getShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#getShape--).
+Když je pro argument tvaru předána hodnota `null`, komentář je komentář na úrovni snímku. Jeho značka je umístěna podle zadaných souřadnic, ale není přiřazena konkrétnímu tvaru, takže metoda [IModernComment.getShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#getShape--) vrací `null`. Když je předán [IShape], komentář je ukotven k tomuto tvaru. Souřadnice i nadále určují pozici značky komentáře na snímku, zatímco přiřazení tvaru lze získat pomocí [IModernComment.getShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#getShape--).
 
-### **Ukotvení moderního komentáře k tvaru**
+### **Ukotvení moderního komentáře do tvaru**
 
-Následující příklad vytvoří jak moderní komentář úrovně snímku, tak moderní komentář ukotvený k určitému AutoShape. Poté načte přiřazený tvar z každého komentáře.
+Následující příklad vytváří jak moderní komentář na úrovni snímku, tak moderní komentář ukotvený ke konkrétnímu AutoShape. Poté čte přiřazený tvar u každého komentáře.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -218,9 +220,9 @@ try {
 
 ### **Ukotvení komentářů k různým typům tvarů**
 
-Jakýkoli objekt snímku, který implementuje [IShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/), může být použit jako ukotvení tvaru. Běžné příklady zahrnují [IAutoShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iconnector/) a instance [IGraphicalObject](https://reference.aspose.com/slides/cs/java/com.aspose.slides/igraphicalobject/) jako jsou grafy.
+Jakýkoli objekt snímku implementující [IShape] může být použit jako ukotvení tvaru. Běžné příklady zahrnují [IAutoShape], [IPictureFrame], [IGroupShape], [IConnector] a instance [IGraphicalObject] jako jsou grafy.
 
-Následující příklad vytvoří několik běžných typů tvarů a přiřadí k nim moderní komentář.
+Následující příklad vytváří několik běžných typů tvarů a přiřazuje k nim moderní komentář.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -279,16 +281,16 @@ try {
 
 ### **Ukotvení komentáře k textu a nastavení jeho stavu**
 
-Pro moderní komentář přiřazený k [IAutoShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iautoshape/) poskytují metody [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) a [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) počáteční pozici vybraného textu v textovém rámci tvaru. Metody [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) a [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) přistupují k délce výběru. Společně tyto hodnoty přiřazují komentář konkrétnímu textovému rozsahu uvnitř AutoShape.
+Pro moderní komentář přiřazený k [IAutoShape] lze pomocí metod [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) a [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) získat počáteční pozici vybraného textu v textovém rámečku tvaru. Metody [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) a [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) získávají délku výběru. Tyto hodnoty společně spojují komentář s konkrétním úsekem textu uvnitř AutoShape.
 
-Metody [IModernComment.getStatus](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#getStatus--) a [IModernComment.setStatus](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#setStatus-byte-) získávají hodnotu ze seznamu konstant [ModernCommentStatus](https://reference.aspose.com/slides/cs/java/com.aspose.slides/moderncommentstatus/):
+Metody [IModernComment.getStatus](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#getStatus--) a [IModernComment.setStatus](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#setStatus-byte-) přistupují k hodnotě ze skupiny konstant [ModernCommentStatus](https://reference.aspose.com/slides/cs/java/com.aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — není definován žádný konkrétní stav moderního komentáře.
+- `NotDefined` — žádný konkrétní stav moderního komentáře není definován.
 - `Active` — komentář je aktivní.
 - `Resolved` — komentář byl vyřešen.
 - `Closed` — komentář je uzavřen.
 
-Následující příklad vytvoří moderní komentář ukotvený k tvaru, přiřadí jej k výběru textu, označí jej jako vyřešený, uloží prezentaci a po opětovném otevření souboru ověří hodnoty.
+Následující příklad vytváří moderní komentář ukotvený k tvaru, přiřadí jej k výběru textu, označí jej jako vyřešený, uloží prezentaci a po opětovném otevření souboru ověří hodnoty.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -355,7 +357,7 @@ try {
 
 ### **Prozkoumání existujících moderních komentářů**
 
-Pro prozkoumání existující prezentace zjistěte, které komentáře implementují [IModernComment](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/), pak prohlédněte [IModernComment.getShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) a [IModernComment.getStatus](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#getStatus--). `null` tvar naznačuje komentář úrovně snímku. Pro ukotvení k [IAutoShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iautoshape/) metody výběru textu identifikují přiřazený rozsah v textovém rámci tvaru.
+Pro zkoumání existující prezentace zjistěte, které komentáře implementují [IModernComment], poté prohlédněte [IModernComment.getShape], [IModernComment.getTextSelectionStart], [IModernComment.getTextSelectionLength] a [IModernComment.getStatus]. `null` tvar značí komentář na úrovni snímku. U ukotvení na [IAutoShape] identifikují metody výběru textu příslušný rozsah v textovém rámečku tvaru.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -473,14 +475,14 @@ try {
 
 ## **Často kladené otázky**
 
-**Podporuje Aspose.Slides stav vyřešeného moderního komentáře?**
+**Podporuje Aspose.Slides stav "vyřešeno" pro moderní komentáře?**
 
-Ano. Metody [IModernComment.getStatus](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#getStatus--) a [IModernComment.setStatus](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#setStatus-byte-) přistupují k hodnotě [ModernCommentStatus](https://reference.aspose.com/slides/cs/java/com.aspose.slides/moderncommentstatus/), včetně `Resolved`. Stav je uložen v prezentaci a lze jej znovu přečíst po opětovném otevření souboru.
+Ano. Metody [IModernComment.getStatus](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#getStatus--) a [IModernComment.setStatus](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imoderncomment/#setStatus-byte-) přistupují k hodnotě ze skupiny [ModernCommentStatus], včetně `Resolved`. Stav je uložen v prezentaci a lze jej po opětovném otevření souboru znovu přečíst.
 
-**Jsou podporovány vlákna diskusí (řetězce odpovědí) a existuje limit zanoření?**
+**Jsou podporovány vlákna diskusí (řetězce odpovědí) a existuje limit pro vnoření?**
 
-Ano. Každý komentář může odkazovat na svůj [parent comment](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icomment/#getParentComment--), což umožňuje řetězce odpovědí. API nedefinuje konkrétní limit hloubky zanoření.
+Ano. Každý komentář může odkazovat na svůj [parent comment](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icomment/#getParentComment--), což umožňuje řetězce odpovědí. API neuvádí konkrétní limit hloubky vnoření.
 
-**V jakém souřadnicovém systému je určena pozice ukazatele komentáře na snímku?**
+**V jakém souřadnicovém systému je definována pozice značky komentáře na snímku?**
 
-Pozice ukazatele je definována pomocí desetinných souřadnic v souřadnicovém systému snímku, což vám umožní jej přesně umístit na snímek.
+Pozice značky je definována pomocí desetinných souřadnic v souřadnicovém systému snímku, což umožňuje její přesné umístění na snímku.

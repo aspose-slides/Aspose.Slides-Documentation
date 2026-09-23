@@ -1,6 +1,6 @@
 ---
-title: "Node.js-ben a bemutató megjegyzéseinek kezelése"
-linktitle: "Bemutató megjegyzések"
+title: Prezentációs megjegyzések kezelése Node.js-ben
+linktitle: Prezentációs megjegyzések
 type: docs
 weight: 100
 url: /hu/nodejs-java/presentation-comments/
@@ -8,7 +8,7 @@ keywords:
 - megjegyzés
 - modern megjegyzés
 - PowerPoint megjegyzések
-- bemutató megjegyzések
+- prezentációs megjegyzések
 - dia megjegyzések
 - megjegyzés hozzáadása
 - megjegyzés elérése
@@ -17,34 +17,36 @@ keywords:
 - megjegyzés eltávolítása
 - megjegyzés törlése
 - PowerPoint
-- bemutató
+- prezentáció
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "A Aspose.Slides for Node.js via Java segítségével bemutató megjegyzések kezelése: megjegyzések hozzáadása, olvasása, szerkesztése, válaszadás és eltávolítása PowerPoint bemutatókban."
+description: "Kezelje a prezentációs megjegyzéseket az Aspose.Slides for Node.js via Java segítségével: megjegyzések hozzáadása, olvasása, szerkesztése, válaszolás és eltávolítása PowerPoint prezentációkban."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan kezelhető a bemutató megjegyzései az Aspose.Slides for Node.js via Java segítségével. Ismerteti a megjegyzésekkel kapcsolatos fő típusokat, és bemutatja, hogyan adhatunk megjegyzéseket a diákhoz, hogyan érhetjük el a meglévő megjegyzéseket, hogyan dolgozhatunk válaszokkal és modern megjegyzésekkel, illetve hogyan távolíthatjuk el a megjegyzéseket a bemutatóból.
+Ez a cikk bemutatja, hogyan kezelhetők a prezentáció megjegyzései az Aspose.Slides for Node.js via Java segítségével. Bemutatja a megjegyzésekkel kapcsolatos fő típusokat, és megmutatja, hogyan lehet megjegyzéseket hozzáadni a diákhoz, meglévő megjegyzéseket elérni, válaszokkal és modern megjegyzésekkel dolgozni, illetve megjegyzéseket eltávolítani egy prezentációból.
 
-A példák lefedik a PowerPoint tipikus felülvizsgálati és együttműködési forgatókönyveit, például a megjegyzések szerzőkhöz rendelését, a megjegyzés szövegének és metaadatainak olvasását, válaszláncok építését, valamint a kiválasztott vagy az összes megjegyzés eltávolítását.
+A példák a PowerPointban gyakori felülvizsgálati és együttműködési helyzeteket fedik le, például a megjegyzések szerzőkhöz rendelését, a megjegyzés szövegének és metaadatainak olvasását, a válaszkötetek építését, valamint a kijelölt vagy az összes megjegyzés eltávolítását.
 
 A PowerPointban a megjegyzések annotációként jelennek meg a diákon. Egy megjegyzés kiválasztása megjeleníti a szövegét és a kapcsolódó beszélgetést.
 
-## **Miért adjunk megjegyzéseket a bemutatókhoz?**
+A megjegyzések megjelenítése vagy elrejtése a prezentáció megnyitásakor: [Megjegyzések megjelenítése vagy elrejtése a prezentáció megnyitásakor](/slides/hu/nodejs-java/presentation-view-properties/).
 
-A megjegyzéseket felhasználhatja visszajelzés adására és a kollégákkal való együttműködésre a bemutatók áttekintése során.
+## **Miért érdemes megjegyzéseket hozzáadni a prezentációkhoz?**
 
-Az Aspose.Slides for Node.js via Java a következő API-kat biztosítja a megjegyzésekkel való munkához:
+A megjegyzéseket felhasználhatja visszajelzés adására és együttműködésre a kollégákkal a prezentációk áttekintése során.
 
-* A [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztály, amely hozzáférést biztosít a bemutató megjegyzés‑szerzőihez.
+Az Aspose.Slides for Node.js via Java a következő API-kat biztosítja a megjegyzésekkel való munkahoz:
+
+* A [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztály, amely hozzáférést biztosít a prezentáció megjegyzés szerzőihez.
 * A [CommentCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/commentcollection/) osztály, amely egy adott szerzőhöz tartozó megjegyzéseket képviseli.
-* A [Comment](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/comment/) osztály, amely információkat ad egy megjegyzésről, többek között a szerzőjéről, létrehozási időről, pozícióról és a szövegről.
-* A [CommentAuthor](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/commentauthor/) osztály, amely információkat ad egy szerzőről, többek között a nevéről, monogramjáról és az ahhoz tartozó megjegyzésekről.
+* A [Comment](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/comment/) osztály, amely információkat nyújt egy megjegyzésről, beleértve a szerzőt, a létrehozási időt, a pozíciót és a szöveget.
+* A [CommentAuthor](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/commentauthor/) osztály, amely információkat ad egy szerzőről, beleértve a nevüket, a monogramot és a kapcsolódó megjegyzéseket.
 
-## **Dia‑megjegyzések hozzáadása**
+## **Diák megjegyzéseinek hozzáadása**
 
-Az alábbi példa bemutatja, hogyan adhatunk megjegyzéseket a diákhoz egy PowerPoint‑bemutatóban:
+Az alábbi példa bemutatja, hogyan adhatunk megjegyzéseket a diákhoz egy PowerPoint prezentációban:
 
 ```javascript
 var aspose = aspose || {};
@@ -78,9 +80,9 @@ try {
 }
 ```
 
-## **Dia‑megjegyzések elérése**
+## **Diák megjegyzéseinek elérése**
 
-Az alábbi példa bemutatja, hogyan érhetők el a meglévő megjegyzések egy PowerPoint‑bemutatóban:
+Az alábbi példa bemutatja, hogyan érhetjük el a meglévő megjegyzéseket egy PowerPoint prezentációban:
 
 ```javascript
 var aspose = aspose || {};
@@ -107,11 +109,11 @@ try {
 }
 ```
 
-## **Megjegyzésekre válaszolás**
+## **Megjegyzésekre válasz**
 
-Egy szülő megjegyzés a válasz‑hierarchia tetején lévő eredeti megjegyzés. A [Comment.getParentComment](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/comment/getparentcomment/) és a [Comment.setParentComment](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/comment/setparentcomment/) metódusok lehetővé teszik a szülő megjegyzés lekérését vagy beállítását.
+A szülő megjegyzés az eredeti megjegyzés a válaszhierarchia csúcsán. A [Comment.getParentComment](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/comment/getparentcomment/) és a [Comment.setParentComment](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/comment/setparentcomment/) metódusok lehetővé teszik a megjegyzés szülőjének lekérését vagy beállítását.
 
-Az alábbi példa bemutatja, hogyan adhatunk válaszokat, és hogyan vizsgálhatjuk meg a kapott megjegyzés‑hierarchiát:
+Az alábbi példa bemutatja, hogyan adhatunk válaszokat, és hogyan vizsgálhatjuk meg a keletkezett megjegyzési hierarchiát:
 
 ```javascript
 var aspose = aspose || {};
@@ -165,21 +167,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-
-* Amikor a [Comment.remove](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/comment/remove/) metódust használják egy megjegyzés törlésére, a megjegyzés minden válasza is törlésre kerül.
-* Ha a [Comment.setParentComment](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/comment/setparentcomment/) körkörös hivatkozást hoz létre, egy [PptxEditException](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pptxeditexception/) kerül dobásra.
-
+* Ha a [Comment.remove](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/comment/remove/) metódust használják egy megjegyzés törlésére, a megjegyzéshez tartozó összes válasz is törlődik.
+* Ha a [Comment.setParentComment](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/comment/setparentcomment/) körkörös hivatkozást hoz létre, akkor egy [PptxEditException](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pptxeditexception/) kivétel kerül dobásra.
 {{% /alert %}}
 
 ## **Modern megjegyzések hozzáadása**
 
-Modern megjegyzések társíthatók a diára, egy konkrét alakzatra, vagy egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) szövegtartományához. A [CommentCollection.addModernComment](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) metódus egy [Shape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/) argumentumot is elfogad a dián és a megjegyzés‑jelző koordináták mellett.
+Modern megjegyzések kapcsolhatók a diádhoz, egy adott alakzathoz vagy egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) szövegtartományához. A [CommentCollection.addModernComment](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) metódus egy [Shape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/) argumentumot is elfogad a dia és a megjegyzés jelző koordinátái mellett.
 
-Ha a shape argumentum `null` értékkel kerül átadásra, a megjegyzés diaszintű megjegyzés lesz. Jelzőjét a megadott koordináták határozzák meg, de nem kapcsolódik egy adott alakzathoz, ezért a [ModernComment.getShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/getshape/) `null`‑t ad vissza. Ha egy [Shape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/) kerül megadásra, a megjegyzés ahhoz az alakzathoz lesz rögzítve. A koordináták továbbra is a megjegyzés jelzőjének pozícióját határozzák meg a dián, míg az alakzati kapcsolat a [ModernComment.getShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/getshape/) segítségével lekérhető.
+Ha a `null` értéket adjuk meg a shape argumentumnak, a megjegyzés dia‑szintű megjegyzés lesz. Jelzője a megadott koordináták alapján helyezkedik el, de nincs hozzákapcsolva konkrét alakzathoz, ezért a [ModernComment.getShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/getshape/) `null`‑t ad vissza. Ha egy [Shape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/) kerül megadásra, a megjegyzés ehhez az alakzathoz lesz rögzítve. A koordináták továbbra is a megjegyzés jelző pozícióját határozzák meg a dián, míg az alakzathoz való kötést a [ModernComment.getShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/getshape/) lekérdezésével nyerhetjük ki.
 
-### **Modern megjegyzés rögzítése egy alakzatra**
+### **Modern megjegyzés rögzítése alakzatra**
 
-Az alábbi példa egy diaszintű modern megjegyzést és egy konkrét [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/)‑re rögzített modern megjegyzést hoz létre, majd kiolvassa mindkét megjegyzéshez kapcsolódó alakzatot.
+Az alábbi példa létrehoz egy dia‑szintű modern megjegyzést és egy adott [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) alakzatra rögzített modern megjegyzést. Ezután mindkét megjegyzéshez tartozó alakzatot kiolvassa.
 
 ```javascript
 var aspose = aspose || {};
@@ -209,11 +209,11 @@ try {
 }
 ```
 
-### **Megjegyzések rögzítése különböző alakzat‑típusokra**
+### **Megjegyzések rögzítése különböző alakzat típusokra**
 
-Bármely, a [Shape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/)‑ből származó diaobjektum használható alakzat‑rögzítési pontként. Gyakori példák a [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/), a [PictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframe/), a [GroupShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/groupshape/), a [Connector](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/connector/) és a [GraphicalObject](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/graphicalobject/) példányok, például diagramok.
+Bármely, a [Shape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/) osztályból származó dia‑objektum használható alakzatra való rögzítéshez. Gyakori példák: [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/connector/) és [GraphicalObject](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/graphicalobject/) például diagramok.
 
-Az alábbi példa több gyakori alakzat‑típust hoz létre, és mindegyikhez modern megjegyzést társít.
+Az alábbi példa több gyakori alakzattípust hoz létre, és mindegyikhez modern megjegyzést rendel.
 
 ```javascript
 var aspose = aspose || {};
@@ -258,18 +258,18 @@ try {
 }
 ```
 
-### **Megjegyzés rögzítése szövegre és állapotának beállítása**
+### **Megjegyzés rögzítése szöveghez és állapotának beállítása**
 
-Egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/)‑hez társított modern megjegyzés esetén a [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) és a [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) a kiválasztott szöveg kezdőpozícióját adja vissza az alakzat szövegtáblájában. A [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) és a [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) a kijelölés hosszát adja vissza. Ezek az értékek együtt az megjegyzést egy konkrét szövegtartományhoz kötik az [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/)‑ben.
+Egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/)-hez kapcsolódó modern megjegyzés esetén a [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) és a [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) a szövegkeretben kiválasztott szöveg kezdőpozícióját adja meg. A [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) és a [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) a kijelölés hosszát adja meg. Ezekkel az értékekkel a megjegyzés egy konkrét szövegtartományhoz kapcsolódik az [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/)-ben.
 
-A [ModernComment.getStatus](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/getstatus/) és a [ModernComment.setStatus](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/setstatus/) metódusok egy értéket adnak vissza a [ModernCommentStatus](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncommentstatus/) felsorolásból:
+A [ModernComment.getStatus](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/getstatus/) és a [ModernComment.setStatus](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/setstatus/) metódusok a [ModernCommentStatus](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncommentstatus/) felsorolásból egy értéket adnak vissza:
 
-- `NotDefined` – nincs definiálva konkrét modern‑megjelzési állapot.
-- `Active` – a megjegyzés aktív.
-- `Resolved` – a megjegyzés megoldott.
-- `Closed` – a megjegyzés lezárt.
+- `NotDefined` — nincs meghatározott modern megjegyzés állapot.
+- `Active` — a megjegyzés aktív.
+- `Resolved` — a megjegyzés megoldott.
+- `Closed` — a megjegyzés lezárt.
 
-Az alábbi példa egy alakzatra rögzített modern megjegyzést hoz létre, szövegjelöléshez társítja, megoldottként jelöli, elmenti a bemutatót, majd a fájl újbóli megnyitása után ellenőrzi az értékeket.
+Az alábbi példa létrehoz egy alakzatra rögzített modern megjegyzést, szövegválasztáshoz kapcsolja, megoldottként jelöli, elmenti a prezentációt, majd a fájl újbóli megnyitása után ellenőrzi az értékeket.
 
 ```javascript
 var aspose = aspose || {};
@@ -329,7 +329,7 @@ try {
 
 ### **Meglévő modern megjegyzések vizsgálata**
 
-Egy meglévő bemutató vizsgálatához ellenőrizze, mely megjegyzések [ModernComment](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/) példányok, majd tekintse meg a [ModernComment.getShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/getshape/), a [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), a [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) és a [ModernComment.getStatus](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/getstatus/) eredményeit. Egy `null` alakzat diaszintű megjegyzést jelent. Egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) rögzítés esetén a szövegkijelölés‑metódusok az alakzat szövegtáblájában lévő tartományt azonosítják.
+Egy meglévő prezentáció vizsgálatához ellenőrizze, mely megjegyzések [ModernComment](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/) példányok, majd tekintse meg a [ModernComment.getShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) és [ModernComment.getStatus](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/getstatus/) értékeket. A `null` alakzat dia‑szintű megjegyzést jelez. Egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) horgonynál a szövegkiválasztási metódusok az alakzat szövegtáblájában lévő tartományt azonosítják.
 
 ```javascript
 var aspose = aspose || {};
@@ -376,9 +376,9 @@ try {
 
 ## **Megjegyzések eltávolítása**
 
-### **Minden megjegyzés és megjegyzés‑szerző eltávolítása**
+### **Minden megjegyzés és megjegyzés szerző eltávolítása**
 
-Az alábbi példa bemutatja, hogyan lehet eltávolítani az összes megjegyzést és megjegyzés‑szerzőt egy bemutatóból:
+Az alábbi példa bemutatja, hogyan lehet eltávolítani minden megjegyzést és megjegyzés szerzőt egy prezentációból:
 
 ```javascript
 var aspose = aspose || {};
@@ -398,9 +398,9 @@ try {
 }
 ```
 
-### **Külön meghatározott megjegyzések eltávolítása**
+### **Specifikus megjegyzések eltávolítása**
 
-Az alábbi példa bemutatja, hogyan lehet egy diáról konkrét megjegyzéseket eltávolítani:
+Az alábbi példa bemutatja, hogyan lehet specifikus megjegyzéseket eltávolítani egy diáról:
 
 ```javascript
 var aspose = aspose || {};
@@ -444,14 +444,14 @@ try {
 
 ## **GYIK**
 
-**Támogatja-e az Aspose.Slides a modern megjegyzések megoldott állapotát?**
+**Támogatja az Aspose.Slides a megoldott állapotot a modern megjegyzésekhez?**
 
-Igen. A [ModernComment.getStatus](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/getstatus/) és a [ModernComment.setStatus](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/setstatus/) egy [ModernCommentStatus](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncommentstatus/) értéket ad vissza, beleértve a `Resolved` állapotot. Az állapot a bemutatóban tárolódik, és a fájl újbóli megnyitása után újra kiolvasható.
+Igen. A [ModernComment.getStatus](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/getstatus/) és a [ModernComment.setStatus](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncomment/setstatus/) egy [ModernCommentStatus](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/moderncommentstatus/) értéket ad vissza, többek között a `Resolved` állapotot. Az állapot a prezentációban tárolódik, és a fájl újra megnyitása után ismét beolvasható.
 
-**Támogatottak-e a szálas beszélgetések (válasz‑láncok), és van‑e beágyazási limit?**
+**Támogatottak a szálas megbeszélések (válaszkötetek), és van-e beágyazási korlát?**
 
-Igen. Minden megjegyzés hivatkozhat a [parent comment](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/comment/getparentcomment/)-ra, lehetővé téve a válasz‑láncokat. Az API nem definiál konkrét beágyazási mélység‑limitet.
+Igen. Minden megjegyzés hivatkozhat a [szülő megjegyzésére](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/comment/getparentcomment/), ami lehetővé teszi a válaszköteteket. Az API nem határoz meg konkrét beágyazási mélység‑korlátot.
 
-**Milyen koordináta‑rendszerben van definiálva egy megjegyzés‑jelző pozíciója a dián?**
+**Milyen koordináta‑rendszerben van meghatározva a megjegyzés jelző pozíciója a dián?**
 
-A jelző pozíciója lebegőpontos koordinátákkal van megadva a dia koordináta‑rendszerében, ami lehetővé teszi a pontos elhelyezést a dián.
+A jelző pozíciója lebegőpontos koordinátákkal van definiálva a dia koordináta‑rendszerében, lehetővé téve a pontos elhelyezést a dián.

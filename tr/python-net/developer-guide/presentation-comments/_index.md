@@ -1,49 +1,51 @@
 ---
-title: Python'da Sunum Yorumlarını Yönetme
+title: Python'da Sunum Yorumlarını Yönet
 linktitle: Sunum Yorumları
 type: docs
 weight: 100
 url: /tr/python-net/presentation-comments/
 keywords:
-  - yorum
-  - modern yorum
-  - PowerPoint yorumları
-  - sunum yorumları
-  - slayt yorumları
-  - yorum ekle
-  - yorum erişimi
-  - yorum düzenle
-  - yorum yanıtla
-  - yorum kaldır
-  - yorum sil
-  - PowerPoint
-  - sunum
-  - Python
-  - Aspose.Slides
-description: "Aspose.Slides for Python via .NET ile sunum yorumlarını yönetin: PowerPoint sunumlarında yorum ekleme, okuma, düzenleme, yanıtlama ve kaldırma."
+- yorum
+- modern yorum
+- PowerPoint yorumları
+- sunum yorumları
+- slayt yorumları
+- yorum ekle
+- yoruma eriş
+- yorum düzenle
+- yorum yanıtla
+- yorum kaldır
+- yorum sil
+- PowerPoint
+- sunum
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET ile sunum yorumlarını yönetin: PowerPoint sunumlarında yorum ekleyin, okuyun, düzenleyin, yanıtlayın ve kaldırın."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Python via .NET kullanarak sunum yorumlarını nasıl yöneteceğinizi açıklar. Ana yorumla ilgili tipleri tanıtır ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlar ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma işlemlerini gösterir.
+Bu makale, Aspose.Slides for Python via .NET ile sunum yorumlarını nasıl yöneteceğinizi açıklar. Ana yorumla ilgili tipleri tanıtır ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlar ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma konularını gösterir.
 
-Örnekler, PowerPoint'te yaygın gözden geçirme ve işbirliği senaryolarını kapsar; örneğin yorumları yazarlara atama, yorum metni ve meta verilerini okuma, yanıt zincirleri oluşturma ve seçili yorumları ya da tüm yorumları kaldırma.
+Örnekler, PowerPoint'te yaygın inceleme ve işbirliği senaryolarını kapsar; yorumları yazarlara atama, yorum metni ve meta verileri okuma, yanıt zincirleri oluşturma ve seçili yorumları ya da tüm yorumları kaldırma gibi.
 
-PowerPoint'te yorumlar, slaytların üzerindeki ek açıklamalar olarak görünür. Bir yorumu seçmek, metnini ve ilgili tartışmayı gösterir.
+PowerPoint'te yorumlar, slaytlardaki açıklama olarak görünür. Bir yorumu seçmek, metnini ve ilgili tartışmayı gösterir.
 
-## **Sunumalara Neden Yorum Eklenir?**
+Sunum açılırken yorumların gösterilmesini veya gizlenmesini, yorumların kendisi değiştirilmeden talep etmek için, [Sunum Açılırken Yorumları Göster veya Gizle](/slides/tr/python-net/presentation-view-properties/) bölümüne bakın.
 
-Sunumları incelerken geri bildirim sağlamak ve meslektaşlarınızla işbirliği yapmak için yorumları kullanabilirsiniz.
+## **Sunumlara Neden Yorum Eklenir?**
 
-Aspose.Slides for Python via .NET, yorumlarla çalışmak için aşağıdaki API'leri sağlar:
+Sunumları incelerken geri bildirim sağlamak ve meslektaşlarla işbirliği yapmak için yorumları kullanabilirsiniz.
 
-* Sunumun yorum yazarlarına erişim sağlayan [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfı.
-* Tek bir yazarla ilişkili yorumları temsil eden [CommentCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/commentcollection/) sınıfı.
-* Bir yorum hakkında yazar, oluşturma zamanı, konum ve metin gibi bilgileri sağlayan [Comment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/comment/) sınıfı.
-* Bir yazar hakkında adı, baş harfleri ve ilişkili yorumlar gibi bilgileri sağlayan [CommentAuthor](https://reference.aspose.com/slides/tr/python-net/aspose.slides/commentauthor/) sınıfı.
+Aspose.Slides for Python via .NET, yorumlarla çalışmak için aşağıdaki API'leri sunar:
 
-## **Slayt Yorumları Ekleme**
+* The [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfı, sunumun yorum yazarlarına erişim sağlar.
+* The [CommentCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/commentcollection/) sınıfı, bireysel bir yazarla ilişkili yorumları temsil eder.
+* The [Comment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/comment/) sınıfı, bir yorum hakkında yazar, oluşturulma zamanı, konum ve metin gibi bilgiler sağlar.
+* The [CommentAuthor](https://reference.aspose.com/slides/tr/python-net/aspose.slides/commentauthor/) sınıfı, bir yazar hakkında adı, baş harfleri ve ilişkili yorumlar gibi bilgiler sağlar.
 
-PowerPoint sunumundaki slaytlara yorum eklemenin bir örneği aşağıdadır:
+## **Slaytlara Yorum Ekle**
+
+Aşağıdaki örnek, bir PowerPoint sunumundaki slaytlara yorum eklemeyi gösterir:
 
 ```python
 from datetime import datetime
@@ -72,9 +74,9 @@ with slides.Presentation() as presentation:
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Slayt Yorumlarına Erişme**
+## **Slayt Yorumlarına Erişim**
 
-PowerPoint sunumunda mevcut yorumlara erişmenin bir örneği aşağıdadır:
+Aşağıdaki örnek, bir PowerPoint sunumundaki mevcut yorumlara nasıl erişileceğini gösterir:
 
 ```python
 import aspose.slides as slides
@@ -91,9 +93,9 @@ with slides.Presentation("Comments1.pptx") as presentation:
 
 ## **Yorumlara Yanıt Verme**
 
-Üst yorum, yanıt hiyerarşisinin en üstündeki orijinal yorumdur. [Comment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/comment/) sınıfının [parent_comment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/comment/parent_comment/) özelliği, bir yorumun üst yorumunu almanızı veya ayarlamanızı sağlar.
+Üst yorum, bir yanıt hiyerarşisinin en üstündeki orijinal yorumdur. Comment sınıfının [parent_comment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/comment/parent_comment/) özelliği, bir yorumun üstünü almanıza veya ayarlamanıza olanak tanır.
 
-Yanıt ekleme ve oluşan yorum hiyerarşisini incelemenin bir örneği aşağıdadır:
+Aşağıdaki örnek, yanıt eklemeyi ve ortaya çıkan yorum hiyerarşisini incelemeyi gösterir:
 
 ```python
 from datetime import datetime
@@ -141,19 +143,19 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Bir yorumun silinmesi için [Comment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/comment/) sınıfının [remove](https://reference.aspose.com/slides/tr/python-net/aspose.slides/comment/remove/) yöntemi kullanıldığında, o yoruma ait tüm yanıtlar da silinir.
-* [parent_comment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/comment/parent_comment/) özelliği döngüsel bir referans oluşturursa, bir [PptxEditException](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pptxeditexception/) istisnası fırlatılır.
+* [Comment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/comment/) sınıfının [remove](https://reference.aspose.com/slides/tr/python-net/aspose.slides/comment/remove/) yöntemi bir yorumu silmek için kullanıldığında, o yoruma ait tüm yanıtlar da silinir.
+* [parent_comment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/comment/parent_comment/) özelliği dairesel bir referans oluşturursa, bir [PptxEditException](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pptxeditexception/) istisnası fırlatılır.
 {{% /alert %}}
 
-## **Modern Yorumlar Ekleme**
+## **Modern Yorumlar Ekle**
 
-Modern yorumlar, slaytın kendisi, belirli bir şekil veya bir AutoShape içindeki metin aralığı ile ilişkilendirilebilir. [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/commentcollection/add_modern_comment/) yöntemi, slayt ve yorum işaretleyici koordinatlarına ek olarak bir [Shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/) parametresi alır.
+Modern yorumlar, slaytın kendisiyle, belirli bir şekille veya bir AutoShape içindeki metin aralığıyla ilişkilendirilebilir. [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/commentcollection/add_modern_comment/) yöntemi, slayt ve yorum işaretleyici koordinatlarına ek olarak bir [Shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/) argümanı kabul eder.
 
-`shape` parametresi `None` olarak verildiğinde yorum, slayt düzeyinde bir yorum olur. İşaretleyici sağlanan koordinatlarla konumlandırılır, ancak belirli bir şekille ilişkilendirilmez, bu yüzden [ModernComment.shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/shape/) `None` döndürür. Bir [Shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/) sağlandığında yorum o şekle bağlanır. Koordinatlar hâlâ yorum işaretleyicisinin slayttaki konumunu tanımlar, şekil ilişkilendirmesi ise [ModernComment.shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/shape/) aracılığıyla alınabilir.
+Şekil argümanı için `None` geçirildiğinde, yorum slayt düzeyinde bir yorum olur. İşaretleyicisi verilen koordinatlarla konumlandırılır, ancak belirli bir şekille ilişkili değildir, bu nedenle [ModernComment.shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/shape/) `None` döndürür. Bir [Shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/) sağlandığında, yorum o şekle bağlanır. Koordinatlar hâlâ yorum işaretleyicisinin slayttaki konumunu tanımlar, şekil ilişkisi ise [ModernComment.shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/shape/) aracılığıyla alınabilir.
 
-### **Modern Bir Yorumu Şekle Sabitleme**
+### **Bir Modern Yorumu Şekle Bağlama**
 
-Aşağıdaki örnek, hem slayt düzeyinde bir modern yorum hem de belirli bir AutoShape'e sabitlenmiş bir modern yorum oluşturur. Daha sonra her yorumdan ilişkili şekli okur.
+Aşağıdaki örnek, hem slayt düzeyinde bir modern yorum hem de belirli bir AutoShape'e bağlanmış bir modern yorum oluşturur. Ardından, her yorumdan ilişkili şekli okur.
 
 ```python
 from datetime import datetime
@@ -180,11 +182,11 @@ with slides.Presentation() as presentation:
     presentation.save("modern_comments.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Yorumları Farklı Şekil Türlerine Sabitleme**
+### **Yorumları Farklı Şekil Türlerine Bağlama**
 
-[Shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/) sınıfından türetilen herhangi bir slayt nesnesi şekil bağlantısı olarak kullanılabilir. Yaygın örnekler arasında [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/tr/python-net/aspose.slides/connector/) ve grafik nesneleri (ör. grafikler) gibi [GraphicalObject](https://reference.aspose.com/slides/tr/python-net/aspose.slides/graphicalobject/) örnekleri bulunur.
+Şekilden türetilen herhangi bir slayt nesnesi şekil bağlayıcısı olarak kullanılabilir. Yaygın örnekler arasında [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/tr/python-net/aspose.slides/connector/) ve grafik nesneleri (örneğin grafikler) bulunur.
 
-Aşağıdaki örnek, birkaç yaygın şekil türü oluşturur ve her biriyle bir modern yorum ilişkilendirir.
+Aşağıdaki örnek, birkaç yaygın şekil türü oluşturur ve her birine modern bir yorum ilişkilendirir.
 
 ```python
 import base64
@@ -227,17 +229,18 @@ with slides.Presentation() as presentation:
     presentation.save("modern_comment_shape_types.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Bir Yorumu Metne Sabitleme ve Durumunu Ayarlama**
+### **Bir Yorumu Metne Bağlama ve Durumunu Ayarlama**
 
-[AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ile ilişkilendirilmiş bir modern yorum için, [ModernComment.text_selection_start](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/text_selection_start/) şeklin metin çerçevesindeki seçili metnin başlangıç konumunu, [ModernComment.text_selection_length](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/text_selection_length/) ise seçimin uzunluğunu belirler. Bu iki özellik birlikte yorumu AutoShape içindeki belirli bir metin aralığıyla ilişkilendirir.
+Bir [AutoShape] ile ilişkili modern yorum için, [ModernComment.text_selection_start](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/text_selection_start/) seçili metnin şeklin metin çerçevesindeki başlangıç konumunu, [ModernComment.text_selection_length](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/text_selection_length/) ise seçimin uzunluğunu belirler. Bu iki özellik birlikte, yorumu AutoShape içindeki belirli bir metin aralığıyla ilişkilendirir.
 
-[ModernComment.status](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/status/) özelliği, [ModernCommentStatus](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncommentstatus/) enum değerlerinden birisiyle okunabilir veya güncellenebilir:
-- `NOT_DEFINED` — belirli bir modern yorum durumu tanımlanmamış.
-- `ACTIVE` — yorum aktif.
-- `RESOLVED` — yorum çözümlendi.
-- `CLOSED` — yorum kapatıldı.
+[ModernComment.status](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/status/) özelliği, ModernCommentStatus (enum) değerlerinden biriyle okunabilir veya güncellenebilir:
 
-Aşağıdaki örnek, şekle sabitlenmiş bir modern yorum oluşturur, bir metin seçimiyle ilişkilendirir, çözümlendi olarak işaretler, sunumu kaydeder ve dosyayı yeniden açtıktan sonra değerleri doğrular.
+- `NOT_DEFINED` — belirli bir modern yorum durumu tanımlanmamıştır.
+- `ACTIVE` — yorum aktiftir.
+- `RESOLVED` — yorum çözümlenmiştir.
+- `CLOSED` — yorum kapatılmıştır.
+
+Aşağıdaki örnek, şekle bağlanmış bir modern yorum oluşturur, onu bir metin seçimiyle ilişkilendirir, çözümlendi olarak işaretler, sunumu kaydeder ve dosyayı yeniden açtıktan sonra değerleri doğrular.
 
 ```python
 from datetime import datetime
@@ -286,7 +289,7 @@ with slides.Presentation(output_file) as reopened_presentation:
 
 ### **Mevcut Modern Yorumları İnceleme**
 
-Mevcut bir sunumu incelemek için, yorumların hangi [ModernComment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/) örnekleri olduğunu kontrol edin, ardından [ModernComment.shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/text_selection_length/) ve [ModernComment.status](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/status/) özelliklerini inceleyin. `None` şekil, slayt düzeyinde bir yorum olduğunu gösterir. Bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) bağlantısı için, metin seçimi özellikleri şeklin metin çerçevesindeki ilişkili aralığı belirler.
+Mevcut bir sunumu incelemek için, hangi yorumların [ModernComment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/) örnekleri olduğunu kontrol edin, ardından [ModernComment.shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/text_selection_length/) ve [ModernComment.status](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/status/) özelliklerini inceleyin. `None` şekli, slayt düzeyinde bir yorum olduğunu gösterir. Bir [AutoShape] bağlayıcı için, metin‑seçim özellikleri şeklin metin çerçevesindeki ilişkili aralığı belirler.
 
 ```python
 import aspose.slides as slides
@@ -320,7 +323,7 @@ with slides.Presentation("comments.pptx") as presentation:
 
 ### **Tüm Yorumları ve Yorum Yazarlarını Kaldırma**
 
-Aşağıdaki örnek, bir sunumdan tüm yorumları ve yorum yazarlarını nasıl kaldıracağınızı gösterir:
+Aşağıdaki örnek, bir sunumdan tüm yorumları ve yorum yazarlarını nasıl kaldıracağını gösterir:
 
 ```python
 import aspose.slides as slides
@@ -335,7 +338,7 @@ with slides.Presentation("example.pptx") as presentation:
 
 ### **Belirli Yorumları Kaldırma**
 
-Aşağıdaki örnek, bir slayttan belirli yorumları nasıl kaldıracağınızı gösterir:
+Aşağıdaki örnek, bir slayttan belirli yorumları nasıl kaldıracağını gösterir:
 
 ```python
 from datetime import datetime
@@ -367,16 +370,16 @@ with slides.Presentation() as presentation:
     presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **SSS**
 
-**Aspose.Slides modern yorumlar için çözümlendi durumu destekliyor mu?**
+**Aspose.Slides modern yorumlar için çözümlenmiş durumunu destekliyor mu?**
 
-Evet. [ModernComment.status](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncomment/status/) bir [ModernCommentStatus](https://reference.aspose.com/slides/tr/python-net/aspose.slides/moderncommentstatus/) değeriyle, `RESOLVED` dahil, okunabilir ve ayarlanabilir. Durum sunumda depolanır ve dosya yeniden açıldığında tekrar okunabilir.
+Evet. ModernComment.status, RESOLVED dahil olmak üzere bir ModernCommentStatus değeriyle okunabilir ve ayarlanabilir. Durum, sunumda depolanır ve dosya yeniden açıldığında tekrar okunabilir.
 
-**İşlemeli tartışmalar (yanıt zincirleri) destekleniyor mu ve bir iç içe derinlik sınırı var mı?**
+**İş parçacıklı tartışmalar (yanıt zincirleri) destekleniyor mu ve bir iç içe sınırlama var mı?**
 
-Evet. Her yorum, [parent comment](https://reference.aspose.com/slides/tr/python-net/aspose.slides/comment/parent_comment/)’a referans verebilir ve böylece yanıt zincirleri oluşturulur. API, belirli bir iç içe derinlik sınırı tanımlamaz.
+Evet. Her yorum, üst yorumuna referans verebilir, bu da yanıt zincirlerini mümkün kılar. API, belirli bir iç içe derinlik sınırı tanımlamaz.
 
-**Bir yorum işaretleyicisinin slayt üzerindeki konumu hangi koordinat sisteminde tanımlanır?**
+**Bir slayttaki yorum işaretleyicisinin konumu hangi koordinat sisteminde tanımlanır?**
 
-İşaretleyici konumu, slayt koordinat sistemindeki ondalıklı koordinatlarla tanımlanır; bu da onu slayt üzerinde tam olarak konumlandırmanızı sağlar.
+İşaretleyici konumu, slayt koordinat sistemindeki kayan nokta koordinatlarıyla tanımlanır; böylece işaretleyiciyi slayt üzerinde tam olarak konumlandırabilirsiniz.

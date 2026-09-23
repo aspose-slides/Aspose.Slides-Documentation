@@ -1,49 +1,51 @@
 ---
-title: Beheer presentatiecommentaren in .NET
-linktitle: Presentatiecommentaren
+title: Beheer presentatieopmerkingen in .NET
+linktitle: Presentatieopmerkingen
 type: docs
 weight: 100
 url: /nl/net/presentation-comments/
 keywords:
-- commentaar
-- modern commentaar
-- PowerPoint-commentaren
-- presentatiecommentaren
-- dia commentaren
-- commentaar toevoegen
-- commentaar benaderen
-- commentaar bewerken
-- commentaar beantwoorden
-- commentaar verwijderen
-- commentaar verwijderen
+- opmerking
+- moderne opmerking
+- PowerPoint opmerkingen
+- presentatie opmerkingen
+- dia opmerkingen
+- opmerking toevoegen
+- opmerking benaderen
+- opmerking bewerken
+- opmerking beantwoorden
+- opmerking verwijderen
+- opmerking wissen
 - PowerPoint
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Beheer presentatiecommentaren met Aspose.Slides voor .NET: voeg commentaren toe, lees ze, bewerk ze, beantwoord ze en verwijder commentaren in PowerPoint-presentaties snel en eenvoudig."
+description: "Beheer presentatieopmerkingen met Aspose.Slides for .NET: voeg toe, lees, bewerk, beantwoord en verwijder opmerkingen in PowerPoint presentaties snel en eenvoudig."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u presentatiecommentaren beheert met Aspose.Slides voor .NET. Het introduceert de belangrijkste types met betrekking tot commentaren en laat zien hoe u commentaren aan dia's toevoegt, bestaande commentaren benadert, werkt met antwoorden en moderne commentaren, en commentaren uit een presentatie verwijdert.
+Dit artikel legt uit hoe u presentatieopmerkingen beheert met Aspose.Slides for .NET. Het introduceert de belangrijkste typen die met opmerkingen te maken hebben en toont hoe u opmerkingen aan dia's toevoegt, bestaande opmerkingen benadert, werkt met antwoorden en moderne opmerkingen, en opmerkingen uit een presentatie verwijdert.
 
-De voorbeelden behandelen gangbare beoordelings‑ en samenwerkingsscenario's in PowerPoint, zoals commentaren aan auteurs toewijzen, commentaartekst en metadata lezen, antwoordketens opbouwen, en geselecteerde commentaren of alle commentaren verwijderen.
+De voorbeelden behandelen veelvoorkomende beoordelings- en samenwerkingsscenario's in PowerPoint, zoals het toewijzen van opmerkingen aan auteurs, het lezen van opmerkingstekst en metadata, het opbouwen van antwoordketens, en het verwijderen van geselecteerde opmerkingen of alle opmerkingen.
 
-In PowerPoint verschijnen commentaren als annotaties op dia's. Het selecteren van een commentaar toont de tekst en de bijbehorende discussie.
+In PowerPoint verschijnen opmerkingen als annotaties op dia's. Het selecteren van een opmerking toont de tekst en de bijbehorende discussie.
 
-## **Waarom commentaren aan presentaties toevoegen?**
+Om te vragen dat opmerkingen worden getoond of verborgen wanneer een presentatie wordt geopend zonder de opmerkingen zelf te wijzigen, zie [Toon of verberg opmerkingen bij het openen van een presentatie](/slides/nl/net/presentation-view-properties/).
 
-U kunt commentaren gebruiken om feedback te geven en samen te werken met collega’s bij het beoordelen van presentaties.
+## **Waarom opmerkingen aan presentaties toevoegen?**
 
-Aspose.Slides voor .NET biedt de volgende API’s voor het werken met commentaren:
+U kunt opmerkingen gebruiken om feedback te geven en samen te werken met collega's bij het beoordelen van presentaties.
 
-* De [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation)‑klasse, die toegang biedt tot de commentaarauteurs van de presentatie.
-* De [ICommentCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/icommentcollection)‑interface, die de commentaren vertegenwoordigt die aan een individuele auteur zijn gekoppeld.
-* De [IComment](https://reference.aspose.com/slides/nl/net/aspose.slides/icomment)‑interface, die informatie over een commentaar biedt, inclusief auteur, creatietijd, positie en tekst.
-* De [CommentAuthor](https://reference.aspose.com/slides/nl/net/aspose.slides/commentauthor)‑klasse, die informatie over een auteur biedt, inclusief naam, initialen en gekoppelde commentaren.
+Aspose.Slides for .NET biedt de volgende API's voor het werken met opmerkingen:
 
-## **Dia‑commentaren toevoegen**
-Het volgende voorbeeld laat zien hoe u commentaren aan dia's in een PowerPoint‑presentatie toevoegt:
+* De [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) klasse, die toegang biedt tot de opmerkingauteurs van de presentatie.
+* De [ICommentCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/icommentcollection) interface, die de opmerkingen vertegenwoordigt die aan een individuele auteur zijn gekoppeld.
+* De [IComment](https://reference.aspose.com/slides/nl/net/aspose.slides/icomment) interface, die informatie over een opmerking biedt, inclusief de auteur, aanmaaktijd, positie en tekst.
+* De [CommentAuthor](https://reference.aspose.com/slides/nl/net/aspose.slides/commentauthor) klasse, die informatie over een auteur biedt, inclusief naam, initialen en bijbehorende opmerkingen.
+
+## **Opmerkingen aan dia's toevoegen**
+Het volgende voorbeeld toont hoe u opmerkingen aan dia's toevoegt in een PowerPoint‑presentatie:
 
 ```csharp
 using System;
@@ -74,8 +76,8 @@ if (comments.Length > 0)
 presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Dia‑commentaren benaderen**
-Het volgende voorbeeld laat zien hoe u bestaande commentaren in een PowerPoint‑presentatie benadert:
+## **Opmerkingen op dia's benaderen**
+Het volgende voorbeeld toont hoe u bestaande opmerkingen in een PowerPoint‑presentatie benadert:
 
 ```csharp
 using System;
@@ -96,10 +98,10 @@ foreach (var author in presentation.CommentAuthors)
 }
 ```
 
-## **Antwoorden op commentaren**
-Een bovenliggend commentaar is het oorspronkelijke commentaar bovenaan een antwoordhiërarchie. De [ParentComment](https://reference.aspose.com/slides/nl/net/aspose.slides/icomment/properties/parentcomment)‑eigenschap van de [IComment](https://reference.aspose.com/slides/nl/net/aspose.slides/icomment)‑interface stelt u in staat om de bovenliggende commentaar op te halen of in te stellen.
+## **Antwoorden op opmerkingen**
+Een hoofdopmerking is de oorspronkelijke opmerking bovenaan een antwoordenhiërarchie. De [ParentComment](https://reference.aspose.com/slides/nl/net/aspose.slides/icomment/properties/parentcomment) eigenschap van de [IComment](https://reference.aspose.com/slides/nl/net/aspose.slides/icomment) interface stelt u in staat de ouder van een opmerking op te halen of in te stellen.
 
-Het volgende voorbeeld laat zien hoe u antwoorden toevoegt en de resulterende commentaarhiërarchie inspecteert:
+Het volgende voorbeeld toont hoe u antwoorden toevoegt en de resulterende opmerkingenhiërarchie inspecteert:
 
 ```csharp
 using System;
@@ -150,22 +152,20 @@ comment1.Remove();
 presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="warning" title="Attentie" %}} 
-
-* Wanneer de [Remove](https://reference.aspose.com/slides/nl/net/aspose.slides/icomment/methods/remove)‑methode van de [IComment](https://reference.aspose.com/slides/nl/net/aspose.slides/icomment)‑interface wordt gebruikt om een commentaar te verwijderen, worden ook alle antwoorden op dat commentaar verwijderd.
-* Als de [ParentComment](https://reference.aspose.com/slides/nl/net/aspose.slides/icomment/properties/parentcomment)‑eigenschap een circulaire verwijzing creëert, wordt een [PptxEditException](https://reference.aspose.com/slides/nl/net/aspose.slides/pptxeditexception) opgegooid.
-
+{{% alert color="warning" title="Attention" %}} 
+* Wanneer de [Remove](https://reference.aspose.com/slides/nl/net/aspose.slides/icomment/methods/remove) methode van de [IComment](https://reference.aspose.com/slides/nl/net/aspose.slides/icomment) interface wordt gebruikt om een opmerking te verwijderen, worden ook alle antwoorden op die opmerking verwijderd.
+* Als de [ParentComment](https://reference.aspose.com/slides/nl/net/aspose.slides/icomment/properties/parentcomment) eigenschap een circulaire verwijzing creëert, wordt er een [PptxEditException](https://reference.aspose.com/slides/nl/net/aspose.slides/pptxeditexception) opgegooid.
 {{% /alert %}}
 
-## **Moderne commentaren toevoegen**
+## **Moderne opmerkingen toevoegen**
 
-Moderne commentaren kunnen worden gekoppeld aan de dia zelf, aan een specifieke vorm, of aan een tekstreeks binnen een AutoShape. De [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/nl/net/aspose.slides/icommentcollection/addmoderncomment/)‑methode accepteert een [IShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/)‑argument naast de dia‑ en commentaarmarker‑coördinaten.
+Moderne opmerkingen kunnen worden gekoppeld aan de dia zelf, aan een specifiek vormobject, of aan een tekstreeks binnen een AutoShape. De [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/nl/net/aspose.slides/icommentcollection/addmoderncomment/) methode accepteert een [IShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/) argument naast de dia‑ en opmerkingenmarkeringscoördinaten.
 
-Wanneer `null` wordt doorgegeven voor het vorm‑argument, is het commentaar een dia‑niveau commentaar. De marker wordt gepositioneerd op basis van de opgegeven coördinaten, maar is niet gekoppeld aan een specifieke vorm, zodat [IModernComment.Shape](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/shape/) `null` retourneert. Wanneer een [IShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/) wordt opgegeven, wordt het commentaar verankerd aan die vorm. De coördinaten bepalen nog steeds de positie van de commentaarmarker op de dia, terwijl de vormkoppeling kan worden opgevraagd via [IModernComment.Shape](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/shape/).
+Wanneer `null` wordt doorgegeven voor het vormobject, is de opmerking een dia‑niveau opmerking. De marker wordt gepositioneerd volgens de opgegeven coördinaten, maar is niet gekoppeld aan een specifiek vormobject, zodat [IModernComment.Shape](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/shape/) `null` retourneert. Wanneer een [IShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/) wordt opgegeven, wordt de opmerking verankerd aan dat vormobject. De coördinaten bepalen nog steeds de positie van de opmerkingenmarker op de dia, terwijl de vormkoppeling kan worden opgehaald via [IModernComment.Shape](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/shape/).
 
-### **Een modern commentaar aan een vorm verankeren**
+### **Een moderne opmerking aan een vorm verankeren**
 
-Het volgende voorbeeld maakt zowel een dia‑niveau modern commentaar als een modern commentaar verankerd aan een specifieke AutoShape. Vervolgens leest het de gekoppelde vorm van elk commentaar.
+Het volgende voorbeeld maakt zowel een moderne opmerking op dia‑niveau als een moderne opmerking die aan een specifieke AutoShape is verankerd. Vervolgens leest het de gekoppelde vorm van elke opmerking.
 
 ```csharp
 using System;
@@ -192,11 +192,11 @@ Console.WriteLine(shapeComment.Shape?.Name);
 presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 ```
 
-### **Commentaren verankeren aan verschillende vormtypen**
+### **Opmerkingen verankeren aan verschillende vormtypen**
 
-Elk dia‑object dat de [IShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/)‑interface implementeert, kan worden gebruikt als vormveranker. Veelvoorkomende voorbeelden zijn [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/nl/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/nl/net/aspose.slides/iconnector/), en [IGraphicalObject](https://reference.aspose.com/slides/nl/net/aspose.slides/igraphicalobject/)-instanties zoals diagrammen.
+Elk dia‑object dat [IShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/) implementeert, kan worden gebruikt als vormanker. Veelvoorkomende voorbeelden zijn [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/nl/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/nl/net/aspose.slides/iconnector/), en [IGraphicalObject](https://reference.aspose.com/slides/nl/net/aspose.slides/igraphicalobject/) instanties, zoals grafieken.
 
-Het volgende voorbeeld maakt verschillende veelvoorkomende vormtypen en koppelt een modern commentaar aan elk van hen.
+Het volgende voorbeeld maakt verschillende veelvoorkomende vormtypen aan en koppelt aan elk een moderne opmerking.
 
 ```csharp
 using System;
@@ -239,18 +239,17 @@ author.Comments.AddModernComment("Comment on a graphical object.", slide, chart,
 presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 ```
 
-### **Een commentaar aan tekst verankeren en de status instellen**
+### **Een opmerking aan tekst verankeren en de status instellen**
 
-Voor een modern commentaar gekoppeld aan een [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/), specificeert [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/textselectionstart/) de startpositie van de geselecteerde tekst in het tekstframe van de vorm, terwijl [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/textselectionlength/) de lengte van de selectie aangeeft. Samen associëren deze eigenschappen het commentaar met een specifieke tekstreeks binnen de AutoShape.
+Voor een moderne opmerking die gekoppeld is aan een [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/), specificeert [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/textselectionstart/) de startpositie van de geselecteerde tekst in het tekstvak van de vorm, terwijl [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/textselectionlength/) de lengte van de selectie aangeeft. Gezamenlijk koppelen deze eigenschappen de opmerking aan een specifieke tekstreeks binnen de AutoShape.
 
-De [IModernComment.Status](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/status/)‑eigenschap kan worden gelezen of bijgewerkt met een waarde uit de [ModernCommentStatus](https://reference.aspose.com/slides/nl/net/aspose.slides/moderncommentstatus/)‑enumeratie:
+De [IModernComment.Status](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/status/) eigenschap kan worden gelezen of bijgewerkt met een waarde uit de [ModernCommentStatus](https://reference.aspose.com/slides/nl/net/aspose.slides/moderncommentstatus/) enumeratie:
+- `NotDefined` — er is geen specifieke moderne‑opmerkingstatus gedefinieerd.
+- `Active` — de opmerking is actief.
+- `Resolved` — de opmerking is opgelost.
+- `Closed` — de opmerking is gesloten.
 
-- `NotDefined` — er is geen specifieke modern‑commentaarstatus gedefinieerd.
-- `Active` — het commentaar is actief.
-- `Resolved` — het commentaar is opgelost.
-- `Closed` — het commentaar is gesloten.
-
-Het volgende voorbeeld maakt een vorm‑verankerd modern commentaar, koppelt het aan een tekstreeks, markeert het als opgelost, slaat de presentatie op en controleert de waarden na het opnieuw openen van het bestand.
+Het volgende voorbeeld maakt een aan een vorm verankerde moderne opmerking, koppelt deze aan een tekstreeks, markeert deze als opgelost, slaat de presentatie op en verifieert de waarden na het heropenen van het bestand.
 
 ```csharp
 using System;
@@ -301,9 +300,9 @@ foreach (var reopenedComment in reopenedComments)
 }
 ```
 
-### **Bestaande moderne commentaren inspecteren**
+### **Bestaande moderne opmerkingen inspecteren**
 
-Om een bestaande presentatie te inspecteren, controleert u welke commentaren de [IModernComment](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/)‑interface implementeren, bekijkt vervolgens [IModernComment.Shape](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/textselectionlength/) en [IModernComment.Status](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/status/). Een `null` vorm wijst op een dia‑niveau commentaar. Voor een [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/)‑veranker geven de tekstreekseigenschappen de bijbehorende reeks in het tekstframe van de vorm aan.
+Om een bestaande presentatie te inspecteren, controleert u welke opmerkingen [IModernComment](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/) implementeren, vervolgens bekijkt u [IModernComment.Shape](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/textselectionlength/) en [IModernComment.Status](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/status/). Een `null` vorm duidt op een opmerking op dia‑niveau. Voor een [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) anker identificeren de tekstselectie‑eigenschappen het bijbehorende bereik in het tekstvak van de vorm.
 
 ```csharp
 using System;
@@ -347,11 +346,11 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-## **Commentaren verwijderen**
+## **Opmerkingen verwijderen**
 
-### **Alle commentaren en commentaarauteurs verwijderen**
+### **Alle opmerkingen en opmerkingauteurs verwijderen**
 
-Het volgende voorbeeld laat zien hoe u alle commentaren en commentaarauteurs uit een presentatie verwijdert:
+Het volgende voorbeeld toont hoe u alle opmerkingen en opmerkingauteurs uit een presentatie verwijdert:
 
 ```csharp
 using Aspose.Slides;
@@ -368,9 +367,9 @@ presentation.CommentAuthors.Clear();
 presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
-### **Specifieke commentaren verwijderen**
+### **Specifieke opmerkingen verwijderen**
 
-Het volgende voorbeeld laat zien hoe u specifieke commentaren van een dia verwijdert:
+Het volgende voorbeeld toont hoe u specifieke opmerkingen van een dia verwijdert:
 
 ```csharp
 using System;
@@ -413,14 +412,14 @@ presentation.Save("pres.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**Ondersteunt Aspose.Slides een opgeloste status voor moderne commentaren?**
+**Ondersteunt Aspose.Slides een resolved‑status voor moderne opmerkingen?**
 
-Ja. De [IModernComment.Status](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/status/) kan worden gelezen en ingesteld met een [ModernCommentStatus](https://reference.aspose.com/slides/nl/net/aspose.slides/moderncommentstatus/)‑waarde, inclusief `Resolved`. De status wordt opgeslagen in de presentatie en kan opnieuw worden gelezen nadat het bestand is heropend.
+Ja. [IModernComment.Status](https://reference.aspose.com/slides/nl/net/aspose.slides/imoderncomment/status/) kan worden gelezen en ingesteld met een [ModernCommentStatus](https://reference.aspose.com/slides/nl/net/aspose.slides/moderncommentstatus/) waarde, inclusief `Resolved`. De status wordt opgeslagen in de presentatie en kan opnieuw worden gelezen nadat het bestand opnieuw is geopend.
 
-**Worden threads (antwoordketens) ondersteund en is er een limiet op de diepte?**
+**Worden discussies in threads (antwoordketens) ondersteund, en is er een limiet op de diepte?**
 
-Ja. Elk commentaar kan verwijzen naar zijn [bovenliggend commentaar](https://reference.aspose.com/slides/nl/net/aspose.slides/comment/parentcomment/), waardoor antwoordketens mogelijk zijn. De API definieert geen specifieke limiet op de nesting‑diepte.
+Ja. Elke opmerking kan verwijzen naar zijn [parent comment](https://reference.aspose.com/slides/nl/net/aspose.slides/comment/parentcomment/), waardoor antwoordketens mogelijk zijn. De API definieert geen specifieke limiet voor de diepte van de nesting.
 
-**In welk coördinatensysteem wordt de positie van een commentaarmarker op een dia gedefinieerd?**
+**In welk coördinatensysteem wordt de positie van een opmerkingenmarker op een dia gedefinieerd?**
 
-De markerpositie wordt gedefinieerd door zwevende‑komma‑coördinaten in het dia‑coördinatensysteem, waardoor u de marker nauwkeurig op de dia kunt plaatsen.
+De markerpositie wordt gedefinieerd door zwevende‑kommagetallen in het coördinatensysteem van de dia, waarmee u deze nauwkeurig op de dia kunt plaatsen.

@@ -1,48 +1,50 @@
 ---
-title: .NETでプレゼンテーション コメントを管理する
-linktitle: プレゼンテーション コメント
+title: .NET でプレゼンテーションコメントを管理する
+linktitle: プレゼンテーションコメント
 type: docs
 weight: 100
 url: /ja/net/presentation-comments/
 keywords:
 - コメント
-- モダン コメント
+- モダンコメント
 - PowerPoint コメント
-- プレゼンテーション コメント
-- スライド コメント
-- コメント 追加
-- コメント アクセス
-- コメント 編集
-- コメント 返信
-- コメント 削除
-- コメント 削除
+- プレゼンテーションコメント
+- スライドコメント
+- コメントの追加
+- コメントへのアクセス
+- コメントの編集
+- コメントへの返信
+- コメントの削除
+- コメントの除去
 - PowerPoint
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用してプレゼンテーション コメントを管理します。PowerPoint プレゼンテーションでコメントの追加、読み取り、編集、返信、削除を迅速かつ簡単に行えます。"
+description: "Aspose.Slides for .NET を使用してプレゼンテーションコメントを管理します。PowerPoint プレゼンテーションのコメントを追加、読み取り、編集、返信、削除を迅速かつ簡単に行えます。"
 ---
 ## **概要**
 
-このドキュメントでは、Aspose.Slides for .NET を使用したプレゼンテーション コメントの管理方法について説明します。主なコメント関連型を紹介し、スライドへのコメント追加、既存コメントへのアクセス、返信とモダン コメントの操作、プレゼンテーションからのコメント削除方法を実演します。
+本記事では、Aspose.Slides for .NET を使用してプレゼンテーションのコメントを管理する方法を説明します。主なコメント関連型を紹介し、スライドへのコメントの追加、既存コメントへのアクセス、返信やモダンコメントの操作、およびプレゼンテーションからのコメントの削除方法を示します。
 
-例では、PowerPoint の一般的なレビューおよびコラボレーション シナリオ（コメントの作成者割り当て、コメント本文とメタデータの取得、返信チェーンの構築、選択したコメントまたはすべてのコメントの削除）を扱います。
+例では、PowerPoint の一般的なレビューおよび共同作業シナリオ（コメントを作成者に割り当てる、コメントテキストやメタデータを読み取る、返信チェーンを構築する、選択したコメントまたはすべてのコメントを削除する）を取り上げています。
 
-PowerPoint では、コメントはスライド上のアノテーションとして表示されます。コメントを選択すると、そのテキストと関連ディスカッションが表示されます。
+PowerPoint では、コメントはスライド上の注釈として表示されます。コメントを選択すると、そのテキストと関連するディスカッションが表示されます。
 
-## **プレゼンテーションにコメントを追加する目的は？**
+プレゼンテーションを開く際にコメントを表示または非表示にする（コメント自体は変更しない）場合は、[Show or Hide Comments When Opening a Presentation](/slides/ja/net/presentation-view-properties/) を参照してください。
 
-プレゼンテーションのレビュー時に、同僚とフィードバックを共有し、共同作業を行う手段としてコメントを使用できます。
+## **なぜプレゼンテーションにコメントを追加するのか？**
+
+プレゼンテーションのレビュー時に、コメントを使用してフィードバックを提供し、同僚と共同作業できます。
 
 Aspose.Slides for .NET は、コメント操作のために以下の API を提供します。
 
-* [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスは、プレゼンテーションのコメント作成者へのアクセスを提供します。
-* [ICommentCollection](https://reference.aspose.com/slides/ja/net/aspose.slides/icommentcollection) インターフェイスは、個々の作成者に関連付けられたコメントを表します。
-* [IComment](https://reference.aspose.com/slides/ja/net/aspose.slides/icomment) インターフェイスは、作成者、作成時刻、位置、テキストなど、コメントに関する情報を提供します。
-* [CommentAuthor](https://reference.aspose.com/slides/ja/net/aspose.slides/commentauthor) クラスは、名前、イニシャル、関連コメントなど、作成者に関する情報を提供します。
+* プレゼンテーションのコメント作成者へのアクセスを提供する [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラス。
+* 個々の作成者に関連付けられたコメントを表す [ICommentCollection](https://reference.aspose.com/slides/ja/net/aspose.slides/icommentcollection) インターフェイス。
+* コメントの作者、作成時刻、位置、テキストなどの情報を提供する [IComment](https://reference.aspose.com/slides/ja/net/aspose.slides/icomment) インターフェイス。
+* 作成者の名前、イニシャル、関連コメントなどの情報を提供する [CommentAuthor](https://reference.aspose.com/slides/ja/net/aspose.slides/commentauthor) クラス。
 
-## **スライド コメントの追加**
+## **スライドコメントの追加**
 以下の例は、PowerPoint プレゼンテーションのスライドにコメントを追加する方法を示しています。
 
 ```csharp
@@ -74,7 +76,7 @@ if (comments.Length > 0)
 presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
-## **スライド コメントへのアクセス**
+## **スライドコメントへのアクセス**
 以下の例は、PowerPoint プレゼンテーション内の既存コメントにアクセスする方法を示しています。
 
 ```csharp
@@ -97,9 +99,9 @@ foreach (var author in presentation.CommentAuthors)
 ```
 
 ## **コメントへの返信**
-親コメントは、返信階層のトップにある元のコメントです。[IComment](https://reference.aspose.com/slides/ja/net/aspose.slides/icomment) インターフェイスの [ParentComment](https://reference.aspose.com/slides/ja/net/aspose.slides/icomment/properties/parentcomment) プロパティを使用して、コメントの親を取得または設定できます。
+親コメントは、返信階層の最上位にある元のコメントです。 [IComment](https://reference.aspose.com/slides/ja/net/aspose.slides/icomment) インターフェイスの [ParentComment](https://reference.aspose.com/slides/ja/net/aspose.slides/icomment/properties/parentcomment) プロパティを使用して、コメントの親を取得または設定できます。
 
-以下の例は、返信を追加し、結果として得られるコメント階層を検査する方法を示しています。
+以下の例は、返信を追加し、結果として得られるコメント階層を検査する方法を示しています：
 
 ```csharp
 using System;
@@ -151,19 +153,18 @@ presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="warning" title="Attention" %}} 
-* [IComment](https://reference.aspose.com/slides/ja/net/aspose.slides/icomment) インターフェイスの [Remove](https://reference.aspose.com/slides/ja/net/aspose.slides/icomment/methods/remove) メソッドでコメントを削除すると、そのコメントへのすべての返信も同時に削除されます。  
-* [ParentComment](https://reference.aspose.com/slides/ja/net/aspose.slides/icomment/properties/parentcomment) プロパティで循環参照が作成されると、[PptxEditException](https://reference.aspose.com/slides/ja/net/aspose.slides/pptxeditexception) がスローされます。  
+* IComment インターフェイスの [Remove](https://reference.aspose.com/slides/ja/net/aspose.slides/icomment/methods/remove) メソッドを使用してコメントを削除すると、そのコメントへのすべての返信も削除されます。
+* [ParentComment] プロパティが循環参照を作成した場合、[PptxEditException](https://reference.aspose.com/slides/ja/net/aspose.slides/pptxeditexception) がスローされます。
 {{% /alert %}}
 
-## **モダン コメントの追加**
+## **モダンコメントの追加**
 
-モダン コメントは、スライド全体、特定のシェイプ、または AutoShape 内のテキスト範囲に関連付けることができます。[ICommentCollection.AddModernComment](https://reference.aspose.com/slides/ja/net/aspose.slides/icommentcollection/addmoderncomment/) メソッドは、スライドとコメントマーカー座標に加えて、[IShape](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/) 引数も受け取ります。
+モダンコメントは、スライド自体、特定のシェイプ、または AutoShape 内のテキスト範囲に関連付けることができます。 [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/ja/net/aspose.slides/icommentcollection/addmoderncomment/) メソッドは、スライドとコメントマーカーの座標に加えて [IShape](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/) 引数を受け取ります。
 
-`null` がシェイプ引数として渡された場合、コメントはスライド レベルのコメントとなります。マーカーは指定された座標で配置されますが、特定のシェイプには紐付いていないため、[IModernComment.Shape](https://reference.aspose.com/slides/ja/net/aspose.slides/imoderncomment/shape/) は `null` を返します。シェイプが指定された場合、コメントはそのシェイプに固定されます。座標は依然としてスライド上のマーカー位置を定義し、シェイプの関連付けは [IModernComment.Shape](https://reference.aspose.com/slides/ja/net/aspose.slides/imoderncomment/shape/) から取得できます。
+`null` がシェイプ引数として渡された場合、コメントはスライドレベルのコメントになります。マーカーは指定された座標で配置されますが、特定のシェイプには関連付けられないため、[IModernComment.Shape](https://reference.aspose.com/slides/ja/net/aspose.slides/imoderncomment/shape/) は `null` を返します。`IShape` が指定された場合、コメントはそのシェイプに固定されます。座標は引き続きスライド上のコメントマーカーの位置を定義し、シェイプの関連付けは [IModernComment.Shape](https://reference.aspose.com/slides/ja/net/aspose.slides/imoderncomment/shape/) で取得できます。
 
-### **シェイプにモダン コメントを固定する**
-
-以下の例は、スライド レベルのモダン コメントと、特定の AutoShape に固定されたモダン コメントの両方を作成し、それぞれのコメントから関連シェイプを取得します。
+### **モダンコメントをシェイプに固定する**
+以下の例は、スライドレベルのモダンコメントと、特定の AutoShape に固定されたモダンコメントの両方を作成し、各コメントから関連付けられたシェイプを取得します。
 
 ```csharp
 using System;
@@ -190,11 +191,10 @@ Console.WriteLine(shapeComment.Shape?.Name);
 presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 ```
 
-### **異なるシェイプ型へのコメント固定**
+### **異なるシェイプタイプへのコメント固定**
+[IShape] を実装するスライドオブジェクトは、シェイプのアンカーとして使用できます。一般的な例として、[IAutoShape]、[IPictureFrame]、[IGroupShape]、[IConnector]、およびチャートなどの [IGraphicalObject] インスタンスがあります。
 
-[IShape](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/) を実装するスライド オブジェクトはすべて、シェイプ アンカーとして使用できます。代表的な例として、[IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/ja/net/aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/ja/net/aspose.slides/iconnector/)、およびチャートなどの [IGraphicalObject](https://reference.aspose.com/slides/ja/net/aspose.slides/igraphicalobject/) インスタンスがあります。
-
-以下の例は、複数の一般的なシェイプ型を作成し、それぞれにモダン コメントを関連付けます。
+以下の例は、いくつかの一般的なシェイプタイプを作成し、それぞれにモダンコメントを関連付けます。
 
 ```csharp
 using System;
@@ -237,18 +237,17 @@ author.Comments.AddModernComment("Comment on a graphical object.", slide, chart,
 presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 ```
 
-### **テキストにコメントを固定しステータスを設定する**
+### **テキストへのコメント固定とステータス設定**
+[IAutoShape] に関連付けられたモダンコメントの場合、[IModernComment.TextSelectionStart](https://reference.aspose.com/slides/ja/net/aspose.slides/imoderncomment/textselectionstart/) はシェイプのテキストフレーム内で選択されたテキストの開始位置を示し、[IModernComment.TextSelectionLength](https://reference.aspose.com/slides/ja/net/aspose.slides/imoderncomment/textselectionlength/) は選択範囲の長さを示します。これらのプロパティを組み合わせることで、コメントは AutoShape 内の特定のテキスト範囲に関連付けられます。
 
-[IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) に関連付けられたモダン コメントでは、[IModernComment.TextSelectionStart](https://reference.aspose.com/slides/ja/net/aspose.slides/imoderncomment/textselectionstart/) がシェイプのテキスト フレーム内で選択されたテキストの開始位置を、[IModernComment.TextSelectionLength](https://reference.aspose.com/slides/ja/net/aspose.slides/imoderncomment/textselectionlength/) が選択範囲の長さを指定します。これらのプロパティにより、コメントは AutoShape 内の特定のテキスト範囲に結び付けられます。
+[IModernComment.Status] プロパティは、[ModernCommentStatus] 列挙体の値で読み取りまたは設定できます。
 
-[IModernComment.Status](https://reference.aspose.com/slides/ja/net/aspose.slides/imoderncomment/status/) プロパティは、[ModernCommentStatus](https://reference.aspose.com/slides/ja/net/aspose.slides/moderncommentstatus/) 列挙体の値で読み取り・更新できます。
+- `NotDefined` — 特定のモダンコメントステータスは定義されていません。
+- `Active` — コメントはアクティブです。
+- `Resolved` — コメントは解決済みです。
+- `Closed` — コメントはクローズされています。
 
-- `NotDefined` — 特定のモダン コメントステータスが未定義です。  
-- `Active` — コメントはアクティブです。  
-- `Resolved` — コメントは解決済みです。  
-- `Closed` — コメントは閉じられています。  
-
-以下の例は、シェイプに固定されたモダン コメントを作成し、テキスト選択に関連付け、ステータスを「Resolved」に設定し、プレゼンテーションを保存した後に再度開いて値を検証します。
+以下の例は、シェイプに固定されたモダンコメントを作成し、テキスト選択に関連付け、解決済みとしてマークし、プレゼンテーションを保存し、ファイルを再度開いた後に値を検証します。
 
 ```csharp
 using System;
@@ -299,9 +298,8 @@ foreach (var reopenedComment in reopenedComments)
 }
 ```
 
-### **既存のモダン コメントを検査する**
-
-既存のプレゼンテーションを検査する際は、[IModernComment](https://reference.aspose.com/slides/ja/net/aspose.slides/imoderncomment/) を実装しているコメントを確認し、[IModernComment.Shape](https://reference.aspose.com/slides/ja/net/aspose.slides/imoderncomment/shape/)、[IModernComment.TextSelectionStart](https://reference.aspose.com/slides/ja/net/aspose.slides/imoderncomment/textselectionstart/)、[IModernComment.TextSelectionLength](https://reference.aspose.com/slides/ja/net/aspose.slides/imoderncomment/textselectionlength/)、[IModernComment.Status](https://reference.aspose.com/slides/ja/net/aspose.slides/imoderncomment/status/) を調べます。`null` のシェイプはスライド レベルのコメントを示します。[IAutoShape](https://reference.aspose.com/slides/ja/net/aspose.slides/iautoshape/) がアンカーの場合、テキスト選択プロパティはシェイプのテキスト フレーム内の対象範囲を示します。
+### **既存のモダンコメントの検査**
+既存のプレゼンテーションを検査するには、どのコメントが [IModernComment] を実装しているかを確認し、[IModernComment.Shape]、[IModernComment.TextSelectionStart]、[IModernComment.TextSelectionLength]、および [IModernComment.Status] を調べます。`null` のシェイプはスライドレベルのコメントを示します。[IAutoShape] がアンカーの場合、テキスト選択プロパティはシェイプのテキストフレーム内の関連範囲を示します。
 
 ```csharp
 using System;
@@ -347,8 +345,7 @@ foreach (var slide in presentation.Slides)
 
 ## **コメントの削除**
 
-### **すべてのコメントとコメント作成者を削除する**
-
+### **すべてのコメントとコメント作成者の削除**
 以下の例は、プレゼンテーションからすべてのコメントとコメント作成者を削除する方法を示しています。
 
 ```csharp
@@ -366,8 +363,7 @@ presentation.CommentAuthors.Clear();
 presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
-### **特定のコメントを削除する**
-
+### **特定のコメントの削除**
 以下の例は、スライドから特定のコメントを削除する方法を示しています。
 
 ```csharp
@@ -409,16 +405,13 @@ foreach (var commentAuthor in presentation.CommentAuthors)
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **よくある質問**
 
-**Aspose.Slides はモダン コメントの「Resolved」ステータスをサポートしていますか？**
+**Aspose.Slides はモダンコメントの解決済みステータスをサポートしていますか？**
+はい。[IModernComment.Status] は、`Resolved` を含む [ModernCommentStatus] の値で読み取りおよび設定できます。ステータスはプレゼンテーションに保存され、ファイルを再度開いた後でも読み取れます。
 
-はい。[IModernComment.Status](https://reference.aspose.com/slides/ja/net/aspose.slides/imoderncomment/status/) は、[ModernCommentStatus](https://reference.aspose.com/slides/ja/net/aspose.slides/moderncommentstatus/) の値で読み取りおよび設定でき、`Resolved` も含まれます。ステータスはプレゼンテーションに保存され、ファイルを再度開いた後でも読み取れます。
+**スレッド化されたディスカッション（返信チェーン）はサポートされていますか？また、ネストの上限はありますか？**
+はい。各コメントは [parent comment] を参照できるため、返信チェーンを構築できます。API には特定のネスト深さの上限は定義されていません。
 
-**スレッド化されたディスカッション（返信チェーン）はサポートされていますか？また、入れ子の制限はありますか？**
-
-はい。各コメントはその **parent comment** を参照できるため、返信チェーンを実現できます。API では特定の入れ子深度の上限は定義されていません。
-
-**コメントマーカーの位置はどの座標系で定義されていますか？**
-
-マーカーの位置は、スライド座標系の浮動小数点数座標で定義されます。これにより、スライド上の任意の場所に正確に配置できます。
+**コメントマーカーの位置はスライド上のどの座標系で定義されていますか？**
+マーカーの位置は、スライド座標系の浮動小数点座標で定義されており、スライド上の正確な位置に配置できます。

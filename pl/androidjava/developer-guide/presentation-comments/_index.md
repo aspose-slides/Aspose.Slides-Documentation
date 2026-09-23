@@ -1,50 +1,52 @@
 ---
-title: Zarządzanie komentarzami w prezentacji na Androidzie
-linktitle: Komentarze w prezentacji
+title: "Zarządzanie komentarzami w prezentacji na Androidzie"
+linktitle: "Komentarze do prezentacji"
 type: docs
 weight: 100
 url: /pl/androidjava/presentation-comments/
 keywords:
-- komentarz
-- nowoczesny komentarz
-- komentarze PowerPoint
-- komentarze w prezentacji
-- komentarze slajdu
-- dodaj komentarz
-- dostęp do komentarza
-- edytuj komentarz
-- odpowiedź na komentarz
-- usuń komentarz
-- usuń komentarz
-- PowerPoint
-- prezentacja
-- Android
-- Java
-- Aspose.Slides
-description: "Zarządzaj komentarzami w prezentacji za pomocą Aspose.Slides for Android via Java: dodawaj, czytaj, edytuj, odpowiadaj i usuwaj komentarze w prezentacjach PowerPoint szybko i łatwo."
+- "komentarz"
+- "nowoczesny komentarz"
+- "komentarze PowerPoint"
+- "komentarze prezentacji"
+- "komentarze slajdów"
+- "dodaj komentarz"
+- "uzyskaj dostęp do komentarza"
+- "edytuj komentarz"
+- "odpowiedz na komentarz"
+- "usuń komentarz"
+- "skasuj komentarz"
+- "PowerPoint"
+- "prezentacja"
+- "Android"
+- "Java"
+- "Aspose.Slides"
+description: "Zarządzaj komentarzami w prezentacji za pomocą Aspose.Slides dla Androida w Javie: dodawaj, odczytuj, edytuj, odpowiadaj na i usuwaj komentarze w prezentacjach PowerPoint szybko i łatwo."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak zarządzać komentarzami w prezentacji przy użyciu Aspose.Slides for Android via Java. Wprowadza główne typy związane z komentarzami i demonstruje, jak dodawać komentarze do slajdów, uzyskiwać dostęp do istniejących komentarzy, pracować z odpowiedziami i nowoczesnymi komentarzami oraz usuwać komentarze z prezentacji.
+Ten artykuł wyjaśnia, jak zarządzać komentarzami w prezentacji przy użyciu Aspose.Slides for Android via Java. Wprowadza główne typy związane z komentarzami oraz demonstruje, jak dodawać komentarze do slajdów, uzyskiwać dostęp do istniejących komentarzy, pracować z odpowiedziami i nowoczesnymi komentarzami oraz usuwać komentarze z prezentacji.
 
 Przykłady obejmują typowe scenariusze przeglądu i współpracy w PowerPoint, takie jak przypisywanie komentarzy do autorów, odczytywanie tekstu i metadanych komentarzy, budowanie łańcuchów odpowiedzi oraz usuwanie wybranych komentarzy lub wszystkich komentarzy.
 
-W PowerPoint komentarze pojawiają się jako adnotacje na slajdach. Wybranie komentarza wyświetla jego tekst i powiązaną dyskusję.
+W programie PowerPoint komentarze wyświetlane są jako adnotacje na slajdach. Wybranie komentarza wyświetla jego tekst oraz powiązaną dyskusję.
 
-## **Dlaczego warto dodawać komentarze do prezentacji?**
+Aby żądać wyświetlenia lub ukrycia komentarzy przy otwieraniu prezentacji bez zmiany samych komentarzy, zobacz [Pokaż lub ukryj komentarze podczas otwierania prezentacji](/slides/pl/androidjava/presentation-view-properties/).
 
-Możesz używać komentarzy do udzielania informacji zwrotnych i współpracy z kolegami podczas przeglądania prezentacji.
+## **Dlaczego dodawać komentarze do prezentacji?**
+
+Możesz używać komentarzy, aby przekazywać opinie i współpracować z kolegami podczas przeglądania prezentacji.
 
 Aspose.Slides for Android via Java udostępnia następujące interfejsy API do pracy z komentarzami:
 
-* Klasa [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) zapewnia dostęp do autorów komentarzy w prezentacji.
-* Interfejs [ICommentCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icommentcollection/) reprezentuje komentarze powiązane z pojedynczym autorem.
-* Interfejs [IComment](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icomment/) dostarcza informacje o komentarzu, w tym autora, czas utworzenia, pozycję i tekst.
-* Klasa [CommentAuthor](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/commentauthor/) dostarcza informacje o autorze, w tym jego imię i nazwisko, inicjały oraz powiązane komentarze.
+* Klasa [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) , która zapewnia dostęp do autorów komentarzy w prezentacji.
+* Interfejs [ICommentCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icommentcollection/) , który reprezentuje komentarze powiązane z pojedynczym autorem.
+* Interfejs [IComment](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icomment/) , który dostarcza informacji o komentarzu, w tym o jego autorze, czasie utworzenia, pozycji i tekście.
+* Klasa [CommentAuthor](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/commentauthor/) , która dostarcza informacji o autorze, w tym jego imię, inicjały i powiązane komentarze.
 
 ## **Dodawanie komentarzy do slajdów**
 
-Poniższy przykład pokazuje, jak dodać komentarze do slajdów w prezentacji PowerPoint:
+Następujący przykład pokazuje, jak dodać komentarze do slajdów w prezentacji PowerPoint:
 
 ```java
 import com.aspose.slides.IComment;
@@ -85,7 +87,7 @@ try {
 
 ## **Uzyskiwanie dostępu do komentarzy slajdów**
 
-Poniższy przykład pokazuje, jak uzyskać dostęp do istniejących komentarzy w prezentacji PowerPoint:
+Następujący przykład pokazuje, jak uzyskać dostęp do istniejących komentarzy w prezentacji PowerPoint:
 
 ```java
 import com.aspose.slides.IComment;
@@ -110,9 +112,9 @@ try {
 
 ## **Odpowiadanie na komentarze**
 
-Komentarz nadrzędny to pierwotny komentarz na szczycie hierarchii odpowiedzi. Metody [IComment.getParentComment](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icomment/#getParentComment--) oraz [IComment.setParentComment](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) umożliwiają pobranie lub ustawienie komentarza nadrzędnego.
+Komentarz nadrzędny to oryginalny komentarz znajdujący się na szczycie hierarchii odpowiedzi. Metody [IComment.getParentComment](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icomment/#getParentComment--) i [IComment.setParentComment](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) umożliwiają pobranie lub ustawienie nadrzędnego komentarza.
 
-Poniższy przykład pokazuje, jak dodawać odpowiedzi i przeglądać powstałą hierarchię komentarzy:
+Następujący przykład pokazuje, jak dodać odpowiedzi i zbadać powstałą hierarchię komentarzy:
 
 ```java
 import com.aspose.slides.IComment;
@@ -168,20 +170,20 @@ try {
 }
 ```
 
-{{% alert color="warning" title="Ostrzeżenie" %}}
+{{% alert color="warning" title="Warning" %}}
 * Gdy metoda [IComment.remove](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icomment/#remove--) jest używana do usunięcia komentarza, wszystkie odpowiedzi na ten komentarz są również usuwane.
-* Jeśli metoda [IComment.setParentComment](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) tworzy odniesienie cykliczne, zostaje zgłoszony [PptxEditException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/pptxeditexception/).
+* Jeśli [IComment.setParentComment](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) tworzy odwołanie cykliczne, zostaje zgłoszony [PptxEditException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Dodawanie nowoczesnych komentarzy**
 
-Nowoczesne komentarze mogą być powiązane z samym slajdem, konkretnym kształtem lub zakresem tekstu wewnątrz AutoShape. Metoda [ICommentCollection.addModernComment](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) przyjmuje argument [IShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishape/) oprócz slajdu i współrzędnych znacznika komentarza.
+Nowoczesne komentarze mogą być powiązane z samym slajdem, określonym kształtem lub zakresem tekstu wewnątrz AutoShape. Metoda [ICommentCollection.addModernComment](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) przyjmuje argument [IShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishape/) oprócz slajdu i współrzędnych znacznika komentarza.
 
-Gdy dla argumentu shape przekazany zostanie `null`, komentarz jest komentarzem na poziomie slajdu. Jego znacznik jest umieszczany według podanych współrzędnych, ale nie jest powiązany z konkretnym kształtem, więc [IModernComment.getShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getShape--) zwraca `null`. Gdy podany zostanie [IShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishape/), komentarz jest zakotwiczony do tego kształtu. Współrzędne nadal definiują pozycję znacznika komentarza na slajdzie, a powiązanie z kształtem można odczytać przy pomocy [IModernComment.getShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getShape--).
+Jeśli dla argumentu shape przekazany zostanie `null`, komentarz jest komentarzem poziomu slajdu. Jego znacznik jest pozycjonowany przy użyciu podanych współrzędnych, ale nie jest powiązany z konkretnym kształtem, więc [IModernComment.getShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getShape--) zwraca `null`. Gdy podany zostanie [IShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishape/), komentarz jest zakotwiczony do tego kształtu. Współrzędne nadal określają pozycję znacznika komentarza na slajdzie, a powiązanie z kształtem można uzyskać poprzez [IModernComment.getShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getShape--).
 
 ### **Zakotwiczenie nowoczesnego komentarza w kształcie**
 
-Poniższy przykład tworzy zarówno nowoczesny komentarz na poziomie slajdu, jak i nowoczesny komentarz zakotwiczony w konkretnym AutoShape. Następnie odczytuje powiązany kształt z każdego komentarza.
+Następujący przykład tworzy zarówno nowoczesny komentarz na poziomie slajdu, jak i nowoczesny komentarz zakotwiczony w określonym AutoShape. Następnie odczytuje powiązany kształt z każdego komentarza.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -217,11 +219,11 @@ try {
 }
 ```
 
-### **Zakotwiczenie komentarzy do różnych typów kształtów**
+### **Zakotwiczenie komentarzy w różnych typach kształtów**
 
-Każdy obiekt slajdu implementujący [IShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishape/) może być użyty jako kotwica kształtu. Typowe przykłady obejmują [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iconnector/), oraz instancje [IGraphicalObject](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/igraphicalobject/), takie jak wykresy.
+Dowolny obiekt slajdu implementujący [IShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishape/) może być użyty jako kotwica kształtu. Typowe przykłady to [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iconnector/) oraz instancje [IGraphicalObject](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/igraphicalobject/) takie jak wykresy.
 
-Poniższy przykład tworzy kilka typowych kształtów i łączy z każdym z nich nowoczesny komentarz.
+Następujący przykład tworzy kilka typowych kształtów i wiąże z każdym z nich nowoczesny komentarz.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -278,18 +280,18 @@ try {
 }
 ```
 
-### **Zakotwiczenie komentarza do tekstu i ustawienie jego statusu**
+### **Zakotwiczenie komentarza w tekście i ustawienie jego statusu**
 
-Dla nowoczesnego komentarza powiązanego z [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/), metody [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) oraz [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int--) uzyskują początkową pozycję zaznaczonego tekstu w ramce tekstowej kształtu. Metody [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) i [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) uzyskują długość zaznaczenia. Razem te wartości powiązują komentarz z konkretnym zakresem tekstu w AutoShape.
+Dla nowoczesnego komentarza powiązanego z [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) oraz [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) uzyskują początkową pozycję zaznaczonego tekstu w ramce tekstowej kształtu. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) oraz [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) uzyskują długość zaznaczenia. Razem te wartości wiążą komentarz z określonym zakresem tekstu wewnątrz AutoShape.
 
-Metody [IModernComment.getStatus](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getStatus--) oraz [IModernComment.setStatus](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) odczytują wartość z stałych [ModernCommentStatus](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/moderncommentstatus/):
+Metody [IModernComment.getStatus](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getStatus--) i [IModernComment.setStatus](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) odczytują wartość z stałych [ModernCommentStatus](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/moderncommentstatus/):
 
 - `NotDefined` — nie określono konkretnego statusu nowoczesnego komentarza.
 - `Active` — komentarz jest aktywny.
 - `Resolved` — komentarz został rozwiązany.
 - `Closed` — komentarz jest zamknięty.
 
-Poniższy przykład tworzy nowoczesny komentarz zakotwiczony w kształcie, powiązuje go z zaznaczeniem tekstu, oznacza jako rozwiązany, zapisuje prezentację i weryfikuje wartości po ponownym otwarciu pliku.
+Następujący przykład tworzy nowoczesny komentarz zakotwiczony w kształcie, powiązuje go z zaznaczeniem tekstu, oznacza jako rozwiązany, zapisuje prezentację i weryfikuje wartości po ponownym otwarciu pliku.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -356,7 +358,7 @@ try {
 
 ### **Sprawdzanie istniejących nowoczesnych komentarzy**
 
-Aby sprawdzić istniejącą prezentację, należy sprawdzić, które komentarze implementują [IModernComment](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/), a następnie zbadać [IModernComment.getShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--), i [IModernComment.getStatus](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getStatus--). Kształt `null` oznacza komentarz na poziomie slajdu. Dla kotwicy [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/), metody zaznaczenia tekstu identyfikują powiązany zakres w ramce tekstowej kształtu.
+Aby zbadać istniejącą prezentację, sprawdź, które komentarze implementują [IModernComment](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/), a następnie przeanalizuj [IModernComment.getShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) oraz [IModernComment.getStatus](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getStatus--). Kształt `null` wskazuje na komentarz na poziomie slajdu. Dla kotwicy [IAutoShape](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iautoshape/) metody zaznaczenia tekstu określają powiązany zakres w ramce tekstowej kształtu.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -403,9 +405,9 @@ try {
 
 ## **Usuwanie komentarzy**
 
-### **Usunięcie wszystkich komentarzy i autorów komentarzy**
+### **Usuwanie wszystkich komentarzy i ich autorów**
 
-Poniższy przykład pokazuje, jak usunąć wszystkie komentarze i ich autorów z prezentacji:
+Następujący przykład pokazuje, jak usunąć wszystkie komentarze i ich autorów z prezentacji:
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -425,9 +427,9 @@ try {
 }
 ```
 
-### **Usunięcie konkretnych komentarzy**
+### **Usuwanie konkretnych komentarzy**
 
-Poniższy przykład pokazuje, jak usunąć konkretne komentarze ze slajdu:
+Następujący przykład pokazuje, jak usunąć wybrane komentarze ze slajdu:
 
 ```java
 import com.aspose.slides.IComment;
@@ -476,11 +478,11 @@ try {
 
 **Czy Aspose.Slides obsługuje status rozwiązany dla nowoczesnych komentarzy?**
 
-Tak. Metody [IModernComment.getStatus](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getStatus--) i [IModernComment.setStatus](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) odczytują wartość z [ModernCommentStatus](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/moderncommentstatus/), w tym `Resolved`. Status jest przechowywany w prezentacji i może być ponownie odczytany po ponownym otwarciu pliku.
+Tak. [IModernComment.getStatus](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#getStatus--) i [IModernComment.setStatus](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) odczytują wartość z [ModernCommentStatus](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/moderncommentstatus/), w tym `Resolved`. Status jest przechowywany w prezentacji i może być ponownie odczytany po ponownym otwarciu pliku.
 
-**Czy obsługiwane są dyskusje wątkowe (łańcuchy odpowiedzi) i czy istnieje limit zagnieżdżania?**
+**Czy obsługiwane są dyskusje wątkowe (łańcuchy odpowiedzi) i czy istnieje limit zagnieżdżenia?**
 
-Tak. Każdy komentarz może odwoływać się do swojego [parent comment](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icomment/#getParentComment--), co umożliwia tworzenie łańcuchów odpowiedzi. API nie definiuje konkretnego limitu głębokości zagnieżdżenia.
+Tak. Każdy komentarz może odwoływać się do swojego [komentarza nadrzędnego](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/icomment/#getParentComment--) , umożliwiając tworzenie łańcuchów odpowiedzi. API nie określa konkretnego limitu głębokości zagnieżdżenia.
 
 **W jakim układzie współrzędnych definiowana jest pozycja znacznika komentarza na slajdzie?**
 

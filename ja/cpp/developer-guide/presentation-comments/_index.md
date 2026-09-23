@@ -1,49 +1,51 @@
 ---
-title: C++ でプレゼンテーション コメントを管理
-linktitle: プレゼンテーション コメント
+title: "C++でプレゼンテーションコメントを管理する"
+linktitle: "プレゼンテーション コメント"
 type: docs
 weight: 100
 url: /ja/cpp/presentation-comments/
 keywords:
-- コメント
-- モダン コメント
-- PowerPoint コメント
-- プレゼンテーション コメント
-- スライド コメント
-- コメントを追加
-- コメントにアクセス
-- コメントを編集
-- コメントに返信
-- コメントを削除
-- コメントを削除
-- PowerPoint
-- プレゼンテーション
-- C++
-- Aspose.Slides
-description: "Aspose.Slides for C++ を使用してプレゼンテーション コメントを管理します：PowerPoint プレゼンテーションでコメントを追加、読み取り、編集、返信、削除を迅速かつ簡単に行えます。"
+- "コメント"
+- "モダンコメント"
+- "PowerPoint コメント"
+- "プレゼンテーション コメント"
+- "スライド コメント"
+- "コメントの追加"
+- "コメントへのアクセス"
+- "コメントの編集"
+- "コメントへの返信"
+- "コメントの削除"
+- "コメントの削除"
+- "PowerPoint"
+- "プレゼンテーション"
+- "C++"
+- "Aspose.Slides"
+description: "Aspose.Slides for C++ を使用してプレゼンテーションコメントを管理します：PowerPoint プレゼンテーション内のコメントを追加、読み取り、編集、返信、削除を迅速かつ簡単に行うことができます。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides for C++ を使用してプレゼンテーション コメントを管理する方法を説明します。主なコメント関連タイプを紹介し、スライドへのコメントの追加、既存コメントへのアクセス、返信やモダン コメントの操作、プレゼンテーションからのコメントの削除方法を実演します。
+この記事では、Aspose.Slides for C++ を使用してプレゼンテーションのコメントを管理する方法を説明します。コメントに関連する主要な型を紹介し、スライドへのコメントの追加、既存のコメントへのアクセス、返信やモダンコメントの操作、プレゼンテーションからのコメント削除の方法を示します。
 
-例は、PowerPoint の一般的なレビュー・コラボレーションシナリオ、たとえばコメントを作成者に割り当てる、コメントテキストやメタデータを読み取る、返信チェーンを構築する、選択したコメントまたはすべてのコメントを削除する、などをカバーしています。
+これらの例は、PowerPoint の一般的なレビューおよびコラボレーションシナリオ（コメントを作成者に割り当てる、コメントテキストとメタデータを読み取る、返信チェーンを構築する、選択したコメントまたはすべてのコメントを削除する）をカバーしています。
 
 PowerPoint では、コメントはスライド上の注釈として表示されます。コメントを選択すると、そのテキストと関連するディスカッションが表示されます。
 
-## **プレゼンテーションにコメントを追加する理由は？**
+プレゼンテーションを開くときにコメントを表示または非表示にしたいが、コメント自体は変更したくない場合は、[Show or Hide Comments When Opening a Presentation](/slides/ja/cpp/presentation-view-properties/) を参照してください。
+
+## **なぜプレゼンテーションにコメントを追加するのか？**
 
 プレゼンテーションをレビューする際に、コメントを使用してフィードバックを提供し、同僚と協働できます。
 
-Aspose.Slides for C++ は、コメント操作のために次の API を提供します。
+Aspose.Slides for C++ は、コメント操作のために以下の API を提供します。
 
 * The [Presentation](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/) クラスは、プレゼンテーションのコメント作成者へのアクセスを提供します。
-* The [ICommentCollection](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icommentcollection/) インターフェイスは、個々の作成者に関連付けられたコメントを表します。
-* The [IComment](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icomment/) インターフェイスは、コメントの作成者、作成時間、位置、テキストなどの情報を提供します。
-* The [CommentAuthor](https://reference.aspose.com/slides/ja/cpp/aspose.slides/commentauthor/) クラスは、名前、イニシャル、関連コメントを含む作成者情報を提供します。
+* The [ICommentCollection](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icommentcollection/) インターフェイスは、個々の作成者に関連付けられたコメントの集合を表します。
+* The [IComment](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icomment/) インターフェイスは、コメントの作成者、作成時刻、位置、テキストなどの情報を提供します。
+* The [CommentAuthor](https://reference.aspose.com/slides/ja/cpp/aspose.slides/commentauthor/) クラスは、作成者の名前、イニシャル、および関連するコメントの情報を提供します。
 
 ## **スライドコメントの追加**
 
-以下の例は、PowerPoint プレゼンテーションのスライドにコメントを追加する方法を示しています:
+以下の例は、PowerPoint プレゼンテーションのスライドにコメントを追加する方法を示します：
 
 ```cpp
 #include <DOM/IComment.h>
@@ -88,7 +90,7 @@ presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
 
 ## **スライドコメントへのアクセス**
 
-以下の例は、PowerPoint プレゼンテーション内の既存コメントにアクセスする方法を示しています:
+以下の例は、PowerPoint プレゼンテーション内の既存のコメントへアクセスする方法を示します：
 
 ```cpp
 #include <DOM/IComment.h>
@@ -119,9 +121,9 @@ for (auto&& author : presentation->get_CommentAuthors())
 
 ## **コメントへの返信**
 
-親コメントは返信階層のトップに位置する元のコメントです。`IComment` インターフェイスの [get_ParentComment](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icomment/get_parentcomment/) および [set_ParentComment](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icomment/set_parentcomment/) メソッドを使用して、コメントの親を取得または設定できます。
+親コメントは、返信階層の最上位にある元のコメントです。[IComment](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icomment/) インターフェイスの [get_ParentComment](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icomment/get_parentcomment/) および [set_ParentComment](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icomment/set_parentcomment/) メソッドを使用して、コメントの親を取得または設定できます。
 
-以下の例は、返信を追加し、結果として得られるコメント階層を検査する方法を示しています:
+以下の例は、返信を追加し、生成されたコメント階層を検査する方法を示します：
 
 ```cpp
 #include <DOM/IComment.h>
@@ -184,19 +186,19 @@ presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* `IComment` インターフェイスの [Remove](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icomment/remove/) メソッドでコメントを削除すると、そのコメントへのすべての返信も削除されます。
-* `set_ParentComment` メソッドが循環参照を作成した場合、`PptxEditException` がスローされます。
+* [IComment](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icomment/) インターフェイスの [Remove](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icomment/remove/) メソッドでコメントを削除すると、そのコメントへのすべての返信も削除されます。
+* [set_ParentComment](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icomment/set_parentcomment/) メソッドで循環参照が作成された場合、[PptxEditException](https://reference.aspose.com/slides/ja/cpp/aspose.slides/pptxeditexception/) がスローされます。
 {{% /alert %}}
 
-## **モダン コメントの追加**
+## **モダンコメントの追加**
 
-モダン コメントはスライド全体、特定のシェイプ、または AutoShape 内のテキスト範囲に関連付けることができます。`ICommentCollection::AddModernComment` メソッドは、スライドとコメントマーカー座標に加えて `IShape` 引数を受け取ります。
+モダンコメントは、スライド自体、特定のシェイプ、または AutoShape 内のテキスト範囲に関連付けることができます。[ICommentCollection::AddModernComment](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icommentcollection/addmoderncomment/) メソッドは、スライドとコメントマーカー座標に加えて [IShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/) 引数も受け取ります。
 
-`nullptr` がシェイプ引数として渡された場合、コメントはスライドレベルのコメントになります。そのマーカーは指定された座標で配置されますが、特定のシェイプには関連付けられません。そのため `IModernComment::get_Shape` は `nullptr` を返します。`IShape` が指定されると、コメントはそのシェイプに固定されます。座標は依然としてスライド上のマーカー位置を定義し、シェイプの関連付けは `IModernComment::get_Shape` で取得できます。
+`nullptr` がシェイプ引数として渡された場合、コメントはスライドレベルのコメントになります。マーカーは指定された座標で配置されますが、特定のシェイプには関連付けられないため、[IModernComment::get_Shape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imoderncomment/get_shape/) は `nullptr` を返します。`IShape` が提供された場合、コメントはそのシェイプに固定されます。座標は依然としてスライド上のマーカー位置を定義し、シェイプの関連付けは [IModernComment::get_Shape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imoderncomment/get_shape/) で取得できます。
 
-### **シェイプにモダン コメントを固定する**
+### **モダンコメントをシェイプに固定する**
 
-以下の例は、スライドレベルのモダン コメントと特定の AutoShape に固定されたモダン コメントの両方を作成し、各コメントから関連シェイプを取得します。
+以下の例は、スライドレベルのモダンコメントと特定の AutoShape に固定されたモダンコメントの両方を作成し、各コメントから関連シェイプを取得します。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -245,9 +247,9 @@ presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
 
 ### **異なるシェイプタイプへのコメント固定**
 
-`IShape` を実装する任意のスライドオブジェクトをシェイプアンカーとして使用できます。一般的な例として `IAutoShape`、`IPictureFrame`、`IGroupShape`、`IConnector`、およびチャートなどの `IGraphicalObject` インスタンスがあります。
+[IShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/) を実装する任意のスライドオブジェクトをシェイプアンカーとして使用できます。一般的な例としては、[IAutoShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iconnector/)、およびチャートなどの [IGraphicalObject](https://reference.aspose.com/slides/ja/cpp/aspose.slides/igraphicalobject/) インスタンスがあります。
 
-以下の例は、いくつかの共通シェイプタイプを作成し、各シェイプにモダン コメントを関連付けます。
+以下の例は、いくつかの一般的なシェイプタイプを作成し、各シェイプにモダンコメントを関連付けます。
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -311,18 +313,18 @@ author->get_Comments()->AddModernComment(u"Comment on a graphical object.", slid
 presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 ```
 
-### **テキストにコメントを固定しステータスを設定する**
+### **テキストへのコメント固定とステータス設定**
 
-`IAutoShape` に関連付けられたモダン コメントについては、`IModernComment::get_TextSelectionStart` と `IModernComment::set_TextSelectionStart` がシェイプのテキストフレーム内で選択されたテキストの開始位置を制御します。同様に、`IModernComment::get_TextSelectionLength` と `IModernComment::set_TextSelectionLength` が選択範囲の長さを制御します。これらのメソッドにより、コメントは AutoShape 内の特定テキスト範囲に結び付けられます。
+[IAutoShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iautoshape/) に関連付けられたモダンコメントの場合、[IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imoderncomment/get_textselectionstart/) と [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imoderncomment/set_textselectionstart/) はシェイプのテキストフレーム内で選択されたテキストの開始位置を制御します。同様に、[IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imoderncomment/get_textselectionlength/) と [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imoderncomment/set_textselectionlength/) は選択範囲の長さを制御します。これらのメソッドを組み合わせることで、コメントを AutoShape 内の特定のテキスト範囲に関連付けます。
 
-`IModernComment::get_Status` と `IModernComment::set_Status` メソッドは、`ModernCommentStatus` 列挙体の値を使用します:
+[IModernComment::get_Status](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imoderncomment/get_status/) と [IModernComment::set_Status](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imoderncomment/set_status/) メソッドは、[ModernCommentStatus](https://reference.aspose.com/slides/ja/cpp/aspose.slides/moderncommentstatus/) 列挙体の値を使用します。
 
 - `NotDefined` — 特定のモダンコメントステータスは定義されていません。
 - `Active` — コメントはアクティブです。
 - `Resolved` — コメントは解決済みです。
 - `Closed` — コメントはクローズされています。
 
-以下の例は、シェイプに固定されたモダン コメントを作成し、テキスト選択に関連付け、ステータスを「Resolved」に設定し、プレゼンテーションを保存してから再度開いたときに値を検証します。
+以下の例は、シェイプに固定されたモダンコメントを作成し、テキスト選択に関連付け、解決済みとしてマークし、プレゼンテーションを保存してファイルを再度開いた後に値を検証します。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -395,9 +397,9 @@ for (auto&& reopenedComment : reopenedComments)
 }
 ```
 
-### **既存のモダン コメントを検査する**
+### **既存のモダンコメントの検査**
 
-既存プレゼンテーションを検査するには、`IModernComment` を実装しているコメントを確認し、`IModernComment::get_Shape`、`IModernComment::get_TextSelectionStart`、`IModernComment::get_TextSelectionLength`、`IModernComment::get_Status` を調べます。`nullptr` のシェイプはスライドレベルのコメントを示します。`IAutoShape` アンカーの場合、テキスト選択メソッドはシェイプのテキストフレーム内の対象範囲を特定します。
+既存のプレゼンテーションを検査するには、どのコメントが [IModernComment](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imoderncomment/) を実装しているか確認し、[IModernComment::get_Shape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imoderncomment/get_shape/)、[IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imoderncomment/get_textselectionstart/)、[IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imoderncomment/get_textselectionlength/)、および [IModernComment::get_Status](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imoderncomment/get_status/) を調べます。`nullptr` のシェイプはスライドレベルのコメントを示します。[IAutoShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iautoshape/) がアンカーの場合、テキスト選択メソッドはシェイプのテキストフレーム内の関連範囲を特定します。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -456,9 +458,9 @@ for (auto&& slide : presentation->get_Slides())
 
 ## **コメントの削除**
 
-### **すべてのコメントとコメント作成者を削除する**
+### **すべてのコメントとコメント作成者の削除**
 
-以下の例は、プレゼンテーションからすべてのコメントとコメント作成者を削除する方法を示しています:
+以下の例は、プレゼンテーションからすべてのコメントとコメント作成者を削除する方法を示します：
 
 ```cpp
 #include <DOM/ICommentAuthor.h>
@@ -482,9 +484,9 @@ presentation->get_CommentAuthors()->Clear();
 presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
-### **特定のコメントを削除する**
+### **特定のコメントの削除**
 
-以下の例は、スライドから特定のコメントを削除する方法を示しています:
+以下の例は、スライドから特定のコメントを削除する方法を示します：
 
 ```cpp
 #include <DOM/IComment.h>
@@ -536,16 +538,16 @@ for (auto&& commentAuthor : presentation->get_CommentAuthors())
 presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **よくある質問**
 
-**Aspose.Slides はモダン コメントの解決ステータスをサポートしていますか？**
+**Aspose.Slides はモダンコメントの解決済みステータスをサポートしていますか？**
 
-はい。`IModernComment::get_Status` と `IModernComment::set_Status` は `ModernCommentStatus` の値を使用し、`Resolved` も含まれます。このステータスはプレゼンテーションに保存され、ファイルを再度開いた後でも読み取れます。
+はい。 [IModernComment::get_Status](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imoderncomment/get_status/) と [IModernComment::set_Status](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imoderncomment/set_status/) は、`Resolved` を含む [ModernCommentStatus](https://reference.aspose.com/slides/ja/cpp/aspose.slides/moderncommentstatus/) の値を使用します。ステータスはプレゼンテーションに保存され、ファイルを再度開いた後でも読み取れます。
 
-**スレッド化されたディスカッション（返信チェーン）はサポートされていますか？ネストの制限はありますか？**
+**スレッド化されたディスカッション（返信チェーン）はサポートされていますか？ また、ネストの上限はありますか？**
 
-はい。各コメントは `parent comment` を参照できるため、返信チェーンが可能です。API には特定のネスト深さ制限は定義されていません。
+はい。各コメントは [parent comment](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icomment/set_parentcomment/) を参照できるため、返信チェーンが可能です。API には特定のネスト深度上限は定義されていません。
 
-**コメントマーカーの位置はスライドのどの座標系で定義されていますか？**
+**コメントマーカーの位置はスライド上のどの座標系で定義されていますか？**
 
-マーカー位置はスライド座標系の浮動小数点座標で定義され、スライド上の任意の場所に正確に配置できます。
+マーカーの位置はスライド座標系の浮動小数点座標で定義されており、スライド上の正確な位置に配置できます。

@@ -1,17 +1,17 @@
 ---
-title: Android でプレゼンテーションのビュー プロパティを取得および更新する
+title: Android でプレゼンテーション ビュー プロパティを取得および更新
 linktitle: ビュー プロパティ
 type: docs
 weight: 80
 url: /ja/androidjava/presentation-view-properties/
 keywords:
 - ビュー プロパティ
-- ノーマルビュー
+- 標準ビュー
 - アウトライン コンテンツ
 - アウトライン アイコン
 - 垂直スプリッタのスナップ
-- シングルビュー
-- バーの状態
+- 単一ビュー
+- バー状態
 - 次元サイズ
 - 自動調整
 - デフォルト ズーム
@@ -21,39 +21,41 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java のビュー プロパティを活用し、PPT、PPTX、ODP スライドの形式をカスタマイズします—レイアウト、ズーム レベル、表示設定を調整できます。"
+description: "Android 用 Java の Aspose.Slides でビュー プロパティを活用し、PPT、PPTX、ODP スライドのフォーマットをカスタマイズします—レイアウト、ズーム レベル、表示設定を調整できます。"
 ---
-## **イントロダクション**
+## **概要**
 
-通常ビューはスライド自体、サイドコンテンツ領域、ボトムコンテンツ領域の 3 つのコンテンツ領域で構成されます。各コンテンツ領域の位置に関するプロパティです。この情報により、アプリケーションはビューの状態をファイルに保存でき、再度開いたときにプレゼンテーションが最後に保存されたときと同じ状態でビューが表示されます。
+標準ビューは、スライド自体、サイドコンテンツ領域、下部コンテンツ領域の3つのコンテンツ領域で構成されています。  
+各コンテンツ領域の配置に関するプロパティです。  
+この情報により、アプリケーションはビューの状態をファイルに保存でき、再度開いたときにプレゼンテーションが最後に保存された時と同じ状態で表示されます。
 
-Method[IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/IViewProperties#getNormalViewProperties--) が追加され、プレゼンテーションの通常ビュー プロパティへのアクセスが提供されました。
+メソッド[IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/IViewProperties#getNormalViewProperties--) が追加され、プレゼンテーションの標準ビュー プロパティへのアクセスが提供されました。  
 
-[INormalViewProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties)、[INormalViewRestoredProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewRestoredProperties) インターフェイスとその派生、[SplitterBarStateType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/SplitterBarStateType) 列挙型が追加されました。
+[INormalViewProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties)、[INormalViewRestoredProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewRestoredProperties) インターフェイスとそれらの派生型、および列挙型[SplitterBarStateType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/SplitterBarStateType) が追加されました。
 
 ## **INormalViewProperties について**
 
-通常ビュー プロパティを表します。
+標準ビューのプロパティを表します。
 
-Methods[getShowOutlineIcons](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) と[setShowOutlineIcons](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) は、通常ビュー モードの任意のコンテンツ領域にアウトライン コンテンツを表示する際にアイコンを表示するかどうかを指定します。
+メソッド[getShowOutlineIcons](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) と [setShowOutlineIcons](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) は、標準ビュー モードのいずれかのコンテンツ領域でアウトライン コンテンツを表示する際に、アプリケーションがアイコンを表示すべきかどうかを指定します。
 
-Methods[getSnapVerticalSplitter](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) と[setSnapVerticalSplitter](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) は、サイド領域が十分に小さくなったときに垂直スプリッタを最小化状態にスナップさせるかどうかを指定します。
+メソッド[getSnapVerticalSplitter](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) と [setSnapVerticalSplitter](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) は、サイド領域が十分に小さくなったときに垂直スプリッタを最小化状態にスナップさせるかどうかを指定します。
 
-Property[getPreferSingleView](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getPreferSingleView--) と[setPreferSingleView](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) は、ユーザーが標準の 3 つのコンテンツ領域を持つ通常ビューではなく、ウィンドウ全体で単一コンテンツ領域を表示したいかどうかを指定します。有効にすると、アプリケーションはコンテンツ領域のいずれかをウィンドウ全体に表示することができます。
+プロパティ[getPreferSingleView](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getPreferSingleView--) と [setPreferSingleView](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) は、ユーザーが 3 つのコンテンツ領域を持つ標準ビューではなく、全画面の単一コンテンツ領域を希望するかどうかを指定します。有効にすると、アプリケーションはコンテンツ領域のうちの一つをウィンドウ全体に表示することを選択できる場合があります。
 
-Methods[getVerticalBarState](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) と[getHorizontalBarState](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) は、水平または垂直スプリッタ バーがどの状態で表示されるべきかを指定します。水平スプリッタ バーはスライドとスライド下のコンテンツ領域を分離し、垂直スプリッタ バーはスライドとサイドコンテンツ領域を分離します。可能な値は[SplitterBarStateType.Minimized](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/SplitterBarStateType#Minimized)、[SplitterBarStateType.Maximized](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/SplitterBarStateType#Maximized) および[SplitterBarStateType.Restored](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/SplitterBarStateType#Restored)です。
+メソッド[getVerticalBarState](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) と [getHorizontalBarState](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) は、水平または垂直スプリッタ バーの表示状態を指定します。水平スプリッタ バーはスライドとスライド下部のコンテンツ領域を分離し、垂直スプリッタ バーはスライドとサイドコンテンツ領域を分離します。可能な値は [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/SplitterBarStateType#Minimized)、[SplitterBarStateType.Maximized](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/SplitterBarStateType#Maximized) および [SplitterBarStateType.Restored](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/SplitterBarStateType#Restored) です。
 
-Methods[getRestoredLeft](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--) と[getRestoredTop](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--) は、[getVerticalBarState](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) と[getHorizontalBarState](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) が[SplitterBarStateType.Restored](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/SplitterBarStateType#Restored) に設定されたときの、通常ビューにおけるスライド領域の上下または左右のサイズを指定します。
+メソッド[getRestoredLeft](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--) と [getRestoredTop](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--) は、[getVerticalBarState](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) と [getHorizontalBarState](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) に対して [SplitterBarStateType.Restored](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/SplitterBarStateType#Restored) が適用されたときの、標準ビューの上部またはサイドスライド領域のサイズを指定します。
 
 ## **INormalViewProperties の復元について**
 
-領域が可変の復元サイズ（最小化でも最大化でもない）であるときに、通常ビューのスライド領域（[getRestoredTop](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--) の子の場合は幅、[getRestoredLeft](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--) の子の場合は高さ）のサイズを指定します。
+標準ビューにおいて、領域が可変の復元サイズ（最小化でも最大化でもない）である場合、スライド領域（[getRestoredTop] の子の場合は幅、[getRestoredLeft] の子の場合は高さ）のサイズを指定します。
 
-Method[getDimensionSize](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) は、復元された top の子の場合は幅、復元された left の子の場合は高さとして、スライド領域のサイズを指定します。
+メソッド[getDimensionSize](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) は、スライド領域のサイズ（restoredTop の子の場合は幅、restoredLeft の子の場合は高さ）を指定します。
 
-Method[getAutoAdjust](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) は、ウィンドウのサイズ変更時にサイドコンテンツ領域のサイズが新しいサイズに合わせて自動的に調整されるかどうかを指定します。
+メソッド[getAutoAdjust](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) は、アプリケーション内でビューを含むウィンドウのサイズ変更時に、サイドコンテンツ領域のサイズが新しいサイズに合わせて調整されるかどうかを指定します。
 
-以下の例は、プレゼンテーションの[ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ViewProperties#getNormalViewProperties--) プロパティにアクセスする方法を示しています。
+以下の例は、プレゼンテーションの[ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ViewProperties#getNormalViewProperties--)プロパティにアクセスする方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -63,7 +65,7 @@ try {
     pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
     pres.getViewProperties().getNormalViewProperties().setVerticalBarState(SplitterBarStateType.Maximized);
     
-    // プレゼンテーションのビュー プロパティを復元する
+    // プレゼンテーションのビュー プロパティを復元
     pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
     pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
     pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
@@ -74,24 +76,27 @@ try {
 }
 ```
 
-## **デフォルト ズーム値の設定**
+## **デフォルトズーム値の設定**
 
 {{% alert color="info" %}} 
-Aspose.Slides for Android via Java は、プレゼンテーションを開いたときにズームが既に設定された状態になるよう、デフォルトのズーム値を設定できるようになりました。これはプレゼンテーションの[ViewProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ViewProperties) を設定することで実現できます。[getSlideViewProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) および[getNotesViewProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) はプログラムから設定可能です。このトピックでは、Aspose.Slides で[Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation) の[View Properties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ViewProperties) を設定する方法を例で示します。
+
+Aspose.Slides for Android via Java は、プレゼンテーションを開いたときに既にズームが設定された状態になるよう、デフォルトズーム値の設定をサポートするようになりました。これは、プレゼンテーションの[ViewProperties]を設定することで実現できます。[getSlideViewProperties] および [getNotesViewProperties] はプログラムから設定可能です。このトピックでは、Aspose.Slides で[Presentation]の[View Properties]を設定する方法を例で示します。
+
 {{% /alert %}} 
 
 ビュー プロパティを設定するには、以下の手順に従ってください。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成します。
-1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation) の[View Properties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ViewProperties) を設定します。
-1. プレゼンテーションを[PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルとして保存します。下の例では、スライドビューとノートビューのズーム値の両方を設定しています。
+1. [Presentation] クラスのインスタンスを作成します。
+2. [Presentation] の[View Properties] を設定します。
+3. プレゼンテーションを [PPTX] ファイルとして保存します。  
+以下の例では、スライドビューとノートビューのズーム値を設定しています。
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // プレゼンテーションのビュー プロパティを設定する
+    // プレゼンテーションのビュー プロパティを設定
     presentation.getViewProperties().getSlideViewProperties().setScale(100); // スライド ビューのズーム値（パーセンテージ）
     presentation.getViewProperties().getNotesViewProperties().setScale(100); // ノート ビューのズーム値（パーセンテージ） 
 
@@ -103,9 +108,13 @@ try {
 
 ## **グリッド間隔の設定**
 
-[Presentation.getViewProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/#getViewProperties--) を使用して、プレゼンテーション全体のビュー設定にアクセスします。[IViewProperties.getGridSpacing](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iviewproperties/#getGridSpacing--) と[IViewProperties.setGridSpacing](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) メソッドは、基礎となる編集グリッドの間隔を読み取ったり変更したりします。この設定は個々のスライドではなく、プレゼンテーション全体に適用されます。グリッド間隔はポイント単位で指定され、72 ポイントが 1 インチに相当します。API ドキュメントの要件どおり、正の値を使用してください。
+[Presentation.getViewProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/#getViewProperties--) を使用して、プレゼンテーション全体のビュー設定にアクセスします。  
+[IViewProperties.getGridSpacing](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iviewproperties/#getGridSpacing--) と [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) メソッドは、基礎となる編集グリッドの間隔を読み取ったり変更したりします。  
+この設定は個々のスライドではなく、プレゼンテーション全体に適用されます。  
+グリッド間隔はポイントで指定され、72 ポイントが 1 インチに相当します。  
+API ドキュメントの要件に従い、正の値を使用してください。
 
-以下の例は既存の `demo.pptx` を開き、現在のグリッド間隔を出力し、4 分の 1 インチの間隔に設定して結果を保存します。
+以下の例は、既存の `demo.pptx` を開き、現在のグリッド間隔を表示し、1/4 インチの間隔に設定して結果を保存します。
 
 ```java
 import com.aspose.slides.Presentation;
@@ -123,28 +132,53 @@ try {
 }
 ```
 
-グリッドは[描画ガイド](/slides/ja/androidjava/drawing-guides/)とは異なります。グリッド間隔は一定の間隔を制御しますが、描画ガイドは個別に配置された水平または垂直の整列ラインです。描画ガイドを追加、移動、または削除してもグリッド間隔は変わりません。
+グリッドは[drawing guides](/slides/ja/androidjava/drawing-guides/)とは異なります。グリッド間隔は一定の間隔を制御し、描画ガイドは個別に位置付けられた水平または垂直のガイドラインです。描画ガイドを追加、移動、削除してもグリッド間隔は変わりません。
 
-グリッドも描画ガイドも編集支援ツールです。PDF、画像、SVG、またはスライドショーとしてレンダリングされることはなく、格納されたグリッド間隔がエディタで表示されるかどうかは、ビューアやエディタの設定に依存します。
+グリッドも描画ガイドも編集支援ツールです。PDF、画像、SVG、スライドショーではスライドコンテンツとしてレンダリングされません。グリッド間隔を保存しても、エディタがグリッドを表示することが保証されるわけではなく、表示はビューアやエディタの設定に依存します。
 
-## **よくある質問**
+## **プレゼンテーションを開くときにコメントを表示または非表示にする**
 
-**プレゼンテーションを再度開いたときにグリッドが表示されないのはなぜですか？**
+[Presentation.getViewProperties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/#getViewProperties--) を使用して、プレゼンテーション全体のビュー設定にアクセスします。  
+[IViewProperties.getShowComments](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iviewproperties/#getShowComments--) と [IViewProperties.setShowComments](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iviewproperties/#setShowComments-byte-) を使用して、PowerPoint やその他の互換エディタでプレゼンテーションを開いたときにコメントを表示するかどうかの保存された設定を読み取ったり変更したりします。
 
-ファイルはグリッド間隔を保存しますが、エディタがグリッドの表示を制御します。エディタのグリッド表示設定を確認してください。
+この設定は保存されたビュー設定のみを制御し、コメントの追加、削除、編集、解決は行いません。コメントを非表示にしても、内容、作成者、位置、返信、ステータスは保持されます。コメント自体を変更する操作については [Presentation Comments](/slides/ja/androidjava/presentation-comments/) を参照してください。
 
-**描画ガイドを削除してもグリッド間隔は変わりますか？**
+以下の例は、コメントが含まれた既存の `comments.pptx` が必要です。現在の表示設定を出力し、コメントを非表示に設定し、コメントを削除せずに新しい PPTX を保存します。また、[IViewProperties.setLastView] と [ViewType.SlideView] を使用して、コメント表示と合わせて初期編集ビューを設定します。
 
-いいえ。描画ガイドとグリッド間隔は独立した設定です。ガイドを削除しても、保存されたグリッド間隔はそのままです。
+```java
+import com.aspose.slides.NullableBool;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ViewType;
 
-**プレゼンテーションの異なるセクションに対して別々のビュー設定を行うことはできますか？**
+Presentation presentation = new Presentation("comments.pptx");
+try {
+    byte showComments = presentation.getViewProperties().getShowComments();
+    System.out.println("Current comment visibility: " + showComments);
 
-[View settings](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/#getViewProperties--) はプレゼンテーションレベル（[Normal View](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/viewproperties/#getSlideViewProperties--)）で定義され、セクションごとではありません。そのため、ドキュメント全体に対して単一のパラメーターセットが適用されます。
+    presentation.getViewProperties().setShowComments(NullableBool.False);
+    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-**異なるユーザー向けに事前に異なるビュー状態を定義できますか？**
+この設定は、コメントが PDF、HTML、画像、ノート、配布資料のエクスポートに含まれるかどうかを決定しません。エクスポート固有のオプションは別途設定してください。
 
-できません。設定はファイルに保存され、すべてのユーザーで共有されます。ビューアアプリケーションはユーザー設定を考慮する場合がありますが、ファイル自体は 1 つのビュー プロパティしか持ちません。
+## **FAQ**
 
-**テンプレートに事前定義された View Properties を埋め込み、新規プレゼンテーションを同じビュー構成で開くことは可能ですか？**
+**なぜプレゼンテーションを再度開くとグリッドが表示されないのですか？**  
+ファイルにはグリッド間隔が保存されていますが、表示はエディタ側で制御されます。エディタのグリッド表示設定を確認してください。
 
-可能です。[view properties](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/#getViewProperties--) はプレゼンテーションレベルで保存されるため、テンプレートに埋め込めば新規ドキュメントは同じ初期ビュー設定で開かれます。
+**描画ガイドを削除してもグリッド間隔は変わりますか？**  
+いいえ。描画ガイドとグリッド間隔は独立した設定です。ガイドを削除しても、保存されたグリッド間隔は変わりません。
+
+**プレゼンテーションの異なるセクションに異なるビュー設定を設定できますか？**  
+[View settings] はプレゼンテーションレベル（[Normal View] / [Slide View]）で定義され、セクションごとには設定できません。そのため、ドキュメントが開かれる際には単一のパラメータセットが全体に適用されます。
+
+**異なるユーザー向けに事前に異なるビュー状態を定義できますか？**  
+いいえ。設定はファイルに保存されて共有されます。ビューアアプリケーションはユーザー設定を尊重する場合がありますが、ファイル自体には単一のビュー プロパティしか含まれていません。
+
+**事前に View Properties を設定したテンプレートを用意すれば、新しいプレゼンテーションが同じ設定で開きますか？**  
+はい。[view properties] がプレゼンテーションレベルで保存されるため、テンプレートに埋め込んでおけば、同じ初期ビュー構成で新しいドキュメントを作成できます。

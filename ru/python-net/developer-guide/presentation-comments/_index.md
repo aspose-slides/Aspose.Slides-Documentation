@@ -1,5 +1,5 @@
 ---
-title: Управление комментариями презентаций в Python
+title: Управление комментариями презентации в Python
 linktitle: Комментарии к презентации
 type: docs
 weight: 100
@@ -8,42 +8,44 @@ keywords:
 - комментарий
 - современный комментарий
 - комментарии PowerPoint
-- комментарии к презентации
-- комментарии слайда
+- комментарии презентации
+- комментарии слайдов
 - добавить комментарий
-- доступ к комментарию
+- получить комментарий
 - редактировать комментарий
-- ответить на комментарий
+- ответ на комментарий
 - удалить комментарий
 - удалить комментарий
 - PowerPoint
 - презентация
 - Python
 - Aspose.Slides
-description: "Управляйте комментариями презентаций с помощью Aspose.Slides для Python через .NET: добавляйте, читайте, редактируйте, отвечайте и удаляйте комментарии в презентациях PowerPoint."
+description: "Управляйте комментариями презентаций с помощью Aspose.Slides для Python через .NET: добавляйте, читаете, редактируете, отвечайте и удаляйте комментарии в презентациях PowerPoint."
 ---
 ## **Обзор**
 
-Эта статья объясняет, как управлять комментариями презентаций с помощью Aspose.Slides для Python через .NET. Она вводит основные типы, связанные с комментариями, и демонстрирует, как добавлять комментарии на слайды, получать доступ к существующим комментариям, работать с ответами и современными комментариями, а также удалять комментарии из презентации.
+В этой статье объясняется, как управлять комментариями презентации с помощью Aspose.Slides для Python через .NET. Она вводит основные типы, связанные с комментариями, и демонстрирует, как добавлять комментарии к слайдам, получать доступ к существующим комментариям, работать с ответами и современными комментариями, а также удалять комментарии из презентации.
 
-Примеры охватывают типичные сценарии рецензирования и совместной работы в PowerPoint, такие как назначение комментариев авторам, чтение текста комментариев и их метаданных, построение цепочек ответов и удаление выбранных комментариев или всех комментариев.
+Примеры охватывают типичные сценарии рецензирования и совместной работы в PowerPoint, такие как назначение комментариев авторам, чтение текста комментария и метаданных, построение цепочек ответов и удаление выбранных комментариев или всех комментариев.
 
-В PowerPoint комментарии отображаются как аннотации на слайдах. При выборе комментария отображаются его текст и связанная дискуссия.
+В PowerPoint комментарии отображаются как аннотации на слайдах. Выбор комментария отображает его текст и связанную дискуссию.
 
-## **Зачем добавлять комментарии в презентации?**
+Чтобы запросить отображение или скрытие комментариев при открытии презентации без изменения самих комментариев, см. [Показать или скрыть комментарии при открытии презентации](/slides/ru/python-net/presentation-view-properties/).
 
-Вы можете использовать комментарии для предоставления обратной связи и совместной работы с коллегами при проверке презентаций.
+## **Зачем добавлять комментарии к презентациям?**
+
+Вы можете использовать комментарии для предоставления обратной связи и совместной работы с коллегами при рецензировании презентаций.
 
 Aspose.Slides для Python через .NET предоставляет следующие API для работы с комментариями:
 
-* Класс [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/), который предоставляет доступ к авторам комментариев презентации.
-* Класс [CommentCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/commentcollection/), представляющий комментарии, связанные с отдельным автором.
-* Класс [Comment](https://reference.aspose.com/slides/ru/python-net/aspose.slides/comment/), который предоставляет информацию о комментарии, включая его автора, время создания, позицию и текст.
-* Класс [CommentAuthor](https://reference.aspose.com/slides/ru/python-net/aspose.slides/commentauthor/), который предоставляет информацию об авторе, включая имя, инициалы и связанные комментарии.
+* Класс [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/) предоставляет доступ к авторам комментариев презентации.
+* Класс [CommentCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/commentcollection/) представляет комментарии, связанные с отдельным автором.
+* Класс [Comment](https://reference.aspose.com/slides/ru/python-net/aspose.slides/comment/) предоставляет информацию о комментарии, включая его автора, время создания, позицию и текст.
+* Класс [CommentAuthor](https://reference.aspose.com/slides/ru/python-net/aspose.slides/commentauthor/) предоставляет информацию об авторе, включая его имя, инициалы и связанные комментарии.
 
 ## **Добавление комментариев к слайдам**
 
-Следующий пример показывает, как добавить комментарии на слайды в презентации PowerPoint:
+В следующем примере показано, как добавить комментарии к слайдам в презентации PowerPoint:
 
 ```python
 from datetime import datetime
@@ -72,9 +74,9 @@ with slides.Presentation() as presentation:
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Получение комментариев со слайдов**
+## **Доступ к комментариям слайдов**
 
-Следующий пример показывает, как получить доступ к существующим комментариям в презентации PowerPoint:
+В следующем примере показано, как получить доступ к существующим комментариям в презентации PowerPoint:
 
 ```python
 import aspose.slides as slides
@@ -89,11 +91,11 @@ with slides.Presentation("Comments1.pptx") as presentation:
             print()
 ```
 
-## **Ответы на комментарии**
+## **Ответ на комментарии**
 
-Родительским комментарием считается исходный комментарий в верхней части иерархии ответов. Свойство [parent_comment](https://reference.aspose.com/slides/ru/python-net/aspose.slides/comment/parent_comment/) класса [Comment](https://reference.aspose.com/slides/ru/python-net/aspose.slides/comment/) позволяет получить или задать родителя комментария.
+Родительский комментарий — это оригинальный комментарий в вершине иерархии ответов. Свойство [parent_comment](https://reference.aspose.com/slides/ru/python-net/aspose.slides/comment/parent_comment/) класса [Comment](https://reference.aspose.com/slides/ru/python-net/aspose.slides/comment/) позволяет получить или задать родительский комментарий.
 
-Следующий пример показывает, как добавлять ответы и исследовать получившуюся иерархию комментариев:
+В следующем примере показано, как добавить ответы и изучить получившуюся иерархию комментариев:
 
 ```python
 from datetime import datetime
@@ -141,19 +143,19 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Когда используется метод [remove](https://reference.aspose.com/slides/ru/python-net/aspose.slides/comment/remove/) класса [Comment](https://reference.aspose.com/slides/ru/python-net/aspose.slides/comment/) для удаления комментария, все ответы на этот комментарий также удаляются.
-* Если свойство [parent_comment](https://reference.aspose.com/slides/ru/python-net/aspose.slides/comment/parent_comment/) создаёт кольцевую ссылку, генерируется исключение [PptxEditException](https://reference.aspose.com/slides/ru/python-net/aspose.slides/pptxeditexception/).
+* При использовании метода [remove](https://reference.aspose.com/slides/ru/python-net/aspose.slides/comment/remove/) класса [Comment](https://reference.aspose.com/slides/ru/python-net/aspose.slides/comment/) для удаления комментария также удаляются все ответы на этот комментарий.
+* Если свойство [parent_comment](https://reference.aspose.com/slides/ru/python-net/aspose.slides/comment/parent_comment/) создает круговую ссылку, будет выброшено исключение [PptxEditException](https://reference.aspose.com/slides/ru/python-net/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
-## **Добавление современных комментариев**
+## **Добавить современные комментарии**
 
-Современные комментарии могут быть связаны непосредственно со слайдом, с конкретной фигурой или с диапазоном текста внутри AutoShape. Метод [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/ru/python-net/aspose.slides/commentcollection/add_modern_comment/) принимает аргумент [Shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/) в дополнение к слайду и координатам маркера комментария.
+Современные комментарии могут быть привязаны к самому слайду, к конкретной форме или к диапазону текста внутри AutoShape. Метод [CommentCollection.add_modern_comment](https://reference.aspose.com/slides/ru/python-net/aspose.slides/commentcollection/add_modern_comment/) принимает аргумент [Shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/) в дополнение к слайду и координатам маркера комментария.
 
-Когда в аргумент shape передаётся `None`, комментарий считается комментариев уровня слайда. Его маркер позиционируется по указанным координатам, но не привязан к конкретной фигуре, поэтому [ModernComment.shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/shape/) возвращает `None`. Когда передаётся объект [Shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/), комментарий привязывается к этой фигуре. Координаты по‑прежнему определяют положение маркера комментария на слайде, а связь с фигурой можно получить через [ModernComment.shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/shape/).
+Когда в аргумент shape передаётся `None`, комментарий считается уровнем слайда. Его маркер позиционируется по указанным координатам, но не привязан к какой‑то форме, поэтому [ModernComment.shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/shape/) возвращает `None`. Если передана [Shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/), комментарий привязывается к этой форме. Координаты по‑прежнему определяют положение маркера комментария на слайде, а привязку к форме можно получить через [ModernComment.shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/shape/).
 
-### **Привязка современного комментария к объекту Shape**
+### **Закрепить современный комментарий за формой**
 
-Следующий пример создаёт как комментарий уровня слайда, так и современный комментарий, привязанный к конкретному AutoShape. Затем он читает связанную фигуру из каждого комментария.
+В следующем примере создаются как комментарий уровня слайда, так и современный комментарий, привязанный к конкретному AutoShape. Затем из каждого комментария считывается связанная форма.
 
 ```python
 from datetime import datetime
@@ -180,11 +182,11 @@ with slides.Presentation() as presentation:
     presentation.save("modern_comments.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Привязка комментариев к различным типам Shape**
+### **Привязать комментарии к разным типам форм**
 
-Любой объект слайда, производный от [Shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/), может использоваться в качестве привязки. Распространённые примеры включают [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/ru/python-net/aspose.slides/connector/) и экземпляры [GraphicalObject](https://reference.aspose.com/slides/ru/python-net/aspose.slides/graphicalobject/), такие как диаграммы.
+Любой объект слайда, производный от [Shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/), может использоваться в качестве привязки формы. Распространённые примеры включают [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/ru/python-net/aspose.slides/connector/) и экземпляры [GraphicalObject](https://reference.aspose.com/slides/ru/python-net/aspose.slides/graphicalobject/), такие как диаграммы.
 
-Следующий пример создаёт несколько распространённых типов фигур и связывает с каждой из них современный комментарий.
+В следующем примере создаются несколько распространённых типов форм и к каждому из них привязывается современный комментарий.
 
 ```python
 import base64
@@ -227,18 +229,18 @@ with slides.Presentation() as presentation:
     presentation.save("modern_comment_shape_types.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Привязка комментария к тексту и установка его статуса**
+### **Привязать комментарий к тексту и установить его статус**
 
-Для современного комментария, связанного с [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/), свойство [ModernComment.text_selection_start](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/text_selection_start/) указывает начальную позицию выбранного текста в текстовом фрейме фигуры, а [ModernComment.text_selection_length](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/text_selection_length/) задаёт длину выделения. Вместе эти свойства связывают комментарий с определённым диапазоном текста внутри AutoShape.
+Для современного комментария, связанного с [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/), свойство [ModernComment.text_selection_start](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/text_selection_start/) указывает стартовую позицию выбранного текста во фрейме текста формы, а свойство [ModernComment.text_selection_length](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/text_selection_length/) задаёт длину выделения. Вместе эти свойства связывают комментарий с конкретным диапазоном текста внутри AutoShape.
 
-Свойство [ModernComment.status](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/status/) можно прочитать или изменить, задав значение из перечисления [ModernCommentStatus](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncommentstatus/):
+Свойство [ModernComment.status](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/status/) можно читать или изменять, задавая значение из перечисления [ModernCommentStatus](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncommentstatus/):
 
-- `NOT_DEFINED` — статус современного комментария не определён.
+- `NOT_DEFINED` — не определён конкретный статус современного комментария.
 - `ACTIVE` — комментарий активен.
 - `RESOLVED` — комментарий решён.
 - `CLOSED` — комментарий закрыт.
 
-Следующий пример создаёт современный комментарий, привязанный к фигуре, связывает его с выделением текста, помечает как решённый, сохраняет презентацию и проверяет значения после повторного открытия файла.
+В следующем примере создаётся современный комментарий, привязанный к форме, связывается с выделением текста, отмечается как решённый, сохраняется презентация и проверяются значения после повторного открытия файла.
 
 ```python
 from datetime import datetime
@@ -285,9 +287,9 @@ with slides.Presentation(output_file) as reopened_presentation:
         print("Resolved status preserved: " + str(status_matches))
 ```
 
-### **Проверка существующих современных комментариев**
+### **Проверить существующие современные комментарии**
 
-Для проверки существующей презентации определите, какие комментарии являются экземплярами [ModernComment](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/), затем изучите [ModernComment.shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/text_selection_length/) и [ModernComment.status](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/status/). Значение `None` в свойстве shape указывает на комментарий уровня слайда. Для привязки к [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/) свойства выбора текста идентифицируют соответствующий диапазон в текстовом фрейме фигуры.
+Чтобы проанализировать существующую презентацию, определите, какие комментарии являются экземплярами [ModernComment](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/), затем изучите [ModernComment.shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/shape/), [ModernComment.text_selection_start](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/text_selection_start/), [ModernComment.text_selection_length](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/text_selection_length/) и [ModernComment.status](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/status/). `None` в свойстве shape указывает на комментарий уровня слайда. Для привязки к [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/) свойства выбора текста определяют соответствующий диапазон во фрейме текста формы.
 
 ```python
 import aspose.slides as slides
@@ -317,11 +319,11 @@ with slides.Presentation("comments.pptx") as presentation:
             print()
 ```
 
-## **Удаление комментариев**
+## **Удалить комментарии**
 
-### **Удаление всех комментариев и их авторов**
+### **Удалить все комментарии и авторов комментариев**
 
-Следующий пример показывает, как удалить все комментарии и их авторов из презентации:
+В следующем примере показано, как удалить все комментарии и авторов комментариев из презентации:
 
 ```python
 import aspose.slides as slides
@@ -334,9 +336,9 @@ with slides.Presentation("example.pptx") as presentation:
     presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Удаление отдельных комментариев**
+### **Удалить конкретные комментарии**
 
-Следующий пример показывает, как удалить отдельные комментарии с слайда:
+В следующем примере показано, как удалить конкретные комментарии со слайда:
 
 ```python
 from datetime import datetime
@@ -368,16 +370,16 @@ with slides.Presentation() as presentation:
     presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Поддерживает ли Aspose.Slides статус ‘решено’ для современных комментариев?**
+**Поддерживает ли Aspose.Slides статус "решено" для современных комментариев?**
 
-Да. Свойство [ModernComment.status](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/status/) можно читать и задавать значение из перечисления [ModernCommentStatus](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncommentstatus/), включая `RESOLVED`. Статус сохраняется в презентации и может быть считан снова после повторного открытия файла.
+Да. Свойство [ModernComment.status](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncomment/status/) можно читать и задавать значение из перечисления [ModernCommentStatus](https://reference.aspose.com/slides/ru/python-net/aspose.slides/moderncommentstatus/), включая `RESOLVED`. Статус сохраняется в презентации и может быть считан повторно после повторного открытия файла.
 
-**Поддерживаются ли обсуждения в виде цепочек ответов, и существует ли ограничение на вложенность?**
+**Поддерживаются ли вложенные обсуждения (цепочки ответов) и существует ли ограничение на глубину вложенности?**
 
-Да. Каждый комментарий может ссылаться на свой [parent comment](https://reference.aspose.com/slides/ru/python-net/aspose.slides/comment/parent_comment/), что позволяет создавать цепочки ответов. API не определяет конкретного ограничения глубины вложения.
+Да. Каждый комментарий может ссылаться на свой [parent comment](https://reference.aspose.com/slides/ru/python-net/aspose.slides/comment/parent_comment/), что позволяет формировать цепочки ответов. API не задаёт конкретного ограничения на глубину вложенности.
 
-**В какой системе координат определяется положение маркера комментария на слайде?**
+**В какой системе координат определяется позиция маркера комментария на слайде?**
 
-Позиция маркера задаётся координатами с плавающей точкой в системе координат слайда, что позволяет точно разместить его на слайде.
+Позиция маркера определяется координатами с плавающей точкой в системе координат слайда, что позволяет точно разместить его на слайде.

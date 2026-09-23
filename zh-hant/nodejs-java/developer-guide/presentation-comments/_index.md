@@ -1,5 +1,5 @@
 ---
-title: 在 Node.js 中管理簡報評論
+title: 管理 Node.js 中的簡報評論
 linktitle: 簡報評論
 type: docs
 weight: 100
@@ -21,26 +21,28 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "使用 Aspose.Slides for Node.js via Java 管理簡報評論：在 PowerPoint 簡報中新增、讀取、編輯、回覆及移除評論。"
+description: "使用 Aspose.Slides for Node.js via Java 管理簡報評論：在 PowerPoint 簡報中新增、閱讀、編輯、回覆和移除評論。"
 ---
-## **概述**
+## **概覽**
 
-本文說明如何使用 Aspose.Slides for Node.js via Java 來管理簡報中的評論。它介紹了與評論相關的主要類型，並示範如何向投影片新增評論、存取現有評論、處理回覆與現代評論，以及從簡報中移除評論。
+本文說明如何使用 Aspose.Slides for Node.js via Java 來管理簡報評論。它介紹了主要的與評論相關的類型，並示範如何在投影片上新增評論、存取現有評論、處理回覆與現代評論，以及從簡報中移除評論。
 
-範例涵蓋 PowerPoint 中常見的審閱與協作情境，例如指派評論給作者、讀取評論文字與中繼資料、建立回覆鏈，以及移除選取的評論或全部評論。
+範例涵蓋了 PowerPoint 中常見的審閱與協作情境，例如將評論指派給作者、讀取評論文字與中繼資料、建立回覆鏈，以及移除選取的評論或全部評論。
 
-在 PowerPoint 中，評論會顯示為投影片上的批註。選取評論時會顯示其文字與相關討論。
+在 PowerPoint 中，評論會以投影片上的標註形式出現。選取評論時會顯示其文字與相關討論。
 
-## **為何要在簡報中加入評論？**
+若要在開啟簡報時請求顯示或隱藏評論而不變更評論本身，請參閱[在開啟簡報時顯示或隱藏評論](/slides/zh-hant/nodejs-java/presentation-view-properties/)。
 
-在審閱簡報時，您可以使用評論提供回饋並與同事協作。
+## **為何在簡報中加入評論？**
 
-Aspose.Slides for Node.js via Java 提供以下 API 來處理評論：
+在審閱簡報時，您可以使用評論來提供回饋並與同事協作。
 
-* [Presentation] 類別，可存取簡報的評論作者。
-* [CommentCollection] 類別，代表與單一作者相關聯的評論集合。
-* [Comment] 類別，提供評論的資訊，包括作者、建立時間、位置與文字。
-* [CommentAuthor] 類別，提供作者資訊，包括名稱、縮寫與相關評論。
+Aspose.Slides for Node.js via Java 提供以下用於處理評論的 API：
+
+* [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別，提供存取簡報的評論作者。
+* [CommentCollection](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/commentcollection/) 類別，代表與單一作者相關聯的評論。
+* [Comment](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/comment/) 類別，提供有關評論的資訊，包括作者、建立時間、位置與文字。
+* [CommentAuthor](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/commentauthor/) 類別，提供有關作者的資訊，包括其名稱、縮寫與相關評論。
 
 ## **新增投影片評論**
 
@@ -80,7 +82,7 @@ try {
 
 ## **存取投影片評論**
 
-以下範例示範如何存取 PowerPoint 簡報中現有的評論：
+以下範例示範如何在 PowerPoint 簡報中存取現有評論：
 
 ```javascript
 var aspose = aspose || {};
@@ -109,9 +111,9 @@ try {
 
 ## **回覆評論**
 
-父評論是回覆層階頂端的原始評論。[Comment.getParentComment] 與 [Comment.setParentComment] 方法可讓您取得或設定評論的父評論。
+父評論是回覆層級最上方的原始評論。[Comment.getParentComment](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/comment/getparentcomment/) 與 [Comment.setParentComment](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/comment/setparentcomment/) 方法可讓您取得或設定評論的父評論。
 
-以下範例示範如何新增回覆並檢查產生的評論層階：
+以下範例示範如何新增回覆並檢查產生的評論層級結構：
 
 ```javascript
 var aspose = aspose || {};
@@ -165,19 +167,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* 使用 [Comment.remove] 方法刪除評論時，該評論的所有回覆也會一起被刪除。
-* 若 [Comment.setParentComment] 產生循環參照，會拋出 [PptxEditException]。
+* 當使用 [Comment.remove](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/comment/remove/) 方法刪除評論時，該評論的所有回覆也會被刪除。
+* 若 [Comment.setParentComment](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/comment/setparentcomment/) 產生循環參考，則會拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/pptxeditexception/)。
 {{% /alert %}}
 
 ## **新增現代評論**
 
-現代評論可以與投影片本身、特定圖形，或是 [AutoShape] 內的文字範圍關聯。[CommentCollection.addModernComment] 方法除了投影片與評論標記座標外，還接受一個 [Shape] 參數。
+現代評論可以與投影片本身、特定圖形，或是 [AutoShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/autoshape/) 內的文字範圍關聯。[CommentCollection.addModernComment](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) 方法接受一個 [Shape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shape/) 參數，除投影片與評論標記座標之外。
 
-當 shape 參數傳入 `null` 時，評論為投影片層級的評論。其標記位置以提供的座標定位，但不會與特定圖形關聯，故 [ModernComment.getShape] 會回傳 `null`。若提供了 [Shape]，則評論會錨定於該圖形。座標仍定義標記在投影片上的位置，而圖形關聯可透過 [ModernComment.getShape] 取得。
+當 `null` 被傳入 shape 參數時，評論為投影片層級的評論。其標記由提供的座標定位，但不會關聯到特定圖形，因此 [ModernComment.getShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/moderncomment/getshape/) 會回傳 `null`。當提供了 [Shape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shape/) 時，評論會錨定於該圖形。座標仍然定義評論標記在投影片上的位置，而圖形關聯可透過 [ModernComment.getShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/moderncomment/getshape/) 取得。
 
 ### **將現代評論錨定至圖形**
 
-以下範例同時建立投影片層級的現代評論與錨定至特定 [AutoShape] 的現代評論，並讀取每個評論所關聯的圖形：
+以下範例同時建立投影片層級的現代評論與錨定於特定 [AutoShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/autoshape/) 的現代評論，然後從每個評論中讀取其關聯的圖形。
 
 ```javascript
 var aspose = aspose || {};
@@ -207,11 +209,11 @@ try {
 }
 ```
 
-### **將評論錨定至不同類型的圖形**
+### **將評論錨定至不同圖形類型**
 
-任何繼承自 [Shape] 的投影片物件皆可作為圖形錨點。常見的例子包括 [AutoShape]、[PictureFrame]、[GroupShape]、[Connector] 與如圖表等 [GraphicalObject] 實例。
+任何繼承自 [Shape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shape/) 的投影片物件皆可作為圖形錨點。常見範例包括 [AutoShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/autoshape/)、[PictureFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/pictureframe/)、[GroupShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/groupshape/)、[Connector](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/connector/) 與 [GraphicalObject](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/graphicalobject/)（例如圖表）之實例。
 
-以下範例建立多種常見圖形類型，並為每種圖形關聯一則現代評論：
+以下範例建立多種常見圖形類型，並為每一個圖形關聯一個現代評論。
 
 ```javascript
 var aspose = aspose || {};
@@ -258,16 +260,16 @@ try {
 
 ### **將評論錨定至文字並設定其狀態**
 
-對於與 [AutoShape] 關聯的現代評論，[ModernComment.getTextSelectionStart] 與 [ModernComment.setTextSelectionStart] 取得圖形文字框中所選文字的起始位置；[ModernComment.getTextSelectionLength] 與 [ModernComment.setTextSelectionLength] 取得選取的長度。這兩組值共同將評論與 [AutoShape] 內的特定文字範圍關聯。
+對於與 [AutoShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/autoshape/) 關聯的現代評論，[ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) 與 [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) 讀取形狀文字框中所選文字的起始位置。[ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) 與 [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) 讀取選取的長度。結合這些值即可將評論與 [AutoShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/autoshape/) 內的特定文字範圍關聯。
 
-[ModernComment.getStatus] 與 [ModernComment.setStatus] 方法存取 [ModernCommentStatus] 列舉中的值：
+[ModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/moderncomment/getstatus/) 與 [ModernComment.setStatus](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/moderncomment/setstatus/) 方法存取 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/moderncommentstatus/) 列舉中的值：
 
 - `NotDefined` — 未定義特定的現代評論狀態。
-- `Active` — 評論處於活動狀態。
+- `Active` — 評論處於活躍狀態。
 - `Resolved` — 評論已解決。
 - `Closed` — 評論已關閉。
 
-以下範例建立圖形錨定的現代評論，將其關聯至文字選取，將狀態標記為已解決，儲存簡報，並在重新開啟檔案後驗證相關值：
+以下範例建立一個錨定於圖形的現代評論，將其與文字選取關聯，標記為已解決，儲存簡報，並在重新開啟檔案後驗證其值。
 
 ```javascript
 var aspose = aspose || {};
@@ -325,9 +327,9 @@ try {
 }
 ```
 
-### **檢視現有的現代評論**
+### **檢查現有的現代評論**
 
-若要檢視既有簡報，先確認哪些評論是 [ModernComment] 實例，然後檢查 [ModernComment.getShape]、[ModernComment.getTextSelectionStart]、[ModernComment.getTextSelectionLength] 與 [ModernComment.getStatus]。`null` 的 shape 代表投影片層級的評論。若是以 [AutoShape] 錨定，文字選取方法會指出該圖形文字框中的相關範圍。
+若要檢查現有簡報，請先確認哪些評論是 [ModernComment](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/moderncomment/) 例項，然後檢視 [ModernComment.getShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/moderncomment/getshape/)、[ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/)、[ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/)、以及 [ModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/moderncomment/getstatus/)。`null` 的 shape 表示投影片層級的評論。對於 [AutoShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/autoshape/) 錨點，文字選取方法會識別形狀文字框中關聯的範圍。
 
 ```javascript
 var aspose = aspose || {};
@@ -374,7 +376,7 @@ try {
 
 ## **移除評論**
 
-### **移除全部評論與評論作者**
+### **移除所有評論與評論作者**
 
 以下範例示範如何從簡報中移除所有評論與評論作者：
 
@@ -444,12 +446,12 @@ try {
 
 **Aspose.Slides 是否支援現代評論的已解決狀態？**
 
-是的。[ModernComment.getStatus] 與 [ModernComment.setStatus] 可存取 [ModernCommentStatus] 中的值，包括 `Resolved`。此狀態會儲存在簡報中，重新開啟檔案後仍可讀取。
+是。[ModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/moderncomment/getstatus/) 與 [ModernComment.setStatus](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/moderncomment/setstatus/) 會存取 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/moderncommentstatus/) 的值，其中包含 `Resolved`。此狀態會儲存在簡報中，重新開啟檔案後仍可再次讀取。
 
-**是否支援串接式討論（回覆鏈），且有巢狀深度限制嗎？**
+**是否支援串聯討論（回覆鏈），且是否有巢狀深度限制？**
 
-支援。每則評論皆可參照其 [parent comment]，從而形成回覆鏈。API 未定義特定的巢狀深度上限。
+是。每個評論皆可參照其 [parent comment](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/comment/getparentcomment/)，從而形成回覆鏈。API 並未定義特定的巢狀深度限制。
 
-**評論標記在投影片上的位置是以何種座標系統定義的？**
+**評論標記在投影片上的位置是以哪種座標系統定義的？**
 
-標記位置以浮點座標定義於投影片座標系統，讓您能精確地將其放置在投影片上。
+標記位置是以投影片座標系統中的浮點座標定義，允許您精確地將其放置在投影片上。

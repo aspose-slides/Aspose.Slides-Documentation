@@ -1,5 +1,5 @@
 ---
-title: Získání a aktualizace vlastností zobrazení prezentace v Javě
+title: Načtení a aktualizace vlastností zobrazení prezentace v Javě
 linktitle: Vlastnosti zobrazení
 type: docs
 weight: 80
@@ -9,50 +9,50 @@ keywords:
 - normální zobrazení
 - obsah osnovy
 - ikony osnovy
-- zachycení svislého rozdělovacího pruhu
+- přichytit vertikální rozdělovač
 - jednoduché zobrazení
 - stav pruhu
 - velikost rozměru
 - automatické přizpůsobení
-- výchozí zoom
+- výchozí přiblížení
 - PowerPoint
 - OpenDocument
 - prezentace
 - Java
 - Aspose.Slides
-description: "Objevte vlastnosti zobrazení Aspose.Slides pro Java, které vám umožní přizpůsobit formáty PPT, PPTX a ODP snímků — upravit rozvržení, úrovně zoomu a nastavení zobrazení."
+description: "Objevte vlastnosti zobrazení Aspose.Slides pro Java a přizpůsobte formáty PPT, PPTX a ODP snímků – upravte rozložení, úroveň přiblížení a nastavení zobrazení."
 ---
 ## **Úvod**
 
-Normální zobrazení se skládá ze tří obsahových oblastí: samotného snímku, boční obsahové oblasti a spodní obsahové oblasti. Vlastnosti týkající se umístění jednotlivých obsahových oblastí. Tato informace umožňuje aplikaci uložit stav zobrazení do souboru, takže při opětovném otevření je zobrazení ve stejném stavu, v jakém bylo prezentace naposledy uložena.
+Normální zobrazení se skládá ze tří oblastí obsahu: samotného snímku, boční oblasti obsahu a spodní oblasti obsahu. Vlastnosti týkající se umístění různých oblastí obsahu. Tyto informace umožňují aplikaci uložit stav zobrazení do souboru, takže po opětovném otevření je zobrazení ve stejném stavu, jako bylo naposledy uloženo prezentací.
 
-Metoda [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IViewProperties#getNormalViewProperties--) byla přidána, aby poskytla přístup k vlastnostem normálního zobrazení prezentace.
+Metoda [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IViewProperties#getNormalViewProperties--) byla přidána pro poskytnutí přístupu k vlastnostem normálního zobrazení prezentace.
 
-Rozhraní [INormalViewProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewRestoredProperties) a jejich potomci, enum [SplitterBarStateType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SplitterBarStateType) byly přidány.
+Rozhraní [INormalViewProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewRestoredProperties) a jejich potomci, výčtový typ [SplitterBarStateType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SplitterBarStateType) byly přidány.
 
 ## **O INormalViewProperties**
 
-Představuje vlastnosti normálního zobrazení.
+Reprezentuje vlastnosti normálního zobrazení.
 
-Metody [getShowOutlineIcons](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) a [setShowOutlineIcons](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) určují, zda má aplikace zobrazovat ikony při zobrazování osnovy v některé z obsahových oblastí režimu normálního zobrazení.
+Metody [getShowOutlineIcons](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) a [setShowOutlineIcons](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) určují, zda má aplikace zobrazovat ikony při zobrazování obsahu osnovy v jakékoli oblasti obsahu režimu normálního zobrazení.
 
-Metody [getSnapVerticalSplitter](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) a [setSnapVerticalSplitter](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) určují, zda se má svislý rozdělovací pruh zachytit do minimalizovaného stavu, když je boční oblast dostatečně malá.
+Metody [getSnapVerticalSplitter](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) a [setSnapVerticalSplitter](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) určují, zda se má vertikální rozdělovač přichytit do zmenšeného stavu, když je boční oblast dostatečně malá.
 
-Vlastnost [getPreferSingleView](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getPreferSingleView--) a [setPreferSingleView](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) určuje, zda uživatel dává přednost zobrazení jediné obsahové oblasti přes celé okno místo standardního normálního zobrazení se třemi obsahovými oblastmi. Pokud je povoleno, aplikace může zobrazit jednu z obsahových oblastí v celém okně.
+Vlastnost [getPreferSingleView](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getPreferSingleView--) a [setPreferSingleView](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean--) určuje, zda uživatel preferuje zobrazení jedné oblasti obsahu přes celou obrazovku místo standardního normálního zobrazení se třemi oblastmi obsahu. Pokud je povoleno, může aplikace zobrazit jednu z oblastí obsahu v celé obrazovce.
 
-Metody [getVerticalBarState](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) a [getHorizontalBarState](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) specifikují stav, ve kterém má být zobrazen svislý nebo vodorovný rozdělovací pruh. Vodorovný pruh odděluje snímek od obsahové oblasti pod snímkem, svislý pruh odděluje snímek od boční obsahové oblasti. Možné hodnoty jsou: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SplitterBarStateType#Maximized) a [SplitterBarStateType.Restored](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SplitterBarStateType#Restored).
+Metody [getVerticalBarState](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) a [getHorizontalBarState](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) určují stav, ve kterém má být horizontální nebo vertikální pruh rozdělovače zobrazen. Horizontální pruh rozdělovače odděluje snímek od oblasti obsahu pod snímkem, vertikální pruh rozdělovače odděluje snímek od boční oblasti obsahu. Možné hodnoty jsou: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SplitterBarStateType#Maximized) a [SplitterBarStateType.Restored](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SplitterBarStateType#Restored).
 
 Metody [getRestoredLeft](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--) a [getRestoredTop](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getRestoredTop--) určují velikost horní nebo boční oblasti snímku v normálním zobrazení, když je pro [getVerticalBarState](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) a [getHorizontalBarState](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) použita hodnota [SplitterBarStateType.Restored](https://reference.aspose.com/slides/cs/java/com.aspose.slides/SplitterBarStateType#Restored).
 
 ## **O obnovení INormalViewProperties**
 
-Určuje velikost oblasti snímku (šířka, pokud je podřízená [getRestoredTop](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getRestoredTop--), výška, pokud je podřízená [getRestoredLeft](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) v normálním zobrazení, když má oblast proměnnou obnovenou velikost (nesmíminizovanou ani maximalizovanou).
+Určuje velikost oblasti snímku (šířka, když je podřízená [getRestoredTop](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getRestoredTop--), výška, když je podřízená [getRestoredLeft](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) v normálním zobrazení, když má oblast proměnnou obnovenou velikost (ne ani zmenšenou, ani maximalizovanou).
 
-Metoda [getDimensionSize](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) určuje velikost oblasti snímku (šířka, pokud je podřízená restoredTop, výška, pokud je podřízená restoredLeft).
+Metoda [getDimensionSize](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) určuje velikost oblasti snímku (šířka, když je podřízená restoredTop, výška, když je podřízená restoredLeft).
 
-Metoda [getAutoAdjust](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) určuje, zda má velikost boční obsahové oblasti kompenzovat novou velikost při změně velikosti okna obsahujícího zobrazení v aplikaci.
+Metoda [getAutoAdjust](https://reference.aspose.com/slides/cs/java/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) určuje, zda má velikost boční oblasti obsahu kompenzovat novou velikost při změně velikosti okna obsahujícího zobrazení v aplikaci.
 
-Níže je uveden příklad, který ukazuje, jak můžete získat vlastnosti [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ViewProperties#getNormalViewProperties--) pro prezentaci.
+Níže uvedený příklad ukazuje, jak můžete získat přístup k vlastnostem [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ViewProperties#getNormalViewProperties--) pro prezentaci.
 
 ```java
 import com.aspose.slides.*;
@@ -73,19 +73,17 @@ try {
 }
 ```
 
-## **Nastavení výchozí hodnoty zvětšení**
+## **Nastavení výchozí hodnoty přiblížení**
 
 {{% alert color="info" %}} 
-Aspose.Slides for Java nyní podporuje nastavení výchozí hodnoty zvětšení pro prezentaci tak, aby bylo při otevření prezentace zvětšení již nastavené. To lze provést nastavením [ViewProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ViewProperties) prezentace. [getSlideViewProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) i [getNotesViewProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) lze nastavit programově. V tomto tématu si ukážeme na příkladu, jak nastavit [View Properties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ViewProperties) pro [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation) v Aspose.Slides.
+Aspose.Slides pro Java nyní podporuje nastavení výchozí hodnoty přiblížení pro prezentaci tak, že při otevření prezentace je přiblížení již nastaveno. Lze to provést nastavením [ViewProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ViewProperties) prezentace. [getSlideViewProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) i [getNotesViewProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) lze nastavit programově. V tomto tématu si ukážeme na příkladu, jak nastavit [View Properties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ViewProperties) u [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation) v Aspose.Slides.
 {{% /alert %}} 
 
-Aby bylo možné nastavit vlastnosti zobrazení, postupujte podle následujících kroků:
+Pro nastavení vlastností zobrazení postupujte podle níže uvedených kroků:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation).
-1. Nastavte [View Properties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ViewProperties) pro [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation).
-1. Uložte prezentaci jako soubor [PPTX](https://docs.fileformat.com/presentation/pptx/).
-
-V níže uvedeném příkladu jsme nastavili hodnotu zvětšení pro zobrazení snímku i pro zobrazení poznámek.
+1. Nastavte [View Properties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ViewProperties) u [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation).
+1. Uložte prezentaci jako soubor [PPTX](https://docs.fileformat.com/presentation/pptx/). V níže uvedeném příkladu jsme nastavili hodnotu přiblížení pro zobrazení snímku i poznámek.
 
 ```java
 import com.aspose.slides.*;
@@ -93,8 +91,8 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     // Nastavení vlastností zobrazení prezentace
-    presentation.getViewProperties().getSlideViewProperties().setScale(100); // Hodnota zvětšení v procentech pro zobrazení snímku
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Hodnota zvětšení v procentech pro zobrazení poznámek 
+    presentation.getViewProperties().getSlideViewProperties().setScale(100); // Hodnota přiblížení v procentech pro zobrazení snímku
+    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Hodnota přiblížení v procentech pro zobrazení poznámek 
 
     presentation.save("Zoom_out.pptx", SaveFormat.Pptx);
 } finally {
@@ -104,9 +102,9 @@ try {
 
 ## **Nastavení rozestupu mřížky**
 
-Použijte [Presentation.getViewProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getViewProperties--) k přístupu k nastavením zobrazení na úrovni celé prezentace. Metody [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iviewproperties/#getGridSpacing--) a [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iviewproperties/#setGridSpacing-float-) čtou nebo mění interval podkladové editační mřížky. Toto nastavení se vztahuje na celou prezentaci, nikoli na jednotlivý snímek. Rozestup mřížky je uváděn v bodech, kde 72 bodů odpovídá jednomu palci. Použijte kladnou hodnotu, jak vyžaduje dokumentace API.
+Použijte [Presentation.getViewProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getViewProperties--) pro přístup k nastavením zobrazení platným pro celou prezentaci. Metody [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iviewproperties/#getGridSpacing--) a [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iviewproperties/#setGridSpacing-float-) čtou nebo mění interval podkladové editační mřížky. Toto nastavení platí pro celou prezentaci, nikoli pro jednotlivý snímek. Rozestup mřížky je specifikován v bodech, kde 72 bodů odpovídá jednomu palci. Použijte kladnou hodnotu, jak vyžaduje dokumentace API.
 
-Následující příklad otevře existující soubor `demo.pptx`, vypíše aktuální rozestup mřížky, nastaví interval čtvrťi palce a výsledek uloží.
+Následující příklad otevře existující `demo.pptx`, vypíše aktuální rozestup mřížky, nastaví interval čtvrtiny palce a uloží výsledek.
 
 ```java
 import com.aspose.slides.Presentation;
@@ -124,28 +122,57 @@ try {
 }
 ```
 
-Mřížka se liší od [drawing guides](/slides/cs/java/drawing-guides/). Rozestup mřížky řídí pravidelný interval, zatímco vodící čáry jsou jednotlivě umístěné vodorovné nebo svislé zarovnávací linie. Přidávání, přesouvání nebo odstraňování vodících čar nemění rozestup mřížky.
+Mřížka se liší od [drawing guides](/slides/cs/java/drawing-guides/). Rozestup mřížky řídí pravidelný interval, zatímco náčrty jsou individuálně umístěné vodorovné nebo svislé vodící čáry. Přidávání, přesouvání nebo odstraňování náčrtů nemění rozestup mřížky.
 
-Jak mřížka, tak vodící čáry jsou pomůcky pro editaci. Nejsou vykreslovány jako obsah snímku v PDF, obrázcích, SVG ani při prezentaci. Uložení rozestupu mřížky nezaručuje, že editor mřížku zobrazí: její viditelnost také závisí na nastavení prohlížeče nebo editoru.
+Jak mřížka, tak náčrty jsou pomůcky při úpravách. Nejsou vykreslovány jako obsah snímku v PDF, obrázcích, SVG ani při promítání. Uložení rozestupu mřížky nezaručuje, že editor mřížku zobrazí: její viditelnost také závisí na preferencích prohlížeče nebo editoru.
 
-## **Často kladené otázky**
+## **Zobrazit nebo skrýt komentáře při otevření prezentace**
+
+Použijte [Presentation.getViewProperties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getViewProperties--) pro přístup k nastavením zobrazení platným pro celou prezentaci. Použijte [IViewProperties.getShowComments](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iviewproperties/#getShowComments--) a [IViewProperties.setShowComments](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iviewproperties/#setShowComments-byte-) k načtení nebo změně uložené preference, zda mají být při otevření prezentace v PowerPointu nebo jiném kompatibilním editoru zobrazeny komentáře.
+
+Toto nastavení ovlivňuje jen uloženou preferenci zobrazení. Nepřidává, neodstraňuje, neupravuje ani neřeší komentáře. Skrytí komentářů zachovává jejich obsah, autory, pozice, odpovědi a stavy. Viz [Presentation Comments](/slides/cs/java/presentation-comments/) pro operace, které mění samotné komentáře.
+
+Následující příklad vyžaduje existující `comments.pptx` obsahující komentáře. Vypíše aktuální nastavení viditelnosti, požádá o skrytí komentářů a uloží nový PPTX bez odstranění jakýchkoli komentářů. Také používá [IViewProperties.setLastView](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iviewproperties/#setLastView-int-) s [ViewType.SlideView](https://reference.aspose.com/slides/cs/java/com.aspose.slides/viewtype/#SlideView), aby nakonfiguroval počáteční zobrazení úprav spolu s viditelností komentářů.
+
+```java
+import com.aspose.slides.NullableBool;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ViewType;
+
+Presentation presentation = new Presentation("comments.pptx");
+try {
+    byte showComments = presentation.getViewProperties().getShowComments();
+    System.out.println("Current comment visibility: " + showComments);
+
+    presentation.getViewProperties().setShowComments(NullableBool.False);
+    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Toto nastavení neurčuje, zda jsou komentáře zahrnuty do exportů PDF, HTML, obrázků, poznámek nebo letáků. Příslušné volby specifické pro export nakonfigurujte samostatně.
+
+## **FAQ**
 
 **Proč není mřížka viditelná po opětovném otevření prezentace?**
 
-Soubor uloží rozestup mřížky, ale editor rozhoduje, zda je mřížka zobrazena. Zkontrolujte nastavení viditelnosti mřížky v editoru.
+Soubor ukládá rozestup mřížky, ale editor řídí, zda je mřížka zobrazena. Zkontrolujte nastavení viditelnosti mřížky v editoru.
 
-**Mění vymazání vodících čar rozestup mřížky?**
+**Mění vymazání náčrtů rozestup mřížky?**
 
-Ne. Vodící čáry a rozestup mřížky jsou nezávislá nastavení. Vymazání vodících čar nezmění uložený interval mřížky.
+Ne. Náčrty a rozestup mřížky jsou nezávislá nastavení. Vymazání náčrtů ponechá uložený interval mřížky beze změny.
 
-**Mohu nastavit různá nastavení zobrazení pro různé sekce prezentace?**
+**Mohu nastavit různé nastavení zobrazení pro různé sekce prezentace?**
 
-Nastavení zobrazení ([View settings](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getViewProperties--)) jsou definována na úrovni prezentace ([Normal View](https://reference.aspose.com/slides/cs/java/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/cs/java/com.aspose.slides/viewproperties/#getSlideViewProperties--)), nikoli na úrovni sekce, takže při otevření dokumentu se použije jediná sada parametrů pro celý dokument.
+[Nastavení zobrazení](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getViewProperties--) jsou definována na úrovni prezentace ([Normal View]/[Slide View]), nikoli na úrovni sekce, takže jeden soubor parametrů se použije na celý dokument při otevření.
 
-**Mohu předdefinovat různá stavy zobrazení pro různé uživatele?**
+**Mohu předdefinovat různé stavy zobrazení pro různé uživatele?**
 
-Ne. Nastavení jsou uložena v souboru a jsou sdílena. Prohlížečské aplikace mohou respektovat uživatelské preference, ale samotný soubor obsahuje jen jednu sadu vlastností zobrazení.
+Ne. Nastavení jsou uložena v souboru a jsou sdílená. Prohlížečové aplikace mohou respektovat uživatelské preference, ale samotný soubor obsahuje jen jeden soubor vlastností zobrazení.
 
 **Mohu připravit šablonu s předdefinovanými vlastnostmi zobrazení, aby se nové prezentace otevíraly stejným způsobem?**
 
-Ano. Protože [view properties](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getViewProperties--) jsou uloženy na úrovni prezentace, můžete je vložit do šablony a vytvářet z ní nové dokumenty se stejnou počáteční konfigurací zobrazení.
+Ano. Protože [vlastnosti zobrazení](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getViewProperties--) jsou uloženy na úrovni prezentace, můžete je vložit do šablony a vytvářet z ní nové dokumenty se stejnou počáteční konfigurací zobrazení.

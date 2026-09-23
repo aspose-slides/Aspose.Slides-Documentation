@@ -5,45 +5,48 @@ type: docs
 weight: 100
 url: /hu/python-java/presentation-comments/
 keywords:
-  - megjegyzés
-  - modern megjegyzés
-  - PowerPoint megjegyzések
-  - prezentációs megjegyzések
-  - dia megjegyzések
-  - megjegyzés hozzáadása
-  - megjegyzés elérése
-  - megjegyzés szerkesztése
-  - megjegyzésre válasz
-  - megjegyzés eltávolítása
-  - megjegyzés törlése
-  - PowerPoint
-  - prezentáció
-  - Python
-  - Java
-  - Aspose.Slides
-description: "Kezelje a prezentációs megjegyzéseket az Aspose.Slides for Python via Java segítségével: gyorsan és egyszerűen adjon hozzá, olvassa, szerkessze, válaszoljon, és távolítsa el a megjegyzéseket a PowerPoint prezentációkban."
+- megjegyzés
+- modern megjegyzés
+- PowerPoint megjegyzések
+- prezentációs megjegyzések
+- dia megjegyzések
+- megjegyzés hozzáadása
+- megjegyzés elérése
+- megjegyzés szerkesztése
+- megjegyzésre válasz
+- megjegyzés eltávolítása
+- megjegyzés törlése
+- PowerPoint
+- prezentáció
+- Python
+- Java
+- Aspose.Slides
+description: "Kezelje a prezentációs megjegyzéseket az Aspose.Slides for Python via Java segítségével: adjon hozzá, olvassa, szerkessze, válaszoljon, és távolítson el megjegyzéseket PowerPoint prezentációkban gyorsan és egyszerűen."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan kezelhetők a bemutató megjegyzései az Aspose.Slides for Python via Java segítségével. Bemutatja a megjegyzésekkel kapcsolatos fő típusokat, és megmutatja, hogyan adhatunk megjegyzéseket a diákhoz, hogyan érhetjük el a meglévő megjegyzéseket, hogyan dolgozhatunk a válaszokkal és a modern megjegyzésekkel, valamint hogyan távolíthatjuk el a megjegyzéseket egy bemutatóból.
+Ez a cikk leírja, hogyan kezelhetők a prezentációs megjegyzések az Aspose.Slides for Python via Java segítségével. Bemutatja a fő megjegyzéssel kapcsolatos típusokat, valamint azt, hogyan adhatunk megjegyzéseket a diákhoz, érhetjük el a meglévő megjegyzéseket, dolgozhatunk válaszokkal és modern megjegyzésekkel, és hogyan távolíthatjuk el a megjegyzéseket a prezentációból.
 
-Az példák a PowerPointban gyakran előforduló felülvizsgálati és együttműködési forgatókönyveket fedik le, például a megjegyzések szerzőkhöz rendelését, a megjegyzés szövegének és metaadatainak olvasását, a válaszláncok felépítését, valamint a kiválasztott vagy az összes megjegyzés eltávolítását.
+A példák a PowerPointban gyakran előforduló felülvizsgálati és együttműködési helyzeteket fedik le, például a megjegyzések szerzőkhöz rendelését, a megjegyzés szövegének és metaadatainak olvasását, válaszos láncok felépítését, valamint a kiválasztott vagy az összes megjegyzés eltávolítását.
 
-PowerPointban a megjegyzések annotációként jelennek meg a diákon. Egy megjegyzés kiválasztása megjeleníti a szövegét és a kapcsolódó vitát.
+A PowerPointban a megjegyzések anotációként jelennek meg a diákon. Egy megjegyzés kiválasztása megjeleníti annak szövegét és a kapcsolódó vitát.
 
-## **Miért adjunk megjegyzéseket a bemutatókhoz?**
+Ahhoz, hogy a megjegyzéseket megjelenítsük vagy elrejtsük a prezentáció megnyitásakor anélkül, hogy magukat a megjegyzéseket módosítanánk, lásd [Megjelenítés vagy elrejtés megjegyzéseket a prezentáció megnyitásakor](/slides/hu/python-java/presentation-view-properties/).
 
-A megjegyzésekkel visszajelzést adhat és együttműködhet a kollégákkal a bemutatók felülvizsgálata során.
+## **Miért adjunk megjegyzéseket a prezentációkhoz?**
 
-Az Aspose.Slides for Python via Java a következő API-kat kínálja a megjegyzésekkel való munkához:
-* A [Presentation] osztály, amely hozzáférést biztosít a bemutató megjegyzés-szerzőihez.
-* A [CommentCollection] osztály, amely egy adott szerzőhöz tartozó megjegyzéseket képviseli.
-* A [Comment] osztály, amely információkat nyújt egy megjegyzésről, beleértve a szerzőjét, létrehozási időt, pozíciót és szöveget.
-* A [CommentAuthor] osztály, amely információkat ad egy szerzőről, beleértve a nevét, monogramját és a kapcsolódó megjegyzéseket.
+A megjegyzésekkel visszajelzést adhat és együttműködhet a kollégákkal a prezentációk felülvizsgálata során.
 
-## **Dia megjegyzések hozzáadása**
+Az Aspose.Slides for Python via Java a következő API-kat biztosítja a megjegyzésekkel való munkához:
 
-A következő példa bemutatja, hogyan adhatunk megjegyzéseket a diákhoz egy PowerPoint bemutatóban:
+* A [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztály, amely hozzáférést biztosít a prezentáció megjegyzés‑szerzőihez.
+* A [CommentCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/commentcollection/) osztály, amely egy adott szerzőhöz kapcsolódó megjegyzéseket képviseli.
+* A [Comment](https://reference.aspose.com/slides/hu/python-java/aspose.slides/comment/) osztály, amely információkat ad egy megjegyzésről, többek között a szerzőről, létrehozási időről, pozícióról és a szövegről.
+* A [CommentAuthor](https://reference.aspose.com/slides/hu/python-java/aspose.slides/commentauthor/) osztály, amely információkat ad egy szerzőről, többek között a nevéről, inicialákról és a kapcsolódó megjegyzésekről.
+
+## **Diák megjegyzéseinek hozzáadása**
+
+Az alábbi példa bemutatja, hogyan adhatunk megjegyzéseket egy PowerPoint‑prezentáció diáihoz:
 
 ```python
 import jpype
@@ -82,9 +85,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Dia megjegyzések elérése**
+## **Diák megjegyzéseinek elérése**
 
-A következő példa megmutatja, hogyan érhetők el a meglévő megjegyzések egy PowerPoint bemutatóban:
+Az alábbi példa bemutatja, hogyan érhetjük el a meglévő megjegyzéseket egy PowerPoint‑prezentációban:
 
 ```python
 import jpype
@@ -108,11 +111,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Válasz a megjegyzésekre**
+## **Megjegyzésekre válaszolás**
 
-A szülő megjegyzés a válaszhierarchia tetején lévő eredeti megjegyzés. A [Comment.getParentComment](https://reference.aspose.com/slides/hu/python-java/aspose.slides/comment/#getParentComment) és a [Comment.setParentComment](https://reference.aspose.com/slides/hu/python-java/aspose.slides/comment/#setParentComment) metódusok lehetővé teszik, hogy lekérdezzük vagy beállítsuk egy megjegyzés szülőjét.
+A szülő‑megjegyzés az eredeti megjegyzés a válaszhierarchia tetején. A [Comment.getParentComment](https://reference.aspose.com/slides/hu/python-java/aspose.slides/comment/#getParentComment) és a [Comment.setParentComment](https://reference.aspose.com/slides/hu/python-java/aspose.slides/comment/#setParentComment) metódusok lehetővé teszik egy megjegyzés szülőjének lekérését vagy beállítását.
 
-A következő példa bemutatja, hogyan adhatunk válaszokat és vizsgálhatjuk meg a keletkezett megjegyzés hierarchiát:
+Az alábbi példa bemutatja, hogyan adhatunk válaszokat, és hogyan vizsgálhatjuk meg a keletkezett megjegyzés‑hierarchiát:
 
 ```python
 import jpype
@@ -168,20 +171,20 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="warning" title="Figyelmeztetés" %}}
-* Ha a [Comment.remove](https://reference.aspose.com/slides/hu/python-java/aspose.slides/comment/#remove) metódust használják egy megjegyzés törlésére, akkor az összes válasz is törlődik.
-* Ha a [Comment.setParentComment](https://reference.aspose.com/slides/hu/python-java/aspose.slides/comment/#setParentComment) körkörös hivatkozást hoz létre, akkor egy [PptxEditException](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxeditexception/) kivétel kerül dobásra.
+{{% alert color="warning" title="Warning" %}}
+* Amikor a [Comment.remove](https://reference.aspose.com/slides/hu/python-java/aspose.slides/comment/#remove) metódust használjuk egy megjegyzés törlésére, az ahhoz tartozó összes válasz is törlésre kerül.
+* Ha a [Comment.setParentComment](https://reference.aspose.com/slides/hu/python-java/aspose.slides/comment/#setParentComment) körkörös hivatkozást hoz létre, akkor egy [PptxEditException](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pptxeditexception/) lesz dobva.
 {{% /alert %}}
 
 ## **Modern megjegyzések hozzáadása**
 
-A modern megjegyzések társíthatók a diára, egy adott alakzatra vagy egy szövegtartományra egy [AutoShape]-en belül. A [CommentCollection.addModernComment] metódus egy [Shape] argumentumot is elfogad a dia és a megjegyzés-jelző koordináták mellett.
+Modern megjegyzések kapcsolhatók a diához magához, egy adott alakzathoz vagy egy szöveg‑tartományhoz egy [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/)-ban. A [CommentCollection.addModernComment](https://reference.aspose.com/slides/hu/python-java/aspose.slides/commentcollection/#addModernComment) metódus a [Shape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/) argumentumot is elfogadja a dia és a megjegyzés‑jelző koordinátái mellett.
 
-Ha a shape argumentumnak `None` értéket adunk át, akkor a megjegyzés dia-szintű megjegyzés lesz. Jelzője a megadott koordinátákkal helyezkedik el, de nem kapcsolódik egy adott alakzathoz, ezért a [ModernComment.getShape] `None`-t ad vissza. Ha egy [Shape] kerül megadásra, a megjegyzés az adott alakzathoz lesz rögzítve. A koordináták továbbra is a megjegyzés-jelző pozícióját határozzák meg a dián, míg az alakzat-határozás a [ModernComment.getShape] metódussal lekérdezhető.
+Ha a `None` érték kerül átadásra a shape argumentumként, a megjegyzés egy dia‑szintű megjegyzés. Jelzőjét a megadott koordináták határozzák meg, de nem kapcsolódik konkrét alakzathoz, így a [ModernComment.getShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncomment/#getShape) `None`‑t ad vissza. Ha egy [Shape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/) kerül megadásra, a megjegyzés ehhez az alakzathoz lesz rögzítve. A koordináták továbbra is a megjegyzés‑jelző helyét határozzák meg a dián, míg az alakzathoz való kapcsolódás a [ModernComment.getShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncomment/#getShape)‑on keresztül lekérdezhető.
 
 ### **Modern megjegyzés rögzítése egy alakzathoz**
 
-A következő példa létrehoz egy dia-szintű modern megjegyzést és egy adott [AutoShape]-hez rögzített modern megjegyzést. Ezután minden megjegyzésből kiolvassa a kapcsolódó alakzatot.
+Az alábbi példa létrehoz egy dia‑szintű modern megjegyzést és egy meghatározott [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/)-hez rögzített modern megjegyzést, majd kiolvassa a kapcsolódó alakzatot mindkét megjegyzésből.
 
 ```python
 import jpype
@@ -217,11 +220,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Megjegyzések rögzítése különböző alakzat típusokhoz**
+### **Megjegyzések rögzítése különböző alakzat‑típusokhoz**
 
-Bármely diaobjektum, amely a [Shape]-ből származik, használható alakzat rögzítőként. Gyakori példák a [AutoShape], a [PictureFrame], a [GroupShape], a [Connector] és a [GraphicalObject] példányok, például diagramok.
+Bármely dia‑objektum, amely a [Shape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/)-ből származik, használható alakzat‑horgonyként. Gyakori példák a [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/), a [PictureFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pictureframe/), a [GroupShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/groupshape/), a [Connector](https://reference.aspose.com/slides/hu/python-java/aspose.slides/connector/) és a [GraphicalObject](https://reference.aspose.com/slides/hu/python-java/aspose.slides/graphicalobject/) (például diagramok) példányai.
 
-A következő példa több gyakori alakzat típust hoz létre, és mindegyikhez modern megjegyzést társít.
+Az alábbi példa több gyakori alakzat‑típust hoz létre, és mindegyikhez modern megjegyzést társít.
 
 ```python
 import jpype
@@ -275,15 +278,16 @@ finally:
 
 ### **Megjegyzés rögzítése szöveghez és állapotának beállítása**
 
-Egy [AutoShape]-hez társított modern megjegyzés esetén a [ModernComment.getTextSelectionStart] és a [ModernComment.setTextSelectionStart] a kiválasztott szöveg kezdőpozícióját adja vissza az alakzat szövegkeretében. A [ModernComment.getTextSelectionLength] és a [ModernComment.setTextSelectionLength] a kiválasztás hosszát adja meg. Ezek együtt egy adott szövegtartományhoz kötik a megjegyzést az AutoShape-en belül.
+Egy [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/)-hez kapcsolódó modern megjegyzés esetén a [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncomment/#getTextSelectionStart) és a [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncomment/#setTextSelectionStart) a shape szövegkeretének kiválasztott szövegének kezdőpozícióját, a [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncomment/#getTextSelectionLength) és a [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncomment/#setTextSelectionLength) pedig a kijelölés hosszát adja meg. Ezek az értékek együtt a megjegyzést egy adott szöveg‑tartományhoz kapcsolják az AutoShape‑ben.
 
-A [ModernComment.getStatus] és a [ModernComment.setStatus] metódusok a [ModernCommentStatus] konstansok egyik értékét adják vissza:
-- [NotDefined] — nincs meghatározott modern megjegyzés állapot.
-- [Active] — a megjegyzés aktív.
-- [Resolved] — a megjegyzés megoldott.
-- [Closed] — a megjegyzés lezárt.
+A [ModernComment.getStatus](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncomment/#getStatus) és a [ModernComment.setStatus](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncomment/#setStatus) metódusok a [ModernCommentStatus](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncommentstatus/) konstansok egyik értékét adja vissza:
 
-A következő példa létrehoz egy alakzathoz rögzített modern megjegyzést, szövegválasztáshoz társítja, megoldottként jelöli, elmenti a bemutatót, és a fájl újranyitása után ellenőrzi az értékeket.
+- [NotDefined](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncommentstatus/#NotDefined) — nincs meghatározott modern‑megjegyzés állapot.
+- [Active](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncommentstatus/#Active) — a megjegyzés aktív.
+- [Resolved](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncommentstatus/#Resolved) — a megjegyzés megoldott.
+- [Closed](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncommentstatus/#Closed) — a megjegyzés lezárt.
+
+Az alábbi példa létrehoz egy alakzathoz rögzített modern megjegyzést, szövegkijelöléshez kapcsolja, megoldottnak jelöli, elmenti a prezentációt, majd a fájl újra‑megnyitása után ellenőrzi az értékeket.
 
 ```python
 import jpype
@@ -346,7 +350,7 @@ finally:
 
 ### **Meglévő modern megjegyzések ellenőrzése**
 
-Egy meglévő bemutató ellenőrzéséhez ellenőrizze, mely megjegyzések [ModernComment] példányok, majd vizsgálja meg a [ModernComment.getShape], [ModernComment.getTextSelectionStart], [ModernComment.getTextSelectionLength] és [ModernComment.getStatus] metódusokat. A `None` alakzat egy dia-szintű megjegyzést jelez. Egy [AutoShape] rögzítő esetén a szövegkijelölési metódusok a hozzá tartozó tartományt az alakzat szövegkeretében azonosítják.
+Egy meglévő prezentáció ellenőrzéséhez ellenőrizze, mely megjegyzések példányai a [ModernComment](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncomment/), majd vizsgálja meg a [ModernComment.getShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncomment/#getShape), a [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncomment/#getTextSelectionStart), a [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncomment/#getTextSelectionLength) és a [ModernComment.getStatus](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncomment/#getStatus) értékeket. A `None` alakzat egy dia‑szintű megjegyzést jelez. Egy [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/)-hez rögzített horgony esetén a szöveg‑kijelölési metódusok az alakzat szövegkeretében lévő tartományt azonosítják.
 
 ```python
 import jpype
@@ -388,9 +392,9 @@ finally:
 
 ## **Megjegyzések eltávolítása**
 
-### **Minden megjegyzés és megjegyzés-szerző eltávolítása**
+### **Minden megjegyzés és megjegyzés‑szerző eltávolítása**
 
-A következő példa bemutatja, hogyan távolíthatók el az összes megjegyzés és megjegyzés-szerző egy bemutatóból:
+Az alábbi példa bemutatja, hogyan távolítható el az összes megjegyzés és a megjegyzés‑szerzők a prezentációból:
 
 ```python
 import jpype
@@ -412,9 +416,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Kijelölt megjegyzések eltávolítása**
+### **Bizonyos megjegyzések eltávolítása**
 
-A következő példa megmutatja, hogyan távolíthatók el egy diáról a konkrét megjegyzések:
+Az alábbi példa bemutatja, hogyan távolítható el egy adott megjegyzés egy diáról:
 
 ```python
 import jpype
@@ -457,14 +461,14 @@ finally:
 
 ## **GYIK**
 
-**Támogatja-e az Aspose.Slides a megoldott állapotot a modern megjegyzéseknél?**
+**Támogatja-e az Aspose.Slides a modern megjegyzések megoldott állapotát?**
 
-Igen. A [ModernComment.getStatus] és a [ModernComment.setStatus] a [ModernCommentStatus] egy értékét adja vissza, beleértve a `Resolved` állapotot is. Az állapot a bemutatóban tárolódik, és a fájl újranyitása után újból leolvasható.
+Igen. A [ModernComment.getStatus](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncomment/#getStatus) és a [ModernComment.setStatus](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncomment/#setStatus) egy [ModernCommentStatus](https://reference.aspose.com/slides/hu/python-java/aspose.slides/moderncommentstatus/) értéket ad vissza, többek között a `Resolved`‑et. Az állapot a prezentációban van tárolva, és a fájl újra‑megnyitása után ismét olvasható.
 
-**Támogatottak-e a szálas viták (válaszláncok), és van-e beágyazási korlát?**
+**Támogatottak-e a szálas beszélgetések (válaszos láncok), és van‑e mélységi korlát?**
 
-Igen. Minden megjegyzés hivatkozhat a szülő megjegyzésre, lehetővé téve a válaszláncokat. Az API nem határoz meg konkrét beágyazási mélységkorlátot.
+Igen. Minden megjegyzés hivatkozhat a [parent comment](https://reference.aspose.com/slides/hu/python-java/aspose.slides/comment/#getParentComment)-re, ezzel lehetővé téve a válaszos láncokat. Az API nem határoz meg konkrét beágyazási mélység‑korlátot.
 
-**Milyen koordinátrendszerben van meghatározva a megjegyzés-jelző pozíciója egy dián?**
+**Milyen koordináta‑rendszerben van definiálva a megjegyzés‑jelző pozíciója egy dián?**
 
-A jelző pozíciója lebegőpontos koordinátákkal van meghatározva a dia koordinátrendszerében, ami lehetővé teszi a pontos elhelyezést a dián.
+A jelző pozíciója lebegőpontos koordinátákkal van definiálva a dia koordináta‑rendszerében, lehetővé téve, hogy pontosan a dián helyezze el.

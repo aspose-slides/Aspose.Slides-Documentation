@@ -1,58 +1,58 @@
 ---
-title: Получение и обновление свойств представления презентации в PHP
-linktitle: Свойства представления
+title: "Получить и обновить свойства представления презентации в PHP"
+linktitle: "Свойства представления"
 type: docs
 weight: 80
 url: /ru/php-java/presentation-view-properties/
 keywords:
-- свойства представления
-- обычный просмотр
-- содержание плана
-- значки плана
-- привязка вертикального разделителя
-- одиночный просмотр
-- состояние полосы
-- размер измерения
-- автоматическая настройка
-- масштаб по умолчанию
+- "свойства представления"
+- "обычный режим"
+- "контент контура"
+- "значки контура"
+- "привязка вертикального разделителя"
+- "одиночный режим"
+- "состояние полосы"
+- "размер измерения"
+- "автоматическая настройка"
+- "масштаб по умолчанию"
 - PowerPoint
 - OpenDocument
-- презентация
+- "презентация"
 - PHP
 - Aspose.Slides
-description: "Ознакомьтесь со свойствами представления Aspose.Slides for PHP via Java, чтобы настраивать форматы слайдов PPT, PPTX и ODP — регулировать макеты, уровни масштабирования и параметры отображения."
+description: "Откройте для себя свойства представления Aspose.Slides для PHP через Java, позволяющие настраивать форматы слайдов PPT, PPTX и ODP — регулировать макеты, уровни масштабирования и параметры отображения."
 ---
 ## **Введение**
 
-Обычный просмотр состоит из трёх областей содержимого: самого слайда, боковой области содержимого и нижней области содержимого. Свойства, относящиеся к позиционированию различных областей содержимого. Эта информация позволяет приложению сохранять состояние просмотра в файл, чтобы при повторном открытии просмотр находился в том же состоянии, в котором презентация была сохранена в последний раз.
+Обычный режим просмотра состоит из трех областей содержимого: самого слайда, боковой области содержимого и нижней области содержимого. Свойства, касающиеся позиционирования различных областей содержимого. Эта информация позволяет приложению сохранять состояние просмотра в файл, чтобы при повторном открытии просмотр был в том же состоянии, что и при последнем сохранении презентации.
 
-Метод [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) был добавлен для доступа к свойствам обычного просмотра презентации. 
+Метод [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) был добавлен для предоставления доступа к свойствам обычного режима просмотра презентации.  
 
-Классы [NormalViewProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties), [NormalViewRestoredProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewRestoredProperties) и их потомки, enum [SplitterBarStateType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SplitterBarStateType) были добавлены.
+[NormalViewProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties), [NormalViewRestoredProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewRestoredProperties), классы и их наследники, перечисление [SplitterBarStateType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SplitterBarStateType) были добавлены.
 
 ## **О INormalViewProperties**
 
-Представляет свойства обычного просмотра.
+Представляет свойства обычного режима просмотра.
 
-Методы [getShowOutlineIcons](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getShowOutlineIcons) и [setShowOutlineIcons](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#setShowOutlineIcons) указывают, следует ли приложению показывать значки при отображении содержания плана в любой из областей содержимого режима обычного просмотра.
+Методы [getShowOutlineIcons](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getShowOutlineIcons) и [setShowOutlineIcons](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#setShowOutlineIcons) указывают, следует ли приложению показывать значки при отображении содержимого контура в любой из областей содержимого обычного режима просмотра.
 
-Методы [getSnapVerticalSplitter](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getSnapVerticalSplitter) и [setSnapVerticalSplitter](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#setSnapVerticalSplitter) указывают, должен ли вертикальный разделитель переходить в свернутое состояние, когда боковая область достаточно мала.
+Методы [getSnapVerticalSplitter](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getSnapVerticalSplitter) и [setSnapVerticalSplitter](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#setSnapVerticalSplitter) указывают, следует ли вертикальному разделителю переходить в свернутое состояние, когда боковая область достаточно мала.
 
-Свойства [getPreferSingleView](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getPreferSingleView) и [setPreferSingleView](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#setPreferSingleView) указывают, предпочитает ли пользователь видеть одну область содержимого на весь экран вместо стандартного обычного просмотра с тремя областями содержимого. Если включено, приложение может отобразить одну из областей содержимого во всём окне.
+Свойства [getPreferSingleView](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getPreferSingleView) и [setPreferSingleView](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#setPreferSingleView) указывают, предпочитает ли пользователь видеть одноконтентную область во весь экран вместо стандартного обычного режима просмотра с тремя областями содержимого. При включении приложение может выбрать отображать одну из областей содержимого на весь экран.
 
-Методы [getVerticalBarState](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) и [getHorizontalBarState](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) определяют состояние, в котором должна быть отображена горизонтальная или вертикальная полоса разделителя. Горизонтальная полоса разделяет слайд и область содержимого под слайдом, вертикальная полоса разделяет слайд и боковую область содержимого. Возможные значения: [SplitterBarStateType::Minimized](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SplitterBarStateType/#Minimized), [SplitterBarStateType::Maximized](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SplitterBarStateType/#Maximized) и [SplitterBarStateType::Restored](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SplitterBarStateType/#Restored).
+Методы [getVerticalBarState](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) и [getHorizontalBarState](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) определяют состояние, в котором должна отображаться горизонтальная или вертикальная полоса разделителя. Горизонтальная полоса разделителя отделяет слайд от области содержимого под слайдом, вертикальная полоса разделителя отделяет слайд от боковой области содержимого. Возможные значения: [SplitterBarStateType::Minimized](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SplitterBarStateType/#Minimized), [SplitterBarStateType::Maximized](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SplitterBarStateType/#Maximized) и [SplitterBarStateType::Restored](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SplitterBarStateType/#Restored).
 
-Методы [getRestoredLeft](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft) и [getRestoredTop](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties#getRestoredTop) задают размер верхней или боковой области слайда обычного просмотра, когда для [getVerticalBarState](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) и [getHorizontalBarState](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) применяется значение [SplitterBarStateType::Restored](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SplitterBarStateType/#Restored).
+Методы [getRestoredLeft](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft) и [getRestoredTop](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties#getRestoredTop) задают размеры верхней или боковой области слайда в обычном режиме просмотра, когда значение [SplitterBarStateType::Restored](https://reference.aspose.com/slides/ru/php-java/aspose.slides/SplitterBarStateType/#Restored) применяется к [getVerticalBarState](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getVerticalBarState) и [getHorizontalBarState](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getHorizontalBarState) соответственно.
 
 ## **О восстановлении INormalViewProperties**
 
-Определяет размер области слайда (ширина, когда является дочерним элементом [getRestoredTop](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getRestoredTop), высота, когда является дочерним элементом [getRestoredLeft](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft)) обычного просмотра, когда область имеет переменный восстановленный размер (не свернуто и не развернуто). 
+Указывает размеры области слайда (ширина, когда является дочерним элементом [getRestoredTop](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getRestoredTop), высота, когда является дочерним элементом [getRestoredLeft](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewProperties/#getRestoredLeft)) обычного режима просмотра, когда область имеет переменный восстановленный размер (не свернута и не развернута).  
 
-Метод [getDimensionSize](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewRestoredProperties/#getDimensionSize) указывает размер области слайда (ширина, когда дочерний элемент restoredTop, высота, когда дочерний элемент restoredLeft).
+Метод [getDimensionSize](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewRestoredProperties/#getDimensionSize) задает размер области слайда (ширина, когда является дочерним элементом restoredTop, высота, когда является дочерним элементом restoredLeft).  
 
-Метод [getAutoAdjust](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewRestoredProperties/#getAutoAdjust) указывает, должна ли боковая область содержимого компенсировать новый размер при изменении размеров окна, содержащего просмотр в приложении.
+Метод [getAutoAdjust](https://reference.aspose.com/slides/ru/php-java/aspose.slides/NormalViewRestoredProperties/#getAutoAdjust) указывает, должен ли размер боковой области содержимого компенсировать новый размер при изменении размеров окна, содержащего просмотр в приложении.  
 
-Ниже приведён пример, показывающий, как получить свойства [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) для презентации.
+Ниже приведён пример, показывающий, как получить доступ к свойствам [ViewProperties::getNormalViewProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ViewProperties/#getNormalViewProperties) для презентации.
 
 ```php
   $pres = new Presentation();
@@ -70,19 +70,19 @@ description: "Ознакомьтесь со свойствами предста�
   }
 ```
 
-## **Установка значения масштабирования по умолчанию**
+## **Установить значение масштабирования по умолчанию**
 {{% alert color="info" %}} 
 
-Aspose.Slides for PHP via Java теперь поддерживает установку значения масштабирования по умолчанию для презентации, так что при открытии презентации масштаб уже задан. Это можно сделать, задав [ViewProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ViewProperties) презентации. [getSlideViewProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ViewProperties/#getSlideViewProperties) и [getNotesViewProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ViewProperties/#getNotesViewProperties) могут быть установлены программно. В этой статье мы покажем на примере, как задать [View Properties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ViewProperties) у [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation) в Aspose.Slides.
+Aspose.Slides for PHP via Java теперь поддерживает установку значения масштабирования по умолчанию для презентации, так что при открытии презентации масштаб уже установлен. Это можно сделать, задав [ViewProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ViewProperties) презентации. [getSlideViewProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ViewProperties/#getSlideViewProperties) и [getNotesViewProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ViewProperties/#getNotesViewProperties) могут быть установлены программно. В этой теме мы на примере покажем, как установить [View Properties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ViewProperties) у [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation) в Aspose.Slides.
 
 {{% /alert %}} 
 
-Для установки свойств просмотра выполните следующие шаги:
+Чтобы установить свойства просмотра, выполните следующие шаги:
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation).
-1. Задайте [View Properties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ViewProperties) у [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation).
+1. Установите [View Properties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/ViewProperties) у [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation).
 1. Сохраните презентацию в файл [PPTX](https://docs.fileformat.com/presentation/pptx/).  
-   В приведённом ниже примере мы задали значение масштабирования для просмотра слайдов, а также для просмотра заметок.
+   В приведённом ниже примере мы задали значение масштабирования для просмотра слайда, а также для просмотра заметок.
 
 ```php
   $presentation = new Presentation();
@@ -97,11 +97,11 @@ Aspose.Slides for PHP via Java теперь поддерживает устан�
   }
 ```
 
-## **Установка интервала сетки**
+## **Установить интервал сетки**
 
-Используйте [Presentation::getViewProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/#getViewProperties) для доступа к глобальным настройкам просмотра презентации. Методы [ViewProperties::getGridSpacing](https://reference.aspose.com/slides/ru/php-java/aspose.slides/viewproperties/#getGridSpacing) и [ViewProperties::setGridSpacing](https://reference.aspose.com/slides/ru/php-java/aspose.slides/viewproperties/#setGridSpacing) читают или изменяют интервал базовой сетки редактирования. Эта настройка применяется ко всей презентации, а не к отдельному слайду. Интервал сетки указывается в пунктах, где 72 пункта равны одному дюйму. Используйте положительное значение, как требуется в документации API.
+Используйте [Presentation::getViewProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/#getViewProperties) для доступа к настройкам просмотра на уровне всей презентации. Методы [ViewProperties::getGridSpacing](https://reference.aspose.com/slides/ru/php-java/aspose.slides/viewproperties/#getGridSpacing) и [ViewProperties::setGridSpacing](https://reference.aspose.com/slides/ru/php-java/aspose.slides/viewproperties/#setGridSpacing) читают или изменяют интервал базовой сетки редактирования. Эта настройка применяется ко всей презентации, а не к отдельному слайду. Интервал сетки указывается в пунктах, где 72 пункта равняются одному дюйму. Используйте положительное значение, как требуется в документации API.
 
-В следующем примере открывается существующий файл `demo.pptx`, выводится текущий интервал сетки, устанавливается интервал в четверть дюйма и сохраняется результат.
+Следующий пример открывает существующий `demo.pptx`, выводит текущий интервал сетки, задаёт интервал в четверть дюйма и сохраняет результат.
 
 ```php
 use aspose\slides\Presentation;
@@ -119,28 +119,57 @@ try {
 }
 ```
 
-Сетка отличается от [drawing guides](/slides/ru/php-java/drawing-guides/). Интервал сетки задаёт регулярный шаг, а направляющие — это отдельные горизонтальные или вертикальные линии выравнивания, которые позиционируются вручную. Добавление, перемещение или удаление направляющих не изменяют интервал сетки.
+Сетка отличается от [drawing guides](/slides/ru/php-java/drawing-guides/). Интервал сетки задаёт регулярный промежуток, тогда как направляющие рисования — это отдельные горизонтальные или вертикальные линии выравнивания. Добавление, перемещение или удаление направляющих не меняет интервал сетки.
 
-И сетка, и направляющие служат вспомогательными средствами редактирования. Они не отрисовываются как содержимое слайда в PDF, изображениях, SVG или в режиме показа слайдов. Сохранение интервала сетки не гарантирует, что редактор отобразит сетку: её видимость также зависит от предпочтений программы‑просмотрщика или редактора.
+И сетка, и направляющие являются вспомогательными средствами редактирования. Они не отображаются как содержимое слайда в PDF, изображениях, SVG или в показе слайдов. Сохранение интервала сетки не гарантирует, что редактор отобразит её: её видимость также зависит от настроек просмоторщика или редактора.
 
-## **FAQ**
+## **Показать или скрыть комментарии при открытии презентации**
+
+Используйте [Presentation::getViewProperties](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/getviewproperties/) для доступа к настройкам просмотра на уровне всей презентации. Используйте [ViewProperties::getShowComments](https://reference.aspose.com/slides/ru/php-java/aspose.slides/viewproperties/getshowcomments/) и [ViewProperties::setShowComments](https://reference.aspose.com/slides/ru/php-java/aspose.slides/viewproperties/setshowcomments/) для чтения или изменения сохранённого предпочтения, показывать ли комментарии при открытии презентации в PowerPoint или другом совместимом редакторе.
+
+Эта настройка управляет только сохранённым предпочтением просмотра. Она не добавляет, не удаляет, не редактирует и не разрешает комментарии. Скрытие комментариев сохраняет их содержимое, авторов, позиции, ответы и статусы. См. [Presentation Comments](/slides/ru/php-java/presentation-comments/) для операций, изменяющих сами комментарии.
+
+Следующий пример требует существующий `comments.pptx` с комментариями. Он выводит текущую настройку видимости, запрашивает скрыть комментарии и сохраняет новый PPTX без удаления комментариев. Также используется [ViewProperties::setLastView](https://reference.aspose.com/slides/ru/php-java/aspose.slides/viewproperties/setlastview/) совместно с [ViewType::SlideView](https://reference.aspose.com/slides/ru/php-java/aspose.slides/viewtype/#SlideView) для настройки начального режима редактирования вместе с видимостью комментариев.
+
+```php
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ViewType;
+
+$presentation = new Presentation("comments.pptx");
+try {
+    $showComments = $presentation->getViewProperties()->getShowComments();
+    echo "Current comment visibility: " . java_values($showComments) . PHP_EOL;
+
+    $presentation->getViewProperties()->setShowComments(NullableBool::False);
+    $presentation->getViewProperties()->setLastView(ViewType::SlideView);
+    $presentation->save("comments-hidden.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Эта настройка не определяет, будут ли комментарии включены в экспорт в PDF, HTML, изображение, заметки или раздаточные материалы. Настройте соответствующие параметры экспорта отдельно.
+
+## **Часто задаваемые вопросы**
 
 **Почему сетка не видна после повторного открытия презентации?**
 
-Файл хранит значение интервала сетки, но отображение сетки контролируется самим редактором. Проверьте настройки видимости сетки в редакторе.
+Файл сохраняет интервал сетки, но отображение сетки контролируется редактором. Проверьте настройки видимости сетки в редакторе.
 
-**Изменит ли очистка направляющих интервал сетки?**
+**Изменит ли очистка направляющих рисования интервал сетки?**
 
-Нет. Направляющие и интервал сетки — независимые параметры. Очистка направляющих не меняет сохранённый интервал сетки.
+Нет. Направляющие рисования и интервал сетки — независимые настройки. Очистка направляющих оставляет сохранённый интервал сетки без изменений.
 
-**Можно ли задать разные настройки просмотра для разных разделов презентации?**
+**Могу ли я задать разные настройки просмотра для разных разделов презентации?**
 
-[Настройки просмотра](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/getviewproperties/) определяются на уровне всей презентации ([Normal View](https://reference.aspose.com/slides/ru/php-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/ru/php-java/aspose.slides/viewproperties/getslideviewproperties/)), а не по разделам, поэтому один набор параметров применяется ко всему документу при открытии.
+[Настройки просмотра](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/getviewproperties/) определяются на уровне презентации ([Normal View]/[Slide View]), а не для каждого раздела, поэтому один набор параметров применяется ко всему документу при его открытии.
 
 **Можно ли заранее определить разные состояния просмотра для разных пользователей?**
 
-Нет. Настройки хранятся в файле и общие для всех. Приложения‑просмотрщики могут учитывать предпочтения пользователя, но файл содержит один набор свойств просмотра.
+Нет. Настройки хранятся в файле и общие для всех. Приложения‑просмотрщики могут учитывать предпочтения пользователя, но сам файл содержит один набор свойств просмотра.
 
-**Можно ли подготовить шаблон с предустановленными свойствами просмотра, чтобы новые презентации открывались одинаково?**
+**Могу ли я подготовить шаблон с предопределёнными свойствами просмотра, чтобы новые презентации открывались одинаково?**
 
-Да. Поскольку [свойства просмотра](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/getviewproperties/) сохраняются на уровне презентации, их можно включить в шаблон, и новые документы, созданные из него, будут иметь ту же начальную конфигурацию просмотра.
+Да. Поскольку [свойства просмотра](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/getviewproperties/) хранятся на уровне презентации, их можно включить в шаблон и создавать из него новые документы с одинаковой начальной конфигурацией просмотра.

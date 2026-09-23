@@ -1,6 +1,6 @@
 ---
-title: Quản lý nhận xét trong bản trình chiếu bằng C++
-linktitle: Nhận xét bản trình chiếu
+title: Quản lý nhận xét trình chiếu trong C++
+linktitle: Nhận xét trình chiếu
 type: docs
 weight: 100
 url: /vi/cpp/presentation-comments/
@@ -8,27 +8,29 @@ keywords:
 - nhận xét
 - nhận xét hiện đại
 - nhận xét PowerPoint
-- nhận xét bản trình chiếu
+- nhận xét trình chiếu
 - nhận xét slide
 - thêm nhận xét
 - truy cập nhận xét
 - chỉnh sửa nhận xét
 - trả lời nhận xét
-- gỡ bỏ nhận xét
+- xoá nhận xét
 - xóa nhận xét
 - PowerPoint
-- bản trình chiếu
+- trình chiếu
 - C++
 - Aspose.Slides
-description: "Quản lý nhận xét bản trình chiếu với Aspose.Slides cho C++: thêm, đọc, chỉnh sửa, trả lời và xóa nhận xét trong bản trình chiếu PowerPoint một cách nhanh chóng và dễ dàng."
+description: "Quản lý nhận xét trình chiếu với Aspose.Slides cho C++: thêm, đọc, chỉnh sửa, trả lời và xoá nhận xét trong các bản trình chiếu PowerPoint một cách nhanh chóng và dễ dàng."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách quản lý nhận xét trong bản trình chiếu bằng Aspose.Slides cho C++. Nó giới thiệu các kiểu liên quan đến nhận xét chính và minh họa cách thêm nhận xét vào các slide, truy cập các nhận xét hiện có, làm việc với các phản hồi và nhận xét hiện đại, và xóa nhận xét khỏi bản trình chiếu.
+Bài viết này giải thích cách quản lý nhận xét trong bản trình chiếu bằng Aspose.Slides cho C++. Nó giới thiệu các kiểu liên quan đến nhận xét chính và trình bày cách thêm nhận xét vào các slide, truy cập nhận xét hiện có, làm việc với các trả lời và nhận xét hiện đại, và xoá nhận xét khỏi một bản trình chiếu.
 
-Các ví dụ bao phủ các kịch bản đánh giá và cộng tác phổ biến trong PowerPoint, chẳng hạn như chỉ định nhận xét cho tác giả, đọc văn bản và siêu dữ liệu của nhận xét, xây dựng chuỗi phản hồi, và xóa các nhận xét được chọn hoặc tất cả các nhận xét.
+Các ví dụ bao gồm các kịch bản đánh giá và cộng tác thường gặp trong PowerPoint, chẳng hạn như gán nhận xét cho tác giả, đọc văn bản và siêu dữ liệu của nhận xét, xây dựng chuỗi trả lời, và xoá các nhận xét đã chọn hoặc tất cả các nhận xét.
 
-Trong PowerPoint, nhận xét hiển thị dưới dạng chú thích trên các slide. Khi chọn một nhận xét, nó hiển thị văn bản và cuộc thảo luận liên quan.
+Trong PowerPoint, nhận xét xuất hiện như các chú thích trên slide. Khi chọn một nhận xét, văn bản và cuộc thảo luận liên quan sẽ được hiển thị.
+
+Xem [Hiển thị hoặc Ẩn nhận xét khi mở bản trình chiếu](/slides/vi/cpp/presentation-view-properties/).
 
 ## **Tại sao cần thêm nhận xét vào bản trình chiếu?**
 
@@ -36,14 +38,14 @@ Bạn có thể sử dụng nhận xét để đưa ra phản hồi và cộng t
 
 Aspose.Slides cho C++ cung cấp các API sau để làm việc với nhận xét:
 
-* Lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) cung cấp quyền truy cập vào các tác giả nhận xét của bản trình chiếu.
-* Giao diện [ICommentCollection](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icommentcollection/) đại diện cho các nhận xét liên kết với một tác giả cụ thể.
-* Giao diện [IComment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icomment/) cung cấp thông tin về một nhận xét, bao gồm tác giả, thời gian tạo, vị trí và nội dung.
-* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/cpp/aspose.slides/commentauthor/) cung cấp thông tin về một tác giả, bao gồm tên, viết tắt và các nhận xét liên quan.
+* Lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) cho phép truy cập vào các tác giả nhận xét của bản trình chiếu.
+* Giao diện [ICommentCollection](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icommentcollection/) đại diện cho các nhận xét được liên kết với một tác giả riêng lẻ.
+* Giao diện [IComment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icomment/) cung cấp thông tin về một nhận xét, bao gồm tác giả, thời gian tạo, vị trí và văn bản.
+* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/cpp/aspose.slides/commentauthor/) cung cấp thông tin về một tác giả, bao gồm tên, ký hiệu và các nhận xét liên quan.
 
 ## **Thêm nhận xét vào slide**
 
-Ví dụ sau cho thấy cách thêm nhận xét vào các slide trong một bản trình chiếu PowerPoint:
+Ví dụ dưới đây cho thấy cách thêm nhận xét vào các slide trong bản trình chiếu PowerPoint:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -88,7 +90,7 @@ presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
 
 ## **Truy cập nhận xét của slide**
 
-Ví dụ sau cho thấy cách truy cập các nhận xét hiện có trong một bản trình chiếu PowerPoint:
+Ví dụ dưới đây cho thấy cách truy cập các nhận xét hiện có trong bản trình chiếu PowerPoint:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -117,11 +119,11 @@ for (auto&& author : presentation->get_CommentAuthors())
 }
 ```
 
-## **Phản hồi nhận xét**
+## **Trả lời nhận xét**
 
-Một nhận xét cha là nhận xét gốc nằm ở đầu của cấu trúc phản hồi. Các phương thức [get_ParentComment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icomment/get_parentcomment/) và [set_ParentComment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icomment/set_parentcomment/) của giao diện [IComment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icomment/) cho phép bạn lấy hoặc thiết lập nhận xét cha.
+Nhận xét cha là nhận xét gốc ở đầu của một cây trả lời. Các phương thức [get_ParentComment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icomment/get_parentcomment/) và [set_ParentComment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icomment/set_parentcomment/) của giao diện [IComment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icomment/) cho phép bạn lấy hoặc đặt cha của một nhận xét.
 
-Ví dụ sau cho thấy cách thêm phản hồi và kiểm tra cấu trúc nhận xét kết quả:
+Ví dụ dưới đây cho thấy cách thêm các trả lời và kiểm tra cây nhận xét được tạo ra:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -183,20 +185,20 @@ comment1->Remove();
 presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert color="warning" title="Cảnh báo" %}}
-* Khi phương thức [Remove](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icomment/remove/) của giao diện [IComment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icomment/) được sử dụng để xóa một nhận xét, tất cả các phản hồi của nhận xét đó cũng sẽ bị xóa.
+{{% alert color="warning" title="Warning" %}}
+* Khi phương thức [Remove](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icomment/remove/) của giao diện [IComment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icomment/) được sử dụng để xoá một nhận xét, tất cả các trả lời cho nhận xét đó cũng sẽ bị xoá.
 * Nếu phương thức [set_ParentComment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icomment/set_parentcomment/) tạo ra một tham chiếu vòng, một [PptxEditException](https://reference.aspose.com/slides/vi/cpp/aspose.slides/pptxeditexception/) sẽ được ném.
 {{% /alert %}}
 
 ## **Thêm nhận xét hiện đại**
 
-Nhận xét hiện đại có thể được liên kết với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong AutoShape. Phương thức [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icommentcollection/addmoderncomment/) chấp nhận đối số [IShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/) bên cạnh slide và tọa độ của dấu nhận xét.
+Nhận xét hiện đại có thể được gắn với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong AutoShape. Phương thức [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icommentcollection/addmoderncomment/) chấp nhận một đối số [IShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/) ngoài slide và tọa độ của dấu nhận xét.
 
-Khi truyền `nullptr` cho đối số shape, nhận xét sẽ là nhận xét ở cấp slide. Dấu nhận xét được đặt theo các tọa độ cung cấp, nhưng không liên kết với bất kỳ hình dạng nào, vì vậy [IModernComment::get_Shape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_shape/) trả về `nullptr`. Khi cung cấp một [IShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/), nhận xét sẽ được neo vào hình dạng đó. Các tọa độ vẫn xác định vị trí của dấu nhận xét trên slide, trong khi liên kết hình dạng có thể được lấy thông qua [IModernComment::get_Shape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_shape/).
+Khi `nullptr` được truyền cho đối số shape, nhận xét là nhận xét cấp slide. Dấu của nó được đặt bằng các tọa độ cung cấp, nhưng không gắn với một hình dạng cụ thể, vì vậy [IModernComment::get_Shape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_shape/) trả về `nullptr`. Khi một [IShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/) được cung cấp, nhận xét được neo vào hình dạng đó. Các tọa độ vẫn xác định vị trí của dấu nhận xét trên slide, trong khi liên kết hình dạng có thể được lấy qua [IModernComment::get_Shape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_shape/).
 
-### **Neo một nhận xét hiện đại vào hình dạng**
+### **Gắn một nhận xét hiện đại vào một hình dạng**
 
-Ví dụ sau tạo cả một nhận xét hiện đại ở cấp slide và một nhận xét hiện đại được neo vào một AutoShape cụ thể. Sau đó nó đọc hình dạng liên quan từ mỗi nhận xét.
+Ví dụ dưới đây tạo cả một nhận xét hiện đại cấp slide và một nhận xét hiện đại được gắn vào một AutoShape cụ thể. Sau đó nó đọc hình dạng liên quan từ mỗi nhận xét.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -243,11 +245,11 @@ if (shapeAnchor != nullptr)
 presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
 ```
 
-### **Neo nhận xét vào các loại hình dạng khác nhau**
+### **Gắn nhận xét vào các loại hình dạng khác nhau**
 
-Bất kỳ đối tượng slide nào thực hiện [IShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/) đều có thể được sử dụng làm neo hình dạng. Các ví dụ thường gặp bao gồm các thể hiện của [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iconnector/), và [IGraphicalObject](https://reference.aspose.com/slides/vi/cpp/aspose.slides/igraphicalobject/) như biểu đồ.
+Bất kỳ đối tượng slide nào triển khai [IShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/) đều có thể được sử dụng làm neo cho hình dạng. Các ví dụ phổ biến bao gồm [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iconnector/), và các thể hiện [IGraphicalObject](https://reference.aspose.com/slides/vi/cpp/aspose.slides/igraphicalobject/) như biểu đồ.
 
-Ví dụ sau tạo một số loại hình dạng phổ biến và liên kết một nhận xét hiện đại với mỗi loại.
+Ví dụ dưới đây tạo một số loại hình dạng phổ biến và gắn một nhận xét hiện đại vào mỗi loại.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -311,17 +313,18 @@ author->get_Comments()->AddModernComment(u"Comment on a graphical object.", slid
 presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 ```
 
-### **Neo nhận xét vào văn bản và thiết lập trạng thái của nó**
+### **Gắn nhận xét vào văn bản và đặt trạng thái của nó**
 
-Đối với một nhận xét hiện đại được liên kết với [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/), các phương thức [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_textselectionstart/) và [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/set_textselectionstart/) kiểm soát vị trí bắt đầu của đoạn văn bản được chọn trong khung văn bản của hình dạng. Tương tự, [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_textselectionlength/) và [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/set_textselectionlength/) kiểm soát độ dài của phần chọn. Cả hai phương thức này cùng nhau liên kết nhận xét với một đoạn văn bản cụ thể bên trong AutoShape.
+Đối với một nhận xét hiện đại gắn với [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/), các phương thức [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_textselectionstart/) và [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/set_textselectionstart/) kiểm soát vị trí bắt đầu của văn bản được chọn trong khung văn bản của hình dạng. Tương tự, [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_textselectionlength/) và [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/set_textselectionlength/) kiểm soát độ dài của phần chọn. Cùng nhau, các phương thức này gắn nhận xét với một đoạn văn bản cụ thể bên trong AutoShape.
 
 Các phương thức [IModernComment::get_Status](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_status/) và [IModernComment::set_Status](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/set_status/) sử dụng một giá trị từ liệt kê [ModernCommentStatus](https://reference.aspose.com/slides/vi/cpp/aspose.slides/moderncommentstatus/):
-- `NotDefined` — không có trạng thái nhận xét hiện đại cụ thể nào được xác định.
+
+- `NotDefined` — không có trạng thái nhận xét hiện đại nào được định nghĩa.
 - `Active` — nhận xét đang hoạt động.
 - `Resolved` — nhận xét đã được giải quyết.
 - `Closed` — nhận xét đã đóng.
 
-Ví dụ sau tạo một nhận xét hiện đại được neo vào hình dạng, liên kết nó với một đoạn văn bản được chọn, đánh dấu là đã giải quyết, lưu bản trình chiếu và xác minh các giá trị sau khi mở lại tệp.
+Ví dụ dưới đây tạo một nhận xét hiện đại được gắn vào hình dạng, gắn nó với một đoạn văn bản đã chọn, đánh dấu là đã giải quyết, lưu bản trình chiếu, và xác minh các giá trị sau khi mở lại tệp.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -396,7 +399,7 @@ for (auto&& reopenedComment : reopenedComments)
 
 ### **Kiểm tra các nhận xét hiện đại hiện có**
 
-Để kiểm tra một bản trình chiếu hiện có, kiểm tra các nhận xét nào triển khai [IModernComment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/), sau đó xem xét [IModernComment::get_Shape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_textselectionlength/), và [IModernComment::get_Status](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_status/). Một hình dạng `nullptr` cho biết đó là nhận xét ở cấp slide. Đối với neo [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) , các phương thức lựa chọn văn bản xác định đoạn phạm vi liên quan trong khung văn bản của hình dạng.
+Để kiểm tra một bản trình chiếu hiện có, xác định các nhận xét nào triển khai [IModernComment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/), sau đó xem xét [IModernComment::get_Shape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_textselectionlength/), và [IModernComment::get_Status](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_status/). Một hình dạng `nullptr` cho biết là nhận xét cấp slide. Đối với neo [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/), các phương thức lựa chọn văn bản xác định đoạn liên quan trong khung văn bản của hình dạng.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -453,11 +456,11 @@ for (auto&& slide : presentation->get_Slides())
 }
 ```
 
-## **Xóa nhận xét**
+## **Xoá nhận xét**
 
-### **Xóa tất cả nhận xét và tác giả nhận xét**
+### **Xoá tất cả nhận xét và tác giả nhận xét**
 
-Ví dụ sau cho thấy cách xóa tất cả các nhận xét và tác giả nhận xét khỏi một bản trình chiếu:
+Ví dụ dưới đây cho thấy cách xoá tất cả nhận xét và tác giả nhận xét khỏi một bản trình chiếu:
 
 ```cpp
 #include <DOM/ICommentAuthor.h>
@@ -481,9 +484,9 @@ presentation->get_CommentAuthors()->Clear();
 presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
-### **Xóa các nhận xét cụ thể**
+### **Xoá các nhận xét cụ thể**
 
-Ví dụ sau cho thấy cách xóa các nhận xét cụ thể khỏi một slide:
+Ví dụ dưới đây cho thấy cách xoá các nhận xét cụ thể khỏi một slide:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -535,16 +538,16 @@ for (auto&& commentAuthor : presentation->get_CommentAuthors())
 presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
 **Aspose.Slides có hỗ trợ trạng thái đã giải quyết cho nhận xét hiện đại không?**
 
-Có. Các phương thức [IModernComment::get_Status](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_status/) và [IModernComment::set_Status](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/set_status/) sử dụng một giá trị của [ModernCommentStatus](https://reference.aspose.com/slides/vi/cpp/aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái được lưu trong bản trình chiếu và có thể được đọc lại sau khi tệp được mở lại.
+Đúng. Các phương thức [IModernComment::get_Status](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/get_status/) và [IModernComment::set_Status](https://reference.aspose.com/slides/vi/cpp/aspose.slides/imoderncomment/set_status/) sử dụng một giá trị [ModernCommentStatus](https://reference.aspose.com/slides/vi/cpp/aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái được lưu trong bản trình chiếu và có thể đọc lại sau khi tệp được mở lại.
 
-**Các cuộc thảo luận dạng chuỗi (reply chains) có được hỗ trợ không, và có giới hạn độ sâu lồng nhau không?**
+**Các cuộc thảo luận dạng chuỗi (cây trả lời) có được hỗ trợ không, và có giới hạn độ sâu lồng nhau không?**
 
-Có. Mỗi nhận xét có thể tham chiếu đến [parent comment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icomment/set_parentcomment/), cho phép tạo chuỗi phản hồi. API không định nghĩa một giới hạn độ sâu lồng nhau cụ thể.
+Đúng. Mỗi nhận xét có thể tham chiếu tới [parent comment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icomment/set_parentcomment/), cho phép tạo chuỗi trả lời. API không định nghĩa giới hạn độ sâu lồng nhau cụ thể.
 
-**Vị trí dấu nhận xét trên slide được định nghĩa trong hệ tọa độ nào?**
+**Vị trí của dấu nhận xét trên slide được định nghĩa trong hệ tọa độ nào?**
 
-Vị trí dấu nhận xét được định nghĩa bằng các tọa độ số thực trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.
+Vị trí của dấu nhận xét được xác định bằng các tọa độ số thực trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.

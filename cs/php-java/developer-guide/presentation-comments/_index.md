@@ -9,9 +9,9 @@ keywords:
 - moderní komentář
 - komentáře PowerPoint
 - komentáře prezentace
-- komentáře snímků
+- komentáře snímku
 - přidat komentář
-- přístup k komentáři
+- přístup ke komentáři
 - upravit komentář
 - odpovědět na komentář
 - odstranit komentář
@@ -20,30 +20,32 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Spravujte komentáře prezentace pomocí Aspose.Slides pro PHP přes Java: přidávejte, čtěte, upravujte, odpovídejte na a odstraňujte komentáře v prezentacích PowerPoint rychle a snadno."
+description: "Spravujte komentáře prezentace pomocí Aspose.Slides pro PHP přes Java: přidávejte, čtěte, upravujte, odpovídejte a odstraňujte komentáře v PowerPoint prezentacích rychle a snadno."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak spravovat komentáře prezentací pomocí Aspose.Slides pro PHP přes Java. Představuje hlavní typy související s komentáři a ukazuje, jak přidávat komentáře do snímků, přistupovat k existujícím komentářům, pracovat s odpověďmi a moderními komentáři a odstraňovat komentáře z prezentace.
+Tento článek vysvětluje, jak spravovat komentáře prezentace pomocí Aspose.Slides pro PHP přes Java. Představuje hlavní typy související s komentáři a ukazuje, jak přidávat komentáře do snímků, přistupovat k existujícím komentářům, pracovat s odpověďmi a moderními komentáři a odstraňovat komentáře z prezentace.
 
-Příklady pokrývají běžné scénáře recenzí a spolupráce v PowerPointu, jako je přiřazení komentářů autorům, čtení textu a metadat komentáře, budování řetězců odpovědí a odstraňování vybraných komentářů nebo všech komentářů.
+Příklady pokrývají běžné scénáře revize a spolupráce v PowerPointu, jako je přiřazování komentářů autorům, čtení textu a metadat komentářů, vytváření řetězců odpovědí a odstraňování vybraných komentářů nebo všech komentářů.
 
-V PowerPointu se komentáře zobrazují jako anotace na snímcích. Vybrání komentáře zobrazí jeho text a související diskusi.
+V PowerPointu se komentáře zobrazují jako anotace na snímcích. Výběrem komentáře se zobrazí jeho text a související diskuse.
+
+Pro požadavek, aby byly komentáře při otevírání prezentace zobrazeny nebo skryty bez změny samotných komentářů, viz [Zobrazit nebo skrýt komentáře při otevírání prezentace](/slides/cs/php-java/presentation-view-properties/).
 
 ## **Proč přidávat komentáře do prezentací?**
 
-Komentáře můžete použít k poskytování zpětné vazby a spolupráci s kolegy při recenzi prezentací.
+Komentáře můžete použít k poskytování zpětné vazby a spolupráci s kolegy při revizi prezentací.
 
-Aspose.Slides pro PHP přes Java poskytuje následující API pro práci s komentáři:
+Aspose.Slides pro PHP přes Java poskytuje následující rozhraní API pro práci s komentáři:
 
-* Třída [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/), která poskytuje přístup k autorům komentářů v prezentaci.
-* Třída [CommentCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/commentcollection/), která představuje komentáře přiřazené konkrétnímu autorovi.
-* Třída [Comment](https://reference.aspose.com/slides/cs/php-java/aspose.slides/comment/), která poskytuje informace o komentáři, včetně autora, času vytvoření, pozice a textu.
-* Třída [CommentAuthor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/commentauthor/), která poskytuje informace o autorovi, včetně jména, iniciál a přiřazených komentářů.
+* Třída [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) poskytuje přístup k autorům komentářů prezentace.
+* Třída [CommentCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/commentcollection/) představuje komentáře spojené s jednotlivým autorem.
+* Třída [Comment](https://reference.aspose.com/slides/cs/php-java/aspose.slides/comment/) poskytuje informace o komentáři, včetně jeho autora, času vytvoření, pozice a textu.
+* Třída [CommentAuthor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/commentauthor/) poskytuje informace o autorovi, včetně jeho jména, iniciál a přidružených komentářů.
 
-## **Přidání komentářů ke snímkům**
+## **Přidat komentáře do snímků**
 
-Následující příklad ukazuje, jak přidat komentáře do snímků v prezentaci PowerPoint:
+Následující příklad ukazuje, jak přidat komentáře do snímků v PowerPoint prezentaci:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -79,9 +81,9 @@ try {
 }
 ```
 
-## **Přístup ke komentářům na snímcích**
+## **Přístup ke komentářům snímků**
 
-Následující příklad ukazuje, jak přistupovat k existujícím komentářům v prezentaci PowerPoint:
+Následující příklad ukazuje, jak přistupovat k existujícím komentářům v PowerPoint prezentaci:
 
 ```php
 use aspose\slides\Presentation;
@@ -102,11 +104,11 @@ try {
 }
 ```
 
-## **Odpovědi na komentáře**
+## **Odpovídat na komentáře**
 
-Nadřazený komentář je původní komentář na vrcholu hierarchie odpovědí. Metody [Comment::getParentComment](https://reference.aspose.com/slides/cs/php-java/aspose.slides/comment/getparentcomment/) a [Comment::setParentComment](https://reference.aspose.com/slides/cs/php-java/aspose.slides/comment/setparentcomment/) umožňují získat nebo nastavit nadřazený komentář.
+Rodičovský komentář je původní komentář na vrcholu hierarchie odpovědí. Metody [Comment::getParentComment](https://reference.aspose.com/slides/cs/php-java/aspose.slides/comment/getparentcomment/) a [Comment::setParentComment](https://reference.aspose.com/slides/cs/php-java/aspose.slides/comment/setparentcomment/) vám umožňují získat nebo nastavit rodiče komentáře.
 
-Následující příklad ukazuje, jak přidávat odpovědi a zkoumat vzniklou hierarchii komentářů:
+Následující příklad ukazuje, jak přidávat odpovědi a prozkoumat vzniklou hierarchii komentářů:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -160,20 +162,20 @@ try {
 }
 ```
 
-{{% alert color="warning" title="Varování" %}}
-* Když je použita metoda [Comment::remove](https://reference.aspose.com/slides/cs/php-java/aspose.slides/comment/remove/) k odstranění komentáře, jsou smazány i všechny jeho odpovědi.
-* Pokud metoda [Comment::setParentComment](https://reference.aspose.com/slides/cs/php-java/aspose.slides/comment/setparentcomment/) vytvoří kruhový odkaz, je vyhozena výjimka [PptxEditException](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pptxeditexception/).
+{{% alert color="warning" title="Warning" %}}
+* Když je použita metoda [Comment::remove](https://reference.aspose.com/slides/cs/php-java/aspose.slides/comment/remove/), komentář je smazán a všechny odpovědi na tento komentář jsou také smazány.
+* Pokud metoda [Comment::setParentComment](https://reference.aspose.com/slides/cs/php-java/aspose.slides/comment/setparentcomment/) vytvoří cyklický odkaz, je vyvolána výjimka [PptxEditException](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
-## **Přidání moderních komentářů**
+## **Přidat moderní komentáře**
 
-Moderní komentáře mohou být přiřazeny přímo ke snímku, ke konkrétnímu tvaru nebo k rozsahu textu uvnitř AutoShape. Metoda [CommentCollection::addModernComment](https://reference.aspose.com/slides/cs/php-java/aspose.slides/commentcollection/addmoderncomment/) přijímá argument [Shape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/) kromě snímku a souřadnic markeru komentáře.
+Moderní komentáře mohou být přiřazeny přímo ke snímku, ke konkrétnímu tvaru nebo k textovému rozsahu uvnitř AutoShape. Metoda [CommentCollection::addModernComment](https://reference.aspose.com/slides/cs/php-java/aspose.slides/commentcollection/addmoderncomment/) přijímá argument typu [Shape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/) kromě snímku a souřadnic značky komentáře.
 
-Když je pro argument shape předáno `null`, jedná se o komentář na úrovni snímku. Jeho marker je umístěn podle zadaných souřadnic, ale není spojen s konkrétním tvarem, takže [ModernComment::getShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/getshape/) vrací `null`. Když je poskytnut [Shape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/), je komentář ukotven k tomuto tvaru. Souřadnice i nadále definují pozici markeru komentáře na snímku, zatímco asociaci s tvarem lze získat pomocí [ModernComment::getShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/getshape/).
+Když je pro argument shape předáno `null`, komentář je na úrovni snímku. Jeho značka je umístěna podle zadaných souřadnic, ale není přiřazena konkrétnímu tvaru, takže [ModernComment::getShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/getshape/) vrací `null`. Když je poskytnut objekt [Shape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/), je komentář ukotven k tomuto tvaru. Souřadnice i nadále určují pozici značky komentáře na snímku, zatímco přiřazení tvaru lze získat pomocí [ModernComment::getShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/getshape/).
 
-### **Ukotvení moderního komentáře k tvaru**
+### **Ukotvit moderní komentář k tvaru**
 
-Následující příklad vytvoří jak moderní komentář na úrovni snímku, tak moderní komentář ukotvený k určitému AutoShape. Pak načte přiřazený tvar z každého komentáře.
+Následující příklad vytvoří jak moderní komentář na úrovni snímku, tak moderní komentář ukotvený ke konkrétnímu AutoShape. Poté načte přiřazený tvar z každého komentáře.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -204,11 +206,11 @@ try {
 }
 ```
 
-### **Ukotvení komentářů k různým typům tvarů**
+### **Ukotvit komentáře k různým typům tvarů**
 
-Jakýkoli objekt snímku reprezentovaný třídou [Shape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/) může být použit jako ukotvení. Běžnými příklady jsou [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/cs/php-java/aspose.slides/connector/) a instance [GraphicalObject](https://reference.aspose.com/slides/cs/php-java/aspose.slides/graphicalobject/) jako jsou grafy.
+Jakýkoli objekt snímku reprezentovaný třídou [Shape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/) může být použit jako ukotvení tvaru. Běžné příklady zahrnují [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/cs/php-java/aspose.slides/connector/) a instance [GraphicalObject](https://reference.aspose.com/slides/cs/php-java/aspose.slides/graphicalobject/), jako jsou grafy.
 
-Následující příklad vytvoří několik běžných typů tvarů a přiřadí ke každému moderní komentář.
+Následující příklad vytvoří několik běžných typů tvarů a přiřadí k nim moderní komentář.
 
 ```php
 use aspose\slides\ChartType;
@@ -256,18 +258,18 @@ try {
 }
 ```
 
-### **Ukotvení komentáře k textu a nastavení jeho stavu**
+### **Ukotvit komentář k textu a nastavit jeho stav**
 
-Pro moderní komentář přiřazený k [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) metody [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/gettextselectionstart/) a [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/settextselectionstart/) přistupují k počáteční pozici vybraného textu v textovém rámci tvaru. Metody [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/gettextselectionlength/) a [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/settextselectionlength/) přistupují k délce výběru. Společně tyto hodnoty spojují komentář s konkrétním textovým rozsahem uvnitř AutoShape.
+Pro moderní komentář spojený s [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/), metody [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/gettextselectionstart/) a [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/settextselectionstart/) získávají počáteční pozici vybraného textu v textovém rámci tvaru. Metody [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/gettextselectionlength/) a [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/settextselectionlength/) získávají délku výběru. Společně tyto hodnoty spojují komentář s konkrétním textovým rozsahem uvnitř AutoShape.
 
 Metody [ModernComment::getStatus](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/getstatus/) a [ModernComment::setStatus](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/setstatus/) přistupují k hodnotě ze skupiny konstant [ModernCommentStatus](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — žádný konkrétní stav moderního komentáře není definován.
+- `NotDefined` — není definován žádný konkrétní stav moderního komentáře.
 - `Active` — komentář je aktivní.
 - `Resolved` — komentář byl vyřešen.
 - `Closed` — komentář je uzavřen.
 
-Následující příklad vytvoří moderní komentář ukotvený k tvaru, přiřadí ho k výběru textu, označí ho jako vyřešený, uloží prezentaci a po znovuotevření souboru ověří hodnoty.
+Následující příklad vytvoří moderní komentář ukotvený k tvaru, přiřadí jej k výběru textu, označí jej jako vyřešený, uloží prezentaci a ověří hodnoty po opětovném otevření souboru.
 
 ```php
 use aspose\slides\ModernCommentStatus;
@@ -327,9 +329,9 @@ try {
 }
 ```
 
-### **Prozkoumání existujících moderních komentářů**
+### **Prozkoumat existující moderní komentáře**
 
-Pro prozkoumání existující prezentace zjistěte, zda je každý komentář typu [ModernComment](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/), pak zkontrolujte [ModernComment::getShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/gettextselectionlength/) a [ModernComment::getStatus](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/getstatus/). `null` tvar označuje komentář na úrovni snímku. Pro ukotvení k [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) metody výběru textu identifikují příslušný rozsah v textovém rámci tvaru.
+Pro prozkoumání existující prezentace zkontrolujte, zda je každý komentář typu [ModernComment](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/), poté prozkoumejte [ModernComment::getShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/gettextselectionlength/) a [ModernComment::getStatus](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/getstatus/). `null` tvar označuje komentář na úrovni snímku. Pro ukotvení k [AutoShape] metody výběru textu identifikují odpovídající rozsah v textovém rámci tvaru.
 
 ```php
 use aspose\slides\Presentation;
@@ -371,9 +373,9 @@ try {
 }
 ```
 
-## **Odstranění komentářů**
+## **Odstranit komentáře**
 
-### **Odstranění všech komentářů a autorů komentářů**
+### **Odstranit všechny komentáře a autory komentářů**
 
 Následující příklad ukazuje, jak odstranit všechny komentáře a autory komentářů z prezentace:
 
@@ -394,7 +396,7 @@ try {
 }
 ```
 
-### **Odstranění konkrétních komentářů**
+### **Odstranit konkrétní komentáře**
 
 Následující příklad ukazuje, jak odstranit konkrétní komentáře ze snímku:
 
@@ -437,14 +439,14 @@ try {
 
 ## **Často kladené otázky**
 
-**Podporuje Aspose.Slides stav „vyřešeno“ u moderních komentářů?**
+**Podporuje Aspose.Slides stav Vyřešeno pro moderní komentáře?**
 
-Ano. Metody [ModernComment::getStatus](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/getstatus/) a [ModernComment::setStatus](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/setstatus/) přistupují k hodnotě [ModernCommentStatus](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncommentstatus/), včetně `Resolved`. Stav je uložen v prezentaci a lze jej znovu načíst po opětovném otevření souboru.
+Ano. Metody [ModernComment::getStatus](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/getstatus/) a [ModernComment::setStatus](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncomment/setstatus/) přistupují k hodnotě typu [ModernCommentStatus](https://reference.aspose.com/slides/cs/php-java/aspose.slides/moderncommentstatus/), včetně `Resolved`. Stav je uložen v prezentaci a lze jej znovu přečíst po opětovném otevření souboru.
 
-**Jsou podporovány vlákna diskuzí (řetězce odpovědí) a existuje limit hloubky vnoření?**
+**Podporují se vlákna diskuzí (řetězce odpovědí) a existuje omezení hloubky vnoření?**
 
 Ano. Každý komentář může odkazovat na svůj [parent comment](https://reference.aspose.com/slides/cs/php-java/aspose.slides/comment/getparentcomment/), což umožňuje řetězce odpovědí. API nedefinuje konkrétní limit hloubky vnoření.
 
-**V jakém souřadnicovém systému je definována pozice markeru komentáře na snímku?**
+**V jakém souřadnicovém systému je definována pozice značky komentáře na snímku?**
 
-Pozice markeru je definována pomocí desetinných souřadnic ve souřadnicovém systému snímku, což umožňuje přesné umístění na snímku.
+Pozice značky je definována pomocí souřadnic s desetinnou čárkou v souřadnicovém systému snímku, což vám umožňuje ji přesně umístit na snímek.

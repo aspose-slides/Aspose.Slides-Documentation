@@ -1,5 +1,5 @@
 ---
-title: Kelola Komentar Presentasi dalam C++
+title: Kelola Komentar Presentasi di C++
 linktitle: Komentar Presentasi
 type: docs
 weight: 100
@@ -10,7 +10,7 @@ keywords:
 - komentar PowerPoint
 - komentar presentasi
 - komentar slide
-- menambah komentar
+- menambahkan komentar
 - mengakses komentar
 - mengedit komentar
 - membalas komentar
@@ -22,13 +22,15 @@ keywords:
 - Aspose.Slides
 description: "Kelola komentar presentasi dengan Aspose.Slides untuk C++: tambahkan, baca, edit, balas, dan hapus komentar dalam presentasi PowerPoint dengan cepat dan mudah."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
 Artikel ini menjelaskan cara mengelola komentar presentasi dengan Aspose.Slides untuk C++. Artikel ini memperkenalkan tipe utama yang berhubungan dengan komentar dan mendemonstrasikan cara menambahkan komentar ke slide, mengakses komentar yang ada, bekerja dengan balasan dan komentar modern, serta menghapus komentar dari sebuah presentasi.
 
-Contoh-contoh mencakup skenario ulasan dan kolaborasi umum di PowerPoint, seperti menetapkan komentar ke penulis, membaca teks komentar dan metadata, membangun rantai balasan, serta menghapus komentar yang dipilih atau semua komentar.
+Contoh-contoh mencakup skenario peninjauan dan kolaborasi umum di PowerPoint, seperti menetapkan komentar ke penulis, membaca teks komentar dan metadata, membangun rantai balasan, serta menghapus komentar terpilih atau semua komentar.
 
-Di PowerPoint, komentar muncul sebagai anotasi pada slide. Memilih sebuah komentar menampilkan teks dan diskusi terkait.
+Di PowerPoint, komentar muncul sebagai anotasi pada slide. Memilih sebuah komentar menampilkan teksnya dan diskusi terkait.
+
+Untuk meminta agar komentar ditampilkan atau disembunyikan ketika presentasi dibuka tanpa mengubah komentar itu sendiri, lihat [Show or Hide Comments When Opening a Presentation](/slides/id/cpp/presentation-view-properties/).
 
 ## **Mengapa Menambahkan Komentar ke Presentasi?**
 
@@ -37,9 +39,9 @@ Anda dapat menggunakan komentar untuk memberikan umpan balik dan berkolaborasi d
 Aspose.Slides untuk C++ menyediakan API berikut untuk bekerja dengan komentar:
 
 * Kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) yang memberikan akses ke penulis komentar presentasi.
-* Antarmuka [ICommentCollection](https://reference.aspose.com/slides/id/cpp/aspose.slides/icommentcollection/) yang mewakili komentar yang terkait dengan satu penulis.
-* Antarmuka [IComment](https://reference.aspose.com/slides/id/cpp/aspose.slides/icomment/) yang menyediakan informasi tentang sebuah komentar, termasuk penulis, waktu pembuatan, posisi, dan teks.
-* Kelas [CommentAuthor](https://reference.aspose.com/slides/id/cpp/aspose.slides/commentauthor/) yang memberikan informasi tentang seorang penulis, termasuk nama, inisial, dan komentar yang terkait.
+* Antarmuka [ICommentCollection](https://reference.aspose.com/slides/id/cpp/aspose.slides/icommentcollection/) yang mewakili komentar yang terkait dengan seorang penulis tertentu.
+* Antarmuka [IComment](https://reference.aspose.com/slides/id/cpp/aspose.slides/icomment/) yang menyediakan informasi tentang sebuah komentar, termasuk penulis, waktu pembuatan, posisi, dan teksnya.
+* Kelas [CommentAuthor](https://reference.aspose.com/slides/id/cpp/aspose.slides/commentauthor/) yang menyediakan informasi tentang seorang penulis, termasuk nama, inisial, dan komentar yang terkait.
 
 ## **Menambahkan Komentar Slide**
 
@@ -119,7 +121,7 @@ for (auto&& author : presentation->get_CommentAuthors())
 
 ## **Membalas Komentar**
 
-Komentar induk adalah komentar asli di bagian atas hierarki balasan. Metode [get_ParentComment](https://reference.aspose.com/slides/id/cpp/aspose.slides/icomment/get_parentcomment/) dan [set_ParentComment](https://reference.aspose.com/slides/id/cpp/aspose.slides/icomment/set_parentcomment/) dari antarmuka [IComment](https://reference.aspose.com/slides/id/cpp/aspose.slides/icomment/) memungkinkan Anda mendapatkan atau menetapkan induk sebuah komentar.
+Komentar induk adalah komentar asli di bagian atas hierarki balasan. Metode [get_ParentComment](https://reference.aspose.com/slides/id/cpp/aspose.slides/icomment/get_parentcomment/) dan [set_ParentComment](https://reference.aspose.com/slides/id/cpp/aspose.slides/icomment/set_parentcomment/) pada antarmuka [IComment](https://reference.aspose.com/slides/id/cpp/aspose.slides/icomment/) memungkinkan Anda mendapatkan atau menetapkan induk sebuah komentar.
 
 Contoh berikut menunjukkan cara menambahkan balasan dan memeriksa hierarki komentar yang dihasilkan:
 
@@ -184,21 +186,19 @@ presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert color="warning" title="Warning" %}}
-
-* Ketika metode [Remove](https://reference.aspose.com/slides/id/cpp/aspose.slides/icomment/remove/) dari antarmuka [IComment](https://reference.aspose.com/slides/id/cpp/aspose.slides/icomment/) digunakan untuk menghapus sebuah komentar, semua balasan ke komentar tersebut juga dihapus.
+* Ketika metode [Remove](https://reference.aspose.com/slides/id/cpp/aspose.slides/icomment/remove/) pada antarmuka [IComment](https://reference.aspose.com/slides/id/cpp/aspose.slides/icomment/) digunakan untuk menghapus sebuah komentar, semua balasan ke komentar tersebut juga akan dihapus.
 * Jika metode [set_ParentComment](https://reference.aspose.com/slides/id/cpp/aspose.slides/icomment/set_parentcomment/) membuat referensi melingkar, sebuah [PptxEditException](https://reference.aspose.com/slides/id/cpp/aspose.slides/pptxeditexception/) akan dilempar.
-
 {{% /alert %}}
 
 ## **Menambahkan Komentar Modern**
 
-Komentar modern dapat dikaitkan dengan slide itu sendiri, dengan sebuah shape tertentu, atau dengan rentang teks di dalam AutoShape. Metode [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/id/cpp/aspose.slides/icommentcollection/addmoderncomment/) menerima argumen [IShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/) selain slide dan koordinat penanda komentar.
+Komentar modern dapat dikaitkan dengan slide itu sendiri, dengan bentuk tertentu, atau dengan rentang teks di dalam AutoShape. Metode [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/id/cpp/aspose.slides/icommentcollection/addmoderncomment/) menerima argumen [IShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/) selain slide dan koordinat penanda komentar.
 
-Ketika `nullptr` diberikan untuk argumen shape, komentar menjadi komentar tingkat slide. Penandanya diposisikan oleh koordinat yang diberikan, tetapi tidak terkait dengan shape tertentu, sehingga [IModernComment::get_Shape](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_shape/) mengembalikan `nullptr`. Ketika sebuah [IShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/) disediakan, komentar diikat ke shape tersebut. Koordinat tetap menentukan posisi penanda komentar pada slide, sementara asosiasi shape dapat diambil melalui [IModernComment::get_Shape](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_shape/).
+Ketika `nullptr` diberikan untuk argumen shape, komentar menjadi komentar tingkat slide. Penandanya diposisikan oleh koordinat yang diberikan, tetapi tidak terkait dengan bentuk tertentu, sehingga [IModernComment::get_Shape](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_shape/) mengembalikan `nullptr`. Ketika sebuah [IShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/) disediakan, komentar dipasang pada shape tersebut. Koordinat tetap menentukan posisi penanda komentar pada slide, sementara asosiasi shape dapat diambil melalui [IModernComment::get_Shape](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_shape/).
 
-### **Menambatkan Komentar Modern ke sebuah Shape**
+### **Menambatkan Komentar Modern ke Bentuk**
 
-Contoh berikut membuat komentar modern tingkat slide dan komentar modern yang ditambatkan ke sebuah AutoShape tertentu. Kemudian contoh tersebut membaca shape yang terkait dari masing‑masing komentar.
+Contoh berikut membuat komentar modern tingkat slide dan komentar modern yang dipasang pada AutoShape tertentu. Kemudian contoh tersebut membaca shape yang terkait dari setiap komentar.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -245,11 +245,11 @@ if (shapeAnchor != nullptr)
 presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
 ```
 
-### **Menambatkan Komentar ke Berbagai Tipe Shape**
+### **Menambatkan Komentar ke Berbagai Tipe Bentuk**
 
-Setiap objek slide yang mengimplementasikan [IShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/) dapat digunakan sebagai penambat shape. Contoh umum meliputi [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/id/cpp/aspose.slides/iconnector/), dan instance [IGraphicalObject](https://reference.aspose.com/slides/id/cpp/aspose.slides/igraphicalobject/) seperti grafik.
+Setiap objek slide yang mengimplementasikan [IShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/) dapat digunakan sebagai penambat shape. Contoh umum termasuk [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/id/cpp/aspose.slides/iconnector/), dan instansi [IGraphicalObject](https://reference.aspose.com/slides/id/cpp/aspose.slides/igraphicalobject/) seperti diagram.
 
-Contoh berikut membuat beberapa tipe shape umum dan mengaitkan komentar modern dengan masing‑masingnya.
+Contoh berikut membuat beberapa tipe shape umum dan mengaitkan komentar modern dengan masing‑masing.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -315,16 +315,16 @@ presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 
 ### **Menambatkan Komentar ke Teks dan Menetapkan Statusnya**
 
-Untuk komentar modern yang terkait dengan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/), metode [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_textselectionstart/) dan [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/set_textselectionstart/) mengontrol posisi awal teks yang dipilih dalam frame teks shape. Demikian pula, [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_textselectionlength/) dan [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/set_textselectionlength/) mengontrol panjang seleksi. Bersama‑sama, metode‑metode ini mengaitkan komentar dengan rentang teks spesifik di dalam AutoShape.
+Untuk komentar modern yang terkait dengan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/), metode [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_textselectionstart/) dan [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/set_textselectionstart/) mengontrol posisi awal teks yang dipilih dalam frame teks shape. Demikian pula, [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_textselectionlength/) dan [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/set_textselectionlength/) mengontrol panjang seleksi. Bersama‑sama, metode‑metode ini mengaitkan komentar dengan rentang teks tertentu di dalam AutoShape.
 
 Metode [IModernComment::get_Status](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_status/) dan [IModernComment::set_Status](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/set_status/) menggunakan nilai dari enumerasi [ModernCommentStatus](https://reference.aspose.com/slides/id/cpp/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — tidak ada status komentar modern yang spesifik.
+- `NotDefined` — tidak ada status komentar modern yang spesifik didefinisikan.
 - `Active` — komentar aktif.
 - `Resolved` — komentar telah diselesaikan.
 - `Closed` — komentar ditutup.
 
-Contoh berikut membuat komentar modern yang ditambatkan ke shape, mengaitkannya dengan seleksi teks, menandainya sebagai diselesaikan, menyimpan presentasi, dan memverifikasi nilai setelah membuka kembali file.
+Contoh berikut membuat komentar modern yang dipasang pada shape, mengaitkannya dengan seleksi teks, menandainya sebagai terselesaikan, menyimpan presentasi, dan memverifikasi nilai setelah file dibuka kembali.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -399,7 +399,7 @@ for (auto&& reopenedComment : reopenedComments)
 
 ### **Memeriksa Komentar Modern yang Ada**
 
-Untuk memeriksa presentasi yang ada, cek komentar mana yang mengimplementasikan [IModernComment](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/), lalu periksa [IModernComment::get_Shape](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_textselectionlength/), dan [IModernComment::get_Status](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_status/). Sebuah shape `nullptr` menunjukkan komentar tingkat slide. Untuk penambat [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/), metode seleksi teks mengidentifikasi rentang yang terkait dalam frame teks shape.
+Untuk memeriksa sebuah presentasi yang ada, periksa komentar mana yang mengimplementasikan [IModernComment](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/), kemudian tinjau [IModernComment::get_Shape](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_textselectionlength/), dan [IModernComment::get_Status](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_status/). Shape `nullptr` menunjukkan komentar tingkat slide. Untuk penambat [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/), metode seleksi teks mengidentifikasi rentang yang terkait dalam frame teks shape.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -540,13 +540,13 @@ presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Apakah Aspose.Slides mendukung status selesai untuk komentar modern?**
+**Apakah Aspose.Slides mendukung status terselesaikan untuk komentar modern?**
 
-Ya. [IModernComment::get_Status](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_status/) dan [IModernComment::set_Status](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/set_status/) menggunakan nilai [ModernCommentStatus](https://reference.aspose.com/slides/id/cpp/aspose.slides/moderncommentstatus/), termasuk `Resolved`. Status disimpan dalam presentasi dan dapat dibaca kembali setelah file dibuka kembali.
+Ya. Metode [IModernComment::get_Status](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/get_status/) dan [IModernComment::set_Status](https://reference.aspose.com/slides/id/cpp/aspose.slides/imoderncomment/set_status/) menggunakan nilai [ModernCommentStatus](https://reference.aspose.com/slides/id/cpp/aspose.slides/moderncommentstatus/), termasuk `Resolved`. Status disimpan dalam presentasi dan dapat dibaca kembali setelah file dibuka ulang.
 
-**Apakah diskusi berulir (rantai balasan) didukung, dan apakah ada batas kedalaman?**
+**Apakah diskusi berulir (rantai balasan) didukung, dan apakah ada batasan kedalaman?**
 
-Ya. Setiap komentar dapat merujuk ke [parent comment](https://reference.aspose.com/slides/id/cpp/aspose.slides/icomment/set_parentcomment/)-nya, memungkinkan rantai balasan. API tidak menentukan batas kedalaman penumpukan tertentu.
+Ya. Setiap komentar dapat merujuk ke [parent comment](https://reference.aspose.com/slides/id/cpp/aspose.slides/icomment/set_parentcomment/), memungkinkan rantai balasan. API tidak menetapkan batasan kedalaman tertentu.
 
 **Dalam sistem koordinat apa posisi penanda komentar didefinisikan pada slide?**
 

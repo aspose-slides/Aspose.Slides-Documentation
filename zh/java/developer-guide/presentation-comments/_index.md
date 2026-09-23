@@ -1,5 +1,5 @@
 ---
-title: 管理 Java 中的演示文稿批注
+title: 在 Java 中管理演示文稿批注
 linktitle: 演示文稿批注
 type: docs
 weight: 100
@@ -20,30 +20,32 @@ keywords:
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Java 管理演示文稿批注：在 PowerPoint 演示文稿中快速轻松地添加、读取、编辑、回复和删除批注。"
+description: "使用 Aspose.Slides for Java 管理演示文稿批注：快速轻松地在 PowerPoint 演示文稿中添加、读取、编辑、回复和删除批注。"
 ---
 ## **概述**
 
-本文介绍如何使用 Aspose.Slides for Java 管理演示文稿的批注。它介绍了主要的批注相关类型，并演示了如何向幻灯片添加批注、访问现有批注、处理回复和现代批注，以及从演示文稿中删除批注。
+本文介绍如何使用 Aspose.Slides for Java 管理演示文稿批注。它会介绍主要的批注相关类型，并演示如何向幻灯片添加批注、访问现有批注、处理回复和现代批注，以及如何从演示文稿中删除批注。
 
-示例涵盖了 PowerPoint 中常见的审阅和协作场景，例如为作者分配批注、读取批注文本和元数据、构建回复链，以及删除选定的批注或全部批注。
+示例覆盖了 PowerPoint 中常见的审阅和协作场景，例如为作者分配批注、读取批注文本和元数据、构建回复链，以及删除选定批注或全部批注。
 
-在 PowerPoint 中，批注显示为幻灯片上的注释。选择批注时会显示其文本和相关讨论。
+在 PowerPoint 中，批注显示为幻灯片上的注释。选中批注后会显示其文本和相关讨论。
 
-## **为什么向演示文稿添加批注？**
+若要在打开演示文稿时请求显示或隐藏批注（但不更改批注本身），请参阅[Show or Hide Comments When Opening a Presentation](/slides/zh/java/presentation-view-properties/)。
 
-在审阅演示文稿时，可以使用批注提供反馈并与同事协作。
+## **为什么要在演示文稿中添加批注？**
 
-Aspose.Slides for Java 提供以下 API 用于操作批注：
+在审阅演示文稿时，您可以使用批注提供反馈并与同事协作。
 
-* The [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类，提供对演示文稿批注作者的访问。
-* The [ICommentCollection](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icommentcollection/) 接口，表示与单个作者关联的批注集合。
-* The [IComment](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icomment/) 接口，提供有关批注的信息，包括作者、创建时间、位置和文本。
-* The [CommentAuthor](https://reference.aspose.com/slides/zh/java/com.aspose.slides/commentauthor/) 类，提供有关作者的信息，包括姓名、缩写和关联的批注。
+Aspose.Slides for Java 提供以下用于处理批注的 API：
+
+* [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) 类，可访问演示文稿的批注作者。
+* [ICommentCollection](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icommentcollection/) 接口，表示与单个作者关联的批注集合。
+* [IComment](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icomment/) 接口，提供有关批注的信息，包括作者、创建时间、位置和文本。
+* [CommentAuthor](https://reference.aspose.com/slides/zh/java/com.aspose.slides/commentauthor/) 类，提供作者信息，包括姓名、首字母缩写和关联的批注。
 
 ## **添加幻灯片批注**
 
-以下示例演示如何向 PowerPoint 演示文稿的幻灯片添加批注：
+以下示例展示如何向 PowerPoint 演示文稿的幻灯片添加批注：
 
 ```java
 import com.aspose.slides.IComment;
@@ -84,7 +86,7 @@ try {
 
 ## **访问幻灯片批注**
 
-以下示例演示如何访问 PowerPoint 演示文稿中已有的批注：
+以下示例展示如何访问 PowerPoint 演示文稿中已有的批注：
 
 ```java
 import com.aspose.slides.IComment;
@@ -109,9 +111,9 @@ try {
 
 ## **回复批注**
 
-父批注是回复层级顶部的原始批注。The [IComment.getParentComment](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icomment/#getParentComment--) and [IComment.setParentComment](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 方法让您获取或设置批注的父批注。
+父批注是回复层次结构顶部的原始批注。[IComment.getParentComment](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icomment/#getParentComment--) 和 [IComment.setParentComment](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 方法可让您获取或设置批注的父批注。
 
-以下示例演示如何添加回复并检查生成的批注层级：
+以下示例展示如何添加回复并检查生成的批注层次结构：
 
 ```java
 import com.aspose.slides.IComment;
@@ -168,19 +170,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* When the [IComment.remove](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icomment/#remove--) method is used to delete a comment, all replies to that comment are also deleted.
-* If [IComment.setParentComment](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) creates a circular reference, a [PptxEditException](https://reference.aspose.com/slides/zh/java/com.aspose.slides/pptxeditexception/) is thrown.
+* 当使用 [IComment.remove](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icomment/#remove--) 方法删除批注时，所有对此批注的回复也会被删除。
+* 如果 [IComment.setParentComment](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 产生循环引用，将抛出 [PptxEditException](https://reference.aspose.com/slides/zh/java/com.aspose.slides/pptxeditexception/)。
 {{% /alert %}}
 
 ## **添加现代批注**
 
-现代批注可以关联到幻灯片本身、特定形状或 AutoShape 内的文本范围。The [ICommentCollection.addModernComment](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) 方法在接受 [IShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/) 参数的同时，还需要提供幻灯片和批注标记的坐标。
+现代批注可以关联到幻灯片本身、特定形状或 AutoShape 中的文本范围。[ICommentCollection.addModernComment](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) 方法接受一个 [IShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/) 参数，除了幻灯片和批注标记坐标之外。
 
-当为 shape 参数传入 `null` 时，批注为幻灯片级批注。其标记由提供的坐标定位，但不关联特定形状，因此 [IModernComment.getShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getShape--) 返回 `null`。当提供 [IShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/) 时，批注锚定到该形状。坐标仍定义批注标记在幻灯片上的位置，而形状关联可通过 [IModernComment.getShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getShape--) 获取。
+如果对 shape 参数传入 `null`，则该批注为幻灯片级批注。其标记由提供的坐标定位，但不关联到特定形状，因此 [IModernComment.getShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getShape--) 返回 `null`。当提供 [IShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/) 时，批注会锚定到该形状。坐标仍然定义批注标记在幻灯片上的位置，而形状关联可以通过 [IModernComment.getShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getShape--) 获取。
 
 ### **将现代批注锚定到形状**
 
-以下示例创建了一个幻灯片级现代批注和一个锚定到特定 AutoShape 的现代批注。随后读取每个批注关联的形状。
+以下示例创建了一个幻灯片级现代批注和一个锚定到特定 AutoShape 的现代批注，然后读取每个批注关联的形状。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -218,9 +220,9 @@ try {
 
 ### **将批注锚定到不同的形状类型**
 
-实现了 [IShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/) 的任何幻灯片对象都可以作为形状锚点。常见示例包括 [IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iconnector/) 和 [IGraphicalObject](https://reference.aspose.com/slides/zh/java/com.aspose.slides/igraphicalobject/)（如图表）实例。
+任何实现了 [IShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/) 的幻灯片对象都可以用作形状锚。常见示例包括 [IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iconnector/) 和 [IGraphicalObject](https://reference.aspose.com/slides/zh/java/com.aspose.slides/igraphicalobject/)（如图表）实例。
 
-以下示例创建了几种常见形状类型并为每一种关联了现代批注。
+以下示例创建几种常见形状类型，并为每种形状关联一个现代批注。
 
 ```java
 import com.aspose.slides.ChartType;
@@ -279,7 +281,7 @@ try {
 
 ### **将批注锚定到文本并设置其状态**
 
-对于关联到 [IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/) 的现代批注，[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) 和 [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) 访问形状文本框中所选文本的起始位置。[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 和 [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) 访问选区长度。这些值共同将批注关联到 AutoShape 中文本的特定范围。
+对于关联到 [IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/) 的现代批注，[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) 和 [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) 用于访问形状文本框中选中文本的起始位置。[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 和 [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) 用于访问选中长度。这些值共同将批注关联到 AutoShape 中的特定文本范围。
 
 [IModernComment.getStatus](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getStatus--) 和 [IModernComment.setStatus](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#setStatus-byte-) 方法访问 [ModernCommentStatus](https://reference.aspose.com/slides/zh/java/com.aspose.slides/moderncommentstatus/) 常量中的值：
 
@@ -288,7 +290,7 @@ try {
 - `Resolved` — 批注已解决。
 - `Closed` — 批注已关闭。
 
-以下示例创建了一个锚定到形状的现代批注，关联文本选区，将其标记为已解决，保存演示文稿并在重新打开文件后验证这些值。
+以下示例创建一个锚定到形状的现代批注，将其关联到文本选择，标记为已解决，保存演示文稿，并在重新打开文件后验证这些值。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -355,7 +357,7 @@ try {
 
 ### **检查现有的现代批注**
 
-要检查已有的演示文稿，先判断批注是否实现了 [IModernComment](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/)，然后检查 [IModernComment.getShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getShape--)、[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--)、[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 和 [IModernComment.getStatus](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getStatus--)。`null` 形状表示幻灯片级批注。对于 [IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/) 锚点，文本选区方法可识别形状文本框中的关联范围。
+要检查现有演示文稿，首先判断哪些批注实现了 [IModernComment](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/)，然后检查 [IModernComment.getShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getShape--)、[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--)、[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 和 [IModernComment.getStatus](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getStatus--)。`null` 形状表示幻灯片级批注。对于 [IAutoShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iautoshape/) 锚定，文本选择方法可识别形状文本框中的关联范围。
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -404,7 +406,7 @@ try {
 
 ### **删除所有批注和批注作者**
 
-以下示例演示如何从演示文稿中删除所有批注和批注作者：
+以下示例展示如何从演示文稿中删除所有批注和批注作者：
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -426,7 +428,7 @@ try {
 
 ### **删除特定批注**
 
-以下示例演示如何从幻灯片中删除特定批注：
+以下示例展示如何从幻灯片中删除特定批注：
 
 ```java
 import com.aspose.slides.IComment;
@@ -475,12 +477,12 @@ try {
 
 **Aspose.Slides 是否支持现代批注的已解决状态？**
 
-是的。[IModernComment.getStatus](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getStatus--) 和 [IModernComment.setStatus](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#setStatus-byte-) 可访问 [ModernCommentStatus](https://reference.aspose.com/slides/zh/java/com.aspose.slides/moderncommentstatus/) 中的值，包括 `Resolved`。该状态会存储在演示文稿中，重新打开文件后仍可读取。
+是的。[IModernComment.getStatus](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#getStatus--) 和 [IModernComment.setStatus](https://reference.aspose.com/slides/zh/java/com.aspose.slides/imoderncomment/#setStatus-byte-) 可访问 [ModernCommentStatus](https://reference.aspose.com/slides/zh/java/com.aspose.slides/moderncommentstatus/) 值，包括 `Resolved`。该状态存储在演示文稿中，文件重新打开后仍可读取。
 
-**是否支持线程式讨论（回复链），并且是否有限制层级深度？**
+**是否支持线程式讨论（回复链），并且是否有嵌套深度限制？**
 
-是的。每个批注都可以引用其 [parent comment](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icomment/#getParentComment--)，从而实现回复链。API 并未定义具体的嵌套深度限制。
+是的。每个批注都可以引用其 [parent comment](https://reference.aspose.com/slides/zh/java/com.aspose.slides/icomment/#getParentComment--)，从而实现回复链。API 未定义具体的嵌套深度限制。
 
 **批注标记在幻灯片上的位置使用何种坐标系定义？**
 
-标记位置使用幻灯片坐标系中的浮点坐标定义，您可以在幻灯片上精确定位。
+标记位置使用幻灯片坐标系中的浮点坐标，可精确放置在幻灯片上的任意位置。

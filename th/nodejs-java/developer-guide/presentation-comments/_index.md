@@ -1,50 +1,52 @@
 ---
-title: จัดการความคิดเห็นพรีเซนเทชันใน Node.js
-linktitle: ความคิดเห็นพรีเซนเทชัน
+title: จัดการคอมเมนต์งานนำเสนอใน Node.js
+linktitle: คอมเมนต์งานนำเสนอ
 type: docs
 weight: 100
 url: /th/nodejs-java/presentation-comments/
 keywords:
-- ความคิดเห็น
-- ความคิดเห็นสมัยใหม่
-- ความคิดเห็น PowerPoint
-- ความคิดเห็นพรีเซนเทชัน
-- ความคิดเห็นสไลด์
-- เพิ่มความคิดเห็น
-- เข้าถึงความคิดเห็น
-- แก้ไขความคิดเห็น
-- ตอบกลับความคิดเห็น
-- ลบความคิดเห็น
-- ลบความคิดเห็น
+- คอมเมนต์
+- คอมเมนต์สมัยใหม่
+- คอมเมนต์ PowerPoint
+- คอมเมนต์งานนำเสนอ
+- คอมเมนต์สไลด์
+- เพิ่มคอมเมนต์
+- เข้าถึงคอมเมนต์
+- แก้ไขคอมเมนต์
+- ตอบคอมเมนต์
+- ลบคอมเมนต์
+- ลบคอมเมนต์
 - PowerPoint
-- พรีเซนเทชัน
+- งานนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "จัดการความคิดเห็นพรีเซนเทชันด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java: เพิ่ม, อ่าน, แก้ไข, ตอบกลับและลบความคิดเห็นในพรีเซนเทชัน PowerPoint."
+description: "จัดการคอมเมนต์งานนำเสนอด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java: เพิ่ม, อ่าน, แก้ไข, ตอบ, และลบคอมเมนต์ในงานนำเสนอ PowerPoint."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีจัดการความคิดเห็นในการพรีเซนเทชันด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java. มันแนะนำประเภทหลักที่เกี่ยวข้องกับความคิดเห็นและสาธิตวิธีการเพิ่มความคิดเห็นไปยังสไลด์, เข้าถึงความคิดเห็นที่มีอยู่, ทำงานกับการตอบกลับและความคิดเห็นสมัยใหม่, และลบความคิดเห็นจากพรีเซนเทชัน
+บทความนี้อธิบายวิธีจัดการคอมเมนต์ของงานนำเสนอด้วย Aspose.Slides for Node.js via Java โดยแนะนำประเภทของคอมเมนต์หลักและสาธิตวิธีการเพิ่มคอมเมนต์ลงในสไลด์, เข้าถึงคอมเมนต์ที่มีอยู่, ทำงานกับการตอบกลับและคอมเมนต์สมัยใหม่, และลบคอมเมนต์ออกจากงานนำเสนอ
 
-ตัวอย่างครอบคลุมสถานการณ์การตรวจสอบและความร่วมมือทั่วไปใน PowerPoint เช่น การกำหนดความคิดเห็นให้กับผู้เขียน, การอ่านข้อความและเมตาดาต้าของความคิดเห็น, การสร้างห่วงโซ่การตอบกลับ, และการลบความคิดเห็นที่เลือกหรือทั้งหมด
+ตัวอย่างครอบคลุมสถานการณ์การตรวจสอบและการทำงานร่วมกันทั่วไปใน PowerPoint เช่น การกำหนดคอมเมนต์ให้กับผู้เขียน, การอ่านข้อความคอมเมนต์และข้อมูลเมตา, การสร้างสายตอบกลับ, และการลบคอมเมนต์ที่เลือกหรือคอมเมนต์ทั้งหมด
 
-ใน PowerPoint, ความคิดเห็นปรากฏเป็นหมายเหตุบนสไลด์ การเลือกความคิดเห็นจะแสดงข้อความและการสนทนาที่เกี่ยวข้อง
+ใน PowerPoint คอมเมนต์จะแสดงเป็นคำอธิบายบนสไลด์ การเลือกคอมเมนต์จะแสดงข้อความและการสนทนาที่เกี่ยวข้อง
 
-## **ทำไมต้องเพิ่มความคิดเห็นในพรีเซนเทชัน?**
+เพื่อขอให้คอมเมนต์แสดงหรือซ่อนเมื่อเปิดงานนำเสนอโดยไม่เปลี่ยนแปลงคอมเมนต์เอง, ดูที่ [แสดงหรือซ่อนคอมเมนต์เมื่อเปิดงานนำเสนอ](/slides/th/nodejs-java/presentation-view-properties/)
 
-คุณสามารถใช้ความคิดเห็นเพื่อให้ข้อเสนอแนะและทำงานร่วมกับเพื่อนร่วมงานเมื่อทำการตรวจสอบพรีเซนเทชัน
+## **ทำไมต้องเพิ่มคอมเมนต์ในงานนำเสนอ?**
 
-Aspose.Slides for Node.js via Java ให้ API ดังต่อไปนี้สำหรับการทำงานกับความคิดเห็น:
+คุณสามารถใช้คอมเมนต์เพื่อให้ข้อเสนอแนะและทำงานร่วมกับเพื่อนร่วมงานเมื่อทำการตรวจงานนำเสนอ
 
-* คลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) ที่ให้การเข้าถึงผู้เขียนความคิดเห็นของพรีเซนเทชัน
-* คลาส [CommentCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/commentcollection/) ที่แสดงความคิดเห็นที่เชื่อมโยงกับผู้เขียนแต่ละคน
-* คลาส [Comment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/) ที่ให้ข้อมูลเกี่ยวกับความคิดเห็น รวมถึงผู้เขียน, เวลาในการสร้าง, ตำแหน่ง, และข้อความ
-* คลาส [CommentAuthor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/commentauthor/) ที่ให้ข้อมูลเกี่ยวกับผู้เขียน รวมถึงชื่อ, อักษรย่อ, และความคิดเห็นที่เกี่ยวข้อง
+Aspose.Slides for Node.js via Java มี API ต่อไปนี้สำหรับทำงานกับคอมเมนต์:
 
-## **เพิ่มความคิดเห็นบนสไลด์**
+* The [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) class, คลาสที่ให้การเข้าถึงผู้เขียนคอมเมนต์ของงานนำเสนอ.
+* The [CommentCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/commentcollection/) class, คลาสที่แสดงคอมเมนต์ที่เชื่อมโยงกับผู้เขียนแต่ละคน.
+* The [Comment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/) class, คลาสที่ให้ข้อมูลเกี่ยวกับคอมเมนต์ รวมถึงผู้เขียน, เวลาสร้าง, ตำแหน่ง, และข้อความ.
+* The [CommentAuthor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/commentauthor/) class, คลาสที่ให้ข้อมูลเกี่ยวกับผู้เขียน รวมถึงชื่อ, ชื่อย่อ, และคอมเมนต์ที่เชื่อมโยง.
 
-ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มความคิดเห็นไปยังสไลด์ในพรีเซนเทชัน PowerPoint:
+## **เพิ่มคอมเมนต์บนสไลด์**
+
+ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มคอมเมนต์ลงในสไลด์ของงานนำเสนอ PowerPoint:
 
 ```javascript
 var aspose = aspose || {};
@@ -78,9 +80,9 @@ try {
 }
 ```
 
-## **เข้าถึงความคิดเห็นบนสไลด์**
+## **เข้าถึงคอมเมนต์บนสไลด์**
 
-ตัวอย่างต่อไปนี้แสดงวิธีเข้าถึงความคิดเห็นที่มีอยู่ในพรีเซนเทชัน PowerPoint:
+ตัวอย่างต่อไปนี้แสดงวิธีเข้าถึงคอมเมนต์ที่มีอยู่ในงานนำเสนอ PowerPoint:
 
 ```javascript
 var aspose = aspose || {};
@@ -107,11 +109,11 @@ try {
 }
 ```
 
-## **ตอบกลับความคิดเห็น**
+## **ตอบกลับคอมเมนต์**
 
-ความคิดเห็นหลักคือความคิดเห็นต้นฉบับที่อยู่บนสุดของลำดับการตอบกลับ. เมธอด [Comment.getParentComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/getparentcomment/) และ [Comment.setParentComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/setparentcomment/) ให้คุณรับหรือกำหนดความคิดเห็นหลักของความคิดเห็น
+คอมเมนต์หลักคือคอมเมนต์ต้นฉบับที่อยู่ด้านบนของลำดับชั้นการตอบกลับ เมธอด [Comment.getParentComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/getparentcomment/) และ [Comment.setParentComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/setparentcomment/) ให้คุณดึงหรือกำหนดคอมเมนต์หลักของคอมเมนต์
 
-ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มการตอบกลับและตรวจสอบโครงสร้างความคิดเห็นที่ได้:
+ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มการตอบกลับและตรวจสอบโครงสร้างคอมเมนต์ที่ได้:
 
 ```javascript
 var aspose = aspose || {};
@@ -164,20 +166,20 @@ try {
 }
 ```
 
-{{% alert color="warning" title="คำเตือน" %}}
-* เมื่อใช้เมธอด [Comment.remove](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/remove/) เพื่อทำการลบความคิดเห็น ทุกการตอบกลับของความคิดเห็นนั้นจะถูกลบด้วย
-* หาก [Comment.setParentComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/setparentcomment/) สร้างการอ้างอิงวงจร จะทำให้เกิด [PptxEditException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxeditexception/)
+{{% alert color="warning" title="Warning" %}}
+* เมื่อใช้เมธอด [Comment.remove](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/remove/) เพื่อลบคอมเมนต์ การตอบกลับทั้งหมดที่เชื่อมโยงกับคอมเมนต์นั้นจะถูกลบด้วย
+* หาก [Comment.setParentComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/setparentcomment/) สร้างการอ้างอิงแบบวงกลม จะทำให้เกิดข้อผิดพลาด [PptxEditException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxeditexception/)
 {{% /alert %}}
 
-## **เพิ่มความคิดเห็นสมัยใหม่**
+## **เพิ่มคอมเมนต์สมัยใหม่**
 
-ความคิดเห็นสมัยใหม่สามารถเชื่อมโยงกับสไลด์เอง, กับรูปทรงเฉพาะ, หรือกับช่วงข้อความภายใน [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/) ได้. เมธอด [CommentCollection.addModernComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) ยอมรับอาร์กิวเมนต์ [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/) นอกเหนือจากสไลด์และพิกัดของเครื่องหมายความคิดเห็น
+คอมเมนต์สมัยใหม่สามารถเชื่อมโยงกับสไลด์เอง, กับรูปทรงเฉพาะ, หรือกับช่วงข้อความภายใน [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/). เมธอด [CommentCollection.addModernComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) รับอาร์กิวเมนต์ [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/) เพิ่มเติมนอกจากสไลด์และพิกัดของเครื่องหมายคอมเมนต์
 
-เมื่อ `null` ถูกส่งเป็นอาร์กิวเมนต์ของ shape, ความคิดเห็นนั้นเป็นความคิดเห็นระดับสไลด์. เครื่องหมายของมันจะกำหนดตำแหน่งโดยพิกัดที่ให้ไว้ แต่จะไม่เชื่อมโยงกับรูปทรงใดเป็นพิเศษ ดังนั้น [ModernComment.getShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getshape/) จะคืนค่า `null`. เมื่อมีการระบุ [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/), ความคิดเห็นจะยึดติดกับรูปทรงนั้น พิกัดยังคงกำหนดตำแหน่งของเครื่องหมายบนสไลด์, ในขณะที่การเชื่อมโยงรูปทรงสามารถดึงข้อมูลได้ผ่าน [ModernComment.getShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getshape/)
+เมื่อส่งค่า `null` เป็นอาร์กิวเมนต์ shape คอมเมนต์จะเป็นคอมเมนต์ระดับสไลด์ เครื่องหมายจะถูกกำหนดตำแหน่งโดยพิกัดที่ให้ไว้ แต่จะไม่ได้เชื่อมโยงกับรูปทรงใดโดยเฉพาะ ดังนั้นเมธอด [ModernComment.getShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getshape/) จะคืนค่า `null` หากส่งค่า [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/) มา คอมเมนต์จะถูกฝังกับรูปทรงนั้น พิกัดยังคงกำหนดตำแหน่งของเครื่องหมายคอมเมนต์บนสไลด์ ในขณะที่การเชื่อมโยงรูปทรงสามารถดึงได้ผ่าน [ModernComment.getShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getshape/).
 
-### **ผูกความคิดเห็นสมัยใหม่กับรูปทรง**
+### **ยึดคอมเมนต์สมัยใหม่กับรูปทรง**
 
-ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ระดับสไลด์และความคิดเห็นสมัยใหม่ที่ยึดติดกับ [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/) เฉพาะ จากนั้นอ่านรูปทรงที่เชื่อมโยงจากแต่ละความคิดเห็น
+ตัวอย่างต่อไปนี้สร้างคอมเมนต์สมัยใหม่ระดับสไลด์และคอมเมนต์สมัยใหม่ที่ยึดกับ [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/) เฉพาะ แล้วอ่านรูปทรงที่เชื่อมโยงจากแต่ละคอมเมนต์
 
 ```javascript
 var aspose = aspose || {};
@@ -207,11 +209,11 @@ try {
 }
 ```
 
-### **ผูกความคิดเห็นกับประเภทรูปทรงต่างๆ**
+### **ยึดคอมเมนต์กับประเภทรูปทรงต่างๆ**
 
-รูปทรงใด ๆ ที่สืบทอดจาก [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/) สามารถใช้เป็นจุดเชื่อมต่อได้ ตัวอย่างทั่วไปได้แก่ [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/connector/), และอินสแตนซ์ของ [GraphicalObject](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/graphicalobject/) เช่น แผนภูมิ
+ออบเจกต์สไลด์ใดๆ ที่สืบทอดจาก [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/) สามารถใช้เป็นจุดยึดรูปทรงได้ ตัวอย่างทั่วไปได้แก่ [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/connector/) และอินสแตนซ์ของ [GraphicalObject](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/graphicalobject/) เช่นแผนภูมิ
 
-ตัวอย่างต่อไปนี้สร้างรูปทรงหลายประเภทที่พบบ่อยและเชื่อมโยงความคิดเห็นสมัยใหม่กับแต่ละรูปทรง
+ตัวอย่างต่อไปนี้สร้างรูปทรงทั่วไปหลายประเภทและเชื่อมโยงคอมเมนต์สมัยใหม่กับแต่ละรูปแบบ
 
 ```javascript
 var aspose = aspose || {};
@@ -256,18 +258,18 @@ try {
 }
 ```
 
-### **ผูกความคิดเห็นกับข้อความและตั้งค่าสถานะ**
+### **ยึดคอมเมนต์กับข้อความและกำหนดสถานะของมัน**
 
-สำหรับความคิดเห็นสมัยใหม่ที่เชื่อมโยงกับ [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/), เมธอด [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) และ [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) เข้าถึงตำแหน่งเริ่มต้นของข้อความที่เลือกในกรอบข้อความของรูปทรง. เมธอด [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) และ [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) เข้าถึงความยาวของการเลือก. ค่าทั้งสองนี้ทำให้ความคิดเห็นเชื่อมโยงกับช่วงข้อความเฉพาะภายใน [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/)
+สำหรับคอมเมนต์สมัยใหม่ที่เชื่อมโยงกับ [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/) เมธอด [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) และ [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) เข้าถึงตำแหน่งเริ่มต้นของข้อความที่เลือกในกรอบข้อความของรูปทรง ส่วนเมธอด [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) และ [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) เข้าถึงความยาวของการเลือก ค่าเหล่านี้ร่วมกันทำให้คอมเมนต์เชื่อมโยงกับช่วงข้อความเฉพาะภายใน [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/)
 
-เมธอด [ModernComment.getStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getstatus/) และ [ModernComment.setStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/setstatus/) เข้าถึงค่าจาก enumeration [ModernCommentStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncommentstatus/) :
+เมธอด [ModernComment.getStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getstatus/) และ [ModernComment.setStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/setstatus/) เข้าถึงค่าใน [ModernCommentStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncommentstatus/) ซึ่งประกอบด้วย:
 
-- `NotDefined` — ไม่ได้กำหนดสถานะความคิดเห็นสมัยใหม่เฉพาะ
-- `Active` — ความคิดเห็นอยู่ในสถานะใช้งาน
-- `Resolved` — ความคิดเห็นได้รับการแก้ไขแล้ว
-- `Closed` — ความคิดเห็นถูกปิด
+- `NotDefined` — ไม่ได้กำหนดสถานะคอมเมนต์สมัยใหม่เฉพาะใด
+- `Active` — คอมเมนต์อยู่ในสถานะใช้งาน
+- `Resolved` — คอมเมนต์ได้รับการแก้ไขแล้ว
+- `Closed` — คอมเมนต์ถูกปิด
 
-ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ที่ยึดติดกับรูปทรง, เชื่อมโยงกับการเลือกข้อความ, ตั้งค่าสถานะเป็นแก้ไขแล้ว, บันทึกพรีเซนเทชัน, และตรวจสอบค่าหลังจากเปิดไฟล์ใหม่
+ตัวอย่างต่อไปนี้สร้างคอมเมนต์สมัยใหม่ที่ยึดกับรูปทรง, เชื่อมโยงกับการเลือกข้อความ, ทำเครื่องหมายเป็นแก้ไขแล้ว, บันทึกงานนำเสนอ, และตรวจสอบค่าหลังจากเปิดไฟล์ใหม่
 
 ```javascript
 var aspose = aspose || {};
@@ -325,9 +327,9 @@ try {
 }
 ```
 
-### **ตรวจสอบความคิดเห็นสมัยใหม่ที่มีอยู่**
+### **ตรวจสอบคอมเมนต์สมัยใหม่ที่มีอยู่**
 
-เพื่อสอบถามพรีเซนเทชันที่มีอยู่, ให้ตรวจสอบว่าอินสแตนซ์เป็น [ModernComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/) หรือไม่, จากนั้นดูที่ [ModernComment.getShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/), และ [ModernComment.getStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getstatus/). รูปทรงที่เป็น `null` แสดงว่าความคิดเห็นระดับสไลด์. สำหรับการยึดกับ [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/) วิธีการเลือกข้อความจะระบุช่วงที่เชื่อมโยงในกรอบข้อความของรูปทรง
+เพื่อทำการตรวจสอบงานนำเสนอที่มีอยู่ ให้ตรวจสอบคอมเมนต์ใดเป็นอินสแตนซ์ของ [ModernComment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/) จากนั้นตรวจสอบ [ModernComment.getShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) และ [ModernComment.getStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getstatus/) รูปทรงที่เป็น `null` แสดงว่าคอมเมนต์ระดับสไลด์ สำหรับจุดยึดของ [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/) เมธอดเลือกข้อความจะระบุช่วงที่เชื่อมโยงในกรอบข้อความของรูปทรง
 
 ```javascript
 var aspose = aspose || {};
@@ -372,11 +374,11 @@ try {
 }
 ```
 
-## **ลบความคิดเห็น**
+## **ลบคอมเมนต์**
 
-### **ลบความคิดเห็นทั้งหมดและผู้เขียนความคิดเห็น**
+### **ลบคอมเมนต์และผู้เขียนคอมเมนต์ทั้งหมด**
 
-ตัวอย่างต่อไปนี้แสดงวิธีลบความคิดเห็นและผู้เขียนความคิดเห็นทั้งหมดจากพรีเซนเทชัน:
+ตัวอย่างต่อไปนี้แสดงวิธีลบคอมเมนต์และผู้เขียนคอมเมนต์ทั้งหมดออกจากงานนำเสนอ:
 
 ```javascript
 var aspose = aspose || {};
@@ -396,9 +398,9 @@ try {
 }
 ```
 
-### **ลบความคิดเห็นเฉพาะ**
+### **ลบคอมเมนต์เฉพาะ**
 
-ตัวอย่างต่อไปนี้แสดงวิธีลบความคิดเห็นเฉพาะจากสไลด์:
+ตัวอย่างต่อไปนี้แสดงวิธีลบคอมเมนต์เฉพาะจากสไลด์:
 
 ```javascript
 var aspose = aspose || {};
@@ -440,16 +442,16 @@ try {
 }
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**Aspose.Slides รองรับสถานะที่แก้ไขแล้วสำหรับความคิดเห็นสมัยใหม่หรือไม่?**
+**Aspose.Slides รองรับสถานะที่แก้ไขแล้วสำหรับคอมเมนต์สมัยใหม่หรือไม่?**
 
-ใช่. เมธอด [ModernComment.getStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getstatus/) และ [ModernComment.setStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/setstatus/) เข้าถึงค่าของ [ModernCommentStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncommentstatus/) รวมถึง `Resolved`. สถานะจะถูกบันทึกในพรีเซนเทชันและสามารถอ่านได้อีกครั้งหลังจากเปิดไฟล์ใหม่
+ใช่. เมธอด [ModernComment.getStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/getstatus/) และ [ModernComment.setStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncomment/setstatus/) เข้าถึงค่าใน [ModernCommentStatus](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/moderncommentstatus/) ซึ่งรวมถึง `Resolved`. สถานะนี้จะถูกบันทึกในงานนำเสนอและสามารถอ่านได้อีกครั้งหลังจากเปิดไฟล์ใหม่
 
-**การสนทนาที่ต่อเนื่อง (ห่วงโซ่การตอบกลับ) รองรับหรือไม่ และมีขีดจำกัดการซ้อนกันหรือไม่?**
+**รองรับการสนทนาที่มีลำดับชั้น (สายตอบกลับ) หรือไม่ และมีขีดจำกัดการซ้อนกันหรือไม่?**
 
-ใช่. แต่ละความคิดเห็นสามารถอ้างอิงถึง [parent comment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/getparentcomment/) ของมัน, ทำให้สามารถสร้างห่วงโซ่การตอบกลับได้. API ไม่ได้กำหนดขีดจำกัดความลึกของการซ้อนกันเป็นค่าเฉพาะ
+ใช่. คอมเมนต์แต่ละรายการสามารถอ้างอิงถึง [parent comment](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/comment/getparentcomment/) ของมัน ทำให้สามารถสร้างสายตอบกลับได้ API ไม่ได้กำหนดขีดจำกัดความลึกของการซ้อนกันโดยเฉพาะ
 
-**ตำแหน่งของเครื่องหมายความคิดเห็นบนสไลด์กำหนดในระบบพิกัดใด?**
+**พิกัดของตำแหน่งเครื่องหมายคอมเมนต์บนสไลด์ใช้ระบบพิกัดใด?**
 
-ตำแหน่งของเครื่องหมายกำหนดโดยพิกัดแบบ floating‑point ในระบบพิกัดของสไลด์, ซึ่งทำให้คุณสามารถวางเครื่องหมายได้อย่างแม่นยำบนสไลด์
+ตำแหน่งของเครื่องหมายคอมเมนต์ถูกกำหนดโดยพิกัดแบบ floating-point ในระบบพิกัดของสไลด์ ทำให้คุณสามารถวางตำแหน่งได้อย่างแม่นยำบนสไลด์

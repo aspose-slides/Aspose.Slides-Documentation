@@ -1,49 +1,51 @@
 ---
-title: Quản lý nhận xét bài thuyết trình trong PHP
-linktitle: Nhận xét bài thuyết trình
+title: Quản lý bình luận trong bản trình bày bằng PHP
+linktitle: Bình luận bản trình bày
 type: docs
 weight: 100
 url: /vi/php-java/presentation-comments/
 keywords:
-- nhận xét
-- nhận xét hiện đại
-- nhận xét PowerPoint
-- nhận xét bài thuyết trình
-- nhận xét slide
-- thêm nhận xét
-- truy cập nhận xét
-- chỉnh sửa nhận xét
-- trả lời nhận xét
-- xóa nhận xét
-- xoá nhận xét
+- bình luận
+- bình luận hiện đại
+- bình luận PowerPoint
+- bình luận bản trình bày
+- bình luận slide
+- thêm bình luận
+- truy cập bình luận
+- chỉnh sửa bình luận
+- trả lời bình luận
+- xóa bình luận
+- xoá bình luận
 - PowerPoint
-- bài thuyết trình
+- bản trình bày
 - PHP
 - Aspose.Slides
-description: "Quản lý nhận xét bài thuyết trình bằng Aspose.Slides cho PHP thông qua Java: thêm, đọc, chỉnh sửa, trả lời và xóa nhận xét trong bản trình bày PowerPoint một cách nhanh chóng và dễ dàng."
+description: "Quản lý bình luận trong bản trình bày với Aspose.Slides cho PHP qua Java: thêm, đọc, chỉnh sửa, trả lời và xóa bình luận trong bản trình chiếu PowerPoint một cách nhanh chóng và dễ dàng."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách quản lý nhận xét trong bài thuyết trình bằng Aspose.Slides cho PHP thông qua Java. Nó giới thiệu các kiểu liên quan đến nhận xét chính và trình bày cách thêm nhận xét vào các slide, truy cập các nhận xét hiện có, làm việc với trả lời và nhận xét hiện đại, và xóa nhận xét khỏi một bài thuyết trình.
+Bài viết này giải thích cách quản lý bình luận trong bản trình bày bằng Aspose.Slides for PHP via Java. Nó giới thiệu các kiểu dữ liệu liên quan đến bình luận chính và trình bày cách thêm bình luận vào slide, truy cập các bình luận hiện có, làm việc với phản hồi và bình luận hiện đại, cũng như xóa bình luận khỏi bản trình bày.
 
-Các ví dụ bao gồm các kịch bản xem xét và cộng tác phổ biến trong PowerPoint, chẳng hạn như gán nhận xét cho tác giả, đọc nội dung và siêu dữ liệu của nhận xét, xây dựng chuỗi trả lời, và xóa các nhận xét đã chọn hoặc tất cả các nhận xét.
+Các ví dụ bao gồm các kịch bản xem xét và cộng tác thường gặp trong PowerPoint, chẳng hạn như gán bình luận cho tác giả, đọc nội dung và siêu dữ liệu của bình luận, xây dựng chuỗi trả lời, và xóa các bình luận đã chọn hoặc tất cả các bình luận.
 
-Trong PowerPoint, nhận xét xuất hiện dưới dạng chú thích trên các slide. Khi chọn một nhận xét, nội dung và cuộc thảo luận liên quan sẽ được hiển thị.
+Trong PowerPoint, bình luận xuất hiện dưới dạng chú thích trên các slide. Khi chọn một bình luận, nội dung và cuộc thảo luận liên quan sẽ được hiển thị.
 
-## **Tại sao cần thêm nhận xét vào bài thuyết trình?**
+Để yêu cầu hiển thị hoặc ẩn bình luận khi mở bản trình bày mà không thay đổi nội dung bình luận, xem [Show or Hide Comments When Opening a Presentation](/slides/vi/php-java/presentation-view-properties/).
 
-Bạn có thể sử dụng nhận xét để đưa ra phản hồi và cộng tác với đồng nghiệp khi xem xét bài thuyết trình.
+## **Tại sao cần thêm bình luận vào bản trình bày?**
 
-Aspose.Slides cho PHP thông qua Java cung cấp các API sau để làm việc với nhận xét:
+Bạn có thể sử dụng bình luận để cung cấp phản hồi và cộng tác với đồng nghiệp khi xem xét bản trình bày.
 
-* Lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) cung cấp quyền truy cập vào các tác giả nhận xét của bài thuyết trình.
-* Lớp [CommentCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/commentcollection/) đại diện cho các nhận xét được liên kết với một tác giả cụ thể.
-* Lớp [Comment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/) cung cấp thông tin về một nhận xét, bao gồm tác giả, thời gian tạo, vị trí và nội dung.
-* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/php-java/aspose.slides/commentauthor/) cung cấp thông tin về một tác giả, bao gồm tên, chữ viết tắt và các nhận xét liên quan.
+Aspose.Slides for PHP via Java cung cấp các API sau để làm việc với bình luận:
 
-## **Thêm nhận xét vào slide**
+* Lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) cung cấp quyền truy cập vào các tác giả bình luận của bản trình bày.
+* Lớp [CommentCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/commentcollection/) đại diện cho các bình luận liên quan đến một tác giả riêng lẻ.
+* Lớp [Comment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/) cung cấp thông tin về một bình luận, bao gồm tác giả, thời gian tạo, vị trí và nội dung.
+* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/php-java/aspose.slides/commentauthor/) cung cấp thông tin về một tác giả, bao gồm tên, chữ viết tắt và các bình luận liên quan.
 
-Ví dụ sau cho thấy cách thêm nhận xét vào các slide trong một bản trình bày PowerPoint:
+## **Thêm bình luận vào slide**
+
+Ví dụ sau cho thấy cách thêm bình luận vào các slide trong một bản trình bày PowerPoint:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -79,9 +81,9 @@ try {
 }
 ```
 
-## **Truy cập nhận xét slide**
+## **Truy cập bình luận slide**
 
-Ví dụ sau cho thấy cách truy cập các nhận xét hiện có trong một bản trình bày PowerPoint:
+Ví dụ sau cho thấy cách truy cập các bình luận hiện có trong một bản trình bày PowerPoint:
 
 ```php
 use aspose\slides\Presentation;
@@ -102,11 +104,11 @@ try {
 }
 ```
 
-## **Trả lời nhận xét**
+## **Trả lời bình luận**
 
-Một nhận xét cha là nhận xét gốc ở đầu một cây phân cấp trả lời. Các phương thức [Comment::getParentComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/getparentcomment/) và [Comment::setParentComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/setparentcomment/) cho phép bạn lấy hoặc đặt cha của một nhận xét.
+Một bình luận gốc là bình luận ban đầu ở đầu một chuỗi trả lời. Các phương thức [Comment::getParentComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/getparentcomment/) và [Comment::setParentComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/setparentcomment/) cho phép bạn lấy hoặc đặt bình luận gốc của một bình luận.
 
-Ví dụ sau cho thấy cách thêm trả lời và kiểm tra cấu trúc nhận xét kết quả:
+Ví dụ sau cho thấy cách thêm phản hồi và kiểm tra cấu trúc cây bình luận được tạo ra:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -161,19 +163,21 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Khi phương thức [Comment::remove](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/remove/) được sử dụng để xóa một nhận xét, tất cả các trả lời cho nhận xét đó cũng sẽ bị xóa.
-* Nếu [Comment::setParentComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/setparentcomment/) tạo ra một tham chiếu vòng, một [PptxEditException](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pptxeditexception/) sẽ được ném.
+
+* Khi sử dụng phương thức [Comment::remove](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/remove/) để xóa một bình luận, tất cả các phản hồi của bình luận đó cũng sẽ bị xóa.
+* Nếu [Comment::setParentComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/setparentcomment/) tạo ra một tham chiếu vòng, một [PptxEditException](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pptxeditexception/) sẽ được ném ra.
+
 {{% /alert %}}
 
-## **Thêm nhận xét hiện đại**
+## **Thêm bình luận hiện đại**
 
-Nhận xét hiện đại có thể được liên kết với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản trong AutoShape. Phương thức [CommentCollection::addModernComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/commentcollection/addmoderncomment/) nhận một đối số [Shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/) bổ sung cho slide và tọa độ dấu nhận xét.
+Bình luận hiện đại có thể được gắn với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong một AutoShape. Phương thức [CommentCollection::addModernComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/commentcollection/addmoderncomment/) nhận một đối số [Shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/) bên cạnh slide và tọa độ của dấu đánh dấu bình luận.
 
-Khi `null` được truyền cho đối số shape, nhận xét sẽ là nhận xét cấp slide. Dấu nhận xét được định vị bằng các tọa độ đã cung cấp, nhưng nó không được gắn với một shape cụ thể, vì vậy [ModernComment::getShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getshape/) trả về `null`. Khi một [Shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/) được cung cấp, nhận xét sẽ được neo vào shape đó. Các tọa độ vẫn xác định vị trí của dấu nhận xét trên slide, trong khi mối liên kết shape có thể được lấy thông qua [ModernComment::getShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getshape/).
+Khi truyền `null` cho đối số shape, bình luận sẽ là bình luận cấp slide. Dấu đánh dấu của nó được định vị bằng các tọa độ đã cung cấp, nhưng không gắn với bất kỳ shape nào, vì vậy [ModernComment::getShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getshape/) trả về `null`. Khi cung cấp một [Shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/), bình luận sẽ được neo vào shape đó. Các tọa độ vẫn xác định vị trí của dấu đánh dấu bình luận trên slide, trong khi liên kết shape có thể được truy xuất qua [ModernComment::getShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getshape/).
 
-### **Định vị một nhận xét hiện đại vào hình dạng**
+### **Neo một bình luận hiện đại vào shape**
 
-Ví dụ sau tạo cả một nhận xét hiện đại cấp slide và một nhận xét hiện đại được neo vào một AutoShape cụ thể. Sau đó nó đọc shape liên kết từ mỗi nhận xét.
+Ví dụ sau tạo cả bình luận hiện đại cấp slide và bình luận hiện đại được neo vào một AutoShape cụ thể. Sau đó nó đọc shape liên quan từ mỗi bình luận.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -204,11 +208,11 @@ try {
 }
 ```
 
-### **Định vị nhận xét vào các loại hình dạng khác nhau**
+### **Neo bình luận vào các loại shape khác nhau**
 
-Bất kỳ đối tượng slide nào được đại diện bởi lớp [Shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/) đều có thể được dùng làm neo cho shape. Các ví dụ thường gặp bao gồm [AutoShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/vi/php-java/aspose.slides/connector/), và các thể hiện [GraphicalObject](https://reference.aspose.com/slides/vi/php-java/aspose.slides/graphicalobject/) như biểu đồ.
+Bất kỳ đối tượng slide nào được đại diện bằng lớp [Shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/) đều có thể được dùng làm neo shape. Các ví dụ phổ biến bao gồm [AutoShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/vi/php-java/aspose.slides/connector/) và các thể hiện [GraphicalObject](https://reference.aspose.com/slides/vi/php-java/aspose.slides/graphicalobject/) như biểu đồ.
 
-Ví dụ sau tạo một vài loại shape phổ biến và gắn một nhận xét hiện đại vào mỗi shape.
+Ví dụ sau tạo một số loại shape phổ biến và gắn một bình luận hiện đại vào mỗi shape.
 
 ```php
 use aspose\slides\ChartType;
@@ -256,18 +260,18 @@ try {
 }
 ```
 
-### **Định vị nhận xét vào văn bản và đặt trạng thái**
+### **Neo bình luận vào văn bản và đặt trạng thái**
 
-Đối với một nhận xét hiện đại được liên kết với một [AutoShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/autoshape/), các phương thức [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/gettextselectionstart/) và [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/settextselectionstart/) truy cập vị trí bắt đầu của đoạn văn bản đã chọn trong khung văn bản của shape. Các phương thức [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/gettextselectionlength/) và [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/settextselectionlength/) truy cập độ dài của đoạn chọn. Cùng nhau, các giá trị này liên kết nhận xét với một đoạn văn bản cụ thể trong AutoShape.
+Đối với một bình luận hiện đại được gắn với một [AutoShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/autoshape/), các phương thức [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/gettextselectionstart/) và [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/settextselectionstart/) truy cập vị trí bắt đầu của đoạn văn bản được chọn trong khung văn bản của shape. Các phương thức [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/gettextselectionlength/) và [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/settextselectionlength/) truy cập độ dài của phần chọn. Cùng nhau, các giá trị này gắn bình luận với một đoạn văn bản cụ thể trong AutoShape.
 
-Các phương thức [ModernComment::getStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getstatus/) và [ModernComment::setStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/setstatus/) truy cập một giá trị từ các hằng số [ModernCommentStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncommentstatus/):
+Các phương thức [ModernComment::getStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getstatus/) và [ModernComment::setStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/setstatus/) truy xuất một giá trị từ các hằng số [ModernCommentStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — không được xác định — không có trạng thái nhận xét hiện đại cụ thể nào được định nghĩa.
-- `Active` — đang hoạt động — nhận xét đang hoạt động.
-- `Resolved` — đã giải quyết — nhận xét đã được giải quyết.
-- `Closed` — đã đóng — nhận xét đã đóng.
+- `NotDefined` — không có trạng thái bình luận hiện đại nào được định nghĩa.
+- `Active` — bình luận đang hoạt động.
+- `Resolved` — bình luận đã được giải quyết.
+- `Closed` — bình luận đã đóng.
 
-Ví dụ sau tạo một nhận xét hiện đại neo vào shape, liên kết nó với một đoạn văn bản được chọn, đánh dấu là đã giải quyết, lưu bài thuyết trình và xác minh các giá trị sau khi mở lại tệp.
+Ví dụ sau tạo một bình luận hiện đại được neo vào shape, gắn nó với một đoạn văn bản được chọn, đánh dấu là đã giải quyết, lưu bản trình bày và xác minh các giá trị sau khi mở lại tệp.
 
 ```php
 use aspose\slides\ModernCommentStatus;
@@ -327,9 +331,9 @@ try {
 }
 ```
 
-### **Kiểm tra nhận xét hiện đại hiện có**
+### **Kiểm tra các bình luận hiện đại hiện có**
 
-Để kiểm tra một bài thuyết trình hiện có, kiểm tra mỗi nhận xét có phải là [ModernComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/) không, sau đó xem xét [ModernComment::getShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/gettextselectionlength/), và [ModernComment::getStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getstatus/). Một shape `null` cho biết đây là nhận xét cấp slide. Đối với neo vào [AutoShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/autoshape/), các phương thức lựa chọn văn bản xác định phạm vi liên kết trong khung văn bản của shape.
+Để kiểm tra một bản trình bày hiện có, kiểm tra xem mỗi bình luận có phải là một [ModernComment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/) không, sau đó xem xét [ModernComment::getShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/gettextselectionlength/) và [ModernComment::getStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getstatus/). Một shape `null` cho thấy bình luận cấp slide. Đối với neo [AutoShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/autoshape/), các phương thức lựa chọn văn bản xác định đoạn văn bản liên quan trong khung văn bản của shape.
 
 ```php
 use aspose\slides\Presentation;
@@ -371,11 +375,11 @@ try {
 }
 ```
 
-## **Xóa nhận xét**
+## **Xóa bình luận**
 
-### **Xóa tất cả nhận xét và tác giả nhận xét**
+### **Xóa tất cả bình luận và tác giả bình luận**
 
-Ví dụ sau cho thấy cách xóa tất cả nhận xét và tác giả nhận xét khỏi một bài thuyết trình:
+Ví dụ sau cho thấy cách xóa tất cả các bình luận và tác giả bình luận khỏi một bản trình bày:
 
 ```php
 use aspose\slides\Presentation;
@@ -394,9 +398,9 @@ try {
 }
 ```
 
-### **Xóa các nhận xét cụ thể**
+### **Xóa các bình luận cụ thể**
 
-Ví dụ sau cho thấy cách xóa các nhận xét cụ thể khỏi một slide:
+Ví dụ sau cho thấy cách xóa các bình luận cụ thể khỏi một slide:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -435,16 +439,16 @@ try {
 }
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Aspose.Slides có hỗ trợ trạng thái đã giải quyết cho nhận xét hiện đại không?**
+**Aspose.Slides có hỗ trợ trạng thái đã giải quyết cho bình luận hiện đại không?**
 
-Có. Các phương thức [ModernComment::getStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getstatus/) và [ModernComment::setStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/setstatus/) truy cập một giá trị [ModernCommentStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái này được lưu trong bài thuyết trình và có thể được đọc lại sau khi tệp được mở lại.
+Có. Các phương thức [ModernComment::getStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/getstatus/) và [ModernComment::setStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncomment/setstatus/) truy cập một giá trị [ModernCommentStatus](https://reference.aspose.com/slides/vi/php-java/aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái này được lưu trong bản trình bày và có thể đọc lại sau khi tệp được mở lại.
 
-**Liệu các cuộc thảo luận dạng chuỗi (chuỗi trả lời) có được hỗ trợ và có giới hạn độ lồng nhau không?**
+**Các cuộc thảo luận dạng chuỗi (reply chains) có được hỗ trợ không, và có giới hạn độ sâu lồng nhau không?**
 
-Có. Mỗi nhận xét có thể tham chiếu đến [parent comment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/getparentcomment/), cho phép tạo chuỗi trả lời. API không xác định một giới hạn độ sâu lồng nhau cụ thể.
+Có. Mỗi bình luận có thể tham chiếu đến [parent comment](https://reference.aspose.com/slides/vi/php-java/aspose.slides/comment/getparentcomment/), cho phép tạo chuỗi trả lời. API không định nghĩa giới hạn độ sâu lồng nhau cụ thể.
 
-**Vị trí của dấu nhận xét trên slide được định nghĩa trong hệ tọa độ nào?**
+**Vị trí của dấu đánh dấu bình luận trên slide được xác định dựa trên hệ tọa độ nào?**
 
-Vị trí dấu nhận xét được định nghĩa bằng các tọa độ số thực trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.
+Vị trí dấu đánh dấu được xác định bằng các tọa độ kiểu số thực trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.

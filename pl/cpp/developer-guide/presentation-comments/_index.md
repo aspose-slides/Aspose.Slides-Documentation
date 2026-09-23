@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie komentarzami prezentacji w C++
+title: Zarządzanie komentarzami w prezentacji w C++
 linktitle: Komentarze prezentacji
 type: docs
 weight: 100
@@ -11,35 +11,37 @@ keywords:
 - komentarze prezentacji
 - komentarze slajdów
 - dodaj komentarz
-- dostęp do komentarza
+- odczyt komentarza
 - edytuj komentarz
-- odpowiedz na komentarz
+- odpowiedź na komentarz
 - usuń komentarz
 - kasuj komentarz
 - PowerPoint
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Zarządzaj komentarzami w prezentacji za pomocą Aspose.Slides for C++: dodawaj, odczytuj, edytuj, odpowiadaj i usuwaj komentarze w prezentacjach PowerPoint szybko i łatwo."
+description: "Zarządzaj komentarzami w prezentacji przy użyciu Aspose.Slides for C++: dodawaj, odczytuj, edytuj, odpowiadaj i usuwaj komentarze w prezentacjach PowerPoint szybko i łatwo."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak zarządzać komentarzami w prezentacji przy użyciu Aspose.Slides for C++. Przedstawia główne typy związane z komentarzami oraz pokazuje, jak dodawać komentarze do slajdów, uzyskiwać dostęp do istniejących komentarzy, pracować z odpowiedziami i nowoczesnymi komentarzami oraz usuwać komentarze z prezentacji.
+Ten artykuł wyjaśnia, jak zarządzać komentarzami w prezentacji przy użyciu Aspose.Slides for C++. Wprowadza główne typy związane z komentarzami i demonstruje, jak dodawać komentarze do slajdów, uzyskiwać dostęp do istniejących komentarzy, pracować z odpowiedziami i nowoczesnymi komentarzami oraz usuwać komentarze z prezentacji.
 
-Przykłady obejmują typowe scenariusze przeglądu i współpracy w PowerPoint, takie jak przypisywanie komentarzy do autorów, odczytywanie tekstu i metadanych komentarza, budowanie łańcuchów odpowiedzi oraz usuwanie wybranych komentarzy lub wszystkich komentarzy.
+Przykłady obejmują typowe scenariusze przeglądu i współpracy w PowerPoint, takie jak przypisywanie komentarzy do autorów, odczytywanie tekstu i metadanych komentarzy, budowanie łańcuchów odpowiedzi oraz usuwanie wybranych komentarzy lub wszystkich komentarzy.
 
-W programie PowerPoint komentarze są wyświetlane jako adnotacje na slajdach. Wybranie komentarza wyświetla jego tekst i powiązaną dyskusję.
+W PowerPoint komentarze pojawiają się jako adnotacje na slajdach. Wybranie komentarza wyświetla jego tekst oraz powiązaną dyskusję.
+
+Aby żądać, aby komentarze były wyświetlane lub ukryte przy otwieraniu prezentacji bez zmiany samych komentarzy, zobacz [Pokaż lub ukryj komentarze przy otwieraniu prezentacji](/slides/pl/cpp/presentation-view-properties/).
 
 ## **Dlaczego dodawać komentarze do prezentacji?**
 
-Możesz używać komentarzy, aby przekazywać informacje zwrotne i współpracować z kolegami podczas przeglądania prezentacji.
+Możesz używać komentarzy, aby przekazywać opinie i współpracować z kolegami podczas przeglądania prezentacji.
 
 Aspose.Slides for C++ udostępnia następujące interfejsy API do pracy z komentarzami:
 
 * Klasa [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) zapewnia dostęp do autorów komentarzy w prezentacji.
-* Interfejs [ICommentCollection](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icommentcollection/) reprezentuje komentarze powiązane z pojedynczym autorem.
-* Interfejs [IComment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icomment/) dostarcza informacje o komentarzu, w tym autora, czas utworzenia, pozycję i tekst.
-* Klasa [CommentAuthor](https://reference.aspose.com/slides/pl/cpp/aspose.slides/commentauthor/) zapewnia informacje o autorze, w tym jego nazwę, inicjały i powiązane komentarze.
+* Interfejs [ICommentCollection](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icommentcollection/) reprezentuje komentarze powiązane z poszczególnym autorem.
+* Interfejs [IComment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icomment/) dostarcza informacji o komentarzu, w tym autora, czas utworzenia, pozycję i tekst.
+* Klasa [CommentAuthor](https://reference.aspose.com/slides/pl/cpp/aspose.slides/commentauthor/) dostarcza informacji o autorze, w tym jego nazwę, inicjały i powiązane komentarze.
 
 ## **Dodawanie komentarzy do slajdów**
 
@@ -86,7 +88,7 @@ if (comments->get_Length() > 0)
 presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Dostęp do komentarzy na slajdzie**
+## **Dostęp do komentarzy slajdów**
 
 Poniższy przykład pokazuje, jak uzyskać dostęp do istniejących komentarzy w prezentacji PowerPoint:
 
@@ -119,7 +121,7 @@ for (auto&& author : presentation->get_CommentAuthors())
 
 ## **Odpowiadanie na komentarze**
 
-Komentarz nadrzędny to oryginalny komentarz u góry hierarchii odpowiedzi. Metody [get_ParentComment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icomment/get_parentcomment/) i [set_ParentComment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icomment/set_parentcomment/) interfejsu [IComment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icomment/) umożliwiają pobranie lub ustawienie komentarza nadrzędnego.
+Komentarz nadrzędny to oryginalny komentarz znajdujący się na szczycie hierarchii odpowiedzi. Metody [get_ParentComment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icomment/get_parentcomment/) i [set_ParentComment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icomment/set_parentcomment/) interfejsu [IComment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icomment/) umożliwiają pobranie lub ustawienie komentarza nadrzędnego.
 
 Poniższy przykład pokazuje, jak dodać odpowiedzi i zbadać powstałą hierarchię komentarzy:
 
@@ -183,20 +185,20 @@ comment1->Remove();
 presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert color="warning" title="Warning" %}}
+{{% alert color="warning" title="Ostrzeżenie" %}}
 * Gdy metoda [Remove](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icomment/remove/) interfejsu [IComment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icomment/) jest używana do usunięcia komentarza, wszystkie odpowiedzi na ten komentarz są również usuwane.
-* Jeśli metoda [set_ParentComment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icomment/set_parentcomment/) tworzy odwołanie cykliczne, zostaje rzucony wyjątek [PptxEditException](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pptxeditexception/).
+* Jeśli metoda [set_ParentComment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icomment/set_parentcomment/) tworzy odniesienie cykliczne, zostaje zgłoszony [PptxEditException](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Dodawanie nowoczesnych komentarzy**
 
-Nowoczesne komentarze mogą być powiązane z samym slajdem, określonym kształtem lub zakresem tekstowym wewnątrz AutoShape. Metoda [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icommentcollection/addmoderncomment/) przyjmuje argument typu [IShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/) oprócz slajdu i współrzędnych znacznika komentarza.
+Nowoczesne komentarze mogą być powiązane z samym slajdem, konkretnym kształtem lub zakresem tekstu wewnątrz AutoShape. Metoda [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icommentcollection/addmoderncomment/) przyjmuje argument typu [IShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/) oprócz współrzędnych slajdu i znacznika komentarza.
 
-Gdy jako argument kształtu przekazany zostanie `nullptr`, komentarz jest komentarzem na poziomie slajdu. Jego znacznik jest pozycjonowany według podanych współrzędnych, ale nie jest powiązany z konkretnym kształtem, więc [IModernComment::get_Shape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_shape/) zwraca `nullptr`. Gdy dostarczony zostanie obiekt [IShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/), komentarz jest zakotwiczony w tym kształcie. Współrzędne nadal określają pozycję znacznika komentarza na slajdzie, a powiązanie kształtu można uzyskać przez [IModernComment::get_Shape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_shape/).
+Gdy jako argument kształtu przekazany zostanie `nullptr`, komentarz jest komentarzem poziomu slajdu. Jego znacznik jest umieszczany według podanych współrzędnych, ale nie jest powiązany z konkretnym kształtem, więc [IModernComment::get_Shape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_shape/) zwraca `nullptr`. Gdy podany zostanie [IShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/), komentarz jest zakotwiczony do tego kształtu. Współrzędne nadal określają pozycję znacznika komentarza na slajdzie, natomiast powiązanie z kształtem można pobrać za pomocą [IModernComment::get_Shape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_shape/).
 
-### **Zakotwiczanie nowoczesnego komentarza w kształcie**
+### **Zakotwiczenie nowoczesnego komentarza do kształtu**
 
-Poniższy przykład tworzy zarówno nowoczesny komentarz na poziomie slajdu, jak i nowoczesny komentarz zakotwiczony w określonym AutoShape. Następnie odczytuje powiązany kształt z każdego komentarza.
+Poniższy przykład tworzy zarówno nowoczesny komentarz poziomu slajdu, jak i nowoczesny komentarz zakotwiczony do konkretnego AutoShape. Następnie odczytuje powiązany kształt z każdego komentarza.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -243,11 +245,11 @@ if (shapeAnchor != nullptr)
 presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
 ```
 
-### **Zakotwiczanie komentarzy w różnych typach kształtów**
+### **Zakotwiczanie komentarzy do różnych typów kształtów**
 
-Każdy obiekt slajdu implementujący [IShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/) może być użyty jako kotwica kształtu. Typowe przykłady to [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iconnector/) oraz instancje [IGraphicalObject](https://reference.aspose.com/slides/pl/cpp/aspose.slides/igraphicalobject/) takie jak wykresy.
+Dowolny obiekt slajdu implementujący [IShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/) może być użyty jako kotwica kształtu. Typowe przykłady to [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iconnector/) oraz instancje [IGraphicalObject](https://reference.aspose.com/slides/pl/cpp/aspose.slides/igraphicalobject/) takie jak wykresy.
 
-Poniższy przykład tworzy kilka popularnych typów kształtów i powiązuje z każdym z nich nowoczesny komentarz.
+Poniższy przykład tworzy kilka typowych kształtów i powiązuje z każdym z nich nowoczesny komentarz.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -311,18 +313,18 @@ author->get_Comments()->AddModernComment(u"Comment on a graphical object.", slid
 presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 ```
 
-### **Zakotwiczanie komentarza w tekście i ustawianie jego statusu**
+### **Zakotwiczenie komentarza do tekstu i ustawienie jego statusu**
 
-Dla nowoczesnego komentarza powiązanego z [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/), metody [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_textselectionstart/) i [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/set_textselectionstart/) kontrolują początkową pozycję zaznaczonego tekstu w ramce tekstowej kształtu. Analogicznie, metody [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_textselectionlength/) i [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/set_textselectionlength/) kontrolują długość zaznaczenia. Razem te metody wiążą komentarz z określonym zakresem tekstowym wewnątrz AutoShape.
+Dla nowoczesnego komentarza powiązanego z [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/), metody [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_textselectionstart/) i [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/set_textselectionstart/) kontrolują początkową pozycję zaznaczonego tekstu w ramce tekstowej kształtu. Analogicznie, metody [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_textselectionlength/) i [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/set_textselectionlength/) kontrolują długość zaznaczenia. Razem te metody powiązują komentarz z konkretnym zakresem tekstu wewnątrz AutoShape.
 
 Metody [IModernComment::get_Status](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_status/) i [IModernComment::set_Status](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/set_status/) używają wartości z wyliczenia [ModernCommentStatus](https://reference.aspose.com/slides/pl/cpp/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — nie określono konkretnego statusu nowoczesnego komentarza.
+- `NotDefined` — nie zdefiniowano konkretnego statusu nowoczesnego komentarza.
 - `Active` — komentarz jest aktywny.
 - `Resolved` — komentarz został rozwiązany.
 - `Closed` — komentarz jest zamknięty.
 
-Poniższy przykład tworzy nowoczesny komentarz zakotwiczony w kształcie, powiązuje go z zaznaczeniem tekstu, oznacza jako rozwiązany, zapisuje prezentację i weryfikuje wartości po ponownym otwarciu pliku.
+Poniższy przykład tworzy nowoczesny komentarz zakotwiczony do kształtu, powiązuje go z zaznaczeniem tekstu, oznacza jako rozwiązany, zapisuje prezentację i weryfikuje wartości po ponownym otwarciu pliku.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -397,7 +399,7 @@ for (auto&& reopenedComment : reopenedComments)
 
 ### **Inspekcja istniejących nowoczesnych komentarzy**
 
-Aby przeanalizować istniejącą prezentację, sprawdź, które komentarze implementują [IModernComment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/), a następnie zbadaj [IModernComment::get_Shape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_textselectionlength/) i [IModernComment::get_Status](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_status/). Kształt `nullptr` wskazuje na komentarz na poziomie slajdu. Dla kotwicy typu [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) metody wyboru tekstu identyfikują powiązany zakres w ramce tekstowej kształtu.
+Aby zbadać istniejącą prezentację, sprawdź, które komentarze implementują [IModernComment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/), a następnie przeanalizuj [IModernComment::get_Shape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_textselectionlength/) oraz [IModernComment::get_Status](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_status/). Kształt `nullptr` wskazuje na komentarz poziomu slajdu. Dla kotwicy [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/), metody zaznaczenia tekstu identyfikują powiązany zakres w ramce tekstowej kształtu.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -456,9 +458,9 @@ for (auto&& slide : presentation->get_Slides())
 
 ## **Usuwanie komentarzy**
 
-### **Usuwanie wszystkich komentarzy i ich autorów**
+### **Usunięcie wszystkich komentarzy i autorów komentarzy**
 
-Poniższy przykład pokazuje, jak usunąć wszystkie komentarze i ich autorów z prezentacji:
+Poniższy przykład pokazuje, jak usunąć wszystkie komentarze i autorów komentarzy z prezentacji:
 
 ```cpp
 #include <DOM/ICommentAuthor.h>
@@ -482,7 +484,7 @@ presentation->get_CommentAuthors()->Clear();
 presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
-### **Usuwanie wybranych komentarzy**
+### **Usunięcie konkretnych komentarzy**
 
 Poniższy przykład pokazuje, jak usunąć wybrane komentarze ze slajdu:
 
@@ -540,12 +542,12 @@ presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 
 **Czy Aspose.Slides obsługuje status rozwiązany dla nowoczesnych komentarzy?**
 
-Tak. Metody [IModernComment::get_Status](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_status/) i [IModernComment::set_Status](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/set_status/) używają wartości z [ModernCommentStatus](https://reference.aspose.com/slides/pl/cpp/aspose.slides/moderncommentstatus/), w tym `Resolved`. Status jest przechowywany w prezentacji i może być odczytany po ponownym otwarciu pliku.
+Tak. Metody [IModernComment::get_Status](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/get_status/) i [IModernComment::set_Status](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imoderncomment/set_status/) używają wartości [ModernCommentStatus](https://reference.aspose.com/slides/pl/cpp/aspose.slides/moderncommentstatus/), w tym `Resolved`. Status jest przechowywany w prezentacji i może być ponownie odczytany po ponownym otwarciu pliku.
 
 **Czy obsługiwane są wątki dyskusji (łańcuchy odpowiedzi) i czy istnieje limit zagnieżdżenia?**
 
-Tak. Każdy komentarz może odwoływać się do swojego [parent comment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icomment/set_parentcomment/), umożliwiając tworzenie łańcuchów odpowiedzi. API nie definiuje konkretnego limitu głębokości zagnieżdżenia.
+Tak. Każdy komentarz może odwoływać się do swojego [parent comment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icomment/set_parentcomment/), co umożliwia tworzenie łańcuchów odpowiedzi. API nie definiuje konkretnego limitu głębokości zagnieżdżenia.
 
-**W jakim układzie współrzędnych określona jest pozycja znacznika komentarza na slajdzie?**
+**W jakim systemie współrzędnych definiowana jest pozycja markera komentarza na slajdzie?**
 
-Pozycja znacznika jest określona przez współrzędne zmiennoprzecinkowe w układzie współrzędnych slajdu, co umożliwia precyzyjne umieszczenie go na slajdzie.
+Pozycja markera jest definiowana przez współrzędne zmiennoprzecinkowe w systemie współrzędnych slajdu, co pozwala precyzyjnie umieścić go na slajdzie.

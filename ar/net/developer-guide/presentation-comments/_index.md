@@ -11,39 +11,42 @@ keywords:
 - تعليقات العرض التقديمي
 - تعليقات الشريحة
 - إضافة تعليق
-- الوصول إلى تعليق
-- تعديل تعليق
-- الرد على تعليق
-- إزالة تعليق
-- حذف تعليق
+- الوصول إلى التعليق
+- تحرير التعليق
+- الرد على التعليق
+- إزالة التعليق
+- حذف التعليق
 - PowerPoint
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides for .NET: إضافة، قراءة، تعديل، الرد على، وإزالة التعليقات في عروض PowerPoint بسرعة وسهولة."
+description: "إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides for .NET: إضافة، قراءة، تحرير، الرد على، وإزالة التعليقات في عروض PowerPoint بسرعة وسهولة."
 ---
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية إدارة تعليقات العروض التقديمية باستخدام Aspose.Slides for .NET. تُقدِّم الأنواع الرئيسية المتعلقة بالتعليقات وتوضح كيفية إضافة تعليقات إلى الشرائح، الوصول إلى التعليقات الموجودة، العمل مع الردود والتعليقات الحديثة، وإزالة التعليقات من العرض التقديمي.
+توضح هذه المقالة كيفية إدارة تعليقات العرض التقديمي باستخدام Aspose.Slides for .NET. تُعرّف الأنواع الرئيسية المتعلقة بالتعليقات وتُظهر كيفية إضافة تعليقات إلى الشرائح، الوصول إلى التعليقات الموجودة، العمل مع الردود والتعليقات الحديثة، وإزالة التعليقات من العرض التقديمي.
 
 تغطي الأمثلة سيناريوهات المراجعة والتعاون الشائعة في PowerPoint، مثل تعيين التعليقات للمؤلفين، قراءة نص التعليق والبيانات الوصفية، بناء سلاسل الردود، وإزالة التعليقات المحددة أو جميع التعليقات.
 
-في PowerPoint، تظهر التعليقات كتوّئات على الشرائح. عند تحديد تعليق يتم عرض نصه والنقاش المرتبط به.
+في PowerPoint، تظهر التعليقات كتعليقات توضيحية على الشرائح. يؤدي تحديد تعليق إلى عرض نصه والنقاش المتعلق به.
+
+لطلب إظهار أو إخفاء التعليقات عند فتح عرض تقديمي دون تغيير التعليقات نفسها، راجع [إظهار أو إخفاء التعليقات عند فتح عرض تقديمي](/slides/ar/net/presentation-view-properties/).
 
 ## **لماذا نضيف تعليقات إلى العروض التقديمية؟**
 
 يمكنك استخدام التعليقات لتقديم ملاحظات والتعاون مع الزملاء عند مراجعة العروض التقديمية.
 
-توفر Aspose.Slides for .NET واجهات برمجة التطبيقات التالية للعمل مع التعليقات:
+يوفر Aspose.Slides for .NET واجهات برمجة التطبيقات التالية للعمل مع التعليقات:
 
-* الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation) التي توفر الوصول إلى مؤلفي التعليقات في العرض.
-* الواجهة [ICommentCollection](https://reference.aspose.com/slides/ar/net/aspose.slides/icommentcollection) التي تمثِّل التعليقات المرتبطة بمؤلف فردي.
-* الواجهة [IComment](https://reference.aspose.com/slides/ar/net/aspose.slides/icomment) التي توفر معلومات حول التعليق، بما في ذلك المؤلف، وقت الإنشاء، الموضع، والنص.
-* الفئة [CommentAuthor](https://reference.aspose.com/slides/ar/net/aspose.slides/commentauthor) التي توفر معلومات حول المؤلف، بما في ذلك اسمه، الأحرف الأولية، والتعليقات المرتبطة به.
+* الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation) التي توفر الوصول إلى مؤلفي تعليقات العرض التقديمي.
+* الواجهة [ICommentCollection](https://reference.aspose.com/slides/ar/net/aspose.slides/icommentcollection) التي تمثل التعليقات المرتبطة بمؤلف فردي.
+* الواجهة [IComment](https://reference.aspose.com/slides/ar/net/aspose.slides/icomment) التي توفر معلومات حول التعليق، بما في ذلك مؤلفه، وقت الإنشاء، الموضع، والنص.
+* الفئة [CommentAuthor](https://reference.aspose.com/slides/ar/net/aspose.slides/commentauthor) التي توفر معلومات عن المؤلف، بما في ذلك اسمه، الحروف الأولى، والتعليقات المرتبطة به.
 
 ## **إضافة تعليقات إلى الشرائح**
-المثال التالي يُظهر كيفية إضافة تعليقات إلى الشرائح في عرض PowerPoint:
+
+المثال التالي يوضح كيفية إضافة تعليقات إلى الشرائح في عرض PowerPoint تقديمي:
 
 ```csharp
 using System;
@@ -75,7 +78,8 @@ presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **الوصول إلى تعليقات الشرائح**
-المثال التالي يُظهر كيفية الوصول إلى التعليقات الموجودة في عرض PowerPoint:
+
+المثال التالي يوضح كيفية الوصول إلى التعليقات الموجودة في عرض PowerPoint تقديمي:
 
 ```csharp
 using System;
@@ -97,9 +101,10 @@ foreach (var author in presentation.CommentAuthors)
 ```
 
 ## **الرد على التعليقات**
-التعليق الأصل هو التعليق الأساسي في أعلى تسلسل الردود. خاصية [ParentComment](https://reference.aspose.com/slides/ar/net/aspose.slides/icomment/properties/parentcomment) في الواجهة [IComment](https://reference.aspose.com/slides/ar/net/aspose.slides/icomment) تتيح لك الحصول على التعليق الأصلي أو تعيينه.
 
-المثال التالي يُظهر كيفية إضافة ردود وفحص هيكل التعليقات الناتج:
+التعليق الأصلي هو التعليق الأصلي في أعلى تسلسل الردود. تسمح لك الخاصية [ParentComment](https://reference.aspose.com/slides/ar/net/aspose.slides/icomment/properties/parentcomment) في الواجهة [IComment](https://reference.aspose.com/slides/ar/net/aspose.slides/icomment) بالحصول على أو تعيين الأب للتعليق.
+
+المثال التالي يوضح كيفية إضافة ردود وفحص تسلسل التعليقات الناتج:
 
 ```csharp
 using System;
@@ -151,21 +156,19 @@ presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="warning" title="Attention" %}} 
-
-* عند استخدام طريقة [Remove](https://reference.aspose.com/slides/ar/net/aspose.slides/icomment/methods/remove) في الواجهة [IComment](https://reference.aspose.com/slides/ar/net/aspose.slides/icomment) لحذف تعليق، يتم حذف جميع الردود على ذلك التعليق أيضاً.
-* إذا تسببت خاصية [ParentComment](https://reference.aspose.com/slides/ar/net/aspose.slides/icomment/properties/parentcomment) في إنشاء إشارة دائرية، سيتم إطلاق استثناء [PptxEditException](https://reference.aspose.com/slides/ar/net/aspose.slides/pptxeditexception).
-
+* عند استخدام طريقة [Remove](https://reference.aspose.com/slides/ar/net/aspose.slides/icomment/methods/remove) في واجهة [IComment](https://reference.aspose.com/slides/ar/net/aspose.slides/icomment) لحذف تعليق، يتم أيضًا حذف جميع الردود على ذلك التعليق.
+* إذا أدّت خاصية [ParentComment](https://reference.aspose.com/slides/ar/net/aspose.slides/icomment/properties/parentcomment) إلى إنشاء إشارة دائرية، يتم رمي استثناء [PptxEditException](https://reference.aspose.com/slides/ar/net/aspose.slides/pptxeditexception).
 {{% /alert %}}
 
 ## **إضافة تعليقات حديثة**
 
-يمكن ربط التعليقات الحديثة بالشرائح نفسها، أو بشكل محدد، أو بنطاق نص داخل AutoShape. طريقة [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/ar/net/aspose.slides/icommentcollection/addmoderncomment/) تقبل وسيطًا من نوع [IShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/) بالإضافة إلى إحداثيات الشريحة وعلامة التعليق.
+يمكن ربط التعليقات الحديثة بالشريحة نفسها، أو بشكّل معين، أو بنطاق نص داخل AutoShape. تقبل طريقة [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/ar/net/aspose.slides/icommentcollection/addmoderncomment/) وسيطًا من نوع [IShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/) بالإضافة إلى إحداثيات الشريحة وعلامة التعليق.
 
-عند تمرير `null` كقيمة للوسيطة shape، يكون التعليق تعليقًا على مستوى الشريحة. يتم تحديد موضع العلامة بالإحداثيات المقدمة، لكنه غير مرتبط بشكل محدد بأي شكل، لذلك تُعيد [IModernComment.Shape](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/shape/) القيمة `null`. عندما يتم توفير كائن [IShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/)، يتم ربط التعليق بهذا الشكل. لا تزال الإحداثيات تحدد موقع علامة التعليق على الشريحة، بينما يمكن استرداد ربط الشكل عبر [IModernComment.Shape](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/shape/).
+عند تمرير `null` كقيمة للمعامل shape، يكون التعليق تعليقًا على مستوى الشريحة. يتم تحديد موضع علامته بالإحداثيات المقدمة، لكنه غير مرتبط بأي شكل معين، لذا تُعيد الخاصية [IModernComment.Shape](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/shape/) القيمة `null`. عندما يتم توفير [IShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/)، يتم تثبيت التعليق على ذلك الشكل. لا تزال الإحداثيات تحدد موضع علامة التعليق على الشريحة، بينما يمكن استرجاع ارتباط الشكل عبر [IModernComment.Shape](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/shape/).
 
-### **تثبيت تعليق حديث على شكل**
+### **تثبيت تعليق حديث إلى شكل**
 
-المثال التالي ينشئ كلًا من تعليق حديث على مستوى الشريحة وتعليق حديث مثبت على AutoShape محدد. ثم يقرأ الشكل المرتبط بكل تعليق.
+المثال التالي ينشئ كلًا من تعليق حديث على مستوى الشريحة وتعليق حديث مثبت إلى AutoShape محدد. ثم يقرأ الشكل المرتبط بكل تعليق.
 
 ```csharp
 using System;
@@ -192,11 +195,11 @@ Console.WriteLine(shapeComment.Shape?.Name);
 presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 ```
 
-### **تثبيت التعليقات على أنواع أشكال مختلفة**
+### **تثبيت التعليقات إلى أنواع أشكال مختلفة**
 
-أي كائن شريحة يطبق الواجهة [IShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/) يمكن استخدامه كمرساة للشكل. تشمل الأمثلة الشائعة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/)، [IPictureFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ipictureframe/)، [IGroupShape](https://reference.aspose.com/slides/ar/net/aspose.slides/igroupshape/)، [IConnector](https://reference.aspose.com/slides/ar/net/aspose.slides/iconnector/)، وحالات [IGraphicalObject](https://reference.aspose.com/slides/ar/net/aspose.slides/igraphicalobject/) مثل المخططات.
+يمكن استخدام أي كائن شريحة يطبق الواجهة [IShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/) كمرساة للشكل. تشمل الأمثلة الشائعة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/)، [IPictureFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/ipictureframe/)، [IGroupShape](https://reference.aspose.com/slides/ar/net/aspose.slides/igroupshape/)، [IConnector](https://reference.aspose.com/slides/ar/net/aspose.slides/iconnector/)، وحالات [IGraphicalObject](https://reference.aspose.com/slides/ar/net/aspose.slides/igraphicalobject/) مثل المخططات.
 
-المثال التالي ينشئ عدة أنواع أشكال شائعة ويربط كلًا منها بتعليق حديث.
+المثال التالي ينشئ عدة أنواع شائعة من الأشكال ويربط تعليقًا حديثًا بكل منها.
 
 ```csharp
 using System;
@@ -239,18 +242,18 @@ author.Comments.AddModernComment("Comment on a graphical object.", slide, chart,
 presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 ```
 
-### **تثبيت تعليق على نص وتعيين حالته**
+### **تثبيت تعليق إلى نص وتعيين حالته**
 
-للتعليق الحديث المرتبط بـ [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/)، تحدد خاصية [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/textselectionstart/) موضع البداية للنص المحدد في إطار النص الخاص بالشكل، بينما تحدد خاصية [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/textselectionlength/) طول التحديد. معًا، تربط هذه الخصائص التعليق بنطاق نص محدد داخل AutoShape.
+بالنسبة لتعليق حديث مرتبط بـ [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/)، تحدد الخاصية [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/textselectionstart/) موضع بدء النص المحدد في إطار نص الشكل، بينما تحدد الخاصية [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/textselectionlength/) طول الاختيار. معًا، تربط هذه الخصائص التعليق بنطاق نص محدد داخل AutoShape.
 
-يمكن قراءة أو تحديث خاصية [IModernComment.Status](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/status/) باستخدام قيمة من تعداد [ModernCommentStatus](https://reference.aspose.com/slides/ar/net/aspose.slides/moderncommentstatus/):
+يمكن قراءة أو تحديث الخاصية [IModernComment.Status](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/status/) بقيمة من تعداد [ModernCommentStatus](https://reference.aspose.com/slides/ar/net/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — لا توجد حالة محددة للتعليق الحديث.
+- `NotDefined` — لا يتم تعريف حالة معينة للتعليق الحديث.
 - `Active` — التعليق نشط.
 - `Resolved` — تم حل التعليق.
 - `Closed` — التعليق مغلق.
 
-المثال التالي ينشئ تعليقًا حديثًا مثبتًا على شكل، يربطه بتحديد نص، يحدد حالته كـ "تم الحل"، يحفظ العرض التقديمي، ويتحقق من القيم بعد إعادة فتح الملف.
+المثال التالي ينشئ تعليقًا حديثًا مثبتًا إلى شكل، يربطه باختيار نص، يضعه كـ `Resolved`, يحفظ العرض التقديمي، ثم يتحقق من القيم بعد إعادة فتح الملف.
 
 ```csharp
 using System;
@@ -303,7 +306,7 @@ foreach (var reopenedComment in reopenedComments)
 
 ### **فحص التعليقات الحديثة الموجودة**
 
-لفحص عرض تقديمي موجود، تحقق من التعليقات التي تنفّذ الواجهة [IModernComment](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/)، ثم استعرض [IModernComment.Shape](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/shape/)، [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/textselectionstart/)، [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/textselectionlength/)، و[IModernComment.Status](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/status/). يشير الشكل `null` إلى تعليق على مستوى الشريحة. بالنسبة لمرساة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/)، تحدد خصائص تحديد النص النطاق المرتبط في إطار نص الشكل.
+لفحص عرض تقديمي موجود، تحقق من أي تعليقات تنفّذ الواجهة [IModernComment](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/)، ثم افحص الخصائص [IModernComment.Shape](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/shape/)، [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/textselectionlength/), و[IModernComment.Status](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/status/). يشير الشكل `null` إلى تعليق على مستوى الشريحة. بالنسبة لمرساة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/)، تحدد خصائص اختيار النص النطاق المرتبط في إطار نص الشكل.
 
 ```csharp
 using System;
@@ -351,7 +354,7 @@ foreach (var slide in presentation.Slides)
 
 ### **إزالة جميع التعليقات ومؤلفي التعليقات**
 
-المثال التالي يُظهر كيفية إزالة جميع التعليقات ومؤلفي التعليقات من العرض:
+المثال التالي يوضح كيفية إزالة جميع التعليقات ومؤلفي التعليقات من عرض تقديمي:
 
 ```csharp
 using Aspose.Slides;
@@ -370,7 +373,7 @@ presentation.Save("example_out.pptx", SaveFormat.Pptx);
 
 ### **إزالة تعليقات محددة**
 
-المثال التالي يُظهر كيفية إزالة تعليقات محددة من شريحة:
+المثال التالي يوضح كيفية إزالة تعليقات محددة من شريحة:
 
 ```csharp
 using System;
@@ -411,16 +414,16 @@ foreach (var commentAuthor in presentation.CommentAuthors)
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل تدعم Aspose.Slides حالة "تم الحل" للتعليقات الحديثة؟**
+**هل يدعم Aspose.Slides حالة "تم الحل" للتعليقات الحديثة؟**
 
-نعم. يمكن قراءة وتعيين [IModernComment.Status](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/status/) باستخدام قيمة من تعداد [ModernCommentStatus](https://reference.aspose.com/slides/ar/net/aspose.slides/moderncommentstatus/)، بما في ذلك `Resolved`. تُخزن الحالة في العرض التقديمي ويمكن قراءتها مرة أخرى بعد إعادة فتح الملف.
+نعم. يمكن قراءة وتعيين الخاصية [IModernComment.Status](https://reference.aspose.com/slides/ar/net/aspose.slides/imoderncomment/status/) بقيمة من تعداد [ModernCommentStatus](https://reference.aspose.com/slides/ar/net/aspose.slides/moderncommentstatus/)، بما في ذلك `Resolved`. يتم تخزين الحالة في العرض التقديمي ويمكن قراءتها مرة أخرى بعد إعادة فتح الملف.
 
-**هل تدعم المناقشات المتسلسلة (سلاسل الردود) وهل هناك حد للتعشيق؟**
+**هل يتم دعم المناقشات المتسلسلة (سلاسل الردود) ، وهل هناك حد للتعشيق؟**
 
-نعم. يمكن لكل تعليق الإشارة إلى [parent comment](https://reference.aspose.com/slides/ar/net/aspose.slides/comment/parentcomment/)، مما يتيح سلاسل الردود. لا تحدد الواجهة حدًا معينًا لعمق التعشيق.
+نعم. يمكن لكل تعليق الإشارة إلى [التعليق الأب](https://reference.aspose.com/slides/ar/net/aspose.slides/comment/parentcomment/)، مما يتيح سلاسل الردود. لا تحدد واجهة برمجة التطبيقات حدًا معينًا لعمق التعشيق.
 
-**في أي نظام إحداثيات يتم تعريف موقع علامة التعليق على الشريحة؟**
+**في أي نظام إحداثيات يتم تحديد موضع علامة التعليق على الشريحة؟**
 
-يتم تعريف موضع العلامة بإحداثيات ذات نقطة عائمة في نظام إحداثيات الشريحة، مما يسمح بوضعها بدقة على الشريحة.
+يُحدد موضع العلامة بواسطة إحداثيات ذات نقطة عائمة في نظام إحداثيات الشريحة، مما يسمح بوضعها بدقة على الشريحة.

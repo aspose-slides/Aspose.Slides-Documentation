@@ -1,5 +1,5 @@
 ---
-title: Beheer presentatie‑commentaren op Android
+title: Presentatiecommentaren beheren op Android
 linktitle: Presentatiecommentaren
 type: docs
 weight: 100
@@ -7,44 +7,46 @@ url: /nl/androidjava/presentation-comments/
 keywords:
 - commentaar
 - modern commentaar
-- PowerPoint‑commentaren
-- presentatie‑commentaren
-- dia‑commentaren
+- PowerPoint-commentaren
+- presentatiecommentaren
+- dia-commentaren
 - commentaar toevoegen
 - commentaar benaderen
 - commentaar bewerken
 - commentaar beantwoorden
 - commentaar verwijderen
-- commentaar wissen
+- commentaar verwijderen
 - PowerPoint
 - presentatie
 - Android
 - Java
 - Aspose.Slides
-description: "Beheer presentatie‑commentaren met Aspose.Slides voor Android via Java: voeg commentaren toe, lees ze, bewerk ze, beantwoord ze en verwijder commentaren in PowerPoint‑presentaties snel en eenvoudig."
+description: "Beheer presentatiecommentaren met Aspose.Slides voor Android via Java: voeg commentaren toe, lees, bewerk, beantwoord en verwijder commentaren in PowerPoint‑presentaties snel en gemakkelijk."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u presentatie‑commentaren kunt beheren met Aspose.Slides voor Android via Java. Het introduceert de belangrijkste commentaar‑gerelateerde types en toont hoe u commentaren aan dia's kunt toevoegen, bestaande commentaren kunt benaderen, met antwoorden en moderne commentaren kunt werken, en commentaren uit een presentatie kunt verwijderen.
+Dit artikel legt uit hoe u presentatie‑commentaren beheert met Aspose.Slides voor Android via Java. Het introduceert de belangrijkste typen die met commentaren te maken hebben en toont hoe u commentaren aan dia’s toevoegt, bestaande commentaren benadert, werkt met antwoorden en moderne commentaren, en commentaren uit een presentatie verwijdert.
 
-De voorbeelden omvatten veelvoorkomende beoordelings‑ en samenwerkingsscenario's in PowerPoint, zoals commentaren toewijzen aan auteurs, commentaartekst en metadata lezen, antwoordketens opbouwen en geselecteerde commentaren of alle commentaren verwijderen.
+De voorbeelden behandelen veelvoorkomende beoordelings‑ en samenwerkingsscenario’s in PowerPoint, zoals commentaren aan auteurs toewijzen, commentaartekst en metadata lezen, antwoordketens opbouwen, en geselecteerde commentaren of alle commentaren verwijderen.
 
-In PowerPoint verschijnen commentaren als annotaties op dia's. Het selecteren van een commentaar toont de tekst en de bijbehorende discussie.
+In PowerPoint verschijnen commentaren als annotaties op dia’s. Het selecteren van een commentaar toont de tekst en de bijbehorende discussie.
+
+Om in te stellen dat commentaren getoond of verborgen worden wanneer een presentatie wordt geopend zonder de commentaren zelf te wijzigen, zie [Toon of verberg commentaren bij het openen van een presentatie](/slides/nl/androidjava/presentation-view-properties/).
 
 ## **Waarom commentaren aan presentaties toevoegen?**
 
 U kunt commentaren gebruiken om feedback te geven en samen te werken met collega's bij het beoordelen van presentaties.
 
-Aspose.Slides voor Android via Java biedt de volgende API's voor het werken met commentaren:
+Aspose.Slides voor Android via Java biedt de volgende API’s voor het werken met commentaren:
 
-* De [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/) klasse, die toegang biedt tot de commentaarauteurs van de presentatie.
-* De [ICommentCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icommentcollection/) interface, die de commentaren vertegenwoordigt die aan een specifieke auteur gekoppeld zijn.
-* De [IComment](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icomment/) interface, die informatie over een commentaar geeft, waaronder de auteur, aanmaaktijd, positie en tekst.
-* De [CommentAuthor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/commentauthor/) klasse, die informatie over een auteur biedt, inclusief naam, initialen en bijbehorende commentaren.
+* De [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/)‑klasse, die toegang biedt tot de commentaarauteurs van de presentatie.
+* De [ICommentCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icommentcollection/)‑interface, die de commentaren van een individuele auteur vertegenwoordigt.
+* De [IComment](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icomment/)‑interface, die informatie over een commentaar biedt, inclusief auteur, aanmaaktijd, positie en tekst.
+* De [CommentAuthor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/commentauthor/)‑klasse, die informatie over een auteur bevat, zoals naam, initialen en bijbehorende commentaren.
 
-## **Dia‑commentaren toevoegen**
+## **Slidecommentaren toevoegen**
 
-Het volgende voorbeeld laat zien hoe u commentaren aan dia's kunt toevoegen in een PowerPoint‑presentatie:
+Het volgende voorbeeld toont hoe u commentaren aan dia’s in een PowerPoint‑presentatie toevoegt:
 
 ```java
 import com.aspose.slides.IComment;
@@ -83,9 +85,9 @@ try {
 }
 ```
 
-## **Dia‑commentaren benaderen**
+## **Toegang tot slidecommentaren**
 
-Het volgende voorbeeld laat zien hoe u bestaande commentaren in een PowerPoint‑presentatie kunt benaderen:
+Het volgende voorbeeld toont hoe u bestaande commentaren in een PowerPoint‑presentatie benadert:
 
 ```java
 import com.aspose.slides.IComment;
@@ -108,11 +110,11 @@ try {
 }
 ```
 
-## **Beantwoorden van commentaren**
+## **Antwoorden op commentaren**
 
-Een hoofdcommentaar is het originele commentaar bovenaan een antwoordhiërarchie. De methoden [IComment.getParentComment](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icomment/#getParentComment--) en [IComment.setParentComment](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) stellen u in staat de ouder van een commentaar op te halen of in te stellen.
+Een bovenliggend commentaar is het oorspronkelijke commentaar bovenaan een antwoordhiërarchie. De [IComment.getParentComment](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icomment/#getParentComment--)‑ en [IComment.setParentComment](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-)‑methoden laten u respectievelijk het bovenliggende commentaar ophalen of instellen.
 
-Het volgende voorbeeld laat zien hoe u antwoorden kunt toevoegen en de resulterende commentaarihiërarchie kunt inspecteren:
+Het volgende voorbeeld toont hoe u antwoorden toevoegt en de resulterende hiërarchie van commentaren inspecteert:
 
 ```java
 import com.aspose.slides.IComment;
@@ -169,19 +171,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Wanneer de [IComment.remove](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icomment/#remove--) methode wordt gebruikt om een commentaar te verwijderen, worden ook alle antwoorden op dat commentaar verwijderd.
+* Wanneer de [IComment.remove](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icomment/#remove--)‑methode wordt gebruikt om een commentaar te verwijderen, worden alle antwoorden op dat commentaar ook verwijderd.
 * Als [IComment.setParentComment](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) een circulaire referentie creëert, wordt een [PptxEditException](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/pptxeditexception/) gegooid.
 {{% /alert %}}
 
 ## **Moderne commentaren toevoegen**
 
-Moderne commentaren kunnen worden gekoppeld aan de dia zelf, aan een specifieke vorm, of aan een tekstreeks binnen een AutoShape. De methode [ICommentCollection.addModernComment](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) accepteert een [IShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/) argument naast de dia‑ en commentaar‑marker‑coördinaten.
+Moderne commentaren kunnen worden gekoppeld aan de dia zelf, aan een specifieke vorm, of aan een tekstreeks binnen een AutoShape. De [ICommentCollection.addModernComment](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-)‑methode accepteert een [IShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/)‑argument naast de dia‑ en marker‑coördinaten.
 
-Wanneer `null` wordt doorgegeven voor het vorm‑argument, is het commentaar een dia‑niveau commentaar. De marker wordt gepositioneerd op basis van de opgegeven coördinaten, maar het is niet gekoppeld aan een specifieke vorm, dus [IModernComment.getShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getShape--) retourneert `null`. Wanneer een [IShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/) wordt opgegeven, wordt het commentaar aan die vorm verankerd. De coördinaten bepalen nog steeds de positie van de commentaar‑marker op de dia, terwijl de vormkoppeling kan worden opgehaald via [IModernComment.getShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getShape--).
+Wanneer `null` wordt doorgegeven voor het vorm‑argument, is het commentaar een dia‑niveau commentaar. De marker wordt gepositioneerd volgens de opgegeven coördinaten, maar is niet gekoppeld aan een specifieke vorm, dus [IModernComment.getShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getShape--) retourneert `null`. Wanneer een [IShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/) wordt opgegeven, wordt het commentaar verankerd aan die vorm. De coördinaten bepalen nog steeds de positie van de commentaar‑marker op de dia, terwijl de vormkoppeling kan worden opgehaald via [IModernComment.getShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getShape--).
 
-### **Een modern commentaar aan een vorm verankeren**
+### **Een moderne opmerking aan een vorm verankeren**
 
-Het volgende voorbeeld maakt zowel een modern commentaar op dia‑niveau als een modern commentaar verankerd aan een specifieke AutoShape. Vervolgens leest het de gekoppelde vorm uit elk commentaar.
+Het volgende voorbeeld maakt zowel een dia‑niveau moderne commentaar als een moderne commentaar verankerd aan een specifieke AutoShape. Vervolgens leest het de gekoppelde vorm van elk commentaar.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -219,9 +221,9 @@ try {
 
 ### **Commentaren verankeren aan verschillende vormtypen**
 
-Elk dia‑object dat de [IShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/) interface implementeert, kan worden gebruikt als vorm‑anker. Veelvoorkomende voorbeelden zijn [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iconnector/) en [IGraphicalObject](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/igraphicalobject/) instanties zoals grafieken.
+Elk dia‑object dat [IShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/) implementeert, kan als vormankerpunt worden gebruikt. Veelvoorkomende voorbeelden zijn [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iconnector/) en [IGraphicalObject](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/igraphicalobject/)-instanties zoals diagrammen.
 
-Het volgende voorbeeld maakt verschillende veelvoorkomende vormtypen en koppelt een modern commentaar aan elk van hen.
+Het volgende voorbeeld maakt verschillende veelvoorkomende vormtypen en koppelt een moderne commentaar aan elk van hen.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -278,18 +280,18 @@ try {
 }
 ```
 
-### **Commentaar aan tekst verankeren en de status instellen**
+### **Een opmerking aan tekst verankeren en de status instellen**
 
-Voor een modern commentaar gekoppeld aan een [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iautoshape/), geven [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) en [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) de startpositie van de geselecteerde tekst in het tekstframe van de vorm terug. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) en [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) geven de lengte van de selectie terug. Samen koppelen deze waarden het commentaar aan een specifieke tekstreeks binnen de AutoShape.
+Voor een moderne commentaar gekoppeld aan een [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iautoshape/) geven [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) en [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int--) de startpositie van de geselecteerde tekst in het tekstframe van de vorm. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) en [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) geven de lengte van de selectie. Samen associëren deze waarden de commentaar met een specifieke tekstreeks binnen de AutoShape.
 
-De methoden [IModernComment.getStatus](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getStatus--) en [IModernComment.setStatus](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) geven een waarde uit de [ModernCommentStatus](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/moderncommentstatus/) constanten terug:
+De [IModernComment.getStatus](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getStatus--)‑ en [IModernComment.setStatus](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-)‑methoden geven een waarde uit de [ModernCommentStatus](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/moderncommentstatus/)‑constanten:
 
-- `NotDefined` — geen specifieke modern‑commentaarstatus is gedefinieerd.
-- `Active` — het commentaar is actief.
-- `Resolved` — het commentaar is opgelost.
-- `Closed` — het commentaar is gesloten.
+- `NotDefined` — geen specifieke moderne‑opmerkingsstatus gedefinieerd.
+- `Active` — de opmerking is actief.
+- `Resolved` — de opmerking is opgelost.
+- `Closed` — de opmerking is gesloten.
 
-Het volgende voorbeeld maakt een vorm‑verankerd modern commentaar, koppelt het aan een tekstreeks, markeert het als opgelost, slaat de presentatie op en controleert de waarden na het heropenen van het bestand.
+Het volgende voorbeeld maakt een vorm‑verankerde moderne commentaar, koppelt deze aan een tekstselectie, markeert deze als opgelost, slaat de presentatie op, en controleert de waarden na het opnieuw openen van het bestand.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -356,7 +358,7 @@ try {
 
 ### **Bestaande moderne commentaren inspecteren**
 
-Om een bestaande presentatie te inspecteren, controleert u welke commentaren de [IModernComment](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/) interface implementeren, en bekijkt u vervolgens [IModernComment.getShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) en [IModernComment.getStatus](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getStatus--). Een `null` vorm duidt op een commentaar op dia‑niveau. Voor een [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iautoshape/) anker identificeren de tekst‑selectiemethoden de bijbehorende reeks in het tekstframe van de vorm.
+Om een bestaande presentatie te inspecteren, controleer welke commentaren [IModernComment](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/) implementeren, bekijk vervolgens [IModernComment.getShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) en [IModernComment.getStatus](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getStatus--). Een `null`‑vorm duidt op een dia‑niveau commentaar. Voor een [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iautoshape/)‑ankerpunt identificeren de tekst‑selectiemethoden de bijbehorende reeks in het tekstframe van de vorm.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -405,7 +407,7 @@ try {
 
 ### **Alle commentaren en commentaarauteurs verwijderen**
 
-Het volgende voorbeeld laat zien hoe u alle commentaren en commentaarauteurs uit een presentatie kunt verwijderen:
+Het volgende voorbeeld toont hoe u alle commentaren en commentaarauteurs uit een presentatie verwijdert:
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -427,7 +429,7 @@ try {
 
 ### **Specifieke commentaren verwijderen**
 
-Het volgende voorbeeld laat zien hoe u specifieke commentaren van een dia kunt verwijderen:
+Het volgende voorbeeld toont hoe u specifieke commentaren van een dia verwijdert:
 
 ```java
 import com.aspose.slides.IComment;
@@ -472,16 +474,16 @@ try {
 }
 ```
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Ondersteunt Aspose.Slides een opgeloste status voor moderne commentaren?**
+**Ondersteunt Aspose.Slides een 'resolved' status voor moderne commentaren?**
 
-Ja. [IModernComment.getStatus](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getStatus--) en [IModernComment.setStatus](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) geven een [ModernCommentStatus](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/moderncommentstatus/) waarde terug, inclusief `Resolved`. De status wordt opgeslagen in de presentatie en kan opnieuw worden uitgelezen nadat het bestand is heropend.
+Ja. [IModernComment.getStatus](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#getStatus--) en [IModernComment.setStatus](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) geven een [ModernCommentStatus](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/moderncommentstatus/)‑waarde terug, inclusief `Resolved`. De status wordt opgeslagen in de presentatie en kan opnieuw worden gelezen nadat het bestand is heropend.
 
-**Worden discussies in threads (antwoordketens) ondersteund, en is er een limiet op de diepte?**
+**Worden draadgesprekken (antwoordketens) ondersteund, en is er een limiet op nesting?**
 
-Ja. Elk commentaar kan verwijzen naar zijn [parent comment](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icomment/#getParentComment--), waardoor antwoordketens mogelijk zijn. De API definieert geen specifieke limiet voor de diepte van de nesting.
+Ja. Elk commentaar kan verwijzen naar zijn [parent comment](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icomment/#getParentComment--), waardoor antwoordketens mogelijk zijn. De API definieert geen specifieke diepte‑limiet.
 
-**In welk coördinatensysteem is de positie van een commentaarmarkering op een dia gedefinieerd?**
+**In welk coördinatensysteem wordt de positie van een commentaarmarker gedefinieerd op een dia?**
 
-De marker‑positie wordt gedefinieerd door zwevende‑komma‑coördinaten in het dia‑coördinatensysteem, waardoor u de marker nauwkeurig op de dia kunt plaatsen.
+De markerpositie wordt gedefinieerd door zwevende‑punt‑coördinaten in het dia‑coördinatensysteem, zodat u de marker nauwkeurig op de dia kunt plaatsen.

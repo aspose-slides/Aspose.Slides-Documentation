@@ -20,30 +20,32 @@ keywords:
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Kezelje a prezentációs megjegyzéseket az Aspose.Slides for PHP via Java segítségével: adjon hozzá, olvassa, szerkessze, válaszoljon és távolítson el megjegyzéseket PowerPoint prezentációkban gyorsan és egyszerűen."
+description: "Kezelje a prezentációs megjegyzéseket az Aspose.Slides for PHP via Java segítségével: adjon hozzá, olvassa, szerkessze, válaszoljon és távolítsa el a megjegyzéseket PowerPoint prezentációkban gyorsan és egyszerűen."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan kezelhetők a prezentációs megjegyzések az Aspose.Slides for PHP via Java segítségével. Bemutatja a megjegyzésekkel kapcsolatos fő típusokat, és demonstrálja a megjegyzések hozzáadását a diákhoz, a meglévő megjegyzések elérését, a válaszok és modern megjegyzések kezelését, valamint a megjegyzések eltávolítását a prezentációból.
+Ez a cikk elmagyarázza, hogyan kezelhetők a prezentációs megjegyzések az Aspose.Slides for PHP via Java segítségével. Bemutatja a fő, a megjegyzésekkel kapcsolatos típusokat, és demonstrálja, hogyan adhatunk megjegyzéseket a diákhoz, hogyan érhetünk el meglévő megjegyzéseket, hogyan dolgozhatunk válaszokkal és modern megjegyzésekkel, valamint hogyan távolíthatók el a megjegyzések a prezentációból.
 
-A példák lefedik a PowerPointban gyakori felülvizsgálati és együttműködési forgatókönyveket, például a megjegyzések szerzőkhez rendelését, a megjegyzés szövegének és metaadatainak olvasását, a válaszláncok felépítését, valamint a kiválasztott vagy az összes megjegyzés eltávolítását.
+Az példák a PowerPoint általános felülvizsgálati és együttműködési forgatókönyveit fedik le, például a megjegyzések szerzőkhöz rendelését, a megjegyzés szövegének és metaadatainak olvasását, a válaszláncok építését és a kiválasztott vagy az összes megjegyzés eltávolítását.
 
-A PowerPointban a megjegyzések annotációként jelennek meg a diákon. Egy megjegyzés kiválasztása megjeleníti annak szövegét és a kapcsolódó megbeszélést.
+A PowerPointban a megjegyzések annotációként jelennek meg a diákon. Egy megjegyzés kiválasztása megjeleníti a szövegét és a kapcsolódó megbeszélést.
+
+A megjegyzések megjelenítése vagy elrejtése a prezentáció megnyitásakor a megjegyzéseket módosítás nélkül, lásd [Megjegyzések megjelenítése vagy elrejtése a prezentáció megnyitásakor](/slides/hu/php-java/presentation-view-properties/).
 
 ## **Miért adjunk megjegyzéseket a prezentációkhoz?**
 
-A megjegyzésekkel visszajelzést adhat, és együttműködhet a kollégákkal a prezentációk felülvizsgálata során.
+A megjegyzésekkel visszajelzést adhat és együttműködhet kollégáival a prezentációk felülvizsgálata során.
 
 Az Aspose.Slides for PHP via Java a következő API-kat biztosítja a megjegyzésekkel való munkához:
 
-* A [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztály, amely hozzáférést biztosít a prezentáció megjegyzés szerzőihez.
-* A [CommentCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/commentcollection/) osztály, amely egy adott szerzőhöz tartozó megjegyzéseket képviseli.
-* A [Comment](https://reference.aspose.com/slides/hu/php-java/aspose.slides/comment/) osztály, amely információkat nyújt egy megjegyzésről, beleértve a szerzőt, a létrehozás időpontját, a pozíciót és a szöveget.
-* A [CommentAuthor](https://reference.aspose.com/slides/hu/php-java/aspose.slides/commentauthor/) osztály, amely információkat nyújt egy szerzőről, beleértve a nevét, a monogramját és a kapcsolódó megjegyzéseket.
+* A [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztály, amely hozzáférést biztosít a prezentáció megjegyzés‑szerzőihez.
+* A [CommentCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/commentcollection/) osztály, amely egy adott szerzőhöz kapcsolódó megjegyzéseket képviseli.
+* A [Comment](https://reference.aspose.com/slides/hu/php-java/aspose.slides/comment/) osztály, amely információkat szolgáltat egy megjegyzésről, beleértve a szerzőt, a létrehozás időpontját, a pozíciót és a szöveget.
+* A [CommentAuthor](https://reference.aspose.com/slides/hu/php-java/aspose.slides/commentauthor/) osztály, amely információkat ad egy szerzőről, beleértve a nevét, a monogramját és a kapcsolódó megjegyzéseket.
 
-## **Diamegjegyzések hozzáadása**
+## **Dia megjegyzések hozzáadása**
 
-Az alábbi példa megmutatja, hogyan adhat megjegyzéseket a diákhoz egy PowerPoint prezentációban:
+Az alábbi példa bemutatja, hogyan adhatunk megjegyzéseket a diákhoz egy PowerPoint‑prezentációban:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -79,9 +81,9 @@ try {
 }
 ```
 
-## **Diamegjegyzések elérése**
+## **Dia megjegyzések elérése**
 
-Az alábbi példa megmutatja, hogyan érheti el a meglévő megjegyzéseket egy PowerPoint prezentációban:
+Az alábbi példa bemutatja, hogyan érhetünk el meglévő megjegyzéseket egy PowerPoint‑prezentációban:
 
 ```php
 use aspose\slides\Presentation;
@@ -104,9 +106,9 @@ try {
 
 ## **Válasz a megjegyzésekre**
 
-Az elsődleges megjegyzés az eredeti megjegyzés a válaszhierarchia tetején. A [Comment::getParentComment](https://reference.aspose.com/slides/hu/php-java/aspose.slides/comment/getparentcomment/) és a [Comment::setParentComment](https://reference.aspose.com/slides/hu/php-java/aspose.slides/comment/setparentcomment/) metódusok lehetővé teszik a megjegyzés szülőjének lekérését vagy beállítását.
+A szülő megjegyzés a válaszhierarchia csúcsán lévő eredeti megjegyzés. A [Comment::getParentComment](https://reference.aspose.com/slides/hu/php-java/aspose.slides/comment/getparentcomment/) és a [Comment::setParentComment](https://reference.aspose.com/slides/hu/php-java/aspose.slides/comment/setparentcomment/) metódusok lehetővé teszik egy megjegyzés szülőjének lekérését vagy beállítását.
 
-Az alábbi példa megmutatja, hogyan adjon hozzá válaszokat és ellenőrizze a keletkezett megjegyzés hierarchiát:
+Az alábbi példa bemutatja, hogyan adhatunk válaszokat, és hogyan vizsgálhatjuk meg a keletkezett megjegyzés‑hierarchiát:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -161,19 +163,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* Amikor a [Comment::remove](https://reference.aspose.com/slides/hu/php-java/aspose.slides/comment/remove/) metódust használja egy megjegyzés törlésére, akkor a megjegyzéshez tartozó összes válasz is törlődik.
-* Ha a [Comment::setParentComment](https://reference.aspose.com/slides/hu/php-java/aspose.slides/comment/setparentcomment/) körkörös hivatkozást hoz létre, egy [PptxEditException](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxeditexception/) kerül dobásra.
+* Ha a [Comment::remove](https://reference.aspose.com/slides/hu/php-java/aspose.slides/comment/remove/) metódust használják egy megjegyzés törlésére, akkor a megjegyzéshez tartozó összes válasz is törlődik.
+* Ha a [Comment::setParentComment](https://reference.aspose.com/slides/hu/php-java/aspose.slides/comment/setparentcomment/) körkörös hivatkozást hoz létre, akkor egy [PptxEditException](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pptxeditexception/) kivétel kerül dobásra.
 {{% /alert %}}
 
 ## **Modern megjegyzések hozzáadása**
 
-A modern megjegyzések kapcsolhatók a diához magához, egy konkrét alakzathoz vagy egy AutoShape szövegtartományához. A [CommentCollection::addModernComment](https://reference.aspose.com/slides/hu/php-java/aspose.slides/commentcollection/addmoderncomment/) metódus a [Shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/) argumentumot is elfogadja a dia és a megjegyzés‑jelölő koordinátái mellett.
+A modern megjegyzések a diára, egy konkrét alakzatra vagy egy AutoShape‑on belüli szövegtartományra is hivatkozhatók. A [CommentCollection::addModernComment](https://reference.aspose.com/slides/hu/php-java/aspose.slides/commentcollection/addmoderncomment/) metódus a dián és a megjegyzés‑marker koordinátáin kívül egy [Shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/) argumentumot is elfogad.
 
-Ha a shape argumentumként `null` kerül átadva, a megjegyzés dia‑szintű megjegyzés lesz. A jelölő a megadott koordináták alapján helyezkedik el, de nem kapcsolódik konkrét alakzathoz, így a [ModernComment::getShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/getshape/) `null`‑t ad vissza. Ha egy [Shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/) kerül megadásra, a megjegyzés ehhez az alakzathoz lesz rögzítve. A koordináták továbbra is a megjegyzés jelölő pozícióját határozzák meg a dián, míg az alakzathoz való kapcsolódás a [ModernComment::getShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/getshape/) segítségével lekérhető.
+Ha a shape argumentumnak `null`‑t adunk, a megjegyzés dia‑szintű megjegyzés lesz. A marker a megadott koordináták alapján helyezkedik el, de nem kapcsolódik konkrét alakzathoz, ezért a [ModernComment::getShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/getshape/) `null`‑t ad vissza. Ha egy [Shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/) kerül megadásra, a megjegyzés ahhoz az alakzathoz lesz rögzítve. A koordináták továbbra is meghatározzák a megjegyzés‑marker pozícióját a dián, míg az alakzathoz való kapcsolódás a [ModernComment::getShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/getshape/)‑on keresztül lekérhető.
 
-### **Modern megjegyzés rögzítése alakzatra**
+### **Modern megjegyzés rögzítése egy alakzatra**
 
-Az alábbi példa létrehoz egy dia‑szintű modern megjegyzést és egy konkrét AutoShape‑hez rögzített modern megjegyzést. Ezután beolvassa az egyes megjegyzésekhez tartozó alakzatot.
+Az alábbi példa létrehoz egy dia‑szintű modern megjegyzést és egy konkrét AutoShape‑hez rögzített modern megjegyzést is. Ezután beolvassa az egyes megjegyzésekhez tartozó alakzatot.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -204,11 +206,11 @@ try {
 }
 ```
 
-### **Megjegyzések rögzítése különböző alakzat típusokra**
+### **Megjegyzések rögzítése különböző alakzattípusokra**
 
-Bármely, a [Shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/) osztállyal ábrázolt diaobjektum használható alakzat‑horgonyként. Gyakori példák a [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/), a [PictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/), a [GroupShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/groupshape/), a [Connector](https://reference.aspose.com/slides/hu/php-java/aspose.slides/connector/) és a [GraphicalObject](https://reference.aspose.com/slides/hu/php-java/aspose.slides/graphicalobject/) példányok, például diagramok.
+A [Shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/) osztállyal reprezentált bármely diaobjektum használható alakzat‑ankérként. Gyakori példák: [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/hu/php-java/aspose.slides/connector/) és [GraphicalObject](https://reference.aspose.com/slides/hu/php-java/aspose.slides/graphicalobject/) például diagramok.
 
-Az alábbi példa létrehoz több gyakori alakzattípust, és mindegyikhez modern megjegyzést társít.
+Az alábbi példa létrehoz több gyakori alakzattípust, és mindegyikhez modern megjegyzést kapcsol.
 
 ```php
 use aspose\slides\ChartType;
@@ -256,18 +258,18 @@ try {
 }
 ```
 
-### **Megjegyzés rögzítése szöveghez és státusz beállítása**
+### **Megjegyzés rögzítése szöveghez és állapotának beállítása**
 
-Egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/)-hez kapcsolt modern megjegyzés esetén a [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/gettextselectionstart/) és a [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/settextselectionstart/) a kiválasztott szöveg kezdőpozíciójához fér hozzá az alakzat szövegkeretében. A [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/gettextselectionlength/) és a [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/settextselectionlength/) a kijelölés hosszát adja vissza. Ezek az értékek együtt a megjegyzést egy konkrét szövegtartományhoz kapcsolják az AutoShape‑on belül.
+Egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/)-hez kapcsolt modern megjegyzés esetén a [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/gettextselectionstart/) és a [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/settextselectionstart/) a kiválasztott szöveg kezdőpozícióját adja vissza az alakzat szövegkeretében. A [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/gettextselectionlength/) és a [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/settextselectionlength/) a kiválasztás hosszát adja vissza. Ezek az értékek együttesen egy adott szövegtartományhoz kötik a megjegyzést az AutoShape‑on belül.
 
-A [ModernComment::getStatus](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/getstatus/) és a [ModernComment::setStatus](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/setstatus/) metódusok a [ModernCommentStatus](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncommentstatus/) konstansai közül egy értéket adnak vissza:
+A [ModernComment::getStatus](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/getstatus/) és a [ModernComment::setStatus](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/setstatus/) metódusok a [ModernCommentStatus](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncommentstatus/) konstansait használják:
 
-- `NotDefined` — nincs meghatározott modern‑megjegyzés státusz.
+- `NotDefined` — nincs meghatározott modern megjegyzés állapot.
 - `Active` — a megjegyzés aktív.
 - `Resolved` — a megjegyzés megoldott.
 - `Closed` — a megjegyzés lezárt.
 
-Az alábbi példa létrehoz egy alakzathoz rögzített modern megjegyzést, szövegkijelöléshez társítja, megoldottként jelöli, elmenti a prezentációt, és a fájl újbóli megnyitása után ellenőrzi az értékeket.
+Az alábbi példa létrehoz egy alakzathoz rögzített modern megjegyzést, szövegkijelölést kapcsol hozzá, megoldottnak jelöli, elmenti a prezentációt, majd a fájl újbóli megnyitásakor ellenőrzi az értékeket.
 
 ```php
 use aspose\slides\ModernCommentStatus;
@@ -329,7 +331,7 @@ try {
 
 ### **Meglévő modern megjegyzések ellenőrzése**
 
-Egy meglévő prezentáció ellenőrzéséhez először ellenőrizze, hogy az egyes megjegyzések [ModernComment](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/) típusúak-e, majd vizsgálja meg a [ModernComment::getShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/getshape/), a [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/gettextselectionstart/), a [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/gettextselectionlength/) és a [ModernComment::getStatus](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/getstatus/) értékeket. A `null` alakzat dia‑szintű megjegyzést jelez. Egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) horgony esetén a szövegkijelölés‑metódusok az alakzat szövegkeretében lévő kapcsolódó tartományt határozzák meg.
+Egy meglévő prezentáció ellenőrzéséhez ellenőrizze, hogy az egyes megjegyzések [ModernComment](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/)‑ek‑e, majd vizsgálja meg a [ModernComment::getShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/getshape/), a [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/gettextselectionstart/), a [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/gettextselectionlength/) és a [ModernComment::getStatus](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/getstatus/) értékeket. Egy `null` alakzat dia‑szintű megjegyzést jelez. Egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/)‑ankér esetén a szövegkijelölés‑metódusok az alakzat szövegkeretében lévő tartományt határozzák meg.
 
 ```php
 use aspose\slides\Presentation;
@@ -373,9 +375,9 @@ try {
 
 ## **Megjegyzések eltávolítása**
 
-### **Minden megjegyzés és megjegyzés szerző eltávolítása**
+### **Minden megjegyzés és megjegyzés‑szerző eltávolítása**
 
-Az alábbi példa megmutatja, hogyan lehet eltávolítani az összes megjegyzést és a megjegyzés szerzőket egy prezentációból:
+Az alábbi példa bemutatja, hogyan távolíthatók el a prezentációból az összes megjegyzés és megjegyzés‑szerző:
 
 ```php
 use aspose\slides\Presentation;
@@ -394,9 +396,9 @@ try {
 }
 ```
 
-### **Specifikus megjegyzések eltávolítása**
+### **Adott megjegyzések eltávolítása**
 
-Az alábbi példa megmutatja, hogyan lehet specifikus megjegyzéseket eltávolítani egy diáról:
+Az alábbi példa bemutatja, hogyan távolíthatók el a diáról konkrét megjegyzések:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -437,14 +439,14 @@ try {
 
 ## **GYIK**
 
-**Támogatja-e az Aspose.Slides a megoldott állapotot a modern megjegyzéseknél?**
+**Támogatja-e az Aspose.Slides a megoldott állapotot a modern megjegyzésekhez?**
 
-Igen. A [ModernComment::getStatus](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/getstatus/) és a [ModernComment::setStatus](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/setstatus/) egy [ModernCommentStatus](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncommentstatus/) értéket ad vissza, beleértve a `Resolved` állapotot. A státusz a prezentációban tárolódik, és a fájl újranyitása után is olvasható.
+Igen. A [ModernComment::getStatus](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/getstatus/) és a [ModernComment::setStatus](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncomment/setstatus/) egy [ModernCommentStatus](https://reference.aspose.com/slides/hu/php-java/aspose.slides/moderncommentstatus/) értéket ad vissza, amely tartalmazza a `Resolved`‑t is. Az állapot a prezentációban tárolódik, és a fájl újranyitása után is kiolvasható.
 
-**Támogatottak-e a szálas beszélgetések (válaszos láncok), és van-e beágyazási korlátozás?**
+**Támogatottak a szálas megbeszélések (válaszláncok), és van-e mélységkorlátozás?**
 
-Igen. Minden megjegyzés hivatkozhat a [parent comment](https://reference.aspose.com/slides/hu/php-java/aspose.slides/comment/getparentcomment/)‑re, ezáltal lehetővé téve a válaszláncokat. Az API nem definiál konkrét beágyazási mélységi korlátot.
+Igen. Minden megjegyzés hivatkozhat a [parent comment](https://reference.aspose.com/slides/hu/php-java/aspose.slides/comment/getparentcomment/)‑re, ezáltal lehetővé téve a válaszláncokat. Az API nem határoz meg konkrét mélységkorlátot.
 
-**Mely koordináta rendszerben van definiálva egy megjegyzés jelölőjének pozíciója a dián?**
+**Milyen koordináta‑rendszerben van definiálva a megjegyzés‑marker pozíciója a dián?**
 
-A jelölő pozíciója lebegőpontos koordinátákkal van megadva a dia koordináta‑rendszerében, ami lehetővé teszi a pontos elhelyezést a dián.
+A marker pozíciója lebegőpontos koordinátákkal van megadva a dia koordináta‑rendszerében, lehetővé téve a pontos elhelyezést a dián.

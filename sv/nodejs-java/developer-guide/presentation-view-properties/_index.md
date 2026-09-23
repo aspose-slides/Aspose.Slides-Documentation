@@ -1,18 +1,18 @@
 ---
-title: Hämta och uppdatera presentationsvyegenskaper i JavaScript
-linktitle: Vyegenskaper
+title: Hämta och uppdatera presentationsvy‑egenskaper i JavaScript
+linktitle: Vy‑egenskaper
 type: docs
 weight: 80
 url: /sv/nodejs-java/presentation-view-properties/
 keywords:
-- vyegenskaper
+- vy‑egenskaper
 - normal vy
-- dispositionsinnehåll
+- dispositions‑innehåll
 - dispositionsikoner
 - fäst vertikal delare
-- enda vy
-- listtillstånd
-- dimensionstorlek
+- enskild vy
+- stapeltillstånd
+- dimensionens storlek
 - automatisk justering
 - standardzoom
 - PowerPoint
@@ -21,39 +21,39 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Upptäck Aspose.Slides för Node.js via Java vyegenskaper för att anpassa format PPT, PPTX och ODP‑bilder—justera layouter, zoomnivåer och visningsinställningar."
+description: "Upptäck Aspose.Slides för Node.js via Java vy‑egenskaper för att anpassa PPT-, PPTX- och ODP‑format; justera layouter, zoomnivåer och visningsinställningar."
 ---
 ## **Introduktion**
 
-Normalvyn består av tre innehållsområden: själva bilden, ett sidoinnehållsområde och ett botteninnehållsområde. Egenskaper som gäller placeringen av de olika innehållsområdena. Denna information gör att applikationen kan spara sitt visningsläge till filen, så att när den öppnas igen är vyn i samma tillstånd som när presentationen senast sparades.
+Den normala vyn består av tre innehållsområden: själva bilden, ett sidoinnehållsområde och ett botteninnehållsområde. Egenskaper som gäller placeringen av de olika innehållsområdena. Denna information gör det möjligt för applikationen att spara sitt visningsläge till filen, så att när den öppnas igen är vyn i samma tillstånd som när presentationen senast sparades.
 
-Metoden [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) har lagts till för att ge åtkomst till normalvyegenskaperna för en presentation.
+Metoden [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) har lagts till för att ge åtkomst till normal vy‑egenskaper för presentationen.  
 
-[NormalViewProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties), [NormalViewRestoredProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewRestoredProperties) klass och dess underklasser, samt [SplitterBarStateType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SplitterBarStateType) enum har lagts till.
+[NormalViewProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties), [NormalViewRestoredProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewRestoredProperties) klass och dess avledda klasser, [SplitterBarStateType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SplitterBarStateType)‑enum har lagts till.
 
 ## **Om NormalViewProperties**
 
-Representerar normalvyegenskaper.
+Representerar normal vy‑egenskaper.
 
-Metoderna [getShowOutlineIcons](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getShowOutlineIcons--) och [setShowOutlineIcons](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#setShowOutlineIcons-boolean-) anger om applikationen ska visa ikoner när dispositionens innehåll visas i någon av innehållsområdena i normalvyläget.
+Metoderna [getShowOutlineIcons](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getShowOutlineIcons--) och [setShowOutlineIcons](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#setShowOutlineIcons-boolean-) anger om applikationen ska visa ikoner när disposition av innehåll visas i något av innehållsområdena i normal vy‑läge.
 
-Metoderna [getSnapVerticalSplitter](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getSnapVerticalSplitter--) och [setSnapVerticalSplitter](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#setSnapVerticalSplitter-boolean-) anger om den vertikala delaren ska fästas i ett minimerat tillstånd när sidoregionen är tillräckligt liten.
+Metoderna [getSnapVerticalSplitter](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getSnapVerticalSplitter--) och [setSnapVerticalSplitter](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#setSnapVerticalSplitter-boolean-) anger om den vertikala delaren ska fästa sig i ett minimerat tillstånd när sidregionen är tillräckligt liten.
 
-Egenskapen [getPreferSingleView](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getPreferSingleView--) och [setPreferSingleView](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#setPreferSingleView-boolean-) anger om användaren föredrar att se ett enda innehållsområde i hela fönstret istället för den vanliga normalvyn med tre innehållsområden. Om den är aktiverad kan applikationen välja att visa ett av innehållsområdena i hela fönstret.
+Egenskapen [getPreferSingleView](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getPreferSingleView--) och [setPreferSingleView](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#setPreferSingleView-boolean-) anger om användaren föredrar att se ett fullt fönster med ett enda innehållsområde istället för standard‑normalvyn med tre innehållsområden. Om detta är aktiverat kan applikationen välja att visa ett av innehållsområdena i hela fönstret.
 
-Metoderna [getVerticalBarState](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) och [getHorizontalBarState](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) anger vilket tillstånd den horisontella eller vertikala delningslisten ska visas i. En horisontell delningslist separerar bilden från innehållsområdet under bilden, en vertikal delningslist separerar bilden från sidoinnehållsområdet. Möjliga värden är: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SplitterBarStateType#Maximized) och [SplitterBarStateType.Restored](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SplitterBarStateType#Restored).
+Metoderna [getVerticalBarState](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) och [getHorizontalBarState](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) anger i vilket tillstånd den horisontella respektive vertikala delaren ska visas. En horisontell delare separerar bilden från innehållsområdet under bilden, en vertikal delare separerar bilden från sidoinnehållsområdet. Möjliga värden är: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SplitterBarStateType#Maximized) och [SplitterBarStateType.Restored](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SplitterBarStateType#Restored).
 
-Metoderna [getRestoredLeft](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--) och [getRestoredTop](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--) specificerar storleken på den övre eller sidogående slide‑regionen i normalvyn, när värdet [SplitterBarStateType.Restored](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SplitterBarStateType#Restored) har tillämpats för [getVerticalBarState](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) och [getHorizontalBarState](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) respektive.
+Metoderna [getRestoredLeft](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--) och [getRestoredTop](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--) anger storleken på den övre eller sidogallret i normalvyn när värdet [SplitterBarStateType.Restored](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/SplitterBarStateType#Restored) tillämpas på [getVerticalBarState](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getVerticalBarState--) och [getHorizontalBarState](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getHorizontalBarState--) därefter.
 
-## **Om återställning av NormalViewProperties**
+## **Om återställning av NormalViewProperties** 
 
-Anger storleken på slide‑regionen (bredd när den är ett barn till [getRestoredTop](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--), höjd när den är ett barn till [getRestoredLeft](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--)) i normalvyn, när regionen har en variabel återställd storlek (varken minimerad eller maximerad).
+Anger storleken på bildregionen (bredd när den är ett barn till [getRestoredTop](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getRestoredTop--), höjd när den är ett barn till [getRestoredLeft](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewProperties#getRestoredLeft--)) i normalvyn, när regionen har en variabel återställd storlek (varken minimerad eller maximerad).  
 
-Metoden [getDimensionSize](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewRestoredProperties#getDimensionSize--) specificerar storleken på slide‑regionen (bredd när den är ett barn till restoredTop, höjd när den är ett barn till restoredLeft).
+Metoden [getDimensionSize](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewRestoredProperties#getDimensionSize--) anger storleken på bildregionen (bredd när den är ett barn till restoredTop, höjd när den är ett barn till restoredLeft).
 
-Metoden [getAutoAdjust](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewRestoredProperties#getAutoAdjust--) anger om storleken på sidoinnehållsområdet ska justeras för den nya storleken när fönstret som innehåller vyn i applikationen ändras storlek.
+Metoden [getAutoAdjust](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/NormalViewRestoredProperties#getAutoAdjust--) anger om storleken på sidoinnehållsområdet ska kompensera för den nya storleken när fönstret som innehåller vyn i applikationen ändras storlek.
 
-Ett exempel ges nedan som visar hur du kan komma åt [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) egenskaperna för en presentation.
+Ett exempel nedan visar hur du kan komma åt [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--)‑egenskaper för en presentation.
 
 ```javascript
 var aspose = aspose || {};
@@ -64,7 +64,7 @@ try {
     pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(aspose.slides.SplitterBarStateType.Restored);
     pres.getViewProperties().getNormalViewProperties().setVerticalBarState(aspose.slides.SplitterBarStateType.Maximized);
 
-    // Återställ vyegenskaperna för presentationen
+    // Återställ vy‑egenskaperna för presentationen
     pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
     pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
     pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
@@ -73,20 +73,21 @@ try {
     pres.dispose();
 }
 ```
-## **Ställ in standard zoomvärde**
+
+## **Ange standardzoomvärde**
 
 {{% alert color="info" %}} 
 
-Aspose.Slides för Node.js via Java stödjer nu att ange standardzoomvärdet för en presentation så att när presentationen öppnas är zoomen redan inställd. Detta kan göras genom att ställa in [ViewProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ViewProperties) för en presentation. [getSlideViewProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ViewProperties#getSlideViewProperties--) samt [getNotesViewProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ViewProperties#getNotesViewProperties--) kan sättas programatiskt. I detta avsnitt kommer vi med ett exempel att visa hur man ställer in [View Properties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ViewProperties) för [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation) i Aspose.Slides.
+Aspose.Slides för Node.js via Java stöder nu att ange standardzoomvärdet för en presentation så att när presentationen öppnas är zoomen redan inställd. Detta kan göras genom att ange [ViewProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ViewProperties) för en presentation. [getSlideViewProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ViewProperties#getSlideViewProperties--) samt [getNotesViewProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ViewProperties#getNotesViewProperties--) kan ställas in programmässigt. I detta avsnitt ser vi med ett exempel hur man ställer in [View Properties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ViewProperties) för [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation) i Aspose.Slides.
 
 {{% /alert %}} 
 
-För att ställa in vyegenskaperna, följ stegen nedan:
+För att ange vy‑egenskaperna, följ stegen nedan:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation).
-2. Ställ in [View Properties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ViewProperties) för [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation).
-3. Skriv presentationen som en [PPTX](https://docs.fileformat.com/presentation/pptx/) fil.
-   I exemplet nedan har vi ställt in zoomvärdet för bildvyn såväl som för notvyn.
+1. Ange [View Properties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ViewProperties) för [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation).
+1. Spara presentationen som en [PPTX](https://docs.fileformat.com/presentation/pptx/)-fil.  
+   I exemplet nedan har vi ställt in zoomvärdet för både bildvyn och anteckningsvyn.
 
 ```javascript
 var aspose = aspose || {};
@@ -94,19 +95,20 @@ aspose.slides = require("aspose.slides.via.java");
 
 var presentation = new aspose.slides.Presentation();
 try {
-    // Anger vyegenskaperna för presentationen
+    // Ställer in vy‑egenskaperna för presentationen
     presentation.getViewProperties().getSlideViewProperties().setScale(100); // Zoomvärde i procent för bildvyn
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Zoomvärde i procent för notvyn
+    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Zoomvärde i procent för anteckningsvyn
     presentation.save("Zoom_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
-## **Ställ in rutnätets avstånd**
 
-Använd [Presentation.getViewProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#getViewProperties--) för att komma åt vyinställningarna för hela presentationen. Metoderna [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/viewproperties/#getGridSpacing--) och [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/viewproperties/#setGridSpacing-float-) läser eller ändrar intervallet för det underliggande redigeringsrutnätet. Denna inställning gäller för hela presentationen, inte för en enskild bild. Rutnätsavstånd anges i punkter, där 72 punkter motsvarar en tum. Använd ett positivt värde enligt API‑dokumentationen.
+## **Ställ in rutnätsavståndet**
 
-Följande exempel öppnar en befintlig `demo.pptx`, skriver ut dess aktuella rutnätsavstånd, ställer in ett kvart‑tum intervall och sparar resultatet.
+Använd [Presentation.getViewProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#getViewProperties--) för att komma åt presentationsomfattande vy‑inställningar. Metoderna [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/viewproperties/#getGridSpacing--) och [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/viewproperties/#setGridSpacing-float-) läser eller ändrar intervallet för det underliggande redigeringsrutnätet. Denna inställning gäller hela presentationen, inte en enskild bild. Rutnätsavståndet anges i punkter, där 72 punkter motsvarar en tum. Använd ett positivt värde enligt API‑dokumentationen.
+
+Följande exempel öppnar en befintlig `demo.pptx`, skriver ut det aktuella rutnätsavståndet, sätter ett kvart‑tum‑intervall och sparar resultatet.
 
 ```javascript
 var aspose = aspose || {};
@@ -124,28 +126,57 @@ try {
 }
 ```
 
-Rutnätet skiljer sig från [ritningsguider](/slides/sv/nodejs-java/drawing-guides/). Rutnätsavstånd styr ett regelbundet intervall, medan ritningsguider är individuellt placerade horisontella eller vertikala justeringslinjer. Att lägga till, flytta eller rensa ritningsguider förändrar inte rutnätsavståndet.
+Rutnätet skiljer sig från [drawing guides](/slides/sv/nodejs-java/drawing-guides/). Rutnätsavstånd styr ett regelbundet intervall, medan ritguider är individuellt placerade horisontella eller vertikala justeringslinjer. Att lägga till, flytta eller rensa ritguider ändrar inte rutnätsavståndet.
 
-Både rutnätet och ritningsguider är hjälpmedel för redigering. De renderas inte som bildinnehåll i PDF, bilder, SVG eller ett bildspel. Att lagra rutnätsavståndet garanterar inte att en redigerare visar rutnätet: dess synlighet beror också på visnings‑ eller redigerarens preferenser.
+Både rutnätet och ritguiderna är redigeringshjälpmedel. De renderas inte som bildinnehåll i PDF, bilder, SVG eller ett bildspelsläge. Att lagra rutnätsavståndet garanterar inte att en redigerare visar rutnätet: dess synlighet beror också på visarens eller redigerarens inställningar.
+
+## **Visa eller dölja kommentarer när en presentation öppnas**
+
+Använd [Presentation.getViewProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#getViewProperties--) för att komma åt presentationsomfattande vy‑inställningar. Använd [ViewProperties.getShowComments](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/viewproperties/#getShowComments--) och [ViewProperties.setShowComments](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/viewproperties/#setShowComments-byte-) för att läsa eller ändra den lagrade preferensen för om kommentarer ska visas när presentationen öppnas i PowerPoint eller en annan kompatibel redigerare.
+
+Denna inställning styr endast den lagrade visningspreferensen. Den lägger inte till, tar bort, redigerar eller löser kommentarer. Att dölja kommentarer bevarar deras innehåll, författare, positioner, svar och statusar. Se [Presentation Comments](/slides/sv/nodejs-java/presentation-comments/) för operationer som ändrar kommentarerna själva.
+
+Exemplet nedan kräver en befintlig `comments.pptx` som innehåller kommentarer. Det skriver ut den aktuella synlighetsinställningen, begär att kommentarer ska döljas och sparar en ny PPTX utan att ta bort några kommentarer. Det använder också [ViewProperties.setLastView](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/viewproperties/#setLastView-int-) med [ViewType.SlideView](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/viewtype/#SlideView) för att konfigurera den initiala redigeringsvyn tillsammans med kommentar‑synlighet.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var presentation = new aspose.slides.Presentation("comments.pptx");
+try {
+    var showComments = presentation.getViewProperties().getShowComments();
+    console.log("Current comment visibility: " + showComments);
+
+    var hideComments = java.newByte(aspose.slides.NullableBool.False);
+    presentation.getViewProperties().setShowComments(hideComments);
+    presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideView);
+    presentation.save("comments-hidden.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Denna inställning avgör inte om kommentarer inkluderas i PDF-, HTML-, bild‑, antecknings‑ eller utskrifts‑exporter. Konfigurera de export‑specifika alternativen separat.
 
 ## **FAQ**
 
-**Varför är rutnätet inte synligt efter att jag har öppnat presentationen igen?**
+**Varför är rutnätet inte synligt när jag öppnar presentationen igen?**
 
-Filen lagrar rutnätsavståndet, men redigeraren bestämmer om rutnätet visas. Kontrollera redigerarens inställningar för rutnätsynlighet.
+Filen lagrar rutnätsavståndet, men redigeraren styr om rutnätet visas. Kontrollera redigerarens inställningar för rutnäts‑synlighet.
 
-**Ändrar rensning av ritningsguider rutnätsavståndet?**
+**Ändrar rensning av ritguider rutnätsavståndet?**
 
-Nej. Ritningsguider och rutnätsavstånd är oberoende inställningar. Att rensa guider lämnar det lagrade rutnätsintervallet oförändrat.
+Nej. Ritguider och rutnätsavstånd är oberoende inställningar. Att rensa guider lämnar det lagrade rutnätsintervallet oförändrat.
 
-**Kan jag ställa in olika vyinställningar för olika sektioner i en presentation?**
+**Kan jag ange olika vy‑inställningar för olika sektioner i en presentation?**
 
-[Vyinställningar](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/getviewproperties/) definieras på presentationsnivå ([Normal View](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/viewproperties/getslideviewproperties/)), inte per sektion, så ett enda set av parametrar gäller för hela dokumentet när det öppnas.
+[Vy‑inställningar](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/getviewproperties/) definieras på presentationsnivå ([Normal View](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/viewproperties/getnormalviewproperties/)/[Slide View](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/viewproperties/getslideviewproperties/)), inte per sektion, så ett enda uppsättning parametrar gäller för hela dokumentet när det öppnas.
 
-**Kan jag fördefiniera olika vytilstånd för olika användare?**
+**Kan jag fördefiniera olika vy‑tillstånd för olika användare?**
 
-Nej. Inställningarna lagras i filen och delas. Visningsprogram kan ta hänsyn till användarpreferenser, men själva filen innehåller endast ett set av vyegenskaper.
+Nej. Inställningarna lagras i filen och delas. Visningsprogram kan ta hänsyn till användarpreferenser, men filen innehåller endast en uppsättning vy‑egenskaper.
 
 **Kan jag skapa en mall med fördefinierade View Properties så att nya presentationer öppnas på samma sätt?**
 
-Ja. Eftersom [view properties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/getviewproperties/) lagras på presentationsnivå kan du bädda in dem i en mall och skapa nya dokument från den med samma initiala vykonfiguration.
+Ja. Eftersom [view properties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/getviewproperties/) lagras på presentationsnivå kan du bädda in dem i en mall och skapa nya dokument från den med samma initiala vy‑konfiguration.

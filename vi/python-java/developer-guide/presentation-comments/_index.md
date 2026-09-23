@@ -1,50 +1,52 @@
 ---
-title: Quản lý nhận xét bản trình bày trong Python qua Java
-linktitle: Nhận xét bản trình bày
+title: Quản lý bình luận bản trình chiếu trong Python qua Java
+linktitle: Bình luận bản trình chiếu
 type: docs
 weight: 100
 url: /vi/python-java/presentation-comments/
 keywords:
-- nhận xét
-- nhận xét hiện đại
-- nhận xét PowerPoint
-- nhận xét bản trình bày
-- nhận xét slide
-- thêm nhận xét
-- truy cập nhận xét
-- chỉnh sửa nhận xét
-- trả lời nhận xét
-- xoá nhận xét
-- xóa nhận xét
+- bình luận
+- bình luận hiện đại
+- bình luận PowerPoint
+- bình luận bản trình chiếu
+- bình luận slide
+- thêm bình luận
+- truy cập bình luận
+- chỉnh sửa bình luận
+- trả lời bình luận
+- gỡ bỏ bình luận
+- xóa bình luận
 - PowerPoint
-- bản trình bày
+- bản trình chiếu
 - Python
 - Java
 - Aspose.Slides
-description: "Quản lý nhận xét bản trình bày với Aspose.Slides cho Python qua Java: thêm, đọc, chỉnh sửa, trả lời và xoá nhận xét trong các bản trình bày PowerPoint một cách nhanh chóng và dễ dàng."
+description: "Quản lý bình luận bản trình chiếu với Aspose.Slides cho Python qua Java: thêm, đọc, chỉnh sửa, trả lời và xóa bình luận trong các bản trình chiếu PowerPoint một cách nhanh chóng và dễ dàng."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách quản lý các nhận xét trong bản trình bày bằng Aspose.Slides cho Python thông qua Java. Nó giới thiệu các kiểu liên quan đến nhận xét chính và minh họa cách thêm nhận xét vào các slide, truy cập các nhận xét hiện có, làm việc với trả lời và nhận xét hiện đại, và xóa nhận xét khỏi bản trình bày.
+Bài viết này giải thích cách quản lý bình luận trong bản trình chiếu bằng Aspose.Slides cho Python qua Java. Nó giới thiệu các kiểu liên quan đến bình luận chính và minh họa cách thêm bình luận vào các slide, truy cập các bình luận hiện có, làm việc với trả lời và bình luận hiện đại, và xóa bình luận khỏi bản trình chiếu.
 
-Các ví dụ bao gồm các kịch bản rà soát và cộng tác thường gặp trong PowerPoint, chẳng hạn như gán nhận xét cho tác giả, đọc nội dung và siêu dữ liệu của nhận xét, xây dựng chuỗi trả lời, và xóa các nhận xét đã chọn hoặc tất cả các nhận xét.
+Các ví dụ bao phủ các kịch bản đánh giá và cộng tác phổ biến trong PowerPoint, chẳng hạn như gán bình luận cho tác giả, đọc nội dung và siêu dữ liệu của bình luận, xây dựng chuỗi trả lời, và xóa các bình luận đã chọn hoặc tất cả các bình luận.
 
-Trong PowerPoint, các nhận xét xuất hiện dưới dạng chú thích trên các slide. Việc chọn một nhận xét sẽ hiển thị nội dung và cuộc thảo luận liên quan.
+Trong PowerPoint, bình luận xuất hiện dưới dạng chú thích trên các slide. Khi chọn một bình luận, nội dung và cuộc thảo luận liên quan sẽ được hiển thị.
 
-## **Tại sao nên thêm nhận xét vào bản trình bày?**
+Để yêu cầu hiển thị hoặc ẩn bình luận khi một bản trình chiếu mở mà không thay đổi nội dung bình luận, xem [Hiển thị hoặc Ẩn Bình luận Khi Mở Bản Trình Chiếu](/slides/vi/python-java/presentation-view-properties/).
 
-Bạn có thể sử dụng nhận xét để đưa ra phản hồi và cộng tác với đồng nghiệp khi rà soát các bản trình bày.
+## **Tại sao cần thêm bình luận vào bản trình chiếu?**
 
-Aspose.Slides cho Python thông qua Java cung cấp các API sau để làm việc với nhận xét:
+Bạn có thể sử dụng bình luận để cung cấp phản hồi và cộng tác với đồng nghiệp khi đánh giá bản trình chiếu.
 
-* Lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) cung cấp quyền truy cập vào các tác giả nhận xét của bản trình bày.
-* Lớp [CommentCollection](https://reference.aspose.com/slides/vi/python-java/aspose.slides/commentcollection/) đại diện cho các nhận xét liên kết với một tác giả riêng lẻ.
-* Lớp [Comment](https://reference.aspose.com/slides/vi/python-java/aspose.slides/comment/) cung cấp thông tin về một nhận xét, bao gồm tác giả, thời gian tạo, vị trí và nội dung.
-* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/python-java/aspose.slides/commentauthor/) cung cấp thông tin về một tác giả, bao gồm tên, ký hiệu và các nhận xét liên quan.
+Aspose.Slides cho Python qua Java cung cấp các API sau để làm việc với bình luận:
 
-## **Thêm nhận xét vào slide**
+* Lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) cung cấp quyền truy cập vào các tác giả bình luận của bản trình chiếu.
+* Lớp [CommentCollection](https://reference.aspose.com/slides/vi/python-java/aspose.slides/commentcollection/) đại diện cho các bình luận được liên kết với một tác giả riêng lẻ.
+* Lớp [Comment](https://reference.aspose.com/slides/vi/python-java/aspose.slides/comment/) cung cấp thông tin về một bình luận, bao gồm tác giả, thời gian tạo, vị trí và nội dung.
+* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/python-java/aspose.slides/commentauthor/) cung cấp thông tin về một tác giả, bao gồm tên, chữ viết tắt và các bình luận được liên kết.
 
-Ví dụ sau đây cho thấy cách thêm nhận xét vào các slide trong một bản trình bày PowerPoint:
+## **Thêm Bình luận vào Slide**
+
+Ví dụ sau cho thấy cách thêm bình luận vào các slide trong một bản trình chiếu PowerPoint:
 
 ```python
 import jpype
@@ -83,9 +85,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Truy cập nhận xét slide**
+## **Truy cập Bình luận trên Slide**
 
-Ví dụ sau đây cho thấy cách truy cập các nhận xét hiện có trong một bản trình bày PowerPoint:
+Ví dụ sau cho thấy cách truy cập các bình luận hiện có trong một bản trình chiếu PowerPoint:
 
 ```python
 import jpype
@@ -109,11 +111,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Trả lời nhận xét**
+## **Trả lời Bình luận**
 
-Nhận xét gốc là nhận xét ban đầu ở đầu của một cây trả lời. Các phương thức [Comment.getParentComment](https://reference.aspose.com/slides/vi/python-java/aspose.slides/comment/#getParentComment) và [Comment.setParentComment](https://reference.aspose.com/slides/vi/python-java/aspose.slides/comment/#setParentComment) cho phép bạn lấy hoặc đặt nhận xét cha.
+Một bình luận cha là bình luận gốc ở đầu cây trả lời. Các phương thức [Comment.getParentComment](https://reference.aspose.com/slides/vi/python-java/aspose.slides/comment/#getParentComment) và [Comment.setParentComment](https://reference.aspose.com/slides/vi/python-java/aspose.slides/comment/#setParentComment) cho phép bạn lấy hoặc đặt bình luận cha của một bình luận.
 
-Ví dụ sau đây cho thấy cách thêm trả lời và kiểm tra cấu trúc nhận xét kết quả:
+Ví dụ sau cho thấy cách thêm trả lời và kiểm tra cấu trúc cây bình luận tạo ra:
 
 ```python
 import jpype
@@ -169,20 +171,20 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="warning" title="Cảnh báo" %}}
-* Khi phương thức [Comment.remove](https://reference.aspose.com/slides/vi/python-java/aspose.slides/comment/#remove) được sử dụng để xoá một nhận xét, tất cả các trả lời cho nhận xét đó cũng sẽ bị xoá.
-* Nếu [Comment.setParentComment](https://reference.aspose.com/slides/vi/python-java/aspose.slides/comment/#setParentComment) tạo ra một tham chiếu vòng, một [PptxEditException](https://reference.aspose.com/slides/vi/python-java/aspose.slides/pptxeditexception/) sẽ được ném.
+{{% alert color="warning" title="Warning" %}}
+* Khi sử dụng phương thức [Comment.remove](https://reference.aspose.com/slides/vi/python-java/aspose.slides/comment/#remove) để xóa một bình luận, tất cả các trả lời cho bình luận đó cũng sẽ bị xóa.
+* Nếu [Comment.setParentComment](https://reference.aspose.com/slides/vi/python-java/aspose.slides/comment/#setParentComment) tạo ra một tham chiếu vòng, một [PptxEditException](https://reference.aspose.com/slides/vi/python-java/aspose.slides/pptxeditexception/) sẽ được ném ra.
 {{% /alert %}}
 
-## **Thêm nhận xét hiện đại**
+## **Thêm Bình luận Hiện đại**
 
-Nhận xét hiện đại có thể được liên kết với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong một [AutoShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/autoshape/). Phương thức [CommentCollection.addModernComment](https://reference.aspose.com/slides/vi/python-java/aspose.slides/commentcollection/#addModernComment) chấp nhận một đối số [Shape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shape/) bổ sung cho slide và tọa độ dấu nhận xét.
+Bình luận hiện đại có thể được gắn liền với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong một [AutoShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/autoshape/). Phương thức [CommentCollection.addModernComment](https://reference.aspose.com/slides/vi/python-java/aspose.slides/commentcollection/#addModernComment) chấp nhận một đối số [Shape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shape/) ngoài slide và tọa độ đánh dấu bình luận.
 
-Khi truyền `None` cho đối số shape, nhận xét sẽ là một nhận xét cấp slide. Dấu nhận xét được đặt theo tọa độ đã cung cấp, nhưng không gắn với một hình dạng cụ thể, do đó [ModernComment.getShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getShape) trả về `None`. Khi cung cấp một [Shape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shape/), nhận xét sẽ được neo vào hình dạng đó. Các tọa độ vẫn xác định vị trí của dấu nhận xét trên slide, trong khi việc liên kết hình dạng có thể được lấy qua [ModernComment.getShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getShape).
+Khi truyền `None` cho đối số shape, bình luận sẽ là bình luận cấp slide. Đánh dấu của nó được định vị bằng các tọa độ cung cấp, nhưng không gắn với bất kỳ shape nào, vì vậy [ModernComment.getShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getShape) trả về `None`. Khi cung cấp một [Shape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shape/), bình luận sẽ được neo vào shape đó. Các tọa độ vẫn xác định vị trí của dấu bình luận trên slide, trong khi mối liên kết shape có thể được truy xuất qua [ModernComment.getShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getShape).
 
-### **Neo một nhận xét hiện đại vào hình dạng**
+### **Neo một Bình luận Hiện đại vào Shape**
 
-Ví dụ sau tạo cả một nhận xét hiện đại cấp slide và một nhận xét hiện đại được neo vào một [AutoShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/autoshape/) cụ thể. Sau đó nó đọc hình dạng liên kết từ mỗi nhận xét.
+Ví dụ sau tạo cả một bình luận hiện đại cấp slide và một bình luận hiện đại được neo vào một [AutoShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/autoshape/) cụ thể. Sau đó nó đọc shape được liên kết từ mỗi bình luận.
 
 ```python
 import jpype
@@ -218,11 +220,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Neo nhận xét vào các loại hình dạng khác nhau**
+### **Neo Bình luận vào Các Kiểu Shape Khác nhau**
 
-Bất kỳ đối tượng slide nào kế thừa từ [Shape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shape/) đều có thể được sử dụng làm neo hình dạng. Các ví dụ phổ biến bao gồm [AutoShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/vi/python-java/aspose.slides/connector/), và các thực thể [GraphicalObject](https://reference.aspose.com/slides/vi/python-java/aspose.slides/graphicalobject/) như biểu đồ.
+Bất kỳ đối tượng slide nào kế thừa từ [Shape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shape/) đều có thể được sử dụng làm neo shape. Các ví dụ phổ biến bao gồm [AutoShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/vi/python-java/aspose.slides/connector/), và các thể hiện [GraphicalObject](https://reference.aspose.com/slides/vi/python-java/aspose.slides/graphicalobject/) như biểu đồ.
 
-Ví dụ sau tạo ra một số loại hình dạng phổ biến và gắn một nhận xét hiện đại với từng loại.
+Ví dụ sau tạo một số kiểu shape phổ biến và gắn một bình luận hiện đại vào mỗi shape.
 
 ```python
 import jpype
@@ -274,18 +276,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Neo nhận xét vào văn bản và đặt trạng thái của nó**
+### **Neo Bình luận vào Văn bản và Đặt Trạng thái của Nó**
 
-Đối với một nhận xét hiện đại gắn với một [AutoShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/autoshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getTextSelectionStart) và [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#setTextSelectionStart) truy cập vị trí bắt đầu của đoạn văn bản được chọn trong khung văn bản của hình dạng. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getTextSelectionLength) và [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#setTextSelectionLength) truy cập độ dài của lựa chọn. Cùng nhau, các giá trị này liên kết nhận xét với một đoạn văn bản cụ thể bên trong AutoShape.
+Đối với một bình luận hiện đại được gắn vào một [AutoShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/autoshape/), các phương thức [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getTextSelectionStart) và [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#setTextSelectionStart) truy cập vị trí bắt đầu của văn bản được chọn trong khung văn bản của shape. Các phương thức [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getTextSelectionLength) và [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#setTextSelectionLength) truy cập độ dài của phần chọn. Cùng nhau, các giá trị này liên kết bình luận với một đoạn văn bản cụ thể bên trong AutoShape.
 
 Các phương thức [ModernComment.getStatus](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getStatus) và [ModernComment.setStatus](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#setStatus) truy cập một giá trị từ các hằng số [ModernCommentStatus](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncommentstatus/):
 
-- [NotDefined](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncommentstatus/#NotDefined) — không có trạng thái nhận xét hiện đại nào được định nghĩa.
-- [Active](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncommentstatus/#Active) — nhận xét đang hoạt động.
-- [Resolved](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncommentstatus/#Resolved) — nhận xét đã được giải quyết.
-- [Closed](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncommentstatus/#Closed) — nhận xét đã đóng.
+- [NotDefined](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncommentstatus/#NotDefined) — không có trạng thái bình luận hiện đại cụ thể nào được định nghĩa.
+- [Active](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncommentstatus/#Active) — bình luận đang hoạt động.
+- [Resolved](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncommentstatus/#Resolved) — bình luận đã được giải quyết.
+- [Closed](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncommentstatus/#Closed) — bình luận đã đóng.
 
-Ví dụ sau tạo một nhận xét hiện đại được neo vào hình dạng, gắn với một đoạn văn bản được chọn, đánh dấu là đã giải quyết, lưu bản trình bày và xác minh các giá trị sau khi mở lại tệp.
+Ví dụ sau tạo một bình luận hiện đại neo vào shape, liên kết nó với một phần chọn văn bản, đánh dấu là đã giải quyết, lưu bản trình chiếu và xác minh các giá trị sau khi mở lại tệp.
 
 ```python
 import jpype
@@ -346,9 +348,9 @@ finally:
     reopened_presentation.dispose()
 ```
 
-### **Kiểm tra các nhận xét hiện đại hiện có**
+### **Kiểm tra Các Bình luận Hiện đại Hiện có**
 
-Để kiểm tra một bản trình bày hiện có, kiểm tra các nhận xét nào là thể hiện của [ModernComment](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/), sau đó xem xét [ModernComment.getShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getTextSelectionLength), và [ModernComment.getStatus](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getStatus). Một hình dạng `None` cho thấy đó là nhận xét cấp slide. Đối với một neo [AutoShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/autoshape/), các phương thức lựa chọn văn bản xác định đoạn văn bản liên quan trong khung văn bản của hình dạng.
+Để kiểm tra một bản trình chiếu hiện có, xác định các bình luận là thể hiện của [ModernComment](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/), sau đó xem xét [ModernComment.getShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getTextSelectionLength) và [ModernComment.getStatus](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getStatus). Một shape `None` cho thấy bình luận cấp slide. Đối với neo vào [AutoShape](https://reference.aspose.com/slides/vi/python-java/aspose.slides/autoshape/), các phương thức chọn văn bản xác định đoạn văn bản liên quan trong khung văn bản của shape.
 
 ```python
 import jpype
@@ -388,11 +390,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Xóa nhận xét**
+## **Xóa Bình luận**
 
-### **Xóa tất cả nhận xét và tác giả nhận xét**
+### **Xóa Tất cả Bình luận và Tác giả Bình luận**
 
-Ví dụ sau cho thấy cách xóa tất cả nhận xét và các tác giả nhận xét khỏi một bản trình bày:
+Ví dụ sau cho thấy cách xóa tất cả bình luận và các tác giả bình luận khỏi một bản trình chiếu:
 
 ```python
 import jpype
@@ -414,9 +416,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Xóa các nhận xét cụ thể**
+### **Xóa Các Bình luận Cụ thể**
 
-Ví dụ sau cho thấy cách xóa các nhận xét cụ thể khỏi một slide:
+Ví dụ sau cho thấy cách xóa các bình luận cụ thể khỏi một slide:
 
 ```python
 import jpype
@@ -459,14 +461,14 @@ finally:
 
 ## **Câu hỏi thường gặp**
 
-**Aspose.Slides có hỗ trợ trạng thái đã giải quyết cho nhận xét hiện đại không?**
+**Aspose.Slides có hỗ trợ trạng thái đã giải quyết cho bình luận hiện đại không?**
 
-**Có.** [ModernComment.getStatus](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getStatus) và [ModernComment.setStatus](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#setStatus) truy cập một giá trị [ModernCommentStatus](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái này được lưu trong bản trình bày và có thể được đọc lại sau khi tệp được mở lại.
+Có. Các phương thức [ModernComment.getStatus](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#getStatus) và [ModernComment.setStatus](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncomment/#setStatus) truy cập một giá trị [ModernCommentStatus](https://reference.aspose.com/slides/vi/python-java/aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái được lưu trong bản trình chiếu và có thể đọc lại sau khi tệp được mở lại.
 
-**Các cuộc thảo luận dạng chuỗi (reply chains) có được hỗ trợ không, và có giới hạn độ sâu lồng nhau không?**
+**Liệu các cuộc thảo luận dạng chuỗi trả lời (threaded discussions) có được hỗ trợ, và có giới hạn độ sâu lồng nhau không?**
 
-**Có.** Mỗi nhận xét có thể tham chiếu tới [parent comment](https://reference.aspose.com/slides/vi/python-java/aspose.slides/comment/#getParentComment), cho phép tạo chuỗi trả lời. API không định nghĩa giới hạn độ sâu lồng nhau cụ thể.
+Có. Mỗi bình luận có thể tham chiếu tới [parent comment](https://reference.aspose.com/slides/vi/python-java/aspose.slides/comment/#getParentComment), cho phép tạo chuỗi trả lời. API không định nghĩa giới hạn độ sâu lồng nhau cụ thể.
 
-**Vị trí của dấu nhận xét trên slide được định nghĩa trong hệ tọa độ nào?**
+**Vị trí của dấu bình luận trên slide được định nghĩa trong hệ tọa độ nào?**
 
-**Vị trí của dấu nhận xét được xác định bằng các tọa độ số thực trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.**
+Vị trí dấu được định nghĩa bằng các tọa độ số thực trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.

@@ -11,38 +11,40 @@ keywords:
 - commentaires de présentation
 - commentaires de diapositive
 - ajouter un commentaire
-- accéder au commentaire
-- modifier le commentaire
-- répondre au commentaire
-- supprimer le commentaire
-- effacer le commentaire
+- accéder à un commentaire
+- modifier un commentaire
+- répondre à un commentaire
+- supprimer un commentaire
+- effacer un commentaire
 - PowerPoint
 - présentation
 - Android
 - Java
 - Aspose.Slides
-description: "Gérez les commentaires de présentation avec Aspose.Slides for Android via Java : ajoutez, lisez, modifiez, répondez et supprimez les commentaires dans les présentations PowerPoint rapidement et facilement."
+description: "Gérez les commentaires de présentation avec Aspose.Slides pour Android via Java : ajoutez, lisez, modifiez, répondez et supprimez des commentaires dans les présentations PowerPoint rapidement et facilement."
 ---
-## **Vue d'ensemble**
+## **Vue d’ensemble**
 
-Cet article explique comment gérer les commentaires de présentation avec Aspose.Slides for Android via Java. Il présente les principaux types liés aux commentaires et montre comment ajouter des commentaires aux diapositives, accéder aux commentaires existants, travailler avec les réponses et les commentaires modernes, ainsi que supprimer des commentaires d’une présentation.
+Cet article explique comment gérer les commentaires de présentation avec Aspose.Slides pour Android via Java. Il présente les principaux types liés aux commentaires et montre comment ajouter des commentaires aux diapositives, accéder aux commentaires existants, travailler avec les réponses et les commentaires modernes, et supprimer des commentaires d’une présentation.
 
-Les exemples couvrent des scénarios courants de révision et de collaboration dans PowerPoint, tels que l’attribution de commentaires à des auteurs, la lecture du texte et des métadonnées des commentaires, la création de chaînes de réponses et la suppression de commentaires sélectionnés ou de tous les commentaires.
+Les exemples couvrent des scénarios courants de révision et de collaboration dans PowerPoint, tels que l’attribution de commentaires à des auteurs, la lecture du texte et des métadonnées des commentaires, la création de chaînes de réponses, et la suppression de commentaires sélectionnés ou de tous les commentaires.
 
 Dans PowerPoint, les commentaires apparaissent comme des annotations sur les diapositives. Sélectionner un commentaire affiche son texte et la discussion associée.
+
+Pour demander que les commentaires soient affichés ou masqués lors de l’ouverture d’une présentation sans modifier les commentaires eux‑mêmes, consultez [Afficher ou masquer les commentaires lors de l’ouverture d’une présentation](/slides/fr/androidjava/presentation-view-properties/).
 
 ## **Pourquoi ajouter des commentaires aux présentations ?**
 
 Vous pouvez utiliser les commentaires pour fournir des retours et collaborer avec des collègues lors de la révision de présentations.
 
-Aspose.Slides for Android via Java propose les API suivantes pour travailler avec les commentaires :
+Aspose.Slides pour Android via Java propose les API suivantes pour travailler avec les commentaires :
 
 * La classe [Presentation](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/presentation/) qui donne accès aux auteurs de commentaires de la présentation.
 * L’interface [ICommentCollection](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/icommentcollection/) qui représente les commentaires associés à un auteur individuel.
-* L’interface [IComment](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/icomment/) qui fournit des informations sur un commentaire, y compris son auteur, sa date de création, sa position et son texte.
-* La classe [CommentAuthor](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/commentauthor/) qui fournit des informations sur un auteur, notamment son nom, ses initiales et les commentaires associés.
+* L’interface [IComment](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/icomment/) qui fournit des informations sur un commentaire, y compris son auteur, son heure de création, sa position et son texte.
+* La classe [CommentAuthor](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/commentauthor/) qui fournit des informations sur un auteur, y compris son nom, ses initiales et les commentaires associés.
 
-## **Ajouter des commentaires aux diapositives**
+## **Ajouter des commentaires de diapositive**
 
 L’exemple suivant montre comment ajouter des commentaires aux diapositives d’une présentation PowerPoint :
 
@@ -83,7 +85,7 @@ try {
 }
 ```
 
-## **Accéder aux commentaires des diapositives**
+## **Accéder aux commentaires de diapositive**
 
 L’exemple suivant montre comment accéder aux commentaires existants dans une présentation PowerPoint :
 
@@ -168,7 +170,7 @@ try {
 }
 ```
 
-{{% alert color="warning" title="Avertissement" %}}
+{{% alert color="warning" title="Warning" %}}
 
 * Lorsque la méthode [IComment.remove](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/icomment/#remove--) est utilisée pour supprimer un commentaire, toutes les réponses à ce commentaire sont également supprimées.
 * Si [IComment.setParentComment](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) crée une référence circulaire, une [PptxEditException](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/pptxeditexception/) est levée.
@@ -177,9 +179,9 @@ try {
 
 ## **Ajouter des commentaires modernes**
 
-Les commentaires modernes peuvent être associés à la diapositive elle‑même, à une forme spécifique ou à une plage de texte à l’intérieur d’une AutoShape. La méthode [ICommentCollection.addModernComment](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) accepte un paramètre [IShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishape/) en plus de la diapositive et des coordonnées du marqueur de commentaire.
+Les commentaires modernes peuvent être associés à la diapositive elle‑même, à une forme spécifique ou à une plage de texte à l’intérieur d’une AutoShape. La méthode [ICommentCollection.addModernComment](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) accepte un argument [IShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishape/) en plus de la diapositive et des coordonnées du marqueur de commentaire.
 
-Lorsque `null` est passé pour le paramètre de forme, le commentaire devient un commentaire au niveau de la diapositive. Son marqueur est positionné selon les coordonnées fournies, mais il n’est pas associé à une forme particulière, de sorte que [IModernComment.getShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getShape--) renvoie `null`. Lorsqu’une [IShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishape/) est fournie, le commentaire est ancré à cette forme. Les coordonnées définissent toujours la position du marqueur de commentaire sur la diapositive, tandis que l’association à la forme peut être récupérée via [IModernComment.getShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getShape--).
+Lorsque `null` est passé pour l’argument de forme, le commentaire est un commentaire au niveau de la diapositive. Son marqueur est positionné selon les coordonnées fournies, mais il n’est pas associé à une forme particulière, de sorte que [IModernComment.getShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getShape--) renvoie `null`. Lorsqu’une [IShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishape/) est fournie, le commentaire est ancré à cette forme. Les coordonnées définissent toujours la position du marqueur de commentaire sur la diapositive, tandis que l’association à la forme peut être récupérée via [IModernComment.getShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getShape--).
 
 ### **Ancrer un commentaire moderne à une forme**
 
@@ -219,11 +221,11 @@ try {
 }
 ```
 
-### **Ancrer des commentaires à différents types de forme**
+### **Ancrer des commentaires à différents types de formes**
 
-Tout objet de diapositive implémentant [IShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishape/) peut être utilisé comme ancrage de forme. Parmi les exemples courants : [IAutoShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iconnector/) et des instances [IGraphicalObject](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/igraphicalobject/) telles que des graphiques.
+Tout objet de diapositive qui implémente [IShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishape/) peut être utilisé comme ancrage de forme. Les exemples courants comprennent [IAutoShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iconnector/) et des instances [IGraphicalObject](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/igraphicalobject/) telles que des graphiques.
 
-L’exemple suivant crée plusieurs types de forme courants et associe un commentaire moderne à chacun d’eux.
+L’exemple suivant crée plusieurs types de formes courantes et associe un commentaire moderne à chacune d’elles.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -280,18 +282,18 @@ try {
 }
 ```
 
-### **Ancrer un commentaire à du texte et définir son état**
+### **Ancrer un commentaire à du texte et définir son statut**
 
-Pour un commentaire moderne associé à une [IAutoShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iautoshape/), les méthodes [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) et [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) donnent accès à la position de départ du texte sélectionné dans le cadre de texte de la forme. Les méthodes [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) et [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) donnent accès à la longueur de la sélection. Ensemble, ces valeurs associent le commentaire à une plage de texte précise à l’intérieur de l’AutoShape.
+Pour un commentaire moderne associé à une [IAutoShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iautoshape/), les méthodes [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) et [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) accèdent à la position de départ du texte sélectionné dans le cadre de texte de la forme. Les méthodes [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) et [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) accèdent à la longueur de la sélection. Ensemble, ces valeurs associent le commentaire à une plage de texte spécifique à l’intérieur de l’AutoShape.
 
-Les méthodes [IModernComment.getStatus](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getStatus--) et [IModernComment.setStatus](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) permettent d’accéder à une valeur parmi les constantes [ModernCommentStatus](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/moderncommentstatus/) :
+Les méthodes [IModernComment.getStatus](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getStatus--) et [IModernComment.setStatus](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) accèdent à une valeur parmi les constantes [ModernCommentStatus](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/moderncommentstatus/) :
 
-- `NotDefined` — aucun état spécifique de commentaire moderne n’est défini.
+- `NotDefined` — aucun statut de commentaire moderne spécifique n’est défini.
 - `Active` — le commentaire est actif.
 - `Resolved` — le commentaire a été résolu.
 - `Closed` — le commentaire est fermé.
 
-L’exemple suivant crée un commentaire moderne ancré à une forme, l’associe à une sélection de texte, le marque comme résolu, sauvegarde la présentation et vérifie les valeurs après réouverture du fichier.
+L’exemple suivant crée un commentaire moderne ancré à une forme, l’associe à une sélection de texte, le marque comme résolu, enregistre la présentation et vérifie les valeurs après réouverture du fichier.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -358,7 +360,7 @@ try {
 
 ### **Inspecter les commentaires modernes existants**
 
-Pour inspecter une présentation existante, identifiez les commentaires implémentant [IModernComment](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/), puis examinez [IModernComment.getShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) et [IModernComment.getStatus](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getStatus--). Une forme `null` indique un commentaire au niveau de la diapositive. Pour un ancrage [IAutoShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iautoshape/), les méthodes de sélection de texte identifient la plage associée dans le cadre de texte de la forme.
+Pour inspecter une présentation existante, vérifiez quels commentaires implémentent [IModernComment](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/), puis examinez [IModernComment.getShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) et [IModernComment.getStatus](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getStatus--). Une forme `null` indique un commentaire au niveau de la diapositive. Pour un ancrage [IAutoShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iautoshape/), les méthodes de sélection de texte identifient la plage associée dans le cadre de texte de la forme.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -403,7 +405,7 @@ try {
 }
 ```
 
-## **Supprimer des commentaires**
+## **Supprimer les commentaires**
 
 ### **Supprimer tous les commentaires et les auteurs de commentaires**
 
@@ -476,14 +478,14 @@ try {
 
 ## **FAQ**
 
-**Aspose.Slides prend‑il en charge un état résolu pour les commentaires modernes ?**
+**Aspose.Slides prend‑il en charge un statut résolu pour les commentaires modernes ?**
 
-Oui. Les méthodes [IModernComment.getStatus](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getStatus--) et [IModernComment.setStatus](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) accèdent à une valeur [ModernCommentStatus](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/moderncommentstatus/) incluant `Resolved`. L’état est stocké dans la présentation et peut être relu après réouverture du fichier.
+Oui. Les méthodes [IModernComment.getStatus](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#getStatus--) et [IModernComment.setStatus](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) accèdent à une valeur [ModernCommentStatus](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/moderncommentstatus/) incluant `Resolved`. Le statut est stocké dans la présentation et peut être relu après la réouverture du fichier.
 
-**Les discussions en fil (chaînes de réponses) sont‑elles prises en charge, et existe‑t‑il une limite de profondeur ?**
+**Les discussions en fil (chaînes de réponses) sont‑elles prises en charge et existe‑t‑il une limite de profondeur ?**
 
-Oui. Chaque commentaire peut référencer son [parent comment](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/icomment/#getParentComment--), ce qui permet les chaînes de réponses. L’API ne définit pas de limite spécifique de profondeur d’imbrication.
+Oui. Chaque commentaire peut référencer son [commentaire parent](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/icomment/#getParentComment--), permettant des chaînes de réponses. L’API ne définit pas de limite spécifique de profondeur d’imbrication.
 
-**Dans quel système de coordonnées la position du marqueur d’un commentaire est‑elle définie sur une diapositive ?**
+**Dans quel système de coordonnées la position d’un marqueur de commentaire est‑elle définie sur une diapositive ?**
 
-La position du marqueur est définie par des coordonnées en virgule flottante dans le système de coordonnées de la diapositive, ce qui vous permet de le placer précisément sur la diapositive.
+La position du marqueur est définie par des coordonnées à virgule flottante dans le système de coordonnées de la diapositive, vous permettant de le placer avec précision sur la diapositive.

@@ -6,12 +6,12 @@ weight: 100
 url: /ko/cpp/presentation-comments/
 keywords:
 - 주석
-- 최신 주석
+- 현대 주석
 - PowerPoint 주석
 - 프레젠테이션 주석
 - 슬라이드 주석
 - 주석 추가
-- 주석 접근
+- 주석 액세스
 - 주석 편집
 - 주석 회신
 - 주석 제거
@@ -24,26 +24,28 @@ description: "Aspose.Slides for C++를 사용하여 프레젠테이션 주석을
 ---
 ## **개요**
 
-이 문서에서는 Aspose.Slides for C++를 사용하여 프레젠테이션 주석을 관리하는 방법을 설명합니다. 주요 주석 관련 타입을 소개하고, 슬라이드에 주석을 추가하고, 기존 주석에 접근하며, 회신 및 최신 주석을 다루고, 프레젠테이션에서 주석을 제거하는 방법을 보여줍니다.
+이 문서에서는 Aspose.Slides for C++를 사용하여 프레젠테이션 주석을 관리하는 방법을 설명합니다. 주요 주석 관련 유형을 소개하고 슬라이드에 주석을 추가하고, 기존 주석에 액세스하고, 회신 및 최신 주석을 다루며, 프레젠테이션에서 주석을 제거하는 방법을 보여줍니다.
 
-예제는 PowerPoint에서 흔히 발생하는 검토 및 협업 시나리오를 다루며, 작성자별 주석 할당, 주석 텍스트 및 메타데이터 읽기, 회신 체인 구축, 선택된 주석 또는 모든 주석 제거 등을 포함합니다.
+예제는 PowerPoint에서 일반적인 검토 및 협업 시나리오를 다루며, 작성자에게 주석을 할당하고, 주석 텍스트와 메타데이터를 읽으며, 회신 체인을 구성하고, 선택된 주석 또는 모든 주석을 제거하는 방법을 포함합니다.
 
-PowerPoint에서 주석은 슬라이드에 표시되는 주석 형태로 나타납니다. 주석을 선택하면 해당 텍스트와 관련 토론이 표시됩니다.
+PowerPoint에서 주석은 슬라이드에 표시되는 주석(annotations)으로 나타납니다. 주석을 선택하면 해당 텍스트와 관련 토론이 표시됩니다.
 
-## **프레젠테이션에 주석을 추가하는 이유**
+프레젠테이션을 열 때 주석 자체를 변경하지 않고 주석을 표시하거나 숨기도록 요청하려면 [프레젠테이션 열 때 주석 표시 또는 숨기기](/slides/ko/cpp/presentation-view-properties/)를 참조하십시오.
 
-프레젠테이션을 검토할 때 피드백을 제공하고 동료와 협업하기 위해 주석을 사용할 수 있습니다.
+## **왜 프레젠테이션에 주석을 추가합니까?**
 
-Aspose.Slides for C++는 주석 작업을 위한 다음 API를 제공합니다.
+프레젠테이션을 검토할 때 주석을 사용하여 피드백을 제공하고 동료와 협업할 수 있습니다.
 
-* [Presentation](https://reference.aspose.com/slides/ko/cpp/aspose.slides/presentation/) 클래스 – 프레젠테이션의 주석 작성자에 접근합니다.
-* [ICommentCollection](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icommentcollection/) 인터페이스 – 개별 작성자와 연결된 주석을 나타냅니다.
-* [IComment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icomment/) 인터페이스 – 작성자, 생성 시간, 위치, 텍스트 등 주석에 대한 정보를 제공합니다.
-* [CommentAuthor](https://reference.aspose.com/slides/ko/cpp/aspose.slides/commentauthor/) 클래스 – 이름, 이니셜 및 연결된 주석을 포함한 작성자 정보를 제공합니다.
+Aspose.Slides for C++는 주석 작업을 위한 다음 API를 제공합니다:
+
+* The [Presentation](https://reference.aspose.com/slides/ko/cpp/aspose.slides/presentation/) 클래스는 프레젠테이션의 주석 작성자에 대한 액세스를 제공합니다.
+* The [ICommentCollection](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icommentcollection/) 인터페이스는 개별 작성자와 연결된 주석을 나타냅니다.
+* The [IComment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icomment/) 인터페이스는 작성자, 생성 시간, 위치 및 텍스트를 포함한 주석에 대한 정보를 제공합니다.
+* The [CommentAuthor](https://reference.aspose.com/slides/ko/cpp/aspose.slides/commentauthor/) 클래스는 이름, 이니셜 및 연관된 주석을 포함한 작성자에 대한 정보를 제공합니다.
 
 ## **슬라이드 주석 추가**
 
-다음 예제는 PowerPoint 프레젠테이션에 슬라이드 주석을 추가하는 방법을 보여줍니다.
+다음 예제는 PowerPoint 프레젠테이션의 슬라이드에 주석을 추가하는 방법을 보여줍니다:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -86,9 +88,9 @@ if (comments->get_Length() > 0)
 presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
 ```
 
-## **슬라이드 주석 접근**
+## **슬라이드 주석 액세스**
 
-다음 예제는 PowerPoint 프레젠테이션에서 기존 주석에 접근하는 방법을 보여줍니다.
+다음 예제는 PowerPoint 프레젠테이션에서 기존 주석에 액세스하는 방법을 보여줍니다:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -117,11 +119,11 @@ for (auto&& author : presentation->get_CommentAuthors())
 }
 ```
 
-## **주석에 회신 달기**
+## **주석에 회신**
 
-부모 주석은 회신 계층 구조의 최상위 원본 주석입니다. [IComment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icomment/) 인터페이스의 [get_ParentComment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icomment/get_parentcomment/) 및 [set_ParentComment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icomment/set_parentcomment/) 메서드를 사용하여 주석의 부모를 가져오거나 설정할 수 있습니다.
+부모 주석은 회신 계층 구조의 최상위에 있는 원래 주석입니다. [IComment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icomment/) 인터페이스의 [get_ParentComment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icomment/get_parentcomment/) 및 [set_ParentComment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icomment/set_parentcomment/) 메서드를 사용하여 주석의 부모를 가져오거나 설정할 수 있습니다.
 
-다음 예제는 회신을 추가하고 결과 주석 계층 구조를 검사하는 방법을 보여줍니다.
+다음 예제는 회신을 추가하고 결과 주석 계층 구조를 검사하는 방법을 보여줍니다:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -184,19 +186,19 @@ presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* [IComment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icomment/) 인터페이스의 [Remove](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icomment/remove/) 메서드로 주석을 삭제하면 해당 주석에 대한 모든 회신도 함께 삭제됩니다.
-* [set_ParentComment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icomment/set_parentcomment/) 메서드가 순환 참조를 만들 경우, [PptxEditException](https://reference.aspose.com/slides/ko/cpp/aspose.slides/pptxeditexception/)이 발생합니다.
+* 주석을 삭제하기 위해 [IComment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icomment/) 인터페이스의 [Remove](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icomment/remove/) 메서드를 사용할 경우 해당 주석에 대한 모든 회신도 삭제됩니다.
+* [set_ParentComment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icomment/set_parentcomment/) 메서드가 순환 참조를 생성하면 [PptxEditException](https://reference.aspose.com/slides/ko/cpp/aspose.slides/pptxeditexception/)이 발생합니다.
 {{% /alert %}}
 
-## **최신 주석 추가**
+## **현대 주석 추가**
 
-최신 주석은 슬라이드 자체, 특정 도형, 또는 AutoShape 내부의 텍스트 범위와 연결될 수 있습니다. [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icommentcollection/addmoderncomment/) 메서드는 슬라이드와 주석 마커 좌표 외에 [IShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishape/) 인수를 추가로 받습니다.
+현대 주석은 슬라이드 자체, 특정 도형, 또는 AutoShape 내부의 텍스트 범위와 연결될 수 있습니다. [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icommentcollection/addmoderncomment/) 메서드는 슬라이드와 주석 표시기 좌표 외에 [IShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishape/) 인수를 받아들입니다.
 
-도형 인수에 `nullptr`를 전달하면 주석은 슬라이드 수준 주석이 됩니다. 마커는 제공된 좌표에 배치되지만 특정 도형과 연결되지 않으므로 [IModernComment::get_Shape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_shape/)은 `nullptr`를 반환합니다. [IShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishape/)이 제공되면 주석은 해당 도형에 고정됩니다. 좌표는 여전히 슬라이드상의 마커 위치를 정의하고, 도형 연결은 [IModernComment::get_Shape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_shape/)을 통해 확인할 수 있습니다.
+`shape` 인수에 `nullptr`가 전달되면 주석은 슬라이드 수준 주석이 됩니다. 표시기는 제공된 좌표에 따라 배치되지만 특정 도형과 연결되지 않으므로 [IModernComment::get_Shape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_shape/)은 `nullptr`를 반환합니다. [IShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishape/)이 제공되면 주석이 해당 도형에 고정됩니다. 좌표는 여전히 슬라이드상의 주석 표시기 위치를 정의하며, 도형 연결은 [IModernComment::get_Shape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_shape/)을 통해 검색할 수 있습니다.
 
-### **도형에 최신 주석 고정하기**
+### **현대 주석을 도형에 고정**
 
-다음 예제는 슬라이드 수준 최신 주석과 특정 AutoShape에 고정된 최신 주석을 모두 생성한 뒤, 각각의 주석에서 연결된 도형을 읽어옵니다.
+다음 예제는 슬라이드 수준 현대 주석과 특정 AutoShape에 고정된 현대 주석을 모두 생성합니다. 그런 다음 각 주석에서 연결된 도형을 읽습니다.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -243,11 +245,11 @@ if (shapeAnchor != nullptr)
 presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
 ```
 
-### **다양한 도형 유형에 주석 고정하기**
+### **다양한 도형 유형에 주석 고정**
 
-[IShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishape/)을 구현하는 모든 슬라이드 객체를 도형 고정점으로 사용할 수 있습니다. 일반적인 예로는 [IAutoShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iconnector/), 그리고 차트와 같은 [IGraphicalObject](https://reference.aspose.com/slides/ko/cpp/aspose.slides/igraphicalobject/) 인스턴스가 있습니다.
+[IShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishape/)을 구현하는 모든 슬라이드 개체를 도형 고정점으로 사용할 수 있습니다. 일반적인 예로는 [IAutoShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iconnector/) 및 차트와 같은 [IGraphicalObject](https://reference.aspose.com/slides/ko/cpp/aspose.slides/igraphicalobject/) 인스턴스가 있습니다.
 
-다음 예제는 여러 일반적인 도형 유형을 만든 뒤 각각에 최신 주석을 연결합니다.
+다음 예제는 여러 일반 도형 유형을 생성하고 각 도형에 현대 주석을 연결합니다.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -311,18 +313,18 @@ author->get_Comments()->AddModernComment(u"Comment on a graphical object.", slid
 presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 ```
 
-### **텍스트에 주석 고정하고 상태 설정하기**
+### **텍스트에 주석 고정 및 상태 설정**
 
-[IAutoShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iautoshape/)에 연결된 최신 주석의 경우, [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_textselectionstart/) 및 [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/set_textselectionstart/) 메서드가 도형 텍스트 프레임 내 선택된 텍스트의 시작 위치를 제어합니다. 마찬가지로, [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_textselectionlength/) 및 [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/set_textselectionlength/) 메서드가 선택 길이를 제어합니다. 이 메서드들을 함께 사용하면 주석을 AutoShape 내부의 특정 텍스트 범위와 연결할 수 있습니다.
+[IAutoShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iautoshape/)와 연결된 현대 주석의 경우, [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_textselectionstart/) 및 [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/set_textselectionstart/)은 도형 텍스트 프레임에서 선택된 텍스트의 시작 위치를 제어합니다. 마찬가지로, [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_textselectionlength/) 및 [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/set_textselectionlength/)은 선택 길이를 제어합니다. 이러한 메서드를 함께 사용하면 주석이 AutoShape 내부의 특정 텍스트 범위와 연결됩니다.
 
-[IModernComment::get_Status](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_status/) 및 [IModernComment::set_Status](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/set_status/) 메서드는 [ModernCommentStatus](https://reference.aspose.com/slides/ko/cpp/aspose.slides/moderncommentstatus/) 열거형 값 중 하나를 사용합니다.
+[IModernComment::get_Status](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_status/) 및 [IModernComment::set_Status](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/set_status/) 메서드는 [ModernCommentStatus](https://reference.aspose.com/slides/ko/cpp/aspose.slides/moderncommentstatus/) 열거형의 값을 사용합니다:
 
-- `NotDefined` — 특정 최신 주석 상태가 정의되지 않음.
+- `NotDefined` — 특정 현대 주석 상태가 정의되지 않음.
 - `Active` — 주석이 활성 상태임.
 - `Resolved` — 주석이 해결됨.
 - `Closed` — 주석이 닫힘.
 
-다음 예제는 도형에 고정된 최신 주석을 생성하고, 텍스트 선택과 연결한 뒤, 해결 상태로 표시하고, 프레젠테이션을 저장한 후 파일을 다시 열어 값을 확인합니다.
+다음 예제는 도형에 고정된 현대 주석을 생성하고, 텍스트 선택과 연결한 뒤, 해결된 것으로 표시하고, 프레젠테이션을 저장한 후 파일을 다시 열어 값을 확인합니다.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -395,9 +397,9 @@ for (auto&& reopenedComment : reopenedComments)
 }
 ```
 
-### **기존 최신 주석 검사하기**
+### **기존 현대 주석 검사**
 
-기존 프레젠테이션을 검사하려면 [IModernComment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/)를 구현하는 주석을 확인한 뒤, [IModernComment::get_Shape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_textselectionlength/), [IModernComment::get_Status](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_status/)를 조사합니다. `nullptr` 도형은 슬라이드 수준 주석을 나타냅니다. [IAutoShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iautoshape/)에 고정된 경우, 텍스트 선택 메서드가 도형 텍스트 프레임 내 연관된 범위를 식별합니다.
+기존 프레젠테이션을 검사하려면 어떤 주석이 [IModernComment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/)을 구현하는지 확인한 다음, [IModernComment::get_Shape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_textselectionlength/), 및 [IModernComment::get_Status](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_status/)를 조사합니다. `nullptr` 도형은 슬라이드 수준 주석을 나타냅니다. [IAutoShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iautoshape/) 고정의 경우, 텍스트 선택 메서드는 도형 텍스트 프레임 내의 연결된 범위를 식별합니다.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -458,7 +460,7 @@ for (auto&& slide : presentation->get_Slides())
 
 ### **모든 주석 및 주석 작성자 제거**
 
-다음 예제는 프레젠테이션에서 모든 주석과 주석 작성자를 제거하는 방법을 보여줍니다.
+다음 예제는 프레젠테이션에서 모든 주석 및 주석 작성자를 제거하는 방법을 보여줍니다:
 
 ```cpp
 #include <DOM/ICommentAuthor.h>
@@ -484,7 +486,7 @@ presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 
 ### **특정 주석 제거**
 
-다음 예제는 슬라이드에서 특정 주석을 제거하는 방법을 보여줍니다.
+다음 예제는 슬라이드에서 특정 주석을 제거하는 방법을 보여줍니다:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -538,14 +540,14 @@ presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Aspose.Slides에서 최신 주석에 대한 해결(Resolved) 상태를 지원합니까?**
+**Aspose.Slides는 현대 주석에 대한 해결된 상태를 지원합니까?**
 
-예. [IModernComment::get_Status](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_status/) 및 [IModernComment::set_Status](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/set_status/)는 `Resolved`를 포함한 [ModernCommentStatus](https://reference.aspose.com/slides/ko/cpp/aspose.slides/moderncommentstatus/) 값을 사용합니다. 상태는 프레젠테이션에 저장되며 파일을 다시 열었을 때 다시 읽을 수 있습니다.
+예. [IModernComment::get_Status](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/get_status/) 및 [IModernComment::set_Status](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imoderncomment/set_status/)는 `Resolved`를 포함한 [ModernCommentStatus](https://reference.aspose.com/slides/ko/cpp/aspose.slides/moderncommentstatus/) 값을 사용합니다. 상태는 프레젠테이션에 저장되며 파일을 다시 연 후에도 다시 읽을 수 있습니다.
 
-**스레드형 토론(회신 체인)이 지원되며, 중첩 제한이 있나요?**
+**스레드 토론(회신 체인)이 지원되며, 중첩 제한이 있습니까?**
 
-예. 각 주석은 [parent comment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icomment/set_parentcomment/)을 참조할 수 있어 회신 체인을 만들 수 있습니다. API에 특정 중첩 깊이 제한은 정의되어 있지 않습니다.
+예. 각 주석은 [parent comment](https://reference.aspose.com/slides/ko/cpp/aspose.slides/icomment/set_parentcomment/)를 참조할 수 있어 회신 체인을 구현합니다. API는 특정 중첩 깊이 제한을 정의하지 않습니다.
 
-**주석 마커 위치는 어떤 좌표계에서 정의되나요?**
+**슬라이드에서 주석 표시기의 위치는 어떤 좌표계로 정의됩니까?**
 
-마커 위치는 슬라이드 좌표계의 부동소수점 좌표로 정의되므로 슬라이드에서 정확히 원하는 위치에 배치할 수 있습니다.
+표시기 위치는 슬라이드 좌표계의 부동 소수점 좌표로 정의되며, 이를 통해 슬라이드에 정확히 배치할 수 있습니다.

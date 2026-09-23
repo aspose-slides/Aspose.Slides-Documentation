@@ -1,5 +1,5 @@
 ---
-title: Управление комментариями презентаций в Java
+title: Управление комментариями презентации в Java
 linktitle: Комментарии к презентации
 type: docs
 weight: 100
@@ -8,10 +8,10 @@ keywords:
 - комментарий
 - современный комментарий
 - комментарии PowerPoint
-- комментарии презентации
-- комментарии слайда
+- комментарии к презентации
+- комментарии к слайдам
 - добавить комментарий
-- доступ к комментариям
+- доступ к комментарию
 - редактировать комментарий
 - ответ на комментарий
 - удалить комментарий
@@ -20,28 +20,30 @@ keywords:
 - презентация
 - Java
 - Aspose.Slides
-description: "Управляйте комментариями презентаций с помощью Aspose.Slides для Java: быстро и легко добавляйте, просматривайте, редактируйте, отвечайте и удаляйте комментарии в презентациях PowerPoint."
+description: "Управляйте комментариями презентации с помощью Aspose.Slides для Java: быстро и легко добавляйте, просматривайте, редактируйте, отвечайте и удаляйте комментарии в презентациях PowerPoint."
 ---
 ## **Обзор**
 
-В этой статье объясняется, как управлять комментариями презентации с помощью Aspose.Slides для Java. Она знакомит с основными типами, связанными с комментариями, и демонстрирует, как добавлять комментарии на слайды, получать доступ к существующим комментариям, работать с ответами и современными комментариями, а также удалять комментарии из презентации.
+Эта статья объясняет, как управлять комментариями презентации с помощью Aspose.Slides for Java. Она вводит основные типы, связанные с комментариями, и демонстрирует, как добавлять комментарии на слайды, получать доступ к существующим комментариям, работать с ответами и современными комментариями, а также удалять комментарии из презентации.
 
 Примеры охватывают типичные сценарии рецензирования и совместной работы в PowerPoint, такие как назначение комментариев авторам, чтение текста комментария и метаданных, построение цепочек ответов и удаление выбранных комментариев или всех комментариев.
 
 В PowerPoint комментарии отображаются как аннотации на слайдах. При выборе комментария отображаются его текст и связанная дискуссия.
 
-## **Зачем добавлять комментарии в презентации?**
+Чтобы запросить отображение или скрытие комментариев при открытии презентации без изменения самих комментариев, см. [Show or Hide Comments When Opening a Presentation](/slides/ru/java/presentation-view-properties/).
+
+## **Зачем добавлять комментарии к презентациям?**
 
 Вы можете использовать комментарии для предоставления обратной связи и совместной работы с коллегами при рецензировании презентаций.
 
-Aspose.Slides для Java предоставляет следующие API для работы с комментариями:
+Aspose.Slides for Java предоставляет следующие API для работы с комментариями:
 
-* The [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) class, который предоставляет доступ к авторам комментариев презентации.
-* The [ICommentCollection](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icommentcollection/) interface, который представляет комментарии, связанные с отдельным автором.
-* The [IComment](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icomment/) interface, который предоставляет информацию о комментарии, включая его автора, время создания, позицию и текст.
-* The [CommentAuthor](https://reference.aspose.com/slides/ru/java/com.aspose.slides/commentauthor/) class, который предоставляет информацию об авторе, включая его имя, инициалы и связанные комментарии.
+* Класс [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/), который предоставляет доступ к авторам комментариев презентации.
+* Интерфейс [ICommentCollection](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icommentcollection/), представляющий комментарии, связанные с отдельным автором.
+* Интерфейс [IComment](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icomment/), который предоставляет информацию о комментарии, включая его автора, время создания, позицию и текст.
+* Класс [CommentAuthor](https://reference.aspose.com/slides/ru/java/com.aspose.slides/commentauthor/), который предоставляет информацию об авторе, включая его имя, инициалы и связанные комментарии.
 
-## **Добавление комментариев к слайдам**
+## **Добавить комментарии к слайдам**
 
 Следующий пример показывает, как добавить комментарии к слайдам в презентации PowerPoint:
 
@@ -82,7 +84,7 @@ try {
 }
 ```
 
-## **Доступ к комментариям слайдов**
+## **Получить комментарии слайдов**
 
 Следующий пример показывает, как получить доступ к существующим комментариям в презентации PowerPoint:
 
@@ -107,11 +109,11 @@ try {
 }
 ```
 
-## **Ответ на комментарии**
+## **Ответить на комментарии**
 
-Родительским комментарием считается оригинальный комментарий в верхушке иерархии ответов. Методы [IComment.getParentComment](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icomment/#getParentComment--) и [IComment.setParentComment](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) позволяют получить или задать родительский комментарий.
+Родительским комментарием считается оригинальный комментарий в вершине иерархии ответов. Методы [IComment.getParentComment](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icomment/#getParentComment--) и [IComment.setParentComment](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) позволяют получить или установить родителя комментария.
 
-Следующий пример показывает, как добавить ответы и просмотреть получившуюся иерархию комментариев:
+Следующий пример показывает, как добавить ответы и проанализировать получившуюся иерархию комментариев:
 
 ```java
 import com.aspose.slides.IComment;
@@ -168,19 +170,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* При использовании метода [IComment.remove](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icomment/#remove--) для удаления комментария также удаляются все ответы на этот комментарий.
-* Если метод [IComment.setParentComment](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) создает циклическую ссылку, бросается исключение [PptxEditException](https://reference.aspose.com/slides/ru/java/com.aspose.slides/pptxeditexception/).
+* Когда используется метод [IComment.remove](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icomment/#remove--), все ответы на этот комментарий также удаляются.
+* Если [IComment.setParentComment](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) создаёт кольцевую ссылку, выбрасывается [PptxEditException](https://reference.aspose.com/slides/ru/java/com.aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
-## **Добавление современных комментариев**
+## **Добавить современные комментарии**
 
-Современные комментарии могут быть связаны непосредственно со слайдом, с конкретной фигурой или с диапазоном текста внутри AutoShape. Метод [ICommentCollection.addModernComment](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) принимает аргумент [IShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/) в дополнение к слайду и координатам маркера комментария.
+Современные комментарии могут быть связаны непосредственно со слайдом, с определённой фигурой или с диапазоном текста внутри AutoShape. Метод [ICommentCollection.addModernComment](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) принимает аргумент [IShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/) в дополнение к слайду и координатам маркера комментария.
 
-Когда в качестве аргумента shape передаётся `null`, комментарий считается слайдовым. Его маркер позиционируется по переданным координатам, но не привязан к конкретной фигуре, поэтому [IModernComment.getShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getShape--) возвращает `null`. При передаче [IShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/) комментарий привязывается к этой фигуре. Координаты по‑прежнему определяют позицию маркера на слайде, а связь с фигурой можно получить через [IModernComment.getShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getShape--).
+Когда в качестве аргумента фигуры передаётся `null`, комментарий считается комментариям уровня слайда. Его маркер позиционируется по указанным координатам, но не привязан к конкретной фигуре, поэтому [IModernComment.getShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getShape--) возвращает `null`. Когда передаётся [IShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/), комментарий привязывается к этой фигуре. Координаты по‑прежнему определяют позицию маркера комментария на слайде, а связь с фигурой можно получить через [IModernComment.getShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getShape--).
 
-### **Привязка современного комментария к фигуре**
+### **Привязать современный комментарий к фигуре**
 
-Следующий пример создаёт как слайдовый современный комментарий, так и современный комментарий, привязанный к конкретной AutoShape. Затем он считывает связанную фигуру из каждого комментария.
+Следующий пример создаёт как комментарий современного уровня слайда, так и комментарий, привязанный к конкретному AutoShape. Затем он считывает связанную фигуру из каждого комментария.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -216,11 +218,11 @@ try {
 }
 ```
 
-### **Привязка комментариев к различным типам фигур**
+### **Привязать комментарии к различным типам фигур**
 
-Любой объект слайда, реализующий [IShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/), может использоваться в качестве привязки. Типичные примеры включают [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iconnector/) и экземпляры [IGraphicalObject](https://reference.aspose.com/slides/ru/java/com.aspose.slides/igraphicalobject/) такие как диаграммы.
+Любой объект слайда, реализующий [IShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/), может использоваться в качестве привязки. Распространённые примеры включают [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iconnector/) и [IGraphicalObject](https://reference.aspose.com/slides/ru/java/com.aspose.slides/igraphicalobject/) такие как диаграммы.
 
-Следующий пример создаёт несколько распространённых типов фигур и связывает с каждой из них современный комментарий.
+Следующий пример создаёт несколько распространённых типов фигур и связывает с каждой современный комментарий.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -277,18 +279,18 @@ try {
 }
 ```
 
-### **Привязка комментария к тексту и установка его статуса**
+### **Привязать комментарий к тексту и установить его статус**
 
-Для современного комментария, связанного с [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/), методы [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) и [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) дают доступ к позиции начала выбранного текста в текстовом кадре фигуры. Методы [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) и [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) дают доступ к длине выделения. Вместе эти значения связывают комментарий с определённым диапазоном текста внутри AutoShape.
+Для современного комментария, связанного с [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/), методы [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) и [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) позволяют получить начальную позицию выбранного текста во фрейме текста фигуры. Методы [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) и [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) определяют длину выделения. Вместе эти значения связывают комментарий с конкретным диапазоном текста внутри AutoShape.
 
-Методы [IModernComment.getStatus](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getStatus--) и [IModernComment.setStatus](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#setStatus-byte-) позволяют получить/установить значение из констант [ModernCommentStatus](https://reference.aspose.com/slides/ru/java/com.aspose.slides/moderncommentstatus/):
+Методы [IModernComment.getStatus](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getStatus--) и [IModernComment.setStatus](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#setStatus-byte-) позволяют получить значение из констант [ModernCommentStatus](https://reference.aspose.com/slides/ru/java/com.aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — статус современного комментария не определён.
+- `NotDefined` — конкретный статус современного комментария не определён.
 - `Active` — комментарий активен.
 - `Resolved` — комментарий решён.
 - `Closed` — комментарий закрыт.
 
-Следующий пример создаёт современный комментарий, привязанный к фигуре, связывает его с выделением текста, помечает как решённый, сохраняет презентацию и проверяет значения после повторного открытия файла.
+Следующий пример создаёт привязанный к фигуре современный комментарий, связывает его с выделением текста, помечает как решённый, сохраняет презентацию и проверяет значения после повторного открытия файла.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -355,7 +357,7 @@ try {
 
 ### **Просмотр существующих современных комментариев**
 
-Чтобы проанализировать существующую презентацию, проверьте, какие комментарии реализуют [IModernComment](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/), затем изучите [IModernComment.getShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--), и [IModernComment.getStatus](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getStatus--). `null` в качестве фигуры указывает на слайдовый комментарий. Для привязки к [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/) методы выбора текста определяют соответствующий диапазон в текстовом кадре фигуры.
+Чтобы проанализировать существующую презентацию, проверьте, какие комментарии реализуют [IModernComment](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/), затем изучите [IModernComment.getShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--), и [IModernComment.getStatus](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getStatus--). `null` в качестве фигуры указывает на комментарий уровня слайда. Для привязки к [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/) методы выбора текста определяют связанный диапазон во фрейме текста фигуры.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -400,9 +402,9 @@ try {
 }
 ```
 
-## **Удаление комментариев**
+## **Удалить комментарии**
 
-### **Удаление всех комментариев и их авторов**
+### **Удалить все комментарии и их авторов**
 
 Следующий пример показывает, как удалить все комментарии и их авторов из презентации:
 
@@ -424,7 +426,7 @@ try {
 }
 ```
 
-### **Удаление конкретных комментариев**
+### **Удалить конкретные комментарии**
 
 Следующий пример показывает, как удалить конкретные комментарии со слайда:
 
@@ -473,14 +475,14 @@ try {
 
 ## **Часто задаваемые вопросы**
 
-**Поддерживает ли Aspose.Slides статус 'решено' для современных комментариев?**
+**Поддерживает ли Aspose.Slides статус «решён» для современных комментариев?**
 
-Да. Методы [IModernComment.getStatus](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getStatus--) и [IModernComment.setStatus](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#setStatus-byte--) позволяют получить/установить значение из [ModernCommentStatus](https://reference.aspose.com/slides/ru/java/com.aspose.slides/moderncommentstatus/), включая `Resolved`. Статус сохраняется в презентации и может быть считан после повторного открытия файла.
+Да. Методы [IModernComment.getStatus](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#getStatus--) и [IModernComment.setStatus](https://reference.aspose.com/slides/ru/java/com.aspose.slides/imoderncomment/#setStatus-byte-) позволяют получить значение из [ModernCommentStatus](https://reference.aspose.com/slides/ru/java/com.aspose.slides/moderncommentstatus/), включая `Resolved`. Статус сохраняется в презентации и может быть считан после повторного открытия файла.
 
-**Поддерживаются ли дискуссии в виде веток (цепочки ответов) и существует ли ограничение вложенности?**
+**Поддерживаются ли ветвистые обсуждения (цепочки ответов) и существует ли ограничение вложенности?**
 
-Да. Каждый комментарий может ссылаться на свой [parent comment](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icomment/#getParentComment--), что позволяет создавать цепочки ответов. API не задаёт конкретного ограничения глубины вложения.
+Да. Каждый комментарий может ссылаться на свой [parent comment](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icomment/#getParentComment--), позволяя формировать цепочки ответов. API не определяет конкретного ограничения глубины вложенности.
 
 **В какой системе координат определяется позиция маркера комментария на слайде?**
 
-Позиция маркера задаётся координатами с плавающей точкой в системе координат слайда, что позволяет точно размещать его на слайде.
+Позиция маркера задаётся координатами с плавающей точкой в системе координат слайда, что позволяет точно разместить его на слайде.

@@ -21,29 +21,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 管理簡報註解：在 PowerPoint 簡報中快速且輕鬆地新增、閱讀、編輯、回覆及移除註解。"
+description: "使用 Aspose.Slides for .NET 管理簡報註解：在 PowerPoint 簡報中快速輕鬆地新增、閱讀、編輯、回覆及移除註解。"
 ---
-## **概述**
+## **概觀**
 
-本文說明如何使用 Aspose.Slides for .NET 管理簡報註解。它介紹了主要的註解相關類型，並示範如何將註解加入投影片、存取現有註解、處理回覆與現代註解，以及如何從簡報中移除註解。
+本文說明如何使用 Aspose.Slides for .NET 管理簡報註解。它介紹主要的註解相關類型，並示範如何向投影片新增註解、存取現有註解、處理回覆與現代註解，以及從簡報中移除註解。
 
-這些範例涵蓋了 PowerPoint 中常見的審閱與協作情境，例如指派作者、讀取註解文字與中繼資料、建立回覆鏈，與移除選取的註解或全部註解。
+這些範例涵蓋在 PowerPoint 中常見的審閱與協作情境，例如指派註解給作者、讀取註解文字與中繼資料、建立回覆鏈，以及移除選取的註解或全部註解。
 
-在 PowerPoint 中，註解會以標註的形式顯示在投影片上。選取註解即可顯示其文字與相關討論。
+在 PowerPoint 中，註解會以標註的形式出現在投影片上。選取註解時會顯示其文字與相關討論。
 
-## **為何要在簡報中加入註解？**
+若希望在開啟簡報時顯示或隱藏註解（而不更改註解本身），請參閱[開啟簡報時顯示或隱藏註解](/slides/zh-hant/net/presentation-view-properties/)。
 
-在審閱簡報時，可使用註解提供回饋並與同事協作。
+## **為何在簡報中新增註解？**
 
-Aspose.Slides for .NET 提供以下 API 讓您操作註解：
+在審閱簡報時，您可以使用註解提供回饋並與同事協作。
 
-* [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別，可存取簡報的註解作者。
-* [ICommentCollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icommentcollection) 介面，表示單一作者所屬的註解集合。
-* [IComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment) 介面，提供註解的資訊，包括作者、建立時間、位置與文字。
-* [CommentAuthor](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/commentauthor) 類別，提供作者資訊，包括姓名、縮寫與相關註解。
+Aspose.Slides for .NET 提供以下 API 以處理註解：
+
+* The [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) class，提供取得簡報註解作者的功能。
+* The [ICommentCollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icommentcollection) interface，代表與單一作者相關聯的註解。
+* The [IComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment) interface，提供關於註解的資訊，包括作者、建立時間、位置與文字。
+* The [CommentAuthor](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/commentauthor) class，提供作者資訊，包括姓名、縮寫與相關註解。
 
 ## **新增投影片註解**
-以下範例說明如何在 PowerPoint 簡報的投影片中新增註解：
+以下範例示範如何在 PowerPoint 簡報的投影片中新增註解：
 
 ```csharp
 using System;
@@ -75,7 +77,7 @@ presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **存取投影片註解**
-以下範例說明如何存取 PowerPoint 簡報中已有的註解：
+以下範例示範如何存取 PowerPoint 簡報中現有的註解：
 
 ```csharp
 using System;
@@ -97,9 +99,9 @@ foreach (var author in presentation.CommentAuthors)
 ```
 
 ## **回覆註解**
-父註解是回覆層級最上方的原始註解。[IComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment) 介面的 [ParentComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment/properties/parentcomment) 屬性可取得或設定註解的父項。
+父註解是回覆階層最上層的原始註解。[ParentComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment/properties/parentcomment) 屬性屬於 [IComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment) 介面，可讓您取得或設定註解的父項。
 
-以下範例示範如何新增回覆並檢查產生的註解層級結構：
+以下範例示範如何新增回覆並檢查產生的註解階層：
 
 ```csharp
 using System;
@@ -150,22 +152,22 @@ comment1.Remove();
 presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="warning" title="注意" %}} 
+{{% alert color="warning" title="Attention" %}} 
 
-* 當使用 [IComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment) 介面的 [Remove](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment/methods/remove) 方法刪除註解時，該註解的所有回覆也會一起被刪除。
-* 若 [ParentComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment/properties/parentcomment) 屬性形成循環參照，將拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pptxeditexception)。
+* 當使用 [IComment] 介面的 [Remove](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment/methods/remove) 方法刪除註解時，該註解的所有回覆亦會被刪除。
+* 若 [ParentComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment/properties/parentcomment) 屬性造成循環參考，則會拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pptxeditexception)。
 
 {{% /alert %}}
 
 ## **新增現代註解**
 
-現代註解可以關聯至整張投影片、特定圖形，或 AutoShape 內的文字範圍。 [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icommentcollection/addmoderncomment/) 方法接受一個 [IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/) 參數，此外還需要投影片與註解標記的座標。
+現代註解可以與投影片本身、特定形狀，或 AutoShape 內的文字範圍相關聯。[ICommentCollection.AddModernComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icommentcollection/addmoderncomment/) 方法除了接受投影片與註解標記座標外，還接受一個 [IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/) 參數。
 
-當 shape 參數傳入 `null` 時，註解為投影片層級註解。其標記位置由提供的座標決定，但不會關聯到特定圖形，因而 [IModernComment.Shape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/shape/) 會回傳 `null`。若提供 [IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/)，註解則會錨定於該圖形。座標仍然定義標記在投影片上的位置，而圖形關聯可透過 [IModernComment.Shape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/shape/) 取得。
+當 `null` 被傳入形狀參數時，註解為投影片層級的註解。其標記以提供的座標定位，但不會與特定形狀關聯，因此 [IModernComment.Shape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/shape/) 會回傳 `null`。當提供一個 [IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/) 時，註解會錨定至該形狀。座標仍然定義註解標記在投影片上的位置，而形狀關聯可透過 [IModernComment.Shape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/shape/) 取得。
 
-### **將現代註解錨定至圖形**
+### **將現代註解錨定至形狀**
 
-以下範例同時建立投影片層級的現代註解與錨定於特定 AutoShape 的現代註解，並讀取每個註解所關聯的圖形。
+以下範例同時建立投影片層級的現代註解與錨定至特定 AutoShape 的現代註解，並從每個註解讀取關聯的形狀。
 
 ```csharp
 using System;
@@ -192,11 +194,11 @@ Console.WriteLine(shapeComment.Shape?.Name);
 presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 ```
 
-### **將註解錨定至不同類型的圖形**
+### **將註解錨定至不同形狀類型**
 
-任何實作了 [IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/) 的投影片物件都可作為圖形錨點。常見的範例包括 [IAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iconnector/)，以及如圖表等 [IGraphicalObject](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/igraphicalobject/) 實例。
+任何實作 [IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/) 的投影片物件皆可作為形狀錨點。常見的範例包括 [IAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iconnector/) 以及像圖表此類的 [IGraphicalObject](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/igraphicalobject/) 實例。
 
-以下範例建立多種常見圖形類型，並為每個圖形關聯一個現代註解。
+以下範例建立多種常見形狀類型，並為每個形狀關聯一個現代註解。
 
 ```csharp
 using System;
@@ -241,16 +243,16 @@ presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 
 ### **將註解錨定至文字並設定其狀態**
 
-對於關聯至 [IAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/) 的現代註解，[IModernComment.TextSelectionStart](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/textselectionstart/) 指定形狀文字框中所選文字的起始位置，而 [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/textselectionlength/) 指定選取的長度。兩者共同將註解與 AutoShape 內的特定文字範圍關聯。
+對於與 [IAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/) 相關聯的現代註解，[IModernComment.TextSelectionStart](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/textselectionstart/) 指定形狀文字框中選取文字的起始位置，而 [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/textselectionlength/) 指定選取的長度。這兩個屬性共同將註解與 AutoShape 內的特定文字範圍關聯起來。
 
-[IModernComment.Status](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/status/) 屬性可讀取或以 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/moderncommentstatus/) 列舉值進行設定：
+[IModernComment.Status](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/status/) 屬性可讀取或使用 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/moderncommentstatus/) 列舉的值進行設定：
 
 - `NotDefined` — 未定義特定的現代註解狀態。
-- `Active` — 註解為活躍狀態。
-- `Resolved` — 註解已解決。
+- `Active` — 註解為活動狀態。
+- `Resolved` — 註解已被解決。
 - `Closed` — 註解已關閉。
 
-以下範例建立一個錨定於圖形的現代註解，將其與文字選取關聯，標記為已解決，儲存簡報，並在重新開啟檔案後驗證其值。
+以下範例建立一個錨定至形狀的現代註解，將其與文字選取關聯，標示為已解決，儲存簡報，並在重新開啟檔案後驗證其值。
 
 ```csharp
 using System;
@@ -301,9 +303,9 @@ foreach (var reopenedComment in reopenedComments)
 }
 ```
 
-### **檢查現有的現代註解**
+### **檢視現有的現代註解**
 
-若要檢查現有簡報，先找出哪些註解實作了 [IModernComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/)，再檢查其 [IModernComment.Shape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/shape/)、[IModernComment.TextSelectionStart](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/textselectionstart/)、[IModernComment.TextSelectionLength](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/textselectionlength/) 與 [IModernComment.Status](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/status/)。`null` 的 shape 代表投影片層級註解。若為 [IAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/) 錨點，文字選取屬性則指出該圖形文字框中的相關範圍。
+要檢查現有簡報，先確認哪些註解實作了 [IModernComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/)，然後檢查 [IModernComment.Shape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/shape/)、[IModernComment.TextSelectionStart](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/textselectionstart/)、[IModernComment.TextSelectionLength](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/textselectionlength/) 與 [IModernComment.Status](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/status/)。`null` 形狀表示投影片層級的註解。若以 [IAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/) 作為錨點，文字選取屬性會指示該形狀文字框中的相關範圍。
 
 ```csharp
 using System;
@@ -349,7 +351,7 @@ foreach (var slide in presentation.Slides)
 
 ## **移除註解**
 
-### **移除全部註解與註解作者**
+### **移除所有註解與註解作者**
 
 以下範例示範如何從簡報中移除所有註解與註解作者：
 
@@ -411,16 +413,16 @@ foreach (var commentAuthor in presentation.CommentAuthors)
 presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **常見問題**
+## **常見問答**
 
 **Aspose.Slides 是否支援現代註解的已解決狀態？**
 
-是的。[IModernComment.Status](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/status/) 可讀寫 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/moderncommentstatus/) 值，其中包含 `Resolved`。此狀態會儲存在簡報中，重新開啟檔案後仍可讀取。
+是的。[IModernComment.Status](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/status/) 可讀取並設定為 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/moderncommentstatus/) 列舉值，包括 `Resolved`。此狀態會儲存在簡報中，重新開啟檔案後仍可讀取。
 
 **是否支援串接討論（回覆鏈），且有巢狀深度限制嗎？**
 
-支援。每個註解均可參照其 [parent comment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/comment/parentcomment/)，形成回覆鏈。API 未定義具體的巢狀深度上限。
+是的。每個註解都可以參照其 [parent comment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/comment/parentcomment/)，從而形成回覆鏈。API 並未定義具體的巢狀深度限制。
 
-**註解標記在投影片上的位置使用哪種座標系統？**
+**註解標記在投影片上的位置是以哪個座標系統定義的？**
 
-標記位置是以浮點座標表示，基於投影片的座標系統，您可以精確地將其放置於投影片上。
+標記位置以投影片座標系統中的浮點座標表示，讓您能精確地將其放置於投影片上。

@@ -1,15 +1,15 @@
 ---
-title: Beheer presentatieopmerkingen in Python via Java
-linktitle: Presentatieopmerkingen
+title: Beheer presentatie‑opmerkingen in Python via Java
+linktitle: Presentatie‑opmerkingen
 type: docs
 weight: 100
 url: /nl/python-java/presentation-comments/
 keywords:
 - opmerking
 - moderne opmerking
-- PowerPoint-opmerkingen
-- presentatieopmerkingen
-- dia-opmerkingen
+- PowerPoint‑opmerkingen
+- presentatie‑opmerkingen
+- dia‑opmerkingen
 - opmerking toevoegen
 - opmerking benaderen
 - opmerking bewerken
@@ -21,30 +21,32 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Beheer presentatieopmerkingen met Aspose.Slides for Python via Java: voeg toe, lees, bewerk, beantwoord en verwijder opmerkingen in PowerPoint-presentaties snel en eenvoudig."
+description: "Beheer presentatie‑opmerkingen met Aspose.Slides voor Python via Java: voeg toe, lees, bewerk, beantwoord en verwijder opmerkingen in PowerPoint‑presentaties snel en eenvoudig."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u presentatieopmerkingen kunt beheren met Aspose.Slides for Python via Java. Het introduceert de belangrijkste types met betrekking tot opmerkingen en toont hoe u opmerkingen aan dia's kunt toevoegen, bestaande opmerkingen kunt benaderen, kunt werken met antwoorden en moderne opmerkingen, en opmerkingen uit een presentatie kunt verwijderen.
+Dit artikel legt uit hoe u presentatie‑opmerkingen beheert met Aspose.Slides voor Python via Java. Het introduceert de belangrijkste typen die met opmerkingen te maken hebben en toont hoe u opmerkingen aan dia’s toevoegt, bestaande opmerkingen benadert, werkt met antwoorden en moderne opmerkingen, en opmerkingen uit een presentatie verwijdert.
 
-De voorbeelden behandelen veelvoorkomende beoordelings- en samenwerkingsscenario's in PowerPoint, zoals het toewijzen van opmerkingen aan auteurs, het lezen van de tekst en metadata van een opmerking, het opbouwen van antwoordketens en het verwijderen van geselecteerde opmerkingen of alle opmerkingen.
+De voorbeelden behandelen veelvoorkomende beoordelings‑ en samenwerkingsscenario’s in PowerPoint, zoals het toewijzen van opmerkingen aan auteurs, het lezen van opmerkingstekst en metadata, het opbouwen van antwoordketens, en het verwijderen van geselecteerde of alle opmerkingen.
 
-In PowerPoint verschijnen opmerkingen als annotaties op dia's. Het selecteren van een opmerking toont de tekst en de bijbehorende discussie.
+In PowerPoint verschijnen opmerkingen als annotaties op dia’s. Het selecteren van een opmerking toont de tekst en de bijbehorende discussie.
 
-## **Waarom opmerkingen toevoegen aan presentaties?**
+Om te bepalen of opmerkingen getoond of verborgen moeten worden wanneer een presentatie wordt geopend zonder de opmerkingen zelf te wijzigen, zie [Toon of verberg opmerkingen bij het openen van een presentatie](/slides/nl/python-java/presentation-view-properties/).
 
-U kunt opmerkingen gebruiken om feedback te geven en samen te werken met collega's bij het beoordelen van presentaties.
+## **Waarom opmerkingen aan presentaties toevoegen?**
 
-Aspose.Slides for Python via Java biedt de volgende API's voor werken met opmerkingen:
+U kunt opmerkingen gebruiken om feedback te geven en samen te werken met collega’s tijdens het beoordelen van presentaties.
 
-* De klasse [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) die toegang biedt tot de commentaurauteurs van de presentatie.
-* De klasse [CommentCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/commentcollection/) die de opmerkingen vertegenwoordigt die aan een individuele auteur zijn gekoppeld.
-* De klasse [Comment](https://reference.aspose.com/slides/nl/python-java/aspose.slides/comment/) die informatie over een opmerking geeft, inclusief de auteur, aanmaakdatum, positie en tekst.
-* De klasse [CommentAuthor](https://reference.aspose.com/slides/nl/python-java/aspose.slides/commentauthor/) die informatie over een auteur geeft, inclusief naam, initiaal(en) en gekoppelde opmerkingen.
+Aspose.Slides voor Python via Java biedt de volgende API’s voor het werken met opmerkingen:
 
-## **Dia-opmerkingen toevoegen**
+* De [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/)‑klasse, die toegang biedt tot de auteurs van de opmerkingen in de presentatie.
+* De [CommentCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/commentcollection/)‑klasse, die de opmerkingen vertegenwoordigt die aan een individuele auteur zijn gekoppeld.
+* De [Comment](https://reference.aspose.com/slides/nl/python-java/aspose.slides/comment/)‑klasse, die informatie over een opmerking levert, inclusief auteur, aanmaaktijd, positie en tekst.
+* De [CommentAuthor](https://reference.aspose.com/slides/nl/python-java/aspose.slides/commentauthor/)‑klasse, die informatie over een auteur verschaft, zoals naam, initialen en gekoppelde opmerkingen.
 
-Het volgende voorbeeld toont hoe u opmerkingen aan dia's kunt toevoegen in een PowerPoint‑presentatie:
+## **Opmerkingen aan dia’s toevoegen**
+
+Het volgende voorbeeld toont hoe u opmerkingen aan dia’s in een PowerPoint‑presentatie toevoegt:
 
 ```python
 import jpype
@@ -83,9 +85,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Dia-opmerkingen benaderen**
+## **Opmerkingen van dia’s benaderen**
 
-Het volgende voorbeeld toont hoe u bestaande opmerkingen in een PowerPoint‑presentatie kunt benaderen:
+Het volgende voorbeeld toont hoe u bestaande opmerkingen in een PowerPoint‑presentatie benadert:
 
 ```python
 import jpype
@@ -111,9 +113,9 @@ finally:
 
 ## **Antwoorden op opmerkingen**
 
-Een hoofdopmerking is de oorspronkelijke opmerking bovenaan een antwoordhiërarchie. De methoden [Comment.getParentComment](https://reference.aspose.com/slides/nl/python-java/aspose.slides/comment/#getParentComment) en [Comment.setParentComment](https://reference.aspose.com/slides/nl/python-java/aspose.slides/comment/#setParentComment) stellen u in staat om de ouder van een opmerking op te halen of in te stellen.
+Een hoofdopmerking is de oorspronkelijke opmerking bovenaan een antwoord‑hiërarchie. De methoden [Comment.getParentComment](https://reference.aspose.com/slides/nl/python-java/aspose.slides/comment/#getParentComment) en [Comment.setParentComment](https://reference.aspose.com/slides/nl/python-java/aspose.slides/comment/#setParentComment) stellen u in staat de ouder van een opmerking op te halen of in te stellen.
 
-Het volgende voorbeeld toont hoe u antwoorden kunt toevoegen en de resulterende opmerkinghiërarchie kunt inspecteren:
+Het volgende voorbeeld toont hoe u antwoorden toevoegt en de resulterende opmerkingenhiërarchie inspecteert:
 
 ```python
 import jpype
@@ -169,20 +171,20 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="warning" title="Waarschuwing" %}}
-* Wanneer de methode [Comment.remove](https://reference.aspose.com/slides/nl/python-java/aspose.slides/comment/#remove) wordt gebruikt om een opmerking te verwijderen, worden ook alle antwoorden op die opmerking verwijderd.
+{{% alert color="warning" title="Warning" %}}
+* Wanneer de methode [Comment.remove](https://reference.aspose.com/slides/nl/python-java/aspose.slides/comment/#remove) wordt gebruikt om een opmerking te verwijderen, worden alle antwoorden op die opmerking eveneens verwijderd.
 * Als [Comment.setParentComment](https://reference.aspose.com/slides/nl/python-java/aspose.slides/comment/#setParentComment) een circulaire verwijzing creëert, wordt een [PptxEditException](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pptxeditexception/) gegooid.
 {{% /alert %}}
 
 ## **Moderne opmerkingen toevoegen**
 
-Moderne opmerkingen kunnen worden gekoppeld aan de dia zelf, aan een specifieke vorm, of aan een tekstreek binnen een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/). De methode [CommentCollection.addModernComment](https://reference.aspose.com/slides/nl/python-java/aspose.slides/commentcollection/#addModernComment) accepteert een [Shape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/)‑argument naast de dia‑ en opmerking‑markercoördinaten.
+Moderne opmerkingen kunnen worden gekoppeld aan de dia zelf, aan een specifiek vormelement, of aan een tekstbereik binnen een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/). De methode [CommentCollection.addModernComment](https://reference.aspose.com/slides/nl/python-java/aspose.slides/commentcollection/#addModernComment) accepteert een [Shape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/)‑argument naast de dia‑ en marker‑coördinaten.
 
-Wanneer `None` wordt doorgegeven voor het shape‑argument, is de opmerking een dia‑niveau opmerking. De marker wordt gepositioneerd volgens de opgegeven coördinaten, maar is niet gekoppeld aan een specifieke vorm, zodat [ModernComment.getShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getShape) `None` retourneert. Wanneer een [Shape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/) wordt meegegeven, wordt de opmerking verankerd aan die vorm. De coördinaten bepalen nog steeds de positie van de opmerkingmarker op de dia, terwijl de vormassociatie kan worden opgehaald via [ModernComment.getShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getShape).
+Wanneer `None` wordt doorgegeven voor het shape‑argument, is de opmerking een dia‑niveau‑opmerking. De marker wordt gepositioneerd volgens de opgegeven coördinaten, maar is niet gekoppeld aan een specifieke vorm, zodat [ModernComment.getShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getShape) `None` retourneert. Wanneer een [Shape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/) wordt opgegeven, wordt de opmerking aan die vorm verankerd. De coördinaten bepalen nog steeds de positie van de marker op de dia, terwijl de vormkoppeling kan worden opgehaald via [ModernComment.getShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getShape).
 
-### **Een moderne opmerking verankeren aan een vorm**
+### **Een moderne opmerking aan een vorm verankeren**
 
-Het volgende voorbeeld maakt zowel een moderne opmerking op dia‑niveau als een moderne opmerking die verankerd is aan een specifieke [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/). Vervolgens leest het de gekoppelde vorm uit elke opmerking.
+Het volgende voorbeeld maakt zowel een moderne opmerking op dia‑niveau als een moderne opmerking verankerd aan een specifieke [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/). Vervolgens leest het de gekoppelde vorm van elke opmerking.
 
 ```python
 import jpype
@@ -218,11 +220,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Opmerkingen verankeren aan verschillende vormtypen**
+### **Opmerkingen verankeren aan verschillende vormtypes**
 
-Elk dia‑object dat van [Shape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/) erven kan worden gebruikt als een vormankerpunt. Veelvoorkomende voorbeelden zijn [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/nl/python-java/aspose.slides/connector/) en [GraphicalObject](https://reference.aspose.com/slides/nl/python-java/aspose.slides/graphicalobject/)&nbsp;‑ instellingen zoals grafieken.
+Elk dia‑object dat van [Shape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/) erft, kan worden gebruikt als vorm‑anker. Veelvoorkomende voorbeelden zijn [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/nl/python-java/aspose.slides/connector/) en [GraphicalObject](https://reference.aspose.com/slides/nl/python-java/aspose.slides/graphicalobject/)‑instanties zoals grafieken.
 
-Het volgende voorbeeld maakt verschillende veelvoorkomende vormtypen aan en koppelt een moderne opmerking aan elk van hen.
+Het volgende voorbeeld maakt verschillende veelvoorkomende vormtypes en koppelt een moderne opmerking aan elk van hen.
 
 ```python
 import jpype
@@ -274,17 +276,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Een opmerking verankeren aan tekst en de status instellen**
+### **Een opmerking aan tekst verankeren en de status instellen**
 
-Voor een moderne opmerking die is gekoppeld aan een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/), geven [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getTextSelectionStart) en [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#setTextSelectionStart) de startpositie van de geselecteerde tekst in het tekstkader van de vorm terug. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getTextSelectionLength) en [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#setTextSelectionLength) geven de lengte van de selectie terug. Samen koppelen deze waarden de opmerking aan een specifieke tekstreek binnen de AutoShape.
+Voor een moderne opmerking gekoppeld aan een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/), geven [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getTextSelectionStart) en [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#setTextSelectionStart) de startpositie van de geselecteerde tekst in het tekstkader van de vorm. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getTextSelectionLength) en [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#setTextSelectionLength) geven de lengte van de selectie. Samen koppelen deze waarden de opmerking aan een specifiek tekstbereik binnen de AutoShape.
 
-De methoden [ModernComment.getStatus](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getStatus) en [ModernComment.setStatus](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#setStatus) geven een waarde uit de [ModernCommentStatus](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncommentstatus/)‑constanten terug:
-- [NotDefined](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncommentstatus/#NotDefined) — er is geen specifieke moderne‑opmerkingstatus gedefinieerd.
+De methoden [ModernComment.getStatus](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getStatus) en [ModernComment.setStatus](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#setStatus) halen een waarde op uit de constante [ModernCommentStatus](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncommentstatus/):
+
+- [NotDefined](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncommentstatus/#NotDefined) — er is geen specifieke status gedefinieerd.
 - [Active](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncommentstatus/#Active) — de opmerking is actief.
-- [Resolved](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncommentstatus/#Resolved) — de opmerking is afgehandeld.
+- [Resolved](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncommentstatus/#Resolved) — de opmerking is opgelost.
 - [Closed](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncommentstatus/#Closed) — de opmerking is gesloten.
 
-Het volgende voorbeeld maakt een moderne opmerking verankerd aan een vorm, koppelt deze aan een tekstreek, markeert de opmerking als afgehandeld, slaat de presentatie op en verifieert de waarden na het opnieuw openen van het bestand.
+Het volgende voorbeeld maakt een vorm‑verankerde moderne opmerking, koppelt deze aan een tekstselectie, markeert deze als opgelost, slaat de presentatie op en controleert de waarden na het opnieuw openen van het bestand.
 
 ```python
 import jpype
@@ -347,7 +350,7 @@ finally:
 
 ### **Bestaande moderne opmerkingen inspecteren**
 
-Om een bestaande presentatie te inspecteren, controleer welke opmerkingen instanties van [ModernComment](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/) zijn, en kijk vervolgens naar [ModernComment.getShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getTextSelectionLength) en [ModernComment.getStatus](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getStatus). Een `None`‑vorm duidt op een opmerking op dia‑niveau. Voor een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/)‑ankerpunt identificeren de tekstreek‑methoden het bijbehorende bereik in het tekstkader van de vorm.
+Om een bestaande presentatie te inspecteren, controleert u welke opmerkingen instanties zijn van [ModernComment](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/), bekijkt vervolgens [ModernComment.getShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getTextSelectionLength) en [ModernComment.getStatus](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getStatus). Een `None`‑vorm duidt op een opmerking op dia‑niveau. Voor een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/)‑anker identificeren de tekst‑selectiemethoden het bijbehorende bereik in het tekstkader van de vorm.
 
 ```python
 import jpype
@@ -389,9 +392,9 @@ finally:
 
 ## **Opmerkingen verwijderen**
 
-### **Alle opmerkingen en opmerkingauteurs verwijderen**
+### **Alle opmerkingen en opmerking‑auteurs verwijderen**
 
-Het volgende voorbeeld toont hoe u alle opmerkingen en opmerkingauteurs uit een presentatie kunt verwijderen:
+Het volgende voorbeeld toont hoe u alle opmerkingen en opmerking‑auteurs uit een presentatie verwijdert:
 
 ```python
 import jpype
@@ -415,7 +418,7 @@ finally:
 
 ### **Specifieke opmerkingen verwijderen**
 
-Het volgende voorbeeld toont hoe u specifieke opmerkingen van een dia kunt verwijderen:
+Het volgende voorbeeld toont hoe u specifieke opmerkingen van een dia verwijdert:
 
 ```python
 import jpype
@@ -458,14 +461,14 @@ finally:
 
 ## **FAQ**
 
-**Ondersteunt Aspose.Slides een afgehandelde status voor moderne opmerkingen?**
+**Ondersteunt Aspose.Slides een resolved‑status voor moderne opmerkingen?**
 
-Ja. [ModernComment.getStatus](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getStatus) en [ModernComment.setStatus](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#setStatus) geven een waarde uit de [ModernCommentStatus](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncommentstatus/) terug, inclusief `Resolved`. De status wordt opgeslagen in de presentatie en kan opnieuw worden gelezen nadat het bestand is heropend.
+Ja. [ModernComment.getStatus](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#getStatus) en [ModernComment.setStatus](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncomment/#setStatus) benaderen een [ModernCommentStatus](https://reference.aspose.com/slides/nl/python-java/aspose.slides/moderncommentstatus/)‑waarde, waaronder `Resolved`. De status wordt opgeslagen in de presentatie en kan opnieuw gelezen worden nadat het bestand is heropend.
 
-**Worden thread‑discussies (antwoordketens) ondersteund, en is er een limiet op nesting?**
+**Worden threaded discussions (antwoordketens) ondersteund en is er een limiet op het nesting‑niveau?**
 
-Ja. Elke opmerking kan naar zijn [parent comment](https://reference.aspose.com/slides/nl/python-java/aspose.slides/comment/#getParentComment) verwijzen, waardoor antwoordketens mogelijk zijn. De API definieert geen specifieke limiet voor de diepte van genesting.
+Ja. Elke opmerking kan verwijzen naar zijn [parent comment](https://reference.aspose.com/slides/nl/python-java/aspose.slides/comment/#getParentComment), waardoor antwoordketens mogelijk zijn. De API definieert geen specifiek limiet voor de diepte van nesting.
 
-**In welk coördinatensysteem is de positie van een opmerkingmarker gedefinieerd op een dia?**
+**In welk coördinatensysteem wordt de positie van een opmerking‑marker op een dia gedefinieerd?**
 
-De positie van de marker wordt gedefinieerd door zwevende‑punt coördinaten in het dia‑coördinatensysteem, waardoor u de marker nauwkeurig op de dia kunt plaatsen.
+De marker‑positie wordt gedefinieerd door zwevende‑kommagetallen in het dia‑coördinatensysteem, zodat u deze nauwkeurig op de dia kunt plaatsen.

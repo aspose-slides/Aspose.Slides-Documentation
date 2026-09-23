@@ -24,22 +24,24 @@ description: "Hantera presentationskommentarer med Aspose.Slides för PHP via Ja
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man hanterar presentationskommentarer med Aspose.Slides för PHP via Java. Den introducerar de viktigaste typerna relaterade till kommentarer och demonstrerar hur man lägger till kommentarer på bilder, får åtkomst till befintliga kommentarer, arbetar med svar och moderna kommentarer samt tar bort kommentarer från en presentation.
+Denna artikel förklarar hur man hanterar presentationskommentarer med Aspose.Slides för PHP via Java. Den introducerar de viktigaste typerna relaterade till kommentarer och visar hur man lägger till kommentarer på bilder, får åtkomst till befintliga kommentarer, arbetar med svar och moderna kommentarer samt tar bort kommentarer från en presentation.
 
 Exemplen täcker vanliga gransknings- och samarbetsscenarier i PowerPoint, såsom att tilldela kommentarer till författare, läsa kommentartext och metadata, bygga svarskedjor och ta bort valda kommentarer eller alla kommentarer.
 
-I PowerPoint visas kommentarer som annoteringar på bilder. När du markerar en kommentar visas dess text och relaterade diskussion.
+I PowerPoint visas kommentarer som anteckningar på bilder. När du markerar en kommentar visas dess text och relaterade diskussion.
+
+För att begära att kommentarer ska visas eller döljas när en presentation öppnas utan att ändra kommentarerna själva, se [Visa eller dölj kommentarer när en presentation öppnas](/slides/sv/php-java/presentation-view-properties/).
 
 ## **Varför lägga till kommentarer i presentationer?**
 
-Du kan använda kommentarer för att ge återkoppling och samarbeta med kollegor när du granskar presentationer.
+Du kan använda kommentarer för att ge feedback och samarbeta med kollegor när du granskar presentationer.
 
-Aspose.Slides för PHP via Java tillhandahåller följande API för att arbeta med kommentarer:
+Aspose.Slides för PHP via Java tillhandahåller följande API:er för att arbeta med kommentarer:
 
-* Klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) ger åtkomst till presentationens kommentarförfattare.
-* Klassen [CommentCollection](https://reference.aspose.com/slides/sv/php-java/aspose.slides/commentcollection/) representerar kommentarer som är associerade med en enskild författare.
-* Klassen [Comment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/comment/) ger information om en kommentar, inklusive dess författare, skapelsedatum, position och text.
-* Klassen [CommentAuthor](https://reference.aspose.com/slides/sv/php-java/aspose.slides/commentauthor/) ger information om en författare, inklusive namn, initialer och associerade kommentarer.
+* Klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) som ger åtkomst till presentationens kommentarförfattare.
+* Klassen [CommentCollection](https://reference.aspose.com/slides/sv/php-java/aspose.slides/commentcollection/) som representerar kommentarer kopplade till en enskild författare.
+* Klassen [Comment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/comment/) som tillhandahåller information om en kommentar, inklusive dess författare, skapningstid, position och text.
+* Klassen [CommentAuthor](https://reference.aspose.com/slides/sv/php-java/aspose.slides/commentauthor/) som ger information om en författare, inklusive namn, initialer och associerade kommentarer.
 
 ## **Lägg till bildkommentarer**
 
@@ -70,7 +72,7 @@ try {
 
         $authorComments = $firstComment->getAuthor()->getComments();
         $commentText = $authorComments->get_Item(0)->getText();
-        echo java_values($commentText) . PHP.ENDL;
+        echo java_values($commentText) . PHP_EOL;
     }
 
     $presentation->save("Comments_out.pptx", SaveFormat::Pptx);
@@ -79,7 +81,7 @@ try {
 }
 ```
 
-## **Åtkomst till bildkommentarer**
+## **Få åtkomst till bildkommentarer**
 
 Följande exempel visar hur man får åtkomst till befintliga kommentarer i en PowerPoint-presentation:
 
@@ -91,10 +93,10 @@ try {
     foreach ($presentation->getCommentAuthors() as $author) {
         foreach ($author->getComments() as $comment) {
             echo "Slide: " . java_values($comment->getSlide()->getSlideNumber()) . PHP_EOL;
-            echo "Comment: " . java_values($comment->getText()) . PHP.ENDL;
-            echo "Author: " . java_values($comment->getAuthor()->getName()) . PHP.ENDL;
-            echo "Posted at: " . java_values($comment->getCreatedTime()->toString()) . PHP.ENDL;
-            echo PHP.ENDL;
+            echo "Comment: " . java_values($comment->getText()) . PHP_EOL;
+            echo "Author: " . java_values($comment->getAuthor()->getName()) . PHP_EOL;
+            echo "Posted at: " . java_values($comment->getCreatedTime()->toString()) . PHP_EOL;
+            echo PHP_EOL;
         }
     }
 } finally {
@@ -104,9 +106,9 @@ try {
 
 ## **Svara på kommentarer**
 
-En föräldrakommentar är den ursprungliga kommentaren högst upp i en svarshierarki. Metoderna [Comment::getParentComment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/comment/getparentcomment/) och [Comment::setParentComment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/comment/setparentcomment/) låter dig hämta eller sätta föräldern för en kommentar.
+En föräldrakommentar är den ursprungliga kommentaren högst upp i en svarshierarki. Metoderna [Comment::getParentComment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/comment/getparentcomment/) och [Comment::setParentComment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/comment/setparentcomment/) låter dig hämta eller ange föräldern för en kommentar.
 
-Följande exempel visar hur man lägger till svar och inspekterar den resulterande kommentarshierarkin:
+Följande exempel visar hur man lägger till svar och inspekterar den resulterande kommentarhierarkin:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -148,7 +150,7 @@ try {
             $comment = $comment->getParentComment();
         }
 
-        echo java_values($comments[$i]->getAuthor()->getName()) . ": " . java_values($comments[$i]->getText()) . PHP.ENDL;
+        echo java_values($comments[$i]->getAuthor()->getName()) . ": " . java_values($comments[$i]->getText()) . PHP_EOL;
     }
 
     $presentation->save("parent_comment.pptx", SaveFormat::Pptx);
@@ -161,19 +163,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* När metoden [Comment::remove](https://reference.aspose.com/slides/sv/php-java/aspose.slides/comment/remove/) används för att ta bort en kommentar, tas alla svar på den kommentaren också bort.
+* När metoden [Comment::remove](https://reference.aspose.com/slides/sv/php-java/aspose.slides/comment/remove/) används för att radera en kommentar, tas alla svar på den kommentaren också bort.
 * Om [Comment::setParentComment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/comment/setparentcomment/) skapar en cirkulär referens kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Lägg till moderna kommentarer**
 
-Moderna kommentarer kan associeras med själva bilden, med en specifik form eller med ett textintervall i en AutoShape. Metoden [CommentCollection::addModernComment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/commentcollection/addmoderncomment/) accepterar ett argument av typen [Shape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/) utöver bilden och koordinaterna för kommentarmarkören.
+Moderna kommentarer kan associeras med själva bilden, med en specifik form eller med ett textområde inuti en AutoShape. Metoden [CommentCollection::addModernComment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/commentcollection/addmoderncomment/) accepterar ett [Shape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/)‑argument utöver bild‑ och kommentarmarkörkoordinaterna.
 
-När `null` skickas för shape‑argumentet blir kommentaren en bildnivåkommentar. Dess markör placeras med de angivna koordinaterna men är inte kopplad till någon specifik form, så [ModernComment::getShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/getshape/) returnerar `null`. När en [Shape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/) tillhandahålls, fästs kommentaren vid den formen. Koordinaterna definierar fortfarande positionen för kommentarmarkören på bilden, medan formassociationen kan hämtas via [ModernComment::getShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/getshape/).
+När `null` skickas för shape‑argumentet blir kommentaren en bildnivå‑kommentar. Dess markör placeras enligt de angivna koordinaterna, men den är inte knuten till någon specifik form, så [ModernComment::getShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/getshape/) returnerar `null`. När en [Shape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/) tillhandahålls, förankras kommentaren till den formen. Koordinaterna definierar fortfarande positionen för kommentarmarkören på bilden, medan form‑associationen kan hämtas via [ModernComment::getShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/getshape/).
 
-### **Fäst en modern kommentar på en form**
+### **Förankra en modern kommentar till en form**
 
-Följande exempel skapar både en modern kommentar på bildnivå och en modern kommentar fäst vid en specifik AutoShape. Det läser sedan den associerade formen från varje kommentar.
+Följande exempel skapar både en modern kommentar på bildnivå och en modern kommentar förankrad till en specifik AutoShape. Det läser sedan den associerade formen från varje kommentar.
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -195,8 +197,8 @@ try {
     $slideComment = $author->getComments()->addModernComment("Review the overall slide layout.", $slide, null, $slideCommentPosition, $createdTime);
     $shapeComment = $author->getComments()->addModernComment("Check this title.", $slide, $shape, $shapeCommentPosition, $createdTime);
 
-    echo (java_is_null($slideComment->getShape()) ? "true" : "false") . PHP.ENDL;
-    echo java_values($shapeComment->getShape()->getName()) . PHP.ENDL;
+    echo (java_is_null($slideComment->getShape()) ? "true" : "false") . PHP_EOL;
+    echo java_values($shapeComment->getShape()->getName()) . PHP_EOL;
 
     $presentation->save("modern_comments.pptx", SaveFormat::Pptx);
 } finally {
@@ -204,9 +206,9 @@ try {
 }
 ```
 
-### **Fäst kommentarer till olika formtyper**
+### **Förankra kommentarer till olika formtyper**
 
-Alla bildobjekt som representeras av klassen [Shape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/) kan användas som en formankare. Vanliga exempel inkluderar [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/sv/php-java/aspose.slides/connector/) och [GraphicalObject](https://reference.aspose.com/slides/sv/php-java/aspose.slides/graphicalobject/) instanser såsom diagram.
+Alla bildobjekt som representeras av klassen [Shape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/) kan användas som en formförankring. Vanliga exempel inkluderar [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/sv/php-java/aspose.slides/connector/) och [GraphicalObject](https://reference.aspose.com/slides/sv/php-java/aspose.slides/graphicalobject/)-instanser såsom diagram.
 
 Följande exempel skapar flera vanliga formtyper och associerar en modern kommentar med var och en.
 
@@ -256,18 +258,17 @@ try {
 }
 ```
 
-### **Fäst en kommentar till text och ange dess status**
+### **Förankra en kommentar till text och ange dess status**
 
-För en modern kommentar som är associerad med en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/), ger [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/gettextselectionstart/) och [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/settextselectionstart/) åtkomst till startpositionen för den markerade texten i formens textruta. [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/gettextselectionlength/) och [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/settextselectionlength/) ger åtkomst till längden på markeringen. Tillsammans associerar dessa värden kommentaren med ett specifikt textintervall i AutoShape.
+För en modern kommentar som är associerad med en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/), ger [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/gettextselectionstart/) och [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/settextselectionstart/) åtkomst till startpositionen för den markerade texten i formens textruta. [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/gettextselectionlength/) och [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/settextselectionlength/) ger åtkomst till längden på markeringen. Tillsammans associerar dessa värden kommentaren med ett specifikt textområde i AutoShape.
 
-Metoderna [ModernComment::getStatus](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/getstatus/) och [ModernComment::setStatus](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/setstatus/) hämtar ett värde från konstanten [ModernCommentStatus](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncommentstatus/):
-
-- `NotDefined` — ingen specifik modernkommentarstatus är definierad.
+Metoderna [ModernComment::getStatus](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/getstatus/) och [ModernComment::setStatus](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/setstatus/) ger åtkomst till ett värde från konstanten [ModernCommentStatus](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncommentstatus/):
+- `NotDefined` — ingen specifik status för modern kommentar är definierad.
 - `Active` — kommentaren är aktiv.
-- `Resolved` — kommentaren har markerats som löst.
+- `Resolved` — kommentaren har lösts.
 - `Closed` — kommentaren är stängd.
 
-Följande exempel skapar en formankrad modern kommentar, associerar den med ett texturval, markerar den som löst, sparar presentationen och verifierar värdena efter att filen har öppnats igen.
+Följande exempel skapar en formförankrad modern kommentar, associerar den med en textmarkering, markerar den som löst, sparar presentationen och verifierar värdena efter att filen har öppnats igen.
 
 ```php
 use aspose\slides\ModernCommentStatus;
@@ -317,10 +318,10 @@ try {
         $selectionLengthMatches = java_values($reopenedComment->getTextSelectionLength()) === strlen($selectedText);
         $statusMatches = java_values($reopenedComment->getStatus()) === ModernCommentStatus::Resolved;
 
-        echo "Shape anchor preserved: " . ($shapeMatches ? "true" : "false") . PHP.ENDL;
-        echo "Text selection start preserved: " . ($selectionStartMatches ? "true" : "false") . PHP.ENDL;
-        echo "Text selection length preserved: " . ($selectionLengthMatches ? "true" : "false") . PHP.ENDL;
-        echo "Resolved status preserved: " . ($statusMatches ? "true" : "false") . PHP.ENDL;
+        echo "Shape anchor preserved: " . ($shapeMatches ? "true" : "false") . PHP_EOL;
+        echo "Text selection start preserved: " . ($selectionStartMatches ? "true" : "false") . PHP_EOL;
+        echo "Text selection length preserved: " . ($selectionLengthMatches ? "true" : "false") . PHP_EOL;
+        echo "Resolved status preserved: " . ($statusMatches ? "true" : "false") . PHP_EOL;
     }
 } finally {
     $reopenedPresentation->dispose();
@@ -329,7 +330,7 @@ try {
 
 ### **Inspektera befintliga moderna kommentarer**
 
-För att inspektera en befintlig presentation, kontrollera om varje kommentar är en [ModernComment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/), och undersök sedan [ModernComment::getShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/gettextselectionlength/) samt [ModernComment::getStatus](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/getstatus/). En `null` form indikerar en bildnivåkommentar. För en [AutoShape]‑ankare identifierar texturvalsmetoderna det associerade intervallet i formens textruta.
+För att inspektera en befintlig presentation, kontrollera om varje kommentar är en [ModernComment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/), och granska sedan [ModernComment::getShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/gettextselectionlength/) och [ModernComment::getStatus](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/getstatus/). En `null` form indikerar en kommentar på bildnivå. För en [AutoShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/autoshape/)‑förankring identifierar textmarkeringmetoderna det associerade intervallet i formens textruta.
 
 ```php
 use aspose\slides\Presentation;
@@ -346,24 +347,24 @@ try {
                 continue;
             }
 
-            echo "Slide: " . java_values($slide->getSlideNumber()) . PHP.ENDL;
-            echo "Text: " . java_values($comment->getText()) . PHP.ENDL;
-            echo "Status: " . java_values($comment->getStatus()) . PHP.ENDL;
+            echo "Slide: " . java_values($slide->getSlideNumber()) . PHP_EOL;
+            echo "Text: " . java_values($comment->getText()) . PHP_EOL;
+            echo "Status: " . java_values($comment->getStatus()) . PHP_EOL;
 
             $shape = $comment->getShape();
             if (java_is_null($shape)) {
-                echo "Anchor: slide level" . PHP.ENDL;
+                echo "Anchor: slide level" . PHP_EOL;
             } else {
-                echo "Anchor shape: " . java_values($shape->getName()) . PHP.ENDL;
-                echo "Anchor type: " . java_values($shape->getClass()->getSimpleName()) . PHP.ENDL;
+                echo "Anchor shape: " . java_values($shape->getName()) . PHP_EOL;
+                echo "Anchor type: " . java_values($shape->getClass()->getSimpleName()) . PHP_EOL;
 
                 if (java_instanceof($shape, $autoShapeClass)) {
-                    echo "Text selection start: " . java_values($comment->getTextSelectionStart()) . PHP.ENDL;
-                    echo "Text selection length: " . java_values($comment->getTextSelectionLength()) . PHP.ENDL;
+                    echo "Text selection start: " . java_values($comment->getTextSelectionStart()) . PHP_EOL;
+                    echo "Text selection length: " . java_values($comment->getTextSelectionLength()) . PHP_EOL;
                 }
             }
 
-            echo PHP.ENDL;
+            echo PHP_EOL;
         }
     }
 } finally {
@@ -435,15 +436,15 @@ try {
 }
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Stöder Aspose.Slides en löst status för moderna kommentarer?**
+**Stöder Aspose.Slides ett löst‑status för moderna kommentarer?**
 
 Ja. [ModernComment::getStatus](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/getstatus/) och [ModernComment::setStatus](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncomment/setstatus/) ger åtkomst till ett värde från [ModernCommentStatus](https://reference.aspose.com/slides/sv/php-java/aspose.slides/moderncommentstatus/), inklusive `Resolved`. Statusen lagras i presentationen och kan läsas igen efter att filen har öppnats på nytt.
 
-**Stöds trådade diskussioner (svarskedjor), och finns det någon begränsning för nästning?**
+**Stöds trådade diskussioner (svarskedjor) och finns det någon begränsning för nästling?**
 
-Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/comment/getparentcomment/), vilket möjliggör svarskedjor. API:et definierar ingen specifik begränsning för hur djupt kommentarer kan nästas.
+Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/sv/php-java/aspose.slides/comment/getparentcomment/), vilket möjliggör svarskedjor. API:et definierar ingen specifik begränsning för nästlingsdjup.
 
 **I vilket koordinatsystem definieras en kommentarmarkörs position på en bild?**
 

@@ -20,26 +20,28 @@ keywords:
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Διαχειριστείτε σχόλια παρουσίασης με το Aspose.Slides for Java: προσθέστε, διαβάστε, επεξεργαστείτε, απαντήστε και αφαιρέστε σχόλια σε παρουσιάσεις PowerPoint γρήγορα και εύκολα."
+description: "Διαχείριση σχολίων παρουσίασης με Aspose.Slides for Java: προσθήκη, ανάγνωση, επεξεργασία, απάντηση και αφαίρεση σχολίων σε παρουσιάσεις PowerPoint γρήγορα και εύκολα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να διαχειρίζεστε τα σχόλια παρουσίασης με το Aspose.Slides for Java. Εισάγει τους κύριους τύπους που σχετίζονται με τα σχόλια και δείχνει πώς να προσθέτετε σχόλια στις διαφάνειες, να έχετε πρόσβαση σε υπάρχουσες σχόλια, να εργάζεστε με απαντήσεις και σύγχρονα σχόλια και να αφαιρείτε σχόλια από μια παρουσίαση.
+Αυτό το άρθρο εξηγεί πώς να διαχειριστείτε τα σχόλια παρουσίασης με το Aspose.Slides for Java. Παρουσιάζει τους κύριους τύπους σχετικού με τα σχόλια και επιδεικνύει πώς να προσθέσετε σχόλια σε διαφάνειες, να έχετε πρόσβαση σε υπάρχοντα σχόλια, να εργαστείτε με απαντήσεις και σύγχρονα σχόλια, και να αφαιρέσετε σχόλια από μια παρουσίαση.
 
-Τα παραδείγματα καλύπτουν κοινά σενάρια ελέγχου και συνεργασίας σε PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση του κειμένου και των μεταδεδομένων ενός σχολίου, η δημιουργία αλυσίδων απαντήσεων και η αφαίρεση επιλεγμένων σχολίων ή όλων των σχολίων.
+Τα παραδείγματα καλύπτουν κοινά σενάρια αξιολόγησης και συνεργασίας στο PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση κειμένου σχολίου και μεταδεδομένων, η δημιουργία αλυσίδων απαντήσεων και η αφαίρεση επιλεγμένων σχολίων ή όλων των σχολίων.
 
-Σε PowerPoint, τα σχόλια εμφανίζονται ως σημειώσεις στις διαφάνειες. Η επιλογή ενός σχολίου εμφανίζει το κείμενό του και τη σχετική συζήτηση.
+Στο PowerPoint, τα σχόλια εμφανίζονται ως σημειώσεις πάνω στις διαφάνειες. Η επιλογή ενός σχολίου εμφανίζει το κείμενο του και τη σχετική συζήτηση.
 
-## **Γιατί να Προσθέτετε Σχόλια σε Παρουσιάσεις;**
+Για να ζητήσετε τα σχόλια να εμφανίζονται ή να αποκρύπτονται όταν ανοίγει μια παρουσίαση χωρίς να αλλάξετε τα ίδια τα σχόλια, δείτε [Εμφάνιση ή Απόκρυψη Σχολίων Κατά το Άνοιγμα Παρουσίασης](/slides/el/java/presentation-view-properties/).
 
-Μπορείτε να χρησιμοποιήσετε σχόλια για να παρέχετε ανατροφοδότηση και να συνεργάζεστε με συναδέλφους κατά την αξιολόγηση παρουσιάσεων.
+## **Γιατί να Προσθέσετε Σχόλια σε Παρουσιάσεις;**
 
-Aspose.Slides for Java παρέχει τα ακόλουθα API για εργασία με σχόλια:
+Μπορείτε να χρησιμοποιήσετε τα σχόλια για να παρέχετε ανατροφοδότηση και να συνεργαστείτε με συναδέλφους κατά την αξιολόγηση των παρουσιάσεων.
 
-* Η κλάση [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) που παρέχει πρόσβαση στους συγγραφείς σχολίων της παρουσίασης.
-* Η διεπαφή [ICommentCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/icommentcollection/) που αντιπροσωπεύει τα σχόλια που σχετίζονται με έναν συγκεκριμένο συγγραφέα.
-* Η διεπαφή [IComment](https://reference.aspose.com/slides/el/java/com.aspose.slides/icomment/) που παρέχει πληροφορίες για ένα σχόλιο, όπως ο συγγραφέας, η ώρα δημιουργίας, η θέση και το κείμενο.
-* Η κλάση [CommentAuthor](https://reference.aspose.com/slides/el/java/com.aspose.slides/commentauthor/) που παρέχει πληροφορίες για έναν συγγραφέα, όπως το όνομα, τα αρχικά και τα συνδεδεμένα σχόλια.
+Το Aspose.Slides for Java παρέχει τα ακόλουθα API για εργασία με σχόλια:
+
+* Η κλάση [Παρουσίαση](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) που παρέχει πρόσβαση στους συγγραφείς σχολίων της παρουσίασης.
+* Η διεπαφή [ICommentCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/icommentcollection/) που αντιπροσωπεύει τα σχόλια που σχετίζονται με έναν μεμονωμένο συγγραφέα.
+* Η διεπαφή [IComment](https://reference.aspose.com/slides/el/java/com.aspose.slides/icomment/) που παρέχει πληροφορίες για ένα σχόλιο, συμπεριλαμβανομένου του συγγραφέα, της ώρας δημιουργίας, της θέσης και του κειμένου.
+* Η κλάση [CommentAuthor](https://reference.aspose.com/slides/el/java/com.aspose.slides/commentauthor/) που παρέχει πληροφορίες για έναν συγγραφέα, συμπεριλαμβανομένου του ονόματός του, των αρχικών του και των σχετιζόμενων σχολίων.
 
 ## **Προσθήκη Σχολίων σε Διαφάνειες**
 
@@ -84,7 +86,7 @@ try {
 
 ## **Πρόσβαση σε Σχόλια Διαφάνειας**
 
-Το παρακάτω παράδειγμα δείχνει πώς να έχετε πρόσβαση σε υπάρχοντα σχόλια σε μια παρουσίαση PowerPoint:
+Το παρακάτω παράδειγμα δείχνει πώς να αποκτήσετε πρόσβαση σε υπάρχοντα σχόλια σε μια παρουσίαση PowerPoint:
 
 ```java
 import com.aspose.slides.IComment;
@@ -167,22 +169,20 @@ try {
 }
 ```
 
-{{% alert color="warning" title="Προειδοποίηση" %}}
-
-* Όταν χρησιμοποιείται η μέθοδος [IComment.remove](https://reference.aspose.com/slides/el/java/com.aspose.slides/icomment/#remove--) για διαγραφή ενός σχολίου, όλες οι απαντήσεις σε αυτό το σχόλιο διαγράφονται επίσης.
-* Εάν η μέθοδος [IComment.setParentComment](https://reference.aspose.com/slides/el/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) δημιουργεί κυκλική αναφορά, ρίχνεται μια εξαίρεση [PptxEditException](https://reference.aspose.com/slides/el/java/com.aspose.slides/pptxeditexception/).
-
+{{% alert color="warning" title="Warning" %}}
+* Όταν η μέθοδος [IComment.remove](https://reference.aspose.com/slides/el/java/com.aspose.slides/icomment/#remove--) χρησιμοποιείται για τη διαγραφή ενός σχολίου, όλες οι απαντήσεις σε αυτό το σχόλιο διαγράφονται επίσης.
+* Εάν η [IComment.setParentComment](https://reference.aspose.com/slides/el/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) δημιουργήσει κυκλική αναφορά, ρίχνεται μια [PptxEditException](https://reference.aspose.com/slides/el/java/com.aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Προσθήκη Σύγχρονων Σχολίων**
 
-Τα σύγχρονα σχόλια μπορούν να συσχετιστούν με τη διαφάνεια, με ένα συγκεκριμένο σχήμα ή με μια περιοχή κειμένου μέσα σε AutoShape. Η μέθοδος [ICommentCollection.addModernComment](https://reference.aspose.com/slides/el/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) δέχεται ένα όρισμα [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/) εκτός από τη διαφάνεια και τις συντεταγμένες του δείκτη σχολίου.
+Τα σύγχρονα σχόλια μπορούν να συσχετιστούν με τη διαφάνεια, με ένα συγκεκριμένο σχήμα ή με μια περιοχή κειμένου μέσα σε AutoShape. Η μέθοδος [ICommentCollection.addModernComment](https://reference.aspose.com/slides/el/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) δέχεται ένα όρισμα [IShape] επιπλέον της διαφάνειας και των συντεταγμένων του δείκτη σχολίου.
 
-Όταν περνιέται `null` για το όρισμα του σχήματος, το σχόλιο είναι σχόλιο σε επίπεδο διαφάνειας. Ο δείκτης τοποθετείται από τις δοσμένες συντεταγμένες, αλλά δεν σχετίζεται με κάποιο συγκεκριμένο σχήμα, έτσι η μέθοδος [IModernComment.getShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getShape--) επιστρέφει `null`. Όταν παρέχεται ένα [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/), το σχόλιο αγκυροβολείται σε αυτό το σχήμα. Οι συντεταγμένες εξακολουθούν να ορίζουν τη θέση του δείκτη σχολίου στη διαφάνεια, ενώ η συσχέτιση σχήματος μπορεί να ληφθεί μέσω της [IModernComment.getShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getShape--).
+Όταν περνάται `null` ως όρισμα για το σχήμα, το σχόλιο είναι σχολιασμός επιπέδου διαφάνειας. Ο δείκτης του τοποθετείται με τις δοσμένες συντεταγμένες, αλλά δεν είναι συνδεδεμένο με κάποιο συγκεκριμένο σχήμα, έτσι η [IModernComment.getShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getShape--) επιστρέφει `null`. Όταν παρέχεται ένα [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/), το σχόλιο αγκυροβολείται σε αυτό το σχήμα. Οι συντεταγμένες εξακολουθούν να ορίζουν τη θέση του δείκτη του σχολίου στη διαφάνεια, ενώ η συσχέτιση σχήματος μπορεί να ανακτηθεί μέσω της [IModernComment.getShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getShape--).
 
 ### **Αγκύρωση Σύγχρονου Σχολίου σε Σχήμα**
 
-Το παρακάτω παράδειγμα δημιουργεί τόσο ένα σύγχρονο σχόλιο σε επίπεδο διαφάνειας όσο και ένα σύγχρονο σχόλιο αγκυροβολημένο σε συγκεκριμένο AutoShape. Στη συνέχεια διαβάζει το συσχετισμένο σχήμα από κάθε σχόλιο.
+Το παρακάτω παράδειγμα δημιουργεί τόσο ένα σύγχρονο σχόλιο επιπέδου διαφάνειας όσο και ένα σύγχρονο σχόλιο αγκυροβολημένο σε συγκεκριμένο AutoShape. Στη συνέχεια διαβάζει το συσχετισμένο σχήμα από κάθε σχόλιο.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -220,9 +220,9 @@ try {
 
 ### **Αγκύρωση Σχολίων σε Διαφορετικούς Τύπους Σχημάτων**
 
-Οποιοδήποτε αντικείμενο διαφάνειας που υλοποιεί το [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/) μπορεί να χρησιμοποιηθεί ως αγκίστρι σχήματος. Συχνά παραδείγματα περιλαμβάνουν τα [IAutoShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/el/java/com.aspose.slides/iconnector/) και [IGraphicalObject](https://reference.aspose.com/slides/el/java/com.aspose.slides/igraphicalobject/) όπως διαγράμματα.
+Οποιοδήποτε αντικείμενο διαφάνειας που υλοποιεί το [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/) μπορεί να χρησιμοποιηθεί ως αγκίστρωση σχήματος. Συνηθισμένα παραδείγματα περιλαμβάνουν τις [IAutoShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/el/java/com.aspose.slides/iconnector/) και [IGraphicalObject](https://reference.aspose.com/slides/el/java/com.aspose.slides/igraphicalobject/) εμφανίσεις όπως διαγράμματα.
 
-Το παρακάτω παράδειγμα δημιουργεί αρκετούς κοινά τύπους σχημάτων και συσχετίζει ένα σύγχρονο σχόλιο με το καθένα.
+Το παρακάτω παράδειγμα δημιουργεί διάφορους συνηθισμένους τύπους σχήματος και συσχετίζει ένα σύγχρονο σχόλιο με καθένα.
 
 ```java
 import com.aspose.slides.ChartType;
@@ -279,18 +279,18 @@ try {
 }
 ```
 
-### **Αγκύρωση Σχολίου σε Κείμενο και Ορισμός Κατάστασής του**
+### **Αγκύρωση Σχολίου σε Κείμενο και Ορισμός της Κατάστασής του**
 
-Για ένα σύγχρονο σχόλιο που συσχετίζεται με ένα [IAutoShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshape/), οι μέθοδοι [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) και [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) προσπελαύνουν τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος. Οι μέθοδοι [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) και [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) προσπελαύνουν το μήκος της επιλογής. Μαζί, αυτές οι τιμές συσχετίζουν το σχόλιο με μια συγκεκριμένη περιοχή κειμένου μέσα στο AutoShape.
+Για ένα σύγχρονο σχόλιο συσχετισμένο με ένα [IAutoShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshape/), οι μέθοδοι [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) και [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) προσπελάζουν τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος. Οι [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) και [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) προσπελάζουν το μήκος της επιλογής. Μαζί, αυτές οι τιμές συσχετίζουν το σχόλιο με μια συγκεκριμένη περιοχή κειμένου μέσα στο AutoShape.
 
-Οι μέθοδοι [IModernComment.getStatus](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getStatus--) και [IModernComment.setStatus](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#setStatus-byte-) προσπελαύνουν μια τιμή από τις σταθερές [ModernCommentStatus](https://reference.aspose.com/slides/el/java/com.aspose.slides/moderncommentstatus/):
+Οι μέθοδοι [IModernComment.getStatus](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getStatus--) και [IModernComment.setStatus](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#setStatus-byte--) προσπελάζουν μια τιμή από τις σταθερές [ModernCommentStatus](https://reference.aspose.com/slides/el/java/com.aspose.slides/moderncommentstatus/):
 
 - `NotDefined` — δεν έχει οριστεί συγκεκριμένη κατάσταση σύγχρονου σχολίου.
 - `Active` — το σχόλιο είναι ενεργό.
 - `Resolved` — το σχόλιο έχει επιλυθεί.
 - `Closed` — το σχόλιο είναι κλειστό.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα σχόλιο αγκυροβολημένο σε σχήμα, το συσχετίζει με μια επιλογή κειμένου, το σημάνει ως επιλυμένο, αποθηκεύει την παρουσίαση και επαληθεύει τις τιμές μετά το άνοιγμα του αρχείου ξανά.
+Το παρακάτω παράδειγμα δημιουργεί ένα σχόλιο αγκυροβολημένο σε σχήμα, το συσχετίζει με μια επιλογή κειμένου, το σημειώνει ως επιλυμένο, αποθηκεύει την παρουσίαση και επαληθεύει τις τιμές μετά το άνοιγμα ξανά του αρχείου.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -355,9 +355,9 @@ try {
 }
 ```
 
-### **Έλεγχος Υπαρχόντων Σύγχρονων Σχολίων**
+### **Επιθεώρηση Υπάρχοντων Σύγχρονων Σχολίων**
 
-Για να ελέγξετε μια υπάρχουσα παρουσίαση, ελέγξτε ποια σχόλια υλοποιούν το [IModernComment](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/), στη συνέχεια εξετάστε τις μεθόδους [IModernComment.getShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--), και [IModernComment.getStatus](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getStatus--). Ένα `null` σχήμα υποδεικνύει σχόλιο σε επίπεδο διαφάνειας. Για αγκίστρι [IAutoShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshape/), οι μέθοδοι επιλογής κειμένου προσδιορίζουν την αντίστοιχη περιοχή στο πλαίσιο κειμένου του σχήματος.
+Για να επιθεωρήσετε μια υπάρχουσα παρουσίαση, ελέγξτε ποια σχόλια υλοποιούν το [IModernComment](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/), στη συνέχεια εξετάστε τις [IModernComment.getShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) και [IModernComment.getStatus](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getStatus--). Ένα σχήμα `null` υποδεικνύει σχόλιο επιπέδου διαφάνειας. Για ένα αγκίστρωση [IAutoShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshape/), οι μέθοδοι επιλογής κειμένου προσδιορίζουν την αντίστοιχη περιοχή στο πλαίσιο κειμένου του σχήματος.
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -404,9 +404,9 @@ try {
 
 ## **Αφαίρεση Σχολίων**
 
-### **Αφαίρεση Όλων των Σχολίων και Συγγραφέων Σχολίων**
+### **Αφαίρεση Όλων των Σχολίων και Συγγραφών Σχολίων**
 
-Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε όλα τα σχόλια και τους συγγραφείς σχολίων από μια παρουσίαση:
+Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε όλα τα σχόλια και όλους τους συγγραφείς σχολίων από μια παρουσίαση:
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -473,16 +473,16 @@ try {
 }
 ```
 
-## **Συχνές Ερωτήσεις**
+## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
 
-**Υποστηρίζει το Aspose.Slides κατάσταση επίλυσης για σύγχρονα σχόλια;**
+**Υποστηρίζει το Aspose.Slides κατάσταση "επιλυμένο" για τα σύγχρονα σχόλια;**
 
-Ναι. Οι μέθοδοι [IModernComment.getStatus](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getStatus--) και [IModernComment.setStatus](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#setStatus-byte-) προσπελαύνουν μια τιμή του [ModernCommentStatus](https://reference.aspose.com/slides/el/java/com.aspose.slides/moderncommentstatus/), συμπεριλαμβανομένης της `Resolved`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να αναγνωσθεί ξανά μετά το άνοιγμα του αρχείου.
+Ναι. Οι [IModernComment.getStatus](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#getStatus--) και [IModernComment.setStatus](https://reference.aspose.com/slides/el/java/com.aspose.slides/imoderncomment/#setStatus-byte--) προσπελάζουν μια τιμή του [ModernCommentStatus](https://reference.aspose.com/slides/el/java/com.aspose.slides/moderncommentstatus/), συμπεριλαμβανομένου του `Resolved`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να διαβαστεί ξανά μετά το άνοιγμα του αρχείου.
 
-**Υποστηρίζονται οι αλυσίδες συζήτησης (απαντήσεις) και υπάρχει όριο βάθους;**
+**Υποστηρίζονται οι ακολουθίες συζητήσεων (αλυσίδες απαντήσεων) και υπάρχει όριο βάθους ένθεσης;**
 
-Ναι. Κάθε σχόλιο μπορεί να αναφέρεται στο [parent comment](https://reference.aspose.com/slides/el/java/com.aspose.slides/icomment/#getParentComment--), επιτρέποντας αλυσίδες απαντήσεων. Το API δεν ορίζει συγκεκριμένο όριο βάθους εμφώλευσης.
+Ναι. Κάθε σχόλιο μπορεί να αναφερθεί στο [γονικό σχόλιο](https://reference.aspose.com/slides/el/java/com.aspose.slides/icomment/#getParentComment--) του, επιτρέποντας αλυσίδες απαντήσεων. Το API δεν ορίζει συγκεκριμένο όριο βάθους ένθεσης.
 
 **Σε ποιο σύστημα συντεταγμένων ορίζεται η θέση του δείκτη σχολίου σε μια διαφάνεια;**
 
-Η θέση του δείκτη ορίζεται από δεκαδικές συντεταγμένες στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντάς σας να το τοποθετήσετε με ακρίβεια στη διαφάνεια.
+Η θέση του δείκτη ορίζεται από συντεταγμένες κινητής υποδιαστολής στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντάς σας να το τοποθετήσετε ακριβώς στη διαφάνεια.

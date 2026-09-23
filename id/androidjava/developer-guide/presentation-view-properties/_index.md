@@ -7,11 +7,11 @@ url: /id/androidjava/presentation-view-properties/
 keywords:
 - properti tampilan
 - tampilan normal
-- konten garis besar
-- ikon garis besar
+- konten kerangka
+- ikon kerangka
 - snap pemisah vertikal
 - tampilan tunggal
-- keadaan bilah
+- status bar
 - ukuran dimensi
 - penyesuaian otomatis
 - zoom default
@@ -21,39 +21,39 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Temukan properti tampilan Aspose.Slides untuk Android via Java untuk menyesuaikan format slide PPT, PPTX, dan ODP - menyesuaikan tata letak, tingkat zoom, dan pengaturan tampilan."
+description: "Temukan properti tampilan Aspose.Slides untuk Android via Java untuk menyesuaikan format slide PPT, PPTX, dan ODP—atur tata letak, tingkat zoom, dan pengaturan tampilan."
 ---
 ## **Pendahuluan**
 
-Tampilan normal terdiri dari tiga wilayah konten: slide itu sendiri, wilayah konten samping, dan wilayah konten bagian bawah. Properti yang berhubungan dengan penempatan wilayah konten yang berbeda. Informasi ini memungkinkan aplikasi menyimpan status tampilan ke file, sehingga ketika dibuka kembali tampilan berada dalam keadaan yang sama seperti saat presentasi terakhir disimpan.
+Tampilan normal terdiri dari tiga wilayah konten: slide itu sendiri, wilayah konten samping, dan wilayah konten bagian bawah. Properti yang berkaitan dengan penempatan berbagai wilayah konten. Informasi ini memungkinkan aplikasi menyimpan status tampilan ke file, sehingga ketika dibuka kembali tampilan berada dalam keadaan yang sama seperti saat presentasi terakhir kali disimpan.
 
-Metode [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IViewProperties#getNormalViewProperties--) telah ditambahkan untuk memberikan akses ke properti tampilan normal presentasi. 
+Metode[IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IViewProperties#getNormalViewProperties--) telah ditambahkan untuk menyediakan akses ke properti tampilan normal dari presentasi.  
 
-[INormalViewProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewRestoredProperties) interface dan turunannya, enum [SplitterBarStateType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/SplitterBarStateType) telah ditambahkan.
+[INormalViewProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewRestoredProperties) antarmuka dan turunannya, [SplitterBarStateType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/SplitterBarStateType) enum telah ditambahkan.
 
 ## **Tentang INormalViewProperties**
 
 Mewakili properti tampilan normal.
 
-Metode [getShowOutlineIcons](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) dan [setShowOutlineIcons](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) menentukan apakah aplikasi harus menampilkan ikon bila menampilkan konten garis besar di salah satu wilayah konten mode tampilan normal.
+Metode[getShowOutlineIcons](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) dan [setShowOutlineIcons](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) menentukan apakah aplikasi harus menampilkan ikon saat menampilkan konten kerangka dalam salah satu wilayah konten mode tampilan normal.
 
-Metode [getSnapVerticalSplitter](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) dan [setSnapVerticalSplitter](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) menentukan apakah pemisah vertikal harus menempel ke keadaan diperkecil ketika wilayah samping cukup kecil.
+Metode[getSnapVerticalSplitter](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) dan [setSnapVerticalSplitter](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) menentukan apakah pemisah vertikal harus menempel pada keadaan diperkecil ketika wilayah samping cukup kecil.
 
-Properti [getPreferSingleView](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getPreferSingleView--) dan [setPreferSingleView](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) menentukan apakah pengguna lebih suka melihat satu wilayah konten penuh-jendela dibandingkan tampilan normal standar dengan tiga wilayah konten. Jika diaktifkan, aplikasi dapat memilih untuk menampilkan salah satu wilayah konten di seluruh jendela.
+Properti[getPreferSingleView](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getPreferSingleView--) dan [setPreferSingleView](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) menentukan apakah pengguna lebih suka melihat satu wilayah konten penuh‑jendela dibandingkan tampilan normal standar dengan tiga wilayah konten. Jika diaktifkan, aplikasi dapat memilih untuk menampilkan salah satu wilayah konten di seluruh jendela.
 
-Metode [getVerticalBarState](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) dan [getHorizontalBarState](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) menentukan keadaan yang harus ditampilkan oleh bilah pemisah horizontal atau vertikal. Bilah pemisah horizontal memisahkan slide dari wilayah konten di bawah slide, bilah pemisah vertikal memisahkan slide dari wilayah konten samping. Nilai yang mungkin adalah: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/SplitterBarStateType#Maximized) dan [SplitterBarStateType.Restored](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/SplitterBarStateType#Restored).
+Metode[getVerticalBarState](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) dan [getHorizontalBarState](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) menentukan keadaan bar pemisah horizontal atau vertikal yang harus ditampilkan. Bar pemisah horizontal memisahkan slide dari wilayah konten di bawah slide, bar pemisah vertikal memisahkan slide dari wilayah konten samping. Nilai yang mungkin adalah [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/SplitterBarStateType#Maximized) dan [SplitterBarStateType.Restored](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/SplitterBarStateType#Restored).
 
-Metode [getRestoredLeft](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--) dan [getRestoredTop](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--) menentukan ukuran wilayah slide atas atau samping pada tampilan normal, ketika nilai [SplitterBarStateType.Restored](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/SplitterBarStateType#Restored) diterapkan untuk [getVerticalBarState](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) dan [getHorizontalBarState](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) secara bersamaan.
+Metode[getRestoredLeft](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--) dan [getRestoredTop](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--) menentukan ukuran wilayah slide atas atau samping pada tampilan normal, ketika nilai [SplitterBarStateType.Restored](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/SplitterBarStateType#Restored) diterapkan pada[getVerticalBarState](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) dan[getHorizontalBarState](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) masing‑masing.
 
-## **Tentang Pemulihan INormalViewProperties**
+## **Tentang Memulihkan INormalViewProperties**
 
-Menentukan ukuran wilayah slide (lebar ketika menjadi anak dari [getRestoredTop](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--), tinggi ketika menjadi anak dari [getRestoredLeft](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) pada tampilan normal, ketika wilayah tersebut memiliki ukuran pemulihan variabel (tidak diperkecil maupun diperbesar). 
+Menentukan ukuran wilayah slide (lebar ketika menjadi anak dari[getRestoredTop](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--), tinggi ketika menjadi anak dari[getRestoredLeft](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) pada tampilan normal, ketika wilayah tersebut memiliki ukuran terpulihkan yang variabel (tidak diperkecil maupun diperbesar).  
 
-Metode [getDimensionSize](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) menentukan ukuran wilayah slide (lebar ketika menjadi anak dari restoredTop, tinggi ketika menjadi anak dari restoredLeft).
+Metode[getDimensionSize](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) menentukan ukuran wilayah slide (lebar ketika anak dari restoredTop, tinggi ketika anak dari restoredLeft).  
 
-Metode [getAutoAdjust](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) menentukan apakah ukuran wilayah konten samping harus menyesuaikan dengan ukuran baru saat mengubah ukuran jendela yang berisi tampilan dalam aplikasi.
+Metode[getAutoAdjust](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) menentukan apakah ukuran wilayah konten samping harus menyesuaikan ukuran baru saat mengubah ukuran jendela yang berisi tampilan dalam aplikasi  
 
-Contoh berikut menunjukkan cara mengakses properti [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ViewProperties#getNormalViewProperties--) untuk sebuah presentasi.
+Contoh di bawah ini menunjukkan cara mengakses [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ViewProperties#getNormalViewProperties--) properti untuk sebuah presentasi.
 
 ```java
 import com.aspose.slides.*;
@@ -78,16 +78,16 @@ try {
 
 {{% alert color="info" %}} 
 
-Aspose.Slides untuk Android via Java kini mendukung pengaturan nilai zoom default untuk presentasi sehingga saat presentasi dibuka, zoom sudah diatur. Hal ini dapat dilakukan dengan mengatur [ViewProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ViewProperties) dari sebuah presentasi. [getSlideViewProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) maupun [getNotesViewProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) dapat diatur secara programatik. Pada topik ini, kita akan melihat dengan contoh cara mengatur [View Properties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ViewProperties) dari [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation) di Aspose.Slides.
+Aspose.Slides untuk Android via Java kini mendukung pengaturan nilai zoom default untuk presentasi sehingga ketika presentasi dibuka, zoom sudah diatur. Hal ini dapat dilakukan dengan menyetel [ViewProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ViewProperties) dari sebuah presentasi. [getSlideViewProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) serta [getNotesViewProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) dapat diatur secara programatik. Pada topik ini, kami akan melihat contoh cara menyetel [View Properties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ViewProperties) dari [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation) di Aspose.Slides.
 
 {{% /alert %}} 
 
-Untuk mengatur properti tampilan, ikuti langkah-langkah berikut:
+Untuk menyetel properti tampilan, ikuti langkah‑langkah berikut:
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation).
-1. Atur [View Properties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ViewProperties) dari [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation).
-1. Simpan presentasi sebagai file [PPTX](https://docs.fileformat.com/presentation/pptx/).
-   Dalam contoh di bawah ini, kami telah mengatur nilai zoom untuk tampilan slide sekaligus tampilan catatan.
+1. Setel [View Properties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ViewProperties) dari [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation).
+1. Tuliskan presentasi sebagai file [PPTX](https://docs.fileformat.com/presentation/pptx/).  
+   Pada contoh di bawah, kami telah menyetel nilai zoom untuk tampilan slide maupun tampilan catatan.
 
 ```java
 import com.aspose.slides.*;
@@ -104,11 +104,11 @@ try {
 }
 ```
 
-## **Atur Jarak Kisi**
+## **Atur Jarak Grid**
 
-Gunakan [Presentation.getViewProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/#getViewProperties--) untuk mengakses pengaturan tampilan seluruh presentasi. Metode [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iviewproperties/#getGridSpacing--) dan [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) membaca atau mengubah interval kisi penyuntingan yang mendasarinya. Pengaturan ini berlaku untuk seluruh presentasi, bukan untuk slide individu. Jarak kisi ditentukan dalam poin, di mana 72 poin sama dengan satu inci. Gunakan nilai positif, sesuai dengan dokumentasi API.
+Gunakan [Presentation.getViewProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/#getViewProperties--) untuk mengakses pengaturan tampilan tingkat presentasi. Metode [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iviewproperties/#getGridSpacing--) dan [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) membaca atau mengubah interval grid penyuntingan yang mendasarinya. Pengaturan ini berlaku untuk seluruh presentasi, bukan untuk satu slide tertentu. Jarak grid ditentukan dalam poin, di mana 72 poin sama dengan satu inci. Gunakan nilai positif, sesuai dengan dokumentasi API.
 
-Contoh berikut membuka `demo.pptx` yang ada, mencetak jarak kisi saat ini, mengatur interval seperempat inci, dan menyimpan hasilnya.
+Contoh berikut membuka file `demo.pptx` yang ada, mencetak jarak grid saat ini, mengatur interval seperempat inci, dan menyimpan hasilnya.
 
 ```java
 import com.aspose.slides.Presentation;
@@ -126,28 +126,57 @@ try {
 }
 ```
 
-Kisi berbeda dari [drawing guides](/slides/id/androidjava/drawing-guides/). Jarak kisi mengontrol interval reguler, sedangkan drawing guides adalah garis penyelarasan horizontal atau vertikal yang diposisikan secara individual. Menambahkan, memindahkan, atau menghapus drawing guides tidak mengubah jarak kisi.
+Grid berbeda dari [drawing guides](/slides/id/androidjava/drawing-guides/). Jarak grid mengontrol interval reguler, sementara panduan gambar adalah garis penyelarasan horizontal atau vertikal yang diposisikan secara individual. Menambahkan, memindahkan, atau menghapus panduan gambar tidak mengubah jarak grid.
 
-Baik kisi maupun drawing guides merupakan bantuan penyuntingan. Mereka tidak dirender sebagai konten slide dalam PDF, gambar, SVG, atau pertunjukan slide. Menyimpan jarak kisi tidak menjamin editor akan menampilkan kisi: visibilitasnya juga bergantung pada preferensi penampil atau editor.
+Kedua grid dan panduan gambar merupakan bantuan penyuntingan. Mereka tidak dirender sebagai konten slide dalam PDF, gambar, SVG, atau tayangan slide. Menyimpan jarak grid tidak menjamin bahwa penyunting akan menampilkan grid: visibilitasnya juga tergantung pada preferensi penampil atau penyunting.
+
+## **Tampilkan atau Sembunyikan Komentar Saat Membuka Presentasi**
+
+Gunakan [Presentation.getViewProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/#getViewProperties--) untuk mengakses pengaturan tampilan tingkat presentasi. Gunakan [IViewProperties.getShowComments](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iviewproperties/#getShowComments--) dan [IViewProperties.setShowComments](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iviewproperties/#setShowComments-byte-) untuk membaca atau mengubah preferensi yang disimpan mengenai apakah komentar harus ditampilkan saat presentasi dibuka di PowerPoint atau penyunting kompatibel lainnya.
+
+Pengaturan ini hanya mengontrol preferensi tampilan yang disimpan. Tidak menambah, menghapus, mengedit, atau menyelesaikan komentar. Menyembunyikan komentar mempertahankan isi, penulis, posisi, balasan, dan statusnya. Lihat [Presentation Comments](/slides/id/androidjava/presentation-comments/) untuk operasi yang mengubah komentar itu sendiri.
+
+Contoh berikut memerlukan file `comments.pptx` yang sudah ada dan berisi komentar. Ia mencetak pengaturan visibilitas saat ini, meminta komentar disembunyikan, dan menyimpan PPTX baru tanpa menghapus komentar apa pun. Ia juga menggunakan [IViewProperties.setLastView](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iviewproperties/#setLastView-int-) dengan [ViewType.SlideView](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/viewtype/#SlideView) untuk mengonfigurasi tampilan penyuntingan awal bersamaan dengan visibilitas komentar.
+
+```java
+import com.aspose.slides.NullableBool;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ViewType;
+
+Presentation presentation = new Presentation("comments.pptx");
+try {
+    byte showComments = presentation.getViewProperties().getShowComments();
+    System.out.println("Current comment visibility: " + showComments);
+
+    presentation.getViewProperties().setShowComments(NullableBool.False);
+    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Pengaturan ini tidak menentukan apakah komentar termasuk dalam ekspor PDF, HTML, gambar, catatan, atau handout. Konfigurasikan opsi khusus ekspor yang relevan secara terpisah.
 
 ## **FAQ**
 
-**Mengapa kisi tidak terlihat setelah saya membuka kembali presentasi?**
+**Mengapa grid tidak terlihat setelah saya membuka kembali presentasi?**
 
-File menyimpan jarak kisi, tetapi editor yang mengontrol apakah kisi ditampilkan. Periksa pengaturan visibilitas kisi pada editor.
+File menyimpan jarak grid, tetapi penyunting yang mengontrol apakah grid ditampilkan. Periksa pengaturan visibilitas grid pada penyunting.
 
-**Apakah menghapus drawing guides mengubah jarak kisi?**
+**Apakah menghapus panduan gambar mengubah jarak grid?**
 
-Tidak. Drawing guides dan jarak kisi adalah pengaturan yang independen. Menghapus guides tidak mengubah interval kisi yang disimpan.
+Tidak. Panduan gambar dan jarak grid adalah pengaturan yang independen. Menghapus panduan tidak mengubah interval grid yang disimpan.
 
-**Bisakah saya mengatur pengaturan tampilan yang berbeda untuk bagian-bagian berbeda dari sebuah presentasi?**
+**Bisakah saya mengatur pengaturan tampilan yang berbeda untuk bagian‑bagian berbeda dari sebuah presentasi?**
 
-[View settings](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/#getViewProperties--) didefinisikan pada tingkat presentasi ([Normal View](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/viewproperties/#getSlideViewProperties--)), bukan per bagian, sehingga satu set parameter berlaku untuk seluruh dokumen saat dibuka.
+Pengaturan tampilan didefinisikan pada tingkat presentasi (Normal View/Slide View), bukan per bagian, sehingga satu set parameter berlaku untuk seluruh dokumen saat dibuka.
 
 **Bisakah saya mendefinisikan sebelumnya keadaan tampilan yang berbeda untuk pengguna yang berbeda?**
 
-Tidak. Pengaturan disimpan dalam file dan bersifat bersama. Aplikasi penampil dapat menghormati preferensi pengguna, tetapi file itu sendiri hanya berisi satu set properti tampilan.
+Tidak. Pengaturan disimpan di dalam file dan bersifat bersama. Aplikasi penampil mungkin menghormati preferensi pengguna, tetapi file itu sendiri hanya berisi satu set properti tampilan.
 
 **Bisakah saya menyiapkan templat dengan View Properties yang telah ditentukan sehingga presentasi baru terbuka dengan cara yang sama?**
 
-Ya. Karena [view properties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/#getViewProperties--) disimpan pada tingkat presentasi, Anda dapat menyematkannya dalam templat dan membuat dokumen baru darinya dengan konfigurasi tampilan awal yang sama.
+Ya. Karena view properties disimpan pada tingkat presentasi, Anda dapat menyematkannya dalam templat dan membuat dokumen baru darinya dengan konfigurasi tampilan awal yang sama.

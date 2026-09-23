@@ -1,5 +1,5 @@
 ---
-title: Python के माध्यम से Java में प्रस्तुति टिप्पणियों को प्रबंधित करें
+title: Python के माध्यम से Java में प्रस्तुति टिप्पणियों का प्रबंधन
 linktitle: प्रस्तुति टिप्पणियाँ
 type: docs
 weight: 100
@@ -15,36 +15,38 @@ keywords:
 - टिप्पणी संपादित करें
 - टिप्पणी का उत्तर दें
 - टिप्पणी हटाएँ
-- टिप्पणी को हटाएँ
+- टिप्पणी मिटाएँ
 - PowerPoint
 - प्रस्तुति
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java के साथ प्रस्तुति टिप्पणियों का प्रबंधन करें: PowerPoint प्रस्तुतियों में टिप्पणियों को जल्दी और आसानी से जोड़ें, पढ़ें, संपादित करें, उत्तर दें और हटाएँ।"
+description: "Aspose.Slides for Python via Java के साथ प्रस्तुति टिप्पणियों को प्रबंधित करें: PowerPoint प्रस्तुतियों में टिप्पणियों को जल्दी और आसानी से जोड़ें, पढ़ें, संपादित करें, उनका उत्तर दें, और हटाएँ।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides for Python via Java के साथ प्रस्तुति टिप्पणियों को प्रबंधित करने के तरीके को समझाता है। यह मुख्य टिप्पणी‑संबंधी प्रकारों का परिचय देता है और स्लाइड्स में टिप्पणियाँ जोड़ना, मौजूदा टिप्पणियों तक पहुँचना, उत्तरों और आधुनिक टिप्पणियों के साथ काम करना, तथा प्रस्तुति से टिप्पणियों को हटाना दर्शाता है।
+यह लेख समझाता है कि Aspose.Slides for Python via Java के साथ प्रस्तुति टिप्पणी (presentation comments) को कैसे प्रबंधित किया जाए। यह मुख्य टिप्पणी‑संबंधी प्रकारों का परिचय कराता है और दिखाता है कि स्लाइड्स में टिप्पणी कैसे जोड़ी जाए, मौजूदा टिप्पणियों तक कैसे पहुँचा जाए, उत्तरों और आधुनिक टिप्पणियों के साथ कैसे काम किया जाए, और प्रस्तुति से टिप्पणियों को कैसे हटाया जाए।
 
-उदाहरण PowerPoint में सामान्य समीक्षा और सहयोग परिदृश्यों को कवर करते हैं, जैसे लेखकों को टिप्पणियाँ असाइन करना, टिप्पणी का टेक्स्ट और मेटाडेटा पढ़ना, उत्तर श्रृंखलाएँ बनाना, तथा चयनित टिप्पणियों या सभी टिप्पणियों को हटाना।
+उदाहरण सामान्य समीक्षा और सहयोग परिदृश्यों को कवर करते हैं, जैसे कि लेखकों को टिप्पणी सौंपना, टिप्पणी पाठ और मेटाडेटा पढ़ना, उत्तर श्रृंखलाएँ बनाना, और चयनित टिप्पणियों या सभी टिप्पणियों को हटाना।
 
-PowerPoint में, टिप्पणियाँ स्लाइड्स पर एनोटेशन के रूप में दिखाई देती हैं। किसी टिप्पणी का चयन करने पर उसका टेक्स्ट और संबंधित चर्चा प्रदर्शित होती है।
+PowerPoint में, टिप्पणियाँ स्लाइड्स पर एनोटेशन के रूप में दिखाई देती हैं। टिप्पणी का चयन करने से उसका टेक्स्ट और संबंधित चर्चा प्रदर्शित होती है।
 
-## **प्रस्तुतियों में टिप्पणियाँ क्यों जोड़ें?**
+जब आप चाहते हैं कि प्रस्तुति खोलते समय टिप्पणियाँ दिखें या छिपें, बिना स्वयं टिप्पणी में बदलाव किए, तो देखें [Show or Hide Comments When Opening a Presentation](/slides/hi/python-java/presentation-view-properties/)।
 
-आप प्रस्तुतियों की समीक्षा करते समय प्रतिक्रिया देने और सहयोगियों के साथ सहयोग करने के लिए टिप्पणी का उपयोग कर सकते हैं।
+## **प्रस्तुतियों में टिप्पणी क्यों जोड़ें?**
+
+आप टिप्पणी का उपयोग फीडबैक देने और सहयोगियों के साथ प्रस्तुतियों की समीक्षा करते समय सहयोग करने के लिए कर सकते हैं।
 
 Aspose.Slides for Python via Java टिप्पणियों के साथ काम करने के लिए निम्नलिखित API प्रदान करता है:
 
-* The [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) क्लास, जो प्रस्तुति के टिप्पणी लेखकों तक पहुंच प्रदान करती है।
-* The [CommentCollection](https://reference.aspose.com/slides/hi/python-java/aspose.slides/commentcollection/) क्लास, जो व्यक्तिगत लेखक से जुड़ी टिप्पणियों का प्रतिनिधित्व करती है।
-* The [Comment](https://reference.aspose.com/slides/hi/python-java/aspose.slides/comment/) क्लास, जो टिप्पणी के बारे में जानकारी प्रदान करती है, जिसमें लेखक, निर्माण समय, स्थिति और टेक्स्ट शामिल हैं।
-* The [CommentAuthor](https://reference.aspose.com/slides/hi/python-java/aspose.slides/commentauthor/) क्लास, जो लेखक के बारे में जानकारी देती है, जिसमें उनका नाम, आद्याक्षर, और जुड़ी टिप्पणी शामिल हैं।
+* The [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) class, which provides access to the presentation's comment authors.
+* The [CommentCollection](https://reference.aspose.com/slides/hi/python-java/aspose.slides/commentcollection/) class, which represents the comments associated with an individual author.
+* The [Comment](https://reference.aspose.com/slides/hi/python-java/aspose.slides/comment/) class, which provides information about a comment, including its author, creation time, position, and text.
+* The [CommentAuthor](https://reference.aspose.com/slides/hi/python-java/aspose.slides/commentauthor/) class, which provides information about an author, including their name, initials, and associated comments.
 
-## **स्लाइड टिप्पणियाँ जोड़ें**
+## **स्लाइड टिप्पणी जोड़ें**
 
-निम्नलिखित उदाहरण दिखाता है कि PowerPoint प्रस्तुति में स्लाइड्स में टिप्पणियाँ कैसे जोड़ी जाती हैं:
+निम्न उदाहरण दिखाता है कि PowerPoint प्रस्तुति में स्लाइड्स पर टिप्पणी कैसे जोड़ी जाए:
 
 ```python
 import jpype
@@ -83,9 +85,9 @@ finally:
     presentation.dispose()
 ```
 
-## **स्लाइड टिप्पणियों तक पहुँचें**
+## **स्लाइड टिप्पणी तक पहुँचें**
 
-निम्नलिखित उदाहरण दिखाता है कि PowerPoint प्रस्तुति में मौजूदा टिप्पणियों तक कैसे पहुँचा जाता है:
+निम्न उदाहरण दिखाता है कि PowerPoint प्रस्तुति में मौजूदा टिप्पणी तक कैसे पहुँचा जाए:
 
 ```python
 import jpype
@@ -111,9 +113,9 @@ finally:
 
 ## **टिप्पणियों का उत्तर दें**
 
-एक पैरेंट टिप्पणी उत्तर पदानुक्रम के शीर्ष पर मौलिक टिप्पणी होती है। The [Comment.getParentComment](https://reference.aspose.com/slides/hi/python-java/aspose.slides/comment/#getParentComment) और The [Comment.setParentComment](https://reference.aspose.com/slides/hi/python-java/aspose.slides/comment/#setParentComment) मेथड आपको टिप्पणी के पैरेंट को प्राप्त या सेट करने की अनुमति देते हैं।
+एक पैरेंट टिप्पणी वह मूल टिप्पणी है जो उत्तर पदानुक्रम के शीर्ष में स्थित होती है। The [Comment.getParentComment](https://reference.aspose.com/slides/hi/python-java/aspose.slides/comment/#getParentComment) and [Comment.setParentComment](https://reference.aspose.com/slides/hi/python-java/aspose.slides/comment/#setParentComment) methods let you get or set the parent of a comment.
 
-निम्नलिखित उदाहरण दिखाता है कि उत्तर कैसे जोड़े जाएँ और परिणामस्वरूप टिप्पणी पदानुक्रम का निरीक्षण कैसे किया जाए:
+निम्न उदाहरण दर्शाता है कि उत्तर कैसे जोड़े जाएँ और परिणामस्वरूप टिप्पणी पदानुक्रम की जाँच कैसे करें:
 
 ```python
 import jpype
@@ -170,19 +172,19 @@ finally:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* जब [Comment.remove](https://reference.aspose.com/slides/hi/python-java/aspose.slides/comment/#remove) मेथड का उपयोग करके कोई टिप्पणी हटाई जाती है, तो उस टिप्पणी के सभी उत्तर भी हटाए जाते हैं।
+* जब [Comment.remove](https://reference.aspose.com/slides/hi/python-java/aspose.slides/comment/#remove) method का उपयोग करके कोई टिप्पणी हटाई जाती है, तो उस टिप्पणी के सभी उत्तर भी हटाए जाते हैं।
 * यदि [Comment.setParentComment](https://reference.aspose.com/slides/hi/python-java/aspose.slides/comment/#setParentComment) एक चक्रीय संदर्भ बनाता है, तो एक [PptxEditException](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pptxeditexception/) फेंका जाता है।
 {{% /alert %}}
 
-## **आधुनिक टिप्पणियाँ जोड़ें**
+## **आधुनिक टिप्पणी जोड़ें**
 
-आधुनिक टिप्पणियों को स्लाइड स्वयं, किसी विशिष्ट आकार, या किसी [AutoShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/autoshape/) के भीतर टेक्स्ट रेंज से संबंधित किया जा सकता है। The [CommentCollection.addModernComment](https://reference.aspose.com/slides/hi/python-java/aspose.slides/commentcollection/#addModernComment) मेथड स्लाइड और टिप्पणी‑मार्कर निर्देशांक के अतिरिक्त एक [Shape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/) आर्ग्यूमेंट स्वीकार करता है।
+आधुनिक टिप्पणियाँ स्लाइड स्वयं, किसी विशिष्ट आकार (shape), या कोई [AutoShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/autoshape/) के भीतर एक टेक्स्ट रेंज से जुड़ी हो सकती हैं। The [CommentCollection.addModernComment](https://reference.aspose.com/slides/hi/python-java/aspose.slides/commentcollection/#addModernComment) method accepts a [Shape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/) argument in addition to the slide and comment-marker coordinates.
 
-जब `None` को shape आर्ग्यूमेंट के रूप में पास किया जाता है, तो टिप्पणी एक स्लाइड‑स्तर टिप्पणी होती है। इसका मार्कर प्रदान किए गए निर्देशांकों द्वारा स्थित किया जाता है, लेकिन यह किसी विशेष shape से जुड़ी नहीं होती, इसलिए [ModernComment.getShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getShape) `None` लौटाता है। जब कोई [Shape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/) प्रदान किया जाता है, तो टिप्पणी उस shape से जुड़ी होती है। निर्देशांक अभी भी स्लाइड पर टिप्पणी मार्कर की स्थिति को परिभाषित करते हैं, जबकि shape संबद्धता को [ModernComment.getShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getShape) के माध्यम से प्राप्त किया जा सकता है।
+जब `None` को shape argument के रूप में पास किया जाता है, तो टिप्पणी एक स्लाइड‑लेवल टिप्पणी बनती है। इसका मार्कर प्रदान किए गए निर्देशांक द्वारा स्थित किया जाता है, लेकिन यह किसी विशेष आकार से जुड़ी नहीं होती, इसलिए [ModernComment.getShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getShape) `None` लौटाता है। जब कोई [Shape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/) दिया जाता है, तो टिप्पणी उस आकार से एंकर हो जाती है। निर्देशांक अभी भी स्लाइड पर टिप्पणी मार्कर की स्थिति निर्धारित करते हैं, जबकि आकार का संबंध [ModernComment.getShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getShape) के माध्यम से प्राप्त किया जा सकता है।
 
-### **आधुनिक टिप्पणी को Shape से जोड़ना**
+### **आधुनिक टिप्पणी को आकार से एंकर करें**
 
-निम्नलिखित उदाहरण एक स्लाइड‑स्तर आधुनिक टिप्पणी और एक विशिष्ट [AutoShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/autoshape/) से जुड़ी आधुनिक टिप्पणी बनाता है। फिर यह प्रत्येक टिप्पणी से सम्बंधित shape को पढ़ता है।
+निम्न उदाहरण एक स्लाइड‑लेवल आधुनिक टिप्पणी और एक विशिष्ट [AutoShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/autoshape/) से एंकर की गई आधुनिक टिप्पणी बनाता है। फिर यह प्रत्येक टिप्पणी से संबंधित आकार को पढ़ता है।
 
 ```python
 import jpype
@@ -218,11 +220,11 @@ finally:
     presentation.dispose()
 ```
 
-### **टिप्पणियों को विभिन्न Shape प्रकारों से जोड़ना**
+### **विभिन्न आकार प्रकारों पर टिप्पणी एंकर करें**
 
-कोई भी स्लाइड ऑब्जेक्ट जो [Shape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/) से विरासत में मिला है, उसे shape एंकर के रूप में उपयोग किया जा सकता है। सामान्य उदाहरणों में [AutoShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/hi/python-java/aspose.slides/connector/), और [GraphicalObject](https://reference.aspose.com/slides/hi/python-java/aspose.slides/graphicalobject/) उदाहरण जैसे चार्ट शामिल हैं।
+कोई भी स्लाइड ऑब्जेक्ट जो [Shape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/) से विरासत (inherit) लेता है, आकार एंकर के रूप में उपयोग किया जा सकता है। सामान्य उदाहरणों में [AutoShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/hi/python-java/aspose.slides/connector/), और चार्ट जैसे [GraphicalObject](https://reference.aspose.com/slides/hi/python-java/aspose.slides/graphicalobject/) इंस्टेंस शामिल हैं।
 
-निम्नलिखित उदाहरण कई सामान्य shape प्रकार बनाता है और प्रत्येक के साथ एक आधुनिक टिप्पणी को संबद्ध करता है।
+निम्न उदाहरण कई सामान्य आकार प्रकार बनाता है और प्रत्येक के साथ एक आधुनिक टिप्पणी को जोड़ता है।
 
 ```python
 import jpype
@@ -274,18 +276,18 @@ finally:
     presentation.dispose()
 ```
 
-### **टेक्स्ट से टिप्पणी जोड़ें और उसकी स्थिति सेट करें**
+### **टेक्स्ट से टिप्पणी को एंकर करें और उसकी स्थिति सेट करें**
 
-एक [AutoShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/autoshape/) से जुड़ी आधुनिक टिप्पणी के लिए, [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getTextSelectionStart) और [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#setTextSelectionStart) shape के टेक्स्ट फ्रेम में चयनित टेक्स्ट की प्रारम्भिक स्थिति तक पहुँचते हैं। [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getTextSelectionLength) और [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#setTextSelectionLength) चयन की लंबाई तक पहुँचते हैं। मिलकर, ये मान टिप्पणी को AutoShape के भीतर एक विशिष्ट टेक्स्ट रेंज से जोड़ते हैं।
+एक [AutoShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/autoshape/) से जुड़ी आधुनिक टिप्पणी के लिए, [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getTextSelectionStart) और [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#setTextSelectionStart) आकार के टेक्स्ट फ्रेम में चयनित टेक्स्ट की प्रारम्भिक स्थिति तक पहुँचते हैं। [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getTextSelectionLength) और [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#setTextSelectionLength) चयन की लंबाई तक पहुँचते हैं। मिलकर, ये मान टिप्पणी को AutoShape के भीतर एक विशिष्ट टेक्स्ट रेंज से जोड़ते हैं।
 
-[ModernComment.getStatus](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getStatus) और [ModernComment.setStatus](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#setStatus) मेथड [ModernCommentStatus](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncommentstatus/) स्थिरांक से एक मान तक पहुँचते हैं:
+[ModernComment.getStatus](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getStatus) और [ModernComment.setStatus](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#setStatus) methods [ModernCommentStatus](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncommentstatus/) स्थिरांक से मान प्राप्त करते हैं:
 
 - [NotDefined](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncommentstatus/#NotDefined) — कोई विशिष्ट आधुनिक‑टिप्पणी स्थिति परिभाषित नहीं है।
-- [Active](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncommentstatus/#Active) — टिप्पणी सक्रिय है।
+- [Active](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncommentstatus/#Active) — टिप्पणी सक्रिय (active) है।
 - [Resolved](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncommentstatus/#Resolved) — टिप्पणी हल हो गई है।
 - [Closed](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncommentstatus/#Closed) — टिप्पणी बंद है।
 
-निम्नलिखित उदाहरण एक shape‑एंकर वाली आधुनिक टिप्पणी बनाता है, उसे टेक्स्ट चयन से जोड़ता है, इसे हल‑की हुई के रूप में चिह्नित करता है, प्रस्तुति को सहेजता है, और फ़ाइल को पुनः खोलने के बाद मानों की जाँच करता है।
+निम्न उदाहरण एक आकार‑एंकर वाली आधुनिक टिप्पणी बनाता है, उसे टेक्स्ट चयन से जोड़ता है, उसे हल (resolved) के रूप में चिह्नित करता है, प्रस्तुति को सहेजता है, और फ़ाइल को पुनः खोलने पर मानों की जाँच करता है।
 
 ```python
 import jpype
@@ -346,9 +348,9 @@ finally:
     reopened_presentation.dispose()
 ```
 
-### **मौजूदा आधुनिक टिप्पणियों का निरीक्षण**
+### **मौजूदा आधुनिक टिप्पणियों की जाँच करें**
 
-एक मौजूदा प्रस्तुति का निरीक्षण करने के लिए, देखें कि कौन‑सी टिप्पणियाँ [ModernComment](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/) की इंस्टेंस हैं, फिर [ModernComment.getShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getTextSelectionLength) और [ModernComment.getStatus](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getStatus) को देखें। `None` shape एक स्लाइड‑स्तर टिप्पणी को संकेत करता है। किसी [AutoShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/autoshape/) एंकर के लिए, टेक्स्ट‑सेलेक्शन मेथड्स shape के टेक्स्ट फ्रेम में संबंधित रेंज की पहचान करते हैं।
+किसी मौजूदा प्रस्तुति को जाँचने के लिए, देखें कि कौन‑सी टिप्पणियाँ [ModernComment](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/) की इंस्टेंस हैं, फिर [ModernComment.getShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getTextSelectionLength), और [ModernComment.getStatus](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getStatus) को देखें। `None` आकार इंगित करता है कि टिप्पणी स्लाइड‑लेवल टिप्पणी है। जब एंकर [AutoShape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/autoshape/) है, तो टेक्स्ट‑सेलेक्शन मेथड्स आकार के टेक्स्ट फ्रेम में संबंधित रेंज की पहचान करते हैं।
 
 ```python
 import jpype
@@ -392,7 +394,7 @@ finally:
 
 ### **सभी टिप्पणियाँ और टिप्पणी लेखकों को हटाएँ**
 
-निम्नलिखित उदाहरण दिखाता है कि प्रस्तुति से सभी टिप्पणियाँ और टिप्पणी लेखक कैसे हटाए जाएँ:
+निम्न उदाहरण दिखाता है कि प्रस्तुति से सभी टिप्पणियाँ और टिप्पणी लेखक कैसे हटाए जाएँ:
 
 ```python
 import jpype
@@ -414,9 +416,9 @@ finally:
     presentation.dispose()
 ```
 
-### **निर्दिष्ट टिप्पणियों को हटाएँ**
+### **विशिष्ट टिप्पणियों को हटाएँ**
 
-निम्नलिखित उदाहरण दिखाता है कि स्लाइड से विशिष्ट टिप्पणियों को कैसे हटाया जाए:
+निम्न उदाहरण दिखाता है कि एक स्लाइड से विशिष्ट टिप्पणियों को कैसे हटाया जाए:
 
 ```python
 import jpype
@@ -459,14 +461,14 @@ finally:
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या Aspose.Slides आधुनिक टिप्पणियों के लिए हल‑की हुई स्थिति का समर्थन करता है?**
+**क्या Aspose.Slides आधुनिक टिप्पणियों के लिए हल (resolved) स्थिति का समर्थन करता है?**
 
-हां। [ModernComment.getStatus](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getStatus) और [ModernComment.setStatus](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#setStatus) [ModernCommentStatus](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncommentstatus/) मान तक पहुँचते हैं, जिसमें `Resolved` शामिल है। यह स्थिति प्रस्तुति में संग्रहीत होती है और फ़ाइल को पुनः खोलने के बाद फिर से पढ़ी जा सकती है।
+हाँ। [ModernComment.getStatus](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#getStatus) और [ModernComment.setStatus](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncomment/#setStatus) एक [ModernCommentStatus](https://reference.aspose.com/slides/hi/python-java/aspose.slides/moderncommentstatus/) मान तक पहुँचते हैं, जिसमें `Resolved` भी शामिल है। यह स्थिति प्रस्तुति में संग्रहीत रहती है और फ़ाइल को पुनः खोलने के बाद फिर पढ़ी जा सकती है।
 
-**क्या थ्रेडेड डिस्कशन (उत्तर श्रृंखलाएँ) समर्थित हैं, और क्या कोई नेस्टिंग सीमा है?**
+**क्या थ्रेडेड चर्चा (उत्तर श्रृंखलाएँ) समर्थित हैं, और क्या कोई नेस्टिंग सीमा है?**
 
-हां। प्रत्येक टिप्पणी अपने [parent comment](https://reference.aspose.com/slides/hi/python-java/aspose.slides/comment/#getParentComment) को संदर्भित कर सकती है, जिससे उत्तर श्रृंखलाएँ संभव होती हैं। API कोई विशिष्ट नेस्टिंग‑गहराई सीमा निर्धारित नहीं करती।
+हाँ। प्रत्येक टिप्पणी अपने [parent comment](https://reference.aspose.com/slides/hi/python-java/aspose.slides/comment/#getParentComment) को संदर्भित कर सकती है, जिससे उत्तर श्रृंखलाएँ बनती हैं। API कोई विशिष्ट नेस्टिंग‑गहराई सीमा निर्दिष्ट नहीं करता।
 
-**स्लाइड पर टिप्पणी मार्कर की स्थिति किस निर्देशांक प्रणाली में परिभाषित होती है?**
+**स्लाइड पर टिप्पणी मार्कर की स्थिति किस समन्वय प्रणाली (coordinate system) में परिभाषित होती है?**
 
-मार्कर की स्थिति स्लाइड निर्देशांक प्रणाली में फ्लोटिंग‑पॉइंट निर्देशांकों द्वारा परिभाषित होती है, जिससे आप इसे सटीक रूप से स्लाइड पर रख सकते हैं।
+मार्कर स्थिति स्लाइड समन्वय प्रणाली में फ्लोटिंग‑पॉइंट निर्देशांक द्वारा परिभाषित होती है, जिससे आप इसे स्लाइड पर सटीक रूप से रख सकते हैं।

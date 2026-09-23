@@ -1,5 +1,5 @@
 ---
-title: Načíst a aktualizovat vlastnosti zobrazení prezentace na Androidu
+title: Načíst a aktualizovat vlastnosti zobrazení prezentace v Androidu
 linktitle: Vlastnosti zobrazení
 type: docs
 weight: 80
@@ -10,8 +10,8 @@ keywords:
 - obsah osnovy
 - ikony osnovy
 - přichytit svislý rozdělovač
-- jednoduché zobrazení
-- stav pruhu
+- jedno zobrazení
+- stav panelu
 - velikost rozměru
 - automatické přizpůsobení
 - výchozí přiblížení
@@ -21,39 +21,39 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Objevte vlastnosti zobrazení Aspose.Slides pro Android via Java a přizpůsobte formáty PPT, PPTX a ODP snímků – upravte rozvržení, úrovně přiblížení a nastavení zobrazení."
+description: "Objevte vlastnosti zobrazení Aspose.Slides pro Android via Java pro úpravu formátů PPT, PPTX a ODP snímků — přizpůsobte rozvržení, úrovně přiblížení a nastavení zobrazení."
 ---
 ## **Úvod**
 
-Normální zobrazení se skládá ze tří oblastí obsahu: samotného snímku, boční oblasti obsahu a spodní oblasti obsahu. Vlastnosti týkající se umístění různých oblastí obsahu. Tyto informace umožňují aplikaci uložit stav zobrazení do souboru, takže po opětovném otevření je zobrazení ve stejném stavu, jako když byla prezentace naposledy uložena.
+Normální zobrazení se skládá ze tří oblastí obsahu: samotného snímku, boční oblasti obsahu a spodní oblasti obsahu. Vlastnosti týkající se umístění různých oblastí obsahu. Tato informace umožňuje aplikaci uložit stav zobrazení do souboru, takže po opětovném otevření je zobrazení ve stejném stavu, jako když byla prezentace naposledy uložena.
 
-Metoda [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IViewProperties#getNormalViewProperties--) byla přidána pro poskytnutí přístupu k vlastnostem normálního zobrazení prezentace.  
+Metoda [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IViewProperties#getNormalViewProperties--) byla přidána pro poskytnutí přístupu k vlastnostem normálního zobrazení prezentace.
 
-Rozhraní [INormalViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewRestoredProperties) a jejich potomci, výčtový typ [SplitterBarStateType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SplitterBarStateType) byly přidány.
+Rozhraní [INormalViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewRestoredProperties) a jejich potomci, výčet [SplitterBarStateType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SplitterBarStateType) byly přidány.
 
 ## **O INormalViewProperties**
 
 Reprezentuje vlastnosti normálního zobrazení.
 
-Metody [getShowOutlineIcons](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) a [setShowOutlineIcons](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) určují, zda má aplikace zobrazovat ikony při zobrazování obsahu osnovy v některé z oblastí obsahu režimu normálního zobrazení.
+Metody [getShowOutlineIcons](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) a [setShowOutlineIcons](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) určují, zda by aplikace měla zobrazovat ikony při zobrazování obsahu osnovy v jakékoli oblasti obsahu režimu normálního zobrazení.
 
-Metody [getSnapVerticalSplitter](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) a [setSnapVerticalSplitter](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) určují, zda se svislý rozdělovač má přichytit do zmenšeného stavu, když je boční oblast dostatečně malá.
+Metody [getSnapVerticalSplitter](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) a [setSnapVerticalSplitter](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) určují, zda by svislý rozdělovač měl přecházet do minimalizovaného stavu, když je boční oblast dostatečně malá.
 
-Vlastnost [getPreferSingleView](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getPreferSingleView--) a [setPreferSingleView](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) určuje, zda uživatel preferuje vidět celou oblast obsahu na celé obrazovce místo standardního normálního zobrazení se třemi oblastmi obsahu. Pokud je povoleno, aplikace může zobrazit jednu z oblastí obsahu v celém okně.
+Vlastnost [getPreferSingleView](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getPreferSingleView--) a [setPreferSingleView](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) určuje, zda uživatel upřednostňuje zobrazení jedné oblasti obsahu na celé obrazovce místo standardního normálního zobrazení se třemi oblastmi obsahu. Pokud je povoleno, aplikace může zobrazit jednu z oblastí obsahu v celém okně.
 
-Metody [getVerticalBarState](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) a [getHorizontalBarState](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) určují stav, ve kterém má být zobrazen vodorovný nebo svislý rozdělovač. Vodorovný rozdělovač odděluje snímek od oblasti obsahu pod snímkem, svislý rozdělovač odděluje snímek od boční oblasti obsahu. Možné hodnoty jsou: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SplitterBarStateType#Maximized) a [SplitterBarStateType.Restored](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SplitterBarStateType#Restored).
+Metody [getVerticalBarState](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) a [getHorizontalBarState](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) určují stav, ve kterém by měl být zobrazen vodorovný nebo svislý posuvník. Vodorovný posuvník odděluje snímek od oblasti obsahu pod snímkem, svislý posuvník odděluje snímek od boční oblasti obsahu. Možné hodnoty jsou: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SplitterBarStateType#Maximized) a [SplitterBarStateType.Restored](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SplitterBarStateType#Restored).
 
-Metody [getRestoredLeft](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--) a [getRestoredTop](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--) určují velikost horní nebo boční oblasti snímku v normálním zobrazení, když je pro [getVerticalBarState](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) a [getHorizontalBarState](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) použita hodnota [SplitterBarStateType.Restored](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SplitterBarStateType#Restored).
+Metody [getRestoredLeft](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--) a [getRestoredTop](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--) určují velikost horní nebo boční oblasti snímku normálního zobrazení, když je pro [getVerticalBarState](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--) a [getHorizontalBarState](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) použita hodnota [SplitterBarStateType.Restored](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/SplitterBarStateType#Restored).
 
-## **O obnovování INormalViewProperties**
+## **O obnově INormalViewProperties**
 
-Určuje velikost oblasti snímku (šířka, když je potomkem [getRestoredTop](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--), výška, když je potomkem [getRestoredLeft](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) normálního zobrazení, když má oblast proměnnou obnovovanou velikost (ani zmenšenou, ani maximalizovanou).  
+Určuje velikost oblasti snímku (šířka, pokud je podřazené [getRestoredTop](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--), výška, pokud je podřazené [getRestoredLeft](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) normálního zobrazení, když má oblast proměnnou obnovovanou velikost (ani minimalizovanou, ani maximalizovanou).
 
-Metoda [getDimensionSize](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) určuje velikost oblasti snímku (šířka, když je potomkem restoredTop, výška, když je potomkem restoredLeft).  
+Metoda [getDimensionSize](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) určuje velikost oblasti snímku (šířka, pokud je podřazené restoredTop, výška, pokud je podřazené restoredLeft).
 
-Metoda [getAutoAdjust](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) určuje, zda má velikost boční oblasti obsahu kompenzovat novou velikost při změně velikosti okna obsahujícího zobrazení v aplikaci.  
+Metoda [getAutoAdjust](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) určuje, zda by měla boční oblast obsahu kompenzovat novou velikost při změně velikosti okna obsahujícího zobrazení v aplikaci.
 
-Níže uvedený příklad ukazuje, jak můžete získat přístup k vlastnostem [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ViewProperties#getNormalViewProperties--) pro prezentaci.
+Níže je uveden příklad, který ukazuje, jak můžete získat vlastnosti [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ViewProperties#getNormalViewProperties--) pro prezentaci.
 
 ```java
 import com.aspose.slides.*;
@@ -73,20 +73,20 @@ try {
     pres.dispose();
 }
 ```
-
 ## **Nastavení výchozí hodnoty přiblížení**
 
 {{% alert color="info" %}} 
 
-Aspose.Slides for Android via Java nyní podporuje nastavení výchozí hodnoty přiblížení pro prezentaci tak, aby bylo přiblížení nastaveno již při otevření prezentace. To lze provést nastavením [ViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ViewProperties) prezentace. [getSlideViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) i [getNotesViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) lze nastavit programově. V tomto článku si ukážeme na příkladu, jak nastavit [View Properties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ViewProperties) pro [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation) v Aspose.Slides.
+Aspose.Slides for Android via Java nyní podporuje nastavení výchozí hodnoty přiblížení pro prezentaci tak, že při otevření je přiblížení již nastaveno. Toto lze provést nastavením [ViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ViewProperties) prezentace. Metody [getSlideViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) i [getNotesViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) lze nastavit programově. V tomto článku ukážeme na příkladu, jak nastavit [View Properties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ViewProperties) [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation) v Aspose.Slides. 
 
 {{% /alert %}} 
 
 Pro nastavení vlastností zobrazení postupujte podle následujících kroků:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation).
-1. Nastavte [View Properties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ViewProperties) pro [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation).
-1. Uložte prezentaci jako soubor [PPTX](https://docs.fileformat.com/presentation/pptx/). V níže uvedeném příkladu jsme nastavili hodnotu přiblížení pro zobrazení snímku i poznámek.
+2. Nastavte [View Properties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ViewProperties) [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation).
+3. Uložte prezentaci jako soubor [PPTX](https://docs.fileformat.com/presentation/pptx/).
+   V níže uvedeném příkladu jsme nastavili hodnotu přiblížení pro zobrazení snímku i pro zobrazení poznámek.
 
 ```java
 import com.aspose.slides.*;
@@ -102,12 +102,11 @@ try {
     presentation.dispose();
 }
 ```
-
 ## **Nastavení rozestupu mřížky**
 
-Použijte [Presentation.getViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getViewProperties--) abyste získali přístup k nastavením zobrazení pro celou prezentaci. Metody [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iviewproperties/#getGridSpacing--) a [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) čtou nebo mění interval podkladové editační mřížky. Toto nastavení se vztahuje na celou prezentaci, ne na jednotlivý snímek. Rozestup mřížky je udáván v bodech, kde 72 bodů odpovídá jedné palci. Použijte kladnou hodnotu, jak vyžaduje dokumentace API.
+Použijte [Presentation.getViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getViewProperties--) pro přístup k nastavením zobrazení na úrovni celé prezentace. Metody [IViewProperties.getGridSpacing](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iviewproperties/#getGridSpacing--) a [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) čtou nebo mění interval podkladové editační mřížky. Toto nastavení se vztahuje na celou prezentaci, nikoli na jednotlivý snímek. Rozestup mřížky je uváděn v bodech, kde 72 bodů odpovídá jedné palci. Používejte kladnou hodnotu, jak vyžaduje dokumentace API.
 
-Následující příklad otevře existující soubor `demo.pptx`, vypíše aktuální rozestup mřížky, nastaví interval čtvrtiny palce a výsledek uloží.
+Následující příklad otevře existující soubor `demo.pptx`, vypíše aktuální rozestup mřížky, nastaví interval čtvrtinového palce a výsledek uloží.
 
 ```java
 import com.aspose.slides.Presentation;
@@ -125,28 +124,57 @@ try {
 }
 ```
 
-Mřížka se liší od [drawing guides](/slides/cs/androidjava/drawing-guides/). Rozestup mřížky řídí pravidelný interval, zatímco vodící linky jsou jednotlivě umístěné vodorovné nebo svislé zarovnávací čáry. Přidání, přesunutí nebo vymazání vodicích linek nemění rozestup mřížky.
+Mřížka se liší od [drawing guides](/slides/cs/androidjava/drawing-guides/). Rozestup mřížky řídí pravidelný interval, zatímco vodicí linky jsou individuálně umístěné vodorovné nebo svislé zarovnávací čáry. Přidání, přesunutí nebo vymazání vodicích linek nemění rozestup mřížky.
 
-Jak mřížka, tak i vodící linky jsou pomocné nástroje pro úpravy. Nejsou vykresleny jako obsah snímku v PDF, obrázcích, SVG ani v prezentaci. Uložení rozestupu mřížky nezaručuje, že editor mřížku zobrazí: její viditelnost také závisí na nastavení prohlížeče nebo editoru.
+Jak mřížka, tak vodicí linky jsou pomůcky pro úpravy. Nejsou vykreslovány jako obsah snímku v PDF, obrázcích, SVG nebo při promítání. Uložení rozestupu mřížky nezaručuje, že editor mřížku zobrazí: její viditelnost také závisí na nastavení prohlížeče nebo editoru.
 
-## **FAQ**
+## **Zobrazit nebo skrýt komentáře při otevírání prezentace**
+
+Použijte [Presentation.getViewProperties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getViewProperties--) pro přístup k nastavením zobrazení na úrovni celé prezentace. Metody [IViewProperties.getShowComments](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iviewproperties/#getShowComments--) a [IViewProperties.setShowComments](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iviewproperties/#setShowComments-byte-) čtou nebo mění uloženou preferenci, zda se mají při otevření prezentace v PowerPointu nebo jiném kompatibilním editoru zobrazovat komentáře.
+
+Toto nastavení řídí pouze uloženou preferenci zobrazení. Nepřidává, neodstraňuje, neupravuje ani nerozhoduje komentáře. Skrytí komentářů zachovává jejich obsah, autory, pozice, odpovědi a stavy. Viz [Presentation Comments](/slides/cs/androidjava/presentation-comments/) pro operace, které mění samotné komentáře.
+
+Níže uvedený příklad vyžaduje existující soubor `comments.pptx` obsahující komentáře. Vypíše aktuální nastavení viditelnosti, požádá o skrytí komentářů a uloží nový soubor PPTX, aniž by odstranil jakékoli komentáře. Také používá [IViewProperties.setLastView](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iviewproperties/#setLastView-int-) s [ViewType.SlideView](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/viewtype/#SlideView) pro konfiguraci počátečního editačního zobrazení spolu s viditelností komentářů.
+
+```java
+import com.aspose.slides.NullableBool;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ViewType;
+
+Presentation presentation = new Presentation("comments.pptx");
+try {
+    byte showComments = presentation.getViewProperties().getShowComments();
+    System.out.println("Current comment visibility: " + showComments);
+
+    presentation.getViewProperties().setShowComments(NullableBool.False);
+    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Toto nastavení neurčuje, zda jsou komentáře zahrnuty v exportech do PDF, HTML, obrázku, poznámek nebo podkladů. Příslušné možnosti exportu konfigurujte samostatně.
+
+## **Často kladené otázky**
 
 **Proč není mřížka viditelná po opětovném otevření prezentace?**
 
 Soubor ukládá rozestup mřížky, ale editor řídí, zda je mřížka zobrazena. Zkontrolujte nastavení viditelnosti mřížky v editoru.
 
-**Mění vymazání vodicích linek rozestup mřížky?**
+**Mění vymazání vodicích linek (drawing guides) rozestup mřížky?**
 
-Ne. Vodící linky a rozestup mřížky jsou nezávislé nastavení. Vymazání linek ponechává uložený interval mřížky nezměněný.
+Ne. Vodicí linky a rozestup mřížky jsou nezávislá nastavení. Vymazání linek ponechává uložený interval mřížky beze změny.
 
-**Mohu nastavit různá nastavení zobrazení pro různé části prezentace?**
+**Mohu nastavit různé nastavení zobrazení pro různé sekce prezentace?**
 
-[Nastavení zobrazení](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getViewProperties--) jsou definována na úrovni prezentace ([Normal View]/[Slide View]), nikoli pro jednotlivé sekce, takže jeden soubor parametrů platí pro celý dokument při otevření.
+Nastavení zobrazení ([View settings](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getViewProperties--)) jsou definována na úrovni celé prezentace ([Normal View](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/viewproperties/#getSlideViewProperties--)), nikoli na úrovni sekcí, takže jeden soubor parametrů platí pro celý dokument při otevření.
 
-**Mohu předdefinovat různá stavy zobrazení pro různé uživatele?**
+**Mohu předdefinovat různé stavy zobrazení pro různé uživatele?**
 
-Ne. Nastavení jsou uložena v souboru a jsou sdílena. Prohlížečové aplikace mohou respektovat uživatelské preference, ale samotný soubor obsahuje jeden soubor vlastností zobrazení.
+Ne. Nastavení jsou uložena v souboru a jsou sdílena. Aplikační prohlížeče mohou respektovat uživatelské preference, ale samotný soubor obsahuje jediný soubor vlastností zobrazení.
 
-**Mohu připravit šablonu s předdefinovanými vlastnostmi zobrazení, aby se nové prezentace otevíraly stejným způsobem?**
+**Mohu připravit šablonu s předdefinovanými View Properties, aby se nové prezentace otevíraly stejným způsobem?**
 
-Ano. Protože [vlastnosti zobrazení](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getViewProperties--) jsou uloženy na úrovni prezentace, můžete je vložit do šablony a vytvářet nové dokumenty se stejnou počáteční konfigurací zobrazení.
+Ano. Protože [view properties](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getViewProperties--) jsou uloženy na úrovni prezentace, můžete je vložit do šablony a vytvářet z ní nové dokumenty se stejnou počáteční konfigurací zobrazení.

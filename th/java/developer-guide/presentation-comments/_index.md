@@ -1,6 +1,6 @@
 ---
-title: จัดการความคิดเห็นในงานนำเสนอด้วย Java
-linktitle: ความคิดเห็นงานนำเสนอ
+title: จัดการความคิดเห็นพรีเซนเทชันใน Java
+linktitle: ความคิดเห็นพรีเซนเทชัน
 type: docs
 weight: 100
 url: /th/java/presentation-comments/
@@ -8,42 +8,44 @@ keywords:
 - ความคิดเห็น
 - ความคิดเห็นสมัยใหม่
 - ความคิดเห็น PowerPoint
-- ความคิดเห็นงานนำเสนอ
+- ความคิดเห็นพรีเซนเทชัน
 - ความคิดเห็นสไลด์
 - เพิ่มความคิดเห็น
 - เข้าถึงความคิดเห็น
 - แก้ไขความคิดเห็น
 - ตอบกลับความคิดเห็น
 - ลบความคิดเห็น
-- ลบความคิดเห็น
+- ลบอย่างถาวร
 - PowerPoint
-- งานนำเสนอ
+- พรีเซนเทชัน
 - Java
 - Aspose.Slides
-description: "จัดการความคิดเห็นในงานนำเสนอด้วย Aspose.Slides for Java: เพิ่ม, อ่าน, แก้ไข, ตอบกลับ, และลบความคิดเห็นในงานนำเสนอ PowerPoint อย่างรวดเร็วและง่ายดาย."
+description: "จัดการความคิดเห็นพรีเซนเทชันด้วย Aspose.Slides for Java: เพิ่ม อ่าน แก้ไข ตอบกลับ และลบความคิดเห็นในพรีเซนเทชัน PowerPoint อย่างรวดเร็วและง่ายดาย."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีจัดการความคิดเห็นในงานนำเสนอด้วย Aspose.Slides for Java. มันแนะนำประเภทที่เกี่ยวข้องกับความคิดเห็นหลักและแสดงวิธีการเพิ่มความคิดเห็นลงในสไลด์, เข้าถึงความคิดเห็นที่มีอยู่, ทำงานกับการตอบกลับและความคิดเห็นสมัยใหม่, และลบความคิดเห็นออกจากงานนำเสนอ.
+บทความนี้อธิบายวิธีจัดการความคิดเห็นในการพรีเซนเทชันด้วย Aspose.Slides for Java  โดยแนะนำชนิดข้อมูลที่เกี่ยวข้องกับความคิดเห็นหลักและสาธิตวิธีการเพิ่มความคิดเห็นลงในสไลด์, เข้าถึงความคิดเห็นที่มีอยู่, ทำงานกับการตอบกลับและความคิดเห็นสมัยใหม่, รวมถึงการลบความคิดเห็นออกจากพรีเซนเทชัน
 
-ตัวอย่างครอบคลุมสถานการณ์การตรวจสอบและการทำงานร่วมกันทั่วไปใน PowerPoint, เช่น การกำหนดความคิดเห็นให้ผู้เขียน, การอ่านข้อความและเมตาดาต้าของความคิดเห็น, การสร้างสายการตอบกลับ, และการลบความคิดเห็นที่เลือกหรือทั้งหมด.
+ตัวอย่างครอบคลุมสถานการณ์การตรวจสอบและการทำงานร่วมกันที่พบบ่อยใน PowerPoint เช่น การกำหนดผู้เขียนความคิดเห็น, การอ่านข้อความและเมตาดาต้าของความคิดเห็น, การสร้างห่วงโซ่การตอบกลับ, และการลบความคิดเห็นที่เลือกหรือทั้งหมด
 
-ใน PowerPoint, ความคิดเห็นปรากฏเป็นคำอธิบายบนสไลด์. การเลือกความคิดเห็นจะแสดงข้อความและการสนทนาที่เกี่ยวข้อง.
+ใน PowerPoint, ความคิดเห็นจะแสดงเป็นคำอธิบายบนสไลด์ การเลือกความคิดเห็นจะแสดงข้อความและการสนทนาที่เกี่ยวข้อง
 
-## **ทำไมต้องเพิ่มความคิดเห็นในงานนำเสนอ?**
+หากต้องการตั้งค่าให้แสดงหรือซ่อนความคิดเห็นเมื่อเปิดพรีเซนเทชันโดยไม่เปลี่ยนแปลงความคิดเห็นเอง ดูที่ [Show or Hide Comments When Opening a Presentation](/slides/th/java/presentation-view-properties/)
 
-คุณสามารถใช้ความคิดเห็นเพื่อให้ข้อเสนอแนะและทำงานร่วมกับเพื่อนร่วมงานเมื่อทำการตรวจทานงานนำเสนอ.
+## **ทำไมต้องเพิ่มความคิดเห็นในพรีเซนเทชัน?**
 
-Aspose.Slides for Java ให้ API ต่อไปนี้สำหรับการทำงานกับความคิดเห็น:
+คุณสามารถใช้ความคิดเห็นเพื่อให้ข้อเสนอแนะและทำงานร่วมกับเพื่อนร่วมงานเมื่อทำการตรวจสอบพรีเซนเทชัน
 
-* คลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) ซึ่งให้การเข้าถึงผู้เขียนความคิดเห็นของงานนำเสนอ.
-* อินเทอร์เฟซ [ICommentCollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/icommentcollection/) ที่แสดงถึงความคิดเห็นที่เชื่อมโยงกับผู้เขียนแต่ละคน.
-* อินเทอร์เฟซ [IComment](https://reference.aspose.com/slides/th/java/com.aspose.slides/icomment/) ที่ให้ข้อมูลเกี่ยวกับความคิดเห็นรวมถึงผู้เขียน, เวลาในการสร้าง, ตำแหน่ง, และข้อความ.
-* คลาส [CommentAuthor](https://reference.aspose.com/slides/th/java/com.aspose.slides/commentauthor/) ที่ให้ข้อมูลเกี่ยวกับผู้เขียนรวมถึงชื่อ, อักษรย่อ, และความคิดเห็นที่เชื่อมโยง.
+Aspose.Slides for Java มี API ต่อไปนี้สำหรับทำงานกับความคิดเห็น:
+
+* คลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) ซึ่งให้การเข้าถึงผู้เขียนความคิดเห็นของพรีเซนเทชัน
+* อินเทอร์เฟซ [ICommentCollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/icommentcollection/) ที่เป็นตัวแทนของความคิดเห็นที่เชื่อมโยงกับผู้เขียนแต่ละคน
+* อินเทอร์เฟซ [IComment](https://reference.aspose.com/slides/th/java/com.aspose.slides/icomment/) ที่ให้ข้อมูลเกี่ยวกับความคิดเห็น รวมถึงผู้เขียน, เวลา created, ตำแหน่ง, และข้อความ
+* คลาส [CommentAuthor](https://reference.aspose.com/slides/th/java/com.aspose.slides/commentauthor/) ที่ให้ข้อมูลเกี่ยวกับผู้เขียน รวมถึงชื่อ, ชื่อย่อ, และความคิดเห็นที่เชื่อมโยง
 
 ## **เพิ่มความคิดเห็นในสไลด์**
 
-ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มความคิดเห็นในสไลด์ของงานนำเสนอ PowerPoint:
+ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มความคิดเห็นลงในสไลด์ของพรีเซนเทชัน PowerPoint:
 
 ```java
 import com.aspose.slides.IComment;
@@ -84,7 +86,7 @@ try {
 
 ## **เข้าถึงความคิดเห็นในสไลด์**
 
-ตัวอย่างต่อไปนี้แสดงวิธีเข้าถึงความคิดเห็นที่มีอยู่ในงานนำเสนอ PowerPoint:
+ตัวอย่างต่อไปนี้แสดงวิธีเข้าถึงความคิดเห็นที่มีอยู่ในพรีเซนเทชัน PowerPoint:
 
 ```java
 import com.aspose.slides.IComment;
@@ -109,7 +111,7 @@ try {
 
 ## **ตอบกลับความคิดเห็น**
 
-คอมเมนต์แม่คือคอมเมนต์ต้นฉบับที่อยู่บนสุดของลำดับตอบกลับ. วิธี [IComment.getParentComment](https://reference.aspose.com/slides/th/java/com.aspose.slides/icomment/#getParentComment--) และ [IComment.setParentComment](https://reference.aspose.com/slides/th/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) ให้คุณดึงหรือกำหนดคอมเมนต์แม่ของคอมเมนต์.
+ความคิดเห็นแม่คือความคิดเห็นต้นฉบับที่อยู่ส่วนบนของลำดับการตอบกลับ วิธีการ [IComment.getParentComment](https://reference.aspose.com/slides/th/java/com.aspose.slides/icomment/#getParentComment--) และ [IComment.setParentComment](https://reference.aspose.com/slides/th/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) ให้คุณดึงหรือกำหนดความคิดเห็นแม่ได้
 
 ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มการตอบกลับและตรวจสอบโครงสร้างความคิดเห็นที่ได้:
 
@@ -167,20 +169,20 @@ try {
 }
 ```
 
-{{% alert color="warning" title="คำเตือน" %}}
-* เมื่อใช้เมธอด [IComment.remove](https://reference.aspose.com/slides/th/java/com.aspose.slides/icomment/#remove--) เพื่อลบคอมเมนต์, การตอบกลับทั้งหมดของคอมเมนต์นั้นก็จะถูกลบด้วย.
-* หาก [IComment.setParentComment](https://reference.aspose.com/slides/th/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) สร้างการอ้างอิงวงกลม, จะเกิดข้อผิดพลาด [PptxEditException](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxeditexception/).
+{{% alert color="warning" title="Warning" %}}
+* เมื่อใช้เมธอด [IComment.remove](https://reference.aspose.com/slides/th/java/com.aspose.slides/icomment/#remove--) เพื่อลบความคิดเห็น, การตอบกลับทั้งหมดของความคิดเห็นนั้นก็จะถูกลบด้วย
+* หาก [IComment.setParentComment](https://reference.aspose.com/slides/th/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) สร้างการอ้างอิงเป็นวงกลม จะเกิดข้อผิดพลาด [PptxEditException](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxeditexception/)
 {{% /alert %}}
 
 ## **เพิ่มความคิดเห็นสมัยใหม่**
 
-ความคิดเห็นสมัยใหม่สามารถเชื่อมโยงกับสไลด์โดยตรง, กับรูปร่างเฉพาะ, หรือกับช่วงข้อความภายใน AutoShape. เมธอด [ICommentCollection.addModernComment](https://reference.aspose.com/slides/th/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) ยอมรับอาร์กิวเมนต์ [IShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/) นอกจากสไลด์และพิกัดของเครื่องหมายความคิดเห็นด้วย.
+ความคิดเห็นสมัยใหม่สามารถเชื่อมโยงกับสไลด์เอง, กับรูปทรงเฉพาะ, หรือกับช่วงข้อความภายใน AutoShape ได้ เมธอด [ICommentCollection.addModernComment](https://reference.aspose.com/slides/th/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) ยอมรับอาร์กิวเมนต์ [IShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/) นอกจากสไลด์และพิกัดของเครื่องหมายความคิดเห็น
 
-เมื่อส่งค่า `null` เป็นอาร์กิวเมนต์รูปทรง, ความคิดเห็นจะเป็นความคิดเห็นระดับสไลด์. เครื่องหมายจะวางตามพิกัดที่ระบุแต่ไม่ได้เชื่อมโยงกับรูปทรงใด, ดังนั้น [IModernComment.getShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getShape--) จะคืนค่า `null`. เมื่อตั้งค่าอาร์กิวเมนต์เป็น [IShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/), ความคิดเห็นจะยึดติดกับรูปทรงนั้น. พิกัดยังคงกำหนดตำแหน่งของเครื่องหมายบนสไลด์, ส่วนการเชื่อมโยงกับรูปทรงสามารถดึงได้ผ่าน [IModernComment.getShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getShape--).
+เมื่อส่งค่า `null` ให้กับอาร์กิวเมนต์ shape, ความคิดเห็นจะเป็นความคิดเห็นระดับสไลด์ เครื่องหมายจะถูกวางตามพิกัดที่ระบุ แต่จะไม่เชื่อมโยงกับรูปทรงใดโดยเฉพาะ ดังนั้นเมธอด [IModernComment.getShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getShape--) จะคืนค่า `null` หากมีการระบุ [IShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/) เข้ามา ความคิดเห็นจะถูกยึดกับรูปทรงนั้น พิกัดยังคงกำหนดตำแหน่งของเครื่องหมายความคิดเห็นบนสไลด์อยู่ ส่วนการเชื่อมโยงรูปทรงสามารถดึงได้ผ่าน [IModernComment.getShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getShape--)
 
-### **ยึดความคิดเห็นสมัยใหม่กับรูปร่าง**
+### **ยึดความคิดเห็นสมัยใหม่กับรูปทรง**
 
-ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ระดับสไลด์และความคิดเห็นสมัยใหม่ที่ยึดกับ AutoShape เฉพาะ. จากนั้นอ่านรูปร่างที่เชื่อมโยงจากแต่ละความคิดเห็น.
+ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ระดับสไลด์และความคิดเห็นสมัยใหม่ที่ยึดกับ AutoShape เฉพาะ แล้วอ่านรูปทรงที่เชื่อมโยงจากแต่ละความคิดเห็น
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -216,11 +218,11 @@ try {
 }
 ```
 
-### **ยึดความคิดเห็นกับรูปแบบรูปร่างที่แตกต่างกัน**
+### **ยึดความคิดเห็นกับประเภทรูปทรงต่าง ๆ**
 
-ออบเจ็กต์สไลด์ใด ๆ ที่ทำการ 구현 [IShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/) สามารถใช้เป็นตัวยึดรูปร่างได้. ตัวอย่างทั่วไปรวมถึง [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/th/java/com.aspose.slides/iconnector/), และอินสแตนซ์ [IGraphicalObject](https://reference.aspose.com/slides/th/java/com.aspose.slides/igraphicalobject/) เช่นแผนภูมิ.
+อ็อบเจกต์สไลด์ใด ๆ ที่ implements [IShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/) สามารถใช้เป็นตัวยึดรูปทรงได้ ตัวอย่างทั่วไป ได้แก่ [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/th/java/com.aspose.slides/iconnector/), และอินสแตนซ์ของ [IGraphicalObject](https://reference.aspose.com/slides/th/java/com.aspose.slides/igraphicalobject/) เช่น แผนภูมิ
 
-ตัวอย่างต่อไปนี้สร้างรูปแบบรูปร่างหลายประเภทและเชื่อมโยงความคิดเห็นสมัยใหม่กับแต่ละรูปแบบ.
+ตัวอย่างต่อไปนี้สร้างรูปทรงหลายประเภทที่พบบ่อยและผูกความคิดเห็นสมัยใหม่กับแต่ละรูปทรง
 
 ```java
 import com.aspose.slides.ChartType;
@@ -277,18 +279,18 @@ try {
 }
 ```
 
-### **ยึดความคิดเห็นไปยังข้อความและกำหนดสถานะของมัน**
+### **ยึดความคิดเห็นกับข้อความและกำหนดสถานะ**
 
-สำหรับความคิดเห็นสมัยใหม่ที่เชื่อมโยงกับ [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/), เมธอด [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) และ [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) เข้าถึงตำแหน่งเริ่มต้นของข้อความที่เลือกในเฟรมข้อความของรูปร่าง. เมธอด [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) และ [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) เข้าถึงความยาวของการเลือก. ค่าต่าง ๆ เหล่านี้ทำให้ความคิดเห็นเชื่อมโยงกับช่วงข้อความเฉพาะภายใน AutoShape.
+สำหรับความคิดเห็นสมัยใหม่ที่เชื่อมโยงกับ [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/), เมธอด [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) และ [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) เข้าถึงตำแหน่งเริ่มต้นของข้อความที่เลือกใน TextFrame ของรูปทรงนั้น [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) และ [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) เข้าถึงความยาวของการเลือก ค่าทั้งสองใช้เพื่อผูกความคิดเห็นกับช่วงข้อความเฉพาะภายใน AutoShape
 
-เมธอด [IModernComment.getStatus](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getStatus--) และ [IModernComment.setStatus](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#setStatus-byte--) เข้าถึงค่าจากคอนสแตนท์ [ModernCommentStatus](https://reference.aspose.com/slides/th/java/com.aspose.slides/moderncommentstatus/) :
+เมธอด [IModernComment.getStatus](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getStatus--) และ [IModernComment.setStatus](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#setStatus-byte-) เข้าถึงค่าจากคอนสแตนต์ [ModernCommentStatus](https://reference.aspose.com/slides/th/java/com.aspose.slides/moderncommentstatus/) ดังนี้
 
-- `NotDefined` — ไม่ได้กำหนดสถานะของความคิดเห็นสมัยใหม่.
-- `Active` — ความคิดเห็นกำลังใช้งาน.
-- `Resolved` — ความคิดเห็นได้ถูกแก้ไขแล้ว.
-- `Closed` — ความคิดเห็นได้ถูกปิด.
+- `NotDefined` — ไม่ได้กำหนดสถานะความคิดเห็นสมัยใหม่โดยเฉพาะ
+- `Active` — ความคิดเห็นอยู่ในสถานะใช้งาน
+- `Resolved` — ความคิดเห็นได้รับการแก้ไขแล้ว
+- `Closed` — ความคิดเห็นถูกปิด
 
-ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ที่ยึดกับรูปร่าง, เชื่อมโยงกับการเลือกข้อความ, ทำเครื่องหมายว่าแก้ไขแล้ว, บันทึกงานนำเสนอ, และตรวจสอบค่าเหล่านั้นหลังจากเปิดไฟล์ใหม่อีกครั้ง.
+ตัวอย่างต่อไปนี้สร้างความคิดเห็นสมัยใหม่ที่ยึดกับรูปทรง, ผูกกับการเลือกข้อความ, ตั้งสถานะเป็น resolved, บันทึกพรีเซนเทชัน, และตรวจสอบค่าหลังจากเปิดไฟล์ใหม่
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -355,7 +357,7 @@ try {
 
 ### **ตรวจสอบความคิดเห็นสมัยใหม่ที่มีอยู่**
 
-เพื่อทำการตรวจสอบงานนำเสนอที่มีอยู่, ตรวจสอบว่าความคิดเห็นใดบ้างที่ทำการ 구현 [IModernComment](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/), จากนั้นตรวจสอบ [IModernComment.getShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--), และ [IModernComment.getStatus](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getStatus--). รูปร่าง `null` หมายถึงความคิดเห็นระดับสไลด์. สำหรับตัวยึด [IAutoShape] การใช้เมธอดเลือกข้อความจะบ่งบอกช่วงที่เชื่อมโยงในเฟรมข้อความของรูปร่าง.
+เพื่อทำการตรวจสอบพรีเซนเทชันที่มีอยู่ ให้ตรวจสอบว่าความคิดเห็นใดบ้างที่ implement [IModernComment](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/), แล้วเรียกดู [IModernComment.getShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--), และ [IModernComment.getStatus](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getStatus--) `null` shape บ่งชี้ว่าความคิดเห็นเป็นระดับสไลด์ สำหรับ anchor ที่เป็น [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) วิธีการเลือกข้อความจะบอกช่วงที่เชื่อมโยงใน TextFrame ของรูปทรงนั้น
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -402,9 +404,9 @@ try {
 
 ## **ลบความคิดเห็น**
 
-### **ลบความคิดเห็นและผู้เขียนทั้งหมด**
+### **ลบความคิดเห็นและผู้เขียนความคิดเห็นทั้งหมด**
 
-ตัวอย่างต่อไปนี้แสดงวิธีลบความคิดเห็นและผู้เขียนความคิดเห็นทั้งหมดจากงานนำเสนอ:
+ตัวอย่างต่อไปนี้แสดงวิธีลบความคิดเห็นและผู้เขียนความคิดเห็นทั้งหมดจากพรีเซนเทชัน:
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -424,9 +426,9 @@ try {
 }
 ```
 
-### **ลบความคิดเห็นที่เฉพาะเจาะจง**
+### **ลบความคิดเห็นเฉพาะ**
 
-ตัวอย่างต่อไปนี้แสดงวิธีลบความคิดเห็นที่เฉพาะเจาะจงจากสไลด์:
+ตัวอย่างต่อไปนี้แสดงวิธีลบความคิดเห็นเฉพาะจากสไลด์:
 
 ```java
 import com.aspose.slides.IComment;
@@ -471,16 +473,16 @@ try {
 }
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**Aspose.Slides รองรับสถานะที่แก้ไขแล้วสำหรับความคิดเห็นสมัยใหม่หรือไม่?**
+**Aspose.Slides รองรับสถานะ resolved สำหรับความคิดเห็นสมัยใหม่หรือไม่?**
 
-ใช่. เมธอด [IModernComment.getStatus](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getStatus--) และ [IModernComment.setStatus](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#setStatus-byte-) เข้าถึงค่าจากคอนสแตนท์ [ModernCommentStatus](https://reference.aspose.com/slides/th/java/com.aspose.slides/moderncommentstatus/) รวมถึง `Resolved`. สถานะจะถูกเก็บในงานนำเสนอและสามารถอ่านได้อีกครั้งหลังจากเปิดไฟล์ใหม่.
+ใช่ เมธอด [IModernComment.getStatus](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#getStatus--) และ [IModernComment.setStatus](https://reference.aspose.com/slides/th/java/com.aspose.slides/imoderncomment/#setStatus-byte-) ให้เข้าถึงค่าของ [ModernCommentStatus](https://reference.aspose.com/slides/th/java/com.aspose.slides/moderncommentstatus/) รวมถึง `Resolved` สถานะจะถูกบันทึกในพรีเซนเทชันและสามารถอ่านได้อีกครั้งหลังจากเปิดไฟล์ใหม่
 
-**รองรับการสนทนาแบบเธรด (สายการตอบกลับ) หรือไม่, และมีขีดจำกัดระดับการซ้อนกันหรือไม่?**
+**รองรับการสนทนาที่เป็นเธรด (ห่วงโซ่การตอบกลับ) หรือไม่ และมีขีดจำกัดการซ้อนกันหรือไม่?**
 
-ใช่. แต่ละความคิดเห็นสามารถอ้างอิงถึง [parent comment](https://reference.aspose.com/slides/th/java/com.aspose.slides/icomment/#getParentComment--) ของมัน, ทำให้สามารถสร้างสายการตอบกลับได้. API ไม่ได้กำหนดขีดจำกัดความลึกของการซ้อนกันโดยเฉพาะ.
+ใช่ แต่ละความคิดเห็นสามารถอ้างอิงถึง [parent comment](https://reference.aspose.com/slides/th/java/com.aspose.slides/icomment/#getParentComment--) ทำให้สร้างห่วงโซ่การตอบกลับได้ API ไม่ได้กำหนดขีดจำกัดความลึกของการซ้อนกันเป็นค่าเฉพาะ
 
-**ตำแหน่งของเครื่องหมายความคิดเห็นบนสไลด์กำหนดในระบบพิกัดอะไร?**
+**ตำแหน่งของเครื่องหมายความคิดเห็นบนสไลด์กำหนดในระบบพิกัดใด?**
 
-ตำแหน่งของเครื่องหมายถูกกำหนดด้วยพิกัดแบบ floating-point ในระบบพิกัดของสไลด์, ทำให้คุณสามารถวางตำแหน่งได้อย่างแม่นยำบนสไลด์.
+ตำแหน่งเครื่องหมายจะกำหนดด้วยพิกัดจุดทศนิยมในระบบพิกัดของสไลด์ ทำให้คุณวางเครื่องหมายได้อย่างแม่นยำบนสไลด์

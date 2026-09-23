@@ -1,5 +1,5 @@
 ---
-title: Prezentáció nézet tulajdonságainak lekérdezése és frissítése Pythonon keresztül Java
+title: Prezentáció nézet tulajdonságainak lekérése és frissítése Pythonnal Java segítségével
 linktitle: Nézet tulajdonságok
 type: docs
 weight: 80
@@ -9,9 +9,9 @@ keywords:
 - normál nézet
 - vázlat tartalom
 - vázlat ikonok
-- függőleges osztó rögzítése
-- egyszerű nézet
-- osztóállapot
+- függőleges elválasztó rögzítése
+- egyablakos nézet
+- sáv állapot
 - dimenzió méret
 - automatikus igazítás
 - alapértelmezett nagyítás
@@ -21,39 +21,39 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Ismerje meg az Aspose.Slides for Python via Java nézet tulajdonságait a PPT, PPTX és ODP diák testreszabásához – állítsa be az elrendezéseket, a nagyítási szinteket és a megjelenítési beállításokat."
+description: "Fedezze fel az Aspose.Slides for Python via Java nézet tulajdonságait a PPT, PPTX és ODP diák testreszabásához—állítsa be az elrendezéseket, nagyítási szinteket és megjelenítési beállításokat."
 ---
 ## **Bevezetés**
 
-A normál nézet három tartalmi régióból áll: maga a dia, egy oldalsó tartalmi régió és egy alsó tartalmi régió. A normál nézet tulajdonságai leírják ezen tartalmi régiók elhelyezkedését. Ezek az információk lehetővé teszik az alkalmazás számára, hogy a nézet állapotát a fájlba mentse, így a megnyitáskor a nézet ugyanabban az állapotban lesz, mint amikor a prezentációt legutóbb mentették.
+Normál nézet három tartalmi területet tartalmaz: a diát magát, egy oldali tartalmi területet és egy alsó tartalmi területet. A normál nézet tulajdonságai leírják ezen tartalmi területek elhelyezkedését. Ez az információ lehetővé teszi az alkalmazás számára, hogy elmentse a nézet állapotát a fájlba, így újranyitáskor a nézet ugyanabban az állapotban lesz, mint amikor a bemutatót legutóbb mentették.
 
-A [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#getNormalViewProperties) metódust hozzáadtuk, hogy hozzáférést biztosítson a prezentáció normál nézet tulajdonságaihoz.
+A [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#getNormalViewProperties) metódust adjuk hozzá, hogy hozzáférést biztosítson a bemutató normál nézet tulajdonságaihoz.
 
-A [NormalViewProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/) és a [NormalViewRestoredProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewrestoredproperties/) osztályok, valamint a [SplitterBarStateType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/splitterbarstatetype/) felsorolás került hozzáadásra.
+Hozzáadtuk a [NormalViewProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/) , [NormalViewRestoredProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewrestoredproperties/) osztályokat és a [SplitterBarStateType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/splitterbarstatetype/) felsorolást.
 
-## **A NormalViewProperties-ról**
+## **A NormalViewProperties osztályról**
 
 A normál nézet tulajdonságait képviseli.
 
-A [getShowOutlineIcons](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getShowOutlineIcons) és a [setShowOutlineIcons](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) metódusok határozzák meg, hogy az alkalmazás megjelenítse‑e az ikonokat, ha a vázlat tartalmat a normál nézet bármely tartalmi régiójában jeleníti meg.
+A [getShowOutlineIcons](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getShowOutlineIcons) és a [setShowOutlineIcons](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#setShowOutlineIcons) metódusok határozzák meg, hogy az alkalmazás ikonokat jelenítsen-e, ha vázlat tartalmat jelenít meg a normál nézet bármely tartalmi területén.
 
-A [getSnapVerticalSplitter](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getSnapVerticalSplitter) és a [setSnapVerticalSplitter](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) metódusok határozzák meg, hogy a függőleges osztóvonal automatikusan minimalizált állapotba lépjen‑e, amikor az oldalsó régió elég kicsi.
+A [getSnapVerticalSplitter](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getSnapVerticalSplitter) és a [setSnapVerticalSplitter](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#setSnapVerticalSplitter) metódusok határozzák meg, hogy a függőleges elválasztó sáv minimális állapotba álljon-e, amikor az oldalsó terület elég kicsi.
 
-A [getPreferSingleView](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getPreferSingleView) és a [setPreferSingleView](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) metódusok határozzák meg, hogy a felhasználó egy teljes ablakos egyetlen tartalmi régiót részesít‑e előnyben a három tartalmi régióval rendelkező szokásos normál nézettel szemben. Ha engedélyezve van, az alkalmazás egy tartalmi régiót megjeleníthet a teljes ablakban.
+A [getPreferSingleView](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getPreferSingleView) és a [setPreferSingleView](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#setPreferSingleView) metódusok határozzák meg, hogy a felhasználó inkább egy teljes ablakos, egyetlen tartalmi területet szeretne-e a három tartalmi területből álló szabványos normál nézet helyett. Engedélyezve az alkalmazás választhatja, hogy egy tartalmi területet jelenítsen meg az egész ablakban.
 
-A [getVerticalBarState](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) és a [getHorizontalBarState](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) metódusok határozzák meg, hogy a vízszintes vagy függőleges osztóvonal milyen állapotban jelenjen meg. A vízszintes osztóvonal elválasztja a diát a diát alatti tartalmi régiótól; a függőleges osztóvonal elválasztja a diát az oldalsó tartalmi régiótól. Lehetséges értékek: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/hu/python-java/aspose.slides/splitterbarstatetype/#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/hu/python-java/aspose.slides/splitterbarstatetype/#Maximized) és [SplitterBarStateType.Restored](https://reference.aspose.com/slides/hu/python-java/aspose.slides/splitterbarstatetype/#Restored).
+A [getVerticalBarState](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) és a [getHorizontalBarState](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) metódusok határozzák meg, hogy a vízszintes vagy függőleges elválasztó sáv melyik állapotban jelenjen meg. A vízszintes elválasztó sáv elválasztja a diát a diát alatti tartalmi területtől; a függőleges elválasztó sáv elválasztja a diát az oldalsó tartalmi területtől. Lehetséges értékek: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/hu/python-java/aspose.slides/splitterbarstatetype/#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/hu/python-java/aspose.slides/splitterbarstatetype/#Maximized) és [SplitterBarStateType.Restored](https://reference.aspose.com/slides/hu/python-java/aspose.slides/splitterbarstatetype/#Restored).
 
-A [getRestoredLeft](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) és a [getRestoredTop](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getRestoredTop) metódusok határozzák meg a normál nézet bal vagy felső diarégiójának méretét, amikor a [SplitterBarStateType.Restored](https://reference.aspose.com/slides/hu/python-java/aspose.slides/splitterbarstatetype/#Restored) értéket alkalmazzák a [getVerticalBarState](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) és a [getHorizontalBarState](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) metódusokra.
+A [getRestoredLeft](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) és a [getRestoredTop](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getRestoredTop) metódusok meghatározzák a normál nézet felső vagy oldalsó diaterületének méretét, amikor a [SplitterBarStateType.Restored](https://reference.aspose.com/slides/hu/python-java/aspose.slides/splitterbarstatetype/#Restored) érték van alkalmazva a [getVerticalBarState](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getVerticalBarState) és a [getHorizontalBarState](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getHorizontalBarState) metódusokra, illetve.
 
-## **A NormalViewProperties visszaállításáról**
+## **A NormalViewProperties helyreállításáról**
 
-Megadja a diarégió (szélesség, ha a [getRestoredTop](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getRestoredTop) leszármazottja, magasság, ha a [getRestoredLeft](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) leszármazottja) méretét a normál nézetben, amikor a régió változó visszaállított mérettel rendelkezik (sem minimalizált, sem maximalizált).
+Meghatározza a normál nézet diaterületének méretét (szélesség, ha a [getRestoredTop](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getRestoredTop) gyermekeként, magasság, ha a [getRestoredLeft](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) gyermekeként), amikor a terület változó helyreállított mérettel rendelkezik (sem minimalizált, sem maximalizált).
 
-A [getDimensionSize](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewrestoredproperties/#getDimensionSize) metódus megadja a diarégió méretét (szélesség, ha a [getRestoredTop](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getRestoredTop) leszármazottja, magasság, ha a [getRestoredLeft](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) leszármazottja).
+A [getDimensionSize](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewrestoredproperties/#getDimensionSize) metódus határozza meg a diaterület méretét (szélesség, ha a [getRestoredTop](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getRestoredTop) gyermekeként, magasság, ha a [getRestoredLeft](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewproperties/#getRestoredLeft) gyermekeként).
 
-A [getAutoAdjust](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewrestoredproperties/#getAutoAdjust) metódus meghatározza, hogy az oldalsó tartalmi régió mérete kompenzálja‑e az új méretet az ablak átméretezésekor, amely a nézetet tartalmazza az alkalmazáson belül.
+A [getAutoAdjust](https://reference.aspose.com/slides/hu/python-java/aspose.slides/normalviewrestoredproperties/#getAutoAdjust) metódus határozza meg, hogy az oldalsó tartalmi terület mérete kompenzálja-e az új méretet, amikor az alkalmazáson belüli nézetablak méretét változtatják.
 
-Az alábbi példa azt mutatja be, hogyan lehet elérni a [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#getNormalViewProperties) metódust egy prezentációhoz.
+Az alábbi példa bemutatja, hogyan férhetünk hozzá a [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#getNormalViewProperties) metódushoz egy bemutató esetén.
 
 ```python
 import jpype
@@ -70,7 +70,7 @@ try:
     normal_view_properties.setHorizontalBarState(SplitterBarStateType.Restored)
     normal_view_properties.setVerticalBarState(SplitterBarStateType.Maximized)
 
-    # A prezentáció nézet tulajdonságainak visszaállítása.
+    # A bemutató nézet tulajdonságainak visszaállítása.
     normal_view_properties.getRestoredTop().setAutoAdjust(True)
     normal_view_properties.getRestoredTop().setDimensionSize(80)
     normal_view_properties.setShowOutlineIcons(True)
@@ -80,19 +80,19 @@ finally:
     presentation.dispose()
 ```
 
-## **Alapértelmezett nagyítási érték beállítása**
+## **Az alapértelmezett nagyítási érték beállítása**
 
 {{% alert color="info" title="Note" %}}
-Az Aspose.Slides for Python via Java támogatja az alapértelmezett nagyítási érték beállítását, így a prezentáció megnyitásakor már alkalmazva van. Ez a [ViewProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/) beállításával érhető el a prezentációban. A [getSlideViewProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#getSlideViewProperties) valamint a [getNotesViewProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#getNotesViewProperties) programozottan konfigurálható. Ebben a témában egy példán keresztül megmutatjuk, hogyan állítható be a [View Properties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/) a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) objektumban az Aspose.Slides‑ben.
+Az Aspose.Slides for Python via Java támogatja az alapértelmezett nagyítási érték beállítását, így a bemutató megnyitásakor már alkalmazva van. Ez a bemutató [ViewProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/) beállításával valósítható meg. A [getSlideViewProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#getSlideViewProperties) és a [getNotesViewProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#getNotesViewProperties) programozottan konfigurálható. Ebben a témában egy példán keresztül megmutatjuk, hogyan állítható be a [View Properties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/) a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) számára az Aspose.Slides-ben.
 {{% /alert %}}
 
 A nézet tulajdonságainak beállításához kövesse az alábbi lépéseket:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
-1. Állítsa be a [View Properties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/) értékét a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) számára.
-1. Írja a prezentációt egy [PPTX](https://docs.fileformat.com/presentation/pptx/) fájlként.
+2. Állítsa be a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) [View Properties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/) értékét.
+3. Mentse a bemutatót [PPTX](https://docs.fileformat.com/presentation/pptx/) fájlként.
 
-Az alábbi példában a nagyítási értéket állítjuk be mind a dia nézethez, mind a jegyzet nézethez.
+Az alábbi példában beállítjuk a nagyítási értéket a dianézethez és a jegyzetnézethez egyaránt.
 
 ```python
 import jpype
@@ -105,8 +105,8 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # A prezentáció nézet tulajdonságainak beállítása.
-    presentation.getViewProperties().getSlideViewProperties().setScale(100)  # Nagyítási százalék a dia nézethez.
+    # A bemutató nézet tulajdonságainak beállítása.
+    presentation.getViewProperties().getSlideViewProperties().setScale(100)  # Nagyítási százalék a dianézethez.
     presentation.getViewProperties().getNotesViewProperties().setScale(100)  # Nagyítási százalék a jegyzet nézethez.
 
     presentation.save("Zoom_out.pptx", SaveFormat.Pptx)
@@ -114,11 +114,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Rácsállás beállítása**
+## **A rácstávolság beállítása**
 
-Használja a [Presentation.getViewProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getViewProperties) metódust a prezentáció teljes körű nézetbeállításainak eléréséhez. A [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#getGridSpacing) és a [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#setGridSpacing) metódusok olvassák vagy módosítják a szerkesztő rácsának intervallumát. Ez a beállítás az egész prezentációra vonatkozik, nem egy adott diára. A rácsállás pontokban van megadva, ahol 72 pont egy hüvelyket jelent. Pozitív értéket használjon, ahogy az API dokumentáció előírja.
+Használja a [Presentation.getViewProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getViewProperties) metódust a bemutató szintű nézet beállítások eléréséhez. A [ViewProperties.getGridSpacing](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#getGridSpacing) és a [ViewProperties.setGridSpacing](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#setGridSpacing) metódusok olvassák vagy módosítják az alaprendszer szerkesztő rácsának intervallumát. Ez a beállítás a teljes bemutatóra vonatkozik, nem egyetlen diára. A rácstávolság pontban van megadva, ahol 72 pont egy hüvelyknek felel meg. Pozitív értéket használjon, ahogy az API dokumentációja előírja.
 
-Az alábbi példa megnyit egy meglévő `demo.pptx` fájlt, kiírja annak aktuális rácsállását, beállít egy negyed hüvelykes intervallumot, majd elmenti a módosított fájlt.
+A következő példa megnyit egy létező `demo.pptx` fájlt, kiírja a jelenlegi rácstávolságot, beállít egy negyed hüvelykes intervallumot, majd elmenti az eredményt.
 
 ```python
 import jpype
@@ -140,28 +140,54 @@ finally:
     presentation.dispose()
 ```
 
-A rács különbözik a [drawing guides](/slides/hu/python-java/drawing-guides/)-tól. A rácsállás egy szabályos intervallust szabályoz, míg a rajzolási segédvonalak egyedileg elhelyezett vízszintes vagy függőleges igazító vonalak. A segédvonalak hozzáadása, áthelyezése vagy törlése nem változtatja meg a rácsállást.
+A rács különbözik a [drawing guides](/slides/hu/python-java/drawing-guides/)-tól. A rácstávolság egy szabályos intervallumot szabályoz, míg a rajzolási segédvonalak egyesével elhelyezett vízszintes vagy függőleges igazítási vonalak. A segédvonalak hozzáadása, mozgatása vagy törlése nem változtatja meg a rácstávolságot.
 
-Mind a rács, mind a rajzolási segédvonalak szerkesztési segédeszközök. Nem jelennek meg diatartalomként PDF‑ben, képeken, SVG‑ben vagy diavetítésben. A rácsállás tárolása nem garantálja, hogy egy szerkesztő megjeleníti a rácsot: annak láthatósága a néző vagy szerkesztő beállításaitól is függ.
+A rács és a rajzolási segédvonalak egyaránt szerkesztési segédeszközök. Nem jelennek meg dia tartalomként PDF-ben, képekben, SVG-ben vagy diavetítésben. A rácstávolság tárolása nem garantálja, hogy a szerkesztő megjeleníti a rácsot: láthatósága a megjelenítő vagy szerkesztő beállításaitól is függ.
+
+## **Megjegyzések megjelenítése vagy elrejtése a bemutató megnyitásakor**
+
+Használja a [Presentation.getViewProperties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getViewProperties) metódust a bemutató szintű nézet beállítások eléréséhez. A [ViewProperties.getShowComments](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#getShowComments) és a [ViewProperties.setShowComments](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#setShowComments) segítségével olvashatja vagy módosíthatja a tárolt preferenciát, hogy a megjegyzéseket meg kell-e jeleníteni, amikor a bemutatót a PowerPoint vagy egy másik kompatibilis szerkesztő nyitja meg.
+
+Ez a beállítás csak a tárolt nézetpreferenciát szabályozza. Nem ad hozzá, nem távolít el, nem szerkeszt és nem old meg megjegyzéseket. A megjegyzések elrejtése megőrzi azok tartalmát, szerzőit, pozícióit, válaszait és állapotát. Tekintse meg a [Presentation Comments](/slides/hu/python-java/presentation-comments/) oldalt a megjegyzéseket módosító műveletekhez.
+
+A következő példához egy meglévő, `comments.pptx` fájlra van szükség, amely tartalmaz megjegyzéseket. Kiírja a jelenlegi láthatósági beállítást, kéri a megjegyzések elrejtését, és egy új PPTX fájlt ment, anélkül hogy eltávolítana bármilyen megjegyzést. Emellett a [ViewProperties.setLastView](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#setLastView) metódust a [ViewType.SlideView](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewtype/#SlideView) értékkel használja a kezdeti szerkesztő nézet és a megjegyzések láthatóságának beállításához.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import NullableBool, Presentation, SaveFormat, ViewType
+
+presentation = Presentation("comments.pptx")
+try:
+    show_comments = presentation.getViewProperties().getShowComments()
+    print(f"Current comment visibility: {show_comments}")
+
+    presentation.getViewProperties().setShowComments(NullableBool.False_)
+    presentation.getViewProperties().setLastView(ViewType.SlideView)
+    presentation.save("comments-hidden.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Ez a beállítás nem határozza meg, hogy a megjegyzések szerepelnek-e a PDF, HTML, kép, jegyzet vagy osztólagos exportokban. A megfelelő exportspecifikus beállításokat külön kell konfigurálni.
 
 ## **GYIK**
 
-**Miért nem látható a rács a prezentáció újranyitása után?**
+**Miért nem látható a rács, amikor újra megnyitom a bemutatót?**  
+A fájl tárolja a rácstávolságot, de a szerkesztő szabályozza, hogy a rács megjelenik-e. Ellenőrizze a szerkesztő rács láthatósági beállításait.
 
-A fájl tárolja a rácsállást, de a szerkesztő dönt arról, hogy a rács megjelenik‑e. Ellenőrizze a szerkesztő rács láthatósági beállításait.
+**A rajzolási segédvonalak törlése megváltoztatja a rácstávolságot?**  
+Nem. A rajzolási segédvonalak és a rácstávolság független beállítások. A segédvonalak törlése nem változtatja meg a tárolt rácsintervallumot.
 
-**Megváltoztatja a rajzolási segédvonalak törlése a rácsállást?**
+**Beállíthatok különböző nézetbeállításokat a bemutató egyes szakaszaira?**  
+A [View settings](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getViewProperties) a bemutató szinten vannak meghatározva ([Normal View](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#getNormalViewProperties)/[Slide View](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#getSlideViewProperties)), nem szekciónként, ezért egyetlen paraméterkészlet érvényes a teljes dokumentumra a megnyitáskor.
 
-Nem. A rajzolási segédvonalak és a rácsállás egymástól független beállítások. A segédvonalak törlése nem módosítja a tárolt rácsintervallumot.
+**Előre definiálhatok különböző nézetállapotokat különböző felhasználók számára?**  
+Nem. A beállítások a fájlban vannak tárolva, és megosztottak. A megjelenítő alkalmazások tiszteletben tarthatják a felhasználói preferenciákat, de a fájl csak egy nézettulajdonság-készletet tartalmaz.
 
-**Beállíthatok különböző nézetbeállításokat a prezentáció egyes szakaszaihoz?**
-
-A [View settings](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getViewProperties) a prezentáció szintjén vannak definiálva ([Normal View](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#getNormalViewProperties)/[Slide View](https://reference.aspose.com/slides/hu/python-java/aspose.slides/viewproperties/#getSlideViewProperties)), nem szakaszonként, így egyetlen paraméterkészlet érvényes a teljes dokumentumra a megnyitáskor.
-
-**Előre definiálhatok különböző nézetállapotokat különböző felhasználók számára?**
-
-Nem. A beállítások a fájlban tárolódnak és megosztottak. A megjelenítő alkalmazások figyelembe vehetik a felhasználói preferenciákat, de a fájl maga csak egy nézettulajdonság‑készletet tartalmaz.
-
-**Készíthetek sablont előre definiált nézettulajdonságokkal, hogy az új prezentációk ugyanúgy nyíljanak meg?**
-
-Igen. Mivel a [view properties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getViewProperties) a prezentáció szintjén vannak tárolva, beágyazhatja őket egy sablonba, és új dokumentumokat hozhat létre belőle azonos kezdeti nézetkonfigurációval.
+**Elkészíthetek sablont előre definiált View Properties-szal, hogy az új bemutatók ugyanúgy nyíljanak meg?**  
+Igen. Mivel a [view properties](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getViewProperties) a bemutató szinten vannak tárolva, beágyazhatja őket egy sablonba, és új dokumentumokat hozhat létre belőle ugyanazzal a kiinduló nézetkonfigurációval.

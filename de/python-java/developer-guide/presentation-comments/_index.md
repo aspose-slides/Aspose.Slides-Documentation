@@ -1,12 +1,12 @@
 ---
-title: Verwalten von Präsentationskommentaren in Python via Java
+title: Präsentationskommentare in Python via Java verwalten
 linktitle: Präsentationskommentare
 type: docs
 weight: 100
 url: /de/python-java/presentation-comments/
 keywords:
 - Kommentar
-- Moderner Kommentar
+- moderner Kommentar
 - PowerPoint-Kommentare
 - Präsentationskommentare
 - Folienkommentare
@@ -23,28 +23,30 @@ keywords:
 - Aspose.Slides
 description: "Verwalten Sie Präsentationskommentare mit Aspose.Slides für Python via Java: Kommentare in PowerPoint-Präsentationen schnell und einfach hinzufügen, lesen, bearbeiten, beantworten und entfernen."
 ---
-## **Übersicht**
+## **Überblick**
 
 Dieser Artikel erklärt, wie man Präsentationskommentare mit Aspose.Slides für Python via Java verwaltet. Er führt die wichtigsten kommentarbezogenen Typen ein und zeigt, wie man Kommentare zu Folien hinzufügt, vorhandene Kommentare abruft, mit Antworten und modernen Kommentaren arbeitet und Kommentare aus einer Präsentation entfernt.
 
-Die Beispiele decken gängige Überprüfungs- und Zusammenarbeitsszenarien in PowerPoint ab, wie das Zuordnen von Kommentaren zu Autoren, das Lesen von Kommentartexten und Metadaten, das Erstellen von Antwortketten und das Entfernen ausgewählter Kommentare oder aller Kommentare.
+Die Beispiele decken gängige Überprüfungs‑ und Zusammenarbeitsszenarien in PowerPoint ab, z. B. das Zuordnen von Kommentaren zu Autoren, das Auslesen von Kommentartexten und Metadaten, das Erstellen von Antwortketten und das Entfernen ausgewählter oder aller Kommentare.
 
-In PowerPoint erscheinen Kommentare als Anmerkungen auf Folien. Das Auswählen eines Kommentars zeigt dessen Text und die zugehörige Diskussion an.
+In PowerPoint erscheinen Kommentare als Anmerkungen auf Folien. Durch Auswählen eines Kommentars wird dessen Text und die zugehörige Diskussion angezeigt.
+
+Um zu verlangen, dass Kommentare beim Öffnen einer Präsentation angezeigt oder ausgeblendet werden, ohne die Kommentare selbst zu ändern, siehe [Show or Hide Comments When Opening a Presentation](/slides/de/python-java/presentation-view-properties/).
 
 ## **Warum Kommentare zu Präsentationen hinzufügen?**
 
-Sie können Kommentare verwenden, um Feedback zu geben und mit Kollegen bei der Durchsicht von Präsentationen zusammenzuarbeiten.
+Sie können Kommentare verwenden, um Feedback zu geben und mit Kollegen zusammenzuarbeiten, wenn Sie Präsentationen überprüfen.
 
-Aspose.Slides für Python via Java bietet die folgenden APIs zum Arbeiten mit Kommentaren:
+Aspose.Slides für Python via Java stellt die folgenden APIs zum Arbeiten mit Kommentaren bereit:
 
-* Die [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/) Klasse, die Zugriff auf die Kommentarautoren der Präsentation bietet.
-* Die [CommentCollection](https://reference.aspose.com/slides/de/python-java/aspose.slides/commentcollection/) Klasse, die die mit einem einzelnen Autor verbundenen Kommentare darstellt.
-* Die [Comment](https://reference.aspose.com/slides/de/python-java/aspose.slides/comment/) Klasse, die Informationen über einen Kommentar liefert, einschließlich Autor, Erstellungszeit, Position und Text.
-* Die [CommentAuthor](https://reference.aspose.com/slides/de/python-java/aspose.slides/commentauthor/) Klasse, die Informationen über einen Autor bereitstellt, einschließlich Name, Initialen und zugehöriger Kommentare.
+* Die [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/)‑Klasse, die Zugriff auf die Kommentar‑Autoren der Präsentation bietet.
+* Die [CommentCollection](https://reference.aspose.com/slides/de/python-java/aspose.slides/commentcollection/)‑Klasse, die die Kommentare eines einzelnen Autors darstellt.
+* Die [Comment](https://reference.aspose.com/slides/de/python-java/aspose.slides/comment/)‑Klasse, die Informationen über einen Kommentar bereitstellt, einschließlich Autor, Erstellungszeit, Position und Text.
+* Die [CommentAuthor](https://reference.aspose.com/slides/de/python-java/aspose.slides/commentauthor/)‑Klasse, die Informationen über einen Autor liefert, einschließlich Name, Initialen und zugehöriger Kommentare.
 
 ## **Folienkommentare hinzufügen**
 
-Das folgende Beispiel zeigt, wie man Kommentare zu Folien in einer PowerPoint-Präsentation hinzufügt:
+Das folgende Beispiel zeigt, wie man Kommentare zu Folien in einer PowerPoint‑Präsentation hinzufügt:
 
 ```python
 import jpype
@@ -83,9 +85,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Folienkommentare abrufen**
+## **Zugriff auf Folienkommentare**
 
-Das folgende Beispiel zeigt, wie man vorhandene Kommentare in einer PowerPoint-Präsentation abruft:
+Das folgende Beispiel zeigt, wie man vorhandene Kommentare in einer PowerPoint‑Präsentation abruft:
 
 ```python
 import jpype
@@ -111,9 +113,9 @@ finally:
 
 ## **Auf Kommentare antworten**
 
-Ein übergeordneter Kommentar ist der ursprüngliche Kommentar an der Spitze einer Antworthierarchie. Die Methoden [Comment.getParentComment](https://reference.aspose.com/slides/de/python-java/aspose.slides/comment/#getParentComment) und [Comment.setParentComment](https://reference.aspose.com/slides/de/python-java/aspose.slides/comment/#setParentComment) ermöglichen das Abrufen bzw. Festlegen des übergeordneten Kommentars.
+Ein übergeordneter Kommentar ist der ursprüngliche Kommentar an der Spitze einer Antwort‑Hierarchie. Die Methoden [Comment.getParentComment](https://reference.aspose.com/slides/de/python-java/aspose.slides/comment/#getParentComment) und [Comment.setParentComment](https://reference.aspose.com/slides/de/python-java/aspose.slides/comment/#setParentComment) ermöglichen das Abrufen bzw. Festlegen des übergeordneten Kommentars.
 
-Das folgende Beispiel zeigt, wie man Antworten hinzufügt und die resultierende Kommentarhierarchie untersucht:
+Das folgende Beispiel zeigt, wie man Antworten hinzufügt und die resultierende Kommentar‑Hierarchie untersucht:
 
 ```python
 import jpype
@@ -169,20 +171,20 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="warning" title="Warnung" %}}
-* Wenn die Methode [Comment.remove](https://reference.aspose.com/slides/de/python-java/aspose.slides/comment/#remove) verwendet wird, um einen Kommentar zu löschen, werden auch alle Antworten auf diesen Kommentar gelöscht.
+{{% alert color="warning" title="Warning" %}}
+* Wenn die [Comment.remove](https://reference.aspose.com/slides/de/python-java/aspose.slides/comment/#remove)‑Methode verwendet wird, um einen Kommentar zu löschen, werden alle Antworten auf diesen Kommentar ebenfalls gelöscht.
 * Wenn [Comment.setParentComment](https://reference.aspose.com/slides/de/python-java/aspose.slides/comment/#setParentComment) eine zirkuläre Referenz erzeugt, wird eine [PptxEditException](https://reference.aspose.com/slides/de/python-java/aspose.slides/pptxeditexception/) ausgelöst.
 {{% /alert %}}
 
 ## **Moderne Kommentare hinzufügen**
 
-Moderne Kommentare können mit der Folie selbst, einem bestimmten Shape oder einem Textbereich innerhalb einer [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) verknüpft werden. Die Methode [CommentCollection.addModernComment](https://reference.aspose.com/slides/de/python-java/aspose.slides/commentcollection/#addModernComment) akzeptiert ein [Shape](https://reference.aspose.com/slides/de/python-java/aspose.slides/shape/) Argument zusätzlich zu den Folien‑ und Kommentar‑Marker‑Koordinaten.
+Moderne Kommentare können mit der Folie selbst, einer bestimmten Form oder einem Textbereich innerhalb einer [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) verknüpft werden. Die Methode [CommentCollection.addModernComment](https://reference.aspose.com/slides/de/python-java/aspose.slides/commentcollection/#addModernComment) akzeptiert ein [Shape](https://reference.aspose.com/slides/de/python-java/aspose.slides/shape/)‑Argument zusätzlich zu den Folien‑ und Kommentar‑Marker‑Koordinaten.
 
-When `None` für das Shape‑Argument übergeben wird, handelt es sich um einen Folien‑Kommentar. Sein Marker wird durch die angegebenen Koordinaten positioniert, ist aber keinem bestimmten Shape zugeordnet, sodass [ModernComment.getShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getShape) `None` zurückgibt. Wird ein [Shape](https://reference.aspose.com/slides/de/python-java/aspose.slides/shape/) bereitgestellt, wird der Kommentar an dieses Shape angeheftet. Die Koordinaten definieren weiterhin die Position des Kommentar‑Markers auf der Folie, während die Shape‑Zuordnung über [ModernComment.getShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getShape) abgerufen werden kann.
+Wenn `None` als Shape‑Argument übergeben wird, handelt es sich um einen Folien‑Kommentar. Sein Marker wird anhand der angegebenen Koordinaten positioniert, ist jedoch keiner bestimmten Form zugeordnet, sodass [ModernComment.getShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getShape) `None` zurückgibt. Wenn ein [Shape](https://reference.aspose.com/slides/de/python-java/aspose.slides/shape/) angegeben wird, ist der Kommentar an dieser Form verankert. Die Koordinaten definieren weiterhin die Position des Kommentar‑Markers auf der Folie, während die Formzugehörigkeit über [ModernComment.getShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getShape) abgerufen werden kann.
 
-### **Einen modernen Kommentar an ein Shape anheften**
+### **Einen modernen Kommentar an einer Form verankern**
 
-Das folgende Beispiel erstellt sowohl einen Folien‑modernen Kommentar als auch einen modernen Kommentar, der an einer bestimmten [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) angeheftet ist. Anschließend liest es das zugehörige Shape aus jedem Kommentar.
+Das folgende Beispiel erstellt sowohl einen Folien‑Kommentar als auch einen modernen Kommentar, der an einer bestimmten [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) verankert ist. Anschließend wird die zugehörige Form aus jedem Kommentar ausgelesen.
 
 ```python
 import jpype
@@ -218,11 +220,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Kommentare an verschiedene Shape‑Typen anheften**
+### **Kommentare an verschiedenen Formtypen verankern**
 
-Jedes Folienobjekt, das von [Shape](https://reference.aspose.com/slides/de/python-java/aspose.slides/shape/) erbt, kann als Shape‑Anker verwendet werden. Häufige Beispiele sind [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/de/python-java/aspose.slides/connector/) und [GraphicalObject](https://reference.aspose.com/slides/de/python-java/aspose.slides/graphicalobject/) Instanzen, beispielsweise Diagramme.
+Jedes Folienobjekt, das von [Shape](https://reference.aspose.com/slides/de/python-java/aspose.slides/shape/) erbt, kann als Anker verwendet werden. Häufige Beispiele sind [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/de/python-java/aspose.slides/connector/) und [GraphicalObject](https://reference.aspose.com/slides/de/python-java/aspose.slides/graphicalobject/) wie Diagramme.
 
-Das folgende Beispiel erstellt mehrere gängige Shape‑Typen und verknüpft einen modernen Kommentar mit jedem.
+Das folgende Beispiel erzeugt mehrere gängige Formtypen und verknüpft einen modernen Kommentar mit jedem einzelnen.
 
 ```python
 import jpype
@@ -235,7 +237,7 @@ from asposeslides.api import ChartType, Presentation, SaveFormat, ShapeType
 
 Point2DFloat = jpype.JClass("java.awt.geom.Point2D$Float")
 Date = jpype.JClass("java.util.Date")
-Base64 = jpage.JClass("java.util.Base64")
+Base64 = jpype.JClass("java.util.Base64")
 
 presentation = Presentation()
 try:
@@ -274,18 +276,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Einen Kommentar an Text anheften und seinen Status festlegen**
+### **Einen Kommentar an Text verankern und den Status festlegen**
 
-Für einen modernen Kommentar, der mit einer [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) verknüpft ist, greifen [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getTextSelectionStart) und [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#setTextSelectionStart) auf die Startposition des ausgewählten Textes im Textfeld des Shapes zu. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getTextSelectionLength) und [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#setTextSelectionLength) geben die Länge der Auswahl zurück. Zusammen verknüpfen diese Werte den Kommentar mit einem bestimmten Textbereich innerhalb der AutoShape.
+Für einen modernen Kommentar, der mit einer [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) verknüpft ist, greifen [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getTextSelectionStart) und [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#setTextSelectionStart) auf die Startposition des ausgewählten Textes im Textfeld der Form zu. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getTextSelectionLength) und [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#setTextSelectionLength) geben die Länge der Auswahl zurück. Zusammen verbinden diese Werte den Kommentar mit einem bestimmten Textbereich innerhalb der AutoShape.
 
-Die Methoden [ModernComment.getStatus](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getStatus) und [ModernComment.setStatus](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#setStatus) greifen auf einen Wert aus den [ModernCommentStatus](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncommentstatus/) Konstanten zu:
+Die Methoden [ModernComment.getStatus](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getStatus) und [ModernComment.setStatus](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#setStatus) greifen auf einen Wert aus den Konstanten [ModernCommentStatus](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncommentstatus/) zu:
 
 - [NotDefined](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncommentstatus/#NotDefined) — kein spezifischer moderner Kommentarstatus ist definiert.
 - [Active](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncommentstatus/#Active) — der Kommentar ist aktiv.
-- [Resolved](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncommentstatus/#Resolved) — der Kommentar wurde gelöst.
+- [Resolved](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncommentstatus/#Resolved) — der Kommentar wurde aufgelöst.
 - [Closed](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncommentstatus/#Closed) — der Kommentar ist geschlossen.
 
-Das folgende Beispiel erstellt einen an ein Shape angehefteten modernen Kommentar, verknüpft ihn mit einer Textauswahl, markiert ihn als gelöst, speichert die Präsentation und überprüft die Werte nach dem erneuten Öffnen der Datei.
+Das folgende Beispiel erstellt einen form‑verankerten modernen Kommentar, verknüpft ihn mit einer Textauswahl, markiert ihn als aufgelöst, speichert die Präsentation und prüft die Werte nach dem erneuten Öffnen der Datei.
 
 ```python
 import jpype
@@ -346,9 +348,9 @@ finally:
     reopened_presentation.dispose()
 ```
 
-### **Bestehende moderne Kommentare untersuchen**
+### **Vorhandene moderne Kommentare prüfen**
 
-Um eine vorhandene Präsentation zu untersuchen, prüfen Sie, welche Kommentare Instanzen von [ModernComment](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/) sind, und untersuchen Sie dann [ModernComment.getShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getTextSelectionLength) und [ModernComment.getStatus](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getStatus). Ein `None` Shape weist auf einen Folien‑Kommentar hin. Für einen [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/)‑Anker identifizieren die Textauswahl‑Methoden den zugehörigen Bereich im Textfeld des Shapes.
+Um eine vorhandene Präsentation zu untersuchen, prüfen Sie, welche Kommentare Instanzen von [ModernComment](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/) sind, und betrachten Sie anschließend [ModernComment.getShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getTextSelectionLength) sowie [ModernComment.getStatus](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getStatus). Ein `None`‑Shape weist auf einen Folien‑Kommentar hin. Für einen [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/)‑Anker identifizieren die Textauswahl‑Methoden den zugehörigen Bereich im Textfeld der Form.
 
 ```python
 import jpype
@@ -392,7 +394,7 @@ finally:
 
 ### **Alle Kommentare und Kommentarautoren entfernen**
 
-Das folgende Beispiel zeigt, wie man alle Kommentare und Kommentarautoren aus einer Präsentation entfernt:
+Das folgende Beispiel zeigt, wie alle Kommentare und Kommentarautoren aus einer Präsentation entfernt werden:
 
 ```python
 import jpype
@@ -416,7 +418,7 @@ finally:
 
 ### **Bestimmte Kommentare entfernen**
 
-Das folgende Beispiel zeigt, wie man bestimmte Kommentare von einer Folie entfernt:
+Das folgende Beispiel zeigt, wie bestimmte Kommentare von einer Folie entfernt werden:
 
 ```python
 import jpype
@@ -459,14 +461,14 @@ finally:
 
 ## **FAQ**
 
-**Unterstützt Aspose.Slides einen gelösten Status für moderne Kommentare?**
+**Unterstützt Aspose.Slides den Status „Gelöst“ für moderne Kommentare?**
 
-Ja. [ModernComment.getStatus](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getStatus) und [ModernComment.setStatus](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#setStatus) greifen auf einen [ModernCommentStatus](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncommentstatus/) Wert zu, einschließlich `Resolved`. Der Status wird in der Präsentation gespeichert und kann nach dem erneuten Öffnen der Datei wieder ausgelesen werden.
+Ja. [ModernComment.getStatus](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#getStatus) und [ModernComment.setStatus](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncomment/#setStatus) greifen auf einen [ModernCommentStatus](https://reference.aspose.com/slides/de/python-java/aspose.slides/moderncommentstatus/)‑Wert zu, einschließlich `Resolved`. Der Status wird in der Präsentation gespeichert und kann nach erneutem Öffnen der Datei wieder ausgelesen werden.
 
-**Werden verschachtelte Diskussionen (Antwortketten) unterstützt und gibt es ein Begrenzung für die Verschachtelungstiefe?**
+**Werden verschachtelte Diskussionen (Antwortketten) unterstützt und gibt es eine Begrenzung für die Verschachtelung?**
 
-Ja. Jeder Kommentar kann auf seinen [parent comment](https://reference.aspose.com/slides/de/python-java/aspose.slides/comment/#getParentComment) verweisen, wodurch Antwortketten ermöglicht werden. Die API definiert keine spezifische Begrenzung für die Verschachtelungstiefe.
+Ja. Jeder Kommentar kann auf seinen [parent comment](https://reference.aspose.com/slides/de/python-java/aspose.slides/comment/#getParentComment) verweisen, wodurch Antwortketten ermöglicht werden. Die API definiert keine konkrete Begrenzung der Verschachtelungstiefe.
 
 **In welchem Koordinatensystem ist die Position eines Kommentar‑Markers auf einer Folie definiert?**
 
-Die Marker‑Position wird durch Gleitkomma‑Koordinaten im Folien‑Koordinatensystem definiert, sodass Sie sie exakt auf der Folie platzieren können.
+Die Position des Markers wird durch Gleitkomma‑Koordinaten im Folien‑Koordinatensystem definiert, sodass Sie ihn präzise auf der Folie platzieren können.

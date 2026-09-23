@@ -6,12 +6,12 @@ weight: 80
 url: /zh-hant/androidjava/presentation-view-properties/
 keywords:
 - 檢視屬性
-- 正常檢視
+- 普通檢視
 - 大綱內容
 - 大綱圖示
-- 吸附垂直分割條
+- 對齊垂直分割線
 - 單一檢視
-- 分割條狀態
+- 條狀狀態
 - 尺寸大小
 - 自動調整
 - 預設縮放
@@ -21,39 +21,39 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "探索 Aspose.Slides for Android via Java 的檢視屬性，客製化 PPT、PPTX 與 ODP 格式的簡報──調整版面配置、縮放等級與顯示設定。"
+description: "探索 Aspose.Slides for Android via Java 的檢視屬性，以自訂 PPT、PPTX 和 ODP 投影片格式——調整版面配置、縮放層級與顯示設定。"
 ---
 ## **簡介**
 
-正常檢視由三個內容區域組成：投影片本身、側邊內容區域以及底部內容區域。相關屬性用於定位不同內容區域。此資訊讓應用程式能將檢視狀態儲存至檔案，因而在重新開啟時，檢視會保持與上次儲存時相同的狀態。
+普通檢視包含三個內容區域：投影片本身、側邊內容區域和底部內容區域。與不同內容區域定位相關的屬性。此資訊允許應用程式將檢視狀態儲存至檔案，使得重新開啟時檢視狀態與上次儲存簡報時相同。
 
-已新增方法[IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IViewProperties#getNormalViewProperties--)，以提供存取簡報的正常檢視屬性。
+已新增方法[IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IViewProperties#getNormalViewProperties--)以提供對簡報普通檢視屬性的存取。
 
-已新增介面[INormalViewProperties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties)、[INormalViewRestoredProperties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewRestoredProperties)以及其衍生類別，並新增列舉[SplitterBarStateType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/SplitterBarStateType)。
+已新增 [INormalViewProperties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties)、[INormalViewRestoredProperties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewRestoredProperties) 介面及其衍生類別，以及 [SplitterBarStateType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/SplitterBarStateType) 列舉。
 
 ## **關於 INormalViewProperties**
 
-代表正常檢視屬性。
+代表普通檢視屬性。
 
-方法[getShowOutlineIcons](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--)與[setShowOutlineIcons](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-)指定當在正常檢視模式的任何內容區域顯示大綱內容時，應否顯示圖示。
+方法[getShowOutlineIcons](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--)和[setShowOutlineIcons](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-)指定當在普通檢視模式的任何內容區域顯示大綱內容時，應用程式是否應顯示圖示。
 
-方法[getSnapVerticalSplitter](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--)與[setSnapVerticalSplitter](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-)指定當側邊區域足夠小時，垂直分割條是否應自動縮至最小狀態。
+方法[getSnapVerticalSplitter](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--)和[setSnapVerticalSplitter](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-)指定當側邊區域足夠小時，垂直分割線是否應自動貼齊至最小化狀態。
 
-屬性[getPreferSingleView](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getPreferSingleView--)與[setPreferSingleView](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-)指定使用者是否較喜好在全視窗單一內容區域中檢視，而非標準的三區域正常檢視。若啟用，應用程式可能會選擇在整個視窗顯示其中一個內容區域。
+屬性[getPreferSingleView](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getPreferSingleView--)和[setPreferSingleView](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-)指定使用者是否偏好在全視窗單一內容區域顯示，而不是具有三個內容區域的標準普通檢視。啟用後，應用程式可能會選擇將其中一個內容區域顯示於整個視窗。
 
-方法[getVerticalBarState](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--)與[getHorizontalBarState](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--)指定水平或垂直分割條的顯示狀態。水平分割條將投影片與投影片下方的內容區域分開，垂直分割條將投影片與側邊內容區域分開。可能的值為[SplitterBarStateType.Minimized](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/SplitterBarStateType#Minimized)、[SplitterBarStateType.Maximized](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/SplitterBarStateType#Maximized)以及[SplitterBarStateType.Restored](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/SplitterBarStateType#Restored)。
+方法[getVerticalBarState](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--)和[getHorizontalBarState](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--)指定水平或垂直分割條應顯示的狀態。水平分割條將投影片與投影片下方的內容區域分開，垂直分割條將投影片與側邊內容區域分開。可能的值包括：[SplitterBarStateType.Minimized](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/SplitterBarStateType#Minimized)、[SplitterBarStateType.Maximized](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/SplitterBarStateType#Maximized)和[SplitterBarStateType.Restored](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/SplitterBarStateType#Restored)。
 
-方法[getRestoredLeft](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--)與[getRestoredTop](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--)在[SplitterBarStateType.Restored](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/SplitterBarStateType#Restored)應用於[getVerticalBarState](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--)與[getHorizontalBarState](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--)時，指定正常檢視之側邊或上方投影片區域的尺寸。
+方法[getRestoredLeft](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--)和[getRestoredTop](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--)指定普通檢視中上方或側邊投影片區域的大小，當對[getVerticalBarState](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getVerticalBarState--)和[getHorizontalBarState](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getHorizontalBarState--)套用[SplitterBarStateType.Restored](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/SplitterBarStateType#Restored)值時。
 
 ## **關於還原 INormalViewProperties**
 
-指定正常檢視中投影片區域的尺寸（作為[getRestoredTop](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--)的子項時為寬度，作為[getRestoredLeft](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--)的子項時為高度），當區域處於可變還原大小（既非最小化亦非最大化）時的尺寸。
+指定普通檢視中投影片區域的大小（若為[getRestoredTop](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getRestoredTop--)的子項則為寬度，若為[getRestoredLeft](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewProperties#getRestoredLeft--)的子項則為高度），當該區域為可變的還原大小（既非最小化亦非最大化）時。
 
-方法[getDimensionSize](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--)指定投影片區域的大小（作為 restoredTop 的子項時為寬度，作為 restoredLeft 的子項時為高度）。
+方法[getDimensionSize](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--)指定投影片區域的大小（若為 restoredTop 的子項則為寬度，若為 restoredLeft 的子項則為高度）。
 
-方法[getAutoAdjust](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--)指定在調整包含檢視之視窗大小時，側邊內容區域的尺寸是否應自動補償新尺寸。
+方法[getAutoAdjust](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--)指定在調整包含檢視的視窗大小時，側邊內容區域的大小是否應自動調整以補償新尺寸。
 
-以下範例說明如何存取[ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ViewProperties#getNormalViewProperties--)屬性，以取得簡報的相關設定。
+以下範例說明如何存取簡報的[ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ViewProperties#getNormalViewProperties--) 屬性。
 
 ```java
 import com.aspose.slides.*;
@@ -63,7 +63,7 @@ try {
     pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
     pres.getViewProperties().getNormalViewProperties().setVerticalBarState(SplitterBarStateType.Maximized);
     
-    // 還原簡報的檢視屬性
+    // 復原簡報的檢視屬性
     pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
     pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
     pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
@@ -78,15 +78,16 @@ try {
 
 {{% alert color="info" %}} 
 
-Aspose.Slides for Android via Java 現已支援為簡報設定預設縮放值，使簡報開啟時即已套用縮放。這可以透過設定簡報的[ViewProperties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ViewProperties)來完成。可程式化設定[getSlideViewProperties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--)以及[getNotesViewProperties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--)。本主題將示範如何在 Aspose.Slides 中以範例設定[Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation) 的[View Properties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ViewProperties)。
+Aspose.Slides for Android via Java 現在支援設定簡報的預設縮放值，讓簡報開啟時即已設定好縮放。這可以透過設定簡報的[ViewProperties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ViewProperties)來完成。[getSlideViewProperties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) 以及 [getNotesViewProperties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) 均可程式設置。在本主題中，我們將透過範例說明如何在 Aspose.Slides 中設定[Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation) 的[View Properties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ViewProperties)。
 
 {{% /alert %}} 
 
-設定檢視屬性請依照以下步驟：
+若要設定檢視屬性，請依照以下步驟操作：
 
-1. 建立[Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation)類別的實例。
-1. 設定[Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation)的[View Properties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ViewProperties)。
-1. 將簡報寫入[PPTX](https://docs.fileformat.com/presentation/pptx/)檔案。以下範例同時設定投影片檢視與備註檢視的縮放值。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation) 類別的實例。
+1. 設定 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation) 的[View Properties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ViewProperties)。
+1. 將簡報寫入為 [PPTX](https://docs.fileformat.com/presentation/pptx/) 檔案。  
+在以下示例中，我們已設定投影片檢視和備註檢視的縮放值。
 
 ```java
 import com.aspose.slides.*;
@@ -105,9 +106,9 @@ try {
 
 ## **設定格線間距**
 
-使用[Presentation.getViewProperties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/#getViewProperties--)存取全簡報的檢視設定。方法[IViewProperties.getGridSpacing](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iviewproperties/#getGridSpacing--)與[IViewProperties.setGridSpacing](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-)可讀取或變更基礎編輯格線的間距。此設定套用於整份簡報，而非單一投影片。格線間距以點為單位，72 點等於一英寸。請使用正值，符合 API 文件的要求。
+使用 [Presentation.getViewProperties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/#getViewProperties--) 取得整個簡報的檢視設定。[IViewProperties.getGridSpacing](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iviewproperties/#getGridSpacing--) 與 [IViewProperties.setGridSpacing](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iviewproperties/#setGridSpacing-float-) 方法可讀取或變更基礎編輯格線的間隔。此設定套用於整個簡報，而非單一投影片。格線間距以點 (point) 為單位，72 點等於一吋。請使用正值，符合 API 文件的要求。
 
-以下範例開啟現有 `demo.pptx`，印出目前的格線間距，將間距設為四分之一英吋，然後儲存結果。
+以下範例開啟現有的 `demo.pptx`，列印其目前的格線間距，設定四分之一吋的間隔，並儲存結果。
 
 ```java
 import com.aspose.slides.Presentation;
@@ -125,28 +126,57 @@ try {
 }
 ```
 
-格線與[drawing guides](/slides/zh-hant/androidjava/drawing-guides/)不同。格線間距控制規則的間隔，而繪圖參考線是個別定位的水平或垂直對齊線。新增、移動或清除繪圖參考線不會改變格線間距。
+格線與[drawing guides](/slides/zh-hant/androidjava/drawing-guides/) 不同。格線間距控制固定的間隔，而繪圖輔助線是個別定位的水平或垂直對齊線。新增、移動或清除繪圖輔助線不會改變格線間距。
 
-格線與繪圖參考線皆為編輯輔助工具，於 PDF、影像、SVG 或投影片放映時不會作為投影片內容呈現。儲存格線間距並不保證編輯器會顯示格線：其可見性亦取決於檢視器或編輯器的設定。
+格線與繪圖輔助線皆為編輯輔助工具。它們不會在 PDF、圖片、SVG 或投影片放映中渲染為投影片內容。即使儲存了格線間距，也無法保證編輯器會顯示格線；其可見性亦取決於檢視器或編輯器的偏好設定。
+
+## **開啟簡報時顯示或隱藏註解**
+
+使用 [Presentation.getViewProperties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/#getViewProperties--) 取得整個簡報的檢視設定。使用 [IViewProperties.getShowComments](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iviewproperties/#getShowComments--) 與 [IViewProperties.setShowComments](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iviewproperties/#setShowComments-byte-) 讀取或變更儲存的偏好，決定簡報在 PowerPoint 或其他相容編輯器開啟時是否顯示註解。
+
+此設定僅控制儲存的檢視偏好，並不會新增、移除、編輯或解決註解。隱藏註解會保留其內容、作者、位置、回覆與狀態。請參閱 [Presentation Comments](/slides/zh-hant/androidjava/presentation-comments/) 了解會變更註解本身的操作。
+
+以下範例需要一個包含註解的現有 `comments.pptx`。它會列印目前的可見性設定、要求隱藏註解，並儲存一個未移除任何註解的新 PPTX。範例同時使用 [IViewProperties.setLastView](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iviewproperties/#setLastView-int-) 搭配 [ViewType.SlideView](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/viewtype/#SlideView) 來設定初始編輯檢視以及註解的可見性。
+
+```java
+import com.aspose.slides.NullableBool;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ViewType;
+
+Presentation presentation = new Presentation("comments.pptx");
+try {
+    byte showComments = presentation.getViewProperties().getShowComments();
+    System.out.println("Current comment visibility: " + showComments);
+
+    presentation.getViewProperties().setShowComments(NullableBool.False);
+    presentation.getViewProperties().setLastView(ViewType.SlideView);
+    presentation.save("comments-hidden.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+此設定不會決定註解是否會被納入 PDF、HTML、影像、備註或講義的匯出。請另行設定相關的匯出選項。
 
 ## **常見問題**
 
-**為何重新開啟簡報後格線不可見？**
+**為何重新開啟簡報後格線不見了？**
 
-檔案會儲存格線間距，但是否顯示格線由編輯器自行控制。請檢查編輯器的格線可見性設定。
+檔案會儲存格線間距，但是否顯示格線由編輯器決定。請檢查編輯器的格線可見性設定。
 
-**清除繪圖參考線會改變格線間距嗎？**
+**清除繪圖輔助線會改變格線間距嗎？**
 
-不會。繪圖參考線與格線間距是獨立的設定。清除參考線不會影響已儲存的格線間隔。
+不會。繪圖輔助線與格線間距是獨立的設定。清除輔助線不會改變已儲存的格線間隔。
 
-**我可以為簡報的不同章節設定不同的檢視設定嗎？**
+**我能為簡報的不同節設定不同的檢視設定嗎？**
 
-[View settings](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/#getViewProperties--) 只在簡報層級定義（[Normal View](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/viewproperties/#getSlideViewProperties--)），不會針對各章節分別設定，因此同一組參數會套用於整份文件的開啟。
+[檢視設定](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/#getViewProperties--) 於簡報層級定義（[Normal View](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/viewproperties/#getNormalViewProperties--) / [Slide View](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/viewproperties/#getSlideViewProperties--)），而非每個節。因此開啟文件時，整個文件僅會套用同一組參數。
 
-**我可以為不同使用者預先定義不同的檢視狀態嗎？**
+**我能為不同使用者預先定義不同的檢視狀態嗎？**
 
-不能。這些設定儲存在檔案中，為所有使用者共用。檢視應用程式可能會依使用者偏好調整，但檔案本身僅包含一組檢視屬性。
+不能。設定儲存在檔案中且為共用。檢視程式可能會遵循使用者偏好，但檔案本身僅包含一套檢視屬性。
 
-**我能否製作含有預先定義檢視屬性的範本，讓新簡報以相同方式開啟？**
+**我能製作帶有預先定義檢視屬性的範本，使新簡報以相同方式開啟嗎？**
 
-可以。由於[view properties](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/#getViewProperties--)儲存在簡報層級，您可以將它們嵌入範本，然後以該範本建立新文件，取得相同的初始檢視配置。
+可以。由於[檢視屬性](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/#getViewProperties--) 儲存在簡報層級，您可以將其嵌入範本，並以此建立新文件，使其以相同的初始檢視設定開啟。

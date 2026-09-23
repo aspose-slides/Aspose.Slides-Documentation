@@ -10,7 +10,7 @@ keywords:
 - PowerPoint-kommentarer
 - presentationskommentarer
 - bildkommentarer
-- lägga till kommentar
+- lägg till kommentar
 - åtkomst till kommentar
 - redigera kommentar
 - svara på kommentar
@@ -24,26 +24,28 @@ description: "Hantera presentationskommentarer med Aspose.Slides för C++: lägg
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur du hanterar presentationskommentarer med Aspose.Slides för C++. Den introducerar de viktigaste typerna relaterade till kommentarer och demonstrerar hur du lägger till kommentarer på bilder, får åtkomst till befintliga kommentarer, arbetar med svar och moderna kommentarer samt tar bort kommentarer från en presentation.
+Den här artikeln förklarar hur du hanterar presentationskommentarer med Aspose.Slides för C++. Den introducerar de viktigaste kommentarrelaterade typerna och visar hur du lägger till kommentarer på bilder, får åtkomst till befintliga kommentarer, arbetar med svar och moderna kommentarer samt tar bort kommentarer från en presentation.
 
-Exemplen täcker vanliga gransknings- och samarbets scenarier i PowerPoint, såsom att tilldela kommentarer till författare, läsa kommentartext och metadata, bygga svarskedjor och ta bort valda kommentarer eller alla kommentarer.
+Exemplen täcker vanliga gransknings- och samarbetscenario i PowerPoint, såsom att tilldela kommentarer till författare, läsa kommentartext och metadata, bygga svarskedjor och ta bort valda kommentarer eller alla kommentarer.
 
 I PowerPoint visas kommentarer som anteckningar på bilder. När du markerar en kommentar visas dess text och relaterade diskussion.
 
+För att begära att kommentarer ska visas eller döljas när en presentation öppnas utan att ändra kommentarer själva, se [Visa eller dölj kommentarer när en presentation öppnas](/slides/sv/cpp/presentation-view-properties/).
+
 ## **Varför lägga till kommentarer i presentationer?**
 
-Du kan använda kommentarer för att ge feedback och samarbeta med kollegor när du granskar presentationer.
+Du kan använda kommentarer för att ge återkoppling och samarbeta med kollegor när du granskar presentationer.
 
-Aspose.Slides för C++ tillhandahåller följande API: för arbete med kommentarer:
+Aspose.Slides för C++ tillhandahåller följande API:er för att arbeta med kommentarer:
 
-* Klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/) som ger åtkomst till presentationens kommentarförfattare.
-* Interfacet [ICommentCollection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icommentcollection/) som representerar kommentarerna som är kopplade till en enskild författare.
-* Interfacet [IComment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icomment/) som ger information om en kommentar, inklusive dess författare, skapningstid, position och text.
-* Klassen [CommentAuthor](https://reference.aspose.com/slides/sv/cpp/aspose.slides/commentauthor/) som ger information om en författare, inklusive namn, initialer och tillhörande kommentarer.
+* Klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/) som ger åtkomst till presentationens kommentar‑författare.
+* Gränssnittet [ICommentCollection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icommentcollection/) som representerar kommentarer som är associerade med en enskild författare.
+* Gränssnittet [IComment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icomment/) som ger information om en kommentar, inklusive dess författare, skapningstid, position och text.
+* Klassen [CommentAuthor](https://reference.aspose.com/slides/sv/cpp/aspose.slides/commentauthor/) som ger information om en författare, inklusive namn, initialer och associerade kommentarer.
 
 ## **Lägg till bildkommentarer**
 
-Följande exempel visar hur du lägger till kommentarer på bilder i en PowerPoint-presentation:
+Följande exempel visar hur du lägger till kommentarer på bilder i en PowerPoint‑presentation:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -86,9 +88,9 @@ if (comments->get_Length() > 0)
 presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Åtkomst till bildkommentarer**
+## **Få åtkomst till bildkommentarer**
 
-Följande exempel visar hur du får åtkomst till befintliga kommentarer i en PowerPoint-presentation:
+Följande exempel visar hur du får åtkomst till befintliga kommentarer i en PowerPoint‑presentation:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -119,9 +121,9 @@ for (auto&& author : presentation->get_CommentAuthors())
 
 ## **Svara på kommentarer**
 
-En föräldrakommentar är den ursprungliga kommentaren högst upp i en svarshierarki. Metoderna [get_ParentComment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icomment/get_parentcomment/) och [set_ParentComment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icomment/set_parentcomment/) i interfacet [IComment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icomment/) låter dig hämta eller ange föräldern för en kommentar.
+En föräldrakommentar är den ursprungliga kommentaren högst upp i en svarshierarki. Metoderna [get_ParentComment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icomment/get_parentcomment/) och [set_ParentComment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icomment/set_parentcomment/) i gränssnittet [IComment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icomment/) låter dig hämta eller ange föräldern till en kommentar.
 
-Följande exempel visar hur du lägger till svar och inspekterar den resulterande kommentarshierarkin:
+Följande exempel visar hur du lägger till svar och inspekterar den resulterande kommentarhierarkin:
 
 ```cpp
 #include <DOM/IComment.h>
@@ -184,19 +186,19 @@ presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* När metoden [Remove](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icomment/remove/) i interfacet [IComment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icomment/) används för att ta bort en kommentar, tas alla svar till den kommentaren också bort.
-* Om metoden [set_ParentComment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icomment/set_parentcomment/) skapar en cirkulär referens, kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/cpp/aspose.slides/pptxeditexception/).
+* När metoden [Remove](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icomment/remove/) i gränssnittet [IComment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icomment/) används för att ta bort en kommentar, tas också alla svar till den kommentaren bort.
+* Om metoden [set_ParentComment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icomment/set_parentcomment/) skapar en cirkulär referens kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/cpp/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Lägg till moderna kommentarer**
 
-Moderna kommentarer kan kopplas till själva bilden, till en specifik form eller till ett textområde i en AutoShape. Metoden [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icommentcollection/addmoderncomment/) accepterar ett argument av typen [IShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/) utöver bild- och kommentarmärkeskoordinaterna.
+Moderna kommentarer kan associeras med själva bilden, med en specifik form eller med ett texträckvidd inne i en AutoShape. Metoden [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icommentcollection/addmoderncomment/) accepterar ett [IShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/)-argument utöver bilden och koordinaterna för kommentar‑markören.
 
-När `nullptr` skickas för formargumentet blir kommentaren en bildnivåkommentar. Dess markör placeras enligt de angivna koordinaterna, men den är inte kopplad till någon specifik form, så [IModernComment::get_Shape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_shape/) returnerar `nullptr`. När en [IShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/) anges, förankras kommentaren till den formen. Koordinaterna definierar fortfarande positionen för kommentarmärket på bilden, medan formkopplingen kan hämtas via [IModernComment::get_Shape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_shape/).
+När `nullptr` skickas för form‑argumentet är kommentaren en bild‑nivåkommentar. Dess markör placeras enligt de angivna koordinaterna, men den är inte kopplad till någon särskild form, så [IModernComment::get_Shape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_shape/) returnerar `nullptr`. När en [IShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/) anges, förankras kommentaren till den formen. Koordinaterna definierar fortfarande positionen för kommentar‑markören på bilden, medan form‑associationen kan hämtas via [IModernComment::get_Shape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_shape/).
 
-### **Förankra en modern kommentar till en form**
+### **Fäst en modern kommentar till en form**
 
-Följande exempel skapar både en modern kommentar på bildnivå och en modern kommentar förankrad till en specifik AutoShape. Det läser sedan den associerade formen från varje kommentar.
+Följande exempel skapar både en bild‑nivå modern kommentar och en modern kommentar förankrad till en specifik AutoShape. Det läser sedan den associerade formen från varje kommentar.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -243,11 +245,11 @@ if (shapeAnchor != nullptr)
 presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
 ```
 
-### **Förankra kommentarer till olika formtyper**
+### **Fäst kommentarer till olika formtyper**
 
-Alla bildobjekt som implementerar [IShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/) kan användas som en formförankring. Vanliga exempel inkluderar [IAutoShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iconnector/) och [IGraphicalObject](https://reference.aspose.com/slides/sv/cpp/aspose.slides/igraphicalobject/)-instanser såsom diagram.
+Alla bildobjekt som implementerar [IShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishape/) kan användas som form‑förankring. Vanliga exempel inkluderar [IAutoShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iconnector/) och [IGraphicalObject](https://reference.aspose.com/slides/sv/cpp/aspose.slides/igraphicalobject/)-instanser såsom diagram.
 
-Följande exempel skapar flera vanliga formtyper och associerar en modern kommentar med varje.
+Följande exempel skapar flera vanliga formtyper och associerar en modern kommentar med var och en.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -311,18 +313,18 @@ author->get_Comments()->AddModernComment(u"Comment on a graphical object.", slid
 presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
 ```
 
-### **Förankra en kommentar till text och ange dess status**
+### **Fäst en kommentar till text och ange dess status**
 
-För en modern kommentar som är associerad med en [IAutoShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iautoshape/) styr [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_textselectionstart/) och [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/set_textselectionstart/) startpositionen för den markerade texten i formens textramar. På liknande sätt styr [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_textselectionlength/) och [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/set_textselectionlength/) längden på markeringen. Tillsammans associerar dessa metoder kommentaren med ett specifikt textområde i AutoShape.
+För en modern kommentar som är associerad med en [IAutoShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iautoshape/), styr [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_textselectionstart/) och [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/set_textselectionstart/) startpositionen för den markerade texten i formens textruta. På samma sätt styr [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_textselectionlength/) och [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/set_textselectionlength/) längden på markeringen. Tillsammans associerar dessa metoder kommentaren med ett specifikt texträckvidd inne i AutoShape.
 
-[IModernComment::get_Status](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_status/) och [IModernComment::set_Status](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/set_status/) använder ett värde från uppräkningen [ModernCommentStatus](https://reference.aspose.com/slides/sv/cpp/aspose.slides/moderncommentstatus/):
+Metoderna [IModernComment::get_Status](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_status/) och [IModernComment::set_Status](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/set_status/) använder ett värde från uppräkningen [ModernCommentStatus](https://reference.aspose.com/slides/sv/cpp/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — ingen specifik modern kommentarsstatus är definierad.
+- `NotDefined` — ingen specifik modern‑kommentarstatus är definierad.
 - `Active` — kommentaren är aktiv.
-- `Resolved` — kommentaren har lösts.
+- `Resolved` — kommentaren har markerats som löst.
 - `Closed` — kommentaren är stängd.
 
-Följande exempel skapar en formförankrad modern kommentar, associerar den med en textmarkering, markerar den som löst, sparar presentationen och verifierar värdena efter att filen har öppnats igen.
+Följande exempel skapar en form‑förankrad modern kommentar, associerar den med ett texturval, markerar den som löst, sparar presentationen och verifierar värdena efter att filen har öppnats igen.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -397,7 +399,7 @@ for (auto&& reopenedComment : reopenedComments)
 
 ### **Inspektera befintliga moderna kommentarer**
 
-För att inspektera en befintlig presentation, kontrollera vilka kommentarer som implementerar [IModernComment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/), och granska sedan [IModernComment::get_Shape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_textselectionlength/) och [IModernComment::get_Status](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_status/). En `nullptr`-form indikerar en bildnivåkommentar. För en [IAutoShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iautoshape/)-förankring identifierar textmarkeringsmetoderna det associerade intervallet i formens textramar.
+För att inspektera en befintlig presentation, kontrollera vilka kommentarer som implementerar [IModernComment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/), och granska sedan [IModernComment::get_Shape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_textselectionlength/) och [IModernComment::get_Status](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_status/). En `nullptr`‑form indikerar en bild‑nivåkommentar. För en [IAutoShape](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iautoshape/)-förankring identifierar text‑urvalsmetoderna det associerade intervallet i formens textruta.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -536,16 +538,16 @@ for (auto&& commentAuthor : presentation->get_CommentAuthors())
 presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Stöder Aspose.Slides ett löst status för moderna kommentarer?**
 
-Ja. [IModernComment::get_Status](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_status/) och [IModernComment::set_Status](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/set_status/) använder ett värde från [ModernCommentStatus](https://reference.aspose.com/slides/sv/cpp/aspose.slides/moderncommentstatus/), inklusive `Resolved`. Statusen lagras i presentationen och kan läsas igen efter att filen har öppnats på nytt.
+Ja. [IModernComment::get_Status](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/get_status/) och [IModernComment::set_Status](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imoderncomment/set_status/) använder ett [ModernCommentStatus](https://reference.aspose.com/slides/sv/cpp/aspose.slides/moderncommentstatus/)-värde, inklusive `Resolved`. Statusen lagras i presentationen och kan läsas igen efter att filen har öppnats på nytt.
 
-**Stöds trådade diskussioner (svarskedjor) och finns det någon begränsning för nästning?**
+**Stöds trådade diskussioner (svarskedjor) och finns det en gräns för nästlingsdjup?**
 
-Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icomment/set_parentcomment/), vilket möjliggör svarskedjor. API:t definierar ingen specifik gräns för nästningsdjup.
+Ja. Varje kommentar kan referera till sin [parent comment](https://reference.aspose.com/slides/sv/cpp/aspose.slides/icomment/set_parentcomment/), vilket möjliggör svarskedjor. API‑et definierar ingen specifik gräns för nästlingsdjup.
 
-**I vilket koordinatsystem definieras en kommentarmärkes position på en bild?**
+**I vilket koordinatsystem är en kommentar‑markörs position definierad på en bild?**
 
-Markörpositionen definieras av flyttalskoordinater i bildens koordinatsystem, vilket låter dig placera den exakt på bilden.
+Markörens position definieras av flyttal‑koordinater i bildens koordinatsystem, vilket gör att du kan placera den exakt på bilden.

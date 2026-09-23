@@ -23,27 +23,29 @@ keywords:
 - Aspose.Slides
 description: "Gerencie comentários de apresentação com Aspose.Slides para .NET: adicione, leia, edite, responda e remova comentários em apresentações do PowerPoint de forma rápida e fácil."
 ---
-## **Visão geral**
+## **Visão Geral**
 
-Este artigo explica como gerenciar comentários de apresentação com Aspose.Slides para .NET. Ele apresenta os principais tipos relacionados a comentários e demonstra como adicionar comentários aos slides, acessar comentários existentes, trabalhar com respostas e comentários modernos e remover comentários de uma apresentação.
+Este artigo explica como gerenciar comentários em apresentações com Aspose.Slides para .NET. Ele apresenta os principais tipos relacionados a comentários e demonstra como adicionar comentários a slides, acessar comentários existentes, trabalhar com respostas e comentários modernos e remover comentários de uma apresentação.
 
-Os exemplos cobrem cenários comuns de revisão e colaboração no PowerPoint, como atribuir comentários a autores, ler texto e metadados dos comentários, construir cadeias de respostas e remover comentários selecionados ou todos os comentários.
+Os exemplos abrangem cenários comuns de revisão e colaboração no PowerPoint, como atribuir comentários a autores, ler o texto e os metadados dos comentários, construir cadeias de respostas e remover comentários selecionados ou todos os comentários.
 
 No PowerPoint, os comentários aparecem como anotações nos slides. Selecionar um comentário exibe seu texto e a discussão relacionada.
 
-## **Por que adicionar comentários às apresentações?**
+Para solicitar que os comentários sejam mostrados ou ocultados quando uma apresentação for aberta sem alterar os próprios comentários, veja [Mostrar ou Ocultar Comentários ao Abrir uma Apresentação](/slides/pt/net/presentation-view-properties/).
+
+## **Por que Adicionar Comentários às Apresentações?**
 
 Você pode usar comentários para fornecer feedback e colaborar com colegas ao revisar apresentações.
 
 Aspose.Slides para .NET fornece as seguintes APIs para trabalhar com comentários:
 
-* The [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation) class, que fornece acesso aos autores de comentários da apresentação.
-* The [ICommentCollection](https://reference.aspose.com/slides/pt/net/aspose.slides/icommentcollection) interface, que representa os comentários associados a um autor individual.
-* The [IComment](https://reference.aspose.com/slides/pt/net/aspose.slides/icomment) interface, que fornece informações sobre um comentário, incluindo seu autor, horário de criação, posição e texto.
-* The [CommentAuthor](https://reference.aspose.com/slides/pt/net/aspose.slides/commentauthor) class, que fornece informações sobre um autor, incluindo seu nome, iniciais e comentários associados.
+* A classe [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation) fornece acesso aos autores de comentários da apresentação.
+* A interface [ICommentCollection](https://reference.aspose.com/slides/pt/net/aspose.slides/icommentcollection) representa os comentários associados a um autor individual.
+* A interface [IComment](https://reference.aspose.com/slides/pt/net/aspose.slides/icomment) fornece informações sobre um comentário, incluindo seu autor, horário de criação, posição e texto.
+* A classe [CommentAuthor](https://reference.aspose.com/slides/pt/net/aspose.slides/commentauthor) fornece informações sobre um autor, incluindo seu nome, iniciais e comentários associados.
 
-## **Adicionar comentários ao slide**
-O exemplo a seguir mostra como adicionar comentários aos slides em uma apresentação do PowerPoint:
+## **Adicionar Comentários aos Slides**
+O exemplo a seguir mostra como adicionar comentários a slides em uma apresentação PowerPoint:
 
 ```csharp
 using System;
@@ -74,8 +76,8 @@ if (comments.Length > 0)
 presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Acessar comentários do slide**
-O exemplo a seguir mostra como acessar comentários existentes em uma apresentação do PowerPoint:
+## **Acessar Comentários dos Slides**
+O exemplo a seguir mostra como acessar comentários existentes em uma apresentação PowerPoint:
 
 ```csharp
 using System;
@@ -96,10 +98,10 @@ foreach (var author in presentation.CommentAuthors)
 }
 ```
 
-## **Responder a comentários**
-Um comentário pai é o comentário original no topo de uma hierarquia de respostas. A propriedade [ParentComment](https://reference.aspose.com/slides/pt/net/aspose.slides/icomment/properties/parentcomment) da interface [IComment](https://reference.aspose.com/slides/pt/net/aspose.slides/icomment) permite obter ou definir o comentário pai.
+## **Responder a Comentários**
+O comentário pai é o comentário original no topo de uma hierarquia de respostas. A propriedade [ParentComment](https://reference.aspose.com/slides/pt/net/aspose.slides/icomment/properties/parentcomment) da interface [IComment](https://reference.aspose.com/slides/pt/net/aspose.slides/icomment) permite obter ou definir o pai de um comentário.
 
-O exemplo a seguir mostra como adicionar respostas e inspecionar a hierarquia resultante de comentários:
+O exemplo a seguir mostra como adicionar respostas e inspecionar a hierarquia de comentários resultante:
 
 ```csharp
 using System;
@@ -157,13 +159,13 @@ presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 
 {{% /alert %}}
 
-## **Adicionar comentários modernos**
+## **Adicionar Comentários Modernos**
 
-Os comentários modernos podem ser associados ao próprio slide, a uma forma específica ou a um intervalo de texto dentro de um AutoShape. O método [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/pt/net/aspose.slides/icommentcollection/addmoderncomment/) aceita um argumento [IShape](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape/) além do slide e das coordenadas do marcador de comentário.
+Comentários modernos podem ser associados ao próprio slide, a uma forma específica ou a um intervalo de texto dentro de um AutoShape. O método [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/pt/net/aspose.slides/icommentcollection/addmoderncomment/) aceita um argumento [IShape](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape/) além do slide e das coordenadas do marcador de comentário.
 
 Quando `null` é passado para o argumento shape, o comentário é um comentário de nível de slide. Seu marcador é posicionado pelas coordenadas fornecidas, mas não está associado a uma forma específica, portanto [IModernComment.Shape](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/shape/) retorna `null`. Quando um [IShape](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape/) é fornecido, o comentário é ancorado a essa forma. As coordenadas ainda definem a posição do marcador de comentário no slide, enquanto a associação à forma pode ser obtida através de [IModernComment.Shape](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/shape/).
 
-### **Ancorar um comentário moderno a uma forma**
+### **Ancora um Comentário Moderno a uma Forma**
 
 O exemplo a seguir cria tanto um comentário moderno de nível de slide quanto um comentário moderno ancorado a um AutoShape específico. Em seguida, lê a forma associada de cada comentário.
 
@@ -192,7 +194,7 @@ Console.WriteLine(shapeComment.Shape?.Name);
 presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
 ```
 
-### **Ancorar comentários a diferentes tipos de forma**
+### **Ancora Comentários a Diferentes Tipos de Forma**
 
 Qualquer objeto de slide que implemente [IShape](https://reference.aspose.com/slides/pt/net/aspose.slides/ishape/) pode ser usado como âncora de forma. Exemplos comuns incluem [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/pt/net/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/pt/net/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/pt/net/aspose.slides/iconnector/) e instâncias de [IGraphicalObject](https://reference.aspose.com/slides/pt/net/aspose.slides/igraphicalobject/) como gráficos.
 
@@ -239,18 +241,18 @@ author.Comments.AddModernComment("Comment on a graphical object.", slide, chart,
 presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
 ```
 
-### **Ancorar um comentário a texto e definir seu status**
+### **Ancora um Comentário a Texto e Defina Seu Status**
 
-Para um comentário moderno associado a um [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/textselectionstart/) especifica a posição inicial do texto selecionado na caixa de texto da forma, enquanto [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/textselectionlength/) especifica o comprimento da seleção. Juntas, essas propriedades associam o comentário a um intervalo de texto específico dentro do AutoShape.
+Para um comentário moderno associado a um [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/textselectionstart/) especifica a posição inicial do texto selecionado no quadro de texto da forma, enquanto [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/textselectionlength/) especifica o comprimento da seleção. Juntas, essas propriedades associam o comentário a um intervalo de texto específico dentro do AutoShape.
 
 A propriedade [IModernComment.Status](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/status/) pode ser lida ou atualizada com um valor da enumeração [ModernCommentStatus](https://reference.aspose.com/slides/pt/net/aspose.slides/moderncommentstatus/):
 
-- `NotDefined` — nenhum status específico de comentário moderno está definido.
+- `NotDefined` — nenhum status de comentário moderno específico está definido.
 - `Active` — o comentário está ativo.
 - `Resolved` — o comentário foi resolvido.
 - `Closed` — o comentário está fechado.
 
-O exemplo a seguir cria um comentário moderno ancorado a uma forma, associa-o a uma seleção de texto, marca-o como resolvido, salva a apresentação e verifica os valores após reabrir o arquivo.
+O exemplo a seguir cria um comentário moderno ancorado a uma forma, associa‑o a uma seleção de texto, marca‑o como resolvido, salva a apresentação e verifica os valores após reabrir o arquivo.
 
 ```csharp
 using System;
@@ -301,9 +303,9 @@ foreach (var reopenedComment in reopenedComments)
 }
 ```
 
-### **Inspecionar comentários modernos existentes**
+### **Inspecionar Comentários Modernos Existentes**
 
-Para inspecionar uma apresentação existente, verifique quais comentários implementam [IModernComment](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/), então examine [IModernComment.Shape](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/textselectionlength/) e [IModernComment.Status](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/status/). Uma forma `null` indica um comentário de nível de slide. Para uma âncora [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/), as propriedades de seleção de texto identificam o intervalo associado na caixa de texto da forma.
+Para inspecionar uma apresentação existente, verifique quais comentários implementam [IModernComment](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/), então examine [IModernComment.Shape](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/shape/), [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/textselectionstart/), [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/textselectionlength/) e [IModernComment.Status](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/status/). Uma forma `null` indica um comentário de nível de slide. Para uma âncora [IAutoShape](https://reference.aspose.com/slides/pt/net/aspose.slides/iautoshape/), as propriedades de seleção de texto identificam o intervalo associado no quadro de texto da forma.
 
 ```csharp
 using System;
@@ -347,9 +349,9 @@ foreach (var slide in presentation.Slides)
 }
 ```
 
-## **Remover comentários**
+## **Remover Comentários**
 
-### **Remover todos os comentários e autores de comentários**
+### **Remover Todos os Comentários e Autores de Comentários**
 
 O exemplo a seguir mostra como remover todos os comentários e autores de comentários de uma apresentação:
 
@@ -368,7 +370,7 @@ presentation.CommentAuthors.Clear();
 presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
-### **Remover comentários específicos**
+### **Remover Comentários Específicos**
 
 O exemplo a seguir mostra como remover comentários específicos de um slide:
 
@@ -413,14 +415,14 @@ presentation.Save("pres.pptx", SaveFormat.Pptx);
 
 ## **FAQ**
 
-**O Aspose.Slides suporta um status resolvido para comentários modernos?**
+**O Aspose.Slides oferece suporte a um status resolvido para comentários modernos?**
 
-Sim. [IModernComment.Status](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/status/) pode ser lido e definido com um valor de [ModernCommentStatus](https://reference.aspose.com/slides/pt/net/aspose.slides/moderncommentstatus/), incluindo `Resolved`. O status é armazenado na apresentação e pode ser lido novamente após o arquivo ser reaberto.
+Sim. [IModernComment.Status](https://reference.aspose.com/slides/pt/net/aspose.slides/imoderncomment/status/) pode ser lido e definido com um valor da enumeração [ModernCommentStatus](https://reference.aspose.com/slides/pt/net/aspose.slides/moderncommentstatus/), incluindo `Resolved`. O status é armazenado na apresentação e pode ser lido novamente após o arquivo ser reaberto.
 
-**As discussões em cadeia (respostas) são suportadas e há um limite de aninhamento?**
+**As discussões em thread (cadeias de respostas) são suportadas, e há um limite de aninhamento?**
 
 Sim. Cada comentário pode referenciar seu [parent comment](https://reference.aspose.com/slides/pt/net/aspose.slides/comment/parentcomment/), permitindo cadeias de respostas. A API não define um limite específico de profundidade de aninhamento.
 
-**Em que sistema de coordenadas a posição do marcador de comentário é definida em um slide?**
+**Em qual sistema de coordenadas a posição do marcador de comentário é definida em um slide?**
 
-A posição do marcador é definida por coordenadas de ponto flutuante no sistema de coordenadas do slide, permitindo que você a posicione com precisão no slide.
+A posição do marcador é definida por coordenadas de ponto flutuante no sistema de coordenadas do slide, permitindo posicioná‑lo com precisão no slide.

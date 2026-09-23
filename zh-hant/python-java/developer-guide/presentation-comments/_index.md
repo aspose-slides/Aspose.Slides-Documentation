@@ -21,30 +21,32 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via Java 來管理簡報註解：快速且輕鬆地在 PowerPoint 簡報中新增、閱讀、編輯、回覆以及移除註解。"
+description: "使用 Aspose.Slides for Python via Java 管理簡報註解：快速且輕鬆地在 PowerPoint 簡報中新增、讀取、編輯、回覆以及移除註解。"
 ---
 ## **概觀**
 
-本篇說明如何使用 Aspose.Slides for Python via Java 來管理簡報的註解。它會介紹主要的註解相關類型，並示範如何將註解新增至投影片、存取現有註解、處理回覆與現代註解，以及如何從簡報中移除註解。
+本文說明如何使用 Aspose.Slides for Python via Java 來管理簡報註解。它介紹了與註解相關的主要類型，並示範如何向投影片新增註解、存取現有註解、處理回覆與現代註解，以及從簡報中移除註解。
 
-這些範例涵蓋 PowerPoint 中常見的審閱與協作情境，例如指派註解給作者、讀取註解文字與中繼資料、建立回覆鏈，以及移除選取的註解或全部註解。
+示例涵蓋了 PowerPoint 中常見的審閱與協作情境，例如將註解指派給作者、讀取註解文字與中繼資料、建立回覆鏈，以及移除選取的註解或全部註解。
 
-在 PowerPoint 中，註解會以投影片上的批註形式顯示。選取某個註解時會顯示其文字與相關討論。
+在 PowerPoint 中，註解會以投影片上的註釋形式顯示。選取註解時會顯示其文字與相關討論。
 
-## **為何要在簡報中加入註解？**
+若想在開啟簡報時請求顯示或隱藏註解（不變更註解本身），請參閱 [Show or Hide Comments When Opening a Presentation](/slides/zh-hant/python-java/presentation-view-properties/)。
+
+## **為何在簡報中加入註解？**
 
 在審閱簡報時，您可以使用註解提供回饋並與同事協作。
 
-Aspose.Slides for Python via Java 提供以下 API 以處理註解：
+Aspose.Slides for Python via Java 提供以下 API 以操作註解：
 
-* *[Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/)* 類別，提供存取簡報的註解作者。
-* *[CommentCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/commentcollection/)* 類別，表示與單一作者相關的註解集合。
-* *[Comment](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/comment/)* 類別，提供註解的資訊，包括作者、建立時間、位置與文字。
-* *[CommentAuthor](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/commentauthor/)* 類別，提供作者資訊，包括名稱、縮寫與其相關的註解。
+* The [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) class, which provides access to the presentation's comment authors. → **Presentation** 類別，提供存取簡報的註解作者。
+* The [CommentCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/commentcollection/) class, which represents the comments associated with an individual author. → **CommentCollection** 類別，表示與單一作者相關聯的註解集合。
+* The [Comment](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/comment/) class, which provides information about a comment, including its author, creation time, position, and text. → **Comment** 類別，提供關於註解的資訊，包括作者、建立時間、位置與文字。
+* The [CommentAuthor](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/commentauthor/) class, which provides information about an author, including their name, initials, and associated comments. → **CommentAuthor** 類別，提供作者資訊，包括名稱、縮寫與相關註解。
 
 ## **新增投影片註解**
 
-以下範例示範如何在 PowerPoint 簡報的投影片上新增註解：
+以下範例示範如何在 PowerPoint 簡報的投影片中新增註解：
 
 ```python
 import jpype
@@ -85,7 +87,7 @@ finally:
 
 ## **存取投影片註解**
 
-以下範例示範如何在 PowerPoint 簡報中存取現有註解：
+以下範例示範如何存取 PowerPoint 簡報中現有的註解：
 
 ```python
 import jpype
@@ -111,7 +113,7 @@ finally:
 
 ## **回覆註解**
 
-父註解是回覆層級最上方的原始註解。*[Comment.getParentComment](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/comment/#getParentComment)* 與 *[Comment.setParentComment](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/comment/#setParentComment)* 方法可取得或設定註解的父註解。
+父註解是回覆層級最上層的原始註解。`[Comment.getParentComment]` 和 `[Comment.setParentComment]` 方法可取得或設定註解的父註解。
 
 以下範例示範如何新增回覆並檢查產生的註解層級結構：
 
@@ -170,19 +172,19 @@ finally:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* 當使用 *[Comment.remove](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/comment/#remove)* 方法刪除註解時，該註解的所有回覆也會一併被刪除。  
-* 若 *[Comment.setParentComment](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/comment/#setParentComment)* 產生循環參照，將拋出 *[PptxEditException](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/pptxeditexception/)*。
+* 當使用 `[Comment.remove]` 方法刪除註解時，該註解的所有回覆也會被刪除。
+* 如果 `[Comment.setParentComment]` 產生循環參照，將拋出 `[PptxEditException]`。
 {{% /alert %}}
 
 ## **新增現代註解**
 
-現代註解可以與投影片本身、特定形狀，或是 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/autoshape/) 內的文字範圍相關聯。*[CommentCollection.addModernComment](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/commentcollection/#addModernComment)* 方法除了接受投影片與註解指標座標外，還接受一個 *[Shape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/shape/)* 參數。
+現代註解可以關聯至投影片本身、特定圖形，或關聯至 [AutoShape] 內的文字範圍。`[CommentCollection.addModernComment]` 方法除了接受投影片與註解標記座標外，還接受一個 `[Shape]` 參數。
 
-當形狀參數傳入 *None* 時，該註解為投影片層級註解。其標記位置由提供的座標決定，但不屬於特定形狀，因此 *[ModernComment.getShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncomment/#getShape)* 會傳回 *None*。若提供了 *[Shape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/shape/)*，則註解會錨定於該形狀。座標仍決定註解標記在投影片上的位置，而形狀關聯可透過 *[ModernComment.getShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncomment/#getShape)* 取得。
+當 `None` 被傳遞給 shape 參數時，該註解為投影片層級的註解。其標記由提供的座標定位，但不會關聯至特定圖形，因而 `[ModernComment.getShape]` 會返回 `None`。若傳入 `[Shape]`，則註解會錨定至該圖形。座標仍決定註解標記在投影片上的位置，而圖形關聯可透過 `[ModernComment.getShape]` 取得。
 
-### **將現代註解錨定至形狀**
+### **將現代註解錨定至圖形**
 
-以下範例同時建立投影片層級的現代註解與錨定於特定 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/autoshape/) 的現代註解，並讀取每個註解所關聯的形狀：
+以下範例同時建立投影片層級的現代註解與錨定至特定 [AutoShape] 的現代註解，並分別讀取每個註解關聯的圖形：
 
 ```python
 import jpype
@@ -218,11 +220,11 @@ finally:
     presentation.dispose()
 ```
 
-### **將註解錨定至不同形狀類型**
+### **將註解錨定至不同圖形類型**
 
-任何繼承自 *[Shape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/shape/)* 的投影片物件皆可作為形狀錨點。常見範例包括 *[AutoShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/autoshape/)*、*[PictureFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/pictureframe/)*、*[GroupShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/groupshape/)*、*[Connector](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/connector/)*，以及如圖表等 *[GraphicalObject](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/graphicalobject/)* 實例。
+任何繼承自 `[Shape]` 的投影片物件皆可用作圖形錨定。常見範例包括 `[AutoShape]`、`[PictureFrame]`、`[GroupShape]`、`[Connector]` 以及諸如圖表的 `[GraphicalObject]` 實例。
 
-以下範例建立多種常見形狀類型，並為每個形狀關聯一個現代註解：
+以下範例建立多種常見圖形類型，並為每個圖形關聯一個現代註解：
 
 ```python
 import jpype
@@ -276,16 +278,16 @@ finally:
 
 ### **將註解錨定至文字並設定其狀態**
 
-對於與 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/autoshape/) 相關聯的現代註解，*[ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncomment/#getTextSelectionStart)* 與 *[ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncomment/#setTextSelectionStart)* 取得形狀文字框中所選文字的起始位置。*[ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncomment/#getTextSelectionLength)* 與 *[ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncomment/#setTextSelectionLength)* 取得選取長度。這些值共同將註解與 AutoShape 內的特定文字範圍關聯。
+對於關聯至 [AutoShape] 的現代註解，`[ModernComment.getTextSelectionStart]` 與 `[ModernComment.setTextSelectionStart]` 取得圖形文字框中選取文字的起始位置。`[ModernComment.getTextSelectionLength]` 與 `[ModernComment.setTextSelectionLength]` 取得選取的長度。這兩個值共同將註解與 AutoShape 內特定文字範圍關聯。
 
-*[ModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncomment/#getStatus)* 與 *[ModernComment.setStatus](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncomment/#setStatus)* 方法會存取 *[ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncommentstatus/)* 常數中的值：
+`[ModernComment.getStatus]` 與 `[ModernComment.setStatus]` 方法存取 `[ModernCommentStatus]` 常數中的值：
 
-- *[NotDefined](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncommentstatus/#NotDefined)* — 未定義特定的現代註解狀態。  
-- *[Active](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncommentstatus/#Active)* — 註解為啟用狀態。  
-- *[Resolved](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncommentstatus/#Resolved)* — 註解已解決。  
-- *[Closed](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncommentstatus/#Closed)* — 註解已關閉。
+- [NotDefined] — 未定義特定的現代註解狀態。
+- [Active] — 註解為啟用狀態。
+- [Resolved] — 註解已解決。
+- [Closed] — 註解已關閉。
 
-以下範例建立一個錨定於形狀的現代註解、將其與文字選取關聯、標記為已解決、儲存簡報，並在重新開啟檔案後驗證其值：
+以下範例建立圖形錨定的現代註解，將其關聯至文字選取，標記為已解決，儲存簡報，並在重新開啟檔案後驗證其值：
 
 ```python
 import jpype
@@ -348,7 +350,7 @@ finally:
 
 ### **檢查現有的現代註解**
 
-若要檢查既有簡報，先判斷哪些註解是 *[ModernComment](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncomment/)* 的實例，然後檢查 *[ModernComment.getShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncomment/#getShape)*、*[ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncomment/#getTextSelectionStart)*、*[ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncomment/#getTextSelectionLength)* 與 *[ModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncomment/#getStatus)*。若形狀為 *None*，表示為投影片層級註解。對於錨定於 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/autoshape/) 的情況，文字選取方法會指出該形狀文字框中的相關範圍。
+若要檢查現有簡報，先判斷哪些註解是 `[ModernComment]` 的實例，然後檢查 `[ModernComment.getShape]`、`[ModernComment.getTextSelectionStart]`、`[ModernComment.getTextSelectionLength]` 以及 `[ModernComment.getStatus]`。`None` 的 shape 表示投影片層級的註解。若為 [AutoShape] 錨定，文字選取方法會指出該圖形文字框中相關的文字範圍。
 
 ```python
 import jpype
@@ -390,9 +392,9 @@ finally:
 
 ## **移除註解**
 
-### **移除所有註解與註解作者**
+### **移除全部註解與註解作者**
 
-以下範例示範如何從簡報中移除所有註解與註解作者：
+以下範例示範如何從簡報中移除全部註解與註解作者：
 
 ```python
 import jpype
@@ -457,16 +459,16 @@ finally:
     presentation.dispose()
 ```
 
-## **常見問題**
+## **FAQ**
 
 **Aspose.Slides 是否支援現代註解的已解決狀態？**
 
-是的。*[ModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncomment/#getStatus)* 與 *[ModernComment.setStatus](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncomment/#setStatus)* 可存取 *[ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/moderncommentstatus/)* 的值，包括 `Resolved`。此狀態會儲存在簡報中，檔案重新開啟後仍可讀取。
+是的。`[ModernComment.getStatus]` 與 `[ModernComment.setStatus]` 可存取 `[ModernCommentStatus]` 中的值，包括 `Resolved`。此狀態會儲存在簡報中，重新開啟檔案後仍可讀取。
 
-**是否支援串列式討論（回覆鏈），且有巢狀深度限制嗎？**
+**是否支援串接式討論（回覆鏈），且是否有巢狀深度限制？**
 
-是的。每個註解都可以參照其 *[parent comment](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/comment/#getParentComment)*，從而形成回覆鏈。API 未定義具體的巢狀深度上限。
+是的。每個註解都可以參照其 **父註解**，從而形成回覆鏈。API 未定義特定的巢狀深度限制。
 
-**註解標記在投影片上的位置是以何種座標系統定義的？**
+**註解標記在投影片上的位置是以哪種座標系統定義的？**
 
-標記位置以投影片座標系統的浮點座標來定義，讓您能夠精確地將其放置於投影片上。
+標記位置以投影片座標系統的浮點座標定義，讓您能精確地將其放置於投影片上。

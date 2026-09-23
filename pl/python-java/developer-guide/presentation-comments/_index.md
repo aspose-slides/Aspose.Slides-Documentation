@@ -1,46 +1,48 @@
 ---
-title: "Zarządzanie komentarzami w prezentacji w Pythonie via Java"
-linktitle: "Komentarze w prezentacji"
+title: Zarządzanie komentarzami prezentacji w Pythonie przy użyciu Java
+linktitle: Komentarze prezentacji
 type: docs
 weight: 100
 url: /pl/python-java/presentation-comments/
 keywords:
-  - "komentarz"
-  - "nowoczesny komentarz"
-  - "komentarze PowerPoint"
-  - "komentarze prezentacji"
-  - "komentarze slajdów"
-  - "dodaj komentarz"
-  - "dostęp do komentarza"
-  - "edytuj komentarz"
-  - "odpowiedz na komentarz"
-  - "usuń komentarz"
-  - "kasuj komentarz"
-  - "PowerPoint"
-  - "prezentacja"
-  - "Python"
-  - "Java"
-  - "Aspose.Slides"
-description: "Zarządzaj komentarzami w prezentacji przy użyciu Aspose.Slides for Python via Java: dodawaj, odczytuj, edytuj, odpowiadaj i usuwaj komentarze w prezentacjach PowerPoint szybko i łatwo."
+- komentarz
+- nowoczesny komentarz
+- komentarze PowerPoint
+- komentarze prezentacji
+- komentarze slajdu
+- dodaj komentarz
+- dostęp do komentarza
+- edytuj komentarz
+- odpowiedz na komentarz
+- usuń komentarz
+- kasuj komentarz
+- PowerPoint
+- prezentacja
+- Python
+- Java
+- Aspose.Slides
+description: "Zarządzaj komentarzami prezentacji przy użyciu Aspose.Slides for Python via Java: szybko i łatwo dodawaj, odczytuj, edytuj, odpowiadaj i usuwaj komentarze w prezentacjach PowerPoint."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak zarządzać komentarzami w prezentacji przy użyciu Aspose.Slides for Python via Java. Przedstawia główne typy związane z komentarzami i demonstruje, jak dodawać komentarze do slajdów, uzyskiwać dostęp do istniejących komentarzy, pracować z odpowiedziami i nowoczesnymi komentarzami oraz usuwać komentarze z prezentacji.
+Ten artykuł wyjaśnia, jak zarządzać komentarzami w prezentacji przy użyciu Aspose.Slides for Python via Java. Wprowadza główne typy związane z komentarzami i pokazuje, jak dodawać komentarze do slajdów, uzyskiwać dostęp do istniejących komentarzy, pracować z odpowiedziami i nowoczesnymi komentarzami oraz usuwać komentarze z prezentacji.
 
-Przykłady obejmują typowe scenariusze recenzowania i współpracy w programie PowerPoint, takie jak przypisywanie komentarzy do autorów, odczytywanie tekstu komentarza i metadanych, budowanie łańcuchów odpowiedzi oraz usuwanie wybranych komentarzy lub wszystkich komentarzy.
+Przykłady obejmują typowe scenariusze przeglądu i współpracy w PowerPoint, takie jak przypisywanie komentarzy do autorów, odczytywanie tekstu i metadanych komentarza, budowanie łańcuchów odpowiedzi oraz usuwanie wybranych komentarzy lub wszystkich komentarzy.
 
-W programie PowerPoint komentarze pojawiają się jako adnotacje na slajdach. Wybranie komentarza wyświetla jego tekst i powiązaną dyskusję.
+W PowerPoint komentarze pojawiają się jako adnotacje na slajdach. Wybranie komentarza wyświetla jego tekst oraz powiązaną dyskusję.
+
+Aby żądać, aby komentarze były wyświetlane lub ukrywane przy otwieraniu prezentacji bez zmiany samych komentarzy, zobacz [Show or Hide Comments When Opening a Presentation](/slides/pl/python-java/presentation-view-properties/).
 
 ## **Dlaczego dodawać komentarze do prezentacji?**
 
-Możesz używać komentarzy, aby przekazywać opinie i współpracować z kolegami podczas przeglądania prezentacji.
+Możesz używać komentarzy do udzielania informacji zwrotnych i współpracy z kolegami podczas przeglądania prezentacji.
 
-Aspose.Slides for Python via Java udostępnia następujące API do pracy z komentarzami:
+Aspose.Slides for Python via Java provides the following APIs for working with comments:
 
-* [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/) klasa, która zapewnia dostęp do autorów komentarzy prezentacji.
-* [CommentCollection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/commentcollection/) klasa, reprezentująca komentarze powiązane z poszczególnym autorem.
-* [Comment](https://reference.aspose.com/slides/pl/python-java/aspose.slides/comment/) klasa, dostarczająca informacje o komentarzu, w tym autora, czas utworzenia, pozycję i tekst.
-* [CommentAuthor](https://reference.aspose.com/slides/pl/python-java/aspose.slides/commentauthor/) klasa, zapewniająca informacje o autorze, w tym jego imię, inicjały i powiązane komentarze.
+* The [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/) class, która zapewnia dostęp do autorów komentarzy w prezentacji.
+* The [CommentCollection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/commentcollection/) class, która reprezentuje komentarze powiązane z pojedynczym autorem.
+* The [Comment](https://reference.aspose.com/slides/pl/python-java/aspose.slides/comment/) class, która dostarcza informacji o komentarzu, w tym o jego autorze, czasie utworzenia, położeniu i tekście.
+* The [CommentAuthor](https://reference.aspose.com/slides/pl/python-java/aspose.slides/commentauthor/) class, która dostarcza informacji o autorze, w tym jego imię i nazwisko, inicjały oraz powiązane komentarze.
 
 ## **Dodawanie komentarzy do slajdów**
 
@@ -83,7 +85,7 @@ finally:
     presentation.dispose()
 ```
 
-## **Uzyskiwanie dostępu do komentarzy slajdów**
+## **Uzyskiwanie dostępu do komentarzy slajdu**
 
 Poniższy przykład pokazuje, jak uzyskać dostęp do istniejących komentarzy w prezentacji PowerPoint:
 
@@ -111,9 +113,9 @@ finally:
 
 ## **Odpowiadanie na komentarze**
 
-Komentarz nadrzędny to oryginalny komentarz na szczycie hierarchii odpowiedzi. Metody [Comment.getParentComment](https://reference.aspose.com/slides/pl/python-java/aspose.slides/comment/#getParentComment) i [Comment.setParentComment](https://reference.aspose.com/slides/pl/python-java/aspose.slides/comment/#setParentComment) umożliwiają pobranie lub ustawienie nadrzędnego komentarza.
+Komentarz nadrzędny to oryginalny komentarz znajdujący się na szczycie hierarchii odpowiedzi. Metody [Comment.getParentComment](https://reference.aspose.com/slides/pl/python-java/aspose.slides/comment/#getParentComment) i [Comment.setParentComment](https://reference.aspose.com/slides/pl/python-java/aspose.slides/comment/#setParentComment) umożliwiają pobranie lub ustawienie komentarza nadrzędnego.
 
-Poniższy przykład pokazuje, jak dodawać odpowiedzi i przeglądać powstałą hierarchię komentarzy:
+Poniższy przykład pokazuje, jak dodać odpowiedzi i sprawdzić wynikającą hierarchię komentarzy:
 
 ```python
 import jpype
@@ -169,20 +171,20 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="warning" title="Ostrzeżenie" %}}
-* Gdy metoda [Comment.remove](https://reference.aspose.com/slides/pl/python-java/aspose.slides/comment/#remove) jest używana do usunięcia komentarza, wszystkie odpowiedzi na ten komentarz są również usuwane.
-* Jeśli [Comment.setParentComment](https://reference.aspose.com/slides/pl/python-java/aspose.slides/comment/#setParentComment) tworzy odniesienie cykliczne, zostaje zgłoszony [PptxEditException](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pptxeditexception/).
+{{% alert color="warning" title="Warning" %}}
+* Gdy metoda [Comment.remove](https://reference.aspose.com/slides/pl/python-java/aspose.slides/comment/#remove) jest używana do usunięcia komentarza, wszystkie odpowiedzi na ten komentarz są także usuwane.
+* Jeśli [Comment.setParentComment](https://reference.aspose.com/slides/pl/python-java/aspose.slides/comment/#setParentComment) tworzy odwołanie cykliczne, zostaje rzucony [PptxEditException](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Dodawanie nowoczesnych komentarzy**
 
-Nowoczesne komentarze mogą być powiązane bezpośrednio ze slajdem, z konkretnym kształtem lub z zakresem tekstu wewnątrz [AutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshape/). Metoda [CommentCollection.addModernComment](https://reference.aspose.com/slides/pl/python-java/aspose.slides/commentcollection/#addModernComment) przyjmuje argument [Shape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/) oprócz slajdu i współrzędnych znacznika komentarza.
+Nowoczesne komentarze mogą być powiązane z samym slajdem, z konkretnym kształtem lub z zakresem tekstu wewnątrz [AutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshape/). Metoda [CommentCollection.addModernComment](https://reference.aspose.com/slides/pl/python-java/aspose.slides/commentcollection/#addModernComment) przyjmuje jako argument [Shape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/), oprócz slajdu i współrzędnych znacznika komentarza.
 
-Gdy dla argumentu shape przekazany jest `None`, komentarz jest komentarzem na poziomie slajdu. Jego znacznik jest pozycjonowany według podanych współrzędnych, ale nie jest powiązany z konkretnym kształtem, więc [ModernComment.getShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getShape) zwraca `None`. Gdy podany jest [Shape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/), komentarz jest przytwierdzony do tego kształtu. Współrzędne nadal określają pozycję znacznika komentarza na slajdzie, a powiązanie z kształtem można uzyskać przez [ModernComment.getShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getShape).
+Gdy `None` jest przekazywane jako argument shape, komentarz jest komentarzem na poziomie slajdu. Jego znacznik jest pozycjonowany przez podane współrzędne, ale nie jest powiązany z konkretnym kształtem, więc [ModernComment.getShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getShape) zwraca `None`. Gdy podany jest [Shape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/), komentarz jest zakotwiczony do tego kształtu. Współrzędne nadal określają pozycję znacznika komentarza na slajdzie, a powiązanie z kształtem można odczytać poprzez [ModernComment.getShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getShape).
 
-### **Umocowanie nowoczesnego komentarza do kształtu**
+### **Zakotwiczenie nowoczesnego komentarza do kształtu**
 
-Poniższy przykład tworzy zarówno komentarz nowoczesny na poziomie slajdu, jak i komentarz nowoczesny przytwierdzony do konkretnego [AutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshape/). Następnie odczytuje powiązany kształt z każdego komentarza.
+Poniższy przykład tworzy zarówno nowoczesny komentarz na poziomie slajdu, jak i nowoczesny komentarz zakotwiczony do konkretnego [AutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshape/). Następnie odczytuje powiązany kształt z każdego komentarza.
 
 ```python
 import jpype
@@ -218,24 +220,24 @@ finally:
     presentation.dispose()
 ```
 
-### **Umocowanie komentarzy do różnych typów kształtów**
+### **Kotwiczenie komentarzy do różnych typów kształtów**
 
-Każdy obiekt slajdu, który dziedziczy po [Shape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/), może być użyty jako punkt przytwierdzenia. Typowe przykłady to [AutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/pl/python-java/aspose.slides/connector/) oraz instancje [GraphicalObject](https://reference.aspose.com/slides/pl/python-java/aspose.slides/graphicalobject/) takie jak wykresy.
+Każdy obiekt slajdu, który dziedziczy po [Shape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/), może być użyty jako kotwica kształtu. Typowe przykłady to [AutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/pl/python-java/aspose.slides/connector/) oraz [GraphicalObject](https://reference.aspose.com/slides/pl/python-java/aspose.slides/graphicalobject/) takie jak wykresy.
 
-Poniższy przykład tworzy kilka typowych kształtów i powiązuje z każdym nowoczesny komentarz.
+Poniższy przykład tworzy kilka powszechnych typów kształtów i powiązuje z każdym z nich nowoczesny komentarz.
 
 ```python
-import jpype
+import jpime
 import asposeslides
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+if not jpime.isJVMStarted():
+    jpime.startJVM()
 
 from asposeslides.api import ChartType, Presentation, SaveFormat, ShapeType
 
-Point2DFloat = jpype.JClass("java.awt.geom.Point2D$Float")
-Date = jpype.JClass("java.util.Date")
-Base64 = jpype.JClass("java.util.Base64")
+Point2DFloat = jpime.JClass("java.awt.geom.Point2D$Float")
+Date = jpime.JClass("java.util.Date")
+Base64 = jpime.JClass("java.util.Base64")
 
 presentation = Presentation()
 try:
@@ -274,9 +276,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Umocowanie komentarza do tekstu i ustawienie jego statusu**
+### **Kotwiczenie komentarza do tekstu i ustawienie jego statusu**
 
-Dla nowoczesnego komentarza powiązanego z [AutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getTextSelectionStart) i [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#setTextSelectionStart) uzyskują początkową pozycję zaznaczonego tekstu w ramce tekstowej kształtu. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getTextSelectionLength) i [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#setTextSelectionLength) uzyskują długość zaznaczenia. Razem te wartości łączą komentarz z określonym zakresem tekstu wewnątrz AutoShape.
+Dla nowoczesnego komentarza powiązanego z [AutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getTextSelectionStart) i [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#setTextSelectionStart) uzyskują początkową pozycję zaznaczonego tekstu w ramce tekstowej kształtu. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getTextSelectionLength) i [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#setTextSelectionLength) uzyskują długość zaznaczenia. Razem te wartości kojarzą komentarz z konkretnym zakresem tekstu wewnątrz AutoShape.
 
 Metody [ModernComment.getStatus](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getStatus) i [ModernComment.setStatus](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#setStatus) uzyskują wartość z stałych [ModernCommentStatus](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncommentstatus/):
 
@@ -285,7 +287,7 @@ Metody [ModernComment.getStatus](https://reference.aspose.com/slides/pl/python-j
 - [Resolved](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncommentstatus/#Resolved) — komentarz został rozwiązany.
 - [Closed](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncommentstatus/#Closed) — komentarz jest zamknięty.
 
-Poniższy przykład tworzy nowoczesny komentarz przytwierdzony do kształtu, powiązuje go z zaznaczeniem tekstu, oznacza jako rozwiązany, zapisuje prezentację i weryfikuje wartości po ponownym otwarciu pliku.
+Poniższy przykład tworzy nowoczesny komentarz zakotwiczony do kształtu, powiązuje go z zaznaczeniem tekstu, oznacza jako rozwiązany, zapisuje prezentację i weryfikuje wartości po ponownym otwarciu pliku.
 
 ```python
 import jpype
@@ -346,9 +348,9 @@ finally:
     reopened_presentation.dispose()
 ```
 
-### **Inspekcja istniejących nowoczesnych komentarzy**
+### **Sprawdzanie istniejących nowoczesnych komentarzy**
 
-Aby przejrzeć istniejącą prezentację, sprawdź, które komentarze są instancjami [ModernComment](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/), a następnie zbadaj [ModernComment.getShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getTextSelectionLength) i [ModernComment.getStatus](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getStatus). Kształt `None` oznacza komentarz na poziomie slajdu. Dla umocowania w [AutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshape/) metody wyboru tekstu identyfikują powiązany zakres w ramce tekstowej kształtu.
+Aby sprawdzić istniejącą prezentację, sprawdź, które komentarze są instancjami [ModernComment](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/), a następnie zbaduj [ModernComment.getShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getShape), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getTextSelectionStart), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getTextSelectionLength) i [ModernComment.getStatus](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getStatus). Kształt `None` wskazuje na komentarz na poziomie slajdu. Dla kotwicy [AutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshape/) metody wyboru tekstu identyfikują powiązany zakres w ramce tekstowej kształtu.
 
 ```python
 import jpype
@@ -390,7 +392,7 @@ finally:
 
 ## **Usuwanie komentarzy**
 
-### **Usuwanie wszystkich komentarzy i autorów komentarzy**
+### **Usuwanie wszystkich komentarzy i ich autorów**
 
 Poniższy przykład pokazuje, jak usunąć wszystkie komentarze i ich autorów z prezentacji:
 
@@ -416,7 +418,7 @@ finally:
 
 ### **Usuwanie konkretnych komentarzy**
 
-Poniższy przykład pokazuje, jak usunąć wybrane komentarze ze slajdu:
+Poniższy przykład pokazuje, jak usunąć konkretne komentarze ze slajdu:
 
 ```python
 import jpype
@@ -463,10 +465,10 @@ finally:
 
 Tak. [ModernComment.getStatus](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#getStatus) i [ModernComment.setStatus](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncomment/#setStatus) uzyskują wartość z [ModernCommentStatus](https://reference.aspose.com/slides/pl/python-java/aspose.slides/moderncommentstatus/), w tym `Resolved`. Status jest przechowywany w prezentacji i może być odczytany po ponownym otwarciu pliku.
 
-**Czy dyskusje wątkowe (łańcuchy odpowiedzi) są obsługiwane i czy istnieje limit zagnieżdżania?**
+**Czy obsługiwane są wątki dyskusji (łańcuchy odpowiedzi) i czy istnieje limit poziomu zagnieżdżenia?**
 
-Tak. Każdy komentarz może odwoływać się do swojego [parent comment](https://reference.aspose.com/slides/pl/python-java/aspose.slides/comment/#getParentComment), umożliwiając tworzenie łańcuchów odpowiedzi. API nie definiuje konkretnego limitu głębokości zagnieżdżenia.
+Tak. Każdy komentarz może odwoływać się do swojego [parent comment](https://reference.aspose.com/slides/pl/python-java/aspose.slides/comment/#getParentComment), umożliwiając łańcuchy odpowiedzi. API nie definiuje konkretnego limitu głębokości zagnieżdżenia.
 
-**W jakim systemie współrzędnych definiowana jest pozycja znacznika komentarza na slajdzie?**
+**W jakim układzie współrzędnych określona jest pozycja znacznika komentarza na slajdzie?**
 
-Pozycja znacznika jest definiowana przez współrzędne zmiennoprzecinkowe w systemie współrzędnych slajdu, co pozwala precyzyjnie umieścić go na slajdzie.
+Pozycja znacznika jest określana przez współrzędne zmiennoprzecinkowe w układzie współrzędnych slajdu, co pozwala precyzyjnie umieścić go na slajdzie.

@@ -11,7 +11,7 @@ keywords:
 - प्रस्तुति टिप्पणियाँ
 - स्लाइड टिप्पणियाँ
 - टिप्पणी जोड़ें
-- टिप्पणी पहुंचें
+- टिप्पणी तक पहुँचें
 - टिप्पणी संपादित करें
 - टिप्पणी का उत्तर दें
 - टिप्पणी हटाएँ
@@ -21,30 +21,32 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java के साथ प्रस्तुति टिप्पणियों को प्रबंधित करें: PowerPoint प्रस्तुतियों में टिप्पणियों को जल्दी और आसानी से जोड़ें, पढ़ें, संपादित करें, उत्तर दें और हटाएँ।"
+description: "Aspose.Slides for Android via Java के साथ प्रस्तुति टिप्पणियों का प्रबंधन: PowerPoint प्रस्तुतियों में टिप्पणियों को जल्दी और आसानी से जोड़ें, पढ़ें, संपादित करें, उत्तर दें और हटाएँ।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides for Android via Java के साथ प्रस्तुति टिप्पणियों को प्रबंधित करने का तरीका समझाता है। यह मुख्य टिप्पणी-संबंधित प्रकारों का परिचय देता है और स्लाइड्स में टिप्पणियों को जोड़ने, मौजूद टिप्पणियों तक पहुंचने, उत्तरों और आधुनिक टिप्पणियों के साथ काम करने, तथा प्रस्तुति से टिप्पणियों को हटाने के तरीकों को दर्शाता है।
+यह लेख Aspose.Slides for Android via Java के साथ प्रस्तुति टिप्पणी प्रबंधन कैसे करें, समझाता है। यह मुख्य टिप्पणी‑संबंधित प्रकारों का परिचय देता है और स्लाइड में टिप्पणी जोड़ने, मौजूदा टिप्पणियों तक पहुँचने, उत्तर और आधुनिक टिप्पणियों के साथ काम करने, तथा प्रस्तुति से टिप्पणियों को हटाने का प्रदर्शन करता है।
 
 उदाहरण सामान्य समीक्षा और सहयोग परिदृश्यों को कवर करते हैं, जैसे लेखकों को टिप्पणियाँ असाइन करना, टिप्पणी पाठ और मेटाडेटा पढ़ना, उत्तर श्रृंखलाएँ बनाना, और चयनित टिप्पणियों या सभी टिप्पणियों को हटाना।
 
-PowerPoint में, टिप्पणियाँ स्लाइड्स पर एनोटेशन के रूप में दिखाई देती हैं। टिप्पणी का चयन करने पर उसका पाठ और संबंधित चर्चा प्रदर्शित होती है।
+PowerPoint में, टिप्पणियाँ स्लाइड पर एनो्टेशन के रूप में दिखाई देती हैं। कोई टिप्पणी चुनने पर उसका पाठ और संबंधित चर्चा प्रदर्शित होती है।
 
-## **प्रस्तुतियों में टिप्पणी क्यों जोड़ें?**
+प्रेजेंटेशन खोलते समय टिप्पणी दिखाएँ या छिपाएँ, बिना स्वयं टिप्पणियों को बदले, अधिक जानकारी के लिए देखें [प्रेजेंटेशन खोलते समय टिप्पणी दिखाएँ या छिपाएँ](/slides/hi/androidjava/presentation-view-properties/)।
 
-आप प्रस्तुतियों की समीक्षा करते समय प्रतिक्रिया प्रदान करने और सहयोगियों के साथ सहयोग करने के लिए टिप्पणियों का उपयोग कर सकते हैं।
+## **प्रेजेंटेशन में टिप्पणियाँ क्यों जोड़ें?**
 
-Aspose.Slides for Android via Java टिप्पणियों के साथ काम करने के लिए निम्नलिखित APIs प्रदान करता है:
+आप समीक्षा के दौरान प्रतिक्रिया देने और सहयोगियों के साथ काम करने के लिए टिप्पणी का उपयोग कर सकते हैं।
 
-* The [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) class, जो प्रस्तुतिकरण के टिप्पणी लेखकों तक पहुंच प्रदान करता है।
-* The [ICommentCollection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icommentcollection/) interface, जो व्यक्तिगत लेखक से जुड़ी टिप्पणियों का प्रतिनिधित्व करती है।
-* The [IComment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icomment/) interface, जो टिप्पणी के बारे में जानकारी प्रदान करती है, जिसमें लेखक, निर्माण समय, स्थिति और पाठ शामिल है।
-* The [CommentAuthor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/commentauthor/) class, जो लेखक के बारे में जानकारी देती है, जिसमें उनका नाम, प्रारंभिक अक्षर, और संबंधित टिप्पणियाँ शामिल हैं।
+Aspose.Slides for Android via Java टिप्पणियों के साथ काम करने के लिए निम्नलिखित API प्रदान करता है:
+
+* The [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) वर्ग, जो प्रस्तुति के टिप्पणी लेखकों तक पहुंच प्रदान करता है।
+* The [ICommentCollection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icommentcollection/) इंटरफ़ेस, जो व्यक्तिगत लेखक के साथ सम्बंधित टिप्पणियों का प्रतिनिधित्व करता है।
+* The [IComment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icomment/) इंटरफ़ेस, जो टिप्पणी के बारे में जानकारी प्रदान करता है, जिसमें उसका लेखक, निर्माण समय, स्थिति और पाठ शामिल हैं।
+* The [CommentAuthor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/commentauthor/) वर्ग, जो लेखक के बारे में जानकारी देता है, जिसमें उनका नाम, आद्याक्षर और सम्बंधित टिप्पणियाँ शामिल हैं।
 
 ## **स्लाइड टिप्पणियाँ जोड़ें**
 
-निम्नलिखित उदाहरण दिखाता है कि PowerPoint प्रस्तुति में स्लाइड्स में टिप्पणियाँ कैसे जोड़ें:
+निम्न उदाहरण दिखाता है कि PowerPoint प्रस्तुति में स्लाइड पर टिप्पणियाँ कैसे जोड़ी जाती हैं:
 
 ```java
 import com.aspose.slides.IComment;
@@ -83,9 +85,9 @@ try {
 }
 ```
 
-## **स्लाइड टिप्पणियों तक पहुंचें**
+## **स्लाइड टिप्पणियों तक पहुँचें**
 
-निम्नलिखित उदाहरण दिखाता है कि PowerPoint प्रस्तुति में मौजूद टिप्पणियों तक कैसे पहुंचें:
+निम्न उदाहरण दिखाता है कि PowerPoint प्रस्तुति में मौज़ूद टिप्पणियों तक कैसे पहुँचा जा सकता है:
 
 ```java
 import com.aspose.slides.IComment;
@@ -110,9 +112,9 @@ try {
 
 ## **टिप्पणियों का उत्तर दें**
 
-एक पैरेंट टिप्पणी वह मूल टिप्पणी है जो उत्तर पदानुक्रम के शीर्ष पर स्थित होती है। [IComment.getParentComment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icomment/#getParentComment--) और [IComment.setParentComment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) मेथड आपको टिप्पणी के पैरेंट को प्राप्त या सेट करने की अनुमति देते हैं।
+एक पैरेंट टिप्पणी वह मूल टिप्पणी है जो उत्तर पदानुक्रम के शीर्ष पर स्थित होती है। [IComment.getParentComment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icomment/#getParentComment--) और [IComment.setParentComment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) मेथड आपको टिप्पणी के पैरेंट को प्राप्त या सेट करने देते हैं।
 
-निम्नलिखित उदाहरण दिखाता है कि उत्तर कैसे जोड़ें और प्राप्त टिप्पणी पदानुक्रम की जाँच कैसे करें:
+निम्न उदाहरण दिखाता है कि उत्तर कैसे जोड़ें और प्राप्त टिप्पणी पदानुक्रम का निरीक्षण कैसे करें:
 
 ```java
 import com.aspose.slides.IComment;
@@ -168,20 +170,20 @@ try {
 }
 ```
 
-{{% alert color="warning" title="चेतावनी" %}}
-* जब [IComment.remove](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icomment/#remove--) मेथड का उपयोग करके टिप्पणी हटाई जाती है, तो उस टिप्पणी के सभी उत्तर भी हटाए जाते हैं।
-* यदि [IComment.setParentComment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) एक चक्रीय संदर्भ बनाता है, तो एक [PptxEditException](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pptxeditexception/) फेंका जाता है।
+{{% alert color="warning" title="Warning" %}}
+* जब [IComment.remove](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icomment/#remove--) मेथड का उपयोग करके टिप्पणी हटाई जाती है, तो उस टिप्पणी के सभी उत्तर भी हटाए जा जाते हैं।
+* यदि [IComment.setParentComment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) एक चक्रीय संदर्भ उत्पन्न करता है, तो एक [PptxEditException](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pptxeditexception/) फेंका जाता है।
 {{% /alert %}}
 
 ## **आधुनिक टिप्पणियाँ जोड़ें**
 
-आधुनिक टिप्पणियाँ स्लाइड स्वयं, किसी विशिष्ट आकार, या AutoShape के भीतर एक टेक्स्ट रेंज से जुड़ी हो सकती हैं। [ICommentCollection.addModernComment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) मेथड स्लाइड और टिप्पणी‑मार्कर निर्देशांक के अतिरिक्त एक [IShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishape/) तर्क स्वीकार करता है।
+आधुनिक टिप्पणियों को स्लाइड स्वयं, किसी विशिष्ट आकार, या AutoShape के भीतर एक टेक्स्ट रेंज से जोड़ा जा सकता है। [ICommentCollection.addModernComment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) मेथड स्लाइड और टिप्पणी‑मार्कर निर्देशांक के अलावा एक [IShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishape/) तर्क भी स्वीकार करता है।
 
-जब `null` को shape तर्क के रूप में पास किया जाता है, तो टिप्पणी स्लाइड‑स्तर की टिप्पणी होती है। इसका मार्कर प्रदान की गई निर्देशांक द्वारा स्थित होता है, लेकिन यह किसी विशेष आकार से जुड़ी नहीं होती, इसलिए [IModernComment.getShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getShape--) `null` लौटाता है। जब एक [IShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishape/) प्रदान किया जाता है, तो टिप्पणी उस आकार से जुड़ी होती है। निर्देशांक अभी भी स्लाइड पर टिप्पणी मार्कर की स्थिति निर्धारित करते हैं, जबकि आकार संबंध को [IModernComment.getShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getShape--) के माध्यम से प्राप्त किया जा सकता है।
+जब आकार तर्क के लिए `null` पास किया जाता है, तो टिप्पणी स्लाइड‑स्तर की टिप्पणी बनती है। उसका मार्कर प्रदान किए गये निर्देशांकों द्वारा स्थित किया जाता है, लेकिन यह किसी विशेष आकार से जुड़ी नहीं होती, इसलिए [IModernComment.getShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getShape--) `null` लौटाता है। जब एक [IShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishape/) प्रदान किया जाता है, तो टिप्पणी उस आकार से जुड़ जाती है। फिर भी निर्देशांक टिप्पणी मार्कर की स्लाइड पर स्थिति निर्धारित करते हैं, जबकि आकार का संबंध [IModernComment.getShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getShape--) द्वारा पुनः प्राप्त किया जा सकता है।
 
-### **आधुनिक टिप्पणी को आकृति पर एंकर करें**
+### **आधुनिक टिप्पणी को आकार से जोड़ें**
 
-निम्नलिखित उदाहरण एक स्लाइड‑स्तर की आधुनिक टिप्पणी और एक विशिष्ट AutoShape से एंकर की गई आधुनिक टिप्पणी बनाता है। फिर यह प्रत्येक टिप्पणी से जुड़ी आकृति को पढ़ता है।
+निम्न उदाहरण एक स्लाइड‑स्तर की आधुनिक टिप्पणी और एक विशिष्ट AutoShape से जुड़ी आधुनिक टिप्पणी दोनों बनाता है। फिर प्रत्येक टिप्पणी से सम्बंधित आकार को पढ़ता है।
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -217,11 +219,11 @@ try {
 }
 ```
 
-### **विभिन्न आकृति प्रकारों के लिए टिप्पणियों को एंकर करें**
+### **विभिन्न आकार प्रकारों से टिप्पणियों को जोड़ें**
 
-कोई भी स्लाइड ऑब्जेक्ट जो [IShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishape/) को लागू करता है, उसे आकार एंकर के रूप में उपयोग किया जा सकता है। सामान्य उदाहरणों में [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iconnector/), और चार्ट जैसे [IGraphicalObject](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/igraphicalobject/) उदाहरण शामिल हैं।
+कोई भी स्लाइड ऑब्जेक्ट जो [IShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishape/) को लागू करता है, आकार एंकर के रूप में उपयोग किया जा सकता है। सामान्य उदाहरणों में [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iconnector/), और चार्ट जैसे [IGraphicalObject](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/igraphicalobject/) उदाहरण शामिल हैं।
 
-निम्नलिखित उदाहरण कई सामान्य आकार प्रकार बनाता है और प्रत्येक के साथ एक आधुनिक टिप्पणी जोड़ता है।
+निम्न उदाहरण कई सामान्य आकार प्रकार बनाता है और प्रत्येक के साथ एक आधुनिक टिप्पणी जोड़ता है।
 
 ```java
 import com.aspose.slides.ChartType;
@@ -278,18 +280,18 @@ try {
 }
 ```
 
-### **टिप्पणी को पाठ पर एंकर करें और उसकी स्थिति सेट करें**
+### **टिप्पणी को टेक्स्ट से जोड़ें और उसकी स्थिति सेट करें**
 
-एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) से जुड़ी आधुनिक टिप्पणी के लिए, [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) और [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) आकार के टेक्स्ट फ्रेम में चयनित पाठ की प्रारंभिक स्थिति तक पहुंचते हैं। [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) और [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) चयन की लंबाई तक पहुंचते हैं। ये मान मिलकर टिप्पणी को AutoShape के भीतर एक विशिष्ट टेक्स्ट रेंज से जोड़ते हैं।
+एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) से जुड़ी आधुनिक टिप्पणी के लिए, [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) और [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) आकार के टेक्स्ट फ़्रेम में चयनित टेक्स्ट की शुरुआती स्थिति तक पहुँचते हैं। [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) और [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) चयन की लंबाई तक पहुँचते हैं। मिलकर, ये मान टिप्पणी को AutoShape के भीतर एक विशिष्ट टेक्स्ट रेंज से जोड़ते हैं।
 
-[IModernComment.getStatus](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getStatus--) और [IModernComment.setStatus](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) मेथड [ModernCommentStatus](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/moderncommentstatus/) स्थिरांक से एक मान तक पहुंचते हैं:
+[IModernComment.getStatus](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getStatus--) और [IModernComment.setStatus](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) मेथड [ModernCommentStatus](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/moderncommentstatus/) स्थिरांक से एक मान प्राप्त करते हैं:
 
-- `NotDefined` — कोई विशिष्ट आधुनिक‑टिप्पणी स्थिति निर्धारित नहीं की गई है।
+- `NotDefined` — कोई विशिष्ट आधुनिक‑टिप्पणी स्थिति परिभाषित नहीं है।
 - `Active` — टिप्पणी सक्रिय है।
-- `Resolved` — टिप्पणी हल कर दी गई है।
+- `Resolved` — टिप्पणी को हल किया गया है।
 - `Closed` — टिप्पणी बंद है।
 
-निम्नलिखित उदाहरण एक आकार‑एंकर वाली आधुनिक टिप्पणी बनाता है, इसे टेक्स्ट चयन से जोड़ता है, इसे हल की गई के रूप में चिह्नित करता है, प्रस्तुति सहेजता है, और फ़ाइल पुनः खोलने के बाद मानों की जाँच करता है।
+निम्न उदाहरण एक आकार‑एंकर वाली आधुनिक टिप्पणी बनाता है, उसे टेक्स्ट चयन से जोड़ता है, उसे हल‑की हुई के रूप में चिह्नित करता है, प्रस्तुति को सहेजता है, और फ़ाइल पुनः खोलने के बाद मानों की पुष्टि करता है।
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -354,9 +356,9 @@ try {
 }
 ```
 
-### **मौजूदा आधुनिक टिप्पणियों की जाँच करें**
+### **मौजूदा आधुनिक टिप्पणियों का निरीक्षण करें**
 
-किसी मौजूदा प्रस्तुति की जाँच करने के लिए, देखें कि कौन सी टिप्पणियाँ [IModernComment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/) को लागू करती हैं, फिर [IModernComment.getShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--), और [IModernComment.getStatus](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getStatus--) को देखें। `null` आकार एक स्लाइड‑स्तर की टिप्पणी दर्शाता है। किसी [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) एंकर के लिए, टेक्स्ट‑सेलेक्शन मेथड आकार के टेक्स्ट फ्रेम में संबंधित रेंज की पहचान करते हैं।
+एक मौज़ूद प्रस्तुति का निरीक्षण करने के लिए, देखें कि कौन सी टिप्पणियाँ [IModernComment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/) को लागू करती हैं, फिर [IModernComment.getShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--), और [IModernComment.getStatus](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getStatus--) की जाँच करें। `null` आकार दर्शाता है कि टिप्पणी स्लाइड‑स्तर की है। एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) एंकर के लिए, टेक्स्ट‑सेलेक्शन मेथड आकार के टेक्स्ट फ़्रेम में सम्बंधित रेंज को पहचानते हैं।
 
 ```java
 import com.aspose.slides.IAutoShape;
@@ -403,9 +405,9 @@ try {
 
 ## **टिप्पणियों को हटाएँ**
 
-### **सभी टिप्पणियों और टिप्पणी लेखकों को हटाएँ**
+### **सभी टिप्पणियाँ और टिप्पणी लेखकों को हटाएँ**
 
-निम्नलिखित उदाहरण दर्शाता है कि प्रस्तुति से सभी टिप्पणियों और टिप्पणी लेखकों को कैसे हटाएँ:
+निम्न उदाहरण दिखाता है कि प्रस्तुति से सभी टिप्पणियाँ और टिप्पणी लेखक कैसे हटाए जाएँ:
 
 ```java
 import com.aspose.slides.ICommentAuthor;
@@ -427,7 +429,7 @@ try {
 
 ### **विशिष्ट टिप्पणियों को हटाएँ**
 
-निम्नलिखित उदाहरण दर्शाता है कि स्लाइड से विशिष्ट टिप्पणियों को कैसे हटाएँ:
+निम्न उदाहरण दिखाता है कि स्लाइड से विशिष्ट टिप्पणियाँ कैसे हटाई जाएँ:
 
 ```java
 import com.aspose.slides.IComment;
@@ -472,16 +474,16 @@ try {
 }
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**क्या Aspose.Slides आधुनिकी टिप्पणी के लिए हल की गई स्थिति का समर्थन करता है?**
+**क्या Aspose.Slides आधुनिक टिप्पणियों के लिए हल‑की हुई स्थिति को समर्थन देता है?**
 
-हाँ। [IModernComment.getStatus](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getStatus--) और [IModernComment.setStatus](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) एक [ModernCommentStatus](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/moderncommentstatus/) मान तक पहुंचते हैं, जिसमें `Resolved` शामिल है। स्थिति प्रस्तुति में संग्रहीत होती है और फ़ाइल पुनः खोलने के बाद फिर से पढ़ी जा सकती है।
+हाँ। [IModernComment.getStatus](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#getStatus--) और [IModernComment.setStatus](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) एक [ModernCommentStatus](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/moderncommentstatus/) मान तक पहुँचते हैं, जिसमें `Resolved` शामिल है। यह स्थिति प्रस्तुति में संग्रहीत रहती है और फ़ाइल पुनः खोलने के बाद पुनः पढ़ी जा सकती है।
 
-**क्या थ्रेडेड चर्चाएँ (उत्तर श्रृंखला) समर्थित हैं, और क्या कोई नेस्टिंग सीमा है?**
+**क्या थ्रेडेड चर्चाएँ (उत्तरी श्रृंखलाएँ) समर्थित हैं, और क्या कोई नेस्टिंग सीमा है?**
 
-हाँ। प्रत्येक टिप्पणी अपने [parent comment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icomment/#getParentComment--) को संदर्भित कर सकती है, जिससे उत्तर श्रृंखलाएँ संभव होती हैं। API में कोई विशिष्ट नेस्टिंग‑गहराई सीमा निर्धारित नहीं की गई है।
+हाँ। प्रत्येक टिप्पणी अपने [parent comment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icomment/#getParentComment--) को संदर्भित कर सकती है, जिससे उत्तर श्रृंखलाएँ बनती हैं। API में किसी विशिष्ट नेस्टिंग‑गहराई की सीमा निर्धारित नहीं की गई है।
 
-**किस निर्देशांक प्रणाली में स्लाइड पर टिप्पणी मार्कर की स्थिति परिभाषित की गई है?**
+**किस निर्देशांक प्रणाली में स्लाइड पर टिप्पणी मार्कर की स्थिति निर्धारित की गई है?**
 
-मार्कर की स्थिति स्लाइड निर्देशांक प्रणाली में फ्लोटिंग‑पॉइंट निर्देशांक द्वारा परिभाषित की गई है, जिससे आप इसे स्लाइड पर सटीक रूप से रख सकते हैं।
+मार्कर की स्थिति स्लाइड निर्देशांक प्रणाली में फ्लोटिंग‑पॉइंट निर्देशांकों द्वारा परिभाषित होती है, जिससे आप इसे स्लाइड पर बिल्कुल सही जगह रख सकते हैं।

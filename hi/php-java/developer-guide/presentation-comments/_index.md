@@ -1,5 +1,5 @@
 ---
-title: PHP में प्रस्तुति टिप्पणियों का प्रबंधन
+title: PHP में प्रस्तुति टिप्पणियों को प्रबंधित करें
 linktitle: प्रस्तुति टिप्पणियाँ
 type: docs
 weight: 100
@@ -7,11 +7,11 @@ url: /hi/php-java/presentation-comments/
 keywords:
 - टिप्पणी
 - आधुनिक टिप्पणी
-- PowerPoint टिप्पणियाँ
-- प्रस्तुति टिप्पणियाँ
-- स्लाइड टिप्पणियाँ
+- PowerPoint टिप्पणियां
+- प्रस्तुति टिप्पणियां
+- स्लाइड टिप्पणियां
 - टिप्पणी जोड़ें
-- टिप्पणी तक पहुँचें
+- टिप्पणी तक पहुंचें
 - टिप्पणी संपादित करें
 - टिप्पणी का उत्तर दें
 - टिप्पणी हटाएँ
@@ -20,30 +20,32 @@ keywords:
 - प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java के साथ प्रस्तुति टिप्पणियों का प्रबंधन: PowerPoint प्रस्तुतियों में टिप्पणियों को जल्दी और आसानी से जोड़ें, पढ़ें, संपादित करें, उत्तर दें और हटाएँ।"
+description: "Aspose.Slides for PHP via Java के साथ प्रस्तुति टिप्पणियों को प्रबंधित करें: PowerPoint प्रस्तुतियों में टिप्पणियों को जल्दी और आसानी से जोड़ें, पढ़ें, संपादित करें, उत्तर दें और हटाएँ।"
 ---
-## **सारांश**
+## **अवलोकन**
 
-यह लेख Aspose.Slides for PHP via Java के साथ प्रस्तुति टिप्पणियों को प्रबंधित करने के बारे में समझाता है। यह मुख्य टिप्पणी‑संबंधी प्रकारों का परिचय कराता है और स्लाइड्स में टिप्पणियाँ जोड़ने, मौजूदा टिप्पणियों तक पहुँचने, उत्तरों और आधुनिक टिप्पणियों के साथ काम करने, तथा प्रस्तुति से टिप्पणियों को हटाने का प्रदर्शन करता है।
+यह लेख Aspose.Slides for PHP via Java के साथ प्रस्तुति टिप्पणी प्रबंधन के तरीके को समझाता है। यह मुख्य टिप्पणी‑संबंधी प्रकारों का परिचय देता है और स्लाइड्स में टिप्पणियाँ जोड़ना, मौजूदा टिप्पणियों तक पहुंचना, उत्तरों और आधुनिक टिप्पणियों के साथ काम करना, तथा प्रस्तुति से टिप्पणियाँ हटाना दर्शाता है।
 
-उदाहरण PowerPoint में सामान्य समीक्षा और सहयोग परिदृश्यों को कवर करते हैं, जैसे लेखकों को टिप्पणी असाइन करना, टिप्पणी पाठ और मेटाडेटा पढ़ना, उत्तर श्रृंखलाएँ बनाना, और चयनित टिप्पणियाँ या सभी टिप्पणियाँ हटाना।
+उदाहरण सामान्य समीक्षात्मक और सहयोगात्मक परिदृश्यों को कवर करते हैं, जैसे कि लेखकों को टिप्पणियाँ असाइन करना, टिप्पणी पाठ और मेटाडेटा पढ़ना, उत्तर श्रृंखलाएं बनाना, तथा चयनित टिप्पणियों या सभी टिप्पणियों को हटाना।
 
-PowerPoint में, टिप्पणियाँ स्लाइड्स पर एनोटेशन के रूप में दिखती हैं। एक टिप्पणी का चयन करने से उसका पाठ और संबंधित चर्चा प्रदर्शित होती है।
+PowerPoint में, टिप्पणियाँ स्लाइड्स पर एनोटेशन के रूप में दिखाई देती हैं। किसी टिप्पणी का चयन करने पर उसका पाठ और संबंधित चर्चा प्रदर्शित होती है।
 
-## **प्रस्तुतियों में टिप्पणियाँ क्यों जोड़ें?**
+प्रेजेंटेशन खोलते समय टिप्पणियों को दिखाने या छिपाने का अनुरोध करने के लिए, बिना स्वयं टिप्पणियों को बदले, देखें [प्रेजेंटेशन खोलते समय टिप्पणियों को दिखाने या छिपाने का अनुरोध](/slides/hi/php-java/presentation-view-properties/)।
 
-आप प्रस्तुति की समीक्षा करते समय फ़ीडबैक प्रदान करने और सहयोगियों के साथ सहयोग करने के लिए टिप्पणियों का उपयोग कर सकते हैं।
+## **प्रेजेंटेशनों में टिप्पणियाँ क्यों जोड़ें?**
 
-Aspose.Slides for PHP via Java टिप्पणियों को संभालने के लिए निम्नलिखित API प्रदान करता है:
+आप समीक्षण के दौरान प्रस्तुतियों की प्रतिक्रिया देने और सहयोगियों के साथ मिलकर काम करने के लिए टिप्पणियों का उपयोग कर सकते हैं।
 
-* The [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) class, जो प्रस्तुति के टिप्पणी लेखकों तक पहुँच प्रदान करता है।
-* The [CommentCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/commentcollection/) class, जो व्यक्तिगत लेखक से जुड़ी टिप्पणियों का प्रतिनिधित्व करता है।
-* The [Comment](https://reference.aspose.com/slides/hi/php-java/aspose.slides/comment/) class, जो टिप्पणी के बारे में जानकारी प्रदान करता है, जिसमें लेखक, निर्माण समय, स्थिति और पाठ शामिल हैं।
-* The [CommentAuthor](https://reference.aspose.com/slides/hi/php-java/aspose.slides/commentauthor/) class, जो लेखक के बारे में जानकारी प्रदान करता है, जिसमें उनका नाम, शुरुआती अक्षर और संबंधित टिप्पणियां शामिल हैं।
+Aspose.Slides for PHP via Java टिप्पणियों के साथ काम करने के लिए निम्नलिखित API प्रदान करता है:
+
+* The [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) class, which provides access to the presentation's comment authors.
+* The [CommentCollection](https://reference.aspose.com/slides/hi/php-java/aspose.slides/commentcollection/) class, which represents the comments associated with an individual author.
+* The [Comment](https://reference.aspose.com/slides/hi/php-java/aspose.slides/comment/) class, which provides information about a comment, including its author, creation time, position, and text.
+* The [CommentAuthor](https://reference.aspose.com/slides/hi/php-java/aspose.slides/commentauthor/) class, which provides information about an author, including their name, initials, and associated comments.
 
 ## **स्लाइड टिप्पणियाँ जोड़ें**
 
-नीचे दिया गया उदाहरण PowerPoint प्रस्तुति में स्लाइड्स पर टिप्पणियाँ जोड़ने को दर्शाता है:
+नीचे दिया गया उदाहरण PowerPoint प्रस्तुति में स्लाइड्स पर टिप्पणियाँ जोड़ने का तरीका दर्शाता है:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -79,9 +81,9 @@ try {
 }
 ```
 
-## **स्लाइड टिप्पणियों तक पहुँचें**
+## **स्लाइड टिप्पणियों तक पहुंचें**
 
-नीचे दिया गया उदाहरण PowerPoint प्रस्तुति में मौजूदा टिप्पणियों तक पहुँचने को दर्शाता है:
+नीचे दिया गया उदाहरण PowerPoint प्रस्तुति में मौजूदा टिप्पणियों तक पहुंचने का तरीका दर्शाता है:
 
 ```php
 use aspose\slides\Presentation;
@@ -102,11 +104,11 @@ try {
 }
 ```
 
-## **टिप्पणियों का उत्तर दें**
+## **टिप्पणियों का उत्तर देना**
 
-एक पैरेंट टिप्पणी वह मूल टिप्पणी है जो उत्तर पदानुक्रम के शीर्ष पर होती है। [Comment::getParentComment](https://reference.aspose.com/slides/hi/php-java/aspose.slides/comment/getparentcomment/) और [Comment::setParentComment](https://reference.aspose.com/slides/hi/php-java/aspose.slides/comment/setparentcomment/) मेथड आपको टिप्पणी के पैरेंट को प्राप्त या सेट करने की अनुमति देते हैं।
+एक पैरेंट टिप्पणी उत्तर पदानुक्रम के शीर्ष पर मूल टिप्पणी होती है। The [Comment::getParentComment](https://reference.aspose.com/slides/hi/php-java/aspose.slides/comment/getparentcomment/) and [Comment::setParentComment](https://reference.aspose.com/slides/hi/php-java/aspose.slides/comment/setparentcomment/) methods let you get or set the parent of a comment.
 
-नीचे दिया गया उदाहरण उत्तर जोड़ने और परिणामी टिप्पणी पदानुक्रम का निरीक्षण करने को दर्शाता है:
+नीचे दिया गया उदाहरण उत्तर जोड़ने और परिणामी टिप्पणी पदानुक्रम को निरीक्षण करने का तरीका दर्शाता है:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -161,19 +163,19 @@ try {
 ```
 
 {{% alert color="warning" title="Warning" %}}
-* जब [Comment::remove](https://reference.aspose.com/slides/hi/php-java/aspose.slides/comment/remove/) मेथड का उपयोग करके टिप्पणी हटाई जाती है, तो उस टिप्पणी के सभी उत्तर भी हटाए जाते हैं।
-* यदि [Comment::setParentComment](https://reference.aspose.com/slides/hi/php-java/aspose.slides/comment/setparentcomment/) एक चक्रीय संदर्भ बनाता है, तो एक [PptxEditException](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pptxeditexception/) फेंकी जाती है।
+* जब [Comment::remove](https://reference.aspose.com/slides/hi/php-java/aspose.slides/comment/remove/) method का उपयोग करके कोई टिप्पणी हटाई जाती है, तो उस टिप्पणी के सभी उत्तर भी हटाए जाते हैं।
+* यदि [Comment::setParentComment](https://reference.aspose.com/slides/hi/php-java/aspose.slides/comment/setparentcomment/) एक चक्राकार संदर्भ बनाता है, तो एक [PptxEditException](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pptxeditexception/) उत्पन्न होता है।
 {{% /alert %}}
 
 ## **आधुनिक टिप्पणियाँ जोड़ें**
 
-आधुनिक टिप्पणियों को स्लाइड स्वयं, किसी विशिष्ट आकार, या AutoShape के भीतर के टेक्स्ट रेंज से जोड़ा जा सकता है। [CommentCollection::addModernComment](https://reference.aspose.com/slides/hi/php-java/aspose.slides/commentcollection/addmoderncomment/) मेथड स्लाइड और टिप्पणी‑मार्कर निर्देशांक के अलावा एक [Shape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/) आर्ग्यूमेंट को भी स्वीकार करता है।
+आधुनिक टिप्पणियों को स्लाइड स्वयं, किसी विशिष्ट आकार, या AutoShape के भीतर एक टेक्स्ट रेंज से जोड़ा जा सकता है। The [CommentCollection::addModernComment](https://reference.aspose.com/slides/hi/php-java/aspose.slides/commentcollection/addmoderncomment/) method accepts a [Shape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/) argument in addition to the slide and comment‑marker coordinates.
 
-जब `null` को shape आर्ग्यूमेंट के रूप में पास किया जाता है, तो टिप्पणी एक स्लाइड‑लेवल टिप्पणी होती है। उसका मार्कर प्रदान किए गए निर्देशांकों द्वारा स्थित किया जाता है, लेकिन वह किसी विशेष आकार से जुड़ी नहीं होती, इसलिए [ModernComment::getShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/getshape/) `null` लौटाता है। जब एक [Shape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/) प्रदान किया जाता है, तो टिप्पणी उस आकार से जुड़ी होती है। निर्देशांक फिर भी स्लाइड पर टिप्पणी‑मार्कर की स्थिति परिभाषित करते हैं, जबकि आकार का संबंध [ModernComment::getShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/getshape/) के माध्यम से प्राप्त किया जा सकता है।
+जब `null` को shape तर्क के रूप में पास किया जाता है, तो टिप्पणी स्लाइड‑स्तर की होती है। इसका मार्कर प्रदान किए गए निर्देशांक द्वारा स्थित होता है, लेकिन यह किसी विशेष आकार से जुड़ी नहीं होती, इसलिए [ModernComment::getShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/getshape/) `null` लौटाता है। जब एक [Shape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/) प्रदान किया जाता है, तो टिप्पणी उस आकार से जुड़ी होती है। निर्देशांक फिर भी स्लाइड पर टिप्पणी मार्कर की स्थिति निर्धारित करते हैं, जबकि आकार का संबंध [ModernComment::getShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/getshape/) के माध्यम से प्राप्त किया जा सकता है।
 
-### **एक आधुनिक टिप्पणी को आकार पर एंकर करें**
+### **आधुनिक टिप्पणी को आकार से जोड़ें**
 
-नीचे दिया गया उदाहरण एक स्लाइड‑लेवल आधुनिक टिप्पणी और एक विशिष्ट AutoShape पर एंकर की गई आधुनिक टिप्पणी दोनों बनाता है। फिर प्रत्येक टिप्पणी से संबंधित आकार को पढ़ता है।
+नीचे दिया गया उदाहरण एक स्लाइड‑स्तर की आधुनिक टिप्पणी और एक विशिष्ट AutoShape से जुड़ी आधुनिक टिप्पणी दोनों बनाता है। फिर यह प्रत्येक टिप्पणी से संबंधित आकार को पढ़ता है।
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -204,11 +206,11 @@ try {
 }
 ```
 
-### **विभिन्न आकार प्रकारों पर टिप्पणियों को एंकर करें**
+### **टिप्पणियों को विभिन्न आकार प्रकारों से जोड़ें**
 
-[Shape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/) क्लास द्वारा प्रतिनिधित्व किया गया कोई भी स्लाइड ऑब्जेक्ट आकार एंकर के रूप में उपयोग किया जा सकता है। सामान्य उदाहरणों में [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/hi/php-java/aspose.slides/connector/), और चार्ट जैसे [GraphicalObject](https://reference.aspose.com/slides/hi/php-java/aspose.slides/graphicalobject/) इंस्टेंस शामिल हैं।
+[Shape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/) क्लास द्वारा प्रतिनिधित्व किए गए किसी भी स्लाइड ऑब्जेक्ट को आकार एंकर के रूप में उपयोग किया जा सकता है। सामान्य उदाहरणों में [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/hi/php-java/aspose.slides/connector/), और [GraphicalObject](https://reference.aspose.com/slides/hi/php-java/aspose.slides/graphicalobject/) जैसे चार्ट शामिल हैं।
 
-नीचे दिया गया उदाहरण कई सामान्य आकार प्रकार बनाता है और प्रत्येक के साथ एक आधुनिक टिप्पणी को जोड़ता है।
+नीचे दिया गया उदाहरण कई सामान्य आकार प्रकार बनाता है और प्रत्येक के साथ एक आधुनिक टिप्पणी संलग्न करता है।
 
 ```php
 use aspose\slides\ChartType;
@@ -256,18 +258,18 @@ try {
 }
 ```
 
-### **टेक्स्ट पर टिप्पणी को एंकर करें और उसकी स्थिति सेट करें**
+### **टिप्पणी को टेक्स्ट से जोड़ें और उसकी स्थिति सेट करें**
 
-एक AutoShape से जुड़ी आधुनिक टिप्पणी के लिए, [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/gettextselectionstart/) और [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/settextselectionstart/) आकार के टेक्स्ट फ्रेम में चयनित टेक्स्ट की प्रारम्भिक स्थिति तक पहुँचते हैं। [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/gettextselectionlength/) और [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/settextselectionlength/) चयन की लंबाई तक पहुँचते हैं। ये मान मिलकर टिप्पणी को AutoShape के भीतर एक विशिष्ट टेक्स्ट रेंज से जोड़ते हैं।
+एक AutoShape से जुड़ी आधुनिक टिप्पणी के लिए, [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/gettextselectionstart/) और [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/settextselectionstart/) shape के टेक्स्ट फ्रेम में चयनित टेक्स्ट की प्रारम्भिक स्थिति तक पहुंचते हैं। [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/gettextselectionlength/) और [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/settextselectionlength/) चयन की लंबाई तक पहुंचते हैं। इन मानों को मिलाकर टिप्पणी को AutoShape के भीतर एक विशिष्ट टेक्स्ट रेंज से जोड़ा जाता है।
 
-[ModernComment::getStatus](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/getstatus/) और [ModernComment::setStatus](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/setstatus/) मेथड [ModernCommentStatus](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncommentstatus/) स्थिरांक से एक मान तक पहुँचते हैं:
+[ModernComment::getStatus](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/getstatus/) और [ModernComment::setStatus](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/setstatus/) methods [ModernCommentStatus](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncommentstatus/) स्थिरांक से एक मान प्राप्त करते हैं:
 
-- `NotDefined` — कोई विशेष आधुनिक‑टिप्पणी स्थिति परिभाषित नहीं है।
+- `NotDefined` — कोई विशिष्ट आधुनिक‑टिप्पणी स्थिति परिभाषित नहीं है।
 - `Active` — टिप्पणी सक्रिय है।
 - `Resolved` — टिप्पणी हल हो गई है।
 - `Closed` — टिप्पणी बंद है।
 
-नीचे दिया गया उदाहरण आकार‑एंकर वाली आधुनिक टिप्पणी बनाता है, उसे टेक्स्ट चयन से जोड़ता है, उसे हल के रूप में चिन्हित करता है, प्रस्तुति को सहेजता है, और फ़ाइल को पुनः खोलने के बाद मानों की पुष्टि करता है।
+नीचे दिया गया उदाहरण एक आकार‑एंकर वाली आधुनिक टिप्पणी बनाता है, उसे टेक्स्ट चयन से जोड़ता है, उसे हल की हुई चिह्नित करता है, प्रस्तुति सहेजता है, और फ़ाइल को पुनः खोलने के बाद मानों की पुष्टि करता है।
 
 ```php
 use aspose\slides\ModernCommentStatus;
@@ -327,9 +329,9 @@ try {
 }
 ```
 
-### **मौजूदा आधुनिक टिप्पणियों का निरीक्षण करें**
+### **मौजूदा आधुनिक टिप्पणियों की जांच करें**
 
-एक मौजूदा प्रस्तुति का निरीक्षण करने के लिए, प्रत्येक टिप्पणी के [ModernComment](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/) होने की जाँच करें, फिर [ModernComment::getShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/gettextselectionlength/), और [ModernComment::getStatus](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/getstatus/) देखें। `null` आकार एक स्लाइड‑लेवल टिप्पणी दर्शाता है। AutoShape एंकर के लिए, टेक्स्ट‑सेलेक्शन मेथड आकार के टेक्स्ट फ्रेम में संबंधित रेंज की पहचान करते हैं।
+किसी मौजूदा प्रस्तुति का निरीक्षण करने के लिए, पहले जाँचें कि प्रत्येक टिप्पणी [ModernComment](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/) है या नहीं, फिर [ModernComment::getShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/gettextselectionlength/), और [ModernComment::getStatus](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/getstatus/) का निरीक्षण करें। `null` आकार का अर्थ है स्लाइड‑स्तर की टिप्पणी। एक [AutoShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/autoshape/) एंकर के लिए, टेक्स्ट‑सेलेक्शन मेथड्स आकार के टेक्स्ट फ्रेम में संबंधित रेंज की पहचान करते हैं।
 
 ```php
 use aspose\slides\Presentation;
@@ -375,7 +377,7 @@ try {
 
 ### **सभी टिप्पणियाँ और टिप्पणी लेखकों को हटाएँ**
 
-नीचे दिया गया उदाहरण प्रस्तुति से सभी टिप्पणियाँ और टिप्पणी लेखकों को हटाने को दर्शाता है:
+नीचे दिया गया उदाहरण प्रस्तुति से सभी टिप्पणियाँ और टिप्पणी लेखकों को हटाने का तरीका दर्शाता है:
 
 ```php
 use aspose\slides\Presentation;
@@ -396,7 +398,7 @@ try {
 
 ### **विशिष्ट टिप्पणियों को हटाएँ**
 
-नीचे दिया गया उदाहरण एक स्लाइड से विशिष्ट टिप्पणियों को हटाने को दर्शाता है:
+नीचे दिया गया उदाहरण स्लाइड से विशिष्ट टिप्पणियों को हटाने का तरीका दर्शाता है:
 
 ```php
 use aspose\slides\Point2DFloat;
@@ -437,14 +439,14 @@ try {
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या Aspose.Slides आधुनिक टिप्पणियों के लिए resolved स्थिति का समर्थन करता है?**
+**क्या Aspose.Slides आधुनिक टिप्पणियों के लिए हल की हुई स्थिति का समर्थन करता है?**
 
-हाँ। [ModernComment::getStatus](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/getstatus/) और [ModernComment::setStatus](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/setstatus/) एक [ModernCommentStatus](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncommentstatus/) मान तक पहुँचते हैं, जिसमें `Resolved` भी शामिल है। यह स्थिति प्रस्तुति में संग्रहीत होती है और फ़ाइल को पुनः खोलने के बाद फिर से पढ़ी जा सकती है।
+हाँ। [ModernComment::getStatus](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/getstatus/) और [ModernComment::setStatus](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncomment/setstatus/) [ModernCommentStatus](https://reference.aspose.com/slides/hi/php-java/aspose.slides/moderncommentstatus/) मूल्य तक पहुंचते हैं, जिसमें `Resolved` भी शामिल है। स्थिति प्रस्तुति में संग्रहीत रहती है और फ़ाइल को पुनः खोलने के बाद फिर से पढ़ी जा सकती है।
 
-**क्या थ्रेडेड चर्चाएँ (उत्तर श्रृंखलाएँ) समर्थित हैं, और क्या कोई नेस्टिंग सीमा है?**
+**क्या धागा‑बद्ध चर्चाएँ (उत्तर श्रृंखलाएँ) समर्थित हैं, और क्या कोई नेस्टिंग सीमा है?**
 
-हाँ। प्रत्येक टिप्पणी अपने [parent comment](https://reference.aspose.com/slides/hi/php-java/aspose.slides/comment/getparentcomment/) को संदर्भित कर सकती है, जिससे उत्तर श्रृंखलाएँ बनती हैं। API ने कोई विशिष्ट नेस्टिंग‑डेप्थ सीमा निर्धारित नहीं की है।
+हाँ। प्रत्येक टिप्पणी अपने [parent comment](https://reference.aspose.com/slides/hi/php-java/aspose.slides/comment/getparentcomment/) को संदर्भित कर सकती है, जिससे उत्तर श्रृंखलाएँ बनती हैं। API में कोई विशिष्ट नेस्टिंग‑गहराई सीमा परिभाषित नहीं है।
 
-**स्लाइड पर टिप्पणी‑मार्कर की स्थिति किस निर्देशांक प्रणाली में परिभाषित होती है?**
+**किस समन्वय प्रणाली में स्लाइड पर टिप्पणी मार्कर की स्थिति निर्धारित होती है?**
 
-मार्कर की स्थिति स्लाइड निर्देशांक प्रणाली में फ्लोटिंग‑पॉइंट निर्देशांक द्वारा परिभाषित होती है, जिससे आप इसे स्लाइड पर ठीक उसी स्थान पर रख सकते हैं।
+मार्कर स्थिति स्लाइड कोऑर्डिनेट सिस्टम में फ्लोटिंग‑पॉइंट समन्वयों द्वारा निर्धारित होती है, जिससे आप इसे स्लाइड पर सटीक रूप से रख सकते हैं।
