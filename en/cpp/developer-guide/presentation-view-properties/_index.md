@@ -133,6 +133,36 @@ The grid is different from [drawing guides](/slides/cpp/drawing-guides/). Grid s
 
 Both the grid and drawing guides are editing aids. They are not rendered as slide content in PDF, images, SVG, or a slide show. Storing the grid spacing does not guarantee that an editor will display the grid: its visibility also depends on the viewer or editor's preferences.
 
+## **Show or Hide Comments When Opening a Presentation**
+
+Use [Presentation::get_ViewProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_viewproperties/) to access presentation-wide view settings. Use [IViewProperties::get_ShowComments](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/get_showcomments/) and [IViewProperties::set_ShowComments](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_showcomments/) to store a preference for whether comments should be shown when the presentation opens in PowerPoint or another compatible editor.
+
+This setting only controls the stored view preference. It does not add, remove, edit, or resolve comments. Hiding comments preserves their content, authors, positions, replies, and statuses. See [Presentation Comments](/slides/cpp/presentation-comments/) for operations that change the comments themselves.
+
+The following example requires an existing `comments.pptx` containing comments. It prints the current visibility setting, requests that comments be hidden, and saves a new PPTX without removing any comments. It also uses [IViewProperties::set_LastView](https://reference.aspose.com/slides/cpp/aspose.slides/iviewproperties/set_lastview/) with [ViewType::SlideView](https://reference.aspose.com/slides/cpp/aspose.slides/viewtype/) to configure the initial editing view alongside comment visibility.
+
+```cpp
+#include <system/console.h>
+#include <DOM/IViewProperties.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <ViewType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"comments.pptx");
+auto showComments = presentation->get_ViewProperties()->get_ShowComments();
+System::Console::WriteLine(u"Current comment visibility: {0}", showComments);
+
+presentation->get_ViewProperties()->set_ShowComments(NullableBool::False);
+presentation->get_ViewProperties()->set_LastView(ViewType::SlideView);
+presentation->Save(u"comments-hidden.pptx", SaveFormat::Pptx);
+```
+
+This setting does not determine whether comments are included in PDF, HTML, image, notes, or handout exports. Configure the relevant export-specific options separately.
+
 ## **FAQ**
 
 **Why is the grid not visible after I reopen the presentation?**

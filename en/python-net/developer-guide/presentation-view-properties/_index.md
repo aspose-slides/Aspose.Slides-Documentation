@@ -113,6 +113,28 @@ The grid is different from [drawing guides](/slides/python-net/drawing-guides/).
 
 Both the grid and drawing guides are editing aids. They are not rendered as slide content in PDF, images, SVG, or a slide show. Storing the grid spacing does not guarantee that an editor will display the grid: its visibility also depends on the viewer or editor's preferences.
 
+## **Show or Hide Comments When Opening a Presentation**
+
+Use [Presentation.view_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/view_properties/) to access presentation-wide view settings. Read or change [ViewProperties.show_comments](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/show_comments/) to store a preference for whether comments should be shown when the presentation opens in PowerPoint or another compatible editor.
+
+This setting only controls the stored view preference. It does not add, remove, edit, or resolve comments. Hiding comments preserves their content, authors, positions, replies, and statuses. See [Presentation Comments](/slides/python-net/presentation-comments/) for operations that change the comments themselves.
+
+The following example requires an existing `comments.pptx` containing comments. It prints the current visibility setting, requests that comments be hidden, and saves a new PPTX without removing any comments. It also sets [ViewProperties.last_view](https://reference.aspose.com/slides/python-net/aspose.slides/viewproperties/last_view/) to [ViewType.SLIDE_VIEW](https://reference.aspose.com/slides/python-net/aspose.slides/viewtype/) to configure the initial editing view alongside comment visibility.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("comments.pptx") as presentation:
+    show_comments = presentation.view_properties.show_comments
+    print(f"Current comment visibility: {show_comments}")
+
+    presentation.view_properties.show_comments = slides.NullableBool.FALSE
+    presentation.view_properties.last_view = slides.ViewType.SLIDE_VIEW
+    presentation.save("comments-hidden.pptx", slides.export.SaveFormat.PPTX)
+```
+
+This setting does not determine whether comments are included in PDF, HTML, image, notes, or handout exports. Configure the relevant export-specific options separately.
+
 ## **FAQ**
 
 **Why is the grid not visible after I reopen the presentation?**

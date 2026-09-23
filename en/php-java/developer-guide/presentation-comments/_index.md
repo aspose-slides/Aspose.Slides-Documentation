@@ -31,6 +31,8 @@ The examples cover common review and collaboration scenarios in PowerPoint, such
 
 In PowerPoint, comments appear as annotations on slides. Selecting a comment displays its text and related discussion.
 
+To request that comments be shown or hidden when a presentation opens without changing the comments themselves, see [Show or Hide Comments When Opening a Presentation](/slides/php-java/presentation-view-properties/).
+
 ## **Why Add Comments to Presentations?**
 
 You can use comments to provide feedback and collaborate with colleagues when reviewing presentations.
