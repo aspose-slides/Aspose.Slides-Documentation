@@ -14,197 +14,289 @@ keywords:
 - งานนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ PHP ผ่าน Java เพื่อให้สไลด์น่าสนใจยิ่งขึ้น."
+description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ PHP ผ่าน Java เพื่อทำให้สไลด์น่าสนใจยิ่งขึ้น."
 ---
-## **บทนำ**
+## **คำนำ**
 
-ป้ายข้อมูลบนแผนภูมิแสดงรายละเอียดเกี่ยวกับซีรีส์ข้อมูลของแผนภูมิหรือจุดข้อมูลแต่ละจุด พวกมันช่วยให้ผู้อ่านระบุซีรีส์ข้อมูลได้อย่างรวดเร็วและทำให้แผนภูมิเข้าใจง่ายยิ่งขึ้น
+ป้ายข้อมูลจะแสดงข้อมูลเกี่ยวกับชุดข้อมูลของแผนภูมิและจุดข้อมูลแต่ละจุด ช่วยให้ผู้อ่านระบุค่าและเข้าใจแผนภูมิได้ บทความนี้อธิบายวิธีจัดรูปแบบค่า การแสดงเปอร์เซ็นต์ การอ่านข้อความป้าย ปรับระยะห่างของป้ายแกนประเภท และการกำหนดตำแหน่งป้ายของแผนภูมิพาย
 
 ## **ตั้งค่าความแม่นยำของข้อมูลในป้ายข้อมูลแผนภูมิ**
 
-โค้ด PHP นี้แสดงวิธีตั้งค่าความแม่นยำของข้อมูลในป้ายข้อมูลแผนภูมิ:
+ใช้ [setNumberFormatOfValues](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) เพื่อจัดรูปแบบค่าของชุดข้อมูล ตัวอย่างนี้สร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้น แสดงตารางข้อมูลของมันและเปิดใช้งานป้ายค่าสำหรับชุดข้อมูลแรก รูปแบบ `#,##0.00` แสดงเครื่องหมายคั่นพันและสองตำแหน่งทศนิยมโดยไม่เปลี่ยนค่าพื้นฐาน
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
     $chart->setDataTable(true);
-    $chart->getChartData()->getSeries()->get_Item(0)->setNumberFormatOfValues("#,##0.00");
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+    $series->setNumberFormatOfValues("#,##0.00");
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+
+    $presentation->save("PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **แสดงเปอร์เซ็นต์เป็นป้าย**
 
-Aspose.Slides for PHP via Java ให้คุณตั้งค่าป้ายเปอร์เซ็นต์บนแผนภูมิที่แสดง โค้ด PHP นี้สาธิตการทำงาน:
+สำหรับแผนภูมิคอลัมน์ซองกัน ให้คำนวณค่าทุกค่าเป็นเปอร์เซ็นต์ของผลรวมในหมวดนั้นและกำหนดข้อความไปยังกรอบข้อความที่ส่งกลับจาก [getTextFrameForOverriding](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) ตัวอย่างนี้ใช้ข้อมูลแผนภูมิเบื้องต้นและแสดงเปอร์เซ็นต์ด้วยสองตำแหน่งทศนิยมในฟอนต์ขนาด 8 จุด หมวดที่ผลรวมเป็นศูนย์จะถูกข้ามเพื่อหลีกเลี่ยงการหารด้วยศูนย์ คำนวณข้อความป้ายกำหนดเองใหม่หากข้อมูลแผนภูมิมีการเปลี่ยนแปลง
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation
-  $pres = new Presentation();
-  try {
-    # ดึงสไลด์แรก
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\Portion;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
-    $series;
-    $total_for_Cat = new double[$chart->getChartData()->getCategories()->size()];
-    for($k = 0; $k < java_values($chart->getChartData()->getCategories()->size()) ; $k++) {
-      $cat = $chart->getChartData()->getCategories()->get_Item($k);
-      for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
-        $total_for_Cat[$k] = $total_for_Cat[$k] + $chart->getChartData()->getSeries()->get_Item($i)->getDataPoints()->get_Item($k)->getValue()->getData();
-      }
+
+    $categoryCount = java_values($chart->getChartData()->getCategories()->size());
+    $categoryTotals = array_fill(0, $categoryCount, 0.0);
+    for ($k = 0; $k < $categoryCount; $k++) {
+        for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++) {
+            $series = $chart->getChartData()->getSeries()->get_Item($i);
+            $pointValue = java_values($series->getDataPoints()->get_Item($k)->getValue()->getData());
+            $categoryTotals[$k] += $pointValue;
+        }
     }
-    $dataPontPercent = 0.0;
-    for($x = 0; $x < java_values($chart->getChartData()->getSeries()->size()) ; $x++) {
-      $series = $chart->getChartData()->getSeries()->get_Item($x);
-      $series->getLabels()->getDefaultDataLabelFormat()->setShowLegendKey(false);
-      for($j = 0; $j < java_values($series->getDataPoints()->size()) ; $j++) {
-        $lbl = $series->getDataPoints()->get_Item($j)->getLabel();
-        $dataPontPercent = $series->getDataPoints()->get_Item($j)->getValue()->getData() / $total_for_Cat[$j] * 100;
-        $port = new Portion();
-        $port->setText(sprintf("{0:F2} %.2f", $dataPontPercent));
-        $port->getPortionFormat()->setFontHeight(8.0);
-        $lbl->getTextFrameForOverriding()->setText("");
-        $para = $lbl->getTextFrameForOverriding()->getParagraphs()->get_Item(0);
-        $para->getPortions()->add($port);
-        $lbl->getDataLabelFormat()->setShowSeriesName(false);
-        $lbl->getDataLabelFormat()->setShowPercentage(false);
-        $lbl->getDataLabelFormat()->setShowLegendKey(false);
-        $lbl->getDataLabelFormat()->setShowCategoryName(false);
-        $lbl->getDataLabelFormat()->setShowBubbleSize(false);
-      }
+
+    for ($x = 0; $x < java_values($chart->getChartData()->getSeries()->size()); $x++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($x);
+        $series->getLabels()->getDefaultDataLabelFormat()->setShowLegendKey(false);
+
+        for ($j = 0; $j < java_values($series->getDataPoints()->size()); $j++) {
+            $label = $series->getDataPoints()->get_Item($j)->getLabel();
+            if ($categoryTotals[$j] == 0) {
+                continue;
+            }
+
+            $pointValue = java_values($series->getDataPoints()->get_Item($j)->getValue()->getData());
+            $dataPointPercent = ($pointValue / $categoryTotals[$j]) * 100;
+
+            $portion = new Portion();
+            $portion->setText(sprintf("%.2F %%", $dataPointPercent));
+            $portion->getPortionFormat()->setFontHeight(8);
+
+            $label->getTextFrameForOverriding()->setText("");
+            $paragraph = $label->getTextFrameForOverriding()->getParagraphs()->get_Item(0);
+            $paragraph->getPortions()->add($portion);
+
+            $label->getDataLabelFormat()->setShowValue(true);
+            $label->getDataLabelFormat()->setShowSeriesName(false);
+            $label->getDataLabelFormat()->setShowPercentage(false);
+            $label->getDataLabelFormat()->setShowLegendKey(false);
+            $label->getDataLabelFormat()->setShowCategoryName(false);
+            $label->getDataLabelFormat()->setShowBubbleSize(false);
+        }
     }
-    # บันทึกการนำเสนอที่มีแผนภูมิอยู่
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **ตั้งค่าสัญลักษณ์เปอร์เซ็นต์ในป้ายข้อมูลแผนภูมิ**
+## **ตั้งสัญลักษณ์เปอร์เซ็นต์กับป้ายข้อมูลแผนภูมิ**
 
-โค้ด PHP นี้แสดงวิธีตั้งค่าสัญลักษณ์เปอร์เซ็นต์สำหรับป้ายข้อมูลแผนภูมิ:
+เมื่อค่าถูกเก็บเป็นเศษส่วน ให้ใช้ [setNumberFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabelformat/#setNumberFormat) เพื่อแสดงเปอร์เซ็นต์ ส่งค่า `false` ไปยัง [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) เพื่อให้รูปแบบป้ายทำงานโดยอิสระจากเซลล์ต้นฉบับ
+
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ซอง 100% ด้วยชุดข้อมูลสีแดงและสีน้ำเงินในสี่หมวด หมู่ละค่าคู่จะรวมกันได้เป็น 1 รูปแบบป้าย `0.0%` จะแสดง 0.30 เป็น 30.0% ในขณะที่แกนแนวตั้งใช้สองตำแหน่งทศนิยม ทั้งสองชุดข้อมูลใช้ข้อความป้ายสีขาว ขนาดฟอนต์ 10 จุด
 
 ```php
-  # สร้างอินสแตนซ์ของคลास Presentation
-  $pres = new Presentation();
-  try {
-    # ดึงอ้างอิงสไลด์ผ่านดัชนีของมัน
-    $slide = $pres->getSlides()->get_Item(0);
-    # สร้างแผนภูมิ PercentsStackedColumn บนสไลด์
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
-    # ตั้งค่า NumberFormatLinkedToSource เป็น false
+
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.00%");
+
     $chart->getChartData()->getSeries()->clear();
-    $defaultWorksheetIndex = 0;
-    # ดึงเวิร์กชีตข้อมูลแผนภูมิ
+    $chart->getChartData()->getCategories()->clear();
+
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    # เพิ่มซีรีส์ใหม่
-    $series = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 1, "Reds"), $chart->getType());
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 1, 0.3));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 1, 0.5));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 1, 0.8));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 1, 0.65));
-    # ตั้งค่าสีเติมของซีรีส์
-    $series->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # ตั้งค่าคุณสมบัติของ LabelFormat
-    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
-    $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
-    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontHeight(10);
-    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
-    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # เพิ่มซีรีส์ใหม่
-    $series2 = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 2, "Blues"), $chart->getType());
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 2, 0.7));
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 2, 0.5));
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 2, 0.2));
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 2, 0.35));
-    # ตั้งค่าประเภทการเติมและสี
-    $series2->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $series2->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $series2->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
-    $series2->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
-    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontHeight(10);
-    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
-    # บันทึกการนำเสนอลงดิสก์
-    $pres->save("SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $worksheetIndex = 0;
+    for ($i = 0; $i < 4; $i++) {
+        $categoryCell = $workbook->getCell($worksheetIndex, $i + 1, 0, "Category " . ($i + 1));
+        $chart->getChartData()->getCategories()->add($categoryCell);
     }
-  }
+
+    $colors = java("java.awt.Color");
+    $seriesNames = [ "Reds", "Blues" ];
+    $seriesColors = [ $colors->RED, $colors->BLUE ];
+    $values = [ [ 0.30, 0.50, 0.80, 0.65 ], [ 0.70, 0.50, 0.20, 0.35 ] ];
+
+    for ($i = 0; $i < count($seriesNames); $i++) {
+        $seriesCell = $workbook->getCell($worksheetIndex, 0, $i + 1, $seriesNames[$i]);
+        $series = $chart->getChartData()->getSeries()->add($seriesCell, $chart->getType());
+        for ($j = 0; $j < 4; $j++) {
+            $valueCell = $workbook->getCell($worksheetIndex, $j + 1, $i + 1, $values[$i][$j]);
+            $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+        }
+
+        $series->getFormat()->getFill()->setFillType(FillType::Solid);
+        $series->getFormat()->getFill()->getSolidFillColor()->setColor($seriesColors[$i]);
+
+        $labelFormat = $series->getLabels()->getDefaultDataLabelFormat();
+        $labelFormat->setShowValue(true);
+        $labelFormat->setNumberFormatLinkedToSource(false);
+        $labelFormat->setNumberFormat("0.0%");
+        $labelFormat->getTextFormat()->getPortionFormat()->setFontHeight(10);
+        $labelFormat->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $labelFormat->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor($colors->WHITE);
+    }
+
+    $presentation->save("SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **ตั้งค่าระยะห่างของป้ายจากแกน**
+## **อ่านข้อความจริงของป้ายข้อมูล**
 
-โค้ด PHP นี้แสดงวิธีตั้งค่าระยะห่างของป้ายจากแกนประเภทเมื่อคุณทำงานกับแผนภูมิที่วางจากแกน:
+ใช้ [getActualLabelText](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#getActualLabelText) เพื่อดึงข้อความที่สร้างโดยการตั้งค่าป้ายข้อมูล ซึ่งมีประโยชน์เมื่อต้องสกัดป้ายเพื่อรายงาน ค้นหาเนื้อหาในงานนำเสนอ หรือยืนยันความถูกต้องของแผนภูมิที่สร้างขึ้น ในตัวอย่างด้านล่าง รูปแบบ [data label format](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabelformat/) เริ่มต้นจะรวมชื่อหมวด, ชื่อชุดข้อมูลและค่า จุดหนึ่งจะแสดงค่าของมันเป็นเปอร์เซ็นต์ และอีกจุดหนึ่งจะใช้ข้อความกำหนดเองจาก [getTextFrameForOverriding](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#getTextFrameForOverriding)
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation
-  $pres = new Presentation();
-  try {
-    # ดึงอ้างอิงสไลด์
-    $sld = $pres->getSlides()->get_Item(0);
-    # สร้างแผนภูมิบนสไลด์
-    $ch = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
-    # ตั้งค่าระยะห่างของป้ายจากแกน
-    $ch->getAxes()->getHorizontalAxis()->setLabelOffset(500);
-    # บันทึกการนำเสนอลงดิสก์
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $firstCategoryCell = $workbook->getCell(0, 1, 0, "Q1");
+    $chart->getChartData()->getCategories()->add($firstCategoryCell);
+    $secondCategoryCell = $workbook->getCell(0, 2, 0, "Q2");
+    $chart->getChartData()->getCategories()->add($secondCategoryCell);
+
+    $northSeriesCell = $workbook->getCell(0, 0, 1, "North");
+    $north = $chart->getChartData()->getSeries()->add($northSeriesCell, $chart->getType());
+    $northFirstValueCell = $workbook->getCell(0, 1, 1, 0.25);
+    $north->getDataPoints()->addDataPointForBarSeries($northFirstValueCell);
+    $northSecondValueCell = $workbook->getCell(0, 2, 1, 0.75);
+    $north->getDataPoints()->addDataPointForBarSeries($northSecondValueCell);
+
+    $southSeriesCell = $workbook->getCell(0, 0, 2, "South");
+    $south = $chart->getChartData()->getSeries()->add($southSeriesCell, $chart->getType());
+    $southFirstValueCell = $workbook->getCell(0, 1, 2, 0.40);
+    $south->getDataPoints()->addDataPointForBarSeries($southFirstValueCell);
+    $southSecondValueCell = $workbook->getCell(0, 2, 2, 0.60);
+    $south->getDataPoints()->addDataPointForBarSeries($southSecondValueCell);
+
+    for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($i);
+        $format = $series->getLabels()->getDefaultDataLabelFormat();
+        $format->setShowCategoryName(true);
+        $format->setShowSeriesName(true);
+        $format->setShowValue(true);
     }
-  }
+
+    $north->getLabels()->get_Item(1)->getDataLabelFormat()->setNumberFormatLinkedToSource(false);
+    $north->getLabels()->get_Item(1)->getDataLabelFormat()->setNumberFormat("0%");
+    $south->getLabels()->get_Item(0)->getTextFrameForOverriding()->setText("Reviewed");
+
+    for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($i);
+        for ($j = 0; $j < java_values($series->getDataPoints()->size()); $j++) {
+            $point = $series->getDataPoints()->get_Item($j);
+            $label = $point->getLabel();
+            if (!java_values($label->isVisible())) {
+                continue;
+            }
+
+            echo "Value: " . java_values($point->getValue()->getData()) . "; label: " . java_values($label->getActualLabelText()) . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+ตัวเลขที่เก็บในจุดข้อมูลยังคงเป็น `0.75` แม้ว่าป้ายจะแสดง `75%` พร้อมกับชื่อหมวดและชื่อชุดข้อมูล ข้อความกำหนดเองจะแทนที่ข้อความป้ายที่สร้างขึ้น [getActualLabelText](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#getActualLabelText) จะคืนสตริงป้ายที่ได้ไม่ว่าจะเป็นแบบใดก็ตาม ตรวจสอบ [isVisible](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#isVisible) แยกต่างหากดังที่แสดงข้างต้นเมื่อคุณต้องการสกัดเฉพาะป้ายที่มองเห็นได้
+
+## **ตั้งระยะห่างของป้ายจากแกน**
+
+ใช้ [setLabelOffset](https://reference.aspose.com/slides/th/php-java/aspose.slides/axis/#setLabelOffset) เพื่อควบคุมระยะห่างระหว่างป้ายแกนประเภทและแกนค่า ค่าเป็นเปอร์เซ็นต์ของขนาดฟอนต์สูงสุดของป้ายแกน ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบคลัสเตอร์และตั้งค่า offset ของป้ายแกนแนวนอนเป็น 500 การตั้งค่านี้ส่งผลต่อป้ายแกนประเภทมากกว่าป้ายที่แนบกับจุดข้อมูลแต่ละจุด
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+    $chart->getAxes()->getHorizontalAxis()->setLabelOffset(500);
+
+    $presentation->save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **ปรับตำแหน่งป้าย**
 
-เมื่อคุณสร้างแผนภูมิที่ไม่ใช้แกนใด ๆ เช่น แผนภูมิวงกลม ป้ายข้อมูลของแผนภูมิอาจอยู่ใกล้ขอบเกินไป ในกรณีเช่นนี้คุณต้องปรับตำแหน่งของป้ายข้อมูลเพื่อให้เส้นเชื่อมแสดงอย่างชัดเจน
+บนแผนภูมิพาย ปรับตำแหน่งป้ายข้อมูลเพื่อให้ช่องว่างดีขึ้นและให้พื้นที่สำหรับเส้นนำ
 
-โค้ด PHP นี้แสดงวิธีปรับตำแหน่งป้ายบนแผนภูมิวงกลม:
+ตัวอย่างนี้แสดงค่าของจุดข้อมูลแรก วางป้ายไว้ด้านนอกชั้นและปรับ offset แนวนอนและแนวตั้งโดยใช้ [setX](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#setX) และ [setY](https://reference.aspose.com/slides/th/php-java/aspose.slides/datalabel/#setY) offset เหล่านี้อ้างอิงจากความกว้างและความสูงของแผนภูมิตามลำดับ
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
     $series = $chart->getChartData()->getSeries();
+
     $label = $series->get_Item(0)->getLabels()->get_Item(0);
     $label->getDataLabelFormat()->setShowValue(true);
-    $label->getDataLabelFormat()->setPosition(LegendDataLabelPosition->OutsideEnd);
+    $label->getDataLabelFormat()->setPosition(LegendDataLabelPosition::OutsideEnd);
     $label->setX(0.71);
     $label->setY(0.04);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![แผนภูมิปายพร้อมตำแหน่งป้ายข้อมูลที่ปรับแล้ว](pie-chart-adjusted-label.png)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะป้องกันไม่ให้ป้ายข้อมูลทับซ้อนบนแผนภูมิที่หนาแน่นได้อย่างไร?**
+**ฉันจะป้องกันไม่ให้ป้ายข้อมูลซ้อนทับกันในแผนภูมิที่แน่นหนาได้อย่างไร?**
 
-ผสานการวางป้ายอัตโนมัติ, เส้นเชื่อม, และการลดขนาดฟอนต์; หากจำเป็นให้ซ่อนบางฟิลด์ (เช่น ประเภท) หรือแสดงป้ายเฉพาะจุดสุดขีด/สำคัญเท่านั้น
+ผสานการวางป้ายอัตโนมัติ, เส้นนำ, และการลดขนาดฟอนต์; หากจำเป็นให้ซ่อนบางฟิลด์ (เช่น หมวดหมู่) หรือแสดงป้ายเฉพาะค่าสูงสุดหรือต่ำสุดหรือจุดสำคัญเท่านั้น
 
-**ฉันจะปิดใช้งานป้ายเฉพาะสำหรับค่าที่เป็นศูนย์, ลบ, หรือว่างได้อย่างไร?**
+**ฉันจะปิดการใช้งานป้ายเฉพาะสำหรับค่าศูนย์, ค่าลบ หรือค่าว่างได้อย่างไร?**
 
-กรองจุดข้อมูลก่อนเปิดใช้งานป้ายและปิดการแสดงผลสำหรับค่าที่เป็น 0, ค่าลบ, หรือค่าที่หายไปตามกฎที่กำหนด
+กรองจุดข้อมูลก่อนเปิดใช้งานป้ายและปิดการแสดงผลสำหรับค่าที่เป็น 0, ค่าลบ หรือค่าที่หายไปตามกฎที่กำหนด
 
-**ฉันจะทำให้สไตล์ของป้ายคงที่เมื่อส่งออกเป็น PDF/รูปภาพได้อย่างไร?**
+**ฉันจะทำให้สไตล์ของป้ายสม่ำเสมอเมื่อส่งออกเป็น PDF/ภาพได้อย่างไร?**
 
-กำหนดฟอนต์ (ตระกูล, ขนาด) อย่างชัดเจนและตรวจสอบว่าฟอนต์นั้นมีอยู่บนฝั่งการเรนเดอร์เพื่อหลีกเลี่ยงการใช้ฟอนต์สำรอง
+กำหนดฟอนต์และขนาดฟอนต์อย่างชัดเจนและตรวจสอบว่าฟอนต์นั้นมีอยู่ในสภาพแวดล้อมการเรนเดอร์เพื่อหลีกเลี่ยงการใช้ฟอนต์สำรอง

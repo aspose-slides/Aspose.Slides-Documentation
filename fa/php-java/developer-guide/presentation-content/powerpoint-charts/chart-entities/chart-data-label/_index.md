@@ -1,5 +1,5 @@
 ---
-title: مدیریت برچسب‌های داده نمودار در ارائه‌ها با استفاده از PHP
+title: مدیریت برچسب‌های دادهٔ نمودار در ارائه‌ها با استفاده از PHP
 linktitle: برچسب داده
 type: docs
 url: /fa/php-java/chart-data-label/
@@ -9,202 +9,294 @@ keywords:
 - دقت داده
 - درصد
 - فاصله برچسب
-- مکان برچسب
+- موقعیت برچسب
 - PowerPoint
 - ارائه
 - PHP
 - Aspose.Slides
-description: "یاد بگیرید چگونه برچسب‌های داده نمودار را در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای PHP از طریق Java اضافه و قالب‌بندی کنید تا اسلایدهای جذاب‌تری داشته باشید."
+description: "یاد بگیرید چگونه برچسب‌های دادهٔ نمودار را در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای PHP از طریق Java اضافه و قالب‌بندی کنید تا اسلایدهای جذاب‌تری داشته باشید."
 ---
 ## **مقدمه**
 
-برچسب‌های داده در یک نمودار جزئیات مربوط به سری‌های داده نمودار یا نقاط داده جداگانه را نشان می‌دهند. آنها به خوانندگان امکان می‌دهند سری‌های داده را به سرعت شناسایی کنند و همچنین فهم نمودارها را آسان‌تر می‌سازند.
+برچسب‌های داده اطلاعاتی درباره سری‌های نمودار و نقاط دادهٔ فردی نمایش می‌دهند و به خوانندگان کمک می‌کنند تا مقادیر را شناسایی کرده و نمودار را درک کنند. این مقاله توضیح می‌دهد چگونه مقادیر را قالب‌بندی کنید، درصدها را نمایش دهید، متن برچسب را بخوانید، فاصلهٔ برچسب‌های محور دسته‌بندی را تنظیم کنید و موقعیت برچسب‌های نمودار دایره‌ای را تنظیم کنید.
 
-## **تنظیم دقت داده در برچسب‌های داده نمودار**
+## **تنظیم دقت داده در برچسب‌های دادهٔ نمودار**
 
-این کد PHP به شما نشان می‌دهد چگونه دقت داده را در یک برچسب داده نمودار تنظیم کنید:
+از [setNumberFormatOfValues](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) برای قالب‌بندی مقادیر سری‌ها استفاده کنید. این مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد می‌کند، جدول دادهٔ آن را نشان می‌دهد و برچسب‌های مقدار را برای اولین سری فعال می‌سازد. قالب `#,##0.00` جداکنندهٔ هزارها و دو رقم اعشار را نمایش می‌دهد بدون اینکه مقادیر پایه تغییر کنند.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
     $chart->setDataTable(true);
-    $chart->getChartData()->getSeries()->get_Item(0)->setNumberFormatOfValues("#,##0.00");
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+    $series->setNumberFormatOfValues("#,##0.00");
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+
+    $presentation->save("PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **نمایش درصد به عنوان برچسب‌ها**
+## **نمایش درصد به عنوان برچسب**
 
-Aspose.Slides for PHP via Java به شما امکان می‌دهد برچسب‌های درصدی را روی نمودارهای نمایش داده‌شده تنظیم کنید. این کد PHP عملیات را نشان می‌دهد:
+برای یک نمودار ستون انباشته، هر مقدار را به‌عنوان درصدی از کل دسته‌بندی آن محاسبه کنید و متن را به فریم متنی که توسط [getTextFrameForOverriding](https://reference.aspose.com/slides/fa/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) برگردانده می‌شود اختصاص دهید. این مثال از دادهٔ پیش‌فرض نمودار استفاده می‌کند و درصدها را با دو رقم اعشار در قلم ۸ نقطه‌ای نمایش می‌دهد. دسته‌بندی‌هایی که مجموعشان صفر است برای جلوگیری از تقسیم بر صفر نادیده گرفته می‌شوند. اگر دادهٔ نمودار تغییر کند متن برچسب سفارشی را دوباره محاسبه کنید.
 
 ```php
-  # یک نمونه از کلاس Presentation ایجاد می‌کند
-  $pres = new Presentation();
-  try {
-    # اسلاید اول را دریافت می‌کند
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\Portion;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
-    $series;
-    $total_for_Cat = new double[$chart->getChartData()->getCategories()->size()];
-    for($k = 0; $k < java_values($chart->getChartData()->getCategories()->size()) ; $k++) {
-      $cat = $chart->getChartData()->getCategories()->get_Item($k);
-      for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
-        $total_for_Cat[$k] = $total_for_Cat[$k] + $chart->getChartData()->getSeries()->get_Item($i)->getDataPoints()->get_Item($k)->getValue()->getData();
-      }
+
+    $categoryCount = java_values($chart->getChartData()->getCategories()->size());
+    $categoryTotals = array_fill(0, $categoryCount, 0.0);
+    for ($k = 0; $k < $categoryCount; $k++) {
+        for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++) {
+            $series = $chart->getChartData()->getSeries()->get_Item($i);
+            $pointValue = java_values($series->getDataPoints()->get_Item($k)->getValue()->getData());
+            $categoryTotals[$k] += $pointValue;
+        }
     }
-    $dataPontPercent = 0.0;
-    for($x = 0; $x < java_values($chart->getChartData()->getSeries()->size()) ; $x++) {
-      $series = $chart->getChartData()->getSeries()->get_Item($x);
-      $series->getLabels()->getDefaultDataLabelFormat()->setShowLegendKey(false);
-      for($j = 0; $j < java_values($series->getDataPoints()->size()) ; $j++) {
-        $lbl = $series->getDataPoints()->get_Item($j)->getLabel();
-        $dataPontPercent = $series->getDataPoints()->get_Item($j)->getValue()->getData() / $total_for_Cat[$j] * 100;
-        $port = new Portion();
-        $port->setText(sprintf("{0:F2} %.2f", $dataPontPercent));
-        $port->getPortionFormat()->setFontHeight(8.0);
-        $lbl->getTextFrameForOverriding()->setText("");
-        $para = $lbl->getTextFrameForOverriding()->getParagraphs()->get_Item(0);
-        $para->getPortions()->add($port);
-        $lbl->getDataLabelFormat()->setShowSeriesName(false);
-        $lbl->getDataLabelFormat()->setShowPercentage(false);
-        $lbl->getDataLabelFormat()->setShowLegendKey(false);
-        $lbl->getDataLabelFormat()->setShowCategoryName(false);
-        $lbl->getDataLabelFormat()->setShowBubbleSize(false);
-      }
+
+    for ($x = 0; $x < java_values($chart->getChartData()->getSeries()->size()); $x++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($x);
+        $series->getLabels()->getDefaultDataLabelFormat()->setShowLegendKey(false);
+
+        for ($j = 0; $j < java_values($series->getDataPoints()->size()); $j++) {
+            $label = $series->getDataPoints()->get_Item($j)->getLabel();
+            if ($categoryTotals[$j] == 0) {
+                continue;
+            }
+
+            $pointValue = java_values($series->getDataPoints()->get_Item($j)->getValue()->getData());
+            $dataPointPercent = ($pointValue / $categoryTotals[$j]) * 100;
+
+            $portion = new Portion();
+            $portion->setText(sprintf("%.2F %%", $dataPointPercent));
+            $portion->getPortionFormat()->setFontHeight(8);
+
+            $label->getTextFrameForOverriding()->setText("");
+            $paragraph = $label->getTextFrameForOverriding()->getParagraphs()->get_Item(0);
+            $paragraph->getPortions()->add($portion);
+
+            $label->getDataLabelFormat()->setShowValue(true);
+            $label->getDataLabelFormat()->setShowSeriesName(false);
+            $label->getDataLabelFormat()->setShowPercentage(false);
+            $label->getDataLabelFormat()->setShowLegendKey(false);
+            $label->getDataLabelFormat()->setShowCategoryName(false);
+            $label->getDataLabelFormat()->setShowBubbleSize(false);
+        }
     }
-    # ارائه حاوی نمودار را ذخیره می‌کند
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **تنظیم علامت درصد در برچسب‌های داده نمودار**
+## **تنظیم علامت درصد با برچسب‌های دادهٔ نمودار**
 
-این کد PHP به شما نشان می‌دهد چگونه علامت درصد را برای یک برچسب داده نمودار تنظیم کنید:
+وقتی مقادیر به‌صورت کسر ذخیره می‌شوند، از [setNumberFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/datalabelformat/#setNumberFormat) برای نمایش درصدها استفاده کنید. برای اعمال قالب برچسب به‌طور مستقل از سلول‌های منبع، `false` را به [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/fa/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) پاس دهید.
+
+این مثال یک نمودار ستون ۱۰۰٪ انباشته با سری‌های قرمز و آبی در چهار دسته ایجاد می‌کند. هر جفت مقدار به مجموع ۱ می‌رسد. قالب برچسب `0.0%` مقدار ۰.۳۰ را به‌صورت ۳۰٫۰٪ نمایش می‌دهد، در حالی که محور عمودی از دو رقم اعشار استفاده می‌کند. هر دو سری از متن برچسب سفید با اندازهٔ ۱۰ نقطه استفاده می‌کنند.
 
 ```php
-  # یک نمونه از کلاس Presentation ایجاد می‌کند
-  $pres = new Presentation();
-  try {
-    # مرجع اسلاید را از طریق شاخص آن دریافت می‌کند
-    $slide = $pres->getSlides()->get_Item(0);
-    # نمودار PercentsStackedColumn را بر روی اسلاید ایجاد می‌کند
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
-    # NumberFormatLinkedToSource را روی false تنظیم می‌کند
+
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.00%");
+
     $chart->getChartData()->getSeries()->clear();
-    $defaultWorksheetIndex = 0;
-    # ورک‌شیت داده‌های نمودار را دریافت می‌کند
+    $chart->getChartData()->getCategories()->clear();
+
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    # سری جدیدی اضافه می‌کند
-    $series = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 1, "Reds"), $chart->getType());
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 1, 0.3));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 1, 0.5));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 1, 0.8));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 1, 0.65));
-    # رنگ پرشدن سری را تنظیم می‌کند
-    $series->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # ویژگی‌های LabelFormat را تنظیم می‌کند
-    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
-    $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
-    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontHeight(10);
-    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
-    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # سری جدیدی اضافه می‌کند
-    $series2 = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 2, "Blues"), $chart->getType());
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 2, 0.7));
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 2, 0.5));
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 2, 0.2));
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 2, 0.35));
-    # نوع پرشدن و رنگ را تنظیم می‌کند
-    $series2->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $series2->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $series2->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
-    $series2->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
-    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontHeight(10);
-    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
-    # ارائه را روی دیسک ذخیره می‌کند
-    $pres->save("SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $worksheetIndex = 0;
+    for ($i = 0; $i < 4; $i++) {
+        $categoryCell = $workbook->getCell($worksheetIndex, $i + 1, 0, "Category " . ($i + 1));
+        $chart->getChartData()->getCategories()->add($categoryCell);
     }
-  }
+
+    $colors = java("java.awt.Color");
+    $seriesNames = [ "Reds", "Blues" ];
+    $seriesColors = [ $colors->RED, $colors->BLUE ];
+    $values = [ [ 0.30, 0.50, 0.80, 0.65 ], [ 0.70, 0.50, 0.20, 0.35 ] ];
+
+    for ($i = 0; $i < count($seriesNames); $i++) {
+        $seriesCell = $workbook->getCell($worksheetIndex, 0, $i + 1, $seriesNames[$i]);
+        $series = $chart->getChartData()->getSeries()->add($seriesCell, $chart->getType());
+        for ($j = 0; $j < 4; $j++) {
+            $valueCell = $workbook->getCell($worksheetIndex, $j + 1, $i + 1, $values[$i][$j]);
+            $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+        }
+
+        $series->getFormat()->getFill()->setFillType(FillType::Solid);
+        $series->getFormat()->getFill()->getSolidFillColor()->setColor($seriesColors[$i]);
+
+        $labelFormat = $series->getLabels()->getDefaultDataLabelFormat();
+        $labelFormat->setShowValue(true);
+        $labelFormat->setNumberFormatLinkedToSource(false);
+        $labelFormat->setNumberFormat("0.0%");
+        $labelFormat->getTextFormat()->getPortionFormat()->setFontHeight(10);
+        $labelFormat->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $labelFormat->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor($colors->WHITE);
+    }
+
+    $presentation->save("SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **تنظیم فاصله برچسب از محور**
+## **خواندن متن واقعی برچسب‌های داده**
 
-این کد PHP به شما نشان می‌دهد چگونه فاصله برچسب را از یک محور دسته‌بندی زمانی که با نموداری که بر پایه محورها ترسیم شده کار می‌کنید، تنظیم کنید:
+از [getActualLabelText](https://reference.aspose.com/slides/fa/php-java/aspose.slides/datalabel/#getActualLabelText) برای بازیابی متنی که توسط تنظیمات یک برچسب داده تولید می‌شود استفاده کنید. این کار هنگام استخراج برچسب‌ها برای گزارش‌ها، جستجوی محتوای ارائه یا اعتبارسنجی نمودارهای تولید‌شده مفید است. در مثال زیر، قالب پیش‌فرض [برچسب داده](https://reference.aspose.com/slides/fa/php-java/aspose.slides/datalabelformat/) نام هر دسته، نام سری و مقدار را ترکیب می‌کند. یک نقطه مقدار خود را به‌صورت درصد قالب‌بندی می‌کند و دیگری از متن سفارشی که از [getTextFrameForOverriding](https://reference.aspose.com/slides/fa/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) دریافت می‌شود استفاده می‌کند.
 
 ```php
-  # یک نمونه از کلاس Presentation ایجاد می‌کند
-  $pres = new Presentation();
-  try {
-    # مرجع یک اسلاید را دریافت می‌کند
-    $sld = $pres->getSlides()->get_Item(0);
-    # یک نمودار بر روی اسلاید ایجاد می‌کند
-    $ch = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
-    # فاصله برچسب را از یک محور تنظیم می‌کند
-    $ch->getAxes()->getHorizontalAxis()->setLabelOffset(500);
-    # ارائه را روی دیسک ذخیره می‌کند
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $firstCategoryCell = $workbook->getCell(0, 1, 0, "Q1");
+    $chart->getChartData()->getCategories()->add($firstCategoryCell);
+    $secondCategoryCell = $workbook->getCell(0, 2, 0, "Q2");
+    $chart->getChartData()->getCategories()->add($secondCategoryCell);
+
+    $northSeriesCell = $workbook->getCell(0, 0, 1, "North");
+    $north = $chart->getChartData()->getSeries()->add($northSeriesCell, $chart->getType());
+    $northFirstValueCell = $workbook->getCell(0, 1, 1, 0.25);
+    $north->getDataPoints()->addDataPointForBarSeries($northFirstValueCell);
+    $northSecondValueCell = $workbook->getCell(0, 2, 1, 0.75);
+    $north->getDataPoints()->addDataPointForBarSeries($northSecondValueCell);
+
+    $southSeriesCell = $workbook->getCell(0, 0, 2, "South");
+    $south = $chart->getChartData()->getSeries()->add($southSeriesCell, $chart->getType());
+    $southFirstValueCell = $workbook->getCell(0, 1, 2, 0.40);
+    $south->getDataPoints()->addDataPointForBarSeries($southFirstValueCell);
+    $southSecondValueCell = $workbook->getCell(0, 2, 2, 0.60);
+    $south->getDataPoints()->addDataPointForBarSeries($southSecondValueCell);
+
+    for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($i);
+        $format = $series->getLabels()->getDefaultDataLabelFormat();
+        $format->setShowCategoryName(true);
+        $format->setShowSeriesName(true);
+        $format->setShowValue(true);
     }
-  }
+
+    $north->getLabels()->get_Item(1)->getDataLabelFormat()->setNumberFormatLinkedToSource(false);
+    $north->getLabels()->get_Item(1)->getDataLabelFormat()->setNumberFormat("0%");
+    $south->getLabels()->get_Item(0)->getTextFrameForOverriding()->setText("Reviewed");
+
+    for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($i);
+        for ($j = 0; $j < java_values($series->getDataPoints()->size()); $j++) {
+            $point = $series->getDataPoints()->get_Item($j);
+            $label = $point->getLabel();
+            if (!java_values($label->isVisible())) {
+                continue;
+            }
+
+            echo "Value: " . java_values($point->getValue()->getData()) . "; label: " . java_values($label->getActualLabelText()) . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+عدد ذخیره‌شده در یک نقطه داده همچنان `0.75` باقی می‌ماند، حتی اگر برچسب آن `75%` همراه با نام دسته و نام سری را نشان دهد. متن سفارشی متن برچسب تولید‌شده را جایگزین می‌کند. [getActualLabelText](https://reference.aspose.com/slides/fa/php-java/aspose.slides/datalabel/#getActualLabelText) در هر دو حالت رشتهٔ برچسب نهایی را برمی‌گرداند. همان‌طور که در بالا نشان داده شد، برای استخراج فقط برچسب‌های قابل مشاهده، [isVisible](https://reference.aspose.com/slides/fa/php-java/aspose.slides/datalabel/#isVisible) را به‌طور جداگانه بررسی کنید.
+
+## **تنظیم فاصلهٔ برچسب از یک محور**
+
+از [setLabelOffset](https://reference.aspose.com/slides/fa/php-java/aspose.slides/axis/#setLabelOffset) برای کنترل فاصله بین برچسب‌های محور دسته‌بندی و محور استفاده کنید. مقدار به‌صورت درصدی از حداکثر اندازهٔ قلم برچسب‌های محور محاسبه می‌شود. این مثال یک نمودار ستون خوشه‌ای ایجاد می‌کند و آفست برچسب محور افقی را بر روی ۵۰۰ تنظیم مینماید. این تنظیم بر برچسب‌های محور دسته‌بندی تأثیر می‌گذارد نه برچسب‌های متصل به نقاط دادهٔ فردی.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+    $chart->getAxes()->getHorizontalAxis()->setLabelOffset(500);
+
+    $presentation->save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **تنظیم مکان برچسب**
 
-وقتی نموداری ایجاد می‌کنید که به محوری وابسته نیست مانند نمودار دایره‌ای، ممکن است برچسب‌های داده نمودار بسیار نزدیک به لبه آن شوند. در چنین حالتی، باید مکان برچسب را تنظیم کنید تا خطوط راهنما به وضوح نمایش داده شوند.
+در یک نمودار دایره‌ای، موقعیت برچسب‌های داده را تنظیم کنید تا فاصله بهتر شود و فضای کافی برای خطوط رهنما فراهم شود.
 
-این کد PHP به شما نشان می‌دهد چگونه مکان برچسب را در یک نمودار دایره‌ای تنظیم کنید:
+این مثال مقدار اولین نقطه داده را نمایش می‌دهد، برچسب آن را بیرون قطعه قرار می‌دهد و افست‌های افقی و عمودی آن را با استفاده از [setX](https://reference.aspose.com/slides/fa/php-java/aspose.slides/datalabel/#setX) و [setY](https://reference.aspose.com/slides/fa/php-java/aspose.slides/datalabel/#setY) تنظیم می‌کند. این افست‌ها به ترتیب نسبت به عرض و ارتفاع نمودار هستند.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
     $series = $chart->getChartData()->getSeries();
+
     $label = $series->get_Item(0)->getLabels()->get_Item(0);
     $label->getDataLabelFormat()->setShowValue(true);
-    $label->getDataLabelFormat()->setPosition(LegendDataLabelPosition->OutsideEnd);
+    $label->getDataLabelFormat()->setPosition(LegendDataLabelPosition::OutsideEnd);
     $label->setX(0.71);
     $label->setY(0.04);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![نمودار دایره‌ای با موقعیت تنظیم‌شدهٔ برچسب داده](pie-chart-adjusted-label.png)
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**چگونه می‌توانم از هم‌پوشانی برچسب‌های داده در نمودارهای پر تراکم جلوگیری کنم؟**
+**چگونه می‌توانم از هم‌پوشانی برچسب‌های داده در نمودارهای پرجمعیت جلوگیری کنم؟**
 
-از ترکیب قراردهی خودکار برچسب‌ها، خطوط راهنما و کاهش اندازه قلم استفاده کنید؛ در صورت نیاز، برخی فیلدها (مانند دسته) را مخفی کنید یا برچسب‌ها را تنها برای نقاط حاشیه‌ای/کلیدی نمایش دهید.
+از قرارگیری خودکار برچسب‌ها، خطوط رهنما و کاهش اندازه قلم استفاده کنید؛ در صورت نیاز، برخی فیلدها (مثلاً دسته‌بندی) را مخفی کنید یا فقط برای مقادیر انتهایی یا نقاط کلیدی برچسب نشان دهید.
 
 **چگونه می‌توانم برچسب‌ها را فقط برای مقادیر صفر، منفی یا خالی غیرفعال کنم؟**
 
-نقاط داده را پیش از فعال‌سازی برچسب‌ها فیلتر کنید و نمایش مقادیر صفر، مقادیر منفی یا مقادیر گمشده را بر اساس یک قانون تعریف‌شده غیرفعال کنید.
+نقاط داده را پیش از فعال‌سازی برچسب‌ها فیلتر کنید و نمایش مقادیر صفر، مقادیر منفی یا مقادیر گمشده را بر اساس یک قاعدهٔ تعریف‌شده خاموش کنید.
 
-**چگونه می‌توانم سبک ثابت برچسب را هنگام خروجی به PDF/تصاویر تضمین کنم؟**
+**چگونه می‌توانم سبک برچسب ثابت را هنگام خروجی به PDF/تصاویر تضمین کنم؟**
 
-قلم‌ها (خانواده، اندازه) را به‌صورت صریح تنظیم کنید و اطمینان حاصل کنید که فونت روی سمت رندرینگ موجود است تا از استفادهٔ جایگزین جلوگیری شود.
+قوهٔ قلم و اندازهٔ آن را به‌صورت صریح تنظیم کنید و اطمینان حاصل کنید که قلم در محیط رندرینگ موجود است تا از استفاده از قلم جایگزین جلوگیری شود.

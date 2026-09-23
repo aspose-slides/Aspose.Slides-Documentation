@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση ετικετών δεδομένων διαγράμματος σε παρουσιάσεις χρησιμοποιώντας Java
+title: Διαχείριση Ετικετών Δεδομένων Διαγράμματος σε Παρουσιάσεις χρησιμοποιώντας Java
 linktitle: Ετικέτα δεδομένων
 type: docs
 url: /el/java/chart-data-label/
@@ -14,212 +14,272 @@ keywords:
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε και να μορφοποιείτε ετικέτες δεδομένων διαγράμματος σε παρουσιάσεις PowerPoint χρησιμοποιώντας Aspose.Slides για Java, ώστε τα slides να είναι πιο ελκυστικά."
+description: "Μάθετε πώς να προσθέτετε και να μορφοποιείτε ετικέτες δεδομένων διαγράμματος σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για Java, για πιο ελκυστικές διαφάνειες."
 ---
 ## **Εισαγωγή**
 
-Οι ετικέτες δεδομένων σε ένα διάγραμμα εμφανίζουν λεπτομέρειες σχετικά με τις σειρές δεδομένων του διαγράμματος ή μεμονωμένα σημεία δεδομένων. Επιτρέπουν στους αναγνώστες να αναγνωρίζουν γρήγορα τις σειρές δεδομένων και κάνουν επίσης τα διαγράμματα πιο ευανάγνωστα.
+Οι ετικέτες δεδομένων εμφανίζουν πληροφορίες σχετικά με τις σειρές διαγράμματος και τα μεμονωμένα σημεία δεδομένων, βοηθώντας τους αναγνώστες να εντοπίζουν τις τιμές και να κατανοούν το διάγραμμα. Αυτό το άρθρο εξηγεί πώς να μορφοποιείτε τις τιμές, να εμφανίζετε τα ποσοστά, να διαβάζετε το κείμενο της ετικέτας, να προσαρμόζετε την απόσταση των ετικετών του άξονα κατηγορίας και να τοποθετείτε τις ετικέτες του διαγράμματος πίτας.
 
-## **Ορισμός ακρίβειας δεδομένων στις ετικέτες δεδομένων διαγράμματος**
+## **Ορισμός Ακρίβειας Δεδομένων στις Ετικέτες Διαγράμματος**
 
-Αυτός ο κώδικας Java δείχνει πώς να ορίσετε την ακρίβεια δεδομένων σε μια ετικέτα δεδομένων διαγράμματος:
+Χρησιμοποιήστε [setNumberFormatOfValues](https://reference.aspose.com/slides/el/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) για να μορφοποιήσετε τις τιμές των σειρών. Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα γραμμής με προεπιλεγμένα δεδομένα, εμφανίζει τον πίνακα δεδομένων του και ενεργοποιεί τις ετικέτες τιμών για την πρώτη σειρά. Η μορφή `#,##0.00` εμφανίζει διαχωριστικό χιλιάδων και δύο δεκαδικά ψηφία χωρίς να αλλάζει τις υποκείμενες τιμές.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
-    chart.getChartData().getSeries().get_Item(0).setNumberFormatOfValues("#,##0.00");
 
-    pres.save("output.pptx",SaveFormat.Pptx);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    series.setNumberFormatOfValues("#,##0.00");
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Εμφάνιση ποσοστού ως ετικέτες**
+## **Εμφάνιση Ποσοστού ως Ετικέτες**
 
-Το Aspose.Slides για Java σας επιτρέπει να ορίσετε ετικέτες ποσοστών σε εμφανιζόμενα διαγράμματα. Αυτός ο κώδικας Java δείχνει τη λειτουργία:
+Για ένα στοίβαγμα στήλης διάγραμμα, υπολογίστε κάθε τιμή ως ποσοστό του συνολικού της κατηγορίας και αναθέστε το κείμενο στο πλαίσιο κειμένου που επιστρέφει η [getTextFrameForOverriding](https://reference.aspose.com/slides/el/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Αυτό το παράδειγμα χρησιμοποιεί τα προεπιλεγμένα δεδομένα διαγράμματος και εμφανίζει τα ποσοστά με δύο δεκαδικά ψηφία σε γραμματοσειρά 8 σημείων. Οι κατηγορίες με συνολικό μηδέν παραλείπονται για να αποφευχθεί διαίρεση με το μηδέν. Επαναϋπολογίστε το προσαρμοσμένο κείμενο ετικέτας εάν τα δεδομένα του διαγράμματος αλλάξουν.
 
 ```java
-// Δημιουργεί ένα στιγμιότυπο της κλάσης Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Presentation presentation = new Presentation();
 try {
-    // Λαμβάνει την πρώτη διαφάνεια
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400);
-    IChartSeries series;
-    double[] total_for_Cat = new double[chart.getChartData().getCategories().size()];
+
+    double[] categoryTotals = new double[chart.getChartData().getCategories().size()];
     for (int k = 0; k < chart.getChartData().getCategories().size(); k++) {
-        IChartCategory cat = chart.getChartData().getCategories().get_Item(k);
-    
         for (int i = 0; i < chart.getChartData().getSeries().size(); i++) {
-            total_for_Cat[k] = total_for_Cat[k] + (double) (chart.getChartData().getSeries().get_Item(i).getDataPoints().get_Item(k).getValue().getData());
+            IChartSeries series = chart.getChartData().getSeries().get_Item(i);
+            Number pointValue = (Number) series.getDataPoints().get_Item(k).getValue().getData();
+            categoryTotals[k] += pointValue.doubleValue();
         }
     }
-    
-    double dataPontPercent = 0f;
+
     for (int x = 0; x < chart.getChartData().getSeries().size(); x++) {
-        series = chart.getChartData().getSeries().get_Item(x);
+        IChartSeries series = chart.getChartData().getSeries().get_Item(x);
         series.getLabels().getDefaultDataLabelFormat().setShowLegendKey(false);
-    
+
         for (int j = 0; j < series.getDataPoints().size(); j++) {
-            IDataLabel lbl = series.getDataPoints().get_Item(j).getLabel();
-            dataPontPercent = (double) ((series.getDataPoints().get_Item(j).getValue().getData())) / (double) (total_for_Cat[j]) * 100;
-    
-            IPortion port = new Portion();
-            port.setText(String.format("{0:F2} %.2f", dataPontPercent));
-            port.getPortionFormat().setFontHeight(8f);
-            lbl.getTextFrameForOverriding().setText("");
-            IParagraph para = lbl.getTextFrameForOverriding().getParagraphs().get_Item(0);
-            para.getPortions().add(port);
-    
-            lbl.getDataLabelFormat().setShowSeriesName(false);
-            lbl.getDataLabelFormat().setShowPercentage(false);
-            lbl.getDataLabelFormat().setShowLegendKey(false);
-            lbl.getDataLabelFormat().setShowCategoryName(false);
-            lbl.getDataLabelFormat().setShowBubbleSize(false);
+            IDataLabel label = series.getDataPoints().get_Item(j).getLabel();
+            if (categoryTotals[j] == 0) {
+                continue;
+            }
+
+            Number pointValue = (Number) series.getDataPoints().get_Item(j).getValue().getData();
+            double dataPointPercent = (pointValue.doubleValue() / categoryTotals[j]) * 100;
+
+            IPortion portion = new Portion();
+            portion.setText(String.format(Locale.US, "%.2f %%", dataPointPercent));
+            portion.getPortionFormat().setFontHeight(8f);
+
+            label.getTextFrameForOverriding().setText("");
+            IParagraph paragraph = label.getTextFrameForOverriding().getParagraphs().get_Item(0);
+            paragraph.getPortions().add(portion);
+
+            label.getDataLabelFormat().setShowValue(true);
+            label.getDataLabelFormat().setShowSeriesName(false);
+            label.getDataLabelFormat().setShowPercentage(false);
+            label.getDataLabelFormat().setShowLegendKey(false);
+            label.getDataLabelFormat().setShowCategoryName(false);
+            label.getDataLabelFormat().setShowBubbleSize(false);
         }
     }
-    
-    // Αποθηκεύει την παρουσίαση που περιέχει το διάγραμμα
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ορισμός συμβόλου ποσοστού στις ετικέτες δεδομένων διαγράμματος**
+## **Ορισμός Σήματος Ποσοστού με Ετικέτες Δεδομένων Διαγράμματος**
 
-Αυτός ο κώδικας Java σας δείχνει πώς να ορίσετε το σύμβολο του ποσοστού για μια ετικέτα δεδομένων διαγράμματος:
+Όταν οι τιμές αποθηκεύονται ως κλάσματα, χρησιμοποιήστε [setNumberFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) για να εμφανίσετε τα ποσοστά. Περάστε `false` στη [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) ώστε η μορφή της ετικέτας να εφαρμοστεί ανεξάρτητα από τα κελιά προέλευσης.
+
+Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα στοίβαξης στήλης 100 % με κόκκινες και μπλε σειρές σε τέσσερις κατηγορίες. Κάθε ζεύγος τιμών αθροίζει στο 1. Η μορφή ετικέτας `0.0%` εμφανίζει το 0.30 ως 30.0 %, ενώ ο κατακόρυφος άξονας χρησιμοποιεί δύο δεκαδικά ψηφία. Και οι δύο σειρές χρησιμοποιούν λευκό κείμενο ετικέτας 10 σημείων.
 
 ```java
-// Δημιουργεί ένα στιγμιότυπο της κλάσης Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Λαμβάνει την αναφορά μιας διαφάνειας μέσω του δείκτη της
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Δημιουργεί το γράφημα PercentsStackedColumn σε μια διαφάνεια
+    ISlide slide = presentation.getSlides().get_Item(0);
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
-    
-    // Ορίζει το NumberFormatLinkedToSource σε ψευδές
+
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.00%");
-    
+
     chart.getChartData().getSeries().clear();
-    int defaultWorksheetIndex = 0;
-    
-    // Λαμβάνει το φύλλο εργασίας δεδομένων του διαγράμματος
+    chart.getChartData().getCategories().clear();
+
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
-    
-    // Προσθέτει νέα σειρά
-    IChartSeries series = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.getType());
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 1, 0.30));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 1, 0.50));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 1, 0.80));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 1, 0.65));
-    
-    // Ορίζει το χρώμα γεμίσματος της σειράς
-    series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    
-    // Ορίζει τις ιδιότητες του LabelFormat
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    // Προσθέτει νέα σειρά
-    IChartSeries series2 = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.getType());
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 2, 0.70));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 2, 0.50));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 2, 0.20));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 2, 0.35));
-    
-    // Ορίζει τύπο γεμίσματος και χρώμα
-    series2.getFormat().getFill().setFillType(FillType.Solid);
-    series2.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-    series2.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
-    
-    // Γράφει την παρουσίαση στο δίσκο
-    pres.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
+    int worksheetIndex = 0;
+    for (int i = 0; i < 4; i++) {
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+    }
+
+    String[] seriesNames = { "Reds", "Blues" };
+    Color[] seriesColors = { Color.RED, Color.BLUE };
+    double[][] values = { { 0.30, 0.50, 0.80, 0.65 }, { 0.70, 0.50, 0.20, 0.35 } };
+
+    for (int i = 0; i < seriesNames.length; i++) {
+        IChartDataCell seriesCell = workbook.getCell(worksheetIndex, 0, i + 1, seriesNames[i]);
+        IChartSeries series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+        for (int j = 0; j < 4; j++) {
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, j + 1, i + 1, values[i][j]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        series.getFormat().getFill().setFillType(FillType.Solid);
+        series.getFormat().getFill().getSolidFillColor().setColor(seriesColors[i]);
+
+        IDataLabelFormat labelFormat = series.getLabels().getDefaultDataLabelFormat();
+        labelFormat.setShowValue(true);
+        labelFormat.setNumberFormatLinkedToSource(false);
+        labelFormat.setNumberFormat("0.0%");
+        labelFormat.getTextFormat().getPortionFormat().setFontHeight(10);
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
+    }
+
+    presentation.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ορισμός απόστασης ετικέτας από άξονα**
+## **Ανάγνωση του Πραγματικού Κειμένου των Ετικετών Δεδομένων**
 
-Αυτός ο κώδικας Java δείχνει πώς να ορίσετε την απόσταση της ετικέτας από έναν άξονα κατηγορίας όταν εργάζεστε με διάγραμμα σχεδιασμένο από άξονες:
+Χρησιμοποιήστε [getActualLabelText](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatalabel/#getActualLabelText--) για να ανακτήσετε το κείμενο που παράγεται από τις ρυθμίσεις μιας ετικέτας δεδομένων. Αυτό είναι χρήσιμο όταν εξάγετε ετικέτες για αναφορές, αναζητάτε περιεχόμενο παρουσίασης ή επικυρώνετε παραγόμενα διαγράμματα. Στο παρακάτω παράδειγμα, η προεπιλεγμένη [data label format](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatalabelformat/) συνδυάζει το όνομα κάθε κατηγορίας, το όνομα της σειράς και την τιμή. Ένα σημείο μορφοποιεί την τιμή του ως ποσοστό, ενώ ένα άλλο χρησιμοποιεί προσαρμοσμένο κείμενο από τη [getTextFrameForOverriding](https://reference.aspose.com/slides/el/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
-// Δημιουργεί ένα στιγμιότυπο της κλάσης Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Λαμβάνει την αναφορά μιας διαφάνειας
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Δημιουργεί ένα διάγραμμα στη διαφάνεια
-    IChart ch = sld.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
-    
-    // Ορίζει την απόσταση της ετικέτας από έναν άξονα
-    ch.getAxes().getHorizontalAxis().setLabelOffset(500);
-    
-    // Γράφει την παρουσίαση στο δίσκο
-    pres.save("output.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell firstCategoryCell = workbook.getCell(0, 1, 0, "Q1");
+    chart.getChartData().getCategories().add(firstCategoryCell);
+    IChartDataCell secondCategoryCell = workbook.getCell(0, 2, 0, "Q2");
+    chart.getChartData().getCategories().add(secondCategoryCell);
+
+    IChartDataCell northSeriesCell = workbook.getCell(0, 0, 1, "North");
+    IChartSeries north = chart.getChartData().getSeries().add(northSeriesCell, chart.getType());
+    IChartDataCell northFirstValueCell = workbook.getCell(0, 1, 1, 0.25);
+    north.getDataPoints().addDataPointForBarSeries(northFirstValueCell);
+    IChartDataCell northSecondValueCell = workbook.getCell(0, 2, 1, 0.75);
+    north.getDataPoints().addDataPointForBarSeries(northSecondValueCell);
+
+    IChartDataCell southSeriesCell = workbook.getCell(0, 0, 2, "South");
+    IChartSeries south = chart.getChartData().getSeries().add(southSeriesCell, chart.getType());
+    IChartDataCell southFirstValueCell = workbook.getCell(0, 1, 2, 0.40);
+    south.getDataPoints().addDataPointForBarSeries(southFirstValueCell);
+    IChartDataCell southSecondValueCell = workbook.getCell(0, 2, 2, 0.60);
+    south.getDataPoints().addDataPointForBarSeries(southSecondValueCell);
+
+    for (IChartSeries series : chart.getChartData().getSeries()) {
+        IDataLabelFormat format = series.getLabels().getDefaultDataLabelFormat();
+        format.setShowCategoryName(true);
+        format.setShowSeriesName(true);
+        format.setShowValue(true);
+    }
+
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormatLinkedToSource(false);
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormat("0%");
+    south.getLabels().get_Item(0).getTextFrameForOverriding().setText("Reviewed");
+
+    for (IChartSeries series : chart.getChartData().getSeries()) {
+        for (IChartDataPoint point : series.getDataPoints()) {
+            IDataLabel label = point.getLabel();
+            if (!label.isVisible()) {
+                continue;
+            }
+
+            System.out.println("Value: " + point.getValue().getData() + "; label: " + label.getActualLabelText());
+        }
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ρύθμιση θέσης ετικέτας**
+Ο αριθμός που αποθηκεύεται σε ένα σημείο δεδομένων παραμένει `0.75`, ακόμη και όταν η ετικέτα του εμφανίζει `75%` μαζί με τα ονόματα κατηγορίας και σειράς. Το προσαρμοσμένο κείμενο αντικαθιστά το παραγόμενο κείμενο ετικέτας. Το [getActualLabelText](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatalabel/#getActualLabelText--) επιστρέφει τη συμβολοσειρά ετικέτας σε κάθε περίπτωση. Ελέγξτε ξεχωριστά το [isVisible](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatalabel/#isVisible--), όπως φαίνεται παραπάνω, όταν θέλετε να εξάγετε μόνο τις ορατές ετικέτες.
 
-Όταν δημιουργείτε ένα διάγραμμα που δεν βασίζεται σε άξονα, όπως ένα διάγραμμα πίτας, οι ετικέτες δεδομένων του διαγράμματος μπορεί να βρίσκονται πολύ κοντά στην άκρη του. Σε τέτοια περίπτωση, πρέπει να ρυθμίσετε τη θέση της ετικέτας δεδομένων ώστε οι γραμμές σύζευξης να εμφανίζονται καθαρά.
+## **Ορισμός Απόστασης Ετικέτας από Άξονα**
 
-Αυτός ο κώδικας Java δείχνει πώς να ρυθμίσετε τη θέση της ετικέτας σε ένα διάγραμμα πίτας:
+Χρησιμοποιήστε [setLabelOffset](https://reference.aspose.com/slides/el/java/com.aspose.slides/iaxis/#setLabelOffset-int-) για να ελέγξετε την απόσταση μεταξύ των ετικετών του άξονα κατηγορίας και του άξονα. Η τιμή είναι ένα ποσοστό του μέγιστου μεγέθους γραμματοσειράς των ετικετών του άξονα. Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα στήλης συγκεντρωμένων και ορίζει την αντιστάθμιση ετικέτας του οριζόντιου άξονα σε 500. Αυτή η ρύθμιση επηρεάζει τις ετικέτες του άξονα κατηγορίας και όχι τις ετικέτες που είναι προσαρτημένες σε μεμονωμένα σημεία δεδομένων.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+    chart.getAxes().getHorizontalAxis().setLabelOffset(500);
+
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Προσαρμογή Θέσης Ετικέτας**
+
+Σε ένα διάγραμμα πίτας, προσαρμόστε τις θέσεις των ετικετών δεδομένων για να βελτιώσετε την απόσταση και να δημιουργήσετε χώρο για τις γραμμές οδηγού.
+
+Αυτό το παράδειγμα εμφανίζει την τιμή του πρώτου σημείου δεδομένων, τοποθετεί την ετικέτα του έξω από το τμήμα και ρυθμίζει τις οριζόντιες και κατακόρυφες αντισταθμίσεις χρησιμοποιώντας [setX](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutable/#setX-float-) και [setY](https://reference.aspose.com/slides/el/java/com.aspose.slides/ilayoutable/#setY-float-). Αυτές οι αντισταθμίσεις είναι σχετικές με το πλάτος και το ύψος του διαγράμματος, αντίστοιχα.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
     IChartSeriesCollection series = chart.getChartData().getSeries();
-    IDataLabel label = series.get_Item(0).getLabels().get_Item(0);
 
+    IDataLabel label = series.get_Item(0).getLabels().get_Item(0);
     label.getDataLabelFormat().setShowValue(true);
     label.getDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd);
     label.setX(0.71f);
     label.setY(0.04f);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-![προσαρμοσμένη ετικέτα διαγράμματος πίτας](pie-chart-adjusted-label.png)
+![Διάγραμμα πίτας με προσαρμοσμένη θέση ετικέτας δεδομένων](pie-chart-adjusted-label.png)
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
 **Πώς μπορώ να αποτρέψω την επικάλυψη των ετικετών δεδομένων σε πυκνά διαγράμματα;**
 
-Συνδυάστε αυτόματη τοποθέτηση ετικετών, γραμμές σύζευξης και μειωμένο μέγεθος γραμματοσειράς· εάν χρειαστεί, κρύψτε ορισμένα πεδία (π.χ. την κατηγορία) ή εμφανίστε ετικέτες μόνο για ακραία/σημαντικά σημεία.
+Συνδυάστε αυτόματη τοποθέτηση ετικετών, γραμμές οδηγού και μειωμένο μέγεθος γραμματοσειράς· εάν χρειαστεί, κρύψτε ορισμένα πεδία (π.χ. την κατηγορία) ή εμφανίστε ετικέτες μόνο για ακραίες τιμές ή κρίσιμα σημεία.
 
-**Πώς μπορώ να απενεργοποιήσω τις ετικέτες μόνο για μηδενικές, αρνητικές ή κενές τιμές;**
+**Πώς μπορώ να απενεργοποιήσω τις ετικέτες μόνο για τιμές μηδέν, αρνητικές ή κενές;**
 
-Φιλτράρετε τα σημεία δεδομένων πριν ενεργοποιήσετε τις ετικέτες και απενεργοποιήστε την εμφάνιση για τιμές 0, αρνητικές τιμές ή ελλιπείς τιμές σύμφωνα με έναν ορισμένο κανόνα.
+Φιλτράρετε τα σημεία δεδομένων πριν ενεργοποιήσετε τις ετικέτες και απενεργοποιήστε την εμφάνιση για τιμές 0, αρνητικές τιμές ή ελλιπείς τιμές σύμφωνα με έναν καθορισμένο κανόνα.
 
-**Πώς μπορώ να εξασφαλίσω μια συνεπή μορφή ετικετών κατά την εξαγωγή σε PDF/εικόνες;**
+**Πώς μπορώ να εξασφαλίσω συνεπές στυλ ετικέτας κατά την εξαγωγή σε PDF/εικόνες;**
 
-Ορίστε ρητά τις γραμματοσειρές (οικογένεια, μέγεθος) και επαληθεύστε ότι η γραμματοσειρά είναι διαθέσιμη στην πλευρά απόδοσης για να αποφύγετε την εναλλακτική.
+Ορίστε ρητά την οικογένεια γραμματοσειράς και το μέγεθος και βεβαιωθείτε ότι η γραμματοσειρά είναι διαθέσιμη στο περιβάλλον απόδοσης ώστε να αποφευχθεί η εναλλακτική γραμματοσειρά.

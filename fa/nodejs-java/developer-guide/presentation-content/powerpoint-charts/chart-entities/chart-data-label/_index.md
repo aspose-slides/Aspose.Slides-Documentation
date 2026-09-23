@@ -15,191 +15,276 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "یاد بگیرید که چگونه برچسب‌های داده نمودار را در ارائه‌های PowerPoint با استفاده از JavaScript و Aspose.Slides برای Node.js از طریق Java اضافه و قالب‌بندی کنید تا اسلایدهای جذاب‌تری داشته باشید."
+description: "یاد بگیرید چگونه برچسب‌های داده نمودار را در ارائه‌های PowerPoint با استفاده از JavaScript و Aspose.Slides برای Node.js از طریق Java اضافه و قالب‌بندی کنید تا اسلایدهای جذاب‌تری داشته باشید."
 ---
-## **مقدمه**
+## **معرفی**
 
-برچسب‌های داده در نمودار جزئیاتی دربارهٔ سری‌های دادهٔ نمودار یا نقاط دادهٔ فردی نشان می‌دهند. این برچسب‌ها به خوانندگان امکان می‌دهند تا سری‌های داده را به‌سرعت شناسایی کنند و همچنین درک نمودارها را آسان‌تر می‌سازند.
+برچسب‌های داده اطلاعاتی درباره سری‌های نمودار و نقاط دادهٔ فردی نشان می‌دهند و به خوانندگان کمک می‌کنند مقادیر را شناسایی و نمودار را درک کنند. این مقاله توضیح می‌دهد چگونه مقادیر را قالب‌بندی کنیم، درصدها را نمایش دهیم، متن برچسب را بخوانیم، فواصل برچسب‌های محور دسته‌بندی را تنظیم کنیم و برچسب‌های نمودار دایره‌ای را موقعیت‌دهی کنیم.
 
-## **تنظیم دقت داده‌ها در برچسب‌های دادهٔ نمودار**
+## **تنظیم دقت داده در برچسب‌های داده نمودار**
 
-این کد جاوااسکریپت نشان می‌دهد که چگونه دقت داده‌ها را در یک برچسب دادهٔ نمودار تنظیم کنید:
+از [setNumberFormatOfValues](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) برای قالب‌بندی مقادیر سری‌ها استفاده کنید. این مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد می‌کند، جدول داده‌های آن را نمایش می‌دهد و برچسب‌های مقدار را برای اولین سری فعال می‌کند. قالب `#,##0.00` یک جداکنندهٔ هزارگان و دو رقم اعشار را نمایش می‌دهد بدون این که مقادیر پایه‌ای تغییر کنند.
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
-    chart.getChartData().getSeries().get_Item(0).setNumberFormatOfValues("#,##0.00");
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const series = chart.getChartData().getSeries().get_Item(0);
+    series.setNumberFormatOfValues("#,##0.00");
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("PrecisionOfDatalabels_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **نمایش درصد به‌صورت برچسب‌ها**
+## **نمایش درصد به عنوان برچسب‌ها**
 
-Aspose.Slides برای Node.js از طریق Java به شما امکان می‌دهد برچسب‌های درصدی را روی نمودارهای نمایش داده شده تنظیم کنید. این کد جاوااسکریپت عملکرد را نشان می‌دهد:
+برای یک نمودار ستونی انباشته، هر مقدار را به‌عنوان درصدی از مجموع دستهٔ مربوطه محاسبه کنید و متن را به قاب متن بازگردانده‌شده توسط [getTextFrameForOverriding](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) اختصاص دهید. این مثال از داده‌های پیش‌فرض نمودار استفاده می‌کند و درصدها را با دو رقم اعشار در قلم 8 نقطه‌ای نمایش می‌دهد. دسته‌هایی که مجموع آن‌ها صفر است برای جلوگیری از تقسیم بر صفر رد می‌شوند. اگر داده‌های نمودار تغییر کنند، متن برچسب سفارشی را مجدداً محاسبه کنید.
+
 ```javascript
-// یک نمونه از کلاس Presentation ایجاد می‌کند
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // اولین اسلاید را دریافت می‌کند
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
-    var series;
-    var total_for_Cat = new double[chart.getChartData().getCategories().size()];
-    for (var k = 0; k < chart.getChartData().getCategories().size(); k++) {
-        var cat = chart.getChartData().getCategories().get_Item(k);
-        for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
-            total_for_Cat[k] = total_for_Cat[k] + chart.getChartData().getSeries().get_Item(i).getDataPoints().get_Item(k).getValue().getData();
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
+
+    const categoryTotals = new Array(chart.getChartData().getCategories().size()).fill(0);
+    for (let k = 0; k < chart.getChartData().getCategories().size(); k++) {
+        for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
+            const series = chart.getChartData().getSeries().get_Item(i);
+            const pointValue = series.getDataPoints().get_Item(k).getValue().getData();
+            categoryTotals[k] += Number(pointValue);
         }
     }
-    var dataPontPercent = 0.0;
-    for (var x = 0; x < chart.getChartData().getSeries().size(); x++) {
-        series = chart.getChartData().getSeries().get_Item(x);
+
+    for (let x = 0; x < chart.getChartData().getSeries().size(); x++) {
+        const series = chart.getChartData().getSeries().get_Item(x);
         series.getLabels().getDefaultDataLabelFormat().setShowLegendKey(false);
-        for (var j = 0; j < series.getDataPoints().size(); j++) {
-            var lbl = series.getDataPoints().get_Item(j).getLabel();
-            dataPontPercent = (series.getDataPoints().get_Item(j).getValue().getData() / total_for_Cat[j]) * 100;
-            var port = new aspose.slides.Portion();
-            port.setText(java.callStaticMethodSync("java.lang.String", "format", "{0:F2} %.2f", dataPontPercent));
-            port.getPortionFormat().setFontHeight(8.0);
-            lbl.getTextFrameForOverriding().setText("");
-            var para = lbl.getTextFrameForOverriding().getParagraphs().get_Item(0);
-            para.getPortions().add(port);
-            lbl.getDataLabelFormat().setShowSeriesName(false);
-            lbl.getDataLabelFormat().setShowPercentage(false);
-            lbl.getDataLabelFormat().setShowLegendKey(false);
-            lbl.getDataLabelFormat().setShowCategoryName(false);
-            lbl.getDataLabelFormat().setShowBubbleSize(false);
+
+        for (let j = 0; j < series.getDataPoints().size(); j++) {
+            const label = series.getDataPoints().get_Item(j).getLabel();
+            if (categoryTotals[j] == 0) {
+                continue;
+            }
+
+            const pointValue = series.getDataPoints().get_Item(j).getValue().getData();
+            const dataPointPercent = (Number(pointValue) / categoryTotals[j]) * 100;
+
+            const portion = new aspose.slides.Portion();
+            portion.setText(dataPointPercent.toFixed(2) + " %");
+            portion.getPortionFormat().setFontHeight(8);
+
+            label.getTextFrameForOverriding().setText("");
+            const paragraph = label.getTextFrameForOverriding().getParagraphs().get_Item(0);
+            paragraph.getPortions().add(portion);
+
+            label.getDataLabelFormat().setShowValue(true);
+            label.getDataLabelFormat().setShowSeriesName(false);
+            label.getDataLabelFormat().setShowPercentage(false);
+            label.getDataLabelFormat().setShowLegendKey(false);
+            label.getDataLabelFormat().setShowCategoryName(false);
+            label.getDataLabelFormat().setShowBubbleSize(false);
         }
     }
-    // ارائه حاوی نمودار را ذخیره می‌کند
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("DisplayPercentageAsLabels_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **تنظیم علامت درصد در برچسب‌های دادهٔ نمودار**
+## **تنظیم علامت درصد با برچسب‌های داده نمودار**
 
-این کد جاوااسکریپت نشان می‌دهد که چگونه علامت درصد را برای یک برچسب دادهٔ نمودار تنظیم کنید:
+هنگامی که مقادیر به‌صورت کسر ذخیره می‌شوند، از [setNumberFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) برای نمایش درصدها استفاده کنید. مقدار `false` را به [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) پاس دهید تا قالب برچسب به‌صورت مستقل از سلول‌های منبع اعمال شود.
+
+این مثال یک نمودار ستونی 100٪ انباشته با سری‌های قرمز و آبی در چهار دسته ایجاد می‌کند. هر جفت مقدار مجموعاً برابر 1 است. قالب برچسب `0.0%` مقدار 0.30 را به‌صورت 30.0٪ نمایش می‌دهد، در حالی که محور عمودی از دو رقم اعشار استفاده می‌کند. هر دو سری از متن برچسب سفید با اندازهٔ قلم 10 نقطه‌ای استفاده می‌کنند.
+
 ```javascript
-// یک نمونه از کلاس Presentation ایجاد می‌کند
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // مرجع یک اسلاید را از طریق ایندکس آن دریافت می‌کند
-    var slide = pres.getSlides().get_Item(0);
-    // نمودار PercentsStackedColumn را بر روی اسلاید ایجاد می‌کند
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.PercentsStackedColumn, 20, 20, 500, 400);
-    // NumberFormatLinkedToSource را به false تنظیم می‌کند
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PercentsStackedColumn, 20, 20, 500, 400);
+
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.00%");
+
     chart.getChartData().getSeries().clear();
-    var defaultWorksheetIndex = 0;
-    // ورک‌شیت دادهٔ نمودار را دریافت می‌کند
-    var workbook = chart.getChartData().getChartDataWorkbook();
-    // سری جدیدی اضافه می‌کند
-    var series = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.getType());
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 1, 0.3));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 1, 0.5));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 1, 0.8));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 1, 0.65));
-    // رنگ پر کردن سری را تنظیم می‌کند
-    series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // ویژگی‌های LabelFormat را تنظیم می‌کند
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // سری جدیدی اضافه می‌کند
-    var series2 = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.getType());
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 2, 0.7));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 2, 0.5));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 2, 0.2));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 2, 0.35));
-    // نوع پر کردن و رنگ را تنظیم می‌کند
-    series2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    series2.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-    // ارائه را بر روی دیسک ذخیره می‌کند
-    pres.save("SetDataLabelsPercentageSign_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+    for (let i = 0; i < 4; i++) {
+        const categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
     }
+
+    const seriesNames = ["Reds", "Blues"];
+    const white = java.getStaticFieldValue("java.awt.Color", "WHITE");
+    const seriesColors = [java.getStaticFieldValue("java.awt.Color", "RED"), java.getStaticFieldValue("java.awt.Color", "BLUE")];
+    const values = [[0.30, 0.50, 0.80, 0.65], [0.70, 0.50, 0.20, 0.35]];
+
+    for (let i = 0; i < seriesNames.length; i++) {
+        const seriesCell = workbook.getCell(worksheetIndex, 0, i + 1, seriesNames[i]);
+        const series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+        for (let j = 0; j < 4; j++) {
+            const valueCell = workbook.getCell(worksheetIndex, j + 1, i + 1, values[i][j]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        series.getFormat().getFill().getSolidFillColor().setColor(seriesColors[i]);
+
+        const labelFormat = series.getLabels().getDefaultDataLabelFormat();
+        labelFormat.setShowValue(true);
+        labelFormat.setNumberFormatLinkedToSource(false);
+        labelFormat.setNumberFormat("0.0%");
+        labelFormat.getTextFormat().getPortionFormat().setFontHeight(10);
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(white);
+    }
+
+    presentation.save("SetDataLabelsPercentageSign_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **تنظیم فاصله برچسب‌ها از محور**
+## **خواندن متن واقعی برچسب‌های داده**
 
-این کد جاوااسکریپت نشان می‌دهد که چگونه فاصله برچسب را از محور دسته‌بندی تنظیم کنید هنگامی که با نموداری که از محورها ترسیم شده سروکار دارید:
+از [getActualLabelText](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) برای بازیابی متنی که توسط تنظیمات برچسب داده تولید می‌شود استفاده کنید. این در هنگام استخراج برچسب‌ها برای گزارش‌ها، جستجو در محتوای ارائه یا اعتبارسنجی نمودارهای تولید شده مفید است. در مثال زیر، قالب پیش‌فرض [data label format](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/datalabelformat/) نام هر دسته، نام سری و مقدار را ترکیب می‌کند. یک نقطه مقدار خود را به‌صورت درصد قالب‌بندی می‌کند و نقطهٔ دیگر متن سفارشی را از [getTextFrameForOverriding](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) استفاده می‌کند.
+
 ```javascript
-// یک نمونه از کلاس Presentation ایجاد می‌کند
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // مرجع یک اسلاید را دریافت می‌کند
-    var sld = pres.getSlides().get_Item(0);
-    // یک نمودار را بر روی اسلاید ایجاد می‌کند
-    var ch = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
-    // فاصله برچسب را از یک محور تنظیم می‌کند
-    ch.getAxes().getHorizontalAxis().setLabelOffset(500);
-    // ارائه را بر روی دیسک ذخیره می‌کند
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const firstCategoryCell = workbook.getCell(0, 1, 0, "Q1");
+    chart.getChartData().getCategories().add(firstCategoryCell);
+    const secondCategoryCell = workbook.getCell(0, 2, 0, "Q2");
+    chart.getChartData().getCategories().add(secondCategoryCell);
+
+    const northSeriesCell = workbook.getCell(0, 0, 1, "North");
+    const north = chart.getChartData().getSeries().add(northSeriesCell, chart.getType());
+    const northFirstValueCell = workbook.getCell(0, 1, 1, 0.25);
+    north.getDataPoints().addDataPointForBarSeries(northFirstValueCell);
+    const northSecondValueCell = workbook.getCell(0, 2, 1, 0.75);
+    north.getDataPoints().addDataPointForBarSeries(northSecondValueCell);
+
+    const southSeriesCell = workbook.getCell(0, 0, 2, "South");
+    const south = chart.getChartData().getSeries().add(southSeriesCell, chart.getType());
+    const southFirstValueCell = workbook.getCell(0, 1, 2, 0.40);
+    south.getDataPoints().addDataPointForBarSeries(southFirstValueCell);
+    const southSecondValueCell = workbook.getCell(0, 2, 2, 0.60);
+    south.getDataPoints().addDataPointForBarSeries(southSecondValueCell);
+
+    for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
+        const series = chart.getChartData().getSeries().get_Item(i);
+        const format = series.getLabels().getDefaultDataLabelFormat();
+        format.setShowCategoryName(true);
+        format.setShowSeriesName(true);
+        format.setShowValue(true);
     }
+
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormatLinkedToSource(false);
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormat("0%");
+    south.getLabels().get_Item(0).getTextFrameForOverriding().setText("Reviewed");
+
+    for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
+        const series = chart.getChartData().getSeries().get_Item(i);
+        for (let j = 0; j < series.getDataPoints().size(); j++) {
+            const point = series.getDataPoints().get_Item(j);
+            const label = point.getLabel();
+            if (!label.isVisible()) {
+                continue;
+            }
+
+            console.log("Value: " + point.getValue().getData() + "; label: " + label.getActualLabelText());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+عدد ذخیره‌شده در یک نقطهٔ داده همچنان `0.75` باقی می‌ماند، حتی اگر برچسب آن `75%` همراه با نام دسته و سری را نشان دهد. متن سفارشی متن برچسب تولید شده را جایگزین می‌کند. [getActualLabelText](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) رشتهٔ برچسب حاصل را در هر دو حالت برمی‌گرداند. هنگام نیاز به استخراج فقط برچسب‌های قابل مشاهده، همان‌طور که در بالا نشان داده شد، به‌طور جداگانه [isVisible](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/datalabel/isvisible/) را بررسی کنید.
+
+## **تنظیم فاصله برچسب از محور**
+
+از [setLabelOffset](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/axis/setlabeloffset/) برای کنترل فاصله بین برچسب‌های محور دسته‌بندی و خود محور استفاده کنید. مقدار، درصدی از حداکثر اندازهٔ قلم برچسب‌های محور است. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و مقدار آفست برچسب محور افقی را روی 500 تنظیم می‌کند. این تنظیم بر برچسب‌های محور دسته‌بندی اثر می‌گذارد نه برچسب‌های متصل به نقاط دادهٔ جداگانه.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+    chart.getAxes().getHorizontalAxis().setLabelOffset(500);
+
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **تنظیم موقعیت برچسب**
 
-هنگامی که نموداری ایجاد می‌کنید که به هیچ محوری وابسته نیست، مانند نمودار پای، ممکن است برچسب‌های دادهٔ نمودار بسیار نزدیک به حاشیهٔ آن شوند. در چنین مواردی باید موقعیت برچسب داده را تنظیم کنید تا خطوط راهنما به‌وضوح نمایش داده شوند.
-این کد جاوااسکریپت نشان می‌دهد که چگونه موقعیت برچسب را در یک نمودار پای تنظیم کنید:
+در یک نمودار دایره‌ای، موقعیت برچسب‌های داده را تنظیم کنید تا فاصله‌ها بهبود یابند و جای کافی برای خطوط راهنما ایجاد شود.
+
+این مثال مقدار اولین نقطهٔ داده را نمایش می‌دهد، برچسب آن را خارج از قطعه قرار می‌دهد و آفست‌های افقی و عمودی آن را با استفاده از [setX](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/datalabel/setx/) و [setY](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/datalabel/sety/) تنظیم می‌کند. این آفست‌ها به ترتیب نسبت به عرض و ارتفاع نمودار هستند.
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
-    var series = chart.getChartData().getSeries();
-    var label = series.get_Item(0).getLabels().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
+    const series = chart.getChartData().getSeries();
+
+    const label = series.get_Item(0).getLabels().get_Item(0);
     label.getDataLabelFormat().setShowValue(true);
     label.getDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.OutsideEnd);
-    label.setX(0.71);
-    label.setY(0.04);
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    label.setX(java.newFloat(0.71));
+    label.setY(java.newFloat(0.04));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![نمودار دایره‌ای با موقعیت برچسب داده تنظیم‌شده](pie-chart-adjusted-label.png)
 
-## **سؤالات متداول**
+## **پرسش‌های متداول**
 
-**چگونه می‌توانم از هم‌پوشانی برچسب‌های داده در نمودارهای پرجمعیت جلوگیری کنم؟**
+**چگونه می‌توانم از هم‌پوشانی برچسب‌های داده در نمودارهای پرپشت جلوگیری کنم؟**
 
-از جایگذاری خودکار برچسب‌ها، خطوط راهنما و کاهش اندازه قلم استفاده کنید؛ در صورت لزوم برخی فیلدها (مثلاً دسته‌بندی) را مخفی کنید یا فقط برای نقاط انتهایی/کلیدی برچسب‌ها را نمایش دهید.
+استفاده ترکیبی از مکان‌یابی خودکار برچسب، خطوط راهنما و کاهش اندازهٔ قلم؛ در صورت نیاز، برخی فیلدها (مثلاً دسته) را مخفی کنید یا فقط برچسب‌ها را برای مقادیر بسیار بزرگ یا نقاط کلیدی نمایش دهید.
 
 **چگونه می‌توانم برچسب‌ها را فقط برای مقادیر صفر، منفی یا خالی غیرفعال کنم؟**
 
-نقاط داده را پیش از فعال‌سازی برچسب‌ها فیلتر کنید و نمایش مقادیر صفر، مقادیر منفی یا مقادیر گمشده را بر اساس یک قانون تعریف‌شده غیرفعال کنید.
+قبل از فعال‌سازی برچسب‌ها نقاط داده را فیلتر کنید و نمایش مقادیر صفر، منفی یا مقادیر گمشده را بر اساس یک قانون تعریف‌شده غیرفعال کنید.
 
-**چگونه می‌توانم اطمینان حاصل کنم که سبک برچسب هنگام خروجی به PDF/تصاویر ثابت باشد؟**
+**چگونه می‌توانم سبک برچسب‌ها را هنگام خروجی به PDF/تصاویر سازگار نگه دارم؟**
 
-قلم‌ها (نام خانوادگی، اندازه) را به‌صورت صریح تنظیم کنید و اطمینان حاصل کنید که قلم بر روی سمت رندر موجود است تا از استفادهٔ قلم پیش‌فرض جلوگیری شود.
+قابلق نام فونت و اندازهٔ آن را به‌صراحت تنظیم کنید و اطمینان حاصل کنید فونت در محیط رندر موجود است تا از استفاده از فونت جایگزین جلوگیری شود.

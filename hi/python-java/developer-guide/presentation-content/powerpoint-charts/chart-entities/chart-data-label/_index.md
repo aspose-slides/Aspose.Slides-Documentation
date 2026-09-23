@@ -15,15 +15,15 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट डेटा लेबल जोड़ने और स्वरूपित करने के बारे में सीखें, ताकि स्लाइड्स अधिक आकर्षक बनें।"
+description: "PowerPoint प्रस्तुतियों में अधिक आकर्षक स्लाइड्स के लिए Aspose.Slides for Python via Java का उपयोग करके चार्ट डेटा लेबल जोड़ना और स्वरूपित करना सीखें।"
 ---
 ## **परिचय**
 
-चार्ट पर डेटा लेबल्स चार्ट डेटा सीरीज़ या व्यक्तिगत डेटा पॉइंट्स के विवरण दिखाते हैं। यह पाठकों को जल्दी से डेटा सीरीज़ पहचानने में मदद करता है, और चार्ट को समझना भी आसान बनाता है।
+डेटा लेबल चार्ट सीरीज़ और व्यक्तिगत डेटा पॉइंट्स के बारे में जानकारी प्रदर्शित करते हैं, जिससे पाठकों को मान पहचानने और चार्ट समझने में मदद मिलती है। यह लेख बताता है कि मानों को कैसे स्वरूपित करें, प्रतिशत कैसे दिखाएँ, लेबल टेक्स्ट कैसे पढ़ें, श्रेणी अक्ष लेबल स्पेसिंग को कैसे समायोजित करें, और पाई चार्ट लेबल को कैसे स्थित करें।
 
-## **चार्ट डेटा लेबल्स में डेटा प्रेसिशन सेट करें**
+## **डेटा लेबल में डेटा सटीकता सेट करें**
 
-यह Python कोड दिखाता है कि चार्ट डेटा लेबल में डेटा प्रेसिशन कैसे सेट करें:
+सीरीज़ मानों को स्वरूपित करने के लिए [setNumberFormatOfValues](https://reference.aspose.com/slides/hi/python-java/aspose.slides/chartseries/#setNumberFormatOfValues) का उपयोग करें। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, उसकी डेटा टेबल दिखाता है, और पहली सीरीज़ के लिए मान लेबल सक्षम करता है। फ़ॉर्मेट `#,##0.00` हजार विभाजक और दो दशमलव स्थान दिखाता है बिना मूल मानों को बदले।
 
 ```python
 import jpype
@@ -36,17 +36,23 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 50, 50, 450, 300)
-    chart.setDataTable(True)
-    chart.getChartData().getSeries().get_Item(0).setNumberFormatOfValues("#,##0.00")
+    slide = presentation.getSlides().get_Item(0)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300)
+    chart.setDataTable(True)
+
+    series = chart.getChartData().getSeries().get_Item(0)
+    series.setNumberFormatOfValues("#,##0.00")
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(True)
+
+    presentation.save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **प्रतिशत को लेबल के रूप में दिखाएँ**
-Aspose.Slides for Python via Java आपको प्रदर्शित चार्ट्स पर प्रतिशत लेबल सेट करने की अनुमति देता है। यह Python कोड इस ऑपरेशन को दर्शाता है:
+## **लेबल के रूप में प्रतिशत दिखाएँ**
+
+स्टैक्ड कॉलम चार्ट के लिए, प्रत्येक मान को उसकी श्रेणी कुल का प्रतिशत गणना करें और टेक्स्ट को उस टेक्स्ट फ्रेम में असाइन करें जो [getTextFrameForOverriding](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) द्वारा लौटाया जाता है। यह उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है और 8‑पॉइंट फ़ॉन्ट में दो दशमलव स्थान के साथ प्रतिशत दिखाता है। शून्य कुल वाली श्रेणियों को शून्य से विभाजन से बचने के लिए छोड़ दिया जाता है। यदि चार्ट डेटा बदलता है तो कस्टम लेबल टेक्स्ट को पुनः गणना करें।
 
 ```python
 import jpype
@@ -61,6 +67,7 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
     chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400)
+
     chart_series = chart.getChartData().getSeries()
     category_totals = [0.0] * chart.getChartData().getCategories().size()
     for category_index in range(len(category_totals)):
@@ -88,19 +95,23 @@ try:
             paragraph.getPortions().add(portion)
 
             label_format = label.getDataLabelFormat()
+            label_format.setShowValue(True)
             label_format.setShowSeriesName(False)
             label_format.setShowPercentage(False)
             label_format.setShowLegendKey(False)
             label_format.setShowCategoryName(False)
             label_format.setShowBubbleSize(False)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **चार्ट डेटा लेबल्स के साथ प्रतिशत चिह्न सेट करें**
-यह Python कोड दिखाता है कि चार्ट डेटा लेबल के लिए प्रतिशत चिह्न कैसे सेट करें:
+## **चार्ट डेटा लेबल के साथ प्रतिशत संकेत सेट करें**
+
+जब मान अंश के रूप में संग्रहीत होते हैं, तो प्रतिशत दिखाने के लिए [setNumberFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabelformat/#setNumberFormat) का उपयोग करें। लेबल फ़ॉर्मेट को स्रोत सेल्स से स्वतंत्र रूप से लागू करने के लिए [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) को `False` पास करें।
+
+यह उदाहरण चार श्रेणियों में लाल और नीले सीरीज़ के साथ 100% स्टैक्ड कॉलम चार्ट बनाता है। प्रत्येक मान जोड़ी का योग 1 होता है। लेबल फ़ॉर्मेट `0.0%` 0.30 को 30.0% के रूप में दिखाता है, जबकि लम्बवत अक्ष दो दशमलव स्थान उपयोग करता है। दोनों सीरीज़ सफेद, 10‑पॉइंट लेबल टेक्स्ट प्रयोग करते हैं।
 
 ```python
 import jpype
@@ -117,55 +128,114 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
     chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400)
+
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
     chart.getAxes().getVerticalAxis().setNumberFormat("0.00%")
+
     chart.getChartData().getSeries().clear()
-    worksheet_index = 0
+    chart.getChartData().getCategories().clear()
+
     workbook = chart.getChartData().getChartDataWorkbook()
+    worksheet_index = 0
+    for i in range(4):
+        category_cell = workbook.getCell(worksheet_index, i + 1, 0, f"Category {i + 1}")
+        chart.getChartData().getCategories().add(category_cell)
 
-    # लाल श्रृंखला जोड़ें।
-    series_cell = workbook.getCell(worksheet_index, 0, 1, "Reds")
-    red_series = chart.getChartData().getSeries().add(series_cell, chart.getType())
-    for row_index, value in enumerate([0.30, 0.50, 0.80, 0.65], start=1):
-        data_cell = workbook.getCell(worksheet_index, row_index, 1, jpype.JDouble(value))
-        red_series.getDataPoints().addDataPointForBarSeries(data_cell)
+    series_names = ["Reds", "Blues"]
+    series_colors = [Color.RED, Color.BLUE]
+    values = [[0.30, 0.50, 0.80, 0.65], [0.70, 0.50, 0.20, 0.35]]
 
-    red_series.getFormat().getFill().setFillType(FillType.Solid)
-    red_series.getFormat().getFill().getSolidFillColor().setColor(Color.RED)
-    red_label_format = red_series.getLabels().getDefaultDataLabelFormat()
-    red_label_format.setShowValue(True)
-    red_label_format.setNumberFormatLinkedToSource(False)
-    red_label_format.setNumberFormat("0.0%")
-    red_portion_format = red_label_format.getTextFormat().getPortionFormat()
-    red_portion_format.setFontHeight(10)
-    red_portion_format.getFillFormat().setFillType(FillType.Solid)
-    red_portion_format.getFillFormat().getSolidFillColor().setColor(Color.WHITE)
+    for i, series_name in enumerate(series_names):
+        series_cell = workbook.getCell(worksheet_index, 0, i + 1, series_name)
+        series = chart.getChartData().getSeries().add(series_cell, chart.getType())
+        for j, value in enumerate(values[i]):
+            value_cell = workbook.getCell(worksheet_index, j + 1, i + 1, jpype.JDouble(value))
+            series.getDataPoints().addDataPointForBarSeries(value_cell)
 
-    # नीली श्रृंखला जोड़ें।
-    series_cell = workbook.getCell(worksheet_index, 0, 2, "Blues")
-    blue_series = chart.getChartData().getSeries().add(series_cell, chart.getType())
-    for row_index, value in enumerate([0.70, 0.50, 0.20, 0.35], start=1):
-        data_cell = workbook.getCell(worksheet_index, row_index, 2, jpype.JDouble(value))
-        blue_series.getDataPoints().addDataPointForBarSeries(data_cell)
+        series.getFormat().getFill().setFillType(FillType.Solid)
+        series.getFormat().getFill().getSolidFillColor().setColor(series_colors[i])
 
-    blue_series.getFormat().getFill().setFillType(FillType.Solid)
-    blue_series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE)
-    blue_label_format = blue_series.getLabels().getDefaultDataLabelFormat()
-    blue_label_format.setShowValue(True)
-    blue_label_format.setNumberFormatLinkedToSource(False)
-    blue_label_format.setNumberFormat("0.0%")
-    blue_portion_format = blue_label_format.getTextFormat().getPortionFormat()
-    blue_portion_format.setFontHeight(10)
-    blue_portion_format.getFillFormat().setFillType(FillType.Solid)
-    blue_portion_format.getFillFormat().getSolidFillColor().setColor(Color.WHITE)
+        label_format = series.getLabels().getDefaultDataLabelFormat()
+        label_format.setShowValue(True)
+        label_format.setNumberFormatLinkedToSource(False)
+        label_format.setNumberFormat("0.0%")
+        portion_format = label_format.getTextFormat().getPortionFormat()
+        portion_format.setFontHeight(10)
+        portion_format.getFillFormat().setFillType(FillType.Solid)
+        portion_format.getFillFormat().getSolidFillColor().setColor(Color.WHITE)
 
     presentation.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+## **डेटा लेबल के वास्तविक टेक्स्ट को पढ़ें**
+
+डेटा लेबल की सेटिंग्स द्वारा उत्पन्न टेक्स्ट को प्राप्त करने के लिए [getActualLabelText](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#getActualLabelText) का उपयोग करें। यह रिपोर्ट के लिए लेबल निकालते समय, प्रस्तुतिकरण सामग्री खोजते समय, या जेनरेटेड चार्ट्स को वैध करते समय उपयोगी है। नीचे दिए गए उदाहरण में, डिफ़ॉल्ट [data label format](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabelformat/) प्रत्येक श्रेणी नाम, सीरीज़ नाम, और मान को संयोजित करता है। एक पॉइंट अपना मान प्रतिशत के रूप में स्वरूपित करता है, और दूसरा [getTextFrameForOverriding](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#getTextFrameForOverriding) से कस्टम टेक्स्ट उपयोग करता है।
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
+
+    chart.getChartData().getSeries().clear()
+    chart.getChartData().getCategories().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    first_category_cell = workbook.getCell(0, 1, 0, "Q1")
+    chart.getChartData().getCategories().add(first_category_cell)
+    second_category_cell = workbook.getCell(0, 2, 0, "Q2")
+    chart.getChartData().getCategories().add(second_category_cell)
+
+    north_series_cell = workbook.getCell(0, 0, 1, "North")
+    north = chart.getChartData().getSeries().add(north_series_cell, chart.getType())
+    north_first_value_cell = workbook.getCell(0, 1, 1, jpype.JDouble(0.25))
+    north.getDataPoints().addDataPointForBarSeries(north_first_value_cell)
+    north_second_value_cell = workbook.getCell(0, 2, 1, jpype.JDouble(0.75))
+    north.getDataPoints().addDataPointForBarSeries(north_second_value_cell)
+
+    south_series_cell = workbook.getCell(0, 0, 2, "South")
+    south = chart.getChartData().getSeries().add(south_series_cell, chart.getType())
+    south_first_value_cell = workbook.getCell(0, 1, 2, jpype.JDouble(0.40))
+    south.getDataPoints().addDataPointForBarSeries(south_first_value_cell)
+    south_second_value_cell = workbook.getCell(0, 2, 2, jpype.JDouble(0.60))
+    south.getDataPoints().addDataPointForBarSeries(south_second_value_cell)
+
+    for series in chart.getChartData().getSeries():
+        label_format = series.getLabels().getDefaultDataLabelFormat()
+        label_format.setShowCategoryName(True)
+        label_format.setShowSeriesName(True)
+        label_format.setShowValue(True)
+
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormatLinkedToSource(False)
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormat("0%")
+    south.getLabels().get_Item(0).getTextFrameForOverriding().setText("Reviewed")
+
+    for series in chart.getChartData().getSeries():
+        for point in series.getDataPoints():
+            label = point.getLabel()
+            if not label.isVisible():
+                continue
+
+            print(f"Value: {point.getValue().getData()}; label: {label.getActualLabelText()}")
+finally:
+    presentation.dispose()
+```
+
+डेटा पॉइंट में संग्रहीत संख्या `0.75` ही रहती है, भले ही उसका लेबल `75%` के साथ श्रेणी और सीरीज़ नाम दिखाए। कस्टम टेक्स्ट जेनरेटेड लेबल टेक्स्ट को प्रतिस्थापित करता है। [getActualLabelText](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#getActualLabelText) दोनों स्थितियों में परिणामी लेबल स्ट्रिंग लौटाता है। जब आप केवल दृश्य लेबल निकालना चाहते हैं, तो ऊपर दिखाए अनुसार [isVisible](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#isVisible) को अलग से जांचें।
+
 ## **एक अक्ष से लेबल दूरी सेट करें**
-यह Python कोड दिखाता है कि जब आप अक्षों से बने चार्ट के साथ काम कर रहे हों तो श्रेणी अक्ष से लेबल दूरी कैसे सेट करें:
+
+[setLabelOffset](https://reference.aspose.com/slides/hi/python-java/aspose.slides/axis/#setLabelOffset) का उपयोग करके श्रेणी अक्ष लेबल और अक्ष के बीच दूरी नियंत्रित करें। यह मूल्य अक्ष लेबल के अधिकतम फ़ॉन्ट आकार का प्रतिशत होता है। यह उदाहरण क्लस्टर्ड कॉलम चार्ट बनाता है और क्षैतिज अक्ष लेबल ऑफ़सेट को 500 सेट करता है। यह सेटिंग व्यक्तिगत डेटा पॉइंट के साथ जुड़े लेबल के बजाय श्रेणी अक्ष लेबल को प्रभावित करती है।
 
 ```python
 import jpype
@@ -179,19 +249,20 @@ from asposeslides.api import ChartType, Presentation, SaveFormat
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
     chart.getAxes().getHorizontalAxis().setLabelOffset(500)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **लेबल स्थान समायोजित करें**
 
-जब आप ऐसा चार्ट बनाते हैं जो किसी भी अक्ष पर निर्भर नहीं करता, जैसे पाई चार्ट, तो चार्ट के डेटा लेबल्स उसकी किनारी के बहुत करीब हो सकते हैं। ऐसे मामलों में, आपको डेटा लेबल का स्थान समायोजित करना चाहिए ताकि लीडर लाइन्स स्पष्ट रूप से दिखें।
+पाई चार्ट पर, स्पेसिंग बेहतर करने और लीडर लाइनों के लिए जगह बनाने हेतु डेटा लेबल स्थितियों को समायोजित करें।
 
-यह Python कोड दिखाता है कि पाई चार्ट पर लेबल स्थान कैसे समायोजित करें:
+यह उदाहरण पहले डेटा पॉइंट का मान दिखाता है, उसका लेबल स्लाइस के बाहर रखता है, और [setX](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#setX) और [setY](https://reference.aspose.com/slides/hi/python-java/aspose.slides/datalabel/#setY) का उपयोग करके उसके क्षैतिज और ऊर्ध्वाधर ऑफ़सेट को समायोजित करता है। ये ऑफ़सेट क्रमशः चार्ट की चौड़ाई और ऊँचाई के सापेक्ष होते हैं।
 
 ```python
 import jpype
@@ -204,31 +275,30 @@ from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, S
 
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 200, 200)
+    slide = presentation.getSlides().get_Item(0)
+    chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200)
     series = chart.getChartData().getSeries()
+    
     label = series.get_Item(0).getLabels().get_Item(0)
     label.getDataLabelFormat().setShowValue(True)
     label.getDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd)
     label.setX(0.71)
     label.setY(0.04)
 
-    presentation.save("pres.pptx", SaveFormat.Pptx)
+    presentation.save("presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![समायोजित डेटा लेबल स्थिति वाला पाई चार्ट](pie-chart-adjusted-label.png)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं घनी चार्ट्स में डेटा लेबल्स के ओवरलैप को कैसे रोक सकता हूँ?**
+**भरे हुए चार्ट्स में डेटा लेबल के ओवरलैप को कैसे रोकें?**  
+स्वचालित लेबल प्लेसमेंट, लीडर लाइन्स और फ़ॉन्ट आकार घटाकर संयोजन करें; यदि आवश्यक हो तो कुछ फ़ील्ड (जैसे श्रेणी) को छिपाएँ या केवल अत्यधिक मानों या प्रमुख बिंदुओं के लिए लेबल दिखाएँ।
 
-ऑटोमैटिक लेबल प्लेसमेंट, लीडर लाइन्स, और छोटे फ़ॉन्ट आकार को मिलाएँ; आवश्यकता होने पर कुछ फ़ील्ड्स (जैसे श्रेणी) को छुपाएँ या केवल अत्यधिक/मुख्य बिंदुओं के लिए लेबल दिखाएँ।
+**शून्य, नकारात्मक या खाली मानों के लिए केवल लेबल को कैसे अक्षम करें?**  
+लेबल सक्षम करने से पहले डेटा पॉइंट्स को फ़िल्टर करें और परिभाषित नियम के अनुसार 0, नकारात्मक या अनुपलब्ध मानों के लिए डिस्प्ले बंद कर दें।
 
-**मैं केवल शून्य, नकारात्मक, या खाली मानों के लिए लेबल कैसे अक्षम कर सकता हूँ?**
-
-लेबल्स सक्षम करने से पहले डेटा पॉइंट्स को फ़िल्टर करें और परिभाषित नियम के अनुसार 0, नकारात्मक या अनुपलब्ध मानों के लिए डिस्प्ले बंद कर दें।
-
-**PDF/छवियों में निर्यात करते समय एक सुसंगत लेबल शैली कैसे सुनिश्चित करूँ?**
-
-फ़ॉन्ट (फ़ैमिली, आकार) को स्पष्ट रूप से सेट करें और रेंडरिंग पक्ष पर फ़ॉन्ट उपलब्ध है या नहीं, इसे जांचें ताकि फ़ॉलबैक न हो।
+**PDF/चित्रों में निर्यात करते समय एकसमान लेबल शैली कैसे सुनिश्चित करें?**  
+फ़ॉन्ट फैAMILY और आकार स्पष्ट रूप से सेट करें और रेंडरिंग पर्यावरण में फ़ॉन्ट उपलब्ध है यह पुष्टि करें ताकि फ़ॉलबैक न हो।

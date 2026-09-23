@@ -1,5 +1,5 @@
 ---
-title: PHP का उपयोग करके प्रस्तुति में चार्ट डेटा लेबल्स प्रबंधित करें
+title: PHP का उपयोग करके प्रस्तुतियों में चार्ट डेटा लेबल प्रबंधित करें
 linktitle: डेटा लेबल
 type: docs
 url: /hi/php-java/chart-data-label/
@@ -14,194 +14,289 @@ keywords:
 - प्रस्तुति
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java का उपयोग करके PowerPoint प्रस्तुतियों में चार्ट डेटा लेबल जोड़ने और फ़ॉर्मेट करने के तरीके सीखें, जिससे स्लाइड्स अधिक आकर्षक बनें।"
+description: "PowerPoint प्रस्तुतियों में Aspose.Slides for PHP (Java के माध्यम से) का उपयोग करके चार्ट डेटा लेबल जोड़ने और फ़ॉर्मैट करने का तरीका सीखें, ताकि अधिक आकर्षक स्लाइड बनाए जा सकें।"
 ---
 ## **परिचय**
 
-चार्ट पर डेटा लेबल्स चार्ट की डेटा सीरीज़ या व्यक्तिगत डेटा पॉइंट्स के बारे में विवरण दिखाते हैं। ये पाठकों को डेटा सीरीज़ को जल्दी पहचानने में मदद करते हैं और चार्ट को समझने में भी आसान बनाते हैं।
+डेटा लेबल चार्ट श्रृंखला और व्यक्तिगत डेटा बिंदुओं के बारे में जानकारी दिखाते हैं, जिससे पाठकों को मान पहचानने और चार्ट को समझने में मदद मिलती है। यह लेख बताता है कि मानों को कैसे फ़ॉर्मेट करें, प्रतिशत कैसे प्रदर्शित करें, लेबल टेक्स्ट कैसे पढ़ें, श्रेणी अक्ष लेबल की स्पेसिंग कैसे समायोजित करें, और पाई चार्ट लेबल की स्थिति कैसे निर्धारित करें।
 
-## **चार्ट डेटा लेबल्स में डेटा प्रिसीजन सेट करें**
+## **चार्ट डेटा लेबल में डेटा की सटीकता सेट करें**
 
-यह PHP कोड आपको दर्शाता है कि चार्ट डेटा लेबल में डेटा प्रिसीजन कैसे सेट किया जाता है:
+सीरीज़ मानों को फ़ॉर्मेट करने के लिए [setNumberFormatOfValues](https://reference.aspose.com/slides/hi/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) का उपयोग करें। यह उदाहरण डिफ़ॉल्ट डेटा के साथ एक लाइन चार्ट बनाता है, उसका डेटा टेबल दिखाता है, और पहली सीरीज़ के लिए वैल्यू लेबल सक्षम करता है। फ़ॉर्मेट `#,##0.00` हजारों विभाजक और दो दशमलव स्थान दिखाता है बिना मूल मानों को बदले।
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
     $chart->setDataTable(true);
-    $chart->getChartData()->getSeries()->get_Item(0)->setNumberFormatOfValues("#,##0.00");
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+    $series->setNumberFormatOfValues("#,##0.00");
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+
+    $presentation->save("PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **लेबल्स के रूप में प्रतिशत प्रदर्शित करें**
-Aspose.Slides for PHP via Java आपको प्रदर्शित चार्ट्स पर प्रतिशत लेबल सेट करने की अनुमति देता है। यह PHP कोड इस प्रक्रिया को दर्शाता है:
+## **लेबल के रूप में प्रतिशत प्रदर्शित करें**
+
+एक स्टैक्ड कॉलम चार्ट के लिए, प्रत्येक मान को उसकी श्रेणी कुल के प्रतिशत के रूप में गणना करें और टेक्स्ट फ्रेम को [getTextFrameForOverriding](https://reference.aspose.com/slides/hi/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) द्वारा लौटाए गए फ्रेम में टेक्स्ट असाइन करें। यह उदाहरण डिफ़ॉल्ट चार्ट डेटा का उपयोग करता है और 8‑पॉइंट फ़ॉन्ट में दो दशमलव स्थान के साथ प्रतिशत प्रदर्शित करता है। शून्य कुल वाले वर्गों को शून्य से विभाजन से बचने के लिए छोड़ दिया जाता है। चार्ट डेटा बदलने पर कस्टम लेबल टेक्स्ट को पुनः गणना करें।
 
 ```php
-  # Presentation वर्ग का एक उदाहरण बनाता है
-  $pres = new Presentation();
-  try {
-    # पहली स्लाइड प्राप्त करता है
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\Portion;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
-    $series;
-    $total_for_Cat = new double[$chart->getChartData()->getCategories()->size()];
-    for($k = 0; $k < java_values($chart->getChartData()->getCategories()->size()) ; $k++) {
-      $cat = $chart->getChartData()->getCategories()->get_Item($k);
-      for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
-        $total_for_Cat[$k] = $total_for_Cat[$k] + $chart->getChartData()->getSeries()->get_Item($i)->getDataPoints()->get_Item($k)->getValue()->getData();
-      }
+
+    $categoryCount = java_values($chart->getChartData()->getCategories()->size());
+    $categoryTotals = array_fill(0, $categoryCount, 0.0);
+    for ($k = 0; $k < $categoryCount; $k++) {
+        for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++) {
+            $series = $chart->getChartData()->getSeries()->get_Item($i);
+            $pointValue = java_values($series->getDataPoints()->get_Item($k)->getValue()->getData());
+            $categoryTotals[$k] += $pointValue;
+        }
     }
-    $dataPontPercent = 0.0;
-    for($x = 0; $x < java_values($chart->getChartData()->getSeries()->size()) ; $x++) {
-      $series = $chart->getChartData()->getSeries()->get_Item($x);
-      $series->getLabels()->getDefaultDataLabelFormat()->setShowLegendKey(false);
-      for($j = 0; $j < java_values($series->getDataPoints()->size()) ; $j++) {
-        $lbl = $series->getDataPoints()->get_Item($j)->getLabel();
-        $dataPontPercent = $series->getDataPoints()->get_Item($j)->getValue()->getData() / $total_for_Cat[$j] * 100;
-        $port = new Portion();
-        $port->setText(sprintf("{0:F2} %.2f", $dataPontPercent));
-        $port->getPortionFormat()->setFontHeight(8.0);
-        $lbl->getTextFrameForOverriding()->setText("");
-        $para = $lbl->getTextFrameForOverriding()->getParagraphs()->get_Item(0);
-        $para->getPortions()->add($port);
-        $lbl->getDataLabelFormat()->setShowSeriesName(false);
-        $lbl->getDataLabelFormat()->setShowPercentage(false);
-        $lbl->getDataLabelFormat()->setShowLegendKey(false);
-        $lbl->getDataLabelFormat()->setShowCategoryName(false);
-        $lbl->getDataLabelFormat()->setShowBubbleSize(false);
-      }
+
+    for ($x = 0; $x < java_values($chart->getChartData()->getSeries()->size()); $x++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($x);
+        $series->getLabels()->getDefaultDataLabelFormat()->setShowLegendKey(false);
+
+        for ($j = 0; $j < java_values($series->getDataPoints()->size()); $j++) {
+            $label = $series->getDataPoints()->get_Item($j)->getLabel();
+            if ($categoryTotals[$j] == 0) {
+                continue;
+            }
+
+            $pointValue = java_values($series->getDataPoints()->get_Item($j)->getValue()->getData());
+            $dataPointPercent = ($pointValue / $categoryTotals[$j]) * 100;
+
+            $portion = new Portion();
+            $portion->setText(sprintf("%.2F %%", $dataPointPercent));
+            $portion->getPortionFormat()->setFontHeight(8);
+
+            $label->getTextFrameForOverriding()->setText("");
+            $paragraph = $label->getTextFrameForOverriding()->getParagraphs()->get_Item(0);
+            $paragraph->getPortions()->add($portion);
+
+            $label->getDataLabelFormat()->setShowValue(true);
+            $label->getDataLabelFormat()->setShowSeriesName(false);
+            $label->getDataLabelFormat()->setShowPercentage(false);
+            $label->getDataLabelFormat()->setShowLegendKey(false);
+            $label->getDataLabelFormat()->setShowCategoryName(false);
+            $label->getDataLabelFormat()->setShowBubbleSize(false);
+        }
     }
-    # चार्ट वाले प्रस्तुतीकरण को सहेजता है
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **चार्ट डेटा लेबल्स के साथ प्रतिशत संकेत सेट करें**
-यह PHP कोड आपको चार्ट डेटा लेबल के लिए प्रतिशत संकेत सेट करने का तरीका दिखाता है:
+## **चार्ट डेटा लेबल के साथ प्रतिशत चिह्न सेट करें**
+
+जब मानों को भिन्न के रूप में संग्रहीत किया जाता है, तो प्रतिशत दिखाने के लिए [setNumberFormat](https://reference.aspose.com/slides/hi/php-java/aspose.slides/datalabelformat/#setNumberFormat) का उपयोग करें। लेबल फ़ॉर्मेट को स्रोत कोशिकाओं से स्वतंत्र रूप से लागू करने के लिए [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/hi/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) को `false` पास करें।
+
+यह उदाहरण चार श्रेणियों में लाल और नीले सीरीज़ के साथ 100 % स्टैक्ड कॉलम चार्ट बनाता है। प्रत्येक मान का जोड़ा 1 के बराबर होता है। लेबल फ़ॉर्मेट `0.0%` 0.30 को 30.0 % के रूप में दिखाता है, जबकि वर्टिकल अक्ष दो दशमलव स्थान उपयोग करता है। दोनों सीरीज़ सफ़ेद, 10‑पॉइंट लेबल टेक्स्ट का उपयोग करती हैं।
 
 ```php
-  # Presentation वर्ग का एक उदाहरण बनाता है
-  $pres = new Presentation();
-  try {
-    # इंडेक्स के माध्यम से स्लाइड का रेफ़रेंस प्राप्त करता है
-    $slide = $pres->getSlides()->get_Item(0);
-    # स्लाइड पर PercentsStackedColumn चार्ट बनाता है
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
-    # NumberFormatLinkedToSource को false सेट करता है
+
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.00%");
+
     $chart->getChartData()->getSeries()->clear();
-    $defaultWorksheetIndex = 0;
-    # चार्ट डेटा वर्कशीट प्राप्त करता है
+    $chart->getChartData()->getCategories()->clear();
+
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    # नया सीरीज़ जोड़ता है
-    $series = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 1, "Reds"), $chart->getType());
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 1, 0.3));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 1, 0.5));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 1, 0.8));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 1, 0.65));
-    # सीरीज़ का fill रंग सेट करता है
-    $series->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # LabelFormat गुण सेट करता है
-    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
-    $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
-    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontHeight(10);
-    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
-    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # नया सीरीज़ जोड़ता है
-    $series2 = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 2, "Blues"), $chart->getType());
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 2, 0.7));
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 2, 0.5));
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 2, 0.2));
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 2, 0.35));
-    # Fill प्रकार और रंग सेट करता है
-    $series2->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $series2->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $series2->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
-    $series2->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
-    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontHeight(10);
-    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
-    # प्रस्तुति को डिस्क पर सहेजता है
-    $pres->save("SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $worksheetIndex = 0;
+    for ($i = 0; $i < 4; $i++) {
+        $categoryCell = $workbook->getCell($worksheetIndex, $i + 1, 0, "Category " . ($i + 1));
+        $chart->getChartData()->getCategories()->add($categoryCell);
     }
-  }
+
+    $colors = java("java.awt.Color");
+    $seriesNames = [ "Reds", "Blues" ];
+    $seriesColors = [ $colors->RED, $colors->BLUE ];
+    $values = [ [ 0.30, 0.50, 0.80, 0.65 ], [ 0.70, 0.50, 0.20, 0.35 ] ];
+
+    for ($i = 0; $i < count($seriesNames); $i++) {
+        $seriesCell = $workbook->getCell($worksheetIndex, 0, $i + 1, $seriesNames[$i]);
+        $series = $chart->getChartData()->getSeries()->add($seriesCell, $chart->getType());
+        for ($j = 0; $j < 4; $j++) {
+            $valueCell = $workbook->getCell($worksheetIndex, $j + 1, $i + 1, $values[$i][$j]);
+            $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+        }
+
+        $series->getFormat()->getFill()->setFillType(FillType::Solid);
+        $series->getFormat()->getFill()->getSolidFillColor()->setColor($seriesColors[$i]);
+
+        $labelFormat = $series->getLabels()->getDefaultDataLabelFormat();
+        $labelFormat->setShowValue(true);
+        $labelFormat->setNumberFormatLinkedToSource(false);
+        $labelFormat->setNumberFormat("0.0%");
+        $labelFormat->getTextFormat()->getPortionFormat()->setFontHeight(10);
+        $labelFormat->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $labelFormat->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor($colors->WHITE);
+    }
+
+    $presentation->save("SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **अक्ष से लेबल की दूरी सेट करें**
-जब आप अक्षों से प्लॉट किए गए चार्ट के साथ काम कर रहे हों, तो यह PHP कोड आपको श्रेणी अक्ष से लेबल की दूरी कैसे सेट की जाए दिखाता है:
+## **डेटा लेबल का वास्तविक टेक्स्ट पढ़ें**
+
+डेटा लेबल की सेटिंग्स द्वारा उत्पन्न टेक्स्ट को प्राप्त करने के लिए [getActualLabelText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/datalabel/#getActualLabelText) का उपयोग करें। यह रिपोर्ट के लिए लेबल निकालते समय, प्रस्तुति सामग्री खोजते समय, या उत्पन्न चार्ट की वैधता जाँचते समय उपयोगी है। नीचे के उदाहरण में, डिफ़ॉल्ट [डेटा लेबल फ़ॉर्मेट](https://reference.aspose.com/slides/hi/php-java/aspose.slides/datalabelformat/) प्रत्येक श्रेणी नाम, सीरीज़ नाम, और मान को संयोजित करता है। एक बिंदु अपना मान प्रतिशत के रूप में फ़ॉर्मेट करता है, और दूसरा [getTextFrameForOverriding](https://reference.aspose.com/slides/hi/php-java/aspose.slides/datalabel/#getTextFrameForOverriding) से कस्टम टेक्स्ट का उपयोग करता है।
 
 ```php
-  # Presentation वर्ग का एक उदाहरण बनाता है
-  $pres = new Presentation();
-  try {
-    # स्लाइड का रेफ़रेंस प्राप्त करता है
-    $sld = $pres->getSlides()->get_Item(0);
-    # स्लाइड पर चार्ट बनाता है
-    $ch = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
-    # अक्ष से लेबल की दूरी सेट करता है
-    $ch->getAxes()->getHorizontalAxis()->setLabelOffset(500);
-    # प्रस्तुतीकरण को डिस्क पर सहेजता है
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $firstCategoryCell = $workbook->getCell(0, 1, 0, "Q1");
+    $chart->getChartData()->getCategories()->add($firstCategoryCell);
+    $secondCategoryCell = $workbook->getCell(0, 2, 0, "Q2");
+    $chart->getChartData()->getCategories()->add($secondCategoryCell);
+
+    $northSeriesCell = $workbook->getCell(0, 0, 1, "North");
+    $north = $chart->getChartData()->getSeries()->add($northSeriesCell, $chart->getType());
+    $northFirstValueCell = $workbook->getCell(0, 1, 1, 0.25);
+    $north->getDataPoints()->addDataPointForBarSeries($northFirstValueCell);
+    $northSecondValueCell = $workbook->getCell(0, 2, 1, 0.75);
+    $north->getDataPoints()->addDataPointForBarSeries($northSecondValueCell);
+
+    $southSeriesCell = $workbook->getCell(0, 0, 2, "South");
+    $south = $chart->getChartData()->getSeries()->add($southSeriesCell, $chart->getType());
+    $southFirstValueCell = $workbook->getCell(0, 1, 2, 0.40);
+    $south->getDataPoints()->addDataPointForBarSeries($southFirstValueCell);
+    $southSecondValueCell = $workbook->getCell(0, 2, 2, 0.60);
+    $south->getDataPoints()->addDataPointForBarSeries($southSecondValueCell);
+
+    for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($i);
+        $format = $series->getLabels()->getDefaultDataLabelFormat();
+        $format->setShowCategoryName(true);
+        $format->setShowSeriesName(true);
+        $format->setShowValue(true);
     }
-  }
+
+    $north->getLabels()->get_Item(1)->getDataLabelFormat()->setNumberFormatLinkedToSource(false);
+    $north->getLabels()->get_Item(1)->getDataLabelFormat()->setNumberFormat("0%");
+    $south->getLabels()->get_Item(0)->getTextFrameForOverriding()->setText("Reviewed");
+
+    for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($i);
+        for ($j = 0; $j < java_values($series->getDataPoints()->size()); $j++) {
+            $point = $series->getDataPoints()->get_Item($j);
+            $label = $point->getLabel();
+            if (!java_values($label->isVisible())) {
+                continue;
+            }
+
+            echo "Value: " . java_values($point->getValue()->getData()) . "; label: " . java_values($label->getActualLabelText()) . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **लेबल स्थान समायोजित करें**
+डेटा बिंदु में संग्रहीत संख्या `0.75` ही रहती है, भले ही उसका लेबल `75%` तथा श्रेणी और सीरीज़ नामों के साथ दिखे। कस्टम टेक्स्ट उत्पन्न लेबल टेक्स्ट को प्रतिस्थापित करता है। [getActualLabelText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/datalabel/#getActualLabelText) दोनों मामलों में परिणामी लेबल स्ट्रिंग लौटाता है। केवल दृश्य लेबल निकालना चाहते हैं तो ऊपर दिखाए अनुसार [isVisible](https://reference.aspose.com/slides/hi/php-java/aspose.slides/datalabel/#isVisible) को अलग से जांचें।
 
-जब आप ऐसी चार्ट बनाते हैं जो किसी भी अक्ष पर निर्भर नहीं करती, जैसे पाई चार्ट, तो चार्ट के डेटा लेबल किनारे के बहुत पास हो सकते हैं। ऐसे मामलों में आपको डेटा लेबल का स्थान समायोजित करना पड़ता है ताकि लीडर लाइन्स स्पष्ट रूप से दिखें।
+## **एक अक्ष से लेबल की दूरी सेट करें**
 
-यह PHP कोड आपको पाई चार्ट पर लेबल स्थान कैसे समायोजित किया जाता है दिखाता है:
+श्रेणी अक्ष लेबल और अक्ष के बीच की दूरी को नियंत्रित करने के लिए [setLabelOffset](https://reference.aspose.com/slides/hi/php-java/aspose.slides/axis/#setLabelOffset) का उपयोग करें। मान अक्ष लेबल की अधिकतम फ़ॉन्ट आकार का प्रतिशत होता है। यह उदाहरण एक क्लस्टर्ड कॉलम चार्ट बनाता है और क्षैतिज अक्ष लेबल ऑफ़सेट को 500 सेट करता है। यह सेटिंग व्यक्तिगत डेटा बिंदुओं से जुड़े लेबलों के बजाय श्रेणी अक्ष लेबल पर प्रभाव डालती है।
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+    $chart->getAxes()->getHorizontalAxis()->setLabelOffset(500);
+
+    $presentation->save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **लेबल का स्थान समायोजित करें**
+
+पाई चार्ट पर, डेटा लेबल की स्थिति को समायोजित करें ताकि स्पेसिंग बेहतर हो और लीडर लाइन के लिये जगह बन सके।
+
+यह उदाहरण पहले डेटा बिंदु का मान दिखाता है, उसका लेबल स्लाइस के बाहर रखता है, और [setX](https://reference.aspose.com/slides/hi/php-java/aspose.slides/datalabel/#setX) तथा [setY](https://reference.aspose.com/slides/hi/php-java/aspose.slides/datalabel/#setY) का उपयोग करके क्षैतिज व ऊर्ध्वाधर ऑफ़सेट समायोजित करता है। ये ऑफ़सेट क्रमशः चार्ट की चौड़ाई और ऊँचाई के सापेक्ष होते हैं।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
     $series = $chart->getChartData()->getSeries();
+
     $label = $series->get_Item(0)->getLabels()->get_Item(0);
     $label->getDataLabelFormat()->setShowValue(true);
-    $label->getDataLabelFormat()->setPosition(LegendDataLabelPosition->OutsideEnd);
+    $label->getDataLabelFormat()->setPosition(LegendDataLabelPosition::OutsideEnd);
     $label->setX(0.71);
     $label->setY(0.04);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![समायोजित डेटा लेबल स्थिति के साथ पाई चार्ट](pie-chart-adjusted-label.png)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं घने चार्ट्स में डेटा लेबल्स के ओवरलैप होने से कैसे रोक सकता हूँ?**
+**मैं घने चार्ट पर डेटा लेबल के ओवरलैप को कैसे रोक सकता हूँ?**
 
-स्वतः लेबल प्लेसमेंट, लीडर लाइन्स, और छोटे फ़ॉन्ट आकार को संयोजित करें; यदि आवश्यक हो तो कुछ फ़ील्ड छिपाएँ (जैसे श्रेणी) या केवल अत्यधिक/मुख्य बिंदुओं के लिए लेबल दिखाएँ।
+ऑटोमैटिक लेबल प्लेसमेंट, लीडर लाइन्स, और फ़ॉन्ट आकार को घटाकर संयोजन करें; आवश्यक होने पर कुछ फ़ील्ड (जैसे श्रेणी) छिपाएँ या केवल अत्यधिक मानों या प्रमुख बिंदुओं के लिए लेबल दिखाएँ।
 
-**मैं शून्य, नकारात्मक, या खाली मानों के लिए लेबल केवल कैसे बंद कर सकता हूँ?**
+**मैं केवल शून्य, नकारात्मक, या खाली मानों के लिए लेबल कैसे निष्क्रिय कर सकता हूँ?**
 
-लेबल सक्षम करने से पहले डेटा पॉइंट्स को फ़िल्टर करें और 0, नकारात्मक मानों या गायब मानों के लिए प्रदर्शित करना बंद करने का नियम लागू करें।
+लेबल सक्षम करने से पहले डेटा बिंदुओं को फ़िल्टर करें और 0, नकारात्मक या अनुपलब्ध मानों के लिए डिस्प्ले बंद करें, जैसा कि एक परिभाषित नियम में निर्दिष्ट किया गया हो।
 
-**PDF/इमेज में निर्यात करते समय मैं लेबल शैली को सुसंगत कैसे रख सकता हूँ?**
+**PDF/छवियों में निर्यात करते समय लेबल शैली को सुसंगत कैसे रखें?**
 
-फ़ॉन्ट (परिवार, आकार) को स्पष्ट रूप से सेट करें और यह सुनिश्चित करें कि रेंडरिंग साइड पर फ़ॉन्ट उपलब्ध हो ताकि फ़ॉलबैक न हो।
+फ़ॉन्ट परिवार और आकार को स्पष्ट रूप से सेट करें और रेंडरिंग पर्यावरण में फ़ॉन्ट उपलब्ध है यह सुनिश्चित करें ताकि फ़ॉलबैक से बचा जा सके।

@@ -16,206 +16,267 @@ keywords:
 - Aspose.Slides
 description: "Erfahren Sie, wie Sie Diagrammdatenbeschriftungen in PowerPoint-Präsentationen mit Aspose.Slides für Java hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
 ---
+## **Einleitung**
 
-Datenbeschriftungen in einem Diagramm zeigen Details zur Diagrammdatenreihe oder zu einzelnen Datenpunkten an. Sie ermöglichen es dem Leser, Datenreihen schnell zu identifizieren, und machen Diagramme leichter verständlich.
+Datenbeschriftungen zeigen Informationen über Diagrammserien und einzelne Datenpunkte an und helfen den Lesern, Werte zu erkennen und das Diagramm zu verstehen. Dieser Artikel erklärt, wie Werte formatiert, Prozentsätze angezeigt, Beschriftungstext ausgelesen, der Abstand von Achsenbeschriftungen angepasst und Beschriftungen in Kreisdiagrammen positioniert werden.
 
 ## **Datenpräzision in Diagrammbeschriftungen festlegen**
 
-Dieser Java‑Code zeigt, wie die Datenpräzision in einer Diagrammbeschriftung festgelegt wird:
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
-    
-    chart.setDataTable(true);
-    chart.getChartData().getSeries().get_Item(0).setNumberFormatOfValues("#,##0.00");
+Verwenden Sie [setNumberFormatOfValues](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-), um Reihenwerte zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Standarddaten, zeigt dessen Datentabelle an und aktiviert Wertebeschriftungen für die erste Reihe. Das Format `#,##0.00` zeigt ein Tausendertrennzeichen und zwei Dezimalstellen an, ohne die zugrunde liegenden Werte zu ändern.
 
-    pres.save("output.pptx",SaveFormat.Pptx);
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
+    chart.setDataTable(true);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    series.setNumberFormatOfValues("#,##0.00");
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **Prozentsatz als Beschriftungen anzeigen**
-Aspose.Slides for Java ermöglicht das Festlegen von Prozentsatz‑Beschriftungen in angezeigten Diagrammen. Dieser Java‑Code demonstriert die Vorgehensweise:
+
+Für ein gestapeltes Säulendiagramm berechnen Sie jeden Wert als Prozentsatz des Gesamtsummens seiner Kategorie und weisen den Text dem Textfeld zu, das von [getTextFrameForOverriding](https://reference.aspose.com/slides/de/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) zurückgegeben wird. Dieses Beispiel verwendet die Standarddiagrammdaten und zeigt Prozentsätze mit zwei Dezimalstellen in einer 8‑Punkt‑Schrift an. Kategorien mit einer Gesamtsumme von Null werden übersprungen, um eine Division durch Null zu vermeiden. Berechnen Sie den benutzerdefinierten Beschriftungstext neu, wenn sich die Diagrammdaten ändern.
+
 ```java
-// Erstellt eine Instanz der Presentation-Klasse
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Presentation presentation = new Presentation();
 try {
-    // Ruft die erste Folie ab
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400);
-    IChartSeries series;
-    double[] total_for_Cat = new double[chart.getChartData().getCategories().size()];
+
+    double[] categoryTotals = new double[chart.getChartData().getCategories().size()];
     for (int k = 0; k < chart.getChartData().getCategories().size(); k++) {
-        IChartCategory cat = chart.getChartData().getCategories().get_Item(k);
-    
         for (int i = 0; i < chart.getChartData().getSeries().size(); i++) {
-            total_for_Cat[k] = total_for_Cat[k] + (double) (chart.getChartData().getSeries().get_Item(i).getDataPoints().get_Item(k).getValue().getData());
+            IChartSeries series = chart.getChartData().getSeries().get_Item(i);
+            Number pointValue = (Number) series.getDataPoints().get_Item(k).getValue().getData();
+            categoryTotals[k] += pointValue.doubleValue();
         }
     }
-    
-    double dataPontPercent = 0f;
+
     for (int x = 0; x < chart.getChartData().getSeries().size(); x++) {
-        series = chart.getChartData().getSeries().get_Item(x);
+        IChartSeries series = chart.getChartData().getSeries().get_Item(x);
         series.getLabels().getDefaultDataLabelFormat().setShowLegendKey(false);
-    
+
         for (int j = 0; j < series.getDataPoints().size(); j++) {
-            IDataLabel lbl = series.getDataPoints().get_Item(j).getLabel();
-            dataPontPercent = (double) ((series.getDataPoints().get_Item(j).getValue().getData())) / (double) (total_for_Cat[j]) * 100;
-    
-            IPortion port = new Portion();
-            port.setText(String.format("{0:F2} %.2f", dataPontPercent));
-            port.getPortionFormat().setFontHeight(8f);
-            lbl.getTextFrameForOverriding().setText("");
-            IParagraph para = lbl.getTextFrameForOverriding().getParagraphs().get_Item(0);
-            para.getPortions().add(port);
-    
-            lbl.getDataLabelFormat().setShowSeriesName(false);
-            lbl.getDataLabelFormat().setShowPercentage(false);
-            lbl.getDataLabelFormat().setShowLegendKey(false);
-            lbl.getDataLabelFormat().setShowCategoryName(false);
-            lbl.getDataLabelFormat().setShowBubbleSize(false);
+            IDataLabel label = series.getDataPoints().get_Item(j).getLabel();
+            if (categoryTotals[j] == 0) {
+                continue;
+            }
+
+            Number pointValue = (Number) series.getDataPoints().get_Item(j).getValue().getData();
+            double dataPointPercent = (pointValue.doubleValue() / categoryTotals[j]) * 100;
+
+            IPortion portion = new Portion();
+            portion.setText(String.format(Locale.US, "%.2f %%", dataPointPercent));
+            portion.getPortionFormat().setFontHeight(8f);
+
+            label.getTextFrameForOverriding().setText("");
+            IParagraph paragraph = label.getTextFrameForOverriding().getParagraphs().get_Item(0);
+            paragraph.getPortions().add(portion);
+
+            label.getDataLabelFormat().setShowValue(true);
+            label.getDataLabelFormat().setShowSeriesName(false);
+            label.getDataLabelFormat().setShowPercentage(false);
+            label.getDataLabelFormat().setShowLegendKey(false);
+            label.getDataLabelFormat().setShowCategoryName(false);
+            label.getDataLabelFormat().setShowBubbleSize(false);
         }
     }
-    
-    // Speichert die Präsentation, die das Diagramm enthält
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Prozentzeichen mit Diagrammbeschriftungen festlegen**
 
-## **Prozentzeichen bei Diagrammbeschriftungen festlegen**
-Dieser Java‑Code zeigt, wie das Prozentzeichen für eine Diagrammbeschriftung festgelegt wird:
+Wenn Werte als Brüche gespeichert sind, verwenden Sie [setNumberFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-), um Prozentsätze anzuzeigen. Übergeben Sie `false` an [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/de/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-), um das Beschriftungsformat unabhängig von den Quellzellen anzuwenden.
+
+Dieses Beispiel erstellt ein zu 100 % gestapeltes Säulendiagramm mit roten und blauen Serien über vier Kategorien. Jeder Werte‑Paar summiert sich zu 1. Das Beschriftungsformat `0.0%` zeigt 0,30 als 30,0 % an, während die vertikale Achse zwei Dezimalstellen verwendet. Beide Serien verwenden weiße Beschriftungen mit 10 Punkt.
+
 ```java
-// Erstellt eine Instanz der Presentation-Klasse
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Ruft die Referenz einer Folie über ihren Index ab
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Erstellt das PercentsStackedColumn-Diagramm auf einer Folie
+    ISlide slide = presentation.getSlides().get_Item(0);
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
-    
-    // Setzt NumberFormatLinkedToSource auf false
+
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.00%");
-    
+
     chart.getChartData().getSeries().clear();
-    int defaultWorksheetIndex = 0;
-    
-    // Ruft das Arbeitsblatt der Diagrammdaten ab
+    chart.getChartData().getCategories().clear();
+
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
-    
-    // Fügt eine neue Serie hinzu
-    IChartSeries series = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.getType());
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 1, 0.30));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 1, 0.50));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 1, 0.80));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 1, 0.65));
-    
-    // Setzt die Füllfarbe der Serie
-    series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    
-    // Setzt die Eigenschaften von LabelFormat
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    // Fügt eine neue Serie hinzu
-    IChartSeries series2 = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.getType());
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 2, 0.70));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 2, 0.50));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 2, 0.20));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 2, 0.35));
-    
-    // Setzt Fülltyp und -farbe
-    series2.getFormat().getFill().setFillType(FillType.Solid);
-    series2.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-    series2.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
-    
-    // Schreibt die Präsentation auf die Festplatte
-    pres.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
+    int worksheetIndex = 0;
+    for (int i = 0; i < 4; i++) {
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+    }
+
+    String[] seriesNames = { "Reds", "Blues" };
+    Color[] seriesColors = { Color.RED, Color.BLUE };
+    double[][] values = { { 0.30, 0.50, 0.80, 0.65 }, { 0.70, 0.50, 0.20, 0.35 } };
+
+    for (int i = 0; i < seriesNames.length; i++) {
+        IChartDataCell seriesCell = workbook.getCell(worksheetIndex, 0, i + 1, seriesNames[i]);
+        IChartSeries series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+        for (int j = 0; j < 4; j++) {
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, j + 1, i + 1, values[i][j]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        series.getFormat().getFill().setFillType(FillType.Solid);
+        series.getFormat().getFill().getSolidFillColor().setColor(seriesColors[i]);
+
+        IDataLabelFormat labelFormat = series.getLabels().getDefaultDataLabelFormat();
+        labelFormat.setShowValue(true);
+        labelFormat.setNumberFormatLinkedToSource(false);
+        labelFormat.setNumberFormat("0.0%");
+        labelFormat.getTextFormat().getPortionFormat().setFontHeight(10);
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
+    }
+
+    presentation.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Den tatsächlichen Text von Datenbeschriftungen auslesen**
 
-## **Beschriftungsabstand zu einer Achse festlegen**
-Dieser Java‑Code zeigt, wie der Beschriftungsabstand zu einer Kategorienachse festgelegt wird, wenn ein diagrammbasiertes Diagramm verwendet wird:
+Verwenden Sie [getActualLabelText](https://reference.aspose.com/slides/de/java/com.aspose.slides/idatalabel/#getActualLabelText--), um den Text abzurufen, der durch die Einstellungen einer Datenbeschriftung erzeugt wird. Dies ist nützlich beim Extrahieren von Beschriftungen für Berichte, beim Durchsuchen von Präsentationsinhalten oder beim Validieren generierter Diagramme. Im nachfolgenden Beispiel kombiniert das Standard-[data label format](https://reference.aspose.com/slides/de/java/com.aspose.slides/idatalabelformat/) jeweils den Kategorienamen, den Seriennamen und den Wert. Ein Punkt formatiert seinen Wert als Prozentsatz, und ein anderer verwendet benutzerdefinierten Text aus [getTextFrameForOverriding](https://reference.aspose.com/slides/de/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+
 ```java
-// Erstellt eine Instanz der Presentation-Klasse
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Ruft die Referenz einer Folie ab
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Erstellt ein Diagramm auf der Folie
-    IChart ch = sld.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
-    
-    // Setzt den Beschriftungsabstand zu einer Achse
-    ch.getAxes().getHorizontalAxis().setLabelOffset(500);
-    
-    // Schreibt die Präsentation auf die Festplatte
-    pres.save("output.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell firstCategoryCell = workbook.getCell(0, 1, 0, "Q1");
+    chart.getChartData().getCategories().add(firstCategoryCell);
+    IChartDataCell secondCategoryCell = workbook.getCell(0, 2, 0, "Q2");
+    chart.getChartData().getCategories().add(secondCategoryCell);
+
+    IChartDataCell northSeriesCell = workbook.getCell(0, 0, 1, "North");
+    IChartSeries north = chart.getChartData().getSeries().add(northSeriesCell, chart.getType());
+    IChartDataCell northFirstValueCell = workbook.getCell(0, 1, 1, 0.25);
+    north.getDataPoints().addDataPointForBarSeries(northFirstValueCell);
+    IChartDataCell northSecondValueCell = workbook.getCell(0, 2, 1, 0.75);
+    north.getDataPoints().addDataPointForBarSeries(northSecondValueCell);
+
+    IChartDataCell southSeriesCell = workbook.getCell(0, 0, 2, "South");
+    IChartSeries south = chart.getChartData().getSeries().add(southSeriesCell, chart.getType());
+    IChartDataCell southFirstValueCell = workbook.getCell(0, 1, 2, 0.40);
+    south.getDataPoints().addDataPointForBarSeries(southFirstValueCell);
+    IChartDataCell southSecondValueCell = workbook.getCell(0, 2, 2, 0.60);
+    south.getDataPoints().addDataPointForBarSeries(southSecondValueCell);
+
+    for (IChartSeries series : chart.getChartData().getSeries()) {
+        IDataLabelFormat format = series.getLabels().getDefaultDataLabelFormat();
+        format.setShowCategoryName(true);
+        format.setShowSeriesName(true);
+        format.setShowValue(true);
+    }
+
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormatLinkedToSource(false);
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormat("0%");
+    south.getLabels().get_Item(0).getTextFrameForOverriding().setText("Reviewed");
+
+    for (IChartSeries series : chart.getChartData().getSeries()) {
+        for (IChartDataPoint point : series.getDataPoints()) {
+            IDataLabel label = point.getLabel();
+            if (!label.isVisible()) {
+                continue;
+            }
+
+            System.out.println("Value: " + point.getValue().getData() + "; label: " + label.getActualLabelText());
+        }
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Die in einem Datenpunkt gespeicherte Zahl bleibt `0.75`, selbst wenn ihre Beschriftung `75%` zusammen mit dem Kategorienamen und dem Seriennamen anzeigt. Benutzerdefinierter Text ersetzt den erzeugten Beschriftungstext. [getActualLabelText](https://reference.aspose.com/slides/de/java/com.aspose.slides/idatalabel/#getActualLabelText--) liefert den resultierenden Beschriftungsstring in jedem Fall zurück. Prüfen Sie [isVisible](https://reference.aspose.com/slides/de/java/com.aspose.slides/idatalabel/#isVisible--) separat, wie oben gezeigt, wenn Sie nur sichtbare Beschriftungen extrahieren möchten.
+
+## **Abstand der Beschriftung von einer Achse festlegen**
+
+Verwenden Sie [setLabelOffset](https://reference.aspose.com/slides/de/java/com.aspose.slides/iaxis/#setLabelOffset-int-), um den Abstand zwischen den Achsenbeschriftungen der Kategorie und der Achse zu steuern. Der Wert ist ein Prozentsatz der maximalen Schriftgröße der Achsenbeschriftungen. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm und setzt den Beschriftungsversatz der Horizontalachse auf 500. Diese Einstellung wirkt sich auf die Kategorienachsenbeschriftungen aus, nicht auf Beschriftungen, die einzelnen Datenpunkten zugeordnet sind.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+    chart.getAxes().getHorizontalAxis().setLabelOffset(500);
+
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Beschriftungsposition anpassen**
 
-Wenn Sie ein Diagramm erstellen, das keine Achse verwendet, beispielsweise ein Kreisdiagramm, können die Datenbeschriftungen zu nahe am Rand liegen. In diesem Fall müssen Sie die Position der Datenbeschriftung anpassen, damit die Verbindungslinien klar angezeigt werden.
+Bei einem Kreisdiagramm passen Sie die Positionen der Datenbeschriftungen an, um den Abstand zu verbessern und Platz für Führungslinien zu schaffen.
 
-Dieser Java‑Code zeigt, wie die Beschriftungsposition in einem Kreisdiagramm angepasst wird:
+Dieses Beispiel zeigt den Wert des ersten Datenpunkts, platziert seine Beschriftung außerhalb des Segments und passt die horizontalen und vertikalen Versätze mit [setX](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutable/#setX-float-) und [setY](https://reference.aspose.com/slides/de/java/com.aspose.slides/ilayoutable/#setY-float-) an. Diese Versätze beziehen sich jeweils auf die Diagrammbreite bzw. -höhe.
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
-
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
     IChartSeriesCollection series = chart.getChartData().getSeries();
-    IDataLabel label = series.get_Item(0).getLabels().get_Item(0);
 
+    IDataLabel label = series.get_Item(0).getLabels().get_Item(0);
     label.getDataLabelFormat().setShowValue(true);
     label.getDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd);
     label.setX(0.71f);
     label.setY(0.04f);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![Kreisdiagramm mit angepasster Datenbeschriftungsposition](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
-**Wie kann ich verhindern, dass sich Datenbeschriftungen bei dichten Diagrammen überlappen?**
+**Wie kann ich verhindern, dass sich Datenbeschriftungen bei dichten Diagrammen überlappen?**  
+Kombinieren Sie die automatische Beschriftungsplatzierung, Führungslinien und eine reduzierte Schriftgröße; bei Bedarf können Sie einige Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für Extremwerte bzw. wichtige Punkte anzeigen.
 
-Kombinieren Sie automatische Beschriftungsplatzierung, Verbindungslinien und reduzierte Schriftgröße; bei Bedarf Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für extreme/Schlüssel‑Punkte anzeigen.
-
-**Wie kann ich Beschriftungen nur für Null‑, negative‑ oder leere Werte deaktivieren?**
-
+**Wie kann ich Beschriftungen nur für Null‑, negative oder leere Werte deaktivieren?**  
 Filtern Sie Datenpunkte, bevor Sie Beschriftungen aktivieren, und schalten Sie die Anzeige für Werte von 0, negative Werte oder fehlende Werte gemäß einer definierten Regel aus.
 
-**Wie stelle ich einen konsistenten Beschriftungsstil beim Exportieren in PDF/Bilder sicher?**
-
-Setzen Sie Schriftarten (Familie, Größe) explizit und prüfen Sie, dass die Schriftart auf der Render‑Seite verfügbar ist, um einen Rückgriff zu vermeiden.
+**Wie kann ich einen einheitlichen Beschriftungsstil beim Exportieren in PDF/Bilder sicherstellen?**  
+Setzen Sie explizit die Schriftfamilie und -größe und prüfen Sie, dass die Schrift im Rendering‑Umfeld verfügbar ist, um ein Zurückgreifen auf Ersatzschriften zu vermeiden.

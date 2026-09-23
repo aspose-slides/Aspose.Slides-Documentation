@@ -15,212 +15,272 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides for Android via Java, aby uczynić slajdy bardziej atrakcyjnymi."
+description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides dla Androida w Javie, aby uzyskać bardziej angażujące slajdy."
 ---
 ## **Wprowadzenie**
 
-Etykiety danych na wykresie wyświetlają szczegóły dotyczące serii danych wykresu lub poszczególnych punktów danych. Umożliwiają czytelnikom szybkie rozpoznanie serii danych, a także ułatwiają zrozumienie wykresu.
+Etykiety danych wyświetlają informacje o seriach wykresu i pojedynczych punktach danych, pomagając czytelnikom zidentyfikować wartości i zrozumieć wykres. W tym artykule wyjaśniono, jak formatować wartości, wyświetlać procenty, odczytywać tekst etykiety, regulować odstępy etykiet osi kategorii oraz pozycjonować etykiety wykresu kołowego.
 
-## **Ustaw precyzję danych w etykietach danych wykresu**
+## **Ustaw precyzję danych w etykietach wykresu**
 
-Ten kod Java pokazuje, jak ustawić precyzję danych w etykiecie danych wykresu:
+Użyj [setNumberFormatOfValues](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) do formatowania wartości serii. Ten przykład tworzy wykres liniowy z domyślnymi danymi, wyświetla jego tabelę danych i włącza etykiety wartości dla pierwszej serii. Format `#,##0.00` wyświetla separator tysięcy i dwa miejsca po przecinku bez zmiany podstawowych wartości.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
-    
-    chart.setDataTable(true);
-    chart.getChartData().getSeries().get_Item(0).setNumberFormatOfValues("#,##0.00");
+import com.aspose.slides.*;
 
-    pres.save("output.pptx",SaveFormat.Pptx);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
+    chart.setDataTable(true);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    series.setNumberFormatOfValues("#,##0.00");
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Wyświetlaj procenty jako etykiety**
+## **Wyświetl procenty jako etykiety**
 
-Aspose.Slides for Android za pośrednictwem Java umożliwia ustawienie etykiet procentowych na wyświetlanych wykresach. Ten kod Java demonstruje działanie:
+Dla wykresu słupkowego skumulowanego oblicz każdą wartość jako procent całkowitej sumy w danej kategorii i przypisz tekst do ramki tekstowej zwróconej przez [getTextFrameForOverriding](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Ten przykład używa domyślnych danych wykresu i wyświetla procenty z dwoma miejscami po przecinku w czcionce o rozmiarze 8 punktów. Kategorie o sumie zerowej są pomijane, aby uniknąć dzielenia przez zero. Przelicz ponownie niestandardowy tekst etykiety, jeśli dane wykresu ulegną zmianie.
 
 ```java
-// Tworzy instancję klasy Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Presentation presentation = new Presentation();
 try {
-    // Pobiera pierwszy slajd
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400);
-    IChartSeries series;
-    double[] total_for_Cat = new double[chart.getChartData().getCategories().size()];
+
+    double[] categoryTotals = new double[chart.getChartData().getCategories().size()];
     for (int k = 0; k < chart.getChartData().getCategories().size(); k++) {
-        IChartCategory cat = chart.getChartData().getCategories().get_Item(k);
-    
         for (int i = 0; i < chart.getChartData().getSeries().size(); i++) {
-            total_for_Cat[k] = total_for_Cat[k] + (double) (chart.getChartData().getSeries().get_Item(i).getDataPoints().get_Item(k).getValue().getData());
+            IChartSeries series = chart.getChartData().getSeries().get_Item(i);
+            Number pointValue = (Number) series.getDataPoints().get_Item(k).getValue().getData();
+            categoryTotals[k] += pointValue.doubleValue();
         }
     }
-    
-    double dataPontPercent = 0f;
+
     for (int x = 0; x < chart.getChartData().getSeries().size(); x++) {
-        series = chart.getChartData().getSeries().get_Item(x);
+        IChartSeries series = chart.getChartData().getSeries().get_Item(x);
         series.getLabels().getDefaultDataLabelFormat().setShowLegendKey(false);
-    
+
         for (int j = 0; j < series.getDataPoints().size(); j++) {
-            IDataLabel lbl = series.getDataPoints().get_Item(j).getLabel();
-            dataPontPercent = (double) ((series.getDataPoints().get_Item(j).getValue().getData())) / (double) (total_for_Cat[j]) * 100;
-    
-            IPortion port = new Portion();
-            port.setText(String.format("{0:F2} %.2f", dataPontPercent));
-            port.getPortionFormat().setFontHeight(8f);
-            lbl.getTextFrameForOverriding().setText("");
-            IParagraph para = lbl.getTextFrameForOverriding().getParagraphs().get_Item(0);
-            para.getPortions().add(port);
-    
-            lbl.getDataLabelFormat().setShowSeriesName(false);
-            lbl.getDataLabelFormat().setShowPercentage(false);
-            lbl.getDataLabelFormat().setShowLegendKey(false);
-            lbl.getDataLabelFormat().setShowCategoryName(false);
-            lbl.getDataLabelFormat().setShowBubbleSize(false);
+            IDataLabel label = series.getDataPoints().get_Item(j).getLabel();
+            if (categoryTotals[j] == 0) {
+                continue;
+            }
+
+            Number pointValue = (Number) series.getDataPoints().get_Item(j).getValue().getData();
+            double dataPointPercent = (pointValue.doubleValue() / categoryTotals[j]) * 100;
+
+            IPortion portion = new Portion();
+            portion.setText(String.format(Locale.US, "%.2f %%", dataPointPercent));
+            portion.getPortionFormat().setFontHeight(8f);
+
+            label.getTextFrameForOverriding().setText("");
+            IParagraph paragraph = label.getTextFrameForOverriding().getParagraphs().get_Item(0);
+            paragraph.getPortions().add(portion);
+
+            label.getDataLabelFormat().setShowValue(true);
+            label.getDataLabelFormat().setShowSeriesName(false);
+            label.getDataLabelFormat().setShowPercentage(false);
+            label.getDataLabelFormat().setShowLegendKey(false);
+            label.getDataLabelFormat().setShowCategoryName(false);
+            label.getDataLabelFormat().setShowBubbleSize(false);
         }
     }
-    
-    // Zapisuje prezentację zawierającą wykres
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Ustaw znak procenta w etykietach danych wykresu**
 
-Ten kod Java pokazuje, jak ustawić znak procenta w etykiecie danych wykresu:
+Gdy wartości są przechowywane jako ułamki, użyj [setNumberFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) do wyświetlania procentów. Przekaż `false` do [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) aby zastosować format etykiety niezależnie od komórek źródłowych.
+
+Ten przykład tworzy wykres słupkowy skumulowany 100 % z serią czerwoną i niebieską w czterech kategoriach. Każda para wartości sumuje się do 1. Format etykiety `0.0%` wyświetla 0.30 jako 30.0 %, podczas gdy oś pionowa używa dwóch miejsc po przecinku. Obie serie używają białego tekstu etykiety o rozmiarze 10 punktów.
 
 ```java
-// Tworzy instancję klasy Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Pobiera referencję slajdu przez indeks
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Tworzy wykres PercentsStackedColumn na slajdzie
+    ISlide slide = presentation.getSlides().get_Item(0);
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
-    
-    // Ustawia NumberFormatLinkedToSource na false
+
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.00%");
-    
+
     chart.getChartData().getSeries().clear();
-    int defaultWorksheetIndex = 0;
-    
-    // Pobiera arkusz danych wykresu
+    chart.getChartData().getCategories().clear();
+
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
-    
-    // Dodaje nową serię
-    IChartSeries series = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.getType());
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 1, 0.30));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 1, 0.50));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 1, 0.80));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 1, 0.65));
-    
-    // Ustawia kolor wypełnienia serii
-    series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    
-    // Ustawia właściwości LabelFormat
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    // Dodaje nową serię
-    IChartSeries series2 = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.getType());
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 2, 0.70));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 2, 0.50));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 2, 0.20));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 2, 0.35));
-    
-    // Ustawia typ wypełnienia i kolor
-    series2.getFormat().getFill().setFillType(FillType.Solid);
-    series2.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-    series2.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
-    
-    // Zapisuje prezentację na dysku
-    pres.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
+    int worksheetIndex = 0;
+    for (int i = 0; i < 4; i++) {
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+    }
+
+    String[] seriesNames = { "Reds", "Blues" };
+    int[] seriesColors = { Color.RED, Color.BLUE };
+    double[][] values = { { 0.30, 0.50, 0.80, 0.65 }, { 0.70, 0.50, 0.20, 0.35 } };
+
+    for (int i = 0; i < seriesNames.length; i++) {
+        IChartDataCell seriesCell = workbook.getCell(worksheetIndex, 0, i + 1, seriesNames[i]);
+        IChartSeries series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+        for (int j = 0; j < 4; j++) {
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, j + 1, i + 1, values[i][j]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        series.getFormat().getFill().setFillType(FillType.Solid);
+        series.getFormat().getFill().getSolidFillColor().setColor(seriesColors[i]);
+
+        IDataLabelFormat labelFormat = series.getLabels().getDefaultDataLabelFormat();
+        labelFormat.setShowValue(true);
+        labelFormat.setNumberFormatLinkedToSource(false);
+        labelFormat.setNumberFormat("0.0%");
+        labelFormat.getTextFormat().getPortionFormat().setFontHeight(10);
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
+    }
+
+    presentation.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **Odczytaj rzeczywisty tekst etykiet danych**
+
+Użyj [getActualLabelText](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) aby pobrać tekst generowany na podstawie ustawień etykiety danych. Jest to przydatne przy wyodrębnianiu etykiet do raportów, przeszukiwaniu treści prezentacji lub weryfikacji wygenerowanych wykresów. W poniższym przykładzie domyślny [format etykiety danych](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idatalabelformat/) łączy nazwę kategorii, nazwę serii i wartość. Jeden punkt formatuje swoją wartość jako procent, a inny używa niestandardowego tekstu z [getTextFrameForOverriding](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell firstCategoryCell = workbook.getCell(0, 1, 0, "Q1");
+    chart.getChartData().getCategories().add(firstCategoryCell);
+    IChartDataCell secondCategoryCell = workbook.getCell(0, 2, 0, "Q2");
+    chart.getChartData().getCategories().add(secondCategoryCell);
+
+    IChartDataCell northSeriesCell = workbook.getCell(0, 0, 1, "North");
+    IChartSeries north = chart.getChartData().getSeries().add(northSeriesCell, chart.getType());
+    IChartDataCell northFirstValueCell = workbook.getCell(0, 1, 1, 0.25);
+    north.getDataPoints().addDataPointForBarSeries(northFirstValueCell);
+    IChartDataCell northSecondValueCell = workbook.getCell(0, 2, 1, 0.75);
+    north.getDataPoints().addDataPointForBarSeries(northSecondValueCell);
+
+    IChartDataCell southSeriesCell = workbook.getCell(0, 0, 2, "South");
+    IChartSeries south = chart.getChartData().getSeries().add(southSeriesCell, chart.getType());
+    IChartDataCell southFirstValueCell = workbook.getCell(0, 1, 2, 0.40);
+    south.getDataPoints().addDataPointForBarSeries(southFirstValueCell);
+    IChartDataCell southSecondValueCell = workbook.getCell(0, 2, 2, 0.60);
+    south.getDataPoints().addDataPointForBarSeries(southSecondValueCell);
+
+    for (IChartSeries series : chart.getChartData().getSeries()) {
+        IDataLabelFormat format = series.getLabels().getDefaultDataLabelFormat();
+        format.setShowCategoryName(true);
+        format.setShowSeriesName(true);
+        format.setShowValue(true);
+    }
+
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormatLinkedToSource(false);
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormat("0%");
+    south.getLabels().get_Item(0).getTextFrameForOverriding().setText("Reviewed");
+
+    for (IChartSeries series : chart.getChartData().getSeries()) {
+        for (IChartDataPoint point : series.getDataPoints()) {
+            IDataLabel label = point.getLabel();
+            if (!label.isVisible()) {
+                continue;
+            }
+
+            System.out.println("Value: " + point.getValue().getData() + "; label: " + label.getActualLabelText());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Liczba przechowywana w punkcie danych pozostaje `0.75`, nawet gdy jego etykieta pokazuje `75 %` razem z nazwą kategorii i serii. Niestandardowy tekst zastępuje wygenerowany tekst etykiety. [getActualLabelText](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) zwraca powstały ciąg etykiety w obu przypadkach. Sprawdź [isVisible](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idatalabel/#isVisible--) osobno, jak pokazano powyżej, gdy chcesz wyodrębnić tylko widoczne etykiety.
 
 ## **Ustaw odległość etykiety od osi**
 
-Ten kod Java pokazuje, jak ustawić odległość etykiety od osi kategorii, gdy pracujesz z wykresem rysowanym na podstawie osi:
+Użyj [setLabelOffset](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) aby kontrolować odległość między etykietami osi kategorii a samą osią. Wartość jest podawana jako procent maksymalnego rozmiaru czcionki etykiet osi. Ten przykład tworzy wykres słupkowy grupowany i ustawia offset etykiet osi poziomej na 500. To ustawienie wpływa na etykiety osi kategorii, a nie na etykiety przyłączone do pojedynczych punktów danych.
 
 ```java
-// Tworzy instancję klasy Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Pobiera referencję slajdu
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Tworzy wykres na slajdzie
-    IChart ch = sld.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
-    
-    // Ustawia odległość etykiety od osi
-    ch.getAxes().getHorizontalAxis().setLabelOffset(500);
-    
-    // Zapisuje prezentację na dysku
-    pres.save("output.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+    chart.getAxes().getHorizontalAxis().setLabelOffset(500);
+
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Dostosuj położenie etykiety**
+## **Dopasuj położenie etykiety**
 
-Gdy tworzysz wykres, który nie opiera się na żadnej osi, np. wykres kołowy, etykiety danych wykresu mogą znajdować się zbyt blisko jego krawędzi. W takim przypadku należy dostosować położenie etykiety danych, aby linie prowadzące były wyświetlane czytelnie.
+W wykresie kołowym dostosuj pozycje etykiet danych, aby poprawić odstępy i zrobić miejsce na linie prowadzące.
 
-Ten kod Java pokazuje, jak dostosować położenie etykiety na wykresie kołowym:
+Ten przykład wyświetla wartość pierwszego punktu danych, umieszcza jego etykietę poza wycinkiem i reguluje poziome oraz pionowe offsety przy użyciu [setX](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutable/#setX-float-) i [setY](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Offsety te są względne względem szerokości i wysokości wykresu.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
-
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
     IChartSeriesCollection series = chart.getChartData().getSeries();
-    IDataLabel label = series.get_Item(0).getLabels().get_Item(0);
 
+    IDataLabel label = series.get_Item(0).getLabels().get_Item(0);
     label.getDataLabelFormat().setShowValue(true);
     label.getDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd);
     label.setX(0.71f);
     label.setY(0.04f);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
 **Jak mogę zapobiec nakładaniu się etykiet danych na gęstych wykresach?**
 
-Połącz automatyczne rozmieszczanie etykiet, linie prowadzące i zmniejszoną wielkość czcionki; w razie potrzeby ukryj niektóre pola (np. kategorię) lub wyświetlaj etykiety tylko dla skrajnych/kluczowych punktów.
+Połącz automatyczne rozmieszczanie etykiet, linie prowadzące i zmniejszoną wielkość czcionki; w razie potrzeby ukryj niektóre pola (na przykład kategorię) lub wyświetlaj etykiety tylko dla wartości skrajnych lub kluczowych punktów.
 
 **Jak mogę wyłączyć etykiety tylko dla wartości zerowych, ujemnych lub pustych?**
 
-Przefiltruj punkty danych przed włączeniem etykiet i wyłącz wyświetlanie dla wartości równych 0, wartości ujemnych lub brakujących, zgodnie z określoną regułą.
+Filtrować punkty danych przed włączeniem etykiet i wyłączyć wyświetlanie dla wartości 0, wartości ujemnych lub brakujących zgodnie z określoną regułą.
 
-**Jak zapewnić spójny styl etykiet przy eksporcie do PDF/obrazów?**
+**Jak zapewnić spójny styl etykiet przy eksportowaniu do PDF/obrazów?**
 
-Wyraźnie ustaw czcionki (rodzinę, rozmiar) i upewnij się, że czcionka jest dostępna po stronie renderowania, aby uniknąć użycia zapasowej.
+Explicitnie ustaw rodzinę i rozmiar czcionki oraz zweryfikuj, że czcionka jest dostępna w środowisku renderującym, aby uniknąć zastępowania.

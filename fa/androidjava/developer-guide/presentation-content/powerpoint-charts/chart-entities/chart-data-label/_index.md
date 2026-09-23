@@ -1,223 +1,279 @@
 ---
-title: مدیریت برچسب‌های داده نمودار در ارائه‌های اندروید
-linktitle: برچسب داده
+title: "مدیریت برچسب‌های دادهٔ نمودار در ارائه‌های اندروید"
+linktitle: "برچسب داده"
 type: docs
 url: /fa/androidjava/chart-data-label/
 keywords:
-- نمودار
-- برچسب داده
-- دقت داده
-- درصد
-- فاصله برچسب
-- مکان برچسب
-- PowerPoint
-- ارائه
-- Android
-- Java
-- Aspose.Slides
-description: "یاد بگیرید چگونه برچسب‌های داده نمودار را در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای اندروید از طریق جاوا اضافه و قالب‌بندی کنید تا اسلایدهای جذاب‌تری داشته باشید."
+- "نمودار"
+- "برچسب داده"
+- "دقت داده"
+- "درصد"
+- "فاصله برچسب"
+- "موقعیت برچسب"
+- "PowerPoint"
+- "ارائه"
+- "Android"
+- "Java"
+- "Aspose.Slides"
+description: "یاد بگیرید چگونه برچسب‌های دادهٔ نمودار را در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای Android از طریق Java اضافه و قالب‌بندی کنید تا اسلایدهای جذاب‌تری داشته باشید."
 ---
 ## **مقدمه**
 
-برچسب‌های داده در نمودار جزئیات مربوط به سری داده‌های نمودار یا نقاط داده فردی را نشان می‌دهند. آن‌ها به خوانندگان امکان می‌دهند سری‌های داده را به سرعت شناسایی کنند و همچنین نمودارها را فهم‌پذیرتر می‌کنند.
+برچسب‌های داده اطلاعاتی درباره سری‌های نمودار و نقاط دادهٔ جداگانه نمایش می‌دهند و به خوانندگان کمک می‌کنند مقادیر را شناسایی کرده و نمودار را درک کنند. این مقاله توضیح می‌دهد که چگونه مقادیر را قالب‌بندی کنید، درصدها را نمایش دهید، متن برچسب را بخوانید، فاصلهٔ برچسب‌های محور دسته‌بندی را تنظیم کنید و موقعیت برچسب‌های نمودار دایره‌ای را تنظیم کنید.
 
-## **تنظیم دقت داده در برچسب‌های داده نمودار**
+## **تنظیم دقت داده در برچسب‌های دادهٔ نمودار**
 
-این کد جاوا نشان می‌دهد چگونه دقت داده را در یک برچسب داده نمودار تنظیم کنید:
+از [setNumberFormatOfValues](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) برای قالب‌بندی مقادیر سری‌ها استفاده کنید. این مثال یک نمودار خطی با داده‌های پیش‌فرض ایجاد می‌کند، جدول داده‌های آن را نمایش می‌دهد و برچسب‌های مقدار را برای اولین سری فعال می‌کند. قالب `#,##0.00` یک جداکنندهٔ هزارها و دو رقم اعشار را نمایش می‌دهد بدون اینکه مقادیر پایه‌ای تغییر کنند.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
-    
-    chart.setDataTable(true);
-    chart.getChartData().getSeries().get_Item(0).setNumberFormatOfValues("#,##0.00");
+import com.aspose.slides.*;
 
-    pres.save("output.pptx",SaveFormat.Pptx);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
+    chart.setDataTable(true);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    series.setNumberFormatOfValues("#,##0.00");
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **نمایش درصدها به عنوان برچسب‌ها**
-Aspose.Slides for Android via Java به شما امکان می‌دهد برچسب‌های درصدی را در نمودارهای نمایش داده شده تنظیم کنید. این کد جاوا عملکرد را نشان می‌دهد:
+
+برای یک نمودار ستونی انباشته، هر مقدار را به‌عنوان درصدی از مجموع دستهٔ مربوطه محاسبه کنید و متن را به قاب متن بازگردانده‌شده توسط [getTextFrameForOverriding](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) اختصاص دهید. این مثال از داده‌های پیش‌فرض نمودار استفاده می‌کند و درصدها را با دو رقم اعشار در قلم ۸ نقطه‌ای نمایش می‌دهد. دسته‌هایی که مجموعشان صفر است برای جلوگیری از تقسیم بر صفر نادیده گرفته می‌شوند. اگر داده‌های نمودار تغییر کنند، متن برچسب سفارشی را دوباره محاسبه کنید.
 
 ```java
-// یک نمونه از کلاس Presentation را ایجاد می‌کند
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Presentation presentation = new Presentation();
 try {
-    // اسلاید اول را دریافت می‌کند
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400);
-    IChartSeries series;
-    double[] total_for_Cat = new double[chart.getChartData().getCategories().size()];
+
+    double[] categoryTotals = new double[chart.getChartData().getCategories().size()];
     for (int k = 0; k < chart.getChartData().getCategories().size(); k++) {
-        IChartCategory cat = chart.getChartData().getCategories().get_Item(k);
-    
         for (int i = 0; i < chart.getChartData().getSeries().size(); i++) {
-            total_for_Cat[k] = total_for_Cat[k] + (double) (chart.getChartData().getSeries().get_Item(i).getDataPoints().get_Item(k).getValue().getData());
+            IChartSeries series = chart.getChartData().getSeries().get_Item(i);
+            Number pointValue = (Number) series.getDataPoints().get_Item(k).getValue().getData();
+            categoryTotals[k] += pointValue.doubleValue();
         }
     }
-    
-    double dataPontPercent = 0f;
+
     for (int x = 0; x < chart.getChartData().getSeries().size(); x++) {
-        series = chart.getChartData().getSeries().get_Item(x);
+        IChartSeries series = chart.getChartData().getSeries().get_Item(x);
         series.getLabels().getDefaultDataLabelFormat().setShowLegendKey(false);
-    
+
         for (int j = 0; j < series.getDataPoints().size(); j++) {
-            IDataLabel lbl = series.getDataPoints().get_Item(j).getLabel();
-            dataPontPercent = (double) ((series.getDataPoints().get_Item(j).getValue().getData())) / (double) (total_for_Cat[j]) * 100;
-    
-            IPortion port = new Portion();
-            port.setText(String.format("{0:F2} %.2f", dataPontPercent));
-            port.getPortionFormat().setFontHeight(8f);
-            lbl.getTextFrameForOverriding().setText("");
-            IParagraph para = lbl.getTextFrameForOverriding().getParagraphs().get_Item(0);
-            para.getPortions().add(port);
-    
-            lbl.getDataLabelFormat().setShowSeriesName(false);
-            lbl.getDataLabelFormat().setShowPercentage(false);
-            lbl.getDataLabelFormat().setShowLegendKey(false);
-            lbl.getDataLabelFormat().setShowCategoryName(false);
-            lbl.getDataLabelFormat().setShowBubbleSize(false);
+            IDataLabel label = series.getDataPoints().get_Item(j).getLabel();
+            if (categoryTotals[j] == 0) {
+                continue;
+            }
+
+            Number pointValue = (Number) series.getDataPoints().get_Item(j).getValue().getData();
+            double dataPointPercent = (pointValue.doubleValue() / categoryTotals[j]) * 100;
+
+            IPortion portion = new Portion();
+            portion.setText(String.format(Locale.US, "%.2f %%", dataPointPercent));
+            portion.getPortionFormat().setFontHeight(8f);
+
+            label.getTextFrameForOverriding().setText("");
+            IParagraph paragraph = label.getTextFrameForOverriding().getParagraphs().get_Item(0);
+            paragraph.getPortions().add(portion);
+
+            label.getDataLabelFormat().setShowValue(true);
+            label.getDataLabelFormat().setShowSeriesName(false);
+            label.getDataLabelFormat().setShowPercentage(false);
+            label.getDataLabelFormat().setShowLegendKey(false);
+            label.getDataLabelFormat().setShowCategoryName(false);
+            label.getDataLabelFormat().setShowBubbleSize(false);
         }
     }
-    
-    // ارائه شامل نمودار را ذخیره می‌کند
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تنظیم علامت درصد با برچسب‌های داده نمودار**
-این کد جاوا نشان می‌دهد چگونه علامت درصد را برای یک برچسب داده نمودار تنظیم کنید:
+## **تنظیم علامت درصد با برچسب‌های دادهٔ نمودار**
+
+زمانی که مقادیر به صورت کسر ذخیره می‌شوند، از [setNumberFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) برای نمایش درصدها استفاده کنید. برای اعمال قالب برچسب به‌ طور مستقل از سلول‌های منبع، `false` را به [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) پاس دهید. این مثال یک نمودار ستونی 100٪ انباشته با سری‌های قرمز و آبی در چهار دسته ایجاد می‌کند. هر جفت مقدار به مجموع ۱ می‌رسند. قالب برچسب `0.0%` مقدار 0.30 را به‌صورت 30.0٪ نمایش می‌دهد، در حالی که محور عمودی از دو رقم اعشار استفاده می‌کند. هر دو سری از متن برچسب سفید با اندازه ۱۰ نقطه استفاده می‌کنند.
 
 ```java
-// یک نمونه از کلاس Presentation را ایجاد می‌کند
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // مرجع اسلاید را از طریق ایندکس آن دریافت می‌کند
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // نمودار PercentsStackedColumn را بر روی اسلاید ایجاد می‌کند
+    ISlide slide = presentation.getSlides().get_Item(0);
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
-    
-    // NumberFormatLinkedToSource را روی false تنظیم می‌کند
+
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.00%");
-    
+
     chart.getChartData().getSeries().clear();
-    int defaultWorksheetIndex = 0;
-    
-    // ورک‌شیت داده‌های نمودار را دریافت می‌کند
+    chart.getChartData().getCategories().clear();
+
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
-    
-    // سری جدید اضافه می‌کند
-    IChartSeries series = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.getType());
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 1, 0.30));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 1, 0.50));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 1, 0.80));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 1, 0.65));
-    
-    // رنگ پر کردن سری را تنظیم می‌کند
-    series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    
-    // ویژگی‌های LabelFormat را تنظیم می‌کند
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    // سری جدید اضافه می‌کند
-    IChartSeries series2 = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.getType());
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 2, 0.70));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 2, 0.50));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 2, 0.20));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 2, 0.35));
-    
-    // نوع پر کردن و رنگ را تنظیم می‌کند
-    series2.getFormat().getFill().setFillType(FillType.Solid);
-    series2.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-    series2.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
-    
-    // ارائه را بر روی دیسک ذخیره می‌کند
-    pres.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
+    int worksheetIndex = 0;
+    for (int i = 0; i < 4; i++) {
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+    }
+
+    String[] seriesNames = { "Reds", "Blues" };
+    int[] seriesColors = { Color.RED, Color.BLUE };
+    double[][] values = { { 0.30, 0.50, 0.80, 0.65 }, { 0.70, 0.50, 0.20, 0.35 } };
+
+    for (int i = 0; i < seriesNames.length; i++) {
+        IChartDataCell seriesCell = workbook.getCell(worksheetIndex, 0, i + 1, seriesNames[i]);
+        IChartSeries series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+        for (int j = 0; j < 4; j++) {
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, j + 1, i + 1, values[i][j]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        series.getFormat().getFill().setFillType(FillType.Solid);
+        series.getFormat().getFill().getSolidFillColor().setColor(seriesColors[i]);
+
+        IDataLabelFormat labelFormat = series.getLabels().getDefaultDataLabelFormat();
+        labelFormat.setShowValue(true);
+        labelFormat.setNumberFormatLinkedToSource(false);
+        labelFormat.setNumberFormat("0.0%");
+        labelFormat.getTextFormat().getPortionFormat().setFontHeight(10);
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
+    }
+
+    presentation.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تنظیم فاصله برچسب از محور**
-این کد جاوا نشان می‌دهد چگونه فاصله برچسب را از محور دسته‌بندی هنگام کار با نموداری که از محورها رسم شده تنظیم کنید:
+## **خواندن متن واقعی برچسب‌های داده**
+
+از [getActualLabelText](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) برای بازیابی متنی که توسط تنظیمات برچسب داده تولید می‌شود استفاده کنید. این کار هنگام استخراج برچسب‌ها برای گزارش‌ها، جستجو در محتوای ارائه یا اعتبارسنجی نمودارهای تولید شده مفید است. در مثال زیر، قالب پیش‌فرض [data label format](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idatalabelformat/) هر نام دسته، نام سری و مقدار را ترکیب می‌کند. یک نقطه مقدار خود را به‌صورت درصد قالب‌بندی می‌کند و نقطهٔ دیگر متنی سفارشی از [getTextFrameForOverriding](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) استفاده می‌کند.
 
 ```java
-// یک نمونه از کلاس Presentation را ایجاد می‌کند
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // مرجع یک اسلاید را دریافت می‌کند
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // یک نمودار را روی اسلاید ایجاد می‌کند
-    IChart ch = sld.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
-    
-    // فاصله برچسب را از محور تنظیم می‌کند
-    ch.getAxes().getHorizontalAxis().setLabelOffset(500);
-    
-    // ارائه را بر روی دیسک ذخیره می‌کند
-    pres.save("output.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell firstCategoryCell = workbook.getCell(0, 1, 0, "Q1");
+    chart.getChartData().getCategories().add(firstCategoryCell);
+    IChartDataCell secondCategoryCell = workbook.getCell(0, 2, 0, "Q2");
+    chart.getChartData().getCategories().add(secondCategoryCell);
+
+    IChartDataCell northSeriesCell = workbook.getCell(0, 0, 1, "North");
+    IChartSeries north = chart.getChartData().getSeries().add(northSeriesCell, chart.getType());
+    IChartDataCell northFirstValueCell = workbook.getCell(0, 1, 1, 0.25);
+    north.getDataPoints().addDataPointForBarSeries(northFirstValueCell);
+    IChartDataCell northSecondValueCell = workbook.getCell(0, 2, 1, 0.75);
+    north.getDataPoints().addDataPointForBarSeries(northSecondValueCell);
+
+    IChartDataCell southSeriesCell = workbook.getCell(0, 0, 2, "South");
+    IChartSeries south = chart.getChartData().getSeries().add(southSeriesCell, chart.getType());
+    IChartDataCell southFirstValueCell = workbook.getCell(0, 1, 2, 0.40);
+    south.getDataPoints().addDataPointForBarSeries(southFirstValueCell);
+    IChartDataCell southSecondValueCell = workbook.getCell(0, 2, 2, 0.60);
+    south.getDataPoints().addDataPointForBarSeries(southSecondValueCell);
+
+    for (IChartSeries series : chart.getChartData().getSeries()) {
+        IDataLabelFormat format = series.getLabels().getDefaultDataLabelFormat();
+        format.setShowCategoryName(true);
+        format.setShowSeriesName(true);
+        format.setShowValue(true);
+    }
+
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormatLinkedToSource(false);
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormat("0%");
+    south.getLabels().get_Item(0).getTextFrameForOverriding().setText("Reviewed");
+
+    for (IChartSeries series : chart.getChartData().getSeries()) {
+        for (IChartDataPoint point : series.getDataPoints()) {
+            IDataLabel label = point.getLabel();
+            if (!label.isVisible()) {
+                continue;
+            }
+
+            System.out.println("Value: " + point.getValue().getData() + "; label: " + label.getActualLabelText());
+        }
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تنظیم مکان برچسب**
+عدد ذخیره‌شده در یک نقطه داده همچنان `0.75` باقی می‌ماند، حتی اگر برچسب آن `75%` همراه با نام‌های دسته و سری را نشان دهد. متن سفارشی متن برچسب تولید شده را جایگزین می‌کند. [getActualLabelText](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) رشتهٔ برچسب نهایی را در هر دو حالت برمی‌گرداند. هنگام نیاز به استخراج تنها برچسب‌های قابل مشاهده، همان‌طور که در بالا نشان داده شد، [isVisible](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idatalabel/#isVisible--) را جداگانه بررسی کنید.
 
-هنگامی که نموداری ایجاد می‌کنید که به هیچ محور متکی نیست، مانند نمودار دایره‌ای، ممکن است برچسب‌های داده نمودار زیاد به لبه آن نزدیک شوند. در چنین حالتی باید مکان برچسب داده را تنظیم کنید تا خطوط راهنما به‌وضوح نشان داده شوند.
+## **تنظیم فاصلهٔ برچسب از محور**
 
-این کد جاوا نشان می‌دهد چگونه مکان برچسب را در یک نمودار دایره‌ای تنظیم کنید:
+از [setLabelOffset](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) برای کنترل فاصله بین برچسب‌های محور دسته‌بندی و خود محور استفاده کنید. مقدار، درصدی از بیشینهٔ اندازه فونت برچسب‌های محور است. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و فاصلهٔ برچسب محور افقی را روی ۵۰۰ تنظیم می‌کند. این تنظیم بر برچسب‌های محور دسته‌بندی تأثیر می‌گذارد نه برچسب‌های متصل به نقاط دادهٔ منفرد.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+    chart.getAxes().getHorizontalAxis().setLabelOffset(500);
+
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **تنظیم موقعیت برچسب**
+
+در یک نمودار دایره‌ای، موقعیت برچسب‌های داده را تنظیم کنید تا فضای بهتر و فضای کافی برای خطوط راهنما ایجاد شود. این مثال مقدار اولین نقطه داده را نمایش می‌دهد، برچسب آن را خارج از قطعه قرار می‌دهد و جابجایی‌های افقی و عمودی آن را با استفاده از [setX](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutable/#setX-float-) و [setY](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ilayoutable/#setY-float-) تنظیم می‌کند. این جابجایی‌ها به ترتیب نسبت به عرض و ارتفاع نمودار هستند.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
     IChartSeriesCollection series = chart.getChartData().getSeries();
-    IDataLabel label = series.get_Item(0).getLabels().get_Item(0);
 
+    IDataLabel label = series.get_Item(0).getLabels().get_Item(0);
     label.getDataLabelFormat().setShowValue(true);
     label.getDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd);
     label.setX(0.71f);
     label.setY(0.04f);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-![نمودار-دایره‌ای-با-برچسب-تنظیم-شده](pie-chart-adjusted-label.png)
+![نمودار دایره‌ای با موقعیت برچسب دادهٔ تنظیم‌شده](pie-chart-adjusted-label.png)
 
-## **سؤالات متداول**
+## **سوالات متداول**
 
-**چگونه می‌توانم از هم‌پوشانی برچسب‌های داده در نمودارهای پرچگالی جلوگیری کنم؟**
+**چگونه می‌توانم از هم‌پوشانی برچسب‌های داده در نمودارهای پرتنش جلوگیری کنم؟**  
+از ترکیب قرارگیری خودکار برچسب، خطوط راهنما و کاهش اندازهٔ فونت استفاده کنید؛ در صورت لزوم، برخی فیلدها (مثلاً دسته) را پنهان کنید یا فقط برای مقادیر اوج یا نقاط کلیدی برچسب نمایش دهید.
 
-از قرارگیری خودکار برچسب، خطوط راهنما و کاهش اندازه قلم استفاده کنید؛ در صورت لزوم برخی فیلدها (مثلاً دسته) را مخفی کنید یا فقط برای نقاط بحرانی/کلیدی برچسب نشان دهید.
+**چگونه می‌توانم برچسب‌ها را فقط برای مقادیر صفر، منفی یا خالی غیرفعال کنم؟**  
+نقاط داده را قبل از فعال‌سازی برچسب‌ها فیلتر کنید و نمایش مقادیر صفر، مقادیر منفی یا مقادیر گمشده را بر اساس قاعده‌ای تعریف‌شده غیرفعال کنید.
 
-**چگونه می‌توانم برچسب‌ها را فقط برای مقادیر صفر، منفی یا خالی غیرفعال کنم؟**
-
-نقاط داده را قبل از فعال‌سازی برچسب‌ها فیلتر کنید و نمایش مقادیر 0، مقادیر منفی یا مقادیر گمشده را بر اساس یک قاعده تعریف‌شده غیرفعال کنید.
-
-**چگونه می‌توانم سبک برچسب ثابت را هنگام خروجی به PDF/تصاویر تضمین کنم؟**
-
-قلم‌ها (خانواده، اندازه) را به‌صورت صریح تنظیم کنید و اطمینان حاصل کنید که قلم موردنظر در سمت رندرینگ موجود باشد تا از fallback جلوگیری شود.
+**چگونه می‌توانم یک سبک برچسب ثابت را هنگام خروجی به PDF/تصاویر تضمین کنم؟**  
+به‌صورت صریح خانواده و اندازهٔ فونت را تنظیم کنید و اطمینان حاصل کنید که فونت در محیط رندر موجود است تا از استفاده از فونت جایگزین جلوگیری شود.

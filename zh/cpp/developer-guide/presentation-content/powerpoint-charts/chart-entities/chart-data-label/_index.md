@@ -16,237 +16,398 @@ keywords:
 - Aspose.Slides
 description: "了解如何使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中添加和格式化图表数据标签，以创建更具吸引力的幻灯片。"
 ---
+## **简介**
 
-图表中的数据标签显示有关图表数据系列或单个数据点的详细信息。它们使读者能够快速识别数据系列，并让图表更易于理解。
+数据标签显示图表系列和单个数据点的信息，帮助读者识别数值并理解图表。本文说明如何格式化数值、显示百分比、读取标签文本、调整类别轴标签间距以及定位饼图标签。
 
 ## **在图表数据标签中设置数据精度**
 
-此 C++ 代码演示如何在图表数据标签中设置数据精度：
-```c++
-	// 文档目录的路径
-	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
+使用 [set_NumberFormatOfValues](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) 来格式化系列数值。此示例创建一个默认数据的折线图，显示其数据表，并为第一系列启用数值标签。格式 `#,##0.00` 显示千位分隔符和两位小数，而不更改底层数值。
 
-	// 实例化表示 PPTX 文件的 Presentation 类
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-	// 获取第一张幻灯片
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-	// 添加带有默认数据的图表
-	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-	// 设置系列数字格式
-	chart->set_HasDataTable( true);
-	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 50, 50, 450, 300);
+chart->set_HasDataTable(true);
 
-	// 将演示文稿文件写入磁盘
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+series->set_NumberFormatOfValues(u"#,##0.00");
+series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
+
+presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 ```
 
+## **将百分比显示为标签**
 
-## **显示百分比为标签**
+对于堆叠柱形图，计算每个数值占其类别总和的百分比，并将文本分配给 [get_TextFrameForOverriding](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) 返回的文本框。此示例使用默认图表数据，并以 8 磅字体显示两位小数的百分比。总和为零的类别将被跳过，以避免除以零。若图表数据更改，需要重新计算自定义标签文本。
 
-Aspose.Slides for C++ 允许在显示的图表上设置百分比标签。此 C++ 代码演示该操作：
-```c++
-	// 文档目录的路径
-	const String outPath = u"../out/DisplayPercentageAsLabels_out.pptx";
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Portion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <system/convert.h>
+#include <vector>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-	// 创建 Presentation 类的实例
-	System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-	System::SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
-	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::StackedColumn, 20, 20, 400, 400);
-	System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
-	System::SharedPtr<IChartCategory> cat;
-	System::ArrayPtr<double> total_for_Cat = System::MakeObject<System::Array<double>>(chart->get_ChartData()->get_Categories()->get_Count(), 0);
-	for (int32_t k = 0; k < chart->get_ChartData()->get_Categories()->get_Count(); k++)
-	{
-		cat = chart->get_ChartData()->get_Categories()->idx_get(k);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
-		for (int32_t i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
-		{
-			total_for_Cat[k] = total_for_Cat[k] + System::Convert::ToDouble(chart->get_ChartData()->get_Series()->idx_get(i)->get_DataPoints()->idx_get(k)->get_Value()->get_Data());
-		}
-	}
+auto categoryTotals = std::vector<double>(chart->get_ChartData()->get_Categories()->get_Count(), 0.0);
+for (auto k = 0; k < chart->get_ChartData()->get_Categories()->get_Count(); k++)
+{
+    for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
+    {
+        auto series = chart->get_ChartData()->get_Series()->idx_get(i);
+        auto pointValue = Convert::ToDouble(series->get_DataPoint(k)->get_Value()->get_Data());
+        categoryTotals[k] += pointValue;
+    }
+}
 
-	double dataPontPercent = 0.f;
+for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
+{
+    auto series = chart->get_ChartData()->get_Series()->idx_get(x);
+    series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLegendKey(false);
 
-	for (int32_t x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
-	{
-		series = chart->get_ChartData()->get_Series()->idx_get(x);
-		series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLegendKey(false);
+    for (auto j = 0; j < series->get_DataPoints()->get_Count(); j++)
+    {
+        auto label = series->get_DataPoint(j)->get_Label();
+        if (categoryTotals[j] == 0)
+        {
+            continue;
+        }
 
-		for (int32_t j = 0; j < series->get_DataPoints()->get_Count(); j++)
-		{
-			System::SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(j)->get_Label();
-			dataPontPercent = (System::Convert::ToDouble(series->get_DataPoints()->idx_get(j)->get_Value()->get_Data()) / total_for_Cat[j]) * 100;
+        auto pointValue = Convert::ToDouble(series->get_DataPoint(j)->get_Value()->get_Data());
+        auto dataPointPercent = (pointValue / categoryTotals[j]) * 100;
 
-			System::SharedPtr<IPortion> port = System::MakeObject<Portion>();
-			port->set_Text(System::String::Format(u"{0:F2} %", dataPontPercent));
-			port->get_PortionFormat()->set_FontHeight(8.f);
-			lbl->get_TextFrameForOverriding()->set_Text(u"");
-			System::SharedPtr<IParagraph> para = lbl->get_TextFrameForOverriding()->get_Paragraphs()->idx_get(0);
-			para->get_Portions()->Add(port);
+        auto portion = MakeObject<Portion>();
+        portion->set_Text(String::Format(u"{0:F2} %", dataPointPercent));
+        portion->get_PortionFormat()->set_FontHeight(8.0f);
 
-			lbl->get_DataLabelFormat()->set_ShowSeriesName(false);
-			lbl->get_DataLabelFormat()->set_ShowPercentage(false);
-			lbl->get_DataLabelFormat()->set_ShowLegendKey(false);
-			lbl->get_DataLabelFormat()->set_ShowCategoryName(false);
-			lbl->get_DataLabelFormat()->set_ShowBubbleSize(false);
+        label->get_TextFrameForOverriding()->set_Text(u"");
 
-		}
+        auto paragraph = label->get_TextFrameForOverriding()->get_Paragraphs()->idx_get(0);
+        paragraph->get_Portions()->Add(portion);
 
-	}
+        label->get_DataLabelFormat()->set_ShowValue(true);
+        label->get_DataLabelFormat()->set_ShowSeriesName(false);
+        label->get_DataLabelFormat()->set_ShowPercentage(false);
+        label->get_DataLabelFormat()->set_ShowLegendKey(false);
+        label->get_DataLabelFormat()->set_ShowCategoryName(false);
+        label->get_DataLabelFormat()->set_ShowBubbleSize(false);
+    }
+}
 
-	// 保存包含图表的演示文稿
-	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
+## **使用图表数据标签设置百分号**
 
-## **在图表数据标签中设置百分号**
+当数值以分数形式存储时，使用 [set_NumberFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) 来显示百分比。将 `false` 传递给 [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) 可使标签格式独立于源单元格。
 
-此 C++ 代码演示如何为图表数据标签设置百分号：
-```c++
-	// 文档目录的路径。
-	const String outPath = u"../out/DataLabelsPercentageSign_out.pptx";
+此示例创建一个 100% 堆叠柱形图，四个类别分别包含红色和蓝色系列。每对数值相加为 1。标签格式 `0.0%` 将 0.30 显示为 30.0%，而垂直坐标轴使用两位小数。两个系列均使用白色、10 磅的标签文本。
 
-	// 创建 Presentation 类的实例
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-	// 通过索引获取幻灯片的引用
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-	// 在幻灯片上创建 PercentsStackedColumn 图表
-	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::PercentsStackedColumn, 0, 0, 500, 500);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
-	// 将 NumberFormatLinkedToSource 设置为 false
-	chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource ( false);
-	chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
+chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource(false);
+chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
 
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
 
-	// 设置图表数据表的索引
-	int defaultWorksheetIndex = 0;
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto worksheetIndex = 0;
+for (auto i = 0; i < 4; i++)
+{
+    auto categoryCell = workbook->GetCell(worksheetIndex, i + 1, 0, ObjectExt::Box(String::Format(u"Category {0}", i + 1)));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+}
 
-	// 获取图表数据工作表
-	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
+String seriesNames[] = { u"Reds", u"Blues" };
+Color seriesColors[] = { Color::get_Red(), Color::get_Blue() };
+double values[2][4] = { { 0.30, 0.50, 0.80, 0.65 }, { 0.70, 0.50, 0.20, 0.35 } };
 
+for (auto i = 0; i < 2; i++)
+{
+    auto seriesCell = workbook->GetCell(worksheetIndex, 0, i + 1, ObjectExt::Box(seriesNames[i]));
+    auto series = chart->get_ChartData()->get_Series()->Add(seriesCell, chart->get_Type());
+    for (auto j = 0; j < 4; j++)
+    {
+        auto valueCell = workbook->GetCell(worksheetIndex, j + 1, i + 1, ObjectExt::Box(values[i][j]));
+        series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+    }
 
-	// 删除默认生成的系列 
-	chart->get_ChartData()->get_Series()->Clear();
-	
+    series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
+    series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(seriesColors[i]);
 
-	// 添加新系列
-	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
+    auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
+    labelFormat->set_ShowValue(true);
+    labelFormat->set_IsNumberFormatLinkedToSource(false);
+    labelFormat->set_NumberFormat(u"0.0%");
+    labelFormat->get_TextFormat()->get_PortionFormat()->set_FontHeight(10);
+    labelFormat->get_TextFormat()->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+    labelFormat->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_White());
+}
 
-
-	// 获取第一条图表系列
-	SharedPtr<IChartSeries> series=chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Red")), chart->get_Type());
-	// 填充系列数据
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(0.50)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(0.50)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(0.80)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 1, ObjectExt::Box<double>(0.65)));
-
-	// 设置系列的填充颜色
-	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-
-	// 设置 LabelFormat 属性
-	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
-	series->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource ( false);
-	series->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat (u"0.0%");
-	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->set_FontHeight ( 10);
-	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
-	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
-
-	// 获取第二条图表系列
-	SharedPtr<IChartSeries> series2 = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Blues")), chart->get_Type());
-	// 填充系列数据
-	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(0.70)));
-	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(0.50)));
-	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(0.20)));
-	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 2, ObjectExt::Box<double>(0.35)));
-
-	// 设置系列的填充颜色
-	series2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-	series2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
-
-	// 设置 LabelFormat 属性
-	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
-	series2->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource(false);
-	series2->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat(u"0.0%");
-	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->set_FontHeight(10);
-	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
-	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
-
-	// 将演示文稿文件写入磁盘
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 ```
 
+## **读取数据标签的实际文本**
+
+使用 [GetActualLabelText](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) 获取数据标签设置产生的文本。这在提取报告标签、搜索演示文稿内容或验证生成的图表时非常有用。以下示例中，默认的 [data label format](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/idatalabelformat/) 将每个类别名称、系列名称和数值组合。一个点将其数值格式化为百分比，另一个使用 [get_TextFrameForOverriding](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) 的自定义文本。
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/ITextFrame.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto firstCategoryCell = workbook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Q1"));
+chart->get_ChartData()->get_Categories()->Add(firstCategoryCell);
+auto secondCategoryCell = workbook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Q2"));
+chart->get_ChartData()->get_Categories()->Add(secondCategoryCell);
+
+auto northSeriesCell = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"North"));
+auto north = chart->get_ChartData()->get_Series()->Add(northSeriesCell, chart->get_Type());
+auto northFirstValueCell = workbook->GetCell(0, 1, 1, ObjectExt::Box(0.25));
+north->get_DataPoints()->AddDataPointForBarSeries(northFirstValueCell);
+auto northSecondValueCell = workbook->GetCell(0, 2, 1, ObjectExt::Box(0.75));
+north->get_DataPoints()->AddDataPointForBarSeries(northSecondValueCell);
+
+auto southSeriesCell = workbook->GetCell(0, 0, 2, ObjectExt::Box<String>(u"South"));
+auto south = chart->get_ChartData()->get_Series()->Add(southSeriesCell, chart->get_Type());
+auto southFirstValueCell = workbook->GetCell(0, 1, 2, ObjectExt::Box(0.40));
+south->get_DataPoints()->AddDataPointForBarSeries(southFirstValueCell);
+auto southSecondValueCell = workbook->GetCell(0, 2, 2, ObjectExt::Box(0.60));
+south->get_DataPoints()->AddDataPointForBarSeries(southSecondValueCell);
+
+for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
+{
+    auto series = chart->get_ChartData()->get_Series()->idx_get(i);
+    auto format = series->get_Labels()->get_DefaultDataLabelFormat();
+    format->set_ShowCategoryName(true);
+    format->set_ShowSeriesName(true);
+    format->set_ShowValue(true);
+}
+
+north->get_Label(1)->get_DataLabelFormat()->set_IsNumberFormatLinkedToSource(false);
+north->get_Label(1)->get_DataLabelFormat()->set_NumberFormat(u"0%");
+south->get_Label(0)->get_TextFrameForOverriding()->set_Text(u"Reviewed");
+
+for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
+{
+    auto series = chart->get_ChartData()->get_Series()->idx_get(i);
+    for (auto j = 0; j < series->get_DataPoints()->get_Count(); j++)
+    {
+        auto point = series->get_DataPoint(j);
+        auto label = point->get_Label();
+        if (!label->get_IsVisible())
+        {
+            continue;
+        }
+
+        Console::WriteLine(String::Format(u"Value: {0}; label: {1}", point->get_Value()->get_Data(), label->GetActualLabelText()));
+    }
+}
+```
+
+数据点中存储的数值仍为 `0.75`，即使其标签显示为 `75%` 并附带类别和系列名称。自定义文本会替代生成的标签文本。无论哪种情况，[GetActualLabelText](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) 都返回最终的标签字符串。若只想提取可见标签，请如上所示单独检查 [get_IsVisible](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/idatalabel/get_isvisible/)。
 
 ## **设置标签与坐标轴的距离**
 
-此 C++ 代码演示在从坐标轴绘制的图表中如何设置标签与分类坐标轴的距离：
-```c++
-	// 文档目录的路径
-	const String outPath = u"../out/CategoryAxisLabelDistance_out.pptx";
+使用 [set_LabelOffset](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/iaxis/set_labeloffset/) 控制类别轴标签与坐标轴之间的距离。该值是轴标签最大字体大小的百分比。本示例创建一个簇状柱形图，并将水平轴标签偏移设为 500。此设置影响类别轴标签，而不是附加在单个数据点上的标签。
 
-	// 创建 Presentation 类的实例
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-	// 获取幻灯片的引用
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-	// 在幻灯片上创建图表
-	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset(500);
 
-	// 获取图表系列集合
-	SharedPtr<IChartSeriesCollection> seriesCollection = chart->get_ChartData()->get_Series();
-
-	// 设置标签与坐标轴的距离
-	chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset ( 500);
-
-	// 将演示文稿文件写入磁盘
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 ```
-
 
 ## **调整标签位置**
 
-当创建不依赖任何坐标轴的图表（例如饼图）时，图表的数据标签可能会靠得太近边缘。此时，需要调整数据标签的位置，以便清晰显示引导线。
+在饼图上，调整数据标签位置以改善间距并为引导线留出空间。
 
-此 C++ 代码演示如何在饼图上调整标签位置：
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+此示例显示第一个数据点的数值，将其标签放在扇形外部，并使用 [set_X](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ilayoutable/set_x/) 和 [set_Y](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ilayoutable/set_y/) 调整其偏移。这些偏移分别相对于图表的宽度和高度。
 
-System::SharedPtr<IChart> chart = pres->get_Slide(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 200.0f, 200.0f);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-System::SharedPtr<IChartSeriesCollection> series = chart->get_ChartData()->get_Series();
-System::SharedPtr<IDataLabel> label = series->idx_get(0)->get_Label(0);
-System::SharedPtr<IDataLabelFormat> dataLabelFormat = label->get_DataLabelFormat();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-dataLabelFormat->set_ShowValue(true);
-dataLabelFormat->set_Position(LegendDataLabelPosition::OutsideEnd);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 200, 200);
+auto series = chart->get_ChartData()->get_Series();
+
+auto label = series->idx_get(0)->get_Label(0);
+label->get_DataLabelFormat()->set_ShowValue(true);
+label->get_DataLabelFormat()->set_Position(LegendDataLabelPosition::OutsideEnd);
 label->set_X(0.71f);
 label->set_Y(0.04f);
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+## **常见问题**
 
-## **FAQ**
+**如何防止在密集图表中出现数据标签重叠？**
 
-**如何防止在密集图表上数据标签重叠？**  
-结合自动标签布局、引导线和减小字体大小；必要时隐藏某些字段（例如类别）或仅对极值/关键点显示标签。
+结合自动标签放置、引导线和减小字体大小；必要时隐藏部分字段（例如类别），或仅对极值或关键点显示标签。
 
-**如何仅为零、负数或空值禁用标签？**  
-在启用标签之前过滤数据点，并根据定义的规则关闭对值为 0、负数或缺失的显示。
+**如何仅对零、负值或空值禁用标签？**
 
-**如何确保导出为 PDF/图像时标签样式保持一致？**  
-显式设置字体（族、大小），并确保渲染端已安装相应字体，以避免回退。
+在启用标签之前过滤数据点，并根据定义的规则关闭对数值为 0、负数或缺失值的显示。
+
+**如何在导出为 PDF/图片时确保标签样式一致？**
+
+显式设置字体族和大小，并确保渲染环境中可用该字体，以避免回退。

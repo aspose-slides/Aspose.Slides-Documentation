@@ -15,197 +15,273 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Pelajari cara menambahkan dan memformat label data diagram dalam presentasi PowerPoint menggunakan JavaScript dan Aspose.Slides untuk Node.js via Java agar slide lebih menarik."
+description: "Pelajari cara menambahkan dan memformat label data diagram dalam presentasi PowerPoint menggunakan JavaScript dan Aspose.Slides untuk Node.js via Java untuk slide yang lebih menarik."
 ---
-## **Pendahuluan**
+## **Pengantar**
 
-Label data pada diagram menunjukkan detail tentang seri data diagram atau titik data individu. Mereka memungkinkan pembaca dengan cepat mengidentifikasi seri data dan juga membuat diagram lebih mudah dipahami.
+Label data menampilkan informasi tentang seri diagram dan titik data individu, membantu pembaca mengidentifikasi nilai dan memahami diagram. Artikel ini menjelaskan cara memformat nilai, menampilkan persentase, membaca teks label, menyesuaikan jarak label sumbu kategori, dan memposisikan label diagram pai.
 
 ## **Atur Presisi Data pada Label Data Diagram**
 
-Kode JavaScript ini menunjukkan cara mengatur presisi data pada label data diagram:
+Gunakan [setNumberFormatOfValues](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) untuk memformat nilai seri. Contoh ini membuat diagram garis dengan data default, menampilkan tabel datanya, dan mengaktifkan label nilai untuk seri pertama. Format `#,##0.00` menampilkan pemisah ribuan dan dua tempat desimal tanpa mengubah nilai dasarnya.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
-    chart.getChartData().getSeries().get_Item(0).setNumberFormatOfValues("#,##0.00");
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const series = chart.getChartData().getSeries().get_Item(0);
+    series.setNumberFormatOfValues("#,##0.00");
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("PrecisionOfDatalabels_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Tampilkan Persentase sebagai Label**
 
-Aspose.Slides untuk Node.js melalui Java memungkinkan Anda menetapkan label persentase pada diagram yang ditampilkan. Kode JavaScript ini mendemonstrasikan operasinya:
+Untuk diagram kolom bertumpuk, hitung setiap nilai sebagai persentase dari total kategori dan tetapkan teks ke bingkai teks yang dikembalikan oleh [getTextFrameForOverriding](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Contoh ini menggunakan data diagram default dan menampilkan persentase dengan dua tempat desimal dalam font 8 poin. Kategori dengan total nol diabaikan untuk menghindari pembagian dengan nol. Hitung ulang teks label kustom jika data diagram berubah.
 
 ```javascript
-// Membuat instance kelas Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Mendapatkan slide pertama
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
-    var series;
-    var total_for_Cat = new double[chart.getChartData().getCategories().size()];
-    for (var k = 0; k < chart.getChartData().getCategories().size(); k++) {
-        var cat = chart.getChartData().getCategories().get_Item(k);
-        for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
-            total_for_Cat[k] = total_for_Cat[k] + chart.getChartData().getSeries().get_Item(i).getDataPoints().get_Item(k).getValue().getData();
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
+
+    const categoryTotals = new Array(chart.getChartData().getCategories().size()).fill(0);
+    for (let k = 0; k < chart.getChartData().getCategories().size(); k++) {
+        for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
+            const series = chart.getChartData().getSeries().get_Item(i);
+            const pointValue = series.getDataPoints().get_Item(k).getValue().getData();
+            categoryTotals[k] += Number(pointValue);
         }
     }
-    var dataPontPercent = 0.0;
-    for (var x = 0; x < chart.getChartData().getSeries().size(); x++) {
-        series = chart.getChartData().getSeries().get_Item(x);
+
+    for (let x = 0; x < chart.getChartData().getSeries().size(); x++) {
+        const series = chart.getChartData().getSeries().get_Item(x);
         series.getLabels().getDefaultDataLabelFormat().setShowLegendKey(false);
-        for (var j = 0; j < series.getDataPoints().size(); j++) {
-            var lbl = series.getDataPoints().get_Item(j).getLabel();
-            dataPontPercent = (series.getDataPoints().get_Item(j).getValue().getData() / total_for_Cat[j]) * 100;
-            var port = new aspose.slides.Portion();
-            port.setText(java.callStaticMethodSync("java.lang.String", "format", "{0:F2} %.2f", dataPontPercent));
-            port.getPortionFormat().setFontHeight(8.0);
-            lbl.getTextFrameForOverriding().setText("");
-            var para = lbl.getTextFrameForOverriding().getParagraphs().get_Item(0);
-            para.getPortions().add(port);
-            lbl.getDataLabelFormat().setShowSeriesName(false);
-            lbl.getDataLabelFormat().setShowPercentage(false);
-            lbl.getDataLabelFormat().setShowLegendKey(false);
-            lbl.getDataLabelFormat().setShowCategoryName(false);
-            lbl.getDataLabelFormat().setShowBubbleSize(false);
+
+        for (let j = 0; j < series.getDataPoints().size(); j++) {
+            const label = series.getDataPoints().get_Item(j).getLabel();
+            if (categoryTotals[j] == 0) {
+                continue;
+            }
+
+            const pointValue = series.getDataPoints().get_Item(j).getValue().getData();
+            const dataPointPercent = (Number(pointValue) / categoryTotals[j]) * 100;
+
+            const portion = new aspose.slides.Portion();
+            portion.setText(dataPointPercent.toFixed(2) + " %");
+            portion.getPortionFormat().setFontHeight(8);
+
+            label.getTextFrameForOverriding().setText("");
+            const paragraph = label.getTextFrameForOverriding().getParagraphs().get_Item(0);
+            paragraph.getPortions().add(portion);
+
+            label.getDataLabelFormat().setShowValue(true);
+            label.getDataLabelFormat().setShowSeriesName(false);
+            label.getDataLabelFormat().setShowPercentage(false);
+            label.getDataLabelFormat().setShowLegendKey(false);
+            label.getDataLabelFormat().setShowCategoryName(false);
+            label.getDataLabelFormat().setShowBubbleSize(false);
         }
     }
-    // Menyimpan presentasi yang berisi diagram
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("DisplayPercentageAsLabels_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Atur Tanda Persentase dengan Label Data Diagram**
+## **Atur Tanda Persentase pada Label Data Diagram**
 
-Kode JavaScript ini menunjukkan cara mengatur tanda persentase untuk label data diagram:
+Ketika nilai disimpan sebagai pecahan, gunakan [setNumberFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) untuk menampilkan persentase. Berikan `false` ke [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) untuk menerapkan format label secara terpisah dari sel sumber.
+
+Contoh ini membuat diagram kolom bertumpuk 100% dengan seri merah dan biru pada empat kategori. Setiap pasangan nilai menjumlahkan menjadi 1. Format label `0.0%` menampilkan 0.30 sebagai 30.0%, sementara sumbu vertikal menggunakan dua tempat desimal. Kedua seri menggunakan teks label berwarna putih dengan ukuran 10 poin.
 
 ```javascript
-// Membuat instance kelas Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Mendapatkan referensi slide melalui indeksnya
-    var slide = pres.getSlides().get_Item(0);
-    // Membuat diagram PercentsStackedColumn pada slide
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.PercentsStackedColumn, 20, 20, 500, 400);
-    // Mengatur NumberFormatLinkedToSource menjadi false
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PercentsStackedColumn, 20, 20, 500, 400);
+
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.00%");
+
     chart.getChartData().getSeries().clear();
-    var defaultWorksheetIndex = 0;
-    // Mendapatkan worksheet data diagram
-    var workbook = chart.getChartData().getChartDataWorkbook();
-    // Menambahkan seri baru
-    var series = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.getType());
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 1, 0.3));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 1, 0.5));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 1, 0.8));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 1, 0.65));
-    // Mengatur warna isi seri
-    series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // Mengatur properti LabelFormat
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Menambahkan seri baru
-    var series2 = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.getType());
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 2, 0.7));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 2, 0.5));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 2, 0.2));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 2, 0.35));
-    // Mengatur tipe isi dan warna
-    series2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    series2.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-    // Menulis presentasi ke disk
-    pres.save("SetDataLabelsPercentageSign_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+    for (let i = 0; i < 4; i++) {
+        const categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
     }
+
+    const seriesNames = ["Reds", "Blues"];
+    const white = java.getStaticFieldValue("java.awt.Color", "WHITE");
+    const seriesColors = [java.getStaticFieldValue("java.awt.Color", "RED"), java.getStaticFieldValue("java.awt.Color", "BLUE")];
+    const values = [[0.30, 0.50, 0.80, 0.65], [0.70, 0.50, 0.20, 0.35]];
+
+    for (let i = 0; i < seriesNames.length; i++) {
+        const seriesCell = workbook.getCell(worksheetIndex, 0, i + 1, seriesNames[i]);
+        const series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+        for (let j = 0; j < 4; j++) {
+            const valueCell = workbook.getCell(worksheetIndex, j + 1, i + 1, values[i][j]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        series.getFormat().getFill().getSolidFillColor().setColor(seriesColors[i]);
+
+        const labelFormat = series.getLabels().getDefaultDataLabelFormat();
+        labelFormat.setShowValue(true);
+        labelFormat.setNumberFormatLinkedToSource(false);
+        labelFormat.setNumberFormat("0.0%");
+        labelFormat.getTextFormat().getPortionFormat().setFontHeight(10);
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(white);
+    }
+
+    presentation.save("SetDataLabelsPercentageSign_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
+
+## **Baca Teks Aktual dari Label Data**
+
+Gunakan [getActualLabelText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) untuk mengambil teks yang dihasilkan oleh pengaturan label data. Ini berguna saat mengekstrak label untuk laporan, mencari konten presentasi, atau memvalidasi diagram yang dihasilkan. Pada contoh di bawah, [format label data](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/datalabelformat/) default menggabungkan setiap nama kategori, nama seri, dan nilai. Satu titik memformat nilainya sebagai persentase, dan yang lain menggunakan teks kustom dari [getTextFrameForOverriding](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const firstCategoryCell = workbook.getCell(0, 1, 0, "Q1");
+    chart.getChartData().getCategories().add(firstCategoryCell);
+    const secondCategoryCell = workbook.getCell(0, 2, 0, "Q2");
+    chart.getChartData().getCategories().add(secondCategoryCell);
+
+    const northSeriesCell = workbook.getCell(0, 0, 1, "North");
+    const north = chart.getChartData().getSeries().add(northSeriesCell, chart.getType());
+    const northFirstValueCell = workbook.getCell(0, 1, 1, 0.25);
+    north.getDataPoints().addDataPointForBarSeries(northFirstValueCell);
+    const northSecondValueCell = workbook.getCell(0, 2, 1, 0.75);
+    north.getDataPoints().addDataPointForBarSeries(northSecondValueCell);
+
+    const southSeriesCell = workbook.getCell(0, 0, 2, "South");
+    const south = chart.getChartData().getSeries().add(southSeriesCell, chart.getType());
+    const southFirstValueCell = workbook.getCell(0, 1, 2, 0.40);
+    south.getDataPoints().addDataPointForBarSeries(southFirstValueCell);
+    const southSecondValueCell = workbook.getCell(0, 2, 2, 0.60);
+    south.getDataPoints().addDataPointForBarSeries(southSecondValueCell);
+
+    for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
+        const series = chart.getChartData().getSeries().get_Item(i);
+        const format = series.getLabels().getDefaultDataLabelFormat();
+        format.setShowCategoryName(true);
+        format.setShowSeriesName(true);
+        format.setShowValue(true);
+    }
+
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormatLinkedToSource(false);
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormat("0%");
+    south.getLabels().get_Item(0).getTextFrameForOverriding().setText("Reviewed");
+
+    for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
+        const series = chart.getChartData().getSeries().get_Item(i);
+        for (let j = 0; j < series.getDataPoints().size(); j++) {
+            const point = series.getDataPoints().get_Item(j);
+            const label = point.getLabel();
+            if (!label.isVisible()) {
+                continue;
+            }
+
+            console.log("Value: " + point.getValue().getData() + "; label: " + label.getActualLabelText());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Angka yang disimpan dalam sebuah titik data tetap `0.75`, meskipun labelnya menampilkan `75%` bersama nama kategori dan seri. Teks kustom menggantikan teks label yang dihasilkan. [getActualLabelText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) mengembalikan string label yang dihasilkan dalam kedua kasus. Periksa [isVisible](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/datalabel/isvisible/) secara terpisah, seperti yang ditunjukkan di atas, ketika Anda ingin mengekstrak hanya label yang terlihat.
 
 ## **Atur Jarak Label dari Sumbu**
 
-Kode JavaScript ini menunjukkan cara mengatur jarak label dari sumbu kategori saat Anda mengerjakan diagram yang dipetakan dari sumbu:
+Gunakan [setLabelOffset](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/axis/setlabeloffset/) untuk mengontrol jarak antara label sumbu kategori dan sumbu. Nilainya merupakan persentase dari ukuran font maksimum label sumbu. Contoh ini membuat diagram kolom berkelompok dan mengatur offset label sumbu horizontal menjadi 500. Pengaturan ini memengaruhi label sumbu kategori, bukan label yang melekat pada titik data individu.
 
 ```javascript
-// Membuat instance kelas Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Mendapatkan referensi slide
-    var sld = pres.getSlides().get_Item(0);
-    // Membuat diagram pada slide
-    var ch = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
-    // Mengatur jarak label dari sumbu
-    ch.getAxes().getHorizontalAxis().setLabelOffset(500);
-    // Menulis presentasi ke disk
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+    chart.getAxes().getHorizontalAxis().setLabelOffset(500);
+
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Sesuaikan Lokasi Label**
 
-Saat Anda membuat diagram yang tidak bergantung pada sumbu apa pun seperti diagram pai, label data diagram dapat berada terlalu dekat dengan tepinya. Dalam kasus seperti itu, Anda harus menyesuaikan lokasi label data agar garis penghubung dapat ditampilkan dengan jelas.
+Pada diagram pai, sesuaikan posisi label data untuk memperbaiki jarak dan memberikan ruang bagi garis penghubung.
 
-Kode JavaScript ini menunjukkan cara menyesuaikan lokasi label pada diagram pai:
+Contoh ini menampilkan nilai titik data pertama, menempatkan labelnya di luar irisan, dan menyesuaikan offset horizontal serta vertikalnya menggunakan [setX](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/datalabel/setx/) dan [setY](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/datalabel/sety/). Offset ini relatif terhadap lebar dan tinggi diagram, masing‑masing.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
-    var series = chart.getChartData().getSeries();
-    var label = series.get_Item(0).getLabels().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
+    const series = chart.getChartData().getSeries();
+
+    const label = series.get_Item(0).getLabels().get_Item(0);
     label.getDataLabelFormat().setShowValue(true);
     label.getDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.OutsideEnd);
-    label.setX(0.71);
-    label.setY(0.04);
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    label.setX(java.newFloat(0.71));
+    label.setY(java.newFloat(0.04));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-![Diagram pai dengan label disesuaikan](pie-chart-adjusted-label.png)
+![Diagram pai dengan posisi label data yang disesuaikan](pie-chart-adjusted-label.png)
 
-## **Tanya Jawab**
+## **FAQ**
 
-**Bagaimana saya dapat mencegah label data saling tumpang tindih pada diagram yang padat?**
+**Bagaimana cara mencegah label data saling tumpang tindih pada diagram yang padat?**  
+Gabungkan penempatan label otomatis, garis penghubung, dan ukuran font yang lebih kecil; jika diperlukan, sembunyikan beberapa bidang (misalnya kategori) atau tampilkan label hanya untuk nilai ekstrem atau titik kunci.
 
-Gabungkan penempatan label otomatis, garis penghubung, dan mengecilkan ukuran font; jika diperlukan, sembunyikan beberapa bidang (misalnya kategori) atau tampilkan label hanya untuk titik ekstrem/kunci.
+**Bagaimana cara menonaktifkan label hanya untuk nilai nol, negatif, atau kosong?**  
+Filter titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai aturan yang ditentukan.
 
-**Bagaimana saya dapat menonaktifkan label hanya untuk nilai nol, negatif, atau kosong?**
-
-Filter titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang berdasarkan aturan yang ditetapkan.
-
-**Bagaimana saya dapat memastikan gaya label yang konsisten saat mengekspor ke PDF/gambar?**
-
-Tentukan secara eksplisit font (jenis, ukuran) dan pastikan font tersebut tersedia di sisi rendering untuk menghindari fallback.
+**Bagaimana cara memastikan gaya label konsisten saat mengekspor ke PDF/gambar?**  
+Tentukan secara eksplisit keluarga dan ukuran font serta verifikasi bahwa font tersebut tersedia di lingkungan rendering untuk menghindari fallback.

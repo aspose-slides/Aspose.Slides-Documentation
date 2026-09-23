@@ -15,197 +15,276 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε και να μορφοποιείτε ετικέτες δεδομένων γραφήματος σε παρουσιάσεις PowerPoint χρησιμοποιώντας JavaScript και Aspose.Slides για Node.js μέσω Java, για πιο ελκυστικές διαφάνειες."
+description: "Μάθετε πώς να προσθέτετε και να μορφοποιείτε ετικέτες δεδομένων γραφήματος σε παρουσιάσεις PowerPoint χρησιμοποιώντας JavaScript και Aspose.Slides για Node.js μέσω Java για πιο ελκυστικές διαφάνειες."
 ---
 ## **Εισαγωγή**
 
-Οι ετικέτες δεδομένων σε ένα γράφημα εμφανίζουν λεπτομέρειες για τις σειρές δεδομένων του γραφήματος ή για μεμονωμένα σημεία δεδομένων. Επιτρέπουν στους αναγνώστες να αναγνωρίζουν γρήγορα τις σειρές δεδομένων και κάνουν τα γραφήματα πιο εύκολα στην κατανόηση.
+Οι ετικέτες δεδομένων εμφανίζουν πληροφορίες σχετικά με τις σειρές του διαγράμματος και τα μεμονωμένα σημεία δεδομένων, βοηθώντας τους αναγνώστες να ταυτοποιήσουν τις τιμές και να κατανοήσουν το διάγραμμα. Αυτό το άρθρο εξηγεί πώς να μορφοποιήσετε τιμές, να εμφανίσετε ποσοστά, να διαβάσετε το κείμενο της ετικέτας, να ρυθμίσετε το διάστιχο των ετικετών του άξονα κατηγοριών και να τοποθετήσετε ετικέτες στο διάγραμμα πίτας.
 
-## **Ορισμός ακρίβειας δεδομένων στις ετικέτες δεδομένων του γραφήματος**
+## **Ορισμός ακρίβειας δεδομένων στις ετικέτες δεδομένων του διαγράμματος**
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να ορίσετε την ακρίβεια των δεδομένων σε μια ετικέτα δεδομένων γραφήματος:
+Χρησιμοποιήστε [setNumberFormatOfValues](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) για να μορφοποιήσετε τις τιμές των σειρών. Αυτό το παράδειγμα δημιουργεί ένα διγραμμικό διάγραμμα με προεπιλεγμένα δεδομένα, εμφανίζει τον πίνακα δεδομένων του και ενεργοποιεί τις ετικέτες τιμών για την πρώτη σειρά. Η μορφή `#,##0.00` εμφανίζει διαχωριστικό χιλιάδων και δύο δεκαδικά ψηφία χωρίς να αλλάζει τις υποκείμενες τιμές.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
-    chart.getChartData().getSeries().get_Item(0).setNumberFormatOfValues("#,##0.00");
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const series = chart.getChartData().getSeries().get_Item(0);
+    series.setNumberFormatOfValues("#,##0.00");
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("PrecisionOfDatalabels_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Εμφάνιση ποσοστού ως ετικέτες**
+## **Εμφάνιση ποσοστών ως ετικέτες**
 
-Το Aspose.Slides για Node.js μέσω Java σάς επιτρέπει να ορίσετε ετικέτες ποσοστών σε εμφανιζόμενα γραφήματα. Αυτός ο κώδικας JavaScript επιδεικνύει τη λειτουργία:
+Για ένα στοιβαρισμένο διάγραμμα στήλης, υπολογίστε κάθε τιμή ως ποσοστό του συνολικού της κατηγορίας της και αντιστοιχίστε το κείμενο στο πλαίσιο κειμένου που επιστρέφει η [getTextFrameForOverriding](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Αυτό το παράδειγμα χρησιμοποιεί τα προεπιλεγμένα δεδομένα διαγράμματος και εμφανίζει τα ποσοστά με δύο δεκαδικά ψηφία σε γραμματοσειρά 8 σημείων. Οι κατηγορίες με συνολικό μηδέν παραλείπονται για να αποφευχθεί η διαίρεση με το μηδέν. Επαναϋπολογίστε το προσαρμοσμένο κείμενο ετικέτας εάν τα δεδομένα του διαγράμματος αλλάξουν.
 
 ```javascript
-// Δημιουργεί ένα αντικείμενο της κλάσης Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Λαμβάνει την πρώτη διαφάνεια
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
-    var series;
-    var total_for_Cat = new double[chart.getChartData().getCategories().size()];
-    for (var k = 0; k < chart.getChartData().getCategories().size(); k++) {
-        var cat = chart.getChartData().getCategories().get_Item(k);
-        for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
-            total_for_Cat[k] = total_for_Cat[k] + chart.getChartData().getSeries().get_Item(i).getDataPoints().get_Item(k).getValue().getData();
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
+
+    const categoryTotals = new Array(chart.getChartData().getCategories().size()).fill(0);
+    for (let k = 0; k < chart.getChartData().getCategories().size(); k++) {
+        for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
+            const series = chart.getChartData().getSeries().get_Item(i);
+            const pointValue = series.getDataPoints().get_Item(k).getValue().getData();
+            categoryTotals[k] += Number(pointValue);
         }
     }
-    var dataPontPercent = 0.0;
-    for (var x = 0; x < chart.getChartData().getSeries().size(); x++) {
-        series = chart.getChartData().getSeries().get_Item(x);
+
+    for (let x = 0; x < chart.getChartData().getSeries().size(); x++) {
+        const series = chart.getChartData().getSeries().get_Item(x);
         series.getLabels().getDefaultDataLabelFormat().setShowLegendKey(false);
-        for (var j = 0; j < series.getDataPoints().size(); j++) {
-            var lbl = series.getDataPoints().get_Item(j).getLabel();
-            dataPontPercent = (series.getDataPoints().get_Item(j).getValue().getData() / total_for_Cat[j]) * 100;
-            var port = new aspose.slides.Portion();
-            port.setText(java.callStaticMethodSync("java.lang.String", "format", "{0:F2} %.2f", dataPontPercent));
-            port.getPortionFormat().setFontHeight(8.0);
-            lbl.getTextFrameForOverriding().setText("");
-            var para = lbl.getTextFrameForOverriding().getParagraphs().get_Item(0);
-            para.getPortions().add(port);
-            lbl.getDataLabelFormat().setShowSeriesName(false);
-            lbl.getDataLabelFormat().setShowPercentage(false);
-            lbl.getDataLabelFormat().setShowLegendKey(false);
-            lbl.getDataLabelFormat().setShowCategoryName(false);
-            lbl.getDataLabelFormat().setShowBubbleSize(false);
+
+        for (let j = 0; j < series.getDataPoints().size(); j++) {
+            const label = series.getDataPoints().get_Item(j).getLabel();
+            if (categoryTotals[j] == 0) {
+                continue;
+            }
+
+            const pointValue = series.getDataPoints().get_Item(j).getValue().getData();
+            const dataPointPercent = (Number(pointValue) / categoryTotals[j]) * 100;
+
+            const portion = new aspose.slides.Portion();
+            portion.setText(dataPointPercent.toFixed(2) + " %");
+            portion.getPortionFormat().setFontHeight(8);
+
+            label.getTextFrameForOverriding().setText("");
+            const paragraph = label.getTextFrameForOverriding().getParagraphs().get_Item(0);
+            paragraph.getPortions().add(portion);
+
+            label.getDataLabelFormat().setShowValue(true);
+            label.getDataLabelFormat().setShowSeriesName(false);
+            label.getDataLabelFormat().setShowPercentage(false);
+            label.getDataLabelFormat().setShowLegendKey(false);
+            label.getDataLabelFormat().setShowCategoryName(false);
+            label.getDataLabelFormat().setShowBubbleSize(false);
         }
     }
-    // Αποθηκεύει την παρουσίαση που περιέχει το γράφημα
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("DisplayPercentageAsLabels_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ορισμός σημείου ποσοστού στις ετικέτες δεδομένων του γραφήματος**
+## **Ορισμός σύμβου ποσοστού με τις ετικέτες δεδομένων του διαγράμματος**
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να ορίσετε το σύμβολο ποσοστού για μια ετικέτα δεδομένων γραφήματος:
+Όταν οι τιμές αποθηκεύονται ως κλάσματα, χρησιμοποιήστε το [setNumberFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) για να εμφανίσετε ποσοστά. Περάστε το `false` στη [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) για να εφαρμόσετε τη μορφοποίηση της ετικέτας ανεξάρτητα από τα κελιά προέλευσης.
+
+Αυτό το παράδειγμα δημιουργεί ένα διάγραμμα στήλης 100% στοιβαρισμένο με κόκκινες και μπλε σειρές σε τέσσερις κατηγορίες. Κάθε ζεύγος τιμών αθροίζει στο 1. Η μορφή ετικέτας `0.0%` εμφανίζει το 0.30 ως 30.0%, ενώ ο κατακόρυφος άξονας χρησιμοποιεί δύο δεκαδικά ψηφία. Και οι δύο σειρές χρησιμοποιούν λευκό κείμενο ετικέτας 10 σημείων.
 
 ```javascript
-// Δημιουργεί ένα στιγμιότυπο της κλάσης Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Λαμβάνει την αναφορά μιας διαφάνειας μέσω του δείκτη της
-    var slide = pres.getSlides().get_Item(0);
-    // Δημιουργεί το γράφημα PercentsStackedColumn στη διαφάνεια
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.PercentsStackedColumn, 20, 20, 500, 400);
-    // Ορίζει το NumberFormatLinkedToSource σε false
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PercentsStackedColumn, 20, 20, 500, 400);
+
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.00%");
+
     chart.getChartData().getSeries().clear();
-    var defaultWorksheetIndex = 0;
-    // Λαμβάνει το φύλλο εργασίας δεδομένων γραφήματος
-    var workbook = chart.getChartData().getChartDataWorkbook();
-    // Προσθέτει νέα σειρά
-    var series = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.getType());
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 1, 0.3));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 1, 0.5));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 1, 0.8));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 1, 0.65));
-    // Ορίζει το χρώμα γεμίσματος της σειράς
-    series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // Ορίζει τις ιδιότητες LabelFormat
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Προσθέτει νέα σειρά
-    var series2 = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.getType());
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 2, 0.7));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 2, 0.5));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 2, 0.2));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 2, 0.35));
-    // Ορίζει τύπο γεμίσματος και χρώμα
-    series2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    series2.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-    // Γράφει την παρουσίαση στο δίσκο
-    pres.save("SetDataLabelsPercentageSign_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+    for (let i = 0; i < 4; i++) {
+        const categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
     }
+
+    const seriesNames = ["Reds", "Blues"];
+    const white = java.getStaticFieldValue("java.awt.Color", "WHITE");
+    const seriesColors = [java.getStaticFieldValue("java.awt.Color", "RED"), java.getStaticFieldValue("java.awt.Color", "BLUE")];
+    const values = [[0.30, 0.50, 0.80, 0.65], [0.70, 0.50, 0.20, 0.35]];
+
+    for (let i = 0; i < seriesNames.length; i++) {
+        const seriesCell = workbook.getCell(worksheetIndex, 0, i + 1, seriesNames[i]);
+        const series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+        for (let j = 0; j < 4; j++) {
+            const valueCell = workbook.getCell(worksheetIndex, j + 1, i + 1, values[i][j]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        series.getFormat().getFill().getSolidFillColor().setColor(seriesColors[i]);
+
+        const labelFormat = series.getLabels().getDefaultDataLabelFormat();
+        labelFormat.setShowValue(true);
+        labelFormat.setNumberFormatLinkedToSource(false);
+        labelFormat.setNumberFormat("0.0%");
+        labelFormat.getTextFormat().getPortionFormat().setFontHeight(10);
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(white);
+    }
+
+    presentation.save("SetDataLabelsPercentageSign_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Ορισμός απόστασης ετικετών από τον άξονα**
+## **Ανάγνωση του πραγματικού κειμένου των ετικετών δεδομένων**
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να ορίσετε την απόσταση της ετικέτας από έναν άξονα κατηγορίας όταν εργάζεστε με γράφημα που σχεδιάζεται από άξονες:
+Χρησιμοποιήστε [getActualLabelText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) για να ανακτήσετε το κείμενο που παράγεται από τις ρυθμίσεις μιας ετικέτας δεδομένων. Αυτό είναι χρήσιμο όταν εξάγετε ετικέτες για αναφορές, αναζητάτε περιεχόμενο παρουσίασης ή επαληθεύετε τα παραγόμενα διαγράμματα. Στο παρακάτω παράδειγμα, η προεπιλεγμένη [μορφή ετικέτας δεδομένων](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabelformat/) συνδυάζει το όνομα κάθε κατηγορίας, το όνομα της σειράς και την τιμή. Ένα σημείο μορφοποιεί την τιμή του ως ποσοστό, ενώ ένα άλλο χρησιμοποιεί προσαρμοσμένο κείμενο από τη [getTextFrameForOverriding](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```javascript
-// Δημιουργεί ένα στιγμιότυπο της κλάσης Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Λαμβάνει την αναφορά μιας διαφάνειας
-    var sld = pres.getSlides().get_Item(0);
-    // Δημιουργεί ένα γράφημα στη διαφάνεια
-    var ch = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
-    // Ορίζει την απόσταση της ετικέτας από έναν άξονα
-    ch.getAxes().getHorizontalAxis().setLabelOffset(500);
-    // Γράφει την παρουσίαση στο δίσκο
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const firstCategoryCell = workbook.getCell(0, 1, 0, "Q1");
+    chart.getChartData().getCategories().add(firstCategoryCell);
+    const secondCategoryCell = workbook.getCell(0, 2, 0, "Q2");
+    chart.getChartData().getCategories().add(secondCategoryCell);
+
+    const northSeriesCell = workbook.getCell(0, 0, 1, "North");
+    const north = chart.getChartData().getSeries().add(northSeriesCell, chart.getType());
+    const northFirstValueCell = workbook.getCell(0, 1, 1, 0.25);
+    north.getDataPoints().addDataPointForBarSeries(northFirstValueCell);
+    const northSecondValueCell = workbook.getCell(0, 2, 1, 0.75);
+    north.getDataPoints().addDataPointForBarSeries(northSecondValueCell);
+
+    const southSeriesCell = workbook.getCell(0, 0, 2, "South");
+    const south = chart.getChartData().getSeries().add(southSeriesCell, chart.getType());
+    const southFirstValueCell = workbook.getCell(0, 1, 2, 0.40);
+    south.getDataPoints().addDataPointForBarSeries(southFirstValueCell);
+    const southSecondValueCell = workbook.getCell(0, 2, 2, 0.60);
+    south.getDataPoints().addDataPointForBarSeries(southSecondValueCell);
+
+    for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
+        const series = chart.getChartData().getSeries().get_Item(i);
+        const format = series.getLabels().getDefaultDataLabelFormat();
+        format.setShowCategoryName(true);
+        format.setShowSeriesName(true);
+        format.setShowValue(true);
     }
+
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormatLinkedToSource(false);
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormat("0%");
+    south.getLabels().get_Item(0).getTextFrameForOverriding().setText("Reviewed");
+
+    for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
+        const series = chart.getChartData().getSeries().get_Item(i);
+        for (let j = 0; j < series.getDataPoints().size(); j++) {
+            const point = series.getDataPoints().get_Item(j);
+            const label = point.getLabel();
+            if (!label.isVisible()) {
+                continue;
+            }
+
+            console.log("Value: " + point.getValue().getData() + "; label: " + label.getActualLabelText());
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Ρύθμιση θέσης ετικετών**
+Ο αριθμός που αποθηκεύεται σε ένα σημείο δεδομένων παραμένει `0.75`, ακόμη και όταν η ετικέτα του εμφανίζει `75%` μαζί με τα ονόματα κατηγορίας και σειράς. Το προσαρμοσμένο κείμενο αντικαθιστά το παραγόμενο κείμενο ετικέτας. Το [getActualLabelText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) επιστρέφει το τελικό κείμενο ετικέτας και στις δύο περιπτώσεις. Ελέγξτε το [isVisible](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabel/isvisible/) ξεχωριστά, όπως φαίνεται παραπάνω, όταν θέλετε να εξάγετε μόνο τις ορατές ετικέτες.
 
-Όταν δημιουργείτε ένα γράφημα που δεν βασίζεται σε κανέναν άξονα, όπως ένα διάγραμμα πίτας, οι ετικέτες δεδομένων του γραφήματος μπορεί να βρίσκονται πολύ κοντά στην άκρη του. Σε μια τέτοια περίπτωση, πρέπει να ρυθμίσετε τη θέση της ετικέτας δεδομένων ώστε οι γραμμές οδηγού να εμφανίζονται καθαρά.
+## **Ορισμός απόστασης ετικέτας από άξονα**
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να προσαρμόσετε τη θέση της ετικέτας σε ένα διάγραμμα πίτας:
+Χρησιμοποιήστε [setLabelOffset](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/axis/setlabeloffset/) για να ελέγξετε την απόσταση μεταξύ των ετικετών του άξονα κατηγοριών και του άξονα. Η τιμή είναι ποσοστό του μέγιστου μεγέθους γραμματοσειράς των ετικετών άξονα. Αυτό το παράδειγμα δημιουργεί ένα συγκεντρωτικό διάγραμμα στήλης και ορίζει την οριζόντια μετατόπιση ετικετών άξονα στο 500. Αυτή η ρύθμιση επηρεάζει τις ετικέτες του άξονα κατηγοριών και όχι τις ετικέτες που συνδέονται με μεμονωμένα σημεία δεδομένων.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
-    var series = chart.getChartData().getSeries();
-    var label = series.get_Item(0).getLabels().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+    chart.getAxes().getHorizontalAxis().setLabelOffset(500);
+
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Ρύθμιση θέσης ετικέτας**
+
+Σε ένα διάγραμμα πίτας, ρυθμίστε τις θέσεις των ετικετών δεδομένων για να βελτιώσετε το διάστημα και να δημιουργήσετε χώρο για γραμμές οδηγούς.
+
+Αυτό το παράδειγμα εμφανίζει την τιμή του πρώτου σημείου δεδομένων, τοποθετεί την ετικέτα του έξω από το τμήμα και ρυθμίζει τις οριζόντιες και κάθετες μετατοπίσεις του χρησιμοποιώντας [setX](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabel/setx/) και [setY](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datalabel/sety/). Αυτές οι μετατοπίσεις είναι σχετικές με το πλάτος και το ύψος του διαγράμματος, αντίστοιχα.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
+    const series = chart.getChartData().getSeries();
+
+    const label = series.get_Item(0).getLabels().get_Item(0);
     label.getDataLabelFormat().setShowValue(true);
     label.getDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.OutsideEnd);
-    label.setX(0.71);
-    label.setY(0.04);
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    label.setX(java.newFloat(0.71));
+    label.setY(java.newFloat(0.04));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![Διάγραμμα πίτας με προσαρμοσμένη θέση ετικέτας δεδομένων](pie-chart-adjusted-label.png)
 
-## **Συχνές ερωτήσεις**
+## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
 
-**Πώς μπορώ να αποτρέψω την επικάλυψη των ετικετών δεδομένων σε πυκνά γραφήματα;**
+**Πώς μπορώ να αποτρέψω την επικάλυψη των ετικετών δεδομένων σε πυκνά διαγράμματα;**
 
-Συνδυάστε αυτόματη τοποθέτηση ετικετών, γραμμές οδηγού και μειωμένο μέγεθος γραμματοσειράς· εάν χρειαστεί, αποκρύψτε μερικά πεδία (π.χ. την κατηγορία) ή εμφανίστε ετικέτες μόνο για ακραία/κρίσιμα σημεία.
+Συνδυάστε την αυτόματη τοποθέτηση ετικετών, γραμμές οδηγούς και μειωμένο μέγεθος γραμματοσειράς· εάν χρειαστεί, κρύψτε μερικά πεδία (π.χ. την κατηγορία) ή εμφανίστε ετικέτες μόνο για ακραίες τιμές ή βασικά σημεία.
 
 **Πώς μπορώ να απενεργοποιήσω τις ετικέτες μόνο για τιμές μηδέν, αρνητικές ή κενές;**
 
 Φιλτράρετε τα σημεία δεδομένων πριν ενεργοποιήσετε τις ετικέτες και απενεργοποιήστε την εμφάνιση για τιμές 0, αρνητικές τιμές ή ελλιπείς τιμές σύμφωνα με έναν καθορισμένο κανόνα.
 
-**Πώς μπορώ να εξασφαλίσω συνεπή στυλ ετικετών κατά την εξαγωγή σε PDF/εικόνες;**
+**Πώς μπορώ να διασφαλίσω συνεπή στυλ ετικετών κατά την εξαγωγή σε PDF/εικόνες;**
 
-Ορίστε ρητά τις γραμματοσειρές (συμμετρικό, μέγεθος) και βεβαιωθείτε ότι η γραμματοσειρά είναι διαθέσιμη στην πλευρά απόδοσης ώστε να αποφύγετε την εναλλακτική επιλογή.
+Ορίστε ρητά την οικογένεια γραμματοσειράς και το μέγεθος και βεβαιωθείτε ότι η γραμματοσειρά είναι διαθέσιμη στο περιβάλλον απόδτωσης για να αποφύγετε εφεδρικές γραμματοσειρές.

@@ -1,5 +1,5 @@
 ---
-title: Kelola Label Data Grafik dalam Presentasi Menggunakan PHP
+title: Kelola Label Data Chart dalam Presentasi Menggunakan PHP
 linktitle: Label Data
 type: docs
 url: /id/php-java/chart-data-label/
@@ -14,197 +14,289 @@ keywords:
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Pelajari cara menambahkan dan memformat label data grafik dalam presentasi PowerPoint menggunakan Aspose.Slides for PHP via Java untuk slide yang lebih menarik."
+description: "Pelajari cara menambahkan dan memformat label data chart dalam presentasi PowerPoint menggunakan Aspose.Slides untuk PHP via Java untuk slide yang lebih menarik."
 ---
 ## **Pendahuluan**
 
-Label data pada grafik menampilkan detail tentang seri data grafik atau titik data individual. Mereka memungkinkan pembaca dengan cepat mengidentifikasi seri data dan juga membuat grafik lebih mudah dipahami.
+Label data menampilkan informasi tentang seri chart dan titik data individu, membantu pembaca mengidentifikasi nilai dan memahami chart. Artikel ini menjelaskan cara memformat nilai, menampilkan persentase, membaca teks label, menyesuaikan jarak label sumbu kategori, dan memposisikan label pada chart pai.
 
-## **Atur Presisi Data pada Label Data Grafik**
+## **Atur Presisi Data pada Label Data Chart**
 
-Kode PHP ini menunjukkan cara mengatur presisi data pada label data grafik:
+Gunakan [setNumberFormatOfValues](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseries/#setNumberFormatOfValues) untuk memformat nilai seri. Contoh ini membuat chart garis dengan data default, menampilkan tabel datanya, dan mengaktifkan label nilai untuk seri pertama. Format `#,##0.00` menampilkan pemisah ribuan dan dua angka desimal tanpa mengubah nilai dasarnya.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
     $chart->setDataTable(true);
-    $chart->getChartData()->getSeries()->get_Item(0)->setNumberFormatOfValues("#,##0.00");
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+    $series->setNumberFormatOfValues("#,##0.00");
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+
+    $presentation->save("PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Tampilkan Persentase sebagai Label**
 
-Aspose.Slides for PHP via Java memungkinkan Anda mengatur label persentase pada grafik yang ditampilkan. Kode PHP ini mendemonstrasikan operasinya:
+Untuk chart kolom bertumpuk, hitung setiap nilai sebagai persentase dari total kategori dan tetapkan teks ke frame teks yang dikembalikan oleh [getTextFrameForOverriding](https://reference.aspose.com/slides/id/php-java/aspose.slides/datalabel/#getTextFrameForOverriding). Contoh ini menggunakan data chart default dan menampilkan persentase dengan dua angka desimal dalam font berukuran 8 titik. Kategori dengan total nol dilewati untuk menghindari pembagian dengan nol. Hitung ulang teks label khusus jika data chart berubah.
 
 ```php
-  # Membuat instance dari kelas Presentation
-  $pres = new Presentation();
-  try {
-    # Mendapatkan slide pertama
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\Portion;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
-    $series;
-    $total_for_Cat = new double[$chart->getChartData()->getCategories()->size()];
-    for($k = 0; $k < java_values($chart->getChartData()->getCategories()->size()) ; $k++) {
-      $cat = $chart->getChartData()->getCategories()->get_Item($k);
-      for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
-        $total_for_Cat[$k] = $total_for_Cat[$k] + $chart->getChartData()->getSeries()->get_Item($i)->getDataPoints()->get_Item($k)->getValue()->getData();
-      }
+
+    $categoryCount = java_values($chart->getChartData()->getCategories()->size());
+    $categoryTotals = array_fill(0, $categoryCount, 0.0);
+    for ($k = 0; $k < $categoryCount; $k++) {
+        for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++) {
+            $series = $chart->getChartData()->getSeries()->get_Item($i);
+            $pointValue = java_values($series->getDataPoints()->get_Item($k)->getValue()->getData());
+            $categoryTotals[$k] += $pointValue;
+        }
     }
-    $dataPontPercent = 0.0;
-    for($x = 0; $x < java_values($chart->getChartData()->getSeries()->size()) ; $x++) {
-      $series = $chart->getChartData()->getSeries()->get_Item($x);
-      $series->getLabels()->getDefaultDataLabelFormat()->setShowLegendKey(false);
-      for($j = 0; $j < java_values($series->getDataPoints()->size()) ; $j++) {
-        $lbl = $series->getDataPoints()->get_Item($j)->getLabel();
-        $dataPontPercent = $series->getDataPoints()->get_Item($j)->getValue()->getData() / $total_for_Cat[$j] * 100;
-        $port = new Portion();
-        $port->setText(sprintf("{0:F2} %.2f", $dataPontPercent));
-        $port->getPortionFormat()->setFontHeight(8.0);
-        $lbl->getTextFrameForOverriding()->setText("");
-        $para = $lbl->getTextFrameForOverriding()->getParagraphs()->get_Item(0);
-        $para->getPortions()->add($port);
-        $lbl->getDataLabelFormat()->setShowSeriesName(false);
-        $lbl->getDataLabelFormat()->setShowPercentage(false);
-        $lbl->getDataLabelFormat()->setShowLegendKey(false);
-        $lbl->getDataLabelFormat()->setShowCategoryName(false);
-        $lbl->getDataLabelFormat()->setShowBubbleSize(false);
-      }
+
+    for ($x = 0; $x < java_values($chart->getChartData()->getSeries()->size()); $x++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($x);
+        $series->getLabels()->getDefaultDataLabelFormat()->setShowLegendKey(false);
+
+        for ($j = 0; $j < java_values($series->getDataPoints()->size()); $j++) {
+            $label = $series->getDataPoints()->get_Item($j)->getLabel();
+            if ($categoryTotals[$j] == 0) {
+                continue;
+            }
+
+            $pointValue = java_values($series->getDataPoints()->get_Item($j)->getValue()->getData());
+            $dataPointPercent = ($pointValue / $categoryTotals[$j]) * 100;
+
+            $portion = new Portion();
+            $portion->setText(sprintf("%.2F %%", $dataPointPercent));
+            $portion->getPortionFormat()->setFontHeight(8);
+
+            $label->getTextFrameForOverriding()->setText("");
+            $paragraph = $label->getTextFrameForOverriding()->getParagraphs()->get_Item(0);
+            $paragraph->getPortions()->add($portion);
+
+            $label->getDataLabelFormat()->setShowValue(true);
+            $label->getDataLabelFormat()->setShowSeriesName(false);
+            $label->getDataLabelFormat()->setShowPercentage(false);
+            $label->getDataLabelFormat()->setShowLegendKey(false);
+            $label->getDataLabelFormat()->setShowCategoryName(false);
+            $label->getDataLabelFormat()->setShowBubbleSize(false);
+        }
     }
-    # Menyimpan presentasi yang berisi grafik
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Atur Tanda Persentase dengan Label Data Grafik**
+## **Atur Tanda Persentase dengan Label Data Chart**
 
-Kode PHP ini menunjukkan cara mengatur tanda persentase untuk label data grafik:
+Ketika nilai disimpan sebagai pecahan, gunakan [setNumberFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/datalabelformat/#setNumberFormat) untuk menampilkan persentase. Berikan `false` ke [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/id/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource) agar format label diterapkan secara terpisah dari sel sumber.
+
+Contoh ini membuat chart kolom bertumpuk 100% dengan seri merah dan biru pada empat kategori. Setiap pasangan nilai menjumlahkan menjadi 1. Format label `0.0%` menampilkan 0.30 sebagai 30.0%, sementara sumbu vertikal menggunakan dua angka desimal. Kedua seri menggunakan teks label berwarna putih dengan ukuran 10 titik.
 
 ```php
-  # Membuat instance dari kelas Presentation
-  $pres = new Presentation();
-  try {
-    # Mendapatkan referensi slide melalui indeksnya
-    $slide = $pres->getSlides()->get_Item(0);
-    # Membuat grafik PercentsStackedColumn pada slide
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
-    # Mengatur NumberFormatLinkedToSource ke false
+
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.00%");
+
     $chart->getChartData()->getSeries()->clear();
-    $defaultWorksheetIndex = 0;
-    # Mendapatkan worksheet data grafik
+    $chart->getChartData()->getCategories()->clear();
+
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    # Menambahkan series baru
-    $series = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 1, "Reds"), $chart->getType());
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 1, 0.3));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 1, 0.5));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 1, 0.8));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 1, 0.65));
-    # Mengatur warna isi series
-    $series->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Sets the LabelFormat properties
-    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
-    $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
-    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontHeight(10);
-    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
-    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Menambahkan series baru
-    $series2 = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 2, "Blues"), $chart->getType());
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 2, 0.7));
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 2, 0.5));
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 2, 0.2));
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 2, 0.35));
-    # Mengatur tipe dan warna isi
-    $series2->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $series2->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $series2->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
-    $series2->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
-    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontHeight(10);
-    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
-    # Menulis presentasi ke disk
-    $pres->save("SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $worksheetIndex = 0;
+    for ($i = 0; $i < 4; $i++) {
+        $categoryCell = $workbook->getCell($worksheetIndex, $i + 1, 0, "Category " . ($i + 1));
+        $chart->getChartData()->getCategories()->add($categoryCell);
     }
-  }
+
+    $colors = java("java.awt.Color");
+    $seriesNames = [ "Reds", "Blues" ];
+    $seriesColors = [ $colors->RED, $colors->BLUE ];
+    $values = [ [ 0.30, 0.50, 0.80, 0.65 ], [ 0.70, 0.50, 0.20, 0.35 ] ];
+
+    for ($i = 0; $i < count($seriesNames); $i++) {
+        $seriesCell = $workbook->getCell($worksheetIndex, 0, $i + 1, $seriesNames[$i]);
+        $series = $chart->getChartData()->getSeries()->add($seriesCell, $chart->getType());
+        for ($j = 0; $j < 4; $j++) {
+            $valueCell = $workbook->getCell($worksheetIndex, $j + 1, $i + 1, $values[$i][$j]);
+            $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+        }
+
+        $series->getFormat()->getFill()->setFillType(FillType::Solid);
+        $series->getFormat()->getFill()->getSolidFillColor()->setColor($seriesColors[$i]);
+
+        $labelFormat = $series->getLabels()->getDefaultDataLabelFormat();
+        $labelFormat->setShowValue(true);
+        $labelFormat->setNumberFormatLinkedToSource(false);
+        $labelFormat->setNumberFormat("0.0%");
+        $labelFormat->getTextFormat()->getPortionFormat()->setFontHeight(10);
+        $labelFormat->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $labelFormat->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor($colors->WHITE);
+    }
+
+    $presentation->save("SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+## **Baca Teks Aktual dari Label Data**
+
+Gunakan [getActualLabelText](https://reference.aspose.com/slides/id/php-java/aspose.slides/datalabel/#getActualLabelText) untuk mengambil teks yang dihasilkan oleh pengaturan label data. Ini berguna saat mengekstrak label untuk laporan, mencari konten presentasi, atau memvalidasi chart yang dihasilkan. Pada contoh di bawah, format [label data default](https://reference.aspose.com/slides/id/php-java/aspose.slides/datalabelformat/) menggabungkan setiap nama kategori, nama seri, dan nilai. Satu poin memformat nilainya sebagai persentase, dan yang lain menggunakan teks khusus dari [getTextFrameForOverriding](https://reference.aspose.com/slides/id/php-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $firstCategoryCell = $workbook->getCell(0, 1, 0, "Q1");
+    $chart->getChartData()->getCategories()->add($firstCategoryCell);
+    $secondCategoryCell = $workbook->getCell(0, 2, 0, "Q2");
+    $chart->getChartData()->getCategories()->add($secondCategoryCell);
+
+    $northSeriesCell = $workbook->getCell(0, 0, 1, "North");
+    $north = $chart->getChartData()->getSeries()->add($northSeriesCell, $chart->getType());
+    $northFirstValueCell = $workbook->getCell(0, 1, 1, 0.25);
+    $north->getDataPoints()->addDataPointForBarSeries($northFirstValueCell);
+    $northSecondValueCell = $workbook->getCell(0, 2, 1, 0.75);
+    $north->getDataPoints()->addDataPointForBarSeries($northSecondValueCell);
+
+    $southSeriesCell = $workbook->getCell(0, 0, 2, "South");
+    $south = $chart->getChartData()->getSeries()->add($southSeriesCell, $chart->getType());
+    $southFirstValueCell = $workbook->getCell(0, 1, 2, 0.40);
+    $south->getDataPoints()->addDataPointForBarSeries($southFirstValueCell);
+    $southSecondValueCell = $workbook->getCell(0, 2, 2, 0.60);
+    $south->getDataPoints()->addDataPointForBarSeries($southSecondValueCell);
+
+    for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($i);
+        $format = $series->getLabels()->getDefaultDataLabelFormat();
+        $format->setShowCategoryName(true);
+        $format->setShowSeriesName(true);
+        $format->setShowValue(true);
+    }
+
+    $north->getLabels()->get_Item(1)->getDataLabelFormat()->setNumberFormatLinkedToSource(false);
+    $north->getLabels()->get_Item(1)->getDataLabelFormat()->setNumberFormat("0%");
+    $south->getLabels()->get_Item(0)->getTextFrameForOverriding()->setText("Reviewed");
+
+    for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($i);
+        for ($j = 0; $j < java_values($series->getDataPoints()->size()); $j++) {
+            $point = $series->getDataPoints()->get_Item($j);
+            $label = $point->getLabel();
+            if (!java_values($label->isVisible())) {
+                continue;
+            }
+
+            echo "Value: " . java_values($point->getValue()->getData()) . "; label: " . java_values($label->getActualLabelText()) . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Angka yang disimpan dalam titik data tetap `0.75`, meskipun labelnya menampilkan `75%` bersama nama kategori dan seri. Teks khusus menggantikan teks label yang dihasilkan. [getActualLabelText](https://reference.aspose.com/slides/id/php-java/aspose.slides/datalabel/#getActualLabelText) mengembalikan string label yang dihasilkan dalam kedua kasus. Periksa [isVisible](https://reference.aspose.com/slides/id/php-java/aspose.slides/datalabel/#isVisible) secara terpisah, seperti yang ditunjukkan di atas, ketika Anda ingin mengekstrak hanya label yang terlihat.
 
 ## **Atur Jarak Label dari Sumbu**
 
-Kode PHP ini menunjukkan cara mengatur jarak label dari sumbu kategori ketika Anda menangani grafik yang dipetakan dari sumbu:
+Gunakan [setLabelOffset](https://reference.aspose.com/slides/id/php-java/aspose.slides/axis/#setLabelOffset) untuk mengontrol jarak antara label sumbu kategori dan sumbu. Nilainya adalah persentase dari ukuran font maksimum label sumbu. Contoh ini membuat chart kolom berkelompok dan mengatur offset label sumbu horizontal menjadi 500. Pengaturan ini memengaruhi label sumbu kategori, bukan label yang terpasang pada titik data individu.
 
 ```php
-  # Membuat instance dari kelas Presentation
-  $pres = new Presentation();
-  try {
-    # Mendapatkan referensi slide
-    $sld = $pres->getSlides()->get_Item(0);
-    # Membuat grafik pada slide
-    $ch = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
-    # Mengatur jarak label dari sumbu
-    $ch->getAxes()->getHorizontalAxis()->setLabelOffset(500);
-    # Menulis presentasi ke disk
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+    $chart->getAxes()->getHorizontalAxis()->setLabelOffset(500);
+
+    $presentation->save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Sesuaikan Lokasi Label**
 
-Saat Anda membuat grafik yang tidak bergantung pada sumbu apa pun seperti grafik lingkaran, label data grafik dapat berakhir terlalu dekat dengan tepinya. Dalam kasus seperti itu, Anda harus menyesuaikan lokasi label data agar garis penunjuk tampil dengan jelas.
+Pada chart pai, sesuaikan posisi label data untuk memperbaiki jarak dan memberi ruang bagi garis panduan.
 
-Kode PHP ini menunjukkan cara menyesuaikan lokasi label pada grafik lingkaran:
+Contoh ini menampilkan nilai titik data pertama, menempatkan labelnya di luar irisan, dan menyesuaikan offset horizontal serta vertikal menggunakan [setX](https://reference.aspose.com/slides/id/php-java/aspose.slides/datalabel/#setX) dan [setY](https://reference.aspose.com/slides/id/php-java/aspose.slides/datalabel/#setY). Offset ini relatif terhadap lebar dan tinggi chart masing‑masing.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
     $series = $chart->getChartData()->getSeries();
+
     $label = $series->get_Item(0)->getLabels()->get_Item(0);
     $label->getDataLabelFormat()->setShowValue(true);
-    $label->getDataLabelFormat()->setPosition(LegendDataLabelPosition->OutsideEnd);
+    $label->getDataLabelFormat()->setPosition(LegendDataLabelPosition::OutsideEnd);
     $label->setX(0.71);
     $label->setY(0.04);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![Diagram lingkaran dengan posisi label data yang disesuaikan](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
-**Bagaimana saya dapat mencegah label data tumpang tindih pada grafik yang padat?**
+**Bagaimana cara mencegah label data saling tumpang tindih pada chart yang padat?**
 
-Gabungkan penempatan label otomatis, garis penunjuk, dan ukuran font yang diperkecil; jika perlu, sembunyikan beberapa bidang (misalnya, kategori) atau tampilkan label hanya untuk poin ekstrem/kunci.
+Gabungkan penempatan label otomatis, garis panduan, dan ukuran font yang lebih kecil; jika diperlukan, sembunyikan beberapa bidang (misalnya, kategori) atau tampilkan label hanya untuk nilai ekstrem atau titik penting.
 
-**Bagaimana saya dapat menonaktifkan label hanya untuk nilai nol, negatif, atau kosong?**
+**Bagaimana cara menonaktifkan label hanya untuk nilai nol, negatif, atau kosong?**
 
-Saring titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai aturan yang ditentukan.
+Filter titik data sebelum mengaktifkan label dan matikan tampilan untuk nilai 0, nilai negatif, atau nilai yang hilang sesuai aturan yang ditentukan.
 
-**Bagaimana saya dapat memastikan gaya label yang konsisten saat mengekspor ke PDF/gambar?**
+**Bagaimana cara memastikan gaya label konsisten saat mengekspor ke PDF/gambar?**
 
-Tetapkan font (jenis, ukuran) secara eksplisit dan pastikan font tersebut tersedia di sisi rendering untuk menghindari fallback.
+Tetapkan secara eksplisit keluarga dan ukuran font serta verifikasi bahwa font tersedia di lingkungan rendering untuk menghindari fallback.

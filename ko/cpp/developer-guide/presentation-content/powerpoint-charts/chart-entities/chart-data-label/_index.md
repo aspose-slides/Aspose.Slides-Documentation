@@ -1,5 +1,5 @@
 ---
-title: 프레젠테이션에서 С++를 사용하여 차트 데이터 레이블 관리
+title: C++를 사용하여 프레젠테이션에서 차트 데이터 레이블 관리
 linktitle: 데이터 레이블
 type: docs
 url: /ko/cpp/chart-data-label/
@@ -12,245 +12,402 @@ keywords:
 - 레이블 위치
 - PowerPoint
 - 프레젠테이션
-- С++
+- C++
 - Aspose.Slides
-description: "Aspose.Slides for С++를 사용하여 PowerPoint 프레젠테이션에 차트 데이터 레이블을 추가하고 형식화하는 방법을 배워 더욱 매력적인 슬라이드를 만들 수 있습니다."
+description: "Aspose.Slides for C++를 사용하여 PowerPoint 프레젠테이션에 차트 데이터 레이블을 추가하고 서식 지정하는 방법을 배우고, 보다 매력적인 슬라이드를 만들 수 있습니다."
 ---
 ## **소개**
 
-차트의 데이터 레이블은 차트 데이터 시리즈 또는 개별 데이터 포인트에 대한 자세한 정보를 표시합니다. 이를 통해 독자는 데이터 시리즈를 빠르게 식별할 수 있으며 차트를 보다 쉽게 이해할 수 있습니다.
+데이터 레이블은 차트 시리즈와 개별 데이터 포인트에 대한 정보를 표시하여 독자가 값을 식별하고 차트를 이해하는 데 도움을 줍니다. 이 문서에서는 값 서식 지정, 백분율 표시, 레이블 텍스트 읽기, 범주 축 레이블 간격 조정, 파이 차트 레이블 위치 지정 방법을 설명합니다.
 
-## **차트 데이터 레이블의 데이터 정밀도 설정**
+## **차트 데이터 레이블에서 데이터 정밀도 설정**
 
-이 C++ 코드는 차트 데이터 레이블의 데이터 정밀도를 설정하는 방법을 보여줍니다:
+Use [set_NumberFormatOfValues](https://reference.aspose.com/slides/ko/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) to format series values. This example creates a line chart with default data, displays its data table, and enables value labels for the first series. The format `#,##0.00` displays a thousands separator and two decimal places without changing the underlying values.
 
-```c++
-	// 문서 디렉터리 경로
-	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-	// PPTX 파일을 나타내는 Presentation 클래스를 인스턴스화합니다
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-	// 첫 번째 슬라이드를 가져옵니다
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-	// 기본 데이터로 차트를 추가합니다
-	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 50, 50, 450, 300);
+chart->set_HasDataTable(true);
 
-	// 시리즈 번호 형식을 설정합니다
-	chart->set_HasDataTable( true);
-	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+series->set_NumberFormatOfValues(u"#,##0.00");
+series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 
-	// 프레젠테이션 파일을 디스크에 저장합니다
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **백분율을 레이블로 표시**
 
-Aspose.Slides for C++를 사용하면 표시된 차트에 백분율 레이블을 설정할 수 있습니다. 이 C++ 코드는 해당 작업을 시연합니다:
+For a stacked column chart, calculate each value as a percentage of its category total and assign the text to the text frame returned by [get_TextFrameForOverriding](https://reference.aspose.com/slides/ko/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). This example uses the default chart data and displays percentages with two decimal places in an 8-point font. Categories with a total of zero are skipped to avoid division by zero. Recalculate the custom label text if the chart data changes.
 
-```c++
-	// 문서 디렉터리 경로
-	const String outPath = u"../out/DisplayPercentageAsLabels_out.pptx";
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Portion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <system/convert.h>
+#include <vector>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-	// Presentation 클래스의 인스턴스를 생성합니다
-	System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-	System::SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
-	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::StackedColumn, 20, 20, 400, 400);
-	System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
-	System::SharedPtr<IChartCategory> cat;
-	System::ArrayPtr<double> total_for_Cat = System::MakeObject<System::Array<double>>(chart->get_ChartData()->get_Categories()->get_Count(), 0);
-	for (int32_t k = 0; k < chart->get_ChartData()->get_Categories()->get_Count(); k++)
-	{
-		cat = chart->get_ChartData()->get_Categories()->idx_get(k);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
-		for (int32_t i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
-		{
-			total_for_Cat[k] = total_for_Cat[k] + System::Convert::ToDouble(chart->get_ChartData()->get_Series()->idx_get(i)->get_DataPoints()->idx_get(k)->get_Value()->get_Data());
-		}
-	}
+auto categoryTotals = std::vector<double>(chart->get_ChartData()->get_Categories()->get_Count(), 0.0);
+for (auto k = 0; k < chart->get_ChartData()->get_Categories()->get_Count(); k++)
+{
+    for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
+    {
+        auto series = chart->get_ChartData()->get_Series()->idx_get(i);
+        auto pointValue = Convert::ToDouble(series->get_DataPoint(k)->get_Value()->get_Data());
+        categoryTotals[k] += pointValue;
+    }
+}
 
-	double dataPontPercent = 0.f;
+for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
+{
+    auto series = chart->get_ChartData()->get_Series()->idx_get(x);
+    series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLegendKey(false);
 
-	for (int32_t x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
-	{
-		series = chart->get_ChartData()->get_Series()->idx_get(x);
-		series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLegendKey(false);
+    for (auto j = 0; j < series->get_DataPoints()->get_Count(); j++)
+    {
+        auto label = series->get_DataPoint(j)->get_Label();
+        if (categoryTotals[j] == 0)
+        {
+            continue;
+        }
 
-		for (int32_t j = 0; j < series->get_DataPoints()->get_Count(); j++)
-		{
-			System::SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(j)->get_Label();
-			dataPontPercent = (System::Convert::ToDouble(series->get_DataPoints()->idx_get(j)->get_Value()->get_Data()) / total_for_Cat[j]) * 100;
+        auto pointValue = Convert::ToDouble(series->get_DataPoint(j)->get_Value()->get_Data());
+        auto dataPointPercent = (pointValue / categoryTotals[j]) * 100;
 
-			System::SharedPtr<IPortion> port = System::MakeObject<Portion>();
-			port->set_Text(System::String::Format(u"{0:F2} %", dataPontPercent));
-			port->get_PortionFormat()->set_FontHeight(8.f);
-			lbl->get_TextFrameForOverriding()->set_Text(u"");
-			System::SharedPtr<IParagraph> para = lbl->get_TextFrameForOverriding()->get_Paragraphs()->idx_get(0);
-			para->get_Portions()->Add(port);
+        auto portion = MakeObject<Portion>();
+        portion->set_Text(String::Format(u"{0:F2} %", dataPointPercent));
+        portion->get_PortionFormat()->set_FontHeight(8.0f);
 
-			lbl->get_DataLabelFormat()->set_ShowSeriesName(false);
-			lbl->get_DataLabelFormat()->set_ShowPercentage(false);
-			lbl->get_DataLabelFormat()->set_ShowLegendKey(false);
-			lbl->get_DataLabelFormat()->set_ShowCategoryName(false);
-			lbl->get_DataLabelFormat()->set_ShowBubbleSize(false);
+        label->get_TextFrameForOverriding()->set_Text(u"");
 
-		}
+        auto paragraph = label->get_TextFrameForOverriding()->get_Paragraphs()->idx_get(0);
+        paragraph->get_Portions()->Add(portion);
 
-	}
+        label->get_DataLabelFormat()->set_ShowValue(true);
+        label->get_DataLabelFormat()->set_ShowSeriesName(false);
+        label->get_DataLabelFormat()->set_ShowPercentage(false);
+        label->get_DataLabelFormat()->set_ShowLegendKey(false);
+        label->get_DataLabelFormat()->set_ShowCategoryName(false);
+        label->get_DataLabelFormat()->set_ShowBubbleSize(false);
+    }
+}
 
-	// 차트를 포함하는 프레젠테이션을 저장합니다
-	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **차트 데이터 레이블에 백분율 기호 설정**
 
-이 C++ 코드는 차트 데이터 레이블에 백분율 기호를 설정하는 방법을 보여줍니다:
+When values are stored as fractions, use [set_NumberFormat](https://reference.aspose.com/slides/ko/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) to display percentages. Pass `false` to [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/ko/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) to apply the label format independently of the source cells.
 
-```c++
-	// 문서 디렉터리 경로.
-	const String outPath = u"../out/DataLabelsPercentageSign_out.pptx";
+This example creates a 100% stacked column chart with red and blue series across four categories. Each pair of values adds up to 1. The label format `0.0%` displays 0.30 as 30.0%, while the vertical axis uses two decimal places. Both series use white, 10-point label text.
 
-	// Presentation 클래스의 인스턴스를 생성합니다
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-	// 인덱스를 통해 슬라이드 참조를 가져옵니다
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-	// 슬라이드에 PercentsStackedColumn 차트를 생성합니다
-	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::PercentsStackedColumn, 0, 0, 500, 500);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
-	// NumberFormatLinkedToSource를 false로 설정합니다
-	chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource ( false);
-	chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
+chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource(false);
+chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
 
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
 
-	// 차트 데이터 시트의 인덱스를 설정합니다
-	int defaultWorksheetIndex = 0;
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto worksheetIndex = 0;
+for (auto i = 0; i < 4; i++)
+{
+    auto categoryCell = workbook->GetCell(worksheetIndex, i + 1, 0, ObjectExt::Box(String::Format(u"Category {0}", i + 1)));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+}
 
-	// 차트 데이터 워크시트를 가져옵니다
-	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
+String seriesNames[] = { u"Reds", u"Blues" };
+Color seriesColors[] = { Color::get_Red(), Color::get_Blue() };
+double values[2][4] = { { 0.30, 0.50, 0.80, 0.65 }, { 0.70, 0.50, 0.20, 0.35 } };
 
+for (auto i = 0; i < 2; i++)
+{
+    auto seriesCell = workbook->GetCell(worksheetIndex, 0, i + 1, ObjectExt::Box(seriesNames[i]));
+    auto series = chart->get_ChartData()->get_Series()->Add(seriesCell, chart->get_Type());
+    for (auto j = 0; j < 4; j++)
+    {
+        auto valueCell = workbook->GetCell(worksheetIndex, j + 1, i + 1, ObjectExt::Box(values[i][j]));
+        series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+    }
 
-	// 기본 생성된 시리즈를 삭제합니다 
-	chart->get_ChartData()->get_Series()->Clear();
-	
+    series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
+    series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(seriesColors[i]);
 
-	// 새 시리즈를 추가합니다
-	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
+    auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
+    labelFormat->set_ShowValue(true);
+    labelFormat->set_IsNumberFormatLinkedToSource(false);
+    labelFormat->set_NumberFormat(u"0.0%");
+    labelFormat->get_TextFormat()->get_PortionFormat()->set_FontHeight(10);
+    labelFormat->get_TextFormat()->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+    labelFormat->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_White());
+}
 
-
-	// 첫 번째 차트 시리즈를 가져옵니다
-	SharedPtr<IChartSeries> series=chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Red")), chart->get_Type());
-	// 시리즈 데이터를 채웁니다
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(0.50)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(0.50)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(0.80)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 1, ObjectExt::Box<double>(0.65)));
-
-	// 시리즈의 채우기 색상을 설정합니다
-	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-
-	// LabelFormat 속성을 설정합니다
-	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
-	series->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource ( false);
-	series->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat (u"0.0%");
-	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->set_FontHeight ( 10);
-	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
-	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
-
-	// 두 번째 차트 시리즈를 가져옵니다
-	SharedPtr<IChartSeries> series2 = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Blues")), chart->get_Type());
-	// 시리즈 데이터를 채웁니다
-	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(0.70)));
-	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(0.50)));
-	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(0.20)));
-	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 2, ObjectExt::Box<double>(0.35)));
-
-	// 시리즈의 채우기 색상을 설정합니다
-	series2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-	series2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
-
-	// LabelFormat 속성을 설정합니다
-	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
-	series2->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource(false);
-	series2->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat(u"0.0%");
-	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->set_FontHeight(10);
-	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
-	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
-
-	// 프레젠테이션 파일을 디스크에 저장합니다
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 ```
+
+## **데이터 레이블 실제 텍스트 읽기**
+
+Use [GetActualLabelText](https://reference.aspose.com/slides/ko/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) to retrieve the text produced by a data label's settings. This is useful when extracting labels for reports, searching presentation content, or validating generated charts. In the example below, the default [data label format](https://reference.aspose.com/slides/ko/cpp/aspose.slides.charts/idatalabelformat/) combines each category name, series name, and value. One point formats its value as a percentage, and another uses custom text from [get_TextFrameForOverriding](https://reference.aspose.com/slides/ko/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/ITextFrame.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto firstCategoryCell = workbook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Q1"));
+chart->get_ChartData()->get_Categories()->Add(firstCategoryCell);
+auto secondCategoryCell = workbook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Q2"));
+chart->get_ChartData()->get_Categories()->Add(secondCategoryCell);
+
+auto northSeriesCell = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"North"));
+auto north = chart->get_ChartData()->get_Series()->Add(northSeriesCell, chart->get_Type());
+auto northFirstValueCell = workbook->GetCell(0, 1, 1, ObjectExt::Box(0.25));
+north->get_DataPoints()->AddDataPointForBarSeries(northFirstValueCell);
+auto northSecondValueCell = workbook->GetCell(0, 2, 1, ObjectExt::Box(0.75));
+north->get_DataPoints()->AddDataPointForBarSeries(northSecondValueCell);
+
+auto southSeriesCell = workbook->GetCell(0, 0, 2, ObjectExt::Box<String>(u"South"));
+auto south = chart->get_ChartData()->get_Series()->Add(southSeriesCell, chart->get_Type());
+auto southFirstValueCell = workbook->GetCell(0, 1, 2, ObjectExt::Box(0.40));
+south->get_DataPoints()->AddDataPointForBarSeries(southFirstValueCell);
+auto southSecondValueCell = workbook->GetCell(0, 2, 2, ObjectExt::Box(0.60));
+south->get_DataPoints()->AddDataPointForBarSeries(southSecondValueCell);
+
+for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
+{
+    auto series = chart->get_ChartData()->get_Series()->idx_get(i);
+    auto format = series->get_Labels()->get_DefaultDataLabelFormat();
+    format->set_ShowCategoryName(true);
+    format->set_ShowSeriesName(true);
+    format->set_ShowValue(true);
+}
+
+north->get_Label(1)->get_DataLabelFormat()->set_IsNumberFormatLinkedToSource(false);
+north->get_Label(1)->get_DataLabelFormat()->set_NumberFormat(u"0%");
+south->get_Label(0)->get_TextFrameForOverriding()->set_Text(u"Reviewed");
+
+for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
+{
+    auto series = chart->get_ChartData()->get_Series()->idx_get(i);
+    for (auto j = 0; j < series->get_DataPoints()->get_Count(); j++)
+    {
+        auto point = series->get_DataPoint(j);
+        auto label = point->get_Label();
+        if (!label->get_IsVisible())
+        {
+            continue;
+        }
+
+        Console::WriteLine(String::Format(u"Value: {0}; label: {1}", point->get_Value()->get_Data(), label->GetActualLabelText()));
+    }
+}
+```
+
+데이터 포인트에 저장된 숫자는 `0.75` 그대로이며, 레이블이 `75%`와 함께 범주 및 시리즈 이름을 표시하더라도 값은 변하지 않습니다. 사용자 지정 텍스트가 생성된 레이블 텍스트를 대체합니다. [GetActualLabelText](https://reference.aspose.com/slides/ko/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/)은 두 경우 모두 결과 레이블 문자열을 반환합니다. 표시된 레이블만 추출하려면 위와 같이 [get_IsVisible](https://reference.aspose.com/slides/ko/cpp/aspose.slides.charts/idatalabel/get_isvisible/)를 별도로 확인하십시오.
 
 ## **축으로부터 레이블 거리 설정**
 
-이 C++ 코드는 축에서 플롯된 차트를 다룰 때 범주 축으로부터 레이블 거리을 설정하는 방법을 보여줍니다:
+Use [set_LabelOffset](https://reference.aspose.com/slides/ko/cpp/aspose.slides.charts/iaxis/set_labeloffset/) to control the distance between category axis labels and the axis. The value is a percentage of the maximum font size of the axis labels. This example creates a clustered column chart and sets the horizontal axis label offset to 500. This setting affects category axis labels rather than labels attached to individual data points.
 
-```c++
-	// 문서 디렉터리 경로
-	const String outPath = u"../out/CategoryAxisLabelDistance_out.pptx";
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-	// Presentation 클래스의 인스턴스를 생성합니다
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-	// 슬라이드 참조를 가져옵니다
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-	// 슬라이드에 차트를 생성합니다
-	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset(500);
 
-
-	// 차트 시리즈 컬렉션을 가져옵니다
-	SharedPtr<IChartSeriesCollection> seriesCollection = chart->get_ChartData()->get_Series();
-
-	// 축으로부터 레이블 간격을 설정합니다
-	chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset ( 500);
-
-	// 프레젠테이션 파일을 디스크에 저장합니다
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **레이블 위치 조정**
 
-파이 차트와 같이 축에 의존하지 않는 차트를 만들 경우, 차트의 데이터 레이블이 가장자리에 너무 가깝게 배치될 수 있습니다. 이 경우, 데이터 레이블의 위치를 조정하여 리더 라인이 명확하게 표시되도록 해야 합니다.
+On a pie chart, adjust data label positions to improve spacing and make room for leader lines.
 
-이 C++ 코드는 파이 차트에서 레이블 위치를 조정하는 방법을 보여줍니다:
+This example displays the value of the first data point, places its label outside the slice, and uses [set_X](https://reference.aspose.com/slides/ko/cpp/aspose.slides.charts/ilayoutable/set_x/) and [set_Y](https://reference.aspose.com/slides/ko/cpp/aspose.slides.charts/ilayoutable/set_y/) to adjust its offsets. These offsets are relative to the chart width and height, respectively.
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-System::SharedPtr<IChart> chart = pres->get_Slide(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 200.0f, 200.0f);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-System::SharedPtr<IChartSeriesCollection> series = chart->get_ChartData()->get_Series();
-System::SharedPtr<IDataLabel> label = series->idx_get(0)->get_Label(0);
-System::SharedPtr<IDataLabelFormat> dataLabelFormat = label->get_DataLabelFormat();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 200, 200);
+auto series = chart->get_ChartData()->get_Series();
 
-dataLabelFormat->set_ShowValue(true);
-dataLabelFormat->set_Position(LegendDataLabelPosition::OutsideEnd);
+auto label = series->idx_get(0)->get_Label(0);
+label->get_DataLabelFormat()->set_ShowValue(true);
+label->get_DataLabelFormat()->set_Position(LegendDataLabelPosition::OutsideEnd);
 label->set_X(0.71f);
 label->set_Y(0.04f);
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![조정된 데이터 레이블 위치가 있는 파이 차트](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
-**빽빽한 차트에서 데이터 레이블이 겹치는 것을 어떻게 방지할 수 있나요?**
+**밀집된 차트에서 데이터 레이블이 겹치는 것을 어떻게 방지할 수 있나요?**
 
-자동 레이블 배치, 리더 라인, 그리고 글꼴 크기 축소를 결합합니다; 필요하다면 일부 필드(예: 범주)를 숨기거나 극단/핵심 포인트에만 레이블을 표시합니다.
+자동 레이블 배치, 리더 라인, 폰트 크기 축소를 결합하고, 필요하면 일부 필드(예: 범주)를 숨기거나 극값 또는 핵심 포인트에만 레이블을 표시합니다.
 
-**값이 0이거나 음수이거나 비어 있는 경우에만 레이블을 비활성화하려면 어떻게 해야 하나요?**
+**값이 0, 음수 또는 비어 있는 경우에만 레이블을 비활성화하려면 어떻게 해야 하나요?**
 
-레이블을 활성화하기 전에 데이터 포인트를 필터링하고, 정의된 규칙에 따라 0값, 음수값 또는 누락된 값에 대한 표시를 끕니다.
+레벨을 활성화하기 전에 데이터 포인트를 필터링하고, 정의된 규칙에 따라 0, 음수 또는 누락된 값에 대해 표시를 끕니다.
 
 **PDF/이미지로 내보낼 때 일관된 레이블 스타일을 보장하려면 어떻게 해야 하나요?**
 
-글꼴(패밀리, 크기)을 명시적으로 설정하고, 렌더링 측에서 해당 글꼴이 사용 가능하도록 확인하여 대체 글꼴이 적용되지 않도록 합니다.
+폰트 패밀리와 크기를 명시적으로 설정하고, 렌더링 환경에 해당 폰트가 존재하는지 확인하여 대체 폰트 사용을 방지합니다.

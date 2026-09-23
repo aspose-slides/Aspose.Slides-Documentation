@@ -1,5 +1,5 @@
 ---
-title: Quản lý nhãn dữ liệu biểu đồ trong bài thuyết trình trên Android
+title: Quản lý Nhãn dữ liệu biểu đồ trong Bài thuyết trình trên Android
 linktitle: Nhãn dữ liệu
 type: docs
 url: /vi/androidjava/chart-data-label/
@@ -15,212 +15,272 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách thêm và định dạng nhãn dữ liệu biểu đồ trong các bài thuyết trình PowerPoint bằng Aspose.Slides cho Android qua Java để có các slide hấp dẫn hơn."
+description: "Tìm hiểu cách thêm và định dạng nhãn dữ liệu biểu đồ trong các bài thuyết trình PowerPoint bằng Aspose.Slides cho Android qua Java để có các slide sinh động hơn."
 ---
 ## **Giới thiệu**
 
-Nhãn dữ liệu trên biểu đồ hiển thị chi tiết về chuỗi dữ liệu của biểu đồ hoặc các điểm dữ liệu riêng lẻ. Chúng cho phép người đọc nhanh chóng nhận diện chuỗi dữ liệu và đồng thời làm cho biểu đồ dễ hiểu hơn.
+Nhãn dữ liệu hiển thị thông tin về chuỗi biểu đồ và các điểm dữ liệu riêng lẻ, giúp người đọc xác định các giá trị và hiểu biểu đồ. Bài viết này giải thích cách định dạng giá trị, hiển thị phần trăm, đọc văn bản nhãn, điều chỉnh khoảng cách nhãn trục danh mục và định vị nhãn biểu đồ tròn.
 
-## **Đặt độ chính xác dữ liệu trong nhãn dữ liệu biểu đồ**
+## **Đặt độ chính xác dữ liệu trong Nhãn dữ liệu biểu đồ**
 
-Đoạn mã Java này cho bạn thấy cách đặt độ chính xác dữ liệu trong một nhãn dữ liệu biểu đồ:
+Sử dụng [setNumberFormatOfValues](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) để định dạng các giá trị của chuỗi. Ví dụ này tạo một biểu đồ đường với dữ liệu mặc định, hiển thị bảng dữ liệu của nó và bật nhãn giá trị cho chuỗi đầu tiên. Định dạng `#,##0.00` hiển thị dấu phân cách hàng nghìn và hai chữ số thập phân mà không thay đổi các giá trị gốc.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
-    
-    chart.setDataTable(true);
-    chart.getChartData().getSeries().get_Item(0).setNumberFormatOfValues("#,##0.00");
+import com.aspose.slides.*;
 
-    pres.save("output.pptx",SaveFormat.Pptx);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
+    chart.setDataTable(true);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    series.setNumberFormatOfValues("#,##0.00");
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Hiển thị phần trăm dưới dạng nhãn**
 
-Aspose.Slides for Android qua Java cho phép bạn đặt nhãn phần trăm trên các biểu đồ hiển thị. Đoạn mã Java này minh họa cách thực hiện:
+Đối với biểu đồ cột chồng, tính mỗi giá trị dưới dạng phần trăm của tổng danh mục của nó và gán văn bản vào khung văn bản được trả về bởi [getTextFrameForOverriding](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--). Ví dụ này sử dụng dữ liệu biểu đồ mặc định và hiển thị phần trăm với hai chữ số thập phân trong phông chữ 8 điểm. Các danh mục có tổng bằng không sẽ bị bỏ qua để tránh chia cho zero. Tính lại văn bản nhãn tùy chỉnh nếu dữ liệu biểu đồ thay đổi.
 
 ```java
-// Tạo một thể hiện của lớp Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Presentation presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400);
-    IChartSeries series;
-    double[] total_for_Cat = new double[chart.getChartData().getCategories().size()];
+
+    double[] categoryTotals = new double[chart.getChartData().getCategories().size()];
     for (int k = 0; k < chart.getChartData().getCategories().size(); k++) {
-        IChartCategory cat = chart.getChartData().getCategories().get_Item(k);
-    
         for (int i = 0; i < chart.getChartData().getSeries().size(); i++) {
-            total_for_Cat[k] = total_for_Cat[k] + (double) (chart.getChartData().getSeries().get_Item(i).getDataPoints().get_Item(k).getValue().getData());
+            IChartSeries series = chart.getChartData().getSeries().get_Item(i);
+            Number pointValue = (Number) series.getDataPoints().get_Item(k).getValue().getData();
+            categoryTotals[k] += pointValue.doubleValue();
         }
     }
-    
-    double dataPontPercent = 0f;
+
     for (int x = 0; x < chart.getChartData().getSeries().size(); x++) {
-        series = chart.getChartData().getSeries().get_Item(x);
+        IChartSeries series = chart.getChartData().getSeries().get_Item(x);
         series.getLabels().getDefaultDataLabelFormat().setShowLegendKey(false);
-    
+
         for (int j = 0; j < series.getDataPoints().size(); j++) {
-            IDataLabel lbl = series.getDataPoints().get_Item(j).getLabel();
-            dataPontPercent = (double) ((series.getDataPoints().get_Item(j).getValue().getData())) / (double) (total_for_Cat[j]) * 100;
-    
-            IPortion port = new Portion();
-            port.setText(String.format("{0:F2} %.2f", dataPontPercent));
-            port.getPortionFormat().setFontHeight(8f);
-            lbl.getTextFrameForOverriding().setText("");
-            IParagraph para = lbl.getTextFrameForOverriding().getParagraphs().get_Item(0);
-            para.getPortions().add(port);
-    
-            lbl.getDataLabelFormat().setShowSeriesName(false);
-            lbl.getDataLabelFormat().setShowPercentage(false);
-            lbl.getDataLabelFormat().setShowLegendKey(false);
-            lbl.getDataLabelFormat().setShowCategoryName(false);
-            lbl.getDataLabelFormat().setShowBubbleSize(false);
+            IDataLabel label = series.getDataPoints().get_Item(j).getLabel();
+            if (categoryTotals[j] == 0) {
+                continue;
+            }
+
+            Number pointValue = (Number) series.getDataPoints().get_Item(j).getValue().getData();
+            double dataPointPercent = (pointValue.doubleValue() / categoryTotals[j]) * 100;
+
+            IPortion portion = new Portion();
+            portion.setText(String.format(Locale.US, "%.2f %%", dataPointPercent));
+            portion.getPortionFormat().setFontHeight(8f);
+
+            label.getTextFrameForOverriding().setText("");
+            IParagraph paragraph = label.getTextFrameForOverriding().getParagraphs().get_Item(0);
+            paragraph.getPortions().add(portion);
+
+            label.getDataLabelFormat().setShowValue(true);
+            label.getDataLabelFormat().setShowSeriesName(false);
+            label.getDataLabelFormat().setShowPercentage(false);
+            label.getDataLabelFormat().setShowLegendKey(false);
+            label.getDataLabelFormat().setShowCategoryName(false);
+            label.getDataLabelFormat().setShowBubbleSize(false);
         }
     }
-    
-    // Lưu bài thuyết trình chứa biểu đồ
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Đặt ký hiệu phần trăm trong nhãn dữ liệu biểu đồ**
+## **Đặt ký hiệu phần trăm với Nhãn dữ liệu biểu đồ**
 
-Đoạn mã Java này cho bạn cách đặt ký hiệu phần trăm cho một nhãn dữ liệu biểu đồ:
+Khi các giá trị được lưu dưới dạng phân số, hãy sử dụng [setNumberFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) để hiển thị phần trăm. Truyền `false` vào [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) để áp dụng định dạng nhãn một cách độc lập với các ô nguồn.
+
+Ví dụ này tạo một biểu đồ cột chồng 100% với các chuỗi màu đỏ và xanh lam qua bốn danh mục. Mỗi cặp giá trị cộng lại thành 1. Định dạng nhãn `0.0%` hiển thị 0.30 dưới dạng 30.0%, trong khi trục tung sử dụng hai chữ số thập phân. Cả hai chuỗi đều dùng nhãn màu trắng, kích thước 10 điểm.
 
 ```java
-// Tạo một thể hiện của lớp Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Lấy tham chiếu slide qua chỉ mục của nó
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Tạo biểu đồ PercentsStackedColumn trên slide
+    ISlide slide = presentation.getSlides().get_Item(0);
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
-    
-    // Đặt NumberFormatLinkedToSource thành false
+
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.00%");
-    
+
     chart.getChartData().getSeries().clear();
-    int defaultWorksheetIndex = 0;
-    
-    // Lấy worksheet dữ liệu biểu đồ
+    chart.getChartData().getCategories().clear();
+
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
-    
-    // Thêm series mới
-    IChartSeries series = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.getType());
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 1, 0.30));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 1, 0.50));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 1, 0.80));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 1, 0.65));
-    
-    // Đặt màu nền cho series
-    series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    
-    // Đặt các thuộc tính LabelFormat
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    // Thêm series mới
-    IChartSeries series2 = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.getType());
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 2, 0.70));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 2, 0.50));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 2, 0.20));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 2, 0.35));
-    
-    // Đặt kiểu và màu Fill
-    series2.getFormat().getFill().setFillType(FillType.Solid);
-    series2.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-    series2.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
-    
-    // Ghi bài thuyết trình ra đĩa
-    pres.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
+    int worksheetIndex = 0;
+    for (int i = 0; i < 4; i++) {
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+    }
+
+    String[] seriesNames = { "Reds", "Blues" };
+    int[] seriesColors = { Color.RED, Color.BLUE };
+    double[][] values = { { 0.30, 0.50, 0.80, 0.65 }, { 0.70, 0.50, 0.20, 0.35 } };
+
+    for (int i = 0; i < seriesNames.length; i++) {
+        IChartDataCell seriesCell = workbook.getCell(worksheetIndex, 0, i + 1, seriesNames[i]);
+        IChartSeries series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+        for (int j = 0; j < 4; j++) {
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, j + 1, i + 1, values[i][j]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        series.getFormat().getFill().setFillType(FillType.Solid);
+        series.getFormat().getFill().getSolidFillColor().setColor(seriesColors[i]);
+
+        IDataLabelFormat labelFormat = series.getLabels().getDefaultDataLabelFormat();
+        labelFormat.setShowValue(true);
+        labelFormat.setNumberFormatLinkedToSource(false);
+        labelFormat.setNumberFormat("0.0%");
+        labelFormat.getTextFormat().getPortionFormat().setFontHeight(10);
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
+    }
+
+    presentation.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Đặt khoảng cách nhãn khỏi trục**
+## **Đọc Văn bản Thực tế của Nhãn dữ liệu**
 
-Đoạn mã Java này cho bạn cách đặt khoảng cách nhãn khỏi trục danh mục khi bạn làm việc với biểu đồ được vẽ từ các trục:
+Sử dụng [getActualLabelText](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) để lấy văn bản được tạo ra bởi các cài đặt của nhãn dữ liệu. Điều này hữu ích khi trích xuất nhãn cho báo cáo, tìm kiếm nội dung bản trình bày, hoặc xác thực các biểu đồ đã tạo. Trong ví dụ dưới đây, [định dạng nhãn dữ liệu](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/idatalabelformat/) mặc định kết hợp tên mỗi danh mục, tên chuỗi và giá trị. Một điểm định dạng giá trị của nó dưới dạng phần trăm, và một điểm khác sử dụng văn bản tùy chỉnh từ [getTextFrameForOverriding](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
 
 ```java
-// Tạo một thể hiện của lớp Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Lấy tham chiếu của slide
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Tạo một biểu đồ trên slide
-    IChart ch = sld.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
-    
-    // Đặt khoảng cách nhãn khỏi trục
-    ch.getAxes().getHorizontalAxis().setLabelOffset(500);
-    
-    // Ghi bài thuyết trình ra đĩa
-    pres.save("output.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell firstCategoryCell = workbook.getCell(0, 1, 0, "Q1");
+    chart.getChartData().getCategories().add(firstCategoryCell);
+    IChartDataCell secondCategoryCell = workbook.getCell(0, 2, 0, "Q2");
+    chart.getChartData().getCategories().add(secondCategoryCell);
+
+    IChartDataCell northSeriesCell = workbook.getCell(0, 0, 1, "North");
+    IChartSeries north = chart.getChartData().getSeries().add(northSeriesCell, chart.getType());
+    IChartDataCell northFirstValueCell = workbook.getCell(0, 1, 1, 0.25);
+    north.getDataPoints().addDataPointForBarSeries(northFirstValueCell);
+    IChartDataCell northSecondValueCell = workbook.getCell(0, 2, 1, 0.75);
+    north.getDataPoints().addDataPointForBarSeries(northSecondValueCell);
+
+    IChartDataCell southSeriesCell = workbook.getCell(0, 0, 2, "South");
+    IChartSeries south = chart.getChartData().getSeries().add(southSeriesCell, chart.getType());
+    IChartDataCell southFirstValueCell = workbook.getCell(0, 1, 2, 0.40);
+    south.getDataPoints().addDataPointForBarSeries(southFirstValueCell);
+    IChartDataCell southSecondValueCell = workbook.getCell(0, 2, 2, 0.60);
+    south.getDataPoints().addDataPointForBarSeries(southSecondValueCell);
+
+    for (IChartSeries series : chart.getChartData().getSeries()) {
+        IDataLabelFormat format = series.getLabels().getDefaultDataLabelFormat();
+        format.setShowCategoryName(true);
+        format.setShowSeriesName(true);
+        format.setShowValue(true);
+    }
+
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormatLinkedToSource(false);
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormat("0%");
+    south.getLabels().get_Item(0).getTextFrameForOverriding().setText("Reviewed");
+
+    for (IChartSeries series : chart.getChartData().getSeries()) {
+        for (IChartDataPoint point : series.getDataPoints()) {
+            IDataLabel label = point.getLabel();
+            if (!label.isVisible()) {
+                continue;
+            }
+
+            System.out.println("Value: " + point.getValue().getData() + "; label: " + label.getActualLabelText());
+        }
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Điều chỉnh vị trí nhãn**
+Giá trị lưu trong một điểm dữ liệu vẫn là `0.75`, ngay cả khi nhãn của nó hiển thị `75%` cùng với tên danh mục và chuỗi. Văn bản tùy chỉnh thay thế văn bản nhãn được tạo. [getActualLabelText](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/idatalabel/#getActualLabelText--) trả về chuỗi nhãn kết quả trong cả hai trường hợp. Kiểm tra [isVisible](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/idatalabel/#isVisible--) riêng biệt, như đã chỉ ra ở trên, khi bạn muốn trích xuất chỉ các nhãn hiển thị.
 
-Khi bạn tạo một biểu đồ không dựa trên bất kỳ trục nào như biểu đồ tròn, các nhãn dữ liệu của biểu đồ có thể quá gần mép. Trong trường hợp đó, bạn phải điều chỉnh vị trí nhãn dữ liệu sao cho các đường dẫn được hiển thị rõ ràng.
+## **Đặt Khoảng cách Nhãn từ Trục**
 
-Đoạn mã Java này cho bạn cách điều chỉnh vị trí nhãn trên biểu đồ tròn:
+Sử dụng [setLabelOffset](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iaxis/#setLabelOffset-int-) để điều khiển khoảng cách giữa các nhãn trục danh mục và trục. Giá trị là phần trăm của kích thước phông chữ tối đa của các nhãn trục. Ví dụ này tạo một biểu đồ cột nhóm và đặt độ lệch nhãn trục ngang thành 500. Cài đặt này ảnh hưởng tới các nhãn trục danh mục hơn là các nhãn gắn vào các điểm dữ liệu riêng lẻ.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+    chart.getAxes().getHorizontalAxis().setLabelOffset(500);
+
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Điều chỉnh Vị trí Nhãn**
+
+Trong biểu đồ tròn, điều chỉnh vị trí nhãn dữ liệu để cải thiện khoảng cách và tạo chỗ cho các đường dẫn.
+
+Ví dụ này hiển thị giá trị của điểm dữ liệu đầu tiên, đặt nhãn của nó ở ngoài lát cắt, và điều chỉnh độ lệch ngang và dọc bằng cách sử dụng [setX](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutable/#setX-float-) và [setY](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ilayoutable/#setY-float-). Các độ lệch này tính tương đối so với chiều rộng và chiều cao của biểu đồ.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
     IChartSeriesCollection series = chart.getChartData().getSeries();
-    IDataLabel label = series.get_Item(0).getLabels().get_Item(0);
 
+    IDataLabel label = series.get_Item(0).getLabels().get_Item(0);
     label.getDataLabelFormat().setShowValue(true);
     label.getDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd);
     label.setX(0.71f);
     label.setY(0.04f);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![Biểu đồ tròn với vị trí nhãn dữ liệu đã điều chỉnh](pie-chart-adjusted-label.png)
 
 ## **Câu hỏi thường gặp**
 
-**Làm thế nào để ngăn nhãn dữ liệu chồng lên nhau trên các biểu đồ dày đặc?**
+**Làm thế nào để tôi ngăn nhãn dữ liệu chồng lên nhau trên các biểu đồ dày đặc?**
 
-Kết hợp việc đặt nhãn tự động, các đường dẫn, và giảm kích thước phông chữ; nếu cần, ẩn một số trường (ví dụ, danh mục) hoặc chỉ hiển thị nhãn cho các điểm cực đoan/quan trọng.
+Kết hợp việc đặt nhãn tự động, các đường dẫn, và giảm kích thước phông chữ; nếu cần, ẩn một số trường (ví dụ, danh mục) hoặc chỉ hiển thị nhãn cho các giá trị cực đoan hoặc các điểm chính.
 
-**Làm thế nào để tắt nhãn chỉ cho các giá trị bằng 0, âm hoặc trống?**
+**Làm thế nào để tắt nhãn chỉ cho các giá trị bằng không, âm hoặc trống?**
 
 Lọc các điểm dữ liệu trước khi bật nhãn và tắt hiển thị cho các giá trị bằng 0, giá trị âm, hoặc giá trị thiếu theo quy tắc đã định.
 
-**Làm thế nào để đảm bảo kiểu nhãn nhất quán khi xuất ra PDF/hình ảnh?**
+**Làm thế nào để tôi đảm bảo phong cách nhãn nhất quán khi xuất ra PDF/hình ảnh?**
 
-Thiết lập rõ ràng phông chữ (họ, kích thước) và xác minh phông chữ có sẵn ở phía render để tránh việc fallback.
+Đặt rõ ràng họ phông chữ và kích thước, đồng thời kiểm tra phông chữ có sẵn trong môi trường render để tránh sử dụng phông chữ dự phòng.

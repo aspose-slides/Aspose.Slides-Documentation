@@ -1,11 +1,11 @@
 ---
-title: Spravovat datové popisky v grafu v prezentacích pomocí PHP
-linktitle: Datový popisek
+title: Správa popisků dat v grafech v prezentacích pomocí PHP
+linktitle: Popisek dat
 type: docs
 url: /cs/php-java/chart-data-label/
 keywords:
 - graf
-- datový popisek
+- popisek dat
 - přesnost dat
 - procento
 - vzdálenost popisku
@@ -14,197 +14,289 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Naučte se přidávat a formátovat datové popisky v grafech v prezentacích PowerPoint pomocí Aspose.Slides for PHP via Java pro poutavější snímky."
+description: "Naučte se přidávat a formátovat popisky dat v grafech v prezentacích PowerPoint pomocí Aspose.Slides pro PHP přes Java pro poutavější snímky."
 ---
 ## **Úvod**
 
-Datové popisky v grafu zobrazují podrobnosti o sériích dat grafu nebo o jednotlivých bodech. Umožňují čtenářům rychle rozpoznat datové série a také usnadňují pochopení grafu.
+Popisky dat zobrazují informace o sériích grafu a jednotlivých bodech dat, pomáhají čtenářům identifikovat hodnoty a pochopit graf. Tento článek vysvětluje, jak formátovat hodnoty, zobrazovat procenta, číst text popisků, upravovat rozestupy popisků osy kategorií a umisťovat popisky v koláčových grafech.
 
 ## **Nastavení přesnosti dat v popiscích grafu**
 
-Tento PHP kód vám ukazuje, jak nastavit přesnost dat v popisku grafu:
+Pro formátování hodnot sérií použijte [setNumberFormatOfValues](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartseries/#setNumberFormatOfValues). Tento příklad vytvoří čárový graf s výchozími daty, zobrazí jeho datovou tabulku a povolí popisky hodnot pro první sérii. Formát `#,##0.00` zobrazuje oddělovač tisíců a dvě desetinná místa, aniž by měnil podkladové hodnoty.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
     $chart->setDataTable(true);
-    $chart->getChartData()->getSeries()->get_Item(0)->setNumberFormatOfValues("#,##0.00");
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+    $series->setNumberFormatOfValues("#,##0.00");
+    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+
+    $presentation->save("PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Zobrazení procent jako popisků**
 
-Aspose.Slides for PHP přes Java vám umožňuje nastavit procentuální popisky v zobrazených grafech. Tento PHP kód demonstruje tuto operaci:
+Pro sloupcový graf se zobrazením vypočítejte každou hodnotu jako procento celkového součtu kategorie a přiřaďte text do textového rámce vráceného metodou [getTextFrameForOverriding](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#getTextFrameForOverriding). Tento příklad používá výchozí data grafu a zobrazuje procenta se dvěma desetinnými místy v písmeni o velikosti 8 bodů. Kategorie s nulovým součtem jsou přeskočeny, aby se zabránilo dělení nulou. Přepočítejte vlastní text popisku, pokud se data grafu změní.
 
 ```php
-  # Vytvoří instanci třídy Presentation
-  $pres = new Presentation();
-  try {
-    # Získá první snímek
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\Portion;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
-    $series;
-    $total_for_Cat = new double[$chart->getChartData()->getCategories()->size()];
-    for($k = 0; $k < java_values($chart->getChartData()->getCategories()->size()) ; $k++) {
-      $cat = $chart->getChartData()->getCategories()->get_Item($k);
-      for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
-        $total_for_Cat[$k] = $total_for_Cat[$k] + $chart->getChartData()->getSeries()->get_Item($i)->getDataPoints()->get_Item($k)->getValue()->getData();
-      }
+
+    $categoryCount = java_values($chart->getChartData()->getCategories()->size());
+    $categoryTotals = array_fill(0, $categoryCount, 0.0);
+    for ($k = 0; $k < $categoryCount; $k++) {
+        for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++) {
+            $series = $chart->getChartData()->getSeries()->get_Item($i);
+            $pointValue = java_values($series->getDataPoints()->get_Item($k)->getValue()->getData());
+            $categoryTotals[$k] += $pointValue;
+        }
     }
-    $dataPontPercent = 0.0;
-    for($x = 0; $x < java_values($chart->getChartData()->getSeries()->size()) ; $x++) {
-      $series = $chart->getChartData()->getSeries()->get_Item($x);
-      $series->getLabels()->getDefaultDataLabelFormat()->setShowLegendKey(false);
-      for($j = 0; $j < java_values($series->getDataPoints()->size()) ; $j++) {
-        $lbl = $series->getDataPoints()->get_Item($j)->getLabel();
-        $dataPontPercent = $series->getDataPoints()->get_Item($j)->getValue()->getData() / $total_for_Cat[$j] * 100;
-        $port = new Portion();
-        $port->setText(sprintf("{0:F2} %.2f", $dataPontPercent));
-        $port->getPortionFormat()->setFontHeight(8.0);
-        $lbl->getTextFrameForOverriding()->setText("");
-        $para = $lbl->getTextFrameForOverriding()->getParagraphs()->get_Item(0);
-        $para->getPortions()->add($port);
-        $lbl->getDataLabelFormat()->setShowSeriesName(false);
-        $lbl->getDataLabelFormat()->setShowPercentage(false);
-        $lbl->getDataLabelFormat()->setShowLegendKey(false);
-        $lbl->getDataLabelFormat()->setShowCategoryName(false);
-        $lbl->getDataLabelFormat()->setShowBubbleSize(false);
-      }
+
+    for ($x = 0; $x < java_values($chart->getChartData()->getSeries()->size()); $x++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($x);
+        $series->getLabels()->getDefaultDataLabelFormat()->setShowLegendKey(false);
+
+        for ($j = 0; $j < java_values($series->getDataPoints()->size()); $j++) {
+            $label = $series->getDataPoints()->get_Item($j)->getLabel();
+            if ($categoryTotals[$j] == 0) {
+                continue;
+            }
+
+            $pointValue = java_values($series->getDataPoints()->get_Item($j)->getValue()->getData());
+            $dataPointPercent = ($pointValue / $categoryTotals[$j]) * 100;
+
+            $portion = new Portion();
+            $portion->setText(sprintf("%.2F %%", $dataPointPercent));
+            $portion->getPortionFormat()->setFontHeight(8);
+
+            $label->getTextFrameForOverriding()->setText("");
+            $paragraph = $label->getTextFrameForOverriding()->getParagraphs()->get_Item(0);
+            $paragraph->getPortions()->add($portion);
+
+            $label->getDataLabelFormat()->setShowValue(true);
+            $label->getDataLabelFormat()->setShowSeriesName(false);
+            $label->getDataLabelFormat()->setShowPercentage(false);
+            $label->getDataLabelFormat()->setShowLegendKey(false);
+            $label->getDataLabelFormat()->setShowCategoryName(false);
+            $label->getDataLabelFormat()->setShowBubbleSize(false);
+        }
     }
-    # Uloží prezentaci obsahující graf
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Nastavení procentního symbolu v popiscích grafu**
+## **Nastavení znaku procenta v popiscích grafu**
 
-Tento PHP kód vám ukazuje, jak nastavit procentní znak pro popisek grafu:
+Když jsou hodnoty uloženy jako zlomky, použijte [setNumberFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabelformat/#setNumberFormat), aby se zobrazily jako procenta. Předávejte `false` metodě [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabelformat/#setNumberFormatLinkedToSource), aby se formát popisku použil nezávisle na zdrojových buňkách.
+
+Tento příklad vytvoří 100 % sloupcový graf se zásobníkem s červenou a modrou sérií napříč čtyřmi kategoriemi. Každý pár hodnot dohromady dává 1. Formát popisku `0.0%` zobrazí 0.30 jako 30,0 %, zatímco svislá osa používá dvě desetinná místa. Obě série používají bílý popisek o velikosti 10 bodů.
 
 ```php
-  # Vytvoří instanci třídy Presentation
-  $pres = new Presentation();
-  try {
-    # Získá referenci snímku podle jeho indexu
-    $slide = $pres->getSlides()->get_Item(0);
-    # Vytvoří graf PercentsStackedColumn na snímku
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
-    # Nastaví NumberFormatLinkedToSource na false
+
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.00%");
+
     $chart->getChartData()->getSeries()->clear();
-    $defaultWorksheetIndex = 0;
-    # Získá list s daty grafu
+    $chart->getChartData()->getCategories()->clear();
+
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    # Přidá novou sérii
-    $series = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 1, "Reds"), $chart->getType());
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 1, 0.3));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 1, 0.5));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 1, 0.8));
-    $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 1, 0.65));
-    # Nastaví výplňovou barvu série
-    $series->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Nastaví vlastnosti LabelFormat
-    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
-    $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
-    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontHeight(10);
-    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
-    $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Přidá novou sérii
-    $series2 = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 2, "Blues"), $chart->getType());
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 2, 0.7));
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 2, 0.5));
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 2, 0.2));
-    $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 2, 0.35));
-    # Nastaví typ výplně a barvu
-    $series2->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $series2->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $series2->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
-    $series2->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
-    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontHeight(10);
-    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
-    # Zapíše prezentaci na disk
-    $pres->save("SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $worksheetIndex = 0;
+    for ($i = 0; $i < 4; $i++) {
+        $categoryCell = $workbook->getCell($worksheetIndex, $i + 1, 0, "Category " . ($i + 1));
+        $chart->getChartData()->getCategories()->add($categoryCell);
     }
-  }
+
+    $colors = java("java.awt.Color");
+    $seriesNames = [ "Reds", "Blues" ];
+    $seriesColors = [ $colors->RED, $colors->BLUE ];
+    $values = [ [ 0.30, 0.50, 0.80, 0.65 ], [ 0.70, 0.50, 0.20, 0.35 ] ];
+
+    for ($i = 0; $i < count($seriesNames); $i++) {
+        $seriesCell = $workbook->getCell($worksheetIndex, 0, $i + 1, $seriesNames[$i]);
+        $series = $chart->getChartData()->getSeries()->add($seriesCell, $chart->getType());
+        for ($j = 0; $j < 4; $j++) {
+            $valueCell = $workbook->getCell($worksheetIndex, $j + 1, $i + 1, $values[$i][$j]);
+            $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+        }
+
+        $series->getFormat()->getFill()->setFillType(FillType::Solid);
+        $series->getFormat()->getFill()->getSolidFillColor()->setColor($seriesColors[$i]);
+
+        $labelFormat = $series->getLabels()->getDefaultDataLabelFormat();
+        $labelFormat->setShowValue(true);
+        $labelFormat->setNumberFormatLinkedToSource(false);
+        $labelFormat->setNumberFormat("0.0%");
+        $labelFormat->getTextFormat()->getPortionFormat()->setFontHeight(10);
+        $labelFormat->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $labelFormat->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor($colors->WHITE);
+    }
+
+    $presentation->save("SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+## **Čtení skutečného textu popisků dat**
+
+Pro získání textu vytvořeného nastavením popisku dat použijte [getActualLabelText](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#getActualLabelText). To je užitečné při extrahování popisků pro zprávy, prohledávání obsahu prezentace nebo při validaci vygenerovaných grafů. V níže uvedeném příkladu výchozí [formát popisků dat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabelformat/) kombinuje název každé kategorie, název série a hodnotu. Jeden bod formátuje svou hodnotu jako procento a další používá vlastní text z [getTextFrameForOverriding](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#getTextFrameForOverriding).
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $firstCategoryCell = $workbook->getCell(0, 1, 0, "Q1");
+    $chart->getChartData()->getCategories()->add($firstCategoryCell);
+    $secondCategoryCell = $workbook->getCell(0, 2, 0, "Q2");
+    $chart->getChartData()->getCategories()->add($secondCategoryCell);
+
+    $northSeriesCell = $workbook->getCell(0, 0, 1, "North");
+    $north = $chart->getChartData()->getSeries()->add($northSeriesCell, $chart->getType());
+    $northFirstValueCell = $workbook->getCell(0, 1, 1, 0.25);
+    $north->getDataPoints()->addDataPointForBarSeries($northFirstValueCell);
+    $northSecondValueCell = $workbook->getCell(0, 2, 1, 0.75);
+    $north->getDataPoints()->addDataPointForBarSeries($northSecondValueCell);
+
+    $southSeriesCell = $workbook->getCell(0, 0, 2, "South");
+    $south = $chart->getChartData()->getSeries()->add($southSeriesCell, $chart->getType());
+    $southFirstValueCell = $workbook->getCell(0, 1, 2, 0.40);
+    $south->getDataPoints()->addDataPointForBarSeries($southFirstValueCell);
+    $southSecondValueCell = $workbook->getCell(0, 2, 2, 0.60);
+    $south->getDataPoints()->addDataPointForBarSeries($southSecondValueCell);
+
+    for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($i);
+        $format = $series->getLabels()->getDefaultDataLabelFormat();
+        $format->setShowCategoryName(true);
+        $format->setShowSeriesName(true);
+        $format->setShowValue(true);
+    }
+
+    $north->getLabels()->get_Item(1)->getDataLabelFormat()->setNumberFormatLinkedToSource(false);
+    $north->getLabels()->get_Item(1)->getDataLabelFormat()->setNumberFormat("0%");
+    $south->getLabels()->get_Item(0)->getTextFrameForOverriding()->setText("Reviewed");
+
+    for ($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()); $i++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($i);
+        for ($j = 0; $j < java_values($series->getDataPoints()->size()); $j++) {
+            $point = $series->getDataPoints()->get_Item($j);
+            $label = $point->getLabel();
+            if (!java_values($label->isVisible())) {
+                continue;
+            }
+
+            echo "Value: " . java_values($point->getValue()->getData()) . "; label: " . java_values($label->getActualLabelText()) . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Číslo uložené v datovém bodu zůstává `0.75`, i když jeho popisek zobrazuje `75 %` spolu s názvy kategorie a série. Vlastní text nahrazuje generovaný text popisku. [getActualLabelText](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#getActualLabelText) vrací výsledný řetězec popisku v obou případech. Zkontrolujte [isVisible](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#isVisible) samostatně, jak je ukázáno výše, pokud chcete extrahovat pouze viditelné popisky.
 
 ## **Nastavení vzdálenosti popisku od osy**
 
-Tento PHP kód vám ukazuje, jak nastavit vzdálenost popisku od kategoriální osy při práci s grafem vykresleným z os:
+Pro řízení vzdálenosti mezi popisky osy kategorií a samotnou osou použijte [setLabelOffset](https://reference.aspose.com/slides/cs/php-java/aspose.slides/axis/#setLabelOffset). Hodnota je procento maximální velikosti písma popisků osy. Tento příklad vytvoří seskupený sloupcový graf a nastaví offset popisku vodorovné osy na 500. Toto nastavení ovlivňuje popisky osy kategorií, nikoli popisky připojené k jednotlivým datovým bodům.
 
 ```php
-  # Vytvoří instanci třídy Presentation
-  $pres = new Presentation();
-  try {
-    # Získá referenci snímku
-    $sld = $pres->getSlides()->get_Item(0);
-    # Vytvoří graf na snímku
-    $ch = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
-    # Nastaví vzdálenost popisku od osy
-    $ch->getAxes()->getHorizontalAxis()->setLabelOffset(500);
-    # Zapíše prezentaci na disk
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+    $chart->getAxes()->getHorizontalAxis()->setLabelOffset(500);
+
+    $presentation->save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Úprava umístění popisku**
 
-Když vytvoříte graf, který nezávisí na žádné ose, například koláčový graf, mohou být datové popisky příliš blízko okraji. V takovém případě je třeba upravit umístění popisku, aby byly čáry ukazatele zřetelně zobrazeny.
+V koláčovém grafu upravte umístění popisků dat, aby se zlepšily mezery a vytvořil se prostor pro vodící čáry.
 
-Tento PHP kód vám ukazuje, jak upravit umístění popisku v koláčovém grafu:
+Tento příklad zobrazí hodnotu prvního datového bodu, umístí jeho popisek mimo výseč a upraví jeho vodorovný a svislý offset pomocí [setX](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#setX) a [setY](https://reference.aspose.com/slides/cs/php-java/aspose.slides/datalabel/#setY). Tyto offsety jsou relativní k šířce a výšce grafu, respektive.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
+use aspose\slides\Presentation;
+use aspose\slides\ChartType;
+use aspose\slides\LegendDataLabelPosition;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::Pie, 50, 50, 200, 200);
     $series = $chart->getChartData()->getSeries();
+
     $label = $series->get_Item(0)->getLabels()->get_Item(0);
     $label->getDataLabelFormat()->setShowValue(true);
-    $label->getDataLabelFormat()->setPosition(LegendDataLabelPosition->OutsideEnd);
+    $label->getDataLabelFormat()->setPosition(LegendDataLabelPosition::OutsideEnd);
     $label->setX(0.71);
     $label->setY(0.04);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![Koláčový graf s upraveným umístěním popisku dat](pie-chart-adjusted-label.png)
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Jak mohu zabránit překrývání datových popisků v hustých grafech?**
+**Jak mohu zabránit překrývání popisků dat v hustých grafech?**
 
-Kombinujte automatické umístění popisků, čáry ukazatele a zmenšenou velikost písma; v případě potřeby skryjte některá pole (například kategorii) nebo zobrazte popisky jen u extrémních/klíčových bodů.
+Kombinujte automatické umístění popisků, vodící čáry a sníženou velikost písma; v případě potřeby skryjte některá pole (například kategorii) nebo zobrazte popisky jen pro extrémní hodnoty či klíčové body.
 
-**Jak mohu zakázat popisky jen pro nulové, záporné nebo prázdné hodnoty?**
+**Jak mohu zakázat popisky pouze pro nulové, záporné nebo prázdné hodnoty?**
 
-Před povolením popisků filtrovat datové body a vypnout jejich zobrazení pro hodnoty 0, záporné hodnoty nebo chybějící hodnoty podle definovaného pravidla.
+Filtrování datových bodů před povolením popisků a vypnutí zobrazení pro hodnoty 0, záporné hodnoty nebo chybějící hodnoty podle definovaného pravidla.
 
-**Jak mohu zajistit konzistentní styl popisků při exportu do PDF/obrázků?**
+**Jak zajistit konzistentní styl popisků při exportu do PDF/obrázků?**
 
-Explicitně nastavte písma (rodinu, velikost) a ověřte, že je písmo k dispozici na straně vykreslování, aby nedošlo k náhradě.
+Explicitně nastavte rodinu písma a velikost a ověřte, že je písmo dostupné v prostředí vykreslování, aby nedošlo k náhradě.

@@ -1,198 +1,290 @@
 ---
-title: チャート データラベル
+title: JavaScript を使用したプレゼンテーションでのチャート データ ラベルの管理
+linktitle: データ ラベル
 type: docs
 url: /ja/nodejs-java/chart-data-label/
-keywords: "チャート データラベル,ラベル距離, Java, Aspose.Slides for Node.js via Java"
-description: "PowerPointチャートのデータラベルと距離をJavaScriptで設定する"
+keywords:
+- チャート
+- データ ラベル
+- データ 精度
+- パーセンテージ
+- ラベル 距離
+- ラベル 位置
+- PowerPoint
+- プレゼンテーション
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "JavaScript と Aspose.Slides for Node.js を使用して、PowerPoint プレゼンテーションにチャート データ ラベルを追加および書式設定し、より魅力的なスライドを作成する方法を学びます。"
 ---
+## **概要**
 
-チャートのデータラベルは、チャートのデータ系列や個々のデータポイントに関する詳細を示します。読者はデータ系列をすばやく識別でき、チャートの理解もしやすくなります。
+データ ラベルはチャートの系列や個々のデータ ポイントに関する情報を表示し、読者が値を特定しチャートを理解するのに役立ちます。本記事では、値の書式設定、パーセンテージの表示、ラベル テキストの取得、カテゴリ軸ラベルの間隔調整、円グラフラベルの配置方法について説明します。
 
-## **チャート データラベルのデータ精度を設定する**
+## **チャート データ ラベルのデータ精度を設定する**
 
-この JavaScript コードは、チャート データラベルのデータ精度を設定する方法を示しています:
+シリーズ値の書式設定には [setNumberFormatOfValues](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) を使用します。この例では、デフォルト データで折れ線グラフを作成し、データ テーブルを表示し、最初の系列の値ラベルを有効にします。書式 `#,##0.00` は、桁区切りと小数点以下2桁を表示しますが、基になる値は変更しません。
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
-    chart.getChartData().getSeries().get_Item(0).setNumberFormatOfValues("#,##0.00");
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const series = chart.getChartData().getSeries().get_Item(0);
+    series.setNumberFormatOfValues("#,##0.00");
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("PrecisionOfDatalabels_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 
 ## **ラベルとしてパーセンテージを表示する**
 
-Aspose.Slides for Node.js via Java を使用すると、表示されたチャートにパーセンテージラベルを設定できます。この JavaScript コードはその操作を示しています:
+積み上げ縦棒グラフの場合、各値をカテゴリの合計に対するパーセンテージとして計算し、[getTextFrameForOverriding](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) が返すテキスト フレームにテキストを割り当てます。この例はデフォルトのチャート データを使用し、8 ポイント フォントで小数点以下2桁のパーセンテージを表示します。合計が0のカテゴリは除外して除算エラーを回避します。チャート データが変更された場合は、カスタム ラベル テキストを再計算してください。
+
 ```javascript
-// Presentation クラスのインスタンスを作成します
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // 最初のスライドを取得します
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
-    var series;
-    var total_for_Cat = new double[chart.getChartData().getCategories().size()];
-    for (var k = 0; k < chart.getChartData().getCategories().size(); k++) {
-        var cat = chart.getChartData().getCategories().get_Item(k);
-        for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
-            total_for_Cat[k] = total_for_Cat[k] + chart.getChartData().getSeries().get_Item(i).getDataPoints().get_Item(k).getValue().getData();
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
+
+    const categoryTotals = new Array(chart.getChartData().getCategories().size()).fill(0);
+    for (let k = 0; k < chart.getChartData().getCategories().size(); k++) {
+        for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
+            const series = chart.getChartData().getSeries().get_Item(i);
+            const pointValue = series.getDataPoints().get_Item(k).getValue().getData();
+            categoryTotals[k] += Number(pointValue);
         }
     }
-    var dataPontPercent = 0.0;
-    for (var x = 0; x < chart.getChartData().getSeries().size(); x++) {
-        series = chart.getChartData().getSeries().get_Item(x);
+
+    for (let x = 0; x < chart.getChartData().getSeries().size(); x++) {
+        const series = chart.getChartData().getSeries().get_Item(x);
         series.getLabels().getDefaultDataLabelFormat().setShowLegendKey(false);
-        for (var j = 0; j < series.getDataPoints().size(); j++) {
-            var lbl = series.getDataPoints().get_Item(j).getLabel();
-            dataPontPercent = (series.getDataPoints().get_Item(j).getValue().getData() / total_for_Cat[j]) * 100;
-            var port = new aspose.slides.Portion();
-            port.setText(java.callStaticMethodSync("java.lang.String", "format", "{0:F2} %.2f", dataPontPercent));
-            port.getPortionFormat().setFontHeight(8.0);
-            lbl.getTextFrameForOverriding().setText("");
-            var para = lbl.getTextFrameForOverriding().getParagraphs().get_Item(0);
-            para.getPortions().add(port);
-            lbl.getDataLabelFormat().setShowSeriesName(false);
-            lbl.getDataLabelFormat().setShowPercentage(false);
-            lbl.getDataLabelFormat().setShowLegendKey(false);
-            lbl.getDataLabelFormat().setShowCategoryName(false);
-            lbl.getDataLabelFormat().setShowBubbleSize(false);
+
+        for (let j = 0; j < series.getDataPoints().size(); j++) {
+            const label = series.getDataPoints().get_Item(j).getLabel();
+            if (categoryTotals[j] == 0) {
+                continue;
+            }
+
+            const pointValue = series.getDataPoints().get_Item(j).getValue().getData();
+            const dataPointPercent = (Number(pointValue) / categoryTotals[j]) * 100;
+
+            const portion = new aspose.slides.Portion();
+            portion.setText(dataPointPercent.toFixed(2) + " %");
+            portion.getPortionFormat().setFontHeight(8);
+
+            label.getTextFrameForOverriding().setText("");
+            const paragraph = label.getTextFrameForOverriding().getParagraphs().get_Item(0);
+            paragraph.getPortions().add(portion);
+
+            label.getDataLabelFormat().setShowValue(true);
+            label.getDataLabelFormat().setShowSeriesName(false);
+            label.getDataLabelFormat().setShowPercentage(false);
+            label.getDataLabelFormat().setShowLegendKey(false);
+            label.getDataLabelFormat().setShowCategoryName(false);
+            label.getDataLabelFormat().setShowBubbleSize(false);
         }
     }
-    // チャートを含むプレゼンテーションを保存します
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("DisplayPercentageAsLabels_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **チャート データ ラベルでパーセンテージ記号を設定する**
 
-## **チャート データラベルにパーセンテージ記号を設定する**
+値が分数として格納されている場合は、[setNumberFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) を使用してパーセンテージを表示します。[setNumberFormatLinkedToSource](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) に `false` を渡すと、ソース セルに依存せずラベル書式を適用できます。
 
-この JavaScript コードは、チャート データラベルにパーセンテージ記号を設定する方法を示しています:
+この例では、4 つのカテゴリにわたって赤と青の系列を持つ 100% 積み上げ縦棒グラフを作成します。各ペアの値の合計は 1 です。ラベル書式 `0.0%` は 0.30 を 30.0% と表示し、縦軸は小数点以下2桁を使用します。両系列とも白色の 10 ポイント ラベル テキストを使用します。
+
 ```javascript
-// Presentation クラスのインスタンスを作成します
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // インデックスでスライドの参照を取得します
-    var slide = pres.getSlides().get_Item(0);
-    // スライド上に PercentsStackedColumn チャートを作成します
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.PercentsStackedColumn, 20, 20, 500, 400);
-    // NumberFormatLinkedToSource を false に設定します
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PercentsStackedColumn, 20, 20, 500, 400);
+
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.00%");
+
     chart.getChartData().getSeries().clear();
-    var defaultWorksheetIndex = 0;
-    // チャート データのワークシートを取得します
-    var workbook = chart.getChartData().getChartDataWorkbook();
-    // 新しい系列を追加します
-    var series = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.getType());
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 1, 0.3));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 1, 0.5));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 1, 0.8));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 1, 0.65));
-    // 系列の塗りつぶし色を設定します
-    series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // LabelFormat のプロパティを設定します
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // 新しい系列を追加します
-    var series2 = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.getType());
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 2, 0.7));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 2, 0.5));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 2, 0.2));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 2, 0.35));
-    // 塗りつぶしタイプと色を設定します
-    series2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    series2.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-    // プレゼンテーションをディスクに保存します
-    pres.save("SetDataLabelsPercentageSign_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+    for (let i = 0; i < 4; i++) {
+        const categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
     }
+
+    const seriesNames = ["Reds", "Blues"];
+    const white = java.getStaticFieldValue("java.awt.Color", "WHITE");
+    const seriesColors = [java.getStaticFieldValue("java.awt.Color", "RED"), java.getStaticFieldValue("java.awt.Color", "BLUE")];
+    const values = [[0.30, 0.50, 0.80, 0.65], [0.70, 0.50, 0.20, 0.35]];
+
+    for (let i = 0; i < seriesNames.length; i++) {
+        const seriesCell = workbook.getCell(worksheetIndex, 0, i + 1, seriesNames[i]);
+        const series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+        for (let j = 0; j < 4; j++) {
+            const valueCell = workbook.getCell(worksheetIndex, j + 1, i + 1, values[i][j]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        series.getFormat().getFill().getSolidFillColor().setColor(seriesColors[i]);
+
+        const labelFormat = series.getLabels().getDefaultDataLabelFormat();
+        labelFormat.setShowValue(true);
+        labelFormat.setNumberFormatLinkedToSource(false);
+        labelFormat.setNumberFormat("0.0%");
+        labelFormat.getTextFormat().getPortionFormat().setFontHeight(10);
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(white);
+    }
+
+    presentation.save("SetDataLabelsPercentageSign_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
+## **データ ラベルの実際のテキストを取得する**
+
+[getActualLabelText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) を使用すると、データ ラベルの設定によって生成されたテキストを取得できます。レポート用にラベルを抽出したり、プレゼンテーションの内容を検索したり、生成されたチャートを検証したりする際に便利です。以下の例では、デフォルトの [data label format](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/datalabelformat/) がカテゴリ名、系列名、値を組み合わせて表示します。あるポイントは値をパーセンテージとして書式設定し、別のポイントは [getTextFrameForOverriding](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/) から取得したカスタム テキストを使用します。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const firstCategoryCell = workbook.getCell(0, 1, 0, "Q1");
+    chart.getChartData().getCategories().add(firstCategoryCell);
+    const secondCategoryCell = workbook.getCell(0, 2, 0, "Q2");
+    chart.getChartData().getCategories().add(secondCategoryCell);
+
+    const northSeriesCell = workbook.getCell(0, 0, 1, "North");
+    const north = chart.getChartData().getSeries().add(northSeriesCell, chart.getType());
+    const northFirstValueCell = workbook.getCell(0, 1, 1, 0.25);
+    north.getDataPoints().addDataPointForBarSeries(northFirstValueCell);
+    const northSecondValueCell = workbook.getCell(0, 2, 1, 0.75);
+    north.getDataPoints().addDataPointForBarSeries(northSecondValueCell);
+
+    const southSeriesCell = workbook.getCell(0, 0, 2, "South");
+    const south = chart.getChartData().getSeries().add(southSeriesCell, chart.getType());
+    const southFirstValueCell = workbook.getCell(0, 1, 2, 0.40);
+    south.getDataPoints().addDataPointForBarSeries(southFirstValueCell);
+    const southSecondValueCell = workbook.getCell(0, 2, 2, 0.60);
+    south.getDataPoints().addDataPointForBarSeries(southSecondValueCell);
+
+    for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
+        const series = chart.getChartData().getSeries().get_Item(i);
+        const format = series.getLabels().getDefaultDataLabelFormat();
+        format.setShowCategoryName(true);
+        format.setShowSeriesName(true);
+        format.setShowValue(true);
+    }
+
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormatLinkedToSource(false);
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormat("0%");
+    south.getLabels().get_Item(0).getTextFrameForOverriding().setText("Reviewed");
+
+    for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
+        const series = chart.getChartData().getSeries().get_Item(i);
+        for (let j = 0; j < series.getDataPoints().size(); j++) {
+            const point = series.getDataPoints().get_Item(j);
+            const label = point.getLabel();
+            if (!label.isVisible()) {
+                continue;
+            }
+
+            console.log("Value: " + point.getValue().getData() + "; label: " + label.getActualLabelText());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+データ ポイントに格納されている数値は `0.75` のままで、ラベルが `75%` とカテゴリ名・系列名を併せて表示していても変わりません。カスタム テキストは生成されたラベル テキストを置き換えます。[getActualLabelText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) はどちらの場合でも結果のラベル文字列を返します。表示されているラベルのみを抽出したい場合は、上記のように [isVisible](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/datalabel/isvisible/) を別途確認してください。
 
 ## **軸からのラベル距離を設定する**
 
-この JavaScript コードは、軸から描画されたチャートでカテゴリ軸からのラベル距離を設定する方法を示しています:
+[setLabelOffset](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/axis/setlabeloffset/) を使用して、カテゴリ軸ラベルと軸間の距離を制御します。値は軸ラベルの最大フォント サイズのパーセンテージで指定します。この例ではクラスター化縦棒グラフを作成し、水平軸ラベルのオフセットを 500 に設定します。この設定は個々のデータ ポイントに付随するラベルではなく、カテゴリ軸ラベルに影響します。
+
 ```javascript
-// Presentation クラスのインスタンスを作成します
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // スライドの参照を取得します
-    var sld = pres.getSlides().get_Item(0);
-    // スライド上にチャートを作成します
-    var ch = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
-    // 軸からラベル間隔を設定します
-    ch.getAxes().getHorizontalAxis().setLabelOffset(500);
-    // プレゼンテーションをディスクに保存します
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+    chart.getAxes().getHorizontalAxis().setLabelOffset(500);
+
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **ラベル位置の調整**
 
-## **ラベル位置を調整する**
+円グラフでは、データ ラベルの位置を調整して間隔を広げ、リーダーラインのスペースを確保します。
 
-円グラフのように軸に依存しないチャートを作成すると、チャートのデータラベルがエッジに近すぎることがあります。そのような場合、データラベルの位置を調整して、リーダー線が明確に表示されるようにする必要があります。
+この例では最初のデータ ポイントの値を表示し、ラベルをスライスの外側に配置し、[setX](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/datalabel/setx/) と [setY](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/datalabel/sety/) を使用して水平・垂直オフセットを調整します。これらのオフセットはそれぞれチャートの幅と高さに対する相対値です。
 
-この JavaScript コードは、円グラフのラベル位置を調整する方法を示しています:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
-    var series = chart.getChartData().getSeries();
-    var label = series.get_Item(0).getLabels().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
+    const series = chart.getChartData().getSeries();
+
+    const label = series.get_Item(0).getLabels().get_Item(0);
     label.getDataLabelFormat().setShowValue(true);
     label.getDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.OutsideEnd);
-    label.setX(0.71);
-    label.setY(0.04);
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    label.setX(java.newFloat(0.71));
+    label.setY(java.newFloat(0.04));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+![調整されたデータ ラベル位置の円グラフ](pie-chart-adjusted-label.png)
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+## **FAQ**
 
-## **よくある質問**
+**密集したチャートでデータ ラベルの重なりを防ぐにはどうすればよいですか？**
 
-**密集したチャートでデータラベルが重なるのを防ぐにはどうすればよいですか？**
+自動ラベル配置、リーダーライン、フォント サイズの縮小を組み合わせます。必要に応じて一部のフィールド（例: カテゴリ）を非表示にするか、極端な値や重要ポイントのみラベルを表示します。
 
-自動ラベル配置、リーダー線、フォントサイズの縮小を組み合わせます。必要に応じて、いくつかのフィールド（例: カテゴリ）を非表示にするか、極端なポイントや重要なポイントのラベルのみを表示します。
+**0、負の値、または空の値のみラベルを無効にするにはどうすればよいですか？**
 
-**ゼロ、負の値、または空の値に対してのみラベルを無効にするにはどうすればよいですか？**
+ラベルを有効にする前にデータ ポイントをフィルタリングし、0、負の値、または欠損値に対して表示をオフにするルールを設定します。
 
-ラベルを有効にする前にデータポイントをフィルタリングし、0、負の値、または欠損値に対しては定義されたルールに従って表示をオフにします。
+**PDF/画像にエクスポートする際にラベルスタイルの一貫性を保つにはどうすればよいですか？**
 
-**PDF/画像にエクスポートする際に一貫したラベルスタイルを確保するにはどうすればよいですか？**
-
-フォント（ファミリ、サイズ）を明示的に設定し、フォントがレンダリング側で利用可能か確認してフォールバックが起きないようにします。
+フォント ファミリとサイズを明示的に設定し、レンダリング環境にそのフォントが存在することを確認してフォント フォールバックを防止します。

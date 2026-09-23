@@ -1,5 +1,5 @@
 ---
-title: Diagrammbeschriftungen in Präsentationen mit C++ verwalten
+title: Verwalten von Diagrammdatenbeschriftungen in Präsentationen mit C++
 linktitle: Datenbeschriftung
 type: docs
 url: /de/cpp/chart-data-label/
@@ -14,238 +14,400 @@ keywords:
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Diagrammbeschriftungen in PowerPoint-Präsentationen mit Aspose.Slides für C++ hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
+description: "Erfahren Sie, wie Sie Diagrammdatenbeschriftungen in PowerPoint-Präsentationen mit Aspose.Slides für C++ hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
 ---
+## **Einleitung**
 
-Datenbeschriftungen in einem Diagramm zeigen Details zur Diagrammdatenreihe oder zu einzelnen Datenpunkten an. Sie ermöglichen es den Lesern, Datenreihen schnell zu identifizieren, und erleichtern das Verständnis von Diagrammen.
+Datenbeschriftungen zeigen Informationen zu Diagrammserien und einzelnen Datenpunkten an und helfen den Lesern, Werte zu identifizieren und das Diagramm zu verstehen. Dieser Artikel erklärt, wie Werte formatiert, Prozentsätze angezeigt, Beschriftungstexte gelesen, der Abstand der Kategorienachsenbeschriftungen angepasst und Beschriftungen von Tortendiagrammen positioniert werden.
 
 ## **Datenpräzision in Diagrammbeschriftungen festlegen**
 
-Dieser C++-Code zeigt, wie Sie die Datenpräzision in einer Diagrammbeschriftung festlegen:
-```c++
-	// Der Pfad zum Dokumentenverzeichnis
-	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
+Verwenden Sie [set_NumberFormatOfValues](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/), um Serienwerte zu formatieren. Dieses Beispiel erstellt ein Liniendiagramm mit Standardsdaten, zeigt dessen Datentabelle an und aktiviert Wertbeschriftungen für die erste Serie. Das Format `#,##0.00` zeigt ein Tausendertrennzeichen und zwei Dezimalstellen an, ohne die zugrunde liegenden Werte zu ändern.
 
-	// Instanziiert eine Presentation-Klasse, die eine PPTX-Datei repräsentiert
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-	// Holt die erste Folie
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-	// Fügt ein Diagramm mit Standarddaten hinzu
-	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-	// Legt das Zahlenformat der Serie fest
-	chart->set_HasDataTable( true);
-	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 50, 50, 450, 300);
+chart->set_HasDataTable(true);
 
-	// Schreibt die Präsentationsdatei auf die Festplatte
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+series->set_NumberFormatOfValues(u"#,##0.00");
+series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
+
+presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 ```
 
+## **Prozentsatz als Beschriftungen anzeigen**
 
-## **Prozentsätze als Beschriftungen anzeigen**
-Aspose.Slides für C++ ermöglicht das Festlegen von Prozentbeschriftungen in angezeigten Diagrammen. Dieser C++-Code demonstriert die Vorgehensweise:
-```c++
-	// Der Pfad zum Dokumentenverzeichnis
-	const String outPath = u"../out/DisplayPercentageAsLabels_out.pptx";
+Für ein gestapeltes Säulendiagramm berechnen Sie jeden Wert als Prozentsatz der Gesamtsumme seiner Kategorie und weisen den Text dem Textfeld zu, das von [get_TextFrameForOverriding](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/) zurückgegeben wird. Dieses Beispiel verwendet die Standarddiagrammdaten und zeigt Prozentsätze mit zwei Dezimalstellen in einer 8‑Punkt‑Schrift an. Kategorien mit einer Gesamtsumme von Null werden übersprungen, um eine Division durch Null zu vermeiden. Berechnen Sie den benutzerdefinierten Beschriftungstext neu, wenn sich die Diagrammdaten ändern.
 
-	// Erstellt eine Instanz der Presentation-Klasse
-	System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Portion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <system/convert.h>
+#include <vector>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-	System::SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
-	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::StackedColumn, 20, 20, 400, 400);
-	System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
-	System::SharedPtr<IChartCategory> cat;
-	System::ArrayPtr<double> total_for_Cat = System::MakeObject<System::Array<double>>(chart->get_ChartData()->get_Categories()->get_Count(), 0);
-	for (int32_t k = 0; k < chart->get_ChartData()->get_Categories()->get_Count(); k++)
-	{
-		cat = chart->get_ChartData()->get_Categories()->idx_get(k);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-		for (int32_t i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
-		{
-			total_for_Cat[k] = total_for_Cat[k] + System::Convert::ToDouble(chart->get_ChartData()->get_Series()->idx_get(i)->get_DataPoints()->idx_get(k)->get_Value()->get_Data());
-		}
-	}
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
-	double dataPontPercent = 0.f;
+auto categoryTotals = std::vector<double>(chart->get_ChartData()->get_Categories()->get_Count(), 0.0);
+for (auto k = 0; k < chart->get_ChartData()->get_Categories()->get_Count(); k++)
+{
+    for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
+    {
+        auto series = chart->get_ChartData()->get_Series()->idx_get(i);
+        auto pointValue = Convert::ToDouble(series->get_DataPoint(k)->get_Value()->get_Data());
+        categoryTotals[k] += pointValue;
+    }
+}
 
-	for (int32_t x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
-	{
-		series = chart->get_ChartData()->get_Series()->idx_get(x);
-		series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLegendKey(false);
+for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
+{
+    auto series = chart->get_ChartData()->get_Series()->idx_get(x);
+    series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLegendKey(false);
 
-		for (int32_t j = 0; j < series->get_DataPoints()->get_Count(); j++)
-		{
-			System::SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(j)->get_Label();
-			dataPontPercent = (System::Convert::ToDouble(series->get_DataPoints()->idx_get(j)->get_Value()->get_Data()) / total_for_Cat[j]) * 100;
+    for (auto j = 0; j < series->get_DataPoints()->get_Count(); j++)
+    {
+        auto label = series->get_DataPoint(j)->get_Label();
+        if (categoryTotals[j] == 0)
+        {
+            continue;
+        }
 
-			System::SharedPtr<IPortion> port = System::MakeObject<Portion>();
-			port->set_Text(System::String::Format(u"{0:F2} %", dataPontPercent));
-			port->get_PortionFormat()->set_FontHeight(8.f);
-			lbl->get_TextFrameForOverriding()->set_Text(u"");
-			System::SharedPtr<IParagraph> para = lbl->get_TextFrameForOverriding()->get_Paragraphs()->idx_get(0);
-			para->get_Portions()->Add(port);
+        auto pointValue = Convert::ToDouble(series->get_DataPoint(j)->get_Value()->get_Data());
+        auto dataPointPercent = (pointValue / categoryTotals[j]) * 100;
 
-			lbl->get_DataLabelFormat()->set_ShowSeriesName(false);
-			lbl->get_DataLabelFormat()->set_ShowPercentage(false);
-			lbl->get_DataLabelFormat()->set_ShowLegendKey(false);
-			lbl->get_DataLabelFormat()->set_ShowCategoryName(false);
-			lbl->get_DataLabelFormat()->set_ShowBubbleSize(false);
+        auto portion = MakeObject<Portion>();
+        portion->set_Text(String::Format(u"{0:F2} %", dataPointPercent));
+        portion->get_PortionFormat()->set_FontHeight(8.0f);
 
-		}
+        label->get_TextFrameForOverriding()->set_Text(u"");
 
-	}
+        auto paragraph = label->get_TextFrameForOverriding()->get_Paragraphs()->idx_get(0);
+        paragraph->get_Portions()->Add(portion);
 
-	// Speichert die Präsentation, die das Diagramm enthält
-	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+        label->get_DataLabelFormat()->set_ShowValue(true);
+        label->get_DataLabelFormat()->set_ShowSeriesName(false);
+        label->get_DataLabelFormat()->set_ShowPercentage(false);
+        label->get_DataLabelFormat()->set_ShowLegendKey(false);
+        label->get_DataLabelFormat()->set_ShowCategoryName(false);
+        label->get_DataLabelFormat()->set_ShowBubbleSize(false);
+    }
+}
+
+presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
+## **Prozentzeichen mit Diagrammbeschriftungen festlegen**
 
-## **Prozentzeichen in Diagrammbeschriftungen festlegen**
-Dieser C++-Code zeigt, wie Sie das Prozentzeichen für eine Diagrammbeschriftung festlegen:
-```c++
-	// Der Pfad zum Dokumentenverzeichnis.
-	const String outPath = u"../out/DataLabelsPercentageSign_out.pptx";
+Wenn Werte als Brüche gespeichert sind, verwenden Sie [set_NumberFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/), um Prozentsätze anzuzeigen. Übergeben Sie `false` an [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/), um das Beschriftungsformat unabhängig von den Quellzellen anzuwenden.
 
-	// Erstellt eine Instanz der Presentation-Klasse
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+Dieses Beispiel erstellt ein 100 % gestapeltes Säulendiagramm mit roten und blauen Serien über vier Kategorien. Jedes Wertepaar ergibt 1. Das Beschriftungsformat `0.0%` zeigt 0.30 als 30,0 % an, während die vertikale Achse zwei Dezimalstellen verwendet. Beide Serien verwenden weiße Beschriftungen mit 10 Punkten.
 
-	// Ermittelt die Referenz einer Folie über ihren Index
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-	// Erstellt das PercentsStackedColumn-Diagramm auf einer Folie
-	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::PercentsStackedColumn, 0, 0, 500, 500);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-	// Setzt NumberFormatLinkedToSource auf false
-	chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource ( false);
-	chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
+chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource(false);
+chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
 
-	// Setzt den Index des Diagrammdatenblatts
-	int defaultWorksheetIndex = 0;
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
 
-	// Ermittelt das Diagrammdaten-Arbeitsblatt
-	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto worksheetIndex = 0;
+for (auto i = 0; i < 4; i++)
+{
+    auto categoryCell = workbook->GetCell(worksheetIndex, i + 1, 0, ObjectExt::Box(String::Format(u"Category {0}", i + 1)));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+}
 
+String seriesNames[] = { u"Reds", u"Blues" };
+Color seriesColors[] = { Color::get_Red(), Color::get_Blue() };
+double values[2][4] = { { 0.30, 0.50, 0.80, 0.65 }, { 0.70, 0.50, 0.20, 0.35 } };
 
-	// Löscht standardmäßig generierte Serie 
-	chart->get_ChartData()->get_Series()->Clear();
-	
+for (auto i = 0; i < 2; i++)
+{
+    auto seriesCell = workbook->GetCell(worksheetIndex, 0, i + 1, ObjectExt::Box(seriesNames[i]));
+    auto series = chart->get_ChartData()->get_Series()->Add(seriesCell, chart->get_Type());
+    for (auto j = 0; j < 4; j++)
+    {
+        auto valueCell = workbook->GetCell(worksheetIndex, j + 1, i + 1, ObjectExt::Box(values[i][j]));
+        series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+    }
 
-	// Fügt eine neue Serie hinzu
-	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
+    series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
+    series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(seriesColors[i]);
 
+    auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
+    labelFormat->set_ShowValue(true);
+    labelFormat->set_IsNumberFormatLinkedToSource(false);
+    labelFormat->set_NumberFormat(u"0.0%");
+    labelFormat->get_TextFormat()->get_PortionFormat()->set_FontHeight(10);
+    labelFormat->get_TextFormat()->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+    labelFormat->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_White());
+}
 
-	// Nimmt die erste Diagrammserie
-	SharedPtr<IChartSeries> series=chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Red")), chart->get_Type());
-	// Füllt die Seriendaten
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(0.50)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(0.50)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(0.80)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 1, ObjectExt::Box<double>(0.65)));
-
-	// Setzt die Füllfarbe für die Serie
-	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-
-	// Setzt Eigenschaften von LabelFormat
-	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
-	series->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource ( false);
-	series->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat (u"0.0%");
-	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->set_FontHeight ( 10);
-	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
-	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
-
-	// Nimmt die zweite Diagrammserie
-	SharedPtr<IChartSeries> series2 = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Blues")), chart->get_Type());
-	// Füllt die Seriendaten
-	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(0.70)));
-	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(0.50)));
-	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(0.20)));
-	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 2, ObjectExt::Box<double>(0.35)));
-
-	// Setzt die Füllfarbe für die Serie
-	series2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-	series2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
-
-	// Setzt Eigenschaften von LabelFormat
-	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
-	series2->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource(false);
-	series2->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat(u"0.0%");
-	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->set_FontHeight(10);
-	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
-	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
-
-	// Schreibt die Präsentationsdatei auf die Festplatte
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 ```
 
+## **Den tatsächlichen Text von Datenbeschriftungen auslesen**
 
-## **Abstand der Beschriftung von der Achse festlegen**
-Dieser C++-Code zeigt, wie Sie den Abstand der Beschriftung von einer Kategorienachse festlegen, wenn Sie ein Diagramm aus Achsen plotten:
-```c++
-	// Der Pfad zum Dokumentenverzeichnis
-	const String outPath = u"../out/CategoryAxisLabelDistance_out.pptx";
+Verwenden Sie [GetActualLabelText](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/), um den Text abzurufen, der durch die Einstellungen einer Datenbeschriftung erzeugt wird. Dies ist nützlich, wenn Sie Beschriftungen für Berichte extrahieren, Präsentationsinhalte durchsuchen oder erzeugte Diagramme validieren möchten. Im nachfolgenden Beispiel kombiniert das Standard‑[data label format](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabelformat/) jeden Kategorienamen, Seriennamen und Wert. Ein Punkt formatiert seinen Wert als Prozentsatz, und ein anderer verwendet benutzerdefinierten Text aus [get_TextFrameForOverriding](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
 
-	// Erstellt eine Instanz der Presentation-Klasse
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/ITextFrame.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-	// Ermittelt die Referenz einer Folie
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
 
-	// Erstellt ein Diagramm auf der Folie
-	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
 
-	// Ermittelt die Diagramm-Seriensammlung
-	SharedPtr<IChartSeriesCollection> seriesCollection = chart->get_ChartData()->get_Series();
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto firstCategoryCell = workbook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Q1"));
+chart->get_ChartData()->get_Categories()->Add(firstCategoryCell);
+auto secondCategoryCell = workbook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Q2"));
+chart->get_ChartData()->get_Categories()->Add(secondCategoryCell);
 
-	// Setzt den Beschriftungsabstand von einer Achse
-	chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset ( 500);
+auto northSeriesCell = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"North"));
+auto north = chart->get_ChartData()->get_Series()->Add(northSeriesCell, chart->get_Type());
+auto northFirstValueCell = workbook->GetCell(0, 1, 1, ObjectExt::Box(0.25));
+north->get_DataPoints()->AddDataPointForBarSeries(northFirstValueCell);
+auto northSecondValueCell = workbook->GetCell(0, 2, 1, ObjectExt::Box(0.75));
+north->get_DataPoints()->AddDataPointForBarSeries(northSecondValueCell);
 
-	// Schreibt die Präsentationsdatei auf die Festplatte
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+auto southSeriesCell = workbook->GetCell(0, 0, 2, ObjectExt::Box<String>(u"South"));
+auto south = chart->get_ChartData()->get_Series()->Add(southSeriesCell, chart->get_Type());
+auto southFirstValueCell = workbook->GetCell(0, 1, 2, ObjectExt::Box(0.40));
+south->get_DataPoints()->AddDataPointForBarSeries(southFirstValueCell);
+auto southSecondValueCell = workbook->GetCell(0, 2, 2, ObjectExt::Box(0.60));
+south->get_DataPoints()->AddDataPointForBarSeries(southSecondValueCell);
+
+for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
+{
+    auto series = chart->get_ChartData()->get_Series()->idx_get(i);
+    auto format = series->get_Labels()->get_DefaultDataLabelFormat();
+    format->set_ShowCategoryName(true);
+    format->set_ShowSeriesName(true);
+    format->set_ShowValue(true);
+}
+
+north->get_Label(1)->get_DataLabelFormat()->set_IsNumberFormatLinkedToSource(false);
+north->get_Label(1)->get_DataLabelFormat()->set_NumberFormat(u"0%");
+south->get_Label(0)->get_TextFrameForOverriding()->set_Text(u"Reviewed");
+
+for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
+{
+    auto series = chart->get_ChartData()->get_Series()->idx_get(i);
+    for (auto j = 0; j < series->get_DataPoints()->get_Count(); j++)
+    {
+        auto point = series->get_DataPoint(j);
+        auto label = point->get_Label();
+        if (!label->get_IsVisible())
+        {
+            continue;
+        }
+
+        Console::WriteLine(String::Format(u"Value: {0}; label: {1}", point->get_Value()->get_Data(), label->GetActualLabelText()));
+    }
+}
 ```
 
+Die in einem Datenpunkt gespeicherte Zahl bleibt `0.75`, selbst wenn seine Beschriftung `75%` zusammen mit den Kategorien- und Seriennamen anzeigt. Benutzerdefinierter Text ersetzt den generierten Beschriftungstext. [GetActualLabelText](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) gibt in beiden Fällen den resultierenden Beschriftungsstring zurück. Prüfen Sie [get_IsVisible](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/idatalabel/get_isvisible/) separat, wie oben gezeigt, wenn Sie nur sichtbare Beschriftungen extrahieren möchten.
+
+## **Abstand der Beschriftung von einer Achse festlegen**
+
+Verwenden Sie [set_LabelOffset](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/iaxis/set_labeloffset/), um den Abstand zwischen Kategorienachsenbeschriftungen und der Achse zu steuern. Der Wert ist ein Prozentsatz der maximalen Schriftgröße der Achsenbeschriftungen. Dieses Beispiel erstellt ein gruppiertes Säulendiagramm und setzt den horizontalen Achsenbeschriftungs‑Offset auf 500. Diese Einstellung wirkt sich auf Kategorienachsenbeschriftungen aus, nicht auf an einzelne Datenpunkte angehängte Beschriftungen.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset(500);
+
+presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
+```
 
 ## **Beschriftungsposition anpassen**
 
-Wenn Sie ein Diagramm erstellen, das keine Achse verwendet, wie beispielsweise ein Kreisdiagramm, können die Datenbeschriftungen des Diagramms zu nah am Rand liegen. In einem solchen Fall müssen Sie die Position der Datenbeschriftung anpassen, damit die Führungs‑Linien deutlich angezeigt werden.
+Bei einem Tortendiagramm passen Sie die Positionen der Datenbeschriftungen an, um den Abstand zu verbessern und Platz für Führungslinien zu schaffen.
 
-Dieser C++-Code zeigt, wie Sie die Beschriftungsposition in einem Kreisdiagramm anpassen:
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+Dieses Beispiel zeigt den Wert des ersten Datenpunkts, platziert seine Beschriftung außerhalb des Segments und verwendet [set_X](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ilayoutable/set_x/) und [set_Y](https://reference.aspose.com/slides/de/cpp/aspose.slides.charts/ilayoutable/set_y/), um seine Offsets anzupassen. Diese Offsets beziehen sich jeweils relativ zur Diagrammbreite und -höhe.
 
-System::SharedPtr<IChart> chart = pres->get_Slide(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 200.0f, 200.0f);
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-System::SharedPtr<IChartSeriesCollection> series = chart->get_ChartData()->get_Series();
-System::SharedPtr<IDataLabel> label = series->idx_get(0)->get_Label(0);
-System::SharedPtr<IDataLabelFormat> dataLabelFormat = label->get_DataLabelFormat();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-dataLabelFormat->set_ShowValue(true);
-dataLabelFormat->set_Position(LegendDataLabelPosition::OutsideEnd);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 200, 200);
+auto series = chart->get_ChartData()->get_Series();
+
+auto label = series->idx_get(0)->get_Label(0);
+label->get_DataLabelFormat()->set_ShowValue(true);
+label->get_DataLabelFormat()->set_Position(LegendDataLabelPosition::OutsideEnd);
 label->set_X(0.71f);
 label->set_Y(0.04f);
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
 **Wie kann ich verhindern, dass Datenbeschriftungen in dichten Diagrammen überlappen?**
 
-Kombinieren Sie die automatische Platzierung von Beschriftungen, Führungs‑Linien und eine reduzierte Schriftgröße; bei Bedarf können Sie einige Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für extreme bzw. wichtige Punkte anzeigen.
+Kombinieren Sie automatische Beschriftungsplatzierung, Führungslinien und eine reduzierte Schriftgröße; bei Bedarf können Sie einige Felder (z. B. die Kategorie) ausblenden oder Beschriftungen nur für Extremwerte bzw. Schlüsselwerte anzeigen.
 
-**Wie kann ich Beschriftungen nur für Null-, negative oder leere Werte deaktivieren?**
+**Wie kann ich Beschriftungen nur für Null‑, negative oder leere Werte deaktivieren?**
 
-Filtern Sie Datenpunkte, bevor Sie Beschriftungen aktivieren, und schalten Sie die Anzeige für Werte von 0, für negative Werte oder für fehlende Werte gemäß einer definierten Regel aus.
+Filtern Sie Datenpunkte, bevor Sie Beschriftungen aktivieren, und schalten Sie die Anzeige für Werte von 0, negative Werte oder fehlende Werte gemäß einer festgelegten Regel aus.
 
-**Wie kann ich einen konsistenten Beschriftungsstil beim Exportieren in PDF/Bilder sicherstellen?**
+**Wie kann ich einen einheitlichen Beschriftungsstil beim Exportieren in PDF/Bilder sicherstellen?**
 
-Legen Sie Schriftarten (Familie, Größe) explizit fest und prüfen Sie, ob die Schriftart auf der Rendering‑Seite verfügbar ist, um ein Zurückgreifen auf Ersatzschriften zu vermeiden.
+Legen Sie Schriftfamilie und Schriftgröße explizit fest und prüfen Sie, dass die Schrift im Rendering‑Umfeld verfügbar ist, um ein Ausweichen zu vermeiden.

@@ -9,187 +9,20 @@ keywords:
 - ความแม่นยำของข้อมูล
 - เปอร์เซ็นต์
 - ระยะห่างของป้าย
-- ตำแหน่งป้าย
+- ตำแหน่งของป้าย
 - PowerPoint
-- OpenDocument
 - งานนำเสนอ
 - Python
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides for Python ผ่าน .NET เพื่อสร้างสไลด์ที่น่าสนใจยิ่งขึ้น."
+description: "เรียนรู้วิธีเพิ่มและจัดรูปแบบป้ายข้อมูลแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ Python ผ่าน .NET เพื่อสร้างสไลด์ที่น่าสนใจยิ่งขึ้น."
 ---
-## **ภาพรวม**
+## **บทนำ**
 
-ป้ายข้อมูลบนแผนภูมิแสดงรายละเอียดเกี่ยวกับชุดข้อมูลของแผนภูมิหรือจุดข้อมูลแต่ละจุด ช่วยให้ผู้อ่านระบุชุดข้อมูลได้อย่างรวดเร็วและทำให้แผนภูมิอ่านง่ายยิ่งขึ้น ใน Aspose.Slides for Python คุณสามารถเปิดใช้งาน ปรับแต่ง และจัดรูปแบบป้ายข้อมูลสำหรับแผนภูมิใดก็ได้ — เลือกสิ่งที่จะแสดง (ค่า, เปอร์เซ็นต์, ชื่อชุดข้อมูลหรือชื่อประเภท) ตำแหน่งของป้ายและลักษณะการแสดงผล (แบบอักษร, รูปแบบตัวเลข, ตัวคั่น, เส้นนำและอื่น ๆ) บทความนี้สรุป API ที่สำคัญและตัวอย่างที่คุณต้องการเพื่อเพิ่มป้ายที่ชัดเจนและให้ข้อมูลกับแผนภูมิของคุณ.
+ป้ายข้อมูลแสดงข้อมูลเกี่ยวกับชุดข้อมูลในแผนภูมิและจุดข้อมูลแต่ละจุด ช่วยให้ผู้อ่านระบุค่าและเข้าใจแผนภูมิได้ บทความนี้อธิบายวิธีจัดรูปแบบค่า การแสดงเปอร์เซ็นต์ การอ่านข้อความป้าย การปรับช่องว่างของป้ายแกนหมวดหมู่ และการกำหนดตำแหน่งป้ายบนแผนภูมิแบบพาย
 
-## **ตั้งค่าความแม่นยำของป้ายข้อมูล**
+## **ตั้งค่าความแม่นยำของข้อมูลในป้ายแผนภูมิ**
 
-ป้ายข้อมูลของแผนภูมิมักแสดงค่าตัวเลขที่ต้องการความแม่นยำสม่ำเสมอ ส่วนนี้แสดงวิธีควบคุมจำนวนตำแหน่งทศนิยมสำหรับป้ายข้อมูลใน Aspose.Slides โดยใช้รูปแบบตัวเลขที่เหมาะสม
-
-ตัวอย่าง Python ด้านล่างแสดงวิธีตั้งค่าความแม่นยำของตัวเลขสำหรับป้ายข้อมูลแผนภูมิ:
-
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    chart = slide.shapes.add_chart(charts.ChartType.LINE, 50, 50, 500, 300)
-
-    series = chart.chart_data.series[0]
-    series.labels.default_data_label_format.show_value = True
-    series.number_format_of_values = "#,##0.00"
-
-    presentation.save("data_label_precision.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **แสดงเปอร์เซ็นต์เป็นป้าย**
-
-ด้วย Aspose.Slides คุณสามารถแสดงเปอร์เซ็นต์เป็นป้ายข้อมูลบนแผนภูมิได้ ตัวอย่างด้านล่างคำนวณสัดส่วนของแต่ละจุดในหมวดหมู่ของมันและจัดรูปแบบป้ายให้แสดงเปอร์เซ็นต์
-
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-# สร้างอินสแตนซ์ของคลาส Presentation.
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 600, 400)
-    series = chart.chart_data.series[0]
-
-    total_for_categories = [0]*len(chart.chart_data.categories)
-    for k in range(len(chart.chart_data.categories)):
-        for i in range(len(chart.chart_data.series)):
-            total_for_categories[k] += chart.chart_data.series[i].data_points[k].value.data
-
-    for i in range(len(chart.chart_data.series)):
-        series = chart.chart_data.series[i]
-        series.labels.default_data_label_format.show_legend_key = False
-
-        for j in range(len(series.data_points)):
-            data_point_percent = series.data_points[j].value.data / total_for_categories[j] * 100
-
-            text_portion = slides.Portion()
-            text_portion.text = "{0:.2f} %".format(data_point_percent)
-            text_portion.portion_format.font_height = 8
-
-            label = series.data_points[j].label
-            label.text_frame_for_overriding.text = ""
-
-            paragraph = label.text_frame_for_overriding.paragraphs[0]
-            paragraph.portions.add(text_portion)
-
-            label.data_label_format.show_series_name = False
-            label.data_label_format.show_percentage = False
-            label.data_label_format.show_legend_key = False
-            label.data_label_format.show_category_name = False
-            label.data_label_format.show_bubble_size = False
-
-    # บันทึกงานนำเสนอที่มีแผนภูมิ.
-    presentation.save("percentage_as_label.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **แสดงเครื่องหมายเปอร์เซ็นต์กับป้ายข้อมูลของแผนภูมิ**
-
-ส่วนนี้แสดงวิธีแสดงเปอร์เซ็นต์ในป้ายข้อมูลของแผนภูมิและรวมเครื่องหมายเปอร์เซ็นต์โดยใช้ Aspose.Slides คุณจะได้เรียนรู้วิธีเปิดใช้งานค่าร้อยละสำหรับชุดทั้งหมดหรือจุดเฉพาะ (เหมาะสำหรับแผนภูมิปาย, ดอนัท และแผนภูมิ 100% stacked) และวิธีควบคุมการจัดรูปแบบผ่านตัวเลือกของป้ายหรือรูปแบบตัวเลขที่กำหนดเอง
-
-ตัวอย่าง Python ด้านล่างแสดงวิธีเพิ่มเครื่องหมายเปอร์เซ็นต์ให้กับป้ายข้อมูลของแผนภูมิ:
-
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-import aspose.pydrawing as draw
-
-# สร้างอินสแตนซ์ของคลาส Presentation.
-with slides.Presentation() as presentation:
-
-    # รับอ้างอิงสไลด์ตามดัชนี.
-    slide = presentation.slides[0]
-
-    # สร้างแผนภูมิ PercentsStackedColumn บนสไลด์.
-    chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 20, 20, 600, 400)
-
-    chart.axes.vertical_axis.is_number_format_linked_to_source = False
-    chart.axes.vertical_axis.number_format = "0.00%"
-
-    chart.chart_data.series.clear()
-
-    # รับ workbook ของข้อมูลแผนภูมิ.
-    workbook = chart.chart_data.chart_data_workbook
-    worksheet_index = 0
-
-    # เพิ่มชุดข้อมูลใหม่.
-    series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Reds"), chart.type)
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 0.30))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 0.50))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 0.80))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 1, 0.65))
-
-    # ตั้งค่าสีเติมของชุดข้อมูล.
-    series.format.fill.fill_type = slides.FillType.SOLID
-    series.format.fill.solid_fill_color.color = draw.Color.red
-
-    # ตั้งค่าคุณสมบัติรูปแบบป้ายข้อมูล.
-    series.labels.default_data_label_format.show_value = True
-    series.labels.default_data_label_format.is_number_format_linked_to_source = False
-    series.labels.default_data_label_format.number_format = "0.0%"
-    series.labels.default_data_label_format.text_format.portion_format.font_height = 10
-    series.labels.default_data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    series.labels.default_data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.white
-    series.labels.default_data_label_format.show_value = True
-
-    # เพิ่มชุดข้อมูลใหม่.
-    series2 = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Blues"), chart.type)
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 0.70))
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 0.50))
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 0.20))
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 2, 0.35))
-
-    # ตั้งค่าชนิดการเติมและสี.
-    series2.format.fill.fill_type = slides.FillType.SOLID
-    series2.format.fill.solid_fill_color.color = draw.Color.blue
-    series2.labels.default_data_label_format.show_value = True
-    series2.labels.default_data_label_format.is_number_format_linked_to_source = False
-    series2.labels.default_data_label_format.number_format = "0.0%"
-    series2.labels.default_data_label_format.text_format.portion_format.font_height = 10
-    series2.labels.default_data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    series2.labels.default_data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.white
-
-    # บันทึกงานนำเสนอ.
-    presentation.save("percentage_sign.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **ตั้งค่าระยะห่างของป้ายจากแกน**
-
-ส่วนนี้แสดงวิธีควบคุมระยะห่างระหว่างป้ายข้อมูลและแกนของแผนภูมิใน Aspose.Slides การปรับค่าออฟเซ็ตนี้ช่วยป้องกันการทับซ้อนและเพิ่มความอ่านง่ายในภาพที่มีความหนาแน่นสูง
-
-โค้ด Python ด้านล่างแสดงวิธีตั้งค่าระยะห่างของป้ายจากแกนประเภทเมื่อทำงานกับแผนภูมิที่ใช้แกน:
-
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-# สร้างอินสแตนซ์ของคลาส Presentation.
-with slides.Presentation() as presentation:
-    # รับอ้างอิงสไลด์.
-    slide = presentation.slides[0]
-
-    # สร้างแผนภูมิคอลัมน์แบบกลุ่มบนสไลด์.
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
-
-    # ตั้งค่าระยะห่างของป้ายจากแกนหมวดหมู่ (แนวนอน).
-    chart.axes.horizontal_axis.label_offset = 500
-
-    # บันทึกงานนำเสนอ.
-    presentation.save("axis_label_distance.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **ปรับตำแหน่งป้าย**
-
-เมื่อคุณสร้างแผนภูมิที่ไม่ได้ใช้แกน เช่น แผนภูมิปาย, ป้ายข้อมูลอาจอยู่ใกล้ขอบเกินไป ในกรณีนั้นให้ปรับตำแหน่งป้ายเพื่อให้เส้นนำแสดงอย่างชัดเจน
-
-โค้ด Python ด้านล่างแสดงวิธีปรับตำแหน่งป้ายบนแผนภูมิปาย:
+ใช้[ฟอร์แมตจำนวนของค่า](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartseries/number_format_of_values/)เพื่อจัดรูปแบบค่าชุดข้อมูล ตัวอย่างนี้สร้างแผนภูมิเส้นด้วยข้อมูลเริ่มต้น แสดงตารางข้อมูลของแผนภูมิ และเปิดใช้งานป้ายค่าให้กับชุดข้อมูลแรก ฟอร์แมต `#,##0.00` จะแสดงตัวคั่นหลักพันและทศนิยมสองตำแหน่งโดยไม่เปลี่ยนค่าตามฐาน
 
 ```python
 import aspose.slides as slides
@@ -198,33 +31,223 @@ import aspose.slides.charts as charts
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 600, 300)
+    chart = slide.shapes.add_chart(charts.ChartType.LINE, 50, 50, 450, 300)
+    chart.has_data_table = True
 
     series = chart.chart_data.series[0]
+    series.number_format_of_values = "#,##0.00"
     series.labels.default_data_label_format.show_value = True
-    series.labels.default_data_label_format.show_leader_lines = True
 
-    label = series.labels[0]
+    presentation.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **แสดงเปอร์เซ็นต์เป็นป้าย**
+
+สำหรับแผนภูมิคอลัมน์แบบซ้อนกัน ให้คำนวณแต่ละค่าตามเปอร์เซ็นต์ของผลรวมในหมวดหมู่และกำหนดข้อความให้กับ[text_frame_for_overriding](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/) ตัวอย่างนี้ใช้ข้อมูลแผนภูมิเบื้องต้นและแสดงเปอร์เซ็นต์ด้วยทศนิยมสองตำแหน่งในฟอนต์ขนาด 8 จุด หมวดหมู่ที่ผลรวมเป็นศูนย์จะถูกข้ามเพื่อหลีกเลี่ยงการหารด้วยศูนย์ คำนวณข้อความป้ายใหม่หากข้อมูลแผนภูมิมีการเปลี่ยนแปลง
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 400, 400)
+
+    category_totals = [0.0] * len(chart.chart_data.categories)
+    for k in range(len(chart.chart_data.categories)):
+        for series in chart.chart_data.series:
+            point_value = float(series.data_points[k].value.data)
+            category_totals[k] += point_value
+
+    for series in chart.chart_data.series:
+        series.labels.default_data_label_format.show_legend_key = False
+
+        for j in range(len(series.data_points)):
+            label = series.data_points[j].label
+            if category_totals[j] == 0:
+                continue
+
+            point_value = float(series.data_points[j].value.data)
+            data_point_percent = point_value / category_totals[j] * 100
+
+            portion = slides.Portion()
+            portion.text = f"{data_point_percent:.2f} %"
+            portion.portion_format.font_height = 8
+
+            label.text_frame_for_overriding.text = ""
+
+            paragraph = label.text_frame_for_overriding.paragraphs[0]
+            paragraph.portions.add(portion)
+
+            label.data_label_format.show_value = True
+            label.data_label_format.show_series_name = False
+            label.data_label_format.show_percentage = False
+            label.data_label_format.show_legend_key = False
+            label.data_label_format.show_category_name = False
+            label.data_label_format.show_bubble_size = False
+
+    presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **ตั้งค่าเครื่องหมายเปอร์เซ็นต์ในป้ายแผนภูมิ**
+
+เมื่อค่าถูกเก็บเป็นเศษส่วน ให้ใช้[number_format](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/datalabelformat/number_format/)เพื่อแสดงเปอร์เซ็นต์ ตั้งค่า[is_number_format_linked_to_source](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/)เป็น `False` เพื่อใช้ฟอร์แมตป้ายโดยอิสระจากเซลล์ต้นฉบับ
+
+ตัวอย่างนี้สร้างแผนภูมิคอลัมน์ซ้อน 100% ด้วยชุดข้อมูลสีแดงและสีน้ำเงินในสี่หมวด หมู่ละค่าคู่รวมกันเป็น 1 ฟอร์แมตป้าย `0.0%` จะแสดง 0.30 เป็น 30.0% ในขณะที่แกนแนวตั้งใช้ทศนิยมสองตำแหน่ง ทั้งสองชุดใช้ข้อความป้ายสีขาว ขนาด 10 จุด
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.pydrawing as drawing
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 20, 20, 500, 400)
+
+    chart.axes.vertical_axis.is_number_format_linked_to_source = False
+    chart.axes.vertical_axis.number_format = "0.00%"
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
+    for i in range(4):
+        category_cell = workbook.get_cell(worksheet_index, i + 1, 0, f"Category {i + 1}")
+        chart.chart_data.categories.add(category_cell)
+
+    series_names = ["Reds", "Blues"]
+    series_colors = [drawing.Color.red, drawing.Color.blue]
+    values = [[0.30, 0.50, 0.80, 0.65], [0.70, 0.50, 0.20, 0.35]]
+
+    for i in range(len(series_names)):
+        series_cell = workbook.get_cell(worksheet_index, 0, i + 1, series_names[i])
+        series = chart.chart_data.series.add(series_cell, chart.type)
+        for j in range(4):
+            value_cell = workbook.get_cell(worksheet_index, j + 1, i + 1, values[i][j])
+            series.data_points.add_data_point_for_bar_series(value_cell)
+
+        series.format.fill.fill_type = slides.FillType.SOLID
+        series.format.fill.solid_fill_color.color = series_colors[i]
+
+        label_format = series.labels.default_data_label_format
+        label_format.show_value = True
+        label_format.is_number_format_linked_to_source = False
+        label_format.number_format = "0.0%"
+        label_format.text_format.portion_format.font_height = 10
+        label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
+        label_format.text_format.portion_format.fill_format.solid_fill_color.color = drawing.Color.white
+
+    presentation.save("SetDataLabelsPercentageSign_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **อ่านข้อความจริงของป้ายข้อมูล**
+
+ใช้[get_actual_label_text](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/datalabel/get_actual_label_text/)เพื่อดึงข้อความที่สร้างโดยการตั้งค่าป้ายข้อมูล มีประโยชน์เมื่อดึงป้ายเพื่อทำรายงาน ค้นหาเนื้อหาในงานนำเสนอ หรือทำการตรวจสอบแผนภูมิที่สร้างขึ้น ในตัวอย่างด้านล่าง ฟอร์แมตป้ายข้อมูลเริ่มต้น[data label format](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/datalabelformat/) รวมชื่อหมวด ชื่อชุดข้อมูลและค่า จุดหนึ่งจัดรูปแบบค่าเป็นเปอร์เซ็นต์ และอีกจุดหนึ่งใช้ข้อความกำหนดเองจาก[text_frame_for_overriding](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/)
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    for i, category_name in enumerate(["Q1", "Q2"]):
+        category_cell = workbook.get_cell(0, i + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
+
+    north_cell = workbook.get_cell(0, 0, 1, "North")
+    north = chart.chart_data.series.add(north_cell, chart.type)
+    for i, value in enumerate([0.25, 0.75]):
+        value_cell = workbook.get_cell(0, i + 1, 1, value)
+        north.data_points.add_data_point_for_bar_series(value_cell)
+
+    south_cell = workbook.get_cell(0, 0, 2, "South")
+    south = chart.chart_data.series.add(south_cell, chart.type)
+    for i, value in enumerate([0.40, 0.60]):
+        value_cell = workbook.get_cell(0, i + 1, 2, value)
+        south.data_points.add_data_point_for_bar_series(value_cell)
+
+    for series in chart.chart_data.series:
+        label_format = series.labels.default_data_label_format
+        label_format.show_category_name = True
+        label_format.show_series_name = True
+        label_format.show_value = True
+
+    north.labels[1].data_label_format.is_number_format_linked_to_source = False
+    north.labels[1].data_label_format.number_format = "0%"
+    south.labels[0].text_frame_for_overriding.text = "Reviewed"
+
+    for series in chart.chart_data.series:
+        for point in series.data_points:
+            label = point.label
+            if not label.is_visible:
+                continue
+
+            label_text = label.get_actual_label_text()
+            print(f"Value: {point.value.data}; label: {label_text}")
+```
+
+ตัวเลขที่เก็บในจุดข้อมูลคงเป็น `0.75` แม้ว่าป้ายจะแสดง `75%` พร้อมกับชื่อหมวดและชุดข้อมูล ข้อความกำหนดเองจะแทนที่ข้อความป้ายที่สร้างขึ้น [get_actual_label_text](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/datalabel/get_actual_label_text/) จะคืนสตริงป้ายในทั้งสองกรณี ตรวจสอบ[is_visible](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/datalabel/is_visible/) แยกต่างหากตามที่แสดงข้างต้นเมื่อคุณต้องการดึงเฉพาะป้ายที่มองเห็นได้
+
+## **ตั้งค่าระยะห่างของป้ายจากแกน**
+
+ใช้[label_offset](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/axis/label_offset/)เพื่อควบคุมระยะห่างระหว่างป้ายแกนหมวดกับแกน ค่าเป็นเปอร์เซ็นต์ของขนาดฟอนต์สูงสุดของป้ายแกน ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มและตั้งค่าoffsetป้ายแกนนอนเป็น 500 การตั้งค่านี้มีผลต่อป้ายแกนหมวดมากกว่าป้ายที่แนบกับจุดข้อมูลแต่ละจุด
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+    chart.axes.horizontal_axis.label_offset = 500
+
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **ปรับตำแหน่งป้าย**
+
+บนแผนภูมิพาย ปรับตำแหน่งป้ายข้อมูลเพื่อเพิ่มช่องว่างและให้พื้นที่สำหรับเส้นนำ
+
+ตัวอย่างนี้แสดงค่าของจุดข้อมูลแรก วางป้ายนอกส่วนของพาย และปรับoffset[x](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/datalabel/x/)และ[y](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/datalabel/y/) ของมัน offset เหล่านี้เป็นค่าอิสระจากความกว้างและความสูงของแผนภูมิ
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 200, 200)
+    series = chart.chart_data.series
+
+    label = series[0].labels[0]
+    label.data_label_format.show_value = True
     label.data_label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
-
-    label.x = 0.05
-    label.y = 0.1
+    label.x = 0.71
+    label.y = 0.04
 
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![ตำแหน่งป้ายที่เปลี่ยนแปลง](changed_label_position.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
 **ฉันจะป้องกันไม่ให้ป้ายข้อมูลทับซ้อนกันในแผนภูมิที่หนาแน่นได้อย่างไร?**
 
-รวมการวางป้ายอัตโนมัติ, เส้นนำ, และลดขนาดตัวอักษร; หากจำเป็นให้ซ่อนฟิลด์บางส่วน (เช่น ประเภท) หรือแสดงป้ายเฉพาะจุดสุดยอด/สำคัญเท่านั้น
+ผสานการจัดวางป้ายอัตโนมัติ เส้นนำ และขนาดฟอนต์ที่ลดลง หากจำเป็นให้ซ่อนบางฟิลด์ (เช่น หมวด) หรือแสดงป้ายเฉพาะค่าขัลหรือจุดสำคัญเท่านั้น
 
-**ฉันจะปิดการใช้งานป้ายสำหรับค่าเป็นศูนย์, ค่าเป็นลบ, หรือค่าว่างได้อย่างไร?**
+**ฉันจะปิดการแสดงป้ายสำหรับค่าเป็นศูนย์ ลบล้าง หรือว่างได้อย่างไร?**
 
-กรองจุดข้อมูลก่อนเปิดใช้งานป้ายและปิดการแสดงสำหรับค่าที่เป็น 0, ค่าเป็นลบ, หรือค่าว่างตามกฎที่กำหนด
+กรองจุดข้อมูลก่อนเปิดใช้งานป้ายและปิดการแสดงสำหรับค่าที่เป็น 0, ค่าเชิงลบ หรือค่าที่หายไปตามกฎที่กำหนด
 
-**ฉันจะทำให้สไตล์ของป้ายคงที่เมื่อส่งออกเป็น PDF/ภาพได้อย่างไร?**
+**ฉันจะทำให้สไตล์ป้ายคงที่เมื่อนำออกเป็น PDF/ภาพได้อย่างไร?**
 
-กำหนดแบบอักษร (ครอบครัว, ขนาด) อย่างชัดเจนและตรวจสอบว่าแบบอักษรนั้นมีอยู่บนเครื่องเรนเดอร์เพื่อหลีกเลี่ยงการใช้แบบอักษรสำรอง
+กำหนดฟอนต์ตระกูลและขนาดอย่างชัดเจนและตรวจสอบว่าฟอนต์นั้นมีในสภาพแวดล้อมการเรนเดอร์เพื่อหลีกเลี่ยงการใช้ฟอนต์สำรอง

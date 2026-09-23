@@ -1,222 +1,285 @@
 ---
-title: Diagram adatcímkék kezelése prezentációkban Java segítségével
-linktitle: Adatcímke
+title: "Diagram adatcímkék kezelése bemutatókban Java használatával"
+linktitle: "Adatcímke"
 type: docs
 url: /hu/java/chart-data-label/
 keywords:
 - diagram
 - adatcímke
-- adatpontoság
+- adat pontosság
 - százalék
 - címke távolság
 - címke helye
 - PowerPoint
-- prezentáció
+- bemutató
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan adhat hozzá és formázhat diagram adatcímkéket PowerPoint prezentációkban az Aspose.Slides for Java használatával, hogy vonzóbb diák legyenek."
+description: "Tanulja meg, hogyan adjon hozzá és formázzon diagram adatcímkéket PowerPoint bemutatókban az Aspose.Slides for Java segítségével, hogy a diák még lebilincselőbbek legyenek."
 ---
 ## **Bevezetés**
 
-A diagram adatcímkéi a diagram adatcsoportról vagy egyes adatpontokról nyújtanak részleteket. Segítik az olvasókat az adatcsoportok gyors azonosításában, és egyszerűbbé teszik a diagramok megértését.
+Az adatcímkék információt jelenítenek meg a diagram sorozatairól és az egyes adatpontokról, segítve az olvasókat az értékek azonosításában és a diagram megértésében. Ez a cikk bemutatja, hogyan formázhatók az értékek, hogyan jeleníthetők meg a százalékok, hogyan olvasható a címke szövege, hogyan állítható be a kategória‑tengely címkéinek távolsága, valamint hogyan helyezhetők el a kördiagram címkéi.
 
-## **Adatpontoság beállítása a diagram adatcímkéiben**
+## **Adatpontok pontosságának beállítása a diagram adatcímkéiben**
 
-Ez a Java kód bemutatja, hogyan állítható be az adatpontoság egy diagram adatcímkében:
+Használja a [setNumberFormatOfValues](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ichartseries/#setNumberFormatOfValues-java.lang.String-) metódust a sorozatértékek formázásához. Ez a példa egy vonaldiagramot hoz létre alapértelmezett adatokkal, megjeleníti az adat táblázatát, és engedélyezi az értékcímkéket az első sorozat számára. A `#,##0.00` formátum ezres elválasztót és két tizedesjegyet jelenít meg anélkül, hogy megváltoztatná az alapról tárolt értékeket.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
-    
-    chart.setDataTable(true);
-    chart.getChartData().getSeries().get_Item(0).setNumberFormatOfValues("#,##0.00");
+import com.aspose.slides.*;
 
-    pres.save("output.pptx",SaveFormat.Pptx);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.Line, 50, 50, 450, 300);
+    chart.setDataTable(true);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+    series.setNumberFormatOfValues("#,##0.00");
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Százalék megjelenítése címkeként**
-Az Aspose.Slides for Java lehetővé teszi, hogy a megjelenített diagramokon százalékcímkéket állítsunk be. Ez a Java kód demonstrálja a műveletet:
+
+Halmozott oszlopdiagram esetén számítsa ki az egyes értékeket a kategória összegének százalékában, és rendelje hozzá a szöveget a [getTextFrameForOverriding](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) metódus által visszaadott szövegdobozhoz. Ez a példa az alapértelmezett diagramadatokat használja, és két tizedesjegy pontossággal, 8 pontos betűmérettel jeleníti meg a százalékot. A nulla összegű kategóriákat kihagyja a nullával való osztás elkerülése érdekében. Ha a diagramadatok változnak, újraszámítja az egyéni címkeszöveget.
 
 ```java
-// Létrehozza a Presentation osztály egy példányát
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Presentation presentation = new Presentation();
 try {
-    // Lekéri az első diát
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
     IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400);
-    IChartSeries series;
-    double[] total_for_Cat = new double[chart.getChartData().getCategories().size()];
+
+    double[] categoryTotals = new double[chart.getChartData().getCategories().size()];
     for (int k = 0; k < chart.getChartData().getCategories().size(); k++) {
-        IChartCategory cat = chart.getChartData().getCategories().get_Item(k);
-    
         for (int i = 0; i < chart.getChartData().getSeries().size(); i++) {
-            total_for_Cat[k] = total_for_Cat[k] + (double) (chart.getChartData().getSeries().get_Item(i).getDataPoints().get_Item(k).getValue().getData());
+            IChartSeries series = chart.getChartData().getSeries().get_Item(i);
+            Number pointValue = (Number) series.getDataPoints().get_Item(k).getValue().getData();
+            categoryTotals[k] += pointValue.doubleValue();
         }
     }
-    
-    double dataPontPercent = 0f;
+
     for (int x = 0; x < chart.getChartData().getSeries().size(); x++) {
-        series = chart.getChartData().getSeries().get_Item(x);
+        IChartSeries series = chart.getChartData().getSeries().get_Item(x);
         series.getLabels().getDefaultDataLabelFormat().setShowLegendKey(false);
-    
+
         for (int j = 0; j < series.getDataPoints().size(); j++) {
-            IDataLabel lbl = series.getDataPoints().get_Item(j).getLabel();
-            dataPontPercent = (double) ((series.getDataPoints().get_Item(j).getValue().getData())) / (double) (total_for_Cat[j]) * 100;
-    
-            IPortion port = new Portion();
-            port.setText(String.format("{0:F2} %.2f", dataPontPercent));
-            port.getPortionFormat().setFontHeight(8f);
-            lbl.getTextFrameForOverriding().setText("");
-            IParagraph para = lbl.getTextFrameForOverriding().getParagraphs().get_Item(0);
-            para.getPortions().add(port);
-    
-            lbl.getDataLabelFormat().setShowSeriesName(false);
-            lbl.getDataLabelFormat().setShowPercentage(false);
-            lbl.getDataLabelFormat().setShowLegendKey(false);
-            lbl.getDataLabelFormat().setShowCategoryName(false);
-            lbl.getDataLabelFormat().setShowBubbleSize(false);
+            IDataLabel label = series.getDataPoints().get_Item(j).getLabel();
+            if (categoryTotals[j] == 0) {
+                continue;
+            }
+
+            Number pointValue = (Number) series.getDataPoints().get_Item(j).getValue().getData();
+            double dataPointPercent = (pointValue.doubleValue() / categoryTotals[j]) * 100;
+
+            IPortion portion = new Portion();
+            portion.setText(String.format(Locale.US, "%.2f %%", dataPointPercent));
+            portion.getPortionFormat().setFontHeight(8f);
+
+            label.getTextFrameForOverriding().setText("");
+            IParagraph paragraph = label.getTextFrameForOverriding().getParagraphs().get_Item(0);
+            paragraph.getPortions().add(portion);
+
+            label.getDataLabelFormat().setShowValue(true);
+            label.getDataLabelFormat().setShowSeriesName(false);
+            label.getDataLabelFormat().setShowPercentage(false);
+            label.getDataLabelFormat().setShowLegendKey(false);
+            label.getDataLabelFormat().setShowCategoryName(false);
+            label.getDataLabelFormat().setShowBubbleSize(false);
         }
     }
-    
-    // Elmenti a diagramot tartalmazó prezentációt
-    pres.save("output.pptx", SaveFormat.Pptx);
+
+    presentation.save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Százalékjel beállítása a diagram adatcímkékkel**
-Ez a Java kód megmutatja, hogyan állítható be a százalékjel egy diagram adatcímkében:
+## **Százalékjel beállítása diagram adatcímkékkel**
+
+Ha az értékek törtként vannak tárolva, használja a [setNumberFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabelformat/#setNumberFormat-java.lang.String-) metódust a százalékos megjelenítéshez. Adja át a `false` értéket a [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabelformat/#setNumberFormatLinkedToSource-boolean-) metódusnak, hogy a címkeformátum független legyen a forráscelláktól.
+
+Ez a példa egy 100 %‑os halmozott oszlopdiagramot hoz létre piros és kék sorozatokkal négy kategóriában. Minden értékpár összege 1. A `0.0%` címkeformátum a 0.30‑at 30,0 %-ként jeleníti meg, míg a függőleges tengely két tizedesjegyet használ. Mindkét sorozat fehér, 10 pontos címkeszöveget alkalmaz.
 
 ```java
-// Létrehozza a Presentation osztály egy példányát
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Lekéri egy dia referenciajét az indexe alapján
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Létrehozza a PercentsStackedColumn diagramot egy dián
+    ISlide slide = presentation.getSlides().get_Item(0);
     IChart chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
-    
-    // Beállítja a NumberFormatLinkedToSource értékét false-ra
+
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.00%");
-    
+
     chart.getChartData().getSeries().clear();
-    int defaultWorksheetIndex = 0;
-    
-    // Lekéri a diagram adat munkalapját
+    chart.getChartData().getCategories().clear();
+
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
-    
-    // Új sorozatot ad hozzá
-    IChartSeries series = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.getType());
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 1, 0.30));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 1, 0.50));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 1, 0.80));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 1, 0.65));
-    
-    // Beállítja a sorozat kitöltőszínét
-    series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    
-    // Beállítja a LabelFormat tulajdonságait
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    // Új sorozatot ad hozzá
-    IChartSeries series2 = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.getType());
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 2, 0.70));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 2, 0.50));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 2, 0.20));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 2, 0.35));
-    
-    // Beállítja a kitöltés típusát és színét
-    series2.getFormat().getFill().setFillType(FillType.Solid);
-    series2.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-    series2.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
-    
-    // A prezentációt lemezre menti
-    pres.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
+    int worksheetIndex = 0;
+    for (int i = 0; i < 4; i++) {
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+    }
+
+    String[] seriesNames = { "Reds", "Blues" };
+    Color[] seriesColors = { Color.RED, Color.BLUE };
+    double[][] values = { { 0.30, 0.50, 0.80, 0.65 }, { 0.70, 0.50, 0.20, 0.35 } };
+
+    for (int i = 0; i < seriesNames.length; i++) {
+        IChartDataCell seriesCell = workbook.getCell(worksheetIndex, 0, i + 1, seriesNames[i]);
+        IChartSeries series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+        for (int j = 0; j < 4; j++) {
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, j + 1, i + 1, values[i][j]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        series.getFormat().getFill().setFillType(FillType.Solid);
+        series.getFormat().getFill().getSolidFillColor().setColor(seriesColors[i]);
+
+        IDataLabelFormat labelFormat = series.getLabels().getDefaultDataLabelFormat();
+        labelFormat.setShowValue(true);
+        labelFormat.setNumberFormatLinkedToSource(false);
+        labelFormat.setNumberFormat("0.0%");
+        labelFormat.getTextFormat().getPortionFormat().setFontHeight(10);
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.WHITE);
+    }
+
+    presentation.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Címke távolságának beállítása egy tengelytől**
-Ez a Java kód bemutatja, hogyan állítható be a címke távolsága egy kategóriatengelytől, amikor tengelyekkel ábrázolt diagramot használunk:
+## **Az adatcímkék tényleges szövegének olvasása**
+
+Használja a [getActualLabelText](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabel/#getActualLabelText--) metódust az adatcímke beállításai által előállított szöveg lekérdezéséhez. Ez akkor hasznos, ha címkéket kell kinyerni jelentésekhez, keresni kell a bemutató tartalmában, vagy ellenőrizni kell a generált diagramokat. Az alábbi példában az alapértelmezett [adata címke formátum](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabelformat/) minden kategórianév, sorozatnév és érték kombinációját jeleníti meg. Az egyik pont az értékét százalékként formázza, a másik egy egyéni szöveget használ a [getTextFrameForOverriding](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--) metódus által biztosított szövegdobozból.
 
 ```java
-// Létrehozza a Presentation osztály egy példányát
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Lekéri egy dia referenciajét
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Létrehozza a diagramot a dián
-    IChart ch = sld.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
-    
-    // Beállítja a címke távolságát egy tengelytől
-    ch.getAxes().getHorizontalAxis().setLabelOffset(500);
-    
-    // A prezentációt lemezre menti
-    pres.save("output.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell firstCategoryCell = workbook.getCell(0, 1, 0, "Q1");
+    chart.getChartData().getCategories().add(firstCategoryCell);
+    IChartDataCell secondCategoryCell = workbook.getCell(0, 2, 0, "Q2");
+    chart.getChartData().getCategories().add(secondCategoryCell);
+
+    IChartDataCell northSeriesCell = workbook.getCell(0, 0, 1, "North");
+    IChartSeries north = chart.getChartData().getSeries().add(northSeriesCell, chart.getType());
+    IChartDataCell northFirstValueCell = workbook.getCell(0, 1, 1, 0.25);
+    north.getDataPoints().addDataPointForBarSeries(northFirstValueCell);
+    IChartDataCell northSecondValueCell = workbook.getCell(0, 2, 1, 0.75);
+    north.getDataPoints().addDataPointForBarSeries(northSecondValueCell);
+
+    IChartDataCell southSeriesCell = workbook.getCell(0, 0, 2, "South");
+    IChartSeries south = chart.getChartData().getSeries().add(southSeriesCell, chart.getType());
+    IChartDataCell southFirstValueCell = workbook.getCell(0, 1, 2, 0.40);
+    south.getDataPoints().addDataPointForBarSeries(southFirstValueCell);
+    IChartDataCell southSecondValueCell = workbook.getCell(0, 2, 2, 0.60);
+    south.getDataPoints().addDataPointForBarSeries(southSecondValueCell);
+
+    for (IChartSeries series : chart.getChartData().getSeries()) {
+        IDataLabelFormat format = series.getLabels().getDefaultDataLabelFormat();
+        format.setShowCategoryName(true);
+        format.setShowSeriesName(true);
+        format.setShowValue(true);
+    }
+
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormatLinkedToSource(false);
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormat("0%");
+    south.getLabels().get_Item(0).getTextFrameForOverriding().setText("Reviewed");
+
+    for (IChartSeries series : chart.getChartData().getSeries()) {
+        for (IChartDataPoint point : series.getDataPoints()) {
+            IDataLabel label = point.getLabel();
+            if (!label.isVisible()) {
+                continue;
+            }
+
+            System.out.println("Value: " + point.getValue().getData() + "; label: " + label.getActualLabelText());
+        }
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Címke helyének beállítása**
+A adatpontban tárolt szám `0.75` marad, még akkor is, ha a címke `75 %`‑et mutat a kategória‑ és sorozatnevekkel együtt. Az egyéni szöveg felülírja a generált címkeszöveget. A [getActualLabelText](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabel/#getActualLabelText--) mindkét esetben a kapott címke karakterláncot adja vissza. A [isVisible](https://reference.aspose.com/slides/hu/java/com.aspose.slides/idatalabel/#isVisible--) metódust külön kell ellenőrizni, ahogy fent látható, ha csak a látható címkéket szeretné kinyerni.
 
-Amikor olyan diagramot hozunk létre, amely nem támaszkodik semmilyen tengelyre, például egy kördiagram, a diagram adatcímkéi túl közel kerülhetnek a széléhez. Ilyen esetben a címke helyét kell módosítani, hogy a vonallal összekötő vonalak egyértelműen megjelenjenek.
+## **Címke távolságának beállítása tengelytől**
 
-Ez a Java kód megmutatja, hogyan állítható be a címke helye egy kördiagramon:
+Használja a [setLabelOffset](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iaxis/#setLabelOffset-int-) metódust a kategória‑tengely címkéi és a tengely közötti távolság szabályozásához. Az érték a tengelycímkék legnagyobb betűméretének százaléka. Ez a példa egy csoportos oszlopdiagramot hoz létre, és a vízszintes tengely címkeeltolását 500-ra állítja. Ez a beállítás a kategória‑tengely címkéire vonatkozik, nem az egyes adatpontokhoz csatolt címkékre.
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+    chart.getAxes().getHorizontalAxis().setLabelOffset(500);
+
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Címke helyének módosítása**
+
+Kördiagram esetén módosítsa az adatcímkék pozícióját a térköz javítása és a vezetővonalak számára szükséges hely biztosítása érdekében.
+
+Ez a példa megjeleníti az első adatpont értékét, a címkét a szelet kívülre helyezi, és a [setX](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ilayoutable/#setX-float-) és [setY](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ilayoutable/#setY-float-) metódusokkal állítja be a vízszintes és függőleges eltolást. Ezek az eltolások a diagram szélességéhez és magasságához viszonyítva relatívak.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.Pie, 50, 50, 200, 200);
     IChartSeriesCollection series = chart.getChartData().getSeries();
-    IDataLabel label = series.get_Item(0).getLabels().get_Item(0);
 
+    IDataLabel label = series.get_Item(0).getLabels().get_Item(0);
     label.getDataLabelFormat().setShowValue(true);
     label.getDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd);
     label.setX(0.71f);
     label.setY(0.04f);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![Kördiagram az állított adatcímke pozícióval](pie-chart-adjusted-label.png)
 
 ## **GYIK**
 
-**Hogyan akadályozhatom meg, hogy az adatcímkék átfedjék egymást a sűrű diagramokon?**
+**Hogyan akadályozhatom meg az adatcímkék átfedését sűrű diagramok esetén?**
 
-Használjon automatikus címkeelhelyezést, vonallal összekötő vonalakat és csökkentett betűméretet; szükség esetén rejtsen el bizonyos mezőket (például a kategóriát), vagy csak a szélső/kulcsfontosságú pontoknál jelenítsen meg címkéket.
+Használjon automatikus címkehelyezést, vezetővonalakat és kisebb betűméretet; szükség esetén rejtsen el néhány mezőt (például a kategóriát), vagy csak a szélső vagy kulcsfontosságú értékekhez jelenítse meg a címkéket.
 
 **Hogyan tilthatom le a címkéket csak a nulla, negatív vagy üres értékeknél?**
 
-Szűrje meg az adatpontokat a címkék engedélyezése előtt, és kapcsolja ki a megjelenítést 0, negatív vagy hiányzó értékek esetén egy definiált szabály szerint.
+Szűrje le az adatpontokat a címkék engedélyezése előtt, és kapcsolja ki a megjelenítést a 0, negatív vagy hiányzó értékekre egy meghatározott szabály szerint.
 
-**Hogyan biztosíthatom a címkék egységes stílusát PDF/képek exportálásakor?**
+**Hogyan biztosíthatom a címkestílus egységességét PDF‑ vagy képexportáláskor?**
 
-Állítson be kifejezetten betűkészleteket (család, méret), és ellenőrizze, hogy a betűkészlet elérhető legyen a renderelő oldalon a visszalépés elkerülése érdekében.
+Állítsa be kifejezetten a betűcsaládot és a méretet, és ellenőrizze, hogy a betűtípus elérhető legyen a renderelési környezetben, hogy elkerülje a helyettesítést.

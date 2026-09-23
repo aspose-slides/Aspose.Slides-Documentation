@@ -1,10 +1,10 @@
 ---
-title: Beheer diagramgegevenslabels in presentaties met С++
+title: Beheer grafiekgegevenslabels in presentaties met C++
 linktitle: Gegevenslabel
 type: docs
 url: /nl/cpp/chart-data-label/
 keywords:
-- diagram
+- grafiek
 - gegevenslabel
 - gegevensprecisie
 - percentage
@@ -12,243 +12,402 @@ keywords:
 - labellocatie
 - PowerPoint
 - presentatie
-- С++
+- C++
 - Aspose.Slides
-description: "Leer hoe u diagramgegevenslabels kunt toevoegen en opmaken in PowerPoint-presentaties met Aspose.Slides voor С++ voor meer boeiende dia's."
+description: "Leer hoe u grafiekgegevenslabels kunt toevoegen en opmaken in PowerPoint-presentaties met Aspose.Slides voor C++ voor meer boeiende dia's."
 ---
 ## **Inleiding**
 
-Gegevenslabels op een diagram tonen details over de gegevensreeksen van het diagram of individuele gegevenspunten. Ze stellen lezers in staat om snel gegevensreeksen te identificeren en maken diagrammen bovendien beter begrijpelijk.
+Gegevenslabels tonen informatie over diagramreeksen en individuele datapunten, zodat lezers waarden kunnen herkennen en het diagram kunnen begrijpen. Dit artikel legt uit hoe u waarden opmaakt, percentages weergeeft, labeltekst leest, de tussenruimte van labels op de categorie‑as aanpast en labels op een taartdiagram positioneert.
 
-## **Precisie van gegevens instellen in diagramlabels**
+## **Gegevensprecisie instellen in diagramgegevenslabels**
 
-Deze C++‑code laat zien hoe u de precisie van gegevens instelt in een diagramlabel:
+Gebruik [set_NumberFormatOfValues](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartseries/set_numberformatofvalues/) om reeksenwaarden op te maken. Dit voorbeeld maakt een lijndiagram met standaardgegevens, toont de gegevenstabel en schakelt waardelabels in voor de eerste reeks. Het formaat `#,##0.00` toont een duizendtalscheidingsteken en twee decimalen zonder de onderliggende waarden te wijzigen.
 
-```c++
-	// Het pad naar de documentmap
-	const String outPath = u"../out/SettingPrecisionOfDataLabel_out.pptx";
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-	// Instantieert een Presentation‑klasse die een PPTX‑bestand representeert
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-	// Haal de eerste dia op
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-	// Voegt een diagram toe met standaardgegevens
-	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Line, 0, 0, 500, 500);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Line, 50, 50, 450, 300);
+chart->set_HasDataTable(true);
 
-	// Stelt getalnotatie voor de reeks in
-	chart->set_HasDataTable( true);
-	chart->get_ChartData()->get_Series()->idx_get(0)->set_NumberFormatOfValues (u"#,##0.00");
+auto series = chart->get_ChartData()->get_Series()->idx_get(0);
+series->set_NumberFormatOfValues(u"#,##0.00");
+series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 
-	// Schrijft het presentatiebestand naar schijf
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"PrecisionOfDatalabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Percentages weergeven als labels**
+## **Percentage weergeven als labels**
 
-Aspose.Slides for C++ maakt het mogelijk om percentage‑labels in weergegeven diagrammen in te stellen. Deze C++‑code demonstreert de werking:
+Voor een gestapeld kolomdiagram berekent u elke waarde als een percentage van het totale aantal in de categorie en kent u de tekst toe aan het tekstframe dat wordt geretourneerd door [get_TextFrameForOverriding](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/). Dit voorbeeld gebruikt de standaard diagramgegevens en toont percentages met twee decimalen in een lettertype van 8 punten. Categorieën met een totaal van nul worden overgeslagen om deling door nul te voorkomen. Herbereken de aangepaste labeltekst als de diagramgegevens veranderen.
 
-```c++
-	// Het pad naar de documentmap
-	const String outPath = u"../out/DisplayPercentageAsLabels_out.pptx";
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Portion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <system/convert.h>
+#include <vector>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-	// Maakt een instantie van de Presentation‑klasse
-	System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-	System::SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
-	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::StackedColumn, 20, 20, 400, 400);
-	System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
-	System::SharedPtr<IChartCategory> cat;
-	System::ArrayPtr<double> total_for_Cat = System::MakeObject<System::Array<double>>(chart->get_ChartData()->get_Categories()->get_Count(), 0);
-	for (int32_t k = 0; k < chart->get_ChartData()->get_Categories()->get_Count(); k++)
-	{
-		cat = chart->get_ChartData()->get_Categories()->idx_get(k);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 20, 20, 400, 400);
 
-		for (int32_t i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
-		{
-			total_for_Cat[k] = total_for_Cat[k] + System::Convert::ToDouble(chart->get_ChartData()->get_Series()->idx_get(i)->get_DataPoints()->idx_get(k)->get_Value()->get_Data());
-		}
-	}
+auto categoryTotals = std::vector<double>(chart->get_ChartData()->get_Categories()->get_Count(), 0.0);
+for (auto k = 0; k < chart->get_ChartData()->get_Categories()->get_Count(); k++)
+{
+    for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
+    {
+        auto series = chart->get_ChartData()->get_Series()->idx_get(i);
+        auto pointValue = Convert::ToDouble(series->get_DataPoint(k)->get_Value()->get_Data());
+        categoryTotals[k] += pointValue;
+    }
+}
 
-	double dataPontPercent = 0.f;
+for (auto x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
+{
+    auto series = chart->get_ChartData()->get_Series()->idx_get(x);
+    series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLegendKey(false);
 
-	for (int32_t x = 0; x < chart->get_ChartData()->get_Series()->get_Count(); x++)
-	{
-		series = chart->get_ChartData()->get_Series()->idx_get(x);
-		series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLegendKey(false);
+    for (auto j = 0; j < series->get_DataPoints()->get_Count(); j++)
+    {
+        auto label = series->get_DataPoint(j)->get_Label();
+        if (categoryTotals[j] == 0)
+        {
+            continue;
+        }
 
-		for (int32_t j = 0; j < series->get_DataPoints()->get_Count(); j++)
-		{
-			System::SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(j)->get_Label();
-			dataPontPercent = (System::Convert::ToDouble(series->get_DataPoints()->idx_get(j)->get_Value()->get_Data()) / total_for_Cat[j]) * 100;
+        auto pointValue = Convert::ToDouble(series->get_DataPoint(j)->get_Value()->get_Data());
+        auto dataPointPercent = (pointValue / categoryTotals[j]) * 100;
 
-			System::SharedPtr<IPortion> port = System::MakeObject<Portion>();
-			port->set_Text(System::String::Format(u"{0:F2} %", dataPontPercent));
-			port->get_PortionFormat()->set_FontHeight(8.f);
-			lbl->get_TextFrameForOverriding()->set_Text(u"");
-			System::SharedPtr<IParagraph> para = lbl->get_TextFrameForOverriding()->get_Paragraphs()->idx_get(0);
-			para->get_Portions()->Add(port);
+        auto portion = MakeObject<Portion>();
+        portion->set_Text(String::Format(u"{0:F2} %", dataPointPercent));
+        portion->get_PortionFormat()->set_FontHeight(8.0f);
 
-			lbl->get_DataLabelFormat()->set_ShowSeriesName(false);
-			lbl->get_DataLabelFormat()->set_ShowPercentage(false);
-			lbl->get_DataLabelFormat()->set_ShowLegendKey(false);
-			lbl->get_DataLabelFormat()->set_ShowCategoryName(false);
-			lbl->get_DataLabelFormat()->set_ShowBubbleSize(false);
-		}
-	}
+        label->get_TextFrameForOverriding()->set_Text(u"");
 
-	// Slaat de presentatie met het diagram op
-	presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+        auto paragraph = label->get_TextFrameForOverriding()->get_Paragraphs()->idx_get(0);
+        paragraph->get_Portions()->Add(portion);
+
+        label->get_DataLabelFormat()->set_ShowValue(true);
+        label->get_DataLabelFormat()->set_ShowSeriesName(false);
+        label->get_DataLabelFormat()->set_ShowPercentage(false);
+        label->get_DataLabelFormat()->set_ShowLegendKey(false);
+        label->get_DataLabelFormat()->set_ShowCategoryName(false);
+        label->get_DataLabelFormat()->set_ShowBubbleSize(false);
+    }
+}
+
+presentation->Save(u"DisplayPercentageAsLabels_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Het procentteken instellen met diagramlabels**
+## **Percentage‑teken instellen met diagramgegevenslabels**
 
-Deze C++‑code laat zien hoe u het procentteken instelt voor een diagramlabel:
+Wanneer waarden zijn opgeslagen als breuken, gebruikt u [set_NumberFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabelformat/set_numberformat/) om percentages weer te geven. Geef `false` door aan [set_IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabelformat/set_isnumberformatlinkedtosource/) om het labelopmaak onafhankelijk van de broncellen toe te passen.
 
-```c++
-	// Het pad naar de documentmap.
-	const String outPath = u"../out/DataLabelsPercentageSign_out.pptx";
+Dit voorbeeld maakt een 100 % gestapeld kolomdiagram met rode en blauwe reeksen over vier categorieën. Elk waardepaar telt op tot 1. Het labelformaat `0.0%` toont 0,30 als 30,0 %, terwijl de verticale as twee decimalen gebruikt. Beide reeksen gebruiken witte labeltekst van 10 punten.
 
-	// Maakt een instantie van de Presentation‑klasse
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-	// Haalt een referentie naar een dia op via de index
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-	// Maakt het PercentsStackedColumn‑diagram op een dia
-	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::PercentsStackedColumn, 0, 0, 500, 500);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
 
-	// Stelt NumberFormatLinkedToSource in op false
-	chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource ( false);
-	chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
+chart->get_Axes()->get_VerticalAxis()->set_IsNumberFormatLinkedToSource(false);
+chart->get_Axes()->get_VerticalAxis()->set_NumberFormat(u"0.00%");
 
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
 
-	// Stelt de index van het diagramgegevensblad in
-	int defaultWorksheetIndex = 0;
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto worksheetIndex = 0;
+for (auto i = 0; i < 4; i++)
+{
+    auto categoryCell = workbook->GetCell(worksheetIndex, i + 1, 0, ObjectExt::Box(String::Format(u"Category {0}", i + 1)));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+}
 
-	// Haalt het werkblad met diagramgegevens op
-	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
+String seriesNames[] = { u"Reds", u"Blues" };
+Color seriesColors[] = { Color::get_Red(), Color::get_Blue() };
+double values[2][4] = { { 0.30, 0.50, 0.80, 0.65 }, { 0.70, 0.50, 0.20, 0.35 } };
 
+for (auto i = 0; i < 2; i++)
+{
+    auto seriesCell = workbook->GetCell(worksheetIndex, 0, i + 1, ObjectExt::Box(seriesNames[i]));
+    auto series = chart->get_ChartData()->get_Series()->Add(seriesCell, chart->get_Type());
+    for (auto j = 0; j < 4; j++)
+    {
+        auto valueCell = workbook->GetCell(worksheetIndex, j + 1, i + 1, ObjectExt::Box(values[i][j]));
+        series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+    }
 
-	// Verwijdert de standaard gegenereerde reeks 
-	chart->get_ChartData()->get_Series()->Clear();
-	
+    series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
+    series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(seriesColors[i]);
 
-	// Voegt een nieuwe reeks toe
-	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
+    auto labelFormat = series->get_Labels()->get_DefaultDataLabelFormat();
+    labelFormat->set_ShowValue(true);
+    labelFormat->set_IsNumberFormatLinkedToSource(false);
+    labelFormat->set_NumberFormat(u"0.0%");
+    labelFormat->get_TextFormat()->get_PortionFormat()->set_FontHeight(10);
+    labelFormat->get_TextFormat()->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+    labelFormat->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_White());
+}
 
-
-	// Neemt de eerste diagramreeks
-	SharedPtr<IChartSeries> series=chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Red")), chart->get_Type());
-	// Vult de gegevens van de reeks
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(0.50)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(0.50)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(0.80)));
-	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 1, ObjectExt::Box<double>(0.65)));
-
-	// Stelt de vulkleur voor de reeks in
-	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
-
-	// Stelt LabelFormat‑eigenschappen in
-	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
-	series->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource ( false);
-	series->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat (u"0.0%");
-	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->set_FontHeight ( 10);
-	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-	series->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
-	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
-
-	// Neemt de tweede diagramreeks
-	SharedPtr<IChartSeries> series2 = chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Blues")), chart->get_Type());
-	// Vult de gegevens van de reeks
-	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(0.70)));
-	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(0.50)));
-	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(0.20)));
-	series2->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 4, 2, ObjectExt::Box<double>(0.35)));
-
-	// Stelt de vulkleur voor de reeks in
-	series2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-	series2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
-
-	// Stelt LabelFormat‑eigenschappen in
-	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
-	series2->get_Labels()->get_DefaultDataLabelFormat()->set_IsNumberFormatLinkedToSource(false);
-	series2->get_Labels()->get_DefaultDataLabelFormat()->set_NumberFormat(u"0.0%");
-	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->set_FontHeight(10);
-	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-	series2->get_Labels()->get_DefaultDataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_White());
-	series2->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
-
-	// Schrijft het presentatiebestand naar schijf
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+presentation->Save(u"SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Labelafstand tot as instellen**
+## **De daadwerkelijke tekst van gegevenslabels lezen**
 
-Deze C++‑code laat zien hoe u de labelafstand tot een categorische as instelt wanneer u werkt met een diagram dat vanuit assen is getekend:
+Gebruik [GetActualLabelText](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) om de tekst op te halen die door de instellingen van een gegevenslabel wordt gegenereerd. Dit is handig bij het extraheren van labels voor rapporten, het doorzoeken van presentatie‑inhoud of het valideren van gegenereerde diagrammen. In het onderstaande voorbeeld combineert de standaard [data label format](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabelformat/) elke categorienaam, reeksennaam en waarde. Eén punt formatteert zijn waarde als een percentage, en een ander gebruikt aangepaste tekst van [get_TextFrameForOverriding](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ioverridabletext/get_textframeforoverriding/).
 
-```c++
-	// Het pad naar de documentmap
-	const String outPath = u"../out/CategoryAxisLabelDistance_out.pptx";
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/ITextFrame.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-	// Maakt een instantie van de Presentation-klasse
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
 
-	// Haalt een referentie naar de dia op
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
 
-	// Maakt een diagram op de dia
-	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
+chart->get_ChartData()->get_Series()->Clear();
+chart->get_ChartData()->get_Categories()->Clear();
 
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto firstCategoryCell = workbook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Q1"));
+chart->get_ChartData()->get_Categories()->Add(firstCategoryCell);
+auto secondCategoryCell = workbook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Q2"));
+chart->get_ChartData()->get_Categories()->Add(secondCategoryCell);
 
-	// Haalt de collectie van diagramreeksen op
-	SharedPtr<IChartSeriesCollection> seriesCollection = chart->get_ChartData()->get_Series();
+auto northSeriesCell = workbook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"North"));
+auto north = chart->get_ChartData()->get_Series()->Add(northSeriesCell, chart->get_Type());
+auto northFirstValueCell = workbook->GetCell(0, 1, 1, ObjectExt::Box(0.25));
+north->get_DataPoints()->AddDataPointForBarSeries(northFirstValueCell);
+auto northSecondValueCell = workbook->GetCell(0, 2, 1, ObjectExt::Box(0.75));
+north->get_DataPoints()->AddDataPointForBarSeries(northSecondValueCell);
 
-	// Stelt de labelafstand vanaf een as in
-	chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset ( 500);
+auto southSeriesCell = workbook->GetCell(0, 0, 2, ObjectExt::Box<String>(u"South"));
+auto south = chart->get_ChartData()->get_Series()->Add(southSeriesCell, chart->get_Type());
+auto southFirstValueCell = workbook->GetCell(0, 1, 2, ObjectExt::Box(0.40));
+south->get_DataPoints()->AddDataPointForBarSeries(southFirstValueCell);
+auto southSecondValueCell = workbook->GetCell(0, 2, 2, ObjectExt::Box(0.60));
+south->get_DataPoints()->AddDataPointForBarSeries(southSecondValueCell);
 
-	// Schrijft het presentatiebestand naar schijf
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
+{
+    auto series = chart->get_ChartData()->get_Series()->idx_get(i);
+    auto format = series->get_Labels()->get_DefaultDataLabelFormat();
+    format->set_ShowCategoryName(true);
+    format->set_ShowSeriesName(true);
+    format->set_ShowValue(true);
+}
+
+north->get_Label(1)->get_DataLabelFormat()->set_IsNumberFormatLinkedToSource(false);
+north->get_Label(1)->get_DataLabelFormat()->set_NumberFormat(u"0%");
+south->get_Label(0)->get_TextFrameForOverriding()->set_Text(u"Reviewed");
+
+for (auto i = 0; i < chart->get_ChartData()->get_Series()->get_Count(); i++)
+{
+    auto series = chart->get_ChartData()->get_Series()->idx_get(i);
+    for (auto j = 0; j < series->get_DataPoints()->get_Count(); j++)
+    {
+        auto point = series->get_DataPoint(j);
+        auto label = point->get_Label();
+        if (!label->get_IsVisible())
+        {
+            continue;
+        }
+
+        Console::WriteLine(String::Format(u"Value: {0}; label: {1}", point->get_Value()->get_Data(), label->GetActualLabelText()));
+    }
+}
+```
+
+Het getal dat in een datapunten is opgeslagen blijft `0.75`, zelfs wanneer het label `75 %` weergeeft samen met de categorie‑ en reeksennamen. Aangepaste tekst vervangt de gegenereerde labeltekst. [GetActualLabelText](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabel/getactuallabeltext/) retourneert de resulterende labelreeks in beide gevallen. Controleer [get_IsVisible](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/idatalabel/get_isvisible/) apart, zoals hierboven getoond, wanneer u alleen zichtbare labels wilt extraheren.
+
+## **Labelafstand tot een as instellen**
+
+Gebruik [set_LabelOffset](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/iaxis/set_labeloffset/) om de afstand tussen de aslabels van de categorie‑as en de as zelf te regelen. De waarde is een percentage van de maximale tekengrootte van de aslabels. Dit voorbeeld maakt een gegroepeerd kolomdiagram en stelt de horizontale aslabeloffset in op 500. Deze instelling beïnvloedt de aslabels van de categorie‑as en niet de labels die aan individuele datapunten zijn gekoppeld.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
+chart->get_Axes()->get_HorizontalAxis()->set_LabelOffset(500);
+
+presentation->Save(u"SetCategoryAxisLabelDistance_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Labelpositie aanpassen**
 
-Wanneer u een diagram maakt dat niet op een as steunt, zoals een cirkeldiagram, kunnen de gegevenslabels van het diagram te dicht bij de rand komen te liggen. In dat geval moet u de positie van het label aanpassen zodat de verbindingslijnen duidelijk worden weergegeven.
+Pas op een taartdiagram de posities van gegevenslabels aan om de tussenruimte te verbeteren en plaats te maken voor verbindingslijnen.
 
-Deze C++‑code laat zien hoe u de labelpositie aanpast op een cirkeldiagram:
+Dit voorbeeld toont de waarde van het eerste datapunten, plaatst het label buiten het partje en gebruikt [set_X](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ilayoutable/set_x/) en [set_Y](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ilayoutable/set_y/) om de offset aan te passen. Deze offsets zijn respectievelijk relatief ten opzichte van de diagrambreedte en -hoogte.
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/LegendDataLabelPosition.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
-System::SharedPtr<IChart> chart = pres->get_Slide(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 200.0f, 200.0f);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-System::SharedPtr<IChartSeriesCollection> series = chart->get_ChartData()->get_Series();
-System::SharedPtr<IDataLabel> label = series->idx_get(0)->get_Label(0);
-System::SharedPtr<IDataLabelFormat> dataLabelFormat = label->get_DataLabelFormat();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50, 50, 200, 200);
+auto series = chart->get_ChartData()->get_Series();
 
-dataLabelFormat->set_ShowValue(true);
-dataLabelFormat->set_Position(LegendDataLabelPosition::OutsideEnd);
+auto label = series->idx_get(0)->get_Label(0);
+label->get_DataLabelFormat()->set_ShowValue(true);
+label->get_DataLabelFormat()->set_Position(LegendDataLabelPosition::OutsideEnd);
 label->set_X(0.71f);
 label->set_Y(0.04f);
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![Taartdiagram met een aangepaste labelpositie](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
-**Hoe kan ik voorkomen dat gegevenslabels overlappen in dichtbevolkte diagrammen?**
+**Hoe kan ik voorkomen dat gegevenslabels overlappen in dichte diagrammen?**
 
-Combineer automatische labelplaatsing, verbindingslijnen en een verkleinde lettergrootte; verberg indien nodig enkele velden (bijvoorbeeld de categorie) of toon labels alleen voor extreme/sleutelpunten.
+Combineer automatische labelplaatsing, verbindingslijnen en een kleinere tekengrootte; verberg indien nodig enkele velden (bijvoorbeeld de categorie) of toon labels alleen voor uiterste waarden of belangrijke punten.
 
-**Hoe kan ik labels uitschakelen voor uitsluitend nul-, negatieve of lege waarden?**
+**Hoe kan ik labels uitschakelen alleen voor nul-, negatieve of lege waarden?**
 
-Filter gegevenspunten voordat u de labels inschakelt en schakel de weergave uit voor waarden van 0, negatieve waarden of ontbrekende waarden volgens een gedefinieerde regel.
+Filter datapunten voordat u labels inschakelt en schakel weergave uit voor waarden van 0, negatieve waarden of ontbrekende waarden volgens een gedefinieerde regel.
 
-**Hoe kan ik een consistente labelstijl garanderen bij het exporteren naar PDF/afbeeldingen?**
+**Hoe kan ik een consistente labelstijl garanderen bij export naar PDF/afbeeldingen?**
 
-Stel expliciet lettertypen (familie, grootte) in en controleer dat het lettertype beschikbaar is aan de renderzijde om een fallback te vermijden.
+Stel expliciet het lettertype en de grootte in en controleer of het lettertype beschikbaar is in de renderomgeving om een fallback te voorkomen.

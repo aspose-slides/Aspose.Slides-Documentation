@@ -19,193 +19,272 @@ description: "Aprenda a adicionar e formatar rótulos de dados de gráficos em a
 ---
 ## **Introdução**
 
-Os rótulos de dados em um gráfico exibem detalhes sobre as séries de dados do gráfico ou pontos de dados individuais. Eles permitem que os leitores identifiquem rapidamente as séries de dados e também tornam os gráficos mais fáceis de entender.
+Os rótulos de dados exibem informações sobre as séries do gráfico e pontos de dados individuais, ajudando os leitores a identificar valores e entender o gráfico. Este artigo explica como formatar valores, exibir porcentagens, ler o texto do rótulo, ajustar o espaçamento dos rótulos do eixo de categorias e posicionar rótulos em gráficos de pizza.
 
-## **Definir Precisão dos Dados nos Rótulos de Dados do Gráfico**
+## **Definir Precisão dos Dados em Rótulos de Gráfico**
 
-Este código JavaScript mostra como definir a precisão dos dados em um rótulo de dados do gráfico:
+Use [setNumberFormatOfValues](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/chartseries/setnumberformatofvalues/) para formatar os valores das séries. Este exemplo cria um gráfico de linhas com dados padrão, exibe sua tabela de dados e habilita rótulos de valores para a primeira série. O formato `#,##0.00` exibe um separador de milhar e duas casas decimais sem alterar os valores subjacentes.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
     chart.setDataTable(true);
-    chart.getChartData().getSeries().get_Item(0).setNumberFormatOfValues("#,##0.00");
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const series = chart.getChartData().getSeries().get_Item(0);
+    series.setNumberFormatOfValues("#,##0.00");
+    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("PrecisionOfDatalabels_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Exibir Porcentagem como Rótulos**
 
-Aspose.Slides para Node.js via Java permite definir rótulos de porcentagem em gráficos exibidos. Este código JavaScript demonstra a operação:
+Para um gráfico de colunas empilhadas, calcule cada valor como porcentagem do total da sua categoria e atribua o texto ao quadro de texto retornado por [getTextFrameForOverriding](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/). Este exemplo usa os dados padrão do gráfico e exibe porcentagens com duas casas decimais em fonte de 8 pontos. Categorias com total zero são ignoradas para evitar divisão por zero. Recalcule o texto personalizado do rótulo se os dados do gráfico mudarem.
 
 ```javascript
-// Cria uma instância da classe Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Obtém o primeiro slide
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
-    var series;
-    var total_for_Cat = new double[chart.getChartData().getCategories().size()];
-    for (var k = 0; k < chart.getChartData().getCategories().size(); k++) {
-        var cat = chart.getChartData().getCategories().get_Item(k);
-        for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
-            total_for_Cat[k] = total_for_Cat[k] + chart.getChartData().getSeries().get_Item(i).getDataPoints().get_Item(k).getValue().getData();
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 400, 400);
+
+    const categoryTotals = new Array(chart.getChartData().getCategories().size()).fill(0);
+    for (let k = 0; k < chart.getChartData().getCategories().size(); k++) {
+        for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
+            const series = chart.getChartData().getSeries().get_Item(i);
+            const pointValue = series.getDataPoints().get_Item(k).getValue().getData();
+            categoryTotals[k] += Number(pointValue);
         }
     }
-    var dataPontPercent = 0.0;
-    for (var x = 0; x < chart.getChartData().getSeries().size(); x++) {
-        series = chart.getChartData().getSeries().get_Item(x);
+
+    for (let x = 0; x < chart.getChartData().getSeries().size(); x++) {
+        const series = chart.getChartData().getSeries().get_Item(x);
         series.getLabels().getDefaultDataLabelFormat().setShowLegendKey(false);
-        for (var j = 0; j < series.getDataPoints().size(); j++) {
-            var lbl = series.getDataPoints().get_Item(j).getLabel();
-            dataPontPercent = (series.getDataPoints().get_Item(j).getValue().getData() / total_for_Cat[j]) * 100;
-            var port = new aspose.slides.Portion();
-            port.setText(java.callStaticMethodSync("java.lang.String", "format", "{0:F2} %.2f", dataPontPercent));
-            port.getPortionFormat().setFontHeight(8.0);
-            lbl.getTextFrameForOverriding().setText("");
-            var para = lbl.getTextFrameForOverriding().getParagraphs().get_Item(0);
-            para.getPortions().add(port);
-            lbl.getDataLabelFormat().setShowSeriesName(false);
-            lbl.getDataLabelFormat().setShowPercentage(false);
-            lbl.getDataLabelFormat().setShowLegendKey(false);
-            lbl.getDataLabelFormat().setShowCategoryName(false);
-            lbl.getDataLabelFormat().setShowBubbleSize(false);
+
+        for (let j = 0; j < series.getDataPoints().size(); j++) {
+            const label = series.getDataPoints().get_Item(j).getLabel();
+            if (categoryTotals[j] == 0) {
+                continue;
+            }
+
+            const pointValue = series.getDataPoints().get_Item(j).getValue().getData();
+            const dataPointPercent = (Number(pointValue) / categoryTotals[j]) * 100;
+
+            const portion = new aspose.slides.Portion();
+            portion.setText(dataPointPercent.toFixed(2) + " %");
+            portion.getPortionFormat().setFontHeight(8);
+
+            label.getTextFrameForOverriding().setText("");
+            const paragraph = label.getTextFrameForOverriding().getParagraphs().get_Item(0);
+            paragraph.getPortions().add(portion);
+
+            label.getDataLabelFormat().setShowValue(true);
+            label.getDataLabelFormat().setShowSeriesName(false);
+            label.getDataLabelFormat().setShowPercentage(false);
+            label.getDataLabelFormat().setShowLegendKey(false);
+            label.getDataLabelFormat().setShowCategoryName(false);
+            label.getDataLabelFormat().setShowBubbleSize(false);
         }
     }
-    // Salva a apresentação que contém o gráfico
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("DisplayPercentageAsLabels_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Definir Sinal de Porcentagem nos Rótulos de Dados do Gráfico**
+## **Definir Símbolo de Porcentagem nos Rótulos de Gráfico**
 
-Este código JavaScript mostra como definir o sinal de porcentagem para um rótulo de dados do gráfico:
+Quando os valores são armazenados como frações, use [setNumberFormat](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/datalabelformat/setnumberformat/) para exibir porcentagens. Passe `false` para [setNumberFormatLinkedToSource](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/datalabelformat/setnumberformatlinkedtosource/) para aplicar o formato do rótulo independentemente das células de origem.
+
+Este exemplo cria um gráfico de colunas empilhadas 100% com séries vermelha e azul em quatro categorias. Cada par de valores soma 1. O formato de rótulo `0.0%` exibe 0.30 como 30.0%, enquanto o eixo vertical usa duas casas decimais. Ambas as séries usam texto de rótulo branco, tamanho 10.
 
 ```javascript
-// Cria uma instância da classe Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Obtém a referência de um slide através do seu índice
-    var slide = pres.getSlides().get_Item(0);
-    // Cria o gráfico PercentsStackedColumn em um slide
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.PercentsStackedColumn, 20, 20, 500, 400);
-    // Define NumberFormatLinkedToSource como false
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.PercentsStackedColumn, 20, 20, 500, 400);
+
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.00%");
+
     chart.getChartData().getSeries().clear();
-    var defaultWorksheetIndex = 0;
-    // Obtém a planilha de dados do gráfico
-    var workbook = chart.getChartData().getChartDataWorkbook();
-    // Adiciona nova série
-    var series = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.getType());
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 1, 0.3));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 1, 0.5));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 1, 0.8));
-    series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 1, 0.65));
-    // Define a cor de preenchimento da série
-    series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // Define as propriedades do LabelFormat
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-    series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Adiciona nova série
-    var series2 = chart.getChartData().getSeries().add(workbook.getCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.getType());
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 1, 2, 0.7));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 2, 2, 0.5));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 2, 0.2));
-    series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 2, 0.35));
-    // Define o tipo de preenchimento e a cor
-    series2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    series2.getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
-    series2.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-    // Grava a apresentação no disco
-    pres.save("SetDataLabelsPercentageSign_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+    for (let i = 0; i < 4; i++) {
+        const categoryCell = workbook.getCell(worksheetIndex, i + 1, 0, "Category " + (i + 1));
+        chart.getChartData().getCategories().add(categoryCell);
     }
+
+    const seriesNames = ["Reds", "Blues"];
+    const white = java.getStaticFieldValue("java.awt.Color", "WHITE");
+    const seriesColors = [java.getStaticFieldValue("java.awt.Color", "RED"), java.getStaticFieldValue("java.awt.Color", "BLUE")];
+    const values = [[0.30, 0.50, 0.80, 0.65], [0.70, 0.50, 0.20, 0.35]];
+
+    for (let i = 0; i < seriesNames.length; i++) {
+        const seriesCell = workbook.getCell(worksheetIndex, 0, i + 1, seriesNames[i]);
+        const series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+        for (let j = 0; j < 4; j++) {
+            const valueCell = workbook.getCell(worksheetIndex, j + 1, i + 1, values[i][j]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+
+        series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        series.getFormat().getFill().getSolidFillColor().setColor(seriesColors[i]);
+
+        const labelFormat = series.getLabels().getDefaultDataLabelFormat();
+        labelFormat.setShowValue(true);
+        labelFormat.setNumberFormatLinkedToSource(false);
+        labelFormat.setNumberFormat("0.0%");
+        labelFormat.getTextFormat().getPortionFormat().setFontHeight(10);
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        labelFormat.getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(white);
+    }
+
+    presentation.save("SetDataLabelsPercentageSign_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Definir Distância dos Rótulos ao Eixo**
+## **Ler o Texto Real dos Rótulos de Dados**
 
-Este código JavaScript mostra como definir a distância do rótulo a partir de um eixo de categoria ao trabalhar com um gráfico plotado a partir de eixos:
+Use [getActualLabelText](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) para obter o texto gerado pelas configurações de um rótulo de dados. Isso é útil ao extrair rótulos para relatórios, pesquisar conteúdo de apresentações ou validar gráficos gerados. No exemplo abaixo, o [formato padrão de rótulo de dados](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/datalabelformat/) combina o nome de cada categoria, o nome da série e o valor. Um ponto formata seu valor como porcentagem e outro usa texto personalizado de [getTextFrameForOverriding](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/datalabel/gettextframeforoverriding/).
 
 ```javascript
-// Cria uma instância da classe Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Obtém a referência de um slide
-    var sld = pres.getSlides().get_Item(0);
-    // Cria um gráfico no slide
-    var ch = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
-    // Define a distância do rótulo a partir de um eixo
-    ch.getAxes().getHorizontalAxis().setLabelOffset(500);
-    // Grava a apresentação no disco
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const firstCategoryCell = workbook.getCell(0, 1, 0, "Q1");
+    chart.getChartData().getCategories().add(firstCategoryCell);
+    const secondCategoryCell = workbook.getCell(0, 2, 0, "Q2");
+    chart.getChartData().getCategories().add(secondCategoryCell);
+
+    const northSeriesCell = workbook.getCell(0, 0, 1, "North");
+    const north = chart.getChartData().getSeries().add(northSeriesCell, chart.getType());
+    const northFirstValueCell = workbook.getCell(0, 1, 1, 0.25);
+    north.getDataPoints().addDataPointForBarSeries(northFirstValueCell);
+    const northSecondValueCell = workbook.getCell(0, 2, 1, 0.75);
+    north.getDataPoints().addDataPointForBarSeries(northSecondValueCell);
+
+    const southSeriesCell = workbook.getCell(0, 0, 2, "South");
+    const south = chart.getChartData().getSeries().add(southSeriesCell, chart.getType());
+    const southFirstValueCell = workbook.getCell(0, 1, 2, 0.40);
+    south.getDataPoints().addDataPointForBarSeries(southFirstValueCell);
+    const southSecondValueCell = workbook.getCell(0, 2, 2, 0.60);
+    south.getDataPoints().addDataPointForBarSeries(southSecondValueCell);
+
+    for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
+        const series = chart.getChartData().getSeries().get_Item(i);
+        const format = series.getLabels().getDefaultDataLabelFormat();
+        format.setShowCategoryName(true);
+        format.setShowSeriesName(true);
+        format.setShowValue(true);
     }
+
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormatLinkedToSource(false);
+    north.getLabels().get_Item(1).getDataLabelFormat().setNumberFormat("0%");
+    south.getLabels().get_Item(0).getTextFrameForOverriding().setText("Reviewed");
+
+    for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
+        const series = chart.getChartData().getSeries().get_Item(i);
+        for (let j = 0; j < series.getDataPoints().size(); j++) {
+            const point = series.getDataPoints().get_Item(j);
+            const label = point.getLabel();
+            if (!label.isVisible()) {
+                continue;
+            }
+
+            console.log("Value: " + point.getValue().getData() + "; label: " + label.getActualLabelText());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+O número armazenado em um ponto de dados permanece `0.75`, mesmo quando seu rótulo mostra `75%` juntamente com os nomes da categoria e da série. Texto personalizado substitui o texto gerado do rótulo. [getActualLabelText](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/datalabel/getactuallabeltext/) retorna a string resultante do rótulo em ambos os casos. Verifique [isVisible](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/datalabel/isvisible/) separadamente, como mostrado acima, quando quiser extrair apenas rótulos visíveis.
+
+## **Definir Distância do Rótulo a um Eixo**
+
+Use [setLabelOffset](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/axis/setlabeloffset/) para controlar a distância entre os rótulos do eixo de categorias e o próprio eixo. O valor é uma porcentagem do tamanho máximo da fonte dos rótulos do eixo. Este exemplo cria um gráfico de colunas agrupadas e define o deslocamento do rótulo do eixo horizontal para 500. Essa configuração afeta os rótulos do eixo de categorias, não os rótulos anexados a pontos de dados individuais.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 300);
+    chart.getAxes().getHorizontalAxis().setLabelOffset(500);
+
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Ajustar Localização do Rótulo**
 
-Ao criar um gráfico que não depende de nenhum eixo, como um gráfico de pizza, os rótulos de dados do gráfico podem acabar muito próximos de sua borda. Nesse caso, é necessário ajustar a localização do rótulo de dados para que as linhas de ligação sejam exibidas claramente.
+Em um gráfico de pizza, ajuste as posições dos rótulos de dados para melhorar o espaçamento e abrir espaço para as linhas de ligação.
 
-Este código JavaScript mostra como ajustar a localização do rótulo em um gráfico de pizza:
+Este exemplo exibe o valor do primeiro ponto de dados, coloca seu rótulo fora da fatia e ajusta seus deslocamentos horizontal e vertical usando [setX](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/datalabel/setx/) e [setY](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/datalabel/sety/). Esses deslocamentos são relativos à largura e altura do gráfico, respectivamente.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
-    var series = chart.getChartData().getSeries();
-    var label = series.get_Item(0).getLabels().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
+    const series = chart.getChartData().getSeries();
+
+    const label = series.get_Item(0).getLabels().get_Item(0);
     label.getDataLabelFormat().setShowValue(true);
     label.getDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.OutsideEnd);
-    label.setX(0.71);
-    label.setY(0.04);
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    label.setX(java.newFloat(0.71));
+    label.setY(java.newFloat(0.04));
+
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![Pie chart with an adjusted data label position](pie-chart-adjusted-label.png)
 
-## **Perguntas Frequentes**
+## **FAQ**
 
-**Como posso impedir que os rótulos de dados se sobreponham em gráficos densos?**
+**Como posso evitar que os rótulos de dados se sobreponham em gráficos densos?**
 
-Combine o posicionamento automático de rótulos, linhas de ligação e tamanho de fonte reduzido; se necessário, oculte alguns campos (por exemplo, a categoria) ou exiba rótulos apenas para pontos extremos/chave.
+Combine posicionamento automático de rótulos, linhas de ligação e redução do tamanho da fonte; se necessário, oculte alguns campos (por exemplo, a categoria) ou exiba rótulos apenas para valores extremos ou pontos‑chave.
 
 **Como posso desativar rótulos apenas para valores zero, negativos ou vazios?**
 
 Filtre os pontos de dados antes de habilitar os rótulos e desative a exibição para valores 0, valores negativos ou valores ausentes de acordo com uma regra definida.
 
-**Como posso garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**
+**Como garantir um estilo de rótulo consistente ao exportar para PDF/imagens?**
 
-Defina explicitamente as fontes (família, tamanho) e verifique se a fonte está disponível no lado de renderização para evitar fallback.
+Defina explicitamente a família e o tamanho da fonte e verifique se a fonte está disponível no ambiente de renderização para evitar substituição.

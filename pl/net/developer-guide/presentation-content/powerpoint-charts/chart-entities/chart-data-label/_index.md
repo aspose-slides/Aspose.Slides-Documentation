@@ -17,200 +17,265 @@ keywords:
 - Aspose.Slides
 description: "Dowiedz się, jak dodawać i formatować etykiety danych wykresu w prezentacjach PowerPoint przy użyciu Aspose.Slides dla .NET, aby uzyskać bardziej atrakcyjne slajdy."
 ---
-## **Wprowadzenie**
+## **Wstęp**
 
-Etykiety danych na wykresie wyświetlają szczegóły dotyczące serii danych wykresu lub poszczególnych punktów danych. Umożliwiają czytelnikom szybkie rozpoznanie serii danych, a także ułatwiają zrozumienie wykresów.
+Etykiety danych wyświetlają informacje o seriach wykresu i poszczególnych punktach danych, pomagając czytelnikom rozpoznawać wartości i rozumieć wykres. Ten artykuł wyjaśnia, jak formatować wartości, wyświetlać procenty, odczytywać tekst etykiet, regulować odstępy etykiet osi kategorii oraz pozycjonować etykiety wykresów kołowych.
 
-## **Ustaw precyzję danych w etykietach danych wykresu**
+## **Ustaw precyzję danych w etykietach wykresu**
 
-Ten kod C# pokazuje, jak ustawić precyzję danych w etykiecie danych wykresu:
+Użyj [NumberFormatOfValues](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/numberformatofvalues/), aby sformatować wartości serii. Ten przykład tworzy wykres liniowy z domyślnymi danymi, wyświetla jego tabelę danych i włącza etykiety wartości dla pierwszej serii. Format `#,##0.00` wyświetla separator tysięcy i dwie miejsca po przecinku, nie zmieniając przy tym wartości podstawowych.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Line, 50, 50, 450, 300);
-	chart.HasDataTable = true;
-	chart.ChartData.Series[0].NumberFormatOfValues = "#,##0.00";
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	pres.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.Line, 50, 50, 450, 300);
+chart.HasDataTable = true;
+
+var series = chart.ChartData.Series[0];
+series.NumberFormatOfValues = "#,##0.00";
+series.Labels.DefaultDataLabelFormat.ShowValue = true;
+
+presentation.Save("PrecisionOfDatalabels_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Wyświetlanie procentu jako etykiety**
+## **Wyświetl procent jako etykiety**
 
-Aspose.Slides dla .NET umożliwia ustawienie etykiet procentowych na wyświetlanych wykresach. Ten kod C# demonstruje tę operację:
+W przypadku wykresu kolumnowego skumulowanego, oblicz każdą wartość jako procent sumy w swojej kategorii i przypisz tekst do [TextFrameForOverriding](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/). Ten przykład używa domyślnych danych wykresu i wyświetla procenty z dwoma miejscami po przecinku w czcionce 8 punktów. Kategorie o sumie zerowej są pomijane, aby uniknąć dzielenia przez zero. Przelicz tekst etykiety niestandardowej, jeśli dane wykresu ulegną zmianie.
 
-```c#
-// Tworzy instancję klasy Presentation
-Presentation presentation = new Presentation();
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-ISlide slide = presentation.Slides[0];
-IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 400, 400);
-IChartSeries series = chart.ChartData.Series[0];
-IChartCategory cat;
-double[] total_for_Cat = new double[chart.ChartData.Categories.Count];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 400, 400);
+
+var categoryTotals = new double[chart.ChartData.Categories.Count];
 for (int k = 0; k < chart.ChartData.Categories.Count; k++)
 {
-    cat = chart.ChartData.Categories[k];
-
     for (int i = 0; i < chart.ChartData.Series.Count; i++)
     {
-        total_for_Cat[k] = total_for_Cat[k] + Convert.ToDouble(chart.ChartData.Series[i].DataPoints[k].Value.Data);
+        var series = chart.ChartData.Series[i];
+        var pointValue = Convert.ToDouble(series.DataPoints[k].Value.Data);
+        categoryTotals[k] += pointValue;
     }
 }
 
-double dataPontPercent = 0f;
-
 for (int x = 0; x < chart.ChartData.Series.Count; x++)
 {
-    series = chart.ChartData.Series[x];
+    var series = chart.ChartData.Series[x];
     series.Labels.DefaultDataLabelFormat.ShowLegendKey = false;
 
     for (int j = 0; j < series.DataPoints.Count; j++)
     {
-        IDataLabel lbl = series.DataPoints[j].Label;
-        dataPontPercent = (Convert.ToDouble(series.DataPoints[j].Value.Data) / total_for_Cat[j]) * 100;
+        var label = series.DataPoints[j].Label;
+        if (categoryTotals[j] == 0)
+        {
+            continue;
+        }
 
-        IPortion port = new Portion();
-        port.Text = String.Format("{0:F2} %", dataPontPercent);
-        port.PortionFormat.FontHeight = 8f;
-        lbl.TextFrameForOverriding.Text = "";
-        IParagraph para = lbl.TextFrameForOverriding.Paragraphs[0];
-        para.Portions.Add(port);
+        var pointValue = Convert.ToDouble(series.DataPoints[j].Value.Data);
+        var dataPointPercent = (pointValue / categoryTotals[j]) * 100;
 
-        lbl.DataLabelFormat.ShowSeriesName = false;
-        lbl.DataLabelFormat.ShowPercentage = false;
-        lbl.DataLabelFormat.ShowLegendKey = false;
-        lbl.DataLabelFormat.ShowCategoryName = false;
-        lbl.DataLabelFormat.ShowBubbleSize = false;
+        var portion = new Portion();
+        portion.Text = string.Format("{0:F2} %", dataPointPercent);
+        portion.PortionFormat.FontHeight = 8f;
+
+        label.TextFrameForOverriding.Text = "";
+
+        var paragraph = label.TextFrameForOverriding.Paragraphs[0];
+        paragraph.Portions.Add(portion);
+
+        label.DataLabelFormat.ShowValue = true;
+        label.DataLabelFormat.ShowSeriesName = false;
+        label.DataLabelFormat.ShowPercentage = false;
+        label.DataLabelFormat.ShowLegendKey = false;
+        label.DataLabelFormat.ShowCategoryName = false;
+        label.DataLabelFormat.ShowBubbleSize = false;
     }
 }
 
-// Zapisuje prezentację zawierającą wykres
 presentation.Save("DisplayPercentageAsLabels_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Ustaw znak procenta w etykietach danych wykresu**
 
-Ten kod C# pokazuje, jak ustawić znak procentu w etykiecie danych wykresu:
+Gdy wartości są przechowywane jako ułamki, użyj [NumberFormat](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabelformat/numberformat/), aby wyświetlać procenty. Ustaw [IsNumberFormatLinkedToSource](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabelformat/isnumberformatlinkedtosource/) na `false`, aby zastosować format etykiety niezależnie od komórek źródłowych.
 
-```c#
-// Tworzy instancję klasy Presentation
-Presentation presentation = new Presentation();
+Ten przykład tworzy wykres kolumnowy skumulowany 100% z serią czerwoną i niebieską w czterech kategoriach. Każda para wartości sumuje się do 1. Format etykiety `0.0%` wyświetla 0.30 jako 30,0%, podczas gdy oś pionowa używa dwóch miejsc po przecinku. Obie serie używają białego tekstu etykiety o rozmiarze 10 punktów.
 
-// Uzyskuje referencję do slajdu przez jego indeks
-ISlide slide = presentation.Slides[0];
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Tworzy wykres PercentsStackedColumn na slajdzie
-IChart chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400);
 
-// Ustawia NumberFormatLinkedToSource na false
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.NumberFormat = "0.00%";
 
 chart.ChartData.Series.Clear();
-int defaultWorksheetIndex = 0;
+chart.ChartData.Categories.Clear();
 
-// Uzyskuje arkusz danych wykresu
-IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+var workbook = chart.ChartData.ChartDataWorkbook;
+int worksheetIndex = 0;
+for (int i = 0; i < 4; i++)
+{
+    var categoryCell = workbook.GetCell(worksheetIndex, i + 1, 0, $"Category {i + 1}");
+    chart.ChartData.Categories.Add(categoryCell);
+}
 
-// Dodaje nową serię
-IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 1, "Reds"), chart.Type);
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 1, 0.30));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 1, 0.50));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 1, 0.80));
-series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 1, 0.65));
+string[] seriesNames = { "Reds", "Blues" };
+Color[] seriesColors = { Color.Red, Color.Blue };
+double[,] values = { { 0.30, 0.50, 0.80, 0.65 }, { 0.70, 0.50, 0.20, 0.35 } };
 
-// Ustawia kolor wypełnienia serii
-series.Format.Fill.FillType = FillType.Solid;
-series.Format.Fill.SolidFillColor.Color = Color.Red;
+for (int i = 0; i < seriesNames.Length; i++)
+{
+    var seriesCell = workbook.GetCell(worksheetIndex, 0, i + 1, seriesNames[i]);
+    var series = chart.ChartData.Series.Add(seriesCell, chart.Type);
+    for (int j = 0; j < 4; j++)
+    {
+        var valueCell = workbook.GetCell(worksheetIndex, j + 1, i + 1, values[i, j]);
+        series.DataPoints.AddDataPointForBarSeries(valueCell);
+    }
 
-// Ustawia właściwości LabelFormat
-series.Labels.DefaultDataLabelFormat.ShowValue = true;
-series.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
-series.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-series.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
-series.Labels.DefaultDataLabelFormat.ShowValue = true;
+    series.Format.Fill.FillType = FillType.Solid;
+    series.Format.Fill.SolidFillColor.Color = seriesColors[i];
 
-// Dodaje nową serię
-IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(defaultWorksheetIndex, 0, 2, "Blues"), chart.Type);
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 1, 2, 0.70));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 2, 2, 0.50));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 3, 2, 0.20));
-series2.DataPoints.AddDataPointForBarSeries(workbook.GetCell(defaultWorksheetIndex, 4, 2, 0.35));
+    var labelFormat = series.Labels.DefaultDataLabelFormat;
+    labelFormat.ShowValue = true;
+    labelFormat.IsNumberFormatLinkedToSource = false;
+    labelFormat.NumberFormat = "0.0%";
+    labelFormat.TextFormat.PortionFormat.FontHeight = 10;
+    labelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
+    labelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
+}
 
-// Ustawia typ wypełnienia i kolor
-series2.Format.Fill.FillType = FillType.Solid;
-series2.Format.Fill.SolidFillColor.Color = Color.Blue;
-series2.Labels.DefaultDataLabelFormat.ShowValue = true;
-series2.Labels.DefaultDataLabelFormat.IsNumberFormatLinkedToSource = false;
-series2.Labels.DefaultDataLabelFormat.NumberFormat = "0.0%";
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FontHeight = 10;
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-series2.Labels.DefaultDataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.White;
-
-// Zapisuje prezentację na dysku
 presentation.Save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Odczytaj rzeczywisty tekst etykiet danych**
+
+Użyj [GetActualLabelText](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabel/getactuallabeltext/), aby pobrać tekst generowany przez ustawienia etykiety danych. Jest to przydatne przy wyodrębnianiu etykiet do raportów, przeszukiwaniu treści prezentacji lub weryfikacji wygenerowanych wykresów. W poniższym przykładzie domyślny [format etykiety danych](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabelformat/) łączy nazwę każdej kategorii, nazwę serii oraz wartość. Jeden punkt formatuje swoją wartość jako procent, a inny używa tekstu niestandardowego z [TextFrameForOverriding](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ioverridabletext/textframeforoverriding/).
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+
+chart.ChartData.Series.Clear();
+chart.ChartData.Categories.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "Q1"));
+chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "Q2"));
+
+var north = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "North"), chart.Type);
+north.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, 1, 1, 0.25));
+north.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, 2, 1, 0.75));
+
+var south = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "South"), chart.Type);
+south.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, 1, 2, 0.40));
+south.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, 2, 2, 0.60));
+
+foreach (var series in chart.ChartData.Series)
+{
+    var format = series.Labels.DefaultDataLabelFormat;
+    format.ShowCategoryName = true;
+    format.ShowSeriesName = true;
+    format.ShowValue = true;
+}
+
+north.Labels[1].DataLabelFormat.IsNumberFormatLinkedToSource = false;
+north.Labels[1].DataLabelFormat.NumberFormat = "0%";
+south.Labels[0].TextFrameForOverriding.Text = "Reviewed";
+
+foreach (var series in chart.ChartData.Series)
+{
+    foreach (var point in series.DataPoints)
+    {
+        var label = point.Label;
+        if (!label.IsVisible)
+        {
+            continue;
+        }
+
+        Console.WriteLine($"Value: {point.Value.Data}; label: {label.GetActualLabelText()}");
+    }
+}
+```
+
+Liczba przechowywana w punkcie danych pozostaje `0.75`, nawet gdy jego etykieta wyświetla `75%` wraz z nazwą kategorii i serii. Tekst niestandardowy zastępuje wygenerowany tekst etykiety. [GetActualLabelText](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabel/getactuallabeltext/) zwraca powstały ciąg etykiety w obu przypadkach. Sprawdzaj [IsVisible](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabel/isvisible/) osobno, jak pokazano powyżej, gdy chcesz wyodrębnić tylko widoczne etykiety.
+
 ## **Ustaw odległość etykiety od osi**
 
-Ten kod C# pokazuje, jak ustawić odległość etykiety od osi kategorii przy tworzeniu wykresu opartego na osiach:
+Użyj [LabelOffset](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/iaxis/labeloffset/), aby kontrolować odległość między etykietami osi kategorii a samą osią. Wartość jest procentem maksymalnego rozmiaru czcionki etykiet osi. Ten przykład tworzy wykres kolumnowy grupowany i ustawia przesunięcie etykiety osi poziomej na 500. To ustawienie wpływa na etykiety osi kategorii, a nie na etykiety przypisane do poszczególnych punktów danych.
 
-```c#
-// Tworzy instancję klasy Presentation
-Presentation presentation = new Presentation();
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Pobiera referencję do slajdu
-ISlide sld = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Tworzy wykres na slajdzie
-IChart ch = sld.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
+chart.Axes.HorizontalAxis.LabelOffset = 500;
 
-// Ustawia odległość etykiety od osi
-ch.Axes.HorizontalAxis.LabelOffset = 500;
-
-// Zapisuje prezentację na dysku
 presentation.Save("SetCategoryAxisLabelDistance_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Dostosuj położenie etykiety**
 
-Podczas tworzenia wykresu, który nie opiera się na żadnej osi, takiego jak wykres kołowy, etykiety danych wykresu mogą znajdować się zbyt blisko jego krawędzi. W takim przypadku należy dostosować położenie etykiety danych, aby linie prowadzące były wyraźnie widoczne.
+W wykresie kołowym dostosuj pozycje etykiet danych, aby poprawić odstępy i zrobić miejsce na linie prowadzące.
 
-Ten kod C# pokazuje, jak dostosować położenie etykiety na wykresie kołowym: 
+Ten przykład wyświetla wartość pierwszego punktu danych, umieszcza jego etykietę poza wycinkiem i dostosowuje przesunięcia w [X](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ilayoutable/x/) i [Y](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ilayoutable/y/). Te przesunięcia są względne względem szerokości i wysokości wykresu.
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 200, 200);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    IChartSeriesCollection series = chart.ChartData.Series;
-    IDataLabel label = series[0].Labels[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var chart = slide.Shapes.AddChart(ChartType.Pie, 50, 50, 200, 200);
+var series = chart.ChartData.Series;
 
-    label.DataLabelFormat.ShowValue = true;
-    label.DataLabelFormat.Position = LegendDataLabelPosition.OutsideEnd;
-    label.X = 0.71f;
-    label.Y = 0.04f;
+var label = series[0].Labels[0];
+label.DataLabelFormat.ShowValue = true;
+label.DataLabelFormat.Position = LegendDataLabelPosition.OutsideEnd;
+label.X = 0.71f;
+label.Y = 0.04f;
 
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+![Wykres kołowy z dostosowaną pozycją etykiety danych](pie-chart-adjusted-label.png)
 
 ## **FAQ**
 
 **Jak mogę zapobiec nakładaniu się etykiet danych na gęstych wykresach?**
 
-Połącz automatyczne rozmieszczanie etykiet, linie prowadzące i zmniejszoną wielkość czcionki; w razie potrzeby ukryj niektóre pola (np. kategorię) lub wyświetlaj etykiety tylko dla ekstremalnych/kluczowych punktów.
+Połącz automatyczne rozmieszczanie etykiet, linie prowadzące i zmniejszoną wielkość czcionki; w razie potrzeby ukryj niektóre pola (np. kategorię) lub wyświetlaj etykiety tylko dla wartości skrajnych lub kluczowych punktów.
 
 **Jak mogę wyłączyć etykiety tylko dla wartości zerowych, ujemnych lub pustych?**
 
-Przefiltruj punkty danych przed włączeniem etykiet i wyłącz ich wyświetlanie dla wartości 0, wartości ujemnych lub brakujących zgodnie z określoną regułą.
+Przefiltruj punkty danych przed włączeniem etykiet i wyłącz wyświetlanie dla wartości równych 0, wartości ujemnych lub brakujących, zgodnie z określoną regułą.
 
-**Jak zapewnić spójny styl etykiet przy eksportowaniu do PDF/obrazów?**
+**Jak mogę zapewnić spójny styl etykiet przy eksportowaniu do PDF/obrazów?**
 
-Jawnie ustaw czcionki (rodzina, rozmiar) i sprawdź, czy czcionka jest dostępna po stronie renderowania, aby uniknąć domyślnego zastąpienia.
+Ustaw explicite rodzinę i rozmiar czcionki oraz zweryfikuj, że czcionka jest dostępna w środowisku renderowania, aby uniknąć jej zastąpienia.

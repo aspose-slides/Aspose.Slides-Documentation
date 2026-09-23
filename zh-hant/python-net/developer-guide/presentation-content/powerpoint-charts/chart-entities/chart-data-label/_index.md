@@ -1,5 +1,5 @@
 ---
-title: 使用 Python 在簡報中管理圖表資料標籤
+title: 使用 Python 管理簡報中的圖表資料標籤
 linktitle: 資料標籤
 type: docs
 url: /zh-hant/python-net/chart-data-label/
@@ -11,185 +11,18 @@ keywords:
 - 標籤距離
 - 標籤位置
 - PowerPoint
-- OpenDocument
 - 簡報
 - Python
 - Aspose.Slides
-description: "學習如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 與 OpenDocument 簡報中新增與格式化圖表資料標籤，製作更具吸引力的投影片。"
+description: "了解如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 簡報中新增與格式化圖表資料標籤，打造更具吸引力的投影片。"
 ---
-## **概述**
+## **簡介**
 
-圖表上的資料標籤會顯示圖表資料系列或單一資料點的詳細資訊。它們讓讀者能快速識別資料系列，並讓圖表更易於理解。在 Aspose.Slides for Python 中，您可以啟用、客製化與格式化任何圖表的資料標籤──選擇顯示什麼（數值、百分比、系列或類別名稱）、標籤放置位置，以及它們的外觀（字型、數字格式、分隔符、引線等）。本文概述了您在圖表中加入清晰、具資訊性的標籤所需的主要 API 與範例。
+資料標籤顯示圖表系列和單一資料點的資訊，協助讀者辨識數值並了解圖表。本文說明如何格式化數值、顯示百分比、讀取標籤文字、調整類別軸標籤間距，以及設定圓形圖標籤的位置。
 
-## **設定資料標籤精度**
+## **在圖表資料標籤中設定資料精度**
 
-圖表資料標籤常會顯示需要一致精度的數值。本節說明如何透過套用適當的數字格式，在 Aspose.Slides 中控制資料標籤的小數位數。
-
-以下 Python 範例顯示如何設定圖表資料標籤的數值精度：
-
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    chart = slide.shapes.add_chart(charts.ChartType.LINE, 50, 50, 500, 300)
-
-    series = chart.chart_data.series[0]
-    series.labels.default_data_label_format.show_value = True
-    series.number_format_of_values = "#,##0.00"
-
-    presentation.save("data_label_precision.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **以百分比作為標籤顯示**
-
-使用 Aspose.Slides，您可以在圖表上將百分比顯示為資料標籤。以下範例計算每個點在其類別中的比例，並將標籤格式化為顯示百分比。
-
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-# 建立 Presentation 類別的實例。
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 600, 400)
-    series = chart.chart_data.series[0]
-
-    total_for_categories = [0]*len(chart.chart_data.categories)
-    for k in range(len(chart.chart_data.categories)):
-        for i in range(len(chart.chart_data.series)):
-            total_for_categories[k] += chart.chart_data.series[i].data_points[k].value.data
-
-    for i in range(len(chart.chart_data.series)):
-        series = chart.chart_data.series[i]
-        series.labels.default_data_label_format.show_legend_key = False
-
-        for j in range(len(series.data_points)):
-            data_point_percent = series.data_points[j].value.data / total_for_categories[j] * 100
-
-            text_portion = slides.Portion()
-            text_portion.text = "{0:.2f} %".format(data_point_percent)
-            text_portion.portion_format.font_height = 8
-
-            label = series.data_points[j].label
-            label.text_frame_for_overriding.text = ""
-
-            paragraph = label.text_frame_for_overriding.paragraphs[0]
-            paragraph.portions.add(text_portion)
-
-            label.data_label_format.show_series_name = False
-            label.data_label_format.show_percentage = False
-            label.data_label_format.show_legend_key = False
-            label.data_label_format.show_category_name = False
-            label.data_label_format.show_bubble_size = False
-
-    # 儲存包含圖表的簡報。
-    presentation.save("percentage_as_label.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **在圖表資料標籤中顯示百分號**
-
-本節說明如何使用 Aspose.Slides 在圖表資料標籤中顯示百分比並加入百分號。您將學習如何為整個系列或特定資料點啟用百分比值（適用於圓餅圖、環形圖以及 100% 堆疊圖），以及如何透過標籤選項或自訂數字格式來控制其外觀。
-
-以下 Python 範例示範如何在圖表的資料標籤中加入百分號：
-
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-import aspose.pydrawing as draw
-
-# 建立 Presentation 類別的實例。
-with slides.Presentation() as presentation:
-
-    # 依索引取得投影片參考。
-    slide = presentation.slides[0]
-
-    # 在投影片上建立 PercentsStackedColumn 圖表。
-    chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 20, 20, 600, 400)
-
-    chart.axes.vertical_axis.is_number_format_linked_to_source = False
-    chart.axes.vertical_axis.number_format = "0.00%"
-
-    chart.chart_data.series.clear()
-
-    # 取得圖表資料工作簿。
-    workbook = chart.chart_data.chart_data_workbook
-    worksheet_index = 0
-
-    # 新增一個系列。
-    series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Reds"), chart.type)
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 0.30))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 0.50))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 0.80))
-    series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 1, 0.65))
-
-    # 設定系列填充顏色。
-    series.format.fill.fill_type = slides.FillType.SOLID
-    series.format.fill.solid_fill_color.color = draw.Color.red
-
-    # 設定標籤格式屬性。
-    series.labels.default_data_label_format.show_value = True
-    series.labels.default_data_label_format.is_number_format_linked_to_source = False
-    series.labels.default_data_label_format.number_format = "0.0%"
-    series.labels.default_data_label_format.text_format.portion_format.font_height = 10
-    series.labels.default_data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    series.labels.default_data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.white
-    series.labels.default_data_label_format.show_value = True
-
-    # 新增一個系列。
-    series2 = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Blues"), chart.type)
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 0.70))
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 0.50))
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 0.20))
-    series2.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 4, 2, 0.35))
-
-    # 設定填充類型與顏色。
-    series2.format.fill.fill_type = slides.FillType.SOLID
-    series2.format.fill.solid_fill_color.color = draw.Color.blue
-    series2.labels.default_data_label_format.show_value = True
-    series2.labels.default_data_label_format.is_number_format_linked_to_source = False
-    series2.labels.default_data_label_format.number_format = "0.0%"
-    series2.labels.default_data_label_format.text_format.portion_format.font_height = 10
-    series2.labels.default_data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    series2.labels.default_data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.white
-
-    # 儲存簡報。
-    presentation.save("percentage_sign.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **設定標籤與坐標軸的距離**
-
-本節說明如何在 Aspose.Slides 中控制資料標籤與圖表坐標軸之間的距離。調整此偏移量可避免重疊，提升密集圖形的可讀性。
-
-以下 Python 程式碼示範在使用坐標軸圖表時，如何設定標籤與類別坐標軸的距離：
-
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-# 建立 Presentation 類別的實例。
-with slides.Presentation() as presentation:
-    # 取得投影片參考。
-    slide = presentation.slides[0]
-
-    # 在投影片上建立叢集柱狀圖。
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
-
-    # 設定標籤與類別（水平）軸的距離。
-    chart.axes.horizontal_axis.label_offset = 500
-
-    # 儲存簡報。
-    presentation.save("axis_label_distance.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **調整標籤位置**
-
-當您建立不使用坐標軸的圖表（例如圓餅圖）時，資料標籤可能過於接近邊緣。此時，請調整標籤位置，使引線能清晰顯示。
-
-以下 Python 程式碼示範如何在圓餅圖上調整標籤位置：
+使用[number_format_of_values](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/chartseries/number_format_of_values/)來格式化系列數值。此範例建立一個使用預設資料的折線圖，顯示其資料表，並為第一個系列啟用值標籤。格式`#,##0.00`會顯示千位分隔符號與兩位小數，但不會改變底層的數值。
 
 ```python
 import aspose.slides as slides
@@ -198,33 +31,223 @@ import aspose.slides.charts as charts
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 600, 300)
+    chart = slide.shapes.add_chart(charts.ChartType.LINE, 50, 50, 450, 300)
+    chart.has_data_table = True
 
     series = chart.chart_data.series[0]
+    series.number_format_of_values = "#,##0.00"
     series.labels.default_data_label_format.show_value = True
-    series.labels.default_data_label_format.show_leader_lines = True
 
-    label = series.labels[0]
+    presentation.save("PrecisionOfDatalabels_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **將百分比顯示為標籤**
+
+對於堆疊直條圖，計算每個數值佔其類別總和的百分比，並將文字指派給[text_frame_for_overriding](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/)。此範例使用預設圖表資料，並以 8 點字型顯示兩位小數的百分比。總和為零的類別會被略過，以避免除以零的錯誤。若圖表資料變更，請重新計算自訂標籤文字。
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 400, 400)
+
+    category_totals = [0.0] * len(chart.chart_data.categories)
+    for k in range(len(chart.chart_data.categories)):
+        for series in chart.chart_data.series:
+            point_value = float(series.data_points[k].value.data)
+            category_totals[k] += point_value
+
+    for series in chart.chart_data.series:
+        series.labels.default_data_label_format.show_legend_key = False
+
+        for j in range(len(series.data_points)):
+            label = series.data_points[j].label
+            if category_totals[j] == 0:
+                continue
+
+            point_value = float(series.data_points[j].value.data)
+            data_point_percent = point_value / category_totals[j] * 100
+
+            portion = slides.Portion()
+            portion.text = f"{data_point_percent:.2f} %"
+            portion.portion_format.font_height = 8
+
+            label.text_frame_for_overriding.text = ""
+
+            paragraph = label.text_frame_for_overriding.paragraphs[0]
+            paragraph.portions.add(portion)
+
+            label.data_label_format.show_value = True
+            label.data_label_format.show_series_name = False
+            label.data_label_format.show_percentage = False
+            label.data_label_format.show_legend_key = False
+            label.data_label_format.show_category_name = False
+            label.data_label_format.show_bubble_size = False
+
+    presentation.save("DisplayPercentageAsLabels_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **在圖表資料標籤中設定百分比符號**
+
+當數值以分數形式儲存時，使用[number_format](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/datalabelformat/number_format/)來顯示百分比。將[is_number_format_linked_to_source](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/datalabelformat/is_number_format_linked_to_source/)設為`False`，即可讓標籤格式獨立於來源儲存格。
+
+此範例建立一個 100% 堆疊直條圖，四個類別各有紅色與藍色系列。每對數值的總和為 1。標籤格式`0.0%`會把 0.30 顯示為 30.0%，而直條軸則使用兩位小數。兩個系列的標籤文字皆為白色、10 點字型。
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.pydrawing as drawing
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.PERCENTS_STACKED_COLUMN, 20, 20, 500, 400)
+
+    chart.axes.vertical_axis.is_number_format_linked_to_source = False
+    chart.axes.vertical_axis.number_format = "0.00%"
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    worksheet_index = 0
+    for i in range(4):
+        category_cell = workbook.get_cell(worksheet_index, i + 1, 0, f"Category {i + 1}")
+        chart.chart_data.categories.add(category_cell)
+
+    series_names = ["Reds", "Blues"]
+    series_colors = [drawing.Color.red, drawing.Color.blue]
+    values = [[0.30, 0.50, 0.80, 0.65], [0.70, 0.50, 0.20, 0.35]]
+
+    for i in range(len(series_names)):
+        series_cell = workbook.get_cell(worksheet_index, 0, i + 1, series_names[i])
+        series = chart.chart_data.series.add(series_cell, chart.type)
+        for j in range(4):
+            value_cell = workbook.get_cell(worksheet_index, j + 1, i + 1, values[i][j])
+            series.data_points.add_data_point_for_bar_series(value_cell)
+
+        series.format.fill.fill_type = slides.FillType.SOLID
+        series.format.fill.solid_fill_color.color = series_colors[i]
+
+        label_format = series.labels.default_data_label_format
+        label_format.show_value = True
+        label_format.is_number_format_linked_to_source = False
+        label_format.number_format = "0.0%"
+        label_format.text_format.portion_format.font_height = 10
+        label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
+        label_format.text_format.portion_format.fill_format.solid_fill_color.color = drawing.Color.white
+
+    presentation.save("SetDataLabelsPercentageSign_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **讀取資料標籤的實際文字**
+
+使用[get_actual_label_text](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/datalabel/get_actual_label_text/)取得資料標籤設定所產生的文字。此功能在擷取標籤以製作報告、搜尋簡報內容或驗證產生的圖表時非常有用。以下範例中，預設[data label format](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/datalabelformat/)會結合每個類別名稱、系列名稱與數值。某個點將其數值格式化為百分比，另一個點則使用[text_frame_for_overriding](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/datalabel/text_frame_for_overriding/)中的自訂文字。
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    for i, category_name in enumerate(["Q1", "Q2"]):
+        category_cell = workbook.get_cell(0, i + 1, 0, category_name)
+        chart.chart_data.categories.add(category_cell)
+
+    north_cell = workbook.get_cell(0, 0, 1, "North")
+    north = chart.chart_data.series.add(north_cell, chart.type)
+    for i, value in enumerate([0.25, 0.75]):
+        value_cell = workbook.get_cell(0, i + 1, 1, value)
+        north.data_points.add_data_point_for_bar_series(value_cell)
+
+    south_cell = workbook.get_cell(0, 0, 2, "South")
+    south = chart.chart_data.series.add(south_cell, chart.type)
+    for i, value in enumerate([0.40, 0.60]):
+        value_cell = workbook.get_cell(0, i + 1, 2, value)
+        south.data_points.add_data_point_for_bar_series(value_cell)
+
+    for series in chart.chart_data.series:
+        label_format = series.labels.default_data_label_format
+        label_format.show_category_name = True
+        label_format.show_series_name = True
+        label_format.show_value = True
+
+    north.labels[1].data_label_format.is_number_format_linked_to_source = False
+    north.labels[1].data_label_format.number_format = "0%"
+    south.labels[0].text_frame_for_overriding.text = "Reviewed"
+
+    for series in chart.chart_data.series:
+        for point in series.data_points:
+            label = point.label
+            if not label.is_visible:
+                continue
+
+            label_text = label.get_actual_label_text()
+            print(f"Value: {point.value.data}; label: {label_text}")
+```
+
+儲存在資料點中的數字仍為`0.75`，即使其標籤顯示`75%` 並附帶類別與系列名稱。自訂文字會取代系統產生的標籤文字。無論哪種情況，[get_actual_label_text](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/datalabel/get_actual_label_text/)都會回傳最終的標籤字串。若只想擷取可見的標籤，請如上例分別檢查[is_visible](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/datalabel/is_visible/)。
+
+## **設定標籤與軸的距離**
+
+使用[label_offset](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/axis/label_offset/)來控制類別軸標籤與軸之間的距離。此數值為軸標籤最大字型大小的百分比。本範例建立一個群組直條圖，將水平軸標籤偏移設為 500。此設定會影響類別軸標籤，而非附加於個別資料點的標籤。
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
+    chart.axes.horizontal_axis.label_offset = 500
+
+    presentation.save("SetCategoryAxisLabelDistance_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **調整標籤位置**
+
+在圓形圖中，調整資料標籤的位置以改善間距並為指示線留出空間。
+
+此範例顯示第一筆資料的數值，將其標籤放在切片外部，並調整其[x](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/datalabel/x/)與[y](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides.charts/datalabel/y/)偏移。這兩個偏移分別以圖表寬度與高度為相對基準。
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 200, 200)
+    series = chart.chart_data.series
+
+    label = series[0].labels[0]
+    label.data_label_format.show_value = True
     label.data_label_format.position = charts.LegendDataLabelPosition.OUTSIDE_END
-
-    label.x = 0.05
-    label.y = 0.1
+    label.x = 0.71
+    label.y = 0.04
 
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![調整後的標籤位置](changed_label_position.png)
+![調整後的圓形圖資料標籤位置](pie-chart-adjusted-label.png)
 
-## **常見問題**
+## **常見問答**
 
 **如何防止在密集圖表中資料標籤重疊？**
 
-結合自動標籤放置、引線與縮小字型大小；如有需要，可隱藏某些欄位（例如類別），或僅對極端／關鍵點顯示標籤。
+結合自動標籤放置、指示線以及縮小字型大小；必要時隱藏某些欄位（例如類別），或僅對極端值或關鍵點顯示標籤。
 
-**如何僅對零、負值或空值停用標籤？**
+**如何僅對零值、負值或空值停用標籤？**
 
-在啟用標籤之前先篩選資料點，並根據定義的規則關閉對值為 0、負值或缺失值的顯示。
+在啟用標籤前先篩選資料點，並依據自訂規則關閉 0、負值或缺失值的顯示。
 
-**如何確保匯出成 PDF/影像時標籤樣式一致？**
+**如何確保匯出為 PDF/影像時標籤樣式保持一致？**
 
-明確設定字型（字族、大小），並確認渲染端已安裝該字型，以避免回退。
+明確設定字型系列與大小，並確認渲染環境中已安裝該字型，以避免使用備援字型。
