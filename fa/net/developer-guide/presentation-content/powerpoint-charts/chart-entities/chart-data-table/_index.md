@@ -1,5 +1,5 @@
 ---
-title: سفارشی‌سازی جداول دادهٔ نمودار در ارائه‌ها با .NET
+title: سفارشی‌سازی جداول داده‌های نمودار در ارائه‌ها در .NET
 linktitle: جدول داده
 type: docs
 url: /fa/net/chart-data-table/
@@ -7,58 +7,127 @@ keywords:
 - داده نمودار
 - جدول داده
 - ویژگی‌های قلم
-- PowerPoint
+- پاورپوینت
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "جداول دادهٔ نمودار را در .NET برای PPT و PPTX با Aspose.Slides سفارشی‌سازی کنید تا کارایی و جذابیت ارائه‌ها را افزایش دهید."
+description: "قلم‌های جدول داده نمودار، حاشیه‌ها و کلیدهای افسانه را در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای .NET و C# سفارشی کنید."
 ---
 ## **نمای کلی**
 
-این مقاله توضیح می‌دهد چگونه با جداول دادهٔ نمودار در Aspose.Slides کار کنیم. نشان می‌دهد چگونه یک جدول داده برای یک نمودار نمایش داده و قالب‌بندی متن آن را با تنظیم ویژگی‌های قلم مانند حالت بولد و ارتفاع قلم سفارشی کنید. مثال بارگیری یک ارائه، افزودن نمودار، فعال‌سازی جدول دادهٔ نمودار، اعمال تنظیمات قلم و ذخیرهٔ ارائه به‌روز شده را نشان می‌دهد.
+Aspose.Slides برای .NET به شما امکان می‌دهد جدول داده‌های یک نمودار را نمایش دهید و قالب‌بندی متن، حاشیه‌ها و کلیدهای افسانه‌ای آن را سفارشی کنید. این مقاله توضیح می‌دهد چگونه جدول را فعال کنید، متن آن را فرمت‌بندی کنید، هر نوع حاشیره را کنترل کنید و کلیدهای افسانه‌ای را نشان یا مخفی کنید. مثال‌ها نمودارهای پیکربندی‌شده را در فایل‌های PPTX ذخیره می‌کنند.
 
-همچنین پاسخ‌های کوتاهی به سوالات رایج درباره نمایش کلیدهای راهنما در جدول دادهٔ نمودار، حفظ جدول داده هنگام خروجی‌گیری، کار با نمودارهای بارگذاری شده از ارائه‌ها یا قالب‌های موجود، و شناسایی نمودارهایی که جدول داده برای آنها فعال است، ارائه می‌کند.
+## **تنظیم ویژگی‌های قلم**
 
-## **تنظیم ویژگی‌های قلم برای جدول دادهٔ نمودار**
-Aspose.Slides برای .NET پشتیبانی از تغییر رنگ دسته‌ها در رنگ سری را فراهم می‌کند.
+برای نمایش جدول داده‌های یک نمودار، ویژگی [HasDataTable](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chart/hasdatatable/) را به `true` تنظیم کنید. برای دسترسی به جدول و پیکربندی قالب‌بندی متن آن از [ChartDataTable](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chart/chartdatatable/) استفاده کنید.
 
-1. یک شیء کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) را نمونه‌سازی کنید.
-1. یک نمودار به اسلاید اضافه کنید.
-1. جدول نمودار را تنظیم کنید.
-1. ارتفاع قلم را تنظیم کنید.
-1. ارائه اصلاح‌شده را ذخیره کنید.
+1. پرزنتیشن را با استفاده از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) بارگذاری کنید.
+1. یک نمودار ستونی خوشه‌ای به اسلاید اول اضافه کنید.
+1. جدول داده‌های نمودار را فعال کنید.
+1. متن بولد را با [FontBold](https://reference.aspose.com/slides/fa/net/aspose.slides/baseportionformat/fontbold/) فعال کنید و [FontHeight](https://reference.aspose.com/slides/fa/net/aspose.slides/baseportionformat/fontheight/) را به `20` برای متن با اندازه 20 پوینت تنظیم کنید.
+1. نسخهٔ اصلاح‌شدهٔ ارائه را ذخیره کنید.
 
-در زیر یک نمونه مثال آورده شده است.
+مثال زیر به فایل `test.pptx` در پوشهٔ کاری با حداقل یک اسلاید نیاز دارد. این مثال یک نمودار با داده‌های پیش‌فرض را در موقعیت (50, 50) اضافه می‌کند، با عرض 600 پوینت و ارتفاع 400 پوینت. فایل ذخیره‌شدهٔ `output.pptx` شامل نمودار با جدول داده‌ها فعال و تنظیمات قلم مشخص‌شده است.
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	chart.HasDataTable = true;
+using var presentation = new Presentation("test.pptx");
+var slide = presentation.Slides[0];
 
-	chart.ChartDataTable.TextFormat.PortionFormat.FontBold = NullableBool.True;
-	chart.ChartDataTable.TextFormat.PortionFormat.FontHeight = 20;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+var portionFormat = chart.ChartDataTable.TextFormat.PortionFormat;
+portionFormat.FontBold = NullableBool.True;
+portionFormat.FontHeight = 20;
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-## **سوالات متداول**
+## **سفارشی‌سازی حاشیه‌های جدول داده‌ها**
 
-**آیا می‌توانم کلیدهای راهنمای کوچک را در کنار مقادیر در جدول دادهٔ نمودار نشان دهم؟**
+جدول را با [IChart.HasDataTable](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichart/hasdatatable/) فعال کنید و از طریق [IChart.ChartDataTable](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichart/chartdatatable/) به آن دسترسی پیدا کنید. می‌توانید سه نوع حاشیه را به‌صورت مستقل کنترل کنید:
 
-بله. جدول داده از [کلیدهای راهنما](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/datatable/showlegendkey/) پشتیبانی می‌کند و می‌توانید آنها را روشن یا خاموش کنید.
+- [HasBorderHorizontal](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/idatatable/hasborderhorizontal/) حاشیه‌های افقی سلول‌ها را کنترل می‌کند.
+- [HasBorderVertical](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/idatatable/hasbordervertical/) حاشیه‌های عمودی سلول‌ها را کنترل می‌کند.
+- [HasBorderOutline](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/idatatable/hasborderoutline/) حاشیهٔ بیرونی جدول را کنترل می‌کند.
 
-**آیا جدول داده هنگام صادرات ارائه به PDF، HTML یا تصویر حفظ می‌شود؟**
+هر ویژگی را به `true` تنظیم کنید تا حاشیهٔ مربوطه نمایش داده شود یا به `false` برای مخفی کردن آن. مثال زیر یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض ایجاد می‌کند، حاشیه‌های افقی و حاشیهٔ بیرونی را نمایش می‌دهد و حاشیه‌های عمودی را مخفی می‌کند. این مثال نیازی به فایل ورودی ندارد. موقعیت و اندازهٔ نمودار بر حسب پوینت مشخص می‌شود.
 
-بله. Aspose.Slides نمودار را به عنوان بخشی از اسلاید رندر می‌کند، بنابراین [PDF](/slides/fa/net/convert-powerpoint-to-pdf/)/[HTML](/slides/fa/net/convert-powerpoint-to-html/)/[image](/slides/fa/net/convert-powerpoint-to-png/) خروجی‌شده شامل نمودار با جدول دادهٔ آن است.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-**آیا جداول داده برای نمودارهایی که از یک فایل قالب بارگذاری می‌شوند، پشتیبانی می‌شود؟**
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-بله. برای هر نموداری که از یک ارائه یا قالب موجود بارگذاری می‌شود، می‌توانید با استفاده از ویژگی‌های نمودار بررسی و تغییر دهید که آیا جدول داده [نمایش داده می‌شود](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chart/hasdatatable/) یا نه.
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
 
-**چگونه می‌توانم سریعاً تشخیص دهم کدام نمودارها در یک فایل جدول دادهٔ فعال دارند؟**
+var dataTable = chart.ChartDataTable;
+dataTable.HasBorderHorizontal = true;
+dataTable.HasBorderVertical = false;
+dataTable.HasBorderOutline = true;
 
-ویژگی هر نمودار که نشان می‌دهد آیا جدول داده [نمایش داده می‌شود](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chart/hasdatatable/) را بررسی کنید و در اسلایدها مرور کنید تا نمودارهایی که فعال هستند را شناسایی کنید.
+presentation.Save("data-table-borders.pptx", SaveFormat.Pptx);
+```
+
+مقایسهٔ زیر همان جدول را با کلیدهای افسانهٔ فعال و غیرفعال نشان می‌دهد. تمام حاشیه‌ها فعال می‌مانند و افسانهٔ جداگانهٔ نمودار در هر دو حالت مخفی است.
+
+![جداول داده‌های نمودار با کلیدهای افسانه در سمت چپ نشان داده شده و در سمت راست مخفی شده‌اند](data-table-borders.png)
+
+## **نمایش یا مخفی کردن کلیدهای افسانه**
+
+کلیدهای افسانه، نشانگرهای رنگی کوچک کنار نام‌های سری‌ها در جدول داده‌ها هستند. آنها به خوانندگان کمک می‌کنند تا هر ردیف جدول را به یک سری نمودار مرتبط کنند. برای نمایش این نشانگرها، ویژگی [ShowLegendKey](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/idatatable/showlegendkey/) را به `true` تنظیم کنید یا برای مخفی کردن آنها به `false`.
+
+افسانهٔ جداگانهٔ نمودار توسط [IChart.HasLegend](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichart/haslegend/) کنترل می‌شود. این تنظیمات مستقل هستند: مخفی کردن افسانهٔ جداگانه، کلیدهای داخل جدول داده‌ها را مخفی نمی‌کند و مخفی کردن کلیدهای جدول، افسانهٔ جداگانه را مخفی نمی‌کند.
+
+مثال زیر یک نمودار با داده‌های پیش‌فرض ایجاد می‌کند، جدول داده‌های آن را فعال می‌سازد و کلیدهای افسانه را داخل آن نشان می‌دهد در حالی که افسانهٔ جداگانه مخفی می‌شود. تمام حاشیه‌های جدول به‌وضوح فعال هستند. نیازی به ارائهٔ ورودی نیست. برای مخفی کردن فقط کلیدهای جدول، مقدار `dataTable.ShowLegendKey` را به `false` تغییر دهید.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
+chart.HasLegend = false;
+
+var dataTable = chart.ChartDataTable;
+dataTable.HasBorderHorizontal = true;
+dataTable.HasBorderVertical = true;
+dataTable.HasBorderOutline = true;
+dataTable.ShowLegendKey = true;
+
+presentation.Save("data-table-legend-keys.pptx", SaveFormat.Pptx);
+```
+
+مقایسهٔ زیر همان جدول را با کلیدهای افسانهٔ فعال و غیرفعال نشان می‌دهد. تمام حاشیه‌ها فعال می‌مانند و افسانهٔ جداگانهٔ نمودار در هر دو حالت مخفی است.
+
+![جداول داده‌های نمودار با کلیدهای افسانه در سمت چپ نشان داده شده و در سمت راست مخفی شده‌اند](data-table-legend-keys.png)
+
+## **سؤالات متداول**
+
+**آیا می‌توانم کلیدهای افسانه را در جدول داده‌های یک نمودار نشان دهم؟**
+
+بله. ویژگی [ShowLegendKey](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/datatable/showlegendkey/) را به `true` تنظیم کنید تا کلیدهای افسانه نمایش داده شوند یا به `false` برای مخفی کردن آنها.
+
+**آیا جدول داده‌ها هنگام خروجی گرفتن ارائه به PDF، HTML یا تصاویر حفظ می‌شود؟**
+
+بله. Aspose.Slides هنگام خروجی گرفتن به [PDF](/slides/fa/net/convert-powerpoint-to-pdf/)، [HTML](/slides/fa/net/convert-powerpoint-to-html/)، یا [images](/slides/fa/net/convert-powerpoint-to-png/)، نمودار و جدول داده‌های نمایش‌داده‌شده را به‌عنوان بخشی از اسلاید رندر می‌کند.
+
+**آیا می‌توانم با جدول داده‌ها در نمودارهایی که از یک قالب بارگذاری شده‌اند کار کنم؟**
+
+بله. برای نموداری که از یک ارائه یا قالب موجود بارگذاری شده است، می‌توانید از [HasDataTable](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chart/hasdatatable/) برای بررسی یا تغییر وضعیت نمایش جدول داده‌ها استفاده کنید.
+
+**چگونه می‌توانم نمودارهایی را پیدا کنم که جدول داده آن‌ها فعال باشد؟**
+
+در هر اسلاید، تمام اشکال را پیمایش کنید، نمودارها را شناسایی کنید و ویژگی [HasDataTable](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chart/hasdatatable/) آن‌ها را بررسی کنید. مقدار `true` نشان می‌دهد که جدول داده فعال است.

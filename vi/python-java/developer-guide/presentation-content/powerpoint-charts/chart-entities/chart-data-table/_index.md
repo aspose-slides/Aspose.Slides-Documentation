@@ -1,6 +1,6 @@
 ---
-title: Tùy chỉnh Bảng Dữ liệu Biểu đồ trong Bản trình chiếu bằng Python
-linktitle: Bảng Dữ liệu
+title: Tùy chỉnh bảng dữ liệu biểu đồ trong bản trình chiếu bằng Python
+linktitle: Bảng Dữ Liệu
 type: docs
 url: /vi/python-java/chart-data-table/
 keywords:
@@ -12,25 +12,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Tùy chỉnh bảng dữ liệu biểu đồ trong Python cho PPT và PPTX với Aspose.Slides for Python via Java để tăng hiệu quả và sức hấp dẫn trong các bản trình chiếu."
+description: "Tùy chỉnh phông chữ, viền và các ký hiệu chú giải của bảng dữ liệu biểu đồ trong bản trình chiếu PowerPoint bằng cách sử dụng Aspose.Slides cho Python qua Java."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với bảng dữ liệu của biểu đồ trong Aspose.Slides. Nó cho thấy cách hiển thị bảng dữ liệu cho một biểu đồ và tùy chỉnh định dạng văn bản bằng cách đặt các thuộc tính phông chữ như kiểu in đậm và chiều cao phông. Ví dụ minh họa việc tạo một bản trình chiếu, thêm biểu đồ, bật bảng dữ liệu của biểu đồ, áp dụng các thiết lập phông và lưu bản trình chiếu đã cập nhật.
+Aspose.Slides for Python via Java cho phép bạn hiển thị bảng dữ liệu của biểu đồ và tùy chỉnh định dạng văn bản, viền và các ký hiệu chú giải. Bài viết này giải thích cách bật bảng, định dạng văn bản, điều khiển từng loại viền và hiển thị hoặc ẩn các ký hiệu chú giải. Các ví dụ lưu các biểu đồ đã cấu hình vào tệp PPTX.
 
-Nó cũng bao gồm các câu trả lời ngắn gọn cho các câu hỏi thường gặp về việc hiển thị khóa chú giải trong bảng dữ liệu của biểu đồ, bảo tồn bảng dữ liệu khi xuất, làm việc với biểu đồ được tải từ bản trình chiếu hoặc mẫu hiện có, và xác định các biểu đồ có bật bảng dữ liệu.
+## **Đặt Thuộc Tính Phông Chữ**
 
-## **Đặt Thuộc tính Phông cho Bảng Dữ liệu Biểu đồ**
+Để hiển thị bảng dữ liệu của biểu đồ, truyền `True` vào [setDataTable](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#setDataTable). Sử dụng [getChartDataTable](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#getChartDataTable) để truy cập bảng và cấu hình định dạng văn bản.
 
-Aspose.Slides for Python via Java cho phép bạn hiển thị bảng dữ liệu của một biểu đồ và thay đổi các thuộc tính phông của văn bản trong đó.
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/).
-1. Thêm một biểu đồ vào slide.
-1. Hiển thị bảng dữ liệu của biểu đồ.
-1. Đặt kiểu in đậm và chiều cao phông cho văn bản trong bảng dữ liệu.
+1. Tải bản trình chiếu bằng lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) .
+1. Thêm một biểu đồ cột nhóm vào slide đầu tiên.
+1. Bật bảng dữ liệu của biểu đồ.
+1. Bật văn bản in đậm bằng [setFontBold](https://reference.aspose.com/slides/vi/python-java/aspose.slides/baseportionformat/#setFontBold) và truyền `20` vào [setFontHeight](https://reference.aspose.com/slides/vi/python-java/aspose.slides/baseportionformat/#setFontHeight) để có văn bản 20 điểm.
 1. Lưu bản trình chiếu đã chỉnh sửa.
 
-Ví dụ sau minh họa các bước này.
+Ví dụ sau yêu cầu có tệp `test.pptx` trong thư mục làm việc với ít nhất một slide. Nó thêm một biểu đồ với dữ liệu mặc định tại vị trí (50, 50), chiều rộng 600 điểm và chiều cao 400 điểm. Tệp `output.pptx` được lưu chứa biểu đồ với bảng dữ liệu được bật và áp dụng các cài đặt phông chữ đã chỉ định.
 
 ```python
 import jpype
@@ -41,11 +39,11 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, NullableBool, Presentation, SaveFormat
 
-# Tạo một bản trình chiếu trống.
-presentation = Presentation()
+presentation = Presentation("test.pptx")
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    slide = presentation.getSlides().get_Item(0)
 
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
     chart.setDataTable(True)
 
     portion_format = chart.getChartDataTable().getTextFormat().getPortionFormat()
@@ -57,20 +55,100 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Tùy Chỉnh Viền Bảng Dữ Liệu**
 
-**Tôi có thể hiển thị các khóa chú giải nhỏ bên cạnh các giá trị trong bảng dữ liệu của biểu đồ không?**
+Bật bảng bằng [Chart.setDataTable](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#setDataTable) và truy cập nó qua [Chart.getChartDataTable](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#getChartDataTable). Bạn có thể điều khiển ba loại viền độc lập:
 
-Có. Bảng dữ liệu hỗ trợ [legend keys](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datatable/#setShowLegendKey), và bạn có thể bật hoặc tắt chúng.
+- [setBorderHorizontal](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datatable/#setBorderHorizontal) điều khiển viền ô ngang.
+- [setBorderVertical](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datatable/#setBorderVertical) điều khiển viền ô dọc.
+- [setBorderOutline](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datatable/#setBorderOutline) điều khiển viền ngoài của bảng.
 
-**Bảng dữ liệu có được bảo tồn khi xuất bản trình chiếu sang PDF, HTML hoặc hình ảnh không?**
+Truyền `True` vào mỗi phương thức để hiển thị viền hoặc `False` để ẩn chúng. Ví dụ sau tạo một biểu đồ cột nhóm với dữ liệu mặc định, hiển thị viền ngang và viền ngoài, và ẩn viền dọc. Không yêu cầu tệp đầu vào. Vị trí và kích thước của biểu đồ được chỉ định bằng điểm.
 
-Có. Aspose.Slides render biểu đồ như một phần của slide, vì vậy [PDF](/slides/vi/python-java/convert-powerpoint-to-pdf/)/[HTML](/slides/vi/python-java/convert-powerpoint-to-html/)/[image](/slides/vi/python-java/convert-powerpoint-to-png/) xuất ra sẽ bao gồm biểu đồ cùng bảng dữ liệu.
+```python
+import jpype
+import asposeslides
 
-**Bảng dữ liệu có được hỗ trợ cho các biểu đồ được lấy từ tệp mẫu không?**
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-Có. Đối với bất kỳ biểu đồ nào được tải từ bản trình chiếu hoặc mẫu hiện có, bạn có thể kiểm tra và thay đổi việc bảng dữ liệu [is shown](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#hasDataTable) bằng các thuộc tính của biểu đồ.
+from asposeslides.api import ChartType, Presentation, SaveFormat
 
-**Làm thế nào để tôi nhanh chóng tìm các biểu đồ trong tệp có bật bảng dữ liệu?**
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
 
-Kiểm tra thuộc tính của mỗi biểu đồ cho biết bảng dữ liệu [is shown](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#hasDataTable) và duyệt qua các slide để xác định các biểu đồ mà tính năng này được bật.
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    chart.setDataTable(True)
+
+    data_table = chart.getChartDataTable()
+    data_table.setBorderHorizontal(True)
+    data_table.setBorderVertical(False)
+    data_table.setBorderOutline(True)
+
+    presentation.save("data-table-borders.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+So sánh dưới đây sử dụng cùng một dữ liệu biểu đồ và cùng một cài đặt ký hiệu chú giải trong bốn trường hợp. Bắt đầu với tất cả các viền được bật, mỗi biến thể còn lại chỉ tắt một loại viền. Biến thể góc dưới‑trái khớp với cài đặt viền trong ví dụ.
+
+![Bảng dữ liệu biểu đồ với tất cả viền bật, không có viền ngang, không có viền dọc và không có viền ngoài](data-table-borders.png)
+
+## **Hiển Thị Hoặc Ẩn Ký Hiệu Chú Giải**
+
+Ký hiệu chú giải là các dấu màu nhỏ bên cạnh tên chuỗi trong bảng dữ liệu. Chúng giúp người đọc liên kết mỗi hàng của bảng với một chuỗi biểu đồ. Truyền `True` vào [setShowLegendKey](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datatable/#setShowLegendKey) để hiển thị các dấu này hoặc `False` để ẩn chúng.
+
+Chú giải riêng của biểu đồ được điều khiển bằng [Chart.setLegend](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#setLegend). Các cài đặt này độc lập: ẩn chú giải riêng không ẩn các ký hiệu trong bảng dữ liệu, và ẩn ký hiệu trong bảng không ẩn chú giải riêng.
+
+Ví dụ sau tạo một biểu đồ với dữ liệu mặc định, bật bảng dữ liệu và hiển thị ký hiệu chú giải bên trong khi ẩn chú giải riêng. Tất cả các viền bảng được bật rõ ràng. Không cần bản trình chiếu đầu vào. Để chỉ ẩn các ký hiệu của bảng, truyền `False` vào [setShowLegendKey](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datatable/#setShowLegendKey).
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    chart.setDataTable(True)
+    chart.setLegend(False)
+
+    data_table = chart.getChartDataTable()
+    data_table.setBorderHorizontal(True)
+    data_table.setBorderVertical(True)
+    data_table.setBorderOutline(True)
+    data_table.setShowLegendKey(True)
+
+    presentation.save("data-table-legend-keys.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+So sánh dưới đây cho thấy cùng một bảng với ký hiệu chú giải được bật và bị tắt. Tất cả các viền vẫn được bật, và chú giải riêng của biểu đồ được ẩn trong cả hai trường hợp.
+
+![Bảng dữ liệu biểu đồ với ký hiệu chú giải hiển thị ở bên trái và ẩn ở bên phải](data-table-legend-keys.png)
+
+## **Câu Hỏi Thường Gặp**
+
+**Tôi có thể hiển thị ký hiệu chú giải trong bảng dữ liệu của biểu đồ không?**
+
+Có. Truyền `True` vào [setShowLegendKey](https://reference.aspose.com/slides/vi/python-java/aspose.slides/datatable/#setShowLegendKey) để hiển thị ký hiệu chú giải hoặc `False` để ẩn chúng.
+
+**Bảng dữ liệu có được giữ lại khi xuất bản trình chiếu sang PDF, HTML hoặc hình ảnh không?**
+
+Có. Aspose.Slides sẽ render biểu đồ và bảng dữ liệu đã hiển thị như một phần của slide khi xuất sang [PDF](/slides/vi/python-java/convert-powerpoint-to-pdf/), [HTML](/slides/vi/python-java/convert-powerpoint-to-html/) hoặc [hình ảnh](/slides/vi/python-java/convert-powerpoint-to-png/).
+
+**Tôi có thể làm việc với bảng dữ liệu trong các biểu đồ được tải từ mẫu không?**
+
+Có. Đối với một biểu đồ được tải từ bản trình chiếu hoặc mẫu hiện có, sử dụng [hasDataTable](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#hasDataTable) và [setDataTable](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#setDataTable) để kiểm tra hoặc thay đổi việc bảng dữ liệu có được hiển thị hay không.
+
+**Làm sao tôi có thể tìm các biểu đồ đã bật bảng dữ liệu?**
+
+Duyệt qua các shape trên mỗi slide, xác định các biểu đồ, và gọi phương thức [hasDataTable](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#hasDataTable) của chúng. Giá trị `True` cho biết bảng dữ liệu đang được bật.

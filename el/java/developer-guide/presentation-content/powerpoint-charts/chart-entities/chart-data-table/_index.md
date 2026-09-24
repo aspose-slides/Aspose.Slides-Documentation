@@ -1,67 +1,138 @@
 ---
-title: Προσαρμογή πινάκων δεδομένων διαγράμματος σε παρουσιάσεις με Java
+title: Προσαρμογή πινάκων δεδομένων γραφημάτων σε παρουσιάσεις χρησιμοποιώντας Java
 linktitle: Πίνακας Δεδομένων
 type: docs
 url: /el/java/chart-data-table/
 keywords:
-- δεδομένα διαγράμματος
+- δεδομένα γραφήματος
 - πίνακας δεδομένων
 - ιδιότητες γραμματοσειράς
 - PowerPoint
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Προσαρμόστε τους πίνακες δεδομένων διαγράμματος σε Java για PPT και PPTX με Aspose.Slides για να αυξήσετε την αποδοτικότητα και την ελκυστικότητα στις παρουσιάσεις."
+description: "Προσαρμόστε τις γραμματοσειρές, τα περιγράμματα και τα κλειδιά υπομνήματος του πίνακα δεδομένων γραφήματος σε παρουσιάσεις PowerPoint χρησιμοποιώντας Aspose.Slides για Java."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να εργάζεστε με πίνακες δεδομένων διαγραμμάτων στο Aspose.Slides. Δείχνει πώς να εμφανίσετε έναν πίνακα δεδομένων για ένα διάγραμμα και να προσαρμόσετε τη μορφοποίηση κειμένου ορίζοντας ιδιότητες γραμματοσειράς όπως έντονη μορφή και ύψος γραμματοσειράς. Το παράδειγμα επιδεικνύει τη φόρτωση μιας παρουσίασης, την προσθήκη διαγράμματος, την ενεργοποίηση του πίνακα δεδομένων του διαγράμματος, την εφαρμογή ρυθμίσεων γραμματοσειράς και την αποθήκευση της ενημερωμένης παρουσίασης.
+Aspose.Slides for Java σάς επιτρέπει να εμφανίσετε τον πίνακα δεδομένων ενός διαγράμματος και να προσαρμόσετε τη μορφοποίηση κειμένου, τα περιγράμματα και τα κλειδιά υπομνήματος. Αυτό το άρθρο εξηγεί πώς να ενεργοποιήσετε τον πίνακα, να μορφοποιήσετε το κείμενό του, να ελέγξετε κάθε τύπο περιγράμματος και να εμφανίσετε ή να αποκρύψετε τα κλειδιά υπομνήματος. Τα παραδείγματα αποθηκεύουν τα διαμορφωμένα διαγράμματα σε αρχεία PPTX.
 
-Περιλαμβάνει επίσης σύντομες απαντήσεις σε συχνές ερωτήσεις σχετικά με την εμφάνιση κλειδιών υπομνήματος σε πίνακα δεδομένων διαγράμματος, τη διατήρηση του πίνακα δεδομένων κατά την εξαγωγή, την εργασία με διαγράμματα που φορτώνονται από υπάρχουσες παρουσιάσεις ή πρότυπα, και τον εντοπισμό διαγραμμάτων όπου ο πίνακας δεδομένων είναι ενεργοποίητος.
+## **Ορισμός Ιδιοτήτων Γραμματοσειράς**
 
-## **Ορισμός Ιδιοτήτων Γραμματοσειράς για Πίνακα Δεδομένων Διαγράμματος**
+Για να εμφανίσετε τον πίνακα δεδομένων ενός διαγράμματος, περάστε `true` στη μέθοδο [setDataTable](https://reference.aspose.com/slides/el/java/com.aspose.slides/chart/#setDataTable-boolean-). Χρησιμοποιήστε το [getChartDataTable](https://reference.aspose.com/slides/el/java/com.aspose.slides/chart/#getChartDataTable--) για να αποκτήσετε πρόσβαση στον πίνακα και να διαμορφώσετε τη μορφοποίηση του κειμένου του.
 
-Το Aspose.Slides for Java παρέχει υποστήριξη για την αλλαγή του χρώματος των κατηγοριών σε χρώμα σειράς.  
-
-1. Δημιουργήστε αντικείμενο κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-1. Προσθέστε διάγραμμα στη διαφάνεια.
-1. Ορίστε τον πίνακα διαγράμματος.
-1. Ορίστε το ύψος της γραμματοσειράς.
+1. Φορτώστε την παρουσίαση χρησιμοποιώντας την κλάση [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/).
+1. Προσθέστε ένα γράφημα στήλης σε ομάδα στη πρώτη διαφάνεια.
+1. Ενεργοποιήστε τον πίνακα δεδομένων του διαγράμματος.
+1. Ενεργοποιήστε έντονο κείμενο με τη μέθοδο [setFontBold](https://reference.aspose.com/slides/el/java/com.aspose.slides/baseportionformat/#setFontBold-byte-) και περάστε `20` στη μέθοδο [setFontHeight](https://reference.aspose.com/slides/el/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) για κείμενο 20 σημείων.
 1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-Παρατίθεται το παρακάτω παράδειγμα.
+Το παρακάτω παράδειγμα απαιτεί το αρχείο `test.pptx` στον τρέχοντα φάκελο με τουλάχιστον μία διαφάνεια. Προσθέτει ένα γράφημα με προεπιλεγμένα δεδομένα στη θέση (50, 50), με πλάτος 600 σημείων και ύψος 400 σημείων. Το αποθηκευμένο `output.pptx` περιέχει το γράφημα με ενεργοποιημένο τον πίνακα δεδομένων και τις καθορισμένες ρυθμίσεις γραμματοσειράς.
 
 ```java
-// Δημιουργία κενής παρουσίασης
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation("test.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
     chart.setDataTable(true);
 
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontBold(NullableBool.True);
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontHeight(20);
+    IChartPortionFormat portionFormat = chart.getChartDataTable().getTextFormat().getPortionFormat();
+    portionFormat.setFontBold(NullableBool.True);
+    portionFormat.setFontHeight(20);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Προσαρμογή Περιγραμμάτων Πίνακα Δεδομένων**
+
+Ενεργοποιήστε τον πίνακα με τη μέθοδο [IChart.setDataTable](https://reference.aspose.com/slides/el/java/com.aspose.slides/ichart/#setDataTable-boolean-) και αποκτήστε πρόσβαση σε αυτόν μέσω του [IChart.getChartDataTable](https://reference.aspose.com/slides/el/java/com.aspose.slides/ichart/#getChartDataTable--). Μπορείτε να ελέγξετε τρεις τύπους περιγραμμάτων ανεξάρτητα:
+
+- [setBorderHorizontal](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatatable/#setBorderHorizontal-boolean-) ελέγχει τα οριζόντια περιγράμματα κελιών.
+- [setBorderVertical](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatatable/#setBorderVertical-boolean-) ελέγχει τα κάθετα περιγράμματα κελιών.
+- [setBorderOutline](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatatable/#setBorderOutline-boolean-) ελέγχει το εξωτερικό περίγραμμα του πίνακα.
+
+Περάστε `true` σε κάθε μέθοδο για να εμφανίσετε τα περιγράμματα ή `false` για να τα αποκρύψετε. Το παρακάτω παράδειγμα δημιουργεί ένα γράφημα στήλης σε ομάδα με προεπιλεγμένα δεδομένα, εμφανίζει τα οριζόντια περιγράμματα και το εξωτερικό περίγραμμα, και αποκρύπτει τα κάθετα περιγράμματα. Δεν απαιτείται αρχείο εισόδου. Η θέση και το μέγεθος του γραφήματος καθορίζονται σε σημεία.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+
+    IDataTable dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(false);
+    dataTable.setBorderOutline(true);
+
+    presentation.save("data-table-borders.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Η σύγκριση παρακάτω χρησιμοποιεί τα ίδια δεδομένα διαγράμματος και τις ίδιες ρυθμίσεις κλειδιών υπομνήματος σε όλες τις τέσσερις περιπτώσεις. Ξεκινώντας με όλα τα περιγράμματα ενεργοποιημένα, κάθε επόμενη παραλλαγή απενεργοποιεί μόνο μία ρύθμιση περιγράμματος. Η παραλλαγή κάτω‑αριστερά ταιριάζει με τις ρυθμίσεις περιγράμματος του παραδείγματος.
+
+![Πίνακες δεδομένων διαγράμματος με όλα τα περιγράμματα ενεργοποιημένα, χωρίς οριζόντια περιγράμματα, χωρίς κάθετα περιγράμματα και χωρίς εξωτερικό περίγραμμα](data-table-borders.png)
+
+## **Εμφάνιση ή Απόκρυψη Κλειδιών Υπομνήματος**
+
+Τα κλειδιά υπομνήματος είναι μικροί χρωματιστοί δείκτες δίπλα στα ονόματα των σειρών στον πίνακα δεδομένων. Βοηθούν τους αναγνώστες να αντιστοιχίσουν κάθε γραμμή του πίνακα σε μια σειρά του διαγράμματος. Περάστε `true` στη μέθοδο [setShowLegendKey](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatatable/#setShowLegendKey-boolean-) για να εμφανίσετε αυτούς τους δείκτες ή `false` για να τους κρύψετε.
+
+Το ξεχωριστό υπόμνημα του διαγράμματος ελέγχεται από τη μέθοδο [IChart.setLegend](https://reference.aspose.com/slides/el/java/com.aspose.slides/ichart/#setLegend-boolean-). Οι ρυθμίσεις αυτές είναι ανεξάρτητες: η απόκρυψη του ξεχωριστού υπομνήματος δεν κρύβει τα κλειδιά μέσα στον πίνακα, και η απόκρυψη των κλειδιών του πίνακα δεν κρύβει το ξεχωριστό υπόμνημα.
+
+Το παρακάτω παράδειγμα δημιουργεί ένα γράφημα με προεπιλεγμένα δεδομένα, ενεργοποιεί τον πίνακα δεδομένων του και εμφανίζει κλειδιά υπομνήματος μέσα σε αυτόν ενώ κρύβει το ξεχωριστό υπόμνημα. Όλα τα περιγράμματα του πίνακα ενεργοποιούνται ρητά. Δεν απαιτείται παρουσίαση εισόδου. Για να κρύψετε μόνο τα κλειδιά του πίνακα, περάστε `false` στη μέθοδο [setShowLegendKey](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatatable/#setShowLegendKey-boolean-).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+    chart.setLegend(false);
+
+    IDataTable dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(true);
+    dataTable.setBorderOutline(true);
+    dataTable.setShowLegendKey(true);
+
+    presentation.save("data-table-legend-keys.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Η σύγκριση παρακάτω δείχνει τον ίδιο πίνακα με ενεργοποιημένα και απενεργοποιημένα κλειδιά υπομνήματος. Όλα τα περιγράμματα παραμένουν ενεργοποιημένα, και το ξεχωριστό υπόμνημα του διαγράμματος παραμένει κρυφό και στις δύο περιπτώσεις.
+
+![Πίνακες δεδομένων διαγράμματος με κλειδιά υπομνήματος εμφανισμένα στα αριστερά και κρυμμένα στα δεξιά](data-table-legend-keys.png)
+
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να εμφανίσω μικρά κλειδιά υπομνήματος δίπλα στις τιμές στον πίνακα δεδομένων του διαγράμματος;**
+**Μπορώ να εμφανίσω κλειδιά υπομνήματος σε έναν πίνακα δεδομένων διαγράμματος;**
 
-Ναι. Ο πίνακας δεδομένων υποστηρίζει [κλειδιά υπομνήματος](https://reference.aspose.com/slides/el/java/com.aspose.slides/datatable/#setShowLegendKey-boolean-), και μπορείτε να τα ενεργοποιήσετε ή να τα απενεργοποιήσετε.
+Ναι. Περάστε `true` στη μέθοδο [setShowLegendKey](https://reference.aspose.com/slides/el/java/com.aspose.slides/datatable/#setShowLegendKey-boolean-) για να εμφανίσετε τα κλειδιά υπομνήματος ή `false` για να τα κρύψετε.
 
 **Θα διατηρηθεί ο πίνακας δεδομένων κατά την εξαγωγή της παρουσίασης σε PDF, HTML ή εικόνες;**
 
-Ναι. Το Aspose.Slides αποδίδει το διάγραμμα ως μέρος της διαφάνειας, έτσι το εξαγόμενο [PDF](/slides/el/java/convert-powerpoint-to-pdf/)/[HTML](/slides/el/java/convert-powerpoint-to-html/)/[image](/slides/el/java/convert-powerpoint-to-png/) περιλαμβάνει το διάγραμμα με τον πίνακα δεδομένων του.
+Ναι. Το Aspose.Slides αποδίδει το γράφημα και τον εμφανιζόμενο πίνακα δεδομένων ως μέρος της διαφάνειας κατά την εξαγωγή σε [PDF](/slides/el/java/convert-powerpoint-to-pdf/), [HTML](/slides/el/java/convert-powerpoint-to-html/), ή [images](/slides/el/java/convert-powerpoint-to-png/).
 
-**Υποστηρίζονται πίνακες δεδομένων για διαγράμματα που προέρχονται από αρχείο προτύπου;**
+**Μπορώ να δουλέψω με πίνακες δεδομένων σε γραφήματα που φορτώνονται από πρότυπο;**
 
-Ναι. Για οποιοδήποτε διάγραμμα που φορτώνεται από υπάρχουσα παρουσίαση ή πρότυπο, μπορείτε να ελέγξετε και να αλλάξετε εάν ένας πίνακας δεδομένων [εμφανίζεται](https://reference.aspose.com/slides/el/java/com.aspose.slides/chart/#hasDataTable--) χρησιμοποιώντας τις ιδιότητες του διαγράμματος.
+Ναι. Για ένα γράφημα που φορτώνεται από υπάρχουσα παρουσίαση ή πρότυπο, χρησιμοποιήστε τις μεθόδους [hasDataTable](https://reference.aspose.com/slides/el/java/com.aspose.slides/chart/#hasDataTable--) και [setDataTable](https://reference.aspose.com/slides/el/java/com.aspose.slides/chart/#setDataTable-boolean-) για να ελέγξετε ή να αλλάξετε αν ο πίνακας δεδομένων εμφανίζεται.
 
-**Πώς μπορώ γρήγορα να βρω ποια διαγράμματα σε ένα αρχείο έχουν ενεργοποιημένο τον πίνακα δεδομένων;**
+**Πώς μπορώ να βρω γραφήματα που έχουν ενεργοποιημένο πίνακα δεδομένων;**
 
-Εξετάστε την ιδιότητα κάθε διαγράμματος που υποδεικνύει εάν ο πίνακας δεδομένων [εμφανίζεται](https://reference.aspose.com/slides/el/java/com.aspose.slides/chart/#hasDataTable--) και περάστε διαδοχικά τις διαφάνειες για να εντοπίσετε τα διαγράμματα όπου είναι ενεργοποιημένος.
+Διυλίστε όλα τα σχήματα σε κάθε διαφάνεια, εντοπίστε τα γραφήματα και καλέστε τη μέθοδο [hasDataTable](https://reference.aspose.com/slides/el/java/com.aspose.slides/chart/#hasDataTable--) του καθενός. Μια τιμή `true` υποδεικνύει ότι ο πίνακας δεδομένων είναι ενεργοποιημένος.

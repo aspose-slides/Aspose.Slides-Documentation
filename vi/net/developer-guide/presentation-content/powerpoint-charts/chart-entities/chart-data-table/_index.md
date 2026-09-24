@@ -1,5 +1,5 @@
 ---
-title: Tùy chỉnh bảng dữ liệu biểu đồ trong bản trình chiếu bằng .NET
+title: Tùy chỉnh bảng dữ liệu biểu đồ trong các bản trình chiếu .NET
 linktitle: Bảng dữ liệu
 type: docs
 url: /vi/net/chart-data-table/
@@ -12,53 +12,122 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tùy chỉnh bảng dữ liệu biểu đồ trong .NET cho PPT và PPTX với Aspose.Slides để tăng hiệu quả và sức hấp dẫn trong bản trình chiếu."
+description: "Tùy chỉnh phông chữ, viền và chìa khóa chú giải của bảng dữ liệu biểu đồ trong các bản trình chiếu PowerPoint bằng cách sử dụng Aspose.Slides cho .NET và C#."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với bảng dữ liệu biểu đồ trong Aspose.Slides. Nó cho thấy cách hiển thị bảng dữ liệu cho một biểu đồ và tùy chỉnh định dạng văn bản bằng cách đặt các thuộc tính phông chữ như kiểu in đậm và chiều cao phông chữ. Ví dụ minh họa việc tải một bản trình chiếu, thêm một biểu đồ, bật bảng dữ liệu biểu đồ, áp dụng cài đặt phông chữ và lưu bản trình chiếu đã cập nhật.
+Aspose.Slides for .NET cho phép bạn hiển thị bảng dữ liệu của biểu đồ và tùy chỉnh định dạng văn bản, viền và chìa khóa chú giải. Bài viết này giải thích cách bật bảng, định dạng văn bản, điều khiển từng loại viền và hiển thị hoặc ẩn chìa khóa chú giải. Các ví dụ lưu các biểu đồ đã cấu hình vào tệp PPTX.
 
-Nó cũng bao gồm các câu trả lời ngắn gọn cho các câu hỏi thường gặp về việc hiển thị khóa chú giải trong bảng dữ liệu biểu đồ, bảo tồn bảng dữ liệu khi xuất, làm việc với biểu đồ được tải từ bản trình chiếu hoặc mẫu hiện có, và xác định các biểu đồ mà bảng dữ liệu đã được bật.
+## **Đặt Thuộc Tính Phông Chữ**
 
-## **Đặt Thuộc Tính Phông Chữ cho Bảng Dữ Liệu Biểu Đồ**
-Aspose.Slides for .NET cung cấp hỗ trợ thay đổi màu của các danh mục trong một series color. 
+Để hiển thị bảng dữ liệu của biểu đồ, đặt [HasDataTable](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/chart/hasdatatable/) thành `true`. Sử dụng [ChartDataTable](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/chart/chartdatatable/) để truy cập bảng và cấu hình định dạng văn bản.
 
-1. Tạo một đối tượng lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation).
-1. Thêm biểu đồ vào slide.
-1. Đặt bảng biểu đồ.
-1. Đặt chiều cao phông chữ.
-1. Lưu bản trình chiếu đã sửa đổi.
+1. Tải bản trình chiếu bằng lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/).
+1. Thêm biểu đồ cột nhóm vào slide đầu tiên.
+1. Bật bảng dữ liệu của biểu đồ.
+1. Bật văn bản in đậm với [FontBold](https://reference.aspose.com/slides/vi/net/aspose.slides/baseportionformat/fontbold/) và đặt [FontHeight](https://reference.aspose.com/slides/vi/net/aspose.slides/baseportionformat/fontheight/) thành `20` cho văn bản 20 điểm.
+1. Lưu bản trình chiếu đã chỉnh sửa.
 
-Ví dụ mẫu dưới đây được đưa ra. 
+Ví dụ sau yêu cầu tệp `test.pptx` trong thư mục làm việc có ít nhất một slide. Nó thêm một biểu đồ với dữ liệu mặc định ở vị trí (50, 50), có chiều rộng 600 điểm và chiều cao 400 điểm. Tệp `output.pptx` đã lưu chứa biểu đồ với bảng dữ liệu được bật và các thiết lập phông chữ đã chỉ định được áp dụng.
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	chart.HasDataTable = true;
+using var presentation = new Presentation("test.pptx");
+var slide = presentation.Slides[0];
 
-	chart.ChartDataTable.TextFormat.PortionFormat.FontBold = NullableBool.True;
-	chart.ChartDataTable.TextFormat.PortionFormat.FontHeight = 20;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+var portionFormat = chart.ChartDataTable.TextFormat.PortionFormat;
+portionFormat.FontBold = NullableBool.True;
+portionFormat.FontHeight = 20;
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-## **Câu hỏi thường gặp**
+## **Tùy Chỉnh Viền Bảng Dữ Liệu**
 
-**Tôi có thể hiển thị các khóa chú giải nhỏ bên cạnh các giá trị trong bảng dữ liệu của biểu đồ không?**
+Bật bảng bằng [IChart.HasDataTable](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichart/hasdatatable/) và truy cập nó qua [IChart.ChartDataTable](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichart/chartdatatable/). Bạn có thể kiểm soát ba loại viền một cách độc lập:
 
-Có. Bảng dữ liệu hỗ trợ [legend keys](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/datatable/showlegendkey/), và bạn có thể bật hoặc tắt chúng.
+- [HasBorderHorizontal](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/idatatable/hasborderhorizontal/) kiểm soát viền ô ngang.
+- [HasBorderVertical](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/idatatable/hasbordervertical/) kiểm soát viền ô dọc.
+- [HasBorderOutline](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/idatatable/hasborderoutline/) kiểm soát viền ngoài của bảng.
 
-**Bảng dữ liệu có được giữ lại khi xuất bản trình chiếu sang PDF, HTML hoặc hình ảnh không?**
+Đặt mỗi thuộc tính thành `true` để hiển thị viền hoặc `false` để ẩn. Ví dụ sau tạo một biểu đồ cột nhóm với dữ liệu mặc định, hiển thị viền ngang và viền ngoài, và ẩn viền dọc. Không yêu cầu tệp đầu vào. Vị trí và kích thước của biểu đồ được chỉ định bằng điểm.
 
-Có. Aspose.Slides render biểu đồ như một phần của slide, vì vậy [PDF](/slides/vi/net/convert-powerpoint-to-pdf/)/[HTML](/slides/vi/net/convert-powerpoint-to-html/)/[image](/slides/vi/net/convert-powerpoint-to-png/) xuất ra sẽ bao gồm biểu đồ cùng với bảng dữ liệu của nó.
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-**Bảng dữ liệu có được hỗ trợ cho các biểu đồ đến từ tệp mẫu không?**
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-Có. Đối với bất kỳ biểu đồ nào được tải từ một bản trình chiếu hoặc mẫu hiện có, bạn có thể kiểm tra và thay đổi việc [is shown](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/chart/hasdatatable/) của bảng dữ liệu bằng cách sử dụng các thuộc tính của biểu đồ.
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
 
-**Làm thế nào tôi có thể nhanh chóng tìm ra các biểu đồ trong tệp nào đã bật bảng dữ liệu?**
+var dataTable = chart.ChartDataTable;
+dataTable.HasBorderHorizontal = true;
+dataTable.HasBorderVertical = false;
+dataTable.HasBorderOutline = true;
 
-Kiểm tra thuộc tính của mỗi biểu đồ cho biết việc bảng dữ liệu [is shown](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/chart/hasdatatable/) và duyệt qua các slide để xác định các biểu đồ mà nó đã được bật.
+presentation.Save("data-table-borders.pptx", SaveFormat.Pptx);
+```
+
+So sánh dưới đây sử dụng cùng một dữ liệu biểu đồ và thiết lập chìa khóa chú giải trong cả bốn trường hợp. Bắt đầu với tất cả viền được bật, mỗi biến thể còn lại chỉ tắt một thuộc tính viền. Biến thể góc dưới bên trái khớp với các thiết lập viền trong ví dụ.
+
+![Bảng dữ liệu biểu đồ với tất cả viền được bật, không viền ngang, không viền dọc và không viền ngoài](data-table-borders.png)
+
+## **Hiển Thị Hoặc Ẩn Chìa Khóa Chú Giải**
+
+Chìa khóa chú giải là các dấu màu nhỏ bên cạnh tên chuỗi trong bảng dữ liệu. Chúng giúp người đọc khớp mỗi hàng bảng với một chuỗi biểu đồ. Đặt [ShowLegendKey](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/idatatable/showlegendkey/) thành `true` để hiển thị các dấu này hoặc `false` để ẩn chúng.
+
+Chú giải riêng của biểu đồ được điều khiển bởi [IChart.HasLegend](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichart/haslegend/). Các thiết lập này độc lập: ẩn chú giải riêng sẽ không ẩn các chìa khóa trong bảng dữ liệu, và ẩn chìa khóa trong bảng sẽ không ẩn chú giải riêng.
+
+Ví dụ sau tạo một biểu đồ với dữ liệu mặc định, bật bảng dữ liệu và hiển thị chìa khóa chú giải bên trong trong khi ẩn chú giải riêng. Tất cả viền bảng đều được bật rõ ràng. Không yêu cầu bản trình chiếu đầu vào. Để chỉ ẩn chìa khóa của bảng, đổi `dataTable.ShowLegendKey` thành `false`.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
+chart.HasLegend = false;
+
+var dataTable = chart.ChartDataTable;
+dataTable.HasBorderHorizontal = true;
+dataTable.HasBorderVertical = true;
+dataTable.HasBorderOutline = true;
+dataTable.ShowLegendKey = true;
+
+presentation.Save("data-table-legend-keys.pptx", SaveFormat.Pptx);
+```
+
+So sánh dưới đây cho thấy cùng một bảng với chìa khóa chú giải được bật và tắt. Tất cả viền vẫn được bật, và chú giải riêng của biểu đồ bị ẩn trong cả hai trường hợp.
+
+![Bảng dữ liệu biểu đồ với chìa khóa chú giải hiển thị ở bên trái và ẩn ở bên phải](data-table-legend-keys.png)
+
+## **FAQ**
+
+**Tôi có thể hiển thị chìa khóa chú giải trong bảng dữ liệu của biểu đồ không?**
+
+Có. Đặt [ShowLegendKey](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/datatable/showlegendkey/) thành `true` để hiển thị chìa khóa chú giải hoặc thành `false` để ẩn chúng.
+
+**Bảng dữ liệu có được giữ nguyên khi xuất bản trình chiếu sang PDF, HTML hoặc ảnh không?**
+
+Có. Aspose.Slides sẽ render biểu đồ và bảng dữ liệu đã hiển thị như một phần của slide khi xuất sang [PDF](/slides/vi/net/convert-powerpoint-to-pdf/), [HTML](/slides/vi/net/convert-powerpoint-to-html/) hoặc [images](/slides/vi/net/convert-powerpoint-to-png/).
+
+**Tôi có thể làm việc với bảng dữ liệu trong biểu đồ được tải từ mẫu không?**
+
+Có. Đối với biểu đồ được tải từ bản trình chiếu hoặc mẫu hiện có, sử dụng [HasDataTable](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/chart/hasdatatable/) để kiểm tra hoặc thay đổi việc bảng dữ liệu có được hiển thị hay không.
+
+**Làm sao tôi có thể tìm các biểu đồ có bảng dữ liệu được bật?**
+
+Duyệt qua các hình dạng trên mỗi slide, xác định các biểu đồ và kiểm tra thuộc tính [HasDataTable](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/chart/hasdatatable/) của chúng. Giá trị `true` cho biết bảng dữ liệu đã được bật.

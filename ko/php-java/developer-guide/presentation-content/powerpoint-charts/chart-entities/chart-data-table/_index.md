@@ -1,5 +1,5 @@
 ---
-title: PHP를 사용한 프레젠테이션의 차트 데이터 테이블 사용자 지정
+title: PHP를 사용한 프레젠테이션에서 차트 데이터 테이블 사용자 지정
 linktitle: 데이터 테이블
 type: docs
 url: /ko/php-java/chart-data-table/
@@ -11,53 +11,135 @@ keywords:
 - 프레젠테이션
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java를 사용하여 PPT 및 PPTX용 차트 데이터 테이블을 사용자 지정하여 프레젠테이션의 효율성과 매력을 향상시킵니다."
+description: "Aspose.Slides for PHP via Java를 사용하여 PowerPoint 프레젠테이션의 차트 데이터 테이블 글꼴, 테두리 및 범례 키를 사용자 지정합니다."
 ---
 ## **개요**
 
-이 문서는 Aspose.Slides에서 차트 데이터 테이블을 사용하는 방법을 설명합니다. 차트에 데이터 테이블을 표시하고 굵은 스타일 및 글꼴 높이와 같은 글꼴 속성을 설정하여 텍스트 서식을 사용자 지정하는 방법을 보여줍니다. 예제에서는 프레젠테이션을 로드하고, 차트를 추가하고, 차트 데이터 테이블을 활성화하고, 글꼴 설정을 적용한 후 업데이트된 프레젠테이션을 저장하는 과정을 시연합니다. 또한 차트 데이터 테이블에 범례 키를 표시하는 방법, 내보내기 중 데이터 테이블을 보존하는 방법, 기존 프레젠테이션이나 템플릿에서 로드한 차트를 작업하는 방법, 데이터 테이블이 활성화된 차트를 식별하는 방법 등에 대한 일반적인 질문에 대한 간략한 답변도 포함합니다.
+Aspose.Slides for PHP via Java을 사용하면 차트의 데이터 테이블을 표시하고 텍스트 서식, 테두리 및 범례 키를 사용자 지정할 수 있습니다. 이 문서에서는 테이블을 활성화하고, 텍스트를 서식 지정하고, 각 종류의 테두리를 제어하며, 범례 키를 표시하거나 숨기는 방법을 설명합니다. 예제에서는 구성된 차트를 PPTX 파일로 저장합니다.
 
-## **차트 데이터 테이블에 대한 글꼴 속성 설정**
-Aspose.Slides for PHP via Java는 시리즈 색상의 범주 색상을 변경하는 기능을 제공합니다.
+## **글꼴 속성 설정**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/Presentation) 클래스 객체를 인스턴스화합니다.
-1. 슬라이드에 차트를 추가합니다.
-1. 차트 테이블을 설정합니다.
-1. 글꼴 높이를 설정합니다.
+차트의 데이터 테이블을 표시하려면 `true`를 [setDataTable](https://reference.aspose.com/slides/ko/php-java/aspose.slides/chart/setdatatable/)에 전달합니다. 테이블에 액세스하고 텍스트 서식을 구성하려면 [getChartDataTable](https://reference.aspose.com/slides/ko/php-java/aspose.slides/chart/getchartdatatable/)를 사용합니다.
+
+1. 프레젠테이션을 [Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/) 클래스를 사용하여 로드합니다.
+1. 첫 번째 슬라이드에 클러스터형 열 차트를 추가합니다.
+1. 차트의 데이터 테이블을 활성화합니다.
+1. [setFontBold](https://reference.aspose.com/slides/ko/php-java/aspose.slides/baseportionformat/#setFontBold)로 굵은 텍스트를 활성화하고, 20포인트 텍스트를 위해 [setFontHeight](https://reference.aspose.com/slides/ko/php-java/aspose.slides/baseportionformat/#setFontHeight)에 `20`을 전달합니다.
 1. 수정된 프레젠테이션을 저장합니다.
 
-아래 예제 샘플이 제공됩니다.
+다음 예제는 작업 디렉터리에 최소 하나의 슬라이드가 포함된 `test.pptx` 파일이 필요합니다. 위치 (50, 50)에 기본 데이터가 있는 차트를 추가하고, 너비는 600포인트, 높이는 400포인트로 설정합니다. 저장된 `output.pptx`에는 데이터 테이블이 활성화되고 지정된 글꼴 설정이 적용된 차트가 포함됩니다.
 
 ```php
-  # 빈 프레젠테이션 만들기
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+use aspose\slides\ChartType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("test.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
     $chart->setDataTable(true);
-    $chart->getChartDataTable()->getTextFormat()->getPortionFormat()->setFontBold(NullableBool::True);
-    $chart->getChartDataTable()->getTextFormat()->getPortionFormat()->setFontHeight(20);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $portionFormat = $chart->getChartDataTable()->getTextFormat()->getPortionFormat();
+    $portionFormat->setFontBold(NullableBool::True);
+    $portionFormat->setFontHeight(20);
+
+    $presentation->save("output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+## **데이터 테이블 테두리 사용자 지정**
+
+테이블을 [Chart::setDataTable](https://reference.aspose.com/slides/ko/php-java/aspose.slides/chart/setdatatable/)으로 활성화하고, [Chart::getChartDataTable](https://reference.aspose.com/slides/ko/php-java/aspose.slides/chart/getchartdatatable/)을 통해 액세스합니다. 세 가지 유형의 테두리를 독립적으로 제어할 수 있습니다:
+
+- [setBorderHorizontal](https://reference.aspose.com/slides/ko/php-java/aspose.slides/datatable/setborderhorizontal/)은 가로 셀 테두리를 제어합니다.
+- [setBorderVertical](https://reference.aspose.com/slides/ko/php-java/aspose.slides/datatable/setbordervertical/)은 세로 셀 테두리를 제어합니다.
+- [setBorderOutline](https://reference.aspose.com/slides/ko/php-java/aspose.slides/datatable/setborderoutline/)은 테이블의 외부 테두리를 제어합니다.
+
+`true`를 각 메서드에 전달하면 해당 테두리를 표시하고, `false`를 전달하면 숨깁니다. 다음 예제는 기본 데이터가 있는 클러스터형 열 차트를 생성하고, 가로 테두리와 외부 테두리를 표시하며, 세로 테두리를 숨깁니다. 입력 파일이 필요하지 않으며, 차트의 위치와 크기는 포인트 단위로 지정됩니다.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setDataTable(true);
+
+    $dataTable = $chart->getChartDataTable();
+    $dataTable->setBorderHorizontal(true);
+    $dataTable->setBorderVertical(false);
+    $dataTable->setBorderOutline(true);
+
+    $presentation->save("data-table-borders.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+아래 비교는 네 경우 모두 동일한 차트 데이터와 범례 키 설정을 사용합니다. 모든 테두리를 활성화한 상태에서 각 변형은 하나의 테두리 설정만 비활성화합니다. 좌하단 변형은 예제의 테두리 설정과 일치합니다.
+
+![모든 테두리가 활성화된 차트 데이터 테이블, 가로 테두리 없음, 세로 테두리 없음, 외부 테두리 없음](data-table-borders.png)
+
+## **범례 키 표시 또는 숨기기**
+
+범례 키는 데이터 테이블의 시리즈 이름 옆에 있는 작은 색상 마커입니다. 독자는 이를 통해 각 테이블 행을 차트 시리즈와 매칭할 수 있습니다. [setShowLegendKey](https://reference.aspose.com/slides/ko/php-java/aspose.slides/datatable/setshowlegendkey/)에 `true`를 전달하면 마커를 표시하고, `false`를 전달하면 숨깁니다.
+
+차트의 별도 범례는 [Chart::setLegend](https://reference.aspose.com/slides/ko/php-java/aspose.slides/chart/setlegend/)으로 제어됩니다. 이 설정은 독립적이며, 별도 범례를 숨겨도 데이터 테이블 내부의 키는 숨겨지지 않으며, 테이블의 키를 숨겨도 별도 범례는 숨겨지지 않습니다.
+
+다음 예제는 기본 데이터가 있는 차트를 생성하고, 데이터 테이블을 활성화한 후 별도 범례를 숨기면서 테이블 내부에 범례 키를 표시합니다. 모든 테이블 테두리는 명시적으로 활성화됩니다. 입력 프레젠테이션이 필요하지 않으며, 테이블의 키만 숨기려면 [setShowLegendKey](https://reference.aspose.com/slides/ko/php-java/aspose.slides/datatable/setshowlegendkey/)에 `false`를 전달합니다.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setDataTable(true);
+    $chart->setLegend(false);
+
+    $dataTable = $chart->getChartDataTable();
+    $dataTable->setBorderHorizontal(true);
+    $dataTable->setBorderVertical(true);
+    $dataTable->setBorderOutline(true);
+    $dataTable->setShowLegendKey(true);
+
+    $presentation->save("data-table-legend-keys.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+아래 비교는 범례 키가 활성화된 경우와 비활성화된 경우의 동일한 테이블을 보여줍니다. 모든 테두리는 계속 활성화되고, 별도 차트 범례는 두 경우 모두 숨겨져 있습니다.
+
+![왼쪽에 범례 키가 표시되고 오른쪽에 숨겨진 차트 데이터 테이블](data-table-legend-keys.png)
 
 ## **자주 묻는 질문**
 
-**차트 데이터 테이블의 값 옆에 작은 범례 키를 표시할 수 있나요?**
+**차트의 데이터 테이블에 범례 키를 표시할 수 있나요?**
 
-예. 데이터 테이블은 [범례 키](https://reference.aspose.com/slides/ko/php-java/aspose.slides/datatable/setshowlegendkey/)를 지원하며, 이를 켜거나 끌 수 있습니다.
+예. [setShowLegendKey](https://reference.aspose.com/slides/ko/php-java/aspose.slides/datatable/setshowlegendkey/)에 `true`를 전달하면 범례 키가 표시되고, `false`를 전달하면 숨겨집니다.
 
-**프레젠테이션을 PDF, HTML 또는 이미지로 내보낼 때 데이터 테이블이 보존되나요?**
+**프레젠테이션을 PDF, HTML 또는 이미지로 내보낼 때 데이터 테이블이 유지되나요?**
 
-예. Aspose.Slides는 차트를 슬라이드의 일부로 렌더링하므로, 내보낸 [PDF](/slides/ko/php-java/convert-powerpoint-to-pdf/)/[HTML](/slides/ko/php-java/convert-powerpoint-to-html/)/[이미지](/slides/ko/php-java/convert-powerpoint-to-png/)에는 차트와 데이터 테이블이 포함됩니다.
+예. Aspose.Slides는 PDF, HTML, 이미지로 내보낼 때 차트와 표시된 데이터 테이블을 슬라이드의 일부로 렌더링합니다.
 
-**템플릿 파일에서 가져온 차트에 데이터 테이블이 지원되나요?**
+**템플릿에서 로드한 차트의 데이터 테이블을 사용할 수 있나요?**
 
-예. 기존 프레젠테이션이나 템플릿에서 로드된 차트에 대해, 차트 속성을 사용하여 데이터 테이블이 [표시되는지](https://reference.aspose.com/slides/ko/php-java/aspose.slides/chart/hasdatatable/) 확인하고 변경할 수 있습니다.
+예. 기존 프레젠테이션이나 템플릿에서 로드한 차트의 경우, [hasDataTable](https://reference.aspose.com/slides/ko/php-java/aspose.slides/chart/hasdatatable/)와 [setDataTable](https://reference.aspose.com/slides/ko/php-java/aspose.slides/chart/setdatatable/)를 사용하여 데이터 테이블이 표시되는지 확인하거나 변경할 수 있습니다.
 
-**파일 내에서 데이터 테이블이 활성화된 차트를 어떻게 빠르게 찾을 수 있나요?**
+**데이터 테이블이 활성화된 차트를 어떻게 찾을 수 있나요?**
 
-각 차트의 데이터 테이블이 [표시되는지](https://reference.aspose.com/slides/ko/php-java/aspose.slides/chart/hasdatatable/) 나타내는 속성을 검사하고 슬라이드를 순회하여 해당 차트가 활성화되어 있는지를 식별합니다.
+슬라이드의 각 Shape를 순회하면서 차트를 식별하고, 해당 차트의 [hasDataTable](https://reference.aspose.com/slides/ko/php-java/aspose.slides/chart/hasdatatable/) 메서드를 호출합니다. 반환값이 `true`이면 데이터 테이블이 활성화된 것입니다.

@@ -12,53 +12,122 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Přizpůsobte datové tabulky grafů v .NET pro PPT a PPTX pomocí Aspose.Slides a zvyšte efektivitu a atraktivitu v prezentacích."
+description: "Přizpůsobte písma, okraje a klíče legendy datových tabulek grafů v prezentacích PowerPoint pomocí Aspose.Slides pro .NET a C#."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s datovými tabulkami grafů v Aspose.Slides. Ukazuje, jak zobrazit datovou tabulku pro graf a přizpůsobit její formátování textu nastavením vlastností písma, jako je tučný styl a výška fontu. Příklad demonstruje načtení prezentace, přidání grafu, povolení datové tabulky grafu, aplikaci nastavení písma a uložení aktualizované prezentace.
+Aspose.Slides pro .NET vám umožňuje zobrazit datovou tabulku grafu a přizpůsobit její formátování textu, okraje a klíče legendy. Tento článek vysvětluje, jak zapnout tabulku, naformátovat její text, ovládat každý typ okraje a zobrazit nebo skrýt klíče legendy. Příklady ukládají nakonfigurované grafy do souborů PPTX.
 
-Obsahuje také stručné odpovědi na časté otázky o zobrazování legendových klíčů v datové tabulce grafu, zachování datové tabulky při exportu, práci s grafy načtenými ze stávajících prezentací nebo šablon a identifikaci grafů, u nichž je datová tabulka povolena.
+## **Nastavení vlastností písma**
 
-## **Nastavení vlastností fontu pro datovou tabulku grafu**
-Aspose.Slides pro .NET poskytuje podporu pro změnu barvy kategorií v barvě série.
+Chcete-li zobrazit datovou tabulku grafu, nastavte [HasDataTable](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/chart/hasdatatable/) na `true`. Pomocí [ChartDataTable](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/chart/chartdatatable/) získáte přístup k tabulce a nakonfigurujete formátování jejího textu.
 
-1. Vytvořte instanci [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation) třídy.
-1. Přidejte graf na snímek.
-1. nastavit tabulku grafu.
-1. Nastavte výšku fontu.
+1. Načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
+1. Přidejte seskupený sloupcový graf na první snímek.
+1. Povolte datovou tabulku grafu.
+1. Povolte tučný text pomocí [FontBold](https://reference.aspose.com/slides/cs/net/aspose.slides/baseportionformat/fontbold/) a nastavte [FontHeight](https://reference.aspose.com/slides/cs/net/aspose.slides/baseportionformat/fontheight/) na `20` pro 20‑bodový text.
 1. Uložte upravenou prezentaci.
 
-Níže je uveden ukázkový příklad.
+Následující příklad vyžaduje soubor `test.pptx` v pracovním adresáři s alespoň jedním snímkem. Přidá graf s výchozími daty na pozici (50, 50) o šířce 600 bodů a výšce 400 bodů. Uložený soubor `output.pptx` obsahuje graf s povolenou datovou tabulkou a aplikovaným nastavením písma.
 
-```c#
-using (Presentation pres = new Presentation("test.pptx"))
-{
-	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-	chart.HasDataTable = true;
+using var presentation = new Presentation("test.pptx");
+var slide = presentation.Slides[0];
 
-	chart.ChartDataTable.TextFormat.PortionFormat.FontBold = NullableBool.True;
-	chart.ChartDataTable.TextFormat.PortionFormat.FontHeight = 20;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
 
-	pres.Save("output.pptx", SaveFormat.Pptx);
-}
+var portionFormat = chart.ChartDataTable.TextFormat.PortionFormat;
+portionFormat.FontBold = NullableBool.True;
+portionFormat.FontHeight = 20;
+
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
+
+## **Přizpůsobení okrajů datové tabulky**
+
+Tabulku povolte pomocí [IChart.HasDataTable](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichart/hasdatatable/) a získáte k ní přístup přes [IChart.ChartDataTable](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichart/chartdatatable/). Můžete nezávisle ovládat tři typy okrajů:
+
+- [HasBorderHorizontal](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/idatatable/hasborderhorizontal/) řídí vodorovné okraje buněk.
+- [HasBorderVertical](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/idatatable/hasbordervertical/) řídí svislé okraje buněk.
+- [HasBorderOutline](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/idatatable/hasborderoutline/) řídí vnější okraj tabulky.
+
+Nastavte každou vlastnost na `true`, chcete‑li zobrazit její okraje, nebo na `false`, chcete‑li je skrýt. Následující příklad vytvoří seskupený sloupcový graf s výchozími daty, zobrazí vodorovné okraje a vnější okraj a skryje svislé okraje. Nevyžaduje žádný vstupní soubor. Pozice a velikost grafu jsou uvedeny v bodech.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
+
+var dataTable = chart.ChartDataTable;
+dataTable.HasBorderHorizontal = true;
+dataTable.HasBorderVertical = false;
+dataTable.HasBorderOutline = true;
+
+presentation.Save("data-table-borders.pptx", SaveFormat.Pptx);
+```
+
+Níže uvedené srovnání používá ve všech čtyřech případech stejná data grafu a nastavení klíčů legendy. Začíná se se všemi povolenými okraji, každý další variant vypíná právě jednu vlastnost okraje. Varianta v levém dolním rohu odpovídá nastavení okrajů v příkladu.
+
+![Datové tabulky grafu se všemi okraji povoleny, bez vodorovných okrajů, bez svislých okrajů a bez vnějšího okraje](data-table-borders.png)
+
+## **Zobrazit nebo skrýt klíče legendy**
+
+Klíče legendy jsou malé barevné značky vedle názvů sérií v datové tabulce. Pomáhají čtenářům přiřadit každý řádek tabulky ke konkrétní sérii grafu. Nastavte [ShowLegendKey](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/idatatable/showlegendkey/) na `true`, chcete‑li zobrazit tyto značky, nebo na `false`, chcete‑li je skrýt.
+
+Samostatná legenda grafu je řízena pomocí [IChart.HasLegend](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichart/haslegend/). Tato nastavení jsou nezávislá: skrytí samostatné legendy neovlivní klíče v datové tabulce a skrytí klíčů v tabulce neovlivní samostatnou legendu.
+
+Následující příklad vytvoří graf s výchozími daty, povolí jeho datovou tabulku a zobrazí klíče legendy uvnitř ní, zatímco skrývá samostatnou legendu. Všechny okraje tabulky jsou výslovně povoleny. Vstupní prezentace není vyžadována. Chcete‑li skrýt pouze klíče v tabulce, změňte `dataTable.ShowLegendKey` na `false`.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+chart.HasDataTable = true;
+chart.HasLegend = false;
+
+var dataTable = chart.ChartDataTable;
+dataTable.HasBorderHorizontal = true;
+dataTable.HasBorderVertical = true;
+dataTable.HasBorderOutline = true;
+dataTable.ShowLegendKey = true;
+
+presentation.Save("data-table-legend-keys.pptx", SaveFormat.Pptx);
+```
+
+Níže uvedené srovnání ukazuje stejnou tabulku s povolenými a zakázanými klíči legendy. Všechny okraje zůstávají povoleny a samostatná legenda grafu je v obou případech skryta.
+
+![Datové tabulky grafu s klíči legendy zobrazenými vlevo a skrytými vpravo](data-table-legend-keys.png)
 
 ## **Často kladené otázky**
 
-**Mohu zobrazit malé legendové klíče vedle hodnot v datové tabulce grafu?**
+**Mohu zobrazit klíče legendy v datové tabulce grafu?**
 
-Ano. Datová tabulka podporuje [legendové klíče](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/datatable/showlegendkey/), a můžete je zapnout nebo vypnout.
+Ano. Nastavte [ShowLegendKey](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/datatable/showlegendkey/) na `true` pro zobrazení klíčů legendy nebo na `false` pro jejich skrytí.
 
 **Zůstane datová tabulka zachována při exportu prezentace do PDF, HTML nebo obrázků?**
 
-Ano. Aspose.Slides vykresluje graf jako součást snímku, takže exportovaný [PDF](/slides/cs/net/convert-powerpoint-to-pdf/)/[HTML](/slides/cs/net/convert-powerpoint-to-html/)/[obrázek](/slides/cs/net/convert-powerpoint-to-png/) obsahuje graf s jeho datovou tabulkou.
+Ano. Aspose.Slides vykreslí graf a jeho zobrazovanou datovou tabulku jako součást snímku při exportu do [PDF](/slides/cs/net/convert-powerpoint-to-pdf/), [HTML](/slides/cs/net/convert-powerpoint-to-html/) nebo [obrázků](/slides/cs/net/convert-powerpoint-to-png/).
 
-**Jsou datové tabulky podporovány u grafů, které pocházejí ze souboru šablony?**
+**Mohu pracovat s datovými tabulkami v grafech načtených ze šablony?**
 
-Ano. U libovolného grafu načteného ze stávající prezentace nebo šablony můžete zkontrolovat a změnit, zda je datová tabulka [zobrazena](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/chart/hasdatatable/) pomocí vlastností grafu.
+Ano. U grafu načteného z existující prezentace nebo šablony použijte [HasDataTable](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/chart/hasdatatable/) k ověření či změně, zda je jeho datová tabulka zobrazena.
 
-**Jak mohu rychle najít, které grafy v souboru mají povolenou datovou tabulku?**
+**Jak mohu najít grafy s povolenou datovou tabulkou?**
 
-Prozkoumejte vlastnost každého grafu, která udává, zda je datová tabulka [zobrazena](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/chart/hasdatatable/), a projděte snímky, abyste identifikovali grafy, u nichž je povolena.
+Procházejte tvary na každém snímku, identifikujte grafy a zkontrolujte jejich vlastnost [HasDataTable](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/chart/hasdatatable/). Hodnota `true` znamená, že je datová tabulka povolena.

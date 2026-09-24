@@ -1,6 +1,6 @@
 ---
-title: Προσαρμογή πινάκων δεδομένων διαγραμμάτων σε παρουσιάσεις χρησιμοποιώντας JavaScript
-linktitle: Πίνακας δεδομένων
+title: Προσαρμογή Πίνακων Δεδομένων Διαγραμμάτων σε Παρουσιάσεις χρησιμοποιώντας JavaScript
+linktitle: Πίνακας Δεδομένων
 type: docs
 url: /el/nodejs-java/chart-data-table/
 keywords:
@@ -12,56 +12,130 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Προσαρμόστε τους πίνακες δεδομένων διαγραμμάτων σε JavaScript για PPT και PPTX με Aspose.Slides για Node.js μέσω Java, για να αυξήσετε την αποδοτικότητα και την ελκυστικότητα στις παρουσιάσεις."
+description: "Προσαρμόστε τις γραμματοσειρές, τα περιθώρια και τα κλειδιά υπομνήματος των πινάκων δεδομένων διαγράμματος σε παρουσιάσεις PowerPoint χρησιμοποιώντας το Aspose.Slides για Node.js μέσω Java."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να δουλέψετε με πίνακες δεδομένων διαγραμμάτων στο Aspose.Slides. Δείχνει πώς να εμφανίσετε έναν πίνακα δεδομένων για ένα διάγραμμα και να προσαρμόσετε τη μορφοποίηση κειμένου ορίζοντας ιδιότητες γραμματοσειράς όπως έντονη γραφή και ύψος γραμματοσειράς. Το παράδειγμα δείχνει τη φόρτωση μιας παρουσίασης, την προσθήκη διαγράμματος, την ενεργοποίηση του πίνακα δεδομένων διαγράμματος, την εφαρμογή ρυθμίσεων γραμματοσειράς και την αποθήκευση της ενημερωμένης παρουσίασης.
+Aspose.Slides for Node.js via Java σάς επιτρέπει να εμφανίσετε τον πίνακα δεδομένων ενός διαγράμματος και να προσαρμόσετε τη μορφοποίηση του κειμένου, τα περιθώρια και τα κλειδιά υπομνήματος. Αυτό το άρθρο εξηγεί πώς να ενεργοποιήσετε τον πίνακα, να μορφοποιήσετε το κείμενο, να ελέγξετε κάθε τύπο περιθωρίου και να εμφανίσετε ή να αποκρύψετε τα κλειδιά υπομνήματος. Τα παραδείγματα αποθηκεύουν τα ρυθμισμένα διαγράμματα σε αρχεία PPTX.
 
-Περιλαμβάνει επίσης σύντομες απαντήσεις σε συνηθισμένες ερωτήσεις σχετικά με την εμφάνιση κλειδιών υπομνήματος σε πίνακα δεδομένων διαγράμματος, τη διατήρηση του πίνακα δεδομένων κατά την εξαγωγή, την εργασία με διαγράμματα που φορτώνονται από υπάρχουσες παρουσιάσεις ή πρότυπα, και την ταυτοποίηση διαγραμμάτων στα οποία ο πίνακας δεδομένων είναι ενεργοποιημένος.
+## **Ορισμός Ιδιοτήτων Γραμματοσειράς**
 
-## **Ορισμός ιδιοτήτων γραμματοσειράς για τον Πίνακα δεδομένων διαγράμματος**
+Για να εμφανίσετε τον πίνακα δεδομένων ενός διαγράμματος, περάστε το `true` στο [setDataTable](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chart/setdatatable/). Χρησιμοποιήστε το [getChartDataTable](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chart/getchartdatatable/) για να αποκτήσετε πρόσβαση στον πίνακα και να διαμορφώσετε τη μορφοποίηση του κειμένου.
 
-Aspose.Slides για Node.js μέσω Java παρέχει υποστήριξη για αλλαγή του χρώματος των κατηγοριών σε ένα χρώμα σειράς.
-
-1. Δημιουργήστε αντικείμενο κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-1. Προσθέστε διάγραμμα στη διαφάνεια.
-1. Ορίστε τον πίνακα δεδομένων διαγράμματος.
-1. Ορίστε το ύψος γραμματοσειράς.
+1. Φορτώστε την παρουσίαση χρησιμοποιώντας την κλάση [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/).
+1. Προσθέστε ένα διασπαρμένο ρά柱ειο στήλης στην πρώτη διαφάνεια.
+1. Ενεργοποιήστε τον πίνακα δεδομένων του διαγράμματος.
+1. Ενεργοποιήστε το έντονο κείμενο με το [setFontBold](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/baseportionformat/#setfontbold) και περάστε το `20` στο [setFontHeight](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/baseportionformat/#setfontheight) για κείμενο 20 σημείων.
 1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-Παρατίθεται το παρακάτω παράδειγμα.
+Το ακόλουθο παράδειγμα απαιτεί το `input.pptx` στον τρέχοντα φάκελο εργασίας με τουλάχιστον μία διαφάνεια. Προσθέτει ένα διάγραμμα με προεπιλεγμένα δεδομένα στη θέση (50, 50), με πλάτος 600 σημεία και ύψος 400 σημεία. Το αποθηκευμένο `output.pptx` περιέχει το διάγραμμα με ενεργό τον πίνακα δεδομένων και τις καθορισμένες ρυθμίσεις γραμματοσειράς.
 
 ```javascript
-// Δημιουργία κενής παρουσίασης
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
     chart.setDataTable(true);
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontHeight(20);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const portionFormat = chart.getChartDataTable().getTextFormat().getPortionFormat();
+    portionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    portionFormat.setFontHeight(20);
+
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+## **Προσαρμογή Περιθωρίων Πίνακα Δεδομένων**
 
-**Μπορώ να εμφανίσω μικρά κλειδιά υπομνήματος δίπλα στις τιμές στον πίνακα δεδομένων του διαγράμματος;**
+Ενεργοποιήστε τον πίνακα με το [Chart.setDataTable](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chart/setdatatable/) και αποκτήστε πρόσβαση μέσω του [Chart.getChartDataTable](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chart/getchartdatatable/). Μπορείτε να ελέγξετε τρεις τύπους περιθωρίων ανεξάρτητα:
 
-Ναι. Ο πίνακας δεδομένων υποστηρίζει [legend keys](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datatable/setshowlegendkey/), και μπορείτε να τα ενεργοποιήσετε ή να τα απενεργοποιήσετε.
+- Το [setBorderHorizontal](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datatable/setborderhorizontal/) ελέγχει τα οριζόντια περιθώρια των κελιών.
+- Το [setBorderVertical](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datatable/setbordervertical/) ελέγχει τα κάθετα περιθώρια των κελιών.
+- Το [setBorderOutline](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datatable/setborderoutline/) ελέγχει το εξωτερικό περιθώριο του πίνακα.
+
+Περάστε το `true` σε κάθε μέθοδο για να εμφανίσετε τα περιθώρια ή το `false` για να τα αποκρύψετε. Το παρακάτω παράδειγμα δημιουργεί ένα διασπαρμένο ρά柱ειο στήλης με προεπιλεγμένα δεδομένα, εμφανίζει τα οριζόντια περιθώρια και το εξωτερικό περιθώριο, και αποκρύπτει τα κάθετα περιθώρια. Δεν απαιτείται αρχείο εισόδου. Η θέση και το μέγεθος του διαγράμματος καθορίζονται σε σημεία.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+
+    const dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(false);
+    dataTable.setBorderOutline(true);
+
+    presentation.save("data-table-borders.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Η σύγκριση παρακάτω χρησιμοποιεί τα ίδια δεδομένα διαγράμματος και τις ίδιες ρυθμίσεις κλειδιού υπομνήματος σε όλες τις τέσσερις περιπτώσεις. Ξεκινώντας με όλα τα περιθώρια ενεργά, κάθε επόμενη παραλλαγή απενεργοποιεί μόνο ένα περιθώριο. Η παραλλαγή κάτω αριστερά ταιριάζει με τις ρυθμίσεις περιθωρίων του παραδείγματος.
+
+![Πίνακες δεδομένων διαγράμματος με όλα τα περιθώρια ενεργά, χωρίς οριζόντια περιθώρια, χωρίς κάθετα περιθώρια και χωρίς εξωτερικό περιθώριο](data-table-borders.png)
+
+## **Εμφάνιση ή Απόκρυψη Κλειδιών Υπόμνησης**
+
+Τα κλειδιά υπομνήματος είναι μικρά χρωματιστά σύμβολα δίπλα στα ονόματα των σειρών στον πίνακα δεδομένων. Βοηθούν τον αναγνώστη να αντιστοιχίσει κάθε σειρά του πίνακα σε μια σειρά του διαγράμματος. Περάστε το `true` στο [setShowLegendKey](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datatable/setshowlegendkey/) για να εμφανίσετε αυτά τα σύμβολα ή το `false` για να τα αποκρύψετε.
+
+Το ξεχωριστό υπόμνημα του διαγράμματος ελέγχεται από το [Chart.setLegend](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chart/setlegend/). Αυτές οι ρυθμίσεις είναι ανεξάρτητες: η απόκρυψη του ξεχωριστού υπομνήματος δεν αποκρύπτει τα κλειδιά μέσα στον πίνακα δεδομένων, και η απόκρυψη των κλειδιών του πίνακα δεν αποκρύπτει το ξεχωριστό υπόμνημα.
+
+Το παρακάτω παράδειγμα δημιουργεί ένα διάγραμμα με προεπιλεγμένα δεδομένα, ενεργοποιεί τον πίνακα δεδομένων και εμφανίζει τα κλειδιά υπομνήματος μέσα σε αυτό ενώ αποκρύπτει το ξεχωριστό υπόμνημα. Όλα τα περιθώρια του πίνακα είναι ρητά ενεργά. Δεν απαιτείται παρουσίαση εισόδου. Για να αποκρύψετε μόνο τα κλειδιά του πίνακα, περάστε το `false` στο [setShowLegendKey](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datatable/setshowlegendkey/).
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+    chart.setLegend(false);
+
+    const dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(true);
+    dataTable.setBorderOutline(true);
+    dataTable.setShowLegendKey(true);
+
+    presentation.save("data-table-legend-keys.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Η σύγκριση παρακάτω εμφανίζει τον ίδιο πίνακα με τα κλειδιά υπομνήματος ενεργά και ανενεργά. Όλα τα περιθώρια παραμένουν ενεργά, και το ξεχωριστό υπόμνημα του διαγράμματος είναι κρυφό και στις δύο περιπτώσεις.
+
+![Πίνακες δεδομένων διαγράμματος με κλειδιά υπομνήματος εμφανισμένα στα αριστερά και κρυμμένα στα δεξιά](data-table-legend-keys.png)
+
+## **Συχνές Ερωτήσεις**
+
+**Μπορώ να εμφανίσω κλειδιά υπομνήματος στον πίνακα δεδομένων ενός διαγράμματος;**
+
+Ναι. Περάστε το `true` στο [setShowLegendKey](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/datatable/setshowlegendkey/) για να εμφανίσετε τα κλειδιά υπομνήματος ή το `false` για να τα αποκρύψετε.
 
 **Θα διατηρηθεί ο πίνακας δεδομένων κατά την εξαγωγή της παρουσίασης σε PDF, HTML ή εικόνες;**
 
-Ναί. Το Aspose.Slides αποδίδει το διάγραμμα ως μέρος της διαφάνειας, έτσι το εξαγόμενο [PDF](/slides/el/nodejs-java/convert-powerpoint-to-pdf/)/[HTML](/slides/el/nodejs-java/convert-powerpoint-to-html/)/[image](/slides/el/nodejs-java/convert-powerpoint-to-png/) περιλαμβάνει το διάγραμμα με τον πίνακα δεδομένων του.
+Ναι. Το Aspose.Slides αποδίδει το διάγραμμα και τον εμφανιζόμενο πίνακα δεδομένων ως μέρος της διαφάνειας κατά την εξαγωγή σε [PDF](/slides/el/nodejs-java/convert-powerpoint-to-pdf/), [HTML](/slides/el/nodejs-java/convert-powerpoint-to-html/) ή [images](/slides/el/nodejs-java/convert-powerpoint-to-png/).
 
-**Υποστηρίζονται πίνακες δεδομένων για διαγράμματα που προέρχονται από αρχείο προτύπου;**
+**Μπορώ να δουλέψω με πίνακες δεδομένων σε διαγράμματα που φορτώνονται από πρότυπο;**
 
-Ναί. Για κάθε διάγραμμα που φορτώνεται από υπάρχουσα παρουσίαση ή πρότυπο, μπορείτε να ελέγξετε και να αλλάξετε αν ένας πίνακας δεδομένων [is shown](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chart/hasdatatable/) χρησιμοποιώντας τις ιδιότητες του διαγράμματος.
+Ναι. Για ένα διάγραμμα που φορτώνεται από υπάρχουσα παρουσίαση ή πρότυπο, χρησιμοποιήστε το [hasDataTable](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chart/hasdatatable/) και το [setDataTable](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chart/setdatatable/) για να ελέγξετε ή να αλλάξετε αν ο πίνακας δεδομένων εμφανίζεται.
 
-**Πώς μπορώ γρήγορα να βρω ποια διαγράμματα σε ένα αρχείο έχουν ενεργοποιημένο τον πίνακα δεδομένων;**
+**Πώς μπορώ να βρω διαγράμματα που έχουν ενεργοποιημένο πίνακα δεδομένων;**
 
-Εξετάστε την ιδιότητα κάθε διαγράμματος που υποδεικνύει αν ο πίνακας δεδομένων [is shown](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chart/hasdatatable/) και επαναλάβετε τις διαφάνειες για να εντοπίσετε τα διαγράμματα στα οποία είναι ενεργοποιημένος.
+Περιηγηθείτε στα σχήματα κάθε διαφάνειας, εντοπίστε τα διαγράμματα και καλέστε τη μέθοδο τους [hasDataTable](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chart/hasdatatable/). Μια τιμή `true` υποδεικνύει ότι ο πίνακας δεδομένων είναι ενεργός.

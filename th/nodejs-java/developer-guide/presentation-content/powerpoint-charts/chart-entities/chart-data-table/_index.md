@@ -1,67 +1,137 @@
 ---
-title: ปรับแต่งตารางข้อมูลของแผนภูมิในงานนำเสนอด้วย JavaScript
+title: ปรับแต่งตารางข้อมูลแผนภูมิในงานนำเสนอโดยใช้ JavaScript
 linktitle: ตารางข้อมูล
 type: docs
 url: /th/nodejs-java/chart-data-table/
 keywords:
 - ข้อมูลแผนภูมิ
 - ตารางข้อมูล
-- คุณสมบัติของฟอนต์
+- คุณสมบัติตัวอักษร
 - PowerPoint
 - งานนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "ปรับแต่งตารางข้อมูลของแผนภูมิใน JavaScript สำหรับ PPT และ PPTX ด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java เพื่อเพิ่มประสิทธิภาพและความน่าสนใจในงานนำเสนอ"
+description: "ปรับแต่งแบบอักษร, เส้นขอบ และคีย์คำอธิบายของตารางข้อมูลแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides สำหรับ Node.js ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการทำงานกับตารางข้อมูลของแผนภูมิใน Aspose.Slides มันแสดงวิธีการแสดงตารางข้อมูลสำหรับแผนภูมิและปรับแต่งการจัดรูปแบบข้อความโดยการตั้งค่าคุณสมบัติโฟนต์ เช่น การทำให้เป็นตัวหนาและความสูงของฟอนต์ ตัวอย่างแสดงการโหลดงานนำเสนอ, เพิ่มแผนภูมิ, เปิดใช้งานตารางข้อมูลของแผนภูมิ, ใช้การตั้งค่าแบบอักษร, และบันทึกงานนำเสนอที่อัปเดต
+Aspose.Slides for Node.js via Java ช่วยให้คุณแสดงตารางข้อมูลของแผนภูมิและปรับแต่งการจัดรูปแบบข้อความ, เส้นขอบ, และคีย์คำอธิบายของตาราง บทความนี้อธิบายวิธีเปิดใช้งานตาราง, จัดรูปแบบข้อความ, ควบคุมประเภทของเส้นขอบแต่ละประเภท, และแสดงหรือซ่อนคีย์คำอธิบาย ตัวอย่างจะบันทึกแผนภูมิที่กำหนดค่าไว้ในไฟล์ PPTX
 
-ส่วนนี้ยังรวมคำตอบสั้น ๆ สำหรับคำถามทั่วไปเกี่ยวกับการแสดงคีย์คำอธิบายสีในตารางข้อมูลของแผนภูมิ, การรักษาตารางข้อมูลระหว่างการส่งออก, การทำงานกับแผนภูมิที่โหลดมาจากงานนำเสนอหรือเทมเพลตที่มีอยู่, และการระบุแผนภูมิที่เปิดใช้งานตารางข้อมูล
+## **ตั้งค่าคุณสมบัติตัวอักษร**
 
-## **กำหนดคุณสมบัติโฟนต์สำหรับตารางข้อมูลของแผนภูมิ**
+เพื่อแสดงตารางข้อมูลของแผนภูมิ ให้ส่งค่า `true` ไปยัง [setDataTable](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chart/setdatatable/). ใช้ [getChartDataTable](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chart/getchartdatatable/) เพื่อเข้าถึงตารางและกำหนดการจัดรูปแบบข้อความ
 
-Aspose.Slides สำหรับ Node.js ผ่าน Java ให้การสนับสนุนการเปลี่ยนสีของหมวดหมู่ในสีของชุดข้อมูล  
+1. โหลดงานนำเสนอโดยใช้คลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/)  
+1. เพิ่มแผนภูมิคอลัมน์แบบกลุ่มบนสไลด์แรก  
+1. เปิดใช้งานตารางข้อมูลของแผนภูมิ  
+1. เปิดใช้งานข้อความหนาโดยใช้ [setFontBold](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseportionformat/#setfontbold) และส่งค่า `20` ไปยัง [setFontHeight](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseportionformat/#setfontheight) เพื่อกำหนดข้อความขนาด 20 จุด  
+1. บันทึกงานนำเสนอที่แก้ไขแล้ว  
 
-1. สร้างอ็อบเจ็กต์คลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation)
-1. เพิ่มแผนภูมิบนสไลด์
-1. ตั้งค่าตารางแผนภูมิ
-1. ตั้งค่าความสูงของฟอนต์
-1. บันทึกงานนำเสนอที่แก้ไข  
-
-ตัวอย่างต่อไปนี้ให้ไว้  
+ตัวอย่างต่อไปนี้ต้องการไฟล์ `input.pptx` ในไดเรกทอรีทำงานที่มีอย่างน้อยหนึ่งสไลด์ จะเพิ่มแผนภูมิที่มีข้อมูลค่าเริ่มต้นที่ตำแหน่ง (50, 50) ความกว้าง 600 จุด และความสูง 400 จุด ไฟล์ `output.pptx` ที่บันทึกจะมีแผนภูมิพร้อมตารางข้อมูลที่เปิดใช้งานและตั้งค่าฟอนต์ตามที่ระบุ
 
 ```javascript
-// สร้างงานนำเสนอเปล่า
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
     chart.setDataTable(true);
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontHeight(20);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const portionFormat = chart.getChartDataTable().getTextFormat().getPortionFormat();
+    portionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    portionFormat.setFontHeight(20);
+
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **ปรับแต่งขอบตารางข้อมูล**
+
+เปิดตารางโดยใช้ [Chart.setDataTable](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chart/setdatatable/) และเข้าถึงผ่าน [Chart.getChartDataTable](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chart/getchartdatatable/) คุณสามารถควบคุมขอบสามประเภทแยกกันได้:
+
+- [setBorderHorizontal](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datatable/setborderhorizontal/) ควบคุมขอบแนวนอนของเซลล์  
+- [setBorderVertical](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datatable/setbordervertical/) ควบคุมขอบแนวตั้งของเซลล์  
+- [setBorderOutline](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datatable/setborderoutline/) ควบคุมขอบรอบนอกของตาราง  
+
+ส่งค่า `true` ไปยังแต่ละเมธอดเพื่อแสดงขอบ หรือ `false` เพื่อซ่อนขอบ ตัวอย่างต่อไปนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มที่มีข้อมูลค่าเริ่มต้น, แสดงขอบแนวนอนและขอบรอบนอก, และซ่อนขอบแนวตั้ง ไม่ต้องการไฟล์อินพุต ตำแหน่งและขนาดของแผนภูมิระบุเป็นจุด
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+
+    const dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(false);
+    dataTable.setBorderOutline(true);
+
+    presentation.save("data-table-borders.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![ตารางข้อมูลแผนภูมิกับขอบทั้งหมดเปิดใช้งาน, ไม่มีขอบแนวนอน, ไม่มีขอบแนวตั้ง, และไม่มีขอบรอบนอก](data-table-borders.png)
+
+## **แสดงหรือซ่อนคีย์คำอธิบาย**
+
+คีย์คำอธิบายเป็นสัญลักษณ์สีเล็ก ๆ อยู่ข้างชื่อซีรีส์ในตารางข้อมูล ช่วยให้ผู้อ่านจับคู่แต่ละแถวของตารางกับซีรีส์ของแผนภูมิ ส่งค่า `true` ไปยัง [setShowLegendKey](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datatable/setshowlegendkey/) เพื่อแสดงสัญลักษณ์เหล่านี้หรือ `false` เพื่อซ่อน  
+
+คีย์คำอธิบายของแผนภูมิที่แยกออกมาถูกควบคุมโดย [Chart.setLegend](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chart/setlegend/) การตั้งค่านี้เป็นอิสระ: การซ่อนคีย์คำอธิบายแยกจะไม่ส่งผลต่อคีย์ในตารางข้อมูล และการซ่อนคีย์ในตารางข้อมูลจะไม่ส่งผลต่อคีย์คำอธิบายแยก  
+
+ตัวอย่างต่อไปนี้สร้างแผนภูมิที่มีข้อมูลค่าเริ่มต้น, เปิดใช้งานตารางข้อมูล, แสดงคีย์คำอธิบายในตารางพร้อมซ่อนคีย์คำอธิบายแยก ทั้งหมดของขอบตารางถูกเปิดใช้งานอย่างชัดเจน ไม่ต้องการงานนำเสนออินพุตใด ๆ เพื่อต้องการซ่อนคีย์ของตารางเท่านั้น ให้ส่งค่า `false` ไปยัง [setShowLegendKey](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datatable/setshowlegendkey/)
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+    chart.setLegend(false);
+
+    const dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(true);
+    dataTable.setBorderOutline(true);
+    dataTable.setShowLegendKey(true);
+
+    presentation.save("data-table-legend-keys.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+![ตารางข้อมูลแผนภูมิกับคีย์คำอธิบายแสดงด้านซ้ายและซ่อนด้านขวา](data-table-legend-keys.png)
+
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถแสดงคีย์คำอธิบายสีขนาดเล็กข้างค่าตัวเลขในตารางข้อมูลของแผนภูมิได้หรือไม่?**
+**ฉันสามารถแสดงคีย์คำอธิบายในตารางข้อมูลของแผนภูมิได้หรือไม่?**
 
-ใช่ ตารางข้อมูลสนับสนุน [legend keys](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datatable/setshowlegendkey/), และคุณสามารถเปิดหรือปิดได้
+ได้ ส่งค่า `true` ไปยัง [setShowLegendKey](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datatable/setshowlegendkey/) เพื่อแสดงคีย์คำอธิบายหรือ `false` เพื่อซ่อน
 
-**ตารางข้อมูลจะถูกเก็บรักษาไว้เมื่อต้องส่งออกงานนำเสนอเป็น PDF, HTML หรือรูปภาพหรือไม่?**
+**ตารางข้อมูลจะถูกเก็บไว้เมื่อส่งออกงานนำเสนอเป็น PDF, HTML หรือรูปภาพหรือไม่?**
 
-ใช่ Aspose.Slides แสดงแผนภูมิเป็นส่วนหนึ่งของสไลด์ ดังนั้นการส่งออก [PDF](/slides/th/nodejs-java/convert-powerpoint-to-pdf/)/[HTML](/slides/th/nodejs-java/convert-powerpoint-to-html/)/[image](/slides/th/nodejs-java/convert-powerpoint-to-png/) จะรวมแผนภูมิพร้อมตารางข้อมูลของมัน
+ได้ Aspose.Slides จะเรนเดอร์แผนภูมิและตารางข้อมูลที่แสดงเป็นส่วนหนึ่งของสไลด์เมื่อส่งออกเป็น [PDF](/slides/th/nodejs-java/convert-powerpoint-to-pdf/), [HTML](/slides/th/nodejs-java/convert-powerpoint-to-html/), หรือ [images](/slides/th/nodejs-java/convert-powerpoint-to-png/)
 
-**ตารางข้อมูลได้รับการสนับสนุนสำหรับแผนภูมิที่มาจากไฟล์เทมเพลตหรือไม่?**
+**ฉันสามารถทำงานกับตารางข้อมูลในแผนภูมิที่โหลดมาจากเทมเพลตได้หรือไม่?**
 
-ใช่ สำหรับแผนภูมิใด ๆ ที่โหลดมาจากงานนำเสนอหรือเทมเพลตที่มีอยู่ คุณสามารถตรวจสอบและเปลี่ยนแปลงว่าตารางข้อมูล [is shown](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chart/hasdatatable/) หรือไม่โดยใช้คุณสมบัติของแผนภูมิ
+ได้ สำหรับแผนภูมิที่โหลดจากงานนำเสนอหรือเทมเพลตที่มีอยู่ ให้ใช้ [hasDataTable](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chart/hasdatatable/) และ [setDataTable](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chart/setdatatable/) เพื่อตรวจสอบหรือเปลี่ยนแปลงว่าตารางข้อมูลถูกแสดงหรือไม่
 
-**ฉันจะค้นหาอย่างรวดเร็วว่าแผนภูมิใดในไฟล์ที่เปิดใช้งานตารางข้อมูลได้บ้าง?**
+**ฉันจะค้นหาแผนภูมิที่เปิดใช้งานตารางข้อมูลได้อย่างไร?**
 
-ตรวจสอบคุณสมบัติของแต่ละแผนภูมิที่บ่งบอกว่าตารางข้อมูล [is shown](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chart/hasdatatable/) และวนรอบสไลด์เพื่อระบุแผนภูมิที่เปิดใช้งานอยู่
+วนรอบผ่านรูปร่างบนแต่ละสไลด์, ระบุแผนภูมิและเรียกเมธอด [hasDataTable](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chart/hasdatatable/) ของมัน ค่าที่ได้เป็น `true` หมายถึงตารางข้อมูลถูกเปิดใช้งาน

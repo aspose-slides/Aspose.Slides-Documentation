@@ -1,5 +1,5 @@
 ---
-title: Dostosuj tabele danych wykresu w prezentacjach przy użyciu PHP
+title: Dostosuj tabele danych wykresów w prezentacjach przy użyciu PHP
 linktitle: Tabela danych
 type: docs
 url: /pl/php-java/chart-data-table/
@@ -11,55 +11,135 @@ keywords:
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Dostosuj tabele danych wykresu dla formatów PPT i PPTX za pomocą Aspose.Slides dla PHP via Java, aby zwiększyć wydajność i atrakcyjność prezentacji."
+description: "Dostosuj czcionki, obramowania i klucze legendy w tabelach danych wykresów w prezentacjach PowerPoint przy użyciu Aspose.Slides dla PHP via Java."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z tabelami danych wykresu w Aspose.Slides. Pokazuje, jak wyświetlić tabelę danych dla wykresu i dostosować formatowanie tekstu, ustawiając właściwości czcionki, takie jak styl pogrubienia i wysokość czcionki. Przykład demonstruje ładowanie prezentacji, dodawanie wykresu, włączanie tabeli danych wykresu, zastosowanie ustawień czcionki oraz zapisanie zaktualizowanej prezentacji.
+Aspose.Slides dla PHP via Java umożliwia wyświetlanie tabeli danych wykresu oraz dostosowywanie formatowania tekstu, obramowań i kluczy legendy. Ten artykuł wyjaśnia, jak włączyć tabelę, sformatować jej tekst, sterować każdym typem obramowania oraz pokazać lub ukryć klucze legendy. Przykłady zapisują skonfigurowane wykresy w plikach PPTX.
 
-Zawiera również krótkie odpowiedzi na często zadawane pytania dotyczące wyświetlania kluczy legendy w tabeli danych wykresu, zachowywania tabeli danych podczas eksportu, pracy z wykresami wczytanymi z istniejących prezentacji lub szablonów oraz identyfikowania wykresów, w których tabela danych jest włączona.
+## **Ustaw właściwości czcionki**
 
-## **Ustawienie właściwości czcionki dla tabeli danych wykresu**
-Aspose.Slides for PHP via Java zapewnia wsparcie dla zmiany koloru kategorii w kolorze serii.  
+Aby wyświetlić tabelę danych wykresu, przekaż `true` do [setDataTable](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/setdatatable/). Użyj [getChartDataTable](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/getchartdatatable/), aby uzyskać dostęp do tabeli i skonfigurować formatowanie tekstu.
 
-1. Utwórz obiekt klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/Presentation).
-1. Dodaj wykres na slajdzie.
-1. Ustaw tabelę wykresu.
-1. Ustaw wysokość czcionki.
+1. Załaduj prezentację przy użyciu klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
+1. Dodaj wykres słupkowy grupowany do pierwszego slajdu.
+1. Włącz tabelę danych wykresu.
+1. Włącz pogrubiony tekst przy użyciu [setFontBold](https://reference.aspose.com/slides/pl/php-java/aspose.slides/baseportionformat/#setFontBold) i przekaż `20` do [setFontHeight](https://reference.aspose.com/slides/pl/php-java/aspose.slides/baseportionformat/#setFontHeight) dla tekstu 20 punktów.
 1. Zapisz zmodyfikowaną prezentację.
 
-Poniżej podano przykładowy kod.  
+Poniższy przykład wymaga pliku `test.pptx` w katalogu roboczym z co najmniej jednym slajdem. Dodaje wykres z domyślnymi danymi w pozycji (50, 50), o szerokości 600 punktów i wysokości 400 punktów. Zapisany plik `output.pptx` zawiera wykres z włączoną tabelą danych oraz zastosowanymi ustawieniami czcionki.
 
 ```php
-  # Tworzenie pustej prezentacji
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+use aspose\slides\ChartType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("test.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
     $chart->setDataTable(true);
-    $chart->getChartDataTable()->getTextFormat()->getPortionFormat()->setFontBold(NullableBool::True);
-    $chart->getChartDataTable()->getTextFormat()->getPortionFormat()->setFontHeight(20);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $portionFormat = $chart->getChartDataTable()->getTextFormat()->getPortionFormat();
+    $portionFormat->setFontBold(NullableBool::True);
+    $portionFormat->setFontHeight(20);
+
+    $presentation->save("output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+## **Dostosuj obramowania tabeli danych**
+
+Włącz tabelę przy użyciu [Chart::setDataTable](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/setdatatable/) i uzyskaj do niej dostęp przez [Chart::getChartDataTable](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/getchartdatatable/). Możesz kontrolować trzy typy obramowań niezależnie:
+
+- [setBorderHorizontal](https://reference.aspose.com/slides/pl/php-java/aspose.slides/datatable/setborderhorizontal/) steruje poziomymi obramowaniami komórek.
+- [setBorderVertical](https://reference.aspose.com/slides/pl/php-java/aspose.slides/datatable/setbordervertical/) steruje pionowymi obramowaniami komórek.
+- [setBorderOutline](https://reference.aspose.com/slides/pl/php-java/aspose.slides/datatable/setborderoutline/) steruje zewnętrznym obramowaniem tabeli.
+
+Przekaż `true` do każdej metody, aby wyświetlić jej obramowanie, lub `false`, aby je ukryć. Poniższy przykład tworzy wykres słupkowy grupowany z domyślnymi danymi, wyświetla poziome obramowania i zewnętrzne obramowanie, a ukrywa pionowe obramowania. Nie wymaga pliku wejściowego. Pozycja i rozmiar wykresu podane są w punktach.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setDataTable(true);
+
+    $dataTable = $chart->getChartDataTable();
+    $dataTable->setBorderHorizontal(true);
+    $dataTable->setBorderVertical(false);
+    $dataTable->setBorderOutline(true);
+
+    $presentation->save("data-table-borders.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Porównanie poniżej używa tych samych danych wykresu i ustawienia klucza legendy we wszystkich czterech przypadkach. Zaczynając od włączonych wszystkich obramowań, każdy kolejny wariant wyłącza tylko jedno ustawienie obramowania. Wariant w lewym dolnym rogu odpowiada ustawieniom obramowań w przykładzie.
+
+![Tabele danych wykresu ze wszystkimi włączonymi obramowaniami, bez poziomych obramowań, bez pionowych obramowań oraz bez obramowania zewnętrznego](data-table-borders.png)
+
+## **Pokaż lub ukryj klucze legendy**
+
+Klucze legendy to małe kolorowe znaczniki obok nazw serii w tabeli danych. Pomagają czytelnikom dopasować każdy wiersz tabeli do serii wykresu. Przekaż `true` do [setShowLegendKey](https://reference.aspose.com/slides/pl/php-java/aspose.slides/datatable/setshowlegendkey/), aby wyświetlić te znaczniki, lub `false`, aby je ukryć.
+
+Oddzielna legenda wykresu jest sterowana przez [Chart::setLegend](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/setlegend/). Te ustawienia są niezależne: ukrycie oddzielnej legendy nie ukrywa kluczy w tabeli danych, a ukrycie kluczy w tabeli nie ukrywa oddzielnej legendy.
+
+Poniższy przykład tworzy wykres z domyślnymi danymi, włącza jego tabelę danych i wyświetla klucze legendy w niej, jednocześnie ukrywając oddzielną legendę. Wszystkie obramowania tabeli są wyraźnie włączone. Nie wymaga prezentacji wejściowej. Aby ukryć tylko klucze tabeli, przekaż `false` do [setShowLegendKey](https://reference.aspose.com/slides/pl/php-java/aspose.slides/datatable/setshowlegendkey/).
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setDataTable(true);
+    $chart->setLegend(false);
+
+    $dataTable = $chart->getChartDataTable();
+    $dataTable->setBorderHorizontal(true);
+    $dataTable->setBorderVertical(true);
+    $dataTable->setBorderOutline(true);
+    $dataTable->setShowLegendKey(true);
+
+    $presentation->save("data-table-legend-keys.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Porównanie poniżej pokazuje tę samą tabelę z włączonymi i wyłączonymi kluczami legendy. Wszystkie obramowania pozostają włączone, a oddzielna legenda wykresu jest ukryta w obu przypadkach.
+
+![Tabele danych wykresu z kluczami legendy po lewej stronie i ukrytymi po prawej stronie](data-table-legend-keys.png)
 
 ## **FAQ**
 
-**Czy mogę wyświetlać małe klucze legendy obok wartości w tabeli danych wykresu?**
+**Czy mogę wyświetlać klucze legendy w tabeli danych wykresu?**
 
-Tak. Tabela danych obsługuje [legend keys](https://reference.aspose.com/slides/pl/php-java/aspose.slides/datatable/setshowlegendkey/), a ich wyświetlanie można włączyć lub wyłączyć.
+Tak. Przekaż `true` do [setShowLegendKey](https://reference.aspose.com/slides/pl/php-java/aspose.slides/datatable/setshowlegendkey/), aby wyświetlić klucze legendy, lub `false`, aby je ukryć.
 
-**Czy tabela danych zostanie zachowana podczas eksportu prezentacji do formatu PDF, HTML lub obrazów?**
+**Czy tabela danych zostanie zachowana przy eksportowaniu prezentacji do PDF, HTML lub obrazów?**
 
-Tak. Aspose.Slides renderuje wykres jako część slajdu, więc wyeksportowane [PDF](/slides/pl/php-java/convert-powerpoint-to-pdf/)/[HTML](/slides/pl/php-java/convert-powerpoint-to-html/)/[image](/slides/pl/php-java/convert-powerpoint-to-png/) zawiera wykres wraz z jego tabelą danych.
+Tak. Aspose.Slides renderuje wykres i wyświetlaną tabelę danych jako część slajdu podczas eksportu do [PDF](/slides/pl/php-java/convert-powerpoint-to-pdf/), [HTML](/slides/pl/php-java/convert-powerpoint-to-html/) lub [obrazów](/slides/pl/php-java/convert-powerpoint-to-png/).
 
-**Czy tabele danych są obsługiwane dla wykresów pochodzących z pliku szablonu?**
+**Czy mogę pracować z tabelami danych w wykresach załadowanych z szablonu?**
 
-Tak. Dla każdego wykresu wczytanego z istniejącej prezentacji lub szablonu można sprawdzić i zmienić, czy tabela danych jest [wyświetlana](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/hasdatatable/) za pomocą właściwości wykresu.
+Tak. Dla wykresu załadowanego z istniejącej prezentacji lub szablonu użyj [hasDataTable](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/hasdatatable/) i [setDataTable](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/setdatatable/), aby sprawdzić lub zmienić, czy tabela danych jest wyświetlana.
 
-**Jak szybko znaleźć, które wykresy w pliku mają włączoną tabelę danych?**
+**Jak mogę znaleźć wykresy, które mają włączoną tabelę danych?**
 
-Sprawdź właściwość każdego wykresu, która wskazuje, czy tabela danych jest [wyświetlana](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/hasdatatable/), i przeiteruj slajdy, aby zidentyfikować wykresy, w których jest włączona.
+Iteruj po kształtach na każdym slajdzie, identyfikuj wykresy i wywołaj ich metodę [hasDataTable](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/hasdatatable/). Wartość `true` wskazuje, że tabela danych jest włączona.

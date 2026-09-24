@@ -1,61 +1,139 @@
 ---
-title: سفارشی‌سازی جداول داده‌ نمودار در ارائه‌ها برای اندروید
+title: سفارشی‌سازی جداول داده‌ای نمودار در ارائه‌های اندروید
 linktitle: جدول داده
 type: docs
 url: /fa/androidjava/chart-data-table/
 keywords:
-- داده نمودار
+- داده‌های نمودار
 - جدول داده
 - ویژگی‌های قلم
-- PowerPoint
+- پاورپوینت
 - ارائه
-- Android
-- Java
+- اندروید
+- جاوا
 - Aspose.Slides
-description: "جداول داده‌ نمودار را در Java برای PPT و PPTX با Aspose.Slides برای Android سفارشی کنید تا کارایی و جذابیت ارائه‌ها را افزایش دهید."
+description: "سفارشی‌سازی قلم‌های جدول داده‌های نمودار، خطوط مرزی و کلیدهای افسانه در ارائه‌های پاورپوینت با استفاده از Aspose.Slides برای اندروید از طریق جاوا."
 ---
 ## **بررسی کلی**
 
-این مقاله توضیح می‌دهد که چگونه با جداول داده‌های نمودار در Aspose.Slides کار کنید. این مقاله نشان می‌دهد چگونه جدول داده‌ها را برای یک نمودار نمایش دهید و قالب‌بندی متن آن را با تنظیم ویژگی‌های قلم مانند حالت بولد و ارتفاع قلم سفارشی کنید. مثال بارگذاری یک ارائه، افزودن یک نمودار، فعال‌سازی جدول داده‌های نمودار، اعمال تنظیمات قلم و ذخیره ارائه به‌روزرسانی‌شده را نشان می‌دهد.
+Aspose.Slides برای Android از طریق Java به شما امکان نمایش جدول داده‌های نمودار و سفارشی‌سازی قالب‌بندی متن، خطوط مرزی و کلیدهای افسانه را می‌دهد. این مقاله توضیح می‌دهد چگونه جدول را فعال کنید، متن آن را قالب‌بندی کنید، هر نوع خط مرزی را کنترل کنید و کلیدهای افسانه را نشان یا مخفی کنید. مثال‌ها نمودارهای پیکربندی‌شده را در فایل‌های PPTX ذخیره می‌کنند.
 
-## **تنظیم ویژگی‌های قلم برای جدول داده‌های نمودار**
-Aspose.Slides برای Android از طریق Java امکان تغییر رنگ دسته‌ها در یک رنگ سری را فراهم می‌کند.  
+## **تنظیم ویژگی‌های قلم**
 
-1. یک شیء کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) را ایجاد کنید.  
-1. نمودار را بر روی اسلاید اضافه کنید.  
-1. جدول نمودار را تنظیم کنید.  
-1. ارتفاع قلم را تنظیم کنید.  
-1. ارائه اصلاح‌شده را ذخیره کنید.  
+برای نمایش جدول داده‌های نمودار، مقدار `true` را به [setDataTable](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chart/#setDataTable-boolean-) بدهید. برای دسترسی به جدول و پیکربندی قالب‌بندی متن آن از [getChartDataTable](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chart/#getChartDataTable--) استفاده کنید.
 
-مثال نمونه زیر ارائه شده است.  
+1. ارائه را با استفاده از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) بارگذاری کنید.
+1. یک نمودار ستونی خوشه‌ای به اسلاید اول اضافه کنید.
+1. جدول داده‌های نمودار را فعال کنید.
+1. متن پررنگ را با [setFontBold](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/baseportionformat/#setFontBold-byte-) فعال کنید و برای متن 20‑نقطه‌ای مقدار `20` را به [setFontHeight](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/baseportionformat/#setFontHeight-float-) بدهید.
+1. ارائه اصلاح‌شده را ذخیره کنید.
+
+مثال زیر نیاز به فایل `test.pptx` در پوشه کاری دارد که حداقل شامل یک اسلاید باشد. این مثال یک نمودار با داده‌های پیش‌فرض در موقعیت (50, 50) اضافه می‌کند، با عرض 600 نقطه و ارتفاع 400 نقطه. فایل `output.pptx` ذخیره‌شده شامل نمودار با جدول داده‌های فعال و تنظیمات قلم مشخص‌شده است.
 
 ```java
-// ایجاد ارائه خالی
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+import com.aspose.slides.*;
 
+Presentation presentation = new Presentation("test.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
     chart.setDataTable(true);
 
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontBold(NullableBool.True);
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontHeight(20);
+    IChartPortionFormat portionFormat = chart.getChartDataTable().getTextFormat().getPortionFormat();
+    portionFormat.setFontBold(NullableBool.True);
+    portionFormat.setFontHeight(20);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **سفارشی‌سازی خطوط مرزی جدول داده‌ها**
+
+جدول را با [IChart.setDataTable](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichart/#setDataTable-boolean-) فعال کنید و از طریق [IChart.getChartDataTable](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichart/#getChartDataTable--) به آن دسترسی پیدا کنید. می‌توانید سه نوع خط مرزی را به‌صورت مستقل کنترل کنید:
+
+- [setBorderHorizontal](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idatatable/#setBorderHorizontal-boolean-) خطوط افقی سلول‌ها را کنترل می‌کند.
+- [setBorderVertical](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idatatable/#setBorderVertical-boolean-) خطوط عمودی سلول‌ها را کنترل می‌کند.
+- [setBorderOutline](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idatatable/#setBorderOutline-boolean-) مرز بیرونی جدول را کنترل می‌کند.
+
+مقدار `true` را به هر متد بدهید تا مرزبندی آن نمایش داده شود یا `false` برای مخفی کردن. مثال زیر یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض ایجاد می‌کند، خطوط افقی و مرز بیرونی را نمایش می‌دهد و خطوط عمودی را مخفی می‌کند. نیازی به فایل ورودی ندارد. موقعیت و اندازه نمودار بر حسب نقطه مشخص شده‌اند.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+
+    IDataTable dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(false);
+    dataTable.setBorderOutline(true);
+
+    presentation.save("data-table-borders.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+مقایسه زیر از یک مجموعه داده نموداری و تنظیمات کلید افسانه در تمام چهار حالت استفاده می‌کند. از حالت فعال بودن تمام خطوط مرزی شروع می‌شود، و هر گونه‌گی دیگر تنها یک تنظیم خط مرزی را غیرفعال می‌کند. گونه‌گی پایین‑چپ تنظیمات خطوط مرزی مشابه مثال است.
+
+![جدول‌های داده‌ای نمودار با تمام خطوط مرزی فعال، بدون خطوط افقی، بدون خطوط عمودی، و بدون خط بیرونی](data-table-borders.png)
+
+## **نمایش یا مخفی کردن کلیدهای افسانه**
+
+کلیدهای افسانه نشانگرهای کوچک رنگی در کنار نام سری‌ها در جدول داده‌ها هستند. آنها به خواننده کمک می‌کنند تا هر ردیف جدول را با یک سری نمودار تطبیق دهد. مقدار `true` را به [setShowLegendKey](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idatatable/#setShowLegendKey-boolean-) بدهید تا این نشانگرها نمایش داده شوند یا `false` برای مخفی کردن آن‌ها.
+
+افسانه جداگانه نمودار توسط [IChart.setLegend](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichart/#setLegend-boolean-) کنترل می‌شود. این تنظیمات مستقل هستند: مخفی کردن افسانه جداگانه کلیدهای داخل جدول داده‌ها را مخفی نمی‌کند و مخفی کردن کلیدهای جدول، افسانه جداگانه را مخفی نمی‌سازد.
+
+مثال زیر یک نمودار با داده‌های پیش‌فرض ایجاد می‌کند، جدول داده‌ها را فعال می‌کند و کلیدهای افسانه را در داخل آن نشان می‌دهد در حالی که افسانه جداگانه مخفی است. تمام خطوط مرزی جدول به‌صورت صریح فعال هستند. نیازی به ارائه ورودی نیست. برای مخفی کردن فقط کلیدهای جدول، مقدار `false` را به [setShowLegendKey](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/idatatable/#setShowLegendKey-boolean-) بدهید.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+    chart.setDataTable(true);
+    chart.setLegend(false);
+
+    IDataTable dataTable = chart.getChartDataTable();
+    dataTable.setBorderHorizontal(true);
+    dataTable.setBorderVertical(true);
+    dataTable.setBorderOutline(true);
+    dataTable.setShowLegendKey(true);
+
+    presentation.save("data-table-legend-keys.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+مقایسه زیر همان جدول را با کلیدهای افسانه فعال و غیرفعال نشان می‌دهد. تمام خطوط مرزی فعال می‌مانند و افسانه جداگانه نمودار در هر دو حالت مخفی است.
+
+![جدول‌های داده‌ای نمودار با کلیدهای افسانه نمایان در سمت چپ و مخفی در سمت راست](data-table-legend-keys.png)
+
 ## **سوالات متداول**
 
-**آیا می‌توانم کلیدهای نماد کوچک را در کنار مقادیر جدول داده‌های نمودار نشان دهم؟**  
-بله. جدول داده‌ها از [کلیدهای نماد](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/datatable/#setShowLegendKey-boolean-) پشتیبانی می‌کند و می‌توانید آن‌ها را روشن یا خاموش کنید.
+**آیا می‌توانم کلیدهای افسانه را در جدول داده‌های نمودار نشان دهم؟**
 
-**آیا جدول داده‌ها هنگام استخراج ارائه به PDF, HTML یا تصویر حفظ می‌شود؟**  
-بله. Aspose.Slides نمودار را به عنوان بخشی از اسلاید رندر می‌کند، بنابراین استخراج [PDF](/slides/fa/androidjava/convert-powerpoint-to-pdf/)/[HTML](/slides/fa/androidjava/convert-powerpoint-to-html/)/[image](/slides/fa/androidjava/convert-powerpoint-to-png/) شامل نمودار همراه با جدول داده‌های آن است.
+بله. مقدار `true` را به [setShowLegendKey](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/datatable/#setShowLegendKey-boolean-) بدهید تا کلیدهای افسانه نمایش داده شوند یا `false` برای مخفی کردن آن‌ها.
 
-**آیا جداول داده برای نمودارهایی که از یک فایل قالب آمده‌اند پشتیبانی می‌شوند؟**  
-بله. برای هر نموداری که از ارائه یا قالب موجود بارگذاری می‌شود، می‌توانید با استفاده از ویژگی‌های نمودار بررسی و تغییر دهید که آیا جدول داده‌ها [نمایش داده می‌شود](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chart/#hasDataTable--) یا نه.
+**آیا جدول داده‌ها هنگام خروجی گرفتن ارائه به PDF، HTML یا تصویرها حفظ می‌شود؟**
 
-**چگونه می‌توانم به‌سرعت تشخیص دهم کدام نمودارها در یک فایل جدول داده فعال دارند؟**  
-هر ویژگی هر نمودار که نشان می‌دهد آیا جدول داده [نمایش داده می‌شود](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chart/#hasDataTable--) یا نه را بررسی کنید و از طریق اسلایدها پیمایش کنید تا نمودارهایی که این گزینه فعال است شناسایی شوند.
+بله. Aspose.Slides نمودار و جدول داده‌های نمایش داده‌شده را به‌عنوان بخشی از اسلاید هنگام خروجی به [PDF](/slides/fa/androidjava/convert-powerpoint-to-pdf/)، [HTML](/slides/fa/androidjava/convert-powerpoint-to-html/)، یا [images](/slides/fa/androidjava/convert-powerpoint-to-png/) رندر می‌کند.
+
+**آیا می‌توانم با جدول‌های داده در نمودارهای بارگذاری‌شده از یک قالب کار کنم؟**
+
+بله. برای نموداری که از ارائه یا قالب موجود بارگذاری شده است، از [hasDataTable](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chart/#hasDataTable--) و [setDataTable](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chart/#setDataTable-boolean--) برای بررسی یا تغییر نمایش جدول داده‌ها استفاده کنید.
+
+**چگونه می‌توانم نمودارهایی را پیدا کنم که جدول داده آن‌ها فعال است؟**
+
+در میان اشکال هر اسلاید پیمایش کنید، نمودارها را شناسایی کنید و متد [hasDataTable](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chart/#hasDataTable--) آنها را فراخوانی کنید. مقدار `true` نشان‌دهنده فعال بودن جدول داده است.

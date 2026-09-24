@@ -1,65 +1,141 @@
 ---
-title: PHP ile Sunumlarda Grafik Veri Tablolarını Özelleştirme
+title: PHP kullanarak Sunumlarda Grafik Veri Tablolarını Özelleştirme
 linktitle: Veri Tablosu
 type: docs
 url: /tr/php-java/chart-data-table/
 keywords:
-- grafik veri
+- grafik verisi
 - veri tablosu
 - yazı tipi özellikleri
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java ile PPT ve PPTX için grafik veri tablolarını özelleştirerek sunumlarda verimliliği ve çekiciliği artırın."
+description: "Aspose.Slides for PHP via Java kullanarak PowerPoint sunumlarında grafik veri tablosu yazı tiplerini, kenarlıklarını ve açıklama işaretlerini özelleştirin."
 ---
 ## **Genel Bakış**
 
-Bu makale Aspose.Slides'te grafik veri tablolarıyla nasıl çalışılacağını açıklar. Bir grafik için veri tablosu nasıl görüntülenir ve kalın stil ve yazı yüksekliği gibi yazı tipi özellikleri ayarlanarak metin biçimlendirmesi nasıl özelleştirilir gösterir. Örnek, bir sunumu yüklemeyi, bir grafik eklemeyi, grafik veri tablosunu etkinleştirmeyi, yazı tipi ayarlarını uygulamayı ve güncellenmiş sunumu kaydetmeyi demonstr eder.
+Aspose.Slides for PHP via Java, bir grafiğin veri tablosunu görüntülemenizi ve metin biçimlendirmesini, kenarlıklarını ve açıklama işaretlerini özelleştirmenizi sağlar. Bu makale, tabloyu nasıl etkinleştirileceğini, metnini nasıl biçimlendireceğinizi, her kenarlık tipini nasıl kontrol edeceğinizi ve açıklama işaretlerini nasıl gösterip gizleyeceğinizi açıklar. Örnekler, yapılandırılmış grafikleri PPTX dosyalarına kaydeder.
 
-Ayrıca, bir grafik veri tablosunda gösterge anahtarlarını gösterme, veri tablosunun dışa aktarım sırasında korunması, mevcut bir sunumdan veya şablondan yüklenen grafiklerle çalışılması ve veri tablosu etkinleştirilmiş grafiklerin belirlenmesi konularında yaygın sorulara kısa yanıtlar içerir.
+## **Yazı Tipi Özelliklerini Ayarlama**
 
-## **Bir Grafik Veri Tablosu İçin Yazı Tipi Özelliklerini Ayarlama**
-Aspose.Slides for PHP via Java, bir serideki kategorilerin rengini değiştirme desteği sağlar. 
+Bir grafiğin veri tablosunu görüntülemek için `true` değerini [setDataTable](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/setdatatable/) metoduna geçirin. Tabloya erişmek ve metin biçimlendirmesini yapılandırmak için [getChartDataTable](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/getchartdatatable/) metodunu kullanın.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfı nesnesini oluşturun.
-1. Slayta bir grafik ekleyin.
-1. grafik tablosunu ayarlayın.
-1. Yazı tipi yüksekliğini belirleyin.
+1. Sunumu, [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfını kullanarak yükleyin.
+1. İlk slayta bir kümelenmiş sütun grafiği ekleyin.
+1. Grafiğin veri tablosunu etkinleştirin.
+1. [setFontBold](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseportionformat/#setFontBold) ile kalın metni etkinleştirin ve 20 puanlık metin için `20` değerini [setFontHeight](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseportionformat/#setFontHeight) metoduna geçirin.
 1. Değiştirilmiş sunumu kaydedin.
 
-Aşağıda örnek bir örnek verilmiştir. 
+Aşağıdaki örnek, çalışma dizininde en az bir slaytı olan `test.pptx` dosyasını gerektirir. (50, 50) konumunda, genişliği 600 puan ve yüksekliği 400 puan olan varsayılan veri ile bir grafik ekler. Kaydedilen `output.pptx` dosyası, veri tablosu etkinleştirilmiş grafiği ve belirtilen yazı tipi ayarlarını içerir.
 
 ```php
-  # Boş sunum oluşturma
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+use aspose\slides\ChartType;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("test.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
     $chart->setDataTable(true);
-    $chart->getChartDataTable()->getTextFormat()->getPortionFormat()->setFontBold(NullableBool::True);
-    $chart->getChartDataTable()->getTextFormat()->getPortionFormat()->setFontHeight(20);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $portionFormat = $chart->getChartDataTable()->getTextFormat()->getPortionFormat();
+    $portionFormat->setFontBold(NullableBool::True);
+    $portionFormat->setFontHeight(20);
+
+    $presentation->save("output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+## **Veri Tablosu Kenarlıklarını Özelleştirme**
+
+Tabloyu [Chart::setDataTable](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/setdatatable/) ile etkinleştirin ve [Chart::getChartDataTable](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/getchartdatatable/) ile erişin. Üç ayrı kenarlık tipini bağımsız olarak kontrol edebilirsiniz:
+
+- [setBorderHorizontal](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datatable/setborderhorizontal/) yatay hücre kenarlıklarını kontrol eder.
+- [setBorderVertical](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datatable/setbordervertical/) dikey hücre kenarlıklarını kontrol eder.
+- [setBorderOutline](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datatable/setborderoutline/) tablonun dış kenarlığını kontrol eder.
+
+`true` değerini her metoda geçirerek kenarlıkları gösterin, `false` değerini geçirerek gizleyin. Aşağıdaki örnek, varsayılan veri ile bir kümelenmiş sütun grafiği oluşturur, yatay kenarlıklar ve dış kenarlığı gösterir, dikey kenarlıkları gizler. Giriş dosyası gerektirmez. Grafiğin konumu ve boyutu puan cinsinden belirtilir.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setDataTable(true);
+
+    $dataTable = $chart->getChartDataTable();
+    $dataTable->setBorderHorizontal(true);
+    $dataTable->setBorderVertical(false);
+    $dataTable->setBorderOutline(true);
+
+    $presentation->save("data-table-borders.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Aşağıdaki karşılaştırma, dört durumda da aynı grafik verisini ve açıklama işareti ayarını kullanır. Tüm kenarlıklar etkinleştirilmiş olarak başlayıp, her sonraki varyant sadece bir kenarlık ayarını devre dışı bırakır. Sol alt varyant, örnekteki kenarlık ayarlarıyla eşleşir.
+
+![Tüm kenarlıklar etkin, yatay kenarlık yok, dikey kenarlık yok ve dış kenarlık yok grafik veri tabloları](data-table-borders.png)
+
+## **Açıklama İşaretlerini Gösterme veya Gizleme**
+
+Açıklama işaretleri, veri tablosundaki seri adlarının yanında bulunan küçük renkli işaretlerdir. Okuyucuların her tablo satırını bir grafik serisiyle eşleştirmesine yardımcı olur. Bu işaretleri göstermek için [setShowLegendKey](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datatable/setshowlegendkey/) metoduna `true` değerini, gizlemek için `false` değerini geçirin.
+
+Grafiğin ayrı açıklaması, [Chart::setLegend](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/setlegend/) ile kontrol edilir. Bu ayarlar bağımsızdır: ayrı açıklamayı gizlemek veri tablosundaki işaretleri gizlemez, tablo işaretlerini gizlemek ise ayrı açıklamayı gizlemez.
+
+Aşağıdaki örnek, varsayılan veri ile bir grafik oluşturur, veri tablosunu etkinleştirir ve içinde açıklama işaretlerini gösterirken ayrı açıklamayı gizler. Tüm tablo kenarlıkları açıkça etkinleştirilir. Giriş sunumu gerekmez. Sadece tablo işaretlerini gizlemek için [setShowLegendKey](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datatable/setshowlegendkey/) metoduna `false` değerini geçirin.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart->setDataTable(true);
+    $chart->setLegend(false);
+
+    $dataTable = $chart->getChartDataTable();
+    $dataTable->setBorderHorizontal(true);
+    $dataTable->setBorderVertical(true);
+    $dataTable->setBorderOutline(true);
+    $dataTable->setShowLegendKey(true);
+
+    $presentation->save("data-table-legend-keys.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Aşağıdaki karşılaştırma, aynı tabloyu açıklama işaretleri etkin ve devre dışı bırakılmış şekilde gösterir. Tüm kenarlıklar etkin kalır ve ayrı grafik açıklaması her iki durumda da gizlenir.
+
+![Sol tarafta açıklama işaretleri gösterilen, sağ tarafta gizlenen grafik veri tabloları](data-table-legend-keys.png)
 
 ## **SSS**
 
-**Grafiğin veri tablosundaki değerlerin yanında küçük gösterge anahtarları gösterebilir miyim?**
+**Bir grafiğin veri tablosunda açıklama işaretlerini gösterebilir miyim?**  
+Evet. Açıklama işaretlerini göstermek için [setShowLegendKey](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datatable/setshowlegendkey/) metoduna `true`, gizlemek için `false` değerini geçirin.
 
-Evet. Veri tablosu [gösterge anahtarlarını](https://reference.aspose.com/slides/tr/php-java/aspose.slides/datatable/setshowlegendkey/) destekler ve bunları açıp kapatabilirsiniz.
+**Sunumu PDF, HTML veya görüntülere dışa aktarırken veri tablosu korunur mu?**  
+Evet. Aspose.Slides, grafiği ve görüntülenen veri tablosunu, slaytın bir parçası olarak [PDF](/slides/tr/php-java/convert-powerpoint-to-pdf/), [HTML](/slides/tr/php-java/convert-powerpoint-to-html/) veya [images](/slides/tr/php-java/convert-powerpoint-to-png/) dışa aktarırken oluşturur.
 
-**Sunum PDF, HTML veya görüntülere dışa aktarıldığında veri tablosu korunur mu?**
+**Şablondan yüklenen grafikerde veri tabloları ile çalışabilir miyim?**  
+Evet. Mevcut bir sunumdan veya şablondan yüklenen bir grafik için, veri tablosunun görüntülenip görüntülenmediğini kontrol etmek veya değiştirmek amacıyla [hasDataTable](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/hasdatatable/) ve [setDataTable](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/setdatatable/) metodlarını kullanın.
 
-Evet. Aspose.Slides, grafiği slaytın bir parçası olarak işler; bu nedenle dışa aktarılan [PDF](/slides/tr/php-java/convert-powerpoint-to-pdf/)/[HTML](/slides/tr/php-java/convert-powerpoint-to-html/)/[görüntü](/slides/tr/php-java/convert-powerpoint-to-png/) içinde grafik ve veri tablosu yer alır.
-
-**Şablon dosyasından gelen grafikler için veri tabloları destekleniyor mu?**
-
-Evet. Mevcut bir sunumdan veya şablondan yüklenen herhangi bir grafik için, grafiğin özelliklerini kullanarak veri tablosunun [gösterilip gösterilmediğini](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/hasdatatable/) kontrol edebilir ve değiştirebilirsiniz.
-
-**Bir dosyada hangi grafiklerin veri tablosunun etkin olduğunu nasıl hızlıca bulabilirim?**
-
-Veri tablosunun [gösterilip gösterilmediğini](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/hasdatatable/) belirten her bir grafiğin özelliğini inceleyin ve slaytlar arasında döngü yaparak etkinleştirilmiş grafikleri tespit edin.
+**Veri tablosu etkin olan grafikleri nasıl bulabilirim?**  
+Her slayttaki şekilleri döngüyle gezerek grafikleri tespit edin ve [hasDataTable](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/hasdatatable/) metodunu çağırın. `true` değeri, veri tablosunun etkin olduğunu gösterir.

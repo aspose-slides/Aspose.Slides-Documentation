@@ -1,36 +1,34 @@
 ---
-title: Personnaliser les tables de données des graphiques dans les présentations avec Python
-linktitle: Table de données
+title: Personnaliser les tableaux de données des graphiques dans les présentations à l'aide de Python
+linktitle: Tableau de données
 type: docs
 url: /fr/python-java/chart-data-table/
 keywords:
 - données de graphique
-- table de données
+- tableau de données
 - propriétés de police
 - PowerPoint
 - présentation
 - Python
 - Java
 - Aspose.Slides
-description: "Personnalisez les tables de données des graphiques en Python pour PPT et PPTX avec Aspose.Slides for Python via Java afin d'améliorer l'efficacité et l'attrait des présentations."
+description: "Personnalisez les polices, les bordures et les repères de légende des tableaux de données de graphiques dans les présentations PowerPoint à l'aide d'Aspose.Slides for Python via Java."
 ---
-## **Aperçu**
+## **Vue d'ensemble**
 
-Cet article explique comment travailler avec les tables de données de graphiques dans Aspose.Slides. Il montre comment afficher une table de données pour un graphique et personnaliser le formatage du texte en définissant des propriétés de police telles que le style gras et la hauteur de la police. L’exemple démontre la création d’une présentation, l’ajout d’un graphique, l’activation de la table de données du graphique, l’application des paramètres de police et l’enregistrement de la présentation mise à jour.
+Aspose.Slides for Python via Java vous permet d'afficher le tableau de données d'un graphique et de personnaliser le format du texte, les bordures et les repères de légende. Cet article explique comment activer le tableau, formater son texte, contrôler chaque type de bordure et afficher ou masquer les repères de légende. Les exemples enregistrent les graphiques configurés dans des fichiers PPTX.
 
-Il inclut également des réponses rapides aux questions courantes concernant l’affichage des clés de légende dans une table de données de graphique, la conservation de la table de données lors de l’exportation, le travail avec des graphiques chargés à partir de présentations ou de modèles existants, et l’identification des graphiques où la table de données est activée.
+## **Définir les propriétés de police**
 
-## **Définir les propriétés de police pour une table de données de graphique**
+Pour afficher le tableau de données d'un graphique, passez `True` à [setDataTable](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chart/#setDataTable). Utilisez [getChartDataTable](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chart/#getChartDataTable) pour accéder au tableau et configurer son format de texte.
 
-Aspose.Slides for Python via Java vous permet d’afficher la table de données d’un graphique et de modifier les propriétés de police de son texte.
-
-1. Instanciez la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-1. Ajoutez un graphique à la diapositive.
-1. Affichez la table de données du graphique.
-1. Définissez le style gras et la hauteur de la police du texte de la table de données.
+1. Chargez la présentation en utilisant la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
+1. Ajoutez un graphique à colonnes groupées à la première diapositive.
+1. Activez le tableau de données du graphique.
+1. Activez le texte en gras avec [setFontBold](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseportionformat/#setFontBold) et passez `20` à [setFontHeight](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseportionformat/#setFontHeight) pour un texte de 20 points.
 1. Enregistrez la présentation modifiée.
 
-L’exemple suivant illustre ces étapes.
+L'exemple suivant nécessite `test.pptx` dans le répertoire de travail avec au moins une diapositive. Il ajoute un graphique avec des données par défaut à la position (50, 50), avec une largeur de 600 points et une hauteur de 400 points. Le `output.pptx` enregistré contient le graphique avec son tableau de données activé et les paramètres de police spécifiés appliqués.
 
 ```python
 import jpype
@@ -41,11 +39,11 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, NullableBool, Presentation, SaveFormat
 
-# Créez une présentation vide.
-presentation = Presentation()
+presentation = Presentation("test.pptx")
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    slide = presentation.getSlides().get_Item(0)
 
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
     chart.setDataTable(True)
 
     portion_format = chart.getChartDataTable().getTextFormat().getPortionFormat()
@@ -57,20 +55,100 @@ finally:
     presentation.dispose()
 ```
 
+## **Personnaliser les bordures du tableau de données**
+
+Activez le tableau avec [Chart.setDataTable](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chart/#setDataTable) et accédez-y via [Chart.getChartDataTable](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chart/#getChartDataTable). Vous pouvez contrôler trois types de bordures indépendamment :
+
+- [setBorderHorizontal](https://reference.aspose.com/slides/fr/python-java/aspose.slides/datatable/#setBorderHorizontal) contrôle les bordures horizontales des cellules.
+- [setBorderVertical](https://reference.aspose.com/slides/fr/python-java/aspose.slides/datatable/#setBorderVertical) contrôle les bordures verticales des cellules.
+- [setBorderOutline](https://reference.aspose.com/slides/fr/python-java/aspose.slides/datatable/#setBorderOutline) contrôle la bordure extérieure du tableau.
+
+Passez `True` à chaque méthode pour afficher ses bordures ou `False` pour les masquer. L'exemple suivant crée un graphique à colonnes groupées avec des données par défaut, affiche les bordures horizontales et la bordure extérieure, et masque les bordures verticales. Aucun fichier d'entrée n'est requis. La position et la taille du graphique sont spécifiées en points.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    chart.setDataTable(True)
+
+    data_table = chart.getChartDataTable()
+    data_table.setBorderHorizontal(True)
+    data_table.setBorderVertical(False)
+    data_table.setBorderOutline(True)
+
+    presentation.save("data-table-borders.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+La comparaison ci‑dessous utilise les mêmes données de graphique et le même paramètre de repère de légende dans les quatre cas. En commençant avec toutes les bordures activées, chaque variante restante désactive un seul paramètre de bordure. La variante en bas à gauche correspond aux paramètres de bordure de l'exemple.
+
+![Tableaux de données du graphique avec toutes les bordures activées, sans bordures horizontales, sans bordures verticales et sans bordure extérieure](data-table-borders.png)
+
+## **Afficher ou masquer les repères de légende**
+
+Les repères de légende sont de petits marqueurs colorés à côté des noms de séries dans le tableau de données. Ils aident les lecteurs à associer chaque ligne du tableau à une série du graphique. Passez `True` à [setShowLegendKey](https://reference.aspose.com/slides/fr/python-java/aspose.slides/datatable/#setShowLegendKey) pour afficher ces marqueurs ou `False` pour les masquer.
+
+La légende séparée du graphique est contrôlée par [Chart.setLegend](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chart/#setLegend). Ces réglages sont indépendants : masquer la légende séparée ne masque pas les repères dans le tableau de données, et masquer les repères du tableau ne masque pas la légende séparée.
+
+L'exemple suivant crée un graphique avec des données par défaut, active son tableau de données, et affiche les repères de légende à l'intérieur tout en masquant la légende séparée. Toutes les bordures du tableau sont explicitement activées. Aucun fichier de présentation d'entrée n'est requis. Pour masquer uniquement les repères du tableau, passez `False` à [setShowLegendKey](https://reference.aspose.com/slides/fr/python-java/aspose.slides/datatable/#setShowLegendKey).
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400)
+    chart.setDataTable(True)
+    chart.setLegend(False)
+
+    data_table = chart.getChartDataTable()
+    data_table.setBorderHorizontal(True)
+    data_table.setBorderVertical(True)
+    data_table.setBorderOutline(True)
+    data_table.setShowLegendKey(True)
+
+    presentation.save("data-table-legend-keys.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+La comparaison ci‑dessous montre le même tableau avec les repères de légende activés et désactivés. Toutes les bordures restent activées, et la légende séparée du graphique est masquée dans les deux cas.
+
+![Tableaux de données du graphique avec les repères de légende affichés à gauche et masqués à droite](data-table-legend-keys.png)
+
 ## **FAQ**
 
-**Puis‑je afficher de petites clés de légende à côté des valeurs dans la table de données du graphique ?**
+**Puis-je afficher les repères de légende dans le tableau de données d'un graphique ?**
 
-Oui. La table de données prend en charge les [legend keys](https://reference.aspose.com/slides/fr/python-java/aspose.slides/datatable/#setShowLegendKey), et vous pouvez les activer ou les désactiver.
+Oui. Passez `True` à [setShowLegendKey](https://reference.aspose.com/slides/fr/python-java/aspose.slides/datatable/#setShowLegendKey) pour afficher les repères de légende ou `False` pour les masquer.
 
-**La table de données sera‑t‑elle conservée lors de l’exportation de la présentation vers PDF, HTML ou images ?**
+**Le tableau de données sera-t-il conservé lors de l'exportation de la présentation vers PDF, HTML ou images ?**
 
-Oui. Aspose.Slides rend le graphique en tant que partie de la diapositive, de sorte que le [PDF](/slides/fr/python-java/convert-powerpoint-to-pdf/)/[HTML](/slides/fr/python-java/convert-powerpoint-to-html/)/[image](/slides/fr/python-java/convert-powerpoint-to-png/) exporté comprend le graphique avec sa table de données.
+Oui. Aspose.Slides rend le graphique et son tableau de données affiché comme partie de la diapositive lors de l'exportation vers [PDF](/slides/fr/python-java/convert-powerpoint-to-pdf/), [HTML](/slides/fr/python-java/convert-powerpoint-to-html/), ou [images](/slides/fr/python-java/convert-powerpoint-to-png/).
 
-**Les tables de données sont‑elles prises en charge pour les graphiques provenant d’un fichier modèle ?**
+**Puis-je travailler avec les tableaux de données dans des graphiques chargés depuis un modèle ?**
 
-Oui. Pour tout graphique chargé à partir d’une présentation ou d’un modèle existant, vous pouvez vérifier et modifier si une table de données [is shown](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chart/#hasDataTable) en utilisant les propriétés du graphique.
+Oui. Pour un graphique chargé depuis une présentation ou un modèle existant, utilisez [hasDataTable](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chart/#hasDataTable) et [setDataTable](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chart/#setDataTable) pour vérifier ou modifier si son tableau de données est affiché.
 
-**Comment puis‑je rapidement trouver quels graphiques d’un fichier ont la table de données activée ?**
+**Comment puis-je trouver les graphiques dont le tableau de données est activé ?**
 
-Inspectez la propriété de chaque graphique indiquant si la table de données [is shown](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chart/#hasDataTable) et parcourez les diapositives pour identifier les graphiques où elle est activée.
+Parcourez les formes de chaque diapositive, identifiez les graphiques, et appelez leur méthode [hasDataTable](https://reference.aspose.com/slides/fr/python-java/aspose.slides/chart/#hasDataTable). Une valeur `True` indique que le tableau de données est activé.
