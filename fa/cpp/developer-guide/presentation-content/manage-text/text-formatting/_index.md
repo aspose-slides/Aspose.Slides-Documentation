@@ -1,5 +1,5 @@
 ---
-title: قالب‌گذاری متن ارائه در C++
+title: قالب‌بندی متن ارائه در C++
 linktitle: قالب‌بندی متن
 type: docs
 weight: 50
@@ -9,14 +9,14 @@ keywords:
 - سبک متن
 - پس‌زمینه متن
 - شفافیت متن
-- فاصله کاراکترها
+- فاصله کاراکتر
 - ویژگی‌های قلم
 - خانواده قلم
 - چرخش متن
 - زاویه چرخش
 - قاب متن
 - فاصله خطوط
-- ویژگی Autofit
+- ویژگی autofit
 - لنگر قاب متن
 - تب‌بندی متن
 - زبان پیش‌فرض
@@ -25,23 +25,23 @@ keywords:
 - ارائه
 - C++
 - Aspose.Slides
-description: "قالب‌بندی و استایل‌دهی به متن در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای C++. قلم‌ها، رنگ‌ها، هم‌ترازی و موارد دیگر را سفارشی کنید."
+description: "متن را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای C++ قالب‌بندی و استایل‌دهی کنید. قلم‌ها، رنگ‌ها، تراز و موارد دیگر را سفارشی‌سازی کنید."
 ---
 ## **بررسی کلی**
 
-این مقاله نشان می‌دهد چگونه می‌توان متن را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای C++ قالب‌بندی کرد. این مقاله شامل رنگ‌های پس‌زمینه، شفافیت، فاصله کاراکترها، ویژگی‌های قلم، چرخش، فاصله پاراگراف، رفتار Autofit، لنگر متن، توقف‌های تب و تنظیمات زبان می‌شود.
+این مقاله نشان می‌دهد چگونه می‌توان متن را در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides for C++ قالب‌بندی کرد. شامل رنگ‌های پس‌زمینه، شفافیت، فاصله کاراکترها، ویژگی‌های قلم، چرخش، فاصله پاراگراف، رفتار autofit، تثبیت متن، توقف‌های تب و تنظیمات زبان می‌شود.
 
-در مثال‌های زیر، از فایلی به نام «sample.pptx» استفاده می‌کنیم که شامل یک جعبه متن واحد در اسلاید اول با متن زیر است:
+در مثال‌های زیر، از فایلی به نام «sample.pptx» استفاده می‌کنیم که یک جعبه متن واحد در اسلاید اول دارد و متن زیر را شامل می‌شود:
 
 ![متن نمونه](sample_text.png)
 
-برای یافتن و برجسته‌کردن متن دقیق یا تطابق‌های عبارت منظم، به [جستجو و جایگزینی متن](/slides/fa/cpp/search-and-replace-text/) مراجعه کنید.
+برای پیدا کردن و برجسته کردن متن دقیق یا تطابق‌های عبارت منظم، به [جستجو و جایگزینی متن](/slides/fa/cpp/search-and-replace-text/) مراجعه کنید.
 
 ## **تنظیم رنگ پس‌زمینه متن**
 
-از [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) برای تنظیم رنگ برجسته پیش‌فرض یک پاراگراف استفاده کنید، یا از [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) برای بخش‌های متنی منفرد استفاده کنید.
+از [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) برای تنظیم رنگ برجسته‌سازی پیش‌فرض یک پاراگراف یا از [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) برای بخش‌های متنی جداگانه استفاده کنید.
 
-کد مثال زیر نشان می‌دهد چگونه رنگ پس‌زمینه برای **تمام پاراگراف** تنظیم شود:
+کد زیر نشان می‌دهد چگونه رنگ پس‌زمینه برای **تمام پاراگراف** تنظیم شود:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -65,8 +65,7 @@ auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 auto highlightColor = System::Drawing::Color::get_LightGray();
 
-// تنظیم رنگ برجسته برای تمام پاراگراف.
-defaultPortionFormat->get_HighlightColor()->set_Color(highlightColor);
+// رنگ برجسته را برای تمام پاراگراف تنظیم کنید.
 
 presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
@@ -76,7 +75,7 @@ presentation->Dispose();
 
 ![پاراگراف خاکستری](gray_paragraph.png)
 
-کد مثال زیر نشان می‌دهد چگونه رنگ پس‌زمینه برای **بخش‌های متنی با قلم پررنگ** تنظیم شود:
+کد زیر نحوه تنظیم رنگ پس‌زمینه برای **بخش‌های متنی با قلم توپر** را نشان می‌دهد:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -109,7 +108,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // تنظیم رنگ برجسته برای قسمت متن.
+        // رنگ برجسته را برای بخش متنی تنظیم کنید.
         portionFormat->get_HighlightColor()->set_Color(highlightColor);
     }
 }
@@ -122,11 +121,11 @@ presentation->Dispose();
 
 ![بخش‌های متن خاکستری](gray_text_portions.png)
 
-## **هم‌ترازی پاراگراف‌های متن**
+## **تراز کردن پاراگراف‌های متن**
 
-از [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_alignment/) برای تنظیم هم‌ترازی پاراگراف درون یک چارچوب متن استفاده کنید. مقدار می‌تواند مرکز، چپ‌تراز، راست‌تراز، توجیه‌شده و ... باشد.
+از [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_alignment/) برای تنظیم تراز پاراگراف درون یک فریم متن استفاده کنید. مقدار می‌تواند centered, left‑aligned, right‑aligned, justified و ... باشد.
 
-کد مثال زیر نشان می‌دهد چگونه پاراگراف را به **مرکز** هم‌تراز کنیم:
+کد زیر نشان می‌دهد چگونه پاراگراف به **مرکز** ترازبندی شود:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -146,7 +145,7 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-// تنظیم هم‌ترازی پاراگراف به مرکز.
+// ترازبندی پاراگراف را به مرکز تنظیم کنید.
 paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Center);
 
 presentation->Save(u"aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -155,13 +154,13 @@ presentation->Dispose();
 
 نتیجه:
 
-![پاراگراف هم‌تراز](aligned_paragraph.png)
+![پاراگراف ترازبندی شده](aligned_paragraph.png)
 
-## **تنظیم شفافیت متن**
+## **تنظیم شفافیت برای متن**
 
-شفافیت متن از طریق مؤلفه آلفای رنگی که از طریق [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/get_fillformat/) اختصاص داده می‌شود، کنترل می‌شود. در مثال‌های زیر، `alpha = 50` یک مقدار کانال آلفای ARGB در مقیاس 0‑255 است، نه درصد شفافیت.
+شفافیت متن از طریق مؤلفه آلفای رنگی که از طریق [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/get_fillformat/) تخصیص داده می‌شود، کنترل می‌شود. در مثال‌های زیر، `alpha = 50` یک مقدار آلفا در مقیاس 0‑255 است، نه درصد شفافیت.
 
-کد مثال زیر نشان می‌دهد چگونه شفافیت را برای **تمام پاراگراف** اعمال کنیم:
+کد زیر نحوه اعمال شفافیت برای **تمام پاراگراف** را نشان می‌دهد:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -188,7 +187,7 @@ auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// تنظیم رنگ پر کردن متن به رنگ شفاف.
+// رنگ پر شدن متن را به رنگ شفاف تنظیم کنید.
 defaultPortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
 auto baseColor = System::Drawing::Color::get_Black();
 auto transparentColor = System::Drawing::Color::FromArgb(alpha, baseColor);
@@ -202,7 +201,7 @@ presentation->Dispose();
 
 ![پاراگراف شفاف](transparent_paragraph.png)
 
-کد مثال زیر نشان می‌دهد چگونه شفافیت را برای **بخش‌های متنی با قلم پررنگ** اعمال کنیم:
+کد زیر نحوه اعمال شفافیت برای **بخش‌های متنی با قلم توپر** را نشان می‌دهد:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -238,7 +237,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // تنظیم شفافیت بخش متن.
+        // شفافیت بخش متن را تنظیم کنید.
         portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
         auto baseColor = System::Drawing::Color::get_Black();
         auto transparentColor = System::Drawing::Color::FromArgb(alpha, baseColor);
@@ -254,11 +253,11 @@ presentation->Dispose();
 
 ![بخش‌های متن شفاف](transparent_text_portions.png)
 
-## **تنظیم فاصله کاراکترهای متن**
+## **تنظیم فاصله کاراکتر برای متن**
 
-از [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/set_spacing/) برای گسترش یا فشرده‌کردن فاصله بین کاراکترها در یک جعبه متن استفاده کنید.
+از [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/set_spacing/) برای گسترش یا فشردن فاصله بین کاراکترها در یک جعبه متن استفاده کنید.
 
-کد C++ زیر نشان می‌دهد چگونه فاصله کاراکترها در **تمام پاراگراف** افزایش یابد:
+کد C++ زیر نشان می‌دهد چگونه فاصله کاراکتر در **تمام پاراگراف** گسترش یابد:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -277,8 +276,9 @@ auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-// Note: Use negative values to compress the character spacing.
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // Increase character spacing.
+
+// توجه: برای فشرده‌سازی فاصله کاراکتر از مقدارهای منفی استفاده کنید.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // فاصله کاراکتر را گسترش دهید.
 
 presentation->Save(u"character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
@@ -288,7 +288,7 @@ presentation->Dispose();
 
 ![فاصله کاراکترها در پاراگراف](character_spacing_in_paragraph.png)
 
-کد مثال زیر نشان می‌دهد چگونه فاصله کاراکترها در **بخش‌های متنی با قلم پررنگ** افزایش یابد:
+کد زیر نشان می‌دهد چگونه فاصله کاراکتر در **بخش‌های متنی با قلم توپر** گسترش یابد:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -318,8 +318,8 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // نکته: برای فشرده‌سازی فاصله کاراکترها از مقادیر منفی استفاده کنید.
-        portionFormat->set_Spacing(3.0f); // افزایش فاصله کاراکترها.
+        // نکته: برای فشرده‌سازی فاصله کاراکتر از مقادیر منفی استفاده کنید.
+        portionFormat->set_Spacing(3.0f); // فاصله کاراکتر را گسترش دهید.
     }
 }
 
@@ -331,11 +331,11 @@ presentation->Dispose();
 
 ![فاصله کاراکترها در بخش‌های متن](character_spacing_in_text_portions.png)
 
-### **غیرفعال‌سازی کرنینگ برای قلم‌های خاص**
+### **غیرفعال کردن کرنینگ برای قلم‌های خاص**
 
-در برخی موارد، متنی که توسط Aspose.Slides رندر می‌شود ممکن است کمی فشرده‌تر از همان متن در PowerPoint به نظر برسد. این می‌تواند به این دلیل باشد که PowerPoint داده‌های کرنینگ برای برخی قلم‌ها را نادیده می‌گیرد، حتی اگر قلم شامل اطلاعات کرنینگ معتبر باشد و کرنینگ در تنظیمات PowerPoint فعال باشد.
+در برخی موارد، متنی که توسط Aspose.Slides رندر می‌شود ممکن است کمی تنگ‌تر از همان متن در PowerPoint به نظر برسد. این می‌تواند به این دلیل باشد که PowerPoint داده‌های کرنینگ برای برخی قلم‌ها را نادیده می‌گیرد، حتی اگر قلم حاوی اطلاعات کرنینگ معتبر باشد و کرنینگ در تنظیمات PowerPoint فعال باشد.
 
-برای نزدیک‌تر شدن خروجی رندر به PowerPoint در چنین مواردی، می‌توانید کرنینگ را برای بخش‌های متنی که از قلم موردنظر استفاده می‌کنند، غیرفعال کنید. از [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) برای تنظیم مقدار بسیار بزرگتر از اندازه واقعی قلم استفاده کنید:
+برای نزدیک‌تر شدن خروجی رندر شده به PowerPoint، می‌توانید کرنینگ را برای بخش‌های متنی که از قلم موردنظر استفاده می‌کنند، غیرفعال کنید. از [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) برای تنظیم مقداری بزرگتر از اندازه واقعی قلم استفاده کنید:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -390,11 +390,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+این تنظیم مانع اعمال کرنینگ بر روی بخش‌های متن مطابق می‌شود و می‌تواند به هم‌راستایی رندر Aspose.Slides با خروجی بصری PowerPoint برای قلم‌های تحت تأثیر این رفتار خاص PowerPoint کمک کند.
+
 ## **مدیریت ویژگی‌های قلم متن**
 
-ویژگی‌های قلم می‌توانند در سطح پاراگراف از طریق [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) یا در سطح بخش‌های منفرد از طریق [IPortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iportionformat/) تنظیم شوند.
+ویژگی‌های قلم می‌توانند در سطح پاراگراف از طریق [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) یا بر روی بخش‌های جداگانه از طریق [IPortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iportionformat/) تنظیم شوند.
 
-کد زیر قلم و سبک متن را برای **تمام پاراگراف** تنظیم می‌کند: اندازه قلم، پررنگ، ایتالیک، زیرخط نقطه‌دار و قلم Times New Roman را برای همه بخش‌های پاراگراف اعمال می‌کند.
+کد زیر قلم و سبک متن را برای **تمام پاراگراف** تنظیم می‌کند: اندازه قلم، توپر، ایتالیک، زیرخط نقطه‌دار و قلم Times New Roman را برای همه بخش‌ها اعمال می‌کند.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -434,7 +436,7 @@ presentation->Dispose();
 
 ![ویژگی‌های قلم برای پاراگراف](font_properties_for_paragraph.png)
 
-کد مثال زیر ویژگی‌های مشابه را برای **بخش‌های متنی با قلم پررنگ** اعمال می‌کند:
+کد زیر ویژگی‌های مشابه را برای **بخش‌های متنی با قلم توپر** اعمال می‌کند:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -468,7 +470,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // تنظیم ویژگی‌های قلم برای بخش متن.
+        // ویژگی‌های قلم را برای بخش متنی تنظیم کنید.
         portionFormat->set_FontHeight(13.0f);
         portionFormat->set_FontItalic(NullableBool::True);
         portionFormat->set_FontUnderline(TextUnderlineType::Dotted);
@@ -488,7 +490,7 @@ presentation->Dispose();
 
 از [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframeformat/set_textverticaltype/) برای تنظیم جهت‌گیری پیش‌فرض متن درون یک شکل استفاده کنید.
 
-کد مثال زیر جهت‌گیری متن در شکل را به [TextVerticalType::Vertical270](https://reference.aspose.com/slides/fa/cpp/aspose.slides/textverticaltype/) تنظیم می‌کند، که متن را **۹۰ درجه در خلاف جهت عقربه‌های ساعت** می‌چرخاند:
+کد زیر جهت‌گیری متن در شکل را به [TextVerticalType::Vertical270](https://reference.aspose.com/slides/fa/cpp/aspose.slides/textverticaltype/) که متن را **90 درجه خلاف جهت ساعت** می‌چرخاند، تنظیم می‌کند:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -518,9 +520,9 @@ presentation->Dispose();
 
 ## **تنظیم چرخش سفارشی برای فریم‌های متن**
 
-از [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframeformat/set_rotationangle/) برای تعیین زاویه چرخش سفارشی یک [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) استفاده کنید.
+از [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframeformat/set_rotationangle/) برای تنظیم زاویه چرخش سفارشی یک [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) استفاده کنید.
 
-کد مثال زیر فریم متن را به میزان ۳ درجه در جهت ساعت درون شکل می‌چرخاند:
+کد زیر فریم متن را به میزان 3 درجه ساعتگرد درون شکل می‌چرخاند:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -549,12 +551,12 @@ presentation->Dispose();
 
 ## **تنظیم فاصله خطوط پاراگراف‌ها**
 
-Aspose.Slides متدهای [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_spaceafter/)، [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_spacebefore/) و [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_spacewithin/) را برای کنترل فاصله پاراگراف فراهم می‌کند. این متدها به شکل زیر استفاده می‌شوند:
+Aspose.Slides توابع [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_spaceafter/)، [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_spacebefore/) و [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_spacewithin/) را برای کنترل فاصله پاراگراف ارائه می‌دهد. این متدها به صورت زیر استفاده می‌شوند:
 
-* برای تعیین فاصله خطوط به‌صورت درصد از ارتفاع خط، از مقدار مثبت استفاده کنید.
-* برای تعیین فاصله خطوط بر حسب پوینت، از مقدار منفی استفاده کنید.
+* برای مشخص کردن فاصله خط به صورت درصد از ارتفاع خط، مقدار مثبت استفاده کنید.
+* برای مشخص کردن فاصله خط به صورت نقطه، مقدار منفی استفاده کنید.
 
-کد مثال زیر نشان می‌دهد چگونه فاصله خطوط را داخل پاراگراف مشخص کنیم:
+کد زیر نشان می‌دهد چگونه فاصله خط داخل پاراگراف مشخص شود:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -581,11 +583,11 @@ presentation->Dispose();
 
 نتیجه:
 
-![فاصله خطوط در داخل پاراگراف](line_spacing.png)
+![فاصله خطوط داخل پاراگراف](line_spacing.png)
 
-## **تنظیم نوع خودکارفیت برای فریم‌های متن**
+## **تنظیم نوع Autofit برای فریم‌های متن**
 
-[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframeformat/set_autofittype/) تعیین می‌کند که وقتی متن از مرزهای محفظهٔ خود فراتر رود، چه رفتارهایی داشته باشد. از آن برای کنترل اینکه آیا متن کوچکتر می‌شود، جریان می‌یابد یا به‌صورت خودکار شکل را تغییر اندازه می‌دهد، استفاده کنید.
+[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframeformat/set_autofittype/) تعیین می‌کند متن هنگامی که از مرزهای محفظه‌اش فراتر رود، چگونه رفتار کند. از آن برای کنترل اینکه متن کوچک شود، سرریز شود یا به‌طور خودکار شکل را تغییر اندازه دهد، استفاده کنید.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -609,9 +611,11 @@ presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+برای شمارش خطوط پس از بسته‌بندی خودکار و مشاهده اینکه چگونه عرض متن یا شکل تغییر می‌کند، به [شمارش خطوط رندر شده](/slides/fa/cpp/manage-paragraph/) مراجعه کنید. تنها شمارش خطوط نشان‌دهنده سرریز متن نیست.
+
 ## **تنظیم لنگر فریم‌های متن**
 
-[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframeformat/set_anchoringtype/) نحوهٔ موقعیت‌یابی عمودی متن داخل یک شکل را تعریف می‌کند؛ به‌عنوان مثال در بالا، وسط یا پایین.
+[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframeformat/set_anchoringtype/) تعیین می‌کند متن به صورت عمودی داخل شکل در کجا قرار گیرد؛ به‌عنوان مثال در بالا، میانه یا پایین.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -635,7 +639,7 @@ presentation->Save(u"text_anchor.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **تنظیم تب‌بندی متن**
+## **تنظیم تب‌گذاری متن**
 
 از [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) و [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/get_tabs/) برای پیکربندی توقف‌های تب در یک پاراگراف استفاده کنید.
 
@@ -669,11 +673,11 @@ presentation->Dispose();
 
 ![تب‌های پاراگراف](paragraph_tabs.png)
 
-## **تنظیم زبان اصلاح‌نویسی**
+## **تنظیم زبان اصلاح املایی**
 
-Aspose.Slides متد [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/set_languageid/) را فراهم می‌کند که به شما امکان می‌دهد زبان اصلاح‌نویسی برای یک بخش متنی را تنظیم کنید. زبان اصلاح‌نویسی تعیین می‌کند که برای بررسی املا و دستور زبان در PowerPoint از چه زبانی استفاده شود.
+Aspose.Slides متد [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/set_languageid/) را فراهم می‌کند که به شما امکان می‌دهد زبان اصلاح املایی برای یک بخش متن را تنظیم کنید. این زبان تعیین می‌کند که بررسی املایی و دستوری در PowerPoint به چه زبانی انجام شود.
 
-کد مثال زیر نشان می‌دهد چگونه زبان اصلاح‌نویسی برای یک بخش متنی تنظیم شود:
+کد زیر نشان می‌دهد چگونه زبان اصلاح املایی برای یک بخش متن تنظیم شود:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -705,7 +709,7 @@ portionFormat->set_ComplexScriptFont(font);
 portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
-// تنظیم شناسه زبان اصلاح‌نویسی.
+// Set the Id of a proofing language.
 portionFormat->set_LanguageId(u"zh-CN");
 
 textPortion->set_Text(u"1.");
@@ -717,7 +721,7 @@ presentation->Dispose();
 
 ## **تنظیم زبان پیش‌فرض**
 
-از [ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iloadoptions/set_defaulttextlanguage/) برای تعریف زبان پیش‌فرض متنی که هنگام بارگذاری یا ایجاد یک ارائه ساخته می‌شود، استفاده کنید.
+از [ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iloadoptions/set_defaulttextlanguage/) برای تعریف زبان پیش‌فرض متنی که هنگام بارگذاری یا ایجاد ارائه ایجاد می‌شود، استفاده کنید.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -751,11 +755,11 @@ System::Console::WriteLine(languageId);
 presentation->Dispose();
 ```
 
-## **تنظیم سبک پیش‌فرض متن**
+## **تنظیم سبک متن پیش‌فرض**
 
 برای اعمال قالب‌بندی پیش‌فرض متن در سطح ارائه، از [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/get_defaulttextstyle/) استفاده کنید.
 
-کد مثال زیر نشان می‌دهد چگونه یک قلم پررنگ پیش‌فرض با اندازه ۱۴ پوینت برای تمام متن‌ها در تمام اسلایدها در یک ارائهٔ جدید تنظیم شود.
+کد زیر نشان می‌دهد چگونه یک قلم توپر با اندازه 14 pt به‌صورت پیش‌فرض برای تمام متن‌های اسلایدها در یک ارائه جدید تنظیم شود.
 
 ```cpp
 #include <DOM/IParagraphFormat.h>
@@ -769,7 +773,7 @@ using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>();
 
-// دریافت قالب پاراگراف سطح بالا.
+// دریافت قالب پاراگراف سطح بالایی.
 auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
 if (paragraphFormat != nullptr)
@@ -783,15 +787,15 @@ presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **استخراج متن با اثر تمام حروف بزرگ**
+## **استخراج متن با اثر All‑Caps**
 
-در PowerPoint، اعمال اثر **All Caps** باعث می‌شود متن روی اسلاید به صورت حروف بزرگ ظاهر شود حتی اگر در اصل با حروف کوچک وارد شده باشد. زمانی که چنین بخشی از متن را با Aspose.Slides بازیابی می‌کنید، کتابخانه متن را دقیقاً همان‌طور که وارد شده است برمی‌گرداند. برای تطبیق با متن نمایش‌داده‌شده، [TextCapType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/textcaptype/) را بررسی کنید و رشتهٔ برگردانده‌شده را به حروف بزرگ تبدیل کنید وقتی مقدار [TextCapType::All](https://reference.aspose.com/slides/fa/cpp/aspose.slides/textcaptype/) باشد.
+در PowerPoint، اعمال اثر **All Caps** باعث می‌شود متن بر روی اسلاید به حروف بزرگ نمایش داده شود، حتی اگر ابتدا با حروف کوچک تایپ شده باشد. هنگام بازیابی چنین بخشی از متن با Aspose.Slides، کتابخانه دقیقاً همان متنی را که وارد شده است برمی‌گرداند. برای مطابقت با متن نمایش داده‌شده، [TextCapType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/textcaptype/) را بررسی کنید و وقتی مقدار آن [TextCapType::All](https://reference.aspose.com/slides/fa/cpp/aspose.slides/textcaptype/) باشد، رشته برگشتی را به حروف بزرگ تبدیل کنید.
 
-فرض کنید که در اسلاید اول فایل sample2.pptx یک جعبه متن به شکل زیر داریم.
+فرض کنید جعبه متن زیر را در اسلاید اول فایل sample2.pptx داریم.
 
-![اثر تمام حروف بزرگ](all_caps_effect.png)
+![اثر All Caps](all_caps_effect.png)
 
-کد مثال زیر نشان می‌دهد چگونه متنی را که اثر **All Caps** بر آن اعمال شده استخراج کنیم:
+کد زیر نشان می‌دهد چگونه متنی را که اثر **All Caps** دارد استخراج کنیم:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -832,12 +836,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **پرسش‌های متداول**
+## **سؤالات متداول**
 
-**چگونه متن در یک جدول در اسلاید را ویرایش کنیم؟**
+**چگونه متن داخل جدول در یک اسلاید را ویرایش کنیم؟**
 
-برای ویرایش متن در یک جدول در اسلاید، از [ITable](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itable/) استفاده کنید. سلول‌ها را مرور کنید و هر سلول را از طریق [ICell::get_TextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icell/get_textframe/) و قالب‌بندی پاراگراف را از طریق [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/get_paragraphformat/) به‌روزرسانی نمایید.
+برای ویرایش متن داخل جدول در یک اسلاید، از [ITable](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itable/) استفاده کنید. به‌صورت حلقه‌ای از سلول‌ها عبور کنید و هر سلول را از طریق [ICell::get_TextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icell/get_textframe/) و قالب‌بندی پاراگراف از طریق [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/get_paragraphformat/) به‌روزرسانی کنید.
 
-**چگونه رنگ گرادیان را به متن در یک اسلاید PowerPoint اعمال کنیم؟**
+**چگونه رنگ گرادیان به متن در یک اسلاید PowerPoint اعمال کنیم؟**
 
-برای اعمال رنگ گرادیان به متن، از [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/get_fillformat/) استفاده کنید. [IFillFormat::set_FillType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifillformat/set_filltype/) را به [FillType::Gradient](https://reference.aspose.com/slides/fa/cpp/aspose.slides/filltype/) تنظیم کنید و توقف‌های گرادیان، جهت و شفافیت را پیکربندی نمایید.
+برای اعمال رنگ گرادیان به متن، از [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/get_fillformat/) استفاده کنید. [IFillFormat::set_FillType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifillformat/set_filltype/) را بر روی [FillType::Gradient](https://reference.aspose.com/slides/fa/cpp/aspose.slides/filltype/) تنظیم کنید و توقف‌های گرادیان، جهت و شفافیت را پیکربندی کنید.

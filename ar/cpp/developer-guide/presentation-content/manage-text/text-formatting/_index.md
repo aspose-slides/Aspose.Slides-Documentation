@@ -16,7 +16,7 @@ keywords:
 - زاوية الدوران
 - إطار النص
 - تباعد الأسطر
-- خاصية الملاءمة التلقائية
+- خاصية الملء التلقائي
 - تثبيت إطار النص
 - تبويب النص
 - اللغة الافتراضية
@@ -25,23 +25,23 @@ keywords:
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "تنسيق وتنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة C++. تخصيص الخطوط، الألوان، المحاذاة، والمزيد."
+description: "قم بتنسيق وتنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة C++. خصّص الخطوط والألوان والمحاذاة والمزيد."
 ---
 ## **نظرة عامة**
 
-توضح هذه المقالة كيفية تنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة C++. تغطي الألوان الخلفية، الشفافية، تباعد الأحرف، خصائص الخط، الدوران، تباعد الفقرات، سلوك الملاءمة التلقائية، تثبيت النص، علامات التبويب، وإعدادات اللغة.
+تُظهر هذه المقالة كيفية تنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for C++. تغطي ألوان الخلفية، الشفافية، تباعد الأحرف، خصائص الخط، الدوران، تباعد الفقرات، سلوك الملء التلقائي، تثبيت النص، مسافات التبويب، وإعدادات اللغة.
 
-في الأمثلة أدناه، سنستخدم ملفًا باسم **"sample.pptx"** يحتوي على مربع نص واحد في الشريحة الأولى بالنص التالي:
+في الأمثلة أدناه، سنستخدم ملفًا اسمه "sample.pptx"، يحتوي على مربع نص واحد في الشريحة الأولى بالنص التالي:
 
-![نص عينة](sample_text.png)
+![Sample text](sample_text.png)
 
-للعثور على النص الحرفي أو مطابقة التعبيرات النمطية وتظليلها، راجع [بحث واستبدال النص](/slides/ar/cpp/search-and-replace-text/).
+للعثور على نص حرفي أو مطابقة تعبيرٍ نمطي وتحديده، راجع [Search and Replace Text](/slides/ar/cpp/search-and-replace-text/).
 
-## **تعيين لون خلفية النص**
+## **Set Text Background Color**
 
-استخدم [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) لتحديد لون التظليل الافتراضي لفقرة، أو استخدم [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) لأجزاء النص الفردية.
+استخدم [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) لتعيين لون التحديد الافتراضي لفقرة، أو استخدم [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) لأجزاء النص الفردية.
 
-يوضح مثال الشيفرة التالي كيفية تعيين لون الخلفية **للفقرة بأكملها**:
+يوضح مثال الشيفرة التالي كيفية تعيين لون الخلفية لل**فقرة كاملة**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -65,7 +65,7 @@ auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 auto highlightColor = System::Drawing::Color::get_LightGray();
 
-// تعيين لون التظليل للفقرة بأكملها.
+// تعيين لون التحديد للفقرة بأكملها.
 defaultPortionFormat->get_HighlightColor()->set_Color(highlightColor);
 
 presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
@@ -74,9 +74,9 @@ presentation->Dispose();
 
 النتيجة:
 
-![الفقرة الرمادية](gray_paragraph.png)
+![The gray paragraph](gray_paragraph.png)
 
-يوضح مثال الشيفرة أدناه كيفية تعيين لون الخلفية **لأجزاء النص ذات الخط العريض**:
+يوضح مثال الشيفرة أدناه كيفية تعيين لون الخلفية لل**أجزاء النص بخط عريض**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -109,7 +109,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // تعيين لون التظليل لجزء النص.
+        // تعيين لون التحديد لجزء النص.
         portionFormat->get_HighlightColor()->set_Color(highlightColor);
     }
 }
@@ -120,13 +120,13 @@ presentation->Dispose();
 
 النتيجة:
 
-![أجزاء النص الرمادية](gray_text_portions.png)
+![The gray text portions](gray_text_portions.png)
 
-## **محاذاة فقرات النص**
+## **Align Text Paragraphs**
 
-استخدم [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/set_alignment/) لتعيين محاذاة الفقرة داخل إطار النص. يمكن أن تكون القيمة متمركزة، محاذية إلى اليسار، إلى اليمين، مبررة، إلخ.
+استخدم [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/set_alignment/) لتعيين محاذاة الفقرة داخل إطار النص. يمكن أن تكون القيمة مركزية، محاذاة لليسار، محاذاة لليمين، مبررة، وما إلى ذلك.
 
-يوضح مثال الشيفرة التالي كيفية محاذاة الفقرة إلى **المركز**:
+يوضح مثال الشيفرة التالي كيفية محاذاة الفقرة إلى **الوسط**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -146,7 +146,7 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-// تعيين محاذاة الفقرة إلى المركز.
+// اضبط محاذاة الفقرة إلى الوسط.
 paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Center);
 
 presentation->Save(u"aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -155,13 +155,13 @@ presentation->Dispose();
 
 النتيجة:
 
-![الفقرة المحاذاة](aligned_paragraph.png)
+![The aligned paragraph](aligned_paragraph.png)
 
-## **تعيين الشفافية للنص**
+## **Set Transparency for Text**
 
-يتم التحكم في شفافية النص عبر مكوّن ألفا للون المُعيّن عبر [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseportionformat/get_fillformat/). في الأمثلة أدناه، `alpha = 50` هو قيمة قناة ألفا ARGB على مقياس 0-255، وليس نسبة شفافية.
+يتم التحكم في شفافية النص من خلال مكون ألفا للون المُعيّن عبر [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseportionformat/get_fillformat/). في الأمثلة أدناه، `alpha = 50` هو قيمة قناة ألفا بصيغة ARGB على مقياس 0‑255، وليس نسبة شفافية.
 
-يوضح مثال الشيفرة التالي كيفية تطبيق الشفافية على **الفقرة بأكملها**:
+يوضح مثال الشيفرة أدناه كيفية تطبيق الشفافية على **الفقرة كاملة**:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -200,9 +200,9 @@ presentation->Dispose();
 
 النتيجة:
 
-![الفقرة الشفافة](transparent_paragraph.png)
+![The transparent paragraph](transparent_paragraph.png)
 
-يوضح مثال الشيفرة التالي كيفية تطبيق الشفافية على **أجزاء النص ذات الخط العريض**:
+يوضح مثال الشيفرة التالي كيفية تطبيق الشفافية على **أجزاء النص بخط عريض**:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -252,13 +252,13 @@ presentation->Dispose();
 
 النتيجة:
 
-![أجزاء النص الشفافة](transparent_text_portions.png)
+![The transparent text portions](transparent_text_portions.png)
 
-## **تعيين تباعد الأحرف للنص**
+## **Set Character Spacing for Text**
 
 استخدم [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseportionformat/set_spacing/) لتوسيع أو تضييق التباعد بين الأحرف في مربع النص.
 
-يوضح كود C++ التالي كيفية توسيع تباعد الأحرف في **الفقرة بأكملها**:
+يوضح كود C++ التالي كيفية توسيع تباعد الأحرف في **الفقرة كاملة**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -278,7 +278,7 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-// ملاحظة: استخدم قيمًا سلبية لضغط تباعد الأحرف.
+// ملاحظة: استخدم قيمًا سالبة لضغط تباعد الأحرف.
 paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // توسيع تباعد الأحرف.
 
 presentation->Save(u"character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
@@ -287,9 +287,9 @@ presentation->Dispose();
 
 النتيجة:
 
-![تباعد الأحرف في الفقرة](character_spacing_in_paragraph.png)
+![The character spacing in the paragraph](character_spacing_in_paragraph.png)
 
-يوضح مثال الشيفرة أدناه كيفية توسيع تباعد الأحرف في **أجزاء النص ذات الخط العريض**:
+يوضح مثال الشيفرة أدناه كيفية توسيع تباعد الأحرف في **أجزاء النص بخط عريض**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -319,7 +319,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // ملاحظة: استخدم قيمًا سلبية لضغط تباعد الأحرف.
+        // ملاحظة: استخدم قيمًا سالبة لضغط تباعد الأحرف.
         portionFormat->set_Spacing(3.0f); // توسيع تباعد الأحرف.
     }
 }
@@ -330,13 +330,13 @@ presentation->Dispose();
 
 النتيجة:
 
-![تباعد الأحرف في أجزاء النص](character_spacing_in_text_portions.png)
+![The character spacing in the text portions](character_spacing_in_text_portions.png)
 
-### **إلغاء تفعيل التقارب (Kerning) لبعض الخطوط**
+### **Disable Kerning for Specific Fonts**
 
-في بعض الحالات، قد يبدو النص المرسوم بواسطة Aspose.Slides أكثر ضيقًا قليلاً مقارنةً بالنص نفسه في PowerPoint. يحدث هذا لأن PowerPoint قد يتجاهل بيانات التقارب لبعض الخطوط، حتى وإن كان الخط يحتوي على معلومات تقارب صالحة وتم تفعيل التقارب في إعدادات PowerPoint.
+في بعض الحالات، قد يبدو النص المُصدَّر بواسطة Aspose.Slides أكثر ضيقًا قليلًا مقارنةً بالنص نفسه المعروض في PowerPoint. يمكن أن يحدث ذلك لأن PowerPoint قد يتجاهل بيانات الـ kerning لبعض الخطوط، حتى وإن كان الخط يحتوي على معلومات kerning صالحة وكانت الـ kerning مفعَّلة في إعدادات PowerPoint.
 
-لجعل الناتج المرسوم أقرب إلى ما يقدمه PowerPoint في مثل هذه الحالات، يمكنك إلغاء تفعيل التقارب لأجزاء النص التي تستخدم الخط المتأثر. استخدم [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) لتعيين قيمة أكبر بكثير من حجم الخط الفعلي:
+لجعل الناتج المُصدَّر أقرب إلى PowerPoint في مثل هذه الحالات، يمكنك تعطيل الـ kerning لأجزاء النص التي تستخدم الخط المتأثر. استخدم [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) لتعيين قيمة أكبر بكثير من حجم الخط الفعلي:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -391,13 +391,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-تمنع هذه الإعدادات تطبيق التقارب على أجزاء النص المطابقة ويمكن أن تساعد في محاذاة عرض Aspose.Slides مع المظهر البصري في PowerPoint للخطوط المتأثرة بهذا السلوك الخاص بـ PowerPoint.
+يمنع هذا الإعداد تطبيق الـ kerning على أجزاء النص المطابقة ويمكن أن يساعد في محاذاة عرض Aspose.Slides مع النتيجة البصرية لـ PowerPoint للخطوط المتأثرة بهذا السلوك الخاص بـ PowerPoint.
 
-## **إدارة خصائص خط النص**
+## **Manage Text Font Properties**
 
 يمكن تعيين خصائص الخط على مستوى الفقرة عبر [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) أو على الأجزاء الفردية عبر [IPortionFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iportionformat/).
 
-يعرض الكود التالي تعيين الخط ونمط النص للفقرة بأكملها: يطبق حجم الخط، العريض، المائل، التسطير المنقط، وخط Times New Roman على جميع الأجزاء داخل الفقرة.
+يعرض المثال التالي الشيفرة التي تُعيّن الخط ونمط النص للفقرة كاملة: يطبق حجم الخط، العريض، المائل، خط تحت نقطي، وخط Times New Roman على جميع الأجزاء في الفقرة.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -435,9 +435,9 @@ presentation->Dispose();
 
 النتيجة:
 
-![خصائص الخط للفقرة](font_properties_for_paragraph.png)
+![The font properties for the paragraph](font_properties_for_paragraph.png)
 
-يعرض مثال الشيفرة أدناه خصائص مماثلة **لأجزاء النص ذات الخط العريض**:
+يوضح مثال الشيفرة أدناه تطبيق خصائص مماثلة على **أجزاء النص بخط عريض**:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -485,13 +485,13 @@ presentation->Dispose();
 
 النتيجة:
 
-![خصائص الخط لأجزاء النص](font_properties_for_text_portions.png)
+![The font properties for text portions](font_properties_for_text_portions.png)
 
-## **تعيين دوران النص**
+## **Set Text Rotation**
 
-استخدم [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/set_textverticaltype/) لتعيين اتجاه نص مسبق داخل الشكل.
+استخدم [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/set_textverticaltype/) لتعيين اتجاه نص مسبق التعريف داخل الشكل.
 
-يعرض مثال الشيفرة التالي تعيين اتجاه النص في الشكل إلى [TextVerticalType::Vertical270](https://reference.aspose.com/slides/ar/cpp/aspose.slides/textverticaltype/)، الذي يدور النص **90 درجة عكس عقربة الساعة**:
+يعين مثال الشيفرة التالي اتجاه النص في الشكل إلى [TextVerticalType::Vertical270](https://reference.aspose.com/slides/ar/cpp/aspose.slides/textverticaltype/)، مما يدور النص **90 درجة عكس اتجاه عقرب الساعة**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -517,13 +517,13 @@ presentation->Dispose();
 
 النتيجة:
 
-![دوران النص](text_rotation.png)
+![The text rotation](text_rotation.png)
 
-## **تعيين دوران مخصص لإطارات النص**
+## **Set Custom Rotation for Text Frames**
 
-استخدم [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/set_rotationangle/) لتعيين زاوية دوران مخصصة لـ [ITextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/).
+استخدم [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/set_rotationangle/) لتعيين زاوية دوران مخصَّصة لإطار [ITextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/).
 
-يدور مثال الشيفرة أدناه إطار النص بمقدار 3 درجات باتجاه عقرب الساعة داخل الشكل:
+يدور مثال الشيفرة أدناه إطار النص 3 درجات باتجاه عقرب الساعة داخل الشكل:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -548,16 +548,16 @@ presentation->Dispose();
 
 النتيجة:
 
-![الدوران المخصص للنص](custom_text_rotation.png)
+![The custom text rotation](custom_text_rotation.png)
 
-## **تعيين تباعد الأسطر للفقرات**
+## **Set Line Spacing of Paragraphs**
 
-توفر Aspose.Slides الأساليب [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/set_spaceafter/)، [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/set_spacebefore/)، و[IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/set_spacewithin/) للتحكم في تباعد الفقرات. تُستخدم هذه الطرق كما يلي:
+يوفر Aspose.Slides [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/set_spaceafter/)، [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/set_spacebefore/)، و [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/set_spacewithin/) للتحكم في تباعد الفقرات. تُستَخدم هذه الطرق كما يلي:
 
-* استخدم قيمة موجبة لتحديد تباعد الأسطر كنسبة مئوية من ارتفاع السطر.
-* استخدم قيمة سالبة لتحديد تباعد الأسطر بوحدات النقاط.
+* استخدم قيمة موجبة لتحديد تباعد السطر كنسبة مئوية من ارتفاع السطر.
+* استخدم قيمة سالبة لتحديد تباعد السطر بالنقاط.
 
-يعرض مثال الشيفرة التالي كيفية تحديد تباعد الأسطر داخل الفقرة:
+يوضح مثال الشيفرة التالي كيفية تحديد تباعد السطر داخل الفقرة:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -584,11 +584,11 @@ presentation->Dispose();
 
 النتيجة:
 
-![تباعد الأسطر داخل الفقرة](line_spacing.png)
+![The line spacing within the paragraph](line_spacing.png)
 
-## **تعيين نوع الملاءمة التلقائية لإطارات النص**
+## **Set Autofit Type for Text Frames**
 
-يحدد [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/set_autofittype/) كيفية تصرف النص عندما يتجاوز حدود الحاوية الخاصة به. استخدمه للتحكم في ما إذا كان النص سيُصغر، يتدفق خارجًا، أو يعيد تحجيم الشكل تلقائيًا.
+يحدد [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/set_autofittype/) كيف يتصرف النص عندما يتجاوز حدود حاويته. استخدمه للتحكم ما إذا كان النص سيُصغر، سيُفيض، أو سيُعيد تحجيم الشكل تلقائيًا.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -612,9 +612,11 @@ presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **تعيين تثبيت إطارات النص**
+لحساب عدد الأسطر بعد الالتفاف التلقائي ورؤية كيف يتغيّر عرض النص أو الشكل، راجع [Count Rendered Lines](/slides/ar/cpp/manage-paragraph/). عدد الأسطر وحده لا يُظهر ما إذا كان النص يفيض عن حاويته.
 
-يحدد [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/set_anchoringtype/) كيفية وضع النص عموديًا داخل الشكل، مثلًا في الأعلى، الوسط، أو الأسفل.
+## **Set Anchor of Text Frames**
+
+يحدد [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/set_anchoringtype/) كيفية توضع النص عموديًا داخل الشكل، مثلًا في الأعلى أو الوسط أو الأسفل.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -638,9 +640,9 @@ presentation->Save(u"text_anchor.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **تعيين تبويب النص**
+## **Set Text Tabulation**
 
-استخدم [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) و[IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/get_tabs/) لتكوين علامات التبويب في الفقرة.
+استخدم [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) و [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/get_tabs/) لتكوين مسافات تبويب في الفقرة.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -670,13 +672,13 @@ presentation->Dispose();
 
 النتيجة:
 
-![علامات تبويب الفقرة](paragraph_tabs.png)
+![The paragraph tabs](paragraph_tabs.png)
 
-## **تعيين لغة التدقيق**
+## **Set Proofing Language**
 
-توفر Aspose.Slides [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseportionformat/set_languageid/)، والتي تسمح لك بتعيين لغة التدقيق لجزء النص. تحدد لغة التدقيق اللغة المستخدمة لتدقيق الإملاء والقواعد في PowerPoint.
+يوفر Aspose.Slides [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseportionformat/set_languageid/)، والذي يتيح لك تعيين لغة التدقيق لجزء نص. تحدد لغة التدقيق اللغة المستخدمة في فحص الإملاء والقواعد في PowerPoint.
 
-يعرض مثال الشيفرة التالي كيفية تعيين لغة التدقيق لجزء النص:
+يعرض مثال الشيفرة التالي كيفية تعيين لغة التدقيق لجزء نص:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -708,7 +710,7 @@ portionFormat->set_ComplexScriptFont(font);
 portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
-// تعيين معرف لغة التدقيق.
+// Set the Id of a proofing language.
 portionFormat->set_LanguageId(u"zh-CN");
 
 textPortion->set_Text(u"1.");
@@ -718,7 +720,7 @@ presentation->Save(u"proofing_language.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **تعيين اللغة الافتراضية**
+## **Set Default Language**
 
 استخدم [ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iloadoptions/set_defaulttextlanguage/) لتحديد اللغة الافتراضية للنص الذي يُنشأ أثناء تحميل أو إنشاء عرض تقديمي.
 
@@ -754,11 +756,11 @@ System::Console::WriteLine(languageId);
 presentation->Dispose();
 ```
 
-## **تعيين نمط النص الافتراضي**
+## **Set Default Text Style**
 
 لتطبيق تنسيق نص افتراضي على مستوى العرض، استخدم [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/get_defaulttextstyle/).
 
-يعرض مثال الشيفرة التالي كيفية تعيين خط عريض افتراضي بحجم 14 نقطة لجميع النصوص عبر الشرائح في عرض جديد.
+يعرض مثال الشيفرة التالي كيفية تعيين خط غامق افتراضي بحجم 14 نقطة لجميع النصوص عبر الشرائح في عرض تقديمي جديد.
 
 ```cpp
 #include <DOM/IParagraphFormat.h>
@@ -772,7 +774,7 @@ using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>();
 
-// جلب تنسيق الفقرة المستوى الأعلى.
+// احصل على تنسيق الفقرة المستوى الأعلى.
 auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
 if (paragraphFormat != nullptr)
@@ -786,15 +788,15 @@ presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **استخراج النص مع تأثير الأحرف الكبيرة كلها (All-Caps)**
+## **Extract Text with the All-Caps Effect**
 
-في PowerPoint، يؤدي تطبيق تأثير الخط **All Caps** إلى ظهور النص بأحرف كبيرة على الشريحة حتى وإن تم كتابته أصلاً بأحرف صغيرة. عند استرجاع مثل هذا الجزء من النص باستخدام Aspose.Slides، تُعيد المكتبة النص كما تم إدخاله. لمطابقة النص المعروض، تحقق من [TextCapType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/textcaptype/) وغيّر السلسلة المسترجعة إلى أحرف كبيرة عندما تكون القيمة [TextCapType::All](https://reference.aspose.com/slides/ar/cpp/aspose.slides/textcaptype/).
+في PowerPoint، يؤدي تطبيق تأثير **All Caps** إلى ظهور النص بأحرف كبيرة على الشريحة حتى وإن تم كتابته أصلاً بأحرف صغيرة. عند استرجاع مثل هذا الجزء النصي باستخدام Aspose.Slides، تُعيد المكتبة النص كما تم إدخاله. لمطابقة النص المعروض، افحص [TextCapType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/textcaptype/) وحوِّل السلسلة المرتجعة إلى أحرف كبيرة عندما تكون القيمة [TextCapType::All](https://reference.aspose.com/slides/ar/cpp/aspose.slides/textcaptype/).
 
-لنفترض أن لدينا مربع النص التالي على الشريحة الأولى من ملف **sample2.pptx**.
+لنفترض أن لدينا مربع نص التالي على الشريحة الأولى من ملف sample2.pptx.
 
-![تأثير All Caps](all_caps_effect.png)
+![The All Caps effect](all_caps_effect.png)
 
-يوضح مثال الشيفرة التالي كيفية استخراج النص مع تطبيق تأثير **All Caps**:
+يعرض مثال الشيفرة أدناه كيفية استخراج النص مع تطبيق تأثير **All Caps**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -835,12 +837,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **الأسئلة المتكررة**
+## **FAQ**
 
-**كيف يمكن تعديل النص في جدول على شريحة؟**
+**How to modify text in a table on a slide?**
 
-لتعديل النص في جدول على شريحة، استخدم [ITable](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itable/). قم بالتكرار عبر الخلايا وقم بتحديث كل خلية عبر [ICell::get_TextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icell/get_textframe/) وتنسيق الفقرات عبر [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraph/get_paragraphformat/).
+لتعديل النص في جدول على شريحة، استخدم [ITable](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itable/). قم بالتكرار عبر الخلايا وحدث كل خلية عبر [ICell::get_TextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icell/get_textframe/) وتنسيق الفقرة عبر [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraph/get_paragraphformat/).
 
-**كيف يمكن تطبيق لون متدرج على النص في شريحة PowerPoint؟**
+**How to apply gradient color to text in a PowerPoint slide?**
 
-لتطبيق لون متدرج على النص، استخدم [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseportionformat/get_fillformat/). عيّن [IFillFormat::set_FillType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ifillformat/set_filltype/) إلى [FillType::Gradient](https://reference.aspose.com/slides/ar/cpp/aspose.slides/filltype/) وقم بتكوين نقاط التدرج، الاتجاه، والشفافية.
+لتطبيق لون تدرج على النص، استخدم [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseportionformat/get_fillformat/). عيّن [IFillFormat::set_FillType](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ifillformat/set_filltype/) إلى [FillType::Gradient](https://reference.aspose.com/slides/ar/cpp/aspose.slides/filltype/) و‑ configure the gradient stops, direction, and transparency.

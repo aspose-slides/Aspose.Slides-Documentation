@@ -1,48 +1,48 @@
 ---
-title: "จัดรูปแบบข้อความการนำเสนอบน Android"
-linktitle: "การจัดรูปแบบข้อความ"
+title: จัดรูปแบบข้อความการนำเสนอบน Android
+linktitle: การจัดรูปแบบข้อความ
 type: docs
 weight: 50
 url: /th/androidjava/text-formatting/
 keywords:
-- "จัดแนวย่อหน้า"
-- "สไตล์ข้อความ"
-- "พื้นหลังข้อความ"
-- "ความโปร่งใสของข้อความ"
-- "ระยะห่างอักขระ"
-- "คุณสมบัติเฟอนต์"
-- "ตระกูลฟอนต์"
-- "การหมุนข้อความ"
-- "มุมการหมุน"
-- "กรอบข้อความ"
-- "ระยะห่างบรรทัด"
-- "คุณสมบัติ Autofit"
-- "การยึดกรอบข้อความ"
-- "การแท็บข้อความ"
-- "ภาษาตั้งต้น"
+- จัดตำแหน่งย่อหน้า
+- สไตล์ข้อความ
+- พื้นหลังข้อความ
+- ความโปร่งใสของข้อความ
+- ระยะห่างระหว่างอักขระ
+- คุณสมบัติฟอนต์
+- ตระกูลฟอนต์
+- การหมุนข้อความ
+- มุมการหมุน
+- กรอบข้อความ
+- ระยะห่างบรรทัด
+- คุณสมบัติการปรับอัตโนมัติ
+- การตรึงกรอบข้อความ
+- การทำแท็บข้อความ
+- ภาษาตั้งต้น
 - PowerPoint
 - OpenDocument
-- "งานนำเสนอ"
+- งานนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "จัดรูปแบบและสไตล์ข้อความในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Android ผ่าน Java ปรับแต่งฟอนต์ สี การจัดแนวและอื่นๆ อีกมากมาย."
+description: "จัดรูปแบบและสไตล์ข้อความในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides สำหรับ Android ผ่าน Java ปรับแต่งฟอนต์, สี, การจัดตำแหน่ง, และอื่น ๆ"
 ---
 ## **ภาพรวม**
 
-บทความนี้แสดงวิธีการจัดรูปแบบข้อความในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides สำหรับ Android ผ่าน Java ครอบคลุมสีพื้นหลัง, ความโปร่งใส, ระยะห่างระหว่างอักขระ, คุณสมบัติของฟอนต์, การหมุน, ระยะห่างของย่อหน้า, พฤติกรรม Autofit, การยึดข้อความ, จุดหยุดแท็บ, และการตั้งค่าภาษา
+บทความนี้แสดงวิธีการจัดรูปแบบข้อความในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides สำหรับ Android ผ่าน Java. เนื้อหาครอบคลุมสีพื้นหลัง, ความโปร่งใส, ระยะห่างระหว่างตัวอักษร, คุณสมบัติของฟอนต์, การหมุน, ระยะห่างระหว่างย่อหน้า, พฤติกรรมอัตโนมัติในการปรับขนาด, การตรึงข้อความ, จุดหยุดแท็บ, และการตั้งค่าภาษา.
 
-ในตัวอย่างด้านล่าง เราจะใช้ไฟล์ชื่อ “sample.pptx” ซึ่งมีกล่องข้อความเดียวบนสไลด์แรกพร้อมข้อความต่อไปนี้:
+ในตัวอย่างต่อไปนี้ เราจะใช้ไฟล์ชื่อ "sample.pptx" ซึ่งมีกล่องข้อความเดียวบนสไลด์แรกพร้อมข้อความต่อไปนี้:
 
 ![ข้อความตัวอย่าง](sample_text.png)
 
-เพื่อค้นหาและเน้นข้อความลอจิกหรือผลลัพธ์ของ regular‑expression ให้ดูที่ [ค้นหาและแทนที่ข้อความ](/slides/th/androidjava/search-and-replace-text/)
+To find and highlight literal text or regular-expression matches, see [ค้นหาและแทนที่ข้อความ](/slides/th/androidjava/search-and-replace-text/).
 
-## **ตั้งค่าสีพื้นหลังข้อความ**
+## **ตั้งค่าสีพื้นหลังของข้อความ**
 
-ใช้ [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) เพื่อกำหนดสีไฮไลต์เริ่มต้นสำหรับย่อหน้า หรือใช้ [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) สำหรับส่วนข้อความแต่ละส่วน
+ใช้ [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) เพื่อตั้งค่าสีไฮไลต์เริ่มต้นสำหรับย่อหน้า, หรือใช้ [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) สำหรับส่วนข้อความแต่ละส่วน.
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีการตั้งค่าสีพื้นหลังสำหรับ **ย่อหน้าเต็ม**:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีตั้งค่าสีพื้นหลังสำหรับ **ย่อหน้าเต็ม**:
 
 ```java
 import com.aspose.slides.*;
@@ -54,7 +54,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // ตั้งค่าสีไฮไลท์สำหรับย่อหน้าเต็ม.
+    // ตั้งค่าสีไฮไลต์สำหรับย่อหน้าเต็ม.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LTGRAY);
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -67,7 +67,7 @@ try {
 
 ![ย่อหน้าสีเทา](gray_paragraph.png)
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีการตั้งค่าสีพื้นหลังสำหรับ **ส่วนข้อความที่ใช้ฟอนต์หนา**:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีตั้งค่าสีพื้นหลังสำหรับ **ส่วนข้อความที่มีฟอนต์หนา**:
 
 ```java
 import com.aspose.slides.*;
@@ -81,7 +81,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // ตั้งค่าสีไฮไลท์สำหรับส่วนข้อความ.
+            // ตั้งค่าสีไฮไลต์สำหรับส่วนข้อความ.
             portion.getPortionFormat().getHighlightColor().setColor(Color.LTGRAY);
         }
     }
@@ -96,11 +96,11 @@ try {
 
 ![ส่วนข้อความสีเทา](gray_text_portions.png)
 
-## **จัดแนวย่อหน้าข้อความ**
+## **จัดย่อหน้าข้อความ**
 
-ใช้ [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) เพื่อตั้งค่าการจัดแนวย่อหน้าในกรอบข้อความ ค่าที่กำหนดได้รวมถึง กลาง, ชิดซ้าย, ชิดขวา, ล้านค่า ฯลฯ
+ใช้ [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) เพื่อตั้งค่าการจัดแนวย่อหน้าในกรอบข้อความ. ค่าสามารถเป็นกำกับศูนย์, ซ้าย, ขวา, จัดแนวเต็ม, เป็นต้น.
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีการจัดแนวย่อหน้าให้อยู่ **กึ่งกลาง**:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีจัดแนวย่อหน้าเป็น **กึ่งกลาง**:
 
 ```java
 import com.aspose.slides.*;
@@ -111,7 +111,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // ตั้งค่าการจัดแนวของย่อหน้าให้เป็นกึ่งกลาง.
+    // ตั้งค่าการจัดแนวของย่อหน้าให้เป็นศูนย์กลาง.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -122,13 +122,13 @@ try {
 
 ผลลัพธ์:
 
-![ย่อหน้าที่จัดแนกึ่งกลาง](aligned_paragraph.png)
+![ย่อหน้าที่จัดแนว](aligned_paragraph.png)
 
 ## **ตั้งค่าความโปร่งใสสำหรับข้อความ**
 
-ความโปร่งใสของข้อความถูกควบคุมผ่านค่าแอลฟาของสีที่กำหนดให้กับ [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--) ในตัวอย่างด้านล่าง `alpha = 50` เป็นค่าแอลฟาแบบ ARGB ในช่วง 0‑255 ไม่ใช่เปอร์เซ็นต์ความโปร่งใส
+ความโปร่งใสของข้อความถูกควบคุมผ่านส่วนประกอบอัลฟ่าของสีที่กำหนดให้กับ [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). ในตัวอย่างต่อไปนี้ `alpha = 50` เป็นค่าอัลฟ่า ARGB บนสเกล 0–255, ไม่ใช่เปอร์เซ็นต์ความโปร่งใส.
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีการใช้ความโปร่งใสกับ **ย่อหน้าเต็ม**:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีใช้ความโปร่งใสกับ **ย่อหน้าเต็ม**:
 
 ```java
 import com.aspose.slides.*;
@@ -142,7 +142,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // ตั้งค่าสีเติมของข้อความเป็นสีโปร่งใส.
+    // ตั้งค่าสีเติมของข้อความให้เป็นสีโปร่งใส.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.argb(alpha, 0, 0, 0));
 
@@ -156,7 +156,7 @@ try {
 
 ![ย่อหน้าที่โปร่งใส](transparent_paragraph.png)
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีการใช้ความโปร่งใสกับ **ส่วนข้อความที่ใช้ฟอนต์หนา**:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีใช้ความโปร่งใสกับ **ส่วนข้อความที่มีฟอนต์หนา**:
 
 ```java
 import com.aspose.slides.*;
@@ -188,11 +188,11 @@ try {
 
 ![ส่วนข้อความที่โปร่งใส](transparent_text_portions.png)
 
-## **ตั้งค่าระยะห่างอักขระสำหรับข้อความ**
+## **ตั้งค่าการเว้นระยะระหว่างอักขระสำหรับข้อความ**
 
-ใช้ [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) เพื่อขยายหรือหดระยะห่างระหว่างอักขระในกล่องข้อความ
+ใช้ [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) เพื่อขยายหรือบีบอัดระยะห่างระหว่างอักขระในกล่องข้อความ.
 
-โค้ด Java ต่อไปนี้แสดงวิธีการขยายระยะห่างอักขระใน **ย่อหน้าเต็ม**:
+โค้ด Java ต่อไปนี้แสดงวิธีขยายระยะห่างระหว่างอักขระใน **ย่อหน้าเต็ม**:
 
 ```java
 import com.aspose.slides.*;
@@ -203,8 +203,8 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างของอักขระ.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // ขยายระยะห่างของอักขระ.
+    // หมายเหตุ: ใช้ค่าลบเพื่อบีบอัดระยะห่างระหว่างอักขระ.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // ขยายระยะห่างระหว่างอักขระ.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -214,9 +214,9 @@ try {
 
 ผลลัพธ์:
 
-![ระยะห่างอักขระในย่อหน้า](character_spacing_in_paragraph.png)
+![การเว้นระยะอักขระในย่อหน้า](character_spacing_in_paragraph.png)
 
-ตัวอย่างโค้ดด้านล่างแสดงวิธีการขยายระยะห่างอักขระใน **ส่วนข้อความที่ใช้ฟอนต์หนา**:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีขยายระยะห่างอักขระใน **ส่วนข้อความที่มีฟอนต์หนา**:
 
 ```java
 import com.aspose.slides.*;
@@ -229,8 +229,8 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // หมายเหตุ: ใช้ค่าติดลบเพื่อบีบอัดระยะห่างของอักขระ.
-            portion.getPortionFormat().setSpacing(3); // ขยายระยะห่างของอักขระ.
+            // หมายเหตุ: ใช้ค่าลบเพื่อบีบอัดระยะห่างระหว่างอักขระ.
+            portion.getPortionFormat().setSpacing(3); // ขยายระยะห่างระหว่างอักขระ.
         }
     }
 
@@ -242,13 +242,13 @@ try {
 
 ผลลัพธ์:
 
-![ระยะห่างอักขระในส่วนข้อความ](character_spacing_in_text_portions.png)
+![การเว้นระยะอักขระในส่วนข้อความ](character_spacing_in_text_portions.png)
 
-### **ปิดการทำงานของ Kerning สำหรับฟอนต์เฉพาะ**
+### **ปิดการ Kerning สำหรับฟอนต์เฉพาะ**
 
-ในบางกรณี ข้อความที่แสดงโดย Aspose.Slides อาจดูคับแคบกว่าข้อความเดียวกันที่แสดงใน PowerPoint ซึ่งอาจเกิดจาก PowerPoint เพิกเฉยต่อข้อมูล kerning ของฟอนต์บางตัว แม้ฟอนต์จะมีข้อมูล kerning ที่ถูกต้องและเปิดใช้งาน kerning ในการตั้งค่า PowerPoint
+ในบางกรณี ข้อความที่เรนเดอร์โดย Aspose.Slides อาจดูแน่นกว่าข้อความเดียวกันที่แสดงใน PowerPoint. สาเหตุอาจเป็นเพราะ PowerPoint เพิกเฉยต่อข้อมูล kerning ของฟอนต์บางตัว, แม้ว่าฟอนต์จะมีข้อมูล kerning ที่ถูกต้องและการตั้งค่า kerning ถูกเปิดใน PowerPoint.
 
-เพื่อให้ผลลัพธ์ที่แสดงใกล้เคียงกับ PowerPoint มากขึ้น คุณสามารถปิดการทำงานของ kerning สำหรับส่วนข้อความที่ใช้ฟอนต์ที่ได้รับผลกระทบ ตั้งค่า [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) ให้เป็นค่าที่ใหญ่กว่าขนาดฟอนต์จริงอย่างมีนัยสำคัญ:
+เพื่อให้ผลลัพธ์การเรนเดอร์ใกล้เคียงกับ PowerPoint มากขึ้นในกรณีเช่นนี้, คุณสามารถปิดการ kerning สำหรับส่วนข้อความที่ใช้ฟอนต์ที่ได้รับผลกระทบ. ตั้งค่า [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) เป็นค่าที่ใหญ่กว่าขนาดฟอนต์จริงอย่างมีนัยสำคัญ:
 
 ```java
 import com.aspose.slides.*;
@@ -280,13 +280,13 @@ try {
 }
 ```
 
-การตั้งค่านี้จะป้องกันไม่ให้ kerning ถูกนำไปใช้กับส่วนข้อความที่ตรงกันและช่วยให้การเรนเดอร์ของ Aspose.Slides สอดคล้องกับการแสดงผลของ PowerPoint สำหรับฟอนต์ที่ได้รับผลจากพฤติกรรมเฉพาะของ PowerPoint นี้
+การตั้งค่านี้จะป้องกันไม่ให้ kerning ถูกนำไปใช้กับส่วนข้อความที่ตรงกันและช่วยให้การแสดงผลของ Aspose.Slides สอดคล้องกับการแสดงผลของ PowerPoint สำหรับฟอนต์ที่ได้รับผลกระทบจากพฤติกรรมเฉพาะของ PowerPoint นี้.
 
-## **จัดการคุณสมบัติเฟอนต์ของข้อความ**
+## **จัดการคุณสมบัติฟอนต์ของข้อความ**
 
-คุณสมบัติเฟอนต์สามารถตั้งค่าที่ระดับย่อหน้าได้ผ่าน [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) หรือที่ระดับส่วนข้อความแต่ละส่วนผ่าน [IPortionFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iportionformat/)
+คุณสมบัติฟอนต์สามารถตั้งค่าที่ระดับย่อหน้าผ่าน [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) หรือบนส่วนข้อความแต่ละส่วนผ่าน [IPortionFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iportionformat/).
 
-โค้ดต่อไปนี้ตั้งค่าแบบอักษรและสไตล์ข้อความสำหรับ **ย่อหน้าเต็ม**: กำหนดขนาดฟอนต์, หนา, เอียง, ขีดเส้นประใต้และฟอนต์ Times New Roman ให้กับทุกส่วนในย่อหน้า
+โค้ดต่อไปนี้ตั้งค่าฟอนต์และสไตล์ข้อความสำหรับย่อหน้าเต็ม: มันกำหนดขนาดฟอนต์, ตัวหนา, ตัวเอียง, ขีดเส้นใต้แบบจุด, และฟอนต์ Times New Roman ให้กับทุกส่วนในย่อหน้า.
 
 ```java
 import com.aspose.slides.*;
@@ -312,9 +312,9 @@ try {
 
 ผลลัพธ์:
 
-![คุณสมบัติเฟอนต์ของย่อหน้า](font_properties_for_paragraph.png)
+![คุณสมบัติฟอนต์ของย่อหน้า](font_properties_for_paragraph.png)
 
-ตัวอย่างโค้ดด้านล่างใช้คุณสมบัติเช่นเดียวกันกับ **ส่วนข้อความที่ใช้ฟอนต์หนา**:
+ตัวอย่างโค้ดด้านล่างใช้คุณสมบัติเช่นเดียวกันกับ **ส่วนข้อความที่มีฟอนต์หนา**:
 
 ```java
 import com.aspose.slides.*;
@@ -343,13 +343,13 @@ try {
 
 ผลลัพธ์:
 
-![คุณสมบัติเฟอนต์ของส่วนข้อความ](font_properties_for_text_portions.png)
+![คุณสมบัติฟอนต์ของส่วนข้อความ](font_properties_for_text_portions.png)
 
-## **ตั้งค่าการหมุนของข้อความ**
+## **ตั้งค่าการหมุนข้อความ**
 
-ใช้ [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) เพื่อกำหนดทิศทางข้อความที่กำหนดล่วงหน้าภายในรูปร่าง
+ใช้ [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) เพื่อตั้งค่าการวางแนวข้อความที่กำหนดไว้ล่วงหน้าภายในรูปร่าง.
 
-โค้ดต่อไปนี้ตั้งค่าการวางแนวข้อความในรูปร่างเป็น [TextVerticalType.Vertical270](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/textverticaltype/) ซึ่งทำให้ข้อความ **หมุน 90 องศาแบบทวนเข็มนาฬิกา**:
+ตัวอย่างโค้ดต่อไปนี้ตั้งค่าการวางแนวข้อความในรูปร่างเป็น [TextVerticalType.Vertical270](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/textverticaltype/), ซึ่งจะหมุนข้อความ **90 องศาตรงข้ามเข็มนาฬิกา**:
 
 ```java
 import com.aspose.slides.*;
@@ -373,9 +373,9 @@ try {
 
 ## **ตั้งค่าการหมุนแบบกำหนดเองสำหรับกรอบข้อความ**
 
-ใช้ [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) เพื่อกำหนดมุมการหมุนแบบกำหนดเองสำหรับ [ITextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/)
+ใช้ [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) เพื่อตั้งค่ามุมการหมุนแบบกำหนดเองสำหรับ [ITextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/).
 
-โค้ดต่อไปนี้หมุนกรอบข้อความ 3 องศาในแนวตามเข็มนาฬิกา ภายในรูปร่าง:
+ตัวอย่างโค้ดด้านล่างหมุนกรอบข้อความโดย 3 องศาตามเข็มนาฬิกาในรูปร่าง:
 
 ```java
 import com.aspose.slides.*;
@@ -399,12 +399,12 @@ try {
 
 ## **ตั้งค่าการเว้นบรรทัดของย่อหน้า**
 
-Aspose.Slides มี [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) และ [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) เพื่อควบคุมระยะห่างของย่อหน้า โดยใช้ตามนี้
+Aspose.Slides มี [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-), และ [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) เพื่อควบคุมระยะห่างของย่อหน้า. คุณสมบัติเหล่านี้ใช้ได้ดังต่อไปนี้:
 
-* ใช้ค่าบวกเพื่อระบุระยะห่างเป็นเปอร์เซ็นต์ของความสูงบรรทัด
-* ใช้ค่าลบเพื่อระบุระยะห่างเป็นพอยต์
+* ใช้ค่าบวกเพื่อระบุการเว้นบรรทัดเป็นเปอร์เซ็นต์ของความสูงบรรทัด.
+* ใช้ค่าลบเพื่อระบุการเว้นบรรทัดเป็นจุด.
 
-โค้ดต่อไปนี้แสดงวิธีการระบุระยะห่างบรรทัดภายในย่อหน้า:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีระบุการเว้นบรรทัดภายในย่อหน้า:
 
 ```java
 import com.aspose.slides.*;
@@ -425,11 +425,11 @@ try {
 
 ผลลัพธ์:
 
-![ระยะห่างบรรทัดภายในย่อหน้า](line_spacing.png)
+![การเว้นบรรทัดภายในย่อหน้า](line_spacing.png)
 
-## **ตั้งค่าชนิด Autofit สำหรับกรอบข้อความ**
+## **ตั้งค่าประเภทการปรับอัตโนมัติสำหรับกรอบข้อความ**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) กำหนดว่าข้อความทำอย่างไรเมื่อเกินขอบเขตของคอนเทนเนอร์ ใช้เพื่อควบคุมว่าจะให้ข้อความย่อ, ล้นออก, หรือปรับขนาดรูปร่างโดยอัตโนมัติ
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) กำหนดพฤติกรรมของข้อความเมื่อเกินขอบเขตของคอนเทนเนอร์. ใช้เพื่อควบคุมว่าข้อความจะหดลง, เกินขอบ, หรือปรับขนาดรูปร่างโดยอัตโนมัติ.
 
 ```java
 import com.aspose.slides.*;
@@ -447,9 +447,11 @@ try {
 }
 ```
 
-## **ตั้งค่าการยึดของกรอบข้อความ**
+เพื่อเรียงบรรทัดหลังจากห่ออัตโนมัติและดูว่าขนาดข้อความหรือรูปร่างเปลี่ยนแปลงผลลัพธ์อย่างไร, ดูที่ [นับบรรทัดที่เรนเดอร์](/slides/th/androidjava/manage-paragraph/). จำนวนบรรทัดเพียงอย่างเดียวไม่บ่งบอกว่าข้อความเกินคอนเทนเนอร์หรือไม่.
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) กำหนดว่าข้อความจะวางตำแหน่งแนวตั้งภายในรูปร่างอย่างไร เช่น ที่บน, กลาง, หรือล่าง
+## **ตั้งค่าการตรึงของกรอบข้อความ**
+
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) กำหนดวิธีการวางตำแหน่งข้อความในแนวตั้งภายในรูปร่าง, เช่นบน, กลาง, หรือด้านล่าง.
 
 ```java
 import com.aspose.slides.*;
@@ -467,9 +469,9 @@ try {
 }
 ```
 
-## **ตั้งค่าการแท็บของข้อความ**
+## **ตั้งค่าการทำแท็บข้อความ**
 
-ใช้ [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) และ [IParagraphFormat.getTabs](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) เพื่อตั้งค่าจุดหยุดแท็บในย่อหน้า
+ใช้ [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) และ [IParagraphFormat.getTabs](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) เพื่อกำหนดตำแหน่งแท็บในย่อหน้า.
 
 ```java
 import com.aspose.slides.*;
@@ -493,11 +495,11 @@ try {
 
 ![แท็บของย่อหน้า](paragraph_tabs.png)
 
-## **ตั้งค่าภาษาการตรวจสอบ**
+## **ตั้งค่าภาษา Proofing**
 
-Aspose.Slides มี [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) ซึ่งอนุญาตให้คุณกำหนดภาษาการตรวจสอบสำหรับส่วนข้อความ ภาษาการตรวจสอบจะกำหนดภาษาที่ใช้สำหรับการตรวจสอบการสะกดและไวยากรณ์ใน PowerPoint
+Aspose.Slides มี [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) والتيช่วยให้คุณตั้งค่าภาษา Proofing สำหรับส่วนข้อความ. ภาษาตรวจสอบช่วยกำหนดภาษาที่ใช้ตรวจสอบการสะกดและไวยากรณ์ใน PowerPoint.
 
-โค้ดต่อไปนี้แสดงวิธีการตั้งค่าภาษาการตรวจสอบสำหรับส่วนข้อความ:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีตั้งค่าภาษา Proofing สำหรับส่วนข้อความ:
 
 ```java
 import com.aspose.slides.*;
@@ -517,7 +519,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // ตั้งค่า Id ของภาษาการตรวจสอบ.
+    // ตั้งค่า Id ของภาษาตรวจสอบ.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -531,7 +533,7 @@ try {
 
 ## **ตั้งค่าภาษาเริ่มต้น**
 
-ใช้ [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) เพื่อกำหนดภาษาตั้งต้นสำหรับข้อความที่สร้างขณะโหลดหรือสร้างงานนำเสนอ
+ใช้ [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) เพื่อกำหนดภาษาตั้งต้นสำหรับข้อความที่สร้างขณะโหลดหรือสร้างงานนำเสนอ.
 
 ```java
 import com.aspose.slides.*;
@@ -543,11 +545,11 @@ Presentation presentation = new Presentation(loadOptions);
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มรูปสี่เหลี่ยมใหม่พร้อมข้อความ.
+    // เพิ่มรูปสี่เหลี่ยมผืนผ้าใหม่พร้อมข้อความ.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // ตรวจสอบภาษาของส่วนแรก.
+    // ตรวจสอบภาษาของส่วนข้อความแรก.
     IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     System.out.println(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -557,16 +559,16 @@ try {
 
 ## **ตั้งค่าสไตล์ข้อความเริ่มต้น**
 
-เพื่อใช้การจัดรูปแบบข้อความเริ่มต้นในระดับงานนำเสนอ ใช้ [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--)
+เพื่อใช้การจัดรูปแบบข้อความเริ่มต้นในระดับงานนำเสนอ, ใช้ [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-โค้ดต่อไปนี้แสดงวิธีกำหนดฟอนต์หนาขนาด 14 pt เป็นค่าเริ่มต้นสำหรับข้อความทั้งหมดบนสไลด์ในงานนำเสนอใหม่
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีตั้งค่าแบบอักษรตัวหนาตั้งต้นขนาด 14 pt สำหรับข้อความทั้งหมดในสไลด์ของงานนำเสนอใหม่.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // ดึงรูปแบบย่อหน้าระดับบน.
+    // รับรูปแบบย่อหน้าที่ระดับบนสุด.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -580,15 +582,15 @@ try {
 }
 ```
 
-## **ดึงข้อความพร้อมเอฟเฟกต์ All‑Caps**
+## **สกัดข้อความพร้อมเอฟเฟกต์ All-Caps**
 
-ใน PowerPoint การใช้เอฟเฟกต์ฟอนต์ **All Caps** ทำให้ข้อความปรากฏเป็นตัวพิมพ์ใหญ่ทั้งหมดบนสไลด์ แม้ว่าต้นฉบับจะพิมพ์เป็นตัวพิมพ์เล็กก็ตาม เมื่อตัวแปรส่วนข้อความถูกดึงจาก Aspose.Slides ไลบรารีจะคืนค่าข้อความตามที่พิมพ์ไว้ เพื่อให้ตรงกับที่แสดงบนสไลด์ ให้แปลงสตริงที่คืนค่ามาให้เป็นตัวพิมพ์ใหญ่เมื่อค่าเป็น [TextCapType.All](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/textcaptype/)
+ใน PowerPoint, การใช้เอฟเฟกต์ **All Caps** ทำให้ข้อความปรากฏเป็นตัวพิมพ์ใหญ่บนสไลด์แม้ว่าจะพิมพ์เป็นตัวเล็กเดิม. เมื่อคุณดึงส่วนข้อความเช่นนี้ด้วย Aspose.Slides, ไลบรารีจะส่งกลับข้อความตามที่พิมพ์ไว้. เพื่อให้ตรงกับข้อความที่แสดง, ให้แปลงสตริงที่ส่งกลับเป็นตัวพิมพ์ใหญ่เมื่อค่เป็น [TextCapType.All](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/textcaptype/).
 
-สมมติว่ามีกล่องข้อความต่อไปนี้บนสไลด์แรกของไฟล์ sample2.pptx
+สมมติว่าเรามีกล่องข้อความต่อไปนี้บนสไลด์แรกของไฟล์ sample2.pptx.
 
 ![เอฟเฟกต์ All Caps](all_caps_effect.png)
 
-โค้ดต่อไปนี้แสดงวิธีดึงข้อความที่มีเอฟเฟกต์ **All Caps** ถูกนำไปใช้:
+ตัวอย่างโค้ดด้านล่างแสดงวิธีสกัดข้อความพร้อมเอฟเฟกต์ **All Caps** ที่ได้ทำการใช้:
 
 ```java
 import com.aspose.slides.*;
@@ -620,10 +622,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **คำถามที่พบบ่อย**
 
-**จะแก้ไขข้อความในตารางบนสไลด์อย่างไร?**
+**วิธีแก้ไขข้อความในตารางบนสไลด์?**
 
-เพื่อแก้ไขข้อความในตารางบนสไลด์ ใช้ [ITable](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itable/) วนซ้ำผ่านเซลล์และอัปเดตแต่ละเซลล์ผ่าน [ICell.getTextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icell/#getTextFrame--) และจัดรูปแบบย่อหน้าผ่าน [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--)
+เพื่อแก้ไขข้อความในตารางบนสไลด์, ใช้ [ITable](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itable/). วนลูปผ่านเซลล์และอัปเดตแต่ละเซลล์ผ่าน [ICell.getTextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icell/#getTextFrame--) และการจัดรูปแบบย่อหน้าผ่าน [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
-**จะทำอย่างไรให้ข้อความในสไลด์ PowerPoint มีสีไล่ระดับ?**
+**วิธีใช้สีไล่ระดับในข้อความบนสไลด์ PowerPoint?**
 
-เพื่อให้ข้อความมีสีไล่ระดับ ใช้ [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--) ตั้งค่า [IFillFormat.setFillType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) เป็น [FillType.Gradient](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/filltype/) แล้วกำหนดจุดหยุดไล่ระดับ, ทิศทาง, และความโปร่งใส
+เพื่อใช้สีไล่ระดับกับข้อความ, ใช้ [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). ตั้งค่า [IFillFormat.setFillType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) เป็น [FillType.Gradient](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/filltype/) และกำหนดจุดหยุดไล่ระดับ, ทิศทาง, และความโปร่งใส.

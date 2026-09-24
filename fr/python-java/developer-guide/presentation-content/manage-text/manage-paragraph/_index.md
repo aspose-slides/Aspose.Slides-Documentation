@@ -12,14 +12,14 @@ keywords:
 - ajouter un paragraphe
 - gérer le texte
 - gérer le paragraphe
-- gérer les puces
+- gérer la puce
 - retrait de paragraphe
 - retrait suspendu
 - puce de paragraphe
 - liste numérotée
 - liste à puces
 - propriétés du paragraphe
-- importer HTML
+- importer du HTML
 - texte en HTML
 - paragraphe en HTML
 - paragraphe en image
@@ -30,17 +30,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Apprenez à créer et formater des paragraphes, portions, puces, listes numérotées, retraits, contenu HTML et images de paragraphes avec Aspose.Slides pour Python via Java."
+description: "Apprenez à créer et à mettre en forme des paragraphes, des portions, des puces, des listes numérotées, des retraits, du contenu HTML et des images de paragraphes avec Aspose.Slides pour Python via Java."
 ---
 ## **Vue d'ensemble**
 
 Aspose.Slides for Python via Java représente le texte comme une hiérarchie de cadres de texte, de paragraphes et de portions :
 
 * [TextFrame](https://reference.aspose.com/slides/fr/python-java/aspose.slides/textframe/) représente le conteneur de texte dans une forme et fournit l’accès à sa collection de paragraphes.
-* [Paragraph](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraph/) représente un paragraphe dans un cadre de texte et fournit l’accès à ses portions ainsi qu’au formatage au niveau du paragraphe.
-* [Portion](https://reference.aspose.com/slides/fr/python-java/aspose.slides/portion/) représente un fragment de texte au sein d’un paragraphe. Chaque portion peut avoir son propre texte et un formatage au niveau des caractères.
+* [Paragraph](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraph/) représente un paragraphe dans un cadre de texte et fournit l’accès à ses portions et à la mise en forme au niveau du paragraphe.
+* [Portion](https://reference.aspose.com/slides/fr/python-java/aspose.slides/portion/) représente un enchaînement de texte au sein d’un paragraphe. Chaque portion peut avoir son propre texte et sa propre mise en forme au niveau des caractères.
 
-Un paragraphe peut donc contenir du texte avec différentes polices, couleurs, tailles et autres formatages en utilisant plusieurs portions.
+Un paragraphe peut donc contenir du texte avec différentes polices, couleurs, tailles et autres mises en forme en utilisant plusieurs portions.
 
 ## **Créer et formater des paragraphes**
 
@@ -48,15 +48,15 @@ Un paragraphe peut donc contenir du texte avec différentes polices, couleurs, t
 
 Les étapes suivantes créent un cadre de texte avec trois paragraphes, chacun contenant trois portions :
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-2. Accéder à la diapositive concernée via son indice.
-3. Ajouter une forme [AutoShape] rectangulaire à la diapositive.
-4. Accéder au [TextFrame](https://reference.aspose.com/slides/fr/python-java/aspose.slides/textframe/) de la forme.
-5. Utiliser le paragraphe par défaut et ajouter deux autres objets [Paragraph] au cadre de texte.
-6. Ajouter suffisamment d’objets [Portion] pour que chaque paragraphe contienne trois portions. Le paragraphe par défaut contient déjà une portion vide.
-7. Définir le texte de chaque portion.
-8. Appliquer le formatage au niveau des caractères via [Portion.getPortionFormat](https://reference.aspose.com/slides/fr/python-java/aspose.slides/portion/#getPortionFormat).
-9. Enregistrer la présentation modifiée.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
+2. Accédez à la diapositive concernée par son indice.
+3. Ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/python-java/aspose.slides/autoshape/) rectangulaire à la diapositive.
+4. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/python-java/aspose.slides/textframe/) de la forme.
+5. Utilisez le paragraphe par défaut et ajoutez deux autres objets [Paragraph](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraph/) au cadre de texte.
+6. Ajoutez suffisamment d’objets [Portion](https://reference.aspose.com/slides/fr/python-java/aspose.slides/portion/) pour que chaque paragraphe contienne trois portions. Le paragraphe par défaut contient déjà une portion vide.
+7. Définissez le texte de chaque portion.
+8. Appliquez une mise en forme au niveau des caractères via [Portion.getPortionFormat](https://reference.aspose.com/slides/fr/python-java/aspose.slides/portion/#getPortionFormat).
+9. Enregistrez la présentation modifiée.
 
 Cet exemple Python implémente les étapes :
 
@@ -114,20 +114,20 @@ finally:
 
 ### **Créer une liste à puces ou numérotée**
 
-Les puces et la numérotation facilitent la lecture d’éléments liés. Dans Aspose.Slides, les paramètres de liste sont définis via [BulletFormat](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bulletformat/).
+Les puces et la numérotation facilitent la lecture des éléments liés. Dans Aspose.Slides, les paramètres de liste sont définis via [BulletFormat](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bulletformat/).
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-2. Accéder à la diapositive concernée via son indice.
-3. Ajouter une [AutoShape] à la diapositive sélectionnée.
-4. Accéder au [TextFrame] de la forme.
-5. Supprimer le paragraphe par défaut du cadre de texte.
-6. Créer un [Paragraph] pour une puce symbole.
-7. Définir [BulletFormat.setType](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bulletformat/#setType) sur [BulletType.Symbol](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bullettype/#Symbol) et spécifier le caractère de la puce.
-8. Définir le texte du paragraphe, le retrait, la couleur de la puce et la hauteur de la puce.
-9. Ajouter le paragraphe au cadre de texte.
-10. Créer un second paragraphe et définir [BulletFormat.setType](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bulletformat/#setType) sur [BulletType.Numbered](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bullettype/#Numbered).
-11. Configurer le style de puce numérotée et ajouter le paragraphe au cadre de texte.
-12. Enregistrer la présentation.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
+2. Accédez à la diapositive concernée par son indice.
+3. Ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/python-java/aspose.slides/autoshape/) à la diapositive sélectionnée.
+4. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/python-java/aspose.slides/textframe/) de la forme.
+5. Supprimez le paragraphe par défaut du cadre de texte.
+6. Créez un [Paragraph](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraph/) pour une puce symbole.
+7. Définissez [BulletFormat.setType](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bulletformat/#setType) sur [BulletType.Symbol](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bullettype/#Symbol) et spécifiez le caractère de la puce.
+8. Définissez le texte du paragraphe, le retrait, la couleur de la puce et la hauteur de la puce.
+9. Ajoutez le paragraphe au cadre de texte.
+10. Créez un deuxième paragraphe et définissez [BulletFormat.setType](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bulletformat/#setType) sur [BulletType.Numbered](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bullettype/#Numbered).
+11. Configurez le style de la puce numérotée et ajoutez le paragraphe au cadre de texte.
+12. Enregistrez la présentation.
 
 Cet exemple Python crée une puce symbole et une puce numérotée :
 
@@ -174,18 +174,18 @@ finally:
 
 ### **Utiliser des puces image**
 
-Les puces image permettent d’utiliser une image personnalisée à la place d’un symbole ou d’un numéro.
+Les puces image vous permettent d’utiliser une image personnalisée au lieu d’un symbole ou d’un chiffre.
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
-2. Accéder à la diapositive concernée via son indice.
-3. Ajouter une [AutoShape] et accéder à son [TextFrame].
-4. Supprimer le paragraphe par défaut du cadre de texte.
-5. Charger l’image de la puce et l’ajouter à la collection d’images de la présentation sous forme de [PPImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/ppimage/).
-6. Créer un [Paragraph] et définir son texte.
-7. Définir [BulletFormat.setType](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bulletformat/#setType) sur [BulletType.Picture](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bullettype/#Picture).
-8. Assigner l’image via [BulletFormat.getPicture](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bulletformat/#getPicture) et définir la hauteur de la puce.
-9. Ajouter le paragraphe au cadre de texte.
-10. Enregistrer la présentation modifiée.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
+2. Accédez à la diapositive concernée par son indice.
+3. Ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/python-java/aspose.slides/autoshape/) et accédez à son [TextFrame](https://reference.aspose.com/slides/fr/python-java/aspose.slides/textframe/).
+4. Supprimez le paragraphe par défaut du cadre de texte.
+5. Chargez l’image de la puce et ajoutez‑la à la collection d’images de la présentation en tant que [PPImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/ppimage/).
+6. Créez un [Paragraph](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraph/) et définissez son texte.
+7. Définissez [BulletFormat.setType](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bulletformat/#setType) sur [BulletType.Picture](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bullettype/#Picture).
+8. Associez l’image via [BulletFormat.getPicture](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bulletformat/#getPicture) et définissez la hauteur de la puce.
+9. Ajoutez le paragraphe au cadre de texte.
+10. Enregistrez la présentation modifiée.
 
 Cet exemple Python crée une puce image :
 
@@ -223,13 +223,13 @@ finally:
 
 ### **Créer une liste à plusieurs niveaux**
 
-Définir [ParagraphFormat.setDepth](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setDepth) pour placer les paragraphes à différents niveaux d’une liste. Le niveau supérieur a une profondeur de `0`.
+Définissez [ParagraphFormat.setDepth](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setDepth) pour placer les paragraphes à différents niveaux d’une liste. Le niveau supérieur a une profondeur de `0`.
 
-1. Créer une [Presentation] et accéder à une diapositive.
-2. Ajouter une [AutoShape] et nettoyer le paragraphe par défaut de son cadre de texte.
-3. Créer quatre paragraphes et configurer leurs symboles de puce.
-4. Définir leurs valeurs [ParagraphFormat.setDepth](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setDepth) à `0`, `1`, `2` et `3`.
-5. Ajouter les paragraphes au cadre de texte et enregistrer la présentation.
+1. Créez une [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/) et accédez à une diapositive.
+2. Ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/python-java/aspose.slides/autoshape/) et supprimez le paragraphe par défaut de son cadre de texte.
+3. Créez quatre paragraphes et configurez leurs symboles de puce.
+4. Définissez leurs valeurs [ParagraphFormat.setDepth](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setDepth) à `0`, `1`, `2` et `3`.
+5. Ajoutez les paragraphes au cadre de texte et enregistrez la présentation.
 
 Cet exemple Python crée une liste à puces à quatre niveaux :
 
@@ -286,17 +286,17 @@ finally:
     presentation.dispose()
 ```
 
-### **Commencer les puces numérotées à des valeurs personnalisées**
+### **Définir un numéro de départ personnalisé pour les listes numérotées**
 
-Utiliser [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) pour définir le numéro initial affiché pour un paragraphe numéroté.
+Utilisez [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) pour définir le numéro initial affiché pour un paragraphe numéroté.
 
-1. Créer une [Presentation] et ajouter une [AutoShape] à une diapositive.
-2. Nettoyer le paragraphe par défaut du cadre de texte de la forme.
-3. Créer trois paragraphes numérotés.
-4. Définir [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) à `2`, `3` et `7` pour les paragraphes respectifs.
-5. Ajouter les paragraphes au cadre de texte et enregistrer la présentation.
+1. Créez une [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/) et ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/python-java/aspose.slides/autoshape/) à une diapositive.
+2. Supprimez le paragraphe par défaut du cadre de texte de la forme.
+3. Créez trois paragraphes numérotés.
+4. Définissez [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/fr/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) à `2`, `3` et `7` pour les paragraphes respectifs.
+5. Ajoutez les paragraphes au cadre de texte et enregistrez la présentation.
 
-Cet exemple Python attribue un numéro de départ personnalisé à chaque paragraphe :
+Cet exemple Python affecte un numéro de départ personnalisé à chaque paragraphe :
 
 ```python
 import jpype
@@ -333,23 +333,23 @@ finally:
     presentation.dispose()
 ```
 
-## **Contrôler la mise en page du paragraphe et les propriétés de fin**
+## **Contrôler la disposition des paragraphes et les propriétés de fin**
 
 ### **Définir un retrait de première ligne**
 
-Utiliser [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setIndent) pour contrôler le retrait de la première ligne d’un paragraphe. Cette méthode ne déplace que la première ligne par rapport à la marge gauche du paragraphe. Une valeur positive décale la première ligne vers la droite, tandis que les lignes restantes restent alignées sur le corps du paragraphe.
+Utilisez [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setIndent) pour contrôler le retrait de la première ligne d’un paragraphe. Cette méthode ne déplace que la première ligne par rapport à la marge gauche du paragraphe. Une valeur positive décale la première ligne vers la droite, tandis que les lignes suivantes restent alignées avec le corps du paragraphe.
 
-Utilisez [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setMarginLeft) lorsque vous devez déplacer le paragraphe entier. Utilisez [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setIndent) lorsque vous devez ne déplacer que la première ligne.
+Utilisez [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setMarginLeft) lorsque vous devez déplacer tout le paragraphe. Utilisez [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setIndent) lorsque vous devez déplacer uniquement la première ligne.
 
-L’exemple ci‑dessous crée plusieurs paragraphes et applique différentes valeurs [ParagraphFormat.setIndent] pour montrer comment le retrait de première ligne affecte la mise en page du paragraphe.
+L’exemple ci‑dessous crée plusieurs paragraphes et applique différentes valeurs de [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setIndent) pour illustrer l’impact du retrait de première ligne sur la mise en page du paragraphe.
 
-1. Créer une instance de la classe [Presentation].
-2. Accéder à la diapositive cible.
-3. Ajouter une forme [AutoShape] rectangulaire à la diapositive.
-4. Accéder au [TextFrame] de la forme et supprimer le paragraphe par défaut.
-5. Créer plusieurs paragraphes et définir différentes valeurs [ParagraphFormat.setIndent] pour chacun.
-6. Ajouter les paragraphes au cadre de texte.
-7. Enregistrer la présentation modifiée.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
+2. Accédez à la diapositive cible.
+3. Ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/python-java/aspose.slides/autoshape/) rectangulaire à la diapositive.
+4. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/python-java/aspose.slides/textframe/) de la forme et supprimez le paragraphe par défaut.
+5. Créez plusieurs paragraphes et définissez différentes valeurs de [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setIndent) pour chacun.
+6. Ajoutez les paragraphes au cadre de texte.
+7. Enregistrez la présentation modifiée.
 
 Ce code montre comment définir un retrait de paragraphe :
 
@@ -381,13 +381,13 @@ try:
     first_paragraph.getParagraphFormat().setIndent(0.0)
     second_paragraph = Paragraph()
     second_paragraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.")
-    second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
+    second_paragraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid)
     second_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     second_paragraph.getParagraphFormat().setMarginLeft(20.0)
     second_paragraph.getParagraphFormat().setIndent(20.0)
     third_paragraph = Paragraph()
     third_paragraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.")
-    third_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
+    third_paragraph.getParagraphFormat().getDefaultPortionFormat().setFillType(FillType.Solid)
     third_paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     third_paragraph.getParagraphFormat().setMarginLeft(20.0)
     third_paragraph.getParagraphFormat().setIndent(40.0)
@@ -405,20 +405,20 @@ Le résultat :
 
 ### **Définir un retrait suspendu**
 
-Un retrait suspendu est une mise en page où la première ligne commence à gauche des lignes suivantes. Dans Aspose.Slides, vous créez cet effet avec [ParagraphFormat.setIndent]. Passez une valeur négative pour déplacer la première ligne vers la gauche par rapport au corps du paragraphe.
+Un retrait suspendu est une mise en page où la première ligne commence à gauche des lignes suivantes. Dans Aspose.Slides, vous créez cet effet avec [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setIndent). Passez une valeur négative pour déplacer la première ligne vers la gauche par rapport au corps du paragraphe.
 
-En pratique, [ParagraphFormat.setMarginLeft] définit la position gauche du corps du paragraphe, et [ParagraphFormat.setIndent] définit la position de la première ligne par rapport à cette marge. Pour créer un retrait suspendu, passez une valeur positive à [ParagraphFormat.setMarginLeft] et une valeur négative à [ParagraphFormat.setIndent].
+En pratique, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setMarginLeft) définit la position gauche du corps du paragraphe, et [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setIndent) définit la position de la première ligne par rapport à cette marge. Pour créer un retrait suspendu, passez une valeur positive à [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setMarginLeft) et une valeur négative à [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setIndent).
 
-Ce formatage est utile pour les bibliographies, références, entrées de glossaire et autres paragraphes où les lignes enroulées doivent s’aligner sous le corps du paragraphe plutôt que sous le premier caractère de la première ligne.
+Cette mise en forme est utile pour les bibliographies, références, entrées de glossaire et autres paragraphes où les lignes enroulées doivent être alignées sous le corps du paragraphe plutôt que sous le premier caractère de la première ligne.
 
-1. Créer une instance de la classe [Presentation].
-2. Accéder à la diapositive cible.
-3. Ajouter une forme [AutoShape] rectangulaire à la diapositive.
-4. Accéder au [TextFrame] de la forme et supprimer le paragraphe par défaut.
-5. Créer des paragraphes et passer une valeur positive à [ParagraphFormat.setMarginLeft] pour chaque paragraphe.
-6. Passer une valeur négative à [ParagraphFormat.setIndent] pour créer l’effet de retrait suspendu.
-7. Ajouter les paragraphes au cadre de texte.
-8. Enregistrer la présentation modifiée.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
+2. Accédez à la diapositive cible.
+3. Ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/python-java/aspose.slides/autoshape/) rectangulaire à la diapositive.
+4. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/python-java/aspose.slides/textframe/) de la forme et supprimez le paragraphe par défaut.
+5. Créez des paragraphes et passez une valeur positive à [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setMarginLeft) pour chaque paragraphe.
+6. Passez une valeur négative à [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setIndent) pour créer l’effet de retrait suspendu.
+7. Ajoutez les paragraphes au cadre de texte.
+8. Enregistrez la présentation modifiée.
 
 Ce code montre comment définir un retrait suspendu pour un paragraphe :
 
@@ -465,16 +465,16 @@ Le résultat :
 
 ![Le retrait suspendu des paragraphes](hanging_indent.png)
 
-### **Définir les propriétés de fin de paragraphe**
+### **Définir les propriétés de fin du paragraphe**
 
-[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) contrôle le formatage du marqueur de fin de paragraphe. L’exemple suivant assigne une taille de police et une police latine au marqueur de fin du second paragraphe :
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) contrôle la mise en forme du marqueur de fin de paragraphe. L’exemple suivant attribue une taille de police et une police latine au marqueur de fin du deuxième paragraphe :
 
-1. Charger une [Presentation] et accéder à une diapositive.
-2. Ajouter une [AutoShape] et nettoyer son paragraphe par défaut.
-3. Créer deux paragraphes et leur ajouter des portions de texte.
-4. Créer un [PortionFormat] pour le marqueur de fin du second paragraphe.
-5. Définir [BasePortionFormat.setFontHeight] et [BasePortionFormat.setLatinFont].
-6. Assigner le format avec [Paragraph.setEndParagraphPortionFormat] et enregistrer la présentation.
+1. Chargez une [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/) et accédez à une diapositive.
+2. Ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/python-java/aspose.slides/autoshape/) et supprimez son paragraphe par défaut.
+3. Créez deux paragraphes et ajoutez‑leur des portions de texte.
+4. Créez un [PortionFormat](https://reference.aspose.com/slides/fr/python-java/aspose.slides/portionformat/) pour le marqueur de fin du deuxième paragraphe.
+5. Définissez [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseportionformat/#setFontHeight) et [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseportionformat/#setLatinFont).
+6. Appliquez le format avec [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) et enregistrez la présentation.
 
 ```python
 import jpype
@@ -509,18 +509,72 @@ finally:
     presentation.dispose()
 ```
 
+## **Compter les lignes rendues**
+
+Utilisez [Paragraph.getLinesCount](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraph/#getLinesCount) pour compter les lignes occupées par un paragraphe après la mise en page du texte, y compris le retour à la ligne automatique. Cela est utile pour vérifier la longueur du texte et la mise en page dans les modèles de présentation.
+
+Un paragraphe est un élément de [TextFrame.getParagraphs](https://reference.aspose.com/slides/fr/python-java/aspose.slides/textframe/#getParagraphs) et peut occuper plusieurs lignes rendues. Un saut de ligne explicite dans un paragraphe force une nouvelle ligne sans créer un autre paragraphe. L’enroulement automatique crée des lignes en fonction de la largeur disponible sans insérer de sauts de ligne explicites dans le texte. Ainsi, compter les paragraphes ou les caractères de saut de ligne ne donne pas le nombre de lignes rendues.
+
+L’exemple suivant crée une forme texte, compte ses lignes, rétrécit la forme, puis remplace le texte par une chaîne plus courte. L’enroulement est activé et le redimensionnement automatique désactivé afin que la largeur de la forme contrôle l’enroulement sans réduire automatiquement le texte ou redimensionner la forme. Les dimensions de la forme sont exprimées en points. Enfin, l’exemple ajoute un autre paragraphe et somme les comptes de lignes dans le cadre de texte.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import NullableBool, Paragraph, Presentation, ShapeType, TextAutofitType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 200)
+    text_frame = shape.getTextFrame()
+    text_frame.getTextFrameFormat().setWrapText(NullableBool.True_)
+    text_frame.getTextFrameFormat().setAutofitType(TextAutofitType.None_)
+
+    paragraph = text_frame.getParagraphs().get_Item(0)
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20)
+    paragraph.setText("This text demonstrates how automatic wrapping changes the number of rendered lines.")
+    print("Original width:", paragraph.getLinesCount())
+
+    shape.setWidth(150)
+    print("Narrower shape:", paragraph.getLinesCount())
+
+    paragraph.setText("Short text.")
+    print("Shorter text:", paragraph.getLinesCount())
+
+    second_paragraph = Paragraph()
+    second_paragraph.setText("Another paragraph.")
+    second_paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20)
+    text_frame.getParagraphs().add(second_paragraph)
+
+    total_line_count = 0
+    for current_paragraph in text_frame.getParagraphs():
+        total_line_count += current_paragraph.getLinesCount()
+    print("Total lines in the text frame:", total_line_count)
+finally:
+    presentation.dispose()
+```
+
+Avec ce texte et ces dimensions, rétrécir la forme augmente le nombre de lignes, tandis que remplacer le texte par la chaîne courte le réduit. Les comptes exacts peuvent varier selon la disponibilité des polices et les substitutions, la taille de la police, les marges, les retraits, l’enroulement et les paramètres de redimensionnement automatique. Utilisez les polices et les paramètres de mise en page prévus pour l’environnement cible lors de la vérification d’un modèle.
+
+Le simple nombre de lignes ne détermine pas si le texte déborde de son conteneur. La hauteur disponible, la hauteur des lignes, l’interligne du paragraphe et le comportement du redimensionnement automatique sont également importants ; même une seule ligne peut dépasser la largeur disponible lorsque l’enroulement est désactivé.
+
 ## **Importer et exporter le contenu des paragraphes**
 
 ### **Importer du texte HTML dans des paragraphes**
 
-Utiliser [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphcollection/#addFromHtml) pour convertir le balisage HTML en paragraphes et portions dans un cadre de texte.
+Utilisez [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphcollection/#addFromHtml) pour convertir le balisage HTML en paragraphes et portions dans un cadre de texte.
 
-1. Créer une instance de la classe [Presentation].
-2. Accéder à une diapositive et ajouter une [AutoShape].
-3. Accéder au [TextFrame] de la forme et nettoyer le paragraphe par défaut.
-4. Lire le fichier HTML source.
-5. Passer la chaîne HTML à [ParagraphCollection.addFromHtml].
-6. Enregistrer la présentation modifiée.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/).
+2. Accédez à une diapositive et ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/python-java/aspose.slides/autoshape/).
+3. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/python-java/aspose.slides/textframe/) de la forme et supprimez son paragraphe par défaut.
+4. Lisez le fichier HTML source.
+5. Transmettez la chaîne HTML à [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphcollection/#addFromHtml).
+6. Enregistrez la présentation modifiée.
 
 Cet exemple Python importe du HTML dans un cadre de texte :
 
@@ -554,15 +608,15 @@ finally:
 
 ### **Exporter le texte d’un paragraphe vers HTML**
 
-Utiliser [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphcollection/#exportToHtml) pour exporter une plage sélectionnée de paragraphes au format HTML.
+Utilisez [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphcollection/#exportToHtml) pour exporter une plage sélectionnée de paragraphes au format HTML.
 
-1. Créer une instance de la classe [Presentation] et charger la présentation souhaitée.
-2. Accéder à la diapositive et trouver l’[AutoShape] contenant le texte.
-3. Accéder au [TextFrame] de la forme.
-4. Appeler [ParagraphCollection.exportToHtml] avec l’indice du paragraphe de départ et le nombre de paragraphes à exporter.
-5. Écrire la chaîne HTML retournée dans un fichier.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/) et chargez la présentation souhaitée.
+2. Accédez à la diapositive et trouvez la [AutoShape](https://reference.aspose.com/slides/fr/python-java/aspose.slides/autoshape/) contenant le texte.
+3. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/python-java/aspose.slides/textframe/) de la forme.
+4. Appelez [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphcollection/#exportToHtml) en spécifiant l’indice du paragraphe de départ et le nombre de paragraphes à exporter.
+5. Écrivez la chaîne HTML retournée dans un fichier.
 
-Cet exemple Python exporte tous les paragraphes du premier cadre de texte :
+Cet exemple Python exporte tous les paragraphes du premier cadre texte :
 
 ```python
 import jpype
@@ -597,9 +651,9 @@ finally:
 
 ### **Rendre un paragraphe en image**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraph/) rend directement un paragraphe individuel et renvoie un objet image. Enregistrez le résultat dans un fichier ou un flux avec sa méthode `save`. Vous n’avez pas besoin de rendre la forme contenant ou de recadrer un bitmap manuellement.
+[Paragraph.getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraph/) rend directement un paragraphe individuel et renvoie un objet image. Enregistrez le résultat dans un fichier ou un flux avec sa méthode `save`. Vous n’avez pas besoin de rendre la forme contenant le texte ni de recadrer manuellement un bitmap.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraph/) peut renvoyer `None` si le paragraphe est introuvable dans sa collection parent, n’a pas de limites de rendu valides, ou ne peut pas être rendu. Vérifiez le résultat avant de l’enregistrer et libérez l’image retournée après utilisation.
+[Paragraph.getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraph/) peut renvoyer `None` si le paragraphe est introuvable dans sa collection parente, n’a pas de limites de rendu valides ou ne peut pas être rendu. Vérifiez le résultat avant de l’enregistrer et libérez l’image retournée après utilisation.
 
 #### **Rendre un paragraphe à l’échelle par défaut**
 
@@ -607,7 +661,7 @@ Supposons que nous ayons un fichier de présentation nommé sample.pptx contenan
 
 ![La zone de texte avec trois paragraphes](paragraph_to_image_input.png)
 
-L’exemple suivant rend le second paragraphe d’une forme de texte ordinaire à l’échelle par défaut et enregistre l’image retournée au format PNG. Le bloc `finally` garantit que l’image est correctement libérée.
+L’exemple suivant rend le deuxième paragraphe d’une forme texte ordinaire à l’échelle par défaut et enregistre l’image retournée au format PNG. Le bloc `finally` garantit que l’image est correctement libérée.
 
 ```python
 import jpype
@@ -648,7 +702,7 @@ Le résultat :
 
 #### **Rendre un paragraphe dans une cellule de tableau avec mise à l’échelle**
 
-Utilisez la surcharge de [Paragraph.getImage] qui accepte les paramètres `scale_x` et `scale_y` pour définir les facteurs d’échelle horizontaux et verticaux. L’exemple suivant crée un tableau, rend le paragraphe dans sa première cellule à deux fois sa largeur et hauteur par défaut, et enregistre le résultat au format PNG.
+Utilisez la surcharge de [Paragraph.getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraph/) qui accepte les paramètres `scale_x` et `scale_y` pour définir les facteurs d’échelle horizontaux et verticaux. L’exemple suivant crée un tableau, rend le paragraphe de sa première cellule à deux fois sa largeur et hauteur par défaut, puis enregistre le résultat en image PNG.
 
 ```python
 import jpype
@@ -679,13 +733,13 @@ finally:
     presentation.dispose()
 ```
 
-Un facteur d’échelle de `1` conserve la taille pixel par défaut pour cet axe. Par exemple, `2` pour les deux facteurs produit une image dont la largeur et la hauteur sont approximativement doubles, soit quatre fois plus de pixels. Des facteurs plus grands produisent généralement un texte plus net pour le zoom ou les sorties haute résolution, mais augmentent également la mémoire et la taille du fichier. Des facteurs inférieurs à `1` génèrent des images plus petites avec moins de détails. Utilisez des facteurs égaux pour conserver le ratio d’aspect du paragraphe ; des facteurs différents en horizontal et vertical étirent la sortie indépendamment.
+Un facteur d’échelle de `1` conserve cet axe à sa taille de pixel par défaut. Par exemple, `2` pour les deux facteurs produit une image dont la largeur et la hauteur sont environ deux fois les dimensions d’origine, ce qui donne quatre fois plus de pixels. Des facteurs plus élevés produisent généralement un texte plus net pour le zoom ou la sortie haute résolution, mais augmentent également la consommation mémoire et la taille du fichier. Des facteurs inférieurs à `1` génèrent des images plus petites avec moins de détails. Utilisez des facteurs égaux pour préserver le rapport d’aspect du paragraphe ; des facteurs différents pour les axes horizontaux et verticaux étirent l’image indépendamment.
 
-Rendre une forme entière avec [Shape.getImage] reste utile lorsque la sortie doit inclure le remplissage, la bordure ou d’autres contextes visuels de la forme. Pour une image contenant uniquement le paragraphe, utilisez [Paragraph.getImage].
+Rendre une forme entière avec [Shape.getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/shape/#getImage) reste utile lorsque le rendu doit inclure le remplissage, la bordure ou d’autres éléments visuels de la forme. Pour une image ne contenant que le paragraphe, utilisez [Paragraph.getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraph/).
 
 ## **FAQ**
 
-**Puis‑je désactiver complètement le retour à la ligne à l’intérieur d’un cadre de texte ?**
+**Puis‑je désactiver complètement le retour à la ligne dans un cadre de texte ?**
 
 Oui. Définissez [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/fr/python-java/aspose.slides/textframeformat/#setWrapText) pour désactiver le retour à la ligne afin que les lignes ne se coupent pas aux bords du cadre de texte.
 
@@ -693,10 +747,10 @@ Oui. Définissez [TextFrameFormat.setWrapText](https://reference.aspose.com/slid
 
 Utilisez [Paragraph.getRect](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraph/#getRect) pour récupérer le rectangle englobant du paragraphe. [Portion.getRect](https://reference.aspose.com/slides/fr/python-java/aspose.slides/portion/#getRect) fournit les limites d’une portion individuelle.
 
-**Où est contrôlé l’alignement du paragraphe (gauche, droite, centre ou justifié) ?**
+**Où se contrôle l’alignement du paragraphe (gauche, droite, centre ou justifié) ?**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setAlignment) est un paramètre au niveau du paragraphe et s’applique à l’ensemble du paragraphe, quel que soit le formatage des portions individuelles.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/fr/python-java/aspose.slides/paragraphformat/#setAlignment) est un réglage au niveau du paragraphe et s’applique à l’ensemble du paragraphe, quelle que soit la mise en forme des portions individuelles.
 
-**Puis‑je définir la langue de révision pour une partie d’un paragraphe ?**
+**Puis‑je définir la langue de correction orthographique pour une partie d’un paragraphe ?**
 
 Oui. Définissez [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseportionformat/#setLanguageId) pour les portions individuelles, de sorte qu’un paragraphe puisse contenir du texte dans plusieurs langues.

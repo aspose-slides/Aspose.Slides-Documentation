@@ -5,20 +5,20 @@ type: docs
 weight: 50
 url: /it/java/text-formatting/
 keywords:
-- allineare paragrafo
-- stile testo
-- sfondo testo
-- trasparenza testo
-- spaziatura caratteri
-- proprietà font
-- famiglia font
-- rotazione testo
-- angolo rotazione
-- cornice testo
+- allineare il paragrafo
+- stile del testo
+- sfondo del testo
+- trasparenza del testo
+- spaziatura dei caratteri
+- proprietà del font
+- famiglia del font
+- rotazione del testo
+- angolo di rotazione
+- cornice del testo
 - interlinea
 - proprietà autofit
-- ancoraggio cornice testo
-- tabulazione testo
+- ancoraggio della cornice del testo
+- tabulazione del testo
 - lingua predefinita
 - PowerPoint
 - OpenDocument
@@ -29,19 +29,19 @@ description: "Formattare e stilizzare il testo in presentazioni PowerPoint e Ope
 ---
 ## **Panoramica**
 
-Questo articolo mostra come formattare il testo in presentazioni PowerPoint e OpenDocument utilizzando Aspose.Slides per Java. Copre i colori di sfondo, la trasparenza, la spaziatura dei caratteri, le proprietà dei font, la rotazione, la spaziatura dei paragrafi, il comportamento di adeguamento automatico, l'ancoraggio del testo, le tabulazioni e le impostazioni della lingua.
+Questo articolo mostra come formattare il testo in presentazioni PowerPoint e OpenDocument utilizzando Aspose.Slides per Java. Copre colori di sfondo, trasparenza, spaziatura dei caratteri, proprietà dei font, rotazione, spaziatura dei paragrafi, comportamento di autofit, ancoraggio del testo, tabulazioni e impostazioni della lingua.
 
-Negli esempi seguenti useremo un file chiamato "sample.pptx", che contiene un'unica casella di testo nella prima diapositiva con il seguente contenuto:
+Negli esempi seguenti, utilizzeremo un file denominato "sample.pptx", che contiene una singola casella di testo nella prima diapositiva con il seguente contenuto:
 
 ![Testo di esempio](sample_text.png)
 
-Per trovare e evidenziare testo letterale o corrispondenze di espressioni regolari, vedi [Cerca e sostituisci testo](/slides/it/java/search-and-replace-text/).
+Per trovare e evidenziare testo letterale o corrispondenze di espressioni regolari, vedere [Cerca e Sostituisci Testo](/slides/it/java/search-and-replace-text/).
 
-## **Imposta colore di sfondo del testo**
+## **Impostare il colore di sfondo del testo**
 
-Utilizza [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) per impostare il colore di evidenziazione predefinito per un paragrafo, oppure utilizza [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) per porzioni di testo individuali.
+Utilizzare [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) per impostare il colore di evidenziazione predefinito per un paragrafo, o utilizzare [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) per singole sezioni di testo.
 
-Il seguente esempio di codice mostra come impostare il colore di sfondo per l'**intero paragrafo**:
+Il seguente esempio di codice mostra come impostare il colore di sfondo per **l'intero paragrafo**:
 
 ```java
 import com.aspose.slides.*;
@@ -66,7 +66,7 @@ Il risultato:
 
 ![Il paragrafo grigio](gray_paragraph.png)
 
-L'esempio di codice seguente dimostra come impostare il colore di sfondo per **porzioni di testo con un font grassetto**:
+L'esempio di codice sottostante dimostra come impostare il colore di sfondo per **sezioni di testo con un font in grassetto**:
 
 ```java
 import com.aspose.slides.*;
@@ -93,11 +93,11 @@ try {
 
 Il risultato:
 
-![Le porzioni di testo grigie](gray_text_portions.png)
+![Le sezioni di testo grigie](gray_text_portions.png)
 
-## **Allinea paragrafi di testo**
+## **Allineare i paragrafi di testo**
 
-Utilizza [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) per impostare l'allineamento del paragrafo all'interno di una casella di testo. Il valore può essere centrato, allineato a sinistra, allineato a destra, giustificato, ecc.
+Utilizzare [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) per impostare l'allineamento del paragrafo all'interno di una casella di testo. Il valore può essere centrato, allineato a sinistra, allineato a destra, giustificato, ecc.
 
 Il seguente esempio di codice mostra come allineare il paragrafo al **centro**:
 
@@ -123,11 +123,11 @@ Il risultato:
 
 ![Il paragrafo allineato](aligned_paragraph.png)
 
-## **Imposta trasparenza per il testo**
+## **Impostare la trasparenza per il testo**
 
-La trasparenza del testo è controllata tramite il componente alfa del colore assegnato a [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). negli esempi seguenti, `alpha = 50` è un valore del canale alfa ARGB su scala 0–255, non una percentuale di trasparenza.
+La trasparenza del testo è controllata tramite il componente alfa del colore assegnato a [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Negli esempi seguenti, `alpha = 50` è un valore ARGB del canale alfa su scala 0–255, non una percentuale di trasparenza.
 
-L'esempio di codice seguente mostra come applicare la trasparenza all'**intero paragrafo**:
+L'esempio di codice sottostante mostra come applicare la trasparenza a **l'intero paragrafo**:
 
 ```java
 import com.aspose.slides.*;
@@ -155,7 +155,7 @@ Il risultato:
 
 ![Il paragrafo trasparente](transparent_paragraph.png)
 
-Il seguente esempio di codice mostra come applicare la trasparenza a **porzioni di testo con un font grassetto**:
+Il seguente esempio di codice mostra come applicare la trasparenza a **sezioni di testo con un font in grassetto**:
 
 ```java
 import com.aspose.slides.*;
@@ -185,13 +185,13 @@ try {
 
 Il risultato:
 
-![Le porzioni di testo trasparenti](transparent_text_portions.png)
+![Le sezioni di testo trasparenti](transparent_text_portions.png)
 
-## **Imposta spaziatura dei caratteri per il testo**
+## **Impostare la spaziatura dei caratteri per il testo**
 
-Utilizza [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) per aumentare o ridurre la spaziatura tra i caratteri in una casella di testo.
+Utilizzare [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) per espandere o ridurre la spaziatura tra i caratteri in una casella di testo.
 
-Il seguente codice Java mostra come ampliare la spaziatura dei caratteri nell'**intero paragrafo**:
+Il seguente codice Java mostra come espandere la spaziatura dei caratteri in **l'intero paragrafo**:
 
 ```java
 import com.aspose.slides.*;
@@ -202,7 +202,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Nota: usa valori negativi per comprimere la spaziatura dei caratteri.
+    // Nota: Usa valori negativi per comprimere la spaziatura dei caratteri.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Espandi la spaziatura dei caratteri.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
@@ -215,7 +215,7 @@ Il risultato:
 
 ![La spaziatura dei caratteri nel paragrafo](character_spacing_in_paragraph.png)
 
-L'esempio di codice seguente mostra come ampliare la spaziatura dei caratteri in **porzioni di testo con un font grassetto**:
+L'esempio di codice sottostante mostra come espandere la spaziatura dei caratteri in **sezioni di testo con un font in grassetto**:
 
 ```java
 import com.aspose.slides.*;
@@ -228,7 +228,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Nota: usa valori negativi per comprimere la spaziatura dei caratteri.
+            // Nota: Usa valori negativi per comprimere la spaziatura dei caratteri.
             portion.getPortionFormat().setSpacing(3); // Espandi la spaziatura dei caratteri.
         }
     }
@@ -241,13 +241,13 @@ try {
 
 Il risultato:
 
-![La spaziatura dei caratteri nelle porzioni di testo](character_spacing_in_text_portions.png)
+![La spaziatura dei caratteri nelle sezioni di testo](character_spacing_in_text_portions.png)
 
-### **Disabilita il kerning per font specifici**
+### **Disabilitare il kerning per font specifici**
 
-In alcuni casi, il testo renderizzato da Aspose.Slides può apparire leggermente più stretto rispetto allo stesso testo visualizzato in PowerPoint. Questo può accadere perché PowerPoint può ignorare i dati di kerning per alcuni font, anche quando il font contiene informazioni di kerning valide e il kerning è abilitato nelle impostazioni di PowerPoint.
+In alcuni casi, il testo renderizzato da Aspose.Slides può apparire leggermente più stretto rispetto al medesimo testo visualizzato in PowerPoint. Questo può accadere perché PowerPoint può ignorare i dati di kerning per determinati font, anche quando il font contiene informazioni di kerning valide e il kerning è abilitato nelle impostazioni di PowerPoint.
 
-Per rendere l'output renderizzato più simile a PowerPoint in questi casi, è possibile disabilitare il kerning per le porzioni di testo che utilizzano il font interessato. Imposta [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) a un valore significativamente più grande della dimensione reale del font:
+Per avvicinare l'output renderizzato a quello di PowerPoint in tali situazioni, è possibile disabilitare il kerning per le sezioni di testo che utilizzano il font interessato. Impostare [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) a un valore significativamente più grande rispetto alla dimensione effettiva del font:
 
 ```java
 import com.aspose.slides.*;
@@ -279,13 +279,13 @@ try {
 }
 ```
 
-Questa impostazione impedisce l'applicazione del kerning alle porzioni di testo corrispondenti e può aiutare ad allineare il rendering di Aspose.Slides all'output visivo di PowerPoint per i font interessati da questo comportamento specifico di PowerPoint.
+Questa impostazione impedisce l'applicazione del kerning alle sezioni di testo corrispondenti e può aiutare ad allineare il rendering di Aspose.Slides all'output visivo di PowerPoint per i font soggetti a questo comportamento specifico di PowerPoint.
 
-## **Gestisci le proprietà dei font del testo**
+## **Gestire le proprietà del font del testo**
 
-Le proprietà dei font possono essere impostate a livello di paragrafo tramite [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) o su singole porzioni tramite [IPortionFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/iportionformat/).
+Le proprietà del font possono essere impostate a livello di paragrafo tramite [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) o su singole sezioni tramite [IPortionFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/iportionformat/).
 
-Il seguente codice imposta il font e lo stile del testo per l'intero paragrafo: applica la dimensione del font, il grassetto, il corsivo, la sottolineatura puntinata e il font Times New Roman a tutte le porzioni del paragrafo.
+Il seguente codice imposta il font e lo stile del testo per l'intero paragrafo: applica la dimensione del font, il grassetto, il corsivo, la sottolineatura punteggiata e il font Times New Roman a tutte le sezioni del paragrafo.
 
 ```java
 import com.aspose.slides.*;
@@ -313,7 +313,7 @@ Il risultato:
 
 ![Le proprietà del font per il paragrafo](font_properties_for_paragraph.png)
 
-L'esempio di codice seguente applica proprietà simili a **porzioni di testo con un font grassetto**:
+L'esempio di codice sottostante applica proprietà analoghe a **sezioni di testo con un font in grassetto**:
 
 ```java
 import com.aspose.slides.*;
@@ -342,13 +342,13 @@ try {
 
 Il risultato:
 
-![Le proprietà del font per le porzioni di testo](font_properties_for_text_portions.png)
+![Le proprietà del font per le sezioni di testo](font_properties_for_text_portions.png)
 
-## **Imposta rotazione del testo**
+## **Impostare la rotazione del testo**
 
-Utilizza [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) per impostare un orientamento del testo predefinito all'interno di una forma.
+Utilizzare [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) per impostare un orientamento predefinito del testo all'interno di una forma.
 
-Il seguente esempio di codice imposta l'orientamento del testo nella forma su `Vertical270`, che ruota il testo di **90 gradi in senso antiorario**:
+Il seguente esempio di codice imposta l'orientamento del testo nella forma su `Vertical270`, che ruota il testo **di 90 gradi in senso antiorario**:
 
 ```java
 import com.aspose.slides.*;
@@ -370,11 +370,11 @@ Il risultato:
 
 ![La rotazione del testo](text_rotation.png)
 
-## **Imposta rotazione personalizzata per le cornici di testo**
+## **Impostare una rotazione personalizzata per le caselle di testo**
 
-Utilizza [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) per impostare un angolo di rotazione personalizzato per un [ITextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/).
+Utilizzare [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) per impostare un angolo di rotazione personalizzato per un [ITextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/).
 
-L'esempio di codice seguente ruota la cornice di testo di 3 gradi in senso orario all'interno della forma:
+L'esempio di codice sottostante ruota la casella di testo di 3 gradi in senso orario all'interno della forma:
 
 ```java
 import com.aspose.slides.*;
@@ -396,12 +396,12 @@ Il risultato:
 
 ![La rotazione personalizzata del testo](custom_text_rotation.png)
 
-## **Imposta interlinea dei paragrafi**
+## **Impostare l'interlinea dei paragrafi**
 
-Aspose.Slides fornisce [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) e [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) per controllare la spaziatura dei paragrafi. Queste proprietà vengono utilizzate come segue:
+Aspose.Slides fornisce [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) e [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) per controllare la spaziatura dei paragrafi. Queste proprietà vengono usate come segue:
 
-* Usa un valore positivo per specificare l'interlinea come percentuale dell'altezza della linea.
-* Usa un valore negativo per specificare l'interlinea in punti.
+* Utilizzare un valore positivo per specificare l'interlinea come percentuale dell'altezza della riga.
+* Utilizzare un valore negativo per specificare l'interlinea in punti.
 
 Il seguente esempio di codice mostra come specificare l'interlinea all'interno del paragrafo:
 
@@ -424,11 +424,11 @@ try {
 
 Il risultato:
 
-![L'interlinea all'interno del paragrafo](line_spacing.png)
+![L'interlinea nel paragrafo](line_spacing.png)
 
-## **Imposta tipo di adattamento automatico per le cornici di testo**
+## **Impostare il tipo di autofit per le caselle di testo**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) determina come il testo si comporta quando supera i confini del contenitore. Usalo per controllare se il testo si riduce, trabocca o ridimensiona automaticamente la forma.
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) determina come il testo si comporta quando supera i limiti del suo contenitore. Usalo per controllare se il testo si riduce, trabocca o ridimensiona automaticamente la forma.
 
 ```java
 import com.aspose.slides.*;
@@ -446,7 +446,9 @@ try {
 }
 ```
 
-## **Imposta ancoraggio delle cornici di testo**
+Per contare le righe dopo l'adattamento automatico e vedere come la larghezza del testo o della forma modifica il risultato, vedere [Conteggio delle righe renderizzate](/slides/it/java/manage-paragraph/). Il semplice conteggio delle righe non indica se il testo trabocca dal contenitore.
+
+## **Impostare l'ancoraggio delle caselle di testo**
 
 [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) definisce come il testo è posizionato verticalmente all'interno di una forma, ad esempio in alto, al centro o in basso.
 
@@ -466,9 +468,9 @@ try {
 }
 ```
 
-## **Imposta tabulazione del testo**
+## **Impostare la tabulazione del testo**
 
-Utilizza [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) e [IParagraphFormat.getTabs](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#getTabs--) per configurare le tabulazioni in un paragrafo.
+Utilizzare [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) e [IParagraphFormat.getTabs](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#getTabs--) per configurare le tabulazioni in un paragrafo.
 
 ```java
 import com.aspose.slides.*;
@@ -492,11 +494,11 @@ Il risultato:
 
 ![Le tabulazioni del paragrafo](paragraph_tabs.png)
 
-## **Imposta lingua di correzione**
+## **Impostare la lingua di correzione**
 
-Aspose.Slides fornisce [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), che consente di impostare la lingua di correzione per una porzione di testo. La lingua di correzione determina la lingua utilizzata per il controllo ortografico e grammaticale in PowerPoint.
+Aspose.Slides fornisce [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), che consente di impostare la lingua di correzione per una sezione di testo. La lingua di correzione determina la lingua usata per il controllo ortografico e grammaticale in PowerPoint.
 
-Il seguente esempio di codice mostra come impostare la lingua di correzione per una porzione di testo:
+Il seguente esempio di codice mostra come impostare la lingua di correzione per una sezione di testo:
 
 ```java
 import com.aspose.slides.*;
@@ -528,9 +530,9 @@ try {
 }
 ```
 
-## **Imposta lingua predefinita**
+## **Impostare la lingua predefinita**
 
-Utilizza [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/it/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) per definire la lingua predefinita per il testo creato durante il caricamento o la creazione di una presentazione.
+Utilizzare [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/it/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) per definire la lingua predefinita per il testo creato durante il caricamento o la creazione di una presentazione.
 
 ```java
 import com.aspose.slides.*;
@@ -554,18 +556,18 @@ try {
 }
 ```
 
-## **Imposta stile di testo predefinito**
+## **Impostare lo stile di testo predefinito**
 
-Per applicare la formattazione di testo predefinita a livello di presentazione, utilizza [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
+Per applicare la formattazione di testo predefinita a livello di presentazione, utilizzare [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-Il seguente esempio di codice mostra come impostare un font predefinito in grassetto con dimensione 14 pt per tutto il testo su tutte le diapositive in una nuova presentazione.
+Il seguente esempio di codice mostra come impostare un font in grassetto predefinito con dimensione 14 pt per tutto il testo nelle diapositive di una nuova presentazione.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // Ottieni il formato del paragrafo di livello superiore.
+    // Recupera il formato del paragrafo di livello superiore.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -579,15 +581,15 @@ try {
 }
 ```
 
-## **Estrai testo con l'effetto tutto maiuscolo**
+## **Estrarre il testo con l'effetto Maiuscole**
 
-In PowerPoint, applicare l'effetto **All Caps** al font fa apparire il testo in maiuscolo sulla diapositiva anche se è stato digitato originariamente in minuscolo. Quando recuperi tale porzione di testo con Aspose.Slides, la libreria restituisce il testo esattamente come è stato inserito. Per corrispondere al testo visualizzato, controlla [TextCapType](https://reference.aspose.com/slides/it/java/com.aspose.slides/textcaptype/) e converti la stringa restituita in maiuscolo quando il valore è `All`.
+In PowerPoint, l'applicazione dell'effetto **Maiuscole** fa sì che il testo appaia in maiuscolo sulla diapositiva anche se originariamente digitato in minuscolo. Quando si recupera una tale sezione di testo con Aspose.Slides, la libreria restituisce il testo esattamente come è stato inserito. Per corrispondere al testo visualizzato, controllare [TextCapType](https://reference.aspose.com/slides/it/java/com.aspose.slides/textcaptype/) e convertire la stringa restituita in maiuscolo quando il valore è `All`.
 
 Supponiamo di avere la seguente casella di testo nella prima diapositiva del file sample2.pptx.
 
-![L'effetto tutto maiuscolo](all_caps_effect.png)
+![L'effetto Maiuscole](all_caps_effect.png)
 
-L'esempio di codice seguente mostra come estrarre il testo con l'effetto **All Caps** applicato:
+Il codice sottostante mostra come estrarre il testo con l'effetto **Maiuscole** applicato:
 
 ```java
 import com.aspose.slides.*;
@@ -621,8 +623,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Come modificare il testo in una tabella su una diapositiva?**
 
-Per modificare il testo in una tabella su una diapositiva, utilizza [ITable](https://reference.aspose.com/slides/it/java/com.aspose.slides/itable/). Itera attraverso le celle e aggiorna ogni cella tramite [ICell.getTextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/icell/#getTextFrame--) e la formattazione del paragrafo tramite [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
+Per modificare il testo in una tabella su una diapositiva, utilizzare [ITable](https://reference.aspose.com/slides/it/java/com.aspose.slides/itable/). Iterare attraverso le celle e aggiornare ciascuna cella tramite [ICell.getTextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/icell/#getTextFrame--) e la formattazione dei paragrafi tramite [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
-**Come applicare un colore sfumato al testo in una diapositiva PowerPoint?**
+**Come applicare un colore gradiente al testo in una diapositiva PowerPoint?**
 
-Per applicare un colore sfumato al testo, utilizza [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Imposta [IFillFormat.setFillType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifillformat/#setFillType-byte-) su [FillType.Gradient](https://reference.aspose.com/slides/it/java/com.aspose.slides/filltype/) e configura le fermate del gradiente, la direzione e la trasparenza.
+Per applicare un colore gradiente al testo, utilizzare [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Impostare [IFillFormat.setFillType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifillformat/#setFillType-byte-) su [FillType.Gradient](https://reference.aspose.com/slides/it/java/com.aspose.slides/filltype/) e configurare le fermate del gradiente, la direzione e la trasparenza.

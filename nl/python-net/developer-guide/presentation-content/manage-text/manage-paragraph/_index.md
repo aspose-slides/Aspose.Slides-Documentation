@@ -12,12 +12,12 @@ keywords:
 - alinea toevoegen
 - tekst beheren
 - alinea beheren
-- opsomming beheren
+- opsommingsteken beheren
 - alinea-inspringing
 - hangende inspringing
-- alinea-opsomming
+- alinea-opsommingsteken
 - genummerde lijst
-- opsommingslijst
+- opsomming met opsommingstekens
 - alinea-eigenschappen
 - HTML importeren
 - tekst naar HTML
@@ -29,17 +29,17 @@ keywords:
 - presentatie
 - Python
 - Aspose.Slides
-description: "Leer hoe u alinea's, delen, opsommingstekens, genummerde lijsten, inspringingen, HTML-inhoud en alinea-afbeeldingen maakt en opmaakt met Aspose.Slides voor Python via .NET."
+description: "Leer hoe je alinea's, delen, opsommingstekens, genummerde lijsten, inspringingen, HTML-inhoud en alinea-afbeeldingen maakt en opmaakt met Aspose.Slides voor Python via .NET."
 ---
 ## **Overzicht**
 
-Aspose.Slides voor Python via .NET stelt tekst voor als een hiërarchie van tekstkaders, alinea's en delen:
+Aspose.Slides for Python via .NET stelt tekst voor als een hiërarchie van tekstkaders, alinea's en delen:
 
-* [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) vertegenwoordigt de tekstdeler in een vorm en biedt toegang tot de alinea‑verzameling.
-* [Paragraph](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/) vertegenwoordigt één alinea in een tekstkader en biedt toegang tot de delen en de alinea‑niveau opmaak.
-* [Portion](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portion/) vertegenwoordigt een tekstreeks binnen een alinea. Elk deel kan zijn eigen tekst en teken‑niveau opmaak hebben.
+* [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) vertegenwoordigt de tekstopslag in een vorm en biedt toegang tot de alinea‑verzameling.
+* [Paragraph](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/) vertegenwoordigt één alinea in een tekstkader en biedt toegang tot de delen en alinea‑opmaak.
+* [Portion](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portion/) vertegenwoordigt een tekstrun binnen een alinea. Elk deel kan zijn eigen tekst en teken‑niveau opmaak hebben.
 
-Een alinea kan daardoor tekst met verschillende lettertypen, kleuren, groottes en andere opmaak bevatten door meerdere delen te gebruiken.
+Een alinea kan dus tekst bevatten met verschillende lettertypen, kleuren, groottes en andere opmaak door meerdere delen te gebruiken.
 
 ## **Alinea's maken en opmaken**
 
@@ -47,15 +47,15 @@ Een alinea kan daardoor tekst met verschillende lettertypen, kleuren, groottes e
 
 De volgende stappen maken een tekstkader met drie alinea's, elk met drie delen:
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/).
-2. Benader de gewenste dia via de index.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
+2. Open de betreffende dia via zijn index.
 3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe aan de dia.
-4. Benader het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm.
-5. Gebruik de standaardalinea en voeg twee extra [Paragraph](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/) objecten toe aan het tekstkader.
-6. Voeg voldoende [Portion](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portion/) objecten toe zodat elke alinea drie delen bevat. De standaardalinea bevat al één leeg deel.
+4. Open het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm.
+5. Gebruik de standaard alinea en voeg nog twee [Paragraph](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/) objecten toe aan het tekstkader.
+6. Voeg voldoende [Portion](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portion/) objecten toe zodat elke alinea drie delen bevat. De standaard alinea bevat al één leeg deel.
 7. Stel de tekst van elk deel in.
 8. Pas teken‑niveau opmaak toe via [Portion.portion_format](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portion/portion_format/).
-9. Sla de gewijzigde presentatie op.
+9. Sla de aangepaste presentatie op.
 
 Dit Python‑voorbeeld implementeert de stappen:
 
@@ -110,20 +110,20 @@ with slides.Presentation() as presentation:
 
 Opsommingstekens en nummering maken gerelateerde items makkelijker scanbaar. In Aspose.Slides worden lijstinstellingen gedefinieerd via [BulletFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/).
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/).
-2. Benader de gewenste dia via de index.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
+2. Open de betreffende dia via zijn index.
 3. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe aan de geselecteerde dia.
-4. Benader het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm.
-5. Verwijder de standaardalinea uit het tekstkader.
+4. Open het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm.
+5. Verwijder de standaard alinea uit het tekstkader.
 6. Maak een [Paragraph](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/) voor een symbool‑opsommingsteken.
-7. Stel [BulletFormat.type](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/type/) in op [BulletType.SYMBOL](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bullettype/) en geef het opsommingsteken op.
+7. Stel [BulletFormat.type](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/type/) in op [BulletType.SYMBOL](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bullettype/) en specificeer het opsommingsteken.
 8. Stel de alinea‑tekst, inspringing, kleur en hoogte van het opsommingsteken in.
 9. Voeg de alinea toe aan het tekstkader.
 10. Maak een tweede alinea en stel [BulletFormat.type](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/type/) in op [BulletType.NUMBERED](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bullettype/).
-11. Configureer de stijl van de genummerde opsomming en voeg de alinea toe aan het tekstkader.
+11. Configureer de genummerde opsommingsteken‑stijl en voeg de alinea toe aan het tekstkader.
 12. Sla de presentatie op.
 
-Dit Python‑voorbeeld maakt een symbool‑ en een genummerde opsomming:
+Dit Python‑voorbeeld maakt een symbool‑opsommingsteken en een genummerd opsommingsteken:
 
 ```python
 import aspose.pydrawing as draw
@@ -162,18 +162,18 @@ with slides.Presentation() as presentation:
 
 ### **Afbeeldings‑opsommingstekens gebruiken**
 
-Afbeeldings‑opsommingstekens laten je een aangepast beeld gebruiken in plaats van een symbool of cijfer.
+Afbeeldings‑opsommingstekens laten je een aangepaste afbeelding gebruiken in plaats van een symbool of cijfer.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/).
-2. Benader de gewenste dia via de index.
-3. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe en benader het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/).
-4. Verwijder de standaardalinea uit het tekstkader.
-5. Laad het opsommingsteken‑beeld en voeg het toe aan de afbeeldingscollectie van de presentatie als een [PPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ppimage/).
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
+2. Open de betreffende dia via zijn index.
+3. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe en open zijn [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/).
+4. Verwijder de standaard alinea uit het tekstkader.
+5. Laad de opsommingsteken‑afbeelding en voeg deze toe aan de afbeeldingscollectie van de presentatie als een [PPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ppimage/).
 6. Maak een [Paragraph](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/) en stel de tekst in.
 7. Stel [BulletFormat.type](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/type/) in op [BulletType.PICTURE](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bullettype/).
 8. Wijs de afbeelding toe via [BulletFormat.picture](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/picture/) en stel de hoogte van het opsommingsteken in.
 9. Voeg de alinea toe aan het tekstkader.
-10. Sla de gewijzigde presentatie op.
+10. Sla de aangepaste presentatie op.
 
 Dit Python‑voorbeeld maakt een afbeelding‑opsommingsteken:
 
@@ -203,11 +203,11 @@ with slides.Presentation() as presentation:
 
 ### **Een meerlagige lijst maken**
 
-Stel [ParagraphFormat.depth](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/depth/) in om alinea's op verschillende niveaus van een lijst te plaatsen. Het bovenste niveau heeft een diepte van `0`.
+Stel [ParagraphFormat.depth](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/depth/) in om alinea's op verschillende niveaus van een lijst te plaatsen. Het hoogste niveau heeft een diepte van `0`.
 
-1. Maak een [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) en benader een dia.
-2. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe en verwijder de standaardalinea uit het tekstkader.
-3. Maak vier alinea's en configureer hun opsommingsteken‑symbolen.
+1. Maak een [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) en open een dia.
+2. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe en verwijder de standaard alinea uit het tekstkader.
+3. Maak vier alinea's en configureer hun opsommingstekens.
 4. Stel hun [ParagraphFormat.depth](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/depth/) waarden in op `0`, `1`, `2` en `3`.
 5. Voeg de alinea's toe aan het tekstkader en sla de presentatie op.
 
@@ -265,10 +265,10 @@ with slides.Presentation() as presentation:
 
 ### **Genummerde lijstitems starten met aangepaste waarden**
 
-Gebruik [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) om het beginnummer van een genummerde alinea in te stellen.
+Gebruik [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) om het beginnummer voor een genummerde alinea in te stellen.
 
 1. Maak een [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) en voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe aan een dia.
-2. Verwijder de standaardalinea uit het tekstkader van de vorm.
+2. Verwijder de standaard alinea uit het tekstkader van de vorm.
 3. Maak drie genummerde alinea's.
 4. Stel [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) in op `2`, `3` en `7` voor de respectieve alinea's.
 5. Voeg de alinea's toe aan het tekstkader en sla de presentatie op.
@@ -305,25 +305,23 @@ with slides.Presentation() as presentation:
     presentation.save("custom_numbered_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Alinea‑lay-out en eind‑eigenschappen beheren**
+## **De lay-out en eind‑eigenschappen van alinea's beheren**
 
-### **Een eerste‑rij‑inspringing instellen**
+### **Eerste‑regel inspringing instellen**
 
-Gebruik de eigenschap [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) om de eerste‑rij‑inspringing van een alinea te regelen. Deze eigenschap verplaatst alleen de eerste regel ten opzichte van de linkermarge van de alinea. Een positieve waarde verschuift de eerste regel naar rechts, terwijl de overige regels uitgelijnd blijven met de alinea‑inhoud.
+Gebruik de eigenschap [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) om de eerste‑regel inspringing van een alinea te regelen. Deze eigenschap verplaatst alleen de eerste regel ten opzichte van de linkermarge van de alinea. Een positieve waarde verschuift de eerste regel naar rechts, terwijl de overige regels uitgelijnd blijven met de alinea‑inhoud.
 
-Gebruik [ParagraphFormat.margin_left](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/margin_left/) als je de hele alinea wilt verplaatsen. Gebruik [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) als je alleen de eerste regel wilt verplaatsen.
+Gebruik [ParagraphFormat.margin_left](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/margin_left/) wanneer je de hele alinea wilt verplaatsen. Gebruik [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) wanneer je alleen de eerste regel wilt verplaatsen.
 
-Het onderstaande voorbeeld maakt verschillende alinea's en past verschillende [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) waarden toe om te laten zien hoe de eerste‑rij‑inspringing de lay‑out beïnvloedt.
+Het voorbeeld hieronder maakt verschillende alinea's en past verschillende [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) waarden toe om te laten zien hoe de eerste‑regel inspringing de lay-out beïnvloedt.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/).
-2. Benader de doeldia.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
+2. Open de doeldia.
 3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe aan de dia.
-4. Benader het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm en verwijder de standaardalinea.
-5. Maak meerdere alinea's en stel verschillende [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) waarden in.
+4. Open het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm en verwijder de standaard alinea.
+5. Maak verschillende alinea's en zet verschillende [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) waarden voor hen.
 6. Voeg de alinea's toe aan het tekstkader.
-7. Sla de gewijzigde presentatie op.
-
-Deze code laat zien hoe je een alinea‑inspringing instelt:
+7. Sla de aangepaste presentatie op.
 
 ```python
 import aspose.pydrawing as draw
@@ -368,28 +366,26 @@ with slides.Presentation() as presentation:
     presentation.save("paragraph_indent.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Het resultaat:
+Resultaat:
 
-![De eerste‑rij‑inspringing van de alinea's](first_line_indent.png)
+![De eerste‑regel inspringing van de alinea's](first_line_indent.png)
 
-### **Een hangende inspringing instellen**
+### **Hangende inspringing instellen**
 
-Een hangende inspringing is een alinea‑lay‑out waarbij de eerste regel links van de overige regels begint. In Aspose.Slides maak je dit effect met de eigenschap [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/). Stel `indent` in op een negatieve waarde om de eerste regel naar links te verplaatsen ten opzichte van de alinea‑inhoud.
+Een hangende inspringing is een alinea‑lay-out waarbij de eerste regel links van de overige regels begint. In Aspose.Slides creëer je dit effect met de eigenschap [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/). Stel `indent` in op een negatieve waarde om de eerste regel naar links te verplaatsen ten opzichte van de alinea‑inhoud.
 
-In de praktijk bepaalt [ParagraphFormat.margin_left](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/margin_left/) de linkermarge van de alinea‑inhoud, en bepaalt [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) de positie van de eerste regel relatief aan die marge. Voor een hangende inspringing stel je een positieve `margin_left` en een negatieve `indent` in.
+In de praktijk bepaalt [ParagraphFormat.margin_left](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/margin_left/) de linkermarge van de alinea‑inhoud, en [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) de positie van de eerste regel ten opzichte van die marge. Om een hangende inspringing te maken, stel je een positieve `margin_left` en een negatieve `indent` in.
 
-Deze opmaak is nuttig voor bibliografieën, referenties, glossarium‑items en andere alinea's waarbij de regels onder de alinea‑inhoud moeten uitlijnen in plaats van onder het eerste teken van de eerste regel.
+Deze opmaak is nuttig voor bibliografieën, referenties, begrippenlijsten en andere alinea's waarbij de omgebroken regels onder de alinea‑inhoud moeten worden uitgelijnd in plaats van onder het eerste teken van de eerste regel.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/).
-2. Benader de doeldia.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
+2. Open de doeldia.
 3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe aan de dia.
-4. Benader het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm en verwijder de standaardalinea.
+4. Open het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm en verwijder de standaard alinea.
 5. Maak alinea's en stel voor elke alinea een positieve [ParagraphFormat.margin_left](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/margin_left/) waarde in.
-6. Stel een negatieve [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) waarde in om het hangende‑inspringingseffect te creëren.
+6. Stel een negatieve [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) waarde in om het hangende‑inspringing‑effect te verkrijgen.
 7. Voeg de alinea's toe aan het tekstkader.
-8. Sla de gewijzigde presentatie op.
-
-Deze code laat zien hoe je een hangende inspringing voor een alinea instelt:
+8. Sla de aangepaste presentatie op.
 
 ```python
 import aspose.pydrawing as draw
@@ -426,20 +422,20 @@ with slides.Presentation() as presentation:
     presentation.save("hanging_indent.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Het resultaat:
+Resultaat:
 
 ![De hangende inspringing van de alinea's](hanging_indent.png)
 
-### **Einde‑alinea‑run‑eigenschappen instellen**
+### **Eind‑eigenschappen van alinea‑tekst instellen**
 
-De eigenschap [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) bepaalt de opmaak van het eind‑teken van een alinea. Het volgende voorbeeld kent een lettergrootte en een Latijns lettertype toe aan het eind‑teken van de tweede alinea:
+De eigenschap [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) regelt de opmaak van het alinea‑eindteken. Het volgende voorbeeld kent een lettergrootte en een Latijns lettertype toe aan het eindteken van de tweede alinea:
 
-1. Laad een [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) en benader een dia.
-2. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe en verwijder de standaardalinea.
-3. Maak twee alinea's en voeg tekstreeksen toe.
-4. Maak een [PortionFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portionformat/) voor het eind‑teken van de tweede alinea.
+1. Laad een [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) en open een dia.
+2. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe en verwijder de standaard alinea.
+3. Maak twee alinea's en voeg tekstdelen toe.
+4. Maak een [PortionFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portionformat/) voor het eindteken van de tweede alinea.
 5. Stel [PortionFormat.font_height](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portionformat/font_height/) en [PortionFormat.latin_font](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portionformat/latin_font/) in.
-6. Wijs de opmaak toe aan [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) en sla de presentatie op.
+6. Koppel de opmaak aan [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) en sla de presentatie op.
 
 ```python
 import aspose.slides as slides
@@ -467,18 +463,63 @@ with slides.Presentation("Test.pptx") as presentation:
     presentation.save("end_paragraph_format.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Alinea‑inhoud importeren en exporteren**
+## **Gerenderde regels tellen**
+
+Gebruik [Paragraph.get_lines_count](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/get_lines_count/) om het aantal regels te tellen dat een alinea inneemt na de tekst‑lay‑out, inclusief automatische omslag. Dit is handig bij het controleren van tekstlengte en lay‑out in presentatiesjablonen.
+
+Een alinea is één item in [TextFrame.paragraphs](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/paragraphs/), en kan meerdere gerenderde regels innemen. Een expliciete regeleinde‑invoering binnen een alinea dwingt een nieuwe regel zonder een extra alinea te maken. Automatische omslag maakt regels op basis van de beschikbare breedte zonder expliciete regeleinde‑tekens in de tekst te plaatsen. Het tellen van alinea's of regeleinde‑tekens levert daarom niet het aantal gerenderde regels op.
+
+Het volgende voorbeeld maakt een tekstvorm, telt de regels, vernauwt de vorm en vervangt vervolgens de tekst door een kortere string. Ombrenging is ingeschakeld en autofit is uitgeschakeld zodat de vormbreedte de ombraak bepaalt zonder de tekst automatisch te verkleinen of de vorm te herschalen. Vormafmetingen zijn in punten. Ten slotte voegt het voorbeeld nog een alinea toe en somt de regel‑telling op over het tekstkader.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 400, 200)
+    text_frame = shape.text_frame
+    text_frame.text_frame_format.wrap_text = slides.NullableBool.TRUE
+    text_frame.text_frame_format.autofit_type = slides.TextAutofitType.NONE
+
+    paragraph = text_frame.paragraphs[0]
+    paragraph.paragraph_format.default_portion_format.font_height = 20
+    paragraph.text = "This text demonstrates how automatic wrapping changes the number of rendered lines."
+    print(f"Original width: {paragraph.get_lines_count()}")
+
+    shape.width = 150
+    print(f"Narrower shape: {paragraph.get_lines_count()}")
+
+    paragraph.text = "Short text."
+    print(f"Shorter text: {paragraph.get_lines_count()}")
+
+    second_paragraph = slides.Paragraph()
+    second_paragraph.text = "Another paragraph."
+    second_paragraph.paragraph_format.default_portion_format.font_height = 20
+    text_frame.paragraphs.add(second_paragraph)
+
+    total_line_count = 0
+    for current_paragraph in text_frame.paragraphs:
+        total_line_count += current_paragraph.get_lines_count()
+    print(f"Total lines in the text frame: {total_line_count}")
+```
+
+Met deze tekst en afmetingen verhoogt het vernauwen van de vorm het aantal regels, terwijl het vervangen van de tekst door de korte string het aantal verlaagt. Exacte aantallen kunnen variëren afhankelijk van beschikbare lettertypen en substitutie, lettergrootte, marges, inspringing, ombrenging en autofit‑instellingen. Gebruik de lettertypen en lay‑outinstellingen die voor de doelomgeving bedoeld zijn bij het testen van een sjabloon.
+
+Het aantal regels alleen bepaalt niet of tekst buiten de container stroomt. De beschikbare hoogte, regelhoogtes, alinea‑ en regel‑afstand en het autofit‑gedrag zijn ook van belang; zelfs één regel kan de beschikbare breedte overschrijden wanneer ombrenging uitgeschakeld is.
+
+## **Paragraafinhoud importeren en exporteren**
 
 ### **HTML‑tekst importeren in alinea's**
 
 Gebruik [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphcollection/add_from_html/) om HTML‑opmaak om te zetten in alinea's en delen in een tekstkader.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/).
-2. Benader een dia en voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe.
-3. Benader het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm en verwijder de standaardalinea.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
+2. Open een dia en voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe.
+3. Open het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm en verwijder de standaard alinea.
 4. Lees het bron‑HTML‑bestand.
 5. Geef de HTML‑string door aan [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphcollection/add_from_html/).
-6. Sla de gewijzigde presentatie op.
+6. Sla de aangepaste presentatie op.
 
 Dit Python‑voorbeeld importeert HTML in een tekstkader:
 
@@ -500,17 +541,17 @@ with slides.Presentation() as presentation:
     presentation.save("html_text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Alinea‑tekst exporteren naar HTML**
+### **Alineatekst exporteren naar HTML**
 
 Gebruik [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphcollection/export_to_html/) om een geselecteerd bereik van alinea's als HTML te exporteren.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) en laad de gewenste presentatie.
-2. Benader de dia en zoek de [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) die de tekst bevat.
-3. Benader het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm.
-4. Roep [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphcollection/export_to_html/) aan met de start‑alinea‑index en het aantal alinea's dat moet worden geëxporteerd.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse en laad de gewenste presentatie.
+2. Open de dia en zoek de [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) die de tekst bevat.
+3. Open het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm.
+4. Roep [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphcollection/export_to_html/) aan met het start‑alinea‑index en het aantal te exporteren alinea's.
 5. Schrijf de geretourneerde HTML‑string naar een bestand.
 
-Dit Python‑voorbeeld exporteert alle alinea's uit de eerste tekst‑vorm:
+Dit Python‑voorbeeld exporteert alle alinea's van de eerste tekstvorm:
 
 ```python
 import aspose.slides as slides
@@ -529,17 +570,17 @@ with slides.Presentation("ExportingHTMLText.pptx") as presentation:
 
 ### **Een alinea renderen als afbeelding**
 
-[Paragraph](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/) biedt de methode `get_image` om een afzonderlijke alinea direct te renderen. De methode retourneert een [IImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iimage/) die je kunt opslaan naar een bestand of stream met [IImage.save](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iimage/save/). Je hoeft niet de omvattende vorm te renderen of handmatig een bitmap bij te snijden.
+[Paragraph](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/) biedt de `get_image`‑methode voor het direct renderen van een individuele alinea. De methode retourneert een [IImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iimage/) die je kunt opslaan naar een bestand of stream met [IImage.save](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iimage/save/). Je hoeft de omvattende vorm niet te renderen of handmatig een bitmap bij te snijden.
 
-De `get_image`‑methode kan `None` teruggeven als de alinea niet gevonden wordt in de bovenliggende collectie, geen geldige render‑bounds heeft, of niet kan worden gerenderd. Controleer het resultaat voordat je het opslaat en gebruik de geretourneerde afbeelding als context‑manager om de resources vrij te geven.
+De `get_image`‑methode kan `None` teruggeven als de alinea niet wordt gevonden in de bovenliggende collectie, geen geldige render‑grenzen heeft, of niet gerenderd kan worden. Controleer het resultaat vóór het opslaan en gebruik de geretourneerde afbeelding als context‑manager om de resources vrij te geven.
 
-#### **Een alinea renderen op de standaardschaal**
+#### **Een alinea renderen op de standaard schaal**
 
-Stel je voor dat we een presentatiedocument hebben genaamd `sample.pptx` met één dia, waarbij de eerste vorm een tekstvak is met drie alinea's.
+Stel je voor dat we een presentatiedocument hebben genaamd sample.pptx met één dia, waarbij de eerste vorm een tekstvak is dat drie alinea's bevat.
 
 ![Het tekstvak met drie alinea's](paragraph_to_image_input.png)
 
-Het onderstaande voorbeeld rendert de tweede alinea in een gewone tekstvorm op de standaardschaal en slaat de geretourneerde afbeelding op in PNG‑formaat:
+Het volgende voorbeeld rendert de tweede alinea in een reguliere tekstvorm op de standaard schaal en slaat de verkregen afbeelding op in PNG‑formaat:
 
 ```python
 import aspose.slides as slides
@@ -560,13 +601,13 @@ with slides.Presentation("sample.pptx") as presentation:
         print("The expected text shape or paragraph was not found.")
 ```
 
-Het resultaat:
+Resultaat:
 
 ![De alinea‑afbeelding](paragraph_to_image_output.png)
 
-#### **Een alinea renderen in een tabelcel met schaalvergroting**
+#### **Een alinea renderen in een tabelcel met schaling**
 
-Geef horizontale en verticale schaalfactoren door aan `get_image` om de grootte van de gerenderde alinea te bepalen. Het onderstaande voorbeeld maakt een tabel, rendert de alinea in de eerste cel op het dubbele van de standaardbreedte en -hoogte, en slaat het resultaat op als PNG‑afbeelding:
+Geef horizontale en verticale schaalfactoren door aan `get_image` om de grootte van de gerenderde alinea te regelen. Het volgende voorbeeld maakt een tabel, rendert de alinea in de eerste cel op tweemaal de standaard breedte en hoogte, en slaat het resultaat op als PNG‑afbeelding:
 
 ```python
 import aspose.slides as slides
@@ -588,24 +629,24 @@ with slides.Presentation() as presentation:
         print("The paragraph could not be rendered.")
 ```
 
-Een schaalfactor van `1` behoudt die as op de standaardpixelgrootte. Bijvoorbeeld, `2` voor beide factoren levert een afbeelding waarvan breedte en hoogte ongeveer het dubbele zijn, wat vier keer zoveel pixels betekent. Grotere factoren geven over het algemeen scherpere tekst voor inzoomen of high‑resolution uitvoer, maar vergroten ook het geheugenverbruik en de bestandsgrootte. Factoren onder `1` geven kleinere afbeeldingen met minder detail. Gebruik dezelfde factor voor beide assen om de beeldverhouding van de alinea te behouden; verschillende horizontale en verticale factoren rekken het resultaat onafhankelijk uit.
+Een schaalfactor van `1` behoudt die as op de standaard pixeldimensie. Bijvoorbeeld `2` voor beide factoren levert een afbeelding op waarvan breedte en hoogte ongeveer twee keer de standaard afmetingen zijn, wat vier keer zoveel pixels oplevert. Grotere factoren geven doorgaans scherpere tekst voor inzoomen of hoge‑resolutie‑output, maar verhogen ook het geheugengebruik en de bestandsgrootte. Factoren onder `1` geven kleinere afbeeldingen met minder details. Gebruik gelijke factoren om de beeldverhouding van de alinea te behouden; verschillende horizontale en verticale factoren rekken de output onafhankelijk uit.
 
-Het renderen van een volledige vorm met [Shape.get_image](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shape/get_image/) blijft nuttig wanneer de uitvoer de vulling, rand of andere visuele context van de vorm moet bevatten. Voor een alleen‑alinea‑afbeelding gebruik je `Paragraph.get_image`.
+Het renderen van een hele vorm met [Shape.get_image](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shape/get_image/) blijft nuttig wanneer de output de vulling, rand of andere visuele context van de vorm moet bevatten. Voor een afbeelding die uitsluitend de alinea bevat, gebruik je `Paragraph.get_image`.
 
 ## **FAQ**
 
-**Kan ik volledig voorkomen dat regels binnen een tekstkader afbreken?**
+**Kan ik volledige regelomslag binnen een tekstkader uitschakelen?**
 
-Ja. Stel [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframeformat/wrap_text/) in om afbreken uit te schakelen zodat regels niet bij de randen van het tekstkader worden gesplitst.
+Ja. Stel [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframeformat/wrap_text/) in om omslag uit te schakelen zodat regels niet bij de randen van het tekstkader afbreken.
 
-**Hoe krijg ik de exacte op‑dia‑afmetingen van een specifieke alinea?**
+**Hoe kan ik de exacte on‑slide grenzen van een specifieke alinea krijgen?**
 
-Gebruik [Paragraph.get_rect](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/get_rect/) om het omvattende rechthoek van de alinea op te halen. [Portion.get_rect](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portion/get_rect/) geeft de afmetingen van een afzonderlijk deel.
+Gebruik [Paragraph.get_rect](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/get_rect/) om het begrenzende rechthoek van de alinea op te halen. [Portion.get_rect](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portion/get_rect/) geeft de grenzen van een afzonderlijk deel.
 
-**Waar wordt de alinea‑uitlijning (links, rechts, gecentreerd of uitgevuld) geregeld?**
+**Waar wordt de alinealijnuitlijning (links, rechts, gecentreerd of uitvullen) geregeld?**
 
 [ParagraphFormat.alignment](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/alignment/) is een alinea‑niveau instelling en wordt toegepast op de volledige alinea, ongeacht de opmaak van individuele delen.
 
-**Kan ik de taalcontrole voor een deel van een alinea instellen?**
+**Kan ik de proefleestaal voor een deel van een alinea instellen?**
 
 Ja. Stel [PortionFormat.language_id](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portionformat/language_id/) in voor afzonderlijke delen, zodat één alinea tekst in meerdere talen kan bevatten.

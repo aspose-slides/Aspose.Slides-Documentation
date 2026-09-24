@@ -1,11 +1,11 @@
 ---
-title: जावा में प्रस्तुति पाठ फ़ॉर्मेट करें
-linktitle: पाठ फ़ॉर्मेटिंग
+title: जावा में प्रस्तुति पाठ को स्वरूपित करें
+linktitle: पाठ स्वरूपण
 type: docs
 weight: 50
 url: /hi/java/text-formatting/
 keywords:
-- पैराग्राफ संरेखित करना
+- अनुच्छेद संरेखित करें
 - पाठ शैली
 - पाठ पृष्ठभूमि
 - पाठ पारदर्शिता
@@ -14,34 +14,34 @@ keywords:
 - फ़ॉन्ट परिवार
 - पाठ घूर्णन
 - घूर्णन कोण
-- पाठ फ़्रेम
+- पाठ फ्रेम
 - पंक्ति अंतराल
-- ऑटोफ़िट गुण
-- पाठ फ़्रेम एंकर
-- पाठ टैब्यूलेशन
+- ऑटॉफिट गुण
+- पाठ फ्रेम एंकर
+- पाठ टैबुलेशन
 - डिफ़ॉल्ट भाषा
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में पाठ को फ़ॉर्मेट और स्टाइल करें। फ़ॉन्ट, रंग, संरेखण, और अधिक को अनुकूलित करें।"
+description: "Aspose.Slides for Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में पाठ को स्वरूपित और शैलीबद्ध करें। फ़ॉन्ट, रंग, संरेखण आदि को अनुकूलित करें।"
 ---
-## **सारांश**
+## **अवलोकन**
 
-यह लेख Aspose.Slides for Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में पाठ को फ़ॉर्मेट करने का तरीका दिखाता है। इसमें पृष्ठभूमि रंग, पारदर्शिता, अक्षर अंतराल, फ़ॉन्ट गुण, घूर्णन, पैराग्राफ अंतराल, ऑटोफ़िट व्यवहार, पाठ एंकरिंग, टैब स्टॉप और भाषा सेटिंग्स शामिल हैं।
+यह लेख Aspose.Slides for Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में पाठ को स्वरूपित करने का तरीका दिखाता है। इसमें पृष्ठभूमि रंग, पारदर्शिता, अक्षर अंतराल, फ़ॉन्ट गुण, घूर्णन, अनुच्छेद अंतराल, ऑटॉफिट व्यवहार, पाठ एंकरिंग, टैब स्टॉप और भाषा सेटिंग्स शामिल हैं।
 
-नीचे दिए गए उदाहरणों में, हम "sample.pptx" नामक फ़ाइल का उपयोग करेंगे, जिसमें पहली स्लाइड पर एकल टेक्स्ट बॉक्स है जिसमें निम्नलिखित पाठ है:
+नीचे के उदाहरणों में, हम "sample.pptx" नामक फ़ाइल का उपयोग करेंगे, जिसमें पहली स्लाइड पर एकल टेक्स्ट बॉक्स है जिसमें निम्नलिखित पाठ है:
 
 ![नमूना पाठ](sample_text.png)
 
-पाठ खोजें और बदलें के लिए देखें [पाठ खोजें और बदलें](/slides/hi/java/search-and-replace-text/)।
+शाब्दिक पाठ या रेगुलर‑एक्सप्रेशन मैच को खोजने और हाइलाइट करने के लिए देखें [पाठ खोजें और बदलें](/slides/hi/java/search-and-replace-text/)।
 
-## **पाठ की पृष्ठभूमि रंग सेट करें**
+## **पाठ पृष्ठभूमि रंग सेट करें**
 
-एक पैराग्राफ के लिए डिफ़ॉल्ट हाइलाइट रंग सेट करने के लिए [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) का उपयोग करें, या व्यक्तिगत टेक्स्ट भागों के लिए [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) का उपयोग करें।
+डिफ़ॉल्ट हाईलाइट रंग सेट करने के लिए [IParagraphFormat.getDefaultPortionFormat] का उपयोग करें, या व्यक्तिगत टेक्स्ट भागों के लिए [IBasePortionFormat.getHighlightColor] का उपयोग करें।
 
-निम्नलिखित कोड उदाहरण दिखाता है कि **पूरे पैराग्राफ** के लिए पृष्ठभूमि रंग कैसे सेट किया जाए:
+नीचे दिया गया कोड उदाहरण **पूरा अनुच्छेद** के लिए पृष्ठभूमि रंग सेट करने का तरीका दिखाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -53,7 +53,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // पूरे पैराग्राफ के लिए हाइलाइट रंग सेट करें।
+    // पूरे अनुच्छेद के लिए हाईलाइट रंग सेट करें.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -64,9 +64,9 @@ try {
 
 परिणाम:
 
-![धूसर पैराग्राफ](gray_paragraph.png)
+![धूसर अनुच्छेद](gray_paragraph.png)
 
-नीचे का कोड उदाहरण दर्शाता है कि **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** के लिए पृष्ठभूमि रंग कैसे सेट किया जाए:
+नीचे दिया गया कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भाग** के लिए पृष्ठभूमि रंग सेट करने का तरीका दिखाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -80,7 +80,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-        // टेक्स्ट भाग के लिए हाइलाइट रंग सेट करें।
+            // टेक्स्ट भाग के लिए हाईलाइट रंग सेट करें।
             portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
         }
     }
@@ -95,11 +95,11 @@ try {
 
 ![धूसर टेक्स्ट भाग](gray_text_portions.png)
 
-## **पाठ पैराग्राफ संरेखित करें**
+## **पाठ अनुच्छेद संरेखित करें**
 
-एक टेक्स्ट फ़्रेम के भीतर पैराग्राफ संरेखण सेट करने के लिए [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) का उपयोग करें। मान केंद्रित, बायाँ, दायाँ, जस्टीफ़ाइड आदि हो सकता है।
+[IParagraphFormat.setAlignment] का उपयोग करके टेक्स्ट फ्रेम के भीतर अनुच्छेद संरेखण सेट करें। मान केंद्रित, बाएँ संरेखित, दाएँ संरेखित, बराबर, आदि हो सकते हैं।
 
-निम्नलिखित कोड उदाहरण दर्शाता है कि पैराग्राफ को **केंद्र** में कैसे संरेखित किया जाए:
+नीचे दिया गया कोड उदाहरण अनुच्छेद को **केंद्र** में संरेखित करने का तरीका दिखाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -110,7 +110,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // पैराग्राफ का संरेखण केंद्र में सेट करें।
+    // पैराग्राफ का संरेखण केंद्र में सेट करें.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -121,13 +121,13 @@ try {
 
 परिणाम:
 
-![संरेखित पैराग्राफ](aligned_paragraph.png)
+![संरेखित अनुच्छेद](aligned_paragraph.png)
 
 ## **पाठ के लिए पारदर्शिता सेट करें**
 
-पाठ की पारदर्शिता को [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) को असाइन की गई रंग के अल्फा घटक के माध्यम से नियंत्रित किया जाता है। नीचे के उदाहरणों में `alpha = 50` 0–255 स्केल पर एक ARGB अल्फा‑चैनल मान है, प्रतिशत नहीं।
+टेक्स्ट पारदर्शिता को [IBasePortionFormat.getFillFormat] को असाइन किए गए रंग के अल्फा घटक के माध्यम से नियंत्रित किया जाता है। नीचे के उदाहरणों में, `alpha = 50` 0–255 स्केल पर एक ARGB अल्फा‑चैनल मान है, न कि पारदर्शिता प्रतिशत।
 
-निम्नलिखित कोड उदाहरण दिखाता है कि **पूरे पैराग्राफ** पर पारदर्शिता कैसे लागू की जाए:
+नीचे दिया गया कोड उदाहरण **पूरा अनुच्छेद** पर पारदर्शिता लागू करने का तरीका दिखाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -141,7 +141,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // पाठ के फ़िल रंग को पारदर्शी रंग सेट करें।
+    // पाठ का भरने का रंग पारदर्शी रंग में सेट करें.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
 
@@ -153,9 +153,9 @@ try {
 
 परिणाम:
 
-![पारदर्शी पैराग्राफ](transparent_paragraph.png)
+![पारदर्शी अनुच्छेद](transparent_paragraph.png)
 
-निम्नलिखित कोड उदाहरण दर्शाता है कि **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** पर पारदर्शिता कैसे लागू की जाए:
+नीचे दिया गया कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भाग** पर पारदर्शिता लागू करने का तरीका दिखाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -171,7 +171,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // टेक्स्ट भाग की पारदर्शिता सेट करें।
+            // टेक्स्ट भाग की पारदर्शिता सेट करें.
             portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
             portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
         }
@@ -189,9 +189,9 @@ try {
 
 ## **पाठ के लिए अक्षर अंतराल सेट करें**
 
-टेक्स्ट बॉक्स में अक्षरों के बीच अंतर को विस्तारित या घटाने के लिए [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) का उपयोग करें।
+[IBasePortionFormat.setSpacing] का उपयोग करके टेक्स्ट बॉक्स में अक्षरों के बीच अंतराल को बढ़ाया या घटाया जा सकता है।
 
-निम्न Java कोड दिखाता है कि **पूरे पैराग्राफ** में अक्षर अंतराल कैसे विस्तारित किया जाए:
+नीचे दिया गया जावा कोड **पूरा अनुच्छेद** में अक्षर अंतराल को विस्तारित करने का तरीका दिखाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -202,8 +202,8 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // नोट: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मान उपयोग करें।
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // अक्षर अंतराल बढ़ाएँ।
+    // ध्यान दें: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मानों का उपयोग करें.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // अक्षर अंतराल बढ़ाएँ.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -213,9 +213,9 @@ try {
 
 परिणाम:
 
-![पैराग्राफ में अक्षर अंतराल](character_spacing_in_paragraph.png)
+![अनुच्छेद में अक्षर अंतराल](character_spacing_in_paragraph.png)
 
-नीचे का कोड उदाहरण दर्शाता है कि **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** में अक्षर अंतराल कैसे विस्तारित किया जाए:
+नीचे दिया गया कोड **बोल्ड फ़ॉन्ट वाले टेक्स्ट भाग** में अक्षर अंतराल को विस्तारित करने का तरीका दिखाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -228,8 +228,8 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // नोट: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मान उपयोग करें।
-            portion.getPortionFormat().setSpacing(3); // अक्षर अंतराल बढ़ाएँ।
+            // नोट: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मानों का उपयोग करें.
+            portion.getPortionFormat().setSpacing(3); // अक्षर अंतराल बढ़ाएँ.
         }
     }
 
@@ -243,11 +243,11 @@ try {
 
 ![टेक्स्ट भागों में अक्षर अंतराल](character_spacing_in_text_portions.png)
 
-### **विशिष्ट फ़ॉन्ट्स के लिए केरनिंग अक्षम करें**
+### **विशिष्ट फ़ॉन्ट के लिए केरनिंग निष्क्रिय करें**
 
-कुछ मामलों में, Aspose.Slides द्वारा रेंडर किया गया पाठ PowerPoint में दिखाई देने वाले पाठ से थोड़ी अधिक कसकर दिख सकता है। यह इसलिए हो सकता है क्योंकि PowerPoint कुछ फ़ॉन्ट्स के लिए केरनिंग डेटा को उपेक्षित करता है, भले ही फ़ॉन्ट में मान्य केरनिंग जानकारी हो और PowerPoint सेटिंग्स में केरनिंग सक्षम हो।
+कुछ मामलों में, Aspose.Slides द्वारा रेंडर किया गया टेक्स्ट PowerPoint में दिखाए गए टेक्स्ट से थोड़ा अधिक संकीर्ण दिख सकता है। यह इसलिए होता है क्योंकि PowerPoint कुछ फ़ॉन्ट के लिए केरनिंग डेटा को अनदेखा कर सकता है, भले ही फ़ॉन्ट में वैध केरनिंग जानकारी मौजूद हो और PowerPoint सेटिंग्स में केरनिंग सक्षम हो।
 
-ऐसे मामलों में आउटपुट को PowerPoint के करीब लाने के लिए आप प्रभावित फ़ॉन्ट वाले टेक्स्ट भागों के लिए केरनिंग अक्षम कर सकते हैं। [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) को वास्तविक फ़ॉन्ट आकार से काफी बड़ा मान सेट करें:
+ऐसे मामलों में रेंडरिंग को PowerPoint के करीब लाने के लिए, आप प्रभावित फ़ॉन्ट का उपयोग करने वाले टेक्स्ट भागों के लिए केरनिंग को निष्क्रिय कर सकते हैं। [IBasePortionFormat.setKerningMinimalSize] को वास्तविक फ़ॉन्ट आकार से काफी बड़ा मान सेट करें:
 
 ```java
 import com.aspose.slides.*;
@@ -279,13 +279,11 @@ try {
 }
 ```
 
-यह सेटिंग मेल खाते टेक्स्ट भागों पर केरनिंग को लागू होने से रोकती है और फ़ॉन्ट्स के लिए PowerPoint‑विशिष्ट व्यवहार के कारण उत्पन्न दृश्य अंतर को कम करने में मदद कर सकती है।
+## **टेक्स्ट फ़ॉन्ट गुण प्रबंधित करें**
 
-## **पाठ फ़ॉन्ट गुण प्रबंधित करें**
+फ़ॉन्ट गुण को पैराग्राफ स्तर पर [IParagraphFormat.getDefaultPortionFormat] के माध्यम से या व्यक्तिगत भागों पर [IPortionFormat] के माध्यम से सेट किया जा सकता है।
 
-फ़ॉन्ट गुण पैराग्राफ स्तर पर [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) के माध्यम से या व्यक्तिगत भागों पर [IPortionFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iportionformat/) के माध्यम से सेट किए जा सकते हैं।
-
-निम्न कोड पूरे पैराग्राफ के लिए फ़ॉन्ट और टेक्स्ट शैली सेट करता है: यह फ़ॉन्ट आकार, बोल्ड, इटैलिक, डॉटेड अंडरलाइन, और Times New Roman फ़ॉन्ट को सभी भागों पर लागू करता है।
+नीचे दिया गया कोड पूरे अनुच्छेद के लिए फ़ॉन्ट और टेक्स्ट शैली सेट करता है: यह फ़ॉन्ट आकार, बोल्ड, इटैलिक, डॉटेड अंडरलाइन, और Times New Roman फ़ॉन्ट को सभी भागों पर लागू करता है।
 
 ```java
 import com.aspose.slides.*;
@@ -296,7 +294,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // पैराग्राफ के लिए फ़ॉन्ट गुण सेट करें।
+    // पैराग्राफ के लिए फ़ॉन्ट गुण सेट करें.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(12);
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontBold(NullableBool.True);
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontItalic(NullableBool.True);
@@ -311,9 +309,9 @@ try {
 
 परिणाम:
 
-![पैराग्राफ के फ़ॉन्ट गुण](font_properties_for_paragraph.png)
+![अनुच्छेद के लिए फ़ॉन्ट गुण](font_properties_for_paragraph.png)
 
-नीचे का कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** पर समान गुण लागू करता है:
+नीचे दिया गया कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भाग** पर समान गुण लागू करता है:
 
 ```java
 import com.aspose.slides.*;
@@ -326,7 +324,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // टेक्स्ट भाग के लिए फ़ॉन्ट गुण सेट करें।
+            // टेक्स्ट भाग के लिए फ़ॉन्ट गुण सेट करें.
             portion.getPortionFormat().setFontHeight(13);
             portion.getPortionFormat().setFontItalic(NullableBool.True);
             portion.getPortionFormat().setFontUnderline(TextUnderlineType.Dotted);
@@ -342,13 +340,13 @@ try {
 
 परिणाम:
 
-![टेक्स्ट भागों के फ़ॉन्ट गुण](font_properties_for_text_portions.png)
+![टेक्स्ट भागों के लिए फ़ॉन्ट गुण](font_properties_for_text_portions.png)
 
-## **पाठ घूर्णन सेट करें**
+## **टेक्स्ट घूर्णन सेट करें**
 
-एक आकार के भीतर पूर्वनिर्धारित पाठ अभिविन्यास सेट करने के लिए [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) का उपयोग करें।
+[ITextFrameFormat.setTextVerticalType] का उपयोग करके आकार के भीतर पूर्वनिर्धारित टेक्स्ट अभिविन्यास सेट किया जा सकता है।
 
-निम्न कोड उदाहरण आकार में पाठ अभिविन्यास को `Vertical270` पर सेट करता है, जिससे पाठ **90 डिग्री प्रतिक्लॉकवाइज़** घुमता है:
+नीचे दिया गया कोड उदाहरण आकार में टेक्स्ट अभिविन्यास को `Vertical270` पर सेट करता है, जो टेक्स्ट को **90 डिग्री विपरीत दिशा में** घुमाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -368,13 +366,13 @@ try {
 
 परिणाम:
 
-![पाठ घूर्णन](text_rotation.png)
+![टेक्स्ट घूर्णन](text_rotation.png)
 
 ## **टेक्स्ट फ्रेम के लिए कस्टम घूर्णन सेट करें**
 
-[ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) का उपयोग करके किसी [ITextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/) के लिए कस्टम घूर्णन कोण सेट करें।
+[ITextFrameFormat.setRotationAngle] का उपयोग करके किसी [ITextFrame] के लिए कस्टम घूर्णन कोण सेट किया जा सकता है।
 
-नीचे का कोड उदाहरण आकार के भीतर टेक्स्ट फ्रेम को 3 डिग्री क्लॉकवाइज़ घुमा देता है:
+नीचे दिया गया कोड आकार के भीतर टेक्स्ट फ्रेम को 3 डिग्री घड़ी की दिशा में घुमाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -396,14 +394,14 @@ try {
 
 ![कस्टम टेक्स्ट घूर्णन](custom_text_rotation.png)
 
-## **पैराग्राफ की पंक्ति अंतराल सेट करें**
+## **अनुच्छेदों की पंक्ति अंतराल सेट करें**
 
-Aspose.Slides उपलब्ध कराता है [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-), और [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) ताकि पैराग्राफ अंतराल नियंत्रित किया जा सके। इन गुणों का उपयोग इस प्रकार किया जाता है:
+Aspose.Slides [IParagraphFormat.setSpaceAfter], [IParagraphFormat.setSpaceBefore] और [IParagraphFormat.setSpaceWithin] प्रदान करता है ताकि अनुच्छेद अंतराल को नियंत्रित किया जा सके। इन गुणों का उपयोग इस प्रकार किया जाता है:
 
-* पंक्ति अंतराल को लाइन की ऊँचाई के प्रतिशत के रूप में निर्दिष्ट करने के लिए सकारात्मक मान उपयोग करें।
-* पंक्ति अंतराल को पॉइंट में निर्दिष्ट करने के लिए नकारात्मक मान उपयोग करें।
+* लाइन की ऊँचाई के प्रतिशत के रूप में पंक्ति अंतराल निर्दिष्ट करने के लिए सकारात्मक मान का उपयोग करें।
+* पॉइंट्स में पंक्ति अंतराल निर्दिष्ट करने के लिए नकारात्मक मान का उपयोग करें।
 
-निम्नलिखित कोड उदाहरण पैराग्राफ के भीतर पंक्ति अंतराल कैसे निर्दिष्ट किया जाए, दिखाता है:
+नीचे दिया गया कोड उदाहरण अनुच्छेद के भीतर पंक्ति अंतराल निर्दिष्ट करने का तरीका दिखाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -424,11 +422,11 @@ try {
 
 परिणाम:
 
-![पैराग्राफ के भीतर पंक्ति अंतराल](line_spacing.png)
+![अनुच्छेद के भीतर पंक्ति अंतराल](line_spacing.png)
 
-## **टेक्स्ट फ्रेम के लिए ऑटोफ़िट प्रकार सेट करें**
+## **टेक्स्ट फ्रेम के लिए ऑटॉफिट प्रकार सेट करें**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) निर्धारित करता है कि टेक्स्ट कंटेनर की सीमाओं से बाहर जाने पर कैसे व्यवहार करता है। इसका उपयोग करके आप टेक्स्ट को सिकुड़ना, ओवरफ़्लो होना या आकार को स्वचालित रूप से बदलना नियंत्रित कर सकते हैं।
+[ITextFrameFormat.setAutofitType] निर्धारित करता है कि टेक्स्ट तभी कैसे व्यवहार करता है जब वह अपने कंटेनर की सीमाओं से अधिक हो जाता है। इसका उपयोग करके आप निर्धारित कर सकते हैं कि टेक्स्ट छोटा हो, ओवरफ़्लो हो, या आकार स्वचालित रूप से री‑साइज़ हो।
 
 ```java
 import com.aspose.slides.*;
@@ -446,9 +444,11 @@ try {
 }
 ```
 
-## **टेक्स्ट फ्रेम का एंकर सेट करें**
+स्वचालित रैपिंग के बाद पंक्तियों की गिनती करने और यह देखने के लिए कि पाठ या आकार की चौड़ाई कैसे बदलती है, देखें [रेंडर की गई पंक्तियों की गणना](/slides/hi/java/manage-paragraph/). केवल पंक्ति गिनती यह नहीं बताती कि पाठ उसके कंटेनर से बाहर निकलता है या नहीं।
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) निर्धारित करता है कि टेक्स्ट आकार के भीतर ऊर्ध्वाधर रूप से कहाँ स्थित होगा, जैसे शीर्ष, मध्य या नीचे।
+## **टेक्स्ट फ्रेमों के एंकर को सेट करें**
+
+[ITextFrameFormat.setAnchoringType] निर्धारित करता है कि टेक्स्ट आकार के भीतर लंबवत रूप से कैसे स्थित होता है, जैसे शीर्ष, मध्य या नीचे।
 
 ```java
 import com.aspose.slides.*;
@@ -466,9 +466,9 @@ try {
 }
 ```
 
-## **टेक्स्ट टैब्यूलेशन सेट करें**
+## **टेक्स्ट टैबुलेशन सेट करें**
 
-एक पैराग्राफ में टैब स्टॉप को कॉन्फ़िगर करने के लिए [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) और [IParagraphFormat.getTabs](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iparagraphformat/#getTabs--) का उपयोग करें।
+[IParagraphFormat.setDefaultTabSize] और [IParagraphFormat.getTabs] का उपयोग करके अनुच्छेद में टैब स्टॉप को कॉन्फ़िगर किया जा सकता है।
 
 ```java
 import com.aspose.slides.*;
@@ -490,13 +490,13 @@ try {
 
 परिणाम:
 
-![पैराग्राफ टैब्स](paragraph_tabs.png)
+![अनुच्छेद टैब](paragraph_tabs.png)
 
-## **प्रूफिंग भाषा सेट करें**
+## **प्रूफ़िंग भाषा सेट करें**
 
-Aspose.Slides उपलब्ध कराता है [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), जिससे आप टेक्स्ट भाग के लिए प्रूफिंग भाषा सेट कर सकते हैं। प्रूफिंग भाषा PowerPoint में वर्तनी और व्याकरण जांच के लिए उपयोग की जाने वाली भाषा निर्धारित करती है।
+Aspose.Slides [IBasePortionFormat.setLanguageId] प्रदान करता है, जिससे आप टेक्स्ट भाग के लिए प्रूफ़िंग भाषा सेट कर सकते हैं। प्रूफ़िंग भाषा निर्धारित करती है कि PowerPoint में वर्तनी और व्याकरण जाँच किस भाषा में की जाएगी।
 
-निम्न कोड उदाहरण एक टेक्स्ट भाग के लिए प्रूफिंग भाषा कैसे सेट की जाए, दर्शाता है:
+नीचे दिया गया कोड उदाहरण टेक्स्ट भाग के लिए प्रूफ़िंग भाषा सेट करने का तरीका दिखाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -516,7 +516,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // प्रूफ़िंग भाषा का Id सेट करें।
+    // प्रूफ़िंग भाषा का Id सेट करें.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -530,7 +530,7 @@ try {
 
 ## **डिफ़ॉल्ट भाषा सेट करें**
 
-लोड या प्रस्तुति बनाते समय निर्मित टेक्स्ट के लिए डिफ़ॉल्ट भाषा निर्धारित करने के लिए [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) का उपयोग करें।
+[LoadOptions.setDefaultTextLanguage] का उपयोग करके प्रस्तुति लोड या बनाते समय निर्मित टेक्स्ट की डिफ़ॉल्ट भाषा परिभाषित करें।
 
 ```java
 import com.aspose.slides.*;
@@ -542,7 +542,7 @@ Presentation presentation = new Presentation(loadOptions);
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // नया आयताकार आकार टैक्स्ट के साथ जोड़ें।
+    // एक नया आयताकार आकार टेक्स्ट के साथ जोड़ें।
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
@@ -554,18 +554,18 @@ try {
 }
 ```
 
-## **डिफ़ॉल्ट टेक्स्ट स्टाइल सेट करें**
+## **डिफ़ॉल्ट टेक्स्ट शैली सेट करें**
 
-प्रेजेंटेशन स्तर पर डिफ़ॉल्ट टेक्स्ट फ़ॉर्मेटिंग लागू करने के लिए [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--) का उपयोग करें।
+प्रेज़ेंटेशन स्तर पर डिफ़ॉल्ट टेक्स्ट फ़ॉर्मेटिंग लागू करने के लिए [IPresentation.getDefaultTextStyle] का उपयोग करें।
 
-निम्न कोड उदाहरण एक नई प्रस्तुति में सभी स्लाइड्स के लिए 14 pt आकार का डिफ़ॉल्ट बोल्ड फ़ॉन्ट सेट करता है।
+नीचे दिया गया कोड उदाहरण नई प्रस्तुति में सभी स्लाइड्स के टेक्स्ट के लिए 14 pt आकार के साथ डिफ़ॉल्ट बोल्ड फ़ॉन्ट सेट करने का तरीका दिखाता है।
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // शीर्ष स्तर का पैराग्राफ फ़ॉर्मेट प्राप्त करें।
+    // शीर्ष स्तर के पैराग्राफ फ़ॉर्मेट प्राप्त करें.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -579,15 +579,15 @@ try {
 }
 ```
 
-## **ऑल‑कैप्स प्रभाव के साथ टेक्स्ट निकालें**
+## **ऑल‑कैप्स इफ़ेक्ट के साथ टेक्स्ट निकालेँ**
 
-PowerPoint में **All Caps** फ़ॉन्ट प्रभाव लागू करने से स्लाइड पर स्वरूपित टेक्स्ट बड़े अक्षरों में दिखता है, भले ही मूल रूप से यह छोटे अक्षरों में टाइप किया गया हो। जब आप Aspose.Slides के साथ ऐसा टेक्स्ट भाग प्राप्त करते हैं, तो लाइब्रेरी वही स्ट्रिंग वापस देती है जो दर्ज की गई थी। प्रदर्शित टेक्स्ट के साथ मेल खाने के लिए, [TextCapType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/textcaptype/) की जाँच करें और यदि मान `All` है तो स्ट्रिंग को अपर केस में परिवर्तित करें।
+PowerPoint में **All Caps** फ़ॉन्ट इफ़ेक्ट लागू करने से स्लाइड पर टेक्स्ट बड़े अक्षरों में दिखता है, भले ही मूल रूप से छोटे अक्षरों में टाइप किया गया हो। जब आप Aspose.Slides के साथ ऐसा टेक्स्ट भाग प्राप्त करते हैं, तो लाइब्रेरी वही टेक्स्ट लौटाती है जैसा वह दर्ज किया गया था। प्रदर्शित टेक्स्ट से मेल खाने के लिए, [TextCapType] जांचें और जब मान `All` हो तो लौटाई गई स्ट्रिंग को बड़े अक्षरों में बदलें।
 
-मान लीजिए हमारे पास sample2.pptx फ़ाइल की पहली स्लाइड पर निम्न टेक्स्ट बॉक्स है।
+मान लीजिए हमारे पास sample2.pptx फ़ाइल की पहली स्लाइड पर निम्नलिखित टेक्स्ट बॉक्स है।
 
-![ऑल कैप्स प्रभाव](all_caps_effect.png)
+![ऑल कैप्स इफ़ेक्ट](all_caps_effect.png)
 
-निम्न कोड उदाहरण दर्शाता है कि **All Caps** प्रभाव लागू किए हुए टेक्स्ट को कैसे निकाला जाए:
+नीचे दिया गया कोड उदाहरण **ऑल कैप्स** इफ़ेक्ट लागू हुए टेक्स्ट को निकालने का तरीका दिखाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -617,12 +617,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **सामान्य प्रश्न**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
 **स्लाइड पर तालिका में टेक्स्ट को कैसे संशोधित करें?**
 
-तालिका में टेक्स्ट को संशोधित करने के लिए [ITable](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itable/) का उपयोग करें। कोशिकाओं के माध्यम से इटररेट करें और प्रत्येक कोशिका को [ICell.getTextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/icell/#getTextFrame--) के माध्यम से अपडेट करें तथा पैराग्राफ फ़ॉर्मेट को [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iparagraph/#getParagraphFormat--) के माध्यम से अपडेट करें।
+स्लाइड पर तालिका में टेक्स्ट को संशोधित करने के लिए [ITable] का उपयोग करें। सेल्स के माध्यम से इटररेट करें और प्रत्येक सेल को [ICell.getTextFrame] के माध्यम से अपडेट करें तथा पैराग्राफ फ़ॉर्मेटिंग को [IParagraph.getParagraphFormat] के माध्यम से अपडेट करें।
 
 **PowerPoint स्लाइड में टेक्स्ट पर ग्रेडिएंट रंग कैसे लागू करें?**
 
-ग्रेडिएंट रंग लागू करने के लिए [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) का उपयोग करें। [IFillFormat.setFillType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ifillformat/#setFillType-byte-) को [FillType.Gradient](https://reference.aspose.com/slides/hi/java/com.aspose.slides/filltype/) पर सेट करें और ग्रेडिएंट स्टॉप, दिशा, तथा पारदर्शिता को कॉन्फ़िगर करें।
+ग्रेडिएंट रंग लागू करने के लिए [IBasePortionFormat.getFillFormat] का उपयोग करें। [IFillFormat.setFillType] को [FillType.Gradient] पर सेट करें और ग्रेडिएंट स्टॉप, दिशा तथा पारदर्शिता को कॉन्फ़िगर करें।

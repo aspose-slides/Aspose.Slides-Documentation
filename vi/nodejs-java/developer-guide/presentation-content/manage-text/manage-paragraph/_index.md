@@ -1,6 +1,6 @@
 ---
 title: Quản lý các đoạn văn bản PowerPoint trong JavaScript
-linktitle: Quản lý Đoạn
+linktitle: Quản lý Đoạn văn
 type: docs
 weight: 40
 url: /vi/nodejs-java/manage-paragraph/
@@ -13,11 +13,11 @@ keywords:
 - quản lý văn bản
 - quản lý đoạn
 - quản lý dấu đầu dòng
-- thụt lề đoạn
-- thụt lề treo
-- dấu đầu dòng đoạn
-- danh sách đánh số
-- danh sách dấu đầu dòng
+- thụt đoạn
+- thụt treo
+- đánh dấu đoạn
+- danh sách có số
+- danh sách có dấu đầu dòng
 - thuộc tính đoạn
 - nhập HTML
 - văn bản sang HTML
@@ -34,31 +34,31 @@ description: "Tìm hiểu cách tạo và định dạng các đoạn, phần, d
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho Node.js qua Java biểu diễn văn bản dưới dạng một cây phân cấp gồm các khung văn bản, đoạn và phần:
+Aspose.Slides for Node.js via Java đại diện văn bản dưới dạng một hệ thống phân cấp gồm các khung văn bản, đoạn văn và phần:
 
-* [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) đại diện cho vùng chứa văn bản trong một hình dạng và cung cấp quyền truy cập vào bộ sưu tập đoạn của nó.
-* [Paragraph](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/) đại diện cho một đoạn trong một khung văn bản và cung cấp quyền truy cập vào các phần và định dạng ở mức độ đoạn.
-* [Portion](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portion/) đại diện cho một đoạn văn bản trong một đoạn. Mỗi phần có thể có định dạng ký tự riêng.
+* [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) đại diện cho container văn bản trong một hình dạng và cung cấp quyền truy cập vào tập hợp các đoạn văn của nó.
+* [Paragraph](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/) đại diện cho một đoạn trong một khung văn bản và cung cấp quyền truy cập vào các phần và định dạng ở mức đoạn.
+* [Portion](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portion/) đại diện cho một dải văn bản trong một đoạn. Mỗi phần có thể có định dạng văn bản và ký tự riêng.
 
 Do đó một đoạn có thể chứa văn bản với các phông chữ, màu sắc, kích thước và các định dạng khác nhau bằng cách sử dụng nhiều phần.
 
-## **Tạo và Định dạng Đoạn**
+## **Tạo và Định dạng Đoạn Văn**
 
-### **Tạo Đoạn với Nhiều Phần**
+### **Tạo Đoạn Văn với Nhiều Phần**
 
 Các bước sau tạo một khung văn bản với ba đoạn, mỗi đoạn chứa ba phần:
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/).
-2. Truy cập slide tương ứng qua chỉ mục của nó.
+2. Truy cập slide liên quan thông qua chỉ mục của nó.
 3. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) hình chữ nhật vào slide.
-4. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) của hình.
+4. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) của hình dạng.
 5. Sử dụng đoạn mặc định và thêm hai đối tượng [Paragraph](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/) nữa vào khung văn bản.
 6. Thêm đủ đối tượng [Portion](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portion/) cho mỗi đoạn để chứa ba phần. Đoạn mặc định đã chứa một phần trống.
 7. Đặt văn bản cho mỗi phần.
-8. Áp dụng định dạng ký tự qua [Portion.getPortionFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portion/getportionformat/).
-9. Lưu bản trình chiếu đã sửa đổi.
+8. Áp dụng định dạng cấp ký tự thông qua [Portion.getPortionFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portion/getportionformat/).
+9. Lưu bản trình chiếu đã chỉnh sửa.
 
-Ví dụ JavaScript thực hiện các bước trên:
+Ví dụ JavaScript sau triển khai các bước trên:
 
 ```javascript
 var aspose = aspose || {};
@@ -122,19 +122,19 @@ try {
 Dấu đầu dòng và đánh số giúp người đọc nhanh chóng quét các mục liên quan. Trong Aspose.Slides, cài đặt danh sách được định nghĩa qua [BulletFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/bulletformat/).
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/).
-2. Truy cập slide tương ứng qua chỉ mục của nó.
+2. Truy cập slide liên quan thông qua chỉ mục của nó.
 3. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) vào slide đã chọn.
-4. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) của hình.
+4. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) của hình dạng.
 5. Xóa đoạn mặc định khỏi khung văn bản.
 6. Tạo một [Paragraph](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/) cho dấu đầu dòng ký hiệu.
 7. Đặt [BulletFormat.setType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/bulletformat/settype/) thành [BulletType.Symbol](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/bullettype/) và chỉ định ký tự dấu đầu dòng.
-8. Đặt văn bản đoạn, thụt lề, màu dấu đầu dòng và chiều cao dấu đầu dòng.
+8. Đặt văn bản đoạn, thụt vào, màu dấu đầu dòng và chiều cao dấu đầu dòng.
 9. Thêm đoạn vào khung văn bản.
 10. Tạo đoạn thứ hai và đặt [BulletFormat.setType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/bulletformat/settype/) thành [BulletType.Numbered](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/bullettype/).
-11. Cấu hình kiểu dấu đầu dòng đánh số và thêm đoạn vào khung văn bản.
+11. Cấu hình kiểu dấu đầu dòng có số và thêm đoạn vào khung văn bản.
 12. Lưu bản trình chiếu.
 
-Ví dụ JavaScript tạo một dấu đầu dòng ký hiệu và một dấu đầu dòng đánh số:
+Ví dụ JavaScript sau tạo một dấu đầu dòng ký hiệu và một dấu đầu dòng có số:
 
 ```javascript
 var aspose = aspose || {};
@@ -178,20 +178,20 @@ try {
 
 ### **Sử dụng Dấu đầu dòng Hình ảnh**
 
-Dấu đầu dòng hình ảnh cho phép bạn sử dụng một ảnh tùy chỉnh thay vì ký hiệu hoặc số.
+Dấu đầu dòng hình ảnh cho phép bạn dùng một ảnh tùy chỉnh thay vì ký hiệu hoặc số.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/).
-2. Truy cập slide tương ứng qua chỉ mục của nó.
+2. Truy cập slide liên quan thông qua chỉ mục của nó.
 3. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) và truy cập [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) của nó.
 4. Xóa đoạn mặc định khỏi khung văn bản.
-5. Tải ảnh dấu đầu dòng và thêm vào bộ sưu tập ảnh của bản trình chiếu dưới dạng [PPImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ppimage/).
+5. Tải ảnh dấu đầu dòng và thêm nó vào bộ sưu tập ảnh của bản trình chiếu dưới dạng một [PPImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ppimage/).
 6. Tạo một [Paragraph](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/) và đặt văn bản cho nó.
 7. Đặt [BulletFormat.setType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/bulletformat/settype/) thành [BulletType.Picture](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/bullettype/).
 8. Gán ảnh qua [BulletFormat.getPicture](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/bulletformat/getpicture/) và đặt chiều cao dấu đầu dòng.
 9. Thêm đoạn vào khung văn bản.
-10. Lưu bản trình chiếu đã sửa đổi.
+10. Lưu bản trình chiếu đã chỉnh sửa.
 
-Ví dụ JavaScript tạo một dấu đầu dòng hình ảnh:
+Ví dụ JavaScript sau tạo một dấu đầu dòng hình ảnh:
 
 ```javascript
 var aspose = aspose || {};
@@ -234,11 +234,11 @@ try {
 
 1. Tạo một [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) và truy cập một slide.
 2. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) và xóa đoạn mặc định khỏi khung văn bản của nó.
-3. Tạo bốn đoạn và cấu hình các ký hiệu dấu đầu dòng cho chúng.
-4. Đặt giá trị [ParagraphFormat.setDepth](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setdepth/) thành `0`, `1`, `2` và `3`.
+3. Tạo bốn đoạn và cấu hình các ký hiệu dấu đầu dòng của chúng.
+4. Đặt giá trị [ParagraphFormat.setDepth](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setdepth/) của chúng thành `0`, `1`, `2` và `3`.
 5. Thêm các đoạn vào khung văn bản và lưu bản trình chiếu.
 
-Ví dụ JavaScript tạo một danh sách dấu đầu dòng bốn cấp:
+Ví dụ JavaScript sau tạo một danh sách dấu đầu dòng bốn cấp:
 
 ```javascript
 var aspose = aspose || {};
@@ -295,17 +295,17 @@ try {
 }
 ```
 
-### **Bắt đầu Các Mục Đánh số với Giá trị Tùy chỉnh**
+### **Bắt đầu Các mục Danh sách Đánh số với Giá trị Tùy chỉnh**
 
-Sử dụng [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) để đặt số đầu tiên hiển thị cho một đoạn đánh số.
+Sử dụng [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) để đặt số ban đầu hiển thị cho một đoạn có đánh số.
 
 1. Tạo một [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) và thêm một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) vào một slide.
-2. Xóa đoạn mặc định khỏi khung văn bản của hình.
-3. Tạo ba đoạn đánh số.
+2. Xóa đoạn mặc định khỏi khung văn bản của hình dạng.
+3. Tạo ba đoạn có đánh số.
 4. Đặt [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) thành `2`, `3` và `7` cho các đoạn tương ứng.
 5. Thêm các đoạn vào khung văn bản và lưu bản trình chiếu.
 
-Ví dụ JavaScript gán một số bắt đầu tùy chỉnh cho mỗi đoạn:
+Ví dụ JavaScript sau gán số bắt đầu tùy chỉnh cho mỗi đoạn:
 
 ```javascript
 var aspose = aspose || {};
@@ -345,23 +345,23 @@ try {
 
 ## **Kiểm soát Bố cục Đoạn và Thuộc tính Kết thúc**
 
-### **Đặt Thụt Lề Dòng Đầu**
+### **Đặt Thụt đầu dòng Dòng đầu tiên**
 
-Sử dụng [ParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setindent/) để kiểm soát thụt lề dòng đầu của một đoạn. Phương thức này chỉ di chuyển dòng đầu tiên so với lề trái của đoạn. Giá trị dương dịch dòng đầu tiên sang phải, trong khi các dòng còn lại vẫn căn theo thân đoạn.
+Sử dụng [ParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setindent/) để kiểm soát thụt đầu dòng của dòng đầu tiên trong một đoạn. Phương pháp này chỉ di chuyển dòng đầu tiên so với lề trái của đoạn. Giá trị dương sẽ dịch dòng đầu tiên sang phải, trong khi các dòng còn lại vẫn căn chỉnh với thân đoạn.
 
-Sử dụng [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) khi bạn cần di chuyển toàn bộ đoạn. Dùng [ParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setindent/) khi chỉ muốn di chuyển dòng đầu.
+Sử dụng [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) khi bạn cần di chuyển toàn bộ đoạn. Dùng [ParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setindent/) khi bạn chỉ muốn di chuyển dòng đầu tiên.
 
-Ví dụ dưới tạo một số đoạn và áp dụng các giá trị khác nhau của [ParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setindent/) để minh họa ảnh hưởng của thụt lề dòng đầu đối với bố cục đoạn.
+Ví dụ dưới đây tạo một số đoạn và áp dụng các giá trị khác nhau của [ParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setindent/) để minh họa cách thụt đầu dòng ảnh hưởng đến bố cục đoạn.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/).
 2. Truy cập slide mục tiêu.
 3. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) hình chữ nhật vào slide.
-4. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) của hình và xóa đoạn mặc định.
-5. Tạo một số đoạn và đặt các giá trị khác nhau của [ParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setindent/) cho chúng.
+4. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) của hình dạng và xóa đoạn mặc định.
+5. Tạo một số đoạn và đặt các giá trị khác nhau cho [ParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setindent/) cho chúng.
 6. Thêm các đoạn vào khung văn bản.
-7. Lưu bản trình chiếu đã sửa đổi.
+7. Lưu bản trình chiếu đã chỉnh sửa.
 
-Mã này cho bạn thấy cách đặt thụt lề đoạn:
+Mã này cho bạn thấy cách đặt thụt đầu dòng cho một đoạn:
 
 ```javascript
 var aspose = aspose || {};
@@ -414,26 +414,26 @@ try {
 
 Kết quả:
 
-![Khoảng cách đầu dòng của các đoạn](first_line_indent.png)
+![The first-line indent of the paragraphs](first_line_indent.png)
 
-### **Đặt Thụt Lề Treo**
+### **Đặt Thụt đầu dòng Treo**
 
-Thụt lề treo là bố cục đoạn trong đó dòng đầu bắt đầu ở phía trái so với các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng [ParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setindent/). Cung cấp một giá trị âm để di chuyển dòng đầu sang trái so với thân đoạn.
+Thụt đầu dòng treo là bố cục đoạn trong đó dòng đầu tiên bắt đầu ở bên trái hơn các dòng còn lại. Trong Aspose.Slides, bạn tạo hiệu ứng này bằng [ParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setindent/). Cung cấp giá trị âm để di chuyển dòng đầu tiên sang trái so với thân đoạn.
 
-Trong thực tế, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) xác định vị trí bên trái của thân đoạn, và [ParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setindent/) xác định vị trí của dòng đầu so với lề đó. Để tạo thụt lề treo, đưa một giá trị dương vào `setMarginLeft` và một giá trị âm vào `setIndent`.
+Trong thực tế, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) xác định vị trí trái của thân đoạn, và [ParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setindent/) xác định vị trí của dòng đầu tiên so với lề đó. Để tạo thụt đầu dòng treo, cung cấp giá trị dương cho `setMarginLeft` và giá trị âm cho `setIndent`.
 
-Định dạng này hữu ích cho thư mục, tham khảo, mục từ điển và các đoạn khác nơi các dòng gói phải căn dưới thân đoạn thay vì dưới ký tự đầu tiên của dòng đầu.
+Định dạng này hữu ích cho thư mục, tài liệu tham khảo, mục từ điển và các đoạn khác mà các dòng gộp phải căn dưới thân đoạn thay vì dưới ký tự đầu tiên của dòng đầu.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/).
 2. Truy cập slide mục tiêu.
 3. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) hình chữ nhật vào slide.
-4. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) của hình và xóa đoạn mặc định.
-5. Tạo các đoạn và đưa một giá trị dương vào [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) cho mỗi đoạn.
-6. Đưa một giá trị âm vào [ParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setindent/) để tạo hiệu ứng thụt lề treo.
+4. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) của hình dạng và xóa đoạn mặc định.
+5. Tạo các đoạn và cung cấp giá trị dương cho [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) cho mỗi đoạn.
+6. Cung cấp giá trị âm cho [ParagraphFormat.setIndent](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setindent/) để tạo hiệu ứng thụt đầu dòng treo.
 7. Thêm các đoạn vào khung văn bản.
-8. Lưu bản trình chiếu đã sửa đổi.
+8. Lưu bản trình chiếu đã chỉnh sửa.
 
-Mã này cho bạn thấy cách đặt thụt lề treo cho một đoạn:
+Mã này cho bạn thấy cách đặt thụt đầu dòng treo cho một đoạn:
 
 ```javascript
 var aspose = aspose || {};
@@ -478,16 +478,16 @@ try {
 
 Kết quả:
 
-![Thụt lề treo của các đoạn](hanging_indent.png)
+![The hanging indent of the paragraphs](hanging_indent.png)
 
 ### **Đặt Thuộc tính Kết thúc Đoạn**
 
-[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) điều khiển định dạng của ký tự kết thúc đoạn. Ví dụ dưới gán kích thước phông chữ và phông Latin cho ký tự kết thúc của đoạn thứ hai:
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) điều khiển định dạng của ký hiệu kết thúc đoạn. Ví dụ dưới đây gán kích thước phông và phông Latin cho ký hiệu kết thúc của đoạn thứ hai:
 
 1. Tạo hoặc tải một [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) và truy cập một slide.
 2. Thêm một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) và xóa đoạn mặc định của nó.
 3. Tạo hai đoạn và thêm các phần văn bản vào chúng.
-4. Tạo một [PortionFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portionformat/) cho ký tự kết thúc của đoạn thứ hai.
+4. Tạo một [PortionFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portionformat/) cho ký hiệu kết thúc của đoạn thứ hai.
 5. Đặt [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) và [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseportionformat/#setLatinFont).
 6. Gán định dạng bằng [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) và lưu bản trình chiếu.
 
@@ -522,20 +522,73 @@ try {
 }
 ```
 
+## **Đếm Số Dòng Được Render**
+
+Sử dụng [Paragraph.getLinesCount](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/#getLinesCount) để đếm số dòng mà một đoạn chiếm sau khi bố trí văn bản, bao gồm cả việc gói tự động. Điều này hữu ích khi kiểm tra độ dài văn bản và bố cục trong các mẫu trình chiếu.
+
+Một đoạn là một mục trong [TextFrame.getParagraphs](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getParagraphs), và nó có thể chiếm nhiều dòng được render. Một ngắt dòng rõ ràng trong đoạn buộc tạo một dòng mới mà không tạo đoạn mới. Gói tự động tạo các dòng dựa trên chiều rộng khả dụng mà không chèn ký tự ngắt dòng vào văn bản. Do đó, đếm số đoạn hoặc ký tự ngắt dòng không cung cấp số lượng dòng đã render.
+
+Ví dụ dưới đây tạo một hình dạng văn bản, đếm các dòng của nó, thu hẹp hình dạng, sau đó thay thế văn bản bằng một chuỗi ngắn hơn. Gói được bật và tự động vừa (autofit) bị tắt để chiều rộng hình dạng kiểm soát việc gói mà không tự động thu nhỏ văn bản hoặc thay đổi kích thước hình dạng. Kích thước hình dạng được tính bằng điểm. Cuối cùng, ví dụ thêm một đoạn khác và tổng hợp số dòng qua khung văn bản.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 400, 200);
+    const textFrame = shape.getTextFrame();
+    textFrame.getTextFrameFormat().setWrapText(java.newByte(aspose.slides.NullableBool.True));
+    textFrame.getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.None));
+
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
+    paragraph.setText("This text demonstrates how automatic wrapping changes the number of rendered lines.");
+    console.log("Original width: " + paragraph.getLinesCount());
+
+    shape.setWidth(150);
+    console.log("Narrower shape: " + paragraph.getLinesCount());
+
+    paragraph.setText("Short text.");
+    console.log("Shorter text: " + paragraph.getLinesCount());
+
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.setText("Another paragraph.");
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
+    textFrame.getParagraphs().add(secondParagraph);
+
+    let totalLineCount = 0;
+    for (let i = 0; i < textFrame.getParagraphs().getCount(); i++) {
+        const currentParagraph = textFrame.getParagraphs().get_Item(i);
+        totalLineCount += currentParagraph.getLinesCount();
+    }
+    console.log("Total lines in the text frame: " + totalLineCount);
+} finally {
+    presentation.dispose();
+}
+```
+
+Với văn bản và kích thước này, thu hẹp hình dạng làm tăng số dòng, trong khi thay thế văn bản bằng chuỗi ngắn giảm số dòng. Các số đếm chính xác có thể thay đổi tùy thuộc vào việc có sẵn phông chữ và việc thay thế, kích thước phông, lề, thụt, gói và cài đặt autofit. Hãy sử dụng phông chữ và cài đặt bố cục dự kiến cho môi trường mục tiêu khi kiểm tra mẫu.
+
+Chỉ số dòng không tự động quyết định liệu văn bản có tràn khỏi container hay không. Chiều cao khả dụng, chiều cao dòng, khoảng cách đoạn và dòng, và hành vi autofit cũng quan trọng; ngay cả một dòng duy nhất cũng có thể vượt quá chiều rộng khả dụng khi gói bị tắt.
+
 ## **Nhập và Xuất Nội dung Đoạn**
 
 ### **Nhập Văn bản HTML vào Đoạn**
 
-Sử dụng [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) để chuyển đổi mã HTML thành các đoạn và phần trong một khung văn bản.
+Sử dụng [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) để chuyển đổi markup HTML thành các đoạn và phần trong một khung văn bản.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/).
 2. Truy cập một slide và thêm một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/).
-3. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) của hình và xóa đoạn mặc định.
+3. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) của hình dạng và xóa đoạn mặc định.
 4. Định nghĩa hoặc đọc chuỗi HTML nguồn.
 5. Đưa chuỗi HTML vào [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/).
-6. Lưu bản trình chiếu đã sửa đổi.
+6. Lưu bản trình chiếu đã chỉnh sửa.
 
-Ví dụ JavaScript nhập HTML vào một khung văn bản:
+Ví dụ JavaScript này nhập HTML vào một khung văn bản:
 
 ```javascript
 var aspose = aspose || {};
@@ -565,9 +618,9 @@ Sử dụng [ParagraphCollection.exportToHtml](https://reference.aspose.com/slid
 
 1. Tạo hoặc tải một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/).
 2. Truy cập slide và tìm [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) chứa văn bản.
-3. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) của hình.
-4. Gọi [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) với chỉ mục đoạn bắt đầu và số đoạn cần xuất.
-5. Ghi chuỗi HTML trả về vào tệp.
+3. Truy cập [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) của hình dạng.
+4. Gọi [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) với chỉ mục đoạn bắt đầu và số lượng đoạn cần xuất.
+5. Ghi chuỗi HTML trả về vào một tệp tin.
 
 Ví dụ JavaScript tự chứa này tạo một hình dạng văn bản và xuất tất cả các đoạn của nó:
 
@@ -607,19 +660,19 @@ try {
 }
 ```
 
-### **Render (Kết xuất) Đoạn dưới dạng Hình ảnh**
+### **Render Đoạn dưới dạng Hình ảnh**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/#getImage) render (kết xuất) một đoạn riêng lẻ và trả về một [IImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/iimage/). Lưu kết quả vào tệp bằng [IImage.save](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/iimage/#save). Bạn không cần render toàn bộ hình dạng chứa hoặc cắt ảnh bitmap thủ công.
+[Paragraph.getImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/#getImage) render một đoạn riêng lẻ và trả về một [IImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/iimage/). Lưu kết quả vào tệp bằng [IImage.save](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/iimage/#save). Bạn không cần render hình dạng chứa hoặc cắt bitmap thủ công.
 
-[Paragraph.getImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/#getImage) có thể trả về `null` nếu không tìm thấy đoạn trong bộ sưu tập cha, không có giới hạn render hợp lệ, hoặc không thể render. Kiểm tra kết quả trước khi lưu và giải phóng hình ảnh đã trả về sau khi sử dụng.
+[Paragraph.getImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/#getImage) có thể trả về `null` nếu đoạn không tìm thấy trong bộ sưu tập cha, không có giới hạn render hợp lệ, hoặc không thể render. Kiểm tra kết quả trước khi lưu và giải phóng ảnh trả về sau khi sử dụng.
 
 #### **Render Đoạn ở Tỷ lệ Mặc định**
 
-Hộp văn bản dưới đây chứa ba đoạn:
+Hộp văn bản sau chứa ba đoạn:
 
-![Hộp văn bản với ba đoạn](paragraph_to_image_input.png)
+![The text box with three paragraphs](paragraph_to_image_input.png)
 
-Ví dụ dưới render đoạn thứ hai trong một hình dạng văn bản thông thường ở tỷ lệ mặc định và lưu hình ảnh trả về dưới dạng PNG. Khối `finally` đảm bảo hình ảnh được giải phóng đúng cách.
+Ví dụ dưới đây render đoạn thứ hai trong một hình dạng văn bản thông thường ở tỷ lệ mặc định và lưu ảnh trả về dưới dạng PNG. Khối `finally` đảm bảo ảnh được giải phóng đúng cách.
 
 ```javascript
 var aspose = aspose || {};
@@ -667,11 +720,11 @@ try {
 
 Kết quả:
 
-![Hình ảnh đoạn](paragraph_to_image_output.png)
+![The paragraph image](paragraph_to_image_output.png)
 
-#### **Render Đoạn trong Ô Bảng với Phóng to**
+#### **Render Đoạn trong Ô Bảng với Tỷ lệ**
 
-Sử dụng phương thức [Paragraph.getImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/#getImage) có tham số `scaleX` và `scaleY` để đặt hệ số phóng to theo chiều ngang và dọc. Ví dụ dưới tạo một bảng, render đoạn trong ô đầu tiên với độ rộng và chiều cao gấp đôi so với mặc định, và lưu kết quả dưới dạng PNG.
+Sử dụng overload của [Paragraph.getImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/#getImage) cho phép truyền các tham số `scaleX` và `scaleY` để đặt hệ số tỷ lệ chiều ngang và chiều dọc. Ví dụ dưới đây tạo một bảng, render đoạn trong ô đầu tiên với độ rộng và chiều cao gấp đôi so với mặc định, và lưu kết quả dưới dạng PNG.
 
 ```javascript
 var aspose = aspose || {};
@@ -705,24 +758,24 @@ try {
 }
 ```
 
-Hệ số `1` giữ trục đó ở kích thước pixel mặc định. Ví dụ, `2` cho cả hai trục tạo ra một hình ảnh có chiều rộng và chiều cao khoảng gấp đôi kích thước mặc định, tương đương bốn lần số pixel. Các hệ số lớn hơn thường tạo ra văn bản sắc nét hơn cho phóng to hoặc xuất độ phân giải cao, nhưng chúng cũng tăng mức sử dụng bộ nhớ và kích thước tệp. Hệ số dưới `1` tạo ra hình ảnh nhỏ hơn với ít chi tiết hơn. Sử dụng các hệ số bằng nhau để giữ tỉ lệ khung hình của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo dài đầu ra một cách độc lập.
+Hệ số `1` giữ trục đó ở kích thước pixel mặc định. Ví dụ, `2` cho cả hai hệ số tạo ra một ảnh có chiều rộng và chiều cao khoảng gấp đôi kích thước mặc định, dẫn đến bốn lần số pixel. Các hệ số lớn hơn thường tạo ra văn bản sắc nét hơn cho việc phóng to hoặc xuất độ phân giải cao, nhưng chúng cũng tăng sử dụng bộ nhớ và kích thước tệp. Hệ số dưới `1` tạo ảnh nhỏ hơn với chi tiết ít hơn. Sử dụng các hệ số bằng nhau để duy trì tỷ lệ khung hình của đoạn; các hệ số ngang và dọc khác nhau sẽ kéo giãn đầu ra độc lập.
 
-Render toàn bộ hình dạng bằng [Shape.getImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/#getImage) vẫn hữu ích khi đầu ra cần bao gồm nền, viền hoặc ngữ cảnh trực quan khác của hình dạng. Đối với hình ảnh chỉ chứa đoạn, hãy sử dụng [Paragraph.getImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/#getImage).
+Render toàn bộ hình dạng với [Shape.getImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/#getImage) vẫn hữu ích khi đầu ra phải bao gồm màu nền, viền hoặc ngữ cảnh hình ảnh khác của hình dạng. Đối với ảnh chỉ chứa đoạn, hãy sử dụng [Paragraph.getImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/#getImage).
 
-## **Câu hỏi thường gặp**
+## **Câu hỏi Thường gặp**
 
-**Tôi có thể tắt hoàn toàn việc ngắt dòng trong khung văn bản không?**
+**Tôi có thể hoàn toàn tắt việc gói dòng trong một khung văn bản không?**
 
-Có. Đặt [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/setwraptext/) để tắt việc ngắt dòng, vì vậy các dòng không bị bẻ tại cạnh của khung văn bản.
+Có. Đặt [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/setwraptext/) để tắt gói, vì vậy các dòng không bị ngắt tại các cạnh của khung văn bản.
 
-**Làm sao tôi có thể lấy giới hạn chính xác trên slide của một đoạn cụ thể?**
+**Làm thế nào để lấy giới hạn trên slide chính xác của một đoạn cụ thể?**
 
 Sử dụng [Paragraph.getRect](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/getrect/) để lấy hình chữ nhật bao quanh đoạn. [Portion.getRect](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portion/#getRect) cung cấp giới hạn của một phần riêng lẻ.
 
-**Vị trí căn chỉnh đoạn (trái, phải, giữa hoặc căn đều) được kiểm soát ở đâu?**
+**Nơi nào điều khiển căn chỉnh đoạn (trái, phải, giữa hoặc căn đều)?**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setalignment/) là cài đặt mức độ đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng riêng lẻ của các phần.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/setalignment/) là một cài đặt cấp đoạn và áp dụng cho toàn bộ đoạn bất kể định dạng riêng của các phần.
 
 **Tôi có thể đặt ngôn ngữ kiểm tra chính tả cho một phần của đoạn không?**
 
-Có. Đặt [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) cho các phần riêng lẻ, để một đoạn có thể chứa văn bản bằng nhiều ngôn ngữ.
+Có. Đặt [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) cho các phần riêng lẻ, vì vậy một đoạn có thể chứa văn bản bằng nhiều ngôn ngữ.

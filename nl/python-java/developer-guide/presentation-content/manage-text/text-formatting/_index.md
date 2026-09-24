@@ -1,5 +1,5 @@
 ---
-title: Presentatietekst opmaken in Python via Java
+title: Tekst opmaken in presentaties met Python via Java
 linktitle: Tekstopmaak
 type: docs
 weight: 50
@@ -16,8 +16,8 @@ keywords:
 - rotatiehoek
 - tekstframe
 - regelafstand
-- autofit-eigenschap
-- tekstframe-anker
+- autofit eigenschap
+- tekstframe anker
 - teksttabulatie
 - standaardtaal
 - PowerPoint
@@ -26,23 +26,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Formateer en style tekst in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Python via Java. Pas lettertypen, kleuren, uitlijning en meer aan."
+description: "Formatteer en styleer tekst in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Python via Java. Pas lettertypen, kleuren, uitlijning en meer aan."
 ---
 ## **Overzicht**
 
-Dit artikel laat zien hoe u tekst opmaakt in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Python via Java. Het behandelt achtergrondkleuren, transparantie, tekenafstand, lettertype‑eigenschappen, rotatie, alinea‑afstand, autofit‑gedrag, tekstaanhechting, tabstops en taalinstellingen.
+Dit artikel laat zien hoe je tekst opmaakt in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides voor Python via Java. Het behandelt achtergrondkleuren, transparantie, tekenafstand, lettertype‑eigenschappen, rotatie, alinea‑afstand, autofit‑gedrag, tekst‑ankering, tab‑stops en taalinstellingen.
 
-In de onderstaande voorbeelden gebruiken we een bestand genaamd "sample.pptx", dat een enkele tekstvak op de eerste dia bevat met de volgende tekst:
+In de voorbeelden hieronder gebruiken we een bestand met de naam "sample.pptx", dat een enkele tekstvak op de eerste dia bevat met de volgende tekst:
 
-![Voorbeeldtekst](sample_text.png)
+![Sample text](sample_text.png)
 
-Voor het vinden en markeren van letterlijke tekst of regulier‑expressie‑overeenkomsten, zie [Zoeken en Vervangen van Tekst](/slides/nl/python-java/search-and-replace-text/).
+Om letterlijke tekst of reguliere‑expressie‑overeenkomsten te vinden en te markeren, zie [Search and Replace Text](/slides/nl/python-java/search-and-replace-text/).
 
-## **Achtergrondkleur van Tekst Instellen**
+## **Achtergrondkleur van tekst instellen**
 
-Gebruik [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) om de standaard markeerkleur voor een alinea in te stellen, of gebruik [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portionformat/) voor afzonderlijke tekstgedeelten.
+Gebruik [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) om de standaard markeringskleur voor een alinea in te stellen, of gebruik [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portionformat/) voor individuele tekstgedeelten.
 
-De volgende code‑voorbeeld toont hoe u de achtergrondkleur voor de **hele alinea** instelt:
+Het volgende code‑voorbeeld toont hoe je de achtergrondkleur voor de **hele alinea** instelt:
 
 ```python
 import jpype
@@ -60,7 +60,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # Stel de markeerkleur in voor de volledige alinea.
+    # Stel de markeringskleur in voor de hele alinea.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY)
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx)
@@ -70,9 +70,9 @@ finally:
 
 Het resultaat:
 
-![De grijze alinea](gray_paragraph.png)
+![The gray paragraph](gray_paragraph.png)
 
-Het code‑voorbeeld hieronder laat zien hoe u de achtergrondkleur instelt voor **tekstgedeelten met een vet lettertype**:
+Het code‑voorbeeld hieronder laat zien hoe je de achtergrondkleur instelt voor **tekstgedeelten met een vet lettertype**:
 
 ```python
 import jpype
@@ -92,7 +92,7 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # Stel de markeerkleur in voor het tekstgedeelte.
+            # Stel de markeringskleur in voor het tekstgedeelte.
             portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY)
 
     presentation.save("gray_text_portions.pptx", SaveFormat.Pptx)
@@ -102,20 +102,20 @@ finally:
 
 Het resultaat:
 
-![De grijze tekstgedeelten](gray_text_portions.png)
+![The gray text portions](gray_text_portions.png)
 
-## **Tekst alinea's uitlijnen**
+## **Tekst‑alinea’s uitlijnen**
 
-Gebruik [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setAlignment) om de alinea‑uitlijning binnen een tekstvak in te stellen. De waarde kan gecentreerd, links‑uitgelijnd, rechts‑uitgelijnd, uitgevuld, enzovoort zijn.
+Gebruik [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setAlignment) om alinea‑uitlijning binnen een tekstframe in te stellen. De waarde kan gecentreerd, links uitgelijnd, rechts uitgelijnd, uitgevuld, enzovoort zijn.
 
-De volgende code‑voorbeeld toont hoe u de alinea naar het **midden** uitlijnt:
+Het volgende code‑voorbeeld toont hoe je de alinea uitlijnt naar het **midden**:
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpuse.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, TextAlignment
 
@@ -125,7 +125,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # Stel de uitlijning van de alinea in op het midden.
+    # Stel de uitlijning van de alinea in op gecentreerd.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center)
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx)
@@ -135,13 +135,13 @@ finally:
 
 Het resultaat:
 
-![De uitgelijnde alinea](aligned_paragraph.png)
+![The aligned paragraph](aligned_paragraph.png)
 
-## **Transparantie voor Tekst Instellen**
+## **Transparantie van tekst instellen**
 
-Teksttransparantie wordt geregeld via het alfacomponent van de kleur die is toegewezen aan [PortionFormat.getFillFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portionformat/). In de onderstaande voorbeelden is `alpha = 50` een ARGB‑alfa‑kanaalwaarde op de schaal 0–255, geen transparantie‑percentage.
+Teksttransparantie wordt geregeld via het alfacomponent van de kleur die is toegewezen aan [PortionFormat.getFillFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portionformat/). In de onderstaande voorbeelden is `alpha = 50` een ARGB‑alfakanaalwaarde op de schaal 0–255, geen transparantie‑percentage.
 
-Het code‑voorbeeld hieronder toont hoe u transparantie toepast op de **hele alinea**:
+Het code‑voorbeeld hieronder toont hoe je transparantie toepast op de **hele alinea**:
 
 ```python
 import jpype
@@ -162,7 +162,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # Stel de vulkleur van de tekst in op een transparante kleur.
+    # Stel de opvulkleur van de tekst in op een transparante kleur.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(text_color)
 
@@ -173,9 +173,9 @@ finally:
 
 Het resultaat:
 
-![De transparante alinea](transparent_paragraph.png)
+![The transparent paragraph](transparent_paragraph.png)
 
-Het volgende code‑voorbeeld toont hoe u transparantie toepast op **tekstgedeelten met een vet lettertype**:
+Het volgende code‑voorbeeld toont hoe je transparantie toepast op **tekstgedeelten met een vet lettertype**:
 
 ```python
 import jpype
@@ -209,13 +209,13 @@ finally:
 
 Het resultaat:
 
-![De transparante tekstgedeelten](transparent_text_portions.png)
+![The transparent text portions](transparent_text_portions.png)
 
-## **Tekenafstand voor Tekst Instellen**
+## **Tekenafstand voor tekst instellen**
 
-Gebruik [PortionFormat.setSpacing](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portionformat/) om de afstand tussen tekens in een tekstvak uit te breiden of te verkleinen.
+Gebruik [PortionFormat.setSpacing](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portionformat/) om de spatiëring tussen tekens in een tekstvak uit te breiden of te verkleinen.
 
-De volgende Python‑code toont hoe u de tekenafstand in de **hele alinea** vergroot:
+De volgende Python‑code toont hoe je de tekenafstand uitbreidt in de **hele alinea**:
 
 ```python
 import jpype
@@ -232,8 +232,8 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # Opmerking: Gebruik negatieve waarden om de tekenafstand te verkleinen.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3) # Tekenafstand vergroten.
+    # Opmerking: Gebruik negatieve waarden om de tekenafstand te comprimeren.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3) # Vergroot de tekenafstand.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx)
 finally:
@@ -242,9 +242,9 @@ finally:
 
 Het resultaat:
 
-![De tekenafstand in de alinea](character_spacing_in_paragraph.png)
+![The character spacing in the paragraph](character_spacing_in_paragraph.png)
 
-Het code‑voorbeeld hieronder toont hoe u de tekenafstand vergroot in **tekstgedeelten met een vet lettertype**:
+Het code‑voorbeeld hieronder toont hoe je de tekenafstand uitbreidt in **tekstgedeelten met een vet lettertype**:
 
 ```python
 import jpype
@@ -263,8 +263,8 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # Opmerking: Gebruik negatieve waarden om de tekenafstand te verkleinen.
-            portion.getPortionFormat().setSpacing(3) # Tekenafstand vergroten.
+            # Opmerking: Gebruik negatieve waarden om de tekenafstand te comprimeren.
+            portion.getPortionFormat().setSpacing(3) # Vergroot de tekenafstand.
 
     presentation.save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx)
 finally:
@@ -273,13 +273,13 @@ finally:
 
 Het resultaat:
 
-![De tekenafstand in de tekstgedeelten](character_spacing_in_text_portions.png)
+![The character spacing in the text portions](character_spacing_in_text_portions.png)
 
-### **Kerning voor specifieke lettertypen uitschakelen**
+### **Kerning uitschakelen voor specifieke lettertypes**
 
-In sommige gevallen kan tekst die door Aspose.Slides wordt gerenderd er iets strakker uitzien dan dezelfde tekst die in PowerPoint wordt weergegeven. Dit kan gebeuren omdat PowerPoint kerning‑gegevens voor bepaalde lettertypen kan negeren, zelfs wanneer het lettertype geldige kerning‑informatie bevat en kerning is ingeschakeld in de PowerPoint‑instellingen.
+In sommige gevallen kan tekst die door Aspose.Slides wordt gerenderd iets strakker lijken dan dezelfde tekst die in PowerPoint wordt weergegeven. Dit kan gebeuren omdat PowerPoint kerning‑gegevens voor bepaalde lettertypes negeert, zelfs wanneer het lettertype geldige kerning‑informatie bevat en kerning is ingeschakeld in de PowerPoint‑instellingen.
 
-Om de gerenderde uitvoer in dergelijke gevallen dichter bij PowerPoint te laten komen, kunt u kerning uitschakelen voor tekstgedeelten die het betreffende lettertype gebruiken. Stel [PortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portionformat/) in op een waarde die aanzienlijk groter is dan de daadwerkelijke lettergrootte:
+Om de gerenderde uitvoer in dergelijke gevallen dichter bij PowerPoint te brengen, kun je kerning uitschakelen voor tekstgedeelten die het betreffende lettertype gebruiken. Stel [PortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portionformat/) in op een waarde die aanzienlijk groter is dan de werkelijke lettergrootte:
 
 ```python
 import jpype
@@ -308,13 +308,9 @@ finally:
     presentation.dispose()
 ```
 
-Deze instelling voorkomt dat kerning wordt toegepast op overeenkomende tekstgedeelten en kan helpen om de weergave van Aspose.Slides beter af te stemmen op de visuele output van PowerPoint voor lettertypen die door dit PowerPoint‑specifieke gedrag worden beïnvloed.
+## **Lettertype‑eigenschappen van tekst beheren**
 
-## **Beheren van Tekstlettertype‑eigenschappen**
-
-Lettertype‑eigenschappen kunnen ingesteld worden op alinea‑niveau via [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) of op afzonderlijke gedeelten via [PortionFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portionformat/).
-
-De volgende code stelt het lettertype en de tekststijl in voor de volledige alinea: het past de lettergrootte, vet, cursief, gestippelde onderstreping en het lettertype Times New Roman toe op alle gedeelten in de alinea.
+De volgende code stelt het lettertype en de tekststijl in voor de hele alinea: het past lettergrootte, vet, cursief, gestippelde onderstreping en het Times New Roman‑lettertype toe op alle gedeelten in de alinea.
 
 ```python
 import jpype
@@ -346,9 +342,9 @@ finally:
 
 Het resultaat:
 
-![De lettertype‑eigenschappen voor de alinea](font_properties_for_paragraph.png)
+![The font properties for the paragraph](font_properties_for_paragraph.png)
 
-Het code‑voorbeeld hieronder past soortgelijke eigenschappen toe op **tekstgedeelten met een vet lettertype**:
+Het code‑voorbeeld hieronder past vergelijkbare eigenschappen toe op **tekstgedeelten met een vet lettertype**:
 
 ```python
 import jpype
@@ -381,13 +377,13 @@ finally:
 
 Het resultaat:
 
-![De lettertype‑eigenschappen voor tekstgedeelten](font_properties_for_text_portions.png)
+![The font properties for text portions](font_properties_for_text_portions.png)
 
-## **Tekstrotatie Instellen**
+## **Tekstrotatie instellen**
 
 Gebruik [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframeformat/#setTextVerticalType) om een vooraf gedefinieerde tekstoriëntatie binnen een vorm in te stellen.
 
-De volgende code‑voorbeeld stelt de tekstoriëntatie in de vorm in op `Vertical270`, wat de tekst **90 graden tegen de klok in** roteert:
+Het volgende code‑voorbeeld stelt de tekstoriëntatie in de vorm in op `Vertical270`, wat de tekst **90 graden tegen de klok in** roteert:
 
 ```python
 import jpype
@@ -412,11 +408,11 @@ finally:
 
 Het resultaat:
 
-![De tekstrotatie](text_rotation.png)
+![The text rotation](text_rotation.png)
 
-## **Aangepaste Rotatie voor Tekstframes Instellen**
+## **Aangepaste rotatie voor tekstframes instellen**
 
-Gebruik [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframeformat/#setRotationAngle) om een aangepaste rotatiehoek in te stellen voor een [TextFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframe/).
+Gebruik [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframeformat/#setRotationAngle) om een aangepaste rotatiehoek voor een [TextFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframe/) in te stellen.
 
 Het code‑voorbeeld hieronder roteert het tekstframe met 3 graden met de klok mee binnen de vorm:
 
@@ -443,16 +439,16 @@ finally:
 
 Het resultaat:
 
-![De aangepaste tekstrotatie](custom_text_rotation.png)
+![The custom text rotation](custom_text_rotation.png)
 
-## **Regelafstand van alinea's Instellen**
+## **Regelafstand van alinea’s instellen**
 
-Aspose.Slides biedt [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setSpaceBefore) en [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setSpaceWithin) om de alinea‑afstand te regelen. Deze eigenschappen worden als volgt gebruikt:
+Aspose.Slides biedt [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setSpaceBefore) en [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setSpaceWithin) om alinea‑afstand te regelen. Deze eigenschappen worden als volgt gebruikt:
 
 * Gebruik een positieve waarde om de regelafstand op te geven als een percentage van de regelhoogte.
 * Gebruik een negatieve waarde om de regelafstand in punten op te geven.
 
-De volgende code‑voorbeeld toont hoe u de regelafstand binnen de alinea opgeeft:
+Het volgende code‑voorbeeld toont hoe je de regelafstand binnen de alinea specificeert:
 
 ```python
 import jpype
@@ -478,11 +474,11 @@ finally:
 
 Het resultaat:
 
-![De regelafstand binnen de alinea](line_spacing.png)
+![The line spacing within the paragraph](line_spacing.png)
 
-## **Autofit‑type voor Tekstframes Instellen**
+## **Autofit‑type voor tekstframes instellen**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframeformat/#setAutofitType) bepaalt hoe tekst zich gedraagt wanneer deze de grenzen van de container overschrijdt. Gebruik het om te bepalen of de tekst krimpt, overlapt, of de vorm automatisch wordt aangepast.
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframeformat/#setAutofitType) bepaalt hoe tekst zich gedraagt wanneer deze de grenzen van de container overschrijdt. Gebruik het om te bepalen of de tekst verkleint, overlapt of de vorm automatisch van grootte verandert.
 
 ```python
 import jpype
@@ -505,9 +501,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Anker van Tekstframes Instellen**
+Om het aantal regels te tellen na automatisch afbreken en te zien hoe de breedte van tekst of vorm het resultaat verandert, zie [Count Rendered Lines](/slides/nl/python-java/manage-paragraph/). Het aantal regels alleen geeft niet aan of tekst buiten de container overlapt.
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframeformat/#setAnchoringType) definieert hoe tekst verticaal binnen een vorm wordt gepositioneerd, bijvoorbeeld bovenaan, in het midden of onderaan.
+## **Anker van tekstframes instellen**
+
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframeformat/#setAnchoringType) bepaalt hoe tekst verticaal binnen een vorm wordt gepositioneerd, bijvoorbeeld bovenaan, in het midden of onderaan.
 
 ```python
 import jpype
@@ -530,9 +528,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Tekst Tabulatie Instellen**
+## **Tabulatie van tekst instellen**
 
-Gebruik [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) en [ParagraphFormat.getTabs](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#getTabs) om tabstops in een alinea te configureren.
+Gebruik [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) en [ParagraphFormat.getTabs](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraphformat/#getTabs) om tab‑stops in een alinea te configureren.
 
 ```python
 import jpype
@@ -559,13 +557,13 @@ finally:
 
 Het resultaat:
 
-![De alinea‑tabs](paragraph_tabs.png)
+![The paragraph tabs](paragraph_tabs.png)
 
-## **Controlertaal Instellen**
+## **Controlertaal instellen**
 
-Aspose.Slides biedt [PortionFormat.setLanguageId](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portionformat/), waarmee u de controlertaal voor een tekstgedeelte kunt instellen. De controlertaal bepaalt de taal die wordt gebruikt voor spelling‑ en grammaticacontrole in PowerPoint.
+Aspose.Slides biedt [PortionFormat.setLanguageId](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portionformat/), waarmee je de controlertaal voor een tekstgedeelte kunt instellen. De controlertaal bepaalt de taal die wordt gebruikt voor spelling‑ en grammaticacontrole in PowerPoint.
 
-De volgende code‑voorbeeld toont hoe u de controlertaal voor een tekstgedeelte instelt:
+Het volgende code‑voorbeeld toont hoe je de controlertaal instelt voor een tekstgedeelte:
 
 ```python
 import jpype
@@ -591,7 +589,7 @@ try:
     text_portion.getPortionFormat().setEastAsianFont(font)
     text_portion.getPortionFormat().setLatinFont(font)
 
-    # Stel de Id van een controlertaal in.
+    # Stel de Id van een controle-taal in.
     text_portion.getPortionFormat().setLanguageId("zh-CN")
 
     text_portion.setText("1。")
@@ -602,9 +600,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Standaardtaal Instellen**
+## **Standaardtaal instellen**
 
-Gebruik [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) om de standaardtaal te definiëren voor tekst die wordt aangemaakt tijdens het laden of creëren van een presentatie.
+Gebruik [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) om de standaardtaal te definiëren voor tekst die wordt aangemaakt tijdens het laden of maken van een presentatie.
 
 ```python
 import jpype
@@ -622,7 +620,7 @@ presentation = Presentation(load_options)
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # Voeg een rechthoekige vorm met tekst toe.
+    # Voeg een rechthoekvorm toe met tekst.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50)
     shape.getTextFrame().setText("Sample text")
 
@@ -633,11 +631,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Standaard Tekststijl Instellen**
+## **Standaard‑tekststijl instellen**
 
-Om standaard tekstopmaak op présentatieniveau toe te passen, gebruik [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getDefaultTextStyle).
+Om standaard‑tekstopmaak op presentatieniveau toe te passen, gebruik je [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-De volgende code‑voorbeeld toont hoe u een standaard vet lettertype met een grootte van 14 pt instelt voor alle tekst over de dia's heen in een nieuwe presentatie.
+Het volgende code‑voorbeeld toont hoe je een standaard vet lettertype met een grootte van 14 pt instelt voor alle tekst op alle dia's in een nieuwe presentatie.
 
 ```python
 import jpype
@@ -662,15 +660,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Tekst Uithalen met het All‑Caps‑effect**
+## **Tekst extraheren met het All‑Caps‑effect**
 
-In PowerPoint zorgt het toepassen van het **All Caps**-lettertype‑effect ervoor dat tekst in hoofdletters op de dia wordt weergegeven, zelfs wanneer deze oorspronkelijk in kleine letters is getypt. Wanneer u een dergelijk tekstgedeelte ophaalt met Aspose.Slides, geeft de bibliotheek de tekst exact terug zoals deze werd ingevoerd. Om de weergegeven tekst te evenaren, controleert u [TextCapType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textcaptype/) en zet u de geretourneerde tekenreeks om naar hoofdletters wanneer de waarde `All` is.
+In PowerPoint zorgt het toepassen van het **All Caps**‑font‑effect ervoor dat tekst in hoofdletters wordt weergegeven op de dia, zelfs als deze oorspronkelijk in kleine letters is getypt. Wanneer je zo'n tekstgedeelte ophaalt met Aspose.Slides, geeft de bibliotheek de tekst precies terug zoals ingevoerd. Om overeen te komen met de weergegeven tekst, controleer je [TextCapType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textcaptype/) en zet je de geretourneerde string om naar hoofdletters wanneer de waarde `All` is.
 
 Stel dat we het volgende tekstvak hebben op de eerste dia van het bestand sample2.pptx.
 
-![Het All Caps-effect](all_caps_effect.png)
+![The All Caps effect](all_caps_effect.png)
 
-Het code‑voorbeeld hieronder toont hoe u de tekst kunt extraheren met het **All Caps**-effect toegepast:
+Het code‑voorbeeld hieronder toont hoe je de tekst extraheert met het **All Caps**‑effect toegepast:
 
 ```python
 import jpype
@@ -697,7 +695,7 @@ finally:
     presentation.dispose()
 ```
 
-Uitvoer:
+Output:
 
 ```text
 Original text: Hello, Aspose!
@@ -708,8 +706,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Hoe wijzig ik tekst in een tabel op een dia?**
 
-Om tekst in een tabel op een dia te wijzigen, gebruik [Table](https://reference.aspose.com/slides/nl/python-java/aspose.slides/table/). Loop door de cellen en werk elke cel bij via [Cell.getTextFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/cell/#getTextFrame) en alinea‑opmaak via [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/#getParagraphFormat).
+Om tekst in een tabel op een dia te wijzigen, gebruik je [Table](https://reference.aspose.com/slides/nl/python-java/aspose.slides/table/). Loop door de cellen en werk elke cel bij via [Cell.getTextFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/cell/#getTextFrame) en alinea‑opmaak via [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/paragraph/#getParagraphFormat).
 
-**Hoe pas ik een gradiëntkleur toe op tekst op een PowerPoint-dia?**
+**Hoe pas ik een kleurverloop toe op tekst op een PowerPoint‑dia?**
 
-Om een gradiëntkleur op tekst toe te passen, gebruik [PortionFormat.getFillFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portionformat/). Stel [FillFormat.setFillType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/fillformat/#setFillType) in op [FillType.Gradient](https://reference.aspose.com/slides/nl/python-java/aspose.slides/filltype/#Gradient) en configureer de gradiëntstops, richting en transparantie.
+Om een kleurverloop op tekst toe te passen, gebruik je [PortionFormat.getFillFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/portionformat/). Stel [FillFormat.setFillType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/fillformat/#setFillType) in op [FillType.Gradient](https://reference.aspose.com/slides/nl/python-java/aspose.slides/filltype/#Gradient) en configureer de gradient‑stops, richting en transparantie.

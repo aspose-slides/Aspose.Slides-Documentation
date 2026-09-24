@@ -1,23 +1,23 @@
 ---
-title: C++でプレゼンテーションのテキストをフォーマット
-linktitle: テキスト書式設定
+title: C++ でプレゼンテーションテキストを整形
+linktitle: テキストの書式設定
 type: docs
 weight: 50
 url: /ja/cpp/text-formatting/
 keywords:
-- 段落の整列
+- 段落の配置
 - テキストスタイル
 - テキスト背景
 - テキストの透明度
 - 文字間隔
 - フォントプロパティ
-- フォントファミリ
+- フォントファミリー
 - テキスト回転
 - 回転角度
 - テキストフレーム
 - 行間
 - オートフィットプロパティ
-- テキストフレームアンカー
+- テキストフレームのアンカー
 - テキストタブ設定
 - デフォルト言語
 - PowerPoint
@@ -25,23 +25,23 @@ keywords:
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ を使用して、PowerPoint および OpenDocument プレゼンテーションのテキストをフォーマットおよびスタイル設定します。フォント、カラー、配置などをカスタマイズできます。"
+description: "Aspose.Slides for C++ を使用して、PowerPoint および OpenDocument プレゼンテーションのテキストを整形およびスタイル設定します。フォント、色、配置などをカスタマイズできます。"
 ---
 ## **概要**
 
-本記事では、Aspose.Slides for C++ を使用して PowerPoint および OpenDocument プレゼンテーションのテキストをフォーマットする方法を示します。背景色、透明度、文字間隔、フォントプロパティ、回転、段落間隔、オートフィット動作、テキストのアンカリング、タブストップ、言語設定について解説しています。
+この記事では、Aspose.Slides for C++ を使用して PowerPoint および OpenDocument プレゼンテーションのテキストを書式設定する方法を示します。背景色、透明度、文字間隔、フォントプロパティ、回転、段落間隔、オートフィット動作、テキストのアンカリング、タブストップ、言語設定について解説します。
 
-以下の例では、最初のスライドに単一のテキストボックスがあり、次のテキストが含まれる「sample.pptx」ファイルを使用します。
+以下の例では、最初のスライドに単一のテキストボックスがあり、次のテキストが含まれる "sample.pptx" というファイルを使用します。
 
 ![サンプルテキスト](sample_text.png)
 
-リテラルテキストや正規表現の一致箇所を検索してハイライトするには、[テキストの検索と置換](/slides/ja/cpp/search-and-replace-text/)をご覧ください。
+文字列や正規表現の一致を検索してハイライトする方法は、[Search and Replace Text](/slides/ja/cpp/search-and-replace-text/) を参照してください。
 
-## **テキストの背景色を設定**
+## **テキストの背景色を設定する**
 
-段落のデフォルトハイライト色を設定するには[IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/)を使用し、個々のテキスト部分のハイライト色を設定するには[IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/)を使用します。
+段落全体のハイライト色を設定するには [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) を使用し、個別のテキスト部分のハイライト色を設定するには [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) を使用します。
 
-以下のコード例は、**段落全体**の背景色を設定する方法を示しています：
+以下のコード例は **段落全体** の背景色を設定する方法を示しています。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -72,11 +72,11 @@ presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
 ![灰色の段落](gray_paragraph.png)
 
-以下のコード例は、**太字フォントのテキスト部分**の背景色を設定する方法を示しています：
+以下のコード例は **太字フォントのテキスト部分** の背景色を設定する方法を示しています。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -118,15 +118,15 @@ presentation->Save(u"gray_text_portions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
 ![灰色のテキスト部分](gray_text_portions.png)
 
 ## **テキスト段落の配置**
 
-テキストフレーム内の段落の配置を設定するには[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraphformat/set_alignment/)を使用します。値は中央揃え、左揃え、右揃え、両端揃えなどが指定できます。
+テキストフレーム内の段落配置を設定するには [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraphformat/set_alignment/) を使用します。値は中央揃え、左揃え、右揃え、両端揃えなどがあります。
 
-以下のコード例は、段落を**中央**に揃える方法を示しています：
+以下のコード例は段落を **中央** に揃える方法を示しています。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -153,15 +153,15 @@ presentation->Save(u"aligned_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
-![揃えた段落](aligned_paragraph.png)
+![揃えられた段落](aligned_paragraph.png)
 
-## **テキストの透明度を設定**
+## **テキストの透明度を設定する**
 
-テキストの透明度は、[IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseportionformat/get_fillformat/)で設定された色のアルファ成分で制御します。以下の例では、`alpha = 50` は 0〜255 のスケールの ARGB アルファチャネル値であり、透明度のパーセンテージではありません。
+テキストの透明度は [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseportionformat/get_fillformat/) で設定した色のアルファ成分で制御します。以下の例では `alpha = 50` は 0〜255 のスケールの ARGB アルファチャネル値であり、透明度パーセンテージではありません。
 
-以下のコード例は、**段落全体**に透明度を適用する方法を示しています：
+以下のコード例は **段落全体** に透明度を適用する方法を示しています。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -198,11 +198,11 @@ presentation->Save(u"transparent_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
 ![透明な段落](transparent_paragraph.png)
 
-以下のコード例は、**太字フォントのテキスト部分**に透明度を適用する方法を示しています：
+以下のコード例は **太字フォントのテキスト部分** に透明度を適用する方法を示しています。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -250,15 +250,15 @@ presentation->Save(u"transparent_text_portions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
 ![透明なテキスト部分](transparent_text_portions.png)
 
-## **テキストの文字間隔を設定**
+## **テキストの文字間隔を設定する**
 
-文字間隔は[IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseportionformat/set_spacing/)を使用して、テキストボックス内の文字間を拡張または縮小できます。
+テキストボックス内の文字間隔を拡大または縮小するには [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseportionformat/set_spacing/) を使用します。
 
-以下の C++ コードは、**段落全体**の文字間隔を拡張する方法を示しています：
+以下の C++ コードは **段落全体** の文字間隔を拡大する方法を示しています。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -279,17 +279,17 @@ auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
 // 注: 文字間隔を縮めるには負の値を使用します。
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // 文字間隔を拡大します。
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // 文字間隔を広げます。
 
 presentation->Save(u"character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
 ![段落の文字間隔](character_spacing_in_paragraph.png)
 
-以下のコード例は、**太字フォントのテキスト部分**の文字間隔を拡張する方法を示しています：
+以下のコード例は **太字フォントのテキスト部分** の文字間隔を拡大する方法を示しています。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -320,7 +320,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     if (portionFormat->GetEffective()->get_FontBold())
     {
         // 注: 文字間隔を縮めるには負の値を使用します。
-        portionFormat->set_Spacing(3.0f); // 文字間隔を拡大します。
+        portionFormat->set_Spacing(3.0f); // 文字間隔を広げます。
     }
 }
 
@@ -328,15 +328,15 @@ presentation->Save(u"character_spacing_in_text_portions.pptx", SaveFormat::Pptx)
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
 ![テキスト部分の文字間隔](character_spacing_in_text_portions.png)
 
-### **特定フォントのカーニングを無効化**
+### **特定フォントのカーニングを無効にする**
 
-場合によっては、Aspose.Slides がレンダリングしたテキストが PowerPoint で表示される同じテキストより若干詰まって見えることがあります。これは、PowerPoint が特定フォントのカーニングデータを無視する場合があるためで、フォントに有効なカーニング情報が含まれていても、PowerPoint の設定でカーニングが有効になっていても起こります。
+場合によっては、Aspose.Slides が描画するテキストが PowerPoint の表示よりわずかに詰まって見えることがあります。これは PowerPoint が特定フォントのカーニング情報を無視するためです（フォントに有効なカーニング情報が含まれていても、PowerPoint の設定でカーニングが有効でも同様です）。
 
-このようなケースでレンダリング結果を PowerPoint に近づけるには、影響を受けるフォントを使用するテキスト部分のカーニングを無効化できます。[IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/)を使用して、実際のフォントサイズよりはるかに大きな値を設定します：
+このような場合、影響を受けるフォントを使用するテキスト部分のカーニングを無効にできます。[IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) を使用して、実際のフォントサイズよりはるかに大きな値を設定します。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -391,13 +391,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-この設定により、該当するテキスト部分にカーニングが適用されなくなり、PowerPoint 固有の動作で影響を受けるフォントの表示を Aspose.Slides のレンダリングと合わせることができます。
+この設定により、該当するテキスト部分にカーニングが適用されず、PowerPoint 特有の挙動によるフォントの表示差異を軽減できます。
 
-## **テキストのフォントプロパティを管理**
+## **テキストフォントプロパティを管理する**
 
-フォントプロパティは[IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/)で段落レベルに設定でき、個々の部分は[IPortionFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iportionformat/)で設定できます。
+フォントプロパティは [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) で段落レベルに、または各部分に対しては [IPortionFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iportionformat/) で設定できます。
 
-以下のコードは、段落全体のフォントとテキストスタイルを設定します。フォントサイズ、太字、斜体、点線下線、そして Times New Roman フォントが段落内のすべての部分に適用されます。
+以下のコードは段落全体のフォントとテキストスタイルを設定します。フォントサイズ、太字、斜体、点線下線、そして Times New Roman フォントがすべての部分に適用されます。
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -433,11 +433,11 @@ presentation->Save(u"font_properties_for_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
 ![段落のフォントプロパティ](font_properties_for_paragraph.png)
 
-以下のコード例は、**太字フォントのテキスト部分**に同様のプロパティを適用します：
+以下のコード例は **太字フォントのテキスト部分** に同様のプロパティを適用します。
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -483,15 +483,15 @@ presentation->Save(u"font_properties_for_text_portions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
 ![テキスト部分のフォントプロパティ](font_properties_for_text_portions.png)
 
-## **テキストの回転を設定**
+## **テキストの回転を設定する**
 
-[ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextframeformat/set_textverticaltype/) を使用して、シェイプ内のテキストの事前定義された向きを設定できます。
+テキストの向きを事前定義されたものに設定するには [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextframeformat/set_textverticaltype/) を使用します。
 
-以下のコード例は、シェイプ内のテキスト向きを [TextVerticalType::Vertical270](https://reference.aspose.com/slides/ja/cpp/aspose.slides/textverticaltype/) に設定し、テキストを**反時計回りに 90 度**回転させます：
+以下のコード例はテキストの向きを [TextVerticalType::Vertical270](https://reference.aspose.com/slides/ja/cpp/aspose.slides/textverticaltype/) に設定し、テキストを **90 度左回転** させます。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -515,15 +515,15 @@ presentation->Save(u"text_rotation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
 ![テキストの回転](text_rotation.png)
 
-## **テキストフレームのカスタム回転を設定**
+## **テキストフレームのカスタム回転を設定する**
 
 [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextframeformat/set_rotationangle/) を使用して、[ITextFrame](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextframe/) のカスタム回転角度を設定できます。
 
-以下のコード例は、シェイプ内でテキストフレームを時計回りに 3 度回転させます：
+以下のコード例はシェイプ内のテキストフレームを時計回りに 3 度回転させます。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -546,18 +546,18 @@ presentation->Save(u"custom_text_rotation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
 ![カスタムテキスト回転](custom_text_rotation.png)
 
-## **段落の行間を設定**
+## **段落の行間を設定する**
 
-Aspose.Slides は[IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraphformat/set_spaceafter/)、[IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraphformat/set_spacebefore/)、[IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraphformat/set_spacewithin/) を提供し、段落間隔を制御します。これらのメソッドは次のように使用します：
+Aspose.Slides は [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraphformat/set_spaceafter/)、[IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraphformat/set_spacebefore/)、および [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraphformat/set_spacewithin/) を提供し、段落間隔を制御します。使用方法は次のとおりです。
 
-* 正の値を使用して、行間を行高さのパーセンテージで指定します。
-* 負の値を使用して、行間をポイントで指定します。
+* 正の値は行高のパーセンテージとして行間を指定します。  
+* 負の値はポイント単位で行間を指定します。
 
-以下のコード例は、段落内の行間を指定する方法を示しています：
+以下のコード例は段落内の行間を指定する方法を示しています。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -582,13 +582,13 @@ presentation->Save(u"line_spacing.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
 ![段落内の行間](line_spacing.png)
 
-## **テキストフレームのオートフィットタイプを設定**
+## **テキストフレームのオートフィットタイプを設定する**
 
-[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextframeformat/set_autofittype/) は、テキストがコンテナの境界を超えたときの動作を決定します。テキストを縮小するか、はみ出すか、シェイプを自動的にリサイズするかを制御できます。
+[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextframeformat/set_autofittype/) は、テキストがコンテナの境界を超えたときの動作を決定します。テキストを縮小、はみ出し、またはシェイプを自動的にリサイズするかを制御できます。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -612,9 +612,11 @@ presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **テキストフレームのアンカーを設定**
+自動折り返し後の行数やテキスト・シェイプ幅の変化を確認したい場合は、[Count Rendered Lines](/slides/ja/cpp/manage-paragraph/) を参照してください。行数だけではテキストがコンテナを超えているかどうかは判断できません。
 
-[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextframeformat/set_anchoringtype/) は、テキストをシェイプ内部の垂直位置（上部、中央、下部など）に配置する方法を定義します。
+## **テキストフレームのアンカーを設定する**
+
+[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextframeformat/set_anchoringtype/) は、シェイプ内でテキストを垂直方向にどこに配置するか（上部、中央、下部など）を定義します。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -640,7 +642,7 @@ presentation->Dispose();
 
 ## **テキストのタブ設定**
 
-[IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) と[IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraphformat/get_tabs/) を使用して、段落内のタブストップを構成できます。
+段落のタブストップを構成するには、[IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) と [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraphformat/get_tabs/) を使用します。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -668,15 +670,15 @@ presentation->Save(u"paragraph_tabs.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
 ![段落のタブ](paragraph_tabs.png)
 
-## **校正言語を設定**
+## **校正言語を設定する**
 
-Aspose.Slides は[IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseportionformat/set_languageid/) を提供し、テキスト部分の校正言語を設定できます。校正言語は PowerPoint のスペルチェックや文法チェックに使用される言語を決定します。
+[IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseportionformat/set_languageid/) を使用すると、テキスト部分の校正言語を設定できます。校正言語は PowerPoint のスペルチェックや文法チェックに使用される言語を決定します。
 
-以下のコード例は、テキスト部分の校正言語を設定する方法を示しています：
+以下のコード例はテキスト部分の校正言語を設定する方法を示しています。
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -708,7 +710,7 @@ portionFormat->set_ComplexScriptFont(font);
 portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
-// Set the Id of a proofing language.
+// 校正言語の Id を設定します。
 portionFormat->set_LanguageId(u"zh-CN");
 
 textPortion->set_Text(u"1.");
@@ -718,9 +720,9 @@ presentation->Save(u"proofing_language.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **デフォルト言語を設定**
+## **デフォルト言語を設定する**
 
-[ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iloadoptions/set_defaulttextlanguage/) を使用して、プレゼンテーションのロードまたは作成時に作成されるテキストのデフォルト言語を定義できます。
+[ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iloadoptions/set_defaulttextlanguage/) を使用して、プレゼンテーションのロードまたは作成時に新規テキストに適用されるデフォルト言語を定義します。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -742,11 +744,11 @@ loadOptions->set_DefaultTextLanguage(u"en-US");
 auto presentation = System::MakeObject<Presentation>(loadOptions);
 auto slide = presentation->get_Slide(0);
 
-// テキストを含む新しい矩形シェイプを追加します。
+// Add a new rectangle shape with text.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 50.0f);
 shape->get_TextFrame()->set_Text(u"Sample text");
 
-// 最初のテキスト部分の言語を確認します。
+// Check the first portion language.
 auto portion = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
 auto languageId = portion->get_PortionFormat()->get_LanguageId();
 System::Console::WriteLine(languageId);
@@ -754,11 +756,11 @@ System::Console::WriteLine(languageId);
 presentation->Dispose();
 ```
 
-## **デフォルトテキストスタイルを設定**
+## **デフォルトテキストスタイルを設定する**
 
-プレゼンテーションレベルでデフォルトのテキスト書式設定を適用するには、[IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ipresentation/get_defaulttextstyle/) を使用します。
+プレゼンテーションレベルでデフォルトのテキスト書式を適用するには、[IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ipresentation/get_defaulttextstyle/) を使用します。
 
-以下のコード例は、新しいプレゼンテーションのすべてのスライドで、デフォルトで太字・サイズ 14pt のフォントを設定する方法を示しています。
+以下のコード例は、新しいプレゼンテーションのすべてのスライドで、14 pt の太字フォントをデフォルトとして設定する方法を示しています。
 
 ```cpp
 #include <DOM/IParagraphFormat.h>
@@ -772,7 +774,7 @@ using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>();
 
-// トップレベルの段落フォーマットを取得します。
+// 上位レベルの段落書式を取得します。
 auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
 if (paragraphFormat != nullptr)
@@ -786,15 +788,15 @@ presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **すべて大文字の効果でテキストを抽出**
+## **全大文字効果でテキストを抽出する**
 
-PowerPoint で **All Caps** フォント効果を適用すると、スライド上のテキストが大文字で表示されますが、元の入力は小文字のままです。Aspose.Slides でそのテキスト部分を取得すると、ライブラリは入力されたままの文字列を返します。表示されているテキストと一致させるには、[TextCapType](https://reference.aspose.com/slides/ja/cpp/aspose.slides/textcaptype/) をチェックし、値が[TextCapType::All](https://reference.aspose.com/slides/ja/cpp/aspose.slides/textcaptype/) の場合に返された文字列を大文字に変換します。
+PowerPoint では **All Caps** フォント効果を適用すると、スライド上では大文字で表示されますが、実際に入力された文字列は元の小文字のままです。Aspose.Slides でそのテキスト部分を取得すると、入力された通りの文字列が返ります。表示されているテキストと一致させるには、[TextCapType](https://reference.aspose.com/slides/ja/cpp/aspose.slides/textcaptype/) を確認し、値が [TextCapType::All](https://reference.aspose.com/slides/ja/cpp/aspose.slides/textcaptype/) の場合は返された文字列を大文字に変換します。
 
-たとえば、sample2.pptx の最初のスライドに次のテキストボックスがあるとします。
+例として、sample2.pptx の最初のスライドに次のテキストボックスがあるとします。
 
-![すべて大文字の効果](all_caps_effect.png)
+![全大文字効果](all_caps_effect.png)
 
-以下のコード例は、**All Caps** 効果が適用されたテキストを抽出する方法を示しています：
+以下のコード例は **All Caps** 効果が適用されたテキストを抽出する方法を示しています。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -828,19 +830,19 @@ if (textFormat->get_TextCapType() == TextCapType::All)
 presentation->Dispose();
 ```
 
-出力：
+出力:
 
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **よくある質問**
+## **FAQ**
 
-**スライド上のテーブル内のテキストを変更するにはどうすればよいですか？**
+**スライド上のテーブル内のテキストを変更するには？**
 
-テーブル内のテキストを変更するには、[ITable](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itable/) を使用します。セルを反復処理し、各セルを[ICell::get_TextFrame](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icell/get_textframe/) と[IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraph/get_paragraphformat/) を通じて更新します。
+テーブル内のテキストを変更するには、[ITable](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itable/) を使用します。セルを反復処理し、各セルを [ICell::get_TextFrame](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icell/get_textframe/) で取得し、段落書式は [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraph/get_paragraphformat/) で更新します。
 
 **PowerPoint スライドのテキストにグラデーションカラーを適用するには？**
 
-グラデーションカラーを適用するには、[IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseportionformat/get_fillformat/) を使用します。[IFillFormat::set_FillType](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ifillformat/set_filltype/) を [FillType::Gradient](https://reference.aspose.com/slides/ja/cpp/aspose.slides/filltype/) に設定し、グラデーションストップ、方向、透明度を構成します。
+テキストにグラデーションカラーを適用するには、[IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseportionformat/get_fillformat/) を使用します。[IFillFormat::set_FillType](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ifillformat/set_filltype/) を [FillType::Gradient](https://reference.aspose.com/slides/ja/cpp/aspose.slides/filltype/) に設定し、グラデーションストップ、方向、透明度を構成します。

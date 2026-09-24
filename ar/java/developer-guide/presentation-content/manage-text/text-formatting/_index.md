@@ -1,5 +1,5 @@
 ---
-title: تنسيق نص العرض التقديمي في جافا
+title: تنسيق نص العرض التقديمي في Java
 linktitle: تنسيق النص
 type: docs
 weight: 50
@@ -12,36 +12,36 @@ keywords:
 - تباعد الأحرف
 - خصائص الخط
 - عائلة الخط
-- تدوير النص
+- دوران النص
 - زاوية الدوران
 - إطار النص
-- تباعد الأسطر
+- تباعد السطر
 - خاصية الملاءمة التلقائية
 - تثبيت إطار النص
-- تبويب النص
+- جدولة النص
 - اللغة الافتراضية
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "تنسيق وتنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لجافا. تخصيص الخطوط، الألوان، المحاذاة، وأكثر."
+description: "تنسيق وتنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for Java. تخصيص الخطوط والألوان والمحاذاة والمزيد."
 ---
 ## **نظرة عامة**
 
-هذه المقالة توضح كيفية تنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for Java. تغطي ألوان الخلفية، الشفافية، تباعد الأحرف، خصائص الخط، التدوير، تباعد الفقرات، سلوك الملاءمة التلقائية، تثبيت النص، نقاط التبويب، وإعدادات اللغة.
+توضح هذه المقالة كيفية تنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for Java. وتغطي ألوان الخلفية، الشفافية، تباعد الأحرف، خصائص الخط، التدوير، تباعد الفقرات، سلوك الملاءمة التلقائي، تثبيت النص، مواضع الفواصل، وإعدادات اللغة.
 
-في الأمثلة أدناه، سنستخدم ملفًا باسم "sample.pptx"، يحتوي على مربع نص واحد في الشريحة الأولى بالنص التالي:
+في الأمثلة أدناه، سنستخدم ملفًا يُدعى **"sample.pptx"** يحتوي على مربع نص واحد في الشريحة الأولى بالنص التالي:
 
 ![نص العينة](sample_text.png)
 
-للعثور على نص حرفي أو تطابقات تعبير عادي وتحديدها، راجع [بحث واستبدال النص](/slides/ar/java/search-and-replace-text/).
+للعثور على النص الحرفي أو مطابقة التعبيرات النمطية وتسليط الضوء عليها، راجع [البحث واستبدال النص](/slides/ar/java/search-and-replace-text/).
 
 ## **تعيين لون خلفية النص**
 
-استخدم [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) لتعيين لون الإبراز الافتراضي لفقرة، أو استخدم [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) لأجزاء النص الفردية.
+استخدم [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) لتعيين لون التظليل الافتراضي لفقرة، أو استخدم [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) لأجزاء النص الفردية.
 
-يوضح مثال الشيفرة التالي كيفية تعيين لون الخلفية لل**فقرة كاملة**:
+يظهر المثال البرمجي التالي كيفية تعيين لون الخلفية **لكامل الفقرة**:
 
 ```java
 import com.aspose.slides.*;
@@ -53,7 +53,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // تعيين لون الإبراز للفقرة بأكملها.
+    // تعيين لون التحديد للفقرة بأكملها.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -64,9 +64,9 @@ try {
 
 النتيجة:
 
-![الفقرة ذات اللون الرمادي](gray_paragraph.png)
+![الفقرة الرمادية](gray_paragraph.png)
 
-يوضح مثال الشيفرة أدناه كيفية تعيين لون الخلفية **لأجزاء النص ذات الخط العريض**:
+يوضح مثال الشيفرة أدناه كيفية تعيين لون الخلفية **لأجزاء النص ذات الخط الغامق**:
 
 ```java
 import com.aspose.slides.*;
@@ -80,7 +80,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // تعيين لون الإبراز لقسم النص.
+            // تعيين لون التحديد للجزء النصي.
             portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
         }
     }
@@ -97,9 +97,9 @@ try {
 
 ## **محاذاة فقرات النص**
 
-استخدم [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) لتعيين محاذاة الفقرة داخل إطار النص. يمكن أن تكون القيمة مركزة، محاذية إلى اليسار، إلى اليمين، مبررة، وهكذا.
+استخدم [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) لتعيين محاذاة الفقرة داخل إطار النص. يمكن أن تكون القيمة وسطًا، محاذاة إلى اليسار، محاذاة إلى اليمين، مبررة، وما إلى ذلك.
 
-يوضح مثال الشيفرة التالي كيفية محاذاة الفقرة إلى **الوسط**:
+يظهر المثال البرمجي التالي كيفية محاذاة الفقرة إلى **الوسط**:
 
 ```java
 import com.aspose.slides.*;
@@ -110,7 +110,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // تعيين محاذاة الفقرة إلى الوسط.
+    // ضبط محاذاة الفقرة إلى المركز.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -125,9 +125,9 @@ try {
 
 ## **تعيين الشفافية للنص**
 
-تتحكم الشفافية في النص من خلال المكوّن ألفا للون المُعيّن إلى [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). في الأمثلة أدناه، `alpha = 50` هو قيمة قناة ألفا ARGB على مقياس 0–255، وليس نسبة شفافية.
+تتحكم الشفافية عبر مكوّن ألفا للون المعطى إلى [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). في الأمثلة أدناه، `alpha = 50` هو قيمة قناة ألفا ARGB على مقياس 0–255، وليس نسبة شفافية.
 
-يوضح مثال الشيفرة التالي كيفية تطبيق الشفافية على **الفقرة كاملة**:
+يوضح مثال الشيفرة أدناه كيفية تطبيق الشفافية على **كامل الفقرة**:
 
 ```java
 import com.aspose.slides.*;
@@ -141,7 +141,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // تعيين لون تعبئة النص إلى لون شفاف.
+    // تعيين لون ملء النص إلى لون شفاف.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
 
@@ -155,7 +155,7 @@ try {
 
 ![الفقرة الشفافة](transparent_paragraph.png)
 
-يوضح مثال الشيفرة التالي كيفية تطبيق الشفافية على **أجزاء النص ذات الخط العريض**:
+يعرض المثال البرمجي التالي كيفية تطبيق الشفافية على **أجزاء النص ذات الخط الغامق**:
 
 ```java
 import com.aspose.slides.*;
@@ -171,7 +171,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // تعيين شفافية جزء النص.
+            // تعيين شفافية الجزء النصي.
             portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
             portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
         }
@@ -191,7 +191,7 @@ try {
 
 استخدم [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) لتوسيع أو تضييق التباعد بين الأحرف في مربع النص.
 
-يوضح كود Java التالي كيفية توسيع تباعد الأحرف في **الفقرة كاملة**:
+يعرض الكود الجافا التالي كيفية توسيع تباعد الأحرف في **كامل الفقرة**:
 
 ```java
 import com.aspose.slides.*;
@@ -215,7 +215,7 @@ try {
 
 ![تباعد الأحرف في الفقرة](character_spacing_in_paragraph.png)
 
-يوضح مثال الشيفرة أدناه كيفية توسيع تباعد الأحرف في **أجزاء النص ذات الخط العريض**:
+يوضح مثال الشيفرة أدناه كيفية توسيع تباعد الأحرف في **أجزاء النص ذات الخط الغامق**:
 
 ```java
 import com.aspose.slides.*;
@@ -243,11 +243,11 @@ try {
 
 ![تباعد الأحرف في أجزاء النص](character_spacing_in_text_portions.png)
 
-### **تعطيل التريك (Kerning) لخطوط معينة**
+### **تعطيل الكيرنينج لخطوط محددة**
 
-في بعض الحالات، قد يبدو النص المُصوَّر بـ Aspose.Slides أكثر ضيقًا قليلًا من النص نفسه في PowerPoint. يحدث هذا لأن PowerPoint قد يتجاهل بيانات التريك لبعض الخطوط، حتى لو كان الخط يحتوي على معلومات تريك صالحة وتم تمكين التريك في إعدادات PowerPoint.
+في بعض الحالات، قد يبدو النص المرسوم بـ Aspose.Slides أكثر تشددًا قليلًا من النص نفسه المعروض في PowerPoint. يمكن أن يحدث ذلك لأن PowerPoint قد يتجاهل بيانات الكيرنينج لبعض الخطوط، حتى وإن كان الخط يحتوي على معلومات كيرنينج صالحة وتم تمكين الكيرنينج في إعدادات PowerPoint.
 
-لجعل الناتج المُصوَّر أقرب إلى PowerPoint في هذه الحالات، يمكنك تعطيل التريك لأجزاء النص التي تستخدم الخط المتأثر. عيّن [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) إلى قيمة أكبر بكثير من حجم الخط الفعلي:
+لجعل النتيجة المرسومة أقرب إلى ما يعرضه PowerPoint في مثل هذه الحالات، يمكنك تعطيل الكيرنينج لأجزاء النص التي تستخدم الخط المتأثر. اضبط [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) إلى قيمة أكبر بكثير من حجم الخط الفعلي:
 
 ```java
 import com.aspose.slides.*;
@@ -279,13 +279,13 @@ try {
 }
 ```
 
-هذا الإعداد يمنع تطبيق التريك على أجزاء النص المتطابقة ويمكن أن يساعد في مطابقة عرض Aspose.Slides مع المخرجات البصرية لـ PowerPoint للخطوط المتأثرة بهذا السلوك الخاص بـ PowerPoint.
+يمنع هذا الإعداد تطبيق الكيرنينج على أجزاء النص المتطابقة ويمكن أن يساعد في مطابقة مخرجات Aspose.Slides البصرية مع PowerPoint للخطوط المتأثرة بهذا السلوك الخاص بـ PowerPoint.
 
 ## **إدارة خصائص خط النص**
 
-يمكن تعيين خصائص الخط على مستوى الفقرة عبر [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) أو على الأجزاء الفردية عبر [IPortionFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iportionformat/).
+يمكن تعيين خصائص الخط على مستوى الفقرة عبر [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) أو على أجزاء فردية عبر [IPortionFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iportionformat/).
 
-يقوم الكود التالي بتعيين الخط ونمط النص للفقرة كاملة: يطبق حجم الخط، العريض، المائل، تسطير منقط، وخط Times New Roman على جميع الأجزاء في الفقرة.
+الكود التالي يضبط الخط ونمط النص للفقرة بأكملها: يطبق حجم الخط، الغامق، المائل، خط تحتي منقّط، وخط Times New Roman على جميع الأجزاء في الفقرة.
 
 ```java
 import com.aspose.slides.*;
@@ -313,7 +313,7 @@ try {
 
 ![خصائص الخط للفقرة](font_properties_for_paragraph.png)
 
-يوضح مثال الشيفرة أدناه تطبيق خصائص مماثلة على **أجزاء النص ذات الخط العريض**:
+يوضح مثال الشيفرة أدناه تطبيق خصائص مماثلة على **أجزاء النص ذات الخط الغامق**:
 
 ```java
 import com.aspose.slides.*;
@@ -326,7 +326,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // تعيين خصائص الخط لجزء النص.
+            // تعيين خصائص الخط للجزء النصي.
             portion.getPortionFormat().setFontHeight(13);
             portion.getPortionFormat().setFontItalic(NullableBool.True);
             portion.getPortionFormat().setFontUnderline(TextUnderlineType.Dotted);
@@ -344,11 +344,11 @@ try {
 
 ![خصائص الخط لأجزاء النص](font_properties_for_text_portions.png)
 
-## **تعيين تدوير النص**
+## **تعيين دوران النص**
 
-استخدم [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) لتعيين توجيه نص مسبق التعريف داخل الشكل.
+استخدم [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) لتعيين اتجاه نص مسبق داخل الشكل.
 
-يضبط مثال الشيفرة التالي توجيه النص داخل الشكل إلى `Vertical270`، مما يدور النص **90 درجة عكس عقارب الساعة**:
+الكود التالي يضبط اتجاه النص داخل الشكل إلى `Vertical270`، مما يدور النص **90 درجة عكس اتجاه عقارب الساعة**:
 
 ```java
 import com.aspose.slides.*;
@@ -368,13 +368,13 @@ try {
 
 النتيجة:
 
-![تدوير النص](text_rotation.png)
+![دوران النص](text_rotation.png)
 
-## **تعيين تدوير مخصص لإطارات النص**
+## **تعيين دوران مخصص لأطر النص**
 
-استخدم [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) لتعيين زاوية تدوير مخصصة لـ [ITextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/).
+استخدم [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) لتعيين زاوية دوران مخصصة لـ [ITextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/).
 
-يدور مثال الشيفرة أدناه إطار النص بمقدار 3 درجات باتجاه عقارب الساعة داخل الشكل:
+يقوم المثال البرمجي أدناه بتدوير إطار النص بمقدار 3 درجات مع اتجاه عقارب الساعة داخل الشكل:
 
 ```java
 import com.aspose.slides.*;
@@ -394,16 +394,16 @@ try {
 
 النتيجة:
 
-![التدوير المخصص للنص](custom_text_rotation.png)
+![دوران النص المخصص](custom_text_rotation.png)
 
 ## **تعيين تباعد الأسطر للفقرات**
 
-توفر Aspose.Slides الخصائص [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-)، [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-)، و[IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) للتحكم في تباعد الفقرات. تُستخدم هذه الخصائص كما يلي:
+توفر Aspose.Slides الخصائص [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-)، [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-)، و[IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) للتحكم في تباعد الفقرات. تُستخدم هذه الخصائص كالتالي:
 
 * استخدم قيمة موجبة لتحديد تباعد السطر كنسبة مئوية من ارتفاع السطر.
 * استخدم قيمة سالبة لتحديد تباعد السطر بالنقاط.
 
-يوضح مثال الشيفرة التالي كيفية تحديد تباعد السطر داخل الفقرة:
+يعرض المثال البرمجي التالي كيفية تحديد تباعد السطر داخل الفقرة:
 
 ```java
 import com.aspose.slides.*;
@@ -424,11 +424,11 @@ try {
 
 النتيجة:
 
-![تباعد السطر داخل الفقرة](line_spacing.png)
+![تباعد الأسطر داخل الفقرة](line_spacing.png)
 
-## **تعيين نوع الملاءمة التلقائية لإطارات النص**
+## **تعيين نوع الملاءمة التلقائية لأطر النص**
 
-يحدد [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) كيفية تصرف النص عندما يتجاوز حدود حاويته. استخدمه للتحكم فيما إذا كان النص يتقلص، يفيض، أو يعيد تحجيم الشكل تلقائيًا.
+يحدد [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) كيفية تصرف النص عندما يتجاوز حدود الحاوية الخاصة به. استخدمه للتحكم فيما إذا كان النص سينكمش، يتجاوز، أو يعيد تحجيم الشكل تلقائيًا.
 
 ```java
 import com.aspose.slides.*;
@@ -446,9 +446,11 @@ try {
 }
 ```
 
-## **تعيين تثبيت إطارات النص**
+لحساب عدد الأسطر بعد الالتفاف التلقائي ورؤية كيف يتغير عرض النص أو الشكل كنتيجة، راجع [عدّ الأسطر المرسومة](/slides/ar/java/manage-paragraph/). عدد الأسطر وحده لا يدل على ما إذا كان النص يتجاوز الحاوية.
 
-يحدد [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) كيفية وضع النص عموديًا داخل الشكل، مثلاً في الأعلى، الوسط، أو الأسفل.
+## **تعيين تثبيت أطر النص**
+
+تعرف [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) كيفية تموضع النص عموديًا داخل الشكل، مثلًا في الأعلى أو الوسط أو الأسفل.
 
 ```java
 import com.aspose.slides.*;
@@ -466,9 +468,9 @@ try {
 }
 ```
 
-## **تعيين تبويب النص**
+## **تعيين جدولة النص**
 
-استخدم [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) و[IParagraphFormat.getTabs](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#getTabs--) لتكوين نقاط التبويب في الفقرة.
+استخدم [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) و[IParagraphFormat.getTabs](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#getTabs--) لتكوين مواضع الفواصل في الفقرة.
 
 ```java
 import com.aspose.slides.*;
@@ -490,13 +492,13 @@ try {
 
 النتيجة:
 
-![نقاط تبويب الفقرة](paragraph_tabs.png)
+![فواصل الفقرة](paragraph_tabs.png)
 
 ## **تعيين لغة التدقيق**
 
-توفر Aspose.Slides الخاصية [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-)، والتي تتيح لك تعيين لغة التدقيق لقسم النص. تحدد لغة التدقيق اللغة المستخدمة لتدقيق الإملاء والقواعد في PowerPoint.
+توفر Aspose.Slides الخاصية [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) التي تسمح لك بتعيين لغة التدقيق لجزء نص. تحدد لغة التدقيق اللغة المستخدمة لفحص الإملاء والقواعد في PowerPoint.
 
-يوضح مثال الشيفرة التالي كيفية تعيين لغة التدقيق لقسم النص:
+يعرض مثال الشيفرة التالي كيفية تعيين لغة التدقيق لجزء نص:
 
 ```java
 import com.aspose.slides.*;
@@ -530,7 +532,7 @@ try {
 
 ## **تعيين اللغة الافتراضية**
 
-استخدم [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) لتحديد اللغة الافتراضية للنص الذي يُنشأ أثناء تحميل أو إنشاء عرض تقديمي.
+استخدم [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) لتحديد اللغة الافتراضية للنص المُنشأ أثناء تحميل أو إنشاء عرض تقديمي.
 
 ```java
 import com.aspose.slides.*;
@@ -546,7 +548,7 @@ try {
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // التحقق من لغة الجزء الأول.
+    // تحقق من لغة الجزء الأول.
     IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     System.out.println(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -556,16 +558,16 @@ try {
 
 ## **تعيين النمط النصي الافتراضي**
 
-لتطبيق تنسيق نص افتراضي على مستوى العرض التقديمي، استخدم [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
+لتطبيق تنسيق نص افتراضي على مستوى العرض، استخدم [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-يظهر مثال الشيفرة التالي كيفية تعيين خط عريض افتراضي بحجم 14 نقطة لجميع النصوص عبر الشرائح في عرض تقديمي جديد.
+يعرض مثال الشيفرة التالي كيفية تعيين خط غامق افتراضي بحجم 14 نقطة لجميع النصوص عبر الشرائح في عرض تقديمي جديد.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // احصل على تنسيق الفقرة من المستوى الأعلى.
+    // الحصول على تنسيق الفقرة من المستوى العلوي.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -579,15 +581,15 @@ try {
 }
 ```
 
-## **استخراج النص مع تأثير الأحرف الكبيرة كلها (All-Caps)**
+## **استخراج النص مع تأثير الأحرف الكبيرة كلها**
 
-في PowerPoint، يجعل تطبيق تأثير **All Caps** الخط أن يظهر النص بأحرف uppercase على الشريحة حتى لو كُتب أصلاً بأحرف lowercase. عند استرجاع مثل هذا الجزء من النص باستخدام Aspose.Slides، تُعيد المكتبة النص تمامًا كما تم إدخاله. لمطابقة النص المعروض، افحص [TextCapType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textcaptype/) وحوّل السلسلة المرتجعة إلى uppercase عندما تكون القيمة `All`.
+في PowerPoint، يؤدي تطبيق تأثير الخط **All Caps** إلى ظهور النص بأحرف كبيرة على الشريحة حتى وإن كُتب أصلاً بأحرف صغيرة. عند استرجاع مثل هذا الجزء النصي باستخدام Aspose.Slides، تُعيد المكتبة النص كما تم إدخاله. لمطابقة النص المعروض، تحقق من [TextCapType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textcaptype/) وحوِّل السلسلة المرجعة إلى أحرف كبيرة عندما تكون القيمة `All`.
 
-لنفترض أن لدينا مربع النص التالي في الشريحة الأولى من ملف sample2.pptx.
+لنفترض أن لدينا مربع النص التالي في الشريحة الأولى من ملف **sample2.pptx**.
 
-![تأثير All Caps](all_caps_effect.png)
+![تأثير الأحرف الكبيرة كلها](all_caps_effect.png)
 
-يوضح مثال الشيفرة أدناه كيفية استخراج النص مع تطبيق تأثير **All Caps**:
+يعرض مثال الشيفرة أدناه كيفية استخراج النص مع تطبيق تأثير **All Caps**:
 
 ```java
 import com.aspose.slides.*;
@@ -610,19 +612,19 @@ try {
 }
 ```
 
-الإنتاج:
+المخرجات:
 
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة المتداولة**
 
 **كيف يمكن تعديل النص في جدول على شريحة؟**
 
-لتعديل النص في جدول على شريحة، استخدم [ITable](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itable/). قم بالتكرار عبر الخلايا وحدث كل خلية عبر [ICell.getTextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icell/#getTextFrame--) وتنسيق الفقرة عبر [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
+لتعديل النص في جدول على شريحة، استخدم [ITable](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itable/). تكرّر الخلايا وقم بتحديث كل خلية عبر [ICell.getTextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icell/#getTextFrame--) وتنسيق الفقرة عبر [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
 **كيف يمكن تطبيق لون متدرج للنص في شريحة PowerPoint؟**
 
-لتطبيق لون متدرج على النص، استخدم [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). عيّن [IFillFormat.setFillType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ifillformat/#setFillType-byte-) إلى [FillType.Gradient](https://reference.aspose.com/slides/ar/java/com.aspose.slides/filltype/) وكوّن نقاط التدرج، الاتجاه، والشفافية.
+لتطبيق لون متدرج للنص، استخدم [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). اضبط [IFillFormat.setFillType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ifillformat/#setFillType-byte-) على [FillType.Gradient](https://reference.aspose.com/slides/ar/java/com.aspose.slides/filltype/) وقم بتكوين نقاط التدرج، الاتجاه، والشفافية.

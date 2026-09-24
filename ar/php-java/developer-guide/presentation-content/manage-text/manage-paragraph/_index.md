@@ -12,52 +12,52 @@ keywords:
 - إضافة فقرة
 - إدارة النص
 - إدارة الفقرة
-- إدارة العلامة النقطية
-- إزاحة الفقرة
-- إزاحة معلقة
-- علامة الفقرة
+- إدارة النقطة
+- مسافة الفقرة
+- مسافة معلقة
+- نقطة الفقرة
 - قائمة مرقمة
 - قائمة نقطية
 - خصائص الفقرة
 - استيراد HTML
-- نص إلى HTML
-- فقرة إلى HTML
-- فقرة إلى صورة
-- نص إلى صورة
+- تحويل النص إلى HTML
+- تحويل الفقرة إلى HTML
+- تحويل الفقرة إلى صورة
+- تحويل النص إلى صورة
 - تصدير الفقرة
 - PowerPoint
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تعرّف على كيفية إنشاء وتنسيق الفقرات، الأجزاء، العلامات النقطية، القوائم المرقمة، الإزاحات، محتوى HTML، وصور الفقرات باستخدام Aspose.Slides لـ PHP عبر Java."
+description: "تعلم كيفية إنشاء وتنسيق الفقرات والجزءات والنقاط والقوائم المرقمة والمسافات ومحتوى HTML وصور الفقرات باستخدام Aspose.Slides للـ PHP عبر Java."
 ---
 ## **نظرة عامة**
 
-Aspose.Slides لـ PHP عبر Java يمثل النص كهرمية من إطارات النص وفقرة وأجزاء:
+يمثل Aspose.Slides for PHP عبر Java النص على شكل تسلسل هرمي من إطارات النص والفقرات والجزءات:
 
 * [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) يمثل حاوية النص داخل الشكل ويوفر الوصول إلى مجموعة الفقرات الخاصة به.
-* [Paragraph](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/) يمثل فقرة واحدة في إطار النص ويوفر الوصول إلى أجزائه وتنسيق المستوى الفقرة.
-* [Portion](https://reference.aspose.com/slides/ar/php-java/aspose.slides/portion/) يمثل مجموعة نص داخل الفقرة. يمكن لكل جزء أن يحتوي على نصه الخاص وتنسيق المستوى الحرفي.
+* [Paragraph](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/) يمثل فقرة واحدة في إطار النص ويوفر الوصول إلى الجزءات وتنسيق الفقرة.
+* [Portion](https://reference.aspose.com/slides/ar/php-java/aspose.slides/portion/) يمثل نصًا داخل فقرة. يمكن لكل جزء أن يملك نصه وتنسيق الأحرف الخاص به.
 
-يمكن للفقرة بذلك أن تحتوي على نص بخطوط وألوان وأحجام وتنسيقات مختلفة باستخدام عدة أجزاء.
+يمكن للفقرة بالتالي احتواء نص بخطوط وألوان وأحجام وتنسيقات أخرى مختلفة باستخدام جزءات متعددة.
 
 ## **إنشاء وتنسيق الفقرات**
 
-### **إنشاء فقرات بعدة أجزاء**
+### **إنشاء فقرات مع جزءات متعددة**
 
-الخطوات التالية تنشئ إطار نص يحتوي على ثلاث فقرات، كل منها يحتوي على ثلاثة أجزاء:
+الخطوات التالية تنشئ إطار نص يحتوي على ثلاث فقرات، كل منها يحتوي على ثلاث جزءات:
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).
-2. الوصول إلى الشريحة ذات الصلة عبر فهرسها.
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).
+2. الوصول إلى الشريحة ذات الصلة عبر فهرستها.
 3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) مستطيل إلى الشريحة.
 4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) الخاص بالشكل.
-5. استخدام الفقرة الافتراضية وإضافة كائنين إضافيين من نوع [Paragraph](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/) إلى إطار النص.
-6. إضافة ما يكفي من كائنات [Portion](https://reference.aspose.com/slides/ar/php-java/aspose.slides/portion/) لكل فقرة لتحتوي على ثلاثة أجزاء. الفقرة الافتراضية تحتوي بالفعل على جزء فارغ واحد.
-7. تعيين نص كل جزء.
-8. تطبيق تنسيق المستوى الحرفي عبر [Portion::getPortionFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/portion/#getPortionFormat--).
+5. استخدام الفقرة الافتراضية وإضافة كائنين آخرين من نوع [Paragraph](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/) إلى إطار النص.
+6. إضافة ما يكفي من كائنات [Portion](https://reference.aspose.com/slides/ar/php-java/aspose.slides/portion/) لكل فقرة لتحتوي على ثلاث جزءات. الفقرة الافتراضية تحتوي بالفعل على جزء واحد فارغ.
+7. ضبط نص كل جزء.
+8. تطبيق تنسيق على مستوى الأحرف من خلال [Portion::getPortionFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/portion/#getPortionFormat--).
 9. حفظ العرض التقديمي المعدل.
 
-هذا المثال بلغة PHP يطبق الخطوات:
+يطبق مثال PHP الخطوات التالية:
 
 ```php
 use aspose\slides\FillType;
@@ -118,26 +118,26 @@ try {
 }
 ```
 
-## **إنشاء القوائم المرقمة والنقطية**
+## **إنشاء قوائم نقطية ومرقمة**
 
 ### **إنشاء قائمة نقطية أو مرقمة**
 
-تجعل العلامات والترقيم العناصر ذات الصلة أسهل في القراءة. في Aspose.Slides يتم تعريف إعدادات القائمة عبر [BulletFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bulletformat/).
+تجعل النقاط والترقيم العناصر المرتبطة أسهل للقراءة. في Aspose.Slides، يتم تعريف إعدادات القوائم عبر [BulletFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bulletformat/).
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).
-2. الوصول إلى الشريحة ذات الصلة عبر فهرسها.
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).
+2. الوصول إلى الشريحة ذات الصلة عبر فهرستها.
 3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) إلى الشريحة المحددة.
 4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) الخاص بالشكل.
 5. إزالة الفقرة الافتراضية من إطار النص.
-6. إنشاء [Paragraph](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/) لعلامة نقطية برمز.
-7. تعيين [BulletFormat::setType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bulletformat/#setType-int-) إلى [BulletType::Symbol](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bullettype/) وتحديد حرف العلامة.
-8. تعيين نص الفقرة والمسافة البادئة ولون العلامة وارتفاع العلامة.
+6. إنشاء [Paragraph](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/) للنقطة الرمزية.
+7. ضبط [BulletFormat::setType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bulletformat/#setType-int-) على [BulletType::Symbol](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bullettype/) وتحديد حرف النقطة.
+8. ضبط نص الفقرة، والمسافة البادئة، ولون النقطة، وارتفاع النقطة.
 9. إضافة الفقرة إلى إطار النص.
-10. إنشاء فقرة ثانية وتعيين [BulletFormat::setType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bulletformat/#setType-int-) إلى [BulletType::Numbered](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bullettype/).
-11. تكوين نمط العلامة المرقمة وإضافة الفقرة إلى إطار النص.
+10. إنشاء فقرة ثانية وضبط [BulletFormat::setType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bulletformat/#setType-int-) على [BulletType::Numbered](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bullettype/).
+11. تكوين نمط النقطة المرقمة وإضافة الفقرة إلى إطار النص.
 12. حفظ العرض التقديمي.
 
-هذا المثال بلغة PHP ينشئ علامة نقطية برمز وعلامة مرقمة:
+ينشئ مثال PHP التالي نقطة رمزية ونقطة مرقمة:
 
 ```php
 use aspose\slides\BulletType;
@@ -184,22 +184,22 @@ try {
 }
 ```
 
-### **استخدام علامات نقطية بصورة**
+### **استخدام نقاط صورة**
 
-تتيح لك علامات النقطية بالصورة استخدام صورة مخصصة بدلًا من رمز أو رقم.
+تتيح لك نقاط الصورة استخدام صورة مخصصة بدلًا من رمز أو رقم.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).
-2. الوصول إلى الشريحة ذات الصلة عبر فهرسها.
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).
+2. الوصول إلى الشريحة ذات الصلة عبر فهرستها.
 3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) والوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) الخاص به.
 4. إزالة الفقرة الافتراضية من إطار النص.
-5. تحميل صورة العلامة وإضافتها إلى مجموعة صور العرض التقديمي كـ [PPImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/ppimage/).
-6. إنشاء [Paragraph](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/) وتعيين نصه.
-7. تعيين [BulletFormat::setType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bulletformat/#setType-int-) إلى [BulletType::Picture](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bullettype/).
-8. إسناد الصورة عبر [BulletFormat::getPicture](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bulletformat/#getPicture--) وتعيين ارتفاع العلامة.
+5. تحميل صورة النقطة وإضافتها إلى مجموعة الصور في العرض التقديمي كـ [PPImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/ppimage/).
+6. إنشاء [Paragraph](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/) وضبط نصه.
+7. ضبط [BulletFormat::setType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bulletformat/#setType-int-) على [BulletType::Picture](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bullettype/).
+8. تعيين الصورة عبر [BulletFormat::getPicture](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bulletformat/#getPicture--) وضبط ارتفاع النقطة.
 9. إضافة الفقرة إلى إطار النص.
 10. حفظ العرض التقديمي المعدل.
 
-هذا المثال بلغة PHP ينشئ علامة نقطية بصورة:
+ينشئ مثال PHP التالي نقطة صورة:
 
 ```php
 use aspose\slides\BulletType;
@@ -240,15 +240,15 @@ try {
 
 ### **إنشاء قائمة متعددة المستويات**
 
-تعيين [ParagraphFormat::setDepth](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setDepth-short-) لوضع الفقرات على مستويات مختلفة في القائمة. المستوى الأعلى له عمق `0`.
+ضبط [ParagraphFormat::setDepth](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setDepth-short-) لتحديد مستوى الفقرات في القائمة. المستوى العلوي له عمق `0`.
 
 1. إنشاء [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) والوصول إلى شريحة.
-2. إضافة [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) وإزالة الفقرة الافتراضية من إطار النص الخاص به.
-3. إنشاء أربع فقرات وتكوين رموز العلامات الخاصة بها.
-4. تعيين قيم [ParagraphFormat::setDepth](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setDepth-short-) إلى `0` و`1` و`2` و`3`.
+2. إضافة [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) ومسح الفقرة الافتراضية من إطار النص الخاص به.
+3. إنشاء أربع فقرات وتكوين رموز النقاط الخاصة بها.
+4. ضبط قيم [ParagraphFormat::setDepth](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setDepth-short-) إلى `0` و`1` و`2` و`3`.
 5. إضافة الفقرات إلى إطار النص وحفظ العرض التقديمي.
 
-هذا المثال بلغة PHP ينشئ قائمة نقطية بأربع مستويات:
+ينشئ مثال PHP التالي قائمة نقطية بأربع مستويات:
 
 ```php
 use aspose\slides\BulletType;
@@ -308,17 +308,17 @@ try {
 }
 ```
 
-### **بدء عناصر القائمة المرقمة بقيم مخصصة**
+### **بدء ترقيم العناصر بقيم مخصصة**
 
-استخدام [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) لتعيين الرقم الأولي المعروض لفقرة مرقمة.
+استخدم [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) لتحديد الرقم الأولي الذي يُعرض للفقرة المرقمة.
 
 1. إنشاء [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) وإضافة [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) إلى شريحة.
 2. مسح الفقرة الافتراضية من إطار النص الخاص بالشكل.
 3. إنشاء ثلاث فقرات مرقمة.
-4. تعيين [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) إلى `2` و`3` و`7` للفقرة المقابلة.
+4. ضبط [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/ar/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) إلى `2` و`3` و`7` للفقرات المقابلة.
 5. إضافة الفقرات إلى إطار النص وحفظ العرض التقديمي.
 
-هذا المثال بلغة PHP يعيّن رقم بدء مخصص لكل فقرة:
+يعين مثال PHP التالي رقمًا مبدئيًا مخصصًا لكل فقرة:
 
 ```php
 use aspose\slides\BulletType;
@@ -359,23 +359,23 @@ try {
 
 ## **التحكم في تخطيط الفقرة وخصائص النهاية**
 
-### **تعيين إزاحة السطر الأول**
+### **ضبط مسافة أول سطر**
 
-استخدام [ParagraphFormat::setIndent](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setIndent-float-) للتحكم في إزاحة السطر الأول للفقرة. هذه الطريقة تحرك السطر الأول فقط بالنسبة لهامش الفقرة الأيسر. القيمة الموجبة تنقل السطر الأول إلى اليمين، بينما تبقى الأسطر المتبقية محاذية إلى جسم الفقرة.
+استخدم [ParagraphFormat::setIndent](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setIndent-float-) للتحكم في مسافة أول سطر للفقرة. هذه الطريقة تحرك السطر الأول فقط بالنسبة إلى الهامش الأيسر للفقرة. القيمة الموجبة تُحرك السطر الأول إلى اليمين، بينما تبقى السطور المتبقية مُحاذاة مع جسم الفقرة.
 
-استخدام [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) عندما تحتاج إلى نقل الفقرة بأكملها. استخدم [ParagraphFormat::setIndent](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setIndent-float-) عندما تحتاج إلى تحريك السطر الأول فقط.
+استخدم [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) عندما تحتاج إلى تحريك الفقرة بأكملها. استخدم [ParagraphFormat::setIndent](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setIndent-float-) عندما تحتاج إلى تحريك السطر الأول فقط.
 
-المثال أدناه ينشئ عدة فقرات ويطبق قيم مختلفة من [ParagraphFormat::setIndent](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setIndent-float-) لتوضيح تأثير إزاحة السطر الأول على تخطيط الفقرة.
+يوضح المثال أدناه إنشاء عدة فقرات وتطبيق قيم مختلفة من [ParagraphFormat::setIndent](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setIndent-float-) لتوضيح تأثير مسافة أول سطر على تخطيط الفقرة.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).
-2. الوصول إلى الشريحة المستهدفة.
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).
+2. الوصول إلى الشريحة الهدف.
 3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) مستطيل إلى الشريحة.
-4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) الخاص بالشكل وإزالة الفقرة الافتراضية.
-5. إنشاء عدة فقرات وتعيين قيم مختلفة من [ParagraphFormat::setIndent](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setIndent-float-) لها.
+4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) الخاص بالشكل ومسح الفقرة الافتراضية.
+5. إنشاء عدة فقرات وضبط قيم مختلفة من [ParagraphFormat::setIndent](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setIndent-float-) لها.
 6. إضافة الفقرات إلى إطار النص.
 7. حفظ العرض التقديمي المعدل.
 
-هذا الكود PHP يوضح كيفية تعيين إزاحة الفقرة:
+يعرض مثال PHP التالي كيفية ضبط مسافة الفقرة:
 
 ```php
 use aspose\slides\FillType;
@@ -431,26 +431,26 @@ try {
 
 النتيجة:
 
-![المسافة البادئة للسطر الأول للفقرات](first_line_indent.png)
+![The first-line indent of the paragraphs](first_line_indent.png)
 
-### **تعيين إزاحة معلقة**
+### **ضبط مسافة معلقة**
 
-الإزاحة المعلقة هي تخطيط فقرة يكون فيه السطر الأول يبدأ إلى اليسار من الأسطر المتبقية. في Aspose.Slides يمكنك إنشاء هذا التأثير باستخدام [ParagraphFormat::setIndent](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setIndent-float-). مرّر قيمة سالبة لتحريك السطر الأول إلى اليسار بالنسبة إلى جسم الفقرة.
+المسافة المعلقة هي تخطيط فقرة يبدأ فيه السطر الأول إلى اليسار من باقي السطور. في Aspose.Slides، يمكنك إنشاء هذا التأثير باستخدام [ParagraphFormat::setIndent](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setIndent-float-). مرّر قيمة سالبة لتحريك السطر الأول إلى اليسار بالنسبة إلى جسم الفقرة.
 
-عمليًا، يُحدد [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) موضع الجانب الأيسر لجسم الفقرة، بينما يحدد [ParagraphFormat::setIndent](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setIndent-float-) موضع السطر الأول نسبةً إلى هذا الهامش. لإنشاء إزاحة معلقة، مرّر قيمة موجبة إلى `setMarginLeft` وقيمة سالبة إلى `setIndent`.
+عمليًا، يحدد [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) الموضع الأيسر لجسم الفقرة، وتحدد [ParagraphFormat::setIndent](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setIndent-float-) موضع السطر الأول بالنسبة إلى ذلك الهامش. لإنشاء مسافة معلقة، مرّر قيمة موجبة إلى `setMarginLeft` وقيمة سالبة إلى `setIndent`.
 
-هذا التنسيق مفيد للمراجع، والقوائم، ومداخل القواميس، والفقرات الأخرى التي يجب أن تكون الأسطر الملتفة محاذية تحت جسم الفقرة بدلاً من تحت الحرف الأول للسطر الأول.
+هذا التنسيق مفيد للمراجع، والهوامش، ومدخلات القاموس، وغيرها من الفقرات التي يجب أن تكون السطور المتداخلة محاذية تحت جسم الفقرة بدلًا من تحت الحرف الأول للسطر الأول.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).
-2. الوصول إلى الشريحة المستهدفة.
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).
+2. الوصول إلى الشريحة الهدف.
 3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) مستطيل إلى الشريحة.
-4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) الخاص بالشكل وإزالة الفقرة الافتراضية.
+4. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) الخاص بالشكل ومسح الفقرة الافتراضية.
 5. إنشاء فقرات وتمرير قيمة موجبة إلى [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) لكل فقرة.
-6. تمرير قيمة سالبة إلى [ParagraphFormat::setIndent](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setIndent-float-) لإنشاء تأثير الإزاحة المعلقة.
+6. تمرير قيمة سالبة إلى [ParagraphFormat::setIndent](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setIndent-float-) لإنشاء تأثير المسافة المعلقة.
 7. إضافة الفقرات إلى إطار النص.
 8. حفظ العرض التقديمي المعدل.
 
-هذا الكود PHP يوضح كيفية تعيين إزاحة معلقة لفقرة:
+يعرض مثال PHP التالي كيفية ضبط مسافة معلقة لفقرة:
 
 ```php
 use aspose\slides\FillType;
@@ -498,17 +498,17 @@ try {
 
 النتيجة:
 
-![الإزاة المعلقة للفقرات](hanging_indent.png)
+![The hanging indent of the paragraphs](hanging_indent.png)
 
-### **تعيين خصائص تشغيل نهاية الفقرة**
+### **ضبط خصائص نهاية الفقرة**
 
-[Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) يتحكم في تنسيق علامة نهاية الفقرة. المثال التالي بلغة PHP يعيّن حجم الخط والخط اللاتيني لعلامة النهاية للفقرة الثانية:
+[Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) يتحكم في تنسيق علامة نهاية الفقرة. المثال التالي بلغة PHP يعيّن حجم خط وخط لاتيني لعلامة النهاية للفقرة الثانية:
 
 1. تحميل [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) والوصول إلى شريحة.
 2. إضافة [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) ومسح الفقرة الافتراضية.
-3. إنشاء فقرتين وإضافة أجزاء نصية لهما.
+3. إنشاء فقرتين وإضافة جزءات نصية لهما.
 4. إنشاء [PortionFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/portionformat/) لعلامة نهاية الفقرة الثانية.
-5. تعيين [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) و[BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
+5. ضبط [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) و[BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
 6. إسناد التنسيق باستخدام [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) وحفظ العرض التقديمي.
 
 ```php
@@ -547,20 +547,75 @@ try {
 }
 ```
 
+## **عدد الأسطر المرسومة**
+
+استخدم [Paragraph::getLinesCount](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/#getLinesCount--) لحساب عدد الأسطر التي يشغلها پاراغراف بعد تخطيط النص، بما في ذلك الالتفاف التلقائي. هذا مفيد عند فحص طول النص وتخطيطه في قوالب العروض التقديمية.
+
+الفقرة هي عنصر واحد في [TextFrame::getParagraphs](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#getParagraphs--)، ويمكن أن تشغل عدة أسطر مرسومة. كسر السطر الصريح داخل الفقرة يُنشئ سطرًا جديدًا دون إنشاء فقرة أخرى. الالتفاف التلقائي يخلق أسطرًا بناءً على العرض المتاح دون إدراج كسر سطر صريح في النص. لذلك لا يعطي عدّ الفقرات أو أحرف كسر السطر عدد الأسطر المرسومة.
+
+المثال التالي ينشئ شكل نص، يعدد أسطره، يضيق الشكل، ثم يستبدل النص بسلسلة أقصر. يتم تمكين الالتفاف وتعطيل الضبط التلقائي بحيث يتحكم عرض الشكل في الالتفاف دون تصغير النص أو تغيير أبعاد الشكل تلقائيًا. أبعاد الشكل تُقاس بالنقطة. أخيرًا، يضيف المثال فقرة أخرى ويجمع عدد الأسطر عبر إطار النص.
+
+```php
+use aspose\slides\NullableBool;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAutofitType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 400, 200);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getTextFrameFormat()->setWrapText(NullableBool::True);
+    $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::None);
+
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(20);
+    $paragraph->setText("This text demonstrates how automatic wrapping changes the number of rendered lines.");
+    echo "Original width: " . java_values($paragraph->getLinesCount()) . PHP_EOL;
+
+    $shape->setWidth(150);
+    echo "Narrower shape: " . java_values($paragraph->getLinesCount()) . PHP_EOL;
+
+    $paragraph->setText("Short text.");
+    echo "Shorter text: " . java_values($paragraph->getLinesCount()) . PHP_EOL;
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->setText("Another paragraph.");
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(20);
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $totalLineCount = 0;
+    for ($i = 0; $i < java_values($textFrame->getParagraphs()->getCount()); $i++) {
+        $currentParagraph = $textFrame->getParagraphs()->get_Item($i);
+        $totalLineCount += java_values($currentParagraph->getLinesCount());
+    }
+    echo "Total lines in the text frame: " . $totalLineCount . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+بهذا النص وهذه الأبعاد، يزيد تضييق الشكل من عدد الأسطر، بينما يقلل استبدال النص بالسلسلة القصيرة العدد. قد تختلف الأعداد الدقيقة حسب توفر الخطوط والاستبدال، وحجم الخط، والهامش، والمسافات، والالتفاف، وإعدادات الضبط التلقائي. استخدم الخطوط وإعدادات التخطيط المقصودة للبيئة المستهدفة عند فحص القالب.
+
+عدد الأسطر وحده لا يحدد ما إذا كان النص يتجاوز حاويته. الارتفاع المتاح، وارتفاع الأسطر، وتباعد الفقرات والأسطر، وسلوك الضبط التلقائي كلها مهمة؛ حتى سطر واحد يمكن أن يتجاوز العرض المتاح عندما يكون الالتفاف معطلاً.
+
 ## **استيراد وتصدير محتوى الفقرة**
 
-### **استيراد نص HTML إلى فقرات**
+### **استيراد نص HTML إلى الفقرات**
 
-استخدام [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) لتحويل ترميز HTML إلى فقرات وأجزاء في إطار نص.
+استخدم [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) لتحويل ترميز HTML إلى فقرات وجزءات في إطار نص.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).
 2. الوصول إلى شريحة وإضافة [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/).
 3. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) الخاص بالشكل ومسح الفقرة الافتراضية.
 4. قراءة ملف HTML المصدر.
 5. تمرير سلسلة HTML إلى [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
 6. حفظ العرض التقديمي المعدل.
 
-هذا المثال بلغة PHP يستورد HTML إلى إطار نص:
+يستورد مثال PHP التالي HTML إلى إطار النص:
 
 ```php
 use aspose\slides\FillType;
@@ -591,15 +646,15 @@ try {
 
 ### **تصدير نص الفقرة إلى HTML**
 
-استخدام [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) لتصدير نطاق مختار من الفقرات كـ HTML.
+استخدم [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) لتصدير نطاق محدد من الفقرات كـ HTML.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) وتحميل العرض التقديمي المطلوب.
-2. الوصول إلى الشريحة والعثور على [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) الذي يحتوي على النص.
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) وتحميل العرض التقديمي المطلوب.
+2. الوصول إلى الشريحة وإيجاد [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) الذي يحتوي على النص.
 3. الوصول إلى [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) الخاص بالشكل.
-4. استدعاء [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) مع فهرس الفقرة البداية وعدد الفقرات المراد تصديرها.
+4. استدعاء [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) مع مؤشر الفقرة الابتدائي وعدد الفقرات المراد تصديرها.
 5. كتابة سلسلة HTML المستلمة إلى ملف.
 
-هذا المثال بلغة PHP يصدر جميع الفقرات من الشكل النصي الأول:
+يصدر مثال PHP التالي جميع الفقرات من أول شكل نص:
 
 ```php
 use aspose\slides\Presentation;
@@ -627,19 +682,19 @@ try {
 }
 ```
 
-### **إنتاج فقرة كصورة**
+### **عرض الفقرة كصورة**
 
-[Paragraph::getImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/#getImage--) ينتج صورة للفقرة بشكل مباشر ويعيد كائن [IImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/iimage/). احفظ النتيجة إلى ملف أو تدفق باستخدام [IImage::save](https://reference.aspose.com/slides/ar/php-java/aspose.slides/iimage/#save-java.lang.String-int-). لا تحتاج إلى رسم الشكل المحتوي أو قص صورة يدوية.
+[Paragraph::getImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/#getImage--) يرسم فقرة فردية مباشرة ويعيد كائنًا من نوع [IImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/iimage/). احفظ النتيجة في ملف أو تدفق باستخدام [IImage::save](https://reference.aspose.com/slides/ar/php-java/aspose.slides/iimage/#save-java.lang.String-int-). لا تحتاج إلى رسم الشكل الحاوي أو قص الصورة يدويًا.
 
-[Paragraph::getImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/#getImage--) قد يعيد `null` إذا لم يتم العثور على الفقرة في المجموعة الأم، أو لا توجد حدود عرض صالحة، أو لا يمكن رسمها. تحقق من النتيجة قبل حفظها وتخلص من الصورة المسترجعة بعد الاستخدام.
+[Paragraph::getImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/#getImage--) يمكن أن يُعيد `null` إذا لم تُعثر على الفقرة في مجموعتها الأصلية، أو لا توجد حدود رسم صالحة، أو لا يمكن رسمها. تحقق من النتيجة قبل حفظها وتخلص من الصورة المرجعة بعد الاستخدام.
 
-#### **إنتاج فقرة بالمقياس الافتراضي**
+#### **عرض الفقرة بالمقياس الافتراضي**
 
-نفترض أن لدينا ملف عرض تقديمي اسمه sample.pptx يحتوي على شريحة واحدة، حيث الشكل الأول هو صندوق نص يحتوي على ثلاث فقرات.
+لنفترض أن لدينا ملف عرض تقديمي يدعى `sample.pptx` به شريحة واحدة، حيث الشكل الأول هو مربع نص يحتوي على ثلاث فقرات.
 
-![صندوق النص بثلاث فقرات](paragraph_to_image_input.png)
+![The text box with three paragraphs](paragraph_to_image_input.png)
 
-المثال التالي بلغة PHP ينتج الفقرة الثانية في شكل نص عادي بالمقياس الافتراضي ويحفظ الصورة المسترجعة بصيغة PNG. يضمن كتلة `finally` تحرير الصورة بشكل صحيح.
+يقوم مثال PHP التالي بعرض الفقرة الثانية في شكل نص عادي بالمقياس الافتراضي ويحفظ الصورة المرجعة بصيغة PNG. يضمن قسم `finally` تحرير الصورة بشكل صحيح.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -677,11 +732,11 @@ try {
 
 النتيجة:
 
-![صورة الفقرة](paragraph_to_image_output.png)
+![The paragraph image](paragraph_to_image_output.png)
 
-#### **إنتاج فقرة داخل خلية جدول مع تعديل المستويات**
+#### **عرض الفقرة في خلية جدول مع تحجيم**
 
-استخدام نسخة [Paragraph::getImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/#getImage-float-float-) التي تقبل المعاملين `$scaleX` و`$scaleY` لتعيين عوامل المقياس الأفقية والعمودية. المثال التالي بلغة PHP ينشئ جدولًا، ينتج الفقرة في خليةه الأولى بمضاعفة العرض والارتفاع الافتراضيين، ويحفظ النتيجة كصورة PNG.
+استخدم نسخة [Paragraph::getImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/#getImage-float-float-) التي تقبل معلمتي `$scaleX` و`$scaleY` لتعيين عوامل التحجيم الأفقي والعمودي. مثال PHP التالي ينشئ جدولًا، يعرض الفقرة في خليةه الأولى بمضاعفة العرض والارتفاع الافتراضيين، ويحفظ النتيجة كصورة PNG.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -712,24 +767,24 @@ try {
 }
 ```
 
-عامل المقياس `1` يحافظ على ذلك المحور بحجمه الأصلي بالبكسل. على سبيل المثال، `2` لكلا العاملين ينتج صورة عرضها وارتفاعها تقريبًا ضعف الأبعاد الافتراضية، أي أربعة أضعاف عدد البكسلات. العوامل الأكبر عمومًا تنتج نصًا أوضح للتكبير أو الإخراج عالي الدقة، لكنها تزيد أيضًا من استهلاك الذاكرة وحجم الملف. العوامل الأقل من `1` تنتج صورًا أصغر بتفاصيل أقل. استخدم عوامل متساوية للحفاظ على نسبة أبعاد الفقرة؛ العوامل المختلفة أفقياً وعمودياً ستمدد الناتج بشكل مستقل.
+عامل التحجيم `1` يحافظ على ذلك المحور بحجمه البكسلي الافتراضي. على سبيل المثال، `2` لكلا العاملين يُنتج صورة عرضها وارتفاعها تقريبًا ضعف الأبعاد الافتراضية، أي أربعة أضعاف عدد البكسلات. العوامل الأكبر عمومًا تُنتج نصًا أوضح للتكبير أو للإخراج عالي الدقة، لكنها تُزيد من استهلاك الذاكرة وحجم الملف. العوامل الأقل من `1` تُنتج صورًا أصغر بحدة أقل. استخدم عوامل متساوية للحفاظ على نسبة أبعاد الفقرة؛ العوامل الأفقية والعمودية المختلفة تُمدّد الناتج بشكل مستقل.
 
-رسم الشكل بالكامل باستخدام [Shape::getImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/#getImage--) يظل مفيدًا عندما يجب أن يتضمن الإخراج تعبئة الشكل أو حدوده أو سياقه البصري. للحصول على صورة للفقرة فقط، استخدم [Paragraph::getImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/#getImage--).
+لا يزال رسم الشكل بالكامل باستخدام [Shape::getImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/#getImage--) مفيدًا عندما يجب أن يتضمن الإخراج ملء الشكل أو حدوده أو سياقًا بصريًا آخر. للصور التي تحتوي الفقرة فقط، استخدم [Paragraph::getImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/#getImage--).
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
 **هل يمكنني تعطيل التفاف السطر بالكامل داخل إطار النص؟**
 
-نعم. اضبط [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframeformat/#setWrapText-byte-) لتعطيل الالتفاف بحيث لا تنكسر السطور عند حواف إطار النص.
+نعم. اضبط [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframeformat/#setWrapText-byte-) لتعطيل الالتفاف بحيث لا تنكسر الأسطر عند حواف إطار النص.
 
-**كيف يمكنني الحصول على حدود الفقرة المحددة على الشريحة بدقة؟**
+**كيف يمكنني الحصول على حدود الفقرة الدقيقة داخل الشريحة؟**
 
-استخدم [Paragraph::getRect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/#getRect--) لاسترجاع المستطيل المحيط للفقرة. [Portion::getRect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/portion/#getRect--) يزوّدك بحدود الجزء الفردي.
+استخدم [Paragraph::getRect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraph/#getRect--) لاسترداد المستطيل الحدودي للفقرة. يقدّم [Portion::getRect](https://reference.aspose.com/slides/ar/php-java/aspose.slides/portion/#getRect--) حدود الجزء الفردي.
 
-**أين يتم التحكم في محاذاة الفقرة (يسار، يمين، مركز أو ضبط)?**
+**أين يتم التحكم في محاذاة الفقرة (اليسار أو اليمين أو الوسط أو الضبط التساوي)؟**
 
-[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setAlignment-int-) هي إعداد على مستوى الفقرة وتطبق على الفقرة بأكملها بغض النظر عن تنسيق الأجزاء الفردية.
+[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/ar/php-java/aspose.slides/paragraphformat/#setAlignment-int-) هو إعداد على مستوى الفقرة ويُطبق على الفقرة بأكملها بغض النظر عن تنسيق الجزء الفردي.
 
 **هل يمكنني تعيين لغة التدقيق لجزء من الفقرة؟**
 
-نعم. اضبط [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) للأجزاء الفردية، بحيث يمكن لفقرة واحدة أن تحتوي على نصوص بلغات متعددة.
+نعم. اضبط [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) للجزءات الفردية، بحيث يمكن لفقرة واحدة أن تحتوي نصًا بأكثر من لغة.

@@ -25,23 +25,23 @@ keywords:
 - 簡報
 - PHP
 - Aspose.Slides
-description: "使用 Aspose.Slides for PHP via Java 在 PowerPoint 與 OpenDocument 簡報中格式化與美化文字。自訂字型、顏色、對齊方式等。"
+description: "使用 Aspose.Slides for PHP via Java 在 PowerPoint 和 OpenDocument 簡報中格式化與造型文字。自訂字型、顏色、對齊方式等更多設定。"
 ---
 ## **概觀**
 
-本文說明如何使用 Aspose.Slides for PHP via Java 於 PowerPoint 和 OpenDocument 簡報中格式化文字。內容涵蓋背景顏色、透明度、字元間距、字型屬性、旋轉、段落間距、自動調整行為、文字錨點、定位點以及語言設定。
+本文說明如何使用 Aspose.Slides for PHP via Java 在 PowerPoint 與 OpenDocument 簡報中格式化文字。內容涵蓋背景色、透明度、字元間距、字型屬性、旋轉、段落間距、自動調整行為、文字錨點、定位點以及語言設定。
 
-在下列範例中，我們將使用名為「sample.pptx」的檔案，該檔案在第一張投影片上包含一個文字盒，內有以下文字：
+在以下範例中，我們將使用名為「sample.pptx」的檔案，該檔案在第一張投影片的文字方塊內含有以下文字：
 
 ![範例文字](sample_text.png)
 
-若要尋找並突出顯示文字字面值或正規表示式匹配，請參閱[搜尋與取代文字](/slides/zh-hant/php-java/search-and-replace-text/)。
+若要搜尋並標示純文字或正規表達式匹配項目，請參閱 [搜尋與取代文字](/slides/zh-hant/php-java/search-and-replace-text/)。
 
-## **設定文字背景顏色**
+## **設定文字背景色彩**
 
-使用 [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) 設定段落的預設突出顯示顏色，或使用 [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/baseportionformat/#getHighlightColor) 設定單一文字片段的顏色。
+使用 [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) 設定段落的預設突顯色彩，或使用 [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/baseportionformat/#getHighlightColor) 為單一文字片段設定。
 
-以下程式碼範例示範如何為 **整段文字** 設定背景顏色：
+以下程式碼示範如何設定 **整個段落** 的背景色彩：
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -51,7 +51,7 @@ try {
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
-    // 設定整段文字的突出顏色。
+    // 為整個段落設定突顯顏色。
     $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor($highlightColor);
 
     $presentation->save("gray_paragraph.pptx", SaveFormat::Pptx);
@@ -64,7 +64,7 @@ try {
 
 ![灰色段落](gray_paragraph.png)
 
-以下程式碼範例示範如何為 **粗體字型的文字片段** 設定背景顏色：
+以下程式碼示範如何為 **粗體字型的文字片段** 設定背景色彩：
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -78,7 +78,7 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // 設定文字片段的突出顏色。
+            // 設定文字片段的突顯顏色。
             $portion->getPortionFormat()->getHighlightColor()->setColor($highlightColor);
         }
     }
@@ -97,7 +97,7 @@ try {
 
 使用 [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/#setAlignment) 設定文字框內段落的對齊方式。可設定為置中、左對齊、右對齊、兩端對齊等。
 
-以下程式碼範例示範如何將段落對齊至 **置中**：
+以下程式碼示範如何將段落 **置中**：
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -121,9 +121,9 @@ try {
 
 ## **設定文字透明度**
 
-文字透明度是透過指派給 [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/baseportionformat/#getFillFormat) 的顏色之 alpha 成分來控制。以下範例中，`alpha = 50` 為 0–255 之間的 ARGB alpha 通道值，非透明度百分比。
+文字透明度透過指派給 [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/baseportionformat/#getFillFormat) 的顏色之 alpha 成分來控制。以下範例中，`alpha = 50` 為 0–255 之間的 ARGB alpha 通道值，並非透明度百分比。
 
-以下程式碼範例示範如何對 **整段文字** 套用透明度：
+以下程式碼示範如何對 **整個段落** 套用透明度：
 
 ```php
 $alpha = 50;
@@ -150,7 +150,7 @@ try {
 
 ![透明段落](transparent_paragraph.png)
 
-以下程式碼範例示範如何對 **粗體字型的文字片段** 套用透明度：
+以下程式碼示範如何對 **粗體字型的文字片段** 套用透明度：
 
 ```php
 $alpha = 50;
@@ -185,9 +185,9 @@ try {
 
 ## **設定文字字元間距**
 
-使用 [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/baseportionformat/#setSpacing) 來擴大或收縮文字盒中字元之間的間距。
+使用 [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/baseportionformat/#setSpacing) 可在文字方塊內擴大或縮小字元之間的間距。
 
-以下 PHP 程式碼示範如何在 **整段文字** 中擴大字元間距：
+以下 PHP 程式碼示範如何在 **整個段落** 中擴大字元間距：
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -196,8 +196,8 @@ try {
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // 注意：使用負值來壓縮字元間距。
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // 擴大字元間距。
+    // 注意：使用負值可壓縮字元間距。
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // 展開字元間距。
 
     $presentation->save("character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -209,7 +209,7 @@ try {
 
 ![段落中的字元間距](character_spacing_in_paragraph.png)
 
-以下程式碼範例示範如何在 **粗體字型的文字片段** 中擴大字元間距：
+以下程式碼示範如何在 **粗體字型的文字片段** 中擴大字元間距：
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -222,8 +222,8 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // 注意：使用負值來壓縮字元間距。
-            $portion->getPortionFormat()->setSpacing(3); // 擴大字元間距。
+            // 注意：使用負值可壓縮字元間距。
+            $portion->getPortionFormat()->setSpacing(3); // 展開字元間距。
         }
     }
 
@@ -237,11 +237,11 @@ try {
 
 ![文字片段中的字元間距](character_spacing_in_text_portions.png)
 
-### **停用特定字型的字距調整 (Kerning)**
+### **停用特定字型的字距調整（Kerning）**
 
-在某些情況下，Aspose.Slides 所產生的文字渲染會較 PowerPoint 顯示的略為緊密。這可能是因為 PowerPoint 會忽略某些字型的字距調整資料，即使該字型本身包含有效的字距調整資訊且在 PowerPoint 設定中已啟用字距調整。
+在某些情況下，Aspose.Slides 渲染的文字可能較 PowerPoint 顯示的文字稍微緊密。這可能是因為 PowerPoint 會忽略特定字型的字距調整資料，即使該字型本身包含有效的字距調整資訊且在 PowerPoint 設定中已啟用。
 
-若要使渲染結果更貼近 PowerPoint，可對使用受影響字型的文字片段停用字距調整。將 [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) 設為遠大於實際字型大小的數值：
+若要讓渲染結果更接近 PowerPoint，可對使用受影響字型的文字片段停用字距調整。將 [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) 設為遠大於實際字型大小的值：
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -275,13 +275,13 @@ try {
 }
 ```
 
-此設定可防止對相符的文字片段套用字距調整，協助 Aspose.Slides 的渲染效果與 PowerPoint 針對此類字型的視覺輸出保持一致。
+此設定會阻止對匹配的文字片段套用字距調整，協助 Aspose.Slides 的渲染與 PowerPoint 在受此 PowerPoint 特定行為影響的字型上保持一致。
 
 ## **管理文字字型屬性**
 
-字型屬性可透過 [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) 在段落層級設定，或透過 [PortionFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/portionformat/) 在個別片段上設定。
+可透過 [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) 在段落層級設定字型屬性，或透過 [PortionFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/portionformat/) 在單一文字片段設定。
 
-以下程式碼為整段文字設定字型與文字樣式：套用字型大小、粗體、斜體、點狀底線，以及 Times New Roman 字型至段落中所有片段。
+以下程式碼為整個段落設定字型與文字樣式：套用字型大小、粗體、斜體、點線底線，以及 Times New Roman 字型至段落中的所有片段。
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -309,7 +309,7 @@ try {
 
 ![段落的字型屬性](font_properties_for_paragraph.png)
 
-以下程式碼範例在 **粗體字型的文字片段** 上套用相同屬性：
+以下程式碼為 **粗體字型的文字片段** 套用類似屬性：
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -344,9 +344,9 @@ try {
 
 ## **設定文字旋轉**
 
-使用 [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/#setTextVerticalType) 在形狀內設定預先定義的文字方向。
+使用 [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/#setTextVerticalType) 可在圖形內設定預設的文字方向。
 
-以下程式碼範例將形狀內的文字方向設為 `Vertical270`，即使文字 **逆時針旋轉 90 度**：
+以下程式碼將圖形內的文字方向設定為 `Vertical270`，即將文字 **逆時針旋轉 90 度**：
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -366,11 +366,11 @@ try {
 
 ![文字旋轉](text_rotation.png)
 
-## **設定文字框的自訂旋轉角度**
+## **設定文字方塊的自訂旋轉角度**
 
-使用 [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/#setRotationAngle) 為 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/) 設定自訂旋轉角度。
+使用 [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/#setRotationAngle) 可為 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/) 設定自訂旋轉角度。
 
-以下程式碼範例將文字框在形狀內順時針旋轉 3 度：
+以下程式碼在圖形內將文字方塊順時針旋轉 3 度：
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -394,10 +394,10 @@ try {
 
 Aspose.Slides 提供 [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/#setSpaceAfter)、[ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/#setSpaceBefore) 與 [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/#setSpaceWithin) 以控制段落間距。這些屬性的使用方式如下：
 
-* 使用正值以段落高度的百分比指定行距。
-* 使用負值以點數指定行距。
+* 使用正值可將行距指定為行高的百分比。
+* 使用負值可將行距指定為點數。
 
-以下程式碼範例示篡如何在段落內指定行距：
+以下程式碼示範如何在段落內指定行距：
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -418,9 +418,9 @@ try {
 
 ![段落內的行距](line_spacing.png)
 
-## **設定文字框的自動調整類型**
+## **設定文字方塊的自動調整類型**
 
-[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/#setAutofitType) 決定文字超出容器邊界時的行為。使用它可控制文字是縮小、溢出，或自動調整形狀大小。
+[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/#setAutofitType) 決定文字超出容器邊界時的行為。可用來控制文字是縮小、溢出，或自動調整圖形大小。
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -436,9 +436,11 @@ try {
 }
 ```
 
-## **設定文字框的錨點**
+若要在自動換行後計算行數並觀察文字或圖形寬度變化，請參閱 [計算已渲染的行數](/slides/zh-hant/php-java/manage-paragraph/)。僅行數並無法說明文字是否溢出容器。
 
-[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/#setAnchoringType) 定義文字在形狀內的垂直位置，例如置頂、置中或置底。
+## **設定文字方塊的錨點**
+
+[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/#setAnchoringType) 定義文字在圖形內的垂直定位方式，例如置頂、置中或置底。
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -454,9 +456,9 @@ try {
 }
 ```
 
-## **設定文字定位點 (Tab)**
+## **設定文字定位點（Tab）**
 
-使用 [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) 以及 [ParagraphFormat::getTabs](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/#getTabs) 來配置段落中的定位點。
+使用 [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) 與 [ParagraphFormat::getTabs](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraphformat/#getTabs) 來配置段落的定位點。
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -476,13 +478,13 @@ try {
 
 結果：
 
-![段落定位點](paragraph_tabs.png)
+![段落的定位點](paragraph_tabs.png)
 
 ## **設定校對語言**
 
-Aspose.Slides 提供 [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/baseportionformat/#setLanguageId)，可為文字片段設定校對語言。校對語言決定 PowerPoint 中拼寫與文法檢查所使用的語言。
+Aspose.Slides 提供 [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/baseportionformat/#setLanguageId)，可為文字片段設定校對語言。校對語言決定 PowerPoint 在拼寫與文法檢查時使用的語言。
 
-以下程式碼範例示範如何為文字片段設定校對語言：
+以下程式碼示範如何為文字片段設定校對語言：
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -514,7 +516,7 @@ try {
 
 ## **設定預設語言**
 
-使用 [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) 定義載入或建立簡報時所建立文字的預設語言。
+使用 [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) 來定義載入或建立簡報時所建立文字的預設語言。
 
 ```php
 $loadOptions = new LoadOptions();
@@ -524,7 +526,7 @@ $presentation = new Presentation($loadOptions);
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // 新增一個帶文字的矩形形狀。
+    // 新增一個帶文字的矩形圖形。
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 50);
     $shape->getTextFrame()->setText("Sample text");
 
@@ -540,12 +542,12 @@ try {
 
 若要在簡報層級套用預設文字格式，請使用 [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/#getDefaultTextStyle)。
 
-以下程式碼範例示範如何在新簡報中為所有投影片的文字設定預設的粗體字型、大小為 14 pt：
+以下程式碼示範如何在新簡報的所有投影片中設定預設的粗體字型，字型大小為 14 點。
 
 ```php
 $presentation = new Presentation();
 try {
-    // 取得最高層級的段落格式。
+    // 取得頂層段落格式。
     $paragraphFormat = $presentation->getDefaultTextStyle()->getLevel(0);
 
     if (!java_is_null($paragraphFormat)) {
@@ -559,15 +561,15 @@ try {
 }
 ```
 
-## **擷取具有全大寫效果的文字**
+## **以全大寫效果擷取文字**
 
-在 PowerPoint 中套用 **全部大寫** 字型效果會使投影片上的文字顯示為大寫，即使原始輸入為小寫。使用 Aspose.Slides 取得此類文字片段時，函式庫會返回原始輸入的文字。若要與顯示的文字一致，請檢查 [TextCapType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textcaptype/) 並在值為 `All` 時將返回的字串轉為大寫。
+在 PowerPoint 中，套用 **全大寫** 字型效果會讓投影片上的文字以大寫形式顯示，即使原始輸入為小寫。當您使用 Aspose.Slides 取得此類文字片段時，函式庫會回傳原始輸入的文字。若要匹配顯示的文字，請檢查 [TextCapType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textcaptype/) 並在值為 `All` 時將回傳字串轉為大寫。
 
-假設我們在 sample2.pptx 的第一張投影片上有以下文字盒：
+假設我們在 sample2.pptx 的第一張投影片上有以下文字方塊。
 
-![全部大寫效果](all_caps_effect.png)
+![全大寫效果](all_caps_effect.png)
 
-以下程式碼範例示範如何擷取套用 **全部大寫** 效果的文字：
+以下程式碼示範如何擷取套用 **全大寫** 效果的文字：
 
 ```php
 $presentation = new Presentation("sample2.pptx");
@@ -596,12 +598,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **常見問題**  
+## **常見問題集**
 
-**如何在投影片的表格中修改文字？**  
+**如何在投影片的表格中修改文字？**
 
-要在投影片的表格中修改文字，請使用 [Table](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/table/)。遍歷儲存格，並透過 [Cell::getTextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/cell/#getTextFrame) 更新每個儲存格，並透過 [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraph/#getParagraphFormat) 更新段落格式。
+要在投影片的表格中修改文字，請使用 [Table](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/table/)。遍歷儲存格，並透過 [Cell::getTextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/cell/#getTextFrame) 以及 [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/paragraph/#getParagraphFormat) 來更新每個儲存格的文字與段落格式。
 
-**如何在 PowerPoint 投影片的文字上套用漸層顏色？**  
+**如何在 PowerPoint 投影片的文字上套用漸層色彩？**
 
-要在文字上套用漸層顏色，請使用 [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/baseportionformat/#getFillFormat)。將 [FillFormat::setFillType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/fillformat/#setFillType) 設為 [FillType::Gradient](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/filltype/)，並設定漸層停止點、方向與透明度。
+要為文字套用漸層色彩，請使用 [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/baseportionformat/#getFillFormat)。將 [FillFormat::setFillType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/fillformat/#setFillType) 設為 [FillType::Gradient](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/filltype/)，並設定漸層止點、方向與透明度。

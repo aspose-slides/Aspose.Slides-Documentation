@@ -1,11 +1,11 @@
 ---
-title: Định dạng Văn bản Bản trình chiếu trên Android
+title: Định dạng văn bản trình chiếu trên Android
 linktitle: Định dạng Văn bản
 type: docs
 weight: 50
 url: /vi/androidjava/text-formatting/
 keywords:
-- căn đoạn văn
+- căn chỉnh đoạn văn
 - kiểu văn bản
 - nền văn bản
 - độ trong suốt văn bản
@@ -16,9 +16,9 @@ keywords:
 - góc xoay
 - khung văn bản
 - khoảng cách dòng
-- thuộc tính tự động vừa
+- thuộc tính autofit
 - neo khung văn bản
-- tab văn bản
+- tabulation văn bản
 - ngôn ngữ mặc định
 - PowerPoint
 - OpenDocument
@@ -26,23 +26,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Định dạng và tạo kiểu văn bản trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho Android thông qua Java. Tùy chỉnh phông chữ, màu sắc, căn chỉnh và nhiều hơn nữa."
+description: "Định dạng và tạo kiểu cho văn bản trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho Android thông qua Java. Tùy chỉnh phông chữ, màu sắc, căn chỉnh và hơn thế nữa."
 ---
 ## **Tổng quan**
 
-Bài viết này hướng dẫn cách định dạng văn bản trong các bản trình bày PowerPoint và OpenDocument bằng Aspose.Slides cho Android thông qua Java. Nó bao gồm các màu nền, độ trong suốt, khoảng cách ký tự, thuộc tính phông chữ, xoay, khoảng cách đoạn văn, hành vi tự động điều chỉnh kích thước, neo văn bản, vị trí tab và cài đặt ngôn ngữ.
+Bài viết này mô tả cách định dạng văn bản trong các bản trình bày PowerPoint và OpenDocument bằng Aspose.Slides cho Android thông qua Java. Nó bao gồm màu nền, độ trong suốt, khoảng cách ký tự, thuộc tính phông chữ, xoay, khoảng cách đoạn văn, hành vi tự động điều chỉnh, neo văn bản, vị trí tab và cài đặt ngôn ngữ.
 
-Trong các ví dụ dưới đây, chúng tôi sẽ sử dụng tệp có tên "sample.pptx", chứa một hộp văn bản duy nhất trên slide đầu tiên với văn bản sau:
+Trong các ví dụ bên dưới, chúng tôi sẽ sử dụng tệp có tên "sample.pptx", chứa một hộp văn bản duy nhất trên slide đầu tiên với văn bản sau:
 
 ![Văn bản mẫu](sample_text.png)
 
-Để tìm và làm nổi bật văn bản nguyên văn hoặc các khớp biểu thức chính quy, xem [Tìm kiếm và Thay thế Văn bản](/slides/vi/androidjava/search-and-replace-text/).
+Để tìm và đánh dấu văn bản nguyên mẫu hoặc các kết quả khớp biểu thức chính quy, xem [Tìm và Thay thế Văn bản](/slides/vi/androidjava/search-and-replace-text/).
 
-## **Đặt Màu Nền Văn Bản**
+## **Đặt màu nền cho văn bản**
 
-Sử dụng [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) để đặt màu tô sáng mặc định cho một đoạn văn, hoặc sử dụng [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) cho các phần văn bản riêng lẻ.
+Sử dụng [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) để đặt màu nền mặc định cho một đoạn văn, hoặc sử dụng [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) cho các phần văn bản riêng lẻ.
 
-Ví dụ mã sau cho thấy cách đặt màu nền cho **toàn bộ đoạn văn**:
+Mã dưới đây minh họa cách đặt màu nền cho **toàn bộ đoạn văn**:
 
 ```java
 import com.aspose.slides.*;
@@ -54,7 +54,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Đặt màu tô sáng cho toàn bộ đoạn văn.
+    // Đặt màu nền cho toàn bộ đoạn văn.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LTGRAY);
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -67,7 +67,7 @@ Kết quả:
 
 ![Đoạn văn màu xám](gray_paragraph.png)
 
-Ví dụ mã dưới đây minh họa cách đặt màu nền cho **các phần văn bản có phông chữ in đậm**:
+Mã dưới đây cho thấy cách đặt màu nền cho **các phần văn bản có phông chữ in đậm**:
 
 ```java
 import com.aspose.slides.*;
@@ -81,7 +81,7 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Đặt màu tô sáng cho phần văn bản.
+            // Đặt màu nền cho phần văn bản.
             portion.getPortionFormat().getHighlightColor().setColor(Color.LTGRAY);
         }
     }
@@ -96,11 +96,11 @@ Kết quả:
 
 ![Các phần văn bản màu xám](gray_text_portions.png)
 
-## **Căn Đoạn Văn Bản**
+## **Căn chỉnh đoạn văn bản**
 
-Sử dụng [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) để đặt căn chỉnh đoạn văn bên trong khung văn bản. Giá trị có thể là căn giữa, căn trái, căn phải, căn đều, v.v.
+Sử dụng [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) để đặt căn chỉnh đoạn văn trong khung văn bản. Giá trị có thể là căn giữa, căn trái, căn phải, căn đều, v.v.
 
-Ví dụ mã sau cho thấy cách căn đoạn văn về **giữa**:
+Mã dưới đây minh họa cách căn đoạn văn **ở giữa**:
 
 ```java
 import com.aspose.slides.*;
@@ -111,7 +111,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Đặt căn chỉnh của đoạn văn về trung tâm.
+    // Đặt căn chỉnh của đoạn văn thành trung tâm.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -124,11 +124,11 @@ Kết quả:
 
 ![Đoạn văn đã căn chỉnh](aligned_paragraph.png)
 
-## **Đặt Độ Trong Suốt cho Văn Bản**
+## **Đặt độ trong suốt cho văn bản**
 
-Độ trong suốt văn bản được kiểm soát thông qua thành phần alpha của màu được chỉ định cho [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Trong các ví dụ dưới đây, `alpha = 50` là giá trị kênh alpha ARGB trên thang 0–255, không phải là phần trăm trong suốt.
+Độ trong suốt của văn bản được điều khiển thông qua thành phần alpha của màu được gán cho [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Trong các ví dụ dưới đây, `alpha = 50` là giá trị kênh alpha ARGB trên thang 0–255, không phải là phần trăm trong suốt.
 
-Ví dụ mã dưới đây cho thấy cách áp dụng độ trong suốt cho **toàn bộ đoạn văn**:
+Mã dưới đây cho thấy cách áp dụng độ trong suốt cho **toàn bộ đoạn văn**:
 
 ```java
 import com.aspose.slides.*;
@@ -142,7 +142,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Đặt màu nền cho văn bản thành màu trong suốt.
+    // Đặt màu nền của văn bản thành màu trong suốt.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.argb(alpha, 0, 0, 0));
 
@@ -156,7 +156,7 @@ Kết quả:
 
 ![Đoạn văn trong suốt](transparent_paragraph.png)
 
-Ví dụ mã sau cho thấy cách áp dụng độ trong suốt cho **các phần văn bản có phông chữ in đậm**:
+Mã dưới đây cho thấy cách áp dụng độ trong suốt cho **các phần văn bản có phông chữ in đậm**:
 
 ```java
 import com.aspose.slides.*;
@@ -188,11 +188,11 @@ Kết quả:
 
 ![Các phần văn bản trong suốt](transparent_text_portions.png)
 
-## **Đặt Khoảng Cách Ký Tự cho Văn Bản**
+## **Đặt khoảng cách ký tự cho văn bản**
 
 Sử dụng [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) để mở rộng hoặc thu hẹp khoảng cách giữa các ký tự trong một hộp văn bản.
 
-Ví dụ Java sau cho thấy cách mở rộng khoảng cách ký tự trong **toàn bộ đoạn văn**:
+Mã Java dưới đây cho thấy cách mở rộng khoảng cách ký tự trong **toàn bộ đoạn văn**:
 
 ```java
 import com.aspose.slides.*;
@@ -216,7 +216,7 @@ Kết quả:
 
 ![Khoảng cách ký tự trong đoạn văn](character_spacing_in_paragraph.png)
 
-Ví dụ mã dưới đây cho thấy cách mở rộng khoảng cách ký tự trong **các phần văn bản có phông chữ in đậm**:
+Mã dưới đây cho thấy cách mở rộng khoảng cách ký tự trong **các phần văn bản có phông chữ in đậm**:
 
 ```java
 import com.aspose.slides.*;
@@ -244,11 +244,11 @@ Kết quả:
 
 ![Khoảng cách ký tự trong các phần văn bản](character_spacing_in_text_portions.png)
 
-### **Tắt Kerning cho Các Phông Chữ Cụ Thể**
+### **Vô hiệu hóa Kerning cho các phông chữ cụ thể**
 
-Trong một số trường hợp, văn bản được Aspose.Slides hiển thị có vẻ chặt hơn một chút so với cùng một văn bản trong PowerPoint. Điều này có thể xảy ra vì PowerPoint có thể bỏ qua dữ liệu kerning cho một số phông chữ, ngay cả khi phông chữ chứa thông tin kerning hợp lệ và kerning đã được bật trong cài đặt PowerPoint.
+Trong một số trường hợp, văn bản được Aspose.Slides render có thể trông hơi chặt hơn so với văn bản cùng loại hiển thị trong PowerPoint. Điều này có thể xảy ra vì PowerPoint có thể bỏ qua dữ liệu kerning cho một số phông chữ, ngay cả khi phông chữ chứa thông tin kerning hợp lệ và kerning được bật trong cài đặt PowerPoint.
 
-Để làm cho kết quả hiển thị gần với PowerPoint hơn trong những trường hợp này, bạn có thể tắt kerning cho các phần văn bản sử dụng phông chữ bị ảnh hưởng. Đặt [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) thành một giá trị lớn hơn đáng kể so với kích thước phông chữ thực tế:
+Để làm cho kết quả render gần với PowerPoint hơn trong những trường hợp này, bạn có thể vô hiệu hóa kerning cho các phần văn bản sử dụng phông chữ bị ảnh hưởng. Đặt [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) thành giá trị lớn hơn đáng kể so với kích thước phông chữ thực tế:
 
 ```java
 import com.aspose.slides.*;
@@ -280,13 +280,13 @@ try {
 }
 ```
 
-Cài đặt này ngăn kerning được áp dụng cho các phần văn bản phù hợp và có thể giúp đồng bộ việc hiển thị của Aspose.Slides với kết quả hình ảnh của PowerPoint cho các phông chữ bị ảnh hưởng bởi hành vi đặc thù của PowerPoint này.
+Cài đặt này ngăn kerning được áp dụng cho các phần văn bản khớp và có thể giúp đồng bộ việc render của Aspose.Slides với đầu ra trực quan của PowerPoint cho các phông chữ bị ảnh hưởng bởi hành vi đặc thù này của PowerPoint.
 
-## **Quản Lý Thuộc Tính Phông Chữ Văn Bản**
+## **Quản lý thuộc tính phông chữ của văn bản**
 
-Thuộc tính phông chữ có thể được đặt ở mức đoạn văn thông qua [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) hoặc trên các phần riêng lẻ thông qua [IPortionFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iportionformat/).
+Thuộc tính phông chữ có thể được đặt ở mức đoạn văn thông qua [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) hoặc trên từng phần thông qua [IPortionFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iportionformat/).
 
-Ví dụ mã sau đặt phông chữ và kiểu văn bản cho toàn bộ đoạn văn: áp dụng kích thước phông, in đậm, nghiêng, gạch chân chấm và phông Times New Roman cho tất cả các phần trong đoạn văn.
+Mã dưới đây đặt phông chữ và kiểu văn bản cho toàn bộ đoạn văn: nó áp dụng kích thước phông, in đậm, in nghiêng, gạch chân chấm và phông Times New Roman cho tất cả các phần trong đoạn văn.
 
 ```java
 import com.aspose.slides.*;
@@ -312,9 +312,9 @@ try {
 
 Kết quả:
 
-![Thuộc tính phông chữ cho đoạn văn](font_properties_for_paragraph.png)
+![Thuộc tính phông chữ của đoạn văn](font_properties_for_paragraph.png)
 
-Ví dụ mã dưới đây áp dụng các thuộc tính tương tự cho **các phần văn bản có phông chữ in đậm**:
+Mã dưới đây áp dụng các thuộc tính tương tự cho **các phần văn bản có phông chữ in đậm**:
 
 ```java
 import com.aspose.slides.*;
@@ -345,11 +345,11 @@ Kết quả:
 
 ![Thuộc tính phông chữ cho các phần văn bản](font_properties_for_text_portions.png)
 
-## **Đặt Xoay Văn Bản**
+## **Đặt xoay cho văn bản**
 
-Sử dụng [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) để đặt định hướng văn bản được định nghĩa trước trong một hình dạng.
+Sử dụng [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) để đặt một hướng văn bản được định sẵn trong một hình dạng.
 
-Ví dụ mã sau đặt hướng văn bản trong hình dạng thành [TextVerticalType.Vertical270](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/textverticaltype/), sẽ xoay văn bản **90 độ ngược chiều kim đồng hồ**:
+Mã dưới đây đặt hướng văn bản trong hình dạng thành [TextVerticalType.Vertical270](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/textverticaltype/), xoay văn bản **90 độ ngược chiều kim đồng hồ**:
 
 ```java
 import com.aspose.slides.*;
@@ -371,11 +371,11 @@ Kết quả:
 
 ![Xoay văn bản](text_rotation.png)
 
-## **Đặt Xoay Tùy Chỉnh cho Khung Văn Bản**
+## **Đặt xoay tùy chỉnh cho khung văn bản**
 
 Sử dụng [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) để đặt góc xoay tùy chỉnh cho một [ITextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframe/).
 
-Ví dụ mã dưới đây xoay khung văn bản 3 độ theo chiều kim đồng hồ trong hình dạng:
+Mã dưới đây xoay khung văn bản 3 độ theo chiều kim đồng hồ trong hình dạng:
 
 ```java
 import com.aspose.slides.*;
@@ -395,16 +395,16 @@ try {
 
 Kết quả:
 
-![Xoay văn bản tùy chỉnh](custom_text_rotation.png)
+![Xoay tùy chỉnh cho văn bản](custom_text_rotation.png)
 
-## **Đặt Khoảng Cách Dòng cho Đoạn Văn**
+## **Đặt khoảng cách dòng của đoạn văn**
 
-Aspose.Slides cung cấp [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) và [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) để kiểm soát khoảng cách đoạn văn. Các thuộc tính này được sử dụng như sau:
+Aspose.Slides cung cấp [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) và [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) để kiểm soát khoảng cách đoạn. Các thuộc tính này được sử dụng như sau:
 
-* Sử dụng giá trị dương để chỉ định khoảng cách dòng dưới dạng phần trăm của chiều cao dòng.
-* Sử dụng giá trị âm để chỉ định khoảng cách dòng bằng điểm.
+* Sử dụng giá trị dương để xác định khoảng cách dòng dưới dạng phần trăm của chiều cao dòng.
+* Sử dụng giá trị âm để xác định khoảng cách dòng bằng điểm.
 
-Ví dụ mã sau cho thấy cách chỉ định khoảng cách dòng trong đoạn văn:
+Mã dưới đây cho thấy cách chỉ định khoảng cách dòng trong đoạn văn:
 
 ```java
 import com.aspose.slides.*;
@@ -427,9 +427,9 @@ Kết quả:
 
 ![Khoảng cách dòng trong đoạn văn](line_spacing.png)
 
-## **Đặt Kiểu Tự Động Điều Chỉnh cho Khung Văn Bản**
+## **Đặt kiểu tự động điều chỉnh cho khung văn bản**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) quyết định cách văn bản hành xử khi vượt quá giới hạn của vùng chứa. Sử dụng nó để kiểm soát việc văn bản co lại, tràn hoặc tự động thay đổi kích thước hình dạng.
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) xác định cách văn bản hành xử khi vượt quá giới hạn của container. Sử dụng nó để kiểm soát việc văn bản thu nhỏ, tràn hoặc tự động thay đổi kích thước hình dạng.
 
 ```java
 import com.aspose.slides.*;
@@ -447,7 +447,9 @@ try {
 }
 ```
 
-## **Đặt Neo cho Khung Văn Bản**
+Để đếm số dòng sau khi tự động ngắt và xem cách chiều rộng văn bản hoặc hình dạng thay đổi kết quả, xem [Count Rendered Lines](/slides/vi/androidjava/manage-paragraph/). Số lượng dòng chỉ đơn thuần không cho biết liệu văn bản có tràn container hay không.
+
+## **Đặt neo cho khung văn bản**
 
 [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) xác định cách văn bản được định vị theo chiều dọc bên trong một hình dạng, ví dụ ở trên cùng, giữa hoặc dưới cùng.
 
@@ -467,7 +469,7 @@ try {
 }
 ```
 
-## **Đặt Tab cho Văn Bản**
+## **Đặt tabulation cho văn bản**
 
 Sử dụng [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) và [IParagraphFormat.getTabs](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) để cấu hình vị trí tab trong một đoạn văn.
 
@@ -493,11 +495,11 @@ Kết quả:
 
 ![Các tab trong đoạn văn](paragraph_tabs.png)
 
-## **Đặt Ngôn Ngữ Kiểm Tra Chính Tả**
+## **Đặt ngôn ngữ kiểm tra chính tả**
 
-Aspose.Slides cung cấp [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), cho phép bạn đặt ngôn ngữ kiểm tra chính tả cho một phần văn bản. Ngôn ngữ kiểm tra quyết định ngôn ngữ được sử dụng cho kiểm tra lỗi chính tả và ngữ pháp trong PowerPoint.
+Aspose.Slides cung cấp [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), cho phép bạn đặt ngôn ngữ kiểm tra chính tả cho một phần văn bản. Ngôn ngữ này xác định ngôn ngữ được sử dụng để kiểm tra chính tả và ngữ pháp trong PowerPoint.
 
-Ví dụ mã sau cho thấy cách đặt ngôn ngữ kiểm tra cho một phần văn bản:
+Mã dưới đây cho thấy cách đặt ngôn ngữ kiểm tra chính tả cho một phần văn bản:
 
 ```java
 import com.aspose.slides.*;
@@ -517,7 +519,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Đặt Id của ngôn ngữ kiểm tra chính tả.
+    // Đặt Id của ngôn ngữ kiểm tra.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -529,9 +531,9 @@ try {
 }
 ```
 
-## **Đặt Ngôn Ngữ Mặc Định**
+## **Đặt ngôn ngữ mặc định**
 
-Sử dụng [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) để xác định ngôn ngữ mặc định cho văn bản được tạo khi tải hoặc tạo một bản trình chiếu.
+Sử dụng [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) để xác định ngôn ngữ mặc định cho văn bản được tạo khi tải hoặc tạo một bản trình bày.
 
 ```java
 import com.aspose.slides.*;
@@ -547,7 +549,7 @@ try {
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // Kiểm tra ngôn ngữ của phần đầu tiên.
+    // Kiểm tra ngôn ngữ của phần văn bản đầu tiên.
     IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     System.out.println(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -555,11 +557,11 @@ try {
 }
 ```
 
-## **Đặt Kiểu Văn Bản Mặc Định**
+## **Đặt kiểu văn bản mặc định**
 
-Để áp dụng định dạng văn bản mặc định ở mức bản trình chiếu, sử dụng [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
+Để áp dụng định dạng văn bản mặc định ở cấp độ bản trình bày, sử dụng [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-Ví dụ mã sau cho thấy cách đặt phông chữ in đậm mặc định với kích thước 14 pt cho toàn bộ văn bản trên các slide trong một bản trình chiếu mới.
+Mã dưới đây cho thấy cách đặt phông chữ in đậm mặc định với kích thước 14 pt cho tất cả văn bản trên các slide trong một bản trình bày mới.
 
 ```java
 import com.aspose.slides.*;
@@ -580,15 +582,15 @@ try {
 }
 ```
 
-## **Trích Xuất Văn Bản với Hiệu Ứng In HOA**
+## **Trích xuất văn bản với hiệu ứng All-Caps**
 
-Trong PowerPoint, áp dụng hiệu ứng **All Caps** làm cho văn bản hiển thị ở dạng chữ hoa trên slide ngay cả khi nó được nhập bằng chữ thường. Khi bạn lấy phần văn bản này bằng Aspose.Slides, thư viện sẽ trả về văn bản đúng như khi nhập. Để khớp với văn bản hiển thị, chuyển chuỗi trả về thành chữ hoa khi giá trị là [TextCapType.All](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/textcaptype/).
+Trong PowerPoint, áp dụng hiệu ứng **All Caps** làm cho văn bản hiển thị ở dạng chữ hoa trên slide ngay cả khi nó được gõ bằng chữ thường. Khi bạn truy xuất phần văn bản như vậy bằng Aspose.Slides, thư viện sẽ trả về văn bản đúng như khi nhập. Để khớp với văn bản hiển thị, chuyển đổi chuỗi trả về thành chữ hoa khi giá trị là [TextCapType.All](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/textcaptype/).
 
 Giả sử chúng ta có hộp văn bản sau trên slide đầu tiên của tệp sample2.pptx.
 
 ![Hiệu ứng All Caps](all_caps_effect.png)
 
-Ví dụ mã dưới đây cho thấy cách trích xuất văn bản với hiệu ứng **All Caps** được áp dụng:
+Mã dưới đây cho thấy cách trích xuất văn bản với hiệu ứng **All Caps** được áp dụng:
 
 ```java
 import com.aspose.slides.*;
@@ -618,11 +620,11 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **Câu Hỏi Thường Gặp**
+## **FAQ**
 
-**Làm thế nào để chỉnh sửa văn bản trong bảng trên một slide?**
+**Làm thế nào để sửa đổi văn bản trong bảng trên slide?**
 
-Để chỉnh sửa văn bản trong bảng trên một slide, sử dụng [ITable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itable/). Duyệt qua các ô và cập nhật mỗi ô thông qua [ICell.getTextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icell/#getTextFrame--) và định dạng đoạn qua [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--).
+Để sửa đổi văn bản trong bảng trên slide, sử dụng [ITable](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/itable/). Duyệt qua các ô và cập nhật mỗi ô thông qua [ICell.getTextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/icell/#getTextFrame--) và định dạng đoạn qua [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
 **Làm thế nào để áp dụng màu gradient cho văn bản trong slide PowerPoint?**
 

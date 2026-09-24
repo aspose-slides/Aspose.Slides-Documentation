@@ -29,19 +29,19 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 和 OpenDocument 演�
 ---
 ## **概述**
 
-本文展示了如何使用 Aspose.Slides for C++ 对 PowerPoint 和 OpenDocument 演示文稿中的文本进行格式化。内容涵盖背景颜色、透明度、字符间距、字体属性、旋转、段落间距、自动适应行为、文本锚点、制表位以及语言设置。
+本文介绍如何使用 Aspose.Slides for C++ 在 PowerPoint 和 OpenDocument 演示文稿中设置文本格式。内容包括背景颜色、透明度、字符间距、字体属性、旋转、段落间距、自动适应行为、文本锚定、制表位和语言设置。
 
-在下面的示例中，我们将使用名为 **sample.pptx** 的文件，该文件在第一张幻灯片上包含一个单独的文本框，文本内容如下：
+在以下示例中，我们将使用名为 "sample.pptx" 的文件，该文件在第一张幻灯片上包含一个带有以下文本的单个文本框：
 
 ![示例文本](sample_text.png)
 
-要查找并突出显示文字字面量或正则表达式匹配项，请参阅[搜索并替换文本](/slides/zh/cpp/search-and-replace-text/)。
+要查找并突出显示字面文本或正则表达式匹配项，请参阅[搜索和替换文本](/slides/zh/cpp/search-and-replace-text/)。
 
 ## **设置文本背景颜色**
 
-使用[IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/)可为段落设置默认的高亮颜色，或使用[IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/)为单独的文本片段设置颜色。
+使用[IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/)为段落设置默认高亮颜色，或使用[IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/)为单独的文本片段设置。
 
-以下代码示例展示了如何为**整个段落**设置背景颜色：
+以下代码示例演示如何为 **整个段落** 设置背景颜色：
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -65,7 +65,7 @@ auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 auto highlightColor = System::Drawing::Color::get_LightGray();
 
-// Set the highlight color for the entire paragraph.
+// 为整个段落设置高亮颜色。
 defaultPortionFormat->get_HighlightColor()->set_Color(highlightColor);
 
 presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
@@ -76,7 +76,7 @@ presentation->Dispose();
 
 ![灰色段落](gray_paragraph.png)
 
-下面的代码示例演示了如何为**加粗字体的文本片段**设置背景颜色：
+下面的代码示例演示如何为 **加粗字体的文本片段** 设置背景颜色：
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -124,9 +124,9 @@ presentation->Dispose();
 
 ## **对齐文本段落**
 
-使用[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/set_alignment/)可在文本框内设置段落对齐方式。可选值包括居中、左对齐、右对齐、两端对齐等。
+使用[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/set_alignment/)设置文本框内段落的对齐方式。该值可以是居中、左对齐、右对齐、两端对齐等。
 
-以下代码示例展示了如何将段落对齐到**居中**：
+以下代码示例演示如何将段落对齐到 **居中**：
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -155,13 +155,13 @@ presentation->Dispose();
 
 结果如下：
 
-![对齐的段落](aligned_paragraph.png)
+![已对齐的段落](aligned_paragraph.png)
 
 ## **设置文本透明度**
 
-文本透明度通过[IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ibaseportionformat/get_fillformat/)分配的颜色的 Alpha 分量来控制。下面示例中的 `alpha = 50` 是 0-255 范围的 ARGB Alpha 通道值，而非透明度百分比。
+文本透明度通过在[IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ibaseportionformat/get_fillformat/)中分配的颜色的 Alpha 组件来控制。在下面的示例中，`alpha = 50` 是 0-255 规模的 ARGB Alpha 通道值，而不是透明度百分比。
 
-以下代码示例展示了如何为**整个段落**应用透明度：
+下面的代码示例演示如何对 **整个段落** 应用透明度：
 
 ```cpp
 #include <DOM/FillType.h>
@@ -202,7 +202,7 @@ presentation->Dispose();
 
 ![透明段落](transparent_paragraph.png)
 
-以下代码示例展示了如何为**加粗字体的文本片段**应用透明度：
+下面的代码示例演示如何对 **加粗字体的文本片段** 应用透明度：
 
 ```cpp
 #include <DOM/FillType.h>
@@ -256,9 +256,9 @@ presentation->Dispose();
 
 ## **设置文本字符间距**
 
-使用[IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ibaseportionformat/set_spacing/)可在文本框中扩展或压缩字符之间的间距。
+使用[IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ibaseportionformat/set_spacing/)来在文本框中扩大或压缩字符之间的间距。
 
-以下 C++ 代码展示了如何在**整个段落**中扩大字符间距：
+以下 C++ 代码展示了如何在 **整个段落** 中扩大字符间距：
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -278,7 +278,7 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-// 注意：使用负值来压缩字符间距。
+// 注：使用负值来压缩字符间距。
 paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // 扩展字符间距。
 
 presentation->Save(u"character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
@@ -289,7 +289,7 @@ presentation->Dispose();
 
 ![段落中的字符间距](character_spacing_in_paragraph.png)
 
-下面的代码示例展示了如何在**加粗字体的文本片段**中扩大字符间距：
+下面的代码示例展示了如何在 **加粗字体的文本片段** 中扩大字符间距：
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -319,7 +319,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // 注意：使用负值来压缩字符间距。
+        // 注：使用负值来压缩字符间距。
         portionFormat->set_Spacing(3.0f); // 扩展字符间距。
     }
 }
@@ -334,9 +334,9 @@ presentation->Dispose();
 
 ### **为特定字体禁用字距调整**
 
-在某些情况下，Aspose.Slides 渲染的文本可能比 PowerPoint 中的相同文本显得更紧密。这可能是因为 PowerPoint 对某些字体会忽略字距调整数据，即使该字体包含有效的字距信息且在 PowerPoint 设置中已启用字距调整。
+在某些情况下，Aspose.Slides 渲染的文本可能比 PowerPoint 中显示的相同文本略显紧凑。这可能是因为 PowerPoint 在某些字体上会忽略字距调整数据，即使该字体包含有效的字距信息且在 PowerPoint 设置中已启用字距调整。
 
-为使渲染结果更接近 PowerPoint，您可以对使用受影响字体的文本片段禁用字距调整。使用[IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/)设置一个显著大于实际字体大小的值：
+为使渲染结果更接近 PowerPoint，可对使用受影响字体的文本片段禁用字距调整。使用[IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/)将值设为明显大于实际字体大小的数值：
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -391,13 +391,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-此设置阻止对匹配的文本片段应用字距调整，帮助 Aspose.Slides 的渲染效果与受此 PowerPoint 特定行为影响的字体的视觉输出保持一致。
+此设置可防止对匹配的文本片段应用字距调整，有助于使 Aspose.Slides 的渲染效果与 PowerPoint 对受此 PowerPoint 特定行为影响的字体的视觉输出保持一致。
 
 ## **管理文本字体属性**
 
-可以通过[IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/)在段落层面设置字体属性，或通过[IPortionFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iportionformat/)在单独的片段上设置。
+可以通过[IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/)在段落级别设置字体属性，或通过[IPortionFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iportionformat/)在单个片段上设置。
 
-以下代码为整个段落设置字体和文本样式：为段落中的所有片段应用字体大小、加粗、斜体、点状下划线以及 Times New Roman 字体。
+以下代码为整个段落设置字体和文本样式：它将字体大小、加粗、斜体、点状下划线以及 Times New Roman 字体应用于段落中的所有片段。
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -421,7 +421,7 @@ auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// 为段落设置字体属性。
+// 设置段落的字体属性。
 defaultPortionFormat->set_FontHeight(12.0f);
 defaultPortionFormat->set_FontBold(NullableBool::True);
 defaultPortionFormat->set_FontItalic(NullableBool::True);
@@ -437,7 +437,7 @@ presentation->Dispose();
 
 ![段落的字体属性](font_properties_for_paragraph.png)
 
-下面的代码示例对**加粗字体的文本片段**应用了相同的属性：
+下面的代码示例将类似属性应用于 **加粗字体的文本片段**：
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -489,9 +489,9 @@ presentation->Dispose();
 
 ## **设置文本旋转**
 
-使用[ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframeformat/set_textverticaltype/)可在形状内设置预定义的文本方向。
+使用[ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframeformat/set_textverticaltype/)在形状内设置预定义的文本方向。
 
-以下代码示例将形状内的文本方向设置为[TextVerticalType::Vertical270](https://reference.aspose.com/slides/zh/cpp/aspose.slides/textverticaltype/)，这会使文本**逆时针旋转90度**：
+以下代码示例将形状中的文本方向设置为[TextVerticalType::Vertical270](https://reference.aspose.com/slides/zh/cpp/aspose.slides/textverticaltype/)，即将文本 **逆时针旋转 90 度**：
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -521,7 +521,7 @@ presentation->Dispose();
 
 ## **为文本框设置自定义旋转**
 
-使用[ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframeformat/set_rotationangle/)可为[ITextFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframe/)设置自定义旋转角度。
+使用[ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframeformat/set_rotationangle/)为[ITextFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframe/)设置自定义旋转角度。
 
 下面的代码示例将在形状内将文本框顺时针旋转 3 度：
 
@@ -552,12 +552,12 @@ presentation->Dispose();
 
 ## **设置段落行距**
 
-Aspose.Slides 提供[IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/set_spaceafter/)、[IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/set_spacebefore/)和[IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/set_spacewithin/)来控制段落间距。使用方式如下：
+Aspose.Slides 提供[IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/set_spaceafter/)、[IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/set_spacebefore/)和[IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/set_spacewithin/)来控制段落间距。使用方法如下：
 
-* 使用正值可将行距指定为行高的百分比。
-* 使用负值可将行距指定为磅值。
+* 使用正值将行距指定为行高的百分比。  
+* 使用负值以磅为单位指定行距。
 
-以下代码示例展示了如何在段落内部指定行距：
+以下代码示例演示如何在段落内指定行距：
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -588,7 +588,7 @@ presentation->Dispose();
 
 ## **设置文本框的自动适应类型**
 
-[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframeformat/set_autofittype/)决定当文本超出容器边界时的行为。可用于控制文本是缩小、溢出还是自动调整形状大小。
+[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframeformat/set_autofittype/) 决定当文本超出容器边界时的行为。使用它可以控制文本是缩小、溢出还是自动调整形状大小。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -612,9 +612,11 @@ presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **设置文本框锚点**
+要在自动换行后计数行数并查看文本或形状宽度的变化，请参阅[统计渲染行数](/slides/zh/cpp/manage-paragraph/)。仅行数并不能说明文本是否溢出其容器。
 
-[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframeformat/set_anchoringtype/)定义文本在形状内部的垂直定位方式，例如顶部、居中或底部。
+## **设置文本框的锚点**
+
+[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframeformat/set_anchoringtype/) 定义文本在形状内部的垂直定位方式，例如顶部、居中或底部。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -640,7 +642,7 @@ presentation->Dispose();
 
 ## **设置文本制表**
 
-使用[IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/)和[IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/get_tabs/)可在段落中配置制表位。
+使用[IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/)和[IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/get_tabs/)来配置段落中的制表位。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -670,13 +672,13 @@ presentation->Dispose();
 
 结果如下：
 
-![段落制表](paragraph_tabs.png)
+![段落制表位](paragraph_tabs.png)
 
 ## **设置校对语言**
 
-Aspose.Slides 提供[IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ibaseportionformat/set_languageid/)，可为文本片段设置校对语言。校对语言决定在 PowerPoint 中进行拼写和语法检查时使用的语言。
+Aspose.Slides 提供[IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ibaseportionformat/set_languageid/)，可为文本片段设置校对语言。校对语言决定 PowerPoint 中拼写和语法检查使用的语言。
 
-以下代码示例展示了如何为文本片段设置校对语言：
+以下代码示例演示如何为文本片段设置校对语言：
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -708,7 +710,7 @@ portionFormat->set_ComplexScriptFont(font);
 portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
-// 设置校对语言的 Id。
+// Set the Id of a proofing language.
 portionFormat->set_LanguageId(u"zh-CN");
 
 textPortion->set_Text(u"1.");
@@ -720,7 +722,7 @@ presentation->Dispose();
 
 ## **设置默认语言**
 
-使用[ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iloadoptions/set_defaulttextlanguage/)可定义在加载或创建演示文稿时创建的文本的默认语言。
+使用[ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iloadoptions/set_defaulttextlanguage/) 定义在加载或创建演示文稿时创建的文本的默认语言。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -742,11 +744,11 @@ loadOptions->set_DefaultTextLanguage(u"en-US");
 auto presentation = System::MakeObject<Presentation>(loadOptions);
 auto slide = presentation->get_Slide(0);
 
-// 添加一个带文本的新矩形形状。
+// Add a new rectangle shape with text.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 50.0f);
 shape->get_TextFrame()->set_Text(u"Sample text");
 
-// 检查第一个文本片段的语言。
+// Check the first portion language.
 auto portion = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
 auto languageId = portion->get_PortionFormat()->get_LanguageId();
 System::Console::WriteLine(languageId);
@@ -756,9 +758,9 @@ presentation->Dispose();
 
 ## **设置默认文本样式**
 
-要在演示文稿级别应用默认文本格式，可使用[IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipresentation/get_defaulttextstyle/)。
+若要在演示文稿级别应用默认文本格式，可使用[IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipresentation/get_defaulttextstyle/)。
 
-以下代码示例展示了如何在新演示文稿的所有幻灯片中为所有文本设置默认的 **14 磅加粗字体**：
+以下代码示例演示如何在新演示文稿中为所有幻灯片的文本设置默认加粗、14 磅的字体。
 
 ```cpp
 #include <DOM/IParagraphFormat.h>
@@ -772,7 +774,7 @@ using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>();
 
-// 获取顶级段落格式。
+// 获取顶层段落格式。
 auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
 if (paragraphFormat != nullptr)
@@ -786,15 +788,15 @@ presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **提取全大写效果的文本**
+## **提取全部大写效果的文本**
 
-在 PowerPoint 中，应用 **All Caps** 字体效果会让文本在幻灯片上显示为大写，即使原始输入是小写。当使用 Aspose.Slides 检索此类文本片段时，库会返回原始输入的文本。要使显示的文本保持一致，需要检查[TextCapType](https://reference.aspose.com/slides/zh/cpp/aspose.slides/textcaptype/)并在值为[TextCapType::All](https://reference.aspose.com/slides/zh/cpp/aspose.slides/textcaptype/)时将返回的字符串转换为大写。
+在 PowerPoint 中，应用 **全部大写** 字体效果会使幻灯片上的文本以大写形式显示，即使原始输入是小写。当使用 Aspose.Slides 检索此类文本片段时，库会返回文本的原始输入。为匹配显示的文本，需要检查[TextCapType](https://reference.aspose.com/slides/zh/cpp/aspose.slides/textcaptype/) ，当值为[TextCapType::All](https://reference.aspose.com/slides/zh/cpp/aspose.slides/textcaptype/) 时将返回的字符串转换为大写。
 
-假设我们在 sample2.pptx 文件的第一张幻灯片上有如下文本框：
+假设我们在 sample2.pptx 文件的第一张幻灯片上有如下文本框。
 
-![全大写效果](all_caps_effect.png)
+![全部大写效果](all_caps_effect.png)
 
-下面的代码示例展示了如何提取已应用 **All Caps** 效果的文本：
+下面的代码示例演示如何提取已应用 **全部大写** 效果的文本：
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -839,8 +841,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **如何在幻灯片的表格中修改文本？**
 
-要在幻灯片的表格中修改文本，请使用[ITable](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itable/)。遍历单元格并通过[ICell::get_TextFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icell/get_textframe/)以及通过[IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraph/get_paragraphformat/)更新每个单元格的段落格式。
+要在幻灯片的表格中修改文本，可使用[ITable](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itable/)。遍历单元格并通过[ICell::get_TextFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icell/get_textframe/)更新每个单元格，并通过[IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraph/get_paragraphformat/)设置段落格式。
 
-**如何在 PowerPoint 幻灯片的文本中应用渐变颜色？**
+**如何在 PowerPoint 幻灯片中的文本应用渐变颜色？**
 
-要对文本应用渐变颜色，请使用[IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ibaseportionformat/get_fillformat/)。将[IFillFormat::set_FillType](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ifillformat/set_filltype/)设置为[FillType::Gradient](https://reference.aspose.com/slides/zh/cpp/aspose.slides/filltype/)，并配置渐变停靠点、方向和透明度。
+要对文本应用渐变颜色，可使用[IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ibaseportionformat/get_fillformat/)。将[IFillFormat::set_FillType](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ifillformat/set_filltype/)设置为[FillType::Gradient](https://reference.aspose.com/slides/zh/cpp/aspose.slides/filltype/)，并配置渐变停止点、方向和透明度。

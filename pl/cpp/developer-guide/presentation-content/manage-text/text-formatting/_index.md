@@ -9,15 +9,15 @@ keywords:
 - styl tekstu
 - tło tekstu
 - przezroczystość tekstu
-- odstępy znaków
+- odstępy między znakami
 - właściwości czcionki
 - rodzina czcionek
 - obrót tekstu
 - kąt obrotu
 - ramka tekstowa
-- odstępy między wierszami
+- odstęp między wierszami
 - właściwość autofit
-- kotwiczenie ramki tekstowej
+- kotwica ramki tekstowej
 - tabulacja tekstu
 - domyślny język
 - PowerPoint
@@ -25,21 +25,21 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Formatowanie i stylowanie tekstu w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla C++. Dostosuj czcionki, kolory, wyrównanie i inne."
+description: "Formatuj i stylizuj tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides for C++. Dostosuj czcionki, kolory, wyrównanie i wiele więcej."
 ---
 ## **Przegląd**
 
-Ten artykuł pokazuje, jak formatować tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides for C++. Omówiono kolory tła, przezroczystość, odstępy między znakami, właściwości czcionki, obrót, odstępy między akapitami, zachowanie autofit, kotwiczenie tekstu, tabulatory i ustawienia języka.
+Ten artykuł pokazuje, jak formatować tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides for C++. Obejmuje kolory tła, przezroczystość, odstępy między znakami, właściwości czcionki, obrót, odstępy akapitu, zachowanie autofit, kotwiczenie tekstu, tabulatory oraz ustawienia językowe.
 
 W poniższych przykładach użyjemy pliku o nazwie „sample.pptx”, który zawiera pojedyncze pole tekstowe na pierwszym slajdzie z następującym tekstem:
 
-![Przykładowy tekst](sample_text.png)
+![Sample text](sample_text.png)
 
-Aby znaleźć i podświetlić dosłowny tekst lub dopasowania wyrażeń regularnych, zobacz [Wyszukiwanie i zamiana tekstu](/slides/pl/cpp/search-and-replace-text/).
+Aby znaleźć i podświetlić dosłowny tekst lub dopasowania wyrażeń regularnych, zobacz [Search and Replace Text](/slides/pl/cpp/search-and-replace-text/).
 
 ## **Ustaw kolor tła tekstu**
 
-Użyj [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/), aby ustawić domyślny kolor podświetlenia dla akapitu, lub [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) dla pojedynczych fragmentów tekstu.
+Użyj [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) aby ustawić domyślny kolor podświetlenia dla akapitu lub [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) dla pojedynczych fragmentów tekstu.
 
 Poniższy przykład kodu pokazuje, jak ustawić kolor tła dla **całego akapitu**:
 
@@ -74,7 +74,7 @@ presentation->Dispose();
 
 Wynik:
 
-![Szary akapit](gray_paragraph.png)
+![The gray paragraph](gray_paragraph.png)
 
 Poniższy przykład kodu demonstruje, jak ustawić kolor tła dla **fragmentów tekstu z pogrubioną czcionką**:
 
@@ -120,11 +120,11 @@ presentation->Dispose();
 
 Wynik:
 
-![Szare fragmenty tekstu](gray_text_portions.png)
+![The gray text portions](gray_text_portions.png)
 
 ## **Wyrównaj akapity tekstu**
 
-Użyj [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_alignment/), aby ustawić wyrównanie akapitu w ramce tekstowej. Wartość może być wyśrodkowana, wyrównana do lewej, prawej, justowana itd.
+Użyj [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_alignment/) aby ustawić wyrównanie akapitu w ramce tekstowej. Wartość może być wyśrodkowana, wyrównana do lewej, do prawej, justowana itp.
 
 Poniższy przykład kodu pokazuje, jak wyrównać akapit do **środka**:
 
@@ -146,7 +146,7 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-// Ustaw wyrównanie akapitu do środka.
+// Ustaw wyrównanie akapitu na środku.
 paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Center);
 
 presentation->Save(u"aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -155,11 +155,11 @@ presentation->Dispose();
 
 Wynik:
 
-![Wyrównany akapit](aligned_paragraph.png)
+![The aligned paragraph](aligned_paragraph.png)
 
 ## **Ustaw przezroczystość tekstu**
 
-Przezroczystość tekstu jest kontrolowana przez składnik alfa koloru przypisanego za pomocą [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseportionformat/get_fillformat/). W przykładach poniżej `alpha = 50` oznacza wartość kanału alfa ARGB w skali 0‑255, a nie procent przezroczystości.
+Przezroczystość tekstu jest kontrolowana przez składnik alfa koloru przypisanego przy użyciu [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseportionformat/get_fillformat/). W poniższych przykładach `alpha = 50` to wartość kanału alfa ARGB w skali 0‑255, a nie procent przezroczystości.
 
 Poniższy przykład kodu pokazuje, jak zastosować przezroczystość do **całego akapitu**:
 
@@ -200,7 +200,7 @@ presentation->Dispose();
 
 Wynik:
 
-![Przezroczysty akapit](transparent_paragraph.png)
+![The transparent paragraph](transparent_paragraph.png)
 
 Poniższy przykład kodu pokazuje, jak zastosować przezroczystość do **fragmentów tekstu z pogrubioną czcionką**:
 
@@ -252,13 +252,13 @@ presentation->Dispose();
 
 Wynik:
 
-![Przezroczyste fragmenty tekstu](transparent_text_portions.png)
+![The transparent text portions](transparent_text_portions.png)
 
 ## **Ustaw odstępy między znakami w tekście**
 
-Użyj [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseportionformat/set_spacing/), aby rozszerzyć lub zmniejszyć odstępy między znakami w polu tekstowym.
+Użyj [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseportionformat/set_spacing/) aby zwiększyć lub zmniejszyć odstępy między znakami w polu tekstowym.
 
-Poniższy kod C++ pokazuje, jak zwiększyć odstęp między znakami w **całym akapicie**:
+Poniższy kod C++ pokazuje, jak zwiększyć odstępy znaków w **całym akapicie**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -278,8 +278,8 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-// Uwaga: użyj wartości ujemnych, aby zmniejszyć odstęp między znakami.
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // Zwiększ odstęp między znakami.
+// Uwaga: użyj wartości ujemnych, aby skompresować odstępy między znakami.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // Zwiększ odstępy między znakami.
 
 presentation->Save(u"character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
@@ -287,9 +287,9 @@ presentation->Dispose();
 
 Wynik:
 
-![Odstępy między znakami w akapicie](character_spacing_in_paragraph.png)
+![The character spacing in the paragraph](character_spacing_in_paragraph.png)
 
-Poniższy przykład kodu pokazuje, jak zwiększyć odstęp między znakami w **fragmentach tekstu z pogrubioną czcionką**:
+Poniższy przykład kodu pokazuje, jak zwiększyć odstępy znaków w **fragmentach tekstu z pogrubioną czcionką**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -319,8 +319,8 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Uwaga: użyj wartości ujemnych, aby zmniejszyć odstęp między znakami.
-        portionFormat->set_Spacing(3.0f); // Zwiększ odstęp między znakami.
+        // Uwaga: użyj wartości ujemnych, aby skompresować odstępy między znakami.
+        portionFormat->set_Spacing(3.0f); // Zwiększ odstępy między znakami.
     }
 }
 
@@ -330,13 +330,13 @@ presentation->Dispose();
 
 Wynik:
 
-![Odstępy między znakami w fragmentach tekstu](character_spacing_in_text_portions.png)
+![The character spacing in the text portions](character_spacing_in_text_portions.png)
 
-### **Wyłącz kerning dla określonych czcionek**
+### **Wyłącz kerning dla konkretnych czcionek**
 
-W niektórych przypadkach tekst renderowany przez Aspose.Slides może wyglądać nieco ściślej niż ten sam tekst wyświetlany w PowerPoint. Może się tak zdarzyć, ponieważ PowerPoint może ignorować dane kerningu dla niektórych czcionek, nawet gdy czcionka zawiera prawidłowe informacje o kerningu i kerning jest włączony w ustawieniach PowerPointa.
+W niektórych przypadkach tekst renderowany przez Aspose.Slides może wyglądać nieco ciasniej niż ten sam tekst wyświetlany w PowerPoint. Może się tak stać, ponieważ PowerPoint może ignorować dane kerningu dla niektórych czcionek, nawet gdy czcionka zawiera prawidłowe informacje o kerningu i kerning jest włączony w ustawieniach PowerPoint.
 
-Aby w takich sytuacjach uzyskać wynik bliższy PowerPointowi, możesz wyłączyć kerning dla fragmentów tekstu używających dotkniętej czcionki. Użyj [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/), aby ustawić wartość znacznie większą niż rzeczywisty rozmiar czcionki:
+Aby w takich sytuacjach uzyskać wynik bardziej zbliżony do PowerPoint, możesz wyłączyć kerning dla fragmentów tekstu używających danej czcionki. Użyj [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) aby ustawić wartość znacznie większą niż rzeczywisty rozmiar czcionki:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -391,13 +391,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Ustawienie to zapobiega stosowaniu kerningu do pasujących fragmentów tekstu i może pomóc wyrównać renderowanie Aspose.Slides do wizualnego wyniku PowerPointa dla czcionek objętych tym specyficznym zachowaniem PowerPointa.
+To ustawienie zapobiega stosowaniu kerningu do pasujących fragmentów tekstu i może pomóc zbliżyć renderowanie Aspose.Slides do wizualnego wyniku PowerPoint dla czcionek dotkniętych tym specyficznym zachowaniem PowerPoint.
 
 ## **Zarządzaj właściwościami czcionki tekstu**
 
-Właściwości czcionki można ustawić na poziomie akapitu poprzez [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) lub na poszczególnych fragmentach poprzez [IPortionFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iportionformat/).
+Właściwości czcionki można ustawiać na poziomie akapitu przy użyciu [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) lub na poziomie poszczególnych fragmentów przy użyciu [IPortionFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iportionformat/).
 
-Poniższy kod ustawia czcionkę i styl tekstu dla całego akapitu: stosuje rozmiar czcionki, pogrubienie, kursywę, przerywaną podkreślenie oraz czcionkę Times New Roman do wszystkich fragmentów w akapicie.
+Poniższy kod ustawia czcionkę i styl tekstu dla całego akapitu: stosuje rozmiar czcionki, pogrubienie, kursywę, znak podkreślenia kropkowany oraz czcionkę Times New Roman we wszystkich fragmentach akapitu.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -435,7 +435,7 @@ presentation->Dispose();
 
 Wynik:
 
-![Właściwości czcionki akapitu](font_properties_for_paragraph.png)
+![The font properties for the paragraph](font_properties_for_paragraph.png)
 
 Poniższy przykład kodu stosuje podobne właściwości do **fragmentów tekstu z pogrubioną czcionką**:
 
@@ -485,11 +485,11 @@ presentation->Dispose();
 
 Wynik:
 
-![Właściwości czcionki fragmentów tekstu](font_properties_for_text_portions.png)
+![The font properties for text portions](font_properties_for_text_portions.png)
 
 ## **Ustaw obrót tekstu**
 
-Użyj [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframeformat/set_textverticaltype/), aby ustawić predefiniowaną orientację tekstu w kształcie.
+Użyj [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframeformat/set_textverticaltype/) aby ustawić wstępnie zdefiniowaną orientację tekstu w kształcie.
 
 Poniższy przykład kodu ustawia orientację tekstu w kształcie na [TextVerticalType::Vertical270](https://reference.aspose.com/slides/pl/cpp/aspose.slides/textverticaltype/), co obraca tekst **o 90 stopni przeciwnie do ruchu wskazówek zegara**:
 
@@ -517,11 +517,11 @@ presentation->Dispose();
 
 Wynik:
 
-![Obrót tekstu](text_rotation.png)
+![The text rotation](text_rotation.png)
 
-## **Ustaw niestandardowy obrót dla ramek tekstowych**
+## **Ustaw własny obrót ramki tekstowej**
 
-Użyj [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframeformat/set_rotationangle/), aby ustawić własny kąt obrotu dla [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/).
+Użyj [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframeformat/set_rotationangle/) aby ustawić własny kąt obrotu dla [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/).
 
 Poniższy przykład kodu obraca ramkę tekstową o 3 stopnie zgodnie z ruchem wskazówek zegara w obrębie kształtu:
 
@@ -548,16 +548,16 @@ presentation->Dispose();
 
 Wynik:
 
-![Niestandardowy obrót tekstu](custom_text_rotation.png)
+![The custom text rotation](custom_text_rotation.png)
 
-## **Ustaw odstępy wierszy w akapitach**
+## **Ustaw odstępy między wierszami w akapitach**
 
-Aspose.Slides udostępnia [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_spacebefore/) i [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_spacewithin/), aby kontrolować odstępy między akapitami. Metody te używa się w następujący sposób:
+Aspose.Slides udostępnia [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_spacebefore/) oraz [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_spacewithin/) do kontrolowania odstępów akapitu. Metody te stosuje się w następujący sposób:
 
-* Użyj wartości dodatniej, aby określić odstęp linii jako procent wysokości linii.
-* Użyj wartości ujemnej, aby określić odstęp linii w punktach.
+* Użyj wartości dodatniej, aby określić odstęp jako procent wysokości wiersza.
+* Użyj wartości ujemnej, aby określić odstęp w punktach.
 
-Poniższy przykład kodu pokazuje, jak określić odstęp linii w akapicie:
+Poniższy przykład kodu pokazuje, jak określić odstęp między wierszami w akapicie:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -584,11 +584,11 @@ presentation->Dispose();
 
 Wynik:
 
-![Odstęp linii w akapicie](line_spacing.png)
+![The line spacing within the paragraph](line_spacing.png)
 
-## **Ustaw typ autofit dla ramek tekstowych**
+## **Ustaw typ autofitu dla ramek tekstowych**
 
-[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframeformat/set_autofittype/) określa, jak tekst zachowuje się, gdy przekracza granice swojego kontenera. Użyj go, aby kontrolować, czy tekst ma się kurczyć, przepełniać, czy automatycznie zmieniać rozmiar kształtu.
+[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframeformat/set_autofittype/) określa, jak tekst zachowuje się, gdy przekracza granice swojego kontenera. Użyj go, aby kontrolować, czy tekst ma się zmniejszać, wypływać poza obszar, czy automatycznie zmieniać rozmiar kształtu.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -612,9 +612,11 @@ presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Ustaw kotwiczenie ramek tekstowych**
+Aby policzyć wiersze po automatycznym zawijaniu i zobaczyć, jak zmienia się szerokość tekstu lub kształtu, zobacz [Count Rendered Lines](/slides/pl/cpp/manage-paragraph/). Same liczby wierszy nie wskazują, czy tekst wypływa poza kontener.
 
-[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframeformat/set_anchoringtype/) określa, jak tekst jest pozycjonowany pionowo wewnątrz kształtu, np. u góry, w środku lub na dole.
+## **Ustaw kotwicę ramek tekstowych**
+
+[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframeformat/set_anchoringtype/) definiuje, jak tekst jest pozycjonowany pionowo wewnątrz kształtu, np. u góry, w środku lub na dole.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -640,7 +642,7 @@ presentation->Dispose();
 
 ## **Ustaw tabulacje tekstu**
 
-Użyj [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) i [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/get_tabs/), aby skonfigurować tabulatory w akapicie.
+Użyj [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) oraz [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/get_tabs/) aby skonfigurować tabulatory w akapicie.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -670,11 +672,11 @@ presentation->Dispose();
 
 Wynik:
 
-![Tabulatory w akapicie](paragraph_tabs.png)
+![The paragraph tabs](paragraph_tabs.png)
 
 ## **Ustaw język korekty**
 
-Aspose.Slides udostępnia [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseportionformat/set_languageid/), który pozwala ustawić język korekty dla fragmentu tekstu. Język korekty określa język używany do sprawdzania pisowni i gramatyki w PowerPoint.
+Aspose.Slides udostępnia [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseportionformat/set_languageid/), który umożliwia ustawienie języka korekty dla fragmentu tekstu. Język korekty określa, w jakim języku będą przeprowadzane sprawdzanie pisowni i gramatyki w PowerPoint.
 
 Poniższy przykład kodu pokazuje, jak ustawić język korekty dla fragmentu tekstu:
 
@@ -708,7 +710,7 @@ portionFormat->set_ComplexScriptFont(font);
 portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
-// Ustaw Id języka korekty.
+// Set the Id of a proofing language.
 portionFormat->set_LanguageId(u"zh-CN");
 
 textPortion->set_Text(u"1.");
@@ -720,7 +722,7 @@ presentation->Dispose();
 
 ## **Ustaw domyślny język**
 
-Użyj [ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iloadoptions/set_defaulttextlanguage/), aby określić domyślny język dla tekstu tworzony podczas ładowania lub tworzenia prezentacji.
+Użyj [ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iloadoptions/set_defaulttextlanguage/) aby zdefiniować domyślny język dla tekstu tworzonego podczas ładowania lub tworzenia prezentacji.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -742,7 +744,7 @@ loadOptions->set_DefaultTextLanguage(u"en-US");
 auto presentation = System::MakeObject<Presentation>(loadOptions);
 auto slide = presentation->get_Slide(0);
 
-// Dodaj nowy prostokątny kształt z tekstem.
+// Dodaj nowy kształt prostokątny z tekstem.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 50.0f);
 shape->get_TextFrame()->set_Text(u"Sample text");
 
@@ -788,11 +790,11 @@ presentation->Dispose();
 
 ## **Wyodrębnij tekst z efektem wielkich liter**
 
-W PowerPoint zastosowanie efektu **All Caps** (wszystkie wielkie litery) powoduje, że tekst wyświetlany jest wielkimi literami na slajdzie, nawet jeśli został wpisany małymi literami. Gdy pobierasz taki fragment tekstu przy użyciu Aspose.Slides, biblioteka zwraca tekst dokładnie w takiej formie, w jakiej został wprowadzony. Aby uzyskać wyświetlany tekst, sprawdź [TextCapType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/textcaptype/) i przekształć zwrócony ciąg na wielkie litery, gdy wartość to [TextCapType::All](https://reference.aspose.com/slides/pl/cpp/aspose.slides/textcaptype/).
+W PowerPoint stosowanie efektu **All Caps** powoduje, że tekst wyświetlany jest wielkimi literami, nawet jeśli został wpisany małymi. Gdy pobierasz taki fragment tekstu przy użyciu Aspose.Slides, biblioteka zwraca dokładnie wprowadzony tekst. Aby uzyskać wyświetlany tekst, sprawdź [TextCapType](https://reference.aspose.com/slides/pl/cpp/aspose.slides/textcaptype/) i przekształć zwrócony ciąg na wielkie litery, gdy wartość to [TextCapType::All](https://reference.aspose.com/slides/pl/cpp/aspose.slides/textcaptype/).
 
 Załóżmy, że mamy następujące pole tekstowe na pierwszym slajdzie pliku sample2.pptx.
 
-![Efekt All Caps](all_caps_effect.png)
+![The All Caps effect](all_caps_effect.png)
 
 Poniższy przykład kodu pokazuje, jak wyodrębnić tekst z zastosowanym efektem **All Caps**:
 
@@ -828,7 +830,7 @@ if (textFormat->get_TextCapType() == TextCapType::All)
 presentation->Dispose();
 ```
 
-Wyjście:
+Output:
 
 ```text
 Original text: Hello, Aspose!
@@ -839,7 +841,7 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Jak zmodyfikować tekst w tabeli na slajdzie?**
 
-Aby zmodyfikować tekst w tabeli na slajdzie, użyj [ITable](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itable/). Iteruj przez komórki i aktualizuj każdą komórkę za pomocą [ICell::get_TextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icell/get_textframe/) oraz formatowanie akapitu za pomocą [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/get_paragraphformat/).
+Aby zmodyfikować tekst w tabeli na slajdzie, użyj [ITable](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itable/). Przeglądaj komórki i aktualizuj każdą komórkę przez [ICell::get_TextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icell/get_textframe/) oraz formatowanie akapitu przez [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/get_paragraphformat/).
 
 **Jak zastosować gradientowy kolor do tekstu w slajdzie PowerPoint?**
 

@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση Παραγράφων Κειμένου PowerPoint σε PHP
-linktitle: Διαχείριση Παραγράφου
+title: Διαχείριση παραγράφων κειμένου PowerPoint σε PHP
+linktitle: Διαχείριση παραγράφου
 type: docs
 weight: 40
 url: /el/php-java/manage-paragraph/
@@ -8,54 +8,54 @@ aliases:
   - /php-java/paragraph/
   - /php-java/portion/
 keywords:
-- προσθήκη κειμένου
-- προσθήκη παραγράφου
-- διαχείριση κειμένου
-- διαχείριση παραγράφου
-- διαχείριση κουκίδας
-- εσοχή παραγράφου
-- εσώματιση
-- κουκίδα παραγράφου
-- αριθμημένη λίστα
-- λίστα με κουκίδες
-- ιδιότητες παραγράφου
-- εισαγωγή HTML
-- κείμενο σε HTML
-- παράγραφος σε HTML
-- παράγραφος σε εικόνα
-- κείμενο σε εικόνα
-- εξαγωγή παραγράφου
-- PowerPoint
-- παρουσίαση
-- PHP
-- Aspose.Slides
+  - προσθήκη κειμένου
+  - προσθήκη παραγράφου
+  - διαχείριση κειμένου
+  - διαχείριση παραγράφου
+  - διαχείριση κουκίδας
+  - εσοχή παραγράφου
+  - κρεμαστή εσοχή
+  - κουκίδα παραγράφου
+  - αριθμημένη λίστα
+  - λίστα με κουκίδες
+  - ιδιότητες παραγράφου
+  - εισαγωγή HTML
+  - κείμενο σε HTML
+  - παράγραφος σε HTML
+  - παράγραφος σε εικόνα
+  - κείμενο σε εικόνα
+  - εξαγωγή παραγράφου
+  - PowerPoint
+  - παρουσίαση
+  - PHP
+  - Aspose.Slides
 description: "Μάθετε πώς να δημιουργείτε και να μορφοποιείτε παραγράφους, τμήματα, κουκίδες, αριθμημένες λίστες, εσοχές, περιεχόμενο HTML και εικόνες παραγράφων με το Aspose.Slides για PHP μέσω Java."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides for PHP μέσω Java αντιπροσωπεύει το κείμενο ως ιεραρχία πλαισίων κειμένου, παραγράφων και τμημάτων:
+Aspose.Slides for PHP via Java αντιπροσωπεύει το κείμενο ως ιεραρχία πλαισίων κειμένου, παραγράφων και τμημάτων:
 
-* [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) αναπαριστά το δοχείο κειμένου σε ένα σχήμα και παρέχει πρόσβαση στη συλλογή παραγράφων του.
-* [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/) αναπαριστά μία παράγραφο σε ένα πλαίσιο κειμένου και παρέχει πρόσβαση στα τμήματα του καθώς και στη διαμόρφωση σε επίπεδο παραγράφου.
-* [Portion](https://reference.aspose.com/slides/el/php-java/aspose.slides/portion/) αντιπροσωπεύει μια διαδοχή κειμένου μέσα σε μια παράγραφο. Κάθε τμήμα μπορεί να έχει το δικό του κείμενο και διαμόρφωση σε επίπεδο χαρακτήρων.
+* [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) αντιπροσωπεύει το δοχείο κειμένου σε ένα σχήμα και παρέχει πρόσβαση στη συλλογή παραγράφων του.
+* [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/) αντιπροσωπεύει μία παράγραφο σε ένα πλαίσιο κειμένου και παρέχει πρόσβαση στα τμήματα και στη μορφοποίηση επιπέδου παραγράφου.
+* [Portion](https://reference.aspose.com/slides/el/php-java/aspose.slides/portion/) αντιπροσωπεύει μια σειρά κειμένου μέσα σε μια παράγραφο. Κάθε τμήμα μπορεί να έχει το δικό του κείμενο και μορφοποίηση επιπέδου χαρακτήρα.
 
-Μια παράγραφος μπορεί λοιπόν να περιέχει κείμενο με διαφορετικές γραμματοσειρές, χρώματα, μεγέθη και άλλες διαμορφώσεις, χρησιμοποιώντας πολλαπλά τμήματα.
+Μια παράγραφος μπορεί λοιπόν να περιέχει κείμενο με διαφορετικές γραμματοσειρές, χρώματα, μεγέθη και άλλες μορφοποιήσεις χρησιμοποιώντας πολλαπλά τμήματα.
 
-## **Δημιουργία και Διαμόρφωση Παραγράφων**
+## **Δημιουργία και μορφοποίηση παραγράφων**
 
-### **Δημιουργία Παραγράφων με Πολλαπλά Τμήματα**
+### **Δημιουργία παραγράφων με πολλαπλά τμήματα**
 
-Τα παρακάτω βήματα δημιουργούν ένα πλαίσιο κειμένου με τρεις παραγράφους, καθεμία από τις οποίες περιέχει τρία τμήματα:
+Τα παρακάτω βήματα δημιουργούν ένα πλαίσιο κειμένου με τρεις παραγράφους, η καθεμία από τις οποίες περιέχει τρία τμήματα:
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
-2. Πρόσβαση στη σχετική διαφάνεια μέσω του δείκτη της.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
 3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος.
+4. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος.
 5. Χρησιμοποιήστε την προεπιλεγμένη παράγραφο και προσθέστε δύο ακόμη αντικείμενα [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/) στο πλαίσιο κειμένου.
-6. Προσθέστε αρκετά αντικείμενα [Portion](https://reference.aspose.com/slides/el/php-java/aspose.slides/portion/) ώστε κάθε παράγραφος να περιέχει τρία τμήματα. Η προεπιλεγμένη παράγραφος περιέχει ήδη ένα κενό τμήμα.
+6. Προσθέστε αρκετά αντικείμενα [Portion](https://reference.aspose.com/slides/el/php-java/aspose.slides/portion/) ώστε κάθε παράγραφος να περιέχει τρία τμήματα. Η προεπιλεγμένη παράγραφο περιέχει ήδη ένα κενό τμήμα.
 7. Ορίστε το κείμενο κάθε τμήματος.
-8. Εφαρμόστε διαμόρφωση επιπέδου χαρακτήρων μέσω του [Portion::getPortionFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/portion/#getPortionFormat--).
-9. Αποθηκεύστε την τροποποιημένη παρουσία.
+8. Εφαρμόστε μορφοποίηση επιπέδου χαρακτήρα μέσω του [Portion::getPortionFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/portion/#getPortionFormat--).
+9. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
 Αυτό το παράδειγμα PHP υλοποιεί τα βήματα:
 
@@ -118,26 +118,26 @@ try {
 }
 ```
 
-## **Δημιουργία Λιστών με Κουκίδες και Αρίθμιση**
+## **Δημιουργία λιστών με κουκίδες και αριθμημένες**
 
-### **Δημιουργία Λίστας με Κουκίδες ή Αρίθμηση**
+### **Δημιουργία λίστας με κουκίδες ή αριθμημένης**
 
-Οι κουκίδες και η αρίθμηση διευκολύνουν την ανάγνωση σχετικών στοιχείων. Στο Aspose.Slides, οι ρυθμίσεις λίστας ορίζονται μέσω του [BulletFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/).
+Οι κουκκίδες και η αρίθμηση κάνουν τα σχετιζόμενα στοιχεία πιο εύκολα στην ανάγνωση. Στο Aspose.Slides, οι ρυθμίσεις λίστας ορίζονται μέσω του [BulletFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/).
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
-2. Πρόσβαση στη σχετική διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
+3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) στην επιλεγμένη διαφάνεια.
+4. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος.
 5. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου.
-6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/) για μια κουκίδα σύμβολου.
-7. Ορίστε το [BulletFormat::setType](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/#setType-int-) σε [BulletType::Symbol](https://reference.aspose.com/slides/el/php-java/aspose.slides/bullettype/) και καθορίστε τον χαρακτήρα της κουκίδας.
-8. Ορίστε το κείμενο της παραγράφου, την εσοχή, το χρώμα και το ύψος της κουκίδας.
+6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/) για μια κουκκίδα συμβόλου.
+7. Ορίστε το [BulletFormat::setType](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/#setType-int-) σε [BulletType::Symbol](https://reference.aspose.com/slides/el/php-java/aspose.slides/bullettype/) και καθορίστε τον χαρακτήρα της κουκκίδας.
+8. Ορίστε το κείμενο της παραγράφου, την εσοχή, το χρώμα της κουκκίδας και το ύψος της κουκκίδας.
 9. Προσθέστε την παράγραφο στο πλαίσιο κειμένου.
-10. Δημιουργήστε δεύτερη παράγραφο και ορίστε το [BulletFormat::setType](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/#setType-int-) σε [BulletType::Numbered](https://reference.aspose.com/slides/el/php-java/aspose.slides/bullettype/).
-11. Διαμορφώστε το στυλ της αριθμημένης κουκίδας και προσθέστε την παράγραφο στο πλαίσιο κειμένου.
-12. Αποθηκεύστε την παρουσία.
+10. Δημιουργήστε μια δεύτερη παράγραφο και ορίστε το [BulletFormat::setType](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/#setType-int-) σε [BulletType::Numbered](https://reference.aspose.com/slides/el/php-java/aspose.slides/bullettype/).
+11. Ρυθμίστε το στυλ της αριθμημένης κουκκίδας και προσθέστε την παράγραφο στο πλαίσιο κειμένου.
+12. Αποθηκεύστε την παρουσίαση.
 
-Αυτό το παράδειγμα PHP δημιουργεί μια κουκίδα σύμβολου και μια αριθμημένη κουκίδα:
+Αυτό το παράδειγμα PHP δημιουργεί μια κουκκίδα συμβόλου και μια αριθμημένη κουκκίδα:
 
 ```php
 use aspose\slides\BulletType;
@@ -184,22 +184,22 @@ try {
 }
 ```
 
-### **Χρήση Κουκίδων Εικόνας**
+### **Χρήση εικόνων ως κουκκίδες**
 
-Οι κουκίδες εικόνας σας επιτρέπουν να χρησιμοποιήσετε μια προσαρμοσμένη εικόνα αντί για σύμβολο ή αριθμό.
+Οι εικόνες-κουκκίδες σάς επιτρέπουν να χρησιμοποιήσετε μια προσαρμοσμένη εικόνα αντί για σύμβολο ή αριθμό.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
-2. Πρόσβαση στη σχετική διαφάνεια μέσω του δείκτη της.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) και πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/).
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Προσπελάστε τη σχετική διαφάνεια μέσω του δείκτη της.
+3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) και προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του.
 4. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου.
-5. Φορτώστε την εικόνα της κουκίδας και προσθέστε τη στη συλλογή εικόνων της παρουσίασης ως [PPImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/).
+5. Φορτώστε την εικόνα της κουκκίδας και προσθέστε την στη συλλογή εικόνων της παρουσίασης ως [PPImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/).
 6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/) και ορίστε το κείμενό του.
 7. Ορίστε το [BulletFormat::setType](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/#setType-int-) σε [BulletType::Picture](https://reference.aspose.com/slides/el/php-java/aspose.slides/bullettype/).
-8. Αντιστοιχίστε την εικόνα μέσω του [BulletFormat::getPicture](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/#getPicture--) και ορίστε το ύψος της κουκίδας.
+8. Αναθέστε την εικόνα μέσω του [BulletFormat::getPicture](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/#getPicture--) και ορίστε το ύψος της κουκκίδας.
 9. Προσθέστε την παράγραφο στο πλαίσιο κειμένου.
-10. Αποθηκεύστε την τροποποιημένη παρουσία.
+10. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-Αυτό το παράδειγμα PHP δημιουργεί μια κουκίδα εικόνας:
+Αυτό το παράδειγμα PHP δημιουργεί μια εικόνα-κουκκίδα:
 
 ```php
 use aspose\slides\BulletType;
@@ -238,17 +238,17 @@ try {
 }
 ```
 
-### **Δημιουργία Πολυεπίπεδης Λίστας**
+### **Δημιουργία λίστας με πολλαπλά επίπεδα**
 
-Ορίστε το [ParagraphFormat::setDepth](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setDepth-short-) για να τοποθετήσετε παραγράφους σε διαφορετικά επίπεδα λίστας. Το ανώτερο επίπεδο έχει βάθος `0`.
+Ορίστε το [ParagraphFormat::setDepth](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setDepth-short-) για να τοποθετήσετε παραγράφους σε διαφορετικά επίπεδα λίστας. Το κορυφαίο επίπεδο έχει βάθος `0`.
 
-1. Δημιουργήστε μια [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
-2. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) και αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του.
-3. Δημιουργήστε τέσσερις παραγράφους και διαμορφώστε τα σύμβολα των κουκίδων τους.
-4. Ορίστε τις τιμές του [ParagraphFormat::setDepth](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setDepth-short-) σε `0`, `1`, `2` και `3`.
-5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσία.
+1. Δημιουργήστε ένα [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
+2. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) και διαγράψτε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του.
+3. Δημιουργήστε τέσσερις παραγράφους και διαμορφώστε τα σύμβολα των κουκκίδων τους.
+4. Ορίστε τις τιμές τους στο [ParagraphFormat::setDepth](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setDepth-short-) σε `0`, `1`, `2` και `3`.
+5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσίαση.
 
-Αυτό το παράδειγμα PHP δημιουργεί μια λίστα με τέσσερα επίπεδα κουκίδων:
+Αυτό το παράδειγμα PHP δημιουργεί μια λίστα με τέσσερα επίπεδα κουκκίδων:
 
 ```php
 use aspose\slides\BulletType;
@@ -308,17 +308,17 @@ try {
 }
 ```
 
-### **Έναρξη Αριθμημένων Στοιχείων Λίστας με Προσαρμοσμένες Τιμές**
+### **Έναρξη αριθμημένων στοιχείων λίστας με προσαρμοσμένες τιμές**
 
-Χρησιμοποιήστε το [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) για να ορίσετε τον αρχικό αριθμό που εμφανίζεται σε αριθμημένη παράγραφο.
+Χρησιμοποιήστε το [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) για να ορίσετε τον αρχικό αριθμό που εμφανίζεται για μια αριθμημένη παράγραφο.
 
-1. Δημιουργήστε μια [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) σε μια διαφάνεια.
-2. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του σχήματος.
+1. Δημιουργήστε ένα [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) σε μια διαφάνεια.
+2. Διαγράψτε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του σχήματος.
 3. Δημιουργήστε τρεις αριθμημένες παραγράφους.
 4. Ορίστε το [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) σε `2`, `3` και `7` για τις αντίστοιχες παραγράφους.
-5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσία.
+5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσίαση.
 
-Αυτό το παράδειγμα PHP αντιστοιχεί έναν προσαρμοσμένο αρχικό αριθμό σε κάθε παράγραφο:
+Αυτό το παράδειγμα PHP καθορίζει έναν προσαρμοσμένο αρχικό αριθμό για κάθε παράγραφο:
 
 ```php
 use aspose\slides\BulletType;
@@ -357,25 +357,25 @@ try {
 }
 ```
 
-## **Έλεγχος Διάταξης Παραγράφου και Ιδιοτήτων Τέλους**
+## **Έλεγχος διάταξης παραγράφου και ιδιοτήτων τέλους**
 
-### **Ορισμός Εσοχής Πρώτης Γραμμής**
+### **Ορισμός εσοχής πρώτης γραμμής**
 
-Χρησιμοποιήστε το [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-) για να ελέγξετε την εσοχή της πρώτης γραμμής μιας παραγράφου. Αυτή η μέθοδος μετακινεί μόνο την πρώτη γραμμή σε σχέση με το αριστερό περιθώριο της παραγράφου. Μια θετική τιμή μετακινεί την πρώτη γραμμή προς τα δεξιά, ενώ οι υπόλοιπες γραμμές παραμένουν ευθυγραμμισμένες με το σώμα της παραγράφου.
+Χρησιμοποιήστε το [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-) για να ελέγξετε την εσοχή της πρώτης γραμμής μιας παραγράφου. Αυτή η μέθοδος μετακινεί μόνο την πρώτη γραμμή σε σχέση με το αριστερό περιθώριο της παραγράφου. Μια θετική τιμή μετατοπίζει την πρώτη γραμμή προς τα δεξιά, ενώ οι υπόλοιπες γραμμές παραμένουν ευθυγραμμισμένες με το σώμα της παραγράφου.
 
 Χρησιμοποιήστε το [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) όταν χρειάζεται να μετακινήσετε ολόκληρη την παράγραφο. Χρησιμοποιήστε το [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-) όταν θέλετε να μετακινήσετε μόνο την πρώτη γραμμή.
 
-Το παρακάτω παράδειγμα δημιουργεί αρκετές παραγράφους και εφαρμόζει διαφορετικές τιμές του [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-) για να δείξει πώς η εσοχή πρώτης γραμμής επηρεάζει τη διάταξη.
+Το παρακάτω παράδειγμα δημιουργεί πολλές παραγράφους και εφαρμόζει διαφορετικές τιμές στο [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-) για να δείξει πώς η εσοχή πρώτης γραμμής επηρεάζει τη διάταξη της παραγράφου.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
-2. Πρόσβαση στη στοχευμένη διαφάνεια.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Προσπελάστε τη διαφάνεια-στόχο.
 3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος και αφαίρεση της προεπιλεγμένης παραγράφου.
-5. Δημιουργήστε πολλές παραγράφους και ορίστε διαφορετικές τιμές του [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-) για καθεμία.
+4. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος και αφαιρέστε την προεπιλεγμένη παράγραφο.
+5. Δημιουργήστε πολλές παραγράφους και ορίστε διαφορετικές τιμές στο [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-) για αυτές.
 6. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου.
-7. Αποθηκεύστε την τροποποιημένη παρουσία.
+7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-Αυτός ο κώδικας PHP δείχνει πώς να ορίσετε εσοχή παραγράφου:
+Αυτός ο κώδικας PHP σας δείχνει πώς να ορίσετε εσοχή παραγράφου:
 
 ```php
 use aspose\slides\FillType;
@@ -431,26 +431,26 @@ try {
 
 Το αποτέλεσμα:
 
-![Η εσοχή πρώτης γραμμής των παραγράφων](first_line_indent.png)
+![Η εσοχή της πρώτης γραμμής των παραγράφων](first_line_indent.png)
 
-### **Ορισμός Εσώματισης (Hanging Indent)**
+### **Ορισμός κρεμαστής εσοχής**
 
-Η εσώματιση είναι μια διάταξη παραγράφου όπου η πρώτη γραμμή ξεκινά αριστερότερα από τις υπόλοιπες γραμμές. Στο Aspose.Slides, δημιουργείτε αυτό το εφέ με το [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-). Δώστε μια αρνητική τιμή για να μετακινήσετε την πρώτη γραμμή αριστερά σχετικά με το σώμα της παραγράφου.
+Η κρεμαστή εσοχή είναι μια διάταξη παραγράφου όπου η πρώτη γραμμή ξεκινά αριστερά των υπολοίπων γραμμών. Στο Aspose.Slides, δημιουργείτε αυτό το εφέ με το [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-). Δώστε μια αρνητική τιμή για να μετακινήσετε την πρώτη γραμμή αριστερά σε σχέση με το σώμα της παραγράφου.
 
-Στην πράξη, το [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) ορίζει τη θέση αριστερά του σώματος της παραγράφου, ενώ το [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-) ορίζει τη θέση της πρώτης γραμμής σε σχέση με αυτό το περιθώριο. Για εσώματιση, δώστε μια θετική τιμή στο `setMarginLeft` και μια αρνητική τιμή στο `setIndent`.
+Στην πράξη, το [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) ορίζει τη δεξιά θέση του σώματος της παραγράφου, και το [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-) ορίζει τη θέση της πρώτης γραμμής σε σχέση με αυτό το περιθώριο. Για να δημιουργήσετε κρεμαστή εσοχή, δώστε μια θετική τιμή στο `setMarginLeft` και μια αρνητική τιμή στο `setIndent`.
 
-Αυτή η μορφοποίηση είναι χρήσιμη για βιβλιογραφίες, παραπομπές, καταχωρήσεις γλωσσολογικού λεξικού και άλλες παραγράφους όπου οι αναδιπλωμένες γραμμές πρέπει να ευθυγραμμίζονται κάτω από το σώμα της παραγράφου και όχι κάτω από τον πρώτο χαρακτήρα της πρώτης γραμμής.
+Αυτή η μορφοποίηση είναι χρήσιμη για βιβλιογραφίες, παραπομπές, καταχωρίσεις γλωσσολογίου και άλλες παραγράφους όπου οι στυλιζόμενες γραμμές πρέπει να ευθυγραμμίζονται κάτω από το σώμα της παραγράφου αντί για τον πρώτο χαρακτήρα της πρώτης γραμμής.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
-2. Πρόσβαση στη στοχευμένη διαφάνεια.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Προσπελάστε τη διαφάνεια-στόχο.
 3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος και αφαίρεση της προεπιλεγμένης παραγράφου.
+4. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος και αφαιρέστε την προεπιλεγμένη παράγραφο.
 5. Δημιουργήστε παραγράφους και δώστε μια θετική τιμή στο [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) για κάθε παράγραφο.
-6. Δώστε μια αρνητική τιμή στο [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-) για να δημιουργήσετε το εφέ της εσώματισης.
+6. Δώστε μια αρνητική τιμή στο [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-) για να δημιουργήσετε το εφέ κρεμαστής εσοχής.
 7. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου.
-8. Αποθηκεύστε την τροποποιημένη παρουσία.
+8. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-Αυτός ο κώδικας PHP δείχνει πώς να ορίσετε εσώματιση για μια παράγραφο:
+Αυτός ο κώδικας PHP σας δείχνει πώς να ορίσετε κρεμαστή εσοχή για μια παράγραφο:
 
 ```php
 use aspose\slides\FillType;
@@ -498,18 +498,18 @@ try {
 
 Το αποτέλεσμα:
 
-![Η εσώματιση των παραγράφων](hanging_indent.png)
+![Η κρεμαστή εσοχή των παραγράφων](hanging_indent.png)
 
-### **Ορισμός Ιδιοτήτων Τέλους Παραγράφου**
+### **Ορισμός ιδιοτήτων τερματικού τμήματος παραγράφου**
 
-Η μέθοδος [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) ελέγχει τη διαμόρφωση του σημείου τέλους της παραγράφου. Το παρακάτω παράδειγμα PHP αναθέτει μέγεθος γραμματοσειράς και λατινική γραμματοσειρά στο τέλος της δεύτερης παραγράφου:
+Η [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) ελέγχει τη μορφοποίηση του σημείου τέλους της παραγράφου. Το παρακάτω παράδειγμα PHP αναθέτει μέγεθος γραμματοσειράς και λατινική γραμματοσειρά στο σημείο τέλους της δεύτερης παραγράφου:
 
-1. Φορτώστε μια [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
-2. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) και αφαιρέστε την προεπιλεγμένη του παράγραφο.
+1. Φορτώστε ένα [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
+2. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) και διαγράψτε την προεπιλεγμένη του παράγραφο.
 3. Δημιουργήστε δύο παραγράφους και προσθέστε τμήματα κειμένου σε αυτές.
 4. Δημιουργήστε ένα [PortionFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/portionformat/) για το σημείο τέλους της δεύτερης παραγράφου.
-5. Ορίστε το [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) και το [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
-6. Αναθέστε τη μορφή με το [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) και αποθηκεύστε την παρουσία.
+5. Ορίστε τα [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) και [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
+6. Αναθέστε τη μορφή με την [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) και αποθηκεύστε την παρουσίαση.
 
 ```php
 use aspose\slides\FontData;
@@ -547,18 +547,73 @@ try {
 }
 ```
 
-## **Εισαγωγή και Εξαγωγή Περιεχομένου Παραγράφου**
+## **Καταμέτρηση αποδιδόμενων γραμμών**
 
-### **Εισαγωγή HTML Κειμένου σε Παραγράφους**
+Χρησιμοποιήστε το [Paragraph::getLinesCount](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#getLinesCount--) για να μετρήσετε τις γραμμές που καταλαμβάνει μια παράγραφος μετά την διάταξη του κειμένου, συμπεριλαμβανομένης της αυτόματης αναδίπλωσης. Αυτό είναι χρήσιμο όταν ελέγχετε το μήκος του κειμένου και τη διάταξη σε πρότυπα παρουσίασης.
 
-Χρησιμοποιήστε το [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) για να μετατρέψετε σήμανση HTML σε παραγράφους και τμήματα σε ένα πλαίσιο κειμένου.
+Μια παράγραφος είναι ένα αντικείμενο στη συλλογή [TextFrame::getParagraphs](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#getParagraphs--) και μπορεί να καταλαμβάνει αρκετές αποδιδόμενες γραμμές. Ένα ρητό διαχωριστικό γραμμής μέσα σε μια παράγραφο αναγκάζει νέα γραμμή χωρίς να δημιουργεί άλλη παράγραφο. Η αυτόματη αναδίπλωση δημιουργεί γραμμές με βάση το διαθέσιμο πλάτος χωρίς να εισάγει ρητά διαχωριστικά γραμμής στο κείμενο. Συνεπώς, η καταμέτρηση παραγράφων ή χαρακτήρων διαχωριστικών γραμμής δεν δίνει τον αριθμό των αποδιδόμενων γραμμών.
 
-1. Δημιουργήστε μια παρουσία της [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
-2. Πρόσβαση σε μια διαφάνεια και προσθήκη ενός [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/).
-3. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος και αφαίρεση της προεπιλεγμένης παραγράφου.
-4. Διαβάστε το αρχείο HTML πηγής.
-5. Μετάβαλε το κείμενο HTML στο [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
-6. Αποθηκεύστε την τροποποιημένη παρουσία.
+Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα κειμένου, μετρά τις γραμμές του, περιορίζει το σχήμα και στη συνέχεια αντικαθιστά το κείμενο με μια σύντομη συμβολοσειρά. Η αναδίπλωση είναι ενεργοποιημένη και η αυτόματη προσαρμογή είναι απενεργοποιημένη ώστε το πλάτος του σχήματος να ελέγχει την αναδίπλωση χωρίς να μειώσει αυτόματα το κείμενο ή το μέγεθος του σχήματος. Οι διαστάσεις του σχήματος είναι σε μονάδες point. Τέλος, το παράδειγμα προσθέτει μια ακόμη παράγραφο και αθροίζει τις μετρήσεις γραμμών σε όλο το πλαίσιο κειμένου.
+
+```php
+use aspose\slides\NullableBool;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAutofitType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 400, 200);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getTextFrameFormat()->setWrapText(NullableBool::True);
+    $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::None);
+
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(20);
+    $paragraph->setText("This text demonstrates how automatic wrapping changes the number of rendered lines.");
+    echo "Original width: " . java_values($paragraph->getLinesCount()) . PHP_EOL;
+
+    $shape->setWidth(150);
+    echo "Narrower shape: " . java_values($paragraph->getLinesCount()) . PHP_EOL;
+
+    $paragraph->setText("Short text.");
+    echo "Shorter text: " . java_values($paragraph->getLinesCount()) . PHP_EOL;
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->setText("Another paragraph.");
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(20);
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $totalLineCount = 0;
+    for ($i = 0; $i < java_values($textFrame->getParagraphs()->getCount()); $i++) {
+        $currentParagraph = $textFrame->getParagraphs()->get_Item($i);
+        $totalLineCount += java_values($currentParagraph->getLinesCount());
+    }
+    echo "Total lines in the text frame: " . $totalLineCount . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+Με αυτό το κείμενο και αυτές τις διαστάσεις, η στένωση του σχήματος αυξάνει τον αριθμό των γραμμών, ενώ η αντικατάσταση του κειμένου με τη σύντομη συμβολοσειρά το μειώνει. Οι ακριβείς μετρήσεις μπορεί να διαφέρουν ανάλογα με τη διαθεσιμότητα και την αντικατάσταση γραμματοσειρών, το μέγεθος γραμματοσειράς, τα περιθώρια, την εσοχή, την αναδίπλωση και τις ρυθμίσεις αυτόματης προσαρμογής. Χρησιμοποιήστε τις γραμματοσειρές και τις ρυθμίσεις διάταξης που προορίζονται για το περιβάλλον-στόχο όταν ελέγχετε ένα πρότυπο.
+
+Ο μόνος αριθμός γραμμών δεν καθορίζει αν το κείμενο υπερβαίνει το χώρο του. Το διαθέσιμο ύψος, τα ύψη γραμμών, η απόσταση μεταξύ παραγράφων και γραμμών, καθώς και η συμπεριφορά της αυτόματης προσαρμογής επίσης παίζουν ρόλο· ακόμη και μια μόνη γραμμή μπορεί να υπερβεί το διαθέσιμο πλάτος όταν η αναδίπλωση είναι απενεργοποιημένη.
+
+## **Εισαγωγή και εξαγωγή περιεχομένου παραγράφων**
+
+### **Εισαγωγή κειμένου HTML σε παραγράφους**
+
+Χρησιμοποιήστε το [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) για να μετατρέψετε την σήμανση HTML σε παραγράφους και τμήματα σε ένα πλαίσιο κειμένου.
+
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Προσπελάστε μια διαφάνεια και προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/).
+3. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος και διαγράψτε την προεπιλεγμένη του παράγραφο.
+4. Διαβάστε το αρχείο HTML προέλευσης.
+5. Δώστε τη συμβολοσειρά HTML στην [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
+6. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
 Αυτό το παράδειγμα PHP εισάγει HTML σε ένα πλαίσιο κειμένου:
 
@@ -589,15 +644,15 @@ try {
 }
 ```
 
-### **Εξαγωγή Κειμένου Παραγράφου σε HTML**
+### **Εξαγωγή κειμένου παραγράφων σε HTML**
 
 Χρησιμοποιήστε το [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) για να εξάγετε ένα επιλεγμένο εύρος παραγράφων ως HTML.
 
-1. Δημιουργήστε μια παρουσία της [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και φορτώστε την επιθυμητή παρουσία.
-2. Πρόσβαση στη διαφάνεια και εντοπισμός του [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) που περιέχει το κείμενο.
-3. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος.
-4. Καλέστε το [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) με το αρχικό δείκτη παραγράφου και τον αριθμό παραγράφων προς εξαγωγή.
-5. Γράψτε το επιστρεφόμενο κείμενο HTML σε αρχείο.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και φορτώστε την επιθυμητή παρουσίαση.
+2. Προσπελάστε τη διαφάνεια και εντοπίστε το [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) που περιέχει το κείμενο.
+3. Προσπελάστε το [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος.
+4. Καλέστε το [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) με τον δείκτη έναρξης παραγράφου και τον αριθμό των παραγράφων προς εξαγωγή.
+5. Γράψτε τη επιστραφμένη συμβολοσειρά HTML σε ένα αρχείο.
 
 Αυτό το παράδειγμα PHP εξάγει όλες τις παραγράφους από το πρώτο σχήμα κειμένου:
 
@@ -627,19 +682,19 @@ try {
 }
 ```
 
-### **Απόδοση Παραγράφου ως Εικόνας**
+### **Απόδοση παραγράφου ως εικόνα**
 
-Η μέθοδος [Paragraph::getImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#getImage--) αποδίδει άμεσα μια μεμονωμένη παράγραφο και επιστρέφει ένα [IImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/iimage/). Αποθηκεύστε το αποτέλεσμα σε αρχείο ή ρεύμα με το [IImage::save](https://reference.aspose.com/slides/el/php-java/aspose.slides/iimage/#save-java.lang.String-int-). Δεν χρειάζεται να αποδώσετε ολόκληρο το σχήμα ή να περικόψετε το bitmap χειροκίνητα.
+Το [Paragraph::getImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#getImage--) αποδίδει απευθείας μια μεμονωμένη παράγραφο και επιστρέφει ένα [IImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/iimage/). Αποθηκεύστε το αποτέλεσμα σε αρχείο ή ροή με το [IImage::save](https://reference.aspose.com/slides/el/php-java/aspose.slides/iimage/#save-java.lang.String-int-). Δεν χρειάζεται να αποδώσετε το περιβάλλον σχήμα ή να περικόψετε ένα bitmap χειροκίνητα.
 
-Το [Paragraph::getImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#getImage--) μπορεί να επιστρέψει `null` αν η παράγραφος δεν βρεθεί στη γονική της συλλογή, δεν έχει έγκυρα όρια απόδοσης ή δεν μπορεί να αποδοθεί. Ελέγξτε το αποτέλεσμα πριν το αποθηκεύσετε και διαγράψτε την εικόνα μετά τη χρήση.
+Το [Paragraph::getImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#getImage--) μπορεί να επιστρέψει `null` αν η παράγραφος δεν βρεθεί στη συλλογή γονέα, δεν έχει έγκυρα όρια απόδοσης ή δεν μπορεί να αποδοθεί. Ελέγξτε το αποτέλεσμα πριν το αποθηκεύσετε και απελευθερώστε την επιστρεφόμενη εικόνα μετά τη χρήση.
 
-#### **Απόδοση Παραγράφου στην Προεπιλεγμένη Κλίμακα**
+#### **Απόδοση παραγράφου στην προεπιλεγμένη κλίμακα**
 
-Ας υποθέσουμε ότι έχουμε ένα αρχείο παρουσίασης με όνομα sample.pptx με μία διαφάνεια, όπου το πρώτο σχήμα είναι ένα πλαίσιο κειμένου που περιέχει τρεις παραγράφους.
+Ας υποθέσουμε ότι έχουμε ένα αρχείο παρουσίασης με όνομα sample.pptx με μία διαφάνεια, όπου το πρώτο σχήμα είναι ένα πεδίο κειμένου που περιέχει τρεις παραγράφους.
 
-![Το πλαίσιο κειμένου με τρεις παραγράφους](paragraph_to_image_input.png)
+![Το πεδίο κειμένου με τρεις παραγράφους](paragraph_to_image_input.png)
 
-Το παρακάτω παράδειγμα PHP αποδίδει τη δεύτερη παράγραφο σε ένα κανονικό σχήμα κειμένου στην προεπιλεγμένη κλίμακα και αποθηκεύει την εικόνα σε μορφή PNG. Το μπλοκ `finally` εξασφαλίζει τη σωστή απελευθέρωση της εικόνας.
+Το παρακάτω παράδειγμα PHP αποδίδει τη δεύτερη παράγραφο σε ένα κανονικό σχήμα κειμένου στην προεπιλεγμένη κλίμακα και αποθηκεύει την επιστρεφόμενη εικόνα σε μορφή PNG. Το `finally` τμήμα διασφαλίζει ότι η εικόνα απελευθερώνεται σωστά.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -679,9 +734,9 @@ try {
 
 ![Η εικόνα της παραγράφου](paragraph_to_image_output.png)
 
-#### **Απόδοση Παραγράφου σε Κελί Πίνακα με Κλιμάκωση**
+#### **Απόδοση παραγράφου σε κελί πίνακα με κλιμάκωση**
 
-Χρησιμοποιήστε την υπερφόρτωση του [Paragraph::getImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#getImage-float-float-) που δέχεται τις παραμέτρους `$scaleX` και `$scaleY` για να ορίσετε τους οριζόντιους και κατακόρυφους παράγοντες κλίμακας. Το παρακάτω παράδειγμα PHP δημιουργεί έναν πίνακα, αποδίδει την παράγραφο στο πρώτο του κελί με διπλάσιο πλάτος και ύψος από την προεπιλεγμένη και αποθηκεύει το αποτέλεσμα ως εικόνα PNG.
+Χρησιμοποιήστε την υπερφόρτωση του [Paragraph::getImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#getImage-float-float-) που δέχεται τις παραμέτρους `$scaleX` και `$scaleY` για να ορίσετε τους οριζόντιους και κάθετους συντελεστές κλιμάκωσης. Το παρακάτω παράδειγμα PHP δημιουργεί έναν πίνακα, αποδίδει την παράγραφο στο πρώτο του κελί με διπλάσιο πλάτος και ύψος από το προεπιλεγμένο και αποθηκεύει το αποτέλεσμα ως εικόνα PNG.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -712,24 +767,24 @@ try {
 }
 ```
 
-Ένας παράγοντας κλίμακας `1` διατηρεί τον άξονα στο προεπιλεγμένο μέγεθος εικονοστοιχείου. Για παράδειγμα, `2` και για τους δύο παράγοντες παράγει εικόνα του οποίας το πλάτος και το ύψος είναι περίπου διπλάσιο από τις προεπιλεγμένες διαστάσεις, με αποτέλεσμα τέσσερις φορές περισσότερα εικονοστοιχεία. Μεγαλύτεροι παράγοντες γενικά παράγουν πιο οξυρήμένο κείμενο για ζουμ ή υψηλής ανάλυσης έξοδο, αλλά αυξάνουν τη μνήμη και το μέγεθος του αρχείου. Παράγοντες κάτω από `1` παράγουν μικρότερες εικόνες με λιγότερες λεπτομέρειες. Χρησιμοποιήστε ίσους παράγοντες για να διατηρήσετε την αναλογία διαστάσεων της παραγράφου· διαφορετικοί οριζόντιοι και κατακόρυφοι παράγοντες τεντώσουν το αποτέλεσμα ανεξάρτητα.
+Ένας συντελεστής κλιμάκωσης `1` διατηρεί τον άξονα στο προεπιλεγμένο μέγεθος εικονοστοιχείου. Για παράδειγμα, `2` και για τους δύο συντελεστές παράγει μια εικόνα του οποίου το πλάτος και το ύψος είναι περίπου διπλάσια από τις προεπιλεγμένες διαστάσεις, με αποτέλεσμα τέσσερις φορές περισσότερα εικονοστοιχεία. Μεγαλύτεροι συντελεστές γενικά παράγουν πιο καθαρό κείμενο για μεγέθυνση ή έξοδο υψηλής ανάλυσης, αλλά αυξάνουν επίσης τη χρήση μνήμης και το μέγεθος αρχείου. Συντελεστές κάτω από `1` παράγουν μικρότερες εικόνες με λιγότερες λεπτομέρειες. Χρησιμοποιήστε ίσους συντελεστές για να διατηρήσετε την αναλογία διαστάσεων της παραγράφου· διαφορετικοί οριζόντιοι και κάθετοι συντελεστές τεντώνουν το αποτέλεσμα ανεξάρτητα.
 
-Η απόδοση ολόκληρου σχήματος με το [Shape::getImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/#getImage--) παραμένει χρήσιμη όταν η έξοδος πρέπει να περιλαμβάνει το γέμισμα, το περίγραμμα ή άλλο οπτικό περιεχόμενο του σχήματος. Για εικόνα μόνο της παραγράφου, χρησιμοποιήστε το [Paragraph::getImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#getImage--).
+Η απόδοση ολόκληρου του σχήματος με το [Shape::getImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/#getImage--) παραμένει χρήσιμη όταν η έξοδος πρέπει να περιλαμβάνει τη γέμιση, το περίγραμμα ή άλλο οπτικό περιεχόμενο του σχήματος. Για εικόνα που περιέχει μόνο την παράγραφο, χρησιμοποιήστε το [Paragraph::getImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#getImage--).
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
-**Μπορώ να απενεργοποιήσω εντελώς την αναδίπλωση γραμμών μέσα σε ένα πλαίσιο κειμένου;**
+**Μπορώ να απενεργοποιήσω πλήρως την αναδίπλωση γραμμών μέσα σε ένα πλαίσιο κειμένου;**
 
-Ναι. Ορίστε το [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/#setWrapText-byte-) για να απενεργοποιήσετε την αναδίπλωση ώστε οι γραμμές να μην σπάνε στα άκρα του πλαισίου κειμένου.
+Ναι. Ορίστε το [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/#setWrapText-byte-) για να απενεργοποιήσετε την αναδίπλωση ώστε οι γραμμές να μην σπάζουν στις άκρες του πλαισίου κειμένου.
 
-**Πώς μπορώ να λάβω τα ακριβή όρια στην διαφάνεια ενός συγκεκριμένου παραγράφου;**
+**Πώς μπορώ να λάβω τα ακριβή όρια μιας συγκεκριμένης παραγράφης στην διαφάνεια;**
 
-Χρησιμοποιήστε το [Paragraph::getRect](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#getRect--) για να ανακτήσετε το ορθογώνιο περιοριστικό της παραγράφου. Το [Portion::getRect](https://reference.aspose.com/slides/el/php-java/aspose.slides/portion/#getRect--) παρέχει τα όρια ενός μεμονωμένου τμήματος.
+Χρησιμοποιήστε το [Paragraph::getRect](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#getRect--) για να ανακτήσετε το οριοθετημένο ορθογώνιο της παραγράφου. Το [Portion::getRect](https://reference.aspose.com/slides/el/php-java/aspose.slides/portion/#getRect--) παρέχει τα όρια ενός επιμέρους τμήματος.
 
-**Πού ελέγχεται η στοίχιση παραγράφου (αριστερά, δεξιά, κέντρο ή πλήρης στοίχιση);**
+**Πού ελέγχεται η στοίχιση της παραγράφου (αριστερά, δεξιά, κέντρο ή πλήρης στοίχιση);**
 
-Το [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setAlignment-int-) είναι ρύθμιση σε επίπεδο παραγράφου και εφαρμόζεται σε ολόκληρη την παράγραφο ανεξάρτητα από τη διαμόρφωση μεμονωμένων τμημάτων.
+Το [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setAlignment-int-) είναι μια ρύθμιση επιπέδου παραγράφου και εφαρμόζεται σε όλη την παράγραφο ανεξάρτητα από τη μορφοποίηση επιμέρους τμημάτων.
 
-**Μπορώ να ορίσω τη γλώσσα απόδειξης για μέρος μιας παραγράφου;**
+**Μπορώ να ορίσω τη γλώσσα ελέγχου για μέρος μιας παραγράφου;**
 
-Ναι. Ορίστε το [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) για μεμονωμένα τμήματα, ώστε μια παράγραφος να μπορεί να περιέχει κείμενο σε πολλές γλώσσες.
+Ναι. Ορίστε το [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) για μεμονωμένα τμήματα, έτσι ώστε μια παράγραφος να μπορεί να περιέχει κείμενο σε πολλές γλώσσες.

@@ -1,5 +1,5 @@
 ---
-title: Spravovat text odstavců PowerPointu v Pythonu přes Java
+title: Správa textových odstavců PowerPointu v Pythonu pomocí Java
 linktitle: Spravovat odstavec
 type: docs
 weight: 40
@@ -14,14 +14,14 @@ keywords:
 - spravovat odstavec
 - spravovat odrážku
 - odsazení odstavce
-- závěsné odsazení
+- zavěšené odsazení
 - odrážka odstavce
 - číslovaný seznam
 - odrážkový seznam
 - vlastnosti odstavce
 - importovat HTML
-- text do HTML
-- odstavec do HTML
+- text na HTML
+- odstavec na HTML
 - odstavec na obrázek
 - text na obrázek
 - exportovat odstavec
@@ -30,35 +30,35 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Naučte se vytvářet a formátovat odstavce, části, odrážky, číslované seznamy, odsazení, HTML obsah a obrázky odstavců s Aspose.Slides pro Python přes Java."
+description: "Naučte se, jak pomocí Aspose.Slides pro Python přes Java vytvářet a formátovat odstavce, části, odrážky, číslované seznamy, odsazení, HTML obsah a obrázky odstavců."
 ---
 ## **Přehled**
 
-Aspose.Slides pro Python přes Java představuje text jako hierarchii textových rámců, odstavců a částí:
+Aspose.Slides for Python via Java představuje text jako hierarchii textových rámců, odstavců a částí:
 
-* [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/) představuje kontejner textu v tvaru a poskytuje přístup k jeho kolekci odstavců.
+* [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/) představuje kontejner textu ve tvaru a poskytuje přístup k jeho kolekci odstavců.
 * [Paragraph](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/) představuje jeden odstavec v textovém rámci a poskytuje přístup k jeho částem a formátování na úrovni odstavce.
-* [Portion](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portion/) představuje textový úsek v odstavci. Každá část může mít vlastní text a formátování na úrovni znaků.
+* [Portion](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portion/) představuje úsek textu v odstavci. Každá část může mít vlastní text a formátování na úrovni znaků.
 
-Odstavec může tedy obsahovat text s různými písmy, barvami, velikostmi a dalším formátováním pomocí několika částí.
+Odstavec tak může obsahovat text s různými fonty, barvami, velikostmi a dalším formátováním pomocí více částí.
 
-## **Vytváření a formátování odstavců**
+## **Vytvoření a formátování odstavců**
 
 ### **Vytvoření odstavců s více částmi**
 
 Následující kroky vytvoří textový rámec se třemi odstavci, z nichž každý obsahuje tři části:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte příslušný snímek pomocí jeho indexu.
+2. Získejte přístup k požadovanému snímku pomocí jeho indexu.
 3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/) na snímek.
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/) objektu.
+4. Získejte přístup k [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/) tvaru.
 5. Použijte výchozí odstavec a přidejte dva další objekty [Paragraph](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/) do textového rámce.
 6. Přidejte dostatek objektů [Portion](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portion/) tak, aby každý odstavec obsahoval tři části. Výchozí odstavec již obsahuje jednu prázdnou část.
-7. Nastavte text každé části.
-8. Použijte formátování na úrovni znaků prostřednictvím [Portion.getPortionFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portion/#getPortionFormat).
+7. Nastavte text pro každou část.
+8. Použijte formátování na úrovni znaků pomocí [Portion.getPortionFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portion/#getPortionFormat).
 9. Uložte upravenou prezentaci.
 
-Tento Python příklad implementuje kroky:
+Tento příklad v Pythonu implementuje kroky:
 
 ```python
 import jpype
@@ -110,16 +110,16 @@ finally:
     presentation.dispose()
 ```
 
-## **Vytváření odrážkových a číslovaných seznamů**
+## **Vytvoření odrážkových a číslovaných seznamů**
 
 ### **Vytvoření odrážkového nebo číslovaného seznamu**
 
-Odrážky a číslování usnadňují procházení souvisejících položek. V Aspose.Slides jsou nastavení seznamu definována pomocí [BulletFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bulletformat/).
+Odrážky a číslování usnadňují prohlížení souvisejících položek. V Aspose.Slides jsou nastavení seznamu definována pomocí [BulletFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bulletformat/).
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte příslušný snímek pomocí jeho indexu.
+2. Získejte přístup k požadovanému snímku pomocí jeho indexu.
 3. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/) na vybraný snímek.
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/).
+4. Získejte přístup k [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/) tvaru.
 5. Odstraňte výchozí odstavec z textového rámce.
 6. Vytvořte [Paragraph](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/) pro symbolickou odrážku.
 7. Nastavte [BulletFormat.setType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bulletformat/#setType) na [BulletType.Symbol](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bullettype/#Symbol) a zadejte znak odrážky.
@@ -129,7 +129,7 @@ Odrážky a číslování usnadňují procházení souvisejících položek. V A
 11. Nakonfigurujte styl číslované odrážky a přidejte odstavec do textového rámce.
 12. Uložte prezentaci.
 
-Tento Python příklad vytvoří symbolickou odrážku a číslovanou odrážku:
+Tento příklad v Pythonu vytváří symbolickou odrážku a číslovanou odrážku:
 
 ```python
 import jpype
@@ -174,11 +174,11 @@ finally:
 
 ### **Použití obrázkových odrážek**
 
-Obrázkové odrážky vám umožní použít vlastní obrázek místo symbolu nebo čísla.
+Obrázkové odrážky vám umožňují použít vlastní obrázek místo symbolu nebo čísla.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte příslušný snímek pomocí jeho indexu.
-3. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/) a získejte jeho [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/).
+2. Získejte přístup k požadovanému snímku pomocí jeho indexu.
+3. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/) a získejte přístup k jeho [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/).
 4. Odstraňte výchozí odstavec z textového rámce.
 5. Načtěte obrázek odrážky a přidejte jej do kolekce obrázků prezentace jako [PPImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/ppimage/).
 6. Vytvořte [Paragraph](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/) a nastavte jeho text.
@@ -187,7 +187,7 @@ Obrázkové odrážky vám umožní použít vlastní obrázek místo symbolu ne
 9. Přidejte odstavec do textového rámce.
 10. Uložte upravenou prezentaci.
 
-Tento Python příklad vytvoří obrázkovou odrážku:
+Tento příklad v Pythonu vytváří obrázkovou odrážku:
 
 ```python
 import jpype
@@ -225,13 +225,13 @@ finally:
 
 Nastavte [ParagraphFormat.setDepth](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setDepth) pro umístění odstavců na různé úrovně seznamu. Nejvyšší úroveň má hloubku `0`.
 
-1. Vytvořte [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) a získejte snímek.
+1. Vytvořte [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) a získejte přístup k snímku.
 2. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/) a vymažte výchozí odstavec z jeho textového rámce.
 3. Vytvořte čtyři odstavce a nakonfigurujte jejich symboly odrážek.
-4. Nastavte jejich hodnoty [ParagraphFormat.setDepth] na `0`, `1`, `2` a `3`.
+4. Nastavte jejich hodnoty [ParagraphFormat.setDepth](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setDepth) na `0`, `1`, `2` a `3`.
 5. Přidejte odstavce do textového rámce a uložte prezentaci.
 
-Tento Python příklad vytvoří čtyřúrovňový odrážkový seznam:
+Tento příklad v Pythonu vytváří čtyřúrovňový odrážkový seznam:
 
 ```python
 import jpype
@@ -288,15 +288,15 @@ finally:
 
 ### **Zahájení číslovaných položek seznamu na vlastní hodnoty**
 
-Použijte [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) pro nastavení počátečního čísla zobrazeného pro číslovaný odstavec.
+Použijte [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) pro nastavení počátečního čísla zobrazeného u číslovaného odstavce.
 
 1. Vytvořte [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) a přidejte [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/) na snímek.
 2. Vymažte výchozí odstavec z textového rámce tvaru.
 3. Vytvořte tři číslované odstavce.
-4. Nastavte [BulletFormat.setNumberedBulletStartWith] na `2`, `3` a `7` pro příslušné odstavce.
+4. Nastavte [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) na `2`, `3` a `7` pro příslušné odstavce.
 5. Přidejte odstavce do textového rámce a uložte prezentaci.
 
-Tento Python příklad přiřadí vlastní počáteční číslo každému odstavci:
+Tento příklad v Pythonu přiřazuje vlastní počáteční číslo ke každému odstavci:
 
 ```python
 import jpype
@@ -337,17 +337,17 @@ finally:
 
 ### **Nastavení odsazení první řádky**
 
-Použijte [ParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setIndent) pro kontrolu odsazení první řádky odstavce. Tato metoda posouvá jen první řádek vzhledem k levému okraji odstavce. Kladná hodnota posune první řádek doprava, zatímco zbylé řádky zůstávají zarovnané k tělu odstavce.
+Použijte [ParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setIndent) pro řízení odsazení první řádky odstavce. Tato metoda posouvá pouze první řádek vůči levému okraji odstavce. Kladná hodnota posune první řádek doprava, zatímco zbylé řádky zůstávají zarovnané k tělu odstavce.
 
-Použijte [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setMarginLeft), pokud chcete posunout celý odstavec. Použijte [ParagraphFormat.setIndent], pokud chcete posunout jen první řádek.
+Použijte [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setMarginLeft), když potřebujete posunout celý odstavec. Použijte [ParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setIndent), když potřebujete posunout jen první řádek.
 
-Příklad níže vytvoří několik odstavců a aplikuje různé hodnoty [ParagraphFormat.setIndent] k demonstraci, jak odsazení první řádky ovlivňuje rozvržení odstavce.
+Níže uvedený příklad vytvoří několik odstavců a použije různé hodnoty [ParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setIndent), aby ukázal, jak odsazení první řádky ovlivňuje rozvržení odstavce.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte cílový snímek.
+2. Získejte přístup k cílovému snímku.
 3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/) na snímek.
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/) objektu a odstraňte výchozí odstavec.
-5. Vytvořte několik odstavců a nastavte pro ně různé hodnoty [ParagraphFormat.setIndent].
+4. Získejte přístup k [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/) tvaru a odstraňte výchozí odstavec.
+5. Vytvořte několik odstavců a nastavte pro ně různé hodnoty [ParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setIndent).
 6. Přidejte odstavce do textového rámce.
 7. Uložte upravenou prezentaci.
 
@@ -399,28 +399,26 @@ finally:
     presentation.dispose()
 ```
 
-Výsledek:
-
 ![Odsazení první řádky odstavců](first_line_indent.png)
 
-### **Nastavení závěsného odsazení**
+### **Nastavení zavěšeného odsazení**
 
-Závěsné odsazení je rozvržení odstavce, při kterém první řádek začíná vlevo od ostatních řádků. V Aspose.Slides tento efekt vytvoříte pomocí [ParagraphFormat.setIndent]. Zadejte zápornou hodnotu pro posunutí první řádky doleva vzhledem k tělu odstavce.
+Zavěšené odsazení je rozvržení odstavce, při kterém první řádek začíná vlevo od zbylých řádků. V Aspose.Slides tento efekt vytvoříte pomocí [ParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setIndent). Použijte zápornou hodnotu pro posun první řádky doleva vzhledem k tělu odstavce.
 
-V praxi [ParagraphFormat.setMarginLeft] určuje levou pozici těla odstavce a [ParagraphFormat.setIndent] určuje pozici první řádky relativně k tomuto okraji. Pro vytvoření závěsného odsazení zadejte kladnou hodnotu pro [ParagraphFormat.setMarginLeft] a zápornou hodnotu pro [ParagraphFormat.setIndent].
+V praxi [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setMarginLeft) určuje levou pozici těla odstavce a [ParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setIndent) určuje pozici první řádky vzhledem k tomuto okraji. Pro vytvoření zavěšeného odsazení předáte kladnou hodnotu [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setMarginLeft) a zápornou hodnotu [ParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setIndent).
 
-Toto formátování je užitečné pro bibliografie, reference, glosáře a další odstavce, kde musí být zalomené řádky zarovnány pod tělo odstavce, nikoli pod první znak první řádky.
+Toto formátování je užitečné pro bibliografie, reference, položky glosáře a další odstavce, kde musí být zarážky řádků zarovnané pod tělo odstavce místo pod první znak první řádky.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte cílový snímek.
+2. Získejte přístup k cílovému snímku.
 3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/) na snímek.
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/) objektu a odstraňte výchozí odstavec.
-5. Vytvořte odstavce a pro každý odstavec zadejte kladnou hodnotu pro [ParagraphFormat.setMarginLeft].
-6. Zadejte zápornou hodnotu pro [ParagraphFormat.setIndent] pro vytvoření efektu závěsného odsazení.
+4. Získejte přístup k [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/) tvaru a odstraňte výchozí odstavec.
+5. Vytvořte odstavce a pro každý z nich předáte kladnou hodnotu [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setMarginLeft).
+6. Předáte zápornou hodnotu [ParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setIndent) pro vytvoření efektu zavěšeného odsazení.
 7. Přidejte odstavce do textového rámce.
 8. Uložte upravenou prezentaci.
 
-Tento kód ukazuje, jak nastavit závěsné odsazení pro odstavec:
+Tento kód ukazuje, jak nastavit zavěšené odsazení pro odstavec:
 
 ```python
 import jpype
@@ -461,15 +459,13 @@ finally:
     presentation.dispose()
 ```
 
-Výsledek:
+![Zavěšené odsazení odstavců](hanging_indent.png)
 
-![Závěsné odsazení odstavců](hanging_indent.png)
+### **Nastavení koncových vlastností odstavce**
 
-### **Nastavení koncových formátovacích vlastností odstavce**
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) řídí formátování koncového znaku odstavce. Následující příklad přiřadí velikost písma a latinské písmo ke koncovému znaku druhého odstavce:
 
-[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/#setEndParagraphPortionFormat) řídí formátování značení konce odstavce. Následující příklad přiřadí velikost písma a latinské písmo ke značce konce druhého odstavce:
-
-1. Načtěte [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) a získejte snímek.
+1. Načtěte [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) a získejte přístup k snímku.
 2. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/) a vymažte jeho výchozí odstavec.
 3. Vytvořte dva odstavce a přidejte k nim textové části.
 4. Vytvořte [PortionFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portionformat/) pro koncový znak druhého odstavce.
@@ -509,20 +505,74 @@ finally:
     presentation.dispose()
 ```
 
+## **Počítání vykreslených řádků**
+
+Použijte [Paragraph.getLinesCount](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/#getLinesCount) k spočítání řádků, které odstavec zabírá po rozvržení textu, včetně automatického zalamování. To je užitečné při kontrole délky textu a rozvržení v šablonách prezentací.
+
+Odstavec je jednou položkou v [TextFrame.getParagraphs](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/#getParagraphs) a může zabírat několik vykreslených řádků. Výslovný zalomení řádku uvnitř odstavce vynutí nový řádek, aniž by vytvořil nový odstavec. Automatické zalamování vytváří řádky na základě dostupné šířky, aniž by do textu vkládalo explicitní zalomení řádku. Počítání odstavců nebo znaků pro zalomení řádku tedy nedává počet vykreslených řádků.
+
+Následující příklad vytvoří textový tvar, spočítá jeho řádky, zúží tvar a poté nahradí text kratším řetězcem. Zalamování je povoleno a automatické přizpůsobení je vypnuto, takže šířka tvaru řídí zalamování bez automatického zmenšování textu nebo změny velikosti tvaru. Rozměry tvaru jsou v bodech. Nakonec příklad přidá další odstavec a sečte počty řádků napříč textovým rámcem.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import NullableBool, Paragraph, Presentation, ShapeType, TextAutofitType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 200)
+    text_frame = shape.getTextFrame()
+    text_frame.getTextFrameFormat().setWrapText(NullableBool.True_)
+    text_frame.getTextFrameFormat().setAutofitType(TextAutofitType.None_)
+
+    paragraph = text_frame.getParagraphs().get_Item(0)
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20)
+    paragraph.setText("This text demonstrates how automatic wrapping changes the number of rendered lines.")
+    print("Original width:", paragraph.getLinesCount())
+
+    shape.setWidth(150)
+    print("Narrower shape:", paragraph.getLinesCount())
+
+    paragraph.setText("Short text.")
+    print("Shorter text:", paragraph.getLinesCount())
+
+    second_paragraph = Paragraph()
+    second_paragraph.setText("Another paragraph.")
+    second_paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20)
+    text_frame.getParagraphs().add(second_paragraph)
+
+    total_line_count = 0
+    for current_paragraph in text_frame.getParagraphs():
+        total_line_count += current_paragraph.getLinesCount()
+    print("Total lines in the text frame:", total_line_count)
+finally:
+    presentation.dispose()
+```
+
+S tímto textem a těmito rozměry zúžení tvaru zvýší počet řádků, zatímco nahrazení textu krátkým řetězcem jej sníží. Přesné počty se mohou lišit podle dostupnosti a náhrady fontů, velikosti písma, okrajů, odsazení, zalamování a nastavení automatického přizpůsobení. Používejte fonty a nastavení rozvržení určené pro cílové prostředí při kontrole šablony.
+
+Počet řádků sám o sobě nestanovuje, zda text přesahuje svůj kontejner. Důležitá je také dostupná výška, výšky řádků, mezery mezi odstavci a řádky a chování automatického přizpůsobení; i jediný řádek může překročit dostupnou šířku, když je zalamování vypnuto.
+
 ## **Import a export obsahu odstavců**
 
 ### **Import HTML textu do odstavců**
 
-Použijte [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphcollection/#addFromHtml) pro konverzi HTML značek na odstavce a části v textovém rámci.
+Použijte [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphcollection/#addFromHtml) pro převod HTML značkování na odstavce a části v textovém rámci.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte snímek a přidejte [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/).
-3. Získejte [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/) objektu a vymažte výchozí odstavec.
-4. Přečtěte zdrojový soubor HTML.
-5. Předávejte řetězec HTML metodě [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphcollection/#addFromHtml).
+2. Získejte přístup k snímku a přidejte [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/).
+3. Získejte přístup k [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/) tvaru a vymažte výchozí odstavec.
+4. Načtěte zdrojový HTML soubor.
+5. Předávejte HTML řetězec metodě [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphcollection/#addFromHtml).
 6. Uložte upravenou prezentaci.
 
-Tento Python příklad importuje HTML do textového rámce:
+Tento příklad v Pythonu importuje HTML do textového rámce:
 
 ```python
 import jpype
@@ -557,12 +607,12 @@ finally:
 Použijte [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphcollection/#exportToHtml) pro export vybraného rozsahu odstavců jako HTML.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) a načtěte požadovanou prezentaci.
-2. Získejte snímek a najděte [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/), který obsahuje text.
-3. Získejte [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/).
-4. Zavolejte [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphcollection/#exportToHtml) s počátečním indexem odstavce a počtem odstavců k exportu.
-5. Zapište vrácený řetězec HTML do souboru.
+2. Získejte přístup k snímku a najděte [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/), který obsahuje text.
+3. Získejte přístup k [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/) tvaru.
+4. Zavolejte [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphcollection/#exportToHtml) s indexem počátečního odstavce a počtem odstavců k exportu.
+5. Zapište vrácený HTML řetězec do souboru.
 
-Tento Python příklad exportuje všechny odstavce z prvního textového tvaru:
+Tento příklad v Pythonu exportuje všechny odstavce z prvního textového tvaru:
 
 ```python
 import jpype
@@ -597,17 +647,17 @@ finally:
 
 ### **Vykreslení odstavce jako obrázku**
 
-[Paragraph.getImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/) vykreslí jednotlivý odstavec přímo a vrátí objekt obrázku. Výsledek uložte do souboru nebo proudu pomocí metody `save`. Není nutné vykreslovat celý tvar nebo ručně ořezávat bitmapu.
+[Paragraph.getImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/) vykreslí jednotlivý odstavec přímo a vrátí objekt obrázku. Výsledek uložte do souboru nebo proudu pomocí metody `save`. Nemusíte vykreslovat obalující tvar ani ručně ořezávat bitmapu.
 
 [Paragraph.getImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/) může vrátit `None`, pokud odstavec nelze najít v nadřazené kolekci, nemá platné vykreslovací ohraničení nebo jej nelze vykreslit. Zkontrolujte výsledek před uložením a po použití uvolněte vrácený obrázek.
 
-#### **Vykreslení odstavce v výchozím měřítku**
+#### **Vykreslení odstavce v základním měřítku**
 
-Předpokládejme, že máme soubor prezentace nazvaný sample.pptx s jedním snímkem, kde je první tvar textové pole obsahující tři odstavce.
+Předpokládejme, že máme soubor prezentace s názvem sample.pptx s jedním snímkem, kde je první tvar textové pole obsahující tři odstavce.
 
 ![Textové pole se třemi odstavci](paragraph_to_image_input.png)
 
-Následující příklad vykreslí druhý odstavec v běžném textovém tvaru ve výchozím měřítku a uloží vrácený obrázek ve formátu PNG. Blok `finally` zajistí správné uvolnění obrázku.
+Následující příklad vykreslí druhý odstavec v běžném textovém tvaru v základním měřítku a uloží vrácený obrázek ve formátu PNG. Blok `finally` zajistí, že obrázek bude správně uvolněn.
 
 ```python
 import jpype
@@ -642,13 +692,11 @@ finally:
     presentation.dispose()
 ```
 
-Výsledek:
-
 ![Obrázek odstavce](paragraph_to_image_output.png)
 
 #### **Vykreslení odstavce v buňce tabulky se škálováním**
 
-Použijte přetížení [Paragraph.getImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/), které přijímá parametry `scale_x` a `scale_y` pro nastavení horizontálních a vertikálních faktorů měřítka. Následující příklad vytvoří tabulku, vykreslí odstavec v její první buňce dvakrát ve výchozí šířce i výšce a uloží výsledek jako PNG obrázek.
+Použijte přetížení [Paragraph.getImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/) , které přijímá parametry `scale_x` a `scale_y` k nastavení horizontálního a vertikálního měřítka. Následující příklad vytvoří tabulku, vykreslí odstavec v její první buňce na dvojnásobnou výchozí šířku a výšku a uloží výsledek jako PNG obrázek.
 
 ```python
 import jpype
@@ -679,24 +727,20 @@ finally:
     presentation.dispose()
 ```
 
-Faktor měřítka `1` ponechá danou osu v její výchozí velikosti v pixelech. Například `2` pro oba faktory vytvoří obrázek, jehož šířka i výška jsou přibližně dvakrát větší než výchozí rozměry, což vede ke čtyřnásobnému počtu pixelů. Větší faktory obecně poskytují ostřejší text pro přiblížení nebo výstup ve vysokém rozlišení, ale zároveň zvyšují spotřebu paměti a velikost souboru. Faktory pod `1` vytvářejí menší obrázky s méně detailními. Použijte stejné faktory pro zachování poměru stran odstavce; různé horizontální a vertikální faktory obrázek roztáhnou nezávisle.
+Měřítkový faktor `1` zachovává tuto osu v její výchozí velikosti v pixelech. Například `2` pro oba faktory vytvoří obrázek, jehož šířka a výška jsou přibližně dvojnásobkem výchozích rozměrů, což vede k čtyřnásobnému počtu pixelů. Větší faktory obecně poskytují ostřejší text při zvětšování nebo výstupu ve vysokém rozlišení, ale také zvyšují využití paměti a velikost souboru. Faktory pod `1` vytvářejí menší obrázky s méně detaily. Použijte stejné faktory pro zachování poměru stran odstavce; různé horizontální a vertikální faktory roztažení výstup nezávisle.
 
-Vykreslování celého tvaru pomocí [Shape.getImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getImage) zůstává užitečné, když výstup musí zahrnovat výplň, okraj nebo jiný vizuální kontext tvaru. Pro obrázek pouze s odstavcem použijte [Paragraph.getImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/).
+Vykreslení celého tvaru pomocí [Shape.getImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getImage) zůstává užitečné, když výstup musí zahrnovat výplň, okraj nebo jiný vizuální kontext tvaru. Pro obrázek jen odstavce použijte [Paragraph.getImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/).
 
-## **Často kladené otázky**
+## **Časté dotazy**
 
-**Mohu zcela zakázat zalamování řádků uvnitř textového rámce?**
+**Mohu zcela zakázat zalamování řádků uvnitř textového rámce?**  
+Ano. Nastavte [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframeformat/#setWrapText) tak, aby zakázal zalamování, takže řádky se nebudou lámat na okrajích textového rámce.
 
-Ano. Nastavte [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframeformat/#setWrapText) pro zakázání zalamování, aby řádky neprobily okraj textového rámce.
+**Jak mohu získat přesné rozměry konkrétního odstavce na snímku?**  
+Použijte [Paragraph.getRect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/#getRect) pro získání ohraničujícího obdélníku odstavce. [Portion.getRect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portion/#getRect) poskytuje rozměry jednotlivé části.
 
-**Jak mohu získat přesné souřadnice odstavce na snímku?**
+**Kde se řídí zarovnání odstavce (vlevo, vpravo, na střed nebo do bloku)?**  
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setAlignment) je nastavení na úrovni odstavce a vztahuje se na celý odstavec bez ohledu na formátování jednotlivých částí.
 
-Použijte [Paragraph.getRect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/#getRect) pro získání ohraničujícího obdélníku odstavce. [Portion.getRect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portion/#getRect) poskytuje ohraničení jednotlivé části.
-
-**Kde je řízena zarovnání odstavce (vlevo, vpravo, na střed nebo do bloku)?**
-
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setAlignment) je nastavení na úrovni odstavce a platí pro celý odstavec bez ohledu na formátování jednotlivých částí.
-
-**Mohu nastavit jazyk kontroly pravopisu pro část odstavce?**
-
-Ano. Nastavte [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/cs/python-java/aspose.slides/baseportionformat/#setLanguageId) pro jednotlivé části, takže jeden odstavec může obsahovat text v různých jazycích.
+**Mohu nastavit jazyk pravopisu pro část odstavce?**  
+Ano. Nastavte [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/cs/python-java/aspose.slides/baseportionformat/#setLanguageId) pro jednotlivé části, takže jeden odstavec může obsahovat text v několika jazycích.

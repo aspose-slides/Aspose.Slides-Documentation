@@ -9,38 +9,38 @@ keywords:
 - styl tekstu
 - tło tekstu
 - przezroczystość tekstu
-- odstępy między znakami
+- odstęp między znakami
 - właściwości czcionki
 - rodzina czcionek
 - obrót tekstu
 - kąt obrotu
 - ramka tekstowa
-- odstępy między wierszami
+- interlinia
 - właściwość autofit
 - kotwica ramki tekstowej
 - tabulacja tekstu
-- język domyślny
+- domyślny język
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Formatuj i stylizuj tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides for Node.js via Java. Dostosuj czcionki, kolory, wyrównanie i inne."
+description: "Formatuj i stylizuj tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Node.js poprzez Javę. Dostosuj czcionki, kolory, wyrównanie i inne."
 ---
 ## **Przegląd**
 
-Ten artykuł pokazuje, jak formatować tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides for Node.js via Java. Omówiono kolory tła, przezroczystość, odstępy między znakami, właściwości czcionki, obrót, odstępy akapitów, zachowanie autofit, kotwiczenie tekstu, tabulatory i ustawienia języka.
+Ten artykuł pokazuje, jak formatować tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Node.js za pośrednictwem Javy. Obejmuje kolory tła, przezroczystość, odstępy między znakami, właściwości czcionki, obrót, odstępy akapitów, zachowanie autofit, kotwiczenie tekstu, tabulatory i ustawienia języka.
 
-W poniższych przykładach użyjemy pliku o nazwie "sample.pptx", który zawiera pojedyncze pole tekstowe na pierwszym slajdzie z następującym tekstem:
+W poniższych przykładach użyjemy pliku o nazwie „sample.pptx”, który zawiera pojedyncze pole tekstowe na pierwszym slajdzie z następującym tekstem:
 
 ![Przykładowy tekst](sample_text.png)
 
-Aby znaleźć i podświetlić dosłowny tekst lub dopasowania wyrażeń regularnych, zobacz [Wyszukiwanie i zamiana tekstu](/slides/pl/nodejs-java/search-and-replace-text/).
+Aby znaleźć i podświetlić dosłowny tekst lub dopasowania wyrażeń regularnych, zobacz [Search and Replace Text](/slides/pl/nodejs-java/search-and-replace-text/).
 
 ## **Ustaw kolor tła tekstu**
 
-Użyj [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) aby ustawić domyślny kolor podświetlenia dla akapitu, lub użyj [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) dla poszczególnych części tekstu.
+Użyj [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) aby ustawić domyślny kolor podświetlenia dla akapitu lub użyj [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) dla poszczególnych fragmentów tekstu.
 
 Poniższy przykład kodu pokazuje, jak ustawić kolor tła dla **całego akapitu**:
 
@@ -62,8 +62,6 @@ try {
     presentation.dispose();
 }
 ```
-
-Wynik:
 
 ![Szary akapit](gray_paragraph.png)
 
@@ -95,13 +93,11 @@ try {
 }
 ```
 
-Wynik:
-
 ![Szare fragmenty tekstu](gray_text_portions.png)
 
 ## **Wyrównaj akapity tekstu**
 
-Użyj [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) aby ustawić wyrównanie akapitu w ramce tekstowej. Wartość może być wyśrodkowana, wyrównana do lewej, do prawej, do obu stron itp.
+Użyj [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) aby ustawić wyrównanie akapitu w ramce tekstowej. Wartość może być wyśrodkowana, wyrównana do lewej, do prawej, justowana i tak dalej.
 
 Poniższy przykład kodu pokazuje, jak wyrównać akapit do **środka**:
 
@@ -123,13 +119,11 @@ try {
 }
 ```
 
-Wynik:
-
 ![Wyrównany akapit](aligned_paragraph.png)
 
 ## **Ustaw przezroczystość tekstu**
 
-Przezroczystość tekstu jest kontrolowana przez komponent alfa koloru przypisanego do [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). W poniższych przykładach `alpha = 50` jest wartością kanału alfa ARGB w skali 0–255, a nie procentem przezroczystości.
+Przezroczystość tekstu jest kontrolowana przez komponent alfa koloru przypisanego do [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). W poniższych przykładach `alpha = 50` to wartość kanału alfa ARGB w skali 0–255, a nie procent przezroczystości.
 
 Poniższy przykład kodu pokazuje, jak zastosować przezroczystość do **całego akapitu**:
 
@@ -146,7 +140,7 @@ try {
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const fillFormat = paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat();
 
-    // Ustaw kolor wypełnienia tekstu na przezroczysty kolor.
+    // Ustaw kolor wypełnienia tekstu na kolor przezroczysty.
     fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     fillFormat.getSolidFillColor().setColor(transparentBlack);
 
@@ -155,8 +149,6 @@ try {
     presentation.dispose();
 }
 ```
-
-Wynik:
 
 ![Przezroczysty akapit](transparent_paragraph.png)
 
@@ -193,15 +185,13 @@ try {
 }
 ```
 
-Wynik:
-
 ![Przezroczyste fragmenty tekstu](transparent_text_portions.png)
 
 ## **Ustaw odstęp między znakami w tekście**
 
-Użyj [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) aby rozszerzyć lub zmniejszyć odstęp między znakami w polu tekstowym.
+Użyj [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) aby zwiększyć lub zmniejszyć odstępy między znakami w polu tekstowym.
 
-Poniższy kod JavaScript pokazuje, jak rozszerzyć odstęp znaków w **całym akapicie**:
+Poniższy kod JavaScript pokazuje, jak zwiększyć odstęp między znakami w **całym akapicie**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -212,8 +202,8 @@ try {
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Uwaga: Użyj wartości ujemnych, aby zmniejszyć odstęp między znakami.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Rozszerz odstęp między znakami.
+    // Uwaga: użyj wartości ujemnych, aby skompresować odstęp między znakami.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Zwiększ odstęp między znakami.
 
     presentation.save("character_spacing_in_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -221,11 +211,9 @@ try {
 }
 ```
 
-Wynik:
+![Odstęp między znakami w akapicie](character_spacing_in_paragraph.png)
 
-![Odstęp znaków w akapicie](character_spacing_in_paragraph.png)
-
-Poniższy przykład kodu pokazuje, jak rozszerzyć odstęp znaków w **fragmentach tekstu z pogrubioną czcionką**:
+Poniższy przykład kodu pokazuje, jak zwiększyć odstęp między znakami w **fragmentach tekstu z pogrubioną czcionką**:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -241,8 +229,8 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Uwaga: użyj wartości ujemnych, aby zmniejszyć odstęp między znakami.
-            portion.getPortionFormat().setSpacing(3); // Rozszerz odstęp między znakami.
+            // Uwaga: użyj wartości ujemnych, aby skompresować odstęp między znakami.
+            portion.getPortionFormat().setSpacing(3); // Zwiększ odstęp między znakami.
         }
     }
 
@@ -252,15 +240,13 @@ try {
 }
 ```
 
-Wynik:
-
-![Odstęp znaków w fragmentach tekstu](character_spacing_in_text_portions.png)
+![Odstęp między znakami w fragmentach tekstu](character_spacing_in_text_portions.png)
 
 ### **Wyłącz kerning dla określonych czcionek**
 
-W niektórych przypadkach tekst renderowany przez Aspose.Slides może wyglądać nieco ściślej niż ten sam tekst wyświetlany w PowerPoint. Może się tak zdarzyć, ponieważ PowerPoint może ignorować dane kerningu dla niektórych czcionek, nawet jeśli czcionka zawiera prawidłowe informacje o kerningu i kerning jest włączony w ustawieniach PowerPoint.
+W niektórych przypadkach tekst renderowany przez Aspose.Slides może wyglądać nieco bardziej ściśle niż ten sam tekst wyświetlany w PowerPoint. Może się tak stać, ponieważ PowerPoint może ignorować dane kerningu dla niektórych czcionek, nawet gdy czcionka zawiera prawidłowe informacje o kerningu i kerning jest włączony w ustawieniach PowerPoint.
 
-Aby w takich przypadkach uzyskać wynik bliższy PowerPoint, możesz wyłączyć kerning dla fragmentów tekstu używających dotkniętej czcionki. Ustaw [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) na wartość znacząco większą niż rzeczywisty rozmiar czcionki:
+Aby w takich przypadkach wynik renderowania był bliższy PowerPoint, możesz wyłączyć kerning dla fragmentów tekstu używających danej czcionki. Ustaw [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) na wartość znacząco większą niż rzeczywisty rozmiar czcionki:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -298,13 +284,11 @@ try {
 }
 ```
 
-To ustawienie zapobiega zastosowaniu kerningu do pasujących fragmentów tekstu i może pomóc dopasować renderowanie Aspose.Slides do wizualnego wyniku PowerPoint dla czcionek dotkniętych tym zachowaniem specyficznym dla PowerPoint.
-
 ## **Zarządzaj właściwościami czcionki tekstu**
 
-Właściwości czcionki można ustawiać na poziomie akapitu za pomocą [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) lub na poszczególnych fragmentach za pomocą [PortionFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/portionformat/).
+Właściwości czcionki można ustawić na poziomie akapitu za pomocą [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) lub na poszczególnych fragmentach za pomocą [PortionFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/portionformat/).
 
-Poniższy kod ustawia czcionkę i styl tekstu dla **całego akapitu**: stosuje rozmiar czcionki, pogrubienie, kursywę, przerywaną podkreślenie oraz czcionkę Times New Roman do wszystkich fragmentów w akapicie.
+Poniższy kod ustawia czcionkę i styl tekstu dla całego akapitu: stosuje rozmiar czcionki, pogrubienie, kursywę, kropkowane podkreślenie oraz czcionkę Times New Roman dla wszystkich fragmentów w akapicie.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -329,8 +313,6 @@ try {
     presentation.dispose();
 }
 ```
-
-Wynik:
 
 ![Właściwości czcionki dla akapitu](font_properties_for_paragraph.png)
 
@@ -367,13 +349,11 @@ try {
 }
 ```
 
-Wynik:
-
 ![Właściwości czcionki dla fragmentów tekstu](font_properties_for_text_portions.png)
 
 ## **Ustaw obrót tekstu**
 
-Użyj [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) aby ustawić wstępnie zdefiniowaną orientację tekstu w kształcie.
+Użyj [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) aby ustawić predefiniowaną orientację tekstu wewnątrz kształtu.
 
 Poniższy przykład kodu ustawia orientację tekstu w kształcie na `Vertical270`, co obraca tekst **o 90 stopni przeciwnie do ruchu wskazówek zegara**:
 
@@ -394,15 +374,13 @@ try {
 }
 ```
 
-Wynik:
-
 ![Obrót tekstu](text_rotation.png)
 
 ## **Ustaw niestandardowy obrót dla ramek tekstowych**
 
 Użyj [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) aby ustawić niestandardowy kąt obrotu dla [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/).
 
-Poniższy kod obraca ramkę tekstową o 3 stopnie zgodnie z ruchem wskazówek zegara w obrębie kształtu:
+Poniższy przykład kodu obraca ramkę tekstową o 3 stopnie zgodnie z ruchem wskazówek zegara w obrębie kształtu:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -420,15 +398,13 @@ try {
 }
 ```
 
-Wynik:
-
 ![Niestandardowy obrót tekstu](custom_text_rotation.png)
 
 ## **Ustaw interlinię akapitów**
 
-Aspose.Slides udostępnia [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-) i [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) do kontrolowania odstępów akapitów. Właściwości te stosuje się w następujący sposób:
+Aspose.Slides udostępnia [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-) i [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) aby kontrolować odstępy akapitów. Te właściwości używa się w następujący sposób:
 
-* Użyj wartości dodatniej, aby określić interlinię jako procent wysokości linii.  
+* Użyj wartości dodatniej, aby określić interlinię jako procent wysokości linii.
 * Użyj wartości ujemnej, aby określić interlinię w punktach.
 
 Poniższy przykład kodu pokazuje, jak określić interlinię w akapicie:
@@ -450,13 +426,11 @@ try {
 }
 ```
 
-Wynik:
-
 ![Interlinia w akapicie](line_spacing.png)
 
-## **Ustaw typ autofit dla ramek tekstowych**
+## **Ustaw typ autofitu dla ramek tekstowych**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) określa, jak tekst zachowuje się, gdy przekracza granice swojego kontenera. Użyj go, aby kontrolować, czy tekst ma się kurczyć, przelewać poza ramkę lub automatycznie zmieniać rozmiar kształtu.
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) określa, jak tekst zachowuje się, gdy przekracza granice swojego kontenera. Użyj go, aby kontrolować, czy tekst ma się zmniejszać, przelewać czy automatycznie zmieniać rozmiar kształtu.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -475,9 +449,11 @@ try {
 }
 ```
 
+Aby policzyć wiersze po automatycznym łamaniu i zobaczyć, jak zmienia się szerokość tekstu lub kształtu, zobacz [Count Rendered Lines](/slides/pl/nodejs-java/manage-paragraph/). Liczba wierszy sama w sobie nie wskazuje, czy tekst przelewa się poza kontener.
+
 ## **Ustaw kotwicę ramek tekstowych**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) definiuje, jak tekst jest pozycjonowany pionowo wewnątrz kształtu, np. u góry, w środku lub na dole.
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) określa, jak tekst jest rozmieszczony pionowo wewnątrz kształtu, np. na górze, w środku lub na dole.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -519,13 +495,11 @@ try {
 }
 ```
 
-Wynik:
-
-![Tabulatory akapitu](paragraph_tabs.png)
+![Tabulatory w akapicie](paragraph_tabs.png)
 
 ## **Ustaw język korekty**
 
-Aspose.Slides udostępnia [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-), który pozwala ustawić język korekty dla fragmentu tekstu. Język korekty określa język używany do sprawdzania pisowni i gramatyki w PowerPoint.
+Aspose.Slides udostępnia [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-), co pozwala ustawić język korekty dla fragmentu tekstu. Język korekty określa język używany do sprawdzania pisowni i gramatyki w PowerPoint.
 
 Poniższy przykład kodu pokazuje, jak ustawić język korekty dla fragmentu tekstu:
 
@@ -571,7 +545,7 @@ const presentation = new aspose.slides.Presentation(loadOptions);
 try {
     const slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj nowy kształt prostokąta z tekstem.
+    // Dodaj nowy prostokątny kształt z tekstem.
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
@@ -587,7 +561,7 @@ try {
 
 Aby zastosować domyślne formatowanie tekstu na poziomie prezentacji, użyj [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--).
 
-Poniższy przykład kodu pokazuje, jak ustawić domyślną pogrubioną czcionkę o rozmiarze 14 pt dla całego tekstu we wszystkich slajdach nowej prezentacji.
+Poniższy przykład kodu pokazuje, jak ustawić domyślną pogrubioną czcionkę o rozmiarze 14 punktów dla całego tekstu we wszystkich slajdach nowej prezentacji.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -611,9 +585,9 @@ try {
 
 ## **Wyodrębnij tekst z efektem wielkich liter**
 
-W PowerPoint zastosowanie efektu **All Caps** powoduje wyświetlanie tekstu wielkimi literami na slajdzie, nawet jeśli został wpisany małymi literami. Gdy pobierasz taki fragment tekstu przy użyciu Aspose.Slides, biblioteka zwraca tekst dokładnie w takiej formie, w jakiej został wprowadzony. Aby dopasować wyświetlany tekst, sprawdź [TextCapType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textcaptype/) i zamień zwrócony łańcuch na wielkie litery, gdy wartość to `All`.
+W PowerPoint stosowanie efektu czcionki **All Caps** sprawia, że tekst wyświetlany jest wielkimi literami na slajdzie, nawet jeśli pierwotnie został wpisany małymi literami. Gdy pobierasz taki fragment tekstu za pomocą Aspose.Slides, biblioteka zwraca tekst dokładnie taki, jaki został wprowadzony. Aby dopasować wyświetlany tekst, sprawdź [TextCapType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textcaptype/) i zamień zwrócony ciąg na wielkie litery, gdy wartość to `All`.
 
-Załóżmy, że na pierwszym slajdzie pliku sample2.pptx mamy następujące pole tekstowe.
+Załóżmy, że mamy następujące pole tekstowe na pierwszym slajdzie pliku sample2.pptx.
 
 ![Efekt All Caps](all_caps_effect.png)
 
@@ -640,7 +614,7 @@ try {
 }
 ```
 
-Wyjście:
+Output:
 
 ```text
 Original text: Hello, Aspose!
@@ -649,10 +623,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Jak zmodyfikować tekst w tabeli na slajdzie?**
+**Jak modyfikować tekst w tabeli na slajdzie?**
 
-Aby zmodyfikować tekst w tabeli na slajdzie, użyj [Table](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/table/). Iteruj przez komórki i aktualizuj każdą komórkę za pomocą [Cell.getTextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cell/#getTextFrame--) oraz formatowanie akapitu za pomocą [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--).
+Aby zmodyfikować tekst w tabeli na slajdzie, użyj [Table](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/table/). Przeglądaj komórki i aktualizuj każdą komórkę za pomocą [Cell.getTextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cell/#getTextFrame--) oraz formatowanie akapitu za pomocą [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--).
 
 **Jak zastosować gradientowy kolor do tekstu w slajdzie PowerPoint?**
 
-Aby zastosować gradientowy kolor do tekstu, użyj [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). Ustaw [FillFormat.setFillType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) na [FillType.Gradient](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/filltype/) i skonfiguruj zatrzymania gradientu, kierunek oraz przezroczystość.
+Aby zastosować gradientowy kolor do tekstu, użyj [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). Ustaw [FillFormat.setFillType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) na [FillType.Gradient](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/filltype/) i skonfiguruj przystanki gradientu, kierunek oraz przezroczystość.

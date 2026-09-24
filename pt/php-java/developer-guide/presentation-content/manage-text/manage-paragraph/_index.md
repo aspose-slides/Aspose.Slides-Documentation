@@ -1,5 +1,5 @@
 ---
-title: Gerenciar parágrafos de texto do PowerPoint em PHP
+title: Gerenciar Parágrafos de Texto do PowerPoint em PHP
 linktitle: Gerenciar Parágrafo
 type: docs
 weight: 40
@@ -8,56 +8,56 @@ aliases:
   - /php-java/paragraph/
   - /php-java/portion/
 keywords:
-- adicionar texto
-- adicionar parágrafo
-- gerenciar texto
-- gerenciar parágrafo
-- gerenciar marcador
-- recuo de parágrafo
-- recuo suspenso
-- marcador de parágrafo
-- lista numerada
-- lista com marcadores
-- propriedades do parágrafo
-- importar HTML
-- texto para HTML
-- parágrafo para HTML
-- parágrafo para imagem
-- texto para imagem
-- exportar parágrafo
-- PowerPoint
-- apresentação
-- PHP
-- Aspose.Slides
+  - adicionar texto
+  - adicionar parágrafo
+  - gerenciar texto
+  - gerenciar parágrafo
+  - gerenciar marcador
+  - recuo de parágrafo
+  - recuo suspenso
+  - marcador de parágrafo
+  - lista numerada
+  - lista com marcadores
+  - propriedades do parágrafo
+  - importar HTML
+  - texto para HTML
+  - parágrafo para HTML
+  - parágrafo para imagem
+  - texto para imagem
+  - exportar parágrafo
+  - PowerPoint
+  - apresentação
+  - PHP
+  - Aspose.Slides
 description: "Aprenda como criar e formatar parágrafos, porções, marcadores, listas numeradas, recuos, conteúdo HTML e imagens de parágrafos com Aspose.Slides para PHP via Java."
 ---
 ## **Visão geral**
 
-Aspose.Slides for PHP via Java representa texto como uma hierarquia de quadros de texto, parágrafos e porções:
+Aspose.Slides for PHP via Java representa o texto como uma hierarquia de quadros de texto, parágrafos e porções:
 
 * [TextFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/) representa o contêiner de texto em uma forma e fornece acesso à sua coleção de parágrafos.
 * [Paragraph](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraph/) representa um parágrafo em um quadro de texto e fornece acesso às suas porções e formatação ao nível do parágrafo.
-* [Portion](https://reference.aspose.com/slides/pt/php-java/aspose.slides/portion/) representa uma execução de texto dentro de um parágrafo. Cada porção pode ter seu próprio texto e formatação ao nível de caractere.
+* [Portion](https://reference.aspose.com/slides/pt/php-java/aspose.slides/portion/) representa uma sequência de texto dentro de um parágrafo. Cada porção pode ter seu próprio texto e formatação ao nível de caractere.
 
-Um parágrafo, portanto, pode conter texto com diferentes fontes, cores, tamanhos e outras formatações usando várias porções.
+Um parágrafo, portanto, pode conter texto com diferentes fontes, cores, tamanhos e outras formatações usando múltiplas porções.
 
 ## **Criar e formatar parágrafos**
 
-### **Criar parágrafos com várias porções**
+### **Criar parágrafos com múltiplas porções**
 
 As etapas a seguir criam um quadro de texto com três parágrafos, cada um contendo três porções:
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/).
-2. Acesse o slide relevante através de seu índice.
-3. Adicione uma [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) retangular ao slide.
+2. Acesse o slide relevante pelo seu índice.
+3. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) retangular ao slide.
 4. Acesse o [TextFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/) da forma.
-5. Use o parágrafo padrão e adicione dois objetos [Paragraph](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraph/) adicionais ao quadro de texto.
+5. Use o parágrafo padrão e adicione mais dois objetos [Paragraph](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraph/) ao quadro de texto.
 6. Adicione objetos [Portion](https://reference.aspose.com/slides/pt/php-java/aspose.slides/portion/) suficientes para que cada parágrafo contenha três porções. O parágrafo padrão já contém uma porção vazia.
 7. Defina o texto de cada porção.
-8. Aplique formatação ao nível de caractere através de [Portion::getPortionFormat](https://reference.aspose.com/slides/pt/php-java/aspose.slides/portion/#getPortionFormat--).
+8. Aplique formatação de nível de caractere através de [Portion::getPortionFormat](https://reference.aspose.com/slides/pt/php-java/aspose.slides/portion/#getPortionFormat--).
 9. Salve a apresentação modificada.
 
-Este exemplo PHP implementa as etapas:
+Este exemplo em PHP implementa as etapas:
 
 ```php
 use aspose\slides\FillType;
@@ -122,10 +122,10 @@ try {
 
 ### **Criar uma lista com marcadores ou numerada**
 
-Marcadores e numeração facilitam a visualização de itens relacionados. No Aspose.Slides, as configurações de lista são definidas através de [BulletFormat](https://reference.aspose.com/slides/pt/php-java/aspose.slides/bulletformat/).
+Marcadores e numeração facilitam a leitura de itens relacionados. No Aspose.Slides, as configurações de lista são definidas através de [BulletFormat](https://reference.aspose.com/slides/pt/php-java/aspose.slides/bulletformat/).
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/).
-2. Acesse o slide relevante através de seu índice.
+2. Acesse o slide relevante pelo seu índice.
 3. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) ao slide selecionado.
 4. Acesse o [TextFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/) da forma.
 5. Remova o parágrafo padrão do quadro de texto.
@@ -137,7 +137,7 @@ Marcadores e numeração facilitam a visualização de itens relacionados. No As
 11. Configure o estilo de marcador numerado e adicione o parágrafo ao quadro de texto.
 12. Salve a apresentação.
 
-Este exemplo PHP cria um marcador de símbolo e um marcador numerado:
+Este exemplo em PHP cria um marcador de símbolo e um marcador numerado:
 
 ```php
 use aspose\slides\BulletType;
@@ -189,7 +189,7 @@ try {
 Marcadores de imagem permitem usar uma imagem personalizada em vez de um símbolo ou número.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/).
-2. Acesse o slide relevante através de seu índice.
+2. Acesse o slide relevante pelo seu índice.
 3. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) e acesse seu [TextFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/).
 4. Remova o parágrafo padrão do quadro de texto.
 5. Carregue a imagem do marcador e adicione-a à coleção de imagens da apresentação como um [PPImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/ppimage/).
@@ -198,6 +198,8 @@ Marcadores de imagem permitem usar uma imagem personalizada em vez de um símbol
 8. Atribua a imagem através de [BulletFormat::getPicture](https://reference.aspose.com/slides/pt/php-java/aspose.slides/bulletformat/#getPicture--) e defina a altura do marcador.
 9. Adicione o parágrafo ao quadro de texto.
 10. Salve a apresentação modificada.
+
+Este exemplo em PHP cria um marcador de imagem:
 
 ```php
 use aspose\slides\BulletType;
@@ -240,11 +242,13 @@ try {
 
 Defina [ParagraphFormat::setDepth](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphformat/#setDepth-short-) para posicionar parágrafos em diferentes níveis de uma lista. O nível superior tem profundidade `0`.
 
-1. Crie um [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/) e acesse um slide.
+1. Crie uma [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/) e acesse um slide.
 2. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) e limpe o parágrafo padrão de seu quadro de texto.
 3. Crie quatro parágrafos e configure seus símbolos de marcador.
-4. Defina seus valores de [ParagraphFormat::setDepth] para `0`, `1`, `2` e `3`.
+4. Defina os valores de [ParagraphFormat::setDepth](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphformat/#setDepth-short-) para `0`, `1`, `2` e `3`.
 5. Adicione os parágrafos ao quadro de texto e salve a apresentação.
+
+Este exemplo em PHP cria uma lista com marcadores de quatro níveis:
 
 ```php
 use aspose\slides\BulletType;
@@ -308,11 +312,13 @@ try {
 
 Use [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/pt/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) para definir o número inicial exibido para um parágrafo numerado.
 
-1. Crie um [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/) e adicione um [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) a um slide.
+1. Crie uma [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/) e adicione um [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) a um slide.
 2. Limpe o parágrafo padrão do quadro de texto da forma.
 3. Crie três parágrafos numerados.
-4. Defina [BulletFormat::setNumberedBulletStartWith] para `2`, `3` e `7` para os respectivos parágrafos.
+4. Defina [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/pt/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) como `2`, `3` e `7` para os respectivos parágrafos.
 5. Adicione os parágrafos ao quadro de texto e salve a apresentação.
+
+Este exemplo em PHP atribui um número inicial personalizado a cada parágrafo:
 
 ```php
 use aspose\slides\BulletType;
@@ -353,23 +359,23 @@ try {
 
 ## **Controlar layout de parágrafo e propriedades de fim**
 
-### **Definir recuo da primeira linha**
+### **Definir recuo de primeira linha**
 
 Use [ParagraphFormat::setIndent](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphformat/#setIndent-float-) para controlar o recuo da primeira linha de um parágrafo. Este método move apenas a primeira linha em relação à margem esquerda do parágrafo. Um valor positivo desloca a primeira linha para a direita, enquanto as linhas restantes permanecem alinhadas ao corpo do parágrafo.
 
 Use [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) quando precisar mover todo o parágrafo. Use [ParagraphFormat::setIndent](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphformat/#setIndent-float-) quando precisar mover apenas a primeira linha.
 
-O exemplo abaixo cria vários parágrafos e aplica diferentes valores de [ParagraphFormat::setIndent] para demonstrar como o recuo da primeira linha afeta o layout do parágrafo.
+O exemplo abaixo cria vários parágrafos e aplica valores diferentes de [ParagraphFormat::setIndent](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphformat/#setIndent-float-) para demonstrar como o recuo de primeira linha afeta o layout do parágrafo.
 
-1. Crie uma instância da classe [Presentation].
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/).
 2. Acesse o slide de destino.
-3. Adicione um [AutoShape] retangular ao slide.
-4. Acesse o [TextFrame] da forma e remova o parágrafo padrão.
-5. Crie vários parágrafos e defina diferentes valores de [ParagraphFormat::setIndent] para eles.
+3. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) retangular ao slide.
+4. Acesse o [TextFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/) da forma e remova o parágrafo padrão.
+5. Crie vários parágrafos e defina valores diferentes de [ParagraphFormat::setIndent](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphformat/#setIndent-float-) para eles.
 6. Adicione os parágrafos ao quadro de texto.
 7. Salve a apresentação modificada.
 
-Este código PHP mostra como definir um recuo de parágrafo:
+Este código PHP mostra como definir o recuo de um parágrafo:
 
 ```php
 use aspose\slides\FillType;
@@ -425,22 +431,22 @@ try {
 
 O resultado:
 
-![O recuo da primeira linha dos parágrafos](first_line_indent.png)
+![Recuo de primeira linha dos parágrafos](first_line_indent.png)
 
 ### **Definir recuo suspenso**
 
-Um recuo suspenso é um layout de parágrafo em que a primeira linha começa à esquerda das linhas restantes. No Aspose.Slides, você cria esse efeito com [ParagraphFormat::setIndent](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphformat/#setIndent-float-). Passe um valor negativo para mover a primeira linha para a esquerda em relação ao corpo do parágrafo.
+Um recuo suspenso é um layout de parágrafo em que a primeira linha começa à esquerda das linhas restantes. No Aspose.Slides, você cria esse efeito com [ParagraphFormat::setIndent](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphformat/#setIndent-float-). Passe um valor negativo para mover a primeira linha à esquerda em relação ao corpo do parágrafo.
 
 Na prática, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) define a posição esquerda do corpo do parágrafo, e [ParagraphFormat::setIndent](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphformat/#setIndent-float-) define a posição da primeira linha em relação a essa margem. Para criar um recuo suspenso, passe um valor positivo para `setMarginLeft` e um valor negativo para `setIndent`.
 
-Essa formatação é útil para bibliografias, referências, entradas de glossário e outros parágrafos onde as linhas com quebra de linha devem alinhar-se sob o corpo do parágrafo em vez de sob o primeiro caractere da primeira linha.
+Essa formatação é útil para bibliografias, referências, entradas de glossário e outros parágrafos onde as linhas envolvidas precisam alinhar‑se sob o corpo do parágrafo em vez de sob o primeiro caractere da primeira linha.
 
-1. Crie uma instância da classe [Presentation].
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/).
 2. Acesse o slide de destino.
-3. Adicione um [AutoShape] retangular ao slide.
-4. Acesse o [TextFrame] da forma e remova o parágrafo padrão.
-5. Crie parágrafos e passe um valor positivo para [ParagraphFormat::setMarginLeft] para cada parágrafo.
-6. Passe um valor negativo para [ParagraphFormat::setIndent] para criar o efeito de recuo suspenso.
+3. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) retangular ao slide.
+4. Acesse o [TextFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/) da forma e remova o parágrafo padrão.
+5. Crie parágrafos e passe um valor positivo para [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) em cada parágrafo.
+6. Passe um valor negativo para [ParagraphFormat::setIndent](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphformat/#setIndent-float-) para criar o efeito de recuo suspenso.
 7. Adicione os parágrafos ao quadro de texto.
 8. Salve a apresentação modificada.
 
@@ -492,18 +498,18 @@ try {
 
 O resultado:
 
-![O recuo suspenso dos parágrafos](hanging_indent.png)
+![Recuo suspenso dos parágrafos](hanging_indent.png)
 
-### **Definir propriedades de execução de final de parágrafo**
+### **Definir propriedades de execução do final do parágrafo**
 
-[Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) controla a formatação da marca de final de parágrafo. O exemplo PHP a seguir atribui um tamanho de fonte e fonte latina à marca de final do segundo parágrafo:
+[Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) controla a formatação da marca de fim do parágrafo. O exemplo PHP a seguir atribui um tamanho de fonte e uma fonte latina à marca de fim do segundo parágrafo:
 
-1. Carregue um [Presentation] e acesse um slide.
-2. Adicione um [AutoShape] e limpe seu parágrafo padrão.
+1. Carregue uma [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/) e acesse um slide.
+2. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) e limpe seu parágrafo padrão.
 3. Crie dois parágrafos e adicione porções de texto a eles.
-4. Crie um [PortionFormat] para a marca de final do segundo parágrafo.
-5. Defina [BasePortionFormat::setFontHeight] e [BasePortionFormat::setLatinFont].
-6. Atribua o formato com [Paragraph::setEndParagraphPortionFormat] e salve a apresentação.
+4. Crie um [PortionFormat](https://reference.aspose.com/slides/pt/php-java/aspose.slides/portionformat/) para a marca de fim do segundo parágrafo.
+5. Defina [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/pt/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) e [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/pt/php-java/aspose.slides/baseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
+6. Atribua o formato com [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) e salve a apresentação.
 
 ```php
 use aspose\slides\FontData;
@@ -541,20 +547,75 @@ try {
 }
 ```
 
+## **Contar linhas renderizadas**
+
+Use [Paragraph::getLinesCount](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraph/#getLinesCount--) para contar as linhas ocupadas por um parágrafo após o layout do texto, incluindo a quebra automática. Isso é útil ao verificar o comprimento do texto e o layout em modelos de apresentação.
+
+Um parágrafo é um item em [TextFrame::getParagraphs](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/#getParagraphs--) e pode ocupar várias linhas renderizadas. Uma quebra de linha explícita dentro de um parágrafo força uma nova linha sem criar outro parágrafo. A quebra automática cria linhas com base na largura disponível sem inserir quebras de linha explícitas no texto. Contar parágrafos ou caracteres de quebra de linha, portanto, não fornece a contagem de linhas renderizadas.
+
+O exemplo a seguir cria uma forma de texto, conta suas linhas, estreita a forma e depois substitui o texto por uma string mais curta. A quebra automática está habilitada e o ajuste automático está desativado, de modo que a largura da forma controla a quebra sem reduzir automaticamente o texto ou redimensionar a forma. As dimensões da forma estão em pontos. Por fim, o exemplo adiciona outro parágrafo e soma as contagens de linhas em todo o quadro de texto.
+
+```php
+use aspose\slides\NullableBool;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAutofitType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 400, 200);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getTextFrameFormat()->setWrapText(NullableBool::True);
+    $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::None);
+
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(20);
+    $paragraph->setText("This text demonstrates how automatic wrapping changes the number of rendered lines.");
+    echo "Original width: " . java_values($paragraph->getLinesCount()) . PHP_EOL;
+
+    $shape->setWidth(150);
+    echo "Narrower shape: " . java_values($paragraph->getLinesCount()) . PHP_EOL;
+
+    $paragraph->setText("Short text.");
+    echo "Shorter text: " . java_values($paragraph->getLinesCount()) . PHP_EOL;
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->setText("Another paragraph.");
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(20);
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $totalLineCount = 0;
+    for ($i = 0; $i < java_values($textFrame->getParagraphs()->getCount()); $i++) {
+        $currentParagraph = $textFrame->getParagraphs()->get_Item($i);
+        $totalLineCount += java_values($currentParagraph->getLinesCount());
+    }
+    echo "Total lines in the text frame: " . $totalLineCount . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+Com este texto e estas dimensões, estreitar a forma aumenta a contagem de linhas, enquanto substituir o texto pela string curta a reduz. Contagens exatas podem variar conforme a disponibilidade e substituição de fontes, tamanho da fonte, margens, recuos, quebra e configurações de ajuste automático. Use as fontes e configurações de layout previstas para o ambiente de destino ao verificar um modelo.
+
+A contagem de linhas por si só não determina se o texto transborda seu contêiner. A altura disponível, alturas de linha, espaçamento de parágrafo e linhas, e o comportamento de ajuste automático também são relevantes; mesmo uma única linha pode exceder a largura disponível quando a quebra automática está desativada.
+
 ## **Importar e exportar conteúdo de parágrafo**
 
-### **Importar texto HTML em parágrafos**
+### **Importar texto HTML para parágrafos**
 
 Use [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) para converter marcação HTML em parágrafos e porções em um quadro de texto.
 
-1. Crie uma instância da classe [Presentation].
-2. Acesse um slide e adicione um [AutoShape].
-3. Acesse o [TextFrame] da forma e limpe o parágrafo padrão.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/).
+2. Acesse um slide e adicione um [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/).
+3. Acesse o [TextFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/) da forma e limpe seu parágrafo padrão.
 4. Leia o arquivo HTML de origem.
-5. Passe a string HTML para [ParagraphCollection::addFromHtml].
+5. Passe a string HTML para [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
 6. Salve a apresentação modificada.
 
-Este exemplo PHP importa HTML em um quadro de texto:
+Este exemplo em PHP importa HTML em um quadro de texto:
 
 ```php
 use aspose\slides\FillType;
@@ -587,13 +648,13 @@ try {
 
 Use [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) para exportar um intervalo selecionado de parágrafos como HTML.
 
-1. Crie uma instância da classe [Presentation] e carregue a apresentação desejada.
-2. Acesse o slide e encontre o [AutoShape] que contém o texto.
-3. Acesse o [TextFrame] da forma.
-4. Chame [ParagraphCollection::exportToHtml] com o índice do parágrafo inicial e o número de parágrafos a exportar.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/) e carregue a apresentação desejada.
+2. Acesse o slide e encontre o [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) que contém o texto.
+3. Acesse o [TextFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/) da forma.
+4. Chame [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) com o índice do parágrafo inicial e o número de parágrafos a exportar.
 5. Escreva a string HTML retornada em um arquivo.
 
-Este exemplo PHP exporta todos os parágrafos da primeira forma de texto:
+Este exemplo em PHP exporta todos os parágrafos do primeiro quadro de texto:
 
 ```php
 use aspose\slides\Presentation;
@@ -623,9 +684,9 @@ try {
 
 ### **Renderizar um parágrafo como imagem**
 
-[Paragraph::getImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraph/#getImage--) renderiza um parágrafo individual diretamente e retorna um [IImage]. Salve o resultado em um arquivo ou stream com [IImage::save](https://reference.aspose.com/slides/pt/php-java/aspose.slides/iimage/#save-java.lang.String-int-). Você não precisa renderizar a forma que contém ou recortar um bitmap manualmente.
+[Paragraph::getImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraph/#getImage--) renderiza diretamente um parágrafo individual e devolve um [IImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/iimage/). Salve o resultado em um arquivo ou fluxo com [IImage::save](https://reference.aspose.com/slides/pt/php-java/aspose.slides/iimage/#save-java.lang.String-int-). Não é necessário renderizar a forma que contém o parágrafo nem recortar um bitmap manualmente.
 
-[Paragraph::getImage] pode retornar `null` se o parágrafo não for encontrado em sua coleção pai, não tiver limites de renderização válidos ou não puder ser renderizado. Verifique o resultado antes de salvá-lo e descarte a imagem retornada após o uso.
+[Paragraph::getImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraph/#getImage--) pode retornar `null` se o parágrafo não for encontrado na coleção pai, não possuir limites de renderização válidos ou não puder ser renderizado. Verifique o resultado antes de salvá‑lo e descarte a imagem retornada após o uso.
 
 #### **Renderizar um parágrafo na escala padrão**
 
@@ -633,7 +694,7 @@ Vamos supor que temos um arquivo de apresentação chamado sample.pptx com um sl
 
 ![A caixa de texto com três parágrafos](paragraph_to_image_input.png)
 
-O exemplo PHP a seguir renderiza o segundo parágrafo em uma forma de texto regular na escala padrão e salva a imagem retornada em formato PNG. O bloco `finally` garante que a imagem seja descartada corretamente.
+O exemplo PHP a seguir renderiza o segundo parágrafo em uma forma de texto normal na escala padrão e salva a imagem retornada em formato PNG. O bloco `finally` garante que a imagem seja descartada corretamente.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -671,11 +732,11 @@ try {
 
 O resultado:
 
-![A imagem do parágrafo](paragraph_to_image_output.png)
+![Imagem do parágrafo](paragraph_to_image_output.png)
 
 #### **Renderizar um parágrafo em uma célula de tabela com dimensionamento**
 
-Use a sobrecarga de [Paragraph::getImage] que aceita os parâmetros `$scaleX` e `$scaleY` para definir os fatores de escala horizontal e vertical. O exemplo PHP a seguir cria uma tabela, renderiza o parágrafo em sua primeira célula com o dobro da largura e altura padrão, e salva o resultado como uma imagem PNG.
+Use a sobrecarga de [Paragraph::getImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraph/#getImage-float-float-) que aceita os parâmetros `$scaleX` e `$scaleY` para definir os fatores de escala horizontal e vertical. O exemplo PHP a seguir cria uma tabela, renderiza o parágrafo em sua primeira célula com o dobro da largura e altura padrão e salva o resultado como imagem PNG.
 
 ```php
 use aspose\slides\ImageFormat;
@@ -706,24 +767,24 @@ try {
 }
 ```
 
-Um fator de escala de `1` mantém esse eixo no tamanho de pixel padrão. Por exemplo, `2` para ambos os fatores produz uma imagem cuja largura e altura são aproximadamente o dobro das dimensões padrão, resultando em quatro vezes mais pixels. Fatores maiores geralmente produzem texto mais nítido para zoom ou saída de alta resolução, mas também aumentam o uso de memória e o tamanho do arquivo. Fatores abaixo de `1` produzem imagens menores com menos detalhes. Use fatores iguais para preservar a proporção do parágrafo; fatores diferentes horizontal e vertical esticam a saída independentemente.
+Um fator de escala `1` mantém aquele eixo no tamanho de pixel padrão. Por exemplo, `2` para ambos os fatores produz uma imagem cuja largura e altura são aproximadamente o dobro das dimensões padrão, resultando em quatro vezes mais pixels. Fatores maiores geralmente geram texto mais nítido para zoom ou saída de alta resolução, mas também aumentam o uso de memória e o tamanho do arquivo. Fatores abaixo de `1` produzem imagens menores com menos detalhes. Use fatores iguais para preservar a proporção do parágrafo; fatores horizontais e verticais diferentes esticam a saída independentemente.
 
-Renderizar uma forma inteira com [Shape::getImage] continua útil quando a saída deve incluir o preenchimento, a borda ou outro contexto visual da forma. Para uma imagem somente do parágrafo, use [Paragraph::getImage].
+Renderizar toda a forma com [Shape::getImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shape/#getImage--) continua útil quando a saída deve incluir o preenchimento, a borda ou outro contexto visual da forma. Para uma imagem apenas do parágrafo, use [Paragraph::getImage](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraph/#getImage--).
 
-## **Perguntas frequentes**
+## **FAQ**
 
 **Posso desativar completamente a quebra de linha dentro de um quadro de texto?**
 
-Sim. Defina [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframeformat/#setWrapText-byte-) para desativar a quebra, de modo que as linhas não se interrompam nas bordas do quadro de texto.
+Sim. Defina [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframeformat/#setWrapText-byte-) para desativar a quebra, de modo que as linhas não se dividam nas bordas do quadro de texto.
 
 **Como posso obter os limites exatos no slide de um parágrafo específico?**
 
-Use [Paragraph::getRect](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraph/#getRect--) para recuperar o retângulo delimitador do parágrafo. [Portion::getRect](https://reference.aspose.com/slides/pt/php-java/aspose.slides/portion/#getRect--) fornece os limites de uma porção individual.
+Use [Paragraph::getRect](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraph/#getRect--) para obter o retângulo delimitador do parágrafo. [Portion::getRect](https://reference.aspose.com/slides/pt/php-java/aspose.slides/portion/#getRect--) fornece os limites de uma porção individual.
 
 **Onde o alinhamento de parágrafo (esquerda, direita, centro ou justificar) é controlado?**
 
-[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphformat/#setAlignment-int-) é uma configuração ao nível do parágrafo e se aplica a todo o parágrafo, independentemente da formatação de porções individuais.
+[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/pt/php-java/aspose.slides/paragraphformat/#setAlignment-int-) é uma configuração ao nível do parágrafo e se aplica a todo o parágrafo, independentemente da formatação das porções individuais.
 
 **Posso definir o idioma de revisão para parte de um parágrafo?**
 
-Sim. Defina [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/pt/php-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) para porções individuais, de modo que um parágrafo possa conter texto em vários idiomas.
+Sim. Defina [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/pt/php-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) para as porções individuais, de modo que um parágrafo possa conter texto em vários idiomas.

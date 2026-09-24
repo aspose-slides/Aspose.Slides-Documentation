@@ -1,5 +1,5 @@
 ---
-title: Định dạng Văn bản Bài trình chiếu trong C++
+title: Định dạng văn bản trình chiếu trong C++
 linktitle: Định dạng Văn bản
 type: docs
 weight: 50
@@ -16,32 +16,32 @@ keywords:
 - góc xoay
 - khung văn bản
 - khoảng cách dòng
-- thuộc tính tự động điều chỉnh
+- thuộc tính tự động vừa
 - neo khung văn bản
 - tab văn bản
 - ngôn ngữ mặc định
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- bài thuyết trình
 - C++
 - Aspose.Slides
-description: "Định dạng và tạo kiểu văn bản trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho C++. Tùy chỉnh phông chữ, màu sắc, căn chỉnh và nhiều hơn nữa."
+description: "Định dạng và tạo kiểu văn bản trong các bài thuyết trình PowerPoint và OpenDocument bằng Aspose.Slides cho C++. Tùy chỉnh phông chữ, màu sắc, căn chỉnh và nhiều hơn nữa."
 ---
 ## **Tổng quan**
 
-Bài viết này cho thấy cách định dạng văn bản trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho C++. Nó bao gồm màu nền, độ trong suốt, khoảng cách ký tự, thuộc tính phông chữ, xoay, khoảng cách đoạn văn, hành vi tự động điều chỉnh kích thước, neo văn bản, tab stops và cài đặt ngôn ngữ.
+Bài viết này hướng dẫn cách định dạng văn bản trong các bài thuyết trình PowerPoint và OpenDocument bằng Aspose.Slides cho C++. Nó bao gồm các màu nền, độ trong suốt, khoảng cách ký tự, thuộc tính phông chữ, xoay, khoảng cách đoạn, hành vi tự động vừa, neo văn bản, tab stop và cài đặt ngôn ngữ.
 
-Trong các ví dụ dưới đây, chúng ta sẽ sử dụng tệp có tên “sample.pptx”, chứa một hộp văn bản duy nhất trên slide đầu tiên với văn bản sau:
+Trong các ví dụ dưới đây, chúng ta sẽ sử dụng tệp có tên "sample.pptx", chứa một hộp văn bản duy nhất trên slide đầu tiên với văn bản sau:
 
 ![Văn bản mẫu](sample_text.png)
 
-Để tìm và làm nổi bật văn bản nguyên mẫu hoặc các khớp biểu thức chính quy, xem [Tìm kiếm và Thay thế Văn bản](/slides/vi/cpp/search-and-replace-text/).
+Để tìm và làm nổi bật văn bản nguyên bản hoặc các khớp biểu thức chính quy, xem [Tìm và Thay thế Văn bản](/slides/vi/cpp/search-and-replace-text/).
 
-## **Đặt màu nền cho Văn bản**
+## **Đặt Màu Nền Văn Bản**
 
-Sử dụng [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) để đặt màu nền mặc định cho một đoạn văn, hoặc sử dụng [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) cho các phần văn bản riêng lẻ.
+Sử dụng [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) để đặt màu nền mặc định cho một đoạn, hoặc sử dụng [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) cho các phần văn bản riêng lẻ.
 
-Mã mẫu dưới đây cho thấy cách đặt màu nền cho **toàn bộ đoạn văn**:
+Ví dụ mã sau cho thấy cách đặt màu nền cho **toàn bộ đoạn**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -65,7 +65,7 @@ auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 auto highlightColor = System::Drawing::Color::get_LightGray();
 
-// Đặt màu nổi bật cho toàn bộ đoạn văn.
+// Đặt màu nổi cho toàn bộ đoạn.
 defaultPortionFormat->get_HighlightColor()->set_Color(highlightColor);
 
 presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
@@ -74,9 +74,9 @@ presentation->Dispose();
 
 Kết quả:
 
-![Đoạn văn màu xám](gray_paragraph.png)
+![Đoạn màu xám](gray_paragraph.png)
 
-Mã mẫu dưới đây minh họa cách đặt màu nền cho **các phần văn bản có phông chữ đậm**:
+Ví dụ mã dưới đây minh họa cách đặt màu nền cho **các phần văn bản có phông đậm**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -109,7 +109,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Đặt màu nổi bật cho phần văn bản.
+        // Đặt màu nổi cho phần văn bản.
         portionFormat->get_HighlightColor()->set_Color(highlightColor);
     }
 }
@@ -122,11 +122,11 @@ Kết quả:
 
 ![Các phần văn bản màu xám](gray_text_portions.png)
 
-## **Căn chỉnh các Đoạn Văn Bản**
+## **Căn Lề Đoạn Văn Bản**
 
-Sử dụng [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_alignment/) để đặt căn chỉnh đoạn văn trong một khung văn bản. Giá trị có thể là căn giữa, căn trái, căn phải, căn đều, v.v.
+Sử dụng [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_alignment/) để đặt căn chỉnh đoạn trong khung văn bản. Giá trị có thể là căn giữa, căn trái, căn phải, căn đều, v.v.
 
-Mã mẫu dưới đây cho thấy cách căn đoạn văn về **giữa**:
+Ví dụ mã sau cho thấy cách căn đoạn **ở giữa**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -146,7 +146,7 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-// Đặt căn chỉnh của đoạn văn thành trung tâm.
+// Đặt căn chỉnh của đoạn văn tại trung tâm.
 paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Center);
 
 presentation->Save(u"aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -155,13 +155,13 @@ presentation->Dispose();
 
 Kết quả:
 
-![Đoạn văn đã căn chỉnh](aligned_paragraph.png)
+![Đoạn đã căn chỉnh](aligned_paragraph.png)
 
-## **Đặt Độ Trong Suốt cho Văn Bản**
+## **Đặt Độ Trong Suốt Cho Văn Bản**
 
-Độ trong suốt văn bản được kiểm soát thông qua thành phần alpha của màu được gán qua [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Trong các ví dụ dưới đây, `alpha = 50` là giá trị kênh alpha ARGB trên thang 0-255, không phải phần trăm độ trong suốt.
+Độ trong suốt văn bản được kiểm soát thông qua thành phần alpha của màu được chỉ định qua [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Trong các ví dụ dưới đây, `alpha = 50` là giá trị kênh alpha ARGB trên thang 0‑255, không phải là phần trăm độ trong suốt.
 
-Mã mẫu dưới đây cho thấy cách áp dụng độ trong suốt cho **toàn bộ đoạn văn**:
+Ví dụ mã dưới đây cho thấy cách áp dụng độ trong suốt cho **toàn bộ đoạn**:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -188,7 +188,7 @@ auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// Đặt màu nền của văn bản thành màu trong suốt.
+// Đặt màu tô của văn bản thành màu trong suốt.
 defaultPortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
 auto baseColor = System::Drawing::Color::get_Black();
 auto transparentColor = System::Drawing::Color::FromArgb(alpha, baseColor);
@@ -200,9 +200,9 @@ presentation->Dispose();
 
 Kết quả:
 
-![Đoạn văn trong suốt](transparent_paragraph.png)
+![Đoạn trong suốt](transparent_paragraph.png)
 
-Mã mẫu dưới đây cho thấy cách áp dụng độ trong suốt cho **các phần văn bản có phông chữ đậm**:
+Ví dụ mã sau cho thấy cách áp dụng độ trong suốt cho **các phần văn bản có phông đậm**:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -254,11 +254,11 @@ Kết quả:
 
 ![Các phần văn bản trong suốt](transparent_text_portions.png)
 
-## **Đặt Khoảng Cách Ký Tự cho Văn Bản**
+## **Đặt Khoảng Cách Ký Tự Cho Văn Bản**
 
 Sử dụng [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseportionformat/set_spacing/) để mở rộng hoặc thu hẹp khoảng cách giữa các ký tự trong một hộp văn bản.
 
-Mã C++ dưới đây cho thấy cách mở rộng khoảng cách ký tự trong **toàn bộ đoạn văn**:
+Mã C++ sau cho thấy cách mở rộng khoảng cách ký tự trong **toàn bộ đoạn**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -287,9 +287,9 @@ presentation->Dispose();
 
 Kết quả:
 
-![Khoảng cách ký tự trong đoạn văn](character_spacing_in_paragraph.png)
+![Khoảng cách ký tự trong đoạn](character_spacing_in_paragraph.png)
 
-Mã mẫu dưới đây cho thấy cách mở rộng khoảng cách ký tự trong **các phần văn bản có phông chữ đậm**:
+Ví dụ mã dưới đây cho thấy cách mở rộng khoảng cách ký tự trong **các phần văn bản có phông đậm**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -332,11 +332,11 @@ Kết quả:
 
 ![Khoảng cách ký tự trong các phần văn bản](character_spacing_in_text_portions.png)
 
-### **Vô hiệu hoá Kerning cho Các Phông Chữ Cụ Thể**
+### **Tắt Kerning Cho Các Phông Chỉ Định**
 
-Trong một số trường hợp, văn bản được render bởi Aspose.Slides có thể trông hơi chặt hơn so với cùng văn bản hiển thị trong PowerPoint. Điều này có thể xảy ra vì PowerPoint có thể bỏ qua dữ liệu kerning cho một số phông chữ, ngay cả khi phông chữ chứa thông tin kerning hợp lệ và kerning được bật trong cài đặt PowerPoint.
+Trong một số trường hợp, văn bản được Aspose.Slides hiển thị có thể hơi chặt hơn so với cùng văn bản trong PowerPoint. Điều này có thể xảy ra vì PowerPoint có thể bỏ qua dữ liệu kerning cho một số phông chữ, ngay cả khi phông chứa thông tin kerning hợp lệ và kerning đã được bật trong cài đặt PowerPoint.
 
-Để làm cho đầu ra render gần với PowerPoint hơn trong những trường hợp này, bạn có thể vô hiệu hoá kerning cho các phần văn bản sử dụng phông chữ bị ảnh hưởng. Sử dụng [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) để đặt giá trị lớn hơn đáng kể so với kích thước phông chữ thực tế:
+Để làm cho kết quả hiển thị gần hơn với PowerPoint trong những trường hợp này, bạn có thể tắt kerning cho các phần văn bản sử dụng phông bị ảnh hưởng. Sử dụng [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) để đặt một giá trị lớn hơn đáng kể so với kích thước phông thực tế:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -391,13 +391,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Cài đặt này ngăn kerning được áp dụng cho các phần văn bản phù hợp và có thể giúp đồng bộ việc render của Aspose.Slides với kết quả trực quan của PowerPoint đối với các phông chữ bị ảnh hưởng bởi hành vi đặc thù của PowerPoint này.
+Cài đặt này ngăn kerning được áp dụng cho các phần văn bản khớp và có thể giúp đồng nhất việc hiển thị của Aspose.Slides với PowerPoint đối với các phông chữ bị hành vi đặc thù của PowerPoint ảnh hưởng.
 
-## **Quản lý Thuộc tính Phông chữ cho Văn Bản**
+## **Quản Lý Thuộc Tính Phông Chữ Văn Bản**
 
-Thuộc tính phông chữ có thể được đặt ở mức đoạn văn thông qua [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) hoặc trên các phần riêng lẻ thông qua [IPortionFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iportionformat/).
+Thuộc tính phông chữ có thể được đặt ở mức đoạn thông qua [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) hoặc ở mức phần riêng lẻ thông qua [IPortionFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iportionformat/).
 
-Mã dưới đây đặt phông chữ và kiểu văn bản cho toàn bộ đoạn văn: nó áp dụng kích thước phông, in đậm, in nghiêng, gạch chân chấm và phông Times New Roman cho tất cả các phần trong đoạn văn.
+Mã sau đặt phông chữ và kiểu văn bản cho toàn bộ đoạn: áp dụng kích thước phông, đậm, nghiêng, gạch chân chấm, và phông Times New Roman cho tất cả các phần trong đoạn.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -421,7 +421,7 @@ auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// Đặt các thuộc tính phông chữ cho đoạn văn.
+// Đặt thuộc tính phông chữ cho đoạn.
 defaultPortionFormat->set_FontHeight(12.0f);
 defaultPortionFormat->set_FontBold(NullableBool::True);
 defaultPortionFormat->set_FontItalic(NullableBool::True);
@@ -435,9 +435,9 @@ presentation->Dispose();
 
 Kết quả:
 
-![Thuộc tính phông chữ cho đoạn văn](font_properties_for_paragraph.png)
+![Thuộc tính phông cho đoạn](font_properties_for_paragraph.png)
 
-Mã mẫu dưới đây áp dụng các thuộc tính tương tự cho **các phần văn bản có phông chữ đậm**:
+Ví dụ mã dưới đây áp dụng các thuộc tính tương tự cho **các phần văn bản có phông đậm**:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -471,7 +471,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Đặt các thuộc tính phông chữ cho phần văn bản.
+        // Đặt thuộc tính phông chữ cho phần văn bản.
         portionFormat->set_FontHeight(13.0f);
         portionFormat->set_FontItalic(NullableBool::True);
         portionFormat->set_FontUnderline(TextUnderlineType::Dotted);
@@ -485,13 +485,13 @@ presentation->Dispose();
 
 Kết quả:
 
-![Thuộc tính phông chữ cho các phần văn bản](font_properties_for_text_portions.png)
+![Thuộc tính phông cho các phần văn bản](font_properties_for_text_portions.png)
 
 ## **Đặt Xoay Văn Bản**
 
-Sử dụng [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformat/set_textverticaltype/) để đặt hướng văn bản định sẵn trong một hình dạng.
+Sử dụng [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformat/set_textverticaltype/) để đặt hướng văn bản được định sẵn trong một hình dạng.
 
-Mã mẫu dưới đây đặt hướng văn bản trong hình dạng thành [TextVerticalType::Vertical270](https://reference.aspose.com/slides/vi/cpp/aspose.slides/textverticaltype/), xoay văn bản **90 độ ngược chiều kim đồng hồ**:
+Mã sau đặt hướng văn bản trong hình dạng thành [TextVerticalType::Vertical270](https://reference.aspose.com/slides/vi/cpp/aspose.slides/textverticaltype/), quay văn bản **90 độ ngược chiều kim đồng hồ**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -519,11 +519,11 @@ Kết quả:
 
 ![Xoay văn bản](text_rotation.png)
 
-## **Đặt Xoay Tùy Chỉnh cho Khung Văn Bản**
+## **Đặt Xoay Tùy Chỉnh Cho Khung Văn Bản**
 
 Sử dụng [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformat/set_rotationangle/) để đặt góc xoay tùy chỉnh cho một [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/).
 
-Mã mẫu dưới đây xoay khung văn bản 3 độ theo chiều kim đồng hồ trong hình dạng:
+Mã dưới đây xoay khung văn bản 3 độ theo chiều kim đồng hồ trong hình dạng:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -550,14 +550,14 @@ Kết quả:
 
 ![Xoay tùy chỉnh cho văn bản](custom_text_rotation.png)
 
-## **Đặt Khoảng Cách Dòng cho Đoạn Văn**
+## **Đặt Khoảng Cách Dòng Cho Các Đoạn**
 
-Aspose.Slides cung cấp [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_spacebefore/), và [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_spacewithin/) để điều khiển khoảng cách đoạn văn. Các phương thức này được sử dụng như sau:
+Aspose.Slides cung cấp [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_spacebefore/) và [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_spacewithin/) để kiểm soát khoảng cách đoạn. Các phương thức này được sử dụng như sau:
 
 * Sử dụng giá trị dương để chỉ định khoảng cách dòng dưới dạng phần trăm của chiều cao dòng.
-* Sử dụng giá trị âm để chỉ định khoảng cách dòng tính bằng điểm.
+* Sử dụng giá trị âm để chỉ định khoảng cách dòng bằng điểm.
 
-Mã mẫu dưới đây cho thấy cách chỉ định khoảng cách dòng trong đoạn văn:
+Mã sau cho thấy cách chỉ định khoảng cách dòng trong đoạn:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -584,11 +584,11 @@ presentation->Dispose();
 
 Kết quả:
 
-![Khoảng cách dòng trong đoạn văn](line_spacing.png)
+![Khoảng cách dòng trong đoạn](line_spacing.png)
 
-## **Đặt Kiểu Tự Động Điều Chỉnh cho Khung Văn Bản**
+## **Đặt Kiểu Tự Động Vừa Cho Khung Văn Bản**
 
-[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformat/set_autofittype/) xác định cách văn bản phản ứng khi vượt quá biên của vùng chứa. Sử dụng nó để kiểm soát việc văn bản co lại, tràn hoặc tự động thay đổi kích thước hình dạng.
+[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformat/set_autofittype/) xác định cách văn bản hoạt động khi vượt quá giới hạn của vùng chứa. Sử dụng nó để kiểm soát việc văn bản co lại, tràn ra hoặc tự động thay đổi kích thước hình dạng.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -612,9 +612,11 @@ presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Đặt Neo cho Khung Văn Bản**
+Để đếm số dòng sau khi tự động ngắt dòng và xem cách văn bản hoặc chiều rộng hình dạng thay đổi, xem [Đếm Các Dòng Được Render](/slides/vi/cpp/manage-paragraph/). Số dòng chỉ đơn thuần không cho biết liệu văn bản có tràn ra ngoài vùng chứa hay không.
 
-[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformat/set_anchoringtype/) xác định cách văn bản được định vị theo chiều dọc bên trong một hình dạng, chẳng hạn ở trên cùng, giữa hoặc dưới cùng.
+## **Đặt Neo Cho Khung Văn Bản**
+
+[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformat/set_anchoringtype/) xác định cách văn bản được định vị theo chiều dọc bên trong một hình dạng, ví dụ ở trên, giữa hoặc dưới.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -638,9 +640,9 @@ presentation->Save(u"text_anchor.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Đặt Tab cho Văn Bản**
+## **Đặt Tab Cho Văn Bản**
 
-Sử dụng [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) và [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/get_tabs/) để cấu hình các vị trí tab trong một đoạn văn.
+Sử dụng [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) và [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/get_tabs/) để cấu hình tab stop trong một đoạn.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -670,13 +672,13 @@ presentation->Dispose();
 
 Kết quả:
 
-![Các tab trong đoạn văn](paragraph_tabs.png)
+![Tab trong đoạn](paragraph_tabs.png)
 
 ## **Đặt Ngôn Ngữ Kiểm Tra Chính Tả**
 
-Aspose.Slides cung cấp [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseportionformat/set_languageid/), cho phép bạn đặt ngôn ngữ kiểm tra chính tả cho một phần văn bản. Ngôn ngữ này xác định ngôn ngữ được dùng cho kiểm tra chính tả và ngữ pháp trong PowerPoint.
+Aspose.Slides cung cấp [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseportionformat/set_languageid/), cho phép bạn đặt ngôn ngữ kiểm tra chính tả cho một phần văn bản. Ngôn ngữ kiểm tra quyết định ngôn ngữ được sử dụng cho kiểm tra chính tả và ngữ pháp trong PowerPoint.
 
-Mã mẫu dưới đây cho thấy cách đặt ngôn ngữ kiểm tra chính tả cho một phần văn bản:
+Mã dưới đây cho thấy cách đặt ngôn ngữ kiểm tra cho một phần văn bản:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -708,7 +710,7 @@ portionFormat->set_ComplexScriptFont(font);
 portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
-// Đặt Id cho ngôn ngữ kiểm tra chính tả.
+// Đặt Id của một ngôn ngữ kiểm tra chính tả.
 portionFormat->set_LanguageId(u"zh-CN");
 
 textPortion->set_Text(u"1.");
@@ -720,7 +722,7 @@ presentation->Dispose();
 
 ## **Đặt Ngôn Ngữ Mặc Định**
 
-Sử dụng [ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iloadoptions/set_defaulttextlanguage/) để xác định ngôn ngữ mặc định cho văn bản được tạo khi tải hoặc tạo một bản trình chiếu.
+Sử dụng [ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iloadoptions/set_defaulttextlanguage/) để định nghĩa ngôn ngữ mặc định cho văn bản được tạo khi tải hoặc tạo một bài thuyết trình.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -756,9 +758,9 @@ presentation->Dispose();
 
 ## **Đặt Kiểu Văn Bản Mặc Định**
 
-Để áp dụng định dạng văn bản mặc định ở cấp độ bản trình chiếu, sử dụng [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/get_defaulttextstyle/).
+Để áp dụng định dạng văn bản mặc định ở mức bài thuyết trình, sử dụng [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/get_defaulttextstyle/).
 
-Mã mẫu dưới đây cho thấy cách đặt phông chữ đậm mặc định với kích thước 14 pt cho tất cả văn bản trên các slide trong một bản trình chiếu mới.
+Mã dưới đây cho thấy cách đặt phông chữ đậm mặc định với kích thước 14 pt cho tất cả văn bản trên các slide trong một bài thuyết trình mới.
 
 ```cpp
 #include <DOM/IParagraphFormat.h>
@@ -772,7 +774,7 @@ using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>();
 
-// Lấy định dạng đoạn văn cấp cao nhất.
+// Lấy định dạng đoạn cấp độ cao nhất.
 auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
 if (paragraphFormat != nullptr)
@@ -786,15 +788,15 @@ presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Trích Xuất Văn Bản với Hiệu Ứng In Hoa Tất Cả**
+## **Trích Xuất Văn Bản Với Hiệu Ứng All‑Caps**
 
-Trong PowerPoint, áp dụng hiệu ứng **All Caps** (In Hoa Tất Cả) làm cho văn bản hiển thị dưới dạng chữ hoa trên slide ngay cả khi nó được gõ bằng chữ thường. Khi bạn lấy phần văn bản như vậy bằng Aspose.Slides, thư viện sẽ trả lại văn bản chính xác như khi nhập. Để khớp với văn bản hiển thị, kiểm tra [TextCapType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/textcaptype/) và chuyển chuỗi trả về sang chữ hoa khi giá trị là [TextCapType::All](https://reference.aspose.com/slides/vi/cpp/aspose.slides/textcaptype/).
+Trong PowerPoint, áp dụng hiệu ứng phông **All Caps** khiến văn bản hiển thị dưới dạng chữ hoa trên slide ngay cả khi nó được gõ bằng chữ thường. Khi bạn lấy phần văn bản như vậy bằng Aspose.Slides, thư viện trả về văn bản đúng như khi nhập. Để khớp với văn bản hiển thị, kiểm tra [TextCapType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/textcaptype/) và chuyển chuỗi trả về thành chữ hoa khi giá trị là [TextCapType::All](https://reference.aspose.com/slides/vi/cpp/aspose.slides/textcaptype/).
 
 Giả sử chúng ta có hộp văn bản sau trên slide đầu tiên của tệp sample2.pptx.
 
 ![Hiệu ứng All Caps](all_caps_effect.png)
 
-Mã mẫu dưới đây cho thấy cách trích xuất văn bản với hiệu ứng **All Caps** đã được áp dụng:
+Mã dưới đây cho thấy cách trích xuất văn bản với hiệu ứng **All Caps** đã được áp dụng:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -837,10 +839,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **Câu Hỏi Thường Gặp**
 
-**Làm thế nào để sửa đổi văn bản trong bảng trên một slide?**
+**Cách chỉnh sửa văn bản trong bảng trên slide?**
 
-Để sửa đổi văn bản trong bảng trên một slide, sử dụng [ITable](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itable/). Duyệt qua các ô và cập nhật từng ô thông qua [ICell::get_TextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icell/get_textframe/) và định dạng đoạn văn qua [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/get_paragraphformat/).
+Để chỉnh sửa văn bản trong bảng trên slide, sử dụng [ITable](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itable/). Duyệt qua các ô và cập nhật mỗi ô thông qua [ICell::get_TextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icell/get_textframe/) và định dạng đoạn qua [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/get_paragraphformat/).
 
-**Làm thế nào để áp dụng màu gradient cho văn bản trong slide PowerPoint?**
+**Cách áp dụng màu gradient cho văn bản trong slide PowerPoint?**
 
 Để áp dụng màu gradient cho văn bản, sử dụng [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Đặt [IFillFormat::set_FillType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ifillformat/set_filltype/) thành [FillType::Gradient](https://reference.aspose.com/slides/vi/cpp/aspose.slides/filltype/) và cấu hình các điểm dừng gradient, hướng và độ trong suốt.

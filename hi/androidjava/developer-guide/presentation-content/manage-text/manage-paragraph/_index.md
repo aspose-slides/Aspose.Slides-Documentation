@@ -1,6 +1,6 @@
 ---
-title: "Android पर PowerPoint टेक्स्ट पैराग्राफ़ प्रबंधित करें"
-linktitle: "पैराग्राफ़ प्रबंधित करें"
+title: एंड्रॉइड पर पॉवरपॉइंट टेक्स्ट पैराग्राफ प्रबंधित करें
+linktitle: पैराग्राफ प्रबंधित करें
 type: docs
 weight: 40
 url: /hi/androidjava/manage-paragraph/
@@ -8,55 +8,55 @@ aliases:
   - /androidjava/paragraph/
   - /androidjava/portion/
 keywords:
-- "टेक्स्ट जोड़ें"
-- "पैराग्राफ़ जोड़ें"
-- "टेक्स्ट प्रबंधित करें"
-- "पैराग्राफ़ प्रबंधित करें"
-- "बुलेट प्रबंधित करें"
-- "पैराग्राफ़ इंडेंट"
-- "हैंगिंग इंडेंट"
-- "पैराग्राफ़ बुलेट"
-- "क्रमांकित सूची"
-- "बुलेटेड सूची"
-- "पैराग्राफ़ गुण"
-- "HTML आयात करें"
-- "टेक्स्ट को HTML"
-- "पैराग्राफ़ को HTML"
-- "पैराग्राफ़ को इमेज"
-- "टेक्स्ट को इमेज"
-- "पैराग्राफ़ निर्यात"
-- "PowerPoint"
-- "प्रेज़ेंटेशन"
-- "Android"
-- "Java"
-- "Aspose.Slides"
-description: "Aspose.Slides for Android via Java के साथ पैराग्राफ़, पोर्शन, बुलेट, क्रमांकित सूचियाँ, इंडेंट, HTML सामग्री, और पैराग्राफ़ इमेज कैसे बनाएं और स्वरूपित करें, सीखें।"
+- टेक्स्ट जोड़ें
+- पैराग्राफ जोड़ें
+- टेक्स्ट प्रबंधित करें
+- पैराग्राफ प्रबंधित करें
+- बुलेट प्रबंधित करें
+- पैराग्राफ इंडेंट
+- हैंगिंग इंडेंट
+- पैराग्राफ बुलेट
+- नंबरड लिस्ट
+- बुलेटेड लिस्ट
+- पैराग्राफ प्रॉपर्टीज़
+- HTML आयात करें
+- टेक्स्ट से HTML
+- पैराग्राफ से HTML
+- पैराग्राफ से इमेज
+- टेक्स्ट से इमेज
+- पैराग्राफ निर्यात करें
+- PowerPoint
+- प्रेजेंटेशन
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android via Java के साथ पैराग्राफ, पोर्शन, बुलेट, नंबरड लिस्ट, इंडेंट, HTML सामग्री, और पैराग्राफ इमेज बनाना और फॉर्मेट करना सीखें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-Aspose.Slides for Android via Java टेक्स्ट को टेक्स्ट फ्रेम, पैराग्राफ और पोर्शन की पदानुक्रम के रूप में दर्शाता है:
+Aspose.Slides for Android via Java पाठ को टेक्स्ट फ़्रेम, पैराग्राफ, और पोर्शन की पदानुक्रम के रूप में दर्शाता है:
 
-* [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) आकार में टेक्स्ट कंटेनर को दर्शाता है और उसके पैराग्राफ संग्रह तक पहुँच प्रदान करता है।
-* [IParagraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/) एक टेक्स्ट फ्रेम में एक पैराग्राफ को दर्शाता है और पोर्शन तथा पैराग्राफ-स्तर के फॉर्मेटिंग तक पहुँच प्रदान करता है।
-* [IPortion](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iportion/) पैराग्राफ के भीतर एक टेक्स्ट रन को दर्शाता है। प्रत्येक पोर्शन का अपना टेक्स्ट और अक्षर-स्तर फॉर्मेटिंग हो सकता है।
+* [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) वह टेक्स्ट कंटेनर है जो एक शेप में स्थित होता है और इसके पैराग्राफ संग्रह तक पहुँच प्रदान करता है।
+* [IParagraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/) टेक्स्ट फ़्रेम में एक पैराग्राफ का प्रतिनिधित्व करता है और इसके पोर्शन और पैराग्राफ‑स्तरीय फॉर्मेटिंग तक पहुँच प्रदान करता है।
+* [IPortion](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iportion/) पैराग्राफ के भीतर एक टेक्स्ट रन का प्रतिनिधित्व करता है। प्रत्येक पोर्शन का अपना टेक्स्ट और कैरेक्टर‑स्तरीय फॉर्मेटिंग हो सकता है।
 
-इस प्रकार एक पैराग्राफ में विभिन्न फ़ॉन्ट, रंग, आकार और अन्य फॉर्मेटिंग वाले टेक्स्ट को कई पोर्शन का उपयोग करके रखा जा सकता है।
+एक पैराग्राफ इसलिए विभिन्न फ़ॉन्ट, रंग, आकार, और अन्य फ़ॉर्मेटिंग वाले टेक्स्ट को कई पोर्शन के माध्यम से समेट सकता है।
 
-## **पैराग्राफ बनाना और स्वरूपित करना**
+## **पैराग्राफ बनाएं और स्वरूपित करें**
 
-### **कई पोर्शन के साथ पैराग्राफ बनाना**
+### **कई पोर्शन के साथ पैराग्राफ बनाएं**
 
-निम्नलिखित चरणों से तीन पैराग्राफ वाले एक टेक्स्ट फ्रेम का निर्माण होता है, प्रत्येक में तीन पोर्शन होते हैं:
+निम्नलिखित चरण तीन पैराग्राफ वाला टेक्स्ट फ़्रेम बनाते हैं, प्रत्येक में तीन पोर्शन होते हैं:
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड तक पहुँचें।
+1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
+2. इंडेक्स के द्वारा संबंधित स्लाइड तक पहुँचें।
 3. स्लाइड में एक आयताकार [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
-4. आकार के [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें।
-5. डिफ़ॉल्ट पैराग्राफ का उपयोग करें और टेक्स्ट फ्रेम में दो अतिरिक्त [IParagraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/) ऑब्जेक्ट जोड़ें।
-6. प्रत्येक पैराग्राफ में तीन पोर्शन रखने के लिये पर्याप्त [IPortion](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iportion/) ऑब्जेक्ट जोड़ें। डिफ़ॉल्ट पैराग्राफ में पहले से ही एक खाली पोर्शन मौजूद है।
+4. शेप की [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें।
+5. डिफ़ॉल्ट पैराग्राफ का उपयोग करके दो और [IParagraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/) ऑब्जेक्ट टेक्स्ट फ़्रेम में जोड़ें।
+6. प्रत्येक पैराग्राफ में तीन पोर्शन होने के लिए पर्याप्त [IPortion](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iportion/) ऑब्जेक्ट जोड़ें। डिफ़ॉल्ट पैराग्राफ में पहले से ही एक खाली पोर्शन होता है।
 7. प्रत्येक पोर्शन का टेक्स्ट सेट करें।
-8. [IPortion.getPortionFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iportion/#getPortionFormat--) के द्वारा अक्षर-स्तर फॉर्मेटिंग लागू करें।
-9. संशोधित प्रेज़ेंटेशन को सहेजें।
+8. [IPortion.getPortionFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iportion/#getPortionFormat--) के माध्यम से कैरेक्टर‑स्तरीय फ़ॉर्मेटिंग लागू करें।
+9. संशोधित प्रेजेंटेशन को सहेजें।
 
 यह Android via Java उदाहरण इन चरणों को लागू करता है:
 
@@ -114,26 +114,26 @@ try {
 }
 ```
 
-## **बुलेटेड और क्रमांकित सूचियाँ बनाना**
+## **बुलेटेड और नंबरड लिस्ट बनाएं**
 
-### **बुलेटेड या क्रमांकित सूची बनाना**
+### **बुलेटेड या नंबरड लिस्ट बनाएं**
 
-बुलेट और नंबरिंग से संबंधित आइटम आसानी से स्कैन किए जा सकते हैं। Aspose.Slides में सूची सेटिंग्स को [IBulletFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/) के माध्यम से परिभाषित किया जाता है।
+बुलेट और नंबरिंग संबंधित आइटम को जल्दी स्कैन करने में मदद करती है। Aspose.Slides में लिस्ट सेटिंग्स को [IBulletFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/) के माध्यम से परिभाषित किया जाता है।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड तक पहुँचें।
+1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
+2. इंडेक्स के द्वारा संबंधित स्लाइड तक पहुँचें।
 3. चयनित स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
-4. आकार के [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें।
-5. टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-6. एक सिंबल बुलेट के लिये एक [Paragraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraph/) बनाएँ।
+4. शेप की [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें।
+5. टेक्स्ट फ़्रेम से डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+6. सिंबल बुलेट के लिए एक [Paragraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraph/) बनाएं।
 7. [IBulletFormat.setType](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/#setType-int-) को [BulletType.Symbol](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/bullettype/) पर सेट करें और बुलेट कैरेक्टर निर्दिष्ट करें।
-8. पैराग्राफ टेक्स्ट, इंडेंट, बुलेट रंग और बुलेट ऊँचाई सेट करें।
-9. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
+8. पैराग्राफ का टेक्स्ट, इंडेंट, बुलेट रंग, और बुलेट ऊँचाई सेट करें।
+9. पैराग्राफ को टेक्स्ट फ़्रेम में जोड़ें।
 10. दूसरा पैराग्राफ बनाकर [IBulletFormat.setType](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/#setType-int-) को [BulletType.Numbered](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/bullettype/) पर सेट करें।
-11. क्रमांकित बुलेट शैली को कॉन्फ़िगर करें और पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-12. प्रेज़ेंटेशन को सहेजें।
+11. नंबरड बुलेट शैली कॉन्फ़िगर करें और पैराग्राफ को टेक्स्ट फ़्रेम में जोड़ें।
+12. प्रेजेंटेशन को सहेजें।
 
-यह Android via Java उदाहरण एक सिंबल बुलेट और एक क्रमांकित बुलेट बनाता है:
+यह Android via Java उदाहरण एक सिंबल बुलेट और एक नंबरड बुलेट बनाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -174,22 +174,22 @@ try {
 }
 ```
 
-### **चित्र बुलेट्स का उपयोग करना**
+### **पिक्चर बुलेट्स का उपयोग करें**
 
-चित्र बुलेट्स से आप एक कस्टम इमेज को सिंबल या नंबर के स्थान पर उपयोग कर सकते हैं।
+पिक्चर बुलेट्स आपको सिंबल या नंबर के बजाय कस्टम इमेज इस्तेमाल करने की अनुमति देते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
-2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड तक पहुँचें।
-3. एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें और उसका [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) एक्सेस करें।
-4. टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-5. बुलेट इमेज लोड करें और इसे प्रेज़ेंटेशन की इमेज कलेक्शन में एक [IPPImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/) के रूप में जोड़ें।
+1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
+2. इंडेक्स के द्वारा संबंधित स्लाइड तक पहुँचें।
+3. एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें और उसकी [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें।
+4. टेक्स्ट फ़्रेम से डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+5. बुलेट इमेज लोड करें और उसे प्रेजेंटेशन की इमेज कलेक्शन में एक [IPPImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/) के रूप में जोड़ें।
 6. एक [Paragraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraph/) बनाकर उसका टेक्स्ट सेट करें।
 7. [IBulletFormat.setType](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/#setType-int-) को [BulletType.Picture](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/bullettype/) पर सेट करें।
-8. [IBulletFormat.getPicture](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/#getPicture--) के द्वारा इमेज असाइन करें और बुलेट ऊँचाई सेट करें।
-9. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-10. संशोधित प्रेज़ेंटेशन को सहेजें।
+8. [IBulletFormat.getPicture](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/#getPicture--) के माध्यम से इमेज असाइन करें और बुलेट ऊँचाई सेट करें।
+9. पैराग्राफ को टेक्स्ट फ़्रेम में जोड़ें।
+10. संशोधित प्रेजेंटेशन को सहेजें।
 
-यह Android via Java उदाहरण एक चित्र बुलेट बनाता है:
+यह Android via Java उदाहरण एक पिक्चर बुलेट बनाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -224,17 +224,17 @@ try {
 }
 ```
 
-### **बहु-स्तरीय सूची बनाना**
+### **मल्टीलेवल लिस्ट बनाएं**
 
-[IParagraphFormat.setDepth](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) को सेट करके पैराग्राफ को सूची के विभिन्न स्तरों पर रखा जा सकता है। शीर्ष स्तर की गहराई `0` होती है।
+[IParagraphFormat.setDepth](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) को सेट करके पैराग्राफ को सूची के विभिन्न स्तरों पर रख सकते हैं। शीर्ष स्तर की गहराई `0` होती है।
 
 1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) बनाकर स्लाइड तक पहुँचें।
-2. एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें और उसके टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ को साफ़ करें।
+2. एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें और उसके टेक्स्ट फ़्रेम से डिफ़ॉल्ट पैराग्राफ को साफ़ करें।
 3. चार पैराग्राफ बनाकर उनके बुलेट सिंबल कॉन्फ़िगर करें।
-4. उनके [IParagraphFormat.setDepth](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) मान क्रमशः `0`, `1`, `2` और `3` सेट करें।
-5. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें और प्रेज़ेंटेशन को सहेजें।
+4. उनके [IParagraphFormat.setDepth](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) मान क्रमशः `0`, `1`, `2`, और `3` सेट करें।
+5. पैराग्राफ को टेक्स्ट फ़्रेम में जोड़ें और प्रेजेंटेशन को सहेजें।
 
-यह Android via Java उदाहरण चार‑स्तरीय बुलेटेड सूची बनाता है:
+यह Android via Java उदाहरण चार‑स्तरीय बुलेटेड लिस्ट बनाता है:
 
 ```java
 import com.aspose.slides.*;
@@ -290,17 +290,17 @@ try {
 }
 ```
 
-### **कस्टम मानों से क्रमांकित सूची आइटम शुरू करना**
+### **नंबरड लिस्ट आइटम्स को कस्टम वैल्यू पर शुरू करें**
 
-[IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) का उपयोग करके क्रमांकित पैराग्राफ के प्रारंभिक नंबर को सेट किया जा सकता है।
+[IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) का उपयोग करके नंबरड पैराग्राफ की प्रारंभिक संख्या निर्धारित की जा सकती है।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) बनाकर एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) को स्लाइड पर जोड़ें।
-2. आकार के टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-3. तीन क्रमांकित पैराग्राफ बनाएँ।
-4. प्रत्येक पैराग्राफ के लिये [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) को क्रमशः `2`, `3` और `7` सेट करें।
-5. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें और प्रेज़ेंटेशन को सहेजें।
+1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) बनाकर स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
+2. शेप के टेक्स्ट फ़्रेम से डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+3. तीन नंबरड पैराग्राफ बनाएँ।
+4. प्रत्येक पैराग्राफ के लिए [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) को क्रमशः `2`, `3`, और `7` सेट करें।
+5. पैराग्राफ को टेक्स्ट फ़्रेम में जोड़ें और प्रेजेंटेशन को सहेजें।
 
-यह Android via Java उदाहरण प्रत्येक पैराग्राफ को कस्टम प्रारम्भिक संख्या असाइन करता है:
+यह Android via Java उदाहरण प्रत्येक पैराग्राफ को एक कस्टम प्रारंभिक संख्या असाइन करता है:
 
 ```java
 import com.aspose.slides.*;
@@ -336,23 +336,23 @@ try {
 }
 ```
 
-## **पैराग्राफ लेआउट और अंत गुणों का नियंत्रण**
+## **पैराग्राफ लेआउट और एंड प्रॉपर्टीज़ को नियंत्रित करें**
 
-### **पहली‑लाइन इंडेंट सेट करना**
+### **फ़र्स्ट‑लाइन इंडेंट सेट करें**
 
-[IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) का उपयोग करके पैराग्राफ की पहली‑लाइन इंडेंट नियंत्रित की जा सकती है। यह विधि केवल पहली लाइन को पैराग्राफ के बाएँ मार्जिन की तुलना में़ बदलती है। सकारात्मक मान पहली लाइन को दायें शिफ्ट करता है, जबकि बाकी लाइनों को पैराग्राफ बॉडी के साथ संरेखित रखता है।
+[IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) का उपयोग करके पैराग्राफ की पहली पंक्ति की इंडेंट नियंत्रित की जाती है। यह विधि केवल पैराग्राफ के बाएँ मार्जिन के सापेक्ष पहली पंक्ति को ही स्थानांतरित करती है। सकारात्मक मान पहली पंक्ति को दाईं ओर शिफ्ट करता है, जबकि बाकी पंक्तियाँ पैराग्राफ बॉडी के साथ संरेखित रहती हैं।
 
-पूरे पैराग्राफ को शिफ्ट करने की आवश्यकता होने पर [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) उपयोग करें। केवल पहली लाइन को शिफ्ट करने हेतु [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) प्रयोग करें।
+पूरे पैराग्राफ को स्थानांतरित करने के लिए [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) का उपयोग करें। केवल पहली पंक्ति को स्थानांतरित करने के लिए [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) का प्रयोग करें।
 
-निम्न उदाहरण कई पैराग्राफ बनाता है और विभिन्न [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) मान लागू करके दिखाता है कि पहली‑लाइन इंडेंट पैराग्राफ लेआउट को कैसे प्रभावित करता है।
+निम्न उदाहरण कई पैराग्राफ बनाता है और विभिन्न [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) मान लागू करके दर्शाता है कि फ़र्स्ट‑लाइन इंडेंट पैराग्राफ लेआउट को कैसे प्रभावित करता है।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।
-2. लक्षित स्लाइड तक पहुँचें।
+1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का इंस्टेंस बनाएं।
+2. लक्ष्य स्लाइड तक पहुँचें।
 3. स्लाइड में एक आयताकार [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
-4. आकार के [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें और डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-5. कई पैराग्राफ बनाकर उनके लिये विभिन्न [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) मान सेट करें।
-6. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-7. संशोधित प्रेज़ेंटेशन को सहेजें।
+4. शेप की [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें और डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+5. कई पैराग्राफ बनाकर उन पर विभिन्न [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) मान सेट करें।
+6. पैराग्राफ को टेक्स्ट फ़्रेम में जोड़ें।
+7. संशोधित प्रेजेंटेशन को सहेजें।
 
 यह कोड आपको पैराग्राफ इंडेंट सेट करने का तरीका दिखाता है:
 
@@ -406,24 +406,24 @@ try {
 
 परिणाम:
 
-![पैराग्राफ की पहली‑लाइन इंडेंट](first_line_indent.png)
+![The first-line indent of the paragraphs](first_line_indent.png)
 
-### **हैंगिंग इंडेंट सेट करना**
+### **हैंगिंग इंडेंट सेट करें**
 
-हैंगिंग इंडेंट वह पैराग्राफ लेआउट है जिसमें पहली लाइन शेष लाइनों के बाएँ स्थित होती है। Aspose.Slides में यह प्रभाव [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) द्वारा प्राप्त किया जाता है। पैराग्राफ बॉडी की तुलना में पहली लाइन को बाएँ ले जाने के लिये नकारात्मक मान पास करें।
+हैंगिंग इंडेंट वह पैराग्राफ लेआउट है जिसमें पहली पंक्ति शेष पंक्तियों से बाएँ शुरू होती है। Aspose.Slides में इसे आप [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) के साथ नकारात्मक मान पास करके प्राप्त कर सकते हैं।
 
-व्यावहारिक रूप से, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) पैराग्राफ बॉडी के बाएँ स्थान को निर्धारित करता है, और [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) उस मार्जिन के सापेक्ष पहली लाइन की स्थिति तय करता है। हैंगिंग इंडेंट बनाने के लिये `setMarginLeft` को सकारात्मक मान और `setIndent` को नकारात्मक मान दें।
+व्यावहारिक रूप से, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) पैराग्राफ बॉडी की बाएँ स्थिति निर्धारित करता है, और [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) उस मार्जिन के सापेक्ष पहली पंक्ति की स्थिति निर्धारित करता है। हैंगिंग इंडेंट बनाने के लिए `setMarginLeft` को सकारात्मक मान और `setIndent` को नकारात्मक मान दें।
 
-यह फॉर्मेटिंग बिब्लियोग्राफी, रेफ़रेंस, ग्लॉसरी एंट्री आदि के लिये उपयोगी है जहाँ रॅॅप्ड लाइनों को पैराग्राफ बॉडी के नीचे संरेखित होना चाहिए, पहली लाइन के पहले अक्षर के नीचे नहीं।
+यह फ़ॉर्मेटिंग बिब्लियोग्राफी, रेफ़रेंस, शब्दकोश प्रविष्टियों आदि में उपयोगी है जहाँ रैप्ड लाइनों को पैराग्राफ बॉडी के नीचे संरेखित होना चाहिए, न कि पहली पंक्ति के पहले अक्षर के नीचे।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) इंस्टेंस बनाएँ।
-2. लक्षित स्लाइड तक पहुँचें।
+1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) इंस्टेंस बनाएं।
+2. लक्ष्य स्लाइड तक पहुँचें।
 3. स्लाइड में एक आयताकार [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
-4. आकार के [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें और डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-5. प्रत्येक पैराग्राफ के लिये [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) को सकारात्मक मान दें।
-6. हैंगिंग इंडेंट प्रभाव के लिये [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) को नकारात्मक मान पास करें।
-7. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-8. संशोधित प्रेज़ेंटेशन को सहेजें।
+4. शेप की [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें और डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+5. प्रत्येक पैराग्राफ के लिए [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) को सकारात्मक मान दें।
+6. हैंगिंग इंडेंट प्रभाव बनाने के लिए [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) को नकारात्मक मान पास करें।
+7. पैराग्राफ को टेक्स्ट फ़्रेम में जोड़ें।
+8. संशोधित प्रेजेंटेशन को सहेजें।
 
 यह कोड आपको पैराग्राफ के लिए हैंगिंग इंडेंट सेट करने का तरीका दिखाता है:
 
@@ -469,18 +469,18 @@ try {
 
 परिणाम:
 
-![पैराग्राफ की हैंगिंग इंडेंट](hanging_indent.png)
+![The hanging indent of the paragraphs](hanging_indent.png)
 
-### **एंड पैराग्राफ रन गुण सेट करना**
+### **एंड पैराग्राफ रन प्रॉपर्टीज़ सेट करें**
 
-[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) पैराग्राफ अंत चिह्न के फॉर्मेटिंग को नियंत्रित करता है। नीचे दिया गया उदाहरण दूसरे पैराग्राफ के अंत चिह्न को फॉन्ट साइज और लैटिन फॉन्ट असाइन करता है:
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) पैराग्राफ के अंत चिह्न के फ़ॉर्मेट को नियंत्रित करता है। नीचे दिया गया उदाहरण दूसरे पैराग्राफ के अंत चिह्न को फ़ॉन्ट साइज और लैटिन फ़ॉन्ट असाइन करता है:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) लोड करें और स्लाइड तक पहुँचें।
+1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) लोड करें और कोई स्लाइड एक्सेस करें।
 2. एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें और उसका डिफ़ॉल्ट पैराग्राफ साफ़ करें।
-3. दो पैराग्राफ बनाकर उनमें टेक्स्ट पोर्शन जोड़ें।
-4. दूसरे पैराग्राफ के अंत चिह्न के लिये एक [PortionFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/portionformat/) बनाएँ।
+3. दो पैराग्राफ बनाकर उन पर टेक्स्ट पोर्शन जोड़ें।
+4. दूसरे पैराग्राफ के अंत चिह्न के लिए एक [PortionFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/portionformat/) बनाएं।
 5. [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) और [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) सेट करें।
-6. [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) के द्वारा फॉर्मेट असाइन करें और प्रेज़ेंटेशन सहेजें।
+6. [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) के साथ फ़ॉर्मेट असाइन करें और प्रेजेंटेशन को सहेजें।
 
 ```java
 import com.aspose.slides.*;
@@ -512,20 +512,70 @@ try {
 }
 ```
 
-## **पैराग्राफ सामग्री का आयात और निर्यात**
+## **रेंडर की गई लाइनों की गणना करें**
 
-### **HTML टेक्स्ट को पैराग्राफ में आयात करना**
+[IParagraph.getLinesCount](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#getLinesCount--) का उपयोग करके आप टेक्स्ट लेआउट के बाद पैराग्राफ द्वारा कब्जा की गई लाइनों की संख्या गिन सकते हैं, जिसमें स्वचलित रैपिंग भी शामिल है। यह प्रेजेंटेशन टेम्प्लेट में टेक्स्ट की लंबाई और लेआउट चेक करने में उपयोगी है।
 
-[ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) का उपयोग करके HTML मार्कअप को टेक्स्ट फ्रेम में पैराग्राफ और पोर्शन में परिवर्तित किया जा सकता है।
+एक पैराग्राफ [ITextFrame.getParagraphs](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/#getParagraphs--) में एक आइटम है, और यह कई रेंडर की गई लाइनों को घेरे हो सकता है। पैराग्राफ के भीतर स्पष्ट लाइन‑ब्रेक नई पंक्ति उत्पन्न करता है लेकिन नया पैराग्राफ नहीं बनाता। स्वचलित रैपिंग उपलब्ध चौड़ाई के आधार पर लाइनों का निर्माण करती है, बिना टेक्स्ट में स्पष्ट लाइन‑ब्रेक जोड़े। इसलिए पैराग्राफ गिनना या लाइन‑ब्रेक कैरेक्टर गिनना रेंडर की गई लाइन काउंट नहीं देता।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।
-2. एक स्लाइड तक पहुँचें और एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
-3. आकार के [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें और डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+नीचे दिया गया उदाहरण एक टेक्स्ट शेप बनाता है, उसकी लाइनों को गिनता है, शेप को संकरा करता है, फिर टेक्स्ट को छोटा स्ट्रिंग से बदलता है। रैपिंग सक्षम है और ऑटॉफिट निष्क्रिय है ताकि शेप की चौड़ाई रैपिंग को नियंत्रित करे बिना टेक्स्ट को स्वतः छोटा किए या शेप का आकार बदले। शेप पारिमाण पॉइंट में हैं। अंत में, उदाहरण एक और पैराग्राफ जोड़ता है और टेक्स्ट फ़्रेम में कुल लाइन काउंट जोड़ता है।
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getTextFrameFormat().setWrapText(NullableBool.True);
+    textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.None);
+
+    IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
+    paragraph.setText("This text demonstrates how automatic wrapping changes the number of rendered lines.");
+    System.out.println("Original width: " + paragraph.getLinesCount());
+
+    shape.setWidth(150);
+    System.out.println("Narrower shape: " + paragraph.getLinesCount());
+
+    paragraph.setText("Short text.");
+    System.out.println("Shorter text: " + paragraph.getLinesCount());
+
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Another paragraph.");
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
+    textFrame.getParagraphs().add(secondParagraph);
+
+    int totalLineCount = 0;
+    for (IParagraph currentParagraph : textFrame.getParagraphs()) {
+        totalLineCount += currentParagraph.getLinesCount();
+    }
+    System.out.println("Total lines in the text frame: " + totalLineCount);
+} finally {
+    presentation.dispose();
+}
+```
+
+इन टेक्स्ट और परिमाणों के साथ, शेप को संकरा करने से लाइन काउंट बढ़ता है, जबकि छोटा स्ट्रिंग रखने से घटता है। सटीक काउंट फ़ॉन्ट उपलब्धता, प्रतिस्थापन, फ़ॉन्ट साइज, मार्जिन, इंडेंटेशन, रैपिंग, और ऑटॉफिट सेटिंग्स पर निर्भर कर सकते हैं। टेम्प्लेट जांचते समय लक्ष्य वातावरण के लिए नियोजित फ़ॉन्ट और लेआउट सेटिंग्स का उपयोग करें।
+
+केवल लाइन काउंट यह निर्धारित नहीं करता कि टेक्स्ट कंटेनर से बाहर निकलता है या नहीं। उपलब्ध ऊँचाई, लाइन‑हाइट, पैराग्राफ और लाइन स्पेसिंग, तथा ऑटॉफिट व्यवहार भी मायने रखते हैं; जब रैपिंग निष्क्रिय हो तो एक ही लाइन भी उपलब्ध चौड़ाई से अधिक हो सकती है।
+
+## **पैराग्राफ कंटेंट आयात और निर्यात करें**
+
+### **HTML टेक्स्ट को पैराग्राफ में आयात करें**
+
+[ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) का उपयोग करके आप HTML मार्कअप को टेक्स्ट फ़्रेम में पैराग्राफ और पोर्शन में परिवर्तित कर सकते हैं।
+
+1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) इंस्टेंस बनाएं।
+2. स्लाइड तक पहुँचें और एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
+3. शेप की [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें और डिफ़ॉल्ट पैराग्राफ को साफ़ करें।
 4. स्रोत HTML फ़ाइल पढ़ें।
 5. HTML स्ट्रिंग को [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) में पास करें।
-6. संशोधित प्रेज़ेंटेशन को सहेजें।
+6. संशोधित प्रेजेंटेशन को सहेजें।
 
-यह Android via Java उदाहरण HTML को टेक्स्ट फ्रेम में आयात करता है:
+यह Android via Java उदाहरण HTML को टेक्स्ट फ़्रेम में आयात करता है:
 
 ```java
 import com.aspose.slides.*;
@@ -556,17 +606,17 @@ try {
 }
 ```
 
-### **पैराग्राफ टेक्स्ट को HTML में निर्यात करना**
+### **पैराग्राफ टेक्स्ट को HTML में निर्यात करें**
 
-[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) का उपयोग करके चयनित पैराग्राफ रेंज को HTML के रूप में निर्यात किया जा सकता है।
+[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) का उपयोग करके आप चयनित पैराग्राफ रेंज को HTML के रूप में एक्सपोर्ट कर सकते हैं।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) इंस्टेंस बनाकर आवश्यक प्रेज़ेंटेशन लोड करें।
-2. स्लाइड तक पहुँचें और उस [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) को खोजें जिसमें टेक्स्ट है।
-3. आकार के [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें।
-4. प्रारम्भिक पैराग्राफ इंडेक्स और निर्यात करने वाले पैराग्राफ की संख्या के साथ [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) को कॉल करें।
-5. प्राप्त HTML स्ट्रिंग को फ़ाइल में लिखें।
+1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) इंस्टेंस बनाकर इच्छित प्रेजेंटेशन लोड करें।
+2. स्लाइड तक पहुँचें और वह [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) खोजें जिसमें टेक्स्ट है।
+3. शेप की [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें।
+4. प्रारंभिक पैराग्राफ इंडेक्स और निर्यात करने वाले पैराग्राफों की संख्या के साथ [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) को कॉल करें।
+5. वापस मिलने वाले HTML स्ट्रिंग को फ़ाइल में लिखें।
 
-यह Android via Java उदाहरण पहले टेक्स्ट शेप से सभी पैराग्राफ निर्यात करता है:
+यह Android via Java उदाहरण पहले टेक्स्ट शेप के सभी पैराग्राफ को एक्सपोर्ट करता है:
 
 ```java
 import com.aspose.slides.*;
@@ -601,19 +651,19 @@ try {
 }
 ```
 
-### **पैराग्राफ को इमेज के रूप में रेंडर करना**
+### **पैराग्राफ को इमेज के रूप में रेंडर करें**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#getImage--) एक व्यक्तिगत पैराग्राफ को सीधे रेंडर करता है और एक [IImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iimage/) लौटाता है। परिणाम को फ़ाइल या स्ट्रीम में [IImage.save](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) के द्वारा सहेजा जा सकता है। आपको सम्मिलित आकार को रेंडर करने या बिटमैप को मैन्युअली क्रॉप करने की जरूरत नहीं।
+[IParagraph.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#getImage--) व्यक्तिगत पैराग्राफ को सीधे रेंडर करता है और एक [IImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iimage/) लौटाता है। परिणाम को फ़ाइल या स्ट्रीम में [IImage.save](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) से सहेजा जा सकता है। आपको पूरे शेप को रेंडर करने या बिटमैप को मैन्युअली क्रॉप करने की आवश्यकता नहीं है।
 
-यदि पैराग्राफ नहीं मिला, वैध रेंडरिंग बाउंड नहीं हैं, या रेंडर नहीं हो पाया तो [IParagraph.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#getImage--) `null` लौटा सकता है। सहेजने से पहले परिणाम जाँचें और उपयोग के बाद रिटर्न किए गए इमेज को डिस्पोज़ करें।
+[IParagraph.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#getImage--) `null` भी लौट सकता है यदि पैराग्राफ पैरेंट कलेक्शन में नहीं मिला, वैध रेंडरिंग बाउंड्स नहीं हैं, या रेंडर नहीं हो सका। सहेजने से पहले परिणाम जांचें और उपयोग के बाद लौटाए गए इमेज को डिस्पोज़ करें।
 
-#### **डिफ़ॉल्ट स्केल पर पैराग्राफ रेंडर करना**
+#### **डिफ़ॉल्ट स्केल पर पैराग्राफ रेंडर करें**
 
-मान लेते हैं कि हमारे पास `sample.pptx` नामक एक प्रेज़ेंटेशन फ़ाइल है जिसमें एक स्लाइड है, जहाँ पहला शेप एक टेक्स्ट बॉक्स है जिसमें तीन पैराग्राफ हैं।
+मान लेते हैं कि हमारे पास `sample.pptx` नाम की एक प्रेजेंटेशन फ़ाइल है जिसमें एक स्लाइड है, और पहला शेप एक टेक्स्ट बॉक्स है जिसमें तीन पैराग्राफ हैं।
 
-![तीन पैराग्राफ वाला टेक्स्ट बॉक्स](paragraph_to_image_input.png)
+![The text box with three paragraphs](paragraph_to_image_input.png)
 
-निम्न उदाहरण डिफ़ॉल्ट स्केल पर दूसरे पैराग्राफ को रेंडर करता है और PNG फ़ॉर्मेट में इमेज सहेजता है। `finally` ब्लॉक इमेज को सही ढंग से डिस्पोज़ करता है।
+निम्न उदाहरण डिफ़ॉल्ट स्केल पर दूसरे पैराग्राफ को रेंडर करता है और PNG फ़ॉर्मेट में इमेज को सहेजता है। `finally` ब्लॉक इमेज को सही से डिस्पोज़ करने को सुनिश्चित करता है।
 
 ```java
 import com.aspose.slides.*;
@@ -651,11 +701,11 @@ try {
 
 परिणाम:
 
-![पैराग्राफ इमेज](paragraph_to_image_output.png)
+![The paragraph image](paragraph_to_image_output.png)
 
-#### **टेबल सेल में स्केलिंग के साथ पैराग्राफ रेंडर करना**
+#### **टेबल सेल में स्केलिंग के साथ पैराग्राफ रेंडर करें**
 
-[IParagraph.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) ओवरलोड का उपयोग करके `float scaleX` और `float scaleY` पैरामीटर पास करके क्षैतिज और ऊर्ध्वाधर स्केल फ़ैक्टर सेट किए जा सकते हैं। नीचे दिया गया उदाहरण एक टेबल बनाता है, पहले सेल में पैराग्राफ को डिफ़ॉल्ट चौड़ाई और ऊँचाई के दो गुना पर रेंडर करता है, और PNG इमेज के रूप में सहेजता है।
+[IParagraph.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) ओवरलोड का उपयोग करें जो `float scaleX` और `float scaleY` पैरामीटर लेता है ताकि क्षैतिज और ऊर्ध्वाधर स्केल फ़ैक्टर सेट हों। नीचे दिया गया उदाहरण एक टेबल बनाता है, पहले सेल में पैराग्राफ को डिफ़ॉल्ट चौड़ाई और ऊँचाई से दो गुना स्केल करता है, और परिणाम को PNG इमेज के रूप में सहेजता है।
 
 ```java
 import com.aspose.slides.*;
@@ -685,24 +735,24 @@ try {
 }
 ```
 
-`1` का स्केल फ़ैक्टर अक्ष को उसकी डिफ़ॉल्ट पिक्सेल आकार पर रखता है। उदाहरण के लिये, दोनों फ़ैक्टर को `2` सेट करने से इमेज की चौड़ाई और ऊँचाई लगभग दो गुना हो जाता है, जिससे पिक्सेल चार गुना बढ़ जाते हैं। बड़े फ़ैक्टर ज़ूमिंग या हाई‑रिज़ॉल्यूशन आउटपुट के लिये अधिक तेज़ टेक्स्ट देते हैं, लेकिन मेमोरी उपयोग और फ़ाइल आकार भी बढ़ाते हैं। `1` से नीचे के फ़ैक्टर छोटे इमेज कम विवरण के साथ बनाते हैं। समान फ़ैक्टर रखने से पैराग्राफ का एस्पेक्ट रेशियो बना रहता है; अलग क्षैतिज और ऊर्ध्विक फ़ैक्टर आउटपुट को स्वतंत्र रूप से स्ट्रेच करते हैं।
+स्केल फ़ैक्टर `1` अक्ष को उसकी डिफ़ॉल्ट पिक्सेल साइज पर रखता है। उदाहरण के लिए, दोनों फ़ैक्टर `2` रखने से इमेज की चौड़ाई और ऊँचाई लगभग दो गुना हो जाती है, जिससे चार गुना पिक्सेल बनते हैं। बड़े फ़ैक्टर ज़ूम या हाई‑रिज़ॉल्यूशन आउटपुट के लिए तेज़ टेक्स्ट देते हैं, लेकिन मेमोरी उपयोग और फ़ाइल आकार भी बढ़ाते हैं। `1` से नीचे के फ़ैक्टर छोटे इमेज बनाते हैं जिनमें कम विवरण होता है। समान फ़ैक्टर उपयोग करने से पैराग्राफ का एस्पेक्ट रेशियो बना रहता है; अलग-अलग क्षैतिज और ऊर्ध्वाधर फ़ैक्टर आउटपुट को अलग‑अलग खींचते हैं।
 
-पूरा शेप रेंडर करने के लिये [IShape.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishape/#getImage--) उपयोगी रहता है जब आउटपुट में शेप की फ़िल, बॉर्डर या अन्य विज़ुअल कंटेक्स्ट शामिल होना आवश्यक हो। केवल पैराग्राफ‑केवल इमेज के लिये [IParagraph.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#getImage--) का उपयोग करें।
+पूरे शेप को [IShape.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishape/#getImage--) से रेंडर करना तब उपयोगी है जब आउटपुट में शेप की फ़िल, बॉर्डर, या अन्य विज़ुअल संदर्भ भी शामिल होना चाहिए। केवल पैराग्राफ इमेज के लिए [IParagraph.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#getImage--) का उपयोग करें।
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं टेक्स्ट फ्रेम के भीतर लाइन रैपिंग को पूरी तरह निष्क्रिय कर सकता हूँ?**
+**क्या मैं टेक्स्ट फ़्रेम के अंदर लाइन रैपिंग को पूरी तरह से अक्षम कर सकता हूँ?**
 
-हाँ। रैपिंग को निष्क्रिय करने हेतु [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) को सेट करें ताकि लाइनें टेक्स्ट फ्रेम के किनारों पर न टूटें।
+हाँ। रैपिंग को अक्षम करने के लिए [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) को सेट करें ताकि लाइनों का टूटना फ़्रेम के किनारों पर न हो।
 
-**मैं किसी विशिष्ट पैराग्राफ की स्लाइड पर सटीक बाउंड्स कैसे प्राप्त करूँ?**
+**मैं किसी विशिष्ट पैराग्राफ की स्लाइड पर सटीक बॉण्ड्स कैसे प्राप्त करूँ?**
 
-[IParagraph.getRect](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#getRect--) का उपयोग करके पैराग्राफ का बाउंडिंग रेक्टैंगल प्राप्त करें। [IPortion.getRect](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iportion/#getRect--) व्यक्तिगत पोर्शन की बाउंड्स देता है।
+पैराग्राफ की बाउंडिंग रेक्टंगल प्राप्त करने के लिए [IParagraph.getRect](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#getRect--) का उपयोग करें। व्यक्तिगत पोर्शन की बाउंडिंग के लिए [IPortion.getRect](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iportion/#getRect--) उपयोग करें।
 
-**पैराग्राफ अलाइनमेंट (बाएँ, दाएँ, केंद्र या जस्टिफ़ाई) कहाँ नियंत्रित होता है?**
+**पैराग्राफ अलाइनमेंट (बाएँ, दाएँ, मध्य, या जस्टिफ़ाई) कहाँ नियंत्रित होता है?**
 
-[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) पैराग्राफ‑स्तर की सेटिंग है और व्यक्तिगत पोर्शन फॉर्मेटिंग से स्वतंत्र रूप से पूरे पैराग्राफ पर लागू होती है।
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) पैराग्राफ‑स्तर की सेटिंग है और यह पूरे पैराग्राफ पर लागू होती है, चाहे व्यक्तिगत पोर्शन का फ़ॉर्मेट कुछ भी हो।
 
-**क्या मैं पैराग्राफ के हिस्से के लिये प्रमाणन भाषा सेट कर सकता हूँ?**
+**क्या मैं पैराग्राफ के भाग के लिए प्रूफ़िंग लैंग्वेज सेट कर सकता हूँ?**
 
-हाँ। व्यक्तिगत पोर्शन के लिये [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) सेट करें, जिससे एक पैराग्राफ कई भाषाओं में टेक्स्ट रख सकता है।
+हाँ। व्यक्तिगत पोर्शन के लिए [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) सेट करें, जिससे एक पैराग्राफ में कई भाषाओं का टेक्स्ट हो सकता है।

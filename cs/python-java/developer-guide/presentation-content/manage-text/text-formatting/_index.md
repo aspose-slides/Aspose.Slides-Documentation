@@ -1,5 +1,5 @@
 ---
-title: Formátování textu prezentace v Pythonu přes Java
+title: Formátování textu v prezentaci v Pythonu přes Java
 linktitle: Formátování textu
 type: docs
 weight: 50
@@ -9,11 +9,11 @@ keywords:
 - styl textu
 - pozadí textu
 - průhlednost textu
-- mezery mezi znaky
+- mezera mezi znaky
 - vlastnosti písma
 - rodina písma
-- rotace textu
-- úhel rotace
+- otočení textu
+- úhel otočení
 - textový rámeček
 - řádkování
 - vlastnost automatického přizpůsobení
@@ -30,19 +30,19 @@ description: "Formátujte a stylizujte text v prezentacích PowerPoint a OpenDoc
 ---
 ## **Přehled**
 
-Tento článek ukazuje, jak formátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides for Python via Java. Pokrývá barvy pozadí, průhlednost, mezery mezi znaky, vlastnosti písma, rotaci, mezery odstavců, chování automatického přizpůsobení, ukotvení textu, tabulátory a nastavení jazyka.
+Tento článek ukazuje, jak formátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Python prostřednictvím Javy. Pokrývá barvy pozadí, průhlednost, mezery mezi znaky, vlastnosti písma, otočení, mezery odstavců, chování automatického přizpůsobení, ukotvení textu, tabulátory a nastavení jazyka.
 
-V příkladech níže použijeme soubor s názvem "sample.pptx", který obsahuje jediný textový rámeček na první snímku s následujícím textem:
+V níže uvedených příkladech použijeme soubor nazvaný **„sample.pptx“**, který obsahuje jediný textový rámeček na první snímku s následujícím textem:
 
 ![Ukázkový text](sample_text.png)
 
-Pro vyhledání a zvýraznění doslovného textu nebo shod regulárního výrazu viz [Hledat a nahradit text](/slides/cs/python-java/search-and-replace-text/).
+Pro vyhledání a zvýraznění doslovného textu nebo shod regulárních výrazů viz [Vyhledávání a nahrazování textu](/slides/cs/python-java/search-and-replace-text/).
 
-## **Nastavit barvu pozadí textu**
+## **Nastavení barvy pozadí textu**
 
-Použijte [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) k nastavení výchozí barvy zvýraznění pro odstavec, nebo použijte [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portionformat/) pro jednotlivé úseky textu.
+Použijte [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) pro nastavení výchozí barvy zvýraznění odstavce nebo [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portionformat/) pro jednotlivé textové úseky.
 
-Následující ukázka kódu ukazuje, jak nastavit barvu pozadí pro **celý odstavec**:
+Následující ukázkový kód ukazuje, jak nastavit barvu pozadí **celého odstavce**:
 
 ```python
 import jpype
@@ -72,7 +72,7 @@ Výsledek:
 
 ![Šedý odstavec](gray_paragraph.png)
 
-Níže uvedený příklad kódu demonstruje, jak nastavit barvu pozadí pro **úseky textu s tučným písmem**:
+Níže uvedený kód demonstruje, jak nastavit barvu pozadí **textových úseků s tučným písmem**:
 
 ```python
 import jpype
@@ -104,11 +104,11 @@ Výsledek:
 
 ![Šedé textové úseky](gray_text_portions.png)
 
-## **Zarovnat odstavce textu**
+## **Zarovnání odstavců textu**
 
-Použijte [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setAlignment) k nastavení zarovnání odstavce v textovém rámečku. Hodnota může být centrovaná, zarovnaná vlevo, vpravo, do bloku a podobně.
+Použijte [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setAlignment) pro nastavení zarovnání odstavce v textovém rámečku. Hodnota může být centrovaná, zarovnaná vlevo, vpravo, do bloku atd.
 
-Následující ukázka kódu ukazuje, jak zarovnat odstavec do **středu**:
+Následující ukázkový kód ukazuje, jak zarovnat odstavec **do středu**:
 
 ```python
 import jpype
@@ -137,11 +137,11 @@ Výsledek:
 
 ![Zarovnaný odstavec](aligned_paragraph.png)
 
-## **Nastavit průhlednost textu**
+## **Nastavení průhlednosti textu**
 
-Průhlednost textu se řídí alfa komponentou barvy přiřazené pomocí [PortionFormat.getFillFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portionformat/). V příkladech níže je `alpha = 50` hodnota kanálu ARGB na stupnici 0–255, nikoli procento průhlednosti.
+Průhlednost textu se řídí alfou komponentou barvy přiřazené pomocí [PortionFormat.getFillFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portionformat/). V níže uvedených příkladech je `alpha = 50` hodnota alfa kanálu ARGB v rozsahu 0–255, nikoli procento průhlednosti.
 
-Ukázka kódu níže ukazuje, jak aplikovat průhlednost na **celý odstavec**:
+Ukázkový kód níže ukazuje, jak aplikovat průhlednost na **celý odstavec**:
 
 ```python
 import jpype
@@ -175,7 +175,7 @@ Výsledek:
 
 ![Průhledný odstavec](transparent_paragraph.png)
 
-Následující ukázka kódu ukazuje, jak aplikovat průhlednost na **úseky textu s tučným písmem**:
+Následující ukázkový kód ukazuje, jak aplikovat průhlednost na **textové úseky s tučným písmem**:
 
 ```python
 import jpype
@@ -211,11 +211,11 @@ Výsledek:
 
 ![Průhledné textové úseky](transparent_text_portions.png)
 
-## **Nastavit mezery mezi znaky textu**
+## **Nastavení mezery mezi znaky textu**
 
-Použijte [PortionFormat.setSpacing](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portionformat/) k rozšíření nebo zúžení mezer mezi znaky v textovém rámečku.
+Použijte [PortionFormat.setSpacing](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portionformat/) pro rozšíření nebo zmenšení mezery mezi znaky v textovém rámečku.
 
-Následující Python kód ukazuje, jak rozšířit mezery mezi znaky v **celém odstavci**:
+Níže uvedený Python kód ukazuje, jak rozšířit mezeru mezi znaky v **celém odstavci**:
 
 ```python
 import jpype
@@ -232,7 +232,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # Poznámka: Použijte záporné hodnoty pro zkomprimování mezery mezi znaky.
+    # Poznámka: Použijte záporné hodnoty pro zúžení mezery mezi znaky.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3) # Rozšířit mezeru mezi znaky.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx)
@@ -242,9 +242,9 @@ finally:
 
 Výsledek:
 
-![Rozestup znaků v odstavci](character_spacing_in_paragraph.png)
+![Mezera mezi znaky v odstavci](character_spacing_in_paragraph.png)
 
-Ukázka kódu níže ukazuje, jak rozšířit mezery mezi znaky v **úsecích textu s tučným písmem**:
+Ukázkový kód níže ukazuje, jak rozšířit mezeru mezi znaky v **textových úsecích s tučným písmem**:
 
 ```python
 import jpype
@@ -263,7 +263,7 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # Poznámka: Použijte záporné hodnoty pro zkomprimování mezery mezi znaky.
+            # Poznámka: Použijte záporné hodnoty pro zúžení mezery mezi znaky.
             portion.getPortionFormat().setSpacing(3) # Rozšířit mezeru mezi znaky.
 
     presentation.save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx)
@@ -273,13 +273,13 @@ finally:
 
 Výsledek:
 
-![Rozestup znaků v textových úsecích](character_spacing_in_text_portions.png)
+![Mezera mezi znaky v textových úsecích](character_spacing_in_text_portions.png)
 
-### **Zakázat kerning pro konkrétní písma**
+### **Zakázání kerningu pro konkrétní písma**
 
-V některých případech se text vykreslený pomocí Aspose.Slides může jevit o něco těsněji než stejný text zobrazený v PowerPointu. K tomu může dojít, protože PowerPoint může ignorovat data kerningu pro určitá písma, i když písmo obsahuje platné informace o kerningu a kerning je v nastavení PowerPointu povolen.
+V některých případech může text vykreslený pomocí Aspose.Slides vypadat mírně těsněji než stejný text zobrazený v PowerPointu. K tomu může dojít, protože PowerPoint může ignorovat data kerningu u určitých písem, i když písmo obsahuje platné informace o kernování a kerning je v nastavení PowerPointu povolen.
 
-Aby byl výstup blíže PowerPointu, můžete zakázat kerning pro úseky textu, které používají dotčené písmo. Nastavte [PortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portionformat/) na hodnotu podstatně větší než skutečná velikost písma:
+Aby výstup lépe odpovídal PowerPointu, můžete pro textové úseky, které používají dotčené písmo, kerning zakázat. Nastavte [PortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portionformat/) na hodnotu výrazně větší než skutečná velikost písma:
 
 ```python
 import jpype
@@ -308,13 +308,13 @@ finally:
     presentation.dispose()
 ```
 
-Toto nastavení zabraňuje aplikaci kerningu na odpovídající úseky textu a může pomoci sladit vykreslování Aspose.Slides s vizuálním výstupem PowerPointu pro písma postižená tímto specifickým chováním PowerPointu.
+Toto nastavení zabrání aplikaci kerningu na odpovídající textové úseky a může pomoci sladit vykreslování Aspose.Slides s vizuálním výstupem PowerPointu u písem, na která se tento specifický PowerPoint‑specifický chování vztahuje.
 
-## **Spravovat vlastnosti písma textu**
+## **Správa vlastností písma textu**
 
-Vlastnosti písma lze nastavit na úrovni odstavce pomocí [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) nebo na jednotlivých úsecích pomocí [PortionFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portionformat/).
+Vlastnosti písma lze nastavit na úrovni odstavce pomocí [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) nebo pro jednotlivé úseky pomocí [PortionFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portionformat/).
 
-Následující kód nastavuje písmo a styl textu pro celý odstavec: aplikuje velikost písma, tučné, kurzívu, tečkované podtržení a písmo Times New Roman na všechny úseky v odstavci.
+Následující kód nastavuje písmo a styl textu pro celý odstavec: aplikuje velikost písma, tučné, kurzíva, tečkované podtržení a písmo Times New Roman na všechny úseky v odstavci.
 
 ```python
 import jpype
@@ -348,7 +348,7 @@ Výsledek:
 
 ![Vlastnosti písma pro odstavec](font_properties_for_paragraph.png)
 
-Ukázka kódu níže aplikuje podobné vlastnosti na **úseky textu s tučným písmem**:
+Ukázkový kód níže aplikuje podobné vlastnosti na **textové úseky s tučným písmem**:
 
 ```python
 import jpype
@@ -383,11 +383,11 @@ Výsledek:
 
 ![Vlastnosti písma pro textové úseky](font_properties_for_text_portions.png)
 
-## **Nastavit rotaci textu**
+## **Nastavení otočení textu**
 
-Použijte [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframeformat/#setTextVerticalType) k nastavení předdefinované orientace textu uvnitř tvaru.
+Použijte [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframeformat/#setTextVerticalType) pro nastavení předdefinované orientace textu uvnitř tvaru.
 
-Následující ukázka kódu nastavuje orientaci textu ve tvaru na `Vertical270`, což otáčí text **o 90 stupňů proti směru hodinových ručiček**:
+Následující ukázkový kód nastavuje orientaci textu v tvaru na `Vertical270`, což otáčí text **o 90 stupňů proti směru hodinových ručiček**:
 
 ```python
 import jpype
@@ -412,13 +412,13 @@ finally:
 
 Výsledek:
 
-![Rotace textu](text_rotation.png)
+![Otočení textu](text_rotation.png)
 
-## **Nastavit vlastní rotaci pro textové rámy**
+## **Nastavení vlastního otočení pro textové rámečky**
 
-Použijte [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframeformat/#setRotationAngle) k nastavení vlastní úhlu rotace pro [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/).
+Použijte [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframeformat/#setRotationAngle) pro nastavení vlastního úhlu otočení pro [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/).
 
-Ukázka kódu níže otáčí textový rám o 3 stupně po směru hodinových ručiček uvnitř tvaru:
+Ukázkový kód níže otáčí textový rámeček o 3 stupně po směru hodinových ručiček uvnitř tvaru:
 
 ```python
 import jpype
@@ -443,16 +443,16 @@ finally:
 
 Výsledek:
 
-![Vlastní rotace textu](custom_text_rotation.png)
+![Vlastní otočení textu](custom_text_rotation.png)
 
-## **Nastavit řádkování odstavců**
+## **Nastavení řádkování odstavců**
 
-Aspose.Slides poskytuje [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setSpaceBefore) a [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setSpaceWithin) k řízení mezery odstavců. Tyto vlastnosti se používají následovně:
+Aspose.Slides poskytuje [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setSpaceBefore) a [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setSpaceWithin) pro řízení mezery odstavců. Tyto vlastnosti se používají následovně:
 
-* Použijte kladnou hodnotu k určení řádkování jako procenta výšky řádku.
-* Použijte zápornou hodnotu k určení řádkování v bodech.
+* Použijte kladnou hodnotu pro určení řádkování jako procenta výšky řádku.
+* Použijte zápornou hodnotu pro určení řádkování v bodech.
 
-Následující ukázka kódu ukazuje, jak specifikovat řádkování v odstavci:
+Následující ukázkový kód ukazuje, jak specifikovat řádkování v odstavci:
 
 ```python
 import jpype
@@ -480,9 +480,9 @@ Výsledek:
 
 ![Řádkování v odstavci](line_spacing.png)
 
-## **Nastavit typ automatického přizpůsobení pro textové rámy**
+## **Nastavení typu automatického přizpůsobení pro textové rámečky**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframeformat/#setAutofitType) určuje, jak se text chová, když přesáhne hranice svého kontejneru. Použijte jej k řízení, zda se text zmenšuje, přeteče nebo automaticky mění velikost tvaru.
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframeformat/#setAutofitType) určuje, jak se text chová, když přesáhne hranice svého kontejneru. Použijte jej k řízení, zda se text zmenší, přeteče nebo automaticky změní velikost tvaru.
 
 ```python
 import jpype
@@ -505,9 +505,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Nastavit ukotvení textových rámů**
+Pro spočítání řádků po automatickém zalomení a zjištění, jak se mění šířka textu nebo tvaru, viz [Počítání vykreslených řádků](/slides/cs/python-java/manage-paragraph/). Samotný počet řádků neukazuje, zda text přetéká svůj kontejner.
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframeformat/#setAnchoringType) definuje, jak je text umístěn vertikálně uvnitř tvaru, například nahoře, uprostřed nebo dole.
+## **Nastavení ukotvení textových rámečků**
+
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframeformat/#setAnchoringType) definuje, jak je text vertikálně umístěn uvnitř tvaru, například nahoře, uprostřed nebo dole.
 
 ```python
 import jpype
@@ -530,9 +532,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Nastavit tabulaci textu**
+## **Nastavení tabulace textu**
 
-Použijte [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) a [ParagraphFormat.getTabs](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#getTabs) k nastavení tabulátorů v odstavci.
+Použijte [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) a [ParagraphFormat.getTabs](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#getTabs) pro konfiguraci tabulátorů v odstavci.
 
 ```python
 import jpype
@@ -561,11 +563,11 @@ Výsledek:
 
 ![Tabulátory odstavce](paragraph_tabs.png)
 
-## **Nastavit jazyk korektury**
+## **Nastavení jazyka korektury**
 
-Aspose.Slides poskytuje [PortionFormat.setLanguageId](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portionformat/), který umožňuje nastavit jazyk korektury pro úsek textu. Jazyk korektury určuje jazyk používaný pro kontrolu pravopisu a gramatiky v PowerPointu.
+Aspose.Slides poskytuje [PortionFormat.setLanguageId](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portionformat/), který umožňuje nastavit jazyk korektury pro textový úsek. Jazyk korektury určuje jazyk použitého pravopisného a gramatického kontroloru v PowerPointu.
 
-Následující ukázka kódu ukazuje, jak nastavit jazyk korektury pro úsek textu:
+Následující ukázkový kód ukazuje, jak nastavit jazyk korektury pro textový úsek:
 
 ```python
 import jpype
@@ -591,7 +593,7 @@ try:
     text_portion.getPortionFormat().setEastAsianFont(font)
     text_portion.getPortionFormat().setLatinFont(font)
 
-    # Nastavte ID jazyka korektury.
+    # Nastavte Id jazykové korektury.
     text_portion.getPortionFormat().setLanguageId("zh-CN")
 
     text_portion.setText("1。")
@@ -602,9 +604,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Nastavit výchozí jazyk**
+## **Nastavení výchozího jazyka**
 
-Použijte [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) k definování výchozího jazyka pro text vytvářený při načítání nebo vytváření prezentace.
+Použijte [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) k definování výchozího jazyka pro text vytvářený při načítání nebo tvorbě prezentace.
 
 ```python
 import jpype
@@ -626,18 +628,18 @@ try:
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50)
     shape.getTextFrame().setText("Sample text")
 
-    # Zkontrolujte jazyk první úseku.
+    # Zkontrolujte jazyk prvního úseku.
     portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
     print(portion.getPortionFormat().getLanguageId())
 finally:
     presentation.dispose()
 ```
 
-## **Nastavit výchozí styl textu**
+## **Nastavení výchozího textového stylu**
 
-Pro aplikaci výchozího formátování textu na úrovni prezentace použijte [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getDefaultTextStyle).
+Pro aplikaci výchozího formátování textu na úrovni celé prezentace použijte [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-Následující ukázka kódu ukazuje, jak nastavit výchozí tučné písmo s velikostí 14 pt pro veškerý text napříč snímky v nové prezentaci.
+Následující ukázkový kód ukazuje, jak nastavit výchozí tučný font o velikosti 14 pt pro veškerý text napříč snímky v nové prezentaci.
 
 ```python
 import jpype
@@ -662,15 +664,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Extrahovat text s efektem Všech Velkých Písmen**
+## **Extrahování textu s efektem VŠECHMISTOVÁNÍ**
 
-V PowerPointu aplikace **All Caps** (Všechna velká písmena) způsobí, že se text na snímku zobrazuje jako velká písmena, i když byl původně zadán malými. Když takový úsek textu načtete pomocí Aspose.Slides, knihovna vrátí text přesně tak, jak byl zadán. Pro shodu se zobrazeným textem zkontrolujte [TextCapType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textcaptype/) a převod vráceného řetězce na velká písmena, pokud je hodnota `All`.
+V PowerPointu aplikace efektu **All Caps** (všechna písmena velká) způsobí, že se text na snímku zobrazuje velkými písmeny, i když byl původně zadán malými. Když takový textový úsek získáte pomocí Aspose.Slides, knihovna vrátí text přesně tak, jak byl zadán. Pro sladění se zobrazeným textem zkontrolujte [TextCapType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textcaptype/) a převedete vrácený řetězec na velká písmena, pokud je hodnota `All`.
 
-Předpokládejme, že máme následující textový rámeček na první snímku souboru sample2.pptx.
+Předpokládejme, že máme následující textový rámeček na prvním snímku souboru **sample2.pptx**.
 
-![Efekt Všech Velkých Písmen](all_caps_effect.png)
+![Efekt Všechna velká písmena](all_caps_effect.png)
 
-Ukázka kódu níže ukazuje, jak extrahovat text s aplikovaným **All Caps** efektem:
+Ukázkový kód níže ukazuje, jak extrahovat text s aplikovaným **All Caps** efektem:
 
 ```python
 import jpype
@@ -706,10 +708,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **Často kladené otázky**
 
-**Jak upravit text v tabulce na snímku?**
+**Jak mohu upravit text v tabulce na snímku?**
 
 Pro úpravu textu v tabulce na snímku použijte [Table](https://reference.aspose.com/slides/cs/python-java/aspose.slides/table/). Procházejte buňky a aktualizujte každou buňku pomocí [Cell.getTextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/cell/#getTextFrame) a formátování odstavců pomocí [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/#getParagraphFormat).
 
-**Jak aplikovat gradientovou barvu na text ve snímku PowerPoint?**
+**Jak mohu aplikovat gradientní barvu na text ve snímku PowerPoint?**
 
-Pro aplikaci gradientové barvy na text použijte [PortionFormat.getFillFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portionformat/). Nastavte [FillFormat.setFillType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/fillformat/#setFillType) na [FillType.Gradient](https://reference.aspose.com/slides/cs/python-java/aspose.slides/filltype/#Gradient) a nakonfigurujte gradientové zastávky, směr a průhlednost.
+Pro aplikaci gradientní barvy na text použijte [PortionFormat.getFillFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portionformat/). Nastavte [FillFormat.setFillType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/fillformat/#setFillType) na [FillType.Gradient](https://reference.aspose.com/slides/cs/python-java/aspose.slides/filltype/#Gradient) a nakonfigurujte gradientní zastávky, směr a průhlednost.
